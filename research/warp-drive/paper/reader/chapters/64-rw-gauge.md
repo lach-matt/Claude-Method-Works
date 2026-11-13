@@ -994,7 +994,7 @@ is ∂_u + ∂_v = (𝒱∂_𝒱 − 𝒰∂_𝒰)/r_h; so
 
 and on 𝒰 = 𝒰_1, where ∂_𝒱Φ = ∂_𝒱²Φ = 0 and ∂_𝒰∂_𝒱Φ = 0, T²Φ = (𝒰_1²∂_𝒰²Φ + 𝒰_1∂_𝒰Φ)/r_h². (The operator
 (𝒰²∂_𝒰² + 𝒰∂_𝒰)/r_h² alone is the second u-derivative at fixed v, not at fixed r; on C_(τ_1) the two agree on Φ by
-these vanishings, and nowhere else is the formula used.) Along C_(τ_1), ∂_r at fixed u is a multiple of ∂_𝒱, so
+these vanishings.) Along C_(τ_1), ∂_r at fixed u is a multiple of ∂_𝒱, so
 Φ = ∂_rΦ = ∂_r²Φ = 0 there, and TΦ = −𝒰_1∂_𝒰Φ/r_h = A := −𝒰_1α/r_h; then ∂_rTΦ = 0 by [[eq:rwg-master]], and its
 u-derivative gives 2f∂_rT²Φ = −VA, so T²Φ = B + (A/2)∫_r^∞ (V/f)dr′, the integral finite as V/f = O(r⁻²), B being its
 limit at null infinity. Along C_(τ_1), d𝒱 = (𝒱/r_h)dv and dv = 2dr/f, so

@@ -1270,12 +1270,11 @@ to α. Threshold: b3, w1–w2, d1–d2.
 [[sec:iii-i10-1]]); (G⁺) ([[def:iii-j-g-plus]]) after decreasing ε_+, Λ containing π_1ℰ^C_I ([[sec:iii-i10-1]]), so
 that it is fixed after rows d1–d2; the gap (G) of [[def:iii-i10-1-3]] for ε_K and the condition ε_K < ε_Υ of
 [[def:iii-i10-1-3]], so that ε_K < ε_g := min(ε_Υ, ε_ind) ([[def:s21-eps-g]]); and the exactness conditions (Ex1)
-(which is (G⁺) with its closed endpoint)
-and (Ex2) of [[def:iii-j3-1-3]]. Here δ_♯ = (1 − e_Υ)γ_Υ; ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the
-indicial roots of L̂_b(0), with which the hypotheses of [[prop:iii-g4-5-1]] are stated; and ε_Υ is the constant of
-[[sec:iii-d2-1]], fixed by the indicial roots of (□^Υ_b)^(0), with which the gain in the conclusion of
-[[prop:iii-g4-5-1]] is stated. At the gauge parameters of [[prop:np-10-52]], ε_ind ≤ δ_50 = 1.94137… × 10⁻⁸
-([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f)), and δ_50 is the least distance from ℤ among the non-integer
+(which is (G⁺) with its closed endpoint) and (Ex2) of [[def:iii-j3-1-3]]. Here δ_♯ = (1 − e_Υ)γ_Υ; ε_ind is the constant
+of [[eq:iii-f1-2-2]], fixed by the indicial roots of L̂_b(0), with which the hypotheses of [[prop:iii-g4-5-1]] are
+stated; and ε_Υ is the constant of [[sec:iii-d2-1]], fixed by the indicial roots of (□^Υ_b)^(0), with which the gain in
+the conclusion of [[prop:iii-g4-5-1]] is stated. At the gauge parameters of [[prop:np-10-52]], ε_ind ≤ δ_50 = 1.94137… ×
+10⁻⁸ ([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f)), and δ_50 is the least distance from ℤ among the non-integer
 entries of modulus at most 50 that do not depend on h; no proof uses its value. Threshold: u1–u5, d1–d2.
 
 **w2.** α: admissible ([[def:iii-i10-1-3]]), with (A_J) ([[def:iii-j-a-j]]) and the exactness conditions (Ex3)–(Ex4) of
@@ -1444,21 +1443,21 @@ that a choice with the conditions listed exists: [[prop:iii-d2-3-1]] for ω_s1(S
 [[prop:iii-d3-3-1]] for the 1-form towers, the table of [[sec:iii-g2-1]] for the states and towers of the rows, the
 step of [[sec:iii-j-2]] for the operators 𝒮_(λ₀), and [[lem:iii-i14-2-1]] for the families in b. The results of
 [[ch:s13]]–[[ch:s25]] that use these objects take them as given by those statements, for any choice with the
-conditions listed, and so hold for the averaged one; the one use that takes more than the statement is (iv) below. Four
-properties used there are not themselves linear conditions, and each is kept. (i) The s1 and v1 states are unique given
-their conditions (the zero energy operator is injective at the weights in the gap, [[prop:iii-d2-3-1]]), so the
-average is the choice. (ii) The bijectivity of [[lem:iii-g2-1-2]] is a statement about leading terms, which are
-prescribed by O(4)-equivariant maps onto kernels split by harmonic, and which the average keeps. (iii) The isotypic
-type of each construction is that of an equivariant map (Schur's lemma). (iv) [[lem:iii-i14-2-1]] takes the leading
-terms at ∂X of the companions h̆^((μ),j)_(b,τ) from the construction of [[prop:iii-d3-3-1]], not from its statement,
-which lists only type τ leading terms: the tower relations fix the leading term of a companion only modulo the indicial
-kernel, and the construction fixes the leading term of ω̆^((μ),k) at μ − k as the model solution ω̆̄^k. The average
-keeps it. Its leading terms are of type τ, the average being O(4)-equivariant (Schur's lemma); they satisfy the model
-recursion of that construction, Ā_0ω̆̄^k = −Ā_1ω̆̄^(k−1), which is linear and O(4)-invariant, the model being that of
-g_(b₀); and as μ − k is no type τ root ((R4) of [[sec:iii-d3-1]]), the model recursion has exactly one type τ
-solution at μ − k, by induction on k the model solution. So the averaged towers, and the companions built from them
-(through δ*_(g_(b₀)), which commutes with the average), have the leading terms of the construction, at b₀ and, through
-(C3′), for b near b₀.
+conditions listed, and so hold for the averaged one. Four properties used there are not themselves linear conditions,
+and each is kept; a use that takes a property from a construction rather than from the statement takes one of these. (i)
+The s1 and v1 states are unique given their conditions (the zero energy operator is injective at the weights in the gap,
+[[prop:iii-d2-3-1]]), so the average is the choice. (ii) The bijectivity of [[lem:iii-g2-1-2]] is a statement about
+leading terms, which are prescribed by O(4)-equivariant maps onto kernels split by harmonic, and which the average keeps.
+(iii) The isotypic type of each construction is that of an equivariant map (Schur's lemma). (iv) [[lem:iii-i14-2-1]]
+takes the leading terms at ∂X of the companions h̆^((μ),j)_(b,τ) from the construction of [[prop:iii-d3-3-1]], not from
+its statement, which lists only type τ leading terms: the tower relations fix the leading term of a companion only modulo
+the indicial kernel, and the construction fixes the leading term of ω̆^((μ),k) at μ − k as the model solution ω̆̄^k. The
+average keeps it. Its leading terms are of type τ, the average being O(4)-equivariant (Schur's lemma); they satisfy the
+model recursion of that construction, Ā_0ω̆̄^k = −Ā_1ω̆̄^(k−1), which is linear and O(4)-invariant, the model being that
+of g_(b₀); and as μ − k is no type τ root ((R4) of [[sec:iii-d3-1]]), the model recursion has exactly one type τ solution
+at μ − k, by induction on k the model solution. So the averaged towers, and the companions built from them (through
+δ*_(g_(b₀)), which commutes with the average), have the leading terms of the construction, at b₀ and, through (C3′), for
+b near b₀.
 
 *Proof.* By induction along the definitions; each object is natural, given (C1)–(C4) and (C3′).
 

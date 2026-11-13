@@ -379,9 +379,9 @@ the same bounds hold for λ1.
 ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So δ = ½ε ≤ ε_NM/(2A) ≤ 2^(−(32d+9)), as A ≥ 1. The proof of [[thm:settling]]
 ([[sec:vii-4]]) takes λ1 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so
 2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the binomial expansion, all of whose terms are positive,
-1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, which gives
-the third bound. With d > 5.306 × 10¹⁵,
-(59/196)(32d + 9) > 5.11 × 10¹⁶; with d > 7.959 × 10¹⁵ it exceeds 7.666 × 10¹⁶. ∎
+1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, which
+gives the third bound. With d > 5.306 × 10¹⁵, (59/196)(32d + 9) > 5.11 × 10¹⁶; with d > 7.959 × 10¹⁵ it exceeds
+7.666 × 10¹⁶. ∎
 
 The bounds hold whatever the other constants are, once each constant of an upper bound is taken at least 1, which
 enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), 1/A and 1/C_R, that is, upper
