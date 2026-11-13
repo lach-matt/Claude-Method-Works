@@ -1374,3 +1374,140 @@ with integral ≤ Cς^(2q_i). Where ς⟨x⟩ ≤ 1, W_β⁻¹ ≤ C(ς⟨x⟩)^
     ‖χG_1(b̂)‖²_(H^(K,β)) ≤ C Σ_(K′≤K) ∫ |σ|^(−2(a+q_1−ε)) |σ|^(2(q_1−ε)) |(σ∂_σ)^(K′)b̂|² |dσ/σ| = C‖b̂‖²_(H^(K,a)_b),
 
 and likewise for G_2. ∎
+
+### Almost linear bounds {#sec:iii-i2-5}
+
+**Proposition {#prop:iii-i2-5-1}** (Almost linear bounds; [Hin26, Proposition 11.17] in dimension 4 + 1, at b₀.) Let
+ℰ^C_I and ℰ_+ be as in [[def:iii-i-1-1]], L as in [[sec:iii-i2-1]], and
+
+    2 ≤ ℓ_I < min(a_I + ½, ℓ_I^max),        ℓ_I ∉ Re π_1ℰ^C_I,        ℓ_I ∉ 3/2 + σ_Υ.                  {#eq:iii-i2-5-1}
+
+Let α_K ∈ [½, 1), α_+ > α_K and β_+ < min(α_+, 3/2, min Re ℰ_+). For
+f ∈ H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α_++2,α_K)_b(Ω_*; S²T*)^(•,−), the forward solution u of Lu = f satisfies
+
+    u ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α_K−2)_b(Ω_*; S²T*)^(•,−).                                                {#eq:iii-i2-5-2}
+
+Moreover u depends continuously on (S, h) in the space [[eq:iii-i2-5-2]] with every weight lowered by ς, for every
+ς > 0.
+
+[Hin26] has the ι⁺-weight α_K − ε and the 𝓘⁺-weight 3 + ε_I. Its proof notes that the decay would be α_+ but for the
+singular terms at σ = 0. In dimension 4 + 1 they do not limit it, and the cap is 3/2: the scf-weight of
+[[lem:iii-i2-4-1]] and [[lem:iii-i2-4-2]], that is, the transport of the order of the radiation field from 𝓘⁺; the
+corresponding cap in [Hin26, pp. 232 and 238] is 1. The condition ℓ_I ≥ 2 serves [[prop:ii-g1-3-3]] (1) in
+[[lem:iii-i2-4-1]] and in Step 2b, which needs ℓ_I + 1 ≥ γ_+ + 2 − α̃_K, that is ℓ_I ≥ 2 for ι⁺-weights up to 3/2;
+the 3 + ε_I of [Hin26] meets it. The bound ℓ_I < a_I + ½ is the range of [[prop:iii-i-4-1]].
+
+*Proof.* *Step 0: the start.* By [[def:iii-c-3-1]] (2), min Re ℰ^C_I > 3/2 + 2γ_Υ, so the 𝓘⁺-exponents of f
+(ℰ^C_I + 1, and ℱ_(I,11) ⊂ 1 + (ℰ^C_I ∪ (3/2 + (1 − e_Υ)γ_Υ, 0)) for π_11) have real parts > 5/2, and
+f ∈ H^(∞,(5/2−ε,α_++2,α_K))_b. Fix β^(0)_+ ∈ (½, min(α_+, 3/2, min Re ℰ_+)) and β^(0)_I ∈ (β^(0)_+, 3/2).
+[[thm:iii-i-5-3]] (α_K ≥ ½) gives u ∈ H^(∞,(β^(0)_I,β^(0)_+,−3/2))_b. [[prop:iii-i1-2-1]] with ℓ_+ := β^(0)_+ (which
+is below min Re ℰ_+, so that (ℰ_+, ℓ_+) is the weight ℓ_+, and ℓ_+ < a_+ + min Re ℰ_+, a_+ > 0; ℓ_+ lies neither in
+Re π_1ℰ_+ nor in Re π_1ℰ^tot_I, whose least real part is 3/2; and ℓ_+ < 3/2 < ℓ_I), f having the ι⁺-weight
+α_+ + 2 ≥ ℓ_+ + 2, gives the expansion at 𝓘⁺ near 𝓘⁺; away from 𝓘⁺ nothing changes. So
+
+    u ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,α′_K−2)_b                                                             {#eq:iii-i2-5-3}
+
+holds with (α′_K, β′_+) = (½, β^(0)_+).
+
+*The iteration.* Suppose [[eq:iii-i2-5-3]] holds with α′_K ∈ [½, α_K] and β′_+ ∈ (½, min(α_+, 3/2, min Re ℰ_+)). Put
+α̃_K := min(α′_K + a_K − 2, α_K) and fix
+
+    γ_+ ∈ (α_K, min(α_+, 3/2, min Re ℰ_+)),     ε > 0 with γ_+ < 3/2 − 5ε,  γ_+ − 4ε > max(½, α_K).      {#eq:iii-i2-5-4}
+
+Then γ_+ − α̃_K ∈ (0, 1) (as α̃_K ≤ α_K < γ_+ < 3/2 ≤ α̃_K + 1) and γ_+ < α̃_K + 1 − ε.
+
+*Step 1: the rewriting ([Hin26, (11.41)]).* By [[eq:iii-i-4-2]] of [[prop:iii-i-4-1]], whose hypotheses hold
+(3/2 < ℓ_I < a_I + ½; 0 < β′_+ < min Re ℰ_+ ≤ max(a_+, min Re ℰ_+)), (L − L_b)u has the 𝓘⁺-data
+(⟨ℰ^C_I+1⟩′, ℓ_I + 1), the ι⁺-weight β′_+ + 2 + m_+ − ε (with no expansion term, as β′_+ + m_+ < 2 min Re ℰ_+) and the
+K⁺-weight α′_K − 2 + a_K. As β′_+ + m_+ − ε > ½ + 1 − ε > γ_+,
+
+    L_b u = f′ := f − (L − L_b)u ∈ H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),γ_++2,α̃_K)_b(Ω_*)^(•,−).
+
+*Step 2a: null infinity ([Hin26, (11.42)]).* [[prop:iii-i1-3-1]] with Ĕ_+ := ∅ and ℓ̆_+ := γ_+ (γ_+ < 3/2 <
+min Re ℰ^C_I and γ_+ ≠ 3/2 + (1 − e_Υ)γ_Υ; ℓ_I by [[eq:iii-i2-5-1]]) gives u_I, vanishing on
+{t_* < 1} ∪ {ρ_I > ½c_I}, with the 𝓘⁺-data (⟨ℰ^C_I⟩, ℓ_I) and the ι⁺-data (ℰ^♯_+, γ_+), which is the weight γ_+ as
+min Re ℰ^♯_+ ≥ min(3/2 + (1 − e_Υ)γ_Υ, min Re ℰ^C_I) > 3/2 ([[eq:iii-i1-3-2]]); and
+f^♭ := f′ − L_b u_I ∈ H^(∞,ℓ_I+1,γ_++2,α̃_K)_b(Ω_*)^(•,−), the K⁺-weight being unchanged as u_I is supported near 𝓘⁺.
+u^♭ := u − u_I vanishes for t_* < 1 and solves L_b u^♭ = f^♭, so it is the forward solution ([[prop:ii-e-3-4]]).
+
+*Step 2b: the Fourier transform ([Hin26, (11.43)–(11.52)]).* Decompose u^♭ = u_hi + u_reg + u_sing as in
+[[sec:iii-i2-4]], with f^♭ in place of f. [[prop:ii-g1-3-3]] (1), with (β_I, β_ι, β_K) = (ℓ_I + 1, γ_+ + 2, α̃_K)
+(α̃_K ∈ (0, 1), and ℓ_I + 1 ≥ γ_+ + 2 − min(α̃_K, 1 − ε_1) for ε_1 < 1 − α̃_K, as ℓ_I ≥ 2 > γ_+ + 1 − α̃_K), gives
+
+    f̂^♭|_(±(0,1]) ∈ H^(∞,(min(ℓ_I+1,γ_++2)−ε,γ_++1,α̃_K−1))_b(X^±_(sc-b)),
+
+the zf index set (0, 0) dropping as α̃_K − 1 < 0.
+
+*High frequencies.* [[lem:iii-i2-4-1]] (β^f_I = ℓ_I, β_ι = γ_+, β_K = α̃_K; its weight condition is the one just
+checked) gives u_hi ∈ H^(∞,(3/2−ε,N,N))_b(M′).
+
+*The regular part.* [[lem:iii-i2-4-2]] with β_scf := 3/2 − ε, β_tf := γ_+ − 1, β_zf := α̃_K − 1
+(α + 2 := γ_+ − α̃_K ∈ (0, 1); the space of the right side contains f̂^♭, as 5/2 − ε ≤ min(ℓ_I + 1, γ_+ + 2) − ε)
+gives
+
+    û_(reg,1) ∈ H^(∞,(3/2−2ε,γ_+−1,α̃_K−1))_b,        b̂_1, Ŝ_1 ∈ H^(∞,α̃_K−1)_b(±(0, c], |dσ/σ|).       {#eq:iii-i2-5-5}
+
+χ(|σ|)û_(reg,1) is supported where the cut-off of [[prop:ii-g1-3-5]] is 1 (c ≤ ½), and its Taylor condition is void
+(K-weight α̃_K, α̃_K − 1 < 0); [[prop:ii-g1-3-5]] (1) gives
+
+    u_reg ∈ H^(∞,(γ_+−ε,γ_+,α̃_K))_b(M′).                                                              {#eq:iii-i2-5-6}
+
+*The singular part.* By [[eq:iii-i2-4-1]], [[lem:iii-i2-4-3]] with a = α̃_K − 1 and [[eq:iii-i2-5-5]], and
+ℱ(∂_(t_*)v) = −iσℱv, which raises the tf- and zf-weights by 1,
+
+    ℱ(∂²_(t_*)u_sing) = −iσχG_1(b̂_1) + χG_2(Ŝ_1) ∈ H^(∞,(N,α̃_K+2−ε,α̃_K−1))_b(X^±_(sc-b)).             {#eq:iii-i2-5-7}
+
+([Hin26, (11.49)] has (1 − ε, α̃_K + 1 − ε, α̃_K); the zf-weight that [Hin26, (11.48)] gives, and with which [Hin26,
+Lemma 11.19] is then applied, is α̃_K − 1.) As u^♭ = 0 for t_* < 1, u_sing = −(u_hi + u_reg) there, so by
+[[eq:iii-i2-5-6]] and the bound for u_hi, with γ_+ < 3/2 − ε,
+
+    u_sing|_(Ω_−) ∈ H̄^(∞,γ_+−ε,γ_+,α̃_K)_b,        ∂_(t_*)u_sing|_(Ω_−) ∈ H̄^(∞,γ_+−ε,γ_++1,α̃_K+1)_b.  {#eq:iii-i2-5-8}
+
+*First integration.* [[lem:iii-i2-3-1]] applies to v := ∂_(t_*)u_sing with β_I := 3/2, β_ι := γ_+ + 1 and
+β_K := α̃_K − 1. Indeed β_ι > β_I (γ_+ > ½); β_K < 0 < β_ι − β_I; β_K ∈ [−½, 0); v|_(Ω_<) has the weights
+(·, γ_+ + 1, α̃_K + 1), at least (∞, β_ι, β_K), by [[eq:iii-i2-5-8]]; ℱv is χ(|σ|) times the boundary value from
+Im σ > 0 of a function holomorphic inside γ_0 with at most a pole at 0 ([[sec:iii-h1-5]]), a distribution supported in
+a compact subset of (−c, c), c ≤ ½, as [[lem:iii-i2-3-1]] asks; and ℱ(∂_(t_*)v) is [[eq:iii-i2-5-7]], whose tf-weight
+α̃_K + 2 − ε is at least β_ι = γ_+ + 1 (as γ_+ < α̃_K + 1 − ε) and whose zf-weight is β_K, with no zf index term as
+β_K < 0. So
+
+    ∂_(t_*)u_sing ∈ H^(∞,3/2,γ_++1−ε,α̃_K−1)_b(M′).
+
+([Hin26] takes β_ι = α̃_K + 1 − ε, from [Hin26, (11.49)] and the minimum min(α̃_+ + 1, α̃_K + 1 − ε) in [Hin26,
+(11.50)]; here the tf-weight of [[eq:iii-i2-5-7]] exceeds the a priori bound [[eq:iii-i2-5-8]], which sets β_ι.)
+
+*Second integration.* [[lem:iii-i2-2-1]] (1) for u_sing with (β_I, β_ι, β_K) := (γ_+ − ε, γ_+ − ε, α̃_K − 2) and
+ℰ_K = ∅ (α̃_K − 2 ≠ 0): the hypotheses are [[eq:iii-i2-5-8]] and the last display (3/2 ≥ γ_+ − ε). So
+
+    u_sing ∈ H^(∞,γ_+−ε,γ_+−2ε,α̃_K−2)_b(M′),                                                          {#eq:iii-i2-5-9}
+
+the term (0, 0) at K lying above the weight α̃_K − 2 < 0. With [[eq:iii-i2-5-6]] and the bound for u_hi,
+u^♭ ∈ H^(∞,γ_+−ε,γ_+−2ε,α̃_K−2)_b(Ω_*)^(•,−), and u = u^♭ + u_I has the same ι⁺- and K⁺-weights.
+
+*Step 3: the expansion at 𝓘⁺.* [[prop:iii-i1-2-1]] with ℓ_+ := γ_+ − 2ε (below min Re ℰ_+ and a_+ + min Re ℰ_+, below
+ℓ_I, and below min Re ℰ^tot_I = 3/2; f has the ι⁺-weight α_+ + 2 > ℓ_+ + 2; the a priori 𝓘⁺-weight is γ_+ − ε) gives
+[[eq:iii-i2-5-3]] with (α̃_K, γ_+ − 2ε) in place of (α′_K, β′_+), again in the range of the iteration by
+[[eq:iii-i2-5-4]].
+
+*Conclusion.* Each step raises α′_K by min(a_K − 2, α_K − α′_K), a_K > 2, so finitely many steps reach α′_K = α_K,
+with the ι⁺-weight γ_+ − 2ε; given β_+ as in the proposition, choose γ_+ > β_+ + 2ε in [[eq:iii-i2-5-4]]. This is
+[[eq:iii-i2-5-2]]. Each step loses finitely many b-derivatives, and the spaces are H^∞ in the sense of
+[[sec:iii-i2-4]]: at each order k, with the c of that order.
+
+*Continuity.* The maps of the scheme are linear in f and u; u_I, u_hi, u_reg and u_sing depend on f′ only, through maps
+bounded between the spaces above (the construction of [[prop:iii-i1-3-1]] by [[lem:iii-a-1-2]], and
+[[lem:iii-i2-2-1]], [[lem:iii-i2-3-1]], [[lem:iii-i2-4-1]]–[[lem:iii-i2-4-3]] with [[prop:ii-g1-3-3]] (1) and
+[[prop:ii-g1-3-5]] (1), each with bounds). (S, h) enters in three ways. Through L − L_b, whose coefficients in
+[[eq:iii-i-3-6]] depend continuously on (S, h) ([[prop:iii-i-3-4]] and the expansion of g⁻¹ after it), with the bound of
+[[eq:iii-i-4-2]] uniform for (S, h) small. Through the start, which [[thm:iii-i-5-3]] gives continuously in (S, h) at
+weights lowered by ς. And through [[prop:iii-i1-2-1]] in Steps 0 and 3, whose proof is constructive ([[lem:iii-a-1-2]]
+and [[lem:iii-a-3-2]] with their bounds, the products by [[lem:iii-c-2-1]] with the coefficient norms of the operator),
+so that its bound depends on L only through coefficient norms, which [[prop:iii-i-3-4]] bounds locally uniformly in
+(S, h). (A closed graph argument would give a bound for each fixed L only.) So every constant of the scheme, and the
+bound of u in [[eq:iii-i2-5-2]] by f, is locally uniform in (S, h). For two parameters, L(u − u′) = (L′ − L)u′, with u′
+bounded in [[eq:iii-i2-5-2]] uniformly and (L′ − L)u′ small in the space of the right side of Step 1 at the lowered
+weights; the bounds of the scheme for the difference give the claim, for ς below the room in [[eq:iii-i2-5-4]]. ∎
+
+In dimension 4 + 1 the window needs no relaxation. [Hin26] relaxes the ι⁺-weight to α̃_+ ∈ (α̃_K, α̃_K + ε_ind) to stay
+in the indicial gap at zero energy. Here the gap of L̂_b(0) contains (0, 1] ([[prop:iii-f1-2-3]] (a)), the window (0, 1)
+of [[eq:iii-h-1-1]] lies inside it, and γ_+ − α̃_K ∈ (0, 1) throughout [[eq:iii-i2-5-4]].
