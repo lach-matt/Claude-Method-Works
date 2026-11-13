@@ -582,3 +582,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   cor:after-shell-every-rate should say δ depends on ε (251-254).
 - Proof E margins fixed (F-P-E-margins): the Rácz converse cites [Rác…] (4.22), which Appendix A lacks (next Appendix
   A round, if the reader rules it needed). The interpolant clause is only in maps/registry-notes.md:244 (no chapter).
+- S25 step 2, the (P6) part, done: ten citations in chapters 40 and 43 now cite lem:s25-p6 (each checked against the
+  lemma's statement). The remaining step-2 moves (Lemma 1.2/E^ν into S22, Lemma 2.1 and §2.2-2.5, §2.7 into S23) are
+  optional now that the citation order is acyclic; decide at integration.

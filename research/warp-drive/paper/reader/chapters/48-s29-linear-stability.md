@@ -228,21 +228,21 @@ there, continuously, as [[lem:iii-k-2-2]] (c) uses [[cor:iii-c-5-3]]. The bound 
 
 **Theorem {#thm:viii-2-2}** (Linear stability of Schwarzschild–Tangherlini in dimension 4 + 1.) Let
 γ̇ ∈ H^(∞,(ℰ_0,ℓ_0))_b(Σ^IVP) and k̇ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b(Σ^IVP) satisfy the linearised constraint equations at
-(γ_(b₀), k_(b₀)). Then there are U′ ∈ 𝒟^∞_ex with components ḃ ∈ 𝔟, S′ ∈ 𝒮_1 and S′^(0)_1 ([[def:iii-j-1-1]]), and a
-symmetric 2-tensor ġ on Ω_* ∪ 𝒟, all linear in (γ̇, k̇), with:
+(γ_(b₀), k_(b₀)). Then there are U′ ∈ 𝒟^∞_ex with components ḃ ∈ 𝔟, S′ ∈ 𝒮_1 (boost) and S⁰′ := S′^(0)_1 ∈ 𝒮_1
+(translation) ([[def:iii-j-1-1]]), and a symmetric 2-tensor ġ on Ω_* ∪ 𝒟, all linear in (γ̇, k̇), with:
 
 (1) DRic(ġ) = 0 on Ω_* ∪ 𝒟;
 
-(2) ġ = ḣ + ġ_(S′) on 𝒟′ ([[sec:viii-0]]), with ḣ of [[prop:viii-1-2]] and ġ_(S′) of [[eq:viii-0-2]]; so ġ − ġ_(S′)
-induces the linearised data (γ̇, k̇) on Σ^IVP ([[lem:viii-1-1]] (1)), and ġ induces them up to the linearised
-diffeomorphism −ℒ_(V(S′))g;
+(2) ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′) on 𝒟′ ([[sec:viii-0]]), with ḣ of [[prop:viii-1-2]] and ġ_(S′), ġ⁰_(S⁰′) of
+[[eq:viii-0-2]]; so ġ − ġ_(S′) − ġ⁰_(S⁰′) induces the linearised data (γ̇, k̇) on Σ^IVP ([[lem:viii-1-1]] (1)), and
+ġ induces them up to the linearised diffeomorphism −ℒ_(V(S′)+V⁰(S⁰′))g;
 
 (3) on Ω_* ∩ {t^♭_* ≥ T̂ + 2}, ġ = D_0𝔤(U′), the derivative at U = 0 of
 
-    𝔤(U) := g_(b₀,b,−S) + h_tot(p⃗) + h_rem(q) + h,        (h, p⃗, q) = Φ(U),
+    𝔤(U) := g_(p⃗) + h_tot(p⃗) + h_(b,rem)(q) + h,        (h, p⃗, q) = Φ(U),
 
-the metric of [[thm:iii-k-4-3]] (3); and D_0Φ(U′) = (h′, p⃗′, q′) with h′ ∈ 𝒳^∞_(J,ex) and q′ ∈ 𝒬_ex
-([[prop:iii-j3-5-4]]);
+with g_(p⃗) the translated background of [[eq:iii-i7-1-3]] ([[sec:viii-0]]): the metric of [[thm:iii-k-4-3]] (3); and
+D_0Φ(U′) = (h′, p⃗′, q′) with h′ ∈ 𝒳^∞_(J,ex) and q′ ∈ 𝒬_ex ([[prop:iii-j3-5-4]]);
 
 (4) where χ_K = 1,
 
@@ -255,7 +255,7 @@ So for every R′, ε′ > 0 and i, β there are C, k₁ and T′ with
 
 and if, for a given ε_t < ε_K, α is chosen with α > 4 + ε_t, then ε′ := α − 4 − ε_t gives
 ġ − ∂_b g_b(ḃ) = O(t_*^(−2−ε_t)) there. Such α exist, as ε_K does not depend on ε_t and the admissible α are dense in
-(4 + ε_K − ε′_0, 4 + ε_K] ([[def:iii-j-a-j]]);
+(4 + ε_K − ε′_0, 4 + ε_K] ([[def:iii-j-a-j]], [[lem:iii-j3-1-4]]);
 
 (5) the linearised gauge 1-form vanishes: on Ω_*,
 

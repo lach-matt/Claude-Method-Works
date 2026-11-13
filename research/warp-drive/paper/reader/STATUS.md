@@ -31,7 +31,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | third reading NOT CONFIRMED 1M 0m 5n (ℓ_I ∈ (0, ½)); third fix running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
-| 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-key running |
+| 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-keyed to lem:s25-p6 |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | NOT CONFIRMED 0M 1m 4n; third fix done; third reading running |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
@@ -62,7 +62,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | fixed (scope remark; corollary covers all lists); confirming reader running; P-A3 CONFIRMED (second reading 0M 1m 2n; the clause applied) |
 | P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | NOT CONFIRMED 0M 3m 3n; fixed (lem:l-24-kappa, prop:l-24-s-bounds for R ≥ 1/2); confirming reader running |
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n; fixed (bend −0.0011595971; lens for R_p ≥ R_*; C2 deleted); confirming reader running |
-| P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | NOT CONFIRMED 1M 6m 8n (circular λ > 0; outward rounding); fix running |
+| P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | NOT CONFIRMED 1M 6m 8n; fixed (λ ≥ 0.529533; ε entries 2.681e-5, 5.681e-6); confirming reader running |
 | P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | - |
 | P-C-lambda0 + T-C + T-C261 (λ0 constants, for 86) | C2a and C2b done: e_k larger than printed (5 rounded down); C261 proved, S closed form, 242 entries | independent reader running |
 | P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | - |

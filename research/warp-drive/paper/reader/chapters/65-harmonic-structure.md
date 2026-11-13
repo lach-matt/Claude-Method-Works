@@ -256,3 +256,161 @@ SO(4)-average and dω is invariant, ∫_(S³)(δX + F_(vr)) dω = ∫_(S³)(δX_
 proof of [[lem:iii-d1-3-1]] (1). Θ(K) = −r⁻³dv ([[prop:np-10-2]] (iv) (b)), so ℓ(Θ(K)) = −r_h³ · r_h⁻³ · 2π² = −2π²; and
 K_V = K near the horizon ([[eq:gd-0-1]]). By [[prop:np-10-2]] (iv) (b), W** has φ = 0 and q = v + r_h/2, and
 [[lem:gd-r2-9]] gives Q[W**] = 2π²(v + r_h/2). ∎
+
+### The harmonic-gauge solutions and the forced growth {#sec:hg-solutions}
+
+**Lemma {#lem:gd-r3-1}** (Uniqueness on N⁺.) Let d be a 1-form on N⁺, smooth up to Σ°, with □d = 0 on N⁺ and
+vanishing Cauchy data on Σ°. Then d = 0. In particular, if F_1, F_2 are smooth 1-forms on Ω^♯ that agree on N⁺, and
+Z̃_1, Z̃_2 solve □Z̃_i = F_i on Ω^♯ with the same Cauchy data on Σ°, then Z̃_1 = Z̃_2 on N⁺.
+
+*Proof.* By [[lem:ix-2-1]] (a), □ has principal part −g^(αβ)∂_α∂_β ⊗ id, and dt_IVP is timelike ([[sec:ix-0]]), so Σ°
+is noncharacteristic for □. Step 3 of the proof of [[thm:ix-2-2]] uses of its operator only this. In coordinates
+(t_IVP, y) near a point of Σ°, d = 0 and ∂_(t_IVP)d = 0 on Σ°; if ∂^j_(t_IVP)d = 0 on Σ° for j < m, some m ≥ 2, apply
+∂^(m−2)_(t_IVP) to □d = 0 and restrict to Σ°: every term but −g⁻¹(dt_IVP, dt_IVP)∂^m_(t_IVP)d is a derivative of d
+of order below m, or of order m with at most m − 1 derivatives in t_IVP, so it vanishes, and ∂^m_(t_IVP)d = 0. So d
+vanishes to infinite order along Σ°, and its extension d̃ by 0 to Ω^♯ ∩ {t_IVP < 0} is smooth on Ω^♯, with □d̃ = 0
+and vanishing data on Σ°. Ω^♯ is globally hyperbolic on each component, with Cauchy hypersurface Σ° ([[lem:ix-1-2]]),
+and ±□ is normally hyperbolic, so [[thm:std-bgp-cauchy]] (3) on each component gives d̃ = 0. For the second claim
+apply the first to d := (Z̃_1 − Z̃_2)|_(N⁺). ∎
+
+**Proposition {#prop:gd-2-1}** (The harmonic-gauge solutions.)
+
+(a) For every 1-form Z′ on N⁺, smooth up to Σ°, with □Z′ = −Θ(e) on N⁺,
+
+    ġ_H := ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g                                                                   {#eq:gd-2-gh}
+
+is a linearised vacuum solution on N⁺, smooth up to Σ°, in harmonic gauge, inducing (γ̇, k̇) up to the data of a
+linearised diffeomorphism. For all smooth Cauchy data on Σ° such a Z′ exists, and it is determined on N⁺ by its data;
+for G-invariant data it is G-invariant.
+
+(b) Let U ⊂ U^♯ be open and G-invariant, Ω′_+ := D_U(Σ_U) ∩ {t_IVP ≥ 0}, and let ġ′ be a G-invariant linearised vacuum
+solution on Ω′_+, smooth up to Σ_U, in harmonic gauge, inducing (γ̇, k̇) plus the data of ℒ_Zg for a vector field Z
+near Σ_U, smooth up to Σ_U. Then ġ′ = ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g on Ω′_+ for a G-invariant 1-form Z′ with
+□Z′ = −Θ(e).
+
+(c) (*The forcing term has no l = 0 part.*) Θ(e)_0 = 0. So the l = 0 part Z′_0 of Z′ solves □Z′_0 = 0, and
+Z′_(≥2) := Z′ − Z′_0 solves □Z′_(≥2) = J := −Θ(e), with, for every k, R′ and ε′ > 0,
+
+    |J|_k ≤ C‖(γ̇, k̇)‖_(H^(k₁(k+3))) t_*^(−w+ε′)     on {r_♭ < r ≤ R′, t_* ≥ T′},
+
+a loss of three derivatives.
+
+(d) (*Non-uniqueness.*) □W* = 0, so Z′ ↦ Z′ + cW* preserves (a): ġ_H + cℒ_(W*)g is again a harmonic-gauge solution with
+the same data up to a linearised diffeomorphism. A decay statement in harmonic gauge therefore concerns a chosen Z′,
+the freedom being the solutions of □Y = 0 (more than the multiples of W* when the data of Y do not decay:
+[[prop:gd-r2-13]] (c)).
+
+*Proof.* (a) DRic(ġ_RW) = 0 ([[thm:rw-settling]] (a)) and DRic(ℒ_Xg) = 0 ([[lem:ix-2-1]] (b)). By [[prop:np-10-2]]
+(iv) (b), Θ(ġ_H) = ṁΘ(K_V) + Θ(e) + ṁ□W**_H + □Z′ = ṁΘ(K_V) + Θ(e) − ṁΘ(K_V) − Θ(e) = 0. ġ_RW induces (γ̇, k̇)
+plus the data of ℒ_(X_RW)g ([[thm:rw-settling]] (a)), and W**_H and Z′ are smooth up to Σ°. *Existence.* e is given
+on N⁺ only, smooth up to Σ°. As in Step 1 of the proof of [[thm:ix-2-2]], −Θ(e) extends to a smooth 1-form F on Ω^♯:
+it extends to an open neighbourhood of N⁺ ([[sec:ix-0]]), and a smooth function equal to 1 on N⁺ and supported in
+that neighbourhood extends it by 0 beyond. By [[lem:ix-1-1]] on Ω^♯ (globally hyperbolic on each component with Cauchy
+hypersurface Σ°, [[lem:ix-1-2]]), with the operator ±□ ([[lem:ix-2-1]] (a)), □Z̃ = F has a smooth solution on Ω^♯
+with any given smooth data on Σ°, and Z′ := Z̃|_(N⁺) is smooth up to Σ°. By [[lem:gd-r3-1]], Z′ does not depend on the
+extension, and two solutions on N⁺ with the same data agree. *Invariance.* G preserves t_IVP and |x|, so N⁺, Ω^♯ and
+Σ°; Θ(e) is G-invariant, and □ commutes with the action of G. For σ ∈ G, σ*Z′ solves □(σ*Z′) = −Θ(e) on N⁺ with the
+data σ* of those of Z′; for G-invariant data, σ*Z′ = Z′ by uniqueness.
+
+(b) By [[cor:ix-2-3]] and [[rem:ix-2-4]] (c), ġ′ = ġ + ℒ_(X′)g on Ω′_+ ⊂ N⁺ with X′ G-invariant and smooth up to
+Σ_U; and ġ_RW = ġ + ℒ_(X_RW)g. So ġ′ − ġ_RW = ℒ_Yg with Y := X′ − X_RW, G-invariant. Θ(ġ′) = 0 reads
+Θ(e) + ṁΘ(K_V) + □Y = 0, that is □(Y − ṁW**_H) = −Θ(e) by [[prop:np-10-2]] (iv) (b). Put Z′ := Y − ṁW**_H.
+
+(c) Θ commutes with the SO(4)-average, and e_0 = 0, so Θ(e)_0 = 0; □ commutes with it too, so □Z′_0 = (□Z′)_0 = 0.
+Θ(e) is first order in e, so |Θ(e)|_k ≤ C|e|_(k+1), and [[thm:rw-settling]] (b) bounds |e|_(k+1).
+
+(d) □W* = 0 ([[sec:hg-setting]]), and ℒ_(cW*)g = cℒ_(W*)g is a linearised diffeomorphism. ∎
+
+**Theorem {#thm:gd-2-3}** (The forced linear growth.) Let ġ_H = ġ + ℒ_Zg be a harmonic-gauge solution of
+[[prop:gd-2-1]] (a), Z = X_RW + ṁW**_H + Z′ G-invariant. Then on the horizon, for v ≥ v_0 with t_* ≥ T′ there,
+
+    Q[Z](v) = Q[Z](v_0) + 2π²ṁ(v − v_0) − ∫_(v_0)^v ℓ(Θ(h))(v′) dv′,        |ℓ(Θ(h))(v)| ≤ Cv^(−w+ε′),
+
+and Q[Z − ṁW**_H](v) converges as v → ∞. Consequently, if ṁ ≠ 0, no harmonic-gauge solution settles to ṁK_V near
+the horizon at an integrable rate: there are no δ, ε > 0 for which (ġ_H − ṁK_V)_0 and its first derivatives are
+O(t_*^(−1−δ)) on {|r − r_h| ≤ ε}.
+
+*Proof.* □Z = Θ(ℒ_Zg) = −Θ(ġ) = −ṁΘ(K_V) − Θ(h), as Θ(ġ_H) = 0, and ℓ(Θ(K_V)) = −2π² ([[lem:gd-2-2]] (b)).
+ℓ(Θ(h)) involves h and its first derivatives at r_h, bounded by [[eq:gd-0-2]], with |t_* − v| ≤ C near r_h.
+Integrating [[eq:gd-2-1]] gives the identity. Near the horizon V is a constant multiple of the Killing field ∂_t
+([[eq:gd-0-1]]), so there □V^♭ = Θ(ℒ_Vg) = 0 and Q[V^♭] is constant by [[eq:gd-2-1]]; and (d/dv)Q[W**] = 2π²
+([[lem:gd-2-2]] (b)). So (d/dv)Q[ṁW**_H] = 2π²ṁ, and Q[Z − ṁW**_H] has the integrable derivative −ℓ(Θ(h)) and
+converges.
+
+Suppose ṁ ≠ 0 and (ġ_H − ṁK_V)_0 is O(t_*^(−1−δ)), with its first derivatives, on {|r − r_h| ≤ ε}, ε small. Averaging
+ġ_H = ṁK_V + h + ℒ_Zg, ℒ_(Z_0)g = (ġ_H − ṁK_V)_0 − h_0, which with [[eq:gd-0-2]] is O(t_*^(−min(1+δ,w−ε′))) there,
+with first derivatives. It is a spherically symmetric linearised vacuum solution with δm[ℒ_(Z_0)g] = 0
+([[lem:gd-1-4]] (a)). Apply [[lem:gd-1-4]] (b) on the simply connected set {|r − r_h| < ε, v > v_1} of the orbit
+space: ℒ_(Z_0)g = ℒ_(Y)g with Y = ζ∂_v + rH_L∂_r, where H_L and dζ = ω are algebraic in ℒ_(Z_0)g and its first
+derivatives, so integrable in v; hence ζ(v, r_h) converges as v → ∞, and H_L and its first derivatives tend to 0. By
+[[lem:gd-1-4]] (c), Z_0 − Y^♭ = c′(∂_v)^♭ for a constant c′. Now ζ(∂_v)^♭ has δ(ζ(∂_v)^♭) = −∂_vζ and
+(d(ζ(∂_v)^♭))_(vr) = ∂_vζ + f∂_rζ + ζf′, so at r_h, where f = 0 and f′ = 2/r_h, Q[ζ(∂_v)^♭] = 4π²m₀ζ(v, r_h). And
+(rH_L∂_r)^♭ = rH_L dv, whose charge involves H_L and its first derivatives and tends to 0. So Q[Z] = Q[Z_0]
+([[lem:gd-2-2]] (a)) converges as v → ∞, against the growth 2π²ṁv of the identity. ∎
+
+In terms of the gauge vector the statement is exact: its horizon charge grows as 2π²ṁv. At the level of the metric,
+[[prop:gd-r2-13]] makes the growth precise for the spherically symmetric part of the representatives.
+
+### The augmented zero-energy operator {#sec:hg-augmented}
+
+This section and the next two carry [[ch:s18]] over from the linearised gauge-fixed Einstein operator to the 1-form
+wave operator □ at b₀, with W* as the only zero-energy state.
+
+*Setting.* P̂(σ) is the spectral family of □ at b₀, the parameter 𝗉_0 of [[sec:iii-d1-1]]. By [[sec:iii-d1-1]],
+P̂ satisfies (H1)–(H5) with ϑ_ℋ = 1, (G) for every weight α with α + 2 ∈ (0, 2), and (TF), and has index 0 at σ ≠ 0.
+By [[lem:iii-d-2-1]], □ = L_0 + L_1∂_(t_*) + L_2∂²_(t_*) with stationary L_j, where L_0 = P̂(0), L_1 = [□, t_*] on
+stationary 1-forms, L_2 = −g^(00) with g^(00) := g⁻¹(dt_*, dt_*), and near ∂X, L_0 ∈ ρ²Diff²_b, L_1 ∈ ρDiff¹_b and
+L_2 ∈ ρ²C^∞, the form [[sec:iii-h-1]] uses for L_b; and S̄ = 0, as the spectrum of S̄ is γ_Υ(1 − e_Υ), 2γ_Υ, γ_Υ
+([[lem:iii-d-3-1]]) and γ_Υ = 0 for □. Fix a weight α with α + 2 ∈ (0, 1) ([[eq:iii-h-1-1]]), a constant regularity
+s > 5/2 (the threshold of the density argument in [[lem:iii-d1-2-1]] (3)), an SO(4)-invariant fibre inner product h,
+and an SO(4)-invariant φ ∈ C_c^∞(X°; E) with ⟨W*, φ⟩_h = 1 (average any choice over SO(4); W* is SO(4)-invariant).
+The spaces 𝒳_σ, 𝒴_σ, 𝒳_0 = {u ∈ H̄_b^(s,α) : P̂(0)u ∈ 𝒴_0} and 𝒴_0 = H̄_b^(s−1,α+2) are those of [[sec:iii-h-1]] and
+[[prop:iii-h-3-2]] for P̂. The state is W*: smooth on X, W* ∈ 𝒜², and □W* = 0.
+
+**Definition {#def:gd-r2-1}** (The augmented operator.) Put
+
+    f_* := □(χ_augW*) = [□, χ_aug]W*,      f̂_*(σ) := ∫ e^(iσt_*)f_* dt_*,      ĝ_*(σ) := iσ⁻¹Ψ(σ, ·)W*,
+
+with Ψ of [[lem:iii-h-2-5]], and, for (u, c) with u a section over X and c ∈ ℂ,
+
+    P̃(σ)(u, c) := (P̂(σ)u + cf̂_*(σ), ⟨u, φ⟩_h).
+
+**Lemma {#lem:gd-r2-2}** ([[lem:iii-h-2-2]]–[[lem:iii-h-2-5]] at □.)
+(a) f_* vanishes outside {1 ≤ t_* ≤ 2, |x| ≤ t_*/2} ∪ {t_* ≥ 2, t_*/4 ≤ |x| ≤ t_*/2}, and its part f_∞ at r ≥ 1
+obeys [[eq:iii-h-2-1]]: |(t_*∂_(t_*))^j(r∂_r)^a∂_ω^β f_∞| ≤ Cr⁻⁴.
+(b) f̂_*(0) = L_1W* + L_0w with w := −κ(r)W*, κ of [[lem:iii-h-2-3]]; so w ∈ 𝒜¹ and f̂_*(0) ∈ 𝒜³.
+(c) [[lem:iii-h-2-4]] (a)–(d) hold for f̂_*.
+(d) For σ ≠ 0 with Im σ ≥ 0, ĝ_*(σ) ∈ 𝒳_σ and P̂(σ)ĝ_*(σ) = f̂_*(σ).
+
+*Proof.* The proofs of [[lem:iii-h-2-2]]–[[lem:iii-h-2-5]] use, of the state ġ(1, 0) and the operator L_b, only that
+L_bġ = L_0ġ = 0, that ġ is stationary, smooth on X and in 𝒜², and that L_0 ∈ ρ²Diff²_b, L_1 ∈ ρDiff¹_b and
+L_2 ∈ ρ²C^∞ near ∂X with stationary coefficients, smooth on compact subsets of X. At □ these are □W* = 0, W* ∈ 𝒜²
+smooth and stationary, and the structure above. So (a) is [[lem:iii-h-2-2]] with h = W* (|W*| ≤ Cr⁻² with its
+b-derivatives on the cone, ∂_(t_*)W* = 0); (b) is [[eq:iii-h-2-2]] for ḃ = (1, 0); (c) is [[lem:iii-h-2-4]]; and (d)
+is [[lem:iii-h-2-5]] (a)–(c). The generalised states h^(≤1)(S) of [[ch:s18]] do not occur. ∎
+
+**Proposition {#prop:gd-r2-3}** (The augmented zero-energy operator is invertible.) P̃(0) : 𝒳_0 ⊕ ℂ → 𝒴_0 ⊕ ℂ is
+invertible.
+
+*Proof.* *Index 0.* P̃(0) is a finite-rank perturbation of P̂(0) ⊕ 0, and P̂(0) : 𝒳_0 → 𝒴_0 has index 0
+([[cor:i-c-6-6]], as in the proof of [[lem:iii-d1-2-1]] (3)); f̂_*(0) ∈ 𝒜³ ⊂ 𝒴_0, as α + 2 < 1. *Injectivity.* Let
+P̃(0)(u, c) = 0. By [[lem:gd-r2-2]] (b), P̂(0)(u + cw) + cL_1W* = 0, and u + cw ∈ 𝒳_0, as 𝒜¹ ⊂ H̄_b^(∞,α) for α < −1.
+Apply ℓ. ℓ ∘ P̂(0) = 0 on 𝒳_0 ([[lem:iii-d1-2-1]] (1), with the density argument of its (3)); and
+ℓ(L_1W*) = ℓ([□, t_*]W*) = 4π² ([[lem:iii-d1-3-1]] (1)). So 4π²c = 0, c = 0, u ∈ span{W*} ([[lem:iii-d1-2-1]] (2)),
+and ⟨u, φ⟩_h = 0 gives u = 0. ∎
+
+The block-triangular 11 × 11 pairing matrix of [[prop:iii-h-3-2]] is here the 1 × 1 matrix (4π²). The time cut-off is
+what makes it nonzero: ℓ annihilates the stationary column P̂(0)(κW*) for every stationary κ smooth at the horizon
+([[lem:iii-d1-2-1]] (1)), and an augmentation by such a column is not injective at zero energy.
+
+**Theorem {#thm:gd-r2-4}** (Uniform low-energy estimates for P̃.) There are c_k > 0 and C_k such that for σ ∈ Σ_0 with
+|σ| ≤ c_k, P̃(σ) : 𝒳_σ ⊕ ℂ → 𝒴_σ ⊕ ℂ is invertible with the estimate [[eq:iii-h-4-5]] (with |c| in place of
+|ḃ| + |S|); [[thm:iii-h-4-1]] (3) holds for P̃ on Σ_0 ∩ ℝ; and, with (u, c) := P̃(σ)⁻¹(f, 0) for 0 < |σ| ≤ c_0,
+
+    P̂(σ)⁻¹f = u + c ĝ_*(σ).                                                                              {#eq:gd-r2-1}
+
+*Proof.* [[thm:iii-h-4-1]] is stated for every family P̂ with (H1)–(H4), (G), (TF) and index 0 at σ ≠ 0, which the
+setting gives, and columns with (A1)–(A4), which [[lem:gd-r2-2]] (b)–(c) give with ϵ_0 = ¼(1 − (α + 2)) exactly as in
+the proof of [[cor:iii-h-4-2]]; its (Z_𝒫) is [[prop:gd-r2-3]]. P̂(σ) is invertible for every σ ≠ 0 with Im σ ≥ 0
+([[prop:iii-d-6-1]], [[prop:iii-d-6-2]]), so no scaling argument is needed at small σ, and [[eq:gd-r2-1]] follows
+from [[lem:gd-r2-2]] (d) as [[eq:iii-h-4-6]] follows in the proof of [[cor:iii-h-4-3]]. ∎
