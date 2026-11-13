@@ -29,8 +29,8 @@ u = const, v = const carry the volume element (R³/4) dx dφ1 dφ2.
 g = −4 e^(2W) du dv + γ_AB (dy^A − β^A du)(dy^B − β^B du), indices A, B, C running over 1, 2, 3. Then
 g_vv = g_vA = 0 and g_uv = −2 e^(2W). The inverse metric has g^(uu) = g^(uA) = 0, g^(uv) = −e^(−2W)/2 and
 g^(AB) = γ^(AB), and det g = −4 e^(4W) det γ, since in the coframe (du, dv, dy^A − β^A du), whose determinant
-against (du, dv, dy^A) is 1, the metric is block diagonal. With the Christoffel symbols
-Γ^μ_αβ = (1/2) g^(μν)(∂_α g_νβ + ∂_β g_να − ∂_ν g_αβ) this gives
+against (du, dv, dy^A) is 1, the metric is block diagonal. For the Christoffel symbols of g, with indices μ, ν
+running over u, v, y¹, y², y³, this gives
 
     Γ^μ_vv = g^(μu) ∂_v g_uv,  so  Γ^v_vv = 2 ∂_vW  and  Γ^u_vv = Γ^A_vv = 0;
     Γ^u_vν = (1/2) g^(uv) ∂_ν g_vv = 0;      Γ^A_vB = (1/2) γ^(AC) ∂_vγ_CB =: χ^A_B;

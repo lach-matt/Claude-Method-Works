@@ -1500,17 +1500,17 @@ the matrices of [Hin26, Lemma 6.6] (p. 117), and N_1 at v1 is that of [Hin26, p.
 
     Q♮_l(s) := s² − (2κ + 1 + z)s + κ(κ + z) = (s − l²)(s − (l + 1)²) + z(κ − s).
 
-(3) Let λ_(s0,1) := (1 + z)^(1/2), and λ_(sl,l) := s♮_1^(1/2), λ_(sl,l+1) := s♮_2^(1/2) with s♮_1 < s♮_2 the roots of
-Q♮_l. For z ≥ 0 the roots are ±λ_(s0,1), 0 and 2 (s0); ±λ_(sl,l), ±λ_(sl,l+1), 1 − l and l + 2 (sl); −l and l + 1
-(vl). At z = 0, λ_(s0,1) = 1 and λ_(sl,l+j) = l + j, and the sl roots −l − 1, −l, 1 − l, l, l + 1, l + 2 are distinct.
-For 0 < z < 40/7, l < λ_(sl,l) < l + 1 < λ_(sl,l+1) < l + 2, and λ_(sl,l+j) = l + j + z/(2(2l + 1)) + O(z²) as z → 0.
+(3) Let ι♮_(s0,1) := (1 + z)^(1/2), and ι♮_(sl,l) := s♮_1^(1/2), ι♮_(sl,l+1) := s♮_2^(1/2) with s♮_1 < s♮_2 the roots of
+Q♮_l. For z ≥ 0 the roots are ±ι♮_(s0,1), 0 and 2 (s0); ±ι♮_(sl,l), ±ι♮_(sl,l+1), 1 − l and l + 2 (sl); −l and l + 1
+(vl). At z = 0, ι♮_(s0,1) = 1 and ι♮_(sl,l+j) = l + j, and the sl roots −l − 1, −l, 1 − l, l, l + 1, l + 2 are distinct.
+For 0 < z < 40/7, l < ι♮_(sl,l) < l + 1 < ι♮_(sl,l+1) < l + 2, and ι♮_(sl,l+j) = l + j + z/(2(2l + 1)) + O(z²) as z → 0.
 These are the roots λ^Υ of [Hin26, Lemma 6.6], whose parameter e_Υγ_Υ² is z/4; the coefficient 1/(2(2l + 1)) of z is
 the coefficient 2/(2l + 1) of z/4 in [Hin26, p. 117].
 
-(4) Call class roots μ_s0 := −λ_(s0,1) (type s0, range K = 2), μ_(l,j) := −λ_(sl,l+j) (type sl, l = 1, 2, 3, j = 0, 1,
+(4) Call class roots μ_s0 := −ι♮_(s0,1) (type s0, range K = 2), μ_(l,j) := −ι♮_(sl,l+j) (type sl, l = 1, 2, 3, j = 0, 1,
 K = 2), 1 − l (type sl, 2 ≤ l ≤ 5, K = 5 − l) and −l (type vl, 2 ≤ l ≤ 4, K = 4 − l). For 0 < z < 3 each class root μ
 of type τ is simple, and neither μ + 1 nor μ − k, 1 ≤ k ≤ K, is a root of type τ. At z = 3 this still holds for
-μ_s0 = −2, while λ_(s0,1) = 2 is a double s0 root. At z = 0, μ_s0 + 1 = 0 is an s0 root, and at sl
+μ_s0 = −2, while ι♮_(s0,1) = 2 is a double s0 root. At z = 0, μ_s0 + 1 = 0 is an s0 root, and at sl
 μ_(l,0) − 1 = μ_(l,1), μ_(l,1) + 1 = μ_(l,0), μ_(l,0) + 1 = 1 − l and 1 − l − k = μ_(l,k−1) for k ≤ min(2, 5 − l);
 at vl no such coincidence occurs for any z.
 
@@ -1547,16 +1547,16 @@ is 40/7 at l = 1. So l² < s♮_1 < (l + 1)² < s♮_2 < (l + 2)² for 0 < z < 4
 give the expansions. [Hin26, Lemma 6.6] gives (λ^Υ_(sl,l+j))² = κ + ½ + 2eγ² ∓ (κ + (½ + 2eγ²)²)^(1/2), whose sum is
 2κ + 1 + z and whose product is κ² + κz: the roots of Q♮_l.
 
-(4) For 0 < z < 3, λ_(s0,1) ∈ (1, 2), so the s0 roots μ_s0 ∈ (−2, −1), 0, λ_(s0,1) and 2 are distinct, and
+(4) For 0 < z < 3, ι♮_(s0,1) ∈ (1, 2), so the s0 roots μ_s0 ∈ (−2, −1), 0, ι♮_(s0,1) and 2 are distinct, and
 μ_s0 + 1 ∈ (−1, 0), μ_s0 − 1 ∈ (−3, −2) and μ_s0 − 2 ∈ (−4, −3) contain none of them. At sl, by (3),
-μ_(l,1) < −l − 1 < μ_(l,0) < −l < 1 − l < λ_(sl,l) < l + 1 < λ_(sl,l+1) < l + 2, so the roots are simple.
+μ_(l,1) < −l − 1 < μ_(l,0) < −l < 1 − l < ι♮_(sl,l) < l + 1 < ι♮_(sl,l+1) < l + 2, so the roots are simple.
 μ_(l,0) + 1 ∈ (−l, 1 − l), μ_(l,0) − 2 ∈ (−l − 3, −l − 2), μ_(l,1) − 1 ∈ (−l − 3, −l − 2) and
 μ_(l,1) − 2 ∈ (−l − 4, −l − 3) contain no sl root; μ_(l,0) − 1 ∈ (−l − 2, −l − 1) and μ_(l,1) + 1 ∈ (−l − 1, −l)
-could only be μ_(l,1), respectively μ_(l,0), and either means λ_(sl,l+1) = λ_(sl,l) + 1. With x := λ_(sl,l), the
+could only be μ_(l,1), respectively μ_(l,0), and either means ι♮_(sl,l+1) = ι♮_(sl,l) + 1. With x := ι♮_(sl,l), the
 relations s♮_1 + s♮_2 = 2κ + 1 + z and s♮_1s♮_2 = κ(κ + z) then give x² + x = κ + z/2 and (x² + x)² = κ² + κz, so
 z² = 0. For μ = 1 − l, the numbers μ + 1 = 2 − l and μ − k = 1 − l − k are integers other than 1 − l and l + 2, the
 integer sl roots, and the other sl roots are not integers; for μ = −l (vl), 1 − l and −l − k differ from −l and l + 1.
-At z = 3, λ_(s0,1) = 2 and det N_s0(ι) = ι(ι − 2)²(ι + 2): 2 is double, −2 is simple, and −1, −3, −4 are not roots.
+At z = 3, ι♮_(s0,1) = 2 and det N_s0(ι) = ι(ι − 2)²(ι + 2): 2 is double, −2 is simple, and −1, −3, −4 are not roots.
 At z = 0 the roots are integers and the coincidences are read off from (3).
 
 (5) N_0(ι) = −(ι + l)(ι − l − 1) at ι = −l − i, and N_1(ι) = −2(ι − 1 − γ) at ι = −l − i + 1. ∎
@@ -1720,7 +1720,7 @@ Q_l((l + 2)(l + 3)) = (l + 2)(8l + 12 − 3z). So for 0 < z < 20/3 the negative 
 μ_(l,1) = −l − 1 − (l + 2)z/(2(l + 1)(2l + 3)) + O(z²). μ_s0 := 1 − ι^Υ_(s0,2) = ½(1 − (9 + 4z)^(1/2))
 = −1 − z/3 + O(z²) lies in (−2, −1) for 0 < z < 4. The sl roots 1 − l and the vl roots −l are roots at every z. For
 0 < z < 4 the roots ≤ 0 of each type are these, together with 0 at s0. In dimension 3 + 1 the corresponding roots are
-−(1 + z)^(1/2), −λ_(sl,l) and −λ_(sl,l+1) of [[lem:s13-dim-four]] (3), which are [Hin26]'s −λ^Υ_(s0,1), −λ^Υ_(sl,l)
+−(1 + z)^(1/2), −ι♮_(sl,l) and −ι♮_(sl,l+1) of [[lem:s13-dim-four]] (3), which are [Hin26]'s −λ^Υ_(s0,1), −λ^Υ_(sl,l)
 and −λ^Υ_(sl,l+1), with first-order coefficient 1/(2(2l + 1)) in z, [Hin26]'s 2/(2l + 1) in its parameter z/4.
 
 (iii) (*The symmetric gradient.*) N(δ̄*(0), ι) is injective on the types sl and vl for l ≥ 2 and every ι ∈ ℂ, on s0
@@ -1786,10 +1786,10 @@ kernel of N_0(ι), and then its solutions form a line. In dimension 4 + 1, κ = 
     N_1(1 − l) = (2l + 1)Id + 2S̄,     N_1(−l) = (2l + 3)Id + 2S̄,
 
 and multiplying out one finds that ŵ := (2l + 1 + 2lγ, 2l + 1 − 2lγ, 4γ) spans ker N_0(−l), w̄_0 := (l, −l, 2) spans
-ker N_0(1 − l), λ := (−(2l + 3 + 2γ), 2l + 3 − 2γ, l(2l + 3)) spans the left kernel of N_0(−l − 1), and
+ker N_0(1 − l), 𝔩 := (−(2l + 3 + 2γ), 2l + 3 − 2γ, l(2l + 3)) spans the left kernel of N_0(−l − 1), and
 
-    N_0(−l)(1, 1, 0) = 2γw̄_0,   N_1(1 − l)w̄_0 = (2l + 1 + 2γ)w̄_0,   λ·N_1(−l)ŵ = −16(2l + 1)γ²,
-    λ·N_1(−l)(1, 1, 0) = −(2l + 3 + 2γ)² + (2l + 3 − 2γ)(2l + 3 + 6γ) = −16γ².
+    N_0(−l)(1, 1, 0) = 2γw̄_0,   N_1(1 − l)w̄_0 = (2l + 1 + 2γ)w̄_0,   𝔩·N_1(−l)ŵ = −16(2l + 1)γ²,
+    𝔩·N_1(−l)(1, 1, 0) = −(2l + 3 + 2γ)² + (2l + 3 − 2γ)(2l + 3 + 6γ) = −16γ².
 
 (The first holds as the first two columns of N_0(−l) add up to (2lγ, −2lγ, 4γ).) In dimension 3 + 1, κ = l(l + 1),
 [[lem:s13-dim-four]] (1) gives
@@ -1797,17 +1797,17 @@ ker N_0(1 − l), λ := (−(2l + 3 + 2γ), 2l + 3 − 2γ, l(2l + 3)) spans the
     N_0(−l) = ( lγ + 1 , lγ − 1 , −κ ; −lγ − 1 , 1 − lγ , κ ; 2γ − 2 , 2γ + 2 , 0 ),
     N_1(1 − l) = 2l Id + 2S̄,     N_1(−l) = (2l + 2)Id + 2S̄,
 
-and the same holds with ŵ := (l(1 + γ), l(1 − γ), 2γ), the same w̄_0, λ := (−(l + 1 + γ), l + 1 − γ, l(l + 1)),
-N_1(1 − l)w̄_0 = 2(l + γ)w̄_0, λ·N_1(−l)ŵ = −8lγ² and λ·N_1(−l)(1, 1, 0) = −8γ². Write c_1 := 2l + 1 + 2γ in dimension
+and the same holds with ŵ := (l(1 + γ), l(1 − γ), 2γ), the same w̄_0, 𝔩 := (−(l + 1 + γ), l + 1 − γ, l(l + 1)),
+N_1(1 − l)w̄_0 = 2(l + γ)w̄_0, 𝔩·N_1(−l)ŵ = −8lγ² and 𝔩·N_1(−l)(1, 1, 0) = −8γ². Write c_1 := 2l + 1 + 2γ in dimension
 4 + 1 and c_1 := 2(l + γ) in dimension 3 + 1.
 
-(a) The class root μ_(l,0) is −l at z = 0, with indicial solution ŵ. The right side −N_1(−l)ŵ pairs with λ to
+(a) The class root μ_(l,0) is −l at z = 0, with indicial solution ŵ. The right side −N_1(−l)ŵ pairs with 𝔩 to
 16(2l + 1)γ², respectively 8lγ², which is nonzero; so it is not in the range of N_0(−l − 1).
 
 (b) −N_1(1 − l)w̄_0 = −c_1w̄_0 = N_0(−l)(−(c_1/(2γ))(1, 1, 0)); so the solutions are
 w̄_1 = −(c_1/(2γ))(1, 1, 0) + βŵ, β ∈ ℂ.
 
-(c) The right side −N_1(−l)w̄_1 pairs with λ to (c_1/(2γ))(−16γ²) + 16(2l + 1)γ²β = 8γ(2(2l + 1)γβ − c_1) in
+(c) The right side −N_1(−l)w̄_1 pairs with 𝔩 to (c_1/(2γ))(−16γ²) + 16(2l + 1)γ²β = 8γ(2(2l + 1)γβ − c_1) in
 dimension 4 + 1, and to (c_1/(2γ))(−8γ²) + 8lγ²β = 8γ(lγβ − l − γ) in dimension 3 + 1. Each is affine in β with
 nonzero slope, so it vanishes for exactly one β, and for that β alone the second step is solvable. ∎
 
