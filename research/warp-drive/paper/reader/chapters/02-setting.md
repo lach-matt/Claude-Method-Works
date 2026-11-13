@@ -363,7 +363,8 @@ ker dr at r = a it is ((μ0/a² − 1) − c) T² + |X|² where μ = μ0, degene
 
     s0 := inf over Ω of g0's least absolute eigenvalue = (m*² + 1)^(1/2) − m*,   m* := sup_Ω μ/r² ≤ μ_end/a²,
 
-since by the eigenvalues of g0 above the least absolute one is (m² + 1)^(1/2) − m, which decreases in m.
+since, by the eigenvalues of g0 found above, its least absolute eigenvalue at a point is (m² + 1)^(1/2) − m, which
+decreases in m.
 
 **Lemma {#lem:lorentz-margin}** (Lorentzian metrics near g0). Every symmetric g̃ with |g̃ − g0| ≤ ε1 < s0 on Ω is
 Lorentzian with |g̃⁻¹| ≤ (s0 − ε1)⁻¹. For ε1 ≥ s0, at a point of Ω where μ/r² = m*, there are Lorentzian forms g̃ with
@@ -390,26 +391,27 @@ At the numerical point of [[ch:lambda0]] (μ0 = 1, l5 = 1/10, a = δ0 = q0/2, A 
 μ0/a² = 4/q0² = 4 (1250/9)^(1/4), and 1250/9 > 28561/256 = (13/4)⁴ gives μ0/a² > 13.
 
 (ii) No ε1 ≥ 0.6013096 serves for [[lem:domain]] (e) there. On the outer boundary v = V + 1 + τ_end − τ ≥ V + 1 > v_end,
-so μ = μ_end there, and r ≤ b(τ0), with equality at its corner with Σ_τ0; so the least value of (3 + μ/r²)/5 on it is
-λ* := (3 + μ_end/b(τ0)²)/5, attained at the corner. Here μ_end = 1 + (2/9)(105/128) = 227/192 and V = 9/2. With
-q_end := (√72 μ_end l5²)^(1/4), the value of r_q at v = V, one has τ_end ≥ V − q_end, so b(τ0) = V + 1 + τ_end − 2τ0 ≥
-14 − q_end. Since q_end⁸ = 72 μ_end² l5⁴ = 51529/5120000 = 0.0100642… is less than 0.5628⁸ = 0.0100654…, q_end < 0.5628,
+so μ = μ_end there, and r ≤ b(τ0), with equality at its corner with Σ_τ0; so the least value of (3 + μ/r²)/5 on it is λ*
+:= (3 + μ_end/b(τ0)²)/5, attained at the corner. Here μ_end = 1 + (2/9)(105/128) = 227/192 and V = 9/2. With q_end :=
+(√72 μ_end l5²)^(1/4), the value of r_q at v = V, one has τ_end ≥ V − q_end, so b(τ0) = V + 1 + τ_end − 2τ0 ≥ 14 −
+q_end. Since q_end⁸ = 72 μ_end² l5⁴ = 51529/5120000 = 0.0100642… is less than 0.5628⁸ = 0.0100654…, q_end < 0.5628,
 b(τ0) > 13.4372 and λ* < (3 + (227/192)/13.4372²)/5 = 0.60130959… < 0.6013096. Now let n := (1, −2x̂)/√5, a Euclidean
 unit vector field, n ⊗ n the tensor of Cartesian components n_a n_b, and g := g0 − λ* n ⊗ n, so that |g − g0| = λ*. The
 vector n lies in ker d(v + τ), being the case s = −2/√5 of the proof of [[lem:eigen]], so g0(n, n) = (3 + m)/5, and
-g0(n, (0, X⊥)) = 0 when x̂·X⊥ = 0. In the Euclidean orthonormal basis of ker d(v + τ) formed by n and three vectors
-(0, X⊥), g0 is diag((3 + m)/5, 1, 1, 1) and g is diag((3 + m)/5 − λ*, 1, 1, 1), which at the corner is diag(0, 1, 1, 1):
-the outer boundary is null for g there. And g is Lorentzian on Ω. In the plane of the τ- and x̂-directions the Cartesian
+g0(n, (0, X⊥)) = 0 when x̂·X⊥ = 0. In the Euclidean orthonormal basis of ker d(v + τ) formed by n and three vectors (0,
+X⊥), g0 is diag((3 + m)/5, 1, 1, 1) and g is diag((3 + m)/5 − λ*, 1, 1, 1), which at the corner is diag(0, 1, 1, 1): the
+outer boundary is null for g there. And g is Lorentzian on Ω. In the plane of the τ- and x̂-directions the Cartesian
 block of g0 is [[−1 + m, m], [m, 1 + m]], with inverse [[−1 − m, m], [m, 1 − m]], so nᵀ g0⁻¹ n = (3 − 9m)/5, and by the
-rank-one formula det(M − c n nᵀ) = det M (1 − c nᵀ M⁻¹ n), det g = −(1 − λ* (3 − 9m)/5) < 0, as λ* < 1. Since g is the
-identity on the three directions (0, X⊥), it has at least three positive eigenvalues, and, its determinant being
-negative, exactly one negative one. So (e) fails for every ε1 ≥ λ*, in particular for every ε1 ≥ 0.6013096.
+rank-one formula det(M − c n nᵀ) = det M (1 − c nᵀ M⁻¹ n), det g = −(1 − λ* (3 − 9m)/5) < 0, since λ* < 1 and m > 0.
+Since g is the identity on the three directions (0, X⊥), it has at least three positive eigenvalues, and, its
+determinant being negative, exactly one negative one. So (e) fails for every ε1 ≥ λ*, in particular for every ε1 ≥
+0.6013096.
 
 (iii) s0 lies between 0.030768559 and 0.030768560, so there ε1 < 0.0308. On the inner sphere of Σ_τ_end,
-v = τ_end + a ≥ V − q_end + a > v_end, so μ = μ_end there and m* = μ_end/a² = (227/48)(1250/9)^(1/4). Since
-s0 = (m*² + 1)^(1/2) − m* is the positive root of s² + 2m* s = 1, a number x > 0 lies below s0 exactly when
-x² + 2m* x < 1, that is when (24(1 − x²)/(227 x))⁴ > 1250/9 = 138.88888…; at x = 0.030768559 the left side is
-138.88889948…, larger, and at x = 0.030768560 it is 138.88888139…, smaller.
+v = τ_end + a ≥ V − q_end + a > v_end, as V − v_end = 1 > q_end, so μ = μ_end there and m* = μ_end/a² =
+(227/48)(1250/9)^(1/4). Since s0 = (m*² + 1)^(1/2) − m* is the positive root of s² + 2m* s = 1, a number x > 0 lies
+below s0 exactly when x² + 2m* x < 1, that is when (24(1 − x²)/(227 x))⁴ > 1250/9 = 138.88888…; at x = 0.030768559 the
+left side is 138.88889948…, larger, and at x = 0.030768560 it is 138.88888139…, smaller.
 
 ### The waves and their average {#sec:waves}
 

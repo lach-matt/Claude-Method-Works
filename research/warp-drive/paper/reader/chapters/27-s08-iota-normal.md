@@ -250,13 +250,14 @@ L_p ⊂ X containing J⁻_X(p) ∩ {τ ≥ c}. If w ∈ 𝒟′(X), Pw = 0 and s
 connected time-oriented Lorentzian manifold with no causal loops, a closed causal relation and a finite continuous time
 separation, a distribution with past or future compact support solving Pu = 0, P normally hyperbolic, vanishes. Remark
 3.1.3 (p. 72): these assumptions hold on globally hyperbolic manifolds. Definition 1.3.8 (p. 23): global hyperbolicity
-is strong causality with J⁺(p) ∩ J⁻(q) compact for all p, q. A set A is past compact if A ∩ J⁻(p) is compact for every p, and a curve is inextendible if no
-piecewise C¹ reparametrisation extends continuously to an end point (p. 18). The Cauchy development D(S) of S is the set
-of points through which every inextendible causal curve meets S (Definition 1.3.5, p. 22), and the causal future of a
-Cauchy hypersurface is past compact (p. 22). Lemma A.5.9 (p. 176): for an acausal hypersurface S, D(S) is an open,
-causally compatible, globally hyperbolic subset; and S is a Cauchy hypersurface of D(S) (the end of the proof of Lemma
-A.5.9, p. 176). P or −P is normally hyperbolic in the sense of [BGP, Section 1.5], its principal part being ∓ the
-d'Alembertian of g, and Pw = 0 if and only if −Pw = 0. Working on each connected component, we may assume X connected.
+is strong causality with J⁺(p) ∩ J⁻(q) compact for all p, q. A set A is past compact if A ∩ J⁻(p) is compact for every
+p, and a curve is inextendible if no piecewise C¹ reparametrisation extends continuously to an end point (p. 18). The
+Cauchy development D(S) of S is the set of points through which every inextendible causal curve meets S (Definition
+1.3.5, p. 22), and the causal future of a Cauchy hypersurface is past compact (p. 22). Lemma A.5.9 (p. 176): for an
+acausal hypersurface S, D(S) is an open, causally compatible, globally hyperbolic subset; and S is a Cauchy hypersurface
+of D(S) (the end of the proof of Lemma A.5.9, p. 176). P or −P is normally hyperbolic in the sense of [BGP, Section
+1.5], its principal part being ∓ the d'Alembertian of g, and Pw = 0 if and only if −Pw = 0. Working on each connected
+component, we may assume X connected.
 
 If {τ > c} is empty there is nothing to prove. Let p ∈ X with τ(p) > c, and γ a past directed causal curve from p, past
 inextendible in X, along which τ > c. Then γ ⊂ L_p. τ is strictly monotone along γ, so it is a piecewise C¹ parameter on

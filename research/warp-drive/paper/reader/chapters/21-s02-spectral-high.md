@@ -1678,9 +1678,9 @@ the coefficients, on inf(−G_0(dr)) over the slab and on Z.
 
 *Proof.* By density ([[lem:i-a-6-1]] (c), and smooth approximation up to the extendible side) take u smooth on Ω̄_(a,b)
 and vanishing near r = b. P_0 − □_g Id =: L_1 is first order with t-independent coefficients ([[sec:i-b-1-2]]), so
-L̂_1(σ) = L̂_1(0) + σL̂_1′ with L̂_1′ a matrix function and |L̂_1(z/h)u| ≤ C(|du| + h⁻¹|u|). Let u′(t, x) := e^(−izt/h) u(x)
-on D := [0, 1]_t × Ω_(a,b), so that □_g u′ = e^(−izt/h)(P̂(z/h) − L̂_1(z/h))u, and let W := wX with
-w := e^(−2(Im z)t/h) e^(ℓr). Then
+L̂_1(σ) = L̂_1(0) + σL̂_1′ with L̂_1′ a matrix function and |L̂_1(z/h)u| ≤ C(|du| + h⁻¹|u|). Let
+u′(t, x) := e^(−izt/h) u(x) on D := [0, 1]_t × Ω_(a,b), so that □_g u′ = e^(−izt/h)(P̂(z/h) − L̂_1(z/h))u, and let
+W := wX with w := e^(−2(Im z)t/h) e^(ℓr). Then
 
     ^(W)K[u′] = w(^(X)K[u′] + 2h⁻¹(Im z) T[u′](−∇t, X) + ℓ T[u′](X, X)) ≥ w(ℓc_0 − C_0)|du′|²_R,
 

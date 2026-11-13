@@ -135,9 +135,9 @@ passes to a convex combination of such inner products. No triangular structure o
 
 Of the data p_0, p_1 at ℐ⁺, the proofs below use only [[eq:ii-e-1-2]], and that only through the positivity of
 4 Re_(h_I) p_1 − 2 − 4α at ℐ⁺ (and so near ℐ⁺, p_1 and h_I being independent of x_I): with δ′ := (p̄_1 − 1/2 − α)/4,
-[[eq:ii-e-1-2]] gives 4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′ (as
-used in [[lem:ii-e-2-5]]), and ≥ 8δ′ where it holds with 2δ′ in place of δ′ (as used on the extended slabs of
-[[prop:ii-e-2-7]] and in [[prop:ii-e-3-2]]). The other terms enter without any smallness. In [[lem:ii-e-2-5]] every
+[[eq:ii-e-1-2]] gives 4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′ (as used in [[lem:ii-e-2-5]]), and ≥ 8δ′ where it holds with 2δ′
+in place of δ′ (as used on the extended slabs of [[prop:ii-e-2-7]] and in [[prop:ii-e-3-2]]). The other terms enter
+without any smallness. In [[lem:ii-e-2-5]] every
 first-order term other than 2x_I² p_1^A ∂_(t_*) of [[eq:ii-e-2-3]], and the part of that term carrying Im p_1, which
 enters only through a cross term with x_I∂_(x_I), is kept as a pointwise quadratic form in the edge derivatives and
 absorbed by the exponential weight in time; the zeroth-order terms, among them the one carrying p_0, are absorbed by the
@@ -208,8 +208,9 @@ by at most 2η_0, and elsewhere at bounded times it stays in a compact set. ∎
 ([[lem:ii-c-3-2]] (2) and [[lem:ii-e-1-2]] (iv)), so Z t^♭ = g⁻¹(dt^♭, dt^♭) < 0 there, with a negative bound on the
 compact part at bounded times, and (∇t^♭) r = g⁻¹(dt^♭, dr) > 0 near r = r_0, dr being future timelike. Near ℐ⁺ the
 flow Φ_τ of Z is translation in t_*, which preserves the edge structure and the weight, and the density up to a smooth
-positive factor bounded with its derivatives at bounded times; elsewhere it is a smooth flow on a compact set. So (Φ_τ)_* is bounded on H^(m,2α)_e, m ∈ ℕ_0, uniformly for |τ| ≤ τ_0, and strongly
-continuous at τ = 0, by the chain rule and the density of C_c^∞.
+positive factor bounded with its derivatives at bounded times; elsewhere it is a smooth flow on a compact set. So
+(Φ_τ)_* is bounded on H^(m,2α)_e, m ∈ ℕ_0, uniformly for |τ| ≤ τ_0, and strongly continuous at τ = 0, by the chain rule
+and the density of C_c^∞.
 
 As Z and Φ_τ are defined only near Ω⁻_* ∩ {t^♭ ≤ T_1 + 2}, in [[lem:ii-e-1-3]] below (Φ_(±τ))_* is applied only after
 multiplication by a cut-off χ_Z, a function of t^♭ equal to 1 on {T_0 − η_0/4 ≤ t^♭ ≤ T_1 + 1} and supported in
@@ -1486,8 +1487,8 @@ For [[eq:ii-e-6-2]] use [[prop:ii-e-4-4]], [[eq:ii-d1-1-2]] and [[prop:ii-e-5-6]
 hold by assumption (for [[prop:ii-e-5-6]] (b) with a := r_0, T_0 = 1 and κ_0 replaced by min(κ_0, r_0 − r^♯)). In
 (A), [[prop:ii-e-4-4]] on Ω_(1,5) bounds u by the norms of f on Ω_(1,6); f is the restriction of Pu, given on all of
 Ω_*, and on Ω_(1,6), as on Ω_(1,5), ρ_+ and ρ_K are bounded above and below, so for every j its norm there of order
-(𝗌 − 1; j) is at most C_j times the norm of Pu of order (𝗌; j) on Ω_*. The term ε_(P,k) ‖u‖^([r_1^+,r^♮])_((𝗌;d)) of [[eq:ii-e-5-6]] is
-bounded by (A) and (B) at k = d, with constants depending on ε_(P,d) only. d_0 and d are the largest of those of the
-three pieces. Uniformity in P_0: the constants of [[sec:ii-e-2]]–[[sec:ii-e-5]] depend on P_0 through finitely many
-coefficient norms and the margins of [[lem:ii-c-3-2]], of [[eq:ii-e-1-2]] and of the dynamics of [[ch:s05]], which are
-uniform as in [[rem:ii-d-1-3]]; so are those of (B). ∎
+(𝗌 − 1; j) is at most C_j times the norm of Pu of order (𝗌; j) on Ω_*. The term ε_(P,k) ‖u‖^([r_1^+,r^♮])_((𝗌;d)) of
+[[eq:ii-e-5-6]] is bounded by (A) and (B) at k = d, with constants depending on ε_(P,d) only. d_0 and d are the largest
+of those of the three pieces. Uniformity in P_0: the constants of [[sec:ii-e-2]]–[[sec:ii-e-5]] depend on P_0 through
+finitely many coefficient norms and the margins of [[lem:ii-c-3-2]], of [[eq:ii-e-1-2]] and of the dynamics of
+[[ch:s05]], which are uniform as in [[rem:ii-d-1-3]]; so are those of (B). ∎
