@@ -129,9 +129,9 @@ defined by env(v_s + x_λ) = λ^(5/2). Then every point v of the band satisfies 
 As λ → 0, x_λ → 0 and λ κ̄_λ^j → 0 for every j ≥ 1. So κ and κ(v − v_s) tend to ∞ uniformly on the band, and for every
 δ′ ∈ (0, 1) there is a threshold on λ below which λκ ≤ λ^(δ′) at every point of the band.
 
-*Proof.* As log env is concave and differentiable, κ is nonincreasing and κ′ ≤ 0; and κ > 0 since env′ > 0. If κ were
-bounded by a number B on (v_s, v_s + x0], then log env(v) ≥ log env(v_s + x0) − B x0 for every v there, against env(v) → 0;
-so κ(t) → ∞ as t ↓ v_s. Now (κ^(−α))′ = −α κ^(−α−1) κ′ = α κ^(−α−1) |κ′| lies in [0, α c_R]. For v_s < t < v,
+*Proof.* As log env is concave and differentiable, κ is nonincreasing and κ′ ≤ 0; and κ > 0 since env′ > 0. If κ
+were bounded by a number B on (v_s, v_s + x0], then log env(v) ≥ log env(v_s + x0) − B x0 for every v there, against
+env(v) → 0; so κ(t) → ∞ as t ↓ v_s. Now (κ^(−α))′ = −α κ^(−α−1) κ′ = α κ^(−α−1) |κ′| lies in [0, α c_R]. For v_s < t < v,
 κ(v)^(−α) ≤ κ(t)^(−α) + α c_R (v − t), and letting t ↓ v_s gives [[eq:l-24-kappa-low]].
 For [[eq:l-24-kappa-up]] put h := κ(v)^(−α)/(α c_R). If h > x0/2, then κ(v) < (2/(α c_R x0))^(1/α). Otherwise
 v + h ≤ v_s + x0, and for v ≤ t ≤ v + h, κ(t)^(−α) ≤ κ(v)^(−α) + α c_R h = 2κ(v)^(−α), so κ(t) ≥ 2^(−1/α) κ(v). As env
@@ -214,8 +214,8 @@ by the proof of [[lem:l-24-margin]]; so m0 ≥ A² env²/(10 √μ0). As R m0 = 
 and, |ν| and |d| being at most C, both |ν(r0)| and |d(ϑ)| are at least λ^δ/C. In particular ν(r0) ≠ 0.
 
 *The size of S − S_st.* By (H_N), env^(N−1) = κ_0 κ_1 ⋯ κ_(N−2) env with 0 < κ_k ≤ 2κ, so Λ ≤ 2^(N−1) λ^(N−2) κ^(N−1)
-≤ 2^(N−1) λ^(N−2) κ̄_λ^(N−1) ≤ C θ λ^δ, which is also at most λ for λ small. As |T + i| ≥ max(T, 1), |Ξ| ≤ |1 − c_N| + c_N
-≤ C, and Γ_R ≤ C; hence, with |ν| ≥ λ^δ/C,
+≤ 2^(N−1) λ^(N−2) κ̄_λ^(N−1) ≤ C θ λ^δ, which is also at most λ for λ small. As |T + i| ≥ max(T, 1),
+|Ξ| ≤ |1 − c_N| + c_N ≤ C, and Γ_R ≤ C; hence, with |ν| ≥ λ^δ/C,
 
     |S_U| ≤ C Λ λ³ A |d| env = C (Λ/|ν|) R m0 ≤ C θ R m0.
 

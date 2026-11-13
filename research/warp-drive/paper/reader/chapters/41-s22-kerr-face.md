@@ -66,16 +66,16 @@ parameter b lies in the closed ball ℬ̄_* about b_0 of [[sec:iii-h2-0]], shrun
 1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]), in [[prop:iii-i15-2-12]] and the step of
 [[prop:iii-i8-4-1]], in [[lem:iii-i15-1-2]] and in [[prop:iii-i15-2-5]], each time to a smaller ball about b_0; every
 result below holds on this ball. On ℬ̄_* the model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem
-at b with continuity in
-(b, S, h) (property (P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots of
-L̂_b(0) at ∂X, which do not depend on b (P2); the zero energy states of the table of roots of [[sec:iii-g2-1]] for L_b,
-their companions, the 1-form towers of [[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b, which are
-real and smooth in b, with index sets in (μ − j) + ℰ_ind, ℰ_ind independent of b (P3); the augmented low energy theory of
-[[ch:s18]] at b (P4); and the time translation, Killing for every g_b (P5). The rows are built at the base point's b, and
-the correction terms and their counterterms are the tensors built from b_0 (P6). Every statement below is the statement
-at b: L_(b_0), g_(b_0) near K⁺, the states, towers and companions at b_0 and ℰ_ind are replaced by those at b, and the
-splitting L_(h,p⃗) = L_b + (L_(h,p⃗) − L_b) near K⁺, which moves a perturbation into the source, has the same K⁺-gain as
-at b_0, since the background equals g_b near K⁺ ([[lem:iii-i-3-6]]). Every constant is uniform on ℬ̄_*.
+at b with continuity in (b, S, h) (property (P1) there); the ι⁺-normal operator, the transition face normal operator
+and the indicial roots of L̂_b(0) at ∂X, which do not depend on b (P2); the zero energy states of the table of roots of
+[[sec:iii-g2-1]] for L_b, their companions, the 1-form towers of [[prop:iii-d3-3-1]], the physical states of
+[[prop:iii-f4-5-1]] and ġ_b, which are real and smooth in b, with index sets in (μ − j) + ℰ_ind, ℰ_ind independent of b
+(P3); the augmented low energy theory of [[ch:s18]] at b (P4); and the time translation, Killing for every g_b (P5). The
+rows are built at the base point's b, and the correction terms and their counterterms are the tensors built from b_0
+((P6) of [[lem:s25-p6]]). Every statement below is the statement at b: L_(b_0), g_(b_0) near K⁺, the states, towers
+and companions at b_0 and ℰ_ind are replaced by those at b, and the splitting L_(h,p⃗) = L_b + (L_(h,p⃗) − L_b) near K⁺,
+which moves a perturbation into the source, has the same K⁺-gain as at b_0, since the background equals g_b near K⁺
+([[lem:iii-i-3-6]]). Every constant is uniform on ℬ̄_*.
 
 At b_0 every rotation is Killing, so the rotation state vanishes, h_(b_0,v1) = 0. At a rotating b the rotation state
 h_(b,v1) ∈ 𝒜³ is smooth in b and O(|b − b_0|) but need not vanish ([[lem:iii-i15-1-1]] (P3)). The v1 terms of the
@@ -107,13 +107,13 @@ operator P_4, its linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(
 
     λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = min Re ℰ^♯_+,
 
-ℰ^ι_ind is the index set of [[thm:iii-g2-4-2]] ([[eq:iii-g2-4-4]]). Two gaps of indicial roots enter, and they are
-different numbers: ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the indicial roots of L̂_b(0), with which the
-hypotheses of [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]] are stated; ε_Υ is the constant of [[sec:iii-d2-1]], fixed by
-the indicial roots of (□^Υ_b)^(0), and the index sets ℰ_ind of the corrections of the states have least real part at
-least ε_Υ. The remainders of [[prop:iii-g4-4-4]] ([[eq:iii-g4-4-3]]) and [[prop:iii-g4-5-1]] ([[eq:iii-g4-5-1]]) gain
-over the forcing through the corrections of the states ([[lem:iii-g4-4-3]]); of this gain we use only the lower bound
-ε_g := min(ε_Υ, ε_ind). [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), (e) extend verbatim to every triple (τ, λ, k) with
+ℰ^ι_ind is the index set of [[thm:iii-g2-4-2]] ([[eq:iii-g2-4-4]]). The two gaps of indicial roots ε_ind and ε_Υ, and
+ε_g = min(ε_Υ, ε_ind), are those of [[def:s21-eps-g]]: ε_ind, fixed by the indicial roots of L̂_b(0), is the constant
+with which the hypotheses of [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]] are stated; ε_Υ is fixed by the indicial roots
+of (□^Υ_b)^(0), and the index sets ℰ_ind of the corrections of the states have least real part at least ε_Υ. The
+remainders of [[prop:iii-g4-4-4]] ([[eq:iii-g4-4-3]]) and [[prop:iii-g4-5-1]] ([[eq:iii-g4-5-1]]) gain over the forcing
+through the corrections of the states ([[lem:iii-g4-4-3]]); of this gain we use only the lower bound ε_g of
+[[def:s21-eps-g]]. [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), (e) extend verbatim to every triple (τ, λ, k) with
 τ ∈ 𝒯, Re λ ≥ λ_♯ and k ∈ ℕ₀; m_ν and r_ν denote these also for ν ∉ 𝒩. Two further hypotheses are made:
 
 (C5) γ_C v_C ≥ 1/2 ([[sec:iii-g2-1]]), so that ℓ^max_K = min(3, 2 + 2γ_C v_C) = 3 ([[eq:iii-g2-1-1]]).
@@ -857,8 +857,16 @@ G ∈ 𝒴⁰(α). Suppose that the forward solution u of L_(h,p⃗)u = G lies i
 for every β_+ < min(3/2, min Re ℰ_+). Here u^rot := u^rot_ι + v^rot is the sum of the v1 terms of
 [[prop:iii-i10-3-1]] and [[prop:iii-i11-3-1]] for the forcing f′ of the proof, and the coefficients
 S_ν = S^(h,p⃗)_ν(G) ∈ 𝒲_(τ,ℂ) are determined by u − u^rot ([[cor:iii-i10-2-3]]); u^rot and the S_ν are
-conjugation-symmetric, linear and continuous in G, with bounds uniform for (h, p⃗) small and b ∈ ℬ̄_*. When h_(b,v1) = 0,
-in particular at b_0, u^rot has K⁺-weight α − 2 − ε and is put into ũ.
+conjugation-symmetric and linear in G, and for every w ∈ (0, w_0]
+
+    |S^(h,p⃗)_ν(G)| + |u^rot| ≤ C‖G‖_(𝒴⁰(α)) + C(‖h‖ + |p⃗|)‖u‖_(w),
+
+where |u^rot| is the size of the coefficients V_(λ_0,j) and Y of its terms, ‖·‖_(𝒴⁰(α)) is one fixed seminorm of
+𝒴⁰(α) and ‖·‖_(w) one fixed seminorm of the space of the hypothesis with w in place of w_0, both chosen as in
+[[sec:iii-i8-1]], and C depends on w and is uniform for (h, p⃗) small and b ∈ ℬ̄_*. This is not a bound by G alone: the
+last term vanishes at (h, p⃗) = (0, 0), where L_(0,0) = L_(b_0), but not at the reference point (0, p⃗_b) of
+[[lem:iii-i11-3-3]] with b ≠ b_0. When h_(b,v1) = 0, in particular at b_0, u^rot has K⁺-weight α − 2 − ε and is put
+into ũ.
 
 *Proof.* *Step 0.* Put f′ := G − (L − L_b)u, which equals L_b u. By [[prop:iii-i-4-1]] ([[eq:iii-i-4-2]]), for
 L = L_(h,p⃗) ([[lem:iii-i9-2-5]]), (L − L_b)u has the ℐ⁺-data (⟨ℰ^C_I + 1⟩′, ℓ_I + 1), the plain ι⁺-weight
@@ -874,7 +882,12 @@ of ũ below 3/2 are those of u, by Step 1 of the proof of [[prop:iii-i5-2-1]] wi
 
 *Determination.* If two such expansions hold with the same u^rot, their difference is a sum of m_ν of K⁺-weight
 α − 2 − ε, which is 0 by [[cor:iii-i10-2-3]] (Re e_ν ≤ 2 < α − 2). *Reality:* u is real, m_ν̄(W̄) is the conjugate of
-m_ν(W), and the expansion is unique. *Bounds:* every map is linear and bounded, uniformly by [[lem:iii-i9-2-5]]. ∎
+m_ν(W), and the expansion is unique. *Bounds:* Steps 1–3 obtain the S_ν and u^rot from f′ by maps fixed by L_b, linear
+and bounded uniformly on ℬ̄_* ([[prop:iii-i10-3-1]], [[prop:iii-i11-3-1]], [[cor:iii-i10-2-3]], [[lem:iii-i15-1-1]]), so
+|S_ν| + |u^rot| ≤ C‖f′‖_(𝒴⁰(α)). The count of Step 0, whose coefficients L − L_b have size O(‖h‖ + |p⃗|)
+([[lem:iii-i9-2-5]]) and gain a_K at K⁺, applies with w − ε for w_0 − ε, as w − ε + a_K ≥ α for ε small (a_K ≥ 4 + ε_K
+≥ α by (H2)); it gives ‖(L − L_b)u‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u‖_(w), so
+‖f′‖_(𝒴⁰(α)) ≤ ‖G‖_(𝒴⁰(α)) + C(‖h‖ + |p⃗|)‖u‖_(w). ∎
 
 Since f′ = L_b u, the coefficients S_ν and u^rot are linear functions of u.
 
@@ -884,11 +897,39 @@ hole parameter b, (h_j, p⃗_j) → (0, p⃗_b), G_j → G in 𝒴⁰(α), and t
 u of L_(0,p⃗_b)u = G satisfy the hypothesis with the same w_0 and β′_+, the u_j being bounded there, then
 S^(h_j,p⃗_j)_ν(G_j) → S^(0,p⃗_b)_ν(G). At b_0, p⃗_(b_0) = 0 and L_(0,0) = L_(b_0).
 
-*Proof.* As in [[lem:iii-i8-3-3]], with L_(0,p⃗_b) as the reference operator: u_j − u is the forward solution of
-L_(0,p⃗_b)(u_j − u) = R_j := G_j − G − (L_j − L_(0,p⃗_b))u_j, and R_j → 0 in 𝒴⁰(α) (the count of Step 0 of the proof of
-[[lem:iii-i11-3-2]], with coefficients o(1); near K⁺ both backgrounds equal g_b, [[lem:iii-i-3-6]], so
-L_j − L_(0,p⃗_b) gains a_K there). The coefficients are linear functions of the solution, so
-S^(h_j,p⃗_j)_ν(G_j) − S^(0,p⃗_b)_ν(G) = S^(0,p⃗_b)_ν(R_j) → 0. ∎
+*Proof.* Write L_j := L_(h_j,p⃗_j). As in [[lem:iii-i8-3-3]], with L_(0,p⃗_b) as the reference operator, u_j − u is the
+forward solution of
+
+    L_(0,p⃗_b)(u_j − u) = R_j := G_j − G − (L_j − L_(0,p⃗_b))u_j.
+
+The coefficients of L_j − L_(0,p⃗_b) have size O(‖h_j‖ + |p⃗_j − p⃗_b|) ([[lem:iii-i9-2-5]]), and near K⁺ they gain a_K,
+both backgrounds being g_b there ([[lem:iii-i-3-6]]); so the count of Step 0 of the proof of [[lem:iii-i11-3-2]], the
+u_j being bounded, gives R_j → 0 in 𝒴⁰(α); R_j is real. u_j − u satisfies the hypothesis of [[lem:iii-i11-3-2]] with
+the same w_0 and β′_+, and the coefficients are linear functions of the solution, so
+S^(h_j,p⃗_j)_ν(G_j) − S^(0,p⃗_b)_ν(G) = S^(0,p⃗_b)_ν(R_j), and the bound of [[lem:iii-i11-3-2]] at (0, p⃗_b) gives, for
+every w ∈ (0, w_0],
+
+    |S^(0,p⃗_b)_ν(R_j)| ≤ C‖R_j‖_(𝒴⁰(α)) + C|p⃗_b|‖u_j − u‖_(w).
+
+At b = b_0, p⃗_b = 0 and this tends to 0. For b ≠ b_0 it remains to show ‖u_j − u‖_(w) → 0 for one such w; this is
+part (i) of [[prop:iii-i8-4-1]] at a level below 3. Fix an admissible α′ ∈ (2, min(3, 2 + w_0)) ([[sec:iii-i8-1]]; the
+excluded values are finitely many), and w ∈ (0, α′ − 2).
+
+*u_j − u lies in [[eq:iii-i8-4-2]] at α′.* Its K⁺-weight is w_0 − ε for every ε > 0, and w_0 > α′ − 2; its ℐ⁺-data are
+(⟨ℰ^C_I⟩, ℓ_I); and u_j and u have the ι⁺-weight β_+ for every β_+ < min(3/2, min Re ℰ_+), by [[eq:iii-i11-3-2]], as
+the m_ν and the terms of u^rot have ι⁺-weight above 3/2 (λ_♯ − ε for the m_ν, [[lem:iii-i9-2-2]] (b), and for the
+terms of u^rot_ι, [[prop:iii-i10-3-1]]; 2 − ε for the towers of v^rot, whose coefficients have exponents of real part 2
+and whose order at ι⁺ is that exponent, [[sec:iii-i12-1]]).
+
+*Uniqueness and (i) at α′.* The row components of p⃗_b vanish, so L_(0,p⃗_b) is the operator of P_3 at (0, p⃗_b)
+([[lem:iii-i9-2-5]]), and [[prop:iii-i8-4-1]] at α′ applies at the base point (0, p⃗_b), whose black hole parameter b
+lies in ℬ̄_*. R_j lies in 𝒴⁰(α) ⊂ 𝒴(α′), the class of [[sec:iii-i9-1]] at α′, which lies in the class of
+[[sec:iii-i8-1]] of the same name, and R_j → 0 there. The forward solution u_j − u of L_(0,p⃗_b)(u_j − u) = R_j lies in [[eq:iii-i8-4-2]] at α′, so the
+parameter 0 has, for (0, p⃗_b) and the forcing R_j, the property of the statement at α′; by uniqueness at α′,
+p⃗′_(0,p⃗_b,α′)(R_j) = 0, and u_j − u is the solution of [[eq:iii-i8-4-1]] at α′ for the forcing R_j. By (i) at α′ the
+map from the forcing to this solution is linear and continuous from 𝒴(α′) into the space of [[eq:iii-i8-4-2]] at α′,
+so u_j − u → 0 in that space. As w < α′ − 2 and β′_+ < min(3/2, min Re ℰ_+), the seminorm ‖·‖_(w) is bounded by a
+seminorm of that space, and ‖u_j − u‖_(w) → 0. Hence S^(0,p⃗_b)_ν(R_j) → 0. ∎
 
 ### Elimination {#sec:iii-i11-4}
 
@@ -966,15 +1007,32 @@ Hence G(W⃗) = G(0) and C(W⃗) = C(0) − W⃗ on 𝒩′: the equation has th
 finite-dimensional space of the W⃗. G(W⃗) − G(0) = −Σ r^ν(W_ν) − (the q⃗-terms of q⃗(W⃗) − q⃗(0)); the first is
 O(|W⃗|(‖h‖ + |p⃗|)) in 𝒴_2(α) ([[eq:iii-i9-2-5]]), and q⃗(W⃗) − q⃗(0) = −p⃗′_(h,p⃗,α′)(D_(p⃗)P_4(h, p⃗)(W⃗)) tends to
 −p⃗′_(0,0,α′)(Σ L_(b_0)m_ν(W_ν)) = 0 as (h, p⃗) → (0, 0), for fixed W⃗ ([[prop:iii-i8-4-1]] (ii), with
-[[lem:iii-i9-2-6]] (b)–(d) for the convergence of the sources in 𝒴(α′)). With the uniform bounds of
-[[lem:iii-i11-3-2]] and of [[prop:iii-i8-4-1]] (i), T_(h,p⃗) → id, so T_(h,p⃗) is invertible for (h, p⃗) small; put
-W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and F are real and T commutes
-with the conjugation of [[sec:iii-i9-1]].
+[[lem:iii-i9-2-6]] (b)–(d) for the convergence of the sources in 𝒴(α′)). Now S^(h,p⃗)(G(W⃗) − G(0)) are the
+coefficients of u_0(W⃗) − u_0(0), and the bound of [[lem:iii-i11-3-2]] with w = w_0 gives
+
+    |S^(h,p⃗)(G(W⃗) − G(0))| ≤ C‖G(W⃗) − G(0)‖_(𝒴⁰(α)) + C(‖h‖ + |p⃗|)‖u_0(W⃗) − u_0(0)‖_(w_0).
+
+The first term tends to 0 for fixed W⃗, by the above, the q⃗-terms being linear in q⃗ with bounds uniform for (h, p⃗)
+small ([[lem:iii-i9-2-6]] (a), (c), (d)). For the second, u_0(W⃗) − u_0(0) = u(W⃗) − u(0) + Σ_(ν∈𝒩′) m_ν(W_ν) +
+Σ_(ν∈ℳ_(α′)) m_ν(q_ν(W⃗) − q_ν(0)), and u(W⃗) − u(0) is the solution of [[eq:iii-i8-4-1]] at α′ for the forcing
+F(W⃗) − F(0) = −D_(p⃗)P_4(h, p⃗)(W⃗), of size O(|W⃗|) in 𝒴(α′) ([[lem:iii-i9-2-6]] (b)). So [[prop:iii-i8-4-1]] (i) at α′
+bounds q⃗(W⃗) − q⃗(0) by C|W⃗|, and u(W⃗) − u(0) by C|W⃗| in the space of [[eq:iii-i8-4-2]] at α′, whose seminorms bound
+‖·‖_(w_0) as w_0 ≤ α′ − 2; and ‖m_ν(W)‖_(w_0) ≤ C|W| for every row, m_ν(W) having K⁺-weight at least λ_♯ − 1 − ε ≥
+w_0 − ε and ι⁺-weight λ_♯ − ε ([[lem:iii-i9-2-2]]). So the second term is O((‖h‖ + |p⃗|)|W⃗|), T_(h,p⃗)W⃗ → W⃗ for every
+W⃗, and on the finite-dimensional space of the W⃗, T_(h,p⃗) → id; so T_(h,p⃗) is invertible for (h, p⃗) small, with
+|T⁻¹_(h,p⃗)| ≤ 2. Put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and F are
+real and T commutes with the conjugation of [[sec:iii-i9-1]].
 
 *Uniqueness.* If p⃗″ also gives [[eq:iii-i11-4-2]] at α, its solution lies in [[eq:iii-i8-4-2]] at α′, so its
 𝒫_(α′)-part is q⃗(W⃗″) by the uniqueness at α′ ([[prop:iii-i8-4-1]]), where W⃗″ is its 𝒩′-part; then C(W⃗″) = 0, so
-W⃗″ = W⃗. *Linearity, bounds, continuity:* by construction, from those of [[prop:iii-i8-4-1]], [[lem:iii-i11-3-2]] and
-T⁻¹_(h,p⃗); continuity at (0, 0) as in [[prop:iii-i8-4-1]] (ii), with [[lem:iii-i11-3-3]]. ∎
+W⃗″ = W⃗. *Linearity, bounds, continuity:* linearity holds by construction. Write ‖F‖ := ‖F‖_(𝒴⁰(α)); F lies in
+𝒴(α′) with ‖F‖_(𝒴(α′)) ≤ C‖F‖. By [[prop:iii-i8-4-1]] (i) at α′, |q⃗(0)| ≤ C‖F‖ and u(0) is bounded by C‖F‖ in the
+space of [[eq:iii-i8-4-2]] at α′; so ‖G(0)‖_(𝒴⁰(α)) ≤ C‖F‖ and, as above, ‖u_0(0)‖_(w_0) ≤ C‖F‖. The bound of
+[[lem:iii-i11-3-2]] then gives |C(0)| ≤ C‖F‖, so |W⃗| ≤ 2|C(0)| ≤ C‖F‖, and (i) at α′ for the forcing F(W⃗), of size at
+most C‖F‖ in 𝒴(α′), gives |q⃗(W⃗)| ≤ C‖F‖ and bounds u(W⃗) by C‖F‖. So |p⃗′_(h,p⃗)(F)| ≤ C‖F‖, and likewise
+‖G(W⃗)‖_(𝒴⁰(α)) ≤ C‖F‖ and ‖u_0(W⃗)‖_(w_0) ≤ C‖F‖, with C uniform for (h, p⃗) small. Continuity at
+(0, 0) as in [[prop:iii-i8-4-1]] (ii), with [[lem:iii-i11-3-3]] at b_0, where it needs only that the solutions u_0 be
+bounded, which they are by these bounds. ∎
 
 At a base point with black hole parameter b ∈ ℬ̄_*, the elimination is [[prop:iii-i15-2-5]] with q = 0: when
 h_(b,v1) ≠ 0 the v1 terms u^rot of [[lem:iii-i11-3-2]] are not removed by the parameters of 𝒫, whose v1 rows carry the
@@ -1361,7 +1419,10 @@ have the order at least 3 + η_2 − 2ε at ι⁺ (α_κ + 2 for (viii); at leas
 ġ(ḃ_rem), as h_(b_0,s1) ∈ 𝒜³ and h̆¹_(b_0,s1), ġ ∈ 𝒜²). So ũ satisfies [[eq:iii-i12-3-3]].
 
 *Step 6 (the rest).* Every map used is linear and bounded, uniformly for (h, p⃗) small ([[lem:iii-i11-3-2]],
-[[thm:iii-i11-4-1]], [[lem:iii-i12-2-1]]–[[lem:iii-i12-2-4]]). Reality: u is real and the towers are real (the
+[[thm:iii-i11-4-1]], [[lem:iii-i12-2-1]]–[[lem:iii-i12-2-4]]), and is applied to the forcing f′ of Step 0, whose size
+is at most C‖F‖_(𝒴⁰(α)): ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0‖_(w_0) are at most C‖F‖_(𝒴⁰(α)) by the bounds in the proof of
+[[thm:iii-i11-4-1]], and ‖(L_(h,p⃗) − L_(b_0))u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w_0) by the count of Step 0 of the proof
+of [[lem:iii-i11-3-2]]. Reality: u is real and the towers are real (the
 conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing every coefficient and ũ by their real parts keeps
 [[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]], ℰ_♯ being closed under conjugation. L_(b_0)(χ_K u_exp) has K⁺-order α − ε by the
 tower relations, as in Step 3. ∎

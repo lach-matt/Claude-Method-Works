@@ -354,7 +354,8 @@ iξ((f′ + 2γ_H c_v)u_v, 2γ_H c_r u_v + (−f′ + 4γ_H c_v)u_r, 2γ_H c_v u
 (iv) g⁻¹(dt − dr, dt − dr) = g^tt + g^rr = −f⁻¹ + f = −(1 − f)(1 + f)/f with 1 − f = m_0ρ² and 1 + f = 2 − m_0ρ²;
 and g − ḡ = (1 − f)dt² + (f⁻¹ − 1)dr². ∎
 
-The incoming radial set R_in of [[eq:i-a-1-5]] sees the operator at ∂X through the following structure.
+At the incoming radial set R_(σ₀,in) of [[eq:i-a-4-6]], the threshold ϑ_in of [[eq:i-a-1-5]] is computed from the
+endomorphism p_in − (S + S^(∗h)) at ∂X; the following proposition gives its structure.
 
 **Proposition {#prop:np-10-19-i}** (The radial structure at the incoming radial set.) (a) For c ∈ ℝ, the operator
 ρ(ρ∂_ρ − c) on C_c^∞((0, ∞)) is formally skew-adjoint for the density ρ⁻⁵dρ, the radial factor of the Euclidean
@@ -1180,10 +1181,21 @@ root is ≤ 0 or ≥ 3. In particular *neither 1 nor 2 is an indicial root, of a
 1 − l, l + 3, −l and l + 2, none of which is 1 or 2 for l ≥ 1, and by [[eq:iii-d-4-2]] the others lie strictly
 between consecutive integers for 0 < z ≤ ½.
 
-*The constant ε_Υ.* Let ℳ be the finite set of real numbers in [−10, 10] of the form Re ι + j, ι an indicial root of
-(□^Υ_b)^(0) (all are real) and j ∈ ℤ, and fix ε_Υ > 0 less than half the least distance between distinct points of ℳ.
-As 0 is a root, ℳ contains every integer in [−10, 10], so ε_Υ < d(Re ι, ℤ) for every indicial root ι with Re ι ∉ ℤ and
-|Re ι| ≤ 10. The constant ε_Υ is fixed by the indicial roots of □^Υ_b alone; it is not the constant ε_ind of
+*The constant ε_Υ.* Let ℳ be the set of real numbers in [−10, 10] of the form Re ι + j, with j ∈ ℤ and ι an indicial
+root of (□^Υ_b)^(0) with |Re ι| ≤ 10 (all the roots are real). The set ℳ is finite. Indeed, by [[lem:iii-d-4-1]] and
+[[eq:iii-d-4-2]] the roots of type sl are ≤ 1 − l or ≥ l + 1, and those of type vl are −l and l + 2; so every root of
+type sl or vl has |Re ι| ≥ l − 1, and only the type s0 and the types sl and vl with l ≤ 11 have roots with
+|Re ι| ≤ 10. These are finitely many types with at most six roots each, and each root gives at most 21 points of ℳ.
+Fix ε_Υ > 0 less than half the least distance between distinct points of ℳ. As 0 is a root, ℳ contains every integer
+in [−10, 10]; so ε_Υ < ½, and ε_Υ < d(Re ι, ℤ) for every indicial root ι with Re ι ∉ ℤ and |Re ι| ≤ 10, as the integer
+nearest to such a Re ι lies in [−10, 10]. The restriction to |Re ι| ≤ 10 cannot be dropped. For z > 0 the root
+ι := ι^Υ_(sl,l+1) satisfies ι + l > 0 and
+
+    (ι − l − 1)(ι + l) = ι² − ι − l(l + 1) = s_(l,1) − l(l + 1) = l + 1 + z/2 − ((l + 1)² + z + z²/4)^(1/2),
+
+which lies in (0, z/2), as (l + 1 + z/2)² − ((l + 1)² + z + z²/4) = lz > 0; so ι > l + 1, ι + l > 2l + 1 and
+0 < ι − l − 1 < z/(2(2l + 1)). Hence the numbers Re ι + j, taken over all roots, accumulate at every integer, and have
+no least distance. The constant ε_Υ is fixed by the indicial roots of □^Υ_b alone; it is not the constant ε_ind of
 [[eq:iii-f1-2-2]], which is fixed by the indicial roots of the linearised gauge-fixed Einstein operator. ℰ_ind denotes
 an index set with min Re ℰ_ind ≥ ε_Υ, which may change from line to line, and (k, 0) the index set
 {(k + j, 0) : j ∈ ℕ_0}.
@@ -1719,10 +1731,10 @@ N_0(ι) = −(ι + l)(ι − l − 2) and N_1(ι) = −2(ι − 3/2 − γ_Υ). 
 N_1(ι) = −2(ι − 1 − γ_Υ) at v1.
 
 (ii) (*The classes.*) For every l ≥ 1, Q_l(l(l + 1)) = lz, Q_l((l + 1)(l + 2)) = −(l + 2)z and
-Q_l((l + 2)(l + 3)) = (l + 2)(8l + 12 − 3z). So for 0 < z < 20/3 the negative sl roots other than 1 − l,
-μ_(l,0) := 1 − ι^Υ_(sl,l+1) and μ_(l,1) := 1 − ι^Υ_(sl,l+2), satisfy −l − 1 < μ_(l,0) < −l and
-−l − 2 < μ_(l,1) < −l − 1, with μ_(l,0) = −l − lz/(2(l + 1)(2l + 1)) + O(z²) and
-μ_(l,1) = −l − 1 − (l + 2)z/(2(l + 1)(2l + 3)) + O(z²). μ_s0 := 1 − ι^Υ_(s0,2) = ½(1 − (9 + 4z)^(1/2))
+Q_l((l + 2)(l + 3)) = (l + 2)(8l + 12 − 3z). So for every z > 0 the negative sl roots other than 1 − l,
+μ_(l,0) := 1 − ι^Υ_(sl,l+1) and μ_(l,1) := 1 − ι^Υ_(sl,l+2), satisfy −l − 1 < μ_(l,0) < −l and μ_(l,1) < −l − 1
+([[prop:np-10-15]] (i)), and for 0 < z < 20/3 also μ_(l,1) > −l − 2. As z → 0,
+μ_(l,0) = −l − lz/(2(l + 1)(2l + 1)) + O(z²) and μ_(l,1) = −l − 1 − (l + 2)z/(2(l + 1)(2l + 3)) + O(z²). μ_s0 := 1 − ι^Υ_(s0,2) = ½(1 − (9 + 4z)^(1/2))
 = −1 − z/3 + O(z²) lies in (−2, −1) for 0 < z < 4. The sl roots 1 − l and the vl roots −l are roots at every z. For
 0 < z < 4 the roots ≤ 0 of each type are these, together with 0 at s0. In dimension 3 + 1 the corresponding roots are
 −(1 + z)^(1/2), −ι♮_(sl,l) and −ι♮_(sl,l+1) of [[lem:s13-dim-four]] (3), which are [Hin26]'s −λ^Υ_(s0,1), −λ^Υ_(sl,l)
@@ -1755,11 +1767,15 @@ l = 2, 3 the second step for the root 1 − l, N_0(−l − 1)w̄_2 = −N_1(−
 *Proof.* (i) is [[eq:iii-d-2-1]], [[lem:iii-d-3-1]] and [[sec:iii-d-4]]; on vl, S̄ acts as γ_Υ and N_0 = p + κ.
 (ii) By [[eq:s13-qfactor]], Q_l(s) = (s − l(l + 1))(s − (l + 1)(l + 2)) + z(κ − s), and κ − l(l + 1) = l,
 κ − (l + 1)(l + 2) = −(l + 2), κ − (l + 2)(l + 3) = −3(l + 2), while the product at (l + 2)(l + 3) is
-(4l + 6) · 2(l + 2). As Q_l is a monic quadratic, its roots s_(l,1) < s_(l,2) satisfy
-l(l + 1) < s_(l,1) < (l + 1)(l + 2) < s_(l,2) < (l + 2)(l + 3) when 0 < z < (8l + 12)/3, which holds for z < 20/3;
-and ι ↦ ι² − ι is increasing on ι > ½, which gives the intervals. The expansions and μ_s0 are those of
-[[lem:iii-d-4-1]], and ½ − (9/4 + z)^(1/2) ∈ (−2, −1) for 0 < z < 4. The last sentence follows from the list of
-[[lem:iii-d-4-1]], whose positive roots are > 0. (iii) is [[lem:iii-a1-2-4]].
+(4l + 6) · 2(l + 2). Let z > 0. Q_l is a monic quadratic, positive at l(l + 1) and negative at (l + 1)(l + 2), so
+its roots satisfy l(l + 1) < s_(l,1) < (l + 1)(l + 2) < s_(l,2), as in the proof of [[prop:np-10-15]] (i); since
+ι ↦ ι² − ι is increasing on ι > ½, l + 1 < ι^Υ_(sl,l+1) < l + 2 < ι^Υ_(sl,l+2), which gives −l − 1 < μ_(l,0) < −l and
+μ_(l,1) < −l − 1. If moreover z < (8l + 12)/3, which holds when z < 20/3, then Q_l is positive at (l + 2)(l + 3),
+a point above s_(l,1), and Q_l is negative between its roots; so (l + 2)(l + 3) > s_(l,2), ι^Υ_(sl,l+2) < l + 3 and
+μ_(l,1) > −l − 2. The expansions and
+μ_s0 are those of [[lem:iii-d-4-1]], and ½ − (9/4 + z)^(1/2) ∈ (−2, −1) for 0 < z < 4. The sentence on the roots ≤ 0
+follows from the list of the roots below ½ in the proof of [[prop:np-10-15]] (i), which holds for every z > 0.
+(iii) is [[lem:iii-a1-2-4]].
 (iv) *Simplicity.* For 0 < z < 4 the roots of type s0 are μ_s0 ∈ (−2, −1), 0, ι^Υ_(s0,2) ∈ (2, 3) and 3, and those of
 type sl are μ_(l,1) < −l − 1 < μ_(l,0) < −l < 1 − l < l + 1 < ι^Υ_(sl,l+1) < l + 2 < ι^Υ_(sl,l+2) < l + 3; they are
 distinct, so each is a simple zero of the determinant [[eq:s13-dets]], whose degree is their number. *μ_s0.* μ_s0 + 2

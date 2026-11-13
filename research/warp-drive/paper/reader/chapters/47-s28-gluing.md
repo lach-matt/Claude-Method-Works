@@ -320,9 +320,10 @@ and [[thm:std-cd-exponential]] we use the following statements of [CD03], which 
 - [CD03, Definition 5.3, p. 22]: "Let k ∈ ℕ and let 𝒲 be a space of symmetric tensors on M. We shall say that g has an
   (𝒲, k)–behavior at ∂M if there exists a metric g_M̄ on M̄ of class C^k(M̄) such that g − g_M̄ ∈ 𝒲."
 
-In [CD03] indices are raised and lowered with the current metric g: P* at (K, g) lowers the index of Y with g, and the
-1-form J is paired with a vector field, or projected, with its index raised by g ([CD03, (8.6)] pairs the residual with
-the Killing initial data in this way). We do the same.
+[CD03] identifies vector fields and 1-forms by the current metric g: P* at (K, g) lowers the index of Y with g
+([CD03, (2.4)]), and the residual (J, ρ), whose first component is a 1-form, is projected onto 𝒦₀^(⊥g), a space of
+pairs of a vector field and a function, and is paired with the Killing initial data ([CD03, (8.6)]), with the index of
+J raised by g. We do the same.
 
 *Setting.* Let 𝒜 be a compact manifold with boundary, of dimension n ≥ 2, and let u₀ = (K₀, g₀) be a symmetric
 2-tensor and a Riemannian metric on 𝒜, both smooth up to ∂𝒜. Let x ∈ C^∞(𝒜) be a defining function of ∂𝒜 with
@@ -440,11 +441,12 @@ and (5.10c) as K₀ and its derivatives are bounded. The ε and the solution are
 [[thm:std-cd-bijective]] ([CD03, p. 26]), whose map (3.13) is defined on
 𝒦₀^(⊥g′) ∩ (H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ)) = 𝒴_(g′); so (Y, N) ∈ 𝒴_(g′). [CD03, (5.11)] at u′ is [[eq:v-3-1]], the
 index of J being raised with g′, as in [CD03]. By (e), the kernels of π_(g′) and of π₀ are both 𝒦₀. So [[eq:v-3-1]]
-says
+says that
 
-    ♯_(g′)e^(2s/x){(J, ρ)(u′ + (δK, δg)) − (J, ρ)(u′) − (δJ, δρ)} ∈ 𝒦₀,
+    v := ♯_(g′)e^(2s/x){(J, ρ)(u′ + (δK, δg)) − (J, ρ)(u′) − (δJ, δρ)} ∈ 𝒦₀;
 
-and for (δK, δg) = T_(u′)z so does Ψ(u′, z) = δf. δf lies in 𝒵, as e^(2s/x)(δJ, δρ) ∈ 𝒵̃ (*The spaces*) and by (e).
+for (δK, δg) = T_(u′)z, Ψ(u′, z) − δf = π₀v, so Ψ(u′, z) = δf says the same. δf lies in 𝒵, as e^(2s/x)(δJ, δρ) ∈ 𝒵̃
+(*The spaces*) and by (e).
 The last assertion is part of (e). "Close to zero" is the conclusion of [CD03, Theorem 5.9]; we use it in the form:
 for every r > 0, diminishing ε, the solution has ‖(δK, δg)‖_𝒳 < r. [CD03] applies its existence theorems in this form,
 with the solution bounded by a multiple of the norm of (δJ, δρ) ([CD03, (8.5)]), and [[lem:v-3-2]] (c) proves that
@@ -665,9 +667,10 @@ and 3 − 2α < 0. (The power R^(−2−d_j) is R^(−(n−2)−d_j) at n = 4; [
 *Step 5: conclusion.* Apply [[lem:v-3-3]] with U′ the interior of B̄, f(Q) := Q − 𝔔⁰, f_R := F̂_R for
 R ≥ R′ := max(2R₀, R_P, R_ε, R_𝒢), and y = 0. For every r′ > 0 below the radius of B̄ there is R(r′) ≥ R′ such that for
 R ≥ R(r′) some Q_R with |Q_R − 𝔔⁰| ≤ r′ has F̂_R(Q_R) = 0; put R_gl := R(r′₀) for one such r′₀. Then F_R(Q_R) = 0 and,
-by Step 3, as R ≥ R_𝒢, (J, ρ)(û_(Q_R,R)) = 0. Put p_R := p(Q_R), and let (ĝ_R, K̂_R) be (g, K) on {R₀ < r ≤ R}, 𝒮_R⁻¹û_(Q_R,R) on
-Γ(R, 4R) and (g_(p_R), K_(p_R)) on {r ≥ 4R}. These are smooth, as χ is constant near ∂𝒜 and δu extends smoothly by
-zero. They are vacuum everywhere, and ĝ_R is Riemannian, being C⁰-close to δ on Γ(R, 4R). Finally 𝔮(p_R) = Q_R.
+by Step 3, as R ≥ R_𝒢, (J, ρ)(û_(Q_R,R)) = 0. Put p_R := p(Q_R), and let (ĝ_R, K̂_R) be (g, K) on {R₀ < r ≤ R},
+𝒮_R⁻¹û_(Q_R,R) on Γ(R, 4R) and (g_(p_R), K_(p_R)) on {r ≥ 4R}. These are smooth, as χ is constant near ∂𝒜 and δu
+extends smoothly by zero. They are vacuum everywhere, and ĝ_R is Riemannian, being C⁰-close to δ on Γ(R, 4R). Finally
+𝔮(p_R) = Q_R.
 Choose Q_R for an admissible r′ = r′(R) ≤ 2 inf{r′ : R ≥ R(r′)} + R⁻¹, which exists as R ≥ R(r′₀), and tends to 0 as
 R → ∞, since every r′ > 0 is admissible once R ≥ R(r′). Then 𝔮(p_R) → 𝔔⁰. ∎
 
@@ -676,11 +679,14 @@ r ≥ 4R, the data that 𝔤_(p_R) = 𝒫_(p_R)*g^KS_(m,A) induces on {y⁰ = 0}
 their development contains the domain of dependence of {r > 4R} in 𝔤_(p_R): a Poincaré transform of a Myers–Perry
 metric with parameters near b₀. The proof of [[thm:settling]] uses only the proof of [[thm:v-3-1]], in the class form
 [[prop:vii-2-2]], with Tangherlini members on Σ^IVP. The members of [[def:v-2-1]] lie on the slices {y⁰ = 0} of
-Kerr–Schild time, and there the second fundamental form differs from the one induced on Σ^IVP by
-∇²f + |x|⁻⁴C^∞(X̄), with f the height function of the graph Σ^IVP = {t_KS = f(|x|)} far out
-([[pending:after-shell-mp-data-on-sigma-ivp]]). So the glued data of [[thm:v-3-1]] are not small in the data class
-[[eq:vii-0-1]] of [[thm:iii-k-4-3]] at any R. Gluing a decaying perturbation with smallness in that class takes the
-members on Σ^IVP ([[ch:after-shell]]).
+Kerr–Schild time. Far out, Σ^IVP is the graph {t_KS = f(|x|)}, f its height function, and the second fundamental form
+K̃_p that the member 𝔤_p induces on the graph differs from the one on the slice by ∇²f + |x|⁻⁴C^∞(X̄), that is,
+K̃_p − K_p = ∇²f + |x|⁻⁴C^∞(X̄) ([[lem:after-shell-mp-data]] (d), whose base mass μ_end is m₀ here). By (a) and (b) of
+the same lemma, the |x|⁻³ coefficient of K̃_p depends smoothly on p, through (m, w) only; at p₀, where 𝒫_(p₀) is the
+identity, K̃_(p₀) = k^(m₀) = k_(b₀) by the definition in [[sec:vii-2]]. So the |x|⁻³ coefficient of K_(p_R) − k_(b₀) is
+within C|p_R − p₀| of that of −∇²f, which is −2m₀(δ − 3x̂ ⊗ x̂) ≠ 0 (tr ∇²f = 2m₀|x|⁻³ + O(|x|⁻⁵)); so it is not zero,
+U being small. So the glued data of [[thm:v-3-1]] are not small in the data class [[eq:vii-0-1]] of [[thm:iii-k-4-3]]
+at any R. Gluing a decaying perturbation with smallness in that class takes the members on Σ^IVP ([[ch:after-shell]]).
 
 **Remark {#rem:s28-cd03}** ([CD03, Section 8.1] in space dimension 4.) [CD03, (8.1)] asks the parity condition (E.9)
 so that the angular momentum and the centre of mass converge and so that the errors of [CD03, (8.6)] lie below the main
@@ -691,9 +697,10 @@ min(α, 1), and the power of R in [CD03, (8.7)] is R^(−(n−2)−d). [CD03, Th
 uses s ≥ n − 1, and [CD03, (8.5)] applies it with s = t − 1 where its solution space requires s = t + n − 2; the
 exponentially weighted spaces of [CD03, Theorem 5.9], which [CD03] uses for smooth data, avoid both. [CD03, Theorem
 3.19] applies [CD03, Lemma 3.18] to the maps of [CD03, (3.29)], which must be continuous in Q; this is
-[[lem:v-3-2]]. Finally the projection of [CD03] is orthogonal in L²_ψ of the current metric, so the obstruction it
-leaves is 𝒞_(g′)⁻¹𝒦₀ ([[lem:s28-setting]] (e)), and Step 3 pairs with these converted Killing initial data, whose Gram
-matrix tends to the flat one.
+[[lem:v-3-2]]. Finally the projection of [CD03] is the L²_ψ-orthogonal projection, in the current metric, onto the
+orthogonal of 𝒦₀ in that metric ([CD03, p. 11]). The obstruction it leaves is 𝒦₀ itself, and the unknowns lie in a
+space that moves with the background; [[lem:s28-setting]] (e) transports them to a fixed space, which [[lem:v-3-2]]
+needs, and Step 3 pairs the residual with the Killing initial data themselves, as [CD03, (8.6)] does.
 
 ### Gluing in the symmetry class {#sec:vii-2}
 
@@ -709,13 +716,16 @@ that g^KS_(m,0) induces on this graph over {|x| > R₃}, as tensors on {|x| > R�
 [[lem:iii-b-3-9]].
 
 **Lemma {#lem:vii-2-1}** (Tangherlini on Σ^IVP.) (a) γ^m − δ ∈ |x|⁻²C^∞(X̄) and k^m ∈ |x|⁻³C^∞(X̄) on the
-compactified {|x| > R₃}, smoothly in m ∈ I_m, and γ^m − γ_(b₀), k^m − k_(b₀) have seminorms O(|m − m₀|). In particular
+compactified {|x| > R₃}, smoothly in m ∈ I_m, and |x|²(γ^m − γ_(b₀)) and |x|³(k^m − k_(b₀)) have C^∞(X̄)-seminorms
+O(|m − m₀|). In particular
 |||(γ^m, k^m)|||_(2,j) ([[eq:v-0-3]]) is bounded for every j, uniformly in m. (b) (γ^m, k^m) are vacuum and
 O(4)-invariant. (c) Their charges ([[prop:v-1-3]]) are 𝔔_(e₀) = 6π²m and 𝔔_X = 0 for X in the other three groups of
 [[eq:v-0-4]].
 
 *Proof.* (a) g^KS_(m,0) − η = (m/r²) ℓ ⊗ ℓ with ℓ = dt_KS + x̂ · dx, independent of t_KS and a classical symbol of order
-−2 in x, smoothly in m, and f′ ∈ |x|⁻²C^∞ near infinity ([[lem:iii-b-3-5]] (a)). The induced metric
+−2 in x, smoothly in m, and f′ ∈ |x|⁻²C^∞ near infinity ([[lem:iii-b-3-5]] (a)). The graph is spacelike for each
+g^KS_(m,0), m ∈ I_m: its conormal is dt_KS − f′ d|x|, with f′ = −T′_(m₀) = 2χ_∞m₀/(|x|² − m₀) ∈ [0, ⅔]
+([[eq:iii-b-3-3]]; |x|² − m₀ ≥ 3m₀ on supp χ_∞), which is timelike by [[lem:iii-b-3-3]] (e). The induced metric
 g_ij + 2g_(t(i)∂_(j)f + g_tt∂_if∂_jf and the second fundamental form ([[eq:v-0-2]] for the graph) are smooth functions
 of the components of g^KS_(m,0) at (f(x), x), which do not depend on the first argument, and of (∂f, ∂²f). They equal
 (δ, 0) at g = η, f constant. This gives the symbol classes, and the m-derivatives are symbols of the same orders.
@@ -748,23 +758,26 @@ Replace 𝔔⁰ by the fluxes 𝔔⁰_R := (∮_(S_R) 𝔟_(e_j)(g − δ, K))_j
 
 (2) *The family.* Replace the members by (γ^m, k^m), m ∈ I_m. [[lem:vii-2-1]] (a) gives the bounds of Step 2 (a), with
 α = 2, and continuity in m. The smallness of Step 1 holds for R ≥ R_gl: the rescaled u_(m,R) is within
-C(m₀ + ζ₀)R⁻² of (0, δ).
+C(m₀ + ζ₀)R⁻² of (0, δ) in C^(k+3) × C^(k+4)(𝒜), and so, by Step 2 (b), its constraint map is within C(m₀ + ζ₀)R⁻² of
+zero in C^(k+2)(𝒜), which is also the smallness that Step 1 asks for smoothness.
 
 (3) *Equivariance.* G acts on data on 𝒜 = Γ̄(1, 4) by pull-back, commuting with the rescaling 𝒮_R. For G-invariant
-u′ = (K′, g′), the map Ψ(u′, ·) of [[eq:s28-psi]] is G-equivariant. Indeed, the constraint map is natural, x and the
-weights e^(±s/x), x² are radial, T_(u′) is natural, and π_(g′) commutes with G, as 𝒦₀ = 𝔎|_𝒜 and the L²_ψ(g′) inner
-product are G-invariant. The norms of Step 1 are G-invariant. So the solution of [[eq:v-3-1]] with z in the ball B of
-[[lem:v-3-2]] is unique, hence G-invariant when u′ and the right side are, and û_(m,R) := u_(m,R) + δu_(m,R) is
-G-invariant.
+u′ = (K′, g′), the map Ψ(u′, ·) of [[eq:s28-psi]] is G-equivariant. Indeed, the constraint map is natural; x and the
+weights e^(±s/x), x² are radial (Step 1); ♯_(g′) commutes with G, as g′ is G-invariant; and π_(g′), π₀ and so ι_(u′)
+commute with G, as 𝒦₀ = 𝔎|_𝒜 and the L²_ψ(g′) and L²_ψ(δ) inner products are G-invariant; so T_(u′) commutes with G,
+P*_(u′) being natural. The norms of Step 1 are G-invariant, and so are 𝒴 and B. So the solution of [[eq:v-3-1]] with z
+in the ball B of [[lem:v-3-2]] is unique, hence G-invariant when u′ and the right side are, and
+û_(m,R) := u_(m,R) + δu_(m,R) is G-invariant.
 
-(4) *A one-dimensional obstruction.* By Step 3, (J, ρ)(û_(m,R)) = e^(−2s/x) Σ_i κ_i 𝒞_(g′)⁻¹e_i, which is G-invariant.
-𝒞_(g′) commutes with G, so Σ_i κ_ie_i ∈ 𝔎^G = span(e₀). Hence (J, ρ)(û_(m,R)) = 0 if and only if κ₀ = 0, if and only
-if F_R(m)₀ = 𝒢′₀₀κ₀ = 0, where 𝒢′₀₀ > 0 (Step 3).
+(4) *A one-dimensional obstruction.* By Step 3, (J, ρ)(û_(m,R)) = e^(−2s/x) ♭_(g′) Σ_i κ_i e_i, which is G-invariant.
+♭_(g′) and e^(−2s/x) are invertible and commute with G, so Σ_i κ_ie_i is G-invariant, that is, it lies in
+𝔎^G = span(e₀), and κ_i = 0 for e_i ≠ e₀. Hence (J, ρ)(û_(m,R)) = 0 if and only if κ₀ = 0, if and only if
+F_R(m)₀ = 𝒢′₀₀κ₀ = 0, where 𝒢′₀₀ = ∫_𝒜 e^(−2s/x) dμ_(ĝ) > 0 (Step 3, e₀ = (0, 1)).
 
-(5) *A zero.* Step 4 at j = 0 with α = 2 gives G_R(m) := R²F_R(m)₀ = 6π²m − 𝔔⁰_(R,0) + O(R⁻¹), uniformly on I_m. By
+(5) *A zero.* Step 4 at j = 0 with α = 2 gives F̂_R(m) := R²F_R(m)₀ = 6π²m − 𝔔⁰_(R,0) + O(R⁻¹), uniformly on I_m. By
 [[eq:vii-2-1]] and [[lem:vii-2-1]], 𝔔⁰_(R,0) = 6π²m₀ + O(ζ) + O(R⁻²). So for R large and ζ₀ small,
-G_R(¾m₀) < 0 < G_R((5/4)m₀). G_R is continuous (Step 3), so it has a zero m, by the intermediate value theorem in place
-of [[lem:v-3-3]].
+F̂_R(¾m₀) < 0 < F̂_R((5/4)m₀). F̂_R is continuous (Step 3), so it has a zero m, by the intermediate value theorem in
+place of [[lem:v-3-3]].
 
 (6) *The mass bound.* At m the data û are vacuum. [[lem:v-1-2]] with X = e₀ on Γ(R, 4R), unscaled, gives
 
@@ -778,9 +791,10 @@ by at most Cζ. Hence
     6π²(m − m₀) = ∫_(Γ(R,4R)) (q(γ^(m₀)) − q(û)) + ∫_(r>4R) (q(γ^(m₀)) − q(γ^m)) + O(ζ).
 
 Write a := 𝒮_R(g, K) and b := 𝒮_R(γ^m, k^m); both are vacuum, and u_(m,R) = b + χ(a − b). The constraint map is smooth
-near flat data and vanishes at b. So the right side of Step 1 has
-‖(J, ρ)(u_(m,R))‖_(C^(k+1)) ≤ C‖a − b‖_(C^(k+3) × C^(k+4)) ≤ C(ζ + |m − m₀|)R⁻². By the bound of Step 1, δu_(m,R) is of
-the same size in H^(k+2)(𝒜) ⊂ C^(k−1)(𝒜). On 𝒜,
+near flat data and vanishes at b, and it involves two derivatives of the metric and one of the second fundamental form.
+So the right side of Step 1, supported in Γ̄(2, 3), has
+‖(J, ρ)(u_(m,R))‖_(C^(k+2)) ≤ C‖a − b‖_(C^(k+3) × C^(k+4)) ≤ C(ζ + |m − m₀|)R⁻², which bounds its norm in 𝒮 and that of
+[CD03, Proposition 5.10]. By the bound of Step 1, δu_(m,R) is of the same size in H^(k+2)(𝒜) ⊂ C^(k−1)(𝒜). On 𝒜,
 û_(m,R) − 𝒮_R(γ^(m₀), k^(m₀)) = χ(a − 𝒮_R(γ^(m₀), k^(m₀))) + (1 − χ)(b − 𝒮_R(γ^(m₀), k^(m₀))) + δu_(m,R); unscaled,
 the difference û − (γ^(m₀), k^(m₀)), û := 𝒮_R⁻¹û_(m,R), has |h| ≤ C(ζ + |m − m₀|)R⁻², with each derivative, and K, a
 further factor R⁻¹. Both û and (γ^(m₀), k^(m₀)) have |h| ≤ CR⁻² with the same scaling. q_(e₀) is a smooth function
@@ -798,8 +812,8 @@ the proof of [[thm:v-3-1]], and G-invariant by (3). ∎
 equivariance of its Step 1, a one-dimensional obstruction, and the a priori bound |m − m₀| ≤ Cζ from the flux identity.
 The bound makes the glued data close to Tangherlini, by a multiple of ζ, at a fixed gluing radius (by O(λ) in
 [[cor:vii-2-3]]), which the weighted norm of the data class [[eq:vii-0-1]] of [[thm:iii-k-4-3]] needs: a bump of
-relative size R⁻¹ at radius R has, in that norm, size about R^(ℓ_0−3), which grows with R, ℓ_0 ∈ (3, 4) being the weight
-of the class.
+relative size R⁻¹ at radius R has, in that norm, size about R^(ℓ_0−3) ([[rem:after-shell-bump]]), which grows with R,
+ℓ_0 ∈ (3, 4) being the weight of the class.
 
 **Corollary {#cor:vii-2-3}** (The data of item (i) of [[thm:settling]].) Let b₀ = (μ_end, 0), so that m₀ = μ_end. Let
 k ≥ 3 and R ≥ max(R_gl, R₃), and let c₀ and Ω′ be as in [[lem:vii-1-2]]. Take J = k + 5 in [[lem:vii-1-1]], and let
@@ -809,8 +823,9 @@ k ≥ 3 and R ≥ max(R_gl, R₃), and let c₀ and Ω′ be as in [[lem:vii-1-2
 [[thm:iii-k-4-3]] ([[eq:vii-0-1]]).
 
 *Proof.* The data a metric induces on a fixed spacelike slice are smooth functions of its components and their first
-derivatives at the slice. By [[lem:vii-1-2]] the slice piece lies in Ω′_+, where the background g0 equals g_(b₀), so by
-[[lem:vii-1-1]] the data of g_λ differ from (γ_(b₀), k_(b₀)) = (γ^(μ_end), k^(μ_end)) by Cλ in C^(k+4) there. With the
+derivatives at the slice. By [[lem:vii-1-2]] the slice piece lies in Ω′_+, where the background g0 of [[sec:vii-0]]
+equals g_(b₀), so by [[lem:vii-1-1]] the data of g_λ differ from (γ_(b₀), k_(b₀)) = (γ^(μ_end), k^(μ_end)) by Cλ in
+C^(k+4) there. With the
 weights r^(2+|β|) ≤ (3R)^(k+6), ζ ≤ C_Rλ. The data are G-invariant (g_λ and Σ^IVP are, [[lem:vii-1-1]] and
 [[lem:vii-1-2]]) and vacuum. For the last claim apply [[lem:vii-0-1]] with R′ = 4R: on {r ≤ 8R} the deviation is
 C_Rλ in C^(d_1+3), by [[lem:vii-1-1]], [[eq:vii-2-2]] and [[lem:vii-2-1]] (a), and on {r ≥ 4R} it is

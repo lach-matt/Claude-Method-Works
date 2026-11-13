@@ -50,16 +50,16 @@ takes its constant C_B as a supremum over that ball, which is at most the one of
 the radius holds already and shrinks nothing), shrunk further in [[lem:iii-i15-1-2]] and [[prop:iii-i15-2-5]] (and in
 [[prop:iii-i15-2-8]] and [[prop:iii-i15-2-12]]), each time to a smaller ball about b₀, and every statement below holds
 on the final ℬ_*. (P1)–(P5) are the properties of [[lem:iii-i15-1-1]], and (P6) is that of [[lem:s25-p6]]. As in
-[[ch:s16]], λ ∈ ℂ is an exponent at ι⁺; it is not the wavelength. The letter ε > 0 is small, and "order w−" means order w − ε for every ε > 0
-([[sec:iii-i14-1]]). The types 𝒯 = {s1, v1, s0, s2, c0, c1}, the rows ν = (τ, λ, k) with their K⁺-exponents e_ν and
-weights κ_ν, the index set 𝒩 = 𝒩_ι ⊔ 𝒩_σ, the coefficient spaces 𝒲_(τ,ℂ), the parameter space 𝒫, the operator P_4 and the
-classes of sources 𝒴_2(α), 𝒴(α) are those of [[sec:iii-i9-1]] and [[sec:iii-i9-2]] (with (G) and the levels of
-[[ch:s22]]); ℳ, ℰ_(++), λ_♯ and the class 𝒴(α_1) of the levels below 3 are those of [[sec:iii-i8-1]]; ℰ_♯, ℰ^♮, 𝒴^♮_2(β),
-𝒴^♮(β) and the spaces 𝒵_β are those of [[ch:s22]] ([[def:iii-i13-1-2]]); 𝒬, h_(b,rem), P_5, R_q, Δ_q, 𝒩_rot and ℳ_rot are
-those of [[def:iii-i14-1-1]]–[[def:iii-i14-1-3]]. The corrections of the first to fourth kinds are those of
-[[def:iii-i4-2-1]], [[def:iii-i7-2-1]], [[def:iii-i8-2-1]] and [[def:iii-i9-2-1]], with their counterterms ϑ_(ν,♯).
-L̂_b(0), its augmentation L̃_b(0) and the states ġ_b(ḃ), h_b(S) = h_(b,s1)(S), h̆_b(S) and h_(b,v1)(V) are those of
-[[ch:s25a]].
+[[ch:s16]], λ ∈ ℂ is an exponent at ι⁺; it is not the wavelength. The letter ε > 0 is small, and "order w−" means
+order w − ε for every ε > 0 ([[sec:iii-i14-1]]). The types 𝒯 = {s1, v1, s0, s2, c0, c1}, the rows ν = (τ, λ, k) with
+their K⁺-exponents e_ν and weights κ_ν, the index set 𝒩 = 𝒩_ι ⊔ 𝒩_σ, the coefficient spaces 𝒲_(τ,ℂ), the parameter space
+𝒫, the operator P_4 and the classes of sources 𝒴_2(α), 𝒴(α) are those of [[sec:iii-i9-1]] and [[sec:iii-i9-2]] (with (G)
+and the levels of [[ch:s22]]); ℳ, ℰ_(++), λ_♯ and the class 𝒴(α_1) of the levels below 3 are those of [[sec:iii-i8-1]];
+ℰ_♯, ℰ^♮, 𝒴^♮_2(β), 𝒴^♮(β) and the spaces 𝒵_β are those of [[ch:s22]] ([[def:iii-i13-1-2]]); 𝒬, h_(b,rem), P_5, R_q, Δ_q,
+𝒩_rot and ℳ_rot are those of [[def:iii-i14-1-1]]–[[def:iii-i14-1-3]]. The corrections of the first to fourth kinds are
+those of [[def:iii-i4-2-1]], [[def:iii-i7-2-1]], [[def:iii-i8-2-1]] and [[def:iii-i9-2-1]], with their counterterms
+ϑ_(ν,♯). L̂_b(0), its augmentation L̃_b(0) and the states ġ_b(ḃ), h_b(S) = h_(b,s1)(S), h̆_b(S) and h_(b,v1)(V) are those
+of [[ch:s25a]].
 
 *The inner radius.* Every result of the chapter holds with the inner radius r₀ = r_♭ ∈ (0, ½R₁] of [[def:s12-radii]]
 as a parameter, with constants and neighbourhoods of b₀ that may depend on it. The chapter names no inner radius and
@@ -328,8 +328,8 @@ coefficient a_ν W. So C^rot = 0 is [[eq:iii-i15-2-2]] (with the sign of the der
 **Remark {#rem:iii-i15-2-6}** (Uniqueness at b.) At a rotating b, the p⃗′ of [[prop:iii-i15-2-5]] is unique only
 together with [[eq:iii-i15-2-2]]. The bottom of m_ν(W), ν ∈ 𝒩_rot, is a_ν h_(b,v1)(W) = a_ν(ġ_b(ḃ_W) + h_b(S_W)), with
 coefficients O(|b − b₀||W|) ([[rem:iii-i15-1-2]]). The K⁺-expansion does not separate it from the b- and S-rows, so
-the conditions u ∈ 𝒵_(β_k) alone are not shown to fix W′^rot. What is used of [[prop:iii-i15-2-5]] is the
-constructed map F ↦ (p⃗′, q′, h′), and its uniqueness together with [[eq:iii-i15-2-2]]:
+the conditions u ∈ 𝒵_(β_k) alone are not shown to fix W′^rot. The results that use [[prop:iii-i15-2-5]] use only the
+constructed map F ↦ (p⃗′, q′, h′) and its uniqueness together with [[eq:iii-i15-2-2]]:
 
 - [[thm:iii-j1-2-1]] builds U′ from the constructed map; [[rem:iii-j1-2-2]] records that D_UΦ is not injective.
 - A_b does not depend on the loss ε, being computed from ι⁺- and tf-data ([[def:iii-i15-2-3]]). So when F lies in a
@@ -495,8 +495,10 @@ continuity statements ([[prop:iii-i8-4-1]] (ii) and [[lem:iii-i8-3-3]], [[lem:ii
 [[lem:iii-i7-4-1]] are not used across b; the direct bounds of [[prop:iii-i15-2-8]] and [[prop:iii-i15-2-12]] replace
 them. The smallness of the elimination, across b, comes from the direct bound of Step 3 of the proof of
 [[prop:iii-i15-2-5]], through (P6) and [[def:iii-i15-2-3]]. ℬ_* is the ball of radius at most 1/(2C_B) of
-[[lem:s25a-ball]] and [[lem:s20-rows]], inside condition (B5) of [[sec:iii-h2-0]], shrunk further so that the bound of
-[[lem:iii-i15-1-2]] holds and the maps −id + A_k of [[prop:iii-i15-2-5]] are invertible on it. ∎
+[[lem:s25a-ball]] and [[lem:s20-rows]] (one ball: [[lem:s20-rows]] takes its C_B as a supremum over the ball of
+[[lem:s25a-ball]], which is at most the C_B there, so its condition on the radius holds already), inside condition (B5)
+of [[sec:iii-h2-0]], shrunk further so that the bound of [[lem:iii-i15-1-2]] holds and the maps −id + A_k of
+[[prop:iii-i15-2-5]] are invertible on it. ∎
 
 **Corollary {#cor:s25-tame}** (The tame and exact forms at b.) For base points with black hole parameter b ∈ ℬ̄_*, the
 statements at b ([[def:s25-at-b]]) of the following hold, with constants, losses and smallness conditions uniform in
@@ -576,7 +578,7 @@ fixed weights; so it holds at b, with constants uniform in b, as the exact class
 neighbourhood.
 
 *Proof.* The black hole parameter of U is one of its components ([[def:iii-j-1-1]]) and is that of Φ(U)
-([[thm:iii-j-2-4]]), so b ∈ ℬ_* for U small in 𝒟^d. At such U, [[thm:iii-j1-2-1]], [[thm:iii-j2-4-2]] and
-[[cor:iii-j3-6-6]] hold in their statements at b, with constants uniform in b, by [[thm:iii-i15-3-1]]; at a rotating b
-the solution map used in Step 0 of the proof of [[thm:iii-j1-2-1]] is that of [[prop:iii-i15-2-5]]
-([[rem:iii-i15-2-6]]). ∎
+([[thm:iii-j-2-4]]), so b ∈ ℬ_* for U small in 𝒟^d. At such U, [[thm:iii-j1-2-1]] holds in its statement at b by
+[[thm:iii-i15-3-1]], and [[thm:iii-j2-4-2]] and [[cor:iii-j3-6-6]] hold in their statements at b by [[cor:s25-tame]],
+with constants uniform in b; at a rotating b the solution map used in Step 0 of the proof of [[thm:iii-j1-2-1]] is that
+of [[prop:iii-i15-2-5]] ([[rem:iii-i15-2-6]]). ∎

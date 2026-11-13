@@ -531,3 +531,18 @@ Items found while chapters were written in parallel; each is settled once, editi
 - thm:std-ds-stability added to Appendix A ([DS23] Thm 2.5, p. 5, arXiv:2308.09851v1, word for word).
 - Chapter 62 fixed (F-62): thm:std-sbierski extended (p. 10 assumptions, footnote 19, arXiv:1309.7591v3). Still open
   elsewhere: chapter 62's nit 18 is in chapter 3; [Chr11] is uncited (drop from 98 or cite); chapter 60's 𝒟_0 and T′.
+- S4 second reading (R2-S04): the tameness deliverable holds. Chapter 25 (S6) must adopt the localisers and global
+  error terms of the new Lemma 4.1 at §ii-d-4 Steps 1-4 (693-880), lines 395, 509 and the earlier list (178, 203-206,
+  216-220, 240, 733-745) — after S4's second fix. Appendix A must add [Hin26c, Lemma 3.5] to (S6), or chapter 27 line
+  1280 must cite (S5) only. Optional citation fixes: chapter 26 line 258, chapter 28 line 1411.
+- S26 fixed (F-S26): thm:iii-c2-3-1 (1) holds only near the interior of Σ_(IVP,r₁); S27 lines 712-716 and ~790 to be
+  checked (sent to the S27 reader). Nit n1 needs an OUTLINE.md change.
+- S11-S12 fixed (F-S11-S12): one parameter set def:s11-parameters; lem:s12-ks-domain removed (S19's two citations sent
+  to the S19 fix); (E1) for integer s ≥ 0 from [Hin26d, Prop. 3.55 (3), p. 57] and Example 3.63 — S24 line 640 writes
+  H^s (check integer); Appendix A's thm:std-sbg-calculus could quote them. Nit 14 (ḡ) at integration.
+- Proof C complete (C2b): S = −(4/9)A²env²h² sin 2ϑ r⁻³(dv⊗dϑ + dϑ⊗dv); D[n] bounds 0.43× the record's or better; no
+  result uses them (reader to rule on class).
+- Proof A fixed (F-P-A): h = 10⁻⁶ ∉ 𝖧; ε_ind(h) = δ_50 does not hold on all of 𝖧 (rem:s14-eps-ind-scope); 𝔡₀, 𝔡₁
+  (= chapter 40's d_c0, d_c1), 𝒬. Chapter 33's proof of prop:np-10-52 (iii) defines d_s0 again (rename at integration).
+- Proof H fixed (F-P-H): S-bounds where R ≥ 1/2 rest on chapter 85's first-degree horizon value (pending ch85-s-bounds);
+  rem:l-24-eps for chapter 85.

@@ -468,10 +468,16 @@ x² H^(k+2)_(x²,e^(s/x))(g) × x⁴ H^(k+2)_(x²,e^(s/x))(g), close to zero, of
     π_(𝒦0^(⊥g)) e^(2s/x) [(J, ρ)(K + δK, g + δg) − (J, ρ)(K, g)] = π_(𝒦0^(⊥g)) e^(2s/x) (δJ, δρ)."      (5.11)
 
 Proposition 5.10 (p. 26) and Corollary 5.11 (p. 27): let k ≥ k0 := ⌊n/2⌋ + 1 and let g0 have
-(C^(k+4,α)_(x²,1), k + 5)–behaviour at ∂M, with (5.10). "If (δJ, δρ) ∈ C^∞_(x²,e^(s/x))(g) × C^∞_(x²,e^(s/x))(g), and
-if (K, g) ∈ C^∞(M) × C^∞(M), then the solution given by Theorem 5.9 is in
-x² C^∞_(x²,e^(s/x))(g) × x⁴ C^∞_(x²,e^(s/x))(g) ⊂ C^∞(M) × C^∞(M). In fact (δK, δg) can be smoothly extended by zero
-across ∂M."
+(C^(k+4,α)_(x²,1), k + 5)–behaviour at ∂M, with (5.10). Proposition 5.10 then reads: "there exists ε > 0 such that if
+(K, g) in x^(−2) C^(k+3,α)_(x²,1)(g0) × C^(k+4,α)_(x²,1)(g0) with
+‖(K − K0, g − g0)‖_(x^(−2) W^(k0+3,∞)_(x²)(g0) × W^(k0+4,∞)_(x²)(g0)) < ε, and if
+‖(δJ, δρ)‖_(C^(k0+1,α)_(x²,e^(t/x))(g) × C^(k0,α)_(x²,e^(t/x))(g)) + ‖(δJ, δρ)‖_(H^(k0+1)_(x²,x^(−n)e^(t/x))(g) ×
+H^(k0)_(x²,x^(−n)e^(t/x))(g)) < ε with t > 0, then the solution (δK, δg) given by Theorem 5.9 is in
+x² C^(k0+2,α)_(x²,e^(t/x))(g) × x⁴ C^(k0+2,α)_(x²,e^(t/x))(g)." Corollary 5.11: "Under the hypotheses of the preceding
+proposition, if (δJ, δρ) ∈ C^∞_(x²,e^(s/x))(g) × C^∞_(x²,e^(s/x))(g), and if (K, g) ∈ C^∞(M̄) × C^∞(M̄), then the
+solution given by Theorem 5.9 is in x² C^∞_(x²,e^(s/x))(g) × x⁴ C^∞_(x²,e^(s/x))(g) ⊂ C^∞(M̄) × C^∞(M̄). In fact
+(δK, δg) can be smoothly extended by zero across ∂M." Corollary 5.11 thus carries both smallness conditions of
+Proposition 5.10.
 
 **Theorem {#thm:std-cd-compact}** ([CD03, Theorems 5.4 and 5.6, pp. 23–24; p. 33].) Theorem 5.4: let M be a compact
 manifold with boundary and k ≥ 0, and let g0 have (W^(k+4,∞)_x, k + 4)–behaviour at ∂M with x²|Ric(g0)| → 0,

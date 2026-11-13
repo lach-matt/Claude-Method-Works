@@ -302,20 +302,21 @@ part. The scalar, vector and tensor harmonics of degree l are the representation
 weights are equal, differ by one and differ by two, and whose sum is l. So each irreducible representation π occurs
 in exactly one type and degree. For a bundle W of Cartesian components (functions, 1-forms or symmetric 2-tensors of
 ℝ^(1+4) in the frame dt̄, dx^i), let W_π be the π-isotypic subspace of C^∞(𝕊³; W). It is finite-dimensional and equal
-to ℂ^k ⊗ π for the type and degree of π, with k the size of that type's indicial matrices ([[eq:iii-a1-2-9]]–
-[[eq:iii-a1-2-10]]); an operator on 𝕊³ commuting with the action of SO(4) on the base and the components acts on W_π as
-N ⊗ Id_π with N a k × k matrix (Schur's lemma).
+to ℂ^(n_W) ⊗ π for the type and degree of π, with n_W the size of that type's indicial matrices on W
+([[eq:iii-a1-2-9]]–[[eq:iii-a1-2-10]]); an operator on 𝕊³ commuting with the action of SO(4) on the base and the
+components acts on W_π as N ⊗ Id_π with N an n_W × n_W matrix (Schur's lemma).
 
 ### The indicial roots {#sec:iii-f1-2}
 
 For a type and degree let N_L(ι), N_Υ(ι) and N_C(ι) be the type's indicial matrices of ρ⁻²(2L̄)^(0), ρ⁻²(□̄^Υ)^(0) and
-ρ⁻²(□̄^C)^(0), in the bases of [[eq:iii-a1-2-9]]–[[eq:iii-a1-2-10]]: of sizes k = 4, 6, 7, 2, 3, 1 for N_L at s0, s1,
-sl (l ≥ 2), v1, vl (l ≥ 2), tl (l ≥ 2), and m = 2, 3, 3, 1, 1 for N_Υ and N_C at s0, s1, sl, v1, vl. Each is −ι² Id
-plus lower powers of ι, so its determinant has degree 2k, resp. 2m, and leading coefficient (−1)^k, resp. (−1)^m.
+ρ⁻²(□̄^C)^(0), in the bases of [[eq:iii-a1-2-9]]–[[eq:iii-a1-2-10]]: of sizes n_L = 4, 6, 7, 2, 3, 1 for N_L at s0, s1,
+sl (l ≥ 2), v1, vl (l ≥ 2), tl (l ≥ 2), and n_C = 2, 3, 3, 1, 1 for N_Υ and N_C at s0, s1, sl, v1, vl (the
+sizes n_W for symmetric 2-tensors and for 1-forms). Each is −ι² Id plus lower powers of ι, so its determinant has
+degree 2n_L, resp. 2n_C, and leading coefficient (−1)^(n_L), resp. (−1)^(n_C).
 
 **Lemma {#lem:iii-f1-2-1}** (The factorisation.) For each type and degree,
 
-    det N_L(ι) = (−1)^k (ι + l)(ι − l − 2) det N_Υ(ι − 1) det N_C(ι + 1) / D(ι),
+    det N_L(ι) = (−1)^(n_L) (ι + l)(ι − l − 2) det N_Υ(ι − 1) det N_C(ι + 1) / D(ι),
     D(ι) = (ι − 1)² at s0 and s1,     D(ι) = ι(ι − 2) at v1,     D(ι) = 1 at sl and vl, l ≥ 2,           {#eq:iii-f1-2-1}
 
 and at tensor type l ≥ 2, det N_L(ι) = −(ι + l)(ι − l − 2). This holds for all values of the parameters γ_Υ, e_Υ,
@@ -329,7 +330,7 @@ second-order operator, 2D Ric (the linearisation at ḡ), 2L̄, □̄^Υ and □
 of π these act by matrices, defined by T(r^(−ι)a) = r^(−ι−1)T(ι)a for a first-order T and P(r^(−ι)a) = r^(−ι−2)P(ι)a
 for a second-order P; for P = 2L̄, □̄^Υ, □̄^C these are N_L, N_Υ, N_C, and a composition has
 (T_1T_2)(ι) = T_1(ι + 1)T_2(ι). Write R(ι), B(ι), B′(ι), Ψ(ι), Φ(ι) for 2D Ric, δ̄*, δ̄*_(Ē_C), δ̄Ḡ, δ̄_(Ē_Υ)Ḡ: R is
-k × k, B and B′ are k × m, Ψ and Φ are m × k.
+n_L × n_L, B and B′ are n_L × n_C, Ψ and Φ are n_C × n_L.
 
 *Five identities.* On Minkowski space, D Ric ∘ δ̄* = 0, since 2δ̄*X^♭ = ℒ_X ḡ and D Ric(ℒ_X ḡ) = ℒ_X Ric(ḡ) = 0; and
 δ̄Ḡ ∘ D Ric = 0, the linearised second Bianchi identity at the Ricci-flat ḡ. With the definitions,
@@ -337,8 +338,8 @@ k × k, B and B′ are k × m, Ψ and Φ are m × k.
     N_L(ι) = R(ι) + 2B′(ι + 1)Φ(ι),     N_Υ(ι) = 2Φ(ι + 1)B(ι),     N_C(ι) = 2Ψ(ι + 1)B′(ι),
     R(ι + 1)B(ι) = 0,     Ψ(ι + 2)R(ι) = 0.
 
-*A determinant identity.* Let C be a constant k × (k − m) matrix and C̃ a constant (k − m) × k matrix, and put
-M_1(ι) := (B(ι − 1) | C) and M_2(ι) := (Ψ(ι + 2); C̃) (columns, resp. rows, juxtaposed). By the identities,
+*A determinant identity.* Let C be a constant n_L × (n_L − n_C) matrix and C̃ a constant (n_L − n_C) × n_L matrix,
+and put M_1(ι) := (B(ι − 1) | C) and M_2(ι) := (Ψ(ι + 2); C̃) (columns, resp. rows, juxtaposed). By the identities,
 Ψ(ι + 2)N_L(ι)B(ι − 1) = 2Ψ(ι + 2)B′(ι + 1)Φ(ι)B(ι − 1) = ½N_C(ι + 1)N_Υ(ι − 1),
 Ψ(ι + 2)N_L(ι)C = N_C(ι + 1)Φ(ι)C and C̃N_L(ι)B(ι − 1) = C̃B′(ι + 1)N_Υ(ι − 1), so
 
@@ -346,9 +347,9 @@ M_1(ι) := (B(ι − 1) | C) and M_2(ι) := (Ψ(ι + 2); C̃) (columns, resp. ro
                   ⎝ 0    I ⎠ ⎝ C̃B′   C̃RC + 2C̃B′ΦC    ⎠ ⎝ 0    I ⎠
 
 with the arguments ι + 1 of N_C and B′, ι − 1 of N_Υ, and ι of R and Φ. The middle factor has determinant
-det(½I) det(C̃RC + 2C̃B′ΦC − C̃B′(½I)⁻¹ΦC) = 2^(−m) det(C̃RC). Hence, for every ι,
+det(½I) det(C̃RC + 2C̃B′ΦC − C̃B′(½I)⁻¹ΦC) = 2^(−n_C) det(C̃RC). Hence, for every ι,
 
-    det M_2(ι) · det N_L(ι) · det M_1(ι) = 2^(−m) det N_C(ι + 1) det N_Υ(ι − 1) det(C̃R(ι)C).
+    det M_2(ι) · det N_L(ι) · det M_1(ι) = 2^(−n_C) det N_C(ι + 1) det N_Υ(ι − 1) det(C̃R(ι)C).
 
 *The flat wave operator.* On Minkowski space 2δ̄Ḡδ̄* = □̄ on 1-forms (in general 2δGδ*ω = □ω − Ric(ω)), and on
 stationary sections □̄ acts in the Cartesian frame as −Δ on each component, Δ the Laplacian of ℝ⁴. For Y ∈ H_d,
@@ -365,7 +366,7 @@ basis, and C̃ whose rows complete those of Ψ(ι_* + 2) to a basis. Then det M_
 at ι_*. R, B and Ψ, hence M_1, M_2 and det(C̃RC), do not involve γ_Υ, e_Υ, γ_C, e_C or v_C. det N_Υ(ι − 1) and
 det N_C(ι + 1) have leading coefficient ±1, so they are not the zero polynomial. So the rational function
 
-    det N_L(ι) / (det N_Υ(ι − 1) det N_C(ι + 1)) = 2^(−m) det(C̃R(ι)C) / (det M_1(ι) det M_2(ι))
+    det N_L(ι) / (det N_Υ(ι − 1) det N_C(ι + 1)) = 2^(−n_C) det(C̃R(ι)C) / (det M_1(ι) det M_2(ι))
 
 is the same for all values of the parameters, and it suffices to compute it at γ_Υ = γ_C = 0.
 
@@ -378,17 +379,17 @@ with n_d ≠ 0 (each then equal to 1, per summand):
 
 - scalar type l, π = (l/2, l/2): from (0, 0), d = l; from (½, ½), d = l ± 1 (d ≥ 0); from (1, 1), d = l − 2, l, l + 2,
   except that d = l is absent at l = 0 and d = l − 2 needs l ≥ 2. So the 2-tensor degrees are l; l − 1, l + 1;
-  l, l − 2, l, l + 2 at sl, l ≥ 2 (k = 7); 1; 0, 2; 1, 1, 3 at s1 (k = 6); 0; 1; 0, 2 at s0 (k = 4); and the 1-form
-  degrees are l; l − 1, l + 1 at sl (m = 3), 1; 0, 2 at s1 (m = 3) and 0; 1 at s0 (m = 2);
+  l, l − 2, l, l + 2 at sl, l ≥ 2 (n_L = 7); 1; 0, 2; 1, 1, 3 at s1 (n_L = 6); 0; 1; 0, 2 at s0 (n_L = 4); and the 1-form
+  degrees are l; l − 1, l + 1 at sl (n_C = 3), 1; 0, 2 at s1 (n_C = 3) and 0; 1 at s0 (n_C = 2);
 - vector type l, π = ((l + 1)/2, (l − 1)/2) or its mirror: from (½, ½), d = l; from (1, 1), d = l − 1 (needs l ≥ 2)
-  and d = l + 1. So the 2-tensor degrees are l; l − 1, l + 1 at vl, l ≥ 2 (k = 3), and 1; 2 at v1 (k = 2), and the
-  1-form degree is l (m = 1);
-- tensor type l, π = ((l + 2)/2, (l − 2)/2) or its mirror: only from (1, 1), d = l (k = 1, m = 0).
+  and d = l + 1. So the 2-tensor degrees are l; l − 1, l + 1 at vl, l ≥ 2 (n_L = 3), and 1; 2 at v1 (n_L = 2), and the
+  1-form degree is l (n_C = 1);
+- tensor type l, π = ((l + 2)/2, (l − 2)/2) or its mirror: only from (1, 1), d = l (n_L = 1, n_C = 0).
 
 These sizes are those of [[eq:iii-a1-2-9]]–[[eq:iii-a1-2-10]]. Write a_j := ι + j and b_j := ι − j − 2, so that
 (ι + d)(ι − d − 2) = a_d b_d, while the same expression at ι + 1 is a_(d+1) b_(d−1) and at ι − 1 is a_(d−1) b_(d+1).
-At the flat point det N_L = (−1)^k Π a_d b_d over the 2-tensor degrees, and det N_Υ(ι − 1) det N_C(ι + 1)
-= Π a_(d−1) b_(d+1) a_(d+1) b_(d−1) over the 1-form degrees (the signs (−1)^m of the two factors cancel). At sl the
+At the flat point det N_L = (−1)^(n_L) Π a_d b_d over the 2-tensor degrees, and det N_Υ(ι − 1) det N_C(ι + 1)
+= Π a_(d−1) b_(d+1) a_(d+1) b_(d−1) over the 1-form degrees (the signs (−1)^(n_C) of the two factors cancel). At sl the
 numerator is −a_(l−2) a_(l−1) a_l³ a_(l+1) a_(l+2) b_(l−2) b_(l−1) b_l³ b_(l+1) b_(l+2) and the denominator is
 a_(l−2) a_(l−1) a_l² a_(l+1) a_(l+2) b_(l−2) b_(l−1) b_l² b_(l+1) b_(l+2); the quotient is −a_l b_l. At s1 the
 numerator is a_0 a_1³ a_2 a_3 b_0 b_1³ b_2 b_3 and the denominator a_(−1) a_0 a_1² a_2 a_3 b_(−1) b_0 b_1² b_2 b_3,
@@ -396,7 +397,7 @@ quotient a_1 b_1/(a_(−1) b_(−1)) = (ι + 1)(ι − 3)/(ι − 1)². At s0 th
 denominator a_(−1) a_0 a_1 a_2 b_(−1) b_0 b_1 b_2, quotient ι(ι − 2)/(ι − 1)². At vl the quotient is
 −a_(l−1) a_l a_(l+1) b_(l−1) b_l b_(l+1)/(a_(l−1) a_(l+1) b_(l−1) b_(l+1)) = −a_l b_l; at v1 it is
 a_1 a_2 b_1 b_2/(a_0 a_2 b_0 b_2) = (ι + 1)(ι − 3)/(ι(ι − 2)); at tl, det N_L = −a_l b_l. In every case the quotient is
-(−1)^k(ι + l)(ι − l − 2)/D(ι), which is [[eq:iii-f1-2-1]] at the flat point, and so for all parameters. ∎
+(−1)^(n_L)(ι + l)(ι − l − 2)/D(ι), which is [[eq:iii-f1-2-1]] at the flat point, and so for all parameters. ∎
 
 The factors have this meaning. On Minkowski space L̄δ̄* = ½δ̄*_(Ē_C) □̄^Υ, so the symmetric gradient of an indicial
 solution of □̄^Υ at ι − 1 is one of L̄ at ι, unless it vanishes, which happens exactly for the stationary homogeneous
@@ -435,12 +436,12 @@ vl, l ≥ 2: ι^C_(vl,≪) − 1, −l, 1 − l; l + 2, l + 3, ι^C_(vl,+) − 1
 
 tl, l ≥ 2: −l; l + 2.
 
-(a) No root has real part in (0, 1]. (b) At each type and degree, k roots (with multiplicity) have real part ≤ 0 and k
-have real part > 1: those before and after the semicolon. (c) 0 is a root only at scalar types 0 and 2, simple there,
-with the indicial solutions of [[lem:iii-f1-2-5]]. (d) The roots with real part ≤ 0 that come from □^C, written with
-superscript C, have real part < −C_0 − 1 = −101. (e) If (C2)–(C3) hold, there is a countable set Z_exc ⊂ (0, ½],
-determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4) holds, then for every
-R > 0 only finitely many roots have |ι| ≤ R, and no non-integer root with |ι| ≤ 50 has integer real part; so there is
+(a) No root has real part in (0, 1]. (b) At each type and degree, n_L roots (with multiplicity) have real part ≤ 0 and
+n_L have real part > 1: those before and after the semicolon. (c) 0 is a root only at scalar types 0 and 2, simple
+there, with the indicial solutions of [[lem:iii-f1-2-5]]. (d) The roots with real part ≤ 0 that come from □^C, written
+with superscript C, have real part < −C_0 − 1 = −101. (e) If (C2)–(C3) hold, there is a countable set Z_exc ⊂ (0, ½],
+determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4) holds, then for every R > 0
+only finitely many roots have |ι| ≤ R, and no non-integer root with |ι| ≤ 50 has integer real part; so there is
 ε_ind ∈ (0, 1] with
 
     d(Re ι, ℤ) ≥ ε_ind     for every non-integer root ι with |ι| ≤ 50,                                   {#eq:iii-f1-2-2}
