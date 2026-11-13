@@ -283,23 +283,20 @@ g induces (φ|)^*(γ, k) on φ⁻¹(Σ^IVP), φ = φ_(−S,−S⁰), and φ⁻¹
 h_tot(p⃗) on the interior of {χ_K = 1} holds as in (i), and [[cor:s27-rate]] (c) gives [[eq:vii-0-2]] with g_b in place
 of g_(m′,0). ∎
 
-*Proof of [[thm:settling]].* *The parameters.* The number ℓ0 ∈ (3, 4) of [[thm:settling]] is the ℓ_0 of the data
-class [[eq:vii-0-1]], and its ε_K is the one chosen at step (4) of [[thm:vi-c-2-1]], with [[eq:vii-0-1]] at step (3).
+*Proof of [[thm:settling]].* *The parameters.* [[thm:settling]] fixes its quantities in the order of
+[[thm:settling-precise]]: first l5, μ0, A, env and τ0, then b₀ = (μ_end, 0), about which the stability theory is set
+up, and its inner radius r_♭ ∈ (0, ½R₁], R₁ = √μ_end, and then ℓ0 and ε_K. The number ℓ0 ∈ (3, 4) is the ℓ_0 of the
+data class [[eq:vii-0-1]], and ε_K is the one chosen at step (4) of [[thm:vi-c-2-1]], with [[eq:vii-0-1]] at step (3).
 With the ℓ_I ∈ (3, ℓ_0) chosen at step (3), which is admissible in row d2 of [[sec:vi-c-1]] (it avoids the discrete
 exclusion sets of that row, [[sec:s27-class]]), and the ε_+ chosen at step (4), ε_K satisfies the conditions that
 [[thm:settling]] states, all of them conditions of row w1: 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, ¼), (G⁺) and (G).
-Row w1 also asks the exactness conditions (Ex1)–(Ex2) of [[def:iii-j3-1-3]], which [[thm:settling]] does not list; as it
-quantifies ε_+ existentially, nothing is lost. (Ex1) is (G⁺) with its closed endpoint, as [[thm:settling]] states it.
-(Ex2) excludes only finitely many values of ε_+ in a bounded range ([[lem:iii-j3-1-4]]), so an ε_+ that meets the
-conditions [[thm:settling]] states can be lowered inside (ε_K, ε_+) to meet (Ex2) as well, without breaking any other
-condition: the bound by the minimum and (G⁺) persist when ε_+ decreases, as do rows d1–d2 (step (4) of
-[[thm:vi-c-2-1]]); (G) concerns ε_K alone; ε′_0 = ½ min(ε_K, ε_+ − ε_K) stays positive, so the window of row w2 stays
-nonempty; and ε_+ enters no conclusion. With the parameters so chosen, the hypotheses of [[thm:settling-precise]]
-hold.
+Row w1 also asks the exactness conditions (Ex1)–(Ex2) of [[def:iii-j3-1-3]], which [[thm:settling]] does not list;
+step (4) imposes them on the ε_+ it chooses, together with the others. (Ex1) is (G⁺) with its closed endpoint, as
+[[thm:settling]] states it. With the parameters so chosen, the hypotheses of [[thm:settling-precise]] hold.
 
 Let ε ∈ (0, ε_K) be the exponent of [[thm:settling]], put ε_t := ε, and apply [[thm:settling-precise]]. It gives
-K = d_1 + 14, R and Ω′, which depend on ε_t (and r_♭) only, and, for each ε_m > 0, λ_1 and δ, which depend on ε_m and
-ε_t. The solutions g_λ of [[thm:settling]] are those of [[thm:main]] on the enlarged domain Ω′ of [[lem:vii-1-2]],
+K = d_1 + 14, R and Ω′, which depend on ε_t and r_♭ only, and, for each ε_m > 0, λ_1 and δ, which depend moreover on
+ε_m. The solutions g_λ of [[thm:settling]] are those of [[thm:main]] on the enlarged domain Ω′ of [[lem:vii-1-2]],
 built with K = d_1 + 14, d_1 the regularity of [[thm:iii-k-4-3]].
 
 Item (i). The data of g_λ on Σ^IVP ∩ {r ≤ R}, continued G-equivariantly to the exact Tangherlini data
@@ -313,9 +310,10 @@ Item (ii). The data class of (ii) in [[thm:settling]] is H^(∞,(ℰ_0,ℓ_0))_b
 [[eq:vii-0-1]]: the elements of ℰ_0 below ℓ_0 give the polyhomogeneous terms of orders 2 and 3 in the metric, those of
 ℰ_0 + 1 below ℓ_0 + 1 the terms of orders 3 and 4 in the second fundamental form, and the remainders have the weights
 ℓ_0 and ℓ_0 + 1 ([[sec:s27-class]]). For data in it, of norm below δ, [[thm:settling-precise]] (ii) gives a vacuum
-development g whose initial surface is the boosted surface φ_(−S)⁻¹(Σ^IVP), φ_S the cut-off Lorentz boost of
-[[sec:iii-b-5]] and |S| < ε_m, and which settles at the rate [[eq:vii-0-2]] to the Myers–Perry metric g_b,
-b = (m′, A), with |m′ − μ_end| + |A| = |b − b₀| < ε_m: mass within ε_m of μ_end and spin below ε_m. ∎
+development g whose initial surface is the surface φ_(−S,−S⁰)⁻¹(Σ^IVP) = φ_S(ψ_(S⁰)(Σ^IVP)), φ_S the cut-off Lorentz
+boost of [[sec:iii-b-5]] and ψ_(S⁰) the cut-off translation of [[lem:iii-i7-1-1]], with |S|, |S⁰| < ε_m, and which
+settles at the rate [[eq:vii-0-2]] to the Myers–Perry metric g_b, b = (m′, A), with |m′ − μ_end| + |A| = |b − b₀| < ε_m:
+mass within ε_m of μ_end and spin below ε_m. ∎
 
 ### Remarks on the statement {#sec:vii-5}
 

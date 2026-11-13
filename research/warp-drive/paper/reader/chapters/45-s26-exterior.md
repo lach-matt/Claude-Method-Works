@@ -934,7 +934,8 @@ Lġ = f, ġ = ġ₀ and rℒ_(∂_(t_IVP))ġ = ġ₁ on Σ_(IVP,r₀), and
     ‖ġ‖_(H^(s+1,α)_b(Ω_N)) ≤ C(‖f‖_(H^(s,α+2)_b) + ‖ġ₀‖_(H^(s+1,α)_b) + ‖ġ₁‖_(H^(s,α)_b))
         + C‖h‖_(H^(s+2))(‖f‖_(H^(4,α+2)_b) + ‖ġ₀‖_(H^(5,α)_b) + ‖ġ₁‖_(H^(4,α)_b)).                         {#eq:iv2-2-1}
 
-Here the weight at I₀ is a power of ρ; on Ω_N, ρ_I ≥ ½, so it is one of ρ₀.
+Here the weight at I₀ is a power of ρ; on Ω_N, ρ_I ≥ ½, so it is one of ρ₀. If moreover s ≤ 3 and h is bounded in
+H⁸, then [[eq:iv2-2-1]] holds without its last term, with C depending on that bound.
 
 *Proof.* On Ω_N, τ′ ∈ [−1/12, ¼] ([[lem:iii-c1-1-1]]: t_IVP ≥ −(|x| − r₀)/12), so τ ∈ [−1/12 − ε, ¼ + ε] for r₀
 large, inside the range of [[prop:iv-4-1]] with δ = ½. That proposition, for the system as in the proof of
@@ -958,6 +959,16 @@ in the proof of [[prop:iv-4-1]]. The normal derivatives ∂²_(τ′) are recove
 non-characteristic at the level sets of τ′. The tame term comes from the Moser estimate ([[lem:iv1-2-3]]) for the
 coefficients of the perturbation, which are rational in h and two of its b-derivatives.
 
+*Low orders.* Let s ≤ 3 and h be bounded in H⁸; we use Leibniz's rule in place of the Moser estimate. A commutator
+term of order s is a sum of products of a b-derivative of order at most s of a coefficient of L with a b-derivative of
+order at most s + 1 of ġ. A b-derivative of order at most s of a coefficient of the perturbation is a polynomial in the
+b-derivatives of h of order at most s + 2 ≤ 5, with smooth bounded factors (h is small, so the denominators are bounded
+below). Each of these b-derivatives of h lies in H³_b, with norm at most ‖h‖_(H⁸), so in L^∞ by the embedding of
+[[lem:iv1-2-3]]. Hence each commutator term is bounded by a constant depending only on the bound on h in H⁸ times
+‖ġ‖_(H^(s+1,α)_b), and it is absorbed for Λ large as in the proof of [[prop:iv-4-1]], Λ now depending on that bound.
+The normal derivatives that the equation gives at {τ′ = 0} are bounded by the data in the same way. So no norm of f or
+of the data above those of the first term of [[eq:iv2-2-1]] enters.
+
 *Both directions.* On Ω⁺ ∩ Ω_N the solution is the forward one; on Ω⁻ it is the backward one, given by the same argument
 run backward in time, which uses only the b-structure of L, that dτ′ is timelike, and that Σ_(past,r₀) is spacelike
 ([[lem:iii-c1-1-1]]); the backward problem is argued directly as t ↦ −t is not an isometry of the gauge-fixed operator,
@@ -972,11 +983,14 @@ f_♭ ∈ H^(m,(a₀,2α_I))_b(Ω⁺₁) vanish on {τ′ < ⅛}. The forward so
     ‖u‖_(H^(m+1,a₀)_b(Ω⁺₁∩{ρ_I>c/2})) + ‖u‖_(H^((1;m),(a₀,2α_I))_(e,b;b)(Ω_c))
         ≤ C(‖f_♭‖_(H^(m,(a₀,2α_I))_b) + ‖h‖_(H^(m+3))‖f_♭‖_(H^(4,(a₀,2α_I))_b)).                       {#eq:iv2-2-2}
 
+For m = 3, [[eq:iv2-2-2]] holds without its last term, with C depending on the bound on h in H⁸.
+
 *Proof.* *Away from ℐ⁺.* Ω′ := Ω⁺₁ ∩ {ρ_I > c/4} lies in {1/16 ≤ τ′ ≤ 1 − c/8} for r₀ large (ρ_I = 1 − τ + 2ρ). Its
 interior boundary consists of {τ′ = 1/16}, initial, and the piecewise smooth ({ρ_I = c/4} ∪ Σ_(fut,r₀)) ∩ Ω̄′,
 spacelike ([[lem:iv2-1-1]] (a), [[lem:iii-c1-1-1]]) with Ω′ to its past. [[prop:iv-4-1]], for the system and with
 τ′, as in the proof of [[lem:iv2-2-2]], gives u₁ on Ω′ with ‖u₁‖_(H^(m+1,a₀)_b) ≤ C(‖f_♭‖_(H^(m,a₀)_b) plus the tame
-term); on Ω′, ρ_I > c/4, so the weight at ℐ⁺ does not matter. As the boundary to its future is spacelike, Ω′ is closed
+term), and for m = 3 without the tame term, by the part *Low orders* of that proof; on Ω′, ρ_I > c/4, so the weight at
+ℐ⁺ does not matter. As the boundary to its future is spacelike, Ω′ is closed
 under the past within Ω⁺₁, and u₁ = u on Ω′ ([[lem:ii-f-1-3]]).
 
 *Near ℐ⁺.* Let χ_c := χ̂_c(ρ_I) with χ̂_c = 1 on [c/2, ∞) and 0 on [0, c/4], and u₂ := u − χ_cu₁ on Ω_c. Then
@@ -987,7 +1001,9 @@ u₂ = 0 on {ρ_I > c/2}, and
 which vanishes on {ρ_I > c/2}, hence near Σ_in = {ρ_I = c}. The commutator is a first-order b-operator supported in
 {c/4 ≤ ρ_I ≤ c/2}, so ‖[L_g, χ_c]u₁‖_(H^(m,(a₀,2α_I))_b) ≤ C‖u₁‖_(H^(m+1,a₀)_b(Ω′)). u₂ is the forward solution on Ω_c
 from Σ_in (uniqueness by [[lem:ii-f-1-3]]), and [[prop:iv1-2-2]] on Ω_c ([[lem:iv2-2-1]]) gives the second term of
-[[eq:iv2-2-2]]. ∎
+[[eq:iv2-2-2]]. For m = 3: the last term of [[eq:iv1-2-1]] is ‖h‖_(H⁶)‖f₃‖_(H^(3,(a₀,2α_I))_b), at most
+C‖f₃‖_(H^(3,(a₀,2α_I))_b) as h is bounded in H⁸; and ‖f₃‖_(H^(3,(a₀,2α_I))_b) ≤ C(‖f_♭‖_(H^(3,(a₀,2α_I))_b)
++ ‖u₁‖_(H^(4,a₀)_b(Ω′))), where u₁ is bounded without a tame term. So at m = 3 no tame term arises. ∎
 
 **Theorem {#thm:iv2-2-4}** (The linear exterior estimate; [Hin23a, Theorem 3.35] in dimension 4 + 1, with [Hin26,
 (5.52)–(5.53)].) Let α₀ > ℓ^♭_I, a₀ := α₀ − 3/2, k ∈ ℕ₀, d := 4, and let h be small in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b. For

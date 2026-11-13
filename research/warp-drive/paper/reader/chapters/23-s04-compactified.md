@@ -2163,8 +2163,9 @@ some representation, and through (L3).
 
 *Proof.* Let d_0 be the largest of the numbers of (L3) and of [[lem:ii-a-8-6]] for the orders (𝗌, m, N) and
 (−N, m, N). Induction on k; k = 0 is (L3). Let k ≥ 1 and assume [[eq:ii-a-9-1]] at k − 1 for all admissible B, G and χ.
-Choose B_1, G_1, G_2, G_3, carried by χ_1 with χ = 1 near the required neighbourhood of supp χ_1. They satisfy
-WF′(B) ⊂ Ell(G_1), WF′(G_1) ⊂ Ell(G_2), WF′(G_2) ⊂ Ell(G_3) and WF′(G_3) ⊂ Ell(G) ∩ Ell(L). By [[eq:ii-a-8-1]],
+Put χ_1 := h_♭(χ), the inner cut-off of (R3) of [[sec:ii-a-8-3]], which carries B, and choose auxiliary operators
+G_1, G_2, G_3 ((R1) of [[sec:ii-a-8-3]], for B and G), carried by χ and by χ_1, with WF′(B) ⊂ Ell(G_1),
+WF′(G_1) ⊂ Ell(G_2), WF′(G_2) ⊂ Ell(G_3) and WF′(G_3) ⊂ Ell(G) ∩ Ell(L). By [[eq:ii-a-8-1]],
 ‖Bu‖_((𝗌;k)) ≤ ‖Bu‖_((𝗌;k−1)) + Σ_j ‖V_jBu‖_((𝗌;k−1)). The first term is bounded by [[eq:ii-a-9-1]] at k − 1. Write
 V_jBu = BV_ju + [V_j, B]u. Here [V_j, B] is carried by χ_1 with wave front set in that of B ([[lem:ii-a-8-4]] (a)), so
 ‖[V_j, B]u‖_((𝗌;k−1)) is bounded by [[eq:ii-a-9-1]] at k − 1. For BV_ju, apply [[eq:ii-a-9-1]] at k − 1 to V_ju, with
@@ -2172,13 +2173,14 @@ G_1 in place of G:
 
     ‖BV_ju‖_((𝗌;k−1)) ≤ C(‖G_1LV_ju‖_((𝗌−m;k−1)) + ‖χ_1V_ju‖_((−N;k−1))).
 
-The last term is at most C‖χu‖_((−N;k)), since χ_1V_ju = V_j(χ_1u) − (V_jχ_1)χu. Write LV_ju = V_jLu − [V_j, L]u.
+The last term is at most C‖χu‖_((−N;k)), by (R3). Write LV_ju = V_jLu − [V_j, L]u.
 First,
 
     ‖G_1V_jLu‖_((𝗌−m;k−1)) ≤ ‖G_1Lu‖_((𝗌−m;k)) + ‖[G_1, V_j]Lu‖_((𝗌−m;k−1)) ≤ C(‖GLu‖_((𝗌−m;k)) + ‖χ_*Lu‖_((−N−m;k)))
 
-by [[lem:ii-a-8-4]] (c), since WF′(G_1) ⊂ Ell(G), with χ_* carrying G_1 and G. By the support convention and
-[[lem:ii-a-8-6]] (a) at the order −N, ‖χ_*Lu‖_((−N−m;k)) ≤ C‖𝐚‖_((d_0;k))‖χu‖_((−N;k)). Second,
+by [[lem:ii-a-8-4]] (c), since WF′(G_1) ⊂ Ell(G), with the cut-off χ_* of (R2) of [[sec:ii-a-8-3]]: G_1χ_* = G_1,
+[G_1, V_j]χ_* = [G_1, V_j] and Gχ_* = G. As χ_*L = χ_*Lχ, [[lem:ii-a-8-6]] (a) at the order −N gives
+‖χ_*Lu‖_((−N−m;k)) ≤ C‖𝐚‖_((d_0;k))‖χu‖_((−N;k)). Second,
 [V_j, L] = Σ_q ((V_ja_q)P_q + a_q[V_j, P_q]) lies in C^((d_0;k−1))_(e3b;b) 𝒫′, 𝒫′ := 𝒫 ∪ {[V_j, P_q]}, with a
 representation of norm at most C‖𝐚‖_((d_0;k)) ([[lem:ii-a-8-2]] (b)). By [[lem:ii-a-8-6]] (b),
 
@@ -2190,7 +2192,7 @@ C(‖GLu‖_((𝗌−m;k−1)) + ‖χ_*Lu‖_((−N−m;k−1))), and the last 
 bounded is finite when the right side of [[eq:ii-a-9-1]] is: the step at k − 1 applied to V_ju has finite right side.
 So V_jBu ∈ H^((𝗌;k−1)) for every j, that is, Bu ∈ H^((𝗌;k)), with [[eq:ii-a-9-1]]. The constants depend on L through
 ‖𝐚‖_((d_0;k)), the constants at k − 1 and those of (L3). The step from k − 1 to k applies (L3), [[lem:ii-a-8-6]] and the
-statement at k − 1 to operators B_1, G_1, G_2, G_3, [V_j, B], a cut-off χ_1 and a finite set 𝒫′ chosen anew at each k.
+statement at k − 1 to operators G_1, G_2, G_3, [V_j, B], cut-offs χ_1, χ_* and a finite set 𝒫′ chosen anew at each k.
 The d_0 of (L3) and of [[lem:ii-a-8-6]] depends only on the orders and not on these choices ([[thm:ii-a1-3-1]],
 [[lem:ii-a-8-6]]), so the same d_0 serves at every k: d_0 does not depend on k. ∎
 
