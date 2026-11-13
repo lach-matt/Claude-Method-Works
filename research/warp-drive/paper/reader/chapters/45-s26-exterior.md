@@ -1229,9 +1229,9 @@ with the decomposition (u^((0)), u − χ_Iu^((0)) in slot 6), linear in (f, ġ�
 j as in [[rem:ii-g-2-2]], and N_j := N(f, ġ₀, ġ₁; j); let C depend only on k, α₀, ℓ^♭_I, the parameters and the bound
 on h in H⁸, so that |h|_j ≤ C for j ≤ 8. For the other quantities ‖·‖_j is the norm of order j of the space in which
 the step bounds them (H^(j,α₀)_b for ġ_N, H^(j,(a₀,2β))_b for f_(2,♭) and f₃, H^(j,a₀)_b(Ω′) for u₁), and
-‖u₂‖_((1;m)) is the norm of u₂ in H^((1;m),(a₀,2γ₀))_(e,b;b). Each step is bounded by the previous ones. Each lower norm is bounded by the same
-steps at a low order, where the tame factors are |h|_j with j ≤ 7, except ‖u₂‖_(H^(5,(a₀,2γ₁))_b), whose bound carries
-|h|_9 and is treated in the second integration.
+‖u₂‖_((1;m)) is the norm of u₂ in H^((1;m),(a₀,2γ₀))_(e,b;b). Each step is bounded by the previous ones. Each lower
+norm is bounded by the same steps at a low order, where the tame factors are |h|_j with j ≤ 7, except
+‖u₂‖_(H^(5,(a₀,2γ₁))_b), whose bound carries |h|_9 and is treated in the second integration.
 
 - Step 1, by [[eq:iv2-2-1]] at s = k + 3 (for k = 0, its clause for s ≤ 3):
   ‖ġ_N‖_(H^(k+4,α₀)_b) ≤ C(N_(k+4) + |h|_(k+5)N_5); at s = 3, ‖ġ_N‖_(H^(4,α₀)_b) ≤ CN_4.
@@ -1249,11 +1249,10 @@ steps at a low order, where the tame factors are |h|_j with j ≤ 7, except ‖u
   T := 0 for k ≤ 2 and T := |h|_(k+2)‖u₂‖_(H^(5,(a₀,2γ₁))_b) ≤ C|h|_(k+2)(N_7 + |h|_9N_5) for k ≥ 3. For 3 ≤ k ≤ 6,
   |h|_(k+2) ≤ C, so T ≤ C(N_7 + |h|_9N_5) ≤ C(N_(k+4) + |h|_(k+7)N_5). For k ≥ 7, |h|_(k+2)N_7 ≤ |h|_(k+7)N_8, and
   [[eq:s26-interpolation-product]] ([[lem:s26-interpolation]] for the decompositions) with s₀ := 8, q := 9 and
-  p := k + 2 ≥ 9 gives |h|_(k+2)|h|_9 ≤ C|h|_8|h|_(k+3)
-  ≤ C|h|_(k+3); so T ≤ C(N_(k+4) + |h|_(k+7)N_8).
+  p := k + 2 ≥ 9 gives |h|_(k+2)|h|_9 ≤ C|h|_8|h|_(k+3) ≤ C|h|_(k+3); so T ≤ C(N_(k+4) + |h|_(k+7)N_8).
 
-By Step 6, ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b) is at most C times the sum of these bounds, which is at most
-C(N_(k+4) + |h|_(k+7)N_8): this is [[eq:iv2-2-3]].
+By Step 6, the norm of the decomposition of ġ constructed there, and so ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b), is at most C times
+the sum of these bounds, which is at most C(N_(k+4) + |h|_(k+7)N_8): this is [[eq:iv2-2-3]].
 
 *The estimate with C depending on h.* Let k ≥ 1. The lower norms in the tame terms are of orders 4, 5 and 4 for f, ġ₀
 and ġ₁ in [[eq:iv2-2-1]] at s = k + 3, of order 4 for ġ_N and for u₁ in the bounds for [L, χ]ġ_N and

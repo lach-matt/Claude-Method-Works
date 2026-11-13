@@ -361,27 +361,26 @@ To state the bound, set apart the losses of the remaining steps. Let c(β_k) be 
 assigns to the step of [[thm:iii-i14-3-1]] that passes from the level β_(k−1) to β_k ([[lem:iii-i8-3-2]] or
 [[lem:iii-i13-2-2]], with the background terms of Step 2 of its proof) when every transition face round, level-3
 round, application of [[prop:iii-g4-4-4]] at levels 1 and 2 and window of its iterations is charged 0. Let c_b be the
-largest such loss of one round of [[prop:iii-i5-2-1]] in the base, and c′_b that of one step of [[prop:iii-i2-5-1]]
-there. Let c_0 be the largest loss assigned, with the same rounds, applications and windows charged 0, to the steps of
-the larger of the two constructions of [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] that lie outside the level steps,
-the rounds of [[prop:iii-i5-2-1]] and the steps of [[prop:iii-i2-5-1]] in the base: Step 0 of the proof of
-[[thm:iii-i14-3-1]] (the forward solution), the rest of Step 1 (the base), Steps 3, 4′ and 4, and for
-[[thm:iii-j2-4-2]] the map U ↦ Φ(U) and Steps 1–3 of the proof of [[thm:iii-j1-2-1]]. Each of these is a finite
-number: a finite composition of elementary losses.
+largest loss of one round of [[prop:iii-i5-2-1]] in the base with its windows charged 0, and c′_b the largest loss of
+one step of [[prop:iii-i2-5-1]] there. Let c_0 be the largest loss assigned to the remaining steps of the larger of the
+two constructions of [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]]: Step 0 of the proof of [[thm:iii-i14-3-1]] (the forward
+solution); the rest of Step 1 (the base), with the windows of Steps 0 and 2 of the proof of [[lem:iii-i8-3-1]] and of
+the level step α_0 → α_1 of [[prop:iii-i8-4-1]] charged 0; Steps 3, 4′ and 4, with all their steps charged (they
+apply [[thm:iii-i11-4-1]] and [[thm:iii-i12-3-1]] at the top level, finitely many times); and for [[thm:iii-j2-4-2]]
+the map U ↦ Φ(U) and Steps 1–3 of the proof of [[thm:iii-j1-2-1]]. Each of these numbers is finite, being assigned by
+the rules of [[def:ec-accounted-loss]] to a composition of finitely many elementary families.
 
 **Proposition {#prop:ec-upper}** (An upper bound for the accounted loss.) In the setting of [[lem:ec-counts]], with
 background terms charged by [[lem:ec-split-loss]],
 
-    d_acc ≤ (ℓ_tf + 2)(T_< + T_> + C_2) + 4(1/ι + 2) + (d^max_ι + 4) W (N_< + N_> + N_b + 4)
+    d_acc ≤ (ℓ_tf + 2)(T_< + T_> + C_2) + 4(1/ι + 2) + r_ι W (N_< + N_> + N_b + 3)
             + Σ_(k=1)^K c(β_k) + N_b c_b + (N_b + 1) c′_b + c_0 + (d_B − 2)_+,                          {#eq:ec-upper}
 
-where C_2 := N_>((1 + η_2 − η_1)/ε_Υ + 2). In particular, if s ≥ (1 − θ)(α − 4), α − 4 ≥ (1 − θ)ε_K,
-a_K − 2 ≥ (1 − θ)(α − 4) and ε ≤ θε_g with 0 < θ ≤ ½, the first line is at most
+where C_2 := N_>((1 + η_2 − η_1)/ε_Υ + 2) and r_ι := d^max_ι + 2 + 2⌈ℓ_I − 5/2⌉. If s ≥ σ_0, ι ≥ ι_0 and
+a_K − 2 ≥ σ_0 for some σ_0 ∈ (0, 1] and ι_0 > 0, then
 
-    ((2 + 2θ′)(ℓ_tf + 2) + (2 + 4θ′)(d^max_ι + 4)(2 − λ_♯)ε_g/ε_Υ)/(ε_K ε_g)                            {#eq:ec-upper-lead}
-
-plus terms of order 1/ε_K + 1/ε_g, with θ′ := 4θ (for ε_K, ε_g, θ small), and the second line is at most
-(3/((1 − θ)²ε_K) + 2) max(max_k c(β_k), c_b + c′_b) + c_0 + (d_B − 2)_+.
+    N_< ≤ 1/σ_0,   N_> ≤ (1 + ε_K)/σ_0 + 1,   N_b ≤ 1/σ_0 + 1,
+    T_< ≤ (1 + σ_0/2)²/(2σ_0ι_0) + 1/σ_0,   T_> ≤ (1 + ε_K + σ_0/2)²/(2σ_0ι_0) + 2(1 + ε_K)/σ_0 + 2.     {#eq:ec-upper-counts}
 
 *Proof.* *The chain.* By [[def:ec-accounted-loss]], a composition is charged the sum and a sum or an assembly the
 largest of the charges of its parts; so d_acc is the largest total charge along a chain of maps in which each takes the
@@ -407,17 +406,16 @@ rounds (Steps 2–4 of the proof of [[prop:iii-i11-3-1]], through [[prop:iii-i13
 (1 + η_2 − η_1)/ε_Υ + 1 at level 2 in a level step, each charged at most ℓ_tf + 2; this gives C_2(ℓ_tf + 2) over the
 levels in (3, α]. By [[lem:ec-counts]] (b), (c) and [[lem:ec-round-charges]] (a) the rounds give at most
 (ℓ_tf + 2)(T_< + T_>), plus 2 for each level-3 round at the at most two levels in (4, α], at most
-2 · 2(1/ι + 2) in all. The window loops on a chain are one per level step, one per round of [[prop:iii-i5-2-1]] in the
-base, those of Steps 0 and 2 of the proof of [[lem:iii-i8-3-1]] and of the level step α_0 → α_1 of [[prop:iii-i8-4-1]]
-in the base, and that of the top level in Steps 4′ and 4 (through [[thm:iii-i11-4-1]] and [[thm:iii-i12-3-1]]): at
-most N_< + N_> + N_b + 4 of them, each of at most W windows charged at most d^max_ι + 4 ([[lem:ec-counts]] (e),
-[[lem:ec-round-charges]] (c)). The choice α_1 − α_0 < a_K − 2 in [[prop:iii-i8-4-1]] makes its level steps one. This
-is the first line of [[eq:ec-upper]].
+2 · 2(1/ι + 2) in all. The window loops counted are one per level step, one per round of [[prop:iii-i5-2-1]] in the
+base, and those of Steps 0 and 2 of the proof of [[lem:iii-i8-3-1]] and of the level step α_0 → α_1 of
+[[prop:iii-i8-4-1]] in the base (the choice α_1 − α_0 < a_K − 2 makes that level step one): at most
+N_< + N_> + N_b + 3 of them, each of at most W windows charged at most r_ι ([[lem:ec-counts]] (e),
+[[lem:ec-round-charges]] (c)). This is the first line of [[eq:ec-upper]].
 
-*The leading term.* Under the conditions stated, s ≥ (1 − θ)²ε_K, ι ≥ (1 − θ)ε_g and a_K − 2 ≥ (1 − θ)²ε_K. Then
-T_< + T_> ≤ (1 + (1 + ε_K + s)²)/(2sι) + N_< + 2N_> ≤ (1 + O(ε_K))/(sι) + O(1/s), C_2 ≤ (1 + O(ε_K))/(sε_Υ) + O(1/s),
-and W(N_< + N_> + N_b + 4) ≤ (2 − λ_♯)(3/((1 − θ)²ε_K) + 4)/ε_Υ + O(1/ε_K). As ε_Υ ≥ ε_g and
-(1 − θ)⁻³ ≤ 1 + 4θ for θ ≤ ½·…, collecting gives [[eq:ec-upper-lead]] with the stated error terms. ∎
+*The counts.* N_< ≤ (3 − α_1)/s ≤ 1/s, as α_1 > 2; N_> ≤ (α − 3)/s + 1 ≤ (1 + ε_K)/s + 1, as α ≤ 4 + ε_K; and
+N_b ≤ 1/(a_K − 2) + 1. For L > 0 the function s ↦ (L + s/2)²/(2s) = L²/(2s) + L/2 + s/8 decreases on (0, 2L], and
+s < α − 4 ≤ ε_K < 2; so the bounds of [[lem:ec-counts]] (b), (c) decrease in s and in ι, which gives
+[[eq:ec-upper-counts]]. ∎
 
 **Remark {#rem:ec-upper-point}** (The upper bound at the computational point.) At the computational point take
 ε_Υ = 1.4619·10⁻¹⁰ ([[lem:ec-gauge-gap]]), ε_ind ≥ ε_Υ (so ε_g = ε_Υ), 3 < ℓ_I < 3.5 and δ < 3.5 − ℓ_I (so

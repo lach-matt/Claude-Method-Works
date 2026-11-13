@@ -103,7 +103,7 @@ Op(p)u(x) = (2π)^(−n) ∫ e^(ix·ξ) p(x, ξ) û(ξ) dξ, and Q_4 := [−2, 2
 (smooth in (x, ξ), with |∂_x^β ∂_ξ^γ 𝗆| ≤ C_(βγ)⟨ξ⟩^(−|γ|), as the variable orders of [[sec:ii-a1-1-1]] are in the
 charts of ρℬ) and K ∈ ℕ_0 put
 
-    |p|^𝗆_K := max_(|β|+|γ|≤K) sup ⟨ξ⟩^(−𝗆(x,ξ) − ϰ(|β|+|γ|) + |γ|) |∂_x^β ∂_ξ^γ p(x, ξ)|.                  {#eq:fwd-seminorm}
+    |p|^𝗆_K := max_(|β|+|γ|≤K) sup ⟨ξ⟩^(−𝗆(x,ξ)−ϰ(|β|+|γ|)+|γ|) |∂_x^β ∂_ξ^γ p(x, ξ)|.          {#eq:fwd-seminorm}
 
 By Leibniz's rule |pq|^(𝗆_1+𝗆_2)_K ≤ C|p|^(𝗆_1)_K |q|^(𝗆_2)_K; and ⟨ξ⟩^(𝗆(x,ξ)) has |·|^𝗆_K ≤ C_K for every K, its
 derivatives carrying factors log⟨ξ⟩ ≤ C_ϰ⟨ξ⟩^ϰ. A symbol of [[def:ii-a1-1-3]] of index ν, written in a chart of ρℬ,
@@ -113,8 +113,8 @@ counts below no symbol is differentiated more than D_max := 400T + 200 times; we
 losses ϰ(|β| + |γ|) in [[eq:fwd-seminorm]] never exceed ¼ in any exponent. Since all counts are monotone in ϰ, every
 statement below holds with the same counts for every smaller ϰ, which is how "order 𝗋 + δ for every δ > 0" is obtained.
 
-**Lemma {#lem:fwd-crude}** (Boundedness from x-derivatives.) Let p vanish for x ∉ Q_4, let μ, s ∈ ℝ, and suppose
-|∂_(x_l)^j p(x, ξ)| ≤ A⟨ξ⟩^μ for l = 1, …, n and j ≤ N, where N ≥ n + 1 + |s − μ|. Then
+**Lemma {#lem:fwd-crude}** (Boundedness from x-derivatives.) Let p vanish for x ∉ Q_4, let μ, s ∈ ℝ, and suppose that
+the bound |∂_(x_l)^j p(x, ξ)| ≤ A⟨ξ⟩^μ for l = 1, …, n and j ≤ N, where N ≥ n + 1 + |s − μ|. Then
 ‖Op(p)u‖_(H^(s−μ)) ≤ C A ‖u‖_(H^s), C depending on n, s − μ and N.
 
 *Proof.* Let θ ∈ C_c^∞((−3, 3)ⁿ) equal 1 on Q_4 and e_k(x) := e^(iπk·x/3), k ∈ ℤⁿ. On [−3, 3]ⁿ,
@@ -124,14 +124,14 @@ coordinate x_l with |k_l| = max_i |k_i| ≥ |k|/√n gives |p̂_k(ξ)| ≤ C⟨k
 maps H^s to H^(s−μ) with norm sup_ξ |p̂_k(ξ)|⟨ξ⟩^(−μ), and multiplication by θe_k has norm at most C⟨k⟩^(|s−μ|) on
 H^(s−μ) (Peetre's inequality, as in [[ch:s03]]). The sum Σ_k ⟨k⟩^(|s−μ|−N) is finite as N − |s − μ| > n. ∎
 
-**Lemma {#lem:fwd-l2}** (Boundedness on L² without loss.) If |∂_(x_l)^j p| ≤ A⟨ξ⟩^(ϰj) and
+**Lemma {#lem:fwd-l2}** (Boundedness on L² without loss.) If |∂_(x_l)^j p| ≤ A⟨ξ⟩^(ϰj) and the bound
 |∂_(ξ_l)^j p| ≤ A⟨ξ⟩^(−(1−ϰ)j) for l = 1, …, n and j ≤ 12, then ‖Op(p)‖_(L²→L²) ≤ CA. In particular
 ‖Op(p)‖ ≤ C|p|^0_12.
 
-*Proof.* Let ψ_0 + Σ_(j≥1) ψ_j = 1 be a dyadic partition, ψ_j supported in {2^(j−1) ≤ |ξ| ≤ 2^(j+1)} for j ≥ 1, with
+*Proof.* Let ψ_0 + Σ_(j≥1) ψ_j = 1 be a dyadic partition, ψ_j supported in {2^(j−1) ≤ |ξ| ≤ 2^(j+1)} for j ≥ 1, with the bounds
 |∂^γψ_j| ≤ C2^(−j|γ|). For the shell j put a_j := 2^(−ϰj) and b_j := 2^((1−ϰ)j), so a_jb_j ≥ 1. With θ, Θ ∈
 C_c^∞((−1, 1)ⁿ) such that Σ_m θ(· − m) = Σ_i Θ(· − i) = 1, let I = (j, m, i), p_I(x, ξ) := θ(x/a_j − m)
-Θ(ξ/b_j − i)ψ_j(ξ)p(x, ξ) and T_I := Op(p_I). On supp ψ_j, ⟨ξ⟩ ≤ 2^(j+2), so the hypotheses give
+Θ(ξ/b_j − i)ψ_j(ξ)p(x, ξ) and T_I := Op(p_I). On supp ψ_j, ⟨ξ⟩ ≤ 2^(j+2), so the hypotheses give the bounds
 |∂_(x_l)^k p_I| ≤ CAa_j^(−k) and |∂_(ξ_l)^k p_I| ≤ CAb_j^(−k) for k ≤ 12. Op(p)u = Σ_I T_I u for u ∈ 𝒮, the sum
 converging pointwise, so by the lemma of Cotlar and Stein it suffices to show
 sup_I Σ_(I′) ‖T_I^*T_(I′)‖^(1/2) ≤ CA and sup_I Σ_(I′) ‖T_I T_(I′)^*‖^(1/2) ≤ CA.
@@ -145,7 +145,7 @@ I′ (side 2a, a := a_j). Schur's test gives ‖T_I T_(I′)^*‖ ≤ CA² when 
 ≤ CA²(ab)^(n−12)⟨m − m′⟩^(−12) ≤ CA²⟨m − m′⟩^(−12) otherwise. Since 12/2 > n, the sum over I′ is at most CA.
 
 *T_I^*T_(I′).* On the Fourier side its kernel is L(ξ, η) = ∫ e^(ix·(η−ξ)) \overline{p_I(x, ξ)} p_(I′)(x, η) dx, which
-vanishes unless the x-boxes meet. Integrating by parts twelve times in x_l, with a̲ := min(a_j, a_(j′)),
+vanishes unless the x-boxes meet. Integrating by parts twelve times in x_l, with a̲ := min(a_j, a_(j′)), we obtain
 |L| ≤ CA²a̲ⁿ(1 + a̲|ξ − η|)^(−12). If |j − j′| ≤ 2 the scales are comparable and Schur's test over the ξ-boxes gives, as
 before, a bound CA²⟨i − i′⟩^(−12) after the boxes of the same shell, summable to CA. If |j − j′| ≥ 3, |ξ − η| ≥
 2^(J−2) with J := max(j, j′), so |L| ≤ CA²2^(−ϰJn)2^(−12(1−ϰ)J) and ‖T_I^*T_(I′)‖ ≤ CA²2^(−ϰJn)2^(−(1−ϰ)J(12−n)); the
@@ -153,11 +153,11 @@ number of I′ in the shell j′ meeting the x-box of I is at most C2^(2ϰJn). T
 at most CA2^(J(2ϰn − (1−ϰ)(12−n)/2)) ≤ CA2^(−J), as 2ϰn ≤ 5/4 and (1 − ϰ)(12 − n)/2 ≥ 49/16. Summed over j′ this is
 at most CA. ∎
 
-**Lemma {#lem:fwd-composition}** (Composition with remainder.) Let p, q be symbols with |p|^(𝗆_1)_(K_1) and
-|q|^(𝗆_2)_(K_2) finite, μ_i := sup 𝗆_i, J ≥ 1 and B ≥ 0. Then Op(p)Op(q) = Op(p ♯_J q) + Op(r_J) with
+**Lemma {#lem:fwd-composition}** (Composition with remainder.) Let p, q be symbols with the seminorms
+|p|^(𝗆_1)_(K_1) and |q|^(𝗆_2)_(K_2) finite, μ_i := sup 𝗆_i, J ≥ 1 and B ≥ 0. Then Op(p)Op(q) = Op(p ♯_J q) + Op(r_J) with
 
     p ♯_J q := Σ_(|α|<J) (α!)⁻¹ ∂_ξ^α p · D_x^α q,
-    |∂_x^β r_J(x, ξ)| ≤ C|p|^(𝗆_1)_(K_1)|q|^(𝗆_2)_(K_2) ⟨ξ⟩^(μ_1+μ_2−J+½),   |β| ≤ B,                      {#eq:fwd-remainder}
+    |∂_x^β r_J(x, ξ)| ≤ C|p|^(𝗆_1)_(K_1)|q|^(𝗆_2)_(K_2) ⟨ξ⟩^(μ_1+μ_2−J+½),   |β| ≤ B,         {#eq:fwd-remainder}
 
 provided K_1 ≥ J + B + 6 and K_2 ≥ J + B + 2L′, where 2L′ is the least even integer above n + 1 + |μ_1 − J|; if q
 vanishes for x ∉ Q_4 the condition on K_1 is K_1 ≥ J + B. The same holds for the adjoint: Op(p)^* = Op(p^♮_J) + Op(r^♮_J)
@@ -200,7 +200,7 @@ J_1 + 6 + 2L′_1 derivatives, 2L′_1 = 6T + 8, that is 10T + 15. Op(r_1)Op(λ�
 (from H^(−T) to L², N = 6), as Op(λ′) maps L² to H^𝗍 ⊂ H^(−T). Next Op(c_1)Op(λ′) = Op(c) + Op(r_2) with J_2 :=
 2T + 1; r_2 has order ≤ sup 𝗍 − inf 𝗍 − J_2 + ½ < 0 and is bounded on L² by [[lem:fwd-crude]], at a cost of
 J_2 + 12 derivatives of c_1, that is 6T + 13 of a. The main symbol c = Σ ∂_ξ^(α′)(∂_ξ^α λ · D_x^α a) D_x^(α′)λ′/(α!α′!)
-has pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′| ≤ 0, the variable orders cancelling at every point, so
+has pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′| ≤ 0, the variable orders cancelling at every point, so that
 |c|^0_12 ≤ C|a|^𝗆_(J_1+J_2+10) and [[lem:fwd-l2]] bounds Op(c) on L² without loss. The terms with residual factors and
 the low norm ‖Op(a)u‖_(−3T) are bounded by [[lem:fwd-crude]] at constant orders in [−3T, 3T], with at most 3T + 7
 derivatives. So (a) holds with 10T + 15 derivatives, without loss. Multiplication by ℓ is Op(ℓ) ((S4), [[eq:ii-a1-1-1]]),
