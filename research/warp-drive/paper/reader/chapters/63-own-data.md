@@ -653,9 +653,9 @@ g⁻¹ − g_b0⁻¹ = O(λ r⁻²), B(Σ) − B(0) = O(λ r⁻³) and C(Σ) −
 
 so B(H)·∂k = 2q(g)(∂g, ∂k) + l(g)(Γ̂, ∂k) and C(H)k is the rest. *Bounds on g.* The covector dv has Cartesian components
 (1, x̂), of Euclidean length √2, so |μ m| = 2μ r⁻² ≤ 1/8. By [[eq:background]], g_b0⁻¹ = η⁻¹ − μ r⁻² L0 ⊗ L0 with |L0|² =
-2, so |g_b0⁻¹| ≤ 9/8. Hence |g_b0⁻¹ H| ≤ 9/400, and g = g_b0 (1 + g_b0⁻¹ H) is invertible, with norm of the inverse |g⁻¹|
-≤ (9/8)/(1 − 9/400) < 6/5; also the norm of g is at most 1 + 1/8 + 1/50 < 6/5. So the components of g and g⁻¹ are bounded
-by an absolute constant, and so are the coefficients of q, l, c, c′ and their g-derivatives. (a) By
+2, so |g_b0⁻¹| ≤ 9/8. Hence |g_b0⁻¹ H| ≤ 9/400, and g = g_b0 (1 + g_b0⁻¹ H) is invertible, with norm of the
+inverse |g⁻¹| ≤ (9/8)/(1 − 9/400) < 6/5; also the norm of g is at most 1 + 1/8 + 1/50 < 6/5. So the components of g and
+g⁻¹ are bounded by an absolute constant, and so are the coefficients of q, l, c, c′ and their g-derivatives. (a) By
 [[eq:far-sigma-bounds]] and [[lem:far-scaling]] (a), the first derivatives satisfy |∂g_b0| + |Γ̂| ≤ C μ r⁻³ and the
 second ones |∂∂g_b0| + |∂Γ̂| ≤ C μ r⁻⁴. So |∂g| ≤ C μ r⁻³ + |∂H| and |∂∂g| ≤ C μ r⁻⁴ + |∂∂H|, and (a) follows term by
 term, with μ² r⁻⁶ ≤ μ r⁻⁴/16 and 2|Γ̂| |∂H| ≤ |Γ̂|² + |∂H|². (b) Each coefficient is a polynomial in g^(±1), ∂g, ∂∂g, Γ̂,
@@ -1403,9 +1403,10 @@ the integral over {x : r_σ ≤ |x| ≤ ϱ} of a function continuous in (σ, x),
 σ, and of the tails, at most C ϱ^(2a−6) uniformly in σ ∈ [T, σ′]. So 𝔈_k is finite and, as ϱ → ∞, a uniform limit of
 continuous functions on [T, σ′]. ∎
 
-*The error terms of the energy identity.* Let T ≤ σ* ≤ 0, let g = g_b0 + H be a smooth metric on W_T ∩ {t̃ ≤ σ*} with |H|
-≤ 1/50 there, h_R := H − Σ, and φ := (Γ^α h_R)_ij, |α| ≤ k1. Norms ‖·‖ are those of L²(Σ̃_σ, d⁴x), and 𝔈 := 𝔈_k1(σ) for σ
-∈ [T, σ*]. The error terms of the energy identity [[eq:own-energy-identity]] for φ on Σ̃_σ are bounded by three tools.
+*The error terms of the energy identity.* Let T ≤ σ* ≤ 0, let g = g_b0 + H be a smooth metric on W_T ∩ {t̃ ≤ σ*}
+with |H| ≤ 1/50 there, h_R := H − Σ, and φ := (Γ^α h_R)_ij, |α| ≤ k1. Norms ‖·‖ are those of L²(Σ̃_σ, d⁴x), and 𝔈 :=
+𝔈_k1(σ) for σ ∈ [T, σ*]. The error terms of the energy identity [[eq:own-energy-identity]] for φ on Σ̃_σ are bounded by
+three tools.
 (1) By [[lem:own-margins]] (d) and r^(2a) ≤ w ≤ C r^(2a) on W, 𝔈 bounds c_1 ∫_(Σ̃_σ) w |∂Γ^β h_R|² d⁴x for |β| ≤ k1. So a
 first-order coefficient c with |c| ≤ c_0 r^(−q) gives ‖w^(1/2) c ∂φ‖ ≤ C c_0 r_σ^(−q) 𝔈^(1/2).
 (2) Suppose that every Γ^β h_R, |β| ≤ k1, tends to 0 at spatial infinity along the rays of Σ̃_σ. The first inequality of
@@ -1487,8 +1488,8 @@ Their intersection is [ℓ0 − 1, 3), and [[thm:own-data]] uses its interior a 
 
 *Proof.* (i) is [[cor:far-kernels]]. (ii) By [[lem:own-truncation]] (iii) with k = k1 (J ≥ 2k1 + 7), |∂Γ^α h_R| ≤ C r⁻⁵
 on all of Σ̃_T for |α| ≤ k1, on the band and beyond it alike, with C depending on λ and J and not on T. With w ≤ C
-r^(2a), d⁴x = r³ dr dω and r_T ≥ c_W (1 + |T|), the energy is at most C ∫_(r_T)^∞ r^(2a−10+3) dr = C r_T^(2a−6)/(6 − 2a)
-≤ C |T|^(2a−6) for a < 3; for a ≥ 3 the integral of the bound diverges. (iii) For g_b0 the covector dv is null and
+r^(2a), d⁴x = r³ dr dω and r_T ≥ c_W (1 + |T|), the energy is at most C ∫_(r_T)^∞ r^(2a−10+3) dr = C r_T^(2a−6)/(6 −
+2a) ≤ C |T|^(2a−6) for a < 3; for a ≥ 3 the integral of the bound diverges. (iii) For g_b0 the covector dv is null and
 −g_b0⁻¹ dv = L0 ([[prop:vaidya]] (c)), with g_b0(∂_t, L0) = −dv(∂_t) = −1. With L := ∂_t + x̂·∂_x and ∇̸ the gradient on
 the spheres {t, r fixed}, |dφ|²_(g_b0) = −(Lφ)(L0φ) + |∇̸φ|² − μ r⁻² (L0φ)², so the flux density of g_b0 is
 
