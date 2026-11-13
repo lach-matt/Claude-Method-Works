@@ -1,11 +1,15 @@
 ## Appendix. Results from the literature {#app:standard-results}
 
-The proofs use the published results below as stated, without proof. Each is cited by its source, with its number and
-its page where given. Pages are those of the arXiv versions listed in the references; the arXiv text of [BGP] carries
-the book's page numbers, [See64] is cited by its journal page, [Mel93] by the page of the author's online edition
-(version 5.0E, 1993), [Hö90] and [RS1] by the pages of the printed books, and [DLMF] by equation number. Quotation
-marks enclose the source's own wording, transcribed into this edition's typography; an ellipsis marks words of the
-statement left out because no proof here depends on them. Inside each item the letters are the source's.
+The proofs use the published results below as stated; they are not proved here. Five items are consequences of these
+results and are proved here: [[thm:std-hormander-cauchy]], [[cor:std-moser-product]], [[thm:std-gn-moser]],
+[[cor:std-kato-ponce]] and [[cor:std-zero-sobolev]]; [[thm:std-mazzeo-melrose]] (5) and the closing sentences of a few
+other items draw short consequences of the quoted statements, each with its reason. Each published result is cited by
+its source, with its number and its page where given. Pages are those of the arXiv versions listed in the references;
+the arXiv text of [BGP] carries the book's page numbers, [See64] and [MM87] are cited by their journal pages, [Mel93] by
+the page of the author's online edition (version 5.0E, 1993), [Hö90], [RS1] and [Tre19] by the pages of the printed
+books, and [DLMF] by equation number. Quotation marks enclose the source's own wording, transcribed into this edition's
+typography; an ellipsis marks words of the statement left out because no proof here depends on them. Inside each item
+the letters are the source's.
 
 ### Linear wave equations on Lorentzian manifolds {#sec:std-linear-wave}
 

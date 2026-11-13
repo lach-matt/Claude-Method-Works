@@ -269,10 +269,10 @@ k ≥ 5, ℓ₀ > 0, ℓ_I > 3/2, H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b(�
 The class ⟨(2, 0)⟩₀ of [Hin26] has (1, 0) for π̸₀ and π₁₁. For π₁₁ that is the mass order, (2, 0) here. For π̸₀ it is the
 radiation order; the class above contains no radiation field of π̸₀, and with (3/2, 0) in slot 6 the mapping property
 [[eq:iii-c-5-3]] below would fail as soon as ℓ_I ≥ 5/2: the error term ρ₀²ρ_I²C^∞Diff²_b of [[eq:iii-c-4-4]] maps
-ρ_I^(3/2) to ρ_I^(7/2), a term that (4, 0) does not contain and that does not lie in ρ_I^(ℓ_I+1)H^(k−2)_b, as 7/2 ≤ ℓ_I +
-1. (For ℓ_I < 5/2 that term lies in the remainder; the backgrounds of [[def:iii-c-3-4]] and [[lem:iii-c-3-5]] lie in the
-class with ℓ_I = ∞.) [Hin26] uses ⟨(2, 0)⟩₀ to subtract the radiation fields in [Hin26, Theorem 5.21, Step 2] ((5.64), p.
-104). In dimension 4 + 1 that subtraction is not needed ([[rem:iii-c1-3-2]]).
+ρ_I^(3/2) to ρ_I^(7/2), a term that (4, 0) does not contain and that does not lie in ρ_I^(ℓ_I+1)H^(k−2)_b, as
+7/2 ≤ ℓ_I + 1. (For ℓ_I < 5/2 that term lies in the remainder; the backgrounds of [[def:iii-c-3-4]] and
+[[lem:iii-c-3-5]] lie in the class with ℓ_I = ∞.) [Hin26] uses ⟨(2, 0)⟩₀ to subtract the radiation fields in
+[Hin26, Theorem 5.21, Step 2] ((5.64), p. 104). In dimension 4 + 1 that subtraction is not needed ([[rem:iii-c1-3-2]]).
 
 **Definition {#def:iii-c-3-4}** (The background class.) 𝒢 is the set of Lorentzian metrics g₀ on Ω_ext, smooth on M,
 with
@@ -1001,17 +1001,17 @@ At n = 4 these are [[eq:s17-abar]]; at n = 3, where 2/(n − 1) = 1 and s = ½tr
 those printed in [Hin26, (5.28)] at h = 0.
 
 (2) A symmetric 2-tensor of scalar type given by S ∈ 𝒮_l has its slots 1, 3, 4, 7 multiples of S, its slots 2, 5
-multiples of dS and its slot 6 a multiple of δ̸*₀dS; one of vector type given by V ∈ 𝒱_l has its slots 2, 5 multiples of
-V and its slot 6 a multiple of δ̸*V; one of tensor type given by T ∈ 𝒯_l has only its slot 6, a multiple of T
+multiples of dS and its slot 6 a multiple of δ̸*₀dS; one of vector type given by V ∈ 𝒱_l has its slots 2, 5 multiples
+of V and its slot 6 a multiple of δ̸*V; one of tensor type given by T ∈ 𝒯_l has only its slot 6, a multiple of T
 ([[def:iii-a1-1-3]], and the list [[eq:iii-a1-2-10]], whose splitting differs from [[eq:iii-c-1-6]] only by changes of
 frame within the scalar and within the vector components). For S ∈ 𝒮_0, dS = 0; for V ∈ 𝒱_1, δ̸*V = 0
-([[eq:iii-a1-1-3]]); and for 0 ≠ V ∈ 𝒱_2, δ̸*V ≠ 0, as δ̸δ̸*V = (5/2)V ([[eq:iii-a1-1-2]] with ν = 3, k² = 8). This gives
-the sets J_τ, with one dimension per slot. By the proof of [[lem:iii-c-4-2]] the entries of Ā act between scalar slots
-and between vector slots as scalars, and the off-diagonal entries of [[eq:s17-abar]] connect slots within {1, 3, 4, 7} or
-within {2, 5}; row and column 6 of Ā vanish off the diagonal. So Ā maps the type-τ tensors given by Y to themselves, by
-its submatrix on J_τ, which is lower triangular, and the determinant of −2(x − λ)(x − 3/2 − Ā) there is the product of
-its diagonal entries; the diagonal is [[eq:iii-c-4-3]]. The display in (2) is [[eq:iii-g3-1-1]] applied to v^xφ: (v∂_v −
-λ)v^x = (x − λ)v^x, S̄ does not depend on v, and L̃(0)(ω, v∂_v, ∂_ω)v^xφ = v^xL̃(0)(ω, x, ∂_ω)φ.
+([[eq:iii-a1-1-3]]); and for 0 ≠ V ∈ 𝒱_2, δ̸*V ≠ 0, as δ̸δ̸*V = (5/2)V ([[eq:iii-a1-1-2]] with ν = 3, k² = 8). This
+gives the sets J_τ, with one dimension per slot. By the proof of [[lem:iii-c-4-2]] the entries of Ā act between scalar
+slots and between vector slots as scalars, and the off-diagonal entries of [[eq:s17-abar]] connect slots within
+{1, 3, 4, 7} or within {2, 5}; row and column 6 of Ā vanish off the diagonal. So Ā maps the type-τ tensors given by Y to
+themselves, by its submatrix on J_τ, which is lower triangular, and the determinant of −2(x − λ)(x − 3/2 − Ā) there is
+the product of its diagonal entries; the diagonal is [[eq:iii-c-4-3]]. The display in (2) is [[eq:iii-g3-1-1]] applied
+to v^xφ: (v∂_v − λ)v^x = (x − λ)v^x, S̄ does not depend on v, and L̃(0)(ω, v∂_v, ∂_ω)v^xφ = v^xL̃(0)(ω, x, ∂_ω)φ.
 
 (3) This is [[prop:iii-c-4-4]] with [[lem:iii-c-3-2]] (b)–(c), [[rem:iii-c-4-5]], the calculation of the leading part in
 the proof of [[prop:iii-c-5-2]], [[def:iii-c-5-1]] and [[rem:s17-no-radiation]].

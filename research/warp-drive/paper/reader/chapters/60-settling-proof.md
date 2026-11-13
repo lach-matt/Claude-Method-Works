@@ -180,8 +180,7 @@ with ∂^j any j derivatives in (τ, x), and g^KS_(μ_end,0) = η + (μ_end/r²)
 with N = K + 3 stages and the data of [[thm:data]]. By [[rem:ue-every-order]] with its energy order k taken equal to
 K ≥ 6, whose inputs (E3) and (E4) hold at every order for this approximant and these data, there are M and λ_1 > 0
 such that 𝒩_K(τ) ≤ Mλ^K on [τ0, τ′_end] for 0 < λ ≤ λ_1, 𝒩_K being the quantity [[eq:ue-energy]] at order k = K.
-Since 𝒩_K contains ‖h‖ and
-λ^i‖∂^i∂h‖ for i ≤ K, the L²(Σ_τ) norms satisfy
+Since 𝒩_K contains ‖h‖ and λ^i‖∂^i∂h‖ for i ≤ K, the L²(Σ_τ) norms satisfy
 
     ‖h(τ)‖ ≤ Mλ^K,     ‖∂^i∂h(τ)‖ ≤ Mλ^(K−i)     (i ≤ K).
 
