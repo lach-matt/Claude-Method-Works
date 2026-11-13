@@ -21,7 +21,11 @@ lemma, step by step, and checks:
      Evaluated at P* in interval arithmetic.  Then 400 boundary points (mu in [mu0, mu_end], mu' in [0, (2/9) A^2 c^2],
      the Kerr-Schild metric in Cartesian components) with random and adversarial k (|k| = s0, k = -+s0 u u^T, u along
      Phi0#): the exact ratio |g^-1(dPhi0, dPhi0) + m0|/|k| is at most the pointwise C_L1 and the uniform one, and |g0^-1|
-     <= n_b there.  Control: C_L1 without its quadratic term (pointwise |Phi0#|^2) is exceeded at an adversarial k.
+     <= n_b there (samples: a sanity check).  Certified (round 9 nits, 3): the pointwise C_L1, with n_X := 1 + 2
+     mu/r_q^2, over the whole admissible box [mu0, mu_end] x [0, (2/9) A^2 c^2] by 64 x 64 interval boxes, never
+     exceeds the uniform C_L1.  Controls: C_L1 without its quadratic term (pointwise |Phi0#|^2) is exceeded at an
+     adversarial k; sup |beta0| without its r_q' term (the reader's mutant) gives a uniform bound below a certified
+     pointwise value (detected by the boxes, where the samples, reaching 0.79 of the bound, did not).
   C2 (computed; C_S3 certified) Theorem 1's.  C_L3 := max_(m<=N) Cb_m, R5.5's node for L.3 (b) (`constL5.py`'s DAG; R5.5 lists it and
      does not name it); C1 := iota (C_app + 2 C_inf M lambda0^(K-4)), iota := 1/(s0 (s0 - eps1)) (EQUALITY5 section 0:
      |g - g0| <= C lam, C from Step 3 of lambda0's proof, and |g^-1 - g0^-1| = |g0^-1 k g^-1| <= |k|/(s0 (s0 - |k|)),
@@ -68,7 +72,9 @@ lemma, step by step, and checks:
   C5 (certified) lambda_25's status.  The conditions of R8.3 whose gamma involves no uncertified leaf -- (H1), (H2),
      (Lh), (Tl), and (J) with gamma_J = log10(4 pi + C_rho) >= log10(4 pi) -- give E_cf(delta) <= E_25(delta) whatever
      the leaves are, so lambda_25(delta) <= 10^(-E_cf(delta)), certified; (H2) and (Tl) are evaluated at betaP = 2, the
-     least betaP allows, and E_H2 increases with betaP (computed at betaP = 2, 9/4, 3, 5).  Direct evaluation at 200
+     least betaP allows, and E_H2 increases with betaP (computed at betaP = 2, 9/4, 3, 5) and with K (M_P = 2 N_P + 8
+     grows with K, b and c with M_P, a = delta does not; computed at K = 6, 7, 9, 12), so the bound holds for every
+     betaP >= 2 and K >= 6.  Direct evaluation at 200
      points beyond E_cf (actual n, h_n): those conditions hold.  The illustration (every uncertified leaf 1, lambda0 =
      0.00244; betaP = 5 then, N_P = 30) prints E_25 and lam_rec: a value of the formula, not a bound.  Control: (W1)
      admitted to the constant-free set is rejected (its gamma depends on C_L4's leaves).
@@ -164,8 +170,39 @@ def opnorm(Mx):
     return max(abs(e) for e in mp.eigsy((Mx + Mx.T)/2)[0])
 
 
+def cl1_box(n=64):
+    """certified: the pointwise C_L1(mu, mu') = |Phi0#|^2 + |Phi0#||dPhi0| n_X^2 s0/(1 - n_X s0), n_X := 1 + 2 mu/r_q^2,
+    r_q = (mu0 mu)^(1/4), r_q' = r_q mu'/(4 mu), beta0 = 1 - sqrt(mu/mu0) - r_q', over [mu0, mu_end] x [0, (2/9) A^2
+    c^2] by n x n boxes (interval arithmetic); returns (the largest box upper end, the largest box lower end)"""
+    m0, m1 = iv.mpf(MU0), MU_END
+    p1 = iv.mpf(2)/9*iv.mpf(AMP)**2*CPEAK**2
+    hi, lo = None, None
+    for i in range(n):
+        mu = iv.mpf([(m0 + (m1 - m0)*i/n).a, (m0 + (m1 - m0)*(i + 1)/n).b])
+        rq = iv.sqrt(iv.sqrt(MU0*mu))
+        nX = 1 + 2*mu/(rq*rq)
+        quad = nX**2*EPS1/(1 - nX*EPS1)
+        for j in range(n):
+            mp_ = iv.mpf([(p1*j/n).a, (p1*(j + 1)/n).b])
+            rqp = rq*mp_/(4*mu)
+            b0 = 1 - iv.sqrt(mu/MU0) - rqp
+            phi2 = (1 - b0)**2 + b0**2
+            dphi2 = rqp**2 + (1 - rqp)**2
+            c = phi2 + iv.sqrt(phi2)*iv.sqrt(dphi2)*quad
+            hi = c.b if hi is None or c.b > hi else hi
+            lo = c.a if lo is None or c.a > lo else lo
+    return hi, lo
+
+
 def c1(control=False):
     mp.mp.dps = 50
+    bhi, blo = cl1_box()
+    CL1u = cl1_value()
+    rq_, beta_, phi2_, dphi2_, quad_ = cl1_parts()
+    bm = iv.sqrt(MU_END/MU0) - 1                              # the reader's mutant: sup |beta0| without r_q'
+    mut = (1 + bm)**2 + bm**2 + iv.sqrt((1 + bm)**2 + bm**2)*quad_
+    box_ok = bhi <= CL1u.a
+    mut_dead = mut.b < blo
     rq, beta, phi2, dphi2, quad = cl1_parts()
     CL1 = cl1_value()
     nmax = mp.mpf(NB_IV._mpi_[1])
@@ -210,8 +247,8 @@ def c1(control=False):
             if ratio > pPh**2*(1 + mp.mpf(10)**-30):
                 ctl_exceeded = True
     if control:
-        return not ctl_exceeded                               # the control "passes" if the mutated bound survives
-    ok = worst_pt <= 1 and worst_uni <= 1 and worst_n <= 1
+        return not ctl_exceeded or not mut_dead               # a control "passes" if its mutated bound survives
+    ok = worst_pt <= 1 and worst_uni <= 1 and worst_n <= 1 and box_ok
     out("  C1 C_L1 = |Phi0#|^2 + |Phi0#||dPhi0| n_b^2 eps1/(1 - n_b eps1) at P*: sup r_q' <= %s, sup |beta0| <= %s,"
         " |Phi0#|^2 <= %s, |dPhi0| <= 1, n_b = 1 + 2 mu_end/mu0 <= %s (|g0^-1| at the boundary), eps1 < s0 <= %s (Omega,"
         " the operator norm), n_b^2 eps1/(1 - n_b eps1) <= %s; C_L1 <= %s, log10 C_L1 <= %s (certified, every admissible"
@@ -220,6 +257,11 @@ def c1(control=False):
         % (up(rq, 7), up(beta, 7), up(phi2, 6), up(NB_IV, 6), up(S0, 9), up(quad, 6), up(CL1, 5),
            up(iv.log(CL1)/iv.log(10), 5), up(phi2 + iv.sqrt(phi2)*NB_IV**2*EPS1_R1/(1 - NB_IV*EPS1_R1), 5),
            mp.nstr(worst_pt, 8), mp.nstr(worst_uni, 6), mp.nstr(worst_n, 6), ok))
+    out("  C1 (round 9 nits, 3) certified over the whole admissible range: on [mu0, mu_end] x [0, (2/9) A^2 c^2] (mu,"
+        " mu') by 64 x 64 boxes, the pointwise C_L1 (n_X = 1 + 2 mu/r_q^2, beta0 = 1 - sqrt(mu/mu0) - r_q') lies in [%s,"
+        " %s] at its largest box, <= the uniform C_L1 >= %s: %s.  Control (the reader's mutant): sup |beta0| without"
+        " r_q' gives a uniform %s, below the certified %s reached in a box: detected %s"
+        % (dn(blo, 6), up(bhi, 6), dn(CL1u, 5), box_ok, up(mut, 6), dn(blo, 6), mut_dead))
     return ok
 
 
@@ -603,10 +645,9 @@ def c4(control=False):
 
 
 # ------------------------------------------------------------------------------------------------------------ C5
-def e_cf(delta, betaP=2, admit_w1=False):
+def e_cf(delta, betaP=2, admit_w1=False, K=K_EX):
     """E_cf(delta): the conditions of R8.3 whose gamma involves no uncertified leaf, at N_P = K + 4 + ceil(4 betaP)"""
     lB, Ib = L25.inputs()
-    K = K_EX
     NP = K + 4 + int(mp.ceil(4*mp.mpf(betaP)))
     MP = 2*NP + 8
     while len(lB) <= MP:
@@ -670,11 +711,15 @@ def c5(control=False):
             mono.append(dict(rows2)["H2"].a)
         h2 = dict(rows)["H2"]
         incr = h2.b <= mono[0] and all(mono[i] <= mono[i + 1] for i in range(len(mono) - 1))
-        ok &= dep_ok and dok and incr
+        monoK = [dict(e_cf(delta, K=kk)[1])["H2"] for kk in (6, 7, 9, 12)]       # round 9 nits, 4: every K >= 6
+        incK = all(monoK[i].b <= monoK[i + 1].a for i in range(len(monoK) - 1))
+        ok &= dep_ok and dok and incr and incK
         lines.append("delta = %s: E_cf = %s (binding %s; %s), so lambda_25 <= 10^(-%s) whatever the leaves are; direct"
-                     " evaluation at 200 points beyond: %s; E_H2 at betaP = 2, 9/4, 3, 5: %s, %s, %s, %s (increasing: %s)"
+                     " evaluation at 200 points beyond: %s; E_H2 at betaP = 2, 9/4, 3, 5: %s, %s, %s, %s (increasing: %s);"
+                     " E_H2 at K = 6, 7, 9, 12: %s (increasing: %s)"
                      % (lab, dn(E, 1), nm, ", ".join("%s %s" % (r_[0], up(r_[1], 1)) for r_ in rows), dn(E, 1), dok,
-                        dn(h2, 1), *[mp.nstr(mp.mpf(x), 7) for x in mono], incr))
+                        dn(h2, 1), *[mp.nstr(mp.mpf(x), 7) for x in mono], incr, ", ".join(dn(x, 1) for x in monoK),
+                        incK))
     # E_H2 decreasing in delta on (0, 1/2]: at E = E_H2(delta) and delta' < delta, f_delta'(E) - f_delta(E) = (delta -
     # delta') E - (b(delta) - b(delta')) sqrt(E) >= (delta - delta') sqrt(E) (sqrt(E) - c_b) > 0, c_b := M_P L2 sqrt(ln
     # 10)/(2 sqrt 3) (sqrt(3 + delta) - sqrt(3 + delta') <= (delta - delta')/(2 sqrt 3)), since sqrt(E) >= b(0)/delta >=
