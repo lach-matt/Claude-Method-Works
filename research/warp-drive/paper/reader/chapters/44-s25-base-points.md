@@ -421,10 +421,11 @@ having K⁺-weight at least λ_♯ − 1 − ε ≥ w − ε, ι⁺-weight λ_�
 
     |A_k| ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|),     C uniform in b,
 
-by the direct bound. At the levels below 3 the same direct bound applies: there C^(k+1)_ν is the K⁺-coefficient
-S^(h,p⃗)_(λ,k)(G′) of u_0 := u + Σ_(𝒩⊔𝒩_rot) m_ν(W′_ν) given by [[lem:iii-i8-3-2]], transferred to P_4 as in Step 1
-and applied from an admissible level α″ ∈ (2, 2 + w], whose hypothesis u_0 meets, minus W′_ν; and G′ depends on the new
-W′ only through the small terms listed above, the rows there being rows of [[eq:iii-i15-1-1]]. The bound of
+by the direct bound. At the levels below 3 the same direct bound applies: there, for ν = (s1, λ, j), C^(k+1)_ν is
+the K⁺-coefficient S^(h,p⃗)_(λ,j)(G′) of u_0 := u + Σ_(𝒩⊔𝒩_rot) m_ν(W′_ν) given by [[lem:iii-i8-3-2]], transferred to
+P_4 as in Step 1 and applied from an admissible level α″ ∈ (2, 2 + w], whose hypothesis u_0 meets, minus W′_ν; and
+‖δG′‖_(𝒴,k+1) has the bound above, the rows there being rows of [[eq:iii-i15-1-1]] and the motion coordinates changing
+as [[eq:s25-motions-small]] gives. The bound of
 [[lem:iii-i8-3-2]], C‖G′‖_(𝒴(β_(k+1))) + C(‖h‖ + |p⃗|)‖u_0‖_(α″), uniform in b by (P1)–(P4), has the same form, and
 the estimate above holds with ‖·‖_(α″) in place of ‖·‖_(w). At the base level the new coordinates are the motion
 parameters (S′, b′, S^(0)′_1), which enter G′ through f^S, f^b, f^(s1) in full. There the level map is that of
@@ -675,8 +676,8 @@ paragraph *(Ex3) at b* below. The solution maps of [[ch:s19]]–[[ch:s23]] in [[
 the constructed map F ↦ (p⃗′, q′, h′) of [[prop:iii-i15-2-5]] ([[rem:iii-i15-2-6]]). The new objects enter the inventory
 of [[lem:iii-j2-2-1]] (c): A_b is bounded by a fixed low seminorm of the right side f′ = G − (L_(h,p⃗) − L_b)u, from
 which it reads the ι⁺-data u_+ and the tf-data ([[prop:iii-i15-2-2]]), so by fixed low seminorms of G and of the
-solution u ([[def:iii-i15-2-3]]); E^ν is bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id
-+ A_k as the other rows do; and d_* includes their orders.
+solution u ([[def:iii-i15-2-3]]); E^ν is bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows
+enter −id + A_k as the other rows do; and d_* includes their orders.
 
 *(Ex3) at b.* At a rotating b the K⁺-exponents at hand are those at b₀ together with: the exponents λ + j, λ ∈ π_1ℳ_rot,
 j ∈ ℕ₀, of the bottoms a_ν h_(b,v1)(W) of the rotation rows and their shifts ([[lem:iii-i15-2-1]], [[prop:iii-i15-2-2]]);

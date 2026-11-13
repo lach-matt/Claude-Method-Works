@@ -980,3 +980,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   thm:class-kato-stability (map at integration); issue-1 twice (seed continuity of the correction: [CS06] is 3D only;
   proof project P-K83a); computational-1 (tensor-type charge identity) and computational-2 (scalar-mode identities)
   and the sliver of region III beyond R = 1.861 (proof project P-K83b). Independent reader running.
+- S11 third fix (F3-S11): (E3) stated and proved in sec:iii-a-1-1 (poles of N(A,·)⁻¹ exactly the indicial roots;
+  bijective off spec_b(A); finitely many roots per strip; a version with a commuting projection Π). Citing sites to
+  update at their rounds or integration: 32-s13:1862-1863 "(E3) of [[sec:iii-a-1-1]]" with Π the projection onto the
+  types of f_(m_*); 33-s14:2465-2471 cite (E3) in place of the local proof; 36-s17:1621-1623 "(E1)–(E3) of
+  [[sec:iii-a-1-1]]"; optional 36-s17:1307-1308, 43-s24:640. S12's 0.80 → 0.788 (infimum 0.78811, not attained). New
+  label eq:s11-box-tensors for chapter 70 (sent to the chapter 70 re-merge). Fourth reading running.
+- S19 fifth reading (R5-S19): crux holds; minor: ϵ_G must cover {t_* ≥ ½} (collar outside Ω); nits: mass-term sign at
+  38:711; renames G → 𝖦, C_♭ → K_♭, ε_♭ → η_♭ (clashes with chapters 46, 48, def:s11-parameters, 27, 35); (B) users list
+  adds ch:s06 and lem:ii-e-4-1 (a). Optional note at 46:98 (ℓ_I there is the b-weight). Fifth fix running.

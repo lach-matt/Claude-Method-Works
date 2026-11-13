@@ -361,9 +361,9 @@ on t < 0. Differentiating in z: ℱ⁻¹s^+_(z,m) = ∂^m_z(c(z)t_+^(−z−1)) 
 Σ_(j≤m) C(m, j) c^((m−j))(z)(−log t)^j t^(−z−1), C(m, j) the binomial coefficient; its top power of log t is m, with
 coefficient (−1)^m c(z) ≠ 0, if z ∉ ℕ₀, and m − 1, with coefficient (−1)^(m−1) m c′(z) ≠ 0, if z ∈ ℕ₀ and m ≥ 1. The
 same holds for s^−_(z,m) on t < 0, with |t|. Multiplying by χ changes the inverse transforms by ℱ⁻¹((1 − χ)s), which
-is smooth on t ≠ 0 and O(|t|^(−∞)), as (1 − χ)s is smooth and a symbol in σ. And ℱ⁻¹(χ1_± r^±) = O(|t|^(−β−1+δ)): on
-|σ| < |t|⁻¹ the integrand is O(|σ|^β); on |σ| > |t|⁻¹ we integrate by parts ⌈β⌉ + 1 times, using
-|∂^j_σ r^±| ≤ C|σ|^(β−j), the boundary terms at |σ| = |t|⁻¹ being of the same size.
+is smooth on t ≠ 0 and O(|t|^(−∞)), as (1 − χ)s is smooth and a symbol in σ. And ℱ⁻¹(χ1_± r^±) = O(|t|^(−β−1+δ)):
+on |σ| < |t|⁻¹ the integrand is O(|σ|^β); on |σ| > |t|⁻¹ we integrate by parts ⌈β⌉ + 1 times,
+using |∂^j_σ r^±| ≤ C|σ|^(β−j), the boundary terms at |σ| = |t|⁻¹ being of the same size.
 
 Fix z with (z, m) ∈ E for some m, and let M be the largest such m. If z ∉ ℤ, the 2(M + 1) functions
 1_(±σ>0)|σ|^z(log|σ|)^m, m ≤ M, and s^±_(z,m), m ≤ M, span the same space: the change of basis is block triangular in m
@@ -778,8 +778,8 @@ distribution supported at 0, whose inverse transform, a polynomial, tends to 0 a
 so vanishes. Near σ = 0, −iσχ times the sum is iχ sgn(σ)h(S_o) (G_2(0) = h, [[lem:iii-h-2-5]] (b)) plus terms whose
 inverse transforms have K⁻-weight above 1 in {r ≤ R}: the sign-even part of iG_2(σ)(S^±_1) and Ψġ(ḃ_0) (the
 −iσ-multiples of the terms above) are smooth in σ; every other piece times σ is, in {r ≤ R}, a sum of terms
-sgn(σ)^δ|σ|^z(log|σ|)^m times smooth sections with Re z > 0 ([[lem:iii-i11-2-3]], with χ_zf = 1 there for
-|σ| ≤ c_R), whose inverse transforms are O(|t_*|^(−1−Re z) log^m), or of zf-weight above 0 ([[prop:ii-g1-3-5]] (1)).
+sgn(σ)^δ|σ|^z(log|σ|)^m times smooth sections with Re z > 0 ([[lem:iii-i11-2-3]], with χ_zf = 1 there
+for |σ| ≤ c_R), whose inverse transforms are O(|t_*|^(−1−Re z) log^m), or of zf-weight above 0 ([[prop:ii-g1-3-5]] (1)).
 The inverse transform of χ sgn(σ) is c t_*⁻¹(1 + o(1)) as t_* → −∞, with c ≠ 0. Hence h(S_o) = 0 on {r ≤ R}, so S_o = 0
 ([[eq:iii-h-3-1]]), and S_1 is the same for both signs. We then read the pieces of v̂ itself, the column pieces with
 constant coefficients as boundary values ([[lem:iii-i11-2-4]]) and the others as locally integrable functions: as
@@ -886,8 +886,8 @@ of ũ below 3/2 are those of u, by Step 1 of the proof of [[prop:iii-i5-2-1]] wi
 *Determination.* If two such expansions hold with the same u^rot, their difference is a sum of m_ν of K⁺-weight
 α − 2 − ε, which is 0 by [[cor:iii-i10-2-3]] (Re e_ν ≤ 2 < α − 2). *Reality:* u is real, m_ν̄(W̄) is the conjugate of
 m_ν(W), and the expansion is unique. *Bounds:* Steps 1–3 obtain the S_ν and u^rot from f′ by maps fixed by L_b, linear
-and bounded uniformly on ℬ̄_* ([[prop:iii-i10-3-1]], [[prop:iii-i11-3-1]], [[cor:iii-i10-2-3]], [[lem:iii-i15-1-1]]), so
-|S_ν| + |u^rot| ≤ C‖f′‖_(𝒴⁰(α)). The count of Step 0, whose coefficients L − L_b have size O(‖h‖ + |p⃗|)
+and bounded uniformly on ℬ̄_* ([[prop:iii-i10-3-1]], [[prop:iii-i11-3-1]], [[cor:iii-i10-2-3]], [[lem:iii-i15-1-1]]),
+so |S_ν| + |u^rot| ≤ C‖f′‖_(𝒴⁰(α)). The count of Step 0, whose coefficients L − L_b have size O(‖h‖ + |p⃗|)
 ([[lem:iii-i9-2-5]]) and gain a_K at K⁺, applies with w − ε for w_0 − ε, as w − ε + a_K ≥ α for ε small (a_K ≥ 4 + ε_K
 ≥ α by (H2)); it gives ‖(L − L_b)u‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u‖_(w), so
 ‖f′‖_(𝒴⁰(α)) ≤ ‖G‖_(𝒴⁰(α)) + C(‖h‖ + |p⃗|)‖u‖_(w). ∎
@@ -1025,9 +1025,9 @@ bounds q⃗(W⃗) − q⃗(0) by C|W⃗|, and u(W⃗) − u(0) by C|W⃗| in the
 proof of [[lem:iii-i11-3-3]] with w_0 for w and with its ε at most that of ‖·‖_(w_0), which then bounds ‖·‖_(w_0) as
 w_0 ≤ α′ − 2; and ‖m_ν(W)‖_(w_0) ≤ C|W| for every row, m_ν(W) having K⁺-weight at least λ_♯ − 1 − ε ≥ w_0 − ε and
 ι⁺-weight λ_♯ − ε ([[lem:iii-i9-2-2]]). So the second term is O((‖h‖ + |p⃗|)|W⃗|), T_(h,p⃗)W⃗ → W⃗ for every W⃗, and on
-the finite-dimensional space of the W⃗, T_(h,p⃗) → id; so T_(h,p⃗) is invertible for (h, p⃗) small, with
-|T⁻¹_(h,p⃗)| ≤ 2. Put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and F are
-real and T commutes with the conjugation of [[sec:iii-i9-1]].
+the finite-dimensional space of the W⃗, T_(h,p⃗) → id; so T_(h,p⃗) is invertible for (h, p⃗) small,
+with |T⁻¹_(h,p⃗)| ≤ 2. Put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and
+F are real and T commutes with the conjugation of [[sec:iii-i9-1]].
 
 *Uniqueness.* If p⃗″ also gives [[eq:iii-i11-4-2]] at α, its solution lies in [[eq:iii-i8-4-2]] at α′, so its
 𝒫_(α′)-part is q⃗(W⃗″) by the uniqueness at α′ ([[prop:iii-i8-4-1]]), where W⃗″ is its 𝒩′-part; then C(W⃗″) = 0, so
@@ -1122,15 +1122,15 @@ the part from the p^c_j has the order Re z + 1 + d′ at ι⁺; and χ_+y ∈ �
 in case (b), y is c_±|t|^(−z−1) times polynomials in log|t| plus a Schwartz function as t → ±∞), so χ_+y lies in the
 stated classes. For every x the left side of [[eq:iii-i12-2-1]] is Σ_j (y^((j)) + e_(j,r))(t_*)p_j(x) (as
 ℱ(a′) = −iσâ), with e_(j,r) := ℱ⁻¹[(−iσ)^j χc(χ_0(|σ|r) − 1)]. Let χ_0 = 1 on [0, c_0]. The symbol of e_(j,r) vanishes
-for |σ| ≤ c_0/r, so e_(j,r) = 0 for r < c_0; for r ≥ c_0 it satisfies
-|∂^l_σ[(−iσ)^j χc(χ_0(|σ|r) − 1)]| ≲ |σ|^(j+w−l) on its support, as ∂^l_σ[χ_0(|σ|r)] = r^l χ_0^((l))(|σ|r) sgn(σ)^l lives
+for |σ| ≤ c_0/r, so e_(j,r) = 0 for r < c_0; for r ≥ c_0 it satisfies |∂^l_σ[(−iσ)^j χc(χ_0(|σ|r) − 1)]|
+≲ |σ|^(j+w−l) on its support, as ∂^l_σ[χ_0(|σ|r)] = r^l χ_0^((l))(|σ|r) sgn(σ)^l lives
 where |σ|r ≤ 1, and the jump of c at σ = 0 lies outside the support. Integrating by parts M > j + w + 1 times,
 
     |e_(j,r)(t)| ≲ |t|^(−M) ∫_(|σ|≥c_0/r) |σ|^(j+w−M) dσ ≲ |t|^(−M) r^(M−j−w−1) = (r/|t|)^(M−j−w−1)|t|^(−j−w−1),
 
 and likewise with b-derivatives (t∂_t and r∂_r preserve this symbol class). On {r ≤ t_*/8}, where χ_K = χ_+ = 1 for
-t_* ≥ 2, R = Σ_j e_(j,r)p_j for t_* ≥ 2; with |p_j| ≲ ⟨r⟩^(j−d) (up to logarithms) this gives
-|R| ≲ (r/t)^N t^(−w−1)⟨r⟩^(−d) for every N, and the b-derivatives alike. For r ≥ 2, χ = 1 on the support of
+t_* ≥ 2, R = Σ_j e_(j,r)p_j for t_* ≥ 2; with |p_j| ≲ ⟨r⟩^(j−d) (up to logarithms) this
+gives |R| ≲ (r/t)^N t^(−w−1)⟨r⟩^(−d) for every N, and the b-derivatives alike. For r ≥ 2, χ = 1 on the support of
 χ_0(|σ|r), and the left side is Σ_j (y^((j)) ∗ k_r)(t_*)p_j(x), with k_r(s) := r⁻¹k(s/r). On {r ≥ t_*/8}, r ≥ 2, the
 substitution σ = ζ/r gives
 
@@ -1348,8 +1348,8 @@ profiles are multiplied by r^β or log r (from l_β(r̂) = (|σ|^β r^β − 1)/
 χ_tf ρ^(α_0−2)_tf u_tf does not vanish near zf: χ_tf = χ_2(ρ + |σ|) is 1 at tf ∩ zf and nonzero at zf over
 {r > 2/ρ_0} ([[sec:iii-g4-1]]), ρ_tf = |σ| + ⟨x⟩⁻¹ ([[sec:iii-h-1]]), and u_tf has the zf-class ((0, 0), ℓ_zf)
 ([[prop:iii-g4-4-4]]). We expand σ^j χ_tf ρ^(α_0−2)_tf u_tf at zf to the order ℓ_zf + j, the zf-exponents being j plus
-ℕ₀ (from χ_2, from ρ_tf and, if the zf-index set (0, 0) of u_tf is read with its ℕ₀-shifts, from u_tf itself, all in
-|σ| and of the same form). Its zf-terms σ^j|σ|^k c^±_k(x), cut off by χ_zf, are pieces of the type (v)
+ℕ₀ (from χ_2, from ρ_tf and, if the zf-index set (0, 0) of u_tf is read with its ℕ₀-shifts, from u_tf itself, all
+in |σ| and of the same form). Its zf-terms σ^j|σ|^k c^±_k(x), cut off by χ_zf, are pieces of the type (v)
 ([[lem:iii-i12-2-1]] (b) with c = σ^j|σ|^k sgn(σ)^δ and the single profile c_(k,e) or c_(k,o)), and the zf-remainder,
 of weight ℓ_zf + j = α − 1 − ε (the choice of the level in [[prop:iii-i11-3-1]]), has K⁺-order α − ε
 ([[prop:iii-a-4-2]] (2)), with ι⁺-exponents the tf-index set plus 1.
@@ -1426,9 +1426,10 @@ have the order at least 3 + η_2 − 2ε at ι⁺ (α_κ + 2 for (viii); at leas
 
 *Step 6 (the rest).* Every map used is linear and bounded, uniformly for (h, p⃗) small ([[lem:iii-i11-3-2]],
 [[thm:iii-i11-4-1]], [[lem:iii-i12-2-1]]–[[lem:iii-i12-2-4]]), and is applied to the forcing f′ of Step 0, whose size
-is at most C‖F‖_(𝒴⁰(α)): ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0‖_(w_0) are at most C‖F‖_(𝒴⁰(α)) by the bounds in the proof of
-[[thm:iii-i11-4-1]], and ‖(L_(h,p⃗) − L_(b_0))u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w_0) by the count of Step 0 of the proof
-of [[lem:iii-i11-3-2]]. Reality: u is real and the towers are real (the conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing
+is at most C‖F‖_(𝒴⁰(α)). Put w′_0 := min(α′ − 2, λ_♯ − 1), with α′ ∈ (2, 3) the admissible level fixed in the proof of
+[[thm:iii-i11-4-1]]: ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0‖_(w′_0) are at most C‖F‖_(𝒴⁰(α)) by the bounds in that proof, and
+‖(L_(h,p⃗) − L_(b_0))u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w′_0) by the count of Step 0 of the proof of
+[[lem:iii-i11-3-2]]. Reality: u is real and the towers are real (the conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing
 every coefficient and ũ by their real parts keeps [[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]], ℰ_♯ being closed under
 conjugation. L_(b_0)(χ_K u_exp) has K⁺-order α − ε by the tower relations, as in Step 3. ∎
 
@@ -1453,8 +1454,8 @@ where ‖·‖_(𝒴⁰(α)) is a seminorm of 𝒴⁰(α) and ‖·‖_(w) one o
 in place of w_0, both depending on the seminorm bounded (of large enough regularity, as in [[sec:iii-i8-1]]), and C
 depends on w and these seminorms and is uniform for (h, p⃗) small. This is not a bound by G alone. In the setting of
 this section, 𝒩″ = 𝒩, G is the G(W⃗) of Step 0, and the coefficients W_ν are the S_ν of Step 0, which are the row
-components of p⃗′ (the C_ν vanish). Take for w the number min(α′ − 2, λ_♯ − 1) ∈ (0, w_0], called w_0 in the proof of
-[[thm:iii-i11-4-1]]. The bounds at the end of that proof, which hold for every choice of the seminorms of large enough
+components of p⃗′ (the C_ν vanish). Take for w the number w′_0 = min(α′ − 2, λ_♯ − 1) of Step 6, which lies in
+(0, w_0]. The bounds at the end of the proof of [[thm:iii-i11-4-1]], which hold for every choice of the seminorms of large enough
 regularity, give |p⃗′_(h,p⃗)(F)|, ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0(W⃗)‖_(w) at most C‖F‖_(𝒴⁰(α)); so the three terms are at
 most C‖F‖_(𝒴⁰(α)), which is the bound of Step 6.
 
@@ -1637,8 +1638,8 @@ v1 content through an antiderivative. At a rotating b both steps change. This se
 b ∈ ℬ̄_*, with the rotation tower T_(v1,b) in place of the antiderivative, and with them the expansion of
 [[thm:iii-i12-3-1]] at b.
 
-*The rotation state at b.* By [[rem:iii-i15-1-2]], for V ∈ 𝒱_1 there is ḃ_V ∈ 𝔟, linear in V, with
-|ḃ_V| = O(|b − b_0||V|) and
+*The rotation state at b.* By [[rem:iii-i15-1-2]], for V ∈ 𝒱_1 there is ḃ_V ∈ 𝔟, linear in V,
+with |ḃ_V| = O(|b − b_0||V|) and
 
     h_(b,v1)(V) = ġ_b(ḃ_V),          ker h_(b,v1) = 𝒱⁰_b := {V : ḃ_V = 0}.
 
@@ -1696,8 +1697,8 @@ so that ḃ_(V″) = ḃ, and subtract T_(v1,b)(aV″) instead of ġ_b(aḃ). It
 aġ_b(ḃ), as required, and L_b of it involves a″ and higher. Its next term, a′h̆¹_(b,v1)(V″), carries the v1 content
 V_X that the reduction at the next pair would remove; that content is therefore removed here, at the earlier pair.
 
-The new terms are again compatible: a companion a^((j))h̆^j has the exponent z + j and the degree μ − j, as at b_0.
-|V″| ≤ C|V_X|, with C depending only on |z_0|⁻¹, and Re z_0 ≥ β − 2 > 1. The coefficients are read off leading
+The new terms are again compatible: a companion a^((j))h̆^j has the exponent z + j and the degree μ − j, as at
+b_0. |V″| ≤ C|V_X|, with C depending only on |z_0|⁻¹, and Re z_0 ≥ β − 2 > 1. The coefficients are read off leading
 coefficients, which are independent of b ((P3)) or, for ġ_b, smooth in b; so the bounds are uniform on ℬ̄_*. ∎
 
 **Corollary {#cor:iii-i15-2-10}** ([[thm:iii-i12-3-1]] at b.) Let α > 4 be admissible, b ∈ ℬ̄_*, and (h, p⃗) a small

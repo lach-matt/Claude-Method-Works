@@ -464,8 +464,8 @@ reduce to one. What these sections take from L_b holds for □ as follows.
 - [[lem:iii-h1-5-1]], for the one state, of weight q = 2: ∂_(t_*)u_sing ∈ H^((p;k),(α_sf+1,0))_(3b;b)(M_0) for every
   p, the sf-weight α_sf + 1 being negative, as the proof of that lemma requires.
 - [[sec:iii-h1-7]]: (i) as there, with u′ := u_hi + u_reg; (ii) u_sing = −u′ on Ω_−; then [[lem:iii-h1-6-2]] once,
-  for u_sing, with the order 𝗌 − 1 and the two parameters of that lemma equal to α_sf + 1 and 1: the data of weights
-  (α_sf, 0) ⊂ (α_sf, −1) on Ω_− and ∂_(t_*)u_sing of weights (α_sf + 1, 0) give
+  for u_sing, with the order 𝗌 − 1 and the lemma's two weight parameters (its β and ℓ) equal to α_sf + 1 and 1: the
+  data of weights (α_sf, 0) ⊂ (α_sf, −1) on Ω_− and ∂_(t_*)u_sing of weights (α_sf + 1, 0) give
   u_sing ∈ H^((𝗌−1;k),(α_sf,−1))_(3b;b)(M_0). With (i) this is (iii).
 
 For (ii): by the proof of [[lem:iii-h1-5-1]], ℱ(∂_(t_*)u_sing) = χ(|σ|)Ψb̂_1W* on ℝ, where Ψ(·, r) is the Fourier
