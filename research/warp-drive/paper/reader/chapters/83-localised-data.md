@@ -696,8 +696,8 @@ and the other components of Dℳ[δ] vanish. So δ is a momentum seed exactly wh
     s2 = sc ((1/(√G R³)) ∂_R(R⁴ p̂) − β_K ∂_ϑ Kt + ∂_ϑ s1 + (cot ϑ − 2 tan ϑ) s1).                        {#eq:loc-s2}
 
 *Proof.* At δγ = 0, Dℋ[δ] = 2 tr K0 tr δK − 2⟨K0, δK⟩ with tr K0 = κ0 + 3Y0, tr δK = δκ + Kt and
-⟨K0, δK⟩ = κ0δκ + Y0Kt. Dℳ[δ] = div δK − d tr δK, with the Christoffel symbols of γ in (R, ϑ, φ1, φ2): Γ^R_RR = G′/(2G), Γ^R_ϑϑ = −R/G,
-Γ^R_(φ1φ1) = −R cos²ϑ/G, Γ^R_(φ2φ2) = −R sin²ϑ/G, Γ^ϑ_(Rϑ) = Γ^(φi)_(Rφi) = 1/R, Γ^ϑ_(φ1φ1) = sc, Γ^ϑ_(φ2φ2) = −sc,
+⟨K0, δK⟩ = κ0δκ + Y0Kt. Dℳ[δ] = div δK − d tr δK, with the Christoffel symbols of γ in (R, ϑ, φ1, φ2):
+Γ^R_RR = G′/(2G), Γ^R_ϑϑ = −R/G, Γ^R_(φ1φ1) = −R cos²ϑ/G, Γ^R_(φ2φ2) = −R sin²ϑ/G, Γ^ϑ_(Rϑ) = Γ^(φi)_(Rφi) = 1/R, Γ^ϑ_(φ1φ1) = sc, Γ^ϑ_(φ2φ2) = −sc,
 Γ^(φ1)_(ϑφ1) = −tan ϑ, Γ^(φ2)_(ϑφ2) = cot ϑ. Inserting the coordinate components of [[eq:loc-dk]] (δK_RR = Gδκ,
 δK_Rϑ = √G R p̂, δK_ϑϑ = R²(Kt/3 + s1), δK_(φ2φ2) = R² sin²ϑ (Kt/3 + s2), δK_(φ1φ1) = R² cos²ϑ (Kt/3 − s1 − s2)) gives
 [[eq:loc-dm]]; the φ components vanish because nothing depends on φ_i and δK has no mixed φ components. With δκ = cKt,
@@ -731,8 +731,8 @@ function on that line, and p̂ = O(ϱ). Likewise p̂ = O(cos ϑ) at ϑ = π/2. H
 there, and η = 0 on the axis; so η is compactly supported in R.
 
 *The quadratic form.* Since δγ = 0 and ℳ is linear in K at fixed γ, D²ℳ[δ, δ] = 0 and
-D²ℋ[δ, δ] = 2((tr δK)² − |δK|²). From [[eq:loc-dk]] and δκ = cKt, (tr δK)² − |δK|² = (2β_K − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)², and
-dvol = √G R³ sc dR dϑ dφ1 dφ2. So Q_N(δ) = (2π)² ∫∫ 𝔮 dϑ dR with
+D²ℋ[δ, δ] = 2((tr δK)² − |δK|²). From [[eq:loc-dk]] and δκ = cKt,
+(tr δK)² − |δK|² = (2β_K − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)², and dvol = √G R³ sc dR dϑ dφ1 dφ2. So Q_N(δ) = (2π)² ∫∫ 𝔮 dϑ dR with
 𝔮 := ν sc [(2β_K − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)²],
 and Q_(N_s) = Q by [[eq:loc-charge]].
 
@@ -1011,8 +1011,8 @@ a smooth vector field X, so h = L_(Z_h) g with Z_h := Ẑ + X. As h = 0 on S_in 
 field there. Its average Z̄_h over T² × Z2 × Z2 satisfies L_(Z̄_h) g = h too, the group acting by isometries that fix h,
 and it is an invariant Killing field on these two sets. They are connected and lie in the chart of
 [[lem:racz-split-formulas]] (d), where the argument of the proof of [[lem:loc-kid]] (c), which is local, gives
-Z̄_h = c_in ξ on S_in × S³ and Z̄_h = c_out ξ on S_out × S³ for constants c_in and c_out. So Z := Z̄_h − c_out ξ satisfies
-L_Z g = h and generates δ on Σ̂; it vanishes on S_out × S³ and equals (c_in − c_out)ξ on S_in × S³. For η > 0 small,
+Z̄_h = c_in ξ on S_in × S³ and Z̄_h = c_out ξ on S_out × S³ for constants c_in and c_out. So Z := Z̄_h − c_out ξ
+satisfies L_Z g = h and generates δ on Σ̂; it vanishes on S_out × S³ and equals (c_in − c_out)ξ on S_in × S³. For η > 0 small,
 U″ := {R1′ − η < R < R2′ + η} has supp δ ⊂ U″ and Ū″ ⊂ U, its outer boundary sphere lies in S_out × S³ and its inner
 one in S_in × S³, as U ⊂ {f > 0}; so δ is a gauge seed. The converse is the same argument with Σ̂ and Σ_s* exchanged:
 from a generator of δ, extended by c ξ on the inner part of Σ̂ and by 0 on the outer part, [[lem:loc-gauge-unique]] and
@@ -1177,13 +1177,14 @@ the identity for ψ_u in (v). ∎
 (a) *The data on 𝒞_in.* R(u) := R(u, 0) solves R″ = −ℬ/(3R²) with R(u1) = 2.321, R′(u1) = −0.47, and S(u) := R²R_v(u,
 0) solves S′ = −R/2 with S(u1) = 2.067575. The functions μ(u) := μ(u, 0) and ℓ_v(u) := 2R_v(u, 0) are
 
-    μ = R² + 4R′S,     ℓ_v = 2S/R²,     μ′ = −(2/3) ℬ ℓ_v,     ℓ_v′ = −μ/R³.                                   {#eq:bg-nprime}
+    μ = R² + 4R′S,     ℓ_v = 2S/R²,     μ′ = −(2/3) ℬ ℓ_v,     ℓ_v′ = −μ/R³.                              {#eq:bg-nprime}
 
 (b) *Region I.* On {u ≤ u1} ∩ ℛ, μ = 3/2 and ψ = 0, so g0 is Tangherlini's metric of mass 3/2 in ingoing
 coordinates; along the outgoing ray u = u1, v̂ = F(R) − F(2.321). The ingoing ray of label v̂ meets u = u1 at R = ρ,
 where v̂ = v̂(ρ) in the notation [[eq:bg-label]]; we label rays by ρ.
 
-(c) *The rays.* On ℛ, μ(u, v) = μ(u) and e^(−2σ)R_v(u, v) = ℓ_v(u), and R_u < 0. Where ℓ_v(u) > 0, along every ingoing ray
+(c) *The rays.* On ℛ, μ(u, v) = μ(u) and e^(−2σ)R_v(u, v) = ℓ_v(u), and R_u < 0. Where ℓ_v(u) > 0, along every
+ingoing ray
 
     R_u = G(u, R),        G(u, X) := −(1 − μ(u)/X²)/(2ℓ_v(u)).                                              {#eq:bg-ray}
 
@@ -1346,8 +1347,8 @@ E₀ and |R′ − R̂′| ≤ E₁ with E₀, E₁ of that row, and |S − Ŝ| 
 
 in particular |μ − μ̃| ≤ 4.2 × 10⁻⁷ and |ℓ_v − ℓ̃_v| ≤ 5 × 10⁻⁸ on [u1, u2].
 
-*Proof.* Let δ(u) := R̂″ + ℬ/(3R̂²) on a segment. On the ten middle segments δ is holomorphic on the disc |u − c| ≤ r, r =
-(4/5)min(c − u1, u2 − c), since ℬ is holomorphic off u1 and u2 ([[lem:bg-tools]] (e)) and |R̂| > 0 there; on the
+*Proof.* Let δ(u) := R̂″ + ℬ/(3R̂²) on a segment. On the ten middle segments δ is holomorphic on the disc |u − c| ≤ r,
+r = (4/5)min(c − u1, u2 − c), since ℬ is holomorphic off u1 and u2 ([[lem:bg-tools]] (e)) and |R̂| > 0 there; on the
 disc, |R̂″| ≤ Σ n(n − 1)|q_n|(r/h)^(n−2)/h², |R̂| ≥ q_0 − Σ_(n≥1)|q_n|(r/h)ⁿ and |ℬ| is bounded by [[eq:bg-bump-disc]]
 with w0 = (c − 6.45)/0.75, ϱ = r/0.75. This gives 𝔐. The Taylor coefficients δ_n of δ at c follow from those of ℬ
 ([[lem:bg-tools]] (e)) by multiplication and division of power series, and [[lem:bg-tools]] (b) with k = 60 gives the
@@ -1375,9 +1376,9 @@ both largest values occur on [7.17, 7.2].
 (i) R̂(u2) = 1.5193579823987569 exactly. (ii) The bound (iv) at u = u2, with the exact values R̂(u2), R̂′(u2) =
 −0.60795759341336… and Ŝ(u2) and the last row's E₀, E₁, I, gives |μ3 − μ̃3| ≤ 4.068 × 10⁻⁷; and R(u2)² ≥ 2.308 > 0.823.
 
-(iii) Since Ŝ ≥ Ŝ(u2) and |S − Ŝ| ≤ 1.82 × 10⁻⁸, S ≥ Ŝ(u2) − 1.82 × 10⁻⁸ > 0.6111 on [u1, u2], so ℓ_v = 2S/R² > 0 there.
-Since ℬ ≥ 0, [[eq:bg-nprime]] gives μ′ = −(2/3)ℬℓ_v ≤ 0, so μ is nonincreasing and 3/2 = μ(u1) ≥ μ ≥ μ3 > 0 by (ii), where
-μ(u1) = 2.321² − 4(0.47)(2.067575) = 3/2. Hence ℓ_v′ = −μ/R³ < 0, so ℓ_v is decreasing on [u1, u2] and ℓ_v ≥ ℓ_v(u2) =
+(iii) Since Ŝ ≥ Ŝ(u2) and |S − Ŝ| ≤ 1.82 × 10⁻⁸, S ≥ Ŝ(u2) − 1.82 × 10⁻⁸ > 0.6111 on [u1, u2], so ℓ_v = 2S/R² > 0
+there. Since ℬ ≥ 0, [[eq:bg-nprime]] gives μ′ = −(2/3)ℬℓ_v ≤ 0, so μ is nonincreasing and 3/2 = μ(u1) ≥ μ ≥ μ3 > 0 by
+(ii), where μ(u1) = 2.321² − 4(0.47)(2.067575) = 3/2. Hence ℓ_v′ = −μ/R³ < 0, so ℓ_v is decreasing on [u1, u2] and ℓ_v ≥ ℓ_v(u2) =
 2S(u2)/R(u2)² ≥ 2(Ŝ(u2) − I/2)/(R̂(u2) + E₀)² ≥ 0.529533. ∎
 
 #### The rays {#sec:bg-rays}
@@ -1423,8 +1424,8 @@ where also |∂_X^m G| ≤ H_m := c_m (3/2)/(0.529533 X̲^(m+2)), (c_2, c_3, c_4
 with the ε of that row. At u = u2: ε₀ = 8.69 × 10⁻⁷, ε₁ = 1.68 × 10⁻⁶, ε₂ = 6.10 × 10⁻⁶, ε₃ = 3.65 × 10⁻⁵. Moreover 0
 < J ≤ 1, and the rays satisfy Ψ(u, ρ) > √μ(u) on [u1, u2] × [2.32, 3.44].
 
-*Proof.* Fix ρ. By [[prop:bg-nprime]] (iii), ℓ_v > 0 on [u1, u2], so [[eq:bg-ray]] holds along the ray, and ∂_XG = −μ/(ℓ_vX³)
-< 0 for X > 0. Let e₀ := Ψ − Ψ̃. Then e₀′ = −p e₀ + r with p := −∫_0^1 ∂_XG(u, Ψ̃ + te₀) dt ≥ 0 and r := (G −
+*Proof.* Fix ρ. By [[prop:bg-nprime]] (iii), ℓ_v > 0 on [u1, u2], so [[eq:bg-ray]] holds along the ray, and
+∂_XG = −μ/(ℓ_vX³) < 0 for X > 0. Let e₀ := Ψ − Ψ̃. Then e₀′ = −p e₀ + r with p := −∫_0^1 ∂_XG(u, Ψ̃ + te₀) dt ≥ 0 and r := (G −
 G̃)(u, Ψ̃) − D. While |e₀| ≤ 10⁻⁵, [[lem:bg-comparison]] (b) gives |e₀(u)| ≤ |e₀(a)| + (u − a)(γ_0 + D₀). For e₁ := J
 − J̃, differentiating [[eq:bg-ray]] in ρ, e₁′ = ∂_XG(u, Ψ)e₁ + (∂_XG(u, Ψ) − ∂_XG(u, Ψ̃))J̃ + (∂_XG − ∂_XG̃)(u, Ψ̃)J̃ −
 D_1, whose last three terms are at most H_2ε₀J̄ + γ_1J̄ + D₁; the same lemma applies with p = −∂_XG(u, Ψ) ≥ 0. For
@@ -1861,8 +1862,8 @@ angular displacement is at most (τ0 − τ(p))/3.5785 = −φ(R_p)/3.5785 ≤ 0
 Σ_τ0 = {v̂ = τ0 + R, 0.70 ≤ R ≤ b(τ0)} is e^ψ(2 − e^ψ f) dR² + R² dΩ₃². Here e^ψ f < 1 at every point of Σ_τ0: for
 R ≥ R_* the point lies in region I by [[lem:margins-region-one]] (c), where ψ = 0 and f = 1 − μ/R² < 1; for R ≤ R_*,
 e^ψ f < 1 by [[prop:bg-slice]]. Parametrise the quotient curve of Σ_τ0 by R. Along it v̂ = τ0 + R increases, so v
-increases strictly, and −2e^(2σ)(du/dR)(dv/dR) = e^ψ(2 − e^ψ f) > 0, so u decreases strictly. Let a future causal curve run from p1 ∈ Σ_τ0 to p2 ∈ Σ_τ0. Then
-v(p2) ≥ v(p1) and u(p2) ≥ u(p1), which give R(p2) ≥ R(p1) and R(p2) ≤ R(p1); so u and v take the same values at both
+increases strictly, and −2e^(2σ)(du/dR)(dv/dR) = e^ψ(2 − e^ψ f) > 0, so u decreases strictly. Let a future causal
+curve run from p1 ∈ Σ_τ0 to p2 ∈ Σ_τ0. Then v(p2) ≥ v(p1) and u(p2) ≥ u(p1), which give R(p2) ≥ R(p1) and R(p2) ≤ R(p1); so u and v take the same values at both
 ends, and as they do not decrease along the curve they are constant on it. Its tangent then has u̇ = v̇ = 0 and
 R²|Ω̇|² ≤ 2e^(2σ) u̇ v̇ = 0, so the curve is constant. Finally, a point p of Σ′ with R_p < R_* has φ(R_p) = 0 and lies
 on Σ_τ0, so a causal curve joining it to a point q of Σ_τ0 is constant, and R_q = R_p < R_*. ∎

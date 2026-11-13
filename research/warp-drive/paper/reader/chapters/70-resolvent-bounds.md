@@ -878,9 +878,9 @@ resolvent at l = 1 and about 117.3 for the constant of ‖u′‖_I at l = 0, ab
 ### From the radial problem to the spacetime operators {#sec:rb-transfer}
 
 At b_0 we take the 1-forms c_Υ, c_(Υ,H) and c_C that enter L_(b_0) to be combinations of dt and dr with coefficients
-depending on r alone. This is a choice: [[def:iii-b-6-1]] fixes c_Υ and c_C only for large |x|, as |x|⁻¹dt and
-|x|⁻¹(dt − v_C d|x|), and c_(Υ,H) only through its support; the choices c_(Υ,H) = −½χ(r)dr of [[sec:iii-d1-1]] and c_C
-of [[sec:iv4-0]], built from [[eq:s14-cform]], are of this form.
+depending on r alone. This is a choice: [[def:iii-b-6-1]] fixes c_Υ and c_C only for large r, as r⁻¹dt and
+r⁻¹(dt − v_C dr), and c_(Υ,H) only through its support; the choices c_(Υ,H) = −½χ(r)dr of [[sec:iii-d1-1]] and c_C of
+[[sec:iv4-0]], built from [[eq:s14-cform]], are of this form.
 
 **Lemma {#lem:rb-scalar}** (The scalar spectral family.) Let □ = δd = −∇^μ∇_μ act on functions on g_(b_0) (the
 operator □_0 of [[ch:s13]]), and let □̂(σ) := e^(iσt_*)□e^(−iσt_*) be its spectral family, acting on stationary
@@ -891,10 +891,10 @@ functions, sections of the trivial bundle of rank one. For σ ≠ 0 with Im σ �
 [[lem:ii-c-1-3]] at (p, q) = (0, 0), whose proof uses of the metric only (K1), □ is a stationary wave-type operator with
 S = 0; so by [[lem:ii-c-1-2]] its spectral family satisfies (H1), (H2) with S = 0, hence S̄ = 0, and the operator part
 of (H6). By [[thm:vi-a-6-1]], (K1), the metric part of (H6), the dynamical parts of (H3), all of (H4), (Γ.1)–(Γ.3) with
-ν_min = 4(2m_0)^(−1/2), the values q^Γ = 4 and β_0 = 2 on Γ, and (H8) hold, for every operator with
-principal symbol G Id; (H5) is void for a single operator. The remaining conditions concern Im P̂, taken for the density
-|dx| of [[sec:i-a-1-1]] and the standard inner product of ℂ. In coordinates □u = −|g|^(−1/2)∂_μ(|g|^(1/2)g^(μν)∂_νu)
-has real coefficients, and two integrations by parts give ∫(□u)v̄|dg| = ∫g^(μν)∂_νu ∂_μv̄|dg| = ∫u conj(□v)|dg| for
+ν_min = 4(2m_0)^(−1/2), the values q^Γ = 4 and β_0 = 2 on Γ, and (H8) hold, for every operator with principal symbol
+G Id; (H5) is void for a single operator. The remaining conditions concern Im □̂, taken for the density |dx| of
+[[sec:i-a-1-1]] and the standard inner product of ℂ. In coordinates □u = −|g|^(−1/2)∂_μ(|g|^(1/2)g^(μν)∂_νu) has
+real coefficients, and two integrations by parts give ∫(□u)v̄|dg| = ∫g^(μν)∂_νu ∂_μv̄|dg| = ∫u conj(□v)|dg| for
 smooth compactly supported u, v. Moreover |dg| = |dt_*||dx|: in the static chart |det g| = r⁶ det g̸, the density of
 ℝ⁴ is r³dr dω, and t_* − t is a function of r. Writing □ = A_0 + A_1∂_(t_*) + A_2∂²_(t_*) with stationary A_k, the
 symmetry gives A_k* = (−1)^kA_k for |dx|, so □̂(σ) = A_0 − iσA_1 − σ²A_2 satisfies □̂(σ)* = □̂(σ̄). Hence

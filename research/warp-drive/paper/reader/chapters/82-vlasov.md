@@ -10,23 +10,23 @@ metrics of frequency 1/λ large compared with n, and joins the two steps along a
 symmetry, the construction for finitely many dusts is not uniform in their number [Tou24, p. 4].
 
 We prove the five-dimensional counterpart in the class, without smallness, for fields that stay off the axes. In
-[[sec:vlasov-limits]] we show that a
-high-frequency limit inside the class has no stress along the torus, so that a massless Vlasov limit in the class is
-restricted: its momenta are tangent to the orbit space; if the limit is moreover round, it is a two-dust solution of the
-kind of [[thm:two-dusts]]. In [[sec:vlasov-restricted]] we show that restricted particles move on the null geodesics of
-the orbit space, and that those reaching an axis off the axial directions focus there, so that the field of a smooth
-solution stays off the axes. [[thm:vlasov]] then states: every smooth class Einstein–restricted massless Vlasov solution
-whose field is a caustic-free family of dusts labelled by initial direction and off the axes, on a domain of the type
-[[eq:omega]] whose initial spheres have positive mean curvature, is a weak limit of class vacuum metrics. The proof has
-the two steps of [HL25]. The n-dust approximants of the field are uniform in n ([[prop:vlasov-uniform-n]]); the
-high-frequency step is not, and the steps are joined along a diagonal. Four facts make the high-frequency step work for
-every n in the class: frequencies 1, Λ, …, Λ^(n−1) remove every resonance among three or more phases up to the order the
-scheme uses ([[lem:vlasov-hierarchy]]); waves polarised along the torus leave no term of order λ⁻¹, in the field
-equations or in the constraints ([[lem:vlasov-torus-ricci]], [[lem:vlasov-constraint-coefficient]]); the orbit space has
-no shear ([[lem:vlasov-no-shear]]); and the constraints, whose coefficients oscillate in every direction of the initial
-slice, are solved with bounds uniform in λ in norms in which each angular derivative carries the factor λ that the
-oscillation costs ([[prop:vlasov-scaled-correction]]). The last section shows that the hypotheses are open and that an
-explicit family on Tangherlini meets them ([[lem:vlasov-open]], [[prop:vlasov-nonempty]]).
+[[sec:vlasov-limits]] we show that a high-frequency limit inside the class has no stress along the torus, so that a
+massless Vlasov limit in the class is restricted: its momenta are tangent to the orbit space; if the limit is moreover
+round, it is a two-dust solution of the kind of [[thm:two-dusts]]. In [[sec:vlasov-restricted]] we show that restricted
+particles move on the null geodesics of the orbit space, and that those reaching an axis off the axial directions focus
+there, so that the field of a smooth solution stays off the axes. [[thm:vlasov]] then states: every smooth class
+Einstein–restricted massless Vlasov solution whose field is a caustic-free family of dusts labelled by initial direction
+and off the axes, on a domain of the type [[eq:omega]] whose initial spheres have positive mean curvature, is a weak
+limit of class vacuum metrics. The proof has the two steps of [HL25]. The n-dust approximants of the field are uniform
+in n ([[prop:vlasov-uniform-n]]); the high-frequency step is not, and the steps are joined along a diagonal. Four facts
+make the high-frequency step work for every n in the class: frequencies 1, Λ, …, Λ^(n−1) remove every resonance among
+three or more phases up to the order the scheme uses ([[lem:vlasov-hierarchy]]); waves polarised along the torus leave
+no term of order λ⁻¹, in the field equations or in the constraints ([[lem:vlasov-torus-ricci]],
+[[lem:vlasov-constraint-coefficient]]); the orbit space has no shear ([[lem:vlasov-no-shear]]); and the constraints,
+whose coefficients oscillate in every direction of the initial slice, are solved with bounds uniform in λ in norms in
+which each angular derivative carries the factor λ that the oscillation costs ([[prop:vlasov-scaled-correction]]). The
+last section shows that the hypotheses are open and that an explicit family on Tangherlini meets them
+([[lem:vlasov-open]], [[prop:vlasov-nonempty]]).
 
 *Notation.* g5 is a metric of the T²-mirror class of [[sec:class]]. We write ψ1 := A and ψ2 := B for the functions of
 [[eq:class-metric]], so that
@@ -79,11 +79,11 @@ first derivatives of the components, converge weakly in L²(U). Each g_i is vacu
     ∂_a(√|h[g_i]| h[g_i]^(ab) ∂_b ψ[g_i]) = 0,      ∂_a(√|h[g_i]| h[g_i]^(ab) ∂_b ω[g_i]) = 0
 
 in the sense of distributions on U, where h[g_i], ψ[g_i], ω[g_i] are h, ψ, ω of g_i. The products √|h[g_i]| h[g_i]^(ab)
-∂_b ψ[g_i] converge weakly in L²(U), a uniformly
-convergent factor times a weakly convergent one, so the identities pass to the limit: ∂_a(√|h0| h0^(ab) ∂_b ψ0) =
-∂_a(√|h0| h0^(ab) ∂_b ω0) = 0 in distributions, and classically since g0 is C². That is □_(h0) ψ0 = □_(h0) ω0 = 0 on U,
-and by [[prop:reduction]], e^(−2ψ1) R11 + e^(−2ψ2) R22 = −e^(2ψ) □_h ψ = 0 and e^(−2ψ1) R11 − e^(−2ψ2) R22 = 2 e^(2ψ)
-□_h ω = 0 for g0, so R11 = R22 = 0 off the axes, and on the axes by continuity.
+∂_b ψ[g_i] converge weakly in L²(U), a uniformly convergent factor times a weakly convergent one, so the identities pass
+to the limit: ∂_a(√|h0| h0^(ab) ∂_b ψ0) = ∂_a(√|h0| h0^(ab) ∂_b ω0) = 0 in distributions, and classically since g0 is
+C². That is □_(h0) ψ0 = □_(h0) ω0 = 0 on U, and by [[prop:reduction]], e^(−2ψ1) R11 + e^(−2ψ2) R22 = −e^(2ψ) □_h ψ = 0
+and e^(−2ψ1) R11 − e^(−2ψ2) R22 = 2 e^(2ψ) □_h ω = 0 for g0, so R11 = R22 = 0 off the axes, and on the axes by
+continuity.
 
 (b) By (a), ∫ p(∂_(φi))² dμ_x = R_(ii)[g0](x) = 0. A nonnegative continuous function with zero integral against a
 positive measure vanishes on its support, so p(∂_(φ1)) = p(∂_(φ2)) = 0 on the support of μ_x.
@@ -222,21 +222,20 @@ geodesic flow of g3 (the Vlasov equation of (Q, g3), [[lem:vlasov-flow]] (b) and
 generator X of that flow, with κ a continuous function of g3 and its first derivatives. Then f vanishes on every null
 direction whose g3-geodesic reaches x0 transversally to the axis.
 
-*Proof.* Suppose that f > 0 at a null direction whose geodesic reaches x0 transversally. Let P be the fixed set
-{x2 = x4 = 0} of the two reflections, a three-dimensional submanifold with coordinates (τ, x1, x3). It meets every orbit
-near x0, at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2, ∂_4 at the points of P and
-orthogonal to P by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P is g3 in the coordinates
-(τ, ρ1, ρ2) = (τ, x1, x3). As g5 is C², g_P is a C² Lorentzian metric on P, even in x3: g3 extends across the edge
-{ρ2 = 0} to g_P, and the null geodesic flow of g3 extends to the flow of g_P, which is C¹, under which the geodesic
-reaching x0 transversally crosses {x3 = 0}. In the coordinates of P, κ is the same function of g_P and its first
-derivatives, so it is continuous
-on the bundle of null directions of g_P over a neighbourhood of x0. Hence f, which equals its initial value times
-exp(−∫κ) along each flow line, stays positive along the flow line of the given direction, and, by continuity, f ≥ c1 > 0
-on a neighbourhood U of the arriving direction at the points of the geodesic near x0. So T3(e0, e0) ≥ ∫_U f (p(e0))² ≥
-c2 > 0 there, for a timelike vector field e0. The Killing field ∂_(φ2) = x3 ∂_4 − x4 ∂_3 has, at points of P, e^(2ψ2) =
-g5(∂_(φ2), ∂_(φ2)) = x3² (g5)_(44) = ρ2² (g5)_(44), with (g5)_(44) > 0, and e^(ψ1) is bounded near x0 since ρ1(x0) =
-r(x0) > 0. So T(e0, e0) = e^(−ψ1−ψ2) T3(e0, e0) ≥ c/ρ2 at the points of the geodesic near x0, with c > 0. But Ric(g5)
-is continuous near x0, so Ric(g5)(e0, e0) is bounded there: a contradiction. ∎
+*Proof.* Suppose that f > 0 at a null direction whose geodesic reaches x0 transversally. Let P be the fixed set {x2 =
+x4 = 0} of the two reflections, a three-dimensional submanifold with coordinates (τ, x1, x3). It meets every orbit near
+x0, at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2, ∂_4 at the points of P and orthogonal to P
+by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P is g3 in the coordinates (τ, ρ1, ρ2) =
+(τ, x1, x3). As g5 is C², g_P is a C² Lorentzian metric on P, even in x3: g3 extends across the edge {ρ2 = 0} to g_P,
+and the null geodesic flow of g3 extends to the flow of g_P, which is C¹, under which the geodesic reaching x0
+transversally crosses {x3 = 0}. In the coordinates of P, κ is the same function of g_P and its first derivatives, so it
+is continuous on the bundle of null directions of g_P over a neighbourhood of x0. Hence f, which equals its initial
+value times exp(−∫κ) along each flow line, stays positive along the flow line of the given direction, and, by
+continuity, f ≥ c1 > 0 on a neighbourhood U of the arriving direction at the points of the geodesic near x0. So T3(e0,
+e0) ≥ ∫_U f (p(e0))² ≥ c2 > 0 there, for a timelike vector field e0. The Killing field ∂_(φ2) = x3 ∂_4 − x4 ∂_3 has, at
+points of P, e^(2ψ2) = g5(∂_(φ2), ∂_(φ2)) = x3² (g5)_(44) = ρ2² (g5)_(44), with (g5)_(44) > 0, and e^(ψ1) is bounded
+near x0 since ρ1(x0) = r(x0) > 0. So T(e0, e0) = e^(−ψ1−ψ2) T3(e0, e0) ≥ c/ρ2 at the points of the geodesic near x0,
+with c > 0. But Ric(g5) is continuous near x0, so Ric(g5)(e0, e0) is bounded there: a contradiction. ∎
 
 The mechanism is the focusing of a converging beam: in a flat plane, particles moving radially inward with speed v have
 a density ϱ(ρ, t) solving ∂_t ϱ − v ρ⁻¹ ∂_ρ(ρ ϱ) = 0, so ρ ϱ(ρ, t) = (ρ + v t) ϱ0(ρ + v t) and ρ ϱ → v t ϱ0(v t) > 0 as
@@ -525,16 +524,16 @@ to p, ζ ≠ 0, W_T with torus components only and tr W = 0 (for instance W_T = 
 and h = c dr ⊗ dr, dρ⁽⁻¹⁾ = −c ζ |p|² cos θ ⟨dr, q̂⟩², which is not zero where c ≠ 0 and the phase is not radial (p not
 parallel to dr). So every non-radial wave with a nonzero orbit part leaves a term of order λ⁻¹.
 
-*Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In R(γ) =
-γ^(ij)(∂_k Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and
-∂_i∂_k(λ W) = λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is W″(p^♯, p^♯) −
-|p|² tr W″, with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij),
-gives the first line of [[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry derivatives of h
-or first derivatives of γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃ ∂_i(γ^(jl) κ_(jl)), whose
-parts of order λ⁻¹ are −γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the second line; the Christoffel
-terms are of order one. The terms −|κ|² + (tr κ)² have no term of order λ⁻¹, and no term of order λ⁻¹ depends on k.
-With several phases the fast derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms vanish, each W_A
-depending on one phase; ∂²(λ² M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
+*Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In R(γ) = γ^(ij)(∂_k
+Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and ∂_i∂_k(λ
+W) = λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is W″(p^♯, p^♯) − |p|² tr W″,
+with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij), gives the first line of
+[[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry derivatives of h or first derivatives of
+γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃ ∂_i(γ^(jl) κ_(jl)), whose parts of order λ⁻¹ are
+−γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the second line; the Christoffel terms are of order one.
+The terms −|κ|² + (tr κ)² have no term of order λ⁻¹, and no term of order λ⁻¹ depends on k. With several phases the fast
+derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms vanish, each W_A depending on one phase; ∂²(λ²
+M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
 
 (b) The parts of order λ⁻¹ of R(γ + h) and J(γ + h, κ + k) are, by the proof of (a), W″(p^♯, p^♯) − |p|² tr W″ and
 2(−γ_h^(jl) p_l κ1′_(ji) + p_i γ_h^(jl) κ1′_(jl)) with the inverse γ_h⁻¹ of γ + h. Since γ0 and h have no mixed
@@ -729,9 +728,8 @@ diag(6, γ_U^(rr) Π^(AB)) is positive definite, and every 𝒮 A^C is symmetric
 *Proof.* The derivation of the principal part of J in the proof of [[lem:constraints-evolution]] (a) uses only the
 identities Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr) (so that Π^(rk) = 0 and Π_A^k ∂_k = ∂_A), tr_(γ_U) Π = γ^(ij) Π_ij =
 4 − 1 = 3, q(γ⁻¹dr) = 0, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr and (1 + α γ^(rr))⁻¹ γ^(rr) = γ_U^(rr), each of which holds
-for every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the
-uniqueness of the symmetrizer, which [[lem:linear-evolution]] does not use. So that derivation gives, for every such γ
-and α, the
+for every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the uniqueness
+of the symmetrizer, which [[lem:linear-evolution]] does not use. So that derivation gives, for every such γ and α, the
 principal part 𝒮A0 ∂_r + 𝒮A^C ∂_C of 𝒮J in (ϖ, q_B), with 𝒮A0 = diag(6, γ_U^(rr) Π^(AB)) and the symmetric 𝒮A^C
 displayed there. γ_U^(rr) = γ^(rr)/(1 + α γ^(rr)) > 0, and Π^(AB), the inverse of the induced metric of the spheres, is
 positive definite. 𝒮 = [[1, γ^(rB)/γ^(rr)], [0, −½ Π^(AB)]] is block triangular with invertible diagonal blocks and
@@ -1303,19 +1301,18 @@ for every j, uniformly in n, and by the Arzelà–Ascoli theorem and a diagonal 
 for every j to a smooth metric g, invariant under T² and both reflections, with ‖g − g̊‖_(H^(m+1)) ≤ C d(D) on every
 Σ_τ. For α ∈ S¹ let u^(n)_α be the eikonal of g^(n) with the data u_D(·, α) (the future root), which exists on a
 neighbourhood of its tube D^(n)_α(S) by the proof of [[lem:vlasov-open]], g^(n) being C²-close to g̊ and u_D C¹-close to
-ů on Σ_τ0, and F^(n)_α the solution of
-[[eq:vlasov-amplitude]] for g^(n) with the data F_D(·, α); they are smooth in (x, α), with derivatives bounded uniformly
-in n, the rays depending smoothly on g^(n) and on the data. For α = α_A they are the family A of g^(n): its eikonal has
-the same data and solves the same equation, and its density solves div(q_A ℓ_A) = 0, which is [[eq:vlasov-amplitude]]
-for (q_A/(2π/n))^(1/2) by [[eq:vlasov-dust]]. So, with h^(n)(x, α) := F^(n)_α(x)² du^(n)_α ⊗ du^(n)_α (zero off the
-tubes), Ric(g^(n)) = (2π/n) Σ_A h^(n)(·, α_A). Along the subsequence the null geodesic flows of g^(n) converge with their
-derivatives to that of g, so u^(n)_α → u_α and F^(n)_α → F_α in C¹, uniformly in α, where (F, u) is the field of g with
-the data of D; and h^(n) → h := F_α² du_α ⊗ du_α uniformly. The Riemann sum error is |(2π/n) Σ_A h^(n)(x, α_A) −
-∫ h^(n)(x, α) dα| ≤ Σ_A ∫_(arc A) |h^(n)(x, α_A) − h^(n)(x, α)| dα ≤ 2π (2π/n) sup |∂_α h^(n)| → 0, the arc A being the
-set of α with α_A − 2π/n ≤ α ≤ α_A. Hence Ric(g) = lim Ric(g^(n)) = ∫_(S¹) h dα = T_V: (g, F, u) solves the
-Einstein–restricted massless Vlasov system in label form. The g^(n) solve Ric^H(g^(n)) = T^(n) in the gauge relative to
-g̊ ([[thm:class-stability-off-axes]]), so g does in the limit, and its data are those of D, since the metric data of
-D_n differ from those of D by at most C n⁻² ([[prop:vlasov-scaled-correction]]).
+ů on Σ_τ0, and F^(n)_α the solution of [[eq:vlasov-amplitude]] for g^(n) with the data F_D(·, α); they are smooth in (x,
+α), with derivatives bounded uniformly in n, the rays depending smoothly on g^(n) and on the data. For α = α_A they are
+the family A of g^(n): its eikonal has the same data and solves the same equation, and its density solves div(q_A ℓ_A) =
+0, which is [[eq:vlasov-amplitude]] for (q_A/(2π/n))^(1/2) by [[eq:vlasov-dust]]. So, with h^(n)(x, α) := F^(n)_α(x)²
+du^(n)_α ⊗ du^(n)_α (zero off the tubes), Ric(g^(n)) = (2π/n) Σ_A h^(n)(·, α_A). Along the subsequence the null geodesic
+flows of g^(n) converge with their derivatives to that of g, so u^(n)_α → u_α and F^(n)_α → F_α in C¹, uniformly in α,
+where (F, u) is the field of g with the data of D; and h^(n) → h := F_α² du_α ⊗ du_α uniformly. The Riemann sum error
+is |(2π/n) Σ_A h^(n)(x, α_A) − ∫ h^(n)(x, α) dα| ≤ Σ_A ∫_(arc A) |h^(n)(x, α_A) − h^(n)(x, α)| dα ≤ 2π (2π/n) sup |∂_α
+h^(n)| → 0, the arc A being the set of α with α_A − 2π/n ≤ α ≤ α_A. Hence Ric(g) = lim Ric(g^(n)) = ∫_(S¹) h dα = T_V:
+(g, F, u) solves the Einstein–restricted massless Vlasov system in label form. The g^(n) solve Ric^H(g^(n)) = T^(n) in
+the gauge relative to g̊ ([[thm:class-stability-off-axes]]), so g does in the limit, and its data are those of D, since
+the metric data of D_n differ from those of D by at most C n⁻² ([[prop:vlasov-scaled-correction]]).
 
 *Uniqueness.* Let (g_1, F_1, u_1) and (g_2, F_2, u_2) be two such solutions. For each α put p^i_α := du^i_α, Θ^i_α :=
 □5 u^i_α and q^i_α := (F^i_α)²; they solve (Aug2)–(Aug4) of [[sec:class-augmented]] with the family index replaced by α,
@@ -1390,14 +1387,13 @@ r sin ϑ are at least 2.64 sin 0.2078 > 0.54 > 0.53 =: 2δ.
 *The solutions.* The reference (g0, 0, u), with the zero field and the labels u_α, is a smooth class solution in label
 form satisfying (Ω), (V1) on S with J0 = 1 and b_* = 0.36, (V2) with 2δ = 0.53, and (V3), by the preceding steps. The
 datum D_ε has the field ε F0, the labels u_α|Σ_0 with the future roots, and the metric data of g0 on Σ_0 corrected to
-satisfy the constraints with the stress of the field: 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯_ε(·, α), 𝒯_ε the constraint stress of
-∫ ε² F0(·, α)² du_α ⊗ du_α dα, has the structure of [[lem:vlasov-structure]] with λ = 1 and no phases, the signs by (V3)
-and [[lem:vlasov-symmetrizer]], and sup_r ‖𝔉(0)‖_(12) ≤ C ε², since the data of g0 satisfy the vacuum constraints; so
-[[prop:vlasov-scaled-correction]] with k = 12 gives a smooth invariant correction U with ‖U‖_(𝒴_12) ≤ C ε², which at
-λ = 1, with the equations for the r-derivatives, bounds U in C⁹. So d(D_ε) ≤ C ε, and
-[[prop:vlasov-cauchy]] around (g0, 0, u), with m = 6, gives for ε small the solution on Ω, with ‖g − g0‖_(H^7) ≤ C ε on
-every Σ_τ, hence, by Sobolev's inequality on the slices and the equations for the τ-derivatives, C²-close to g0, and with
-eikonals C¹-close to u_α. By
+satisfy the constraints with the stress of the field: 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯_ε(·, α), 𝒯_ε the constraint stress of ∫ ε²
+F0(·, α)² du_α ⊗ du_α dα, has the structure of [[lem:vlasov-structure]] with λ = 1 and no phases, the signs by (V3) and
+[[lem:vlasov-symmetrizer]], and sup_r ‖𝔉(0)‖_(12) ≤ C ε², since the data of g0 satisfy the vacuum constraints; so
+[[prop:vlasov-scaled-correction]] with k = 12 gives a smooth invariant correction U with ‖U‖_(𝒴_12) ≤ C ε², which at λ =
+1, with the equations for the r-derivatives, bounds U in C⁹. So d(D_ε) ≤ C ε, and [[prop:vlasov-cauchy]] around (g0, 0,
+u), with m = 6, gives for ε small the solution on Ω, with ‖g − g0‖_(H^7) ≤ C ε on every Σ_τ, hence, by Sobolev's
+inequality on the slices and the equations for the τ-derivatives, C²-close to g0, and with eikonals C¹-close to u_α. By
 [[lem:vlasov-open]] it satisfies (V1) with the margins J0/2 = 1/2 and b_*/2 = 0.18 and (V2) with dist(D_α(S), axes) ≥
 0.265, and (Ω), (V3) by openness. ∎
 
