@@ -161,7 +161,7 @@ and ϑ_in ≥ −2 Re μ for every eigenvalue μ of A + S at any point of ∂X.
 
 (b) For P̂ = (2L_b)^(σ), with L_b the operator of [[ch:s15]], at every point of ∂X
 
-    ρ(A + S) = −Ē^C ι_(ḡ⁻¹ℓ) Ḡ + (ℓ ⊗_s ·) Ē^Υ Ḡ,        ℓ := dt̄ + d|x|,                               {#eq:ec-theta-in-l}
+    ρ(A + S) = −Ē^C ι_(ḡ⁻¹ℓ) Ḡ + (ℓ ⊗_s ·) Ē^Υ Ḡ,        ℓ := dt̄ + d|x|,                             {#eq:ec-theta-in-l}
 
 and A + S has a kernel of dimension at least 5. Hence the incoming threshold ϑ_in of (2L_b)^(σ), and that of
 N_tf((2L_b)^(·), ±1), is non-negative in every fibre inner product.
@@ -483,8 +483,8 @@ least index sets E^C_I and E_+ that the proof admits, the base level's starting 
 wide and the window loop at its ceiling, every step of the construction was charged an upper bound: the elementary
 losses by [[lem:ec-closed-forms]], with ℓ_tf = 1 (the transition face model's incoming threshold being 0 there), the
 forward solution operators D_0 + D_1 + d′ + d″ + 6 ≤ 766 + 88 + 8 + 9 + 6 = 877 ([[rem:ec-other-losses]]), with D_0
-and D_1 bounded over the orders at which the calculus of [[ch:s04]] is used, the round of the iteration at ι⁺ charged 15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on
-(3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows [k + 1/2, k + 0.5099]
+and D_1 bounded over the orders at which the calculus of [[ch:s04]] is used, the round of the iteration at ι⁺ charged
+15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on (3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows [k + 1/2, k + 0.5099]
 where a step is added before d_ι rises), the steps of each level taken from the families that the inventory of
 [[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic orders of the index
 sets by induction over the construction's steps, and the index set at ι⁺ left unlisted by the construction computed
