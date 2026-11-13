@@ -1,6 +1,6 @@
 label	source	source_name	note
-ch:localised-data	docket68/n1star/FAMILIES5-R10.md:105-155; docket68/n1star/FAMILIES5-R6.md:130-285	R10.1 paper block; R6 sections 1-2	chapter opening composed from the R10.1 block (localisation and charge sentences)
-sec:loc-setting	docket68/n1star/FAMILIES5-R8.md:127-135; docket68/n1star/FAMILIES5-MB.md:87-100	R8.2 the background; MB section 0	example background stated as an instance of def:two-dust-data (μ0 = μ3, T = 1, δ0 = 0.05, q0 = 0.75); b(τ0) > 12; one definition of Σ_τ0 (from R = 0.70) throughout the chapter
+ch:localised-data	docket68/n1star/FAMILIES5-R10.md:105-155; docket68/n1star/FAMILIES5-R6.md:130-285	R10.1 paper block; R6 sections 1-2	chapter opening composed from the R10.1 block (localisation and charge sentences); the momentum-seed sentence on every vacuum band of Σ_τ0 (prop:bg-region-three-end, proof P-K83b)
+sec:loc-setting	docket68/n1star/FAMILIES5-R8.md:127-135; docket68/n1star/FAMILIES5-MB.md:87-100; paper/reader/proofs/P-K83b.md:431-433	R8.2 the background; MB section 0; proof P-K83b, Block 3.4	example background stated as an instance of def:two-dust-data (μ0 = μ3, T = 1, δ0 = 0.05, q0 = 0.75); b(τ0) > 12; one definition of Σ_τ0 (from R = 0.70) throughout the chapter; region III meets Σ_τ0 in 0.70 ≤ R ≤ R_u2, 1.8614372 ≤ R_u2 ≤ 1.8614410, the seed region its part up to 1.861, and no point with R_u2 < R < R_* is vacuum
 eq:loc-constraints	docket68/n1star/FAMILIES5-R7.md:131-133; docket68/n1star/FAMILIES5-MB.md:43-45	the constraint map (H, M) of R7.2/MB	renamed ℋ, ℳ; relation to [CD03] (J, ρ) added
 sec:loc-racz	docket68/n1star/FAMILIES5-AXIS.md:108-148	AXIS 2.2 two splits of [Rac16]	
 lem:racz-split-formulas	docket68/n1star/FAMILIES5-AXIS.md:131-136; docket68/n1star/FAMILIES5-VLASOV.md:274-276; docket68/n1star/FAMILIES5-R6.md:192-196	AXIS B2 (bandconst5); VLASOV R3 lapse N_s; R6 Q5 shift Y_s	the pending Rácz-formulas lemma of proofs E, written in full with ψ ≠ 0; e^ψ written q; derivation written by hand
@@ -43,13 +43,20 @@ eq:charge-stream	docket68/n1star/FAMILIES5-R6.md:139-141; docket68/n1star/FAMILI
 eq:charge-identity	docket68/n1star/FAMILIES5-R6.md:153-158	Theorem Q identity	
 eq:charge-flux	docket68/n1star/FAMILIES5-R8.md:65-67; docket68/n1star/FAMILIES5-R8.md:330-332	R8 nit 1 θ-flux	R-flux 𝔅 added
 cor:loc-charge-momentum	docket68/n1star/FAMILIES5-R6.md:169-170	Corollary Q	
-cor:loc-charge-seed	docket68/n1star/FAMILIES5-R6.md:172-187; docket68/n1star/FAMILIES5-R8.md:213-224	R6 1.3 Γ on the slice; R8.2 T2	stated for the seed region [0.70, 1.861] and R ≥ R_*
+cor:loc-charge-seed	docket68/n1star/FAMILIES5-R6.md:172-187; docket68/n1star/FAMILIES5-R8.md:213-224; paper/reader/proofs/P-K83b.md:411-419	R6 1.3 Γ on the slice; R8.2 T2; proof P-K83b, Block 3.2	stated for every band of Σ_τ0 on which the background is vacuum (prop:bg-region-three-end (c), (d))
 sec:loc-matter	docket68/n1star/FAMILIES5-R6.md:189-217	R6 1.4	
 thm:loc-matter	docket68/n1star/FAMILIES5-R6.md:201-215	Theorem Q′ with R7 m9 note	DEC used as ρ ≥ |J|; dust density written ϖ; (b) from proof P-K83a, Block 4 (confirmed): lem:loc-continuity on a band U′ ⋐ U, energy density ε²s(ε)|J_1|_(γ_D) = ε²s(ε)ρ_1(1 + O(ε)); issue-1 closed
 sec:loc-metric	docket68/n1star/FAMILIES5-MB.md:100-212	MB sections 1-3	
 lem:loc-harmonics	docket68/n1star/FAMILIES5-MB.md:104-128	Lemma H	(c) only the l = 2 tensor, checked privately; (a) from chapter 64
-thm:loc-tensor	docket68/n1star/FAMILIES5-MB.md:130-148	Theorem T	(i), (ii), (iv) proved; (iii) computational-1; P written Π
+lem:loc-tt-second	paper/reader/proofs/P-K83b.md:18-46	proof P-K83b, Block 1.1	merged; the second variation of Scal on S³ from Palatini's identity; 𝒢 written 𝔊 (𝒢 is the symmetry group of lem:loc-kid-space), E(ε) written ℰ(ε)
+eq:loc-tt-second	paper/reader/proofs/P-K83b.md:22	proof P-K83b, Block 1.1	merged
+lem:loc-tensor-variations	paper/reader/proofs/P-K83b.md:48-93	proof P-K83b, Block 1.1	merged; Gauss and Riccati equations as in the proof of lem:constraints-evolution (a)
+eq:loc-tensor-variations	paper/reader/proofs/P-K83b.md:54-57	proof P-K83b, Block 1.1	merged
+thm:loc-tensor	docket68/n1star/FAMILIES5-MB.md:130-148; paper/reader/proofs/P-K83b.md:97-132	Theorem T; proof P-K83b, Block 1.2	(i), (ii), (iv) proved; (iii) from proof P-K83b, Block 1.2, closing computational-1; P written Π
 eq:loc-tensor-charge	docket68/n1star/FAMILIES5-MB.md:137-142	Theorem T (iii)	factor (2π)² written
+eq:loc-tensor-density	paper/reader/proofs/P-K83b.md:102-104	proof P-K83b, Block 1.2	merged; closes computational-1
+eq:loc-tensor-kid	paper/reader/proofs/P-K83b.md:110	proof P-K83b, Block 1.2	merged; the Killing equation on the slice
+eq:loc-tensor-flux	paper/reader/proofs/P-K83b.md:125-126	proof P-K83b, Block 1.2	merged; the R-flux 𝔅_T
 lem:loc-tensor-sign	docket68/n1star/FAMILIES5-MB.md:176-197	Lemma X1 and the Riemann-Lebesgue step	explicit polynomial example dropped; the oscillatory term bounded by one integration by parts (O(ω))
 thm:loc-inside	docket68/n1star/FAMILIES5-MB.md:199-212; docket68/n1star/FAMILIES5-MB.md:368-380	Theorem X; R8 minor 6 (cone of seeds)	
 sec:loc-outside	docket68/n1star/FAMILIES5-MB.md:220-344	MB section 4	
@@ -57,15 +64,22 @@ lem:loc-gauge-unique	docket68/n1star/FAMILIES5-MB.md:222-245	Lemma TR ("uniquene
 lem:loc-transfer	docket68/n1star/FAMILIES5-MB.md:222-245	Lemma TR with R8 minor 5	last clause proved (lem:loc-gauge-unique, averaging, lem:loc-kid (c) on S_in and S_out); K := supp δ written supp δ
 eq:loc-static-energies	docket68/n1star/FAMILIES5-MB.md:250-256	MB 4.2 E_V, E_K	written 𝔈_V, 𝔈_K
 lem:loc-gauge-invariance	docket68/n1star/FAMILIES5-MB.md:258-268	Lemma G	
-lem:loc-scalar-reduction	docket68/n1star/FAMILIES5-MB.md:270-312; docket68/n1star/FAMILIES5-MB.md:325-332	4.3 modes, Lemma K, Lemma V, E8	proof computational-2; q of k written q_k; x := μ/R² written ς (as in lem:rw-potentials); the l = 0 generator written 𝔤
-eq:loc-ek	docket68/n1star/FAMILIES5-MB.md:285-290	Lemma K	
-eq:loc-ev	docket68/n1star/FAMILIES5-MB.md:300-308	Lemma V (iii)	
+lem:loc-scalar-reduction	docket68/n1star/FAMILIES5-MB.md:270-312; docket68/n1star/FAMILIES5-MB.md:325-332; paper/reader/proofs/P-K83b.md:136-323	4.3 modes, Lemma K, Lemma V, E8; proof P-K83b, Block 2.1	statement and proof from proof P-K83b, Block 2.1, closing computational-2: splitting by isotypic components (sec:iii-f1-1), the gauges, both constraints with every coefficient; q of k written q_k; x := μ/R² written ς (as in lem:rw-potentials); the l = 0 generator written 𝔤; α of (a) written α̃
+eq:loc-mom-modes	paper/reader/proofs/P-K83b.md:149	proof P-K83b, Block 2.1	merged
+eq:loc-ek	docket68/n1star/FAMILIES5-MB.md:285-290; paper/reader/proofs/P-K83b.md:154	Lemma K; proof P-K83b, Block 2.1	factor (2π)²‖S‖² written
+eq:loc-c	paper/reader/proofs/P-K83b.md:158	proof P-K83b, Block 2.1	merged
+eq:loc-ev-af	paper/reader/proofs/P-K83b.md:162-163	proof P-K83b, Block 2.1	merged
+eq:loc-moncrief	paper/reader/proofs/P-K83b.md:167	proof P-K83b, Block 2.1	merged
+eq:loc-ev	docket68/n1star/FAMILIES5-MB.md:300-308; paper/reader/proofs/P-K83b.md:172-173	Lemma V (iii); proof P-K83b, Block 2.1	factor (2π)²‖S‖² written; x written ς
+eq:loc-z-identity	paper/reader/proofs/P-K83b.md:211	proof P-K83b, Block 2.1	merged; x written ς
+eq:loc-scal-exact	paper/reader/proofs/P-K83b.md:232-233	proof P-K83b, Block 2.1	merged; conformal factor Λ by lem:conformal; 𝒴 written 𝔜 and Ξ written 𝔛 (both taken in the proofs of lem:loc-continuity and lem:loc-kid-space)
+eq:loc-ev-red	paper/reader/proofs/P-K83b.md:269-271	proof P-K83b, Block 2.1	merged; the five identities; λ := 9Rf³/(2k²H_KI) written 𝔭 (λ reserved), ρ := H_KI/(R^(3/2)f²) written 𝔷 (ρ is the ray label and the energy density)
 lem:loc-positivity	docket68/n1star/FAMILIES5-MB.md:316-320; docket68/n1star/FAMILIES5-R8.md:475-478	4.6 positivity; R8 E7 every l ≥ 2	
-thm:loc-outside	docket68/n1star/FAMILIES5-MB.md:344-352	Theorem P	
+thm:loc-outside	docket68/n1star/FAMILIES5-MB.md:344-352; paper/reader/proofs/P-K83b.md:328	Theorem P; proof P-K83b, Block 2.2	the separation of the modes cited to lem:loc-scalar-reduction
 sec:loc-sign	docket68/n1star/FAMILIES5-R10.md:105-155	R10.1 block	
-thm:charge-sign	docket68/n1star/FAMILIES5-R10.md:129-153; docket68/n1star/FAMILIES5-R11.md:63-66	R10.1 block (f < 0 / f > 0 wording); R11.1 unchanged	exported key; collects Corollary Q, Theorem Q′, Theorem X and Theorem P
+thm:charge-sign	docket68/n1star/FAMILIES5-R10.md:129-153; docket68/n1star/FAMILIES5-R11.md:63-66; paper/reader/proofs/P-K83b.md:423-425	R10.1 block (f < 0 / f > 0 wording); R11.1 unchanged; proof P-K83b, Block 3.3	exported key; collects Corollary Q, Theorem Q′, Theorem X and Theorem P; (a) on every vacuum band of Σ_τ0
 rem:loc-trapped-rays	docket68/n1star/FAMILIES5-R11.md:39-43; docket68/n1star/FAMILIES5-MB.md:14-19	ehband5 H1 (class (b) item C321)	numerical observation; the event-horizon deduction dropped as unused
-sec:bg-below	paper/reader/proofs/P-E-background.md:1	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-below	paper/reader/proofs/P-E-background.md:1; paper/reader/proofs/P-K83b.md:450	proof E background (confirmed); proof P-K83b, Block 3.7	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part; the opening lists prop:bg-region-three-end
 sec:bg-data	paper/reader/proofs/P-E-background.md:11	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 eq:bg-profiles	paper/reader/proofs/P-E-background.md:16	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 eq:bg-field	paper/reader/proofs/P-E-background.md:21	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
@@ -107,8 +121,10 @@ eq:bg-seed-box	paper/reader/proofs/P-E-background.md:369	proof E background (con
 eq:bg-seed-delta	paper/reader/proofs/P-E-background.md:375	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:bg-slice	paper/reader/proofs/P-E-background.md:398	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 prop:bg-slice	paper/reader/proofs/P-E-background.md:400	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-region-three-end	paper/reader/proofs/P-K83b.md:333	proof P-K83b, Block 3.1	merged; new subsection after prop:bg-slice
+prop:bg-region-three-end	paper/reader/proofs/P-K83b.md:335-407	proof P-K83b, Block 3.1	merged; region III on the single Σ_τ0 from R = 0.70; u := 1 − q written 𝔲 and w written W (as in lem:margins-gamma-form); the enclosure table moved to sec:tab-bg-region-three-end; closes the scope of the charge sign beyond R = 1.861
 sec:bg-theorem	paper/reader/proofs/P-E-background.md:426	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-thm:bg-margins	paper/reader/proofs/P-E-background.md:428	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+thm:bg-margins	paper/reader/proofs/P-E-background.md:428; paper/reader/proofs/P-K83b.md:435-440	proof E background (confirmed); proof P-K83b, Block 3.5	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part; (b) with 1.8614372 ≤ R_u2 ≤ 1.8614410 and Γ/E² ≥ 10.40 for 1.861 ≤ R ≤ R_u2
 rem:bg-grid	paper/reader/proofs/P-E-background.md:441	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:margins	paper/reader/proofs/P-E-margins.md:1	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:margins-tools	paper/reader/proofs/P-E-margins.md:42	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
@@ -138,7 +154,7 @@ sec:margins-seed	paper/reader/proofs/P-E-margins.md:520	proof E margins (confirm
 lem:margins-gamma-form	paper/reader/proofs/P-E-margins.md:530	proof E margins (confirmed)	merged; w := qf written W, u := 1 − q written 𝔲, β and a of the charge identity written β_K and 𝔞
 eq:margins-gamma-form	paper/reader/proofs/P-E-margins.md:532	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 lem:margins-profile-monotone	paper/reader/proofs/P-E-margins.md:550	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-prop:margins-seed	paper/reader/proofs/P-E-margins.md:557	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+prop:margins-seed	paper/reader/proofs/P-E-margins.md:557; paper/reader/proofs/P-K83b.md:444-446	proof E margins (confirmed); proof P-K83b, Block 3.6	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part; the paragraph after it extended to all of region III on Σ_τ0 by prop:bg-region-three-end
 sec:tab-bg	paper/reader/proofs/T-E-background.md:1	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:tab-bg-nprime	paper/reader/proofs/T-E-background.md:12	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:tab-bg-nprime-defects	paper/reader/proofs/T-E-background.md:75	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
@@ -149,6 +165,7 @@ sec:tab-bg-ray-chain	paper/reader/proofs/T-E-background.md:199	tables of proof E
 sec:tab-bg-seed	paper/reader/proofs/T-E-background.md:239	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:tab-bg-slice-iii	paper/reader/proofs/T-E-background.md:269	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:tab-bg-slice-packet	paper/reader/proofs/T-E-background.md:301	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-region-three-end	paper/reader/proofs/P-K83b.md:381-396	proof P-K83b, Block 3.1 (table of (b))	merged; the two column pairs printed as one, in reading order; u, w written 𝔲, W
 sec:table-margins	paper/reader/proofs/T-E-margins.md:1	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:table-bump	paper/reader/proofs/T-E-margins.md:7	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:table-seed-profile	paper/reader/proofs/T-E-margins.md:65	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
