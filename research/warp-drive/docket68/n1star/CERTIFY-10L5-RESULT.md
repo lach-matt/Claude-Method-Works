@@ -5420,3 +5420,93 @@ others import nothing from the research tree:
     python3 checks/mtrunc5.py                             # a second, from checks/cpaxis5_a5*.out
     python3 checks/szconv5.py RUNDIR                      # about five minutes, given the 1600-row runs
 ```
+
+## 14. Round 10 (2026-11-13): the reader of round 9 seated
+
+The reader of round 9 read section 13 (lines 4700–5422, file md5 12e235e7…). It confirmed:
+- every rerun is identical;
+- M8-A, m8-1 and the nits are fixed everywhere;
+- mtrunc5's new controls work, and every one of the reader's mutants dies except one, which is harmless;
+- 13.1 matches the outputs line by line, and "not vacuum" at M = 48 is justified as a statement at fixed M;
+- szconv5 is sound;
+- the item keeps every fact and states the limit once;
+- every old text occurs once at 805be200.
+
+It did not confirm section 13, on wording only: one Major, one minor and two nits. Each is seated below as a bracketed
+amendment to the section 13 text it names, and applied in the item and blocks (14.3); section 13 is not edited.
+Sections 0–13 are byte-identical before and after this append.
+
+### 14.0 The reader of round 9: its findings, seated as amendments to section 13
+
+**M9-A. A true negative was turned into a positive claim.**
+- [13.3 (line 4840) and the item's new text in 13.6 (line 5042), "its counterpart in the class is built in the parts
+  listed below as deduced": reader of round 9 (M9-A).]
+- *Why it over-reads.* What the item lists as deduced is:
+  - linear estimates on truncated domains of dependence away from the axes, of which there is none over the region where
+    the residual is certified (the item's "where no truncated domain exists");
+  - the structure at the axes, which carries no estimate;
+  - the continuation lemma, which is conditional (supplement Lemma 9.C).
+  The old text's "is not built" was true of the estimate the continuation needs.
+- *Corrected text:* "parts of its counterpart in the class are built (those listed below as deduced); an estimate on a
+  region of Lemma 9.C's form is not". 13.3's report of the change is amended to match.
+
+**m9-1. Growth5's share of the difference is not measured.**
+- [13.2 (lines 4808–4809), "It is the data truncation's (it halves with R0) and growth5's own, whose record is at one
+  resolution"; 13.4 (line 4877), "the data truncation's and growth5's own": reader of round 9 (m9-1).]
+- *Re-derived* (from `checks/szconv5.out`'s printed maxima). Two radii fix d = a/R0 + c exactly, with no residual to test
+  the form. c = 2 d(20) − d(10) is −0.0001, −0.0011, −0.0010, −0.0050 and −0.0146 at v = 1.0, 1.2, 1.3, 1.35 and
+  1.375, so c lies between −0.015 and 0.000, and growth5's share is not resolved from zero.
+- *Corrected text:* "consistent with the data truncation (it halves as R0 doubles, at two radii)".
+  - In the item: "which is therefore not the double-null grid's; it is consistent with the data truncation, halving as
+    the radius doubles, at two radii".
+  - "Not the double-null grid's" stands. It rests on the null-step change, at most 0.007 r_h from 800 to 1600 rows,
+    against the difference, at least 0.026 r_h from v = 1.3, and not on the radii.
+
+**Nits.**
+- [The item's new text in 13.6 (line 5104), "anywhere in [0.68, 1.15]"; block F's mtrunc5 entry (line 5385), the same.]
+  - The exact upper end is 1.1491. At θ = 1.15 the band 0.9–1.0 from v = 1.9 is undecided: its last step, 1.149, is
+    below θ, and its largest, 1.22, above. Both texts read [0.68, 1.14].
+  - `checks/mtrunc5.py` prints the range to two decimals, rounded inward, beside the exact ends (0.6799 and 1.1491). It
+    classifies every decided band at both printed ends and fails unless each verdict stands there. It prints
+    "[0.68, 1.14] … re-checked at both ends: yes".
+  - A mutant that rounds to nearest prints [0.68, 1.15], fails that check and prints FAILURES (`scratchpad/r10/mt/`).
+  - Rerun: only that line of `checks/mtrunc5.out` changes.
+- [The item's new text in 13.6 (line 5107), "existence is proved where the solution is the seed (v ≤ r_h/2) and not
+  beyond it"]: it reads "and is not claimed beyond it".
+
+### 14.1 What holds at 10 l5 after round 10
+
+13.4's list stands, with one change. The rebuilt outer zero's difference from growth5's, from v = 1.3, is not the
+double-null grid's and is consistent with the data truncation (it halves as R0 doubles, at two radii); growth5's share
+of it is not measured (m9-1).
+
+There is no new existence statement. Existence is proved where the solution is the seed and is not claimed beyond it.
+
+### 14.2 Files and outputs (round 10)
+
+| file | what | md5 (round 9 → round 10) |
+|---|---|---|
+| `checks/mtrunc5.py` | nit: the range printed rounded inward, re-checked at both ends | 2f836c7d… → 8b09a765… |
+| `checks/mtrunc5.out` | regenerated; only the range line changes | 9a23e455… → f0b2094d… |
+
+- `data/rcert5_C3.npz` (698569f6…) and `data/rcert5_C3R.npz` (88e16664…) are unchanged.
+- The round-9 versions are `scratchpad/r10/mtrunc5.r9.py` and `mtrunc5.r9.out`.
+- No process of this round is left running.
+
+### 14.3 The paper: the wavelengths item and blocks C–G
+
+These replace 13.6's proposal. They are proposed to the main session, which seats them; this note edits neither the paper
+nor N1STAR-PROOF.md.
+- *Keyed by text.* Each old text is 13.6's and occurs exactly once in `RESPONSE-HL-5D.md` at md5
+  805be200b746b7cf480e88639da5508f. The files are in `scratchpad/r10/blocks/`, and the item also in
+  `scratchpad/r10/bullet_{old,new}.txt`.
+- *Checked:* every block applied to a copy (`scratchpad/r10/paper_applied.md`). Every line is ≤ 121 characters. Every
+  md5 row of Appendix D matches its file except `CERTIFY-10L5-RESULT.md`'s, which holds 12e235e7… (this file before
+  this append) and is rewritten by `python3 response5.py --update-md5` at seating. Longest new line: 121
+  characters.
+- *Changed from 13.6,* each in 13.6's new text:
+  - the item (123 lines): M9-A, m9-1 and the two nits, at the four sites quoted in 14.0;
+  - F: "[0.68, 1.15] (M2)" reads "[0.68, 1.14] (M2)";
+  - D3: three rows, `checks/mtrunc5.py` (8b09a76542a793e3a4ed56a14def079c), `checks/mtrunc5.out`
+    (f0b2094dbc310925fdc3c195ffe60a1c) and `CERTIFY-10L5-RESULT.md` (12e235e7f505987342088f080ebb1293).
+  - C, D1, D2, E and G are 13.6's.
