@@ -299,3 +299,186 @@ by [[eq:iii-b-5-3]], φ_(−S)^* g_(b₀) − g_(b₀) = |x|⁻²h_(−S)(ω)(dx
 (g_(b₀,b,−S) − g_b) + (g_b − g_(b₀)), the last term being independent of χ_K, smooth at K⁺ and of the same classes; and
 g_(b₀,b,−S) = g_b on χ_K⁻¹(1), a neighbourhood of K⁺. 𝒢⁺: near 𝓘⁺ ∩ ι⁺, g_(b₀,b,−S) = φ_(−S)^* g_(b₀), and
 g_(b₀) − η = m₀|x|⁻²(dx¹)² has the slot π_11 only. ∎
+
+### Forward mapping {#sec:iii-i-4}
+
+This section is [Hin26, Proposition 11.8 and Corollary 11.9] in dimension 4 + 1.
+
+**Proposition {#prop:iii-i-4-1}** (Forward mapping; [Hin26, Proposition 11.8] in dimension 4 + 1.) Let g_0 ∈ 𝒢⁺
+satisfy [[eq:iii-i-3-5]], let h and g be as in [[prop:iii-i-3-4]], and let 3/2 < ℓ_I < a_I + ½,
+0 < ℓ_+ < a_+ + min Re ℰ_+, ℓ_K ∈ ℝ and k ≥ 5. Then
+
+    L^(g,g_0) : H^(k,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_+,ℓ_+),ℓ_K)_b(Ω_*) → H^(k−2,(⟨ℰ^C_I+1⟩′,ℓ_I+1),(ℰ_++2,ℓ_++2),ℓ_K)_b(Ω_*),
+                                                                                                  {#eq:iii-i-4-1}
+
+and, if moreover ℓ_+ ≤ max(a_+, min Re ℰ_+), then for every ε > 0
+
+    L^(g,g_0) − L_b : H^(k,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_+,ℓ_+),ℓ_K)_b
+                          → H^(k−2,(⟨ℰ^C_I+1⟩′,ℓ_I+1),(2ℰ_++2,ℓ_++2+m_+−ε),ℓ_K+a_K)_b,
+    m_+ := min(a_+, min Re ℰ_+).                                                                   {#eq:iii-i-4-2}
+
+[Hin26, (11.19)] has ℓ_+ + 3 − ε (m_+ = 1) and ℓ_K + 2 + ε_K (a_K = 2 + ε_K). The upper bounds on ℓ_I and ℓ_+ are
+those of the products ([[lem:iii-c-2-1]]): a coefficient of the error with no expansion beyond its 𝓘⁺-weight a_I,
+acting on the radiation term ρ_I^(3/2) of π̸_0 u, gives ρ_I^(a_I+3/2) times a function with no expansion, and likewise
+at ι⁺. [Hin26, Proposition 11.8] is stated for all weights, but its products need the same restrictions (in dimension
+3 + 1, ℓ_I < a_I and ℓ_+ < a_+ + min Re ℰ_+, and ℓ_+ ≤ max(a_+, min Re ℰ_+) for [Hin26, (11.19)]).
+[[cor:iii-i-4-2]] (ℓ = a) lies inside this range, and the later chapters keep their weights in it.
+
+*Proof.* [[eq:iii-i-4-1]]. Near 𝓘⁺ (on U⁺ ∩ {ρ_I ≤ 1}) this is the proof of [[prop:iii-c-5-2]], with
+[[prop:iii-i-3-3]] in place of [[prop:iii-c-4-4]], ι⁺ in place of I⁰ and ℰ_+ in place of ℰ_0. The leading part
+ρ_+²ρ_I(X_+ − X_I)(X_I − 3/2 − Ā) has the slot-by-slot effect computed there: X_+ − X_I preserves index sets,
+X_I − 3/2 − Ā_jj annihilates the exceptional terms, and the couplings of Ā act as there; the factor ρ_+²ρ_I shifts the
+data by 2 at ι⁺ and by 1 at 𝓘⁺. The C^∞ error gives ℰ^tot_I + 2 ⊂ ℰ^C_I + 1 and ℰ_+ + 2. The perturbation error gives,
+by [[lem:iii-c-2-1]], 2ℰ^tot_I ⊂ ℰ^C_I + 1 at the weight ℓ_I + 1 and 2ℰ_+ + 2 ⊂ ℰ_+ + 2 at the weight ℓ_+ + 2. The
+inequalities [[lem:iii-c-2-1]] asks are ℓ_I + 1 < ℓ_I + 3/2, ℓ_I + 1 < a_I + 3/2 (by the hypothesis ℓ_I < a_I + ½) and
+ℓ_I + 1 ≤ a_I + ℓ_I; and ℓ_+ + 2 < ℓ_+ + 2 + min Re ℰ_+, ℓ_+ + 2 < a_+ + 2 + min Re ℰ_+ (by the hypothesis on ℓ_+) and
+ℓ_+ + 2 ≤ a_+ + 2 + ℓ_+. Away from 𝓘⁺, near ι⁺ ∪ K⁺: L_b ∈ ρ_+²Diff²_b near (ι⁺)° (Cartesian derivatives lie in
+ρ_+𝒱_b) and L_b ∈ Diff²_b near K⁺, which gives [[eq:iii-i-4-1]] there, and L^(g,g_0) − L_b is handled by
+[[eq:iii-i-3-6]] and [[lem:iii-c-2-1]].
+
+[[eq:iii-i-4-2]]. Only ι⁺ and K⁺ need an argument, as at 𝓘⁺ [[eq:iii-i-4-2]] is [[eq:iii-i-4-1]]. By
+[[eq:iii-i-3-6]], the coefficients of L^(g,g_0) − L_b have the data (ℰ_+ + 2, a_+ + 2) at ι⁺ and the weight a_K at K⁺.
+[[lem:iii-c-2-1]] gives the product index set 2ℰ_+ + 2 at the weight ℓ_+ + 2 + m_+ − ε, which is below each of
+ℓ_+ + 2 + min Re ℰ_+, ℓ_+ + 2 + a_+ and a_+ + 2 + min Re ℰ_+ (the last because ℓ_+ + m_+ ≤ a_+ + min Re ℰ_+ when
+ℓ_+ ≤ max(a_+, min Re ℰ_+)), and the weight ℓ_K + a_K at K⁺. ∎
+
+**Lemma {#lem:iii-i-4-3}** (The curvature of the patched background.) For |b − b₀| and |S| small, Ric(g_(b₀,b,−S)) is
+supported in supp χ_K ∩ supp(1 − χ_K) and lies in ρ_+⁴C^∞ near (ι⁺)°, with seminorms O(|b − b₀| + |S|).
+
+*Proof.* g_1 := φ_(−S)^* g_(b₀) and g_2 := g_b are Ricci flat, so Ric(g_(b₀,b,−S)) vanishes on the interior of
+χ_K⁻¹({0, 1}). So it is supported in supp χ_K ∩ supp(1 − χ_K), whose closure meets ∂M only in a compact subset of
+(ι⁺)°: χ_K = 1 near K⁺ and χ_K = 0 near 𝓘⁺, since χ^♭_K = 1 on {|x| < t/10, t > 60R₁} and supp χ^♯_K ⊂ {|x| < t/2}
+([[sec:iii-b-5]]). Near (ι⁺)°, g_i − ḡ = k_i ∈ ρ_+²C^∞ ([[lem:iii-i-3-6]], and [[lem:iii-b-5-1]] for the pullback),
+and Cartesian derivatives lie in ρ_+𝒱_b. With k := (1 − χ_K)k_1 + χ_K k_2, Ric(ḡ + k) = DRic(k) + Q(k), Q at least
+quadratic, and Q(k) ∈ ρ_+⁶C^∞ (two factors k, two derivatives). Further DRic(k) = (1 − χ_K)DRic(k_1) +
+χ_K DRic(k_2) + E, with DRic(k_i) = −Q(k_i) ∈ ρ_+⁶C^∞ and E the terms with a derivative on χ_K: ∂χ_K ∈ ρ_+C^∞ and
+∂²χ_K ∈ ρ_+²C^∞ (χ_K is smooth on M), times ∂k_i ∈ ρ_+³C^∞ and k_i ∈ ρ_+²C^∞ respectively; so E ∈ ρ_+⁴C^∞. Where χ_K
+is locally constant, E = 0 and the count gives ρ_+⁶. The size is linear in k_1 − k_2 (for k_1 = k_2 the patched metric
+is Ricci flat), and k_1 − k_2 = O(|b − b₀| + |S|) by [[lem:iii-i-3-6]]. ∎
+
+In dimension 3 + 1 the same count gives ρ_+³, the order P(g_0, g_0) ∈ ρ_+³C^∞ of [Hin26].
+
+**Corollary {#cor:iii-i-4-2}** (The gauge-fixed Einstein operator; [Hin26, Corollary 11.9] in dimension 4 + 1.) Let
+g_0 = g_(b₀,b,−S) with |b − b₀| and |S| small, and g = g_0 + h with h ∈ 𝒳^∞ of small H^(3,(1,0,0))_b-norm. Then
+
+    P_0(h, S, b) := P(g, g_0) = Ric(g) − δ^*_(g_0,E_C) Υ^(E_Υ)(g, g_0)
+                 ∈ H^(∞,(⟨ℰ^C_I+1⟩′,a_I+1),(ℰ_++2,a_++2),a_K)_b(Ω_*).                                   {#eq:iii-i-4-3}
+
+*Proof.* P(g_0, g_0) = Ric(g_0), as Υ^(E_Υ)(g_0, g_0) = 0 (the proof of [[cor:iii-c-5-3]]). By [[lem:iii-i-4-3]] it
+lies in ρ_+⁴C^∞, with support whose closure meets ∂M in a compact subset of (ι⁺)°, and (4, 0) ∈ ℰ_+ + 2 as
+(2, 0) ∈ ℰ_+. And P(g, g_0) − P(g_0, g_0) = ∫_0^1 L^(g_0+sh,g_0)h ds, which lies in the space by [[prop:iii-i-4-1]]
+(with g_1 = g_0, uniformly in s), as in [[cor:iii-c-5-3]]. ∎
+
+### Admissibility and forward solutions {#sec:iii-i-5}
+
+This section is [Hin26, Corollary 11.10 and Theorem 11.12] in dimension 4 + 1.
+
+#### The orders {#sec:iii-i-5-1}
+
+[[thm:iii-h1-1-3]] holds for orders in its class 𝒪_c, the orders of [[def:ii-c-2-4]] with the conditions (C1)–(C3) of
+[[def:iii-h1-1-1]]. The orders used by the forward solution theory of [[ch:s09]] are built by the construction of
+[[prop:ii-c-5-1]] ([[sec:ii-c-5-2]]: 𝗌 = s_in − (s_in − s_out)χ) and shifted by constants ([[lem:ii-f1-2-3]] and
+[[rem:ii-f1-7-1]]). The next lemma shows that they lie in 𝒪_c, so that [[thm:iii-h1-1-3]] supplies the
+2-admissibility those results assume.
+
+**Lemma {#lem:iii-i-5-1}** (The orders lie in 𝒪_c.) The order 𝗌 of [[prop:ii-c-5-1]], read over K⁺ as a
+t_*-translation-invariant function ([[prop:ii-c-5-1]] (1)), satisfies (C1)–(C3) of [[def:iii-h1-1-1]] with s_c = s_in;
+and so does 𝗌 + c for every constant c.
+
+*Proof.* Over K⁺, ψ_0(x_I) = 0 (x_I ≥ ϵ_I there), so 𝗌 = s_in − (s_in − s_out)χ_ι with
+
+    χ_ι = φ(f_W/δ) ψ̃(ϵ_ιδ f_T) ψ(|η̂_(3b)|²/(2δ)) Ψ(σ_(3b)²/|ν|²_(3b))
+
+on Ω_ι and χ_ι = 0 elsewhere ([[eq:ii-c-5-3]]; the factor ψ̃ vanishes where ϵ_ιδ f_T ≤ 4, which holds near the inner
+boundary of Ω_ι).
+
+(C1): Ψ = 0 on (−∞, 0.04], so χ_ι = 0 on {σ_(3b)² ≤ 0.04|ν|²_(3b)} ⊃ {σ = 0}, and 𝗌 = s_in there.
+
+(C2): on supp φ(f_W/δ), |ξ̂_(3b)| < δ/2, so f_T = r(1 − ξ̂_(3b)) < 2r, and ψ̃(ϵ_ιδ f_T) = 0 for r ≤ 2/(ϵ_ιδ); so
+𝗌 = s_in over {r ≤ 2/(ϵ_ιδ)} ⊃ {r ≤ r_Γ}, the construction having chosen 1/(ϵ_ιδ) > r_Γ. (C2) is in any case implied
+by [[def:ii-c-2-4]] (3), as noted after [[def:iii-h1-1-1]].
+
+(C3): −𝖧𝗌 = (s_in − s_out)𝖧χ_ι for the stationary G_0 (𝖧 = 𝖧^(3b) on Σ⁺, a positive multiple of 𝖧_(G_0)). On Σ⁺ over Ω_ι
+the factors ψ and Ψ equal 1 ([[lem:ii-c-5-3]] and [[lem:ii-c-5-5]] (b): σ_(3b)² ≥ 0.09|ν|² and |η̂_(3b)|² ≤ 3δ < 4δ),
+and 𝖧 applied to the other two factors is ≥ 0 ([[lem:ii-c-5-5]] (a), (c), with ψ̃′ ≥ 0, and φ′(f_W/δ) ≥ 0 where f_W ∈
+[−δ/2, −δ/4], φ being even with φ′ ≤ 0 on [0, ∞); by [[lem:ii-c-5-5]] (b) the other branch ξ̂_(3b) < −δ/8 does not meet
+Σ). Each of these holds with a margin off Σ. The proof of [[lem:ii-c-5-3]] shows |G_(3b)| > 0.0125|ν|²_(3b) where
+σ_(3b)² < 0.09|ν|²_(3b), so Ψ = 1 on W_1 := {|G_(3b)| < 0.0125|ν|²_(3b)}. On W_2 := {|σ_(3b)⁻²G_(3b)| < δ/16} the
+argument of [[lem:ii-c-5-5]] (b), with the error δ/16 + δ/16, still gives ξ̂_(3b) ≥ −δ/8 and |η̂_(3b)|² ≤ (3/2)δ + δ/8 <
+4δ, so ψ = 1 there. [[lem:ii-c-5-5]] (a) and (c) are proved from [[eq:ii-b-3-4]] and [[eq:ii-c-5-2]] without using Σ
+(𝖧̄f_T = 2ϱ⁻¹ and 𝖧̄f_W = 2(2 − ξ̂_(3b))ξ̂_(3b) wherever σ_(3b) ≠ 0), so they hold on W_1 ∩ Ω_ι ∩ {|ξ̂_(3b)| ≤ δ/2}. Any
+other positive rescaling of the Hamilton field, or any other defining symbol of Σ (such as 𝖧^♮ of [[sec:i-b-1-4]]),
+differs from 𝖧^(3b) by a positive factor and by terms vanishing on Σ, of size O(|σ_(3b)⁻²G_(3b)|) relative to the
+margins δ/8 and ϱ⁻¹ of (a) and (c). So on a thinner neighbourhood W ⊂ W_1 ∩ W_2 of Σ the monotonicity 𝖧𝗌 ≤ 0 holds for
+it too. On Σ⁻ the same holds by the evenness of the construction of [[sec:ii-c-5-2]] under the antipodal map. Outside
+Ω_ι the order is constant. Constants added to 𝗌 change none of this. ∎
+
+#### Admissibility {#sec:iii-i-5-2}
+
+**Corollary {#cor:iii-i-5-2}** (Admissibility relative to 2L_b; [Hin26, Corollary 11.10] in dimension 4 + 1.) Let
+g_0 = g_(b₀,b,−S) (or g_0 with [[eq:iii-i-3-5]]) and g := g_0 + h, h ∈ 𝒳^k, k ≥ 5, with small 𝒳⁵-norm. Then
+P := 2L^(g,g_0) is admissible relative to P_0 := 2L_b of class ((0;k−5),(2ℓ_I,ℓ_+,ℓ_K)) ([[def:ii-c-3-3]]) for every
+ℓ_I ∈ (0, ½], ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], with p_0 = p̃_1 = 0, whenever P_0 is 2-admissible with sf-loss 0 and
+margin 1 for the orders of 𝒪_c ([[def:iii-h1-1-1]]). By [[thm:iii-h1-1-3]] this holds at b = b₀, and by
+[[thm:iii-h2-2-1]] at every b of the neighbourhood B̄_1 of [[sec:iii-h2-0]], for every k.
+
+*Proof.* (1) σ_2(P) = G_g, with g − g_b = (g_0 − g_b) + h ∈ 𝒢̃^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K)) by [[lem:iii-i-2-2]] and
+[[lem:iii-i-3-6]]. (2) With p_0 = p̃_1 = 0, P̃ = P − P_0, which by [[eq:iii-i-3-7]] and Sobolev embedding
+(H^(k−2)_b ⊂ C^(k−5)_b, three derivatives for dim M = 5) lies in x_I²ρ_+² C^(k−5,(2ℓ_I,ℓ_+,ℓ_K))_b Diff²_(e3b).
+(3) p_1 = S|_(∂X), which in the splitting [[eq:iii-c-1-6]] is Ā, lower triangular with real diagonal
+([[lem:iii-c-4-2]]), and p_0 = 0 is strictly lower triangular. The conditions ℓ_+ > δ = 0 and ℓ_K > ℵ = 2 of
+[[def:ii-c-3-3]] hold. ∎
+
+[Hin26] has p̃_1 = (A^h − A_0)|_(𝓘⁺) and p_0 = 4ρ_+⁻¹B^h|_(𝓘⁺), of class ρ_+^(ℓ_+)C^(k−4)_b, and needs ℓ_+ ∈ (δ, 1)
+and ℓ_I < min(2γ_Υ, ½).
+
+#### Forward solutions at b₀ {#sec:iii-i-5-3}
+
+**Theorem {#thm:iii-i-5-3}** (Forward solutions at b₀; [Hin26, Theorem 11.12] in dimension 4 + 1, at b₀.) Let
+β_+ ∈ (½, 3/2) and β_I ∈ (β_+, 3/2). There are ε_0 > 0 and d ∈ ℕ such that for every k ∈ ℕ₀, every S ∈ 𝒮_1 with
+|S| < ε_0, every h ∈ 𝒳^(k+d) with ‖h‖_(𝒳^d) < ε_0, and every
+
+    f ∈ H^(k+d,(β_I+1,β_++2,1/2))_b(Ω_*; S²T*)^(•,−),                                                   {#eq:iii-i-5-1}
+
+the forward solution u of L^(g,g_0)u = f, g_0 := g_(b₀,b₀,−S), g := g_0 + h, satisfies
+
+    u ∈ H^(k,(β_I,β_+,−3/2))_b(Ω_*; S²T*)^(•,−),
+    ‖u‖_(H^(k,(β_I,β_+,−3/2))_b)
+        ≤ C_k (‖f‖_(H^(k+d,(β_I+1,β_++2,1/2))_b) + ‖h‖_(𝒳^(k+d)) ‖f‖_(H^(d,(β_I+1,β_++2,1/2))_b)).       {#eq:iii-i-5-2}
+
+For k ≥ 1, u depends continuously on (S, h) in H^(k−1,(β_I−ς,β_+−ς,−3/2−ς))_b for every ς > 0. The densities are μ_b.
+
+[Hin26] has β_+ ∈ (½, ½ + ε_ind), β_I ∈ (β_+, 1), an sf-loss δ > β_+ − ½ (so that u has the weight β_+ − δ), and b
+near b₀. Here δ = 0, the window of β_+ is (½, 3/2), and β_I reaches 3/2, the order of the radiation field. [Hin26,
+(11.23)] writes the K⁺-weights −2 for u and 0 for f where [Hin26, (11.22) and (11.21)] have −3/2 and ½; with μ_b
+throughout, [[eq:iii-i-5-2]] uses the latter. [[cor:iii-h2-5-1]] extends the theorem to every b near b₀, with
+constants independent of b and continuity in b.
+
+*Proof.* Apply [[thm:ii-f1-1-1]] in the form of [[cor:ii-f1-1-2]], with P_0 := 2L_(b₀), ℵ = 2, the sf-weight
+α_+ := β_+ − 5/2 and α_I := β_I − 2, and with [[rem:ii-f1-7-1]] for the relaxed admissibility with margin d_ℵ = 1
+(d raised by 1). Its hypotheses hold.
+
+(i) P_0 is 2-admissible with sf-weight α_+, sf-loss 0 and margin 1, by [[thm:iii-h1-1-3]] at b₀ for every k, as
+α_+ + 2 = β_+ − ½ ∈ (0, 1), for the orders of [[ch:s09]], which lie in 𝒪_c by [[lem:iii-i-5-1]]. [[eq:ii-f-8-6]], where
+the admissibility enters ([[rem:ii-f-8-2]]), uses these orders over K⁺ with the weights α_+, −2 and margin 1, as
+[[def:iii-h1-1-1]] asks.
+
+(ii) [[eq:ii-f1-1-3]]: α_I < −½ + S̄ = −½ (S̄ = 0, the least eigenvalue of Ā, [[eq:iii-c-4-3]]) is β_I < 3/2, and
+α_+ < α_I − ½ is β_+ < β_I.
+
+(iii) P = 2L^(g,g_0) is admissible relative to P_0 of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) for fixed ℓ_I ∈ (0, ½],
+ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], by [[cor:iii-i-5-2]] with h ∈ 𝒳^(k+d+5) (d raised by 5), and
+‖P − P_0‖_((0;d)) ≤ C(|S| + ‖h‖_(𝒳^(d+5))) < ε′_0 for ε_0 small ([[prop:iii-i-3-4]], [[eq:iii-i-3-7]]).
+
+The tame form: ‖P − P_0‖_((0;k+d)) ≤ C_k(|S| + ‖h‖_(𝒳^(k+d+5))) by [[eq:iii-i-3-7]], whose coefficients are polynomial
+in h, g⁻¹ and their derivatives, with tame (Moser) bounds in the b-regularity for ‖h‖_(𝒳^(d+5)) small (the tame
+product estimates of [[sec:ii-a-9]]). With [[eq:ii-f1-1-5]] and C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is
+[[eq:iii-i-5-2]]. The weights: [[cor:ii-f1-1-2]] with b_I = α_I + 2 = β_I, b_+ = α_+ + 5/2 = β_+, sf-loss 0, and the
+K⁺-weights ½ for f and −ℵ + ½ = −3/2 for u. Continuity: the last statement of [[thm:ii-f1-1-1]], P depending
+continuously on (S, h) in the norm of [[eq:iii-i-3-7]]. ∎
+
+**Remark {#rem:iii-i-5-5}** ([Hin26, Remark 11.13] in dimension 4 + 1.) As in [Hin26], rewriting
+L_b u = f − (L^(g,g_0) − L_b)u and using [[eq:iii-i-4-2]], the tameness of [[eq:iii-i-5-2]] propagates through a fixed
+finite number of such rewritings, with a total loss of b-regularity independent of k. This is used in the later
+chapters, whose statements are written with k = ∞. Each rewriting uses [[eq:iii-i-4-2]], so the weights must lie in
+the range of [[prop:iii-i-4-1]].

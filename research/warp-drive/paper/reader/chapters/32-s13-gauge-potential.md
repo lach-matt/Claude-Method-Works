@@ -759,3 +759,212 @@ P̂(0)u_j → P̂(0)u in H^(s−2), and ℓ is continuous on H^(s−2) as s > 5/
 ℓ(ζ_1(r)dt_*) = 2π²r_h³ for ζ_1 ∈ C_c^∞ with ζ_1(r_h) = 1). By [[cor:i-c-6-6]], whose hypotheses hold by
 [[sec:iii-d1-1]], P̂(0): 𝒳_0 → 𝒴_0 has index 0, so by (2) the annihilator of its range ([[thm:i-c-3-1]] (1)) is
 one-dimensional, and it is spanned by ℓ. ∎
+
+### The pairings at the horizon {#sec:iii-d1-3}
+
+**Lemma {#lem:iii-d1-3-1}** (The pairings; [Hin26, Lemma 6.11] in dimension 4 + 1.) (1) ℓ([□, t_*]W*) = 4π².
+(2) With c_(Υ,H) = −½χ dr as in [[sec:iii-d1-1]], ℓ(2E_H G δ*W*) = 4π². ([Hin26]'s values are 4π and a number in
+(3π, 5π). In dimension 4 + 1 both are (n − 2)|𝕊^(n−1)| = 2 · 2π², and in dimension 3 + 1 the first is 1 · 4π.)
+
+*Proof.* We compute in the ingoing chart at r = r_h, where ℓ(v) = r_h³∫_(𝕊³) v_v dx̂ by [[eq:iii-d1-1-1]],
+v_v := v(∂_v), and W*_v = r⁻², W*_r = −(r(r + r_h))⁻¹; the Christoffel symbols are [[eq:s13-chris]].
+
+(1) t_* − v = F(r) near r_h, and ℓ([□, F]W*) = ℓ(□(FW*)) − ℓ(F□W*) = 0 by [[lem:iii-d1-2-1]] (1) and □W* = 0; so t_*
+may be replaced by v. For a function φ, □(φw) = φ□w + (□_0φ)w − 2∇_(∇φ)w, so [□, v]W* = (□_0v)W* − 2∇_(∇v)W*, with
+∇v = g^vr∂_r = ∂_r and □_0v = −r⁻³∂_r(r³g^rv) = −3/r. Further (∇_(∂_r)W*)_v = ∂_rW*_v − Γ^r_rv W*_r
+= −2r⁻³ − f′/(2r(r + r_h)), which at r_h is −5/(2r_h³). So ([□, v]W*)_v(r_h) = −3/r_h³ + 5/r_h³ = 2/r_h³, and
+ℓ = 2|𝕊³| = 4π².
+
+(2) By [[eq:iii-d1-1-2]], 2E_H G δ*W* = 4ι_(c♯)δ*W* with c := c_(Υ,H), and at r_h, c♯ = −½∇r = −½(∂_v + f∂_r)
+= −½∂_v. So (4ι_(c♯)δ*W*)_v = −2(δ*W*)_vv, and (δ*W*)_vv = ∇_vW*_v = −Γ^v_vv W*_v − Γ^r_vv W*_r = −1/r_h³ at r_h. So
+ℓ = r_h³ · (2/r_h³) · 2π² = 4π². ∎
+
+The two lemmas so far carry the zero energy data that the argument below uses. We collect them, with the remaining
+facts about the unmodified operator at zero energy.
+
+**Proposition {#prop:np-10-15}** (The zero energy data of the unmodified operator.) On 4 + 1 Minkowski space and on
+g_(b_0):
+
+(i) The indicial roots of (□^Υ_b)^(0) are the zeros of ι(ι − 3)(ι² − ι − 2 − z) (type s0),
+(l + 3 − ι)(l + ι − 1)Q_l(ι² − ι) (type sl) and (ι + l)(l + 2 − ι) (type vl), z = 4e_Υγ_Υ², with Q_l as in the proof
+of [[lem:iii-d-4-1]]. At γ_Υ = 0 the gap is (0, 2); for 0 < z ≤ ½, 2 < ι^Υ_(s1,2) < ι^Υ_(s0,2) and every root other
+than ι^Υ_(s1,2) is ≤ 0 or ≥ ι^Υ_(s0,2), so (0, ι^Υ_(s1,2)) is an indicial gap.
+
+(ii) For stationary 1-forms on {r > r_h} the dt part and the spatial part of □ decouple. A S dt, S ∈ 𝒮_l, satisfies
+□(AS dt) = 0 if and only if (f/r)(r³A′)′ = κA. For l ≥ 1, ω = B(r)S dr + C(r)d_𝕊S satisfies □ω = 0 if and only if
+
+    −(r³f²B′)′ + rf(κ + 3f)B − 2κfC = 0,     −κ(rfC′)′ − 2κfB + κ²r⁻¹C = 0,
+
+the Euler–Lagrange equations of ∫(r³f²B′² + κrfC′² + Z(B, C))dr, with Z the quadratic form of the matrix
+((rf(κ + 3f), −2κf), (−2κf, κ²/r)), whose determinant κ²f(κ − 1 + m_0/r²) is positive for r > r_h. For Y ∈ 𝒱_l,
+V(r)Y satisfies □(VY) = 0 if and only if −(rfV′)′ + (l + 1)²r⁻¹V = 0.
+
+(iii) At l = 0 the stationary solutions of □ω = 0 on {r > r_h} are A(r)dt + B(r)dr with A = a_0 + a_2r⁻² and
+B = b_3r⁻³f⁻¹ + b_1rf⁻¹, constants a_0, a_2, b_1, b_3. Those that are smooth at the future horizon and decay at
+infinity form span{W*}.
+
+(iv) ℓ(P̂(0)u) = 0 for every stationary u smooth near the horizon sphere.
+
+(v) ℓ([□, t_*]W*) = 4π², and δW* = 0. At r_h, ι_(∇r)δ*W* = −r_h⁻³(dv + (3/2)dr), and for c_H = c_v dv + c_r dr at r_h,
+ℓ(2E_H G δ*W*) = −12π²c_v − 8π²c_r; so c_H = −½χ dr gives 4π², and for the source term
+𝔣(σ̂, γ̂) := −iσ̂[□, t_*]W* + 2γ̂E_H G δ*W*, ℓ(𝔣(σ̂, γ̂)) = 4π²(−iσ̂ + γ̂), which is nonzero for Im σ̂ ≥ 0, γ̂ ≥ 0, not
+both zero.
+
+(vi) With t the static time and t_* := t − r_*, in the static frame, ∂_σP̂(0)W* = −i[□, t_*]W* = ir⁻³dt + O(r⁻⁴). The
+leading term is of order ρ³ because (ρ∂_ρ − 3/2)ρ² = ½ρ², where in dimension 3 + 1 the corresponding (ρ∂_ρ − 1)ρ
+vanishes.
+
+*Proof.* (i) is [[eq:s13-dets]] and [[lem:iii-d-4-1]]. (iv) is [[lem:iii-d1-2-1]] (1).
+
+(ii) The static metric is invariant under the reflection t ↦ −t, which maps dt to −dt and fixes dr and the angular
+covectors; □ commutes with it, and a stationary 1-form is odd under it exactly when it is a multiple of dt. So □ maps
+the dt part to the dt part and the spatial part to the spatial part. *The dt part.* δ(AS dt) = 0, and F := d(AS dt)
+has F_rt = A′S, F_at = A∂_aS; as in the proof of [[prop:np-10-16]] (iv), (δF)^t = r⁻³(r³A′)′S − κA(fr²)⁻¹S and the
+other components vanish, so □(AS dt) = −f(δF)^t dt = (−fr⁻³(r³A′)′ + κr⁻²A)S dt. *The scalar spatial part.*
+δω = φS with φ := −r⁻³(r³fB)′ + κr⁻²C, so dδω = φ′S dr + φ d_𝕊S; and dω = (C′ − B)dr ∧ d_𝕊S, whose divergence is,
+as in the proof of [[prop:np-10-16]] (iii)–(iv), δdω = −κr⁻²(C′ − B)S dr − r⁻¹(rf(C′ − B))′d_𝕊S. So □ω = E_B S dr
++ E_C d_𝕊S with E_B := φ′ + κr⁻²(B − C′) and E_C := φ − r⁻¹(rf(C′ − B))′. In r³fE_B the C′ terms cancel, and
+r³fE_B = −r³f(r⁻³(r³fB)′)′ + κrfB − 2κfC. Expanding with r⁻³(r³fB)′ = (fB)′ + 3fB/r and f²B′ = f(fB)′ − ff′B,
+
+    −r³f(r⁻³(r³fB)′)′ + (r³f²B′)′ = (r³f′² + 3rf² − (r³ff′)′)B = 3rf²B,
+
+since r³f′² = 4m_0²r⁻³ = (r³ff′)′ for f = 1 − m_0r⁻². So r³fE_B = −(r³f²B′)′ + rf(κ + 3f)B − 2κfC. Likewise
+r⁻²(r³fB)′ = 2fB + (rfB)′ gives κrE_C = −κ(rfC′)′ + κ²r⁻¹C − 2κfB. The determinant is
+κ²(f(κ + 3f) − 4f²) = κ²f(κ − f) = κ²f(κ − 1 + m_0r⁻²), positive as f > 0 and κ ≥ 3. *The vector part.* By the proof
+of [[prop:np-10-16]] (iii) at σ = 0, δ(VY) = 0 and δd(VY) = (−r⁻¹(rfV′)′ + (l + 1)²r⁻²V)Y.
+
+(iii) At l = 0 the dt equation is (r³A′)′ = 0, so A = a_0 + a_2r⁻². The dr equation is φ′ = 0, so (r³fB)′ = c r³ for
+a constant c, and r³fB = cr⁴/4 + b_3; this is the stated B with b_1 = c/4. In the ingoing chart
+A dt + B dr = A dv + (B − A/f)dr, and B − A/f = (b_3r⁻³ + b_1r − a_0 − a_2r⁻²)/f. Decay at infinity forces
+a_0 = b_1 = 0, and smoothness at r_h forces the numerator to vanish at r_h, that is b_3 = a_2r_h. So
+A dt + B dr = a_2W*.
+
+(v) The first value is [[lem:iii-d1-3-1]] (1), and δW* = 0 is shown before [[lem:iii-d1-2-1]]. At r_h, ∇r = ∂_v, and
+with [[eq:s13-chris]], (δ*W*)_vv = −r_h⁻³ (proof of [[lem:iii-d1-3-1]]). Further ∇_rW*_v = −5/(2r_h³) at r_h (proof
+of [[lem:iii-d1-3-1]]) and ∇_vW*_r = −Γ^r_vr W*_r − Γ^v_vr W*_v = (f′/2)W*_r = −1/(2r_h³), so
+(δ*W*)_rv = ½(∇_rW*_v + ∇_vW*_r) = −3/(2r_h³), and ι_(∇r)δ*W* = (δ*W*)_(v·) = −r_h⁻³(dv + (3/2)dr). By [[eq:iii-d1-1-2]] and c_H♯ = c_v∂_r + c_r∂_v at r_h,
+(2E_H G δ*W*)_v = 4(c_v(δ*W*)_rv + c_r(δ*W*)_vv) = −(6c_v + 4c_r)r_h⁻³, and ℓ multiplies by 2π²r_h³. The value of
+ℓ(𝔣) then follows from (1) and the case c_v = 0, c_r = −½; and |−iσ̂ + γ̂|² = |σ̂|² + 2γ̂ Im σ̂ + γ̂² > 0.
+
+(vi) In the static chart the nonzero Christoffel symbols with indices in {t, r} are Γ^t_tr = f′/(2f), Γ^r_tt = ff′/2
+and Γ^r_rr = −f′/(2f), and W* has no angular component. ∇t_* = −f⁻¹∂_t − ∂_r and □_0t_* = −r⁻³∂_r(r³f · (−f⁻¹)) = 3/r.
+With f′ = 2m_0r⁻³: (∇_tW*)_t = −Γ^r_tt W*_r = O(r⁻⁶), (∇_tW*)_r = −Γ^t_tr W*_t = O(r⁻⁵),
+(∇_rW*)_t = −2r⁻³ − Γ^t_rt W*_t = −2r⁻³ + O(r⁻⁵), and (∇_rW*)_r = O(r⁻⁴). So
+[□, t_*]W* = (3/r)W* + 2f⁻¹∇_tW* + 2∇_rW* has dt component 3r⁻³ − 4r⁻³ + O(r⁻⁵) and dr component O(r⁻⁴).
+T = ∂_σP̂(0) = −i[□, t_*] because e^(iσt_*)□e^(−iσt_*) = □ − iσ[□, t_*] + O(σ²). For the last sentence, by
+[[eq:iii-d-2-1]] at S̄ = 0 the ∂_(t_*) coefficient of □ near infinity is −2ρ(ρ∂_ρ − 3/2) up to ρ³ Diff_b¹, applied to
+the leading part ρ²dt of W*. ∎
+
+### Mode stability on the closed upper half plane {#sec:iii-d1-4}
+
+**Proposition {#prop:iii-d1-4-1}** ([Hin26, Proposition 6.12] in dimension 4 + 1.) Assume (Dyn). There is ϵ_0 > 0
+such that for every γ_(Υ,H) ∈ (0, ϵ_0] there are ϵ_1 > 0 and a neighbourhood ℬ(γ_(Υ,H)) of b_0 such that, for
+b ∈ ℬ(γ_(Υ,H)), e_Υ ∈ [0, ϵ_1] and |γ_Υ| < ϵ_1, (□^Υ_b)^(σ) is invertible for every σ with Im σ ≥ 0: as a map
+𝒳_σ → 𝒴_σ when σ ≠ 0, and when σ = 0 as a map 𝒳_0 → 𝒴_0 for every s > 3/2 and every α with
+α + 2 ∈ (0, ι^Υ_(s1,2)). In particular (□^Υ_b)^(0) has trivial kernel on 𝒜^ϵ(X̄; E) for every ϵ > 0.
+
+*Proof. Step 1: the horizon modification alone, at b_0.* For γ ∈ [0, 1] let 𝗉_γ := (b_0, 0, 0, γ) and
+P̂_γ := P̂_(𝗉_γ), so
+
+    P̂_γ(σ) = P̂(σ) + 2γE_H G (δ*)^(σ),     (δ*)^(σ) = δ* + σδ*_1,     δ*_1w := −i dt_* ⊗_s w,
+
+and P̂(σ) = P̂(0) + σT + σ²P_2 ([[sec:i-a-1]]) with T = ∂_σP̂(0) = −i[□, t_*] (as
+e^(iσt_*)□e^(−iσt_*) = □ − iσ[□, t_*] + O(σ²)) and P_2 of order 0. Fix ψ, ϕ ∈ C_c^∞(X°; E) with ℓ(ψ) ≠ 0
+([[lem:iii-d1-2-1]] (3)) and ⟨W*, ϕ⟩_h = 1, and let 𝒫_γ(σ) be the augmented operator of [[eq:i-c-6-5]] with
+m_1 = m_2 = 1,
+
+    𝒫_γ(σ)(u, c) := (P̂_γ(σ)u + cψ, ⟨u, ϕ⟩_h).
+
+*(Z_𝒫) at γ = 0.* 𝒫_0(0): 𝒳_0 ⊕ ℂ → 𝒴_0 ⊕ ℂ is invertible. If P̂(0)u + cψ = 0 and ⟨u, ϕ⟩_h = 0, applying ℓ gives
+cℓ(ψ) = 0 ([[lem:iii-d1-2-1]] (3)), so c = 0, u = kW* ([[lem:iii-d1-2-1]] (2)) and k = ⟨u, ϕ⟩_h = 0. Given (f_1, e_1),
+c := ℓ(f_1)/ℓ(ψ) makes f_1 − cψ annihilated by ℓ, so f_1 − cψ = P̂(0)u_0 (the range is closed and its annihilator is
+spanned by ℓ), and u := u_0 + (e_1 − ⟨u_0, ϕ⟩_h)W* solves 𝒫_0(0)(u, c) = (f_1, e_1).
+
+*Uniform low-energy theory.* The family γ ↦ P̂_γ, γ ∈ [0, 1], satisfies (H1)–(H5), (G) and (TF)
+([[sec:iii-d1-1]]; the horizon term is compactly supported in X°, so the normal operators at ∂X and at tf do not
+depend on γ). By [[thm:i-c-7-1]] at γ = 0 and [[thm:i-c-6-4]], there are γ_1 ∈ (0, 1], c_0 > 0 and C such that for
+γ ∈ [0, γ_1]: 𝒫_γ(σ) is invertible for |σ| ≤ c_0, Im σ ≥ 0 (σ = 0 by [[thm:i-c-7-1]] (1), σ ≠ 0 by
+[[thm:i-c-6-4]] (3)); ‖(u, c)‖ ≤ C‖𝒫_γ(0)(u, c)‖ on 𝒳_0 ⊕ ℂ (proof of [[thm:i-c-7-1]]); and the estimate
+[[eq:i-c-6-6]] of [[thm:i-c-6-4]] (1) with k = 0 holds with the constant C for 0 < |σ| ≤ c_0. Let
+
+    (u_(σ,γ), c_(σ,γ)) := 𝒫_γ(σ)⁻¹(0, 1).
+
+*The Schur complement.* If c_(σ,γ) ≠ 0, then P̂_γ(σ) is invertible (on 𝒳_σ → 𝒴_σ, or 𝒳_0 → 𝒴_0 at σ = 0). Write
+(u, c) := (u_(σ,γ), c_(σ,γ)), so P̂_γ(σ)u = −cψ and ⟨u, ϕ⟩_h = 1. If P̂_γ(σ)w = 0, then
+𝒫_γ(σ)(w, 0) = ⟨w, ϕ⟩_h(0, 1), so (w, 0) = ⟨w, ϕ⟩_h(u, c), whence ⟨w, ϕ⟩_h c = 0, ⟨w, ϕ⟩_h = 0 and w = 0. Given
+f_1, let (w, d) := 𝒫_γ(σ)⁻¹(f_1, 0); then P̂_γ(σ)(w − (d/c)u) = f_1 − dψ + dψ = f_1.
+
+*The expansion.* By [[lem:iii-d1-2-1]] (1) and density, ℓ(P̂(0)v) = 0 for every v that is H^s near the horizon
+sphere (s > 5/2), so applying ℓ to P̂_γ(σ)u + cψ = 0 gives, with u = u_(σ,γ),
+
+    c_(σ,γ) ℓ(ψ) = −σℓ(Tu) − σ²ℓ(P_2u) − 2γℓ(E_H G δ*u) − 2γσℓ(E_H G δ*_1u).                              {#eq:iii-d1-4-1}
+
+*Claim:* as (σ, γ) → (0, 0) with |σ| ≤ c_0, Im σ ≥ 0 and γ ∈ [0, γ_1], c_(σ,γ) → 0 and u_(σ,γ) → W* in H^(s′)(K)
+for every compact K ⊂ X° and s′ < s. Let (σ_j, γ_j) → (0, 0), and (u_j, c_j) the corresponding pairs; |c_j| ≤ C. Let
+φ_1 ∈ C^∞([0, ∞)) vanish on [0, 1] and equal 1 on [2, ∞), and put w_j := φ_1(ρ/ς_j)u_j, ς_j := |σ_j| (and w_j := u_j
+if σ_j = 0). By [[lem:i-c-6-2]] (b) and (a) (with q = 0, l = α), w_j, supported in {ρ ≥ ς_j}, has
+‖w_j‖_(H̄_b^(s,α)) ≤ C′‖u_j‖_(s,(𝗋+α_+,α,0),ς_j) ≤ C′C, uniformly in j. Pass to a subsequence with w_j ⇀ w weakly
+in H̄_b^(s,α) and c_j → c. As w_j = u_j on {ρ > 2ς_j}, on each compact K′ ⊂ X° the u_j equal the w_j for large j and
+are bounded in H^s(K′); so u_j → w in distributions on X̄ ∖ ∂X, and by Rellich's theorem u_j → w in H^(s′)(K). The
+coefficients of P̂_γ(σ) depend polynomially on (σ, γ), so P̂(0)w + cψ = 0, whence w ∈ 𝒳_0, and
+⟨w, ϕ⟩_h = lim⟨u_j, ϕ⟩_h = 1. So 𝒫_0(0)(w, c) = (0, 1), and (w, c) = (W*, 0). The limit does not depend on the
+subsequence, which proves the claim.
+
+Since ℓ involves only the values at the horizon sphere of Tu and E_H G δ*u, first-order operators, the claim with
+s′ ∈ (3/2, s) gives ℓ(Tu_(σ,γ)) → ℓ(TW*) = −iℓ([□, t_*]W*) = −4π²i and
+2ℓ(E_H G δ*u_(σ,γ)) → 2ℓ(E_H G δ*W*) = 4π² ([[lem:iii-d1-3-1]]), while ℓ(P_2u) and ℓ(E_H G δ*_1u) stay bounded. So
+[[eq:iii-d1-4-1]] reads
+
+    c_(σ,γ) ℓ(ψ) = −4π²(−iσ + γ) + o(|σ| + γ).
+
+For Im σ ≥ 0 and γ ≥ 0, |−iσ + γ|² = |σ|² + 2γ Im σ + γ² ≥ ½(|σ| + γ)². So there are c_1 ∈ (0, c_0] and
+γ_2 ∈ (0, γ_1] with c_(σ,γ) ≠ 0 whenever |σ| ≤ c_1, γ ∈ [0, γ_2], Im σ ≥ 0 and (σ, γ) ≠ (0, 0). By the Schur
+complement, *for γ ∈ (0, γ_2], P̂_γ(σ) is invertible for all |σ| ≤ c_1 with Im σ ≥ 0, σ = 0 included*; c_1 does not
+depend on γ.
+
+*Step 2: the whole family, at every frequency.* Let ϵ and ℬ″ be those of [[prop:iii-d-6-3]] for its c_0 := c_1, and
+ϵ_0 := min(γ_2, ½ϵ). Fix γ ∈ (0, ϵ_0]. At 𝗉_γ, P̂_γ(σ) is invertible for every σ with Im σ ≥ 0: for |σ| ≤ c_1 by
+Step 1, for |σ| ≥ c_1 by [[prop:iii-d-6-3]] (γ < ϵ, b_0 ∈ ℬ″). Now vary 𝗉 = (b, e_Υ, γ_Υ, γ) near 𝗉_γ, with
+e_Υ ≥ 0. (i) *Low energies.* (Z) holds at 𝗉_γ, so by [[thm:i-c-7-1]] (with m_1 = m_2 = 0 and base point 𝗉_γ) and
+[[thm:i-c-6-4]] (3) there are c_0(γ) > 0 and a neighbourhood N_1 of 𝗉_γ on which P̂_𝗉(0) is invertible and P̂_𝗉(σ) is
+invertible for 0 < |σ| ≤ c_0(γ). (ii) *High energies.* By [[prop:iii-d-6-1]] there is C_0 with invertibility for
+|σ| ≥ C_0 and all 𝗉 in 𝒦. (iii) *The compact middle.* On {c_0(γ) ≤ |σ| ≤ C_0, Im σ ≥ 0}, a compact set, P̂_(𝗉_γ)(σ)
+is invertible at each point, and invertibility is open in (σ, 𝗉) ([[thm:i-a-8-1]], as in the proof of
+[[prop:iii-d-6-3]]); finitely many neighbourhoods cover it, giving N_2. On N_1 ∩ N_2 ∩ 𝒦, which contains
+ℬ(γ) × [0, ϵ_1] × (−ϵ_1, ϵ_1) × {γ} for some neighbourhood ℬ(γ) and some ϵ_1 > 0, invertibility holds for every σ. At
+σ = 0 it holds for one pair (s, α), hence for all s > 3/2 and all α with α + 2 in the gap (0, ι^Υ_(s1,2))
+([[thm:i-c-3-1]] (4)); for σ ≠ 0 the kernel and the annihilator of the range do not depend on the admissible orders
+([[thm:i-a-7-2]] (3)).
+
+*The kernel on 𝒜^ϵ.* 𝒜^ϵ(X̄; E) ⊂ H̄_b^(s,α) when α + 2 < ϵ: its elements are smooth up to ∂_♯X, and near ∂X they and
+their b-derivatives are O(ρ^ϵ), which lies in ρ^(α+2)L²(μ_b) = H̄_b^(0,α) ([[sec:i-c-1-2]]); and
+α + 2 ∈ (0, min(ϵ, ι^Υ_(s1,2))) is allowed. A kernel element there lies in 𝒳_0 and vanishes. ∎
+
+*Remarks.* (a) [Hin26, Proposition 6.12] states triviality of the nullspace on 𝒜^α for every α also when σ ≠ 0.
+That needs 𝒜^α ⊂ 𝒳_σ for suitable admissible orders, which [[thm:i-a-7-2]] (5) gives only for the weight
+3/2 + S̄ − ϵ; it is not used here. (b) The neighbourhood ℬ(γ_(Υ,H)) of b_0 depends on γ_(Υ,H), as ϵ_1 does in
+[Hin26]. The later chapters fix γ_(Υ,H) once and then work near b_0.
+
+### The zero energy operator {#sec:iii-d1-5}
+
+**Lemma {#lem:iii-d1-5-1}** ([Hin26, Lemma 6.13] in dimension 4 + 1.) Assume (Dyn), and let E_Υ and b be as in
+[[prop:iii-d1-4-1]]. Use an unweighted b-density near ∂X to define L², so that H̄_b^(s,α) here is the space
+H̄_b^(s,α−2) of [[ch:s03]]. (1) For s > 3/2 and α ∈ (0, ι^Υ_(s1,2)),
+(□^Υ_b)^(0): {u ∈ H̄_b^(s,α) : (□^Υ_b)^(0)u ∈ H̄_b^(s−1,α+2)} → H̄_b^(s−1,α+2) is invertible. (2) If
+f_1 ∈ 𝒜^(2+ℰ)(X̄; E) for an index set ℰ with min Re ℰ > 0, then (□^Υ_b)^(0)⁻¹f_1 ∈ 𝒜^(ℰ′)(X̄; E) for an index set
+ℰ′ with min Re ℰ′ > 0.
+
+*Proof.* (1) With α′ := α − 2, the map is 𝒳_0 → 𝒴_0 of [[eq:i-c-3-1]] with the weight α′, α′ + 2 = α in the gap;
+this is [[prop:iii-d1-4-1]] at σ = 0. The threshold is 3/2 for every γ_(Υ,H) ([[lem:iii-d-5-1]]).
+
+(2) Fix α ∈ (0, min(min Re ℰ, ι^Υ_(s1,2))). Then f_1 ∈ H̄_b^(s−1,α+2) for every s (in b-densities
+ρ^(2+z) ∈ H_b^(∞,α+2) near ∂X when Re z > α, and f_1 is smooth up to ∂_♯X). Let u_s be the inverse image given by
+(1) for the regularity s. For s′ > s, u_(s′) lies in the domain for s and solves the same equation, so
+u_(s′) = u_s =: u, and u ∈ ⋂_s H̄_b^(s,α): smooth up to ∂_♯X, and of class H_b^(∞,α) near ∂X. Near ∂X,
+(□^Υ_b)^(0) = ρ²A with A := P⁽⁰⁾ an elliptic b-operator on the trivial bundle ([[eq:i-c-1-1]]–[[eq:i-c-1-3]]), and
+χ_1Au = χ_1ρ⁻²f_1 ∈ 𝒜^ℰ ⊂ H_b^(∞,(ℰ,β)) for every β, χ_1 a cut-off near ∂X. [[lem:iii-a-1-4]] then gives
+χ̃_1u ∈ H_b^(∞,(ℰ_β,β)) for every β ∉ Re spec_b(A), where the index set built there from E(α) (the boundary spectrum
+with Re ι > α), ℰ and their shifts by ℕ_0 does not depend on β; call it ℰ′. So u ∈ 𝒜^(ℰ′), and
+min Re ℰ′ ≥ min(α, min Re ℰ) > 0. [[lem:iii-a-1-4]] is stated for scalar operators; its proof uses A only through the
+meromorphy of N(A, ι)⁻¹ with bounds on vertical strips, which hold for the matrix-valued indicial family
+[[eq:i-c-1-3]] by [[lem:i-c-2-4]]; so it applies verbatim on E. The same holds for [[lem:iii-a-1-5]]. ∎

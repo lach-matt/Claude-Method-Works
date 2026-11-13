@@ -69,7 +69,7 @@ compactification M and its faces I₀, ℐ⁺, ι⁺, K⁺ ([[def:iii-b-2-1]]); 
 (The conditions [Hin26, (5.42)], v_C < 1, 0 < e_C < 1, γ_C > 0, 0 < e_Υ < 1, γ_Υ > 0, hold under the choices of
 [[sec:iii-f-1]].) Let η := −dt² + dx² in the coordinates of [[sec:iii-b-2]], and
 
-    x⁰ := t + |x|,     x¹ := t − |x|,     ρ₀ := 1/(2 − x¹),     ρ_I := (2 − x¹)/|x|,                       {#eq:iii-c-1-2}
+    x⁰ := t + |x|,     x¹ := t − |x|,     ρ₀ := 1/(2 − x¹),     ρ_I := (2 − x¹)/|x|,                      {#eq:iii-c-1-2}
 
 the last two being the coordinates [[eq:iii-b-2-2]] near I₀ ∩ ℐ⁺. (Here x⁰ is that of Minkowski space; the x⁰ of
 [[eq:iii-b-4-1]] for g_μ is t + |x| − T_μ(|x|), and the two null frames differ by I + ρ²C^∞, [[lem:iii-c-1-3]].) Fix
@@ -122,7 +122,7 @@ h₀₀ = h(∂₀, ∂₀), h_(0ā) (the tangential part of h(∂₀, ·)), h�
 tangential block, in the frame |x|e^a), as in [[sec:iii-b-4]], and its *slot coordinates* are, in the order of
 [[eq:iii-c-1-6]],
 
-    (h₀₀, h_(0ā), ⅓tr̸h, h₀₁, h_(1ā), π̸₀h, h₁₁),     tr̸h := g̸^(ab)h_(āb̄),                                 {#eq:iii-c-1-7}
+    (h₀₀, h_(0ā), ⅓tr̸h, h₀₁, h_(1ā), π̸₀h, h₁₁),     tr̸h := g̸^(ab)h_(āb̄),                          {#eq:iii-c-1-7}
 
 the third being the coefficient of |x|²g̸. Each of these is the coefficient of the basis element of the corresponding
 summand: for instance the element 2dx⁰dx¹ of the fourth summand has h₀₁ = 1, as dx⁰(∂₀) = dx¹(∂₁) = 1 and

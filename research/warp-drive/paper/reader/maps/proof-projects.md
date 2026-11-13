@@ -91,7 +91,7 @@ Sections 6 and 8 (the solver and linear settling):
   is settled by Hintz's route instead (sections 8.3–8.4, Theorem 4)". T1 (DERIVE) is not part of this item.
 - C48 seed_escape: "The linear scattering of the shell off the seed at 10 l5 is computed in … `seed_escape.py`"
   (`P:1677-1678`; also `P:919`, the barrier for T3). Check: no conclusion is drawn from it. Its E3 (the class's
-  perturbation types, `S/N1STAR-PROOF.md:1767`) duplicates settle5 T1, which the paper cites (`P:798-799`).
+  perturbation types, `S/N1STAR-PROOF.md:1767`) duplicates settle5 T1, which the paper cites (`P:797-798`).
 
 Section 9, the linear theory's constants and the loss count:
 
@@ -199,7 +199,7 @@ code. Lengths are printed lines of 121 characters, with a factor of about 2 eith
   non-integer indicial root λ with |λ| ≤ 50 has dist(Re λ, Z) ≥ δ_50, at every harmonic degree l, with δ_50 =
   1.94137056846 × 10⁻⁸, attained at l = 50 by the root 1 − l − δ_50 of the gauge potential's factor; the constraint
   damping's roots with |λ| ≤ 50 stay at least 2.9 × 10⁻⁶ from Z (2.93235 × 10⁻⁶ at l = 2, `S/checks/eindcert5.out`).
-- Claim A2 (C266; `S/LOSS-D.md:398-405`). From the computed roots, the least value above 2 or 3 of the sums that the
+- Claim A2 (C266; `S/LOSS-D.md:398-410`). From the computed roots, the least value above 2 or 3 of the sums that the
   gap condition (G) reads is 3 + 5.02 × 10⁻⁸ (λ_♯ + 4,470,304 d1), so (G) does not bind below ε_ind.
 - Depends on A1: Theorem 4 (`P:1239-1241`, ε_K < ε_+ < min(δ♯, ε_ind, ℓ_I − 3, 1/4)); the write-out's parameter row
   w1 (`S/proof5/PART-VI4-PARAMS.md:38`); the floor d > 7.95 × 10¹⁵ through the upper bound 1.94138 × 10⁻⁸
@@ -207,7 +207,7 @@ code. Lengths are printed lines of 121 characters, with a factor of about 2 eith
 - Sources: `S/N1STAR-PROOF.md:7259-7297` (10.52, Proposition 10.43), `:4600-4640` (10.24 (a)), `:3414-3520`
   (10.12, Proposition 10.9); `S/eind5.py` and `S/checks/eindcert5.py` docstrings; `S/CONSTANTS5.md:158`.
 - Strategy, feasibility and length: section 3. A1 can be proved by hand with the paper's constant δ_50 exactly;
-  about 490 lines, of which about 100 are a crossing table. A2: closed forms of d0, d1, δ_2, δ′_1 from section 3's
+  about 490 lines, of which about 100 are a crossing table of 92 rows. A2: closed forms of d0, d1, δ_2, δ′_1 from section 3's
   formulas and one ceiling computation; about 40 lines, but A2 needs d1 to 15 digits and nothing uses it: drop.
 - Objects defined only by code: none. The sextic's coefficients come from damping5's det N (DERIVE, C50), which the
   edition writes out anyway; A1 needs it printed as seven polynomials in κ.
@@ -247,10 +247,12 @@ scratch, not part of the record; the writer must re-derive it) gives:
 - l = 0: φ = 1 − 2y with q = ½ y^(3/2)(1 − y)(1 + 3y/2) gives W_q = (3/8)(1 − y) y^(3/2)(149y⁴ − 280y³ + 177y² −
   42y + 4), the quartic positive on [0, 1] (least 0.678 at y = 0.2004), and q ≤ φ′/3. This replaces both bump sums.
 - B3 follows by Corollary E2.11's closed formulas from the new constants.
-- B6: the same multiplier for each of the six potentials (b ∈ {9/4, 5/4, −7/4, −27/4, −39/4} and V_S's rational
-  correction E(y, 1/m), cleared of (1 + 6εy)³); the horizon needs a + b ≥ 4, true for every family from its least l
-  except the four single harmonics the record certifies one by one, which need their own (still algebraic)
-  multiplier or a Lagrangian term. Each case is one polynomial positivity on [0, 1].
+- B6: the same multiplier for the six potentials (b ∈ {9/4, 5/4, −7/4, −27/4, −39/4}; V_S through the record's
+  majorant). w is affine in (a, b), so each family needs its corners only; the planning check finds w/((1 − y)
+  y^(3/2)) a cubic in y with no root in [0, 1] at (a, b) = (15/4, 9/4), (15/4, 5/4), (35/4, −7/4), (35/4, 9/4),
+  (63/4, −39/4), (63/4, 9/4) and (99/4, −39/4), which covers M1-M4. The horizon needs a + b ≥ 4; three of the four
+  single harmonics the record certifies one by one (V_2 at l = 1, V_V and V_S at l = 2) fail it and need their own
+  algebraic multiplier or a Lagrangian term as at l = 0; V_S at l = 3 needs E(y, 1/m) cleared of (1 + 6εy)³.
 - B5 is the hard part. A fixed multiplier gives B_l(σ) of order σ/w_I, so 11.477 on the band needs σ-dependent
   multipliers narrowing like l^(−1/2) at the trapped harmonic. By hand: an algebraic family φ_ν(y) = Φ(ν(1 − 2y)),
   Φ(x) = x/(1 + x²)^(1/2), with admissibility proved uniformly in ν ≥ ν_0 by an expansion in 1/ν with explicit
@@ -432,7 +434,7 @@ Step 1 (box^Υ, closed form; about 90 lines).
 - The number: δ_50 = 1.94137056846 × 10⁻⁸ from the closed form with R_50 and the square root expanded to second order
   with alternating remainders (planning check: the closed form gives 1.94137056846336 × 10⁻⁸, as eindcert5.out). The
   floor's upper bound is the line δ_50 ≤ z f(50) = 1.9413706 × 10⁻⁸ < 1.94138 × 10⁻⁸.
-- l = 1 uses the same Q at κ = 3 (`S/LOSS-D.md:373-374`: λ_s1,2 = (1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2))/2),
+- l = 1 uses the same Q at κ = 3 (`S/LOSS-D.md:370-371`: λ_s1,2 = (1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2))/2),
   distance δ_1 = z/12 + O(z²); l = 0 has (1 ± (9 + 4z)^(1/2))/2 + 1, distance z/3 + O(z²). Both exceed δ_50.
 
 Step 2 (box^C, vector type; about 20 lines). 10⁶ p_v(λ) = κ + 3 × 10⁶ − 999998λ − λ² has integer values at integers.
@@ -465,9 +467,9 @@ with R_1, R_2, R_3 of total degrees 4, 5, 6 (21, 19 and 10 terms), and in λ = �
   2.93235 × 10⁻⁶, the record's least box^C distance; l ≤ about 20 are best written as explicit cases.
 - Crossing table: B1 meets the integer n (3 ≤ n ≤ 51) at one κ_n ≈ (n − 2) × 10⁶ + c_n with c_n of order (n − 2)²
   (κ_3 = 1,000,013.4, κ_51 = 49,002,580.7), a root of the cubic κ ↦ P(n, κ) with integer coefficients; the pair's
-  real part meets n (3 ≤ n ≤ 44; beyond, |λ| > 50) at one κ′_n ≈ (4n − 10) × 10⁶/3 + c′_n, a root of the Hurwitz
+  real part meets n (3 ≤ n ≤ 45; beyond, |λ − 1| > 50 for box^C's root) at one κ′_n ≈ (4n − 10) × 10⁶/3 + c′_n, a root of the Hurwitz
   determinant of P shifted to Re λ = n (a cubic in κ). Exactly one root each in [8, κ*] (Sturm counts in planning).
-  The table prints, for each of the 49 + 42 crossings, a bracket of κ_n between two rationals with a sign change, the
+  The table prints, for each of the 49 + 43 crossings, a bracket of κ_n between two rationals with a sign change, the
   neighbouring values l(l + 2) and the gap. The least gap in planning is 14.4 (n = 3, l = 999) for B1 and 141 for
   the pair (n = 18, l = 4545).
 - Distance: between consecutive crossings each root stays strictly between consecutive integers; near a crossing
@@ -476,8 +478,9 @@ with R_1, R_2, R_3 of total degrees 4, 5, 6 (21, 19 and 10 terms), and in λ = �
   crossings (planning values: ≥ 1.44 × 10⁻⁵), and ≥ 10⁻⁴ for the two real roots of the regime l ≤ 135.
 
 Step 4 (l ≥ 10⁴; about 30 lines). eind5 E2's Sturm certificate in writing: substitute κ = κ* + u in the constant
-coefficient and in the Hurwitz determinant of P shifted to Re λ = 51 (both cubics in κ) and show every coefficient
-in u has one sign; with three upper roots right of 51 at κ* (Step 3 at t = 100) none crosses for u ≥ 0. The vector
+coefficient and in the Hurwitz determinant of P shifted to Re λ = 51 (cubics in κ in planning) and show by
+Descartes' rule, or a Sturm sequence of four printed polynomials, that neither has a root u ≥ 0; with three upper
+roots right of 51 at κ* (Step 3 at t = 100) none crosses for u ≥ 0. The vector
 root: λ_v > 51 for κ ≥ κ* from the quadratic formula. box^Υ: |λ| ≥ l − 1 > 50 for l ≥ 52 by Step 1.
 
 Step 5 (l = 0, 1; about 40 lines). box^C's quartic at l = 0 and the sextic at κ = 3 (Coulomb root 2 exact, an integer,
@@ -490,7 +493,7 @@ paper's statement, and δ_50 is attained.
 
 Feasibility. All of it by hand with exact arithmetic; the constant δ_50 comes out exactly, since it is box^Υ's and
 closed form, and box^C's bound has a margin of about 50 (vector) to 150 (scalar) over it, so crude derivative
-bounds suffice. The labour is the crossing table: about 91 rows, each a sign check of an integer cubic with 20-digit
+bounds suffice. The labour is the crossing table: 92 rows, each a sign check of an integer cubic with 20-digit
 coefficients at two rationals (or the expansion of κ_n about (n − 2) × 10⁶ to second order with an explicit
 remainder, which needs κ_n only to ±1). Total about 490 lines (9-10 pages), of which about 100 are the table. It
 depends on damping5's det N (C50, DERIVE), which the edition must print as seven polynomials in κ in any case.
