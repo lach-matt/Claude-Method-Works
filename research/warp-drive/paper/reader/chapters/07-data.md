@@ -490,15 +490,15 @@ independently of λ, so ‖U‖_(X_(s″)) ≤ C_(s″) λ^(N−2) for every s�
 every s and j. So U is smooth for λ ≤ λ0, λ0 independent of s″. [[thm:uniform-existence]] needs only k + 1 = 7
 derivatives of the data in any case. ∎
 
-**Remark {#rem:data-rates}** (Numerical observation.) On the data of the approximant with N = 6 built on stage 0, in
-the class of fields of (r, ϑ) invariant under T² and both reflections, the linear system of [[lem:linear-evolution]] was
-solved numerically by a pseudo-spectral discretisation on S³ marched in r, with a forcing term of size λ⁴. Over the
-last halving of λ, from 1/32 to 1/64, the suprema in r of norms of H² type of U, ∂_r U and ∂_r² U decreased as λ^4.00,
-λ^3.99 and λ^3.00, within the rates λ^(N−2−j) of [[prop:exact-correction]] (the first r-derivative costing nothing). With
-a trace of the waves on the spheres put in, which creates a coefficient of order 1/λ ([[lem:constraints-evolution]]
-(b)), the first r-derivative cost a factor λ⁻¹. The iteration of the proof, principal coefficients frozen, contracted
-with first ratios 6.8 × 10⁻³, 5.8 × 10⁻⁴ and 3.5 × 10⁻⁵ at λ = 1/8, 1/16 and 1/32. These are floating-point
-observations, and no proof uses them.
+**Remark {#rem:data-rates}** (Numerical observation.) On the data of the stage-0 approximant, in the class of fields of
+(r, ϑ) invariant under T² and both reflections, the linear system of [[lem:linear-evolution]] was solved numerically by a
+pseudo-spectral discretisation in the angle, marched in r, with a forcing term of size λ⁴ (the size λ^(N−2) at N = 6).
+Over the last halving of λ, from 1/32 to 1/64, the suprema in r of norms of H² type of U, ∂_r U and ∂_r² U decreased as
+λ^4.00, λ^3.99 and λ^3.00, within the rates λ^(N−2−j) of [[prop:exact-correction]] (the first r-derivative costing
+nothing). With a trace of the waves on the spheres put in, which creates a coefficient of order 1/λ
+([[lem:constraints-evolution]] (b)), the first r-derivative cost a factor λ⁻¹. The iteration of the proof, principal
+coefficients frozen, contracted with first ratios 6.8 × 10⁻³, 5.8 × 10⁻⁴ and 3.5 × 10⁻⁵ at λ = 1/8, 1/16 and 1/32. These
+are floating-point observations, and no proof uses them.
 
 ### Proof of the theorem {#sec:data-proof}
 
