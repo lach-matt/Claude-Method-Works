@@ -148,11 +148,12 @@ stands. Away from 𝓘⁺ the coefficients are the Cartesian components times bo
 C^(k−3,(2ℓ_I,ℓ_+,ℓ_K))_b, which is the claim. ∎
 
 In dimension 3 + 1 the coefficient x_I⁻²h_00 has order 4γ_Υ, which is the restriction ℓ_I < 2γ_Υ of [Hin26]; in
-dimension 4 + 1 the extra power of x_I in the radiation order 3/2 removes it. As in [Hin26, footnote 103], ℓ_I is an
-e3b-weight in [[lem:iii-i-2-2]], [[cor:iii-i-5-2]] and the proof of [[thm:iii-i-5-3]], and a b-weight at 𝓘⁺ in
-[[def:iii-i-1-1]] and [[prop:iii-i-4-1]]; the two are not compared.
+dimension 4 + 1 the extra power of x_I in the radiation order 3/2 removes it. As in [Hin26, footnote 103], ℓ_I denotes
+two weights, which are not compared. It is an e3b-weight in [[sec:iii-i-1]], [[lem:iii-i-2-2]], [[eq:iii-i-3-7]],
+[[cor:iii-i-5-2]], [[thm:iii-i-5-3]] and [[thm:iii-h2-4-1]], and the forward solutions use the number fixed in
+[[sec:iii-i-1]]; it is a b-weight at 𝓘⁺ in [[def:iii-i-1-1]], [[prop:iii-i-4-1]] and from [[sec:iii-i1-1]] on.
 
-*Consequences.* By [[lem:iii-i-2-2]] with ℓ_I = ½ and [[lem:ii-c-3-2]], dt^♭_* is past timelike for
+*Consequences.* By [[lem:iii-i-2-2]] with the ℓ_I of [[sec:iii-i-1]] and [[lem:ii-c-3-2]], dt^♭_* is past timelike for
 g = g_(b₀,b,−S) + h when |b − b₀|, |S| and ‖h‖_(𝒳⁴) are small: g − g_(b₀) = (g_(b₀,b,−S) − g_(b₀)) + h, and
 g_(b₀,b,−S) − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:iii-i-3-6]] with the argument of [[lem:iii-i-2-2]]; it
 vanishes at b = b₀, S = 0 and depends continuously on (b, S)). Such g lie in the class
@@ -245,8 +246,8 @@ let h ∈ 𝒳^k, k ≥ 5, with small H^(3,(1,0,0))_b-norm, and g := g_(b₀,b,�
 
     2L^(g,g_0) − 2L_b ∈ x_I²ρ_+² H^(k−2,(2ℓ_I,ℓ_+,ℓ_K))_b Diff²_(e3b)(Ω_*; S²T*),                       {#eq:iii-i-3-7}
 
-for ℓ_I, ℓ_+, ℓ_K as in [[eq:iii-i-2-2]], the latter with norm bounded by C(|b − b₀| + |S| + ‖h‖_(𝒳^k)), C depending
-on k and on an upper bound for ‖h‖_(𝒳^k).
+for ℓ_I ∈ (0, ½), ℓ_+ ∈ (0, 1] and ℓ_K ∈ (0, a_K], the latter with norm bounded by C(|b − b₀| + |S| + ‖h‖_(𝒳^k)),
+C depending on k, on ℓ_I and on an upper bound for ‖h‖_(𝒳^k).
 
 [Hin26, (11.18a)–(11.18b)] carry in addition the term χ_Iρ_Iρ_+²((A^h − A_0)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) + ρ_+⁻¹B^h),
 which contains a term of leading order at 𝓘⁺; in dimension 4 + 1 it is part of the error.
@@ -261,11 +262,23 @@ the class of h, and [[lem:iii-c-4-3]] applies to L^(g,g_0) − L^(g_b,g_b) with 
 
 For [[eq:iii-i-3-7]]: near 𝓘⁺, ∂_0 ∈ x_I²ρ_+𝒱_(e3b), ∂_1 ∈ ρ_+𝒱_(e3b) and |x|⁻¹∂_ω ∈ x_Iρ_+𝒱_(e3b) ([Hin26, (11.12)],
 which does not depend on the dimension), so all Cartesian derivatives lie in ρ_+𝒱_(e3b). A coefficient c of the
-counting carries a factor δ of x_I-order at least 3 (the least slot order, 3/2 in ρ_I), so c ∂∂ ∈ x_I²ρ_+² ·
-x_I · (⋯) Diff²_(e3b), and x_I ≤ x_I^(2ℓ_I); at ι⁺ the factor has order > 1 ≥ ℓ_+, and at K⁺ order a_K ≥ ℓ_K. The
-b-regularity of the coefficients is k − 2, and the e3b-vector fields are b-vector fields on M_(1/2). The norm bound is
-linear in the factors δ, whose norms add up to at most C(|b − b₀| + |S|) + ‖h‖; the other factors are bounded in terms
-of an upper bound for ‖h‖_(𝒳^k). ∎
+counting carries a factor δ, or a b-derivative of order at most two of δ, whose slot components have x_I-order at
+least 3 (the least slot order, 3/2 in ρ_I, that of the radiation term of π̸₀h, (3/2, 0) ∈ ℰ̸_(I,0)). So
+c ∂∂ ∈ x_I²ρ_+² · x_I c′ Diff²_(e3b) with c′ := x_I⁻³c, and x_I c′ = x_I^(2ℓ_I) · x_I^(1−2ℓ_I)c′. Near 𝓘⁺ the factor
+x_I⁻³δ is a sum of expansion terms ρ_I^(z−3/2)(log ρ_I)^j a_(z,j), with Re z ≥ 3/2, and of a remainder in
+ρ_I^(a_I−3/2)H^k_b ⊂ H^k_b (a_I > 3/2); b-derivatives keep this form. Multiplied by x_I^(1−2ℓ_I) = ρ_I^(½−ℓ_I), an
+expansion term becomes ρ_I^(z−1−ℓ_I)(log ρ_I)^j a_(z,j), with σ := Re(z − 1 − ℓ_I) ≥ ½ − ℓ_I > 0; such a term and its
+b-derivatives, which are of the same form, lie in L²(μ_b) near 𝓘⁺, as ∫_0^1 ρ_I^(2σ)|log ρ_I|^(2j) dρ_I/ρ_I < ∞
+(μ_b is a b-density at 𝓘⁺). The other factors of c are bounded with
+their b-derivatives or are further factors of the same kind, so by [[lem:s19-products]] (a) and (c),
+x_I^(1−2ℓ_I)c′ ∈ H^(k−2)_b near 𝓘⁺, with norm at most C, depending on ℓ_I, times the norms of the factors. Here
+ℓ_I < ½ is needed: the coefficient a_(3/2,0) of the radiation term of π̸₀h need not vanish on 𝓘⁺, and it enters c
+without further decay (for instance through the second derivatives of π̸₀h along ∂_1 in the curvature term); at
+ℓ_I = ½ the corresponding term of x_I^(1−2ℓ_I)c′ is a function of (t_*, ω) that is not zero in general, and such a
+function is not in L²(μ_b) near 𝓘⁺, as μ_b is a b-density there. At ι⁺ the factor has order > 1 ≥ ℓ_+, and at K⁺
+order a_K ≥ ℓ_K. The b-regularity of the coefficients is k − 2, and the e3b-vector fields are b-vector fields on
+M_(1/2). The norm bound is linear in the factors δ, whose norms add up to at most C(|b − b₀| + |S|) + ‖h‖; the other
+factors are bounded in terms of an upper bound for ‖h‖_(𝒳^k). ∎
 
 *Products on Ω_*.* For k ∈ ℕ₀, H^k_b(Ω_*) is the space of restrictions to the interior of Ω_* of elements of H^k_b(M̃)
 for the density μ_b, with the quotient norm, and wH^k_b(Ω_*) := {u : w⁻¹u ∈ H^k_b(Ω_*)} for a weight

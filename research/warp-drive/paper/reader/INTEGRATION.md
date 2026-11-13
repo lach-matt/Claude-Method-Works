@@ -562,3 +562,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   a [BW15] hypothesis left to "so do we"; equation numbers in the S-heading; Chebyshev quoted for n ≥ 0 but its points
   defined for n ≥ 1; 46 bibliography entries are cited nowhere (prune at integration). Still to read: the [CD03]
   Prop. 5.10 block (after the S28 fix) and the extended thm:std-sbierski; add [Hin26c, Lemma 3.5] to (S6).
+- S25 third fix (F3-S25): new cor:s25-tame holds the S24 material (the cycle repaired); (P6) is lem:s25-p6 (44:73).
+  Step 2 re-key, after the S21 reading: "lem:iii-i15-1-1 (P6)" → [[lem:s25-p6]] at S21 lines 72, 86, 269, 444, 870,
+  1503 and S24 lines 181, 248, 368, 420 (S22:75 already done).

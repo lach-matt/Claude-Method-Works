@@ -817,14 +817,15 @@ the wave, and each is a v-derivative of terms that vanish with env and env', plu
 cos(2v/λ) or sin(2v/λ), whose integral is O(λ³): for D_c D_s this is the identity in the proof of [[lem:flux-density]]
 (c), and O_1 = d/dv [ (λ/4) env² sin(2v/λ) − (λ²/4) env env' cos(2v/λ) ] + (λ²/4)(env env'' − env'²) cos(2v/λ). So for
 v ≥ v_end, M(v, ϑ_B) = μ(v_end) + (2/9) λ² A² ∫ env'² + O(λ³) uniformly in ϑ_B, and any average of M over ϑ_B equals
-μ_B to O(λ³) there; while the shell passes, M depends on ϑ_B at O(λ), and such an average need not equal μ_B. For the
-profile env(v) = sin⁴(π(v − ½)/3) on [½, 7/2], extended by zero, and A = 1, the substitution ξ = π(v − ½)/3 gives
-∫ env'² = (16π/3) ∫_0^π sin⁶ξ cos²ξ dξ = (16π/3)(5π/16 − 35π/128) = 5π²/24, so (2/9) A² ∫ env'² = 5π²/108 = 0.45693… .
-This profile is C³ but not C⁴ at v = ½ and v = 7/2, so it is not an envelope of [[sec:waves]]; the number is the value
-of the coefficient for it, and no theorem is claimed for it.
+μ_B to O(λ³) there; while the shell passes, M depends on ϑ_B at O(λ), and such an average need not equal μ_B.
 
-**Remark {#rem:bondi-solver}** (Numerical observation.) In a numerical integration of the vacuum equations in the form
-[[eq:bondi-form]] from the free data [[eq:bondi-p]], with the profile of [[rem:bondi-after-shell]] as envelope, A = 1 and
+**Remark {#rem:bondi-solver}** (Numerical observation.) The observation below was made with the profile
+p(v) := sin⁴(π(v − ½)/3) on [½, 7/2], extended by zero, in place of the envelope. It is C³ and not C⁴ at v = ½ and
+v = 7/2, where its fourth derivative jumps by 8π⁴/27, so it is not an envelope of [[sec:waves]], and neither
+[[thm:bondi-law]] nor [[rem:bondi-after-shell]] is claimed for it. The coefficient of [[rem:bondi-after-shell]]
+evaluated on it is (2/9) ∫ p'² = 5π²/108 = 0.45693…, since the substitution ξ = π(v − ½)/3 gives
+∫ p'² = (16π/3) ∫_0^π sin⁶ξ cos²ξ dξ = (16π/3)(5π/16 − 35π/128) = 5π²/24. In a numerical integration of the vacuum
+equations in the form [[eq:bondi-form]] from the free data [[eq:bondi-p]], with p in place of env, A = 1 and
 the angle sampled at Chebyshev–Lobatto nodes in cos 2ϑ_B, the offset of the node-averaged aspect from μ after the shell,
 divided by λ², was observed to be 0.4589, 0.4577, 0.4568 at λ = 0.05, 0.025, 0.0125 (μ0 = 100 l5²) and 0.4578, 0.4569 at
 λ = 0.025, 0.0125 (μ0 = 1000 l5²), against 5π²/108 = 0.45693…, within 0.05 % at λ = 0.0125. A run at

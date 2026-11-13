@@ -911,9 +911,9 @@ every w ∈ (0, w_0],
 
     |S^(0,p⃗_b)_ν(R_j)| ≤ C‖R_j‖_(𝒴⁰(α)) + C|p⃗_b|‖u_j − u‖_(w).
 
-At b = b_0, p⃗_b = 0 and this tends to 0. For b ≠ b_0 it remains to show ‖u_j − u‖_(w) → 0 for one such w; this is
-part (i) of [[prop:iii-i8-4-1]] at a level below 3. Fix an admissible α′ ∈ (2, min(3, 2 + w_0)) ([[sec:iii-i8-1]]; the
-excluded values are finitely many), and w ∈ (0, α′ − 2).
+At b = b_0, p⃗_b = 0 and this tends to 0. For b ≠ b_0 it remains to show ‖u_j − u‖_(w) → 0 for one such w, and this
+follows from part (i) of [[prop:iii-i8-4-1]] at a level below 3. Fix an admissible α′ ∈ (2, min(3, 2 + w_0))
+([[sec:iii-i8-1]]; the excluded values are finitely many), and w ∈ (0, α′ − 2).
 
 *u_j − u lies in [[eq:iii-i8-4-2]] at α′.* Its K⁺-weight is w_0 − ε for every ε > 0, and w_0 > α′ − 2; its ℐ⁺-data are
 (⟨ℰ^C_I⟩, ℓ_I); and u_j and u have the ι⁺-weight β_+ for every β_+ < min(3/2, min Re ℰ_+), by [[eq:iii-i11-3-2]], as
@@ -924,11 +924,11 @@ and whose order at ι⁺ is that exponent, [[sec:iii-i12-1]]).
 *Uniqueness and (i) at α′.* The row components of p⃗_b vanish, so L_(0,p⃗_b) is the operator of P_3 at (0, p⃗_b)
 ([[lem:iii-i9-2-5]]), and [[prop:iii-i8-4-1]] at α′ applies at the base point (0, p⃗_b), whose black hole parameter b
 lies in ℬ̄_*. R_j lies in 𝒴⁰(α) ⊂ 𝒴(α′), the class of [[sec:iii-i9-1]] at α′, which lies in the class of
-[[sec:iii-i8-1]] of the same name, and R_j → 0 there. The forward solution u_j − u of L_(0,p⃗_b)(u_j − u) = R_j lies in [[eq:iii-i8-4-2]] at α′, so the
-parameter 0 has, for (0, p⃗_b) and the forcing R_j, the property of the statement at α′; by uniqueness at α′,
-p⃗′_(0,p⃗_b,α′)(R_j) = 0, and u_j − u is the solution of [[eq:iii-i8-4-1]] at α′ for the forcing R_j. By (i) at α′ the
-map from the forcing to this solution is linear and continuous from 𝒴(α′) into the space of [[eq:iii-i8-4-2]] at α′,
-so u_j − u → 0 in that space. As w < α′ − 2 and β′_+ < min(3/2, min Re ℰ_+), the seminorm ‖·‖_(w) is bounded by a
+[[sec:iii-i8-1]] of the same name, and R_j → 0 there. The forward solution u_j − u of L_(0,p⃗_b)(u_j − u) = R_j lies
+in [[eq:iii-i8-4-2]] at α′, so the parameter 0 has, for (0, p⃗_b) and the forcing R_j, the property of the statement at
+α′; by uniqueness at α′, p⃗′_(0,p⃗_b,α′)(R_j) = 0, and u_j − u is the solution of [[eq:iii-i8-4-1]] at α′ for the
+forcing R_j. By (i) at α′ the map from the forcing to this solution is linear and continuous from 𝒴(α′) into the space
+of [[eq:iii-i8-4-2]] at α′, with bounds uniform at the base point (0, p⃗_b); so u_j − u → 0 in that space. As w < α′ − 2 and β′_+ < min(3/2, min Re ℰ_+), the seminorm ‖·‖_(w) is bounded by a
 seminorm of that space, and ‖u_j − u‖_(w) → 0. Hence S^(0,p⃗_b)_ν(R_j) → 0. ∎
 
 ### Elimination {#sec:iii-i11-4}
