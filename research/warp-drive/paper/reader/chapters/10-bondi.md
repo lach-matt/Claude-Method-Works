@@ -96,35 +96,42 @@ replace Ric(g0) by −½ g0^{ab} ∂_a ∂_b g0 + Q(X; g0)(∂g0, ∂g0). The te
 an identity in u_1: it holds for every symmetric u_1 that keeps g Lorentzian, not only for the solution. So F_1 contains
 no second derivative of u_1. It is a smooth function F_1(X, u_1, ∂u_1), and F_1(X, 0, 0) = −Ric^H(g0 + r^(−3/2) G_3) is
 in E_3 with all its derivatives: at u_1 = 0 the terms of S are those of [[lem:bondi-equation-u]] in G_3 and g0, all in
-E_3, and the third term of [[eq:bondi-f1]] is in E_(7/2), because by the decay calculus of Chapter 9
-[[pending:ch9-decay-calculus]] □̃(r^(−p) Z) = (3 − 2p) r^(−p−1) ∂_v Z + E_(p+2) for Z(v, x̂) smooth, bounded and
-vanishing for v ≤ v_start, whose first term vanishes at p = 3/2.
+E_3, and the third term of [[eq:bondi-f1]] is in E_(7/2), because by [[lem:decay-calculus]] (c)
+□̃(r^(−p) Z) = (3 − 2p) r^(−p−1) ∂_v Z + E_(p+2) for Z(v, x̂) smooth, bounded and vanishing for v ≤ v_start, whose first
+term vanishes at p = 3/2.
 
 Along g the partial derivatives of F_1 are as follows. The first is b := ∂F_1/∂(∂u_1). Only Q depends on ∂u_1, so b is
 minus the derivative of Q(X; g)(∂g, ∂g) in ∂g. It is linear in ∂g = ∂g0 + ∂u, with coefficients rational in g and smooth
 in X, and its part free of ∂g is built from Γ[g0], which is O(r^(−2)) like ∂g0. Since ∂u is in E_(3/2), b is in
 E_(3/2). It is moreover of λ-order 0, that is, bounded by C t^(−3/2) with C independent of λ, because ∂u is. By the
 two-scale chain rule ∂_a [f] = λ⁻¹ (∂_a v)[∂_θ f] + [∂_a f], the λ⁰ part of ∂(λ[W_TT]) is dv [∂_θ W_TT], in E_(3/2);
-that of ∂(λ[χ dv dv]) is dv [∂_θ χ] dv dv, in E_2; that of the phase shift's term ∂(λ[W_TT(· + φ1)] − λ[W_TT]) is
-dv ([∂_θ W_TT(· + φ1)] − [∂_θ W_TT]), at most |φ1| sup |∂_θ² W_TT| and so in E_1 E_(3/2) = E_(5/2), because φ1 is in L_1
-[[thm:past-approximant]]; and every other term of ∂u is O(λ): the mean m1 does not oscillate, each later stage λ^j[g_j],
-j ≥ 2, costs at most λ^(j−1), and ∂w is O(λ² t^(−2)) [[pending:ch9-proof-of-past-construction]]. The second derivative is
+that of ∂(λ[χ dv dv]) is dv [∂_θ χ] dv dv, in E_2; with ϕ_1 the phase of the first stage (written so here because φ1
+is an angle), that of the term ∂(λ[W_TT(· + ϕ_1)] − λ[W_TT]) of the phase shift is
+dv ([∂_θ W_TT(· + ϕ_1)] − [∂_θ W_TT]), at most |ϕ_1| sup |∂_θ² W_TT| and so in E_1 E_(3/2) = E_(5/2), because ϕ_1 is in
+L_1 ([[eq:past-classes]]); and every other term of ∂u is O(λ): the mean m1 does not oscillate, each later stage
+λ^j[g_j], j ≥ 2, costs at most λ^(j−1), and ∂w is O(λ² t^(−2)) by item 3 of [[thm:past-construction]], since
+λ^(K−4) ≤ λ² for K ≥ 6. The second derivative is
 c := ∂F_1/∂u_1. In the direction U, the derivative of g^{ab} is −(g⁻¹ U g⁻¹)^{ab}, so
 
     c U = −½ (g⁻¹ U g⁻¹)^{ab} ∂_a ∂_b (g0 + r^(−3/2) G_3) − (∂_g Q)(X; g)[U](∂g, ∂g).
 
 The second term is O(r^(−2)|U|): it is quadratic in ∂g, or built from Γ[g0] and its derivatives, all O(r^(−2)) or
-better. In the first, ∂_a ∂_b g0 = O(r^(−2)), and the chain rule gives
+better. In the first, ∂_a ∂_b g0 = O(r^(−2)), and the chain rule, applied twice, gives
 
-    ∂_a ∂_b (λ[W_TT]) = λ⁻¹ (∂_a v)(∂_b v)[∂_θ² W_TT] + (∂_a v)[∂_b ∂_θ W_TT] + (∂_b v)[∂_a ∂_θ W_TT] + λ[∂_a ∂_b W_TT].
+    ∂_a ∂_b (λ[W_TT]) = λ⁻¹ (∂_a v)(∂_b v)[∂_θ² W_TT] + (∂_a v)[∂_b ∂_θ W_TT] + (∂_b v)[∂_a ∂_θ W_TT]
+                        + (∂_a ∂_b v)[∂_θ W_TT] + λ[∂_a ∂_b W_TT],
 
-Contracting with (g⁻¹ U g⁻¹)^{ab}, and writing ℓ_λ := g⁻¹ dv, the first term gives −½ λ⁻¹ U(ℓ_λ, ℓ_λ)[∂_θ² W_TT]. Since
-the Cartesian components of W_TT are r^(−3/2) times smooth functions of (v, x̂, θ), ∂_b [∂_θ W_TT] =
-(∂_b v)[∂_v ∂_θ W_TT] + E_(5/2), and the two middle terms give −U(ℓ_λ, ℓ_λ)[∂_v ∂_θ W_TT] + E_(5/2) U. Hence
+where ∂_b ∂_θ W_TT and ∂_a ∂_b W_TT are slow derivatives, taken at fixed θ before the phase is inserted. Contracting with
+(g⁻¹ U g⁻¹)^{ab}, and writing ℓ_λ := g⁻¹ dv, the first term gives −½ λ⁻¹ U(ℓ_λ, ℓ_λ)[∂_θ² W_TT]. Since the Cartesian
+components of W_TT are r^(−3/2) times smooth functions of (v, x̂, θ), the slow derivative [∂_b ∂_θ W_TT] is
+(∂_b v)[∂_v ∂_θ W_TT] + E_(5/2), and the second and third terms give −U(ℓ_λ, ℓ_λ)[∂_v ∂_θ W_TT] + E_(5/2) U. The fourth
+term gives E_(5/2) U: ∂_a ∂_b v = ∂_a ∂_b r is (δ_ij − x̂_i x̂_j)/r in the spatial indices i, j and zero otherwise, and
+[∂_θ W_TT] is in E_(3/2). The last term gives E_(3/2) U. Hence
 
     c = −½ λ⁻¹ (·)(ℓ_λ, ℓ_λ)[∂_θ² W_TT] + E_(3/2),                                                     {#eq:bondi-c}
 
-whose E_(3/2) part contains −(·)(ℓ_λ, ℓ_λ)[∂_v ∂_θ W_TT], from the dependence of the envelope on v.
+whose E_(3/2) part contains −(·)(ℓ_λ, ℓ_λ)[∂_v ∂_θ W_TT], from the dependence of the envelope on v, and the E_(5/2)
+terms.
 
 *The induction.* We induct on the order. Let |γ| = j + 1, and suppose the lemma holds for the orders up to j. By
 Leibniz's rule U := ∂^γ u_1 solves
@@ -141,8 +148,9 @@ contains derivatives of u_1 of order at most j + 1 only. Indeed, by the chain ru
 derivatives over X or over at least two factors. The terms of the second sum carry ∂^{γ−γ'} ∂² u_1, of order at most
 j + 1. In f_γ, the term b·∂U is of the order this step estimates and is not known; the terms with |γ'| = 1 are of the
 form (∂g) ∂U' with ∂g in E_(3/2) and U' in the same family {∂^δ u_1 : |δ| = j + 1}; and c U is one order lower. They
-enter through f_γ into the energy inequality of Chapter 9 [[pending:ch9-energy]], before Gronwall's lemma, not through
-its kernel. Since U vanishes on {v = v_start}, the Poincaré inequality of [[pending:ch9-sobolev]] gives ‖U‖ ≤ C ‖∂U‖, so
+enter through f_γ into the energy inequality [[eq:past-energy]] of [[lem:past-energy]], before Gronwall's lemma, not
+through its kernel. Since U vanishes on {v = v_start}, the Poincaré inequality [[lem:past-sobolev]] (b) gives
+‖U‖ ≤ C ‖∂U‖, so
 
     ‖b·∂U‖ ≤ C t^(−3/2) ‖∂U‖,       ‖c U‖ ≤ C λ⁻¹ t^(−3/2) ‖U‖ ≤ C λ⁻¹ t^(−3/2) ‖∂U‖,
 
@@ -155,28 +163,28 @@ R_γ is the sum of ∂_X^γ F_1(X, 0, 0), the forcing free of u_1, which is in E
 of the coefficients of F_1, of order at most j + 1, with derivatives of u_1 of order at most j + 1. We estimate each
 product in L²(Σ_τ), with the factor of higher order in L² (the energies of the lower steps, at most C t^(−1/2)) and the
 others in the supremum norm (in E_2 by the induction hypothesis, through the Sobolev inequality with rotations
-[[pending:ch9-sobolev]] for the orders it costs, and by the far-region bound [[pending:ch9-far-region]] for u_1^n,
-below, at the lowest orders). The term ∂_X^γ F_1(X, 0, 0), in E_3, has L² norm at most C t^(−3/2) on Σ_τ ∩ P+, whose
+[[lem:past-sobolev]] (a) for the orders it costs, and by the far-region bound [[eq:far-energy]] for u_1^n, below, at
+the lowest orders). The term ∂_X^γ F_1(X, 0, 0), in E_3, has L² norm at most C t^(−3/2) on Σ_τ ∩ P⁺, whose
 volume is at most C t³; each product has L² norm at most C t^(−2), a coefficient in E_(3/2) or a second factor of u_1
 in E_2 times the L² factor. So ‖R_γ‖ ≤ C(λ, j) t^(−3/2).
 
 *The approximating solutions.* We do not apply the energy inequality on the region between {v = v_start} and Σ_τ: that
-region is unbounded toward past null infinity [[pending:ch9-past-domain]], and the flux of ∂^γ u_1 through infinity there
-is known to vanish only at the orders that [[thm:past-construction]] controls. We apply it instead to each
-approximating solution g_n of the far-region construction [[pending:ch9-far-region]]. The metric g_n equals g0 on
+region is unbounded toward past null infinity ([[lem:past-domain]] (e)), and the flux of ∂^γ u_1 through infinity
+there is known to vanish only at the orders that [[thm:past-construction]] controls. We apply it instead to each
+approximating solution g_n of [[prop:far-region]]. The metric g_n equals g0 on
 {v ≤ v_start} and solves the same equations, so u_1^n := g_n − g0 − r^(−3/2) G_3 has the structure above:
 [[lem:bondi-equation-u]] applies to it verbatim, with the far-region bound on g_n through the Sobolev inequality in
 place of [[thm:past-construction]] at the lowest orders, uniformly in n. We use the region P ∩ {τ_n ≤ τ' ≤ τ}, where
 the energy identity of the far-region bound itself holds. On Σ_(τ_n) the data of U_n := ∂^γ u_1^n are explicit:
 w_n = g_n − g_app vanishes there with its first derivatives, its higher derivatives are those of the residual
 Ric^H(g_app) of the approximant through the equation, and g_app − g0 − r^(−3/2) G_3 is explicit with all its
-derivatives [[pending:ch9-decay-calculus]]. So ‖∂U_n(τ_n)‖ ≤ C(λ, j) t_n^(−1/2), with t_n ≥ t.
+derivatives ([[thm:past-approximant]], [[eq:past-classes]]). So ‖∂U_n(τ_n)‖ ≤ C(λ, j) t_n^(−1/2), with t_n ≥ t.
 
 Let f_γ^n, b^n, c^n and R_γ^n be f_γ, b, c and R_γ with g_n and u_1^n in place of g_λ and u_1. Since
 [[lem:bondi-equation-u]] applies to u_1^n verbatim, b^n and c^n obey the bounds on b and c above with the same constants.
 Moreover ‖R_γ^n‖ ≤ C(λ, j) t^(−3/2) uniformly in n: ∂_X^γ F_1(X, 0, 0) does not depend on n, and every other factor of
 R_γ^n is bounded by the induction hypothesis for u_1^n, which is uniform in n, with the far-region bound at the lowest
-orders. The energy inequality [[pending:ch9-energy]] for U_n with forcing f_γ^n, summed over the family, and Gronwall's
+orders. The energy inequality [[eq:past-energy]] for U_n with forcing f_γ^n, summed over the family, and Gronwall's
 lemma give
 
     Σ_{|γ| = j + 1} ‖∂U_n(τ)‖ ≤ C e^(2C(1 + λ)) Σ_{|γ| = j + 1} ( ‖∂U_n(τ_n)‖ + ∫_{τ_n}^{τ} ‖R_γ^n‖ dτ' ).
@@ -190,14 +198,14 @@ Sobolev inequality, for u_1^n, at the lowest orders, and the Sobolev inequality 
 steps for the rest, at the cost of three orders), and ⌊(|γ| + 2)/2⌋ ≤ max(4, |γ| − 3) for every |γ| ≥ 1. The Sobolev
 inequality turns the energies of the next three orders into |∂^γ u_1^n| ≤ C(λ, j) t^(−3/2) t^(−1/2) = C(λ, j) t^(−2),
 uniformly in n. Rotations Ω^β among the derivatives are treated the same way, with the rotation energies in the
-Sobolev inequality and the commutator [Ω, g_n^{ab} ∂_a ∂_b] absorbed as in the far-region estimate
-[[pending:ch9-far-region]]. For a pure rotation γ the Leibniz term of R_γ with |γ'| = |γ| has the L² factor
+Sobolev inequality and the commutator [Ω, g_n^{ab} ∂_a ∂_b] absorbed as in item (iii) of the proof of
+[[prop:far-region]]. For a pure rotation γ the Leibniz term of R_γ with |γ'| = |γ| has the L² factor
 ‖Ω^γ u_1^n‖, which the energies of the lower steps bound only by C t^(1/2), since |Ω f| ≤ 2 r |∂f|; that product is then
 C t^(−3/2), so ‖R_γ‖ ≤ C(λ, j) t^(−3/2) still holds; alternatively the term can enter the Gronwall family through the
 Poincaré inequality, with kernel t^(−2). The remark on c U taken as a forcing term concerns Cartesian γ.
 
-*The limit.* The bounds pass to the limit. By the proof of [[thm:past-construction]], g_n → g_λ with k − 5
-derivatives on compact sets [[pending:ch9-proof-of-past-construction]], and the higher derivatives of u_1^n are bounded
+*The limit.* The bounds pass to the limit. By the proof of [[thm:past-construction]] ([[sec:past-proof]]), g_n → g_λ
+with k − 5 derivatives on compact sets, and the higher derivatives of u_1^n are bounded
 uniformly in n on each compact set. By the Arzelà–Ascoli theorem a subsequence converges in every C^j, its limit is
 ∂^γ u_1, and the bound is inherited: ∂^γ u_1 is in E_2. ∎
 
@@ -216,38 +224,38 @@ E_(q−1/2). If moreover, for some m ≥ 1 and every j < m,
 
 then ℓ^m ǔ is in E_(q−1/2+m) with all derivatives.
 
-Proof. By the decay calculus [[pending:ch9-decay-calculus]], −½ □̃(r^(1−q) Y_q) = −½ (3 − 2(q − 1)) r^(−q) ∂_v Y_q +
-E_(q+1) = r^(−q) S_q + E_(q+1), and (g_λ⁻¹ − g0⁻¹) ∂²(r^(1−q) Y_q) is in E_(3/2) E_(q−1) = E_(q+1/2). So
+Proof. By [[lem:decay-calculus]] (c), −½ □̃(r^(1−q) Y_q) = −½ (3 − 2(q − 1)) r^(−q) ∂_v Y_q + E_(q+1) =
+r^(−q) S_q + E_(q+1), and (g_λ⁻¹ − g0⁻¹) ∂²(r^(1−q) Y_q) is in E_(3/2) E_(q−1) = E_(q+1/2). So
 ǔ := ũ − r^(1−q) Y_q solves −½ g_λ^{ab} ∂_a ∂_b ǔ = S′ with S′ in E_(q+1/2) with all derivatives, vanishes for
 v ≤ v_start, and has every derivative in E_(q−1).
 
-*Energy.* The L² norm of an element of E_p on Σ_τ ∩ P+ is at most C t^(3/2 − p), the volume being at most C t³. Apply
-the energy inequality of Chapter 9 [[pending:ch9-energy]] with the metric g_λ, which has the margin required there on P
-by [[thm:past-construction]] [[pending:ch9-past-domain]] and satisfies ‖∂g_λ‖_∞ ≤ C t^(−3/2) on P+, an integrable
-kernel, and with forcing S′, from τ1 → −∞. Since ‖∂ǔ(τ1)‖ ≤ C t1^(3/2 − (q−1)) → 0 because q > 5/2, and
+*Energy.* The L² norm of an element of E_p on Σ_τ ∩ P⁺ is at most C t^(3/2 − p), the volume being at most C t³. Apply
+[[lem:past-energy]] with g̃ = g_λ, which has the margin of [[lem:past-domain]] (f) on P by [[thm:past-construction]]
+and satisfies ‖∂g_λ‖_∞ ≤ C t^(−3/2) on P⁺, an integrable kernel, and with forcing S′, from τ1 → −∞. Since ‖∂ǔ(τ1)‖ ≤ C t1^(3/2 − (q−1)) → 0 because q > 5/2, and
 ‖S′(τ')‖ ≤ C t'^(3/2 − q − 1/2) = C t'^(1−q), we get ‖∂ǔ(τ)‖ ≤ C ∫_{−∞}^{τ} t'^(1−q) dτ' = C t^(2−q)/(q − 2).
 Commuting with ∂_X and Ω preserves the form of the equation. [∂_X, g_λ^{ab} ∂_a ∂_b] = (∂_X g_λ^{ab}) ∂_a ∂_b with
 ∂_X g_λ^{ab} in E_(3/2) produces a forcing in E_(q+1/2), by the hypothesis on ǔ (its second derivatives are in
 E_(q−1)), within the bound t^(1−q) of S′. And [Ω, □̃] = 0: the rotations are linear maps of R⁴ that preserve g0, and for
-such a map R, □̃(f ∘ R) = (□̃ f) ∘ R. So every commuted energy is at most C t^(2−q). *Pointwise.* The Sobolev inequality
-with rotations and the Poincaré inequality (ǔ = 0 on {v = v_start}) [[pending:ch9-sobolev]] give
-|∂_X^α Ω^β ǔ| ≤ C t^(−3/2) t^(2−q) = C t^(1/2 − q). That is E_(q−1/2), since t and r are comparable on P+.
+such a map R, □̃(f ∘ R) = (□̃ f) ∘ R. So Ω commutes with g_λ^{ab} ∂_a ∂_b = □̃ + (g_λ^{ab} − g0^{ab}) ∂_a ∂_b up to
+(Ω(g_λ^{ab} − g0^{ab})) ∂_a ∂_b and (g_λ^{ab} − g0^{ab}) [Ω, ∂_a ∂_b], where [Ω, ∂_a ∂_b] is a combination of second
+derivatives with constant coefficients; since g_λ⁻¹ − g0⁻¹ is in E_(3/2) with all its derivatives, these too are
+forcings in E_(q+1/2), as for ∂_X. So every commuted energy is at most C t^(2−q). *Pointwise.* The Sobolev inequality
+with rotations and the Poincaré inequality (ǔ = 0 on {v = v_start}), [[lem:past-sobolev]] (a) and (b), give
+|∂_X^α Ω^β ǔ| ≤ C t^(−3/2) t^(2−q) = C t^(1/2 − q). That is E_(q−1/2), since t and r are comparable on P⁺.
 
-*The ℓ-gain.* In the coordinates (v, r, x̂) the operator □̃ reads [[pending:ch9-decay-calculus]]
-
-    □̃ f = 2 ∂_v ℓ f + (3/r) ∂_v f + (1 − μ/r²) ℓ ℓ f + (3/r) ℓ f + r^(−2) Δ̊ f,                       {#eq:bondi-box-vr}
-
+*The ℓ-gain.* In the coordinates (v, r, x̂) the operator □̃ is [[eq:wave-operator-vr]] ([[lem:decay-calculus]] (b)),
 with Δ̊ the Laplacian of the unit S³. With ψ := ℓǔ (ℓ acting on Cartesian components) the equation of ǔ becomes
 
     2 ∂_v ψ + (1 − μ/r²) ℓ ψ + (3/r) ψ = −2 S′ − (3/r) ∂_v ǔ − r^(−2) Δ̊ ǔ − (g_λ^{ab} − g0^{ab}) ∂_a ∂_b ǔ =: f,
                                                                                                     {#eq:bondi-transport}
 
 with f in E_(q+1/2): its terms are in E_(q+1/2), E_(q+1/2), E_(q+3/2) and E_(3/2) E_(q−1/2). The operator
-L₊ := 2 ∂_v + (1 − μ/r²) ℓ is the outgoing null direction of g0: in (v, r), L₊ = 2 ∂_v + (1 − μ/r²) ∂_r, while
-g0⁻¹(dv, dv) = 0, g0⁻¹(dv, dr) = 1 and g0⁻¹(dr, dr) = 1 − μ/r², so g0(L₊, L₊) = −4 (1 − μ/r²) + 4 (1 − μ/r²) = 0. So
+L₊ := 2 ∂_v + (1 − μ/r²) ℓ is the outgoing null direction of g0: in (v, r), L₊ = 2 ∂_v + (1 − μ/r²) ∂_r, while the
+covariant components of g0 are g0_vv = −(1 − μ/r²), g0_vr = 1 and g0_rr = 0 ([[eq:vr-form]]), so
+g0(L₊, L₊) = −4 (1 − μ/r²) + 4 (1 − μ/r²) = 0. So
 [[eq:bondi-transport]] is a transport along the outgoing generators. Along one of them, parametrised by σ, dv/dσ = 2 and
 dr/dσ = 1 − μ/r² ∈ (0, 1]. From a point (v, r) the generator therefore reaches {v = v_start}, where ψ = 0, after a
-parameter length (v − v_start)/2 ≤ d1/2 [[pending:ch9-past-domain]], at a radius r' ∈ [r − d1/2, r]. Integrating
+parameter length (v − v_start)/2 ≤ d1/2 ([[lem:past-domain]] (d)), at a radius r' ∈ [r − d1/2, r]. Integrating
 (L₊ + 3/r) ψ = f along it gives |ψ(v, r)| ≤ e^(3 d1/(2 r')) (d1/2) sup |f| ≤ C r^(−q−1/2), the supremum taken over the
 segment, which lies in the far region once r is large.
 
@@ -284,7 +292,7 @@ r^(−q) S_q is the leading term of the forcing once the terms below it are know
 Proof. We induct on J with [[lem:bondi-half-order]]. For J = 3, u_3 := u_1 is in E_2 with all derivatives by
 [[lem:every-order-fixed]], and by [[lem:bondi-equation-u]] it solves
 −½ g_λ^{ab} ∂_a ∂_b u_3 = S(u) − ½ (g_λ^{ab} − g0^{ab}) ∂_a ∂_b u_3 + ½ □̃(r^(−3/2) G_3) =: F_1. The second term is in
-E_(7/2) (E_(3/2) E_2), the third in E_(7/2) [[pending:ch9-decay-calculus]], and S(u) is in E_3 with a leading term
+E_(7/2) (E_(3/2) E_2), the third in E_(7/2) by [[lem:decay-calculus]] (c), and S(u) is in E_3 with a leading term
 r^(−3) determined by G_3 alone: −(3μ'/2) dv dv from Ric(g0), plus the terms of [[eq:bondi-s-def]] quadratic in
 ∂(r^(−3/2) G_3) or of the form (r^(−3/2) G_3) ∂²(g0 + r^(−3/2) G_3), since every term containing u_3 is in E_(7/2)
 (E_(3/2) E_2, or Γ[g0] times E_2). So [[eq:bondi-half]] holds at q = 3, and [[lem:bondi-half-order]] gives
@@ -315,8 +323,8 @@ at each fixed λ, which is all the mass law needs.
 on the spheres S_(v,r) is in E_2, g_λ^{vv} = −u(ℓ, ℓ) + E_3 is in E_2, and (g_λ⁻¹ − g0⁻¹)(dv, ·) = −g0⁻¹ u(ℓ, ·) + E_3
 is in E_2.
 
-Proof. By [[eq:bondi-wave]] the wave λW_TT has no dv or dr component and is traceless on the spheres
-[[pending:ch2-waves]], so G_3(ℓ, ·) = 0 and tr G_3 = tr_S G_3 = 0; the rest of u is u_1, in E_2. Then
+Proof. By [[lem:waves]] (b) the wave λW_TT of [[eq:waves]] has no dv or dr component and is traceless on the spheres,
+so G_3(ℓ, ·) = 0 and tr G_3 = tr_S G_3 = 0; the rest of u is u_1, in E_2. Then
 g⁻¹ = g0⁻¹ − g0⁻¹ u g0⁻¹ + O(u²) and g0⁻¹ dv = ℓ. ∎
 
 We write the coordinate components of the G_k in the basis of (v, r, ϑ) as scalar coefficients,
@@ -327,7 +335,7 @@ We write the coordinate components of the G_k in the basis of (v, r, ϑ) as scal
 with s := r^(−1/2) and one power of r for each angular index, the classes being of orthonormal components. These
 A_k, …, H_k are scalar functions of (v, ϑ), the subscript being the power of s; they are not the classes E_p, the
 tensors G_k of [[eq:bondi-expansion]] or the free data F, G. By [[lem:bondi-ell]], A_3 = B_3 = C_3 = D_3 = E_3 = 0 and
-F_3 + G_3 + H_3 = 0, and by [[eq:bondi-wave]], F_3 = −2(p1 + p2), G_3 = 2p1 and H_3 = 2p2. The other components of u
+F_3 + G_3 + H_3 = 0, and by [[eq:waves]], F_3 = −2(p1 + p2), G_3 = 2p1 and H_3 = 2p2. The other components of u
 vanish, by the reflections φ1 ↦ −φ1 and φ2 ↦ −φ2.
 
 **Proposition {#prop:bondi-chart}** (The Bondi chart.) There is T_M(λ) such that on the far region P ∩ {t ≥ T_M} the
@@ -395,7 +403,7 @@ it is y0 for v0 ≤ v_start (there g_λ = g0 along the whole generator).
 Each generator stays in P outward, so the system is posed where g_λ is defined. Along y,
 d/dr (v + h(τ)) = ζ'(1 + h') − h', with τ = v − r (so dτ/dr = ζ' − 1) and h' = dh/dτ = h/(4t), a positive multiple
 of t^(−5/4) [[pending:ch9-past-domain]]. Moreover |ζ'| ≤ C r^(−2) < h'/2 and h' < 1 once T_M is large, t and r being
-comparable on P+. So v + h decreases outward along each generator while t increases, and the ray of a generator from a
+comparable on P⁺. So v + h decreases outward along each generator while t increases, and the ray of a generator from a
 point of P ∩ {t ≥ T_M} out to past null infinity lies in P ∩ {t ≥ T_M} and never meets the outer boundary
 {v + h(τ) = V_P}. (To solve for every (v0, x̂0) at once, continue g_λ − g0 across that boundary by a Seeley extension in
 v + h(τ), which keeps every class E_p; by this monotonicity neither the generator through a point of P ∩ {t ≥ T_M} nor

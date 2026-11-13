@@ -719,8 +719,8 @@ trapping admissibility. ∎
 
 **Corollary {#cor:iii-h2-1-2}** (δ_Γ uniformly small.) For every k ∈ ℕ₀ there are η_k ∈ (0, 1] and ε_k > 0 such that,
 with h_Γ := h_(η_k,b) in (Γ.4), δ_Γ(0) < 1/(2(k + 1)) and δ_Γ(−ε) ≤ 1/(k + 1) for ε ∈ (0, ε_k] and every b ∈ B̄_1. So
-B̄_1 ⊂ ℬ_k for every k, with ℬ_k of [[sec:iii-h1-1]], the set of b ∈ ℬ at which (Γ.4) holds for 2L_b with
-δ_Γ(0) < 1/(2(k + 1)).
+B̄_1 ⊂ ℬ_k for every k, with ℬ_k of [[sec:iii-h1-1]], the set of b ∈ ℬ at which (Γ.4) holds for 2L_b, for z_0 = ±1,
+with δ_Γ(0) < 1/(2(k + 1)) (the case z_0 = −1 being the conjugate one, [[sec:iii-h2-0]]).
 
 *Proof.* With f(η′) := sup_Γ λ_max(p_1^Γ − η′q^Γ) of [[eq:i-b-1-4]], q^Γ ≥ 2β_0 and [[eq:iii-h2-1-1]] give
 f(η′) ≤ Cη − 2β_0η′ for η′ ≥ 0, so γ_+ ≤ Cη/(2β_0). f is Lipschitz with constant Q := sup_Γ q^Γ, and
@@ -741,8 +741,8 @@ This section is [Hin26, Theorem 10.1] near b₀, for every k.
 **Theorem {#thm:iii-h2-2-1}** (2-admissibility on B̄_1 for every k.) For every k ∈ ℕ₀, the order 𝗌 of (B4) and every
 b ∈ B̄_1, the forward solution u of L_b u = f satisfies the estimate [[eq:iii-h1-1-2]] of [[thm:iii-h1-1-3]] with a
 constant C_k independent of b. So 2L_b is 2-admissible with sf-weight α_sf, sf-loss 0 and margin 1
-([[def:ii-c-2-7]], relaxed, for these orders) at every b ∈ B̄_1, with constants uniform in b; in particular
-[[thm:iii-h1-1-3]] holds at every b ∈ B̄_1, for every k.
+([[def:ii-c-2-7]], relaxed, for these orders) at every b ∈ B̄_1, with constants uniform in b; and, by
+[[cor:iii-h2-1-2]], [[thm:iii-h1-1-3]] holds at every b ∈ B̄_1, for every k.
 
 *Proof.* Run the proof of [[thm:iii-h1-1-3]] ([[sec:iii-h1-2]]–[[sec:iii-h1-7]]) at b ∈ B̄_1. Each constant is uniform,
 as follows.
@@ -931,12 +931,13 @@ u depends continuously on (b, S, h) in H^(k−1,(β_I−ς,β_+−ς,−3/2−ς
 hypothesis (i) is [[thm:iii-h2-2-1]]. (ii) is unchanged, as S̄ and Ā do not depend on b. (iii) is [[cor:iii-i-5-2]],
 which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis holds by [[thm:iii-h2-2-1]], with
 ‖P − 2L_b‖_((0;d)) ≤ C(|b − b₀| + |S| + ‖h‖_(𝒳^(d+5))) by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], small by (B5).
+
 *Continuity.* Let k ≥ 1. In the notation of the proof of [[thm:iii-i-5-3]], in which h ∈ 𝒳^(k+d+5), let
 (b_j, S_j, h_j) → (b, S, h), with b_j, b ∈ B_*, S_j, S, h_j, h as in the statement and h_j → h in 𝒳^(k+d+5). Put
 g_(0,j) := g_(b₀,b_j,−S_j), g_j := g_(0,j) + h_j, P_j := 2L^(g_j,g_(0,j)) and P := 2L^(g,g_0), and let f_j := f. These
 satisfy the hypotheses of the continuity statement of [[thm:iii-h2-4-1]]. By (iii) above, P_j is admissible relative to
-2L_(b_j) of the class that theorem asks, with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0 by (B5), and ‖P_j − 2L_(b_j)‖_((0;k+d)) ≤ C_k(|b_j − b₀| + |S_j| +
-‖h_j‖_(𝒳^(k+d+5))) is bounded in j (the tame form in that proof, by [[eq:iii-i-3-7]]). The same holds for P relative to
+2L_(b_j) of the class that theorem asks, with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0 by (B5); and ‖P_j − 2L_(b_j)‖_((0;k+d))
+is bounded in j by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], as ‖h_j‖_(𝒳^(k+d+5)) is. The same holds for P relative to
 2L_b; in particular ‖P − 2L_b‖_((0;d)) < ε_0 by (B5), which is the smallness that the identification in the proof of
 [[thm:iii-h2-4-1]] uses at the limit. The coefficients of P_j converge to those of P in C² on compact subsets of
 M° ∩ {r > r_0}, as 2L^(g,g_0) depends smoothly on (b, S) and continuously on h in the norm of [[eq:iii-i-3-7]]

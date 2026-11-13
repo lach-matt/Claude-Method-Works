@@ -8,12 +8,12 @@ names what is missing in higher dimensions: "The argument below carries over to 
 is an equivalent of Proposition F.1 for the family of translated, rotated, and boosted Myers-Perry metrics." Near
 Tangherlini, which is the case needed here, this equivalent is [[prop:v-2-3]] and [[cor:v-2-4]]. The proof follows
 [CD03, Section 8.1], with three changes in dimension 4 + 1. First, the charges are defined and estimated directly from a
-linear flux identity ([[sec:v-1]]); this replaces [CD03, Appendix E] and needs no parity condition, since 2α > n − 1 =
-3. Second, the exponentially weighted spaces of [CD03, Theorem 5.9] are used from the start, so the glued data are
-smooth. Third, the powers of R are those of space dimension 4: R⁻² for the energy and the momentum, R⁻³ for the angular
-momentum and the centre of mass. Every result of [CD03] used here holds in every space dimension n ≥ 2 ([CD03, p. 4]);
-each is stated exactly, here or in [[app:standard-results]]. [CD03, Lemma 3.18] is proved again ([[lem:v-3-3]]), and the
-continuity in the parameter that [CD03, Theorem 3.19] needs is proved as [[lem:v-3-2]].
+linear flux identity ([[sec:v-1]]); this replaces [CD03, Appendix E] and needs no parity condition, since
+2α > n − 1 = 3. Second, the exponentially weighted spaces of [CD03, Theorem 5.9] are used from the start, so the glued
+data are smooth. Third, the powers of R are those of space dimension 4: R⁻² for the energy and the momentum, R⁻³ for
+the angular momentum and the centre of mass. Every result of [CD03] used here holds in every space dimension n ≥ 2
+([CD03, p. 4]); each is stated exactly, here or in [[app:standard-results]]. [CD03, Lemma 3.18] is proved again
+([[lem:v-3-3]]), and the continuity in the parameter that [CD03, Theorem 3.19] needs is proved as [[lem:v-3-2]].
 
 [[sec:vii-2]] runs the construction in the symmetry class of [[sec:class]], G = O(2) × O(2), on the initial surface
 Σ^IVP of [[sec:iii-b-3-3]] and with the Tangherlini data on that surface as the family ([[prop:vii-2-2]]). The
@@ -425,10 +425,10 @@ u′. T_(u′) is bounded from 𝒴 to 𝒳, continuously in u′ in operator no
 of u′ and in g′⁻¹. The constraint map is a polynomial in the 2-jet of the data, with coefficients rational in the
 metric. The spaces H^(k+2)_(x²,e^(s/x)), with k + 2 > n/2 + 1, embed in C¹(𝒜) and are stable under products with each
 other and with C^(k+2)(𝒜), by Sobolev's inequality on the balls B_p of centre p and radius x(p)²/2, on which x and
-e^(s/x) are comparable to their values at p ([CD03, Appendix B, (B.2)–(B.3), pp. 61–62]). So (u′, δu) ↦ (J, ρ)(u′ + δu)
-− (J, ρ)(u′) is C² in δu ∈ 𝒳 near zero, with derivatives continuous in u′ and bounded uniformly. With D_zΨ(u′, z) =
-π_(g′)e^(2s/x)D(J, ρ)(u′ + T_(u′)z)T_(u′), this gives a constant C₃, independent of u′ ∈ 𝒩_ε for ε small (it includes
-the factor ‖T_(u′)‖², bounded uniformly), with
+e^(s/x) are comparable to their values at p ([CD03, Appendix B, (B.2)–(B.3), pp. 61–62]). So
+(u′, δu) ↦ (J, ρ)(u′ + δu) − (J, ρ)(u′) is C² in δu ∈ 𝒳 near zero, with derivatives continuous in u′ and bounded
+uniformly. With D_zΨ(u′, z) = π_(g′)e^(2s/x)D(J, ρ)(u′ + T_(u′)z)T_(u′), this gives a constant C₃, independent of
+u′ ∈ 𝒩_ε for ε small (it includes the factor ‖T_(u′)‖², bounded uniformly), with
 
     ‖D_zΨ(u′, z₁) − D_zΨ(u′, z₂)‖ ≤ C₃‖z₁ − z₂‖
 

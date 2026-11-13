@@ -97,7 +97,8 @@ whose b-derivatives are inverse images of the same kind) and δ*_(g_b) has coeff
 embedding H̄_b^(∞,a) ⊂ 𝒜^(a+2) of [[rem:iii-h-2-6]], the states and their first derivatives in b are therefore
 bounded in 𝒜^(q−δ), uniformly on ℬ̄_*, for every δ > 0, with q = 2 for ġ_b(1, 0) and h̆_b(S) and q = 3 for
 ġ_b(0, Ȧ) and h_b(S); and, by Sobolev embedding on compact sets, they are of class C^k in b with values in C⁰(K) for
-every compact K ⊂ X°. The loss δ is absorbed below, where every weight is used with room. The generalised state of the boosts
+every compact K ⊂ X°. The loss δ is absorbed below, where every weight is used with room. The generalised state of
+the boosts
 
     h^(≤1)_b(S) := t_* h_b(S) + h̆_b(S) = δ*_(g_b)(t_* ω^(0)_(b,s1)(S) + ω̆^((0),1)_(b,s1)(S))
 
@@ -121,8 +122,9 @@ g_(b₀,b,−S). In this form they hold at every b ∈ ℬ̄_*, with constants a
 the continuity of [[prop:iii-i2-5-1]] in (S, h) at fixed b ([[prop:iii-i2-5-1-b]]).
 
 **Lemma {#lem:s20-rows}** (The rows at b.) Fix the bases of 𝔟 and 𝒮_1 in which [[eq:iii-h-3-1]] is written, with the
-Euclidean norms in these bases and the operator norm on matrices, and a fibre norm |·| on S²T*X̄. Let r(u) := (⟨u, f*_1⟩, ⟨u, f*_2⟩), with the pairing
-of [[sec:iii-h-1]] at b, and let 𝒦_0 := supp f*_1 ∪ supp f*_2, a compact subset of X°. For b ∈ ℬ̄_* let
+Euclidean norms in these bases and the operator norm on matrices, and a fibre norm |·| on S²T*X̄. Let
+r(u) := (⟨u, f*_1⟩, ⟨u, f*_2⟩), with the pairing of [[sec:iii-h-1]] at b, and let 𝒦_0 := supp f*_1 ∪ supp f*_2, a
+compact subset of X°. For b ∈ ℬ̄_* let
 
     B(b) : 𝔟_ℂ ⊕ 𝒮_(1,ℂ) → 𝔟_ℂ ⊕ 𝒮_(1,ℂ),        B(b)(ḃ, S) := r(ġ_b(ḃ) + h_b(S)),                    {#eq:s20-rows}
 
@@ -246,8 +248,8 @@ and χ^H_K the cut-off of [[eq:iii-h-1-2]]: smooth, vanishing for t_* ≤ 1 and 
 
 **Proposition {#prop:iii-i3-2-1}** (The boost parameter; [Hin26, Proposition 11.20] in dimension 4 + 1.) Let
 b ∈ ℬ̄_* and L := L^(g,g_0), with g_0 := g_(b₀,b,−S), g := g_0 + h, |S| < ε_0, h ∈ 𝒳^∞ and ‖h‖_(𝒳^d) < ε_0, ε_0 and d
-those of [[thm:iii-i-5-3]] at b ((BP1)). Let ℓ_I satisfy [[eq:iii-i2-5-1]], α_K ∈ (1, min(a_K − 1, 3/2)) and α_+ > α_K. For
-f ∈ H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α_++2,α_K)_b(Ω_*; S²T*)^(•,−), the forward solution of Lu = f is
+those of [[thm:iii-i-5-3]] at b ((BP1)). Let ℓ_I satisfy [[eq:iii-i2-5-1]], α_K ∈ (1, min(a_K − 1, 3/2)) and α_+ > α_K.
+For f ∈ H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α_++2,α_K)_b(Ω_*; S²T*)^(•,−), the forward solution of Lu = f is
 
     u = χ^H_K h^(≤1)_b(Ṡ) + ũ,     Ṡ ∈ 𝒮_1,
     ũ ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α_K−2)_b(Ω_*)^(•,−)  for every β_+ < min(α_+, 3/2, min Re ℰ_+),           {#eq:iii-i3-2-1}
@@ -907,8 +909,8 @@ C(‖h‖_(𝒳^d) + |S|): they are polynomial in the differences of the metrics
 ‖(L_(h,S;b) − L_(0,0;b))u_(h,S)‖ ≤ C(‖h‖_(𝒳^d) + |S|)‖f‖. Since L_(0,0;b)(u_(h,S) − u_(0,0)) =
 −(L_(h,S;b) − L_(0,0;b))u_(h,S), [[prop:iii-i2-5-1]], with the weights lowered by the room ς of the proof of
 [[lem:iii-i4-4-2]], gives ‖u_(h,S) − u_(0,0)‖ ≤ C(‖h‖_(𝒳^d) + |S|)‖f‖ at the regularity k_1 + 2 that Π_b needs, as
-d ≥ k_1 + d_T + 7 ([[eq:s20-d]]), and [[eq:iii-i-4-2]] bounds the second summand in the same way. Π_b is bounded on the space with that room, uniformly in b. So the second term is at most
-C(‖h‖_(𝒳^d) + |S|)|S′|.
+d ≥ k_1 + d_T + 7 ([[eq:s20-d]]), and [[eq:iii-i-4-2]] bounds the second summand in the same way. Π_b is bounded on the
+space with that room, uniformly in b. So the second term is at most C(‖h‖_(𝒳^d) + |S|)|S′|.
 
 *The third term.* By [[lem:iii-i15-2-7]], E^S_b(S′) is supported in 𝒞. It vanishes near 𝓘⁺ and K⁺, and its
 ι⁺-order is at least 4 − δ > α_+ + 2 for δ < 2 − α_+, as α_+ < 2. So it lies in the space of [[lem:iii-i4-4-2]] (a)
@@ -1068,8 +1070,9 @@ others are that of a_v1 ∼ t_*^(−λ_0) and λ_0 − μ + j, j ≥ 0, for the 
 −ℓ_K(λ_0) < Re μ ≤ 0 ([[sec:iii-g2-1]]). As ℓ_K(λ_0) < 1, −1 ∉ 𝒲(ℓ_K(λ_0)), so S^(−1)_1 = 0, the a_s1 and a_v1 terms
 are absent, and the least exponent is in fact ≥ Re λ_0; the bound suffices. (If at a rotating b an a_v1 term is
 present, the bottom of its v1 tower is a_v1 h_(b,v1), with h_(b,v1) ∈ 𝒜³ stationary ([[prop:iii-d2-3-1]]), of
-K⁺-weight Re λ_0 − ε ≥ Re λ_0 − 1; so the bound holds at every b ∈ ℬ̄_*.) So u_(λ_0) has the K⁺-weight min(Re λ_0 − 1, ℓ_K(λ_0)) − ε > 0 > α_K − 2 for
-ε < c_K − 2, and the error has the K⁺-weight Re λ_0 + ℓ_K(λ_0) − ε = c_K − ε > 2 > α_K.
+K⁺-weight Re λ_0 − ε ≥ Re λ_0 − 1; so the bound holds at every b ∈ ℬ̄_*.) So u_(λ_0) has the K⁺-weight
+min(Re λ_0 − 1, ℓ_K(λ_0)) − ε > 0 > α_K − 2 for ε < c_K − 2, and the error has the K⁺-weight
+Re λ_0 + ℓ_K(λ_0) − ε = c_K − ε > 2 > α_K.
 
 The 𝓘⁺-expansion of the error is removed by [[prop:iii-i1-3-1]] with ℰ̆_+ := λ_0 + ℰ^ι_ind + (0, k) and
 ℓ̆_+ := α^♯_+. By inclusion (b) of [[sec:iii-i5-1]] the error lies in its space, and its 𝓘⁺-expansion has no
@@ -1195,10 +1198,10 @@ N and ε > 0, with f̂′(0) := ∂_σ f̂(0) = i∫ t_* f dt_* ∈ H^(∞,2−�
 |σ| ≤ c ([[sec:iii-i3-1]]); so its Taylor remainder is O(σ²) in C^∞, which gives the zf-weight 2 − ε and no condition
 at tf or scf. And f̂_∞ = r⁻³G(σr, x) on {r ≥ 1}, with G entire and |(ζ∂_ζ)^j(r∂_r)^i∂^β_ω G| ≤ C⟨ζ⟩^(−N). With
 ζ := σr, so that |ζ| ∼ r̂ on {r ≥ 1}, the function r⁻³(G(ζ, x) − χ_1(r̂)(G(0, x) + ζ∂_ζG(0, x))) is r⁻³ times a
-function that is O(r̂²) for r̂ ≤ 1/8 and O(⟨r̂⟩^(−N) + r̂ 1_(r̂≤1/4)) beyond, with the same derivative bounds. In the Fubini count of the proof of
-[[lem:iii-i3-1-2]] (b) (ρ_zf ∼ r̂ and ρ_tf ∼ r⁻¹ near zf, ρ_scf ∼ r̂⁻¹ near scf) this gives the weights
-(N, 3 − ε, 2 − ε): the remainder O(r̂²) contributes ∫_0^(1/⟨x⟩) σ^(4−2γ_zf) dσ/σ, finite for γ_zf < 2, where the
-remainder O(r̂) gave 1 − ε. f̂′(0) = ∂_σ f̂_c(0) + r⁻²∂_ζG(0, x) is smooth and lies in 𝒜² ⊂ H^(∞,2−ε)_b near ∂X̄. ∎
+function that is O(r̂²) for r̂ ≤ 1/8 and O(⟨r̂⟩^(−N) + r̂ 1_(r̂≤1/4)) beyond, with the same derivative bounds. In the
+Fubini count of the proof of [[lem:iii-i3-1-2]] (b) (ρ_zf ∼ r̂ and ρ_tf ∼ r⁻¹ near zf, ρ_scf ∼ r̂⁻¹ near scf) this gives
+the weights (N, 3 − ε, 2 − ε): the remainder O(r̂²) contributes ∫_0^(1/⟨x⟩) σ^(4−2γ_zf) dσ/σ, finite for γ_zf < 2, where
+the remainder O(r̂) gave 1 − ε. f̂′(0) = ∂_σ f̂_c(0) + r⁻²∂_ζG(0, x) is smooth and lies in 𝒜² ⊂ H^(∞,2−ε)_b near ∂X̄. ∎
 
 **Lemma {#lem:iii-i6-1-2}** (Conormal sections are admissible.) Let σ ∈ ℝ ∖ 0 be small and let v be smooth on X° and
 b-conormal at ∂X̄ of μ_b-weight a. Then v lies in the space 𝒳′_σ, built as 𝒳_σ but with an admissible order family
@@ -1298,9 +1301,9 @@ near 𝓘⁺) and
 
 u^♭ being the forward solution ([[prop:ii-e-3-4]]). From here on ε > 0 is fixed, small as above. The parameters ḃ,
 Ṡ^(0)_1 found below are determined by the (0, 0)-coefficient ġ_b(ḃ) + h_b(Ṡ^(0)_1) of u at K⁺, its limit as t_* → ∞
-in compact spatial sets, as ũ tends to 0 there ([[lem:s20-injective]]); so they and ũ do not depend on ε, and [[eq:iii-i6-2-1]] holds for every β_+. There is no logarithmic term:
-the least ι⁺-exponent is λ_♯, and the coefficient a_s1 = (λ_0(λ_0 − 1))⁻¹t_*^(−λ_0+1) of [[eq:iii-g2-4-2]] is a power
-for Re λ_0 > 1.
+in compact spatial sets, as ũ tends to 0 there ([[lem:s20-injective]]); so they and ũ do not depend on ε, and
+[[eq:iii-i6-2-1]] holds for every β_+. There is no logarithmic term: the least ι⁺-exponent is λ_♯, and the coefficient
+a_s1 = (λ_0(λ_0 − 1))⁻¹t_*^(−λ_0+1) of [[eq:iii-g2-4-2]] is a power for Re λ_0 > 1.
 
 *Step 3* (the decomposition). As in [[sec:iii-i2-4]], u^♭ = u_hi + u_reg + u_sing, with
 (û_1, b̂_1, Ŝ_1) := L̃_b(σ)⁻¹(f̂^♭(σ), 0, 0), ℱu_reg = χ(|σ|)û_1, and
@@ -1461,7 +1464,7 @@ translation state with a coefficient singular at σ = 0. The rows of the augment
 component, it would give a row correction of size |σ|^(−ε) in the 𝒮_1-component, which the integration in t_* would
 turn into growth. [[lem:iii-i6-1-4]] moves it into the 𝒮_1-column with the coefficient −σ²|σ|^(α−3)S^(−1)_1 =
 O(|σ|^(1−ε)), and [[lem:iii-i6-1-3]] shows that the remaining row data are answered by the nullspace, through the
-inverse of the matrix B(b) of the rows on the states, with columns O(|σ|^(1−ε)). The identification [[eq:iii-i6-2-8]] needs every piece in 𝒳_σ; the conormal piece of
-[[prop:iii-g4-5-1]]'s solution lies in it for an order family lowered near R_out, a radial set where only an upper
-threshold applies, and the inverses on the two spaces agree, as the kernels do not depend on the order
-([[lem:iii-i6-1-2]]). The range α_K − 2 < ε_ind is that of [Hin26].
+inverse of the matrix B(b) of the rows on the states, with columns O(|σ|^(1−ε)). The identification [[eq:iii-i6-2-8]]
+needs every piece in 𝒳_σ; the conormal piece of [[prop:iii-g4-5-1]]'s solution lies in it for an order family lowered
+near R_out, a radial set where only an upper threshold applies, and the inverses on the two spaces agree, as the kernels
+do not depend on the order ([[lem:iii-i6-1-2]]). The range α_K − 2 < ε_ind is that of [Hin26].

@@ -66,13 +66,14 @@ Write [[eq:tl5-metric]] as g = g3 + e^(2A) dφ1² + e^(2B) dφ2² with
 Let L := ∂_v, Y := ∂_u + b ∂_x and E := e^(−ζ) ∂_x, so that g3(L, Y) = −2Ω², g3(E, E) = 1 and the other products
 vanish. Define the six functions
 
-    ω := L(W),   ω̲ := Y(W),   k := L(ζ),   k̲ := Y(ζ) + ∂_x b,   η := E(W),   τ := e^(ζ − 2W) ∂_v b / 4.     {#eq:tl5-scalars}
+    ω := L(W),   ω̲ := Y(W),   k := L(ζ),   k̲ := Y(ζ) + ∂_x b,   η := E(W),
+    τ := e^(ζ − 2W) ∂_v b / 4.                                                                         {#eq:tl5-scalars}
 
 **Lemma {#lem:tl5-connection}** (the connection of g3). The Levi-Civita connection ∇ of g3 is given by
 
     ∇_L L = 2ω L,             ∇_L Y = 2Ω²(η + τ) E,     ∇_L E = (η + τ) L,
     ∇_Y L = 2Ω²(η − τ) E,     ∇_Y Y = 2ω̲ Y,             ∇_Y E = (η − τ) Y,
-    ∇_E L = (η + τ) L + k E,  ∇_E Y = (η − τ) Y + k̲ E,  ∇_E E = (k̲ L + k Y)/(2Ω²).                   {#eq:tl5-connection}
+    ∇_E L = (η + τ) L + k E,  ∇_E Y = (η − τ) Y + k̲ E,  ∇_E E = (k̲ L + k Y)/(2Ω²).    {#eq:tl5-connection}
 
 *Proof.* The brackets of the frame are [L, Y] = (∂_v b) ∂_x = 4Ω²τ E, [L, E] = ∂_v(e^(−ζ)) ∂_x = −k E and
 [Y, E] = Y(e^(−ζ)) ∂_x − e^(−ζ)(∂_x b) ∂_x = −k̲ E. The table is torsion free: ∇_L Y − ∇_Y L = 4Ω²τ E,
@@ -129,7 +130,7 @@ and N(X, Z) := Ric[g3](X, Z) − M_A(X, Z) − M_B(X, Z). Then
 
     f_ll = N(L, L) ρ,              f_ln = N(L, Y)/(2Ω²) · ρ,      f_nn = N(Y, Y)/(4Ω⁴) · ρ,
     f_lx = N(L, E) ρ,              f_nx = N(Y, E)/(2Ω²) · ρ,      f_xx = N(E, E) ρ,
-    f_11 = −(□A + ⟨dA, dA⟩ + ⟨dA, dB⟩) ρ,      f_22 = −(□B + ⟨dB, dB⟩ + ⟨dA, dB⟩) ρ.                    {#eq:tl5-components}
+    f_11 = −(□A + ⟨dA, dA⟩ + ⟨dA, dB⟩) ρ,      f_22 = −(□B + ⟨dB, dB⟩ + ⟨dA, dB⟩) ρ.    {#eq:tl5-components}
 
 *Proof.* By [[lem:warped-ricci]], Ric[g](X, Z) = Ric[g3](X, Z) − Σ_ψ (∇∇ψ(X, Z) + X(ψ) Z(ψ)) for X, Z tangent to
 the orbit space, and Ric[g](e_1, e_1) = e^(−2A) R11 = −(□A + |dA|² + ⟨dA, dB⟩), likewise for e_2. The Hessian is
@@ -152,7 +153,7 @@ a, b ∈ {u, v, x} (the derivatives of log R), S := P + Q = ((1 + x)m + (1 − x
     ζ_x = ℓ_x − S_x + x/w,   A_x = ℓ_x + P_x + 1/(2(1 + x)),   B_x = ℓ_x + Q_x − 1/(2(1 − x)),
     ζ_xx = ℓ_xx − S_xx + (1 + x²)/w²,   A_xx = ℓ_xx + P_xx − 1/(2(1 + x)²),   B_xx = ℓ_xx + Q_xx − 1/(2(1 − x)²);
     b_a = w s_a (a ∈ {u, v, uv, vv}),  b_x = w s_x − 2xs,  b_ax = w s_ax − 2x s_a (a ∈ {u, v}),
-    b_xx = w s_xx − 4x s_x − 2s;     e^(−ζ) = 2√w e^S/R.                                                   {#eq:tl5-derivatives}
+    b_xx = w s_xx − 4x s_x − 2s;     e^(−ζ) = 2√w e^S/R.                                 {#eq:tl5-derivatives}
 
 Write ε := e^(−ζ), ϑ := e^(ζ − 2W)/4 (so τ = ϑ b_v) and Y(ζ) = ζ_u + bζ_x. Then ω = W_v, ω̲ = W_u + bW_x, k = ζ_v,
 k̲ = ζ_u + bζ_x + b_x, η = εW_x, and
@@ -160,7 +161,8 @@ k̲ = ζ_u + bζ_x + b_x, η = εW_x, and
     L(k) = ζ_vv,   Y(k) = ζ_uv + bζ_vx,   L(k̲) = ζ_uv + b_v ζ_x + bζ_vx + b_vx,   L(ω̲) = W_uv + b_v W_x + bW_vx,
     Y(k̲) = ζ_uu + b_u ζ_x + bζ_ux + b_ux + b(ζ_ux + b_x ζ_x + bζ_xx + b_xx),
     L(η) = ε(W_vx − ζ_v W_x),   Y(η) = ε(W_ux + bW_xx − Y(ζ) W_x),   E(η) = εε(W_xx − ζ_x W_x),
-    L(τ) = τ(ζ_v − 2ω) + ϑ b_vv,   Y(τ) = τ(Y(ζ) − 2ω̲) + ϑ(b_uv + b b_vx),   E(τ) = ε(τ(ζ_x − 2W_x) + ϑ b_vx),  {#eq:tl5-frame-derivatives}
+    L(τ) = τ(ζ_v − 2ω) + ϑ b_vv,   Y(τ) = τ(Y(ζ) − 2ω̲) + ϑ(b_uv + b b_vx),
+    E(τ) = ε(τ(ζ_x − 2W_x) + ϑ b_vx),                                                    {#eq:tl5-frame-derivatives}
 
 and for ψ ∈ {A, B}: ψ_L = ψ_v, ψ_Y = ψ_u + bψ_x, ψ_E = εψ_x, L(ψ_L) = ψ_vv, L(ψ_Y) = ψ_uv + b_v ψ_x + bψ_vx,
 Y(ψ_Y) = ψ_uu + b_u ψ_x + bψ_ux + b(ψ_ux + b_x ψ_x + bψ_xx), L(ψ_E) = ε(ψ_vx − ζ_v ψ_x),
@@ -190,7 +192,7 @@ f(p) = Σ_(|α|≤2) f_α(c) y^α + Σ_(|α|=3) f_α(c + θy) y^α, and |y^α| �
 ∂^γ F = Σ C^(F,γ)_ijk T_i(t) T_j(σ) T_k(x), where C^(F,γ) arises from C^F by applying γ₁ times in the first index,
 γ₂ times in the second and γ₃ times in the third the map (c_i) ↦ (c′_i),
 
-    c′_i := (2/(1 + δ_i0)) Σ_(i′ > i, i′ − i odd) i′ c_i′.                                            {#eq:tl5-cheb-derivative}
+    c′_i := (2/(1 + δ_i0)) Σ_(i′ > i, i′ − i odd) i′ c_i′.                          {#eq:tl5-cheb-derivative}
 
 Consequently |F_γ| ≤ L^F_γ := Σ_ijk |C^(F,γ)_ijk|/γ! on [−1, 1]³.
 
@@ -201,7 +203,8 @@ T′_k(cos θ) = k sin kθ/sin θ and 2 sin θ (cos (k−1)θ + cos (k−3)θ + 
 **Lemma {#lem:tl5-field-box}** (Taylor coefficients of a field on a box). Let b be a box with centre c and
 half-widths h, F a field and γ a multi-index. For every p ∈ b,
 
-    |F_γ(p) − F_γ(c)| ≤ Σ_d (γ_d + 1) |F_(γ+e_d)(c)| h_d + (1/2) Σ_(d,d′) (γ_d + 1)(γ_d′ + δ_dd′ + 1) L^F_(γ+e_d+e_d′) h_d h_d′,
+    |F_γ(p) − F_γ(c)| ≤ Σ_d (γ_d + 1) |F_(γ+e_d)(c)| h_d
+                         + (1/2) Σ_(d,d′) (γ_d + 1)(γ_d′ + δ_dd′ + 1) L^F_(γ+e_d+e_d′) h_d h_d′,
 
 where e_d is the d-th unit multi-index.
 
@@ -212,7 +215,8 @@ for F_γ at c to first order, with the Lagrange remainder bounded by [[lem:tl5-c
 For jets a, b put (a + b)_α := a_α + b_α and (ab)_α := Σ_(β+β′=α) a_β b_β′; for a jet a write a₀ for its
 coefficient at α = 0 and N := a − a₀ (the jet a with a₀ replaced by 0), and put
 
-    1/a := Σ_(j=0..3) (−1)^j a₀^(−j−1) N^j,   √a := Σ_(j=0..3) binom(1/2, j) a₀^(1/2−j) N^j,   e^a := e^(a₀) Σ_(j=0..3) N^j/j!.
+    1/a := Σ_(j=0..3) (−1)^j a₀^(−j−1) N^j,     √a := Σ_(j=0..3) binom(1/2, j) a₀^(1/2−j) N^j,
+    e^a := e^(a₀) Σ_(j=0..3) N^j/j!.
 
 Then J_p(fg) = (J_p f)(J_p g), J_p(1/f) = 1/J_p f, J_p √f = √(J_p f) and J_p e^f = e^(J_p f), because the Taylor
 coefficients of order at most 3 of a product or of a composition depend only on those of the factors, and
@@ -238,7 +242,8 @@ the given intervals. Induction over the steps gives the claim. ∎
 
 **Definition {#def:tl5-certificate}** (the number of a box). For a box b with centre c and half-widths h, let
 
-    κ_ab(b) := Σ_(|α|≤2) |(f_ab)_α(c)| h^α + Σ_(|α|=3) max|I^ab_α| h^α,      κ(b) := max_ab κ_ab(b),   {#eq:tl5-certificate}
+    κ_ab(b) := Σ_(|α|≤2) |(f_ab)_α(c)| h^α + Σ_(|α|=3) max|I^ab_α| h^α,      κ(b) := max_ab κ_ab(b),
+                                                                                       {#eq:tl5-certificate}
 
 with (f_ab)_α(c) the exact Taylor coefficients at the centre and I^ab_α the enclosures of [[lem:tl5-jet-enclosure]].
 By [[lem:tl5-taylor]], sup_b max_ab |f_ab| ≤ κ(b). The tables give, for every box, a number at least κ(b), rounded
@@ -284,7 +289,7 @@ the bounds proved are 6.1 × 10⁻⁵, 4.92 × 10⁻⁴, 4.88 × 10⁻⁴ and 1.
 1.095… × 10⁻³.
 
 *Proof.* Divide B1 into 8³ equal boxes, B2 and B3 into 4³ and B4 into 16³. [[sec:tab-d-boxes]] gives an upper bound
-for β(b) for each of the 4,736 boxes, and the largest for each Bi are the four numbers stated. The point values are
+for κ(b) for each of the 4,736 boxes, and the largest for each Bi are the four numbers stated. The point values are
 entries of [[sec:tab-d-points]]. ∎
 
 **Proposition {#prop:tl5-coarse}** (the first approximant on Π). The field R of the first approximant is positive on

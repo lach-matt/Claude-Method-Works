@@ -135,3 +135,12 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Chapter 23 writes e^(−Mz); C_z would match S1.
 - S21 reader: S25 §1 uses parts of S21 but not circularly; S25 cannot move before S20 (bears on the S25 order item).
   The λ census and the three S15 keys are in its review (R-S21).
+
+## From proofs F and G (2026-11-13)
+
+- Proof F proves the edge hypotheses on (v_s, v_s + 1/(96(N+4)²)] for every K ≥ 6, not on the source's fixed 1/200
+  interval for N ≤ 14; its writer says nothing uses the interval width (the F reader checks this). Constants:
+  c_R = 12/5, κ_k/κ ∈ [0.99, 1], c_j = 1, c_t = 2.139 (source 2.13951; the reader checks the direction of each use).
+  Chapter 85's writer states the results on the proved interval with these constants.
+- Proof G is for chapter 63 (not 64). Its window is (ℓ0 − 1, 3), the theorem's; the planner's max(ℓ0 − 1, 5/2) is
+  outdated. Chapter 63's writer uses (ℓ0 − 1, 3).

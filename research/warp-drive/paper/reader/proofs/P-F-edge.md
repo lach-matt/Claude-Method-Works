@@ -43,6 +43,8 @@ R_(k+1) < R_k, and then |κ_k′| = R_k (R_k − R_(k+1))/x⁴ ≤ c R_k^(3/2)/x
 c x R_k^(1/2). (d) κ = R_0/x². (e) κ − κ_n = Σ_(k<n) (κ_k − κ_(k+1)), each term is positive by (c), and the term k = 0
 is κ − κ_1 = −κ′/κ by (c). ∎
 
+### The two envelopes near the edge {#sec:edge-envelope-a}
+
 **Lemma {#lem:edge-a}** (the function x²κ). For exp(−1/x), x²κ = 1. For [[eq:edge-envelope]], on 0 < x < 3,
 
     x²κ = A(x) := 3/4 − (3/4)(x/(3 − x))² + 4πx² cot(πx/3),                                         {#eq:edge-a}
@@ -102,6 +104,8 @@ So |T_(k+1)| ≤ σ_k + (44/27)(α′ + 2k)/a ≤ σ_k + 2(α′ + 2k + 1)/a = �
     2(k + 1)ρ ≤ (n + 1)/(12(n + 2)²) ≤ 1/36,      σ_(k+1) ρ² ≤ (n + 1)(n + 14)/(216(n + 2)⁴) ≤ 15/(216 · 27) < 1/388,
 
 so |R_(k+1)| ≥ 7a/8 − 1/36 − 1/388 > 7a/8 − 0.031 ≥ 7a/8 − a/8 = 3a/4, as a/8 ≥ 3/32 > 0.031. ∎
+
+### The hypotheses, for every K {#sec:edge-envelope-every-k}
 
 **Proposition {#prop:edge-envelope}** (the hypotheses for the envelope of the constants). Let env be
 [[eq:edge-envelope]], or exp(−1/(v − v_s)); let n ≥ 1 be an integer and x_n := 1/(96(n + 2)²). Then:

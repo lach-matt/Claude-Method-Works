@@ -539,29 +539,28 @@ parameterisation that accounts for this is [[sec:iii-j-1]]–[[sec:iii-j-2]].
 ### The data space {#sec:iii-j-1}
 
 Everything of [[sec:iii-i14-1]] is kept, and through it everything of [[ch:s21]] and [[ch:s22]]: α, the constants 0 <
-ε_K < ε_+ < min(δ_♯, ε_ind) of [[eq:iii-i9-1-1]], w_+ = 5 + ε_+, η_2, (H1)–(H5), (C5), (G), Λ, K(λ), L_0, l_*, N_*,
+ε_K < ε_+ < min(δ_♯, ε_ind) of [[eq:iii-i9-1-1]], w_+ = 5 + ε_+, η_2, (H1)–(H5), (C5), (G), Λ, k̄(λ), k̄_0, l_*, J_*,
 ℰ_par, ℰ_♯, ℳ, ℰ_++, 𝒢 = (2, 0) ∪ (2 + ℰ_ind), ℱ = (0, 0) ∪ ℰ_ind, the rows 𝒩 with the rotation rows 𝒩_rot and the
 enlarged 𝒫, the towers T_(ψ,b), ℛ, ℛ′, d_ψ, k_μ, 𝒬, h_(b,rem)(q) and P_5. The black hole parameter b ranges near b₀, and
 p⃗_(≤0) = (S, b − b₀, S^(0)_1), with g_0 = g_(p⃗_(≤0)) ([[eq:iii-i7-1-3]]). From [[ch:s17]]: the spaces
 [[eq:iii-g3-1-2]]–[[eq:iii-g3-3-5]], the inverse [[eq:iii-g3-2-2]] of N_(ι⁺)(L̄, ·) on partially polyhomogeneous spaces,
 spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I), [[cor:iii-g3-3-1]], Res^k_(ι⁺)(L̄, ℰ^C_I, λ), Res_(ι⁺)(L̄, λ) and the map
 [[eq:iii-g3-3-6]]. ℓ_I is the one of the class, with ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]]
-holds, s_C being large by (C1). K_ι(λ) denotes the order of the pole of [[eq:iii-g3-2-2]] at λ (the K(λ) of
-[[prop:iii-g3-3-7]]). Also from [[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions
+holds, s_C being large by (C1). K_ι(λ) denotes the order of the pole of [[eq:iii-g3-2-2]] at λ, as in
+[[prop:iii-g3-3-7]]. Also from [[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions
 ([[def:iii-g2-2-3]]), [[thm:iii-g2-3-1]] and [[lem:iii-g2-4-1]]. Two further conditions are imposed, each removing
 finitely many values.
 
-**Definition {#def:iii-j-g-plus}** (The condition (G⁺).) (G⁺) *No λ ∈ Λ has real part in (3, 3 + ε_+].*
-
-Λ does not depend on the constants ([[lem:iii-i10-1-2]] (a)), so (G⁺) holds after decreasing ε_+ (with ε_K, η_1, η_2).
-Every statement of [[ch:s21]], [[ch:s22]] and [[sec:iii-i14-1]]–[[sec:iii-i14-3]] holds for the smaller values
+**Definition {#def:iii-j-g-plus}** (The condition (G⁺).) (G⁺) *No λ ∈ Λ has real part in (3, 3 + ε_+].* Λ does not
+depend on the constants ([[lem:iii-i10-1-2]] (a)), so (G⁺) holds after decreasing ε_+ (with ε_K, η_1, η_2). Every
+statement of [[ch:s21]], [[ch:s22]] and [[sec:iii-i14-1]]–[[sec:iii-i14-3]] holds for the smaller values
 ([[eq:iii-i9-1-1]]), the choices of η_1, η_2, δ_+ and α in [[sec:iii-i10-1]]–[[sec:iii-i14-1]] being made again.
 
 **Definition {#def:iii-j-a-j}** (The condition (A_J).) (A_J) *For every λ₀ ∈ Λ with Re λ₀ < 3 + ε_+, the number ℓ_K(λ₀)
-:= α − Re λ₀ is not −Re μ for a root μ of L̂_(b₀)(0), and is not in Re π_1ℰ_K.*
-
-Then ℓ_K(λ₀) ∈ (α − 3 − ε_+, α − λ_♯] ⊂ (0, 3), as ε_+ < ¼, so ℓ_K(λ₀) is admissible in [[sec:iii-g3-1]] (ℓ^max_K = 3
-under (C5), [[sec:iii-g2-1]]). The admissible α meeting (A_J) are dense in (4 + ε_K − ε′_0, 4 + ε_K].
+:= α − Re λ₀ is not −Re μ for a root μ of L̂_(b₀)(0), and is not in Re π_1ℰ_K.* Then ℓ_K(λ₀) ∈ (α − 3 − ε_+,
+α − λ_♯] ⊂ (0, 3), as ε_+ < δ_♯ < ¼ ([[eq:iii-i9-1-1]]), so ℓ_K(λ₀) is admissible in [[sec:iii-g3-1]] (ℓ^max_K = 3
+under (C5), [[sec:iii-g2-1]]). The admissible α meeting (A_J) are dense in (4 + ε_K − ε′_0, 4 + ε_K] (ε′_0 of
+[[def:iii-i10-1-3]]).
 
 **Definition {#def:iii-j-classes}** (The classes.) For k ∈ ℕ_0 ∪ {∞}, with the orders read as "w−" ([[sec:iii-i14-1]]),
 
@@ -615,7 +614,7 @@ with (λ, j) ∈ ℰ_♯ for j < K_ι(λ), and u^(λ,j) ∈ H^(k−l,(⟨ℰ^C_I
 λ) + 1 ([[prop:iii-g3-2-4]]; [Hin26, Proposition 9.15]), and l_* bounds both the orders of the poles of N_(ι⁺)(L̄, ·)⁻¹
 and the log orders of ℰ^C_I ([[def:iii-i10-1-1]]); so K_ι(λ) ≤ 2l_* + 1, and the residue of a pole of order K_ι(λ) has
 log powers below K_ι(λ) (as does u^0_λ, a residue of a pole of N_(ι⁺)(L̄, ·)⁻¹). For Re λ ≥ 2: λ ∈ Λ (as Σ ⊂ π_1ℰ_♯) and
-j ≤ 2l_* < K(λ), so (λ, j) ∈ ℰ_♯. For Re λ < 2: spec_(ι⁺)(L̄) ⊂ {Re ≥ 2} ([[lem:iii-g1-4-2]] (a)), so λ ∈ {λ_♯} ∪
+j ≤ 2l_* < k̄(λ), so (λ, j) ∈ ℰ_♯. For Re λ < 2: spec_(ι⁺)(L̄) ⊂ {Re ≥ 2} ([[lem:iii-g1-4-2]] (a)), so λ ∈ {λ_♯} ∪
 π_1ℰ^C_I ([[cor:iii-g3-2-6]]), with K_ι(λ_♯) = 1 and K_ι(z) ≤ k(ℰ^C_I, z) + 1 for z ∈ π_1ℰ^C_I, z ≠ λ_♯ (the pole bound
 of [[prop:iii-g3-2-4]], with m_ι = 0 below 2). And ℰ^♯_+ contains (λ_♯, 0) and, for each z ∈ π_1ℰ^C_I, the extended
 union taken k(ℰ^C_I, z) + 1 times ([[eq:iii-i1-3-2]]), so (λ, j) ∈ ℰ^♯_+ ∩ {Re < 2} ⊂ ℳ
@@ -646,14 +645,14 @@ P_5(h, p⃗, q) is partially polyhomogeneous at ι⁺ to the weight (5 + ε_+)�
 F_0(λ₀) depends only on p⃗_(≤0), smoothly; it vanishes unless λ₀ ∈ π_1𝒢, and its coefficients are compactly supported in
 (ι⁺)°.
 
-*Proof.* Write P_5(h, p⃗, q) = P_4(h″, p⃗), h″ := h + h_(b,rem)(q), and Taylor-expand P_4 at (0, p⃗_(≤0) ⊕ 0) in h″ and
+*Proof.* Write P_5(h, p⃗, q) = P_4(h″, p⃗) ([[eq:iii-i14-1-3]]), and Taylor-expand P_4 at (0, p⃗_(≤0) ⊕ 0) in h″ and
 in the row coordinates W:
 
     P_4(h″, p⃗) = P_4(0, p⃗_(≤0)) + L_(0,p⃗_(≤0)) h″ + Σ_ν D_(W_ν)P_4(0, p⃗_(≤0))(W_ν) + Q,
 
 with Q at least quadratic in (h″, W). Every term of h″ and every h_ν(W_ν), m_ν(W_ν) has ι⁺-order at least λ_♯: u_λ and
 h_(λ₀) as Λ ⊂ {Re ≥ λ_♯} ([[lem:iii-i10-1-2]] (a)); h̃ by its class; the rows by [[lem:iii-i9-2-2]] (b) (with
-[[def:iii-i14-1-3]]); the towers by [[lem:iii-i14-2-2]] (a). Q is of order two in its arguments and their first two
+[[def:iii-i14-1-3]]); the towers by [[lem:iii-i14-2-2]] (a) (at b, [[thm:iii-i15-3-1]]). Q is of order two in its arguments and their first two
 derivatives, each derivative giving a factor ρ_+ at ι⁺, so its u-exponents are at least 2λ_♯ = 3 + 2δ_♯ > 3 + ε_+ (ε_+ <
 δ_♯, [[eq:iii-i9-1-1]]), and it has the weight (5 + 2δ_♯)− > w_+.
 
@@ -666,7 +665,7 @@ and δ*_(g_0,E_C), [[eq:iii-i9-2-3]]), of u-exponent ≥ λ_♯ + 2; and D_(W_ν
 ([[lem:iii-i9-2-4]]; for the rotation rows [[def:iii-i14-1-3]]), so its term of u-exponent λ₀ is L̄[m_ν(W)]_(λ₀).
 Summing gives [[eq:iii-j-2-2]].
 
-The conormal remainders: h̃ and the conormal parts of q have ι⁺-order (3 + ε_+)− ([[lem:iii-i14-2-2]] (a), with 3 + ε_+
+The conormal remainders: h̃ and the conormal parts of q have ι⁺-order (3 + ε_+)− ([[lem:iii-i14-2-2]] (a), at b by [[thm:iii-i15-3-1]], with 3 + ε_+
 for 3 + η_2; S_rem, b_rem give (α + 1)−), which L_(0,p⃗_(≤0)) maps to the weight (5 + ε_+)−. The terms of the rows of
 u-exponent ≥ 3 + ε_+ have the weight w_+ ([[lem:iii-i9-2-6]] (b): the plain weight a_+ + Re λ + 2 − ε). And P_4(0,
 p⃗_(≤0)) is smooth in p⃗_(≤0) and supported in supp dχ_K: there g_0 is a pulled-back Myers–Perry metric, so Ric(g_0) = 0
@@ -701,7 +700,7 @@ c1, e_ν + μ_τ = λ₀, as d_τ = −μ_τ; for s1, whose h̆̄^i has degree 1
 K⁺-order Re e_ν + i; the corrections have u-exponents in λ₀ + ℰ_ind. For s1 the terms i = 0, 1 (ρ³, ρ²) have u-exponent
 λ₀ + 2, and the rest is
 
-    Σ_(i≥2) a_ν^(i) h̆̄^i_s1 = h̄^(≤K)_s1(a_ν″),     a_ν″ = λ₀(λ₀ − 1) t_*^(−λ₀−1)(log t_*)^j + ⋯
+    Σ_(i≥2) a_ν^(i) h̆̄^i_s1 = h̄^(≤K_s1)_s1(a_ν″),     a_ν″ = λ₀(λ₀ − 1) t_*^(−λ₀−1)(log t_*)^j + ⋯
 
 ([[eq:iii-g2-2-5]]). For s0, where a_ν = A_ν with A_ν′ = r_ν ([[def:iii-i9-2-1]]), Σ_(i≥1) A_ν^(i) h̆̄^i_s0 = Σ_i
 r_ν^(i) h̆̄^(i+1)_s0 with r_ν = t_*^(−λ₀)(log t_*)^j. For s2, c0, c1, Σ_i a_ν^(i) h̆̄^i_τ = h̄^((μ_τ),≤K_τ)_τ(a_ν) with
@@ -710,7 +709,7 @@ a_ν = t_*^(−λ₀+μ_τ)(log t_*)^j. Comparing with [[eq:iii-g2-3-1]] of [[th
 with coefficient c_τ(λ₀)W in the top log power; derivatives of (log t_*)^j produce the lower powers; and the terms with
 i > k_(μ_τ) and the dt_*-term have K⁺-order ≥ Re e_ν + k_(μ_τ) + 1 ≥ Re λ₀ + 3 (the table of [[sec:iii-g2-1]]: k_μ ≥ 2 +
 μ, and for s1, k = 3). For the rotation rows the same argument applies with h̆^0_v1 = h_(b₀,v1) = 0
-([[def:iii-i14-1-3]]): Σ_(i≥1) a_ν^(i) h̆̄^i_v1 = h̄^(≤K)_v1(a_ν′) ([[eq:iii-g2-2-5]]), with a_ν′ = −λ₀ t_*^(−λ₀−1)(log
+([[def:iii-i14-1-3]]): Σ_(i≥1) a_ν^(i) h̆̄^i_v1 = h̄^(≤K_v1)_v1(a_ν′) ([[eq:iii-g2-2-5]]), with a_ν′ = −λ₀ t_*^(−λ₀−1)(log
 t_*)^j + ⋯.
 
 (b) T_(ψ,b) = h^((μ),≤k_μ)_(b,τ) ([[def:iii-g2-2-5]]), whose leading part at ∂X is the Minkowski tower of
@@ -771,7 +770,7 @@ commutators with χ_K being supported away from K⁺. As f has no ℐ⁺-expansi
 of [[thm:iii-g1-3-1]] (2) (the construction of [[prop:iii-g3-2-4]] with f of plain ℐ⁺-weight), whose poles lie in
 spec_(ι⁺)(L̄) ⊂ {Re ≥ 2}: below 2, 𝒮_(λ₀) raises no log power, and above 2 it raises it by at most l_*.
 
-In particular no right-hand side f of a step carries the exceptional term v^(1+λ_♯)e_7 at ℐ⁺ ∩ ι⁺ of [[sec:iii-g3-2]],
+In particular no right-hand side f of a step carries the exceptional term v^(1+λ_♯)e₇ at ℐ⁺ ∩ ι⁺ of [[sec:iii-g3-2]],
 and the pole of [[eq:iii-g3-2-2]] at λ_♯ enters the construction only through the datum f_(λ_♯).
 
 **Lemma {#lem:iii-j-2-3}** (The log count.) Every exponent (λ₀, i) of the construction (of [h]_(λ₀), of the rows
@@ -779,10 +778,10 @@ assigned, and of the coefficients of q, shifted by d_ψ) lies in ℰ_♯; the ro
 coefficients of q in 𝒬^∞_J.
 
 *Proof.* By induction over Λ_* in order of real part. The log powers at λ₀ come from: the data u_(λ₀), ≤ 2l_*
-([[lem:iii-j-1-2]]); F_0(λ₀), ≤ L_0 (𝒢, [[def:iii-i10-1-1]]); the corrections of rows and towers chosen at λ < λ₀, ≤
-K(λ) + l_* by induction, as λ₀ ∈ λ + π_1ℰ_ind and the log orders of ℰ_ind are ≤ l_*; and 𝒮_(λ₀) adds at most l_* for Re
-λ₀ ≥ 2 and nothing below 2. For Re λ₀ ≥ 2, λ₀ ∈ Λ has n(λ₀) ≥ n(λ) + 1 for each such λ, so K(λ₀) ≥ K(λ) + (N_* +
-1)(l_* + 1) ≥ K(λ) + 2l_* and K(λ₀) ≥ L_0 + (N_* + 1)(l_* + 1): every log power is ≤ K(λ₀). Below 2: the data lie in ℳ
+([[lem:iii-j-1-2]]); F_0(λ₀), ≤ k̄_0 (𝒢, [[def:iii-i10-1-1]]); the corrections of rows and towers chosen at λ < λ₀, ≤
+k̄(λ) + l_* by induction, as λ₀ ∈ λ + π_1ℰ_ind and the log orders of ℰ_ind are ≤ l_*; and 𝒮_(λ₀) adds at most l_* for Re
+λ₀ ≥ 2 and nothing below 2. For Re λ₀ ≥ 2, λ₀ ∈ Λ has n(λ₀) ≥ n(λ) + 1 for each such λ, so k̄(λ₀) ≥ k̄(λ) + (J_* +
+1)(l_* + 1) ≥ k̄(λ) + 2l_* and k̄(λ₀) ≥ k̄_0 + (J_* + 1)(l_* + 1): every log power is ≤ k̄(λ₀). Below 2: the data lie in ℳ
 ([[lem:iii-j-1-2]]), F_0(λ₀) = 0 (𝒢 ⊂ {Re ≥ 2}), the corrections of terms at exponents in ℳ lie in ℳ + ℰ_ind, which
 below 2 is in ℳ ([[eq:iii-i8-1-1]], [[sec:iii-i12-1]]), and no log is raised. So (λ₀, i) ∈ ℰ_♯. The rows: a row assigned
 in (i) is (τ, λ₀, i) with (λ₀, i) ∈ ℰ_♯ and Re λ₀ ≤ 3 (its rate Re λ₀ + d_τ ≤ 2, d_τ ≥ −1), hence (λ₀, i) ∈ ℰ_par
@@ -852,7 +851,7 @@ the towers are. As U_0 is finite-dimensional, |U_0| ≤ C‖U‖_(𝒟⁰), and 
 *(1), (2)* hold by [[eq:iii-j-2-1]]. *(3)* By linearity in U_1, Φ(U′) − Φ(U) = A(U_0)(0, …, (u′^0, f′), …, 0). In the
 construction with these data, every step below Re λ₀ has u = 0, F_0 = 0 and T = 0, so assigns nothing; at λ₀, f = 0 and
 v = u′_(λ₀), so [h′]_(λ₀) = u′_(λ₀) − R′(λ₀) with R′(λ₀) removing exactly the formal solutions of u′_(λ₀). *(4)* L̄,
-χ_K, χ_ι, the states and the cut-offs are real, conjugation maps the construction at λ₀ to that at λ̄₀, and the data are
+χ_K, χ_ι, the states (at b, [[lem:iii-i15-1-1]] (P3)) and the cut-offs are real, conjugation maps the construction at λ₀ to that at λ̄₀, and the data are
 conjugation-symmetric. ∎
 
 **Remark {#rem:iii-j-2-5}** (Linearisation; [Hin26, Remark 12.4].) Differentiating [[eq:iii-j-2-5]] in U: for U′ ∈ 𝒟^∞,
@@ -1009,10 +1008,12 @@ The results of [[sec:iii-i14-1]]–[[sec:iii-j1-2]] that are stated at b = b₀ 
 parameter b lies in the closed ball ℬ̄_* about b₀ of [[sec:iii-h2-0]], shrunk as in [[lem:iii-i15-1-2]] and
 [[prop:iii-i15-2-5]], with constants and smallness conditions uniform in b ([[thm:iii-i15-3-1]]). The statement at b of
 each of them is obtained by replacing L_(b₀), g_(b₀) near K⁺, the states, towers and companions at b₀ and the index set
-ℰ_ind by those at b, by taking derivatives in b at b, and by treating the v1 terms as in [[ch:s25]]. In detail:
+ℰ_ind by those at b, by taking derivatives in b at b, and by treating the v1 terms as in [[ch:s25]]. In detail, where
+(1) and (3) also record how the results stated above at every b relate to these:
 
-(1) [[def:iii-i14-1-2]] with [[eq:iii-i14-1-4]], [[lem:iii-i14-2-2]]–[[lem:iii-i14-2-5]] and [[rem:iii-i14-3-2]] (2)
-hold at b. The proof of [[lem:iii-i14-2-4]] (c) above is written for every b near b₀; it uses that every coefficient of
+(1) [[lem:iii-i14-2-2]] (a), (c), [[lem:iii-i14-2-3]]–[[lem:iii-i14-2-5]] and [[rem:iii-i14-3-2]] (2) hold at b;
+[[def:iii-i14-1-2]], [[eq:iii-i14-1-4]] and [[lem:iii-i14-2-2]] (b) are stated at b above. The proof of
+[[lem:iii-i14-2-4]] (c) above is written for every b near b₀; it uses that every coefficient of
 q has rate > 2 at every such b. The point of Step 1 of the proof of [[thm:iii-i14-3-1]] that uses L̂_(b₀)(0)∂_b h_(b,v1)
 = 0 needs only that the q-terms have K⁺-order above α_1. At b, L̂_b(0)∂_b h_(b,v1) = −(∂_b L̂_b(0))h_(b,v1) need not
 vanish, but the v1 coefficients of q have rate > 2 + ε_K > α_1 ([[def:iii-i14-1-1]], (G)), so the K⁺-order of L(∂_b

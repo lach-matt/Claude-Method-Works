@@ -1,0 +1,49 @@
+label	source	source_name	note
+ch:s27	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:1	III.K, IV(3), VI.C, VII (parts)	chapter; intro from III.K 14-19 and the S27 entry
+sec:iii-k-0	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:21	III.K section 0	inner radius r_♭ per R0P section 5 (docket68/n1star/BEYOND5-R0-PROOF.md:282); C_♭ for II.C's C′; T_K threshold in III.I (1.2)
+eq:s27-f	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:42	III.K section 0, the two time functions	F(r) ≥ r/4 for r ≥ R_6
+sec:iii-k-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:70	III.K section 1	
+lem:iii-k-1-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:72	III.K Lemma 1.1	(d) with ν_0 = min(1/4, r_♭/8) per R0P (docket68/n1star/BEYOND5-R0-PROOF.md:285)
+eq:iii-k-1-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:74	III.K (1.1)	
+lem:s27-boost-move	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:113	III.K P1.2 text and III.C2 after (3.1): φ_S moves t_IVP by at most C|S|r	private key; derivation written out (the sources cite III.B Lemma 5.2)
+prop:iii-k-1-2	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:96	III.K Proposition 1.2 with the D611 bracket (124) folded	R_ν = ½(r_♭ + 5R₁) per R0P; {t_IVP = −ν} spacelike derived in writing (the content of scrirad5 R5 (iv))
+eq:iii-k-1-2	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:117	III.K (1.2)	
+sec:s27-cover	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:135	III.K proof of P1.2, the cover	moved before IV(3) for the order of dependence
+lem:s27-cover	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:135	III.K proof of P1.2: cover, compact part, slab (D311 bracket at 151 folded)	private key
+sec:iv3-0	docket68/n1star/proof5/PART-IV4-SLAB.md:17	IV(3) section 0	
+lem:iv3-0-1	docket68/n1star/proof5/PART-IV4-SLAB.md:39	IV(3) Lemma 0.1	𝔥_S renames III.B's h_(S_w) to avoid a clash with the initial family
+sec:iv3-1	docket68/n1star/proof5/PART-IV4-SLAB.md:56	IV(3) section 1	
+lem:iv3-1-1	docket68/n1star/proof5/PART-IV4-SLAB.md:58	IV(3) Lemma 1.1	
+sec:iv3-2	docket68/n1star/proof5/PART-IV4-SLAB.md:84	IV(3) section 2	
+thm:iv3-2-1	docket68/n1star/proof5/PART-IV4-SLAB.md:86	IV(3) Theorem 2.1 (D311 at 75, D309 at 103 in place)	
+thm:iv3-2-2	docket68/n1star/proof5/PART-IV4-SLAB.md:128	IV(3) Theorem 2.2	
+cor:iv3-2-3	docket68/n1star/proof5/PART-IV4-SLAB.md:148	IV(3) Corollary 2.3	
+sec:iii-k-6	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:584	III.K section 6	record paragraphs 584-619 and 764-774 dropped
+lem:iii-k-6-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:620	III.K Lemma 6.1 (D621; D626 notation)	scrirad5 R1 replaced by the written inequality chain
+lem:iii-k-6-2	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:693	III.K Lemma 6.2 with the D628/D629 brackets folded (compact-set clause narrowed to the bound near infinity)	scrirad5 R4 (Neumann series) written out; the backward-problem domain X of the D629 bracket is in P1.2's proof
+sec:s27-initial-proof	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:135	III.K proof of Proposition 1.2 (D626 brackets at 189, 194 folded)	private key
+sec:iii-k-2	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:213	III.K section 2	
+def:iii-k-2-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:215	III.K Definition 2.1 ([Hin26] (12.34))	forward key of S23
+eq:iii-k-2-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:217	III.K (2.1)	
+lem:iii-k-2-2	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:221	III.K Lemma 2.2 ([Hin26] Lemma 12.7)	forward key of S23; N (D347/D348) is N_NM
+lem:iii-k-2-3	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:277	III.K Lemma 2.3 ([Hin26] Theorem 12.8, last paragraph), D621/D626 brackets folded (from L6.1 Uses, 679-690)	forward key of S23; issue-2
+sec:iii-k-3	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:332	III.K section 3	c_1 := 1/8 as in II.G Example 3.2
+lem:iii-k-3-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:350	III.K Lemma 3.1 (Step 3 (4))	
+thm:iii-k-3-2	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:387	III.K Theorem 3.2 (Step 3), D304 bracket at 412 folded	II.G Theorem 2.1 (iii) in the amended form = S10 thm:ii-g-2-1 (iii), rem:s10-right-inverses
+sec:iii-k-4	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:422	III.K section 4	
+lem:iii-k-4-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:424	III.K Lemma 4.1	
+prop:iii-k-4-2	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:437	III.K Proposition 4.2 with the D378, D621 brackets (464-466) folded	compact sets from L6.1 (c)
+thm:iii-k-4-3	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:471	III.K Theorem 4.3 ([Hin26] Theorem 13.1)	'conditional on Part IV' dropped (Part IV is proved); issue-1
+rem:iii-k-4-4	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:500	III.K Remark 4.4	
+sec:vi-c-1	docket68/n1star/proof5/PART-VI4-PARAMS.md:16	VI.C section 1, the table (rows w1 per D390/D621, n1 per D621)	rows re-keyed from file:line to results; (G), (E1)-(E4) added: issue-3
+sec:vi-c-2	docket68/n1star/proof5/PART-VI4-PARAMS.md:44	VI.C section 2	
+thm:vi-c-2-1	docket68/n1star/proof5/PART-VI4-PARAMS.md:46	VI.C Theorem 2.1, steps (0)-(6)	VI.C 128-134 kept as one sentence; section 3's enumeration replaced by the fixing of the constants in S14
+sec:s27-class	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:31	VII section 0: the group, the data class, the norm	private section key (S30 carries VII section 0's statement); μ_0 general
+eq:vii-0-1	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:45	VII (0.1)	
+lem:vii-0-1	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:56	VII Lemma 0.1	
+sec:vii-3	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:271	VII section 3 (D621 bracket on 𝒱_1 folded)	
+lem:vii-3-1	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:281	VII Lemma 3.1 with (C3) as amended D608-D626	the census (vii5census, 713 lines) replaced by a structural statement; vii5read Q3 written as the naturality of δ*
+prop:vii-3-2	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:390	VII Proposition 3.2 (D621 bracket at 414 folded)	threshold ε^G_NM stated in the hypothesis (VII 433-434)
+sec:s27-rate	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:427	VII section 4 (427-437, 445-456)	private key
+cor:s27-rate	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:427	VII section 4: the ε_m refinement and the rate (0.2)	private key; for S30
+eq:s27-rate	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:87	VII (0.2) as derived in section 4 (445-456)	

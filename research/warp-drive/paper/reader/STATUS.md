@@ -47,3 +47,5 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | file | written | reading |
 |---|---|---|
 | P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | running |
+| P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | running |
+| P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | running |
