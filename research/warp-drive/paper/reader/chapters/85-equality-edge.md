@@ -963,15 +963,17 @@ and κ(t)^(−α) ≤ (1 + 4πα c_R) κ(v)^(−α) on J, so κ, T0 and T change
 and |Ξ|; log Λ changes by at most 4πλ C κ(v)^α ≤ C, as Λ′/Λ = κ_(N−1) − κ; and x changes by a factor at most 1 + 4πα c_R
 (κ^(−α) ≤ α c_R x), so ν by a bounded factor.
 
-*Case 1.* |σ| ≥ (1 − 1/M) Γ_R|Ξ|Λ − |ê| ≥ Γ_R|Ξ|Λ/2 for λ and x0′ small. Indeed ϵ′ + 1/κ + λ → 0, as ϵ′ ≤ κ^(α−1)
-for every λ. Where T0 ≤ 1, |ν| T0² ≤ |ν| ≤ Γ_R|Ξ|Λ/M, and λ ≪ Λ: off ρ*, Λ ≥ M ν_*/(Γ_R|Ξ|); at ρ*, if x² < Mλ then
-κ ≥ c_*/(Mλ) by (H_*), T0 ≥ c_*/M and Λ ≥ 2^(−(N−1)) T0^(N−2) κ ≫ λ, and if x² ≥ Mλ then Λ ≥ M|ν|/(Γ_R|Ξ|) ≥ c M x² ≥
-c M² λ. Where T0 > 1, the term Λ/κ of ê is small against Γ_R|Ξ|Λ: |Ξ| ≥ min(c_N, |1 − c_N|) when c_N(ρ0) ≠ 1, and at
-c_N = 1, where Ξ = −i/(T + i), Γ_R|Ξ|Λ/(Λ/κ) ≥ Γ_R κ (1 + T²)^(−1/2) ≥ Γ_R/(2√2 λ) for T ≥ 1, the other terms being
+*Case 1.* |σ| ≥ (1 − 1/M) Γ_R|Ξ|Λ − |ê| ≥ Γ_R|Ξ|Λ/2 for λ and x0′ small. Indeed ϵ′ + 1/κ + λ → 0, as ϵ′ ≤ κ^(α−1) for
+every λ. Where T0 ≤ 1, |ν| T0² ≤ |ν| ≤ Γ_R|Ξ|Λ/M, and λ ≪ Λ: off ρ*, Λ ≥ M ν_*/(Γ_R|Ξ|); at ρ*, if x² < Mλ then κ ≥
+c_*/(Mλ) by (H_*), T0 ≥ c_*/M and Λ ≥ 2^(−(N−1)) T0^(N−2) κ ≫ λ, and if x² ≥ Mλ then Λ ≥ M|ν|/(Γ_R|Ξ|) ≥ c M x² ≥ c M² λ.
+Where T0 > 1, the term Λ/κ of ê is small against Γ_R|Ξ|Λ: by [[eq:edge-xi]], |Ξ| ≥ c_N (1 + T²)^(−1/2), so Γ_R|Ξ|Λ/(Λ/κ)
+≥ Γ_R c_N κ (1 + T²)^(−1/2) ≥ Γ_R c_N/(2√2 λ) for T ≥ 1, also where c_N = 1 and Ξ = −i/(T + i); the other terms of ê are
 relative to |Ξ| by [[lem:edge-constraint]]. The phase: arg(Γ_R i^N Ξ Λ) = const + arg Ξ, and |d arg Ξ/dT| ≤ C/(1 + T²)
 with |dT/dv| ≤ c_R λ (2κ)^(1+α), so it moves over J by O(κ^(α−1) + λ^(1−α)); the rest moves arg σ by at most 2
-arcsin(2/M) + o(1), and the total is at most π/6. The pointwise ratio |ε|/|S| ≤ C κ^(2c′) env/(λ³ Γ_R|Ξ|Λ) tends to 0
-once env ≤ λ^(P1): where T0 ≤ 1, Γ_R|Ξ|Λ ≥ cλ, and where T0 > 1, |Ξ|Λ ≥ c κ/T ≥ c/λ. [[lem:edge-two-signs]] (A).
+arcsin(2/M) + o(1), and the total is at most π/6. The pointwise ratio |ε|/|S| ≤ C κ^(2c′) env/(λ³ Γ_R|Ξ|Λ) is small:
+where T0 ≤ 1, Γ_R|Ξ|Λ ≥ cλ and the ratio is at most C λ^(−2c′−4) env, small once env ≤ λ^(P1); where T0 > 1, |Ξ|Λ ≥ c κ/T
+≥ c/λ and the ratio is at most C κ^(2c′+2) env, small for x0′ small by [[lem:edge-kappa]] (e). [[lem:edge-two-signs]]
+(A).
 
 *Case 2.* Λ ≥ 2^(−(N−1)) T0^(N−2) κ and Λ ≤ C|ν| ≤ C, with κ → ∞, so T0 → 0. |σ| ≥ |ν|(1 − 1/M) − |ê| ≥ |ν|/2,
 since λ ≪ |ν|: off ρ* because |ν| ≥ ν_*; at ρ* because x² ≥ Mλ (otherwise, as in Case 1, Λ ≫ λ ≥ x²/M ≥ c|ν|/M,
@@ -989,15 +991,15 @@ here).
 ρ* as in Case 2. The real and imaginary parts of σ move over J by O(|ν| λ(κ^α + |ν′/ν|) + |ν| λ² κ^(1+α)), which is
 o(|ν|) (λ/x ≤ (λ/M)^(1/2) at ρ*). [[lem:edge-two-signs]] (A).
 
-(ii) N ≡ 0 mod 4, ρ0² ≠ 2N − 1 and ρ0 ≠ ρ*. With X := Γ_R c_N Λ/|ν| and ν < 0, Re σ_main = |ν|(X − 1) and Im σ_main =
-2νT0 + Γ_R T Λ = |ν| T0 (X/c_N − 2) + O(|ν| T0 κ^(α−1)). Put η_c := |1 − 2c_N|/4, positive near the edge as c_N(ρ0) ≠
-1/2. If |X − 1| ≥ η_c, |σ_main| ≥ |ν| η_c; if |X − 1| < η_c, then |X/c_N − 2| ≥ |1/c_N − 2| − η_c/c_N = (3/4)|1 −
+(ii) N ≡ 0 mod 4, ρ0² ≠ 2N − 1 and ρ0 ≠ ρ*. With X_c := Γ_R c_N Λ/|ν| and ν < 0, Re σ_main = |ν|(X_c − 1) and Im σ_main =
+2νT0 + Γ_R T Λ = |ν| T0 (X_c/c_N − 2) + O(|ν| T0 κ^(α−1)). Put η_c := |1 − 2c_N|/4, positive near the edge as c_N(ρ0) ≠
+1/2. If |X_c − 1| ≥ η_c, |σ_main| ≥ |ν| η_c; if |X_c − 1| < η_c, then |X_c/c_N − 2| ≥ |1/c_N − 2| − η_c/c_N = (3/4)|1 −
 2c_N|/c_N, so |Im σ_main| ≥ |ν| T0 |1 − 2c_N|/(2c_N). Either way |σ_main| ≥ c₃ |ν| T0, c₃ := min(η_c, |1 − 2c_N|/(2c_N)).
 And |ê| + O(|ν| T0²) ≤ C|ν|[T0² + λ/|ν| + M(T0² + T0 κ^(α−1) + 1/κ + λ)] ≤ c₃ |ν| T0/2 for λ small: T0² ≪ T0; λκ^α = T0
 κ^(α−1) ≪ T0 for every α < 1, which bounds the part λκ^α of ϵ′; 1/κ ≪ T0, as λκ² → ∞; λ ≪ T0; and λ/|ν| ≪ T0, as |ν| ≥
 ν_*. Over J, Re σ_main moves by O(|ν| λ(κ^α + |ν′/ν|)), Im σ_main by O(|ν| λ² κ^(1+α)), and ê by O(λκ)|ê|, by
-[[eq:edge-s]]; against |σ| ≥ c₃ |ν| T0/2 these are O(κ^(α−1) + 1/κ + λκ^α) → 0. [[lem:edge-two-signs]] (A), with m :=
-c₃ |ν| T0 λ³ A |d| env/2 and ε ≤ C κ^(2c′) env² ≤ m/4 once env ≤ λ^(P1) (κ ≤ 1/λ here).
+[[eq:edge-s]]; against |σ| ≥ c₃ |ν| T0/2 these are O(κ^(α−1) + 1/κ + λκ^α) → 0. [[lem:edge-two-signs]] (A) applies,
+as |S| ≥ c₃ |ν| T0 λ³ A |d| env/2 and |ε| ≤ C κ^(2c′) env² ≤ |S|/4 once env ≤ λ^(P1) (κ ≤ 1/λ here).
 
 (iii) N ≡ 0 mod 4, and ρ0² = 2N − 1 or ρ0 = ρ* (with (H_*)): the windows of Case 3 are those of [[prop:l-26]], whose
 hypotheses, (H_N+2), (H_t) and at ρ* (H_*), are those of the theorem in these cases.

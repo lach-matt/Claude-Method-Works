@@ -684,11 +684,11 @@ seed's 𝓜_0 and the forcing term
 
 whose bracket is R_X(δ_m) + (R_X^(g0) − R_X)(ĝ_m) + (the monomials of Π_osc 𝒦_m with two or more oscillating
 factors) + Π_osc 𝒲(m_m, φ_m), R_X^(g0) the operator with g0's coefficients. By (c), (a) at the earlier stages, by (b)
-at stage m
-and |μ − μ0| ≤ C ε², each part is at most C ε_(i+2m+3)(v)²; 𝓜 − 𝓜_0 has coefficients W, χ, m_1, φ_1, μ − μ0, so
-(𝓜 − 𝓜_0) Z_(m+1) is at most C ε². The data differ by (Pol⁺_(g0) − Pol⁺_seed)(·) + Pol⁺(Λ_m(γ_m)) + Pol⁺(D_X δ_m +
-(D_X^(g0) − D_X) ĝ_m + monomials with two oscillating factors), at most C ε² by (e). [[lem:layer-transport]] (b): cost
-i + 2m + 3 = i + 2(m + 1) + 1. The bound on H_(m+1) itself is the proof of (a) with the seed's coefficients.
+at stage m and |μ − μ0| ≤ C ε², each part is at most C ε_(i+2m+3)(v)²; 𝓜 − 𝓜_0 has coefficients W, χ, m_1, φ_1,
+μ − μ0, so (𝓜 − 𝓜_0) Z_(m+1) is at most C ε². The data differ by (Pol⁺_(g0) − Pol⁺_seed)(·) + Pol⁺(Λ_m(γ_m)) +
+Pol⁺(D_X δ_m + (D_X^(g0) − D_X) ĝ_m + monomials with two oscillating factors), at most C ε² by (e).
+[[lem:layer-transport]] (b): cost i + 2m + 3 = i + 2(m + 1) + 1. The bound on H_(m+1) itself is the proof of (a) with
+the seed's coefficients.
 
 *(d).* Ric^H(g_app) is ℱ(X, λ, θ) at θ = v/λ, ℱ := λ⁻² 𝒜_2 + λ⁻¹ 𝒜_1 + 𝒜_0 the two-scale operator on the profile of
 g_app. ℱ − Ric(g0) =: ℱ_p is a smooth function of λ ∈ [0, λ0] and of finitely many jets of the profiles, vanishing when
@@ -733,12 +733,12 @@ linear in the oscillating profiles and with the seed's coefficients, is Re[(𝒯
 T̂ ĝ_(m+1) of [[eq:stage-m]] and the part of 𝒦_m linear in ĝ_m), and the order-m oscillating part of D is Re[(i Pol
 H_(m+1) + D_X H_m) e^(iθ)]; [[lem:stage-data]] (i) solves the latter on Σ_τ0 by i Pol⁺(D_X H_m). (ii) *The means and
 phases have no part of first degree:* this is [[lem:layer-flat]] (b), which rests on (F2). (iii) *The fixed-phase
-rewriting.* By the proof of [[thm:approximant]], g_j is the λ^j coefficient of the means and of Σ_l λ^l ĝ_l(X, θ + φ1
-+ λΨ), Ψ := Σ_(i≥2) λ^(i−2) φ_i; so g_j = m_j + ĝ_j(X, θ + φ1) + T_j, T_j a sum of products of ∂_θ^p ĝ_l (p ≥ 1, l < j)
-with monomials of positive degree in φ_2, …, φ_(j−1). By [[lem:layer-flat]] (b), |m_j|, |φ_i| ≤ C ε²; by (a) there,
-|∂_θ^p ĝ_l| ≤ C ε; so |T_j| ≤ C ε³ and |ĝ_j(θ + φ1) − ĝ_j(θ)| ≤ |φ1| sup |∂_θ ĝ_j| ≤ C ε³; and |ĝ_j − Re[H_j e^(iθ)]| ≤
-C ε² by (c) there. The derivatives follow by Leibniz's rule and [[eq:two-scale-derivative]], with costs at most
-i + 2j + 1. ∎
+rewriting.* By the proof of [[thm:approximant]], g_j is the λ^j coefficient of the means and of the sum
+Σ_l λ^l ĝ_l(X, θ + φ1 + λΨ), Ψ := Σ_(i≥2) λ^(i−2) φ_i; so g_j = m_j + ĝ_j(X, θ + φ1) + T_j, T_j a sum of products of
+∂_θ^p ĝ_l (p ≥ 1, l < j) with monomials of positive degree in φ_2, …, φ_j (for instance T_2 = φ_2 ∂_θ ĝ_1(X, θ + φ1)).
+By [[lem:layer-flat]] (b), |m_j|, |φ_i| ≤ C ε²; by (a) there, the absolute value of ∂_θ^p ĝ_l is at most C ε; so
+|T_j| ≤ C ε³ and |ĝ_j(θ + φ1) − ĝ_j(θ)| ≤ |φ1| sup |∂_θ ĝ_j| ≤ C ε³; and |ĝ_j − Re[H_j e^(iθ)]| ≤ C ε² by (c) there.
+The derivatives follow by Leibniz's rule and [[eq:two-scale-derivative]], with costs at most i + 2j + 1. ∎
 
 **Corollary {#cor:layer-expansion}** (The expansion on the boundary.) At X = (v, r_q(v), x̂), v_s < v ≤ v_♯, with ε :=
 ε_(M*)(v) and θ = v/λ,
@@ -766,8 +766,8 @@ on β_Φ, on r_q − √μ0 = √μ0 ((μ/μ0)^(1/4) − 1) and, with μ′ = (2
 C depending on the quantities of [[sec:layer-setting]] and not on λ, v1 or X.
 
 *Proof.* **1. The region.** R ⊂ Ω ∩ {v ≤ v1}, since τ ≥ τ0. Its face {v + ε_t(τ − τ0) = v1} has conormal α = dv + ε_t dτ,
-with g0⁻¹(α, α) = −2 ε_t − ε_t²(1 + μ/r²) and |α|_e² = (1 + ε_t)² + 1, the Cartesian components being α = (1 + ε_t) dτ
-+ x̂·dx. By [[eq:eq-c1]],
+with g0⁻¹(α, α) = −2 ε_t − ε_t²(1 + μ/r²) and |α|_e² = (1 + ε_t)² + 1, the Cartesian components being
+α = (1 + ε_t) dτ + x̂·dx. By [[eq:eq-c1]],
 
     g_λ⁻¹(α, α) ≤ −4s − 4s²(1 + μ/r²) + s((1 + 2s)² + 1) = −2s + 4s³ − 4s² μ/r² < 0,
 
