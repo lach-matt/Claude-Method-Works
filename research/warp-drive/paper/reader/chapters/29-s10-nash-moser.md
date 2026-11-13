@@ -1298,8 +1298,8 @@ b-operators. If S|_(∂X) ≠ 0, the term (1 − ρ_I)² S𝖶 contributes S|_(�
 In dimension 4 + 1 the stationary models of [[ch:s05]] have coefficients in C^∞(X̄), so the remainder gains a full
 power of ρ_I; [Hin26c, (13.32)] allows P̃ ∈ ρ_I^(1/2) Diff²_b, for coefficients smooth in x_I = ρ_I^(1/2), and notes the
 gain ρ_I for Kerr. [[prop:ii-g1-5-4]] is stated for P̃ ∈ ρ_I^κ Diff²_b(𝒞), κ ∈ (0, 1], with coefficients bounded with
-all their b-derivatives. For the tensor wave operators of [[lem:ii-c-1-3]], S = 0 in the coordinate frame; which
-operators of the linear theory satisfy S|_(∂X) = 0 is examined where [[prop:ii-g1-5-4]] is applied to them.
+all their b-derivatives. For the tensor wave operators of [[lem:ii-c-1-3]], S = 0 in the coordinate frame.
+[[prop:ii-g1-5-4]] is carried as a tool; the stability theory does not apply it.
 
 **Definition {#def:ii-g1-5-2}** (Spaces with a radiation field; [Hin26c, Definition 13.19].) Let χ_I ∈ C^∞([0, ∞)) equal
 1 on [0, 1/4] and 0 on [1/2, ∞). For a ∈ (0, c_0], ζ, b_I, b_+ ∈ ℝ with ζ < b_I and k ∈ ℕ₀,
@@ -1311,8 +1311,8 @@ extended to 𝒞_a as a function independent of ρ_I. If ζ ≥ b_I, the space i
 
 For ζ = 3/2 and bounded t_*, ρ_I^(3/2) u_0 = (t_*/r)^(3/2) (1 + O(t_*/r)) u_0(ρ_+, ω) with ρ_+ = t_*⁻¹ + O(r⁻¹): the
 leading term is r^(−3/2) times a function of (t_*, ω), the *radiation field*. The decomposition is unique when ζ < b_I,
-as ρ_I^ζ ∉ ρ_I^(b_I) L²(dρ_I/ρ_I) near 0. [Hin26c, Definition 13.19] leaves the extension of u_(1,0) off ℐ⁺ unstated;
-here it is extended independently of ρ_I in the coordinates of 𝒞.
+as ρ_I^ζ ∉ ρ_I^(b_I) L²(dρ_I/ρ_I) near 0. [Hin26c, Definition 13.19] leaves unstated how the coefficient on ℐ⁺ (here
+u_0) is extended off ℐ⁺; here it is extended independently of ρ_I in the coordinates of 𝒞.
 
 #### Transport along 𝖶 {#sec:ii-g1-5-2}
 
@@ -1430,7 +1430,7 @@ holds with ℓ := 2n_s and a := c_0 8^(−n_s). ∎
 
 **Remark {#rem:ii-g1-5-5}** (The radiation field of a forward solution.) With [[lem:ii-g1-5-1]], [[prop:ii-g1-5-4]]
 applies in dimension 4 + 1 with κ = 1 to stationary wave-type operators with S|_(∂X) = 0, for β′_I < 5/2; at the level
-of P_0 u ∈ ρ_I^(β′_I+1), the remainder of u after its radiation field r^(−3/2) u_I decays like ρ_I^(β′_I). The proof of
+of P_0 u ∈ ρ_I^(β′_I+1), the remainder of u after its radiation field ρ_I^(3/2) u_0 decays like ρ_I^(β′_I). The proof of
 [Hin26c, Proposition 13.20] integrates the equation by [Hin26, Lemmas 2.12 and 2.23]; [[lem:ii-g1-3-2]] and
 [[lem:ii-g1-5-3]] replace them, and the case distinction in step (iii) follows that proof (b″ against β_+, and the
 transport of the radiation field to a term ρ_+^(3/2) at ι⁺, which the a priori decay at ι⁺ excludes).
