@@ -189,7 +189,7 @@ q′_m) vanish on r < v_start − τ0, and they are smooth. ∎
 
 ### The constraints as an evolution in r {#sec:data-evolution}
 
-On Σ use (r, ω), ω ∈ S³, a ≤ r ≤ b(τ0); a stays the inner radius of Ω. For data (γ, κ) on Σ put Π := γ − |dr|_γ⁻² dr ⊗
+On Σ use (r, ω), ω ∈ S³, a ≤ r ≤ b1 := b(τ0); a stays the inner radius of Ω. For data (γ, κ) on Σ put Π := γ − |dr|_γ⁻² dr ⊗
 dr; on vectors tangent to the spheres {r = const} Π is the induced metric, and Π(γ⁻¹dr, ·) = 0. For U := (α, ϖ, q), with
 α and ϖ functions and q a covector with q(γ⁻¹dr) = 0 (so that q is fixed by its angular components q_A, and q_r =
 −γ^(rA) q_A/γ^(rr)), put, as in [Rac16] (the lapse of the foliation by the spheres, and the mixed and trace parts of κ),

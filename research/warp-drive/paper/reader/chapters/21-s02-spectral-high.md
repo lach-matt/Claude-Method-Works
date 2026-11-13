@@ -1474,7 +1474,7 @@ compact subset of U_1.
 ∫(Va dν + 2a tr((p^♮ − ηq^♮) dμ)) = 0 for real a ∈ C_c^∞(U_1). Let p_η := max spec(p^♮ − ηq^♮), continuous;
 for a ≥ 0 [[lem:i-b-6-2]] gives ∫(Va + 2ap_η) dν ≥ 0. Since η ≥ β and q^♮ > 0, p_η ≤ max spec(p^♮ − βq^♮), and
 β > γ_− gives sup_Γ p_η < ½ν_min; so we can fix κ′ with sup_(Γ(δ_1)) p_η^+/ν_s^♮ < κ′ < ½ (shrinking δ_1;
-p_η^+ := max(p_η, 0)). Take a := a_0(φ_u^♮) a_1(φ_s^♮) ψ(G_(z_0)) with a_0, ψ as before and
+p_η^+ := max(p_η, 0)). Take a := χ_(O′) a_0(φ_u^♮) a_1(φ_s^♮) ψ(G_(z_0)) with a_0, ψ as before and
 a_1(t) := |t|^(−2κ′) f(|t|), f ∈ C_c^∞((δ/2, δ_1)), f ≥ 0, f = 1 on [δ, δ_1/2], f′ ≤ 0 on [δ, ∞), |xf′(x)| ≤ 4 on
 [δ/2, δ]. On supp ν, by [[eq:i-b-6-3]], V|φ_s^♮|^(−2κ′) = −2κ′ν_s^♮|φ_s^♮|^(−2κ′), so
 
@@ -1501,11 +1501,11 @@ which makes it entire in σ; here it is also written as W*W, so that its sign is
 z_0 = 1; for z_0 = −1, q̃_1 below is defined with −τ in place of τ, and the factor z_0 in [[eq:i-b-6-10]] makes the
 absorbing sign the right one.
 
-Let χ_0 ∈ C_c^∞((−1, 1)) equal 1 on [−½, ½] and Υ(σ) := (2π)⁻¹ ∫ e^(−iσs) χ_0(s) ds: Υ is entire,
-∫_ℝ Υ(τ + iη) dτ = χ_0(0) = 1 for every η (shift of contour), and |∂^k Υ(τ + iη)| ≤ C_(k,M) ⟨τ⟩^(−M) e^(|η|)
+Let χ_Υ ∈ C_c^∞((−1, 1)) equal 1 on [−½, ½] and Υ(σ) := (2π)⁻¹ ∫ e^(−iσs) χ_Υ(s) ds: Υ is entire,
+∫_ℝ Υ(τ + iη) dτ = χ_Υ(0) = 1 for every η (shift of contour), and |∂^k Υ(τ + iη)| ≤ C_(k,M) ⟨τ⟩^(−M) e^(|η|)
 (Paley–Wiener). Let q̃_0 ∈ C^∞(T*X̃°), 0 ≤ q̃_0 ≤ 1, with q̃_0 = 0 on Γ(ε_Γ/2) and q̃_0 = 1 off Γ(¾ε_Γ). Put
 
-    a(x; τ, ζ) := (1 − χ_0(|(τ, ζ)|)) |(τ, ζ)| q̃_1(x; τ, ζ),
+    a(x; τ, ζ) := (1 − χ_Υ(|(τ, ζ)|)) |(τ, ζ)| q̃_1(x; τ, ζ),
     q̃_1 := q̃_0(x, ζ/τ) if τ > 0 and (x, ζ/τ) ∈ Γ(ε_Γ),     q̃_1 := 1 otherwise.
 
 q̃_1 is smooth and homogeneous of degree 0 on (τ, ζ) ≠ 0, because q̃_0 = 1 near the boundary of Γ(ε_Γ) and |ζ/τ| is
