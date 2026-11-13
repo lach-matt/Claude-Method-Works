@@ -2065,7 +2065,8 @@ Everything else in [[sec:ii-a-8]] and [[sec:ii-a-9]] is proved from (L3), (L4) a
 #### Estimates with b-regularity {#sec:ii-a-9-2}
 
 **Proposition {#prop:ii-a-9-1}** ([Hin26c, Proposition 3.23].) There is d_0 = d_0(m, 𝗌, N) such that the following
-holds for all k ∈ ℕ_0 and L ∈ C^((d_0;k))_(e3b;b) 𝒫, 𝒫 ⊂ C^∞_b Ψ^m_e3b finite. Let B, G be carried by χ, with
+holds for all k ∈ ℕ_0 and L ∈ C^((d_0;k))_(e3b;b) 𝒫, 𝒫 ⊂ C^∞_b Ψ^m_e3b finite; d_0 depends neither on k and 𝒫 nor on
+B, G and χ, which enter only the constant. Let B, G be carried by χ, with
 WF′(B) ⊂ Ell(G) ∩ Ell(L). If χu ∈ H^((−N;k)) and GLu ∈ H^((𝗌−m;k)), then Bu ∈ H^((𝗌;k)) and
 
     ‖Bu‖_(H^((𝗌;k))_(e3b;b)) ≤ C(‖GLu‖_(H^((𝗌−m;k))_(e3b;b)) + ‖χu‖_(H^((−N;k))_(e3b;b))).                 {#eq:ii-a-9-1}
@@ -2107,7 +2108,8 @@ The d_0 of (L3) and of [[lem:ii-a-8-6]] depends only on the orders and not on th
 [[lem:ii-a-8-6]]), so the same d_0 serves at every k: d_0 does not depend on k. ∎
 
 **Proposition {#prop:ii-a-9-2}** ([Hin26c, Proposition 3.24].) There is d_0 = d_0(m, 𝗌, N) such that the following
-holds for all δ > 0, k ∈ ℕ_0 and operators on ℂ^(N′) of the form
+holds for all δ > 0, k ∈ ℕ_0 and operators on ℂ^(N′) of the form below; d_0 depends neither on k, δ, N′ and the finite
+sets nor on B, E, G and χ, which enter only the constant. The operators are
 
     L = L_0 + L_1 + L_2,   L_0 ∈ Diff^m_e3b ⊗ Id,   L_1 ∈ C^((d_0;k),(2δ,δ,δ))_(e3b;b) 𝒫_m ⊗ Id,
     L_2 ∈ C^((d_0;k))_(e3b;b) 𝒫_(m−1) ⊗ End ℂ^(N′),                                                      {#eq:ii-a-9-2}
@@ -2276,7 +2278,8 @@ are those of [[eq:ii-a-9-7]]. ∎
 
 **Corollary {#cor:ii-a-9-7}** (Tame bound for operators of limited regularity.) Let 𝒫 ⊂ C^∞_b Ψ^m_e3b be finite,
 A ∈ C^((d_0;k))_(e3b;b) 𝒫 with a representation 𝐚, and χ′, χ cut-offs with χ′ carried by χ. With d_0 and d̃ of
-[[prop:ii-a-9-6]] for 𝗌 = 𝗌_0 = 𝗍 − m,
+[[prop:ii-a-9-6]] for 𝗌 = 𝗌_0 = 𝗍 − m, which depend only on 𝗍 and m (not on k, 𝒫, χ′ or χ), and with C_k depending on
+𝒫, χ′ and χ,
 
     ‖χ′Au‖_((𝗍−m;k)) ≤ C_k(‖𝐚‖_((d_0;d̃))‖χu‖_((𝗍;k)) + ‖𝐚‖_((d_0;k))‖χu‖_((𝗍;d̃))).
 

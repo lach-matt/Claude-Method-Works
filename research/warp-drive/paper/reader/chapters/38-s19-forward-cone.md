@@ -265,17 +265,113 @@ b-regularity of the coefficients is k − 2, and the e3b-vector fields are b-vec
 linear in the factors δ, whose norms add up to at most C(|b − b₀| + |S|) + ‖h‖; the other factors are bounded in terms
 of an upper bound for ‖h‖_(𝒳^k). ∎
 
-*The inverse metric.* Smallness enters only through g⁻¹ = (g_b + δ)⁻¹, δ := g − g_b. Write
+*Products on Ω_*.* For k ∈ ℕ₀, H^k_b(Ω_*) is the space of restrictions to the interior of Ω_* of elements of
+H^k_b(M̃) for the density μ_b, with the quotient norm, and wH^k_b(Ω_*) := {u : w⁻¹u ∈ H^k_b(Ω_*)} for a weight
+w = ρ_I^(w_I)ρ_+^(w_+)ρ_K^(w_K), w_I, w_+, w_K ∈ ℝ; likewise wL^∞. 𝒱_0 is a finite set of b-vector fields spanning the b-vector fields over
+C^∞_b on Ω_* (t_*∂_(t_*) and the r∂_(x^i), [[sec:ii-f1-1-1]]). [[cor:std-moser-product]] is stated on ℝⁿ and on
+products ℝ^k × N with N closed; the next lemma carries its part (1) to these spaces, which have the faces 𝓘⁺, ι⁺, K⁺
+at infinity in logarithmic coordinates and the boundary hypersurfaces {r = r_0} and {t^♭ = 1} across which their
+elements are extended.
 
-    (g_b + δ)⁻¹ = Σ_(j≤N) (−g_b⁻¹δ)^j g_b⁻¹ + R_N,        R_N := (−g_b⁻¹δ)^(N+1)(g_b + δ)⁻¹.
+**Lemma {#lem:s19-products}** (Moser's product estimate on Ω_*.) Let k ∈ ℕ₀.
 
-(g_b + δ)⁻¹ is a smooth function of δ for δ pointwise small, which the H^(3,(1,0,0))_b-smallness gives by Sobolev
-embedding; so by Moser's composition estimate (the tame estimates of [[sec:ii-a-9]]), (g_b + δ)⁻¹ − g_b⁻¹ is bounded in
-H^k_b with weights 0, by a constant depending on an upper bound for ‖δ‖_(H^k). The factor (−g_b⁻¹δ)^(N+1) has N + 1
-times the least orders of δ, which are positive at each face; so for N large, R_N lies in H^k_b with weights beyond
-every weight in [[eq:iii-i-3-4]], [[eq:iii-i-3-6]] and [[eq:iii-i-3-7]], and adds no expansion term. The Taylor terms
-are products, handled by [[lem:iii-c-2-1]]. This replaces the Neumann series of [[prop:iii-c-4-4]], whose convergence
-needs smallness in H^k.
+(a) There is C_k such that for u, v ∈ H^k_b(Ω_*) ∩ L^∞(Ω_*), uv ∈ H^k_b(Ω_*) and
+
+    ‖uv‖_(H^k_b) ≤ C_k (‖u‖_(L^∞) ‖v‖_(H^k_b) + ‖u‖_(H^k_b) ‖v‖_(L^∞)).
+
+Applied to w⁻¹u and w′⁻¹v, for weights w and w′, this bounds uv in ww′H^k_b(Ω_*). Applied twice, a product of three
+factors is bounded in H^k_b by (1 + C_k)² times the sum, over the factors, of the H^k_b-norm of one factor times the
+L^∞-norms of the other two.
+
+(b) Let k ≥ 1. A function u ∈ L²(Ω_*, μ_b) lies in H^k_b(Ω_*) if and only if Vu ∈ H^(k−1)_b(Ω_*) for every V ∈ 𝒱_0,
+the derivatives taken as distributions on the interior of Ω_*; and ‖u‖_(L²) + Σ_(V∈𝒱_0) ‖Vu‖_(H^(k−1)_b) is an
+equivalent norm.
+
+(c) Multiplication by an element of C^∞_b is bounded on H^k_b(Ω_*), and ‖u‖_(C^j_b) ≤ C‖u‖_(H^(j+3)_b) for j ∈ ℕ₀.
+
+*Proof.* *Charts.* Near {t^♭ = 1} take the charts of Step 3 of the proof of [[prop:ii-g-3-1]] (for Ω_*,
+[[rem:ii-g-3-2]]), in which t^♭ − 1 is the last coordinate and, at {r = r_0}, a defining function of {r = r_0} the
+first; away from {t^♭ = 1} take those of its Step 4: b-cells in logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto orthants at {r = r_0}. Restricted to
+Ω_*, each chart φ_α maps onto an open subset of an orthant ℝ⁵_q := [0, ∞)^q × ℝ^(5−q), q ≤ 2, whose faces are the
+images of {r = r_0} and {t^♭ = 1}. As there, the family has finite multiplicity, in each chart the b-vector fields and
+the coordinate fields span the same module over the functions uniformly bounded in C^∞, and μ_b is the Lebesgue density
+times a function bounded above and below, uniformly in α. Let χ_α be a partition of unity of Ω_* subordinate to the
+charts, and χ̃_α equal to 1 near supp χ_α, both uniformly bounded in C^∞ in the chart coordinates. Let H̄^k(ℝ⁵_q) be the
+space of restrictions of H^k(ℝ⁵) to the interior of ℝ⁵_q, with the quotient norm, and E the composition of Seeley's
+extension operators across the faces of ℝ⁵_q (Step 2 of that proof), bounded from H̄^k(ℝ⁵_q) to H^k(ℝ⁵) for every k.
+E is also bounded on L^∞: on {x_i < 0} each of its factors is the sum Σ_l c_l f(…, −x_i/ε_l, …) of the proof of
+[[lem:ii-e-1-3]] (b), times a cut-off with values in [0, 1], and Σ_l |c_l| < ∞. As in the paragraph *Estimates* of the
+proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of extension, ‖u‖_(H^k_b(Ω_*)) is equivalent to
+
+    N_k(u) := (Σ_α ‖(φ_α)_*(χ_α u)‖²_(H̄^k(ℝ⁵_q)))^(1/2),
+
+and bounds the same sum with any family uniformly bounded in C^∞ and supported in the charts, χ̃_α for instance, in
+place of χ_α: one inequality is (S3) of [[sec:ii-a-3]] applied to an extension of u of almost minimal norm, and for the
+other Σ_α χ̃_α φ_α^* E((φ_α)_*(χ_α u)) is an extension of u of norm at most C N_k(u).
+
+(a) For k = 0 this is ‖uv‖_(L²) ≤ ‖u‖_(L^∞)‖v‖_(L²). Let k ≥ 1, u_α := (φ_α)_*(χ̃_α u) and v_α := (φ_α)_*(χ_α v). As
+χ̃_α = 1 on supp χ_α, (φ_α)_*(χ_α uv) is the restriction to ℝ⁵_q of (Eu_α)(Ev_α), and Eu_α, Ev_α lie in
+H^k(ℝ⁵) ∩ L^∞(ℝ⁵), with sup-norms at most C‖u‖_(L^∞) and C‖v‖_(L^∞). [[cor:std-moser-product]] (1) on ℝ⁵ gives
+
+    ‖(φ_α)_*(χ_α uv)‖_(H̄^k(ℝ⁵_q)) ≤ C (‖u‖_(L^∞) ‖v_α‖_(H̄^k(ℝ⁵_q)) + ‖u_α‖_(H̄^k(ℝ⁵_q)) ‖v‖_(L^∞)),
+
+with C independent of α. Squaring, summing over α and using the two bounds for N_k gives (a).
+
+(b) Each V ∈ 𝒱_0 maps H^k_b to H^(k−1)_b ((S3)), which gives one direction and one inequality. Conversely let
+u ∈ L² with Vu ∈ H^(k−1)_b for V ∈ 𝒱_0; by induction on k, u ∈ H^(k−1)_b. In a chart each coordinate field is
+∂_i = Σ_(V∈𝒱_0) a_(iV) V with a_(iV) uniformly bounded in C^∞, so ∂_i(φ_α)_*(χ_α u) = (φ_α)_*((∂_iχ_α)u +
+Σ_V χ_α a_(iV) Vu), whose H̄^(k−1)(ℝ⁵_q)-norms have square sum over α at most C(‖u‖_(H^(k−1)_b) +
+Σ_V ‖Vu‖_(H^(k−1)_b))², by the bound above at the order k − 1. On the interior of an orthant, a function in L² whose
+first derivatives lie in H̄^(k−1) lies in H̄^k, with norm at most C times the sum of those norms: the space defined by
+distributional derivatives is that of restrictions, by the boundedness of E (the reduction in the proof of
+[[lem:ii-g-4-1]]). So N_k(u) is bounded as claimed.
+
+(c) An element of C^∞_b is uniformly bounded in C^∞ in each chart, so the first claim follows from the Leibniz rule
+and the equivalence above. The second is [[lem:ii-a-8-8]] for the density μ_b, applied to an extension of almost
+minimal norm. ∎
+
+*The inverse metric.* Components are taken in the frame of dt_*, dx^i, norms of matrices are operator norms, and the
+norm of a tensor in a function space is the sum of those of its components.
+
+**Lemma {#lem:s19-inverse}** (The inverse metric.) Let g_1 be a metric on Ω_* whose components and those of g_1⁻¹ lie
+in C^∞_b, and let ϵ > 0 with ϵ sup|g_1⁻¹| ≤ ½. Let δ be a symmetric 2-tensor on Ω_* with components in C¹_b,
+sup|δ| ≤ ϵ and ‖δ‖_(C¹_b) ≤ B. Then G := (g_1 + δ)⁻¹ exists, sup|G| ≤ 2 sup|g_1⁻¹|, and for every k ∈ ℕ₀ with
+δ ∈ H^k_b(Ω_*),
+
+    ‖G − g_1⁻¹‖_(H^k_b) ≤ C_k ‖δ‖_(H^k_b),
+
+with C_k depending only on k, on B and on finitely many C^∞_b-seminorms of g_1 and g_1⁻¹.
+
+*Proof.* As |g_1⁻¹δ| ≤ ½, g_1 + δ = g_1(I + g_1⁻¹δ) is invertible, G = (I + g_1⁻¹δ)⁻¹g_1⁻¹ with
+|(I + g_1⁻¹δ)⁻¹| ≤ 2, and G has components in C¹_b by Cramer's rule. So Ĝ := G − g_1⁻¹ satisfies
+sup|Ĝ| ≤ 3 sup|g_1⁻¹|. We prove the bound by induction on k. For k = 0, Ĝ = −Gδg_1⁻¹ gives ‖Ĝ‖_(L²) ≤ C‖δ‖_(L²). Let
+k ≥ 1 and δ ∈ H^k_b(Ω_*), and assume the bound at k − 1. For V ∈ 𝒱_0, VG = −G(V(g_1 + δ))G, as G is C¹; with
+G = g_1⁻¹ + Ĝ,
+
+    VĜ = −G(Vδ)G − Ĝ(Vg_1)g_1⁻¹ − g_1⁻¹(Vg_1)Ĝ − Ĝ(Vg_1)Ĝ.
+
+Expanding G = g_1⁻¹ + Ĝ in the first term as well, VĜ is a sum of products of components of g_1⁻¹ and Vg_1, which lie
+in C^∞_b, with one, two or three factors among the components of Ĝ and Vδ, at least one of them. By
+[[lem:s19-products]] (c) and (a) at the order k − 1, each such product is bounded in H^(k−1)_b by C times the
+H^(k−1)_b-norm of one of the factors among Ĝ, Vδ times the L^∞-norms of the others. These L^∞-norms are at most
+3 sup|g_1⁻¹| and CB; and ‖Vδ‖_(H^(k−1)_b) ≤ C‖δ‖_(H^k_b), ‖Ĝ‖_(H^(k−1)_b) ≤ C_(k−1)‖δ‖_(H^(k−1)_b) ≤ C_(k−1)‖δ‖_(H^k_b).
+Hence ‖VĜ‖_(H^(k−1)_b) ≤ C(1 + B)²(1 + C_(k−1))‖δ‖_(H^k_b), and [[lem:s19-products]] (b) gives Ĝ ∈ H^k_b(Ω_*) with
+the bound at k. ∎
+
+Smallness enters only through g⁻¹. In [[prop:iii-i-3-4]] apply [[lem:s19-inverse]] with g_1 := g_b, whose components
+and inverse lie in C^∞(M) ⊂ C^∞_b ([[prop:iii-b-3-6]]), and δ := g − g_b; in [[prop:iii-i-3-3]] apply it with the g_1
+there, smooth on M and Lorentzian on the compact set Ω_*, and δ := h. By [[lem:s19-products]] (c), sup|δ| is at most
+C(|b − b₀| + |S| + ‖h‖_(H^(3,(1,0,0))_b)) ([[lem:iii-i-3-6]]; in [[prop:iii-i-3-3]], C‖h‖_(H^(3,(1,0,0))_b)), which is
+small, and ‖δ‖_(C¹_b) ≤ C‖δ‖_(H⁴_b). So (g_1 + δ)⁻¹ − g_1⁻¹ lies in H^k_b with weights 0, with norm at most
+C_k‖δ‖_(H^k_b), C_k depending on an upper bound for ‖δ‖_(H⁴_b). Write
+
+    (g_1 + δ)⁻¹ = Σ_(j≤N) (−g_1⁻¹δ)^j g_1⁻¹ + R_N,        R_N := (−g_1⁻¹δ)^(N+1)(g_1 + δ)⁻¹.
+
+The factor (−g_1⁻¹δ)^(N+1) has N + 1 times the least orders of δ, which are positive at each face; so for N large,
+R_N lies in H^k_b with weights beyond every weight in [[eq:iii-i-3-4]], [[eq:iii-i-3-6]] and [[eq:iii-i-3-7]]
+([[lem:s19-products]] (a) with weights, and (c)), and adds no expansion term. In [[prop:iii-i-3-3]], on
+U⁺ ∩ {ρ_I ≤ 1}, g_1⁻¹ − g_b⁻¹ = −g_1⁻¹(g_1 − g_b)g_b⁻¹ ∈ ρ_+²ρ_I²C^∞ is part of the background difference counted in its
+proof. The Taylor terms are products, handled by [[lem:iii-c-2-1]]. This replaces the Neumann series of [[prop:iii-c-4-4]], whose convergence needs smallness in H^k.
 
 **Remark {#rem:iii-i-3-5}** ([Hin26, Remark 11.7] in dimension 4 + 1.) g_(b₀) + h and g_(b₀,b,0) + h differ near
 (ι⁺)° by χ_K(g_b − g_(b₀)) ∈ ρ_+²C^∞, which is absorbed into h as (2, 0) ∈ ℰ_+. The same holds for the boost:

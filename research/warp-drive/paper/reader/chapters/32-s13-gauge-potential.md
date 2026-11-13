@@ -1479,6 +1479,88 @@ so its constant coefficient is k! h̆^k; and δ*_(g_b)ω^(≤k) lies in ker D_(g
 *Exponents.* ℳ, ε_Υ and ℰ_ind are those of [[sec:iii-d2-1]]; the indicial roots of P_b do not depend on b
 ([[lem:iii-d-4-1]]). Every exponent below lies in ℳ.
 
+*Dimension 3 + 1.* The comparisons with [Hin26] in [[prop:np-10-29]] (iv) and [[prop:np-10-30]] use the model on
+Minkowski space ℝ^(1+3): the splitting [[eq:iii-a1-2-2]] for 𝕊², which is [Hin26, (2.37b)], Ē of [[lem:iii-d-3-1]] at
+ν = 2, that is with the trace weight 1 and c̄ = r⁻¹dt̄, and ρ, t_*, t̄ as before. On 𝕊² we write κ := l(l + 1).
+
+**Lemma {#lem:s13-dim-four}** (The model in dimension 3 + 1.) Write e := e_Υ, γ := γ_Υ, z := 4eγ² and p := −ι² + ι.
+
+(1) □̄^Υ = −2∂_(t_*)ρ(ρ∂_ρ − 1 − S̄) + (□̄^Υ)^(0) with S̄ of [[lem:iii-d-3-1]], so N_1(ι) = −2(ι − 1 − S̄), which is
+−2(ι − 1 − γ) on the angular components. On (aS, bS, c d_𝕊S), S ∈ 𝒮_l(𝕊²), l ≥ 1, the indicial family of (□̄^Υ)^(0)
+is
+
+               ⎛ p + κ + 1 − γ((1 + e)ι − 2e)   −1 − γ((1 − e)ι + 2e)          −κ(1 + eγ) ⎞
+    N_sl(ι) =  ⎜ −1 + γ((1 − e)ι + 2e)          p + κ + 1 + γ((1 + e)ι − 2e)   κ(1 − eγ)  ⎟ ,
+               ⎝ −2 + 2γ                        2 + 2γ                         p + κ      ⎠
+
+N_s0(ι) is its upper left 2 × 2 block at κ = 0, and N_vl(ι) = p + κ = −(ι + l)(ι − l − 1). Entry by entry these are
+the matrices of [Hin26, Lemma 6.6] (p. 117), and N_1 at v1 is that of [Hin26, p. 134].
+
+(2) det N_s0(ι) = ι(ι − 2)(ι² − 1 − z) and det N_sl(ι) = (l + 2 − ι)(l + ι − 1)Q♮_l(ι²), where
+
+    Q♮_l(s) := s² − (2κ + 1 + z)s + κ(κ + z) = (s − l²)(s − (l + 1)²) + z(κ − s).
+
+(3) Let λ_(s0,1) := (1 + z)^(1/2), and λ_(sl,l) := s♮_1^(1/2), λ_(sl,l+1) := s♮_2^(1/2) with s♮_1 < s♮_2 the roots of
+Q♮_l. For z ≥ 0 the roots are ±λ_(s0,1), 0 and 2 (s0); ±λ_(sl,l), ±λ_(sl,l+1), 1 − l and l + 2 (sl); −l and l + 1
+(vl). At z = 0, λ_(s0,1) = 1 and λ_(sl,l+j) = l + j, and the sl roots −l − 1, −l, 1 − l, l, l + 1, l + 2 are distinct.
+For 0 < z < 40/7, l < λ_(sl,l) < l + 1 < λ_(sl,l+1) < l + 2, and λ_(sl,l+j) = l + j + z/(2(2l + 1)) + O(z²) as z → 0.
+These are the roots λ^Υ of [Hin26, Lemma 6.6], whose parameter e_Υγ_Υ² is z/4; the coefficient 1/(2(2l + 1)) of z is
+the coefficient 2/(2l + 1) of z/4 in [Hin26, p. 117].
+
+(4) Call class roots μ_s0 := −λ_(s0,1) (type s0, range K = 2), μ_(l,j) := −λ_(sl,l+j) (type sl, l = 1, 2, 3, j = 0, 1,
+K = 2), 1 − l (type sl, 2 ≤ l ≤ 5, K = 5 − l) and −l (type vl, 2 ≤ l ≤ 4, K = 4 − l). For 0 < z < 3 each class root μ
+of type τ is simple, and neither μ + 1 nor μ − k, 1 ≤ k ≤ K, is a root of type τ. At z = 3 this still holds for
+μ_s0 = −2, while λ_(s0,1) = 2 is a double s0 root. At z = 0, μ_s0 + 1 = 0 is an s0 root, and at sl
+μ_(l,0) − 1 = μ_(l,1), μ_(l,1) + 1 = μ_(l,0), μ_(l,0) + 1 = 1 − l and 1 − l − k = μ_(l,k−1) for k ≤ min(2, 5 − l);
+at vl no such coincidence occurs for any z.
+
+(5) At vl, N_0(−l − i) = −i(2l + i + 1) and N_1(−l − i + 1) = 2(l + i + γ), so the recursion
+N_0(−l − i)w̄_i = −N_1(−l − i + 1)w̄_(i−1) gives w̄_i = k_iw̄_0 with k_0 = 1 and k_i = k_(i−1)·2(l + i + γ)/(i(2l + i + 1));
+at l = 1, k_1 = 1 + γ/2, as in [Hin26, p. 134].
+
+*Proof.* (1) [[lem:iii-a1-2-1]] holds for every sphere dimension ν: the radial term is −2∂_(t_*)ρ(D − ν/2), the scalar
+part of ᵇ□̄(0) is ρ²(−D² + (ν − 1)D + Δ̸), and the entries ±3/2 of B₁ become ±ν/2. [[lem:iii-d-3-1]] holds for every ν
+with the trace weight 2/ν. At ν = 2 the radial term of □̄^Υ is −2∂_(t_*)ρ(D − 1 − S̄). On sl 1-forms ᵇ□̄(0)
+contributes, as for [[eq:s13-nsl]], −ι² + ι + κ on the first two components (Δ̸S = κS), −ι² + ι + κ − 1 on the third
+(Δ̸dS = (κ − 1)dS, [[eq:iii-a1-1-2]] at ν = 2), and B₁ with the rows (1, −1, −κ), (−1, 1, κ), (−2, 2, 1); and γρ²M_E
+contributes γ times the rows (−(1 + e)ι + 2e, −(1 − e)ι − 2e, −eκ), ((1 − e)ι + 2e, (1 + e)ι − 2e, −eκ), (2, 2, 0). On
+vl, Δ̸V = (κ − 1)V ([[eq:iii-a1-1-2]]), the third diagonal entry of B₁ is 1, and M_E vanishes.
+
+(2) For s0, (p + 1)² − γ²((1 + e)ι − 2e)² − 1 + γ²((1 − e)ι + 2e)² = p(p + 2) − zι(ι − 2), and p = −ι(ι − 1),
+p + 2 = −(ι − 2)(ι + 1). For sl, the change to (u, w, c) of the proof of [[lem:iii-d-4-1]] gives, with P := p + κ,
+
+    M♮ = ((P, −2eγ(ι − 2), −2eγκ), (−2γι, P + 2, −2κ), (2γ, −2, P)),
+    det M♮ = P(P² + 2P − 4κ) + z(P(κ − ι² + 2ι) − 2κ).
+
+Here P² + 2P − 4κ = (P + 1)² − (2l + 1)² = (P − 2l)(P + 2l + 2), with P = −(ι − l − 1)(ι + l),
+P − 2l = −(ι − l)(ι + l − 1) and P + 2l + 2 = −(ι − l − 2)(ι + l + 1); so with s := ι² the first term is
+(l + 2 − ι)(l + ι − 1)(s − l²)(s − (l + 1)²). With Y := κ − ι² + 2ι one has P = Y − ι,
+(l + 2 − ι)(l + ι − 1) = Y + ι − 2 and κ − s = Y − 2ι, and (Y − ι)Y − 2κ − (Y + ι − 2)(Y − 2ι) =
+2Y + 2ι² − 4ι − 2κ = 0; so the second term is z(l + 2 − ι)(l + ι − 1)(κ − s). Finally l² + (l + 1)² = 2κ + 1 and
+l²(l + 1)² = κ².
+
+(3) The list follows from (2) and (1). For z ≥ 0 the discriminant of Q♮_l is (1 + z)² + 4κ > 0, and the sum
+2κ + 1 + z and the product κ(κ + z) of its roots are positive. Q♮_l(l²) = zl, Q♮_l((l + 1)²) = −z(l + 1) and
+Q♮_l((l + 2)²) = 4(l + 1)(2l + 3) − z(3l + 4), positive for z < 40/7 as 4(l + 1)(2l + 3)/(3l + 4) increases in l and
+is 40/7 at l = 1. So l² < s♮_1 < (l + 1)² < s♮_2 < (l + 2)² for 0 < z < 40/7. With (Q♮_l)′(l²) = −(2l + 1) − z and
+(Q♮_l)′((l + 1)²) = 2l + 1 − z, s♮_1 = l² + lz/(2l + 1) + O(z²) and s♮_2 = (l + 1)² + (l + 1)z/(2l + 1) + O(z²), which
+give the expansions. [Hin26, Lemma 6.6] gives (λ^Υ_(sl,l+j))² = κ + ½ + 2eγ² ∓ (κ + (½ + 2eγ²)²)^(1/2), whose sum is
+2κ + 1 + z and whose product is κ² + κz: the roots of Q♮_l.
+
+(4) For 0 < z < 3, λ_(s0,1) ∈ (1, 2), so the s0 roots μ_s0 ∈ (−2, −1), 0, λ_(s0,1) and 2 are distinct, and
+μ_s0 + 1 ∈ (−1, 0), μ_s0 − 1 ∈ (−3, −2) and μ_s0 − 2 ∈ (−4, −3) contain none of them. At sl, by (3),
+μ_(l,1) < −l − 1 < μ_(l,0) < −l < 1 − l < λ_(sl,l) < l + 1 < λ_(sl,l+1) < l + 2, so the roots are simple.
+μ_(l,0) + 1 ∈ (−l, 1 − l), μ_(l,0) − 2 ∈ (−l − 3, −l − 2), μ_(l,1) − 1 ∈ (−l − 3, −l − 2) and
+μ_(l,1) − 2 ∈ (−l − 4, −l − 3) contain no sl root; μ_(l,0) − 1 ∈ (−l − 2, −l − 1) and μ_(l,1) + 1 ∈ (−l − 1, −l)
+could only be μ_(l,1), respectively μ_(l,0), and either means λ_(sl,l+1) = λ_(sl,l) + 1. With x := λ_(sl,l), the
+relations s♮_1 + s♮_2 = 2κ + 1 + z and s♮_1s♮_2 = κ(κ + z) then give x² + x = κ + z/2 and (x² + x)² = κ² + κz, so
+z² = 0. For μ = 1 − l, the numbers μ + 1 = 2 − l and μ − k = 1 − l − k are integers other than 1 − l and l + 2, the
+integer sl roots, and the other sl roots are not integers; for μ = −l (vl), 1 − l and −l − k differ from −l and l + 1.
+At z = 3, λ_(s0,1) = 2 and det N_s0(ι) = ι(ι − 2)²(ι + 2): 2 is double, −2 is simple, and −1, −3, −4 are not roots.
+At z = 0 the roots are integers and the coincidences are read off from (3).
+
+(5) N_0(ι) = −(ι + l)(ι − l − 1) at ι = −l − i, and N_1(ι) = −2(ι − 1 − γ) at ι = −l − i + 1. ∎
+
 *The model states.* The leading terms of the states are the following exact solutions on 4 + 1 Minkowski space, with
 E_Υ at the trace weight 2/3 and c̄ = r⁻¹dt̄. We write e := e_Υ, γ := γ_Υ, and S ∈ 𝒮_1, V ∈ 𝒱_1 as in
 [[eq:iii-d2-1-2]]; V = r²V_𝕊 with V_𝕊 a 1-form on the unit 𝕊³, so that V is (0, 0, ρ⁻¹V_𝕊) in the splitting.
@@ -1491,15 +1573,21 @@ type 0, and in the splitting [[eq:iii-a1-2-2]]
 
     h̄^(0)_s0 = (16e)⁻¹(2 − 5e, −(2 + 3e), 0, 2 − 5e, 0, 4(2 − e)g_𝕊) ≠ 0;
 
-it lies in the kernels of D_ḡRic and δ_(ḡ,Ē)Ḡ. For 0 < z < 4, none of −1, −2, −3, −4 is an s0 root of P_b; −2 is one
+it lies in the kernels of D_ḡRic and δ_(ḡ,Ē)Ḡ. On g_(b_0), with t the static time, t_* := t − r_*,
+ω_s0 := g(∂_t, ·) = −f dt and E_Υ near infinity built from c := r⁻¹dt, the source
+□^Υ(t_*ω_s0) = 2δ_(g,E)G(dt_* ⊗_s ω_s0) is, on (dt, dr),
+
+    (−f′ − 3f/r − 2(2 − e)γ/r,  f⁻¹(f′ + 2γ/r)) = ρ(2eγ − 4γ − 3, 2γ) + ρ³(m_0, 2m_0(γ + 1)) + O(ρ⁵),
+
+with no ρ² term. For 0 < z < 4, none of −1, −2, −3, −4 is an s0 root of P_b; −1 is none for every z > 0, and −2 is one
 at z = 4.
 
 (ii) With B̆ := ω̆̄^((0),1)_s1(S) and W̄_2 := r²(a_2S dx̄⁰ + b_2S dx̄¹) + k_2r³dS,
 (a_2, b_2, k_2) := (24e)⁻¹(4 − 7e, −(4 + 17e), (2/3)(25e − 4)), the polynomial
 t_*²ω̄^(0)_s1(S) + 2t_*B̆ + 2W̄_2 lies in ker □̄^Υ. Its halved symmetric gradient
 h̄²_s1(S) := dt_* ⊗_s B̆ + (δ̄*)^(0)W̄_2 is stationary, homogeneous of degree −1, of scalar type 1, nonzero for S ≠ 0
-and 0 < e < 4/7, and in both kernels. For 0 < z < 20/3, none of −2, −3, −4 is an s1 root of P_b; −2 is one at z = 0
-and −3 at z = 20/3.
+and every e > 0, and in both kernels. For 0 < z < 20/3, none of −2, −3, −4 is an s1 root of P_b; −2 is none for every
+z > 0 and is one at z = 0, and −3 is one at z = 20/3.
 
 (iii) t_*V + k_1|x|V ∈ ker □̄^Υ if and only if k_1 = 1 + 2γ/5. Then
 
@@ -1507,7 +1595,19 @@ and −3 at z = 20/3.
 
 stationary and in both kernels. None of −2, −3, −4 is a v1 root, for every z.
 
-(iv) ι^Υ_(s1,2) = ½(1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2)) = 2 + z/12 + O(z²) and
+(iv) (*Dimension 3 + 1.*) On 3 + 1 Minkowski space, with the trace weight 1, in the splitting [[eq:iii-a1-2-2]] for
+𝕊²: t_*ω̄^(0)_s0 + W̄ ∈ ker □̄^Υ with W̄ := |x|(−dt̄ + β_e d|x|), β_e := (2 − e)/(3e); t_*²ω̄^(0)_s1(S) + 2t_*B̆ + 2W̄_2
+∈ ker □̄^Υ with W̄_2 as in (ii) and (a_2, b_2, k_2) := (10e)⁻¹(2 − 3e, −(2 + 7e), 2(4e − 1)); and t_*V + k_1|x|V ∈ ker □̄^Υ
+if and only if k_1 = 1 + γ/2, and then
+
+    h̄¹_v1(V) := dt_* ⊗_s V + (δ̄*)^(0)(k_1|x|V) = (0, 0, ¼(1 + ½γ)ρ⁻¹V_𝕊, 0, ¼(1 − ½γ)ρ⁻¹V_𝕊, 0),
+
+which is [Hin26, (6.40)]. In both dimensions dt_* ⊗_s ω̄^(0)_s0 has b = −¼, e′ = −½ and its other components 0, and
+dt_* ⊗_s B̆ = (0, 0, 0, −ρ⁻¹S, ½ρ⁻¹d_𝕊S, 0), the values of [Hin26, pp. 132–133]. On Schwarzschild,
+g = −f dt² + f⁻¹dr² + r²g_(𝕊²) with f = 1 − 2M/r, with t_* := t − r_*, c := r⁻¹dt and the trace weight 1, the source
+□^Υ(t_*ω_s0), ω_s0 := −f dt, has on (dt, dr) the ρ¹ term (2eγ − 4γ − 2, 2γ) and the ρ² term (2M, 2M(2γ + 1)).
+
+(v) ι^Υ_(s1,2) = ½(1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2)) = 2 + z/12 + O(z²) and
 ι^Υ_(s0,2) = ½(1 + (9 + 4z)^(1/2)) = 2 + z/3 + O(z²), and ι^Υ_(s1,2) < ι^Υ_(s0,2) for every z > 0. In particular 1 and
 2 lie in the gap (0, ι^Υ_(s1,2)) for z > 0, and 2 is its end at z = 0.
 
@@ -1524,8 +1624,25 @@ So N_s0(−1)w = (3/2 + γ(4eβ_e − 1), 3/2 + γ(4eβ_e + 1)), which equals (3
 4eβ_e = 2 − e. By [[lem:iii-a1-2-1]] (1), (δ̄*)^(0)(ρ⁻¹w) has a = ½w_0, b = −¼(w_0 − w_1), e′ = −½w_1, q = (w_0 − w_1)g_𝕊
 and c = f = 0, and dt_* ⊗_s ω̄ = dx̄¹ ⊗_s ω̄ has b = −¼, e′ = −½; with w_0 − w_1 = β_e this gives the stated
 components. h̄^(0)_s0 = δ̄*(t_*ω̄ + W̄) because δ̄*(t_*u) = t_*δ̄*u + dt_* ⊗_s u and δ̄*ω̄ = 0; it lies in the kernels by
-fact (F2) of the proof of [[prop:iii-d2-3-1]] for ḡ. The s0 roots below 0 are 1 − ι^Υ_(s0,2) = ½ − (9/4 + z)^(1/2),
-which equals −k exactly when z = (k + 2)(k − 1); for k = 1, 2, 3, 4 these are 0, 4, 10, 18.
+fact (F2) of the proof of [[prop:iii-d2-3-1]] for ḡ.
+
+*The source on Tangherlini.* We compute for a static metric g = −f dt² + f⁻¹dr² + r²g_(𝕊^ν), at the trace weight 2/ν,
+so that [[lem:iii-b-6-2]] gives E G h = −γ(2ι_(g⁻¹c)h − e c tr_g h) (its proof uses only (2/ν)(1 − (ν + 2)/2) = −1).
+As ω_s0 is Killing, δ*(t_*ω_s0) = dt_* ⊗_s ω_s0 =: k, and dt_* = dt − f⁻¹dr gives k = −f dt² + dt ⊗_s dr, so
+k_tt = −f, k_tr = ½, k_rr = 0 and tr_g k = 1. Then G k = k − ½g, and δ_g(Gk) = δ_gk, as δ_g g = 0. With
+(δk)_ν = −|g|^(−1/2)∂_μ(|g|^(1/2)k^μ_ν) + ½(∂_νg_αβ)k^(αβ), |g|^(1/2) = r^ν|g_𝕊|^(1/2), k^r_t = f/2, k^t_t = 1,
+k^t_r = −(2f)⁻¹, k^r_r = 0, k^(tt) = −f⁻¹ and k^(tr) = −½, one finds (δk)_t = −r^(−ν)(r^νf/2)′ = −½(f′ + νf/r) and
+(δk)_r = ½(∂_rg_tt)k^(tt) = f′/(2f); the angular components vanish. Next g⁻¹c = −(rf)⁻¹∂_t, so
+ι_(g⁻¹c)k = r⁻¹dt − (2rf)⁻¹dr and E G k = −γ((2 − e)r⁻¹dt − (rf)⁻¹dr). So
+
+    □^Υ(t_*ω_s0) = 2(δk + EGk) = −(f′ + νf/r + 2(2 − e)γ/r)dt + f⁻¹(f′ + 2γ/r)dr.
+
+At ν = 3, f = 1 − m_0ρ² and f′ = 2m_0ρ³, the dt component is (2eγ − 4γ − 3)ρ + m_0ρ³ exactly, and the dr component is
+(2γρ + 2m_0ρ³)(1 − m_0ρ²)⁻¹ = 2γρ + 2m_0(γ + 1)ρ³ + O(ρ⁵).
+
+*Roots.* The s0 roots below 0 are 1 − ι^Υ_(s0,2) = ½ − (9/4 + z)^(1/2), which equals −k exactly when
+z = (k + 2)(k − 1); for k = 1, 2, 3, 4 these are 0, 4, 10, 18. The other s0 roots 0, 3 and ι^Υ_(s0,2) are not
+negative; so −1 is not an s0 root for z > 0.
 
 (ii) By [[eq:iii-d3-1-3]] with Ā_2 = 0, the polynomial lies in the kernel if Ā_0ω̄_s1 = 0, Ā_1ω̄_s1 + Ā_0B̆ = 0 and
 Ā_1B̆ + Ā_0W̄_2 = 0. The first two hold since ω̄_s1 and the boost t_*ω̄_s1 + B̆ are Killing. In the splitting,
@@ -1541,11 +1658,16 @@ N¹(a_2, b_2, k_2) = (24e)⁻¹(0, 96e, −48e) = (0, 4, −2). For instance the
 (24e)⁻¹(−(7/2)(4 − 7e) + (3/2)(4 + 17e) − 2(25e − 4)) = 0, and the second entry of N¹(a_2, b_2, k_2) is
 (24e)⁻¹((5e − 2)(4 − 7e) + (2 + 5e)(4 + 17e) − e(50e − 8)) = (24e)⁻¹ · 96e. So the third relation holds. By
 [[eq:iii-d3-1-2]] for ḡ, δ̄*(t_*²ω̄_s1 + 2t_*B̆ + 2W̄_2) = 2t_*δ̄*(t_*ω̄_s1 + B̆) + 2(dt_* ⊗_s B̆ + (δ̄*)^(0)W̄_2), and
-the first term vanishes; so h̄²_s1 is stationary, and it lies in the kernels by (F2). Its (dx̄¹)² component is
-−ρ⁻¹S from dt_* ⊗_s B̆ plus ½ρD(ρ⁻²b_2S) = −b_2ρ⁻¹S, in all −(1 + b_2)ρ⁻¹S, and 1 + b_2 = (7e − 4)/(24e). For the
-roots: the s1 roots other than 1 − ι^Υ_(s1,j) are 0, 4 and the positive ι^Υ_(s1,j); and 1 − ι = −k exactly when
-ι² − ι = k(k + 1), that is when Q_1(k(k + 1)) = 0. With Q_1(s) = s² − (8 + z)s + 12 + 3z, Q_1(6) = −3z,
-Q_1(12) = 60 − 9z and Q_1(20) = 252 − 17z.
+the first term vanishes; so h̄²_s1 is stationary, and it lies in the kernels by (F2). Its f component, in the
+coefficient of the splitting [[eq:iii-a1-2-2]], is ½ρ⁻¹d_𝕊S from dt_* ⊗_s B̆ = dx̄¹ ⊗_s ρ⁻¹(−S dx̄¹ + r d_𝕊S), plus
+ρ(½d_𝕊(ρ⁻²b_2S) + ¼(D + 1)(ρ⁻²k_2d_𝕊S)) = ρ⁻¹(½b_2 − ¼k_2)d_𝕊S from (δ̄*)^(0)W̄_2 ([[lem:iii-a1-2-1]] (1)); in all
+
+    (½ + ½b_2 − ¼k_2)ρ⁻¹d_𝕊S = (288e)⁻¹(144e − 6(4 + 17e) − (50e − 8))ρ⁻¹d_𝕊S = −((e + 2)/(36e))ρ⁻¹d_𝕊S,
+
+which is nonzero for e > 0 and S ≠ 0. For the roots: the s1 roots other than 1 − ι^Υ_(s1,j) are 0, 4 and the
+positive ι^Υ_(s1,j); and 1 − ι = −k exactly when ι² − ι = k(k + 1), that is when Q_1(k(k + 1)) = 0. With
+Q_1(s) = s² − (8 + z)s + 12 + 3z, Q_1(6) = −3z, Q_1(12) = 60 − 9z and Q_1(20) = 252 − 17z; in particular Q_1(6) ≠ 0
+for z > 0, so −2 is not an s1 root for z > 0.
 
 (iii) V = ρ⁻¹(0, 0, V_𝕊) and |x|V = ρ⁻²(0, 0, V_𝕊). On v1, Ā_0(ρ^a(0, 0, V_𝕊)) = ρ^(a+2)(−a² + 2a + 3)(0, 0, V_𝕊) and
 S̄ = γ on angular components, so Ā_0(k_1|x|V) = −5k_1(0, 0, V_𝕊) and Ā_1V = −2(−1 − 3/2 − γ)(0, 0, V_𝕊)
@@ -1554,16 +1676,42 @@ S̄ = γ on angular components, so Ā_0(k_1|x|V) = −5k_1(0, 0, V_𝕊) and Ā_
 q = ρ⁻¹δ*_𝕊V_𝕊 = 0 (V_𝕊 is Killing on 𝕊³), and dt_* ⊗_s V has f = ½ρ⁻¹V_𝕊; with k_1 this is [[eq:iii-d3-3-3]].
 Stationarity and the kernels follow as in (ii). The v1 roots are −1 and 3.
 
-(iv) ½ + (¼ + s)^(1/2) = ½(1 + (1 + 4s)^(1/2)), and 1 + 4s_(1,1) = 17 + 2z − 2(z² + 4z + 16)^(1/2),
+(iv) The computations of (i)–(iii) hold verbatim with the indicial families of [[lem:s13-dim-four]] (1) and
+N_1(ι) = −2(ι − 1 − S̄). (i): (D − 1)ω̄ = (½, ½, 0), so Ā_1ω̄ = −ρ(1 + γ(1 − e), 1 + γ(3 − e), 0), and
+
+    N_s0(−1) = ( −1 + γ(1 + 3e) , −1 + γ(1 − 3e) ; −1 + γ(3e − 1) , −1 − γ(1 + 3e) ),
+
+so N_s0(−1)w = (1 + γ(3eβ_e − 1), 1 + γ(3eβ_e + 1)), which is (1 + γ(1 − e), 1 + γ(3 − e)) exactly when
+3eβ_e = 2 − e. (ii): −Ā_1B̆ = 2(D − 1 − S̄)(0, −1, 1) = (0, 4 + 4γ, −4 − 2γ), and at l = 1 (κ = 2),
+N_s1(−2) = N⁰ + γN¹ with
+
+    N⁰ = ( −3 , −1 , −2 ; −1 , −3 , 2 ; −2 , 2 , −4 ),
+    N¹ = ( 2 + 4e , 2 − 4e , −2e ; 4e − 2 , −(2 + 4e) , −2e ; 2 , 2 , 0 );
+
+multiplying out, N⁰(a_2, b_2, k_2) = (10e)⁻¹(0, 40e, −40e) = (0, 4, −4) and N¹(a_2, b_2, k_2) = (10e)⁻¹(0, 40e, −20e)
+= (0, 4, −2). For instance the second entry of N¹(a_2, b_2, k_2) is
+(10e)⁻¹((4e − 2)(2 − 3e) + (2 + 4e)(2 + 7e) − 2e(8e − 2)) = (10e)⁻¹ · 40e. (iii): Ā_0(ρ^a(0, 0, V_𝕊)) =
+ρ^(a+2)(−a² + a + 2)(0, 0, V_𝕊) and Ā_1V = −2(−1 − 1 − γ)(0, 0, V_𝕊), so the relation is 4 + 2γ − 4k_1 = 0. The
+components of h̄¹_v1 are those found in (iii), c = ¼k_1ρ⁻¹V_𝕊 and f = (½ − ¼k_1)ρ⁻¹V_𝕊, as δ̄* of
+[[lem:iii-a1-2-1]] (1) does not depend on ν; with k_1 = 1 + γ/2 this is [Hin26, (6.40)] (p. 130). The two products
+are dt_* ⊗_s ω̄ = dx̄¹ ⊗_s (−½dx̄⁰ − ½dx̄¹) and dt_* ⊗_s B̆ = dx̄¹ ⊗_s ρ⁻¹(−S dx̄¹ + r d_𝕊S), which do not involve the
+dimension; [Hin26, p. 132] prints the first as (0, −¼, −½, 0) in its s0 components (a, b, e, p). The Schwarzschild
+source is the formula of the proof of (i) at ν = 2 with f = 1 − 2Mρ and f′ = 2Mρ²: the dt component is
+−2Mρ² − 2ρ(1 − 2Mρ) − 2(2 − e)γρ = (2eγ − 4γ − 2)ρ + 2Mρ², and the dr component is
+(2Mρ² + 2γρ)(1 − 2Mρ)⁻¹ = 2γρ + 2M(2γ + 1)ρ² + O(ρ³).
+
+(v) ½ + (¼ + s)^(1/2) = ½(1 + (1 + 4s)^(1/2)), and 1 + 4s_(1,1) = 17 + 2z − 2(z² + 4z + 16)^(1/2),
 1 + 4(2 + z) = 9 + 4z. The expansions are those of [[lem:iii-d-4-1]]. ι^Υ_(s1,2) < ι^Υ_(s0,2) if and only if
 s_(1,1) < 2 + z, that is 2 − z/2 < (4 + z + z²/4)^(1/2), which holds for z ≥ 4 trivially and for 0 < z < 4 after
-squaring. ∎
+squaring. That (0, ι^Υ_(s1,2)) is an indicial gap for every z > 0 is [[prop:np-10-15]] (i). ∎
 
 **Proposition {#prop:np-10-30}** (The classes without symmetry.) On 4 + 1 Minkowski space, for □̄^Υ:
 
 (i) (*The indicial families.*) On the types s0, sl (l ≥ 1) and vl, Ā_2 = 0, Ā_0 = ρ²N_0(ρ∂_ρ) with det N_0 given by
 [[eq:s13-dets]], and Ā_1 = ρN_1(ρ∂_ρ) with N_1(ι) = −2(ι − 3/2 − S̄), S̄ independent of ι. At vl,
-N_0(ι) = −(ι + l)(ι − l − 2) and N_1(ι) = −2(ι − 3/2 − γ_Υ).
+N_0(ι) = −(ι + l)(ι − l − 2) and N_1(ι) = −2(ι − 3/2 − γ_Υ). In dimension 3 + 1, N_0 is given by
+[[lem:s13-dim-four]] (1), the matrices of [Hin26, Lemma 6.6] entry by entry, N_1(ι) = −2(ι − 1 − S̄), and
+N_1(ι) = −2(ι − 1 − γ_Υ) at v1.
 
 (ii) (*The classes.*) For every l ≥ 1, Q_l(l(l + 1)) = lz, Q_l((l + 1)(l + 2)) = −(l + 2)z and
 Q_l((l + 2)(l + 3)) = (l + 2)(8l + 12 − 3z). So for 0 < z < 20/3 the negative sl roots other than 1 − l,
@@ -1571,21 +1719,33 @@ Q_l((l + 2)(l + 3)) = (l + 2)(8l + 12 − 3z). So for 0 < z < 20/3 the negative 
 −l − 2 < μ_(l,1) < −l − 1, with μ_(l,0) = −l − lz/(2(l + 1)(2l + 1)) + O(z²) and
 μ_(l,1) = −l − 1 − (l + 2)z/(2(l + 1)(2l + 3)) + O(z²). μ_s0 := 1 − ι^Υ_(s0,2) = ½(1 − (9 + 4z)^(1/2))
 = −1 − z/3 + O(z²) lies in (−2, −1) for 0 < z < 4. The sl roots 1 − l and the vl roots −l are roots at every z. For
-0 < z < 4 the roots ≤ 0 of each type are these, together with 0 at s0.
+0 < z < 4 the roots ≤ 0 of each type are these, together with 0 at s0. In dimension 3 + 1 the corresponding roots are
+−(1 + z)^(1/2), −λ_(sl,l) and −λ_(sl,l+1) of [[lem:s13-dim-four]] (3), which are [Hin26]'s −λ^Υ_(s0,1), −λ^Υ_(sl,l)
+and −λ^Υ_(sl,l+1), with first-order coefficient 1/(2(2l + 1)) in z, [Hin26]'s 2/(2l + 1) in its parameter z/4.
 
 (iii) (*The symmetric gradient.*) N(δ̄*(0), ι) is injective on the types sl and vl for l ≥ 2 and every ι ∈ ℂ, on s0
-and s1 for ι ≠ 0, and on v1 for ι ≠ −1.
+and s1 for ι ≠ 0, and on v1 for ι ≠ −1. The same holds in dimension 3 + 1, where these families are
+[Hin26, (2.46a)–(2.46c)] ([[sec:iii-a1-2-4]]).
 
 (iv) (*No resonance.*) Let 0 < z < 4. Call a class root each of μ_s0 (type s0, range K = 2), μ_(l,0) and μ_(l,1)
 (type sl, l = 1, 2, 3, K = 2), 1 − l (type sl, 2 ≤ l ≤ 5, K = 5 − l) and −l (type vl, 2 ≤ l ≤ 4, K = 4 − l). For each
 class root μ of type τ, μ is a simple root of type τ, and neither μ + 2 nor μ − k, 1 ≤ k ≤ K, is a root of type τ.
 The bound 4 is sharp: at z = 4, μ_s0 = −2 and μ_s0 + 2 = 0 is an s0 root. At z = 0 the classes meet at sl:
-μ_(l,0) − 1 = μ_(l,1), μ_(l,1) + 2 = 1 − l, and 1 − l − k = μ_(l,k−1) for k ≤ min(2, 5 − l); never at vl.
+μ_(l,0) − 1 = μ_(l,1), μ_(l,1) + 2 = 1 − l, and 1 − l − k = μ_(l,k−1) for k ≤ min(2, 5 − l); never at vl. In
+dimension 3 + 1 the statement holds for 0 < z < 3 with μ + 1 in place of μ + 2, and the bound 3 is not sharp for the
+class roots: at z = 3 only the s0 root 2 becomes double ([[lem:s13-dim-four]] (4)).
 
 (v) (*The states.*) For each class root μ of type τ with a nonzero indicial solution ρ^μ w̄_0 of the model, the
 recursion N_0(μ − i)w̄_i = −N_1(μ − i + 1)w̄_(i−1), 1 ≤ i ≤ K, has a unique solution of type τ, and
 Σ_(i=0)^k (k!/(k − i)!) t_*^(k−i) ρ^(μ−i)w̄_i ∈ ker □̄^Υ for k ≤ K. At vl, w̄_i = k_i w̄_0 with k_0 = 1 and
-k_i = k_(i−1)(2l + 2i + 1 + 2γ_Υ)/(i(2l + i + 2)); at l = 1, k_1 = 1 + 2γ_Υ/5.
+k_i = k_(i−1)(2l + 2i + 1 + 2γ_Υ)/(i(2l + i + 2)); at l = 1, k_1 = 1 + 2γ_Υ/5. In dimension 3 + 1 the same holds for
+0 < z < 3, with k_i = k_(i−1)·2(l + i + γ_Υ)/(i(2l + i + 1)) at vl and k_1 = 1 + γ_Υ/2 at l = 1.
+
+(vi) (*The case e_Υ = 0.*) Let e_Υ = 0 and γ_Υ ≠ 0, so that z = 0, in dimension 4 + 1 or 3 + 1. (a) For l = 1, 2, 3
+the first step of the recursion of (v) for the root μ_(l,0) = −l, N_0(−l − 1)w̄_1 = −N_1(−l)w̄_0, has no solution:
+N_0(−l − 1) has rank 2 and the right side is not in its range. (b) For l = 2, 3, 4 the first step for the root 1 − l,
+N_0(−l)w̄_1 = −N_1(1 − l)w̄_0, is solvable, and its solutions form a line w̄_1^p + βŵ, ŵ spanning ker N_0(−l). (c) For
+l = 2, 3 the second step for the root 1 − l, N_0(−l − 1)w̄_2 = −N_1(−l)w̄_1, is solvable for exactly one value of β.
 
 *Proof.* (i) is [[eq:iii-d-2-1]], [[lem:iii-d-3-1]] and [[sec:iii-d-4]]; on vl, S̄ acts as γ_Υ and N_0 = p + κ.
 (ii) By [[eq:s13-qfactor]], Q_l(s) = (s − l(l + 1))(s − (l + 1)(l + 2)) + z(κ − s), and κ − l(l + 1) = l,
@@ -1612,7 +1772,44 @@ z = 4*, ½ − (9/4 + 4)^(1/2) = −2. *At z = 0*, μ_(l,0) = −l, μ_(l,1) = �
 ([[sec:iii-a1-2]]), so the recursion has a unique solution. With ω̆^i := ρ^(μ−i)w̄_i, Ā_0ω̆^i = ρ^(μ−i+2)N_0(μ − i)w̄_i
 and Ā_1ω̆^(i−1) = ρ^(μ−i+2)N_1(μ − i + 1)w̄_(i−1), so [[eq:iii-d3-1-3]] holds for the model with Ā_2 = 0. At vl,
 N_0(−l − i) = −i(2l + i + 2) and N_1(−l − i + 1) = 2l + 2i + 1 + 2γ_Υ, which gives the recursion for k_i; at l = 1,
-i = 1 it is (5 + 2γ_Υ)/5. ∎
+i = 1 it is (5 + 2γ_Υ)/5. The statements in dimension 3 + 1 are [[lem:s13-dim-four]], and for (v) the same argument with
+(4)–(5) there; for (iii), the families of [[sec:iii-a1-2-4]] and the proof of [[lem:iii-a1-2-4]] do not use the sphere
+dimension, and apply verbatim on ℝ^(1+3).
+
+(vi) Write γ := γ_Υ, and S̄ = γ((1, 0, 0), (1, 2, 0), (0, 0, 1)) at e_Υ = 0. At z = 0 the sl roots −l − 1, −l and 1 − l
+are simple zeros of det N_0 ([[lem:iii-d-4-1]], [[lem:s13-dim-four]] (3)), so N_0 has rank 2 there: a kernel of
+dimension 2 would make two columns of N_0(ι)C vanish at the root, for a suitable invertible constant C, and det N_0
+would vanish to second order. Hence N_0(ι)x = y is solvable at such a root exactly when y is annihilated by the left
+kernel of N_0(ι), and then its solutions form a line. In dimension 4 + 1, κ = l(l + 2), [[eq:s13-nsl]] gives
+
+    N_0(−l) = ( lγ + 3/2 , lγ − 3/2 , −κ ; −lγ − 3/2 , 3/2 − lγ , κ ; 2γ − 2 , 2γ + 2 , −1 ),
+    N_1(1 − l) = (2l + 1)Id + 2S̄,     N_1(−l) = (2l + 3)Id + 2S̄,
+
+and multiplying out one finds that ŵ := (2l + 1 + 2lγ, 2l + 1 − 2lγ, 4γ) spans ker N_0(−l), w̄_0 := (l, −l, 2) spans
+ker N_0(1 − l), λ := (−(2l + 3 + 2γ), 2l + 3 − 2γ, l(2l + 3)) spans the left kernel of N_0(−l − 1), and
+
+    N_0(−l)(1, 1, 0) = 2γw̄_0,   N_1(1 − l)w̄_0 = (2l + 1 + 2γ)w̄_0,   λ·N_1(−l)ŵ = −16(2l + 1)γ²,
+    λ·N_1(−l)(1, 1, 0) = −(2l + 3 + 2γ)² + (2l + 3 − 2γ)(2l + 3 + 6γ) = −16γ².
+
+(The first holds as the first two columns of N_0(−l) add up to (2lγ, −2lγ, 4γ).) In dimension 3 + 1, κ = l(l + 1),
+[[lem:s13-dim-four]] (1) gives
+
+    N_0(−l) = ( lγ + 1 , lγ − 1 , −κ ; −lγ − 1 , 1 − lγ , κ ; 2γ − 2 , 2γ + 2 , 0 ),
+    N_1(1 − l) = 2l Id + 2S̄,     N_1(−l) = (2l + 2)Id + 2S̄,
+
+and the same holds with ŵ := (l(1 + γ), l(1 − γ), 2γ), the same w̄_0, λ := (−(l + 1 + γ), l + 1 − γ, l(l + 1)),
+N_1(1 − l)w̄_0 = 2(l + γ)w̄_0, λ·N_1(−l)ŵ = −8lγ² and λ·N_1(−l)(1, 1, 0) = −8γ². Write c_1 := 2l + 1 + 2γ in dimension
+4 + 1 and c_1 := 2(l + γ) in dimension 3 + 1.
+
+(a) The class root μ_(l,0) is −l at z = 0, with indicial solution ŵ. The right side −N_1(−l)ŵ pairs with λ to
+16(2l + 1)γ², respectively 8lγ², which is nonzero; so it is not in the range of N_0(−l − 1).
+
+(b) −N_1(1 − l)w̄_0 = −c_1w̄_0 = N_0(−l)(−(c_1/(2γ))(1, 1, 0)); so the solutions are
+w̄_1 = −(c_1/(2γ))(1, 1, 0) + βŵ, β ∈ ℂ.
+
+(c) The right side −N_1(−l)w̄_1 pairs with λ to (c_1/(2γ))(−16γ²) + 16(2l + 1)γ²β = 8γ(2(2l + 1)γβ − c_1) in
+dimension 4 + 1, and to (c_1/(2γ))(−8γ²) + 8lγ²β = 8γ(lγβ − l − γ) in dimension 3 + 1. Each is affine in β with
+nonzero slope, so it vanishes for exactly one β, and for that β alone the second step is solvable. ∎
 
 We collect the root facts used below; all hold for 0 < z ≤ ½.
 

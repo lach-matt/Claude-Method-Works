@@ -83,7 +83,8 @@ metric and (5 + ε_+)− for P_5. The constructions of [[ch:s22]] give the linea
 η_2 in that window, and the linear solutions have the ι⁺-order (3 + ε_+)− of the nonlinear class ([[lem:iii-j1-1-1]]);
 without this the scheme would lose ε_+ − η_2 at ι⁺ at every step.
 
-*Base points.* The black hole parameter b ranges near b₀ = (m₀, 0). The coefficients and the augmented operator
+*Base points.* The black hole parameter b ranges near b₀ = (m₀, 0), over the ball ℬ̄_* of [[sec:s23-base-points]].
+The coefficients and the augmented operator
 ([[def:iii-i14-1-1]]–[[def:iii-i14-1-3]], [[eq:iii-i14-1-4]]), the towers ([[lem:iii-i14-2-1]]), the order of L_b
 h_(b,rem)(q) ([[lem:iii-i14-2-2]] (b)) and the construction of [[sec:iii-j-1]]–[[sec:iii-j-2]] are stated and proved
 at every such b. Where these proofs use at b a fact that this chapter states at b₀, they cite its form at b:
@@ -112,9 +113,10 @@ Everything of [[sec:iii-i12-1]], with w_ψ = 3 + η_2 − 2ε − d_ψ, and of [
 admissible in the sense of [[def:iii-i10-1-3]], where [[thm:iii-i11-4-1]] and [[thm:iii-i12-3-1]] are proved;
 [[def:iii-i13-1-1]] serves the intermediate levels. The δ_+ of [[sec:iii-i12-1]] is taken ≤ η_E := min Re ℰ_ind,
 which is positive by the convention for ℰ_ind of [[ch:s13]]. Then 3 + η_2 + η_E > 3 + ε_+, as
-η_2 > ε_+ − δ_+ ≥ ε_+ − η_E ([[sec:iii-i12-1]]). The class 𝒳 is restricted by two requirements, [Hin26, Remark 11.64 (2)]. The first is ℰ_+ ⊃ (ℰ_♯ ∪ ℰ^♮) ∩ {Re < 3 + ε_+}, which can be imposed
-together with (H1)–(H3) of [[sec:iii-i9-1]], as both sets do not depend on ℰ_+ below 3 + ε_+ ([[lem:iii-i10-1-2]] (b),
-as in [[sec:iii-i12-1]]). The second is
+η_2 > ε_+ − δ_+ ≥ ε_+ − η_E ([[sec:iii-i12-1]]). The class 𝒳 is restricted by two requirements, [Hin26, Remark 11.64
+(2)]. The first is ℰ_+ ⊃ (ℰ_♯ ∪ ℰ^♮) ∩ {Re < 3 + ε_+}, which can be imposed together with (H1)–(H3) of
+[[sec:iii-i9-1]], as both sets do not depend on ℰ_+ below 3 + ε_+ ([[lem:iii-i10-1-2]] (b), as in [[sec:iii-i12-1]]).
+The second is
 
     (H5)     a_+ < 3 + η_2.
 
@@ -405,7 +407,8 @@ h_ν(W_ν), p⃗_3), the sum over the rows other than the motions (the rotation 
 (∂δ*_(g_0,E_C))ϑ_rows, and in the direction b also up to L(∂_b h_(b,rem)(q)b′). This last term has K⁺-order > α_1:
 S_rem and b_rem have the rates (α − 2)− and (α − 1)−, above α_1 < α − 2, every other coefficient of q has
 rate > 2 + ε_K ≥ α − 2 at b₀, by (G) and [[def:iii-i14-1-1]], and L̂_(b₀)(0)∂_b h_(b,v1) = 0 as h_(b₀,v1) = 0, so
-the v1 part has rate ≥ 3. All these terms lie in the class 𝒴(α_1) of [[sec:iii-i8-1]] and are O(|W⃗| + ‖q‖); so do D_(W⃗)P_5 = D_(W⃗)P_4 + Δ_q ([[lem:iii-i14-2-4]] (a); [[lem:iii-i9-2-6]] (b)) and F (the last sentence of
+the v1 part has rate ≥ 3. All these terms lie in the class 𝒴(α_1) of [[sec:iii-i8-1]] and are O(|W⃗| + ‖q‖); so do
+D_(W⃗)P_5 = D_(W⃗)P_4 + Δ_q ([[lem:iii-i14-2-4]] (a); [[lem:iii-i9-2-6]] (b)) and F (the last sentence of
 [[lem:iii-i13-2-2]]). So for every W⃗ there is a unique p⃗′_<(W⃗) ∈ 𝒫_(α_1), affine in W⃗, with u(p⃗′_<(W⃗) ⊕ W⃗) ∈
 𝒵_(α_1). Let 𝒫_0 be the set of these p⃗′: the graph of W⃗ ↦ p⃗′_<(W⃗).
 
@@ -534,9 +537,10 @@ the exclusion sets of (H4) of [[sec:iii-i10-1]]), and a_+ < 3 + η_2 by (H5). Ev
 [[ch:s22]], and in [[sec:iii-i14-2]]–[[sec:iii-i14-3]], is a strict inequality at an admissible level, or the
 membership of f^b_(h,p⃗) in 𝒴_2(α) ([[lem:iii-i9-2-6]] (a)), which becomes 𝒴_2(α−) and is accepted by
 [[lem:iii-i14-2-5]]. In [[sec:iii-i14-2]]–[[sec:iii-i14-3]] the inequalities are a_K > α − 2 for the coefficients in the
-proof of [[lem:iii-i14-2-4]] (c), min(β_k − 2, λ_♯ − 1) + a_K > β_(k+1) in Step 2 of the proof of [[thm:iii-i14-3-1]],
-and Re e_ν + a_K − ε > α for the defects r^ν there (Re e_ν ≥ λ_♯ − 1); each holds with a_K = α − ε for ε small. So [[thm:iii-i14-3-1]] proves for h′ the decay at
-ℐ⁺, ι⁺ and K⁺ that it assumes of h, as [Hin26, Corollary 11.66] does.
+proof of [[lem:iii-i14-2-4]] (c); min(β_k − 2, λ_♯ − 1) + a_K > β_(k+1), β_(k+1) − β_k < a_K − 2 and
+Re e_ν + a_K − ε > α for the defects r^ν (Re e_ν ≥ λ_♯ − 1) in Step 2 of the proof of [[thm:iii-i14-3-1]]. Each holds
+with a_K = α − ε for ε small, as β_(k+1) − β_k < α − 4 and β_(k+1) ≤ α. So [[thm:iii-i14-3-1]] proves for h′ the
+decay at ℐ⁺, ι⁺ and K⁺ that it assumes of h, as [Hin26, Corollary 11.66] does.
 
 (3) *Nonlinear errors.* As in [Hin26], P_5(h, p⃗, q) for general small (h, p⃗, q) is not of the class of F; the
 parameterisation that accounts for this is [[sec:iii-j-1]]–[[sec:iii-j-2]].
@@ -546,15 +550,15 @@ parameterisation that accounts for this is [[sec:iii-j-1]]–[[sec:iii-j-2]].
 Everything of [[sec:iii-i14-1]] is kept, and through it everything of [[ch:s21]] and [[ch:s22]]: α, the constants 0 <
 ε_K < ε_+ < min(δ_♯, ε_ind) of [[eq:iii-i9-1-1]], w_+ = 5 + ε_+, η_2, (H1)–(H5), (C5), (G), Λ, k̄(λ), k̄_0, l_*, J_*,
 ℰ_par, ℰ_♯, ℳ, ℰ_++, 𝒢 = (2, 0) ∪ (2 + ℰ_ind), ℱ = (0, 0) ∪ ℰ_ind, the rows 𝒩 with the rotation rows 𝒩_rot and the
-enlarged 𝒫, the towers T_(ψ,b), ℛ, ℛ′, d_ψ, k_μ, 𝒬, h_(b,rem)(q) and P_5. The black hole parameter b ranges near b₀, and
-p⃗_(≤0) = (S, b − b₀, S^(0)_1), with g_0 = g_(p⃗_(≤0)) ([[eq:iii-i7-1-3]]). From [[ch:s17]]: the spaces
-[[eq:iii-g3-1-2]]–[[eq:iii-g3-3-5]], the inverse [[eq:iii-g3-2-2]] of N_(ι⁺)(L̄, ·) on partially polyhomogeneous spaces,
-spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I), [[cor:iii-g3-3-1]], Res^k_(ι⁺)(L̄, ℰ^C_I, λ), Res_(ι⁺)(L̄, λ) and the map
-[[eq:iii-g3-3-6]]. ℓ_I is the one of the class, with ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]]
-holds, s_C being large by (C1). K_ι(λ) denotes the order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in
-[[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also from [[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions
-([[def:iii-g2-2-3]]), [[thm:iii-g2-3-1]] and [[lem:iii-g2-4-1]]. Two further conditions are imposed, each removing
-finitely many values.
+enlarged 𝒫, the towers T_(ψ,b), ℛ, ℛ′, d_ψ, k_μ, 𝒬, h_(b,rem)(q) and P_5. The black hole parameter b ranges near b₀,
+over the ball ℬ̄_* of [[sec:s23-base-points]], and p⃗_(≤0) = (S, b − b₀, S^(0)_1), with g_0 = g_(p⃗_(≤0))
+([[eq:iii-i7-1-3]]). From [[ch:s17]]: the spaces [[eq:iii-g3-1-2]]–[[eq:iii-g3-3-5]], the inverse [[eq:iii-g3-2-2]] of
+N_(ι⁺)(L̄, ·) on partially polyhomogeneous spaces, spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I), [[cor:iii-g3-3-1]],
+Res^k_(ι⁺)(L̄, ℰ^C_I, λ), Res_(ι⁺)(L̄, λ) and the map [[eq:iii-g3-3-6]]. ℓ_I is the one of the class, with
+ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]] holds, s_C being large by (C1). K_ι(λ) denotes the
+order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in [[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also from
+[[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions ([[def:iii-g2-2-3]]), [[thm:iii-g2-3-1]] and
+[[lem:iii-g2-4-1]]. Two further conditions are imposed, each removing finitely many values.
 
 **Definition {#def:iii-j-g-plus}** (The condition (G⁺).) (G⁺) *No λ ∈ Λ has real part in (3, 3 + ε_+].* Λ does not
 depend on the constants ([[lem:iii-i10-1-2]] (a)), so (G⁺) holds after decreasing ε_+ (with ε_K, η_1, η_2). Every
@@ -1010,8 +1014,9 @@ tame form of the bound of [[thm:iii-j1-2-1]], ‖U′‖_k ≤ C_k(‖f‖_(k+d)
 ### The statements at a base point near b₀ {#sec:s23-base-points}
 
 The results of [[sec:iii-i14-1]]–[[sec:iii-j1-2]] that are stated at b = b₀ hold at every base point whose black hole
-parameter b lies in the closed ball ℬ̄_* about b₀ of [[sec:iii-h2-0]], shrunk as in [[lem:iii-i15-1-2]] and
-[[prop:iii-i15-2-5]], with constants and smallness conditions uniform in b ([[thm:iii-i15-3-1]]). The statement at b of
+parameter b lies in the closed ball ℬ̄_* about b₀ of [[sec:iii-h2-0]], shrunk as in [[ch:s20]] (to a radius at most
+1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]), in [[lem:iii-i15-1-2]] and in [[prop:iii-i15-2-5]], with
+constants and smallness conditions uniform in b ([[thm:iii-i15-3-1]]). The statement at b of
 each of them is obtained by replacing L_(b₀), g_(b₀) near K⁺, the states, towers and companions at b₀ and the index set
 ℰ_ind by those at b, by taking derivatives in b at b, and by treating the v1 terms as in [[ch:s25]]. In detail (items
 (1) and (3) also name the results that are stated above at every b):
@@ -1022,7 +1027,7 @@ each of them is obtained by replacing L_(b₀), g_(b₀) near K⁺, the states, 
 such b. The point of Step 1 of the proof of [[thm:iii-i14-3-1]] that uses L̂_(b₀)(0)∂_b h_(b,v1) = 0 needs only that
 the q-terms have K⁺-order above α_1. At b, L̂_b(0)∂_b h_(b,v1) = −(∂_b L̂_b(0))h_(b,v1) need not vanish, but the v1
 coefficients of q have rate > 2 + ε_K > α_1 ([[def:iii-i14-1-1]], (G)), so the K⁺-order of L(∂_b h_(b,rem)(q)b′) is
-still > 2 + ε_K > α_1.
+still > α_1 (S_rem and b_rem having the rates (α − 2)− and (α − 1)−).
 
 (2) [[thm:iii-i14-3-1]] holds at b in the form of [[prop:iii-i15-2-5]]: the p⃗′ there is unique among the parameters
 whose rotation coordinates are the assigned ones ([[rem:iii-i15-2-6]]), and at b₀ it is the p⃗′ of [[thm:iii-i14-3-1]]

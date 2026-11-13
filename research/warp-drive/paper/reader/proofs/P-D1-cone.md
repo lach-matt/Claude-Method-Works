@@ -121,9 +121,8 @@ its maximum on [0, ∞) at y = 3α/(4γ), equal to 27α⁴/(256γ³) ≤ 2.2097.
 w ≤ (8/9)(9.473 × 10⁻⁴)(2.3557) ≤ 1.99 × 10⁻³. At the second seed, λ² = 1/10 and the polynomial part of g is
 (1 − a²/10) y⁴ + ((a² + β²)/10) y³, whose derivative y² (4(1 − a²/10) y + 3(a² + β²)/10) is positive on (0, 1]
 because 1 − a²/10 < 0 and 4(1 − a²/10) + 3(a² + β²)/10 ≥ 4 − a²/10 > 0. So the polynomial part is at most its value
-1 + β²/10
-at y = 1, g ≤ 1 + β²/10 + (2aβ/10)(0.23803) ≤ 1.0152, and w ≤ (8/9)(9.473 × 10⁻⁴)(1.0152) ≤ 8.55 × 10⁻⁴. Finally
-s = (3f²/4) w ≤ (2f²/3)(A² + B²) = (2/3) r^(−3) σ⁶ (σ² + λ² (aκ − 3fσ/(4r))²) ≤ (2/3) r_s^(−3) g, with
+1 + β²/10 at y = 1, g ≤ 1 + β²/10 + (2aβ/10)(0.23803) ≤ 1.0152, and w ≤ (8/9)(9.473 × 10⁻⁴)(1.0152) ≤ 8.55 × 10⁻⁴.
+Finally s = (3f²/4) w ≤ (2f²/3)(A² + B²) = (2/3) r^(−3) σ⁶ (σ² + λ² (aκ − 3fσ/(4r))²) ≤ (2/3) r_s^(−3) g, with
 r_s^(−3) ≤ 9.294 × 10⁻⁴; this gives s̄. ∎
 
 ### The approximant {#sec:cone-approximant-def}
@@ -139,9 +138,9 @@ C_(ij), 0 ≤ i ≤ N_r, 0 ≤ j ≤ 28, be the decimal numbers of [[sec:cone-ta
 
 The approximant is
 
-               ⎧ r                                              for 10 ≤ r ≤ r_s,
-    R_app :=   ⎨ S(r, x) + a(x) + b(x)(r − r_s)                 for r_s ≤ r ≤ r_e,             {#eq:cone-approximant}
-               ⎩ R_app(r_e, x) + ∂_rR_app(r_e, x)(r − r_e)      for r ≥ r_e,
+               ⎧ r                                                  for 10 ≤ r ≤ r_s,
+    R_app :=   ⎨ S(r, x) + a(x) + b(x)(r − r_s)                     for r_s ≤ r ≤ r_e,
+               ⎩ R_app(r_e, x) + (∂_rS(r_e, x) + b(x))(r − r_e)     for r ≥ r_e,             {#eq:cone-approximant}
 
 and g_app denotes the data (R_app, P, Q, W) on the cone.
 
@@ -178,8 +177,8 @@ On [r_s, r_e] × [−1, 1] put
 with H as in [[eq:cone-w]]. By [[lem:cone-generator]], Ric_vv[g_app] = −(3f²/(4R_app)) ℰ wherever R_app ≠ 0.
 
 **Lemma {#lem:cone-structure}** (Structure of G.) (a) For each r ∈ [r_s, r_e], G(r, ·) is a polynomial of degree at
-most 30. (b) For each x ∈ [−1, 1], (1 + x²) ℓ^(−2) ∂_t²S is a polynomial in t of degree at most N_r − 2, and F is
-the restriction to t ∈ [−1, 1] of a function holomorphic in t on the set {t : Re(c + ℓt) > 1}.
+most 30. (b) For each x ∈ [−1, 1], (1 + x²) ℓ^(−2) ∂_t²S is a polynomial in t of degree at most N_r − 2, and H and
+F are the restrictions to t ∈ [−1, 1] of functions holomorphic in t on the set {t : Re(c + ℓt) > 1}.
 
 *Proof.* (a) S is a polynomial of degree 28 in x, hence so are ∂_t²S, a, b and R_app(r, ·); H is a polynomial of
 degree 2 in x. (b) The first statement is clear. For the second, r ↦ v(r) extends holomorphically to Re r > 1 as
@@ -231,31 +230,66 @@ The nodes of the grid are
 
 with n := 40 at the first seed and n := 64 at the second.
 
-**Lemma {#lem:cone-nodes}** (Values at the nodes.) For 0 ≤ k ≤ n and 0 ≤ l ≤ 30, |G(r_k, x_l)| ≤ ε_k, where ε_k is
-the entry of row k of [[sec:cone-table-n1]] (first seed) or [[sec:cone-table-n2]] (second seed). In particular
-|G(r_k, x_l)| ≤ ε_* at every node, with ε_* = 1.5 × 10⁻⁸ at the first seed and ε_* = 7.4 × 10⁻⁸ at the second.
+**Lemma {#lem:cone-nodes}** (Values at the nodes.) For 0 ≤ k ≤ n and 0 ≤ l ≤ 30, |G(r_k, x_l)| ≤ ε_*, with
+ε_* = 1.5 × 10⁻⁸ at the first seed and ε_* = 7.4 × 10⁻⁸ at the second. More finely, |G(r_k, x_l)| ≤ ε_k for each k,
+where ε_k is the entry of row k of [[sec:cone-table-n1]] (first seed) or [[sec:cone-table-n2]] (second seed).
 
-*Proof.* Each row is a finite evaluation, which a reader can repeat by hand. At a node, T_i(t_k) = cos(ikπ/n) and
-T_j(x_l) = cos(jlπ/30); with ψ := kπ/n,
+*Proof.* Write G = G₁ + F with G₁ := (1 + x²) ℓ^(−2) ∂_t²S, as in [[eq:cone-g]]. At a node, T_i(t_k) = cos(ikπ/n)
+and T_j(x_l) = cos(jlπ/30); with ψ := kπ/n,
 
     T_i″(cos ψ) = (i cos ψ sin(iψ) − i² sin ψ cos(iψ))/sin³ψ   (0 < k < n),      T_i″(±1) = (±1)^i i²(i² − 1)/3.
 
-So G(r_k, x_l) = (1 + x_l²) ℓ^(−2) Σ_(i,j) C_(ij) T_i″(t_k) T_j(x_l) + (4/9) H(r_k, x_l) R_app(r_k, x_l) is a finite
-sum of products of the tabulated coefficients with values of sin, cos, ln and square roots at explicit points:
-H(r_k, x_l) by [[eq:cone-data]] and [[eq:cone-w]], R_app(r_k, x_l) by [[eq:cone-approximant]] and the formulas for a_j
-and b_j. The two terms of G are at most 3.1 × 10⁻² (first seed) and 1.5 × 10⁻² (second seed) in modulus, and they
-cancel. Evaluated at the 31 points x_l, they give the moduli whose largest value, rounded up, is the entry ε_k. Only
-ε_* is used below; to confirm |G(r_k, x_l)| ≤ ε_* at a node it suffices to evaluate the two terms with absolute error
-below 10⁻⁹. ∎
+By the definitions of a and b, R_app(r, x) = r + S(r, x) − S(r_s, x) − (r − r_s) ∂_rS(r_s, x) on [r_s, r_e], and
+r_k − r_s = ℓ(1 + t_k), ∂_rS = ℓ^(−1) ∂_tS, T_i′(−1) = (−1)^(i−1) i². So at the node (r_k, x_l)
 
-We use two results on polynomial interpolation in the Chebyshev points cos(kπ/n), 0 ≤ k ≤ n. For a continuous g on
-[−1, 1], I_n g denotes the polynomial of degree at most n that equals g at these n + 1 points; I_n g = g when g is a
-polynomial of degree at most n, and I_n is linear.
+    G₁ = (1 + x_l²) ℓ^(−2) Σ_(i,j) C_(ij) T_i″(t_k) T_j(x_l),        F = (4/9) H(r_k, x_l) (r_k + D_k(x_l)),
+    D_k(x) := Σ_(i,j) C_(ij) (cos(ikπ/n) − (−1)^i + (−1)^i i² (1 + t_k)) T_j(x),
 
-- (I1) [Tre19, Theorem 15.2]: the Lebesgue constant Λ_n of these points, the norm of I_n on C[−1, 1], satisfies
-  Λ_n ≤ (2/π) ln(n + 1) + 1. So |I_n g| ≤ Λ_n max_k |g(cos(kπ/n))| on [−1, 1].
-- (I2) [Tre19, Theorem 8.2]: if g is analytic in the open region bounded by the ellipse of [[lem:cone-ellipse]] with
-  parameter ϱ > 1, and |g| ≤ M there, then |g − I_n g| ≤ 4M ϱ^(−n)/(ϱ − 1) on [−1, 1].
+where H(r_k, x_l) is given by [[eq:cone-data]] and [[eq:cone-w]] through values of sin, cos, ln and square roots at
+r_k. Each node value is thus a finite sum of products of the tabulated coefficients with cosines of rational
+multiples of π, together with one value of H. Arranged as Σ_j T_j(x_l) Σ_i (…), all node values of a seed take about
+2 × 10⁵ multiplications at the first seed and 4 × 10⁵ at the second. At the nodes, |G₁| and |F| are at most
+3.1 × 10⁻² at the first seed and 1.5 × 10⁻² at the second, and they cancel. At the end nodes k = 0 and k = n, where
+φ = φ′ = 0, H = F = 0 and G = G₁.
+
+*The data fix the node values to within 10⁻¹⁶.* The coefficients C_(ij) are exact decimals: they define S. Besides
+them and the angles, G₁ depends only on ℓ, and F only on r_k = c + ℓ t_k. The twenty-decimal values of c and ℓ in
+[[sec:cone-tables]] give ℓ to within 5 × 10⁻²¹, which changes G₁ by less than 10⁻²¹ (as |G₁| ≤ 3.1 × 10⁻² and
+ℓ > 0.74), and r_k to within 10⁻²⁰. For F, put Φ(r) := (4/9) H(r, x_l)(r + D_k(x_l)), so that F = Φ(r_k). By
+[[lem:cone-structure]] (b) and [[lem:cone-ellipse]] (iii) and (v), t ↦ H(c + ℓt, x_l) is holomorphic on a
+neighbourhood of E_ϱ and bounded there by 4Ā². Put δ_ϱ := (ϱ + ϱ^(−1))/2 − 1, which is 1/4 at the first seed and
+1/12 at the second. For real t within δ_ϱ/2 of [−1, 1], every point of the disc of radius δ_ϱ/2 about t lies within
+δ_ϱ of a point of [−1, 1], so the sum of its distances to ±1 is at most 2 + 2δ_ϱ = ϱ + ϱ^(−1); the disc therefore
+lies in E_ϱ, and Cauchy's estimate gives |∂_tH| ≤ 8Ā²/δ_ϱ. Since
+r_k + D_k(x_l) = R_app(r_k, x_l), whose modulus is at most R̄ ([[lem:cone-ellipse]] (iv)), for real r within ℓδ_ϱ/2
+of r_k
+
+    |Φ′(r)| ≤ (4/9)(ℓ^(−1) (8Ā²/δ_ϱ)(R̄ + 1) + 4Ā²) = (16/9) Ā² (2(R̄ + 1)/(ℓ δ_ϱ) + 1) ≤ 2.3 × 10³
+
+at both seeds, so the error in r_k changes F by less than 3 × 10⁻¹⁷.
+
+*The precision each bound needs.* If G₁ and F are known to within e at a node, G is known to within 2e, and
+|G| ≤ ε follows as soon as the approximate value has modulus at most ε − 2e; this is the case whenever
+|G| + 4e ≤ ε. The largest |G| at the nodes is attained at the end nodes: it is below 1.4439 × 10⁻⁸ at the first seed
+(k = 0) and below 7.3612 × 10⁻⁸ at the second (k = 64), so its margins to ε_* exceed 5.6 × 10⁻¹⁰ and 3.8 × 10⁻¹⁰.
+At the interior nodes |G| ≤ 4.3 × 10⁻⁹ (first seed) and |G| ≤ 2.7 × 10⁻⁸ (second). So ε_* is confirmed at every
+node with e = 5 × 10⁻¹¹, and at the interior nodes already with e = 10⁻⁹. The entries ε_k are the row maxima of |G|
+rounded up to two significant digits. The smallest margin ε_k − max_l |G(r_k, x_l)| is 1.3 × 10⁻¹⁴ at the first seed
+(k = 19) and 1.6 × 10⁻¹⁴ at the second (k = 32), so every ε_k is confirmed with e = 3 × 10⁻¹⁵, that is, with G₁ and
+F to about fourteen significant digits. The data allow this, by the previous paragraph. Two node values of each
+seed, one at an end node and one where G₁ and F are largest, are printed with the tables as checkpoints. ∎
+
+We use two results on polynomial interpolation in the Chebyshev points ξ_k := cos(kπ/n), 0 ≤ k ≤ n. For a
+continuous g on [−1, 1], I_n g denotes the polynomial of degree at most n that equals g at these n + 1 points;
+I_n g = g when g is a polynomial of degree at most n, and I_n is linear. In Lagrange form I_n g = Σ_k g(ξ_k) L_k,
+where L_k is the polynomial of degree n with L_k(ξ_k) = 1 and L_k(ξ_m) = 0 for m ≠ k, and the Lebesgue constant of
+the points is Λ_n := max_(x∈[−1, 1]) Σ_k |L_k(x)| [Tre19, (15.2)–(15.4), p. 108]. So
+|I_n g| ≤ Λ_n max_k |g(ξ_k)| on [−1, 1].
+
+- (I1) [Tre19, Theorem 15.2, (15.8a), p. 109]: Λ_n ≤ (2/π) ln(n + 1) + 1.
+- (I2) [Tre19, Theorem 8.2, (8.3), p. 57]: if g is analytic in [−1, 1] and analytically continuable to the open
+  region bounded by the ellipse of [[lem:cone-ellipse]] with parameter ϱ > 1, where |g| ≤ M, then
+  |g − I_n g| ≤ 4M ϱ^(−n)/(ϱ − 1) on [−1, 1], for every n ≥ 0.
 
 In particular Λ_30 ≤ 3.19, Λ_40 ≤ 3.37 and Λ_64 ≤ 3.66.
 
@@ -266,16 +300,16 @@ In particular Λ_30 ≤ 3.19, Λ_40 ≤ 3.37 and Λ_64 ≤ 3.66.
 and ℰ̄ ≤ 1.7 × 10⁻⁷ at the first seed and ℰ̄ ≤ 8.7 × 10⁻⁷ at the second.
 
 *Proof.* The first inequality holds because 1 + x² ≥ 1. Fix r ∈ [r_s, r_e]. By [[lem:cone-structure]] (a), G(r, ·)
-is a polynomial of degree at most 30, so it equals its interpolant in the points x_l, and by (I1) with n = 30,
-|G(r, x)| ≤ Λ_30 max_l |G(r, x_l)|. Now fix l and put g_l(t) := G(c + ℓt, x_l) for t ∈ [−1, 1]. By [[eq:cone-g]],
+is a polynomial of degree at most 30, so it equals its interpolant in the points x_l, and by the Lagrange form with
+n = 30, |G(r, x)| ≤ Λ_30 max_l |G(r, x_l)|. Now fix l and put g_l(t) := G(c + ℓt, x_l) for t ∈ [−1, 1]. By [[eq:cone-g]],
 g_l = P_l + F_l, where P_l := (1 + x_l²) ℓ^(−2) ∂_t²S(·, x_l) is a polynomial of degree at most N_r − 2 ≤ n and
 F_l(t) := F(c + ℓt, x_l). So I_n P_l = P_l and g_l − I_n g_l = F_l − I_n F_l. By [[lem:cone-structure]] (b) and
 [[lem:cone-ellipse]], F_l is holomorphic on a neighbourhood of E_ϱ (whose points have Re(c + ℓt) ≥ r_− > 1) and
-bounded there by M, so (I2) gives |F_l − I_n F_l| ≤ 4M ϱ^(−n)/(ϱ − 1). By (I1) and [[lem:cone-nodes]],
-|I_n g_l| ≤ Λ_n max_k |g_l(t_k)| ≤ Λ_n ε_*. Hence |g_l| ≤ Λ_n ε_* + 4M ϱ^(−n)/(ϱ − 1) on [−1, 1], for every l,
-and the bound on G follows. At the first seed 4M ϱ^(−n)/(ϱ − 1) = 4(192.3) 2^(−40) ≤ 7.0 × 10⁻¹⁰ and
-ℰ̄ ≤ 3.19 (3.37 × 1.5 × 10⁻⁸ + 7.0 × 10⁻¹⁰) ≤ 1.7 × 10⁻⁷. At the second, 8(7.878)(2/3)^64 ≤ 3.4 × 10⁻¹⁰ and
-ℰ̄ ≤ 3.19 (3.66 × 7.4 × 10⁻⁸ + 3.4 × 10⁻¹⁰) ≤ 8.7 × 10⁻⁷. ∎
+bounded there by M, so (I2) gives |F_l − I_n F_l| ≤ 4M ϱ^(−n)/(ϱ − 1). By the Lagrange form and
+[[lem:cone-nodes]], |I_n g_l| ≤ Λ_n max_k |g_l(t_k)| ≤ Λ_n ε_*. Hence |g_l| ≤ Λ_n ε_* + 4M ϱ^(−n)/(ϱ − 1) on
+[−1, 1], for every l, and the bound on G follows. At the first seed 4M ϱ^(−n)/(ϱ − 1) = 4(192.3) 2^(−40) ≤
+7.0 × 10⁻¹⁰ and ℰ̄ ≤ 3.19 (3.37 × 1.5 × 10⁻⁸ + 7.0 × 10⁻¹⁰) ≤ 1.7 × 10⁻⁷. At the second,
+8(7.878)(2/3)^64 ≤ 3.4 × 10⁻¹⁰ and ℰ̄ ≤ 3.19 (3.66 × 7.4 × 10⁻⁸ + 3.4 × 10⁻¹⁰) ≤ 8.7 × 10⁻⁷. ∎
 
 *Proof of [[prop:cone-residual]].* Let W̄ be as in [[lem:cone-w]] and R̄ as in [[lem:cone-ellipse]] (iv), which
 bounds R_app also for real t ∈ [−1, 1] ⊂ E_ϱ. On [r_s, r_e] × [−1, 1], ∂_r²R_app = ℰ − w R_app, so by
@@ -308,10 +342,16 @@ ends are
     δ^s_j := ℓ^(−2) Σ_i (−1)^i (i²(i² − 1)/3) C_(ij),      δ^e_j := ℓ^(−2) Σ_i (i²(i² − 1)/3) C_(ij).
 
 As |T_j| ≤ 1 on [−1, 1], the jumps are at most Σ_j |δ^s_j| and Σ_j |δ^e_j|. By [[sec:cone-table-jumps]] these are at
-most 2.55 × 10⁻⁸ and 2.72 × 10⁻⁸ at the first seed, and 6.84 × 10⁻⁸ and 7.29 × 10⁻⁸ at the second. ∎
+most 2.56 × 10⁻⁸ and 2.72 × 10⁻⁸ at the first seed, and 6.85 × 10⁻⁸ and 7.29 × 10⁻⁸ at the second. ∎
 
 The proof gives more than the proposition states: |Ric_vv[g_app]| ≤ 1.3 × 10⁻⁸ at the first seed and
-≤ 6.3 × 10⁻⁸ at the second, against terms of size up to s̄ that cancel in Ric_vv.
+≤ 6.3 × 10⁻⁸ at the second. The two terms on the right of [[eq:cone-raychaudhuri]] cancel in Ric_vv, and the second
+of them is s. At x = −1, [[eq:cone-w]] gives H = 4B², w = (8/9) B² and s = (2/3) f² B². At the first seed and
+r = 10.73, [[eq:cone-v]] and [[eq:cone-data]] give v = 1.47373… and B = 3.9165 × 10⁻², so s = 1.0049 × 10⁻³; at the
+second seed and r = 10.98, v = 1.97801… and B = 2.7668 × 10⁻², so s = 5.019 × 10⁻⁴. With [[lem:cone-w]], sup s lies
+between 1.00 × 10⁻³ and 1.46 × 10⁻³ at the first seed and between 5.0 × 10⁻⁴ and 6.3 × 10⁻⁴ at the second. So the
+residual is below 1.3 × 10⁻⁵ (first seed) and 1.3 × 10⁻⁴ (second) times the largest size of the terms that cancel
+in it.
 
 ### Exact data on the cone {#sec:cone-exact}
 
@@ -348,14 +388,18 @@ q ∈ [r_s, r₁), and
 So R(r) ≥ r (1 − W̄ (r − r_s)²/2) ≥ r (1 − 2ℓ² W̄) on [r_s, r₁), and 2ℓ² W̄ ≤ 0.0023. If r₁ < r_e, continuity would
 give R(r₁) > 0 and R > 0 beyond r₁, against the definition of r₁; so r₁ = r_e and the bounds hold on [r_s, r_e]. With
 r ≤ r_e, (r − r_s)²/2 ≤ 2ℓ² ≤ 1.1064 and (r_e² − r_s²)/2 ≤ 16.35, they give the numbers in (a). For r ≥ r_e, w = 0,
-so R is affine with slope ∂_rR(r_e, x) ∈ [0.967, 1] (first seed) or [0.986, 1] (second), which gives (b) and R > 0
-there; on [10, r_s], R = r > 0.
+so R is affine in r with slope ∂_rR(r_e, x), and by (a) 1 − ∂_rR(r_e, x) ≤ W̄ (r_e² − r_s²)/2, which is at most
+1.99 × 10⁻³ × 16.35 ≤ 0.0326 at the first seed and 8.55 × 10⁻⁴ × 16.35 ≤ 0.0140 at the second, while
+∂_rR(r_e, x) ≤ 1. Since r − R(r) = (r_e − R(r_e)) + (1 − ∂_rR(r_e))(r − r_e), this gives (b), and R > 0 there; on
+[10, r_s], R = r > 0.
 
 For the regularity, R(r, x) = r − ∫_(r_s)^r (r − q) w(q, x) R(q, x) dq on [r_s, r_e]. By [[eq:cone-w]], w is
 continuous on [r_s, r_e] × [−1, 1] and smooth in x, with every x-derivative continuous (it is a polynomial in x
 divided by 1 + x²). The Picard iterates of this integral equation and all their x-derivatives converge uniformly on
-[r_s, r_e] × [−1, 1]: by induction on k, the m-th x-derivative of the k-th increment is bounded by
-C_m D_m^k (r − r_s)^(2k)/(2k)! for constants C_m and D_m. So R and ∂_rR are continuous and R is C^∞ in x on
+[r_s, r_e] × [−1, 1]. Fix m; by induction on k, for all orders up to m at once, the x-derivatives of order at most m
+of the k-th increment are bounded by C_m D_m^k (r − r_s)^(2k)/(2k)! for constants C_m and D_m, because by the Leibniz
+rule the x-derivative of order j ≤ m of the next increment involves only the x-derivatives of w of order at most j
+and those of the k-th increment of order at most j. So R and ∂_rR are continuous and R is C^∞ in x on
 [r_s, r_e] × [−1, 1], and then on [10, ∞) × [−1, 1] by the explicit formulas on the other two intervals. ∎
 
 **Corollary {#cor:cone-compare}** (The approximant and the exact data.) With R as in [[prop:cone-exact]] and ℰ̄ as in

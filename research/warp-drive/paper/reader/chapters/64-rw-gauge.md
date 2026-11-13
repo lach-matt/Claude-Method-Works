@@ -391,4 +391,171 @@ implication "ℒ_Yg decays ⇒ Y decays": by the formula for ℒ_(ζ∂_v)g, Y =
 ℒ_Yg = 2q(1 + v)^(−q−1)(f dv² − dv dr) = O(v^(−q−1)), with every derivative, while Y is only O(v^(−q)). Whether
 Part VIII's own h_0 makes ζ decay faster is not determined here.
 
+### The master fields {#sec:rw-master}
+
+The scalar and tensor modes of the class are carried by Kodama and Ishibashi's master fields. We use the following
+results of [KI03], stated at n = 3, K = 1, Λ = 0 and 2M = m₀, so that their f is ours and their x is ς; page numbers
+are those of the arXiv version. Their frequency-domain form is [[thm:s15-ki]]; here the time-domain form is needed.
+
+**Theorem {#thm:rw-ki}** ([KI03, (2.4)–(2.8), pp. 4–5; (2.13), p. 5; (3.11)–(3.14), pp. 9–10; (5.1)–(5.6), p. 13].)
+Let k² = l(l + 2), 𝔪 := k² − 3 (the m of [KI03, (3.3)]), H := 𝔪 + 6ς, Q the polynomial [[eq:s15-ki-q]] with 𝔪 in
+place of p, and V_S := fQ/(16r²H²).
+
+(S) For a scalar mode of degree l ≥ 2, with the variables of [KI03, (2.4)] and the gauge invariants F, F_ab of
+[KI03, (2.7)], put F̃ := rF and F̃_ab := rF_ab [KI03, (2.13)]. The vacuum equations are equivalent to the master wave
+equation □Φ − (V_S/f)Φ = 0 [KI03, (3.11)] for a function Φ on the orbit space, through the covariant expressions
+
+    F̃ = (1/(12r²H)) [(2H − 3rf′)Φ̃ + 6r Dr · DΦ̃],
+    F̃_ab + F̃ g_ab = (1/H)(D_aD_bΦ̃ − (1/2)(□Φ̃)g_ab),                                                     {#eq:np-10-1}
+
+with Φ̃ := r^(3/2)HΦ [KI03, (3.13)–(3.14)]. Kodama and Ishibashi state that these expressions, inserted into the
+perturbed Einstein equations, give linear combinations of the master wave equation and its derivatives, and that
+"these equations are equivalent to the original perturbed Einstein equations" (p. 10).
+
+(T) For a tensor mode, h = 2r²H_T T_ij dz^i dz^j with (Δ̂ + k_T²)T = 0, T trace-free and divergence-free and
+k_T² = l(l + 2) − 2 [KI03, (5.1)–(5.2)]: "H_T is gauge-invariant by itself" (p. 13), and Φ := r^(3/2)H_T [KI03, (5.4)]
+satisfies □Φ − (V_T/f)Φ = 0 with V_T = (f/r²)(k_T² + 2 + 3/4 + 9m₀/(4r²)) [KI03, (5.5)–(5.6)].
+
+**Lemma {#lem:rw-potentials}** (The potentials.) Put W_S := V_S/f and W_T := V_T/f. Then
+
+    r²W_S = k² + 3/4 − (39/4)ς − (72ς − 120ς²)/H + 288ς²f/H²,     r²W_T = k² + 3/4 + (9/4)ς.        {#eq:rw-potentials}
+
+Both are smooth on {r > 0}, and for every j there is C_j, independent of l, with
+|∂_r^j(W − (k² + 3/4)r⁻²)| ≤ C_jr^(−2−j) on {r ≥ r_h}, for W = W_S and W = W_T. In particular every r-derivative of W
+is bounded on {r ≥ r_h} by C_j(1 + k²), and |V| ≤ C(1 + k²)r⁻² there.
+
+*Proof.* Substitute 𝔪 = H − 6ς in [[eq:s15-ki-q]]: 16𝔪³ = 16H³ − 288ςH² + 1728ς²H − 3456ς³,
+60𝔪² = 60H² − 720ςH + 2160ς², 36𝔪(𝔪 − 12)ς = 36ςH² − 432ς²H − 432ςH + 1296ς³ + 2592ς², and
+(624𝔪 − 144)ς² = 624ς²H − 3744ς³ − 144ς². Adding these and 1296ς³,
+
+    Q = 16H³ + (60 − 252ς)H² − (1152ς − 1920ς²)H + 4608ς²(1 − ς).
+
+Divide by 16H² and use H = k² − 3 + 6ς: H + 15/4 − (63/4)ς = k² + 3/4 − (39/4)ς, which is the first formula, as
+1 − ς = f. The second is k_T² + 2 = k². Each term of r²W − k² − 3/4 is a product of powers of ς, f and 1/H with
+coefficients independent of l; on {r ≥ r_h}, 0 < ς ≤ 1, 0 ≤ f < 1 and 0 < 1/H ≤ 1/5 (H ≥ 𝔪 ≥ 5), and
+∂_rς = −2ς/r, ∂_rf = 2ς/r, ∂_r(1/H) = 12ς/(rH²), so each r-derivative gains a factor r⁻¹ with constants independent
+of l. H > 0 on {r > 0}, so W is smooth there. ∎
+
+**Proposition {#prop:np-10-1}** (The Regge–Wheeler-type gauge and the master fields.) Let h be a smooth solution of
+the linearised vacuum equations about g on the domain of outer communication, in the class, with the data [HKW18,
+Theorem 2] requires on a slice Σ_0 of their decay foliation ([[thm:rw-hkw]]). Then:
+
+(i) (Decomposition.) h = h_0 + h_S + h_T: h_0 is the l = 0 part, a change of mass plus a pure gauge solution; h_S and
+h_T are the scalar- and tensor-type parts, h_S supported on the even harmonics l = 2, 4, … and h_T on l ≥ 2. There is
+no vector-type part and no l = 1 part. (Whether only even l occur for the class tensor harmonics is not needed and not
+shown.)
+
+(ii) (The gauge.) For every scalar mode l ≥ 2 the gauge f_a = 0 = H_T is reached by the gauge vector ξ[h] of
+[[eq:gd-1-1]], with orbit part X_aS, X_a = (r/k)(f_a + (r/k)D_aH_T), and angular part −(1/2)D̂τ, τ = 2r²H_TS/k²; it
+is smooth wherever h is. In it the mode is h_S = F_abS dy^ady^b + 2r²FS γ, with F, F_ab its gauge invariants. The
+tensor part needs no gauge: h_T = 2r²H_T T, H_T being gauge invariant.
+
+(iii) (Reconstruction.) With Φ the master field of the mode, F and F_ab are given by [[eq:np-10-1]], and H_T = r^(−3/2)Φ
+for the tensor type. With ψ := r^(3/2)Φ, so that Φ̃ = Hψ, every component of h_S and h_T in a chart regular at the
+horizon (the ingoing chart (v, r)) and the orthonormal frame of the spheres is a combination of ∂_v²ψ, ∂_v∂_rψ,
+∂_r²ψ, ∂_vψ, ∂_rψ, ψ and 𝔪ψ, with coefficients bounded on {r ≥ r_h} uniformly in l ([[lem:rw-coefficients]]): two
+orbit-space derivatives, and the factor 𝔪 (two angular derivatives) through F and the trace of F_ab. In Φ itself
+the coefficients of F̃ and F̃_ab are O(r^(3/2)), and in r^(−3/2)Φ they are O(r³), uniformly in l, those powers being
+attained.
+
+(iv) (Decay.) In the gauge of (ii) for every l ≥ 2, fix the l = 0 part to h_0 = cK, K = r⁻²dv² the change of mass
+regular at the horizon (the static
+chart's ∂_m g = r⁻²dt² + r²(r² − m₀)⁻²dr² equals K + ℒ_(ζ∂_v)g with ζ′ = (r²f²)⁻¹, singular at r_h; the gauge
+h_0 = cK is reached by the gauge vector Y[h_0] of [[eq:gd-1-2]], smooth wherever h_0 is). Then h settles to cK on each
+region {r ≤ R}, the horizon included, uniformly in l, in two data classes:
+
+(iv-a) (Part VIII's data class.) Let h be a solution on N⁺, which reaches inside the horizon (r_♭ < r_h). If the data
+h induces on Σ^IVP are, up to those of a linearised diffeomorphism, G-invariant data (γ̇, k̇) of [[thm:viii-2-2]]
+(γ̇ ∈ H^(∞,(ℰ_0,ℓ_0))_b, k̇ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b, solving the linearised constraints), then h + cℒ_Vg, which is in
+the Regge–Wheeler-type gauge with l = 0 part cK_V, is the ġ_RW of [[thm:rw-settling]]; so c = ṁ, h = ġ_RW on
+{r ≤ 2R₁}, and h − cK = ġ_RW − ṁK_V everywhere. For every k, R′ and ε′ > 0,
+
+    |h − cK|_k ≤ C ‖(γ̇, k̇)‖_(H^(k₁(k+2))) t_*^(−w+ε′)     on {r_♭ < r ≤ R′, t_* ≥ T′}:
+
+every component, with k derivatives along ∂_v, ∂_r and the rotations, pointwise, the horizon included, uniformly in l
+(no sum over modes is formed), with a loss of two derivatives and a constant depending on R′ (not shown to grow as a
+power of R′).
+
+(iv-b) ([HKW18]'s data class, with the red-shift datum.) Let h be smooth up to and including the future horizon, with
+h_0 = cK. Put
+
+    D := Σ_X I_(XΨ)(Σ_0),     X ∈ {1, T, T², Ω, Ω²},
+    Q_0 := Σ_l ‖Y_l‖² ∫_(Σ_0 ∩ {r ≤ R_1}) |∂_r²Φ_l|² dr,
+
+D summed over the scalar and tensor master quantities Ψ of h ([[lem:rw-hkw-field]]), Ω standing for the six rotations
+summed, Φ_l the master field of the mode l, ∂_r at fixed v (transversal to the horizon), Y_l the harmonic that carries
+the mode in h's components (S for the scalar type and T for the tensor type, as in (ii)), and R_1 the radius of
+[HKW18] below which Σ_0 is spacelike. Then for τ ≥ 0 and R ≥ R_1,
+
+    ∫_(Σ_τ ∩ {r ≤ R}) Σ_c |(h − cK)_c|² dr dω ≤ C R⁵ (D + Q_0)(1 + τ)⁻²,                               {#eq:np-10-1-iv-b}
+
+dω the measure of the unit sphere, the components c taken in the chart (v, r) and the orthonormal frame of the spheres,
+C depending on m₀ and Σ_0 only, uniformly in l: the squared L² norm of the components, which are second derivatives of
+the master fields, decays at [HKW18]'s energy rate for data with two more commutations. The scalar-type part of Q_0
+cannot be dropped: with D it is bounded by the left side at any one time, and it is not bounded by any sum of
+I_(XΨ)(Σ_0) over products X of the Killing fields, for smooth h either ([[lem:np-10-1b]]). The tensor-type part can,
+the tensor type's components 2r^(−3/2)Φ carrying no derivative of Φ.
+
+So in the Regge–Wheeler-type gauge for l ≥ 2, with h_0 = cK, every metric component of h settles to the change of mass
+cK on each region {r ≤ R}, the horizon included: pointwise with all derivatives at the rate of [[thm:viii-2-2]] for
+its data (iv-a), and at [HKW18]'s rate τ⁻² in energy against dr dω, uniformly in l with a constant growing as R⁵ and
+the loss of two derivatives counted as in (iii), for [HKW18]'s data with the red-shift datum (iv-b). Uniformly in r
+the energy statement fails, and on the outgoing part of the leaves the components settle with the weights r^(−1/2) on
+the orbit block and r^(1/2) on the angular block, weights that are attained ([[thm:rwg-1]], [[thm:rwg-2]]).
+
+**Lemma {#lem:rw-coefficients}** (The coefficients of the reconstruction.) In the ingoing chart (v, r), with
+ψ = r^(3/2)Φ,
+
+    rF = (𝔪/(6r²))ψ + ((ς − 12fς/H)/(2r²))ψ + (1/(2r))∂_vψ + (f/(2r))∂_rψ,
+
+    rF_ab + rF g_ab = D_aD_bψ − (12ς/(rH))(δ^r_a∂_bψ + δ^r_b∂_aψ) + (ψ/H)D_aD_bH
+                      − (1/2)g_ab(□ψ − (24ς/(rH))(∂_vψ + f∂_rψ) + (ψ/H)□H),
+
+with D_vD_vu = ∂_v²u − (f′/2)∂_vu − (ff′/2)∂_ru, D_vD_ru = ∂_v∂_ru + (f′/2)∂_ru, D_rD_ru = ∂_r²u,
+□u = 2∂_v∂_ru + f′∂_ru + f∂_r²u, and H′ = −12ς/r, H″ = 36ς/r². Every coefficient, but the 𝔪/(6r²) of rF, is a sum of
+terms m₀^c H^a r^b with a ≤ 0 and b ≤ 0, so bounded on {r ≥ r_h} uniformly in l; the 𝔪/(6r²) enters rF_ab only
+through the trace, rFg_ab, and not rF_rr (g_rr = 0). In rF_rr the coefficient of ∂_r²ψ is 1. In terms of Φ, every
+coefficient is O(r^(3/2)) uniformly in l, attained by ∂_r²Φ in rF_rr; in terms of r^(−3/2)Φ, O(r³), attained likewise.
+
+*Proof.* In the chart (v, r), g_vv = −f, g_vr = 1, g_rr = 0 and g^(vv) = 0, g^(vr) = 1, g^(rr) = f; the only lowered
+Christoffel symbols that do not vanish are Γ_(r,vv) = f′/2 and Γ_(v,vr) = −f′/2, which give the Hessian above. By
+[[eq:np-10-1]], with Φ̃ = Hψ, Dr · DΦ̃ = ∂_vΦ̃ + f∂_rΦ̃ = H(∂_vψ + f∂_rψ) + fH′ψ, and 2H − 3rf′ = 2𝔪 + 6ς; this gives
+rF, as 6rfH′/H = −72fς/H. For the second, D_aD_b(Hψ) = HD_aD_bψ + H′(δ^r_a∂_bψ + δ^r_b∂_aψ) + ψD_aD_bH and
+□(Hψ) = H□ψ + 2H′(∂_vψ + f∂_rψ) + ψ□H; divide by H. The monomial structure is read off: f = 1 − m₀r⁻²,
+f′ = 2m₀r⁻³, ς = m₀r⁻², H′/H, H″/H and D_aD_bH/H carry r⁻¹ or r⁻² and 1/H, and H ≥ 5. In ψ = r^(3/2)Φ, a derivative of
+order j ≤ 2 of ψ is r^(3/2) times one of Φ plus lower-order terms with smaller powers of r; so the coefficients in Φ
+are O(r^(3/2)), and the coefficient r^(3/2) of ∂_r²Φ in rF_rr = ∂_r²ψ + 2(H′/H)∂_rψ + (H″/H)ψ is attained; with
+ψ = r³(r^(−3/2)Φ) the same argument gives r³. Finally h_ab = F_abS = ((rF_ab + rFg_ab) − rFg_ab)S/r, and the angular
+block of h_S in the orthonormal frame of the spheres is 2FSδ_ij = (2/r)(rF)Sδ_ij: each component is r⁻¹ times a
+combination with the stated coefficients. For the tensor type the frame components of 2r²H_TT are 2H_T|T| with
+H_T = r^(−3)ψ. ∎
+
+*Proof of [[prop:np-10-1]] (i)–(iii) and (iv-a).* (i) Every class tensor is h_0 plus the part with l ≥ 2, which by
+[[lem:gd-1-2]] (c) consists of the orbit block h_ab − ⟨h_ab⟩, the mixed components h_(a·) = dβ_a and the angular block
+2r²(H_L − ⟨H_L⟩)γ + (D̂D̂ − (1/3)γΔ̂)τ + h^TT: scalar type, built from harmonics of [[lem:gd-1-2]] (a), which have even
+degree, and the tensor type h^TT. The class carries no co-closed 1-form on S³ ([[lem:gd-1-2]] (c)), so there is no
+vector-type part, and no harmonic of degree 1. The tensor type is supported in l ≥ 2 ([HKW18, Proposition 6, p. 14]:
+"the components H_2, ĥ_α, and ĥ_αβ are necessarily supported in ℓ ≥ 2"). The domain of outer communication to the
+future of Σ_0 has a simply connected orbit space, the region above a graph, so by [[lem:gd-1-4]] (b), h_0 = cK + ℒ_Yg
+with c the linearised mass: a change of mass plus a pure gauge solution. This is [HKW18, Theorem 1, p. 3] in the
+class, where its linearised rotations, of vector type l = 1, are absent.
+
+(ii) is [[lem:gd-1-3]] (b) with (a); the gauge vector is smooth wherever h is, since β and τ are. For the tensor type,
+[[thm:rw-ki]] (T). By [KI03, p. 5] the gauge invariants exist for k²(k² − 3) ≠ 0, that is l ≥ 2; the modes with l = 1
+carry no physical degree of freedom ("This implies that there exist no physical degrees of freedom for l = 1",
+[KI03, p. 7]) and are absent in the class anyway.
+
+(iii) is [[thm:rw-ki]] (S) and (T) with [[lem:rw-coefficients]].
+
+(iv) The formula for ∂_m g in the static chart is the derivative of −(1 − m/r²)dt² + (1 − m/r²)⁻¹dr²; with
+dv = dt + f⁻¹dr, K = r⁻²dt² + 2r⁻²f⁻¹dt dr + r⁻²f⁻²dr², and by the formula for ℒ_(ζ∂_v)g in the proof of
+[[lem:gd-1-4]] (b), with ζ = ζ(r), ℒ_(ζ∂_v)g = −2fζ′dv dr + 2ζ′dr² = −2fζ′dt dr, which removes the dt dr term for
+ζ′ = (r²f²)⁻¹.
+
+(iv-a) h induces (γ̇, k̇) plus the data of some ℒ_Zg, and cℒ_Vg induces those of ℒ_(cV)g. h + cℒ_Vg is G-invariant,
+smooth up to Σ°, a linearised vacuum solution in the Regge–Wheeler-type gauge, its l = 0 part being cK + cℒ_Vg = cK_V
+([[eq:gd-0-1]]). By [[thm:rw-settling]] (d) with U = U^♯, for which Ω′_+ = N⁺ ([[lem:ix-1-2]]), h + cℒ_Vg = ġ_RW.
+Comparing the l = 0 parts, c = ṁ. So h − cK = ġ_RW − cℒ_Vg − cK = ġ_RW − ṁK_V, and ℒ_Vg = 0 on {r ≤ 2R₁}. The
+bound is [[thm:rw-settling]] (b). ∎
+
 [[pending:issue-rw-continue]]

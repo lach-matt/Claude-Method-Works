@@ -2,14 +2,14 @@
 
 These tables belong to [[sec:cone-approximant]]. Tables [[sec:cone-table-c1]] and [[sec:cone-table-c2]] define the
 approximant R_app of [[def:cone-approximant]]: their entries are the coefficients C_(ij) of the polynomial S, and
-they are exact decimal numbers. An entry written ±d.ddddddddde±kk denotes the decimal number
-±d.ddddddddd × 10^(±kk). The other tables list numbers derived from these coefficients, as used in
-[[lem:cone-ellipse]], [[lem:cone-nodes]] and [[prop:cone-residual]]. Throughout, r_s and r_e are the solutions of
-v(r) = 1/2 and v(r) = 7/2 in [[eq:cone-v]], c = (r_s + r_e)/2, ℓ = (r_e − r_s)/2 and t = (r − c)/ℓ; to twenty
-decimals,
+they are exact decimal numbers. An entry written d.ddde±kk, with any number of digits and with a leading minus sign
+for a negative number, denotes d.ddd × 10^(±kk); in the coefficient tables every entry has ten significant digits and
+is exact. The other tables list numbers derived from these coefficients, as used in [[lem:cone-ellipse]],
+[[lem:cone-nodes]] and [[prop:cone-residual]]. Throughout, r_s and r_e are the solutions of v(r) = 1/2 and
+v(r) = 7/2 in [[eq:cone-v]], c = (r_s + r_e)/2, ℓ = (r_e − r_s)/2 and t = (r − c)/ℓ; rounded to twenty decimals,
 
-    r_s = 10.24756039016491688191…,    r_e = 11.73508635912921112668…,
-    c = 10.99132337464706400429…,      ℓ = 0.74376298448214712238….
+    r_s = 10.24756039016491688191,    r_e = 11.73508635912921112668,
+    c = 10.99132337464706400429,      ℓ = 0.74376298448214712239.
 
 ### The coefficients C_(ij) at the first seed (λ = 1, 0 ≤ i ≤ 40, 0 ≤ j ≤ 28) {#sec:cone-table-c1}
 
@@ -559,9 +559,10 @@ S(r, x) = Σ_(i=0)^(64) Σ_(j=0)^(28) C_(ij) T_i(t) T_j(x).
 
 The numbers δ^s_j := ℓ^(−2) Σ_i (−1)^i (i²(i² − 1)/3) C_(ij) and δ^e_j := ℓ^(−2) Σ_i (i²(i² − 1)/3) C_(ij) of
 [[prop:cone-residual]] (c), each rounded to four significant digits; the row labelled δ j lists δ_j, …, δ_(j+5).
-The sums are of the exact values, rounded up.
+Each bound on a sum exceeds the sum of the 29 printed moduli plus 29 half-units of their fourth digits, so it follows
+from the printed values.
 
-    first seed:  Σ_j |δ^s_j| ≤ 2.55e−08,   Σ_j |δ^e_j| ≤ 2.72e−08
+    first seed:  Σ_j |δ^s_j| ≤ 2.56e−08,   Σ_j |δ^e_j| ≤ 2.72e−08
     δ^s  0  −1.355e−09   1.951e−09   2.119e−09  −3.955e−10  −1.383e−09   1.305e−09
     δ^s  6  −3.534e−10  −2.750e−10   9.516e−10  −4.946e−10   7.019e−11  −1.378e−09
     δ^s 12  −6.359e−10   1.438e−09   2.122e−10  −1.967e−09  −1.480e−09   8.180e−10
@@ -573,7 +574,7 @@ The sums are of the exact values, rounded up.
     δ^e 18   8.419e−10   6.108e−10   8.862e−10  −4.980e−10   1.403e−09   6.589e−10
     δ^e 24   8.721e−10  −6.757e−10  −5.454e−10   9.872e−10  −2.032e−09
 
-    second seed:  Σ_j |δ^s_j| ≤ 6.84e−08,   Σ_j |δ^e_j| ≤ 7.29e−08
+    second seed:  Σ_j |δ^s_j| ≤ 6.85e−08,   Σ_j |δ^e_j| ≤ 7.29e−08
     δ^s  0  −2.896e−08  −6.230e−09   1.932e−09   2.973e−10   7.664e−10   3.311e−09
     δ^s  6   1.475e−09   1.132e−10   2.075e−09   9.364e−10  −2.740e−09  −1.929e−11
     δ^s 12   1.437e−10   7.261e−10  −1.560e−09   2.210e−09   1.091e−09  −4.904e−10
@@ -587,8 +588,10 @@ The sums are of the exact values, rounded up.
 
 ### The values at the nodes, first seed (n = 40) {#sec:cone-table-n1}
 
-Row k gives the node r_k = c + ℓ cos(kπ/40), rounded to ten decimals, and a number ε_k such that
-|G(r_k, x_l)| ≤ ε_k for l = 0, …, 30, where x_l = cos(lπ/30) and G is the function of [[eq:cone-g]].
+Row k gives the node r_k = c + ℓ cos(kπ/40), rounded to ten decimals, and the number ε_k, the largest of
+|G(r_k, x_l)| over l = 0, …, 30 rounded up to two significant digits, where x_l = cos(lπ/30) and G is the function
+of [[eq:cone-g]]. The rounded node only names the node: the values are those at the exact node, and
+[[lem:cone-nodes]] states the precision each entry needs.
 
      0   11.7350863591   1.5e−08       1   11.7327935861   4.3e−09       2   11.7259294026   1.3e−09
      3   11.7145361287   6.7e−10       4   11.6986840076   3.4e−10       5   11.6784707730   2.6e−10
@@ -605,12 +608,18 @@ Row k gives the node r_k = c + ℓ cos(kπ/40), rounded to ten decimals, and a n
     36   10.2839627417   2.2e−10      37   10.2681106206   4.2e−10      38   10.2567173467   7.8e−10
     39   10.2498531632   3.1e−09      40   10.2475603902   1.1e−08
 
-The largest entry is ε_* = 1.5e−08.
+The largest entry is ε_* = 1.5e−08. Checkpoints, with G = G₁ + F as in [[lem:cone-nodes]] (G₁ and F to twelve
+significant digits):
+
+    k = 0,   l = 3   (x = cos(π/10)):   F = 0,   G = G₁ = 1.44380269772e−08
+    k = 17,  l = 30  (x = −1):          G₁ = −3.00017527872e−02,   F = 3.00017527718e−02,   G = −1.54109e−11
 
 ### The values at the nodes, second seed (n = 64) {#sec:cone-table-n2}
 
-Row k gives the node r_k = c + ℓ cos(kπ/64), rounded to ten decimals, and a number ε_k such that
-|G(r_k, x_l)| ≤ ε_k for l = 0, …, 30, where x_l = cos(lπ/30) and G is the function of [[eq:cone-g]].
+Row k gives the node r_k = c + ℓ cos(kπ/64), rounded to ten decimals, and the number ε_k, the largest of
+|G(r_k, x_l)| over l = 0, …, 30 rounded up to two significant digits, where x_l = cos(lπ/30) and G is the function
+of [[eq:cone-g]]. The rounded node only names the node: the values are those at the exact node, and
+[[lem:cone-nodes]] states the precision each entry needs.
 
      0   11.7350863591   5.0e−08       1   11.7341904640   2.6e−08       2   11.7315049371   4.4e−09
      3   11.7270362479   1.9e−09       4   11.7207951619   1.8e−09       5   11.7127967146   1.1e−09
@@ -635,7 +644,11 @@ Row k gives the node r_k = c + ℓ cos(kπ/64), rounded to ten decimals, and a n
     60   10.2618515874   6.0e−10      61   10.2556105014   1.7e−09      62   10.2511418122   6.2e−09
     63   10.2484562853   2.7e−08      64   10.2475603902   7.4e−08
 
-The largest entry is ε_* = 7.4e−08.
+The largest entry is ε_* = 7.4e−08. Checkpoints, with G = G₁ + F as in [[lem:cone-nodes]] (G₁ and F to twelve
+significant digits):
+
+    k = 64,  l = 30  (x = −1):          F = 0,   G = G₁ = −7.36113438699e−08
+    k = 32,  l = 30  (x = −1):          G₁ = −1.49032780907e−02,   F = 1.49032780366e−02,   G = −5.40687e−11
 
 ### Constants for the bounds on the ellipse {#sec:cone-table-constants}
 

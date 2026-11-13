@@ -355,3 +355,30 @@ Items found while chapters were written in parallel; each is settled once, editi
   the source's multipliers (l = 0: 43 sech² bumps, coefficients printed in Appendix B) to reach the source's values;
   where that fails, state the edition's proved constants and carry them downstream (listed by the fix). No written
   chapter needs B_0(3) = 275.2; the band constants 963.4 and 1516 depend on these and on B2's 11.477.
+
+## S4 repaired; S24, S8 confirmed; B2, Appendix A, envelope (2026-11-13)
+
+- S4 repair (F-S04): d₀ fixed before k by the orders alone in (L3), (L4), lem:ii-a-8-5, lem:ii-a-8-6, prop:ii-a-9-1,
+  prop:ii-a-9-2, prop:ii-a-9-6, cor:ii-a-9-7, prop:ii-a-9-8, prop:ii-a-9-9; Theorem 3.1 two-sided with smooth
+  localisers. Chapter 25 (S6) must switch to the two-sided form at lines 178, 203-206, 216-220, 240, 733-745; Appendix A
+  needs (S12)-(S14). After the S4 confirming reading, re-check S6, S9, S10, S19-S24 (their dependence lists are in the
+  readings).
+- S24 confirmed (R2-S24): nits — m5's pointer should be thm:vi-b1-5-1; d with two meanings in lem:iii-j2-2-1 (a) (d′ at
+  278 undefined, as in the source); a parenthetical in thm:iii-j2-4-1; prop:iii-i2-5-1-b and cor:iii-h2-5-1 not cited
+  at b; quantifiers in cor:iii-j3-3-2/lem:iii-j3-3-3 and a k clash at 1072. Citation cycle S24 → sec:s23-base-points →
+  thm:iii-i15-3-1 → S24 (logically acyclic) to be repaired in S25 step 2.
+- S8's last citation resolved and confirmed; S9 narrowed to integer orders, confirmed (R-N-27-28). Nits: 27:1467 still
+  "c = −γ_cf"; crosswalk rows for eq:ii-f-lp-prime and the s′ ∈ ℤ narrowing; 48:285 may cite eq:ii-f-lp-prime.
+- Proof B2: band constant 11.477 proved (proof's max 10.579); radial-derivative constants 283.06 / 305.31 / 308.46
+  (source 963.4, 1516); C256 point values at σ = 3, 6 better than the source, from σ = 12 up weaker, the σ^(−1/2) decay
+  not proved; the B2 reader decides whether any proof uses them (else numerical observations).
+- Appendix A reading (R-95): Major in chapter 45 (S26) 670-673 — cites [Tay11]/thm:std-moser-taylor where
+  cor:std-moser-product (2)-(3) (integer s) is needed (sent to the S26 reader). [Usu26] = Usula, Ars Inven. Anal. 2026,
+  arXiv:2412.06084v2, confirmed. [RS1] cite the 1980 revised edition.
+- S17 second reading: S17 needs ε_ind at windows/pairing and ε_Υ at tf-gains, never the minimum. S20, S21, S22 and S27
+  quote ε_ind as prop:iii-g4-5-1's constant; where they use its gain they need min(ε_Υ, ε_ind) — or S15 fixes
+  ε_ind ≤ ε_Υ once (to decide after the S15 reading).
+- S22 fix added two conditions, ε_K < ε_Υ and η_1 < ε_g (ε_g := min(ε_Υ, ε_ind)); the S22 confirming reader rules.
+- Envelope: sin⁴(π(v − ½)/3) is C³, not C⁴; used at 10:820, 62:109-110, possibly chapter 86 and the λ0 statements.
+  Chapter 2 (388-391) now says the thresholds use only the support and ∫env². An audit (A-envelope) decides what
+  regularity the main theorem needs and which envelope λ0 uses.

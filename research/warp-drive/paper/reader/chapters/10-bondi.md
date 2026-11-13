@@ -28,11 +28,12 @@ Throughout the chapter λ is fixed, 0 < λ ≤ λ_P, and every constant may depe
 
 We use the notation of [[ch:past-construction]] ([[sec:past-domain]], [[sec:past-approximant]]). X = (τ, x) ∈ R × R⁴,
 r = |x|, x̂ = x/r, v = τ + r and t := 1 + τ0 − τ; P is the past domain [[eq:past-domain]] of [[thm:past-construction]],
-P⁺ := P ∩ {v ≥ v_start}, Σ_τ the slices of constant τ, and ‖·‖ the flat L² norm on Σ_τ ∩ P⁺. The field ℓ := g0⁻¹ dv
-is null and tangent to the ingoing generators of the cones {v = const}; ℓf := df(ℓ), and on P⁺ we use the coordinates
-(v, r, x̂), in which ℓ = ∂_r and ∂_v is the derivative at fixed (r, x̂). Ω_ab := x_a ∂_b − x_b ∂_a are the rotations of
-R⁴, and □̃ := g0^{ab} ∂_a ∂_b acts on Cartesian components. On S³ we use the polar angle ϑ ∈ [0, π/2] and the angles
-φ1, φ2 of the two rotation planes, the round metric being γ = dϑ² + cos²ϑ dφ1² + sin²ϑ dφ2².
+P⁺ := P ∩ {v ≥ v_start}, Σ̂_τ := {X : τ(X) = τ} the whole level sets of τ ([[sec:past-domain]]), and ‖·‖ the flat L²
+norm on Σ̂_τ ∩ P⁺. The field ℓ := g0⁻¹ dv is null and tangent to the ingoing generators of the cones {v = const};
+ℓf := df(ℓ), and on P⁺ we use the coordinates (v, r, x̂), in which ℓ = ∂_r and ∂_v is the derivative at fixed (r, x̂).
+Ω_ab := x_a ∂_b − x_b ∂_a are the rotations of R⁴, and □̃ := g0^{ab} ∂_a ∂_b acts on Cartesian components. On S³ we use
+the polar angle ϑ ∈ [0, π/2] and the angles φ1, φ2 of the two rotation planes, the round metric being
+γ = dϑ² + cos²ϑ dφ1² + sin²ϑ dφ2².
 
 For p ≥ 0, E_p is the class of tensors f on P⁺ (Cartesian components) that vanish for v ≤ v_start and satisfy
 |∂_X^α Ω^β f| ≤ C r^(−p) for all α and β: the class E_p of [[sec:past-approximant]], for functions of X at fixed λ. An
@@ -161,21 +162,21 @@ energies of the lower steps, the step also closes at fixed λ, at the cost of on
 
 R_γ is the sum of ∂_X^γ F_1(X, 0, 0), the forcing free of u_1, which is in E_3, and of products of a derivative of g or
 of the coefficients of F_1, of order at most j + 1, with derivatives of u_1 of order at most j + 1. We estimate each
-product in L²(Σ_τ), with the factor of higher order in L² (the energies of the lower steps, at most C t^(−1/2)) and the
-others in the supremum norm (in E_2 by the induction hypothesis, through the Sobolev inequality with rotations
-[[lem:past-sobolev]] (a) for the orders it costs, and by the far-region bound [[eq:far-energy]] for u_1^n, below, at
-the lowest orders). The term ∂_X^γ F_1(X, 0, 0), in E_3, has L² norm at most C t^(−3/2) on Σ_τ ∩ P⁺, whose
-volume is at most C t³; each product has L² norm at most C t^(−2), a coefficient in E_(3/2) or a second factor of u_1
-in E_2 times the L² factor. So ‖R_γ‖ ≤ C(λ, j) t^(−3/2).
+product in L²(Σ̂_τ ∩ P⁺), with the factor of higher order in L² (the energies of the lower steps, at most C t^(−1/2)) and
+the others in the supremum norm (in E_2 by the induction hypothesis, through the Sobolev inequality with rotations
+[[lem:past-sobolev]] (a) for the orders it costs, and by the far-region bound [[eq:far-energy]] for u_1^n, below, at the
+lowest orders). The term ∂_X^γ F_1(X, 0, 0), in E_3, has L² norm at most C t^(−3/2) on Σ̂_τ ∩ P⁺, whose volume is at most
+C t³; each product has L² norm at most C t^(−2), a coefficient in E_(3/2) or a second factor of u_1 in E_2 times the L²
+factor. So ‖R_γ‖ ≤ C(λ, j) t^(−3/2).
 
-*The approximating solutions.* We do not apply the energy inequality on the region between {v = v_start} and Σ_τ: that
+*The approximating solutions.* We do not apply the energy inequality on the region between {v = v_start} and Σ̂_τ: that
 region is unbounded toward past null infinity ([[lem:past-domain]] (e)), and the flux of ∂^γ u_1 through infinity
 there is known to vanish only at the orders that [[thm:past-construction]] controls. We apply it instead to each
 approximating solution g_n of [[prop:far-region]]. The metric g_n equals g0 on {v ≤ v_start} and solves the same
 equations, so u_1^n := g_n − g0 − r^(−3/2) G_3 has the structure above:
 [[lem:bondi-equation-u]] applies to it verbatim, with the far-region bound on g_n through the Sobolev inequality in
 place of [[thm:past-construction]] at the lowest orders, uniformly in n. We use the region P ∩ {τ_n ≤ τ' ≤ τ}, where
-the energy identity of the far-region bound itself holds. On Σ_(τ_n) the data of U_n := ∂^γ u_1^n are explicit:
+the energy identity of the far-region bound itself holds. On Σ̂_(τ_n) the data of U_n := ∂^γ u_1^n are explicit:
 w_n = g_n − g_app vanishes there with its first derivatives, its higher derivatives are those of the residual
 Ric^H(g_app) of the approximant through the equation, and g_app − g0 − r^(−3/2) G_3 is explicit with all its
 derivatives ([[thm:past-approximant]], [[eq:past-classes]]). So ‖∂U_n(τ_n)‖ ≤ C(λ, j) t_n^(−1/2), with t_n ≥ t.
@@ -229,7 +230,7 @@ r^(−q) S_q + E_(q+1), and (g_λ⁻¹ − g0⁻¹) ∂²(r^(1−q) Y_q) is in E
 ǔ := ũ − r^(1−q) Y_q solves −½ g_λ^{ab} ∂_a ∂_b ǔ = S′ with S′ in E_(q+1/2) with all derivatives, vanishes for
 v ≤ v_start, and has every derivative in E_(q−1).
 
-*Energy.* The L² norm of an element of E_p on Σ_τ ∩ P⁺ is at most C t^(3/2 − p), the volume being at most C t³. Apply
+*Energy.* The L² norm of an element of E_p on Σ̂_τ ∩ P⁺ is at most C t^(3/2 − p), the volume being at most C t³. Apply
 [[lem:past-energy]] with g̃ = g_λ, which has the margin of [[lem:past-domain]] (f) on P by [[thm:past-construction]]
 and satisfies ‖∂g_λ‖_∞ ≤ C t^(−3/2) on P⁺, an integrable kernel, and with forcing S′, from τ1 → −∞. Since
 ‖∂ǔ(τ1)‖ ≤ C t1^(3/2 − (q−1)) → 0 because q > 5/2, and ‖S′(τ')‖ ≤ C t'^(3/2 − q − 1/2) = C t'^(1−q), we get
@@ -602,8 +603,8 @@ D_A U^A = div U, and δR_AB contains no derivative in v.
 **Lemma {#lem:bondi-orders}** (Orders in the Bondi form.) Use the frame e_0 = ∂_v, e_1 = ∂_r, e_2 = r⁻¹ ∂_ϑ,
 e_3 = (r cos ϑ)⁻¹ ∂_(φ1), e_4 = (r sin ϑ)⁻¹ ∂_(φ2), put Û := r U and y := (β, W − 1, Û, P1, P2).
 
-(a) The components of the metric in this frame are smooth functions of y: G_00 = −e^(2β) W + S Û², G_01 = e^(2β),
-G_02 = −S Û, G_22 = S, G_33 = e^(2P1), G_44 = e^(2P2), and the others vanish.
+(a) The components of the metric in this frame are smooth functions of y: g_00 = −e^(2β) W + S Û², g_01 = e^(2β),
+g_02 = −S Û, g_22 = S, g_33 = e^(2P1), g_44 = e^(2P2), and the others vanish.
 
 (b) Each frame component R_ij of the Ricci tensor is a finite sum of terms F(y) Π, with F smooth and Π one of
 e_k e_l y_α, (e_k y_α)(e_l y_β), c e_k y_α, c c' or e_k c, where c, c' are structure coefficients of the frame,
@@ -619,14 +620,14 @@ particular a coefficient of R_ij at a given power of ς is determined by finitel
 remainders o(ς⁶), which stay o(ς⁶) under e_0 and ∂_ϑ and gain two orders under e_1, enter only through o(·) terms.
 
 Proof. (a) is [[eq:bondi-form]], with the subscript B dropped, in the frame. (b) In a frame the connection coefficients
-are Γ_kij = ½ (e_i G_jk + e_j G_ik − e_k G_ij) plus structure coefficients times components of G, each a sum of terms
+are Γ_kij = ½ (e_i g_jk + e_j g_ik − e_k g_ij) plus structure coefficients times components of g, each a sum of terms
 with one slot, and R_ij = e_k Γ^k_ij − e_j Γ^k_ik + Γ Γ − Γ Γ − c Γ has exactly two slots in each term, since e_k (F(y))
 = F'(y) e_k y. The functions depend on (v, r, ϑ) only, so e_3 and e_4 act on them as zero. The structure coefficients
 follow from [e_1, e_2] = −r⁻¹ e_2, [e_1, e_3] = −r⁻¹ e_3, [e_1, e_4] = −r⁻¹ e_4, [e_2, e_3] = r⁻¹ tan ϑ e_3, [e_2, e_4] =
 −r⁻¹ cot ϑ e_4 and [e_0, e_i] = 0.
 
 (c) Freeze (r, ϑ) = (r0, ϑ0) and let y(v) := y(v, r0, ϑ0). The terms with two slots e_0, evaluated at (v, r0, ϑ0), are
-exactly the Ricci components of the metric g' := G_ij(y(v)) dx^i dx^j on R⁵ with coordinates (v, ϱ, z1, z2, z3), whose
+exactly the Ricci components of the metric g' := g_ij(y(v)) dx^i dx^j on R⁵ with coordinates (v, ϱ, z1, z2, z3), whose
 coordinate frame has no structure coefficients and on which only e_0 = ∂_v acts. Now
 g' = e^(2β) dv (2 dϱ − W dv) + S (dz1 − Û dv)² + e^(2P1) dz2² + e^(2P2) dz3², all functions of v. Put dσ := e^(2β) dv,
 ϱ' := ϱ − ½ ∫ W e^(−2β) dσ and z1' := z1 − ∫ Û dv. Then g' = 2 dσ dϱ' + Σ_i e^(2Q_i) dz_i'² with
@@ -713,7 +714,7 @@ is O(ς³) in coordinates. In R_AB|_(β=U=0) from [[eq:bondi-ric-0]], write W = 
 with k = diag(−2(P1 + P2), 2 cos²ϑ P1, 2 sin²ϑ P2) + O(ς⁶). The terms of degree two or more in (ω, k) have weight at
 least 2 by [[lem:bondi-orders]] (c), hence frame order at least 8 and coordinate order at least ς⁴. R[q] = R[γ + k] =
 2γ + O(ς³). In the rest, to first order: the constant terms give −2γ, cancelling 2γ; the terms in ω give −(r ∂_r ω +
-2ω) γ_AB = Σ_k (k/2 − 2) w_k ς^k γ_AB, which is O(ς³) now that w_1 = w_2 = 0; the terms in k with a derivative in v
+2ω) γ_AB = Σ_m (m/2 − 2) w_m ς^m γ_AB, which is O(ς³) now that w_1 = w_2 = 0; the terms in k with a derivative in v
 come from −∂_v ∂_r q, −(3/(2r)) ∂_v q and ½ (∂_r q q⁻¹ ∂_v q + ∂_v q q⁻¹ ∂_r q), and sum to −r² ∂_r ∂_v k − (3/2) r ∂_v
 k = Σ_j ((j − 3)/2) ∂_v k_j ς^(j−2) for k = Σ_j k_j ς^j; and the terms in k without a derivative in v are O(ς³). So at
 ς² the three angular components of R_AB are those of ½ ∂_v k_4, with k_4 = diag(−2(a1 + a2), 2 cos²ϑ a1, 2 sin²ϑ a2):
@@ -794,8 +795,8 @@ while the shell passes, and after it μ_B = μ(v_end) + (2/9) λ² A² ∫ env'�
 Bondi coordinates, the subscript B dropped, and let S = {v, r = const}. Since r is areal, Area(S) = 2π² r³ and R = r.
 The future null normals of S are n⁻ = −∂_r and n⁺ = ∂_v + (W/2) ∂_r + U ∂_ϑ: by [[eq:bondi-form]],
 g(∂_r, ∂_r) = g(∂_r, ∂_ϑ) = 0, g(n⁺, ∂_ϑ) = g_(vϑ) + U g_(ϑϑ) = 0, and
-g(n⁺, n⁺) = (−e^(2β) W + r² S U²) + W e^(2β) − 2 r² S U² + r² S U² = 0, while g(n⁺, n⁻) = −e^(2β). The area form of S is
-r³ cos ϑ sin ϑ dϑ dφ1 dφ2, independent of v, so θ⁻ = −3/r exactly and θ⁺ = 3W/(2r) + div U. So
+g(n⁺, n⁺) = (−e^(2β) W + U² g_(ϑϑ)) + W e^(2β) − 2 U² g_(ϑϑ) + U² g_(ϑϑ) = 0, while g(n⁺, n⁻) = −e^(2β). The area form
+of S is r³ cos ϑ sin ϑ dϑ dφ1 dφ2, independent of v, so θ⁻ = −3/r exactly and θ⁺ = 3W/(2r) + div U. So
 Θ = −(9/r²) e^(−2β) (W + (2r/3) div U) and
 
     M[S] = r² (1 − ⟨e^(−2β) (W + (2r/3) div U)⟩).
@@ -817,17 +818,19 @@ cos(2v/λ) or sin(2v/λ), whose integral is O(λ³): for D_c D_s this is the ide
 (c), and O_1 = d/dv [ (λ/4) env² sin(2v/λ) − (λ²/4) env env' cos(2v/λ) ] + (λ²/4)(env env'' − env'²) cos(2v/λ). So for
 v ≥ v_end, M(v, ϑ_B) = μ(v_end) + (2/9) λ² A² ∫ env'² + O(λ³) uniformly in ϑ_B, and any average of M over ϑ_B equals
 μ_B to O(λ³) there; while the shell passes, M depends on ϑ_B at O(λ), and such an average need not equal μ_B. For the
-envelope env(v) = sin⁴(π(v − ½)/3) on [½, 7/2] and A = 1, the substitution ξ = π(v − ½)/3 gives
-∫ env'² = (16π/3) ∫_0^π sin⁶ξ cos²ξ dξ = (16π/3)(5π/16 − 35π/128) = 5π²/24, so the coefficient of λ² after the shell
-is (2/9)(5π²/24) = 5π²/108 = 0.45693… .
+profile env(v) = sin⁴(π(v − ½)/3) on [½, 7/2], extended by zero, and A = 1, the substitution ξ = π(v − ½)/3 gives
+∫ env'² = (16π/3) ∫_0^π sin⁶ξ cos²ξ dξ = (16π/3)(5π/16 − 35π/128) = 5π²/24, so (2/9) A² ∫ env'² = 5π²/108 = 0.45693… .
+This profile is C³ but not C⁴ at v = ½ and v = 7/2, so it is not an envelope of [[sec:waves]]; the number is the value
+of the coefficient for it, and no theorem is claimed for it.
 
 **Remark {#rem:bondi-solver}** (Numerical observation.) In a numerical integration of the vacuum equations in the form
-[[eq:bondi-form]] from the free data [[eq:bondi-p]], with the envelope of [[rem:bondi-after-shell]], A = 1 and the angle
-sampled at Chebyshev–Lobatto nodes in cos 2ϑ_B, the offset of the node-averaged aspect from μ after the shell, divided
-by λ², was observed to be 0.4589, 0.4577, 0.4568 at λ = 0.05, 0.025, 0.0125 (μ0 = 100 l5²) and 0.4578, 0.4569 at
-λ = 0.025, 0.0125 (μ0 = 1000 l5²), against 5π²/108 = 0.45693…, within 0.05 % at λ = 0.0125. A finer run,
-λ = 0.00625 at μ0 = 100 l5² on the grid of the previous run, too coarse for that wavelength, gave 0.4535. The values at
-1000 l5² reproduce those at 100 l5² to about 10⁻⁴ and are not an independent check. No proof uses this observation.
+[[eq:bondi-form]] from the free data [[eq:bondi-p]], with the profile of [[rem:bondi-after-shell]] as envelope, A = 1 and
+the angle sampled at Chebyshev–Lobatto nodes in cos 2ϑ_B, the offset of the node-averaged aspect from μ after the shell,
+divided by λ², was observed to be 0.4589, 0.4577, 0.4568 at λ = 0.05, 0.025, 0.0125 (μ0 = 100 l5²) and 0.4578, 0.4569 at
+λ = 0.025, 0.0125 (μ0 = 1000 l5²), against 5π²/108 = 0.45693…, within 0.05 % at λ = 0.0125. A run at
+λ = 0.00625 (μ0 = 100 l5²), on the grid of the run at λ = 0.0125, which is too coarse for that wavelength, gave 0.4535.
+The values at 1000 l5² reproduce those at 100 l5² to about 10⁻⁴ and are not an independent check. No proof uses this
+observation.
 
 **Remark {#rem:bondi-scope}** (What is not claimed.) [[prop:bondi-hierarchy]] claims no uniformity in λ of the expansion
 beyond its leading term, which the mass law does not need. Nothing is claimed about future null infinity or the Bondi
