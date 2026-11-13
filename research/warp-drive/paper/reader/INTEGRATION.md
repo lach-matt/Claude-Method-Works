@@ -521,3 +521,11 @@ Items found while chapters were written in parallel; each is settled once, editi
   eq:iii-i6-2-7 (ε sweep).
 - S13 second reading (R2-S13): Major — ε_Υ undefined over all roots (gaps → 0); restore |Re ι| ≤ 10. NP 10.30 (ii)
   for all z > 0. Proof A3 fixed: the exact e enters only through lem:s14-small-h (a); placement after sec:s14-model.
+- S14 fixed (F-S14): r_♯ := r_♭ ∈ (0, ½R₁] (chapter 62's Major); eq:s14-s general; strip finiteness in
+  prop:np-10-54 (iii); δ_50 cited from cor:s14-eps-ind-point (chapter 34 line ~448 to cite it too — sent to the S15
+  fix); proof A's corollary to absorb rem:s14-pa-low-types (sent to the proof A fix); 110 μ → m renames. Crosswalk rows
+  for renamed and new labels are in F-S14 (integration).
+- Chapter 61 fixed (F-61): depends on chapter 47's prop:v-2-3 change landing.
+- S19 third reading (R3-S19): Major — eq:iii-i-3-7's L² class fails at ℓ_I = ½ (π̸₀h's radiation coefficient);
+  ℓ_I ∈ (0, ½) as [Hin26]. The fix lists other chapters relying on ½.
+- thm:std-ds-stability added to Appendix A ([DS23] Thm 2.5, p. 5, arXiv:2308.09851v1, word for word).

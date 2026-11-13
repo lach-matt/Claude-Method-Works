@@ -428,23 +428,23 @@ Euclidean norm of dv = dτ + x̂·dx is √2, so |χ dv ⊗ dv|_F = 2|χ|. The n
 a > 0.2698587885 ([[lem:envelope-constant]], [[lem:lambda0-point]]): a^(−3/2) < 7.1333767 and a⁻² < 13.73179; and
 from c > 1.3240867, a^(−3/2) > 7.133376 at the point of equality. ∎
 
-### The mean source of stage 1 {#sec:stage-one-source}
+### The mean forcing term of stage 1 {#sec:stage-one-source}
 
-At stage 1 the mean equation (a) of [[eq:stage-system]] has the source 𝒮_1 = −⟨𝒦_1⟩, and by [[lem:first-entry]] 𝒦_1
-depends on g0, v and W alone. Setting every unknown of the stages m ≥ 1 to zero in [[eq:stage-m]] at m = 1 removes
-T̂ ĝ2 and 𝒲(m1, φ1), makes e2 vanish (q2 vanishes with m1 and dφ1), and leaves G = g0 + λW and u = v. So 𝒦_1 is the
-coefficient R^(1) of λ in the two-scale expansion [[eq:two-scale-expansion]] of R[g0 + λW], and 𝒮_1 = −⟨R^(1)⟩. In this
-section and the next, c² = cos² ϑ and s² = sin² ϑ are the angular functions of [[sec:waves]] and q = c² − s² = cos 2ϑ,
-as in [[sec:stage-zero-bounds]].
+At stage 1 the mean equation (a) of [[eq:stage-system]] has the right-hand side 𝒮_1 = −⟨𝒦_1⟩, and by
+[[lem:first-entry]] 𝒦_1 depends on g0, v and W alone. Setting every unknown of the stages m ≥ 1 to zero in
+[[eq:stage-m]] at m = 1 removes T̂ ĝ2 and 𝒲(m1, φ1), makes e2 vanish (q2 vanishes with m1 and dφ1), and leaves
+G = g0 + λW and u = v. So 𝒦_1 is the coefficient R^(1) of λ in the two-scale expansion [[eq:two-scale-expansion]] of
+R[g0 + λW], and 𝒮_1 = −⟨R^(1)⟩. In this section and the next, c² = cos² ϑ and s² = sin² ϑ are the angular functions of
+[[sec:waves]] and q = c² − s² = cos 2ϑ, as in [[sec:stage-zero-bounds]].
 
-**Lemma {#lem:stage-one-source}** (The mean source of stage 1.) Let g0 be built on any smooth mass function μ, let χ be
-a smooth function on Ω × S¹ that is, at each X, a combination of cos 2θ and sin 2θ, put W := W_TT + χ dv ⊗ dv, and let
-R^(1) be the coefficient of λ in the two-scale expansion of R[g0 + λW]. Then
+**Lemma {#lem:stage-one-source}** (The mean forcing term of stage 1.) Let g0 be built on any smooth mass function μ,
+let χ be a smooth function on Ω × S¹ that is, at each X, a combination of cos 2θ and sin 2θ, put W := W_TT + χ dv ⊗ dv,
+and let R^(1) be the coefficient of λ in the two-scale expansion of R[g0 + λW]. Then
 
     ⟨R^(1)⟩ = S := −(4/9) A² env(v)² h² sin 2ϑ r⁻³ (dv ⊗ dϑ + dϑ ⊗ dv).                            {#eq:stage-one-source}
 
 The function χ of [[eq:chi-transport]] is of this kind ([[lem:chi-closed-form]]); so at stage 1 of [[lem:stage-system]]
-the mean equation has the source 𝒮_1 = −S, whatever the data of the stages.
+the mean equation has the right-hand side 𝒮_1 = −S, whatever the data of the stages.
 
 *Proof.* We use the notation of the proof of [[lem:leading-coefficient]]: ∂ := ∂_θ, v_a := ∂_a v, indices are moved with
 g0, ℓ^a = g0^(ab) v_b, ∇ is the Levi-Civita connection of g0 acting at fixed θ, and C_0, C_1 and D_1 are the profiles
@@ -546,7 +546,7 @@ X_b is zero for b ≠ ϑ, and for b = ϑ it is
 
 So X = −(1/3 + 5/9) α² cs dϑ = −(4/9) α² sin 2ϑ dϑ, and α² = A² env² h² r⁻³ gives [[eq:stage-one-source]]. ∎
 
-### Derivatives of the stage-0 profiles and of the mean source {#sec:stage-bounds-higher}
+### Derivatives of the stage-0 profiles and of the mean forcing term {#sec:stage-bounds-higher}
 
 **Definition {#def:stage-derivative-bound}** (Derivative bounds.) For a smooth array F of functions on a neighbourhood
 of Ω × S¹ and n ≥ 0, D_F[n] is the supremum, over the points p ∈ Ω × S¹ and the vectors e ∈ ℝ⁶ with |e| = 1, of

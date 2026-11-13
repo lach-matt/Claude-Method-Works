@@ -1113,11 +1113,11 @@ The pairings of [Hin26, Lemma 8.12] are not used here; they are part of [[sec:ii
 The parameters are those of [[sec:iii-f1-1]] and [[sec:iii-f2-1]]: (Dyn), z = 4e_Υγ_Υ² ∈ (0, ½], (C1), γ_Υ as in
 [[prop:iii-f1-3-3]], the horizon modification and b ∈ ℬ(γ_(Υ,H)) as in [[prop:iii-d1-4-1]] and [[sec:iii-d2-1]], and
 s > ½ + ϑ_L ([[lem:iii-f2-1-1]]). *All b-spaces use an unweighted b-density μ_b = |dx|/|x|⁴ near ∂X*, so that
-H̄_b^(s,α) here is H̄_b^(s,α−2) of [[ch:s03]], and H_b^(∞,a) ⊂ 𝒜^a near ∂X. ε_ind and ℰ_ind are as in
-[[sec:iii-d2-1]]: ε_ind ∈ (0, ½) is less than d(Re ι, ℤ) for every indicial root ι of (□^Υ_b)^(0) with non-integer
-real part of modulus at most 10 (the gauge potential operator's number, not that of [[eq:iii-f1-2-2]], which concerns
-the roots of L_b^(0) and is far smaller), and ℰ_ind denotes an index set with min Re ℰ_ind ≥ ε_ind, independent of b,
-which may change from line to line. Write β^L_+ := min{Re ι : ι an indicial root of L_b^(0), Re ι > 0}; by
+H̄_b^(s,α) here is H̄_b^(s,α−2) of [[ch:s03]], and H_b^(∞,a) ⊂ 𝒜^a near ∂X. ε_Υ and ℰ_ind are as in
+[[sec:iii-d2-1]]: ε_Υ ∈ (0, ½), fixed by the indicial roots of (□^Υ_b)^(0) alone, is less than d(Re ι, ℤ) for every
+indicial root ι of (□^Υ_b)^(0) with non-integer real part of modulus at most 10 (it is the gauge potential operator's
+number, not the number ε_ind of [[eq:iii-f1-2-2]], which concerns the roots of L_b^(0)), and ℰ_ind denotes an index set
+with min Re ℰ_ind ≥ ε_Υ, independent of b, which may change from line to line. Write β^L_+ := min{Re ι : ι an indicial root of L_b^(0), Re ι > 0}; by
 [[prop:iii-f1-2-3]], β^L_+ > 1, so every α ∈ (0, 1] lies in the indicial gap (0, β^L_+).
 
 *Densities and adjoints.* In the Kerr–Schild coordinates (t, x) of [[def:iii-b-3-2]], g_b = η + Hk ⊗ k with k null for
@@ -1155,10 +1155,10 @@ A := ρ⁻²(□^Υ_b)^(0) near ∂X ([[eq:i-c-1-3]]).
 u ∈ 𝒜^(ℰ′) with ℰ′ the index set of [[lem:iii-a-1-4]] built from E(α) (the boundary spectrum with real part > α),
 F = (k, 0) and their shifts by ℕ_0: E_0 = E(α) ∪̄ F, E_(j+1) = E(α) ∪̄ (F ∪̄ (E_j + 1)). By [[lem:iii-d-4-1]] and
 [[eq:iii-d-4-2]], every indicial root with positive real part is at least ι^Υ_(s1,2) ∈ (2, 3); so E(α) has
-min Re ≥ ι^Υ_(s1,2), and ι^Υ_(s1,2) − 2 > ε_ind by the choice of ε_ind. The exponent k occurs in each E_j only through
+min Re ≥ ι^Υ_(s1,2), and ι^Υ_(s1,2) − 2 > ε_Υ by the choice of ε_Υ. The exponent k occurs in each E_j only through
 F, with logarithmic order 0: k ∉ E(α), and E_j + 1 has minimal real part at least k + 1. Every other element of
-ℰ′ = ⋃_j E_j has real part ≥ k + 1 or ≥ ι^Υ_(s1,2), hence ≥ k + ε_ind. So ℰ′ ⊂ (k, 0) ∪ (k + ℰ_ind); the roots do not
-depend on b ([[lem:iii-d-4-1]]), nor does this index set. Inserting u = ρ^k u_k + O(ρ^(k+ε_ind)) into Au = ρ⁻²f and
+ℰ′ = ⋃_j E_j has real part ≥ k + 1 or ≥ ι^Υ_(s1,2), hence ≥ k + ε_Υ. So ℰ′ ⊂ (k, 0) ∪ (k + ℰ_ind); the roots do not
+depend on b ([[lem:iii-d-4-1]]), nor does this index set. Inserting u = ρ^k u_k + O(ρ^(k+ε_Υ)) into Au = ρ⁻²f and
 comparing the ρ^k terms gives I(k)u_k = f_(2+k); I(k) is invertible since neither 1 nor 2 is an indicial root
 ([[sec:iii-d2-1]]). (At the types that occur below, scalar type 0 at k = 1 and vector type 1 at k = 2, the
 determinants are det N_s0(1) = 1 · (−2) · (1 − 1 − 2 − z) = 2(2 + z) and N_v1(2) = (2 + 1)(3 − 2) = 3, by
@@ -1258,7 +1258,7 @@ infinity (O(r^(−2l−2))), so ∫_(r_h)^∞ (f|Φ′|² + V_T|Φ|²/f) dr = 0,
 
 *Step 2: vector type, l ≥ 2.* h = 2rf_a V_i dy^a dz^i + 2r²H_T V_ij dz^i dz^j. With ζ_0 := r²BV_i dz^i,
 B := 2H_T/k_V (smooth on {r > r_0}, rB = O(r^(1−β))), h′ := h + δ*ζ_0 has H′_T = 0 and f′_a = F_a, the invariants
-f_a + (r/k_V)D_aH_T [[pending:issue-1]]. By [[thm:s15-ki]] (V), r²F^a = ε^(ab)D_bΩ. As F is static,
+f_a + (r/k_V)D_aH_T. By [[thm:s15-ki]] (V), r²F^a = ε^(ab)D_bΩ. As F is static,
 ∂_tΩ = r²F^r/ε^(rt) is a function of r, so Ω = αt + Ω_0(r), and ε^(tr)∂_rΩ = r²F^t static forces α to be constant;
 the equation for Ω of (V) then gives (k_V² − 2)αt/r² = 0 (□_2 t = 0 and Dr · Dt = 0), so α = 0, F^r = 0 and F_r = 0.
 With F_t = ry, r²F^t = −r³y/f = ε^(tr)Ω_0′, and the equation for Ω_0, (fΩ_0′)′ − (3/r)fΩ_0′ − ((k_V² − 2)/r²)Ω_0 = 0,
@@ -1276,7 +1276,7 @@ y = 0, h′ = 0 and h = δ*(−ζ_0).
 *Step 3: scalar type, l ≥ 2.* h = f_ab S dy^a dy^b + 2rf_a S_i dy^a dz^i + 2r²(H_L γ_ij S + H_T S_ij)dz^i dz^j. With
 the gauge 1-form ζ_1 := 2X_a S dy^a + (2r²/k)H_T S_i dz^i, X_a := (r/k)(f_a + (r/k)D_aH_T) ([KI03, (2.8)]; built
 covariantly on the orbit space from h, so smooth on {r > r_0}, and O(r^(1−β))), h′ := h + δ*ζ_1 has
-f′_a = H′_T = 0, its remaining components being the invariants F_ab, F of [[thm:s15-ki]] (S) [[pending:issue-1]]. By
+f′_a = H′_T = 0, its remaining components being the invariants F_ab, F of [[thm:s15-ki]] (S). By
 [[thm:s15-ki]] (S0), Z = 0, that is F_tr = 0; and with X := r(−F_tt/f − 2F), Y := r(fF_rr − 2F) (the X, Y of (S) in the
 static chart), [KI03, (4.2)] at n = 3, K = 1, Λ = 0 and f = 1 − m_0/r² (f − 1 = −m_0/r², f′ = 2m_0/r³,
 f″ = −6m_0/r⁴) is the flow
@@ -1284,9 +1284,9 @@ f″ = −6m_0/r⁴) is the flow
     Y′ = m_0(X − Y)/(r(r² − m_0)),
     X′ = (m_0(m_0 − 2r²)X + (k²r²(r² − m_0) + 4m_0r² − 3r⁴)Y)/(m_0 r(r² − m_0)),                         {#eq:iii-f3-3-1}
 
-on which all the equations hold. With Z̃ := (fr²/k²)(X′ − X/r − (f′/f − 2/r)Y) ([KI03, (2.24a)] at ω = 0, solved for
-Z̃) and H := k² − 3 + 6m_0/r², put Φ := (3Z̃ − r(X + Y))/(r^(1/2)H). Inserting [[eq:iii-f3-3-1]] into Z̃ gives, on the
-flow,
+on which all the equations hold. Define Z̃ := (fr²/k²)(X′ − X/r − (f′/f − 2/r)Y) (the form that [KI03, (2.24a)], derived
+there for ω ≠ 0, takes at ω = 0) and H := k² − 3 + 6m_0/r², and put Φ := (3Z̃ − r(X + Y))/(r^(1/2)H). Inserting
+[[eq:iii-f3-3-1]] into Z̃ gives, on the flow,
 
     3Z̃ − r(X + Y) = (−m_0(k²r² + 9r² − 6m_0)X + (3(k² − 3)r⁴ − 2(2k² − 9)m_0r² − 12m_0²)Y)/(k²m_0r),    {#eq:iii-f3-3-2}
 
@@ -1517,7 +1517,7 @@ the root −2 for scalar, vector and tensor type 2, the last absent in dimension
 in dimension 4 + 1 the vanishing of the centre-of-mass pairings against the rotations' dual states, which [Hin26]'s Step
 2 uses, is not available away from b_0.
 
-The parameters, the unweighted b-density μ_b, ε_ind, ℰ_ind, |dg_b| = |dt_*| |dx| and the pairing
+The parameters, the unweighted b-density μ_b, ε_Υ, ℰ_ind, |dg_b| = |dt_*| |dx| and the pairing
 ⟨u, v⟩ := ∫_X ⟨u, v⟩_(g_b) |dx| (real, bilinear) are those of [[sec:iii-f3-1]]; adjoints and transposes on X are taken
 with respect to it. χ_R(x) := χ_1(|x|/R) with χ_1 ∈ C_c^∞([0, 2)) equal to 1 on [0, 1]; it is 1 near the black hole and
 0 near infinity, and |dχ_R| ≤ CR⁻¹ is supported in {R ≤ |x| ≤ 2R}.
@@ -1830,9 +1830,9 @@ and [[eq:iii-f4-5-2]] at W = [A(b), A_(V′)].
 *Step 3: the state.* L_b^(0) maps h̆²_(b,s1)(S_1) and h̆¹_(b,v1)(V_1), of weight −1 with leading terms annihilated by
 N(L̄^(0), −1) ([[prop:iii-d3-3-1]] (2)–(3)), into 𝒜^((2,0)∪(2+ℰ_ind)), so
 L_b^(0)h^(≈,2)_b ∈ 𝒜^((2,0)∪(2+ℰ_ind)), smoothly in b. [[lem:iii-a-1-5]], applied to its ρ² terms, gives
-h_(b,(0)) ∈ 𝒜^((0,k)) for some k, smooth in b, with f_b := −L_b^(0)(h^(≈,2)_b + h_(b,(0))) ∈ 𝒜^(2+ε_ind); and
+h_(b,(0)) ∈ 𝒜^((0,k)) for some k, smooth in b, with f_b := −L_b^(0)(h^(≈,2)_b + h_(b,(0))) ∈ 𝒜^(2+ε_Υ); and
 ⟨L_b^(0)h_(b,(0)), h*⟩ = ⟨h_(b,(0)), L_b^(0)*h*⟩ = 0 for the dual states (weight ≥ 3: boundary terms O(R⁻¹ log^k R)), so
-f_b is orthogonal to all of them. [[cor:iii-f3-4-2]] (2) with α ∈ (0, ε_ind) gives u_b ∈ 𝒜^(α−ϵ), smooth in b, with
+f_b is orthogonal to all of them. [[cor:iii-f3-4-2]] (2) with α ∈ (0, ε_Υ) gives u_b ∈ 𝒜^(α−ϵ), smooth in b, with
 L_b^(0)u_b = f_b. Every term of f_b is polyhomogeneous: h^≈_b by its construction ([[lem:iii-a-1-5]]),
 h̆²_(b,s1)(S_1) and h̆¹_(b,v1)(V_1) in 𝒜^((−1,0)∪(−1+ℰ_ind)) by [[prop:iii-d3-3-1]] (2)–(3), and h_(b,(0)); and L_b^(0)
 has smooth coefficients. So u_b, which solves ρ²Au_b = f_b near ∂X with A b-elliptic, is polyhomogeneous by

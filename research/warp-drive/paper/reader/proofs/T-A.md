@@ -48,14 +48,14 @@ The majorants (sums of the absolute values of the coefficients, [[lem:s14-majora
 where R̄_j′ majorises ∂_ιR_j. For the two re-expanded polynomials, M̄_B(S, T) and M̄_a(S, T) denote the majorants in
 S ≥ |s|, T ≥ x of R₁(2 + x + s, x) and R₁(a(x) + s, x), and M̄_B′, M̄_a′ those of their derivatives in s.
 
-The quotient of W = R₁ + hR₂ + h²R₃ by U in ι, at ε₀ = 625/64, is Y = Y⁰ + hY₁ + h²Y₂ with
+The quotient of W = R₁ + hR₂ + h²R₃ by U in ι, at ε₀ = 625/64, is 𝒲 = 𝒲⁰ + h𝒲₁ + h²𝒲₂ with
 
-    Y⁰ = 5ι/2 + 9x/4 − 2997/128,
-    Y₁ = 2ι² + (7x/2 − 1779/64)ι + 19x²/4 − 10179x/128 − 13991/128,
-    Y₂ = ι³/2 + (5x/4 − 561/128)ι² + (17x²/8 − 473x/32 − 609/32)ι + 49x³/16 − 18265x²/512 − 666461x/16384
+    𝒲⁰ = 5ι/2 + 9x/4 − 2997/128,
+    𝒲₁ = 2ι² + (7x/2 − 1779/64)ι + 19x²/4 − 10179x/128 − 13991/128,
+    𝒲₂ = ι³/2 + (5x/4 − 561/128)ι² + (17x²/8 − 473x/32 − 609/32)ι + 49x³/16 − 18265x²/512 − 666461x/16384
          − 7933/128:
 
-W − YU has degree at most 2 in ι, and its coefficient of ι² is −2Λ, with Λ = Λ⁰ + hΛ₁ + h²Λ₂ of
+W − 𝒲U has degree at most 2 in ι, and its coefficient of ι² is −2Λ, with Λ = Λ⁰ + hΛ₁ + h²Λ₂ of
 [[lem:s14-sextic-split]] (v).
 
 *Used in* [[lem:s14-sextic-split]], [[lem:s14-sextic-count]], [[lem:s14-sextic-small]] and [[lem:s14-sextic-large]].
@@ -84,11 +84,11 @@ hold with
     L₇ = −143ξ⁵/64,     L₈ = −ξ⁶.
 
 They follow by putting ι = 2 + hξ, resp. ι = 3 + hξ, and x = hκ in U + hR₁ + h²R₂ + h³R₃ ([[lem:s14-sextic-split]]
-(i)) and collecting powers of h. Since Ψ(2, 0) = Ψ(3, 0) = 0,
+(i)) and collecting powers of h. Since 𝒬(2, 0) = 𝒬(3, 0) = 0,
 
-    Ψ(2 + hξ, hκ) = h(1811κ/64 − 2ξ) + h²(κ − ξ)(κ − 2ξ),     Ψ(3 + hξ, hκ) = h(1619κ/64 + 2ξ) + h²(κ − ξ)(κ − 2ξ),
+    𝒬(2 + hξ, hκ) = h(1811κ/64 − 2ξ) + h²(κ − ξ)(κ − 2ξ),     𝒬(3 + hξ, hκ) = h(1619κ/64 + 2ξ) + h²(κ − ξ)(κ − 2ξ),
 
-and U(2 + hξ, hκ) = h(κ − ξ)Ψ(2 + hξ, hκ), U(3 + hξ, hκ) = (h(κ − ξ) − 1)Ψ(3 + hξ, hκ). So U is of order h² at 2 + hξ
+and U(2 + hξ, hκ) = h(κ − ξ)𝒬(2 + hξ, hκ), U(3 + hξ, hκ) = (h(κ − ξ) − 1)𝒬(3 + hξ, hκ). So U is of order h² at 2 + hξ
 and of order h at 3 + hξ; with R₁(2, 0) = R₂(2, 0) = R₃(2) = 0, P_l(2 + hξ) has no term of order h⁰ or h¹. For
 instance G₀ = (κ − ξ)(1811κ/64 − 2ξ) − 9567ξ/64 − 5433κ/64, the last two terms coming from the linear terms
 −9567s/64 − 1875x/8 of R₁(2 + x + s, x) at s = h(ξ − κ), x = hκ; and L₀ = −(2ξ + 1619κ/64) + R₁(3, 0) with
@@ -107,24 +107,24 @@ Summing the absolute values of the coefficients at |ξ| = 3 and h = 10⁻⁶ giv
 with N̄ := R̄₂ + hR̄₃ and N̄′ := R̄₂′ + hR̄₃′. Each column is a bound in the direction stated below; the majorants are
 evaluated at the rational points shown.
 
-The root near 2 + x. Here Ξ_B = hW/Ψ on the disc |ι − (2 + x)| ≤ ϱ, and d_* is a lower bound for the distance from
-2 + x to the roots of Ψ(·, x) for x in the interval. The columns satisfy
+The root near 2 + x. Here Ξ_B = hW/𝒬 on the disc |ι − (2 + x)| ≤ ϱ, and d_* is a lower bound for the distance from
+2 + x to the roots of 𝒬(·, x) for x in the interval. The columns satisfy
 
     M₀ ≥ M̄_B(ϱ, x_b) + hN̄(2 + x_b + ϱ, x_b),     M₁ ≥ M̄_B′(ϱ, x_b) + hN̄′(2 + x_b + ϱ, x_b),
-    Ψ_min ≤ 2(d_* − ϱ)²,     Ψ′_max ≥ 4ϱ + max(2, x_b − 2),
-    L_Ξ ≥ h(M₁/Ψ_min + M₀Ψ′_max/Ψ_min²),     e_B/h ≥ L_Ξ·max c/(1 − L_Ξ),
+    𝒬_min ≤ 2(d_* − ϱ)²,     𝒬′_max ≥ 4ϱ + max(2, x_b − 2),
+    L_Ξ ≥ h(M₁/𝒬_min + M₀𝒬′_max/𝒬_min²),     e_B/h ≥ L_Ξ·max c/(1 − L_Ξ),
 
-so that |Ψ| ≥ Ψ_min and |∂_ιΨ| ≤ Ψ′_max on the disc; the column hM₀/Ψ_min is an upper bound for that quotient, and
+so that |𝒬| ≥ 𝒬_min and |∂_ι𝒬| ≤ 𝒬′_max on the disc; the column hM₀/𝒬_min is an upper bound for that quotient, and
 max c bounds c on [0, x_b] ([[lem:s14-sextic-split]] (ii)).
 
-| x_a | x_b | ϱ | d_* | M₀ | M₁ | Ψ_min | Ψ′_max | hM₀/Ψ_min | L_Ξ | max c | e_B/h |
+| x_a | x_b | ϱ | d_* | M₀ | M₁ | 𝒬_min | 𝒬′_max | hM₀/𝒬_min | L_Ξ | max c | e_B/h |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 0.018 | 0.5 | 0.001 | 0.40 | 144 | 157 | 0.3184 | 2.004 | 4.6·10⁻⁴ | 3.34·10⁻³ | 11 | 0.04 |
 | 0.5 | 4 | 0.001 | 2.56 | 4090 | 532 | 13.09 | 2.004 | 3.2·10⁻⁴ | 8.9·10⁻⁵ | 39 | 0.004 |
 | 4 | 16 | 0.002 | 7.25 | 135000 | 12200 | 105.0 | 14.008 | 1.3·10⁻³ | 2.9·10⁻⁴ | 321 | 0.1 |
 | 16 | 70 | 0.03 | 14.5 | 9530000 | 762000 | 418.7 | 68.12 | 0.0228 | 5.53·10⁻³ | 5155 | 29 |
 
-The complex root ζ(x) of Ψ. Here Ξ = −hW/V with V(ι) = 2(2 + x − ι)(ι − ζ̄) on the disc |ι − ζ| ≤ ϱ, and, for x in
+The complex root ζ(x) of 𝒬. Here Ξ = −hW/V with V(ι) = 2(2 + x − ι)(ι − ζ̄) on the disc |ι − ζ| ≤ ϱ, and, for x in
 the interval, d⁻ ≤ |2 + x − ζ| ≤ d⁺, b⁻ ≤ Im ζ ≤ b⁺ and |ζ| ≤ r⁺. The columns satisfy
 
     M₀ ≥ M̄_a(b⁺ + ϱ, x_b) + hN̄(r⁺ + ϱ, x_b),     M₁ ≥ M̄_a′(b⁺ + ϱ, x_b) + hN̄′(r⁺ + ϱ, x_b),
@@ -150,7 +150,7 @@ quotient.
 | 16 | 35 | 0.00815 | 0.00206 | 0.00815 | 17 |
 | 35 | 70 | 0.0213 | 0.00334 | 0.0213 | 72 |
 
-In every row hM₀/Ψ_min ≤ ϱ, resp. hM₀/V_min ≤ ϱ, and L_Ξ < 1; in the first row of the last table
+In every row hM₀/𝒬_min ≤ ϱ, resp. hM₀/V_min ≤ ϱ, and L_Ξ < 1; in the first row of the last table
 Ξ_ζ/(1 − L_Ξ) < 0.0023. The bounds d_*, d^±, b^± and r⁺ come from |2 + x − ζ|² = 1683x/128,
 (Im ζ)² = (1715x/8 − x² − 4)/16 and |ζ|² = (8x² + 2195x/8 + 96)/16, each increasing on the intervals used, and, on
 [0.018, 0.5], from the bound 0.40 of [[lem:s14-sextic-split]] (iv).

@@ -328,14 +328,13 @@ coefficient a_ν W. So C^rot = 0 is [[eq:iii-i15-2-2]] (with the sign of the der
 **Remark {#rem:iii-i15-2-6}** (Uniqueness at b.) At a rotating b, the p⃗′ of [[prop:iii-i15-2-5]] is unique only
 together with [[eq:iii-i15-2-2]]. The bottom of m_ν(W), ν ∈ 𝒩_rot, is a_ν h_(b,v1)(W) = a_ν(ġ_b(ḃ_W) + h_b(S_W)), with
 coefficients O(|b − b₀||W|) ([[rem:iii-i15-1-2]]). The K⁺-expansion does not separate it from the b- and S-rows, so
-the conditions u ∈ 𝒵_(β_k) alone are not shown to fix W′^rot. The later results use only the constructed map
-F ↦ (p⃗′, q′, h′):
+the conditions u ∈ 𝒵_(β_k) alone are not shown to fix W′^rot. What is used of [[prop:iii-i15-2-5]] is the
+constructed map F ↦ (p⃗′, q′, h′), and its uniqueness together with [[eq:iii-i15-2-2]]:
 
-- [[thm:iii-j1-2-1]] builds U′ from it; [[rem:iii-j1-2-2]] records that D_UΦ is not injective.
-- [[thm:iii-j2-4-1]] estimates it.
-- The proof of [[thm:iii-j3-5-3]] cites Step 3 of the proof of [[thm:iii-i14-3-1]] and its uniqueness, to identify the
-  exact and the lossy solutions. At b, the constrained uniqueness of [[prop:iii-i15-2-5]] serves there: A_b does not
-  depend on the loss, being computed from ι⁺- and tf-data, which the exact and the lossy classes share.
+- [[thm:iii-j1-2-1]] builds U′ from the constructed map; [[rem:iii-j1-2-2]] records that D_UΦ is not injective.
+- A_b does not depend on the loss ε, being computed from ι⁺- and tf-data ([[def:iii-i15-2-3]]). So when F lies in a
+  smaller class of right sides, which has the same ι⁺- and tf-data, a parameter found for F there that satisfies
+  [[eq:iii-i15-2-2]] and gives u ∈ 𝒵_α is the p⃗′ of [[prop:iii-i15-2-5]], by that uniqueness.
 
 ### The linear theory at b {#sec:iii-i15-3}
 
@@ -375,21 +374,18 @@ b ∈ ℬ̄_*, the statements at b ([[def:s25-at-b]]) of the following hold, the
   coordinates);
 - [[lem:iii-j-2-1]], [[lem:iii-j-2-2]], [[lem:iii-j-2-3]], [[thm:iii-j-2-4]] and [[rem:iii-j-2-5]], as written, with
   the rows built at b₀ ((viii) below);
-- [[lem:iii-j1-1-1]], for the output of [[prop:iii-i15-2-5]], and [[thm:iii-j1-2-1]];
-- [[thm:iii-j2-4-1]], [[thm:iii-j2-4-2]] and [[prop:iii-j2-4-3]];
-- [[prop:iii-j3-3-4]], [[prop:iii-j3-4-3]], [[prop:iii-j3-4-6]], [[prop:iii-j3-5-2]], [[prop:iii-j3-5-4]],
-  [[thm:iii-j3-5-3]], [[thm:iii-j3-5-5]] and [[cor:iii-j3-6-6]], [[thm:iii-j3-5-3]] in the form of
-  [[prop:iii-i15-2-5]] at exact weights.
+- [[lem:iii-j1-1-1]], for the output of [[prop:iii-i15-2-5]], and [[thm:iii-j1-2-1]].
 
-*Proof.* [[ch:s20]], [[ch:s21]], [[ch:s22]] and [[ch:s24]] state and prove their results at a base point with
-parameter b ∈ ℬ̄_*, with constants uniform in b: [[ch:s20]] from its own model at b, with [[lem:s20-rows]] and
-[[lem:s20-injective]], and [[ch:s21]], [[ch:s22]] and [[ch:s24]] from (P1)–(P6), [[lem:iii-i15-1-2]] and
-[[sec:iii-i15-2]]. The results of [[ch:s19]] below level 3 hold at b by [[prop:iii-i2-5-1-b]]. The results of
-[[ch:s23]] stated at b₀ hold at b by [[prop:iii-i15-2-5]] and by the paragraph *The augmentation at b* below. Items
-(i)–(xi) record where a step proved at b₀ uses a property of b₀ that a general b ∈ ℬ̄_* need not have, or an object
-built at b₀, and what replaces it at b. The three steps that need more than a substitution are proved at b in
-[[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]], [[lem:iii-i15-2-11]] and [[prop:iii-i15-2-12]], and [[lem:iii-i15-2-9]]
-and [[cor:iii-i15-2-10]].
+*Proof.* [[ch:s20]], [[ch:s21]] and [[ch:s22]] state and prove their results at a base point with parameter
+b ∈ ℬ̄_*, with constants uniform in b: [[ch:s20]] from its own model at b, with [[lem:s20-rows]] and
+[[lem:s20-injective]]; [[ch:s21]] and [[ch:s22]] from (P1)–(P6), [[lem:s25a-ball]], [[rem:iii-i15-1-2]],
+[[prop:iii-i2-5-1-b]], [[lem:iii-i15-1-2]] and [[sec:iii-i15-2]], and from the results at b of the chapters before
+them ([[lem:s20-injective]], [[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]] of [[ch:s20]] among them). The results of
+[[ch:s19]] below level 3 hold at b by [[prop:iii-i2-5-1-b]]. The results of [[ch:s23]] stated at b₀ hold at b by
+[[prop:iii-i15-2-5]] and by the paragraph *The augmentation at b* below. Items (i)–(xi) record where a step proved at
+b₀ uses a property of b₀ that a general b ∈ ℬ̄_* need not have, or an object built at b₀, and what replaces it at b.
+The three steps that need more than a substitution are proved at b in [[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]],
+[[lem:iii-i15-2-11]] and [[prop:iii-i15-2-12]], and [[lem:iii-i15-2-9]] and [[cor:iii-i15-2-10]].
 
 (i) *The forward solutions.* The results listed solve with L^(g,g_0) at the base point through [[thm:iii-i-5-3]] and its
 corollaries ((P1)). The splitting L_(h,p⃗) = L_(b₀) + (L_(h,p⃗) − L_(b₀)) near K⁺, used to move a perturbation into the

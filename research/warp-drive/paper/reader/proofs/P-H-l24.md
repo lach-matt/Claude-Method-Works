@@ -108,13 +108,53 @@ A² λ⁵/(42 μ0) ≤ 1/10 and 2A² λ⁵/(63 μ0) ≤ 10⁻³. ∎
 In both cases the lower bound of [[eq:l-24-margin-bounds]] needs only log-concavity of env, which holds on the whole
 increasing part of each envelope, and not the finer hypotheses that [[cor:edge-envelope]] proves on (v_s, v_s + x0].
 
+The next lemma uses one more part of (H_N): the bound on κ′ ([[sec:edge-envelope]], k = 0).
+
+**Lemma {#lem:l-24-kappa}** (The size of κ in the band.) Let x0 > 0, let env be positive and log-concave on
+(v_s, v_s + x0] with env′ > 0 and |κ′| ≤ c_R κ^(1+α) there, where c_R > 0 and 0 < α < 1, and let env(v) → 0 as v ↓ v_s.
+For v_s < v ≤ v_s + x0 put x := v − v_s. Then
+
+    κ(v) ≥ (α c_R x)^(−1/α),                                                                       {#eq:l-24-kappa-low}
+
+and if moreover v ≤ v_s + x0/2,
+
+    κ(v) ≤ max{(2/(α c_R x0))^(1/α), (2^(1/α) α c_R log(env(v_s + x0)/env(v)))^(1/(1−α))}.          {#eq:l-24-kappa-up}
+
+Let 0 < δ ≤ 1/2 and 0 < λ < 1 with λ^(5/2) < env(v_s + x0/2) and env(v_s + x0) ≤ λ^(−1/2), and let x_λ ∈ (0, x0/2) be
+defined by env(v_s + x_λ) = λ^(5/2). Then every point v of the band satisfies v_s < v ≤ v_s + x_λ and
+
+    (α c_R x_λ)^(−1/α) ≤ κ(v) ≤ K_λ := max{(2/(α c_R x0))^(1/α), (2^(2+1/α) α c_R log(1/λ))^(1/(1−α))},
+    κ(v) (v − v_s) ≥ (α c_R)^(−1/α) x_λ^(1−1/α).                                                   {#eq:l-24-kappa-band}
+
+As λ → 0, x_λ → 0 and λ K_λ^j → 0 for every j ≥ 1. So κ and κ(v − v_s) tend to ∞ uniformly on the band, and for every
+δ′ ∈ (0, 1) there is a threshold on λ below which λκ ≤ λ^(δ′) at every point of the band.
+
+*Proof.* As log env is concave and differentiable, κ is nonincreasing and κ′ ≤ 0; and κ > 0 since env′ > 0. If κ were
+bounded by some K on (v_s, v_s + x0], then log env(v) ≥ log env(v_s + x0) − K x0 for every v there, against env(v) → 0;
+so κ(t) → ∞ as t ↓ v_s. Now (κ^(−α))′ = −α κ^(−α−1) κ′ = α κ^(−α−1) |κ′| lies in [0, α c_R]. For v_s < t < v,
+κ(v)^(−α) ≤ κ(t)^(−α) + α c_R (v − t), and letting t ↓ v_s gives [[eq:l-24-kappa-low]].
+For [[eq:l-24-kappa-up]] put h := κ(v)^(−α)/(α c_R). If h > x0/2, then κ(v) < (2/(α c_R x0))^(1/α). Otherwise
+v + h ≤ v_s + x0, and for v ≤ t ≤ v + h, κ(t)^(−α) ≤ κ(v)^(−α) + α c_R h = 2κ(v)^(−α), so κ(t) ≥ 2^(−1/α) κ(v). As env
+is increasing,
+
+    log(env(v_s + x0)/env(v)) ≥ ∫_v^(v+h) κ ≥ 2^(−1/α) κ(v) h = 2^(−1/α) κ(v)^(1−α)/(α c_R),
+
+which is [[eq:l-24-kappa-up]] in this case.
+Let v be a point of the band. Then E(v) ≥ λ^(3+δ) > 0, so v > v_s. If v_s + x_λ < v ≤ v_s + x0, then E(v) ≥ env(v) >
+env(v_s + x_λ) = λ^(5/2); if v > v_s + x0, then E(v) ≥ env(v_s + x0) > λ^(5/2). Both contradict E(v) ≤ λ^(3−δ) ≤ λ^(5/2),
+so v ≤ v_s + x_λ, and env(v) = E(v) ≥ λ^(3+δ), as env is increasing on (v_s, v]. Hence log(env(v_s + x0)/env(v)) ≤
+(1/2 + 3 + δ) log(1/λ) ≤ 4 log(1/λ), and [[eq:l-24-kappa-up]] gives κ(v) ≤ K_λ. The lower bounds of
+[[eq:l-24-kappa-band]] follow from [[eq:l-24-kappa-low]] with x ≤ x_λ, since −1/α < 0 and 1 − 1/α < 0. Finally, env is
+continuous and positive on (v_s, v_s + x0], so for every y in (0, x0/2) we have x_λ < y once λ^(5/2) < env(v_s + y);
+and K_λ grows like a power of log(1/λ), so λ K_λ^j → 0 and λ^(1−δ′) K_λ → 0. ∎
+
 **Proposition {#prop:l-24-transition}** (The first-degree term against the margin.) Let (v, ω) be a point at which
 [[lem:l-24-margin]] applies with ς ≤ 10⁻³ (by [[prop:l-24-band]], every point of the band once λ is below the thresholds
 there), and suppose that
 
-    |S′| ≤ 1.001 κ |S|,      |S| ≤ 1.001 R m0      at (v, ω).                                         {#eq:l-24-s-bounds}
+    |S′| ≤ 1.001 κ |S|,      |S| ≤ 1.001 R m0      at (v, ω)                                          {#eq:l-24-s-bounds}
 
-Then at (v, ω)
+(by [[prop:l-24-s-bounds]], at every point of the band with R ≥ 1/2 once λ is small). Then at (v, ω)
 
     m0′ − |S′| ≥ (2 − 3ς/4 − 1.002001 R) κ m0 ≥ (1.99925 − 1.002001 R) κ m0;                       {#eq:l-24-transition}
 
@@ -126,7 +166,88 @@ m0′ ≥ (2 − 3ς/4) κ m0; subtracting gives the first inequality, and 3ς/4
 1.99925 − 1.002001 · 1.1 = 0.8970489, 1.99925 − 1.002001 · 1.06 = 0.93712894 and 1.99925 − 1.002001 · 1.005 =
 0.992238995. ∎
 
-The two bounds [[eq:l-24-s-bounds]] are the properties of S that the proof of [[thm:l-24]] uses.
+The two bounds [[eq:l-24-s-bounds]] are the properties of S that the proof of [[thm:l-24]] uses. They are needed only
+at points where R lies near 1, and they follow there, for λ small, from the first-degree horizon value. We use it in the
+following form. Let N ≥ 9 and let (H_N) of [[sec:edge-envelope]] hold on (v_s, v_s + x0], with constants c_R > 0 and
+α ∈ (0, 1); put r0 := v − τ0, T := λ κ_(N−1), c_N := N μ0/(r0² + μ0) and Λ := λ^(N−2) env^(N−1)/env. The first-degree
+horizon value [[pending:ch85-s-bounds]] gives, with a constant C independent of λ, v and ω, at every point (v, ω) with
+v_s < v ≤ v_s + x0 and λκ(v) ≤ 1,
+
+    S = S_st + S_U + E_S,      S_st := λ³ A ν(r0) d(ϑ) env (1 + 2iλκ),
+    S_U := −λ^(N+1) A i^N d(ϑ) Γ_R(r0) Ξ env^(N−1),      Ξ := ((1 − c_N) T − i c_N)/(T + i),
+    |E_S| + |E_S′|/κ ≤ C [λ³ env (|ν(r0)| (λκ)² + λ) + |S_U|],                                    {#eq:l-24-s-split}
+
+where ν and Γ_R > 0 are real functions of r0, smooth near r0 = v_s − τ0, d is a bounded function of the polar angle ϑ,
+and either ν(v_s − τ0) ≠ 0 or ν(v_s − τ0) = ν′(v_s − τ0) = 0 ≠ ν″(v_s − τ0). The factor |1 + 2iλκ| makes
+|S_st| = R m0 (1 + 4λ²κ²)^(1/2), so S_st carries R exactly; the work is to show that S_U and E_S, and their derivatives,
+are small against R m0 and κ R m0.
+
+**Proposition {#prop:l-24-s-bounds}** (The first-degree amplitude where R ≥ 1/2.) Assume [[eq:l-24-s-split]] with the
+properties stated after it, and let 0 < δ ≤ 1/2. There is λ_S ∈ (0, 1), independent of v and ω, such that for
+0 < λ < λ_S, at every point (v, ω) of the band with R(v, ω) ≥ 1/2,
+
+    0.999 κ |S| ≤ |S′| ≤ 1.001 κ |S|,      0.999 R m0 ≤ |S| ≤ 1.001 R m0.                           {#eq:l-24-s-two-sided}
+
+In particular [[eq:l-24-s-bounds]] holds at these points, and Λ ≤ λ and λκ ≤ λ^(δ′) (any fixed δ′ < 1) hold at every
+point of the band once λ is small.
+
+*Proof.* Put x := v − v_s. As Γ_R, ν and c_N are smooth near r0 = v_s − τ0 and d is bounded, there are x_1 > 0 and C
+such that Γ_R, |Γ_R′|, |ν|, |c_N′| and |d| are at most C for 0 < x ≤ x_1, and c_N ≤ N everywhere. Moreover, after
+decreasing x_1, |ν′(r0)| ≤ C (1 + 1/x) |ν(r0)| for 0 < x ≤ x_1: if ν(v_s − τ0) ≠ 0, take x_1 so small that
+|ν(r0)| ≥ |ν(v_s − τ0)|/2; otherwise r0 − (v_s − τ0) = x, and Taylor's formula gives ν(r0) = (ν″(v_s − τ0)/2) x²
+(1 + O(x)) and ν′(r0) = ν″(v_s − τ0) x (1 + O(x)), so x ν′/ν → 2 and |ν′/ν| ≤ 3/x for x small.
+Take λ below the thresholds of [[prop:l-24-band]] and [[lem:l-24-kappa]], with x_λ ≤ min(x_1, 1), α c_R x_λ ≤ 1 and
+λ K_λ ≤ 1. Let (v, ω) be a point of the band with R ≥ 1/2. By [[lem:l-24-kappa]], 0 < x ≤ x_λ, env(v) = E(v) lies in
+[λ^(3+δ), λ^(3−δ)] and 1 ≤ κ ≤ K_λ, so λκ ≤ 1 and [[eq:l-24-s-split]] applies; by [[prop:l-24-band]], ς ≤ 10⁻³. Put
+
+    θ := λ^(1−δ) (1 + λ K_λ² + λ^(N−3) K_λ^(N−1)) + λ K_λ + x_λ^(1/α − 1),
+
+which depends on λ alone and tends to 0 with λ, by [[lem:l-24-kappa]]. By [[eq:l-24-kappa-low]] and x ≤ x_λ ≤ 1,
+1/κ and 1/(κx) are at most (α c_R)^(1/α) x_λ^(1/α − 1); so 1/κ, 1/(κx) and λκ are at most Cθ. Below, C is independent of
+λ, v and ω and may change from line to line.
+
+*The size of |ν| |d|.* By [[eq:l-24-m0]], m0 ≥ a_2/κ = A² env²/(9 √μ0 p^(3/2)), and p^(3/2) ≤ (1 + ς/2)^(3/4) ≤ 10/9
+by the proof of [[lem:l-24-margin]]; so m0 ≥ A² env²/(10 √μ0). As R m0 = λ³ A env |ν(r0)| |d(ϑ)| and R ≥ 1/2,
+
+    |ν(r0)| |d(ϑ)| ≥ A env/(20 √μ0 λ³) ≥ (A/(20 √μ0)) λ^δ,
+
+and, |ν| and |d| being at most C, both |ν(r0)| and |d(ϑ)| are at least λ^δ/C. In particular ν(r0) ≠ 0.
+
+*The size of S − S_st.* By (H_N), env^(N−1) = κ_0 κ_1 ⋯ κ_(N−2) env with 0 < κ_k ≤ 2κ, so Λ ≤ 2^(N−1) λ^(N−2) κ^(N−1)
+≤ 2^(N−1) λ^(N−2) K_λ^(N−1) ≤ C θ λ^δ, which is also at most λ for λ small. As |T + i| ≥ max(T, 1), |Ξ| ≤ |1 − c_N| + c_N
+≤ C, and Γ_R ≤ C; hence, with |ν| ≥ λ^δ/C,
+
+    |S_U| ≤ C Λ λ³ A |d| env = C (Λ/|ν|) R m0 ≤ C θ R m0.
+
+Dividing the bound on E_S in [[eq:l-24-s-split]] by R m0 = λ³ A env |ν| |d| and using the lower bounds on |d| and |ν| |d|,
+
+    |E_S| ≤ C [(λκ)²/|d| + λ/(|ν| |d|)] R m0 + C |S_U| ≤ C [λ^(2−δ) K_λ² + λ^(1−δ) + θ] R m0 ≤ C θ R m0.
+
+So |S − S_st| ≤ C θ R m0. As R m0 ≤ |S_st| = R m0 (1 + 4λ²κ²)^(1/2) ≤ (1 + 2θ²) R m0,
+
+    (1 − C θ) R m0 ≤ |S| ≤ (1 + 2θ² + C θ) R m0.                                                   {#eq:l-24-s-size}
+
+*The derivative.* At fixed ω, d(ϑ) does not depend on v, and r0′ = 1. So S_st′ = S_st (κ + ν′/ν + 2iλκ′/(1 + 2iλκ)),
+and with |ν′/ν| ≤ C (1 + 1/x) and |κ′| ≤ c_R κ^(1+α) ≤ c_R κ² (κ ≥ 1),
+
+    |S_st′ − κ S_st| ≤ (C (1 + 1/x) + 2 c_R λκ²) |S_st| ≤ C θ κ |S_st|,
+
+since 1 + 1/x = κ (1/κ + 1/(κx)) and λκ² ≤ θκ. In S_U, (env^(N−1))′ = κ_(N−1) env^(N−1) with κ_(N−1) ≤ 2κ; Ξ is affine
+in c_N with ∂Ξ/∂c_N = −1, and ∂Ξ/∂T = i/(T + i)², so |Ξ′| ≤ |c_N′| + |T′| ≤ C + c_R λ (2κ)^(1+α) ≤ Cκ, by (H_N) for
+κ_(N−1) and λκ^α ≤ λκ ≤ 1. Hence |(Γ_R Ξ env^(N−1))′| ≤ Cκ |env^(N−1)|, and |S_U′| ≤ C κ Λ λ³ A |d| env ≤ C θ κ R m0. By
+[[eq:l-24-s-split]], |E_S′| is at most κ times the bound on |E_S| used above, so |E_S′| ≤ C θ κ R m0. Since
+R m0 ≤ |S_st| and, by [[eq:l-24-s-size]], |S_st| ≤ |S| + C θ R m0 ≤ |S| + C θ |S_st|,
+
+    | |S′| − κ |S| | ≤ |S′ − κ S| ≤ |S_st′ − κ S_st| + |S_U′| + κ |S_U| + |E_S′| + κ |E_S| ≤ C θ κ |S|/(1 − C θ).
+
+As θ → 0 with λ, this and [[eq:l-24-s-size]] give [[eq:l-24-s-two-sided]] once λ is small. The bound Λ ≤ λ was shown
+above, and λκ ≤ λ^(δ′) is [[lem:l-24-kappa]]. ∎
+
+Where R is small the bounds are not claimed. There |ν| |d| may be of order λ or smaller, while the bound on E_S in
+[[eq:l-24-s-split]] keeps the term C λ⁴ env, which carries no factor |ν| |d|; so E_S need not be small against
+R m0 = λ³ A env |ν| |d|. The proof of [[thm:l-24]] uses [[eq:l-24-s-bounds]] only where R ∈ [1 − 2λ^γ, 1 + 2λ^γ], which
+lies in [1/2, 1.1] once 2λ^γ ≤ 1/10. So, for λ small, the conclusions of [[prop:l-24-transition]] hold at every point of
+the band with 1/2 ≤ R ≤ 1.1.
 
 **Remark {#rem:l-24-sharp}** (The factor 2 − R.) The constant 2 of [[lem:l-24-margin]] is attained at the edge. Let env
 be positive and log-concave on (v_s, v_s + x0] with env(v) → 0 as v ↓ v_s. Then κ is nonincreasing there and κ(v) → ∞

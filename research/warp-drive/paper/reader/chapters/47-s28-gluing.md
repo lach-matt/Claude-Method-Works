@@ -444,8 +444,8 @@ says
 and for (δK, δg) = T_(u′)z so does Ψ(u′, z) = δf. δf lies in 𝒵, as e^(2s/x)(δJ, δρ) ∈ 𝒵̃ (*The spaces*) and by (e).
 The last assertion is part of (e). "Close to zero" is the conclusion of [CD03, Theorem 5.9]; we use it in the form:
 for every r > 0, diminishing ε, the solution has ‖(δK, δg)‖_𝒳 < r. [CD03] applies its existence theorems in this form,
-with the solution bounded by a multiple of the source ([CD03, (8.5)]), and [[lem:v-3-2]] (c) proves that bound for the
-solution it constructs.
+with the solution bounded by a multiple of the norm of (δJ, δρ) ([CD03, (8.5)]), and [[lem:v-3-2]] (c) proves that
+bound for the solution it constructs.
 
 (b) As k > n/2 is an integer, k ≥ k₀ := ⌊n/2⌋ + 1. The metric g₀ has the (C^(k+4,α)_(x²,1), k + 5)-behaviour and (5.10)
 holds, by (a). As u′ is smooth on 𝒜, it lies in x⁻²C^(k+3,α)_(x²,1)(g₀) × C^(k+4,α)_(x²,1)(g₀), and the norm of 𝒩_ε

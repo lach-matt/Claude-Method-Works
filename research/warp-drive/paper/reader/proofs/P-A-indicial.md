@@ -90,13 +90,13 @@ C_h = −3h/4 + 35h²/8 + 35eh/4 < 0. C has exactly one root in (2, ∞), with C
 
 (i) P_l(ι) = U(ι, x) + hW(ι, x), where
 
-    U := (2 + x − ι)Ψ(ι, x),   Ψ(ι, x) := 2ι² − (3x + 10)ι + x² + (5 + 3ε₀)x + 12,   W := R₁ + hR₂ + h²R₃,
+    U := (2 + x − ι)𝒬(ι, x),   𝒬(ι, x) := 2ι² − (3x + 10)ι + x² + (5 + 3ε₀)x + 12,   W := R₁ + hR₂ + h²R₃,
                                                                                                    {#eq:s14-pa-split}
 
 with R₁, R₂, R₃ the polynomials of [[sec:tab-a-split]]; the coefficients of 64·10¹⁸P_l in ι are those of
 [[sec:tab-a-sextic]].
 
-(ii) Ψ(2 + x, x) = 3(ε₀ − 1)x = 1683x/64, ∂_ιΨ = 4ι − 3x − 10, and W(2 + x, x) = −(1683/64)x c(x), with
+(ii) 𝒬(2 + x, x) = 3(ε₀ − 1)x = 1683x/64, ∂_ι𝒬 = 4ι − 3x − 10, and W(2 + x, x) = −(1683/64)x c(x), with
 c = c⁰ + hc₁ + h²c₂,
 
     c⁰(x) := x² + 5866x/1683 + 5000/561,     c₁(x) := 64x⁴/1683 − 2308x³/1683 − 4439x²/561 − 1019x/99 − 2,
@@ -105,14 +105,14 @@ c = c⁰ + hc₁ + h²c₂,
 One has |hc₁ + h²c₂| < 0.011, 0.43 and 1.43 on [0, 16], [0, 50] and [0, 70]; hence c > 0 on [0, 70], and c ≤ 11, 39,
 321, 2684, 5155 on [0, 0.5], [0, 4], [0, 16], [0, 50], [0, 70].
 
-(iii) The discriminant of Ψ(·, x) is Δ_Ψ(x) := x² − 1715x/8 + 4, with roots x₋ ∈ (0.01866, 0.01867) and x₊ > 214.
-For x₋ < x < x₊ the roots of Ψ(·, x) are ζ and ζ̄,
+(iii) The discriminant of 𝒬(·, x) is Δ_𝒬(x) := x² − 1715x/8 + 4, with roots x₋ ∈ (0.01866, 0.01867) and x₊ > 214.
+For x₋ < x < x₊ the roots of 𝒬(·, x) are ζ and ζ̄,
 
-    ζ := a + ib,     a = a(x) := (3x + 10)/4,     b = b(x) := (−Δ_Ψ(x))^(1/2)/4 > 0,
+    ζ := a + ib,     a = a(x) := (3x + 10)/4,     b = b(x) := (−Δ_𝒬(x))^(1/2)/4 > 0,
 
-with |2 + x − ζ|² = Ψ(2 + x, x)/2 = 1683x/128, |ζ|² = (8x² + 2195x/8 + 96)/16, and b increasing on (x₋, 107].
+with |2 + x − ζ|² = 𝒬(2 + x, x)/2 = 1683x/128, |ζ|² = (8x² + 2195x/8 + 96)/16, and b increasing on (x₋, 107].
 
-(iv) For 0 < x ≤ x₋ the roots of Ψ(·, x) are real, a ± Δ_Ψ(x)^(1/2)/4, and for 0.018 ≤ x ≤ 0.5 both roots of Ψ(·, x)
+(iv) For 0 < x ≤ x₋ the roots of 𝒬(·, x) are real, a ± Δ_𝒬(x)^(1/2)/4, and for 0.018 ≤ x ≤ 0.5 both roots of 𝒬(·, x)
 lie at distance more than 0.40 from 2 + x.
 
 (v) Let Λ(x) be −½ times the coefficient of ι² in the remainder of W(·, x) on division by U(·, x). Then
@@ -141,7 +141,7 @@ of M⁰ with one row replaced by the same row of M¹, that of h² the sum of the
 replaced by the same row of M⁰, and that of h³ is det M¹. Expanding det M⁰ along its first column and det M¹ along
 its first row,
 
-    det M⁰ = (2 + x − ι)((4 + x − 2ι)(3 + x − ι) − (ε₀ + 2)x) + 4ε₀x(2 + x − ι) = (2 + x − ι)Ψ(ι, x) = U,
+    det M⁰ = (2 + x − ι)((4 + x − 2ι)(3 + x − ι) − (ε₀ + 2)x) + 4ε₀x(2 + x − ι) = (2 + x − ι)𝒬(ι, x) = U,
     det M¹ = (2ι − ι²)(ι + 1)(ε₀ + 3 − ι)(2ι − ι² − 1) = ι(ι − 2)(ι − 1)²(ι + 1)(ε₀ + 3 − ι) = R₃.
 
 The first and the third rows of M¹ have one nonzero entry each; expanding along them, and expanding along its first
@@ -159,7 +159,7 @@ and likewise, replacing the first, the second and the third row of M¹ by that o
 Multiplying out gives the polynomials R₁ and R₂ of [[sec:tab-a-split]]; these are identities in (ι, x, h, ε₀).
 Substituting x = hκ, ε₀ = 625/64 and h = 10⁻⁶ gives the coefficients of [[sec:tab-a-sextic]].
 
-(ii) Ψ(2 + x, x) = 8 + 8x + 2x² − (3x + 10)(2 + x) + x² + 5x + 3ε₀x + 12 = (3ε₀ − 3)x. The value of W at ι = 2 + x is
+(ii) 𝒬(2 + x, x) = 8 + 8x + 2x² − (3x + 10)(2 + x) + x² + 5x + 3ε₀x + 12 = (3ε₀ − 3)x. The value of W at ι = 2 + x is
 the s-free part of R₁(2 + x + s, x) ([[sec:tab-a-split]]), −1683x³/64 − 2933x²/32 − 1875x/8 = −(1683/64)x c⁰(x), plus
 h R₂(2 + x, x) + h² R₃(2 + x). From the formulas of (i),
 
@@ -172,21 +172,21 @@ the bounds on c from c⁰(0.5) < 10.92, c⁰(4) < 38.86, c⁰(16) < 320.69, c⁰
 increasing on [0, ∞).
 
 (iii) The discriminant is (3x + 10)² − 8(x² + (5 + 3ε₀)x + 12) = x² − (24ε₀ − 20)x + 4, and 24ε₀ − 20 = 1715/8;
-Δ_Ψ(0.01866) > 0 > Δ_Ψ(0.01867). For complex roots |2 + x − ζ|² = (2 + x − ζ)(2 + x − ζ̄) = Ψ(2 + x, x)/2, and
-|ζ|² = a² + b² = ((3x + 10)² − x² + 1715x/8 − 4)/16. b² = −Δ_Ψ/16 has derivative (1715/8 − 2x)/16 > 0 for x < 107.
+Δ_𝒬(0.01866) > 0 > Δ_𝒬(0.01867). For complex roots |2 + x − ζ|² = (2 + x − ζ)(2 + x − ζ̄) = 𝒬(2 + x, x)/2, and
+|ζ|² = a² + b² = ((3x + 10)² − x² + 1715x/8 − 4)/16. b² = −Δ_𝒬/16 has derivative (1715/8 − 2x)/16 > 0 for x < 107.
 
-(iv) On [0.018, x₋], Δ_Ψ decreases from Δ_Ψ(0.018) < 0.1416, so the smaller root a − Δ_Ψ^(1/2)/4 exceeds
+(iv) On [0.018, x₋], Δ_𝒬 decreases from Δ_𝒬(0.018) < 0.1416, so the smaller root a − Δ_𝒬^(1/2)/4 exceeds
 2 + x + (1/2 − x/4) − 0.0941 > 2 + x + 0.401; the larger one is farther. On [x₋, 0.5], |2 + x − ζ| = (1683x/128)^(1/2)
 ≥ (1683·0.01866/128)^(1/2) > 0.49.
 
-(v) For x₋ < x < x₊ the roots of U(·, x) are 2 + x, ζ and ζ̄, distinct since Ψ(2 + x, x) ≠ 0 and b > 0, and U has
+(v) For x₋ < x < x₊ the roots of U(·, x) are 2 + x, ζ and ζ̄, distinct since 𝒬(2 + x, x) ≠ 0 and b > 0, and U has
 leading coefficient −2 in ι. For a cubic U with leading coefficient −2 and distinct roots r₁, r₂, r₃, and any
 polynomial F, Σ_j F(r_j)/U′(r_j) = −½·(coefficient of ι² in the remainder of F modulo U), because F and its
 remainder agree at the roots, and for the polynomials 1, ι, ι² the sum is 0, 0, −½ (Lagrange interpolation of the
 remainder at the three roots). So Λ(x) = Σ_j W(r_j)/∂_ιU(r_j). W and U have real coefficients, so
 2 Re(W(ζ)/∂_ιU(ζ)) = W(ζ)/∂_ιU(ζ) + W(ζ̄)/∂_ιU(ζ̄) = Λ(x) − W(2 + x, x)/∂_ιU(2 + x, x), and
-∂_ιU(2 + x, x) = −Ψ(2 + x, x), so by (ii) the last quotient is c(x). The quotient of W by U is the polynomial Y of
-[[sec:tab-a-split]]: multiplying out, W − YU has degree at most 2 in ι, and its coefficient of ι² is
+∂_ιU(2 + x, x) = −𝒬(2 + x, x), so by (ii) the last quotient is c(x). The quotient of W by U is the polynomial 𝒲 of
+[[sec:tab-a-split]]: multiplying out, W − 𝒲U has degree at most 2 in ι, and its coefficient of ι² is
 −2(Λ⁰ + hΛ₁ + h²Λ₂). The bounds on Π − Π⁰ = h(Λ₁ − c₁) + h²(Λ₂ − c₂) follow by summing the absolute values of the
 terms at x = 35 and x = 70; those on the quadratic Π⁰ and on Π⁰′ = 9x/4 − 10598081/215424 from its vertex value
 −617.5 at x = 21.87 and its values −79.66, −423.4 and 1989.1 at x = 0, 35, 70. ∎
@@ -223,7 +223,7 @@ so equals ι*. The last bound is the quotient rule. ∎
 **Lemma {#lem:s14-sextic-count}** (Counting the roots.) (a) For 0 < x ≤ 70, P_l has exactly three roots, counted with
 multiplicity, in |ι| < 1000. (b) For x ≥ 70, P_l has no root with |ι − 1| ≤ 50.
 
-*Proof.* (a) For x ≤ 70 the roots of U(·, x) are 2 + x ≤ 72 and the roots of Ψ(·, x), which by
+*Proof.* (a) For x ≤ 70 the roots of U(·, x) are 2 + x ≤ 72 and the roots of 𝒬(·, x), which by
 [[lem:s14-sextic-split]] (iii)–(iv) have modulus at most (3657)^(1/2) < 61. On |ι| = 1000, therefore,
 |U| ≥ 928·2·939² > 1.63·10⁹, while by [[lem:s14-majorant]] with p = 0
 
@@ -232,10 +232,10 @@ multiplicity, in |ι| < 1000. (b) For x ≥ 70, P_l has no root with |ι − 1| 
 By Rouché's theorem P_l = U + hW has three zeros in |ι| < 1000, as U has.
 
 (b) If |ι − 1| ≤ 50, then |ι| ≤ 51, Re ι ≤ 51 and |2 + x − ι| ≥ x − 49, and |hW| ≤ h(R̄₁ + hR̄₂ + h²R̄₃)(51, x) ≤
-0.00862x² + 1.3823x + 45.381. If 70 ≤ x < x₊, both roots of Ψ have real part a = (3x + 10)/4, so they lie at
+0.00862x² + 1.3823x + 45.381. If 70 ≤ x < x₊, both roots of 𝒬 have real part a = (3x + 10)/4, so they lie at
 distance at least y := (3x − 194)/4 ≥ 4 from ι, and |U| ≥ 2(x − 49)y² ≥ 42y²; with x = (4y + 194)/3 the bound on
-|hW| becomes at most 0.0156y² + 3.36y + 172, which is less than 42y² for y ≥ 4. If x ≥ x₊, the roots of Ψ are real
-and at least (3x + 10 − x)/4, as Δ_Ψ(x)^(1/2) < x, so they lie at distance at least y′ := (2x − 194)/4 ≥ 58 from ι,
+|hW| becomes at most 0.0156y² + 3.36y + 172, which is less than 42y² for y ≥ 4. If x ≥ x₊, the roots of 𝒬 are real
+and at least (3x + 10 − x)/4, as Δ_𝒬(x)^(1/2) < x, so they lie at distance at least y′ := (2x − 194)/4 ≥ 58 from ι,
 and |U| ≥ 330y′², while with x = 2y′ + 97 the bound on |hW| becomes at most 0.0345y′² + 6.2y′ + 261 < 330y′². In both
 cases |hW| < |U| on the disc, so P_l has no zero there. ∎
 
@@ -254,8 +254,8 @@ cases |hW| < |U| on the disc, so P_l has no zero there. ∎
 
 (α) P_l(2 + x) = hW(2 + x, x) = −(1683/64)h x c(x) < 0, by [[lem:s14-sextic-split]] (ii), as U(2 + x, x) = 0.
 
-(β) P_l(a(x)) > 0. Indeed 2 + x − a = −(2 − x)/4 and Ψ(a, x) = −Δ_Ψ(x)/8, so U(a, x) = (2 − x)Δ_Ψ(x)/32 ≥
-1.982·0.1415/32 > 0.0087, Δ_Ψ being decreasing on [0, 0.018]; and |W(a, x)| ≤ M̄_a(0, 0.018) + hN̄(2.52, 0.018) < 49,
+(β) P_l(a(x)) > 0. Indeed 2 + x − a = −(2 − x)/4 and 𝒬(a, x) = −Δ_𝒬(x)/8, so U(a, x) = (2 − x)Δ_𝒬(x)/32 ≥
+1.982·0.1415/32 > 0.0087, Δ_𝒬 being decreasing on [0, 0.018]; and |W(a, x)| ≤ M̄_a(0, 0.018) + hN̄(2.52, 0.018) < 49,
 the s-free part of R₁(a + s, x) being at most 47.6 in modulus there. So |hW| < 5·10⁻⁵.
 
 (γ) P_l(3 − δ_C) < 0. By [[sec:tab-a-expansions]] with ξ = −2.94, P_l(3 − δ_C) = h(L₀(−2.94, κ) + E) with
@@ -288,14 +288,14 @@ statement uses the row of [[sec:tab-a-pieces]] whose interval [x_a, x_b] contain
 
 with Ξ_ζ, L_Ξ and e_P from the row. The roots ι_B, ι_P and ῑ_P are the three roots of P_l in |ι| < 1000.
 
-*Proof.* (a) U = (ι − (2 + x))V_B with V_B := −Ψ, so [[lem:s14-fixed-point]] applies with p = 2 + x, V = −Ψ and
-Ξ_B = hW/Ψ. On the disc, |Ψ| ≥ 2(d_* − ϱ)² ≥ Ψ_min with d_* the distance bound of the row (from
+*Proof.* (a) U = (ι − (2 + x))V_B with V_B := −𝒬, so [[lem:s14-fixed-point]] applies with p = 2 + x, V = −𝒬 and
+Ξ_B = hW/𝒬. On the disc, |𝒬| ≥ 2(d_* − ϱ)² ≥ 𝒬_min with d_* the distance bound of the row (from
 [[lem:s14-sextic-split]] (iv) in the first row and from |2 + x − ζ| = (1683x/128)^(1/2) ≥ (1683x_a/128)^(1/2) in the
-others), and |∂_ιΨ| = |4(ι − 2 − x) + x − 2| ≤ 4ϱ + max(2, x_b − 2) ≤ Ψ′_max. With the majorant bounds M₀, M₁ of
-the row, |Ξ_B| ≤ hM₀/Ψ_min ≤ ϱ and |Ξ_B′| ≤ L_Ξ < 1. As Ξ_B(2 + x) = hW(2 + x, x)/Ψ(2 + x, x) = −hc(x) by
+others), and |∂_ι𝒬| = |4(ι − 2 − x) + x − 2| ≤ 4ϱ + max(2, x_b − 2) ≤ 𝒬′_max. With the majorant bounds M₀, M₁ of
+the row, |Ξ_B| ≤ hM₀/𝒬_min ≤ ϱ and |Ξ_B′| ≤ L_Ξ < 1. As Ξ_B(2 + x) = hW(2 + x, x)/𝒬(2 + x, x) = −hc(x) by
 [[lem:s14-sextic-split]] (ii), the lemma gives the root, real, with |ι_B − 2 − x + hc(x)| ≤ L_Ξhc(x)/(1 − L_Ξ) ≤ e_B.
 
-(b) For 0.018 ≤ x ≤ 0.03, |Δ_Ψ(x)| ≤ max(Δ_Ψ(0.018), −Δ_Ψ(0.03)) < 2.4304, so the roots of Ψ lie within 0.3898 of a.
+(b) For 0.018 ≤ x ≤ 0.03, |Δ_𝒬(x)| ≤ max(Δ_𝒬(0.018), −Δ_𝒬(0.03)) < 2.4304, so the roots of 𝒬 lie within 0.3898 of a.
 On |ι − a| = 0.45 they are at distance at least 0.0602 from ι, and |2 + x − ι| ≥ (1/2 − x/4) − 0.45 ≥ 0.0425, so
 |U| ≥ 0.0425·2·0.0602² > 3.08·10⁻⁴, while |hW| ≤ h(M̄_a(0.45, 0.03) + hN̄(2.98, 0.03)) < 10⁻⁶·94. By Rouché's theorem
 P_l has two zeros in |ι − a| < 0.45, as U has (2 + x lies outside, |2 + x − a| = 1/2 − x/4 > 0.49).
@@ -408,7 +408,7 @@ larger root of ι² − ι − 2 − z, and for l ≥ 1 the numbers ι^Υ_(sl,l+
 are roots of the polynomial Q_l of [[sec:s14-simple]]. The roots of Q_l are those of Q_l(ι − 1) less 1, that is, by
 [[prop:np-10-52]] (i) at u = l + 1, whose proof applies for every u ≥ 2, the numbers l + 2 + d₁, −l − 1 − d₁,
 l + 1 + d₂ and −l − d₂, with 0 < d₂ < d₁ < 1; so ι^Υ_(sl,l+1) = l + 1 + d₂ and ι^Υ_(sl,l+2) = l + 2 + d₁. The
-distances of the entries from ℤ are therefore ϖ₀ := ι^Υ_(s0,2) − 2 = z/(3/2 + (9/4 + z)^(1/2)) > z/(3 + z/3) >
+distances of the entries from ℤ are therefore 𝔡₀ := ι^Υ_(s0,2) − 2 = z/(3/2 + (9/4 + z)^(1/2)) > z/(3 + z/3) >
 1.33·10⁻⁶ at type 0, and d₂ = z(1 + θ₂)/12 > 3.3·10⁻⁷ and d₁ = 3z(1 + θ₁)/20 > 5.9·10⁻⁷ at type 1 (u = 2). All exceed
 δ_50, so with these entries the infimum at h = 10⁻⁶ is still δ_50.
 
@@ -419,69 +419,69 @@ For l ≥ 1 let d₁(l) and d₂(l) be the numbers d₁ and d₂ of [[prop:np-10
 applies at u = 2), so that ι^Υ_(sl,l+1) = l + 1 + d₂(l) and ι^Υ_(sl,l+2) = l + 2 + d₁(l)
 ([[rem:s14-pa-low-types]]). Put
 
-    ϖ₀ := ι^Υ_(s0,2) − 2 = (9/4 + z)^(1/2) − 3/2,     ϖ₁ := ι^Υ_(s1,2) − 2 = d₂(1),
+    𝔡₀ := ι^Υ_(s0,2) − 2 = (9/4 + z)^(1/2) − 3/2,     𝔡₁ := ι^Υ_(s1,2) − 2 = d₂(1),
     δ₂ := d₂(2),     δ′₁ := d₁(1).
 
-By [[def:iii-i9-gap]], ϖ₀ = −μ_c0 = d_c0 and ϖ₁ = −μ_c1 = d_c1 are the offsets of the two class roots.
+By [[def:iii-i9-gap]], 𝔡₀ = −μ_c0 = d_c0 and 𝔡₁ = −μ_c1 = d_c1 are the offsets of the two class roots.
 
-**Proposition {#prop:gap-sums}** (Sums of the offsets above 2 and 3.) Let 𝒮 be the set of the numbers g + t + nϖ₁
-with g ∈ {2, 3, λ_♯}, t ∈ {0, 1, 1 + ϖ₀, 1 + δ₂, 1 + δ′₁} and n = 0, 1, 2, …. The least positive number of the form
+**Proposition {#prop:gap-sums}** (Sums of the offsets above 2 and 3.) Let 𝒮 be the set of the numbers g + t + n𝔡₁
+with g ∈ {2, 3, λ_♯}, t ∈ {0, 1, 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁} and n = 0, 1, 2, …. The least positive number of the form
 s − k with s ∈ 𝒮 and k ∈ {2, 3} is
 
-    λ_♯ + 4470304ϖ₁ − 3 ∈ (5.0190·10⁻⁸, 5.0193·10⁻⁸),
+    λ_♯ + 4470304𝔡₁ − 3 ∈ (5.0190·10⁻⁸, 5.0193·10⁻⁸),
 
 and every other positive s − k exceeds 1.3888·10⁻⁷. In particular no element of 𝒮 lies in (2, 2 + ε] ∪ (3, 3 + ε]
 when ε < 5.019·10⁻⁸, a bound more than 2.5 times δ_50.
 
-*Proof.* *The offsets.* By [[eq:s14-pa-sqrt]], ϖ₀ = z/(3/2 + (9/4 + z)^(1/2)) lies between z/(3 + z/3) and z/3, so
-1.3333327·10⁻⁶ < ϖ₀ < 1.3333334·10⁻⁶. By [[prop:np-10-52]] (i), δ₂ = z(1 + θ₂)/15 and δ′₁ = 3z(1 + θ₁)/20 with
-|θ₁|, |θ₂| ≤ z, so 2.666655·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999975·10⁻⁷ < δ′₁ < 6.000025·10⁻⁷. For ϖ₁, at u = 2,
-ϖ₁ = ½((9 + B₂)^(1/2) − 3) = B₂/(2(3 + (9 + B₂)^(1/2))) with B₂ := 2z − 4w₂ and w₂ := (4 + A)^(1/2) − 2 =
+*Proof.* *The offsets.* By [[eq:s14-pa-sqrt]], 𝔡₀ = z/(3/2 + (9/4 + z)^(1/2)) lies between z/(3 + z/3) and z/3, so
+1.3333327·10⁻⁶ < 𝔡₀ < 1.3333334·10⁻⁶. By [[prop:np-10-52]] (i), δ₂ = z(1 + θ₂)/15 and δ′₁ = 3z(1 + θ₁)/20 with
+|θ₁|, |θ₂| ≤ z, so 2.666655·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999975·10⁻⁷ < δ′₁ < 6.000025·10⁻⁷. For 𝔡₁, at u = 2,
+𝔡₁ = ½((9 + B₂)^(1/2) − 3) = B₂/(2(3 + (9 + B₂)^(1/2))) with B₂ := 2z − 4w₂ and w₂ := (4 + A)^(1/2) − 2 =
 A/(2 + (4 + A)^(1/2)), A = 4.000004·10⁻⁶. By [[eq:s14-pa-sqrt]], 4 + A/4 − A²/64 ≤ 2 + (4 + A)^(1/2) ≤ 4 + A/4, with
 A/4 = 1.000001·10⁻⁶ and A²/64 < 2.6·10⁻¹³; so
 
     1.00000074999956·10⁻⁶ < w₂ < 1.00000074999963·10⁻⁶,     3.99999700000147·10⁻⁶ < B₂ < 3.99999700000177·10⁻⁶,
 
-and, again by [[eq:s14-pa-sqrt]], B₂/(12 + B₂/3) ≤ ϖ₁ ≤ B₂/(12 + B₂/3 − B₂²/108), whence
+and, again by [[eq:s14-pa-sqrt]], B₂/(12 + B₂/3) ≤ 𝔡₁ ≤ B₂/(12 + B₂/3 − B₂²/108), whence
 
-    3.333330462964·10⁻⁷ < ϖ₁ < 3.333330462967·10⁻⁷.
+    3.333330462964·10⁻⁷ < 𝔡₁ < 3.333330462967·10⁻⁷.
 
 *The sums.* For g, t, k fixed put y := k − g − t. If y < 0, then s − k ≥ −y for every n. If y ≥ 0, the least
-positive s − k is ⌈y/ϖ₁⌉ϖ₁ − y when y/ϖ₁ ∉ ℤ, and ϖ₁ when y/ϖ₁ ∈ ℤ, in particular when y = 0. The triples are:
+positive s − k is ⌈y/𝔡₁⌉𝔡₁ − y when y/𝔡₁ ∉ ℤ, and 𝔡₁ when y/𝔡₁ ∈ ℤ, in particular when y = 0. The triples are:
 
 - y < 0: g = 3 with k = 2, or with k = 3 and t ≠ 0; g = 2 with t ≠ 0 and k = 2; g = λ_♯ with t ≠ 0 and k = 2. Then
-  −y ≥ 0.5099. Further g = 2, k = 3 with t = 1 + ϖ₀, 1 + δ₂, 1 + δ′₁, giving −y = ϖ₀, δ₂, δ′₁, all above
+  −y ≥ 0.5099. Further g = 2, k = 3 with t = 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁, giving −y = 𝔡₀, δ₂, δ′₁, all above
   2.6·10⁻⁷.
-- y = 0: (g, t, k) = (2, 0, 2), (2, 1, 3), (3, 0, 3), giving ϖ₁ > 3.3·10⁻⁷.
+- y = 0: (g, t, k) = (2, 0, 2), (2, 1, 3), (3, 0, 3), giving 𝔡₁ > 3.3·10⁻⁷.
 - y > 0: y = 1 for (2, 0, 3); y = 0.4901 for (λ_♯, 0, 2) and (λ_♯, 1, 3); y = 1.4901 for (λ_♯, 0, 3); and
-  y = 0.4901 − ϖ₀, 0.4901 − δ₂, 0.4901 − δ′₁ for (λ_♯, t, 3) with t = 1 + ϖ₀, 1 + δ₂, 1 + δ′₁.
+  y = 0.4901 − 𝔡₀, 0.4901 − δ₂, 0.4901 − δ′₁ for (λ_♯, t, 3) with t = 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁.
 
-With the bounds above, y/ϖ₁ lies in the following intervals, and ⌈y/ϖ₁⌉ϖ₁ − y in the last column:
+With the bounds above, y/𝔡₁ lies in the following intervals, and ⌈y/𝔡₁⌉𝔡₁ − y in the last column:
 
-| y | y/ϖ₁ | ⌈y/ϖ₁⌉ | ⌈y/ϖ₁⌉ϖ₁ − y |
+| y | y/𝔡₁ | ⌈y/𝔡₁⌉ | ⌈y/𝔡₁⌉𝔡₁ − y |
 |---|---|---|---|
 | 1.4901 | (4470303.84942, 4470303.84943) | 4470304 | (5.0190·10⁻⁸, 5.0193·10⁻⁸) |
 | 1 | (3000002.58333, 3000002.58334) | 3000003 | (1.38888·10⁻⁷, 1.38890·10⁻⁷) |
 | 0.4901 | (1470301.26609, 1470301.26610) | 1470302 | (2.4463·10⁻⁷, 2.4464·10⁻⁷) |
-| 0.4901 − ϖ₀ | (1470297.26608, 1470297.26610) | 1470298 | (2.4463·10⁻⁷, 2.4464·10⁻⁷) |
+| 0.4901 − 𝔡₀ | (1470297.26608, 1470297.26610) | 1470298 | (2.4463·10⁻⁷, 2.4464·10⁻⁷) |
 | 0.4901 − δ₂ | (1470300.46608, 1470300.46610) | 1470301 | (1.7796·10⁻⁷, 1.7798·10⁻⁷) |
 | 0.4901 − δ′₁ | (1470299.46608, 1470299.46610) | 1470300 | (1.7796·10⁻⁷, 1.7798·10⁻⁷) |
 
-Each interval for y/ϖ₁ follows by dividing y, with the bounds on ϖ₀, δ₂, δ′₁, by the two bounds on ϖ₁; each lies
-strictly between consecutive integers, so the ceiling is as listed, and the last column follows from the bounds on ϖ₁
+Each interval for y/𝔡₁ follows by dividing y, with the bounds on 𝔡₀, δ₂, δ′₁, by the two bounds on 𝔡₁; each lies
+strictly between consecutive integers, so the ceiling is as listed, and the last column follows from the bounds on 𝔡₁
 and on the offsets. The least value is the first, at g = λ_♯, t = 0, k = 3 and n = 4470304; every other value is at
 least 1.38888·10⁻⁷. Finally 5.0190·10⁻⁸/δ_50 > 2.58 by [[lem:s14-delta50]]. ∎
 
 **Remark {#rem:gap-sums}** (The gap condition.) The gap condition (G) of [[def:iii-i10-1-3]], assumed in
 [[thm:settling]], has three windows: no λ in the exponent set Λ of [[def:iii-i10-1-1]] has real part in
 (2, 2 + ε_K] or in (3, 3 + ε_K], and no λ + d_c0 or λ + d_c1, λ ∈ Λ, has real part in (2, 2 + ε_K]; here
-d_c0 = ϖ₀ and d_c1 = ϖ₁. The set Λ contains 2, 3 and λ_♯ and is closed under the increments
-π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}. If these increments include ϖ₁, 1 + ϖ₀, 1 + δ₂ and 1 + δ′₁, then 𝒮 ⊂ Λ: 𝒮 is the set of
-sums of one of the generators 2, 3, λ_♯, any number of increments ϖ₁ and at most one increment of integer part 1,
+d_c0 = 𝔡₀ and d_c1 = 𝔡₁. The set Λ contains 2, 3 and λ_♯ and is closed under the increments
+π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}. If these increments include 𝔡₁, 1 + 𝔡₀, 1 + δ₂ and 1 + δ′₁, then 𝒮 ⊂ Λ: 𝒮 is the set of
+sums of one of the generators 2, 3, λ_♯, any number of increments 𝔡₁ and at most one increment of integer part 1,
 and a sum with two increments of integer part 1 is at least λ_♯ + 2 > 3 + ε_K, so it misses all three windows. By
 [[prop:gap-sums]] no element of 𝒮 lies in the first two windows when ε_K < 5.019·10⁻⁸. The third window adds
-nothing: for λ = g + nϖ₁ ∈ 𝒮 (t = 0), λ + ϖ₁ − 2 = s − 2 and λ + ϖ₀ − 2 = s′ − 3 with s = g + (n + 1)ϖ₁ and
-s′ = g + (1 + ϖ₀) + nϖ₁ in 𝒮, so by [[prop:gap-sums]] again neither λ + ϖ₁ nor λ + ϖ₀ lies in (2, 2 + ε_K] when
+nothing: for λ = g + n𝔡₁ ∈ 𝒮 (t = 0), λ + 𝔡₁ − 2 = s − 2 and λ + 𝔡₀ − 2 = s′ − 3 with s = g + (n + 1)𝔡₁ and
+s′ = g + (1 + 𝔡₀) + n𝔡₁ in 𝒮, so by [[prop:gap-sums]] again neither λ + 𝔡₁ nor λ + 𝔡₀ lies in (2, 2 + ε_K] when
 ε_K < 5.019·10⁻⁸;
 every other λ ∈ 𝒮 is at least λ_♯ + 1 > 5/2, so that λ + d_c0 and λ + d_c1 exceed 2 + ε_K. [[thm:settling]] takes
 ε_K < ε_ind(h) ≤ δ_50 < 5.019·10⁻⁸ for every h ∈ 𝖧; so these sums impose no condition beyond those of

@@ -518,8 +518,9 @@ u₊ + u₋ = m − s > 0 and u₊u₋ = p² ≥ 0. Hence r₊ = u₊^(1/2) is a
     Δ_b > 0 on (r₊, ∞),     Δ_b < 0 on (r₋, r₊),     r₋ < ‖A‖ < r_♭/4,
 
 the last because u₊ ≥ ½(m − s) and m − s > ½m₀ − m₀/200 > 2‖A‖² (as s ≤ 2‖A‖² < m₀/200), so that
-u₋ = p²/u₊ ≤ 2‖A‖⁴/(m − s) < ‖A‖² (if A ≠ 0; u₋ = 0 if p = 0). r₊ is smooth in b ∈ ℬ, as u₊ is a smooth function of (m, s, p²) where the discriminant is positive, and s and
-p² are polynomials in A. At b₀, Δ_(b₀) = r²(r² − m₀), r₊(b₀) = m₀^(1/2) = r_h and r₋(b₀) = 0.
+u₋ = p²/u₊ ≤ 2‖A‖⁴/(m − s) < ‖A‖² (if A ≠ 0; u₋ = 0 if p = 0). r₊ is smooth in b ∈ ℬ, as u₊ is a smooth
+function of (m, s, p²) where the discriminant is positive, and s and p² are polynomials in A. At b₀,
+Δ_(b₀) = r²(r² − m₀), r₊(b₀) = m₀^(1/2) = r_h and r₋(b₀) = 0.
 
 **Lemma {#lem:s12-spheroidal}** (The spheroidal form of the radius.) Let A ∈ 𝔰𝔬(4), |x|² > s, r := r_A(x),
 𝒟 := (r²I − A²)^(1/2), which is symmetric, positive definite and commutes with A, and ω := 𝒟⁻¹x. Then |ω| = 1, and
@@ -895,10 +896,10 @@ the three covectors dφ₊, dφ₋, dℛ_c, only dp̃ has a dp_r component (it i
 (ω, η), so dr_c and dℛ_c have neither a dp_r nor a dr component. If c₊ dφ₊ + c₋ dφ₋ + c₀ dℛ_c = 0, the dp_r component
 gives (c₊ + c₋)α = 0, so c₋ = −c₊ and the dp̃ terms cancel, leaving −2c₊√𝒮(dr − dr_c) + c₀ dℛ_c = 0; its dr component
 gives 2c₊√𝒮 = 0. So c₊ = c₋ = 0, and c₀ = 0 as dℛ_c ≠ 0; the three covectors are independent. Hence Γ_u and Γ_s
-are smooth hypersurfaces of Σ near Γ_b, meeting transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]]. For the bracket,
-{φ₊, φ₋} = 2{p̃, (r − r_c)√𝒮}, which at r = r_c is 2√𝒮({p̃, r} − {p̃, r_c}) = 2α√𝒮. Here {p̃, r} = ∂_(p_r)p̃ = α,
-and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of (Φ, Ψ, 𝔎), which Poisson-commute
-([[lem:vi-b1-0-1]] (b)). α > 0 on I_Γ, as I_Γ ⊂ (r₊, ∞). For z₀ = −1, {φ₋, −φ₊} = {φ₊, φ₋}. At b₀, ϱ² = r_ph² = 2m₀
+are smooth hypersurfaces of Σ near Γ_b, meeting transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]].
+For the bracket, {φ₊, φ₋} = 2{p̃, (r − r_c)√𝒮}, which at r = r_c is 2√𝒮({p̃, r} − {p̃, r_c}) = 2α√𝒮. Here
+{p̃, r} = ∂_(p_r)p̃ = α, and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of
+(Φ, Ψ, 𝔎), which Poisson-commute ([[lem:vi-b1-0-1]] (b)). α > 0 on I_Γ, as I_Γ ⊂ (r₊, ∞). For z₀ = −1, {φ₋, −φ₊} = {φ₊, φ₋}. At b₀, ϱ² = r_ph² = 2m₀
 and √𝒮 = 2r_ph on Γ, so ν = 4r_ph/(2m₀) = 4(2m₀)^(−1/2), the rate of [[prop:vi-a-3-1]].
 
 (d) dt and dt_* are timelike for g_b ([[lem:iii-b-3-3]] (e) with β = 0, valid by [[lem:s11-ks-domain]], and

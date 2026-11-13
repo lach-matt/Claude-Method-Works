@@ -24,12 +24,12 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 30 S11 | NOT CONFIRMED 0M 2m 6n | running (combined with S12: one parameter set) | - |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | running (combined with S11) | - |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | NOT CONFIRMED 1M 1m 4n (ε_Υ needs |Re ι| ≤ 10); second fix running |
-| 33 S14 | NOT CONFIRMED 7M 15m 11n | running | - |
+| 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | running |
 | 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | running | - |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | CONFIRMED (third reading; 4 nits) |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
-| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | NOT CONFIRMED 0M 1m 8n; second fix done; third reading running |
+| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | third reading NOT CONFIRMED 1M 0m 5n (ℓ_I ∈ (0, ½)); third fix running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | NOT CONFIRMED 0M 3m 6n; third fix done (def:s21-eps-g); third reading running |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | NOT CONFIRMED 0M 1m 4n; third fix running |
@@ -41,7 +41,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | running | - |
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
-| 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | running | - |
+| 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | running |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | running | - |
 | 63 M Ch 13 | written (959 lines; issue-1 order k_P, issue-2 commuted cut-off energy); running | - | - |
 | 64 M Ch 14 | written (1,031 lines, no markers); running | - | - |
