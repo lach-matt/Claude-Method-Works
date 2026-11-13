@@ -1000,8 +1000,9 @@ by [[thm:iii-h2-2-1]], and [[lem:ii-f-1-3]]–[[lem:ii-f-1-4]], which are qualit
 
 This section is [Hin26c, Theorem 11.1] uniformly over the family 2L_b.
 
-**Theorem {#thm:iii-h2-4-1}** ([[thm:ii-f1-1-1]] uniformly near b₀.) Let α_I, α_+, ℓ_I, ℓ_+, ℓ_K be as in
-[[thm:ii-f1-1-1]], with ℵ = 2, δ = 0 and the order 𝗌 of (B4). There are ε_0 > 0 and d ∈ ℕ such that for every
+**Theorem {#thm:iii-h2-4-1}** ([[thm:ii-f1-1-1]] uniformly near b₀.) Let α_I, α_+, ℓ_+, ℓ_K be as in
+[[thm:ii-f1-1-1]], with ℵ = 2, δ = 0 and the order 𝗌 of (B4), and let ℓ_I ∈ (0, ½) be the number of [[sec:iii-i-1]],
+from which the t^♭ and Ω_* of (B2) are built. There are ε_0 > 0 and d ∈ ℕ such that for every
 b ∈ B̄_1 the conclusions of [[thm:ii-f1-1-1]] and [[cor:ii-f1-1-2]] hold with P_0 := 2L_b (with [[rem:ii-f1-7-1]] for
 margin 1), with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be admissible
 relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0 and
@@ -1095,8 +1096,10 @@ uses at the limit. The coefficients of P_j converge to those of P in C² on comp
 a set g_(b₀,b,−S) depends smoothly on (b, S), as g_b is smooth in b ([[prop:iii-b-3-6]]) and φ_(−S) = exp(V(−S)) is the
 time-one flow of a vector field linear in S ([[lem:iii-b-5-1]]); its difference from g_b lies in the class of
 [[lem:iii-i-3-6]]. And 2L^(g,g_0) depends continuously on h in the norm of [[eq:iii-i-3-7]] (its coefficients being the
-sums of products of the tame form above, [[lem:s19-products]], [[lem:s19-inverse]]), which controls the coefficients in
-C² on compact sets by Sobolev embedding (three derivatives, dim M = 5). So the forward solutions converge in
+sums of products of the tame form above, [[lem:s19-products]], [[lem:s19-inverse]], and, for the inverse,
+(g_1 + δ)⁻¹ − (g_1 + δ′)⁻¹ = −(g_1 + δ)⁻¹(δ − δ′)(g_1 + δ′)⁻¹, bounded in H^j_b by C‖δ − δ′‖_(H^j_b) as at the end
+of the proof of [[thm:iii-i-5-3]], here with g_1 := g_b), which controls the coefficients in C² on compact sets by
+Sobolev embedding (three derivatives, dim M = 5). So the forward solutions converge in
 H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b, with α_I = β_I − 2 and α_+ = β_+ − 5/2, which with the density μ_b is
 H^(k−1,(β_I−ς,β_+−ς,−3/2−ς))_b ([[cor:ii-f1-1-2]]). ∎
 

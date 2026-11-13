@@ -1565,8 +1565,9 @@ into ũ. For β ∈ (2, 3), [[lem:iii-i8-3-2]] holds for G ∈ 𝒴^♮(β).
 and [[prop:iii-i13-2-1]] in place of [[prop:iii-i11-3-1]]. Step 0 gives f′ ∈ 𝒴^♮(β) (the 𝒴^♮_2-part of G is
 untouched, and (L − L_b)u lies in 𝒴⁰(β) as there, with ‖(L − L_b)u‖_(𝒴⁰(β)) ≤ C(‖h‖ + |p⃗|)‖u‖_(w) by the same count,
 w − ε + a_K ≥ β). The rows of 𝒩_ι of rate at least β − 2 have rate above β − 2 ([[def:iii-i13-1-1]] (a)), so their
-m_ν(S_ν) have K⁺-weight at least β − 2 − ε ([[lem:iii-i9-2-2]] (e)) and join ũ; so do the terms χ_K t_*^(−λ_0)(log t_*)^j h_(b,v1)(V) of u^rot_ι with Re λ_0 > β − 2, whose rate Re λ_0 is that of the
-triple (v1, λ_0, j). *Determination:* by [[cor:iii-i10-2-3]] on 𝒩_β, all rates there being below β − 2. For β ∈ (2, 3):
+m_ν(S_ν) have K⁺-weight at least β − 2 − ε ([[lem:iii-i9-2-2]] (e)) and join ũ; so do the terms
+χ_K t_*^(−λ_0)(log t_*)^j h_(b,v1)(V) of u^rot_ι with Re λ_0 > β − 2, whose rate Re λ_0 is that of the triple
+(v1, λ_0, j). *Determination:* by [[cor:iii-i10-2-3]] on 𝒩_β, all rates there being below β − 2. For β ∈ (2, 3):
 the space 𝒴(β) of [[sec:iii-i8-1]] records the ι⁺-exponents below 4 in ℰ_++ + 2 and has the plain weight 4 − ε above,
 and 𝒴^♮_2(β) lies in it by [[lem:iii-i13-1-3]] (a). ∎
 

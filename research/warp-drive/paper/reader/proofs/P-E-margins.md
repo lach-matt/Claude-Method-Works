@@ -468,8 +468,13 @@ bound column gives κ′K′^l_l ≤ −c_k L_k ≤ −3.041 × 10⁻⁴ on ever
 K^l_l < 0 and κK^l_l < 0. This proves (a).
 
 *The band on Σ_τ0.* Where v̂ ≤ v̂(3) or v̂ ≥ v̂(4.5), that is R ≤ R0(3) = 3.8253316 or R ≥ R0(4.5) = 5.3724596, μ̇ = 0
-and N_κ < 0. For v ∈ [3, 4.5] use [[sec:table-sigma0]]: the true N_κ(v_k) is within 5 × 10⁻⁶ of N_k (the same estimate
-as above without the bend), and on each cell [[lem:margins-enclosure]] (b) and [[lem:margins-curvature]] (a) give the
+and N_κ < 0. For v ∈ [3, 4.5] use [[sec:table-sigma0]]. The true N_κ(v_k) differs from N_k by at most
+
+    0.044547 × 10⁻⁵ + 0.034175 × 8.4 × 10⁻⁶ + 0.16634 × 4 × 10⁻⁶ + 5 × 10⁻⁹ ≤ 1.5 × 10⁻⁶ ≤ 5 × 10⁻⁶,
+
+the terms coming from μ, μ̇ and the radius v̂ + 0.68 (as above, by [[lem:margins-shell-data]] (c)) and from the
+rounding of N_k, with |H_μ| ≤ 0.044547, H_μ̇ ≤ 0.034175 and |H_R| ≤ 0.12184 + 0.01787 × 2.49 ≤ 0.16634 from the proof
+of [[lem:margins-curvature]]. On each cell [[lem:margins-enclosure]] (b) and [[lem:margins-curvature]] (a) give the
 sign column. Cells 0–34 and 55–119 are negative, cells 37–53 positive. On the remaining cells write v = v_k + s/80. By
 [[lem:margins-enclosure]] (b), with |g′| ≤ 0.0157 and [[lem:margins-shell-data]] (c), R0(v) is within 4.5 × 10⁻⁶ of (1 −
 s)R0_k + sR0_(k+1), and N_κ(v) is within 5 × 10⁻⁶ + M_k/51200 of (1 − s)N_k + sN_(k+1). Hence:
