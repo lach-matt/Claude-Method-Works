@@ -433,7 +433,7 @@ It is linear in (W, κ1) and does not involve k. With n families present at once
 and κ = κ0 + Σ_A κ1_A(x, θ_A) + λ(…), the coefficient of λ⁻¹ is the sum over A of [[eq:vlasov-constraint-coefficient]]
 for (W_A, κ1_A, p_A), and the second and mixed harmonics of order λ² in γ, of order λ in κ, enter at order λ⁰.
 
-(b) For torus-polarised waves, W_A = 2 ξ_A cos θ_A (e^(2ψ10) dφ1² − e^(2ψ20) dφ2²) and κ1_A = b_A sin θ_A (e^(2ψ10)
+(b) For torus-polarised waves, W_A = 2 ξ_A cos θ_A (e^(2ψ10) dφ1² − e^(2ψ20) dφ2²) and κ1_A = z_A sin θ_A (e^(2ψ10)
 dφ1² − e^(2ψ20) dφ2²), the part of order λ⁻¹ of Φ(γ + h, κ + k) vanishes for every slow h without torus components and
 every slow k. In particular the corrections of [[lem:constraints-evolution]], which change γ by multiples of dr ⊗ dr,
 meet no coefficient of order λ⁻¹.
@@ -443,10 +443,10 @@ of the orbit slice orthogonal to p and ζ ≠ 0, and h = c dr ⊗ dr, dρ⁽⁻�
 where c ≠ 0 and the phase is not radial (p not parallel to dr).
 
 *Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In
-R(γ) = γ^(ab)(∂_c Γ^c_ab − ∂_b Γ^c_ac) + ΓΓ the second derivatives of γ enter as γ^(ab) γ^(cd)(∂_a∂_c γ_bd − ∂_a∂_b
-γ_cd), and ∂_a∂_c(λ W) = λ⁻¹ p_a p_c W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is
-W″(p^♯, p^♯) − |p|² tr W″, with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ab) ↦ γ^(ab)
-− ε h^(ab), gives the first line of [[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry
+R(γ) = γ^(ij)(∂_k Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j
+γ_kl), and ∂_i∂_k(λ W) = λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is
+W″(p^♯, p^♯) − |p|² tr W″, with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij)
+− ε h^(ij), gives the first line of [[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry
 derivatives of h or first derivatives of γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃
 ∂_i(γ^(jl) κ_(jl)), whose parts of order λ⁻¹ are −γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the
 second line; the Christoffel terms are of order one. −|κ|² + (tr κ)² has no term of order λ⁻¹, and no term of order
@@ -473,11 +473,11 @@ with a trace on the spheres, ξ2 = ξ1, the mean curvature H oscillates at order
 
 *Proof.* The coefficients of the angular second derivatives of the metric unknown in ρ and of the first derivatives of
 the momentum unknowns in J involve γ, its inverse and Π, undifferentiated ([[lem:constraints-evolution]] (a)), and γ =
-γ0 + O(λ). In (γ^(rr))^(3/2) H, γ^(rr) is undifferentiated, and H = H̃/ν with H̃ = ½ Π^(AB)(∂_r Π_(AB) − (𝓛_σ Π)_(AB)).
-The torus directions are tangent to the spheres, so the oscillating part of order λ⁰ of ∂_r Π_(AB) is Σ_A ∂_r u_A ∂_(θ_A)
-W_A, and its Π-trace is Σ_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless. The harmonics of order
-λ² contribute O(λ) to first derivatives, and so does the shift of the foliation, whose oscillating part is of order λ².
-If ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r u_A sin θ_A at order λ⁰. ∎
+γ0 + O(λ). In (γ^(rr))^(3/2) H, γ^(rr) is undifferentiated, and H = H̃/ν with H̃ = ½ tr_Π(∂_r Π − 𝓛_σ Π). The torus
+directions are tangent to the spheres, so the oscillating part of order λ⁰ of ∂_r Π is Σ_A ν_A ∂_r u_A ∂_(θ_A) W_A, and
+its Π-trace is Σ_A ν_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless. The harmonics of order λ²
+contribute O(λ) to first derivatives, and so does the shift of the foliation, whose oscillating part is of order λ². If
+ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r u_A sin θ_A at order λ⁰. ∎
 
 Next the commutator of the wave operator with a generator, which the uniform estimate needs for each family. For a
 radial family on a round background it is [[pending:two-dust-commutator]], whose proof uses that the generator is

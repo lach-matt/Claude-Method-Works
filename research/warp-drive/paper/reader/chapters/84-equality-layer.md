@@ -232,3 +232,300 @@ So at equality item 6 of [[thm:main]] holds in this form: exactly one zero on th
 itself) and on those with √μ(v) − r_q(v) ≥ C′ λ, a condition that fails only on a set of v whose width tends to 0 with
 λ; at most one zero, within C_h λ of √μ(v), everywhere.
 
+### The layer: setting {#sec:layer-setting}
+
+We use the coordinates (v, r, ϑ, φ1, φ2) of [[eq:eq-g0]]; there ∂_v is the Cartesian ∂_τ (v = τ + r) and ℓ = g0⁻¹ dv =
+∂_r ([[sec:stage-zero]]). Put
+
+    Φ0♯ := g0⁻¹ dΦ0 = ∂_v + β_Φ ∂_r,      β_Φ := F(r_q) − r_q′ = 1 − √(μ/μ0) − r_q μ′/(4μ).
+
+The hypersurface {Φ0 = 0} is timelike at a point exactly when dΦ0 is spacelike there, g_λ⁻¹(dΦ0, dΦ0) > 0. The *seed*
+is g0° := g0 with μ replaced by μ0, the Schwarzschild–Tangherlini metric of mass μ0; it is vacuum, and g0 = g0° on
+{v ≤ v_s}.
+
+The metric g_λ of [[thm:main]] is g_app + w, with g_app = g0 + λ [g1] + Σ_(j=2)^N λ^j [g_j], N = K + 3, the
+fixed-phase form of [[thm:approximant]] built with the stage data of [[lem:stage-data]] (stage N's included). Write
+k := g_λ − g0 and, for an integer c ≥ 0,
+
+    E(v) := sup_(v′≤v) env(v′),      ε_c(v) := Σ_(i≤c) sup_(v′≤v) |env^(i)(v′)|,                     {#eq:layer-costs}
+
+both continuous, nondecreasing and zero for v ≤ v_s. A quantity is *of degree at least two* if, with μ − μ0 counted as
+of degree two, it is a sum of products of at least two factors of the form A env^(i) times smooth coefficients. A
+profile H(v, r, ϑ) e^(iθ), H complex, is the complex form of a first harmonic of the phase, and its real part is meant.
+We write ĝ_1 := W = W_TT + χ dv ⊗ dv, so that the oscillating profiles of the ansatz [[eq:ansatz]] are ĝ_1, …, ĝ_(N+1).
+
+**Definition {#def:layer-class}** (The class 𝔖.) A symmetric 2-tensor h, invariant under T² and both reflections, is
+in the class 𝔖 if h_vv = h_vr = h_rr = 0 and γ^(AB) h_AB = 0, A, B running over the angular coordinates. Its remaining
+components are h_vϑ, h_rϑ and the γ-traceless angular ones; every h in 𝔖 has tr_(g0) h = 0.
+
+Put v_♯ := v_s + min(1, T). For v ≤ v_♯ let Ω_v := Ω ∩ {v′ ≤ v} and N_v := Ω ∩ {v′ = v}. On Ω ∩ {v ≤ v_♯} the outer
+face of Ω is not met, since there v = V + 1 + τ_end − τ ≥ V + 1. N_v is null for g0 (dv is null, [[prop:vaidya]] (c)),
+and Ω_v lies to its past ([[lem:eq-seed]] (d)). For X ∈ Ω let γ_X be the integral curve of ℓ from X: in (v, r, x̂) it
+is r ↦ (v(X), r, x̂(X)), r ≥ r(X), and it meets Σ_τ0 at X_Σ := (v(X), v(X) − τ0, x̂(X)) inside Ω ([[lem:domain]] (d)).
+Since v is constant along γ_X, every bound weighted by ε_c(v) holds with the same weight along the whole curve.
+
+*Constants.* In this and the following sections C denotes a constant depending on N, the order of differentiation, Ω
+(through a, δ0, b(τ0) and τ_end − τ0), μ0, A, finitely many norms sup |env^(i)|, the bounds of the profiles of
+[[thm:approximant]] and of the stage data of [[lem:stage-data]] on Ω × S¹ (each smooth with all derivatives bounded
+independently of λ), the numbers M and C of [[thm:uniform-existence]] and C1 of [[eq:eq-c1]]; never on λ, v, v1 or
+the point.
+
+### The seed's operators on one harmonic {#sec:layer-operators}
+
+In (v, r, ϑ, φ1, φ2), with F° := 1 − μ0/r² and Γ̊ the Christoffel symbols of the round metric γ, the Christoffel
+symbols of g0° that do not vanish are
+
+    Γ^v_vv = μ0/r³,   Γ^r_vv = F° μ0/r³,   Γ^r_rv = −μ0/r³,   Γ^v_AB = −r γ_AB,   Γ^r_AB = −r F° γ_AB,
+    Γ^A_rB = δ^A_B/r,   Γ^A_BC = Γ̊^A_BC;                                                              {#eq:layer-christoffel}
+
+in particular Γ^A_(av) = 0 for every index a, and Γ^v_(rv) = Γ^v_(rr) = Γ^r_(rr) = 0. Each is read from Γ^σ_ab = (1/2)
+g^(σd)(∂_a g_db + ∂_b g_da − ∂_d g_ab) with g_vv = −F°, g_vr = 1, g_rr = 0, g_AB = r² γ_AB and g^vv = 0, g^vr = 1,
+g^rr = F°; for instance Γ^r_rv = (1/2) ∂_r g_vv = −μ0/r³ and Γ^v_AB = −(1/2) ∂_r g_AB.
+
+For a symmetric 2-tensor h let
+
+    Pol(h) := h(ℓ, ·) − (1/2) dv tr h,      D_X(h) := div h − (1/2) d tr h,      𝒯 h := −i (∇_ℓ h + (3/(2r)) h),
+    R_X(h) := −(1/2) □h + 𝔚(h),      𝔚(h)_mn := −R_m^a_n^b h_ab,                                       {#eq:layer-operators}
+
+∇, □ = ∇^a ∇_a, div, tr and the Riemann tensor R being those of g0°, indices moved by g0°.
+
+**Lemma {#lem:layer-seed-operators}** (The seed's operators.) Let dRic^H and dD be the linearisations at g0° of Ric^H and
+D, with the gauge taken relative to g0° ([[sec:gauge]]). Let H be a symmetric 2-tensor whose components in (v, r, ϑ,
+φ1, φ2) are functions of (v, r, ϑ) and with H_(vφi) = H_(rφi) = H_(ϑφi) = H_(φ1φ2) = 0, and let k ≥ 1 be an integer.
+
+(a) dRic^H(h) = −(1/2) □h + 𝔚(h) and dD(h) = div h − (1/2) d tr h, the latter with its index lowered.
+
+(b) dRic^H(H e^(ikv/λ)) = e^(ikv/λ) (λ⁻¹ k 𝒯H + R_X H) and dD(H e^(ikv/λ)) = e^(ikv/λ) (λ⁻¹ i k Pol(H) + D_X H): there
+is no term of order λ⁻².
+
+(c) Componentwise, with Λ := 3/(2r),
+
+    (𝒯H)_vv = −i(∂_r H_vv + Λ H_vv + 2μ0 H_vr/r³),     (𝒯H)_vr = −i(∂_r H_vr + Λ H_vr + μ0 H_rr/r³),
+    (𝒯H)_rr = −i(∂_r + Λ) H_rr,      (𝒯H)_vϑ = −i(∂_r H_vϑ + H_vϑ/(2r) + μ0 H_rϑ/r³),
+    (𝒯H)_rϑ = −i(∂_r + 1/(2r)) H_rϑ,      (𝒯H)_AB = −i(∂_r − 1/(2r)) H_AB   (A, B angular);
+    Pol(H)_v = −(1/2)(F° H_rr + r⁻² γ^(AB) H_AB),   Pol(H)_r = H_rr,   Pol(H)_ϑ = H_rϑ.               {#eq:layer-components}
+
+(d) If h is in 𝔖, then (dRic^H h)_vv = 0 and tr dRic^H h = 0; the same holds for R_X h.
+
+(e) If h has only angular components, then (□h)_vA = 0 and 𝔚(h)_vA = 0 for every angular A.
+
+*Proof.* (a) At a vacuum metric, with D(g0°) = 0 and the gauge relative to g0°, the variation of the Christoffel symbols
+is δΓ^ρ_ab = (1/2)(∇_a h^ρ_b + ∇_b h^ρ_a − ∇^ρ h_ab), so dD^ρ = g0°^(ab) δΓ^ρ_ab = ∇_a h^(aρ) − (1/2) ∇^ρ tr h. The
+variation of Ricci is ∇_ρ δΓ^ρ_mn − ∇_n δΓ^ρ_(ρm). Commuting the derivatives in ∇_ρ ∇_m h^ρ_n by the Ricci identity, and
+using Ric(g0°) = 0, it equals (1/2)(∇_m dD_n + ∇_n dD_m) − (1/2) □h_mn − R_m^a_n^b h_ab. The variation of the gauge term
+of [[eq:gauge]] at D = 0 is (1/2)(∇_m dD_n + ∇_n dD_m), since ∇̂ = ∇ at g0°. The difference is (a).
+
+(b) For h = H e^(ikv/λ), ∇_a h = (∇_a H + i k λ⁻¹ (∂_a v) H) e^(ikv/λ), and g0°⁻¹(dv, dv) = 0, ∇ dv being symmetric with
+ℓ^a ∇_a ∂_b v = 0 ([[prop:vaidya]] (c)), and □v = 3/r ([[sec:stage-zero]]). Hence
+
+    □(H e^(ikv/λ)) = e^(ikv/λ) (□H + i k λ⁻¹ (2 ∇_ℓ H + (3/r) H)),
+
+with no λ⁻² term, and the zeroth-order term 𝔚 and the first-order dD are expanded in the same way; dD(h) has λ⁻¹ part
+i k (H(ℓ, ·) − (1/2) dv tr H). This is (b).
+
+(c) For an angular index A, B, and a, b ∈ {v, r}, (∇_ℓ H)_ab = ∂_r H_ab − Γ^c_(ra) H_cb − Γ^c_(rb) H_ac. By
+[[eq:layer-christoffel]] the only symbols with a lower index r are Γ^r_rv = −μ0/r³ and Γ^A_rB = δ^A_B/r. So (∇_ℓ H)_vv =
+∂_r H_vv + 2μ0 H_vr/r³, (∇_ℓ H)_vr = ∂_r H_vr + μ0 H_rr/r³, (∇_ℓ H)_rr = ∂_r H_rr, (∇_ℓ H)_vϑ = ∂_r H_vϑ + μ0 H_rϑ/r³ −
+H_vϑ/r, (∇_ℓ H)_rϑ = ∂_r H_rϑ − H_rϑ/r and (∇_ℓ H)_AB = ∂_r H_AB − 2 H_AB/r; adding (3/(2r)) H gives the list. For Pol,
+H(ℓ, ·) = H(∂_r, ·), and tr H = 2 H_vr + F° H_rr + r⁻² γ^(AB) H_AB, since g0°^(vv) = 0, g0°^(vr) = 1, g0°^(rr) = F°.
+
+(d) The component (𝔚 h)_vv is −R_(vavb) h^(ab). For h in 𝔖 the raised components h^(vv), h^(vr), h^(rr) vanish (they
+are built from h_rr, h_vr, h_vv through g^vv = 0), so only h^(vA), h^(rA), h^(AB) remain. g0° is a warped product of
+the (v, r) plane with the round S³, invariant under O(4) acting on the spheres; at a point, the isotropy group O(3)
+acts on the angular indices, and −1 ∈ O(3) changes the sign of a component with an odd number of angular indices. So
+R_(vvvA) = R_(vrvA) = 0, and R_(vAvB) is an O(3)-invariant bilinear form on the tangent space of the sphere, a multiple
+of γ_AB. Hence (𝔚 h)_vv = −R_(vAvB) h^(AB) = 0, since h^(AB) is γ-traceless. For □: (∇_b h)_vv = ∂_b h_vv − 2 Γ^c_(bv)
+h_cv = −2 Γ^A_(bv) h_Av = 0, and (∇_b h)_rv = −Γ^A_(br) h_Av − Γ^A_(bv) h_rA, which vanishes for b ∈ {v, r}. Then
+(∇_a ∇_b h)_vv = −2 Γ^c_(av) (∇_b h)_cv, since (∇h)_vv vanishes identically. The symbols Γ^c_(av) vanish unless a and
+c lie in {v, r}, and then g0°^(ab) ≠ 0 forces b ∈ {v, r}, where (∇_b h)_vv = (∇_b h)_rv = 0. So (□h)_vv = 0.
+For the trace: g0° is parallel, so tr □h = □ tr h = 0 for h in 𝔖, and tr 𝔚(h) = −Ric(g0°)^(ab) h_ab = 0. These are
+statements about every h in 𝔖, so they hold for dRic^H(h) and, applied to H e^(iv/λ) with H in 𝔖, order by order in λ:
+for R_X H as well as for 𝒯H.
+
+(e) By the same parity, R_(vAϑB) h^(AB) = 0, three indices being angular, so 𝔚(h)_vA = 0. For h with only angular
+components, (∇_c h)_(vA) = −Γ^E_(cv) h_EA = 0 for every c; (∇_b h)_(vv) = (∇_b h)_(vr) = 0; and (∇_b h)_(rA) =
+−Γ^E_(br) h_EA vanishes unless b is angular. In (∇_a ∇_b h)_vA = −Γ^d_(av) (∇_b h)_dA − Γ^d_(aA) (∇_b h)_vd every term
+then vanishes after contraction with g0°^(ab): the first because Γ^d_(av) ≠ 0 only for a ∈ {v, r}, where g^(ab) has no
+angular b, and the second because (∇_b h)_vd = 0. So (□h)_vA = 0. ∎
+
+Write R_X H also for the λ⁰ part of dRic^H(H e^(iv/λ)) when H depends on v; then ∂_v acts on H, and R_X contains the
+derivative ∂_v H through −(1/2) □H ([[prop:layer-structure]] (a)).
+
+**Lemma {#lem:layer-bianchi}** (The Bianchi identity at one harmonic, and propagation of the gauge.) Let H_1, …, H_J be
+as in [[lem:layer-seed-operators]], put H_0 := H_(J+1) := 0 and
+
+    Z_j := 𝒯H_j + R_X H_(j−1),      G_j := i Pol(H_(j+1)) + D_X H_j.
+
+(a) For every j ≥ 1, with H_(−1) := 0 and G_(−1) := 0,
+
+    i Pol(Z_j) + div Gt(Z_(j−1)) = −i (∇_ℓ + 3/(2r)) G_(j−1) − (1/2) □G_(j−2),                         {#eq:layer-bianchi}
+
+where Gt(Y) := Y − (1/2)(tr Y) g0° and G_j is a covector.
+
+(b) If Z_j = 0 for j ≤ J and G_j = 0 at Σ_τ0 (at r = v − τ0, on every generator) for j ≤ J − 1, then G_j = 0 on Ω
+for j ≤ J − 1.
+
+*Proof.* (a) For every metric, div_g Gt(Ric^H(g)) = −B_g[D(g)] by [[eq:data-bianchi]]. Linearise at g0°, where
+Ric^H(g0°) = 0 and D(g0°) = 0: div Gt(dRic^H(h)) = −B_(g0°)[dD(h)], and at g0°, with S(V)_mn = (1/2)(∇_m V_n + ∇_n
+V_m), B_(g0°)[V]_n = div Gt(S(V))_n = (1/2) □V_n + (1/2)(∇^m ∇_n V_m − ∇_n ∇^m V_m) = (1/2) □V_n + (1/2) Ric_nm V^m =
+(1/2) □V_n. Apply this to h := Σ_(j=1)^J λ^j H_j e^(iv/λ). By [[lem:layer-seed-operators]] (b), dRic^H(h) = e^(iv/λ)
+Σ_j λ^(j−1) Z_j and dD(h) = e^(iv/λ) Σ_j λ^(j−1) G_(j−1). For a symmetric Y, div Gt(Y e^(iv/λ)) = e^(iv/λ)(div Gt(Y) +
+i λ⁻¹ Pol(Y)), since Gt(Y)(ℓ, ·) = Pol(Y); and □(G e^(iv/λ)) = e^(iv/λ)(□G + i λ⁻¹ (2∇_ℓ + 3/r) G), as in the proof of
+[[lem:layer-seed-operators]] (b). Both sides are polynomials in λ⁻¹ and λ with coefficients independent of λ, equal for
+every λ > 0; the coefficient of λ^(j−2) is [[eq:layer-bianchi]].
+
+(b) G_0 = i Pol(H_1) + D_X H_0 = i Pol(H_1). Suppose G_(j−2) = 0 with j ≤ J. By (a) and Z_j = Z_(j−1) = 0,
+(∇_ℓ + 3/(2r)) G_(j−1) = 0: along every generator γ_X, a linear ordinary differential equation in r, with G_(j−1) = 0 at
+X_Σ. So G_(j−1) = 0, and induction from j = 1, where G_(−1) = 0 and G_0 = 0 at Σ_τ0, gives the claim. ∎
+
+**Lemma {#lem:layer-pol-plus}** (Pol⁺ at a point.) Let Pol⁺ := Pol^T (Pol Pol^T)⁻¹ be the right inverse of
+[[lem:stage-data]] (i), the transposes taken in the Euclidean structure of the Cartesian components in (τ, x), and let
+V = V_v dv + V_r dr + V_ϑ dϑ. Then Y := Pol⁺ V has, in (v, r, ϑ, φ1, φ2),
+
+    Y_vv = V_r/4,   Y_vr = −V_r/2,   Y_rr = V_r,   Y_vϑ = −V_ϑ/2,   Y_rϑ = V_ϑ,
+    Y_AB = (1/3)(−F V_r − 2 V_v) r² γ_AB,   tr_(g0) Y = −V_r − 2 V_v,                                 {#eq:layer-pol-plus}
+
+F := 1 − μ/r² at the point; in particular Pol Y = V, and the γ-traceless angular part of Y vanishes.
+
+*Proof.* Pol is onto ([[lem:stage-data]] (i)), so Pol Pol^T is invertible, Pol⁺ maps onto the range of Pol^T, and Pol
+is injective there. So it suffices to show Pol Y = V and that Y lies in the range of Pol^T. First, by
+[[eq:layer-components]] (which hold at g0 as well, with F in place of F°): Pol(Y)_r = Y_rr = V_r, Pol(Y)_ϑ = Y_rϑ = V_ϑ,
+and Pol(Y)_v = Y_rv − (1/2) tr Y = −V_r/2 + (V_r + 2 V_v)/2 = V_v, with tr Y = 2 Y_vr + F Y_rr + r⁻² γ^(AB) Y_AB = −V_r
++ F V_r − F V_r − 2 V_v. Second, rotate the Cartesian coordinates so that at the point x̂ = e1 and ∂_ϑ = r ∂_(x2); then
+ℓ = −∂_τ + ∂_1, dv = dτ + dx1, and g0⁻¹ = η⁻¹ − m L0 ⊗ L0, m := μ/r², L0 = ∂_τ − ∂_1. The Frobenius pairing of Pol(Y)
+with β is Σ_(a,b) Y_ab ((1/2)(ℓ^a β_b + ℓ^b β_a) − (1/2)(β_0 + β_1) g0^(ab)), so the range of Pol^T consists of the arrays
+
+    Z_00 = −β_0 + s(1 + m)/2,   Z_01 = (β_0 − β_1)/2 − s m/2,   Z_11 = β_1 − s(1 − m)/2,
+    Z_02 = −β_2/2,   Z_12 = β_2/2,   Z_22 = Z_33 = Z_44 = −s/2,   Z_0j = −β_j/2,  Z_1j = β_j/2  (j = 3, 4),
+
+s := β_0 + β_1, all other entries zero. The Cartesian components of Y follow from ∂_v = ∂_τ, ∂_r = −∂_τ + ∂_1,
+∂_ϑ = r ∂_2: Y_00 = V_r/4, Y_01 = −V_r/4, Y_11 = V_r/4, Y_02 = −V_ϑ/(2r), Y_12 = V_ϑ/(2r), Y_22 = Y_33 = Y_44 =
+((m − 1) V_r − 2 V_v)/3, and no other entries. This is of the form above with β_2 = V_ϑ/r, β_3 = β_4 = 0, s :=
+−2((m − 1) V_r − 2 V_v)/3, β_0 := s(1 + m)/2 − V_r/4 and β_1 := V_r/4 + s(1 − m)/2, whose sum is s as required; the
+entries Z_00, Z_11, Z_22 then hold by construction, and Z_01 = (β_0 − β_1)/2 − s m/2 = −V_r/4. ∎
+
+### The part of first degree {#sec:layer-linear}
+
+The leading wave is W_TT = Re[A env(v) r^(1/2) T e^(iθ)], with T the angular tensor
+
+    T := −(a + b) dϑ² + c² a dφ1² + s² b dφ2²,      a := (2h/3)(2c² + i s²),      b := −(2h/3)(c² + 2i s²),
+
+c = cos ϑ, s = sin ϑ, h = h(cos 2ϑ) as in [[eq:waves]]: indeed (2h/3)(2c² cos θ − s² sin θ) = Re[a e^(iθ)] and
+(2h/3)(2s² sin θ − c² cos θ) = Re[b e^(iθ)], which with [[eq:waves]] gives the claim. T is γ-traceless. Put
+
+    d_1 := (div_γ T)_ϑ = ((a − b) − 3(a + b) cos 2ϑ)/sin 2ϑ − (a + b)′,      d := div_γ div_γ T = (cs)⁻¹ (cs d_1)′,
+                                                                                                     {#eq:layer-divergence}
+
+′ := d/dϑ; d_1 dϑ is the divergence of T on the round S³ (its φ-components vanish by the symmetries), and d its
+divergence, the volume density of γ being cs.
+
+**Definition {#def:layer-profiles}** (The first-degree profiles.) H_1 := A env(v) r^(1/2) T, and for j ≥ 1, H_(j+1) is
+the solution of
+
+    𝒯 H_(j+1) = −R_X H_j   along ℓ,      H_(j+1) = i Pol⁺(D_X H_j)   on Σ_τ0, at r = r0 := v − τ0,    {#eq:layer-profiles}
+
+with the operators of [[eq:layer-operators]] at the seed and Pol⁺ of [[lem:layer-pol-plus]] at the seed's F°.
+
+**Proposition {#prop:layer-linear}** (The profiles of first degree.) Put a_1 := A env(v) d_1(ϑ), a_2 := A env(v) d(ϑ),
+and
+
+    β_2(r) := −1/(2r0) + (μ0/3)(r⁻³ − r0⁻³).
+
+(a) 𝒯H_1 = 0, Pol(H_1) = 0, D_X H_1 = a_1 r^(−3/2) dϑ, and R_X H_1 = a_1 r^(−5/2)(dr ⊗ dϑ + dϑ ⊗ dr) + (a γ-traceless
+angular part); in particular R_X H_1 has no vv, vr, rr or vϑ component.
+
+(b) H_2 has the components
+
+    H_2,rϑ = i a_1 r^(−3/2),   H_2,vϑ = i a_1 r^(−1/2) β_2(r),   H_2,AB = −i r^(1/2) ∫_(r0)^r s^(−1/2) (R_X H_1)_AB ds,
+    H_2,vv = H_2,vr = H_2,rr = 0,                                                                     {#eq:layer-h2}
+
+and H_1, H_2 lie in 𝔖. Moreover i Pol(H_2) + D_X H_1 = 0 on Ω.
+
+(c) D_X H_2 = i a_2 (r^(−5/2) β_2(r) dv + r^(−7/2) dr) + (a dϑ term), and the components vv, vr, rr and the trace of
+H_3 are
+
+    tr H_3 = 0,   H_3,rr = −a_2 r^(−7/2),   H_3,vr = −a_2 r^(−5/2) β_2(r),   H_3,vv = −a_2 r^(−3/2) β_2(r)².   {#eq:layer-h3}
+
+(d) At the horizon r = √μ0, H_3,vv(v, √μ0, ϑ) = A env(v) d(ϑ) ν(r0), where
+
+    ν(r0) := −μ0^(−3/4) β_2(√μ0)² = −μ0^(−7/4) (2ρ³ − 3ρ² − 2)²/(36 ρ⁶),      ρ := r0/√μ0.              {#eq:layer-nu}
+
+ν ≤ 0; it vanishes only at the one real root ρ* ∈ (1.80, 1.81) of 2ρ³ − 3ρ² − 2, where it has a double zero with
+d²ν/dρ² ≠ 0; dν/dρ = −μ0^(−7/4) (ρ² + 2)(2ρ³ − 3ρ² − 2)/(6ρ⁷); and ν → −μ0^(−7/4)/9 as ρ → ∞.
+
+*Proof.* (a) H_1 has only angular components, r^(1/2) times functions of (v, ϑ), so (𝒯H_1)_AB = −i(∂_r − 1/(2r))
+r^(1/2)(…) = 0, and Pol(H_1) = 0 by [[eq:layer-components]] (H_1,rr = H_1,rϑ = 0, γ^(AB) T_AB = 0). For D_X H_1 =
+div H_1 (tr H_1 = 0): in (div h)_n = g0°^(ab)(∂_a h_bn − Γ^d_(ab) h_dn − Γ^d_(an) h_bd) with h angular, the symbols of
+[[eq:layer-christoffel]] give (div h)_v = 0, (div h)_r = −r⁻³ γ^(AB) h_AB = 0, and (div h)_ϑ = r⁻² (div_γ h)_ϑ; with
+h = H_1 this is a_1 r^(−3/2). For R_X H_1: H_1 is in 𝔖, so (R_X H_1)_vv = 0 and tr R_X H_1 = 0
+([[lem:layer-seed-operators]] (d)), and (R_X H_1)_vϑ = 0 by (e) there. Apply [[eq:layer-bianchi]] at j = 2 to J = 1, H_1
+alone: Z_1 = 𝒯H_1 = 0, Z_2 = R_X H_1, G_0 = 0 and G_1 = D_X H_1, so Pol(R_X H_1) = −(∇_ℓ + 3/(2r)) D_X H_1. For the
+covector ω := a_1 r^(−3/2) dϑ, (∇_ℓ ω)_ϑ = ∂_r ω_ϑ − ω_ϑ/r and (∇_ℓ ω)_v = (∇_ℓ ω)_r = 0, so −(∇_ℓ + 3/(2r)) ω =
+a_1 r^(−5/2) dϑ. Hence (R_X H_1)_rr = 0, (R_X H_1)_rϑ = a_1 r^(−5/2), and (R_X H_1)_rv = (1/2) tr R_X H_1 = 0.
+
+(b) The data: by (a) and [[eq:layer-pol-plus]] with V = D_X H_1 = a_1 r0^(−3/2) dϑ, H_2 = i Pol⁺ V has at r0 the
+components rϑ = i a_1 r0^(−3/2), vϑ = −(i/2) a_1 r0^(−3/2) = i a_1 r0^(−1/2) β_2(r0), and no other. The transport:
+by (a) and [[eq:layer-components]], the vv, vr, rr components of 𝒯H_2 = −R_X H_1 are homogeneous with zero data, so
+they vanish; (∂_r + 1/(2r)) H_2,rϑ = −i a_1 r^(−5/2) gives H_2,rϑ = i a_1 r^(−3/2), since (∂_r + 1/(2r)) r^(−3/2) =
+−r^(−5/2); (∂_r + 1/(2r)) H_2,vϑ = −μ0 H_2,rϑ/r³ reads i a_1 r^(−1/2) β_2′ = −i μ0 a_1 r^(−9/2), which β_2′ = −μ0 r⁻⁴
+satisfies; and (∂_r − 1/(2r)) H_2,AB = −i (R_X H_1)_AB with zero data gives the integral, γ-traceless because (R_X
+H_1)_AB is (tr R_X H_1 = 0). So H_2 is in 𝔖. By [[lem:layer-bianchi]] (b) with J = 2 (Z_1 = Z_2 = 0, G_0 = 0, and G_1
+= 0 at r0 since Pol Pol⁺ = 1), G_1 = i Pol(H_2) + D_X H_1 = 0 on Ω.
+
+(c) For h in 𝔖 the same computation as in (a) gives (div h)_v = r⁻² div_γ(h_(v·)) and (div h)_r = r⁻² div_γ(h_(r·)),
+the divergences on S³ of the covectors h_(vA) and h_(rA): the terms with Γ^A_(·v) vanish, h_vv = h_vr = h_rr = 0, and
+the term −Γ^E_(Ar) h_(BE) contracted with g0°^(AB) is a trace. With tr H_2 = 0 and div_γ(d_1 dϑ) = d, this is the
+stated form of D_X H_2. By (b) and [[lem:layer-seed-operators]] (d), (R_X H_2)_vv = 0 and tr R_X H_2 = 0. Let H_3 be
+given by [[eq:layer-profiles]]. Its data at r0 are, by [[eq:layer-pol-plus]] with V_v = i a_2 r0^(−5/2) β_2(r0) and V_r
+= i a_2 r0^(−7/2): H_3,vv = i V_r/4 = −a_2 r0^(−7/2)/4 and tr H_3 = i(−V_r − 2 V_v) = a_2 (r0^(−7/2) − r0^(−7/2)) = 0.
+The trace of 𝒯H_3 is −i(∂_r + 3/(2r)) tr H_3, as ∇_ℓ commutes with the trace, and equals −tr R_X H_2 = 0; so r^(3/2)
+tr H_3 is constant along ℓ, and tr H_3 = 0. By [[lem:layer-bianchi]] (b) with J = 3, i Pol(H_3) = −D_X H_2 on Ω, that is
+H_3,rr = i (D_X H_2)_r = −a_2 r^(−7/2) and H_3,vr − (1/2) tr H_3 = i (D_X H_2)_v = −a_2 r^(−5/2) β_2. The vv component of
+𝒯H_3 = −R_X H_2 is ∂_r H_3,vv + (3/(2r)) H_3,vv + 2 μ0 H_3,vr/r³ = 0, that is ∂_r (r^(3/2) H_3,vv) = 2 μ0 a_2 r⁻⁴ β_2.
+Since ∂_r(−a_2 β_2²) = −2 a_2 β_2 β_2′ = 2 μ0 a_2 r⁻⁴ β_2 and −a_2 β_2(r0)² = −a_2/(4 r0²) = r0^(3/2) H_3,vv(r0), we get
+r^(3/2) H_3,vv = −a_2 β_2² on the whole generator.
+
+(d) At r = √μ0, (c) gives H_3,vv = −a_2 μ0^(−3/4) β_2(√μ0)², and β_2(√μ0) = −1/(2r0) + 1/(3√μ0) − μ0/(3r0³) =
+μ0^(−1/2) (2ρ³ − 3ρ² − 2)/(6ρ³), which gives [[eq:layer-nu]]. Put p(ρ) := 2ρ³ − 3ρ² − 2. Since p′(ρ) = 6ρ(ρ − 1),
+p has its local maximum p(0) = −2 < 0 and its local minimum p(1) = −3 < 0, so it has exactly one real root ρ*, in
+(1, ∞); p(1.80) = −0.056 < 0 < p(1.81) = 0.031182. ν = −μ0^(−7/4) p²/(36 ρ⁶) has a double zero there, with d²ν/dρ² =
+−μ0^(−7/4) p′(ρ*)²/(18 ρ*⁶) ≠ 0 since p′(ρ*) ≠ 0. Differentiating, dν/dρ = −μ0^(−7/4) p (ρ p′ − 3p)/(18 ρ⁷) and ρ p′ −
+3p = 3(ρ² + 2). Finally p²/ρ⁶ → 4. ∎
+
+The admissible values are r0 = v − τ0 ≥ v_s − τ0 > √μ0 + 1, that is ρ > 1 + μ0^(−1/2). The coefficient ν depends on
+τ0, through r0, and on the Euclidean structure used to define Pol⁺; the one fixed in [[lem:stage-data]] is used
+throughout. A tensor T with d = 0 gives no λ³ term: for instance (a, b) = ((1 + 3 cos 2ϑ)/2, (1 − 3 cos 2ϑ)/2) has d_1 = 0.
+
+**Lemma {#lem:layer-angular}** (The angular factor of the waves.) With ζ := cos 2ϑ,
+
+    d_1 = sin 2ϑ · √2 ((3ζ² − 2ζ + 5) + i (3ζ² + 2ζ + 5)) / (3 (1 + ζ²)^(3/2)),
+    d = (2√2/3) ((3ζ⁵ + 10ζ³ − 10ζ² + 19ζ + 2) + i (3ζ⁵ + 10ζ³ + 10ζ² + 19ζ − 2)) / (1 + ζ²)^(5/2),    {#eq:layer-d}
+
+and |d| ≥ 8/3 at every angle, the axes included, with equality only at ζ = 0.
+
+*Proof.* With c² = (1 + ζ)/2, s² = (1 − ζ)/2 and h = √2 (1 + ζ²)^(−1/2),
+
+    a + b = √2 (ζ + 1 + i(ζ − 1)) / (3 √(1 + ζ²)),      a − b = √2 (1 + ζ + i(1 − ζ)) / √(1 + ζ²).
+
+So (a − b) − 3ζ(a + b) = √2 (1 − ζ²)(1 + i)/√(1 + ζ²). With d/dϑ = −2 sin 2ϑ d/dζ and sin 2ϑ = √(1 − ζ²),
+−(a + b)′ = 2 sin 2ϑ (d/dζ)(a + b) = (2√2/3) sin 2ϑ ((1 + i) − (1 − i) ζ)/(1 + ζ²)^(3/2). Adding the two terms of
+[[eq:layer-divergence]] gives d_1 = sin 2ϑ · q(ζ) with the q displayed. Then cs d_1 = (1/2)(1 − ζ²) q and d =
+(cs)⁻¹ (cs d_1)′ = −2 (d/dζ)((1 − ζ²) q), which is the stated d. For the bound, write the two numerators of d as o + e
+and o − e, with the odd part o := 3ζ⁵ + 10ζ³ + 19ζ and the even part e := 2 − 10ζ². Then |d|² = (8/9)((o + e)² + (o −
+e)²)/(1 + ζ²)⁵ = (16/9)(o² + e²)/(1 + ζ²)⁵, and with u := ζ²,
+
+    o² + e² − 4 (1 + u)⁵ = 5u⁵ + 40u⁴ + 174u³ + 440u² + 301u ≥ 0,
+
+so |d|² ≥ (16/9) · 4 = 64/9, with equality only at u = 0. ∎
+
+**Lemma {#lem:layer-inverse}** (The inverse metric on the boundary.) On the boundary,
+
+    g_λ⁻¹(dΦ0, dΦ0) = −m0 − k(Φ0♯, Φ0♯) + q,      |q| ≤ C |k(Φ0♯, ·)| (|k(Φ0♯, ·)| + |k|²),             {#eq:layer-inverse}
+
+where C depends on the bounds of g0⁻¹ and g_λ⁻¹ on Ω, and |k| ≤ 1.
+
+*Proof.* From g_λ = g0 + k, g_λ⁻¹ − g0⁻¹ = −g0⁻¹ k g_λ⁻¹, and substituting this once more for g_λ⁻¹ on the right,
+g_λ⁻¹ = g0⁻¹ − g0⁻¹ k g0⁻¹ + g0⁻¹ k g0⁻¹ k g_λ⁻¹. Contract with dΦ0 twice: the first two terms give −m0 − k(Φ0♯, Φ0♯),
+and the third is q := k(Φ0♯, g0⁻¹ k g_λ⁻¹ dΦ0). The same identity applied to g_λ⁻¹ dΦ0 gives |k(g_λ⁻¹ dΦ0, ·)| ≤
+|k(Φ0♯, ·)| + C |k| |k(Φ0♯, ·)| + C |k|³, and |k|³ ≤ |k|². ∎
+

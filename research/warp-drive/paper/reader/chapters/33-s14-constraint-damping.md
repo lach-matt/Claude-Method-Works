@@ -709,11 +709,30 @@ reverses the signs of dr and of ω_r. So the spectrum of M + 2N is that of M_(�
 as M_(−v) is.
 
 For ϑ_in, recall p_in = σ(ρ⁻¹Im_H P̂(0))|_(ρ=0, ξ=−2, η=0) and the structure [[eq:i-a-1-2]] of the spectral family,
-here with S = S̄^C = h⁻¹M at ρ = 0; H denotes the fibre inner product. The scattering symbol of ∂_r at ξ dr is iξ, so
-the radial first-order term 2ρh⁻¹N∂_r contributes ξ·2ρh⁻¹Re_H N to the symbol of Im_H P̂(0), and ρ⁻¹ times this is
-−4h⁻¹Re_H N at ξ = −2. The scalar part −Δ Id contributes nothing at η = 0: H depends on the angles only, so its
-derivatives are tangential and O(ρ), and the commutator of −Δ with H has symbol vanishing at η = 0 and lower order in
-ρ. The other terms of P̂(0) have coefficients in ρ²C^∞ and do not contribute at ρ = 0. So
+here with S = S̄^C = h⁻¹M at ρ = 0. H denotes the fibre inner product; in the Cartesian frame M + 2N, and so H, depend
+on the angles only. Adjoints are taken for |dx|, as in [[sec:i-a-1]], and A^(*H) := H⁻¹A^†H for a matrix A. For a
+matrix-valued function A and a vector field Y, (AY)^(*H) = −A^(*H)Y − H⁻¹Y(HA^(*H)) − (div Y)A^(*H), so
+
+    Im_H(AY) = (Re_H A)(Y/i) + (2i)⁻¹(H⁻¹Y(HA^(*H)) + (div Y)A^(*H)).
+
+We use this with A homogeneous of degree −1 and Y = ∂_r or Y = T_i := ∂_i − n_in^j∂_j, the part of ∂_i tangent to the
+spheres. The coefficients of these Y are homogeneous of degree 0 and their divergences, 3/r and −3n_i/r, of degree −1;
+so the second term is of order zero and homogeneous of degree −2, that is r⁻² times a function of the angles, and
+ρ⁻¹ times it vanishes at ρ = 0. And ρ⁻¹Re_H A is a function of the angles. The scattering symbols of ∂_r/i and T_i/i
+at ξ dr + rη are ξ and (rη)_i, the Cartesian components of rη, which are linear in η.
+
+The radial first-order term 2ρh⁻¹N∂_r, with A = 2ρh⁻¹N, therefore contributes 2h⁻¹(Re_H N)ξ to the symbol of
+ρ⁻¹Im_H P̂(0) at ρ = 0, which is −4h⁻¹Re_H N at ξ = −2. The scalar part −Δ Id is symmetric for |dx|, and
+−Δ − H⁻¹(−Δ)H = H⁻¹(2Σ_i(∂_iH)∂_i + ΔH) = H⁻¹(2Σ_i(∂_iH)T_i + ΔH), as Σ_in_i∂_iH = ∂_rH = 0; here ∂_iH is homogeneous
+of degree −1 and ΔH of degree −2, so ρ⁻¹Im_H(−Δ) has at ρ = 0 the symbol H⁻¹Σ_i(ρ⁻¹∂_iH)(rη)_i, which vanishes at
+η = 0. The remaining terms of P̂(0) are those of h⁻¹𝓛_c other than 2ρh⁻¹N∂_r. Writing ∂_i = n_i∂_r + T_i, its other
+first-order terms are tangential: the parts with T_i of −2(div ω)c and of 2e d⟨c, ω⟩, as −2∇_(c♯)ω differentiates
+only along c♯ = −r⁻¹((1 − v)∂_(t_*) + v∂_r). They have the form Σ_i A^iT_i, with A^i a matrix whose entries are linear
+in the components of c, hence homogeneous of degree −1; so ρ⁻¹Im_H(Σ_i A^iT_i) has at ρ = 0 the symbol
+Σ_i(ρ⁻¹Re_H A^i)(rη)_i, which vanishes at η = 0. The terms of order zero of h⁻¹𝓛_c, namely −2∇_(ω♯)c, −2(div c)ω and
+the part of 2e d⟨c, ω⟩ in which c is differentiated, have entries linear in the first derivatives of the components of
+c, homogeneous of degree −2; so they and their H-adjoints are r⁻² times functions of the angles, and ρ⁻¹ times them
+vanishes at ρ = 0. Hence at ρ = 0, η = 0 and ξ = −2 only the radial term contributes, p_in = −4h⁻¹Re_H N, and
 
     p_in − (S + S^(*H)) = −2h⁻¹ Re_H(M + 2N) = −2h⁻¹(M + 2N),
 
