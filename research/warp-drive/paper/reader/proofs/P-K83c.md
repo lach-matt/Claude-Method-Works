@@ -1,7 +1,8 @@
 <!-- Proofs for chapter 83 (ch:localised-data). Block 1 closes the marker pending:class-domain-of-dependence in the
 proof of thm:loc-bent-slice (c); Blocks 2 and 3 are the matching changes to the statement (c) and to the end of its
-proof. Block 4 settles R-83 m4 (the cone development for data with null dust). Blocks 5 and 6 concern [Rac16, (4.21)]:
-Block 6 is the Appendix A entry (chapter 95), Block 5 a one-line change in the proof of thm:loc-bent-slice (b). Old
+proof. Block 4 settles item m4 of the first reading (the cone development for data with null dust). Blocks 5 and 6
+concern [Rac16, (4.21)]: Block 6 is the Appendix A entry (chapter 95), Block 5 a small change in the proof of
+thm:loc-bent-slice (b). Old
 texts are quoted from chapters 83 and 95 as they stand; they contain no label definition, so each occurs once. The
 blocks use only results that the edition states. -->
 
@@ -54,10 +55,11 @@ at most 3.43719 + tδ1 < 3.44 + t(λ − δ1) − Cε, since λ ≥ 2δ1; and u 
 
     g0 = −f dτ² + 2(1 − f) dτ dR + (2 − f) dR² + R² dΩ₃²,      f = 1 − μ/R²,      3/2 ≤ μ ≤ 3.6059,
 
-so 0.69 < f ≤ 1 − 1.5/5.86² ≤ 0.95632; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f, g0^(ϑϑ) = R⁻² and no other
-entry pairing dϑ with dτ or dR. The background's outgoing density vanishes on 𝒟, as ℬ = 0 in region I. 𝒟 lies in the
-interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1. On 𝒟 the coordinate field ∂_t of the chart
-(t, x) is (δ1 − φ)∂_τ, with g0(∂_τ, ∂_τ) = −f < 0 and dτ(∂_τ) = 1: it is future timelike, for g as well when ε is small.
+so 0.69 < f ≤ 1 − 1.5/5.86² ≤ 0.95632; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f,
+g0^(ϑϑ) = R⁻² and no other entry pairing dϑ with dτ or dR. The background's outgoing density vanishes on 𝒟, as ℬ = 0
+in region I. 𝒟 lies in the interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1. On 𝒟 the coordinate
+field ∂_t of the chart (t, x) is (δ1 − φ)∂_τ, with g0(∂_τ, ∂_τ) = −f < 0 and dτ(∂_τ) = 1: it is future timelike, for g
+as well when ε is small.
 
 A point y of the lens with ϑ(y) < α − 3.3 × 10⁻⁴ lies in 𝒟. Indeed τ(y) ≤ τ0 gives t(y) ≤ |φ|/(δ1 + |φ|) ≤ t1, so
 ϑ(y) < α′ − 3.2958 × 10⁻⁴ ≤ α′ − W t(y); and v̂(y) = τ + R lies in [τ0 + 3.5 − M, τ0 + 5.75], so c_a + λ t(y) ≤ τ0 +
