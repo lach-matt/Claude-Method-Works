@@ -118,7 +118,7 @@ its metric and g_(ε,s) for the metric of bg + εδ_s.
 (ii) For a real number m(ε, s),
 
     ℋ(D_(ε,s)) = 2ε²s |J_1|_(γ_D) + m(ε, s) 𝔴 N_s,      ℳ(D_(ε,s)) = ε²s J_1 + ½ m(ε, s) 𝔴 g_(ε,s)(Y_s, ·).
-                                                                                                  {#eq:loc-continuity-res}
+                                                                                                {#eq:loc-continuity-res}
 
 (iii) m(ε, ·) is continuous on [s_a, s_b], and, uniformly in s,
 
@@ -167,8 +167,8 @@ Cover 𝒱′ by finitely many coordinate boxes [R₋′, R₊′] × W̄, W a b
 𝒱′ are equivalent to the sums of those of the components on a bounded Lipschitz domain of ℝ⁴. There, by
 [[thm:std-bh-embedding]] applied to derivatives of order at most k − 1, which lie in H³ with 3 · 2 > 4, and by
 [[thm:std-bh17-embedding]] with (s, p, t, q) = (2, 2, 0, 4) applied to derivatives of order k, every component u of
-a − γ, b − γ or ζ := a − b satisfies sup|∂^βu| ≤ C‖u‖_(H^(k+2)) for |β| ≤ k − 1, and ‖∂^βu‖_(L⁴) ≤ C‖u‖_(H^(k+2)) for
-|β| = k. Put a_θ := b + θζ, θ ∈ [0, 1]; then |a_θ − γ|_γ ≤ ¼, ‖a_θ − γ‖_(H^(k+2)) ≤ 1, and
+a − γ, b − γ or ζ := a − b satisfies sup|∂^βu| ≤ C‖u‖_(H^(k+2)) for |β| ≤ k − 1, and
+‖∂^βu‖_(L⁴) ≤ C‖u‖_(H^(k+2)) for |β| = k. Put a_θ := b + θζ, θ ∈ [0, 1]; then |a_θ − γ|_γ ≤ ¼, ‖a_θ − γ‖_(H^(k+2)) ≤ 1, and
 f(a) − f(b) = ∫₀¹ Df(a_θ)[ζ] dθ, Df being the derivative in the metric. For |α| ≤ k, by the Leibniz and chain rules,
 ∂^α(ρ_1 Df(a_θ)[ζ]) is a finite sum of terms
 
@@ -183,19 +183,19 @@ in θ gives (C).
 
 *The equation.* For z ∈ 𝒴 let (δK_z, δg_z) := T_(u′)z, and, when |εδγ_s + δg_z|_γ < ½ on Ω_c,
 
-    σ(z) := −𝔍(u′) + ε²s (−2J_1, 2ρ_1 f(g′ + δg_z)).                                             {#eq:loc-continuity-source}
+    σ(z) := −𝔍(u′) + ε²s (−2J_1, 2ρ_1 f(g′ + δg_z)).                                     {#eq:loc-continuity-source}
 
 By the proof of [[lem:s28-setting]] (a), [[eq:v-3-1]] with right side σ(z) holds for (δK, δg) = T_(u′)z exactly when
 ♯_(g′)e^(2/x){𝔍(u′ + T_(u′)z) − 𝔍(u′) − σ(z)} ∈ 𝒦₀, that is,
 
-    ♯_(g′)e^(2/x){𝔍(u′ + T_(u′)z) − ε²s (−2J_1, 2|J_1|_(g′ + δg_z))} ∈ 𝒦₀,                           {#eq:loc-continuity-kid}
+    ♯_(g′)e^(2/x){𝔍(u′ + T_(u′)z) − ε²s (−2J_1, 2|J_1|_(g′ + δg_z))} ∈ 𝒦₀,               {#eq:loc-continuity-kid}
 
 and, by [[lem:s28-setting]] (a), exactly when Ψ(u′, z) = π₀♯_(g′)e^(2/x)σ(z).
 
 *Bounds.* ‖T_(u′)z‖_𝒳 ≤ C_T‖z‖_𝒴. On 𝒱′ the weights of 𝒳 are bounded above and below, so the norm of 𝒳 bounds
 ‖δg_z‖_(H^(k+2)(𝒱′)); and ‖δg_z‖_(C⁰) ≤ C‖T_(u′)z‖_𝒳 ([[lem:s28-setting]] (c)). The norm of the second factor of 𝒮
-of a function supported in Ω_c is at most C times its H^k(𝒱′)-norm. Fix r ∈ (0, r_c] so small that ‖z‖_𝒴 ≤ r implies
-|δg_z|_γ ≤ ⅛ and ‖δg_z‖_(H^(k+2)(𝒱′)) ≤ ½, and take ε_0 so small that |εδγ_s|_γ ≤ ⅛ and
+of a function supported in Ω_c is at most C times its H^k(𝒱′)-norm. Fix r ∈ (0, r_c] so small that ‖z‖_𝒴 ≤ r
+implies |δg_z|_γ ≤ ⅛ and ‖δg_z‖_(H^(k+2)(𝒱′)) ≤ ½, and take ε_0 so small that |εδγ_s|_γ ≤ ⅛ and
 ‖εδγ_s‖_(H^(k+2)(𝒱′)) ≤ ½ for all s. Then (C), with a := g′ + δg_z and b := g′ + δg_w, gives for ‖z‖_𝒴, ‖w‖_𝒴 ≤ r
 
     ‖σ(z) − σ(w)‖_𝒮 ≤ C ε² ‖z − w‖_𝒴,      ‖σ(z)‖_𝒮 ≤ C ε²,
@@ -250,10 +250,10 @@ since |J_1|_γ = ρ_1 and ||J_1|_(γ_D) − |J_1|_γ| ≤ Cρ_1|γ_D − γ|_γ 
 w := εδ_s + c_(ε,s), which is of class C², vanishes outside 𝒱 and has ‖w‖_(C²) ≤ Cε. Φ = (ℋ, ℳ) is a smooth function of
 the 2-jet of the data and vanishes at the background's data on U, so on 𝒱, by Taylor's formula,
 Φ(bg + w) = DΦ[w] + ½D²Φ[w, w] + O(ε³) uniformly in s, with DΦ[w] = DΦ[c_(ε,s)], as DΦ[δ_s] = 0, and
-½D²Φ[w, w] = ½ε²D²Φ[δ_s, δ_s] + O(ε³). The pairing of DΦ[c_(ε,s)] with (N_s, 2Y_s) is ∫_U ⟨P*(𝔨), (δK, δγ)⟩ dvol = 0, for
-c_(ε,s) = (δγ, δK), by the computation in the proof of [[lem:loc-kid-space]] (b), the integrations by parts being valid
-for a pair of class C² that vanishes outside the compact 𝒱. So the left sides give ε²Q(δ_s) + O(ε³) by [[eq:loc-charge]], uniformly in s, and
-[[eq:loc-continuity-m]] follows; 𝔫 ≥ ∫_U 𝔴 N_s² dvol > 0.
+½D²Φ[w, w] = ½ε²D²Φ[δ_s, δ_s] + O(ε³). For c_(ε,s) = (δγ, δK), the pairing of DΦ[c_(ε,s)] with (N_s, 2Y_s) is
+∫_U ⟨P*(𝔨), (δK, δγ)⟩ dvol = 0, by the identity in the proof of [[lem:loc-kid-space]] (b), the integrations by parts
+being valid for a pair of class C² that vanishes outside the compact 𝒱. So the left sides give ε²Q(δ_s) + O(ε³), by
+[[eq:loc-charge]], uniformly in s, and [[eq:loc-continuity-m]] follows; 𝔫 ≥ ∫_U 𝔴 N_s² dvol > 0.
 
 *Continuity in s.* Let Θ_s be the map Θ built with s and u′_(ε,s), and z*_s its fixed point. For s, t ∈ [s_a, s_b],
 
