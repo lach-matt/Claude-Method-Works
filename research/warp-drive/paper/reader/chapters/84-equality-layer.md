@@ -909,7 +909,7 @@ of the thresholds so obtained ([[sec:layer-threshold]]).
 
 *The window.* L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4 holds for λ small, since its left side divided by y is O(λ
 y^(−1/m)) = O(λ^(1−p/m)) and p/m < 1. So by [[lem:layer-levels]], on [v*, v1] env ∈ [3y/4, 5y/4], E ≤ 5y/4, ε_M(v1) ≤
-C_ε y^(1−M/m) and ε_4(v1) ≤ C y^(1−4/m) ≤ λ, the hypothesis of [[lem:layer-remainder-weak]], since p(1 − 4/m) > 1. As
+C y^(1−M/m) and ε_4(v1) ≤ C y^(1−4/m) ≤ λ, the hypothesis of [[lem:layer-remainder-weak]], since p(1 − 4/m) > 1. As
 y → 0, v* → v_s: E(v_s + x) > 0 for every x > 0, so E(v*) = y < E(v_s + x) forces v* < v_s + x.
 
 *Every point of W_λ is in the layer.* μ(v1) − μ0 ≤ (2/9) A² (v1 − v_s) (5y/4)², which is o(λ) since 2p > 1, while
@@ -921,7 +921,7 @@ y → 0, v* → v_s: E(v_s + x) > 0 for every x > 0, so E(v*) = y < E(v_s + x) f
     g_λ⁻¹(dΦ0, dΦ0) = −λ³ A env ν Re[d e^(iθ)] + ρ_λ,
     |ρ_λ| ≤ C (y² + λ⁴ ε + λ ε² + λ^(N−5) ε) + |q|,      |q| ≤ C (λ² ε + λ ε² + λ^(N−5) ε)²,
 
-the term y² bounding m0 ≤ C(E(v)² + ∫_(v_s)^v env²) ≤ C y². With ε ≤ C_ε y^(1−M/m), M/m = 1/56,
+the term y² bounding m0 ≤ C(E(v)² + ∫_(v_s)^v env²) ≤ C y². With ε ≤ C y^(1−M/m), M/m = 1/56,
 
     |ρ_λ| ≤ C (λ^28 + λ^(4+13.75) + λ^(1+27.5) + λ^(N−5+13.75)).
 
@@ -1196,8 +1196,8 @@ so the top terms of Σ_j λ^j H_j,vv at the horizon are λ³ A d ν Σ_(k≥0) (
 ∂_v H_j + i Pol⁺ q H_j at r = r0, Π := Pol⁺ Pol, a projector onto the range of Pol⁺ since Pol Pol⁺ = 1. As 𝒯, Q, q and
 Pol⁺ contain no ∂_v, they act on each c_(j,k) with r0 as a parameter, and ∂_v H_j = Σ_k env^(k) (∂_(r0) c_(j,k) +
 c_(j,k−1)). Writing K_(j+1) = Σ_k env^(k) κ_(j+1,k), we get 𝒯 κ_(j+1,k) = −Q c_(j,k), κ_(j+1,k) = −i(1 − Π)(∂_(r0) c_(j,k) +
-c_(j,k−1)) + i Pol⁺ q c_(j,k) at r = r0, and c_(j+1,k) = κ_(j+1,k) + i(∂_(r0) c_(j,k) + c_(j,k−1)). Every c_(j,k)(r0, r0)
-lies in the range of Π, H_j being i Pol⁺(…) at r0 for j ≥ 2 and every envelope. H_1 = env c_(1,0) and H_2 = env c_(2,0)
+c_(j,k−1)) + i Pol⁺ q c_(j,k) at r = r0, and c_(j+1,k) = κ_(j+1,k) + i(∂_(r0) c_(j,k) + c_(j,k−1)). For j ≥ 1 the data
+give c_(j+1,k)(r0, r0) = i Π (∂_(r0) c_(j,k) + c_(j,k−1))(r0) + i Pol⁺ q c_(j,k)(r0), in the range of Π. H_1 = env c_(1,0) and H_2 = env c_(2,0)
 (the transport of [[eq:layer-profiles]] contains no ∂_v of H_1, as 𝒯H_1 = 0). Induction on j: if c_(j,k) = 0 for k >
 j − 2, then for k = j − 1 the forcing −Q c_(j,j−1) is zero and the data are −i(1 − Π) c_(j,j−2)(r0) = 0, so κ_(j+1,j−1)
 = 0 and c_(j+1,j−1) = i c_(j,j−2); for k > j − 1 everything vanishes. For the next family, c_(j+1,j−2) = κ_(j+1,j−2) +
