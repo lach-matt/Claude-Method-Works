@@ -22,4 +22,6 @@ sec:quarter-turn	docket68/n1star/N1STAR-PROOF.md:1164-1170	NP The mass of a sphe
 eq:quarter-turn-action	docket68/n1star/N1STAR-PROOF.md:1174-1175	NP Lemma 8.2 definition of S	sigma renamed J (sigma is the mollifier ramp in Ch 9)
 lem:quarter-turn	docket68/n1star/N1STAR-PROOF.md:1171-1189; paper/RESPONSE-HL-5D.md:340-346	NP Lemma 8.2 with D622 folds	mass5 M2, M3, M4 and redshift5 R11 replaced by derivations; stage5 S2/S4 cross-check dropped (deduction kept)
 prop:mean-mass (proof)	docket68/n1star/N1STAR-PROOF.md:1191-1210	NP Prop 8.2 with D622 fold	= P Prop 3.4; support5c C13 replaced by lem:sphere-two-scale
-rem:mean-mass-aspect	paper/RESPONSE-HL-5D.md:345-347; paper/RESPONSE-HL-5D.md:663-668; docket68/n1star/N1STAR-PROOF.md:1212-1214	P Prop 3.4 proof (stage5 S2 forcing formula); P s.6 The mean mass	forcing formula of m1 left as pending:computational-2
+lem:first-mean-forcing	paper/RESPONSE-HL-5D.md:345-347; docket68/n1star/checks/stage5.py:24-35	P Prop 3.4 proof: the phase mean of R^(1)[g0 + lam W] is -(4/9) A^2 env^2 H^2 sin 2th/r^3 in dv dth (stage5 S2, S3)	hand proof (about one page): C-expansion as in lem:mean-leading, Ricci part -(1/4)(v X + X v), gauge part -(1/2)(v V + V v), evaluation X_th = 12 K^2 h^2 cs/r^3, V_th = 10 K^2 h^2 cs/r^3; chi drops out
+eq:first-mean-forcing	paper/RESPONSE-HL-5D.md:345-347	P Prop 3.4 proof (stage5 S2)	component written as dv(x)dth + dth(x)dv
+rem:mean-mass-aspect	paper/RESPONSE-HL-5D.md:663-668; docket68/n1star/N1STAR-PROOF.md:1212-1214	P s.6 The mean mass	cites lem:first-mean-forcing

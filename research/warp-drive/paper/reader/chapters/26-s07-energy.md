@@ -93,9 +93,9 @@ the set of restrictions to V′ of functions in C_c^∞(M°) supported in {t^♭
     P − (1/2) x_I² [−2(x_I∂_(x_I) − 3 − 2p_1)∂_(t_*) + 2x_I² Δ_(𝕊³) + t_*⁻¹ p_0]
         ∈ x_I² C^((d_0;k),2ℓ_I)_(e;b) Diff²_e,                                                         {#eq:ii-e-1-1}
 
-with p_0 and p_1 := S|_(∂X) + p̃_1 as in [[def:ii-c-3-3]], and Δ_(𝕊³) ≥ 0 the Laplacian of the round sphere. Hence, for covectors
-ζ = ζ_(t_*) dt_* + ξ dx_I/x_I + η, G(ζ) ≡ x_I²(ξ ζ_(t_*) + x_I²|η|²) modulo x_I^(2+2ℓ_I) times a quadratic form in
-(ζ_(t_*), ξ, x_I η); that is, g⁻¹ ≡ x_I²(x_I∂_(x_I) ⊗_s ∂_(t_*) + x_I² g̸⁻¹), with a ⊗_s b := (a ⊗ b + b ⊗ a)/2 and g̸
+with p_0 and p_1 := S|_(∂X) + p̃_1 as in [[def:ii-c-3-3]], and Δ_(𝕊³) ≥ 0 the Laplacian of the round sphere. Hence,
+for covectors ζ = ζ_(t_*) dt_* + ξ dx_I/x_I + η, G(ζ) ≡ x_I²(ξ ζ_(t_*) + x_I²|η|²) modulo x_I^(2+2ℓ_I) times a quadratic
+form in (ζ_(t_*), ξ, x_I η); that is, g⁻¹ ≡ x_I²(x_I∂_(x_I) ⊗_s ∂_(t_*) + x_I² g̸⁻¹), with a ⊗_s b := (a ⊗ b + b ⊗ a)/2 and g̸
 the round metric.
 
 This is [Hin26c, (8.3)] in dimension 4 + 1.

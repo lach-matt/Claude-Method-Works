@@ -17,7 +17,7 @@ eq:past-transport	docket68/n1star/N1STAR-PROOF.md:1390-1391	NP (9.4)
 sec:past-approximant	docket68/n1star/N1STAR-PROOF.md:1402-1411	NP 9.3 classes E_p, L_p, O_p	
 lem:decay-calculus	docket68/n1star/N1STAR-PROOF.md:1413-1436	NP Lemma 9.7	past5 P2, P3, P4 replaced by derivations; forcing renamed f, integrating factor I
 eq:wave-operator-vr	docket68/n1star/N1STAR-PROOF.md:1418	NP (9.5)	
-thm:past-approximant	docket68/n1star/N1STAR-PROOF.md:1438-1525	NP Theorem A_P with D622 fold	past5 P5 replaced by a contraction argument (quadratic part c0 |d_th W_TT|^2 dv dv); redshift5 R10 replaced by the integral estimate; stage forcing written script S_m
+thm:past-approximant	docket68/n1star/N1STAR-PROOF.md:1438-1525	NP Theorem A_P with D622 fold	past5 P5 replaced by Ch 4's statement of F_2 (r^-3 times a polynomial) after eq:chi-transport; redshift5 R10 replaced by the integral estimate; stage forcing written script S_m
 eq:past-classes	docket68/n1star/N1STAR-PROOF.md:1443-1444	NP (9.6)	
 eq:stage-estimates	docket68/n1star/N1STAR-PROOF.md:1495-1498	NP (9.7)	
 sec:far-near	docket68/n1star/N1STAR-PROOF.md:1527-1544	NP 9.4 opening and The coefficients on P	T := lam^-2 written T_lam, tau_T written tau_lam

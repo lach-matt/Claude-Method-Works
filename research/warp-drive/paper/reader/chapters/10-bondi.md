@@ -516,7 +516,7 @@ and √|det g| = e^(2β) r³ cos ϑ sin ϑ. We write the Ricci tensor as
     R_ab = ∂_c Γ^c_ab − ∂_a ∂_b log √|det g| + Γ^c_ab ∂_c log √|det g| − Γ^c_ad Γ^d_bc.
 
 **The Christoffel symbols with a lower index r.** Since g^{va} = e^(−2β) δ^a_r, Γ^v_rb = ½ e^(−2β) ∂_b g_rr = 0 for every
-β. Since g_rr = g_(rϑ) = 0, Γ^ϑ_rr = Γ^(φi)_rr = 0 and Γ^r_rr = 2 ∂_r β. By the reflections φi ↦ −φi,
+index b. Since g_rr = g_(rϑ) = 0, Γ^ϑ_rr = Γ^(φi)_rr = 0 and Γ^r_rr = 2 ∂_r β. By the reflections φi ↦ −φi,
 Γ^r_(rφi) = Γ^ϑ_(rφi) = Γ^(φi)_(rϑ) = 0. The others that enter below are
 
     Γ^r_(rϑ) = ∂_ϑ β − ½ r² e^(−2β) S ∂_r U,     Γ^ϑ_(rϑ) = 1/r − ∂_r (P1 + P2),     Γ^(φi)_(r φi) = 1/r + ∂_r P_i,
@@ -724,13 +724,13 @@ the divergence of U_(A1) [TTS09, (20), (21), (25)–(27), pp. 3–4]. Their mass
     "dM(u, x^A)/du = −(1/3)((C_11,u)² + C_11,u C_21,u + (C_21,u)² + (D_11,u)² + (D_21,u)² + (D_31,u)²)"
                                                                                   [TTS09, (28), p. 4],
 
-and "Eq. (28) represents mass loss rate by gravitational waves" [TTS09, p. 4]. The r^(−2) term A of C satisfies
-∂A/∂u = 0 and vanishes for asymptotic flatness, by its value at spatial infinity [TTS09, (35), (36), p. 5]. In the class
-the reflections give D1 = D2 = D3 = 0, and with u = −v, θ = π/2 − ϑ and (φ, ψ) = (φ1, φ2) their form is
-[[eq:bondi-metric]] with C1 = −2(P1 + P2), C2 = 2P1, C3 = 2P2, B = 2β, V/r² = W and U^θ = −U. So C11 = −2(p + q),
-C21 = 2p, and B1 = −½(p² + pq + q²) = 2 β_6, as in (i); V1 = w_3, as in (iii); (35) is (iv); and (28) becomes
-dM/du = −(4/3)(p_u² + p_u q_u + q_u²). The time reversal u = −v leaves the squares unchanged and reverses the sign of
-the rate, which gives [[eq:bondi-law-scri]]: an incoming flux raises the mass. [[prop:hierarchy-scri]] derives all of this in
+and "Eq. (28) represents mass loss rate by gravitational waves" [TTS09, p. 4]. The r^(−2) term A of C satisfies ∂A/∂u =
+0 and vanishes for asymptotic flatness, by its value at spatial infinity [TTS09, (35), (36), p. 5]. In the class the
+reflections give D1 = D2 = D3 = 0, and with u = −v, θ = π/2 − ϑ and (φ, ψ) = (φ1, φ2) their form is [[eq:bondi-metric]]
+with C1 = −2(P1 + P2), C2 = 2P1, C3 = 2P2, B = 2β, V/r² = W and U^θ = −U. So C11 = −2(p + q), C21 = 2p, and B1 = −½(p² +
+pq + q²) = 2 β_6, as in (i); V1 = w_3, as in (iii); (35) is (iv); and (28) becomes dM/du = −(4/3)(p_u² + p_u q_u +
+q_u²). The time reversal u = −v leaves the squares unchanged and reverses the sign of the rate, which gives
+[[eq:bondi-law-scri]]: an incoming flux raises the mass. [[prop:hierarchy-scri]] derives all of this in
 [[eq:bondi-metric]] itself, with every coefficient general from s¹ on, and takes nothing from [TTS09].
 
 ### Proof of the mass law {#sec:bondi-proof}
@@ -757,9 +757,9 @@ coefficients a_i: by [[prop:hierarchy-scri]] (iv), ∂_v a_i = 0, and a_i = 0 fo
 g0 ([[prop:bondi-chart]] (iv)); so a_i = 0. This is the argument of [TTS09] from spatial infinity, with the seed in its
 place.
 
-*Item 2, the mass aspect.* By [[prop:hierarchy-scri]] (iii), W = 1 + s³ V1 − s⁴ M + O(s⁵) with V1 := w_3 =
-−(2/3) div(u_5), a divergence on S³, and by (v) with a_i = 0 the mass aspect obeys [[eq:bondi-law-scri]] pointwise. M = μ0
-for v_B ≤ v_start, since g_λ = g0 there: the Vaidya metric with μ = μ0, whose W is 1 − μ0 s⁴.
+*Item 2, the mass aspect.* By [[prop:hierarchy-scri]] (iii), W = 1 + s³ V1 − s⁴ M + O(s⁵) with V1 := w_3 = −(2/3)
+div(u_5), a divergence on S³, and by (v) with a_i = 0 the mass aspect obeys [[eq:bondi-law-scri]] pointwise. M = μ0 for
+v_B ≤ v_start, since g_λ = g0 there: the Vaidya metric with μ = μ0, whose W is 1 − μ0 s⁴.
 
 *Item 3, the Bondi mass.* Let μ_B(v) := ⟨M(v, ·)⟩, the mean over S³. By [[eq:bondi-p]], ∂_v F = A h D_s and
 ∂_v G = A h D_c, where
