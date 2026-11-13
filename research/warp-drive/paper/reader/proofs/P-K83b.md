@@ -6,11 +6,12 @@ Part 2 closes computational-2: the scalar modes on the static slice. Block 2.1 r
 statement and its proof (chapter lines 594-619); it keeps the labels eq:loc-ek and eq:loc-ev and the formulas the rest
 of the chapter cites, and adds the formulas the proof uses. Block 2.2 replaces, in the proof of thm:loc-outside, the
 parenthesis "(orthogonality of the class harmonics of different type and degree, [[lem:loc-harmonics]], the mode sums
-converging for smooth data)" by "([[lem:loc-scalar-reduction]])".
-Part 3 closes the scope gap: Gamma > 0 on the whole of region III. Block 3.1 is a new proposition, inserted in
-sec:bg-seed after prop:bg-seed. Blocks 3.2-3.6 replace the statements that used the seed region in place of region III:
-cor:loc-charge-seed, thm:charge-sign (a), the last sentence of the first paragraph of sec:loc-setting, and the
-endpoint printed in thm:bg-margins (b). -->
+converging for smooth data)" by "([[lem:loc-scalar-reduction]], the splitting)".
+Part 3 closes the scope gap: Gamma > 0 on the whole of region III, which ends at 1.8614372 <= R_u2 <= 1.8614410.
+Block 3.1 is a new subsection with one proposition, inserted in sec:bg-below after prop:bg-slice and the paragraph that
+follows it, before sec:bg-theorem. Blocks 3.2-3.6 replace the statements that used the seed region in place of region
+III: cor:loc-charge-seed, thm:charge-sign (a), a sentence of sec:loc-setting, thm:bg-margins (b) and the sentence after
+the proof of prop:margins-seed. -->
 
 <!-- Part 1. Block 1.1: after lem:loc-harmonics, before thm:loc-tensor. -->
 

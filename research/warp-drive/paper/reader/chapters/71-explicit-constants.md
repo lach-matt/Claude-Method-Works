@@ -79,8 +79,8 @@ and every other positive s − k exceeds 1.3888·10⁻⁷. In particular no elem
 when ε < 5.019·10⁻⁸, a bound more than 2.5 times δ_50.
 
 *Proof.* *The offsets.* By [[eq:ec-sqrt]], 𝔡₀ = z/(3/2 + (9/4 + z)^(1/2)) lies between z/(3 + z/3) and z/3, so
-1.3333327·10⁻⁶ < 𝔡₀ < 1.3333334·10⁻⁶. By [[prop:np-10-52]] (i), δ₂ = z(1 + θ₂)/15 and δ′₁ = 3z(1 + θ₁)/20 with
-|θ₁|, |θ₂| ≤ z by [[eq:s14-theta]], so 2.666655·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999975·10⁻⁷ < δ′₁ < 6.000025·10⁻⁷.
+1.3333327·10⁻⁶ < 𝔡₀ < 1.3333334·10⁻⁶. By [[prop:np-10-52]] (i), δ₂ = z(1 + θ₂)/15 and δ′₁ = 3z(1 + θ₁)/20
+with |θ₁|, |θ₂| ≤ z by [[eq:s14-theta]], so 2.666655·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999975·10⁻⁷ < δ′₁ < 6.000025·10⁻⁷.
 For 𝔡₁, at u = 2, 𝔡₁ = ½((9 + B₂)^(1/2) − 3) = B₂/(2(3 + (9 + B₂)^(1/2))) with B₂ := 2z − 4w₂ and
 w₂ := (4 + A₂)^(1/2) − 2 = A₂/(2 + (4 + A₂)^(1/2)), A₂ := z + z²/4 = 4.000004·10⁻⁶. By [[eq:ec-sqrt]],
 4 + A₂/4 − A₂²/64 ≤ 2 + (4 + A₂)^(1/2) ≤ 4 + A₂/4, with A₂/4 = 1.000001·10⁻⁶ and A₂²/64 < 2.6·10⁻¹³; so
@@ -250,8 +250,8 @@ That is 7 + 2⌈ℓ_I − Re ϰ⌉ for Re ϰ < 2 − δ_ι. Let 3 < ℓ_I < 3.5 
 2 − δ_ι ≤ Re ϰ < ℓ_I; over a strip λ₋ ≤ Re ϰ ≤ ℓ_I − ε with λ₋ < 3/2 and ε small,
 sup d_ι ≤ max(7 + 2⌈ℓ_I − λ₋⌉, 12); and if moreover λ₋ > ℓ_I − 2, sup d_ι = 12.
 
-(f) [[prop:iii-g3-2-4]] at finite regularity, and so [[prop:iii-g3-3-7]] and [[cor:iii-g3-3-1]] (1): l′ = 2⌈ℓ_I⌉ + 10
-+ sup d_ι over the strip; l′ = 30 when 3 < ℓ_I < 3.5, λ₋ ∈ (ℓ_I − 2, 3/2) and δ_ι < 3.5 − ℓ_I.
+(f) [[prop:iii-g3-2-4]] at finite regularity, and so [[prop:iii-g3-3-7]] and [[cor:iii-g3-3-1]] (1):
+l′ = 2⌈ℓ_I⌉ + 10 + sup d_ι over the strip; l′ = 30 when 3 < ℓ_I < 3.5, λ₋ ∈ (ℓ_I − 2, 3/2) and δ_ι < 3.5 − ℓ_I.
 
 (g) [[prop:iii-a-4-2]]: with n_ι := n(E_ι, β_ι), n_K := n(E_K, β_K), n_I := n(E_I, β_I),
 B := max(β_K, β_ι + max(0, −min Re π_1E_I)) and ℓ_F := ⌈(max(β_ι − β_scf, β_K) + ε − ½)_+⌉,
@@ -343,8 +343,8 @@ resp. R_zf. This gives [[eq:ec-fourier-loss]] (2).
 [[eq:iii-i2-3-3]]; its loss is ⌈(max(β_ι + 1 − β_scf, β_K + 1) + ε − ½)_+⌉ = ⌈(β_K + ½ + ε)_+⌉, as
 β_ι + 1 − β_scf ≤ 0 < β_K + 1. The piece f_1 comes from ℱf_1 = ρ^(β_I)|σ|^γ w by [[prop:ii-g1-2-8]] (2) at
 β = γ + 1, which takes X^(j+ℓ_+(β),γ) to H^(j,β)_b; with the b-vector fields of X̄ taking the remaining
-k − j derivatives, this costs ℓ_+(γ + 1) = ⌈γ + ½⌉, as γ > 0. The same proof needs ℓ ≥ 1 for the bound
-|ℱf_1(σ)| ≤ C|σ|^γ, which ⌈γ + ½⌉ ≥ 1 gives. Every other step, the integrations of [[lem:iii-i2-2-1]] and
+k − j derivatives, this costs ℓ_+(γ + 1) = ⌈γ + ½⌉, as γ > 0. The same proof needs ℓ ≥ 1 for the bound by C|σ|^γ
+of |ℱf_1(σ)|, which ⌈γ + ½⌉ ≥ 1 gives. Every other step, the integrations of [[lem:iii-i2-2-1]] and
 [[lem:iii-a-1-2]] and the multiplication by χ, keeps the order k. This is [[eq:ec-moment-loss]]. ∎
 
 **Remark {#rem:ec-other-losses}** (The other elementary losses.) The remaining elementary losses of

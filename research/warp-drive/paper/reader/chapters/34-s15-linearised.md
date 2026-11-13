@@ -167,7 +167,7 @@ and ℓ := dt̄ + d|x| (with X = −∂_(t̄) − ∂_r, dt_*(X) = 0, ℓ(X) = �
     γ_C⁻¹ S̄^C ω = (1 − v_C)ω − ω(X) c̄_C/ρ + e_C⟨c̄_C/ρ, ω⟩ dt_*,
 
 which is (1 − v_C)ω on angular ω, (1 − e_C)(1 − v_C)dt_* on dt_*, and 2(1 − v_C)ℓ + (1 + v_C)(1 − e_C)dt_* on ℓ.
-With Ē^Υ Ḡ h = −γ_Υ(2ι_Y h − e_Υ c̄_Υ tr h), Y := ḡ⁻¹dt̄, c̄_Υ = ρ dt̄ ([[eq:iii-b-6-5]]),
+With Ē^Υ Ḡ h = −γ_Υρ(2ι_Y h − e_Υ dt̄ tr h), Y := ḡ⁻¹dt̄ (c̄_Υ = ρ dt̄, [[eq:iii-b-6-5]]),
 
     γ_Υ⁻¹ S̄^Υ ω = ω − ω(Y) dt_* + e_Υ ω(X) dt̄,
 
