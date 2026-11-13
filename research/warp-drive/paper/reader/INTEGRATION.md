@@ -274,3 +274,15 @@ Items found while chapters were written in parallel; each is settled once, editi
   fixes the orders once for every b). Uses: thm:iii-i-5-3, rem:iii-i-5-5, thm:iii-h2-3-1 (b)-(c), thm:iii-h2-4-1,
   cor:iii-h2-5-1 with (B5), prop:iii-i2-5-1. If S4 gives only cut-off-dependent d₀, k-independence and compactness over
   B̄₁ would have to be written.
+
+## From S14, S20 and chapter 60 (2026-11-13)
+
+- S20 confirmed (R2-S20). Nits: lem:iii-i6-1-3 gives the zf-weight 0 where it should be −ε; c in lem:s20-injective
+  clashes with the frequency bound c; B_r beside B(b) in Step 3.5. The smaller ball (radius ≤ 1/(2C_B)) must be carried
+  by S22 (41:65; sent), S23 (42:1008), S24 (43:48, 69-70), S25 (44:42, 580; sent) and S27 (row b4); S19 (38:560) and
+  S21 (40:62) need only a pointer. If the S4 repair makes d_T depend on regularity, re-read eq:s20-d.
+- S14 (R-S14): 7 Majors; the fix round cites cor:s14-eps-ind-point (proof A) for δ_50, leaves marker 1 for proof A3,
+  writes marker 3's proof (table possibly to Appendix B), deletes marker 4.
+- Chapter 60: lem:np-10-50-a duplicates chapter 61's prop:after-shell-profiles (a); keep 60's (sent to the 61 writer).
+  Chapter 03 points to ch:after-shell where lem:vii-1-2 (60) and cor:vii-2-3 (47) are meant, and its ε_K conditions
+  omit (E1)-(E2) of row w1 (sent to the 00-03 reader; the 60 reader rules).

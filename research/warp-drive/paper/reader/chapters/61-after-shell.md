@@ -282,17 +282,17 @@ So, whatever the decay rate, gluing uniformly in the radius gives nothing beyond
 **Lemma {#lem:after-shell-distance}** (A positive distance.) Let q ∈ ℝ and let p1 ≠ p2 be real. On (1/2, 1) with the
 measure ds/s, the functions s^q cos log s, s^q sin log s, s^(p1) and s^(p2) are linearly independent. Hence
 
-    ϰ(q; p1, p2) := min_(θ∈ℝ) dist_(L²((1/2,1), ds/s)) (s^q cos(log s + θ), span(s^(p1), s^(p2))) > 0,
+    ϰ(q; p1, p2) := min_(ψ∈ℝ) dist_(L²((1/2,1), ds/s)) (s^q cos(log s + ψ), span(s^(p1), s^(p2))) > 0,
 
 and ϰ² is the least eigenvalue of the Schur complement S = G11 − G12 G22⁻¹ G21 of the Gram matrix of the four
 functions, block 1 being the pair (s^q cos log s, s^q sin log s). We write ϰ(a, ℓ0) := ϰ(ℓ0 − a; ℓ0 − 2, ℓ0 − 3).
 
-*Proof.* With t = log s ∈ (−log 2, 0), a real relation α s^q cos log s + β s^q sin log s + γ1 s^(p1) + γ2 s^(p2) = 0
-reads ((α − iβ)/2) e^((q+i)t) + ((α + iβ)/2) e^((q−i)t) + γ1 e^(p1 t) + γ2 e^(p2 t) = 0. The exponents q ± i, p1, p2
+*Proof.* With t = log s ∈ (−log 2, 0), a real relation c1 s^q cos log s + c2 s^q sin log s + c3 s^(p1) + c4 s^(p2) = 0
+reads ((c1 − i c2)/2) e^((q+i)t) + ((c1 + i c2)/2) e^((q−i)t) + c3 e^(p1 t) + c4 e^(p2 t) = 0. The exponents q ± i, p1, p2
 are pairwise distinct, and the Wronskian of e^(z1 t), …, e^(z4 t) is e^((z1+⋯+z4)t) Π_(j<k)(z_k − z_j) ≠ 0, a
-Vandermonde determinant; so all coefficients vanish. Now s^q cos(log s + θ) = cos θ s^q cos log s − sin θ s^q sin log s
+Vandermonde determinant; so all coefficients vanish. Now s^q cos(log s + ψ) = cos ψ s^q cos log s − sin ψ s^q sin log s
 is a nonzero combination of the first two functions, hence not in the span of the last two. By least squares its
-squared distance from that span is vᵀ S v with v = (cos θ, −sin θ), and S is positive definite because the Gram matrix
+squared distance from that span is vᵀ S v with v = (cos ψ, −sin ψ), and S is positive definite because the Gram matrix
 is. The minimum over the unit circle is the least eigenvalue of S. ∎
 
 **Remark {#rem:after-shell-distance-values}** (Numerical observation.) Evaluated by quadrature of the Gram matrix,
@@ -461,7 +461,7 @@ The flux 𝔟_X is linear in the data, a degree-0 flux of a change in ρ³C^∞ 
 K_p − K_((m,0,w,0)) ∈ ρ⁴C^∞, so 𝔮_0(p) = 𝔮_0(m, 0, w, 0): the energy and momentum depend only on p₂. Hence c̃_E = c_E,
 ã11 = a11 and ã12 = a12 = 0. At w = 0 the differences of the graph's data from the slice's are ρ⁴C^∞ in the metric and
 ∇²f + ρ⁵C^∞ in K, smoothly in (m, A, c), by (d). The term ∇²f does not depend on p and carries no angular momentum:
-(Wx) · ∇²f · x̂ = f″ (Wx) · x̂ = 0 and (Wx) · x̂ = 0 for W antisymmetric. The degree-1 fluxes of the A- and c-derivatives
+for W antisymmetric, (Wx) · x̂ = 0, so (Wx) · ∇²f · x̂ = f″ (Wx) · x̂ = 0 and the trace term of the flux vanishes too. The degree-1 fluxes of the A- and c-derivatives
 of the rest tend to 0, as r · ρ⁵ · r³ → 0 and ρ⁴ · r³ → 0. So c̃_J = c_J and ã22 = a22, and
 det D𝔮̃(p_λ) = c̃_E (ã11 ã22)⁴ c̃_J⁶ = 6π² (6π² m_λ)⁸ (4π² m_λ)⁶ ≠ 0. The p₂-block of D𝔮̃_0 is diag(c_E, a11 I₄),
 invertible. The rest is the inverse function theorem. ∎
@@ -511,8 +511,8 @@ perturbation (γ, k) of order a and size Ξ ≤ Ξ0, and every R ≥ R_G, there 
                                                                                                 {#eq:after-shell-annulus}
 
 *Proof.* We follow the proof of [[thm:v-3-1]], with k_g in place of 3 as in [[prop:vii-2-2]] (the solvability statement
-[[lem:s28-setting]] allows every integer above n/2), the data on {r > R₀} being (γ, k) with R₀ := max(R_F, r_χ), and we
-make six changes. By [[eq:after-shell-order]], |||(γ, k)|||_(min(a,2), k_g+4) < ∞ ([[eq:v-0-3]]), as k_g + 4 = d_1 + 6.
+[[lem:s28-setting]] allows every integer above n/2), the data being (γ, k) on {r > max(R_F, r_χ)}, and we make six
+changes. By [[eq:after-shell-order]], |||(γ, k)|||_(min(a,2), k_g+4) < ∞ ([[eq:v-0-3]]), as k_g + 4 = d_1 + 6.
 
 (1) *The family and the box.* The members (g̃_p, K̃_p) of [[lem:after-shell-mp-data]] replace those of [[def:v-2-1]]:
 its (a) gives the bounds of [[lem:v-2-2]] and its (c) the inverse p(Q) of [[cor:v-2-4]]. In Step 2 let Q range over the
@@ -521,19 +521,19 @@ box 𝔅_R := {Q : |Q_X − 𝔮̃_X(p_λ)| ≤ r_X for every X}, with r_X := C_
 others C_0 Ξ R^(min(0,3−a)), the larger. So for Q ∈ 𝔅_R, [[lem:after-shell-mp-data]] (c) gives
 |Δp₂| ≤ √5 L C_0 Ξ R^(min(0,2−a)) and |Δp| ≤ √15 L C_0 Ξ R^(min(0,3−a)), where Δp := p(Q) − p_λ.
 
-(2) *The constraint defect in relative form.* On 𝒜 = Γ̄(1, 4) write a_R := 𝒮_R(γ, k) and b_Q := 𝒮_R(g̃_(p(Q)),
-K̃_(p(Q))), with 𝒮_R of [[lem:v-1-4]]. Both are vacuum, and the approximate data of Step 2 are u_(Q,R) = b_Q + χ(a_R −
-b_Q). The constraint map is smooth near flat data and vanishes at b_Q, so ‖(J, ρ)(u_(Q,R))‖_(C^(k_g+1)) ≤ C ‖a_R −
-b_Q‖_(C^(k_g+3) × C^(k_g+4)) ≤ C θ_R(Q), with
+(2) *The constraint defect in relative form.* On 𝒜 = Γ̄(1, 4) write a_R := 𝒮_R(γ, k) and
+b_Q := 𝒮_R(g̃_(p(Q)), K̃_(p(Q))), with 𝒮_R of [[lem:v-1-4]]. Both are vacuum, and the approximate data of Step 2 are
+u_(Q,R) = b_Q + χ(a_R − b_Q). The constraint map is smooth near flat data and vanishes at b_Q, so
+‖(J, ρ)(u_(Q,R))‖_(C^(k_g+1)) ≤ C ‖a_R − b_Q‖_(C^(k_g+3) × C^(k_g+4)) ≤ C 𝔢_R(Q), with
 
-    θ_R(Q) := Ξ R^(−a) + |Δp₂| R⁻² + |Δp| R⁻³ ≤ C (1 + C_0) Ξ R^(−a).                             {#eq:after-shell-theta}
+    𝔢_R(Q) := Ξ R^(−a) + |Δp₂| R⁻² + |Δp| R⁻³ ≤ C (1 + C_0) Ξ R^(−a).                             {#eq:after-shell-theta}
 
 Here we used the scaling ‖𝒮_R u‖_(C^m(𝒜)) ≤ C sup_(R≤r≤4R) Σ_(|β|≤m) r^(|β|) |∂^β u| (one more power of r for the
 second fundamental form), the bounds [[eq:after-shell-order]] for a_R − 𝒮_R(γ_λ, k_λ), and [[lem:after-shell-mp-data]]
 (b) for b_Q − 𝒮_R(γ_λ, k_λ), as (g̃_(p_λ), K̃_(p_λ)) = (γ_λ, k_λ) on {r ≥ R}. The inequality in [[eq:after-shell-theta]]
 holds by (1): min(0, 2 − a) − 2 ≤ −a and min(0, 3 − a) − 3 ≤ −a. By the bound of Step 1 and [[lem:v-3-2]],
-‖δu_(Q,R)‖_(C^(k_g−1)(𝒜)) ≤ C ‖δu_(Q,R)‖_(H^(k_g+2)(𝒜)) ≤ C θ_R(Q), continuously in Q. So the unscaled data
-𝔵̂_Q := 𝒮_R⁻¹(u_(Q,R) + δu_(Q,R)) on Γ(R, 4R) satisfy the bound of [[eq:after-shell-annulus]] by C θ_R(Q) against
+‖δu_(Q,R)‖_(C^(k_g−1)(𝒜)) ≤ C ‖δu_(Q,R)‖_(H^(k_g+2)(𝒜)) ≤ C 𝔢_R(Q), continuously in Q. So the unscaled data
+𝔵̂_Q := 𝒮_R⁻¹(u_(Q,R) + δu_(Q,R)) on Γ(R, 4R) satisfy the bound of [[eq:after-shell-annulus]] by C 𝔢_R(Q) against
 (γ_λ, k_λ); they are the sum of χ times the deviation of the data, (1 − χ) times that of the member, and δu. The
 hypotheses of Step 1 hold for R large, as u_(Q,R) is within C R⁻² + C Ξ R^(−a) of flat data.
 
@@ -549,7 +549,7 @@ where T_X(Q) is the sum of ∫_(r>4R)[q_X(member) − q_X(γ_λ, k_λ)], −∫_
 ∫_(Γ(R,4R))[q_X(𝔵̂_Q) − q_X(γ_λ, k_λ)]. By [[eq:after-shell-bilinear]], with m ≤ C r⁻² for the reference,
 m(member − reference) ≤ C(|Δp₂| r⁻² + |Δp| r⁻³), m(h, κ) ≤ Ξ r^(−a) and (2) on the annulus, with d := d(X),
 
-    |T_X(Q)| ≤ C R^d (|Δp₂| R⁻² + |Δp| R⁻³) + C Ξ (R^(d−a) + Ξ R^(d+2−2a)) + C R^d (θ_R + R² θ_R²).
+    |T_X(Q)| ≤ C R^d (|Δp₂| R⁻² + |Δp| R⁻³) + C Ξ (R^(d−a) + Ξ R^(d+2−2a)) + C R^d (𝔢_R + R² 𝔢_R²).
 
 By (1) and [[eq:after-shell-theta]], each term is C(1 + C_0)² Ξ times one of R^(d−2+min(0,2−a)), R^(d−3+min(0,3−a)),
 R^(d−a) and R^(d+2−2a). Each of these exponents is strictly below E := min(0, 2 + d − a), for d ∈ {0, 1} and
@@ -609,11 +609,11 @@ The same holds for k̂_R − k_λ, with the weight ℓ0 + 1, the order a + 1 and
 
 **Remark {#rem:after-shell-bump}** (The cost of a bump.) The annulus term of [[cor:after-shell-glued-norm]] at a = 3 is
 the cost of a bump of relative size R⁻¹ at radius R, read against the deviation of Tangherlini's data there (μ r⁻² in the
-metric, r⁻³ in the second fundamental form): f_R := R⁻³ ϕ(r/R) and k_R := R⁻⁴ ϕ(r/R), ϕ ∈ C_c^∞((0, ∞)). With r = Rs,
+metric, r⁻³ in the second fundamental form): f_R := R⁻³ ψ(r/R) and k_R := R⁻⁴ ψ(r/R), ψ ∈ C_c^∞((0, ∞)). With r = Rs,
 
-    ‖r^(ℓ0) f_R‖²_(L²(dr/r dω)) = 2π² R^(2ℓ0−6) ∫_0^∞ s^(2ℓ0) ϕ(s)² ds/s,
+    ‖r^(ℓ0) f_R‖²_(L²(dr/r dω)) = 2π² R^(2ℓ0−6) ∫_0^∞ s^(2ℓ0) ψ(s)² ds/s,
 
-and the weight r^(ℓ0+1) on k_R gives the same power of R. As (r∂_r)^j (ϕ(r/R)) = ((s∂_s)^j ϕ)(r/R), every b-derivative
+and the weight r^(ℓ0+1) on k_R gives the same power of R. As (r∂_r)^j (ψ(r/R)) = ((s∂_s)^j ψ)(r/R), every b-derivative
 scales alike, so the bump has norm of order R^(ℓ0−3) in the class, which grows with R. This is the bound mentioned in
 [[rem:s28-mass-bound]]. [[prop:after-shell-outside]] supplies the matching lower bound, valid for every data set in the
 class that agrees with the examples, and not only for the glued one.

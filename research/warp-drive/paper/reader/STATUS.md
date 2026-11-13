@@ -24,13 +24,13 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 30 S11 | running | - | - |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | held for S11 (parameter set) | - |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | running | - |
-| 33 S14 | running | - | - |
+| 33 S14 | NOT CONFIRMED 7M 15m 11n | running | - |
 | 34 S15 | running (sign slip and np-10-34-iv to adjudicate) | - | - |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | running |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | running |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | running |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | NOT CONFIRMED 0M 1m 8n; second fix running |
-| 39 S20 | NOT CONFIRMED 1M 4m 8n | done | running |
+| 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | running | - |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | running | - |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | running |
@@ -40,7 +40,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 46 S27 | running (three writer issues to adjudicate) | - | - |
 | 47 S28 | running | - | - |
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
-| 60 S30 | being written | - | - |
+| 60 S30 | running | - | - |
 | 61-62 M Ch 11-12 | being written | - | - |
 | 63-64 M Ch 13-14 | being written | - | - |
 | 65-90 | not yet written | - | - |

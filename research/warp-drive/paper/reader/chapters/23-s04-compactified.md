@@ -1152,13 +1152,22 @@ positive commutator argument ([[sec:ii-a1-4]]), whose commutant is built in flow
 field, which has finite regularity ([[sec:ii-a1-5]]). Every square that the argument needs is an exact square of a
 symbol of finite regularity, so no Gårding inequality is used.
 
+*Indices.* Each estimate below requires finitely many derivatives of the coefficients, and the number required (the
+index) depends only on the orders, never on the auxiliary operators and cut-offs chosen in a proof; these enter the
+constants only. This is what the inductions of [[sec:ii-a-9]] need, as they choose new auxiliary operators at every
+order of b-regularity. Two rules secure it. First, the multilinear maps to which the closed graph theorem and
+[[lem:ii-a1-2-1]] are applied never depend on supports: a relation between supports is used only through an exact
+identity of symbols, such as φa = a when φ = 1 on the support of a. Second, a product of operators with disjoint
+microsupports is estimated only when a smooth operator stands on each side, by the commutator expansion of
+[[prop:ii-a1-2-4]] (e), in which the auxiliary symbol is an argument of the multilinear map.
+
 #### The calculi {#sec:ii-a1-1-1}
 
 M̃ is the compactified spacetime of [[sec:ii-a-1]], with its scaled bounded geometry structure ℬ^× of
 [[sec:ii-a-4-1]] and the secondary bounded geometry structure ρℬ obtained by subdividing the unit cells into ρ-cuboids
 ([Hin26c, (3.26)]; [Hin26d, Section 3.2]). ρℬ is a scaled bounded geometry structure with all scalings equal to 1, so
 everything stated in [[sec:ii-a-3]] holds for it. Its operator Lie algebra, which is also its coefficient Lie algebra,
-is the large operator Lie algebra 𝒱′ = C^∞_e3b 𝒱_e3b of ℬ^× ([Hin26d, Proposition 3.3 and Remark 3.48]). It defines the
+is the large operator Lie algebra 𝒱′ = C^∞_e3b 𝒱_e3b of ℬ^× ((S13)). It defines the
 same Sobolev spaces as 𝒱 = C^∞_b 𝒱_e3b: an elliptic element of Ψ^𝗌_𝒱 lies in Ψ^𝗌_(𝒱′) [Hin26d, Remark 3.48] and is
 elliptic there, and each space is the set of u that a fixed elliptic operator maps into L². We write:
 
@@ -1168,7 +1177,7 @@ seminorms ‖a‖_(M;m), the largest of these constants over |β| + |γ| ≤ M. 
 [Hin26c, (3.26)]: the symbols whose coefficients are bounded under any number of e3b-derivatives.
 
 Ψ̃^m := Ψ^m_(ρℬ), Op := Op_(ρℬ), and Ψ̃^(−∞) for its residual operators ((S4)). C^∞_b Ψ^m_e3b ⊂ Ψ̃^m
-([Hin26d, Remark 3.48]; [[sec:ii-a-4-2]]). The Sobolev spaces of ρℬ are therefore the spaces H^𝗌_e3b of
+((S13); [[sec:ii-a-4-2]]). The Sobolev spaces of ρℬ are therefore the spaces H^𝗌_e3b of
 [[sec:ii-a-4-2]].
 
 The properties used are these: (S5) for mapping properties, with operator norms bounded by a seminorm, and for
@@ -1177,11 +1186,11 @@ bilinear map and of the adjoint ([Hin26d, Remark 3.47], in (S5)); the principal 
 vanishing principal symbol lies in Ψ̃^(m−1); (S8) for variable orders; (S10) for commutators with 𝒱_(b,[e3b]); and (S11)
 for weights.
 
-*Left quantization.* In [Hin26d, (3.26)] the local quantization is
+*Left quantization.* In the charts of ρℬ (all scalings 1) the local quantization of (S4) is
 
     (Op_β(b)u)(x) = (2π)^(−n) ∫ e^(i(x−x′)·ξ) ψ(x − x′) b(x, ξ) u(x′) dx′ dξ.
 
-Since ψ = 1 near 0 [Hin26d, p. 43] and the partition χ_α of [Hin26d, (3.28)] sums to 1, Op(f) is multiplication by f
+Since ψ = 1 near 0 and the partition χ_α of (S4) sums to 1, Op(f) is multiplication by f
 for a function f of the base alone; in particular Op(1) = I. The symbol is evaluated at the left variable, so for every
 function f of the base
 
@@ -1223,7 +1232,7 @@ chain rule through ζ = v_α(x)ξ then gives the estimates of (S4) uniformly in 
 The rest follows from (S8). ∎
 
 *Microsupport, ellipticity.* An operator A ∈ Ψ̃^m is *microsupported* in a closed set K ⊂ ᵉ³ᵇT̄*M̃ if A = Op(a) + R with
-a ∈ S̃^m, supp a ⊂ K and R ∈ Ψ̃^(−∞). Following [Hin26c, p. 55], the locus of microlocal analysis is ᵉ³ᵇS*M̃. If
+a ∈ S̃^m, supp a ⊂ K and R ∈ Ψ̃^(−∞). Following [Hin26c, p. 54], the locus of microlocal analysis is ᵉ³ᵇS*M̃. If
 WF′_e3b(A) ⊂ O with O ⊂ ᵉ³ᵇS*M̃ open, then A is microsupported in any closed neighbourhood K of WF′_e3b(A) in the
 compactified bundle with K ∩ ᵉ³ᵇS*M̃ ⊂ O. Indeed, if χ̃ ∈ C^∞(ᵉ³ᵇT̄*M̃) equals 1 near WF′(A) and is supported in K, then
 A = Op(χ̃a) + Op((1 − χ̃)a) + R, and Op((1 − χ̃)a) is residual, by the definition of the operator wave front set ((S5)).
@@ -1326,14 +1335,14 @@ functions. (iii) is the support of η_ε. ∎
 order 𝗌. (b) Let K ∈ ℕ and T_t := Op(τ_t), τ_t := (1 + tρ_∞⁻¹)^(−K), t ∈ (0, 1]. Then T_t is bounded in Ψ̃⁰, lies in
 Ψ̃^(−K) for each t, and T_t → I strongly on every H^𝗌_e3b as t → 0.
 
-*Proof.* (a) If not, there is 0 ≠ w in the dual space H^(−𝗌) ((S3), (S11)) annihilating C_c^∞; then w = 0 as a
-distribution, a contradiction. (b) τ_t is bounded in S̃⁰: ρ_∞∂_(ρ_∞) of it is Ktρ_∞⁻¹(1 + tρ_∞⁻¹)⁻¹τ_t, which is bounded,
+*Proof.* (a) If not, there is 0 ≠ w in the dual space H^(−𝗌) ((S8), the duality for variable orders) annihilating
+C_c^∞; then w = 0 as a distribution, a contradiction. (b) τ_t is bounded in S̃⁰: ρ_∞∂_(ρ_∞) of it is Ktρ_∞⁻¹(1 + tρ_∞⁻¹)⁻¹τ_t, which is bounded,
 and the other derivatives act on ρ_∞ only through such factors. It lies in S̃^(−K) for fixed t > 0. Moreover
 |1 − τ_t| ≤ min(1, Ktρ_∞⁻¹) ≤ K(tρ_∞⁻¹)^δ, and likewise for its derivatives, so τ_t → 1 in S̃^δ for every δ > 0. So
 ‖(T_t − I)v‖_(H^𝗌) → 0 for v ∈ H^(𝗌+δ), by (S5). T_t is uniformly bounded on H^𝗌, and C_c^∞ ⊂ H^(𝗌+δ) is dense by (a),
 so the convergence holds on all of H^𝗌. ∎
 
-For a ∈ C^((M))_ν S̃^𝗆 and u ∈ C_c^∞(M̃°), Op(a)u is defined by [Hin26d, (3.26)–(3.28)]. The local quantization is
+For a ∈ C^((M))_ν S̃^𝗆 and u ∈ C_c^∞(M̃°), Op(a)u is defined by the formulae of (S4). The local quantization is
 (2π)^(−n) ∫ e^(ix·ξ) b(x, ξ) ℱ(ψ(x − ·)u)(ξ) dξ, where the Fourier transform is rapidly decreasing in ξ, locally
 uniformly in x. So the integral converges absolutely for any b of polynomial growth, and only finitely many charts meet
 the support of u.

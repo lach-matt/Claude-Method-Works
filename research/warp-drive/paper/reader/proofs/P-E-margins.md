@@ -49,7 +49,7 @@ f ≥ min(f(a), f(b)) − (h²/8) sup|f″| and f ≤ max(f(a), f(b)) + (h²/8) 
 *Proof.* (a) By induction on e. Each rule returns exactly the set of values of its operation on the product of its
 arguments' intervals: a product is bilinear, so its extreme values on a rectangle are at corners; t ↦ 1/t, exp and √ are
 monotone on the intervals where they are applied; the power rule is the definition. Enlarging an intermediate interval
-keeps the inclusion. (b) Let L be the linear interpolant of f at a and b. For x ∈ (a, b) choose K with F := f − L − K(t
+keeps the inclusion. (b) Let L be the linear interpolant of f at a and b. For x ∈ (a, b) choose c with F := f − L − c(t
 − a)(t − b) vanishing at x; F vanishes at a, x, b, so F″(ξ) = 0 for some ξ, that is f(x) − L(x) = (f″(ξ)/2)(x − a)(x −
 b), and (x − a)(b − x) ≤ h²/4. (c) Two integrations by parts give ∫_a^b f − (h/2)(f(a) + f(b)) = −(1/2) ∫_a^b (x − a)(b
 − x) f″(x) dx, and ∫_a^b (x − a)(b − x) dx = h³/6. Four integrations by parts give the left side of
@@ -82,23 +82,23 @@ values satisfy β‴(y_4) ∈ [−6.49, −6.24], β‴(y_5) ∈ [216.8, 219.7] 
 derivative is a polynomial in y and z times e^(1−z), and z^m e^(1−z) → 0 as z → ∞. Evenness, the bounds and the
 monotonicity follow from β = e^(1−z) with z increasing in |y|.
 
-(b) 2z² − 6z + 3 has the roots (3 ± √3)/2, and only (3 + √3)/2 exceeds 1; it gives y² = 1 − 2/(3 + √3) = 3^(−1/2). There
-|β′| = 2·3^(−1/4)·((3 + √3)/2)²·e^(−(1+√3)/2) = 2.170357…. On the three pieces β′ runs from 0 to its maximum, from its
-maximum to its minimum −sup|β′|, and back to 0; its total variation, which is ∫|β″|, is 4 sup|β′|.
+(b) 2z² − 6z + 3 has the roots (3 ± √3)/2, and only (3 + √3)/2 exceeds 1; it gives y² = 1 − 2/(3 + √3) = 3^(−1/2).
+There |β′| = 2·3^(−1/4)·((3 + √3)/2)²·e^(−(1+√3)/2) = 2.170357…. On the three pieces β′ runs from 0 to its maximum, from
+its maximum to its minimum −sup|β′|, and back to 0; its total variation, which is ∫|β″|, is 4 sup|β′|.
 
 (c) q3(0) = −3, q3(1/2) = 5/8, q3(1.594) = 0.0012406 > 0, q3(1.595) = −0.0029551 < 0, q3(5.031) = −0.0117822 < 0 and
 q3(5.032) = 0.0042248 > 0, so the cubic q3 has exactly one root in each of (0, 1/2), (1.594, 1.595) and (5.031, 5.032);
 only the last two exceed 1. With y = 0 (the factor y of β‴) these give the zeros. On z ∈ [1.594, 1.595] and z ∈ [5.031,
 5.032], [[lem:margins-enclosure]] (a) applied to 2z²(2z² − 6z + 3)e^(1−z) gives the stated intervals. As β″ is even and
-monotone on the pieces, its total variation on [−1, 1] is 2(|β″(y_2) − β″(0)| + |β″(y_3) − β″(y_2)| +
-|β″(y_3)|) ≤ 2(2.181 + 25.274 + 21.093) ≤ 97.1.
+monotone on the pieces, its total variation on [−1, 1] is 2(|β″(y_2) − β″(0)| + |β″(y_3) − β″(y_2)| + |β″(y_3)|) ≤
+2(2.181 + 25.274 + 21.093) ≤ 97.1.
 
-(d) q4(0) = −30, q4(1/2) = 49/8, q4(1) = −3, q4(1.300) = −0.00588, q4(1.301) = 0.025631, q4(3.597) = 0.052921, q4(3.598)
-= −0.327578, q4(8.039) = −5.84132 and q4(8.040) = 0.897867: five sign changes of a quintic, so exactly one root in each
-interval and no other. On the three z-intervals [[lem:margins-enclosure]] (a) applied to −8yz³q3(z)e^(1−z), y = (1 −
-1/z)^(1/2), gives the stated values. They alternate in sign, and β‴ is odd with β‴(0) = β‴(±1) = 0, so its total
-variation on [0, 1] is |e_4| + (|e_4| + |e_5|) + (|e_5| + |e_6|) + |e_6| with e_i := β‴(y_i), at most 2(6.49 + 219.7 +
-507.6) ≤ 1467.6, and on [−1, 1] at most 2936. ∎
+(d) q4(0) = −30, q4(1/2) = 49/8, q4(1) = −3, q4(1.300) = −0.00588, q4(1.301) = 0.025631, q4(3.597) = 0.052921,
+q4(3.598) = −0.327578, q4(8.039) = −5.84132 and q4(8.040) = 0.897867: five sign changes of a quintic, so exactly one
+root in each interval and no other. On the three z-intervals [[lem:margins-enclosure]] (a) applied to −8yz³q3(z)e^(1−z),
+y = (1 − 1/z)^(1/2), gives the stated values. They alternate in sign, and β‴ is odd with β‴(0) = β‴(±1) = 0, so its
+total variation on [0, 1] is |e_4| + (|e_4| + |e_5|) + (|e_5| + |e_6|) + |e_6| with e_i := β‴(y_i), at most 2(6.49 +
+219.7 + 507.6) ≤ 1467.6, and on [−1, 1] at most 2936. ∎
 
 **Lemma {#lem:margins-bump-table}** (The bump table.) Let C, D, C̃_j and D̃_j be as in [[sec:table-bump]], δ = 1/20, and
 K := ∫_(−1)^1 β.
@@ -118,10 +118,10 @@ and for y ≥ 1, C(y) = K and D(y) = yK.
 
 *Proof.* (a) The recursion for C̃ applies [[eq:margins-hermite]] to f = β on each [y_j, y_(j+1)]. Summing, |C(y_j) −
 C̃_j| ≤ (δ⁴/384) ∫|β⁗| + 40 × 5 × 10⁻¹¹ ≤ 2936/(384 × 20⁴) + 2 × 10⁻⁹ ≤ 4.8 × 10⁻⁵ by [[lem:margins-bump]] (d), the
-second term accounting for the rounding of the printed values. The recursion for D̃ applies [[eq:margins-hermite]] to f
-= C, with f′ = β and f⁗ = β‴, but with C̃ in place of C; so |D(y_j) − D̃_j| ≤ (δ⁴/384) ∫|β‴| + Σ_i (δ/2)(|C(y_i) − C̃_i|
-+
-|C(y_(i+1)) − C̃_(i+1)|) ≤ 1.6 × 10⁻⁶ + 40δ × 4.8 × 10⁻⁵ ≤ 10⁻⁴, using [[lem:margins-bump]] (c).
+second term accounting for the rounding of the printed values. The recursion for D̃ applies [[eq:margins-hermite]] to
+f = C, with f′ = β and f⁗ = β‴, but with C̃ in place of C. So |D(y_j) − D̃_j| is at most (δ⁴/384) ∫|β‴| plus δ times the
+sum over i < j of the larger error of C̃ at y_i and y_(i+1), that is at most 1.6 × 10⁻⁶ + 40δ × 4.8 × 10⁻⁵ ≤ 10⁻⁴, using
+[[lem:margins-bump]] (c).
 
 (b) By [[lem:margins-enclosure]] (c), |∫_(y_j)^y β − (y − y_j)(β(y_j) + β(y))/2| ≤ (δ³/12) × 21.093 ≤ 2.2 × 10⁻⁴; add
 (a). Next D(y) = D(y_j) + (y − y_j) C(y_j) + ∫_(y_j)^y (y − s) β(s) ds, and |∫_(y_j)^y (y − s)(β(s) − β(y_j)) ds| ≤
@@ -158,8 +158,8 @@ so max|φ| = 0.00116 to three significant figures.
 *Proof.* (a) Each lobe is a translate and dilate of the even bump β, so ∫ b(R; a, c) dR = hK and ∫ R b(R; a, c) dR =
 c′hK for the lobe of half-width h and centre c′. The two conditions read l1 h_L + l2 h_R = h_P and l1 c_L h_L + l2 c_R
 h_R = c_P h_P; K cancels. The determinant is h_L h_R (c_R − c_L) ≠ 0, and Cramer's rule gives the formulas: l1 = (12/11)
-(9/10)(40/61) = 432/671 and l2 = (2/3)(5/8)(40/61) = 50/183. For R ≥ 5.75, φ′(R) = ∫φ″ = 0 and φ(R) = ∫ (R − t) φ″(t) dt
-= R ∫φ″ − ∫ t φ″ = 0.
+(9/10)(40/61) = 432/671 and l2 = (2/3)(5/8)(40/61) = 50/183. For R ≥ 5.75, φ′(R) = ∫φ″ = 0 and φ(R) = ∫ (R − t) φ″(t)
+dt = R ∫φ″ − ∫ t φ″ = 0.
 
 (b) The lobes have disjoint supports, so φ″ < 0 on (3.5, 4.05) and on (4.85, 5.75), φ″ > 0 on (4.1, 4.7), and φ″ = 0
 elsewhere. Hence φ′ falls from 0 to −0.01 l1 h_L K < 0 on [3.5, 4.05], is constant up to 4.1, rises on [4.1, 4.7] to
@@ -234,8 +234,8 @@ lies in region I by [[lem:margins-region-one]] (c). A causal vector (τ̇, Ṙ, 
 
     R²|Ω̇|² ≤ f τ̇² − 2(1 − f) τ̇ Ṙ − (2 − f) Ṙ² ≤ τ̇²/(2 − f),
 
-the right-hand bound being the maximum over Ṙ. Since μ ≥ 3/2 and R ≤ 5.75, 2 − f ≥ 1 + 1.5/5.75² ≥ 1.04536, so
-|Ω̇| ≤ τ̇/(3.5 × 1.02243), and the angular displacement is at most (τ0 − τ(p))/3.5785 ≤ 0.0011596/3.5785 ≤ 3.25 × 10⁻⁴. ∎
+the right-hand bound being the maximum over Ṙ. Since μ ≥ 3/2 and R ≤ 5.75, 2 − f ≥ 1 + 1.5/5.75² ≥ 1.04536, so |Ω̇| ≤
+τ̇/(3.5 × 1.02243), and the angular displacement is at most (τ0 − τ(p))/3.5785 ≤ 0.0011596/3.5785 ≤ 3.25 × 10⁻⁴. ∎
 
 **Lemma {#lem:margins-shell-data}** (The data on the shell.) On 𝒩 put P := R_v, write ′ for d/dv, and let f_N := 1 −
 μ/R², w := f_N/(3P) and g := 2P/f_N along 𝒩. For 3 ≤ v ≤ 4.5,
@@ -274,10 +274,10 @@ so R = 5 + v/2, P = 1/2 and μ = 3/2, and v̂(3) = ∫_5^(13/2) 2/f_N dR = F(13/
 because f_N/(3P) = w. Likewise g′ = 2P′/f_N − 2P f_N′/f_N² = −2α/(3R² f_N) + 2Pαw/(R² f_N²) − 4μP²/(R³ f_N²), and
 2Pw/f_N² = 2/(3f_N) cancels the first term. Finally dμ/dv̂ = μ′/g = αw f_N/(2P) = (3/2)αw².
 
-(a) P′ ≤ 0, so P ≤ 1/2, and while P > 0, R ≥ 13/2. Then P ≥ 1/2 − (1/3) ∫α/R² ≥ 1/2 − 2.7K/126.75 ≥ 0.47428, because ∫α
-= 3.6 × 0.75 K and K ≤ 1.2069549 by [[lem:margins-bump-table]] (a). So R ≤ 13/2 + (3/2)(1/2) = 29/4. While f_N > 0, μ′ ≥
-0 and w ≤ 1/(3 × 0.47428) ≤ 0.70282, so μ ≤ 3/2 + 0.70282 × 3.25878 ≤ 3.79033 and f_N ≥ 1 − 3.79033/42.25 ≥ 0.91028 > 0;
-this closes the argument. The remaining bounds follow from f_N ≤ 1 − 1.5/R² ≤ 1 − 1.5/(29/4)².
+(a) P′ ≤ 0, so P ≤ 1/2, and while P > 0, R ≥ 13/2. Then P ≥ 1/2 − (1/3) ∫α/R² ≥ 1/2 − 2.7K/126.75 ≥ 0.47428, because
+∫α = 3.6 × 0.75 K and K ≤ 1.2069549 by [[lem:margins-bump-table]] (a). So R ≤ 13/2 + (3/2)(1/2) = 29/4. While f_N > 0,
+μ′ ≥ 0 and w ≤ 1/(3 × 0.47428) ≤ 0.70282, so μ ≤ 3/2 + 0.70282 × 3.25878 ≤ 3.79033 and f_N ≥ 1 − 3.79033/42.25 ≥
+0.91028 > 0; this closes the argument. The remaining bounds follow from f_N ≤ 1 − 1.5/R² ≤ 1 − 1.5/(29/4)².
 
 (b) is a row-by-row check of [[sec:table-shell]], with α_k and α′_k from [[lem:margins-bump]] (a).
 
@@ -291,11 +291,11 @@ to errors τ^R_k, τ^P_k, τ^μ_k, τ^v_k with
 On the box (a), P″ = −α′/(3R²) + 2αP/(3R³) gives |P″| ≤ 10.4178/126.75 + 3.6/823.875 ≤ 0.0866 (sup|α′| = 4.8 sup|β′| ≤
 10.4178); (R⁻²)″ = 6P²/R⁴ + 2α/(3R⁵) ≤ 0.00105; w″ = 2αw/(3R³) − 2μP/R⁴ gives |w″| ≤ 0.00827; and differentiating g′
 with [[eq:margins-ode]] gives |g″| ≤ 4(0.6326 + 0.1077 + 0.1535 + 0.2187)/(0.9102² × 274.625) ≤ 0.0196, the four terms
-bounding μ′P², 2μP|P′|, 2μP²|f_N′|/f_N and 3μP³/R. By [[eq:margins-hermite]] applied to α and to (v − v_k)α,
-|A0_k − Ã0_k| ≤ (h⁴/384) ∫|α⁗| and |A1_k − Ã1_k| ≤ (h⁴/384)(4 ∫|α‴| + h ∫|α⁗|), integrals over the cell; summed over
-k, with ∫|α⁗| = 3.6 (4/3)³ ∫|β⁗| ≤ 25050 and ∫|α‴| = 3.6 (4/3)² ∫|β‴| ≤ 622, these are at most 1.6 × 10⁻⁶ and 1.8 ×
-10⁻⁷. Let e^X_k be the true value minus the row value, for X = R, P, μ, v̂, so e_0 = 0. On the box (a), which contains
-the rows, the Lipschitz bounds are |Δ(R⁻²)| ≤ 0.0072827|ΔR|, |Δw| ≤ 0.016635|Δμ| + 0.019401|ΔR| + 1.43959|ΔP| and |Δg| ≤
+bounding μ′P², 2μP|P′|, 2μP²|f_N′|/f_N and 3μP³/R. By [[eq:margins-hermite]] applied to α and to (v − v_k)α, |A0_k −
+Ã0_k| ≤ (h⁴/384) ∫|α⁗| and |A1_k − Ã1_k| ≤ (h⁴/384)(4 ∫|α‴| + h ∫|α⁗|), integrals over the cell; summed over k, with
+∫|α⁗| = 3.6 (4/3)³ ∫|β⁗| ≤ 25050 and ∫|α‴| = 3.6 (4/3)² ∫|β‴| ≤ 622, these are at most 1.6 × 10⁻⁶ and 1.8 × 10⁻⁷. Let
+e^X_k be the true value minus the row value, for X = R, P, μ, v̂, so e_0 = 0. On the box (a), which contains the rows,
+the Lipschitz bounds are |Δ(R⁻²)| ≤ 0.0072827|ΔR|, |Δw| ≤ 0.016635|Δμ| + 0.019401|ΔR| + 1.43959|ΔP| and |Δg| ≤
 2.19713|ΔP| + 0.028564|Δμ| + 0.033313|ΔR|; also R⁻² ≤ 1/42.25, |(R⁻²)′| ≤ 0.0036414 and |w′| ≤ 0.0092. Subtracting the
 row relations from the true ones,
 
@@ -338,9 +338,9 @@ fV′))^(1/2), κ′ := −g(∇_T T, n)/g(T, T) has numerator V″ + f_v̂ V′
 (V′(2 − fV′))^(1/2) g(T, T). The trace on the spheres is K′^l_l = 3n^R/R. At V′ = 1, V″ = 0 these are the formulas of
 [[pending:lem-racz-split-formulas]] with ψ = 0, which fixes the signs. ∎
 
-On Σ′ the slice is V(R) = τ0 + R + φ(R), so V′ = 1 + φ′ ∈ [0.99786, 1.00149] and V″ = φ″ by [[prop:margins-bend]], and Ξ
-= φ″ + (μ/R³)V′²(3 − fV′) − μ̇V′³/(2R²). Since f < 1 and V′ ≤ 1.00149, fV′ ≤ (1 − 3/(2R²))·1.00149 < 1 for R ≤ 6, so
-K′^l_l < 0, and κ′ > 0 exactly where Ξ > 0.
+On Σ′ the slice is V(R) = τ0 + R + φ(R), so V′ = 1 + φ′ ∈ [0.99786, 1.00149] and V″ = φ″ by [[prop:margins-bend]], and
+Ξ = φ″ + (μ/R³)V′²(3 − fV′) − μ̇V′³/(2R²). Since f ≤ 1 − 3/(2R²), V′ ≤ 1.00149, and V′ = 1 for R ≥ 5.75, fV′ < 1 on all
+of Σ′, so K′^l_l < 0, and κ′ > 0 exactly where Ξ > 0.
 
 ### Hyperbolicity on R ≥ R_* {#sec:margins-hyperbolic}
 
@@ -366,9 +366,9 @@ and |μ̇″| ≤ 0.69138 S_2 + 0.035656 S_1 + 0.0043444 S_0 + 0.0033567 S_0². 
 0.015695.
 
 (a) N_κ = H(μ, μ̇, R0) with H := −2μR⁻³ − μ²R⁻⁵ + (1/2)μ̇R⁻², linear in μ̇. For R ≥ 3.825, μ ≤ 3.6059 and μ̇ ≤ 2.489,
-the partial derivatives obey |H_μ| ≤ 0.044547, H_μ̇ ≤ 0.034175, |H_R| ≤ 0.12184 + 0.01787μ̇, |H_μμ| ≤ 0.0024428,
-|H_μR| ≤ 0.039545, |H_μ̇R| ≤ 0.01787 and |H_RR| ≤ 0.13827 + 0.014016μ̇, each a sum of the moduli of its terms at
-R = 3.825 and the largest μ. The chain rule,
+the partial derivatives obey |H_μ| ≤ 0.044547, H_μ̇ ≤ 0.034175, |H_R| ≤ 0.12184 + 0.01787μ̇, |H_μμ| ≤ 0.0024428, |H_μR|
+≤ 0.039545, |H_μ̇R| ≤ 0.01787 and |H_RR| ≤ 0.13827 + 0.014016μ̇, each a sum of the moduli of its terms at R = 3.825 and
+the largest μ. The chain rule,
 
     N_κ″ = H_μ μ″ + H_μ̇ μ̇″ + H_R R0″ + H_μμ μ′² + 2H_μR μ′ R0′ + 2H_μ̇R μ̇′ R0′ + H_RR R0′²,
 
@@ -384,8 +384,8 @@ and (φ″(R′))_vv = φ⁗R′_v² + φ‴R′_vv. For 3.825 ≤ R ≤ 5.373, 
     |Y_RV| ≤ 0.21408 + 0.053768μ̇,  |Y_VV| ≤ 0.096254 + 0.20536μ̇,
 
 each again a sum of the moduli of its terms (using V²(3 − V) ≤ 2.00447, V³ ≤ 1.00448 and 3V(2 − V) ≤ 3). The chain rule
-for Y in the four variables (Y is linear in μ̇) and the bounds above give |Ξ_vv| ≤ 1.2005 Φ4 + 0.02374 S_2 + 0.06031 S_1
-+ 0.08061 S_0 + 0.00125 S_0² + 0.1980, and 0.08061 S_0 + 0.1980 ≤ 0.075 S_0 + 0.23 because S_0 ≤ 3.6. ∎
+for Y in the four variables (Y is linear in μ̇) and the bounds above give |Ξ_vv| ≤ 1.2005 Φ4 + 0.02374 S_2 + 0.06031
+S_1 + 0.08061 S_0 + 0.00125 S_0² + 0.1980, and 0.08061 S_0 + 0.1980 ≤ 0.075 S_0 + 0.23 because S_0 ≤ 3.6. ∎
 
 **Theorem {#thm:margins-hyperbolic}** (Hyperbolicity margins on R ≥ R_*.) Let R_* ∈ (3.43718, 3.43719) be as in
 [[lem:margins-region-one]] (b). For the background:
@@ -408,18 +408,22 @@ and μ̇ those of 𝒩 at the point's time v̂.
 0.063585, so κ′K′^l_l ≤ −3.1 × 10⁻³.
 
 *Σ′ over the shell.* For v ∈ [3, 4.5] use [[sec:table-sigma-bent]]. By [[lem:margins-shell-data]] (c),
-[[lem:margins-bump- table]] (b) and the bounds of the proof of [[lem:margins-curvature]], the true value Ξ(v_k) differs
-from Ξ_k by at most 0.0447 × 10⁻⁵ + 0.0344 × 8.4 × 10⁻⁶ + 0.24 × 5.3 × 10⁻⁶ + 0.50 × 3 × 10⁻⁶ + 5 × 10⁻⁸ ≤ 5 × 10⁻⁶ (the
-terms come from μ, μ̇, the radius R′, V′ and the rounding of Ξ_k). By [[lem:margins-enclosure]] (b) and
-[[lem:margins-curvature]] (b), on the cell [v_k, v_(k+1)], Ξ ≥ L_k := min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200, where
-h²/8 = 1/51200. On the cell R ∈ [R′_k, R′_(k+1)], μ ∈ [μ_k, μ_(k+1)] and V′ ∈ [min(V_k, V_(k+1)) − 2 × 10⁻⁴, max(V_k,
-V_(k+1)) + 2 × 10⁻⁴], with V_k := 1 + φ′_k; so f lies between 1 − μ_(k+1)/R′_k² and 1 − μ_k/R′_(k+1)², and c ≥ c_k, the
-value of c with the largest f and V′ in the numerator and the largest R, V′ and smallest fV′ in the denominator. Every
-row has L_k > 0, and the bound column gives κ′K′^l_l ≤ −c_k L_k ≤ −3.041 × 10⁻⁴ on every cell.
+[[lem:margins-bump-table]] (b) and the bounds of the proof of [[lem:margins-curvature]], the true value Ξ(v_k) differs
+from Ξ_k by at most 0.0447 × 10⁻⁵ + 0.0344 × 8.4 × 10⁻⁶ + 0.24 × 5.3 × 10⁻⁶ + 0.50 × 3 × 10⁻⁶ + 5 × 10⁻⁸ ≤ 5 × 10⁻⁶. The
+terms come from μ, from μ̇ (|Δμ̇| ≤ 3αw|Δw| ≤ 7.34 (0.016635 × 10⁻⁵ + 0.019401 × 4 × 10⁻⁶ + 1.43959 × 6 × 10⁻⁷) ≤ 8.4 ×
+10⁻⁶), from the radius R′ ((4 × 10⁻⁶ + 10⁻⁶ + 2.5 × 10⁻⁷)/0.9978 ≤ 5.3 × 10⁻⁶, by [[lem:margins-bump-table]] (c) and the
+printed accuracy of R′_k), from V′ (1.7 × 10⁻⁶ + 5 × 10⁻⁷ + 0.01 × 5.3 × 10⁻⁶ ≤ 3 × 10⁻⁶) and from the rounding of Ξ_k;
+the coefficients bound the partial derivatives of Ξ as in the proof of [[lem:margins-curvature]]. By
+[[lem:margins-enclosure]] (b) and [[lem:margins-curvature]] (b), on the cell [v_k, v_(k+1)], Ξ ≥ L_k := min(Ξ_k,
+Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200, where h²/8 = 1/51200. On the cell R ∈ [R′_k, R′_(k+1)], μ ∈ [μ_k, μ_(k+1)] and V′ ∈
+[min(V_k, V_(k+1)) − 2 × 10⁻⁴, max(V_k, V_(k+1)) + 2 × 10⁻⁴], with V_k := 1 + φ′_k; so f lies between 1 − μ_(k+1)/R′_k²
+and 1 − μ_k/R′_(k+1)², and c ≥ c_k, the value of c with the largest f and V′ in the numerator and the largest R, V′ and
+smallest fV′ in the denominator. Every row has L_k > 0, and the bound column gives κ′K′^l_l ≤ −c_k L_k ≤ −3.041 × 10⁻⁴
+on every cell.
 
 *Σ′ after the shell.* For R ∈ [R′(4.5), 5.75], R′(4.5) = 5.3725246, μ = μ(4.5) ∈ [3.60579, 3.60582] and μ̇ = 0; φ″ ≥
 −0.01 l2 ≥ −0.0027323 and V′ ∈ [1, 1.0014840] (φ′ ≥ 0 there), and f ∈ [0.875076, 0.890940]. So Ξ ≥ −0.0027323 +
-(3.605795/5.75³)(3 − 0.890940 × 1.0014840) ≥ 0.037246 and c ≥ 0.323214/(5.75 × 1.0014840² × 1.124924²) ≥ 0.044288, so
+(3.60579/5.75³)(3 − 0.890940 × 1.0014840) ≥ 0.037245 and c ≥ 0.323214/(5.75 × 1.0014840² × 1.124924²) ≥ 0.044288, so
 κ′K′^l_l ≤ −1.6 × 10⁻³. For R ≥ 5.75, Σ′ = Σ_τ0, μ is constant and μ̇ = 0, so N_κ = −2μ/R³ − μ²/R⁵ < 0; hence κ > 0,
 K^l_l < 0 and κK^l_l < 0. This proves (a).
 
@@ -431,13 +435,13 @@ sign column. Cells 0–34 and 55–119 are negative, cells 37–53 positive. On 
 s)R0_k + sR0_(k+1), and N_κ(v) is within 5 × 10⁻⁶ + M_k/51200 of (1 − s)N_k + sN_(k+1). Hence:
 
 - cell 35, s ∈ [0, 0.762]: N_κ ≤ max(−0.00049105, 0.238 × (−0.00049105) + 0.762 × 0.00000012) + 5 × 10⁻⁶ + 1.17/51200 ≤
-  −8.8 × 10⁻⁵, and R0 ≥ 4.2783783 + 0.762 × 0.0129271 − 4.5 × 10⁻⁶ ≥ 4.288224 at s = 0.762;
+  −8.8 × 10⁻⁵, and at s = 0.762, R0 ≥ 4.2783783 + 0.762 × 0.0129271 − 4.5 × 10⁻⁶ ≥ 4.288224;
 - cell 36, s ∈ [0.323, 1]: N_κ ≥ min(0.323 × 0.00042441 + 0.677 × 0.00000012, 0.00042441) − 5 × 10⁻⁶ − 1.14/51200 ≥ 1.09
-  × 10⁻⁴, and R0 ≤ 4.2913054 + 0.323 × 0.0129260 + 4.5 × 10⁻⁶ ≤ 4.295486 at s = 0.323;
+  × 10⁻⁴, and at s = 0.323, R0 ≤ 4.2913054 + 0.323 × 0.0129260 + 4.5 × 10⁻⁶ ≤ 4.295486;
 - cell 54, s ∈ [0, 0.156]: N_κ ≥ min(0.00012015, 0.844 × 0.00012015 − 0.156 × 0.00021986) − 5 × 10⁻⁶ − 0.82/51200 ≥ 4.6
-  × 10⁻⁵, and R0 ≥ 4.5238047 + 0.156 × 0.0129054 − 4.5 × 10⁻⁶ ≥ 4.525813 at s = 0.156;
+  × 10⁻⁵, and at s = 0.156, R0 ≥ 4.5238047 + 0.156 × 0.0129054 − 4.5 × 10⁻⁶ ≥ 4.525813;
 - cell 54, s ∈ [0.556, 1]: N_κ ≤ max(0.444 × 0.00012015 − 0.556 × 0.00021986, −0.00021986) + 5 × 10⁻⁶ + 0.82/51200 ≤
-  −4.7 × 10⁻⁵, and R0 ≤ 4.5238047 + 0.556 × 0.0129054 + 4.5 × 10⁻⁶ ≤ 4.530985 at s = 0.556.
+  −4.7 × 10⁻⁵, and at s = 0.556, R0 ≤ 4.5238047 + 0.556 × 0.0129054 + 4.5 × 10⁻⁶ ≤ 4.530985.
 
 Since R0 is increasing, N_κ < 0 on R ∈ [R_*, 4.288224] ⊃ [R_*, 4.2882] and on [4.530985, ∞) ⊃ [4.5310, ∞), and N_κ > 0
 on [4.295486, 4.525813] ⊃ [4.2955, 4.5258]. On Σ_τ0, K^l_l < 0, so the split is hyperbolic exactly where N_κ < 0. By
@@ -448,12 +452,13 @@ on the cells around R = 4.66, where the bend's central lobe is on its falling si
 
 ### Γ on the seed region {#sec:margins-seed}
 
-On a vacuum region of Part I's chart, g = −e^(2ψ) f dv̂² + 2e^ψ dv̂ dR + R² dΩ₃² with f = 1 − μ/R², μ constant and ψ =
-ψ(v̂), the slice Σ_τ0 (v̂ = τ0 + R) has γ = G dR² + R² dΩ₃² with G = e^ψ(2 − e^ψ f), and N_s√G = 1. Along it write ψ, ψ′
-and ψ″ for ψ(τ0 + R) and its derivatives, q := e^ψ, u := 1 − q, m := μ/R² and w := qf = q(1 − m). The quantities ν, β,
-a, E, P and Γ of [[pending:thm-charge-identity]] are then ν = R³, β = R N/(3(2 − w)(w − 1)) with N := (q f′/2)(w − 3) −
-ψ′ and f′ = 2μ/R³ (from κ0 and Y0 of [[pending:lem-racz-split-formulas]]), a = −3(1 − β)/R, E = e^(∫a), P = 8νE²R/G −
-(2νER/√G)′ RE/√G and Γ = 4νE² − P′.
+On a vacuum region of the background, in the chart (v̂, R), g = −e^(2ψ) f dv̂² + 2e^ψ dv̂ dR + R² dΩ₃² with f = 1 −
+μ/R², μ constant and ψ = ψ(v̂), the slice Σ_τ0 (v̂ = τ0 + R) has γ = G dR² + R² dΩ₃² with G = e^ψ(2 − e^ψ f), and
+N_s√G = 1. Along it write ψ, ψ′ and ψ″ for ψ(τ0 + R) and its derivatives, q := e^ψ, u := 1 − q, m := μ/R² and w := qf =
+q(1 − m). The quantities ν, β, a, E, P and Γ of [[pending:thm-charge-identity]] are then ν = R³, β = R N_κ/(3(2 − w)(w −
+1)) with N_κ = (q f′/2)(w − 3) − ψ′ and f′ = 2μ/R³ (from κ0 and Y0 of [[pending:lem-racz-split-formulas]]; N_κ is the
+quantity of [[lem:margins-racz]], here with ψ ≠ 0 and μ̇ = 0), a = −3(1 − β)/R, E = e^(∫a), P = 8νE²R/G − (2νER/√G)′
+RE/√G and Γ = 4νE² − P′.
 
 **Lemma {#lem:margins-gamma-form}** (Γ/E² in closed form.) On such a region, wherever w < 1,
 
@@ -468,11 +473,11 @@ Where ψ = 0 this is Γ/E² = 4R³μ/(R² + μ), that is Γ = 4μ/R.
 
 *Proof.* Since E′ = aE and ν = R³, (2νER/√G)′ = E((2R⁴/√G)′ + 2aR⁴/√G), so P = E²p with p := 8R⁴/G − R(2R⁴/√G)′/√G −
 2aR⁵/G = (R⁵/G)(G′/G − 2a), and Γ/E² = 4R³ − 2ap − p′. Here G′/G = ψ′ − w′/(2 − w) with w′ = q(ψ′f + f′), and a = −3/R +
-N/((2 − w)(w − 1)). Substituting, p′ contains ψ″ linearly through ψ″ in (G′/G)′ and in N′ = (q/2)(ψ′f′ + f″)(w − 3) +
-(qf′/2)w′ − ψ″, f″ = −6μ/R⁴. Clearing the common denominator qR⁶(2 − w)(1 − w)² and collecting the coefficients of 1,
-ψ′, ψ′² and ψ″, the numerator of the ψ′⁰ term becomes 4R⁹n0 after the substitution q = 1 − u, m = μ/R², which gives the
-stated A0, A1, A2, A3. At ψ = 0, u = 0 and ψ′ = ψ″ = 0, so Γ/E² = A0 = 4R³m³/((1 + m)m²) = 4R³μ/(R² + μ); with E² = G/R²
-= (R² + μ)/R⁴ this is Γ = 4μ/R. ∎
+N_κ/((2 − w)(w − 1)). Substituting, p′ contains ψ″ linearly through ψ″ in (G′/G)′ and in N_κ′ = (q/2)(ψ′f′ + f″)(w −
+3) + (qf′/2)w′ − ψ″, f″ = −6μ/R⁴. Clearing the common denominator qR⁶(2 − w)(1 − w)² and collecting the coefficients of
+1, ψ′, ψ′² and ψ″, the numerator of the ψ′⁰ term becomes 4R⁹n0 after the substitution q = 1 − u, m = μ/R², which gives
+the stated A0, A1, A2, A3. At ψ = 0, u = 0 and ψ′ = ψ″ = 0, so Γ/E² = A0 = 4R³m³/((1 + m)m²) = 4R³μ/(R² + μ); with E² =
+G/R² = (R² + μ)/R⁴ this is Γ = 4μ/R. ∎
 
 **Lemma {#lem:margins-profile-monotone}** (The reference profile.) On [0.02, 1.181], ψ_s is increasing, ψ_s′ is positive
 and decreasing, and ψ_s″ is negative and increasing.

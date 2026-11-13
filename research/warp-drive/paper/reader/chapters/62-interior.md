@@ -172,13 +172,14 @@ B, or by these two sets. A point of Σ and any other point are separated by a ch
 disjoint from its image, A, B and Σ being Hausdorff.
 
 *(ii).* In V, Σ lies in the level set {t_IVP = 0} of a function that increases strictly along future causal curves,
-so Σ is acausal there. In M_gl, let γ be a future causal curve with γ(0) ∈ Σ. In each chart above ds is timelike, as
-g⁻¹(ds, ds) = −1, and s increases strictly along future causal curves; so γ lies in {s > 0} ⊂ B ∖ Σ just after
-parameter 0, and if γ meets Σ at a parameter s₁ it lies in {s < 0} ⊂ A ∖ Σ just before s₁. Σ is closed in M_gl. If γ
-met Σ again, let s₁ be the first parameter after 0 at which it does; then γ((0, s₁)) is a connected subset of
+so Σ is acausal there. In M_gl, let c be a future causal curve with c(0) ∈ Σ. In each chart above ds is timelike, as
+g⁻¹(ds, ds) = −1, and s increases strictly along future causal curves; so c lies in {s > 0} ⊂ B ∖ Σ just after the
+parameter 0, and if c meets Σ at a parameter σ₁ it lies in {s < 0} ⊂ A ∖ Σ just before σ₁. Σ is closed in M_gl. If c
+met Σ again, let σ₁ be the first parameter after 0 at which it does; then c((0, σ₁)) is a connected subset of
 (A ∖ Σ) ⊔ (B ∖ Σ) meeting both open sets, which is impossible. So Σ is acausal in M_gl.
 
-M_gl and V are connected time-oriented Lorentzian manifolds and Σ is an acausal smooth hypersurface in each. By
+M_gl and V are connected time-oriented Lorentzian manifolds (A and B are connected, every point of A lying on a causal
+curve in A that meets the connected Σ), and Σ is an acausal smooth hypersurface in each. By
 [[thm:std-bgp-development]], D_(M_gl)(Σ) and D_V(Σ) are open, globally hyperbolic, and have Σ as a Cauchy
 hypersurface. In the chart, Σ is the graph of a function over the shell {r_♭ < |x| < R} ⊂ ℝ⁴, which is connected; γ is
 Riemannian, Σ being spacelike; and (γ, k) satisfies the constraint equations, as both metrics are vacuum. So (Σ, γ, k)
@@ -313,12 +314,12 @@ decreases, since d(r + F)/dr = 1 + F′ ≥ 1.
 inextendible, so it meets Σ_far, at some r_* ≥ 4R with τ = F(r_*). So v(p) = r_* + F(r_*) ≥ 4R + F(4R) = v1,
 r(p) ≥ r_* ≥ 4R, and t̃(p) ≤ 0, as t̃ increases along the ray to 0 at r_*.
 
-*W lies in D⁻(Σ_far; g0).* Let p ∈ W and γ a future inextendible causal curve from p; v ≥ v1 along γ. If γ reaches
-{r = 4R}, at a first point q, then t̃(q) = τ(q) − τ_S = v(q) − v1 ≥ 0, so γ meets {t̃ = 0} at or before q, at a point
-with r ≥ 4R and v ≥ v1, a point of Σ_far = {t̃ = 0, r ≥ 4R}. Otherwise γ stays in {r ≥ 4R}, where t̃ increases and
+*W lies in D⁻(Σ_far; g0).* Let p ∈ W and c a future inextendible causal curve from p; v ≥ v1 along c. If c reaches
+{r = 4R}, at a first point q, then t̃(q) = τ(q) − τ_S = v(q) − v1 ≥ 0, so c meets {t̃ = 0} at or before q, at a point
+with r ≥ 4R and v ≥ v1, a point of Σ_far = {t̃ = 0, r ≥ 4R}. Otherwise c stays in {r ≥ 4R}, where t̃ increases and
 |dr| < 2 dt̃. While t̃ ≤ 0 it lies in the compact set {t̃(p) ≤ t̃ ≤ 0, 4R ≤ r ≤ r(p) + 2|t̃(p)|}, on which dt̃ is
-uniformly timelike, so its coordinate velocity, parametrised by t̃, is bounded; if t̃ stayed below 0, γ would have an
-end point and be extendible. So γ reaches t̃ = 0 at a point with r ≥ 4R and v ≥ v1, a point of Σ_far. In the chart,
+uniformly timelike, so its coordinate velocity, parametrised by t̃, is bounded; if t̃ stayed below 0, c would have an
+end point and be extendible. So c reaches t̃ = 0 at a point with r ≥ 4R and v ≥ v1, a point of Σ_far. In the chart,
 {t̃ = 0} ∩ W = Σ_far and {v = v1} ∩ W = H₁, the rest of the boundary is the end τ → −∞ at fixed v and x̂, and
 r = v − τ ≥ v1 − τ on W.
 
@@ -348,13 +349,13 @@ and ζ(∂_τ) = 1 + 2ε_g > 0. So ζ(Y) > 0 for every future causal Y of g (whe
 dv(Y) ≥ −2ε_g dτ(Y). Along a future causal curve of g parametrised by τ, v − I(τ) is therefore nondecreasing, as
 dI/dτ = −2ε_g. *t̃ for g.* |ζ_±|_E² = 4 + (1 ∓ 2F′)² ≤ 25/4, so g⁻¹(ζ_±, ζ_±) ≤ −7/4 + (25/4)ε_g < 0 for
 ε_g < 7/25, and g⁻¹(dt̃, dt̃) ≤ −15/16 + (17/16)ε_g < 0. With ζ_+(∂_τ) = 2 and ζ_−(∂_τ) = −2 as before, t̃ is a time
-function of g on {r ≥ 4R} with |dr(Y)| < 2 dt̃(Y) for future causal Y of g. For p in W_+ and γ a future inextendible
-causal curve of g from p, v ≥ v1 + I(τ) ≥ v1 along γ while it is in W, as v − I is nondecreasing; and the argument of
-(i) applies verbatim: γ meets Σ_far.
+function of g on {r ≥ 4R} with |dr(Y)| < 2 dt̃(Y) for future causal Y of g. For p in W_+ and c a future inextendible
+causal curve of g from p, v ≥ v1 + I(τ) ≥ v1 along c while it is in W, as v − I is nondecreasing; and the argument of
+(i) applies verbatim: c meets Σ_far.
 
 (iv) (a) On Ω′, item 4 of [[thm:past-construction]] gives the estimates of [[thm:uniform-existence]], so
 |g_λ − g_app| = O(λ^K) and |g_app − g0| = O(λ) there; on P′, items 1 and 3 and the bound |g_app − g0| ≤ Cλ t^(−3/2) of
-the proof of [[thm:past-construction]] ([[sec:far-near]]) give |g_λ − g0| ≤ Cλ^(K−3) t^(−2) + Cλ t^(−3/2) and
+the proof of [[thm:past-construction]] ([[sec:past-proof]]) give |g_λ − g0| ≤ Cλ^(K−3) t^(−2) + Cλ t^(−3/2) and
 g_λ = g0 for v ≤ v_start. By (ii), Z ⊂ Ω′ ∪ P′ and Z ⊂ {τ ≤ τ_S}. So ε_λ bounds |g_λ − g0|_op on Z, and
 |g_λ⁻¹ − g0⁻¹|_op by the Neumann series, for λ small. The integral is ∫_(−∞)^(τ0) t^(−3/2) dτ = ∫_1^∞ t^(−3/2) dt = 2
 plus τ_S − τ0. (b) ε_g is continuous, at most 1/8 for λ and ν small, as v1 − τ ≥ v1 − τ_max > 0 on W ∪ Z, and it
@@ -377,17 +378,16 @@ D⁻(Σ_far; g) was integrated numerically down to τ_S − 3000: along it |v �
 constant of the comparison dv(Y) ≥ −2ε_g dτ(Y) of [[lem:interior-far-part]] (iii) between ½ and 2. No proof uses these
 observations.
 
-*What H₁ carries.* On H₁ ∩ P′, |g_λ − g_app| ≤ Cλ^(K−3) t^(−2) ([[thm:past-construction]] (3)). After the shell
-g_app − g0 = Σ_j λ^j m_j, the means alone, every oscillating profile vanishing on {v > v_end} (the proof of
-[[lem:vii-1-1]]); and m_m ∈ L_2 ([[thm:past-approximant]]): a leading term r⁻² M_m(v, x̂), M_m := 2 ∫_(−∞)^v 𝒮_(m,3) dv′,
-plus a remainder in E_(5/2). That is a leading term and a bound, not an expansion. [[lem:vii-0-1]] asks for components
-in ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r, and the class of [[thm:settling]] (ii) is polyhomogeneous
-with terms of orders r⁻² and r⁻³. An E_(5/2) bound neither gives such an expansion nor excludes one. The data index set
-of [[thm:iii-k-4-3]] need not be integral: row d1 of [[sec:vi-c-1]] asks min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0,
-ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0, and none of these is integrality. Closure under sums is the only condition linking the
-elements, so (5/2, 0) ∈ ℰ_0 forces (5, 0), (15/2, 0), … into it. As ℓ_0 > 5/2, the norm ‖·‖_(d_1) of
-[[sec:s27-class]] is finite on a term ρ^(5/2) a(ω) exactly when (5/2, 0) ∈ ℰ_0; for the class [[eq:vii-0-1]] it is
-infinite.
+*What H₁ carries.* On H₁ ∩ P′, |g_λ − g_app| ≤ Cλ^(K−3) t^(−2) ([[thm:past-construction]] (3)). After the shell g_app −
+g0 = Σ_j λ^j m_j, the means alone, every oscillating profile vanishing on {v ≥ v_end} (step (3) of the proof of
+[[prop:past-items]]); and m_m ∈ L_2 ([[thm:past-approximant]]): a leading term r⁻² M_m(v, x̂), M_m := 2 ∫_(−∞)^v 𝒮_(m,3)
+dv′, plus a remainder in E_(5/2). That is a leading term and a bound, not an expansion. [[lem:vii-0-1]] asks for
+components in ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r, and the class of [[thm:settling]] (ii) is
+polyhomogeneous with terms of orders r⁻² and r⁻³. An E_(5/2) bound neither gives such an expansion nor excludes one. The
+data index set of [[thm:iii-k-4-3]] need not be integral: row d1 of [[sec:vi-c-1]] asks min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂
+ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0, and none of these is integrality. Closure under sums is the only condition linking the
+elements, so (5/2, 0) ∈ ℰ_0 forces (5, 0), (15/2, 0), … into it. As ℓ_0 > 5/2, the norm ‖·‖_(d_1) of [[sec:s27-class]]
+is finite on a term ρ^(5/2) a(ω) exactly when (5/2, 0) ∈ ℰ_0; for the class [[eq:vii-0-1]] it is infinite.
 
 **Definition {#def:half-class}** (The half-integer class.) The *half-integer class* is the data class of
 [[thm:iii-k-4-3]] with
@@ -399,17 +399,17 @@ spaces.
 
 **Lemma {#lem:half-class}** (Row d1, and what lies in the half-integer class.) (a) ℰ_0^½ and ℓ_0 satisfy row d1 of
 [[sec:vi-c-1]], and ℰ_0^½ contains the index set of [[eq:vii-0-1]]. (b) Let γ̃, k̃ be smooth symmetric 2-tensors on
-Σ^IVP whose Cartesian components are, on {r ≥ R′}, ρ² and ρ³ times smooth functions of (ρ^(1/2), x̂) on
-[0, R′^(−1/2)] × 𝕊³. Then ‖(γ̃, k̃)‖^½_(d_1) is finite, bounded as in [[lem:vii-0-1]].
+Σ^IVP whose Cartesian components are, on {r ≥ R′}, ρ² and ρ³ times smooth functions of (ρ^(1/2), x̂) on [0, R′^(−1/2)] ×
+𝕊³. Then ‖(γ̃, k̃)‖^½_(d_1) is finite, bounded as in [[lem:vii-0-1]].
 
 *Proof.* (a) min Re ℰ_0^½ = 2 > 3/2 + 2γ_Υ, as γ_Υ < ¼. (2 + j/2) + (2 + k/2) = 2 + (j + k + 4)/2, so ℰ_0^½ is closed
-under sums, and jℰ_0^½ ⊂ ℰ_0^½. ℓ_0 > 3, and Re π_1ℰ_0^½ = {2, 5/2, 3, 7/2, 4, …} does not contain ℓ_0. The integers
-j ≥ 2 are the even j. (b) Put s := ρ^(1/2). Taylor's formula in s writes ρ²Φ(s, x̂) = Σ_(j ≤ 3) ρ^(2+j/2) a_j(x̂) +
-ρ⁴Φ₄(s, x̂), with a_j and Φ₄ smooth, the seminorms of the remainder bounded by those of Φ. Smooth functions of s are
-conormal in ρ, as ρ∂_ρ = ½ s∂_s. The exponents 2 + j/2 < ℓ_0 lie in ℰ_0^½; the term with 2 + j/2 > ℓ_0, if any (j = 3
-when ℓ_0 < 7/2), and the remainder lie in ρ^(ℓ_0)H^∞_b, as ℓ_0 < 4 and the weights are those of the b-density, a weight
-being the pointwise order. Likewise ρ³Φ = Σ_(j ≤ 3) ρ^(3+j/2) b_j + ρ⁵Φ₅, with exponents in ℰ_0^½ + 1 below ℓ_0 + 1 < 5.
-On {r ≤ 2R′} the weights are bounded above and below. ∎
+under sums, and jℰ_0^½ ⊂ ℰ_0^½. ℓ_0 > 3, and Re π_1ℰ_0^½ = {2, 5/2, 3, 7/2, 4, …} does not contain ℓ_0. The index set of
+[[eq:vii-0-1]] is the part of ℰ_0^½ with j even. (b) Put s := ρ^(1/2). Taylor's formula in s writes ρ²Φ(s, x̂) = Σ_(j ≤
+3) ρ^(2+j/2) a_j(x̂) + ρ⁴Φ₄(s, x̂), with a_j and Φ₄ smooth, the seminorms of the remainder bounded by those of Φ. Smooth
+functions of s are conormal in ρ, as ρ∂_ρ = ½ s∂_s. The exponents 2 + j/2 < ℓ_0 lie in ℰ_0^½; the term with 2 + j/2 >
+ℓ_0, if any (j = 3 when ℓ_0 < 7/2), and the remainder lie in ρ^(ℓ_0)H^∞_b, as ℓ_0 < 4 and the weights are those of the
+b-density, a weight being the pointwise order. Likewise ρ³Φ = Σ_(j ≤ 3) ρ^(3+j/2) b_j + ρ⁵Φ₅, with exponents in ℰ_0^½ +
+1 below ℓ_0 + 1 < 5. On {r ≤ 2R′} the weights are bounded above and below. ∎
 
 **Remark {#rem:half-class-changes}** (What the half-integer class changes.) The data index set enters the rest of the
 stability theory only through ℰ^C_I ([[thm:iii-c1-3-1]], row d2 of [[sec:vi-c-1]]), the exponents Λ ⊃ π_1ℰ^C_I and the

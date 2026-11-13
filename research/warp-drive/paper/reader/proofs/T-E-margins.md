@@ -123,8 +123,9 @@ there, with q = e^ψ, u = 1 − q and m = μ/R².
 Along the cone 𝒩 = {u = 0}, at v_k := 3 + k/80 (k = 0, …, 120), the table lists the shell profile α_k := α(v_k) =
 3.6 b(v_k; 3, 4.5) with its first two derivatives (rounded to nine, eight and six decimals), and the numbers R_k, P_k,
 μ_k, v̂_k (rounded to eight decimals) that satisfy the scheme [[eq:margins-scheme]] of [[lem:margins-shell-data]] to
-within 10⁻⁸ in each component. By that lemma the true radius, its v-derivative, the mass and the time v̂ on 𝒩 at v_k are
-within 3 × 10⁻⁶, 5 × 10⁻⁷, 8 × 10⁻⁶ and 3 × 10⁻⁶ of R_k, P_k, μ_k and v̂_k. For k = 0 the values are exact: R_0 =
+within 10⁻⁸ in each component, the residuals summing to at most 5 × 10⁻⁷ in each component. By that lemma the true
+radius, its v-derivative, the mass and the time v̂ on 𝒩 at v_k are within 4 × 10⁻⁶, 6 × 10⁻⁷, 10⁻⁵ and 4 × 10⁻⁶ of
+R_k, P_k, μ_k and v̂_k. For k = 0 the values are exact: R_0 =
 13/2, P_0 = 1/2, μ_0 = 3/2 and v̂_0 = 3 + √(3/2) ln[(13/2 − √(3/2))(5 + √(3/2))/((13/2 + √(3/2))(5 − √(3/2)))].
 
 | k | v_k | α_k | α′_k | α″_k | R_k | P_k | μ_k | v̂_k |

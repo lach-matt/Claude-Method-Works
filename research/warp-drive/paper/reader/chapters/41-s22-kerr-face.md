@@ -532,26 +532,28 @@ for every N; f̂_ḃ(0), f̂_S(0) ∈ 𝒜^(3+ℰ_col) near ∂X; and on X^±_(s
 r̂ and σr = ±r̂, f̂_ḃ and f̂_S are polyhomogeneous at tf with the index set 3 + ℰ_col, smooth in r̂ up to zf, and rapidly
 decaying at scf.
 
-*Proof.* On {r ≥ 1}, χ_K = χ_c(r/t_*) ([[eq:iii-h-1-2]]), and L_b ġ(ḃ) = 0, L_b(t_*h(S) + h̆(S)) = 0 ([[sec:iii-h-2]]);
-so there f = L_b(χ_K w) = [L_b, χ_K]w, with w = ġ(ḃ), resp. t_*h(S) + h̆(S). On sections a(t_*)w(x), L_b = L_0 +
-L_1∂_(t_*) + L_2∂²_(t_*), with L_1 = [L_b, t_*] and L_2 = ½[[L_b, t_*], t_*] ([[sec:iii-i6-1]]), and L_k ∈
-ρ^(2−k)Diff^(2−k)_b(X̄) has smooth coefficients ([[lem:iii-i3-1-1]], as it is applied to them there). The t_*-derivatives
-and the b-derivatives in x of χ_c(r/t_*) are sums of terms r^(−k)φ(t_*/r), k ∈ {0, 1, 2}, with φ smooth and, when at
-least one derivative falls on χ_c, supported in [2, 4]; for instance r∂_r[χ_c(r/t_*)] = (r/t_*)χ′_c(r/t_*) and
-∂_(t_*)[χ_c(r/t_*)] = −r⁻¹(r/t_*)²χ′_c(r/t_*). Every term of [L_b, χ_K]w = Σ_(j≤2) [L_j∂^j_(t_*), χ_K]w carries at least
-one derivative of χ_K; a t_*-derivative of χ_K costs a factor r⁻¹ (ρ times a function smooth at ∂X) and a b-derivative in
-x costs nothing, L_j ∈ ρ^(2−j)Diff^(2−j)_b, and ∂_(t_*)w is 0, resp. h(S), with ∂²_(t_*)w = 0. So [L_b, χ_K]w is a finite
-sum of terms φ(t_*/r)ρ²(Qv)(x) with v ∈ {ġ(ḃ), h̆(S)}, and of terms φ(t_*/r)ρ(Qh(S))(x), which come from t_*h(S) (there
+*Proof.* On {r ≥ 1}, χ_K = χ_c(r/t_*) ([[eq:iii-h-1-2]]), and L_b ġ(ḃ) = 0, L_b(t_*h(S) + h̆(S)) = 0
+([[sec:iii-h-2]]); so there f = L_b(χ_K w) = [L_b, χ_K]w, with w = ġ(ḃ), resp. t_*h(S) + h̆(S). On sections a(t_*)w(x),
+L_b = L_0 + L_1∂_(t_*) + L_2∂²_(t_*), with L_1 = [L_b, t_*] and L_2 = ½[[L_b, t_*], t_*] ([[sec:iii-i6-1]]), and
+L_k ∈ ρ^(2−k)Diff^(2−k)_b(X̄) has smooth coefficients ([[lem:iii-i3-1-1]], as it is applied to them there). The
+t_*-derivatives and the b-derivatives in x of χ_c(r/t_*) are sums of terms r^(−k)φ(t_*/r), k ∈ {0, 1, 2}, with φ smooth
+and, when at least one derivative falls on χ_c, supported in [2, 4]; for instance r∂_r[χ_c(r/t_*)] =
+(r/t_*)χ′_c(r/t_*) and ∂_(t_*)[χ_c(r/t_*)] = −r⁻¹(r/t_*)²χ′_c(r/t_*). Every term of
+[L_b, χ_K]w = Σ_(j≤2) [L_j∂^j_(t_*), χ_K]w carries at least one derivative of χ_K: a t_*-derivative of χ_K costs a
+factor r⁻¹ (ρ times a function smooth at ∂X), and a b-derivative in x costs nothing; moreover
+L_j ∈ ρ^(2−j)Diff^(2−j)_b, ∂_(t_*)w is 0, resp. h(S), and ∂²_(t_*)w = 0. So [L_b, χ_K]w is a finite sum of terms
+φ(t_*/r)ρ²(Qv)(x) with v ∈ {ġ(ḃ), h̆(S)}, and of terms φ(t_*/r)ρ(Qh(S))(x), which come from t_*h(S) (there
 ρ²t_* = (t_*/r)ρ, and the factor t_*/r is absorbed into φ); here φ is smooth and supported in [2, 4], and Q is a
 b-differential operator whose coefficients are smooth at ∂X. With t_* = sr, F(s, x) = r⁴f(sr, x) is the corresponding
-finite sum of terms φ(s)r²(Qv)(x) and φ(s)r³(Qh(S))(x), smooth in s and supported in [2, 4]. Now ġ_b(1, 0) ∈
-𝒜^((2,0)∪(2+ℰ_ind)) and ġ_b(0, Ȧ) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-2-2]]), h(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind))
-([[eq:iii-f3-4-2]]), and h̆(S) = h̆¹_(b,s1)(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) ([[eq:iii-d2-3-4]]). So r²ġ_b(1, 0), r²h̆(S) and
-r³h(S) lie in 𝒜^((0,0)∪ℰ_ind), and r²ġ_b(0, Ȧ) lies in 𝒜^((1,0)∪(1+ℰ_ind)); b-derivatives preserve these index sets, and
-the coefficients of Q, smooth at ∂X, add ℕ₀. Hence F, with all its s-derivatives, is polyhomogeneous at ∂X with the index
-set ℰ_col, which lies in {Re ≥ 0} as min Re ℰ_ind > 0. These index sets depend neither on ḃ and S nor on b
-([[lem:iii-i15-1-1]] (P3)). The statements on G follow by integrating the expansion of F against e^(iξs), with
-integrations by parts in s for the decay in ξ (Im ξ ≥ 0, s > 0), and r⁻³G(σr, x) = ρ³_tf G(±r̂, x). ∎
+finite sum of terms φ(s)r²(Qv)(x) and φ(s)r³(Qh(S))(x), smooth in s and supported in [2, 4]. Now
+ġ_b(1, 0) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) and ġ_b(0, Ȧ) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-2-2]]),
+h(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-4-2]]), and h̆(S) = h̆¹_(b,s1)(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) ([[eq:iii-d2-3-4]]).
+So r²ġ_b(1, 0), r²h̆(S) and r³h(S) lie in 𝒜^((0,0)∪ℰ_ind), and r²ġ_b(0, Ȧ) lies in 𝒜^((1,0)∪(1+ℰ_ind)); b-derivatives
+preserve these index sets, and the coefficients of Q, smooth at ∂X, add ℕ₀. Hence F, with all its s-derivatives, is
+polyhomogeneous at ∂X with the index set ℰ_col, which lies in {Re ≥ 0} as min Re ℰ_ind > 0. These index sets depend
+neither on ḃ and S nor on b ([[lem:iii-i15-1-1]] (P3)). The statements on G follow by integrating the expansion of F
+against e^(iξs), with integrations by parts in s for the decay in ξ (Im ξ ≥ 0, s > 0), and
+r⁻³G(σr, x) = ρ³_tf G(±r̂, x). ∎
 
 ### The lemmas of the spectral phase {#sec:iii-i11-2}
 
@@ -619,7 +621,10 @@ where:
   (−|σ|⁻¹ log|σ| at α_0 = 2);
 - T_v1(σ) := h^(≤2)_(b,v1)(σ, V^(−1)_1) = Σ_(i≤2) (−iσ)^i h̆^i_(b,v1)(V^(−1)_1), whose bottom h̆⁰_(b,v1) = h_(b,v1)
   vanishes at b_0 (every V Killing), and c_v1(σ) := −i sgn(σ)|σ|^(α_0−2)/(2 − α_0) (i sgn(σ) log|σ| at α_0 = 2): this
-  is the term l_(2−α_0)(r̂)G_v1 of [[eq:iii-g4-4-4]] [[pending:issue-2]];
+  is the term l_(2−α_0)(r̂)G_v1 of [[eq:iii-g4-4-4]]. The v1 row is not a generic row of root −1: its tower starts at
+  the bottom h_(b,v1) ∈ 𝒜³, and its state at the root −1 is the companion h̆¹_(b,v1) ([[lem:iii-g2-1-2]]). Accordingly
+  −iσc_v1(σ) = −|σ|^(α_0−1)/(2 − α_0) (|σ| log|σ| at α_0 = 2) is the coefficient that a generic row of root −1 gives
+  its state, and the bottom carries one power of |σ| less, as G_v1 of [[lem:iii-g4-4-3]] prescribes;
 - for the other rows (μ, τ) of the table of roots of [[sec:iii-g2-1]], T_τ(σ) := h^((μ),≤c_μ)_(b,τ)(σ, Y^(μ)_τ) and
   c_τ(σ) := −|σ|^(α_0−2−μ)/β_μ(α_0), with |σ|^(⌊−μ⌋) log|σ| in place of the latter if β_μ(α_0) = 0, which for c0, c1
   happens at α_0 = 2 + μ ∈ (1, 2), and for the class rows in (−5/4, −1) and (−9/4, −2) at α_0 = 3 + μ and 4 + μ; here
@@ -728,9 +733,10 @@ pieces σ²(χ_zf û_2 + ĝ^aug(ḃ_2) + ĥ^aug(S_2)), and [[lem:iii-i11-2-2]] g
 
 *Step 4 (level 3; [Hin26, Step 2.A.8 and Part 3]).* Fix δ > 0 with δ + ℓ_3 + 2ε < ε_ind. While the tf-weight κ of the
 current level-3 forcing is at most 2 + ℓ_3 + ε, apply [[prop:iii-g4-5-1]] with α_κ := min(κ, 2 − δ) ∈ (1, 2) (the
-forcing has the tf-weight α_κ), ℓ_zf := ℓ_3, the order 0 of the zf-index set there, and w = ℓ_3 − α_κ + 2 ∈ (0, 1)
-(α_κ ≥ κ_3 > 1 + ℓ_3, as η_2 > ε_K > ℓ_3). Its conditions w ≠ −μ and 2 − α_κ + j ≠ −μ hold for ε off a finite set
-(admissibility) and, when α_κ = 2 − δ, for δ off the finite set {−μ − j}, which we impose on δ. It gives
+forcing has the tf-weight α_κ), ℓ_zf := ℓ_3, the order 0 of the zf-index set there, and
+w = ℓ_3 − α_κ + 2 ∈ [−ε, 1) ⊂ (−ε_ind, ℓ^max_K) (α_κ ≤ κ ≤ 2 + ℓ_3 + ε, and α_κ ≥ κ_3 > 1 + ℓ_3, as η_2 > ε_K > ℓ_3).
+Its conditions w ≠ −μ and 2 − α_κ + j ≠ −μ hold for ε off a finite set (admissibility) and, when α_κ = 2 − δ, for δ
+off the finite set {−μ − j}, which we impose on δ. It gives
 
     u = χ_zf u_b + χ^♯_tf ũ ∈ H^(∞,(3/2−2ε,α_κ−2,α_κ−3))_b
 
@@ -1136,14 +1142,14 @@ L_0h̆² + L_1h̆¹ + L_2h = 0). After finitely many steps all exponents have re
 L_0X_1 = L_1ġ(ḃ) + L_1h̆¹(S + S′) + L_2h(S + S′), h̄_s1(S′) being the s1-component of the ρ⁻¹-coefficient of the
 section reached at the root −1. By [[eq:iii-h-2-2]], f̂_ḃ(0) = L_1ġ(ḃ) + L_0w_ḃ and f̂_(S″)(0) = L_2h(S″) +
 L_1h̆¹(S″) + L_0w_(S″) with w_ḃ, w_(S″) ∈ 𝒜¹ ([[lem:iii-h-2-3]]); so f̂_ḃ(0) + f̂_(S+S′)(0) = L_0Q with
-Q := X_1 + w_ḃ + w_(S+S′) ∈ 𝒜¹, which lies in the space 𝒳_0 of [[ch:s18]] (conormal order q − 2 ∈ (0, 1)). Choose
+Q := X_1 + w_ḃ + w_(S+S′) ∈ 𝒜¹, which lies in the space 𝒳_0 of [[ch:s18]] (of conormal order in (0, 1)). Choose
 u_e ∈ ker L_0 ∩ 𝒳_0 with r(u_e) = −r(Q) (possible by the normalisation [[eq:iii-h-3-1]] of the rows f*_1, f*_2 of
 L̃_(b_0)(0)). Then L̃_(b_0)(0)(−Q − u_e, ḃ, S + S′) = (0, 0), and [[prop:iii-h-3-2]] gives ḃ = 0 and S′ = −S.
 
 (a) The reduction of p ends in p_1 ∈ 𝒜¹ ∩ ker L_0 once S′ = 0, which is (b) with ḃ = 0 and S = 0. Then p_1 ∈ 𝒜^(2−)
-(the next roots are at least 2) lies in the domain of [[prop:iii-f3-4-1]] for small α, whose nullspace (1) is spanned by
-ġ(ḃ) and h(S). Uniqueness: Y ↦ h̄_τ(Y) is injective ([[lem:iii-g2-1-2]]), and that nullspace is eleven-dimensional. The
-last statement: a state of root μ grows like r^(−μ). ∎
+(the next roots are at least 2) lies in the domain of [[prop:iii-f3-4-1]] for a small weight, whose nullspace (1) is
+spanned by ġ(ḃ) and h(S). Uniqueness: Y ↦ h̄_τ(Y) is injective ([[lem:iii-g2-1-2]]), and that nullspace is
+eleven-dimensional. The last statement: a state of root μ grows like r^(−μ). ∎
 
 **Lemma {#lem:iii-i12-2-4}** (Formal solutions at K⁺.) Let b = b_0, β ∈ (α − 1, α], and
 
