@@ -302,7 +302,7 @@ This is [Hin26c, Proposition 7.4] in dimension 4 + 1.
 
 *Proof.* W′ := 1, ρ the function of (H3) (extended positive, even and homogeneous of degree −1), 𝖧 = ρH_G, w :=
 ρ_K^(α_K) with ρ_K = t_*⁻¹, and A the frame of an inner product for which ϑ_𝓗 of [[eq:i-a-1-5]] is attained (ϑ_𝓗 is
-the supremum of max spec(β_0⁻¹ p_(1,+)(0)) over ∂ℛ_+, with p_(1,+)(0) = ρ σ_1(Im_h P̂(0))). ∂R_(𝓗⁺) lies over K⁺ in {σ
+at least the supremum of max spec(β_0⁻¹ p_(1,+)(0)) over ∂ℛ_+, with p_(1,+)(0) = ρ σ_1(Im_h P̂(0))). ∂R_(𝓗⁺) lies over K⁺ in {σ
 = 0}, where σ_1(Im_h P_0) = σ_1(Im_h P̂(0)) ([[sec:ii-c-2-3]]), and P − P_0 has coefficients vanishing at K⁺; so 𝔭′ =
 p_(1,+)(0) there. By [[eq:ii-b-4-1]], ρ⁻¹𝖧ρ = β_0 and ρ_K⁻¹𝖧ρ_K = ρ_K(ρ_K⁻²𝖧ρ_K) = 0 at ∂R_(𝓗⁺). So at ∂R_(𝓗⁺), as
 A⁻¹𝔭′A has the eigenvalues of the h-self-adjoint 𝔭′,
@@ -537,8 +537,9 @@ we write H^(𝗍,α_K) := H^(𝗍,(2α_I,α_+,α_K))_e3b. We work on ∂Σ⁺, n
 degree −1 near fibre infinity ([[sec:ii-d-2]]). Then 𝖧 := ρH_G is the field Ŵ of [[eq:ii-c1-3-2]] with p = G, and ρ²G =
 G(t_*, x; −dt_* + z). Three facts are used throughout.
 
-(T1) 𝖧t_* ≥ ½β_0 on a neighbourhood of ∂Γ_0 in the full phase space, for ε_P small (the paragraph after
-[[lem:ii-c1-3-3]]). So 𝖧ρ_K = −ρ_K² 𝖧t_* < 0 there.
+(T1) 𝖧t_* ≥ ½β_Γ on a neighbourhood of ∂Γ_0 in the full phase space, for ε_P small (the paragraph after
+[[lem:ii-c1-3-3]]), with β_Γ = ½ min_Γ |q_1| the constant of (Γ.4), not the horizon constant β_0. So 𝖧ρ_K = −ρ_K²
+𝖧t_* < 0 there.
 
 (T2) ρ⁻¹𝖧ρ = H_G(σ⁻¹) = −σ⁻² ∂_(t_*)G, as H_G σ = ∂_(t_*)G, σ being minus the momentum of t_*. It vanishes for P_0,
 and for P it is O(ε_P ρ_K^(ℓ_K)) near ∂Γ_0, by the bounds on g⁻¹ − g_0⁻¹ before [[eq:ii-c1-3-1]].
@@ -581,8 +582,8 @@ transversal field N_Y of [[sec:ii-c1-3-3]].
 compactness of Ō′ there are O″ ⋐ O′ and δ′ > 0 with {|ϕ_0^u|, |ϕ_0^s|, |G_1| ≤ 2δ′} ∩ Ō′ ⊂ O″, and these sets shrink to
 Γ as δ′ → 0. For ρ_K ≤ δ the functions defining U(δ) differ from these by O(δ^(ℓ_K)). So for δ ≤ δ_U small, U(δ) ⊂
 {(x, z) ∈ O″} and ⋂_δ U(δ) = {ρ_K = 0} × Γ = ∂Γ_(K⁺). U(δ) contains the set where the four inequalities are strict,
-which is open and contains ∂Γ_(K⁺). The last assertion is [[prop:ii-c1-3-4]] with the remark (b) following it, as ∂Σ⁺ =
-{ρ²G = 0} near ∂Γ_0.
+which is open and contains ∂Γ_(K⁺). The last assertion is [[prop:ii-c1-3-4]] with [[rem:s05-trapped-hypersurfaces]]
+(b), as ∂Σ⁺ = {ρ²G = 0} near ∂Γ_0.
 
 (b) dϕ_u, dϕ_s and dG_1 are linearly independent at Γ (the proof of [[lem:ii-c1-3-1]] (i)). On Y, d(ϕ_(u/s) ∘ π_Y) =
 dϕ_(u/s) − (N_Y ϕ_(u/s)) dG_1, as d(ϕ ∘ π_Y) vanishes on N_Y and equals dϕ on TY = ker dG_1. So dϕ_0^u, dϕ_0^s, dG_1
@@ -618,8 +619,8 @@ near K,
     ‖Bu‖_(H^(s,α_K)) ≤ C (‖GPu‖_(H^(s,α_K)) + ‖Eu‖_(H^(s+1,α_K)) + ‖χ̃u‖_(H^(s_0,α_K)))                    {#eq:ii-d-4-2}
 
 in the strong sense, for P = P_0 and every P with ε_P small, with d_0 depending only on s, s_0. Here ∂Γ_(K⁺) and
-Γ^u_(K⁺) have one component over each of ∂Σ^±, and within Φ_1(O), which contains U_Γ when U_Γ is small, Γ^u_(K⁺) is
-the global unstable set ∂Γ̄^u_(K⁺) ([[lem:ii-b-5-2]] (b)).
+Γ^u_(K⁺) have one component over each of ∂Σ^±, and within Φ_1(O) ([[def:ii-b-2-2]]), which contains U_Γ when U_Γ is
+small, Γ^u_(K⁺) is the global unstable set ∂Γ̄^u_(K⁺) ([[lem:ii-b-5-2]] (b)).
 
 This is [Hin26c, Proposition 7.10] in dimension 4 + 1. Against [[prop:ii-d-3-1]]–[[prop:ii-d-3-6]] the estimate loses
 one derivative: Pu is measured in H^s, not H^(s−1), and the a priori term in H^(s+1). The proof is the positive
@@ -662,8 +663,11 @@ and Λ_ε := ½(Op(φ_ε) + Op(φ_ε)*), bounded of order 0 uniformly and of ord
 Op(x)Λ_ε − Op(xφ_ε) is uniformly of order 𝗍 − 1 ([[prop:ii-a1-2-4]] (b)); this is used without comment.
 
 (d) Half steps. Let J_0 := 5, the number of steps that [[lem:ii-a1-4-2]] takes for τ = 1 with κ ≤ ¼. For δ_2 ∈ (0,
-2^(−J_0−4) δ_1] let 𝒜(δ_2) := U(2^(J_0+2) δ_2) ∩ ({|ϕ^u| ≥ δ_2/16} ∪ {ρ_K ≥ δ_2/16}), a closed set disjoint from
-Γ^u_(K⁺) by [[lem:ii-d-4-1]] (a). We show:
+2^(−J_0−6) δ_1], so that 2^(J_0+4) δ_2 ≤ δ_1/4, let 𝒜(δ_2) := U(2^(J_0+2) δ_2) ∩ ({|ϕ^u| ≥ δ_2/16} ∪ {ρ_K ≥
+δ_2/16}), a closed set disjoint from Γ^u_(K⁺) by [[lem:ii-d-4-1]] (a). As U(δ) lies in the interior of U(2δ) for δ ≤
+δ_U ([[lem:ii-d-4-1]] (a)), an operator elliptic on U(2^(J_0+3) δ_2) can be microsupported in U(2^(J_0+4) δ_2) ⊂
+U(δ_1/4), and the operators below that are microsupported in U(2^(J_0+3) δ_2) lie where r^♭ of [[eq:ii-d-4-4]]
+vanishes. We show:
 
 (★) Let s′ ∈ [s_0, s] and δ_2 be as above, G′ elliptic on U(2^(J_0+3) δ_2) and microsupported in U(δ_1/4), and E′
 elliptic on 𝒜(δ_2) and microsupported in U(δ_1/4) ∩ ({|ϕ^u| ≥ δ_2/32} ∪ {ρ_K ≥ δ_2/32}). If G′u ∈ H^(s′−½), G′Pu ∈
@@ -671,11 +675,13 @@ H^(s′), E′u ∈ H^(s′+1) and χu ∈ H^(−N′), then B′u ∈ H^(s′) 
 
     ‖B′u‖_(s′) ≤ C𝒦,       𝒦 := ‖G′Pu‖_(s′) + ‖E′u‖_(s′+1) + ‖G′u‖_(s′−½) + ‖χu‖_(−N′).
 
-[[prop:ii-d-4-2]] follows. Let J := ⌈2(s − s_0)⌉ and s_j := s_0 + j(s − s_0)/J, so s_j − s_(j−1) ≤ ½. Choose δ_2⁽¹⁾ so
-small that U(2^(J_0+4) δ_2⁽¹⁾) ⊂ U_Γ, lies in the region where χ̃ = 1 and W′ = 1, and the kernels are carried by χ in K
-× K; and δ_2⁽ʲ⁾ := 2^(−J_0−3) δ_2⁽ʲ⁻¹⁾, so that U(2^(J_0+4) δ_2⁽ʲ⁾) ⊂ U(2δ_2⁽ʲ⁻¹⁾). Step j of (★), at the order
-s_j, has its hypothesis G′u ∈ H^(s_j−½) from step j − 1 (from χ̃u ∈ H^(s_0) for j = 1), as s_j − ½ ≤ s_(j−1). Take B :=
-B′ of step J, G elliptic on U(2^(J_0+4) δ_2⁽¹⁾) and microsupported in U_Γ, and E elliptic on ⋃_j WF′(E′⁽ʲ⁾), a closed
+[[prop:ii-d-4-2]] follows. Let 𝔫 := ⌈2(s − s_0)⌉ and s_j := s_0 + j(s − s_0)/𝔫, so s_j − s_(j−1) ≤ ½. Choose δ_2⁽¹⁾ ≤
+2^(−J_0−6) δ_1 so small that U(2^(J_0+4) δ_2⁽¹⁾) ⊂ U_Γ, lies in the region where χ̃ = 1 and W′ = 1, and the kernels
+are carried by χ in K × K; and δ_2⁽ʲ⁾ := 2^(−J_0−3) δ_2⁽ʲ⁻¹⁾, so that U(2^(J_0+4) δ_2⁽ʲ⁾) ⊂ U(2δ_2⁽ʲ⁻¹⁾). Step j of
+(★), at the order s_j, is taken with G′ elliptic on U(2^(J_0+3) δ_2⁽ʲ⁾) and microsupported in U(2^(J_0+4) δ_2⁽ʲ⁾),
+which lies in U(δ_1/4) as δ_2⁽ʲ⁾ ≤ 2^(−J_0−6) δ_1; it has its hypothesis G′u ∈ H^(s_j−½) from step j − 1 (from χ̃u ∈
+H^(s_0) for j = 1), as s_j − ½ ≤ s_(j−1). Take B := B′ of step 𝔫, G elliptic on U(2^(J_0+4) δ_2⁽¹⁾) and
+microsupported in U_Γ, and E elliptic on ⋃_j WF′(E′⁽ʲ⁾), a closed
 set disjoint from Γ^u_(K⁺), with WF′(E) still disjoint from it. The norms of each step are bounded by the right side
 of [[eq:ii-d-4-2]], with ‖χu‖_(−N′) ≤ C‖χ̃u‖_(s_0), and [[sec:ii-d-1-2]] returns the estimate to the weighted spaces.
 The constants depend on P only through finitely many norms and the constants of (b) and of [[prop:ii-c1-3-4]], which

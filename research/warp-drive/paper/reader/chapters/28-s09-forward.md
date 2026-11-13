@@ -15,10 +15,13 @@ The notation is that of [[ch:s04]]–[[ch:s08]]. In particular n = 4, c = 3/2, �
 ι⁺ ∩ 𝓘⁺, ρ_K = R/(1 + R), the weights γ_I, γ_+, γ_cf of [[eq:ii-f-1-2]], the Mellin transform ℳ of [[eq:ii-f-1-3]],
 the ι⁺-normal operator N_ι⁺(P_0) = τ² N⁰ and its family N⁰(σ) of [[def:ii-f-1-1]], the semiclassical family P_(ι,h,z)
 of [[eq:ii-f-1-11]], the parameter sets [[eq:ii-f-3-2]], the orders and spaces [[eq:ii-f-3-3]] and the norms
-[[eq:ii-f-4-1]]. Order functions are written in sans-serif type (𝗌, 𝗍, 𝖻). The radii 0 < r_0 − 2δ_0 < r_0 < r_2 of the
-artificial boundary are parameters of the setting. The constants chosen from r_0 below (T_+ in [[def:ii-f-7-1]], the set
-Ω_♮ and the constants of [[lem:ii-f1-2-3]], the width κ of [[sec:ii-f1-2-5]]) are chosen by inequalities that a smaller
-r_0 makes no harder, so every result holds for each choice of the radii at which the hypotheses of [[ch:s05]] hold.
+[[eq:ii-f-4-1]]. Order functions are written in sans-serif type (𝗌, 𝗍, 𝖻). The defining function x_I of 𝓘⁺ is
+R^(−1/2) near ι⁺ ∩ 𝓘⁺, r^(−1/2) at finite times ([[sec:ii-f-6-3]]) and (t_*/(t_* + r))^(1/2) on Ω ([[eq:ii-f1-1-1]]);
+where two of these are defined near 𝓘⁺ they differ by a smooth positive factor, so the weighted spaces do not depend on
+the choice. The radii 0 < r_0 − 2δ_0 < r_0 < r_2 of the artificial boundary are parameters of the setting. The constants
+chosen from r_0 below (T_+ in [[def:ii-f-7-1]], the set Ω_♮ and the constants of [[lem:ii-f1-2-3]], the width κ of
+[[sec:ii-f1-2-5]]) are chosen by inequalities that a smaller r_0 makes no harder, so every result holds for each choice
+of the radii at which the hypotheses of [[ch:s05]] hold.
 
 ### Forward solutions of the ι⁺-normal operator {#sec:ii-f-6}
 
@@ -117,10 +120,13 @@ and for the operators below ([[def:ii-c-3-5]]; [Hin26c, Remark 10.2]), is γ < 3
 The existence of solutions below uses one standard result on hyperbolic equations, which the appendix of results from the
 literature states with its page.
 
-*The Cauchy problem* ([Hö85, Chapter 23] [[pending:issue-1]]). Let Q be a second-order operator with smooth coefficients
-on a vector bundle over a manifold X, with principal symbol G Id, G the dual metric function of a Lorentzian metric on
-X, and let t be a time function whose level sets are Cauchy hypersurfaces. For f ∈ H^(s−1)_loc(X) with supp f ⊂ {t ≥
-t_0} there is u ∈ H^(s)_loc(X) with Qu = f and supp u ⊂ {t ≥ t_0}.
+*The Cauchy problem* ([Hö85, Theorem 23.2.4] [[pending:issue-1]]). Let Q be a second-order operator on ℂ^N-valued
+functions on ℝ^(1+4), with principal symbol Ḡ Id, Ḡ the dual metric function of the Minkowski metric ḡ, and with smooth
+lower-order coefficients, and let t be the Minkowski time. For s ∈ ℝ, t_0 ∈ ℝ and f ∈ H^(s−1)_loc(ℝ^(1+4)) with supp f ⊂
+{t ≥ t_0} there is u ∈ H^(s)_loc(ℝ^(1+4)) with Qu = f and supp u ⊂ {t ≥ t_0}. [Hö85, Theorem 23.2.4] states this for a
+scalar operator of order m, strictly hyperbolic with respect to the level sets of a time function, with u ∈ H^(s+m−1)_loc
+for f ∈ H^(s)_loc. For Q the energy estimates are the scalar ones applied to each component, the coupling between the
+components being of lower order.
 
 **Lemma {#lem:ii-f-6-3}** (Control at 𝓘⁺ of the extension.) Let s′ ∈ ℝ, T ∈ ℝ, and g ∈ H^(s′−1)_c with support in
 {T ≤ t_* ≤ T + 2, 2 ≤ r ≤ 3}. There is a unique u on {t_* < T + 2}, vanishing for t_* < T and for r < 1, with
@@ -219,7 +225,7 @@ and u = 0: this is the uniqueness.
 translations in t, strongly continuous on [[eq:ii-f-6-3]] as 𝗌 is dilation-invariant, and move the support into
 {τ ≤ τ_0/Λ}; then multiply approximations in C_c^∞((0, ∞) × (ι⁺)°) by a cut-off in τ equal to 1 on [0, τ_0/Λ] and
 supported in [0, τ_0). As supp u ⊂ {τ ≤ τ_0} is a closed condition, it suffices to take f ∈ C_c^∞ with supp f ⊂
-[τ_1, τ_−] × 𝒦, 0 < τ_1 < τ_− < τ_0, 𝒦 ⊂ (ι⁺)° compact. Then F(σ) := ℳ(τ⁻² f)(σ) ∈ C_c^∞(𝒦) is entire in σ, and for
+[τ_1, τ_−] × 𝒞, 0 < τ_1 < τ_− < τ_0, 𝒞 ⊂ (ι⁺)° compact. Then F(σ) := ℳ(τ⁻² f)(σ) ∈ C_c^∞(𝒞) is entire in σ, and for
 Im σ ≥ −γ_+ and L ∈ ℕ₀, as ℳ((1 + (τD_τ)²)^L g) = (1 + σ²)^L ℳg and |τ^(−iσ)| = τ^(Im σ) ≤ max(τ_−^(Im σ),
 τ_1^(−γ_+)) on the support,
 
@@ -1067,12 +1073,12 @@ Fix 𝗌, s_in and 𝗌_0 as in [[lem:ii-f1-2-3]]. Only 𝗌, 𝗌_0 and 𝗌 + 
 #### Variable orders that agree on a set {#sec:ii-f1-2-4}
 
 **Lemma {#lem:ii-f1-2-4}** (Pseudolocality of the order.) Let 𝗍_1, 𝗍_2 be order functions (property (S8) of
-[[sec:ii-a-3]]) and U ⊂ M̃ open with 𝗍_1 = 𝗍_2 over U, and let 𝒦 ⊂ U be closed and φ ∈ C^∞_b with supp φ ⊂ U and φ = 1
-near 𝒦. For every j ∈ ℕ₀, ν and weight w there is C with
+[[sec:ii-a-3]]) and U ⊂ M̃ open with 𝗍_1 = 𝗍_2 over U, and let 𝒞 ⊂ U be closed and φ ∈ C^∞_b with supp φ ⊂ U and φ = 1
+near 𝒞. For every j ∈ ℕ₀, ν and weight w there is C with
 
     ‖v‖_(H^((𝗍_2;j),w)_(e3b;b)) ≤ C (‖v‖_(H^((𝗍_1;j),w)_(e3b;b)) + ‖v‖_(H^((−ν;j),w)_(e3b;b)))
 
-for every v supported in 𝒦.
+for every v supported in 𝒞.
 
 *Proof.* Weights are removed by conjugation ([[eq:ii-a-8-1]] and the remark after it). Let A_i ∈ Ψ^(𝗍_i)_e3b be
 elliptic, so that ‖v‖_((𝗍_i;j)) is equivalent to ‖A_i v‖_((0;j)) + ‖v‖_((−ν;j)) ((S8); for the b-derivatives, (S10)
@@ -1131,8 +1137,8 @@ Supports: (1 − ψ)ũ is supported in {t^♭ ≥ 1}; ψu is supported in {t^♭
 *The first term.* ‖(1 − ψ)ũ‖_((𝗍;j),w) ≤ C_j ‖ũ‖_((𝗍;j),w) for every extension ũ; the left side being independent of
 ũ, it is at most C_j ‖u‖_((𝗍;j),w), at every j at once.
 
-*The second term.* For v supported in the set 𝒦_κ := {t^♭ ≥ 1, r_0 − 2κ ≤ r ≤ r_0 + 2κ}, compact in r,
-[[lem:ii-f1-2-4]] (with U the interior of Ω_♮, which contains 𝒦_κ with a neighbourhood φ as required, and 𝗍 against
+*The second term.* For v supported in the set 𝒞_κ := {t^♭ ≥ 1, r_0 − 2κ ≤ r ≤ r_0 + 2κ}, compact in r,
+[[lem:ii-f1-2-4]] (with U the interior of Ω_♮, which contains 𝒞_κ with a neighbourhood φ as required, and 𝗍 against
 the constant m, both ways) gives ‖v‖_((𝗍;j),w) ∼ ‖v‖_((m;j),w), the terms ‖v‖_((−ν;j)) being bounded by either side as
 m ≥ 0 ≥ −ν. As m ∈ ℕ₀, the norm of (S3) is, on such v, equivalent to the differential norm
 
@@ -1150,7 +1156,7 @@ such w in the norm D_(m,j) on {r > r_0},
     D_(m,j)(ℰ_r w) ≤ C_(m,j) D⁺_(m,j)(w),
 
 D⁺_(m,j) denoting D_(m,j) with the integrals over {r > r_0}. For any extension ũ, ψ_−ψũ = ψu on {r > r_0} and ψ_−ψũ is
-supported in 𝒦_κ, so
+supported in 𝒞_κ, so
 
     D⁺_(m,j)(ψu) ≤ D_(m,j)(ψ_−ψũ) ≤ C ‖ψ_−ψũ‖_((m;j),w) ≤ C ‖ψ_−ψũ‖_((𝗍;j),w) ≤ C_j ‖ũ‖_((𝗍;j),w).
 

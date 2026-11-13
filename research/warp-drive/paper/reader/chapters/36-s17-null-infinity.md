@@ -1693,9 +1693,9 @@ r⁻³ at n = 4. The first-order terms r⁻¹A∂₁ of P′ applied to r^(−k)
 1, are of size r^(−(1+k)); relative to these the quadratic term has the factor r^(1−k): 1 at n = 3, where
 −½|∂₁π̸₀h|² enters the leading term of h₁₁ ([Hin23a, (3.47), Remark 3.38]), and r^(−1/2) at n = 4.
 
-(6) The least integer above ½ dim M = (n + 1)/2 is 3 at n = 3 and at n = 4 (the order k ≥ 3 of [Hin23a, Notation
-3.22], H^k_b ⊂ L^∞); the least integer above (dim M − 1)/2, the number d_(dim M−1) of [Hin23a, Lemma 3.33], is 2 at
-n = 3 and 3 at n = 4.
+(6) The least integer above ½ dim M = (n + 1)/2 is 3 at n = 3 and at n = 4 (the Sobolev order 3 of [Hin23a,
+Notation 3.22], above which H^m_b ⊂ L^∞); the least integer above (dim M − 1)/2, the number d_(dim M−1) of [Hin23a,
+Lemma 3.33], is 2 at n = 3 and 3 at n = 4.
 
 (7) Let P(g) := Ric(g) − δ^*_(ḡ,E_C)Υ(g; ḡ), Υ(g; ḡ)_m := g_(mq)g^(ab)(Γ(g)^q_(ab) − Γ(ḡ)^q_(ab)), the operator of
 [Hin23a, (3.30)] but for its γ_Υ term, which is linear in g − ḡ and so has no part bilinear in the perturbation. For g

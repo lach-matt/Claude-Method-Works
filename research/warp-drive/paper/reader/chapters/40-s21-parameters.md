@@ -1216,7 +1216,8 @@ In every case ω^(≤k)_τ := Σ_(i≤k) (k!/(k − i)!) t_*^(k−i) ω̆^i_τ �
 in its convention, as in [[sec:iii-i8-2]]), with □^Υ_(b_0) = 2δ_(g_(b_0),E_Υ)G_(g_(b_0))δ*_(g_(b_0)). Near infinity in
 X̄, with the leading exponents ς_τ (ς_τ is an exponent, not a spectral parameter),
 
-    ω̆^i_τ ∈ 𝒜^((ς_τ−i,0)+ℱ),    ς_s1 = ς_s0 := 0,   ς_v1 = ς_s2 := −1,   ς_c0 := μ_c0 − 1,   ς_c1 := μ_c1 − 1:  {#eq:iii-i9-2-1}
+    ω̆^i_τ ∈ 𝒜^((ς_τ−i,0)+ℱ),     ς_s1 = ς_s0 := 0,     ς_v1 = ς_s2 := −1,
+    ς_c0 := μ_c0 − 1,     ς_c1 := μ_c1 − 1:                                                              {#eq:iii-i9-2-1}
 
 for s1 by [[sec:iii-i4-1]] and [[prop:iii-d3-3-1]] (2) (as in the proof of [[lem:iii-i8-2-2]]); for v1 by
 [[eq:iii-d2-3-2]] (ω^((−1))_(b_0,v1)(V) − V ∈ 𝒜^((2,0)+ℱ), the rotation 1-form V homogeneous of degree 1) and

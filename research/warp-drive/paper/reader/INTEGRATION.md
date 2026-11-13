@@ -80,3 +80,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S16-S20 write λ for the ι⁺ spectral parameter, against OUTLINE's λ = wavelength only: rename in the integration
   pass after a symbol census of files 20-60 (the S16 reader proposes a letter). [AN00, Theorem 3.1] needs a page for
   Appendix A. S16's window rests on NP 10.35's condition on the grafted order (S16 reader checks).
+- S20, S22, S24 cite III.I(15) §§1-2.5 forward in S25. If S25 depends on nothing in S20-S24 (the S20 and S24 readers
+  check), move S25 before S20 (rename to 38a-s25-base-points.md) so every reference points back.
+- S24 drops the vacuous (E5): every "(E1)-(E5)" elsewhere becomes "(E1)-(E4)". Unify B_* (S19) to ℬ_* (S20-S24).

@@ -929,8 +929,9 @@ bundle in a fixed smooth frame.
     𝒢̃^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) := x_I⁻²ρ₊⁻² C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b)(Ω; S² ᵉ³ᵇT*_Ω M),
     𝒢^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) := g₀ + 𝒢̃^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b),
 
-with the norm of C^((d₀;k),(2ℓ_I+2,ℓ₊+2,ℓ_K))_(e3b;b) on the first and the induced metric on the second. Subscripts are
-dropped for d₀ = 0 ("e3b") or k = 0 ("b").
+with the norm ‖h‖ := ‖x_I²ρ₊²h‖ of C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) on the first, equivalent by [[lem:ii-a-8-2]]
+(c) to the norm of C^((d₀;k),(2ℓ_I−2,ℓ₊−2,ℓ_K))_(e3b;b), which is the same space, and the induced metric on the second.
+Subscripts are dropped for d₀ = 0 ("e3b") or k = 0 ("b").
 
 **Remark {#rem:s05-metric-class}** (a) g₀ − ḡ ∈ x_I⁻²ρ₊⁻² C^(∞,(2,2,0))(Ω; S² ᵉ³ᵇT*_Ω M) by [[eq:ii-b-1-2]], as ρ₀ is
 bounded below on Ω, so g₀ − ḡ lies in 𝒢̃^(∞,(2ℓ_I,ℓ₊,0)) for all admissible ℓ_I, ℓ₊; for Kerr the weights are
