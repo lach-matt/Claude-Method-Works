@@ -25,11 +25,11 @@ inverse of the tf-normal operator (Lemma 9.26, Remarks 9.27–9.28), the graftin
 space (Definition 9.29, (9.72), Proposition 9.30, Remarks 9.31–9.34) and its conormal version (Proposition 9.35).
 [Hin26] uses these results from its Section 11.5 on.
 
-Two propositions close the first and second steps and are used in [[ch:s26]]. [[prop:np-10-38]] collects the operator
-at null infinity in dimension 4 + 1, entry by entry, and what it gives for the order at which a radiative term at null
-infinity reaches future timelike infinity. [[prop:np-10-64]] gives the quantities through which the spatial dimension
-enters [Hin23a, Section 3], the energy estimates near null and spatial infinity that [[ch:s26]] carries to dimension
-4 + 1.
+Two further sections are used in [[ch:s26]]. [[sec:s17-radiative]], after the second step, collects in
+[[prop:np-10-38]] the operator at null infinity in dimension 4 + 1, entry by entry, and what it gives for the order at
+which a radiative term at null infinity reaches future timelike infinity. [[sec:s17-exterior]], at the end, gives in
+[[prop:np-10-64]] the quantities through which the spatial dimension enters [Hin23a, Section 3], the energy estimates
+near null and spatial infinity that [[ch:s26]] carries to dimension 4 + 1.
 
 The notation is that of [[ch:s11]]–[[ch:s16]]. In particular n = 4, D = 5; the family g_b, b = (μ, A) ∈ ℬ, of
 [[sec:iii-b-3]], with μ₀, R₁ = μ₀^(1/2), the compactification M and its faces I₀, ℐ⁺, ι⁺, K⁺ ([[def:iii-b-2-1]]); the
@@ -1095,8 +1095,8 @@ uses them; (0, z_Υ/3] for (l, l + j) = (0, 2)), so {−μ} ∈ (0, ¼), and {�
 
 This section is [Hin26, (9.57)–(9.61) and Definition 9.25] in dimension 4 + 1.
 
-**Definition {#def:iii-g4-2-1}** For μ ∈ 𝒲, a type τ at which μ is a root, Y ∈ 𝒴_τ and k ≤ K_μ (resp. K − 2, K − 1
-for s1, v1),
+**Definition {#def:iii-g4-2-1}** (Formal solutions at ztf.) For μ ∈ 𝒲, a type τ at which μ is a root, Y ∈ 𝒴_τ and k ≤
+K_μ (resp. K − 2, K − 1 for s1, v1),
 
     h̄^((μ),≤k)_τ(±r̂, Y) := Σ_(j=0)^k (∓ir̂)^j r̂^(−μ) φ^((μ,τ))_j(ω; Y),                               {#eq:iii-g4-2-1}
 
@@ -1130,7 +1130,8 @@ homogeneous and the chains are those of Minkowski space.
 
 **Definition {#def:iii-g4-2-3}** ([Hin26, (9.61)].) l_β(r̂) := (r̂^β − 1)/β for β ≠ 0, and l₀(r̂) := log r̂.
 
-**Lemma {#lem:iii-g4-2-4}** (1) [r̂∂_r̂, l_β(r̂)] = r̂^β. For a polynomial p of degree d with coefficients in Diff(𝕊³),
+**Lemma {#lem:iii-g4-2-4}** (The functions l_β.) (1) [r̂∂_r̂, l_β(r̂)] = r̂^β. For a polynomial p of degree d with
+coefficients in Diff(𝕊³),
 [p(r̂∂_r̂), l_β] = r̂^β q_β(r̂∂_r̂), with q_β of degree d − 1 and coefficients polynomial in β. (2) For C₀ ∈ ℝ and
 χ ∈ C_c^∞([0, 1)), β ↦ χl_β is holomorphic on {Re β > C₀} with values in H^(∞,c)_b([0, 1)_r̂) for every
 c < min(0, C₀), including at β = 0. (3) For t > 0, l_β(r̂) − l_β(t) = t^β l_β(r̂/t). (4) (r̂^z − r̂^m)/(z − m) =
@@ -1202,7 +1203,7 @@ rotations of the table of [[sec:iii-g2-1]].
 
 The proof uses three lemmas, with P = N₀ + r̂N₁ of [[eq:iii-g4-1-3]].
 
-**Lemma {#lem:iii-g4-3-2}** P maps 𝔉_D into 𝔉_D.
+**Lemma {#lem:iii-g4-3-2}** (The class 𝔉_D.) P maps 𝔉_D into 𝔉_D.
 
 *Proof.* P(r̂^z a) = r̂^z P_z a with P_z := r̂^(−z)Pr̂^z, a b-operator with smooth coefficients polynomial in z, and
 b-operators with smooth coefficients preserve H^(∞,((0,0),ℓ))_b with holomorphic dependence (property (F1) of

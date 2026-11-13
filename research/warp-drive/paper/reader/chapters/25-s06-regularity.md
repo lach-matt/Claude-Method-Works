@@ -26,9 +26,12 @@ and by induction on the order in half steps.
 
 *Notation.* Orders that may vary on phase space are written in sans-serif (𝗌, 𝗍); an order written s, s_0 or s′ is a
 constant. For a matrix 𝔞 that is self-adjoint for some fibre inner product, max spec 𝔞 is its largest eigenvalue. N′
-is a fixed large integer; every a priori term ‖χu‖_(−N′) below is with respect to it, and N_E is the rank of the bundle
-E = ℂ^(N_E) of [[sec:ii-c-1-1]]. ϕ^u, ϕ^s and ϕ_u, ϕ_s denote defining functions of hypersurfaces at the trapped set;
-φ_ε is the regulariser of [[sec:ii-d-2]].
+is a fixed large integer; every a priori term ‖χu‖_(−N′) below is with respect to it (such terms are written ‖χu‖_(−N)
+in [[ch:s04]]), and N_E is the rank of the bundle E = ℂ^(N_E) of [[sec:ii-c-1-1]]. ϕ^u, ϕ^s and ϕ_u, ϕ_s denote the
+defining functions of hypersurfaces at the trapped set that [[ch:s02]] and [[ch:s05]] write φ^(u/s), φ_(u/s); here
+φ_ε is the regulariser of [[sec:ii-d-2]]. β_0 is the constant of (H3) at the horizon ([[eq:i-a-1-3]],
+[[eq:ii-b-4-1]]); the constant ½ min_Γ |q_1| > 0 of condition (Γ.4) of (H7) at the trapped set, which [[ch:s02]] and
+[[ch:s05]] also write β_0, is written β_Γ here.
 
 ### The setting and the global estimate {#sec:ii-d-1}
 
@@ -41,7 +44,9 @@ hypotheses: nothing below uses their values, and the radii chosen from them belo
 with them. Fix ℓ_I ∈ (0, ½], ℓ_+ ∈ (0, 1] and ℓ_K > 0. P is a weakly admissible wave-type operator relative to P_0 of
 class ((d_0; 0), (2ℓ_I, ℓ_+, ℓ_K)) ([[def:ii-c-3-3]]), and ε_P := ‖P − P_0‖_((d_0;0),(2ℓ_I,ℓ_+,ℓ_K))
 ([[def:ii-c-3-6]]). Only ℓ_I ∈ (0, ½], ℓ_+ > 0, ℓ_K > 0 are used: the conditions [Hin26c, (5.23)] play no part in
-microlocal regularity ([Hin26c, p. 115]). Of [[def:ii-c-3-3]], only conditions (1) and (2) are used, together with
+microlocal regularity ([Hin26c, p. 115]). The bound ℓ_+ ≤ 1 is no restriction: as ρ_+ ≤ 1 on Ω, ρ_+^(ℓ_+−1) is
+bounded with its b-derivatives for ℓ_+ > 1, so a class with ℓ_+ > 1 lies in the class with ℓ_+ = 1, with norm at most
+a constant times its own. Of [[def:ii-c-3-3]], only conditions (1) and (2) are used, together with
 [[def:ii-c-3-5]] and [[def:ii-c-3-6]]; condition (3), the triangular structure of p_1 and p_0, is not assumed anywhere in
 this chapter. Indeed p_1 and p_0 enter only through [[eq:ii-c-3-1]]–[[eq:ii-c-3-2]] and [[lem:ii-c-3-4]], which follows
 from (2); through p̄_1; and through fibre inner products built by Jordan scalings at points, continuity and a partition
@@ -153,7 +158,9 @@ real scalar principal symbol ℓ of order m. L_R, L_I and C_ǎ are those of [[eq
 of L_I (an Hermitian matrix of order m − 1), norms are those of H^𝗍_e3b, and B, E, G, J are carried by χ
 ([[sec:ii-a-8-3]]). For a positive symbol ρ, homogeneous of degree −1 near fibre infinity, and κ > 0, the regulariser is
 φ_ε := (1 + ερ⁻¹)^(−κ), ε ∈ (0, 1], and θ_ε := ερ⁻¹(1 + ερ⁻¹)⁻¹; [[eq:ii-a1-2-1]] holds with ρ in place of ρ_∞, and
-φ_ε has the properties stated after it. δ_c ∈ [0, ¼] is the constant in the a priori term of [[lem:ii-a1-4-1]] (an
+φ_ε has the properties stated after it. [[sec:ii-a1-2]] states both for κ ∈ (0, ½]; they hold for every κ > 0 with the
+same proof, the identity being exact for every κ and |1 − φ_ε| ≤ min(1, κερ⁻¹) as in the proof of [[lem:ii-a1-2-3]]
+(b). δ_c ∈ [0, ¼] is the constant in the a priori term of [[lem:ii-a1-4-1]] (an
 inequality with δ_c = 0 implies the same inequality with every δ_c > 0), and ς ∈ {1, −1} the sign there.
 
 **Lemma {#lem:ii-d-2-1}** (One step with a characteristic cut-off.) Let (i)–(ii) of [[lem:ii-a1-4-1]] hold, and in place
