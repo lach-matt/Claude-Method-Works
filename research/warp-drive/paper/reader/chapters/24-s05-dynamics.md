@@ -477,3 +477,155 @@ disjoint, compact and invariant; and it reaches {r < r₀ − δ₀} forward at 
 ([[lem:ii-b-2-3]] (d)), so its limit points are not over ∂X. Γ₋₁ ⊂ Σ^♭₋₁ = Σ⁻₋₁, and q₋₁ ≤ −2β₀ < 0 near Γ₋₁ by
 (Γ.4), while q₋₁ > 0 on γ̃; so γ̃ lies in neither Γ̄_u nor Γ̄_s. By (H8) (a), γ̃ tends backward to ∂ℛ₊ (not to ∂ℛ₋,
 as before, nor to R_(−1,in), which lies over ∂X), and reaches {r < r₀ − δ₀} forward (not R_out, over ∂X). ∎
+
+### The eb-dynamics near ℐ⁺ {#sec:ii-b-7}
+
+Near ℐ⁺ ∩ ι⁺ use ρ₊ = t_*⁻¹, x_I = (t_*/r)^(1/2) and ω ([[sec:ii-a-1]]) and eb-covectors
+σ_(eb) dρ₊/ρ₊ + ξ_(eb) dx_I/x_I + η_(eb) dω/x_I ([[def:ii-a-2-4]]), and put G_(eb) := x_I⁻²ρ₊⁻²G. Since
+dρ₊/ρ₊ = −ρ₊ dt_* and dx_I/x_I = ½ρ₊(dt_* − x_I² dr), the covector is
+ν = ρ₊(½ξ_(eb) − σ_(eb)) dt_* − ½ρ₊x_I²ξ_(eb) dr + x_I⁻¹η_(eb) dω, and ḡ⁻¹(ν, ν) = −2ν_(t_*)ν_r + ν_r² + r⁻²|ν_ω|²
+with r⁻² = ρ₊²x_I⁴ gives
+
+    Ḡ_(eb) = ½ξ_(eb)(ξ_(eb) − 2σ_(eb)) + |η_(eb)|² + ¼x_I²ξ_(eb)².                                     {#eq:ii-b-7-1}
+
+This is the inverse of the form of ḡ near ℐ⁺ ∩ ι⁺ of [[sec:ii-a-2-3]], whose angular term is g_(𝕊³)/(2x_I²). By
+[[lem:ii-b-1-1]] (the inverses), G_(eb) − Ḡ_(eb) ∈ x_I²ρ₊² P^[2](ᵉᵇT*M), so
+
+    G_(eb) ≡ G⁰_(eb) := ½ξ_(eb)(ξ_(eb) − 2σ_(eb)) + |η_(eb)|²        modulo x_I² P^[2],
+
+and as H_(x_I) = −x_I∂_(ξ_(eb)) by [[eq:ii-a-2-2]], H_(G_(eb)) ≡ H_(G⁰_(eb)) modulo x_I²𝒱_eb(ᵉᵇT*M), where, by
+[[eq:ii-a-2-2]],
+
+    H_(G⁰_(eb)) = −ξ_(eb)ρ₊∂_(ρ₊) + (ξ_(eb) − σ_(eb))(x_I∂_(x_I) + η_(eb)∂_(η_(eb))) − 2|η_(eb)|²∂_(ξ_(eb))
+                  + x_I H_(|η_(eb)|²)                                                                  {#eq:ii-b-7-2}
+
+([Hin26c, p. 96], here on T*𝕊³).
+
+*The sign of σ_(eb).* σ_(eb) = ν(ρ₊∂_(ρ₊)), and at fixed x_I, ρ₊∂_(ρ₊) = −(t_*∂_(t_*) + r∂_r) = −(t∂_t + r∂_r). The
+vector field V := t∂_t + r∂_r has ḡ(V, V) = −t_*² − 2t_*r, and by (K1),
+|g(V, V) − ḡ(V, V)| ≤ Cr⁻²(t_* + r)² ≤ ½(t_*² + 2t_*r) on Ω ∩ {r ≥ R₂} for R₂ large (t_* ≥ 1). So V is timelike there,
+and future directed: g(V, −∇t_*) = −dt_*(V) = −t_* < 0. For ν ∈ Σ⁺ over M° there, ν(V) < 0, so σ_(eb) = −ν(V) > 0; on
+Σ over ℐ⁺, σ_(eb) = 0 would force ½ξ_(eb)² + |η_(eb)|² = 0, so σ_(eb) > 0 on Σ⁺ near ℐ⁺ ∩ ι⁺ ([Hin26c, p. 96]). Put
+
+    ρ_∞ := σ_(eb)⁻¹,     ξ̂ := ξ_(eb)/σ_(eb),     η̂ := η_(eb)/σ_(eb),     𝖧 := ρ_∞H_(G_(eb)).             {#eq:ii-b-7-3}
+
+Then ρ_∞²G⁰_(eb) = ½ξ̂(ξ̂ − 2) + |η̂|², and 𝖧⁰ := ρ_∞H_(G⁰_(eb)) satisfies, exactly (H_(G⁰_(eb))σ_(eb) = 0),
+
+    𝖧⁰ρ₊ = −ξ̂ρ₊,     𝖧⁰x_I = (ξ̂ − 1)x_I,     𝖧⁰ρ_∞ = 0,     𝖧⁰ξ̂ = −2|η̂|²,
+    𝖧⁰η̂ = (ξ̂ − 1)η̂ − x_I∂_ω|η̂|²,                                                                      {#eq:ii-b-7-4}
+
+which is [Hin26c, (4.67)]; 𝖧 − 𝖧⁰ ∈ x_I²𝒱_eb, tangent to ᵉᵇS*M.
+
+**Definition {#def:ii-b-7-1}** (The radial sets at ℐ⁺; [Hin26c, Definition 4.22].)
+∂R_(ℐ⁺,out) := {x_I = 0, ξ̂ = 0, η̂ = 0} over ℐ⁺ (all ρ₊), and ∂R_(ℐ⁺,in,+) := {ρ₊ = 0, x_I = 0, ξ̂ = 2, η̂ = 0} over
+ℐ⁺ ∩ ι⁺; their conic extensions lie in {σ_(eb) > 0}.
+
+By [[eq:ii-b-7-4]], with ξ̂ a function of (ρ₊, x_I, η̂) on ∂Σ⁺ near each set, the linearisation of 𝖧 is
+dx_I ↦ −dx_I, dη̂ ↦ −dη̂ at ∂R_(ℐ⁺,out), and dρ₊ ↦ −2dρ₊, dx_I ↦ dx_I, dη̂ ↦ dη̂ at ∂R_(ℐ⁺,in,+) ([Hin26c, (4.69)]);
+the error vanishes to second order at x_I = 0. So the first set is a sink transversally to its ρ₊-fibres, and the
+second a saddle.
+
+**Lemma {#lem:ii-b-7-2}** (1) (*Over ℐ⁺.*) On ∂Σ⁺ over ℐ⁺, ξ̂ ∈ [0, 2] and |η̂|² = ½ξ̂(2 − ξ̂), and along integral
+curves
+
+    ξ̂′ = −ξ̂(2 − ξ̂),        ρ₊′ = −ξ̂ρ₊.                                                              {#eq:ii-b-7-5}
+
+A maximal integral curve over ℐ⁺ ∩ Ω not contained in ∂R_(ℐ⁺,out) ∪ ∂R_(ℐ⁺,in,+) is one of the following.
+(i) ξ̂ = 2/(1 + e^(2s)), ρ₊ = A(1 + e^(−2s)) with 0 < A < 1: forward it tends to ∂R_(ℐ⁺,out) (at ρ₊ = A), backward it
+reaches {t_* = 1} at a finite parameter. (ii) The same with A = 0, over ℐ⁺ ∩ ι⁺: from ∂R_(ℐ⁺,in,+) to ∂R_(ℐ⁺,out).
+(iii) ξ̂ ≡ 2, η̂ ≡ 0, ρ₊ = ρ₊(0)e^(−2s), ρ₊(0) > 0: forward it tends to ∂R_(ℐ⁺,in,+), backward it reaches {t_* = 1}.
+
+(2) (*Convexity in ι⁺.*) Over ι⁺, if 𝖧x_I = 0 and x_I > 0, then 𝖧²x_I < 0.
+
+(3) (*Invariant manifolds.*) ∂W_(ℐ⁺) := {ξ̂ = 2, η̂ = 0} over ℐ⁺ is the stable manifold of ∂R_(ℐ⁺,in,+) within ∂Σ⁺
+over ℐ⁺; in the present coordinates, ∂W_out of [[lem:ii-b-3-3]] (4) is {ρ₊ = 0, ξ̂ = 0, η̂ = 0}.
+
+This is [Hin26c, Lemma 4.23] in dimension 4 + 1.
+
+*Proof.* (1) Over ℐ⁺, 𝖧 = 𝖧⁰ and ρ_∞²G_(eb) = ½ξ̂(ξ̂ − 2) + |η̂|², so on ∂Σ⁺, |η̂|² = ½ξ̂(2 − ξ̂), and
+[[eq:ii-b-7-4]] gives [[eq:ii-b-7-5]]. If ξ̂(0) ∈ {0, 2} then η̂ = 0; ξ̂ ≡ 0 gives a point of ∂R_(ℐ⁺,out), and ξ̂ ≡ 2
+gives (iii) or, at ρ₊ = 0, a point of ∂R_(ℐ⁺,in,+). Otherwise ξ̂ = 2/(1 + e^(2s)) after a shift,
+ρ₊′/ρ₊ = −2/(1 + e^(2s)), and ρ₊ = A(1 + e^(−2s)). On Ω, ρ₊ ≤ 1, so A < 1 if A > 0, and ρ₊ increases as s decreases
+and reaches 1 at a finite parameter. The angular coordinates do not move: |ω′| ≤ 2x_I|η̂| = 0 over ℐ⁺. The limits of
+ξ̂, η̂ and ρ₊ are read off. (2) Over (ι⁺)°, x_I² = u = ρ_K⁻¹, and by [[lem:ii-b-7-3]] below 𝖧 is a positive multiple
+c𝖧^(3b) of the field of [[sec:ii-b-3]] on Σ. At a zero of 𝖧x_I, 𝖧^(3b)ρ_K = 0, and
+𝖧²x_I = c²(𝖧^(3b))²x_I = −½c²ρ_K^(−3/2)(𝖧^(3b))²ρ_K < 0 by [[lem:ii-b-3-3]] (3). (3) ∂W_(ℐ⁺) is invariant by
+[[eq:ii-b-7-5]] and consists of the curves (iii) and the points of ∂R_(ℐ⁺,in,+); curves over ℐ⁺ with ξ̂ ≠ 2 tend to
+∂R_(ℐ⁺,out) by (1). The last statement is [[lem:ii-b-7-3]] at ξ̂_(3b) = 0. ∎
+
+**Lemma {#lem:ii-b-7-3}** (3b and eb over ι⁺.) Over (ι⁺)°, with u = x_I² = t_*/r and the 3b-coordinates
+[[eq:ii-b-3-1]], [[eq:ii-b-3-3]], σ_(eb) = −σ_(3b)(u + ξ̂_(3b)), ξ_(eb) = −2ξ_(3b) and η_(eb) = x_Iη_(3b); hence
+
+    ξ̂_(eb) = 2ξ̂_(3b)/(u + ξ̂_(3b)),     η̂_(eb) = −x_Iη̂_(3b)/(u + ξ̂_(3b)),     𝖧 = (u/(u + ξ̂_(3b))) 𝖧^(3b) on Σ,
+                                                                                                        {#eq:ii-b-7-6}
+
+with 𝖧^(3b) := −σ_(3b)⁻¹H_(G_(3b)) as in [[sec:ii-b-3]]. Consequently, in [[lem:ii-b-3-2]] (b), the curves (ii) and (iii)
+tend to ∂R_(ℐ⁺,in,+) as the eb-parameter tends to −∞, and the curves (i) and (iii) tend to ∂R_(ℐ⁺,out) as s → ∞.
+
+*Proof.* The identity −σ dt_* + ξ dr + η = σ_(3b) dt_*/r + ξ_(3b) dr/r + η_(3b) and the formula for ν above give
+σ_(eb) = σt_* − ξr = −σ_(3b)u − ξ_(3b), ξ_(eb) = −2ξr = −2ξ_(3b) and η_(eb) = x_Iη_(3b). On Σ⁺ over ι⁺, σ_(3b) < 0 and
+ξ̂_(3b) ∈ [0, 2], so u + ξ̂_(3b) > 0. Also G_(eb) = x_I⁻²ρ₊⁻²G = rt_*G = uG_(3b), so H_(G_(eb)) = uH_(G_(3b)) on Σ,
+and σ_(eb)⁻¹ = −σ_(3b)⁻¹(u + ξ̂_(3b))⁻¹. For the limits: in (ii) and (iii) the 3b-parameter reaches the end s₀ with
+u → 0 and ξ̂_(3b) → ξ̂₀ ∈ (0, 2]; by [[eq:ii-b-3-5]], u′ = 2ξ̂₀ + O(u) there, so u ∼ 2ξ̂₀(s − s₀), and the eb-parameter
+∫(u + ξ̂_(3b))u⁻¹ ds diverges to −∞; along the way ξ̂_(eb) → 2 and η̂_(eb) → 0 by [[eq:ii-b-7-6]], and ω converges
+([[lem:ii-b-3-2]] (c)): the limit lies in ∂R_(ℐ⁺,in,+). As s → ∞ in (iii), ξ̂_(3b) ∼ 2e^(−4s), |η̂_(3b)| ∼ 2e^(−2s) and
+u ∼ 2Ce^(−2s), so ξ̂_(eb) ∼ (2/C)e^(−2s) → 0 and |η̂_(eb)| ≲ e^(−s) → 0; in (i), ξ̂_(3b) = 0 and ξ̂_(eb) = η̂_(eb) = 0
+while u → 0. In both cases ρ₊ = 0 and x_I → 0: the limit lies in ∂R_(ℐ⁺,out). ∎
+
+### The global dynamics in e3b-phase space {#sec:ii-b-8}
+
+**Proposition {#prop:ii-b-8-1}** (Curves over the boundary.) Let γ be a maximal integral curve of [[eq:ii-b-1-4]] in
+∂Σ⁺ over ∂M̃ ∩ Ω ∩ {r > r₀ − 2δ₀}, that is, over (ℐ⁺ ∩ Ω) ∪ ι⁺ ∪ K⁺. Say that γ is of type (A, B) if it tends to A
+backward (or reaches A at a finite parameter, for A = {t_* = 1}) and to B forward (or reaches B, for
+B = {r < r₀ − δ₀}). Write R^K_(in/out) := ∂R_(∂K⁺,in/out), R^I_in := ∂R_(ℐ⁺,in,+), R^I_out := ∂R_(ℐ⁺,out),
+R_ℋ := ∂R_(ℋ⁺), Γ_K := ∂Γ_(K⁺) and r₋ := {r < r₀ − δ₀}. Then γ lies in one of ∂R_(ℋ⁺), ∂R_(ℐ⁺,in,+),
+∂R_(∂K⁺,in), ∂Γ_(K⁺), ∂R_(∂K⁺,out), ∂R_(ℐ⁺,out), or it is of one of the following types.
+
+| over | A | B |
+|---|---|---|
+| (ℐ⁺)° ∩ Ω | {t_* = 1} | R^I_in, R^I_out |
+| ℐ⁺ ∩ ι⁺ | R^I_in | R^I_out |
+| (ι⁺)° | R^I_in | R^K_in, R^I_out |
+| (ι⁺)° | R^K_out | R^I_out |
+| ∂K⁺ | R^K_in | R^K_out |
+| (K⁺)° | R_ℋ, R^K_in | r₋, Γ_K, R^K_out |
+| (K⁺)° | Γ_K | r₋, R^K_out |
+
+In the order {t_* = 1}, ∂R_(ℋ⁺), ∂R_(ℐ⁺,in,+), ∂R_(∂K⁺,in), ∂Γ_(K⁺), ∂R_(∂K⁺,out), {r < r₀ − δ₀}, ∂R_(ℐ⁺,out), every
+curve goes from an earlier set to a later one, as in [Hin26c, Figure 4.3]; with [[prop:ii-b-8-2]] this holds for every
+curve over Ω. This is [Hin26c, Proposition 4.24] in dimension 4 + 1, for the curves over the boundary.
+
+*Proof.* [[eq:ii-b-1-4]] is a b-vector field on ᵉ³ᵇS*M, so it is tangent to every boundary hypersurface, and each open
+stratum of the boundary is invariant: (ℐ⁺)°, ℐ⁺ ∩ ι⁺, (ι⁺)°, ∂K⁺ = K⁺ ∩ ι⁺ and (K⁺)° (within Ω). Over (K⁺)° and ∂K⁺
+the claim is [[prop:ii-b-6-1]]. Over (ι⁺)° it is [[lem:ii-b-3-2]] (b), with the ends at u = 0 identified by
+[[lem:ii-b-7-3]]; case (i) of [[lem:ii-b-3-2]] (b) is the fourth row, cases (ii) and (iii) the third. Over ℐ⁺ it is
+[[lem:ii-b-7-2]] (1). ∎
+
+**Proposition {#prop:ii-b-8-2}** (Curves over the interior.) Let γ be a maximal integral curve of [[eq:ii-b-1-4]] in
+∂Σ⁺ over M° ∩ Ω ∩ {r > r₀ − δ₀}, extended maximally within {r > r₀ − 2δ₀} ∩ Ω. Then γ reaches {t_* = 1} backward at
+a finite parameter, and forward either reaches {r < r₀ − δ₀} at a finite parameter or tends to the e3b-cosphere bundle
+over (ℐ⁺ ∩ Ω) ∪ ι⁺ ∪ K⁺: over ι⁺ ∪ K⁺ if t_* → ∞ along γ, over ℐ⁺ otherwise. This is [Hin26c, Proposition 6.1] for
+the stationary model.
+
+*Proof.* On ∂Σ⁺ over M°, ρ_∞H_G t_* = 2ρ_∞g⁻¹(ν, dt_*) > 0 for the null covectors ν there ([[lem:ii-b-1-2]] (c)), so
+[[eq:ii-b-1-4]] increases t_*, at a rate bounded below by a positive constant on compact subsets of ∂Σ⁺ over
+M° ∩ {r > r₀ − 2δ₀}. On {r < r₂}, H_G r = 2g⁻¹(ν, dr) < 0 for future null ν, as dr is future timelike there ((H4) and
+[[sec:i-b-1-2]]: ∇r is future timelike, so ν(∇r) < 0); so backward r increases while r < r₂, and γ cannot leave
+through {r = r₀ − 2δ₀} backward. The faces at infinity are invariant, so γ is defined until it reaches {t_* = 1} or
+{r < r₀ − δ₀}.
+
+*Forward.* If t_* → ∞, every limit point lies over {t_* = ∞} ∩ Ω = ι⁺ ∪ K⁺. If t_* stays bounded and γ does not reach
+{r < r₀ − δ₀}, then sup I = ∞, and a limit point p over M° would be visited infinitely often, each visit to a fixed
+small neighbourhood of p lasting a parameter time bounded below (the field is bounded) and increasing t_* by a fixed
+amount: so t_* → ∞, a contradiction. The limit points therefore lie over ∂M̃ at finite t_* ≥ 1, which within Ω is ℐ⁺.
+
+*Backward.* Suppose that γ does not reach {t_* = 1}; then inf I = −∞ and t_* ↓ L ≥ 1. As above, no limit point lies
+over M°, so the α-limit set 𝒜 lies over ℐ⁺ ∩ {t_* = L}; it is non-empty, compact and invariant, and ρ₊ = L⁻¹ on it.
+A curve in 𝒜 has ρ₊ constant, hence ξ̂ = 0 by [[eq:ii-b-7-5]] (ρ₊ > 0), hence η̂ = 0: 𝒜 ⊂ ∂R_(ℐ⁺,out). Near
+∂R_(ℐ⁺,out), 𝖧x_I = (ξ̂ − 1)x_I + O(x_I³) ≤ −½x_I, so on a tail (−∞, s₁] of γ the function x_I ∘ γ > 0 increases as s
+decreases and cannot tend to 0, a contradiction. ∎
+
+**Remark {#rem:ii-b-8-3}** The sets of [[prop:ii-b-8-1]] and [[prop:ii-b-8-2]] that depend on the stationary model are
+∂R_(ℋ⁺), through ℛ₊, and ∂Γ_(K⁺), through Γ. Under (H5), extended to (H6)–(H8) in [[sec:i-b-1-5]], and (K4), both
+depend continuously on the parameter b, with the constants of [[lem:ii-b-4-2]] and of (K3) uniform; the radial sets
+over ∂K⁺ and ℐ⁺ do not depend on b. This is [Hin26c, Remark 4.25].

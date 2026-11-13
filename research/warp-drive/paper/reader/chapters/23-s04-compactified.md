@@ -586,3 +586,404 @@ So the low-energy estimates of [[thm:i-c-6-4]] are estimates on the spaces H^((s
 [Hin26c, (9.119)] in dimension 4 + 1, which is the form in which they are used at future timelike infinity
 ([[ch:s08]]).
 
+### The Mellin transform at ι⁺ {#sec:ii-a-6}
+
+This section identifies the e3b-spaces near ι⁺ with spaces of Mellin transforms in τ = 1/t_*.
+
+#### Near a conic end {#sec:ii-a-6-1}
+
+The Mellin transform near ∂ℝ̄⁴ and the normal operator estimate are those of [[sec:i-c-2]] ([[lem:i-c-2-2]] to
+[[lem:i-c-2-7]]), with the transform ℳv(λ) = ∫ e^(λt) v dt, t = −log ϱ, for which the line of the b-weight c is
+Re λ = c ([[eq:i-c-2-2]]). In the convention (ℳu)(σ) = ∫ ϱ^(iσ) u dϱ/ϱ of [Hin26c], that is λ = −iσ, this line is
+Im σ = c.
+
+#### At ι⁺ {#sec:ii-a-6-2}
+
+ι⁺ = ([0, 2)_(x_I) ∪ (1, ∞]_v) × 𝕊³ ([[lem:ii-a-2-11]]) has the cells U_(2,jk±) = (2^(−j−2), 2^(−j+2))_(ρ_K) × 𝕊³_(k±)
+(scalings 1) and U_(3,jk±) = (2^(−j−2), 2^(−j+2))_(x_I) × 𝕊³_(k±) (scalings 1 in x_I and 2^(−j) in ω), the spatial parts
+of the cells of [[sec:ii-a-4-1]]. The coefficient Lie algebra is C^∞_b 𝒱_b(ι⁺), and the operator Lie algebra is
+C^∞_b 𝒱_(b,e)(ι⁺) (the b-vector fields tangent to the fibres of ι⁺ ∩ ℐ⁺). With t = −log_2 τ the cells (2)–(3) of
+[[sec:ii-a-4-1]] are of the product form (S9) [Hin26c, (3.49)], so the Fourier transform in t is the Mellin transform
+in τ,
+
+    (ℳu)(σ, p) = ∫_0^∞ τ^(iσ) u(τ, p) dτ/τ.
+
+The spectral side is the parameterised structure on (ι⁺)° with scalings (1 + ρ_K|σ|)⁻¹ near K⁺ and ⟨σ⟩⁻¹, x_I⟨σ⟩⁻¹
+near ℐ⁺ [Hin26c, Section 3.2.4]. For fixed σ it is the 0,b-structure C^∞_b 𝒱_(0,b)(ι⁺) (0-vector fields x_I∂_(x_I),
+x_I∂_ω at ι⁺ ∩ ℐ⁺, b-vector fields at ι⁺ ∩ K⁺), with the spaces H^(𝗌,(2α_I,γ))_(0,b)(ι⁺) = x_I^(2α_I) ρ_K^γ H^𝗌_(0,b).
+For ±σ ∈ [1, ∞) and h = |σ|⁻¹ it is the semiclassical 0- and cone structure on
+ι⁺_(0ℏ,cℏ) := [[0, 1)_h × ι⁺; {0} × (ι⁺ ∩ K⁺)], with faces cf, tf, sf and 0f, and the spaces
+
+    H^(𝗌,(2α_I,α_cf,l,𝖻))_(0ℏ,cℏ) = ρ_0f^(2α_I) ρ_cf^(α_cf) ρ_tf^l ρ_sf^𝖻 H^𝗌_(0ℏ,cℏ)
+
+[Hin26c, (3.50)–(3.56)]; all of them use a b-density μ_b on ι⁺. The spectral family of a dilation-invariant operator
+A_0 is [Hin26c, (3.52)], with −iσ in place of ρ_+∂_(ρ_+).
+
+**Lemma {#lem:ii-a-6-1}** (The density in dimension 4 + 1.) Let χ be a cut-off to cl{r ≥ 1, t_* ≥ 1}. On supp χ, the
+density |dt dx| is a smooth positive multiple of x_I⁻⁸ρ_+⁻⁵ρ_K⁻¹|dτ/τ| μ_b; so
+
+    H^(0,(2α_I,α_+,α_K))_e3b(M̃, |dt dx|) = H^(0,(2(α_I+2),α_+ + 5/2,α_K + 1/2))_e3b(M̃, |dτ/τ| μ_b)
+
+there.
+
+*Proof.* |dτ/τ| μ_b is a b-density on [0, ∞) × ι⁺, hence on its blow-up, hence ([[lem:ii-a-2-11]]) on M̃ near ι⁺, so
+it is a smooth positive multiple of |dt_*/t_* · dx/⟨x⟩⁴|. Thus |dt dx| = |dt_* dx| is t_*⟨x⟩⁴ times it. Near ι⁺ ∩ ℐ⁺,
+t_* ∼ ρ_+⁻¹ and r ∼ x_I⁻²ρ_+⁻¹, so t_*⁻¹⟨x⟩⁻⁴ ∼ ρ_+ · x_I⁸ρ_+⁴ = x_I⁸ρ_+⁵; near ι⁺ ∩ K⁺, t_* ∼ ρ_+⁻¹ρ_K⁻¹ and
+r ∼ ρ_+⁻¹, so t_*⁻¹⟨x⟩⁻⁴ ∼ ρ_+⁵ρ_K; in the interior of ι⁺ both are ∼ ρ_+⁵. Hence t_*⁻¹⟨x⟩⁻⁴ ∼ x_I⁸ρ_+⁵ρ_K on supp χ.
+Taking square roots, L²(|dt dx|) = x_I⁴ρ_+^(5/2)ρ_K^(1/2) L²(|dτ/τ| μ_b). ∎
+
+In dimension 3 + 1 the same calculation gives x_I⁶ρ_+⁴ρ_K, the weights (2(α_I + 3/2), α_+ + 2, α_K + 1/2) of [Hin26c].
+
+**Lemma {#lem:ii-a-6-2}** ([Hin26c, Lemma 3.14] in dimension 4 + 1.) Let χ be as in [[lem:ii-a-6-1]], let
+𝗌 ∈ C^∞(ᵉ³ᵇS*M̃) be invariant on supp χ under the dilations (t_*, v, ω) ↦ (νt_*, v, ω), ν ≥ 1, let 𝗌_σ be the induced
+orders, and let α_I, α_+, α_K ∈ ℝ and k ∈ ℕ_0. Put β_+ := α_+ + 5/2. Then
+
+    ‖χu‖²_(H^((𝗌;k),(2α_I,α_+,α_K))_(e3b;b)(|dt dx|))
+       ∼ ∫_(−1)^1 ‖ℳ(χu)(σ + iβ_+)‖²_(H^((𝗌_σ;k),(2(α_I+2),α_K−α_+−2))_(0,b;b)(ι⁺,μ_b)) dσ
+         + Σ_± ∫_(±[1,∞)) Σ_(j=0)^k |σ|^(2j) ‖ℳ(χu)(σ + iβ_+)‖²_(H^((𝗌_σ;k−j),𝒲_σ)_((0ℏ,cℏ,|σ|⁻¹);b)(ι⁺,μ_b)) dσ,
+
+where 𝒲_σ := (2(α_I + 2), α_K − α_+ − 2, α_K − α_+ − 2, 𝗌_σ) is the tuple of weights of the semiclassical spaces.
+([Hin26c, Lemma 3.14] prints the line, in dimension 3 + 1, as σ − i(α_+ + 2); with the transform ∫ τ^(iσ) u dτ/τ the
+Plancherel line of the weight τ^β is Im σ = +β.)
+
+*Proof.* By [[lem:ii-a-6-1]] the left side is the norm with the b-density and the weights
+(2(α_I + 2), α_+ + 5/2, α_K + 1/2). Near ι⁺, τ ∼ ρ_+ρ_K ([[lem:ii-a-2-11]]), so
+ρ_+^(β_+) ρ_K^(α_K+1/2) = τ^(β_+) ρ_K^(α_K+1/2−β_+) = τ^(β_+) ρ_K^(α_K−α_+−2). With t = −log_2 τ, the factor τ^(β_+) is
+e^(−β_+ t log 2), and for u = τ^(β_+) v, (ℳu)(ζ + iβ_+) = ∫ τ^(iζ) τ^(−β_+) u dτ/τ = (ℳv)(ζ), ζ ∈ ℝ. Now apply (S9) to v
+(unweighted in t). The b-regularity splits: the b-vector field τ∂_τ = −(log 2)⁻¹∂_t becomes multiplication by −iσ on
+the transform side, as ℳ(τ∂_τ u) = −iσ ℳu, which is bounded for |σ| ≤ 1 and gives the factors |σ|^(2j) for |σ| ≥ 1;
+the spatial b-vector fields of ι⁺ commute with ℳ and give the k − j b-derivatives of the spectral spaces. (Under the
+conjugation by τ^(β_+), τ∂_τ changes by the constant β_+, which is harmless.) The identification of the spectral spaces
+with the 0,b- and 0ℏ,cℏ-spaces is by their definition as the spaces of the spectral scaled b.g. structure
+[Hin26c, (3.50)–(3.56)], and the weights x_I^(2(α_I+2)) and ρ_K^(α_K−α_+−2) are functions on ι⁺, hence pass through.
+For |σ| ≥ 1, the factor ⟨τσ⟩^(−𝗌) of (S9) is ρ_sf^(𝗌_σ), the last index. ∎
+
+*The tf-normal operator at ι⁺* [Hin26c, (3.58)–(3.60)]. Near ι⁺ ∩ K⁺, with ρ̂_K := ρ_K/h, the 0ℏ,cℏ-vector fields
+(h/(h + ρ_K))ρ_K∂_(ρ_K) and (h/(h + ρ_K))∂_ω become (1 + ρ̂_K)⁻¹ρ̂_K∂_(ρ̂_K) and (1 + ρ̂_K)⁻¹∂_ω, the b,sc-vector fields
+of tf = [0, ∞]_(ρ̂_K) × 𝕊³. Restriction of the coefficients gives N_tf(A) ∈ Diff^(m,(α_c,𝖻))_(b,sc)(tf) for
+A ∈ Diff^(m,(2α_I,α_c,0,𝖻))_(0ℏ,cℏ), and for χ_tf supported near tf,
+
+    ‖χ_tf u‖_(H^(𝗌,(2α_I,α_cf,l,𝖻))_(0ℏ,cℏ,h)) ∼ h^(−l) ‖χ_tf u‖_(H^(𝗌,(α_cf,𝖻−l))_(b,sc)(tf)),
+
+uniformly. Here no power of h comes from the density: both sides use b-densities, which are invariant under
+ρ_K ↦ ρ_K/h, so this statement does not depend on the dimension. The proof is the comparison of cells, as for
+[[lem:ii-a-5-3]].
+
+### Supported and extendible spaces {#sec:ii-a-7}
+
+Let (𝒱_σ)_σ be the operator Lie algebra of a parameterised scaled b.g. structure on M (possibly a single σ), and fix a
+uniformly positive 𝒱-density for L²_(𝒱_σ).
+
+**Lemma {#lem:ii-a-7-1}** ([Hin26c, Lemma 3.15]; uniform duality.) Let 𝗌 be a constant or variable order.
+
+(1) The pairing ⟨u, v⟩ extends to H^𝗌_(𝒱_σ) × H^(−𝗌)_(𝒱_σ) with |⟨u, v⟩| ≤ C‖u‖_(H^𝗌)‖v‖_(H^(−𝗌)), C independent
+of σ.
+
+(2) c‖u‖_(H^𝗌) ≤ sup_(‖v‖_(H^(−𝗌)) = 1) |⟨u, v⟩| ≤ C‖u‖_(H^𝗌), uniformly in σ.
+
+*Proof.* For 𝗌 = 0 this is the Cauchy–Schwarz inequality and the Riesz representation theorem. In general take an
+elliptic A ∈ Ψ^𝗌_𝒱 and a two-sided parametrix to finite order: B ∈ Ψ^(−𝗌)_𝒱 with BA = I − R_1 and AB = I − R_2, where
+R_1, R_2 ∈ Ψ^(−J)_𝒱 and J ≥ sup |𝗌|, all uniformly in σ. It is built as in [[lem:ii-a-8-4]] (b), with I in place of B
+there, by (S5), (S7) and (S8). That gives B_L A = I − R_1, and the same for A* gives AB_R = I − R′_2. Then B_L − B_R =
+B_L R′_2 − R_1 B_R has order −𝗌 − J, so B := B_L satisfies AB = I − R_2 with R_2 of order −J. (A parametrix to finite
+order suffices; (S5) does not state a full parametrix.) As J ≥ sup |𝗌|, R_1 maps H^𝗌 and R_1^* maps H^(−𝗌) into L², and
+R_2, R_2^* map L² into H^(−𝗌) and H^𝗌 respectively.
+
+(1) For u, v ∈ C_c^∞, ⟨u, v⟩ = ⟨Au, B^*v⟩ + ⟨R_1u, v⟩, and, as v = A^*B^*v + R_1^*v,
+⟨R_1u, v⟩ = ⟨AR_1u, B^*v⟩ + ⟨R_1u, R_1^*v⟩; so ⟨u, v⟩ = ⟨A(I + R_1)u, B^*v⟩ + ⟨R_1u, R_1^*v⟩, each factor bounded into
+L² from H^𝗌 or H^(−𝗌) respectively.
+
+(2) Given λ ∈ (H^(−𝗌))*, the map j : L² ⊕ L² ∋ (v_0, v_1) ↦ Av_0 + R_2v_1 ∈ H^(−𝗌) is bounded and onto, as v = j(Bv, v).
+Write λ ∘ j = ⟨·, u_0⟩ + ⟨·, u_1⟩ with ‖u_0‖ + ‖u_1‖ ≤ C‖λ‖. Then λ(v) = ⟨Bv, u_0⟩ + ⟨R_2v, u_1⟩ = ⟨v, u⟩ with
+u := B^*u_0 + R_2^*u_1 ∈ H^𝗌 and ‖u‖_(H^𝗌) ≤ C′‖λ‖. ∎
+
+**Definition {#def:ii-a-7-2}** ([Hin26c, Definition 3.16].) For Ω ⊂ M open,
+Ḣ^𝗌_(𝒱_σ)(Ω̄) := {u ∈ H^𝗌_(𝒱_σ)(M) : supp u ⊂ Ω̄}, and H̄^𝗌_(𝒱_σ)(Ω) := {u|_Ω : u ∈ H^𝗌_(𝒱_σ)(M)} with the quotient
+norm, that is, the norm of the minimal extension.
+
+**Lemma {#lem:ii-a-7-3}** ([Hin26c, Lemma 3.17].) The L² pairing extends to H̄^𝗌(Ω) × Ḣ^(−𝗌)(Ω̄) with a uniform bound,
+and c‖u‖_(H̄^𝗌(Ω)) ≤ sup_(‖v‖_(Ḣ^(−𝗌)(Ω̄)) = 1) |⟨u, v⟩| ≤ C‖u‖_(H̄^𝗌(Ω)), uniformly; likewise with the roles of the two
+spaces exchanged.
+
+*Proof.* With ũ the minimal extension, |⟨u, v⟩| = |⟨ũ, v⟩| ≤ C‖ũ‖‖v‖. For the lower bound, extend
+λ ∈ Ḣ^(−𝗌)(Ω̄)* by 0 on the orthogonal complement to λ̃ of the same norm, represent it by ũ ([[lem:ii-a-7-1]] (2)), and
+put u := ũ|_Ω; then λ(v) = ⟨v, u⟩ for v supported in Ω̄, and ‖u‖_(H̄^𝗌) ≤ ‖ũ‖ ≤ C‖λ‖. The other case is the same with
+the roles of the spaces exchanged. ∎
+
+**Proposition {#prop:ii-a-7-4}** ([Hin26c, Proposition 3.18].) In the setting of (S9) with Ω ⊂ X open, the Fourier
+transform in t is an isomorphism
+
+    Ḣ^𝗌_𝒱(ℝ × Ω̄) → L²(ℝ_σ; ⟨τσ⟩^(−𝗌) Ḣ^𝗌_(𝒱̂_σ)(Ω̄))     and     H̄^𝗌_𝒱(ℝ × Ω) → L²(ℝ_σ; ⟨τσ⟩^(−𝗌) H̄^𝗌_(𝒱̂_σ)(Ω)).
+
+*Proof.* The supported case is (S9) restricted to the closed subspace of distributions supported in ℝ × Ω̄, whose
+transforms are supported in Ω̄ for each σ. For the extendible case, by [[lem:ii-a-7-3]] (without parameter), the
+supported case, [[lem:ii-a-7-3]] (1) at each σ, and the Cauchy–Schwarz inequality,
+
+    ‖u‖²_(H̄^𝗌) ≤ C sup_(‖v‖_(Ḣ^(−𝗌)) = 1) |∫ ⟨û(σ), v̂(σ)⟩ dσ|² ≤ C′ ‖û‖²_(L²(⟨τσ⟩^(−𝗌) H̄^𝗌_(𝒱̂_σ)));
+
+the converse inequality follows by applying (S9) to the minimal extension. ∎
+
+Hence [[lem:ii-a-5-1]], [[lem:ii-a-5-2]] and [[lem:ii-a-6-2]] hold for supported and extendible distributions. For the
+domain Ω of [[def:ii-a-1-3]], H^𝗌_e3b(Ω)^(•,−) denotes the space of restrictions to {r > r_0} of elements of
+H^𝗌_e3b(M̃) supported in {t − r ≥ 1}, and H^((𝗌;k))_(e3b;b)(Ω)^(•,−) likewise, with weights [Hin26c, (3.65)]: these are
+the spaces of the spacetime domain of forward problems.
+
+### L^∞-spaces, operators of limited regularity, Sobolev embedding {#sec:ii-a-8}
+
+Fix a good spanning set V_1, …, V_N ∈ 𝒱_(b,[e3b])(M̃) with weights w_j ([[lem:ii-a-2-9]]), and put V_(0,j) := w_jV_j and
+V_0 := I. For a word J = (j_1, …, j_p) in {1, …, N} write V^J := V_(j_1)⋯V_(j_p) and |J| := p, and likewise
+V_0^I := V_(0,i_1)⋯V_(0,i_q). Then Diff^k_b(M̃) is the C^∞(M̃)-span of the V^J with |J| ≤ k, and Diff^d_e3b(M̃) that of
+the V_0^I with |I| ≤ d. Write w_((α)) := x_I^(2α_I) ρ_+^(α_+) ρ_K^(α_K) for α = (α_I, α_+, α_K), with the defining
+functions of [[sec:ii-a-1]]. For every b-vector field V, V w_((α)) ∈ w_((α)) C^∞(M̃). On the mixed spaces of
+[[sec:ii-a-4-2]] we use the norm
+
+    ‖u‖_(H^((𝗌;k))_(e3b;b)) := Σ_(|J|≤k) ‖V^J u‖_(H^𝗌_e3b),                                               {#eq:ii-a-8-1}
+
+which is equivalent to the norm of (S3). Indeed 𝒲 = C^∞_b 𝒱_b is spanned over C^∞_b by the V_j ([[lem:ii-a-2-9]]). A
+product of j elements of 𝒲 is a C^∞_b-combination of the V^J with |J| ≤ j, since b-derivatives of C^∞_b-functions are
+in C^∞_b. And multiplication by C^∞_b-functions is bounded on H^𝗌_e3b, these functions being symbols of order 0 ((S4),
+(S5)). Weights are suppressed in [[sec:ii-a-8-3]], [[sec:ii-a-8-4]] and [[sec:ii-a-9]], as in [Hin26c]. Every
+statement there holds on weighted spaces. To see this, apply it to w⁻¹u and to the conjugated operators w⁻¹Aw,
+w = w_((α)). These lie in the same classes, with the same principal symbols and wave front sets: w is a weight in the
+sense of (S2) ((S5) for the composition w⁻¹ · A · w), and for coefficients w⁻¹aw = a.
+
+#### e3b-continuous functions {#sec:ii-a-8-1}
+
+**Definition {#def:ii-a-8-1}** ([Hin26c, Definition 3.19].) Let d_0 ∈ ℕ_0 and α_I, α_+, α_K ∈ ℝ. Then
+C^(d_0,(2α_I,α_+,α_K))_e3b(M̃) is the space of C^(d_0)-functions u on M̃° = ℝ^(1+4) with w_((α))⁻¹Au ∈ L^∞ for all
+A ∈ Diff^(d_0)_e3b(M̃). For k ∈ ℕ_0, the space C^((d_0;k),(2α_I,α_+,α_K))_(e3b;b)(M̃) is defined by the same condition
+for all products A_1A_2 with A_1 ∈ Diff^k_b and A_2 ∈ Diff^(d_0)_e3b. For d_0 = 0 it is written
+C^(k,(2α_I,α_+,α_K))_b(M̃). The norm is
+
+    ‖u‖_(C^((d_0;k),(2α_I,α_+,α_K))_(e3b;b)) := Σ_(|J|≤k, |I|≤d_0) sup |w_((α))⁻¹ V^J V_0^I u|.
+
+This norm dominates sup |w_((α))⁻¹A_1A_2u| for all A_1, A_2 as above. Write A_1 = Σ f_J V^J and A_2 = Σ g_I V_0^I with
+f_J, g_I ∈ C^∞(M̃). By the Leibniz rule A_1A_2 is a combination of products V^(J′)V_0^I, |J′| ≤ k, with coefficients
+that are b-derivatives of the g_I times the f_J. These are bounded, as M̃ is compact and b-vector fields preserve
+C^∞(M̃). The space is a Banach space. On a compact set K ⊂ M̃° the V_(0,j) span the tangent space with smooth
+coefficients, and w_((α)) is bounded above and below there, so the norm dominates the C^(d_0)(K)-norm. A Cauchy sequence
+therefore converges in C^(d_0)_loc, and the weighted suprema pass to the limit.
+
+**Lemma {#lem:ii-a-8-2}** (a) Replacing A_1A_2 by A_2A_1 in [[def:ii-a-8-1]] gives the same space with an equivalent
+norm. (b) For |J| ≤ k, ‖V^J u‖_(C^((d_0;k−|J|),(α))) ≤ C‖u‖_(C^((d_0;k),(α))). (c)
+‖uv‖_(C^((d_0;k),(α+β))) ≤ C_k Σ_(j≤k) ‖u‖_(C^((d_0;j),(α))) ‖v‖_(C^((d_0;k−j),(β))). (d) For f ∈ C^∞(M̃),
+‖fu‖_(C^((d_0;k),(α))) ≤ C_(f,k)‖u‖_(C^((d_0;k),(α))); and C^((d_0;k),(2δ,δ,δ)) ⊂ C^((d_0;k)) continuously for δ ≥ 0.
+
+*Proof.* (a) Each V_j is an e3b-commutator vector field, so [V_j, V_(0,i)] ∈ 𝒱_e3b = Σ_l C^∞(M̃) V_(0,l). As [V_j, ·]
+is a derivation, [V_j, A_2] ∈ Diff^(d_0)_e3b for A_2 ∈ Diff^(d_0)_e3b. Induction on |J| gives V^J A_2 = Σ A_2′ V^(J′)
+and A_2 V^J = Σ V^(J′) A_2″, with A_2′, A_2″ ∈ Diff^(d_0)_e3b and |J′| ≤ |J|. The coefficients are smooth on M̃, hence
+bounded with bounded derivatives. (b) V^(J″)V_0^I V^J u with |J″| ≤ k − |J| is, by (a), a combination of
+V^(J‴)V_0^(I′) u with |J‴| ≤ k and |I′| ≤ d_0. (c) The Leibniz rule: V^J V_0^I(uv) is a sum of products
+(V^(J_1)V_0^(I_1)u)(V^(J_2)V_0^(I_2)v) with |J_1| + |J_2| = |J| and |I_1| + |I_2| = |I|, the subwords keeping their
+order. (d) The Leibniz rule again, and w_((2δ,δ,δ)) ≤ C for δ ≥ 0. ∎
+
+#### Operators of limited regularity {#sec:ii-a-8-2}
+
+**Definition {#def:ii-a-8-3}** ([Hin26c, Definition 3.20].) For m, 𝗌 and d_0, k ∈ ℕ_0,
+C^((d_0;k))_(e3b;b) Diff^m_e3b(M̃), resp. C^((d_0;k))_(e3b;b) Ψ^𝗌_e3b(M̃), is the space of finite sums Σ a_jP_j with
+a_j ∈ C^((d_0;k))_(e3b;b) and P_j ∈ Diff^m_e3b, resp. P_j ∈ C^∞_b Ψ^𝗌_e3b; weighted versions are defined likewise. For a
+finite set 𝒫 = {P_1, …, P_N}, the C^((d_0;k))_(e3b;b)-span of 𝒫 is written C^((d_0;k))_(e3b;b) 𝒫. A *representation*
+of A ∈ C^((d_0;k))_(e3b;b) 𝒫 is a tuple 𝐚 = (a_1, …, a_N) with A = Σ a_jP_j, and we write
+‖𝐚‖_((d_0;k)) := max_j ‖a_j‖_(C^((d_0;k))_(e3b;b)). [Hin26c, (3.68)–(3.69)] uses the infimum of ‖𝐚‖_((d_0;k)) over
+representations.
+
+Statements below whose constants depend on A only through a bound for ‖𝐚‖_((d_0;k)) hold equally with the infimum
+norm. If ‖A′ − A‖ < ε in that norm, then A′ has a representation with ‖𝐚′‖ ≤ ‖A‖ + 2ε. The tame estimates of
+[[sec:ii-a-9-3]] bound one quantity by a low norm of the coefficients times a high norm of u, plus a high norm of the
+coefficients times a low norm of u. They are stated for a given representation, whose low and high norms both enter.
+With the infimum norm, the low and the high norm may be nearly attained by different representations, and the argument
+does not combine them. (This is how the tame estimates are used: an operator arrives with its coefficients.)
+
+#### Smooth operators on mixed spaces {#sec:ii-a-8-3}
+
+*Cut-offs.* [Hin26d, Definition 3.34] calls an operator *localized near the diagonal* when its Schwartz kernel is
+supported within a finite d_ℬ-distance of the diagonal. This is a property an operator of the calculus may or may not
+have, and residual operators need not have it [Hin26d, Remark 3.48]. Here the operators of 𝒫 and all auxiliary
+operators are taken localized near the diagonal. Quantizations are, by the cut-off ψ(x − x′) of [Hin26d, (3.26)] and
+the chart cut-offs of [Hin26d, Definition 3.31]. The class is closed under compositions and adjoints, since kernel
+supports add or are reflected, and under commutators with vector fields, and it contains the finite-order parametrices
+of [[lem:ii-a-8-4]] (b), which are quantizations. For χ ∈ C^∞(M̃), an operator A is *carried by* χ if A = χ′Aχ′ for
+some χ′ ∈ C^∞(M̃) such that χ = 1 within d_ℬ-distance D of supp χ′. Here D bounds the kernel ranges of the finitely many
+operators of the statement at hand; for differential operators χ = 1 on supp χ′ suffices. Then Aχ = A = χA, and
+AP = APχ for each operator P of the statement. [Hin26c] writes B = χBχ, and its estimates are read with this convention.
+[Hin26c, p. 48] does not require the localization near the diagonal. Auxiliary operators chosen in a proof are carried
+by cut-offs nested between χ′ and χ.
+
+**Lemma {#lem:ii-a-8-4}** Let A ∈ C^∞_b Ψ^(m′)_e3b, m′ ∈ ℝ, and let 𝗌 be a variable order.
+
+(a) A maps H^((𝗌;k))_(e3b;b) to H^((𝗌−m′;k))_(e3b;b) boundedly for every k. For V ∈ 𝒱_(b,[e3b]),
+[V, A] ∈ C^∞_b Ψ^(m′)_e3b with WF′_e3b([V, A]) ⊂ WF′_e3b(A); the iterated commutators ad_(V_(j_1))⋯ad_(V_(j_q))A
+likewise.
+
+(b) (Microlocal parametrix.) Let B ∈ C^∞_b Ψ^(m_B)_e3b with WF′_e3b(B) ⊂ Ell_e3b(A), and J ∈ ℕ. Then B = QA + R with
+Q ∈ C^∞_b Ψ^(m_B−m′)_e3b and R ∈ C^∞_b Ψ^(m_B−J)_e3b.
+
+(c) In (b), if B and A are carried by χ, then for all 𝗌, N and k,
+
+    ‖Bu‖_(H^((𝗌−m_B;k))_(e3b;b)) ≤ C(‖Au‖_(H^((𝗌−m′;k))_(e3b;b)) + ‖χu‖_(H^((−N;k))_(e3b;b))).
+
+(d) H^((𝗌;k))_(e3b;b) ⊂ H^((𝗌+1;k−1))_(e3b;b) continuously for k ≥ 1; hence H^((𝗌;k))_(e3b;b) ⊂ H^(𝗌+k)_e3b, and
+H^(s̄)_b = H^((0;s̄))_(e3b;b) ⊂ H^(s̄)_e3b for s̄ ∈ ℕ_0.
+
+*Proof.* (a) The mapping property is (S5), with (S8) for variable orders. The operators are taken in the subalgebra of
+(S10) ([[sec:ii-a-4-2]]), and the V_j lie in 𝒲_([𝒱]). The commutator statement is [[eq:ii-a-4-1]], and the iterated
+one follows by induction.
+
+(b) Let a and b be principal symbols of A and B. Choose symbols χ̃_0, …, χ̃_(J−1) ∈ S⁰, each equal to 1 near the support
+of the previous one, with χ̃_0 = 1 near WF′_e3b(B), and all supported in a closed subset of Ell_e3b(A) on which
+|a| ≥ cλ^(−m′) (λ the elliptic weight of (S8)). Put Q_0 := Op(χ̃_0 b/a) ∈ C^∞_b Ψ^(m_B−m′)_e3b. Then R_1 := B − Q_0A has
+principal symbol (1 − χ̃_0)b. This lies in S^(−∞), since χ̃_0 = 1 near the essential support of b. So
+R_1 ∈ C^∞_b Ψ^(m_B−1)_e3b by the principal symbol sequence (S5), and WF′_e3b(R_1) ⊂ supp χ̃_0. Inductively, given
+R_j ∈ C^∞_b Ψ^(m_B−j)_e3b with wave front set in supp χ̃_(j−1), put Q_j := Op(χ̃_j σ(R_j)/a) and
+R_(j+1) := R_j − Q_jA ∈ C^∞_b Ψ^(m_B−j−1)_e3b. Then B = (Σ_(j<J) Q_j)A + R_J. Only finitely many steps are taken, so no
+asymptotic summation is needed.
+
+(c) Bu = B(χu) = QAχu + R_Jχu = QAu + R_Jχu, because Aχ = A and Bχ = B for operators carried by χ. Take J ≥ sup 𝗌 + N
+and use (a).
+
+(d) By [[lem:ii-a-4-1]] (with (S8) for variable orders), an elliptic Λ ∈ C^∞_b Ψ^(𝗌+1)_e3b is Σ_(l=0)^N Λ_lV_l with
+Λ_l ∈ C^∞_b Ψ^𝗌_e3b. Microlocal elliptic regularity (S5), with I in place of B, gives
+‖v‖_(H^(𝗌+1)) ≤ C(‖Λv‖_(L²) + ‖v‖_(H^(−N))) ≤ C Σ_l ‖V_lv‖_(H^𝗌). Apply this to v = V^J u, |J| ≤ k − 1, and sum, using
+[[eq:ii-a-8-1]]. Iterating gives the second claim. For the third, H^(s̄)_b is by definition the space of u with
+V^J u ∈ L² for |J| ≤ s̄. ∎
+
+#### Multiplication and pseudolocality {#sec:ii-a-8-4}
+
+**Lemma {#lem:ii-a-8-5}** (Multiplication and pseudolocality; the part of [Hin26c, Lemma 3.5] that is used, and the
+pseudolocality in the proof of [Hin26c, Proposition 3.28].) Let 𝗌 and 𝗌_0 be variable orders.
+
+(a) There are d_0 ∈ ℕ and C with ‖ℓu‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^𝗌_e3b) for all ℓ ∈ C^(d_0)_e3b. Moreover, for
+every k, ‖ℓu‖_(H^((𝗌;k))_(e3b;b)) ≤ C_k Σ_(j≤k) ‖ℓ‖_(C^((d_0;j))_(e3b;b)) ‖u‖_(H^((𝗌;k−j))_(e3b;b)), with the same d_0.
+
+(b) Let B, B^♯ ∈ C^∞_b Ψ⁰_e3b with WF′_e3b(I − B^♯) ∩ WF′_e3b(B) = ∅. Then there are d_0 and C with
+‖Bℓ(I − B^♯)u‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^(𝗌_0)_e3b).
+
+*Proof.* *Smooth coefficients.* Let C^∞_e3b be the space of functions all of whose e3b-derivatives are bounded. With the
+seminorms ‖·‖_(C^d_e3b) it is a Fréchet space. Such a function ℓ is a symbol of order 0, independent of the fibre
+variable, for the secondary b.g. structure ρℬ. In its charts the e3b-vector fields are the uniformly bounded
+combinations of the coordinate vector fields ((S6), [Hin26d, Remark 3.33]). Its quantization is multiplication by ℓ:
+in the local quantization of [Hin26d, (3.26)] the cut-off ψ(x − x′) equals 1 near x = x′, so a fibre-independent symbol
+is quantized to multiplication by itself, and the cut-offs χ_α of [Hin26d, Definition 3.31] sum to 1. Hence
+multiplication by ℓ lies in Ψ̃⁰_e3b, which is bounded on H^𝗌_e3b ([[sec:ii-a-4-2]], with (S8)). Consider
+T : ℓ ↦ (u ↦ ℓu), from C^∞_e3b to ℒ(H^𝗌_e3b). Its graph is closed. Suppose ℓ_n → ℓ in C^∞_e3b and Tℓ_n → T′. For
+u ∈ H^𝗌_e3b (a distribution on ℝ^(1+4), locally in H^(inf 𝗌)), ℓ_nu → ℓu in 𝒟′. So T′u = ℓu. By the closed graph
+theorem (from a Fréchet space to a Banach space), T is continuous, that is, ‖Tℓ‖ ≤ C‖ℓ‖_(C^(d_0)_e3b) for some d_0.
+Likewise ℓ ↦ Bℓ(I − B^♯) ∈ ℒ(H^(𝗌_0)_e3b, H^𝗌_e3b) is well defined, as Bℓ(I − B^♯) ∈ Ψ̃⁰_e3b has empty wave front set
+((S5)) and so lies in Ψ̃^(−∞)_e3b. Its graph is closed by the same argument, the convergence holding in
+ℒ(H^(𝗌_0), H^(𝗌_0)). So it is bounded by C‖ℓ‖_(C^(d_0)_e3b).
+
+*Finite regularity.* Let d_* be the largest of the numbers just found, for (a) at the orders 𝗌 and 𝗌_0 and for (b),
+let K := max(0, ⌈−inf 𝗌⌉, ⌈−inf 𝗌_0⌉), and put d_0 := d_* + K + 1. Let ℓ ∈ C^(d_0)_e3b. In the charts ψ_β of ρℬ, with
+a uniformly smooth partition of unity θ_β and a mollifier η_ε, put
+ℓ_ε := Σ_β ((θ_βℓ) ∘ ψ_β⁻¹ ∗ η_ε) ∘ ψ_β. Derivatives commute with convolution, the charts have uniformly bounded
+transitions and finite multiplicity, and e3b-derivatives are uniformly equivalent to coordinate derivatives in these
+charts. Hence ‖ℓ_ε‖_(C^d_e3b) ≤ C‖ℓ‖_(C^d_e3b) for d ≤ d_0, and ℓ_ε ∈ C^∞_e3b. Moreover ℓ_ε → ℓ in C^K on compact sets.
+For u ∈ H^𝗌_e3b, ℓ_εu → ℓu in 𝒟′, while ‖ℓ_εu‖_(H^𝗌) ≤ C‖ℓ‖_(C^(d_*)_e3b)‖u‖_(H^𝗌). A subsequence converges weakly in
+the Hilbert space H^𝗌_e3b, which embeds continuously in 𝒟′, so its limit is ℓu. The norm is weakly lower
+semicontinuous, which gives the first claim of (a). For (b), ℓ_ε(I − B^♯)u → ℓ(I − B^♯)u weakly in H^(𝗌_0), by the
+first claim and the same argument. B is weakly continuous on H^(𝗌_0), and the bound holds uniformly in ε. So the limit
+Bℓ(I − B^♯)u lies in H^𝗌, with the bound.
+
+*b-regularity.* By [[eq:ii-a-8-1]] and the Leibniz rule, V^J(ℓu) = Σ (V^(J_1)ℓ)(V^(J_2)u) over splittings of J, and
+‖V^(J_1)ℓ‖_(C^(d_0)_e3b) ≤ C‖ℓ‖_(C^((d_0;|J_1|))_(e3b;b)) by [[lem:ii-a-8-2]] (a). ∎
+
+[Hin26c] states (a) as a consequence of its Lemma 3.5, whose proof is by inspection of [Hin26d, Proposition 3.32], and
+uses (b) in the proof of its Proposition 3.28 for smooth ℓ, applying it to ℓ of finite regularity. Here both are proved
+from (S5), (S6), (S8) and the closed graph theorem.
+
+**Lemma {#lem:ii-a-8-6}** (Operators of limited regularity.) Let 𝒫 ⊂ C^∞_b Ψ^m_e3b be finite and
+A ∈ C^((d_0;k))_(e3b;b) 𝒫, with a representation 𝐚. Let 𝗌 and N be given. There is d_0 = d_0(𝗌, m, N), independent of
+k, such that:
+
+(a) ‖Au‖_(H^((𝗌−m;k))_(e3b;b)) ≤ C_k‖𝐚‖_((d_0;k))‖u‖_(H^((𝗌;k))_(e3b;b));
+
+(b) if G, G′ ∈ C^∞_b Ψ⁰_e3b, both carried by χ, with WF′_e3b(G) ⊂ Ell_e3b(G′), then
+
+    ‖GAu‖_(H^((𝗌−m;k))_(e3b;b)) ≤ C_k‖𝐚‖_((d_0;k))(‖G′u‖_(H^((𝗌;k))_(e3b;b)) + ‖χu‖_(H^((−N;k))_(e3b;b))).
+
+*Proof.* (a) [[lem:ii-a-8-5]] (a) at the order 𝗌 − m, and [[lem:ii-a-8-4]] (a) for the P_j.
+
+(b) First k = 0. Choose G″, G‴ ∈ C^∞_b Ψ⁰_e3b carried by χ, microlocally equal to I near WF′_e3b(G), with
+WF′_e3b(G″) ⊂ Ell_e3b(G′) and WF′_e3b(G‴) ∩ WF′_e3b(I − G″) = ∅. By the support convention, GAu = GAχu. Then
+
+    Ga_jP_jχu = Ga_jP_jG″χu + Ga_j(I − G‴)P_j(I − G″)χu + Ga_jG‴P_j(I − G″)χu.
+
+By [[lem:ii-a-8-5]] (a) and [[lem:ii-a-8-4]] (c), the first term is bounded by
+C‖a_j‖_(C^(d_0))(‖G′u‖_(H^𝗌) + ‖χu‖_(H^(−N))). The second is bounded by C‖a_j‖_(C^(d_0))‖χu‖_(H^(−N)), by
+[[lem:ii-a-8-5]] (b) with 𝗌_0 = −N − m. In the third, G‴P_j(I − G″) ∈ C^∞_b Ψ^(−∞)_e3b, since the wave front sets are
+disjoint (S5).
+
+For k ≥ 1, argue by induction. By [[eq:ii-a-8-1]] it suffices to bound ‖V_iGAu‖_(H^((𝗌−m;k−1))), and
+
+    V_iGa_jP_ju = [V_i, G]a_jP_ju + G(V_ia_j)P_ju + Ga_j[V_i, P_j]u + Ga_jP_jV_iu.
+
+The first three terms are of the form treated at level k − 1: they involve [V_i, G] (wave front set in that of G), or
+the coefficients V_ia_j ∈ C^((d_0;k−1)) ([[lem:ii-a-8-2]] (b)), or the finite set 𝒫 ∪ {[V_i, P_j]}. For the last,
+choose G_♭ carried by χ with WF′(G) ⊂ Ell(G_♭) and WF′(G_♭) ⊂ Ell(G′). The level k − 1 bounds it by
+C‖𝐚‖(‖G_♭V_iu‖_((𝗌;k−1)) + ‖χ_1V_iu‖_((−N;k−1))), with an inner cut-off χ_1 carrying G and G_♭. Next,
+‖G_♭V_iu‖_((𝗌;k−1)) ≤ ‖G_♭u‖_((𝗌;k)) + ‖[G_♭, V_i]u‖_((𝗌;k−1)), and both are bounded by
+C(‖G′u‖_((𝗌;k)) + ‖χu‖_((−N;k))) ([[lem:ii-a-8-4]] (c)). Finally
+‖χ_1V_iu‖_((−N;k−1)) ≤ ‖V_i(χ_1u)‖ + ‖(V_iχ_1)χu‖ ≤ C‖χu‖_((−N;k)), as χ = 1 on supp χ_1. ∎
+
+#### Sobolev embedding {#sec:ii-a-8-5}
+
+**Lemma {#lem:ii-a-8-7}** ([Hin26c, Lemma 3.21].) Let 𝗌 be a variable e3b-order, s̲ := max(0, ⌈−inf 𝗌⌉), and k ≥ s̲.
+Then H^((𝗌;k))_(e3b;b) ⊂ H^(k−s̲)_b, continuously and with weights.
+
+*Proof.* If s̲ = 0 then 𝗌 ≥ 0 and H^((𝗌;k)) ⊂ H^((0;k)) = H^k_b. Otherwise let A_j := V_(0,j)^(s̲), j = 1, …, N. The
+symbols ξ ↦ ξ(V_(0,j)) vanish simultaneously only at ξ = 0, as the V_(0,j) span ᵉ³ᵇTM̃. So
+Σ_j A_jA_j^* ∈ Diff^(2s̲)_e3b is elliptic, with a parametrix Q ∈ C^∞_b Ψ^(−2s̲)_e3b and Σ A_jA_j^*Q = I − R,
+R ∈ C^∞_b Ψ^(−J)_e3b for any fixed J ≥ 0 ([[lem:ii-a-8-4]] (b) with J large). With B_j := A_j^*Q ∈ C^∞_b Ψ^(−s̲)_e3b,
+u = Σ_j A_jB_ju + Ru. Here B_ju ∈ H^((𝗌+s̲;k)) ⊂ H^((0;k)) = H^k_b ([[lem:ii-a-8-4]] (a); 𝗌 + s̲ ≥ 0), and
+A_j ∈ Diff^(s̲)_b maps H^k_b to H^(k−s̲)_b. Also Ru ∈ H^((𝗌+J;k)) ⊂ H^k_b for J ≥ s̲. ∎
+
+**Lemma {#lem:ii-a-8-8}** ([Hin26c, Lemma 3.22] in dimension 4 + 1.) Let d ∈ ℕ_0 and α_I, α_+, α_K ∈ ℝ. Then for u
+supported in Ω ([[def:ii-a-1-3]]),
+
+    ‖u‖_(C^(d,(2(α_I+2),α_+ + 5/2,α_K + 1/2))_b) ≤ C‖u‖_(H^(d+3,(2α_I,α_+,α_K))_b(M̃;|dt dx|)).            {#eq:ii-a-8-2}
+
+For an unweighted b-density μ_b on M̃ and all γ_I, γ_+, γ_K,
+‖u‖_(C^(d,(2γ_I,γ_+,γ_K))_b) ≤ C‖u‖_(H^(d+3,(2γ_I,γ_+,γ_K))_b(M̃,μ_b)), and, for u supported in Ω and every δ > 0,
+
+    ‖u‖_(H^(d,(2γ_I,γ_+,γ_K))_b(M̃,μ_b)) ≤ C_δ‖u‖_(C^(d,(2γ_I+δ,γ_+ + δ,γ_K + δ))_b).                      {#eq:ii-a-8-3}
+
+*Proof.* *The density.* With the explicit defining functions [[eq:ii-a-defining]] on Ω,
+
+    x_I⁸ρ_+⁵ρ_K = (t_*/(t_* + r))⁴ ((t_* + r)/(t_* r))⁵ (r/(t_* + r)) = 1/(t_* r⁴).
+
+The density μ_b := |dt_* dx|/(t_*⟨x⟩⁴) is a smooth positive b-density on M̃ near Ω̄. Near ι⁺ this is [[lem:ii-a-6-1]].
+Near the interior of K⁺, where t_* ∼ t and r is bounded, it is ⟨x⟩⁻⁴|dt/t dx|. Near the interior of ℐ⁺, where
+t_* ∈ [1, T], it is t_*⁻¹|dt_* dr/r dω| times a smooth positive function, and dr/r is −2 dx_I/x_I there. Since ⟨x⟩ ∼ r on
+Ω (r ≥ r_0 > 0), |dt dx| = |dt_* dx| = c x_I⁻⁸ρ_+⁻⁵ρ_K⁻¹μ_b with c smooth and positive. Thus
+L²(|dt dx|) = x_I⁴ρ_+^(5/2)ρ_K^(1/2) L²(μ_b), and b-derivatives commute with the weights up to bounded factors. So
+H^(d+3,(2α_I,α_+,α_K))_b(|dt dx|) = H^(d+3,(2(α_I+2),α_+ + 5/2,α_K + 1/2))_b(μ_b) for u supported in Ω, and
+[[eq:ii-a-8-2]] follows from the second claim. In dimension 3 + 1 the same product is x_I⁶ρ_+⁴ρ_K = t_*⁻¹r⁻³, which
+gives the weights (2(α_I + 3/2), α_+ + 2, α_K + 1/2) of [Hin26c].
+
+*The embedding.* Writing u = w_((γ))v reduces to γ = 0, again because b-derivatives of w_((γ)) are w_((γ)) times smooth
+functions. Cover the compact manifold with corners M̃ by finitely many charts [0, 1)^q_x × ℝ^(5−q)_y, with a
+subordinate partition of unity {ψ_i}. In logarithmic coordinates z_j = −log x_j the b-vector fields are ∂_(z_j), ∂_y,
+and μ_b is |dz dy| times a smooth positive bounded function. ψ_iu, extended by 0, is a function on ℝ⁵_(z,y) with
+‖ψ_iu‖_(H^(d+3)(ℝ⁵)) ≤ C‖u‖_(H^(d+3)_b). The Sobolev embedding H^(d+3)(ℝ⁵) ↪ C^d(ℝ⁵) holds since 3 > 5/2: for
+|β| ≤ d,
+
+    ‖∂^β f‖_(L^∞) ≤ ∫ |ζ^β f̂| dζ ≤ ‖f‖_(H^(d+3)) (∫ ⟨ζ⟩^(2|β|−2d−6) dζ)^(1/2),
+
+the last integral being finite as 2|β| − 2d − 6 ≤ −6 < −5. The sup norms of z, y-derivatives are the C^d_b-norm. Sum
+over i. At the artificial boundary r = r_0 the spaces are extendible: apply the embedding to an extension of comparable
+norm and restrict.
+
+*The converse* [[eq:ii-a-8-3]]. Write w := w_((γ)) and w′ := w x_I^δ ρ_+^δ ρ_K^δ. Then
+‖w⁻¹V^J u‖_(L²(μ_b)) ≤ ‖w′⁻¹V^J u‖_(L^∞) ‖(x_Iρ_+ρ_K)^δ‖_(L²(μ_b;Ω)). The last factor is finite: on Ω̄ the only boundary
+faces are ℐ⁺, ι⁺ and K⁺, with defining functions among x_I, ρ_+ and ρ_K, and in logarithmic coordinates the integrand is
+e^(−2δ(z_1+⋯+z_q)) over z_j ≥ z_0, with y in a compact set. ∎
+
+The last claim needs the support in Ω: near a face where no weight decays (for instance I⁰), μ_b has infinite mass.
+
+In dimension 4 + 1, as a variant with the same proof ([[lem:i-c-2-9]] (c)),
+
+    H^(d+3,α)_b(ℝ̄⁴, |dx|) ↪ C^(d,α+2)_b(ℝ̄⁴).                                                             {#eq:ii-a-8-4}
+
+Here |dx| = r⁴μ_b near infinity, so L²(|dx|) = ρ² L²(μ_b), and the embedding H^(d+3)(ℝ⁴) ⊂ C^d(ℝ⁴) (as 3 > 2) applies in
+the coordinates (log r, ω), ω ∈ 𝕊³. ([Hin26c, (3.72)], in dimension 3 + 1, has α + 3/2.)
+

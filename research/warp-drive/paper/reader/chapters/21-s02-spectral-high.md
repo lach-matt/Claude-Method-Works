@@ -861,3 +861,298 @@ The admissibility of [[sec:i-b-1-4]] is used through [[eq:i-b-4-4]]: it requires
 *neighbourhood* U_0 of the curves along which we propagate (for 𝗋, a neighbourhood within the face over ∂X), not only
 on the characteristic set. A logarithmic weight log(1/h) multiplies 𝖧𝖻, so a positive value of 𝖧𝖻 off the
 characteristic set but on the support of a commutant could not be absorbed. [[sec:i-b-1-4]] is stated in this form.
+
+### Radial estimates {#sec:i-b-5}
+
+The three radial sets are ∂ℛ_± at fibre infinity over the horizon, and R_(z_0,in), R_out over ∂X. One lemma serves all
+three, for the operator and its adjoint. Notation is that of [[sec:i-b-4]].
+
+#### A radial estimate {#sec:i-b-5-1}
+
+Let 𝐏 be one of c_z P, (c_z P)^(*h), where c_z ∈ {1, z⁻¹} is fixed, and let ϵ_♭ := 1, resp. −1. Then
+Re_h 𝐏 = Re_h(c_z P) and Im_h 𝐏 = ϵ_♭ Im_h(c_z P); since |c_z| ∈ [½, 2], an estimate for 𝐏 is one for P, resp.
+P^(*h).
+
+**Lemma {#lem:i-b-5-1}** (Radial estimate.) Let F be one of the two boundary faces of 𝒫, with defining function ϱ (ρ_∞
+or ρ), Z′ ⊂ Z compact, Λ ⊂ F compact, U_0 a neighbourhood of Λ with compact closure, and ς ∈ {1, −1}. Suppose,
+uniformly for z ∈ Z′:
+
+(i) Re_h 𝐏 − Op_h(p_z Id) ∈ Ψ^((1,−1,−1)), p_z real and classical of order (2, 0), continuous in z;
+𝖧_z^𝐏 := μ⁻¹ H_(p_z) ([[lem:i-b-4-1]] (c)) vanishes at every point of Λ, and β_ϱ := ϱ⁻¹ ς𝖧_z^𝐏 ϱ satisfies either
+β_ϱ ≥ β_* on U_0 (*source*) or β_ϱ ≤ −β_* on U_0 (*sink*), for some β_* > 0.
+
+(ii) h⁻¹ Im_h 𝐏 = ϵ_♭(𝒫_1^𝐏 − ℓ𝒜) with 𝒫_1^𝐏 ∈ Ψ^((1,−1,0)) h-self-adjoint, of principal symbol p_1^𝐏, and either
+(A) ϵ_♭ς𝒜 ∈ Ψ^((1,0,0)) is h-self-adjoint with principal symbol ≥ c_0⟨ζ⟩ Id on U_0; or (B) Ū_0 lies at finite
+frequencies, ϵ_♭ς = 1 and 𝒜 = Σ_(j,k) W_j^(*h) M̃_jk W_k + 𝒜_0 + 𝒜_1, where the W_j ∈ Ψ^((1,0,0)) are scalar
+semiclassical differential operators acting componentwise, M̃ = (M̃_jk) and 𝒜_0 are matrix functions with M̃ ≥ 0 for
+h^(⊕J) and 𝒜_0 ≥ 0 for h everywhere, and 𝒜_1 is a differential operator whose coefficients vanish near the base
+projection of Ū_0.
+
+(iii) There are real g, φ ∈ C^∞(𝒫), continuous in z, φ ≥ 0, with Λ = Ū_0 ∩ {ϱ = 0, φ = 0, g = 0},
+|ρ_∞² 𝐠_z| ≥ c|g| − Cϱ on U_0 where 𝐠_z is the principal symbol of 𝐏, and on U_0
+
+    ς𝖧_z^𝐏 φ ≥ c_1 φ − C_1(ϱ + g²)  (source),     ς𝖧_z^𝐏 φ ≤ −c_1 φ + C_1(ϱ + g²)  (sink).              {#eq:i-b-5-1}
+
+(iv) 𝗋 and 𝖻 are constant on U_0. Put κ̃ := s − ½ if F is fibre infinity and κ̃ := 𝗋 + ½ if F is the face over ∂X.
+
+(v) (Threshold.) On Λ the h-self-adjoint endomorphism
+
+    𝒯 := 2κ̃ β_ϱ Id − 2ςϵ_♭ μ⁻¹ p_1^𝐏                                                                  {#eq:i-b-5-2}
+
+satisfies 𝒯 ≥ c_𝒯 Id, c_𝒯 > 0.
+
+Then there are a neighbourhood U_* of Λ and a compact set K_E ⊂ Ū_0 ∖ Λ such that for B_* ∈ Ψ^0 microsupported in U_*,
+G ∈ Ψ^0 elliptic on Ū_0, E′ ∈ Ψ^0 elliptic on K_E, all M, K, z ∈ Z′, h < h_0 and Schwartz u,
+
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖G𝐏u‖_(𝐨−𝐦+(1,1,0)) + δ_sink ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)),                {#eq:i-b-5-3}
+
+where δ_sink := 0 in the source case and 1 in the sink case.
+
+So at a source the estimate needs no control near Λ, and at a sink it needs control on a punctured neighbourhood; the
+threshold [[eq:i-b-5-2]] decides which orders are allowed. In the source case [[eq:i-b-5-2]] asks κ̃ to be large (a
+high regularity or decay order), in the sink case small.
+
+*Proof.* *The cut-offs.* Let χ_0(t) := χ(2 − t) with χ from [[lem:i-b-4-4]]: χ_0 = 1 on (−∞, 1], χ_0 = 0 on [2, ∞),
+χ_0′ ≤ 0, √(−χ_0χ_0′) smooth. For δ = (δ_1, δ_2, δ_3) put
+
+    φ_δ := χ_0(ϱ/δ_1) χ_0(φ/δ_2) χ_0(g²/δ_3) on U_0,     K_δ := Ū_0 ∩ {ϱ ≤ 2δ_1, φ ≤ 2δ_2, g² ≤ 2δ_3}.
+
+The compact sets K_δ decrease to Λ as δ → 0, so K_δ ⊂ U_0 for δ small, and then φ_δ, extended by 0, is smooth on 𝒫
+with support in K_δ; and every neighbourhood of Λ contains K_δ for δ small. We take
+δ_1 ≤ c_δ min(δ_2, √δ_3) and δ_3 ≤ c_δ δ_2, with c_δ := min(c_1/(16C_1), c/(4C), 1); this is preserved by
+δ ↦ δ/4. Then: on supp χ_0′(φ/δ_2) ∩ K_δ we have φ ≥ δ_2, so by [[eq:i-b-5-1]]
+±ς𝖧_z^𝐏 φ ≥ c_1δ_2 − C_1(2δ_1 + 2δ_3) ≥ ½c_1δ_2 (upper sign at a source, lower at a sink); and on
+supp χ_0′(g²/δ_3) ∩ K_δ, |ρ_∞² 𝐠_z| ≥ c√δ_3 − 2Cδ_1 > 0, so 𝐏 is elliptic there.
+
+*The commutant.* ǎ := w_𝐤 φ_δ, Ǎ := ½(Op_h(ǎ Id) + Op_h(ǎ Id)^(*h)), 𝐤 from [[eq:i-b-3-2]]. As in Step 1 of
+[[prop:i-b-4-5]], with 𝗋, 𝖻 constant on U_0, the principal symbol of ςC′ (where C = C′ − ℓϵ_♭(Ǎ²𝒜 + 𝒜Ǎ²)) is
+w_(2𝐨)[2φ_δ ς𝖧_z^𝐏 φ_δ + φ_δ² β] with
+
+    β := 2(s − ½) ς𝖧_z^𝐏 log⟨ζ⟩ + 2(𝗋 + ½) ς𝖧_z^𝐏 log⟨x⟩ + 2ςϵ_♭ μ⁻¹ p_1^𝐏.
+
+At Λ ⊂ F, one of log⟨ζ⟩, log⟨x⟩ is log ϱ⁻¹, with ς𝖧 log ϱ⁻¹ = −β_ϱ; the other is smooth near Λ, so its derivative
+along 𝖧_z^𝐏 vanishes on Λ, where the vector field vanishes. So β = −𝒯 on Λ, and −β ≥ ½c_𝒯 Id on K_δ for δ small,
+uniformly in z ∈ Z′. Let Q_0 := χ̃(−β) + (1 − χ̃)½c_𝒯 Id with χ̃ ∈ C_c^∞(U_0) equal to 1 on K_δ, and
+b := w_𝐨 φ_δ Q_0^(1/2) ∈ S^𝐨.
+
+*The cut-off terms.* 2φ_δ ς𝖧φ_δ = Σ_(i=1)^3 k_i, where, with a_1 := ϱ, a_2 := φ, a_3 := g² and
+φ_i := χ_0(a_i/δ_i), k_i := 2φ_i χ_0′(a_i/δ_i) δ_i⁻¹ (ς𝖧a_i) Π_(j≠i) φ_j². Since χ_0χ_0′ ≤ 0: k_1 has the sign of
+−β_ϱϱ, and k_2 that of ∓1, on their supports; k_3 is supported where 𝐏 is elliptic. In the source case k_1 = −f_1²,
+k_2 = −f_2² with
+
+    f_1 := √(−2χ_0χ_0′)(ϱ/δ_1) (β_ϱϱ/δ_1)^(1/2) φ_2 φ_3,     f_2 := √(−2χ_0χ_0′)(φ/δ_2) (ς𝖧φ/δ_2)^(1/2) φ_1 φ_3,
+
+smooth, because β_ϱϱ ≥ β_*δ_1 and ς𝖧φ ≥ ½c_1δ_2 on a neighbourhood of the supports (the square roots of positive
+smooth functions there). In the sink case k_1 = e_1², k_2 = e_2² likewise, with −β_ϱ, −ς𝖧φ under the roots. Let
+j_3 := w_(2𝐨) k_3 𝐠_z⁻¹ ∈ S^(2𝐨−𝐦) ([[lem:i-b-2-2]] (e)) and J := Op_h(j_3 Id); WF′_h(J) ⊂ supp k_3 ⊂ Ell_h(𝐏), and
+J𝐏 has principal symbol w_(2𝐨) k_3.
+
+*The absorbing term.* In case (A) it is treated exactly as in [[prop:i-b-4-5]] (here c_b = 0): −2ℓǍ(ϵ_♭ς𝒜)Ǎ is a term
+−F_abs with ⟨F_abs w, w⟩ ≥ −C‖w‖²_(−K𝟏), and the double commutator is in Ψ^(2𝐨−½𝟏). In case (B),
+−ℓ(Ǎ²𝒜 + 𝒜Ǎ²) = −2ℓǍ𝒜Ǎ − ℓ[[𝒜, Ǎ], Ǎ], and for every w
+
+    ⟨Ǎ𝒜Ǎw, w⟩_h = ⟨M̃ WǍw, WǍw⟩_(h^(⊕J)) + ⟨𝒜_0 Ǎw, Ǎw⟩_h ≥ 0
+
+exactly, the integrands being pointwise non-negative, where now 𝒜 stands for 𝒜 − 𝒜_1; so F_abs := 2ℓǍ(𝒜 − 𝒜_1)Ǎ
+satisfies ⟨F_abs w, w⟩ ≥ 0. The terms with 𝒜_1, ℓ(Ǎ²𝒜_1 + 𝒜_1Ǎ²), are residual: WF′_h(𝒜_1) lies over the support of
+its coefficients, disjoint from WF′_h(Ǎ), and ℓ ≤ 2h⁻¹. As Ǎ is microsupported at finite frequencies, the order of 𝒜
+in ζ does not matter, and ℓ[[𝒜, Ǎ], Ǎ] ∈ Ψ^(2𝐤−(2,2,1)+ϵ′𝟏) ⊂ Ψ^(2𝐨−½𝟏) near Ū_0.
+
+*Conclusion.* With B := Op_h(b), F := F_abs + Σ_i F_i^(*h)F_i and E the operators Op_h(w_𝐨 e_i Id) (source:
+F_i := Op_h(w_𝐨 f_i Id), no E; sink: no F_i, E from e_1, e_2, with E^(*h)E read as the sum), we get
+ςC = −B^(*h)B − F + E^(*h)E + J𝐏 + R with R ∈ Ψ^(2𝐨−½𝟏), since all principal symbols agree. Ǎ = ZB + Y with
+Z := Op_h(w_(𝐤−𝐨) χ̃ Q_0^(−1/2)), and B is elliptic on {φ_δ ≠ 0} ⊃ K_(δ/2). The sets supp e_i lie in
+{ϱ ≥ δ_1} ∪ {φ ≥ δ_2}, closed and disjoint from Λ. [[lem:i-b-3-3]] applies, and [[lem:i-b-3-4]] with
+U_j := K°_(2·4^(−j)δ) and, at the j-th step, the commutant above with δ replaced by 4^(1−j)δ, supported in
+K_(4^(1−j)δ) ⊂ U_(j−1) with B elliptic on K_(4^(1−j)δ/2) ⊃ Ū_j (the hypothesis being used only for these sets, as in
+[[prop:i-b-4-5]]), gives [[eq:i-b-5-3]] with U_* := K°_(2·4^(−J)δ) and K_E := Ū_0 ∩ ⋃_j supp(e_1 + e_2) at the j-th
+step. Uniformity in z ∈ Z′ holds because every symbol above, and every lower bound used, is uniform. ∎
+
+#### The horizon {#sec:i-b-5-2}
+
+**Proposition {#prop:i-b-5-2}** (Cf. [Hin26c, Proposition 9.18] at the horizon and [[prop:i-a-4-2]].) Let
+s > ½ + ϑ_ℋ, Z compact as in [[sec:i-b-4]], and 𝗋, 𝖻 constant near ∂ℛ_+ ∪ ∂ℛ_−. For each sign ± there are
+neighbourhoods U_* ⊂ U_0 of ∂ℛ_±, with U_0 over {|r − r_h| < δ_0}, and a compact K_E ⊂ Ū_0 ∖ ∂ℛ_±, such that,
+uniformly in z ∈ Z, for B_* microsupported in U_* and G elliptic on Ū_0:
+
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)),     𝐨 = (s, 𝗋, 𝖻),                  {#eq:i-b-5-4}
+
+    ‖B_* v‖_(𝐨*) ≤ C(h⁻¹ ‖GP^(*h)v‖_(𝐨*−𝐦+(1,1,0)) + ‖E′v‖_(𝐨*) + h^M ‖Gv‖_(𝐨*) + ‖v‖_(−K𝟏)),
+    𝐨* = (1 − s, 𝗋*, 𝖻*),                                                                              {#eq:i-b-5-5}
+
+for any orders 𝗋*, 𝖻* constant near ∂ℛ_±, with E′ elliptic on K_E. The fibre inner product may be chosen near ∂ℛ_±
+as in (O3) of [[sec:i-a-1-4]]; the adjoint in [[eq:i-b-5-5]] may be taken in any fibre inner product
+([[prop:i-a-4-2]]). The band {|r − r_h| < δ_0} may be replaced by {|r − r_h| < δ} for any δ ∈ (0, δ_0]: the
+proposition asserts neighbourhoods inside the band, and its proof is local at ∂ℛ_±.
+
+*Proof.* Apply [[lem:i-b-5-1]] with c_z = 1, F fibre infinity, Λ := ∂ℛ_±, and ς := ±ϵ_♭. By (H3) and
+[[lem:i-b-1-1]] (e), ±q̂_z > 0 near ∂ℛ_±, uniformly in z (at fibre infinity q̂_z = −ρ_∞τ_1 up to O(ρ_∞)); so (A) holds
+with 𝒜 = 𝒬. At fibre infinity 𝖧_z = ρ⁻¹ρ_∞ H_(G_0) does not depend on z, and ±𝖧_z is ρ⁻¹ times the future field 𝖧 of
+(H3); so β_ϱ = ϵ_♭ β_0′ with β_0′ := ρ⁻¹β_0 > 0 on ∂ℛ_±, hence on a neighbourhood: a source for P and a sink for
+P^(*h). 𝖧_z vanishes on ∂ℛ_± as a vector field on 𝒫: it is tangent to fibre infinity, vanishes on ∂ℛ_± within it
+(radial points), and 𝖧_z ρ_∞ = β_ϱ ρ_∞ = 0 there.
+
+For (iii) take g := Ĝ_0, and φ := q_± ∘ π, where q_± is the quadratic defining function of (H3) and π a smooth
+retraction of a neighbourhood of ∂ℛ_± in 𝒫 onto ∂Σ_0 (projecting along the level sets of a complement of (ρ_∞, Ĝ_0) in
+a coordinate system, as in [[lem:i-a-4-1]]). Ellipticity: |Ĝ_z| ≥ |Re Ĝ_z| ≥ |Ĝ_0| − Cρ_∞. For [[eq:i-b-5-1]]: at a
+point ϖ, 𝖧_z φ(ϖ) = dq_±(π_*𝖧_z(ϖ)) and π_*𝖧_z(ϖ) = 𝖧_z(πϖ) + O(|Ĝ_0(ϖ)| + ρ_∞(ϖ)); and |dq_±| ≤ C√q_±, as q_± ≥ 0
+is smooth (for a non-negative C² function, |∇f|² ≤ 2f sup|∇²f|). With ±𝖧q_± ≥ c q_± on ∂Σ_0 (H3),
+
+    ς𝖧_z φ ≷ ϵ_♭(c ρ⁻¹ φ − C(|g| + ρ_∞)√φ),
+
+and C|g|√φ ≤ (c/4)ρ⁻¹φ + C′g², C ρ_∞ √φ ≤ C′ρ_∞ on U_0; this is [[eq:i-b-5-1]], source for ϵ_♭ = 1, sink for
+ϵ_♭ = −1. (iv) holds by assumption. For (v): μ⁻¹p_1 = ρ⁻¹ρ_∞p_1 and, at fibre infinity,
+ρ_∞p_1(z) = ρ_∞σ_1(Im_h P̂(0)), the term (Re z) Im_h T being of lower order there. With ςϵ_♭ = ±1 and
+p_(1,±) := ±ρ_∞σ_1(Im_h P̂(0)) ([[eq:i-a-1-5]]),
+
+    𝒯 = 2ρ⁻¹(κ̃ ϵ_♭ β_0 − p_(1,±)) = 2ρ⁻¹β_0(ϵ_♭κ̃ − β_0⁻¹ p_(1,±))
+
+(both β_0 and p_(1,±) evaluated on ∂ℛ_±; β_0⁻¹p_(1,±) is h-self-adjoint). For P, κ̃ = s − ½, and 𝒯 > 0 if and only if
+s − ½ > max spec(β_0⁻¹p_(1,±)), which holds as s > ½ + ϑ_ℋ. For P^(*h) at the order 𝐨*, κ̃ = ½ − s and ϵ_♭ = −1: the
+same condition. [[lem:i-b-5-1]] gives [[eq:i-b-5-4]] and [[eq:i-b-5-5]]. ∎
+
+#### The incoming radial set {#sec:i-b-5-3}
+
+**Proposition {#prop:i-b-5-3}** (Cf. [[prop:i-a-4-6]].) Let z_0 ∈ {1, −1}, ν_1 > 0 and Z_in := z_0 + i[0, ν_1]. Let
+𝗋, 𝖻 be constant near R_(z_0,in), with 𝗋 > ½(−1 + ϑ_in) there, the fibre inner product chosen as in (O3) of
+[[sec:i-a-1-4]]. Then there are neighbourhoods U_* ⊂ U_0 of R_(z_0,in) at finite frequencies and a compact
+K_E ⊂ Ū_0 ∖ R_(z_0,in) such that [[eq:i-b-5-4]] holds for z ∈ Z_in with 𝐨 = (s, 𝗋, 𝖻), and [[eq:i-b-5-5]] holds with
+𝐨* = (s*, −𝗋 − 1, 𝖻*) for any s* and any 𝖻* constant near R_(z_0,in).
+
+*Proof.* [[lem:i-b-5-1]] with c_z = 1, F the face over ∂X, Λ := R_(z_0,in), ς := ϵ_♭z_0. At the face q_z = −2ξ = 4z_0
+on Λ, so (A) holds on a neighbourhood. At the face 𝖧_z = 𝖧_(z_0) ([[lem:i-b-4-1]] (c)) is ⟨ζ⟩⁻¹𝖵_p,
+p = ξ² + 2z_0ξ + |η|², and by [[eq:i-a-4-4]], ρ⁻¹𝖵_p ρ = −∂_ξ p = 2z_0 on Λ, where ⟨ζ⟩ = √5; so
+β_ϱ = ς · 2z_0/√5 = 2ϵ_♭/√5 on Λ, and 𝖧_z vanishes on Λ (there 𝖵_p = 2z_0ρ∂_ρ + H_p^(𝕊³) and both vanish at ρ = 0,
+η = 0). Source for P, sink for P^(*h).
+
+For (iii) take g := ξ² + 2z_0ξ + |η|² and φ := |η|² (round norm), extended to a neighbourhood of Λ in 𝒫 as functions of
+(ω, ξ, η) in a collar. Λ = Ū_0 ∩ {ρ = 0, φ = 0, g = 0} for U_0 near Λ (the other solution of φ = g = 0 is R_out).
+Re G_z = g + O(ρ) near the face, since g_00 ∈ ρ² C^∞; so |Ĝ_z| ≥ c|g| − Cρ. By [[eq:i-a-4-4]],
+𝖵_p|η|² = −2(∂_ξ p)|η|² = −4(ξ + z_0)|η|², which near ξ = −2z_0 is 4z_0|η|²(1 + O(|ξ + 2z_0|)); so
+ς𝖧_z φ = ϵ_♭ (4/⟨ζ⟩)|η|²(1 + O(|ξ + 2z_0|)) + O(ρ), which gives [[eq:i-b-5-1]] on a small U_0, with no g² term
+needed. (iv) holds by assumption. For (v), at Λ, by [[lem:i-b-4-1]] (b),
+μ⁻¹p_1 = ⟨ζ⟩⁻¹ρ⁻¹p_1 = (1/√5)(σ(ρ⁻¹ Im_h P̂(0))(−2z_0, 0) − z_0(S + S^(*h))), and the first term is linear in ζ
+([[lem:i-a-4-4]] (b)), so it equals z_0 p_in with p_in of [[eq:i-a-1-5]]. Hence
+ςϵ_♭μ⁻¹p_1 = z_0μ⁻¹p_1 = (1/√5)(p_in − (S + S^(*h))) for both signs of z_0, and
+
+    𝒯 = (2/√5)(2ϵ_♭κ̃ Id − (p_in − (S + S^(*h)))).
+
+For P, ϵ_♭κ̃ = 𝗋 + ½; for P^(*h) at the decay order −𝗋 − 1, ϵ_♭κ̃ = −(−𝗋 − 1 + ½) = 𝗋 + ½. In both cases 𝒯 > 0 on Λ
+if and only if 2𝗋 + 1 > max spec(p_in − (S + S^(*h))) there, which holds as 𝗋 > ½(−1 + ϑ_in). ∎
+
+#### The outgoing radial set {#sec:i-b-5-4}
+
+Near R_out the absorbing term ℓ𝒬 has no sign, as q_z = −2ξ vanishes there. Dividing by z moves the large imaginary
+part onto an operator that is non-negative exactly.
+
+**Lemma {#lem:i-b-5-4}** (The semiclassical form of [Hin26c, (9.49)].) Let V_1 := ρ∂_ρ and
+Ω_ab := x_a∂_b − x_b∂_a (1 ≤ a < b ≤ 4), and W := (W_0, W_ab) with W_0 := hρV_1, W_ab := hρΩ_ab, acting componentwise;
+J := 7. Near ∂X, on {ρ < ρ_1},
+
+    h² Re_h P̂(0) = W^(*h) M̃ W + h R_1^h,     M̃ = Id + ρm,                                             {#eq:i-b-5-6}
+
+with m a smooth h^(⊕J)-self-adjoint matrix function, and R_1^h ∈ hρ² Diff¹_b h-self-adjoint, whose semiclassical symbol
+divided by ρ vanishes at R_out. With P̃ := z⁻¹P and ℓ = Im z/h,
+
+    h⁻¹ Im_h P̃ = 𝒫̃_1 − ℓ𝒜,     𝒫̃_1 := Re(z⁻¹) h Im_h P̂(0) + Im_h T − (Im z/|z|²) R_1^h,
+    𝒜 := W^(*h) M̃ W/|z|² − g_00.                                                                       {#eq:i-b-5-7}
+
+𝒫̃_1 ∈ Ψ^((1,−1,0)) is h-self-adjoint and μ⁻¹σ(𝒫̃_1) = −(S + S^(*h)) at R_out; Re_h P̃ has principal symbol
+p̃_z := Re(z⁻¹G_z) = Re(z⁻¹)G_0 + τ_1 + (Re z)g_00.
+
+*Proof.* By (H2), P^(0) − ((ρD_ρ)² + Δ_(𝕊³)) Id ∈ Diff¹_b + ρ Diff²_b, and Δ_(𝕊³) = Σ_(a<b) Ω_ab* Ω_ab, the rotations
+being divergence free for dx. Since (ρV_1)* = −ρV_1 + ρC^∞ and [ρ, V_1] ∈ ρC^∞,
+h²ρ²(ρD_ρ)² = W_0*W_0 + h²ρ² Diff¹_b and h²ρ²Ω_ab*Ω_ab = W_ab*W_ab + h²ρ² Diff¹_b. An element of h²ρ³ Diff²_b is
+Σ W_j* ρm′_jk W_k modulo h²ρ³ Diff¹_b, the second order part being spanned by products of the V's. W_j^(*h) − W_j* is a
+matrix function times hρ. Take h-self-adjoint parts: the left side of [[eq:i-b-5-6]] is h-self-adjoint, so replacing
+m′ by its h^(⊕J)-self-adjoint part m changes only the remainder, which lies in h²ρ² Diff¹_b = h · hρ² Diff¹_b. Its
+symbol: hρ² Diff¹_b = ρ · hρ Diff¹_b, and hρ Diff¹_b consists of c · hρV + hρd, with semiclassical symbol linear in ζ
+plus O(ρ); so the symbol divided by ρ vanishes at ζ = 0, ρ = 0. For [[eq:i-b-5-7]]: P̃ = z⁻¹h²P̂(0) + hT + zg_00 by
+[[eq:i-b-1-2]], and Im_h(cA) = (Re c) Im_h A + (Im c) Re_h A with Im(z⁻¹) = −Im z/|z|². The symbol of 𝒫̃_1 at the
+face is ρ times Re(z⁻¹)r_3 − (S + S^(*h)) plus a term vanishing at R_out, r_3 := σ(ρ⁻¹ Im_h P̂(0)) being linear
+([[lem:i-a-4-4]] (b)); and μ = ρ at ζ = 0. ∎
+
+**Proposition {#prop:i-b-5-5}** (Cf. [Hin26c, Proposition 9.27] and [[prop:i-a-4-9]].) Let Z be compact as in
+[[sec:i-b-4]], 𝗋 and 𝖻 constant near R_out, and h a fibre inner product with
+𝗋 < −½ + ½ inf_(∂X) min spec(S + S^(*h)). Then there are neighbourhoods U_* ⊂ U_0 of R_out at finite frequencies over
+{ρ < ρ_1} and a compact K_E ⊂ Ū_0 ∖ R_out such that, uniformly in z ∈ Z,
+
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)),     𝐨 = (s, 𝗋, 𝖻),      {#eq:i-b-5-8}
+
+and [[eq:i-b-5-4]] holds for P^(*h) at 𝐨* = (s*, −𝗋 − 1, 𝖻*) for every s* and every 𝖻* constant near R_out, with
+B_*, G, E′ as in [[lem:i-b-5-1]]. By (O3) of [[sec:i-a-1-4]] and [[sec:i-a-2-4]], h may be chosen so that the condition
+reads 𝗋 < −½ + S̄ up to any given margin.
+
+*Proof.* [[lem:i-b-5-1]] with c_z = z⁻¹, F the face over ∂X, Λ := R_out, ς := ϵ_♭, case (B): by [[lem:i-b-5-4]],
+h⁻¹ Im_h 𝐏 = ϵ_♭(𝒫̃_1 − ℓ𝒜). Write M̃ = M̃_ext + (1 − χ_1)(M̃ − Id) with M̃_ext := χ_1M̃ + (1 − χ_1)Id, where
+χ_1 ∈ C^∞(X̄) is supported in {ρ < ρ_2} and equal to 1 near the base projection of Ū_0, and ρ_2 is so small that
+M̃ ≥ ½ Id on {ρ < ρ_2}; then M̃_ext ≥ ½ Id everywhere, and 𝒜_1 := |z|⁻² W^(*h)(1 − χ_1)(M̃ − Id)W (with M̃ extended
+arbitrarily off {ρ < ρ_1}, and the identity [[eq:i-b-5-7]] used only near the base projection of Ū_0).
+𝒜_0 := −g_00 ≥ 0 by (H6). So (ii)(B) holds. By [[eq:i-a-4-4]], at the face 𝖧_z^𝐏 = ⟨ζ⟩⁻¹𝖵_g̃ with
+g̃ := 2ξ + κ(ξ² + |η|²), κ := Re(z⁻¹), and ([[eq:i-a-4-11]]) ρ⁻¹𝖵_g̃ ρ = −2(1 + κξ), 𝖵_g̃(ξ² + |η|²) = −4|η|²,
+𝖵_g̃ g̃ = 0; 𝖵_g̃ vanishes at R_out as a vector field on 𝒫. So β_ϱ = −2ϵ_♭ at R_out, and ϵ_♭β_ϱ ≤ −1 near it: a sink
+for P, a source for P^(*h).
+
+For (iii), g := g̃ and φ := ξ² + |η|², extended in a collar. |ρ_∞² z⁻¹G_z| ≥ |Re(z⁻¹Ĝ_z)| ≥ |g̃| − Cρ. On
+{φ ≤ κ^(−2)}, 2ξ = g − κφ gives ξ² ≤ ½(g² + κ²φ²) ≤ ½g² + ½φ, hence |η|² ≥ ½φ − ½g² and
+ς𝖧_z^𝐏 φ = −4ϵ_♭⟨ζ⟩⁻¹|η|² + O(ρ), which is [[eq:i-b-5-1]] with the sink sign for P and the source sign for P^(*h).
+(iv) holds by assumption. For (v), by [[lem:i-b-5-4]], ςϵ_♭μ⁻¹p_1^𝐏 = −(S + S^(*h)) at R_out, so
+
+    𝒯 = −4ϵ_♭κ̃ Id + 2(S + S^(*h)).
+
+For P, κ̃ = 𝗋 + ½, and 𝒯 > 0 if and only if 2𝗋 + 1 < min spec(S + S^(*h)). For P^(*h) at the decay order −𝗋 − 1,
+−ϵ_♭κ̃ = −𝗋 − ½, the same condition. ∎
+
+#### b-regularity at the outgoing radial set {#sec:i-b-5-5}
+
+Write 𝒱 := (V_1, Ω_12, …, Ω_34), V^α for ordered products, α_1 the number of factors V_1, A_k := {|α| = k}, and for
+α ∈ A_k with α_1 ≥ 1, α′ := α with one factor V_1 removed. Let
+
+    ‖u‖_(𝐨;k) := Σ_(|α|≤k) ‖(hV)^α u‖_𝐨.                                                                {#eq:i-b-5-9}
+
+Then ‖u‖_((s;k),𝗋,𝖻;+) of [[eq:i-b-1-5]] and h^(−k)‖u‖_(𝐨;k) are equivalent uniformly in h: by
+V^α = h^(−|α|)(hV)^α, [[eq:i-b-1-5]] is Σ_(j+|α|≤k) h^(−j−|α|) ‖(hV)^α u‖_𝐨, each term is at most
+h^(−k)‖(hV)^α u‖_𝐨, and the terms with j = k − |α| are exactly h^(−k)‖(hV)^α u‖_𝐨. Here the V's replace the ⟨x⟩D_(x_j)
+of [[eq:i-b-1-5]]; on X̄, where r > 0, both families span the b-vector fields over C^∞(X̄), so the norms are
+equivalent.
+
+**Lemma {#lem:i-b-5-6}** (The semiclassical form of [[lem:i-a-4-8]].) On {ρ < ρ_1}, for Schwartz u and k ≥ 1,
+u^(k) := ((hV)^α u)_(α∈A_k) satisfies
+
+    P u_α^(k) + Σ_(β∈A_k) hρ 𝒦_αβ u_β^(k)
+        = (hV)^α Pu − α_1 h (hV)^(α′) Pu + Σ_(|β|≤k−1) h^(k−|β|) R_αβ^h (hV)^β u,                          {#eq:i-b-5-10}
+
+with 𝒦_αβ ∈ Ψ^((1,0,0)) semiclassical differential operators whose symbols vanish at R_out, and R_αβ^h ∈ Ψ^((1,−1,0));
+all depend polynomially on z.
+
+*Proof.* Multiply [[eq:i-a-4-10]], with σ = z/h and f = P̂(σ)u, by h^(2+k): h^(2+k)V^α = h²(hV)^α, h²P̂(σ) = P, and
+h^(2+k)V^(α′) = h · h²(hV)^(α′). It remains to place h²P̃_αβ and h^(2+k)R_αβV^β = h^(k−|β|)h²R_αβ(hV)^β, which needs
+the dependence on σ that the proof of [[lem:i-a-4-8]] produces. There P̂(σ) = 2iσρV_1 + ℛ,
+ℛ = −2iσρ(3/2 + S) + P̂(0) − iσQ + σ²g_00, and the terms are sorted by origin. From P̂(0) = ρ²P^(0): σ-independent,
+in ρ² Diff¹_b ∘ V^β; times h² this is hρ · (hρ Diff¹_b), and hρ Diff¹_b has semiclassical symbol linear in ζ plus
+O(ρ). From σρ(3/2 + S) and from the commutators of 2iσρV_1 beyond the diagonal term: σρC^∞ times V^β with
+|β| ≤ k − 1 only; times h², hzρC^∞ ∈ Ψ^((0,−1,−1)). From σQ, Q ∈ ρ³ Diff¹_b: [V^α, Q] and QV^(α′) lie in
+ρ³ Diff^k_b, whose part with |β| = k has coefficients in ρ³C^∞; so σρ³C^∞ on the diagonal level and σρ³ Diff¹_b below
+it; times h², hzρ³C^∞ = hρ · zρ²C^∞ and zρ² · hρ Diff¹_b ⊂ Ψ^((1,−2,0)). From σ²g_00, g_00 ∈ ρ²C^∞: only below the
+diagonal level, σ²ρ²C^∞; times h², z²ρ²C^∞. Collecting: h²P̃_αβ = hρ𝒦_αβ with 𝒦_αβ having symbol linear in ζ plus
+O(ρ) at the face, so vanishing at R_out; and h²R_αβ ∈ Ψ^((1,−1,0)). ∎
+
+**Proposition {#prop:i-b-5-7}** (Cf. [Hin26c, (9.77)].) In the setting of [[prop:i-b-5-5]], for k ∈ ℕ_0 there are B_*
+elliptic at R_out, G and a compact K_E ⊂ Ū_0 ∖ R_out such that for E′ elliptic on K_E, uniformly in z ∈ Z,
+
+    ‖B_* u‖_(𝐨;k) ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0);k) + ‖E′u‖_(𝐨+k(1,1,0)) + h^M ‖Gu‖_(𝐨;k) + ‖u‖_(−K𝟏)).      {#eq:i-b-5-11}
+
+*Proof.* Induction on k; k = 0 is [[eq:i-b-5-8]]. Let k ≥ 1. The system [[eq:i-b-5-10]] is 𝐏^(k)u^(k) = f^(k) with
+𝐏^(k) := P ⊗ Id + hρ𝒦 on ℂ^(N_E) ⊗ ℂ^(A_k), inner product h^(⊕A_k). Apply [[lem:i-b-5-1]] to 𝐏 := z⁻¹𝐏^(k) exactly
+as in [[prop:i-b-5-5]]. The added term changes nothing that the lemma uses: Re_h(z⁻¹hρ𝒦) ∈ Ψ^((1,−1,−1)) is of lower
+order (its commutator with Ǎ², divided by h, lies in Ψ^(2𝐨−𝟏+ϵ′𝟏), Ǎ being scalar), and
+h⁻¹ Im_h(z⁻¹hρ𝒦) = Im_h(z⁻¹ρ𝒦) ∈ Ψ^((1,−1,0)) is added to 𝒫̃_1 ⊗ Id, with μ⁻¹ times its symbol vanishing at R_out.
+So the threshold matrix is 𝒯 ⊗ Id, the same. This gives [[eq:i-b-5-8]] for u^(k), with G𝐏^(k)u^(k) = Gf^(k). Now
+‖G(hV)^α Pu‖_𝐭 + ‖G h(hV)^(α′) Pu‖_𝐭 ≤ C‖G̃Pu‖_(𝐭;k) + C‖u‖_(−K𝟏), 𝐭 := 𝐨 − 𝐦 + (1, 1, 0), with G̃ elliptic on
+WF′_h(G); and, G being microsupported at finite frequencies,
+‖G h^(k−|β|) R_αβ^h (hV)^β u‖_𝐭 ≤ Ch‖G̃(hV)^β u‖_𝐨 + C‖u‖_(−K𝟏), so h⁻¹ times it is bounded by ‖G̃u‖_(𝐨;k−1), which
+the induction hypothesis (applied with G̃ in place of B_*, after shrinking) bounds. The term ‖E′u^(k)‖_𝐨 is at most
+C‖E″u‖_(𝐨+k(1,1,0)) + C‖u‖_(−K𝟏), since (hV)^α ∈ Ψ^(k(1,1,0)) ([[prop:i-b-2-8]]). Finally
+‖B_*′u‖_(𝐨;k) ≤ C(‖B_* u^(k)‖_𝐨 + ‖G̃u‖_(𝐨;k−1) + ‖u‖_(−K𝟏)) for B_*′ microsupported where B_* is elliptic, since
+[B_*′, (hV)^α] is a sum of terms (hV)^γ [B_*′, hV] (hV)^(γ′), |γ| + |γ′| = k − 1, with [B_*′, hV] ∈ Ψ^((0,0,−1)) by
+[[thm:i-b-2-4]]. ∎

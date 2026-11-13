@@ -407,8 +407,8 @@ the Euclidean norm of (x1 dx2 − x2 dx1)² is ρ1² ≤ r²). (b) No term conta
 g0⁻¹ = η⁻¹ − (μ/r²) L0 ⊗ L0 and W_TT(L0, L0) = 0, the g0-trace is the Euclidean trace of the spatial array, which is
 2 r^(−3/2) λ⁻¹ (G c² + F s² − (c² G + s² F)) = 0, the traces of the three forms being ρ1²/r² = c², s² and 4 − 1 = 3.
 (c) In the frame dϑ, c dφ1, s dφ2, orthonormal for γ, the bracket of [[eq:waves]] is diagonal with entries −(p1 + p2),
-p1, p2; on the spheres of radius r, with g0 = r² γ there and W_TT transverse, the norm squared is 4 r λ⁻² r⁻⁴ (p1² + p2²
-+ (p1 + p2)²) = 8 r⁻³ λ⁻² (p1² + p1 p2 + p2²). ∎
+p1, p2; on the spheres of radius r, with g0 = r² γ there and W_TT transverse, the norm squared is
+4 r λ⁻² r⁻⁴ (p1² + p2² + (p1 + p2)²) = 8 r⁻³ λ⁻² (p1² + p1 p2 + p2²). ∎
 
 The next lemma computes the mean of the leading equation of the two-scale expansion of [[ch:approximant]]. For a
 profile k, |k|²_(g0) := g0^(ac) g0^(bd) k_ab k_cd.
@@ -474,13 +474,13 @@ F̂ := a sin θ, Ĝ := a cos θ, a := A env h. With ⟨F̂²⟩ = ⟨Ĝ²⟩ = a
 
     ⟨q1²⟩ = (4c⁴ + s⁴) a²/18,   ⟨q2²⟩ = (c⁴ + 4s⁴) a²/18,   ⟨q1 q2⟩ = −(2c⁴ + 2s⁴) a²/18,
 
-so ⟨q1² + q1 q2 + q2²⟩ = (c⁴ + s⁴) a²/6 and ⟨|∂_θ W_TT|²⟩ = (4/3) a² (c⁴ + s⁴) r⁻³. Next, c⁴ + s⁴ = ((1 + ζ)² + (1 −
-ζ)²)/4 = (1 + ζ²)/2, so h² (c⁴ + s⁴) = 1. By [[eq:mean-leading]] the mean of the leading equation is (3μ'/(2r³) − (1/3)
-A² env² h² (c⁴ + s⁴) r⁻³) dv ⊗ dv, which vanishes exactly when μ' = (2/9) A² env² h² (c⁴ + s⁴), that is [[eq:mu-rate]].
-∎
+so ⟨q1² + q1 q2 + q2²⟩ = (c⁴ + s⁴) a²/6 and ⟨|∂_θ W_TT|²⟩ = (4/3) a² (c⁴ + s⁴) r⁻³. Next,
+c⁴ + s⁴ = ((1 + ζ)² + (1 − ζ)²)/4 = (1 + ζ²)/2, so h² (c⁴ + s⁴) = 1. By [[eq:mean-leading]] the mean of the leading
+equation is (3μ'/(2r³) − (1/3) A² env² h² (c⁴ + s⁴) r⁻³) dv ⊗ dv, which vanishes exactly when
+μ' = (2/9) A² env² h² (c⁴ + s⁴), that is [[eq:mu-rate]]. ∎
 
-This is Isaacson's effective stress as a five-dimensional null dust along dv ([Isa68a], [Isa68b]). The quadratic form of
-the rates in [[eq:wave-energy]], 4(a² + ab + b²) = (2a + b)² + 3b², is positive definite. In the Bondi-type variables of
+This is Isaacson's effective stress as a five-dimensional null dust along dv ([Isa68a], [Isa68b]). The quadratic form
+q1² + q1 q2 + q2² of the proof is positive definite: 4(a² + ab + b²) = (2a + b)² + 3b². In the Bondi-type variables of
 [[thm:bondi-law]], in which the wave enters the angular metric through e^(−2(P1+P2)) dϑ² + c² e^(2P1) dφ1² + s² e^(2P2)
 dφ2², the part of R_vv quadratic in the rates ∂_vP1, ∂_vP2 is −2(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²), and every other
 component of the Ricci tensor carries no such product [[pending:computational-2]]. At leading order this is

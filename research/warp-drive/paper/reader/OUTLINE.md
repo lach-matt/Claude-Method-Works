@@ -140,7 +140,7 @@ mathematics. Steps that only a large or floating-point computation establishes a
 - μ0: the seed's mass. The black-hole parameter of the stability theory is written m (with ϖ_K where the record does).
 - λ: the wavelength only. The spectral parameter is σ; an indicial root is written ι (or as the source names it, with
   the name kept consistent within its chapter and declared at first use).
-- K: the Kretschmann scalar. The approximant's order is written K_ord where it would collide; the mass change of the
-  gauge chapters is written K* as in the source.
+- K: the approximant's order, O(λ^K). The Kretschmann scalar is 𝒦; the curvature coordinate keeps the name x_K;
+  the mass change of the gauge chapters is written K* as in the source.
 - Results named by letters in the record (Theorems A, D, E, P, M, L, Q, T, X, V, N, K; Lemma A; Proposition L) get
   edition numbers only; a chapter may say once, in words, what a result does, never its record letter.
