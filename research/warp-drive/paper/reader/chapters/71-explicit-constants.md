@@ -8,15 +8,18 @@ the proof, and are positive. This chapter states what the proof makes explicit a
 
 The loss d is a number assigned by the rules of [[lem:iii-j2-1-2]] to the composition of model inverses, transforms
 and differential operators that the proofs of [[ch:s19]]–[[ch:s23]] perform ([[def:ec-accounted-loss]]). Its
-elementary losses have closed forms in the weights, the threshold quantities of the operators and the index sets
-([[lem:ec-closed-forms]]); three nested iterations contribute their numbers of steps; and at one parameter point of
-the gauge and damping parameters two of these iterations alone make d larger than 5.306 × 10¹⁵, and larger than
-7.959 × 10¹⁵ (N_NM larger than 1.671 × 10¹⁷) when each of their steps is charged one derivative for the inverse of the
-model at the transition face ([[thm:loss-d]]). That parameter point lies outside the set on which [[thm:settling]] is
-proved ([[rem:ec-point-outside]]), and the bounds bound what this proof's choices produce, not the optimal loss. The
-same formulas bound δ and λ1 from above ([[prop:ec-delta-cap]]). The chapter ends with the parts of the first
-constants of the linear theory that are in hand, and with the places where explicit evaluation stops
-([[rem:ec-not-evaluated]]).
+elementary losses other than that of the forward solution operators have closed forms in the weights, the threshold
+quantities of the operators and the index sets ([[lem:ec-closed-forms]]); three nested iterations contribute their
+numbers of steps; and at one parameter point of the gauge and damping parameters two of these iterations alone make d
+larger than 7.959 × 10¹⁵ and N_NM larger than 1.671 × 10¹⁷, each of their steps being charged at least one derivative
+for the inverse of the model at the transition face, whose incoming threshold is non-negative ([[lem:ec-theta-in]],
+[[thm:loss-d]]). That parameter point lies outside the set on which [[thm:settling]] is proved
+([[rem:ec-point-outside]]), and the bounds bound what this proof's choices produce, not the optimal loss. No upper
+bound for d is proved: the loss of the forward solution operators is fixed by its proof without a value
+([[rem:ec-other-losses]]), and the upper bound at one choice of the weights in [[rem:ec-integer-bound]] is an
+observation. The same formulas bound δ and λ1 from above in terms of d ([[prop:ec-delta-cap]]). The chapter ends with
+the parts of the first constants of the linear theory that are in hand, and with the places where explicit evaluation
+stops ([[rem:ec-not-evaluated]]).
 No result of this chapter is used in the proof of any theorem of this paper.
 
 ### The computational point {#sec:ec-point}

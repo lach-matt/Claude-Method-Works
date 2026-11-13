@@ -647,3 +647,221 @@ so 𝔷 = 0 there and Y_0 = ζ_∞(∂_v)^♭ near infinity on Σ°; [[cor:gd-r7
 display, with c = (Q[Z′_0] − 4π²m₀ζ_∞)/4π². For data with compact support, ġ_0 = 0 near Σ° outside a ball, and
 δm[ġ_0] = ṁδm[K_V] + δm[h_0] = ṁ ([[lem:gd-1-4]] (a), [[thm:rw-settling]] (a)) is constant on the simply connected
 orbit space of the interior of N⁺ ([[lem:gd-1-4]] (b)); so ṁ = 0. ∎
+
+### The 1-forms with no part of degree l ≤ 1 {#sec:hr-subspace}
+
+On all 1-forms the window of [[thm:gd-r6-4]] cannot be lowered: the indicial root 0 of the l = 0 forms bounds it from
+below, and at negative weights the zero-energy kernel contains W* and (∂_v)^♭. On the 1-forms with no part of degree
+l ≤ 1 neither obstruction occurs. This section proves the low-energy hypotheses (G), (Z) and (TF) of [[sec:i-c-1-2]] on
+that subspace, at every b-weight of (−1, 3).
+
+*Setting.* As in [[sec:iii-d1-1]] at 𝗉_0: P̂(σ) is the spectral family of □ = dδ + δd at b₀, with (H1)–(H5),
+ϑ_ℋ = 1, index 0 at σ ≠ 0, and P̂(σ) invertible for every σ ≠ 0 with Im σ ≥ 0 ([[prop:iii-d-6-2]]); the spaces 𝒳_0,
+𝒴_0 and 𝒳^*_0 of [[eq:i-c-3-1]], 𝒳_σ and 𝒴_σ of [[eq:i-c-6-4]], the tf spaces of [[sec:i-c-4-3]], a constant
+s > 5/2, and the frame dt_*, dx¹, …, dx⁴ of [[ch:s01]], the *Cartesian frame*. On stationary 1-forms P̂(0) = □,
+computed in the ingoing chart, as t_* − v is a function of r. A 1-form on {r = c} decomposes into its dt_* and dr
+components and its angular part, and by [[lem:iii-a1-1-6]] a 1-form is a sum of *scalar types of degree l*,
+aS dt_* + bS dr + c dS with S ∈ 𝒮_l, l ≥ 0, and *vector types of degree l*, ψY with Y ∈ 𝒱_l, l ≥ 1, the coefficients
+functions of r (of (t_*, r) on spacetime).
+
+**Definition {#def:gd-r8-1}** (The projections.) O(4) acts on X by x ↦ gx, isometries of g that fix t, r and t_*, and on
+1-forms by T_gu := (g⁻¹)^*u; in the Cartesian frame (T_gu)(x) = A_gu(g⁻¹x) with the constant orthogonal matrix
+A_g = diag(1, g). For an irreducible representation τ of SO(4) with character χ_τ put
+
+    P_τ := dim τ ∫_(SO(4)) χ̄_τ(g) T_g dg        (Haar probability measure).
+
+Let τ_0 be the trivial representation, τ_1 the standard one on ℂ⁴, and τ_± those on the self-dual and anti-self-dual
+2-forms Λ²_±ℂ⁴, so that Λ²ℂ⁴ = τ_+ ⊕ τ_−. Put
+
+    Π_(≥2) := 1 − P_(τ_0) − P_(τ_1) − P_(τ_+) − P_(τ_−),        Π_0 := P_(τ_0),        Π_G := ∫_G T_g dg,
+    Π_cl := Π_G(1 − Π_0),
+
+G = O(2) × O(2) the group of the class. Π_0 is the SO(4)-average, the l = 0 part of [[sec:hg-setting]]. Below Π is
+either Π_(≥2) or Π_cl, and h is an O(4)-invariant fibre inner product equal to the identity in the Cartesian frame at
+∂X (average any admissible choice over O(4)).
+
+**Lemma {#lem:gd-r8-2}** (The projections.)
+
+(a) Π is a projection; it commutes with P̂(σ), P̂(σ)^(*h), multiplication by functions of r, ρ∂_ρ, the dilations S_ς of
+[[sec:i-c-6]], N(P⁽⁰⁾), I(λ), N_tf(σ̂) and its adjoint, and the Mellin transform of [[sec:i-c-2-3]]; and Π^(*h) = Π.
+
+(b) Π and 1 − Π are bounded, uniformly in ς, on every space of [[ch:s01]] and [[ch:s03]] (H̄^s, Ḣ^s, H^s_(b,c),
+H̄^(s,a)_b, 𝒳_0, 𝒴_0, 𝒳^*_0, the scattering spaces with the decay orders of [[sec:i-c-4-3]] and [[sec:i-c-6-1]], the
+spaces of [[def:i-c-4-1]] and [[def:i-c-6-1]], 𝒳_σ, 𝒴_σ, 𝒳^*_σ and the tf spaces), so ran Π is closed in each. On M′,
+Π is bounded on every H^(k,(w_I,w_ι,w_K))_b and commutes with □, with the cut-offs that are functions of (t_*, r), and
+with the forward solution operator of [[thm:ii-f1-1-1]].
+
+(c) ℓ ∘ Π = 0.
+
+(d) For u ∈ ran Π, every component of u in the Cartesian frame has zero mean on every sphere {r = c}.
+
+(e) ran Π_(≥2) lies in the closed span of the scalar and vector types of degrees l ≥ 2. ran Π_cl is the space of class
+1-forms with no l = 0 part, and lies in the closed span of the scalar types of even degrees l ≥ 2.
+
+*Proof.* (a) Each T_g, g ∈ O(4), commutes with the operators listed: g is an isometry of g fixing t_* and r, it
+preserves |dx| and the Laplacian of 𝕊³, and h is invariant; the restrictions to ρ = 0, the Mellin transform in ρ and
+the conjugation by e^(iσ̂r̂) that define N(P⁽⁰⁾), I(λ) and N_tf commute with maps that fix ρ and r̂. The averages
+inherit this, a bounded operator commuting with a Bochner integral. P_τP_σ = δ_(τσ)P_τ is the orthogonality of the
+characters of a compact group, for every strongly continuous representation; so Π_(≥2), one minus four mutually
+orthogonal P_τ, is a projection. Conjugation by g ∈ O(4) maps P_τ to P_(τ^g), τ^g(h) := τ(g⁻¹hg); τ_0 and τ_1 are
+invariant under it, and τ_+, τ_− are exchanged when det g = −1; so every T_g, g ∈ O(4), commutes with Π_(≥2) and with
+Π_0. Hence Π_G commutes with Π_0, and Π_cl is a projection. T_g^(*h) = T_(g⁻¹), χ_τ(g⁻¹) = χ̄_τ(g) and the Haar measures
+are inversion-invariant, so P_τ^(*h) = P_τ, Π_G^(*h) = Π_G, and Π^(*h) = Π.
+
+(b) Let E be one of the spaces listed. On the b-Sobolev spaces the weights are functions of |x|, or of (t_*, r) on M′,
+and T_g is an isometry. On the scattering spaces with variable decay order the norm is ‖Au‖ + ‖u‖_(−N) for an elliptic
+A of that order; T_g⁻¹AT_g is elliptic of the same order, which is a function of ξ and |η|², hence rotation- and
+reflection-invariant ([[sec:i-c-4-3]]), and it depends continuously on g in the calculus; as O(4) is compact,
+C_E := sup_g‖T_g‖_(E→E) < ∞. With this uniform bound, the density of C_c^∞ (or of Schwartz sections) gives the strong
+continuity of g ↦ T_gu on E by an ε/3 argument. For a graph-norm space 𝒳 = {u ∈ H : Pu ∈ Y},
+‖u‖_𝒳 = ‖u‖_H + ‖Pu‖_Y, with H and Y base spaces and P commuting with every T_g (by (a)), T_g𝒳 ⊂ 𝒳 with
+‖T_g‖_𝒳 ≤ max(C_H, C_Y), and ‖T_gu − u‖_𝒳 = ‖T_gu − u‖_H + ‖T_g(Pu) − Pu‖_Y → 0 as g → e; this covers 𝒳_0, 𝒳_σ,
+𝒳^*_0, 𝒳^*_σ and the tf domains. So each average is a Bochner integral of a continuous bounded E-valued function, with
+‖P_τ‖ ≤ (dim τ)²C_E, ‖Π_G‖ ≤ C_E, ‖Π_(≥2)‖ ≤ 1 + (1 + 16 + 9 + 9)C_E and ‖Π_cl‖ ≤ C_E(1 + C_E); and S_ς commutes with
+every T_g, so the bounds are uniform in ς. On M′ the weights are functions of (t_*, r), □ is natural under isometries,
+and the forward solution is unique with an O(4)-invariant support condition, so it commutes with each T_g.
+
+(c) ℓ(u) = r_h³∫_(𝕊³) u(∂_(t_*))|_(r=r_h) dω, and ∂_(t_*) and dω are O(4)-invariant; so ℓ = ℓ ∘ Π_0. Π_0Π_(≥2) = 0 by the
+orthogonality of characters, and Π_0Π_cl = Π_GΠ_0(1 − Π_0) = 0.
+
+(d) For Π_(≥2): the map u ↦ (∫_(𝕊³) u_μ(cω) dω)_μ, the means of the components in the Cartesian frame, is
+SO(4)-equivariant into ℂ ⊕ ℂ⁴, on which SO(4) acts by τ_0 ⊕ τ_1; by Schur's lemma it commutes the projections P_τ with
+their counterparts on ℂ ⊕ ℂ⁴, and so vanishes on ran Π_(≥2). For Π_cl: G contains each reflection x_i ↦ −x_i, so the
+spatial Cartesian components of a class 1-form are odd under it and have zero mean, and the mean of its time component
+is the time component of its l = 0 part, which vanishes on ran Π_cl.
+
+(e) The projections onto a type and a degree commute with every T_g, g ∈ O(4), as the isometries of 𝕊³ commute with
+d, δ and the Laplacian and preserve 𝒮_l and 𝒱_l; so Π maps each type and degree into itself. The scalar type of degree
+0 is SO(4)-invariant, so it lies in ran P_(τ_0). On the scalar type of degree 1, SO(4) acts through 𝒮_1, the
+restrictions of the linear functions ⟨a, x⟩/r ([[lem:iii-a1-1-4]] (1)), by a ↦ ga, that is by τ_1. On 𝒱_1, the duals
+of the Killing fields Ω_A, A ∈ 𝔰𝔬(4) ([[lem:iii-a1-1-4]] (2)), it acts by T_gΩ_A^♭ = Ω_(gAg⁻¹)^♭, the adjoint
+representation 𝔰𝔬(4) ≅ Λ²ℂ⁴ = τ_+ ⊕ τ_−. So Π_(≥2) vanishes on the types of degree ≤ 1, and the first claim follows from
+[[lem:iii-a1-1-6]]. Π_G is the identity on class 1-forms and Π_cl u = u − Π_0u for them; a 1-form u with Π_cl u = u is
+G-invariant and has Π_0u = Π_GΠ_0(1 − Π_0)u = 0. The class 1-forms are sums over even l of scalar types
+([[lem:gd-1-2]] (a), (c)), and those with no l = 0 part have l ≥ 2. ∎
+
+**Lemma {#lem:gd-r8-3}** ((G) on the subspace.)
+
+(a) (*The radial systems.*) Let κ := l(l + 2). On ω = aS dv + bS dr + c dS, S ∈ 𝒮_l, a, b, c functions of r,
+P̂(0)ω = E_vS dv + E_rS dr + E_θ dS with
+
+    r³E_v = −[r(r² − m₀)a″ + 3(r² − m₀)a′ − κra],
+    r⁴E_r = −[r²(r² − m₀)b″ + (3r³ + m₀r)b′ − (κr² + 3r² − 3m₀)b + 2κrc − 3r²a],
+    r³E_θ = −[r(r² − m₀)c″ + (r² + m₀)c′ − κrc + 2r²a + 2(r² − m₀)b],                                    {#eq:gd-r8-1}
+
+and δω = −r⁻³[(r³a)′ + (r³fb)′ − κrc]S. On ω = ψY, Y ∈ 𝒱_l, ψ a function of r and λ_l := (l + 1)²,
+P̂(0)ω = −r⁻²[r(rfψ′)′ − λ_lψ]Y. The types do not couple.
+
+(b) (*The roots.*) In the Cartesian frame the indicial roots of the scalar type of degree l are
+{−l − 1, −l, 1 − l, l + 1, l + 2, l + 3}, and those of the vector type of degree l are {−l, l + 2}.
+
+(c) (*The gap.*) Let Π_∂ be the action of Π on C^∞(𝕊³; ℂ⁵), and spec^Π_b := {λ : ker I(λ) ∩ ran Π_∂ ≠ 0}. Then
+spec^Π_b ⊂ (−∞, −1] ∪ [3, ∞), so (−1, 3) is an indicial gap of the restricted operator, for both projections and
+uniformly in l: every scalar root of degree l ≥ 2 is ≤ 1 − l ≤ −1 or ≥ l + 1 ≥ 3, and every vector root of degree
+l ≥ 2 is ≤ −l ≤ −2 or ≥ l + 2 ≥ 4. The ends −1 and 3 are roots of the scalar type of degree 2. On all 1-forms the roots
+0 (of degree 0 and of the scalar type of degree 1) and 2 lie in (−1, 3), and the gaps there are (−1, 0), (0, 2) and
+(2, 3).
+
+*Proof.* (a) In the ingoing chart |det g|^(1/2) = r³γ^(1/2), g^(vv) = 0, g^(vr) = 1, g^(rr) = f, g^(ij) = r⁻²γ^(ij), and
+Δ̂S = −κS. So ω^v = bS, ω^r = (a + fb)S, ω^i = r⁻²cγ^(ij)∂_jS, and δω = −|det g|^(−1/2)∂_μ(|det g|^(1/2)ω^μ) is the
+stated formula; write δω = 𝒹S. For F := dω, F_(vr) = −a′S, F_(vi) = −a∂_iS, F_(ri) = e∂_iS with e := c′ − b, and
+F_(ij) = 0; raising, F^(vr) = a′S, F^(vi) = r⁻²eγ^(ij)∂_jS and F^(ri) = r⁻²(fe − a)γ^(ij)∂_jS. With
+(δF)^ν = −|det g|^(−1/2)∂_μ(|det g|^(1/2)F^(μν)),
+
+    (δF)^v = (r⁻³(r³a′)′ − κr⁻²e)S,    (δF)^r = κr⁻²(a − fe)S,    (δF)^i = −r⁻³(r(fe − a))′γ^(ij)∂_jS,
+
+and lowering with g_(vv) = −f, g_(vr) = 1, g_(ij) = r²γ_(ij) gives (δF)_v = (−fr⁻³(r³a′)′ + κr⁻²a)S,
+(δF)_r = (r⁻³(r³a′)′ − κr⁻²e)S and (δF)_i = r⁻¹(r(a − fe))′∂_iS. As P̂(0)ω = dδω + δdω on stationary ω,
+E_v = −fr⁻³(r³a′)′ + κr⁻²a, E_r = 𝒹′ + r⁻³(r³a′)′ − κr⁻²e and E_θ = 𝒹 + r⁻¹(r(a − fe))′, which with r³f = r(r² − m₀)
+multiply out to [[eq:gd-r8-1]]. For ψY, δ(ψY) = r⁻²ψδ̸Y = 0, d(ψY) has the components ψ′Y_i and ψ(d̸Y)_(ij), and the
+same computation gives (δd(ψY))_v = (δd(ψY))_r = 0 and the stated angular part, with δ̸d̸Y = λ_lY
+([[lem:iii-a1-1-4]] (2)). Each formula maps a type and degree to itself.
+
+(b) This is [[lem:iii-d-4-1]] at z = 0, the parameter value γ_Υ = 0 at which the operator there is □: its roots of type
+sl are 1 − (l + 2), 1 − (l + 1), 1 − l, l + 1, l + 2, l + 3, those of type vl are −l and l + 2, and those of type s0 are
+−1, 0, 2, 3. (They are the roots −m and m + 2 of the Cartesian components of degree m ∈ {l − 1, l, l + 1}, resp. m = l,
+under the flat Laplacian, [[lem:iii-a1-2-3]].)
+
+(c) I(λ) commutes with the rotations and with Π_∂ ([[lem:gd-r8-2]] (a)), and preserves each type and degree, on which it
+is the indicial family of that type. By [[lem:gd-r8-2]] (e), an element of ker I(λ) ∩ ran Π_∂ is a sum of components of
+types of degree l ≥ 2 (for Π_cl: scalar, of even degree), each in ker I(λ); so λ is a root of such a type, and (b)
+gives the bounds. On all 1-forms the roots of types s0 and s1 are {−1, 0, 2, 3} and {−2, −1, 0, 2, 3, 4}, and of type v1
+{−1, 3}. ∎
+
+**Lemma {#lem:gd-r8-4}** (No kernel at negative weights.) Let β ∈ (−1, 0) and let u be a stationary 1-form on X, smooth
+up to ∂_♯X (so across the horizon), in 𝒜^β near ∂X (conormal, |u| = O(r^(−β)) in the Cartesian frame, with all its
+b-derivatives), with P̂(0)u = 0, whose expansion in types and degrees ([[lem:iii-a1-1-6]]) has no component of degree
+l ≤ 1 (for instance u ∈ ran Π, by [[lem:gd-r8-2]] (e)). Then u = 0.
+
+*Proof.* We follow the proof of [[lem:iii-d1-2-1]] (2), with the growth at infinity excluded mode by mode. Expand u in
+types and degrees ([[lem:iii-a1-1-6]]; the projections act in the angles and preserve smoothness at r_h in the ingoing
+chart and the conormal bounds); only degrees l ≥ 2 occur. Let κ := l(l + 2) and ρ := 1/r.
+
+*(a) The divergence.* φ := δu is smooth, stationary and in 𝒜^(β+1) near infinity, and δdφ = δ(P̂(0)u) = 0, as
+δ□ = δdδ = □_0δ. Its degree-l component solves (r³fφ_l′)′ = κrφ_l. At r = ∞ this equation has a regular singular point
+with the indicial roots ρ^(l+2) and ρ^(−l) (the proof of [[lem:iii-d1-2-1]] (2) (c)); φ_l = O(r^(−β−1)) with
+β + 1 > 0 excludes ρ^(−l) for every l ≥ 0, so φ_l = O(r^(−l−2)) and φ_l′ = O(r^(−l−3)). On [r_1, R] ⊂ (r_h, ∞),
+[r³fφ_l′φ̄_l]_(r_1)^R = ∫_(r_1)^R (r³f|φ_l′|² + κr|φ_l|²) dr, and the bracket tends to 0 as r_1 → r_h (f → 0) and as
+R → ∞. So φ_l = 0: δu = 0 on {r > r_h}.
+
+*(b) The field.* F := du ∈ 𝒜^(β+1) has δF = P̂(0)u − dδu = 0 on {r > r_h}. *Vector type.* A component r^(−1/2)Φ(r)Y,
+Y ∈ 𝒱_l, of u has −Φ_** + V_1Φ = 0 with V_1 > 0 ([[prop:np-10-16]] (iii), (v) at σ = 0, Λ = (l + 1)² ≥ 9). Φ is smooth
+in r at r_h, and Φ = O(r^(3/2−β)), as |Y| is r⁻¹ in the Euclidean metric. The equation has a regular singular point at
+r = ∞, where r^(−1/2)Φ grows like r^(l+1) or decays like r^(−l−1), as V_1 = ((l + 1)² − ¼)r⁻² + O(r⁻⁴); as
+l + 1 > 1 − β, the first is excluded, so
+Φ = O(r^(−l−1/2)) and Φ_* = fΦ′ = O(r^(−l−3/2)). The energy identity of the proof of [[lem:iii-d1-2-1]] (2),
+∫(|Φ_*|² + V_1|Φ|²) dr_* = [Φ_*Φ̄], whose end terms vanish, gives Φ = 0. *Scalar type.* With W := r³F_tr,
+R[W] = (r²M_t)′ = 0 (M = δdu = 0), and Φ := r^(−1/2)W solves −Φ_** + V_2Φ = 0 with V_2 > 0 for κ ≥ 3
+([[prop:np-10-16]] (iv)–(v)). F_tr = F_vr is smooth at r_h, and W = O(r^(2−β)). R[W] = 0 has a regular singular
+point at r = ∞, with the indicial roots W ∼ r^(l+2) and W ∼ r^(−l); as l + 2 > 2 − β, W = O(r^(−l)), so
+Φ = O(r^(−l−1/2)), Φ_* = O(r^(−l−3/2)), and the energy identity gives Φ = 0. So F_tr = 0, and with M = 0
+[[prop:np-10-16]] (iv) gives a = b = 0 for the gauge-invariant pair there: each scalar component of u is d(c_lS) on
+{r > r_h}, for a function c_l of r.
+
+*(c) The gauge.* So u = Σ_(l≥2) d(c_lS_l) on {r > r_h}, and δu = 0 gives (r³fc_l′)′ = κrc_l. c_l dS has size |c_l|/r
+in the Cartesian frame, so c_l = O(r^(1−β)). At r = ∞ the indicial roots are r^l and r^(−l−2), and r^l is excluded as
+l > 1 − β, which holds for l ≥ 2 as β > −1. So c_l = O(r^(−l−2)), and the energy identity of (a) gives c_l = 0. So
+u = 0 on {r > r_h}.
+
+*(d) Inside the horizon.* u is smooth across r_h, in ker P̂(0), and vanishes on {r > r_h}; part (d) of the proof of
+[[prop:iii-d-6-2]], which uses only these properties (at σ = 0, as in [[lem:iii-d1-2-1]] (2) (d)), gives u = 0 on
+{r_♭ < r < r_h}. ∎
+
+At degree l = 1, (c) fails: the solution r^l of the gauge equation is admitted by the weights of (−1, 0). The four
+1-forms d(φ_1S), S ∈ 𝒮_1, lie in the kernel on all 1-forms at those weights, φ_1 being the solution of
+(r³fφ′)′ = 3rφ that is smooth at r_h (where the equation has the double indicial root 0); it cannot decay, by the energy
+identity of (a), so it grows like r. At degree 0, W* and (∂_v)^♭ lie in the kernel.
+
+**Lemma {#lem:hr-split}** (Fredholm operators and commuting projections.) Let T : X → Y be a bounded Fredholm operator
+between Banach spaces, and Π_X, Π_Y bounded projections with TΠ_X = Π_YT. Then T_1 := T|_(ran Π_X) : ran Π_X → ran Π_Y
+and T_2 := T|_(ker Π_X) : ker Π_X → ker Π_Y are Fredholm, ind T = ind T_1 + ind T_2, ker T_1 = ker T ∩ ran Π_X and
+ran T_1 = ran T ∩ ran Π_Y.
+
+*Proof.* X = X_1 ⊕ X_2 and Y = Y_1 ⊕ Y_2 with X_1 = ran Π_X, X_2 = ker Π_X and likewise for Y, closed and complementary.
+T maps X_i into Y_i, as TΠ_X = Π_YT; so T = T_1 ⊕ T_2 and ker T = ker T_1 ⊕ ker T_2, both finite-dimensional. If
+y ∈ ran T ∩ Y_1, y = T_1x_1 + T_2x_2 with T_2x_2 ∈ Y_2, so T_2x_2 = 0 and y = T_1x_1: ran T_1 = ran T ∩ Y_1, which is
+closed, and likewise ran T_2. Y_i/ran T_i → Y/ran T is injective, and Y/ran T ≅ Y_1/ran T_1 ⊕ Y_2/ran T_2; so the
+cokernels are finite-dimensional and the indices add. ∎
+
+**Proposition {#prop:gd-r8-5}** ((Z) on the subspace.) For every α with α + 2 ∈ (−1, 0) ∪ (0, 2),
+P̂(0) : 𝒳_0 ∩ ran Π → 𝒴_0 ∩ ran Π is invertible, at every regularity s > 5/2. By [[thm:gd-r8-7]] (b) the same holds at
+every α with α + 2 ∈ (−1, 3).
+
+*Proof.* *Fredholm.* α + 2 lies in a gap of the full bundle, (−1, 0) or (0, 2) ([[lem:gd-r8-3]] (c)), so
+[[thm:i-c-3-1]] (1) makes P̂(0) : 𝒳_0 → 𝒴_0 Fredholm. Π is bounded on 𝒴_0, and on 𝒳_0 with its graph norm, as
+‖Πu‖ + ‖P̂(0)Πu‖ = ‖Πu‖ + ‖ΠP̂(0)u‖ ≤ C(‖u‖ + ‖P̂(0)u‖); and it commutes with P̂(0) ([[lem:gd-r8-2]]). By
+[[lem:hr-split]] the restriction is Fredholm, with ker = ker P̂(0) ∩ ran Π.
+
+*Kernel.* At α + 2 ∈ (0, 2) the kernel is span{W*} ([[lem:iii-d1-2-1]] (2)), and ΠW* = 0, W* being SO(4)-invariant. At
+α + 2 ∈ (−1, 0), a kernel element is smooth up to ∂_♯X and lies in 𝒜^(α+2) near ∂X ([[thm:i-c-3-1]] (2) at the gap
+(−1, 0), [[lem:i-c-2-9]] (c)), so [[lem:gd-r8-4]] with β = α + 2 applies, by [[lem:gd-r8-2]] (e).
+
+*Cokernel.* Let w be a bounded functional on 𝒴_0 ∩ ran Π that annihilates the restricted range, and v := w ∘ Π on
+𝒴_0, so that v ∘ Π = v. v annihilates P̂(0)𝒳_0, as ΠP̂(0) = P̂(0)Π. At α + 2 ∈ (0, 2), v = cℓ ([[lem:iii-d1-2-1]] (3)),
+and v = v ∘ Π = cℓ ∘ Π = 0 ([[lem:gd-r8-2]] (c)); so w = 0. At α + 2 ∈ (−1, 0): fix α′ with α′ + 2 ∈ (0, 2).
+𝒳_0(α′) ⊂ 𝒳_0(α) and 𝒴_0(α′) ↪ 𝒴_0(α) continuously, so v|_(𝒴_0(α′)) annihilates P̂(0)𝒳_0(α′), hence equals cℓ there,
+and so vanishes there, as v = v ∘ Π; so w vanishes on 𝒴_0(α′) ∩ ran Π. This is dense in 𝒴_0(α) ∩ ran Π: if d_n → y in 𝒴_0(α) with d_n smooth and vanishing for large r ([[lem:i-c-2-2]] (d)), then
+Πd_n → Πy = y, and Πd_n is again smooth and vanishes for large r, so lies in 𝒴_0(α′).
+
+*Invertibility.* Kernel and cokernel are trivial at each s > 5/2 by the same arguments ([[lem:iii-d1-2-1]] holds at each
+such s, [[sec:iii-d1-1]]), and the inverse is bounded by the open mapping theorem. ∎

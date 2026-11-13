@@ -899,3 +899,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   uniqueness at α_1); line 595 starts "+ A_k" (pandoc drops the sign). Fix running (also ch 41's two nits).
   INTEGRATION CHECK: before assembly, scan every chapter for wrapped lines starting with "+ ", "- ", "* ", "> ", "#",
   "=" or "|" in running text (lint.py should gain this check).
+- Proof C confirming reading (R2-P-C): 0M 2m 3n. The drop is safe: no remaining statement and nothing chapter 86 must
+  state cites a dropped label or number; every kept number holds exactly except 16.127552² = 260.0979335… (printed
+  ...337); rem:lambda0-norms-c's "upper end of c_e enters nowhere" is false. Nits: K clash, φ1 and s double meanings, ζ
+  for cos 2ϑ. Chapter 08's lem:first-mean-forcing needs no sentence. Follow-ups in the fix: P-F-edge:9 "c_e the constant
+  of [[eq:envelope]]"; chapter 03's remark cites lem:envelope-constant (b). Earlier INTEGRATION lines about C127-C129,
+  C259, C261 (proof C's e_k and the energy constant) are superseded by this entry. Second fix running.

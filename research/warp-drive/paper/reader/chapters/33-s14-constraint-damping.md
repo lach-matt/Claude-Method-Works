@@ -234,8 +234,9 @@ h = 0, [[eq:s14-c0]] is the linear polynomial (4e(1 + v²) − 8v²)ι + 4e(1 + 
 (4v² + e(1 + v²))/(2v² − e(1 + v²)); with e′ for e this is ι_w, and the leading coefficient 4e′(1 + v²) − 8v² is
 negative, as e′ < 0 for e < 1/3. At e = 0, ι_w = (7v² − 1)/(5v² + 1), which increases from −1 to 1 as v runs over
 (0, 1). At v = 1/2, 7v² − 1 = 3/4 and 5v² + 1 = 9/4, so ι_w = (3/4 + 15e/4)/(9/4 − 15e/4) = (1 + 5e)/(3 − 5e), which
-exceeds 1/3 for e > 0, as 3(1 + 5e) > 3 − 5e, and is below 1 for e < 1/5, as 1 + 5e < 3 − 5e. The coefficients of C are polynomials in h, so by Hurwitz's theorem, as in [[lem:s14-small-h]] (b), C has a
-root ι_w(h) → ι_w as h → 0⁺; it differs from 2, so it is a root of P_0. ∎
+exceeds 1/3 for e > 0, as 3(1 + 5e) > 3 − 5e, and is below 1 for e < 1/5, as 1 + 5e < 3 − 5e. The coefficients of C
+are polynomials in h, so by Hurwitz's theorem, as in [[lem:s14-small-h]] (b), C has a root ι_w(h) → ι_w as h → 0⁺; it
+differs from 2, so it is a root of P_0. ∎
 
 From now on in this section (v, e) = (1/2, 1/102400), and we write P_l, p_(v), C and Q_5 for the polynomials of
 [[prop:np-10-12]] at this point. Then 4Q_5(ι) = e(5(ι − 3)(ι + 1) − 3κ) − 2(ι − 2)(ι − 3).
@@ -553,7 +554,8 @@ Moreover: (a) conditions (4)–(5) of [Hin26a, Proposition 5.1] off 𝗌𝖿, fo
 from (iv) by continuity, since Tangherlini space differs from its Minkowski model by terms in ρ_sf C^∞ ([Hin26a, p. 39]);
 (b) for every ε ∈ (0, r_0/4] there is a smooth 1-form c_ε equal to c outside (r_0/2 − ε, r_0/2) ∪ (2r_0, 2r_0 + ε),
 so on [r_0/2, 2r_0] and for r ≥ 3r_0, with c_ε − c → 0 uniformly as ε → 0; for ε small enough c_ε satisfies (i) and
-(ii), which involve only the 1-form and not its derivatives ([Hin26a, p. 41]); (c) in the static time t_s the outer piece is r⁻¹(dt_s − v dr) + O(mr⁻³) dr.
+(ii), which involve only the 1-form and not its derivatives ([Hin26a, p. 41]); (c) in the static time t_s the outer
+piece is r⁻¹(dt_s − v dr) + O(mr⁻³) dr.
 
 *Proof.* All three pieces have the form α(dt + b dr) with α > 0; at r_0/2 and 2r_0 adjacent pieces agree, so c is
 continuous. With g^(tr) = 1 − f,
@@ -1763,8 +1765,9 @@ the spectral family is
 **Lemma {#lem:s14-tf-inputs}** (The model's homogeneity, weights and thresholds.) (i) In the frame dt, dx^i and in
 (t_*, x), the coefficient of every derivative of order k in □^C is homogeneous of degree k − 2 in x.
 
-(ii) For real ι, r^ι lies in r^β L²(r³ dr) near r = 0 iff ι > β − 2. So if the indicial roots of (□^C)^(0) in ρ at infinity avoid
-[−C_0, 2), those in r at the origin, which are their negatives, avoid (−2, C_0], and the root-free weights at the origin
+(ii) For real ι, r^ι lies in r^β L²(r³ dr) near r = 0 iff ι > β − 2. So if the indicial roots of (□^C)^(0) in ρ at
+infinity avoid [−C_0, 2), those in r at the origin, which are their negatives, avoid (−2, C_0], and the root-free weights
+at the origin
 are β ∈ (0, 2 + C_0].
 
 (iii) The symbol T of [[prop:np-10-14]] (iv) at ρ_K = 0 with d = 1 − α_cf is positive definite iff α_cf > 1 − b*; and
@@ -2457,8 +2460,9 @@ h_0 − 3c_0r⁻⁴dr ⊗_s V = ρ³(m dt_* + (2m − 3c_0) d|x|) ⊗_s ρV, and
 on X̄ and b-independent normal operator (as P^C_b − P̄^C ∈ ρ⁴Diff²_b), so P*(ρ^jc) = ρ^(j+2)N(ρ⁻²P*, j)c + ρ^(j+3)C^∞
 for c ∈ C^∞(∂X; T*X|_(∂X)). For 3 ≤ j ≤ J, N(ρ⁻²P*, j) is invertible on C^∞(∂X). Indeed, in the trivialisation by
 dt_*, dx¹, …, dx⁴, ρ⁻²P* is near ∂X an element of Diff²_b with values in 5 × 5 matrices, elliptic, its principal symbol
-at ∂X being, like that of ρ⁻²P^C_b (the proof of [[lem:iv4-1-6]], (H2)), the Euclidean Laplacian's in b-form times the identity (the
-formal adjoint for a smooth nondegenerate pairing has the adjoint principal symbol, and this one is real and scalar);
+at ∂X being, like that of ρ⁻²P^C_b (the proof of [[lem:iv4-1-6]], (H2)), the Euclidean Laplacian's in b-form times
+the identity (the formal adjoint for a smooth nondegenerate pairing has the adjoint principal symbol, and this one is
+real and scalar);
 so it lies in the setting of [[sec:iii-a-1-1]] with N_E = 5, and (E2) there applies to N(ρ⁻²P*, ι). The number j is
 not an indicial root of P*, whose indicial roots are 0, have negative real part, or have real part > C_0 + 2 ≥ J
 ([[lem:iii-e-2-1]] (2)). So j is not a pole of N(ρ⁻²P*, ·)⁻¹: at a pole of order p ≥ 1 the coefficient W of (ι − j)^(−p)
