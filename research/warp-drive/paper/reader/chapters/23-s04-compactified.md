@@ -1970,9 +1970,9 @@ hold by the construction, with d_0 large enough that the norms used are among th
 M of [[prop:ii-a1-2-4]] at the orders involved and index 1, called M′ here.
 
 *Conclusion.* The hypotheses of [[lem:ii-a1-4-2]] hold with Γ := γ([0, T]). For each U ⊃ Γ shrink δ and δ_1, and the
-supports of the localisers, so that the supports lie in U. Take K_E(U) := supp e_ε ∪ supp φ_E, the E-sets: its
-intersection with fibre infinity lies in {z ∈ [−2δ, −δ/8], |y| ≤ 2δ_1} ⊂ Ell(E) ∩ U, which misses Γ. There is no
-threshold, so τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and
+supports of the localisers, so that the supports lie in U. Take K_E(U) := K_E ∪ supp φ_E, which contains the supports of
+the e_ε and of φ_E: its intersection with fibre infinity lies in {z ∈ [−2δ, −δ/8], |y| ≤ 2δ_1} ⊂ Ell(E) ∩ U, which
+misses Γ. There is no threshold, so τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and
 [[eq:ii-a1-4-5]] is [[eq:ii-a1-5-1]], with any B ∈ C^∞_b Ψ⁰_e3b carried by χ, microsupported in U_* and elliptic on Γ. On
 ℂ^(N′) the commutant is scalar and L_I is matrix-valued; nothing above used a scalar L_I.
 
@@ -2071,10 +2071,13 @@ of the e3b-calculus, in ᵉ³ᵇS*M̃. Cut-offs are as in [[sec:ii-a-8-3]], and 
 ℓ = Σ a_jσ(P_j) is invertible with inverse bounded by a constant times λ^m, λ the elliptic weight of (S8); on
 ℂ^(N′)-valued functions, σ(P_j) is matrix-valued ([[sec:ii-a-4-3]]).
 
-*Choosing auxiliary operators.* Let K ⊂ ᵉ³ᵇS*M̃ be compact and O ⊃ K open, over the interior of {χ = 1}. Then there are
-B_1, B_2, … ∈ C^∞_b Ψ⁰_e3b, carried by nested cut-offs between χ′ and χ, with K ⊂ Ell(B_1), WF′(B_i) ⊂ Ell(B_(i+1)) and
-all wave front sets in O. Some B_i may be chosen microlocally equal to I near K, that is, with WF′(I − B_i) ∩ K = ∅:
-quantize symbols χ̃_i ∈ S⁰ with χ̃_i = 1 near the support of χ̃_(i−1), and multiply by cut-offs.
+*Choosing auxiliary operators.* Let K ⊂ ᵉ³ᵇS*M̃ be compact and O ⊃ K open, and let K lie over {ϑ ≥ c}, with ϑ, c and
+the rules (R1)–(R3) of [[sec:ii-a-8-3]] for the operators of the statement at hand carried by χ (K = WF′(B), for
+instance). Then there are auxiliary operators B_1, B_2, … ∈ C^∞_b Ψ⁰_e3b in the sense of (R1), carried by χ and by
+χ_1 := h_♭(χ), with K ⊂ Ell(B_1), WF′(B_i) ⊂ Ell(B_(i+1)) and all wave front sets in O. Some B_i may be chosen
+microlocally equal to I near K, that is, with WF′(I − B_i) ∩ K = ∅: quantize the symbols f(ϑ)χ̃_i, with
+χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃) supported near fibre infinity in O and χ̃_i = 1 near the support of χ̃_(i−1), and truncate to
+range ϵ_ϑ. Every finite chain of such operators fits: only the fibre supports are nested, in the fixed open set O.
 
 The hypotheses of the propagation estimates are open. Let T be the union of the backward segments of the integral
 curves of 𝖧 from WF′(B) ∩ Char(L) up to their first entry into Ell(E), and suppose that they reach Ell(E) within a time
