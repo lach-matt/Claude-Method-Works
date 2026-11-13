@@ -614,17 +614,18 @@ perturbation, with data of order exactly 1. So (ġ_H)_0 − ṁK* − cℒ_(W*)g
 for data with compact support, then the data of Z′_0 − c′(∂_t)^♭ vanish near infinity, so that p_0 = ∞, and
 
     (ġ_H)_0 − cℒ_(W*)g = (m₀c/2) t_*^(−2) ℒ_(W*)g + O(t_*^(−3+ε)).
-*Proof.* (a) Near Σ°, Z′_0 = Y_0 − ṁW**_H ([[eq:gd-r7-4]]). Y_0 = ζ(∂_v)^♭ + rH_L dv, with dζ = 𝔷 algebraic in h_0 and
-the first derivatives of H_L ([[lem:gd-1-4]] (b)). In the class S′ = S⁰′ = 0, so ġ_(S′) = ġ⁰_(S⁰′) = 0 and ġ = ḣ on 𝒟′,
-near Σ° ([[cor:viii-2-3]], [[thm:viii-2-2]] (2)); the data ḣ_0 and ḣ_1 = rℒ_(∂_(t_IVP))ḣ of ḣ lie in
+
+*Proof.* (a) Near Σ°, Z′_0 = Y_0 − ṁW**_H ([[eq:gd-r7-4]]). Y_0 = ζ(∂_v)^♭ + rH_L dv, with dζ = 𝔷 algebraic in h_0
+and the first derivatives of H_L ([[lem:gd-1-4]] (b)). In the class S′ = S⁰′ = 0, so ġ_(S′) = ġ⁰_(S⁰′) = 0 and
+ġ = ḣ on 𝒟′, near Σ° ([[cor:viii-2-3]], [[thm:viii-2-2]] (2)); the data ḣ_0 and ḣ_1 = rℒ_(∂_(t_IVP))ḣ of ḣ lie in
 H^(∞,(ℰ_0,ℓ_0))_b(Σ^IVP) ([[lem:viii-1-1]]); and K_V ∈ |x|⁻²C^∞ is stationary ([[eq:iii-b-3-7]]). So along Σ^IVP near
-infinity the components of h_0 and of its normal derivative are conormal of every order below q, resp. q + 1. Hence 𝔷 is
-conormal of every order below q and rH_L of every order below q − 1; ζ has a limit ζ_∞ at infinity along Σ^IVP, with ζ −
-ζ_∞ of every order below q − 1; and ∇Y_0 is of every order below q. So Y_0 has data of every order below q − 1, with
-Killing multiple ζ_∞. W**_H has data of order 1 with no Killing part: near infinity on Σ^IVP = {t = C″}
-([[lem:iii-b-3-9]]), v = |x| + O(1); from [[eq:np-10-2]], A = 1/(2r) + O(r⁻²) and B = −1/(4r) + O(r⁻² log r); dv = dt +
-((2 − f)/f)d|x| ([[eq:iii-b-4-2]]) and W* = r⁻²dt + O(r⁻³)d|x|; and V = −(∂_mT_m)∂_t ([[eq:gd-0-1]]) with T_m(|x|) = 2|x|
-− 2r_*, so ∂_mT_m = 2/|x| + O(|x|⁻³) and V^♭ = (2/|x|)dt + O(|x|⁻³). So
+infinity the components of h_0 and of its normal derivative are conormal of every order below q, resp. q + 1. Hence 𝔷
+is conormal of every order below q and rH_L of every order below q − 1; ζ has a limit ζ_∞ at infinity along Σ^IVP, with
+ζ − ζ_∞ of every order below q − 1; and ∇Y_0 is of every order below q. So Y_0 has data of every order below q − 1,
+with Killing multiple ζ_∞. W**_H has data of order 1 with no Killing part: near infinity on Σ^IVP = {t = C″}
+([[lem:iii-b-3-9]]), v = |x| + O(1); from [[eq:np-10-2]], A = 1/(2r) + O(r⁻²) and B = −1/(4r) + O(r⁻² log r);
+dv = dt + ((2 − f)/f)d|x| ([[eq:iii-b-4-2]]) and W* = r⁻²dt + O(r⁻³)d|x|; and V = −(∂_mT_m)∂_t ([[eq:gd-0-1]]) with
+T_m(|x|) = 2|x| − 2r_*, so ∂_mT_m = 2/|x| + O(|x|⁻³) and V^♭ = (2/|x|)dt + O(|x|⁻³). So
 
     W**_H = −dt/|x| + d|x|/(4|x|) + O(|x|⁻² log|x|),        ∂_tW**_H = ½W* = O(|x|⁻²),
 

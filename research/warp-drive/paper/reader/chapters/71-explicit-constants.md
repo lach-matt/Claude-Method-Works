@@ -191,8 +191,8 @@ Im_h(−ρ²A ρ∂_ρ) = iρ² Re_h(A) ρ∂_ρ + ρ²C^∞. The h-adjoint of �
 Im_h P̂(0) ∈ ρ²Diff¹_b, and so are the imaginary parts of the other terms; hence Im_h(ρ³R) ∈ ρ³Diff²_b ∩ ρ²Diff¹_b,
 which is ρ³Diff¹_b. Altogether ρ⁻¹Im_h P̂(0) is i Re_h(A) ρ²∂_ρ plus terms with angular derivatives and terms
 vanishing at ρ = 0. As ρ²∂_ρ = −∂_r has symbol −iξ at ξ dr + rη ([[lem:i-a-4-4]] (a)), and the angular terms have
-symbols linear in η, p_in = i Re_h(A)(−i)(−2) = −2 Re_h(A) at ρ = 0. With S + S^(∗h) = 2 Re_h S this is [[eq:ec-theta-in]]. If
-(A + S)v = μv with v ≠ 0 at a point of ∂X, then h(Re_h(A + S)v, v) = Re h((A + S)v, v) = (Re μ) h(v, v); so the
+symbols linear in η, p_in = i Re_h(A)(−i)(−2) = −2 Re_h(A) at ρ = 0. With S + S^(∗h) = 2 Re_h S this is
+[[eq:ec-theta-in]]. If (A + S)v = μv with v ≠ 0 at a point of ∂X, then h(Re_h(A + S)v, v) = Re h((A + S)v, v) = (Re μ) h(v, v); so the
 h-self-adjoint Re_h(A + S) has an eigenvalue at most Re μ there, p_in − (S + S^(∗h)) has one at least −2 Re μ, and
 ϑ_in ≥ −2 Re μ.
 
@@ -261,7 +261,7 @@ B := max(β_K, β_ι + max(0, −min Re π_1E_I)) and ℓ_F := ⌈(max(β_ι −
 (h) [[lem:iii-i2-3-1]]: with γ > 0 the number of its proof (β_ι − β_I when this is not an integer, β_ι − β_I − ε′
 with the ε′ of that proof when it is) and ε ∈ (0, 1) the loss at which that proof applies [[prop:ii-g1-3-5]] (1),
 
-    ℓ = max(⌈(β_K + ½ + ε)_+⌉, ⌈γ + ½⌉).                                                                {#eq:ec-moment-loss}
+    ℓ = max(⌈(β_K + ½ + ε)_+⌉, ⌈γ + ½⌉).                                                            {#eq:ec-moment-loss}
 
 *Proof.* (a) is the statement of [[lem:ii-g1-4-1]].
 
@@ -504,8 +504,9 @@ largest is d_NM. By the proof of [[lem:iii-k-2-3]], ℛ(U) is the construction o
 of Step 2 of the proof of [[thm:iii-i14-3-1]] and entering its Steps 1 and 3 as terms of the same kind; and the
 construction of [[thm:iii-j2-4-2]] applies that of [[thm:iii-j2-4-1]] to the right side and assembles U′ from its
 output by maps of non-negative loss (Step 0 of the proof of [[thm:iii-j1-2-1]]). The elementary losses do not depend
-on the base point ([[lem:iii-j2-2-1]]: only its constants do). By [[def:ec-accounted-loss]], a further summand does not lower the
-largest of the losses of a sum, and a further factor of non-negative loss does not lower the loss of a composition;
+on the base point ([[lem:iii-j2-2-1]]: only its constants do). By [[def:ec-accounted-loss]], a further summand does
+not lower the largest of the losses of a sum, and a further factor of non-negative loss does not lower the loss of a
+composition;
 so the loss of ℛ(U) is at least the numbers assigned to both constructions, and d_NM ≥ d_acc. (i) is
 [[def:ec-accounted-loss]] with [[lem:ec-closed-forms]], [[rem:ec-other-losses]] and [[lem:ec-round-loss]].
 
@@ -547,19 +548,22 @@ the modulus s ↦ C_(2d)ω_(2d)(s) and for 1/C_R, that is, upper bounds for ever
 
 ### The loss at the computational point {#sec:ec-integer}
 
-The numbers of steps of the iterations depend on the weights, which the proof fixes only by inequalities. At one
-choice of the weights at the computational point the bookkeeping of [[def:ec-accounted-loss]] has been carried to an
-integer. The following two remarks report it; no proof uses them.
+The numbers of steps of the iterations depend on the weights, which the proof fixes only by inequalities. The
+bookkeeping of [[def:ec-accounted-loss]] gives an integer at one choice of the weights at the computational point; the
+following two remarks state it, and no proof uses them.
 
-**Remark {#rem:ec-weights-observed}** (Numerical observation.) At the computational point take ε_ind = 19·10⁻⁹,
-ε_+ = 189·10⁻¹⁰, ε_K = 188·10⁻¹⁰, ε = ε′ = 10⁻¹², η_2 = ε_+ − 3ε, ℓ_I = a_I = 13/4, α = 4 + ε_K, α_1 = 2 + ε_K/2 and
-the levels β_k = α_1 + k·(0.999ε_K), k < K = 106,489,469, with β_K = α, so 106,489,470 levels counting the top
-(53,244,734 below 3, 53,244,734 in (3, 4) and two above 4); all are rational with common denominator 5·10¹², the
-transition face rounds start at τ_0 = 2 + ε_ind − 2ε and the level-3 rounds at τ_3 = 1 + η_2 − 2ε, both rising by
-ε_ind − ε, which are the increments ε_g − ε of [[sec:ec-floor]] when ε_g = ε_ind. Summed exactly as floor sums over the
-levels, the transition face rounds below 3 number 1,401,250,931,461,121 and the level-3 rounds above 3 number
-1,401,251,031,977,897, so that three times their sum is 8,407,505,890,317,054 ≈ 8.41 × 10¹⁵, the exact value at these
-weights of the lower bound 3R of [[thm:loss-d]] (ii). At these weights every admissibility condition checked holds:
+**Remark {#rem:ec-weights-observed}** (Numerical observation.) At the computational point take the round increments
+ε_* − ε with ε_* := 19·10⁻⁹ < ε_ind(10⁻⁶) = δ_50 (ε_Υ is not evaluated at the point; an increment smaller than
+ε_g − ε is allowed, a forcing of tf-weight κ having every smaller tf-weight), and take ε_+ = 189·10⁻¹⁰,
+ε_K = 188·10⁻¹⁰, ε = ε′ = 10⁻¹², η_2 = ε_+ − 3ε, ℓ_I = a_I = 13/4, α = 4 + ε_K, α_1 = 2 + ε_K/2 and the levels
+β_k = α_1 + k·(0.999ε_K), k < K = 106,489,469, with β_K = α, so 106,489,470 levels counting the top (53,244,734 below
+3, 53,244,734 in (3, 4) and two above 4); all are rational with common denominator 5·10¹², the transition face rounds
+start at τ_0 = 2 + ε_* − 2ε and the level-3 rounds at κ_3 = 1 + η_2 − 2ε, both rising by ε_* − ε, which a
+construction may take in place of the increments ε_g − ε of [[sec:ec-floor]] when ε_g ≥ ε_*. Summed exactly as floor
+sums over the levels, the transition face rounds below 3 number 1,401,250,931,461,121 and the level-3 rounds above 3
+number 1,401,251,031,977,897, so that three times their sum is 8,407,505,890,317,054 ≈ 8.41 × 10¹⁵, the exact value
+at these weights and increments of the lower bound 3R of [[thm:loss-d]] (ii). At these weights every admissibility
+condition checked holds:
 the levels and the round weights are rational, every indicial root of L̂_(b_0)(0) they can meet is an integer or
 irrational (one family of roots of the damping operator could have a fixed fractional part, which no level or round
 weight has), the rational coincidences that remain are not levels, and the least distance of a level from the excluded
@@ -571,23 +575,25 @@ this paper.
 **Remark {#rem:ec-integer-bound}** (Numerical observation.) At the weights of [[rem:ec-weights-observed]], with the
 least index sets E^C_I and E_+ that the proof admits, the base level's starting values a_K − 2, s_0, τ, t and
 α_0 := α_1, the order 14 for the error terms of the calculus (any order at least 10 serves), the class window taken
-wide and the window loop at its ceiling, every step of the construction was charged an upper bound: the elementary
-losses by [[lem:ec-closed-forms]], with ℓ_tf = 1 (the transition face model's incoming threshold being 0 there), the
-forward solution operators D_0 + D_1 + d′ + d″ + 6 ≤ 766 + 88 + 8 + 9 + 6 = 877 ([[rem:ec-other-losses]]), with D_0
-and D_1 bounded over the orders at which the calculus of [[ch:s04]] is used, the round of the iteration at ι⁺ charged
-15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on (3.5099, 4.5), then 23, 27 and 31
-up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows [k + 1/2, k + 0.5099] where a step is added before d_ι
-rises), the steps of each level taken from the families that the inventory of
-[[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic orders of the index
+wide and the window loop at its ceiling, every step of the construction was charged: the elementary losses by
+[[lem:ec-closed-forms]] and [[rem:ec-other-losses]], with the loss of [[cor:iii-f1-3-4]] charged ℓ_tf = 1, the value of
+the expression of [[lem:ec-closed-forms]] (d) there (the transition face model's incoming threshold being 0 there),
+and the background terms charged 2, the forward solution operators D_0 + D_1 + d′ + d″ + 6 ≤ 766 + 88 + 8 + 9 + 6 =
+877 ([[rem:ec-other-losses]]), with D_0 and D_1 bounded over the orders at which the calculus of [[ch:s04]] is used,
+the round of the iteration at ι⁺ charged 15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I
+(19 on (3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows
+[k + 1/2, k + 0.5099] where a step is added before d_ι rises), the steps of each level taken from the families that
+the inventory of [[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic orders of the index
 sets by induction over the construction's steps, and the index set at ι⁺ left unlisted by the construction computed
 from the constructions that define it (it adds no exponent). The applications of the level-2 step at one exponent act
 on separate terms of one forcing and none on another's output, so their losses do not add, and the count is the same
-whether that step is read once per exponent or once per exponent and power of the logarithm. The result is
-d_acc ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ and N_NM ≤ 970,966,868,316,550,587 ≈ 9.710 × 10¹⁷ (of which the base
-level's loops contribute 5.75 × 10¹⁴; with the calculus at order 10, d_acc = 46,236,501,332,809,678), against the
-lower bound 8.41 × 10¹⁵ at the same weights; at d = 46,236,517,538,883,361 the bound of [[prop:ec-delta-cap]] reads
-log₁₀ δ < −4.45 × 10¹⁷. The count depends on the point: the windows of one construction step,
-⌈(2 − ε − λ_♯)/𝔡₁⌉ = 1,470,302 at the computational point, become about a hundred times as many at e_Υ = 1/10000,
+whether that step is read once per exponent or once per exponent and power of the logarithm. With these charges the
+result is d_acc ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ (of which the base level's loops contribute 5.75 × 10¹⁴;
+with the calculus at order 10, d_acc = 46,236,501,332,809,678), against the lower bound 8.41 × 10¹⁵ at the same
+weights, and 21d_acc + 6 ≤ 970,966,868,316,550,587 ≈ 9.710 × 10¹⁷, which is a bound for N_NM when d_NM = d_acc; the
+bound of [[prop:ec-delta-cap]], evaluated at d = 46,236,517,538,883,361, reads log₁₀ δ < −4.45 × 10¹⁷. The count
+depends on the point: the windows of one construction step, ⌈(2 − ε − λ_♯)/𝔡₁⌉ = 1,470,302 at the computational
+point, become about a hundred times as many at e_Υ = 1/10000,
 where 𝔡₁ ≈ 3.33·10⁻⁹, so the bookkeeping gives no bound uniform over the admissible parameters. The integer was
 obtained by exact rational arithmetic over the 1.065 × 10⁸ levels and the 8.0 × 10⁷ steps of the base level; it is
 not proved in this paper, and no proof uses it.
@@ -598,9 +604,11 @@ For the scalar wave operator on five-dimensional Tangherlini of mass 1, [[ch:res
 constants: the resolvent cut off to I = {6/5 ≤ r ≤ 4} is bounded for every harmonic and every real 0 < |σ| ≤ 3
 ([[prop:morawetz-resolvent-l-ge-1]], [[prop:morawetz-l-zero]]) and by 11.477 on 3 ≤ |σ| ≤ 384 ([[thm:band]]), with
 the values of [[prop:band-points]] at sampled frequencies; there the constant bounding the radial derivative is at
-most 283.06 for every l ≥ 1 and 305.31 at l = 0, and 308.46 bounds the radial and angular derivatives summed over the
-harmonics ([[cor:band-one-derivative]]). The same chapter makes explicit the factor of the interpolation step of the
-high-energy inverses ([[lem:rb-interpolation]]: at most 1.002659), replaces one of the inverse bounds by a parametrix
+most 283.06 for every l ≥ 1 and 305.31 at l = 0, and 308.46 bounds the radial derivative together with the angular
+derivatives weighted by ψ, the weight of [[prop:morawetz-weight]], which vanishes at the photon sphere (unweighted at
+l = 1), summed over the harmonics ([[cor:band-one-derivative]]). The same chapter makes explicit the factor of the
+interpolation step of the high-energy inverses ([[lem:rb-interpolation]]: at most 1.002659 at b_0, the final black
+hole, where κ_Γ = 2^(−3/2), with h_0 ≤ 1), replaces one of the inverse bounds by a parametrix
 ([[lem:rb-parametrix]]), bounds the resolvent of every master operator behind the mode stability of the 1-form wave
 operator and of the linearised operator at every harmonic and every real frequency, carried exactly to the
 tensor-type and vector-type blocks ([[prop:morawetz-master-potentials]], [[lem:rb-transfer]]), and writes out the

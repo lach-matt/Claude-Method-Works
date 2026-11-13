@@ -32,7 +32,7 @@ prop:gd-r7-5	docket68/n1star/GAUGEDECAY5.md:3417-3437	GD Proposition R7.5	-
 eq:gd-r7-4	docket68/n1star/GAUGEDECAY5.md:3422-3423	GD (R7.4)	-
 def:hr-order	docket68/n1star/GAUGEDECAY5.md:3439-3442	GD R7.b, data of order p	Killing multiple named
 cor:gd-r7-6	docket68/n1star/GAUGEDECAY5.md:3444-3474	GD Corollary R7.6 with (A73) (3999-4006), (A72), (A105), (A113)	T9's chain made explicit (delta := (p - alpha_K)/5); Upsilon of the source renamed Y_d
-cor:gd-r7-7	docket68/n1star/GAUGEDECAY5.md:3475-3529	GD Corollary R7.7 with (A79) (3960) and (A73)	T8 written out (W**_H at infinity); 'p_0 >= q - 1' stated as 'every order below q - 1' (logarithms in E_0); Y_K obtained from thm:ix-2-2 (Step 1) in place of the KID argument
+cor:gd-r7-7	docket68/n1star/GAUGEDECAY5.md:3475-3529	GD Corollary R7.7 with (A79) (3960) and (A73)	T8 written out (W**_H at infinity); 'p_0 >= q - 1' stated as 'every order below q - 1' (logarithms in E_0); Y_V (the source's K-gauge vector) obtained from thm:ix-2-2 (Step 1) in place of the KID argument, with DRic(k) = 0 from prop:viii-1-2 (1) and DRic(K_V) = 0; p_0 = infinity when mdot = 0 added and proved (data of Z'_0 - zeta_inf (d_t)^flat vanish near infinity); the source's 'p_0 = 1' for such data not carried
 sec:hr-subspace	docket68/n1star/GAUGEDECAY5.md:4007-4027	GD R8.a setting	-
 def:gd-r8-1	docket68/n1star/GAUGEDECAY5.md:4028-4047	GD Definition R8.1	Pi_cl defined as Pi_G(1 - Pi_0) (the source's equality Pi_G Pi_>=2 = Pi_G(1 - Pi_0) not used); representations named concretely
 lem:gd-r8-2	docket68/n1star/GAUGEDECAY5.md:4049-4085, 4913-4948, 5560-5585, 5620-5630	GD Lemma R8.2 with R9.b (F1), (A102), (A106)	(e) added: the inclusion of ran Pi in the types of degree >= 2 (the converse is not used); N1 not needed
@@ -51,4 +51,4 @@ eq:gd-r5-3	docket68/n1star/GAUGEDECAY5.md:2134-2135	GD (R5.3)	-
 thm:gd-r8-10	docket68/n1star/GAUGEDECAY5.md:4309-4356	GD Theorem R8.10 with (A96)	L9's conditions written out in the proof
 eq:gd-r8-2	docket68/n1star/GAUGEDECAY5.md:4314-4315	GD (R8.2)	-
 cor:gd-r8-11	docket68/n1star/GAUGEDECAY5.md:4358-4376	GD Corollary R8.11 with (A97), (A100) item 7	N7 ((L_Z g)_>=2 = L_(Z_>=2) g) by commutation with the SO(4)-average
-thm:harmonic-rate	docket68/n1star/GAUGEDECAY5.md:4377-4393; paper/RESPONSE-HL-5D.md:842-872, 1488-1503	GD Corollary R8.12 with (A73), (A79); P s.8.2 statement	exported; p_0 the supremum of the orders of Z'_0's data; c = (Q[Z'_0] - 4 pi^2 m0 c')/4 pi^2; rate stated in t_* (bounded difference from v, t, tau on compact r-sets)
+thm:harmonic-rate	docket68/n1star/GAUGEDECAY5.md:4377-4393; paper/RESPONSE-HL-5D.md:842-872, 1488-1503	GD Corollary R8.12 with (A73), (A79); P s.8.2 statement	exported; p_0 the supremum of the orders of Z'_0's data; c = (Q[Z'_0] - 4 pi^2 m0 c')/4 pi^2, proved equal to cor:gd-r4-4's c_inf (subtract the two settling bounds; (L_W* g)_vr = -7/24 r_h^-3 at 2 r_h); rate stated in t_* (bounded difference from v and t on compact r-sets)

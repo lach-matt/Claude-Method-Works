@@ -1030,7 +1030,7 @@ coordinates on Ω, in which Ω_* = {t^♭ ≥ 1} and Ω ∖ Ω_* = {τ_1(x) ≤ 
 Ω_2 := Ω ∩ {t_* ≤ 2/C′}, which contains Ω ∩ {t^♭ ≤ 2}. On Ω_2 the functions ∂_(t_*)t^♭, 1/∂_(t_*)t^♭ and V t^♭, for V a
 b-vector field, lie in C^∞_b: near 𝓘⁺, t^♭ = t_*(1 − (t_*/r)^ℓ) with (t_*/r)^ℓ conormal and ∂_(t_*)t^♭ ≥ ½ (as in the
 proof of [[lem:ii-f1-2-6]] (a)), and the rest of Ω_2 is compact. As ∂_(t_*) = (∂_(t_*)t^♭)∂_(t^♭), and a vector field
-V in x taken at fixed t_* is the same field taken at fixed t^♭ plus (V t^♭)∂_(t^♭), the b-vector fields over Ω_2 are
+V = v^i(x)∂_(x^i) taken at fixed t_* is V taken at fixed t^♭ plus (V t^♭)∂_(t^♭), the b-vector fields over Ω_2 are
 spanned over C^∞_b by ∂_(t^♭) and the r∂_(x^i), and the e3b-vector fields by ∂_(t^♭) and fields whose coefficients in
 (t^♭, x) depend on x only: near 𝓘⁺ the fields r∂_r = −½x_I∂_(x_I) and r^(−1/2)Z_(ij), which span the x_I∂_ω (with
 x_I = r^(−1/2) as in [[sec:ii-e-1-1]], and the rotation fields Z_(ij) of [[sec:ii-f-6-1]]), and the ∂_(x^i) elsewhere;
@@ -1048,9 +1048,9 @@ c_Σ := Σ_l |c_l| as in the proof of [[lem:ii-f1-2-1]]; let χ_♭ ∈ C^∞(�
 E_♭q uses q only on Ω_* ∩ {t^♭ ≤ 3/2} ⊂ Ω_2, at the same x, and it commutes with multiplication by functions of x and
 with vector fields in x whose coefficients depend on x only. At (1 − τ, x), ∂^j_(t^♭)E_♭q is
 Σ_l c_l (−ε_l⁻¹)^j ∂^j_(τ′)(χ_♭(τ′) q(1 + τ′, x)) taken at τ′ = τ/ε_l; as χ_♭ = 1 near 0, it tends to ∂^j_(t^♭)q(1, x)
-as τ ↓ 0, so E_♭q is C^j on Ω when q is C^j up to {t^♭ = 1}, and it is at most Σ_l |c_l| ε_l^(−j) times the supremum
-over τ′ ∈ [0, ½] of |∂^j_(τ′)(χ_♭(τ′) q(1 + τ′, x))|. With the description of the b-vector fields and of the weights on
-Ω_2, this gives, for every j and every weight w,
+as τ ↓ 0, so E_♭q is C^j on Ω when q is C^j up to {t^♭ = 1}, and |∂^j_(t^♭)E_♭q| is at most Σ_l |c_l| ε_l^(−j) times
+the supremum over τ′ ∈ [0, ½] of |∂^j_(τ′)(χ_♭(τ′) q(1 + τ′, x))|. With the description of the b-vector fields and of
+the weights on Ω_2, this gives, for every j and every weight w,
 
     ‖E_♭q‖_(C^((0;j),w)_b(Ω)) ≤ C_j ‖q‖_(C^((0;j),w)_b(Ω_*)),      |(E_♭q)(1 − τ, x)| ≤ c_Σ sup_(1≤t′≤3/2) |q(t′, x)|,
                                                                                                    {#eq:s09-seeley-bound}
@@ -1756,14 +1756,14 @@ smallness of ε_P through [[lem:ii-c-3-7]] and [[lem:ii-e-1-2]] (ii), which give
 (B) Through the form of t^♭ given by [[lem:ii-c-3-2]] (a)–(c) and its proof, and through the constant C′ of (b).
 
 *The threshold in (A).* The proof of [[lem:ii-c-3-2]] is pointwise: at a point it bounds g′⁻¹ − g_0⁻¹ by the norm of
-g′ − g_0 at that point, and it orients g′ by continuity along g_0 + τ(g′ − g_0), τ ∈ [0, 1]. So (A) holds for g′ at
-the points of Ω° at which g′ is within the threshold of that lemma of g_0, and so does its (1) on {r_0 ≤ r ≤ r^♮}.
-Three further facts give (A) elsewhere; each holds for every g′ within some ϵ′ > 0 of g_0, with ϵ′, r^♯, δ_♮ and η_0
-depending only on g_0 and ℓ_♭, and ϵ_G is taken at most ϵ′.
+g′ − g_0 at that point, and it orients g′ by continuity along g_0 + τ(g′ − g_0), τ ∈ [0, 1]. So its conclusions (1)
+and (2) hold for g′ at every point of Ω at which g′ is within the threshold of that lemma of g_0, and so does (A) at
+the points of Ω°. Three further facts give (A) elsewhere; each holds for every g′ within some ϵ′ > 0 of g_0, with ϵ′,
+r^♯, δ_♮ and η_0 depending only on g_0 and ℓ_♭, and ϵ_G is taken at most ϵ′.
 
-(a) *Bounded radii.* On {r^♯ ≤ r ≤ r′_0 + 1, t_* ≥ ½}, t^♭ = C′(t_* + R̃(r)), as C ≥ 4(r′_0 + 1), so
+(A1) *Bounded radii.* On {r^♯ ≤ r ≤ r′_0 + 1, t_* ≥ ½}, t^♭ = C′(t_* + R̃(r)), as C ≥ 4(r′_0 + 1), so
 dt^♭ = C′((1 − R̃′)dt_* + R̃′dt) with dt = dt_* + dr. The proof of [[lem:ii-c-3-2]] gives g_0⁻¹(dt_*, dt_*) ≤ −c_0 on
-{r_0 ≤ r ≤ r′_0 + 1} ((H6)), g_0⁻¹(dt, dt) ≤ −½ on {r ≥ r′_0 − 1} ((K1)) and g_0⁻¹(dr, dr) ≤ −c_1 on
+{r_0 ≤ r ≤ r′_0 + 1} ((H6)), g_0⁻¹(dt, dt) ≤ −½ on {r′_0 − 1 ≤ r ≤ r′_0 + 1} ((K1)) and g_0⁻¹(dr, dr) ≤ −c_1 on
 {r_0 ≤ r ≤ r^♮} (its (1) with h = 0), with c_0, c_1 > 0, dt_* and dt past timelike and dr future timelike for g_0.
 These are statements about the stationary g_0 on sets compact in x, so they hold at every t_*, and, with halved
 constants, on {r^♯ ≤ r ≤ r′_0 + 1} and on {r^♯ ≤ r ≤ r^♮ + δ_♮}, for r^♯ close to r_0 and δ_♮ small. On
@@ -1772,21 +1772,21 @@ in the frame dt_*, dx^i; for ϵ′ small the three bounds hold for g′ with the
 keep along g_0 + τ(g′ − g_0) the cones they have for g_0. So dt^♭, a positive combination of dt_* and, where R̃′ ≠ 0,
 of dt, is past timelike for g′ there, and dr is future timelike.
 
-(b) *Near 𝓘⁺.* The proof of [[lem:ii-c-3-2]] bounds the coefficients of g′⁻¹ − ḡ⁻¹ in its basis by
-C₁(ϵ + ρ_I^(1−ℓ_♭))ρ_I^(ℓ_♭), with ϵ the distance of g′ from g_0 and ρ_I = t_*/r, using ρ_+ ≤ 1 only to bound powers of
-ρ_+; as ρ_+ is bounded on {t_* ≥ ½}, the bound holds there with a constant C₁′ depending only on g_0, as in the proof of
-[[lem:ii-e-1-2]] (iv). The estimate of the proof of [[lem:ii-c-3-2]] for g′⁻¹(d(t_*F₁), d(t_*F₁)) then gives
-g′⁻¹(dt^♭, dt^♭) ≤ −ℓ_♭ρ_I^(ℓ_♭+1) on N := {t_* ≥ ½, ρ_I ≤ ρ_1} when ϵ ≤ ϵ′, for some ρ_1 ∈ (0, ρ₋] and ϵ′ depending
-only on ℓ_♭, C₁′ and t^♭; there t^♭ = t_*F₁, ρ₋ being the point of the gluing of that proof. N is connected and meets
-Ω°, where dt^♭ is past timelike for g_0 ([[lem:ii-c-3-2]] (2) with h = 0); as dt^♭ is timelike for g_0 on all of N,
-it is past timelike there, and so for g′, along g_0 + τ(g′ − g_0).
+(A2) *Near 𝓘⁺.* With ρ := t_*/r (the ρ_I of the proof of [[lem:ii-c-3-2]]), that proof bounds the coefficients of
+g′⁻¹ − ḡ⁻¹ in its basis by C₁(ϵ + ρ^(1−ℓ_♭))ρ^(ℓ_♭), with ϵ the distance of g′ from g_0, using ρ_+ ≤ 1 only to bound
+powers of ρ_+; as ρ_+ is bounded on {t_* ≥ ½}, the bound holds there with a constant C₁′ depending only on g_0, as in
+the proof of [[lem:ii-e-1-2]] (iv). The estimate of the proof of [[lem:ii-c-3-2]] for g′⁻¹(d(t_*F₁), d(t_*F₁)) then
+gives g′⁻¹(dt^♭, dt^♭) ≤ −ℓ_♭ρ^(ℓ_♭+1) on N := {t_* ≥ ½, t_*/r ≤ ρ_1} when ϵ ≤ ϵ′, for some ρ_1 ∈ (0, ρ₋] and ϵ′
+depending only on ℓ_♭, C₁′ and t^♭; there t^♭ = t_*F₁, ρ₋ being the point of the gluing of that proof. N is connected
+and meets Ω°, where dt^♭ is past timelike for g_0 ([[lem:ii-c-3-2]] (2) with h = 0); as dt^♭ is timelike for g_0 on all
+of N, it is past timelike there, and so for g′, along g_0 + τ(g′ − g_0).
 
-(c) *Below {t_* = 1}.* F < 1 on (0, ∞): F ≤ F₁ < 1 on (0, 2/C], and F = F₂ ≤ C′(1 + C) < 1 on [ρ⁺, ∞) (the proof
+(A3) *Below {t_* = 1}.* F < 1 on (0, ∞): F ≤ F₁ < 1 on (0, 2/C], and F = F₂ ≤ C′(1 + C) < 1 on [ρ⁺, ∞) (the proof
 of [[lem:ii-c-3-2]]). So t^♭ = F(1/r) ≤ 1 − κ_1 on the compact set {t_* = 1, r′_0 + 1 ≤ r ≤ 1/ρ_1}, for some κ_1 > 0
 depending only on g_0 and ℓ_♭, and, t^♭ being increasing in t_* ([[sec:s09-off-star]]), on
 {t_* ≤ 1, r′_0 + 1 ≤ r ≤ 1/ρ_1}. Now Ω⁻_* lies in {t^♭ ≥ 1 − η_0, r ≥ r^♯, t_* > ½}, and a point of it in neither Ω°
-nor the set of (a) has r > r′_0 + 1 and t_* ≤ 1. Taking η_0 < κ_1, such a point has r > 1/ρ_1 ≥ t_*/ρ_1, so it lies in
-N, where (b) applies.
+nor the set of (A1) has r > r′_0 + 1 and t_* ≤ 1. Taking η_0 < κ_1, such a point has r > 1/ρ_1 ≥ t_*/ρ_1, so it lies
+in N, where (A2) applies.
 
 So (A) holds at every point of Ω° ∪ Ω⁻_* and of {r^♯ ≤ r ≤ r^♮ + δ_♮, t_* ≥ ½} at which g′ is within ϵ_G of g_0.
 
@@ -1835,8 +1835,8 @@ those of (iv) when the prescribed distance is ϵ_G.
 [[lem:ii-f1-2-6]] use of t^♭ at 𝓘⁺. In (b), C′ = (1 − C^(−ℓ))/(1 + C) depends on ℓ; every constant chosen from it
 (T_♭ = 2/C′ in [[sec:ii-c1-3-2]], the bounds t_* ≤ T/C′ on slabs, T ≥ 8/C′ in [[sec:ii-f-6-3]], τ_0 < C′τ_1/2 in
 [[sec:ii-f-7-3]]) is chosen with the C′ of ℓ_♭, and no condition relates C′ to ℓ_I. (c) and the gluing on
-{r ≤ r′_0 + 1} involve ℓ only through C′; [[sec:ii-f1-2-5]] uses the form (c) on N_κ. [[lem:s09-off-star]] and (a), (c)
-above use that t^♭ increases in t_* and that F < 1, which the proof of [[lem:ii-c-3-2]] gives for every ℓ. Near 𝓘⁺,
+{r ≤ r′_0 + 1} involve ℓ only through C′; [[sec:ii-f1-2-5]] uses the form (c) on N_κ. [[lem:s09-off-star]] and (A3)
+above use that t^♭ increases in t_*, and (A3) that F < 1, which the proof of [[lem:ii-c-3-2]] gives for every ℓ. Near 𝓘⁺,
 t^♭ = t_*(1 − (t_*/r)^(ℓ_♭)), and (t_*/r)^(ℓ_♭) = (x_I²/(1 − x_I²))^(ℓ_♭) is conormal: its b-derivatives, and at
 bounded t_* its edge derivatives, are bounded, and it tends to 0 at 𝓘⁺. Only these properties are used: in the collar
 of [[sec:ii-e-1-5]] (∂_(t_*)t^♭ = 1 − (1 + ℓ_♭)(t_*/r)^(ℓ_♭) ≥ ½ for r large, and t^♭ − t_* = −t_*^(1+ℓ_♭)x_I^(2ℓ_♭),

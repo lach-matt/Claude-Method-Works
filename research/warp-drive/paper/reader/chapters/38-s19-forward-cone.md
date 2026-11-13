@@ -716,8 +716,8 @@ condition holds for b near b₀: on {|x| ≥ 3R₁}, g_b − g_(b₀) = (m − m
 [[lem:iii-i-3-6]]), of norm O(|b − b₀|) over Ω_* by the argument of [[lem:iii-i-2-2]], and so over {t_* ≥ ½}: below
 Ω_*, at bounded t_*, the difference is stationary, and the weight and the frame at (t_*, x) are comparable to those at
 the point of {t^♭_* = 1} with the same x; on {|x| ≤ 3R₁}, g_b is smooth in b and stationary, and x_I²ρ_+² is bounded
-above and below there. By it the time function t^♭ := t^♭_* of [[sec:iii-i-1]], built from g_(b₀) with ℓ = ½, serves every g_b, and
-Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
+above and below there. By it the time function t^♭ := t^♭_* of [[sec:iii-i-1]], built from g_(b₀) with ℓ = ½, serves
+every g_b, and Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
 g_b⁻¹(dr, dr) ≤ −c and g_b⁻¹(dt, dr) > 0, with c := 31/450 independent of b; so dr is future timelike for g_b there.
 This makes the inner boundary {r = r₀} spacelike at every b ∈ B̄_1, and r decreasing along future causal curves on the
 collar {r₀ − 2δ₀ ≤ r ≤ r₀} and up to r₂ = 7R₁/8, with a margin uniform in b, as the energy estimates on slabs use at
@@ -1065,12 +1065,12 @@ hold with P_0 := 2L_b (with [[rem:ii-f1-7-1]] for margin 1) for every P as there
 
     ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < η_♭,                                                       {#eq:s19-time-hyp-b}
 
-the norm taken over Ω_*, with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be admissible
-relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0, metric satisfying
-[[eq:s19-time-hyp-b]] and ‖P_j − 2L_(b_j)‖_((0;k+d)) bounded, and with coefficients converging in C² on compact subsets
-of M° ∩ {r > r_0} to those of P, admissible relative to 2L_b with ‖P − 2L_b‖_((0;d)) < ε_0 and metric satisfying
-[[eq:s19-time-hyp-b]]; and let f_j → f in [[eq:ii-f1-1-4]]. Then the forward solutions u_j of P_ju_j = f_j converge to
-the forward solution u of Pu = f in H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b(Ω_*; E)^(•,−) for every ς > 0.
+the norm taken over Ω_*, with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be
+admissible relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0, metric
+satisfying [[eq:s19-time-hyp-b]] and ‖P_j − 2L_(b_j)‖_((0;k+d)) bounded, and with coefficients converging in C² on
+compact subsets of M° ∩ {r > r_0} to those of P, admissible relative to 2L_b with ‖P − 2L_b‖_((0;d)) < ε_0 and metric
+satisfying [[eq:s19-time-hyp-b]]; and let f_j → f in [[eq:ii-f1-1-4]]. Then the forward solutions u_j of P_ju_j = f_j
+converge to the forward solution u of Pu = f in H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b(Ω_*; E)^(•,−) for every ς > 0.
 
 *Proof.* The proof of [[thm:ii-f1-1-1]] depends on P_0 only through the following inputs.
 

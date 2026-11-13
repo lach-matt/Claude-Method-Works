@@ -1089,3 +1089,18 @@ Items found while chapters were written in parallel; each is settled once, editi
   chapter 3 lines 368-369 now cite rem:m22-value too. INTEGRATION: proofs/P-F-edge.md lines 4-5 (or wherever chapter
   85 carries them) "for the envelope of the numerical point" → "for the envelope env_C"; retire proofs/P-C-lambda0.md
   (its labels are now defined in chapter 86).
+- P-U71-assembly reported (report reports/P-U71-assembly.md). No integer upper bound from the edition as it stands.
+  NEW LOWER BOUND, pending the independent reading R-P-U71-assembly: admissible weights force ε_K < ε_Υ < 1.46214·10⁻¹⁰
+  (lem:ec-gauge-gap), so d_NM ≥ d_acc > 1.403·10²⁰ and N_NM > 2.946·10²¹ (chapter 71 says 7.959·10¹⁵ and
+  1.671·10¹⁷); the source's 4.62·10¹⁶ would then lie below the edition's own lower bound, i.e. the source's explicit
+  upper bound would be false, and sec:ec-integer must go. Structural upper bound prop:ec-upper (explicit part
+  1.386·10²¹ at ℓ_tf = 1). Missing for an integer: (G)'s index sets, ℓ_tf, the single-step losses c, d_BG and the
+  other two components of d_NM; P-U71-close evaluates them. lem:ec-split-loss settles the background-loss item;
+  a replacement for prop:ec-delta-cap with ω_k. FOR THE FINAL REPORT TO THE USER: the outcome on the upper bound
+  (the source's figure contradicted by a proved lower bound, if R-P-U71-assembly confirms).
+- R2-80: chapter 80's fix confirmed in substance (0M 1m 6n), the wider "Vaidya off Q×" claim false (counterexample in
+  R2-80 section C); fixes being applied, then chapter 80 CONFIRMED.
+- F3-S26 done (report reports/F3-S26.md): chapter 45's class norm is the infimum over decompositions
+  (lem:s26-decompositions), thm:iv2-3-1 iterates on decompositions, lem:iv2-1-2 (b) repaired with the extension
+  operator of lem:iv1-2-3 (the source has the zero-extension gap). Chapter 46 follow-ups (about 619-681) sent to
+  F3-S27. R4-S26 reading chapter 45.

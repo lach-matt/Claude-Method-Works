@@ -215,7 +215,7 @@ has exactly one smooth solution g0 of the two-null-dust equations, and:
 R_v > 0 an outgoing Vaidya metric, after reparametrising u. The two dusts cross only on the compact crossing diamond
 Q× := [u1, u2] × [v_start, v_end]: off Q× one of 𝒜, ℬ vanishes. Off Q× the background is explicit from the data only
 in {u ≤ u1}, where it is the ingoing Vaidya metric of the data on 𝒞_out with v its advanced time, and in
-{v ≤ v_start}, where R_v > 0 and it is the outgoing Vaidya metric of the data on 𝒞_in; in {u ≥ u2} it is the ingoing
+{v ≤ v_start}, where it is the outgoing Vaidya metric of the data on 𝒞_in; in {u ≥ u2} it is the ingoing
 Vaidya metric with the mass function μ(u2, ·), and in {v ≥ v_end} its mass function is μ(·, v_end), an outgoing Vaidya
 metric where R_v > 0; both mass functions are read from the solution on the edges of the diamond. On the slice Σ_τ0 of
 [[lem:two-dust-domain]] the Cauchy data are the seed's for R < r1, outgoing Vaidya on the packet r1 ≤ R ≤ r2,
@@ -356,7 +356,7 @@ along 𝒞_out, by the definition of ψ in [[lem:two-dust-identities]] (v), whic
 ψ̃ = 0 fixes the outgoing coordinate on 𝒞_in ∩ {u ≤ u2} up to a constant.
 
 (b) By the first part, g0 written in (ũ, ṽ) solves the two-null-dust equations with 𝒜̃, ℬ̃ and takes the given data.
-Conversely, a solution of the problem posed in (ũ, ṽ) on a past set, written in the coordinates of
+Conversely, a solution of the problem posed in (ũ, ṽ) on 𝒟, written in the coordinates of
 [[def:two-dust-data]], solves the problem of [[prop:two-dust-background]] there, by the first part, and so equals g0
 by the uniqueness there. The rest is read off. ∎
 
@@ -596,8 +596,8 @@ calculation there, which uses only that g0 is R² times the round metric on the 
 (4/3) A² env² R⁻³ and ⟨|F2 W_TT^out|²_(g0)⟩ = (4/3) A₂² env₂² R⁻³ ([[eq:wave-energy]]).
 
 (d) The pure harmonics (n, 0) come from R^(0)_in alone. In the coordinates (u, v), ℓ_in = −e^(−2σ) ∂_u and □_(g0) v =
-−3 e^(−2σ) R_u/R. The angular components of F1 W_TT^in are R^(1/2) times functions of (v, the angles, θ1), and Γ^C_uA
-= (R_u/R) δ^C_A, while Γ^C_ua = 0 for a ∈ {u, v}; so ∇_(ℓ_in) F1 W_TT^in = −e^(−2σ)(½ − 2)(R_u/R) F1 W_TT^in and
+−3 e^(−2σ) R_u/R. The angular components of F1 W_TT^in are R^(1/2) times functions of (v, the angles, θ1), and
+Γ^C_uA = (R_u/R) δ^C_A, while Γ^C_ua = 0 for a ∈ {u, v}; so ∇_(ℓ_in) F1 W_TT^in = −e^(−2σ)(½ − 2)(R_u/R) F1 W_TT^in and
 
     ∇_(ℓ_in) F1 W_TT^in + ½ (□_(g0) v) F1 W_TT^in = 0.
 
@@ -629,8 +629,8 @@ any two radial phases f(v) and h(u) in place of v and u the leading symbol is �
 *Proof.* With Φ := (n1 u_in + n2 u_out)/λ, ∂_a∂_b e^(iΦ) = (−∂_aΦ ∂_bΦ + i ∂_a∂_bΦ) e^(iΦ), so the term of order λ^(j−2)
 of −½ g^(ab) ∂_a∂_b (λ^j q e^(iΦ) E) is ½ λ^(j−2) ḡ⁻¹(n1 du_in + n2 du_out, n1 du_in + n2 du_out) q e^(iΦ) E; every
 other term of Ric^H has at most one derivative on the factor e^(iΦ) and is O(λ^(j−1)). Expanding, the symbol is
-½ n1² ḡ⁻¹(du_in, du_in) + n1 n2 ḡ⁻¹(du_in, du_out) + ½ n2² ḡ⁻¹(du_out, du_out), and ḡ⁻¹(du_in, du_out) = g0^(uv) + O(λ)
-= −e^(−2σ) + O(λ). For radial phases f(v), h(u), g0^(ab) ∂_a f ∂_b h = −e^(−2σ) f′ h′. ∎
+½ n1² ḡ⁻¹(du_in, du_in) + n1 n2 ḡ⁻¹(du_in, du_out) + ½ n2² ḡ⁻¹(du_out, du_out), and ḡ⁻¹(du_in, du_out) =
+g0^(uv) + O(λ) = −e^(−2σ) + O(λ). For radial phases f(v), h(u), g0^(ab) ∂_a f ∂_b h = −e^(−2σ) f′ h′. ∎
 
 In the (u, v)-plane the null cone of g0 is the pair of lines du = 0 and dv = 0, so every combination n1 dv + n2 du with
 n1 n2 ≠ 0 is timelike or spacelike, with g0⁻¹-length bounded below. This is Touati's strong coherence condition
@@ -670,8 +670,8 @@ and expand R_u[G] = Σ_m λ^m ℛ^(m), R_u the two-scale operator with the phase
     ḡ⁻¹(du_𝔨, du_𝔨) = Σ_(j≥1) λ^j e_j^𝔨,      e_j^𝔨 = 2 ℓ_𝔨·dφ_j^𝔨 − m_j(ℓ_𝔨, ℓ_𝔨) − q_j^𝔨,
 
 with q_j^𝔨 a polynomial in (m_i, dφ_i^𝔨), i < j, as in [[eq:eikonal-coefficients]], once per phase; and
-ḡ⁻¹(du_in, du_out) = g0^(uv) + λ c_1 + O(λ²), c_1 := ℓ_in·dφ_1^out + ℓ_out·dφ_1^in − m1(ℓ_in, ℓ_out), which does not
-vanish for λ small, since g0^(uv) = −e^(−2σ).
+ḡ⁻¹(du_in, du_out) = g0^(uv) + λ c_1 + O(λ²), c_1 := ℓ_in·dφ_1^out + ℓ_out·dφ_1^in − m1(ℓ_in, ℓ_out); the cross
+contraction does not vanish for λ small, since g0^(uv) = −e^(−2σ).
 
 (a) ℛ^(−1) = 0, and ℛ^(0) is the coefficient of λ⁰ of R[g0 + λ W + λ² ĝ_2] minus ½ Σ_𝔨 e_1^𝔨 F_𝔨² W_𝔨.
 (b) For m ≥ 1,
@@ -754,8 +754,8 @@ choice of stage data there are two-phase profiles g1, …, g_N, independent of �
 W_in and W_out as in [[eq:two-dust-waves]] with χ_in, χ_out of [[eq:two-dust-chi]], and the background g0 of
 [[prop:two-dust-background]]. The stage data are those of [[lem:two-dust-stages]] (c) on Σ_τ0, for m = 1, …, N.
 
-*Proof.* Solve stage 0 by [[lem:two-dust-stage-zero]], with ĝ_2's mixed harmonics the profile q there, and the stages m
-= 1, …, N by [[lem:two-dust-stages]] (c), keeping in [[eq:two-dust-ansatz]] the pure harmonics of ĝ_(N+1) and the mixed
+*Proof.* Solve stage 0 by [[lem:two-dust-stage-zero]], with ĝ_2's mixed harmonics the profile q there, and the stages
+m = 1, …, N by [[lem:two-dust-stages]] (c), keeping in [[eq:two-dust-ansatz]] the pure harmonics of ĝ_(N+1) and the mixed
 harmonics of ĝ_j for j ≤ N + 1. By [[lem:two-dust-stages]] (a)–(b), ℛ^(m) = 0 for m ≤ N − 1, so R_u[G] is λ^N times a
 profile bounded uniformly in λ. Rewriting with the fixed phases v and u, the Taylor expansion in λΦ_𝔨, Φ_𝔨 := Σ_(j≥2)
 λ^(j−2) φ_j^𝔨, about θ_𝔨 + φ_1^𝔨, as in the proof of [[thm:approximant]], gives profiles g_j(X, θ1, θ2) with the stated
@@ -827,7 +827,7 @@ G2^out(ℓ_in, ℓ_in) = e^(−4σ) [F2² χ_out], at the phase θ2 + φ_1^out; 
 
     g_app⁻¹(dv, dv) = −λ (m1(ℓ_in, ℓ_in) + e^(−4σ) [χ_out]) + O(λ²),
 
-with [χ_out] at the same phase: the other family's quadrature term is not annihilated by ℓ_in. The mirror statements
+with [χ_out] at the same phase: the other family's term χ_out du ⊗ du is not annihilated by ℓ_in. The mirror statements
 hold with in and out exchanged.
 
 (L5) With q := g0^(ττ)/g^(ττ) and c^(ab) := g0^(ab) − q g^(ab), c^(ττ) = 0 and
@@ -1101,7 +1101,7 @@ term λ^m [Y] of D as
 
     λ^(m−2) ½ Σ_(𝔧,𝔨) G⁻¹(du_𝔧, du_𝔨) F_𝔧 F_𝔨 Y + λ^(m−1) Σ_𝔨 (G⁻¹(du_𝔨, ∂_X) + ½ □_G u_𝔨) F_𝔨 Y + λ^m ½ G^(ab) ∂_a∂_b Y,
 
-and its other terms, of first order in D with bounded coefficients, as λ^(m−1) Σ_𝔨 M_𝔨 F_𝔨 Y + O(λ^m), M_𝔨 bounded
+and its other terms, of first order in D with bounded coefficients, as λ^(m−1) Σ_𝔨 𝔪_𝔨 F_𝔨 Y + O(λ^m), 𝔪_𝔨 bounded
 multiplications by profiles. Here G⁻¹(du_𝔨, ∂_X) = ℓ_𝔨·∂_X + O(λ) and □_G u_𝔨 = □_(g0) ϕ_𝔨 + O(λ), the part
 Σ_𝔧 dϕ_𝔧 ⊗ F_𝔧 W_𝔧 of order one of ∂G dropping out because each W_𝔧 is traceless with W_𝔧(ℓ_𝔧, ·) = 0. The contractions
 of the phases are
@@ -1121,7 +1121,7 @@ mean and the pure harmonics of Y;
 
 (β) at order λ^(m−1), the principal part and the other terms of B_g act on Y as
 
-    Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + M_𝔨) F_𝔨 Y + c F1F2 Y − ½ e^(−4σ) χ_out F1² Y − ½ e^(−4σ) χ_in F2² Y.
+    Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + 𝔪_𝔨) F_𝔨 Y + c F1F2 Y − ½ e^(−4σ) χ_out F1² Y − ½ e^(−4σ) χ_in F2² Y.
 
 Every term of (β) contains a phase derivative of Y, so (β) vanishes on a Y that does not depend on (θ1, θ2). On a pure
 harmonic Y of θ1, c F1F2 Y = 0 and F2² Y = 0, and −½ e^(−4σ) χ_out F1² Y is the product of a pure harmonic of θ1 with
@@ -1132,13 +1132,13 @@ mixed harmonics of D^(m+1) vanish. (H_0) holds: D^(0) = 0 by [[lem:two-dust-stag
 term of [[eq:data-bianchi]] is, by (α), g0^(uv) F1F2 D^(1), its right side involving only ℛ^(−1) and ℛ^(0), which vanish;
 so the mixed harmonics of D^(1) vanish. Assume (H_m). At order m the terms of the left side of [[eq:data-bianchi]] are:
 from D^(m), only terms without phase derivatives, by (β), namely ½ □̃ ⟨D^(m)⟩ and terms of first order in ⟨D^(m)⟩ with
-bounded profiles as coefficients; from D^(m+1), whose mixed harmonics vanish, by (β), Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + M_𝔨)
+bounded profiles as coefficients; from D^(m+1), whose mixed harmonics vanish, by (β), Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + 𝔪_𝔨)
 Ξ_𝔨 with Ξ_𝔨 := F_𝔨 Π_𝔨 D^(m+1), together with −½ e^(−4σ) χ_out F1 Ξ_in − ½ e^(−4σ) χ_in F2 Ξ_out, which has mixed
 harmonics only; and from D^(m+2), by (α), g0^(uv) F1F2 D^(m+2), which has mixed harmonics only. The terms from D^(j),
 for j ≥ m + 3, are of higher order. So the mean of the order-m equation is the linear wave equation for ⟨D^(m)⟩ of the
-proof of [[lem:gauge-hierarchy]], with the forcing Σ_𝔨 ⟨M_𝔨 Ξ_𝔨⟩; its pure harmonics of θ_𝔨 are the transport
+proof of [[lem:gauge-hierarchy]], with the forcing Σ_𝔨 ⟨𝔪_𝔨 Ξ_𝔨⟩; its pure harmonics of θ_𝔨 are the transport
 
-    (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨) Ξ_𝔨 + Π_𝔨 Σ_𝔧 M_𝔧 Ξ_𝔧 = (first order in ⟨D^(m)⟩)
+    (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨) Ξ_𝔨 + Π_𝔨 Σ_𝔧 𝔪_𝔧 Ξ_𝔧 = (first order in ⟨D^(m)⟩)
 
 along ℓ_𝔨, the two transports coupled through bounded multiplications; and its mixed harmonics are algebraic and give
 the mixed harmonics of D^(m+2), divided by e^(−2σ) n1 n2, in terms of ⟨D^(m)⟩, the Ξ_𝔨 and their X-derivatives, the
@@ -1229,8 +1229,8 @@ g_AB, A, B angular, and put α := (det γ_AB)^(1/2). For a normal covector k = k
                                                                                                      {#eq:two-dust-theta}
 
 since γ^(AB) ∂_d g_AB = 2 ∂_d ln α for d ∈ {u, v}. The outgoing covector is k⁺ = c(g)(du + β dv), with β fixed by g⁻¹(k⁺,
-k⁺) = 0 and c(g) < 0 by n(τ) = 1, g0⁻¹ du = −e^(−2σ) ∂_v being past directed; for g0, β = 0 and n0 = c0 g0⁻¹ du has n0^u
-= 0 and no angular component. The last two terms of [[eq:two-dust-theta]] contain only angular derivatives of g, which
+k⁺) = 0 and c(g) < 0 by n(τ) = 1, g0⁻¹ du = −e^(−2σ) ∂_v being past directed; for g0, β = 0 and n0 = c0 g0⁻¹ du has no
+angular component and n0^u = 0. The last two terms of [[eq:two-dust-theta]] contain only angular derivatives of g, which
 carry no phase derivative since ∂_A ϕ_𝔨 = 0. At order λ they are products of first-order quantities with g0-quantities;
 as g0_dB = 0 for d ∈ {u, v}, n0^C = 0, the oscillating parts of g1 have no components g1_dB with d ∈ {u, v} (W_TT^𝔨 is
 angular and χ_𝔨 dϕ_𝔨 ⊗ dϕ_𝔨 lies in the (u, v)-block), and the oscillating part of the λ-coefficient n1 of n has no
