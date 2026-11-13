@@ -1155,9 +1155,10 @@ and [[sec:ii-c-5-2]] (the construction).
 
 *Near ℐ⁺.* Let Ω_I := Ω ∩ {x_I ≤ ϵ_I}, with the eb-coordinates of [[sec:ii-b-7]]: ρ₊ = t_*⁻¹ ∈ (0, 1],
 x_I = (t_*/r)^(1/2), covectors ν = σ_(eb) dρ₊/ρ₊ + ξ_(eb) dx_I/x_I + η_(eb) dω/x_I,
-|ν|_(eb)² := σ_(eb)² + ξ_(eb)² + |η_(eb)|² and G_(eb) := x_I⁻²ρ₊⁻²G. Let Ḡ_(eb) be [[eq:ii-b-7-1]] and G⁰_(eb) := ½ξ_(eb)(ξ_(eb) − 2σ_(eb)) + |η_(eb)|². For g as in
-[[prop:ii-c-5-1]] (2), with ϵ_G ≤ 1, [[sec:ii-b-7]] and [[lem:ii-c-4-1]] (a) at d₀ = 1 (its first assertion holds
-verbatim at d₀ = 1 and over Ω, its proof being the Neumann series) give
+|ν|_(eb)² := σ_(eb)² + ξ_(eb)² + |η_(eb)|² and G_(eb) := x_I⁻²ρ₊⁻²G. Let Ḡ_(eb) be [[eq:ii-b-7-1]] and
+G⁰_(eb) := ½ξ_(eb)(ξ_(eb) − 2σ_(eb)) + |η_(eb)|². For g as in [[prop:ii-c-5-1]] (2), with ϵ_G ≤ 1, [[sec:ii-b-7]] and
+[[lem:ii-c-4-1]] (a) at d₀ = 1 (its first assertion holds verbatim at d₀ = 1 and over Ω, its proof being the Neumann
+series) give
 
     G_(eb) − G⁰_(eb) = ¼x_I²ξ_(eb)² + (G_(eb) − Ḡ_(eb)) ∈ x_I^(2ℓ_I) C¹ P^[2],                            {#eq:ii-c-5-1}
 

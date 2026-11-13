@@ -1304,3 +1304,428 @@ vector field V,
 This is [[eq:i-a-3-6]] with the variable exponent. φ_ε is bounded in S̃⁰, lies in S̃^(−κ) for each ε, and tends to 1 in
 S̃^δ for every δ > 0 (proof of [[lem:ii-a1-2-3]] (b)). θ_ε is bounded in S̃⁰ with values in [0, 1).
 
+### The elliptic estimate {#sec:ii-a1-3}
+
+**Theorem {#thm:ii-a1-3-1}** (The elliptic estimate; [Hin26c, Proposition 3.23] at k = 0.) Let 𝗌 and N be given. There
+is d_0 = d_0(m, 𝗌, N) such that the following holds for every finite 𝒫 ⊂ C^∞_b Ψ^m_e3b, every N′ and every
+L ∈ C^(d_0)_e3b 𝒫 on ℂ^(N′)-valued functions. Let B, G ∈ C^∞_b Ψ⁰_e3b be carried by χ, with
+WF′(B) ⊂ Ell(G) ∩ Ell(L). If χu ∈ H^(−N)_e3b and GLu ∈ H^(𝗌−m)_e3b, then Bu ∈ H^𝗌_e3b and
+
+    ‖Bu‖_(H^𝗌_e3b) ≤ C(‖GLu‖_(H^(𝗌−m)_e3b) + ‖χu‖_(H^(−N)_e3b)).
+
+C depends on L only through max_j ‖a_j‖_(C^(d_0)_e3b) and a lower bound for the ellipticity of ℓ near WF′(B); so it is
+uniform for L in a neighbourhood in C^(d_0)_e3b 𝒫 on which WF′(B) ⊂ Ell(L) holds with a uniform bound.
+
+([Hin26c, Proposition 3.23] states the scalar case; with matrix-valued principal symbols the proof is the same.)
+
+*Proof.* Let K := WF′(B), compact in the open set O := Ell(G) ∩ Ell(L). Fix J ∈ ℕ, to be chosen, and closed sets
+K_0 ⊂ K_1 ⊂ ⋯ ⊂ K_(J+2) of the compactified bundle, each a neighbourhood of the previous one, with K ⊂ K_0° and
+K_(J+2) ∩ ᵉ³ᵇS*M̃ ⊂ O. They lie over the interior of {χ′ = 1} for a cut-off χ′ carried by χ ([[sec:ii-a-8-3]]), and in
+{|ξ| ≥ 1} near fibre infinity: choose them inside a set {ρ_∞ ≤ r_1} on which ℓ is invertible with |ℓ⁻¹| ≤ C_ℓ ρ_∞^m, as
+Ell(L) is defined by such a bound on a neighbourhood. Fix cut-offs χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃) with χ̃_i = 1 near K_(i−1) and
+supp χ̃_i ⊂ K_i, multiplied by base cut-offs so that the operators are carried by χ. Put G_i := Op(χ̃_i), i ≥ 1. By
+[[sec:ii-a1-1-2]], B is microsupported in K_0: B = Op(b) + R_B with supp b ⊂ K_0.
+
+*One step.* Let A be of order 𝗋, microsupported in K_i, A = Op(a) + R_A with a ∈ S̃^𝗋 supported in K_i, and i ≤ J. Put
+q := χ̃_(i+1) a ℓ⁻¹ ∈ C^((d_0)) S̃^(𝗋−m), which is defined since ℓ is invertible on K_(i+1); writing ℓ = ρ_∞^(−m)ℓ_0, its
+norms are bounded by those of ℓ and by C_ℓ, by ∂(ℓ_0⁻¹) = −ℓ_0⁻¹(∂ℓ_0)ℓ_0⁻¹. By [[eq:ii-a1-1-2]],
+
+    Op(q)L = Op(q)Op(ℓ_f) + Op(q) Σ_j a_jR_j = Op(qℓ_f) + D_1 + Op(q) Σ_j a_jR_j,
+
+where D_1 has order 𝗋 − 1 + δ by [[prop:ii-a1-2-4]] (b). Next, qℓ_f = χ̃_(i+1)a + χ̃_(i+1)aℓ⁻¹(ℓ_f − ℓ), and
+ℓ_f − ℓ = Σ_j a_j(p_j − σ(P_j)) ∈ C^((d_0)) S̃^(m−1). Also χ̃_(i+1)a = a. So
+
+    A = Op(q)L − E_A,     E_A := D_1 + Op(χ̃_(i+1)aℓ⁻¹(ℓ_f − ℓ)) + Op(q) Σ_j a_jR_j − R_A.                {#eq:ii-a1-3-1}
+
+E_A has order 𝗋 − 1 + δ, and each of its terms is a composite with a factor whose symbol is supported in K_(i+1). The
+term Op(q) Σ a_jR_j has every order, by [[prop:ii-a1-2-4]] (a) and [[lem:ii-a-8-5]] (a) for the multiplications. Apply
+[[eq:ii-a1-3-1]] to u, with χu ∈ H^(−N). By the support convention, Au = Aχu, and all terms make sense once d_0 is
+large for the finitely many orders involved.
+
+The term Op(q)Lu: write Op(q) = Op(q)G_(i+2) + Op(q)(I − G_(i+2)). By [[prop:ii-a1-2-4]] (e), the second term has every
+order, its symbols being supported in K_(i+1) and in the support of 1 − χ̃_(i+2), which are disjoint. So
+
+    ‖Op(q)Lu‖_(𝗋′) ≤ C‖G_(i+2)Lu‖_(𝗋′+𝗋−m) + C‖χLu‖_(−N−m)
+
+for every order 𝗋′. Further, ‖G_(i+2)Lu‖ ≤ C(‖GLu‖ + ‖χLu‖_(−N−m)) by [[lem:ii-a-8-4]] (c), as
+K_(i+2) ∩ ᵉ³ᵇS*M̃ ⊂ Ell(G). Finally ‖χLu‖_(−N−m) ≤ C‖χu‖_(−N) by [[lem:ii-a-8-6]] (a).
+
+The term E_Au: in each of its terms, insert G_(i+2) in the same way after the factor supported in K_(i+1);
+[[prop:ii-a1-2-4]] (e) with three factors bounds the remainder. So ‖E_Au‖_(𝗋′) ≤ C‖G_(i+2)u‖_(𝗋′+𝗋−1+δ) + C‖χu‖_(−N).
+
+*Iteration.* Take δ = 1/2, 𝗋 = 0 and 𝗋′ = 𝗌 for A = B; then A = G_(i+2) and 𝗋′ = 𝗌 − j/2 at step j, with i = 2j.
+After J′ steps the remaining term is ‖G_(2J′)u‖_(𝗌−J′/2) ≤ C‖χu‖_(−N) once J′/2 ≥ sup 𝗌 + N. Take J := 2J′. Summing,
+
+    ‖Bu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)).
+
+The identities [[eq:ii-a1-3-1]] hold for every u with χu ∈ H^(−N), and each term on the right is finite when the right
+side of the estimate is. So the estimate holds in the strong sense. The constants depend on finitely many norms of the
+a_j, through ℓ_f, ℓ and q, and on C_ℓ, the bound for ℓ⁻¹ on K_(J+2). For a perturbation of L that is small in these
+norms, ℓ stays invertible on K_(J+2) with a comparable bound. On ℂ^(N′), ℓ⁻¹ is the inverse matrix, and nothing else
+changes. Variable orders enter only through the spaces, on which the operators of constant order act by
+[[prop:ii-a1-2-4]] (a). ∎
+
+### The positive commutator lemma {#sec:ii-a1-4}
+
+Let L be of the form [[eq:ii-a1-1-2]], possibly on ℂ^(N′), with real scalar principal symbol ℓ, so that
+ℓ_f − ℓ ∈ C^((d_0)) S̃^(m−1) (matrix-valued). Put L_R := (L + L*)/2 and L_I := (L − L*)/(2i). By [[prop:ii-a1-2-4]] (c),
+L_I has order m − 1 + δ. For a real scalar symbol ǎ and Ǎ := Op(ǎ), which need not be self-adjoint,
+
+    C_ǎ := i(L*Ǎ*Ǎ − Ǎ*ǍL) = i[L_R, Ǎ*Ǎ] + L_IǍ*Ǎ + Ǎ*ǍL_I,     ⟨C_ǎw, w⟩ = 2 Im⟨ǍLw, Ǎw⟩                {#eq:ii-a1-4-1}
+
+for w ∈ H^(K′)_e3b with K′ as in [[lem:ii-a1-4-1]] (iii). (The algebra: L = L_R + iL_I with L_R and L_I formally
+self-adjoint.) In [[eq:i-a-3-4]] the commutant is self-adjoint and Ǎ*Ǎ = Ǎ²; here it is not, and Ǎ² in place of Ǎ*Ǎ
+would make the identity false. Let 𝗌 be a variable order and 𝗄 := 𝗌 − (m − 1)/2.
+
+**Lemma {#lem:ii-a1-4-1}** (One step.) Let κ ∈ (0, 1/4], δ_0 ∈ (0, 1/4], ς ∈ {1, −1}, and let G and E be carried by χ.
+Suppose that for ε ∈ (0, 1] there are real scalar symbols ǎ_ε and symbols b_ε, e_ε and z_ε with the following
+properties.
+
+(i) ǎ_ε is bounded in C^((M))_ν S̃^𝗄, lies in C^((M))_ν S̃^(𝗄−κ) for each ε, and is supported in a closed set K_1 with
+K_1 ∩ ᵉ³ᵇS*M̃ ⊂ Ell(G). Here ν ∈ ℕ_0 is fixed, all classes below have index ν, and M is large for the orders involved.
+
+(ii) b_ε is bounded in C^((M))_ν S̃^(𝗌+δ) for every δ > 0, lies in C^((M))_ν S̃^(𝗌−κ+δ) for each ε, and tends to b_0
+pointwise with these bounds. e_ε is bounded in C^((M))_ν S̃^𝗌, lies in C^((M))_ν S̃^(𝗌−κ) for each ε, and is supported in
+a closed set K_E ⊂ K_1 with K_E ∩ ᵉ³ᵇS*M̃ ⊂ Ell(E). z_ε is bounded in C^((M))_ν S̃^(−(m−1)/2), and ǎ_ε = z_εb_ε.
+
+(iii) For every w ∈ H^(K′)_e3b carried by χ, where K′ ≥ sup |𝗌| + m + 2 is a fixed integer, with B_ε := Op(b_ε),
+E_ε := Op(e_ε), Ǎ_ε := Op(ǎ_ε) and a G′ carried by χ with WF′(G′) ⊂ Ell(G),
+
+    ς⟨C_(ǎ_ε)w, w⟩ ≤ −‖B_εw‖² + ‖E_εw‖² + C_0(‖G′w‖²_(𝗌−1/2+δ_0) + ‖χw‖²_(−N)),                          {#eq:ii-a1-4-2}
+
+with C_0 independent of ε.
+
+Then for every u with χu ∈ H^(−N), Gu ∈ H^(𝗌−κ), GLu ∈ H^(𝗌−m+1) and Eu ∈ H^𝗌, we have B_0u ∈ L² and
+
+    ‖B_0u‖² ≤ C(‖GLu‖²_(𝗌−m+1) + ‖Eu‖²_𝗌 + ‖Gu‖²_(𝗌−1/2+δ_0) + ‖χu‖²_(−N)).                            {#eq:ii-a1-4-3}
+
+*Proof.* Norms are those of L² and of H^𝗍_e3b; C changes from line to line and does not depend on ε or t.
+
+*Step 0: microlocalisation.* Choose Φ = Op(φ), carried by χ, with φ = 1 near K_1 ∪ K_E and supp φ in a closed set whose
+intersection with fibre infinity lies in Ell(G). Put v := Φu. By [[lem:ii-a-8-4]] (c), ‖v‖_𝗍 ≤ C(‖Gu‖_𝗍 + ‖χu‖_(−N))
+for 𝗍 ≤ 𝗌 − κ, and ‖ΦLu‖_(𝗌−m+1) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χu‖_(−N)) (with [[lem:ii-a-8-6]] (a) for the error term). Now
+Lv = ΦLu + [L, Φ]u, and Ǎ_ε[L, Φ] = Ǎ_ε(I − Φ)L − Ǎ_εL(I − Φ). Both terms have every order, uniformly in ε, by
+[[prop:ii-a1-2-4]] (e) with L = Op(ℓ_f) + residual and I − Φ = Op(1 − φ) ([[sec:ii-a1-1-1]]), since ǎ_ε and 1 − φ have
+disjoint supports. Hence, as Ǎ_ε is bounded of order 𝗄 ([[prop:ii-a1-2-4]] (a)),
+
+    ‖Ǎ_εLv‖_((1−m)/2) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χu‖_(−N)).                                                    {#eq:ii-a1-4-4}
+
+*Step 1: the pairing at v.* Let w_t := T_tv, with T_t from [[lem:ii-a1-2-3]] (b) and K ≥ K′ + sup |𝗌| + 1, so that
+w_t ∈ H^(𝗌−κ+K) ⊂ H^(K′) for t > 0 (carried by χ by the support convention, the kernels of T_t being supported near the
+diagonal). We show ⟨Ǎ_εLw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εLv, Ǎ_εv⟩ as t → 0, for fixed ε > 0. Symbols of C^((M))_ν S̃^𝗄 act with
+exact orders ([[prop:ii-a1-2-4]] (a)), and only remainders lose δ. So Ǎ_ε has order 𝗄 − κ for this ε, and as
+v ∈ H^(𝗌−κ), Ǎ_εw_t → Ǎ_εv strongly in H^((m−1)/2). Next, Ǎ_εLw_t = Ǎ_εT_tLv + Ǎ_ε[L, T_t]v. The first term tends to
+Ǎ_εLv in H^((1−m)/2): T_t → I strongly on H^(𝗌−m+1), applied to ΦLu; the part with [L, Φ]u is handled as in Step 0,
+uniformly in t. For the second, L and T_t have the constant orders m and 0. So [[prop:ii-a1-2-4]] (d), with a_1 = ℓ_f
+and a_2 = τ_t bounded in S̃⁰, shows that [L, T_t] is bounded of order m − 1, uniformly in t; and it tends to 0 as an
+operator of order m − 1 + δ, since τ_t → 1 in S̃^δ. Hence Ǎ_ε[L, T_t]v is bounded in H^((1−m)/2) uniformly in t and
+tends to 0 in 𝒟′, so weakly in H^((1−m)/2). A weakly null sequence paired with a strongly convergent one tends to 0.
+
+*Step 2: the inequality at v.* Apply [[eq:ii-a1-4-2]] at w = w_t and let t → 0. The pairing converges by Step 1. The
+other terms converge: E_ε and G′ have orders at most 𝗌 − κ and 𝗌 − 1/2 + δ_0 ≤ 𝗌 − κ, and T_t → I strongly.
+B_εw_t → B_εv in H^(−δ), B_ε having order 𝗌 − κ + δ for this ε. Since ‖B_εw_t‖² is bounded by the convergent right
+side, B_εv ∈ L², and by weak lower semicontinuity
+
+    ‖B_εv‖² ≤ −2ς Im⟨Ǎ_εLv, Ǎ_εv⟩ + ‖E_εv‖² + C_0(‖G′v‖²_(𝗌−1/2+δ_0) + ‖χv‖²_(−N)).
+
+(a) By [[prop:ii-a1-2-4]] (b), Ǎ_ε = Op(z_ε)B_ε + D_ε with D_ε bounded of order 𝗄 − 1 + 2δ. As Op(z_ε) is bounded of
+order −(m − 1)/2 without loss ([[prop:ii-a1-2-4]] (a)), ‖Ǎ_εv‖_((m−1)/2) ≤ C‖B_εv‖ + C‖v‖_(𝗌−1+2δ). With
+[[eq:ii-a1-4-4]],
+
+    2|⟨Ǎ_εLv, Ǎ_εv⟩| ≤ (1/2)‖B_εv‖² + C(‖GLu‖²_(𝗌−m+1) + ‖v‖²_(𝗌−1/2) + ‖χu‖²_(−N)).
+
+(b) E_εv = E_εu − E_ε(I − Φ)u. The second term has every order, uniformly ([[prop:ii-a1-2-4]] (e)). For the first, E is
+elliptic on K_E ∩ ᵉ³ᵇS*M̃, and E_ε is bounded of order 𝗌 and microsupported in K_E. So the iteration of the proof of
+[[thm:ii-a1-3-1]], with E in place of L (E smooth, of order 0), gives ‖E_εu‖ ≤ C(‖Eu‖_𝗌 + ‖χu‖_(−N)).
+
+(c) ‖G′v‖_(𝗌−1/2+δ_0) + ‖χv‖_(−N) ≤ C(‖Gu‖_(𝗌−1/2+δ_0) + ‖χu‖_(−N)).
+
+Absorbing (1/2)‖B_εv‖², which is finite,
+
+    ‖B_εv‖² ≤ C(‖GLu‖²_(𝗌−m+1) + ‖Eu‖²_𝗌 + ‖Gu‖²_(𝗌−1/2+δ_0) + ‖χu‖²_(−N))     for all ε ∈ (0, 1].
+
+*Step 3: the limit.* B_εv → B_0v in 𝒟′ ([[prop:ii-a1-2-4]] (a) and the proof of its finite regularity part, as
+b_ε → b_0 pointwise with uniform bounds in the class of order 𝗌 + δ). B_εv is bounded in L², so B_0v ∈ L² with the same
+bound. Finally B_0u = B_0v + B_0(I − Φ)u, and B_0(I − Φ) has every order ([[prop:ii-a1-2-4]] (e)). ∎
+
+The a priori hypothesis Gu ∈ H^(𝗌−κ) is used only for the limits t → 0; the bound uses ‖Gu‖_(𝗌−1/2+δ_0).
+
+**Lemma {#lem:ii-a1-4-2}** (Iteration.) Let Γ ⊂ ᵉ³ᵇS*M̃ be compact and U_0 an open neighbourhood of it. Suppose that for
+every κ ∈ (0, 1/4], every order 𝗌′ = 𝗌 − τ′ with 0 ≤ τ′ ≤ τ (τ > 0 a constant), and every open U with Γ ⊂ U ⊂ U_0, the
+hypotheses of [[lem:ii-a1-4-1]] hold for (𝗌′, κ) with K_1 inside U (near fibre infinity), with E-symbols supported in a
+closed set K_E(U) whose intersection with fibre infinity lies in U ∖ Γ, and with b_0 elliptic of order 𝗌′ on an open
+neighbourhood U′ of Γ: b_0⁻¹ ∈ C^((M))_ν S̃^(−𝗌′) on U′ near fibre infinity. Let G be elliptic on Ū_0. Then there are
+a neighbourhood U_* of Γ and a closed set K_E^* missing Γ such that, for E elliptic on K_E^* and B ∈ C^∞_b Ψ⁰_e3b
+carried by χ and microsupported in U_*, in the strong sense,
+
+    ‖Bu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m+1) + ‖Eu‖_𝗌 + ‖Gu‖_(𝗌−τ) + ‖χu‖_(−N)).                                         {#eq:ii-a1-4-5}
+
+*Proof.* As in the proof of [[lem:i-a-3-2]]. Take an integer J > 4τ, κ := τ/J < 1/4, and 𝗌_j := 𝗌 − τ + jκ. Construct
+open sets U_0 ⊃ U_1 ⊃ ⋯ ⊃ U_J ⊃ Γ with Ū_j ⊂ U′_j ∩ U_(j−1), where U′_j is the U′ for (𝗌_j, κ, U_(j−1)), and let
+K_E^* := ⋃_j K_E(U_(j−1)). Let G_0 := G and G_j := Op(g_j), carried by χ, with g_j smooth on the compactified bundle,
+equal to 1 near Ū_j and supported in U′_j ∩ U_(j−1), where b_0^((j)) is elliptic and G_(j−1) is elliptic; so
+WF′(G_j) ⊂ U_0 ⊂ Ell(G), which the step from ‖G_(j−1)Lu‖ to ‖GLu‖ and the next step need. Then
+‖G_ju‖_(𝗌_j) ≤ C(‖B_0^((j))u‖ + ‖χu‖_(−N)). This is the parametrix argument of the proof of [[thm:ii-a1-3-1]], with
+B_0^((j)), of order 𝗌_j + δ, in place of L, and χ̃a(b_0^((j)))⁻¹ in place of χ̃aℓ⁻¹. Op(χ̃a(b_0^((j)))⁻¹) has order
+𝗋 − 𝗌_j without loss ([[prop:ii-a1-2-4]] (a)), and the remainders have order 𝗋 − 1 + 2δ, so with δ = 1/4 the iteration
+closes as there; B_0^((j))u ∈ L² enters without localization. (With an operator of order −𝗌_j + δ in place of the
+parametrix, the conclusion would be H^(𝗌_j−δ) only.) [[lem:ii-a1-4-1]] at step j needs G_(j−1)u ∈ H^(𝗌_(j−1)), the
+conclusion of step j − 1, and gives
+
+    ‖B_0^((j))u‖ ≤ C(‖G_(j−1)Lu‖_(𝗌_j−m+1) + ‖Eu‖_(𝗌_j) + ‖G_(j−1)u‖_(𝗌_j−1/2+δ_0) + ‖χu‖_(−N)).
+
+Take δ_0 ≤ 1/4 − κ, which is positive as J > 4τ, so that 𝗌_j − 1/2 + δ_0 ≤ 𝗌_(j−1). [[lem:ii-a1-4-1]] at step j
+applies with G_(j−1) in the role of G, which is elliptic on Ū_(j−1) ⊃ K_1 ∪ K_E near fibre infinity. Induction on j
+bounds ‖G_Ju‖_𝗌, and [[eq:ii-a1-4-5]] follows for B microsupported in U_* := U_J by [[lem:ii-a-8-4]] (c). ∎
+
+### Real principal type propagation {#sec:ii-a1-5}
+
+This section constructs the commutant of [[sec:ii-a1-4]] along a single integral curve of the Hamilton vector field,
+in flow-box coordinates of finite regularity, and assembles the global estimate.
+
+#### The operator and its Hamilton vector field {#sec:ii-a1-5-1}
+
+Let m ∈ ℕ_0, and let L = L_0 + L_1 + L_2 on ℂ^(N′), where L_0 ∈ Diff^m_e3b ⊗ Id, L_1 = Σ_q a_qP_q ⊗ Id with
+a_q ∈ C^(d_0,(2δ_w,δ_w,δ_w))_e3b, δ_w > 0, and P_q ∈ 𝒫_m with classical principal symbols, and
+L_2 ∈ C^(d_0)_e3b 𝒫_(m−1) ⊗ End ℂ^(N′); here 𝒫_(m−j) ⊂ C^∞_b Ψ^(m−j)_e3b, j = 0, 1, are finite. The scalar principal
+symbol ℓ = ℓ_0 + ℓ_1 is real, with ℓ_0 := σ(L_0) and ℓ_1 := Σ_q a_qσ(P_q) homogeneous of degree m. Put
+𝖧 := ρ_∞^(m−1)H_ℓ, homogeneous of degree 0, and μ := ρ_∞^(−(m−1)), so that H_ℓ = μ𝖧 on functions homogeneous of
+degree 0.
+
+**Lemma {#lem:ii-a1-5-1}** (a) 𝖧 induces a vector field on ᵉ³ᵇS*M̃, tangent to its boundary faces, that is continuous
+over M̃ ∖ (I⁰ ∪ K⁻). Over ℐ⁺ ∪ ι⁺ ∪ K⁺ it equals ρ_∞^(m−1)H_(ℓ_0).
+
+(b) In the charts of ρℬ, with coordinates (x, ω) on the cosphere bundle, its coefficients have derivatives up to order
+d_0 − 1 bounded uniformly.
+
+(c) Over the interior its integral curves are unique and exist for all times. Over M̃ ∖ (I⁰ ∪ K⁻) its integral curves
+are unique and preserve the boundary faces, and its flow is continuous and depends continuously on the field: if such
+fields 𝖧_n converge to 𝖧 uniformly on compact sets there, their integral curves from points converging to β converge to
+that of 𝖧 from β, uniformly on compact time intervals on which it stays there. For |t| ≤ T_0, the flow maps have
+derivatives up to order d_0 − 1 bounded in these charts, uniformly.
+
+*Proof.* (a), (b). ρ_∞^(m−1)H_(ℓ_0) is smooth on ᵉ³ᵇS*M̃ and tangent to its faces: ℓ_0 is classical, and Hamilton
+vector fields of e3b-symbols are b-vector fields on the compactified bundle ([Hin26c, p. 71 and (2.39)];
+[[sec:ii-a-2-5]]). Write ℓ_1 = wℓ̃_1 with w := x_I^(2δ_w) ρ_+^(δ_w) ρ_K^(δ_w) and ℓ̃_1 := Σ_q ã_qσ(P_q),
+ã_q := w⁻¹a_q ∈ C^(d_0)_e3b. Then H_(ℓ_1) = wH_(ℓ̃_1) + ℓ̃_1H_w. Here H_w is w times a fibre vector field whose
+coefficients are e3b-derivatives of log w, which are smooth on M̃. In the charts of ρℬ the coordinate vector fields are,
+uniformly, bounded combinations of b-vector fields of the compact manifold. They are lifts of e3b-vector fields and
+fibre vector fields, magnified at the boundary as in [[lem:ii-a1-1-2]]. So ρ_∞^(m−1)H_(ℓ_1) is w times a combination of
+b-vector fields of ᵉ³ᵇS*M̃ with coefficients that are bounded with d_0 − 1 derivatives in those charts. As w → 0 at ℐ⁺,
+ι⁺ and K⁺, this part tends to 0 there, and b-vector fields are tangent to the faces. At I⁰ and K⁻ the weight need not
+vanish, and 𝖧 need not be continuous there.
+
+(c) In the charts of ρℬ the field is uniformly C^(d_0−1), hence uniformly Lipschitz, so its integral curves over the
+interior are unique. They exist for all times, since in logarithmic coordinates the faces lie at infinity and the field
+is bounded there. On the faces ℐ⁺, ι⁺ and K⁺ the field is the smooth tangent field above. A curve γ through a point of
+such a face F stays in F: for a defining function ρ_F, 𝖧ρ_F = βρ_F with β bounded near F, both parts of 𝖧 being
+combinations of b-vector fields with bounded coefficients; so f := ρ_F ∘ γ satisfies |f′| ≤ C|f| and f(0) = 0, whence
+f ≡ 0 by Gronwall's inequality. Within F, and within each corner, the field is smooth, so curves through boundary points
+are unique too. The fields are bounded and continuous over M̃ ∖ (I⁰ ∪ K⁻). By the theorem of Arzelà and Ascoli, integral
+curves of fields 𝖧_n as in (c), from points β_n → β, have subsequences converging uniformly on compact time intervals,
+and the limits are integral curves of 𝖧 from β. They equal the unique one, so the whole sequence converges. The bounds on
+derivatives of the flow maps follow from Gronwall's inequality applied to the variational equations, uniformly in the
+charts. ∎
+
+**Lemma {#lem:ii-a1-5-2}** (Flow box.) Let γ : [a, b] → ᵉ³ᵇS*M̃ be an injective integral curve of 𝖧 with 𝖧 ≠ 0 on it.
+There are a neighbourhood O of γ([a, b]) and functions z, y_1, …, y_8 on O with the following properties. (z, y) maps O
+homeomorphically onto (a − 3δ′, b + 3δ′) × B, where B is a neighbourhood of 0 in ℝ⁸, intersected with a closed quadrant
+when γ lies in boundary faces. 𝖧z = 1, 𝖧y_i = 0 and γ(t) = (t, 0). On O ∩ ᵉ³ᵇS*M̃°, z and y have derivatives up to
+order d_0 − 1 bounded in the charts of ρℬ, uniformly. (ᵉ³ᵇS*M̃ has dimension 2 · 5 − 1 = 9.)
+
+*Proof.* γ extends to an integral curve on [a − 4δ′, b + 4δ′]. Choose a smooth function σ near p_0 := γ(a − 2δ′) with
+σ(p_0) = 0 and 𝖧σ(p_0) ≠ 0, and smooth ỹ_1, …, ỹ_8 such that (σ, ỹ) is a chart of the compact manifold with corners at
+p_0, adapted to its faces. For p near γ, let z(p) be the time t near the expected value with
+σ(exp(−(t − a + 2δ′)𝖧)p) = 0, and y(p) := ỹ(exp(−(z(p) − a + 2δ′)𝖧)p). By continuity 𝖧σ ≥ c > 0 near p_0, and the
+implicit function theorem gives z locally. The derivative of z is (dσ · D exp · ∂)/(dσ · 𝖧), and similarly for y. In
+the charts of ρℬ, dσ and dỹ are bounded with all derivatives (smooth functions on the compact manifold, as in
+[[lem:ii-a1-1-1]]), and D exp is bounded with d_0 − 2 further derivatives ([[lem:ii-a1-5-1]] (c)). So z and y have
+d_0 − 1 bounded derivatives. Faces are invariant, so y maps them to coordinate faces. Injectivity of (z, y) on a
+neighbourhood follows from the injectivity of γ and of ỹ on the slice {σ = 0}, by the usual compactness argument for a
+curve that meets the slice once. 𝖧z = 1 and 𝖧y = 0 hold by construction. ∎
+
+#### Propagation along one curve {#sec:ii-a1-5-2}
+
+**Proposition {#prop:ii-a1-5-3}** Let ς ∈ {1, −1} and 𝖧_f := ς𝖧 (the forward field). Let γ : [0, T] → ᵉ³ᵇS*M̃ be an
+injective integral curve of 𝖧_f with 𝖧_f ≠ 0 on it (it need not lie in Char(L); the proof does not use it). Let 𝗌 be a
+variable order with 𝖧_f𝗌 ≤ 0 on a neighbourhood of γ([0, T]) in ᵉ³ᵇS*M̃, and let E be elliptic at γ(0). Then there are
+B ∈ C^∞_b Ψ⁰_e3b, elliptic on γ([0, T]), and G, both microsupported in any given neighbourhood of γ([0, T]) (near fibre
+infinity, and carried by χ), such that in the strong sense
+
+    ‖Bu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m+1) + ‖Eu‖_𝗌 + ‖χu‖_(−N)).                                                       {#eq:ii-a1-5-1}
+
+C depends on L only through finitely many norms of its coefficients and the geometry of the flow near γ. It is uniform
+for perturbations of L small in those norms, for which the hypotheses hold with the same neighbourhood of γ.
+
+*Proof.* Apply [[lem:ii-a1-5-2]] to the curve t ↦ γ(ςt) of 𝖧, or equivalently use coordinates with 𝖧_f = ∂_z and
+γ(t) = (t, 0) on a neighbourhood O of γ([−4δ′, T + 4δ′]). Extend z and y to a conic neighbourhood in ᵉ³ᵇT*M̃,
+homogeneously of degree 0. Let ψ be the cut-off of [[sec:i-a-3]]: ψ is even, supported in (−1, 1), equal to 1 on
+[−1/2, 1/2], nonincreasing on [0, ∞), and −ψψ′ is the square of a smooth function on [0, ∞). Put χ_s(z) := ψ(−z/δ) for
+z ≤ 0 and χ_s(z) := 1 for z ≥ 0, and χ_e(z) := ψ((z − T)/δ) for z ≥ T and χ_e(z) := 1 for z ≤ T. These are smooth, as
+ψ = 1 near 0, and χ_s = χ_e = 1 on [0, T]. So ∂_z(χ_s²) = (2/δ)(−ψψ′)(−z/δ) ≥ 0 is supported in [−δ, −δ/2], and
+−∂_z(χ_e²) ≥ 0 in [T + δ/2, T + δ]; both are squares of smooth functions of z. (With ψ even, ψ(−z/δ) alone vanishes for
+z ≥ δ, and neither statement would hold.) Put ψ_y := ψ(|y|²/δ_1²). Choose δ ≤ δ′/2 and δ_1 so small that
+{z ∈ [−2δ, T + 2δ], |y| ≤ 2δ_1} lies in the given neighbourhood, in O and in the set where 𝖧_f𝗌 ≤ 0, and that
+{z ∈ [−2δ, 0], |y| ≤ 2δ_1} ⊂ Ell(E) (the margin serves the uniformity below). Let χ_∞ be a function of ρ_∞ equal to 1
+near fibre infinity and supported where (z, y) are defined and in {ρ_∞ < 1}, so that log ρ_∞ < 0 on its support. Its
+derivatives are supported in a set compact in the fibres, where every symbol has order −∞.
+
+*Commutant.* With 𝗄 := 𝗌 − (m − 1)/2 (the restriction to fibre infinity), the regulariser φ_ε of [[sec:ii-a1-2-3]] with
+exponent κ, and a large constant M, put
+
+    ǎ_ε := χ_∞ ρ_∞^(−𝗄) φ_ε e^(−Mz) χ_s(z) χ_e(z) ψ_y.
+
+Its factors other than ρ_∞^(−𝗄)φ_ε have d_0 − 1 bounded derivatives ([[lem:ii-a1-5-2]]), so ǎ_ε is bounded in
+C^((d_0−1)) S̃^𝗄 (index 0), and lies in C^((d_0−1)) S̃^(𝗄−κ) for each ε. Since 𝖧_fz = 1 and 𝖧_fψ_y = 0,
+[[eq:ii-a1-2-1]] gives, where χ_∞ = 1,
+
+    𝖧_f(ǎ_ε²) = ρ_∞^(−2𝗄) φ_ε² ψ_y² e^(−2Mz) [−χ_s²χ_e² Q_ε + χ_e² ∂_z(χ_s²) + χ_s² ∂_z(χ_e²)],
+    Q_ε := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ + 2(𝖧_f𝗄) log ρ_∞,     𝗄_ε := 𝗄 − κθ_ε.
+
+On the support, 𝖧_f𝗄 = 𝖧_f𝗌 ≤ 0 and log ρ_∞ < 0, so the last term of Q_ε is nonnegative. Choose
+M ≥ 1 + sup |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|, uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ M; M will be enlarged once more below.
+Write Q_ε = Q_(0,ε) + λ with Q_(0,ε) := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ ≥ M and λ := 2(𝖧_f𝗄) log ρ_∞ ≥ 0. Q_(0,ε) has d_0 − 2
+bounded derivatives, and λ has d_0 − 2 derivatives bounded by C⟨log ρ_∞⟩, uniformly in ε ([[lem:ii-a1-5-1]] (b) and
+[[def:ii-a1-1-3]]). By [[lem:ii-a1-2-5]] (ii) with ν = 0, Q_ε^(−1/2) is bounded in C^((d_0−2))_1 S̃⁰ and Q_ε^(1/2) in
+C^((d_0−2))_1 S̃^δ for every δ > 0. Put
+
+    b_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s χ_e Q_ε^(1/2) χ_∞,
+    b_(e,ε) := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s (−∂_z(χ_e²))^(1/2) χ_∞,
+    e_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_e (∂_z(χ_s²))^(1/2) χ_∞,
+    z_ε := μ^(−1/2) Q_ε^(−1/2).
+
+Then ςH_ℓ(ǎ_ε²) = μ𝖧_f(ǎ_ε²) = −b_ε² − b_(e,ε)² + e_ε² modulo symbols of order −∞ (from χ_∞), and ǎ_ε = z_εb_ε. The
+factor μρ_∞^(−2𝗄) has order 2𝗌. So, all with index 1 and d_0 − 2 derivatives, b_ε is bounded in the class of order
+𝗌 + δ for every δ > 0 (the factor Q_ε^(1/2)), e_ε and b_(e,ε) in that of order 𝗌, and z_ε in that of order −(m − 1)/2,
+on which it acts without loss ([[prop:ii-a1-2-4]] (a)). e_ε is supported in {z ∈ [−δ, −δ/2]}, inside Ell(E) and away
+from γ([0, T]). b_0 is elliptic on γ([0, T]), where χ_s = χ_e = ψ_y = 1 and Q_0 ≥ M: on the open set
+U′ := {z ∈ (−δ/2, T + δ/2), |y|² < δ_1²/2}, near fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(Mz) Q_0^(−1/2) lies in
+C^((d_0−2))_1 S̃^(−𝗌).
+
+*The commutator.* Write L = Op(ℓ_f) + R_L by [[eq:ii-a1-1-2]], with R_L of every order. Let ℓ_R := (ℓ_f + ℓ_f^*)/2 and
+ℓ_I := (ℓ_f − ℓ_f^*)/(2i). Since ℓ is real and scalar, ℓ_R − ℓ Id and ℓ_I have order m − 1. Then L_R = Op(ℓ_R) + D_R and
+L_I = Op(ℓ_I) + D_I, where D_R and D_I are ±1/2 and ±1/(2i) times D_(ℓ_f) of [[prop:ii-a1-2-4]] (f), plus the parts of
+R_L. So L_I has exact order m − 1, and [D_R, Ǎ], [D_I, Ǎ] have order m + 𝗄 − 2 + δ, with Ǎ := Ǎ_ε := Op(ǎ_ε),
+uniformly in ε. Now i[L_R, Ǎ²] = i[L_R, Ǎ]Ǎ + Ǎ i[L_R, Ǎ], and by [[prop:ii-a1-2-4]] (d) and the above,
+i[L_R, Ǎ] = Op(H_(ℓ_R)ǎ) plus order m + 𝗄 − 2 + δ. Next, H_(ℓ_R)ǎ = (H_ℓǎ) Id + H_(ℓ_R−ℓ)ǎ, where the second term has
+order m + 𝗄 − 2. With [[prop:ii-a1-2-4]] (b), i[L_R, Ǎ²] is Op(H_ℓ(ǎ²)) plus order 2𝗌 − 1 + δ. Further,
+Ǎ*Ǎ = Ǎ² + D_ǎǍ with D_ǎ := Ǎ* − Ǎ of order 𝗄 − 1 + δ ([[prop:ii-a1-2-4]] (c), ǎ real), and i[L_R, D_ǎǍ] has order
+2𝗌 − 1 + δ by [[prop:ii-a1-2-4]] (f). So
+
+    i[L_R, Ǎ*Ǎ] = Op(H_ℓ(ǎ²)) + R_1,     R_1 of order 2𝗌 − 1 + δ.
+
+For L_I, formally self-adjoint,
+
+    ⟨(L_IǍ*Ǎ + Ǎ*ǍL_I)w, w⟩ = 2 Re⟨ǍL_Iw, Ǎw⟩ = 2 Re⟨L_IǍw, Ǎw⟩ + 2 Re⟨Ǎ*[Ǎ, L_I]w, w⟩,
+
+and Ǎ*[Ǎ, L_I] has order 2𝗌 − 1 + δ, by [[prop:ii-a1-2-4]] (d) for Op(ℓ_I) and (f) for D_I. Collecting, by
+[[eq:ii-a1-4-1]], for w ∈ H^(K′),
+
+    ς⟨C_ǎw, w⟩ = Re⟨Op(ςH_ℓ(ǎ²))w, w⟩ + 2ς Re⟨L_IǍw, Ǎw⟩ + Re⟨R_2w, w⟩,
+
+where |⟨R_2w, w⟩| ≤ C‖G′w‖²_(𝗌−1/2+δ) + C‖χw‖²_(−N). Here G′ is microlocally the identity on the support of ǎ and
+WF′(G′) ⊂ Ell(G). The microlocalisation of the remainders is by [[prop:ii-a1-2-4]] (e), all of them having a factor
+supported in the support of ǎ.
+
+*Positivity.* By [[prop:ii-a1-2-4]] (b), (c), Op(b_ε²) = B_ε^*B_ε + (order 2𝗌 − 1 + 2δ), with B_ε := Op(b_ε); likewise
+for b_(e,ε) and e_ε. So
+
+    Re⟨Op(ςH_ℓ(ǎ²))w, w⟩ ≤ −‖B_εw‖² + ‖E_εw‖² + C(‖G′w‖²_(𝗌−1/2+δ) + ‖χw‖²_(−N)),
+
+dropping −‖B_(e,ε)w‖² ≤ 0. For the L_I term, fix elliptic operators Λ_± of orders ±(m − 1)/2 defining the norms of
+H^(±(m−1)/2), and let C_I be the norm of L_I between these spaces. It depends on finitely many norms of the coefficients
+and not on M or ε. Take Λ_+ := Op(λ_+) with λ_+ classical. Then Λ_+Ǎ = Op(λ_+z_ε)B_ε + (order 𝗌 − 1 + 2δ)
+([[prop:ii-a1-2-4]] (b)), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛM^(−1/2), with
+C_Λ := sup |λ_+μ^(−1/2)|, as Q_ε ≥ M. [[lem:ii-a1-2-6]] with η := M⁻¹ and δ/2 in place of δ, applied to B_εw, and
+(a + b)² ≤ 2a² + 2b² give
+
+    ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)M⁻¹‖B_εw‖² + C‖G′w‖²_(𝗌−1/2+δ) + C‖χw‖²_(−N),
+
+where ‖B_εw‖_(−1/2+δ/2), with b_ε bounded in the class of order 𝗌 + δ/2, is bounded by the last two norms, b_ε being
+supported in the support of ǎ ([[prop:ii-a1-2-4]] (e)). Enlarge M so that 4C_I(C_Λ² + 1)M⁻¹ ≤ 1/2. Then
+
+    ς⟨C_(ǎ_ε)w, w⟩ ≤ −(1/2)‖B_εw‖² + ‖E_εw‖² + C(‖G′w‖²_(𝗌−1/2+δ) + ‖χw‖²_(−N)).
+
+This is [[eq:ii-a1-4-2]] for 2^(−1/2)b_ε, e_ε and 2^(1/2)z_ε, with δ_0 := δ. The other hypotheses of [[lem:ii-a1-4-1]]
+hold by the construction, with d_0 large enough that the norms used are among those available: d_0 − 2 ≥ M′ + 2 for the
+M of [[prop:ii-a1-2-4]] at the orders involved and index 1, called M′ here.
+
+*Conclusion.* The hypotheses of [[lem:ii-a1-4-2]] hold with Γ := γ([0, T]). For each U ⊃ Γ shrink δ and δ_1 so that
+the support lies in U. The E-sets lie in {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ⊂ Ell(E), which misses Γ. There is no threshold, so
+τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and [[eq:ii-a1-4-5]] is [[eq:ii-a1-5-1]], with any
+B ∈ C^∞_b Ψ⁰_e3b carried by χ, microsupported in U_* and elliptic on Γ. On ℂ^(N′) the commutant is scalar and L_I is
+matrix-valued; nothing above used a scalar L_I.
+
+The uniformity: all constants are bounded by finitely many norms of the coefficients, by the bounds of
+[[lem:ii-a1-5-2]], and by M, δ and δ_1. Let L′ be a perturbation small in C^(d_0), with field 𝖧′, let γ′ be the
+integral curve of 𝖧′_f with γ′(T) = γ(T), and build the coordinates (z′, y′) of [[lem:ii-a1-5-2]] for 𝖧′ with the same
+slice {σ = 0} and the same ỹ, shifted so that γ′(t) = (t, 0). As 𝖧′ → 𝖧, the integral curves of 𝖧′ from points of the
+slice near p_0 converge to those of 𝖧 uniformly on the compact time interval ([[lem:ii-a1-5-1]] (c)). So the
+compactness argument for the injectivity in [[lem:ii-a1-5-2]] (a curve meets the slice once) holds uniformly: for 𝖧′
+close to 𝖧, (z′, y′) is defined and injective on a fixed neighbourhood of γ([−3δ′, T + 3δ′]), with the derivative bounds
+of [[lem:ii-a1-5-2]] uniform, and (z′, y′) → (z, y) uniformly there. The box {z′ ∈ [−δ, T + δ], |y′| ≤ δ_1} then lies in
+the box of 𝖧 with 2δ and 2δ_1, which has the properties required above by the choice of the margin, given that
+𝖧′_f𝗌 ≤ 0 on the same neighbourhood. With M chosen with a margin too, as the bounds it must exceed depend continuously on
+the coefficients, the same δ, δ_1 and M serve. ∎
+
+#### The global estimate {#sec:ii-a1-5-3}
+
+**Theorem {#thm:ii-a1-5-4}** (Real principal type propagation; [Hin26c, Proposition 3.24] at k = 0, with the
+hypotheses of [[rem:ii-a1-hypotheses]].) Let m ∈ ℕ_0, 𝗌 a variable order and N ∈ ℝ. There is d_0 = d_0(m, 𝗌, N) with
+the following property. Let L be as in [[sec:ii-a1-5-1]] with this d_0, for any δ_w > 0, any finite 𝒫_m and 𝒫_(m−1)
+(the elements of 𝒫_m having classical principal symbols) and any N′. Let B, E, G ∈ C^∞_b Ψ⁰_e3b be carried by χ, with
+supp χ disjoint from I⁰ ∪ K⁻ and WF′(B) ⊂ Ell(G). Suppose:
+
+(A) for every α ∈ WF′(B) ∩ Char(L), the backward integral curve of 𝖧 from α reaches Ell(E) in a time at most T_0,
+remaining in Ell(G);
+
+(B) 𝖧𝗌 ≤ 0 on a neighbourhood in ᵉ³ᵇS*M̃ of the union of these backward segments, up to their first entry into
+Ell(E).
+
+If χu ∈ H^(−N), GLu ∈ H^(𝗌−m+1) and Eu ∈ H^𝗌, then Bu ∈ H^𝗌 and
+
+    ‖Bu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m+1) + ‖Eu‖_𝗌 + ‖χu‖_(−N)),
+
+with C locally uniform: uniform for perturbations of L small in the norms of [[sec:ii-a1-5-1]] (that is, of L_0, L_1 and
+L_2 in Diff^m_e3b, C^(d_0,(2δ_w,δ_w,δ_w))_e3b 𝒫_m and C^(d_0)_e3b 𝒫_(m−1)), with real principal symbols, for which (B)
+holds on the same neighbourhood. The other hypotheses persist under small perturbations, by the continuity of the flow
+in the field ([[lem:ii-a1-5-1]] (c)).
+
+*Proof.* Let α ∈ WF′(B) ∩ Char(L) and t_α := inf{t ≥ 0 : exp(−t𝖧)α ∈ Ell(E)} ≤ T_0. 𝖧 ≠ 0 along the backward curve,
+for a stationary point outside Ell(E) would never reach it. Take t′_α slightly larger than t_α with
+exp(−t′_α𝖧)α ∈ Ell(E). The curve γ_α(t) := exp((t − t′_α)𝖧)α, t ∈ [0, t′_α], is injective, with t′_α taken below the
+infimum of periods if the orbit is periodic. Indeed, a self-intersection would make the orbit periodic with period at
+most t′_α, and then the backward curve would have entered Ell(E) at an earlier time. It lies in Char(L), as ℓ is
+constant along the flow, and in Ell(G). As the neighbourhood in (B) is open, t′_α can be chosen so that (B) holds on a
+neighbourhood of γ_α([0, t′_α]). [[prop:ii-a1-5-3]] with ς = 1 gives B_α ∈ C^∞_b Ψ⁰_e3b elliptic on γ_α([0, t′_α]), in
+particular near α, and G_α microsupported in a neighbourhood inside Ell(G). It also gives
+‖B_αu‖_𝗌 ≤ C(‖G_αLu‖_(𝗌−m+1) + ‖Eu‖_𝗌 + ‖χu‖_(−N)), and ‖G_αLu‖ ≤ C(‖GLu‖ + ‖χu‖_(−N)) by [[lem:ii-a-8-4]] (c) and
+[[lem:ii-a-8-6]] (a). For α ∈ WF′(B) ∖ Char(L), [[thm:ii-a1-3-1]] gives any B_α ∈ C^∞_b Ψ⁰_e3b elliptic near α and
+microsupported in Ell(G) ∩ Ell(L) with ‖B_αu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)). By compactness of WF′(B), finitely many
+B_(α_i) are jointly elliptic on it: Σ_i B_(α_i)^* B_(α_i) ∈ C^∞_b Ψ⁰_e3b is elliptic of order 0 there, the B_(α_i)
+being smooth, as [[lem:ii-a-8-4]] (c) requires. The elliptic estimate ([[lem:ii-a-8-4]] (c), or [[thm:ii-a1-3-1]])
+bounds ‖Bu‖_𝗌 by C Σ_i ‖B_(α_i)u‖_𝗌 + C‖χu‖_(−N). The strong sense and the uniformity are those of
+[[prop:ii-a1-5-3]] and [[thm:ii-a1-3-1]].
+
+For a small perturbation L′ the same α_i serve. If α_i ∉ Char(L), it lies in Ell(L′) with a comparable bound. If
+α_i ∈ Char(L), [[prop:ii-a1-5-3]], which does not ask its curve to be characteristic, applies to the integral curve of
+𝖧′ ending at α_i, with the same δ, δ_1 and M and the same shrinkings in [[lem:ii-a1-4-2]] (the last paragraph of the
+proof of [[prop:ii-a1-5-3]]). By [[lem:ii-a1-5-1]] (c) that curve stays close to γ_(α_i), and the sets on which its
+b_0^((j)) are elliptic contain fixed neighbourhoods of γ_(α_i)([0, t′_(α_i)]); a B_(α_i) microsupported in these serves
+for L′ too. The resulting operators remain jointly elliptic on WF′(B), once the B_(α_i) are chosen elliptic on open sets
+that still cover WF′(B) when shrunk slightly. ∎
+
+**Remark {#rem:ii-a1-hypotheses}** (The hypotheses of [[thm:ii-a1-5-4]].) [Hin26c, Proposition 3.24] asks for 𝖧𝗌 ≤ 0
+only "in a neighborhood of WF′_e3b(B) ∩ Char_e3b(L) within Char_e3b(L)" (p. 70). That does not suffice. Take L = D_t in
+one unit cell, so that 𝖧 = ∂_t, and 𝗌 = 𝗌(t) equal to s_0 near Ell(E) at t ≈ −2 and to s_0 + 10 near WF′(B) at t ≈ 0,
+so that 𝖧𝗌 = 0 near WF′(B). Let u = χ(t)v(x), with χ = 1 near the segments and v ∈ H^(s_0) ∖ H^(s_0+ε) microlocally at
+a point of {τ = 0}. Every hypothesis of that statement holds and its right side is finite, but Bu ∉ H^𝗌: propagation
+does not gain regularity. [[thm:ii-a1-5-4]] asks for 𝖧𝗌 ≤ 0 on a neighbourhood in phase space of the whole backward
+segments, the standard form of the hypothesis ([Vas18, Theorem 5.3]; [[prop:i-a-5-2]] (d)). The Hamilton vector field of
+[Hin26c] is taken on ᵉ³ᵇS*M̃ ([Hin26c, pp. 55 and 71]), which presupposes principal symbols with a continuous extension
+there; so the elements of 𝒫_m are taken classical ([[thm:ii-a1-3-1]] needs no such restriction). [Hin26c, p. 71] takes 𝖧
+continuous on all of ᵉ³ᵇS*M̃ because the coefficients of L_1 vanish at ∂M̃; they vanish at the faces ℐ⁺, ι⁺ and K⁺, which
+carry the weight, and need not vanish at I⁰ and K⁻. So χ is taken supported away from these two faces, as it is near Ω̄
+([[sec:ii-a-1]]), and [[lem:ii-a1-5-1]] (c) supplies the uniqueness of integral curves at the faces, on which the
+continuity of the flow rests.
+

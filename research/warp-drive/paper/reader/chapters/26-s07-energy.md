@@ -788,3 +788,188 @@ coefficients and passing to a weak limit, and asserts its uniqueness, which [Hin
 for solutions in H¹ only after a density argument. Steps 1–3 construct the solution by duality from the energy
 estimates for P and P* instead, and (i) proves uniqueness in every H^(s′) by regularity on nested slabs
 ([[lem:ii-e-3-3]]) and the energy estimate on the dense class ([[lem:ii-e-1-3]] (c)).
+
+### b-regularity on slabs, and the tame estimates {#sec:ii-e-4}
+
+#### Operators on slab spaces {#sec:ii-e-4-1}
+
+**Lemma {#lem:ii-e-4-1}** (Operators, products and words on slab spaces.) Let Ω′ be a slab of [[sec:ii-e-3]] (or of
+[[sec:ii-e-5]]), 𝗌 an order function and k ∈ ℕ_0; the spaces are those of [[sec:ii-e-1-1]] with any weight.
+
+(a) A differential operator Q of order m whose coefficients, in a fixed frame (products of ∂_(t_*), x_I∂_(x_I) and
+x_I∂_ω near ℐ⁺, of coordinate fields elsewhere), lie in C^((d_0;k))_(e;b) on a neighbourhood of Ω′ maps
+H^((𝗌;k))(Ω′)^(•,−) to H^((𝗌−m;k))(Ω′)^(•,−), and H^((𝗌;k))(Ω′)^(−,•) to H^((𝗌−m;k))(Ω′)^(−,•), with norm at most C_k
+times the coefficient norms; d_0 depends only on 𝗌 and m.
+
+(b) (*Tame products, with room.*) Let Ω′ ⊂ Ω″ be nested with room δ. There are d_0 and d̃, depending only on 𝗌, such
+that for all k, 0 ≤ j ≤ k, ℓ ∈ C^((d_0;k))_(e;b) near Ω″ and w ∈ H^((𝗌;k))(Ω″)^(•,−),
+
+    ‖(D^j_[b] ℓ)(D^(k−j)_[b] w)‖_(H^𝗌(Ω′)^(•,−))
+        ≤ C_k (‖ℓ‖_((d_0;d̃)) ‖w‖_(H^((𝗌;k))(Ω″)^(•,−)) + ‖ℓ‖_((d_0;k)) ‖w‖_(H^((𝗌;d̃))(Ω″)^(•,−))),
+
+with D_[b] the schematic notation of [[sec:ii-a-9]] and C_k depending also on δ.
+
+(c) (*Norms through words, with room.*) Let 𝒳 = (X_1, …, X_J), X_J = I, be b-differential operators of order 1
+spanning 𝒱_b over a neighbourhood of Ω″, and for a word γ = (γ_1, …, γ_q) ∈ {1, …, J}^q put X^γ := X_(γ_1) ⋯ X_(γ_q)
+and |γ| := q. Then ‖X^γ w‖_(H^𝗌(Ω″)^(•,−)) ≤ C ‖w‖_(H^((𝗌;|γ|))(Ω″)^(•,−)), and, for Ω′ ⊂ Ω″ nested with room,
+
+    ‖w‖_(H^((𝗌;k))(Ω′)^(•,−)) ≤ C_k Σ_(|γ|≤k) ‖X^γ w‖_(H^𝗌(Ω″)^(•,−)).
+
+This is [Hin26c, Lemmas 8.7–8.8] in dimension 4 + 1.
+
+*Proof.* (a) Extend the coefficients by Seeley's operator across the final faces of Ω′ (in t^♭, resp. r, with the other
+coordinates as parameters, and successively near the corner, where dt^♭ and dr are independent), as in
+[[lem:ii-e-1-2]]. The extension is bounded on C^((d_0;k))_(e;b) for all d_0 and k ([Hin26c, Lemma 8.5 (2)], whose proof
+is that of [[lem:ii-e-1-3]] (b) with suprema in place of L²-norms: the reflection commutes with the tangential fields,
+and j derivatives in the normal variable cost Σ_l |c_l| ε_l^(−j)). Call the extended operator Q^♯. If w̃ extends w and
+is supported in {t^♭ ≥ T_0}, then χQ^♯w̃ extends Qw, for a cut-off χ equal to 1 near Ω′, and is supported there;
+[[lem:ii-a-8-6]] (a) bounds it. Take the infimum over w̃. The case (−,•) is the same with the initial face.
+
+(b) Let χ_3 be a cut-off equal to 1 near Ω′, supported in the union of {t^♭ < T_0} and of the interior of Ω″ relative to
+its final faces, with bounded b-derivatives. For w ∈ H^((𝗌;k))(Ω″)^(•,−) the distribution z := χ_3 w̃ does not depend
+on the extension w̃ supported in {t^♭ ≥ T_0}, as all such extensions agree where χ_3 ≠ 0. So, taking w̃ minimal for the
+norm of order (𝗌;i), ‖z‖_((𝗌;i)) ≤ C_i ‖w‖_(H^((𝗌;i))(Ω″)^(•,−)) for every i, with the same z ([[lem:ii-a-8-4]] (a) for
+multiplication by χ_3). z extends w|_(Ω′). Let ℓ^♯ be the Seeley extension of ℓ, and χ_1, χ_2 cut-offs equal to 1 near
+Ω′ with χ_2 = 1 near supp χ_1 and χ_3 = 1 near supp χ_2. Then χ_1 (D^j_[b] ℓ^♯)(D^(k−j)_[b] z) extends
+(D^j_[b] ℓ)(D^(k−j)_[b] w), and [[prop:ii-a-9-6]] with B = χ_1 and B^♯ = χ_2 bounds its H^𝗌-norm by the right side, the
+terms with ‖χz‖_((𝗌_0;·)) being bounded by those with 𝗌.
+
+(c) The first bound holds as X^γ w̃ extends X^γ w. For the second, with z as in (b), ‖z‖_((𝗌;k)) is equivalent to
+Σ_(|γ|≤k) ‖X^γ z‖_𝗌 ([[eq:ii-a-8-1]] and [[sec:ii-a-9]]: two spanning sets give equivalent norms), and by the Leibniz
+rule for words X^γ z is a sum of terms χ′ X^β w̃ with |β| ≤ |γ| and χ′ a b-derivative of χ_3, supported where χ_3 is;
+each such term is independent of the extension, and its H^𝗌-norm is at most C ‖X^β w‖_(H^𝗌(Ω″)^(•,−)). ∎
+
+[Hin26c, Lemma 8.8 (3)] proves (b) on Ω′ itself, with a crude bound in the middle range of j through the extension
+operator of its Lemma 8.7 on integer b-Sobolev spaces, and notes in its footnote 64 that no single extension operator
+respects all variable orders. With room, the cut-off χ_3 is such an operator. Room is always available below, as every
+slab sits inside a larger one on which P (or P^ext) is given.
+
+#### The commuted system on slabs {#sec:ii-e-4-2}
+
+On {r ≥ r^♯} ∩ {1/2 ≤ t_* ≤ t̄} let
+
+    𝒳_sl := (V_1, V_2, Ω_12, …, Ω_34, I),        V_1 := 2t_* ∂_(t_*),     V_2 := x_I∂_(x_I) = −2r∂_r,
+
+with Ω_ab the rotation fields of 𝕊³, as in [[sec:ii-d1-3]]. It spans 𝒱_b there: near ℐ⁺ the b-vector fields are spanned
+by ∂_(t_*), x_I∂_(x_I) and ∂_ω; elsewhere, as r ≥ r^♯ > 0 and t_* ≥ 1/2, ∂_(t_*) = (2t_*)⁻¹ V_1, ∂_r = −(2r)⁻¹ V_2, and
+the Ω_ab span the tangent fields of the spheres. Put W := x_I² t_*⁻¹, which near ℐ⁺ is the weight x′_I² ρ_+² of
+[[sec:ii-d1-3]], and L := W⁻¹P.
+
+**Lemma {#lem:ii-e-4-2}** (The commutators on slabs.) For P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)), the family 𝒳_sl
+satisfies condition (C) of [[sec:ii-d1-2]] on the region above with R_i = 0: [L, X_i] = Σ_j Q_ij X_j, where Q_ij is
+the sum of an operator of order 0 with bounded coefficients and a first-order edge operator whose coefficients lie in
+C^((d_0;k−1))_(e;b) and, near ℐ⁺, in x_I C^∞ + x_I^(2ℓ_I) C^((d_0;k−1))_(e;b).
+
+This is [Hin26c, Lemma 7.12] on slabs.
+
+*Proof.* Near ℐ⁺ this is [[lem:ii-d1-3-1]] (b), whose proof uses only [[lem:ii-c-3-4]] near ℐ⁺ ∩ Ω, which holds at
+finite times. Away from ℐ⁺, [L, X_i] is a second-order operator with coefficients in C^((d_0;k−1)), as X_i
+differentiates the coefficients once; writing each coordinate field as Σ_j c_j X_j with smooth c_j gives the form
+Σ_j Q_ij X_j, the first-order part of [L, X_i] going into Q_iJ X_J. Patch the two representations with a partition of
+unity in x_I. ∎
+
+Consequently, by [[lem:ii-d1-2-1]] in its case without loss of derivatives (the case of the radial sets) and with
+R_i = 0, for u on a slab and f := Pu the words u^(j) := (X^γ u)_(γ∈𝒲_j) satisfy
+
+    P^(j) u^(j) = W (X^γ(W⁻¹ f))_γ + W f̃^(j),        P^(j) := W L^(j) = P ⊗ Id − W Q^(j),                {#eq:ii-e-4-1}
+
+with Q^(j) the coupling of [[eq:ii-d1-2-2]] and f̃^(j)_γ = −Σ_(|S|≥2) (ad_(X_S) L) X^(γ∖S) u, the sum over sets S of
+positions in γ, X^(γ∖S) the word with those letters deleted, and ad_(X_S) the iterated commutator. P^(j) acts on
+𝒲_j-tuples of sections. It has the principal symbol of P; its first-order coupling W Q^(j) has coefficients
+O(x_I^(2+min(1,2ℓ_I))) near ℐ⁺, so its normal form at ℐ⁺, [[eq:ii-e-1-1]], has the same p_1 as P ⊗ Id (its
+zeroth-order part, of size O(x_I²), changes p_0, which is never used), and its principal symbol of order 1 vanishes at
+R. So P^(j) satisfies everything [[sec:ii-e-2]] and [[sec:ii-e-3]] use, with the same margins, and [[prop:ii-e-3-4]]
+holds for it (by the last paragraph of its proof), with constants depending on finitely many coefficient norms of
+W Q^(j), which carry at most one b-derivative of those of P ([[lem:ii-d1-2-1]]). As
+X^γ(W⁻¹f) = W⁻¹ Π_i (X_(γ_i) + c_(γ_i)) f with constants c_i = −X_i log W ∈ {2, −2, 0}, the first term on the right of
+[[eq:ii-e-4-1]] is a word in shifted fields applied to f.
+
+**Proposition {#prop:ii-e-4-3}** (b-regularity on slabs.) Let α < −1/2 + p̄_1, Ω′ = Ω_(T_0,T_1) with T_0 ≥ 1, 𝗌 a slab
+order and k ∈ ℕ_0. There is d_0, depending only on 𝗌, such that for P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with
+‖P − P_0‖_((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) small, the forward solution of Pu = f satisfies
+
+    ‖u‖_(H^((𝗌;k),2α)(Ω′)^(•,−)) ≤ C_k ‖f‖_(H^((𝗌−1;k),2α+2)(Ω′)^(•,−)),                               {#eq:ii-e-4-2}
+
+uniformly for such P.
+
+This is [Hin26c, Proposition 8.6] in dimension 4 + 1.
+
+*Proof.* Let Ω″ := Ω^♯_(T_0,T_1), nested around Ω′ with room; let f″ be the restriction to Ω″ of the minimal
+extension of f in H^((𝗌−1;k),2α+2)_e, and u″ the forward solution on Ω″ of P^ext u″ = f″ ([[prop:ii-e-3-4]]). By
+uniqueness u″|_(Ω′) = u. We show by induction on j ≤ k that
+
+    Σ_(|γ|≤j) ‖X^γ u″‖_(H^(𝗌,2α)(Ω″)^(•,−)) ≤ C_j ‖f″‖_(H^((𝗌−1;j),2α+2)(Ω″)^(•,−)).                     {#eq:ii-e-4-3}
+
+j = 0 is [[eq:ii-e-3-4]]. Let j ≥ 1. Each b-vector field maps H^(𝗍,2β)_e into H^(𝗍−1,2β−1)_e (as
+∂_ω = x_I⁻¹ x_I∂_ω), so a priori u″^(j) ∈ H^(𝗌−j,2α−j)(Ω″)^(•,−). The threshold holds also for the weight α − j/2, so by
+[[prop:ii-e-3-4]] (i) for P^(j) at that weight, u″^(j) is the forward solution of [[eq:ii-e-4-1]], which by
+[[prop:ii-e-3-4]] (ii) at the weight α lies in H^(𝗌,2α)(Ω″)^(•,−), with norm at most C times that of the right side of
+[[eq:ii-e-4-1]] in H^(𝗌−1,2α+2)(Ω″)^(•,−). The first term of the right side has norm at most C‖f″‖_((𝗌−1;j)), by
+[[lem:ii-e-4-1]] (c). For f̃^(j), let |S| = q ≥ 2. W ad_(X_S) L is a second-order edge operator with coefficients in
+C^((d_0;j−q))_(e;b), as each commutator with an element of 𝒳_sl preserves Diff²_e ([[lem:ii-a-2-6]] near ℐ⁺) and
+differentiates the coefficients once, and W(ad_(X_S) L)W⁻¹ differs from it by lower order. Every edge vector field is a
+combination of the X_i with bounded coefficients (x_I∂_ω = x_I · ∂_ω), so W ad_(X_S) L = Σ_i A_i X_i with A_i
+first-order edge operators with C^((d_0;j−q)) coefficients, and by [[lem:ii-e-4-1]] (a)
+
+    ‖W (ad_(X_S) L) X^(γ∖S) u″‖_(H^(𝗌−1,2α+2)) ≤ C Σ_i ‖X_i X^(γ∖S) u″‖_(H^(𝗌,2α)),
+
+a sum over words of length j − q + 1 ≤ j − 1, bounded by [[eq:ii-e-4-3]] at j − 1. This proves [[eq:ii-e-4-3]] at j,
+the order staying 𝗌, so that d_0 depends only on 𝗌. Finally, by [[lem:ii-e-4-1]] (c) with room,
+‖u‖_(H^((𝗌;k))(Ω′)) ≤ C_k Σ_(|γ|≤k) ‖X^γ u″‖_(H^𝗌(Ω″)) ≤ C_k ‖f″‖ ≤ C_k ‖f‖. ∎
+
+*The extension in the tame estimates.* A tame bound controls a low and a high b-regularity of one function at once, so
+its proof needs one extension of the right-hand side f across the final faces of the slab that is nearly minimal for
+the norms of every order (𝗌 − 1; j) at once; the minimal extension used in the proof of [[prop:ii-e-4-3]] is minimal
+for one norm only. Across {r = r_0}, where Ω_* ends and no room is available, the extension of [[lem:ii-f1-2-5]]
+provides it when the order is constant near {r ≤ r_0} with value a nonnegative integer there: it is a Seeley extension
+in r at fixed (t^♭, ω), glued to any extension away from {r = r_0}, and it is bounded at every order of b-regularity at
+once. Its construction uses nothing from this section, so the reference is not circular. Across the time-final face
+{t^♭ = T_1} the right-hand side is, wherever the tame estimates below are applied (in [[thm:ii-e-6-1]], in
+[[sec:ii-f1-3]] and [[sec:ii-f1-4]], and in the proof of [[thm:ii-f-8-1]]), the restriction to the slab of one given on
+a larger slab, and the cut-off χ_3 of the proof of [[lem:ii-e-4-1]] (b) provides the extension there
+[[pending:issue-2]]. The orders of [[lem:ii-f1-2-3]], at which [[eq:ii-e-4-4]], [[eq:ii-e-5-6]] and [[eq:ii-e-6-2]] are
+applied, are constant near {r ≤ r_0}, with a nonnegative integer value there.
+
+**Proposition {#prop:ii-e-4-4}** (Tame estimates on slabs.) In the setting of [[prop:ii-e-4-3]], let 𝗌 be constant near
+{r ≤ r_0}, with value a nonnegative integer there [[pending:issue-1]]. There is d ∈ ℕ, depending only on 𝗌, such that
+for all k and all P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ‖P − P_0‖_((d_0;d),(2ℓ_I,ℓ_+,ℓ_K)) small,
+
+    ‖u‖_(H^((𝗌;k),2α)(Ω′)^(•,−))
+        ≤ C_k (‖f‖_(H^((𝗌−1;k),2α+2)(Ω′)^(•,−)) + ε_(P,k) ‖f‖_(H^((𝗌−1;d),2α+2)(Ω′)^(•,−))),               {#eq:ii-e-4-4}
+
+with ε_(P,k) := ‖P − P_0‖_((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)), which may be taken over a neighbourhood of Ω′, and C_k depending on P
+only through a bound for ε_(P,d).
+
+This is [Hin26c, Proposition 8.9] in dimension 4 + 1. [Hin26c] states it for "s ∈ ℕ an admissible order function"; the
+proof uses only what [[prop:ii-e-4-3]] uses, together with the extension just described.
+
+*Proof.* Let d̃ and the regularity of [[prop:ii-a-9-6]] be those of [[lem:ii-e-4-1]] (b) at the orders 𝗌 + 1 and
+𝗌 − 1, and d := d̃ + 3. For k ≤ d, [[eq:ii-e-4-4]] is [[eq:ii-e-4-2]], whose constant depends on ε_(P,k) ≤ ε_(P,d).
+For k > d, let Ω″ := Ω^♯_(T_0,T_1) and u″ be as in the proof of [[prop:ii-e-4-3]], with f″ now the restriction to Ω″ of
+the extension of f described before the statement, so that ‖f″‖_((𝗌−1;j)) ≤ C_j ‖f‖_((𝗌−1;j)) for every j at once.
+Run the induction of [[prop:ii-e-4-3]] on nested slabs
+
+    Ω′ ⊂ Ω_(2k) ⊂ Ω_(2k−1) ⊂ ⋯ ⊂ Ω_(0) = Ω″,
+
+with room 2^(−i−2) min(1, r_0 − r^♯) between Ω_(i) and Ω_(i−1), two slabs per step: step j proves the bound
+[[eq:ii-e-4-3]] on Ω_(2j) in the tame form C_j(‖f″‖_((𝗌−1;j)) + ε_(P,j) ‖f″‖_((𝗌−1;d))). The coefficients of P^(j) carry
+at most one b-derivative of those of P, so the constant of [[prop:ii-e-3-4]] for P^(j) depends on ε_(P,d) only. In
+f̃^(j) write L = L_0 + (L − L_0), L_0 the operator of P_0. The terms of L_0, and those of L − L_0 in which at most 2
+b-derivatives fall on the coefficients, are bounded as in [[prop:ii-e-4-3]] by norms of u″ with at most j − 1 words, on
+Ω_(2j−2), with constants depending on ε_(P,2); by the induction hypothesis they are tame. In the others, q′ ≥ 3
+b-derivatives fall on a coefficient p of P − P_0. As in [[lem:ii-d1-2-4]] (b) and [Hin26c, (7.55)–(7.56)], commute the
+second-order factor to the front; it remains to bound
+
+    ‖(D^(q′)_[b] D^(≤2)_e p)(D^(j−q)_[b] u″)‖_(H^(𝗌+1)(Ω_(2j))),     q′ ≤ q.
+
+[[lem:ii-e-4-1]] (b) on Ω_(2j) ⊂ Ω_(2j−1), with D²_[b] D^(≤2)_e p in the place of ℓ and (q′ − 2, j − q + q′ − 2) in the
+place of (j, k), bounds it by
+
+    C_j (‖p‖_((d_1+2;d̃+2)) ‖u″‖_((𝗌+1;j−2)) + ‖p‖_((d_1+2;j)) ‖u″‖_((𝗌+1;d̃)))
+
+on Ω_(2j−1), with d_1 the regularity of [[lem:ii-e-4-1]] (b) and d_0 ≥ d_1 + 2. Here ‖u″‖_((𝗌+1;j−2)) ≤ C‖u″‖_((𝗌;j−1))
+on Ω_(2j−1) ([[lem:ii-a-8-4]] (d), on slab spaces by taking extensions), which [[lem:ii-e-4-1]] (c) bounds by the words
+of length at most j − 1 on the larger slab Ω_(2j−2), tame by step j − 1;
+‖u″‖_((𝗌+1;d̃)) ≤ C‖u″‖_((𝗌;d̃+1)) ≤ C‖f″‖_((𝗌−1;d̃+1)) by [[eq:ii-e-4-2]] at d̃ + 1 < d; and
+‖p‖_((d_1+2;d̃+2)) ≤ Cε_(P,d), ‖p‖_((d_1+2;j)) ≤ Cε_(P,j). The finitely many nested slabs used for a given k make C_k
+depend on k only. Conclude with [[lem:ii-e-4-1]] (c) and the bound on f″. ∎

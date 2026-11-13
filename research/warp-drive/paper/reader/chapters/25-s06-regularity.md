@@ -939,3 +939,281 @@ jointly elliptic there, and the elliptic estimate ([[lem:ii-a-8-4]] (c)), with t
 M° it differs by O(ε_P) in C¹ ([[lem:ii-c-4-1]] (a)), so the finitely many backward segments used above, which enter
 open sets in bounded times, have nearby segments for P with the same properties. d_0 is the largest of those required
 by the steps, at the orders 𝗌_0, 𝗌 and 𝗌 + 1. With [[rem:ii-d-1-3]] this proves [[thm:ii-d-1-2]]. ∎
+
+### Regularity with b-derivatives: the setting {#sec:ii-d1-1}
+
+b-regularity is tested by commuting b-vector fields through P. For the elliptic and real principal type estimates,
+[[sec:ii-a-9]] commutes a spanning set of b-vector fields; the commutators enter the commuted system below principal
+order, where those estimates do not see them. At a radial set or at the trapped set the subprincipal symbol of the
+commuted system enters the threshold. There one uses families of commutator fields whose commutators with P either
+decay at the face carrying the set, or contribute with the favourable sign, so that the commuted system has the
+threshold of P. [[sec:ii-d1-2]] writes the commuted system for an arbitrary family and proves, once, that the estimate
+for it gives the estimate with b-regularity, and its tame version ([[lem:ii-d1-2-3]], [[lem:ii-d1-2-4]]). The estimates
+of [[sec:ii-d-3]] and [[sec:ii-d-4]] hold for the commuted systems ([[lem:ii-d1-2-5]]). [[sec:ii-d1-3]]–[[sec:ii-d1-6]]
+supply the families: near ℐ⁺, at the horizon, over ∂K⁺ and at the trapped set. [[sec:ii-d1-7]] proves the global
+estimate. This is [Hin26c, Section 7.2] in dimension 4 + 1.
+
+The setting is that of [[sec:ii-d-1]], now with k degrees of b-regularity. P is a weakly admissible wave-type operator
+relative to P_0 of class ((d_0; k), (2ℓ_I, ℓ_+, ℓ_K)) ([[def:ii-c-3-3]]), with ℓ_I ∈ (0, ½], ℓ_+, ℓ_K > 0, and ε_(P,k)
+:= ‖P − P_0‖_((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) ([[def:ii-c-3-6]]). The bundle E is the trivial bundle ℂ^(N_E)
+([[sec:ii-c-1-1]]), and b-vector fields act on its sections componentwise, so no connection is needed.
+H^((𝗌;k),(2α_I,α_+,α_K))_(e3b;b) are the mixed spaces of [[eq:ii-a-8-1]], with their supported and extendible versions
+as in [[sec:ii-a-7]], and ‖·‖_(𝗌;k) their norms, weights suppressed where they are fixed. D^j_b is the schematic
+notation of [[sec:ii-a-9-3]]. Weights do not interfere with commutators: for a b-vector field V and a weight w (a
+product of powers of boundary defining functions), w⁻¹Vw = V + (V log w) with V log w smooth. Two facts are used
+throughout.
+
+(F1) ‖v‖_(𝗍+1;k−1) ≤ C‖v‖_(𝗍;k), and microlocally ‖Gv‖_(𝗍+1;k−1) ≤ C(‖G′v‖_(𝗍;k) + ‖χv‖_(−N′;k)) for G′ elliptic on
+WF′(G) ([[lem:ii-a-8-4]] (c)–(d)): an e3b-vector field is a b-vector field.
+
+(F2) For elements X_1, …, X_q and P of a ring, [X_1 ⋯ X_q, P] = Σ_(∅≠S) (ad_(X_S) P) X^({1..q}∖S), the sum over subsets
+S of the positions, ad_(X_S) the iterated commutator and the remaining factors in their order ([[lem:ii-a-9-3]],
+[[eq:ii-a-9-4]]).
+
+**Theorem {#thm:ii-d1-1-1}** (The global estimate with b-regularity.) Let α_I, α_+, α_K, 𝗌_0 < 𝗌 and χ be as in
+[[thm:ii-d-1-2]]. For every k ∈ ℕ_0 there is C_k such that
+
+    ‖χu‖_(H^((𝗌;k),(2α_I,α_+,α_K))_(e3b;b))
+        ≤ C_k (‖Pu‖_(H^((𝗌;k),(2α_I+2,α_++2,α_K))_(e3b;b)(Ω_*;E)^(•,−))
+                + ‖u‖_(H^((𝗌_0;k),(2α_I,α_+,α_K))_(e3b;b)(Ω_*;E)^(•,−)))                                  {#eq:ii-d1-1-1}
+
+for P = P_0, in the strong sense, and for every P of class ((d_0; k), (2ℓ_I, ℓ_+, ℓ_K)) with ε_(P,k) small, with C_k
+uniform; d_0 depends only on 𝗌_0 and 𝗌. Moreover there is d ∈ ℕ such that for every k and every P of class ((d_0; k),
+(2ℓ_I, ℓ_+, ℓ_K)) with ε_(P,d) small,
+
+    ‖χu‖_(𝗌;k) ≤ C_k (‖Pu‖_(𝗌;k) + ‖u‖_(𝗌_0;k) + ε_(P,k) (‖Pu‖_(𝗌;d) + ‖u‖_(𝗌_0;d))),                     {#eq:ii-d1-1-2}
+
+with the spaces and weights of [[eq:ii-d1-1-1]], and C_k depending on P only through a bound for ε_(P,d).
+
+This is [Hin26c, Proposition 7.11] in dimension 4 + 1, with the weights of u in the last norm of [[eq:ii-d1-1-2]] (see
+[[sec:s06-remarks]]). [[eq:ii-d1-1-2]] is used for k ≥ d, and [[eq:ii-d1-1-1]] for k < d. The proof is in
+[[sec:ii-d1-7]].
+
+### The commuted system {#sec:ii-d1-2}
+
+Throughout this section Γ ⊂ ᵉ³ᵇS*M is one of the sets of [[sec:ii-d-3]]–[[sec:ii-d-4]] (a radial set or the trapped set,
+over one of ∂Σ^±), U_0 an open neighbourhood of Γ near fibre infinity, and L the operator that the corresponding
+estimate there treats (L = W′⁻¹P, [[sec:ii-d-1-1]]). 𝔩 ∈ {0, 1} is the loss: 𝔩 = 0 at the radial sets and 𝔩 = 1 at
+the trapped set, where the estimate loses one derivative. A *family* is 𝒳 = (X_1, …, X_J) with X_i ∈ Diff¹_b(M) acting
+componentwise and X_J := I. For k ≥ 1, 𝒲_k := {1, …, J}^k is the set of words of length k, X^α := X_(α_1) ⋯ X_(α_k),
+and for a position i and a letter j, j·(α∖i) is the word obtained by deleting the i-th letter of α and putting j in
+front. The order of factors matters, as the X_i need not commute; words take care of it.
+
+*Operators of limited regularity.* "Q is of class 𝒬^m_q" means that Q is a finite sum Σ a_l A_l with A_l ∈ C_b^∞Ψ^m_e3b
+fixed and a_l ∈ C^∞ + C^((d_0;k−q))_(e3b;b), carried by the cut-off χ of the estimate, as in [[sec:ii-a-8-2]]: q
+b-derivatives of the coefficients of P have been spent. Its *decaying part* is the sum of the terms whose coefficients
+vanish at the face carrying Γ, at a rate ρ_Γ^ℓ for a defining function ρ_Γ of that face and some ℓ > 0. The hypotheses
+on a family are:
+
+(C) For each i < J, [L, X_i] = Σ_(j=1)^J Q_(ij) X_j + R_i, with Q_(ij) of class 𝒬^1_1 and R_i of class 𝒬^2_1 with
+WF′(A_l) ∩ Ū_0 = ∅ for all its terms.
+
+(C2) (Only if 𝔩 = 1.) For i, i′ < J, [X_(i′), [X_i, L]] = Σ_(j,j′=1)^J Q^(2)_(i′i,jj′) X_j X_(j′) + R^(2)_(i′i), with
+Q^(2)_(i′i,jj′) of class 𝒬^0_2 and R^(2)_(i′i) = R′ + Σ_j R″_j X_j with R′ of class 𝒬^2_2 and R″_j of class 𝒬^1_2, all
+microsupported off Ū_0 as in (C).
+
+(M) Over a neighbourhood of the base projection of Ū_0, the X_i together with 𝒱_e3b span 𝒱_b over C^∞; and either the
+X_i alone span 𝒱_b there, or there are i_0 < J and a bounded weight w, a product of non-negative powers of boundary
+defining functions, with wX_(i_0) ∈ Diff¹_e3b elliptic on Ū_0. Each X_i, i < J, is a commutator field there:
+[X_i, 𝒱_e3b] ⊂ 𝒱_e3b ([[lem:ii-a-2-2]], [[lem:ii-a-2-6]], [[cor:ii-a-2-3]]). The four families of
+[[sec:ii-d1-3]]–[[sec:ii-d1-6]] extend to global elements of 𝒱_b that are commutator fields everywhere (∂_r and r∂_r
+are e3b-fields, t_*∂_(t_*) is a commutator field everywhere, and the Ω_ab are 3b-fields near K⁺ and eb-commutator
+fields near ℐ⁺), which is what the global statements of [[lem:ii-a-2-2]] and [[lem:ii-a-8-4]] (a) use.
+
+*Parametrix remainders.* [[lem:ii-a-8-4]] (b) gives microlocal parametrices of a finite order J′; a remainder said
+below to be microsupported off Ū_0 is the sum of such a term and of one of order −J′ near Ū_0. Every use needs only J′
+large, depending on the orders, and we write as if the second term were absent.
+
+**Lemma {#lem:ii-d1-2-1}** (The commuted system.) Assume (C), and (C2) if 𝔩 = 1. For k ≥ 1 put u^(k) := (X^α
+u)_(α∈𝒲_k) and f := Lu. Then
+
+    L^(k) u^(k) = f^(k) + f̃^(k) + f̃^(k)_♭,       f^(k) := (X^α f)_α,                                    {#eq:ii-d1-2-1}
+
+where L^(k) acts on (ℂ^(N_E))^(𝒲_k) by
+
+    (L^(k) w)_α := L w_α − Σ_(i=1)^k Σ_(j=1)^J Q_(α_i j) w_(j·(α∖i))
+                   + 𝔩 Σ_(i<i′) Σ_(j,j′) Q^(2)_(α_i α_i′, jj′) w_(jj′·(α∖{i,i′}))                         {#eq:ii-d1-2-2}
+
+(the last sum over pairs of positions, with jj′·(α∖{i,i′}) the word with those two letters deleted and j, j′ put in
+front), f̃^(k)_α := −Σ_(|S|≥2+𝔩) (ad_(X_S) L) X^(α∖S) u, the sum over sets S of positions, and f̃^(k)_(♭,α) := Σ_i
+R_(α_i) X^(α∖i) u − 𝔩 Σ_(i<i′) R^(2)_(α_i α_i′) X^(α∖{i,i′}) u.
+
+This is [Hin26c, (7.32), (7.43), (7.61)] in dimension 4 + 1, written with words (see [[sec:s06-remarks]]).
+
+*Proof.* L X^α u = X^α f − [X^α, L]u, and (F2) expands [X^α, L] over the sets S of positions. For S = {i},
+ad_(X_(α_i)) L = −[L, X_(α_i)] = −Σ_j Q_(α_i j) X_j − R_(α_i) by (C), and X_j X^(α∖i) = X^(j·(α∖i)). So −(ad_(X_(α_i))
+L) X^(α∖i) u = Σ_j Q_(α_i j) u^(k)_(j·(α∖i)) + R_(α_i) X^(α∖i) u. If 𝔩 = 1, for S = {i, i′}, i < i′, (F2) gives
+ad_(X_(α_i)) ad_(X_(α_i′)) L = [X_(α_i), [X_(α_i′), L]], which (C2) writes as Σ Q^(2) X_j X_(j′) + R^(2), with the
+indices of [[eq:ii-d1-2-2]] after relabelling; its contribution is moved to the left in the same way. ∎
+
+*Commuting letters.* If a letter j < J commutes with every X_i, then for a word α and a position i, X_j X^(α∖i) =
+X^(α[i→j]), where α[i→j] is α with its i-th letter replaced by j. So in [[eq:ii-d1-2-2]] the term Q_(α_i j)
+w_(j·(α∖i)) may be replaced by Q_(α_i j) w_(α[i→j]); the operator so modified is
+
+    (L^(k) w)_α := L w_α − Σ_(i=1)^k Σ_(j=1)^J Q_(α_i j) w_(α⟨i,j⟩)
+                   + 𝔩 Σ_(i<i′) Σ_(j,j′) Q^(2)_(α_i α_i′, jj′) w_(jj′·(α∖{i,i′})),                       {#eq:ii-d1-2-2p}
+
+where α⟨i,j⟩ := α[i→j] if the letter j commutes with every X_i, and α⟨i,j⟩ := j·(α∖i) otherwise. [[eq:ii-d1-2-1]]
+holds for it with the same proof, since only L^(k) u^(k) enters, and [[lem:ii-d1-2-3]]–[[lem:ii-d1-2-5]] use of L^(k)
+only that it is L ⊗ Id minus a coupling whose coefficients carry at most 1 + 𝔩 b-derivatives of those of P, so they
+hold for [[eq:ii-d1-2-2p]]. For a letter 1 with α_i = 1, α[i→1] = α: the coupling through that letter is diagonal. This
+is what the horizon needs ([[lem:ii-d1-4-1]] (c)); with [[eq:ii-d1-2-2]] the word 1·(α∖i) differs from α unless i = 1,
+and for k ≥ 2 the Hermitian part of the coupling is indefinite.
+
+The coefficients of L^(k) − L ⊗ Id carry at most 1 + 𝔩 b-derivatives of those of P, whatever k is; this is what makes
+the tame estimate possible.
+
+**Lemma {#lem:ii-d1-2-2}** (Mixed norms.) Assume (M). Let B, B̃ ∈ C_b^∞Ψ^0_e3b be carried by χ, with operator wave
+front sets in U_0 and B̃ elliptic on WF′(B), and χ̃ a cut-off equal to 1 near the base projection of Ū_0. Then for all
+orders 𝗍, 𝗍_0 and k ∈ ℕ_0,
+
+    ‖Bu‖_(𝗍;k) ≤ C (‖B̃u‖_(𝗍;k−1) + Σ_(α∈𝒲_k) ‖BX^α u‖_𝗍 + ‖χ̃u‖_(𝗍_0;k)),                                {#eq:ii-d1-2-3}
+
+    Σ_(α∈𝒲_k) ‖BX^α u‖_𝗍 ≤ C (‖B̃u‖_(𝗍;k) + ‖χ̃u‖_(𝗍_0;k)).                                               {#eq:ii-d1-2-4}
+
+[[eq:ii-d1-2-4]] holds without (M), for any family of b-differential operators of order 1. This is [Hin26c, Lemmas 7.15
+and 7.19] in dimension 4 + 1.
+
+*Proof.* [[eq:ii-d1-2-4]]: BX^α u = X^α Bu − [X^α, B]u. The first term has H^𝗍-norm at most C‖Bu‖_(𝗍;k), as the X_i
+are b-differential operators. By (F2), [X^α, B] is a sum of terms (ad_(X_S) B) X^(α∖S) with ad_(X_S) B ∈ C_b^∞Ψ^0_e3b
+microsupported in WF′(B) ([[lem:ii-a-8-4]] (a)); moving the remaining factors to the left by [[eq:ii-a-9-5]] bounds
+them by C‖B̃u‖_(𝗍;k) + C‖χ̃u‖_(𝗍_0;k), using an elliptic parametrix of B̃ ([[lem:ii-a-8-4]] (c)). ‖Bu‖_(𝗍;k) ≤
+C(‖B̃u‖_(𝗍;k) + ‖χ̃u‖_(𝗍_0;k)) in the same way. [[eq:ii-d1-2-3]]: by (M) and the notation of [[sec:ii-a-9-3]],
+‖Bu‖_(𝗍;k) is equivalent to the sum of ‖AX^β Bu‖_𝗍 over A ∈ Diff^(k−|β|)_e3b from a fixed finite set and words β in
+the X_i with |β| ≤ k. If the X_i span 𝒱_b, only A = I, |β| = k is needed (words with the letter J give the lower
+orders). Otherwise, let Q_q ∈ C_b^∞Ψ^(−q)_e3b be a microlocal parametrix of (wX_(i_0))^q on Ū_0, I = Q_q (wX_(i_0))^q
++ R′_q with WF′(R′_q) ∩ Ū_0 = ∅ (with (wX_(i_0))^q = w^q X_(i_0)^q + Σ_(q′<q) w_(q′) X_(i_0)^(q′), w_(q′) bounded, as
+X_(i_0) w ∈ wC^∞). Then for A of order q := k − |β|,
+
+    AX^β Bu = AQ_q w^q X_(i_0)^q X^β Bu + Σ_(q′<q) AQ_q w_(q′) X_(i_0)^(q′) X^β Bu + AR′_q X^β Bu.
+
+AQ_q w^q and AQ_q w_(q′) lie in C_b^∞Ψ^0_e3b (as w^q, w_(q′) are bounded and A has order q), so the first term is
+bounded by ‖X^(i_0^q β) Bu‖_𝗍, a word of length k, and the second by words of length < k with letters J added. The
+third is microsupported off Ū_0 after commuting X^β through B, and is at most C‖χ̃u‖_(𝗍_0;k). Finally X^γ Bu = BX^γ u
++ [X^γ, B]u, and the commutator terms carry at most k − 1 factors and are at most C‖B̃u‖_(𝗍;k−1) + C‖χ̃u‖_(𝗍_0;k), as
+in [[eq:ii-d1-2-4]]. ∎
+
+In the estimates below, the operators B, E, G of an estimate of [[sec:ii-d-3]]–[[sec:ii-d-4]] come with properties
+(1)–(4) listed there (wave front sets in a given neighbourhood, Schwartz kernels in a given set, B elliptic at Γ, and a
+condition on E). A finite union of closed sets each satisfying (4) satisfies (4); and an operator elliptic on such a
+union, with wave front set in a small neighbourhood of it, can be chosen to satisfy (4) again; for [[prop:ii-d-3-6]] it
+satisfies (4) with t_(*,−) + δ′ in place of t_(*,−), for any δ′ > 0, and since t_(*,−) is arbitrary there, starting the
+inductions below from t_(*,−) − kδ′ gives (4) as stated at the order k. We use this without comment.
+
+*The estimate for systems.* We say (E_𝔩) holds for a family on U_0 if, for every k ≥ 1, every neighbourhood U ⊂ U_0 of
+Γ and every χ̃ as in [[lem:ii-d1-2-2]], there are B_k, E_k, G_k with properties (1)–(4), wave front sets in U and B_k
+elliptic at Γ, such that in the strong sense
+
+    ‖B_k w‖_𝗍 ≤ C (‖G_k L^(k) w‖_(𝗍−1+𝔩) + ‖E_k w‖_(𝗍+𝔩) + ‖χ̃w‖_(𝗍_0))                                   {#eq:ii-d1-2-5}
+
+for ℂ^(N_E |𝒲_k|)-valued w, with weights as in the estimate of [[sec:ii-d-3]]–[[sec:ii-d-4]], and with C depending on k
+and on P only through bounds for finitely many C^(d_0)-norms of the coefficients of L^(k). [[lem:ii-d1-2-5]] gives
+(E_𝔩) in each case below.
+
+**Lemma {#lem:ii-d1-2-3}** (The induction.) Assume (C), (M), (C2) if 𝔩 = 1, and (E_𝔩), at the constant orders 𝗍 > 𝗍_0,
+and that P is of class ((d_0; k), …) with d_0 large depending on 𝗍, 𝗍_0. Then for every k ∈ ℕ_0 and every
+neighbourhood U ⊂ U_0 of Γ there are B, E, G with properties (1)–(4), wave front sets in U and B elliptic at Γ, such
+that in the strong sense
+
+    ‖Bu‖_(𝗍;k) ≤ C_k (‖GLu‖_(𝗍−1+𝔩;k) + ‖Eu‖_(𝗍+𝔩;k) + ‖χ̃u‖_(𝗍_0;k)).                                    {#eq:ii-d1-2-6}
+
+For k = 0 this is the estimate of [[sec:ii-d-3]]–[[sec:ii-d-4]] itself. This is the induction in [Hin26c, proofs of
+Propositions 7.17 and 7.22].
+
+*Proof.* Induction on k. Let k ≥ 1 and assume [[eq:ii-d1-2-6]] at k − 1 for every neighbourhood of Γ. Let U_(k−1) ⊂ U
+be a neighbourhood of Γ on which the conclusion at k − 1 holds for operators B′ microsupported in U_(k−1), with
+operators E′, G′ (the union of the sets of two applications, for B′ and a slightly larger one). Apply (E_𝔩) with
+U_(k−1) in place of U, to w := u^(k), giving B_k, E_k, G_k microsupported in U_(k−1); choose G^♯_1, G^♯_2 with
+WF′(G_k) ⊂ Ell(G^♯_1), WF′(G^♯_1) ⊂ Ell(G^♯_2) and WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at
+Γ. By [[lem:ii-d1-2-1]], ‖G_k L^(k) u^(k)‖ ≤ ‖G_k f^(k)‖ + ‖G_k f̃^(k)‖ + ‖G_k f̃^(k)_♭‖, all norms of order 𝗍 − 1 + 𝔩.
+We bound each term of [[eq:ii-d1-2-5]] at w = u^(k).
+
+*The left side.* By [[eq:ii-d1-2-3]] with B̃ := G^♯_1, ‖Bu‖_(𝗍;k) ≤ C(‖G^♯_1 u‖_(𝗍;k−1) + Σ_α ‖BX^α u‖_𝗍 +
+‖χ̃u‖_(𝗍_0;k)), and ‖BX^α u‖_𝗍 ≤ C(‖B_k u^(k)‖_𝗍 + ‖χ̃u‖_(𝗍_0;k)), as B_k is elliptic on WF′(B) and ‖χ̃X^α u‖_(𝗍_0) ≤
+C‖χ̃′u‖_(𝗍_0;k), χ̃′ slightly larger. The first term is bounded by [[eq:ii-d1-2-6]] at k − 1.
+
+*The a priori terms.* By [[eq:ii-d1-2-4]], ‖E_k X^α u‖_(𝗍+𝔩) ≤ C(‖Eu‖_(𝗍+𝔩;k) + ‖χ̃u‖_(𝗍_0;k)) for E elliptic on
+WF′(E_k), and ‖χ̃u^(k)‖_(𝗍_0) ≤ C‖χ̃′u‖_(𝗍_0;k).
+
+*The term f^(k).* By [[eq:ii-d1-2-4]] for f, ‖G_k X^α f‖_(𝗍−1+𝔩) ≤ C(‖G^♯_1 f‖_(𝗍−1+𝔩;k) + ‖χ̃f‖_(𝗍_0−2;k)). Here
+‖χ̃f‖_(𝗍_0−2;k) = ‖χ̃Lχ̃′u‖_(𝗍_0−2;k) ≤ C‖χ̃′u‖_(𝗍_0;k), as L is bounded on the mixed spaces with coefficients of
+class (d_0; k) ([[lem:ii-a-8-6]] (a)), and ‖G^♯_1 f‖ ≤ C(‖GLu‖_(𝗍−1+𝔩;k) + ‖χ̃f‖_(𝗍_0−2;k)) for G elliptic on
+WF′(G^♯_1).
+
+*The term f̃^(k)_♭.* G_k R_i and G_k R^(2) have every order, the wave front sets being disjoint ([[lem:ii-a-8-5]] (b),
+with the coefficient regularity (d_0; k − 2)); for the terms R″_j X_j X^(α∖{i,i′}) u of (C2) the word X_j
+X^(α∖{i,i′}) has k − 1 letters. So ‖G_k f̃^(k)_♭‖_(𝗍−1+𝔩) ≤ C‖χ̃u‖_(𝗍_0;k−1).
+
+*The term f̃^(k).* Let |S| = q ≥ 2 + 𝔩. ad_(X_S) L is a second-order operator of class 𝒬^2_q: each commutator with a
+b-vector field preserves Diff²_e3b up to the coefficients ([[lem:ii-a-4-1]], and [[lem:ii-a-2-2]] near K⁺,
+[[lem:ii-a-2-6]] near ℐ⁺), and differentiates the coefficients once. So by [[lem:ii-a-8-6]] (b) and [[eq:ii-d1-2-4]],
+
+    ‖G_k (ad_(X_S) L) X^(α∖S) u‖_(𝗍−1+𝔩) ≤ C (‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) + ‖χ̃u‖_(𝗍_0;k)).
+
+As q − 1 ≥ 1 + 𝔩, q − 1 applications of (F1) bound ‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) by C(‖G^♯_3 u‖_(𝗍;k−1) + ‖χ̃u‖_(−N′;k)),
+with G^♯_3 slightly larger than G^♯_2 and still microsupported in U_(k−1); this is bounded by [[eq:ii-d1-2-6]] at k −
+1. This is where 𝔩 = 1 needs (C2): a term with q = 2 would need ‖G^♯_2 u‖_(𝗍+2;k−2), which (F1) bounds only by the
+norm at (𝗍 + 1; k − 1), one order above what the induction controls.
+
+Collecting the terms gives [[eq:ii-d1-2-6]] at k, with E elliptic on the union of WF′(E_k) and the E-sets of the step k
+− 1. Each quantity bounded is finite when the right side of [[eq:ii-d1-2-6]] is, by [[eq:ii-d1-2-5]] in the strong
+sense and the inductive hypothesis, so the estimate holds in the strong sense. ∎
+
+**Lemma {#lem:ii-d1-2-4}** (Tame version.) Under the hypotheses of [[lem:ii-d1-2-3]] there is d ∈ ℕ, depending only on
+𝗍, 𝗍_0, such that for all k and P of class ((d_0; k), …), with the operators of [[lem:ii-d1-2-3]],
+
+    ‖Bu‖_(𝗍;k) ≤ C_k (ℛ_k + ε_(P,k) ℛ_d),       ℛ_q := ‖GLu‖_(𝗍−1+𝔩;q) + ‖Eu‖_(𝗍+𝔩;q) + ‖χ̃u‖_(𝗍_0;q),    {#eq:ii-d1-2-7}
+
+with C_k depending on P only through a bound for ε_(P,d). This is [Hin26c, (7.52), (7.68)] in dimension 4 + 1.
+
+*Proof.* Let d_1 and d̃ be the larger of the numbers d_0, resp. d̃, of [[prop:ii-a-9-6]] for the orders (𝗍 + 1 + 𝔩,
+𝗍_0) and (𝗍_0 − 2, 𝗍_0 − 2); take d_0 ≥ d_1 + 2, enlarged to serve [[lem:ii-d1-2-3]], and d := d̃ + 3. For k ≤ d,
+[[eq:ii-d1-2-7]] is [[eq:ii-d1-2-6]], whose constant depends on ε_(P,k) ≤ ε_(P,d). Let k > d and assume
+[[eq:ii-d1-2-7]] below k. In the proof of [[lem:ii-d1-2-3]] the coefficients of P enter with more than 2 b-derivatives
+in two places only. The constant of [[eq:ii-d1-2-5]] involves the coefficients of L^(k), which carry at most 1 + 𝔩
+derivatives ([[lem:ii-d1-2-1]]), so it depends on ε_(P,3) ≤ ε_(P,d). (a) ‖χ̃Lχ̃′u‖_(𝗍_0−2;k): write L = L_0 + (L −
+L_0), L_0 the operator of P_0; L_0 contributes C‖χ̃′u‖_(𝗍_0;k), and [[cor:ii-a-9-7]] bounds the rest by C_k(ε_(P,d̃)
+‖χ̃″u‖_(𝗍_0;k) + ε_(P,k) ‖χ̃″u‖_(𝗍_0;d̃)). (b) ‖G_k (ad_(X_S) L) X^(α∖S) u‖_(𝗍−1+𝔩), |S| = q ≥ 2 + 𝔩: the coefficients
+of ad_(X_S)(L − L_0) are sums of (D^(q′)_[b] p) times fixed operators, q′ ≤ q, p a coefficient of L − L_0; the part
+with q′ ≤ 2 + 𝔩 is bounded as in [[lem:ii-d1-2-3]] with constant depending on ε_(P,3). For q′ ≥ 3 + 𝔩, commute the
+second-order factor to the front and G_k through it, as in [Hin26c, (7.55)–(7.56)]; it remains to bound
+‖G̃ (D^(q′)_[b] D^(≤2)_e3b p)(D^(k−q)_[b] u)‖_(𝗍+1+𝔩) with G̃ microsupported in U_(k−1). [[prop:ii-a-9-6]], with
+D^(2+𝔩)_[b] D^(≤2)_e3b p for its ℓ and (q′ − 2 − 𝔩, k′) for its (j, k), k′ := k − q + q′ − 2 − 𝔩 ≤ k − 2 − 𝔩, bounds
+it, after enlarging k′ to k − 2 − 𝔩 in the norms of u (and the constant C_(k′) to C_k), by
+
+    C_k (‖p‖_(d_1+2;d̃+2+𝔩) (‖G^♯u‖_(𝗍+1+𝔩;k−2−𝔩) + ‖χ̃u‖_(𝗍_0;k))
+          + ‖p‖_(d_1+2;k) (‖G^♯u‖_(𝗍+1+𝔩;d̃) + ‖χ̃u‖_(𝗍_0;d̃))),
+
+as ‖D^(2+𝔩)_[b] D^(≤2)_e3b p‖_(d_1;q) ≤ C‖p‖_(d_1+2;q+2+𝔩) and k′ + 2 + 𝔩 ≤ k. By (F1), ‖G^♯u‖_(𝗍+1+𝔩;k−2−𝔩) ≤
+C‖G^♯_1 u‖_(𝗍;k−1), bounded by [[eq:ii-d1-2-7]] at k − 1, whose high norm ε_(P,k−1) multiplies ℛ_d only; and
+‖G^♯u‖_(𝗍+1+𝔩;d̃) ≤ C‖G^♯_1 u‖_(𝗍;d̃+1+𝔩), bounded by [[eq:ii-d1-2-6]] at the order d̃ + 1 + 𝔩 < d. Here
+‖p‖_(d_1+2;d̃+2+𝔩) ≤ Cε_(P,d) and ‖p‖_(d_1+2;k) ≤ Cε_(P,k), as d_1 + 2 ≤ d_0, the coefficients of L − L_0 being those
+of P − P_0 up to fixed smooth factors ([[def:ii-c-3-6]]). The other terms of the proof of [[lem:ii-d1-2-3]] involve no
+coefficient with more than two derivatives. This gives [[eq:ii-d1-2-7]]. ∎
+
+**Lemma {#lem:ii-d1-2-5}** (The estimates of [[sec:ii-d-3]]–[[sec:ii-d-4]] for systems.) Let m ∈ ℕ and L̃ := L ⊗ Id_m −
+Q on (ℂ^(N_E))^m, with Q of class 𝒬^1_2 (with the regularity (d_0; 0) for its coefficients). Let Γ be one of the sets
+of [[prop:ii-d-3-1]]–[[prop:ii-d-3-6]] and [[prop:ii-d-4-2]], with the fibre inner product h used there, and suppose
+that at Γ, as Hermitian matrices for h^(⊕m),
+
+    ς ρ σ_1(Im_(h^(⊕m)) (−Q)) ≤ 0,                                                                        {#eq:ii-d1-2-8}
+
+with ρ the function used at Γ in [[sec:ii-d-3]]–[[sec:ii-d-4]] and ς = ±1 on ∂Σ^±. Then the estimate of
+[[sec:ii-d-3]]–[[sec:ii-d-4]] at Γ holds for L̃ in place of L, with the same orders, weights and thresholds, and with
+constants depending on finitely many norms of the coefficients of Q.
+
+*Proof.* L ⊗ Id_m is L for the bundle E^(⊕m) = ℂ^(N_E m), an operator of the same class with the same thresholds in the
+inner product h^(⊕m), as all quantities are block diagonal. *Radial sets.* By [[rem:ii-d-3-7]], the estimates hold for
+L ⊗ Id + P̃ with P̃ first order of the form stated there, with the thresholds calculated from σ_1(Im_(h^(⊕m)) L̃) at Γ.
+By [[eq:ii-d1-2-8]] this differs from that of L ⊗ Id by a non-positive Hermitian matrix (times ς). In each quantity Q_ε
+of [[sec:ii-d-3]] it enters as −2A⁻¹(·)A (the term −2A⁻¹𝔭′A, and at ∂R_(ℐ⁺,out) the term 4A⁻¹(Re_h p_1)A =
+−2A⁻¹𝔭′A), so it only increases Q_ε, and every lower bound of [[sec:ii-d-3]] persists. *The trapped set.* In the proof
+of [[prop:ii-d-4-2]] the operator enters through its principal symbol G Id, unchanged; through 𝔭 at ∂Γ_(K⁺), now 𝔭 −
+ρσ_1(Im Q) after the conjugation of Step 0, whose largest eigenvalue is at most ϑ_Γ by [[eq:ii-d1-2-8]], so (T3) and
+[[eq:ii-d-4-3]] hold as stated; through the form Op(ℓ_f) + R_L of the remark after [[lem:ii-d-2-5]], which L̃ has; and
+through the commutator [[eq:ii-d-4-4]], where [Q, Φ_u] has order 0 and joins R_2. Nothing else in [[sec:ii-d-2]] and
+[[sec:ii-d-4]] uses the operator. ∎
+
+In [[sec:ii-d1-3]]–[[sec:ii-d1-6]], [[eq:ii-d1-2-8]] holds because the first-order part of Q either decays at the face
+carrying Γ, so that its principal symbol vanishes at Γ, or is diagonal with a non-positive contribution (at the
+horizon). The part of Q of order 0 does not enter [[eq:ii-d1-2-8]].

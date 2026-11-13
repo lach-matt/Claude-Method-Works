@@ -939,9 +939,8 @@ Throughout, α_I, α_+, ℓ_I, ℓ_+, ℓ_K, ℵ and δ are as in [[thm:ii-f1-1-
 
 For an order function 𝗍 and k ∈ ℕ₀ we write, all over Ω_* with the spaces (Ω_*; E)^(•,−) of [[sec:ii-f1-1-1]],
 
-    X(𝗍;k) := H^((𝗍;k),(2α_I,α_+−δ,−ℵ))_(e3b;b),            Y(𝗍;k) := H^((𝗍;k),(2α_I+2,α_++2,0))_(e3b;b),
-    Y′(𝗍;k) := H^((𝗍;k),(2α_I+2,α_+−δ+2,−ℵ))_(e3b;b),
-    Z(𝗍;k) := H^((𝗍;k),(2α_I,α_+−ℓ_+,−ℓ_K))_(e3b;b).                                                    {#eq:ii-f1-2-2}
+    X(𝗍;k) := H^((𝗍;k),(2α_I,α_+−δ,−ℵ))_(e3b;b),        Y(𝗍;k) := H^((𝗍;k),(2α_I+2,α_++2,0))_(e3b;b),
+    Y′(𝗍;k) := H^((𝗍;k),(2α_I+2,α_+−δ+2,−ℵ))_(e3b;b),   Z(𝗍;k) := H^((𝗍;k),(2α_I,α_+−ℓ_+,−ℓ_K))_(e3b;b).  {#eq:ii-f1-2-2}
 
 As ρ_+, ρ_K are bounded on Ω, ‖·‖_(Y′) ≤ C‖·‖_Y and ‖·‖_Z ≤ C‖·‖_X (the weights of Y and X are the larger at every face,
 δ < ℓ_+ and ℵ < ℓ_K). These are Hilbert spaces: each is a quotient of a closed subspace of a Hilbert space, the norm

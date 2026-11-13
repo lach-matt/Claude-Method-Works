@@ -1608,3 +1608,334 @@ closure of the forward V-flowout of K ∩ Σ_(z_0) inside Γ(ε_Γ). Then there 
 near ϖ, off K. Otherwise the backward V-curve from ϖ reaches the elliptic set of the absorption without meeting K, and
 [[cor:i-b-4-6]] gives ‖B_ϖw‖ ≤ C(h⁻¹‖G𝐏″w‖ + h^M‖w‖) with G microsupported near that curve, again off K. Take
 w := (𝐏″)⁻¹Xf: G𝐏″w = GXf = O(h^∞) and ‖w‖ ≤ Ch⁻¹‖Xf‖. ∎
+
+### The artificial boundary {#sec:i-b-7}
+
+This is [Hin26c, Proposition 9.35], the semiclassical form of [[sec:i-a-6]]. [Hin26c] proves the energy estimate for
+h⁻¹ Im z large and cites [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z; here one argument covers every z with Im z ≥ 0,
+the weight e^(ℓr) of [[prop:i-a-6-3]] supplying the positivity that the weight in t supplies there only for h⁻¹ Im z
+large. The slab spaces H^s(Ω_(a,b))^(•,−) (supported at r = b, extendible at r = a) and H^s(Ω_(a,b))^(−,•) are those of
+[[sec:i-a-6-1]], with the semiclassical norms ‖u‖_(H_h^s) := ‖⟨hD⟩^s u‖; over the compact slabs used here the decay
+order plays no role, and an admissible 𝖻 is constant ([[sec:i-b-1-4]]), so it enters only as the factor h^(−𝖻).
+
+#### The H¹_h estimate {#sec:i-b-7-1}
+
+On ℳ := ℝ_t × {r_0 − 2δ_0 < r < r_2} let g be the metric of (H6), time-oriented so that −∇t is future directed, and
+□_g := −∇^μ∇_μ componentwise. dr has no dt-component, and g⁻¹(dr, dr) = G_0(dr) < 0 (H4), so dr is g-timelike; the
+future direction decreases r, so X := ∇^g r is future directed timelike. For ℂ^(N_E)-valued u′ on ℳ let
+T[u′](Y, Z) := Re(⟨Yu′, Zu′⟩ − ½g(Y, Z) g⁻¹(⟨du′, du′⟩)) and ^(Y)K[u′] := ½T[u′]^(μν)(ℒ_Y g)_μν. [[lem:i-a-6-2]]
+holds on ℳ with the same proof: div_g(T[u′](W, ·)^♯) = −Re⟨□_g u′, Wu′⟩ + ^(W)K[u′], and
+^(wX)K = w ^(X)K + T(∇w, X). For future causal Y, Z, T(Y, Z) ≥ 0, and on a compact set T[u′](X, X) ≥ c_0|du′|²_R for a
+fixed Riemannian metric R on ℳ.
+
+**Proposition {#prop:i-b-7-1}** Let r_0 − 2δ_0 < a < b < r_2 and Z as in [[sec:i-b-4]]. There is C such that for
+z ∈ Z, h ∈ (0, 1],
+
+    ‖u‖_(H¹_h(Ω_(a,b))) ≤ C h⁻¹ ‖P_(h,z) u‖_(L²(Ω_(a,b))),     u ∈ H²(Ω_(a,b))^(•,−),                    {#eq:i-b-7-1}
+
+and ‖v‖_(H¹_h(Ω_(a,b))) ≤ C h⁻¹ ‖P_(h,z)^(*h) v‖_(L²(Ω_(a,b))) for v ∈ H²(Ω_(a,b))^(−,•). C depends on bounds for
+the coefficients, on inf(−G_0(dr)) over the slab and on Z.
+
+*Proof.* By density ([[lem:i-a-6-1]] (c)) take u smooth on Ω̄_(a,b) and vanishing near r = b. P_0 − □_g Id =: L_1 is
+first order with t-independent coefficients ([[sec:i-b-1-2]]), so L̂_1(σ) = L̂_1(0) + σY_0 with Y_0 a matrix
+function and |L̂_1(z/h)u| ≤ C(|du| + h⁻¹|u|). Let u′(t, x) := e^(−izt/h) u(x) on D := [0, 1]_t × Ω_(a,b), so that
+□_g u′ = e^(−izt/h)(P̂(z/h) − L̂_1(z/h))u, and let W := wX with w := e^(−2(Im z)t/h) e^(ℓr). Then
+
+    ^(W)K[u′] = w(^(X)K[u′] + 2h⁻¹(Im z) T[u′](−∇t, X) + ℓ T[u′](X, X)) ≥ w(ℓc_0 − C_0)|du′|²_R,
+
+using Im z ≥ 0, T(−∇t, X) ≥ 0 and |^(X)K| ≤ C_0|du′|²_R. Since du′ = e^(−izt/h)(du − ih⁻¹z u dt) and
+|α + β dt|²_R ≥ c(|α|²_R + |β|²) for α without dt-component, w|du′|²_R ≥ c e^(ℓr)(|du|² + ¼h⁻²|u|²), a function of x
+only. Apply the divergence theorem to J := T[u′](W, ·)^♯ on D. At r = b nothing contributes. At r = a the outward
+conormal is −dr, and the flux is −∫ wT[u′](X, X) ≤ 0. At t = 1 and t = 0 the fluxes are −E(1) and E(0),
+E(t) := ∫_({t}×Ω_(a,b)) T[u′](W, −∇t); as T[u′] carries the factor |e^(−izt/h)|² = e^(2(Im z)t/h), which w cancels,
+and g is t-independent, E(1) = E(0). Hence
+
+    ∫_D ^(W)K[u′] ≤ ∫_D Re⟨□_g u′, Wu′⟩,
+
+and as Wu′ = we^(−izt/h)(Xu − ih⁻¹z(Xt)u) and the integrands are t-independent,
+
+    c(ℓc_0 − C_0) ∫_Ω e^(ℓr)(|du|² + ¼h⁻²|u|²) ≤ C ∫_Ω e^(ℓr)(|P̂(z/h)u| + |du| + h⁻¹|u|)(|du| + h⁻¹|u|).
+
+For ℓ large the terms without P̂ on the right are absorbed, and then
+∫ e^(ℓr)(|du|² + h⁻²|u|²) ≤ Cℓ^(−2) ∫ e^(ℓr)|P̂(z/h)u|². With e^(ℓa) ≤ e^(ℓr) ≤ e^(ℓb) and P̂(z/h) = h⁻²P_(h,z),
+multiplying by h² gives [[eq:i-b-7-1]]. For v: P_(h,z)^(*h) = h²P̂(z/h)^(*h), and P̂(σ)^(*h) is the spectral family at
+σ̄ of the formal adjoint P_0^(*h) (with respect to dt dx and h), a stationary operator of the same form with principal
+symbol G. Under t ↦ −t, with the time orientation reversed, it becomes a stationary operator of this form at the
+spectral parameter −z̄/h, Im(−z̄) = Im z ≥ 0, for which −∇t is again future directed while −∇r is now future directed,
+the future increasing r. The argument above with X replaced by −∇r, e^(ℓr) by e^(−ℓr), and the roles of r = a and
+r = b exchanged gives the second estimate. ∎
+
+#### All orders {#sec:i-b-7-2}
+
+**Proposition {#prop:i-b-7-2}** For every s ∈ ℝ and slab Ω_(a,b) with r_0 − δ_0 < a < b < r_2 − δ_0, uniformly for
+z ∈ Z and h < h_0:
+
+(i) ‖u‖_(H_h^s(Ω_(a,b))^(•,−)) ≤ C h⁻¹ ‖P_(h,z) u‖_(H_h^(s−1)(Ω_(a,b))^(•,−)) for u ∈ H^s(Ω_(a,b))^(•,−);
+
+(ii) ‖v‖_(H_h^s(Ω_(a,b))^(−,•)) ≤ C h⁻¹ ‖P_(h,z)^(*h) v‖_(H_h^(s−1)(Ω_(a,b))^(−,•)) for v ∈ H^s(Ω_(a,b))^(−,•).
+
+*Proof.* As in [[prop:i-a-6-4]], with the semiclassical estimates in place of the fixed-frequency ones; we prove (i).
+Fix a′ ∈ (r_0 − δ_0, a) and Ω′ := Ω_(a′,b).
+
+*Uniqueness* at each fixed h is [[prop:i-a-6-4]] (iii) at σ = z/h.
+
+*Existence with bounds, s ≥ 0.* For f ∈ H_h^(s−1)(Ω′)^(•,−) ⊂ H_h^(−1)(Ω′)^(•,−) = (H¹_h(Ω′)^(−,•))*, the functional
+P_(h,z)^(*h)φ ↦ ⟨f, φ⟩ on {P_(h,z)^(*h)φ : φ ∈ H²(Ω′)^(−,•)} ⊂ L² is bounded by
+C h⁻¹‖f‖_(H_h^(−1)) ‖P_(h,z)^(*h)φ‖, by [[prop:i-b-7-1]] for the adjoint. The Hahn–Banach and Riesz theorems give
+w ∈ L²(Ω′) with ‖w‖ ≤ C h⁻¹‖f‖_(H_h^(−1)) and P_(h,z)w = f, the extension W of w by 0 beyond b satisfying
+P_(h,z)W = F (the supported extension of f) on {r > a′}.
+
+*Regularity.* (α) At each h. W is in L²(Ω′)^(•,−) and solves P_(h,z)W = f; by [[prop:i-a-6-4]] (iii) at σ = z/h, at
+the orders s and 0, the solution in H^s(Ω′)^(•,−) ⊂ L²(Ω′)^(•,−) is the unique one in L²(Ω′)^(•,−), so
+W ∈ H^s(Ω′)^(•,−), and the estimates of [[sec:i-b-3]] and [[sec:i-b-4]] apply to its cut-offs by [[lem:i-b-3-1]].
+
+(β) Uniformly in h. Over {a′ < r < b + δ_0} every characteristic point of P_(h,z), at finite frequencies or at fibre
+infinity, lies on a bicharacteristic along which r is strictly monotone: H_G r = 2g⁻¹(ν, dr) ≠ 0 for null ν ≠ 0, dr
+being timelike; and for Im z > 0 there is no characteristic point at finite frequencies there ([[lem:i-b-1-1]] (d);
+[[lem:i-b-1-1]] (e), stated for z_0 = ±1, holds for every real z ≠ 0 by homogeneity). Its backward direction (in the
+sense of [[prop:i-b-4-5]] for P) increases r and reaches {r > b}, where W = 0. Fix a″ ∈ (a′, a).
+[[cor:i-b-4-6-prime]] at the order (s, 0, 0) with J ≥ 4s, finitely many times (compactness), with all its operators
+microsupported over {r > a″}, and [[prop:i-b-4-2]] off the characteristic set, give
+‖W‖_(H_h^s({r>a})) ≤ C(h⁻¹‖F‖_(H_h^(s−1)) + ‖W‖_(L²)). ([[cor:i-b-4-6]] itself would leave h^M‖GW‖_(H_h^s) with G
+elliptic on a neighbourhood of the curves, which reaches below r = a, a term on a larger set than the left side
+controls, and no enlargement of the cover absorbs it.) So ‖w‖_(H_h^s(Ω_(a,b))) ≤ C h⁻¹‖f‖_(H_h^(s−1)(Ω′)).
+
+*Conclusion for s ≥ 0.* For u ∈ H^s(Ω_(a,b))^(•,−) extend Pu to f ∈ H_h^(s−1)(Ω′)^(•,−) with at most twice its norm,
+solve as above, and use uniqueness on Ω_(a,b): w|_(Ω_(a,b)) = u.
+
+*s < 0.* By (ii) for P^(*h) at the order 1 − s > 0, the duality argument of [[prop:i-a-6-4]] with
+(H_h^(1−s)(Ω′)^(−,•))* = H_h^(s−1)(Ω′)^(•,−) gives a solution w ∈ H_h^s(Ω′)^(•,−) with ‖w‖ ≤ C h⁻¹‖f‖; uniqueness
+concludes. (ii) is the same with the ends exchanged. ∎
+
+**Corollary {#cor:i-b-7-3}** (The semiclassical form of [[cor:i-a-6-5]].) Let b′, b″, χ, χ_1 be as in
+[[cor:i-a-6-5]]. For z ∈ Z, h < h_0 and all s,
+
+    ‖χu‖_(H̄_h^s) ≤ C(h⁻¹‖P_(h,z) u‖_(H̄_h^(s−1)({r_0<r<b″})) + ‖χ_1 u‖_(H_h^s)),     u ∈ H̄_h^s,           {#eq:i-b-7-2}
+
+    ‖v|_(Ω_(r_0,b″))‖_(H_h^(1−s)(Ω_(r_0,b″))^(−,•))
+        ≤ C h⁻¹ ‖(P_(h,z)^(*h) v)|_(Ω_(r_0,b″))‖_(H_h^(−s)(Ω_(r_0,b″))^(−,•)),     v ∈ Ḣ_h^(1−s).            {#eq:i-b-7-3}
+
+*Proof.* P_(h,z)(χu) = χP_(h,z)u + [P_(h,z), χ]u and [P_(h,z), χ] = h · Diff¹_h is supported in supp dχ, so
+h⁻¹‖[P_(h,z), χ]u‖_(H_h^(s−1)) ≤ C‖χ_1 u‖_(H_h^s). Apply [[prop:i-b-7-2]] (i) on Ω_(r_0,b″); [[eq:i-b-7-3]] is
+[[prop:i-b-7-2]] (ii). ∎
+
+### Proof of the high-energy theorem {#sec:i-b-8}
+
+Fix z_0, α_+, s and admissible 𝗋, 𝖻, and write 𝐨 := (s, 𝗋 + α_+, 𝖻),
+𝐨′ := 𝐨 − 𝐦 + (1, 1, 0) = (s − 1, 𝗋 + α_+ + 1, 𝖻). The decay order of u is 𝗋 + α_+, and the thresholds of
+[[sec:i-b-1-4]] are conditions on it.
+
+#### Splitting off the artificial boundary {#sec:i-b-8-1}
+
+Choose r_0 < b′_0 < b′_1 < b′_2 < b′ < b″ < r_2 − δ_0 and χ, χ_1 as in [[cor:i-b-7-3]] for b′, b″, and ψ ∈ C^∞ with
+ψ = 0 on {r ≤ b′_0} and ψ = 1 on {r ≥ b′_1}. Over {r_0 − 2δ_0 < r < r_2} the bicharacteristics move strictly
+monotonically in r, the future direction decreasing it ([[sec:i-b-7-2]]). So a backward bicharacteristic from a point
+over {r ≥ b′_2} stays over {r ≥ b′_2}: it increases r while r < r_2, and it cannot re-enter {r < r_2}, which it could
+only do with r decreasing backward. Every estimate of [[sec:i-b-4]] to [[sec:i-b-6]] used below at points over
+{r ≥ b′_2} for the direct problem is therefore taken with all its operators microsupported over {r > b′_1}, where
+ψ = 1 (each estimate is local near its curves, and its neighbourhoods are chosen inside {r > b′_1}); applied to ψu,
+extended by 0 to ℝ⁴, it has GPψu = GPu modulo a residual term. The points over {r ≥ b′_1} could not be covered in
+this way, since their estimates reach below b′_1.
+
+#### The direct estimate at k = 0 {#sec:i-b-8-2}
+
+**Proposition {#prop:i-b-8-1}** Let ϵ > 0.
+
+(a) There are ν_1 > 0, h_0 and C such that for z ∈ z_0 + i[0, ν_1], h < h_0 and u ∈ H̄_h^𝐨 with
+P_(h,z)u ∈ H̄_h^(𝐨′), with δ := δ_Γ(Im(z/h) − ϵ),
+
+    ‖u‖_(H̄_h^𝐨) ≤ C h^(−1−δ) ‖P_(h,z) u‖_(H̄_h^(𝐨′)).                                                  {#eq:i-b-8-1}
+
+(b) For ν ≥ ν_1, [[eq:i-b-8-1]] holds for z ∈ z_0 + i[ν_1, ν] with δ = 0.
+
+(c) In the setting of [[thm:i-b-1-3]] (2), [[eq:i-b-8-1]] holds with δ = 0.
+
+*Proof.* By [[lem:i-b-3-1]] (applied to ψu, and on the slab by [[lem:i-a-6-1]]) it suffices to take u smooth up to
+∂_♯X and Schwartz at ∂X, the constants being independent of the approximation.
+
+(a) *The cover.* Let K_Σ := Σ_(z_0) ∩ {r ≥ b′_2} ⊂ 𝒫, compact. Each ϖ ∈ K_Σ is of one of the following kinds, by
+(H8), (H4) at fibre infinity and [[lem:i-a-4-5]] over ∂X.
+
+- (R) ϖ ∈ ∂ℛ_+ ∪ ∂ℛ_− ∪ R_(z_0,in): [[prop:i-b-5-2]] and [[prop:i-b-5-3]] give a neighbourhood U_ϖ and
+  ‖B_* u‖_𝐨 ≤ C(h⁻¹‖GPu‖_(𝐨′) + h^M‖Gu‖_𝐨 + ‖u‖_(−K𝟏)) for B_* microsupported in U_ϖ, with no a priori term; here
+  s > ½ + ϑ_ℋ and 𝗋 + α_+ > ½(−1 + ϑ_in) at R_(z_0,in) are used.
+- (A) ϖ is not of kind (R), not in Γ̄_u and not R_out: its backward curve tends to a set of kind (R) ((H8) (a)), so
+  after finite time enters a neighbourhood U_* given by (R); on the segment, 𝖧_(z_0) ≠ 0, q̂_(z_0) ≠ 0
+  ([[lem:i-b-1-1]] (e), and [[sec:i-b-4-1]] over ∂X away from R_out), and [[eq:i-b-4-4]] holds by admissibility.
+  [[cor:i-b-4-6]] gives an estimate at ϖ with a priori term on a compact subset of U_*, which (R) bounds.
+- (Γ) ϖ ∈ Γ: [[thm:i-b-6-8]] (with β := ½γ_− < 0, so that Im z ≥ 0 ≥ hβ) gives an estimate near Γ with loss h^(−1−δ)
+  and a priori term h^(−δ)‖Eu‖, E microsupported off Γ_u near Γ; the points of WF′_h(E) are off Γ̄_u by (H8) (b), so
+  of kind (A), or elliptic.
+- (U) ϖ ∈ Γ̄_u ∖ Γ: its backward curve tends to Γ, so for large negative times it lies on Γ_u ((H8) (b)) inside the
+  neighbourhood given by (Γ); [[cor:i-b-4-6]] from there.
+- (O) ϖ = R_out: [[prop:i-b-5-5]] with a priori term on a compact K_E ⊂ Ū_0 ∖ R_out, whose points are of kinds (A),
+  (U) or elliptic (a backward curve from near R_out leaves every small neighbourhood of it, R_out being a sink); here
+  𝗋 + α_+ < −½ + ½ inf min spec(S + S^(*h)) is used.
+
+Each kind is used only after the kinds its a priori terms need, and the order (R), (A), (Γ), (U), (O) is acyclic. By
+compactness, finitely many of these neighbourhoods cover K_Σ, and each estimate holds for z in a neighbourhood of z_0
+([[cor:i-b-4-6]]; [[prop:i-b-5-2]], [[prop:i-b-5-3]], [[prop:i-b-5-5]] for all z in the sets stated;
+[[thm:i-b-6-8]] for z ∈ z_0 + i[hβ, ν′]). The complement in 𝒫|_({r≥b′_2}) of the union of the neighbourhoods is
+compact and elliptic for P_(h,z_0), hence for P_(h,z), |z − z_0| small ([[prop:i-b-4-2]]). Take ν_1 so small that all
+of this holds for z ∈ z_0 + i[0, ν_1]. For φ ∈ {1 − χ, χ_1}, both supported in {r > b′_2}, a microlocal partition of
+unity Σ_j B_j = φ, modulo a residual operator, subordinate to the cover, and the chain of estimates give, with δ ≤ 1
+and h^(−δ) · h⁻¹ ≤ h^(−1−δ),
+
+    ‖φu‖_(H_h^𝐨) ≤ C(h^(−1−δ)‖Pu‖_(H̄_h^(𝐨′)) + h^M‖u‖_(H̄_h^𝐨) + ‖u‖_(H̄_h^(−K𝟏))).
+
+*The artificial boundary.* By [[eq:i-b-7-2]], ‖χu‖_(H̄_h^𝐨) ≤ C(h⁻¹‖Pu‖_(H̄_h^(𝐨′)) + ‖χ_1 u‖_(H_h^𝐨)), the orders
+being constant there apart from s; the last term is the previous display with φ = χ_1, and
+‖u‖ ≤ ‖χu‖ + ‖(1 − χ)u‖, the second by the previous display with φ = 1 − χ.
+
+*Absorption.* ‖u‖_(H̄_h^(−K𝟏)) ≤ Ch‖u‖_(H̄_h^𝐨) for K ≥ max(−s, −min(𝗋 + α_+), 1 − min 𝖻), since w_(−K𝟏)/w_𝐨 ≤ Ch;
+so for h < h_0 the last two terms are absorbed, which is [[eq:i-b-8-1]].
+
+(b) For Im z ≥ ν_1, P_(h,z) is elliptic at finite frequencies over X̃° ([[lem:i-b-1-1]] (d)) and over ∂X except at
+R_out ([[sec:i-b-4-1]]), uniformly for Im z ∈ [ν_1, ν] by compactness. The characteristic set over {r ≥ b′_2} is
+∂Σ_0 ∪ R_out. On ∂Σ_0 the kinds are (R) at ∂ℛ_± and (A) along the curves of (H4); at R_out, kind (O), whose a priori
+set K_E is now elliptic. No trapping estimate enters, so δ = 0.
+
+(c) The same as (b), with Re z varying in [−2, 2]: at fibre infinity 𝖧_z does not depend on z, 𝖻 is constant, and only
+the constancy of 𝗋 near R_out and the threshold there are used. ∎
+
+#### The adjoint estimate {#sec:i-b-8-3}
+
+**Proposition {#prop:i-b-8-2}** In the settings of [[prop:i-b-8-1]], for v ∈ Ḣ_h^(−𝐨′) with
+P_(h,z)^(*h)v ∈ Ḣ_h^(−𝐨),
+
+    ‖v‖_(Ḣ_h^(−𝐨′)) ≤ C h^(−1−δ) ‖P_(h,z)^(*h) v‖_(Ḣ_h^(−𝐨)).                                          {#eq:i-b-8-2}
+
+*Proof.* The same argument for ϵ_♭ = −1: estimates propagate along the past field. The kinds without a priori term are
+now R_out (the adjoint half of [[prop:i-b-5-5]], above threshold at the order −𝗋 − α_+ − 1) and the artificial
+boundary ([[eq:i-b-7-3]], with nothing on the right but P^(*h)v); Γ is handled by [[thm:i-b-6-8]] for P*, with a priori
+term off Γ_u^♮ = Γ_s; ∂ℛ_± and R_(z_0,in) are sinks for the past field, handled by [[eq:i-b-5-5]] and [[prop:i-b-5-3]]
+with a priori terms on punctured neighbourhoods. By (H8), the forward (future) curve of a characteristic point not on
+Γ̄_s tends to R_out or reaches {r < r_0 − δ_0}, and at fibre infinity reaches {r < r_0 − δ_0} (H4); so the chains
+start at the sets without a priori term. The orders −𝐨′ satisfy the reversed monotonicity, −𝗋 and −𝖻 being
+non-increasing along the past field. Near ∂_♯X, v restricted to Ω_(r_0,b″) is bounded by [[eq:i-b-7-3]]; beyond, the
+microlocal estimates apply to (1 − χ)v, whose commutator term [P^(*h), χ]v is supported where [[eq:i-b-7-3]] already
+bounds v. ∎
+
+*Proof of [[thm:i-b-1-3]] (1) and (2).* By [[prop:i-b-8-1]] and [[prop:i-b-8-2]], as δ_Γ ≤ 1. For Im z ∈ [ν_1, ν]
+and in (2) the loss is h⁻¹. ∎
+
+#### Invertibility {#sec:i-b-8-4}
+
+*Proof of [[thm:i-b-1-3]] (3).* Let σ with Im σ ≥ 0 and |σ| ≥ C_0. If Im σ ≥ ν′|σ|, put h := |σ|⁻¹ and z := hσ, so
+|z| = 1 and Im z ≥ ν′ (part (2)). Otherwise |Re σ| ≥ |σ|√(1 − ν′²) and Im σ < ν′|σ| ≤ 2ν′|Re σ|; put
+h := |Re σ|⁻¹, z := hσ ∈ z_0 + i[0, 2ν′] with z_0 = sgn Re σ (part (1) with ν := 2ν′). In both cases h < h_0 for C_0
+large. At this fixed h, H_h^𝐨 is the space H^(s,(𝗋+α_+)_h) of [[ch:s01]] with 𝗋_h(x, ξ) := 𝗋(x, hξ), up to an
+equivalent norm ([[sec:i-b-2-3]]; h^(−𝖻(x,hξ)) is a symbol of order 0 at fixed h), and in the case of part (1) 𝗋_h is
+admissible for Re σ in the sense of (O2)–(O3) of [[sec:i-a-1-4]] (the characteristic set over ∂X at σ in the variable
+ξ is that at z in ζ = hξ, and [[sec:i-b-1-4]] asks more than (O2)); in the case of part (2) it is constant near R_out
+with the threshold there, which is what [[thm:i-a-7-2]] (2) asks, for every real part including 0. So 𝒳_σ and 𝒴_σ of
+[[thm:i-a-7-2]] are the spaces of [[eq:i-b-1-6]], and [[eq:i-b-1-6]] shows that P̂(σ) = h⁻²P_(h,z) is injective on
+𝒳_σ and P̂(σ)^(*h) injective on 𝒴_σ*. By [[thm:i-a-7-2]] (3), P̂(σ) is Fredholm, so it is invertible. ∎
+
+#### b-regularity {#sec:i-b-8-5}
+
+*Proof of [[thm:i-b-1-3]] (4).* By the equivalence after [[eq:i-b-5-9]], [[eq:i-b-1-7]] is
+
+    ‖u‖_(𝐨;k) ≤ C h^(−1−δ) ‖P_(h,z) u‖_(𝐨′;k)                                                           {#eq:i-b-8-3}
+
+for 𝐨 and 𝐨′ read on X̄ (the norm [[eq:i-b-5-9]] with H̄ in place of H). Induction on k; k = 0 is [[eq:i-b-8-1]]. Let
+k ≥ 1.
+
+(i) Over {r ≤ b″}, the V's are smooth vector fields spanning TX̃ (there r > 0), so ‖χu‖_(𝐨;k) is equivalent to
+‖χu‖_(H̄_h^(𝐨+(k,0,0))), and [[eq:i-b-7-2]] at regularity s + k bounds it by
+h⁻¹‖Pu‖_(H̄_h^(𝐨′+(k,0,0))) + ‖χ_1 u‖_(H_h^(𝐨+(k,0,0))), the first term being at most Ch⁻¹‖Pu‖_(𝐨′;k).
+
+(ii) Away from R_out and the zero section: the symbols of the hV_j are ρ⁻¹ times the components of ζ in a frame
+([[lem:i-a-4-4]]), so Σ_(|α|=k) ((hV)^α)*(hV)^α is elliptic of order 2k(1, 1, 0) wherever |ζ| ≥ c > 0, including fibre
+infinity; there ‖Bu‖_(𝐨;k) and ‖Bu‖_(𝐨+k(1,1,0)) bound each other modulo ‖B̃u‖_(𝐨;k−1) + ‖u‖_(−K𝟏), by
+[[prop:i-b-2-10]]. At the zero section over X̃°, G_z(x, 0) = z²g_00 ≠ 0, so P is elliptic there, and every order is
+controlled by ‖Pu‖ ([[prop:i-b-4-2]]); at finite frequencies over a compact set all orders are equivalent.
+
+(iii) So the chain of [[sec:i-b-8-2]] at the shifted order 𝐨_k := 𝐨 + k(1, 1, 0) bounds u microlocally on the cover
+except near R_out, with ‖GPu‖_(𝐨_k−𝐦+(1,1,0)) ≤ C(‖Pu‖_(𝐨′;k) + ‖u‖_(−K𝟏)) for the G that occur (all microsupported
+where (ii) applies). 𝐨_k satisfies every condition the chain uses away from R_out: s + k > ½ + ϑ_ℋ, 𝗋 + α_+ + k is
+above the threshold at R_(z_0,in), and the monotonicity is unchanged by adding constants.
+
+(iv) Near R_out, [[prop:i-b-5-7]], whose term ‖E′u‖_(𝐨+k(1,1,0)) is supported on K_E, bounded by (iii).
+
+(v) The error terms h^M‖Gu‖_(𝐨_k) and h^M‖Gu‖_(𝐨;k) are bounded by h^M‖u‖_(𝐨;k) and h^M‖Pu‖ by (ii), and absorbed for
+h small; the terms ‖B̃u‖_(𝐨;k−1) are bounded by the induction hypothesis.
+
+This gives [[eq:i-b-8-3]], uniformly in the settings of (1) and (2). ∎
+
+#### Regularity in the spectral parameter {#sec:i-b-8-6}
+
+*Proof of [[thm:i-b-1-3]] (5).* For σ as in (3), P̂(σ)⁻¹ is C^∞ in σ as a map between the spaces of [[thm:i-a-7-2]] (6)
+(holomorphic for Im σ > 0), and on the overlaps the inverses at different admissible orders agree, kernels and
+cokernels being trivial for all of them. So ∂_σP̂⁻¹ = −P̂⁻¹(∂_σP̂)P̂⁻¹, and (σ∂_σ)^j P̂⁻¹ is a sum, with integer
+coefficients, of products
+
+    P̂⁻¹ 𝒯_(i_1) P̂⁻¹ ⋯ 𝒯_(i_l) P̂⁻¹,     𝒯_i := (σ∂_σ)^i P̂(σ) = σT + 2^i σ² g_00,
+    i_1 + ⋯ + i_l = j,  1 ≤ l ≤ j.                                                                    {#eq:i-b-8-4}
+
+By (H2), σT = 2iσρ(V_1 − 3/2 − S) − iσQ, so 𝒯_i = σρ𝒱 + σρc + σρ³ Diff¹_b + 2^i σ² g_00 with 𝒱 = 2iV_1 and c a
+matrix function. Write ‖·‖_((s;k),𝗋;+) for [[eq:i-b-1-5]] at decay order 𝗋 (and 𝖻 fixed), so that
+‖u‖_((s;k),𝗋;+) ≍ h^(−k)‖u‖_((s,𝗋,𝖻);k), with h as in [[thm:i-b-1-3]] (3), so that ½|σ| ≤ h⁻¹ ≤ |σ|. Then:
+
+(a) 𝒯_i maps (s′; k′ + 1), 𝗋′ to (s′; k′), 𝗋′ + 1 with norm ≤ C|σ|, for all s′, k′ and decay orders 𝗋′: with
+σ = zh⁻¹, σρV_1 = h⁻²zρ(hV_1), and ‖h⁻²ρ(hV_1)u‖_((s′,𝗋′+1,𝖻);k′) ≤ Ch⁻²‖u‖_((s′,𝗋′,𝖻);k′+1) (hV_1 is one of the
+module operators of [[eq:i-b-5-9]], and ρ raises the decay order by 1), so the norm is h^(−k′)h⁻²h^(k′+1) = h⁻¹; the
+other terms are smaller or equal: σρc and σρ³ Diff¹_b likewise, and σ²g_00 = h⁻²z²g_00 with g_00 ∈ ρ²C^∞ raises the
+decay order by 2 and costs h⁻² from (s′; k′), which is h⁻¹ from (s′; k′ + 1) as
+‖·‖_((s′;k′+1);+) ≥ h⁻¹‖·‖_((s′;k′);+).
+
+(b) P̂(σ)⁻¹ = h²P_(h,z)⁻¹ maps (s′ − 1; k′), 𝗋 + α_+ + 1 to (s′; k′), 𝗋 + α_+ with norm ≤ C|σ|^(−1+δ), for every
+s′ ≥ s and k′, by [[eq:i-b-8-3]] (s′ is admissible since s′ > ½ + ϑ_ℋ).
+
+(c) (s′; k′ + 1); + embeds in (s′ + 1; k′); + with norm ≤ C: at fibre infinity the module operators are elliptic of
+order (1, 1, 0) (as in (ii) of [[sec:i-b-8-5]]), which gives one order of regularity, and at finite frequencies the
+regularity order is immaterial.
+
+In a product [[eq:i-b-8-4]] with l factors 𝒯, apply (b) l + 1 times, at the regularity orders s, s + 1, …, s + l, and
+(a) l times, starting from f in (s − 1; k + j), after converting j − l module orders into regularity by (c) where
+needed: each P̂⁻¹ raises the regularity by one, each 𝒯 lowers the module order by one and leaves the regularity, and
+the target (s + j; k) is reached after j − l uses of (c). The norm is at most
+C|σ|^((l+1)(−1+δ)+l) ≤ C|σ|^(−1+(j+1)δ), as l ≤ j and |σ| ≥ 1. This is [[eq:i-b-1-8]]. ∎
+
+### Uniformity in the operator {#sec:i-b-9}
+
+Let P̂ depend on b ∈ ℬ as in (H5)–(H8). Every constant above depends on finitely many seminorms of the symbols involved
+and on finitely many lower bounds: ellipticity constants, β_*, c_1 and c_𝒯 in [[lem:i-b-5-1]], the margins in the
+thresholds, c_0 in [[prop:i-b-4-5]], ν_min, β_0, c_Γ and the thresholds γ_± in [[sec:i-b-6]], the lengths of the curves
+in the chains of [[sec:i-b-8]], and the constants of [[prop:i-b-7-1]]. Each depends continuously on b, by (H5)–(H8),
+and the constructions (flow boxes by [[lem:i-b-4-3]] with b among the parameters; the commutants; the absorbing
+operator of [[sec:i-b-6-5]], with Γ(δ) defined through φ_(u/s), which depend continuously on b) can be made with b in a
+neighbourhood of each b_0; by compactness of ℬ, finitely many suffice. The two arguments by contradiction
+([[prop:i-b-6-4]] and the absorption in part (a) of the proof of [[prop:i-b-6-7]]) are run with sequences
+(h_j, z_j, b_j), b_j → b_∞ after passing to a subsequence, every operator of the argument (the B, E, G, the
+quantisations Φ, N_u, J_u of Step 1 of the proof of [[prop:i-b-6-4]], and the cut-offs) being built from the data of
+b_j, which converge in C^∞ to those of b_∞ by (H5)–(H8). So [[eq:i-b-6-8]] holds with remainders O(h) uniformly in j,
+[[lem:i-b-6-3]] holds with the limit symbols (its proof uses only their convergence in C_c^∞), and the dynamics
+(D1)–(D3) of b_∞ give the contradiction. Quantising the symbols of the limit b_∞ instead would make [[eq:i-b-6-8]] exact
+only up to o(1). Hence [[thm:i-b-1-3]] holds with constants uniform in b ∈ ℬ. As in [[sec:i-a-8]], (H5)–(H8) are not
+verified in this chapter; for the operators of the stability theory they are verified in [[ch:s12]] and the chapters
+that treat each operator.
+
+**Remark {#rem:i-b-comparison}** (Comparison with [Hin26c, Section 9.3].) Besides the changes of statement in
+[[rem:i-b-relation]], the following points differ from [Hin26c]. (a) [Hin26c, Theorem 9.28] states that B is
+semiclassically elliptic "at ∂ℛ_+"; the estimate is at the trapped set, and B is elliptic at Γ ([[thm:i-b-6-8]]). (b)
+In the proof of [Hin26c, (9.83)] a constant is fixed in (inf_Γ p_1/(2β_0), γ); positivity of −2p_1 + 4β_0γ_0 on Γ
+needs γ_0 > sup_Γ p_1/(2β_0) = γ_+. [[prop:i-b-6-1]] avoids the constant by writing p − ℓq = (p − γq) − (ℓ − γ)q. (c)
+[Hin26c, Theorem 9.28 (2)] states the adjoint estimate for z ∈ 1 + i[−hβ, ν]. For β < 0 that range misses the real
+axis, which the adjoint estimate at Im z = 0 in [Hin26c, (9.59)] needs. The symbol calculus gives the same threshold for
+P* as for P ([[sec:i-b-6-1]] defines p^♮ and q^♮ with the field of each, and [[eq:i-b-1-4]] reads the same), so the
+range z_0 + i[hβ, ν′] of [[thm:i-b-6-8]] serves both. (d) The second step of the b-regular estimate at R_out in
+[Hin26c, (9.77)] carries the diagonal term −2kihzρδ_(α,(k,0,…,0)) of [Hin26c, (9.45)], whose sign and index set are
+those of [[lem:i-a-4-8]]; [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]] does at fixed
+σ, and [[prop:i-b-5-7]] then needs no sign of it. (e) [Hin26c, (3.35)] defines H_(sc,h)^(s,𝗋,𝖻) = ρ^𝗋 h^𝖻 H_(sc,h)^s,
+which gives ‖u‖ = h^(−𝖻)‖⟨hD⟩^s(⟨x⟩^𝗋 u)‖ on ℝ^n, while the parenthesis after it prints ⟨x⟩^(−𝗋)u; we use
+w_𝐨 = ⟨ζ⟩^s⟨x⟩^𝗋h^(−𝖻), as (3.35) does. (f) The method differs in these points: one positive commutator scheme
+without regularisation, a priori estimates being proved for Schwartz functions and extended by density
+([[sec:i-b-3]]); propagation with flow boxes depending on z, the difference 𝖧_z − 𝖧_(Re z) absorbed by ℓ𝒬
+([[prop:i-b-4-5]]), in place of the three regimes of [Hin26c, Propositions 9.19, 9.22, 9.23]; one radial lemma for all
+three radial sets ([[lem:i-b-5-1]]); at R_out the large imaginary part written as W*M̃W − g_00, non-negative exactly
+([[lem:i-b-5-4]]), which needs the remainder R_2 of [Hin26c, (9.49)] to be put into that form; matrix-valued defect
+measures, entering through tr and max spec ([[lem:i-b-6-2]]); the complex absorption written as Q̂_♭(σ̄)*Q̂_♭(σ),
+entire and of exact sign ([[sec:i-b-6-5]]); a three lines lemma with its proof ([[lem:i-b-6-6]]) in place of
+[DZ19, Lemma D.1]; and the energy estimate at the artificial boundary for every Im z ≥ 0 through the weight e^(ℓr)
+([[prop:i-b-7-1]]), in place of [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z.
