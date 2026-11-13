@@ -857,3 +857,226 @@ tops of the towers ([[eq:iii-i8-2-1]]). At ι⁺ the b-differences of the correc
 L_(h,p⃗) − L_b from h, h_tot and g_0 − g_b gain ρ_+^(m_+−ε). So below the weight 4 its exponents lie in
 (z + 2, k) + ℱ ⊂ ℰ_(++) + 2 ([[eq:iii-i8-1-1]]), and beyond them its plain weight exceeds 4. So E^ν ∈ 𝒴_2(α) with norm
 O(|b − b_0||S|). ∎
+
+### The expansion at one level {#sec:iii-i8-3}
+
+**Lemma {#lem:iii-i8-3-1}** (The base level.) Let α_0 ∈ (2, min(a_K, 2 + ε_ind, 5/2)) be admissible (ε_ind as in
+[[sec:iii-i7-1]]). Then [[prop:iii-i6-2-1]], [[lem:iii-i7-4-1]], [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]],
+[[cor:iii-i7-4-6]] and [[prop:iii-i15-2-12]] hold with 𝒴(α_0) in place of 𝒴, at the base points of
+[[lem:iii-i8-2-5]], with the conclusions at K⁺-weight α_0 − 2 − ε for every ε > 0.
+
+*Proof.* Steps 0–2 of the proof of [[prop:iii-i6-2-1]] change. Let the forcing be F = F_1 + F_2, F_j ∈ 𝒴_j(α_0), and
+L := L_(h,p⃗). *Step 0.* Step 2 below, applied to F_2 alone (with L_b; F_2 vanishes near 𝓘⁺), gives
+u_F := Σ_(z_0)(u_(z_0) + u′_(z_0)), over the finitely many z_0 ∈ π_1ℰ_(++) with Re z_0 < 2, with F_2 − L_bu_F of plain
+ι⁺-weight 4 − ε, of K⁺-weight α_0 − ε and with the 𝓘⁺-data of 𝒴_1, for every ε > 0. u_F vanishes near {t^♭_* = 1}
+(the pieces of Step 2 are cut off near ι⁺) and has ι⁺-weight z_♯ − ε and K⁺-weight α_0 − 2 − ε (as there:
+ℓ_K(z_0) > α_0 − 2 and Re z_0 − 1 > 1/2 > α_0 − 2), so (L − L_b)u_F has ι⁺-weight above 4 and K⁺-weight above α_0
+([[eq:iii-i-4-2]], a_K > 2). So u − u_F is the forward solution of L(u − u_F) = F_1 + (F_2 − L_bu_F) − (L − L_b)u_F, a
+forcing of plain ι⁺-weight 4 − ε whose boost parameter is that of F (Ṡ(Lu_F) = 0 by the uniqueness in
+[[prop:iii-i4-4-1]] (1), u_F being the decaying forward solution), and [[prop:iii-i5-2-1]] applies to it with any
+α_+ < 2: u − u_F has K⁺-weight α′_K − 2 for every α′_K < 2. With α′_K > α_0 + 2 − a_K (possible, as a_K > α_0),
+(L − L_b)u has K⁺-weight above α_0 and ι⁺-weight above 4 − ε, which is the conclusion of Step 0 of the proof of
+[[prop:iii-i6-2-1]]. Write f′_1 := F_1 − (L − L_b)u ∈ 𝒴_1(α_0), so that L_bu = f′_1 + F_2. *Step 1* applies
+[[prop:iii-i1-3-1]] to f′_1 alone (Ĕ_+ = ∅), and f^♭_0 := f′_1 − L_bu_I + F_2; its ι⁺-terms below α^♯_+ + 2 have
+exponents in (ℰ^♯_+ ∪ ℰ_(++)) + 2, with coefficients from L_bu_I (vanishing near K⁺) or from F_2 (supported in
+supp χ^♯_K, away from 𝓘⁺), and [[eq:iii-i5-2-3]] is taken with ℰ_(++) added to the excluded exponents (still finitely
+many below 2). *Step 2* takes c_K := α_0, so ℓ_K(z_0) = α_0 − Re z_0; its exclusions hold by admissibility, and
+ℓ_K(z_0) ∈ (α_0 − 2, 1) ⊂ (0, 1), as Re z_0 ∈ [z_♯, 2) and α_0 < 5/2 < z_♯ + 1. The coefficients at z_0 of F_2 and of
+later errors (of K⁺-weight α_0 − ε for every ε) have R-weight at least ℓ_K(z_0) − 2 − ε for every ε, which is the
+hypothesis of [[cor:iii-g2-4-3]]; the errors have K⁺-weight α_0 − ε; and u_(z_0) has K⁺-weight
+min(Re z_0 − 1, ℓ_K(z_0)) − ε > α_0 − 2 for ε small. The iteration and its termination are those of the proof of
+[[prop:iii-i5-2-1]], all exponents lying in (ℰ^♯_+ ∪ ℰ_(++)) + ℕ₀ℰ^ι_ind ⊂ ℰ_(++) below 2, by [[eq:iii-i8-1-1]]. So
+f^♭ ∈ ⋂_ε H^(∞,ℓ_I+1,4−ε,α_0−ε)_b, and Steps 3–6 apply with α_0 − ε′ for α_K, for every small ε′ (their hypotheses on
+α_K are open conditions). [[sec:iii-i7-4]] uses [[prop:iii-i4-4-1]] (1), whose space of forcings contains 𝒴(α_0)
+(F_2 has ι⁺-weight above α_+ + 2 for α_+ < min Re ℰ_(++)), [[prop:iii-i6-2-1]], and, in [[lem:iii-i7-4-1]] and in the
+proof of [[prop:iii-i15-2-12]], the bound of the difference of L and the reference operator applied to the solution in
+𝒴_1(α_0), unchanged. ∎
+
+**Lemma {#lem:iii-i8-3-2}** (The expansion; [Hin26, Proposition 11.51, Part 1] in dimension 4 + 1.) Let α′ < α be
+admissible, α − α′ < a_K − 2, let p⃗ (with parameter b ∈ ℬ̄_*) and h be small, and F ∈ 𝒴(α). Suppose that the forward
+solution u of L_(h,p⃗)u = F lies in ⋂_ε H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,α′−2−ε)_b(Ω_*)^(•,−) for some
+β′_+ ∈ (1, min(3/2, min Re ℰ_+)). Then
+
+    u = Σ_((z,k)∈𝓜_α∖𝓜_(α′)) χ_K t_*^(−z+1)(log t_*)^k h_b(S_(z,k)) + ũ,
+        ũ ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*)^(•,−),                                          {#eq:iii-i8-3-1}
+
+for every β_+ < min(3/2, min Re ℰ_+), with S_(z,k) =: S^(h,p⃗)_(z,k)(F) ∈ 𝒮_(1,ℂ) determined by u (its K⁺-expansion),
+linear and continuous in F, with bounds uniform for (h, p⃗) small and b ∈ ℬ̄_*.
+
+*Proof.* Write L := L_(h,p⃗) and F = F_1 + F_2, F_j ∈ 𝒴_j(α). *Step 0.* f′ := F − (L − L_b)u = f′_1 + F_2 with
+f′_1 := F_1 − (L − L_b)u ∈ 𝒴_1(α): [[eq:iii-i-4-2]] (for L, [[lem:iii-i8-2-5]]) gives the 𝓘⁺-data
+(⟨ℰ^C_I+1⟩′, ℓ_I + 1), the ι⁺-weight β′_+ + 2 + m_+ − ε > 4 − ε and the K⁺-weight α′ − 2 − ε + a_K ≥ α for ε small.
+
+*Steps 1–2 (null infinity and ι⁺).* As in [[lem:iii-i8-3-1]], with α for α_0 and α^♯_+ := 2 − ε: Step 1 gives u_I;
+Step 2, with ℓ_K(z_0) := α − Re z_0 ∈ (α − 2, 3/2) (below the bound ℓ^max_K = min(3, 2 + 2γ_Cv_C) of
+[[sec:iii-g2-1]] and off its exclusions by admissibility), gives u_ι = Σ u_(z_0) + Σ u′_(z_0) with errors of K⁺-weight
+α − ε, so
+
+    u^♭ := u − u_I − u_ι :     L_bu^♭ = f^♭ ∈ ⋂_ε H^(∞,ℓ_I+1,4−ε,α−ε)_b(Ω_*)^(•,−).                      {#eq:iii-i8-3-2}
+
+Now ℓ_K(z_0) > 1 exactly when Re z_0 − 1 < α − 2, and then −1 ∈ 𝒲(ℓ_K(z_0)) and the s1 row of [[eq:iii-g2-4-3]] is
+present. By [[cor:iii-g2-4-3]], u_(z_0) has the K⁺-index set ℰ^gr_K(z_0) + (0, k) at the weight ℓ_K(z_0) − ε, whose
+elements with real part below Re z_0 are (z_0 − 1, j), j ≤ k, from the s1 row: the v1 row gives z_0 and the other rows
+z_0 − μ + j with Re μ ≤ 0 ([[thm:iii-g2-4-2]]). The s1 row is h^(≤3)_(b,s1) applied to functions of the type a_s1
+times the coefficients S^((−1))_1, and its leading term at K⁺ is that function times h_b(·), the other terms carrying
+derivatives of it, as in [[eq:iii-i8-2-2]]. So
+
+    u_(z_0) − Σ_(j≤k) χ_K t_*^(−z_0+1)(log t_*)^j h_b(S_(z_0,j))   has K⁺-weight min(Re z_0, ℓ_K(z_0)) − ε > α − 2,
+
+the sum present only when Re z_0 − 1 < α − 2, with S_(z_0,j) linear in the coefficients of the forcing; u′_(z_0)
+vanishes near K⁺. As z_0 runs over 𝓜 (the proof of [[lem:iii-i8-3-1]]),
+
+    u_ι = Σ_((z,k)∈𝓜_α) χ_K t_*^(−z+1)(log t_*)^k h_b(S_(z,k)) + (a term of K⁺-weight above α − 2);
+
+every term of u_ι decays at K⁺ (weight at least min(z_♯ − 1, α − 2) − ε > 0).
+
+*Step 3 (zero energy).* Steps 3–3.3 of the proof of [[prop:iii-i6-2-1]] apply to [[eq:iii-i8-3-2]] with α − ε′ for
+α_K (ε′ > 0 small, so α − ε′ ∈ (2, 3) with the same exclusions): they use α_K ∈ (2, 3) ∖ ℕ only ([[prop:ii-g1-3-3]]
+(1), [[lem:iii-i2-4-1]], [[prop:iii-g4-5-1]] with ℓ_zf = α_K − 2 ∉ ℕ₀ and w = α_K − 2 + ε, and the remainder weights
+of [[eq:iii-i6-2-4]]). They give û_0, ḃ_0, S_0 = 0 (the argument there: u has K⁺-weight > −1), û′_3, Σ_3,
+(û_4, b̂_4, Ŝ_4) and
+
+    f̂_5 ∈ H^(∞,(5/2−ε,τ_0,α−2−ε′))_b,     τ_0 := 2 + ε_ind − 2ε     ([[eq:iii-i6-2-7]]).
+
+*Step 3.4′ (the iteration at the transition face; [Hin26, Step 1.6 of the proof of Proposition 11.51]).* Put
+f̂^((0)) := f̂_5. While τ_i ≤ α − ε′, apply [[prop:iii-g4-5-1]] on X^±_(sc-b) separately to
+g_i := σ⁻¹f̂^((i)) ∈ H^(∞,(5/2−ε,τ_i−1,α−3−ε′))_b (|σ| = ρ_tfρ_zf), with α_i := τ_i − 1 ∈ (1, 2) for its α,
+ℓ_scf := 3/2 − ε, ℓ_zf := α − 3 − ε′ ∈ (−1, 0), k_0 := 1 (so the zf-expansion of its proof is empty), and
+w = ℓ_zf − α_i + 2 = α − ε′ − τ_i ∈ [0, 1), inside (−ε_ind, ℓ^max_K); ε and ε′ are chosen so that w and every
+2 − α_i + j, j ∈ ℕ₀, avoid the discrete set of the −μ (finitely many i). It gives
+v_i = χ_zf u^((i))_b + χ^♯_tf ṽ_i ∈ H^(∞,(3/2−2ε,α_i−2,α_i−3))_b with
+g_i − L̂_b(σ)v_i ∈ H^(∞,(5/2−ε,α_i+ε_ind−ε,α−3−ε′))_b. With the s1 coefficient S_i := S^((−1))_1 of u^((i))_b
+([[eq:iii-g4-5-2]]), Σ^((i)) := −σ²|σ|^(α_i−3)S_i and v′_i := v_i − ĥ^aug(σ)(Σ^((i))), [[lem:iii-i6-1-4]] and
+[[eq:iii-i6-2-6]] give L̂_b(σ)v′_i + f̂_(Σ^((i)))(σ) = L̂_b(σ)v_i, v′_i of tf- and zf-weight α_i − 2 near zf and tf,
+r(v′_i) = O(|σ|^(α_i−2)), and Σ^((i)) = O(|σ|^(α_i−1)). Put
+
+    f̂^((i+1)) := f̂^((i)) − σL̂_b(σ)v_i ∈ H^(∞,(5/2−ε,τ_(i+1),α−2−ε′))_b,     τ_(i+1) := τ_i + ε_ind − ε.
+
+The increments are below 1 (ε_ind < 1: the class roots of the table of [[sec:iii-g2-1]] are not integers, and
+[[sec:iii-g4-3]] places every {−μ} at 0 or in [ε_ind, 1 − ε_ind]), so after finitely many steps, i_0 say,
+τ_(i_0) ∈ (α − ε′, α − ε′ + 1) (i_0 = 0 if τ_0 > α − ε′, which is the case α_K < 2 + ε_ind of
+[[prop:iii-i6-2-1]]). Then [[lem:iii-i2-4-2]] with β_scf := 3/2 − 2ε, β_tf := τ_(i_0) − 2, β_zf := α − 2 − ε′,
+β_tf − β_zf ∈ (0, 1), gives (û_6, b̂_6, Ŝ_6) := L̃_b(σ)⁻¹(f̂^((i_0)), 0, 0),
+û_6 ∈ H^(∞,(3/2−3ε,τ_(i_0)−2,α−2−ε′))_b, b̂_6, Ŝ_6 ∈ H^(∞,α−2−ε′)_b(±(0, c], |dσ/σ|). With
+(U^((i)), B^((i)), Σ^((i))_r) := L̃_b(σ)⁻¹(0, σr(v′_i)),
+
+    (û_5, b̂_5, Ŝ_5) := Σ_(i<i_0) [(σv′_i, 0, σΣ^((i))) − (U^((i)), B^((i)), Σ^((i))_r)]
+                         + (û_6, b̂_6, Ŝ_6)                                                              {#eq:iii-i8-3-3}
+
+equals L̃_b(σ)⁻¹(f̂_5, 0, 0). Indeed, apply L̃_b(σ): the first components give Σ_i σL̂_b(σ)v_i + f̂^((i_0)) = f̂_5
+(telescoping, with L̃_b(σ)(σv′_i, 0, σΣ^((i))) = (σL̂_b(σ)v_i, σr(v′_i)) by [[lem:iii-h-2-5]] (c)), the rows give
+Σ_i(σr(v′_i) − σr(v′_i)) = 0, and every first component lies in the space of [[lem:iii-i6-1-2]], so injectivity
+applies. By [[lem:iii-i6-1-3]], B^((i)), Σ^((i))_r = O(|σ|^(1−ε)·|σ|^(α_i−1)), and U^((i)) has zf- and tf-weight at
+least α_i − 1 − ε. This replaces Step 3.4 of the proof of [[prop:iii-i6-2-1]].
+
+*Step 3.5′ (assembly).* [[eq:iii-i6-2-8]] holds with this (û_5, b̂_5, Ŝ_5), by the same calculation. In
+[[eq:iii-i6-2-9]] the new terms are σ²v′_i, of zf- and tf-weight α_i ≥ 1 + ε_ind − 2ε > α − 2, σU^((i)), σû_6
+(zf-weight α − 1 − ε′), σB^((i)), σb̂_6, and, in σ⁻¹Ŝ_1 − Ŝ_4, the terms σΣ^((i)) = O(|σ|^(α_i)), Σ^((i))_r and Ŝ_6,
+all O(|σ|^(α−2−ε′)) with σ∂_σ-regularity (α_i > 1 > α − 2). So [[eq:iii-i6-2-9]] holds with α − ε′ for α_K.
+
+*Steps 4–5.* Steps 4 and 5 of the proof of [[prop:iii-i6-2-1]] then give u_reg of K⁺-weight α − 1 − ε′, u_hi of
+arbitrarily large K⁺-weight, and u_sing − χ_K(ġ_b(ḃ_0) + h_b(iŜ_4)) of K⁺-weight α − 2 − ε′ (with the matching
+there). *Step 6.* u^♭ = u − u_I − u_ι has positive K⁺-weight (u by hypothesis, α′ > 2; u_ι by Steps 1–2; u_I vanishes
+near K⁺), so the stationary tensor ġ_b(ḃ_0) + h_b(iŜ_4) times χ_K has positive K⁺-weight and vanishes, and ḃ_0 = 0,
+Ŝ_4 = 0 (injectivity, [[sec:iii-i7-1]]). *Step 7.* So u = u_ι + (u_I + u^♭) is [[eq:iii-i8-3-1]] with the sum over
+𝓜_α; the terms with (z, k) ∈ 𝓜_(α′) vanish, as u has K⁺-weight α′ − 2 − ε for every ε and Re z − 1 < α′ − 2 (α′
+admissible): a finite sum of such polyhomogeneous terms in that space is zero, the functions t_*^(−z+1)(log t_*)^j
+being independent and h_b injective. *Step 8.* The 𝓘⁺-data of ũ follow from [[prop:iii-i1-2-1]] as in Step 6 of the
+proof of [[prop:iii-i6-2-1]] (χ_K = 0 near 𝓘⁺). *Determination, linearity, bounds.* The S_(z,k) are the coefficients
+of the K⁺-expansion of u below α − 2; every map used is linear, and fixed by L_b, given by L − L_b, or
+[[prop:iii-i1-2-1]] applied to L (Step 8), with coefficient bounds uniform for small (h, p⃗) and b ∈ ℬ̄_*
+([[lem:iii-i8-2-5]], [[lem:iii-i7-2-5]] (c), [[lem:iii-i15-1-1]] (P1)–(P4)). ∎
+
+At a base point with parameter b no rotation row has rate below α − 2 for α < 3 (its K⁺-weight is Re z − ε > 1); so
+[[lem:iii-i8-3-2]] holds at b as at b_0, with the states at b.
+
+**Lemma {#lem:iii-i8-3-3}** (The coefficients near the reference point.) Fix b ∈ ℬ̄_*. Let α′ < α be as in
+[[lem:iii-i8-3-2]], (h_j, p⃗_j) → (0, p⃗_b) with parameter b, F_j → F in 𝒴(α), and suppose that the forward solutions
+u_j of L_(h_j,p⃗_j)u_j = F_j and u of L_(0,p⃗_b)u = F lie in the space of the hypothesis of [[lem:iii-i8-3-2]], u_j
+bounded there. Then S^(h_j,p⃗_j)_(z,k)(F_j) → S^(0,p⃗_b)_(z,k)(F) for every (z, k) ∈ 𝓜_α ∖ 𝓜_(α′).
+
+*Proof.* u_j − u is the forward solution of L_(0,p⃗_b)(u_j − u) = R_j := F_j − F − (L_(h_j,p⃗_j) − L_(0,p⃗_b))u_j,
+and (L_(h_j,p⃗_j) − L_(0,p⃗_b))u_j → 0 in 𝒴_1(α) by the count of Step 0 (coefficients of norm o(1),
+[[lem:iii-i8-2-5]]). So R_j → 0, u_j − u satisfies the hypothesis of [[lem:iii-i8-3-2]], and comparing the expansions
+[[eq:iii-i8-3-1]] of u_j, u and u_j − u gives S^(h_j,p⃗_j)_(z,k)(F_j) − S^(0,p⃗_b)_(z,k)(F) = S^(0,p⃗_b)_(z,k)(R_j) → 0.
+∎
+
+### Elimination of the motions {#sec:iii-i8-4}
+
+For an admissible α put 𝒫_α := 𝒮_1 ⊕ 𝔟 ⊕ 𝒮_1 ⊕ (⊕_((z,k)∈𝓜_α) 𝒮_(1,ℂ))^sym, with the conjugation-symmetric tuples of
+[[sec:iii-i8-1]]: the modification parameters with motion components only in 𝓜_α. Write D_p⃗P_3(h, p⃗)(p⃗′) for
+p⃗′ ∈ 𝒫_α (the other motion components zero). By [[lem:iii-i8-2-6]], D_p⃗P_3(h, p⃗)(p⃗′) ∈ 𝒴(α).
+
+**Proposition {#prop:iii-i8-4-1}** ([Hin26, Proposition 11.51] in dimension 4 + 1.) Let α ∈ (2, min(a_K, 3)) be
+admissible, and p⃗ (with parameter b ∈ ℬ̄_*) and h small. For every F ∈ 𝒴(α) there is a unique
+p⃗′ = p⃗′_(h,p⃗)(F) ∈ 𝒫_α such that the forward solution of
+
+    L_(h,p⃗)u = F − D_p⃗P_3(h, p⃗)(p⃗′)                                                                  {#eq:iii-i8-4-1}
+
+satisfies
+
+    u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*; S²T*)^(•,−)   for every β_+ < min(3/2, min Re ℰ_+). {#eq:iii-i8-4-2}
+
+Moreover (i) p⃗′_(h,p⃗) and F ↦ u are linear, with bounds uniform for (h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*; (ii) at fixed
+b, if (h_j, p⃗_j) → (0, p⃗_b) and F_j → F in 𝒴(α), then p⃗′_(h_j,p⃗_j)(F_j) → p⃗′_(0,p⃗_b)(F). In compact spatial sets
+u = O(t_*^(−α+2+ε)), almost O(t_*⁻¹) as α → 3.
+
+*Proof.* Choose admissible α_0 < α_1 < ⋯ < α_n = α with α_0 ∈ (2, min(a_K, 2 + ε_ind, 5/2)) and
+α_(i+1) − α_i < a_K − 2 (the excluded set is finite). By induction on i we prove the statement, with (i)–(ii), at α_i.
+Write p⃗′_(h,p⃗,α_i) for the map at the level α_i.
+
+*Base.* 𝓜_(α_0) = ∅, as Re z − 1 ≥ z_♯ − 1 > 1/2 > α_0 − 2. By [[lem:iii-i8-3-1]], [[cor:iii-i7-4-6]] gives existence,
+uniqueness and linearity. The bounds are uniform by [[lem:iii-i7-2-5]] (c) and [[prop:iii-i15-2-12]], the
+finite-dimensional maps inverted in [[lem:iii-i7-4-3]] and [[lem:iii-i7-4-5]] lying within
+C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|) of ±id; and (ii) holds as those maps converge at fixed b (by their construction and
+[[lem:iii-i7-4-1]], which allows forcings varying with j).
+
+*Step.* Let the statement hold at α′ := α_i, and let α″ := α_(i+1), 𝓜′ := 𝓜_(α″) ∖ 𝓜_(α′) and
+F ∈ 𝒴(α″) ⊂ 𝒴(α′). For S⃗ = (S_ν)_(ν∈𝓜′) conjugation-symmetric ([[sec:iii-i8-1]]; the map T_(h,p⃗) below preserves
+these, L_(h,p⃗) and F being real) put F(S⃗) := F − Σ_(ν∈𝓜′) f^ν_(h,p⃗)(S_ν) ∈ 𝒴(α″) ([[lem:iii-i8-2-6]] (b)), and let
+u(S⃗) be the forward solution of
+
+    L_(h,p⃗)u(S⃗) = G(S⃗) := F(S⃗) − D_p⃗P_3(h, p⃗)(p⃗′_(h,p⃗,α′)(F(S⃗))) ∈ 𝒴(α″),
+
+which lies in [[eq:iii-i8-4-2]] at α′ by the hypothesis. [[lem:iii-i8-3-2]] (with α′, α″) applies and gives the
+coefficients C_ν(S⃗) := S^(h,p⃗)_ν(G(S⃗)), ν ∈ 𝓜′, affine in S⃗: C(S⃗) = C(0) − T_(h,p⃗)S⃗, where
+T_(h,p⃗)S⃗ := S^(h,p⃗)(G_1(S⃗)) with
+
+    G_1(S⃗) := Σ_ν f^ν_(h,p⃗)(S_ν) − D_p⃗P_3(h, p⃗)(p⃗′_(h,p⃗,α′)(Σ_ν f^ν_(h,p⃗)(S_ν))).
+
+*The level map.* By [[lem:s21-motions-at-b]], f^ν_(h,p⃗)(S_ν) = L_(h,p⃗)m_ν(S_ν) + e^ν_(h,p⃗)(S_ν). For ν = (z, k) ∈ 𝓜′,
+m_ν(S_ν) vanishes for t^♭_* < 10, has K⁺-weight Re z − 1 − ε > α′ − 2 − ε and the other properties of
+[[eq:iii-i8-4-2]] at α′ ([[lem:iii-i8-2-2]]; it vanishes near 𝓘⁺); so it is the forward solution of
+L_(h,p⃗)u = L_(h,p⃗)m_ν(S_ν), and by uniqueness at α′, p⃗′_(h,p⃗,α′)(L_(h,p⃗)m_ν(S_ν)) = 0. By linearity, the forward
+solution of L_(h,p⃗)u = G_1(S⃗) is Σ_ν m_ν(S_ν) + v(S⃗), where v(S⃗) is the forward solution of
+
+    L_(h,p⃗)v(S⃗) = R(S⃗) := Σ_ν e^ν_(h,p⃗)(S_ν) − D_p⃗P_3(h, p⃗)(p⃗′_(h,p⃗,α′)(Σ_ν e^ν_(h,p⃗)(S_ν))).
+
+By [[lem:s21-motions-at-b]] and (i) at α′, ‖R(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|)|S⃗|. The forward solution
+of G_1(S⃗) = G(0) − G(S⃗) is u(0) − u(S⃗), which lies in [[eq:iii-i8-4-2]] at α′, and so does Σ_ν m_ν(S_ν); hence v(S⃗)
+satisfies the hypothesis of [[lem:iii-i8-3-2]]. Its coefficients S^(h,p⃗)(R(S⃗)) are at most C‖R(S⃗)‖_(𝒴(α″)), by the
+uniform bounds of [[lem:iii-i8-3-2]], and the coefficients of Σ_ν m_ν(S_ν) are S⃗, by [[eq:iii-i8-2-2]] at b
+(Re z − ε > α″ − 2). So
+
+    |T_(h,p⃗) − id| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|),
+
+with C uniform on ℬ̄_*. At (0, 0), e^ν = 0 and T_(0,0) = id. On the finite-dimensional space of the conjugation-symmetric
+tuples, T_(h,p⃗) is therefore invertible for (h, p⃗ − p⃗_b) and ℬ_* small, with inverse of norm at most 2. Put
+S⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′_(h,p⃗,α″)(F) := p⃗′_(h,p⃗,α′)(F(S⃗)) ⊕ S⃗ ∈ 𝒫_(α″). The forcing of [[eq:iii-i8-4-1]] is then
+G(S⃗) (linearity of D_p⃗P_3(h, p⃗) in the direction), whose solution u(S⃗) has no term of 𝓜′ in [[eq:iii-i8-3-1]], so
+lies in [[eq:iii-i8-4-2]] at α″. *Uniqueness:* if p⃗″ ∈ 𝒫_(α″) also gives [[eq:iii-i8-4-2]] at α″, with 𝓜′-part S⃗″,
+then its solution lies in [[eq:iii-i8-4-2]] at α′ with the forcing F(S⃗″) − D_p⃗P_3(h, p⃗)(q⃗), q⃗ ∈ 𝒫_(α′), so
+q⃗ = p⃗′_(h,p⃗,α′)(F(S⃗″)) by uniqueness at α′, the solution is u(S⃗″), and C(S⃗″) = 0 gives S⃗″ = S⃗. *(i) at α″:*
+linear by construction, and uniform, as T_(h,p⃗)⁻¹ and the maps of [[lem:iii-i8-3-2]] are. *(ii) at α″, at fixed b:* for
+fixed S⃗, G_1 at (h_j, p⃗_j) tends to G_1 at (0, p⃗_b) in 𝒴(α″) ([[lem:iii-i8-2-6]] (c) and (ii) at α′), and the
+forward solutions are bounded in [[eq:iii-i8-4-2]] at α′ ((i) at α′), so [[lem:iii-i8-3-3]] gives
+T_(h_j,p⃗_j)S⃗ → T_(0,p⃗_b)S⃗; with [[lem:iii-i8-3-3]] for C(0) (with the forcings F_j(0)) and (ii) at α′, this gives
+(ii). ∎
+
+[Hin26, Proposition 11.51] has f_2 of K⁺-weight 4 + ε_K and h with 4 + ε_K orders of decay ([Hin26, (11.148)]); here
+α < a_K is what the b-derivative needs ([[lem:iii-i7-3-1]] (b)), and the remainder is α − 2 − ε for every ε,
+[Hin26]'s α_K − 2, since the step at ι⁺ takes c_K = α to admit forcings of K⁺-weight exactly α. Its index set Ẽ′_(++),
+built by the procedure after its proof ([Hin26, (11.186)]), is here fixed in advance by [[eq:iii-i8-1-1]]. The motions
+come from quasi-homogeneous ι⁺-terms that the formal solution at null infinity transports there, as in [Hin26, Remark
+11.54]; in dimension 4 + 1 their least exponent is the radiative z_♯, so the slowest motion decays like
+t_*^(−1/2−(1−e_Υ)γ_Υ).

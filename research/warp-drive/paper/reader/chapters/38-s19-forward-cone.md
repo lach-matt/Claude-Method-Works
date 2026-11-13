@@ -875,7 +875,7 @@ u depends continuously on (b, S, h) in H^(k−1,(β_I−ς,β_+−ς,−3/2−ς
 
 *Proof.* The proof of [[thm:iii-i-5-3]], with P_0 := 2L_b and [[thm:iii-h2-4-1]] in place of [[thm:ii-f1-1-1]]. Its
 hypothesis (i) is [[thm:iii-h2-2-1]]. (ii) is unchanged, as S̄ and Ā do not depend on b. (iii) is [[cor:iii-i-5-2]],
-which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis is now [[thm:iii-h2-2-1]], with
+which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis holds by [[thm:iii-h2-2-1]], with
 ‖P − 2L_b‖_((0;d)) ≤ C(|b − b₀| + |S| + ‖h‖_(𝒳^(d+5))) by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], small by (B5).
 *Continuity.* [[thm:iii-h2-4-1]], as 2L^(g,g_0) depends smoothly on (b, S) and continuously on h in the norm of
 [[eq:iii-i-3-7]] ([[lem:iii-i-3-6]]). ∎
@@ -1021,7 +1021,7 @@ sets that are extended unions with ℰ_+; but by [[lem:iii-i1-2-2]] the 𝓘⁺-
 from ι⁺, has exponents only in ⟨ℰ_I^C⟩ up to the weight ℓ_I, so the coefficients of all other terms vanish. Hence the
 hypothesis holds with α_I + η, and finitely many steps give it for every α_I < ℓ_+.
 
-*Step 2: both.* Now integrate forward as in [[lem:iii-i1-2-2]], from α_I < ℓ_+ close to ℓ_+ up to ℓ_I, keeping the data
+*Step 2: both.* Integrate forward as in [[lem:iii-i1-2-2]], from α_I < ℓ_+ close to ℓ_+ up to ℓ_I, keeping the data
 (ℰ_+, ℓ_+) at ι⁺. In [[lem:iii-a-3-2]] with (x, y) = (ρ_I, ρ_+), the 𝓘⁺-weight α_I + η of the right side exceeds ℓ_+
 (α + Re z > β with β = ℓ_+), and ℓ_+ ∉ Re π_1 of the 𝓘⁺-index sets, which lie in ℰ_I^tot (a hypothesis; these sets do
 not depend on the weight); also ℓ_+ < ℓ_I and ℓ_+ ∉ Re π_1ℰ_+. The index sets at ι⁺ that it produces are extended
@@ -1056,8 +1056,8 @@ E with its logarithmic order at z raised by m otherwise. (The rounds of the proo
 comes from the radiation coupling of its Step 1, which dimension 4 + 1 does not have. Its windows rely on
 min Re ℰ_I^C ∈ (1, 2) in dimension 3 + 1; [[eq:iii-i1-3-2]] takes them from min Re ℰ_I^C upward in steps of 1, which is
 what the induction uses. And [Hin26, (11.33a)–(11.33b)] write ∪ where [[lem:iii-a-1-2]] returns the extended union
-E ∪̄ {(z, 0)}; the plain union understates the logarithmic orders at ι⁺ when Ĕ_+ meets z_1 or π_1ℰ_I^C, and the
-existence of ℰ^♯_+ is not affected.
+E ∪̄ {(z, 0)}; the plain union understates the logarithmic orders at ι⁺ when Ĕ_+ meets 3/2 + (1 − e_Υ)γ_Υ or π_1ℰ_I^C,
+and the existence of ℰ^♯_+ is not affected.
 
 *Proof.* By [[lem:iii-i1-1-1]], ρ_I⁻¹ρ_+⁻²L_b = L_0 + L̃ with L̃ ∈ ρ_I Diff²_b. Let χ = χ(ρ_I) ∈ C^∞_c([0, ½c_I))
 equal 1 near 0. By [[def:iii-i-1-1]] (2) ([[eq:iii-c-5-1]]), write

@@ -99,7 +99,8 @@ below fail ([[prop:np-10-12]] (iv), [[prop:np-10-13]] (i)).
 
 where 𝖧 := (0, h_*) ∖ 𝖹. Here h_* := min(10⁻⁶, h_0, h_tf), with h_0 the smaller of the thresholds of
 [[thm:iv5-7-3]] at these (v_C, e_C) for the weights [[eq:iv4-2-1]] at C_0 and at C_0 − 1, h_tf the threshold of
-[[thm:iv6-3-1]], and 𝖹 the countable set of [[lem:iv4-1-3]] (b). The nonlinear theorem of [[ch:s27]] takes C_0 = 100.
+[[thm:iv6-3-1]], and 𝖹 the union of the countable sets of [[lem:iv4-1-3]] (b) and of
+[[prop:np-10-52]] (ii)–(iii). The nonlinear theorem of [[ch:s27]] takes C_0 = 100.
 The 1-form c_C is that of [[prop:np-10-14]] at μ = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 and rescaled to μ₀
 (every condition on it depends on μ r_0⁻² and r/r_0 only, by scaling). It is stationary and equals
 |x|⁻¹(dt − v_C d|x|) for large |x| up to O(μ₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the static time, and the
@@ -1804,7 +1805,7 @@ Two consequences are used below.
 
 (a) Let f be polyhomogeneous near ∂X with index set ℱ, min Re ℱ > 2, and f ∈ Ḣ_b^(s−1,α+2) for
 α ∈ (0, min Re ℱ − 2). Then the solution u = ((P^C_b)*)⁻¹f given by (1) at such an α lies in Ḣ_b^(s,(ℰ,C_0+2)) (partial
-polyhomogeneity, [[def:iii-a-2-8]]), where ℰ is the index set of [[lem:iii-a-1-5]] for ρ⁻²f. Indeed, solve ρ⁻²f away
+polyhomogeneity, [[def:s11-b-analysis]]), where ℰ is the index set of [[lem:iii-a-1-5]] for ρ⁻²f. Indeed, solve ρ⁻²f away
 near ∂X to order ρ^(C_0+4+ε) by [[lem:iii-a-1-5]] for the elliptic b-operator ρ⁻²(P^C_b)* (on the bundle), and the
 remainder, compactly supported away from ∂X modulo Ḣ_b^(s−1,C_0+4), by (1) at the weight C_0 + 2; the sum lies in
 Ḣ_b^(s,α) for the α above (the exponents of ℰ below C_0 + 2 exceed α, by the next sentence) and solves the equation, so

@@ -65,25 +65,24 @@ A *background* is β = (h, p⃗, q) with h ∈ 𝒳^∞, p⃗ ∈ 𝒫 and q ∈
 
     ‖β‖_k := ‖h‖_(𝒳^k) + |p⃗| + ‖q‖_(𝒬^k).
 
-The black hole parameter b of β is given by the component b − b_0 of p⃗. A *graded space* is a family of Banach spaces E^k, k ∈ ℕ₀, with
-continuous inclusions E^(k+1) ↪ E^k of norm at most 1 ([[rem:ii-g-2-2]]), and E^∞ := ⋂_k E^k. The spaces of
-[[ch:s19]]–[[ch:s23]] are of this kind: weighted b-Sobolev spaces of b-regularity k; partially polyhomogeneous ones,
-normed by the order-k norms of their finitely many coefficients and of the remainder; finite-dimensional spaces
+The black hole parameter b of β is given by the component b − b_0 of p⃗. A *graded space* is a family of Banach spaces
+E^k, k ∈ ℕ₀, with continuous inclusions E^(k+1) ↪ E^k of norm at most 1 ([[rem:ii-g-2-2]]), and E^∞ := ⋂_k E^k. The
+spaces of [[ch:s19]]–[[ch:s23]] are of this kind: weighted b-Sobolev spaces of b-regularity k; partially polyhomogeneous
+ones, normed by the order-k norms of their finitely many coefficients and of the remainder; finite-dimensional spaces
 (E^k = E); and direct sums.
 
 Several of those spaces carry orders read "w−" ([[sec:iii-i14-1]], [[def:iii-j-1-1]]): they are intersections over a
 loss ε > 0, and their order-k spaces are Fréchet, not Banach. Such a space is taken here at a fixed loss: E^k_ε is the
 Banach space with every order w− replaced by w − ε, and E^∞_ε := ⋂_k E^k_ε. A statement of [[ch:s19]]–[[ch:s23]] from a
-"w−" space to a "w−" space is a continuous linear map between Fréchet spaces (closed graph theorem), so for every loss
-ε of the output and every order k there is a loss ε′(ε, k) ∈ (0, ε] of the input at which it is bounded. For the
+"w−" space to a "w−" space is a continuous linear map between Fréchet spaces (closed graph theorem), so for every loss ε
+of the output and every order k there is a loss ε′(ε, k) ∈ (0, ε] of the input at which it is bounded. For the
 statements whose proofs choose every margin from the loss the output is to have, ε′ can be taken independent of k:
 [[prop:iii-i2-5-1]], [[prop:iii-i6-2-1]], the level-3 loop of [[prop:iii-i11-3-1]] (the margin ε_ind − ε), the levels
 β_k of [[thm:iii-i14-3-1]], [[lem:iii-j1-1-1]] (η_2 := ε_+ − 3ε, which gives the ι⁺-order 3 + ε_+ − 5ε) and
-[[cor:ii-g1-4-5]] (β_scf := β′_I + ε); no margin there depends on k. For the other statements the independence of k is not
-needed: at the exact weights of [[sec:iii-j3-1]] the input and the output are taken at the loss 0 for every k
-([[cor:iii-j3-6-6]]).
-Below, ε ∈ (0, ε_1] is fixed, for a fixed ε_1 > 0; every output space is taken at the loss ε and every input space at
-the loss ε′ that the statement assigns.
+[[cor:ii-g1-4-5]] (β_scf := β′_I + ε); no margin there depends on k. For the other statements the independence of k is
+not needed: at the exact weights of [[sec:iii-j3-1]] the input and the output are taken at the loss 0 for every k
+([[cor:iii-j3-6-6]]). Below, ε ∈ (0, ε_1] is fixed, for a fixed ε_1 > 0; every output space is taken at the loss ε and
+every input space at the loss ε′ that the statement assigns.
 
 **Definition {#def:iii-j2-1-1}** (Tame families.) Let E, G be graded spaces, d_0, d ∈ ℕ, δ_0 > 0, and
 𝔹 := {β : ‖β‖_(d_0) < δ_0}. A family (T_β)_(β∈𝔹) of linear maps E^∞ → G^∞ is *tame with loss d* if for every
@@ -374,15 +373,15 @@ with C_k independent of U. At a rotating black hole parameter, U′ is built fro
 
 This is the estimate of [Hin26, Theorem 12.8, p. 312].
 
-*Proof.* Step 0 of the proof of [[thm:iii-j1-2-1]] applies [[thm:iii-j2-4-1]] at the background Φ(U), with
-‖Φ(U)‖_k ≤ C_k ‖U‖_(𝒟^(k+d)) ([[thm:iii-j-2-4]]) and ‖Φ(U)‖_(d_0) small for ‖U‖_(𝒟^(d_0+d)) small; composed with
-U ↦ Φ(U), [[eq:iii-j2-4-1]] has the form [[eq:iii-j2-1-1]] in the background U. At a rotating black hole parameter
-b, [[lem:iii-j1-1-1]] holds for the output of [[prop:iii-i15-2-5]]: the indicial roots are those at b_0
+*Proof.* Step 0 of the proof of [[thm:iii-j1-2-1]] applies [[thm:iii-j2-4-1]] at the background Φ(U), with ‖Φ(U)‖_k ≤
+C_k ‖U‖_(𝒟^(k+d)) ([[thm:iii-j-2-4]]) and ‖Φ(U)‖_(d_0) small for ‖U‖_(𝒟^(d_0+d)) small; composed with U ↦ Φ(U),
+[[eq:iii-j2-4-1]] has the form [[eq:iii-j2-1-1]] in the background U. At a rotating black hole parameter b,
+[[lem:iii-j1-1-1]] holds for the output of [[prop:iii-i15-2-5]]: the indicial roots are those at b_0
 ([[lem:iii-i15-1-1]] (P2)), [[prop:iii-h-3-2]] holds at b ((P4) there), and neither A_b, which reads only ι⁺-data and
 level-1 tf-data ([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor ((P6) there), depends on η_2. Steps 1–3 subtract
 D_UΦ(U′_•) for finitely many U′_•: the finite-dimensional data of Step 1 (bounded by a low norm of (h′, p⃗′, q′),
-[[lem:iii-j2-2-1]] (c)); the data of Case B of Step 2, f_(λ_0) ∈ Poly^K(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which are
-not finite-dimensional and are mapped by the right inverse of [[prop:iii-g3-3-7]], independent of U with the loss l,
+[[lem:iii-j2-2-1]] (c)); the data of Case B of Step 2, f_(λ_0) ∈ Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which
+are not finite-dimensional and are mapped by the right inverse of [[prop:iii-g3-3-7]], independent of U with the loss l,
 on the finitely many λ_0 ∈ Λ_* ([[lem:iii-j2-2-1]] (g), [[lem:iii-j2-1-2]] (d)); and the conormal remainders of Step 3
 (the conormal components of q′, [[lem:iii-j2-2-1]] (c)). By [[rem:iii-j-2-5]],
 
@@ -473,10 +472,10 @@ below.
 No condition is needed for the final zero-energy solve: [[lem:iii-i2-4-2]] excludes no real part and asks only
 β_tf − β_zf = α_H + 2 ∈ (0, 1).
 
-**Lemma {#lem:iii-j3-1-4}** (E1) is a smallness condition on ε_+, (E2) excludes finitely many ε_+ in any bounded range,
-(E3)–(E4) exclude finitely many α, and (A_K) excludes finitely many ε_K at fixed ε_+. So admissible α with (E3)–(E4)
-exist in (4 + ε_K − ε′_0, 4 + ε_K], and ε_+, ε_K may be decreased to meet (E1)–(E2) and (A_K), as (G⁺) and (G) already
-permit.
+**Lemma {#lem:iii-j3-1-4}** (The conditions are generic.) (E1) is a smallness condition on ε_+, (E2) excludes finitely
+many ε_+ in any bounded range, (E3)–(E4) exclude finitely many α, and (A_K) excludes finitely many ε_K at fixed ε_+. So
+admissible α with (E3)–(E4) exist in (4 + ε_K − ε′_0, 4 + ε_K], and ε_+, ε_K may be decreased to meet (E1)–(E2) and
+(A_K), as (G⁺) and (G) already permit.
 
 *Proof.* The excluded numbers are built from finitely many numbers that do not depend on α, ε_+ or ε_K within the ranges
 used: the roots μ, discrete with finitely many in any bounded set ([[prop:iii-f1-2-3]]); Λ and the tf-exponents α_0 of
@@ -595,17 +594,17 @@ Its terms lie in R^(ℓ_K(λ)) H_b (the first), in R^(ℓ_K^−+1) H_b ⊂ R^(�
 R^(−μ+k_μ+1) C^∞ ⊂ R³ C^∞ (the third, by the form of u_0, [[eq:iii-g2-2-6]] and [[lem:iii-g2-2-6]]), and have compact
 support in R > 0 (the last); all uniformly on ∂D, bounded by C‖a‖. The strip {Re ζ ∈ J} avoids {−μ}, so
 
-    K := sup_(Re ζ∈J) Σ_(i≤2) |ζ|^(2−i) ‖N(A_0, ζ)⁻¹‖_(H^s→H^(s+i)) < ∞,
+    C_J := sup_(Re ζ∈J) Σ_(i≤2) |ζ|^(2−i) ‖N(A_0, ζ)⁻¹‖_(H^s→H^(s+i)) < ∞,
 
 by the elliptic estimate with parameter of [[sec:iii-a-1-1]] for |Im ζ| large and by continuity on the compact rest of
 the strip. Then the Mellin transform of χũ is N(A_0, ·)⁻¹ applied to that of g; it continues holomorphically from
 Re ζ < ℓ_K^− to Re ζ ≤ ℓ_K(λ) with no pole in the strip; moving the line as in the proof of [[lem:iii-a-1-4]] and using
 Plancherel on Re ζ = ℓ_K(λ) gives
 
-    ‖χũ(λ)‖_(R^(ℓ_K(λ)) H^(k′)_b) ≤ K′ ‖g(λ)‖_(R^(ℓ_K(λ)) H^(k′−2)_b) + C ‖ũ(λ)‖_(R^(ℓ_K^−) H^(k′)_b),
+    ‖χũ(λ)‖_(R^(ℓ_K(λ)) H^(k′)_b) ≤ C′_J ‖g(λ)‖_(R^(ℓ_K(λ)) H^(k′−2)_b) + C ‖ũ(λ)‖_(R^(ℓ_K^−) H^(k′)_b),
 
-with K′ depending only on K and J. This is [[lem:iii-a-1-4]] with its constant uniform over the weights in J, which its
-Mellin proof gives. As φ^λ is b-smooth with |R^λ| = R^(Re λ), ‖U(λ)‖_α ≤ C ‖ũ(λ)‖_(ℓ_K(λ)).
+with C′_J depending only on C_J and J. This is [[lem:iii-a-1-4]] with its constant uniform over the weights in J, which
+its Mellin proof gives. As φ^λ is b-smooth with |R^λ| = R^(Re λ), ‖U(λ)‖_α ≤ C ‖ũ(λ)‖_(ℓ_K(λ)).
 
 (iii) *The remainder.* Near the corner, where χ_K = χ_ι = 1, [[lem:iii-g2-4-1]] for t_*^(−λ) ũ gives
 
@@ -626,7 +625,8 @@ verbatim with u_+(λ) uniformly bounded. This exhibits the decomposition of r(λ
                                                                           f_(+,j)(λ) := φ^(−λ−2) a_j.
 
 Let Φ_(ι,b)(λ) be the map f_+ ↦ u of [[thm:iii-g2-4-2]] at λ, and put
-u := Σ_j (j!/(2πi)) ∮ (λ − λ_0)^(−j−1) Φ_(ι,b)(λ) f_(+,j)(λ) dλ, an integral in Z_−, with which L_b commutes; then
+u := Σ_j (j!/(2πi)) ∮ (λ − λ_0)^(−j−1) Φ_(ι,b)(λ) f_(+,j)(λ) dλ, an integral in Z_−, with which L_b commutes. With
+U_j and r_j the functions U and r of the circle for a := a_j,
 
     f − L_b u = f′ + Σ_j (j!/(2πi)) ∮ (λ − λ_0)^(−j−1) r_j(λ) dλ.
 
@@ -810,8 +810,8 @@ gives K⁺-order α. (vii): after [[lem:iii-j3-4-4]]. (ix): σ³û_f has zf-weig
 with real part < α − 2 vanish as before, none at α − 2 by (E3).
 
 *Step 3.* [[lem:iii-i12-2-4]] at β := α, as it allows (β ∈ (α − 1, α]): its three meetings of an exponent with the
-weight, at α, α − 2 and α − 1, are excluded by (E3). It gives w″ of K⁺-order α and a_s, a_b with exponents of real part
-> α − 2, resp. > α − 1.
+weight, at α, α − 2 and α − 1, are excluded by (E3). It gives w″ of K⁺-order α and a_s, a_b with exponents of real
+part > α − 2, resp. > α − 1.
 
 *Step 4.* Ṡ_rem = A + A_5 + a_s ∈ Ḣ^(∞,α−2) (A_5 at 2 + ε_+ > α − 2, exactly by [[lem:iii-j3-4-5]] as
 2 + ε_+ ∉ ℕ); ḃ_rem = B + a_b ∈ Ḣ^(∞,α−1); ũ = w″ + w′ of K⁺-order α.
@@ -918,8 +918,8 @@ exactly α − 2; (b) L_b h_(b,rem)(q) has K⁺-order exactly α, smoothly in b;
 [[thm:iii-i14-3-1]], R_q u ∈ 𝒴^0_(ex,2)(α) and Δ_q(b′) ∈ 𝒴^♮_(ex,2)(α).
 
 *Proof.* (a) h^(≤1)(S_rem) and ġ(b_rem) are linear in S_rem, b_rem and their t_*-derivatives with stationary tensors,
-and ∂_(t_*) = t_*⁻¹(t_*∂_(t_*)) shifts an exact weight by exactly 1; the polyhomogeneous Y_ρ-terms have rates
-> 2 + ε_K ≥ α − 2 and Y^c_ρ the rate 3 + ε_+ − d_ρ > α − 2 (room). (b) L_b h^(≤1)(S) = S″(L_2h + L_1h̆¹) + S‴L_2h̆¹
+and ∂_(t_*) = t_*⁻¹(t_*∂_(t_*)) shifts an exact weight by exactly 1; the polyhomogeneous Y_ρ-terms have
+rates > 2 + ε_K ≥ α − 2 and Y^c_ρ the rate 3 + ε_+ − d_ρ > α − 2 (room). (b) L_b h^(≤1)(S) = S″(L_2h + L_1h̆¹) + S‴L_2h̆¹
 and L_b ġ(b) = b′L_1ġ + b″L_2ġ (the proof of [[lem:iii-i14-2-2]]), with S″, b′ exact at α; the ι⁺-weights of the
 profiles have room ([[lem:iii-j3-2-1]]) and the towers give rates ≥ λ_♯ + 3 > α. (c) R_q u: the "every β < w + α − 2"
 of [[lem:iii-i14-2-3]] is used at the top level with w > 2, so β = α is admitted strictly; its ι⁺-weight
@@ -929,10 +929,9 @@ each is at K⁺-order > α; at ι⁺ the exponents are in Λ, none at 3 + ε_+ b
 3 + ε_+ + η_E have room. ∎
 
 **Theorem {#thm:iii-j3-5-3}** (The forward problem with parameters at exact weights.) Assume [[def:iii-j3-1-3]], (H2)
-of [[sec:iii-i9-1]] read as a_K = α and (H5) of [[sec:iii-i14-1]] as a_+ ≤ 3 + ε_+. Let h ∈ 𝒳^∞_(J,ex), p⃗ ∈ 𝒫
-with black hole parameter b ∈ ℬ̄_*, and q ∈ 𝒬_ex be small, and F ∈ 𝒴^♮_ex(α). Then the p⃗′ of [[thm:iii-i14-3-1]] (at
-a rotating b, of
-[[prop:iii-i15-2-5]]) is unchanged, the forward solution u has K⁺-weight α − 2 and every ι⁺-weight
+of [[sec:iii-i9-1]] read as a_K = α and (H5) of [[sec:iii-i14-1]] as a_+ ≤ 3 + ε_+. Let h ∈ 𝒳^∞_(J,ex), p⃗ ∈ 𝒫 with
+black hole parameter b ∈ ℬ̄_*, and q ∈ 𝒬_ex be small, and F ∈ 𝒴^♮_ex(α). Then the p⃗′ of [[thm:iii-i14-3-1]] (at a
+rotating b, of [[prop:iii-i15-2-5]]) is unchanged, the forward solution u has K⁺-weight α − 2 and every ι⁺-weight
 β_+ < min(3/2, min Re ℰ_+), and u = h_rem(q′) + h′ with q′ ∈ 𝒬_ex and
 
     h′ ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_♯,3+ε_+),α)_b(Ω_*; S²T*)^(•,−).                                          {#eq:iii-j3-5-1}
@@ -945,8 +944,8 @@ This is [Hin26, Corollary 11.66, pp. 294–295] with [Hin26, (11.234)], in dimen
 *Proof.* Steps 0–1 of the proof of [[thm:iii-i14-3-1]], and its Step 2 at the levels below α, are unchanged: their
 inputs lie in the "w−" classes ([[rem:iii-j3-1-2]]) and their outputs feed only open conditions. At the top level,
 G̃ = F − Δ_q(p⃗′) − R_q u ∈ 𝒴^♮_ex(α) by [[prop:iii-j3-5-2]]; G′ adds f^S, f^b, f^s1, linear in h with stationary
-coefficients and so exact at a_K = α ([[lem:iii-i9-2-6]] (a)), and r^ν at Re e_ν + α − ε > α. [[ch:s22]] at the level
-α runs the constructions of [[prop:iii-i11-3-1]]–[[thm:iii-i12-3-1]] at that level, which [[prop:iii-j3-3-4]],
+coefficients and so exact at a_K = α ([[lem:iii-i9-2-6]] (a)), and r^ν at Re e_ν + α − ε > α. [[prop:iii-i13-2-1]] at the
+level α runs the constructions of [[prop:iii-i11-3-1]]–[[thm:iii-i12-3-1]] at that level, which [[prop:iii-j3-3-4]],
 [[prop:iii-j3-4-3]] and [[prop:iii-j3-4-6]] make exact. Step 3 and its uniqueness are unchanged (𝒵_ex ⊂ 𝒵); Step 4′
 uses G̃_0 ∈ 𝒴^♮_ex(α), and its comparisons have room (δ′ = ½ min(ε_K, α − 4)); Step 4 is [[prop:iii-j3-4-6]]. The
 coefficients killed by "rate ≤ 2 < α − 2" are killed as before. The tensors are those of [[thm:iii-i14-3-1]]; only the
