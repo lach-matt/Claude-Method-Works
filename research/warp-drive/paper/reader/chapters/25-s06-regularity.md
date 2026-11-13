@@ -666,8 +666,8 @@ Op(x)Λ_ε − Op(xφ_ε) is uniformly of order 𝗍 − 1 ([[prop:ii-a1-2-4]] (
 2^(−J_0−6) δ_1], so that 2^(J_0+4) δ_2 ≤ δ_1/4, let 𝒜(δ_2) := U(2^(J_0+2) δ_2) ∩ ({|ϕ^u| ≥ δ_2/16} ∪ {ρ_K ≥
 δ_2/16}), a closed set disjoint from Γ^u_(K⁺) by [[lem:ii-d-4-1]] (a). As U(δ) lies in the interior of U(2δ) for δ ≤
 δ_U ([[lem:ii-d-4-1]] (a)), an operator elliptic on U(2^(J_0+3) δ_2) can be microsupported in U(2^(J_0+4) δ_2) ⊂
-U(δ_1/4), and the operators below that are microsupported in U(2^(J_0+3) δ_2) lie where r^♭ of [[eq:ii-d-4-4]]
-vanishes. We show:
+U(δ_1/4), and an operator microsupported in U(2^(J_0+3) δ_2) is microsupported in the interior of U(δ_1/2), where r^♭
+of [[eq:ii-d-4-4]] vanishes. We show:
 
 (★) Let s′ ∈ [s_0, s] and δ_2 be as above, G′ elliptic on U(2^(J_0+3) δ_2) and microsupported in U(δ_1/4), and E′
 elliptic on 𝒜(δ_2) and microsupported in U(δ_1/4) ∩ ({|ϕ^u| ≥ δ_2/32} ∪ {ρ_K ≥ δ_2/32}). If G′u ∈ H^(s′−½), G′Pu ∈
@@ -800,9 +800,11 @@ RΛ_ε u⟩| ≤ C_δ‖G″Φ_u u‖_(s′+½) ‖G′u‖_(s′−½) + C‖χ
 
 On the support of Θ̌ψχ̄, Ψ = 1 and Q′_ε ≥ ½ν_min, so [[lem:ii-d-2-5]] with [[eq:ii-d-4-6]] and [[eq:ii-d-4-7]] bounds
 the first factor by C‖B_εΦ_u u‖ + C_δ𝒦 ≤ C(X_ε + 𝒦) + C_δ𝒦, and, with q_1 := χ̄, it bounds the second by 2‖Z^ε u‖ +
-C_δ𝒦. [[eq:ii-d-2-3]] gives |⟨Op(k_ε)Z^ε u, Z^ε u⟩| ≤ C‖Z^ε u‖² + C_δ𝒦². With [[eq:ii-d-4-10]],
+C_δ𝒦. The product of the two bounds is at most C(X_ε + 𝒦)‖Z^ε u‖ + C_δ𝒦X_ε + C_δ𝒦‖Z^ε u‖ + C_δ𝒦², and
+δC_δ𝒦‖Z^ε u‖ ≤ δ‖Z^ε u‖² + C_δ𝒦². [[eq:ii-d-2-3]] gives |⟨Op(k_ε)Z^ε u, Z^ε u⟩| ≤ C‖Z^ε u‖² + C_δ𝒦². With
+[[eq:ii-d-4-10]], multiplied by δ ≤ 1,
 
-    ‖B_δ^ε u‖² ≤ Cδ ((X_ε + 𝒦)‖Z^ε u‖ + ‖E_2^ε u‖² + ‖Z^ε u‖²) + C_δ𝒦².                                   {#eq:ii-d-4-11}
+    ‖B_δ^ε u‖² ≤ Cδ ((X_ε + 𝒦)‖Z^ε u‖ + ‖E_2^ε u‖² + ‖Z^ε u‖²) + C_δ𝒦X_ε + C_δ𝒦².                         {#eq:ii-d-4-11}
 
 This is the commutator form of [[eq:i-b-6-9]]: u is small near {ϕ^s = 0}, by the factor √δ, because Φ_u u is one
 order smoother than u (Step 1) and H_(ϕ^u) crosses {ϕ^s = 0} transversally, at the rate c_us.
@@ -861,8 +863,10 @@ uniformly of order 1), gives
 
 for every symbol z with |z| ≤ 1 supported in U(4δ_2), with C independent of δ; and, for z supported in U(16δ_2) ∩
 {|ϕ^s| ≤ δ}, which needs only 𝒰_B and the last two sets, the same with ‖B_δ^ε u‖ in place of 𝒩_ε. The first form
-applies to X_ε, to Z^ε and to E_2^ε (supported in U(δ_2/2)), the second to δ^β E_3^ε. So by [[eq:ii-d-4-11]],
-‖B_δ^ε u‖ ≤ Cδ^(1/2)(𝒩_ε + 𝒦) + C_δ𝒦. By the second form, ‖E_3^ε u‖ ≤ Cδ^(−β)(‖B_δ^ε u‖ + 𝒦) + C_δ𝒦, so by Step 3
+applies to X_ε, to Z^ε and to E_2^ε (supported in U(δ_2/2)), the second to δ^β E_3^ε. So X_ε, ‖Z^ε u‖ and
+‖E_2^ε u‖ are at most C(𝒩_ε + 𝒦) + C_δ𝒦. In [[eq:ii-d-4-11]] the term with the factor Cδ is then at most Cδ(𝒩_ε +
+𝒦)² + C_δ𝒦², and, by Young's inequality, C_δ𝒦X_ε ≤ C_δ𝒦 · C(𝒩_ε + 𝒦) + C_δ𝒦² ≤ δ(𝒩_ε + 𝒦)² + C_δ𝒦². Taking the
+square root, ‖B_δ^ε u‖ ≤ Cδ^(1/2)(𝒩_ε + 𝒦) + C_δ𝒦. By the second form, ‖E_3^ε u‖ ≤ Cδ^(−β)(‖B_δ^ε u‖ + 𝒦) + C_δ𝒦, so by Step 3
 and [[eq:ii-d-4-12]], ‖M^ε u‖ ≤ CR_3^β ‖B_3^ε u‖ + C_δ𝒦 ≤ CR_3^β δ^(−β) ‖B_δ^ε u‖ + C_δ𝒦. Together,
 
     𝒩_ε ≤ C_9 (δ^(1/2) + R_3^β δ^(1/2−β)) (𝒩_ε + 𝒦) + C_δ𝒦,
@@ -1029,11 +1033,12 @@ vanish at the face carrying Γ, at a rate ρ_Γ^ℓ for a defining function ρ_�
 on a family are:
 
 (C) For each i < J, [L, X_i] = Σ_(j=1)^J Q_(ij) X_j + R_i, with Q_(ij) of class 𝒬^1_1 and R_i of class 𝒬^2_1 with
-WF′(A_l) ∩ Ū_0 = ∅ for all its terms.
+WF′(A_l) ∩ Ū_0 = ∅ for all its terms. For i = J put Q_(Jj) := 0 and R_J := 0, as [L, X_J] = [L, I] = 0.
 
 (C2) (Only if 𝔩 = 1.) For i, i′ < J, [X_(i′), [X_i, L]] = Σ_(j,j′=1)^J Q^(2)_(i′i,jj′) X_j X_(j′) + R^(2)_(i′i), with
 Q^(2)_(i′i,jj′) of class 𝒬^0_2 and R^(2)_(i′i) = R′ + Σ_j R″_j X_j with R′ of class 𝒬^2_2 and R″_j of class 𝒬^1_2, all
-microsupported off Ū_0 as in (C).
+microsupported off Ū_0 as in (C). If i = J or i′ = J, put Q^(2)_(i′i,jj′) := 0 and R^(2)_(i′i) := 0, as the double
+commutator then vanishes.
 
 (M) Over a neighbourhood of the base projection of Ū_0, the X_i together with 𝒱_e3b span 𝒱_b over C^∞; and either the
 X_i alone span 𝒱_b there, or there are i_0 < J and a bounded weight w, a product of non-negative powers of boundary
@@ -1074,14 +1079,17 @@ X^(α[i→j]), where α[i→j] is α with its i-th letter replaced by j. So in [
 w_(j·(α∖i)) may be replaced by Q_(α_i j) w_(α[i→j]); the operator so modified is
 
     (L^(k) w)_α := L w_α − Σ_(i=1)^k Σ_(j=1)^J Q_(α_i j) w_(α⟨i,j⟩)
-                   + 𝔩 Σ_(i<i′) Σ_(j,j′) Q^(2)_(α_i α_i′, jj′) w_(jj′·(α∖{i,i′})),                       {#eq:ii-d1-2-2p}
+                   + 𝔩 Σ_(i<i′) Σ_(j,j′) Q^(2)_(α_i α_i′, jj′) w_(jj′·(α∖{i,i′})),                  {#eq:ii-d1-2-2-prime}
 
-where α⟨i,j⟩ := α[i→j] if the letter j commutes with every X_i, and α⟨i,j⟩ := j·(α∖i) otherwise. [[eq:ii-d1-2-1]]
-holds for it with the same proof, since only L^(k) u^(k) enters, and [[lem:ii-d1-2-3]]–[[lem:ii-d1-2-5]] use of L^(k)
-only that it is L ⊗ Id minus a coupling whose coefficients carry at most 1 + 𝔩 b-derivatives of those of P, so they
-hold for [[eq:ii-d1-2-2p]]. For a letter 1 with α_i = 1, α[i→1] = α: the coupling through that letter is diagonal. This
-is what the horizon needs ([[lem:ii-d1-4-1]] (c)); with [[eq:ii-d1-2-2]] the word 1·(α∖i) differs from α unless i = 1,
-and for k ≥ 2 the Hermitian part of the coupling is indefinite.
+where α⟨i,j⟩ := α[i→j] if j < J and the letter j commutes with every X_i, and α⟨i,j⟩ := j·(α∖i) otherwise.
+[[eq:ii-d1-2-1]] holds for it with the same proof, since only L^(k) u^(k) enters, and [[lem:ii-d1-2-3]]–[[lem:ii-d1-2-5]]
+use of L^(k) only that it is L ⊗ Id minus a coupling whose coefficients carry at most 1 + 𝔩 b-derivatives of those of
+P, so they hold for [[eq:ii-d1-2-2-prime]]. For a letter 1 with α_i = 1, α[i→1] = α: the coupling through that letter
+is diagonal. This is what the horizon needs ([[lem:ii-d1-4-1]] (c)). With [[eq:ii-d1-2-2]] the word 1·(α∖i) differs
+from α in general (for instance α = (2, 1), i = 2), and for k ≥ 2 the Hermitian part of the coupling is indefinite. At
+the horizon Q_(1j) = 0 for j ≠ 1, and Q_(21), Q_(22) decay at K⁺ ([[lem:ii-d1-4-1]] (b) and its proof); so at
+∂R_(𝓗⁺), on the two components (1, 2, …, 2) and (2, 1, 2, …, 2), the principal symbol of Im(L^(k) − L ⊗ Id) for
+[[eq:ii-d1-2-2]] is σ_1(Im(−Q_11)) ≠ 0 times the matrix with rows (1, ½) and (½, 0), whose determinant is −¼.
 
 The coefficients of L^(k) − L ⊗ Id carry at most 1 + 𝔩 b-derivatives of those of P, whatever k is; this is what makes
 the tame estimate possible.
@@ -1314,7 +1322,7 @@ of ∂R_(𝓗⁺). The family is 𝒳_𝓗 := (∂_r, t_* ∂_(t_*), I).
 **Lemma {#lem:ii-d1-4-1}** (Commutators at the horizon.) (a) (M) holds: 𝒱_b near 𝓗⁺ ∩ K⁺ is spanned by 𝒱_3b and t_*
 ∂_(t_*) ([[cor:ii-a-2-3]]); ∂_r ∈ 𝒱_3b is elliptic on Ū_0 (with w = 1); both are e3b-commutator fields
 ([[lem:ii-a-2-2]]). (b) (C) holds on U_0. (c) The system L^(k) = P ⊗ Id − Q of [[lem:ii-d1-2-1]] in the form
-[[eq:ii-d1-2-2p]], all letters commuting ([∂_r, t_* ∂_(t_*)] = 0), satisfies, at ∂R_(𝓗⁺),
+[[eq:ii-d1-2-2-prime]], all letters commuting ([∂_r, t_* ∂_(t_*)] = 0), satisfies, at ∂R_(𝓗⁺),
 
     ς ρ σ_1(Im(−Q)) = −diag(j_α)_(α∈𝒲_k) β_0 ≤ 0,                                                         {#eq:ii-d1-4-1}
 
@@ -1344,7 +1352,7 @@ and with I = Q_r ∂_r + R_r on the second-order terms, Q_22 := −Σ_l p_l ρ_K
 ρ_K A^♯_l) Q_r, R_2 := −Σ_l ((X_2 p̃_l) A_l + p_l ρ_K A^♯_l) R_r. Their coefficients carry a factor ρ_K or ρ_K^(ℓ_K)
 (X_2 p̃_l ∈ ρ_K^(ℓ_K) C^((d_0;k−1))_(3b;b)), so they decay at K⁺.
 
-(c) By (b) and [[eq:ii-d1-2-2p]], −Q has, at ∂R_(𝓗⁺) ⊂ {ρ_K = 0}, first-order principal symbol diag(j_α) i(H_(G_0)
+(c) By (b) and [[eq:ii-d1-2-2-prime]], −Q has, at ∂R_(𝓗⁺) ⊂ {ρ_K = 0}, first-order principal symbol diag(j_α) i(H_(G_0)
 ξ_0)/ξ_0: each letter 1 of α couples the component α to itself through Q_11, as α[i→1] = α, and the couplings through
 Q_21, Q_22 decay; G = G_0 there. Let ρ̃ := |ξ_0|⁻¹ on U_0 and 𝖧 := ρH_G. Then ρ(H_G ξ_0)/ξ_0 = −ρρ̃⁻¹ H_G ρ̃ = −ρ̃⁻¹𝖧ρ̃.
 At the radial set ∂R_(𝓗⁺) the vector field 𝖧 on the cosphere bundle vanishes, so ρ̃⁻¹𝖧ρ̃ = ρ⁻¹𝖧ρ + (ρ̃/ρ)⁻¹𝖧(ρ̃/ρ)
@@ -1593,7 +1601,7 @@ ordered power. But X_j X⃗^γ is not X⃗^(γ+e_j), and the argument there need
 of u^(k); so that system closes only modulo reordering commutators, which lie in the span of the family and can be
 absorbed. With words ([[sec:ii-d1-2]]) the expansion (F2) is exact and the commuted system closes without reordering.
 At the horizon, over ∂K⁺ and at the trapped set the fields commute, and words and multi-indices agree up to counting,
-with the coupling [[eq:ii-d1-2-2p]], whose horizon coupling is diagonal.
+with the coupling [[eq:ii-d1-2-2-prime]], whose horizon coupling is diagonal.
 
 (6) [Hin26c, Section 7.2] applies its Propositions 7.4, 7.6–7.9 and 7.10 to the commuted equations, operators with
 off-diagonal first-order terms; for the radial point estimates it refers to its Remark 7.5, and for the trapping

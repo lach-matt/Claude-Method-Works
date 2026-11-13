@@ -1272,9 +1272,9 @@ Indeed t_*∂_(t_*) ρ_I = ρ_I(1 − ρ_I), t_*∂_(t_*) ρ_+ = −ρ_+(1 − �
 so t_*∂_(t_*) = (1 − ρ_I)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) and ρ∂_ρ = ρ_I(1 − ρ_I)∂_(ρ_I) + ρ_I ρ_+∂_(ρ_+) = ρ_I∂_(ρ_I) −
 ρ_I 𝖶; and ρ t_*⁻¹ = (ρ_I ρ_+)(ρ_+(1 − ρ_I)).
 
-**Lemma {#lem:ii-g1-5-1}** (The normal form in dimension 4 + 1; [Hin26c, (13.32)].) Let P_0 be a stationary wave-type
-operator ([[def:ii-c-1-1]]) with S ∈ ρ C^∞(X̄; End ℂ^N) in [[eq:ii-c-1-1]], that is S|_(∂X) = 0. If c_𝒞 is small, then on
-𝒞
+**Lemma {#lem:ii-g1-5-1}** (The normal form in dimension 4 + 1; [Hin26c, (13.32)].) Let P_0 be a stationary
+wave-type operator ([[def:ii-c-1-1]]) with S ∈ ρ C^∞(X̄; End ℂ^(N_E)) in [[eq:ii-c-1-1]], that is S|_(∂X) = 0. If c_𝒞
+is small, then on 𝒞
 
     (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) − 3/2) 𝖶 + P̃,        P̃ ∈ ρ_I Diff²_b(𝒞),                {#eq:ii-g1-5-2}
 

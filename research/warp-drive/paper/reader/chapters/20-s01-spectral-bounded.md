@@ -26,7 +26,7 @@ uniformity in the operator.
 #### The space {#sec:i-a-1-1}
 
 Let ℝ̄⁴ be the radial compactification of ℝ⁴, with boundary ∂ℝ̄⁴ ≅ 𝕊³. Near it we use ρ = |x|⁻¹ and ω = x/|x| ∈ 𝕊³,
-so that a neighbourhood of the boundary is [0, ρ₁)_ρ × 𝕊³_ω. Fix radii 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h and set
+so that a neighbourhood of the boundary is [0, ρ₁)_ρ × 𝕊³_ω. Fix radii 0 < r₀ − 2δ₀ < r₀ < r₀ + δ₀ < r₂ < r_h and set
 
     X̄ := {x : |x| ≥ r₀} ∪ ∂ℝ̄⁴,     ∂X := ∂ℝ̄⁴,     ∂_♯X := {|x| = r₀},     X̃ := {|x| > r₀ − 2δ₀} ∪ ∂X.
 
@@ -39,6 +39,13 @@ The radii, and in particular the inner radius r₀ of the artificial boundary, a
 chapter hold for every choice of them for which the hypotheses below hold, with constants that depend on the choice;
 the cut-offs and dilations used near ∂_♯X ([[sec:i-a-6-1]]) are taken in proportion to r₀. The radii used for the
 Myers–Perry metrics are fixed in [[ch:s12]].
+
+The condition r₀ + δ₀ < r₂ costs nothing. Decreasing δ₀ shrinks X̃, on which (H1)–(H3) below continue to hold; it
+leaves X̄ and every space below unchanged; and it only weakens (H4) and (H5): the region of (H4) on which G₀ is
+Lorentzian shrinks, the set {r < r₀ − δ₀} that the curves of (H4) must reach grows, and the parameters at which they
+reach it, bounded in (H5), can only decrease. So radii with 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h for which (H1)–(H5) hold
+satisfy the ordering above once δ₀ is replaced by min(δ₀, (r₂ − r₀)/2). The condition is used in
+[[cor:i-a-6-5]], where it makes room for the radii b′ < b″ in (r₀, r₂ − δ₀).
 
 #### The bundle {#sec:i-a-1-2}
 

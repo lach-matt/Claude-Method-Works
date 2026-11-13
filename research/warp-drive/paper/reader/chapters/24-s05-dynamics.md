@@ -977,13 +977,18 @@ evaluated on (A dt_* + B dr)^(⊗2) give ρA², O(|AB|), 0, ρ⁻¹B², 0, 0, al
 
 for ρ ≤ ρ_a and ϵ_G ≤ ϵ_a, with ρ_a, ϵ_a small depending on ℓ and C₂ (the error is of the order of the main term,
 which is why ϵ_G must be small). This is timelike. It is past directed: V := t∂_t + r∂_r is future timelike for g on
-{r ≥ R₂} ∩ Ω ([[sec:ii-b-7]] for g₀; for g, |h(V, V)| ≤ Cϵ_G x_I^(2ℓ) r t_* against |g₀(V, V)| ≥ ½(t_*² + 2t_*r), and
-the orientation is continuous along g₀ + τh), and d(t_*F₁)(V) = At_* + Br > 0, as Vt_* = t_* and Vr = r; a timelike
-covector that is positive on a future timelike vector is past timelike.
+{r ≥ R₂} ∩ Ω. For g₀ this is [[sec:ii-b-7]], with |g₀(V, V)| ≥ ½(t_*² + 2t_*r). For g, fix c_V > 0 so small that the
+description of [[lem:ii-a-2-5]] used above holds on {x_I < c_V}. There, near ℐ⁺,
+|h(V, V)| ≤ Cϵ_G x_I^(2ℓ) r t_* ≤ Cϵ_G|g₀(V, V)|. Where x_I ≥ c_V, the same membership of h, in the frames listed above,
+gives |h(V, V)| ≤ Cϵ_G(t_* + r)², with C depending on c_V; there r ≤ c_V⁻²t_*, so
+½(t_*² + 2t_*r) ≥ c_V²(1 + 2c_V²)⁻¹(t_* + r)², and again |h(V, V)| ≤ Cϵ_G|g₀(V, V)|. The orientation is continuous
+along g₀ + τh, so V is future timelike for g once ϵ_G is small. Moreover d(t_*F₁)(V) = At_* + Br > 0, as Vt_* = t_* and
+Vr = r; a timelike covector that is positive on a future timelike vector is past timelike.
 
 *The function away from ℐ⁺.* dt = dt_* + dr has ḡ⁻¹(dt, dt) = −1, |(g₀⁻¹ − ḡ⁻¹)(dt, dt)| ≤ Cr⁻² by (K1), and
 |(g⁻¹ − g₀⁻¹)(dt, dt)| ≤ Cϵ_G where x_I ≥ c, by the bounds above. So g⁻¹(dt, dt) ≤ −½ on {r ≥ r′₀ − 1, x_I ≥ c} for r′₀
-large and ϵ_G small, and dt is past timelike there (dt(V) = t > 0). On {r₀ ≤ r ≤ r′₀ + 1},
+large and ϵ_G small, and dt is past timelike there (dt(V) = t > 0, V being future timelike as r′₀ − 1 ≥ R₂). On
+{r₀ ≤ r ≤ r′₀ + 1},
 g₀⁻¹(dt_*, dt_*) = g₀₀ ≤ −c₀ < 0 by (H6) and compactness, so g⁻¹(dt_*, dt_*) ≤ −½c₀ for ϵ_G small, and dt_* is past
 timelike there, for g₀ by (H6) and for g by continuity.
 
@@ -1695,7 +1700,10 @@ The following points compare this chapter with the texts it writes out in dimens
   2r∂_(t_*) − r∂_r = r(∂_t − ∂_r), printed as r∂_(t_*) − 2r∂_r; the (t, r)-form r(∂_t − ∂_r) given there is the right
   one. [Hin26c, (4.18)] has the factor −2 in place of −4; only the sign is used. The angular coefficient 1 in G⁰_(eb)
   ([[eq:ii-b-7-1]]) comes from the angular term g_(𝕊³)/(2x_I²) of ḡ near ℐ⁺ ∩ ι⁺ ([[sec:ii-a-2-3]]); the term
-  g_(𝕊³)/x_I² printed in [Hin26c, (2.27)] would give ½|η_(eb)|², and [Hin26c, (4.67)] agrees with the former. On
+  g_(𝕊³)/x_I² printed in [Hin26c, (2.27)] would give ½|η_(eb)|², and [Hin26c, (4.67)] agrees with the former.
+  [Hin26c, Definition 5.15] gives x_I⁻²ρ₊⁻²C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) the norm of
+  C^((d₀;k),(2ℓ_I+2,ℓ₊+2,ℓ_K))_(e3b;b); under the convention of [Hin26c, Definition 3.19] ([[def:ii-a-8-1]]) the factor
+  x_I⁻²ρ₊⁻² lowers both weights by 2, so the norm is that of C^((d₀;k),(2ℓ_I−2,ℓ₊−2,ℓ_K))_(e3b;b) ([[def:ii-c-3-1]]). On
   [Hin26c, p. 107], after Definition 5.15, the section x_I⁻²ρ₊⁻²(g_(m,a) + h) should read x_I²ρ₊²(g_(m,a) + h)
   ([[rem:s05-metric-class]] (b)). [Hin26c, Definition 5.11 (1)] says "monotonically non-decreasing along the future
   null-bicharacteristic flow", which contradicts its own condition ±H_G𝗌 ≤ 0 on ∂Σ^± and [Hin26c, Section 6.2]: the

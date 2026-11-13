@@ -14,7 +14,7 @@ solution decays at K⁺ ([[cor:iii-i7-4-6]]). These are [Hin26, (11.134a)–(11.
 11.44, Lemmas 11.38, 11.41, 11.43, 11.45, Corollary 11.46] in dimension 4 + 1;
 
 (2) the correction terms for decaying centre-of-mass motions, the operator with these parameters, its linearisation in
-them, and the elimination by induction on the rate: for sources with almost three orders of decay at K⁺ there is a
+them, and the elimination by induction on the rate: for forcings with almost three orders of decay at K⁺ there is a
 unique choice of all modification parameters for which the forward solution has K⁺-weight α − 2 for every
 α < min(a_K, 3), that is, decays like t_*^(−α+2), almost like t_*⁻¹, in compact spatial sets ([[prop:iii-i8-4-1]]).
 These are [Hin26, Definitions 11.47–11.48, Lemma 11.49, Proposition 11.51] in dimension 4 + 1;
@@ -25,7 +25,7 @@ exact up to a remainder of high order ([[lem:iii-i9-2-6]]). These are [Hin26, De
 dimension 4 + 1; the theorem that uses them is proved in [[ch:s22]].
 
 The dimensional changes are these. In dimension 4 + 1 the exponents at future timelike infinity ι⁺ of the effective
-sources begin at the radiative exponent z_♯ = 3/2 + (1 − e_Υ)γ_Υ > 3/2 ([[eq:iii-i1-3-2]]), where those of Kerr begin
+forcings begin at the radiative exponent z_♯ = 3/2 + (1 − e_Υ)γ_Υ > 3/2 ([[eq:iii-i1-3-2]]), where those of Kerr begin
 at 1. So there is no logarithmic centre-of-mass term ([[prop:iii-i6-2-1]]), and the parameters of the first step are
 three, not four: the boost S, the black hole parameter b and the centre of mass S⁽⁰⁾_1; [Hin26, (11.136)–(11.138b),
 Remark 11.39] and the correction h^((0,1))_s1 have no counterpart. The corrections carry no logarithm, so the
@@ -98,7 +98,7 @@ shifted set and (ℰ, w) the data "index set ℰ, remainder weight w".
 a compact subset of (ι⁺)°, and 𝒞 ⊂ supp χ_K ⊂ {t^♭_* ≥ 10}. The factor Θ := χ_r(|x|)χ^♯_IVP(1 − χ^♭_K), the boosts
 φ_S and the 1-forms w(S) are those of [[sec:iii-i4-1]]. With a ⊗_s b as above,
 
-    [δ*_g, χ]ω = dχ ⊗_s ω,          [δ_g, χ]h = −ι_(g⁻¹dχ) h,                                           {#eq:iii-i7-conv}
+    [δ*_g, χ]ω = dχ ⊗_s ω,          [δ_g, χ]h = −ι_(g⁻¹dχ) h,                                           {#eq:s21-conv}
 
 which is [[eq:iii-i4-1-2]], and three identities of [[sec:iii-i4-1]] are used throughout: (i) Υ^(E_Υ)(g, g) = 0 for
 every g, so (D_1 + D_2)Υ^(E_Υ)(g, g) = 0 and P(g, g) = Ric(g); (ii) D_1Υ^(E_Υ)(g, g) = −δ_(g,E_Υ)G_g; (iii) if
@@ -138,7 +138,7 @@ is as in [[prop:iii-i6-2-1]] (ε_ind the constant of [[eq:iii-f1-2-2]], with whi
 
     𝒴 := ⋂_(ε>0) H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),4−ε,α_K)_b(Ω_*; S²T*)^(•,−),
 
-real sections, is the class of sources ([Hin26, (11.116)] in dimension 4 + 1). A large d is fixed throughout, and
+real sections, is the class of forcings ([Hin26, (11.116)] in dimension 4 + 1). A large d is fixed throughout, and
 "h small" means h ∈ 𝒳^∞ vanishing near {t^♭_* = 1} with small 𝒳^d-norm.
 
 *Translations.* For S = S_w ∈ 𝒮_1 put Y_S := w·∂_x = η⁻¹ω̄_s1(S), V⁰(S) := ½ΘY_S, ψ_S := exp V⁰(S) and
@@ -239,7 +239,7 @@ diffeomorphism. ∎
 
 and, with the counterterms of [Hin26, Remark 11.27] as in [[def:iii-i4-2-1]],
 ϑ⁽⁰⁾_♯ := ϑ⁽⁰⁾ − δ_(g_(b_0),E_Υ)G_(g_(b_0)) h⁽⁰⁾ and ϑ⁽⁰⁾_(s1,♯) := ϑ⁽⁰⁾_s1 − δ_(g_(b_0),E_Υ)G_(g_(b_0)) h⁽⁰⁾_s1. All
-are linear. By [[eq:iii-i7-conv]], [δ_(g_(b_0),E_Υ)G_(g_(b_0)), χ_K]k = −ι_(g_(b_0)⁻¹dχ_K) G_(g_(b_0)) k.
+are linear. By [[eq:s21-conv]], [δ_(g_(b_0),E_Υ)G_(g_(b_0)), χ_K]k = −ι_(g_(b_0)⁻¹dχ_K) G_(g_(b_0)) k.
 
 [Hin26]'s h⁽⁰⁾_s1 has ω⁽⁰⁾_(b_0,s1) alone; Θw⁰(S) is the translation of [[eq:iii-i7-1-3]], as Θw(S) is the boost's in
 [[def:iii-i4-2-1]]. These tensors are built at b_0 and serve at every base point ([[lem:iii-i15-1-1]] (P6)).
@@ -301,12 +301,12 @@ where b = b_0 and S⁽⁰⁾_1 = 0. For the others: at p⃗ = 0, g′ = g_0 = g_
     D_1Υ := D_1Υ^(E_Υ)(g_(b_0), g_(b_0)) = −δ_(g_(b_0),E_Υ)G_(g_(b_0))
 
 (the last by (ii)). We write δ*, δ_(E_Υ)G, δ*_(E_C) and DRic at g_(b_0). *The parameter b.* ġ_0 = χ_K ġ_(b_0)(ḃ), as
-only χ_K g_b depends on b; ġ′ − ġ_0 = h⁽⁰⁾(ḃ) and ϑ̇ = ϑ⁽⁰⁾_♯(ḃ). By [[eq:iii-i7-conv]],
+only χ_K g_b depends on b; ġ′ − ġ_0 = h⁽⁰⁾(ḃ) and ϑ̇ = ϑ⁽⁰⁾_♯(ḃ). By [[eq:s21-conv]],
 h⁽⁰⁾(ḃ) = χ_K δ*ω̇ − δ*(χ_K ω̇), so ġ′ = χ_K ġ(ḃ) − δ*(χ_K ω̇(ḃ)) and DRic(ġ′) = DRic(χ_K ġ(ḃ)) by (iii). And
 D_1Υ h⁽⁰⁾ − ϑ⁽⁰⁾_♯ = −δ_(E_Υ)Gh⁽⁰⁾ − ϑ⁽⁰⁾ + δ_(E_Υ)Gh⁽⁰⁾ = −ϑ⁽⁰⁾(ḃ). So DP_2 = DRic(χ_K ġ) + δ*_(E_C)ϑ⁽⁰⁾(ḃ); and
 as δ_(E_Υ)Gġ = 0, L_(b_0)(χ_K ġ) = DRic(χ_K ġ) + δ*_(E_C)[δ_(E_Υ)G, χ_K]ġ, the same. *The parameter S⁽⁰⁾_1.*
 ġ_0 = −(1 − χ_K)δ*(Θw⁰(Ṡ⁽⁰⁾)) (Translations, above), ġ′ − ġ_0 = h⁽⁰⁾_s1(Ṡ⁽⁰⁾) and ϑ̇ = ϑ⁽⁰⁾_(s1,♯)(Ṡ⁽⁰⁾). With
-[[eq:iii-i7-conv]], −(1 − χ_K)δ*(Θw⁰) = −δ*((1 − χ_K)Θw⁰) − dχ_K ⊗_s Θw⁰ and
+[[eq:s21-conv]], −(1 − χ_K)δ*(Θw⁰) = −δ*((1 − χ_K)Θw⁰) − dχ_K ⊗_s Θw⁰ and
 −dχ_K ⊗_s ω_s1 = χ_K h(Ṡ⁽⁰⁾) − δ*(χ_K ω_s1), so
 
     ġ′ = χ_K h(Ṡ⁽⁰⁾) − δ*((1 − χ_K)Θw⁰(Ṡ⁽⁰⁾) + χ_K ω_s1(Ṡ⁽⁰⁾)),
@@ -518,7 +518,8 @@ D_p⃗P_2(h, p⃗) in the direction • ([[lem:iii-i7-3-1]]), f^(=0)_(h,p⃗)(b�
 let the *boost map* be the linear map S^(−1)_(h,p⃗) := Ṡ_(h,p⃗) ∘ f^S_(h,p⃗) of 𝒮_1 ≅ ℝ⁴. Where it is invertible put,
 for f ∈ 𝒴 and p⃗′^(=0) ∈ 𝔟 ⊕ 𝒮_1,
 
-    p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0)) := (S^(−1)_(h,p⃗))⁻¹(Ṡ_(h,p⃗)(f) − Ṡ_(h,p⃗)(f^(=0)_(h,p⃗)(p⃗′^(=0)))),  {#eq:iii-i7-4-x}
+    p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0))
+        := (S^(−1)_(h,p⃗))⁻¹(Ṡ_(h,p⃗)(f) − Ṡ_(h,p⃗)(f^(=0)_(h,p⃗)(p⃗′^(=0)))),                     {#eq:s21-boost-choice}
 
 and F_(h,p⃗)(p⃗′^(=0)) := −D_p⃗P_2(h, p⃗)(p⃗′^(<0)_(h,p⃗)(0, p⃗′^(=0)), p⃗′^(=0)). By linearity
 Ṡ_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) = −S^(−1)_(h,p⃗)(p⃗′^(<0)_(h,p⃗)(0, p⃗′^(=0))) − Ṡ_(h,p⃗)(f^(=0)_(h,p⃗)(p⃗′^(=0))),
@@ -575,7 +576,7 @@ Hence
 
 and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|)|S′|.
 
-*The reduced map.* At (0, p⃗_b), [[eq:iii-i7-4-x]] gives
+*The reduced map.* At (0, p⃗_b), [[eq:s21-boost-choice]] gives
 S′_0 := A_(0,p⃗_b)p⃗′^(=0) = −(S^(−1)_(0,p⃗_b))⁻¹Ṡ_(0,p⃗_b)(f^(=0)_(0,p⃗_b)(b′, S″)). By [[eq:iii-i15-2-7]],
 χ_K(ġ_b(b′) + h_b(S″)) is the forward solution of L_(0,p⃗_b)u = f^(=0)_(0,p⃗_b)(b′, S″) − E^mot_b(0, b′, S″); it has
 K⁺-weight −ε > −1, so no boost term, and Q_(0,p⃗_b) of that forcing is (b′, S″). So
@@ -586,9 +587,9 @@ K⁺-weight −ε > −1, so no boost term, and Q_(0,p⃗_b) of that forcing is 
 whence |M_(0,p⃗_b) + id| ≤ C|b − b_0|. For (h, p⃗) near (0, p⃗_b), M_(h,p⃗)(p⃗′^(=0)) = Q_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) with
 Ṡ_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) = 0, and likewise at (0, p⃗_b). So (2), for the pair (F_(h,p⃗), F_(0,p⃗_b)), bounds
 M_(h,p⃗) − M_(0,p⃗_b) by C‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0); and (1) bounds
-‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through [[eq:iii-i7-4-x]], (1), (2) and the
-bound on the boost map. This proves the bound on A_(h,p⃗) and [[eq:iii-i15-2-8]], and the Neumann series gives the
-inverses. The proofs of [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and [[cor:iii-i7-4-6]] below, and the base step of
+‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through [[eq:s21-boost-choice]], (1), (2)
+and the bound on the boost map. This proves the bound on A_(h,p⃗) and [[eq:iii-i15-2-8]], and the Neumann series gives
+the inverses. The proofs of [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and [[cor:iii-i7-4-6]] below, and the base step of
 [[prop:iii-i8-4-1]], use, beyond [[lem:iii-i7-2-5]] (c), only these inverses and their bounds. ∎
 
 **Lemma {#lem:iii-i7-4-3}** ([Hin26, Lemma 11.43] in dimension 4 + 1.) For (h, p⃗) small as in
@@ -605,8 +606,8 @@ p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0)) = p⃗′^(<0)_(h,p⃗)(f, 0) + A_(h,p⃗
 (⟨ℰ^C_I+1⟩′, a_I + 1), ι⁺-weight a_+ + 2 + min(2, m_+) − ε > 4 − ε, zero near K⁺), and so does f^b_(h,p⃗)(b′) (zero
 near 𝓘⁺, ι⁺-weight a_+ + 4 − ε, K⁺-weight a_K > α_K); all are real. By linearity the boost parameter of the forward
 solution of [[eq:iii-i7-4-2]] is Ṡ_(h,p⃗)(f) − S^(−1)_(h,p⃗)(S′) − Ṡ_(h,p⃗)(f^(=0)_(h,p⃗)(p⃗′^(=0))). By
-[[prop:iii-i15-2-12]], S^(−1)_(h,p⃗) is invertible, so it vanishes exactly for S′ given by [[eq:iii-i7-4-x]], which is
-linear in (f, p⃗′^(=0)); the last claim is the bound on A_(h,p⃗) of [[prop:iii-i15-2-12]]. ∎
+[[prop:iii-i15-2-12]], S^(−1)_(h,p⃗) is invertible, so it vanishes exactly for S′ given by [[eq:s21-boost-choice]],
+which is linear in (f, p⃗′^(=0)); the last claim is the bound on A_(h,p⃗) of [[prop:iii-i15-2-12]]. ∎
 
 At (0, 0) the boost map is the identity, S^(−1)_(0,0)(S′) = S′: the forward solution χ_K h^(≤1)_♮(S′) of
 L_(b_0)u = f^S_(0,0)(S′) ([[lem:iii-i7-2-4]]) has the form [[eq:iii-i4-4-1]] with ũ = 0. And A_(0,0) = 0: the forward
@@ -662,7 +663,7 @@ on the K⁺-rate α: at each level the forward solution is expanded into finitel
 χ_K t_*^(−z+1)(log t_*)^k h(S) plus a remainder, and these are then eliminated by gauge modifications.
 
 Everything of [[sec:iii-i7-1]] is kept: 𝔟, ℰ_ind with [[eq:iii-i7-1-1]]–[[eq:iii-i7-1-2]], 𝒢, ℓ_I with ℓ_I ≤ a_I, the
-translated background [[eq:iii-i7-1-3]], the cut-offs, 𝒞, Θ, the conventions [[eq:iii-i7-conv]] and the identities
+translated background [[eq:iii-i7-1-3]], the cut-offs, 𝒞, Θ, the conventions [[eq:s21-conv]] and the identities
 (i)–(iii). ℰ_ind is enlarged to contain also the index sets of [[prop:iii-d3-3-1]] (2) at b_0 (those of the 1-forms ω̆^i
 of [[sec:iii-i8-2]]); everything of [[sec:iii-i7-1]]–[[sec:iii-i7-4]] holds with the enlarged set, which only
 strengthens the conditions on ℰ_+ there. ℰ^ι_ind is the index set of [[eq:iii-g2-4-4]], and ℰ^♯_+ is the set of
@@ -767,7 +768,7 @@ S ∈ 𝒮_(1,ℂ), D_p⃗P_3(0, 0)(S^((z−1,k))_1 = S) = L_(b_0)(m_(z,k)(S)), 
 forward solution ([[prop:ii-e-3-4]]). The identities [[eq:iii-i7-2-3]] hold for P_3.
 
 *Proof.* At p⃗ = 0, g′ = g_0 = g_(b_0) and Υ^(E_Υ)(g_(b_0), g_(b_0)) − ϑ_tot(0) = 0; g_0 does not depend on
-S^((z−1,k))_1, and, by [[eq:iii-i7-conv]],
+S^((z−1,k))_1, and, by [[eq:s21-conv]],
 
     ġ′ = h^((z−1,k))_s1(S) = χ_K δ*ω^(≤4)(aS) − δ*(χ_K ω^(≤4)(aS)) = m_(z,k)(S) − δ*(χ_K ω^(≤4)(aS)).
 
@@ -1091,7 +1092,7 @@ counterterm ϑ_ν, so that the linearisation of the operator in the new paramete
 Everything of [[sec:iii-i8-1]] is kept: 𝔟, the enlarged ℰ_ind, ℰ^ι_ind, ℰ^♯_+ and z_♯ = 3/2 + (1 − e_Υ)γ_Υ =
 min Re ℰ^♯_+, the index set ℰ_(++) with [[eq:iii-i8-1-1]] and 𝓜 = {(z, k) ∈ ℰ_(++) : Re z < 2} of [[eq:iii-i8-1-2]],
 𝒢 = (2, 0) ∪ (2 + ℰ_ind), ℓ_I ≤ a_I, the translated background [[eq:iii-i7-1-3]], and the cut-offs, 𝒞, Θ, the
-conventions [[eq:iii-i7-conv]] and the identities (i)–(iii). ℰ_ind is enlarged once more, to contain also the index
+conventions [[eq:s21-conv]] and the identities (i)–(iii). ℰ_ind is enlarged once more, to contain also the index
 sets of [[prop:iii-d3-3-1]] (1), (3) and (4)–(7) at b_0 (those of the towers of [[sec:iii-i9-2]]; there ℰ_ind changes
 from line to line) and (2, 0) ([[eq:iii-d2-3-2]]); [[eq:iii-i8-1-1]], ℰ_(++) and the conditions on ℰ_+ there are taken
 with the enlarged set, which only strengthens them. Put ℱ := (0, 0) ∪ ℰ_ind, Ẽ_+ := 𝒢 ∪ (ℰ_+ + 𝒢)
@@ -1295,7 +1296,7 @@ a^((K_τ+2)) times stationary tensors smooth on compact spatial sets. For τ ≠
 Re e_ν + K_τ + 1 − ε: Re z − 1 + 5 (s1), Re z + 4 (v1, s2), Re z + d_τ + 3 (c0, c1); for s0, A_ν^((5)) = r_ν^((4)) has
 weight Re z + 4 − ε. Since Re z ≥ z_♯ by [[eq:iii-i9-1-2]] and d_τ > 0, κ_ν > z_♯ + 3.
 
-(e) For stationary v, δ*_(g_(b_0))(φ(t_*)v) = φ δ̂*(0)v + φ′ dt_* ⊗_s v ([[eq:iii-i7-conv]]). For τ ≠ s0 the term of
+(e) For stationary v, δ*_(g_(b_0))(φ(t_*)v) = φ δ̂*(0)v + φ′ dt_* ⊗_s v ([[eq:s21-conv]]). For τ ≠ s0 the term of
 δ*ω_ν without a derivative of a is a δ̂*(0)ω̆⁰_τ = r_νh_τ, and every other term carries a^((j)), j ≥ 1, of K⁺-weight
 Re e_ν + 1 − ε. For s0, δ̂*(0)ω̆⁰ = 0 (Killing); the terms carrying A′_ν = r_ν are
 r_ν(dt_* ⊗_s ω̆⁰ + δ̂*(0)ω̆¹) = r_νh⁽⁰⁾_(b_0,s0) (as h⁽⁰⁾_(b_0,s0) = δ*(t_*ω̆⁰ + ω̆¹)), and the others carry
@@ -1330,7 +1331,7 @@ S^((z−1,k))_1 = W_((s1,z,k))) where W_ν = 0 for the rows outside {(s1, z, k) 
 W ∈ 𝒲_(τ,ℂ), D_p⃗P_4(0, 0)(W_ν = W) = L_(b_0)(m_ν(W)), and m_ν(W), vanishing for t^♭_* < 10, is its forward solution
 ([[prop:ii-e-3-4]]). The identities [[eq:iii-i7-2-3]] hold for P_4.
 
-*Proof.* At p⃗ = 0, g′ = g_0 = g_(b_0); g_0 does not depend on W_ν, and, by [[eq:iii-i7-conv]],
+*Proof.* At p⃗ = 0, g′ = g_0 = g_(b_0); g_0 does not depend on W_ν, and, by [[eq:s21-conv]],
 ġ′ = h_ν(W) = χ_Kδ*ω_ν − δ*(χ_Kω_ν) = m_ν(W) − ζ_ν(W), ζ_ν(W) := δ*_(g_(b_0))(χ_Kω_ν(W)). By (ii),
 D_1Υ^(E_Υ)(g_(b_0), g_(b_0)) = −δ_(E_Υ)G, so DP_4 = DRic(ġ′) + δ*_(E_C)(δ_(E_Υ)Gġ′ + ϑ_(ν,♯)(W)); by (iii)
 DRic(ζ_ν) = 0, and δ_(E_Υ)Gh_ν + ϑ_(ν,♯) = ϑ_ν = δ_(E_Υ)Gm_ν, so DP_4 = DRic(m_ν) + δ*_(E_C)δ_(E_Υ)Gm_ν = L_(b_0)m_ν. On

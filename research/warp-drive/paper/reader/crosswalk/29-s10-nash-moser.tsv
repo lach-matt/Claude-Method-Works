@@ -86,7 +86,7 @@ eq:ii-g1-4-6	docket68/n1star/proof5/PART-II-G2-DECAY.md:925	II.G1 (4.6)
 sec:ii-g1-5	docket68/n1star/proof5/PART-II-G2-DECAY.md:957	II.G1 section 5	
 sec:ii-g1-5-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:959	II.G1 section 5.1	the program check cited at 980-982 replaced by the written derivation of (5.1); the radius c_0 renamed c_C (script C) through sec:ii-g1-5 and sec:ii-g1-6-2, c_0 being c_1/8 in sec:ii-g-3
 eq:ii-g1-5-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:979	II.G1 (5.1)	the four derivatives and the identities written out
-lem:ii-g1-5-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:984	II.G1 Lemma 5.1	S in rho C^infty(X-bar; End C^N), as in eq:ii-c-1-1 of S5; tagged line 1015 rewritten with lem:ii-c-1-3; the source's 'checked where applied' replaced by: prop:ii-g1-5-4 is not applied in the stability theory (no citation of II.G1 section 5 or [Hin26c] Prop 13.20 in Parts III-IX)
+lem:ii-g1-5-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:984	II.G1 Lemma 5.1	S in rho C^infty(X-bar; End C^(N_E)) (OUTLINE: N_E the bundle rank; S5 still writes C^N); tagged line 1015 rewritten with lem:ii-c-1-3; the source's 'checked where applied' replaced by: prop:ii-g1-5-4 is not applied in the stability theory (no citation of II.G1 section 5 or [Hin26c] Prop 13.20 in Parts III-IX)
 eq:ii-g1-5-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:988	II.G1 (5.2)	
 def:ii-g1-5-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:1018	II.G1 Definition 5.2	(J13) folded; [Hin26c]'s u_(1,0) referred to as the coefficient on I+ (u_0 here)
 sec:ii-g1-5-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:1031	II.G1 section 5.2	

@@ -19,21 +19,25 @@ smallness of |σ| in [[thm:i-c-6-4]] may depend on the b-regularity order ([[rem
 
 Every input is proved here or in [[ch:s01]]–[[ch:s02]], from the classical facts of [[sec:i-c-2-1]], the scattering
 calculus of [HJS] as used in [[ch:s01]], and the facts about Hankel functions from [DLMF] stated in [[sec:i-c-5-2]].
-The radii 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h of [[sec:i-a-1-1]] enter only through these inequalities, and the radius R_1
-of [[sec:i-c-2-6]] is chosen above r_e + 1 whatever r_0 is; so every result below holds with the inner radius r_0 as a
-parameter.
+The radii r_0, δ_0, r_2, r_h of [[sec:i-a-1-1]] enter only through the results of [[ch:s01]] cited here, under the
+conditions that [[ch:s01]] places on them: the ordering of [[sec:i-a-1-1]], and the conditions on the slab of
+[[cor:i-a-6-5]], which is used in [[sec:i-c-3]] and [[sec:i-c-6-7]]. The radius R_∂ of [[sec:i-c-2-6]] is chosen above
+r_e + 1 whatever r_0 is. So every result below holds with the inner radius r_0 as a parameter, for every choice of the
+radii that satisfies those conditions.
 
 [[sec:i-c-1]] fixes the setting and the hypotheses. [[sec:i-c-2]] proves the b-analysis used at the two conic ends, at
 infinity and at the origin of the transition face. [[sec:i-c-3]] treats the zero energy operator, [[sec:i-c-4]] the
 transition face normal operator, [[sec:i-c-5]] tf-admissibility and the asymptotically Minkowski case, [[sec:i-c-6]]
 the low-energy estimates and the index, and [[sec:i-c-7]] their uniformity in the operator.
 
-*Notation.* As in [[ch:s02]], the rank of the bundle is N_E, and large integers that bound orders of Sobolev spaces
-are written M. Δ := Δ_(𝕊³) ≥ 0 is the Laplacian of the round metric on 𝕊³. The variable of the Mellin transform and of
-indicial families is ι ∈ ℂ, and an indicial root is a value of ι. Variable decay orders are written 𝗋, as in
-[[sec:i-a-1-4]], and r = |x|. For an operator A on 𝕊³ with End ℂ^(N_E)-valued coefficients (in particular for an
-endomorphism-valued function), A^† denotes its adjoint for the standard inner product of ℂ^(N_E) and the round density,
-and A^(*h) := H_0⁻¹ A^† H_0, with H_0 as in [[sec:i-c-1-1]].
+*Notation.* As in [[ch:s02]], the rank of the bundle, N in [[sec:i-a-1-2]], is written N_E, and large integers that
+bound orders of Sobolev spaces are written M. Δ := Δ_(𝕊³) ≥ 0 is the Laplacian of the round metric on 𝕊³. The variable
+of the Mellin transform and of indicial families is ι ∈ ℂ, and an indicial root is a value of ι. Variable decay orders
+are written 𝗋, as in [[sec:i-a-1-4]], and r = |x|. For an operator A on 𝕊³ with End ℂ^(N_E)-valued coefficients (in
+particular for an endomorphism-valued function), A^† denotes its adjoint for the standard inner product of ℂ^(N_E) and
+the round density, and A^(*h) := H_0⁻¹ A^† H_0, with H_0 = H(0, ·) as in [[sec:i-c-1-1]]. This H_0-adjoint is the one
+meant for operators on 𝕊³ and for the transition face operators of [[sec:i-c-4]], whose coefficients do not depend on
+ρ̂; for operators on X̃ the h-adjoint A^(*h) = H⁻¹A^†H of [[sec:i-c-1-1]] is meant, with A^† the adjoint for |dx|.
 
 ### Setting and hypotheses {#sec:i-c-1}
 
@@ -318,9 +322,9 @@ amount less than min(1, c_+ − c_i), so finitely many reach every c′ < c_+. T
 
 #### The spaces on X̄ {#sec:i-c-2-6}
 
-Fix R_1 > r_e + 1 so large that {r ≥ R_1} ⊂ {ρ < ρ_1} and P⁽⁰⁾ is b-elliptic on {r ≥ ½R_1} (possible by (H2), its
-b-principal symbol being that of (ρD_ρ)² + Δ plus O(ρ)), and let χ_∂ = χ_∂(r) with χ_∂ = 0 on {r ≤ R_1} and χ_∂ = 1
-on {r ≥ 2R_1}.
+Fix R_∂ > r_e + 1 so large that {r ≥ R_∂} ⊂ {ρ < ρ_1} and P⁽⁰⁾ is b-elliptic on {r ≥ ½R_∂} (possible by (H2), its
+b-principal symbol being that of (ρD_ρ)² + Δ plus O(ρ)), and let χ_∂ = χ_∂(r) with χ_∂ = 0 on {r ≤ R_∂} and χ_∂ = 1
+on {r ≥ 2R_∂}.
 
 **Definition {#def:i-c-2-8}** (The spaces of [Hin26c, (3.72)] in dimension 4 + 1.) For s, a ∈ ℝ,
 
@@ -331,7 +335,7 @@ defined with Ḣ^s (supported at ∂_♯X) in the first term. H̄_b^((s;k),a) :=
 regularity).
 
 By [[lem:i-c-2-2]], near ∂X the norm is that of ρ^a H_b^s(|dx|) = ρ^(a+2) H_b^s(μ_b), as |dx| = ρ⁻⁴μ_b; the b-weight is
-a + 2. The space does not depend on R_1 or χ_∂, up to equivalent norms.
+a + 2. The space does not depend on R_∂ or χ_∂, up to equivalent norms.
 
 **Lemma {#lem:i-c-2-9}** (a) The L²(|dx|) pairing identifies the dual of H̄_b^(s,a) with Ḣ_b^(−s,−a).
 (b) For s′ > s and a′ > a, the inclusion H̄_b^(s′,a′) ↪ H̄_b^(s,a) is compact.
@@ -379,21 +383,21 @@ of the weight α of the domain; [Hin26c, (9.107)] prints −α − 2 (see [[sec:
 #### Proof of (1) {#sec:i-c-3-1}
 
 *Proof of [[thm:i-c-3-1]] (1).* *The interior.* Let χ, χ_1 and b′ < b″ be as in [[cor:i-a-6-5]], χ_far := 1 − χ,
-and φ_j ∈ C_c^∞({r < jR_1}) equal to 1 on {r ≤ (j − 1)R_1}, j = 3, 4, 5. Run the pieces (A), (B) and (F) of
+and φ_j ∈ C_c^∞({r < jR_∂}) equal to 1 on {r ≤ (j − 1)R_∂}, j = 3, 4, 5. Run the pieces (A), (B) and (F) of
 [[sec:i-a-7-1]] at σ = 0 for φ_3 χ_far u: [[prop:i-a-4-2]] (1) at the horizon (σ = 0 lies in its compact sets
 𝒟 ⊂ {Im σ ≥ 0}), [[prop:i-a-5-2]] along the curves of (H4), which lie over {r ≤ r_e}, and [[prop:i-a-5-1]] on the
-rest of fibre infinity over {r < 3R_1}; at finite frequencies over a compact set every operator of order −∞ is bounded
+rest of fibre infinity over {r < 3R_∂}; at finite frequencies over a compact set every operator of order −∞ is bounded
 by ‖u‖_(H^(−M)) there. With [[eq:i-a-6-1]] at σ = 0 for χu this gives, with s > s_0 > ½ + ϑ_ℋ,
 
-    ‖(1 − χ_∂)u‖_(H̄^s) ≤ C(‖P̂(0)u‖_(H̄^(s−1)({r<4R_1})) + ‖φ_4 u‖_(H̄^(s_0)) + ‖φ_4 u‖_(H̄^(−M))),
+    ‖(1 − χ_∂)u‖_(H̄^s) ≤ C(‖P̂(0)u‖_(H̄^(s−1)({r<4R_∂})) + ‖φ_4 u‖_(H̄^(s_0)) + ‖φ_4 u‖_(H̄^(−M))),
 
 as 1 − χ_∂ = (1 − χ_∂)(χ + φ_3 χ_far). By (K3) and Ehrling's lemma,
-‖φ_4 u‖_(H̄^(s_0)) ≤ δ‖φ_5 u‖_(H̄^s) + C_δ‖φ_5 u‖_(H̄^(−M)), and over {r < 5R_1} the norms of H̄_b^(s,α) and H̄^s are
+‖φ_4 u‖_(H̄^(s_0)) ≤ δ‖φ_5 u‖_(H̄^s) + C_δ‖φ_5 u‖_(H̄^(−M)), and over {r < 5R_∂} the norms of H̄_b^(s,α) and H̄^s are
 equivalent. So
 
     ‖(1 − χ_∂)u‖_(H̄^s) ≤ C‖P̂(0)u‖_(H̄_b^(s−1,α+2)) + Cδ‖u‖_(H̄_b^(s,α)) + C_δ‖u‖_(H̄_b^(−M,−M)).          {#eq:i-c-3-4}
 
-*Near ∂X.* Let χ̃_∂ be supported in {r > ½R_1} and equal to 1 near supp χ_∂. [[lem:i-c-2-5]] for L = P⁽⁰⁾ at the
+*Near ∂X.* Let χ̃_∂ be supported in {r > ½R_∂} and equal to 1 near supp χ_∂. [[lem:i-c-2-5]] for L = P⁽⁰⁾ at the
 b-weight α + 2, with χ̃_∂P⁽⁰⁾u = χ̃_∂ρ⁻²P̂(0)u, gives
 
     ‖χ_∂ u‖_(H_(b,α+2)^s) ≤ C(‖P̂(0)u‖_(H̄_b^(s−2,α+2)) + ‖χ̃_∂ u‖_(H_(b,α+2)^(−M))),
@@ -404,12 +408,12 @@ c = α + 2 (not a real part of a root, by (G)), with cut-offs χ̃_∂ and χ̃�
     ‖χ̃_∂ u‖_(H_(b,α+2)^(−M)) ≤ C‖P̂(0)u‖_(H̄_b^(−M−2,α+2)) + Ce^(−k_0)‖χ̃′u‖_(H_(b,α+2)^(−M))
                                  + C_(k_0)‖χ̃′u‖_(H_(b,−M)^(−M)).
 
-Here χ̃′ − χ̃_∂ has compact support in {r > ¼R_1}, where all weights are equivalent, so
+Here χ̃′ − χ̃_∂ has compact support in {r > ¼R_∂}, where all weights are equivalent, so
 ‖χ̃′u‖_(H_(b,α+2)^(−M)) ≤ ‖χ̃_∂ u‖_(H_(b,α+2)^(−M)) + C‖u‖_(H̄_b^(−M,−M)), and
 ‖χ̃′u‖_(H_(b,−M)^(−M)) ≤ C‖u‖_(H̄_b^(−M,−M)). Take k_0 with Ce^(−k_0) ≤ ½; the left side is finite because
 u ∈ H̄_b^(s,α), so it absorbs the middle term. With [[eq:i-c-3-4]], and δ small, this proves [[eq:i-c-3-2]].
 
-*The adjoint.* Let v ∈ 𝒳_0^*. In the interior run the adjoint chain of [[sec:i-a-7-1]] at σ = 0 over {r < 4R_1}:
+*The adjoint.* Let v ∈ 𝒳_0^*. In the interior run the adjoint chain of [[sec:i-a-7-1]] at σ = 0 over {r < 4R_∂}:
 [[eq:i-a-6-2]] at the artificial boundary, which needs nothing but P̂(0)^(*h)v; (B*), [[prop:i-a-5-2]] for
 P̂(0)^(*h) with the backward field from there to the horizon; (A*), [[prop:i-a-4-2]] (2), whose E-term lies in the
 region of (B*); and (F). No a priori term arises. Near ∂X,
@@ -461,7 +465,7 @@ Green's formula. ∎
 
 *Proof of [[thm:i-c-3-1]] (2).* Let u ∈ H̄_b^(s,α) with P̂(0)u = 0. In the interior the estimates of [[sec:i-c-3-1]]
 hold in the strong sense ([[rem:i-a-7-3]]: [[prop:i-a-4-2]] (1), [[prop:i-a-5-1]], [[prop:i-a-5-2]] and
-[[cor:i-a-6-5]] do), with the a priori term at the horizon given by the order s of u, so u ∈ H̄^(s′) on {r < 3R_1}
+[[cor:i-a-6-5]] do), with the a priori term at the horizon given by the order s of u, so u ∈ H̄^(s′) on {r < 3R_∂}
 for every s′: u is smooth up to ∂_♯X. Near ∂X, [[lem:i-c-2-5]] at every order gives χ_∂u ∈ H_(b,α+2)^∞, and
 [[lem:i-c-2-7]] for L = P⁽⁰⁾, with (c_−, c_+) = I and c = α + 2, gives χ_∂u ∈ 𝒜^β for every β < β_+. In [Hin26c]
 this step is a contour shift through [Hin26c, (9.109)]; here it is done by [[lem:i-c-2-3]] and [[lem:i-c-2-7]]. ∎
@@ -888,7 +892,7 @@ If u is supported in {ρ ≥ ρ_*} for a fixed ρ_* > 0, it is equivalent to ς^
 depending on ρ_* (and ς ≤ ρ_*).
 
 (b) (*Multipliers.*) Let φ ∈ C^∞([0, ∞)) be constant on [0, a] and on [A, ∞), 0 < a < A, and let
-ρ_c ∈ (0, 1/(2R_1)]. Multiplication by φ(ρ/ς) and by φ(ρ/ρ_c) is bounded on ℋ_ς^((s;k),(𝗋,l,q)), for
+ρ_c ∈ (0, 1/(2R_∂)]. Multiplication by φ(ρ/ς) and by φ(ρ/ρ_c) is bounded on ℋ_ς^((s;k),(𝗋,l,q)), for
 ς ≤ ς_1(a, A, ρ_c).
 
 (c) (*Fixed ς.*) ℋ_ς^((s;k),(𝗋,l,q)) = H̄^((s;k),𝗋_ς) ([[sec:i-a-4-6]]), with equivalent norms (the constants
@@ -903,7 +907,7 @@ J ⊂ ℝ ∖ 0, then 𝗋_ς is admissible with weight α_+ for every σ_0 ∈ 
 
 (e) (*Trading b-regularity.*) For m ∈ ℕ_0, ‖u‖_((s+m;k),(𝗋,l,q),ς) ≤ C‖u‖_((s;k+m),(𝗋,l,q),ς).
 
-*Proof.* Take ς_1 ≤ 1/(4R_1), so that {ρ ≥ ς} contains supp(1 − χ_∂).
+*Proof.* Take ς_1 ≤ 1/(4R_∂), so that {ρ ≥ ς} contains supp(1 − χ_∂).
 
 (a) S_ς(χ_∂u) is supported in {ρ̂ ≥ 1}, where φ_∞ = 0, so the second term of [[eq:i-c-6-1]] is
 ς^(−(l+2))‖S_ς(χ_∂u)‖_(H_(b,q−l−2)^(s+k)), with the b-space of [[def:i-c-2-1]] at the end at 0 of tf, ϱ = r̂
@@ -920,7 +924,7 @@ term is equivalent to ς^(−(l+2)) ς^(−(q−l−2)) ‖χ_∂u‖_(H_(b,l−
 the first term this is ς^(−q) times the norm of [[def:i-c-2-8]] with a = l − q. On {ρ ≥ ρ_*} the b-weights are bounded
 above and below and H̄_b^(s+k,a) is H̄^(s+k) there.
 
-(b) Both functions commute with χ_∂. On supp(1 − χ_∂) ⊂ {ρ ≥ 1/(2R_1)}, φ(ρ/ς) = φ(A) once ς ≤ 1/(2R_1A), and
+(b) Both functions commute with χ_∂. On supp(1 − χ_∂) ⊂ {ρ ≥ 1/(2R_∂)}, φ(ρ/ς) = φ(A) once ς ≤ 1/(2R_∂A), and
 φ(ρ/ρ_c) is a fixed smooth function. On tf, φ(ρ/ς) = φ(ρ̂), which is smooth on tf = [0, ∞]_ρ̂ × 𝕊³ and constant near
 both ends, hence a multiplier of the sc-b;b spaces; and φ(ρ/ρ_c) = φ(ςρ̂/ρ_c) is constant on {ρ̂ ≤ 1} once ς ≤ aρ_c,
 while (ρ̂∂_ρ̂)^j φ(ςρ̂/ρ_c) = ((t∂_t)^j φ)(ςρ̂/ρ_c) is bounded, so [[lem:i-c-2-2]] (b) applies near ztf, uniformly in
@@ -944,7 +948,7 @@ R_(σ_0,in) = {ξ = −2σ_0, η = 0} and R_out onto Σ^∂_(ςσ_0), R_(ςσ_0,
 the radial sets and quantities on ∂X.
 
 (d) Monotonicity in s, k, 𝗋 holds for each term. (d1): ς^(η−q) ≤ ς^(−q), and the order q − η − l at ztf is weaker
-than q − l. (d2) is (a). (d3): for ς < 1/(2R_1A) the first term vanishes, and on {ρ̂ ≤ A}, ρ_ztf ≥ (1 + A)⁻¹.
+than q − l. (d2) is (a). (d3): for ς < 1/(2R_∂A) the first term vanishes, and on {ρ̂ ≤ A}, ρ_ztf ≥ (1 + A)⁻¹.
 
 (e) The first term and the part near ztf are norms of H^(s+k+m) on both sides. Near sctf it suffices, by induction, to
 take m = 1 and show H^((s;k+1),𝗋) ⊂ H^((s+1;k),𝗋) ([[sec:i-a-4-6]]) on ℝ⁴_x̂, which does not involve ς. Let
@@ -1072,7 +1076,7 @@ adjoint estimate (2). (G) is the gap hypothesis of [[sec:i-c-1-2]]. [[eq:i-c-6-6
 Let φ_z ∈ C^∞([0, ∞)) vanish on [0, 2] and equal 1 on [4, ∞), let χ_0 ∈ C^∞([0, ∞)) equal 1 on [0, ½] and vanish on
 [1, ∞), and put
 
-    χ_zf := φ_z(ρ/ς),     χ_tf := χ_0(ρ/ρ_c),     0 < ρ_c ≤ ρ_c^0 := min(1/(2R_1), ρ_1/2, 1/(2R)),
+    χ_zf := φ_z(ρ/ς),     χ_tf := χ_0(ρ/ρ_c),     0 < ρ_c ≤ ρ_c^0 := min(1/(2R_∂), ρ_1/2, 1/(2R)),
 
 where supp ψ_i ∪ supp φ_j ⊂ {r ≤ R}. Then χ_∂ = 1 on supp χ_tf, χ_tf ψ_i = 0 = χ_tf φ_j, and for ς ≤ ρ_c/8,
 χ_zf = 1 on supp(1 − χ_tf) and on supp ψ_i ∪ supp φ_j. Write ‖·‖_(l,q) for ‖·‖_((s;k),(𝗋+α_+,l,q),ς) and ‖·‖′_(l,q)
@@ -1208,7 +1212,7 @@ s′, l, q ∈ ℝ and k′ ∈ ℕ_0 there is C with
 
 *Proof.* The formula for A_i holds because (σ∂_σ)σ^m = mσ^m and P̂(0), T, P_2 do not depend on σ.
 (1 − χ_∂)A_i u = A_i(1 − χ_∂)u + [A_i, χ_∂]u. A_i is σ times a first-order operator on supp(1 − χ_∂), and
-[A_i, χ_∂] = σ[T, χ_∂] is of order 0 with coefficients supported in {R_1 ≤ r ≤ 2R_1}; with [[lem:i-c-6-2]] (a) for
+[A_i, χ_∂] = σ[T, χ_∂] is of order 0 with coefficients supported in {R_∂ ≤ r ≤ 2R_∂}; with [[lem:i-c-6-2]] (a) for
 the latter, the first term of the left side is at most Cς times the right side. For the second,
 χ_∂A_i u = A_i(χ_∂u) − [A_i, χ_∂]u, the commutator again handled by [[lem:i-c-6-2]] (a). By [[eq:i-c-1-1]], with
 Q = ρ³Q̃ and g_00 = ρ²g̃,
