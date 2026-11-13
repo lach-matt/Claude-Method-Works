@@ -229,8 +229,10 @@ the hypothesis of [[lem:iii-i13-2-3]], then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p
 [[lem:iii-i8-3-2]] holds at b as at b₀.
 
 *Proof.* By [[lem:iii-i13-2-2]], which is stated at b, u = Σ_(ν∈𝒩_β) m_ν(S_ν) + u^rot_β + ũ with ũ in the class of
-[[eq:iii-i13-2-2]], and the S_ν are determined by u − u^rot_β. By [[prop:iii-i15-2-2]] (a)–(c), the terms of u^rot_β are
-the rotation rows with the coefficients A_(b,ν)(G) of [[def:iii-i15-2-3]]:
+[[eq:iii-i13-2-2]], and the S_ν are determined by u − u^rot_β. There u^rot_β is the sum of the v1 terms of
+[[prop:iii-i10-3-1]] with Re λ₀ < β − 2 and of the v1 terms v^rot_β of [[prop:iii-i11-3-1]] at the level β, and
+[[prop:iii-i15-2-2]] (a)–(b) identifies each of them: the terms of u^rot_β are the rotation rows with the coefficients
+A_(b,ν)(G) of [[def:iii-i15-2-3]],
 
     u^rot_β = Σ_(ν∈𝒩^(<β)_rot) m_ν(A_(b,ν)(G))     up to K⁺-weight Re λ + 1 − ε > β − 2,
 

@@ -309,95 +309,181 @@ and [[thm:std-cd-exponential]] we use the following statements of [CD03], which 
   ψ⁻²PΦψ² : H̊^(k+2)_(φ,ψ) × H̊^(k+2)_(φ,ψ) ⟶ H̊^(k+1)_(φ,ψ) × H̊^k_(φ,ψ), k ≥ 0, are well defined, and bounded."
 - [CD03, Proposition 3.3, p. 11]: "Under the hypotheses of Lemma 2.8 with (K, g) = (K₀, g₀), let 𝒦₀ be kernel of
   ΦP*₀ : H̊¹_(φ,ψ)(g₀) × H̊²_(φ,ψ)(g₀) ⟶ L²_ψ(g₀) × L²_ψ(g₀), and let 𝒦₀^(⊥g₀) be its L²_ψ(g₀) ⊕ L²_ψ(g₀)-orthogonal.
-  …"; and, on the same page, "We denote by π_(𝒦^(⊥g₀)) the L²_ψ(g) projection onto 𝒦^(⊥g₀)."
-- [CD03, Definition 5.3, p. 22]: "Let k ∈ ℕ and let W be a space of symmetric tensors on M. We shall say that g has an
-  (W, k)–behavior at ∂M if there exists a metric g_M on M̄ of class C^k(M̄) such that g − g_M ∈ W."
+  …"; and, on the same page, "We denote by π_(𝒦₀^(⊥g)) the L²_ψ(g) projection onto 𝒦₀^(⊥g).", where 𝒦₀^(⊥g) is the
+  L²_ψ(g) ⊕ L²_ψ(g)-orthogonal of 𝒦₀, g being the current metric. [[thm:std-cd-isomorphism]], [[thm:std-cd-bijective]]
+  and the equation (5.11) of [[thm:std-cd-exponential]] are stated for this projection, on the space 𝒦₀^(⊥g), which
+  moves with g.
+- [CD03, (3.9), p. 13]: "L_(φ,ψ) := ψ⁻²PΦψ²ΦP*."
+- [CD03, Definition 5.3, p. 22]: "Let k ∈ ℕ and let 𝒲 be a space of symmetric tensors on M. We shall say that g has an
+  (𝒲, k)–behavior at ∂M if there exists a metric g_M̄ on M̄ of class C^k(M̄) such that g − g_M̄ ∈ 𝒲."
+
+In [CD03] indices are raised and lowered with the current metric g: P* at (K, g) lowers the index of Y with g, and the
+1-form J is paired with a vector field, or projected, with its index raised by g ([CD03, (8.6)] pairs the residual with
+the Killing initial data in this way). We do the same.
 
 *Setting.* Let 𝒜 be a compact manifold with boundary, of dimension n ≥ 2, and let u₀ = (K₀, g₀) be a symmetric
 2-tensor and a Riemannian metric on 𝒜, both smooth up to ∂𝒜. Let x ∈ C^∞(𝒜) be a defining function of ∂𝒜 with
 0 < x ≤ 1 on the interior 𝒜° that equals the g₀-distance to ∂𝒜 near ∂𝒜. Fix s > 0 and an integer k > n/2. The weighted
-spaces are those of [CD03, (A.1)] on 𝒜, with φ := x², and we write ψ := e^(−s/x). For ε > 0 let 𝒩_ε be the set of
+spaces are those of [CD03, (A.1)] on 𝒜, with φ := x², and we write ψ := e^(−s/x). For ε ∈ (0, ½] let 𝒩_ε be the set of
 pairs u′ = (K′, g′) with
 
-    ‖(K′ − K₀, g′ − g₀)‖_(x⁻²W^(k+3,∞)_(x²)(g₀) × W^(k+4,∞)_(x²)(g₀)) < ε.
+    ‖(K′ − K₀, g′ − g₀)‖_(x⁻²W^(k+3,∞)_(x²)(g₀) × W^(k+4,∞)_(x²)(g₀)) < ε;
 
-Let 𝒦₀ be the kernel of ΦP*_(u₀) on H̊¹_(x²,ψ)(g₀) × H̊²_(x²,ψ)(g₀) and 𝒦₀^(⊥g₀) its L²_ψ(g₀)-orthogonal, as in
-[CD03, Proposition 3.3], with Φ(a, b) := (x²a, x⁴b). Vector fields and 1-forms are identified by g₀, so that the pairs
-(Y, N) and the values of (J, ρ) lie in one space. For u′ ∈ 𝒩_ε, π_(g′) is the L²_ψ(g′)-orthogonal projection onto
-𝒦₀^(⊥g₀), and 𝒞_(g′) is the pointwise endomorphism with ⟨v, w⟩_(L²_ψ(g′)) = ⟨𝒞_(g′)v, w⟩_(L²_ψ(g₀)); on a pair (V, f)
-of a 1-form and a function it is
+in particular |g′ − g₀|_(g₀) < ε on 𝒜. The unknowns are pairs z = (Y, N) of a vector field and a function on 𝒜°. For
+u′ ∈ 𝒩_ε their L²_ψ(g′) product is
 
-    𝒞_(g′)(V, f) = (det g′/det g₀)^(1/2) (g₀ g′⁻¹V, f),
+    ⟨(Y, N), (Z, M)⟩_(L²_ψ(g′)) := ∫_𝒜 (g′(Y, Z) + NM) ψ² dμ_(g′),
 
-so it is symmetric and positive for g₀ at each point, and a smooth function of the values of g′ and g₀. Put
+and ♯_(g′)(V, f) := (g′⁻¹V, f) turns a pair of a 1-form and a function, such as a value of (J, ρ), into such a pair,
+by raising the index with g′; ♭_(g′) := ♯_(g′)⁻¹. Let 𝒦₀ be the kernel of ΦP*_(u₀) on H̊¹_(x²,ψ)(g₀) × H̊²_(x²,ψ)(g₀),
+as in [CD03, Proposition 3.3], with Φ(a, b) := (x²a, x⁴b). For u′ ∈ 𝒩_ε let 𝒦₀^(⊥g′) be the L²_ψ(g′)-orthogonal of
+𝒦₀, and π_(g′) the L²_ψ(g′)-orthogonal projection onto 𝒦₀^(⊥g′), as on [CD03, p. 11]; put π₀ := π_(g₀). Put
 
-    𝒴 := 𝒦₀^(⊥g₀) ∩ (H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ)),     𝒵̃ := H̊^(k+1)_(x²,ψ) × H̊^k_(x²,ψ),     𝒵 := 𝒦₀^(⊥g₀) ∩ 𝒵̃,
+    𝒴_(g′) := 𝒦₀^(⊥g′) ∩ (H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ)),     𝒵̃ := H̊^(k+1)_(x²,ψ) × H̊^k_(x²,ψ),
+    𝒵_(g′) := 𝒦₀^(⊥g′) ∩ 𝒵̃,     𝒴 := 𝒴_(g₀),     𝒵 := 𝒵_(g₀),
     𝒮 := H^(k+1)_(x²,e^(s/x)) × H^k_(x²,e^(s/x)),     𝒳 := x²H^(k+2)_(x²,e^(s/x)) × x⁴H^(k+2)_(x²,e^(s/x)),
 
-the spaces of the unknowns z = (Y, N), of the projected sources, of the sources (δJ, δρ) and of the solutions (δK, δg).
-For u′ ∈ 𝒩_ε and z ∈ 𝒴 put
+the spaces of the unknowns, of the projected sources, of the sources (δJ, δρ) and of the solutions (δK, δg).
 
-    T_(u′)z := e^(−2s/x)Φ²P*_(u′)z,     Ψ(u′, z) := π_(g′) e^(2s/x){(J, ρ)(u′ + T_(u′)z) − (J, ρ)(u′)},
+*The spaces.* All of them are built with g₀. For u′ ∈ 𝒩_ε the spaces built with g′ are the same, with norms equivalent
+to these by constants independent of u′. Indeed, the difference D of the Levi-Civita connections of g′ and g₀ is a
+tensor with x^(2i+2)|∇^(i)D|_(g₀) ≤ Cε for i ≤ k + 3; so φⁱ∇′^(i)u − φⁱ∇^(i)u is a sum of contractions of products of
+factors φ^(j+1)∇^(j)D with one factor φ^l∇^(l)u, l < i; and |·|_(g′), dμ_(g′) are comparable to |·|_(g₀), dμ_(g₀)
+(compare [CD03, (A.4)]). So the statements of [CD03], made in the spaces built with the current metric, hold in these.
+Two further facts are used. First, multiplication by ψ² maps H^j_(x²,ψ) onto H^j_(x²,ψ⁻¹), with equivalent norms, as
+φⁱψ^(∓2)∇^(i)(ψ^(±2)) is bounded for every i, each derivative of e^(±2s/x) bringing a factor of order x⁻²; so
+e^(2s/x) = ψ⁻² maps 𝒮 isomorphically onto H^(k+1)_(x²,ψ) × H^k_(x²,ψ). Second, for φ = x² the closure H̊^j_(x²,ψ′) is
+all of H^j_(x²,ψ′), for every positive weight ψ′. Let χ₁ ∈ C^∞(ℝ) vanish on (−∞, 1] and equal 1 on [2, ∞). For
+u ∈ H^j_(x²,ψ′), χ₁(x/δ)u has compact support in 𝒜°, where the weights are bounded above and below, so it lies in H^j
+there. It tends to u in H^j_(x²,ψ′) as δ → 0: the derivatives of the cut-off live on {δ ≤ x ≤ 2δ}, where
+x^(2i)|∇^(i)(χ₁(x/δ))| ≤ C_iδⁱ, and the integrals of the weighted derivatives of u over {x ≤ 2δ} tend to zero. Hence
+e^(2s/x) maps 𝒮 isomorphically onto 𝒵̃, and a pair smooth up to ∂𝒜 lies in H̊^j_(x²,ψ) for every j, its weighted
+derivatives being bounded and ψ² integrable.
+
+For u′ ∈ 𝒩_ε and z ∈ 𝒴 put ι_(u′) := π_(g′)|_𝒴 and
+
+    T_(u′)z := e^(−2s/x)Φ²P*_(u′)ι_(u′)z,     Ψ(u′, z) := π₀♯_(g′)e^(2s/x){(J, ρ)(u′ + T_(u′)z) − (J, ρ)(u′)},
                                                                                                           {#eq:s28-psi}
 
-with P*_(u′) the operator [CD03, (2.4)] at u′. The one further hypothesis is:
+with P*_(u′) the operator [CD03, (2.4)] at u′. So T_(u′)z is a field of the form e^(−2s/x)Φ²P*_(u′)(Y, N) in which
+[CD03, Theorem 5.9] gives its solutions, with (Y, N) := ι_(u′)z ∈ 𝒴_(g′) ([[lem:s28-setting]] (e)). The one further
+hypothesis is:
 
 (Fin) 𝒦₀ is finite-dimensional, with a basis (e_i)_(i∈I) of pairs smooth on 𝒜.
 
 **Lemma {#lem:s28-setting}** (The solvability statement.) In the setting above, with (Fin):
 
-(a) The hypotheses of [[thm:std-cd-exponential]] ([CD03, Theorem 5.9, Proposition 5.10 and Corollary 5.11]) hold for
-g₀, K₀ and x. So there is ε > 0 such that for u′ ∈ 𝒩_ε and every (δJ, δρ) ∈ 𝒮 of norm < ε there is z ∈ 𝒴 close to zero
-for which (δK, δg) := T_(u′)z ∈ 𝒳 solves
+(a) The hypotheses of [[thm:std-cd-exponential]] ([CD03, Theorem 5.9]) hold for g₀, K₀ and x. So there is ε > 0 such
+that for u′ ∈ 𝒩_ε and every (δJ, δρ) ∈ 𝒮 of norm < ε there is (Y, N) ∈ 𝒴_(g′) for which
+(δK, δg) := e^(−2s/x)Φ²P*_(u′)(Y, N) ∈ 𝒳 is close to zero and solves
 
-    π_(g′) e^(2s/x){(J, ρ)(K′ + δK, g′ + δg) − (J, ρ)(K′, g′)} = π_(g′) e^(2s/x)(δJ, δρ),                    {#eq:v-3-1}
+    π_(g′)♯_(g′)e^(2s/x){(J, ρ)(K′ + δK, g′ + δg) − (J, ρ)(K′, g′)} = π_(g′)♯_(g′)e^(2s/x)(δJ, δρ),
+                                                                                                          {#eq:v-3-1}
 
-and ‖(δK, δg)‖_𝒳 ≤ C‖(δJ, δρ)‖_𝒮, the bound of [[thm:std-cd-uniform-inverse]] through which the proof of [CD03,
-Theorem 5.9] runs ([CD03, Theorems 3.7 and 3.9]). For each u′ the map z ↦ Ψ(u′, z) is bijective from a neighbourhood of
-zero in 𝒴 onto one in 𝒵 ([[thm:std-cd-bijective]]).
+which is [CD03, (5.11)] at (K, g) = u′. For z ∈ 𝒴 and (δK, δg) := T_(u′)z, [[eq:v-3-1]] holds if and only if
 
-(b) If u′ is smooth on 𝒜 and (δJ, δρ) is smooth with compact support in 𝒜°, then (δK, δg) is smooth on 𝒜 and extends
-smoothly by zero across ∂𝒜.
+    Ψ(u′, z) = δf,     δf := π₀♯_(g′)e^(2s/x)(δJ, δρ) ∈ 𝒵;
+
+and each (Y, N) ∈ 𝒴_(g′) is ι_(u′)z for exactly one z ∈ 𝒴, namely z = π₀(Y, N).
+
+(b) Diminishing ε: if u′ ∈ 𝒩_ε is smooth on 𝒜, and (δJ, δρ) ∈ 𝒮 is smooth with compact support in 𝒜° and has norm less
+than ε also in the norm of [CD03, Proposition 5.10] with t := s, then the solution (δK, δg) of (a) is smooth on 𝒜 and
+extends smoothly by zero across ∂𝒜. If the support of (δJ, δρ) lies in a fixed compact set Ω_c ⊂ 𝒜°, that norm is at
+most C(Ω_c)‖(δJ, δρ)‖_(C^(k+2)(𝒜)), with C(Ω_c) independent of u′ ∈ 𝒩_ε.
 
 (c) 𝒳 ⊂ C²(𝒜), with ‖(δK, δg)‖_(C²(𝒜)) ≤ C‖(δK, δg)‖_𝒳.
 
-(d) D_zΨ(u′, 0) = π_(g′)ψ⁻²P_(u′)Φψ²ΦP*_(u′), the operator of [[thm:std-cd-isomorphism]]. Diminishing ε, for every
-u′ ∈ 𝒩_ε it is an isomorphism 𝒴 → 𝒵 whose inverse has norm at most a constant C₁ independent of u′.
+(d) D_zΨ(u′, 0) = π₀L_(u′)ι_(u′), with L_(u′) := ♯_(g′)ψ⁻²P_(u′)Φψ²ΦP*_(u′), the operator L_(φ,ψ) of [CD03, (3.9)] at
+u′. Diminishing ε, for every u′ ∈ 𝒩_ε, π_(g′)L_(u′) is an isomorphism 𝒴_(g′) → 𝒵_(g′) ([[thm:std-cd-isomorphism]]),
+and D_zΨ(u′, 0) is an isomorphism 𝒴 → 𝒵 whose inverse has norm at most a constant C₁ independent of u′.
 
-(e) The kernel of π_(g′) is 𝒞_(g′)⁻¹𝒦₀. With A_(g′) the matrix (A_(g′))_(ji) := ⟨𝒞_(g′)⁻¹e_i, e_j⟩_(L²_ψ(g₀)), which is
-symmetric and positive definite,
+(e) For u′ ∈ 𝒩_ε let A_(g′) be the matrix (A_(g′))_(ij) := ⟨e_i, e_j⟩_(L²_ψ(g′)); it is symmetric and positive
+definite, and
 
-    π_(g′)v = v − Σ_(i,j∈I) (A_(g′)⁻¹)_(ij) ⟨v, e_j⟩_(L²_ψ(g₀)) 𝒞_(g′)⁻¹e_i,                        {#eq:s28-projection}
+    π_(g′)v = v − Σ_(i,j∈I) (A_(g′)⁻¹)_(ij) ⟨v, e_j⟩_(L²_ψ(g′)) e_i.                                    {#eq:s28-projection}
 
-and ‖π_(g′) − π_(g″)‖_(𝒵̃→𝒵̃) ≤ C‖g′ − g″‖_(W^(k+4,∞)_(x²)(g₀)) for u′, u″ ∈ 𝒩_ε.
+The kernel of π_(g′) is 𝒦₀, and π₀π_(g′) = π₀, π_(g′)π₀ = π_(g′). π_(g′) maps 𝒵̃ and H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ)
+into themselves, and on each ‖π_(g′) − π_(g″)‖ ≤ C‖g′ − g″‖_(W^(k+4,∞)_(x²)(g₀)) for u′, u″ ∈ 𝒩_ε. The maps
+ι_(u′) : 𝒴 → 𝒴_(g′) and π₀|_(𝒵_(g′)) : 𝒵_(g′) → 𝒵 are isomorphisms, with inverses π₀|_(𝒴_(g′)) and π_(g′)|_𝒵. These
+four maps, and ♯_(g′) on 𝒵̃, have norms at most a constant independent of u′, and
+‖♯_(g′) − ♯_(g″)‖_(𝒵̃→𝒵̃) ≤ C‖g′ − g″‖_(W^(k+4,∞)_(x²)(g₀)).
 
-*Proof.* (a) A metric smooth on 𝒜 has the (W^(k+4,∞)_(x²), k + 4)- and the (C^(k+4,α)_(x²,1), k + 5)-behaviour at ∂𝒜 of
-[CD03, Definition 5.3], with g_M := g₀. (5.10a) holds as Ric(g₀) is bounded on 𝒜, (5.10b) as ∇∇x is bounded near ∂𝒜,
+*Proof.* We prove (e) first.
+
+(e) 𝒦₀ is finite-dimensional, hence closed, and the e_i lie in L²_ψ, being smooth up to ∂𝒜. A_(g′) is the Gram matrix
+of the linearly independent e_i for the inner product of L²_ψ(g′), hence symmetric and positive definite. Let w be the
+right side of [[eq:s28-projection]]. Then v − w ∈ 𝒦₀, and, all products being those of L²_ψ(g′),
+⟨w, e_l⟩ = ⟨v, e_l⟩ − Σ_(i,j)(A_(g′))_(li)(A_(g′)⁻¹)_(ij)⟨v, e_j⟩ = 0 for every l. So w ∈ 𝒦₀^(⊥g′); as v − w lies in
+𝒦₀, which is the L²_ψ(g′)-orthogonal of 𝒦₀^(⊥g′), w = π_(g′)v. By the formula, π_(g′)v = 0 only if v ∈ 𝒦₀; and for
+v = e_l the sum is Σ_(i,j)(A_(g′)⁻¹)_(ij)(A_(g′))_(jl)e_i = e_l, so π_(g′)e_l = 0. Hence π_(g′)v = v − k with k ∈ 𝒦₀,
+and π₀π_(g′)v = π₀v − π₀k = π₀v; likewise π_(g′)π₀ = π_(g′). The e_i lie in 𝒵̃ and in
+H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ) (*The spaces*), and |⟨v, e_j⟩_(L²_ψ(g′))| ≤ C‖v‖_(L²_ψ(g₀)), which is at most C times
+either norm of v; so π_(g′) maps both spaces into themselves, with norm bounded independently of u′, as A_(g′) is within
+Cε of A_(g₀). The integrand of ⟨v, e_j⟩_(L²_ψ(g′)) is a smooth function of the values of g′ times a bilinear expression
+in v and e_j, so |⟨v, e_j⟩_(L²_ψ(g′)) − ⟨v, e_j⟩_(L²_ψ(g″))| ≤ C sup_𝒜|g′ − g″|_(g₀)‖v‖_(L²_ψ(g₀)); the same holds for
+A_(g′) − A_(g″), hence for A_(g′)⁻¹ − A_(g″)⁻¹, and this gives the bound on π_(g′) − π_(g″), sup_𝒜|g′ − g″|_(g₀) being at
+most the norm of W^(k+4,∞)_(x²)(g₀). For z ∈ 𝒴, ι_(u′)z lies in H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ) and in 𝒦₀^(⊥g′), so in
+𝒴_(g′); likewise π₀y ∈ 𝒴 for y ∈ 𝒴_(g′); and π₀ι_(u′)z = π₀π_(g′)z = π₀z = z, ι_(u′)π₀y = π_(g′)π₀y = π_(g′)y = y. The
+same argument applies to π₀|_(𝒵_(g′)) and π_(g′)|_𝒵. Finally, ♯_(g′) multiplies the 1-form by g′⁻¹, and
+x^(2i)|∇^(i)(g′⁻¹ − g₀⁻¹)|_(g₀) ≤ Cε for i ≤ k + 4, while x^(2i)|∇^(i)(g′⁻¹ − g″⁻¹)|_(g₀) ≤ C‖g′ − g″‖_(W^(k+4,∞)_(x²)(g₀));
+by the Leibniz rule, multiplication by a tensor with bounded x^(2i)|∇^(i)·|_(g₀), i ≤ k + 1, is bounded on H̊^j_(x²,ψ),
+j ≤ k + 1, by a multiple of these bounds.
+
+(a) A metric smooth on 𝒜 has the (W^(k+4,∞)_(x²), k + 4)- and the (C^(k+4,α)_(x²,1), k + 5)-behaviour at ∂𝒜 of
+[CD03, Definition 5.3], with g_M̄ := g₀. (5.10a) holds as Ric(g₀) is bounded on 𝒜, (5.10b) as ∇∇x is bounded near ∂𝒜,
 and (5.10c) as K₀ and its derivatives are bounded. The ε and the solution are those of [[thm:std-cd-exponential]]. Its
 (Y, N)-spaces are those of [[thm:std-cd-bijective]] with ψ = e^(−s/x), as its solution
-(δK, δg) = e^(−2s/x)Φ²P*(Y, N) = ψ²Φ²P*(Y, N) shows, and ψ²H^j_(x²,ψ) = H^j_(x²,ψ⁻¹), as x²|dψ|/ψ = s|dx| is
-bounded; and [[thm:std-cd-bijective]] gives the bijectivity.
+(δK, δg) = e^(−2s/x)Φ²P*(Y, N) = ψ²Φ²P*(Y, N) shows (*The spaces*). [CD03, Theorem 5.9] is obtained from
+[[thm:std-cd-bijective]] ([CD03, p. 26]), whose map (3.13) is defined on
+𝒦₀^(⊥g′) ∩ (H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ)) = 𝒴_(g′); so (Y, N) ∈ 𝒴_(g′). [CD03, (5.11)] at u′ is [[eq:v-3-1]], the
+index of J being raised with g′, as in [CD03]. By (e), the kernels of π_(g′) and of π₀ are both 𝒦₀. So [[eq:v-3-1]]
+says
 
-(b) A smooth pair with compact support in 𝒜° lies in C^∞_(x²,e^(s/x)), and [CD03, Corollary 5.11]
-([[thm:std-cd-exponential]]) applies.
+    ♯_(g′)e^(2s/x){(J, ρ)(u′ + (δK, δg)) − (J, ρ)(u′) − (δJ, δρ)} ∈ 𝒦₀,
+
+and for (δK, δg) = T_(u′)z so does Ψ(u′, z) = δf. δf lies in 𝒵, as e^(2s/x)(δJ, δρ) ∈ 𝒵̃ (*The spaces*) and by (e).
+The last assertion is part of (e). "Close to zero" is the conclusion of [CD03, Theorem 5.9]; we use it in the form:
+for every r > 0, diminishing ε, the solution has ‖(δK, δg)‖_𝒳 < r. [CD03] applies its existence theorems in this form,
+with the solution bounded by a multiple of the source ([CD03, (8.5)]), and [[lem:v-3-2]] (c) proves that bound for the
+solution it constructs.
+
+(b) As k > n/2 is an integer, k ≥ k₀ := ⌊n/2⌋ + 1. The metric g₀ has the (C^(k+4,α)_(x²,1), k + 5)-behaviour and (5.10)
+holds, by (a). As u′ is smooth on 𝒜, it lies in x⁻²C^(k+3,α)_(x²,1)(g₀) × C^(k+4,α)_(x²,1)(g₀), and the norm of 𝒩_ε
+bounds the norm ‖(K′ − K₀, g′ − g₀)‖_(x⁻²W^(k₀+3,∞)_(x²)(g₀) × W^(k₀+4,∞)_(x²)(g₀)) of [CD03, Proposition 5.10], as
+k₀ ≤ k. The condition of [CD03, Proposition 5.10] on (δJ, δρ), with t := s > 0, is assumed. So, ε being at most the ε
+of [CD03, Proposition 5.10], the hypotheses of [CD03, Proposition 5.10] hold. A smooth pair with compact support in 𝒜°
+lies in C^∞_(x²,e^(s/x))(g′), x being bounded below on its support, and u′ ∈ C^∞(𝒜) × C^∞(𝒜); so
+[CD03, Corollary 5.11] ([[thm:std-cd-exponential]]) applies to the solution of (a). For the bound: on a neighbourhood
+of Ω_c, x is bounded below, so the weights x², x⁻ⁿ and e^(s/x) are bounded above and below there, and the norm of
+[CD03, Proposition 5.10] of a pair supported in Ω_c is at most C(Ω_c) times its C^(k₀+2) × C^(k₀+1)-norm, the covariant
+derivatives being those of g′. These are at most C(Ω_c)‖(δJ, δρ)‖_(C^(k+2)(𝒜)), as k₀ ≤ k and the derivatives of g′ of
+order at most k + 4 are bounded on Ω_c uniformly for u′ ∈ 𝒩_ε.
 
 (c) x^(−4j)e^(−2s/x) is bounded on 𝒜°, so H^(k+2)_(x²,e^(s/x)) ⊂ H^(k+2)(𝒜), and H^(k+2)(𝒜) ⊂ C²(𝒜) by Sobolev's
 inequality, as k + 2 > n/2 + 2; the factors x² and x⁴ are bounded.
 
-(d) D_zΨ(u′, 0)z = π_(g′)e^(2s/x)P_(u′)(T_(u′)z) = π_(g′)ψ⁻²P_(u′)ψ²Φ²P*_(u′)z = π_(g′)ψ⁻²P_(u′)Φψ²ΦP*_(u′)z, as Φ
-and ψ² commute; this is the operator L_(φ,ψ) of [CD03, (3.9)] followed by π_(g′). The hypotheses of
-[[thm:std-cd-isomorphism]] at u₀ are verified in the proof of [CD03, Theorem 5.9, p. 26], and that theorem gives the
-isomorphism and the uniform bound C₁ for u′ near u₀ in the norm of 𝒩_ε.
+(d) D_zΨ(u′, 0)z = π₀♯_(g′)e^(2s/x)P_(u′)(T_(u′)z) = π₀♯_(g′)ψ⁻²P_(u′)ψ²Φ²P*_(u′)ι_(u′)z = π₀L_(u′)ι_(u′)z, as Φ and
+ψ² commute. The hypotheses of [[thm:std-cd-isomorphism]] hold at u₀, with φ = x² and ψ = e^(−s/x):
 
-(e) If v is L²_ψ(g′)-orthogonal to 𝒦₀^(⊥g₀), then ⟨𝒞_(g′)v, w⟩_(L²_ψ(g₀)) = 0 for every w ∈ 𝒦₀^(⊥g₀), so
-𝒞_(g′)v ∈ 𝒦₀, 𝒦₀ being finite-dimensional, hence closed. Conversely 𝒞_(g′)⁻¹𝒦₀ is L²_ψ(g′)-orthogonal to 𝒦₀^(⊥g₀). So
-the kernel of π_(g′) is 𝒞_(g′)⁻¹𝒦₀. A_(g′) is symmetric and positive definite, as 𝒞_(g′)⁻¹ is pointwise symmetric and
-positive for g₀ and the e_i are linearly independent. The right side of [[eq:s28-projection]] differs from v by an
-element of 𝒞_(g′)⁻¹𝒦₀, and its L²_ψ(g₀)-product with e_l is ⟨v, e_l⟩ − Σ_(i,j)(A_(g′))_(li)(A_(g′)⁻¹)_(ij)⟨v, e_j⟩ = 0;
-as 𝒦₀^(⊥g₀) ∩ 𝒞_(g′)⁻¹𝒦₀ = 0 (if 𝒞_(g′)⁻¹k ⊥ 𝒦₀ with k ∈ 𝒦₀, then ⟨𝒞_(g′)⁻¹k, k⟩ = 0 and k = 0), it is π_(g′)v. The
-e_i are bounded on 𝒜 with all derivatives and ψ² is integrable, so e_i and 𝒞_(g′)⁻¹e_i lie in 𝒵̃, and
-‖𝒞_(g′)⁻¹e_i − 𝒞_(g″)⁻¹e_i‖_𝒵̃ ≤ C‖g′ − g″‖_(W^(k+1,∞)_(x²)(g₀)), as 𝒞⁻¹ is a smooth function of g′. Also
-|A_(g′) − A_(g″)| ≤ C‖g′ − g″‖_(C⁰) and |⟨v, e_j⟩_(L²_ψ(g₀))| ≤ C‖v‖_𝒵̃. This gives the bound. ∎
+- g₀ ∈ W^(k+4,∞)_loc, Ric(g₀) ∈ φ⁻²W^(k+2,∞)_φ(g₀) and K₀ ∈ φ⁻¹W^(k+3,∞)_φ(g₀), as g₀ and K₀ are smooth up to ∂𝒜 and
+  x ≤ 1;
+- (A.2) holds for every i: φ^(i−1)∇^(i)φ is a polynomial in x and the derivatives of x, and ψ⁻¹∇^(i)ψ is a sum of
+  products of derivatives of s/x of total size at most Cx^(−2i), which φⁱ = x^(2i) compensates;
+- the scaling property holds by [CD03, Lemma B.1] and the argument after it, [CD03, pp. 61–62], which treats φ = x²
+  with the weights e^(±s/x) (see [CD03, p. 25]);
+- inequality (3.4) holds for (Y, N) supported in a neighbourhood of ∂𝒜, whose complement is compact: there it is (5.12)
+  and the display after it, [CD03, p. 26], obtained from [CD03, Corollary D.5 and Proposition C.4], with
+  [CD03, Lemma 4.3], as (𝒜°, g₀, K₀, x) satisfies the asymptotic condition b) of [CD03, Definition 4.1] with
+  U_i := {x > 1/i}, K₀, ∇K₀ and Ric(g₀) being bounded.
+
+So, diminishing ε, for every u′ ∈ 𝒩_ε the map π_(g′)L_(u′) is an isomorphism 𝒴_(g′) → 𝒵_(g′) whose inverse has norm
+bounded independently of u′; these are the spaces of [[thm:std-cd-isomorphism]] at (K, g) = u′ (*The spaces*), and the
+closeness there is in the norm of 𝒩_ε, as φ⁻¹ = x⁻². By (e), π₀ = π₀π_(g′), so
+
+    D_zΨ(u′, 0) = (π₀|_(𝒵_(g′)))(π_(g′)L_(u′))ι_(u′),
+
+a composition of three isomorphisms whose inverses have norms bounded independently of u′, by (e); its inverse is
+π₀|_(𝒴_(g′))(π_(g′)L_(u′))⁻¹π_(g′)|_𝒵, of norm at most some C₁. ∎
 
 **Lemma {#lem:v-3-2}** (Continuity in the background.) In the setting above, with (Fin), let ε and C₁ be as in
 [[lem:s28-setting]]. There are ε_c ∈ (0, ε] and r_c > 0 such that, with B the ball of radius r_c about zero in 𝒴:
@@ -410,25 +496,30 @@ in particular [[eq:v-3-1]] has at most one solution (δK, δg) = T_(u′)z with 
 
 (b) if z ∈ B solves [[eq:v-3-1]] for (u′, (δJ, δρ)) and z̃ ∈ B for (ũ′, (δJ̃, δρ̃)), with u′, ũ′ ∈ 𝒩_(ε_c), then
 
-    ‖z̃ − z‖_𝒴 ≤ 2C₁(‖δf̃ − δf‖_𝒵 + ‖Ψ(u′, z) − Ψ(ũ′, z)‖_𝒵),     δf := π_(g′)e^(2s/x)(δJ, δρ),
+    ‖z̃ − z‖_𝒴 ≤ 2C₁(‖δf̃ − δf‖_𝒵 + ‖Ψ(u′, z) − Ψ(ũ′, z)‖_𝒵),     δf̃ := π₀♯_(g̃′)e^(2s/x)(δJ̃, δρ̃),
                                                                                                           {#eq:s28-cont}
 
-and δf̃ := π_(g̃′)e^(2s/x)(δJ̃, δρ̃); both terms on the right tend to zero as (ũ′, (δJ̃, δρ̃)) tends to
+with δf as in [[lem:s28-setting]] (a); both terms on the right tend to zero as (ũ′, (δJ̃, δρ̃)) tends to
 (u′, (δJ, δρ)) in 𝒩_(ε_c) × 𝒮. So the solution with z ∈ B is unique and depends continuously on the background u′ and
 the right side (δJ, δρ), and so does (δK, δg) = T_(u′)z in 𝒳;
 
-(c) there is ε_s > 0 such that for u′ ∈ 𝒩_(ε_c) and ‖(δJ, δρ)‖_𝒮 < ε_s the solution of [[lem:s28-setting]] (a) has
-z ∈ B.
+(c) there are ε_s > 0 and C₅ such that for u′ ∈ 𝒩_(ε_c) and ‖(δJ, δρ)‖_𝒮 < ε_s, [[eq:v-3-1]] has a solution
+(δK, δg) = T_(u′)z with z ∈ B, and ‖z‖_𝒴 + ‖(δK, δg)‖_𝒳 ≤ C₅‖(δJ, δρ)‖_𝒮. Diminishing ε_s, it is the solution of
+[[lem:s28-setting]] (a), so (b) of that lemma applies to it.
 
 *Proof.* (a) By [[lem:s28-setting]] (d), D_zΨ(u′, 0) is an isomorphism with inverse of norm at most C₁, independently of
-u′. T_(u′) is bounded from 𝒴 to 𝒳, continuously in u′ in operator norm, its coefficients being polynomial in the 2-jet
-of u′ and in g′⁻¹. The constraint map is a polynomial in the 2-jet of the data, with coefficients rational in the
-metric. The spaces H^(k+2)_(x²,e^(s/x)), with k + 2 > n/2 + 1, embed in C¹(𝒜) and are stable under products with each
-other and with C^(k+2)(𝒜), by Sobolev's inequality on the balls B_p of centre p and radius x(p)²/2, on which x and
-e^(s/x) are comparable to their values at p ([CD03, Appendix B, (B.2)–(B.3), pp. 61–62]). So
-(u′, δu) ↦ (J, ρ)(u′ + δu) − (J, ρ)(u′) is C² in δu ∈ 𝒳 near zero, with derivatives continuous in u′ and bounded
-uniformly. With D_zΨ(u′, z) = π_(g′)e^(2s/x)D(J, ρ)(u′ + T_(u′)z)T_(u′), this gives a constant C₃, independent of
-u′ ∈ 𝒩_ε for ε small (it includes the factor ‖T_(u′)‖², bounded uniformly), with
+u′. T_(u′) is bounded from 𝒴 to 𝒳, continuously in u′ in operator norm: so is e^(−2s/x)Φ²P*_(u′), its coefficients
+being polynomial in the 2-jet of u′ and in g′⁻¹, and so is ι_(u′), by [[lem:s28-setting]] (e). The constraint map is a
+polynomial in the 2-jet of the data, with coefficients rational in the metric. The spaces H^(k+2)_(x²,e^(s/x)), with
+k + 2 > n/2 + 1, embed in C¹(𝒜), and they are stable under products with each other and with W^(k+2,∞)_(x²)(𝒜), by
+Sobolev's inequality on the balls B_p of centre p and radius x(p)²/2, on which x and e^(s/x) are comparable to their
+values at p ([CD03, Appendix B, (B.2)–(B.3), pp. 61–62]). The space W^(k+2,∞)_(x²)(𝒜) contains C^(k+2)(𝒜) and the
+coefficients built from u′ ∈ 𝒩_ε, each K′ and each Christoffel symbol of g′ entering with a factor x² supplied by the
+factors x² and x⁴ of 𝒳, as in [CD03, Lemma 2.6]. So (u′, δu) ↦ (J, ρ)(u′ + δu) − (J, ρ)(u′) is C² from a neighbourhood
+of zero in 𝒳 into 𝒮, with derivatives continuous in u′ and bounded uniformly. With
+D_zΨ(u′, z) = π₀♯_(g′)e^(2s/x)D(J, ρ)(u′ + T_(u′)z)T_(u′), and e^(2s/x) : 𝒮 → 𝒵̃ bounded (*The spaces*), this gives a
+constant C₃, independent of u′ ∈ 𝒩_ε for ε small (it includes the factors ‖π₀‖, ‖♯_(g′)‖ and ‖T_(u′)‖², bounded
+uniformly), with
 
     ‖D_zΨ(u′, z₁) − D_zΨ(u′, z₂)‖ ≤ C₃‖z₁ − z₂‖
 
@@ -441,23 +532,41 @@ and ‖z_θ‖ ≤ max(‖z₁‖, ‖z₂‖), so
 
     ‖Ψ(u′, z₁) − Ψ(u′, z₂)‖ ≥ ‖D_zΨ(u′, 0)(z₁ − z₂)‖ − C₃ max(‖z₁‖, ‖z₂‖)‖z₁ − z₂‖ ≥ (2C₁)⁻¹‖z₁ − z₂‖.
 
-(b) Ψ(ũ′, z̃) = δf̃ and Ψ(u′, z) = δf, so by (a) at ũ′,
+By [[lem:s28-setting]] (a), (δK, δg) = T_(u′)z solves [[eq:v-3-1]] exactly when Ψ(u′, z) = δf; so two solutions with
+z ∈ B have the same z.
+
+(b) Ψ(ũ′, z̃) = δf̃ and Ψ(u′, z) = δf ([[lem:s28-setting]] (a)), so by (a) at ũ′,
 
     ‖z̃ − z‖ ≤ 2C₁‖Ψ(ũ′, z̃) − Ψ(ũ′, z)‖ ≤ 2C₁(‖δf̃ − δf‖ + ‖Ψ(u′, z) − Ψ(ũ′, z)‖).
 
 At fixed z, u′ ↦ T_(u′)z is continuous, the constraint map is continuous in the background and the datum by the same
-product estimates, and π_(g′) is continuous in g′ ([[lem:s28-setting]] (e)); so the last term tends to zero as ũ′ → u′.
-By [[lem:s28-setting]] (e) again, δf̃ → δf as (ũ′, (δJ̃, δρ̃)) → (u′, (δJ, δρ)). The continuity of T_(u′)z in 𝒳 follows
-from that of z and of T_(u′).
+product estimates, and ♯_(g′) is continuous in g′ ([[lem:s28-setting]] (e)); so the last term tends to zero as ũ′ → u′.
+As e^(2s/x) : 𝒮 → 𝒵̃ and π₀ are bounded and ♯_(g′) is continuous in g′, δf̃ → δf as
+(ũ′, (δJ̃, δρ̃)) → (u′, (δJ, δρ)). The continuity of T_(u′)z in 𝒳 follows from that of z and of T_(u′).
 
-(c) [CD03, Lemma 2.6] applies at u′ ∈ 𝒩_ε: its hypotheses at u₀ are among those of [[thm:std-cd-isomorphism]], verified
-in the proof of [CD03, Theorem 5.9], and they persist under perturbations small in the norm of 𝒩_ε. By it and
-[[lem:s28-setting]] (d), with w := ΦP*_(u′)z,
+(c) Apply [[thm:std-cd-uniform-inverse]] with A := 𝒩_(ε_c), V_(u′) := 𝒴, W_(u′) := 𝒵, r := r_c and
+f_(u′) := Ψ(u′, ·) on B. Hypothesis 1 holds by [[lem:s28-setting]] (d), the inverse of D_zΨ(u′, 0) being a right
+inverse of norm at most C₁. Hypothesis 3 is the bound with C₃ in the proof of (a). Hypothesis 2 follows from it: for
+v, v + h ∈ B, B being convex,
 
-    ‖z‖_𝒴 ≤ C₁‖π_(g′)ψ⁻²P_(u′)Φψ²w‖_𝒵 ≤ C₁C₂‖w‖_(H̊^(k+2)_(x²,ψ) × H̊^(k+2)_(x²,ψ)) ≤ C₁C₄‖T_(u′)z‖_𝒳,
+    f_(u′)(v + h) − f_(u′)(v) − Df_(u′)(v)h = ∫₀¹ (Df_(u′)(v + θh) − Df_(u′)(v))h dθ,
 
-since T_(u′)z = ψ²Φw and ψ²H^(k+2)_(x²,ψ) = H^(k+2)_(x²,e^(s/x)) with equivalent norms. With the bound
-‖T_(u′)z‖_𝒳 ≤ C‖(δJ, δρ)‖_𝒮 of [[lem:s28-setting]] (a), z ∈ B once C₁C₄C‖(δJ, δρ)‖_𝒮 < r_c. ∎
+of norm at most C₃‖h‖²/2. So there are ε_G and C_G such that for u′ ∈ 𝒩_(ε_c) and δf ∈ 𝒵 with ‖δf‖_𝒵 < ε_G there is
+z ∈ B with Ψ(u′, z) − Ψ(u′, 0) = δf and ‖z‖_𝒴 ≤ C_G‖δf‖_𝒵; and Ψ(u′, 0) = 0. Take δf := π₀♯_(g′)e^(2s/x)(δJ, δρ). By
+[[lem:s28-setting]] (e) and *The spaces*, ‖δf‖_𝒵 ≤ C₆‖(δJ, δρ)‖_𝒮 with C₆ independent of u′. For
+‖(δJ, δρ)‖_𝒮 < ε_G/C₆ this gives z ∈ B with Ψ(u′, z) = δf, that is, by [[lem:s28-setting]] (a), a solution
+(δK, δg) = T_(u′)z of [[eq:v-3-1]], with ‖z‖_𝒴 ≤ C_GC₆‖(δJ, δρ)‖_𝒮 and ‖(δK, δg)‖_𝒳 ≤ ‖T_(u′)‖‖z‖_𝒴, ‖T_(u′)‖ being
+bounded uniformly.
+
+Now let (δK′, δg′) = e^(−2s/x)Φ²P*_(u′)(Y, N), (Y, N) ∈ 𝒴_(g′), be the solution of [[lem:s28-setting]] (a), and
+z′ := π₀(Y, N), so that (δK′, δg′) = T_(u′)z′ and Ψ(u′, z′) = δf ([[lem:s28-setting]] (a)). As
+D_zΨ(u′, 0) = π₀♯_(g′)e^(2s/x)D(J, ρ)(u′)T_(u′), the inverse bound of [[lem:s28-setting]] (d) and the uniform bound on
+the derivative of the constraint map in the proof of (a) give a constant C₄, independent of u′, with
+
+    ‖z′‖_𝒴 ≤ C₁‖D_zΨ(u′, 0)z′‖_𝒵 ≤ C₁C₄‖T_(u′)z′‖_𝒳.
+
+Diminishing ε_s, and with it the ε of [[lem:s28-setting]] (a), the solution of [[lem:s28-setting]] (a) has
+‖T_(u′)z′‖_𝒳 < r_c/(C₁C₄), in the form in which that lemma uses "close to zero". Then z′ ∈ B, and z′ = z by (a). ∎
 
 **Lemma {#lem:v-3-3}** ([CD03, Lemma 3.18, p. 19].) Let U′, V′ ⊂ ℝ^D be open, f : U′ → V′ a homeomorphism, and
 f_R : U′ → ℝ^D, R ≥ R′, continuous maps with f_R → f uniformly on U′ as R → ∞. For every y ∈ V′ and every R large

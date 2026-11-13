@@ -1591,17 +1591,19 @@ These data enter [[thm:iii-c1-3-1]] when min Re ℰ₀ > 3/2 + 2γ_Υ, ℓ₀ > 
 [[prop:iii-c2-4-1]]; and then they enter [[thm:iii-c2-3-1]]. If (γ, κ) satisfy the constraints, the solutions are vacuum
 ([[rem:iii-c1-2-2]] (1), [[thm:iii-c2-3-1]] (3)).
 
-**Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in dimension 4
-+ 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), Σ^BL := t_BL⁻¹(0) near spatial infinity, and γ^BL_(b₀), κ^BL_(b₀)
-the first and second fundamental forms of Σ^BL for g_(b₀). Let ℰ₀, ℓ₀ and ℓ^♭₀ be as in [[thm:iii-c1-3-1]], δ ∈ (0, ¼]
-small, and let γ^BL = γ^BL_(b₀) + γ̃^BL and κ^BL = κ^BL_(b₀) + κ̃^BL be symmetric 2-tensors on Σ^BL ∩ {r > δ⁻¹}
-satisfying the vacuum constraint equations, with γ̃^BL ∈ H^(∞,(ℰ₀,ℓ₀))_b and κ̃^BL ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b. Let h^BL_0,
-h^BL_1 be the gauged Cauchy data on Σ^BL that the proof of [[prop:iii-c2-4-1]] gives with t_BL in place of t_IVP, and
-assume them small in H^(N_NM,ℓ^♭₀)_b, N_NM = 153 as in [[thm:iv2-3-1]] (by the continuity in [[prop:iii-c2-4-1]], this
-holds for (γ̃^BL, κ̃^BL) small in a suitable norm). Then the solution h of the gauge-fixed equation with Υ⁰, Ric(g_(b₀) +
-h) − δ*_(g_(b₀),E_C)Υ⁰(g_(b₀) + h, g_(b₀)) = 0, with these data, on the domain of dependence D_δ of Σ^BL ∩ {r > δ⁻¹}
-within the conic neighbourhood U_δ := {|t/r| < δ, r > δ⁻¹} of spatial infinity, induces on Σ_IVP ∩ {r > r₀}, for r₀
-large, data (h₀, h₁) in H^(∞,(ℰ₀,ℓ₀))_b: the index set is unchanged, and no index set ℰ_log arises.
+**Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in
+dimension 4 + 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), Σ^BL := t_BL⁻¹(0) near spatial infinity, and
+γ^BL_(b₀), κ^BL_(b₀) the first and second fundamental forms of Σ^BL for g_(b₀). Let ℰ₀, ℓ₀ and ℓ^♭₀ be as in
+[[thm:iii-c1-3-1]], δ ∈ (0, ¼] small, and let γ^BL = γ^BL_(b₀) + γ̃^BL and κ^BL = κ^BL_(b₀) + κ̃^BL be symmetric
+2-tensors on Σ^BL ∩ {r > δ⁻¹} satisfying the vacuum constraint equations, with γ̃^BL ∈ H^(∞,(ℰ₀,ℓ₀))_b and
+κ̃^BL ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b. Let h^BL_0, h^BL_1 be the gauged Cauchy data on Σ^BL that the proof of
+[[prop:iii-c2-4-1]] gives with t_BL in place of t_IVP, and assume them small in H^(N_NM,ℓ^♭₀)_b, N_NM = 153 as in
+[[thm:iv2-3-1]] (by the continuity in [[prop:iii-c2-4-1]], this holds for (γ̃^BL, κ̃^BL) small in a suitable norm).
+Then the solution h of the gauge-fixed equation with Υ⁰,
+Ric(g_(b₀) + h) − δ*_(g_(b₀),E_C)Υ⁰(g_(b₀) + h, g_(b₀)) = 0, with these data, on the domain of dependence D_δ of
+Σ^BL ∩ {r > δ⁻¹} within the conic neighbourhood U_δ := {|t/r| < δ, r > δ⁻¹} of spatial infinity, induces on
+Σ_IVP ∩ {r > r₀}, for r₀ large, data (h₀, h₁) in H^(∞,(ℰ₀,ℓ₀))_b: the index set is unchanged, and no index set
+ℰ_log arises.
 
 *Proof.* *The time functions.* On {|x| ≥ R₃}, t_IVP = t − C″ ([[lem:iii-b-3-7]] (b)), with t = t_KS + T_m the time of
 [[eq:iii-b-3-3]] and T_m = 2m r⁻¹ + O(r⁻³) ([[lem:iii-b-3-5]] (a)). For the Tangherlini metric of mass m,
@@ -1627,7 +1629,7 @@ logarithmic index sets enter the later chapters for other reasons (the analysis 
 
 **Remark {#rem:iii-c2-4-3}** ([Hin26, Example 5.27] in dimension 4 + 1.) (1) Data equal to the data of g_(b₀) outside a
 compact set satisfy [[prop:iii-c2-4-1]] with ℰ₀ = ∅ and every ℓ₀; gluing produces data equal outside a compact set to
-those of a member of the family ([CD03] in dimension 4 + 1; [[ch:s28]]). (2) The
-constructions by the conformal method in [Hin26, Example 5.27 (2)–(3)] are stated in dimension 3 + 1; their
-counterparts in dimension 4 + 1 are not used here.
+those of a member of the family ([CD03] in dimension 4 + 1; [[ch:s28]]). (2) The constructions by the conformal
+method in [Hin26, Example 5.27 (2)–(3)] are stated in dimension 3 + 1; their counterparts in dimension 4 + 1 are not
+used here.
 

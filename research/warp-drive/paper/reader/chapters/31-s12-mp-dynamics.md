@@ -895,8 +895,7 @@ the three covectors dφ₊, dφ₋, dℛ_c, only dp̃ has a dp_r component (it i
 (ω, η), so dr_c and dℛ_c have neither a dp_r nor a dr component. If c₊ dφ₊ + c₋ dφ₋ + c₀ dℛ_c = 0, the dp_r component
 gives (c₊ + c₋)α = 0, so c₋ = −c₊ and the dp̃ terms cancel, leaving −2c₊√𝒮(dr − dr_c) + c₀ dℛ_c = 0; its dr component
 gives 2c₊√𝒮 = 0. So c₊ = c₋ = 0, and c₀ = 0 as dℛ_c ≠ 0; the three covectors are independent. Hence Γ_u and Γ_s
-are smooth hypersurfaces of Σ near Γ_b, meeting
-transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]]. For the bracket,
+are smooth hypersurfaces of Σ near Γ_b, meeting transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]]. For the bracket,
 {φ₊, φ₋} = 2{p̃, (r − r_c)√𝒮}, which at r = r_c is 2√𝒮({p̃, r} − {p̃, r_c}) = 2α√𝒮. Here {p̃, r} = ∂_(p_r)p̃ = α,
 and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of (Φ, Ψ, 𝔎), which Poisson-commute
 ([[lem:vi-b1-0-1]] (b)). α > 0 on I_Γ, as I_Γ ⊂ (r₊, ∞). For z₀ = −1, {φ₋, −φ₊} = {φ₊, φ₋}. At b₀, ϱ² = r_ph² = 2m₀
@@ -1108,8 +1107,8 @@ of ℋ_b, [[lem:vi-b-1-2]]): on {r₀ − 2δ₀ ≤ r < r_h}, dr is timelike fo
 [[lem:vi-b-1-2]]) and g̃_b⁻¹(dr, dr) = (r_h/r₊(b))² (g^KS_b)⁻¹(dr_A, dr_A) ∘ Ψ_b, as in the proof of [[lem:vi-b-2-1]];
 this is negative by [[lem:vi-b-1-1]], since there r₋ < r_A ∘ Ψ_b = (r₊(b)/r_h)r < r₊(b) (the paragraph after
 [[eq:vi-b-1-1]]). So r decreases strictly along γ. On compact subsets of the compactified
-Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r₁}, r₁ < r_h, the rescaled
-ṙ is bounded above by a negative constant, so γ reaches {r < r₀ − δ₀} in finite time. Backward, r increases strictly
+Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r₁}, r₁ < r_h, the rescaled ṙ is bounded above by a negative constant, so γ reaches
+{r < r₀ − δ₀} in finite time. Backward, r increases strictly
 along an interior curve. If the curve meets ℋ_b backward, it crossed it inward there, and its earlier part is an
 exterior curve, treated above. Otherwise, with s₀ a parameter at which γ is inside, r → r̄ ≤ r_h as s → −∞. The case
 r̄ < r_h is impossible: on the compact part of the compactified Σ_(z₀) over
@@ -1145,5 +1144,4 @@ principal symbol g̃_b⁻¹ ⊗ Id. The operator hypotheses, the threshold in (H
 hold on ℬ_VI. ∎
 
 For every r_♭ ∈ (0, ½R₁], ℬ_VI ⊂ ℬ, as every ball of this chapter lies in ℬ ([[def:s12-radii]]); ε_VI and the
-constants of the theorem depend
-on r_♭.
+constants of the theorem depend on r_♭.
