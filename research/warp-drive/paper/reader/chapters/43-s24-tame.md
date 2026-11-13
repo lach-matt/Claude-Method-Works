@@ -398,9 +398,8 @@ family with a loss d equal to the sum of the losses, independent of k, for d_0 �
 ([[lem:iii-j2-2-3]]); the weights compose in the same way, each family taking its input in the graded space of the
 losses its statement assigns ([[sec:iii-j2-1]]). For [[thm:iii-i14-3-1]] the background is β = (h, p⃗, q), and
 [[eq:iii-j2-1-1]] is [[eq:iii-j2-4-1]]. At a base point with parameter b the entries are used in their forms at b; the
-constants of
-[[lem:iii-j2-2-1]] are uniform on ℬ̄_*, and d_* of [[lem:iii-j2-2-3]] does not depend on b; so neither do d, d_0 and the
-C_k. ∎
+constants of [[lem:iii-j2-2-1]] are uniform on ℬ̄_*, and d_* of [[lem:iii-j2-2-3]] does not depend on b; so neither do
+d, d_0 and the C_k. ∎
 
 **Theorem {#thm:iii-j2-4-2}** (The tame form of the right inverse.) Let ε ∈ (0, ε_1], and let ε′_j = ε′(ε, j),
 non-increasing in j, be the input losses that [[thm:iii-j1-2-1]] assigns, as in [[thm:iii-j2-4-1]]. There are

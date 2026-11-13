@@ -853,9 +853,10 @@ large, inside the range of [[prop:iv-4-1]] with δ = ½. That proposition, for t
 [[prop:iv1-2-2]] (the principal part is scalar, and the first-order terms are bounded b-operators, absorbed by the
 exponential weight), and with τ replaced by τ′, applies here: τ′ is a smooth function near the interior of I₀ with
 G_b(dτ′, dτ′) = G_b(dτ, dτ) + O(ρ) = τ² − 1 + O(ρ) < 0, and its proof uses only that dτ is uniformly timelike in the
-b-sense on the τ-range and that L ∈ ρ²Diff²_b is a wave operator; the change L − L_(b₀) lies in
-ρ²(ρC^∞ + H^(s₀−2))Diff²_b, small for h and g₀ − g_(b₀) small ([[prop:iii-c-4-4]], near the interior of I₀;
-[[lem:iii-c2-2-1]] for L^(χ₀)). Two changes are needed.
+b-sense on the τ-range and that L ∈ ρ²Diff²_b is a wave operator; for h ∈ H^(s₀) the change L − L_(b₀) lies in
+ρ²(ρC^∞ + H^(s₀−2))Diff²_b (the coefficients of the perturbation are rational in h and two of its b-derivatives),
+small for h small in H⁵ and g₀ − g_(b₀) small ([[prop:iii-c-4-4]], near the interior of I₀; [[lem:iii-c2-2-1]] for
+L^(χ₀)). Two changes are needed.
 
 *Data.* [[prop:iv-4-1]] has vanishing data and f vanishing near the initial surface. With the data above, the energy
 identity of its proof, on {0 ≤ τ′ ≤ τ′₁}, has in addition the flux through Σ_(IVP,r₀) = {τ′ = 0} of the energy current

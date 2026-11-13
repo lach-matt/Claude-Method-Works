@@ -253,15 +253,16 @@ bounded derivatives along a column, since ℓ g_app and ℓ ∂g_app = dv ⊗ [�
 The same two steps, with [[lem:sphere-two-scale]] (a) for θ⁻ and θ⁻(g0) = −3/r, give |θ⁻(g_λ) + 3/r| ≤ C3 λ on the
 columns, C3 enlarged if necessary.
 
-(v) The zero. The columns lie in the compact Ω, and r ≥ r_q(v) ≥ q0 > 0 on them. The difference √μ − r_q = μ^(1/2) − b
-μ^(1/4), b := (√72 l5²)^(1/4), equals μ^(1/4)(μ^(1/4) − b) and has derivative ¼ μ^(−3/4)(2 μ^(1/4) − b) in μ, which is
-positive for μ > b⁴/16 = √72 l5²/16, in particular for μ ≥ μ0 ≥ √72 l5². So √μ(v) − r_q(v) is at least its value at μ0,
-which is positive when μ0 > √72 l5². Put μ_max := μ(v_end). Fix δ in (0, that value) such that ∂_r θ⁺(g0) ≥ 3/(2 μ_max)
-on |r − √μ(v)| ≤ δ (possible by continuity, since ∂_r θ⁺(g0) = 3/μ ≥ 3/μ_max at r = √μ), and let m_δ > 0 be the minimum
-of |θ⁺(g0)| on the compact rest of the columns. Let r_max be the largest value of r on Ω, and let λ_H ≤ λ0 be such that
-C3 λ_H < min(m_δ, 3/(4 μ_max), 3/r_max) and λ_H ≤ λ*. For λ ≤ λ_H, by [[eq:theta-plus-close]], θ⁺_λ has no zero where |r
-− √μ| > δ, and on |r − √μ| ≤ δ its r-derivative is at least 3/(2 μ_max) − C3 λ > 3/(4 μ_max), so it is strictly
-increasing there. Hence it has at most one zero on each column, positive above it and negative below it.
+(v) The zero. The columns lie in the compact Ω, and r ≥ r_q(v) ≥ q0 > 0 on them. The difference
+√μ − r_q = μ^(1/2) − b μ^(1/4), b := (√72 l5²)^(1/4), equals μ^(1/4)(μ^(1/4) − b) and has derivative
+¼ μ^(−3/4)(2 μ^(1/4) − b) in μ, which is positive for μ > b⁴/16 = √72 l5²/16, in particular for μ ≥ μ0 ≥ √72 l5².
+So √μ(v) − r_q(v) is at least its value at μ0, which is positive when μ0 > √72 l5². Put μ_max := μ(v_end).
+Fix δ in (0, that value) such that ∂_r θ⁺(g0) ≥ 3/(2 μ_max) on |r − √μ(v)| ≤ δ (possible by continuity, since
+∂_r θ⁺(g0) = 3/μ ≥ 3/μ_max at r = √μ), and let m_δ > 0 be the minimum of |θ⁺(g0)| on the compact rest of the columns.
+Let r_max be the largest value of r on Ω, and let λ_H ≤ λ0 be such that C3 λ_H < min(m_δ, 3/(4 μ_max), 3/r_max) and λ_H
+≤ λ*. For λ ≤ λ_H, by [[eq:theta-plus-close]], θ⁺_λ has no zero where |r − √μ| > δ, and on |r − √μ| ≤ δ its r-derivative
+is at least 3/(2 μ_max) − C3 λ > 3/(4 μ_max), so it is strictly increasing there. Hence it has at most one zero on each
+column, positive above it and negative below it.
 
 If the column contains [√μ − δ, √μ + δ], which holds when √μ(v) ≤ v − τ0 − δ1 with δ1 := δ, then θ⁺_λ changes sign on
 that interval (|θ⁺_λ(√μ)| ≤ C3 λ and the slope exceeds 3/(4 μ_max)), so it has exactly one zero R_λ, and

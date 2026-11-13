@@ -283,7 +283,8 @@ that lies in H̄_b^(p,M) for all p and M lies in 𝒳_σ, since L̂_b(σ) maps i
 
 (c) For Im σ > 0, integrating by parts in t_* (there are no boundary terms: χ_Kh vanishes for t_* ≤ 1 and grows at most
 linearly, and e^(iσt_*) decays), ℱ(L_bv)(σ) = L̂_b(σ)ℱ(v)(σ) for v = χ_Kh; so (c) holds there by (a). Both sides are
-continuous on {Im σ ≥ 0} ∖ 0, pointwise in x ([[lem:iii-h-2-4]] (d) and (b)), so (c) extends to real σ ≠ 0.
+continuous on {Im σ ≥ 0} ∖ 0, pointwise in x (the right side by [[lem:iii-h-2-4]] (d), the left by (b) above, L̂_b(σ)
+being polynomial in σ), so (c) extends to real σ ≠ 0.
 
 (d) For r ≤ R, ∂_(t_*)χ_K(·, x) is supported in [1, max(2, 4R)] and integrates to 1; so
 Ψ − 1 = ∫(e^(iσt_*) − 1)∂_(t_*)χ_K dt_* and ∂_σΨ = ∫ it_*e^(iσt_*)∂_(t_*)χ_K dt_*, with |e^(iσt_*)| ≤ 1. ∎
@@ -358,9 +359,18 @@ By [[lem:iii-f4-3-1]] (1)–(4) this is a linear system in (ṁ, S, Ȧ) whose 11
 determinant 3π²(3π²m/2)⁴(2π²m)⁶ ≠ 0. So ḃ = 0 and S = 0, hence w = 0, and u lies in the nullspace, which the states
 span ([[prop:iii-f3-4-1]] (1)). As ⟨u, f*_1⟩ = 0, ⟨u, f*_2⟩ = 0 and B(b) is invertible, u = 0.
 
-*Uniform bound.* As in [[cor:iii-f3-4-2]] (1): the coefficients of L̃_b(0), including f̂(0) in H̄_b^(∞,α+2), depend
-continuously on b ([[rem:iii-h-2-6]]), and the estimate of [[thm:i-c-3-1]] holds uniformly near b_0
-([[thm:i-c-7-1]] (2)); the argument by contradiction there applies verbatim. ∎
+*Uniform bound.* We show ‖u‖_(H̄_b^(s,α)) + |ḃ| + |S| ≤ C‖L̃_b(0)(u, ḃ, S)‖ with C uniform near b_0; this is the
+argument of [[cor:iii-f3-4-2]] (1). The coefficients of L̂_b(0) depend smoothly on b, the columns f̂_ḃ(0), f̂_S(0)
+depend continuously on b in H̄_b^(∞,α+2) ([[rem:iii-h-2-6]]), and [[eq:i-c-3-2]] holds with a constant uniform near b_0
+([[thm:i-c-7-1]] (2)). If the bound fails, there are b_j → b_0 and (u_j, ḃ_j, S_j) with
+‖u_j‖_(H̄_b^(s,α)) + |ḃ_j| + |S_j| = 1 and L̃_(b_j)(0)(u_j, ḃ_j, S_j) → 0 in 𝒴_0 ⊕ 𝔟_ℂ ⊕ 𝒮_(1,ℂ). The columns at b_j
+are bounded in 𝒴_0, so L̂_(b_j)(0)u_j is bounded in 𝒴_0, and by [[eq:i-c-3-2]] a subsequence converges weakly in
+H̄_b^(s,α) and strongly in H̄_b^(−M,−M) ([[lem:i-c-2-9]] (b)) to some u, with ḃ_j → ḃ and S_j → S. As
+L̂_(b_j)(0) − L̂_(b_0)(0) → 0 as maps H̄_b^(s,α) → H̄_b^(s−2,α+2), and the columns converge in 𝒴_0, the first component
+of L̃_(b_0)(0)(u, ḃ, S) vanishes; so L̂_(b_0)(0)u ∈ 𝒴_0, that is u ∈ 𝒳_0, and ⟨u, f*_1⟩ = 0, ⟨u, f*_2⟩ = 0, the rows
+being test sections. By the injectivity at b_0, (u, ḃ, S) = 0. Then ḃ_j, S_j → 0, so
+‖L̂_(b_j)(0)u_j‖_(H̄_b^(s−1,α+2)) → 0, and ‖u_j‖_(H̄_b^(−M,−M)) → 0; by [[eq:i-c-3-2]], ‖u_j‖_(H̄_b^(s,α)) → 0. This
+contradicts the normalisation. ∎
 
 Of s the proof uses only s > ½ + ϑ_L, through [[prop:iii-f3-4-1]], [[thm:i-c-3-1]] and [[thm:i-c-7-1]]. So
 [[prop:iii-h-3-2]] holds at every such constant s, with 𝒳_0 and 𝒴_0 at that regularity; in particular at the
@@ -660,9 +670,10 @@ and ∂_(t_*) = ρ_sf · r∂_(t_*) maps H^((𝗌;k),(β,γ))_(3b;b) to H^((𝗌
 
 the weight α of [[eq:iii-h-1-1]]. By [[lem:ii-a-5-1]] a spacetime sf-weight β with K-weight 0 is the spectral weight
 (· + β, β, 0), so the spectral weight α of [[sec:iii-h-1]] is α_sf; the tf-weight α_sf + 2 of [[def:ii-c-2-7]] is the
-weight α_sf + 3/2 of [Hin26]. In this half of the chapter 𝒫 denotes the compactified phase space of [[sec:i-b-2-4]],
-and Φ_(z_0) : 𝒫 → ³ᵇS*_(K⁺)M_0 the map of [[def:ii-b-2-2]], under which characteristic sets and flows correspond
-([[lem:ii-b-2-3]]) and fibre infinity of 𝒫 goes to {σ = 0}.
+weight α_sf + 3/2 of [Hin26]. In this half of the chapter 𝒫 denotes the compactified phase space of [[sec:i-b-2-4]]
+(the augmented operator 𝒫(σ) of [[thm:iii-h-4-1]] is not used here), and Φ_(z_0) : 𝒫 → ³ᵇS*_(K⁺)M_0, always written
+with its subscript, the map of [[def:ii-b-2-2]], under which characteristic sets and flows correspond
+([[lem:ii-b-2-3]]) and fibre infinity of 𝒫 goes to {σ = 0}; it is not the function Φ of [[lem:iii-h-2-5]].
 
 **Definition {#def:iii-h1-1-1}** (The orders.) 𝒪_c = 𝒪_c(α_sf) is the set of t_*-translation-invariant
 𝗌 ∈ C^∞(³ᵇS*M̃_0) that are stationary-L_b-admissible with weights α_sf, −2 and margin 1 ([[def:ii-c-2-4]]) and
@@ -696,8 +707,8 @@ of [[def:i-a-admissible]], with the weights α_sf + 1 and α_sf respectively, th
 
 (c) 𝗋_σ is the dilated order 𝗋_ς of [[sec:i-c-6-1]], ς = |σ|; and (s_c + 1, 𝗋 + 1) with the weight α_+ := α_sf is
 admissible at σ_0 = ±1. This is what [[cor:iii-h-4-2]] and [[thm:iii-h-4-1]] (3) use on Σ′ = Σ_0 ∩ ℝ, where the
-rescaled frequency σ/|σ| is ±1. Off the real axis the orders of [[sec:i-c-6]], admissible on J_± = {|σ_0 ∓ 1| < ¼},
-are used, and only through pairings ([[sec:iii-h1-4]]).
+rescaled frequency σ/|σ| is ±1. Off the real axis the orders of [[sec:i-c-6]], admissible for |σ_0 ∓ 1| < ¼, are
+used, and only through pairings ([[sec:iii-h1-4]]).
 
 *Proof.* Under Φ_(z_0) the radial sets correspond: ∂R_(ℋ⁺) (at fibre infinity, inside {σ = 0}), ∂R_(∂K⁺,in) and
 ∂R_(∂K⁺,out) are the images of ∂ℛ_±, R_(z_0,in) and R_out, as sources and sinks of corresponding flows
@@ -746,13 +757,20 @@ neighbourhood of b_0 that may shrink as k grows. By [[cor:iii-h2-1-2]], which re
 [[prop:iii-h2-1-1]] at every b of a fixed neighbourhood, from a frame built from the null geometry alone, the fixed
 neighbourhood B̄_1 of b_0 of [[sec:iii-h2-0]] satisfies B̄_1 ⊂ ℬ_k for every k ∈ ℕ_0. So [[thm:iii-h1-1-3]] holds for
 every k at every b ∈ B̄_1, and L_b is 2-admissible with sf-weight α_sf, sf-loss 0 and margin 1 at every b ∈ B̄_1. By
-[[thm:iii-h2-2-1]] the constant C of [[eq:iii-h1-1-2]] can moreover be taken independent of b ∈ B̄_1.
+[[thm:iii-h2-2-1]], for the order 𝗌 of (B4) of [[sec:iii-h2-0]] the constant C of [[eq:iii-h1-1-2]] can moreover be
+taken independent of b ∈ B̄_1. For the other orders of 𝒪_c no uniformity in b is claimed: 𝒪_c is defined relative to
+L_b, and an order of 𝒪_c at one b need not lie in 𝒪_c at another.
 
 ### The representation of the forward solution {#sec:iii-h1-2}
 
-By density ([Hin26, p. 212]) it suffices to take f ∈ C_c^∞(Ω°; S²T*) with t_* ≥ t_1 > 1 on supp f. Then
-f̂(σ) := ∫ e^(iσt_*) f dt_* is entire with values in C_c^∞(X°), and ‖f̂(σ)‖ ≤ C_M⟨σ⟩^(−M)e^(−t_1 Im σ) in every norm,
-for Im σ ≥ 0. Fix k, b ∈ ℬ_k and 𝗌 ∈ 𝒪_c. Let c ∈ (0, ς_1], with ς_1 of [[eq:ii-g1-4-5a]], be at most the
+By density ([Hin26, p. 212]) it suffices to take for f the restriction to {r ≥ r_0} of a smooth section of S²T* with
+compact support in {t_* > 1}, so that f is smooth up to {r = r_0} and t_* ≥ t_1 > 1 on supp f. Such restrictions are
+dense: an element of the space is the restriction of a distribution F supported in {t_* ≥ 1}; the translates of F by
+τ > 0 in t_*, supported in {t_* ≥ 1 + τ}, converge to F as τ ↓ 0, and each is a limit of smooth sections with compact
+support in {t_* > 1}, by the density of C_c^∞ ([[lem:ii-a1-2-3]] (a) and its proof) and a cut-off in t_* equal to 1 on
+{t_* ≥ 1 + τ}. (Sections that vanish near {r = r_0} are not dense, the spaces being extendible there.) Then
+f̂(σ) := ∫ e^(iσt_*) f dt_* is entire with values in the smooth sections on X supported in a fixed compact subset of
+X̄ ∖ ∂X, and ‖f̂(σ)‖ ≤ C_M⟨σ⟩^(−M)e^(−t_1 Im σ) in every norm, for Im σ ≥ 0. Fix k, b ∈ ℬ_k and 𝗌 ∈ 𝒪_c. Let c ∈ (0, ς_1], with ς_1 of [[eq:ii-g1-4-5a]], be at most the
 constants c_(j,k′) of [[thm:iii-h-4-1]] (3) for L̃_b on Σ′ = Σ_0 ∩ ℝ, with the orders (s_c + 1, 𝗋 + 1) of
 [[lem:iii-h1-1-2]] (c), for j + k′ ≤ k ([[cor:iii-h-4-3]]); and fix χ ∈ C_c^∞([0, c)) with χ = 1 on [0, c/2]. Put
 
@@ -810,15 +828,15 @@ compact set (the parameterised calculus, (S7) in [[sec:ii-a-3]]). So by [[lem:ii
 in the semiclassical norms of [[lem:ii-a-5-2]] at the semiclassical parameter |σ|⁻¹. By Leibniz, (σ∂_σ)^(j_2)û_hi is a
 combination of bounded functions of σ (from 1 − χ) times ((σ∂_σ)^(j′)L̂_b⁻¹)(σ)(σ∂_σ)^(j_3)f̂(σ), j′ + j_3 ≤ j_2.
 
-*|σ| ≥ C_0.* Apply [[thm:i-b-1-3]] (5) with the orders of [[lem:iii-h1-1-2]] (b), the weight β, j′ and k − j_1 − j_2:
-with δ := δ_Γ(−ϵ),
+*|σ| ≥ C_0.* Apply [[thm:i-b-1-3]] (5) with the orders of [[lem:iii-h1-1-2]] (b), the weight β, j′ and k − j_1 − j_2,
+and with a parameter ϵ′ > 0 in place of the ϵ there: with δ := δ_Γ(−ϵ′),
 
     ‖(σ∂_σ)^(j′) L̂_b(σ)⁻¹ g‖_((s_c;k−j_1−j_2),𝗋+β,𝖻;+) ≤ C|σ|^(−1+(j′+1)δ) ‖g‖_((s_c−1;k−j_1−j_2+j′),𝗋+β+1,𝖻;+),
 
 the left side bounding the norm above (s_c + j′ ≥ s_c, and the subscript + only adds terms). The norm with subscript +
 on the right is at most C Σ_(j_4≤k−j_1−j_2+j′) |σ|^(j_4) ‖g‖_((s_c−1;k−j_1−j_3−j_4),𝗋+β+1,𝖻), since it tests in
 addition with multiplication by |σ|; and (s_c − 1)-norms are bounded by s_c-norms. As δ_Γ is continuous and
-δ_Γ(0) < 1/(2(k + 1)) at b ∈ ℬ_k, ϵ > 0 can be fixed with (k + 1)δ ≤ 1. Then
+δ_Γ(0) < 1/(2(k + 1)) at b ∈ ℬ_k, ϵ′ > 0 can be fixed with (k + 1)δ ≤ 1. (ϵ′ is not the ϵ of the statement.) Then
 |σ|^(2(j_1−1+(j′+1)δ+j_4)) ≤ |σ|^(2(j_1+j_4)), and the integrand is bounded by
 
     C Σ |σ|^(2(j_1+j_4)) ‖(σ∂_σ)^(j_3) f̂(σ)‖²_((𝗌_σ;k−j_1−j_3−j_4),𝗌_σ+β+1,𝗌_σ),     j_1 + j_4 + j_3 ≤ k.
@@ -838,12 +856,12 @@ the inverse bound being obtained as above at each raised order (s_c + l, 𝗋_σ
 ∂_σ^(j′)L̂_b⁻¹ is a sum of products of L̂_b⁻¹ and σ-derivatives of L̂_b (on test sections, σ ↦ L̂_b(σ)⁻¹g is smooth in
 the fixed spaces of the orders of [[lem:i-a-7-1]], by [[thm:i-a-7-2]] (6)), each factor is bounded uniformly between
 the spaces at σ, and a σ-derivative of L̂_b costs one b-derivative. So the output is bounded in the decay order
-𝗋_σ + β, a fortiori in 𝗋_σ + β − 2ϵ, by the input in 𝗋_σ + β + 1. (σ∂_σ)^(j′) is a combination of σ^i∂_σ^i, i ≤ j′,
-with bounded coefficients. The integrand is bounded as before, without powers of |σ|, and on |σ| ≥ C_0 the bound at
-the weight β gives it at β − 2ϵ.
+𝗋_σ + β by the input in 𝗋_σ + β + 1. (σ∂_σ)^(j′) is a combination of σ^i∂_σ^i, i ≤ j′, with bounded coefficients.
+The integrand is bounded as before, without powers of |σ|.
 
 *Conclusion.* By [[lem:ii-a-5-2]] again, with the weight β + 1 = α_sf + 2, the integral is at most
-C‖f‖²_(H^((𝗌;k),(α_sf+2,0))_(3b;b)). ∎
+C‖f‖²_(H^((𝗌;k),(α_sf+2,0))_(3b;b)). This bounds u_hi in H^((𝗌;k),(β,0))_(3b;b)(M_0), hence in
+H^((𝗌;k),(β−2ϵ,0))_(3b;b)(M_0), as ρ_sf = r⁻¹ ≤ r_0⁻¹ on M_0. ∎
 
 u_hi is not supported in Ω, so its norm is taken on M_0 ([Hin26, footnote 100]). The loss of derivatives (regularity
 𝗌 for f and for u_hi) is the loss at the trapped set.
@@ -862,11 +880,12 @@ By [[eq:iii-h-4-6]], for these σ,
 *Properties.* By the formula in the proof of [[thm:iii-h-4-1]] (3), with e = 0,
 (b̂_1, Ŝ_1) = Ξ(σ)⁻¹(⟨R(σ)f̂(σ), φ_(i′)⟩_h)_(i′), with R = L̂_b⁻¹ and Ξ(σ)_(i′i) = ⟨R(σ)F_i(σ), φ_(i′)⟩_h. R is
 holomorphic in Im σ > 0 ([[thm:i-a-7-2]] (6)), the columns F_i = f̂_ḃ, f̂_S are holomorphic there with values in every
-H̄_b^(p,M) ([[lem:iii-h-2-4]] (d)), and f̂ is entire. So b̂_1, Ŝ_1 and û_(reg,1) = R(σ)(f̂ − Σ c_iF_i) (paired with any
-φ ∈ C_c^∞(X°)) are holomorphic in Im σ > 0, continuous down to [−c, c] ∖ 0 ([[thm:i-a-7-2]] (6) at real σ_*), and
+H̄_b^(p,M) ([[lem:iii-h-2-4]] (d)), and f̂ is entire. So b̂_1, Ŝ_1 and
+û_(reg,1) = R(σ)(f̂(σ) − Σ_i (b̂_1(σ), Ŝ_1(σ))_i F_i(σ)), with (b̂_1, Ŝ_1)_i the coefficient of the column F_i (paired
+with any φ ∈ C_c^∞(X°)), are holomorphic in Im σ > 0, continuous down to [−c, c] ∖ 0 ([[thm:i-a-7-2]] (6) at real σ_*), and
 bounded uniformly by [[eq:iii-h-4-5]]. Here any orders of [[sec:i-c-6]] may be used, since these are statements about
 pairings with test sections, which do not depend on the orders; and ‖f̂(σ)‖_((s_c;k),(𝗋+α_sf+2,α_sf+2,0),|σ|) is
-bounded for |σ| ≤ 1, as f̂(σ) is supported in a fixed compact subset of X° ([[lem:i-c-6-2]] (a)).
+bounded for |σ| ≤ 1, as f̂(σ) is supported in a fixed compact subset of X̄ ∖ ∂X ([[lem:i-c-6-2]] (a)).
 
 **Lemma {#lem:iii-h1-4-1}** (The regular part.)
 u_reg(t_*, ·) := (2π)⁻¹ ∫_(𝒞_−∪𝒞_0∪𝒞_+) e^(−iσt_*) χ(|σ|) û_(reg,1)(σ) dσ satisfies
@@ -1053,7 +1072,7 @@ condition; [[lem:iii-h1-6-1]] supplies both, by a translation-invariant quantiza
 
 ### Proof of the 2-admissibility {#sec:iii-h1-7}
 
-*Proof of [[thm:iii-h1-1-3]].* Let f ∈ C_c^∞(Ω°) be as in [[sec:iii-h1-2]], and u = u_hi + u_reg + u_sing as in
+*Proof of [[thm:iii-h1-1-3]].* Let f be as in [[sec:iii-h1-2]], and u = u_hi + u_reg + u_sing as in
 [[eq:iii-h1-5-2]]. Write ‖f‖ := ‖f‖_(H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω)^(•,−)).
 
 (i) By [[lem:iii-h1-3-1]] (with ϵ < ½) and [[lem:iii-h1-4-1]], u_hi + u_reg ∈ H^((𝗌;k),(α_sf,0))_(3b;b)(M_0) with norm
@@ -1094,11 +1113,12 @@ u ∈ H^(𝗌,(α_sf,0))_3b need 𝗌 + α_sf > ½(−1 + ϑ_in) ([[eq:i-a-1-5]]
 measure u_hi and u_reg at the weight α_sf and the regularity 𝗌, which the hypothesis does not cover where
 𝗌 + α_sf ≤ ½(−1 + ϑ_in). [Hin26, Remark 10.2] checks only the outgoing radial set, where the condition of
 [[def:ii-c-2-4]] (5) is 𝗌 + α_sf < ½(−1 + ϑ_out) + α_K − 1 = ½(−1 + ϑ_out) − 3; the remark states −½ − 1 there,
-without α_K. Here u_hi is measured at the weight α_sf + 1 ([[lem:iii-h1-3-1]]) and u_reg at the regularity 𝗌 + 1
+without α_K. Here u_hi is measured at the weight α_sf + 1 − 2ϵ, with ϵ below the margin ([[lem:iii-h1-3-1]]), and
+u_reg at the regularity 𝗌 + 1
 ([[lem:iii-h1-4-1]]); both use the margin, and nothing is lost in [[thm:iii-h1-1-3]].
 
-(c) *The neighbourhood of b_0.* The high-energy estimate with k orders of b-regularity needs (k + 1)δ_Γ(−ϵ) ≤ 1
-([[lem:iii-h1-3-1]]). [[prop:iii-f-4-1]] gives strong trapping admissibility at b_0, and, near b_0, the smallness of
+(c) *The neighbourhood of b_0.* The high-energy estimate with k orders of b-regularity needs (k + 1)δ_Γ(−ϵ′) ≤ 1 for
+some ϵ′ > 0 ([[lem:iii-h1-3-1]]). [[prop:iii-f-4-1]] gives strong trapping admissibility at b_0, and, near b_0, the smallness of
 δ_Γ(0) only on a neighbourhood that shrinks as the bound decreases. [Hin26] states its Theorem 10.1 for b near b_0 with
 its Proposition 8.3 (strong trapping admissibility near b_0 in dimension 3 + 1). [[thm:iii-h1-1-3]] is therefore stated
 on the sets ℬ_k, and [[rem:s18-every-k]] gives one neighbourhood for every k.

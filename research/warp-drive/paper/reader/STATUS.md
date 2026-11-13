@@ -17,7 +17,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 23 S4 | NOT CONFIRMED 3M 8m 7n | running (tameness) | - |
 | 24 S5 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (2 optional nits) |
 | 25 S6 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (4 new nits); depends on S4 |
-| 26 S7 | NOT CONFIRMED 2M 4m 3n | done | running |
+| 26 S7 | NOT CONFIRMED 2M 4m 3n | done | CONFIRMED (4 nits) |
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done (one citation pending) | CONFIRMED but for the 0-Sobolev citation (3 optional nits) |
 | 28 S9 | NOT CONFIRMED 2M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (Theorem 1.1 tame estimate) |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |

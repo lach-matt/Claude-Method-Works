@@ -181,3 +181,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S19 uses σ_C and s, not s_C (s_C is one number in S16/S17).
 - [Hin17, Proposition 4.1, p. 20 of arXiv:1502.03183v2] is stated exactly in S19; its Appendix A block is in F-S19.
 - F-S19 lists the S19 results that use S4's (L3), (L4) and d₀; re-check them after the S4 repair.
+- S7 (R2-S07): confirmed. Nits: N1 line 1016 the cut-off φ₂ equals 1 only on the set, not on a neighbourhood; N2
+  line 1019 the ν-term bound is justified in one direction only; N3 line 982 η₀ ≤ 1/2 is imposed inside a proof (move
+  to the statement); N4 "near {r ≤ r₀}, over …" reads as two conditions.
