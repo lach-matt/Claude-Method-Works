@@ -181,14 +181,14 @@ with Ω, γ_ϑ, b, A_c, A_s functions of (u, v, ϑ), the cone 𝒞 := {u = u_c} 
 where r is a polynomial in the first and mixed derivatives ∂_v, ∂_ϑ, ∂_v∂_ϑ of ln Ω, λ_1, λ_2, λ_3. Neither contains a
 u-derivative, and b enters only through ∂_v b and ∂_v² b.
 
-*Proof.* The inverse metric has g^(uv) = −1/(4Ω²), g^(vϑ) = −b/(4Ω²), g^(ϑϑ) = γ_ϑ⁻¹, g^(φ1φ1) = e^(−2A_c),
+*Proof.* The inverse metric has g^(uv) = −1/(2Ω²), g^(vϑ) = −b/(2Ω²), g^(ϑϑ) = γ_ϑ⁻¹, g^(φ1φ1) = e^(−2A_c),
 g^(φ2φ2) = e^(−2A_s), and g^(uu) = g^(vv) = g^(uϑ) = 0. Hence ∇_(∂_v)∂_v = Γ^v_(vv)∂_v = k ∂_v with k := 2∂_v ln Ω,
 since g_vv = g_vϑ = 0. The sections {u, v constant} carry the metric γ_ϑ dϑ² + e^(2A_c)dφ1² + e^(2A_s)dφ2², b not
 entering because du = 0 on them; ∂_v is orthogonal to them and commutes with ∂_ϑ and ∂_(φi), so their null second
 fundamental form along ∂_v is half the v-derivative of that metric, with eigenvalues ∂_vλ_i, expansion θ_v = Σ∂_vλ_i and
 |χ|² = Σ(∂_vλ_i)². The Raychaudhuri equation ∂_vθ_v = kθ_v − |χ|² − Ric(∂_v, ∂_v) is the first line. The second
 line follows by a direct calculation of the Christoffel symbols of [[eq:loc-double-null]] in the coordinates (u, v,
-ϑ, φ1, φ2), in which b enters only through g_uu = γ_ϑb², g_uϑ = −γ_ϑb and g^(vϑ) = −b/(4Ω²); in R_vϑ the terms in
+ϑ, φ1, φ2), in which b enters only through g_uu = γ_ϑb², g_uϑ = −γ_ϑb and g^(vϑ) = −b/(2Ω²); in R_vϑ the terms in
 b that carry no v-derivative cancel, and no u-derivative survives. ∎
 
 **Proposition {#prop:loc-cones}** (Exact localisation on cones.) On the outgoing cone 𝒞_out = {u = 0} write γ_ϑ =

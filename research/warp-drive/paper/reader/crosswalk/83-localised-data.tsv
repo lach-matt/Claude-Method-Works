@@ -1,0 +1,144 @@
+label	source	source_name	note
+ch:localised-data	docket68/n1star/FAMILIES5-R10.md:105-155; docket68/n1star/FAMILIES5-R6.md:130-285	R10.1 paper block; R6 sections 1-2	chapter opening composed from the R10.1 block (localisation and charge sentences)
+sec:loc-setting	docket68/n1star/FAMILIES5-R8.md:127-135; docket68/n1star/FAMILIES5-MB.md:87-100	R8.2 the background; MB section 0	example background stated with chapter 80 notation; seed region from P-E proofs
+eq:loc-constraints	docket68/n1star/FAMILIES5-R7.md:131-133; docket68/n1star/FAMILIES5-MB.md:43-45	the constraint map (H, M) of R7.2/MB	renamed ℋ, ℳ; relation to [CD03] (J, ρ) added
+sec:loc-racz	docket68/n1star/FAMILIES5-AXIS.md:108-148	AXIS 2.2 two splits of [Rac16]	
+lem:racz-split-formulas	docket68/n1star/FAMILIES5-AXIS.md:131-136; docket68/n1star/FAMILIES5-VLASOV.md:274-276; docket68/n1star/FAMILIES5-R6.md:192-196	AXIS B2 (bandconst5); VLASOV R3 lapse N_s; R6 Q5 shift Y_s	the pending Rácz-formulas lemma of proofs E, written in full with ψ ≠ 0; e^ψ written q; derivation written by hand
+eq:racz-kappa	docket68/n1star/FAMILIES5-AXIS.md:131-134	AXIS B2 κ, Kt, N_k	E := e^ψ written q
+eq:racz-kid	docket68/n1star/FAMILIES5-VLASOV.md:274-276; docket68/n1star/FAMILIES5-MB.md:144-146	R3 N_s; Theorem T (ii)	N_s√G = 1 and N_s² − G Y² = f proved for every ψ
+eq:racz-vacuum	paper/reader/proofs/P-E-margins.md:522-528	proof E margins seed-region quantities	N_κ on a vacuum region
+prop:loc-band	docket68/n1star/FAMILIES5-VLASOV.md:251-256; docket68/n1star/FAMILIES5-R6.md:244-251; docket68/n1star/FAMILIES5-R8.md:207-209	racglobal5 R2 (no foliation); R6 2 (4.22) argument; R8.2 C3 band	extent from thm:margins-hyperbolic and thm:bg-margins (c)
+thm:loc-bent-slice	docket68/n1star/FAMILIES5-R8.md:229-242; docket68/n1star/FAMILIES5-R6.md:260-282; docket68/n1star/FAMILIES5-AXIS.md:150-171	Theorem L″ with the moved lobe (R8.3); R6 section 2; AXIS Proposition L	Cauchy stability Theorem K′ left as pending key (chapter 81)
+sec:loc-cones	docket68/n1star/FAMILIES5-AXIS.md:75-92	AXIS 2.1 characteristic data (bandconst5 B6, dnull5 D2, D5)	
+eq:loc-double-null	docket68/n1star/FAMILIES5-AXIS.md:79-80	AXIS 2.1 class double-null gauge	A, B written A_c, A_s
+lem:loc-cone-equations	docket68/n1star/FAMILIES5-AXIS.md:81-88	AXIS 2.1 (dnull5 D2, D5)	Ric_vv and Ric_vϑ written out (checked privately)
+eq:loc-cone	docket68/n1star/FAMILIES5-AXIS.md:81-88	AXIS 2.1	explicit forms added
+prop:loc-cones	docket68/n1star/FAMILIES5-AXIS.md:89-92; docket68/n1star/FAMILIES5-AXIS.md:207-211	AXIS 2.1 exact localisation (B6); R5 nit on smallness	proof by the two ODEs
+sec:loc-kid	docket68/n1star/FAMILIES5-VLASOV.md:268-282; docket68/n1star/FAMILIES5-R7.md:129-145	VLASOV 4 Proposition L′; R7.2 charge and E	
+lem:loc-kid	docket68/n1star/FAMILIES5-R6.md:192-199; docket68/n1star/FAMILIES5-VLASOV.md:272-280	R6 Lemma (the KID pairing, Q5); VLASOV R3 invariant Killing fields	pairing proved by a flux argument; invariant Killing fields by the Killing equation
+def:loc-charge	docket68/n1star/FAMILIES5-MB.md:39-46; docket68/n1star/FAMILIES5-MB.md:100-103	MB definition of Q; gauge seeds (R6 1.5)	E := −Q not introduced
+eq:loc-charge	docket68/n1star/FAMILIES5-MB.md:43-45	MB Q(δ)	
+prop:loc-projection	docket68/n1star/FAMILIES5-VLASOV.md:268-282	Proposition L′	non-existence written by Taylor and the pairing; existence via [CD03] Thm 5.6; continuity issue-1
+eq:loc-pairing	docket68/n1star/FAMILIES5-VLASOV.md:277-280	Proposition L′ m(ε) = ε²Q + O(ε³)	
+sec:loc-momentum	docket68/n1star/FAMILIES5-R6.md:130-148	R6 1.1	
+eq:loc-dk	docket68/n1star/FAMILIES5-R6.md:134-136	R6 1.1 orthonormal components	e_s/e_c frame named to fit chapter 2 angles
+lem:loc-momentum-constraints	docket68/n1star/FAMILIES5-R6.md:137-147	R6 1.1 linearised constraints (qsign5 Q1 (i))	Christoffel symbols listed; κ-derivative kept before δH = 0
+eq:loc-dm	docket68/n1star/FAMILIES5-R6.md:139-143	R6 1.1 δM_R, δM_θ	
+eq:loc-s2	docket68/n1star/FAMILIES5-R6.md:142-143	R6 1.1 δM_θ fixes s2	
+thm:charge-identity	docket68/n1star/FAMILIES5-R6.md:151-167; docket68/n1star/FAMILIES5-R7.md:95-121; docket68/n1star/FAMILIES5-R8.md:319-340	Theorem Q; R7.1 at the axes; R8.6 flux signs	stream function ψ written η; pointwise flux identity with R-flux 𝔅 written out (checked privately)
+eq:charge-identity-defs	docket68/n1star/FAMILIES5-R6.md:157-158	Theorem Q definitions	
+eq:charge-stream	docket68/n1star/FAMILIES5-R6.md:139-141; docket68/n1star/FAMILIES5-R7.md:97-109	stream function; axis class	axis regularity proved by the rotation by π
+eq:charge-identity	docket68/n1star/FAMILIES5-R6.md:153-158	Theorem Q identity	
+eq:charge-flux	docket68/n1star/FAMILIES5-R8.md:65-67; docket68/n1star/FAMILIES5-R8.md:330-332	R8 nit 1 θ-flux	R-flux 𝔅 added
+cor:loc-charge-momentum	docket68/n1star/FAMILIES5-R6.md:169-170	Corollary Q	
+cor:loc-charge-seed	docket68/n1star/FAMILIES5-R6.md:172-187; docket68/n1star/FAMILIES5-R8.md:213-224	R6 1.3 Γ on the slice; R8.2 T2	stated for the seed region [0.70, 1.861] and R ≥ R_*
+sec:loc-matter	docket68/n1star/FAMILIES5-R6.md:189-217	R6 1.4	
+thm:loc-matter	docket68/n1star/FAMILIES5-R6.md:201-215	Theorem Q′ with R7 m9 note	DEC used as ρ ≥ |J|; dust density written d; issue-1
+sec:loc-metric	docket68/n1star/FAMILIES5-MB.md:100-212	MB sections 1-3	
+lem:loc-harmonics	docket68/n1star/FAMILIES5-MB.md:104-128	Lemma H	(c) only the l = 2 tensor, checked privately; (a) from chapter 64
+thm:loc-tensor	docket68/n1star/FAMILIES5-MB.md:130-148	Theorem T	(i), (ii), (iv) proved; (iii) computational-1; P written Π
+eq:loc-tensor-charge	docket68/n1star/FAMILIES5-MB.md:137-142	Theorem T (iii)	factor (2π)² written
+lem:loc-tensor-sign	docket68/n1star/FAMILIES5-MB.md:176-197	Lemma X1 and the Riemann-Lebesgue step	explicit polynomial example dropped
+thm:loc-inside	docket68/n1star/FAMILIES5-MB.md:199-212; docket68/n1star/FAMILIES5-MB.md:368-380	Theorem X; R8 minor 6 (cone of seeds)	
+sec:loc-outside	docket68/n1star/FAMILIES5-MB.md:220-344	MB section 4	
+lem:loc-transfer	docket68/n1star/FAMILIES5-MB.md:222-245	Lemma TR with R8 minor 5	
+eq:loc-static-energies	docket68/n1star/FAMILIES5-MB.md:250-256	MB 4.2 E_V, E_K	written 𝔈_V, 𝔈_K
+lem:loc-gauge-invariance	docket68/n1star/FAMILIES5-MB.md:258-268	Lemma G	
+lem:loc-scalar-reduction	docket68/n1star/FAMILIES5-MB.md:270-312; docket68/n1star/FAMILIES5-MB.md:325-332	4.3 modes, Lemma K, Lemma V, E8	proof computational-2; q of k written q_k
+eq:loc-ek	docket68/n1star/FAMILIES5-MB.md:285-290	Lemma K	
+eq:loc-ev	docket68/n1star/FAMILIES5-MB.md:300-308	Lemma V (iii)	
+lem:loc-positivity	docket68/n1star/FAMILIES5-MB.md:316-320; docket68/n1star/FAMILIES5-R8.md:475-478	4.6 positivity; R8 E7 every l ≥ 2	
+thm:loc-outside	docket68/n1star/FAMILIES5-MB.md:344-352	Theorem P	
+sec:loc-sign	docket68/n1star/FAMILIES5-R10.md:105-155	R10.1 block	
+thm:charge-sign	docket68/n1star/FAMILIES5-R10.md:129-153; docket68/n1star/FAMILIES5-R11.md:63-66	R10.1 block (f < 0 / f > 0 wording); R11.1 unchanged	exported key; collects Corollary Q, Theorem Q′, Theorem X and Theorem P
+sec:bg-below	paper/reader/proofs/P-E-background.md:1	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-data	paper/reader/proofs/P-E-background.md:11	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-profiles	paper/reader/proofs/P-E-background.md:16	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-field	paper/reader/proofs/P-E-background.md:21	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-chart	paper/reader/proofs/P-E-background.md:27	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-tangherlini	paper/reader/proofs/P-E-background.md:31	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-label	paper/reader/proofs/P-E-background.md:35	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:bg-identities	paper/reader/proofs/P-E-background.md:37	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:bg-reduction	paper/reader/proofs/P-E-background.md:47	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-nprime	paper/reader/proofs/P-E-background.md:52	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-ray	paper/reader/proofs/P-E-background.md:60	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-inputs	paper/reader/proofs/P-E-background.md:67	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-psi3-def	paper/reader/proofs/P-E-background.md:74	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:bg-rstar	paper/reader/proofs/P-E-background.md:106	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:bg-slice-forms	paper/reader/proofs/P-E-background.md:112	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-kk	paper/reader/proofs/P-E-background.md:117	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-nk-packet	paper/reader/proofs/P-E-background.md:121	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-tools	paper/reader/proofs/P-E-background.md:133	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:bg-tools	paper/reader/proofs/P-E-background.md:135	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-bump-disc	paper/reader/proofs/P-E-background.md:155	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-series	paper/reader/proofs/P-E-background.md:165	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:bg-comparison	paper/reader/proofs/P-E-background.md:175	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-comparison-2	paper/reader/proofs/P-E-background.md:181	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-nprime	paper/reader/proofs/P-E-background.md:192	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-nprime-approx	paper/reader/proofs/P-E-background.md:198	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+prop:bg-nprime	paper/reader/proofs/P-E-background.md:203	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-rays	paper/reader/proofs/P-E-background.md:253	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-ray-approx	paper/reader/proofs/P-E-background.md:258	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-ray-numerator	paper/reader/proofs/P-E-background.md:263	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-ray-defects	paper/reader/proofs/P-E-background.md:270	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-gamma	paper/reader/proofs/P-E-background.md:280	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-tube	paper/reader/proofs/P-E-background.md:284	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+prop:bg-rays	paper/reader/proofs/P-E-background.md:289	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-ray-chain	paper/reader/proofs/P-E-background.md:308	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-seed	paper/reader/proofs/P-E-background.md:320	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-psi3	paper/reader/proofs/P-E-background.md:326	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+prop:bg-seed	paper/reader/proofs/P-E-background.md:334	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-seed-split	paper/reader/proofs/P-E-background.md:364	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-seed-box	paper/reader/proofs/P-E-background.md:369	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:bg-seed-delta	paper/reader/proofs/P-E-background.md:375	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-slice	paper/reader/proofs/P-E-background.md:398	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+prop:bg-slice	paper/reader/proofs/P-E-background.md:400	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:bg-theorem	paper/reader/proofs/P-E-background.md:426	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+thm:bg-margins	paper/reader/proofs/P-E-background.md:428	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+rem:bg-grid	paper/reader/proofs/P-E-background.md:441	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:margins	paper/reader/proofs/P-E-margins.md:1	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:margins-tools	paper/reader/proofs/P-E-margins.md:42	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-enclosure	paper/reader/proofs/P-E-margins.md:44	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:margins-hermite	paper/reader/proofs/P-E-margins.md:59	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:margins-bump	paper/reader/proofs/P-E-margins.md:75	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-bump	paper/reader/proofs/P-E-margins.md:77	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-bump-table	paper/reader/proofs/P-E-margins.md:119	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:margins-bend	paper/reader/proofs/P-E-margins.md:151	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+prop:margins-bend	paper/reader/proofs/P-E-margins.md:153	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:margins-bend	paper/reader/proofs/P-E-margins.md:156	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:margins-region-one	paper/reader/proofs/P-E-margins.md:204	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-region-one	paper/reader/proofs/P-E-margins.md:206	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:margins-vaidya	paper/reader/proofs/P-E-margins.md:210	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+cor:margins-lens	paper/reader/proofs/P-E-margins.md:241	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-shell-data	paper/reader/proofs/P-E-margins.md:292	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:margins-ode	paper/reader/proofs/P-E-margins.md:295	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:margins-rates	paper/reader/proofs/P-E-margins.md:299	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:margins-scheme	paper/reader/proofs/P-E-margins.md:313	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:margins-racz	paper/reader/proofs/P-E-margins.md:370	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-racz	paper/reader/proofs/P-E-margins.md:372	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:margins-xi	paper/reader/proofs/P-E-margins.md:375	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:margins-hyperbolic	paper/reader/proofs/P-E-margins.md:398	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-curvature	paper/reader/proofs/P-E-margins.md:404	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+thm:margins-hyperbolic	paper/reader/proofs/P-E-margins.md:444	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:margins-seed	paper/reader/proofs/P-E-margins.md:520	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-gamma-form	paper/reader/proofs/P-E-margins.md:530	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+eq:margins-gamma-form	paper/reader/proofs/P-E-margins.md:532	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+lem:margins-profile-monotone	paper/reader/proofs/P-E-margins.md:550	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+prop:margins-seed	paper/reader/proofs/P-E-margins.md:557	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg	paper/reader/proofs/T-E-background.md:1	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-nprime	paper/reader/proofs/T-E-background.md:12	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-nprime-defects	paper/reader/proofs/T-E-background.md:75	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-nprime-chain	paper/reader/proofs/T-E-background.md:97	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-ray	paper/reader/proofs/T-E-background.md:120	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-ray-defects	paper/reader/proofs/T-E-background.md:161	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-ray-chain	paper/reader/proofs/T-E-background.md:199	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-seed	paper/reader/proofs/T-E-background.md:239	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-slice-iii	paper/reader/proofs/T-E-background.md:269	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-slice-packet	paper/reader/proofs/T-E-background.md:301	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-margins	paper/reader/proofs/T-E-margins.md:1	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-bump	paper/reader/proofs/T-E-margins.md:7	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-seed-profile	paper/reader/proofs/T-E-margins.md:65	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-seed-cells	paper/reader/proofs/T-E-margins.md:78	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-shell	paper/reader/proofs/T-E-margins.md:123	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-sigma0	paper/reader/proofs/T-E-margins.md:257	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-sigma-bent	paper/reader/proofs/T-E-margins.md:397	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part

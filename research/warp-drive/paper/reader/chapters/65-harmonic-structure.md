@@ -944,8 +944,10 @@ Cauchy data on Σ°. Then Y − Y_c has vanishing data and □(Y − Y_c) = −�
 α_I = p − 3/2 < 0, the b-Sobolev embedding of step (4) of the proof of [[thm:gd-r4-3]] gives the order p; Y_c vanishes
 near infinity. (2) *The slab.* With χ of [[lem:gd-r3-5]], χ(t^♭_*)Y solves □(χ(t^♭_*)Y) = [□, χ(t^♭_*)]Y, supported in
 {2 ≤ t^♭_* ≤ 3} and meeting ∂M only at ℐ⁺, of ℐ⁺-order p + 1 (the proof of [[prop:gd-r3-6]]). Fix β ∈ (0, 1) and
-p ∈ (½ + β, 3/2); with b_+ := β + ½ and b_I ∈ (b_+, p), this forcing term lies in the space of [[lem:gd-r3-5]], whose
-conditions hold for □, and [[thm:ii-f1-1-1]] gives its forward solution, which is χ(t^♭_*)Y by the uniqueness argument
+p ∈ (½ + β, 3/2), and put b_+ := β + ½ and b_I ∈ (b_+, p). This forcing term lies in
+H^(∞,(b_I+1,b_++2,1/2))_b(Ω_*, μ_b)^(•,−), the space of [[eq:ii-f1-1-4]] in the form of [[cor:ii-f1-1-2]], whose
+conditions b_I < 3/2 + S̄ and b_+ < b_I hold for □ (S̄ = 0, [[lem:iii-d-3-1]] at γ_Υ = 0); □ is 1-admissible with
+sf-weight b_+ − 5/2 = β − 2 ([[thm:gd-r2-5]] (iii), as β ∈ (0, 1)), and [[thm:ii-f1-1-1]] gives its forward solution, which is χ(t^♭_*)Y by the uniqueness argument
 of the proof of [[prop:gd-r3-6]]. (3) *Late times.* As in the proof of [[thm:gd-r3-4]] (iii): χ′Y solves
 □(χ′Y) = [□, χ′]Y, a forcing term supported in supp dχ′ and in the class of [[thm:gd-r2-5]]; [[thm:gd-r2-7]] gives
 |χ′Y − c(t_*)W*| ≤ Ct_*^(−1/2), and for large t_*, dχ′ = 0 near the horizon, so c is constant there, equal to
@@ -957,20 +959,22 @@ support on such a slice does not vanish near ℐ⁺ on later slices. Step (1) su
 needs.
 
 **Corollary {#cor:gd-r4-4}** (The harmonic gauge on all of N⁺.) With Z_1 of [[prop:gd-r3-6]], Z := ṁχ_KW**_H + Z_1 and
-ġ_H := ġ + ℒ_Zg on N⁺: ġ_H is G-invariant, DRic(ġ_H) = 0, Θ(ġ_H) = 0 on all of N⁺, ġ_H = ġ on a neighbourhood of Σ°
+ġ_H := ġ + ℒ_Zg on N⁺: ġ_H is G-invariant, DRic(ġ_H) = 0, Υ̇⁰(ġ_H) = 0 on all of N⁺, ġ_H = ġ on a neighbourhood of Σ°
 (so ġ_H induces (γ̇, k̇) exactly), and on each {r_♭ < r ≤ R′, t_* ≥ T′}, with the derivatives of [[eq:gd-r2-2]],
 
     |ġ_H − ṁK* − c_∞ℒ_(W*)g| ≤ Ct_*^(−1/2),        c_∞ := (4π²)⁻¹ ∫ ℓ(χ′J_h + [□, χ′]Z_1) dv,
 
 the limit of a horizon charge. For a 1-form Y_h on N⁺, smooth up to Σ°, with □Y_h = 0 and Cauchy data of compact
-support on Σ°, ġ_H + ℒ_(Y_h)g has the same properties with c_∞ + Q[Y_h]/4π² in place of c_∞, its data changed by those
-of ℒ_(Y_h)g; and the same holds for the representative of [[thm:gd-r3-4]].
+support on Σ°, ġ_H + ℒ_(Y_h)g has the properties above with three changes: c_∞ + Q[Y_h]/4π² replaces c_∞; near Σ° it
+equals ġ + ℒ_(Y_h)g, so it induces (γ̇, k̇) plus the data of ℒ_(Y_h)g; and it is G-invariant when Y_h is. With the
+same three changes, (i)–(iii) of [[thm:gd-r3-4]] hold for that theorem's representative plus ℒ_(Y_h)g.
 
 *Proof.* [[prop:gd-r3-6]], whose hypothesis is [[thm:gd-r4-3]]. Z_1 is G-invariant by the argument of
 [[prop:gd-2-1]] (a). *Near Σ°.* χ_K = 0 there, and F_Y = χ^♮_0E^ΥGḣ (step (1) of the proof of [[thm:gd-r4-3]])
 vanishes on V ∩ N⁺ for a neighbourhood V of Σ° in U^♯ ([[lem:iii-k-1-1]] (d)); so Z_1, with vanishing data, vanishes
 on D_V(Σ°) ∩ {t_IVP ≥ 0} by the argument of [[lem:gd-r3-1]] on D_V(Σ°) ([[lem:ix-1-2]]). The clause on Y_h is
-[[cor:gd-r4-6]], ℒ_(Y_h)g being linear in Y_h, and DRic(ℒ_(Y_h)g) = 0, Θ(ℒ_(Y_h)g) = □Y_h = 0. ∎
+[[cor:gd-r4-6]], ℒ_(Y_h)g being linear in Y_h, and DRic(ℒ_(Y_h)g) = 0, Υ̇⁰(ℒ_(Y_h)g) = −□Y_h = 0; ℒ_(Y_h)g is
+G-invariant when Y_h is. ∎
 
 So every perturbation in the class has a representative in harmonic gauge on all of N⁺ that induces the given data
 exactly, and its settling on compact sets is determined up to the constant c_∞: the explicit ṁK*, growing linearly
@@ -982,7 +986,7 @@ in v, plus the stationary c_∞ℒ_(W*)g, plus a decaying remainder.
 solution of [[prop:gd-2-1]] (a), with gauge vector Z′.
 
 (a) (*Exact form.*) (ġ_H)_0 = ṁK* + ℒ_(Z′_0)g, where Z′_0 is the l = 0 part of Z′, □Z′_0 = 0, and K* is the mass
-change of [[prop:np-10-2]] (iv) (c): smooth across the horizon, Θ(K*) = 0, δm[K*] = 1, and K* − (v/2)ℒ_(W*)g
+change of [[prop:np-10-2]] (iv) (c): smooth across the horizon, Υ̇⁰(K*) = 0, δm[K*] = 1, and K* − (v/2)ℒ_(W*)g
 stationary. The choice Z′_0 = 0 is allowed, and then (ġ_H)_0 = ṁK* identically.
 
 (b) (*Decaying gauge data.*) If Z′_0 has Cauchy data of compact support on Σ°, then on each
@@ -994,11 +998,11 @@ When ṁ ≠ 0 this grows linearly in v, and it is not the sum of a stationary t
 
 (c) (*Non-decaying gauge data.*) Let F be as in [[lem:gd-r2-9]], ψ = v + F, and
 
-    Ψ := ψ² + K_Ψ(r),        K_Ψ′ := (r⁴/2 + r²r_h² − (3/2)r_h⁴ + 2r_h⁴ log(r/r_h))/(r(r² − r_h²)).
+    Ξ := ψ² + K_Ξ(r),        K_Ξ′ := (r⁴/2 + r²r_h² − (3/2)r_h⁴ + 2r_h⁴ log(r/r_h))/(r(r² − r_h²)).
 
-Then □_0Ψ = 0, dΨ is smooth across r_h, and S := K* − (4m₀)⁻¹ℒ_(dΨ)g is stationary, smooth across the horizon, with
-Θ(S) = 0 and δm[S] = 1; but S_vv → −1/m₀ as r → ∞. So ṁS is the l = 0 part of a harmonic-gauge solution, with
-Z′_0 = −(ṁ/(4m₀))dΨ: stationary near the horizon, not decaying at infinity, and with a gauge vector that grows in v and
+Then □_0Ξ = 0, dΞ is smooth across r_h, and S := K* − (4m₀)⁻¹ℒ_(dΞ)g is stationary, smooth across the horizon, with
+Υ̇⁰(S) = 0 and δm[S] = 1; but S_vv → −1/m₀ as r → ∞. So ṁS is the l = 0 part of a harmonic-gauge solution, with
+Z′_0 = −(ṁ/(4m₀))dΞ: stationary near the horizon, not decaying at infinity, and with a gauge vector that grows in v and
 in r. The growth of the horizon charge ([[thm:gd-2-3]]) is then carried by (ṁ/(2m₀))v(∂_v)^♭, a linearly growing time
 translation, whose Lie derivative is stationary.
 
@@ -1014,24 +1018,24 @@ with dψ = dv + F′dr and P := −F′ = (r² + rr_h + r_h²)/(r(r + r_h)), for
 
     g⁻¹(dψ, dψ) = 2F′ + fF′² = P(fP − 2) = −P(r³ + r_h³)/r³ = −(r⁴ + r²r_h² + r_h⁴)/r⁴.
 
-For a function of r, □_0K_Ψ = −r⁻³(r³fK_Ψ′)′, and r³fK_Ψ′ = r⁴/2 + r²r_h² − (3/2)r_h⁴ + 2r_h⁴ log(r/r_h), whose
-derivative is 2(r⁴ + r²r_h² + r_h⁴)/r. So □_0Ψ = 2(r⁴ + r²r_h² + r_h⁴)/r⁴ − 2(r⁴ + r²r_h² + r_h⁴)/r⁴ = 0.
-dΨ = 2ψdψ + K_Ψ′dr: ψ and dψ are smooth on {r > 0}, and the numerator of K_Ψ′ vanishes at r = r_h
-(r_h⁴/2 + r_h⁴ − (3/2)r_h⁴ = 0), so K_Ψ′ is analytic on {r > 0}. *Stationarity.* ℒ_(dΨ)g = 2∇dΨ =
-4dψ ⊗ dψ + 4ψ∇dψ + 2∇(K_Ψ′dr), and ∇dψ = ½ℒ_(dψ)g = ½m₀ℒ_(W*)g, (∂_v)^♭ being Killing. So
+For a function of r, □_0K_Ξ = −r⁻³(r³fK_Ξ′)′, and r³fK_Ξ′ = r⁴/2 + r²r_h² − (3/2)r_h⁴ + 2r_h⁴ log(r/r_h), whose
+derivative is 2(r⁴ + r²r_h² + r_h⁴)/r. So □_0Ξ = 2(r⁴ + r²r_h² + r_h⁴)/r⁴ − 2(r⁴ + r²r_h² + r_h⁴)/r⁴ = 0.
+dΞ = 2ψdψ + K_Ξ′dr: ψ and dψ are smooth on {r > 0}, and the numerator of K_Ξ′ vanishes at r = r_h
+(r_h⁴/2 + r_h⁴ − (3/2)r_h⁴ = 0), so K_Ξ′ is analytic on {r > 0}. *Stationarity.* ℒ_(dΞ)g = 2∇dΞ =
+4dψ ⊗ dψ + 4ψ∇dψ + 2∇(K_Ξ′dr), and ∇dψ = ½ℒ_(dψ)g = ½m₀ℒ_(W*)g, (∂_v)^♭ being Killing. So
 
-    (4m₀)⁻¹ℒ_(dΨ)g = m₀⁻¹dψ ⊗ dψ + ((v + F)/2)ℒ_(W*)g + (2m₀)⁻¹∇(K_Ψ′dr),
+    (4m₀)⁻¹ℒ_(dΞ)g = m₀⁻¹dψ ⊗ dψ + ((v + F)/2)ℒ_(W*)g + (2m₀)⁻¹∇(K_Ξ′dr),
 
 and by [[eq:np-10-2-k]] the terms (v/2)ℒ_(W*)g cancel in S, which is therefore stationary and smooth across the horizon.
-Θ(S) = Θ(K*) − (4m₀)⁻¹□dΨ = −(4m₀)⁻¹d□_0Ψ = 0, as □ = dδ + δd commutes with d. δm[ℒ_(dΨ)g] = 0, dΨ being spherically
+Υ̇⁰(S) = Υ̇⁰(K*) + (4m₀)⁻¹□dΞ = (4m₀)⁻¹d□_0Ξ = 0, as □ = dδ + δd commutes with d. δm[ℒ_(dΞ)g] = 0, dΞ being spherically
 symmetric ([[lem:gd-1-4]] (a)), so δm[S] = 1. *S_vv.* For Y = a dv + b dr, (ℒ_Yg)_vv = 2∂_va − f′a − ff′b (the
 symbols Γ^v_(vv) = f′/2 and Γ^r_(vv) = ff′/2). The v-dependent terms of S_vv cancel, S being stationary. As r → ∞,
-f′ = 2m₀r⁻³, rA → ½, rB → −¼, F = −r + O(1), 1 + fF′ = r_h³r⁻³ and K_Ψ′ = r/2 + O(r⁻¹); so the stationary part of
-(ℒ_(W**)g)_vv is r⁻² + O(r⁻⁴), that of (ℒ_(dΨ)g)_vv = 4 − 2f′ψ(1 + fF′) − ff′K_Ψ′ is 4 + O(r⁻²), and
-S_vv = K_vv + (ℒ_(W**)g)_vv − (4m₀)⁻¹(ℒ_(dΨ)g)_vv = −1/m₀ + O(r⁻²). *The gauge vector.* By [[prop:gd-2-1]] (a), a
-harmonic-gauge solution with Z′_0 = −(ṁ/(4m₀))dΨ exists, and its l = 0 part is ṁK* − (ṁ/(4m₀))ℒ_(dΨ)g = ṁS. The
-growing part of −(ṁ/(4m₀))dΨ = −(ṁ/(2m₀))ψdψ − (ṁ/(4m₀))K_Ψ′dr is −(ṁ/2)vW* + (ṁ/(2m₀))v(∂_v)^♭. The first
-cancels the growing part (ṁ/2)vW* of ṁW**; Q[dΨ] = 0, as δdΨ = □_0Ψ = 0 and d dΨ = 0; and by the argument in the
+f′ = 2m₀r⁻³, rA → ½, rB → −¼, F = −r + O(1), 1 + fF′ = r_h³r⁻³ and K_Ξ′ = r/2 + O(r⁻¹); so the stationary part of
+(ℒ_(W**)g)_vv is r⁻² + O(r⁻⁴), that of (ℒ_(dΞ)g)_vv = 4 − 2f′ψ(1 + fF′) − ff′K_Ξ′ is 4 + O(r⁻²), and
+S_vv = K̄_vv + (ℒ_(W**)g)_vv − (4m₀)⁻¹(ℒ_(dΞ)g)_vv = −1/m₀ + O(r⁻²). *The gauge vector.* By [[prop:gd-2-1]] (a), a
+harmonic-gauge solution with Z′_0 = −(ṁ/(4m₀))dΞ exists, and its l = 0 part is ṁK* − (ṁ/(4m₀))ℒ_(dΞ)g = ṁS. The
+growing part of −(ṁ/(4m₀))dΞ = −(ṁ/(2m₀))ψdψ − (ṁ/(4m₀))K_Ξ′dr is −(ṁ/2)vW* + (ṁ/(2m₀))v(∂_v)^♭. The first
+cancels the growing part (ṁ/2)vW* of ṁW**; Q[dΞ] = 0, as δdΞ = □_0Ξ = 0 and d dΞ = 0; and by the argument in the
 proof of [[thm:gd-2-3]], Q[(ṁ/(2m₀))v(∂_v)^♭] = 2π²ṁv, while ℒ_(v(∂_v)^♭)g = 2dv ⊗_s (∂_v)^♭ is stationary. ∎
 
 So the growth of the spherically symmetric part is forced for perturbations whose gauge vector has decaying data, and

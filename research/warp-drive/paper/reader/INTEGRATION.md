@@ -949,3 +949,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   with ran Π_≥2 replaced by the inclusion (Π_cl := Π_G(1 − Π_0)); Cor R7.7 (b) via thm:ix-2-2 and lem:gd-1-4 (c); p_0
   as "every p < q − 1". Notation: K for r⁻²dv² (chapter 64 writes K̄) and −Υ̇⁰ for Θ — to align with chapters 64/65 at
   the fix round. Independent reader running.
+- Proof C second fix (F2-P-C): 75 exact checks pass, one decimal was wrong (260.0979335…). Minor 2 by repair (b):
+  lem:lambda0-point (c) is V − q_end ≤ τ_end ≤ V − q0 (no bound on c_e); (d) and X* ∈ Ω rest on (c); monotonicity in a
+  new item (e). Nits: K → α*, phase ψ with φ1 the phase shift of thm:approximant, ζ = cos 2ϑ. Follow-ups applied:
+  P-F-edge:9-11 "c_e the constant of [[eq:envelope]]"; chapter 03 line 64 cites lem:envelope-constant (b) (a proof-file
+  label: --chapters reports it undefined, the joint run resolves it; resolves at assembly). Third reading running.

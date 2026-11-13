@@ -2519,24 +2519,49 @@ where, for y ∈ ℂ⁷ and ω ∈ ℂ³,
 scalar type l, in the frame (dt̄, dr, r dω), where ḡ = −dt̄² + dr² + r²g̸; we write t for t̄, so that
 c̄_C = r⁻¹(dt − v_Cdr) and c̄ = r⁻¹dt in [[eq:iii-f-2-1]]. On the coordinates of a section r^(−ι)ŷ (or
 r^(−ι)ω̂), □̄ acts by 𝔚(ι) and the result carries r^(−ι−2); δ̄ acts by 𝔇(ι), δ̄* by 𝔖(ι), Ē^C by 𝔈_C and Ē^ΥḠ by
-𝔈_Υ, the result carrying r^(−ι−1); and Ḡ acts by 𝔊. So the composition rule of the proof of [[lem:iii-f1-2-1]] gives
-[[eq:rb-indicial-explicit]], and it remains to derive the six matrices. Below, dS, g̸ and δ̸*₀dS are the objects on
+𝔈_Υ, the result carrying r^(−ι−1); and Ḡ acts by 𝔊. If operators T and T′ map r^(−ι)a to r^(−ι−d)T(ι)a and
+r^(−ι)b to r^(−ι−d′)T′(ι)b for every ι, then T′T maps r^(−ι)a to r^(−ι−d−d′)T′(ι + d)T(ι)a. Hence 2Ē^Cδ̄Ḡ acts by
+2𝔈_C𝔇(ι)𝔊 and 2(δ̄* + Ē^C)Ē^ΥḠ by 2(𝔖(ι + 1) + 𝔈_C)𝔈_Υ, each result carrying r^(−ι−2), and half the sum with
+𝔚(ι) is [[eq:rb-indicial-explicit]]. It remains to derive the six matrices. Below, dS, g̸ and δ̸*₀dS are the objects on
 𝕊³, and the 1-form r dS and the tensor r²q, q on 𝕊³, are identified with tangential fields homogeneous of degree 0, as
 in [[sec:iii-a1-2]].
 
-*𝔚.* On stationary sections the formulas for □̄h in the proof of [[lem:iii-a1-2-1]], at ν = 3, apply with 𝖠 = y_0S,
-𝖷 = y_1S, 𝖡 = y_2S, 𝖶 = y_3dS, 𝖴 = y_4dS and q = y_5Sg̸ + y_6δ̸*₀dS, and □_c(r^(−ι)X) = r^(−ι−2)(Δ̸ + 2ι − ι²)X.
-The identities [[eq:iii-a1-1-2]] at ν = 3 (δ̸dS = κS, Δ̸dS = (κ − 2)dS, δ̸*dS = δ̸*₀dS − (κ/3)g̸S, Δ̸(g̸S) = κg̸S,
-δ̸(g̸S) = −dS, tr(g̸S) = 3S, δ̸(δ̸*₀dS) = (2/3)(κ − 3)dS, Δ̸(δ̸*₀dS) = (κ − 6)δ̸*₀dS) turn □_c𝖠, T_X, T_B, T_W and
-T_U into the components 0 to 4 of 𝔚(ι)y, and T_Q into the components 5 and 6; for instance
+*𝔚.* In the Cartesian coordinates (t, x¹, …, x⁴) the Christoffel symbols of ḡ vanish, so on stationary sections □̄
+acts on each Cartesian component as the scalar operator −∂_r² − (3/r)∂_r + r⁻²Δᵉ, with Δᵉ the rough Laplacian Δ̸
+of 𝕊³ applied to the component as a function ([[sec:iii-a1-1]]). Write h = 𝖠dt² + 2𝖷dt dr + 𝖡dr² + 2dt ⊗_s 𝖶 + 2dr ⊗_s 𝖴 + 𝖰, with 𝖶, 𝖴
+tangential 1-forms and 𝖰 a tangential symmetric 2-tensor, so that h_tt = 𝖠, (h_ti) = 𝖷x̂ + 𝖶 and
+(h_ij) = 𝖡x̂ ⊗ x̂ + x̂ ⊙ 𝖴 + 𝖰, and put □_c := −∂_r² − (3/r)∂_r + r⁻²Δ̸, acting on each of 𝖠, …, 𝖰 with the rough
+Laplacian Δ̸ of 𝕊³. The identities [[eq:iii-a1-1-2a]]–[[eq:iii-a1-1-2e]] at ν = 3, applied to the
+Cartesian components, give
+
+    (□̄h)_tt = □_c𝖠,     (□̄h)_(t·) = T_X x̂ + T_W,     (□̄h)_(··) = T_B x̂ ⊗ x̂ + x̂ ⊙ T_U + T_Q,
+    T_X = □_c𝖷 + 3r⁻²𝖷 − 2r⁻²δ̸𝖶,     T_W = (□_c + r⁻²)𝖶 − 2r⁻²d𝖷,
+    T_B = □_c𝖡 + 6r⁻²𝖡 − 4r⁻²δ̸𝖴 − 2r⁻² tr 𝖰,     T_U = (□_c + 6r⁻²)𝖴 − 2r⁻²d𝖡 − 2r⁻²δ̸𝖰,
+    T_Q = (□_c + 2r⁻²)𝖰 − 2r⁻²𝖡g̸ − 4r⁻²δ̸*𝖴:
+
+for (h_ti), [[eq:iii-a1-1-2a]] and [[eq:iii-a1-1-2b]] give Δᵉ(𝖷x̂ + 𝖶) = (Δ̸𝖷 + 3𝖷 − 2δ̸𝖶)x̂ + (Δ̸ + 1)𝖶 − 2d𝖷, and for
+(h_ij), [[eq:iii-a1-1-2c]], [[eq:iii-a1-1-2d]] and [[eq:iii-a1-1-2e]] give the x̂ ⊗ x̂ part 6𝖡 − 4δ̸𝖴 − 2 tr 𝖰, the
+x̂ ⊙ · part 6𝖴 − 2d𝖡 − 2δ̸𝖰 and the tangential part 2𝖰 − 2𝖡g̸ − 4δ̸*𝖴 beyond Δ̸ (P = g̸ there); the radial operator
+acts on the coefficients alone, the fields being homogeneous of degree 0. Take 𝖠 = y_0S, 𝖷 = y_1S, 𝖡 = y_2S,
+𝖶 = y_3dS, 𝖴 = y_4dS and 𝖰 = y_5Sg̸ + y_6δ̸*₀dS; then □_c(r^(−ι)X) = r^(−ι−2)(Δ̸ + 2ι − ι²)X for X on 𝕊³, as
+(−∂_r² − (3/r)∂_r)r^(−ι) = (2ι − ι²)r^(−ι−2). The identities [[eq:iii-a1-1-2]] at ν = 3 (δ̸dS = κS,
+Δ̸dS = (κ − 2)dS, δ̸*dS = δ̸*₀dS − (κ/3)g̸S, Δ̸(g̸S) = κg̸S, δ̸(g̸S) = −dS, tr(g̸S) = 3S,
+δ̸(δ̸*₀dS) = (2/3)(κ − 3)dS, Δ̸(δ̸*₀dS) = (κ − 6)δ̸*₀dS) turn □_c𝖠, T_X, T_B, T_W and T_U into the components 0 to 4
+of 𝔚(ι)y, and T_Q into the components 5 and 6; for instance
 T_U = r^(−ι−2)((ϖ + 4)y_4 − 2y_2 + 2y_5 − (4/3)(κ − 3)y_6)dS.
 
 *𝔊.* tr_ḡ h = (y_2 − y_0 + 3y_5)S, and Ḡh = h − ½ḡ tr_ḡ h.
 
-*𝔇.* In Cartesian coordinates, on stationary sections, (δ̄k)_t = −∂_ik_(it) and (δ̄k)_j = −∂_ik_(ij). For a function
-f(r), a function S, a 1-form V and a symmetric 2-tensor Q on 𝕊³, regarded as fields homogeneous of degree 0 (V and Q
-tangential), the relations ∂_ix̂_j = r⁻¹(δ_ij − x̂_ix̂_j) and x̂_i∂_iS = 0 and the Gauss formula of the proof of
-[[lem:iii-a1-1-2]] give
+*𝔇.* In Cartesian coordinates, on stationary sections, (δ̄k)_t = −∂_ik_(it) and (δ̄k)_j = −∂_ik_(ij). Let V be a
+tangential vector field and Q a tangential symmetric 2-tensor field on ℝ⁴ ∖ {0}, both homogeneous of degree 0, and
+D the Euclidean derivative. At a point of radius r and for X tangent to the sphere there, the Gauss formula of the
+unit sphere gives D_XV = r⁻¹(∇̸_XV − ⟨X, V⟩x̂) and D_XQ = r⁻¹(∇̸_XQ − x̂ ⊙ Q(X)), Q(X) := Q(X, ·): the tangential part
+of D_XV is r⁻¹∇̸_XV, the factor r⁻¹ coming from the radius, and its normal part is
+⟨D_XV, x̂⟩x̂ = −⟨V, D_Xx̂⟩x̂ = −r⁻¹⟨X, V⟩x̂, as ⟨V, x̂⟩ = 0 and D_Xx̂ = r⁻¹X; the formula for Q follows by writing
+Q = Σ q_bce_b ⊗ e_c in a tangential frame. Also D_(x̂)V = 0 and D_(x̂)Q = 0. Taking the trace over an orthonormal
+frame (x̂, e_1, e_2, e_3), with (x̂ ⊙ Q(e_a))(e_a, ·) = Q(e_a, e_a)x̂, gives ∂_iV_i = −r⁻¹δ̸V and
+∂_iQ_ij = −r⁻¹((δ̸Q)_j + (tr Q)x̂_j). With ∂_ix̂_j = r⁻¹(δ_ij − x̂_ix̂_j), x̂_i∂_iS = 0 and x̂_i∂_iV_j = 0, for a
+function f(r) and a function S on 𝕊³ this gives
 
     ∂_i(fSx̂_i) = (f′ + 3f/r)S,     ∂_i(fV_i) = −r⁻¹fδ̸V,     ∂_i(fSx̂_ix̂_j) = (f′ + 3f/r)Sx̂_j,
     ∂_i(f(x̂_iV_j + V_ix̂_j)) = (f′ + 4f/r)V_j − r⁻¹f(δ̸V)x̂_j,     ∂_i(fQ_ij) = −r⁻¹f((δ̸Q)_j + (tr Q)x̂_j).
@@ -2551,9 +2576,10 @@ the components of δ̄*ω = ½(∇_μω_ν + ∇_νω_μ) are therefore 0 (tt), 
 these are the components of the tensor whose coordinates are r^(−ι−1)𝔖(ι)ω̂.
 
 *𝔈_C and 𝔈_Υ.* With c̄_C = r⁻¹(dt − v_Cdr), ⟨c̄_C, ω⟩ = −r⁻¹(ω_0 + v_Cω_1)S, and the coordinates of
-Ē^Cω = γ_C(2c̄_C ⊗_s ω − (2/3)(1 − e_C)ḡ⟨c̄_C, ω⟩) are r⁻¹𝔈_Cω. By the calculation in the proof of [[lem:iii-b-6-2]],
-Ē^ΥḠh = −γ_Υ(2ι_(ḡ⁻¹c̄)h − e_Υc̄ tr_ḡ h) with c̄ = r⁻¹dt; as ḡ⁻¹c̄ = −r⁻¹∂_t and
-h(∂_t, ·) = (y_0dt + y_1dr)S + y_3r dS, the coordinates of Ē^ΥḠh are r⁻¹𝔈_Υy. ∎
+Ē^Cω = γ_C(2c̄_C ⊗_s ω − (2/3)(1 − e_C)ḡ⟨c̄_C, ω⟩) ([[sec:iii-f-2]]) are r⁻¹𝔈_Cω. The modification Ē^Υ of
+[[sec:iii-d-2]] is E^Υ_(g₀,∞) of [[eq:iii-b-6-1]] at g₀ = ḡ and c_Υ = c̄, so the first identity of [[eq:iii-b-6-5]]
+gives Ē^ΥḠh = −γ_Υ(2ι_(ḡ⁻¹c̄)h − e_Υc̄ tr_ḡ h); as ḡ⁻¹c̄ = −r⁻¹∂_t and h(∂_t, ·) = (y_0dt + y_1dr)S + y_3r dS, the
+coordinates of Ē^ΥḠh are r⁻¹𝔈_Υy. ∎
 
 **Proposition {#prop:rb-quasimode-point}** (Upper bounds at γ_C = 10⁶.) Let (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100). The
 least singular value of L_l from H̄_b^(1,α) to H̄_b^(0,α+2), in the norms [[eq:rb-block-norms]] (at l = 0

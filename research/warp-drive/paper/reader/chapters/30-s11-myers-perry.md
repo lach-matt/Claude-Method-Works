@@ -1512,32 +1512,32 @@ bounded with all their derivatives, and χAu ∈ H^(∞,(F,β))_b(M); and on a c
 either space implies that all derivatives are square integrable, since there b-derivatives are combinations of ordinary
 ones with smooth coefficients, the weights are bounded above and below, and the expansion terms of [[eq:s11-partial]]
 are smooth. So w is smooth with compact support in (0, ρ₀) × ∂M, and ℳw is entire, with |ι|^n‖ℳw(ι)‖_(H^J(∂M)) bounded
-on every strip {c₁ ≤ Re ι ≤ c₂} for all n and J, as ℳ((ρ∂_ρ)^n w) = ι^nℳw. And A − N(A) ∈ ρ Diff^m_b near ρ = 0, so f′ ∈
-H^(∞,(F,β))_b + H^(∞,α+1)_b after cutting off. Let γ := min(β, α + 1), decreased slightly if necessary so that no Re ι,
-ι ∈ spec_b(A) ∪ π₁F, equals γ (possible as spec_b(A) ∪ π₁F has finitely many points in every strip, by (E3) and
+on every strip {c₁ ≤ Re ι ≤ c₂} for all n and J, as ℳ((ρ∂_ρ)^n w) = ι^nℳw. And A − N(A) ∈ ρ Diff^m_b near ρ = 0, so
+f′ ∈ H^(∞,(F,β))_b + H^(∞,α+1)_b after cutting off. Let γ := min(β, α + 1), decreased slightly if necessary so that no
+Re ι, ι ∈ spec_b(A) ∪ π₁F, equals γ (possible as spec_b(A) ∪ π₁F has finitely many points in every strip, by (E3) and
 [[def:s11-b-analysis]] (4); β itself is excluded, by the hypothesis and the reduction above, when γ = β). By (M1), ℳv is
 holomorphic in Re ι < α and N(A, ι)ℳv = ℳf′ there; by (M2) and (E2), N(A, ι)⁻¹ℳf′ is meromorphic in Re ι < γ and
 continues ℳv. Its poles with Re ι < α cancel (as ℳv is holomorphic there), and there are none on Re ι = α: a pole ι₀
-there would make ∫|ℳv(c + iη)|² dη grow at least like (α − c)⁻¹ as c ↑ α, against the uniform bound of (M1); at ι with α
-< Re ι < γ the pole order is at most the order of N(A, ·)⁻¹ plus that of ℳf′. Now v = (2πi)⁻¹ ∫_(Re ι=c) ρ^ι ℳv dι for c
-< α, and we move the contour to Re ι = γ. This is justified by (E1) and (M2): on the horizontal segments {c ≤ Re ι ≤ γ,
-Im ι = ±T}, along a sequence T → ∞, ∫_c^γ ‖N(A, s ± iT)⁻¹ℳf′(s ± iT)‖²_(H^J) ds → 0 for every J (by Fubini, the
-square-integrability in Im ι of |ι|^(J′)‖ℳf′‖_(H^(J′)), uniform in the strip, makes T ↦ ∫_c^γ ‖ℳf′(s ± iT)‖²_(H^(J′)) ds
-integrable, hence small along a sequence, which a diagonal choice makes one for all J; (E1) bounds N(A, ·)⁻¹ there).
-This is a statement in L² on the segments, not a pointwise one, and it is what the contour shift uses. The residues at
-the finitely many poles in α < Re ι < γ are of the form ρ^ι Σ_(j≤q)(log ρ)^j a_j, with q + 1 the pole order and a_j ∈
-C^∞(∂M) (the Laurent coefficients of N(A, ·)⁻¹ that enter, of negative and of non-negative powers, map C^∞(∂M) to itself
-by (E2)): by the order count these lie in H^(∞,(E(α)∪̄F,γ′)) for every γ′ < γ (the extended union E ∪̄ F of
-[[def:s11-b-analysis]] (4) is precisely the addition of pole orders, (z, k + l + 1) from orders k + 1 and l + 1). The
-integral on Re ι = γ lies in H^(∞,γ)_b by (M1), for all |ι|-weighted norms, as N(A, ·)⁻¹ is bounded from H^s to H^(s+m)
-uniformly on that line: by (E1) where |Im ι| ≥ R, and by (E2) on the compact rest, which contains no pole by (E3). So v
-∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done. Otherwise γ < β (and γ ≤ α + 1); repeat with α replaced by γ − δ′ for
-small δ′ > 0 and the expansion found so far moved into the right side: (A − N(A)) applied to ρ^ι(log ρ)^j a is, by
-Taylor expansion of the coefficients A_j(ρ) at ρ = 0, an expansion with exponents in ι + 1 + ℕ₀ and the same log powers,
-which is E_0 + 1; so f′ ∈ H^(∞,(F∪̄(E_0+1),β)) + H^(∞,γ+1−δ′), and the same argument gives E_1 up to the weight min(β, γ
-+ 1 − δ′). Each step raises the weight by almost 1 until β is reached; finitely many steps suffice, the index sets being
-contained in E. (The poles of N(A, ·)⁻¹ that enter at a later step are those with real part above the previous weight,
-all in E(α).) ∎
+there would make ∫|ℳv(c + iη)|² dη grow at least like (α − c)⁻¹ as c ↑ α, against the uniform bound of (M1); at ι with
+α < Re ι < γ the pole order is at most the order of N(A, ·)⁻¹ plus that of ℳf′. Now v = (2πi)⁻¹ ∫_(Re ι=c) ρ^ι ℳv dι for
+c < α, and we move the contour to Re ι = γ. This is justified by (E1) and (M2): on the horizontal segments
+{c ≤ Re ι ≤ γ, Im ι = ±T}, along a sequence T → ∞, ∫_c^γ ‖N(A, s ± iT)⁻¹ℳf′(s ± iT)‖²_(H^J) ds → 0 for every J (by
+Fubini, the square-integrability in Im ι of |ι|^(J′)‖ℳf′‖_(H^(J′)), uniform in the strip, makes T ↦ ∫_c^γ ‖ℳf′(s ±
+iT)‖²_(H^(J′)) ds integrable, hence small along a sequence, which a diagonal choice makes one for all J; (E1) bounds
+N(A, ·)⁻¹ there). This is a statement in L² on the segments, not a pointwise one, and it is what the contour shift uses.
+The residues at the finitely many poles in α < Re ι < γ are of the form ρ^ι Σ_(j≤q)(log ρ)^j a_j, with q + 1 the pole
+order and a_j ∈ C^∞(∂M) (the Laurent coefficients of N(A, ·)⁻¹ that enter, of negative and of non-negative powers, map
+C^∞(∂M) to itself by (E2)): by the order count these lie in H^(∞,(E(α)∪̄F,γ′)) for every γ′ < γ (the extended union
+E ∪̄ F of [[def:s11-b-analysis]] (4) is precisely the addition of pole orders, (z, k + l + 1) from orders k + 1 and
+l + 1). The integral on Re ι = γ lies in H^(∞,γ)_b by (M1), for all |ι|-weighted norms, as N(A, ·)⁻¹ is bounded from H^s
+to H^(s+m) uniformly on that line: by (E1) where |Im ι| ≥ R, and by (E2) on the compact rest, which contains no pole by
+(E3). So v ∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done. Otherwise γ < β (and γ ≤ α + 1); repeat with α replaced by
+γ − δ′ for small δ′ > 0 and the expansion found so far moved into the right side: (A − N(A)) applied to ρ^ι(log ρ)^j a
+is, by Taylor expansion of the coefficients A_j(ρ) at ρ = 0, an expansion with exponents in ι + 1 + ℕ₀ and the same log
+powers, which is E_0 + 1; so f′ ∈ H^(∞,(F∪̄(E_0+1),β)) + H^(∞,γ+1−δ′), and the same argument gives E_1 up to the weight
+min(β, γ + 1 − δ′). Each step raises the weight by almost 1 until β is reached; finitely many steps suffice, the index
+sets being contained in E. (The poles of N(A, ·)⁻¹ that enter at a later step are those with real part above the
+previous weight, all in E(α).) ∎
 
 **Lemma {#lem:iii-a-1-5}** ([Hin26, Lemma 2.15], formal solutions.) Let A ∈ Diff^m_b(M; ℂ^(N_E)) be elliptic, F an
 index set, β ∈ ℝ, ord(z) the order of the pole of N(A, ·)⁻¹ at z (0 if none), and
