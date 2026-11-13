@@ -909,10 +909,10 @@ once each.
 −½ e^ψ 𝒫 s_in(h), the transport [[eq:ue-transport]] with the smooth bounded factor e^ψ, and Z_out φ_out =
 ½ 𝒫 s_out(h)/ℓ_out(τ). Apply ∂^α, |α| = j ≤ k: [Z_K, ∂^α] has smooth λ-independent coefficients and involves derivatives
 of φ_K of order at most j, and λ^j ‖∂^α ∂ 𝒫 s_K‖ ≤ C λ^j ‖∂^(j+1) s_K(h)‖ ≤ C 𝒩₂ by (M1), (M4), (M6), s_K(h) =
-h(ℓ_K, ℓ_K) with ℓ_K smooth. For λ ∂_x² φ_K use the transport of (F6), with right side ½ ∂_x² 𝒫 s_K, and the Bernstein bound
-(M2) on one spatial derivative: λ^(j+1) ‖∂^j ∂_x² 𝒫 s_K‖ ≤ C λ^j ‖∂^j ∂_x s_K‖ ≤ C 𝒩₂. [[lem:transport]] for φ_in and
-[[lem:two-dust-transport]] for φ_out bound the φ-part of 𝒩₂(τ) by C (𝒩₂(τ0) + ∫_(τ0)^τ 𝒩₂). Without (M2) the transport of
-∂_x² φ_K would need k + 2 derivatives of s_K.
+h(ℓ_K, ℓ_K) with ℓ_K smooth. For λ ∂_x² φ_K use the transport of (F6), with right side ½ ∂_x² 𝒫 s_K, and the Bernstein
+bound (M2) on one spatial derivative: λ^(j+1) ‖∂^j ∂_x² 𝒫 s_K‖ ≤ C λ^j ‖∂^j ∂_x s_K‖ ≤ C 𝒩₂. [[lem:transport]] for φ_in
+and [[lem:two-dust-transport]] for φ_out bound the φ-part of 𝒩₂(τ) by C (𝒩₂(τ0) + ∫_(τ0)^τ 𝒩₂). Without (M2) the
+transport of ∂_x² φ_K would need k + 2 derivatives of s_K.
 
 **Step 6** (Ψ_in, Ψ_out). Apply ∂^α to the transport of (F6) for Ψ_in, along L_in = −e^(−ψ) L0 with the bounded
 coefficient a_in, and [[lem:transport]]. In ½ □̃ 𝒫 s_in = ½ 𝒫 □̃ s_in + ½ [□̃, 𝒫] s_in insert [[eq:two-dust-ell-ell]].

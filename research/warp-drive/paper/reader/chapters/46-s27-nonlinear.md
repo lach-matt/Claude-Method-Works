@@ -139,16 +139,18 @@ t_IVP = t − ψ_IVP(|x|), and
     |V(S_w)|x|| ≤ ½|w||t| ≤ C|w||x|,     |V(S_w)t_IVP| = ½χ_rχ^♯_IVP(1 − χ^♭_K)|w·x − ψ_IVP′ t S_w(x̂)| ≤ C|w||x|
 
 on M, the left sides vanishing off supp V(S_w). Along an integral curve γ(s), s ∈ [0, 1], of ±V(S_w),
-|d log|x(γ(s))|/ds| ≤ C|w|, so |x(γ(s))| ≤ e^(C|w|)|x(γ(0))|; and |d t_IVP(γ(s))/ds| ≤ C|w||x(γ(s))|. Integrating
-gives both bounds for φ_(±S). *Translations.* ψ_(S⁰), S⁰ = S_w, is the time-1 flow of V⁰(S⁰) = ½Θ w·∂_x, with
-Θ = χ_r(|x|)χ^♯_IVP(1 − χ^♭_K) ∈ [0, 1] ([[lem:iii-i7-1-1]]), and ψ_(−S⁰) is that of −V⁰(S⁰). So
-|V⁰(S⁰)|x|| = ½Θ|w·x̂| ≤ ½|w| and |V⁰(S⁰)t_IVP| = ½Θψ_IVP′|w·x̂| ≤ ½|w|, as ψ_IVP′ ∈ [0, 1] on supp Θ ⊂ {|x| ≥ 5R₁}.
-An integral curve of ±V⁰(S⁰) that moves stays in {|x| > 5R₁} (below), so in time 1 it changes |x| and t_IVP by at
-most ½|w| ≤ |w||x|/(10R₁); this gives both bounds for ψ_(±S⁰). *Composites.* For φ_(S,S⁰) = ψ_(S⁰) ∘ φ_S and
-q := φ_S(p), |t_IVP(ψ_(S⁰)(q)) − t_IVP(p)| ≤ C|S⁰|r(q) + C|S|r(p) ≤ C′(|S| + |S⁰|)r(p), as r(q) ≤ Cr(p), and
-r(ψ_(S⁰)(q)) ≤ Cr(q) ≤ C²r(p); likewise for φ_(S,S⁰)⁻¹ = φ_(−S) ∘ ψ_(−S⁰). V(S_w) and V⁰(S⁰) vanish on
-{|x| ≤ 5R₁} (χ_r = 0 there), whose points are fixed by the flows; by uniqueness of integral curves no curve starting
-in {|x| > 5R₁} reaches it. ∎
+|d log|x(γ(s))|/ds| ≤ C|w|, so e^(−C|w|)|x(γ(0))| ≤ |x(γ(s))| ≤ e^(C|w|)|x(γ(0))|; and
+|d t_IVP(γ(s))/ds| ≤ C|w||x(γ(s))| ≤ Ce^(C|w|)|w||x(γ(0))|. Integrating over s ∈ [0, 1] gives both bounds for φ_(±S),
+as e^(C|w|) − 1 ≤ C|w|e^C and 1 − e^(−C|w|) ≤ C|w| for |w| ≤ 1. *Translations.* ψ_(S⁰), S⁰ = S_w, is the time-1 flow
+of V⁰(S⁰) = ½Θ w·∂_x, with Θ = χ_r(|x|)χ^♯_IVP(1 − χ^♭_K) ∈ [0, 1] ([[lem:iii-i7-1-1]]), and ψ_(−S⁰) is that of
+−V⁰(S⁰). So |V⁰(S⁰)|x|| = ½Θ|w·x̂| ≤ ½|w| and |V⁰(S⁰)t_IVP| = ½Θψ_IVP′|w·x̂| ≤ ½|w|, as ψ_IVP′ ∈ [0, 1] on
+supp Θ ⊂ {|x| ≥ 5R₁}. An integral curve of ±V⁰(S⁰) that moves starts and stays in {|x| > 5R₁} (below), so in time 1
+it changes |x| and t_IVP by at most ½|w| ≤ |w||x(p)|/(10R₁); this gives both bounds for ψ_(±S⁰). *Composites.* For
+φ_(S,S⁰) = ψ_(S⁰) ∘ φ_S and q := φ_S(p), r(q) ≤ (1 + C|S|)r(p) ≤ (1 + C)r(p), so
+|t_IVP(ψ_(S⁰)(q)) − t_IVP(p)| ≤ C|S⁰|r(q) + C|S|r(p) ≤ C′(|S| + |S⁰|)r(p) and
+|r(ψ_(S⁰)(q)) − r(p)| ≤ C|S⁰|r(q) + C|S|r(p) ≤ C′(|S| + |S⁰|)r(p); likewise for φ_(S,S⁰)⁻¹ = φ_(−S) ∘ ψ_(−S⁰).
+V(S_w) and V⁰(S⁰) vanish on {|x| ≤ 5R₁} (χ_r = 0 there), whose points are fixed by the flows; by uniqueness of
+integral curves no curve starting in {|x| > 5R₁} reaches it. ∎
 
 *Proof of [[lem:iii-k-1-1]].* (a) χ_0 ∈ C^∞(M) ([[sec:iii-c2-2]]). Near ℐ⁺, t_* is a smooth function on M
 ([[eq:iii-b-3-6]]); near I₀ and near the corner I₀ ∩ ℐ⁺, t_* → −∞, so χ_♮(t_*) = 0; near ι⁺ and K⁺, t_* → +∞, so
@@ -183,7 +185,8 @@ composition. (b) is [[lem:iii-i7-1-3]] (a), stated there for the composite ψ_(�
 (−S, −S^(0)_1), hence for φ_(S,S⁰) at every small (S, S⁰); its leading term is that of φ_S. (c) The proof of
 [[lem:iii-c2-1-1]] uses of φ_S only [[eq:iii-b-5-3]] on Ω_(ext,r_1) ⊂ {χ_IVP(1 − χ_K) = 1} and the naturality of Ric,
 and (b) is [[eq:iii-b-5-3]] for φ_(S,S⁰). The proof of [[thm:iii-c2-3-1]] uses of φ_S: that near |x| = r it moves t_IVP
-by at most C|S|r, which [[lem:s27-boost-move]] gives for φ_(S,S⁰) with C(|S| + |S⁰|); the naturality of Ric and of Υ⁰
+and r by at most C|S|r, so that it maps a neighbourhood of Σ_(IVP,r₁) into {|t_IVP| < r/8} ∩ Ω_(ext,r₀) (after
+[[eq:iii-c2-3-1]]), which [[lem:s27-boost-move]] gives for φ_(S,S⁰) with C(|S| + |S⁰|); the naturality of Ric and of Υ⁰
 ([[eq:iii-c2-2-2]]) under diffeomorphisms; that S ↦ φ_S^*g_(b₀) is smooth, with derivative in ρ₀²ρ_I²C^∞ with the
 slots of [[eq:iii-c-3-4]] on Ω_(ext,r_1), which (b), differentiated in (S, S⁰), gives; and that pull-back by the flow
 of a b-vector field tangent to every boundary hypersurface preserves the weighted, partially polyhomogeneous b-Sobolev
@@ -226,11 +229,13 @@ on 𝒟 ∩ Ω_* the gauge 1-form is Υ^(E_Υ) ([[lem:iii-k-1-1]] (b)), which is
 
 (3) on 𝒟 ∩ Ω_*, h_(S,S⁰) ∈ H̄^(∞,(⟨ℰ^C_I⟩,ℓ_I))_b (orders at ℐ⁺; the set is bounded in t_*); h_(S,S⁰) is C^l in
 (S, S⁰) with values in each H^k of this class, for data of regularity depending on k and l ([[thm:iii-c2-3-1]] (2)); and
-for each k there are k′_k and C_k with
+for each k there are k′_k, s_k > 0 and a non-decreasing ω_k : [0, s_k] → [0, ∞) with ω_k(s) → 0 as s → 0 such that,
+if ‖(γ̃, k̃)‖_(H^(k+k′_k)) ≤ s_k,
 
-    ‖h_(S,S⁰)‖_(H^(k+2)) + ‖∂_(S,S⁰)h_(S,S⁰)‖_(H^(k+2)) + ‖∂²_(S,S⁰)h_(S,S⁰)‖_(H^(k+2)) ≤ C_k ‖(γ̃, k̃)‖_(H^(k+k′_k)),
+    ‖h_(S,S⁰)‖_(H^(k+2)) + ‖∂_(S,S⁰)h_(S,S⁰)‖_(H^(k+2)) + ‖∂²_(S,S⁰)h_(S,S⁰)‖_(H^(k+2)) ≤ ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))),
 
-in the norms of this class (the shift by 2 is the order of P_5, as [[lem:iii-k-2-2]] uses it).
+in the norms of this class, uniformly for |S| + |S⁰| small (the shift by 2 is the order of P_5, as [[lem:iii-k-2-2]]
+uses it). We take k′_k non-decreasing in k.
 
 *The hypersurface {t_IVP = −ν} and the inclusions.* In the Kerr–Schild coordinates of [[lem:iii-b-3-7]],
 t_IVP + ν = t − (ψ_IVP − ν)(|x|) has differential dt_KS − β′ d|x| with β′ = β_IVP − ν′, where β_IVP :=

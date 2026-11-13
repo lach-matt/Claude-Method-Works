@@ -191,10 +191,10 @@ rounded to ten decimals,
     0.01 (0.09 D̃_j − (54/305) K̃ (R − c_L)) ≈ −0.0011576361,  −0.0011591651,  −0.0011584676,
 
 and by [[lem:margins-bump-table]] (a) the true values differ from these printed decimals by at most 0.01(0.09 × 10⁻⁴ +
-(54/305) × 0.67 × 5 × 10⁻⁵) + 5 × 10⁻¹¹ ≤ 1.5 × 10⁻⁷. So φ(4.43) < min(φ(4.415), φ(4.445)), and as φ is convex on [4.1, 4.7] its minimum point x* lies
-in (4.415, 4.445). There [[lem:margins-enclosure]] (b), with h = 0.015 and sup|φ″| ≤ 0.01, so that (h²/8) sup|φ″| ≤
-2.82 × 10⁻⁷, gives φ ≥ −0.0011591651 − 1.5 × 10⁻⁷ − 2.82 × 10⁻⁷ = −0.0011595971 ≥ −0.0011596, while φ(4.43) ≤
-−0.0011591651 + 1.5 × 10⁻⁷ ≤ −0.0011590.
+(54/305) × 0.67 × 5 × 10⁻⁵) + 5 × 10⁻¹¹ ≤ 1.5 × 10⁻⁷. So φ(4.43) < min(φ(4.415), φ(4.445)), and as φ is convex on [4.1,
+4.7] its minimum point x* lies in (4.415, 4.445). There [[lem:margins-enclosure]] (b), with h = 0.015 and sup|φ″| ≤ 0.01,
+so that (h²/8) sup|φ″| ≤ 2.82 × 10⁻⁷, gives φ ≥ −0.0011591651 − 1.5 × 10⁻⁷ − 2.82 × 10⁻⁷ = −0.0011595971 ≥ −0.0011596,
+while φ(4.43) ≤ −0.0011591651 + 1.5 × 10⁻⁷ ≤ −0.0011590.
 
 (c) By the description of φ′ in (b), |φ′| ≤ 0.01 (54/305) K ≤ 0.0021370 by [[lem:margins-bump-table]] (a). Since the
 lobes are disjoint, |φ^(k)| on the lobe of half-width h and weight c ∈ {1, l1, l2} is at most 0.01 c
@@ -456,10 +456,10 @@ contains a point where N_κ = 0.
 and μ̇ those of 𝒩 at the point's time v̂.
 
 *Σ′ before the shell.* The points of Σ′ with R ≤ R′(3) have v̂ ≤ v̂(3), so μ = 3/2 and μ̇ = 0. Here R′(3) ≈ R′_0 =
-3.8254920; by the next paragraph |R′(3) − R′_0| ≤ 5.3 × 10⁻⁶, so R′(3) < 3.82550. On [R_*, 3.5], φ = 0 and Ξ = (1.5/R³)(2 + 1.5/R²) ≥ 0.074254, while c ≥ 3(1.5/3.5²)/(3.5 (1 + 1.5/R_*²)²) ≥ 0.082639, so
-κ′K′^l_l ≤ −6.1 × 10⁻³. On [3.5, 3.82550], φ″ ≥ −0.01 l1 ≥ −0.0064382, V′ ∈ [0.99786, 1] (φ′ ≤ 0 there) and f ∈
-[0.877551, 0.897504], so Ξ ≥ −0.0064382 + 0.026793 × 0.995724 × 2.102496 ≥ 0.049653 and c ≥ 0.307488/(3.8255 ×
-1.124327²) ≥ 0.063585, so κ′K′^l_l ≤ −3.1 × 10⁻³.
+3.8254920; by the next paragraph |R′(3) − R′_0| ≤ 5.3 × 10⁻⁶, so R′(3) < 3.82550. On [R_*, 3.5], φ = 0 and Ξ = (1.5/R³)(2
++ 1.5/R²) ≥ 0.074254, while c ≥ 3(1.5/3.5²)/(3.5 (1 + 1.5/R_*²)²) ≥ 0.082639, so κ′K′^l_l ≤ −6.1 × 10⁻³. On [3.5,
+3.82550], φ″ ≥ −0.01 l1 ≥ −0.0064382, V′ ∈ [0.99786, 1] (φ′ ≤ 0 there) and f ∈ [0.877551, 0.897504], so Ξ ≥ −0.0064382 +
+0.026793 × 0.995724 × 2.102496 ≥ 0.049653 and c ≥ 0.307488/(3.8255 × 1.124327²) ≥ 0.063585, so κ′K′^l_l ≤ −3.1 × 10⁻³.
 
 *Σ′ over the shell.* For v ∈ [3, 4.5] use [[sec:table-sigma-bent]]. The map R ↦ R + φ(R) has derivative 1 + φ′ ≥
 0.9978; it sends R′(v_k) to v̂(v_k) + 0.68, which is within 4 × 10⁻⁶ of v̂_k + 0.68 by [[lem:margins-shell-data]] (c),

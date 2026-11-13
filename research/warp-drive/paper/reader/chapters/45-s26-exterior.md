@@ -1562,8 +1562,39 @@ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b for data of regularity depending on 
 (3) if h₀, h₁ induce data satisfying the vacuum constraint equations and Υ⁰(g_(b₀) + h, g_(b₀)) = 0 at
 Σ_(IVP,r₀), then Ric(φ_S*g_(b₀) + h_S) = 0 and Υ^(χ₀E_Υ)(φ_S*g_(b₀) + h_S, φ_S*g_(b₀)) = 0.
 
-*Proof.* (1) For S = 0, φ_0 = id and [[eq:iii-c2-3-3]] is [[eq:iii-c2-3-2]] on Ω_(ext,r₁) ⊂ Ω_(ext,r₀). Now assume
-the hypotheses of (3), and let 𝒰 be a neighbourhood of Σ_(IVP,r₁) that φ_S maps into {|t_IVP| < r/8} ∩ Ω_(ext,r₀)
+*Proof.* *The solution h_S.* For |S| < ε_φ, [[lem:iii-c2-1-1]], [[rem:iii-c1-2-2]] (2) and [[cor:iv2-4-1]] give
+[[thm:iii-c1-2-1]] on Ω_(ext,r₁) in the cut-off gauge with φ_S*g_(b₀) in place of g_(b₀). Its threshold ε₀ can be taken
+equal to one ε_* > 0 for all |S| ≤ ½ε_φ. Indeed, the constants of [[thm:iv2-2-4]] and [[thm:iv2-3-1]] depend on the
+background g₀ only through the pointwise bounds of the proof of [[lem:iii-c1-1-1]] and through finitely many seminorms of
+g₀ − g_(b₀) in the class 𝒢 on Ω_(ext,r₁) ([[def:iii-c-3-4]]): the coefficients of P^(χ₀) and of L^(χ₀) are smooth
+functions of g₀ and of its b-derivatives of order at most two, and the leading part at ℐ⁺ does not depend on g₀
+([[rem:iii-c1-2-2]] (2)). For g₀ = φ_S*g_(b₀), g₀ − g_(b₀) depends smoothly on S in each of these seminorms (the
+expansion of the proof of [[lem:iii-c2-1-1]], differentiated in S as in the proof of (2) below), so the seminorms are
+bounded for |S| ≤ ½ε_φ, and so are the constants C_k, C_(s,t) and δ of [[thm:ii-g-2-1]] that fix ε₀.
+
+Let |S| < ε′_φ, and let 𝒰 be a neighbourhood of Σ_(IVP,r₁) that φ_S maps into {|t_IVP| < r/8} ∩ Ω_(ext,r₀) (after
+[[eq:iii-c2-3-1]]). There ρ_I is bounded below, so the class of h there is H^(∞,ℓ^♭₀)_b. Pullback by φ_S is bounded from
+H^(k,ℓ^♭₀)_b(φ_S(𝒰)) to H^(k,ℓ^♭₀)_b(𝒰), uniformly in S: φ_S is the time-1 flow of a b-vector field linear in S and
+tangent to every boundary hypersurface ([[lem:iii-b-5-1]]), so the b-derivatives of φ_S and of its inverse are bounded
+uniformly, and ρ ∘ φ_S/ρ is bounded above and below. Near I₀, r∂_(t_IVP) = ∂_τ is a b-vector field, and the frame of
+[[eq:iii-c-1-6]] does not depend on t; so rℒ_(∂_(t_IVP)) is a first-order b-differential operator near Σ_(IVP,r₁). The
+restriction to Σ_(IVP,r₁) is bounded from H^(k+1,ℓ^♭₀)_b to H^(k,ℓ^♭₀)_b(Σ_(IVP,r₁)), as in the proof of [[thm:iv2-3-1]]
+(ii). Hence, with C_* independent of S,
+
+    ‖h_(S,j)‖_(H^(N_NM,ℓ^♭₀)_b(Σ_(IVP,r₁))) ≤ C_*‖h‖_(H^(N_NM+2,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀))),     j = 0, 1.
+
+Let k₂ and ε₂ be the k₁ and ε₁ that the clause of [[thm:iii-c1-2-1]] on higher norms, in the cut-off gauge, gives for
+k := N_NM + 2 and ε := ε_*/C_*; by its proof, k₂ = N_NM + k = 2N_NM + 2. If ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂, then
+‖h‖_(H^(N_NM+2,ℓ^♭₀,(−,ℓ^♭_I))_b) < ε_*/C_*, so the data [[eq:iii-c2-3-1]] have H^(N_NM,ℓ^♭₀)_b-norm below ε_*, and
+[[thm:iii-c1-2-1]] for the background φ_S*g_(b₀) gives h_S and its uniqueness, for |S| < min(½ε_φ, ε′_φ), a bound
+depending only on b₀, ℓ^♭₀ and ℓ^♭_I. The data [[eq:iii-c2-3-1]] lie in H^(∞,(ℰ₀,ℓ₀))_b(Σ_(IVP,r₁)): h is of that class
+near Σ_(IVP,r₁) away from ℐ⁺, and pullback by φ_S preserves weighted, partially polyhomogeneous b-Sobolev spaces near
+compact subsets of the interior of I₀ (φ_S is the flow of a b-vector field; [Hin26, after (5.77b)]). So
+[[thm:iii-c1-3-1]] for this background ([[lem:iii-c2-1-1]]) places h_S in H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₁)).
+
+(1) For S = 0, φ_0 = id and [[eq:iii-c2-3-3]] is [[eq:iii-c2-3-2]] on Ω_(ext,r₁) ⊂ Ω_(ext,r₀). The restriction of h to
+Ω_(ext,r₁) solves it and, like h_0, is small in H^(3d) of its class for the d = 7 of [[thm:iv2-3-1]], hence in H⁸; so
+h_0 = h there by the uniqueness. Now assume the hypotheses of (3), and let 𝒰 be a neighbourhood of Σ_(IVP,r₁) that φ_S maps into {|t_IVP| < r/8} ∩ Ω_(ext,r₀)
 (after [[eq:iii-c2-3-1]]), where χ₀ = 0. [[rem:iii-c1-2-2]] (1) applies to h in the cut-off gauge ([[prop:np-10-57-d]]
 with Υ = Υ^(χ₀E_Υ), whatever the term of order zero in the gauge; and Υ^(χ₀E_Υ) = Υ⁰ near Σ_(IVP,r₀), where χ₀ = 0):
 Ric(g_(b₀) + h) = 0 and Υ^(χ₀E_Υ)(g_(b₀) + h, g_(b₀)) = 0 on Ω_(ext,r₀), and on φ_S(𝒰), where χ₀ = 0,
@@ -1582,10 +1613,7 @@ Lorentzian metric ḡ for which dt_IVP is timelike. Let M := 𝒰 ∩ Ω°_(ext,
 t_IVP increases along future ḡ-causal curves in M, so Σ°_(IVP,r₁) ⊂ M is acausal, and its Cauchy development D in M
 is open, globally hyperbolic and has Σ°_(IVP,r₁) as a Cauchy hypersurface ([[thm:std-bgp-development]]). On D the
 coefficients of L̄ are smooth and v and its first derivatives vanish on Σ°_(IVP,r₁), so [[lem:s26-uniqueness]] with
-P = 2L̄ gives v = 0 on D, a neighbourhood of Σ°_(IVP,r₁) in Ω_(ext,r₁). The data [[eq:iii-c2-3-1]] lie in
-H^(∞,(ℰ₀,ℓ₀))_b(Σ_(IVP,r₁)): h is of that class near Σ_(IVP,r₁) away from ℐ⁺, and pullback by φ_S preserves weighted,
-partially polyhomogeneous b-Sobolev spaces near compact subsets of the interior of I₀ (φ_S is the flow of a b-vector
-field; [Hin26, after (5.77b)]); ℒ_(∂_(t_IVP)) and r are a b-vector field and a weight there.
+P = 2L̄ gives v = 0 on D, a neighbourhood of Σ°_(IVP,r₁) in Ω_(ext,r₁).
 
 (2) The data [[eq:iii-c2-3-1]] depend smoothly on S (differentiate [[eq:iii-c2-3-1]]). Formally
 ḣ := (d/ds)h_(S(s))|_(s=0), with S(0) = S₀ and Ṡ = S′(0), solves
@@ -1654,9 +1682,10 @@ e⁰-component of its right side, determines (h̃₁)₀₀; all lie in H^(∞,(
 data. So h₁ = rh̃₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b. ∎
 
 These data enter [[thm:iii-c1-3-1]] when min Re ℰ₀ > 3/2 + 2γ_Υ, ℓ₀ > 3/2 and ‖h_j‖_(H^(k₀,ℓ^♭₀)_b) < ε₀ as in
-[[thm:iii-c1-2-1]] (k₀ = N_NM = 153), which holds for (γ̃, κ̃) small in a suitable norm, by the continuity in
-[[prop:iii-c2-4-1]]; and then they enter [[thm:iii-c2-3-1]]. If (γ, κ) satisfy the constraints, the solutions are vacuum
-([[rem:iii-c1-2-2]] (1), [[thm:iii-c2-3-1]] (3)).
+[[thm:iii-c1-2-1]] (k₀ = N_NM = 153), and they enter [[thm:iii-c2-3-1]] when moreover ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂
+(k₂ = 2N_NM + 2 = 308). Both smallness conditions hold for (γ̃, κ̃) small in a suitable norm, by the continuity in
+[[prop:iii-c2-4-1]]. If (γ, κ) satisfy the constraints, the solutions are vacuum ([[rem:iii-c1-2-2]] (1),
+[[thm:iii-c2-3-1]] (3)).
 
 **Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in
 dimension 4 + 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), Σ^BL := t_BL⁻¹(0) near spatial infinity, and

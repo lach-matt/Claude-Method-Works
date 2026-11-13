@@ -2473,7 +2473,8 @@ Proposition 3.30] uses, and 𝗌 − m would be false, as propagation loses one 
 *Proof.* Take d := d̃ + 2, with d_0 and d̃ of [[prop:ii-a-9-6]] for (𝗌 − m + 1, −N − m), enlarged to serve
 [[prop:ii-a-9-2]] and [[cor:ii-a-9-7]]. All of these depend only on 𝗌, m and N. The induction below applies (L4) to the
 system L^((k)), whose rank (N + 1)^k N′ grows with k, and applies (L4), [[prop:ii-a-9-2]], [[prop:ii-a-9-6]] and
-[[cor:ii-a-9-7]] to operators B_1, E_1, G_1, G_2, G_3 chosen anew at each k. As their indices depend on none of these,
+[[cor:ii-a-9-7]] to operators B_1, E_1, G_1, G_2, G_3 and cut-offs χ_1, χ_* chosen anew at each k. As their indices
+depend on none of these,
 d_0 and d do not depend on k. For k ≤ d, [[eq:ii-a-9-12]] is [[prop:ii-a-9-2]]. Let k > d and assume
 [[eq:ii-a-9-12]] below k. Let 𝒲_k be the set of words of length k in the letters 0, …, N, with V_0 = I, and put
 u^((k)) := (V^αu)_(α∈𝒲_k). By [[eq:ii-a-9-4]], LV^αu = V^αLu − Σ_(S≠∅) (ad_(V_S)L)V^(α∖S)u. For |S| = 1, S = {i},

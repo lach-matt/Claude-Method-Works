@@ -404,12 +404,12 @@ printed radius R = R′_k, with μ = μ_k and with μ̇ = (3/2) α_k w_k², V′
 rounding. On the cell v ∈ [v_k, v_(k+1)], Φ4_k (rounded up to three decimals) is an upper bound for the supremum of |φ⁗|
 over R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], an interval that contains the true radii of the cell's points of
 Σ′; it is found from the monotone pieces of β″ ([[lem:margins-bump]] (c)) in the variable of each lobe that meets the
-interval, with the extremal values of [[lem:margins-bump]] (c) at interior extremal points. M′_k (rounded up to two decimals) is the bound of
-[[lem:margins-curvature]] (b), built from the printed Φ4_k and S2_k and from S_0 and S_1 as in [[sec:table-sigma0]].
-And c_k (rounded down to five decimals) is the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) on the cell of the
-proof of [[thm:margins-hyperbolic]], with R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], μ ∈ [μ_k − 10⁻⁵, μ_(k+1) +
-10⁻⁵] and V in the interval given there. The bound column (rounded up to seven decimals) is −c_k (min(Ξ_k, Ξ_(k+1)) −
-5 × 10⁻⁶ − M′_k/51200), an upper bound for κ′K′^l_l on the cell.
+interval, with the extremal values of [[lem:margins-bump]] (c) at interior extremal points. M′_k (rounded up to two
+decimals) is the bound of [[lem:margins-curvature]] (b), built from the printed Φ4_k and S2_k and from S_0 and S_1 as in
+[[sec:table-sigma0]]. And c_k (rounded down to five decimals) is the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) on
+the cell of the proof of [[thm:margins-hyperbolic]], with R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], μ ∈ [μ_k −
+10⁻⁵, μ_(k+1) + 10⁻⁵] and V in the interval given there. The bound column (rounded up to seven decimals) is −c_k
+(min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200), an upper bound for κ′K′^l_l on the cell.
 
 | k | R′_k | φ_k | φ′_k | φ″_k | Ξ_k | Φ4_k | M′_k | c_k | bound |
 |---|---|---|---|---|---|---|---|---|---|
