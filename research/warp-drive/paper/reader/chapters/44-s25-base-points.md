@@ -390,8 +390,8 @@ p⃗′_(α_1)(L_(h″,p⃗)m_rows(W⃗)) = 0. This is the argument of the parag
 the bound of (i) of [[prop:iii-i8-4-1]] with (2) gives [[eq:s25-motions-small]].
 
 Along 𝒫_k ⊂ 𝒫_0, with F fixed, a change δW⃗ of the row coordinates therefore changes p⃗′_< (the motion coordinates and
-the motions of ℳ_(α_1)) by δp⃗′_< = −p⃗′_(α_1)(D_(W⃗)P_5(δW⃗)), of size at most C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b −
-b₀|)|δW⃗|.
+the motions of ℳ_(α_1)) by δp⃗′_< = −p⃗′_(α_1)(D_(W⃗)P_5(δW⃗)), of size at most
+C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|δW⃗|.
 
 *The bound on A_k.* Let δW′ be a change of the new coordinates, those of higher rate being fixed, and let δp⃗′, δG′
 and δu be the changes it causes along 𝒫_k. By the induction bound every coordinate changes by at most C|δW′|; in
