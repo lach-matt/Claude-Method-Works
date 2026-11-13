@@ -339,7 +339,10 @@ The objects S_(g,c,e), B_(g,c,e) and ℓ_(g,c,e) are those of [Hin26a, Lemmas 3.
 
 **Theorem {#thm:std-sbierski}** (Globally hyperbolic developments; [Sbi15, Definitions 2.1, 2.2 and 2.4, p. 11;
 Theorems 2.6 and 2.7, p. 12; Theorem 3.4, p. 14; Definition 3.5, p. 15; Theorem 3.13, p. 20; proof of Theorem 2.7,
-pp. 20–22].) [Sbi15] works with the vacuum Einstein equations Ric(g) = 0 in any dimension. "Initial data (𝓜, ḡ, k̄)
+pp. 20–22].) [Sbi15] works with the vacuum Einstein equations Ric(g) = 0 in any dimension. Its standing assumptions
+(p. 10): "we stipulate that all manifolds and tensor fields considered in this paper are smooth, even if this is not
+mentioned explicitly"; "We moreover assume that all Lorentzian manifolds we consider are connected and time oriented.
+The dimension of the Lorentzian manifolds is denoted by d + 1, where d ≥ 1." "Initial data (𝓜, ḡ, k̄)
 for the vacuum Einstein equations consists of a connected d-dimensional Riemannian manifold (𝓜, ḡ) together with a
 symmetric 2-covariant tensor field k̄ on 𝓜 that satisfy the constraint equations: R̄ − |k̄|² + (tr k̄)² = 0,
 ∇̄^i k̄_ij − ∇̄_j tr k̄ = 0" (p. 11).
@@ -351,7 +354,8 @@ with respect to the future normal 3. ι(𝓜) is a Cauchy surface in (M, g)."
 
 (2) Definition 2.2: "Given two GHDs (M, g, ι) and (M′, g′, ι′) of the same initial data, we say that (M′, g′, ι′) is an
 extension of (M, g, ι) iff there exists a time orientation preserving isometric embedding ψ : M → M′ that preserves the
-initial data, i.e. ψ ∘ ι = ι′." Definition 2.4: "Given two GHDs (M, g, ι) and (M′, g′, ι′) of initial data
+initial data, i.e. ψ ∘ ι = ι′." Its footnote 19: "an isometric embedding is an isometric immersion that is a
+diffeomorphism onto its image." Definition 2.4: "Given two GHDs (M, g, ι) and (M′, g′, ι′) of initial data
 (𝓜, ḡ, k̄), we say that a GHD (U ⊆ M, g|_U, ι) is a common globally hyperbolic development (CGHD) of (M, g, ι) and
 (M′, g′, ι′) iff (M′, g′, ι′) is an extension of (U, g_U, ι_U)."
 

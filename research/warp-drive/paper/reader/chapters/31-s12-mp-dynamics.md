@@ -148,8 +148,8 @@ one.
 *Proof.* (a) G^s = 0 means fξ² = f⁻¹ − r⁻²C; multiply by f. (b) W = r⁻² − m r⁻⁴, so W′ = −2r⁻³ + 4m r⁻⁵ =
 2(2m − r²)r⁻⁵, which is positive on (r_h, r_ph) and negative on (r_ph, ∞). At r² = 2m, W = ½(2m)⁻¹ = (4m)⁻¹;
 W(r_h) = 0 as f(r_h) = 0, and 0 < W < r⁻² for r > r_h. (c) f′ = 2m r⁻³ > 0, and f(r) = 0 iff r² = m. In the
-static form g_(b₀) = −f dt_s² + f⁻¹ dr² + r² g̸ of [[sec:vi-a-0]], g_(t_s t_s) = −f. In the chart [[eq:vi-a-0-1]], g⁻¹(dr, dr) = G^(rr) = f. (d) The
-coefficients are read off [[eq:vi-a-0-1]]: g(∂_r, ∂_r) = 0 and g(∂_v, ∂_r) = 1. On {r > r_h}, ∂_v is timelike
+static form g_(b₀) = −f dt_s² + f⁻¹ dr² + r² g̸ of [[sec:vi-a-0]], g_(t_s t_s) = −f. In the chart [[eq:vi-a-0-1]],
+g⁻¹(dr, dr) = G^(rr) = f. (d) The coefficients are read off [[eq:vi-a-0-1]]: g(∂_r, ∂_r) = 0 and g(∂_v, ∂_r) = 1. On {r > r_h}, ∂_v is timelike
 (g(∂_v, ∂_v) = −f < 0), and a null vector with negative product with a future timelike vector is future directed;
 −∂_r is null and nowhere zero on the connected chart, so it stays future directed by continuity. On {0 < r < r_h},
 X := g⁻¹(dr, ·) has g(X, X) = f < 0 and g(X, −∂_r) = dr(−∂_r) = −1 < 0, so X lies in the cone of −∂_r. A future
@@ -225,20 +225,22 @@ exact rates of [[eq:vi-a-3-2]] below.
 
 ### The Lorentzian structure and the decay {#sec:vi-a-1}
 
-**Lemma {#lem:vi-a-1-1}** ((H6) and (K1) for every b.) Let b = (m, A) with |m − m₀| < ½m₀ and ‖A‖ < r_♭/4; in
-particular b ∈ ℬ_♭ is allowed. With τ = t_*: g_b is a smooth Lorentzian metric of signature (1, 4) on
+**Lemma {#lem:vi-a-1-1}** ((H6) and (K1) for every b.) Let b = (m, A) ∈ ℬ, the parameter set of
+[[def:s11-parameters]]. With τ = t_*: g_b is a smooth Lorentzian metric of signature (1, 4) on
 ℝ × {|x| ≥ r₀ − 2δ₀} (the closure of X̃°; (H6) uses X̃° = {r > r₀ − 2δ₀}) with t_*-independent components,
 g₀₀ = g_b⁻¹(dt_*, dt_*) < 0, and G₀, τ₁, g₀₀ given by [[eq:i-b-1-1]]. On {r > 3R₁} the components of g_b − ḡ in the
 frame dt_*, dx^i lie in ρ²C^∞(X̄), uniformly and smoothly in b. So (H6), (K1) and the first clause of (K4) hold.
 
-*Proof.* On {|x| ≤ 2R₁}, T_m of [[eq:iii-b-3-3]] is constant, so g_b is g^KS_b in a translated time coordinate, and r₀ −
-2δ₀ ≥ ½r_♭; so g_b is smooth and Lorentzian of signature (1, 4) there, smoothly in b, by [[lem:s12-ks-domain]]. On {|x|
-≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and g_b − η ∈ |x|⁻²C^∞, smoothly in b. *The time function.* In the
+*Proof.* On {|x| ≤ 2R₁}, T_m of [[eq:iii-b-3-3]] is constant, so g_b is g^KS_b in a translated time coordinate, and
+r₀ − 2δ₀ ≥ ½r_♭; so g_b is smooth and Lorentzian of signature (1, 4) there, smoothly in b, by [[lem:s11-ks-domain]].
+On {|x| ≥ 2R₁}, g_b = Φ_m^* g^KS_b with Φ_m a diffeomorphism ([[lem:iii-b-3-5]] (c)), so g_b has the signature of
+g^KS_b, which is (1, 4) by [[lem:s11-ks-domain]]. On {|x| ≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and
+g_b − η ∈ |x|⁻²C^∞, smoothly in b. *The time function.* In the
 coordinates (t_KS, x) = Φ_m(t, x), t_* = t − ψ(|x|) has differential dt_KS − β d|x| with β := ψ′ − T_m′ = 1 −
 χ_∞(ρ)(8m₀ρ⁻² − 2m(ρ² − m)⁻¹), ρ := |x| ([[eq:iii-b-3-3]], [[eq:iii-b-3-6]]). Off supp χ_∞, in particular on [r₀ − 2δ₀,
 2R₁], β = 1. On supp χ_∞ ⊂ [2R₁, ∞), ρ² ≥ 4m₀ and m < 3m₀/2, so (8m₀ − 2m)ρ² − 8m₀m > 20m₀² − 12m₀² > 0, the bracket is
 positive and β < 1; and β ≥ 1 − 8m₀ρ⁻² ≥ −1, with equality only at ρ = 2R₁, where χ_∞ = 0. So β ∈ (−1, 1] on [r₀ − 2δ₀,
-∞), as in the proof of [[lem:iii-b-3-7]] (a), and [[lem:iii-b-3-3]] (e), valid there by [[lem:s12-ks-domain]], makes
+∞), as in the proof of [[lem:iii-b-3-7]] (a), and [[lem:iii-b-3-3]] (e), valid there by [[lem:s11-ks-domain]], makes
 dt_* timelike: g₀₀ < 0. The components of g_b in the frame dt_*, dx^i do not depend on t_*, as t_* − t is a function of
 |x|. The inequality t_* ≤ t of [[lem:iii-b-3-7]] (a) is not claimed on the collar, where ψ < 0.
 
@@ -480,7 +482,7 @@ while 𝖧^♭(z₀ℱ) = H_(G^s)ℱ ≥ 0.
 ### The theorem at b₀ {#sec:vi-a-6}
 
 **Theorem {#thm:vi-a-6-1}** ((Dyn) at b₀.) For g_(b₀) with the time function t_* and the radii of [[def:s12-radii]]:
-(H6) and (K1) hold ([[lem:vi-a-1-1]], for every b ∈ ℬ_♭); the dynamical parts of (H3) and all of (H4) hold
+(H6) and (K1) hold ([[lem:vi-a-1-1]], for every b ∈ ℬ); the dynamical parts of (H3) and all of (H4) hold
 ([[prop:vi-a-2-1]]); (Γ.1)–(Γ.3) hold with ν_min = 4(2m₀)^(−1/2) ([[prop:vi-a-3-1]]); on Γ, q_(z₀) is the same in t_*
 as in t_s ([[lem:vi-a-0-1]] (c)), where it is 2z₀f(r_ph)⁻¹ = 4z₀, so q^Γ := z₀q_(z₀) = 4 on Γ and
 β₀ = ½ min_Γ |q_(z₀)| = 2; (K3) holds ([[prop:vi-a-4-1]]); and (H8) holds ([[prop:vi-a-5-1]]). These hold for every
@@ -495,7 +497,7 @@ named by the same letter in [[sec:i-a-1-3]] and [[sec:i-b-1-5]].
 ### The horizon near b₀ {#sec:vi-b-1}
 
 This section and the next carry the horizon hypotheses, the dynamical parts of (H3) and all of (H4), from b₀ to every
-b near b₀, uniformly in b as (H5) asks. (H6), (K1) and the first clause of (K4) hold for every b ∈ ℬ_♭ by
+b near b₀, uniformly in b as (H5) asks. (H6), (K1) and the first clause of (K4) hold for every b ∈ ℬ by
 [[lem:vi-a-1-1]]. The one new fact is that the Myers–Perry horizon is the null hypersurface {r_A = r₊} of the
 Kerr–Schild form ([[lem:vi-b-1-1]]); it is proved by an exact identity. The rest is continuity on compact sets, after a
 diffeomorphism that fixes the horizon ([[lem:vi-b-1-2]]).

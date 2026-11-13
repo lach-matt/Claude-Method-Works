@@ -526,12 +526,16 @@ finitely many terms gives [[eq:after-shell-bilinear]].
 
 (b) 𝔔_X(γ, k) exists by [[prop:v-1-3]] with α = min(a, 2) > 3/2: (γ_λ, k_λ) = (γ^(m_λ), k^(m_λ)) far out
 ([[lem:vii-2-1]] (a)), and (h, κ) satisfies [[eq:after-shell-order]]. Also 𝔮̃_X(p_λ) = 𝔔_X(γ_λ, k_λ), the two data sets
-agreeing for r ≥ 4R_i. As 𝔟_X is linear, Δ𝔔_X = lim_ϱ ∮_(S_ϱ) 𝔟_X(h, κ), and |∮_(S_ϱ) 𝔟_X(h, κ)| ≤ C Ξ ϱ^(2+d−a), which
-tends to 0 if a > 2 + d. In general, put R_λ := max(r_χ, R_F, 1) and subtract the flux identity [[eq:v-1-1]] for
-(γ_λ, k_λ) on Γ(R_λ, ϱ) from that for (γ, k); both are vacuum. By [[eq:after-shell-bilinear]], with m(γ_λ, k_λ) ≤ C r⁻²
-and m(h, κ) ≤ C Ξ r^(−a), |Δ𝔔_X| ≤ C Ξ R_λ^(2+d−a) + C Ξ ∫_(R_λ)^∞ r^(d−2)(r⁻² + Ξ r^(−a)) r^(−a) r³ dr. The integrand is
-O(r^(d−1−a) + r^(d+1−2a)), and for d ∈ {0, 1} and a > 3/2 both exponents are below −1: d − 1 − a ≤ −a < −1 and
-d + 1 − 2a ≤ 2 − 2a < −1. ∎
+agreeing for r ≥ 4R_i. Write d_X := d(X). As 𝔟_X is linear, Δ𝔔_X = lim_ϱ ∮_(S_ϱ) 𝔟_X(h, κ), and
+|∮_(S_ϱ) 𝔟_X(h, κ)| ≤ C Ξ ϱ^(2+d_X−a), which tends to 0 if a > 2 + d_X. In general, 𝔪(γ_λ − δ, k_λ) ≤ C r⁻² and
+|γ_λ − δ| ≤ C r⁻² on {r ≥ r_χ}, as (γ_λ, k_λ) = (γ^(m_λ), k^(m_λ)) there, and 𝔪(h, κ) ≤ C Ξ r^(−a) and |h| ≤ Ξ r^(−a)
+by [[eq:after-shell-order]]. Take R_λ ≥ max(r_χ, R_F, 1) so large that, on {r ≥ R_λ}, |γ − δ|, |γ_λ − δ| ≤ ½ and
+𝔪(γ − δ, k), 𝔪(γ_λ − δ, k_λ) ≤ 1; this is possible as 𝔪 is subadditive and Ξ ≤ 1, and R_λ does not depend on the
+perturbation. Subtract the flux identity [[eq:v-1-1]] for (γ_λ, k_λ) on Γ(R_λ, ϱ) from that for (γ, k); both are
+vacuum, and both satisfy the hypotheses of [[lem:v-1-2]] and of [[eq:after-shell-bilinear]] there. By
+[[eq:after-shell-bilinear]], |Δ𝔔_X| ≤ C Ξ R_λ^(2+d_X−a) + C Ξ ∫_(R_λ)^∞ r^(d_X−2)(r⁻² + Ξ r^(−a)) r^(−a) r³ dr. The
+integrand is O(r^(d_X−1−a) + r^(d_X+1−2a)), and for d_X ∈ {0, 1} and a > 3/2 both exponents are below −1:
+d_X − 1 − a ≤ −a < −1 and d_X + 1 − 2a ≤ 2 − 2a < −1. ∎
 
 **Proposition {#prop:after-shell-gluing}** (Gluing to the Myers–Perry data on Hintz's surface, with the error.) Let
 3/2 < a ≤ ℓ0 and k_g := d_1 + 2, the order of the gluing. There are R_G, Ξ0 and C with the following property. For every
@@ -580,22 +584,26 @@ for (γ_λ, k_λ),
     G_R(Q)_X = Q_X − 𝔮̃_X(p_λ) − Δ𝔔_X + T_X(Q),
 
 where T_X(Q) is the sum of ∫_(r>4R)[q_X(member) − q_X(γ_λ, k_λ)], −∫_(r>R)[q_X(γ, k) − q_X(γ_λ, k_λ)] and
-∫_(Γ(R,4R))[q_X(𝔵̂_Q) − q_X(γ_λ, k_λ)]. By [[eq:after-shell-bilinear]], with m ≤ C r⁻² for the reference,
-m(member − reference) ≤ C(|Δp₂| r⁻² + |Δp| r⁻³), m(h, κ) ≤ Ξ r^(−a) and (2) on the annulus, with d := d(X),
+∫_(Γ(R,4R))[q_X(𝔵̂_Q) − q_X(γ_λ, k_λ)]. The reference (γ_λ, k_λ) has 𝔪(γ_λ − δ, k_λ) ≤ C r⁻² and
+|γ_λ − δ| ≤ C r⁻² on {r ≥ R}; the member differs from it by 𝔪(member − reference) ≤ C(|Δp₂| r⁻² + |Δp| r⁻³) on
+{r ≥ 4R} ([[lem:after-shell-mp-data]] (b)), the perturbation by 𝔪(h, κ) ≤ C Ξ r^(−a) on {r ≥ R}, and 𝔵̂_Q by C 𝔢_R on
+the annulus, by (2). As |Δp| < r_U and Ξ ≤ 1, we take R_G so large that the four data sets, the reference, the member,
+(γ, k) and 𝔵̂_Q, satisfy the hypotheses of [[eq:after-shell-bilinear]] (and those of [[lem:v-1-2]]) where each is used,
+on {r ≥ R}. By [[eq:after-shell-bilinear]], with these bounds and d_X := d(X),
 
-    |T_X(Q)| ≤ C R^d (|Δp₂| R⁻² + |Δp| R⁻³) + C Ξ (R^(d−a) + Ξ R^(d+2−2a)) + C R^d (𝔢_R + R² 𝔢_R²).
+    |T_X(Q)| ≤ C R^(d_X) (|Δp₂| R⁻² + |Δp| R⁻³) + C Ξ (R^(d_X−a) + Ξ R^(d_X+2−2a)) + C R^(d_X) (𝔢_R + R² 𝔢_R²).
 
-By (1) and [[eq:after-shell-theta]], each term is C(1 + C_0)² Ξ times one of R^(d−2+min(0,2−a)), R^(d−3+min(0,3−a)),
-R^(d−a) and R^(d+2−2a). Each of these exponents is strictly below E := min(0, 2 + d − a), for d ∈ {0, 1} and
-3/2 < a ≤ ℓ0 < 4. Indeed d − a < 0 and d − a < 2 + d − a; d + 2 − 2a < 0, as 2a > 3 ≥ d + 2, and d + 2 − 2a < 2 + d − a;
-d − 2 + min(0, 2 − a) ≤ d − 2 < 0 and ≤ d − a; and d − 3 + min(0, 3 − a) ≤ d − 3 < 0 and ≤ d − a. So for R ≥ R_G,
-|T_X(Q)| ≤ Ξ R^E on 𝔅_R.
+By (1) and [[eq:after-shell-theta]], each term is C(1 + C_0)² Ξ times one of R^(d_X−2+min(0,2−a)),
+R^(d_X−3+min(0,3−a)), R^(d_X−a) and R^(d_X+2−2a). Each of these exponents is strictly below E := min(0, 2 + d_X − a),
+for d_X ∈ {0, 1} and 3/2 < a ≤ ℓ0 < 4. Indeed d_X − a < 0 and d_X − a < 2 + d_X − a; d_X + 2 − 2a < 0, as
+2a > 3 ≥ d_X + 2, and d_X + 2 − 2a < 2 + d_X − a; d_X − 2 + min(0, 2 − a) ≤ d_X − 2 < 0 and ≤ d_X − a; and
+d_X − 3 + min(0, 3 − a) ≤ d_X − 3 < 0 and ≤ d_X − a. So for R ≥ R_G, |T_X(Q)| ≤ Ξ R^E on 𝔅_R.
 
 (4) *The charges.* By [[lem:after-shell-charges]] (b), Δ𝔔_X = 0 if a > 2 + d(X), and |Δ𝔔_X| ≤ C_1′ Ξ otherwise.
 
 (5) *A zero by Brouwer's fixed point theorem* (in place of [[lem:v-3-3]]). Let Θ(Q) := 𝔮̃(p_λ) + Δ𝔔 − T(Q). By (3)
-and (4), |Θ_X(Q) − 𝔮̃_X(p_λ)| ≤ r_X on 𝔅_R: if a ≤ 2 + d this reads C_1′ Ξ + Ξ = C_0 Ξ, and if a > 2 + d it reads
-0 + Ξ R^(2+d−a). Θ is continuous, by Step 3 of the proof of [[thm:v-3-1]] and [[lem:v-3-2]], and 𝔅_R is a product of
+and (4), |Θ_X(Q) − 𝔮̃_X(p_λ)| ≤ r_X on 𝔅_R: if a ≤ 2 + d_X this reads C_1′ Ξ + Ξ = C_0 Ξ, and if a > 2 + d_X it
+reads 0 + Ξ R^(2+d_X−a). Θ is continuous, by Step 3 of the proof of [[thm:v-3-1]] and [[lem:v-3-2]], and 𝔅_R is a product of
 closed intervals, so Θ has a fixed point Q_R. Then G_R(Q_R) = 0, and by Step 3 the data u_(Q_R,R) + δu_(Q_R,R) are
 vacuum.
 

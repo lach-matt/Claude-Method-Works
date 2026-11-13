@@ -487,3 +487,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   (ℝⁿ and ℝ^k × N; S26's domains stay with S26). [Hö83], [Hö85], [Ho85] removed; [Tre19], [KP88] added; [RS1] 1980.
   Citations to change in other chapters: 45 (654, 670-673), 06, 09, 22, 35, 62 and proof D1 (list in F2-95). Chapter
   46 cites an undefined thm:std-ds-stability (S27's entry, still to be written).
+- S22 second reading (R2-S22): ℰ_col and the ε split right. Rulings: ε_K < ε_Υ is needed (without it Step 4's
+  level-3 loop cannot finish); S27 states it, but chapter 03 (thm:settling) and chapter 60's parameter paragraph must
+  add it (Ch 3 round; chapter 60's next round) — or S15 proves ε_ind ≤ ε_Υ. η_1 < ε_g is needed only inside S22.
+  ε_g := min(ε_Υ, ε_ind) is defined once in S21 under def:s21-eps-g; S22 and later cite it.
+- ε sweep still to do (confirmed chapters): S20, S23 and S24 use ε_ind as the gain that S17 now gives as ε_Υ; they need
+  ε_g where they use the gain. One small fix round with a confirming check, after S21 and S22 settle.

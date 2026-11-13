@@ -32,7 +32,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | NOT CONFIRMED 0M 1m 8n; second fix done; third reading running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | NOT CONFIRMED 0M 3m 6n; third fix running |
-| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | running |
+| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | NOT CONFIRMED 0M 1m 4n; third fix running |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | NOT CONFIRMED 0M 2m 8n (38a and 44); third fix running; step 2 after S21-S22 settle |

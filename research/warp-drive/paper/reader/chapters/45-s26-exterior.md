@@ -1071,14 +1071,14 @@ of d = 4 derivatives, and π₁₁ġ has no radiation field ([[rem:s17-no-radiat
 
 This section is [Hin23a, Corollary 3.36] in dimension 4 + 1, the nonlinear part of [Hin26, Theorem 5.17].
 
-**Theorem {#thm:iv2-3-1}** (The nonlinear exterior solution.) Let g₀ be as in [[sec:iv2-0]] and d := 7. There are
-ε₀ > 0 and, for every k and ε > 0, an ε₁ ∈ (0, ε₀] such that for h₀, h₁ ∈ H^(∞,ℓ^♭₀)_b(Σ_(IVP,r₀); S²T*) with
-‖h_j‖_(H^(2d,ℓ^♭₀)_b) < ε₀ the problem
+**Theorem {#thm:iv2-3-1}** (The nonlinear exterior solution.) Let g₀ be as in [[sec:iv2-0]], d := 7 and
+N_NM := 21d + 6 = 153, the order of [[thm:ii-g-2-1]]. There are ε₀ > 0 and, for every k and ε > 0, an ε₁ ∈ (0, ε₀] such
+that for h₀, h₁ ∈ H^(∞,ℓ^♭₀)_b(Σ_(IVP,r₀); S²T*) with ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) < ε₀ the problem
 
     P(g₀ + h, g₀) = 0 in Ω_(ext,r₀),     h = h₀,  rℒ_(∂_(t_IVP))h = h₁ on Σ_(IVP,r₀),                     {#eq:iv2-3-1}
 
 has a solution h ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀)) small in H^(3d) of this class, unique among the solutions small
-in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b, and ‖h_j‖_(H^(2d+k,ℓ^♭₀)_b) < ε₁ gives ‖h‖_(H^(3d+k,ℓ^♭₀,(−,ℓ^♭_I))_b) < ε.
+in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b, and ‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) < ε₁ gives ‖h‖_(H^(3d+k,ℓ^♭₀,(−,ℓ^♭_I))_b) < ε.
 
 *Proof.* Apply [[thm:ii-g-2-1]] with d = 7 and:
 
@@ -1100,18 +1100,27 @@ B⁵, and by [[eq:iii-c-5-5]] and [[prop:iii-c-5-2]] it is C² in h, with
 Φ′(h)ḣ = (L^(g₀+h,g₀)ḣ, ḣ|_Σ, rℒ_(∂_(t_IVP))ḣ|_Σ) and Φ″ bilinear in two b-derivatives, with coefficients rational in
 h and its first two b-derivatives. [[eq:ii-g-2-2]] and [[eq:ii-g-2-3]] follow from the Moser estimates
 ([[lem:iv1-2-3]], [[lem:iii-c-2-1]]), the loss being 2 and the low norms of order at most 5 ≤ d. The trace on
-Σ_(IVP,r₀) is bounded B^(k+1) → H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀)), which lies within the loss d.
+Σ_(IVP,r₀) is bounded B^(k+1) → H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀)), which lies within the loss d. The data enter the constants
+C_k of [[eq:ii-g-2-3]]: ‖Φ(h)‖_k ≤ C^P_k(1 + |h|_(k+d)) + ‖h₀‖_(H^(k,ℓ^♭₀)_b) + ‖h₁‖_(H^(k,ℓ^♭₀)_b), with C^P_k
+depending only on g₀, k and δ. For k ≤ N_NM and ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) ≤ 1 this is at most (C^P_k + 2)(1 + |h|_(k+d));
+so we take C_k := C^P_k + 2 for k ≤ N_NM, which does not depend on the data. For k > N_NM,
+C_k := C^P_k + ‖h₀‖_(H^k) + ‖h₁‖_(H^k) is finite, as h_j ∈ H^∞, and does not enter the threshold of [[thm:ii-g-2-1]].
+(Smallness in H^(2d) alone does not suffice here: that threshold depends on the C_k with k ≤ N_NM.)
 
 *(iii) Right inverses.* For h in the set above, Ψ(h)(f, ġ₀, ġ₁) := ġ of [[thm:iv2-2-4]] with α₀ := ℓ^♭₀ > ℓ^♭_I. Then
 Φ′(h)Ψ(h) = id on F^∞, and [[eq:iv2-2-3]] gives [[eq:ii-g-2-4]]:
 |Ψ(h)F|_k ≤ C(‖F‖_(k+4) + |h|_(k+7)‖F‖₈) ≤ C(‖F‖_(k+d) + |h|_(k+d)‖F‖_(2d)) for k ≥ d, and 3d ≥ 8 gives the
 smallness of h that [[thm:iv2-2-4]] asks. The support statement of (iii) is vacuous.
 
-Φ(0) = (0, −h₀, −h₁), as P(g₀, g₀) = 0 (the proof of [[cor:iii-c-5-3]]). So [[thm:ii-g-2-1]] gives h with |h|_(3d) < δ
-and Φ(h) = 0 when ‖h₀‖_(2d) + ‖h₁‖_(2d) is below the ε of that theorem. *Higher norms.* For k ≥ 0 the shifted scales
-|v|′_j := |v|_(j+k), ‖f‖′_j := ‖f‖_(j+k) satisfy (i)–(iii) with the same d: [[eq:ii-g-2-1]] and [[eq:ii-g-2-4]] are
-invariant under the shift, and [[eq:ii-g-2-3]] holds on {|h|′_(3d) < δ} ⊂ {|h|_(3d) < δ} with constants depending on k.
-So data small in H^(2d+k) give a solution small in H^(3d+k), with any δ = ε; by uniqueness it is the same h.
+Φ(0) = (0, −h₀, −h₁), as P(g₀, g₀) = 0 (the proof of [[cor:iii-c-5-3]]). Let ε_NM be the threshold of
+[[thm:ii-g-2-1]] for d, δ, η₀ and the constants above, and ε₀ := min(1, ε_NM/2). If ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) < ε₀, then
+‖Φ(0)‖_(2d) ≤ ‖h₀‖_(H^(2d,ℓ^♭₀)_b) + ‖h₁‖_(H^(2d,ℓ^♭₀)_b) < ε_NM, and [[thm:ii-g-2-1]] gives h with |h|_(3d) < δ and
+Φ(h) = 0. *Higher norms.* For k ≥ 0 the shifted scales |v|′_i := |v|_(i+k), ‖f‖′_i := ‖f‖_(i+k) satisfy (i)–(iii) with
+the same d: [[eq:ii-g-2-1]] and [[eq:ii-g-2-4]] are invariant under the shift, and [[eq:ii-g-2-3]] holds on
+{|h|′_(3d) < δ′} ⊂ {|h|_(3d) < δ}, δ′ ≤ δ, with constants depending on k; as above, those of order i ≤ N_NM do not
+depend on the data once ‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) ≤ 1. So [[thm:ii-g-2-1]] for the shifted scales, with
+δ′ := min(δ, ε), gives ε₁ ∈ (0, ε₀] such that data with ‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) < ε₁ have a solution with
+|h|_(3d+k) < ε; it is small in B⁸, so by uniqueness it is the h above.
 *Uniqueness.* If h and h′ solve [[eq:iv2-3-1]] and are small in B⁸, then L̄(h − h′) = 0 with vanishing data, where
 L̄ := ∫₀¹ L^(g₀+h′+s(h−h′),g₀) ds. Each L^(g₀+h_s,g₀) has the form [[eq:iv1-1-1]] with the same leading part, which does
 not depend on h, and a remainder in the class [[eq:iv2-0-4]], uniformly in s; so L̄ has this form too, and its principal
@@ -1128,8 +1137,8 @@ This section states [Hin26, (5.52)–(5.53) and Theorem 5.17] in dimension 4 + 1
 gauge condition and of the vacuum equation that [Hin26, Remark 5.18] uses.
 
 **Theorem {#thm:iii-c1-2-1}** ([Hin26, Theorem 5.17] in dimension 4 + 1.) There is k₀ ∈ ℕ such that the following
-holds. Let ℓ^♭₀, ℓ^♭_I be as in [[eq:iii-c1-1-1]] and r₀ ≥ R₀, with R₀ of [[lem:iii-c1-1-1]] enlarged so that
-[[lem:s26-development]] and the lemmas of [[sec:iv2-1]]–[[sec:iv2-2]] hold for r₀ ≥ R₀. There is ε₀ > 0 such that for
+holds. Let ℓ^♭₀, ℓ^♭_I be as in [[eq:iii-c1-1-1]] and r₀ ≥ R₀, with R₀ as fixed after [[lem:iii-c1-1-1]]. There is
+ε₀ > 0 such that for
 h₀, h₁ ∈ H^(∞,ℓ^♭₀)_b(Σ_(IVP,r₀); S²T*) with ‖h_j‖_(H^(k₀,ℓ^♭₀)_b) < ε₀, the problem
 
     P(g_(b₀) + h, g_(b₀)) = 0 in Ω_(ext,r₀),     h = h₀,  rℒ_(∂_(t_IVP))h = h₁ on Σ_(IVP,r₀),           {#eq:iii-c1-2-1}
@@ -1152,8 +1161,8 @@ with C depending on k, α₀, ℓ^♭_I and h; and the tame form of [[eq:iii-c1-
 
 Here (−′, ℓ^♭_I + 1) is the class of [[def:iii-c-5-1]] (2) with the index sets left out, as in [Hin26].
 
-*Proof.* [[thm:iv2-3-1]] with g₀ = g_(b₀) gives the solution, its uniqueness and the smallness, with k₀ := 14 and
-k₁ := 14 + k. [[thm:iv2-2-4]] gives [[eq:iii-c1-2-2]] and its tame form [[eq:iv2-2-3]]. ∎
+*Proof.* [[thm:iv2-3-1]] with g₀ = g_(b₀) gives the solution, its uniqueness and the smallness, with k₀ := N_NM = 153
+and k₁ := N_NM + k, as ‖h‖_(H^(k,ℓ^♭₀,(−,ℓ^♭_I))_b) ≤ ‖h‖_(H^(3d+k,ℓ^♭₀,(−,ℓ^♭_I))_b). [[thm:iv2-2-4]] gives [[eq:iii-c1-2-2]] and its tame form [[eq:iv2-2-3]]. ∎
 
 [Hin26] derives its Theorem 5.17 from [Hin23a, Theorem 3.35 and Corollary 3.36] by a change of notation: the tame
 estimate (5.52), a Nash–Moser scheme (by [SR89] there; here [[thm:ii-g-2-1]], which is [Hin26c, Theorem 12.4]), and the

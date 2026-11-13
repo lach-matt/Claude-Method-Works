@@ -97,13 +97,13 @@ of [[thm:iii-c1-3-1]]. The weights ℓ_I, ε_+, ε_K and α of the cone are thos
 [[ch:s17]], in which the weights at null infinity are shifted by ½ ([[eq:iii-c1-1-1]]). [[thm:vi-c-2-1]] shows that all
 the conditions can be met together.
 
-*The cut-off χ_ι.* We take the cut-off χ_ι = χ(t_*) of [[sec:iii-g2-4]] with χ = 0 on (−∞, T_ι] and χ = 1 on [T_ι + 1,
-∞). Then χ_ι = 0 on {t_* ≤ T_ι} ⊃ {t^♭_* ≤ T̂ + 2} (as C_♭t_* ≤ t^♭_*), and supp dχ_ι ⊂ {T_ι ≤ t_* ≤ T_ι + 1} is disjoint
-from supp χ_K, as T_K > T_ι + 1. [[sec:iii-g2-4]] uses χ_ι in the proof of [[thm:iii-g2-4-2]] only through χ_ι = 1 near
-ι⁺ and through the commutator of L_b with χ_ι, which is χ′(t_*) and χ″(t_*) times commutators of L_b with t_* and so is
-supported where χ′(t_*) ≠ 0, a compact t_*-interval; [[ch:s23]] uses it in [[eq:iii-j-2-1]] and the results built on it
-only as a real function of t_*, equal to 1 near ι⁺ and supported in Ω_*. Both hold for this choice, so it is admissible,
-and the ι⁺-terms of Φ do not reach the region of the initial family.
+*The cut-off χ_ι.* We take the cut-off χ_ι = χ(t_*) of [[sec:iii-g2-4]] with χ = 0 on (−∞, T_ι] and χ = 1 on
+[T_ι + 1, ∞). Then χ_ι = 0 on {t_* ≤ T_ι} ⊃ {t^♭_* ≤ T̂ + 2} (as C_♭t_* ≤ t^♭_*), and supp dχ_ι ⊂ {T_ι ≤ t_* ≤ T_ι + 1}
+is disjoint from supp χ_K, as T_K > T_ι + 1. [[sec:iii-g2-4]] uses χ_ι in the proof of [[thm:iii-g2-4-2]] only through
+χ_ι = 1 near ι⁺ and through the commutator of L_b with χ_ι, which is χ′(t_*) and χ″(t_*) times commutators of L_b with
+t_* and so is supported where χ′(t_*) ≠ 0, a compact t_*-interval; [[ch:s23]] uses it in [[eq:iii-j-2-1]] and the results
+built on it only as a real function of t_*, equal to 1 near ι⁺ and supported in Ω_*. Both hold for this choice, so it is
+admissible, and the ι⁺-terms of Φ do not reach the region of the initial family.
 
 ### The initial family {#sec:iii-k-1}
 
@@ -300,7 +300,8 @@ solved by the local theory of quasilinear wave equations. The equation [[eq:iii-
 P^♮(g_0 + h, g_0) = −½□_(g_0+h)h plus a smooth function of (x, h, ∂h), with g_0 = φ_(S,S⁰)^*g_(b₀), principal part
 −½(g_0 + h)⁻¹(ζ, ζ) times the identity, and everything smooth in the parameters (S, S⁰); h = 0 solves it for every value
 of the parameters, as P^♮(g_0, g_0) = Ric(g_0) = 0. Its linearisations have the same principal part at h. Two statements
-are used, on a compact set 𝒦′ that is the domain of dependence, within 𝒟, of a spacelike past boundary carrying the data:
+are used, on a compact set 𝒦′ that is the domain of dependence, within 𝒟, of the part of its boundary carrying the data
+(a level set of t_IVP, with a forward and a backward problem, or a piecewise smooth spacelike past boundary):
 
 (L) for a linear equation of this kind with smooth coefficients, and data in H^(k+1) × H^k and forcing in H^k, there
 is a unique solution on 𝒦′, bounded in H^k(𝒦′) by the data and the forcing;
