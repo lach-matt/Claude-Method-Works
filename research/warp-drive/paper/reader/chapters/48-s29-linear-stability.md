@@ -420,8 +420,9 @@ partition of unity subordinate to a cover of Σ_U by such charts and to U ∩ {t
 t^♭_* is not defined. So Ω_* ∪ 𝒟 = N_ν, and DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
 
 *ḣ is smooth on the interior of 𝒟.* The proof of [[prop:viii-1-2]] gives ḣ on two closed sets that cover 𝒟: the
-compact set 𝒦, and the closure 𝒜 of Ω^♮ = Ω_(ext,r_1) ∪ 𝒮 in 𝒟, on which ḣ is the solution of [[thm:iv3-2-1]], equal
-to the exterior solution on Ω_(ext,r_1), with its past slab. On each of the two, near each of its points in the interior
+compact set 𝒦 ([[lem:s27-cover]] (c)), and the closure 𝒜 of Ω^♮ = Ω_(ext,r_1) ∪ 𝒮 in 𝒟, on which ḣ is the solution of
+[[thm:iv3-2-1]], equal to the exterior solution on Ω_(ext,r_1), with its past slab. On each of the two, near each of
+its points in the interior
 of M, ḣ is for every k the restriction of a tensor of class H^k on a neighbourhood: on 𝒦 by (L) of [[sec:s27-local]],
 its data being smooth and H^k(𝒦) consisting of restrictions; on 𝒜 because ḣ lies, for every k, in the classes of
 order k of [[thm:iv2-2-4]] and [[thm:iv3-2-1]], b-Sobolev spaces of restrictions ([[sec:iii-c-2]]), which near points
@@ -447,11 +448,11 @@ identity gives ∂^j_s w = 0 there. By induction on j, as in Step 3 of the proof
 of order at most m vanishes on H near p. The other points of Γ lie on two of the three hypersurfaces, on one of two
 edges. The first is {r = r_1, t_IVP = 0}, where Σ^fut_(r_1) and Σ^past_(r_1) bound the wedge Ω_(ext,r_1) and 𝒦 fills
 the rest of a neighbourhood; its points are interior points of 𝒟, as ν(r_1) > 0 (r_1 > R_ν, as in the last step of
-this proof). The second is the intersection of
-Σ^fut_(r_1) with {ρ′_I = c}, where 𝒦, Ω_(ext,r_1) and 𝒮 meet. ({ρ′_I = c} does not meet Σ^past_(r_1) in Γ: its
-points in Γ lie in the closure of 𝒮, where t_IVP ≥ r/4 > 0 ([[lem:s27-cover]] (d)), while t_IVP ≤ 0 on
-Σ^past_(r_1).) Each point of an edge is a limit of points of Γ that lie on only one of the three hypersurfaces, and the
-derivatives of w of order at most m are continuous; so they vanish on the edges too.
+this proof). The second is the intersection of Σ^fut_(r_1) with {ρ′_I = c}, where 𝒦, Ω_(ext,r_1) and 𝒮 meet.
+({ρ′_I = c} does not meet Σ^past_(r_1) in Γ: its points in Γ lie in the closure of 𝒮, where t_IVP ≥ r/4 > 0
+([[lem:s27-cover]] (d)), while t_IVP ≤ 0 on Σ^past_(r_1).) Each point of an edge is a limit of points of Γ that lie on
+only one of the three hypersurfaces, and the derivatives of w of order at most m are continuous; so they vanish on the
+edges too.
 
 (ii) *Gluing.* For a function v on V that vanishes on Γ, let v^Γ := v on 𝒦 ∩ V and v^Γ := 0 on 𝒜 ∩ V. If v ∈ C¹(V)
 and its first derivatives vanish on Γ as well, then v^Γ is C¹ on V, with first derivatives (∂v)^Γ. Indeed V is the
