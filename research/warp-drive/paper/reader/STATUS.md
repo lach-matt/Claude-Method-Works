@@ -6,7 +6,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 
 | file | first reading | fix round | second reading |
 |---|---|---|---|
-| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | fourth fix running (06-07 sentence, K = d_1 + 14, ε_K clause, ε_K < ε_Υ, S⁰, envelope remark) |
+| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | fourth fix done (Ch 3 only); fourth reading running |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | third reading CONFIRMED (6 notation nits) |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED; new text read (Step 8 correct, 7 nits); the cut's minor moves to Ch 3 (sentence in INTEGRATION) |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | CONFIRMED (third reading; 2 nits) |
@@ -58,7 +58,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | second reading 0M 1m 4n (a rename); fixed; CONFIRMED (diff read) |
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | second reading NOT CONFIRMED 1M 6m 4n (off-band commuted terms; tied to ch 63 issue-2); waits on the cut-off proof project |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | NOT CONFIRMED 1M 9m 9n (constants weaker than source); fix running |
-| P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | NOT CONFIRMED 0M 6m 4n; fixed (503 coefficients printed, rem:band-observed); confirming reader running |
+| P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | CONFIRMED (second reading 0M 1m 5n; 4.682 → 4.683 applied; markers resolved to chapter 70) |
 | P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | fixed (scope remark; corollary covers all lists); confirming reader running; P-A3 CONFIRMED (second reading 0M 1m 2n; the clause applied) |
 | P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | CONFIRMED (second reading 0M 1m 6n; the reader's slow-variation paragraph seated, checked) |
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n; fixed (bend −0.0011595971; lens for R_p ≥ R_*; C2 deleted); confirming reader running |

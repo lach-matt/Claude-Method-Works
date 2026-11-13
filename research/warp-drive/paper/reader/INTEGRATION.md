@@ -594,3 +594,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   a < 9/2 against chapter 63's a < 3. Sent to the cut-off proof project; proof G's next fix waits on it.
 - S19 third fix (F3-S19): ℓ_I ∈ (0, ½); no other chapter relies on ℓ_I = ½ for this class (28-s09:165's P_Λ is a
   sup-based class).
+- Proof B2 confirmed (R2-P-B2): all 503 Bernstein coefficients exact and positive; B♯(6) printed as < 4.683 (the exact
+  p_I gives 4.681994, the decimal 0.50776 gives 4.682008); the two markers now cite prop:resolvent-outgoing and
+  prop:resolvent-above-barrier (chapter 70). Nits: the remark's "not proved" sentence must not read as including
+  11.477; T-B2's needless cor:band-one-derivative; symbol clashes s, C, c, v/ν; one C² wording with proof B at merge.
+- Ch 3 fourth fix (F4-00-03): settling theorem now K = d_1 + 14, the ε_K clause, ε_K < ε_Υ, chapter 60's quantifier
+  order, the translation S⁰ in (ii) and lines 312-316; rem:envelope-regularity; nit 18. Chapter 60 still lacks S⁰
+  (follow-up after the S27 reading).

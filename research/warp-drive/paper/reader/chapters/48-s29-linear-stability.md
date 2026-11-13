@@ -387,12 +387,12 @@ another gauge, on the whole future of Σ^IVP in {r > r_♭}: the future half of 
 *The spacetime.* g := g_(b₀) on M_♭ := ℝ_t × {|x| ≥ r_♭}, in the coordinates (t, x) of [[sec:iii-b-3]]
 ([[eq:iii-b-3-3]] defines g_(b₀) there, by [[lem:s11-ks-domain]]), with interior M°_♭ := ℝ_t × {|x| > r_♭}. t_IVP is
 the function of [[lem:iii-b-3-7]] (b), and Σ^IVP := t_IVP⁻¹(0). ν is the function of [[prop:iii-k-1-2]], smooth and
-non-decreasing with ν = 0 on [0, R_ν], R_ν = ½(r_♭ + 5R₁); so ν ≥ 0, but ν is not positive. N := {t_IVP ≥ −ν(|x|)} as
-in [[sec:viii-0]]. On {|x| ≤ R_ν}, then, N ends at Σ^IVP, which is there part of its boundary, and ġ is not defined to
-its past. So the comparison is posed in a region that extends past Σ^IVP, where only g is used, and the tensors
-compared live on its future half. Put
+non-decreasing with ν = 0 on [0, R_ν], R_ν = ½(r_♭ + 5R₁), and ν > 0 on (R_ν, ∞); so ν ≥ 0, but ν is not positive
+everywhere. N_ν = {t_IVP ≥ −ν(|x|)} is the set of [[sec:viii-0]]. On {|x| ≤ R_ν}, then, N_ν ends at Σ^IVP, which is
+there part of its boundary, and ġ is not defined to its past. So the comparison is posed in a region that extends past
+Σ^IVP, where only g is used, and the tensors compared live on its future half. Put
 
-    U^♯ := M°_♭ ∩ {t_IVP > −1},     Σ° := Σ^IVP ∩ M°_♭ ⊂ U^♯,     N⁺ := M°_♭ ∩ {t_IVP ≥ 0} ⊂ N,
+    U^♯ := M°_♭ ∩ {t_IVP > −1},     Σ° := Σ^IVP ∩ M°_♭ ⊂ U^♯,     N⁺ := M°_♭ ∩ {t_IVP ≥ 0} ⊂ N_ν,
 
 the inclusion as ν ≥ 0 (and t ≥ t_IVP ≥ 0 > −½|x| on N⁺, by [[lem:iii-b-3-7]] (b), so N⁺ lies in the spacetime M of
 [[eq:iii-b-2-1]]). For an open U ⊂ U^♯ put Σ_U := Σ^IVP ∩ U and U_+ := U ∩ {t_IVP ≥ 0}.

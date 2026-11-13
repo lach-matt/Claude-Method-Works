@@ -9,9 +9,9 @@ that y = v², η = (1 − v²)v³ and I = {1/4 ≤ v ≤ 5/6}.
 
 For real σ ≠ 0, R_l(σ) is the outgoing resolvent of −∂²_(r_*) + V_l − σ² on L²(ℝ, dr_*) ([[ch:resolvent-bounds]]),
 and χ_I is multiplication by the indicator function of I. Two results of that chapter are used, stated here exactly.
-First ([[pending:resolvent-outgoing]]), for real σ ≠ 0 and f ∈ L²(ℝ) vanishing off I, u := R_l(σ)f is a solution,
+First ([[prop:resolvent-outgoing]]), for real σ ≠ 0 and f ∈ L²(ℝ) vanishing off I, u := R_l(σ)f is a solution,
 with u and u′ locally absolutely continuous, of −u″ + (V_l − σ²)u = f almost everywhere, with u − c_±e^(±iσr_*) → 0
-and u′ ∓ iσu → 0 as r_* → ±∞, as required in [[lem:morawetz-identity]]. Second ([[pending:resolvent-above-barrier]]),
+and u′ ∓ iσu → 0 as r_* → ±∞, as required in [[lem:morawetz-identity]]. Second ([[prop:resolvent-above-barrier]]),
 the bound above the barrier: if σ² > max V_l, then ‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V_l).
 
 The route is the multiplier method of [[lem:morawetz-identity]], with two changes. The final inequality is solved exactly
@@ -62,7 +62,7 @@ Since every hypothesis and the constant depend on σ only through |σ|, every bo
 σ² − κ/4 − 25/48 ≥ |σ|/2, then ‖χ_I R_l(σ) χ_I‖ ≤ 2Λ < 7.4872.
 
 *Proof.* U = (1 − y)y ≤ 1/4 and Q = (1 − y)y² ≤ 4/27 on [0, 1], so V_l ≤ (κ + 3/4)/4 + (9/4)(4/27) = κ/4 + 25/48. The
-bound above the barrier ([[pending:resolvent-above-barrier]]) then gives the first estimate, and t ↦ Λt/(t² − C)
+bound above the barrier ([[prop:resolvent-above-barrier]]) then gives the first estimate, and t ↦ Λt/(t² − C)
 decreases for t² > C, its derivative being −Λ(t² + C)/(t² − C)². The last statement is the first with
 σ² − κ/4 − 25/48 ≥ |σ|/2. ∎
 
@@ -272,11 +272,11 @@ Together with [[prop:morawetz-resolvent-l-ge-1]] and [[prop:morawetz-l-zero]], w
 0 < |σ| ≤ 3, this bounds ‖χ_I R_l(σ) χ_I‖ uniformly in l for every real 0 < |σ| ≤ 384.
 
 **Proposition {#prop:band-points}** (Sampled frequencies.) For every harmonic l ≥ 0, ‖χ_I R_l(σ) χ_I‖ is at most
-8.878, 4.682, 5.990, 4.097, 3.022 and 2.252 at |σ| = 3, 6, 12, 24, 48 and 96; at most 2.024, 1.869 and 1.743 at
+8.878, 4.683, 5.990, 4.097, 3.022 and 2.252 at |σ| = 3, 6, 12, 24, 48 and 96; at most 2.024, 1.869 and 1.743 at
 |σ| = 128, 160 and 192; and at most 1.677, 1.815 and 1.963 for every |σ| in [s − 1/20, s] with s = 256, 320 and 384.
 
 *Proof.* At |σ| = 3, [[prop:band-polynomial]] with zΨ_5 gives B♯(3) < 8.878 for l ≥ 5, and [[lem:band-barrier]] gives
-4.531 for l ≤ 4. At |σ| = 6, zΨ_11 gives B♯(6) < 4.682 for l ≥ 11 and [[lem:band-barrier]] gives 4.100 for l ≤ 10. At
+4.531 for l ≤ 4. At |σ| = 6, zΨ_11 gives B♯(6) < 4.683 for l ≥ 11 and [[lem:band-barrier]] gives 4.100 for l ≤ 10. At
 the other frequencies, take the row of [[sec:tb2-points]]: the multiplier F_ν of [[lem:band-algebraic-constants]] with
 the listed ν and τ, applied with a at l = l_1 (a larger a only increases α), serves every l ≥ l_1, and gives the listed
 B♯ at the right end σ_+; [[lem:band-barrier]] at the left end σ_- gives the listed bound for every l < l_1. ∎
