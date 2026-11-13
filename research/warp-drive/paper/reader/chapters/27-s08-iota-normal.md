@@ -38,8 +38,9 @@ orders are written in sans-serif letters 𝗌, 𝖻, 𝗋, and multi-orders in b
 
 #### Coordinates and weights {#sec:ii-f-1-1}
 
-Throughout, n = 4 and c := 3/2. Near (ι⁺)° we use τ := t_*⁻¹ and R := r/t_* ([[lem:ii-a-2-11]]), so that ρ = r⁻¹ = τ/R;
-we put v := R⁻¹ = t_*/r, and near ι⁺ ∩ ℐ⁺
+Throughout, n = 4, and c := 3/2 except where c is introduced as a level ([[lem:ii-f-1-3]], [[lem:ii-f-1-4]]) or as
+the weight at cf of an order ([[sec:ii-f-2-1]]). Near (ι⁺)° we use τ := t_*⁻¹ and R := r/t_* ([[lem:ii-a-2-11]]), so
+that ρ = r⁻¹ = τ/R; we put v := R⁻¹ = t_*/r, and near ι⁺ ∩ ℐ⁺
 
     x_I := R^(−1/2) = (t_*/r)^(1/2),
 
@@ -69,8 +70,8 @@ In dimension 3 + 1, [Hin26c] has α_I + 3/2, α_+ + 2 and −(α_+ + 3/2). The w
 tf-admissible ([[def:ii-c-2-7]] (2), with α_sf = α_+) is −γ_cf.
 
 *Indicial gap.* (β_−, β_+) is the indicial gap of P̂_0(0) that contains −γ_cf = α_+ + 2 ([[def:ii-c-2-3]],
-[[def:ii-c-2-7]] (2) and [[def:i-c-1-1]]). By [[sec:ii-c-2-4]] it is the b-weight of P̂_0(0) at ∂X for L²(|dx|) in
-dimension 4.
+[[def:ii-c-2-7]] (2) and [[def:i-c-1-1]]). By [[sec:ii-c-2-4]], α_+ + 2 is the b-weight at ∂X that corresponds to the
+spatial weight α_+ of an L²(|dx|)-based space in dimension 4.
 
 *The Mellin transform.* In this chapter, as in [Hin26c, Section 10],
 

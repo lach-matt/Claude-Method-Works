@@ -1978,5 +1978,5 @@ three radial sets ([[lem:i-b-5-1]]); at R_out the large imaginary part written a
 ([[lem:i-b-5-4]]), which needs the remainder R_2 of [Hin26c, (9.49)] to be put into that form; matrix-valued defect
 measures, entering through tr and max spec ([[lem:i-b-6-2]]); the complex absorption written as Q̂_♭(σ̄)*Q̂_♭(σ),
 entire and of exact sign ([[sec:i-b-6-5]]); a three lines lemma with its proof ([[lem:i-b-6-6]]) in place of
-[DZ19, Lemma D.1]; and the energy estimate at the artificial boundary for every Im z ≥ 0 through the weight e^(ℓr)
-([[prop:i-b-7-1]]), in place of [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z.
+[DZ19, Lemma D.1]; and the energy estimate at the artificial boundary for every Im z ≥ 0 through an exponential weight
+in r ([[prop:i-b-7-1]]), in place of [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z.
