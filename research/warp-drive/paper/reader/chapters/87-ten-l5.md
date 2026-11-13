@@ -3,18 +3,19 @@
 [[thm:main]] is a statement for small λ. This chapter treats the problem at the prescribed wavelength λ = 10 l5, at
 two seeds, with the envelope sin⁴(π(v − 1/2)/3) on [1/2, 7/2]. That envelope is C³ and not C⁴, so [[thm:main]] does
 not apply to it at any λ ([[rem:envelope-regularity]]); for the smooth envelope of [[def:lambda0-point]], whose
-parameters are those of the first seed below, the threshold of [[thm:main]] lies below 0.0024433 ([[prop:lambda0]]),
-and 10 l5 exceeds it by a factor above 409. At 10 l5 the wavelength is not small against the curvature length
-([[prop:tl5-scales]]), and the problem is posed as a characteristic initial value problem in double-null gauge: the
-seed on an ingoing cone, the incoming wave on an outgoing one.
+parameters are those of the first seed below, the threshold λ0 that the proof of [[thm:main]] delivers lies below
+0.0024433 in the operator norm ([[prop:lambda0]]), and 10 l5 exceeds it by a factor above 409. At 10 l5 the wavelength
+is not small against the curvature length ([[prop:tl5-scales]]), and the problem is posed as a characteristic initial
+value problem in double-null gauge: the seed on an ingoing cone, the incoming wave on an outgoing one.
 
 The chapter proves the following. The problem has a solution where the solution is the seed ([[thm:ten-l5]]). Wherever
-a vacuum solution exists in the gauge, its leaves inside the seed's horizon generator are outer trapped, and its
-T²-invariant marginally outer trapped sections are confined ([[prop:tl5-leaves]], [[cor:tl5-mots]]). On the data cone
-the outgoing constraint has exact solutions, and an explicit approximant satisfies it up to an explicit residual
-([[sec:cone-approximant]]). Two explicit approximants of the solution on a region beyond the seed have explicit
-residual bounds ([[sec:tl5-residuals]]). A continuation lemma states what existence beyond the seed would need
-([[lem:tl5-continuation]]). No existence is proved beyond the seed, and [[rem:tl5-beyond]] says why. Numerical
+a vacuum solution exists in the gauge with the seed's transverse derivative of R on the seed's cone, its leaves inside
+the seed's horizon generator are outer trapped, and its T²-invariant marginally outer trapped sections lie at or outside
+that generator and, under a condition on the generators through them, in an explicit band ([[prop:tl5-leaves]],
+[[cor:tl5-mots]]). On the data cone the outgoing constraint has exact solutions, and an explicit approximant satisfies
+it up to an explicit residual ([[sec:cone-approximant]]). Two explicit metrics of the class on a region beyond the seed
+have explicit residual bounds ([[sec:tl5-residuals]]). A continuation lemma states what existence beyond the seed would
+need ([[lem:tl5-continuation]]). No existence is proved beyond the seed, and [[rem:tl5-beyond]] says why. Numerical
 observations, which no proof uses, are kept as remarks.
 
 ### The seeds and the scales {#sec:tl5-scales}
@@ -499,9 +500,10 @@ expansion of S_(u,v) is θ_leaf := Σ_A g(∇_(e_A) ∂_v, e_A), the sum over a 
 θ_leaf = 3 ∂_vR/R.
 
 *Proof.* For vector fields X, Y tangent to the leaves that commute with ∂_v, such as ∂_x, ∂_φ1 and ∂_φ2,
-g(∇_X ∂_v, Y) = g(∇_(∂_v) X, Y), and since g(∂_v, X) = g(∂_v, Y) = 0 the Koszul formula gives
+g(∇_X ∂_v, Y) = g(∇_(∂_v) X, Y), and the compatibility of ∇ with g gives
 g(∇_(∂_v) X, Y) + g(∇_(∂_v) Y, X) = ∂_v g(X, Y). So θ_leaf = (1/2) γ^(AB) ∂_v γ_AB = ∂_v ln (det γ)^(1/2) in the
-coordinates (x, φ1, φ2), and det γ = R⁶/16 in the gauge, as in the proof of [[lem:cone-raychaudhuri]]. ∎
+coordinates (x, φ1, φ2), and det γ = R⁶/16 in the gauge, as in the proof of [[lem:cone-raychaudhuri]]; at x = ±1 the
+identity follows by continuity. ∎
 
 **Lemma {#lem:tl5-seed}** (The seed in the gauge.) Let F(R) := e^(2R) (R − 1)/(R + 1) for R > 0. For −10 ≤ u < 0 and
 v ≥ 0 let R(u, v) > 0 solve
@@ -573,20 +575,23 @@ On N ∩ {v ≤ 1/2}, r ≤ r_s, so the R of [[prop:cone-exact]] is r and the da
 horizon it is more than 2.91 times it at the first seed and more than 0.92 times it at the second;
 
 (b) the characteristic problem of [[def:tl5-problem]] has a solution where the solution is the seed: on
-D⁰ := ({−10 ≤ u ≤ u*, 0 ≤ v ≤ 1/2} ∩ D_seed) × S³, that is for v ≤ r_h/2, the seed of [[lem:tl5-seed]] is a smooth
-vacuum metric of the class in the gauge that induces the data on D⁰ ∩ C₀ and on D⁰ ∩ N;
+D⁰ := ({−10 ≤ u ≤ u*, 0 ≤ v ≤ 1/2} ∩ D_seed) × S³, which is all of {−10 ≤ u ≤ u*, 0 ≤ v ≤ r_h/2} × S³ when u* < u₀
+([[lem:tl5-seed]] (a)), the seed of [[lem:tl5-seed]] is a smooth vacuum metric of the class in the gauge that induces
+the data on D⁰ ∩ C₀ and on D⁰ ∩ N;
 
 (c) for every solution on a set D as in [[prop:tl5-leaves]] whose transverse derivative ∂_vR on C₀ is the seed's,
-every leaf with −1 < u < 0 is outer trapped where it meets D, and the T²-invariant marginally outer trapped sections of
-an ingoing cone are confined to the band of [[cor:tl5-mots]] (c), between the least and the greatest u of the zeros of
-the leaves' expansion on that cone.
+every leaf with −1 < u < 0 is outer trapped where it meets D; every T²-invariant marginally outer trapped section of an
+ingoing cone contained in D has its innermost point at u ≤ −1; and every such section for which D contains the two
+generator segments named in [[cor:tl5-mots]] (c) lies in the band of [[cor:tl5-mots]] (c), between the infimum and the
+supremum of u over the zeros of the leaves' expansion on that cone in D.
 
 No existence is asserted for v > 1/2: [[lem:tl5-continuation]] states what a continuation would need, and
 [[rem:tl5-beyond]] why the bounds proved in this chapter do not provide it.
 
 *Proof.* (a) is [[prop:tl5-scales]]. (b) D⁰ ⊂ D_seed × S³, so by [[lem:tl5-seed]] (b) and (c) the seed is a smooth
 vacuum metric of the class in the gauge on D⁰, and by [[lem:tl5-seed]] (d) and the sentence after
-[[def:tl5-problem]] it induces the data on D⁰ ∩ C₀ and D⁰ ∩ N. (c) is [[prop:tl5-leaves]] and [[cor:tl5-mots]] (c). ∎
+[[def:tl5-problem]] it induces the data on D⁰ ∩ C₀ and D⁰ ∩ N. (c) is [[prop:tl5-leaves]] and [[cor:tl5-mots]] (b)
+and (c), since θ_S = 0 on a marginally outer trapped section. ∎
 
 **Remark {#rem:tl5-runs}** (Numerical observation.) The characteristic problem was solved numerically in the gauge,
 with an expansion in the polar angle, at both seeds. At the second seed, with the angular and null grids refined
@@ -600,7 +605,7 @@ areal radius at least 1.2 (observed orders 2.00–2.03), and is resolved in angl
 change the metric by at most 3.0 × 10⁻⁹ and 3.3 × 10⁻⁹); the scheme that does not impose it is consistent with
 second-order convergence to v ≈ 1.8 at areal radius at least 1. Beyond, with 32 modes the metric still converges in
 the null step while the unimposed constraint does not fall, so that limit is not vacuum; from v ≈ 1.9 at areal radius
-0.9–1.0 and from v ≈ 2.0 at 1.0–1.2 the violation grows with the angular resolution, and at 1.0–1.2 on [1.8, 1.9) the
+0.9–1.0 and from v ≈ 2.0 at 1.0–1.2 the violation grows with the angular resolution, and at 1.0–1.2 on [1.8, 2.0) the
 comparison in angular resolution does not decide. The linear scattering of the shell off the seed at 10 l5 was also
 solved numerically; no conclusion is drawn from it. No proof uses these observations.
 
