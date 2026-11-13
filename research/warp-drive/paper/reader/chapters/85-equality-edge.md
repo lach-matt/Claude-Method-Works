@@ -602,19 +602,18 @@ f)(v, r′) dr′.
 leading two-sided parametrix: h_in := e^(iv/λ) G(r ← r0(v)) X_in(v), and h_out := e^(iψ(u)/λ) H(r ← r_Σ(u))
 X_out(r_Σ(u)), where ψ(u(τ0, r)) = τ0 + r, H is the propagator of the outgoing transport 𝒫′ of
 [[lem:edge-characteristic]] (b), r_Σ(u) is where the outgoing ray meets Σ_τ0, and (X_in, X_out) is the solution, from
-zero at r_b := v_s − τ0, of the matching system on Σ_τ0 (equal values and τ-derivatives). By
-[[lem:edge-characteristic]] (d) the τ-components of the two phases' differentials on Σ_τ0 are 1 and −F°/(2 − F°), so
-the system reads s X_in + ((2 − F°)/2) Ã X_in = ((2 − F°)/2) Â_∂Ψ + (F°/2)(s + A_out) Â_Ψ, X_in + X_out = Â_Ψ, with
-bounded Ã and A_out; and |X_in| + |X_out| ≤ C 𝒟 by [[lem:edge-kernel]] applied to 𝒟. 𝒫 annihilates G(r ← r0(v))
-X_in(v), so the residual of h_in is e^(iv/λ) Q G X_in, free of 1/λ; that of h_out is e^(iψ/λ) Q′(H X_out), by
-[[lem:edge-characteristic]] (b). The source is taken up by the ingoing particular solution h_f := e^(iv/λ) Z_f with zero
-data: Y_f := −∫_(r0(v))^r G(r ← r′) Â_f(v, r′) dr′ along ℓ and Z_f(v, r) := ∫_(τ0+r)^v e^(−i(v−v′)/λ) Y_f(v′, r) dv′,
-so that s Z_f = Y_f, 𝒫(s Z_f) = −Â_f, Z_f = s Z_f = 0 on Σ_τ0 and |Z_f| ≤ C 𝒟; its residual is e^(iv/λ) Q Z_f. The
-difference e := Ψ − h_in − h_out − h_f has zero data and the source minus the three residuals, at most C 𝒟 in the strip
-of v-width x that carries the amplitudes; so [[lem:layer-energy-null]] and [[lem:layer-null-pointwise]] give |Ω^β e| ≤
-C x^(1/2) 𝒟. h_out vanishes for u > u(r_b), a neighbourhood of the horizon's part of the strip. The same holds for (∂_v
-− i/λ)Ψ, the solution with data and source (∂_v − i/λ) of those of Ψ (∂_v is Killing for g0° and commutes with dRic^H),
-whose amplitudes are ∂_v Â.
+zero at r_b := v_s − τ0, of the matching system on Σ_τ0 (equal values and τ-derivatives). By [[lem:edge-characteristic]]
+(d) the τ-components of the two phases' differentials on Σ_τ0 are 1 and −F°/(2 − F°), so the system reads s X_in + ((2 −
+F°)/2) Ã X_in = ((2 − F°)/2) Â_∂Ψ + (F°/2)(s + A_out) Â_Ψ, X_in + X_out = Â_Ψ, with bounded Ã and A_out;
+and |X_in| + |X_out| ≤ C 𝒟 by [[lem:edge-kernel]] applied to 𝒟. 𝒫 annihilates G(r ← r0(v)) X_in(v), so the residual of
+h_in is e^(iv/λ) Q G X_in, free of 1/λ; that of h_out is e^(iψ/λ) Q′(H X_out), by [[lem:edge-characteristic]] (b). The
+forcing term is taken up by the ingoing particular solution h_f := e^(iv/λ) Z_f with zero data: Y_f := −∫_(r0(v))^r G(r ←
+r′) Â_f(v, r′) dr′ along ℓ and Z_f(v, r) := ∫_(τ0+r)^v e^(−i(v−v′)/λ) Y_f(v′, r) dv′, so that s Z_f = Y_f, 𝒫(s Z_f) =
+−Â_f, Z_f = s Z_f = 0 on Σ_τ0 and |Z_f| ≤ C 𝒟; its residual is e^(iv/λ) Q Z_f. The difference e := Ψ − h_in − h_out − h_f
+has zero data and the forcing term minus the three residuals, at most C 𝒟 in the strip of v-width x that carries the
+amplitudes; so [[lem:layer-energy-null]] and [[lem:layer-null-pointwise]] give |Ω^β e| ≤ C x^(1/2) 𝒟. h_out vanishes for
+u > u(r_b), a neighbourhood of the horizon's part of the strip. The same holds for (∂_v − i/λ)Ψ, the solution with data
+and forcing term (∂_v − i/λ) of those of Ψ (∂_v is Killing for g0° and commutes with dRic^H), whose amplitudes are ∂_v Â.
 
 (5) *The error terms of (2)–(3).* The ∂_rΨ terms of Q̃Ψ are integrated by parts along the ray, leaving boundary terms
 and integrals of Ψ, so |∫ G Q̃Ψ dr′| ≤ C 𝒟(v′) by (4), with angular derivatives up to two. For their integral in v′:
@@ -742,7 +741,7 @@ are x0′ ∈ (0, x0] and C such that for v_s < v ≤ v_s + x0′, with r0 = v �
     h^(1)_vv(v, √μ0, ϑ) = Re[S(v, ϑ) e^(iv/λ)],      S = S_st + S_U + E_S,
     S_st := λ³ A ν(r0) d(ϑ) env (1 + 2iλκ) 𝟙_(λκ≤1),      S_U := −λ^(N+1) A Γ_R(r0) i^N d(ϑ) Ξ env^(N−1),
     Γ_R(r0) := K_R r0^(−7/2)/α(r0) = (r0² + μ0)²/(12 μ0^(3/4) r0⁵) > 0,
-    |E_S| ≤ C [λ³ env (|ν(r0)| (λκ)² + λ) 𝟙_(λκ≤1) + λ^(N+1) κ^(N−2) env 𝟙_(λκ>1) + (ϵ′ + 1/κ + λ) |S_U|],     {#eq:edge-s}
+    |E_S| ≤ C [λ³ env (|ν(r0)| (λκ)² + λ) 𝟙_(λκ≤1) + λ^(N+1) κ^(N−2) env 𝟙_(λκ>1) + (ϵ′ + 1/κ + λ) |S_U|].  {#eq:edge-s}
 
 and |∂_v^k E_S| ≤ C κ^k times the same bound, k ≤ 2.
 
@@ -753,12 +752,12 @@ and the second is O(λ⁴ env); for λκ > 1 every term λ^j κ^k env with k ≤
 env, the vv components having no family above j − 3 (c_(j,j−2) = i^(j−2) c_(2,0) is in 𝔖). *The part e.* By
 [[eq:edge-e-equation]], e solves dRic^H(e) = −λ^(N+1) Re[R_X(H_(N+1)) e^(iv/λ)] with the data induced by U^(1). Apply
 [[lem:edge-ingoing]] to the complex form, with 𝒟 := C λ^(N+1) env^(N−1), which is of the size of the amplitudes of the
-data and of the source divided by |s̃| (the source's top family is env^(N) times a profile, and env^(N) = κ_(N−1)
-env^(N−1)), and whose hypotheses hold near v_s by (H_N), as for g = env^(N−1) in the proof of [[lem:edge-constraint]]
-(iv): by [[lem:edge-constraint]] (iv) and (v) the data of a^(1) give K_R a^(1)(1 + O(λ)) = Re[S_U e^(iv/λ)](1 + O(ϵ′ +
-1/κ + λ)), the rest of the data at relative order O(1/κ + 1/|s̃|); the source's top family lies in 𝔖, so its scalar
-sector is a family below, and its term in [[eq:edge-ingoing]] is at most C λ^(N+1) κ^(N−1) env/|s̃| in the vv component;
-and the remainder O(𝒟/|s̃|) is of the same order, at most C(1/κ + λ)|S_U| (|s̃| ≥ κ, and where |Ξ| is small, T/|s̃| ≤ λ).
-*The derivatives.* ∂_v commutes with dRic^H, and by (H_N) every amplitude's derivative is at most C κ times the
-amplitude; so the derivatives of E_S obey the same bounds with the factor κ^k. ∎
+data and of the forcing term divided by |s̃| (the forcing term's top family is env^(N) times a profile, and env^(N) =
+κ_(N−1) env^(N−1)), and whose hypotheses hold near v_s by (H_N), as for g = env^(N−1) in the proof of
+[[lem:edge-constraint]] (iv): by [[lem:edge-constraint]] (iv) and (v) the data of a^(1) give K_R a^(1)(1 + O(λ)) = Re[S_U
+e^(iv/λ)](1 + O(ϵ′ + 1/κ + λ)), the rest of the data at relative order O(1/κ + 1/|s̃|); the forcing term's top family
+lies in 𝔖, so its scalar sector is a family below, and its term in [[eq:edge-ingoing]] is at most C λ^(N+1) κ^(N−1)
+env/|s̃| in the vv component; and the remainder O(𝒟/|s̃|) is of the same order, at most C(1/κ + λ)|S_U| (|s̃| ≥ κ, and
+where |Ξ| is small, T/|s̃| ≤ λ). *The derivatives.* ∂_v commutes with dRic^H, and by (H_N) every amplitude's derivative
+is at most C κ times the amplitude; so the derivatives of E_S obey the same bounds with the factor κ^k. ∎
 

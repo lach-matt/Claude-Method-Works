@@ -71,7 +71,7 @@ the constant c ≤ 1/(8√5) are those of [[sec:iii-i3-1]], c being also so smal
 
 (a) (P̂(σ) − P̂(0))(χ_zf u_0) ∈ H^(∞,(∞,a+2,γ_zf))_b for every γ_zf < 1;
 
-(b) f̂_*(σ) − χ_zf f̂_*(0) ∈ H^(∞,(N,3−ε,1−ε))_b(X^±_(sc-b)) for every N and ε > 0, and f̂_*(0) ∈ 𝒜³.
+(b) f̂_*(σ) − χ_zf f̂_*(0) ∈ H^(∞,(𝔪,3−ε,1−ε))_b(X^±_(sc-b)) for every 𝔪 and ε > 0, and f̂_*(0) ∈ 𝒜³.
 
 *Proof.* (a) P̂(σ) − P̂(0) = −iσL_1 − σ²L_2, with L_1 ∈ ρDiff¹_b and L_2 ∈ ρ²C^∞ near ∂X and with coefficients smooth
 on compact sets ([[sec:hg-augmented]]); the proof of [[lem:iii-i3-1-2]] (a) uses of the operator only this. (b) By
@@ -81,28 +81,28 @@ on compact sets ([[sec:hg-augmented]]); the proof of [[lem:iii-i3-1-2]] (a) uses
 
 **Lemma {#lem:gd-r6-3}** ([[lem:iii-i3-1-3]] at □.) Put G_1(σ)b := Ψ(σ, ·)bW* for b ∈ ℂ, with Ψ of
 [[lem:iii-h-2-5]], and let χ be the cut-off of [[sec:iii-i2-4]]. For b_0 ∈ ℂ,
-χ(|σ|)G_1(σ)(b_0) − χ_zf b_0W* ∈ H^(∞,(N,2−ε,1−ε))_b for every N and ε > 0, and W* ∈ H^(∞,2−ε)_b(X).
+χ(|σ|)G_1(σ)(b_0) − χ_zf b_0W* ∈ H^(∞,(𝔪,2−ε,1−ε))_b for every 𝔪 and ε > 0, and W* ∈ H^(∞,2−ε)_b(X).
 
 *Proof.* The proof of [[lem:iii-i3-1-3]] for G_1 alone, with the state W* ∈ 𝒜² ([[sec:hg-setting]]) in place of
 ġ_b(ḃ_0): for r ≥ 1, Ψ = Φ(σr) with Φ(0) = 1 ([[lem:iii-h-2-5]] (b)), so G_1(b_0) − χ_zf b_0W* =
-(Φ(ζ) − χ_1(|σ|⟨x⟩))b_0W*, ζ = σr, is O(min(|ζ|, 1)⟨ζ⟩^(−N)) times a state in 𝒜²; and the Fubini count of the proof of
+(Φ(ζ) − χ_1(|σ|⟨x⟩))b_0W*, ζ = σr, is O(min(|ζ|, 1)⟨ζ⟩^(−𝔪)) times a state in 𝒜²; and the Fubini count of the proof of
 [[lem:iii-i3-1-2]] (b), with ⟨x⟩⁻² in place of ⟨x⟩⁻³, gives the tf-weight 2 − ε. There is no generalised state. ∎
 
 **Theorem {#thm:gd-r6-4}** (The forward solution at K⁺-weights in (1, 2).) Let α_K ∈ (1, 2), γ_+ ∈ (α_K, 2),
-ε_1 ∈ (0, ½), w_I ≥ max(5/2, γ_+ + 1 + ε_1) and
+ϵ_1 ∈ (0, ½), w_I ≥ max(5/2, γ_+ + 1 + ϵ_1) and
 
     f ∈ H^(∞,(w_I,γ_++2,α_K))_b(Ω_*; T*)^(•,−),                                                            {#eq:gd-r6-1}
 
 with plain weights (no expansion at ℐ⁺), and let u be the forward solution of □u = f ([[thm:ii-f1-1-1]] at
-P = P_0 = □). Then for every ε ∈ (0, (2 − γ_+)/5]:
+P = P_0 = □). Then for every ϵ ∈ (0, (2 − γ_+)/5]:
 
-(i) u = u′ + u_sing with u′ ∈ H^(∞,(min(3/2,γ_+)−3ε,γ_+,α_K))_b(M′);
+(i) u = u′ + u_sing with u′ ∈ H^(∞,(min(3/2,γ_+)−3ϵ,γ_+,α_K))_b(M′);
 
 (ii) u_sing = β(t_*, r)W*, where ∂_(t_*)β(·, r) = (∂_tχ^H_K)(·, r) ∗ B and
 β(·, r) − β(·, r′) = (χ^H_K(·, r) − χ^H_K(·, r′)) ∗ B for one B ∈ H^(k,α_K)_b(ℝ) ([[def:ii-g1-2-1]]), ∗ the
 convolution in t_*, and ∫B = c_0 := (4π²)⁻¹∫ℓ(f) dv;
 
-(iii) u − c_0χ^H_KW* ∈ H^(∞,(min(3/2,1+γ_+−α_K)−3ε,γ_+−2ε,α_K−1))_b(M′): at K⁺, u is c_0W* plus a term of weight
+(iii) u − c_0χ^H_KW* ∈ H^(∞,(min(3/2,1+γ_+−α_K)−3ϵ,γ_+−2ϵ,α_K−1))_b(M′): at K⁺, u is c_0W* plus a term of weight
 α_K − 1 > 0.
 
 At each order k the norms are bounded by C_k times the norm of f in [[eq:gd-r6-1]] at an order k + ℓ, with ℓ
@@ -116,13 +116,13 @@ u^♭ = u and f^♭ = f.
 ℱu_hi = (1 − χ(|σ|))P̂(σ)⁻¹f̂, ℱu_reg = χ(|σ|)û_(reg,1), (û_(reg,1), b̂_1) := P̃(σ)⁻¹(f̂, 0) and
 ℱ(∂_(t_*)u_sing) = χ(|σ|)G_1(σ)(b̂_1). [[lem:iii-i2-4-1]] applies with (β^f_I + 1, β_ι + 2, β_K) =
 (w_I, γ_+ + 2, α_K): β_K ∈ (1, 2) is not an integer, β^f_I = w_I − 1 ≥ 3/2, and β^f_I + 1 ≥ β_ι + 2 −
-min(β_K, 1 − ε_1) reads w_I ≥ γ_+ + 1 + ε_1, as α_K > 1 − ε_1; its inputs at □ are those of step 4 of the proof of
-[[thm:gd-r5-1]]. So u_hi ∈ H^(∞,(3/2−ε,N,N))_b(M′) for every N. Put ε_PP := min(ε, ε_1). [[prop:ii-g1-3-3]] (1) with
-β_K = α_K and with ε_PP for its ε, whose condition w_I ≥ γ_+ + 2 − min(α_K, 1 − ε_PP) = γ_+ + 1 + ε_PP holds, gives
+min(β_K, 1 − ϵ_1) reads w_I ≥ γ_+ + 1 + ϵ_1, as α_K > 1 − ϵ_1; its inputs at □ are those of step 4 of the proof of
+[[thm:gd-r5-1]]. So u_hi ∈ H^(∞,(3/2−ϵ,𝔪,𝔪))_b(M′) for every 𝔪. Put ϵ_PP := min(ϵ, ϵ_1). [[prop:ii-g1-3-3]] (1) with
+β_K = α_K and with ϵ_PP for its ε, whose condition w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ_PP) = γ_+ + 1 + ϵ_PP holds, gives
 
-    f̂|_(±(0,c]) ∈ H^(∞,(5/2−ε,γ_++1,((0,0),α_K−1)))_b(X^±_(sc-b)),                                       {#eq:hr-fhat}
+    f̂|_(±(0,c]) ∈ H^(∞,(5/2−ϵ,γ_++1,((0,0),α_K−1)))_b(X^±_(sc-b)),                                       {#eq:hr-fhat}
 
-as min(w_I, γ_+ + 2) − ε_PP ≥ 5/2 − ε, with the zf-coefficient f̂(0) = ∫f dt_* ∈ H^(∞,γ_++1)_b(X), the same for both
+as min(w_I, γ_+ + 2) − ϵ_PP ≥ 5/2 − ϵ, with the zf-coefficient f̂(0) = ∫f dt_* ∈ H^(∞,γ_++1)_b(X), the same for both
 signs (f(·, x) is integrable, its K⁺-weight being α_K > 1). For the density argument of step 3 of the proof of
 [[thm:gd-r5-1]], the forward solution map is continuous from the space of [[cor:ii-f1-1-2]] with b_+ := 1 and
 b_I := 5/4, which contains [[eq:gd-r6-1]]: ½ < b_+ < b_I < 3/2, b_+ ≤ γ_+, b_I + 1 ≤ w_I and α_K ≥ ½; and □ is
@@ -141,43 +141,43 @@ Apply ℓ to P̂(0)û_0 + c_0f̂_*(0) = f̂(0): ℓ ∘ P̂(0) = 0 on 𝒳_0, an
     f̂_2 := (f̂ − χ_zf f̂(0)) − [P̂(0), χ_zf]û_0 − (P̂(σ) − P̂(0))(χ_zfû_0) − c_0(f̂_*(σ) − χ_zf f̂_*(0)):
 
 the row ⟨·, φ_*⟩_h does not depend on σ, ⟨χ_zfû_0, φ_*⟩_h = ⟨û_0, φ_*⟩_h = 0, and χ_zfû_0 ∈ 𝒳_σ for σ ≠ 0, having
-compact support in x. The four terms lie in H^(∞,(5/2−ε,γ_++1,α_K−1))_b ([[eq:hr-fhat]] and the definition of the
+compact support in x. The four terms lie in H^(∞,(5/2−ϵ,γ_++1,α_K−1))_b ([[eq:hr-fhat]] and the definition of the
 space), H^(∞,(∞,γ_++1,∞))_b ([[lem:iii-i3-1-1]] (b) with p = 2, P̂(0) ∈ ρ²Diff²_b, a = γ_+ − 1),
-H^(∞,(∞,γ_++1,γ_zf))_b for every γ_zf < 1 ([[lem:gd-r6-2]] (a) at a = γ_+ − 1), and H^(∞,(N,3−ε,1−ε))_b
-([[lem:gd-r6-2]] (b)). As γ_+ + 1 ≤ 3 − ε and α_K − 1 < 1 − ε (both by ε ≤ (2 − γ_+)/5 and α_K < γ_+),
+H^(∞,(∞,γ_++1,γ_zf))_b for every γ_zf < 1 ([[lem:gd-r6-2]] (a) at a = γ_+ − 1), and H^(∞,(𝔪,3−ϵ,1−ϵ))_b
+([[lem:gd-r6-2]] (b)). As γ_+ + 1 ≤ 3 − ϵ and α_K − 1 < 1 − ϵ (both by ϵ ≤ (2 − γ_+)/5 and α_K < γ_+),
 
-    f̂_2|_(±(0,c]) ∈ H^(∞,(5/2−ε,γ_++1,α_K−1))_b(X^±_(sc-b)).
+    f̂_2|_(±(0,c]) ∈ H^(∞,(5/2−ϵ,γ_++1,α_K−1))_b(X^±_(sc-b)).
 
 *Step 3.2 (the regular part).* (û_(reg,1), b̂_1) = (χ_zfû_0, c_0) + P̃(σ)⁻¹(f̂_2, 0). [[lem:iii-i2-4-2]], with P̃ in
-place of L̃_b as in step 6 of the proof of [[thm:gd-r5-1]], applies with β_scf := 3/2 − ε, β_tf := γ_+ − 1,
+place of L̃_b as in step 6 of the proof of [[thm:gd-r5-1]], applies with β_scf := 3/2 − ϵ, β_tf := γ_+ − 1,
 β_zf := α_K − 1 and the window β_tf − β_zf = γ_+ − α_K ∈ (0, 1) ([[thm:gd-r2-4]] at that weight). It gives
 
-    û_(reg,1) ∈ H^(∞,(3/2−2ε,γ_+−1,((0,0),α_K−1)))_b,        b̂_1 ∈ H^(∞,((0,0),α_K−1))_b(±(0, c], |dσ/σ|),
+    û_(reg,1) ∈ H^(∞,(3/2−2ϵ,γ_+−1,((0,0),α_K−1)))_b,        b̂_1 ∈ H^(∞,((0,0),α_K−1))_b(±(0, c], |dσ/σ|),
 
 with the coefficients û_0 and c_0 at σ = 0, the same for both signs. [[prop:ii-g1-3-5]] (1) with β_K = α_K ∈ (1, 2),
 applied to χ(|σ|)û_(reg,1) (supported where the cut-off of that proposition is 1, as c ≤ ½), with its one Taylor
-coefficient û_0 ∈ H^(∞,γ_+−1)_b(X), of order 0 < α_K − 1, gives u_reg ∈ H^(∞,(min(3/2,γ_+)−3ε,γ_+,α_K))_b(M′). With
+coefficient û_0 ∈ H^(∞,γ_+−1)_b(X), of order 0 < α_K − 1, gives u_reg ∈ H^(∞,(min(3/2,γ_+)−3ϵ,γ_+,α_K))_b(M′). With
 Step 2 this is (i), with u′ := u_hi + u_reg.
 
 *Step 3.3 (the singular part: one integration).* By [[lem:gd-r6-3]] for c_0, and by [[lem:iii-i2-4-3]] with a = α_K − 1
-for b̂_1 − c_0 (with the one state W* ∈ 𝒜², as in step 8 of the proof of [[thm:gd-r5-1]]), whose tf-weight α_K + 1 − ε
-exceeds 2 − ε,
+for b̂_1 − c_0 (with the one state W* ∈ 𝒜², as in step 8 of the proof of [[thm:gd-r5-1]]), whose tf-weight α_K + 1 − ϵ
+exceeds 2 − ϵ,
 
-    ℱ(∂_(t_*)u_sing) = χ(|σ|)G_1(σ)(b̂_1) ∈ H^(∞,(N,2−ε,((0,0),α_K−1)))_b,
+    ℱ(∂_(t_*)u_sing) = χ(|σ|)G_1(σ)(b̂_1) ∈ H^(∞,(𝔪,2−ϵ,((0,0),α_K−1)))_b,
 
 with zf-coefficient c_0W*, the same for both signs. [[lem:iii-i2-3-1]] applies once, to u_sing, with
 β_I := 1 + γ_+ − α_K, β_ι := γ_+ and β_K := α_K − 1 ∈ (0, 1). Its hypotheses hold: β_ι > β_I, as α_K > 1;
-β_K = β_ι − β_I; β_K ∈ (−1, 1) ∖ {0}; the zf-restrictions of the two signs agree; the tf-weight 2 − ε is at least γ_+,
-as ε ≤ 2 − γ_+; on Ω_<, u_sing = −(u_hi + u_reg), since u = 0 for t_* < 1, with weights at least (∞, γ_+, α_K); and
+β_K = β_ι − β_I; β_K ∈ (−1, 1) ∖ {0}; the zf-restrictions of the two signs agree; the tf-weight 2 − ϵ is at least γ_+,
+as ϵ ≤ 2 − γ_+; on Ω_<, u_sing = −(u_hi + u_reg), since u = 0 for t_* < 1, with weights at least (∞, γ_+, α_K); and
 ℱu_sing is supported in supp χ(|·|) ∪ {0}, a compact subset of (−c, c) with c ≤ ½ (step 9 of the proof of
 [[thm:gd-r5-1]]). So
 
-    u_sing ∈ H^(∞,(1+γ_+−α_K,γ_+−ε,((0,0),α_K−1)))_b(M′).
+    u_sing ∈ H^(∞,(1+γ_+−α_K,γ_+−ϵ,((0,0),α_K−1)))_b(M′).
 
 Its (0, 0)-coefficient at K⁺ is lim_(t_*→∞) u_sing = ∫∂_(t_*)u_sing dt_* = ℱ(∂_(t_*)u_sing)(0) = c_0W*, as
 ∂_(t_*)u_sing(·, x) is integrable, its K⁺-weight being α_K > 1. Near K⁺, χ^H_K = 1; near ℐ⁺, χ^H_K = 0; and
-χ^H_KW* has the ι⁺-weight 2 − ε, W* ∈ 𝒜² being stationary. So u_sing − c_0χ^H_KW* has the weights
-(1 + γ_+ − α_K, γ_+ − ε, α_K − 1), as γ_+ < 2; with (i) this is (iii), as 1 + γ_+ − α_K < γ_+.
+χ^H_KW* has the ι⁺-weight 2 − ϵ, W* ∈ 𝒜² being stationary. So u_sing − c_0χ^H_KW* has the weights
+(1 + γ_+ − α_K, γ_+ − ϵ, α_K − 1), as γ_+ < 2; with (i) this is (iii), as 1 + γ_+ − α_K < γ_+.
 
 *Step 3.4 (the coefficient B).* B := ℱ⁻¹(χb̂_1). The pair (χb̂_1|_(σ<0), χb̂_1|_(σ>0)) lies in X^(k,α_K−1) of
 [[def:ii-g1-2-7]], with polynomial part the constant c_0, of degree 0 < α_K − 1, the same for both signs.
@@ -248,13 +248,13 @@ there, and the column enters only at order 1, at the weight γ_+ − 2; so the w
 An explicit solution of charge 4π² then gives the t_*^(−2) term of every forcing term with enough decay at ℐ⁺.
 
 **Theorem {#thm:gd-r7-1}** (Past the window, for forcing terms of zero total charge.) Let α_K ∈ (2, 3),
-γ_+ ∈ (α_K, 3), ε_1 ∈ (0, 3 − γ_+), w_I ≥ γ_+ + 1 + ε_1 and
+γ_+ ∈ (α_K, 3), ϵ_1 ∈ (0, 3 − γ_+), w_I ≥ γ_+ + 1 + ϵ_1 and
 
     f ∈ H^(∞,(w_I,γ_++2,α_K))_b(Ω_*; T*)^(•,−),        ∫ℓ(f) dv = 0,                                  {#eq:gd-r7-1}
 
-with plain weights, and let u be the forward solution of □u = f. Then for every ε ∈ (0, ε_1/3]:
+with plain weights, and let u be the forward solution of □u = f. Then for every ϵ ∈ (0, ϵ_1/3]:
 
-(i) u = u′ + u_sing with u′ ∈ H^(∞,(3/2−3ε,γ_+,α_K))_b(M′);
+(i) u = u′ + u_sing with u′ ∈ H^(∞,(3/2−3ϵ,γ_+,α_K))_b(M′);
 
 (ii) u_sing = β(t_*, r)W* with ∂_(t_*)β(·, r) = (∂_tχ^H_K)(·, r) ∗ B and
 β(·, r) − β(·, r′) = (χ^H_K(·, r) − χ^H_K(·, r′)) ∗ B, where B ∈ H^(k,α_K)_b(ℝ) and ∫B = 0;
@@ -266,11 +266,11 @@ The dependence on k is that of [[thm:gd-r6-4]].
 
 *Proof.* The proof of [[thm:gd-r6-4]], with the following changes.
 
-*Step 2.* [[lem:iii-i2-4-1]] at (w_I, γ_+ + 2, α_K), α_K ∈ (2, 3) not an integer, gives u_hi ∈ H^(∞,(3/2−ε,N,N))_b; its
-conditions are w_I − 1 ≥ 3/2 and w_I ≥ γ_+ + 1 + ε_1. [[prop:ii-g1-3-3]] (1) at β_K = α_K, with ε_PP := min(ε, ε_1)
+*Step 2.* [[lem:iii-i2-4-1]] at (w_I, γ_+ + 2, α_K), α_K ∈ (2, 3) not an integer, gives u_hi ∈ H^(∞,(3/2−ϵ,𝔪,𝔪))_b; its
+conditions are w_I − 1 ≥ 3/2 and w_I ≥ γ_+ + 1 + ϵ_1. [[prop:ii-g1-3-3]] (1) at β_K = α_K, with ϵ_PP := min(ϵ, ϵ_1)
 for its ε, gives
 
-    f̂|_(±(0,c]) ∈ H^(∞,(5/2−ε,γ_++1,((0,0),(1,0),α_K−1)))_b(X^±_(sc-b)),
+    f̂|_(±(0,c]) ∈ H^(∞,(5/2−ϵ,γ_++1,((0,0),(1,0),α_K−1)))_b(X^±_(sc-b)),
 
 with the Taylor terms of orders 0 and 1: their coefficients are f̂(0) = ∫f dt_* ∈ H^(∞,γ_++1)_b(X) and
 f̂_1 := i∫t_*f dt_* ∈ ⟨x⟩H^(∞,γ_++1)_b(X) ⊂ H^(∞,γ_+)_b(X), each the same for both signs. The density step is that of
@@ -293,23 +293,23 @@ for 0 < |σ| ≤ c, P̃(σ)(χ_zf(û_0 + σû_1), σb_1) = (f̂(σ) − f̂_2(σ
     f̂_2 := (f̂ − χ_zf(f̂(0) + σf̂_1)) − [P̂(0), χ_zf](û_0 + σû_1) + iσ[L_1, χ_zf]û_0 + σ²L_2χ_zfû_0
              + iσ²L_1χ_zfû_1 + σ³L_2χ_zfû_1 − σb_1(f̂_*(σ) − χ_zf f̂_*(0));
 
-the row vanishes, as ⟨û_0, φ_*⟩_h = ⟨û_1, φ_*⟩_h = 0. The terms lie, in order: in H^(∞,(5/2−ε,γ_++1,α_K−1))_b
+the row vanishes, as ⟨û_0, φ_*⟩_h = ⟨û_1, φ_*⟩_h = 0. The terms lie, in order: in H^(∞,(5/2−ϵ,γ_++1,α_K−1))_b
 (Step 2); in H^(∞,(∞,γ_++1,∞))_b ([[lem:iii-i3-1-1]] (b) with p = 2, at a = β_tf, and at a = β_tf − 1 with the factor
 σ, which has tf-order 1 on supp dχ_zf); in the same space ([[lem:iii-i3-1-1]] (b) with p = 1, and one factor σ); in
 H^(∞,(∞,β_tf+4,γ_zf))_b ([[lem:iii-i3-1-1]] (a) with p = j = 2); in H^(∞,(∞,β_tf+2,γ_zf))_b ([[lem:iii-i3-1-1]] (a)
 at a = β_tf − 1 with p = 1, j = 2, and (b) for the commutator [L_1, χ_zf]); in H^(∞,(∞,β_tf+4,γ_zf))_b
-([[lem:iii-i3-1-1]] (a) with p = 2, j = 3), for every γ_zf < 2; and in H^(∞,(N,4−ε,2−ε))_b ([[lem:gd-r6-2]] (b) and
-one factor σ, |σ| = ρ_tfρ_zf). As α_K − 1 < 2 − ε and β_tf + 2 = γ_+ + 1 ≤ 4 − ε (by ε ≤ ε_1/3 < 3 − γ_+),
+([[lem:iii-i3-1-1]] (a) with p = 2, j = 3), for every γ_zf < 2; and in H^(∞,(𝔪,4−ϵ,2−ϵ))_b ([[lem:gd-r6-2]] (b) and
+one factor σ, |σ| = ρ_tfρ_zf). As α_K − 1 < 2 − ϵ and β_tf + 2 = γ_+ + 1 ≤ 4 − ϵ (by ϵ ≤ ϵ_1/3 < 3 − γ_+),
 
-    f̂_2|_(±(0,c]) ∈ H^(∞,(5/2−ε,γ_++1,α_K−1))_b(X^±_(sc-b)).
+    f̂_2|_(±(0,c]) ∈ H^(∞,(5/2−ϵ,γ_++1,α_K−1))_b(X^±_(sc-b)).
 
 *Step 3.2.* [[lem:iii-i2-4-2]] with P̃, whose β_zf is free and enters by division by |σ|^(β_zf), at
-β_scf := 3/2 − ε, β_tf and β_zf := α_K − 1, with the window β_tf − β_zf = γ_+ − α_K ∈ (0, 1) ([[thm:gd-r2-4]] there),
-gives (û′, b̂′) := P̃(σ)⁻¹(f̂_2, 0) with û′ ∈ H^(∞,(3/2−2ε,β_tf,α_K−1))_b and
+β_scf := 3/2 − ϵ, β_tf and β_zf := α_K − 1, with the window β_tf − β_zf = γ_+ − α_K ∈ (0, 1) ([[thm:gd-r2-4]] there),
+gives (û′, b̂′) := P̃(σ)⁻¹(f̂_2, 0) with û′ ∈ H^(∞,(3/2−2ϵ,β_tf,α_K−1))_b and
 b̂′ ∈ H^(∞,α_K−1)_b(±(0, c], |dσ/σ|). So û_(reg,1) = χ_zf(û_0 + σû_1) + û′ and b̂_1 = σb_1 + b̂′.
 [[prop:ii-g1-3-5]] (1) at β_K = α_K applies with the two Taylor terms: their coefficients û_0 and û_1 are the same for
 both signs, and v_0 = û_0 and v_1 = ⟨x⟩⁻¹û_1 lie in H^(∞,γ_+−1)_b(X), the tf-weight β_ι − 1 that it asks
-(β_ι = γ_+). It gives u_reg ∈ H^(∞,(3/2−3ε,γ_+,α_K))_b(M′), as γ_+ > 3/2. With Step 2 this is (i).
+(β_ι = γ_+). It gives u_reg ∈ H^(∞,(3/2−3ϵ,γ_+,α_K))_b(M′), as γ_+ > 3/2. With Step 2 this is (i).
 
 *Step 3.4.* B := ℱ⁻¹(χb̂_1). The pair (χb̂_1|_(σ<0), χb̂_1|_(σ>0)) lies in X^(k,α_K−1) of [[def:ii-g1-2-7]], with the
 polynomial part b_1σ, of degree 1 < α_K − 1, the same for both signs. [[prop:ii-g1-2-8]] (2) at β = α_K ∈ (2, 3)
@@ -580,9 +580,9 @@ for □, which is 1-admissible with sf-weight b_+ − 5/2 ([[thm:gd-r2-5]] (iii)
 
 (3) *The cone.* χ′Y is the forward solution of [□, χ′]Y. On the cone part {t_*/40 ≤ r ≤ t_*/20} of supp dχ′,
 [□, χ′] ∈ ρ_+²Diff¹_b (the proof of [[thm:gd-r3-4]] (iii)), and that cone stays away from K⁺ and ℐ⁺; the rest of
-supp dχ′ is compact. So [□, χ′]Y ∈ H^(∞,(N,b_++2,N))_b for every N. If α_K < 1, it lies in [[eq:gd-r5-1]] with
+supp dχ′ is compact. So [□, χ′]Y ∈ H^(∞,(𝔪,b_++2,𝔪))_b for every 𝔪. If α_K < 1, it lies in [[eq:gd-r5-1]] with
 γ_+ ∈ (α_K, 3/2) and α_K ∈ [½, 1), as γ_+ < b_+; if α_K ∈ (1, 2), it lies in [[eq:gd-r6-1]] with γ_+ ∈ (α_K, 2),
-for any ε_1, the forcing term vanishing near ℐ⁺. [[thm:gd-r5-2]], resp. [[thm:gd-r6-5]], gives
+for any ϵ_1, the forcing term vanishing near ℐ⁺. [[thm:gd-r5-2]], resp. [[thm:gd-r6-5]], gives
 |χ′Y − c_f(t_*)W*| ≤ Ct_*^(−α_K). At late times dχ′ = 0 near the horizon, so ℓ of the forcing term vanishes for large v
 and c_f = Q[χ′Y]/4π² = Q[Y]/4π², constant. On compact r-sets at late times χ′Y = Y. The metric part:
 ℒ_Yg − cℒ_(W*)g = ℒ_(Y−cW*)g, bounded by the derivatives of Y − cW*. ∎
@@ -709,7 +709,7 @@ invariant under it, and τ_+, τ_− are exchanged when det g = −1; so every T
 are inversion-invariant, so P_τ^(*h) = P_τ, Π_G^(*h) = Π_G, and Π^(*h) = Π.
 
 (b) Let E be one of the spaces listed. On the b-Sobolev spaces the weights are functions of |x|, or of (t_*, r) on M′,
-and T_g is an isometry. On the scattering spaces with variable decay order the norm is ‖Au‖ + ‖u‖_(−N) for an elliptic
+and T_g is an isometry. On the scattering spaces with variable decay order the norm is ‖Au‖ + ‖u‖_(−𝔪) for an elliptic
 A of that order; T_g⁻¹AT_g is elliptic of the same order, which is a function of ξ and |η|², hence rotation- and
 reflection-invariant ([[sec:i-c-4-3]]), and it depends continuously on g in the calculus; as O(4) is compact,
 C_E := sup_g‖T_g‖_(E→E) < ∞. With this uniform bound, the density of C_c^∞ (or of Schwartz sections) gives the strong
@@ -939,7 +939,7 @@ of kernels ([[thm:i-c-3-1]] (2), [[thm:i-c-4-3]] (5)) restrict. [[thm:i-c-3-1]] 
 0, the index is constant in θ (the local constancy argument of [[thm:i-c-4-3]] (3) runs with its finite-rank
 augmentations chosen in ran Π, which is possible as ΠC_c^∞(tf°) ⊂ C_c^∞(tf°) is dense in each restricted space), and
 (ii) gives invertibility. [[cor:i-c-5-2]] (b): the contradiction argument stays in ran Π, which is closed in
-H^(−N,(−N,−N))_(sc,b). [[thm:i-c-6-4]] (1): Step 1 inverts P_Π(0) at the regularity s + k ([[prop:gd-r8-5]] at that
+H^(−𝔪,(−𝔪,−𝔪))_(sc,b). [[thm:i-c-6-4]] (1): Step 1 inverts P_Π(0) at the regularity s + k ([[prop:gd-r8-5]] at that
 regularity) on χ_zf u ∈ ran Π (χ_zf is a function of ρ); Step 2 applies [[eq:i-c-5-1]] to S_ς(χ_tf u) ∈ ran Π at the
 weight shifted by η ∈ (0, 1], η so small that α + 2 + η lies in the same gap of the full bundle ([[cor:i-c-5-2]] (b)
 restricted); [[lem:i-c-6-2]], [[lem:i-c-6-3]] and [[thm:i-a-7-2]] (4) are estimates for all u. [[thm:i-c-6-4]] (3):
@@ -1002,7 +1002,7 @@ vanishes near ℐ⁺, as supp χ′ ⊂ {r ≤ t_*/20}, so [[eq:gd-r5-1]] holds 
 conormal of ι⁺-order ϰ_♯ + 1 − η = 5/2 + δ_♯ − η and of K⁺-order α − 2 − η = w − η > 2 + ε_t − η > 1
 ([[prop:gd-r3-2]] and its proof, [[sec:hg-setting]]); so it lies in [[eq:gd-r5-1]], as γ_+ + 2 < 5/2 + δ_♯ − η and
 α_K < 1. On the cone part {1/40 ≤ r/t_* ≤ 1/20} of supp dχ′, [□, χ′] ∈ ρ_+²Diff¹_b, and that cone stays away from K⁺
-and ℐ⁺; the rest of supp dχ′ is compact. So [□, χ′]Y ∈ H^(∞,(N,b_++2,N))_b for every N, in [[eq:gd-r5-1]] as
+and ℐ⁺; the rest of supp dχ′ is compact. So [□, χ′]Y ∈ H^(∞,(𝔪,b_++2,𝔪))_b for every 𝔪, in [[eq:gd-r5-1]] as
 γ_+ < b_+.
 
 *The rate.* [[thm:gd-r5-2]] gives |χ′Y − c_f(t_*)W*| ≤ Ct_*^(−1/2−κ), with every derivative. For large t_*, χ′ = 1 near
@@ -1014,11 +1014,11 @@ For the representative of [[cor:gd-r4-4]] this is improved below: its sphericall
 homogeneous solution ([[cor:gd-r7-7]]), and its part with l ≥ 2 sees no zero-energy state.
 
 **Theorem {#thm:gd-r8-10}** ([[thm:gd-r6-4]] on the subspace, with the window in (−1, 0).) Let Π ∈ {Π_(≥2), Π_cl},
-α_K ∈ (1, 2), γ_+ ∈ (max(½, α_K − 1), 1), ε_1 ∈ (0, ½), w_I ≥ max(5/2, γ_+ + 1 + ε_1), let
+α_K ∈ (1, 2), γ_+ ∈ (max(½, α_K − 1), 1), ϵ_1 ∈ (0, ½), w_I ≥ max(5/2, γ_+ + 1 + ϵ_1), let
 f ∈ H^(∞,(w_I,γ_++2,α_K))_b(Ω_*; T*)^(•,−) with plain weights and Πf = f, and let u be the forward solution of □u = f.
-Then Πu = u, and for every small ε > 0
+Then Πu = u, and for every small ϵ > 0
 
-    u ∈ H^(∞,(γ_+−3ε,γ_+,α_K))_b(M′),     |u| ≤ C t_*^(−α_K)‖f‖  on {r_♭ < r ≤ R′, t_* ≥ 8 max(R′, 1)},  {#eq:gd-r8-2}
+    u ∈ H^(∞,(γ_+−3ϵ,γ_+,α_K))_b(M′),     |u| ≤ C t_*^(−α_K)‖f‖  on {r_♭ < r ≤ R′, t_* ≥ 8 max(R′, 1)},  {#eq:gd-r8-2}
 
 with every number of derivatives in x and t_*, ‖f‖ a norm of f in that space at an order k + ℓ. There is no singular
 part and no W*.
@@ -1033,8 +1033,8 @@ P̂(σ)û_(reg,1) = f̂. So u_sing = 0 and u = u_hi + u_reg, with c at most the 
 weight below.
 
 *Step 2* is that of [[thm:gd-r6-4]]: [[lem:iii-i2-4-1]] at (w_I, γ_+ + 2, α_K), whose conditions are w_I − 1 ≥ 3/2 and
-w_I ≥ γ_+ + 1 + ε_1 (as α_K > 1 − ε_1), gives u_hi ∈ H^(∞,(3/2−ε,N,N))_b; and [[prop:ii-g1-3-3]] (1) with ε_PP gives
-f̂|_(±(0,c]) ∈ H^(∞,(min(w_I,γ_++2)−ε,γ_++1,((0,0),α_K−1)))_b, with f̂(0) = ∫f dt_* ∈ H^(∞,γ_++1)_b(X) ∩ ran Π. The
+w_I ≥ γ_+ + 1 + ϵ_1 (as α_K > 1 − ϵ_1), gives u_hi ∈ H^(∞,(3/2−ϵ,𝔪,𝔪))_b; and [[prop:ii-g1-3-3]] (1) with ϵ_PP gives
+f̂|_(±(0,c]) ∈ H^(∞,(min(w_I,γ_++2)−ϵ,γ_++1,((0,0),α_K−1)))_b, with f̂(0) = ∫f dt_* ∈ H^(∞,γ_++1)_b(X) ∩ ran Π. The
 density step takes b_+ := ½(½ + γ_+) ∈ (½, γ_+) and b_I := ½(b_+ + 3/2) in [[cor:ii-f1-1-2]]: ½ < b_+ < b_I < 3/2, b_+
 ≤ γ_+, b_I + 1 < 5/2 ≤ w_I and α_K ≥ ½, and b_+ − ½ ∈ (0, 1).
 
@@ -1043,17 +1043,17 @@ density step takes b_+ := ½(½ + γ_+) ∈ (½, γ_+) and b_I := ½(b_+ + 3/2) 
 
     f̂_2 := (f̂ − χ_zf f̂(0)) − [P̂(0), χ_zf]û_0 − (P̂(σ) − P̂(0))(χ_zfû_0),
 
-P̂(σ)(χ_zfû_0) = f̂ − f̂_2, and f̂_2 lies in H^(∞,(min(w_I,γ_++2)−ε,γ_++1,α_K−1))_b by [[lem:iii-i3-1-1]] (b) and
+P̂(σ)(χ_zfû_0) = f̂ − f̂_2, and f̂_2 lies in H^(∞,(min(w_I,γ_++2)−ϵ,γ_++1,α_K−1))_b by [[lem:iii-i3-1-1]] (b) and
 [[lem:gd-r6-2]] (a) at a = γ_+ − 1, as α_K − 1 < 1. The column term of [[thm:gd-r6-4]] is absent.
 
-*Step 3.2.* [[cor:gd-r8-9]] ([[lem:iii-i2-4-2]] for P_Π) applies at β_scf := 3/2 − ε, β_tf := γ_+ − 1,
+*Step 3.2.* [[cor:gd-r8-9]] ([[lem:iii-i2-4-2]] for P_Π) applies at β_scf := 3/2 − ϵ, β_tf := γ_+ − 1,
 β_zf := α_K − 1, with the window β_tf − β_zf = γ_+ − α_K ∈ (−1, 0); its forcing space asks the scf-weight
-5/2 − ε ≤ min(w_I, γ_+ + 2) − ε, which is γ_+ ≥ ½. So û_(reg,1) = χ_zfû_0 + P_Π(σ)⁻¹f̂_2 lies in
-H^(∞,(3/2−2ε,γ_+−1,((0,0),α_K−1)))_b with zf-coefficient û_0, the same for both signs. [[prop:ii-g1-3-5]] (1) at
+5/2 − ϵ ≤ min(w_I, γ_+ + 2) − ϵ, which is γ_+ ≥ ½. So û_(reg,1) = χ_zfû_0 + P_Π(σ)⁻¹f̂_2 lies in
+H^(∞,(3/2−2ϵ,γ_+−1,((0,0),α_K−1)))_b with zf-coefficient û_0, the same for both signs. [[prop:ii-g1-3-5]] (1) at
 β_K = α_K ∈ (1, 2), with that one Taylor coefficient, v_0 = û_0 ∈ H^(∞,β_ι−1)_b(X), β_ι = γ_+, gives
-u_reg ∈ H^(∞,(γ_+−ε,γ_+,α_K))_b(M′), as γ_+ < 3/2 − 2ε.
+u_reg ∈ H^(∞,(γ_+−ϵ,γ_+,α_K))_b(M′), as γ_+ < 3/2 − 2ϵ.
 
-*The rate.* u = u_hi + u_reg ∈ H^(∞,(γ_+−3ε,γ_+,α_K))_b(M′), and b-Sobolev embedding near K⁺, where ρ_K is comparable
+*The rate.* u = u_hi + u_reg ∈ H^(∞,(γ_+−3ϵ,γ_+,α_K))_b(M′), and b-Sobolev embedding near K⁺, where ρ_K is comparable
 to t_*⁻¹ on compact r-sets, gives [[eq:gd-r8-2]], as in the proof of [[thm:gd-r6-5]] without u_sing. ∎
 
 Where [[thm:gd-r6-4]] needs γ_+ > α_K, the lower end 0 of the window being the indicial root of W* and of the
@@ -1076,7 +1076,7 @@ possible as α_K − 1 < ½ + δ_♯; then γ_+ < ¾ < 1 and β > 0. As in the p
 b_I ∈ (b_+, p): Y := χ(t^♭_*)Z_1 ∈ H^(k,(b_I,b_+,−1/2))_b(Ω_*, μ_b), and χ′Y is the forward solution of
 f := χ′J_h + [□, χ′]Y. Put f_(≥2) := Π_cl f; its forward solution is Π_cl(χ′Y) ([[lem:gd-r8-2]] (b)). f vanishes near
 ℐ⁺, so every w_I is allowed. χ′J_h has ι⁺-order 5/2 + δ_♯ − η > γ_+ + 2 and K⁺-order w − η > 2 + ε_t − η > α_K
-([[prop:gd-r3-2]]; η < δ_♯ < ¼); [□, χ′]Y ∈ H^(∞,(N,b_++2,N))_b with b_+ > γ_+; and Π_cl preserves these classes
+([[prop:gd-r3-2]]; η < δ_♯ < ¼); [□, χ′]Y ∈ H^(∞,(𝔪,b_++2,𝔪))_b with b_+ > γ_+; and Π_cl preserves these classes
 ([[lem:gd-r8-2]] (b)). So f_(≥2) satisfies the hypotheses of [[thm:gd-r8-10]] with Π = Π_cl, which gives
 Π_cl(χ′Y) = O(t_*^(−α_K)) on compact sets, with every derivative. At late times on compact sets χ′ = χ(t^♭_*) = χ_K = 1,
 so Z_(1,≥2) = Π_cl(χ′Y), and (ġ_H)_(≥2) = h_(≥2) + ℒ_(Z_(1,≥2))g, as ṁK_V and ℒ_(W**_H)g have no part with l ≥ 2; and

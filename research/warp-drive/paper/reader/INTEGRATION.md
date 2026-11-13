@@ -1065,3 +1065,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   of J₁ (exactly null and radial for the unknown metric); dust data C², vacuum corrections smooth. R-P-K83a reading.
   After confirmation: merge into chapter 83 per the report's edit list; delete thm:std-cd-compact,
   thm:std-corvino-schoen and the [CS06] entry if no chapter cites them.
+- R-70a (chapter 70, reader A's share): 2 Major (lem:rb-interpolation's step e^(−5.3536)/5.3536 < 8.837·10⁻⁴ is
+  false, the bound survives with a corrected chain; lem:rb-transfer's off-shell identity D Ric(2r²HT) = −r²ℬ[H]T is
+  true but not stated where cited), 12 minor, 12 nits. Chapter 34 needs a labelled part (b) of lem:iii-f2-1-1 (the
+  horizon frame, K = K_0 + K_C + K_Υ, the weight grading and diagonal values) and chapter 21 labelled displays for
+  prop:i-b-8-1 and prop:i-b-6-7, or chapter 70 restates them. Its minor 14 and nit 23 on chapter 71 were sent to F-71.
+  The chapter 70 fix round waits for reader B.

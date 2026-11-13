@@ -263,8 +263,8 @@ everywhere, so z = zφ_z = Σ_i q_i x_i φ_i exactly. By [[prop:ii-a1-2-4]] (b),
 Op(ρ^(−𝗍) φ_ε z) Φ_z − Op(ρ^(−𝗍) φ_ε z φ_z) and Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) Φ_i − Op(q_i ρ^(−𝗍) φ_ε x_i φ_i) are uniformly
 of order 𝗍 − 1, and by the exact identities Op(ρ^(−𝗍) φ_ε z φ_z) and Σ_i Op(q_i ρ^(−𝗍) φ_ε x_i φ_i) are both
 Op(ρ^(−𝗍) φ_ε z). So Op(ρ^(−𝗍) φ_ε z) Φ_z = Σ_i Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) Φ_i + R_ε with R_ε uniformly of order
-𝗍 − 1. [[lem:ii-d-2-4]] applied to Op(q_i) and Op(ρ^(−𝗍) φ_ε x_i) Φ_i w gives [[eq:ii-d-2-4]], as ‖Op(ρ^(−𝗍) φ_ε x_i) Φ_i w‖_(−½) ≤ C‖w‖_(𝗍−½).
-In the particular case put X := Σ_j x_j* x_j and q_i := ζ z X⁻¹ x_i* with ζ supported in V. Then Σ_i q_i x_i = ζz = z
+𝗍 − 1. [[lem:ii-d-2-4]] applied to Op(q_i) and Op(ρ^(−𝗍) φ_ε x_i) Φ_i w gives [[eq:ii-d-2-4]], as
+‖Op(ρ^(−𝗍) φ_ε x_i) Φ_i w‖_(−½) ≤ C‖w‖_(𝗍−½). In the particular case put X := Σ_j x_j* x_j and q_i := ζ z X⁻¹ x_i* with ζ supported in V. Then Σ_i q_i x_i = ζz = z
 and Σ_i q_i q_i* = ζ² z X⁻¹ z* ≤ c_*⁻¹, so |q_i| ≤ c_*^(−1/2). ∎
 
 In [[lem:ii-d-2-3]] and in [[lem:ii-a1-4-1]] and [[lem:ii-a1-4-2]], L enters only through L = Op(ℓ_f) + R_L, with ℓ_f
@@ -793,8 +793,8 @@ end of [[sec:ii-d-2]], with G″ in the role of G′ there and κ = 2. Thus
 We bound the terms. (i) As in (a) of Step 2 of the proof of [[lem:ii-a1-4-1]], ‖Ǎ_εv‖_(½) ≤ C‖B_εv‖ +
 C‖G″v‖_(s′+½). (ii) Ǎ_ε − Op(ρ^(−s′−½)Ψ)Λ_εΦ_0 is uniformly of order s′ − ½, with Φ_0 on its right, and
 [Λ_ε, Φ_0] is smooth and uniformly of order −1; as WF′(Φ_0) ⊂ Ell(G″), [[lem:ii-a-8-4]] (c) gives
-‖Ǎ_εP′v‖_(−½) ≤ C(‖G″Λ_εP′v‖_(s′) + ‖G″P′v‖_(s′−1) + ‖χu‖_(−N′)). In [[eq:ii-d-4-5]], Λ_εR_2 = R_2Λ_ε + [Λ_ε, R_2] with the commutator uniformly of order
-−1 ([[prop:ii-a1-2-4]] (d)), and G″R_2^♭ has every order. So
+‖Ǎ_εP′v‖_(−½) ≤ C(‖G″Λ_εP′v‖_(s′) + ‖G″P′v‖_(s′−1) + ‖χu‖_(−N′)). In [[eq:ii-d-4-5]], Λ_εR_2 = R_2Λ_ε +
+[Λ_ε, R_2] with the commutator uniformly of order −1 ([[prop:ii-a1-2-4]] (d)), and G″R_2^♭ has every order. So
 
     ‖G″Λ_εP′v‖_(s′) ≤ C (‖G′f‖_(s′) + X_ε + ‖G′u‖_(s′−½) + ‖χu‖_(−N′)),       X_ε := ‖Op(ρ^(−s′) φ_ε g_0)u‖,
 
