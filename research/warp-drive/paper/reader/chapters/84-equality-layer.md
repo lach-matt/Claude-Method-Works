@@ -967,9 +967,9 @@ C_m0 := (A²/(9μ0))(1 + (μ0 μ(v_end))^(1/4)): by [[eq:eq-margin]], concavity 
 √(μ/μ0) − 1 ≤ (μ − μ0)/(2μ0) = (A²/(9μ0)) ∫_(v_s)^v env² ≤ (A²/(9μ0)) E(v)², and
 r_q μ′/(2μ) = (A²/9) (μ0 μ)^(1/4) env²/μ ≤ (A²/(9μ0)) (μ0 μ(v_end))^(1/4) E(v)².
 
-*Domination.* On W_λ, |env| ≥ 3y/4 and |d| ≥ d_* := 8/3 ([[lem:layer-angular]]). In the generic case
-|ν(v − τ0)| ≥ ν_* on W_λ, since W_λ ⊂ [v_s, v_s + η1]. At ρ*, by [[lem:layer-levels]], the absolute value of
-ν(v − τ0) is at least ν_2 (v − v_s)² ≥ ν_2 (v* − v_s)² ≥ ν_2 (y/C_κ)^(2/κ). So in both cases
+*Domination.* On W_λ, |env| ≥ 3y/4 and |d| ≥ d_* := 8/3 ([[lem:layer-angular]]). In the generic case, on
+W_λ ⊂ [v_s, v_s + η1] the coefficient ν(v − τ0) is at least ν_* in absolute value. At ρ*, by [[lem:layer-levels]],
+it is at least ν_2 (v − v_s)² ≥ ν_2 (v* − v_s)² ≥ ν_2 (y/C_κ)^(2/κ) in absolute value. So in both cases
 
     λ³ A |env| |ν(v − τ0)| |d(ϑ)| ≥ 10 G λ^(3+z)   on W_λ × S³,      G := 3 A ν_♭ d_*/40,           {#eq:layer-signal}
 
