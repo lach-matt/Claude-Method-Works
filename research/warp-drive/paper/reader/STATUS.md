@@ -35,7 +35,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (fifth reading, no finding) |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
-| 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | fourth fix done (eq:s25-motions-small proved by uniqueness at α_1; A_k bound term by term); fifth reading NOT CONFIRMED 0M 1m 1n (chapter text clean; crosswalk rows: five belong to 38a, three missing, order; nit: "motion components"); fix running |
+| 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | CONFIRMED (fifth reading: chapter text clean; its crosswalk minor fixed and checked by a label comparison, 21 rows in label order, 38a moved to its own crosswalk of 8 rows; nit with the review's wording) |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | third reading NOT CONFIRMED 0M 1m 5n (all R2 items and both addenda correct; interpolation exponents (k−6)/(k−5), 1/(k−5); sign test residual 6·10⁻⁴²; thm:iii-c2-3-1 needs the small solution); third fix running |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | third reading NOT CONFIRMED 1M 3m 7n (second Major fixed; NEW Major, also in the source: independent data on Σ_c and Σ^fut meeting at an edge; edge gluing; forward uniqueness region; (L) bounds); third fix running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | CONFIRMED (second reading 0M 0m 7n; [CD03] quoted literally against page images) |
@@ -55,7 +55,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 84 M Ch 23 | written (1,248 lines; thm:layer, cor:layer; cor:layer-interpolation-band for 85; λ_L ≤ 10^(−430) proved in place of the source's 2.71·10⁻¹²; L.12 for every K ≥ 6; L.14 and Remark E.6 dropped); independent reader running | - | - |
 | 85 M Ch 24 | being written | - | - |
 | 83 M Ch 22 | written (2,612 lines, 145 labels; proof E merged; thm:charge-sign; 5 pending markers: chapter 81 key, issue-1 twice (seed continuity, 4D), two computational; charge sign only on [0.70, 1.861] or R ≥ R_*); independent reader and two proof projects running | - | - |
-| 86 M Ch 25 | being written (merges confirmed proof C) | - | - |
+| 86 M Ch 25 | written (confirmed proof C carried byte for byte; prop:lambda0 for thm:main: λ0 < 0.0024433 operator norm, 0.0019079 Frobenius, 0.0012228 largest entry; rem:m22-value numerical observation; 21 labels, 21 crosswalk rows); independent reader running | - | - |
 | 87, 90 | 87 after proof D2-D4 confirms, 90 last | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | CONFIRMED (5 nits); CD03 block and Sbierski entry to be read after their edits |
 

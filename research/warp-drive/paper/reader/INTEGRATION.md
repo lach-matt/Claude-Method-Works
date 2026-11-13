@@ -1051,3 +1051,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   11 nits; F-81 running (also chapter 1:20-21 packet hypothesis).
 - Process: one nit pass (chapters 65, 30) ran on a non-Opus worker by mistake; edits trivial, lint clean; every
   later agent is Opus.
+- W-86 done: chapter 86 carries proof C byte for byte plus prop:lambda0 (λ0 < 0.0024433 / 0.0019079 / 0.0012228;
+  10 l5 above λ0 by a factor > 409) and rem:m22-value (numerical observation; the a posteriori 1.8×10¹⁴ estimate
+  deleted). R-86 reading. INTEGRATION: chapter 84 lines ~1177, ~1240 say "the numerical point of prop:lambda0" but
+  thm:layer needs μ0 = √72 l5², false there (μ0 = 1): replacement to come from R-86 for chapter 84's fix round;
+  chapter 3:367-368 to cite rem:m22-value; retire proofs/P-C-lambda0.md once R-86 confirms (its labels are now
+  defined in chapter 86, so assembly would see them twice).
+- S25 CONFIRMED: crosswalk/44 (21 rows) and the new crosswalk/38a-s25a-base-points.tsv (8 rows) match their
+  chapters' labels in order (checked by script). INTEGRATION crosswalk sweep (from R5-S25): rows missing or extra in
+  00, 02, 03, 04, 06, 07, 08, 09, 27, 33, 40, 62, 95; order only in 10, 30, 39, 45, 46, 64; 85 has no crosswalk yet.

@@ -929,11 +929,12 @@ their charts [Hin26d, (2.5)]. Being localized near the diagonal is a property an
 not have, and residual operators need not have it [Hin26d, Remark 3.48]. Here the operators of 𝒫 and all auxiliary
 operators are taken localized near the diagonal. The *kernel range* of such an operator is the supremum of d_ℬ(p, q)
 over the support of its Schwartz kernel. Quantizations are localized near the diagonal, by the cut-off ψ(x − x′) of
-[Hin26d, (3.26)] and the chart cut-offs of [Hin26d, Definition 3.31]. Their kernel ranges may be made as small as we please:
-by (S15) ([Hin26d, Lemma 3.42, p. 51]), (1 − η̃)Op_𝒱(a) is residual for a ∈ wS^m whenever η̃ ∈ C^∞_(uni,ℬ×ℬ)(M × M)
-equals 1 within d_ℬ-distance ϵ of the diagonal, and its proof shows the same when, in each local quantization,
-ψ(x − x′) is replaced by ψ(x − x′)η_0(x − x′) with η_0 ∈ C_c^∞(ℝ^n) equal to 1 near 0 (the form used on p. 52). If
-supp η_0 ⊂ {|x| < ϵ/C}, C the constant of (2.3) in (S15), the new kernel has range at most ϵ. We call this
+[Hin26d, (3.26)] and the chart cut-offs of [Hin26d, Definition 3.31]. Their kernel ranges may be made as small as we
+please: by (S15) ([Hin26d, Lemma 3.42, p. 51]), (1 − η̃)Op_𝒱(a) is residual for a ∈ wS^m whenever
+η̃ ∈ C^∞_(uni,ℬ×ℬ)(M × M) equals 1 within d_ℬ-distance ϵ of the diagonal, and its proof shows the same when, in each
+local quantization, ψ(x − x′) is replaced by ψ(x − x′)η_0(x − x′) with η_0 ∈ C_c^∞(ℝ^n) equal to 1 near 0 (the form
+used on p. 52). If supp η_0 ⊂ {|x| < ϵ/C}, C the constant of (2.3) in (S15), the new kernel has range at most ϵ. We
+call this
 *truncating* the quantization to range ϵ. It changes the operator by a residual operator of the subalgebra of (S10),
 by the strengthening on p. 75 quoted in (S15), the operators of this chapter being taken in that subalgebra
 ([[sec:ii-a-4-2]]). So the truncated operators lie in the subalgebra, [[eq:ii-a-4-1]] and [[lem:ii-a-8-4]] (a) apply
@@ -2059,10 +2060,10 @@ particular near α, and G_α microsupported in a neighbourhood inside Ell(G). It
 with χ_* of (R2) of [[sec:ii-a-8-3]] for B, E and G, by [[lem:ii-a-8-4]] (c) and [[lem:ii-a-8-6]] (a); here G_α is
 taken as an auxiliary operator of (R1) for B, E and G, so that G_αχ_* = G_α. For α ∈ WF′(B) ∖ Char(L),
 [[thm:ii-a1-3-1]] gives any B_α ∈ C^∞_b Ψ⁰_e3b elliptic near α and microsupported in Ell(G) ∩ Ell(L) with
-‖B_αu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)). By compactness of WF′(B), finitely many B_(α_i) are jointly elliptic on it: Σ_i
-B_(α_i)^* B_(α_i) ∈ C^∞_b Ψ⁰_e3b is elliptic of order 0 there, the B_(α_i) being smooth, as [[lem:ii-a-8-4]] (c)
-requires. The elliptic estimate ([[lem:ii-a-8-4]] (c), or [[thm:ii-a1-3-1]]) bounds ‖Bu‖_𝗌 by C Σ_i ‖B_(α_i)u‖_𝗌 +
-C‖χu‖_(−N). The strong sense and the uniformity are those of [[prop:ii-a1-5-3]] and [[thm:ii-a1-3-1]].
+‖B_αu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)). By compactness of WF′(B), finitely many B_(α_i) are jointly elliptic on it:
+Σ_i B_(α_i)^* B_(α_i) ∈ C^∞_b Ψ⁰_e3b is elliptic of order 0 there, the B_(α_i) being smooth, as [[lem:ii-a-8-4]] (c)
+requires. The elliptic estimate ([[lem:ii-a-8-4]] (c), or [[thm:ii-a1-3-1]]) bounds ‖Bu‖_𝗌 by
+C Σ_i ‖B_(α_i)u‖_𝗌 + C‖χu‖_(−N). The strong sense and the uniformity are those of [[prop:ii-a1-5-3]] and [[thm:ii-a1-3-1]].
 
 For a small perturbation L′ the same α_i serve. If α_i ∉ Char(L), it lies in Ell(L′) with a comparable bound. If
 α_i ∈ Char(L), [[prop:ii-a1-5-3]], which does not ask its curve to be characteristic, applies to the integral curve of
