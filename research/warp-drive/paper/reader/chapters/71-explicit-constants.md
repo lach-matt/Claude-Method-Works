@@ -350,12 +350,30 @@ k − j derivatives, this costs ℓ_+(γ + 1) = ⌈γ + ½⌉, as γ > 0. The sa
 [[lem:iii-a-1-2]] and the multiplication by χ, keeps the order k. This is [[eq:ec-moment-loss]]. ∎
 
 **Remark {#rem:ec-other-losses}** (The other elementary losses.) The remaining elementary losses of
-[[lem:iii-j2-2-1]] are fixed in its statement: 0 for finite-dimensional maps and for the integrations along faces of
-[[lem:iii-a-1-2]] and [[lem:iii-a-3-2]], 1 for
-[[prop:ii-g1-3-3]] (1) and [[prop:iii-h-3-2]], 2 for second-order operators (L_b, L̃_b, and the background terms
-applied to a solution), ℓ + 1 for [[cor:ii-g1-4-5]] at every order, where ℓ = 2ℓ_3 + ℓ_4 + ℓ_5 is assembled from the
-losses of [[prop:ii-g1-3-5]] (2), [[prop:ii-g1-4-4]] and [[prop:ii-g1-3-3]] (2), each a closed form in the weights, and
-d_ι + 2 for [[cor:iii-g2-4-3]]. The forward solution operators of [[lem:iii-j2-2-1]] (a) lose the d of
+[[lem:iii-j2-2-1]] are fixed in its statement:
+
+- 0 for finite-dimensional maps ((c)), for the integrations along faces of [[lem:iii-a-1-2]], [[lem:iii-a-3-2]] and
+  [[lem:iii-i2-2-1]] ((d)), for [[cor:iii-h-4-2]] on |σ| < c_k ((e)) and for [[lem:iii-i2-4-3]] ((g));
+- 1 for [[prop:ii-g1-3-3]] (1) and [[prop:iii-h-3-2]];
+- where they are applied outside [[prop:iii-a-4-2]], the losses printed in their statements:
+  ⌈(½ − min(β_K, β_ι − β_I))_+⌉ for [[prop:ii-g1-3-3]] (2), ⌈(max(β_ι − β_scf, β_K) + ε − ½)_+⌉ for
+  [[prop:ii-g1-3-5]] (1) and ⌈(3/2 − δ)_+⌉ + ⌈(β′ − ½)_+⌉ for [[prop:ii-g1-3-5]] (2), each at the weights of the
+  application;
+- 2 for the second-order operators L_b at a parameter b, a finite-dimensional component of p⃗, and L̃_b at the
+  background 0;
+- max(2, d_BG) for the background terms of [[lem:iii-j2-2-1]] (b) applied to a solution (L^(g,g_0) − L_b, R_q, the
+  remainder L̃ of [[lem:iii-i1-1-1]], whose coefficients depend on h, and the sources there), d_BG being the order in
+  the background of their bound ‖Au‖_k ≤ C_k(‖u‖_(k+2) + ‖β‖_(k+d_BG)‖u‖_(d_BG)), fixed by [[lem:ii-g-4-1]],
+  [[lem:ii-a-9-5]] and [[cor:ii-a-9-7]]; by [[def:iii-j2-1-1]] this bound is tame with loss max(2, d_BG), as
+  ‖u‖_(k+2) ≤ ‖u‖_(k+d_BG) when d_BG ≥ 2 and ‖β‖_(k+d_BG)‖u‖_(d_BG) ≤ ‖β‖_(k+2)‖u‖_2 when d_BG < 2, the norms being
+  non-decreasing in the order;
+- ℓ + 1 for [[cor:ii-g1-4-5]] at every order, where ℓ = 2ℓ_3 + ℓ_4 + ℓ_5 is assembled from the losses of
+  [[prop:ii-g1-3-5]] (2), [[prop:ii-g1-4-4]] and [[prop:ii-g1-3-3]] (2), each a closed form in the weights, and at most
+  ℓ + 1 plus the losses of (e) for [[lem:iii-i2-4-1]] ((f));
+- d_ι + 2 for [[cor:iii-g2-4-3]];
+
+and [[lem:ec-closed-forms]] (h) gives the loss of [[lem:iii-i2-3-1]]. The forward solution operators of
+[[lem:iii-j2-2-1]] (a) lose the d of
 [[thm:iii-i-5-3]], which its proof takes from [[thm:ii-f1-1-1]] and raises by 6. There d = D_0 + D_1 + d′ + d″
 ([[eq:ii-f1-3-3]]): d′ and d″ are read off the order 𝗌, while D_0 and D_1 are maxima of the orders d_0 and d of the
 energy estimates of [[ch:s07]] and of [[lem:ii-f1-2-8]] ([[eq:ii-f1-3-2]]), whose existence is proved and whose values

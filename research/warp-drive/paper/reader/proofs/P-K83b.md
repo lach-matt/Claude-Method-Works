@@ -171,3 +171,152 @@ compactly supported solution is the image of its own ℓ. With Φ_M := R^(3/2)f�
 (d) The l = 0 part of a seed is a gauge seed and contributes nothing to 𝔈_V and 𝔈_K: on the constraint, h_(l=0) =
 L_(RF∂_R)γ for a compactly supported F, and k_(l=0) = k_ψ with ψ_g := −N_s ∫_R^∞ R′w(R′)/(f(R′)N_s(R′)) dR′, where
 k_(l=0)|_(S³) = R²wγ̂; ψ_g vanishes beyond the support and is a constant multiple of N_s on its inner side.
+
+*Proof.* *The static slice.* Here γ = f⁻¹dR² + R²γ̂, N_s = √f, K0 = 0 and Y_s = 0. The Christoffel symbols of γ are
+Γ^R_RR = −x/(Rf), Γ^R_AB = −Rf γ̂_AB, Γ^A_RB = δ^A_B/R and Γ^A_BC = Γ̂^A_BC, the others vanishing; Ric(γ) =
+−(3x/(R²f)) dR² + x γ̂ and Scal(γ) = 0; and N_s dvol = R³ dR dvol_γ̂. Integrals over S³ are against dvol_γ̂; for a class
+harmonic S of degree l, Δ̂S = −k²S, ∫S² = (2π)²‖S‖² and ∫|D̂S|² = k²∫S², and ∫Δ̂φ = 0 for every function φ on S³.
+
+*The splitting.* The isometries SO(4) of the round S³ act on the static slice by isometries fixing N_s, so the
+constraint maps are SO(4)-equivariant and 𝔈_V and 𝔈_K are invariant quadratic forms. The scalar harmonics of degree l
+span an irreducible representation of SO(4) with highest weight (l, 0), and the transverse trace-free tensor harmonics
+of degree l span the sum of the two irreducible representations with highest weights (l, ±2) [Hig87]; for different
+types or degrees these representations are pairwise inequivalent. A scalar mode of degree l is the image of the scalar
+harmonics of degree l under the equivariant linear map u ↦ a u dR² + 2R b du dR + R²(c uγ̂ + e(D̂D̂u + (k²/3)γ̂u)), and
+likewise for k, so it lies in the isotypic component of (l, 0); a tensor mode of degree l lies in that of (l, ±2), and
+the l = 0 part in that of the trivial representation. An invariant bilinear form pairs isotypic components of
+inequivalent representations to zero, and an equivariant linear map takes each isotypic component into the isotypic
+component of the same representation (Schur's lemma). So the polarisations of 𝔈_V and 𝔈_K vanish between different
+modes, and the constraints of a seed hold exactly when those of each mode hold. The mode expansions of smooth data
+converge with all their derivatives, so 𝔈_V and 𝔈_K of a seed are the sums of those of its modes.
+
+*(a) The gauges.* The vector field X has X^R = αS and X^ϑ = β̃∂_ϑS, so X_R = αS/f and X_A = R²β̃∂_AS. Then
+(L_Xγ)_RR = (α(1/f)′ + 2α′/f)S, (L_Xγ)_RA = (α/f + R²β̃′)∂_AS and (L_Xγ)_AB = 2RαSγ̂_AB + 2R²β̃D̂_AD̂_BS =
+R²((2α/R − (2k²/3)β̃)Sγ̂ + 2β̃Ŝ)_AB, which are the stated shifts. The shifts are linear in (α, β̃), and b = e = 0 is
+reached by exactly one (α, β̃), the stated one; A and F are the a and c/2 of the representative so reached. Adding to
+the data the shifts of another vector field X′ of this form changes the (α, β̃) that reaches b = e = 0 by −X′ and
+leaves that representative unchanged, so A and F are gauge invariant. For ψ_g = ψ(R)S, the spherical part of D²ψ_g is
+ψD̂D̂S + Rfψ′Sγ̂, since Γ^R_AB = −Rfγ̂_AB, and Ric(γ) is round; so the trace-free spherical part of k_ψ = D²ψ_g −
+ψ_g Ric(γ) is ψ(D̂D̂S + (k²/3)γ̂S) = ψŜ, which shifts z by ψ/R². The gauge functions α, β̃ and ψ are built pointwise
+from the data and their R-derivatives, so they have compact support with the data.
+
+*(b) The momentum constraint.* For z = 0, k_RR = pS, k_RA = Rq_k ∂_AS and k_AB = R²wSγ̂_AB, and tr k = (fp + 3w)S.
+With the Christoffel symbols above, (div k)_R = (fp′ + f′p + (3fp − 3w − k²q_k)/R)S and (div k)_A = (Rf q_k′ + (4 −
+3x)q_k + w)∂_AS, and ℳ = div k − d tr k gives [[eq:loc-mom-modes]]. Expanding, with Rf′ = 2x,
+
+    Z′ + (R²H_KI/3) q_k + R² 𝔪_ϑ + (R³/3) 𝔪_R = 0                                                       {#eq:loc-z-identity}
+
+identically. If 𝔪_R = 𝔪_ϑ = 0, then [[eq:loc-z-identity]] gives q_k = −3Z′/(R²H_KI) (H_KI ≥ m > 0), w = Z/R³ + fq_k
+by the definition of Z, and p from 𝔪_ϑ = 0 (f > 0): the data are the image of their Z. Conversely, for the image of a
+Z, 𝔪_ϑ = 0 by the definition of p, and then 𝔪_R = 0 by [[eq:loc-z-identity]]. Since |k|² = (f²p² + 3w²)S² +
+2fq_k²|D̂S|² and (tr k)² = (fp + 3w)²S², 𝔈_K = (2π)²‖S‖² ∫ 𝔢_K dR with 𝔢_K := R³(2k²fq_k² − 6w² − 6fpw). On 𝔪_ϑ = 0,
+inserting fp from 𝔪_ϑ = 0 and then w = Z/R³ + fq_k, and using (R⁴f²)′ = 4R³f and (Rf)′ = 1 + x, an expansion gives
+
+    𝔢_K = 6Z²/R³ + (12x − 6) Z q_k + 2R³fH_KI q_k² + 6RfZ′q_k + (−3R⁴f²q_k² − 6RfZq_k)′.
+
+On 𝔪_R = 0 as well, [[eq:loc-z-identity]] gives 6RfZ′q_k = −2R³fH_KI q_k², and q_k = −3Z′/(R²H_KI) gives (12x −
+6)Zq_k = −9(2x − 1)(Z²)′/(R²H_KI). Since ((2x − 1)/(R²H_KI))′ = 2(m − 4mx − 12x²)/(R³H_KI²) and 6H_KI² + 18(m − 4mx
+− 12x²) = 6m(m + 3) = 6k²m,
+
+    𝔢_K = 6k²m Z²/(R³H_KI²) + 𝔅_K′,        𝔅_K := −3R⁴f²q_k² − 6RfZq_k − 9(2x − 1)Z²/(R²H_KI).
+
+𝔅_K has compact support, which gives [[eq:loc-ek]].
+
+*(c) The Hamiltonian constraint.* Let α and β be smooth functions of R and the angles, and γ_ε := f⁻¹e^(2α)dR² +
+R²e^(2β)γ̂. Then, with ζ := α − β,
+
+    R²e^(2β) Scal(γ_ε) = 6 − 2Δ̂ζ − 2|D̂ζ|² − 6Δ̂β − 6D̂α·D̂β − 6√f e^(−α) ∂_R(R√f e^(2β−α)(1 + R∂_Rβ)).
+                                                                                                    {#eq:loc-scal-exact}
+
+Indeed, γ_ε = b²ĝ with b := Re^β and ĝ := ã²dR² + γ̂, ã := e^(α−β)/(R√f). The spheres {R = const} carry the metric
+γ̂ in ĝ for every R, so their second fundamental form vanishes, and the Gauss and Riccati equations give Scal(ĝ) = 6 −
+2ã⁻¹Δ̂ã. In dimension four Scal(b²ĝ) = b⁻²(Scal(ĝ) − 6b⁻¹Δ_ĝb), and Δ_ĝb = ã⁻¹∂_R(ã⁻¹∂_Rb) + ã⁻¹D̂·(ãD̂b), the volume
+form of ĝ being ã dR dvol_γ̂. Inserting ã⁻¹Δ̂ã = Δ̂ζ + |D̂ζ|², b⁻¹ã⁻¹∂_R(ã⁻¹∂_Rb) = √f e^(−α)∂_R(R√f e^(2β−α)(1 +
+R∂_Rβ)) and b⁻¹ã⁻¹D̂·(ãD̂b) = Δ̂β + D̂α·D̂β gives [[eq:loc-scal-exact]].
+
+For b = e = 0, γ + εh = f⁻¹(1 + εfAS)dR² + R²(1 + 2εFS)γ̂, so α = εα_1 + ε²α_2 + O(ε³) and β = εβ_1 + ε²β_2 + O(ε³)
+with α_1 = fAS/2, α_2 = −f²A²S²/4, β_1 = FS and β_2 = −F²S². Write Y := R√f e^(2β−α)(1 + R∂_Rβ) = Y_0 + εy_1S +
+ε²y_2S² + O(ε³) and Ξ := R²e^(2β)Scal(γ + εh) = εΞ_1 + ε²Ξ_2 + O(ε³). Then Y_0 = R√f and Y_0′ = (f + Rf′/2)/√f = 1/√f,
+so that the term of order ε⁰ of Ξ is 6 − 6 = 0;
+
+    y_1 = R√f (2F − fA/2 + RF′),        y_2 = R√f (3f²A²/8 − fAF − RfAF′/2);
+
+and, from [[eq:loc-scal-exact]] with e^(−α) = 1 − α + α²/2 + O(α³),
+
+    Ξ_1 = −2Δ̂(α_1 − β_1) − 6Δ̂β_1 + 6α_1 − 6√f y_1′S,
+    Ξ_2 = −2Δ̂(α_2 − β_2) − 2|D̂(α_1 − β_1)|² − 6Δ̂β_2 − 6D̂α_1·D̂β_1 − 6√f (y_2′S² − α_1y_1′S) − 6(α_1²/2 − α_2).
+
+With Δ̂S = −k²S, Ξ_1 = ((k² + 3)fA + 4k²F − 6√f y_1′)S. Since DScal[h] = R⁻²Ξ_1 and 6√f y_1′ = 6Z_1 + 6RfZ_1′ with
+Z_1 := 2F − fA/2 + RF′, this is [[eq:loc-c]]. Next, D²Scal[h, h] is twice the ε² coefficient of Scal(γ + εh), R³Scal =
+Re^(−2β)Ξ, and N_s dvol = R³ dR dvol_γ̂; so 𝔈_V(h) = −∫∫ R(Ξ_2 − 2β_1Ξ_1) dvol_γ̂ dR. Integrating over S³, the four
+Laplacians drop out, ∫|D̂(α_1 − β_1)|² = k²(fA/2 − F)²∫S², ∫D̂α_1·D̂β_1 = (k²fAF/2)∫S², α_1²/2 − α_2 = 3f²A²S²/8, and
+∫β_1Ξ_1 = R²F C(A, F)∫S²; so 𝔈_V(h) = (2π)²‖S‖² ∫ E_V(A, F) dR with
+
+    E_V(A, F) = R(2k²(fA/2 − F)² + 3k²fAF + 6√f (y_2′ − (fA/2) y_1′) + (9/4)f²A²) + 2R³F C(A, F),
+
+and expanding the derivatives of y_1 and y_2 gives [[eq:loc-ev-af]].
+
+Five identities, each checked by expanding both sides with Rf′ = 2x, x′ = −2x/R, k² = m + 3 and H_KI = m + 6x, reduce
+𝔈_V on the constraint. First,
+
+    E_V(A, F) = E_red + R⁴F′C(A, F) + 𝔅_1′,
+    E_red := (k²/2)Rf²A² + 3k²RfAF − R²f(k² + 12f)AF′ + (14k² − 24)RF² + 24R³fF′²,
+    𝔅_1 := 3R²f³A² − 6R³f²AF′ + (12μ − 2k²R²)F² − 12R³fFF′ + 3R⁴fF′².                                   {#eq:loc-ev-red}
+
+Second, [[eq:loc-moncrief]]; it gives the statement about the map ℓ ↦ (A, F): for (A, F) with C = 0 and compact
+support, F = 9Rf³(ℓ′ + κ_Mℓ)/(2k²H_KI) by [[eq:loc-moncrief]] and A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F by the
+definition of ℓ; conversely, for (A, F) built from a given ℓ, the variable ℓ of (A, F) is the given one, and
+[[eq:loc-moncrief]] gives C = 0. Third, substituting A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F into E_red, the terms in F′²
+cancel (24R³f − 2R³(k² + 12f) + 2k²R³ = 0), and
+
+    E_red = (k²/2)Rf²ℓ² + c_1ℓF + c_2ℓF′ + c_3F² + c_4FF′,
+    c_1 := −(k²R/3)(2m − 9 + 21x),        c_2 := R²f(m − 9 + 12x),
+    c_3 := (2R/(9f²))(m³ − 6m² + 36m + 81 + 21m²x − 117mx − 324x + 153mx² + 351x²),
+    c_4 := −(2R²/(3f))(m² − 18m − 27 + 27mx − 27x + 72x²).
+
+Fourth, with c_2ℓF′ = (c_2ℓF)′ − c_2′ℓF − c_2ℓ′F and c_4FF′ = (½c_4F²)′ − ½c_4′F²,
+
+    E_red = (k²/2)Rf²ℓ² + F(e_1ℓ − c_2ℓ′) + e_0F² + (c_2ℓF + ½c_4F²)′,
+    e_1 := c_1 − c_2′ = −(R/3)(2m² + 3m − 81 + 21mx + 63x + 72x²),
+    e_0 := c_3 − ½c_4′ = (2k²R/(9f²))(m² − 6m + 15mx − 54x + 72x²).
+
+Fifth, on the constraint F = λ(ℓ′ + κ_Mℓ) with λ := 9Rf³/(2k²H_KI), and E_red = P_2ℓ′² + P_1ℓℓ′ + P_0ℓ² + (c_2ℓF +
+½c_4F²)′ with
+
+    P_2 := −λc_2 + λ²e_0 = 27mR³f⁵/(2k²H_KI²),
+    P_1 := λe_1 − λκ_Mc_2 + 2λ²κ_Me_0 = −3R²f³(m³ − 3m² − 54m + 15m²x + 45mx + 54mx² + 54x²)/(2k²H_KI²),
+    P_0 := (k²/2)Rf² + λκ_Me_1 + λ²κ_M²e_0
+        = −3Rf²(m³ − 12m² − 81m + 2m³x + 24m²x + 18mx + 24m²x² + 126mx² + 54x² + 72mx³ + 108x³)/(2k²H_KI²).
+
+With P_1ℓℓ′ = (½P_1ℓ²)′ − ½P_1′ℓ²,
+
+    E_red = P_2ℓ′² + P̃_0ℓ² + 𝔅_2′,        𝔅_2 := c_2ℓF + ½c_4F² + ½P_1ℓ²,
+    P̃_0 := P_0 − ½P_1′ = 27mRf³(m² + 3m − m²x − 9mx − 54x − 10mx² − 18x² − 24x³)/(2k²H_KI³).
+
+Finally, ℓ = ρΦ_M with ρ := H_KI/(R^(3/2)f²), for which ρ′/ρ = −(3m + 5mx + 42x + 6x²)/(2RfH_KI), gives
+
+    P_2ℓ′² + P̃_0ℓ² = P_2ρ²Φ_M′² + (P_2ρ′² + P̃_0ρ² − (P_2ρρ′)′)Φ_M² + (P_2ρρ′Φ_M²)′,
+    P_2ρ² = 27mf/(2k²),        P_2ρρ′ = −27m(3m + 5mx + 42x + 6x²)/(4k²RH_KI),
+    P_2ρ′² + P̃_0ρ² − (P_2ρρ′)′ = 27m Qp/(32k²R²H_KI²).
+
+On the constraint R⁴F′C(A, F) = 0, and 𝔅_1, 𝔅_2 and P_2ρρ′Φ_M² have compact support; so the five identities give
+[[eq:loc-ev]].
+
+*(d) The l = 0 part.* For l = 0, S = 1, Ŝ = 0 and D̂S = 0, so h_(l=0) = a dR² + R²cγ̂ and k_(l=0) = p dR² + R²wγ̂
+with a, c, p, w functions of R. The computation of (c) uses neither b nor e, so [[eq:loc-c]] holds with k² = 0, A := a
+and F := c/2. By the computation of (a) with S = 1 and β̃ = 0, X := RF∂_R gives L_Xγ = ((1/f)′RF + 2(RF)′/f)dR² +
+2R²Fγ̂, and DScal[L_Xγ] = X(Scal(γ)) = 0. So on the constraint A_r := a − (1/f)′RF − 2(RF)′/f satisfies C(A_r, 0) = 0
+with k² = 0, that is 6(1 + x)fA_r + 3Rf²A_r′ = 0, whose solutions are the constant multiples of x/f², since
+(ln(x/f²))′ = −2/R − 4x/(Rf) = −2(1 + x)/(Rf); these vanish nowhere unless the constant is 0. Compact support gives
+A_r = 0, so h_(l=0) = L_(RF∂_R)γ with F compactly supported. By (b) with k² = 0 and q_k = 0, the momentum constraint
+of the l = 0 part is fp = Rw′ + w. For ψ_g = ψ(R), k_ψ has spherical part R²w_ψγ̂ with w_ψ = fψ′/R − xψ/R² =
+(fN_s/R)(ψ/N_s)′, since N_s′/N_s = x/(Rf); and k_ψ solves the momentum constraint (proof of
+[[lem:loc-gauge-invariance]]), so its RR component is (Rw_ψ′ + w_ψ)/f. The ψ_g of (d) has (ψ_g/N_s)′ = Rw/(fN_s), so
+w_ψ = w and k_(l=0) = k_ψ. Hence the l = 0 part is the first variation of the data along the generator ψ_g n + RF∂_R,
+a gauge seed. Its energies vanish: 𝔈_V(L_Xγ) = 𝔈_V(0) = 0 by [[lem:loc-gauge-invariance]], and 𝔈_K(k_(l=0)) = 2π² ∫
+R³(−6w² − 6fpw) dR = −6π² ∫ (R⁴w²)′ dR = 0. ∎
+
+<!-- Part 2. Block 2.2: in the proof of thm:loc-outside, the parenthesis "(orthogonality of the class harmonics of
+different type and degree, [[lem:loc-harmonics]], the mode sums converging for smooth data)" becomes: -->
+
+([[lem:loc-scalar-reduction]], the splitting)
