@@ -1022,3 +1022,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   solution of thm:iii-c1-2-1. Chapter 48: delete "(γ̃, κ̃) there; " at 128 and "κ̃ there; " at 133 (S29 third round).
   Chapter 46: lem:s27-translated-exterior (c) two more uses of φ_S; thm:iv3-2-1 needs lem:s26-interpolation on Ω^♮
   (sent to the S27 third fix). Third fix running.
+- S14 CONFIRMED (F3-S14 applied R3-S14's proposals): Step 2 cites S11's (E3) with Π = Id (C^∞(∂X) bijection checked);
+  W and g clashes gone; 18 running-text lines with forbidden starts rewrapped (pandoc renders "> 1.4·10⁴⁰" and
+  "replaces 2 + 4γ_Cv_C" correctly); crosswalk notes np-10-54, np-10-14, np-10-52, np-10-31 updated. Contingent on the
+  S11 fourth reading confirming (E3).
