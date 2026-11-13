@@ -53,7 +53,7 @@ sec:ii-f1-1-1	docket68/n1star/proof5/PART-II-F2-TAME.md:35	II.F1 §1.1
 eq:ii-f1-1-1	docket68/n1star/proof5/PART-II-F2-TAME.md:45	II.F1 (1.1)	
 eq:ii-f1-1-2	docket68/n1star/proof5/PART-II-F2-TAME.md:53	II.F1 (1.2)	
 sec:ii-f1-1-2	docket68/n1star/proof5/PART-II-F2-TAME.md:63	II.F1 §1.2	
-thm:ii-f1-1-1	docket68/n1star/proof5/PART-II-F2-TAME.md:65	II.F1 Theorem 1.1	uniqueness class s′ ≥ s_u as corrected in the source text; s_u points to lem:ii-f1-2-3 (where 𝗌 is fixed); sentence added after the statement that the proof uses only (1)-(2) of def:ii-c-3-3 (source convention at II.F1:185-186); process tags removed
+thm:ii-f1-1-1	docket68/n1star/proof5/PART-II-F2-TAME.md:65	II.F1 Theorem 1.1	uniqueness class s′ ≥ s_u as corrected in the source text; s_u points to lem:ii-f1-2-3 (where 𝗌 is fixed); sentence added after the statement that the proof uses only (1)-(2) of def:ii-c-3-3 (source convention at II.F1:185-186); process tags removed; F4-S19: closing sentence after the statement points to rem:ii-f1-7-4 (exponent of t-flat in [l_I, 1/2])
 eq:ii-f1-1-3	docket68/n1star/proof5/PART-II-F2-TAME.md:67	II.F1 (1.3)	
 eq:ii-f1-1-4	docket68/n1star/proof5/PART-II-F2-TAME.md:72	II.F1 (1.4)	
 eq:ii-f1-1-5	docket68/n1star/proof5/PART-II-F2-TAME.md:79	II.F1 (1.5)	
@@ -118,7 +118,9 @@ sec:ii-f1-5	docket68/n1star/proof5/PART-II-F2-TAME.md:649	II.F1 §5	proof of Cor
 eq:ii-f1-5-1	docket68/n1star/proof5/PART-II-F2-TAME.md:657	II.F1 (5.1)	
 sec:ii-f1-6	docket68/n1star/proof5/PART-II-F2-TAME.md:684	II.F1 §6	continuity proof: the weak limit is taken in X(𝗌;k+d′), where the u^(j) are bounded by prop:ii-f1-4-2, so that the limit lies in the uniqueness class s′ ≥ s_u (the source takes it in H^k_b and applies Lemma 2.2 at s′ = 0, outside the smallness fixed by ε_0)
 lem:ii-f1-6-1	docket68/n1star/proof5/PART-II-F2-TAME.md:686	II.F1 Lemma 6.1	
-sec:ii-f1-7	docket68/n1star/proof5/PART-II-F2-TAME.md:714	II.F1 §7	
+sec:ii-f1-7	docket68/n1star/proof5/PART-II-F2-TAME.md:714	II.F1 §7	F4-S19: heading "Four remarks" (rem:ii-f1-7-4 added)
 rem:ii-f1-7-1	docket68/n1star/proof5/PART-II-F2-TAME.md:716	II.F1 Remark 7.1	orders shifted by d̄_ℵ := ⌈d_ℵ⌉ (margin m_0 + 2d̄_ℵ, 𝗌_0 := 𝗌 − 2 − d̄_ℵ, s_in ≥ 4 + d̄_ℵ), so that every order the tame estimates use is an integer near r ≤ r_0; d^S_0, d^S for the slab orders 𝗌 and 𝗌 + d̄_ℵ + 1; identical to the source for d_ℵ ∈ ℕ₀
 rem:ii-f1-7-2	docket68/n1star/proof5/PART-II-F2-TAME.md:731	II.F1 Remark 7.2	
 rem:ii-f1-7-3	docket68/n1star/proof5/PART-II-F2-TAME.md:737	II.F1 Remark 7.3	note on [Hin26c, (12.7)] kept as a neutral remark
+rem:ii-f1-7-4	-	-	new label (F4-S19, for R4-S19 Major 1, repair (a); cited by ch:s19): thm:ii-f1-1-1 with t-flat built with an exponent l_flat in [l_I, 1/2] under the extra smallness eq:ii-f1-7-1; the proof lists the two ways the time function enters S5-S10 ((A) the hypothesis of lem:ii-c-3-2, (B) the form of t-flat and C'), the metrics to which (A) is applied (g; g_eps by convexity of the inverses; P^ext by lem:ii-e-1-2 (ii) at weight 2 l_flat; the auxiliary metrics of thm:ii-f-8-1, small at weight 1), and the one comparison l_flat >= l_I, in lem:ii-f1-2-6 (b)
+eq:ii-f1-7-1	-	-	new label (F4-S19): the extra smallness of rem:ii-f1-7-4, ||g - g_0|| < eps_flat in G~^(0,(2 l_flat,0,0))

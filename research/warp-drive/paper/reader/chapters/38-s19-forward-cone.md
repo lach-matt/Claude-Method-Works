@@ -708,8 +708,9 @@ be so small that every g_b with ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)
 the inversion identity of the proof of [[rem:ii-f1-7-4]] applies to the metrics of its (i)–(iii) whenever the metric g
 there satisfies ‖g − g_0‖_(𝒢̃^(0,(1,0,0))_(e3b)) < 3ε_♭/2. So ε_♭ depends on g_(b₀) alone. The condition holds for
 b near b₀: on {|x| ≥ 3R₁}, g_b − g_(b₀) = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞ (the proof of [[lem:iii-i-3-6]]),
-of norm O(|b − b₀|) by the argument of [[lem:iii-i-2-2]], and on {|x| ≤ 3R₁}, g_b is smooth in b and stationary. By it the time function t^♭ := t^♭_* of [[sec:iii-i-1]], built from g_(b₀) with ℓ = ½,
-serves every g_b, and Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
+of norm O(|b − b₀|) by the argument of [[lem:iii-i-2-2]], and on {|x| ≤ 3R₁}, g_b is smooth in b and stationary. By
+it the time function t^♭ := t^♭_* of [[sec:iii-i-1]], built from g_(b₀) with ℓ = ½, serves every g_b, and
+Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
 g_b⁻¹(dr, dr) ≤ −c and g_b⁻¹(dt, dr) > 0, with c := 31/450 independent of b; so dr is future timelike for g_b there.
 This makes the inner boundary {r = r₀} spacelike at every b ∈ B̄_1, and r decreasing along future causal curves on the
 collar {r₀ − 2δ₀ ≤ r ≤ r₀} and up to r₂ = 7R₁/8, with a margin uniform in b, as the energy estimates on slabs use at

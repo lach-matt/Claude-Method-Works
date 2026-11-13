@@ -836,3 +836,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   from T = (𝒱∂_𝒱 − 𝒰∂_𝒰)/r_h; uniformity in l with 𝔭Φ as a jet; the density step for lem:np-10-1b (b). Renames in
   chapter 64: K → K̄, 𝔪 → 𝔭, τ → 𝓉, ω → 𝔷, t_s, Y_H, v_Σ, 𝔠, ϱ, N → N_ν. ṁ kept (chapter 3's μ̇ is out of line: rename
   at integration). Chapter 65 needs K → K̄. Confirming reader running.
+- S27 second fix (F2-S27): Major lem:s27-below (iii) reproved by g_(b₀)⁻¹(dt_*, dt_*) ≤ 0 with exact Tangherlini values;
+  chapter 24's gluing constant renamed C_g and taken ≥ max(4(r′₀+1), 32, 16R₁). Minors: (1) on all of 𝒟 by chapter 45's
+  argument; ℐ⁺_♮ on the slab; (L) needs k ≥ 4, Duhamel, unique in H² (not H¹); (3) a modulus ω_k; (C3) item (iv);
+  two-sided boost-move bound; sign of ½□; Σ^past_(r₁) in lem:s27-cover (c). Chapter 48 cites changed statements
+  (lem:s27-cover (c); (L) in H²; thm:iv3-2-1 now k ≥ 1; lem:iii-k-2-2 (d)): update at S29's next round. Chapters 3, 60:
+  no cited statement changed. Open: chapter 38's class at ℓ_I < ½ against chapter 46's time function at ℓ = ½ (S19
+  decoupling round running). Third reading running.

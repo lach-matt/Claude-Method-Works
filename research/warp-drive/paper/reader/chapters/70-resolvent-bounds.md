@@ -1528,10 +1528,9 @@ l ≥ 2, and the root l + 2 is at least 2. At l = 0 the root 1 of det N_Υ(ι �
 P_0(ι + 1) = −(ι − 1)C(ι + 1) form the double root that D removes. Hence a root of det N^n_l with real part greater
 than 1 is at least 2 unless it is μ − 1 for a root μ of C (at l = 0) or of P_l (at l = 2, 4).
 
-*The roots of C and of P_l.* By [[prop:np-10-54]] and its proof, C has exactly one root greater than 2, its other two
-roots having real part below −100; and at l = 2, 4, P_l has exactly three roots, counted with multiplicity, with real
-part greater than 2, the other three having real part below −100. Expanding [[eq:s14-c0]] and the determinant of
-[[eq:s14-nl]] about ι = 2 gives C(2 + ε) = Σ_(k≤3) c_kε^k and P_l(2 + ε) = Σ_(k≤6) c_kε^k, with the exact coefficients
+*The roots of C and of P_l.* C is a cubic with leading coefficient −h², and P_l a sextic with leading coefficient −h³
+([[prop:np-10-12]] (iii)). Expanding [[eq:s14-c0]] and the determinant of [[eq:s14-nl]] about ι = 2 gives
+C(2 + ε) = Σ_(k≤3) c_kε^k and P_l(2 + ε) = Σ_(k≤6) c_kε^k, with the exact coefficients
 
     C:    c_0 = 1.4948443959375·10⁻⁴,  c_1 = −1.999957171827171875,  c_2 = −2.999994234375·10⁻⁶,  c_3 = −10⁻¹²;
     P_2:  c_0 = 1.131875750625·10⁻⁹,  c_1 = −3.9186117873477253125·10⁻⁴,  c_2 = 2.000144656033436956015625,
@@ -1543,12 +1542,19 @@ and, for P_2 and P_4, |c_4| < 5·10⁻⁶, |c_5| < 4·10⁻¹² and c_6 = −10�
 0 ≤ ε ≤ 2·10⁻⁵. Let (ε_−, ε_+) be (7.474375·10⁻⁵, 7.474385·10⁻⁵) for C, (2.93235·10⁻⁶, 2.93245·10⁻⁶) for P_2 and
 (1.692235·10⁻⁵, 1.692245·10⁻⁵) for P_4. The sums c_0 + c_1ε + c_2ε² + c_3ε³ at ε = ε_− and ε = ε_+ are
 1.4071…·10⁻¹⁰ and −5.9280…·10⁻¹¹ for C, 1.6962…·10⁻¹⁶ and −3.7843…·10⁻¹⁴ for P_2, and 1.7929…·10⁻¹⁴ and
-−6.2962…·10⁻¹⁴ for P_4; so C and P_l are positive at 2 + ε_− and negative at 2 + ε_+. From [[eq:s14-nl]],
-moreover, P_2(5/2) = 0.2498…, P_2(3) = −2.1037…·10⁻⁴, P_4(5/2) = 0.2496… and P_4(3) = −6.1511…·10⁻⁴. Hence C has a
-root in (2 + ε_−, 2 + ε_+), which is its only root greater than 2; and P_l has a root in each of (2 + ε_−, 2 + ε_+),
-(2 + ε_+, 5/2) and (5/2, 3), which are therefore its three roots with real part greater than 2, each simple, the least
-being ι_l. So ι_l − 1 ∈ (1 + ε_−, 1 + ε_+), which is [[eq:rb-roots-point]]; every other root of det N^n_l coming from C
-or P_l has real part below −101 or, at l = 2, 4, greater than 1 + ε_+; with the first part the lemma follows. ∎
+−6.2962…·10⁻¹⁴ for P_4; so C and P_l are positive at 2 + ε_− and negative at 2 + ε_+, and C(2) = c_0 > 0 and
+P_l(2) = c_0 > 0. From [[eq:s14-c0]] and [[eq:s14-nl]], moreover,
+
+    C(−1.5·10⁶) = −3.7505…·10⁵,
+    P_2(−1.5·10⁶) = 4.2193…·10¹⁷,  P_2(−999980) = −4.0028…·10⁸,  P_2(5/2) = 0.2498…,  P_2(3) = −2.1037…·10⁻⁴,
+    P_4(−1.5·10⁶) = 4.2193…·10¹⁷,  P_4(−999980) = −4.0028…·10⁸,  P_4(5/2) = 0.2496…,  P_4(3) = −6.1511…·10⁻⁴.
+
+C tends to +∞ as ι → −∞, so it has a root in each of (−∞, −1.5·10⁶), (−1.5·10⁶, 2) and (2 + ε_−, 2 + ε_+); these are
+its three roots, real and simple, and ι_0 is the third. P_l tends to −∞ as ι → −∞, so it has a root in each of
+(−∞, −1.5·10⁶), (−1.5·10⁶, −999980), (−999980, 2), (2 + ε_−, 2 + ε_+), (2 + ε_+, 5/2) and (5/2, 3); these are its six
+roots, real and simple, and ι_l is the fourth. So ι_l − 1 ∈ (1 + ε_−, 1 + ε_+), which is [[eq:rb-roots-point]]; every
+other root of det N^n_l coming from C or P_l is real and lies below 1 or, at l = 2, 4, above 1 + ε_+; with the first
+part the lemma follows. ∎
 
 *The horizon.* Write x := a_vγ_C r_h, with a_v the dv-component of c_C at r_h.
 
