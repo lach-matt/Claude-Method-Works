@@ -201,7 +201,7 @@ We write N̄ := R̄₂ + hR̄₃ and N̄′ := R̄₂′ + hR̄₃′, which bou
 (centre p = 0), and M̄_B, M̄_a (with M̄_B′, M̄_a′ for the s-derivatives) for the majorants of the re-expansions
 R₁(2 + x + s, x) and R₁(a(x) + s, x), polynomials in (s, x) with the centres p = 2 + x and p = a(x); all are listed
 in [[sec:tab-a-split]]. By the lemma, on |ι − p| ≤ ϱ with p = 2 + x, resp. p = ζ (so that |ι − a| ≤ b + ϱ and
-|ι| ≤ |ζ| + ϱ), and 0 ≤ x ≤ x_b,
+|ι| ≤ |ζ| + ϱ), and x_a ≤ x ≤ x_b for an interval [x_a, x_b] of [[sec:tab-a-pieces]],
 
     |W| ≤ M̄_B(ϱ, x_b) + hN̄(2 + x_b + ϱ, x_b),   resp.   |W| ≤ M̄_a(b + ϱ, x_b) + hN̄(|ζ| + ϱ, x_b),
 
@@ -403,13 +403,14 @@ bound is attained at the end h = 10⁻⁶ of the interval on which ε_ind is def
 
 **Remark {#rem:s14-pa-low-types}** (The scalar types 0 and 1 of the gauge potential operator.) The lists of
 [[ch:s15]] at scalar types 0 and 1 also contain the entries 2 − ι^Υ_(s0,2), 1 + ι^Υ_(s0,2) and 2 − ι^Υ_(s1,j),
-1 + ι^Υ_(s1,j) (j = 2, 3) of [[lem:iii-d-4-1]]. By [[eq:s13-dets]], ι^Υ_(s0,2) = (1 + (9 + 4z)^(1/2))/2, and for l ≥ 1
-the numbers ι^Υ_(sl,l+1) ∈ (l + 1, l + 5/4) and ι^Υ_(sl,l+2) ∈ (l + 2, l + 9/4) are roots of Q_l of [[sec:s14-simple]],
-whose roots are those of Q_l(ι − 1) less 1; so by [[prop:np-10-52]] (i) at u = l + 1, whose proof applies for every
-u ≥ 2, ι^Υ_(sl,l+1) = l + 1 + d₂ and ι^Υ_(sl,l+2) = l + 2 + d₁. The distances of the entries from ℤ are therefore
-ϖ₀ := ι^Υ_(s0,2) − 2 = z/(3/2 + (9/4 + z)^(1/2)) > z/(3 + z/3) > 1.33·10⁻⁶ at type 0, and at type 1 (u = 2)
-d₂ = z(1 + θ₂)/12 > 3.3·10⁻⁷ and d₁ = 3z(1 + θ₁)/20 > 5.9·10⁻⁷. All exceed δ_50, so with these entries the infimum at
-h = 10⁻⁶ is still δ_50.
+1 + ι^Υ_(s1,j) (j = 2, 3) of [[lem:iii-d-4-1]]. By the proof of that lemma, ι^Υ_(s0,2) = (1 + (9 + 4z)^(1/2))/2, the
+larger root of ι² − ι − 2 − z, and for l ≥ 1 the numbers ι^Υ_(sl,l+1) ∈ (l + 1, l + 2) and ι^Υ_(sl,l+2) ∈ (l + 2, l + 3)
+are roots of the polynomial Q_l of [[sec:s14-simple]]. The roots of Q_l are those of Q_l(ι − 1) less 1, that is, by
+[[prop:np-10-52]] (i) at u = l + 1, whose proof applies for every u ≥ 2, the numbers l + 2 + d₁, −l − 1 − d₁,
+l + 1 + d₂ and −l − d₂, with 0 < d₂ < d₁ < 1; so ι^Υ_(sl,l+1) = l + 1 + d₂ and ι^Υ_(sl,l+2) = l + 2 + d₁. The
+distances of the entries from ℤ are therefore ϖ₀ := ι^Υ_(s0,2) − 2 = z/(3/2 + (9/4 + z)^(1/2)) > z/(3 + z/3) >
+1.33·10⁻⁶ at type 0, and d₂ = z(1 + θ₂)/12 > 3.3·10⁻⁷ and d₁ = 3z(1 + θ₁)/20 > 5.9·10⁻⁷ at type 1 (u = 2). All exceed
+δ_50, so with these entries the infimum at h = 10⁻⁶ is still δ_50.
 
 #### Sums of the gauge potential offsets {#sec:pa-gap-sums}
 
@@ -480,7 +481,8 @@ sums of one of the generators 2, 3, λ_♯, any number of increments ϖ₁ and a
 and a sum with two increments of integer part 1 is at least λ_♯ + 2 > 3 + ε_K, so it misses all three windows. By
 [[prop:gap-sums]] no element of 𝒮 lies in the first two windows when ε_K < 5.019·10⁻⁸. The third window adds
 nothing: for λ = g + nϖ₁ ∈ 𝒮 (t = 0), λ + ϖ₁ − 2 = s − 2 and λ + ϖ₀ − 2 = s′ − 3 with s = g + (n + 1)ϖ₁ and
-s′ = g + (1 + ϖ₀) + nϖ₁ in 𝒮, and every other λ ∈ 𝒮 is at least 3, so that λ + d_c0 and λ + d_c1 exceed 3; by
-[[prop:gap-sums]] again, none of them lies in (2, 2 + ε_K] when ε_K < 5.019·10⁻⁸. [[thm:settling]] takes
+s′ = g + (1 + ϖ₀) + nϖ₁ in 𝒮, so by [[prop:gap-sums]] again neither λ + ϖ₁ nor λ + ϖ₀ lies in (2, 2 + ε_K] when
+ε_K < 5.019·10⁻⁸;
+every other λ ∈ 𝒮 is at least λ_♯ + 1 > 5/2, so that λ + d_c0 and λ + d_c1 exceed 2 + ε_K. [[thm:settling]] takes
 ε_K < ε_ind(h) ≤ δ_50 < 5.019·10⁻⁸ for every h ∈ 𝖧; so these sums impose no condition beyond those of
 [[thm:settling]]. No other result of this paper uses [[prop:gap-sums]].

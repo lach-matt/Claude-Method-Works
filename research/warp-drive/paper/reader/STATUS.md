@@ -43,7 +43,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | running |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | running | - |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | running | - |
-| 63 M Ch 13 | being written | - | - |
+| 63 M Ch 13 | written (959 lines; issue-1 order k_P, issue-2 commuted cut-off energy); running | - | - |
 | 64 M Ch 14 | written (1,031 lines, no markers); running | - | - |
 | 65 M Ch 15 | being written | - | - |
 | 70 M Ch 17 | being written | - | - |
@@ -64,3 +64,4 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n (arithmetic digits, lens corollary); fix running; C2 deleted |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | running |
 | P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | - |
+| P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | - |

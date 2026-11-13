@@ -1350,10 +1350,14 @@ X₀a ∈ ρ₀C^∞; so R commutes with the leading part, and [A, R] = [ρ₀�
 most α₀ (those known) and h_r ∈ H^(∞,α₀) at I₀. Then Rh_e = 0, so [A, R]h_e = −RAh_e. At I₀, Ah_e has its expansion in
 ℰ₀ (smooth coefficients only add ℕ₀), and R removes its terms up to α₁, leaving order > α₁. At ℐ⁺, Ah_e lies in
 (−′, ℓ^♭_I + 1): the leading part sends the slots other than 6 from the weight ℓ^♭_I to ℓ^♭_I + 1 and annihilates the
-radiation field ρ_I^(3/2)a of slot 6 (Ā₆₆ = Ā_(6i) = Ā₇₆ = 0, so on it X_I − 3/2 − Ā acts as X_I − 3/2, which commutes
-past X₀ − X_I), and ρ₀⁻²R̃_b gains ρ_I². And [A, R]h_r ∈ H^(∞,α₀+1) at I₀, with α₀ + 1 ≥ α₁, and it has the weight at
+radiation field ρ_I^(3/2)a of slot 6 (column 6 of Ā vanishes: Ā_(j6) = 0 for j < 6, Ā being lower triangular, and
+Ā₆₆ = Ā₇₆ = 0; so on it X_I − 3/2 − Ā acts as X_I − 3/2, which commutes past X₀ − X_I), and ρ₀⁻²R̃_b gains ρ_I². And [A, R]h_r ∈ H^(∞,α₀+1) at I₀, with α₀ + 1 ≥ α₁, and it has the weight at
 least 3/2 + 2 > ℓ^♭_I + 1 at ℐ⁺. So ρ₀²[A, R]h ∈ H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. The data of Rh lie in
-H^(∞,α₁)_b(Σ_(IVP,r₀)). [[eq:iii-c1-2-2]] with h = 0 and α₀ replaced by α₁ > ℓ^♭_I gives
+H^(∞,α₁)_b(Σ_(IVP,r₀)). Indeed X₀ is not tangent to Σ_IVP near I₀ (there X₀ = ρ∂_ρ + 2ρ∂_τ in the coordinates (τ, ρ)),
+so these data involve the normal derivatives ∂^j_(τ′)h on Σ_IVP. These are determined by h₀, h₁ and the equation, which
+is non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b (jℰ₀ ⊂ ℰ₀ for the nonlinear terms); so the
+jet of h on Σ_IVP has its expansion at ∂Σ_IVP in ℰ₀ up to ℓ₀ ≥ α₁, and R removes its terms with real part at most α₁
+(the converse part of [[lem:iii-a-1-3]]). [[eq:iii-c1-2-2]] with h = 0 and α₀ replaced by α₁ > ℓ^♭_I gives
 Rh ∈ H^(∞,α₁,(−,ℓ^♭_I))_b, and [[lem:iii-a-1-3]] gives h ∈ H^(∞,(ℰ₀,α₁),(−,ℓ^♭_I))_b. After finitely many steps,
 h ∈ H^(∞,(ℰ₀,ℓ₀),(−,ℓ^♭_I))_b.
 
@@ -1481,7 +1485,8 @@ h_S ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₁)) solve
 
 ([[lem:iii-c2-1-1]]). Then:
 
-(1) h_S at S = 0 is h on Ω_(ext,r₁); and under the hypotheses of (3), h_S = φ_S*h near Σ_(IVP,r₁);
+(1) h_S at S = 0 is h on Ω_(ext,r₁); and under the hypotheses of (3), h_S = φ_S*h on a neighbourhood in Ω_(ext,r₁) of
+Σ°_(IVP,r₁) := Σ_(IVP,r₁) ∩ {|x| > r₁};
 
 (2) h_S depends smoothly on S, in the sense of [Hin26, footnote 59]: it is C^l in S with values in
 H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b for data of regularity depending on k and l;
@@ -1501,8 +1506,15 @@ P^(χ₀)(φ_S*g_(b₀) + φ_S*h, φ_S*g_(b₀)) vanish on 𝒰, and φ_S*h solv
 stationary 1-form c_C of [[def:iii-b-6-1]], which a boost does not preserve (φ_S*c_C ≠ c_C); so φ_S*h solves the
 equation with φ_S*c_C, while [[eq:iii-c2-3-3]] has c_C, and the two agree where Υ⁰ vanishes. Without the constraints
 statement (1) is not proved here; [Hin26, Theorem 5.23 (1)] states it without them, but its proof pulls back the whole
-operator. By uniqueness for the quasilinear wave equation ([[thm:iii-c1-2-1]]) and finite speed of propagation,
-h_S = φ_S*h on the domain of dependence of Σ_(IVP,r₁) inside 𝒰. The data [[eq:iii-c2-3-1]] lie in
+operator. So v := h_S − φ_S*h satisfies L̄v = 0 on 𝒰 with vanishing Cauchy data on Σ_(IVP,r₁), where, with
+g₀ := φ_S*g_(b₀) and g_s := g₀ + φ_S*h + sv, L̄ := ∫₀¹ L^(χ₀)_(g_s,g₀) ds. Each g_s is a convex combination of
+φ_S*(g_(b₀) + h) and φ_S*g_(b₀) + h_S, so it is close to g_(b₀) in the frame of [[eq:iii-c-1-6]] for |S| and the data
+small ([[lem:iii-c2-1-1]]); hence 2L̄ has principal symbol ḡ⁻¹(ζ, ζ)Id with ḡ⁻¹ := ∫₀¹ g_s⁻¹ ds, the inverse of a
+Lorentzian metric ḡ for which dt_IVP is timelike. Let M := 𝒰 ∩ Ω°_(ext,r₁), the interior, time-oriented by ∂_t.
+t_IVP increases along future ḡ-causal curves in M, so Σ°_(IVP,r₁) ⊂ M is acausal, and its Cauchy development D in M
+is open, globally hyperbolic and has Σ°_(IVP,r₁) as a Cauchy hypersurface ([[thm:std-bgp-development]]). On D the
+coefficients of L̄ are smooth and v and its first derivatives vanish on Σ°_(IVP,r₁), so [[lem:s26-uniqueness]] with
+P = 2L̄ gives v = 0 on D, a neighbourhood of Σ°_(IVP,r₁) in Ω_(ext,r₁). The data [[eq:iii-c2-3-1]] lie in
 H^(∞,(ℰ₀,ℓ₀))_b(Σ_(IVP,r₁)): h is of that class near Σ_(IVP,r₁) away from ℐ⁺, and pullback by φ_S preserves weighted,
 partially polyhomogeneous b-Sobolev spaces near compact subsets of the interior of I₀ (φ_S is the flow of a b-vector
 field; [Hin26, after (5.77b)]); ℒ_(∂_(t_IVP)) and r are a b-vector field and a weight there.
@@ -1527,9 +1539,11 @@ space of [[eq:iii-c-5-2]]. The linear estimate [[eq:iii-c1-2-2]], which holds fo
 the same estimate applied to their difference with ḣ, and higher derivatives follow likewise, with the losses of
 [Hin26, footnote 59].
 
-(3) By (1), φ_S*g_(b₀) + h_S = φ_S*(g_(b₀) + h) near Σ_(IVP,r₁), and by the proof of (1) its Ricci tensor and Υ⁰
-vanish on 𝒰 ⊃ Σ_(IVP,r₁); so its data at Σ_(IVP,r₁) satisfy the constraints, and Υ^(χ₀E_Υ) = Υ⁰ = 0 there (χ₀ = 0
-near Σ_(IVP,r₁)). [[rem:iii-c1-2-2]] (1), with [[rem:iii-c1-2-2]] (2) for the background φ_S*g_(b₀) and with
+(3) The metrics φ_S*g_(b₀) + h_S and φ_S*(g_(b₀) + h) have the same Cauchy data on Σ_(IVP,r₁) ([[eq:iii-c2-3-1]],
+[[eq:iii-c2-3-3]]), hence the same first and second fundamental forms and the same Υ⁰ there, Υ⁰ involving the metric
+and its first derivatives only; so (3) does not depend on (1). By the proof of (1), the Ricci tensor and Υ⁰ of
+φ_S*(g_(b₀) + h) vanish on 𝒰 ⊃ Σ_(IVP,r₁). So the data of φ_S*g_(b₀) + h_S at Σ_(IVP,r₁) satisfy the constraints, and
+Υ^(χ₀E_Υ) = Υ⁰ = 0 there (χ₀ = 0 near Σ_(IVP,r₁)). [[rem:iii-c1-2-2]] (1), with [[rem:iii-c1-2-2]] (2) for the background φ_S*g_(b₀) and with
 [[prop:np-10-57-d]] for the cut-off gauge, applied to [[eq:iii-c2-3-3]], gives the conclusions on Ω_(ext,r₁). ∎
 
 **Remark {#rem:iii-c2-3-2}** ([Hin26, Remark 5.24] in dimension 4 + 1.) If h₀ = h₁ = 0, then h_S = 0 by uniqueness,

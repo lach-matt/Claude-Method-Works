@@ -139,14 +139,13 @@ Killing initial data of flat space ([[eq:v-0-4]]). On G-invariant data only its 
 in G, being the composition of the half-turns of the planes (x1, x2) and (x3, x4), so G-invariant data are invariant
 under x ↦ −x; in space dimension 4 the gluing needs no parity condition at all ([[rem:s28-cd03]]). The flux identity
 [[eq:v-1-1]] at X = e₀ bounds the distance of the glued mass from μ_end by the size of the data's deviation on the
-annulus: the flux of Tangherlini's data on the Kerr–Schild slices is 6π²m at every radius (the part *c_E* of the
-proof of [[prop:v-2-3]]), and its charge on Σ^IVP is 6π²m ([[lem:vii-2-1]] (c)); the remainder q_(e₀) vanishes to
-second order at flat data, and together these give the mass bound of step (6) of the proof of [[prop:vii-2-2]]. So the glued data
-stay O(λ)-close to Tangherlini in the weighted norm of the stability theory at a fixed gluing radius
-([[cor:vii-2-3]], [[rem:s28-mass-bound]]). The stability theorem, run on G-invariant spaces with its choices made
-equivariant ([[lem:vii-3-1]]), gives a G-invariant development whose final parameters, fixed by G, are a mass alone
+annulus: the flux of Tangherlini's data on the Kerr–Schild slices is 6π²m at every radius (the part *c_E* of the proof of
+[[prop:v-2-3]]), and its charge on Σ^IVP is 6π²m ([[lem:vii-2-1]] (c)); the remainder q_(e₀) vanishes to second order at
+flat data, and together these give the mass bound of step (6) of the proof of [[prop:vii-2-2]]. So the glued data stay
+O(λ)-close to Tangherlini in the weighted norm of the stability theory at a fixed gluing radius ([[cor:vii-2-3]],
+[[rem:s28-mass-bound]]). The stability theorem, run on G-invariant spaces with its choices made equivariant
+([[lem:vii-3-1]]), gives a G-invariant development whose final parameters, fixed by G, are a mass alone
 ([[prop:vii-3-2]]). These are the data and the development of item (i) of [[thm:settling]].
-
 The glued data are not the data of a continuation of g_λ beyond the ball, and their development is not one. The
 developments of two data sets that agree on Σ^IVP ∩ {r ≤ R} agree on the domain of dependence of that set; the
 statement of settling concerns late times near the hole, outside it.

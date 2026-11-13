@@ -496,3 +496,11 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S17 confirmed (R3-S17). Nits: L1069 and L1433 "min Re ℰ_ind ≥ ε_Υ" should cite S13 and prop:iii-f4-5-1; L590,
   L731-732, L931 treat λ_♯ as a pole without λ_♯ < ℓ_I; the tensor index m beside the mass m (L1768, L1879,
   prop:np-10-64); two masses called m at L1792-1794. S20:1269 still calls the gain ε_ind (ε sweep).
+- Chapter 63 written (W-63). issue-1: the past construction's order raised from k1 + 5 to k_P := 2k1 + 14 (K*
+  unchanged) — to be confirmed by the reader. issue-2 (serious): the source's Step 6 checks small energy near the
+  cut-off band only for the uncommuted field; the twice Z-commuted field's energy appears to grow like |T|^(2a−4) and
+  diverge on the whole window. An independent reader and a proof project (proofs/P-I-cutoff.md) run in parallel.
+  prop:own-same-index-sets answers rem:half-class-changes (log orders do not rise, for every m). Proof G needs three
+  rewordings (F_p smooth only up to s = 0; h_R does not vanish beyond the band on the initial slice, same exponent
+  2a − 6; chapter 63 uses the flat Σ_4). Notation: N for the null boundary clashes with OUTLINE's N; proof G's k := dv
+  clashes with the data's k. DLMF (15.10.1), (15.5.1), (15.4.28) for Appendix A.

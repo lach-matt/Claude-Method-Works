@@ -145,11 +145,10 @@ and let g be Ricci-flat. Then □^C = □_g + h⁻¹ 𝓛_c, where □_g = −�
 
     h G_g E^C ω = 2c ⊗_s ω + (−1 + m_tr(1 − e)(D/2 − 1)) g⟨c, ω⟩,
 
-and the coefficient of g⟨c, ω⟩ is −e for every e exactly when m_tr(D/2 − 1) = 1, that is m_tr = 2/(D − 2). With
-δ(f g) = −df and δ(2c ⊗_s ω)_a = −∇^b(c_a ω_b + c_b ω_a) = −(∇_(ω♯)c)_a − c_a div ω − (div c) ω_a − (∇_(c♯)ω)_a, this gives
-2δ_g G_g E^C ω = h⁻¹ 𝓛_c ω. Finally 2δ_g G_g δ*_g ω = 2δδ*ω + d(div ω), and
-2(δδ*ω)_a = −∇^b∇_a ω_b − ∇^b∇_b ω_a = −∇_a(div ω) − Ric(g)_a^b ω_b − ∇^b∇_b ω_a; on a Ricci-flat metric the sum is
-−∇^b∇_b ω = □_g ω. ∎
+and the coefficient of g⟨c, ω⟩ is −e for every e exactly when m_tr(D/2 − 1) = 1, that is m_tr = 2/(D − 2). With δ(f g) =
+−df and δ(2c ⊗_s ω)_a = −∇^b(c_a ω_b + c_b ω_a) = −(∇_(ω♯)c)_a − c_a div ω − (div c) ω_a − (∇_(c♯)ω)_a, this gives 2δ_g
+G_g E^C ω = h⁻¹ 𝓛_c ω. Finally 2δ_g G_g δ*_g ω = 2δδ*ω + d(div ω), and 2(δδ*ω)_a = −∇^b∇_a ω_b − ∇^b∇_b ω_a = −∇_a(div
+ω) − Ric(g)_a^b ω_b − ∇^b∇_b ω_a; on a Ricci-flat metric the sum is −∇^b∇_b ω = □_g ω. ∎
 
 **Proposition {#prop:np-10-12}** (The indicial families on 4 + 1 Minkowski space.) Let g = η = −dt² + dr² + r² 𝑔̸ on
 ℝ_t × ℝ⁴, c = r⁻¹(dt − v dr), let S be a spherical harmonic of degree l on 𝕊³, and let V be a co-closed eigen-1-form of
@@ -418,13 +417,13 @@ F(ω) = a′(bω_t − aω_r) and K(c♯, c♯) = b(bb′ − aa′). K, Π and 
 angular covectors, so S is block diagonal in the splitting by dt, dr and r dω, free of the angles, and scalar on
 r dω, where B = g⁻¹ and s = −(2b/r + tr K)⟨·, ·⟩:
 
-    S = −(b′ + 5b/r)     on r dω.                                                                          {#eq:s14-s-ang}
+    S = −(b′ + 5b/r)     on r dω.                                                                         {#eq:s14-s-ang}
 
 On span{dt, dr}, in the basis (dt, dr), the matrices of s and B are
 
     s = (0, a′; a′, −2b′) + (tr K)(1, 0; 0, −1) + (1 + e)a′G⁻¹(−2ab, a² + b²; a² + b², −2ab)
         + ((1 + e)²G⁻¹ tr K + 2(1 − e²)G⁻²b(bb′ − aa′))(a², −ab; −ab, b²),
-    B = (−1, 0; 0, 1) − (1 + e)G⁻¹(a², −ab; −ab, b²),                                                       {#eq:s14-s-rad}
+    B = (−1, 0; 0, 1) − (1 + e)G⁻¹(a², −ab; −ab, b²),                                                     {#eq:s14-s-rad}
 
 and S = B⁻¹s, the rows being the components of Sω.
 
@@ -545,7 +544,8 @@ for angular indices A, B, Γ^λ_(AB) = −r g^(λr)𝑔̸_(AB) (λ ∈ {t, r}), 
 K_(μν) = ∂_μc_ν − Γ^λ_(μν)c_λ has no component mixing {t, r} with the angles; its angular part is (c^r/r)Π, with
 Π := r²𝑔̸ and c^r := ⟨c, dr⟩ = mr⁻²c_t + fc_r; and on {t, r}
 
-    K_tt = −Γ^t_tt c_t − Γ^r_tt c_r,     K_tr = K_rt = −Γ^t_tr c_t − Γ^r_tr c_r,     K_rr = −v/(2r_0²) − Γ^t_rr c_t − Γ^r_rr c_r,
+    K_tt = −Γ^t_tt c_t − Γ^r_tt c_r,     K_tr = K_rt = −Γ^t_tr c_t − Γ^r_tr c_r,
+    K_rr = −v/(2r_0²) − Γ^t_rr c_t − Γ^r_rr c_r,
 
 with tr K = g^(tt)K_tt + 2g^(tr)K_tr + g^(rr)K_rr + 3c^r/r. As on Minkowski space, s and B do not mix span{dt, dr} with
 the angular covectors, on which ⟨c, ·⟩ vanishes; so S is block diagonal and free of the angles, and on r dω it is the
@@ -616,7 +616,7 @@ and M + 2N = D M_(−v) D, where M_(−v) is M with −v for v and D is the refl
 h⁻¹{2(1 + v), (1 − e)(1 + v), 1 + v (three times)}. Consequently the number ϑ_in of [[sec:i-a-1-4]] for the spectral
 family of □^C, evaluated with a fibre inner product in which an eigenbasis of M + 2N is orthonormal, is
 
-    ϑ_in = −2h⁻¹(1 − e)(1 + v),     so that     (−1 + ϑ_in)/2 = −½ − h⁻¹(1 − e)(1 + v);                    {#eq:s14-theta-in}
+    ϑ_in = −2h⁻¹(1 − e)(1 + v),     (−1 + ϑ_in)/2 = −½ − h⁻¹(1 − e)(1 + v);                {#eq:s14-theta-in}
 
 and the same holds for □^C_b, b near b₀, with c_C. Moreover the isometry t ↦ −t of η carries c_v := r⁻¹(dt − v dr)
 to −c_(−v), so it conjugates □^C with (c_v, h⁻¹) to the operator with (c_(−v), −h⁻¹);
@@ -647,8 +647,9 @@ definition of N,
 
     (M + 2N)ω = (dt − v dr)(ω_t − ω_r) + (1 + v)ω − e(dt + dr)(ω_t + vω_r),
 
-and D M_(−v) Dω is the same expression, since M_(−v)ω = (dt + v dr)(ω_t + ω_r) + (1 + v)ω − e(dt − dr)(ω_t − vω_r)
-and D reverses the signs of dr and of ω_r. So the spectrum of M + 2N is that of M_(−v), read off (i), and it is diagonalisable as M_(−v) is.
+and D M_(−v) Dω is the same expression, since M_(−v)ω = (dt + v dr)(ω_t + ω_r) + (1 + v)ω − e(dt − dr)(ω_t − vω_r) and D
+reverses the signs of dr and of ω_r. So the spectrum of M + 2N is that of M_(−v), read off (i), and it is diagonalisable
+as M_(−v) is.
 
 For ϑ_in, recall p_in = σ(ρ⁻¹Im_H P̂(0))|_(ρ=0, ξ=−2, η=0) and the structure [[eq:i-a-1-2]] of the spectral family,
 here with S = S̄^C = h⁻¹M at ρ = 0; H denotes the fibre inner product. The scattering symbol of ∂_r at ξ dr is iξ, so
@@ -821,17 +822,18 @@ roots only. ∎
 
     α_K := 1,     α_sf := −C_0 − 5/2,                                                                       {#eq:iv4-2-1}
 
-w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1), c_C satisfies the conditions (1)–(6) of [Hin26a, Proposition
-5.1] on Tangherlini space g_(b₀), for some δ_r > 0 and with δ_sf = 1/100. In dimension 4 + 1, with r_c the radius of
-the saddle (the r_0 of [Hin26a]) and r_♯ the inner radius ([[sec:iv5-0]]), these conditions are: (1) r c is past
-timelike on {r ≥ r_♯}; (2) c = ½r_c⁻²(r_c dt − v(r − r_c) dr) on [r_c/2, 2r_c] and c = r⁻¹(dt − v dr) for r ≥ 3r_c;
-(3) the S of [[eq:s14-s]] is positive definite on |r − r_c| ≤ (6/5)r_ce^(1/2)/v; (4) r²(−ℓ(dw/w) + S) is positive
-definite near the corner ∂K⁺, on {ρ_sf ≤ 2δ_r, ρ_K ≤ 2δ_r}; (5) r²(−ℓ(dw′/w′) + S) is positive definite near the
-sink, on {ρ_sf ≤ 2δ_r, |(r/t)/v − 1| ≤ 2δ_sf}; (6) −ℓ(−dr) is positive definite on [r_♯, r_c − r_ce^(1/2)/v] and
-−ℓ(dr) on [r_c + r_ce^(1/2)/v, ∞), and on 𝗌𝖿 the two conditions of [Hin26a, (5.8)] hold: −r²ℓ(d(r/t)) is positive
-definite for r/t ∈ [δ_r, v(1 − δ_sf)], and −r²ℓ(−d(r/t)) for r/t ∈ [v(1 + δ_sf), 10]. The conditions also hold on g_b for b near b₀,
-with smaller δ_r and the same δ_sf, conditions (5)–(6) on 𝗌𝖿 not depending on b. The same holds with C_0 − 1 for C_0 in [[eq:iv4-2-1]], that is at
-α_sf = −C_0 − 3/2, for every C_0 ≥ 0: the conditions at 𝗌𝖿 are then b_sf = −C_0 − 1/2 < b* and b_K = 1 > b_sf − b*.
+w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1), c_C satisfies the conditions (1)–(6) of [Hin26a, Proposition 5.1]
+on Tangherlini space g_(b₀), for some δ_r > 0 and with δ_sf = 1/100. In dimension 4 + 1, with r_c the radius of the
+saddle (the r_0 of [Hin26a]) and r_♯ the inner radius ([[sec:iv5-0]]), these conditions are: (1) r c is past timelike on
+{r ≥ r_♯}; (2) c = ½r_c⁻²(r_c dt − v(r − r_c) dr) on [r_c/2, 2r_c] and c = r⁻¹(dt − v dr) for r ≥ 3r_c; (3) the S of
+[[eq:s14-s]] is positive definite on |r − r_c| ≤ (6/5)r_ce^(1/2)/v; (4) r²(−ℓ(dw/w) + S) is positive definite near the
+corner ∂K⁺, on {ρ_sf ≤ 2δ_r, ρ_K ≤ 2δ_r}; (5) r²(−ℓ(dw′/w′) + S) is positive definite near the sink, on {ρ_sf ≤ 2δ_r,
+|(r/t)/v − 1| ≤ 2δ_sf}; (6) −ℓ(−dr) is positive definite on [r_♯, r_c − r_ce^(1/2)/v] and −ℓ(dr) on [r_c + r_ce^(1/2)/v,
+∞), and on 𝗌𝖿 the two conditions of [Hin26a, (5.8)] hold: −r²ℓ(d(r/t)) is positive definite for r/t ∈ [δ_r, v(1 −
+δ_sf)], and −r²ℓ(−d(r/t)) for r/t ∈ [v(1 + δ_sf), 10]. The conditions also hold on g_b for b near b₀, with smaller δ_r
+and the same δ_sf, conditions (5)–(6) on 𝗌𝖿 not depending on b. The same holds with C_0 − 1 for C_0 in [[eq:iv4-2-1]],
+that is at α_sf = −C_0 − 3/2, for every C_0 ≥ 0: the conditions at 𝗌𝖿 are then b_sf = −C_0 − 1/2 < b* and b_K = 1 > b_sf
+− b*.
 
 *Proof.* (1)–(3) and (6) off 𝗌𝖿 are [[prop:np-10-14]] (i)–(iii). (4)–(6) at 𝗌𝖿: the symbol T = r²(−ℓ(dw/w) + S)
 depends only on ρ_K and the weights there; it is positive definite at ∂K⁺ iff b_K > b_sf − b* and at the sink iff
@@ -1001,16 +1003,17 @@ point out of Ω there, and −dr is past timelike;
 
 *Proof.* (a) The time orientation is the one in which dt is past timelike ([Hin26a, p. 14]). By [[lem:iii-b-3-3]] (e),
 g⁻¹(dt − β dr, dt − β dr) = −(1 − β²) − H_b(1 + βr_A/|x|)² < 0 for β ∈ (−1, 1], wherever the condition of
-[[lem:iii-b-3-3]] (c) holds, which is all of {r ≥ ½r_♯} ([[lem:s11-ks-domain]]). The family s ↦ d(t − sβr), s ∈ [0, 1], is timelike throughout
-and starts at dt, so it stays in the past cone. A future timelike V has dt(V) > 0, since dt is past timelike.
+[[lem:iii-b-3-3]] (c) holds, which is all of {r ≥ ½r_♯} ([[lem:s11-ks-domain]]). The family s ↦ d(t − sβr), s ∈ [0, 1],
+is timelike throughout and starts at dt, so it stays in the past cone. A future timelike V has dt(V) > 0, since dt is
+past timelike.
 
 (b) dτ = r⁻¹(dt − τ dr), so r²g⁻¹(dτ, dτ) is the quantity of (a) at β = τ ∈ [0, ½], at most −(1 − ¼). As
 g_3b⁻¹ = r²g⁻¹, this is the claim; on Tangherlini space it is [[prop:np-10-22]] (ii).
 
-(c) At b₀, g⁻¹(dr, dr) = 1 − m₀r⁻² ≤ 1 − 16/9 on [½r_♯, r̂], its value at r̂, as smaller r make it more negative, and g⁻¹(dr, dt) = m₀r⁻² > 0 ([[prop:np-10-22]] (iii)). The
-second says that the timelike covectors dr and dt lie in opposite cones, so dr is future timelike. Both strict
-inequalities hold on a compact set, and g⁻¹ is continuous in b there, so they persist on a neighbourhood U of b₀. A
-future timelike V has dr(V) < 0, so V points out of {r ≥ r_♯}.
+(c) At b₀, g⁻¹(dr, dr) = 1 − m₀r⁻² ≤ 1 − 16/9 on [½r_♯, r̂], its value at r̂, as smaller r make it more negative, and
+g⁻¹(dr, dt) = m₀r⁻² > 0 ([[prop:np-10-22]] (iii)). The second says that the timelike covectors dr and dt lie in opposite
+cones, so dr is future timelike. Both strict inequalities hold on a compact set, and g⁻¹ is continuous in b there, so
+they persist on a neighbourhood U of b₀. A future timelike V has dr(V) < 0, so V points out of {r ≥ r_♯}.
 
 (d) is direct. ∎
 
@@ -1239,7 +1242,8 @@ and all sufficiently small h > 0.
 |ζ| < 2} and Ell(E) ⊃ {|s/v − 1| ≤ 2δ_sf, ρ_sf ≤ 2δ, |ζ| < 1} ∖ {|s/v − 1| ≤ (5/4)δ_sf, ρ_sf ≤ (5/4)δ}, then for
 every N there is C with
 
-    ‖B_0ω‖_(ρ_sf^(α_sf)L²) ≤ C(h⁻¹‖B_1P_hω‖_(ρ_sf^(α_sf+2)L²) + ‖Eω‖_(ρ_sf^(α_sf)L²) + h^N‖χω‖_(ρ_sf^(α_sf)H^(−N)_(3b,h))).
+    ‖B_0ω‖_(ρ_sf^(α_sf)L²) ≤ C(h⁻¹‖B_1P_hω‖_(ρ_sf^(α_sf+2)L²) + ‖Eω‖_(ρ_sf^(α_sf)L²)
+        + h^N‖χω‖_(ρ_sf^(α_sf)H^(−N)_(3b,h))).
 
 (2) If B_0, B_1 are as in (1), then
 
@@ -2035,8 +2039,9 @@ of (P^C_b)* are 2 − ῑ ([[lem:iii-e-2-1]] (2), which uses only [[lem:iv4-1-3]
 α + 2 < 2, v has pointwise weight −α > 0 at ∂X, so the normal operator argument (the expansion of v along the roots of
 real part above its weight, [[thm:i-c-3-1]] (2) for the adjoint) gives v ∈ 𝒜^k near ∂X for every k < ϱ₁. Here
 ϱ₁ > C_0 + 2 is the least real part of an indicial root of (P^C_b)* above C_0 + 2, which exists as such roots exist and
-each strip {|Re ι| ≤ R} contains finitely many roots ([[lem:iv4-1-3]] (a)); the roots of real part ≤ 0 are below the weight. So ω′(t, x) := v(x) is a stationary solution of
-(□^C_b)*ω′ = 0. Put α′_sf := −C_0 − 3/2, the weight [[eq:iv4-2-1]] at C_0 − 1. A stationary function of pointwise decay
+each strip {|Re ι| ≤ R} contains finitely many roots ([[lem:iv4-1-3]] (a)); the roots of real part ≤ 0 are below the
+weight. So ω′(t, x) := v(x) is a stationary solution of (□^C_b)*ω′ = 0. Put α′_sf := −C_0 − 3/2, the weight
+[[eq:iv4-2-1]] at C_0 − 1. A stationary function of pointwise decay
 ρ^k lies in ρ^aρ_K⁻¹L²(Ω, |dg|) near ∂X iff k > a + 5/2: the shift is 2 for ρ^aL²(r³dr) ([[prop:np-10-21]] (iii)),
 plus ½ from ∫_0^∞ρ_K²dt = ∫_0^∞(r/(t + r))²dt = r. At a = −α′_sf − 2 = C_0 − ½ this asks k > C_0 + 2, which
 k ∈ (C_0 + 2, ϱ₁) meets. So ω′ ∈ ρ_sf^(−α′_sf−2)ρ_K^(−α_K)H^(s′)_3b(Ω)^(−,•) for s′ = 1 − s near ∂X. The adjoint estimate
@@ -2417,10 +2422,11 @@ C_c^∞ + ρ^(J+3)C^∞, resp. C_c^∞. (3): if W = [A, A_V] ≠ 0, then h̄♯(
 Ḣ_b^(0,C_0+3), while h♭ is in it; if W = 0, h♯(0) = 0. ∎
 
 **Remark {#rem:s14-dim3}** (Comparison with dimension 3 + 1.) [Hin26, (7.31) and (7.18)] are the counterparts in
-dimension 3 + 1 of c_0|x|⁻³V(W) and [[eq:iii-e1-3-3]]: with m ↔ 2m_K (the mass enters as m|x|⁻² where the Kerr mass
-m_K of [Hin26] enters as 2m_K|x|⁻¹), ρ³ ↔ ρ² and the bracket for the cross product, the same coefficients 1 + 2(v_C ∓ 1)γ_C over 1 + 2v_Cγ_C appear, up to the orientation
-convention of the spin, and the indicial value 3(1 + 2v_Cγ_C) replaces 2 + 4γ_Cv_C. In [Hin26] the term
-ρS(a)S′dr + ½d̸(S(a)S′) of the ansatz cancels the pure gauge term of [Hin26, (7.20)]; here there is none to cancel.
+dimension 3 + 1 of c_0|x|⁻³V(W) and [[eq:iii-e1-3-3]]: with m ↔ 2m_K (the mass enters as m|x|⁻² where the Kerr mass m_K
+of [Hin26] enters as 2m_K|x|⁻¹), ρ³ ↔ ρ² and the bracket for the cross product, the same coefficients 1 + 2(v_C ∓ 1)γ_C
+over 1 + 2v_Cγ_C appear, up to the orientation convention of the spin, and the indicial value 3(1 + 2v_Cγ_C) replaces 2
++ 4γ_Cv_C. In [Hin26] the term ρS(a)S′dr + ½d̸(S(a)S′) of the ansatz cancels the pure gauge term of [Hin26, (7.20)];
+here there is none to cancel.
 
 ### Simplicity of the roots and their distance from the integers {#sec:s14-simple}
 

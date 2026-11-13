@@ -163,8 +163,7 @@ The rate α_K ∈ (2, min(a_K, 2 + ε_g, 5/2)) lies in the range of [[prop:iii-i
     𝒴 := ⋂_(ε>0) H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),4−ε,α_K)_b(Ω_*; S²T*)^(•,−),
 
 real sections, is the class of forcings ([Hin26, (11.116)] in dimension 4 + 1). A large d, at least the d of
-[[eq:s20-d]], is fixed throughout, and
-"h small" means h ∈ 𝒳^∞ vanishing near {t^♭_* = 1} with small 𝒳^d-norm.
+[[eq:s20-d]], is fixed throughout, and "h small" means h ∈ 𝒳^∞ vanishing near {t^♭_* = 1} with small 𝒳^d-norm.
 
 *Translations.* For S = S_w ∈ 𝒮_1 put Y_S := w·∂_x = η⁻¹ω̄_s1(S), V⁰(S) := ½ΘY_S, ψ_S := exp V⁰(S) and
 w⁰(S) := g_(b₀)(Y_S, ·), so that g_(b₀)(V⁰(S), ·) = ½Θw⁰(S) and, by ℒ_X g = 2δ*_g(g(X, ·)),
@@ -987,7 +986,7 @@ and linear in F, and
     |S^(h,p⃗)_(λ,k)(F)| + ‖ũ‖_(α) ≤ C‖F‖_(𝒴(α)) + C(‖h‖ + |p⃗|)‖u‖_(α′),
 
 with ‖·‖_(α) and ‖·‖_(α′) the seminorms of [[sec:iii-i8-1]] at the levels α and α′, and C uniform for (h, p⃗) small and
-b ∈ ℬ̄_*. This is not a bound by F alone: the last term vanishes at b = b₀ and (h, p⃗) = (0, 0), but not at the
+b ∈ ℬ̄_*. This is not a bound by F alone: the last term vanishes at (h, p⃗) = (0, 0), where b = b₀, but not at the
 reference point (0, p⃗_b) with b ≠ b₀.
 
 *Proof.* Write L := L_(h,p⃗) and F = F_1 + F_2, F_j ∈ 𝒴_j(α). *Step 0.* f′ := F − (L − L_b)u = f′_1 + F_2 with

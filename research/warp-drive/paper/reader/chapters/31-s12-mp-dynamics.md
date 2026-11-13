@@ -33,7 +33,7 @@ t_* in [[sec:vi-a-0]]–[[sec:vi-a-6]] and an azimuth in [[sec:vi-b1-0]]–[[sec
 [[sec:vi-b1-0]] and Φ_m the change of time of [[eq:iii-b-3-3]]; E is a momentum, not a bundle; u := 1 − 2m r⁻² in
 [[sec:vi-a-3]] and u := r² in [[sec:vi-b1-1]]; C is the squared angular momentum |η|²_g̸ at b₀ and, in estimates, a
 constant; q_± and q_(z₀) are the functions of (H3) and (Γ.4). The separation constant of [[sec:vi-b1-0]], which plays
-the part of Carter's constant, is written 𝔎, the letter 𝒦 being the Kretschmann scalar. The Poisson bracket is
+the part of Carter's constant, is written 𝔎, the letter 𝔎 being the Kretschmann scalar. The Poisson bracket is
 {a, b} := H_a b. The polar angle on 𝕊³ is ϑ.
 
 ### The radii {#sec:s12-radii}
@@ -149,9 +149,10 @@ one.
 2(2m − r²)r⁻⁵, which is positive on (r_h, r_ph) and negative on (r_ph, ∞). At r² = 2m, W = ½(2m)⁻¹ = (4m)⁻¹;
 W(r_h) = 0 as f(r_h) = 0, and 0 < W < r⁻² for r > r_h. (c) f′ = 2m r⁻³ > 0, and f(r) = 0 iff r² = m. In the
 static form g_(b₀) = −f dt_s² + f⁻¹ dr² + r² g̸ of [[sec:vi-a-0]], g_(t_s t_s) = −f. In the chart [[eq:vi-a-0-1]],
-g⁻¹(dr, dr) = G^(rr) = f. (d) The coefficients are read off [[eq:vi-a-0-1]]: g(∂_r, ∂_r) = 0 and g(∂_v, ∂_r) = 1. On {r > r_h}, ∂_v is timelike
-(g(∂_v, ∂_v) = −f < 0), and a null vector with negative product with a future timelike vector is future directed;
-−∂_r is null and nowhere zero on the connected chart, so it stays future directed by continuity. On {0 < r < r_h},
+g⁻¹(dr, dr) = G^(rr) = f. (d) The coefficients are read off [[eq:vi-a-0-1]]: g(∂_r, ∂_r) = 0 and g(∂_v, ∂_r) = 1.
+On {r > r_h}, ∂_v is timelike (g(∂_v, ∂_v) = −f < 0), and a null vector with negative product with a future timelike
+vector is future directed; −∂_r is null and nowhere zero on the connected chart, so it stays future directed by
+continuity. On {0 < r < r_h},
 X := g⁻¹(dr, ·) has g(X, X) = f < 0 and g(X, −∂_r) = dr(−∂_r) = −1 < 0, so X lies in the cone of −∂_r. A future
 causal V then has dr(V) = g(X, V) < 0. Finally, on {r > r_h}, g(∂_v, −∇t_*) = −dt_*(∂_v) = −1 < 0 with −∇t_* future
 timelike, so ∂_v is future directed in the orientation of [[sec:i-b-1-2]]. ∎
@@ -521,37 +522,37 @@ p = 0). r₊ is smooth in b ∈ ℬ, as u₊ is a smooth function of (m, s, p²)
 p² are polynomials in A. At b₀, Δ_(b₀) = r²(r² − m₀), r₊(b₀) = m₀^(1/2) = r_h and r₋(b₀) = 0.
 
 **Lemma {#lem:s12-spheroidal}** (The spheroidal form of the radius.) Let A ∈ 𝔰𝔬(4), |x|² > s, r := r_A(x),
-N := (r²I − A²)^(1/2), which is symmetric, positive definite and commutes with A, and ω := N⁻¹x. Then |ω| = 1, and
+𝒟 := (r²I − A²)^(1/2), which is symmetric, positive definite and commutes with A, and ω := 𝒟⁻¹x. Then |ω| = 1, and
 with
 
     ϱ² := r² + s + ωᵀA²ω                                                                                 {#eq:s12-varrho}
 
 the following hold.
 
-(a) P(r) · xᵀN⁻⁴x = ϱ², and ϱ² ≥ r² > 0.
+(a) Π(r) · xᵀ𝒟⁻⁴x = ϱ², and ϱ² ≥ r² > 0.
 
-(b) F_A = r² xᵀN⁻⁴x; so P(r)F_A = r²ϱ² and H_(m,A) = m/ϱ².
+(b) F_A = r² xᵀ𝒟⁻⁴x; so Π(r)F_A = r²ϱ² and H_(m,A) = m/ϱ².
 
-(c) The Euclidean gradient of r_A is ∇r_A = N⁻²x/(r xᵀN⁻⁴x), so |∇r_A|² = P(r)/(r²ϱ²), and ℓ_A(∇r_A) = 1.
+(c) The Euclidean gradient of r_A is ∇r_A = 𝒟⁻²x/(r xᵀ𝒟⁻⁴x), so |∇r_A|² = Π(r)/(r²ϱ²), and ℓ_A(∇r_A) = 1.
 
 (d) In a frame in which A = aJ₁₂ + bJ₃₄, and with ω = (sin ϑ e^(iφ), cos ϑ e^(iψ)) in ℂ² ≅ ℝ⁴,
 x = ((r² + a²)^(1/2) sin ϑ e^(iφ), (r² + b²)^(1/2) cos ϑ e^(iψ)) and ϱ² = r² + a² cos²ϑ + b² sin²ϑ.
 
-*Proof.* By [[lem:iii-b-3-1]] (a), (r²I − A²)𝖬(r) = P(r)I, so N⁻² = 𝖬(r)/P(r). Then
-|ω|² = xᵀN⁻²x = xᵀ𝖬(r)x/P(r) = 1, as Q(r, x) = P(r) − xᵀ𝖬(r)x = 0 at r = r_A(x).
-(a) xᵀN⁻⁴x = ωᵀN⁻²ω = ωᵀ𝖬(r)ω/P(r), and ωᵀ𝖬(r)ω = (r² + s)|ω|² + ωᵀA²ω = ϱ². In a frame,
+*Proof.* By [[lem:iii-b-3-1]] (a), (r²I − A²)𝖬(r) = Π(r)I, so 𝒟⁻² = 𝖬(r)/Π(r). Then
+|ω|² = xᵀ𝒟⁻²x = xᵀ𝖬(r)x/Π(r) = 1, as Q(r, x) = Π(r) − xᵀ𝖬(r)x = 0 at r = r_A(x).
+(a) xᵀ𝒟⁻⁴x = ωᵀ𝒟⁻²ω = ωᵀ𝖬(r)ω/Π(r), and ωᵀ𝖬(r)ω = (r² + s)|ω|² + ωᵀA²ω = ϱ². In a frame,
 sI + A² = diag(b², b², a², a²) ≥ 0, so ϱ² ≥ r².
-(b) By [[def:iii-b-3-2]], F_A = 1 + xᵀA²𝖬²x/P² = 1 + xᵀA²N⁻⁴x = 1 + ωᵀA²N⁻²ω, as N commutes with A. So
-F_A = ωᵀ(N² + A²)N⁻²ω = r² ωᵀN⁻²ω = r² xᵀN⁻⁴x, and P F_A = r²ϱ² by (a). Hence H_(m,A) = m r²/(P F_A) = m/ϱ².
-(c) The function φ_A(r, x) := xᵀ(r²I − A²)⁻¹x − 1 = −Q(r, x)/P(r) has, for fixed x, the zeros of Q(·, x) in (0, ∞), so
+(b) By [[def:iii-b-3-2]], F_A = 1 + xᵀA²𝖬²x/Π² = 1 + xᵀA²𝒟⁻⁴x = 1 + ωᵀA²𝒟⁻²ω, as 𝒟 commutes with A. So
+F_A = ωᵀ(𝒟² + A²)𝒟⁻²ω = r² ωᵀ𝒟⁻²ω = r² xᵀ𝒟⁻⁴x, and Π F_A = r²ϱ² by (a). Hence H_(m,A) = m r²/(Π F_A) = m/ϱ².
+(c) The function φ_A(r, x) := xᵀ(r²I − A²)⁻¹x − 1 = −Q(r, x)/Π(r) has, for fixed x, the zeros of Q(·, x) in (0, ∞), so
 r_A(x) is its only positive zero; and ∂_rφ_A = −2r xᵀ(r²I − A²)⁻²x < 0. By the implicit function theorem,
-∇r_A = −∇_xφ_A/∂_rφ_A = N⁻²x/(r xᵀN⁻⁴x), and |∇r_A|² = 1/(r² xᵀN⁻⁴x) = P/(r²ϱ²) by (a). The coefficient vector of ℓ_A
-is 𝖬(rI + A)x/P = N⁻²(rI + A)x, so
+∇r_A = −∇_xφ_A/∂_rφ_A = 𝒟⁻²x/(r xᵀ𝒟⁻⁴x), and |∇r_A|² = 1/(r² xᵀ𝒟⁻⁴x) = Π/(r²ϱ²) by (a). The coefficient vector of ℓ_A
+is 𝖬(rI + A)x/Π = 𝒟⁻²(rI + A)x, so
 
-    ℓ_A(∇r_A) = xᵀ(rI − A)N⁻⁴x/(r xᵀN⁻⁴x) = 1,
+    ℓ_A(∇r_A) = xᵀ(rI − A)𝒟⁻⁴x/(r xᵀ𝒟⁻⁴x) = 1,
 
-since AN⁻⁴ is antisymmetric (A is antisymmetric and commutes with the symmetric N⁻⁴), so xᵀAN⁻⁴x = 0.
-(d) In the frame, A² = −diag(a², a², b², b²), N = diag((r² + a²)^(1/2), (r² + a²)^(1/2), (r² + b²)^(1/2),
+since AN⁻⁴ is antisymmetric (A is antisymmetric and commutes with the symmetric 𝒟⁻⁴), so xᵀAN⁻⁴x = 0.
+(d) In the frame, A² = −diag(a², a², b², b²), 𝒟 = diag((r² + a²)^(1/2), (r² + a²)^(1/2), (r² + b²)^(1/2),
 (r² + b²)^(1/2)), s = a² + b² and ωᵀA²ω = −a² sin²ϑ − b² cos²ϑ. ∎
 
 **Lemma {#lem:vi-b-1-1}** (The horizon is null.) For b = (m, A) ∈ ℬ, on {|x|² > s},
@@ -566,7 +567,7 @@ spacelike on {r_A > r₊} and timelike on {r₋ < r_A < r₊}, where Δ_b < 0; t
 Euclidean dual of ℓ_A. As r_A does not depend on t, dr_A(k_A^♯) = ℓ_A(∇r_A) = 1 by [[lem:s12-spheroidal]] (c), and
 η⁻¹(dr_A, dr_A) = |∇r_A|². So, by [[lem:s12-spheroidal]] (b)–(c),
 
-    (g^KS_(m,A))⁻¹(dr_A, dr_A) = |∇r_A|² − H_(m,A) = P/(r_A²ϱ²) − m/ϱ² = (P − m r_A²)/(r_A²ϱ²).
+    (g^KS_(m,A))⁻¹(dr_A, dr_A) = |∇r_A|² − H_(m,A) = Π/(r_A²ϱ²) − m/ϱ² = (Π − m r_A²)/(r_A²ϱ²).
 
 dr_A ≠ 0 everywhere by [[lem:s12-spheroidal]] (c), so ℋ_b is a smooth hypersurface; its conormal dr_A is null there, as
 Δ_b(r₊) = 0, so ℋ_b is null. It is invariant under ∂_t, as g^KS_(m,A) has t-independent components and r_A does not
@@ -675,8 +676,8 @@ with the uniformity of (H5) extended to them ([[sec:i-b-1-5]]). With [[sec:vi-a-
 the diffeomorphism of [[lem:vi-b-1-2]]; β is the coefficient of [[lem:vi-b1-0-1]] (c) and β₀ the rate of (H3); ψ is an
 azimuth; and ℛ_c, 𝒮 are the functions of [[lem:vi-b1-2-1]].
 
-Let b = (m, A) with |b − b₀| small, and use the notation of [[ch:s11]]: s = −½ tr(A²), P(r) = r⁴ + sr² + p²,
-Δ_b = P − m r², r_A, ℓ_A and H_(m,A) ([[lem:iii-b-3-1]], [[def:iii-b-3-2]]), and r₊(b), the largest root of Δ_b
+Let b = (m, A) with |b − b₀| small, and use the notation of [[ch:s11]]: s = −½ tr(A²), Π(r) = r⁴ + sr² + p²,
+Δ_b = Π − m r², r_A, ℓ_A and H_(m,A) ([[lem:iii-b-3-1]], [[def:iii-b-3-2]]), and r₊(b), the largest root of Δ_b
 ([[eq:vi-b-1-1]]). On {|x| ≥ r₀ − 2δ₀}, which lies in {|x|² > s} by [[lem:s12-ks-domain]], write
 
     x = (r²I − A²)^(1/2) ω,     r > 0,     ω ∈ 𝕊³ ⊂ ℝ⁴.                                                   {#eq:vi-b1-0-1}
@@ -684,49 +685,49 @@ Let b = (m, A) with |b − b₀| small, and use the notation of [[ch:s11]]: s = 
 By [[lem:s12-spheroidal]], r = r_A(x) and ω = (r_A²I − A²)^(−1/2)x; conversely, for x given by [[eq:vi-b1-0-1]] with
 |x|² > s, xᵀ(r²I − A²)⁻¹x = |ω|² = 1, so r is the unique positive zero of Q(·, x) ([[lem:iii-b-3-1]]), r = r_A(x). So
 [[eq:vi-b1-0-1]] is a diffeomorphism (r, ω) ↦ x onto {|x|² > s}, smooth in A, with no frame chosen. Write
-N := (r²I − A²)^(1/2). Differentiating N² = r²I − A², with N and ∂_rN commuting (both are functions of A²),
-∂_rN = rN⁻¹; so dx = rN⁻¹ω dr + N dω, with ⟨rN⁻¹ω, N dω⟩ = r⟨ω, dω⟩ = 0 and |rN⁻¹ω|² = r² xᵀN⁻⁴x = r²ϱ²/P by
+𝒟 := (r²I − A²)^(1/2). Differentiating 𝒟² = r²I − A², with 𝒟 and ∂_rN commuting (both are functions of A²),
+∂_rN = rN⁻¹; so dx = rN⁻¹ω dr + 𝒟 dω, with ⟨rN⁻¹ω, 𝒟 dω⟩ = r⟨ω, dω⟩ = 0 and |rN⁻¹ω|² = r² xᵀ𝒟⁻⁴x = r²ϱ²/Π by
 [[lem:s12-spheroidal]] (a). Hence
 
-    |dx|² = (r²ϱ²/P) dr² + ⟨(r²I − A²) dω, dω⟩,     ϱ² = r² + s + ωᵀA²ω,
+    |dx|² = (r²ϱ²/Π) dr² + ⟨(r²I − A²) dω, dω⟩,     ϱ² = r² + s + ωᵀA²ω,
 
 with ϱ² of [[eq:s12-varrho]]. Write a covector as ν = −E dt + p_r dr + η, η ∈ T*_ω𝕊³, with t the Kerr–Schild time,
 |η|²_(𝕊³) its round norm and |η|²_(e,r) its norm for the second term of |dx|². Put Y_r := (r²I − A²)⁻¹A, which is
 antisymmetric, so that Y_rω ∈ T_ω𝕊³; Ẽ := E + η(Y_rω); 𝒯 := |η|²_(𝕊³) − ϱ²|η|²_(e,r); and
 
-    𝔄 := (P/r²) p_r² − r²E² − 𝒯 − m(Ẽ + p_r)²,     𝒦 := |η|²_(𝕊³) − (s + ωᵀA²ω) E².                       {#eq:vi-b1-0-2}
+    𝔄 := (Π/r²) p_r² − r²E² − 𝒯 − m(Ẽ + p_r)²,     𝔎 := |η|²_(𝕊³) − (s + ωᵀA²ω) E².                       {#eq:vi-b1-0-2}
 
 *A frame.* Rotating, A = aJ₁₂ + bJ₃₄ with J₁₂ = e₁e₂ᵀ − e₂e₁ᵀ and J₃₄ = e₃e₄ᵀ − e₄e₃ᵀ, and
 ω = (sin ϑ e^(iφ), cos ϑ e^(iψ)). Put Φ := η(J₁₂ω) and Ψ := η(J₃₄ω), the generators of the two rotations; as
 J₁₂ω = −∂_φ and J₃₄ω = −∂_ψ, they are minus the momenta conjugate to φ and ψ. Then ϱ² = r² + a² cos²ϑ + b² sin²ϑ and
 
-    𝒦 = p_ϑ² + Φ²/sin²ϑ + Ψ²/cos²ϑ − (a² cos²ϑ + b² sin²ϑ) E²,     η(Y_rω) = aΦ/(r² + a²) + bΨ/(r² + b²),
+    𝔎 = p_ϑ² + Φ²/sin²ϑ + Ψ²/cos²ϑ − (a² cos²ϑ + b² sin²ϑ) E²,     η(Y_rω) = aΦ/(r² + a²) + bΨ/(r² + b²),
     𝒯 = (a² − b²)(Φ²/(r² + a²) − Ψ²/(r² + b²)).                                                          {#eq:vi-b1-0-3}
 
-So 𝔄 depends on (r, p_r, E, Φ, Ψ) only, and 𝒦 on (ϑ, p_ϑ, E, Φ, Ψ) only. The frame is used only to compute; every
+So 𝔄 depends on (r, p_r, E, Φ, Ψ) only, and 𝔎 on (ϑ, p_ϑ, E, Φ, Ψ) only. The frame is used only to compute; every
 statement below is about the frame-free functions [[eq:vi-b1-0-2]].
 
-**Lemma {#lem:vi-b1-0-1}** (Separation.) On T*(ℝ_t × {|x| ≥ r₀ − 2δ₀}), with 𝒢 := 𝔄 + 𝒦 and g_b written in the
+**Lemma {#lem:vi-b1-0-1}** (Separation.) On T*(ℝ_t × {|x| ≥ r₀ − 2δ₀}), with 𝒢 := 𝔄 + 𝔎 and g_b written in the
 Kerr–Schild time t (that is, g^KS_b):
 
 (a) ϱ² g_b⁻¹(ν, ν) = 𝒢.
 
-(b) E, 𝒦 and, in any frame, Φ and Ψ are constant along the flow of H_𝒢, and they Poisson-commute with each other.
+(b) E, 𝔎 and, in any frame, Φ and Ψ are constant along the flow of H_𝒢, and they Poisson-commute with each other.
 
 (c) 𝔄 = αp_r² + 2βp_r + γ with α := Δ_b/r², β := −mẼ and γ := −r²E² − 𝒯 − mẼ². With p̃ := αp_r + β and the
-*radial function* ℛ := β² − α(γ + 𝒦), α𝒢 = p̃² − ℛ.
+*radial function* ℛ := β² − α(γ + 𝔎), α𝒢 = p̃² − ℛ.
 
 (d) H_𝒢 r = 2p̃ and H_𝒢 p̃ = ∂_rℛ + (α′/α)(p̃² − ℛ), where ∂_r is taken at fixed (ω, η). In a frame, ℛ, α, β and p̃
-depend on (ω, η) only through (Φ, Ψ, 𝒦), and H_𝒢 f = 0 for every function f of (E, Φ, Ψ, 𝒦).
+depend on (ω, η) only through (Φ, Ψ, 𝔎), and H_𝒢 f = 0 for every function f of (E, Φ, Ψ, 𝔎).
 
 *Proof.* (a) By [[lem:iii-b-3-3]] (d), g_b⁻¹ = η_M⁻¹ − H_(m,A) k_A^♯ ⊗ k_A^♯ with η_M := −dt² + dx² the Minkowski
-metric and k_A^♯ = −∂_t + ℓ_A^♯. From the formula for |dx|², η_M⁻¹(ν, ν) = −E² + (P/(r²ϱ²)) p_r² + |η|²_(e,r). The
-coefficient vector of ℓ_A is N⁻²(rI + A)x = rN⁻²x + N⁻¹Aω ([[lem:s12-spheroidal]]). At fixed ω, ∂_r x = rN⁻¹ω = rN⁻²x,
-and the vector N⁻¹Aω = N(Y_rω) is the image of Y_rω ∈ T_ω𝕊³ under (r, ω) ↦ x at fixed r. So ℓ_A^♯ = ∂_r + Y_rω in
+metric and k_A^♯ = −∂_t + ℓ_A^♯. From the formula for |dx|², η_M⁻¹(ν, ν) = −E² + (Π/(r²ϱ²)) p_r² + |η|²_(e,r). The
+coefficient vector of ℓ_A is 𝒟⁻²(rI + A)x = rN⁻²x + 𝒟⁻¹Aω ([[lem:s12-spheroidal]]). At fixed ω, ∂_r x = rN⁻¹ω = rN⁻²x,
+and the vector 𝒟⁻¹Aω = 𝒟(Y_rω) is the image of Y_rω ∈ T_ω𝕊³ under (r, ω) ↦ x at fixed r. So ℓ_A^♯ = ∂_r + Y_rω in
 the coordinates (r, ω), and ν(k_A^♯) = E + p_r + η(Y_rω) = Ẽ + p_r. By [[lem:s12-spheroidal]] (b), H_(m,A) = m/ϱ².
 Hence
 
-    ϱ² g_b⁻¹(ν, ν) = (P/r²) p_r² − ϱ²E² + ϱ²|η|²_(e,r) − m(Ẽ + p_r)²,
+    ϱ² g_b⁻¹(ν, ν) = (Π/r²) p_r² − ϱ²E² + ϱ²|η|²_(e,r) − m(Ẽ + p_r)²,
 
 and ϱ²E² = r²E² + (s + ωᵀA²ω)E² and ϱ²|η|²_(e,r) = |η|²_(𝕊³) − 𝒯 give (a).
 
@@ -742,49 +743,49 @@ the third,
 
     ϱ²|η|²_(e,r) = |η|²_(𝕊³) − (a² − b²) Φ²/(r² + a²) + (a² − b²) Ψ²/(r² + b²),
 
-which is the formula for 𝒯. Next, s + ωᵀA²ω = a² + b² − a² sin²ϑ − b² cos²ϑ = a² cos²ϑ + b² sin²ϑ gives 𝒦. Finally
+which is the formula for 𝒯. Next, s + ωᵀA²ω = a² + b² − a² sin²ϑ − b² cos²ϑ = a² cos²ϑ + b² sin²ϑ gives 𝔎. Finally
 (r²I − A²)⁻¹ is (r² + a²)⁻¹ on span(e₁, e₂) and (r² + b²)⁻¹ on span(e₃, e₄), which contain J₁₂ω and J₃₄ω, so
 Y_rω = aJ₁₂ω/(r² + a²) + bJ₃₄ω/(r² + b²) and η(Y_rω) is as stated. The proof of (a) chose no frame; the frame enters
 only these formulas.
 
 (b) E is the momentum of the Killing field ∂_t. In a frame, where sin 2ϑ ≠ 0, the coordinates (t, r, ϑ, φ, ψ) and
-their conjugate momenta (−E, p_r, p_ϑ, −Φ, −Ψ) are canonical, and by [[eq:vi-b1-0-3]] 𝔄 and 𝒦 share only the momenta
-E, Φ, Ψ, whose coordinates t, φ, ψ appear in neither. So {𝔄, 𝒦} = 0, hence {𝒢, 𝒦} = 0, and E, Φ, Ψ Poisson-commute
-with 𝔄, 𝒦 and with each other. These identities hold on a dense open set and so everywhere, by continuity; E and 𝒦 are
+their conjugate momenta (−E, p_r, p_ϑ, −Φ, −Ψ) are canonical, and by [[eq:vi-b1-0-3]] 𝔄 and 𝔎 share only the momenta
+E, Φ, Ψ, whose coordinates t, φ, ψ appear in neither. So {𝔄, 𝔎} = 0, hence {𝒢, 𝔎} = 0, and E, Φ, Ψ Poisson-commute
+with 𝔄, 𝔎 and with each other. These identities hold on a dense open set and so everywhere, by continuity; E and 𝔎 are
 defined without a frame.
 
-(c) is algebra: P/r² − m = Δ_b/r² = α, so 𝔄 = αp_r² − 2mẼp_r − r²E² − 𝒯 − mẼ², and
-α𝔄 = (αp_r + β)² − β² + αγ. Adding α𝒦 gives α𝒢 = p̃² − ℛ.
+(c) is algebra: Π/r² − m = Δ_b/r² = α, so 𝔄 = αp_r² − 2mẼp_r − r²E² − 𝒯 − mẼ², and
+α𝔄 = (αp_r + β)² − β² + αγ. Adding α𝔎 gives α𝒢 = p̃² − ℛ.
 
-(d) In a frame, 𝒦 does not involve (r, p_r), and α, β and p̃ are functions of (r, p_r, E, Φ, Ψ); so
+(d) In a frame, 𝔎 does not involve (r, p_r), and α, β and p̃ are functions of (r, p_r, E, Φ, Ψ); so
 H_𝒢 r = ∂_(p_r)𝒢 = ∂_(p_r)𝔄 = 2αp_r + 2β = 2p̃. Since E, Φ and Ψ are conserved, H_𝒢 p̃ = ∂_(p_r)𝒢 · ∂_r p̃ −
 ∂_r𝒢 · ∂_(p_r)p̃ = 2p̃ ∂_r p̃ − α ∂_r𝒢, with ∂_r at fixed (p_r, ϑ, p_ϑ, Φ, Ψ, E), that is at fixed (ω, η). From
 𝒢 = α⁻¹(p̃² − ℛ), α∂_r𝒢 = −(α′/α)(p̃² − ℛ) + 2p̃ ∂_r p̃ − ∂_rℛ. Hence H_𝒢 p̃ = ∂_rℛ + (α′/α)(p̃² − ℛ). The last claim
 is (b). ∎
 
 So on the characteristic set Σ = {𝒢 = 0} over {r > r₊}, where α > 0, p̃² = ℛ(r), with ℛ evaluated at the constant
-values of (E, Φ, Ψ, 𝒦) along the curve, and the pair (r, p̃) moves as a particle in the potential −ℛ:
+values of (E, Φ, Ψ, 𝔎) along the curve, and the pair (r, p̃) moves as a particle in the potential −ℛ:
 H_𝒢 r = 2p̃, H_𝒢 p̃ = ∂_rℛ. For a covector ν = −z₀ dt + ζ as in [[sec:vi-a-0]], E = z₀; the Hamilton vector field of
 G_(z₀) = ϱ⁻²𝒢 on Σ is ϱ⁻²H_𝒢, and the future field on Σ^±_(z₀) is ±ϱ⁻²H_𝒢. This is [Hin26c, (4.30)–(4.32)] and
 Carter's constant, for Myers–Perry.
 
 ### The radial function {#sec:vi-b1-1}
 
-Put Λ := 𝒦 + sE² = |η|²_(𝕊³) + E²|Aω|² ≥ |η|²_(𝕊³), using −ωᵀA²ω = |Aω|². In a frame, with u := r², the function
-𝒫(u) := uPℛ is
+Put Λ := 𝔎 + sE² = |η|²_(𝕊³) + E²|Aω|² ≥ |η|²_(𝕊³), using −ωᵀA²ω = |Aω|². In a frame, with u := r², the function
+𝒫(u) := uΠℛ is
 
-    𝒫 = m(PE + aΦ(u + b²) + bΨ(u + a²))² + Δ_b(uPE² + (a² − b²)(Φ²(u + b²) − Ψ²(u + a²)) − 𝒦P),           {#eq:vi-b1-1-1}
+    𝒫 = m(ΠE + aΦ(u + b²) + bΨ(u + a²))² + Δ_b(uΠE² + (a² − b²)(Φ²(u + b²) − Ψ²(u + a²)) − 𝔎Π),           {#eq:vi-b1-1-1}
 
 a polynomial of degree 5 in u whose coefficients are polynomials in (m, a, b, E, Φ, Ψ, Λ). Indeed, with α = Δ_b/u,
-β = −mẼ and m + Δ_b/u = P/u, ℛ = m²Ẽ² + (Δ_b/u)(uE² + 𝒯 + mẼ² − 𝒦) = mẼ²P/u + (Δ_b/u)(uE² + 𝒯 − 𝒦); and
-P = (u + a²)(u + b²), so PẼ = PE + aΦ(u + b²) + bΨ(u + a²) and P𝒯 = (a² − b²)(Φ²(u + b²) − Ψ²(u + a²)), by
+β = −mẼ and m + Δ_b/u = Π/u, ℛ = m²Ẽ² + (Δ_b/u)(uE² + 𝒯 + mẼ² − 𝔎) = mẼ²Π/u + (Δ_b/u)(uE² + 𝒯 − 𝔎); and
+Π = (u + a²)(u + b²), so ΠẼ = ΠE + aΦ(u + b²) + bΨ(u + a²) and Π𝒯 = (a² − b²)(Φ²(u + b²) − Ψ²(u + a²)), by
 [[eq:vi-b1-0-3]]. Multiplying by uP gives [[eq:vi-b1-1-1]]; its terms have degrees at most 4, 5, 3 and 4 in u, the
-coefficient of u⁵ is E², and 𝒦 = Λ − (a² + b²)E². Then 𝒬(w) := w⁵𝒫(w⁻¹) is a polynomial in w with 𝒬(0) = E², and at
-A = 0, where P = u², Δ_b = u² − mu, Ẽ = E, 𝒯 = 0 and 𝒦 = Λ, 𝒫 = u⁵E² − Λu⁴ + mΛu³, so
+coefficient of u⁵ is E², and 𝔎 = Λ − (a² + b²)E². Then 𝒬(w) := w⁵𝒫(w⁻¹) is a polynomial in w with 𝒬(0) = E², and at
+A = 0, where Π = u², Δ_b = u² − mu, Ẽ = E, 𝒯 = 0 and 𝔎 = Λ, 𝒫 = u⁵E² − Λu⁴ + mΛu³, so
 
     𝒬 = E² − Λw + mΛw².                                                                                   {#eq:vi-b1-1-2}
 
-ℛ(r) = r⁸𝒬(r⁻²)/P(r), so ℛ and 𝒬(r⁻²) have the same sign and the same zeros, with multiplicity, as P > 0. ℛ and 𝒬 are
+ℛ(r) = r⁸𝒬(r⁻²)/Π(r), so ℛ and 𝒬(r⁻²) have the same sign and the same zeros, with multiplicity, as Π > 0. ℛ and 𝒬 are
 homogeneous of degree 2 in (E, Φ, Ψ, Λ^(1/2)), so their signs and zeros depend only on the normalised values in
 
     𝒩 := {(E, Φ, Ψ, Λ) : E² + Λ/m₀ = 1, (|Φ| + |Ψ|)² ≤ Λ},
@@ -813,8 +814,8 @@ C²([0, 2/m₀]), which is below min(m₀²/12, ¼) for ‖A‖ small. ∎
 
 *Proof.* In w = r⁻² ∈ (0, w₊), w₊ := r₊⁻², 𝒬(0) = E² > 0, and 𝒬 is either positive on [0, w₊] or strictly convex
 there ([[lem:vi-b1-1-1]], after normalising). A strictly convex function is negative on an interval and has a double
-zero only at its minimum, with 𝒬″ > 0; it is then positive elsewhere. As ℛ = r⁸𝒬(r⁻²)/P and dw/dr ≠ 0, this gives
-(a) and (b), with ∂_r²ℛ(r_c) = (r_c⁸/P) 𝒬″(w_c)(dw/dr)² > 0, the other terms vanishing with 𝒬(w_c) and 𝒬′(w_c).
+zero only at its minimum, with 𝒬″ > 0; it is then positive elsewhere. As ℛ = r⁸𝒬(r⁻²)/Π and dw/dr ≠ 0, this gives
+(a) and (b), with ∂_r²ℛ(r_c) = (r_c⁸/Π) 𝒬″(w_c)(dw/dr)² > 0, the other terms vanishing with 𝒬(w_c) and 𝒬′(w_c).
 (c) Suppose b_n → b₀ and normalised double zeros (π_n, w_n) ∈ 𝒩 × [0, 2/m₀] have a limit (π, w). By continuity it is a
 double zero of [[eq:vi-b1-1-2]] at m = m₀: E² − Λw(1 − m₀w) = 0 = −Λ(1 − 2m₀w). Λ = 0 would give E² = 1 and
 𝒬(w) = 1, so w = 1/(2m₀) and Λ = 4m₀E². Compactness gives (c). ∎
@@ -830,7 +831,7 @@ and lies in (r_h, 7R₁/4), and 𝒲 := {(ω, η) ∈ T*𝕊³ : 3m₀ < |η|²_
 **Lemma {#lem:vi-b1-2-1}** (The critical radius.) There is ε_Γ ∈ (0, ε_R] such that for |b − b₀| < ε_Γ: ∂_r²ℛ > 0 on
 Ī_Γ × 𝒲̄; ∂_rℛ(·; ω, η) has a unique zero r_c(ω, η) ∈ I_Γ; and with ℛ_c := ℛ(r_c) and 𝒮 := (ℛ − ℛ_c)/(r − r_c)², the
 functions r_c, ℛ_c on 𝒲̄ and 𝒮 on Ī_Γ × 𝒲̄ are smooth in (b, ·), 𝒮 > 0, and dℛ_c ≠ 0 on
-{ℛ_c = 0} ∩ 𝒲̄ ⊂ {3.5m₀ < |η|² < 4.5m₀}. In a frame they depend on (ω, η) only through (Φ, Ψ, 𝒦). At b₀, with
+{ℛ_c = 0} ∩ 𝒲̄ ⊂ {3.5m₀ < |η|² < 4.5m₀}. In a frame they depend on (ω, η) only through (Φ, Ψ, 𝔎). At b₀, with
 C = |η|²: r_c² = C/2, ℛ_c = C(m₀ − C/4) and 𝒮 = (r + r_c)².
 
 *Proof.* At b₀, ℛ = r⁸𝒬(r⁻²)/r⁴ = r⁴ − C(r² − m₀) by [[eq:vi-b1-1-2]] with Λ = C, so ∂_rℛ = 2r(2r² − C) vanishes at
@@ -889,7 +890,7 @@ the three covectors dφ₊, dφ₋, dℛ_c, only dp̃ has a dp_r component (it i
 dℛ_c ≠ 0 has neither; so they are independent. Hence Γ_u and Γ_s are smooth hypersurfaces of Σ near Γ_b, meeting
 transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]]. For the bracket,
 {φ₊, φ₋} = 2{p̃, (r − r_c)√𝒮}, which at r = r_c is 2√𝒮({p̃, r} − {p̃, r_c}) = 2α√𝒮. Here {p̃, r} = ∂_(p_r)p̃ = α,
-and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of (Φ, Ψ, 𝒦), which Poisson-commute
+and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of (Φ, Ψ, 𝔎), which Poisson-commute
 ([[lem:vi-b1-0-1]] (b)). α > 0 on I_Γ, as I_Γ ⊂ (r₊, ∞). For z₀ = −1, {φ₋, −φ₊} = {φ₊, φ₋}. At b₀, ϱ² = r_ph² = 2m₀
 and √𝒮 = 2r_ph on Γ, so ν = 4r_ph/(2m₀) = 4(2m₀)^(−1/2), the rate of [[prop:vi-a-3-1]].
 
@@ -914,47 +915,47 @@ only in C^k for each k, on neighbourhoods shrinking with k.
 
 (K3) concerns z₀ = 1 and 𝖵 := q₁⁻¹H_(G₁) on Σ^♭₁ near Γ. Its tangential bound, for every ϵ > 0, is the substance;
 [Hin26c, Proposition 4.19 (3)] proves it for Kerr from the integrable structure of the flow on the trapped set, and so
-does this section, for the flow of 𝒦 on T*𝕊³. At b ≠ b₀ that flow is not periodic.
+does this section, for the flow of 𝔎 on T*𝕊³. At b ≠ b₀ that flow is not periodic.
 
 **Lemma {#lem:vi-b1-3-1}** (The flow on Γ_b.) Let |b − b₀| < ε_Γ and z₀ = 1. The projection
 π : (r, ω; p_r, η) ↦ (ω, η) restricts to a diffeomorphism of Γ_b onto Γ^𝕊_b := {ℛ_c = 0} ∩ 𝒲, and
-π_*(H_𝒢|_(Γ_b)) = H_𝔥 on Γ^𝕊_b, where 𝔥 := 𝒦 + 𝔄(r_c, p_r^c; ·) on 𝒲 and p_r^c := −β(r_c)/α(r_c). In a frame, 𝔥 is
-a smooth function of (𝒦, Φ, Ψ), so H_𝔥 = c₀H_𝒦 + c₁H_Φ + c₂H_Ψ, with c₀, c₁, c₂ the partial derivatives of that
+π_*(H_𝒢|_(Γ_b)) = H_𝔥 on Γ^𝕊_b, where 𝔥 := 𝔎 + 𝔄(r_c, p_r^c; ·) on 𝒲 and p_r^c := −β(r_c)/α(r_c). In a frame, 𝔥 is
+a smooth function of (𝔎, Φ, Ψ), so H_𝔥 = c₀H_𝔎 + c₁H_Φ + c₂H_Ψ, with c₀, c₁, c₂ the partial derivatives of that
 function, constant along each orbit.
 
 *Proof.* The inverse is (ω, η) ↦ (r_c, ω; p_r^c, η) ([[prop:vi-b1-2-2]] (a)). The (ω, η)-components of
-H_𝒢 = H_𝔄 + H_𝒦 are those of the Hamilton vector field on T*𝕊³ of 𝒦 + 𝔄(r, p_r; ·) with (r, p_r) frozen. This differs
+H_𝒢 = H_𝔄 + H_𝔎 are those of the Hamilton vector field on T*𝕊³ of 𝔎 + 𝔄(r, p_r; ·) with (r, p_r) frozen. This differs
 from H_𝔥 by (∂_r𝔄)H_(r_c) + (∂_(p_r)𝔄)H_(p_r^c). On Γ_b, ∂_(p_r)𝔄 = 2p̃ = 0, and ∂_r𝔄 = −H_𝒢 p_r = 0, because
-p_r = p_r^c there is a function of the conserved (Φ, Ψ, 𝒦) and Γ_b is invariant. In a frame, 𝔄(r, p_r; ·) depends on
-(ω, η) through (Φ, Ψ), and r_c, p_r^c through (Φ, Ψ, 𝒦) ([[lem:vi-b1-2-1]]). The Hamilton vector fields of 𝒦, Φ and
+p_r = p_r^c there is a function of the conserved (Φ, Ψ, 𝔎) and Γ_b is invariant. In a frame, 𝔄(r, p_r; ·) depends on
+(ω, η) through (Φ, Ψ), and r_c, p_r^c through (Φ, Ψ, 𝔎) ([[lem:vi-b1-2-1]]). The Hamilton vector fields of 𝔎, Φ and
 Ψ commute ([[lem:vi-b1-0-1]] (b)), so the c_i are constant along orbits. ∎
 
-Let 𝒴 := {(ω, η) : 3m₀ ≤ 𝒦 ≤ 5m₀} ⊂ T*𝕊³ (with E² = 1), compact and invariant under H_𝒦, H_Φ and H_Ψ; for b near b₀
+Let 𝒴 := {(ω, η) : 3m₀ ≤ 𝔎 ≤ 5m₀} ⊂ T*𝕊³ (with E² = 1), compact and invariant under H_𝔎, H_Φ and H_Ψ; for b near b₀
 it contains Γ^𝕊_b. Fix any Riemannian metric on T*𝕊³ for the norms.
 
-**Lemma {#lem:vi-b1-3-2}** (The flow of 𝒦.) Let ‖A‖² ≤ m₀/100. For every p ∈ 𝒴 there is C_p with
-|D_p e^(sH_𝒦) v| ≤ C_p(1 + |s|)|v| for all v and all s ∈ ℝ.
+**Lemma {#lem:vi-b1-3-2}** (The flow of 𝔎.) Let ‖A‖² ≤ m₀/100. For every p ∈ 𝒴 there is C_p with
+|D_p e^(sH_𝔎) v| ≤ C_p(1 + |s|)|v| for all v and all s ∈ ℝ.
 
-*Proof.* Work in a frame, with Π := (Π₀, Π₁, Π₂) := (𝒦, Φ, Ψ) and X₀ := H_𝒦, X₁ := H_Φ, X₂ := H_Ψ, which commute.
-With Φ, Ψ fixed, write U(ϑ) := Φ²/sin²ϑ + Ψ²/cos²ϑ − a² + (a² − b²) sin²ϑ, so that 𝒦 = p_ϑ² + U (with E² = 1). Then
+*Proof.* Work in a frame, with Ξ := (Ξ₀, Ξ₁, Ξ₂) := (𝔎, Φ, Ψ) and X₀ := H_𝔎, X₁ := H_Φ, X₂ := H_Ψ, which commute.
+With Φ, Ψ fixed, write U(ϑ) := Φ²/sin²ϑ + Ψ²/cos²ϑ − a² + (a² − b²) sin²ϑ, so that 𝔎 = p_ϑ² + U (with E² = 1). Then
 
     U″ ≥ 2Φ²/sin²ϑ + 2Ψ²/cos²ϑ − 2|a² − b²|,                                                              {#eq:vi-b1-3-1}
 
 since (sin⁻²ϑ)″ = 2 sin⁻²ϑ + 6 cos²ϑ sin⁻⁴ϑ ≥ 2 sin⁻²ϑ, (cos⁻²ϑ)″ = 2 cos⁻²ϑ + 6 sin²ϑ cos⁻⁴ϑ ≥ 2 cos⁻²ϑ, and
-(sin²ϑ)″ = 2 cos 2ϑ ≥ −2. On 𝒴, wherever p_ϑ = 0, Φ²/sin²ϑ + Ψ²/cos²ϑ = 𝒦 + a² − (a² − b²) sin²ϑ ≥ 3m₀ − 2‖A‖², so
+(sin²ϑ)″ = 2 cos 2ϑ ≥ −2. On 𝒴, wherever p_ϑ = 0, Φ²/sin²ϑ + Ψ²/cos²ϑ = 𝔎 + a² − (a² − b²) sin²ϑ ≥ 3m₀ − 2‖A‖², so
 U″ ≥ 6m₀ − 6‖A‖² > 0 there.
 
-*The singular set.* Let Z := {p ∈ 𝒴 : dΠ₀, dΠ₁, dΠ₂ are dependent at p}. Where sin 2ϑ ≠ 0, (ϑ, φ, ψ) and their momenta
-are canonical coordinates, dΦ and dΨ are independent, and d𝒦 = 2p_ϑ dp_ϑ + U′ dϑ + (…) dΦ + (…) dΨ. So p ∈ Z there
+*The singular set.* Let Z := {p ∈ 𝒴 : dΞ₀, dΞ₁, dΞ₂ are dependent at p}. Where sin 2ϑ ≠ 0, (ϑ, φ, ψ) and their momenta
+are canonical coordinates, dΦ and dΨ are independent, and d𝔎 = 2p_ϑ dp_ϑ + U′ dϑ + (…) dΦ + (…) dΨ. So p ∈ Z there
 if and only if p_ϑ = 0 = U′(ϑ). If Φ = 0, then U′ = 2 sin ϑ cos ϑ (Ψ²/cos⁴ϑ + a² − b²) > 0, since
 Ψ²/cos⁴ϑ ≥ Ψ²/cos²ϑ ≥ 3m₀ − 2‖A‖² > |a² − b²| there; likewise for Ψ = 0. So these points of Z have ΦΨ ≠ 0 and lie on
 Z₁ := {p_ϑ = 0, ϑ = ϑ₀(Φ, Ψ)}, ϑ₀ a critical point of U: a family of invariant 2-tori, one for each (Φ, Ψ) and ϑ₀.
 Near ω₁ = 0 use y := ω₁ ∈ ℂ ≅ ℝ², ω = (y, (1 − |y|²)^(1/2) e^(iψ)), with momenta (η_y, η_ψ). The round metric is
 |dy|² + (y·dy)²/(1 − |y|²) + (1 − |y|²) dψ², whose inverse on the y-block is I − yyᵀ, and |y| = sin ϑ; so
 
-    𝒦 = |η_y|² − (y·η_y)² + η_ψ²/(1 − |y|²) − a² + (a² − b²)|y|²,                                         {#eq:vi-b1-3-2}
+    𝔎 = |η_y|² − (y·η_y)² + η_ψ²/(1 − |y|²) − a² + (a² − b²)|y|²,                                         {#eq:vi-b1-3-2}
 
-Ψ = −η_ψ and Φ = −(y₁η₂ − y₂η₁). At y = 0, dΦ = −(η₂ dy₁ − η₁ dy₂), dΨ = −dη_ψ and d𝒦 = 2η_y·dη_y + 2η_ψ dη_ψ. These
+Ψ = −η_ψ and Φ = −(y₁η₂ − y₂η₁). At y = 0, dΦ = −(η₂ dy₁ − η₁ dy₂), dΨ = −dη_ψ and d𝔎 = 2η_y·dη_y + 2η_ψ dη_ψ. These
 are independent if η_y ≠ 0. If η_y = 0, the point lies on Z₂ := {y = 0, η_y = 0}, a family of invariant circles, one
 for each η_ψ (by [[eq:vi-b1-3-2]], ẏ = η̇_y = 0 there). The same holds near ω₂ = 0, with a, b and Φ, Ψ exchanged,
 giving the family of circles Z₂′. So Z = Z₁ ∪ Z₂ ∪ Z₂′.
@@ -962,19 +963,19 @@ giving the family of circles Z₂′. So Z = Z₁ ∪ Z₂ ∪ Z₂′.
 *The singular levels.* Every local maximum ϑ_m of U has U″(ϑ_m) ≤ 0. By [[eq:vi-b1-3-1]],
 Φ²/sin²ϑ_m + Ψ²/cos²ϑ_m ≤ |a² − b²| there, so U(ϑ_m) ≤ 2‖A‖² < 3m₀. Hence for ΦΨ ≠ 0 and k ∈ [3m₀, 5m₀], {U ≤ k} is an
 interval, as U → ∞ at both ends and every local maximum lies below k. If k = U(ϑ₀) is a critical value, then
-U″(ϑ₀) > 0, ϑ₀ is the unique minimum, and Π⁻¹(Π(p)) for p ∈ Z₁ is the torus through p. For p ∈ Z₂,
-Π(p) = (Ψ₀² − a², 0, Ψ₀). A point with Φ = 0, Ψ = Ψ₀ and ϑ > 0 has 𝒦 ≥ U(ϑ), and
-U(ϑ) − (Ψ₀² − a²) = Ψ₀² tan²ϑ + (a² − b²) sin²ϑ > 0 because Ψ₀² ≥ 3m₀ − ‖A‖² > |a² − b²|. So Π⁻¹(Π(p)) is the circle
-of Z₂ through p; likewise for Z₂′. Consequently every fibre of Π that meets Z lies in Z, and for p ∈ 𝒴 ∖ Z the
-connected component L of Π⁻¹(Π(p)) ∩ 𝒴 containing p is compact and disjoint from Z.
+U″(ϑ₀) > 0, ϑ₀ is the unique minimum, and Ξ⁻¹(Ξ(p)) for p ∈ Z₁ is the torus through p. For p ∈ Z₂,
+Ξ(p) = (Ψ₀² − a², 0, Ψ₀). A point with Φ = 0, Ψ = Ψ₀ and ϑ > 0 has 𝔎 ≥ U(ϑ), and
+U(ϑ) − (Ψ₀² − a²) = Ψ₀² tan²ϑ + (a² − b²) sin²ϑ > 0 because Ψ₀² ≥ 3m₀ − ‖A‖² > |a² − b²|. So Ξ⁻¹(Ξ(p)) is the circle
+of Z₂ through p; likewise for Z₂′. Consequently every fibre of Ξ that meets Z lies in Z, and for p ∈ 𝒴 ∖ Z the
+connected component L of Ξ⁻¹(Ξ(p)) ∩ 𝒴 containing p is compact and disjoint from Z.
 
 *Regular orbits.* Let p ∉ Z and let V be a compact neighbourhood of L in 𝒴 ∖ Z. On V the X_i are independent and span
-⋂_j ker dΠ_j: each X_i annihilates every Π_j, and both spaces have dimension 3. Let Y_i := Σ_j (𝔊⁻¹)_ij ∇Π_j, with
-𝔊_ij := ⟨∇Π_i, ∇Π_j⟩, so that dΠ_j(Y_i) = δ_ij; the X_i and Y_i form a bounded frame on V. Since dΠ_k is closed and
-X₀Π_k = 0, dΠ_k([X₀, Y_i]) = X₀(dΠ_k(Y_i)) − Y_i(X₀Π_k) = 0, so [X₀, Y_i] = Σ_j d_ij X_j with d_ij bounded on V. Let
-q_s := e^(sX₀)p. Then De^(sX₀) X_i(p) = X_i(q_s), and W_i(s) := De^(−sX₀) Y_i(q_s) satisfies
-W_i′ = Σ_j d_ij(q_s) X_j(p), so De^(sX₀) Y_i(p) = Y_i(q_s) − Σ_j c_ij(s) X_j(q_s) with
-c_ij(s) = ∫₀^s d_ij(q_σ) dσ, |c_ij| ≤ C|s|. Hence |D_p e^(sX₀)| ≤ C_p(1 + |s|).
+⋂_j ker dΞ_j: each X_i annihilates every Ξ_j, and both spaces have dimension 3. Let Y_i := Σ_j (𝔊⁻¹)_ij ∇Ξ_j, with
+𝔊_ij := ⟨∇Ξ_i, ∇Ξ_j⟩, so that dΞ_j(Y_i) = δ_ij; the X_i and Y_i form a bounded frame on V. Since dΞ_k is closed and
+X₀Ξ_k = 0, dΞ_k([X₀, Y_i]) = X₀(dΞ_k(Y_i)) − Y_i(X₀Ξ_k) = 0, so [X₀, Y_i] = Σ_j d_ij X_j with d_ij bounded on V. Let
+p_s := e^(sX₀)p. Then De^(sX₀) X_i(p) = X_i(p_s), and W_i(s) := De^(−sX₀) Y_i(p_s) satisfies
+W_i′ = Σ_j d_ij(p_s) X_j(p), so De^(sX₀) Y_i(p) = Y_i(p_s) − Σ_j c_ij(s) X_j(p_s) with
+c_ij(s) = ∫₀^s d_ij(p_(s′)) ds′, |c_ij| ≤ C|s|. Hence |D_p e^(sX₀)| ≤ C_p(1 + |s|).
 
 *The tori Z₁.* On Z₁, sin 2ϑ₀ ≠ 0. Along the orbit the linearised equations, in the canonical coordinates, are
 δΦ̇ = δΨ̇ = 0 and
@@ -983,7 +984,7 @@ c_ij(s) = ∫₀^s d_ij(q_σ) dσ, |c_ij| ≤ C|s|. Hence |D_p e^(sX₀)| ≤ C_
 
 with constant coefficients, and δφ̇, δψ̇ linear in (δϑ, δΦ, δΨ) with constant coefficients. As U″(ϑ₀) > 0 the matrix
 of the (δϑ, δp_ϑ)-system is invertible with imaginary eigenvalues, so (δϑ, δp_ϑ) is bounded and (δφ, δψ) grows at most
-linearly. *The circles Z₂, Z₂′.* By [[eq:vi-b1-3-2]], the Hessian of 𝒦 at Z₂ has no terms mixing (y, η_y) with
+linearly. *The circles Z₂, Z₂′.* By [[eq:vi-b1-3-2]], the Hessian of 𝔎 at Z₂ has no terms mixing (y, η_y) with
 (ψ, η_ψ), so the linearisation splits: δẏ = 2δη_y and δη̇_y = −2(Ψ₀² + a² − b²) δy, an oscillator since
 Ψ₀² + a² − b² > 0; and δη̇_ψ = 0, δψ̇ = 2δη_ψ. So the growth is at most linear. ∎
 
@@ -997,7 +998,7 @@ smooth, V₂ := aV₁, and let the V₂-orbit of p lie in a compact set on which
 *Proof.* e^(sV₂)p = e^(τ(s)V₁)p with τ′ = a(e^(sV₂)p), τ(0) = 0, so |τ| ≤ c_a|s|. Then
 D_p e^(sV₂) = D_p e^(τV₁) + V₁ ⊗ D_pτ, and ∂_s D_pτ = da(D_p e^(τV₁)) + (V₁a) D_pτ. Along the orbit,
 V₁a = ∂_s log a(e^(sV₂)p), so ∂_s(D_pτ/a) = da(D_p e^(τV₁))/a and
-|D_pτ(s)| ≤ c_a³ ∫₀^(|s|) c(1 + c_aσ)^k dσ. As V₁ is bounded on the compact set, the bound follows. ∎
+|D_pτ(s)| ≤ c_a³ ∫₀^(|s|) c(1 + c_as′)^k ds′. As V₁ is bounded on the compact set, the bound follows. ∎
 
 **Proposition {#prop:vi-b1-3-4}** ((K3) and (K4) near b₀.) There is ε_K ∈ (0, ε_Γ] such that for |b − b₀| ≤ ε_K, (K3)
 holds for g̃_b with Ψ_b^* t_*, and the splitting [[eq:ii-b-1-1]] and the constants μ, C, C_ϵ can be chosen continuous in
@@ -1021,7 +1022,7 @@ e^(s𝖵_b)|_(TΓ_b)| ≤ C_ϵ e^(ϵ|s|) for all (b, p) ∈ 𝒮_K and s ∈ ℝ
 𝒮_K}.
 
 *Splitting and normal rates.* On Γ_b, [[eq:vi-b1-2-2]] gives 𝖵φ_s = (ν_s/q₁)φ_s and 𝖵φ_u = −(ν_u/q₁)φ_u, so
-dφ_s(De^(s𝖵)v) = Θ_s dφ_s(v) for v ∈ TΓ_u|_(Γ_b), with Θ_s := exp ∫₀^s (ν_s/q₁)(e^(σ𝖵)p) dσ ≥ e^(ν′s) for s ≥ 0.
+dφ_s(De^(s𝖵)v) = Θ_s dφ_s(v) for v ∈ TΓ_u|_(Γ_b), with Θ_s := exp ∫₀^s (ν_s/q₁)(e^(s′𝖵)p) ds′ ≥ e^(ν′s) for s ≥ 0.
 Here ν′ := inf ν_s/q₁ > 0 is uniform in b. Fix ϵ := ν′/4. Let n_u be a smooth section of TΓ_u|_(Γ_b) with
 dφ_s(n_u) = 1, which exists by transversality. Write De^(s𝖵) n_u(p) = Θ_s(p) n_u(e^(s𝖵)p) + w_s(p) with
 w_s(p) ∈ TΓ_b. An invariant line N^u = span(n_u + h), h a section of TΓ_b, is a fixed point of
@@ -1049,7 +1050,7 @@ infinity do not depend on it. Limits over ∂X are read in t_*. Write γ for a m
 in Σ_(z₀) ∩ T*{r > r₀ − 2δ₀}, parametrised by the rescaled field near fibre infinity ([[sec:vi-a-5]]).
 
 *Outside the horizon.* On {r_A > r₊}, (r, p̃) moves with p̃² = ℛ(r), ṙ = ±2ϱ⁻²p̃ and (p̃)˙ = ±ϱ⁻²∂_rℛ
-([[lem:vi-b1-0-1]] (d)), the conserved values of (Φ, Ψ, 𝒦) fixed. By [[cor:vi-b1-1-2]], either ℛ has no double zero,
+([[lem:vi-b1-0-1]] (d)), the conserved values of (Φ, Ψ, 𝔎) fixed. By [[cor:vi-b1-1-2]], either ℛ has no double zero,
 or it has exactly one, r_c, and then ℛ_c = 0. In the first case r is strictly monotone except at most at one simple
 turning point, where p̃ = 0 ≠ ∂_rℛ. Indeed r cannot converge to a point r̄ > r₊: p̃² = ℛ(r̄) > 0 would keep |ṙ| bounded
 below, and a simple zero is passed in finite time. So at each end r → r₊ or r → ∞, or the curve leaves {r_A > r₊}. In
