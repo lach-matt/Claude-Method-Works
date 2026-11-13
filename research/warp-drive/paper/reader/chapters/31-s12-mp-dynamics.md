@@ -226,8 +226,8 @@ rate (2m)^(−1/2) of [[prop:np-10-17-ii]] (d).
 H_(G₁) ξ = −∂_rG₁ = −f′f⁻² + 2Cr⁻³ = (2f − rf′)/(f r) = 2(r² − 2m)/(f r³), which vanishes only at r² = 2m; then
 C = 2m·2 = 4m. This is [[prop:np-10-17-ii]] (a)–(b) at σ = 1. (b) By [[prop:np-10-17-ii]] at σ = 1, the linearisation
 is δṙ = δξ, δξ̇ = 16 r_ph⁻² δr, with eigenvalues ±4r_ph⁻¹ = ±ν. For a function φ vanishing at the zero p of a vector
-field V, d(Vφ)_p = dφ_p ∘ DV_p. Here dφ_(s/u) = dξ ± ν dr at p, as f(r_ph) = ½ and (r − r_ph) vanishes at p, and
-(dξ ± ν dr)(δξ̇, δṙ) = 16r_ph⁻² δr ± ν δξ = ν²δr ± νδξ = ±ν(δξ ± νδr). On Σ₁, ∂_ξC = −2r²fξ = 0 and
+field V, d(Vφ)_p = dφ_p ∘ DV_p. Here dφ_(s/u) = dξ ± ν dr at p, as f(r_ph) = ½ and (r − r_ph) vanishes at p; the linearisation maps
+(δr, δξ) to (δξ, ν²δr), as 16r_ph⁻² = ν², and dξ ± ν dr applied to (δξ, ν²δr) gives ν²δr ± νδξ = ±ν(δξ ± νδr). On Σ₁, ∂_ξC = −2r²fξ = 0 and
 ∂_rC = r(2f − rf′)f⁻² = 0 at p, so the linearisation on Σ₁ in the coordinates (r, ξ) is the one at fixed C.
 (c) At p, ∂_ξφ_(s/u) = 1 and ∂_rφ_(s/u) = ±ν/(2f), the term with the derivative of f⁻¹ vanishing with r − r_ph. So
 {φ_u, φ_s} = ∂_ξφ_u ∂_rφ_s − ∂_rφ_u ∂_ξφ_s = ν/(2f) + ν/(2f) = ν/f = 2ν. ∂_CG₁ = r⁻² by inspection. (d) In static
@@ -249,7 +249,7 @@ frame dt_*, dx^i lie in ρ²C^∞(X̄), uniformly and smoothly in b. So (H6), (K
 
 *Proof.* On {|x| ≤ 2R₁}, T_m of [[eq:iii-b-3-3]] is constant, so g_b is g^KS_b in a translated time coordinate, and
 r₀ − 2δ₀ ≥ ½r_♭; so g_b is smooth and Lorentzian of signature (1, 4) there, smoothly in b, by [[lem:s12-ks-domain]].
-On {|x| ≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and g_b − ḡ_η ∈ |x|⁻²C^∞, smoothly in b, where ḡ_η := η.
+On {|x| ≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and g_b − η ∈ |x|⁻²C^∞, smoothly in b.
 *dt_* is timelike.* As in the proof of [[lem:iii-b-3-7]] (a): in the coordinates (t_KS, x) = Φ_m(t, x), a function
 t − φ(|x|) has differential dt_KS − β d|x| with β := φ′ − T_m′. For φ = ψ, β = 1 off supp χ_∞, that is on
 [r₀ − 2δ₀, 2R₁], where ψ′ = 1 and T_m′ = 0; and on supp χ_∞ ⊂ [2R₁, ∞) the computation of [[lem:iii-b-3-7]] (a), which
