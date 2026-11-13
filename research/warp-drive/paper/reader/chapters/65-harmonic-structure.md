@@ -748,8 +748,8 @@ forcing term in that space, and the proof of [[thm:gd-r3-4]] (iii) applies to it
 
 The hypothesis of [[prop:gd-r3-6]] concerns the region near I₀ ∪ ℐ⁺, where the exterior theory of
 [[sec:iv-0]]–[[sec:iv-4]], [[sec:iv1-0]]–[[sec:iv2-4]] and [[sec:iv3-0]]–[[sec:iv3-2]] is written for the linearised
-gauge-fixed Einstein operator. It carries over to □: in Cartesian components □ is the scalar wave operator on each component plus a coupling that
-decays like |x|⁻³.
+gauge-fixed Einstein operator. It carries over to □: in Cartesian components □ is the scalar wave operator on each
+component plus a coupling that decays like |x|⁻³.
 
 *Setting.* On {|x| ≥ 3R₁}, in the coordinates (t, x) of [[sec:iii-b-3]], g = η + m₀|x|⁻²ℓ ⊗ ℓ with
 ℓ := dt − d|x| ([[lem:iii-b-3-5]] (b)), a Kerr–Schild metric with the η-null form ℓ, so det g = −1. The chart of
