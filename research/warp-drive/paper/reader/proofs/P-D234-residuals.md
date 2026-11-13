@@ -218,13 +218,13 @@ Consequently |F_γ| ≤ Σ_ijk |C^(F,γ)_ijk|/γ! on [−1, 1]³.
 
 *Proof.* The identity T′_k = 2k(T_(k−1) + T_(k−3) + …), with the last term T_0 halved when k is odd, follows from
 T′_k(cos θ) = k sin kθ/sin θ and the identity 2 sin θ (cos (k−1)θ + cos (k−3)θ + …) = sin kθ, in which the last
-term, cos 0 = 1, is again halved when k is odd; the latter telescopes, since 2 sin θ cos mθ = sin (m + 1)θ −
-sin (m − 1)θ, and for k odd the halved term contributes sin θ. Summing over k gives [[eq:tl5-cheb-derivative]];
-|T_k| ≤ 1 on [−1, 1] gives the bound. ∎
+term, cos 0 = 1, is again halved when k is odd. The latter telescopes by 2 sin θ cos mθ = sin (m + 1)θ − sin (m − 1)θ;
+for k odd the halved term contributes sin θ. Summing over k gives [[eq:tl5-cheb-derivative]], and the bound follows
+from |T_k| ≤ 1 on [−1, 1]. ∎
 
-**Lemma {#lem:tl5-rounding}** (The rounding.) For n, a ≥ 0, T_n^(a)(1) = Π_(r<a) (n² − r²)/(2r + 1) and
-|T_n^(a)| ≤ T_n^(a)(1) on [−1, 1]. Hence, if two fields F and F̃ of the form [[eq:tl5-fields]] have coefficients
-that differ by at most ε₀, then for every multi-index γ
+**Lemma {#lem:tl5-rounding}** (The rounding.) For n, a ≥ 0 one has T_n^(a)(1) = Π_(r<a) (n² − r²)/(2r + 1), and on
+[−1, 1] one has |T_n^(a)| ≤ T_n^(a)(1). Hence, if two fields F and F̃ of the form [[eq:tl5-fields]] have
+coefficients that differ by at most ε₀, then for every multi-index γ
 
     sup_([−1,1]³) |∂^γ F − ∂^γ F̃| ≤ ε₀ Θ_γ,      Θ_γ := Θ₂₄^(γ₁) Θ₃₀^(γ₂) Θ₁₅^(γ₃),   Θ_n^(a) := Σ_(i=0..n) T_i^(a)(1).
                                                                                        {#eq:tl5-rounding}
