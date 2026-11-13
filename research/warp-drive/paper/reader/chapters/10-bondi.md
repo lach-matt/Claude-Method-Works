@@ -668,12 +668,10 @@ a2 their s⁴ coefficients, and β_k, u_k, w_k the coefficients of β, U and W. 
 
 (v) R_vv at s⁵ is then an identity (the rate of (iii)), and at s⁶ it is linear in ∂_v w_4 and reads
 
-    ∂_v M = (4/3) (p_v² + p_v q_v + q_v²) + (2/3) div(∂_v u_6),       M := −w_4.                      {#eq:bondi-law-div}
+    ∂_v M = (4/3) ((∂_v p)² + ∂_v p ∂_v q + (∂_v q)²) + (2/3) div(∂_v u_6),       M := −w_4.         {#eq:bondi-law-div}
 
 The coefficient at s⁶ involves only p, q, a1, a2 and w_4, so remainders o(s⁶) do not disturb it. With (iv), ∂_v u_6 = 0,
-and [[eq:bondi-law-div]] is, pointwise,
-
-    ∂_v M = (4/3) (p_v² + p_v q_v + q_v²).                                                           {#eq:bondi-law-scri}
+and [[eq:bondi-law-div]] is, pointwise, the law [[eq:bondi-law]] with (p1, p2) = (p, q).
 
 Proof. We use ∂_r s^k = −(k/2) s^(k+2) throughout, and [[lem:bondi-orders]] (d) for the orders of the terms not
 displayed.
@@ -724,9 +722,11 @@ they are −∂_v(a1 + a2), cos²ϑ ∂_v a1 and sin²ϑ ∂_v a2, a traceless t
 *(v).* All of W − 1, P_i and Û are O(s³) and β is O(s⁶). So H_vv and the part of L_vv linear in β are O(s⁸), and the
 part linear in U is −div(∂_v U) = −div(∂_v u_5) s⁵ − div(∂_v u_6) s⁶ + o(s⁶), by [[eq:bondi-ric-u]]. In R_vv|_(β=U=0)
 from [[eq:bondi-ric-0]], ½ W ∂_r² W, (3/(2r)) W ∂_r W and (1/(2r²)) Δ_P W are O(s⁷), −(3/(2r)) ∂_v W = −(3/2) ∂_v w_3 s⁵
-− (3/2) ∂_v w_4 s⁶ + O(s⁷), and −2((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²) = −2(p_v² + p_v q_v + q_v²) s⁶ + O(s⁷). Hence
+− (3/2) ∂_v w_4 s⁶ + O(s⁷), and −2((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²) = −2((∂_v p)² + ∂_v p ∂_v q + (∂_v q)²) s⁶ +
+O(s⁷). Hence
 
-    R_vv = −((3/2) ∂_v w_3 + div(∂_v u_5)) s⁵ − ((3/2) ∂_v w_4 + 2(p_v² + p_v q_v + q_v²) + div(∂_v u_6)) s⁶ + o(s⁶).
+    R_vv = −((3/2) ∂_v w_3 + div(∂_v u_5)) s⁵
+           − ((3/2) ∂_v w_4 + 2((∂_v p)² + ∂_v p ∂_v q + (∂_v q)²) + div(∂_v u_6)) s⁶ + o(s⁶).
 
 The coefficient of s⁵ vanishes identically by (iii). The coefficient of s⁶ involves only p, q, a1, a2 (through u_6) and
 w_4, and its vanishing is [[eq:bondi-law-div]] with M = −w_4. With (iv), ∂_v u_6 = 0, since u_6 is linear in a1 and a2
@@ -739,17 +739,18 @@ r^(−3/2), and their equations give B = B1/r³ + O(r^(−7/2)) with B1 = −(C1
 U^A = U_(A1)/r^(5/2) + O(1/r³), and V = r² + V1(u, x^A) r^(1/2) − M(u, x^A) + O(r^(−1/2)), with V1 minus two thirds of
 the divergence of U_(A1) [TTS09, (20), (21), (25)–(27), pp. 3–4]. Their mass law reads
 
-    "dM(u, x^A)/du = −(1/3)((C_11,u)² + C_11,u C_21,u + (C_21,u)² + (D_11,u)² + (D_21,u)² + (D_31,u)²)"
+    "∂M(u, x^A)/∂u = −(1/3)((C_11,u)² + C_11,u C_21,u + (C_21,u)² + (D_11,u)² + (D_21,u)² + (D_31,u)²)"
                                                                                   [TTS09, (28), p. 4],
 
 and "Eq. (28) represents mass loss rate by gravitational waves" [TTS09, p. 4]. The r^(−2) term A of C satisfies ∂A/∂u =
 0 and vanishes for asymptotic flatness, by its value at spatial infinity [TTS09, (35), (36), p. 5]. In the class the
-reflections give D1 = D2 = D3 = 0, and with u = −v, θ = π/2 − ϑ and (φ, ψ) = (φ1, φ2) their form is [[eq:bondi-metric]]
-with C1 = −2(P1 + P2), C2 = 2P1, C3 = 2P2, B = 2β, V/r² = W and U^θ = −U. So C11 = −2(p + q), C21 = 2p, and B1 = −½(p² +
-pq + q²) = 2 β_6, as in (i); V1 = w_3, as in (iii); (35) is (iv); and (28) becomes dM/du = −(4/3)(p_u² + p_u q_u +
-q_u²). The time reversal u = −v leaves the squares unchanged and reverses the sign of the rate, which gives
-[[eq:bondi-law-scri]]: an incoming flux raises the mass. [[prop:hierarchy-scri]] derives all of this in
-[[eq:bondi-metric]] itself, with every coefficient general from s¹ on, and takes nothing from [TTS09].
+reflections give D1 = D2 = D3 = 0, and with u = −v, θ = π/2 − ϑ and (φ, ψ) = (φ1, φ2) their form is [[eq:bondi-form]],
+with the subscript B dropped, C1 = −2(P1 + P2), C2 = 2P1, C3 = 2P2, B = 2β, V/r² = W and U^θ = −U. So C11 = −2(p + q),
+C21 = 2p, and B1 = −½(p² + pq + q²) = 2 β_6, as in (i); V1 = w_3, as in (iii); (35) is (iv); and (28) becomes
+∂M/∂u = −(4/3)((∂_u p)² + ∂_u p ∂_u q + (∂_u q)²). The time reversal u = −v leaves the squares unchanged and reverses
+the sign of the rate, which gives the law [[eq:bondi-law]]: an incoming flux raises the mass. [[prop:hierarchy-scri]]
+derives all of this in the form [[eq:bondi-form]] itself, with every coefficient general from s¹ on, and takes nothing
+from [TTS09].
 
 ### Proof of the mass law {#sec:bondi-proof}
 

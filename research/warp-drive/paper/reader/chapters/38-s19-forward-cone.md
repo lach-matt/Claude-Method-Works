@@ -524,7 +524,7 @@ each b (cf. (H4), and [[lem:ii-c-3-2]] (1), whose region {r₀ ≤ r ≤ r^♮} 
 
 *The time orientation in (B2).* On {½r_♭ ≤ |x| ≤ 2R₁}, g_b is g^KS_b in a time coordinate translated by a constant
 ([[lem:iii-b-3-5]] (c)), so by [[lem:iii-b-3-3]] (e), whose hypothesis holds there by [[lem:s12-ks-domain]], dt − β dr
-is g_b-timelike for every β ∈ [0, 1]. Where ψ′ = 1, that is on {r₀ − 2δ₀ ≤ |x| ≤ 2R₁} ([[def:s12-radii]]),
+is g_b-timelike for every β ∈ [0, 1]. On {r₀ − 2δ₀ ≤ |x| ≤ 2R₁}, where ψ′ = 1 ([[def:s12-radii]]),
 dt_* = dt − dr; so the path β ↦ dt − β dr, β ∈ [0, 1], joins dt to dt_* through timelike covectors, and dt lies in
 the cone of dt_*, which is the past cone of the time orientation of (H6) ([[sec:i-b-1-2]], [[lem:vi-a-1-1]]). As dt is
 timelike on the connected set {½r_♭ ≤ |x| ≤ 2R₁}, it lies in one cone throughout; this extends the time orientation to

@@ -8,7 +8,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 |---|---|---|---|
 | 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | NOT CONFIRMED 0M 2m 5n; second fix running |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | NOT CONFIRMED 0M 2m 3n; third fix done; third reading running |
-| 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | running |
+| 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED (6 nits, being applied with the Ch 7 pointer cut) |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | running | - |
 | 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | running | - |
 | 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |
@@ -20,7 +20,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 26 S7 | NOT CONFIRMED 2M 4m 3n | done | running |
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done (one citation pending) | CONFIRMED but for the 0-Sobolev citation (3 optional nits) |
 | 28 S9 | NOT CONFIRMED 2M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (Theorem 1.1 tame estimate) |
-| 29 S10 | NOT CONFIRMED 0M 5m 7n | done | NOT CONFIRMED 0M 1m 3n; third fix running |
+| 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
 | 30 S11 | running | - | - |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | held for S11 (parameter set) | - |
 | 32 S13 | running | - | - |
@@ -42,7 +42,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 48 S29 | being written | - | - |
 | 60 S30 | being written | - | - |
 | 61-62 M Ch 11-12 | being written | - | - |
-| 63-90 | not yet written | - | - |
+| 63-64 M Ch 13-14 | being written | - | - |
+| 65-90 | not yet written | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; four citations being resolved | - |
 
 ## Proof files (merged into their chapters after an independent reading)

@@ -1336,3 +1336,173 @@ term P(g₀, g_(b₀)) ([Hin26, (5.64)], with the class ⟨(2, 0)⟩₀). In dim
 ℰ_I^C by [[def:iii-c-3-1]] (3). So the subtraction is not needed, and no class with (3/2, 0) in slot 6 is used as a
 background.
 
+### The boosted background {#sec:iii-c2-1}
+
+[[sec:iii-c2-1]]–[[sec:iii-c2-4]] are [Hin26, Sections 5.6–5.7] (Theorem 5.23 with the cut-off gauge (5.76), Remark
+5.24, Proposition 5.25, Section 5.7.1, Remark 5.26 and Example 5.27; pp. 108–113) in dimension 4 + 1. The cut-off
+boosts φ_S, S = S_w ∈ 𝒮₁, and the cut-offs χ_IVP, χ_K are those of [[sec:iii-b-5]], and |S| := |w|. The gauge 1-form
+Υ⁰(g, g₀) and E^Υ_(g₀) are those of [[sec:iii-b-6]] ([[eq:iii-b-6-1]], [[eq:iii-b-6-3]]).
+
+**Lemma {#lem:iii-c2-1-1}** (The boosted Tangherlini metric on the exterior domain; [Hin26, Section 5.6, first
+paragraph] in dimension 4 + 1.) There is ε_φ > 0 such that for S ∈ 𝒮₁ with |S| < ε_φ and r₁ ≥ R₀ + 1: φ_S*g_(b₀)
+agrees on Ω_(ext,r₁) with an element of 𝒢 ([[def:iii-c-3-4]]), it is Ricci flat, and φ_S*g_(b₀) − g_(b₀) satisfies
+the pointwise bounds of the proof of [[lem:iii-c1-1-1]]. Hence [[thm:iii-c1-2-1]] and [[thm:iii-c1-3-1]] hold with
+g_(b₀) replaced by g₀ = φ_S*g_(b₀) ([[rem:iii-c1-2-2]] (2); for [[thm:iii-c1-3-1]], the same proof, with
+[[prop:iii-c-4-4]] applied with g₁ = g₀ ∈ 𝒢).
+
+*Proof.* On Ω_(ext,r₁), t_IVP ≥ −(r − r₁)/12 > −|x|/10, so χ_IVP = 1 there ([[sec:iii-b-5]]); and
+t_IVP ≤ r + 2r^(1−ℓ^♭_I) there, so t ≤ |x| + C, and χ_K = 0, as supp χ_K ⊂ {|x| < t/2} (χ^♯_K = 1 near supp χ_K). So
+Ω_(ext,r₁) ⊂ {χ_IVP(1 − χ_K) = 1}, and [[lem:iii-c-3-5]] (2) with [[eq:iii-b-5-3]] gives
+φ_S*g_(b₀) − g_(b₀) = |x|⁻²h_S(ω)(dx¹)² + ρ₀²ρ_I³C^∞ there for |S| small, with h_S smooth and O(|S|)
+([[eq:iii-b-5-2]]). The first term has only the slot π₁₁ and lies in ρ₀²ρ_I²C^∞, and g_(b₀) ∈ 𝒢 ([[lem:iii-c-3-5]]
+(1)); so φ_S*g_(b₀) satisfies [[eq:iii-c-3-4]] on Ω_(ext,r₁). Ric(φ_S*g_(b₀)) = φ_S*Ric(g_(b₀)) = 0. And
+δ := φ_S*g_(b₀) + h − η obeys the pointwise bounds of the proof of [[lem:iii-c1-1-1]] (the slots of φ_S*g_(b₀) − η are
+those of g_(b₀) − η plus the term above in the slot π₁₁, [[def:iii-c-3-4]]), so the hypersurfaces of Ω_(ext,r₁) stay
+spacelike for |S| small. ∎
+
+So the boost need only be genuine where the exterior problem is posed, and the slope 1/12 of [[lem:iii-c1-1-1]]
+arranges it. The region where χ_IVP < 1 lies below Σ_(past,r₁) and plays no part.
+
+### Stability with boosted background and data {#sec:iii-c2-3}
+
+For h on Ω_(ext,r₀) and r₁ := 2r₀, put
+
+    h_(S,0) := (φ_S*h)|_(Σ_(IVP,r₁)),     h_(S,1) := rℒ_(∂_(t_IVP))(φ_S*h)|_(Σ_(IVP,r₁)),                {#eq:iii-c2-3-1}
+
+defined for |S| < ε′_φ, with ε′_φ independent of r₀, as φ_S maps a neighbourhood of Σ_(IVP,r₁) into
+{|t_IVP| < r/8} ∩ Ω_(ext,r₀): φ_S is the time-1 flow of a b-vector field, and near |x| = r it moves t_IVP by at most
+C|S|r ([[lem:iii-b-5-1]], [[lem:iii-b-5-2]]), while for r ≥ r₁ = 2r₀ the past slab of Ω_(ext,r₀) reaches down to
+−(r − r₀)/12 ≤ −r/24; so C|S| < 1/24 suffices, for every r₀. ([Hin26] takes r₁ = r₀ + 1; then the slab reaches only to
+−1/12 near |x| = r₁, while a boost moves t_IVP by about |S|r₁, so |S| would have to be below about 1/(12Cr₁), against
+the bound depending only on b₀ and ℓ^♭ that [Hin26, Theorem 5.23] states.)
+
+**Theorem {#thm:iii-c2-3-1}** ([Hin26, Theorem 5.23] in dimension 4 + 1.) Let h₀, h₁ be small data as in
+[[thm:iii-c1-3-1]], and let h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₀)) solve
+
+    P^(χ₀)(g_(b₀) + h, g_(b₀)) = 0,     h|_(Σ_(IVP,r₀)) = h₀,     rℒ_(∂_(t_IVP))h|_(Σ_(IVP,r₀)) = h₁     {#eq:iii-c2-3-2}
+
+(it exists by [[thm:iii-c1-2-1]] and [[thm:iii-c1-3-1]] in the cut-off gauge: [[cor:iv2-4-1]] gives the former, and
+the proof of the latter holds for L^(χ₀) by [[lem:iii-c2-2-1]], which leaves the leading part at ℐ⁺ unchanged and adds
+to the error of [[eq:iii-c-4-4]] a term of that class). For S ∈ 𝒮₁ small, depending only on b₀, ℓ^♭₀ and ℓ^♭_I, let
+h_S ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₁)) solve
+
+    P^(χ₀)(φ_S*g_(b₀) + h_S, φ_S*g_(b₀)) = 0 in Ω_(ext,r₁),     h_S = h_(S,0),  rℒ_(∂_(t_IVP))h_S = h_(S,1) on Σ_(IVP,r₁)
+                                                                                                         {#eq:iii-c2-3-3}
+
+([[lem:iii-c2-1-1]]). Then:
+
+(1) h_S at S = 0 is h on Ω_(ext,r₁); and under the hypotheses of (3), h_S = φ_S*h near Σ_(IVP,r₁);
+
+(2) h_S depends smoothly on S, in the sense of [Hin26, footnote 59]: it is C^l in S with values in
+H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b for data of regularity depending on k and l;
+
+(3) if h₀, h₁ induce data satisfying the vacuum constraint equations and Υ⁰(g_(b₀) + h, g_(b₀)) = 0 at
+Σ_(IVP,r₀), then Ric(φ_S*g_(b₀) + h_S) = 0 and Υ^(χ₀E_Υ)(φ_S*g_(b₀) + h_S, φ_S*g_(b₀)) = 0.
+
+*Proof.* (1) For S = 0, φ_0 = id and [[eq:iii-c2-3-3]] is [[eq:iii-c2-3-2]] on Ω_(ext,r₁) ⊂ Ω_(ext,r₀). Now assume
+the hypotheses of (3), and let 𝒰 be a neighbourhood of Σ_(IVP,r₁) that φ_S maps into {|t_IVP| < r/8} ∩ Ω_(ext,r₀)
+(after [[eq:iii-c2-3-1]]), where χ₀ = 0. [[rem:iii-c1-2-2]] (1) applies to h in the cut-off gauge ([[prop:np-10-57-d]]
+with Υ = Υ^(χ₀E_Υ), whatever the term of order zero in the gauge; and Υ^(χ₀E_Υ) = Υ⁰ near Σ_(IVP,r₀), where χ₀ = 0):
+Ric(g_(b₀) + h) = 0 and Υ^(χ₀E_Υ)(g_(b₀) + h, g_(b₀)) = 0 on Ω_(ext,r₀), and on φ_S(𝒰), where χ₀ = 0,
+Υ⁰(g_(b₀) + h, g_(b₀)) = 0. Pulling back by φ_S, Ric(φ_S*g_(b₀) + φ_S*h) = φ_S*Ric(g_(b₀) + h) = 0 and, by
+[[eq:iii-c2-2-2]], Υ⁰(φ_S*g_(b₀) + φ_S*h, φ_S*g_(b₀)) = 0 on 𝒰, where χ₀ = 0 as well; so both terms of
+P^(χ₀)(φ_S*g_(b₀) + φ_S*h, φ_S*g_(b₀)) vanish on 𝒰, and φ_S*h solves [[eq:iii-c2-3-3]] there with the data
+[[eq:iii-c2-3-1]]. The whole operator is not pulled back: δ*_(g₀,E_C) is not natural, E_C being built from the fixed
+stationary 1-form c_C of [[def:iii-b-6-1]], which a boost does not preserve (φ_S*c_C ≠ c_C); so φ_S*h solves the
+equation with φ_S*c_C, while [[eq:iii-c2-3-3]] has c_C, and the two agree where Υ⁰ vanishes. Without the constraints
+statement (1) is not proved here; [Hin26, Theorem 5.23 (1)] states it without them, but its proof pulls back the whole
+operator. By uniqueness for the quasilinear wave equation ([[thm:iii-c1-2-1]]) and finite speed of propagation,
+h_S = φ_S*h on the domain of dependence of Σ_(IVP,r₁) inside 𝒰. The data [[eq:iii-c2-3-1]] lie in
+H^(∞,(ℰ₀,ℓ₀))_b(Σ_(IVP,r₁)): h is of that class near Σ_(IVP,r₁) away from ℐ⁺, and pullback by φ_S preserves weighted,
+partially polyhomogeneous b-Sobolev spaces near compact subsets of the interior of I₀ (φ_S is the flow of a b-vector
+field; [Hin26, after (5.77b)]); ℒ_(∂_(t_IVP)) and r are a b-vector field and a weight there.
+
+(2) The data [[eq:iii-c2-3-1]] depend smoothly on S (differentiate [[eq:iii-c2-3-1]]). Formally
+ḣ := (d/ds)h_(S(s))|_(s=0), with S(0) = S₀ and Ṡ = S′(0), solves
+
+    L^(χ₀)_(φ_(S₀)*g_(b₀)+h_(S₀), φ_(S₀)*g_(b₀))ḣ = −(d/ds)P^(χ₀)(φ_(S(s))*g_(b₀) + h_(S₀), φ_(S(s))*g_(b₀))|_(s=0),
+
+with the differentiated data. Let D₁, D₂ denote the derivatives in the first and the second argument. As
+P^(χ₀)(g₀, g₀) = 0 for every Ricci-flat g₀ (the proof of [[lem:iii-c2-2-1]]), in particular along φ_(S(s))*g_(b₀)
+([[lem:iii-c2-1-1]]), with g₀ := φ_(S₀)*g_(b₀) and ġ₀ := (d/ds)φ_(S(s))*g_(b₀)|_(s=0) the right side is
+
+    −[(D₁ + D₂)P^(χ₀)(g₀ + h_(S₀), g₀) − (D₁ + D₂)P^(χ₀)(g₀, g₀)]ġ₀,
+
+which carries a factor of h_(S₀) ([[lem:iii-c-4-3]]); without this cancellation the index set at I₀ would be (4, 0),
+which need not lie in ℰ₀ + 2 (for instance ℰ₀ = ∅, [[rem:iii-c2-4-3]]). So it is a linear differential expression in
+ġ₀, which lies in ρ₀²ρ_I²C^∞ with the slots of [[eq:iii-c-3-4]] on Ω_(ext,r₁) (differentiate the expansion of the proof
+of [[lem:iii-c2-1-1]] in S), applied with coefficients in the classes of [[prop:iii-c-4-4]]; so it lies in the target
+space of [[eq:iii-c-5-2]]. The linear estimate [[eq:iii-c1-2-2]], which holds for L^(χ₀) by [[lem:iii-c2-2-1]] and
+[[cor:iv2-4-1]], and the proof of [[thm:iii-c1-3-1]] give ḣ in the class of h_S; difference quotients converge to ḣ by
+the same estimate applied to their difference with ḣ, and higher derivatives follow likewise, with the losses of
+[Hin26, footnote 59].
+
+(3) By (1), φ_S*g_(b₀) + h_S = φ_S*(g_(b₀) + h) near Σ_(IVP,r₁), and by the proof of (1) its Ricci tensor and Υ⁰
+vanish on 𝒰 ⊃ Σ_(IVP,r₁); so its data at Σ_(IVP,r₁) satisfy the constraints, and Υ^(χ₀E_Υ) = Υ⁰ = 0 there (χ₀ = 0
+near Σ_(IVP,r₁)). [[rem:iii-c1-2-2]] (1), with [[rem:iii-c1-2-2]] (2) for the background φ_S*g_(b₀) and with
+[[prop:np-10-57-d]] for the cut-off gauge, applied to [[eq:iii-c2-3-3]], gives the conclusions on Ω_(ext,r₁). ∎
+
+**Remark {#rem:iii-c2-3-2}** ([Hin26, Remark 5.24] in dimension 4 + 1.) If h₀ = h₁ = 0, then h_S = 0 by uniqueness,
+and the metric is φ_S*g_(b₀). On all of Σ_IVP such data are compactly supported perturbations of the Myers–Perry data,
+as gluing produces them ([CD03]; [[ch:s28]]).
+
+### Gauged Cauchy data {#sec:iii-c2-4}
+
+**Proposition {#prop:iii-c2-4-1}** ([Hin26, Proposition 5.25] in dimension 4 + 1.) Let ℰ₀ be an index set with
+min Re ℰ₀ > 0 and jℰ₀ ⊂ ℰ₀ for j ∈ ℕ, and ℓ₀ > 0. Let γ = γ_(b₀) + γ̃ and κ = κ_(b₀) + κ̃ be symmetric 2-tensors on
+Σ_IVP, γ_(b₀) and κ_(b₀) the first and second fundamental forms of Σ_IVP for g_(b₀), with
+γ̃ ∈ H^(∞,(ℰ₀,ℓ₀))_b(Σ_IVP; S²T*Σ_IVP), κ̃ ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b(Σ_IVP; S²T*Σ_IVP), and γ̃ small in H³_b. There are
+h₀, h₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b(Σ_IVP; S²T*), depending continuously on (γ̃, κ̃) and 0 at (0, 0), such that for every
+spacetime metric g with (g − g_(b₀))|_(Σ_IVP) = h₀ and (rℒ_(∂_(t_IVP))(g − g_(b₀)))|_(Σ_IVP) = h₁: (1) the first and
+second fundamental forms of Σ_IVP for g are γ and κ; (2) Υ⁰(g, g_(b₀)) = 0 at Σ_IVP.
+
+*Proof.* We follow [Hin26], which follows [HV18b, Proposition 3.10] and [HV24, Theorem 4.2]; the dimension enters only
+through the size of the frame. Near Σ_IVP write g_(b₀) = a dt_IVP² + 2dt_IVP ⊗_s b + γ_(b₀) and set h₀ := γ̃, extended
+to S²T* by h₀(ν_(b₀), ·) := 0, so that g₀ := g_(b₀) + h₀ induces γ. Let ν_(b₀) and ν₀ = ν_(b₀) + ν̃ be the future unit
+normals; ν̃ ∈ H^(∞,(ℰ₀,ℓ₀))_b. We seek h₁ = rh̃₁ such that g := g₀ + t_IVP h̃₁ (still with unit normal ν₀ at Σ_IVP)
+has second fundamental form κ and Υ⁰(g, g_(b₀)) = 0 there. These are [Hin26, (5.80) and (5.81)]: for X, Y tangent to
+Σ_IVP,
+
+    g₀((∇^g_X − ∇^(g₀)_X)Y, ν₀) = κ̃(X, Y) − h₀(∇^(g_(b₀))_XY, ν_(b₀)) − g₀(∇^(g_(b₀))_XY, ν̃)
+                                    − g₀((∇^(g₀)_X − ∇^(g_(b₀))_X)Y, ν₀),
+    tr_(g₀)(∇^g − ∇^(g₀)) = −tr_(g₀)(∇^(g₀) − ∇^(g_(b₀))).
+
+Each x-derivative of h₀ gains a factor r⁻¹ (b-regularity), the Christoffel symbols of g_(b₀) are O(r⁻³) with all
+b-derivatives in dimension 4 + 1 ([[prop:iii-b-3-6]]: the mass enters at |x|⁻²), and ℰ₀ is closed under sums; so both
+right sides lie in H^(∞,(ℰ₀+1,ℓ₀+1))_b. In a frame e₀ = ν₀, e₁, …, e₄, g₀-orthonormal and tangent to Σ_IVP for
+i ≥ 1, at t_IVP = 0,
+
+    2(Γ(g)_(λμν) − Γ(g₀)_(λμν)) = (t_IVP)_(;μ)(h̃₁)_(νλ) + (t_IVP)_(;ν)(h̃₁)_(μλ) − (t_IVP)_(;λ)(h̃₁)_(μν),
+
+with e_it_IVP = 0 (i ≥ 1) and e₀t_IVP in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b and bounded away from 0. The first equation at
+(e_i, e_j), i, j = 1, …, 4, reads −½(e₀t_IVP)(h̃₁)_(ij) = ⋯ and determines (h̃₁)_(ij); the e^j-component of the second
+determines (h̃₁)_(0j); and its e⁰-component, −½(e₀t_IVP)(h̃₁)₀₀ = f₀ + ½(e₀t_IVP)(g₀)^(ij)(h̃₁)_(ij), with f₀ the
+e⁰-component of its right side, determines (h̃₁)₀₀; all lie in H^(∞,(ℰ₀+1,ℓ₀+1))_b, linearly and continuously in the
+data. So h₁ = rh̃₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b. ∎
+
+These data enter [[thm:iii-c1-3-1]] when min Re ℰ₀ > 3/2 + 2γ_Υ and ℓ₀ > 3/2, and then [[thm:iii-c2-3-1]]; if (γ, κ)
+satisfy the constraints, the solutions are vacuum ([[rem:iii-c1-2-2]] (1), [[thm:iii-c2-3-1]] (3)).
+
+**Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in
+dimension 4 + 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), and suppose that data on Σ^BL := t_BL⁻¹(0) are as in
+[Hin26, (5.82)], with index set ℰ₀ and weight ℓ₀, small, and satisfying the constraints. Then the solution of the
+gauge-fixed equation with Υ⁰ in a conic neighbourhood U_δ := {|t/r| < δ, r > δ⁻¹} of spatial infinity induces on
+Σ_IVP ∩ {r > r₀} data (h₀, h₁) in H^(∞,(ℰ₀,ℓ₀))_b: the index set is unchanged, and no index set ℰ_log arises.
+
+*Proof.* The solution in U_δ is that of [Hin26] (the boost problem of [COM81]), obtained by the arguments of
+[[thm:iii-c1-2-1]] on [−δ, δ]_τ × [0, δ]_ρ × 𝕊³, τ = t/r; its partial polyhomogeneity h ∈ H^(∞,(ℰ₀,ℓ₀))_b(U_δ)
+follows as in Step 1 of the proof of [[thm:iii-c1-3-1]]. On {|x| ≥ R₃}, t_IVP = t − C″ ([[lem:iii-b-3-7]] (b)), with
+t = t_KS + T_m the time of [[eq:iii-b-3-3]] and T_m = 2m r⁻¹ + O(r⁻³) ([[lem:iii-b-3-5]] (a)). For the Tangherlini
+metric of mass m, f = 1 − m r⁻², t_KS − t_BL = ∫ m r⁻²(1 − m r⁻²)⁻¹ dr = −m r⁻¹ + O(r⁻³); so
+t − t_BL = m r⁻¹ + O(r⁻²), a smooth function of ρ = r⁻¹ near ρ = 0 (in dimension 3 + 1 the integral is 2m log r). So
+τ_IVP := t_IVP/r = τ_BL + ρc(ρ) with c smooth, and Taylor expansion of a(τ_BL)ρ^z(log ρ)^k = a(τ_IVP − ρc(ρ))ρ^z(log ρ)^k
+in ρ gives the terms ρ^(z+j)(log ρ)^k, j ∈ ℕ₀: the index set (z, k) + ℕ₀ ⊂ ℰ₀, with no new logarithm. ∎
+
+So [Hin26, Remark 5.26] (logarithms from (2, 0) + ℰ_log) has no counterpart in dimension 4 + 1 from this mechanism;
+logarithmic index sets enter the later chapters for other reasons (the analysis at ι⁺ and K⁺).
+
+**Remark {#rem:iii-c2-4-3}** ([Hin26, Example 5.27] in dimension 4 + 1.) (1) Data that are exactly Myers–Perry outside
+a compact set ([CD03] in dimension 4 + 1; [[ch:s28]]) satisfy [[prop:iii-c2-4-1]] with ℰ₀ = ∅ and every ℓ₀. (2) The
+constructions by the conformal method in [Hin26, Example 5.27 (2)–(3)] are stated in dimension 3 + 1; their
+counterparts in dimension 4 + 1 are not used here.
+

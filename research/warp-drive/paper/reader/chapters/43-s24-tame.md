@@ -41,8 +41,8 @@ transmits the loss of (a) ([[prop:iii-j3-4-1]]). (c) At ι⁺, the level-2 margi
 the 5ε of [[lem:iii-j1-1-1]] are choices, not losses of an estimate: at the closed endpoint of (G⁺) every map is exact
 ([[prop:iii-j3-4-3]]), as in Part 4 of the proof of [Hin26, Theorem 11.59, pp. 289–291]. At 𝓘⁺ every class and every
 main statement is already exact. (5) The K⁺-weight is one fixed admissible α, not the number 4 + ε_K; α = 4 + ε_K itself
-is admissible off a finite set of ε_K ([[def:iii-j3-1-3]], (A_K)). (6) The conditions (E2)–(E4) of [[def:iii-j3-1-3]],
-each excluding finitely many values, are of the kind of (G⁺) and of admissibility, and are not in [Hin26]; (E1) is (G⁺)
+is admissible off a finite set of ε_K ([[def:iii-j3-1-3]], (A_K)). (6) The conditions (Ex2)–(Ex4) of [[def:iii-j3-1-3]],
+each excluding finitely many values, are of the kind of (G⁺) and of admissibility, and are not in [Hin26]; (Ex1) is (G⁺)
 at its closed endpoint. No condition on spec_ι⁺(L̄) beyond (G⁺) is needed, as no improvement after the fact is made.
 
 *Base points.* Throughout, the base point has black hole parameter b ∈ ℬ̄_*, the neighbourhood of b_0 of
@@ -396,8 +396,9 @@ composition of a fixed number of the families of [[lem:iii-j2-2-1]] and of the s
 are tame by the induction; each loop has a length fixed independently of k. [[lem:iii-j2-1-2]] (b)–(g) gives a tame
 family with a loss d equal to the sum of the losses, independent of k, for d_0 ≥ d and δ_𝔹 small
 ([[lem:iii-j2-2-3]]); the weights compose in the same way, each family taking its input in the graded space of the
-losses its statement assigns ([[sec:iii-j2-1]]). For [[thm:iii-i14-3-1]] the background is β = (h, p⃗, q), and [[eq:iii-j2-1-1]] is
-[[eq:iii-j2-4-1]]. At a base point with parameter b the entries are used in their forms at b; the constants of
+losses its statement assigns ([[sec:iii-j2-1]]). For [[thm:iii-i14-3-1]] the background is β = (h, p⃗, q), and
+[[eq:iii-j2-1-1]] is [[eq:iii-j2-4-1]]. At a base point with parameter b the entries are used in their forms at b; the
+constants of
 [[lem:iii-j2-2-1]] are uniform on ℬ̄_*, and d_* of [[lem:iii-j2-2-3]] does not depend on b; so neither do d, d_0 and the
 C_k. ∎
 
@@ -421,8 +422,9 @@ C_k ‖U‖_(𝒟^(k+d)) ([[thm:iii-j-2-4]]) and ‖Φ(U)‖_(d_0) small for ‖
 [[lem:iii-j1-1-1]] holds for the output of [[prop:iii-i15-2-5]]: the indicial roots are those at b_0
 ([[lem:iii-i15-1-1]] (P2)), [[prop:iii-h-3-2]] holds at b ((P4) there), and neither A_b, which reads only ι⁺-data and
 level-1 tf-data ([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor ((P6) there), depends on η_2. Steps 1–3, which hold
-at b with the rows built at b_0 ([[sec:s23-base-points]] (3)), subtract D_UΦ(U′_•) for finitely many U′_•: the finite-dimensional data of Step 1 (bounded by a low norm of (h′, p⃗′, q′),
-[[lem:iii-j2-2-1]] (c)); the data of Case B of Step 2, f_(λ_0) ∈ Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which
+at b with the rows built at b_0 ([[sec:s23-base-points]] (3)), subtract D_UΦ(U′_•) for finitely many U′_•: the
+finite-dimensional data of Step 1 (bounded by a low norm of (h′, p⃗′, q′), [[lem:iii-j2-2-1]] (c)); the data of Case B
+of Step 2, f_(λ_0) ∈ Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which
 are not finite-dimensional and are mapped by the right inverse of [[prop:iii-g3-3-7]], independent of U with the loss l,
 on the finitely many λ_0 ∈ Λ_* ([[lem:iii-j2-2-1]] (g), [[lem:iii-j2-1-2]] (d)); and the conormal remainders of Step 3
 (the conormal components of q′, [[lem:iii-j2-2-1]] (c)). By [[rem:iii-j-2-5]],
@@ -499,32 +501,32 @@ below.
 
 **Definition {#def:iii-j3-1-3}** (The exactness conditions.) Besides admissibility and (A_J):
 
-- (E1) (G⁺) of [[def:iii-j-g-plus]], used with its closed endpoint: no λ ∈ Λ has real part in (3, 3 + ε_+], that is,
+- (Ex1) (G⁺) of [[def:iii-j-g-plus]], used with its closed endpoint: no λ ∈ Λ has real part in (3, 3 + ε_+], that is,
   ε_+ < min{Re λ − 3 : λ ∈ Λ, Re λ > 3}, a smallness condition. With [[lem:iii-i10-1-2]] (c) (every exponent produced
   with real part in [2, 3 + ε_+] lies in Λ), no exponent produced has u-exponent of real part 3 + ε_+.
-- (E2) 3 + ε_+ ∉ Re π_1ℰ^tot_I ∪ {λ_♯}: the exclusions of [[prop:iii-i1-3-1]] (Re π_1ℰ^C_I and λ_♯) and of
+- (Ex2) 3 + ε_+ ∉ Re π_1ℰ^tot_I ∪ {λ_♯}: the exclusions of [[prop:iii-i1-3-1]] (Re π_1ℰ^C_I and λ_♯) and of
   [[prop:iii-i1-2-1]] (Re π_1ℰ^tot_I) at the ι⁺-weight 3 + ε_+; here ℰ^tot_I ⊃ ℰ^C_I ([[eq:iii-c-3-1]]).
-- (E3) No K⁺-exponent at hand (of the coefficients of the pieces, of the rows, and their ℕ₀-shifts, as in
+- (Ex3) No K⁺-exponent at hand (of the coefficients of the pieces, of the rows, and their ℕ₀-shifts, as in
   [[lem:iii-i14-2-5]]) has real part α − 2, α − 1 or α. The first and the last are contained in admissibility (the
   proof of [[lem:iii-i14-2-5]]); the middle one is an additional condition.
-- (E4) α − Re α_0 ≠ −μ and α − 1 − Re α_0 ≠ −μ for every root μ and the finitely many tf-exponents α_0 of levels 1–2
+- (Ex4) α − Re α_0 ≠ −μ and α − 1 − Re α_0 ≠ −μ for every root μ and the finitely many tf-exponents α_0 of levels 1–2
   of [[prop:iii-i11-3-1]]: the conditions [[eq:iii-g4-4-2]] at ℓ_zf = α − 2 and α − 3.
-- (A_K) (Optional.) α := 4 + ε_K is admissible and satisfies (A_J), (E3) and (E4).
+- (A_K) (Optional.) α := 4 + ε_K is admissible and satisfies (A_J), (Ex3) and (Ex4).
 
 No condition is needed for the final zero-energy solve: [[lem:iii-i2-4-2]] excludes no real part and asks only
 β_tf − β_zf = α_sf + 2, where α_sf denotes the weight α of [[eq:iii-h-1-1]] (not the K⁺-weight α of this chapter), and
 α_sf + 2 ∈ (0, 1).
 
-**Lemma {#lem:iii-j3-1-4}** (The conditions are generic.) (E1) is a smallness condition on ε_+, (E2) excludes finitely
-many ε_+ in any bounded range, (E3)–(E4) exclude finitely many α, and (A_K) excludes finitely many ε_K at fixed ε_+. So
-admissible α with (E3)–(E4) exist in (4 + ε_K − ε′_0, 4 + ε_K], and ε_+, ε_K may be decreased to meet (E1)–(E2) and
+**Lemma {#lem:iii-j3-1-4}** (The conditions are generic.) (Ex1) is a smallness condition on ε_+, (Ex2) excludes finitely
+many ε_+ in any bounded range, (Ex3)–(Ex4) exclude finitely many α, and (A_K) excludes finitely many ε_K at fixed ε_+. So
+admissible α with (Ex3)–(Ex4) exist in (4 + ε_K − ε′_0, 4 + ε_K], and ε_+, ε_K may be decreased to meet (Ex1)–(Ex2) and
 (A_K), as (G⁺) and (G) already permit.
 
 *Proof.* The excluded numbers are built from finitely many numbers that do not depend on α, ε_+ or ε_K within the ranges
 used: the roots μ, discrete with finitely many in any bounded set ([[prop:iii-f1-2-3]]); Λ and the tf-exponents α_0 of
 levels 1–2, Λ-valued below 3 and finitely many ([[lem:iii-i10-1-2]]); the exponents at hand below α + 1, finitely many
 and Λ-generated (the proof of [[lem:iii-i14-2-5]]); λ_♯; and Re π_1ℰ^tot_I, an index set, finite below any bound. Each
-of (E2)–(E4) and (A_K) removes the values of α, ε_+ or ε_K equal to one of finitely many such numbers; (E1) is (G⁺)
+of (Ex2)–(Ex4) and (A_K) removes the values of α, ε_+ or ε_K equal to one of finitely many such numbers; (Ex1) is (G⁺)
 itself, an upper bound on ε_+. ∎
 
 ### Two elementary lemmas {#sec:iii-j3-2}
@@ -688,15 +690,15 @@ at K⁺-weight α. As M is arbitrary, this is [[eq:iii-j3-3-3]]. The u_(b,0)-par
 Laurent coefficients of Y(λ) (the form [[eq:iii-g2-4-3]]). The linearity and the bounds, with constants
 Cδ^(−k−l_0−1), follow from [[lem:iii-j3-3-3]]. ∎
 
-**Proposition {#prop:iii-j3-3-4}** (The uses of the graft at the top level.) Let f ∈ 𝒴^0_ex(α), with (E1)–(E3). Then
+**Proposition {#prop:iii-j3-3-4}** (The uses of the graft at the top level.) Let f ∈ 𝒴^0_ex(α), with (Ex1)–(Ex3). Then
 [[prop:iii-i10-3-1]] holds with: (a) u_I of ι⁺-data (ℰ_I, 3 + ε_+); (b) K⁺-weight α − 2 in place of α − 2 − ε;
 (c) f^♭ ∈ H^(∞,ℓ_I+1,(ℰ^♭+2,w_+),α)_b. And the piece (ii) of [[thm:iii-i12-3-1]], the graft remainder, has K⁺-order
 exactly α.
 
 *Proof.* (a) Step 1 of the proof of [[prop:iii-i10-3-1]] takes ℓ̆_+ := w_+ − 2 − ε off its exclusions, for all but
 finitely many ε; the exclusions are those of [[prop:iii-i1-3-1]] (Re π_1ℰ^C_I and λ_♯) and of [[prop:iii-i1-2-1]]
-(Re π_1ℰ^tot_I), and by (E2) ℓ̆_+ := w_+ − 2 = 3 + ε_+ is allowed. [[prop:iii-i1-2-1]] and [[prop:iii-i1-3-1]] are
-exact at an allowed weight; (E2) is used again in the removals at 𝓘⁺ of Step 2 and in the regularity at 𝓘⁺ in
+(Re π_1ℰ^tot_I), and by (Ex2) ℓ̆_+ := w_+ − 2 = 3 + ε_+ is allowed. [[prop:iii-i1-2-1]] and [[prop:iii-i1-3-1]] are
+exact at an allowed weight; (Ex2) is used again in the removals at 𝓘⁺ of Step 2 and in the regularity at 𝓘⁺ in
 [[prop:iii-j3-4-3]] ([[prop:iii-i1-2-1]] at ℓ_+ = 3 + ε_+).
 
 (c) At K⁺: Step 2 takes c_K := α and applies the graft to the coefficients of the current right side, which lie in
@@ -705,7 +707,7 @@ H^(∞,ℓ_I+1,α)_b(ι⁺) with respect to ρ_+ (𝒴^0(α) is a class of [Hin2
 the iteration closes at α. The part of the right side that does not reach ι⁺ near the corner (the difference between
 the cut-off of [Hin26, Definition 2.8] and χ_ι) goes into f′. The K⁺-weight α − ε of Step 1 is a free weakening (f_1
 has K⁺-weight α). At ι⁺: f^♭ = f − L_b(u_I + u_ι) with f at (ℰ^♭ + 2, w_+), L_b u_I at (ℰ_I + 2, w_+) by (a), and u_ι
-a finite sum of single ι⁺-terms; by (E1) no exponent has real part w_+, so the integrations of [[lem:iii-a-1-2]] and
+a finite sum of single ι⁺-terms; by (Ex1) no exponent has real part w_+, so the integrations of [[lem:iii-a-1-2]] and
 [[lem:iii-a-1-4]], which are exact at weights that are not exponents, are applied at such a weight (the class of
 [Hin26, Definition 2.8] itself expands every exponent of real part at most the weight).
 
@@ -759,7 +761,7 @@ all tensors are those of the construction of [[prop:iii-i11-3-1]].
 *Proof.* We follow the steps of the proof of [[prop:iii-i11-3-1]]; only the weights change.
 
 *Step 0.* [[lem:iii-i2-4-1]] with β_K = α ∈ (4, 5), then [[prop:iii-a-4-2]] (1) with β_ι = w_+, E_ι = ℰ^♭ + 2,
-E_I = ∅, β_K = α, E_K = ∅; its hypotheses hold (w_+ ∉ Re π_1E_ι by (E1); ℓ_I + 1 > w_+ − 1 by (H4) of
+E_I = ∅, β_K = α, E_K = ∅; its hypotheses hold (w_+ ∉ Re π_1E_ι by (Ex1); ℓ_I + 1 > w_+ − 1 by (H4) of
 [[sec:iii-i10-1]]). By [[prop:iii-j3-4-1]], g_0 ∈ H^(∞,(5/2−ε,(ℰ^♭+1,w_+−1),((0,0),α−1)))_b.
 
 *Levels 0–1.* [[lem:iii-i11-2-1]] at μ′ = w_+ − 1 and 3 + ε_+ rests on [[lem:iii-a-1-4]] at β = μ′ − 2 = 2 + ε_+,
@@ -767,12 +769,12 @@ resp. 1 + ε_+: not the real part of a root, since these numbers are not integer
 |μ| ≤ 50 have d(Re μ, ℤ) ≥ ε_ind > ε_+ ([[eq:iii-f1-2-2]]). [[lem:iii-i11-2-2]] lowers the tf-weight by 1 and the
 zf-weight ((0,0), z) to ((0,0), z − 1) exactly. [[prop:iii-g4-4-4]] at level 1 with ℓ_zf = α − 2: its conditions
 [[eq:iii-g4-4-2]] hold (−ε_ind < α − Re α_0; α − 2 − min(Re α_0 − 2, 0) < 3 = ℓ^max_K under (C5) of
-[[sec:iii-i10-1]]; α − 2 ∉ ℕ₀; the root condition is (E4)), and its remainder keeps zf ((0,0), α − 2) exactly. So g_1,
+[[sec:iii-i10-1]]; α − 2 ∉ ℕ₀; the root condition is (Ex4)), and its remainder keeps zf ((0,0), α − 2) exactly. So g_1,
 g_2 have tf-weights 3 + ε_+, 2 + ε_+ and zf-weights α − 2, α − 3.
 
-*Level 2.* The tf-exponents of the level-2 right sides are u-exponents minus 1, (Λ − 1)-valued; by (E1) none has real
+*Level 2.* The tf-exponents of the level-2 right sides are u-exponents minus 1, (Λ − 1)-valued; by (Ex1) none has real
 part in (2, 2 + ε_+], so the threshold 2 + ε_+ treats the same (α_0, k) as 2 + η^0_2, and the conditions of
-[[prop:iii-g4-4-4]] are those already met (with (E4) at ℓ_zf = α − 3). After the rounds the zf-coefficient F of the
+[[prop:iii-g4-4-4]] are those already met (with (Ex4) at ℓ_zf = α − 3). After the rounds the zf-coefficient F of the
 level-2 right side lies in H^(∞,(E,2+ε_+))_b(X̄) with min Re E > 2 + ε_+. [[lem:iii-i11-2-1]] with μ = μ_2 and
 μ′ = 2 + ε_+: μ_2 ∈ (2, 3), μ′ ∈ (μ_2, 5], min Re E > μ; [[prop:iii-h-3-2]] at the interior weight
 μ_2 − 2 = η^0_2 ∈ (0, 1); [[lem:iii-a-1-4]] up to μ′ − 2 = ε_+, not a root, as no root has real part in (0, 1]
@@ -790,13 +792,13 @@ zero-energy solve: [[lem:iii-i2-4-2]] with β_zf := ℓ_3 ([[lem:iii-i2-4-2]] pu
 β_tf − β_zf ∈ (0, 1) gives ḃ_f, S_f ∈ H^(∞,ℓ_3)_b and û_f with zf-weight ℓ_3.
 
 *Step 5.* [[lem:iii-j3-4-2]] with β := α − 3 ∉ ℕ₀: the exponents with Re z < α − 3 are in E, those above in r^±, none
-at α − 3 by (E3); r^± = O(|σ|^(α−3)) follows from the zf-weight α − 3 of σ³ĥ^aug(S_f) by the one-dimensional
+at α − 3 by (Ex3); r^± = O(|σ|^(α−3)) follows from the zf-weight α − 3 of σ³ĥ^aug(S_f) by the one-dimensional
 b-Sobolev embedding in log|σ|. This gives O(t_*^(−α+2)) in {r ≤ R}; Step 6 needs only o(t_*^(−2)).
 
 *Step 7.* The pieces have zf-data ((0,0) ∪̄ (E_K − 1), α − 3) and tf-data (E_tf, 2 + ε_+) with E_tf + 1 Λ-valued below
 3 + ε_+: the zero-energy pieces σ^j χ_zf û_j (j ≤ 2) at tf 2 + ε_+; the tf-model pieces, polyhomogeneous at tf; the
 first level-3 round at 2 + ε_+ and the later ones above. [[prop:iii-a-4-2]] (2) with β_ι := 3 + ε_+ (not in
-Re π_1E_ι by (E1)) and β_K := α − 2 (not in ℕ ∪ Re π_1E_K by admissibility) gives v_low minus the constant columns in
+Re π_1E_ι by (Ex1)) and β_K := α − 2 (not in ℕ ∪ Re π_1E_K by admissibility) gives v_low minus the constant columns in
 H^(∞,3/2−4ε,(E_ι,3+ε_+),(E_K,α−2))_b; the constant columns are polyhomogeneous at ι⁺ with Λ-valued exponents, none at
 3 + ε_+. The matching and the identification of the coefficients are as in the proof of [[prop:iii-i11-3-1]].
 [[lem:iii-i11-3-2]] and [[thm:iii-i11-4-1]] need only the count of Step 0, which has room (w_0 + a_K > α).
@@ -850,10 +852,10 @@ gives K⁺-order α. (vii): after [[lem:iii-j3-4-4]]. (ix): σ³û_f has zf-weig
 [[lem:iii-j3-4-4]] with a = ℓ_3 gives A ∈ Ḣ^(∞,α−2), B ∈ Ḣ^(∞,α−1) and R_S, R_b of L²-order α.
 
 *Step 2.* u has K⁺-order α − 2 ([[prop:iii-j3-4-3]]); χ_K C has order ≥ α − 2; the coefficient sections at exponents
-with real part < α − 2 vanish as before, none at α − 2 by (E3).
+with real part < α − 2 vanish as before, none at α − 2 by (Ex3).
 
 *Step 3.* [[lem:iii-i12-2-4]] at β := α, as it allows (β ∈ (α − 1, α]): its three meetings of an exponent with the
-weight, at α, α − 2 and α − 1, are excluded by (E3). It gives w″ of K⁺-order α and a_s, a_b with exponents of real
+weight, at α, α − 2 and α − 1, are excluded by (Ex3). It gives w″ of K⁺-order α and a_s, a_b with exponents of real
 part > α − 2, resp. > α − 1.
 
 *Step 4.* Ṡ_rem = A + A_5 + a_s ∈ Ḣ^(∞,α−2) (A_5 at 2 + ε_+ > α − 2, exactly by [[lem:iii-j3-4-5]] as
@@ -861,11 +863,13 @@ part > α − 2, resp. > α − 1.
 
 *The ι⁺-side.* The conormal tower coefficients Y^c_ρ (μ_ρ ∈ (−1, 0]) come from σ³|σ|^(α_τ−2−μ) Y(σ),
 Y ∈ H^(∞,0)_b, of zf-weight 2 + ε_+ − μ; [[lem:iii-j3-4-5]] gives Ḣ^(∞,3+ε_+−μ) exactly, as 3 + ε_+ − μ ∈ ℕ would need
-μ = ε_+ − 1, excluded as at level 3 in the proof of [[prop:iii-j3-4-3]]. No polyhomogeneous coefficient sits at w_ρ: an
-exponent z of a_ρ either falls under the clause of [[lem:iii-i12-2-4]] on exponents, so that z + d_ρ is Λ-valued and
-≠ 3 + ε_+ by (E1), or comes from a conormal profile at the edge (û_j, j ≤ 2, with degree
-μ′_j − 2 ∈ {2 + ε_+, 1 + ε_+, ε_+}, or v_0 with degree ε_+ − 1), each with z plus its degree equal to 3 + ε_+ and
-d_ρ ∈ {μ, 0, 1} different from that degree, so z + d_ρ > 3 + ε_+.
+μ = ε_+ − 1, excluded as at level 3 in the proof of [[prop:iii-j3-4-3]]. No polyhomogeneous coefficient sits at w_ρ.
+Let z be an exponent of a_ρ. If d_ρ lies below the degree of the conormal part of every profile whose coefficient at z
+is nonzero, z falls under the clause of [[lem:iii-i12-2-4]] on exponents, so z + d_ρ is Λ-valued and ≠ 3 + ε_+ by
+(Ex1). Otherwise some such profile has a conormal part of degree d′ ≤ d_ρ. That profile is a conormal profile at the
+edge: û_j, j ≤ 2, of degree d′ = μ′_j − 2 ∈ {2 + ε_+, 1 + ε_+, ε_+}, or v_0, of degree d′ = ε_+ − 1; and
+z + d′ = 3 + ε_+. As d_ρ ∈ {μ, 0, 1} differs from each of these degrees (μ = ε_+ − 1 being excluded as above), d′ < d_ρ,
+so z + d_ρ > 3 + ε_+.
 
 *The corner.* Near 𝓘⁺ and on {r ≥ t_*/2}, χ_K = 0 and ũ = u, exact at ι⁺ by [[prop:iii-j3-4-3]] (with u_I of
 [[prop:iii-j3-3-4]]). On the transition region {t_*/8 < r < t_*/2}, away from the corner, ũ = u − χ_K u_exp with both
@@ -883,7 +887,7 @@ at exponents below α are exactly sums of states ([[lem:iii-i12-2-3]] (a)), so a
 kinds below; so the dichotomy below is exhaustive. [[lem:iii-j3-4-7]] puts R in ρ_+^(3+ε_+) ρ_K^κ H^∞_b near the
 corner, for every κ. Every other term of ũ there is exact at one face with room at the other ([[lem:iii-j3-2-1]]): it
 has K⁺-order ≥ α (Steps 0–4) and either ι⁺-order > 3 + ε_+, or is polyhomogeneous at ι⁺ with exponents in ℰ_♯, none of
-real part 3 + ε_+ (E1). So ũ has (ℰ_♯, 3 + ε_+) at ι⁺ jointly with α at K⁺. ∎
+real part 3 + ε_+ (Ex1). So ũ has (ℰ_♯, 3 + ε_+) at ι⁺ jointly with α at K⁺. ∎
 
 **Lemma {#lem:iii-j3-4-7}** ([[lem:iii-i12-2-1]] at the corner, in L².) In [[lem:iii-i12-2-1]], near the corner of ι⁺
 and K⁺, on {r ≥ 2, t_* ≥ 8r} with ρ_+ = 1/r and ρ_K = r/t_*, and in the b-Sobolev spaces of the density
@@ -968,7 +972,7 @@ profiles have room ([[lem:iii-j3-2-1]]) and the towers give rates ≥ λ_♯ + 3
 of [[lem:iii-i14-2-3]] is used at the top level with w > 2, so β = α is admitted strictly; its ι⁺-weight
 β′_+ + 2 + λ_♯ − ε > w_+ has room. Δ_q(b′): its first term is (b), exact at α; its products have factors of K⁺-order
 α − 2 (exact) or α, times ∂_b h_(b,rem)(q)b′ of order > 2 strictly (rates of q: α − 2 > 2, α − 1, and > 2 + ε_K), so
-each is at K⁺-order > α; at ι⁺ the exponents are in Λ, none at 3 + ε_+ by (E1), and the conormal parts at
+each is at K⁺-order > α; at ι⁺ the exponents are in Λ, none at 3 + ε_+ by (Ex1), and the conormal parts at
 3 + ε_+ + η_E have room. ∎
 
 **Theorem {#thm:iii-j3-5-3}** (The forward problem with parameters at exact weights.) Assume [[def:iii-j3-1-3]], (H2)
@@ -995,7 +999,7 @@ coefficients killed by "rate ≤ 2 < α − 2" are killed as before. The tensors
 weights in which they are estimated change.
 
 At a rotating b the same argument applies to [[prop:iii-i15-2-5]]. The errors E^ν are exact there, having K⁺-weight
-κ_ν − ε > α and ι⁺-exponents in ℰ^♮ + 2, which (E1) covers ([[lem:iii-i13-1-3]] (a)); A_b does not depend on the loss,
+κ_ν − ε > α and ι⁺-exponents in ℰ^♮ + 2, which (Ex1) covers ([[lem:iii-i13-1-3]] (a)); A_b does not depend on the loss,
 being computed from ι⁺- and tf-data ([[rem:iii-i15-2-6]]); and the errors of the identification of the rotation rows
 have K⁺-order Re λ_0 + 1 − ε > α − 2, with room. Step 4′ is not used at b, the condition [[eq:iii-i15-2-2]] of
 [[prop:iii-i15-2-5]] replacing it; the uniqueness of [[prop:iii-i15-2-5]] together with [[eq:iii-i15-2-2]] identifies the
@@ -1010,7 +1014,7 @@ map gains nothing in the weights.
 *Proof.* We follow the proof of [[thm:iii-j-2-4]].
 
 *h.* At 𝓘⁺ as before. At ι⁺ the exponents lie in ℰ_♯ ⊂ ℰ_+ ([[lem:iii-j-2-3]]) and h̃ is at the plain weight
-3 + ε_+; no exponent sits at 3 + ε_+ (E1). At K⁺, each χ_ι[h]_(λ_0) has order α by [[lem:iii-j3-5-1]], and h̃ by
+3 + ε_+; no exponent sits at 3 + ε_+ (Ex1). At K⁺, each χ_ι[h]_(λ_0) has order α by [[lem:iii-j3-5-1]], and h̃ by
 hypothesis.
 
 *q.* Its components are S_rem, b_rem, Y_(ρ,rem), exact, plus polyhomogeneous coefficients with real parts below
@@ -1020,7 +1024,7 @@ hypothesis.
 
 *At ι⁺:* the terms of u-exponent below 3 + ε_+ vanish by the identity [[eq:iii-j-2-3]]; the quadratic part is at
 (5 + 2δ_♯)− > w_+; L_(0,p⃗_≤0) h̃ is exact at w_+ by [[eq:iii-i-4-1]]; the terms of the rows of u-exponent ≥ 3 + ε_+ are
-in Λ, so above 3 + ε_+ by (E1), with defects at a_+ + Re λ + 2 − ε ≥ 2λ_♯ + 2 − ε > w_+; the conormal parts T_ρ(Y^c_ρ)
+in Λ, so above 3 + ε_+ by (Ex1), with defects at a_+ + Re λ + 2 − ε ≥ 2λ_♯ + 2 − ε > w_+; the conormal parts T_ρ(Y^c_ρ)
 of the towers are diagonal terms of [[lem:iii-j3-2-1]] (c = 3 + ε_+ − d_ρ, m = d_ρ), exact at ι⁺ with K⁺-weight
 c − η > α − 2, and vanish near 𝓘⁺; S_rem, b_rem give ι⁺-orders above 3 + ε_+ ([[lem:iii-j3-2-1]] with their profiles);
 P_4(0, p⃗_≤0) is compactly supported in (ι⁺)°. So the result has the plain weight w_+.
@@ -1050,7 +1054,7 @@ has no ι⁺-term below 3 + ε_+, so its class (ℰ_♯, 3 + ε_+) with vanishin
 its K⁺-weight is α; so h′ is in the exact class of h̃, and the conormal parts of q′ have the exact orders. The bounds
 compose finitely many bounded maps; the order d is fixed by [[lem:iii-j2-2-3]]. ∎
 
-The ι⁺-order of [[lem:iii-j1-1-1]] is thus exactly 3 + ε_+ under (E1); its choice η_2 := ε_+ − 3ε and the resulting
+The ι⁺-order of [[lem:iii-j1-1-1]] is thus exactly 3 + ε_+ under (Ex1); its choice η_2 := ε_+ − 3ε and the resulting
 loss 5ε are not needed.
 
 ### Tame estimates on one pair of scales {#sec:iii-j3-6}

@@ -702,15 +702,14 @@ K⁺-order Re e_ν + i; the corrections have u-exponents in λ₀ + ℰ_ind. For
 
     Σ_(i≥2) a_ν^(i) h̆̄^i_s1 = h̄^(≤K_s1)_s1(a_ν″),     a_ν″ = λ₀(λ₀ − 1) t_*^(−λ₀−1)(log t_*)^j + ⋯
 
-([[eq:iii-g2-2-5]]). For s0, where a_ν = A_ν with A_ν′ = r_ν ([[def:iii-i9-2-1]]), Σ_(i≥1) A_ν^(i) h̆̄^i_s0 = Σ_i
-r_ν^(i) h̆̄^(i+1)_s0 with r_ν = t_*^(−λ₀)(log t_*)^j. For s2, c0, c1, Σ_i a_ν^(i) h̆̄^i_τ = h̄^((μ_τ),≤K_τ)_τ(a_ν) with
-a_ν = t_*^(−λ₀+μ_τ)(log t_*)^j. Comparing with [[eq:iii-g2-3-1]] of [[thm:iii-g2-3-1]] (and its (log t_*)^j-version,
+([[eq:iii-g2-2-5]]). For s0, where a_ν = A_ν with A_ν′ = r_ν ([[def:iii-i9-2-1]]), Σ_(i≥1) A_ν^(i) h̆̄^i_s0 = Σ_i r_ν^(i)
+h̆̄^(i+1)_s0 with r_ν = t_*^(−λ₀)(log t_*)^j. For s2, c0, c1, Σ_i a_ν^(i) h̆̄^i_τ = h̄^((μ_τ),≤K_τ)_τ(a_ν) with a_ν =
+t_*^(−λ₀+μ_τ)(log t_*)^j. Comparing with [[eq:iii-g2-3-1]] of [[thm:iii-g2-3-1]] (and its (log t_*)^j-version,
 [[cor:iii-g3-3-1]] (2)): the terms with i ≤ k_(μ_τ) (for s1 the convention h̄^(≤3)_s1, i ≤ 3) are the formal solution,
-with coefficient c_τ(λ₀)W in the top log power; derivatives of (log t_*)^j produce the lower powers; and the terms with
-i > k_(μ_τ) and the dt_*-term have K⁺-order ≥ Re e_ν + k_(μ_τ) + 1 ≥ Re λ₀ + 3 (the table of [[sec:iii-g2-1]]: k_μ ≥ 2 +
-μ, and for s1, k = 3). For the rotation rows the same argument applies with h̆^0_v1 = h_(b₀,v1) = 0
-([[def:iii-i14-1-3]]): Σ_(i≥1) a_ν^(i) h̆̄^i_v1 = h̄^(≤K_v1)_v1(a_ν′) ([[eq:iii-g2-2-5]]), with a_ν′ = −λ₀ t_*^(−λ₀−1)(log
-t_*)^j + ⋯.
+with coefficient c_τ(λ₀)W in the top log power; derivatives of (log t_*)^j produce the lower powers; and the terms with i
+> k_(μ_τ) and the dt_*-term have K⁺-order ≥ Re e_ν + k_(μ_τ) + 1 ≥ Re λ₀ + 3 (the table of [[sec:iii-g2-1]]: k_μ ≥ 2 + μ,
+and for s1, k = 3). For the rotation rows the same argument applies with h̆^0_v1 = h_(b₀,v1) = 0 ([[def:iii-i14-1-3]]):
+Σ_(i≥1) a_ν^(i) h̆̄^i_v1 = h̄^(≤K_v1)_v1(a_ν′) ([[eq:iii-g2-2-5]]), with a_ν′ = −λ₀ t_*^(−λ₀−1)(log t_*)^j + ⋯.
 
 (b) T_(ψ,b) = h^((μ),≤k_μ)_(b,τ) ([[def:iii-g2-2-5]]), whose leading part at ∂X is the Minkowski tower of
 [[def:iii-g2-2-3]] and does not depend on b ([[lem:iii-i14-2-1]]). Take a = t_*^(−λ₀+μ)(log t_*)^j Y for ψ other than
@@ -781,13 +780,13 @@ coefficients of q in 𝒬^∞_J.
 ([[lem:iii-j-1-2]]); F_0(λ₀), ≤ k̄_0 (𝒢, [[def:iii-i10-1-1]]); the corrections of rows and towers chosen at λ < λ₀, ≤
 k̄(λ) + l_* by induction, as λ₀ ∈ λ + π_1ℰ_ind and the log orders of ℰ_ind are ≤ l_*; and 𝒮_(λ₀) adds at most l_* for Re
 λ₀ ≥ 2 and nothing below 2. For Re λ₀ ≥ 2, λ₀ ∈ Λ has n(λ₀) ≥ n(λ) + 1 for each such λ, so k̄(λ₀) ≥ k̄(λ) +
-(J_* + 1)(l_* + 1) ≥ k̄(λ) + 2l_* and k̄(λ₀) ≥ k̄_0 + (J_* + 1)(l_* + 1): every log power is ≤ k̄(λ₀). Below 2: the data lie in ℳ
-([[lem:iii-j-1-2]]), F_0(λ₀) = 0 (𝒢 ⊂ {Re ≥ 2}), the corrections of terms at exponents in ℳ lie in ℳ + ℰ_ind, which below
-2 is in ℳ ([[eq:iii-i8-1-1]], [[sec:iii-i12-1]]), and no log is raised. So (λ₀, i) ∈ ℰ_♯. The rows: a row assigned in (i)
-is (τ, λ₀, i) with (λ₀, i) ∈ ℰ_♯ and Re λ₀ ≤ 3 (its rate Re λ₀ + d_τ ≤ 2, d_τ ≥ −1), hence (λ₀, i) ∈ ℰ_par
-([[eq:iii-i10-1-2]]) and ν ∈ 𝒩; the rotation rows of (ii) are in 𝒩_rot, their exponents lying in ℰ_♯ ∩ {Re ≤ 2} = ℳ_rot.
-The coefficients of (iii): (λ₀ − d_ψ, i) ∈ ℰ_♯ − d_ψ with rate > 2, which is ℰ^α_ψ ([[def:iii-i14-1-1]]; for v1, Re λ₀ >
-2), and Re(λ₀ − d_ψ) < 3 + ε_+ − d_ψ, below the conormal order of 𝒬^∞_J. ∎
+(J_* + 1)(l_* + 1) ≥ k̄(λ) + 2l_* and k̄(λ₀) ≥ k̄_0 + (J_* + 1)(l_* + 1): every log power is ≤ k̄(λ₀). Below 2: the data
+lie in ℳ ([[lem:iii-j-1-2]]), F_0(λ₀) = 0 (𝒢 ⊂ {Re ≥ 2}), the corrections of terms at exponents in ℳ lie in ℳ + ℰ_ind,
+which below 2 is in ℳ ([[eq:iii-i8-1-1]], [[sec:iii-i12-1]]), and no log is raised. So (λ₀, i) ∈ ℰ_♯. The rows: a row
+assigned in (i) is (τ, λ₀, i) with (λ₀, i) ∈ ℰ_♯ and Re λ₀ ≤ 3 (its rate Re λ₀ + d_τ ≤ 2, d_τ ≥ −1), hence (λ₀, i) ∈
+ℰ_par ([[eq:iii-i10-1-2]]) and ν ∈ 𝒩; the rotation rows of (ii) are in 𝒩_rot, their exponents lying in ℰ_♯ ∩ {Re ≤ 2} =
+ℳ_rot. The coefficients of (iii): (λ₀ − d_ψ, i) ∈ ℰ_♯ − d_ψ with rate > 2, which is ℰ^α_ψ ([[def:iii-i14-1-1]]; for v1,
+Re λ₀ > 2), and Re(λ₀ − d_ψ) < 3 + ε_+ − d_ψ, below the conormal order of 𝒬^∞_J. ∎
 
 **Theorem {#thm:iii-j-2-4}** ([Hin26, Theorem 12.3] in dimension 4 + 1.) There are d ∈ ℕ and ε_0 > 0 such that for U ∈
 𝒟^∞ with ‖U‖_(𝒟^d) < ε_0 the construction defines

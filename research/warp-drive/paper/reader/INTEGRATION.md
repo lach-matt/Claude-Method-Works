@@ -165,3 +165,10 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S17 reader: α₅ = 2 is used by no proof and contradicted by S21/S23 (least ι⁺-exponent λ_♯ < 2); correctly omitted.
 - Front matter (R2-00-03): λ* conflicts with the wavelength-only rule and with chapter 8's λ*; the second fix round
   decides and lists chapter 8's lines if a rename is needed.
+
+## Chapters 6-7 and S10 confirmed (2026-11-13)
+
+- Ch 6-7 (R2-06-07): confirmed. Appendix A must add [BH17, Theorem 7.27, p. 56] (statement matches arXiv v3 word for
+  word; the text is in R2-06-07). The six nits, the Ch 7 pointer cut and 06:198 "M1" → Λ are being applied.
+- S10 (R3-S10): confirmed. Optional nits: N5 say "bounded above"; N6 resolve the S̄ notation clash; N7 cite
+  lem:iii-i2-4-2 for "takes their place". S10 depends on S4's tame estimate; re-check after the S4 repair.

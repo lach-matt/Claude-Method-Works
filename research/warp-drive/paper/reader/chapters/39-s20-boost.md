@@ -763,7 +763,7 @@ with Ṡ(f) and ũ depending linearly and continuously on f.
 (which lies in the space of (1) by [[eq:iii-i4-3-3]], as ℓ_I ≤ a_I and α_+ < 2), is invertible, with inverse of norm
 at most 2.
 
-Here d is any integer with
+We take d ∈ ℕ with
 
     d ≥ max(d_T, k_0 + 2, k_1 + d_T + 7),                                                                {#eq:s20-d}
 
@@ -1239,8 +1239,8 @@ with seminorms at most 2 times those of the states, which are bounded uniformly 
 kernel of L_0, so L̂_b(σ)w_e = [L_0, χ_zf](ġ_b(e′_1) + h_b(e′_2)) + (L̂_b(σ) − L_0)(χ_zf(ġ_b(e′_1) + h_b(e′_2))) lies
 in H^(∞,(∞,4−ε,γ))_b for γ < 1 ([[lem:iii-i3-1-1]] (b) and [[lem:iii-i3-1-2]] (a), with a = 2 − ε), with norms bounded
 uniformly for |e| ≤ 1 and b ∈ ℬ̄_*. [[lem:iii-i2-4-2]] with β_scf := 3/2 − ε, β_zf := 1 − 2ε and β_tf := 1 − ε
-(α + 2 = ε ∈ (0, 1)), whose constants are uniform in b ((BP4)), gives the claim; w_e itself has the zf-weight 0 and the
-tf-weight 2 − ε. ∎
+(α + 2 = ε ∈ (0, 1)), whose constants are uniform in b ([[prop:iii-i2-5-1-b]]), gives the claim; w_e itself has the
+zf-weight 0 and the tf-weight 2 − ε. ∎
 
 At σ = 0 the identity reads L̃_b(0)⁻¹(0, e) = (ġ_b(e′_1) + h_b(e′_2), 0, 0), e′ = B(b)⁻¹e: row data are answered by
 the nullspace, with no column. At b₀, B(b₀) = I and e′ = e.
