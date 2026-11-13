@@ -389,14 +389,15 @@ r → ∞. Writing y' = ∂_r + η, the system is
 a Volterra system from r = ∞. Its forcing (Γ[g_λ] − Γ[g0])^v_rr = ½ g^{vd}(2 ∂_r u_(dr) − ∂_d u_rr) is in E_3 by
 [[lem:bondi-ell]] and the ℓ-gain of u (g^{vr} = 1 + E_(3/2) multiplies ∂_r u_rr, in E_3; g^{vv}, in E_2, multiplies
 E_2; and g^{vϑ} = −r⁻¹ u(ℓ, e_ϑ) + E_4, in E_3, multiplies 2 ∂_r u_(ϑr) − ∂_ϑ u_rr, in E_2). Its angular forcing is in
-E_4 (g^{ϑϑ} = r^(−2)(1 + E_(3/2)) times ∂_r u_(ϑr) = r ∂_r u(e_ϑ, ℓ) + u(e_ϑ, ℓ), in E_2). Its linear part −2 Γ[g0]^a_rb
-η^b vanishes for a = v (Γ[g0]^v_rb = 0 in the ingoing chart) and is −(2/r) ξ' for a = ϑ (Γ[g0]^ϑ_rϑ = 1/r). This is not
-an integrable perturbation but the unperturbed operator of the angular equation, ξ'' + (2/r) ξ' = E_4, which the
-integrating factor r² solves with ξ' in E_3 and ξ in E_2. The remaining coefficients are Lipschitz in (ζ, ξ, ζ', ξ') in
-the weighted norms below, with constants integrable in r: ∂(Γ[g_λ] − Γ[g0]) is in E_(3/2), and the terms quadratic in η,
-whose largest coefficient is Γ[g0]^v_ϑϑ = −r, are O(r^(−2)) times the norm. κ_y = Γ^r_bc y'^b y'^c is in E_2 and
-multiplies η. So for r ≥ T_M the Picard iteration converges in the weighted supremum norm r² |ζ'| + r |ζ| + r³ |ξ'| + r²
-|ξ| (a contraction for an ordinary differential equation, so no derivative is lost). The solution depends smoothly on
+E_4 (g^{ϑϑ} = r^(−2)(1 + E_(3/2)) times ∂_r u_(ϑr) = r ∂_r u(e_ϑ, ℓ) + u(e_ϑ, ℓ), in E_2). Its linear part
+−2 Γ[g0]^a_rb η^b vanishes for a = v (Γ[g0]^v_rb = 0 in the ingoing chart) and is −(2/r) ξ' for a = ϑ
+(Γ[g0]^ϑ_rϑ = 1/r). This is not an integrable perturbation but the unperturbed operator of the angular equation,
+ξ'' + (2/r) ξ' = E_4, which the integrating factor r² solves with ξ' in E_3 and ξ in E_2. The remaining coefficients are
+Lipschitz in (ζ, ξ, ζ', ξ') in the weighted norms below, with constants integrable in r: ∂(Γ[g_λ] − Γ[g0]) is in
+E_(3/2), and the terms quadratic in η, whose largest coefficient is Γ[g0]^v_ϑϑ = −r, are O(r^(−2)) times the norm.
+κ_y = Γ^r_bc y'^b y'^c is in E_2 and multiplies η. So for r ≥ T_M the Picard iteration converges in the weighted
+supremum norm r² |ζ'| + r |ζ| + r³ |ξ'| + r² |ξ| (a contraction for an ordinary differential equation, so no derivative
+is lost). The solution depends smoothly on
 (v0, x̂0), with derivatives of the same decay (the variational equations have the same structure), it is invariant, and
 it is y0 for v0 ≤ v_start (there g_λ = g0 along the whole generator).
 
@@ -523,13 +524,12 @@ C_4 = C_5 = 0, since C_4 and C_5 are components of G_4 and G_5, which vanish for
 ### The hierarchy at past null infinity {#sec:bondi-hierarchy}
 
 In this section (v, r, ϑ) are Bondi coordinates and the metric has the form [[eq:bondi-form]] with the subscript B
-dropped, with β, W, U, P1, P2
-functions of (v, r, ϑ), S = e^(−2(P1+P2)) and ς = r^(−1/2). The metric of the spheres is q_AB = r² (γ_P)_AB with
-γ_P := S dϑ² + cos²ϑ e^(2P1) dφ1² + sin²ϑ e^(2P2) dφ2², as in [[eq:bondi-type]], whose determinant is cos²ϑ sin²ϑ, that
-of γ; capital indices run
-over (ϑ, φ1, φ2), D is the Levi-Civita connection of γ, div f = ∂_ϑ f + (cot ϑ − tan ϑ) f is the divergence on S³ of the
-field f ∂_ϑ, and Δ_P is the Laplacian of γ_P. The inverse metric is that of [[prop:bondi-chart]], with g^{vv} = g^{vϑ} =
-0, and √|det g| = e^(2β) r³ cos ϑ sin ϑ. We write the Ricci tensor as
+dropped, with β, W, U, P1, P2 functions of (v, r, ϑ), S = e^(−2(P1+P2)) and ς = r^(−1/2). The metric of the spheres is
+q_AB = r² (γ_P)_AB with γ_P := S dϑ² + cos²ϑ e^(2P1) dφ1² + sin²ϑ e^(2P2) dφ2², as in [[eq:bondi-type]], whose
+determinant is cos²ϑ sin²ϑ, that of γ; capital indices run over (ϑ, φ1, φ2), D is the Levi-Civita connection of γ,
+div f = ∂_ϑ f + (cot ϑ − tan ϑ) f is the divergence on S³ of the field f ∂_ϑ, and Δ_P is the Laplacian of γ_P. The
+inverse metric is that of [[prop:bondi-chart]], with g^{vv} = g^{vϑ} = 0, and √|det g| = e^(2β) r³ cos ϑ sin ϑ. We write
+the Ricci tensor as
 
     R_ab = ∂_c Γ^c_ab − ∂_a ∂_b log √|det g| + Γ^c_ab ∂_c log √|det g| − Γ^c_ad Γ^d_bc.
 

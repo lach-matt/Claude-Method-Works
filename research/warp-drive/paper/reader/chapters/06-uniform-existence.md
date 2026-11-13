@@ -195,7 +195,7 @@ s, and ∂_x 𝒫 s = 𝒫 ∂_x s + O(λ) 𝒫 ∂_x s by (M4): no 1/λ enters.
 
 **Step 3** (the bootstrap). Suppose 𝒩 ≤ 2 M λ^K on [τ0, τ*], with M to be fixed. Then by Step 1 |w| ≤ C M λ^(K−3) and
 |∂w| ≤ C M λ^(K−4) ≤ C M λ², so for λ ≤ λ0(M) the metric g = g_app + w satisfies |g − g0| ≤ ε1 (so that the domain lemma
-and the energy inequality apply to it) and |∂g| ≤ M1 with M1 independent of M.
+and the energy inequality apply to it) and |∂g| ≤ Λ with Λ independent of M.
 
 **Step 4** (h). Apply ∂^α, |α| = j ≤ k, to [[eq:ue-h]], apply the energy inequality to each component, and multiply by
 λ^j. The commutator [∂^α, g^(ab)] ∂_a ∂_b h has terms ∂^i g · ∂^(j−i+1) ∂h with i ≥ 1. With ‖∂^i g_app‖_∞ ≤ C λ^(1−i),
@@ -271,10 +271,10 @@ coordinates, in four steps. The results used are the following; 𝒰 denotes an 
 - [DS23, Theorem 2.4] ([[thm:std-ds-existence]]): let the system ∂_t u + A^i(t, x, u) ∂_i u = R(t, x, u) on the torus
   T^n satisfy (A1)–(A4) of [DS23] on 𝒰 (A^i and R smooth, each of their derivatives bounded by a continuous increasing
   function of |u|, uniformly in (t, x); A^i(t, x, u) ξ_i diagonalizable with real eigenvalues for ξ ≠ 0, its distinct
-  eigenvalues of class C^(1,0,1,0) and never meeting), and let r > n/2 + 1. For every u0 ∈ H^r whose values lie at
-  positive distance from the complement of 𝒰 there is T > 0, depending on ‖u0‖_r and that distance, such that the
-  system has a unique solution u with u(0) = u0 in B([−T, T]) := C([−T, T]; C¹) ∩ C¹([−T, T]; C⁰); moreover u ∈
-  C([−T, T]; H^r) ∩ C¹([−T, T]; H^(r−1)), with values in 𝒰.
+  eigenvalues continuously differentiable in (t, u) and continuous in (x, ξ), and never meeting), and let r > n/2 + 1.
+  For every u0 ∈ H^r whose values lie at positive distance from the complement of 𝒰 there is T > 0, depending on ‖u0‖_r
+  and that distance, such that the system has a unique solution u with u(0) = u0 in B([−T, T]) := C([−T, T]; C¹) ∩
+  C¹([−T, T]; C⁰); moreover u ∈ C([−T, T]; H^r) ∩ C¹([−T, T]; H^(r−1)), with values in 𝒰.
 - [DS23, Theorem 2.6] ([[thm:std-ds-continuation]]): under the same hypotheses, every solution u ∈ B([0, T]) with
   values in 𝒰 and u(0) ∈ H^r lies in C([0, T]; H^r) ∩ C¹([0, T]; H^(r−1)); and for the supremum T* of the T for which
   such a solution exists on [0, T], exactly one of the following holds: T* = ∞; the distance of the values from the
@@ -357,11 +357,11 @@ gives
 whose two roots ζ_− < 0 < ζ_+ are real with product g^(ab) ξ_a ξ_b/g^(00) < 0. If ζ = 0, then u_0 = 0 and g^(ab) ξ_a u_b
 = 0, with w free: a space of dimension four for each component. So (A⁰)⁻¹ A^c ξ_c is diagonalizable with the real
 eigenvalues ζ_− < 0 < ζ_+ and 0, which never meet; ζ_± are simple roots of a quadratic with smooth coefficients and 0 is
-constant, so all three are smooth in (τ, y, V, ξ) for ξ ≠ 0, as (A4) of [DS23] ([[thm:std-ds-existence]]) also requires,
+constant, so all three are smooth in (τ, y, V, ξ) for ξ ≠ 0, more than (A4) of [DS23] ([[thm:std-ds-existence]]) asks,
 and the system satisfies (A1)–(A4) of [DS23] with 𝒰 the whole state space, the cut-off keeping the coefficients defined
 for every value of w. The complement of 𝒰 is empty, so the conditions on the distance to it in [DS23, Theorems 2.4 and
-2.6] hold for every datum, and T depends on ‖u0‖_r alone. The relation u_a = ∂_a w propagates, since ∂_τ(u_a − ∂_a w) =
-∂_a(u_0 − ∂_τ w) = 0.
+2.6] hold for every datum, and T depends on the H^r norm of the datum alone. The relation u_a = ∂_a w propagates, since
+∂_τ(u_a − ∂_a w) = ∂_a(u_0 − ∂_τ w) = 0.
 
 (iv) *The restarts.* At τ_i extend the data from Σ_(τ_i) ∩ Ω = A(τ_i) to R⁴, in x, and compose with Φ_Z(τ_i, ·) to pass
 to y, with bounds uniform in τ_i. For the extension let A_* := {a ≤ |x| ≤ a + 1 + δ0}, d_* := a(1 + δ0)/(2(b(τ0) −

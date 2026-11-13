@@ -46,15 +46,14 @@ terms are carried instead by rows of all rotations ([[def:iii-i14-1-3]]), whose 
 [[thm:iii-i14-3-1]] by the expansion (Step 4′ of its proof). So are the v1 terms of real part 2, whose square would
 leave P_5 at a rotating b with the K⁺-order 4 only ([[eq:iii-j-2-5]]).
 
-(4) *The exterior family.* [Hin26, (11.228)] contains a tensor χ_−h_(−S), supported there in t_* ≤ 2, which carries
-the initial data; [Hin26] permits h_(−S) = 0 in its Section 11.8.3, and we take h_(−S) = 0 throughout this chapter. The
+(4) *The exterior family.* [Hin26, (11.228)] contains a tensor χ_−h_(−S), supported there in t_* ≤ 2, which carries the
+initial data; [Hin26] permits h_(−S) = 0 in its Section 11.8.3, and we take h_(−S) = 0 throughout this chapter. The
 family h_(−S) is built in [[prop:iii-k-1-2]] ([Hin26, (12.33)]). The term is restored in [[ch:s27]], with a cut-off
 χ_−(t^♭_*) supported in {t^♭_* ≤ T̂ + 2}, T̂ ≥ 2 as in [[sec:iii-k-0]], where the map Ψ := (χ_−h_(−S), 0, 0) + Φ is
-formed ([[def:iii-k-2-1]]):
-[Hin26, Lemma 12.7], the counterpart of [[thm:iii-j-2-4]] for Ψ, is [[lem:iii-k-2-2]], and [Hin26, Theorem 12.8] for Ψ,
-the counterpart of [[thm:iii-j1-2-1]], is [[lem:iii-k-2-3]]. [Hin26, Corollary 11.67], a linear stability statement
-sketched there, is not used in this paper. The linear stability statement proved here is that of the
-Schwarzschild–Tangherlini metric g_(b₀), at b₀ only: [[thm:viii-2-2]].
+formed ([[def:iii-k-2-1]]): [Hin26, Lemma 12.7], the counterpart of [[thm:iii-j-2-4]] for Ψ, is [[lem:iii-k-2-2]], and
+[Hin26, Theorem 12.8] for Ψ, the counterpart of [[thm:iii-j1-2-1]], is [[lem:iii-k-2-3]]. [Hin26, Corollary 11.67], a
+linear stability statement sketched there, is not used in this paper. The linear stability statement proved here is that
+of the Schwarzschild–Tangherlini metric g_(b₀), at b₀ only: [[thm:viii-2-2]].
 
 (5) *No step at t_*^(−1).* The first step of [Hin26, Section 12.2.1] solves for the t_*^(−1)-term, from the resonance at
 λ = 1 and the t_*^(−1)-tail of the black hole. In dimension 4 + 1 the least ι⁺-exponent is λ_♯ = 3/2 + (1 − e_Υ)γ_Υ, a
@@ -86,9 +85,10 @@ without this the scheme would lose ε_+ − η_2 at ι⁺ at every step.
 
 *Base points.* The black hole parameter b ranges near b₀ = (m₀, 0). The coefficients and the augmented operator
 ([[def:iii-i14-1-1]]–[[def:iii-i14-1-3]], [[eq:iii-i14-1-4]]), the towers ([[lem:iii-i14-2-1]]), the order of L_b
-h_(b,rem)(q) ([[lem:iii-i14-2-2]] (b)) and the construction of [[sec:iii-j-1]]–[[sec:iii-j-2]] are stated at every such
-b. Their proofs at b use [[lem:iii-i14-2-2]] (a) at b, which [[thm:iii-i15-3-1]] supplies, the reality of the states at
-b, which [[lem:iii-i15-1-1]] (P3) supplies, and, for the rate of the rotation rows at b, [[lem:iii-i15-2-1]].
+h_(b,rem)(q) ([[lem:iii-i14-2-2]] (b)) and the construction of [[sec:iii-j-1]]–[[sec:iii-j-2]] are stated and proved
+at every such b. Where these proofs use at b a fact that this chapter states at b₀, they cite its form at b:
+[[lem:iii-i14-2-2]] (a) ([[thm:iii-i15-3-1]]), the reality of the states ([[lem:iii-i15-1-1]] (P3)) and the rate of the
+rotation rows ([[lem:iii-i15-2-1]]).
 [[lem:iii-i14-2-2]] (a), (c), [[lem:iii-i14-2-3]], [[lem:iii-i14-2-4]], [[lem:iii-i14-2-5]], [[thm:iii-i14-3-1]],
 [[rem:iii-i14-3-2]], [[lem:iii-j1-1-1]] and [[thm:iii-j1-2-1]] are stated and proved at b = b₀, with derivatives in b
 taken at b₀. Their forms at a base point whose black hole parameter is near b₀ are proved in [[ch:s25]];
