@@ -778,7 +778,7 @@ of its face. R does not meet the outer face of Ω, where v ≥ V + 1 > v1. Its s
 Σ_(p≤j) λ^(l−p) |∂_θ^p ∂_X^(j−p) g_l|. A θ-derivative removes the means, so for p ≥ 1 the factor is at most C ε_(M*)(v1)
 by [[lem:layer-flat]] (a) and [[prop:layer-identification]]; for p = 0 it is bounded globally. Hence |∂^j (g_app − g0)|
 ≤ C (λ + λ^(1−j) ε_(M*)(v1)) ≤ C for j ≤ 4, by the hypothesis ε_(M*)(v1) ≤ λ³. Step 1 of the proof of
-[[thm:uniform-existence]] gives |∂^j w| ≤ C M λ^(K−3−j) ≤ C on Ω for j ≤ 3, K ≥ 6. So |∂^j g_λ| ≤ C on R for j ≤ 3,
+[[thm:uniform-existence]] gives |∂^j w| ≤ C λ^(K−3−j) ≤ C on Ω for j ≤ 3, K ≥ 6. So |∂^j g_λ| ≤ C on R for j ≤ 3,
 and |g_λ − g0| ≤ C λ.
 
 **4. The forcing term.** On R, |(g_λ⁻¹ − g_app⁻¹) ∂²g_app| ≤ C |w| (step 3), and the Q-difference is at most C (|w| +
@@ -1152,7 +1152,7 @@ E(v)^(1−M/m) and ε_4(v1) ≤ C E(v)^(1−4/m) ([[eq:layer-cost-level]]). The 
 ≤ λ^(s_A), s_A := (1 + δ)/(1 − 4/m), [[lem:layer-remainder-weak]] bounds w by C λ^(N−5) E^(1−M/m). Each term against
 c_m E^(2+1/m), with E ≥ λ^(3−δ): λ³ E is smaller because (3 − δ)(1 + 1/m) < 3, as m ≥ 4M/δ > 3/δ; λ⁴ ε ≤ C λ⁴ E^(1−M/m)
 because (3 − δ)(1 + (M + 1)/m) < 4; λ ε² ≤ C λ E^(2−2M/m) because (3 − δ)(2M + 1)/m < 1; and the remainder because
-(3 − δ)(1 + (M + 1)/m) < 4 ≤ N − 5. Where E ≥ λ^(s_A), use instead |w| ≤ C M λ^(K−3) of [[thm:uniform-existence]]
+(3 − δ)(1 + (M + 1)/m) < 4 ≤ N − 5. Where E ≥ λ^(s_A), use instead |w| ≤ C λ^(K−3) of [[thm:uniform-existence]]
 against c_m E^(2+1/m) ≥ c_m λ^(s_A(2+1/m)): s_A(2 + 1/m) ≤ (5/4)(2 + 1/m)/(1 − 4/m) < 3 ≤ K − 3; the other terms are
 handled as before, E ≤ 1. The term q of [[lem:layer-inverse]] is smaller than these. So g_λ⁻¹(dΦ0, dΦ0) ≤ −m0/2 < 0.
 
