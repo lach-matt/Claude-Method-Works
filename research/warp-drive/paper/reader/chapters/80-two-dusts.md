@@ -685,3 +685,544 @@ R^(0) of g_app, and it equals ℛ^(0)(X, θ1 + φ_1^in, θ2 + φ_1^out) = 0, sin
 
 [[thm:approximant]] is the case W_out = 0.
 
+### The uniform estimate {#sec:two-dust-uniform}
+
+Let g_app be a two-phase approximant ([[def:two-dust-approximant]]), F := −Ric^H(g_app), and
+
+    ℓ_app^K := g_app⁻¹ dϕ_K,   s_K(w) := w(ℓ_K, ℓ_K),   G1^K := [F_K g1],   G2^K := [F_K² g1],   Y_K := [F_K g1 + λ F_K g2],
+    c_in := G1^out(ℓ_in, ℓ_in),   c_out := G1^in(ℓ_out, ℓ_out),   □̃_app := g_app^(ab) ∂_a∂_b,   □̃ := g0^(ab) ∂_a∂_b,
+
+for K ∈ {in, out}, with g1, g2 the first two profiles of g_app. The remainder w is decomposed as
+
+    w = h + φ_in Y_in + φ_out Y_out,                                                                    {#eq:two-dust-decomposition}
+
+with φ_in(X), φ_out(X) fields fixed in [[lem:two-dust-phases]], Ψ_K := □̃φ_K, and the energy is
+
+    𝒩₂(τ) := Σ_(j≤k) λ^j (‖∂^j ∂h‖ + Σ_K (‖∂^j Ψ_K‖ + ‖∂^j ∂φ_K‖ + λ ‖∂^j ∂_x² φ_K‖)) + ‖h‖ + Σ_K ‖φ_K‖,       {#eq:two-dust-energy}
+
+the norms those of [[ch:inequalities]] on the slices Σ_τ = A(τ) of Ω₂.
+
+**Theorem {#thm:two-dust-uniform}** (Uniform existence with two phases.) Fix k = 6 and K ≥ 6. Let g_app be a two-phase
+approximant with N stages of order K at regularity k, with the constant C_R in (E3), and let g be a Cauchy datum on Σ_τ0
+for Ric^H(g) = 0 with w := g − g_app satisfying (E4) of [[thm:uniform-existence]], Data(w) ≤ C_D λ^K. There are λ0 > 0
+and M, depending on Ω₂, k, K, C_R, C_D and the bounds on the profiles but not on λ, such that for 0 < λ ≤ λ0 the
+solution g of Ric^H(g) = 0 with these data exists on Ω₂, is unique there among C² solutions with |g − g0| ≤ ε1 on Ω₂,
+is smooth if the data are, and
+
+    w = h + Σ_K φ_K Y_K,      𝒩₂(τ) ≤ M λ^K   on [τ0, τ_end].                                              {#eq:two-dust-remainder}
+
+In particular |w| ≤ M λ^(K−3) and |∂w| ≤ M λ^(K−4) on Ω₂, |g − g0| ≤ C λ and |∂g| ≤ C.
+
+With W_out = 0 this is [[thm:uniform-existence]], with φ_out = 0. The proof is that of [[thm:uniform-existence]] with
+two phase shifts. We collect the structure of the linearisation, define the phase shifts, write the equation for h and
+its ℓ_in ⊗ ℓ_in component, and then go through the eight steps.
+
+**Lemma {#lem:two-dust-facts}** (The linearisation with two phases.) Let P(w) := (d/ds) Ric^H(g_app + s w) at s = 0, and
+for g := g_app + w let P_g be P with its principal part −½ g_app^(ab) ∂_a∂_b replaced by −½ g^(ab) ∂_a∂_b, so that
+Ric^H(g_app + w) = 0 reads P_g(w) = F + 𝒬(w), 𝒬(w) the terms of second and higher order in (w, ∂w) other than the
+principal part. Then:
+
+(F1) P(w) = −½ g_app^(ab) ∂_a∂_b w + ½ λ⁻¹ Σ_K s_K(w) G2^K + B·∂w + C·w, with B and C two-phase profiles: there is no
+term of order λ⁻², and one of order λ⁻¹ for each family.
+
+(F2) For φ(X),
+
+    P_g(φ Y_K) = φ [T1^K] − λ⁻¹ (ℓ_app^K·dφ) G2^K − ½ (□̃_app φ) G1^K − ½ λ (□̃_app φ) [F_K g2] + B1^K·dφ + C1^K φ
+                 + 𝒬_φ^K,
+
+with T1^K, B1^K, C1^K bounded two-phase profiles and |𝒬_φ^K| ≤ C |w| (λ⁻² |φ| + λ⁻¹ |dφ| + |d²φ|), likewise for
+derivatives in the scaled norms, the second derivatives of φ in 𝒬_φ^K multiplying Y_K. The term of order λ⁻¹ contains
+no derivative of φ along the other family's generator.
+
+(F3) P(Y_K) = [T1^K], a bounded profile.
+
+(F4) G1^in(ℓ_in, ·) = G2^in(ℓ_in, ·) = 0 and G1^out(ℓ_out, ·) = G2^out(ℓ_out, ·) = 0; c_in and G2^out(ℓ_in, ℓ_in) are
+bounded profiles in θ2 alone, c_out and G2^in(ℓ_out, ℓ_out) in θ1 alone; and |ℓ_app^K − ℓ_K| ≤ C λ. For the
+approximant of [[thm:two-dust-approximant]], c_in = e^(−4σ) [F2 χ_out] and G2^out(ℓ_in, ℓ_in) = e^(−4σ) [F2² χ_out], at
+the phase θ2 + φ_1^out, and the oscillating part of ℓ_app^in − ℓ_in at order λ is λ e^(−2σ) [χ_out] ℓ_out; the mirror
+statements hold with in and out exchanged.
+
+(F5) With q := g0^(ττ)/g^(ττ) and c^(ab) := g0^(ab) − q g^(ab), c^(ττ) = 0 and
+
+    c^(ab) = (g0^(ab) (g^(ττ) − g0^(ττ)) − g0^(ττ) (g^(ab) − g0^(ab)))/g^(ττ),
+
+so |c| ≤ C |g⁻¹ − g0⁻¹| ≤ C (λ + |w|); g0^(ττ) ≤ −1 on Ω₂, so g^(ττ) ≤ −½ for |g − g0| small. For every h,
+□̃ s_K(h) = (□̃h)(ℓ_K, ℓ_K) + 2 g0^(ab) ∂_a(ℓ_K ⊗ ℓ_K)·∂_b h + h·□̃(ℓ_K ⊗ ℓ_K).
+
+(F6) If ℓ_K·dφ_K = ½ 𝒫 s_K(h), then Ψ_K satisfies L_K Ψ_K + a_K Ψ_K = ½ □̃ 𝒫 s_K(h) − ½ M_K(𝒫 s_K(h)) − N_K φ_K
+([[eq:two-dust-psi]]); every second derivative of φ_K is a bounded combination of L_K 𝒫 s_K(h), ∂_x 𝒫 s_K(h), dφ_K and
+∂_x² φ_K, and L_K(∂_x² φ_K) = ½ ∂_x² 𝒫 s_K(h) + (bounded) ∂_x² φ_K + (bounded) ∂_x φ_K.
+
+(F7) ℓ_in = −e^(−ψ) L0 and ℓ_out = ℓ_out(τ) Z_out ([[eq:two-dust-generators]], [[eq:two-dust-speed]]), |ℓ_out(τ)| ≥
+c > 0 on Ω₂, and the transport estimates [[lem:transport]] and [[lem:two-dust-transport]] hold for both, the boundary
+terms having the sign they have for L0.
+
+*Proof.* (F1) Second derivatives of g_app enter P only through ½ w^(ab) ∂_a∂_b g_app, w^(ab) := g_app^(ac) g_app^(bd)
+w_cd, because second derivatives of g enter Ric^H(g) only through −½ g^(ab) ∂_a∂_b g. By [[eq:two-dust-chain]],
+∂_a∂_b [λ g1] = λ⁻¹ Σ_(J,K) ∂_aϕ_J ∂_bϕ_K [F_J F_K g1] + O(1) = λ⁻¹ Σ_K ∂_aϕ_K ∂_bϕ_K [F_K² g1] + O(1), because F1F2 g1 =
+0 by (E1₂); and ∂_a∂_b [λ^j g_j] = O(1) for j ≥ 2. Further w^(ab) ∂_aϕ_K ∂_bϕ_K = w(ℓ_app^K, ℓ_app^K) = s_K(w) +
+O(λ) |w|, and that difference times λ⁻¹ goes into C. Every other term is linear in w or ∂w with coefficients built from
+g_app and ∂g_app, which are bounded. This is the derivation of [[eq:ue-linearisation]], once per phase.
+
+(F2) In −½ g^(ab) ∂_a∂_b(φ Y_K) = −½ φ g^(ab) ∂_a∂_b Y_K − g^(ab) ∂_aφ ∂_b Y_K − ½ (g^(ab) ∂_a∂_b φ) Y_K the first term
+belongs to φ P_g(Y_K). By [[eq:two-dust-chain]], ∂_b Y_K = λ⁻¹ ∂_bϕ_K [F_K² g1] + Σ_J ∂_bϕ_J [F_J F_K g2] + [∂_b(F_K g1 +
+λ F_K g2)], the λ⁻¹ term with the other phase vanishing because F_J F_K g1 = 0 for J ≠ K; so the second term is
+−λ⁻¹ (g^(ab) ∂_aφ ∂_bϕ_K) G2^K + B·dφ, and g^(ab) ∂_bϕ_K = (ℓ_app^K)^a + O(|w|). In the third term g^(ab) = g_app^(ab) +
+O(|w|), and Y_K = G1^K + λ [F_K g2]. The first-order terms of P_g give φ times their action on Y_K and terms in dφ. The
+terms with a factor w form 𝒬_φ^K, and the bounds follow, each derivative of Y_K costing λ⁻¹. Finally φ P_g(Y_K) =
+φ P(Y_K) + O(|w| λ⁻² |φ|), and P(Y_K) = [T1^K] by (F3).
+
+(F3) Let G be the profile of g_app. Differentiating [[eq:two-dust-shift]] in c_K at c = 0, the linearisation of R at G
+in the direction F_K G equals F_K R[G]. On a profile Z, P([Z]) = [λ⁻² P_(−2) Z + λ⁻¹ T Z + P_0 Z], where P_(−2) Z =
+−g0⁻¹(dv, du) F1F2 Z = e^(−2σ) F1F2 Z, the terms −½ λ⁻² g_app⁻¹(dϕ_K, dϕ_K) F_K² Z being of order λ⁻¹ and kept in T.
+Since F_K G = λ F_K g1 + λ² F_K g2 + O(λ³) and P_(−2) F_K g1 = 0 by (E1₂), the left side is T F_K g1 + P_(−2) F_K g2 +
+O(λ). The right side is F_K(λ⁻¹ R^(−1) + R^(0)) + O(λ) = O(λ), since R^(−1) = −½ Σ_(J,K) g0⁻¹(dϕ_J, dϕ_K) F_J F_K g1 =
+0 and R^(0) = 0 by (E2₂). So T F_K g1 + P_(−2) F_K g2 = O(λ), and P(Y_K) = [λ⁻¹ (T F_K g1 + P_(−2) F_K g2) + P_0 F_K g1 +
+T F_K g2 + λ P_0 F_K g2] is bounded. Without the term λ F_K g2 in Y_K, the term λ⁻¹ P_(−2) F_K g2, which does not vanish
+on the mixed harmonics of g2, would remain.
+
+(F4) By (E1₂), G1^in = [F1 g1^in] and G2^in = [F1² g1^in] with g1^in(ℓ_in, ·) = 0, and they depend on θ1 alone; likewise
+for out. For the approximant of [[thm:two-dust-approximant]], g1^out = W_out(X, θ2 + φ_1^out); W_TT^out has only
+angular components, and (du ⊗ du)(ℓ_in, ℓ_in) = g0⁻¹(du, dv)² = e^(−4σ). Next, ℓ_app^in − ℓ_in = (g_app⁻¹ − g0⁻¹) dv =
+−λ g0⁻¹(g1(ℓ_in, ·)) + O(λ²), and g1(ℓ_in, ·) = m1(ℓ_in, ·) + [χ_out] du(ℓ_in) du = m1(ℓ_in, ·) − e^(−2σ) [χ_out] du.
+
+(F5) c^(ττ) = g0^(ττ) − (g0^(ττ)/g^(ττ)) g^(ττ) = 0, and the formula for c^(ab) is algebra. g0^(ττ) ≤ −1 − μ/R² by
+[[lem:two-dust-domain]] (a). The last identity is the product rule.
+
+(F6) is [[eq:two-dust-psi]] with F = ½ 𝒫 s_K(h), and the remarks after it. (F7) is [[sec:two-dust-phases]]. ∎
+
+**Lemma {#lem:two-dust-phases}** (The phase shifts.) Let w be smooth on Ω₂ ∩ {τ ≤ τ*}. The system
+
+    ℓ_K·dφ_K = ½ 𝒫 s_K(h),      h := w − Σ_J φ_J Y_J,      φ_K = 0 on Σ_τ0,      K ∈ {in, out},             {#eq:two-dust-phases}
+
+has a unique solution (φ_in, φ_out) on Ω₂ ∩ {τ ≤ τ*}, and it is smooth.
+
+*Proof.* Since s_K(h) = s_K(w) − Σ_J φ_J [Y_J(ℓ_K, ℓ_K)], with Y_out(ℓ_in, ℓ_in) = c_in + O(λ) and Y_in(ℓ_in, ℓ_in) =
+O(λ) by (F4), and likewise for out, [[eq:two-dust-phases]] is a linear system of two transports along transversal null
+generators, L0 φ_in = −½ e^ψ 𝒫 s_in(h) and Z_out φ_out = ½ 𝒫 s_out(h)/ℓ_out(τ) by (F7), coupled through the maps φ ↦
+½ 𝒫([Y_J(ℓ_K, ℓ_K)] φ), which are bounded on L²(A(τ)) by (M1). By [[lem:transport]] and [[lem:two-dust-transport]], the
+solution map of the two transports with zero data on a slab [τ1, τ1 + δ] is bounded from L¹ in τ to C in τ with values
+in L²(A(τ)), so the map that takes (φ_in, φ_out) to the solutions with the sources computed from h is a contraction in
+C([τ1, τ1 + δ]; L²(A(τ)))² for δ small independently of the data. Picard iteration on successive slabs gives a unique
+solution on [τ0, τ*]. It is smooth, 𝒫 smoothing in x at fixed λ and (M6) giving the τ-derivatives. ∎
+
+The estimates below use [[eq:two-dust-phases]] through s_K(h), which 𝒩₂ controls, the coupling being inside h. If the
+phases were defined through s_K(w) instead, their sources would contain 𝒫([Y_J(ℓ_K, ℓ_K)] φ_J), with a coefficient that
+oscillates at the mollifier's own scale, and λ^j ‖∂^j ∂ 𝒫(c φ_J)‖ with every derivative on c costs λ⁻¹ ‖φ_J‖ by (M2):
+a power of λ would be lost.
+
+**Lemma {#lem:two-dust-h}** (The equation for h.) With φ_K from [[eq:two-dust-phases]] and h := w − Σ_K φ_K Y_K, the
+equation Ric^H(g_app + w) = 0 is
+
+    −½ g^(ab) ∂_a∂_b h + B·dh + C·h = F + 𝒬(w) − Σ_K 𝒬_φ^K − ½ λ⁻¹ Σ_K ((1 − 𝒫) s_K(h)) G2^K
+          + λ⁻¹ Σ_K ((ℓ_app^K − ℓ_K)·dφ_K) G2^K − Σ_K φ_K [T1^K] + ½ Σ_K (□̃_app φ_K) G1^K
+          + ½ λ Σ_K (□̃_app φ_K) [F_K g2] − Σ_K (B1^K·dφ_K + C1^K φ_K).                                     {#eq:two-dust-h}
+
+Every coefficient on the right is a bounded profile, except the one of order λ⁻¹ of each family, which multiplies
+(1 − 𝒫) s_K(h) = O(λ ∂s_K(h)) by (M3); and |ℓ_app^K − ℓ_K| ≤ C λ.
+
+*Proof.* Insert w = h + Σ_K φ_K Y_K in P_g(w) = F + 𝒬(w) and use (F1) for P_g(h) and (F2) for P_g(φ_K Y_K). The terms of
+order λ⁻¹ are ½ λ⁻¹ Σ_K s_K(h) G2^K − λ⁻¹ Σ_K (ℓ_app^K·dφ_K) G2^K, and by [[eq:two-dust-phases]], ℓ_K·dφ_K = ½ 𝒫 s_K(h),
+so they are ½ λ⁻¹ Σ_K ((1 − 𝒫) s_K(h)) G2^K − λ⁻¹ Σ_K ((ℓ_app^K − ℓ_K)·dφ_K) G2^K. Move them and the terms of (F2) to
+the right side. ∎
+
+**Lemma {#lem:two-dust-ell-ell}** (The ℓ_in ⊗ ℓ_in component.) With s := s_in(h),
+
+    □̃ s = c1·dh + c0·h + Σ_K (c2^K·dφ_K + c3^K φ_K) − q c_in Ψ_out + q λ⁻¹ ((1 − 𝒫) s_out(h)) G2^out(ℓ_in, ℓ_in)
+          + Σ_K c4^(K,ab) ∂_a∂_b φ_K − 2q F(ℓ_in, ℓ_in) − 2q 𝒬(w)(ℓ_in, ℓ_in) + 2q Σ_K 𝒬_φ^K(ℓ_in, ℓ_in)
+          + Σ_(a,i) c^(ai) (∂_a∂_i h)(ℓ_in, ℓ_in),                                                         {#eq:two-dust-ell-ell}
+
+with c0, c1, c2^K, c3^K bounded coefficients (profiles, and profiles times the function q of (F5)), c_in and
+G2^out(ℓ_in, ℓ_in) bounded profiles oscillating in θ2, |c4^K| ≤ C λ, |c^(ai)| ≤ C (λ + |w|) and |∂c^(ai)| ≤ C (1 +
+|∂w|), i spatial. 𝒬_φ^in(ℓ_in, ℓ_in) contains second derivatives of φ_in only with a factor λ |w|, and 𝒬_φ^out(ℓ_in,
+ℓ_in) contains |w| |∂² φ_out|. The only coefficient of order λ⁻¹ multiplies (1 − 𝒫) s_out(h), which is O(λ ∂s_out(h))
+by (M3). The mirror statement holds for s_out(h), with ℓ_out ⊗ ℓ_out, c_out and Ψ_in.
+
+*Proof.* By (F5), □̃ s = (□̃h)(ℓ_in, ℓ_in) + c1·dh + c0·h, ℓ_in being smooth and λ-independent, and (□̃h)(ℓ_in, ℓ_in) =
+q (g^(ab) ∂_a∂_b h)(ℓ_in, ℓ_in) + Σ c^(ai) (∂_a∂_i h)(ℓ_in, ℓ_in) + (first order), each term of c^(ab) ∂_a∂_b having a
+spatial index because c^(ττ) = 0. By [[eq:two-dust-h]], (g^(ab) ∂_a∂_b h)(ℓ_in, ℓ_in) is −2 times the contraction of its
+right side minus B·dh − C·h. Contract with ℓ_in ⊗ ℓ_in using (F4). Family in: G1^in(ℓ_in, ·) = G2^in(ℓ_in, ·) = 0
+removes its term of order λ⁻¹, its (ℓ_app^in − ℓ_in) term and ½ (□̃_app φ_in) G1^in exactly, and ½ λ (□̃_app φ_in) [F1
+g2](ℓ_in, ℓ_in) is O(λ |∂² φ_in|). Family out: −½ λ⁻¹ ((1 − 𝒫) s_out(h)) G2^out(ℓ_in, ℓ_in) survives, and gives the term
+with q λ⁻¹; λ⁻¹ ((ℓ_app^out − ℓ_out)·dφ_out) G2^out(ℓ_in, ℓ_in) is O(|dφ_out|), since |ℓ_app^out − ℓ_out| ≤ C λ;
+½ (□̃_app φ_out) c_in = ½ c_in Ψ_out + O(λ |∂² φ_out|), because □̃_app − □̃ = c′^(ab) ∂_a∂_b with |c′| ≤ C λ; and
+½ λ (□̃_app φ_out) [F2 g2](ℓ_in, ℓ_in) is O(λ |∂² φ_out|). The rest is of first order or part of 𝒬_φ^K. In 𝒬_φ^K the
+second derivatives of φ_K multiply Y_K, and Y_in(ℓ_in, ℓ_in) = λ [F1 g2](ℓ_in, ℓ_in), Y_out(ℓ_in, ℓ_in) = c_in + O(λ).
+So φ_in drops out at the top order, φ_out enters only through Ψ_out with the bounded coefficient −q c_in, and no
+coefficient of order λ⁻¹ remains other than the one stated. ∎
+
+So s_in's equation has no large coefficient, and at the top order it is coupled to Ψ_out through a bounded profile
+oscillating in θ2; the equation for s_out is the mirror image. This replaces [[lem:ell-ell]].
+
+*Proof of [[thm:two-dust-uniform]].* The proof follows the eight steps of the proof of [[thm:uniform-existence]], on Ω₂,
+with 𝒩₂ for 𝒩, [[eq:two-dust-h]] for [[eq:ue-h]], [[eq:two-dust-ell-ell]] for [[lem:ell-ell]], and (F6) for
+[[lem:commutator-transport]]. Every constant depends on Ω₂, k, K and the profiles, never on λ.
+
+**Step 1** (what 𝒩₂ controls). λ^j ∂^j(φ_K Y_K) is a sum of λ^i ∂^i φ_K times bounded profiles, and λ^i ‖∂^i φ_K‖ ≤ λ 𝒩₂
+for 1 ≤ i ≤ k + 1, ‖φ_K‖ ≤ 𝒩₂. So, as in Step 1 there, |w|_(k+1) ≤ C 𝒩₂, ‖∂^i w‖_∞ ≤ C λ^(−3−i) 𝒩₂ for i ≤ 4, and
+|∂w|_k ≤ C λ⁻¹ 𝒩₂.
+
+**Step 2** (data). φ_K = 0 on Σ_τ0, so h = w there, and the derivatives of φ_K tangent to Σ_τ0 vanish; so ∂_τ φ_K =
+½ 𝒫 s_K(h)/ℓ_K(τ) there by [[eq:two-dust-phases]], with no factor λ⁻¹, ℓ_in(τ) = −e^(−ψ) and |ℓ_out(τ)| ≥ c. The higher
+τ-derivatives of h, φ_K and Ψ_K on Σ_τ0 follow from [[eq:two-dust-phases]], [[eq:two-dust-h]] and the equation for w, as
+there, and 𝒩₂(τ0) ≤ C (C_D + C_R) λ^K.
+
+**Step 3** (the bootstrap). Suppose 𝒩₂ ≤ 2M λ^K on [τ0, τ*]. Then |w| ≤ C M λ^(K−3) and |∂w| ≤ C M λ^(K−4), so for
+λ ≤ λ0(M), |g − g0| ≤ ε1: the conclusions of [[lem:two-dust-domain]] (e) hold for g (Σ_τ and the lateral boundaries
+spacelike, both generators transverse to Σ_τ), and |∂g| ≤ Λ with Λ independent of M.
+
+**Step 4** (h). Apply ∂^α, |α| = j ≤ k, to [[eq:two-dust-h]], apply [[lem:energy]] to each component, and multiply by
+λ^j. Term by term, with the exponent of λ each attains:
+
+- (a) the commutator [∂^α, g^(ab)] ∂_a∂_b h: ‖∂^i g_app‖_∞ ≤ C λ^(1−i), so at most C 𝒩₂, and the w part at most
+  C M λ^(K−4) 𝒩₂, with ∂^i w in L^∞ for i ≤ 4 and in L² for i ≥ 5, as in Step 4 there;
+- (b) F: at most C_R λ^K, by (E3);
+- (c) B·dh and C·h: at most C 𝒩₂, a derivative on a profile costing λ⁻¹ and the weight paying for it;
+- (d) ½ λ⁻¹ ((1 − 𝒫) s_K(h)) G2^K: Σ_i λ^(i−1) ‖∂^i (1 − 𝒫) s_K‖ ≤ C Σ_i λ^i ‖∂^i ∂s_K‖ ≤ C 𝒩₂, by (M3), (M4), (M6);
+- (e) λ⁻¹ ((ℓ_app^K − ℓ_K)·dφ_K) G2^K: ℓ_app^K − ℓ_K is λ times a profile, by (F4), so at most C 𝒩₂;
+- (f) φ_K [T1^K], B1^K·dφ_K and C1^K φ_K: at most C 𝒩₂;
+- (g) ½ (□̃_app φ_K) G1^K = ½ Ψ_K G1^K + ½ (c′^(ab) ∂_a∂_b φ_K) G1^K with |c′| ≤ C λ: the first at most C 𝒩₂, both Ψ_K
+  being in 𝒩₂ at every level; the second by (F6), λ^(j+1) ‖∂^j ∂² φ_K‖ ≤ C 𝒩₂, since λ^(j+1) ‖∂^j L_K 𝒫 s_K‖ ≤ C λ^(j+1)
+  ‖∂^j ∂s_K‖ by (M4), (M6) (no Bernstein inequality is needed here);
+- (h) ½ λ (□̃_app φ_K) [F_K g2] = λ (Ψ_K + O(λ) ∂² φ_K) times a profile: at most C λ 𝒩₂;
+- (i) 𝒬_φ^K: at most C M λ^(K−5) 𝒩₂ ≤ C M λ 𝒩₂, as K ≥ 6, its part |w| |∂² φ_K| at most C M λ^(K−4) 𝒩₂;
+- (j) 𝒬(w): at most C λ⁻⁵ 𝒩₂² ≤ C M² λ^(2K−5) ≤ C M² λ^(K+1), as K ≥ 6, the worst term being quadratic in ∂w,
+  |∂w ∂w|_k ≤ C λ⁻³ |∂w|_k², by the product bound of [[lem:sobolev]] at the top derivatives of w.
+
+The g0 part of [∂^α, g^(ab)] and the commutator [∂_x², L_K] of Step 5 have smooth λ-independent coefficients and are at
+most C 𝒩₂. So
+
+    Σ_(j≤k) λ^j ‖∂^j ∂h(τ)‖ + ‖h(τ)‖ ≤ C (𝒩₂(τ0) + ∫_(τ0)^τ (𝒩₂ + C_R λ^K + C M² λ^(K+1))).
+
+No term in (a)–(j) has a coefficient of order λ⁻¹ beyond (d), which (M3) pays for, and the two families enter (d)–(i)
+once each.
+
+**Step 5** (φ_in, φ_out). Each φ_K obeys its own transport [[eq:two-dust-phases]] with source ½ 𝒫 s_K(h): L0 φ_in =
+−½ e^ψ 𝒫 s_in(h), the transport [[eq:ue-transport]] with the smooth bounded factor e^ψ, and Z_out φ_out =
+½ 𝒫 s_out(h)/ℓ_out(τ). Apply ∂^α, |α| = j ≤ k: [Z_K, ∂^α] has smooth λ-independent coefficients and involves derivatives
+of φ_K of order at most j, and λ^j ‖∂^α ∂ 𝒫 s_K‖ ≤ C λ^j ‖∂^(j+1) s_K(h)‖ ≤ C 𝒩₂ by (M1), (M4), (M6), s_K(h) =
+h(ℓ_K, ℓ_K) with ℓ_K smooth. For λ ∂_x² φ_K use the transport of (F6), with source ½ ∂_x² 𝒫 s_K, and the Bernstein bound
+(M2) on one spatial derivative: λ^(j+1) ‖∂^j ∂_x² 𝒫 s_K‖ ≤ C λ^j ‖∂^j ∂_x s_K‖ ≤ C 𝒩₂. [[lem:transport]] for φ_in and
+[[lem:two-dust-transport]] for φ_out bound the φ-part of 𝒩₂(τ) by C (𝒩₂(τ0) + ∫_(τ0)^τ 𝒩₂). Without (M2) the transport of
+∂_x² φ_K would need k + 2 derivatives of s_K.
+
+**Step 6** (Ψ_in, Ψ_out). Apply ∂^α to the transport of (F6) for Ψ_in, along L_in = −e^(−ψ) L0 with the bounded
+coefficient a_in, and [[lem:transport]]. In ½ □̃ 𝒫 s_in = ½ 𝒫 □̃ s_in + ½ [□̃, 𝒫] s_in insert [[eq:two-dust-ell-ell]].
+
+- (a) 𝒫 of the terms of [[eq:two-dust-ell-ell]]: c1·dh, c0·h, c2^K·dφ_K and c3^K φ_K give at most C 𝒩₂. The coupling:
+  ‖𝒫(q c_in Ψ_out)‖ ≤ C ‖Ψ_out‖ by (M1), and λ^j ‖∂^j 𝒫(q c_in Ψ_out)‖ ≤ C Σ_(i≤j) λ^i ‖∂^i Ψ_out‖ ≤ C 𝒩₂, each derivative
+  on the profile q c_in costing λ⁻¹ and the weight paying for it. q λ⁻¹ ((1 − 𝒫) s_out) G2^out(ℓ_in, ℓ_in) is at most
+  C 𝒩₂ by (M3); c4^K ∂² φ_K at most C 𝒩₂ by (F6); F, 𝒬(w) and 𝒬_φ^K give C_R λ^K, C M² λ^(K+1) and C M λ^(K−5) 𝒩₂; and
+  Σ c^(ai) ∂_a∂_i h, written 𝒫 ∂_i(c ∂_a h) − 𝒫((∂_i c) ∂_a h) with the Bernstein bound on the ∂_i, is at most C λ⁻¹
+  ‖c ∂h‖ + C ‖∂h‖ ≤ C 𝒩₂, as |c| ≤ C (λ + |w|); at level j only k + 1 derivatives of h occur, where taking the second
+  derivatives directly would need k + 2.
+- (b) [□̃, 𝒫] s_in: the terms with a spatial index are at most C ‖∂s_in‖ by the first form of (M5). The ττ term is
+  rewritten through ∂_τ² s_in = (□̃ s_in − 2 g0^(τi) ∂_τ∂_i s_in − g0^(ij) ∂_i∂_j s_in)/g0^(ττ), g0^(ττ) ≤ −1, after
+  which the second form of (M5) gains λ on every term of [[eq:two-dust-ell-ell]], the coupling included (at most C λ 𝒩₂),
+  except Σ c^(ai) ∂_a∂_i h, which is written ∂_i(c ∂_a h) − (∂_i c) ∂_a h and bounded by the first form (the second
+  form on them would cost a derivative at j = k, as in Step 6 there); and g0^(ab) (∂_a∂_b 𝒫 − 𝒫 ∂_a∂_b) s_in is at
+  most C ‖∂s_in‖ by (M4), (M6).
+- (c) −½ M_in(𝒫 s_in) and −N_in φ_in are of first order, at most C 𝒩₂.
+
+So the Ψ_in-part of 𝒩₂(τ) is at most C (𝒩₂(τ0) + ∫ (𝒩₂ + C_R λ^K + C M² λ^(K+1))). The same holds for Ψ_out, along
+Z_out with [[lem:two-dust-transport]], whose source contains 𝒫(q′ c_out Ψ_in). The coupling enters through ∫ 𝒩₂: Ψ_in
+and Ψ_out are estimated together, which is why both are in 𝒩₂. Treated as a generic second derivative of φ_out, the
+coupling term would lose a power of λ.
+
+**Step 7** (closing). Steps 4–6 give 𝒩₂(τ) ≤ C2 (𝒩₂(τ0) + ∫_(τ0)^τ 𝒩₂ + (τ_end − τ0)(C_R λ^K + C M² λ^(K+1))), C2
+independent of M and λ. Gronwall's lemma and Step 2 give 𝒩₂(τ) ≤ C3 ((C_D + 1 + C_R) λ^K + C M² λ^(K+1)). With M :=
+C3 (C_D + 1 + C_R) + 1 and λ0 such that C3 C M² λ0 ≤ 1 and Step 3 holds, 𝒩₂ ≤ M λ^K < 2M λ^K, which improves the
+bootstrap assumption. K ≥ 6 enters only in (i) and (j) of Step 4, through 2K − 5 ≥ K + 1 and K − 5 ≥ 1. 𝒩₂ is
+continuous in τ for a smooth solution, so the set of τ* for which the assumption holds is open and closed in the
+interval of existence.
+
+**Step 8** (existence, continuation and uniqueness). This is Step 8 of the proof of [[thm:uniform-existence]] with Ω₂ in
+place of Ω. Its part (i) uses of the background only that the extended approximant has spacelike slices {τ = const},
+with lapse, shift and spatial metric bounded above and below, on a neighbourhood of the domain; here the profiles of
+g_app, g0 among them, are extended from Ω₂ by Stein's operator ([[thm:std-sy-extension]]), and by continuity and the
+compactness of Ω₂ ([[lem:two-dust-domain]] (a), (e)) this holds on a neighbourhood U of Ω₂ for λ small, with bounds
+independent of λ; outside U the lapse, shift and spatial metric are interpolated convexly to (1, 0, δ) as there. Parts
+(ii)–(iv) are unchanged, the slices being the annuli A(τ) of Ω. Uniqueness among C² solutions with |g − g0| ≤ ε1 is
+the energy argument there, and with Step 7 the bootstrap continues, so the solution exists on all of Ω₂ with
+[[eq:two-dust-remainder]]. The bounds after [[eq:two-dust-remainder]] follow from Step 1 as there: |w| ≤ C λ⁻³ 𝒩₂,
+|∂w| ≤ C λ⁻⁴ 𝒩₂, and |g − g0| ≤ |λ [g1] + Σ_(j≥2) λ^j [g_j]| + |w| ≤ C λ, |∂g| ≤ C, since ∂[λ g1] = dv ⊗ [F1 g1] + du ⊗
+[F2 g1] + λ [∂_X g1] is bounded. ∎
+
+### The data {#sec:two-dust-data}
+
+**Theorem {#thm:two-dust-data}** (Exact data with two families.) Let K ≥ 6 and N := K + 3, and let g_app be the
+approximant of [[thm:two-dust-approximant]] with N stages and the stage data of [[lem:two-dust-stage-data]], in its
+fixed-phase form. For λ small there is a vacuum Cauchy datum on Σ_τ0, with the gauge condition D = 0 imposed through
+∂_τ g, whose w := g − g_app satisfies (E4) of [[thm:uniform-existence]]; it equals the seed's datum on Σ_τ0 ∩ {R < r1},
+and it is smooth and invariant under the T² action and both reflections.
+
+The proof is that of [[thm:data]] on the two-dust slice, with the changes of the next two lemmas.
+
+**Lemma {#lem:two-dust-slice}** (The constraints on a round slice.) Let γ = G(R) dR² + R² γ̂ on [a, b1] × S³, G > 0,
+and let κ be any symmetric 2-tensor invariant under O(4). With U = (α, ϖ, q) and (γ_U, κ_U) as in [[eq:data-u]], the
+linearisation at U = 0 of the constraint map of (γ_U, κ_U) has the principal part
+
+    ρ ≅ (3/(R G²)) ∂_R α − (1/(G R²)) Δ_(S³) α,      J_R ≅ 6 ∂_R ϖ − (2/R²) γ̂^(AB) ∂_A q_B,      J_A ≅ −(2/G) ∂_R q_A + 4 ∂_A ϖ,
+
+with no ∂_R² α and no ∂_R∂_A α in ρ, and independent of κ. The coefficient of ∂_R α is (γ^(RR))^(3/2) H, H = 3/(R √G) >
+0 the mean curvature of the spheres; the symmetrizer 𝒮 = diag(1, −½ Π⁻¹), Π = R² γ̂, gives 𝒮A0 = diag(6, G⁻¹ Π⁻¹) > 0
+and 𝒮A^B symmetric for every angle B; and in the class of fields of (R, ϑ) invariant under T² and both reflections the
+characteristic speeds satisfy c² = 2G/(3R²) > 0. At G = 1 + μ/R² these are the formulas of [[lem:constraints-evolution]]
+(a). The slice Σ_τ0 of the two-dust background is such a slice, with G = e^ψ (2 − e^ψ f) ≥ e^ψ > 0.
+
+*Proof.* The proof of [[lem:constraints-evolution]] (a) is written for γ = ν² dr² + Π_AB (dω^A + σ^A dr)(dω^B + σ^B dr)
+in general. Here ν² = G, σ^A = 0 and Π = R² γ̂, so the second fundamental form of the spheres is 𝒜 = (1/(2ν)) ∂_R Π =
+(R/√G) γ̂ and H = tr_Π 𝒜 = 3/(R √G). The coefficient of ∂_R α is (γ^(RR))^(3/2) H = G^(−3/2) · 3/(R √G) = 3/(R G²), and
+the angular second derivatives of α are −γ^(RR) Π^(AB) ∂_A∂_B α = −(G R²)⁻¹ Δ_(S³) α; κ enters ρ only through −|κ_U|² +
+(tr κ_U)², algebraically. The principal part of J there, at γ^(RA) = 0 and α = 0, is J_R ≅ 6 ∂_R ϖ − 2 Π^(AB) ∂_A q_B and
+J_A ≅ 4 ∂_A ϖ − 2 γ^(RR) ∂_R q_A, and [[eq:data-symmetrizer]] at γ^(RA) = 0 is 𝒮 = diag(1, −½ Π⁻¹), with 𝒮A0 = diag(6,
+γ^(RR) Π^(AB)). In the class, A0 = diag(6, −2/G) and A^ϑ = [[0, −2/R²], [4, 0]] in (ϖ, q_ϑ), and det(A^ϑ − c A0) =
+−12 c²/G + 8/R² vanishes at c² = 2G/(3R²). On Σ_τ0, dτ = 0 gives dv = dR, so by [[eq:two-dust-chart]] the induced metric
+is (2e^ψ − e^(2ψ) f) dR² + R² dΩ₃²; and 2 − e^ψ f ≥ 1, as e^ψ ≤ 1 and f ≤ 1. ∎
+
+So the slice need not be a Vaidya slice: H > 0 holds on every round slice on which R is a coordinate.
+
+**Lemma {#lem:two-dust-stage-data}** (The gauge hierarchy and the stage data, two families.) (a) [[lem:gauge-hierarchy]]
+holds for the approximant of [[lem:two-dust-stages]], with D^(m)(X, θ1, θ2) two-phase profiles and (F1)–(F2) there for
+all (θ1, θ2).
+
+(b) For every N there are stage data for [[thm:two-dust-approximant]] satisfying (F1) and (F2) of
+[[lem:gauge-hierarchy]], all vanishing on Σ_τ0 ∩ {R < r1}; "the stage data of [[lem:two-dust-stage-data]]" means those
+constructed in the proof. The mixed harmonics of every profile vanish off the diamond Q×, and in particular on a
+neighbourhood of Σ_τ0.
+
+*Proof.* (a) In two-scale form the principal part ½ g^(ab) ∂_a∂_b of B_g ([[eq:data-bianchi]]) acts on λ^m [Y] at order
+λ^(m−2) through ½ Σ_(J,K) g⁻¹(du_J, du_K) F_J F_K Y; with g⁻¹(du_K, du_K) = O(λ²) and g⁻¹(du_in, du_out) = g0^(uv) +
+O(λ), it multiplies the mixed harmonic (n1, n2) of Y by e^(−2σ) n1 n2 + O(λ), which does not vanish, and its pure
+harmonics by O(λ²). At order λ^(m−1) it acts on the pure harmonics of θ_K as the transport (ℓ_K·∂_X + ½ □_(g0) ϕ_K) F_K
+plus a bounded multiplication M, as in the proof of [[lem:gauge-hierarchy]]. Induct on m with the hypothesis: D^(j) = 0
+for j < m, D^(m) does not depend on (θ1, θ2), and the mixed harmonics of D^(m+1) vanish; it holds at m = 0, by
+[[lem:two-dust-stage-zero]] (f) and the order −1 of [[eq:data-bianchi]], whose only term is the mixed one in D^(1). At
+order m, the mean of [[eq:data-bianchi]] is the linear wave equation for ⟨D^(m)⟩ of the proof of
+[[lem:gauge-hierarchy]], its pure harmonics of θ_K are the transport along ℓ_K for Z_K := F_K Π_K D^(m+1), and its mixed
+harmonics are algebraic and give the mixed harmonics of D^(m+2) in terms of ⟨D^(m)⟩ and the Z_K; every other term
+vanishes by the hypothesis or contains ℛ^(i), i ≤ m + 1 ≤ N − 1. The data of ⟨D^(m)⟩, ∂_τ⟨D^(m)⟩ and the Z_K are zero
+by (F1)–(F2), so the system, which closes as the stage equations do ([[lem:two-dust-stages]], both generators reaching
+Σ_τ0 inside Ω₂), gives ⟨D^(m)⟩ = 0 and Z_K = 0, and then the mixed harmonics of D^(m+2) vanish: the hypothesis at m + 1.
+The rest is the proof of [[lem:gauge-hierarchy]].
+
+(b) Supports. The harmonics with n1 ≠ 0 of W_in, and those with n2 ≠ 0 of W_out, vanish where v ∉ (v_start, v_end),
+respectively u ∉ (u1, u2). For every later profile the same holds by induction over the stages: a harmonic with n1 ≠ 0
+of a forcing term contains a factor with such a harmonic, the pure harmonics of θ1 are transported along ℓ_in at fixed
+v, the divisions are pointwise, and the data below are fixed pointwise on Σ_τ0 from such terms; likewise for n2 and u.
+So every mixed harmonic vanishes off Q× = [u1, u2] × [v_start, v_end], which lies in the future of Σ_τ0, and the mixed
+harmonics take no data.
+
+The construction is that of the proof of [[lem:stage-data]]. Stage 0: χ_in = χ_out = 0 on Σ_τ0 ([[eq:two-dust-chi]]).
+Stage m = 1, …, N: φ_m^in = φ_m^out = 0 and (m_m)_(τ ·) = 0 on Σ_τ0. (i) On Σ_τ0 the pure harmonics of θ_K of the
+oscillating part of D^(m) are Pol_K(F_K Π_K ĝ_(m+1)) + Λ_m^K(γ_m) + (known), with Pol_K(Y) := Y(ℓ_K, ·) − ½ dϕ_K tr_(g0)
+Y; Pol_K is onto at every point, by the construction of the proof of [[lem:stage-data]] with the null covector dϕ_K in
+place of dv, and its right inverse Pol_K⁺ = Pol_K^T (Pol_K Pol_K^T)⁻¹ commutes with the symmetries; so each family's
+pure harmonics of ĝ_(m+1) are fixed as there, each on its own support. The mixed harmonics of D^(m) vanish on Σ_τ0 by
+the supports. (ii) As there. (iii) As there, with [[lem:two-dust-slice]] in place of [[lem:constraints-evolution]] (a):
+the order-m mean of the constraints is a linear radial problem on the two-dust slice, solved by [[lem:linear-evolution]]
+outward from R = a with zero data, through the packet and then the shell; its forcing terms vanish where the earlier
+stages' data and both families' waves do, so on R < r1. ∎
+
+*Proof of [[thm:two-dust-data]].* The proof in [[sec:data-proof]] applies, with [[lem:two-dust-stage-data]] for
+[[lem:gauge-hierarchy]] and [[lem:stage-data]], and with [[lem:constraints-evolution]] (a) at the data of g0 replaced by
+[[lem:two-dust-slice]]. Its parts (b) and (c) hold as stated, with the same proofs: they use of the approximant's data
+only that on Σ_τ0 every phase is a function of R, so that phase derivatives are radial (here v = τ0 + R and u is a
+function of R on the slice, [[prop:two-dust-background]] (a)); that the parts W_TT^K of the waves have only angular
+components and are traceless on the spheres, and the other parts are multiples of dϕ_K ⊗ dϕ_K, which on Σ_τ0 is a
+multiple of dR ⊗ dR; that φ_j^K = 0 and (m_j)_(τ ·) = 0 there and γ_RA = O(λ²); that g0^(Aτ) = 0, g0 being round; and
+that the mixed harmonics vanish on Σ_τ0. In particular, at the approximant's data the constraint map of (γ_U, κ_U) has
+no coefficient of order λ⁻¹: the second derivatives of γ of order λ⁻¹ are λ⁻¹ Σ_K (∂_R ϕ_K)² [F_K² W_K] in ∂_R² γ, and
+enter the coefficients of U only through the traces of the W_TT^K on the spheres, which vanish, and through κ̃_RA, the
+order-one oscillating part of κ, which vanishes, while the ∂_R κ_RR terms of div κ and d tr κ cancel. This holds for any
+phases that are functions of R on the slice, null or not; and the constraint map depends only on g and ∂_τ g on Σ_τ0,
+not on ∂_τ² of the phases, so the eikonal equation of the outgoing phase is not used by the data. The principal
+coefficients at the approximant's data have the background's values at order zero in every harmonic, H's oscillating
+part (1/(2ν)) Π0^(AB) Σ_K ∂_R ϕ_K [F_K W_K,AB] vanishing. [[prop:exact-correction]] then holds on [a, b(τ0)] × S³ with
+its proof, U = 0 on R < r1, where 𝒞(γ, κ) and the forcing vanish. ∎
+
+### The spheres' horizon and the mean mass {#sec:two-dust-items}
+
+**Proposition {#prop:two-dust-one-zero}** (One zero per column, two families.) Let μ0 ≥ √72 l5² and K ≥ 6, and for a
+column let θ⁺_λ(R) be the outgoing null expansion, for g_λ, of the sphere S_(v,R) = {τ = v − R, |x| = R} at its point
+R x̂, and R_H(v) the radius on the column at which R² = μ. There are λ_H ∈ (0, λ0] and C, δ1, δ2 > 0, independent of λ,
+such that for λ ≤ λ_H: (a) on every column θ⁺_λ has at most one zero, and θ⁺_λ > 0 above it, < 0 below it; and, if
+μ0 > √72 l5², (b) on every column with R_H(v) ≤ v − τ0 − δ1 it has exactly one zero R_λ(v, x̂), and |R_λ − R_H(v)| ≤
+C λ; (c) the spheres with R ≤ R_H(v) − C λ (within the domain) are trapped, both future null expansions being negative
+at every point, and those with R ≥ R_H(v) + C λ are untrapped. If μ0 = √72 l5², (b)–(c) hold on the columns with
+R_H(v)² ≥ μ0 + δ2. In particular there is no inner apparent horizon.
+
+*Proof.* (i) The background. The spheres S_(v,R) are the spheres {u, v = const}. The expansion of a round sphere along a
+normal N is 3 N(R)/R. The future null normals ∂_v and ∂_u, normalised by n(τ) = 1, are ∂_v/(1 − R_v) and ∂_u/(−R_u),
+since dτ(∂_v) = 1 − R_v ≥ ½ and dτ(∂_u) = −R_u > 0; so
+
+    θ⁺(g0) = 3 R_v/(R (1 − R_v)) = 3 e^ψ f/(R (2 − e^ψ f)),      θ⁻(g0) = −3/R,
+
+using R_v = e^ψ f/2 ([[sec:two-dust-phases]]). On a column R decreases in u, and ∂_u R_v = R_uv = −e^(2σ) μ/R³ < 0
+([[lem:two-dust-identities]] (ii)), so along the column ∂_R R_v = R_uv/R_u = e^ψ μ/R³ > 0: θ⁺(g0) has at most one zero
+on each column, at R_v = 0, that is at f = 0, R = R_H(v), and there ∂_R θ⁺(g0) = 3 e^ψ μ/R⁴ = 3 e^ψ/μ ≥ 3 e^(min ψ)/μ_max,
+min ψ and μ_max := max μ taken over Ω₂. The ingoing expansion is negative everywhere.
+
+(ii) The approximant. The proof of [[lem:sphere-two-scale]] applies with two phases: the conormal plane of the spheres is
+spanned by dτ and dR, which also span du and dv, so Π_g^(ab) ∂_a ϕ_K = 0, and the fast part of θ^±(g) is ½ λ⁻¹ Σ_K
+k^±(g⁻¹ dϕ_K) Π_g^(ab) [F_K ĝ_ab]. Its λ⁰ coefficient is ½ Σ_K k^±_0(ℓ_K) F_K tr_S g1 = 0, because tr_S W_K = 0 on
+every sphere ([[eq:wave-traceless]] for W_TT^K, and dϕ_K ⊗ dϕ_K vanishes on vectors tangent to the spheres). So
+θ^±(g_app) = θ^±(g0) + λ [Th1^±] + λ² E^±, with Th1^± a two-phase profile and E^± = e^±(X, v/λ, u/λ, λ), e^± smooth and
+bounded with all its derivatives. Along a column v is constant, but u is not: by [[eq:two-dust-chain]] the derivative
+along a column of λ [Th1⁺] is λ [∂_R Th1⁺] + (∂_R u) [F2 Th1⁺], which is O(1) unless Th1⁺ does not depend on θ2. It does
+not ((iii) below). Then ∂_R(λ [Th1⁺]) = O(λ) and ∂_R(λ² E⁺) = λ² [∂_R e⁺] + λ (∂_R u) [F2 e⁺] = O(λ), so along every
+column
+
+    |θ⁺(g_app) − θ⁺(g0)| + |∂_R (θ⁺(g_app) − θ⁺(g0))| ≤ C λ,
+
+and |θ⁻(g_app) + 3/R| ≤ C λ.
+
+(iii) The coefficient Th1⁺ does not depend on θ2. Work in the coordinates (u, v, y), y = (ϑ, φ1, φ2), off the axes (the
+identities below extend to the axes by continuity), where the spheres are {u, v = const} with induced metric γ_AB :=
+g_AB, A, B angular, and put α := (det γ_AB)^(1/2). For a normal covector k = k_u du + k_v dv and n := g⁻¹ k,
+
+    θ_k = −γ^(AB) Γ[g]^c_AB k_c = (n^u ∂_u + n^v ∂_v) ln α + ½ γ^(AB) n^C ∂_C g_AB − γ^(AB) n^d ∂_A g_dB,      {#eq:two-dust-theta}
+
+since γ^(AB) ∂_d g_AB = 2 ∂_d ln α for d ∈ {u, v}. The outgoing covector is k⁺ = c(g)(du + β dv), with β fixed by
+g⁻¹(k⁺, k⁺) = 0 and c(g) > 0 by n(τ) = 1; for g0, β = 0 and n0 = c0 g0⁻¹ du has n0^u = 0 and no angular component. The
+last two terms of [[eq:two-dust-theta]] contain only angular derivatives of g, which carry no phase derivative since
+∂_A ϕ_K = 0. At order λ they are products of first-order quantities with g0-quantities; as g0_dB = 0 for d ∈ {u, v},
+n0^C = 0, the oscillating parts of g1 have no components g1_dB with d ∈ {u, v} (W_TT^K is angular and χ_K dϕ_K ⊗ dϕ_K
+lies in the (u, v)-block), and the oscillating part of the λ-coefficient n1 of n has no angular component, their
+coefficient of λ does not depend on (θ1, θ2). In the first term write ln α = ln α0 + λ a1 + λ² a2 + O(λ³), with
+
+    a1 = ½ tr_(γ0) G1 = ½ tr_S m1,      a2 = ½ tr_(γ0) G2 − ¼ |G1|²_(γ0),      G_j := (g_j)_AB,
+
+tr_S W_K = 0 making a1 independent of (θ1, θ2). By [[eq:two-dust-chain]], ∂_v [λ^j a_j] = λ^j [∂_v a_j] + λ^(j−1) [F1 a_j]
+and ∂_u [λ^j a_j] = λ^j [∂_u a_j] + λ^(j−1) [F2 a_j], so, with n = n0 + λ n1 + O(λ²) and n0^u = 0, the coefficient of λ
+of the first term is n0^v [F1 a2] + n0^v [∂_v a1] + n1^v [∂_v ln α0] + n1^u [∂_u ln α0]. The λ-coefficient n1 depends on
+(θ1, θ2) only through g1(ℓ_out, ·) = m1(ℓ_out, ·) + [χ_in] dv(ℓ_out) dv, which enters β, c(g) and g⁻¹ at order λ, and so
+only through θ1. Hence Th1⁺ depends on θ2 only through n0^v [F1 a2], that is through the mixed harmonics of a2 (F1 kills
+those of θ2 alone).
+
+The mixed harmonics of a2 vanish. In the fixed-phase form, the mixed harmonics of G2 are those of ĝ_2 at the phases
+θ1 + φ_1^in, θ2 + φ_1^out (the other parts of g2 are m2 and phase-shift terms φ_2^K F_K W_K, which have no mixed
+harmonics), and those of |G1|² are those of 2 ⟨W_TT^in, W_TT^out⟩_(γ0); so the mixed part of a2 is that of ã2 :=
+½ tr_S ĝ_2 − ¼ |W_TT^in + W_TT^out|²_(γ0) at the shifted phases. We show that, for the stage-0 metric g0 + λ (W_in +
+W_out) + λ² ĝ_2 of [[lem:two-dust-stage-zero]],
+
+    γ0^(AB) R^(0)_AB = −2 g0^(uv) F1F2 ã2      on the mixed harmonics;                                        {#eq:two-dust-trace-mixed}
+
+as R^(0) ≡ 0 and F1F2 multiplies the harmonic (n1, n2) by −n1 n2 ≠ 0, the mixed harmonics of ã2 then vanish. First,
+Ric^H = Ric − S with S_AB = ½ (g_Aρ ∇̂_B D^ρ + g_Bρ ∇̂_A D^ρ), and D = O(λ) by [[lem:two-dust-stage-zero]] (f); the
+derivatives in S_AB are angular, so they bring no factor λ⁻¹, and S_AB = O(λ). Ric has no term of order λ⁻¹ either, so
+γ^(AB) Ric_AB has the λ⁰ coefficient γ0^(AB) R^(0)_AB. Second, a mixed harmonic of order λ⁰ comes only from terms with two
+phase derivatives, one of each phase: bilinear in (W_in, W_out), or linear in λ² ĝ_2. The latter come from the principal
+part alone and give e^(−2σ) F1F2 tr_S ĝ_2 = −2 g0^(uv) F1F2 (½ tr_S ĝ_2). The former are terms of Ric_AB with two
+phase derivatives of g̃ := g0 + λ (W_in + W_out), and contain no angular derivative; Ric being at most quadratic in
+first derivatives, they are those of the metric with the same components and the same derivatives in (u, v) at the
+point and no dependence on y. The metric g̃ is block diagonal for the splitting into the (u, v)-block and the angular
+block. For a metric h_ab(x) dx^a dx^b + γ_AB(x) dy^A dy^B, x = (u, v), whose components do not depend on y, the
+Christoffel symbols are those of h, Γ^a_AB = −½ h^(ab) ∂_b γ_AB and Γ^A_aB = ½ γ^(AC) ∂_a γ_CB, so that
+
+    Ric_AB = −½ □_h γ_AB − ¼ h^(ab) ∂_a ln det γ ∂_b γ_AB + ½ h^(ab) γ^(CD) ∂_a γ_AC ∂_b γ_BD,
+    γ^(AB) Ric_AB = −α⁻¹ □_h α,      α = (det γ)^(1/2),                                                     {#eq:two-dust-cpw}
+
+the trace following from γ^(AB) □_h γ_AB = □_h ln det γ + h^(ab) tr(γ⁻¹ ∂_a γ γ⁻¹ ∂_b γ); this is the trace identity of
+colliding plane waves. For g̃, ln α = ln α0 + λ ½ tr_S W − ¼ λ² |W|²_(γ0) + O(λ³), and tr_S W = 0. In −α⁻¹ □_h α = −□_h
+ln α − |d ln α|²_h, the terms of order λ⁰ with two phase derivatives come from −h0^(ab) ∂_a∂_b(−¼ λ² |W|²_(γ0)) alone
+(d ln α = O(λ), and h − h0 = O(λ)), and their mixed part is −2 g0^(uv) F1F2(−¼ |W_TT^in + W_TT^out|²_(γ0)), the terms
+with two derivatives in one phase being multiplied by g0^(uu) = g0^(vv) = 0. This gives [[eq:two-dust-trace-mixed]].
+
+(iv) The remainder. θ⁺(g) is a smooth function of (X, g) plus a smooth function of (X, g) times ∂g ([[lem:sphere-two-scale]]).
+So |θ⁺(g_λ) − θ⁺(g_app)| ≤ C (|w| + |∂w|), and its derivative along a column is at most C (λ⁻¹ |w| + |∂w| + |∂²w|), the
+derivatives along a column of g_app and ∂g_app being at most C and C λ⁻¹. By [[eq:remainder-pointwise]], which holds here
+by Step 1 of the proof of [[thm:two-dust-uniform]], both are at most C M λ^(K−5) ≤ C λ, as K ≥ 6. With (ii), along every
+column |θ⁺_λ − θ⁺(g0)| + |∂_R(θ⁺_λ − θ⁺(g0))| ≤ C3 λ and |θ⁻(g_λ) + 3/R| ≤ C3 λ.
+
+(v) The zero. This is (v) of the proof of [[prop:one-zero]], with R_H(v) in place of √μ(v), the lower bound 3 e^(min ψ)/
+μ_max for ∂_R θ⁺(g0) at the zero in place of 3/μ_max, and the margin of the zero from the curvature boundary as follows.
+At R = R_H, μ = R_H², so R_H⁴ − r_q(μ)⁴ = μ² − √72 μ l5² ≥ μ0 (μ0 − √72 l5²), which is positive when μ0 > √72 l5²; μ
+being uniformly continuous on the compact Ω₂, there is δ > 0 such that the points of a column with |R − R_H| ≤ δ and
+R ≤ v − τ0 lie in D_T. If μ0 = √72 l5², the same holds on the columns with R_H² ≥ μ0 + δ2. ∎
+
+The statement concerns the round family {S_(v,R)}: its zero set on the columns is not itself a marginally trapped
+surface. Although ∂g_λ converges only weakly, the expansions of these spheres do not see the oscillation at order λ⁰,
+the waves being traceless on them; and at order λ the outgoing wave, which oscillates along the columns, does not enter
+the outgoing expansion, because stage 0's division has removed the mixed harmonics of the angular trace.
+
+**Lemma {#lem:two-dust-quarter-turn}** (The quarter turn with two phases.) Let J be the map of [[sec:quarter-turn]], and
+let S act on families of two-phase profiles by (S g)_j(X, θ1, θ2) := (−1)^j (J* g_j)(X, 3π/2 − θ1, 3π/2 − θ2).
+
+(a) J is an isometry of every round double-null metric, fixing u, v and every sphere, with J_* ℓ_K = ℓ_K; and
+[[lem:quarter-turn]] (a) holds for two phases: the two-scale residual of g̃ := g0 + Σ_j λ^j (S g)_j is
+R[g̃](X, θ1, θ2; λ) = J* R[g](X, 3π/2 − θ1, 3π/2 − θ2; −λ).
+(b) W_in and W_out are S-invariant at weight 1, and the coefficient of λ in the expansion of R[g0 + λ W_K] is S-odd.
+(c) The mixed harmonics of ĝ_2 fixed in [[lem:two-dust-stage-zero]] are S-invariant at weight 2.
+(d) The profiles of the approximant of [[thm:two-dust-approximant]], with the stage data of [[lem:two-dust-stage-data]],
+satisfy S g = g. In particular J* m1 = −m1.
+
+*Proof.* (a) J is linear in x and lies in O(4), so it preserves R = |x|, τ, the round metric and hence g0, and every
+function of (τ, R), u and v among them. The proof of [[lem:quarter-turn]] (a) applies with D^λ_a := ∂_a + λ⁻¹ (∂_a v) F1
++ λ⁻¹ (∂_a u) F2 and ρ(θ1, θ2) := (3π/2 − θ1, 3π/2 − θ2): D^λ_a(f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, and J* commutes with D^λ.
+(b) The outgoing wave has the algebraic form of the ingoing one, with F₂ := λ A₂ env₂(u) h(ζ) sin θ2 and G₂ :=
+λ A₂ env₂(u) h(ζ) cos θ2, and J fixes u; so the computation of [[lem:quarter-turn]] (b) gives (J* W_TT^K)(X, 3π/2 −
+θ_K) = −W_TT^K(X, θ_K) for both families. χ_in and χ_out are S-invariant by the uniqueness of the transports
+[[eq:two-dust-chi]], which commute with J and whose forcing terms are S-even by (a) at order 0, as in [[lem:quarter-turn]]
+(b). The last claim is (a) at order 1 for the S-invariant family g0 + λ W_K.
+(c) By (a), applied to the S-invariant family g0 + λ (W_in + W_out), J* R^(0)(X, 3π/2 − θ1, 3π/2 − θ2) = R^(0)(X, θ1,
+θ2). The division by e^(−2σ) F1F2 commutes with J*, σ being O(4)-invariant, and with ρ, since F1F2 is invariant under ρ.
+So the mixed harmonics of ĝ_2, the quotients of those of −R^(0) at ĝ_2 = 0, satisfy (J* ĝ_2)(X, 3π/2 − θ1, 3π/2 − θ2) =
+ĝ_2(X, θ1, θ2).
+(d) Every later stage of [[lem:two-dust-stages]] (c) and every choice of [[lem:two-dust-stage-data]] (the right inverses
+Pol_K⁺, which are O(4)-equivariant and act pointwise in (θ1, θ2), the division, and the data of the means and phases as
+in [[lem:stage-data]]) is the unique solution of a problem that S maps to itself, and the rewriting with the fixed phases
+commutes with S. So the proof of [[lem:quarter-turn]] (c) applies and gives S g = g; taking the mean over T², J* m1 =
+−m1. ∎
+
+The base of the induction is (b) for both families and (c) for the interaction: with one quadrature alone in either
+family, (b) fails for that family.
+
+**Proposition {#prop:two-dust-mean-mass}** (The mean mass, two families.) For K ≥ 6 and λ ≤ λ0, and every sphere
+S = S_(v,R) in D_T ∩ {τ ≥ τ0}: if v ∉ (v_start, v_end) and u ∉ (u1, u2) on S, then |M[S](g_λ) − μ(S)| ≤ C λ², μ(S) the
+mass function [[eq:two-dust-mass]] on S; otherwise |M[S](g_λ) − μ(S)| ≤ C λ. Moreover M[S](g0) = μ(S) for every round
+double-null metric.
+
+*Proof.* For g0, with the future null normals n⁺ := e^(−2σ) ∂_v and n⁻ := e^(−2σ) ∂_u (Θ in [[eq:hawking-mass]] does not
+depend on their normalisation), θ^± = 3 e^(−2σ) R_v/R and 3 e^(−2σ) R_u/R, and g0(n⁺, n⁻) = −e^(−2σ); so Θ = 18 e^(−2σ)
+R_u R_v/R², the area is 2π² R³, and M[S](g0) = R² (1 + 2e^(−2σ) R_u R_v) = μ(S).
+
+If v ∉ (v_start, v_end) and u ∉ (u1, u2) on S, every oscillating profile of g_app vanishes on S: the harmonics with
+n1 ≠ 0 vanish where v ∉ (v_start, v_end) and those with n2 ≠ 0 where u ∉ (u1, u2) ([[lem:two-dust-stage-data]] (b)),
+and so do the phase-shift terms of the fixed-phase form, which carry the waves. So g_app = g0 + λ m1 + λ² E on S, and
+M[S](g_λ) = μ(S) + λ DM[m1] + O(λ²) + O(|w| + |∂w|). By naturality DM[J* m] = DM[m], J fixing g0 and S, as in the
+proof of [[prop:mean-mass]]; so DM[m1] = −DM[m1] = 0 by [[lem:two-dust-quarter-turn]] (d), and the remainder is at most
+C λ^(K−4) ≤ C λ². Elsewhere θ^± have no oscillation at order λ⁰ ((ii) of the proof of [[prop:two-dust-one-zero]]) and
+the area none, tr_S W_K being zero, so M[S](g_app) − μ(S) = O(λ), and the remainder is at most C λ^(K−4). For λ beyond
+the λ* of [[lem:sphere-two-scale]] the bounds hold with a larger C, as in the proof of [[prop:mean-mass]]. ∎
+
+### Proof of the theorem {#sec:two-dust-proof}
+
+*Proof of [[thm:two-dusts]].* The background exists on Ω₂ ⊃ D_T ∩ {τ ≥ τ0} with the properties of
+[[prop:two-dust-background]] and [[lem:two-dust-domain]]. Let g_app be the approximant of [[thm:two-dust-approximant]]
+with N = K + 3 stages and the stage data of [[lem:two-dust-stage-data]], and let the data on Σ_τ0 be those of
+[[thm:two-dust-data]], which satisfy the constraints exactly, carry D = 0, equal the seed's on R < r1, and are within
+C λ^K of those of g_app. [[thm:two-dust-uniform]] gives, for λ ≤ λ0, the solution g_λ of Ric^H(g) = 0 on Ω₂ with these
+data, unique among C² solutions with these data and |g − g0| ≤ ε1, smooth, with w = g_λ − g_app as in items 3 and 4.
+Taking λ0 so small that C λ0 ≤ ε1, g_λ is Lorentzian by [[lem:two-dust-domain]] (e). [[lem:gauge-propagation]] holds on
+Ω₂ with its proof, which uses of the domain only [[lem:domain]] (e) and the energy inequality, both of which hold on Ω₂
+([[lem:two-dust-domain]]); it gives D(g_λ) = 0 and Ric(g_λ) = 0. This is items 1, 2, 3 and 5.
+
+Symmetry. Every element of G = O(2) × O(2), acting on x and fixing τ, lies in O(4), so it preserves R, u and v, hence
+g0, Ω₂ and Σ_τ0, and the argument of [[sec:main-proof]] applies: by the uniqueness of item 5 and the invariance of the
+data ([[thm:two-dust-data]]), g_λ is invariant.
+
+Convergence. For a two-phase profile f = Σ_n f_n(X) e^(i(n1 θ1 + n2 θ2)) and a test function ζ ∈ C_c^∞ in the interior of
+Ω₂, let n ≠ 0 and Φ_n := n1 v + n2 u. If n1 ≠ 0, put Z := ℓ_out, so that Z(Φ_n) = n1 g0^(uv) = −n1 e^(−2σ); if n1 = 0,
+put Z := ℓ_in, with Z(Φ_n) = −n2 e^(−2σ). Then e^(iΦ_n/λ) = (λ/(i Z(Φ_n))) Z(e^(iΦ_n/λ)), and integrating by parts,
+∫ ζ f_n e^(iΦ_n/λ) = O(λ/|n1|) or O(λ/|n2|), with constants given by derivatives of ζ f_n, which decay faster than any
+power of |n|. So ∫ ζ [f] → ∫ ζ ⟨f⟩, and [f] → ⟨f⟩ weakly in L²(Ω₂). Now ∂[λ g1] = dv ⊗ [F1 g1] + du ⊗ [F2 g1] + λ [∂_X
+g1], ∂[λ^j g_j] = O(λ^(j−1)) for j ≥ 2, and |∂w| ≤ C λ^(K−4), which gives the formula of item 4; ⟨F_K g1⟩ = 0, so ∂g_λ →
+∂g0 weakly. Applying the same limit to |dv ⊗ F1 g1 + du ⊗ F2 g1|², whose mean over T² is the sum of the means of the two
+families' terms, the cross term having mean zero, shows that ‖dv ⊗ [F1 g1] + du ⊗ [F2 g1]‖²_(L²(U)) tends to a positive
+limit on every open U on which env or env₂ is not identically zero: there the mean of |F_K W_TT^K|²_(g0) is (4/3) A² env²
+R⁻³, respectively (4/3) A₂² env₂² R⁻³ ([[lem:two-dust-stage-zero]] (c)). So the convergence is not strong there.
+[[eq:two-dust-limit]] is [[lem:two-dust-stage-zero]] (c) with [[prop:two-dust-background]]; [[lem:two-dust-identities]]
+(vi) gives the background's Kretschmann scalar.
+
+Items 6 and 7 are [[prop:two-dust-one-zero]] and [[prop:two-dust-mean-mass]]. ∎

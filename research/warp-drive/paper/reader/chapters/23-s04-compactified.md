@@ -2392,8 +2392,8 @@ multiplication operators carried by χ_c (as χ_c = 1 near supp χ″ ⊃ supp �
 P_qu in place of u, and to (|J_1|, |J_1| + |J_2|) in place of (j, k). Its error terms are ‖χ″P_qu‖_((𝗍−m;q′)) and
 ‖χ_cP_qu‖_((𝗍−m;q′)), with q′ = |J_1| + |J_2| ≤ k or q′ = d̃. As χ = 1 within D of supp χ_c ⊃ supp χ″, these are
 ‖χ″P_qχu‖_((𝗍−m;q′)) and ‖χ_cP_qχu‖_((𝗍−m;q′)), which are at most C‖χu‖_((𝗍;q′)) by [[lem:ii-a-8-4]] (a). The
-coefficient norms are ‖a_q‖_((d_0;d̃)) and ‖a_q‖_((d_0;q′)) ≤ ‖a_q‖_((d_0;k)). Summing over the finitely many J and q
-gives the bound. ∎
+coefficient norms are ‖a_q‖_((d_0;d̃)) and ‖a_q‖_((d_0;|J_1|+|J_2|)) ≤ ‖a_q‖_((d_0;k)). Summing over the finitely many
+J and q gives the bound. ∎
 
 **Proposition {#prop:ii-a-9-8}** ([Hin26c, Proposition 3.29].) Let 𝒫 ⊂ C^∞_b Ψ^m_e3b be finite. There are d_0, d ∈ ℕ,
 depending only on 𝗌, m and N, such that the following holds for all k and L ∈ C^((d_0;d))_(e3b;b) 𝒫 with a
@@ -2411,13 +2411,13 @@ ellipticity margin of (L3), and so is locally uniform in C^((d_0;d))_(e3b;b) �
 k; as their indices do not depend on these choices, d_0 and d do not depend on k. For k ≤ d, [[eq:ii-a-9-10]] is
 [[prop:ii-a-9-1]], whose constant depends on
 ‖𝐋‖_((d_0;k)) ≤ ‖𝐋‖_((d_0;d)). Let k > d and assume [[eq:ii-a-9-10]] at all orders below k, for all admissible B and G.
-Choose G_1, G_2, G_3 as in [[prop:ii-a-9-1]], with WF′(G_3) ⊂ Ell(G) ∩ Ell(L). For a word J of length k,
-[[eq:ii-a-9-4]] gives
+Choose G_1, G_2, G_3 as in [[prop:ii-a-9-1]], with WF′(G_3) ⊂ Ell(G) ∩ Ell(L), and let χ_1 := h_♭(χ) and χ_* be the
+cut-offs of (R3) and (R2) of [[sec:ii-a-8-3]]. For a word J of length k, [[eq:ii-a-9-4]] gives
 
     LV^Ju = V^JLu − Σ_(∅≠S⊂J) (ad_(V_S)L)V^(J∖S)u,                                                        {#eq:ii-a-9-11}
 
-with ad_(V_S) the iterated commutator in the order of S and J ∖ S in its order. (L3), applied to V^Ju with G_1, has a
-constant depending only on ‖𝐋‖_((d_0;0)):
+with ad_(V_S) the iterated commutator in the order of S and J ∖ S in its order. (L3), applied to V^Ju with G_1 and the
+cut-off χ_1, which carries B and G_1, has a constant depending only on ‖𝐋‖_((d_0;0)):
 
     ‖BV^Ju‖_(H^𝗌) ≤ C(‖G_1V^JLu‖_(H^(𝗌−m)) + Σ_S ‖G_1(ad_(V_S)L)V^(J∖S)u‖_(H^(𝗌−m)) + ‖χ_1V^Ju‖_(H^(−N))).
 
@@ -2427,9 +2427,10 @@ that of B, and each term with S ≠ ∅ has at most k − 1 factors V. Moving th
 terms by finitely many ‖B′u‖_((𝗌;k−1)), with WF′(B′) ⊂ WF′(B). These, and ‖Bu‖_((𝗌;k−1)), are bounded by
 [[eq:ii-a-9-10]] at k − 1, which is at most the right side of [[eq:ii-a-9-10]] at k.
 
-*The first two terms on the right.* ‖χ_1V^Ju‖_(H^(−N)) ≤ C‖χu‖_((−N;k)). By [[eq:ii-a-9-6]],
-‖G_1V^JLu‖_(H^(𝗌−m)) ≤ ‖G_1Lu‖_((𝗌−m;k)) + Σ ‖G′Lu‖_((𝗌−m;k−1)), with WF′(G′) ⊂ WF′(G_1). By [[lem:ii-a-8-4]] (c)
-both are at most C(‖GLu‖_((𝗌−m;k)) + ‖χ_*Lu‖_((−N−m;k))). [[cor:ii-a-9-7]] bounds the error term tamely by
+*The first two terms on the right.* ‖χ_1V^Ju‖_(H^(−N)) ≤ C‖χu‖_((−N;k)), by (R3). By [[eq:ii-a-9-6]],
+‖G_1V^JLu‖_(H^(𝗌−m)) ≤ ‖G_1Lu‖_((𝗌−m;k)) + Σ ‖G′Lu‖_((𝗌−m;k−1)), with WF′(G′) ⊂ WF′(G_1) and the kernel of G′ in that
+of G_1. By [[lem:ii-a-8-4]] (c) both are at most C(‖GLu‖_((𝗌−m;k)) + ‖χ_*Lu‖_((−N−m;k))). [[cor:ii-a-9-7]], with χ_* in
+place of χ′ (χ_* is carried by χ, (R2)), bounds the error term tamely by
 C_k(‖𝐋‖_((d_0;d̃))‖χu‖_((−N;k)) + ‖𝐋‖_((d_0;k))‖χu‖_((−N;d̃))).
 
 *The commutator terms.* Let |S| = j ≥ 1. With L = Σ_q ℓ_qA_q, iterating ad_V(ℓA) = (Vℓ)A + ℓ ad_VA gives

@@ -429,8 +429,9 @@ and the bounds above give |N_κ″| ≤ 0.02363 S_2 + 0.05848 S_1 + 0.07172 S_0 
 
 (b) Ξ = φ″(R′) + Y(μ, μ̇, R′, V) with Y := μR⁻³V²(3 − V) + μ²R⁻⁵V³ − (1/2)μ̇R⁻²V³ and V := 1 + φ′(R′). Differentiating
 R′ + φ(R′) = R0 gives R′_v = g/V, R′_vv = g′/V − g²φ″/V³, V_v = φ″R′_v and V_vv = φ‴R′_v² + φ″R′_vv, so with
-[[prop:margins-bend]] (c), R′_v ≤ 1.09567, R′_v² ≤ 1.20049, |R′_vv| ≤ 0.027761, |V_v| ≤ 0.010957 and |V_vv| ≤ 0.08713;
-and (φ″(R′))_vv = φ⁗R′_v² + φ‴R′_vv. For 3.825 ≤ R ≤ 5.373, μ ≤ 3.6059, μ̇ ≤ 2.49 and V ∈ [0.99786, 1.00149],
+[[prop:margins-bend]] (c), by which V ≥ 0.99786, R′_v ≤ 1.09332/0.99786 ≤ 1.09567, R′_v² ≤ (1.09332/0.99786)² ≤
+1.20049, |R′_vv| ≤ 0.027761, |V_v| ≤ 0.010957 and |V_vv| ≤ 0.08713; and (φ″(R′))_vv = φ⁗R′_v² + φ‴R′_vv. For 3.825 ≤
+R ≤ 5.373, μ ≤ 3.6059, μ̇ ≤ 2.49 and V ∈ [0.99786, 1.00149],
 
     |Y_μ| ≤ 0.044666,  Y_μ̇ ≤ 0.034328,  |Y_R| ≤ 0.12216 + 0.01795μ̇,  |Y_V| ≤ 0.24109 + 0.10284μ̇,  |Y_μμ| ≤ 0.0024537,
     |Y_μR| ≤ 0.039659,  |Y_μV| ≤ 0.080112,  |Y_μ̇R| ≤ 0.01795,  |Y_μ̇V| ≤ 0.10284,  |Y_RR| ≤ 0.13865 + 0.014078μ̇,
@@ -454,8 +455,8 @@ contains a point where N_κ = 0.
 *Proof.* By [[lem:margins-region-one]] every point concerned lies in region I, so [[lem:margins-racz]] applies, with μ
 and μ̇ those of 𝒩 at the point's time v̂.
 
-*Σ′ before the shell.* The points of Σ′ with R ≤ R′(3) = 3.8254920 have v̂ ≤ v̂(3), so μ = 3/2 and μ̇ = 0. On [R_*,
-3.5], φ = 0 and Ξ = (1.5/R³)(2 + 1.5/R²) ≥ 0.074254, while c ≥ 3(1.5/3.5²)/(3.5 (1 + 1.5/R_*²)²) ≥ 0.082639, so
+*Σ′ before the shell.* The points of Σ′ with R ≤ R′(3) have v̂ ≤ v̂(3), so μ = 3/2 and μ̇ = 0. Here R′(3) ≈ R′_0 =
+3.8254920; by the next paragraph |R′(3) − R′_0| ≤ 5.3 × 10⁻⁶, so R′(3) < 3.82550. On [R_*, 3.5], φ = 0 and Ξ = (1.5/R³)(2 + 1.5/R²) ≥ 0.074254, while c ≥ 3(1.5/3.5²)/(3.5 (1 + 1.5/R_*²)²) ≥ 0.082639, so
 κ′K′^l_l ≤ −6.1 × 10⁻³. On [3.5, 3.82550], φ″ ≥ −0.01 l1 ≥ −0.0064382, V′ ∈ [0.99786, 1] (φ′ ≤ 0 there) and f ∈
 [0.877551, 0.897504], so Ξ ≥ −0.0064382 + 0.026793 × 0.995724 × 2.102496 ≥ 0.049653 and c ≥ 0.307488/(3.8255 ×
 1.124327²) ≥ 0.063585, so κ′K′^l_l ≤ −3.1 × 10⁻³.
@@ -487,8 +488,8 @@ bound column gives κ′K′^l_l ≤ −c_k L_k ≤ −3.041 × 10⁻⁴ on ever
 κ′K′^l_l ≤ −1.6 × 10⁻³. For R ≥ 5.75, Σ′ = Σ_τ0, μ is constant and μ̇ = 0, so N_κ = −2μ/R³ − μ²/R⁵ < 0; hence κ > 0,
 K^l_l < 0 and κK^l_l < 0. This proves (a).
 
-*The band on Σ_τ0.* Where v̂ ≤ v̂(3) or v̂ ≥ v̂(4.5), that is R ≤ R0(3) = 3.8253316 or R ≥ R0(4.5) = 5.3724596, μ̇ = 0
-and N_κ < 0. For v ∈ [3, 4.5] use [[sec:table-sigma0]]. The true N_κ(v_k) differs from N_k by at most
+*The band on Σ_τ0.* Where v̂ ≤ v̂(3) or v̂ ≥ v̂(4.5), that is R ≤ R0(3) ≈ R0_0 = 3.8253316 or R ≥ R0(4.5) ≈ R0_120 =
+5.3724596, μ̇ = 0 and N_κ < 0. For v ∈ [3, 4.5] use [[sec:table-sigma0]]. The true N_κ(v_k) differs from N_k by at most
 
     0.044547 × 10⁻⁵ + 0.034175 × 8.4 × 10⁻⁶ + 0.16634 × 4 × 10⁻⁶ + 5 × 10⁻⁹ ≤ 1.5 × 10⁻⁶ ≤ 5 × 10⁻⁶,
 
