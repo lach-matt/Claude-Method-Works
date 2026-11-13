@@ -615,8 +615,8 @@ with ω̆^i_τ ∈ 𝒜^((ς_τ−i,0)+ℱ) ([[eq:iii-i9-2-1]]), a^((i)) of rate
 A_2 = −g^(00) ∈ ρ²C^∞ near ∂X: they gain one and two spatial orders. So the first product has rate
 c = e_ν + K_τ + 1 and spatial order ς_τ − K_τ + 1, hence ι⁺-order λ + 1 and K⁺-order e_ν + K_τ + 1, which is κ_ν of
 [[lem:iii-i9-2-2]] (d); the other two have ι⁺-order λ + 3 and K⁺-orders κ_ν and κ_ν + 1. The ℱ-shifts only raise
-orders (min Re ℰ_ind > 0). Every row has Re λ ≥ ϰ_♯ ([[eq:iii-i9-1-2]]; the rotation rows have (λ, k) in ℳ_rot ⊂ ℰ_par,
-[[def:iii-i14-1-1]]), and κ_ν > ϰ_♯ + 3 ([[lem:iii-i9-2-2]] (d)). Dϑ_tot(p⃗′) is linear in p⃗′, with seminorms
+orders (min Re ℰ_ind > 0). Every row has Re λ ≥ ϰ_♯ ([[eq:iii-i9-1-2]]; the rotation rows have (λ, k) in
+ℳ_rot = ℳ ∪ (ℰ_♯ ∩ {Re = 2}) of [[def:iii-i14-1-1]], and ϰ_♯ < 2), and κ_ν > ϰ_♯ + 3 ([[lem:iii-i9-2-2]] (d)). Dϑ_tot(p⃗′) is linear in p⃗′, with seminorms
 O(|p⃗′|) ([[lem:iii-i9-2-2]]).
 
 *J_h.* By [[eq:gd-r2-3]], J_h = E^Υ_gG_gh + Dϑ_tot(p⃗′). On {χ_K = 1} near K⁺ and ι⁺, |x| ≥ 3R₁ or |x| is bounded;
