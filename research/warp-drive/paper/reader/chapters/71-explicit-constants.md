@@ -280,3 +280,150 @@ includes one application of L̃, of loss 2; the next forcing is formed from thei
 least 4 + d_ι(ϰ_0). For 3 < ℓ_I < 3.5 and λ_♯ ≤ Re ϰ_0 < 2 − δ, 1 < ℓ_I − Re ϰ_0 < 2, so d_ι(ϰ_0) = 11 by
 [[lem:ec-closed-forms]] (e). ∎
 
+**Lemma {#lem:ec-level-sum}** (Sums over the levels.) Let g ≥ 0 be non-decreasing on ℝ with g(y) − g(x) ≤ y − x for
+x ≤ y, let c > 0, and let x_1 < x_2 < ⋯ < x_m with x_(j+1) − x_j < c for every j. Then
+
+    c Σ_(j=1)^(m) g(x_j) ≥ ∫_(x_1)^(x_m) g − (c/2)(x_m − x_1).                                        {#eq:ec-level-sum}
+
+*Proof.* Put h_j := x_(j+1) − x_j < c. On [x_j, x_(j+1)], g(x) ≤ g(x_j) + (x − x_j), so
+∫_(x_j)^(x_(j+1)) g ≤ h_j g(x_j) + h_j²/2 ≤ c g(x_j) + c h_j/2. Summing over j < m, and adding c g(x_m) ≥ 0, gives
+[[eq:ec-level-sum]], as Σ_(j<m) h_j = x_m − x_1. ∎
+
+**Proposition {#prop:ec-rounds}** (The number of rounds.) At the computational point, for every choice of ε_K, ε_+,
+η_2, α, the levels and the losses ε, ε′ admissible for [[thm:iii-i14-3-1]], [[lem:iii-i8-3-2]] and
+[[prop:iii-i13-2-1]], the transition face rounds at the levels below 3 and the level-3 rounds at the levels in (3, 4)
+number together
+
+    R > (1 − 6δ̄)/(ε_K δ_50) > (1 − 6δ̄)/δ̄² > 2.6532 × 10¹⁵.
+
+The same bound holds at every h ∈ 𝖧, with the same (γ_Υ, e_Υ).
+
+*Proof.* The weights satisfy 0 < ε_K < ε_g ≤ ε_ind ≤ δ_50: the first inequality is the hypothesis ε_K < ε_+ < ε_ind
+together with ε_K < ε_Υ of [[thm:settling]], and ε_ind ≤ δ_50 is [[prop:np-10-52]] (iii) (with equality at h = 10⁻⁶,
+[[cor:s14-eps-ind-point]]). Also η_2 < ε_+ < ε_ind, and ε′ ≤ ε < ε_+/5 ([[sec:iii-j2-1]]), so ε, ε′ and η_2 are below
+δ_50. The level spacing is below α − 4 ≤ ε_K, and each round raises the tf-weight by ε_g − ε < δ_50.
+
+*Below 3.* At a level β ∈ (2, 3), τ_i < 2 + δ_50 + iδ_50, and the rounds run for every i with τ_i ≤ β − ε′, the τ_i
+being increasing; so their number is at least the number of i ≥ 0 with 2 + δ_50 + iδ_50 ≤ β − δ_50, which is at
+least g_1(β)/δ_50 with g_1(x) := (x − 2 − 2δ_50)_+. The levels in (2, 3) form a sequence b_1 < ⋯ < b_m with
+b_1 = α_1 < α − 2 ≤ 2 + ε_K, and b_m > 3 − ε_K, because the next level exceeds 3 and lies within ε_K of b_m. By
+[[lem:ec-level-sum]] with c = ε_K, and as g_1 vanishes below 2 + 2δ_50 > b_1,
+
+    Σ_j g_1(b_j)/δ_50 ≥ (1/(ε_Kδ_50))(∫_(2+2δ_50)^(3−ε_K) (x − 2 − 2δ_50) dx − ε_K/2)
+                      = (1/(ε_Kδ_50))((1 − ε_K − 2δ_50)²/2 − ε_K/2) > (½ − 3.5δ̄)/(ε_Kδ_50).
+
+*Between 3 and 4.* At a level β ∈ (3, 4), κ_i := κ_3 + i(ε_g − ε) < 1 + δ_50 + iδ_50, and the rounds run for every i
+with κ_i ≤ β − 2; their number is at least g_2(β)/δ_50 with g_2(x) := (x − 3 − δ_50)_+. The levels in (3, 4) form a
+sequence c_1 < ⋯ < c_p with c_1 < 3 + ε_K (the previous level lies below 3 within ε_K) and c_p > 4 − ε_K (the next
+level is at least 4, as β_(K−1) > 4, and lies within ε_K). By [[lem:ec-level-sum]],
+
+    Σ_j g_2(c_j)/δ_50 ≥ (1/(ε_Kδ_50))((1 − ε_K − δ_50)²/2 − ε_K/2) > (½ − 2.5δ̄)/(ε_Kδ_50).
+
+Adding, R > (1 − 6δ̄)/(ε_Kδ_50); with ε_K < δ_50 < δ̄ this exceeds (1 − 6δ̄)/δ̄² = 2.65327…·10¹⁵. Nothing in the proof
+used h beyond ε_ind(h) ≤ δ_50. ∎
+
+**Theorem {#thm:loss-d}** (The loss d and the regularity N_NM.) Let d_acc be the accounted loss of
+[[def:ec-accounted-loss]]. Then [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d = d_acc, the Nash–Moser theorem
+[[thm:ii-g-2-1]] is applied in the proof of [[thm:iii-k-4-3]] at the regularity N_NM = 21d_acc + 6, and:
+
+(i) d_acc is composed, by the rules of [[def:ec-accounted-loss]], of elementary losses that are closed forms in the
+weights, the thresholds ϑ_in, ϑ_ℋ, the regularity orders s_c and the counts n(E, β) of the index sets
+([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), and of the numbers of steps of the iterations of
+[[sec:ec-floor]], each round being charged at least the loss of [[lem:ec-round-loss]];
+
+(ii) at the computational point, for every admissible choice of the weights there,
+
+    d_acc ≥ (2 + ℓ_tf) R > 5.306 × 10¹⁵,        N_NM > 1.114 × 10¹⁷,
+
+with R the number of rounds of [[prop:ec-rounds]] and ℓ_tf the loss of [[cor:iii-f1-3-4]];
+
+(iii) if the incoming threshold ϑ_in of N_tf(L_b, ±1) is non-negative, then
+
+    d_acc > 7.959 × 10¹⁵,        N_NM = 21d_acc + 6 > 1.671 × 10¹⁷.
+
+These are lower bounds for the loss that this proof's choices produce, not for the least loss with which the tame
+estimates hold. [[pending:issue-1]]
+
+*Proof.* The first assertions are [[lem:iii-j2-1-2]], which gives the tame estimates with any loss at least the
+accounted one, and the parameters of [[thm:ii-g-2-1]] ([[eq:ii-g-2-5]]). (i) is [[def:ec-accounted-loss]] with
+[[lem:ec-closed-forms]], [[rem:ec-other-losses]] and [[lem:ec-round-loss]].
+
+(ii) Level k + 1 of [[thm:iii-i14-3-1]] takes the solution of level k as input through R_qu, and at each level the
+rounds of [[sec:ec-floor]] are composed one after another, each round's output being the next round's forcing, and
+the level's solution being assembled from the outputs of all its rounds and from the inverse applied to the last
+forcing. So all the rounds of all the levels lie on one chain of compositions, and by [[def:ec-accounted-loss]] and
+[[lem:ec-round-loss]] (a), d_acc ≥ (2 + ℓ_tf)R ≥ 2R. By [[prop:ec-rounds]], 2R > 2(1 − 6δ̄)/δ̄² > 5.306 × 10¹⁵, and
+N_NM = 21d_acc + 6 > 1.114 × 10¹⁷.
+
+(iii) If ϑ_in ≥ 0, then ℓ_tf ≥ 1 by [[lem:ec-closed-forms]] (d), so d_acc ≥ 3R > 3(1 − 6δ̄)/δ̄² = 7.9598…·10¹⁵, and
+N_NM > 21 · 7.959 × 10¹⁵ > 1.671 × 10¹⁷. ∎
+
+### What the proof's formulas give for δ and λ1 {#sec:ec-delta}
+
+**Proposition {#prop:ec-delta-cap}** (Upper bounds for δ and λ1.) In the proof of [[thm:settling]], let the
+Nash–Moser threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]; let the data
+threshold ε of [[cor:s27-rate]] satisfy ε ≤ ε_NM/A, where A ≥ 1 is a constant with
+‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ A‖(γ̃, k̃)‖ ([[lem:iii-k-2-2]] (d)); and let C_R ≥ 1 be the constant of [[cor:vii-2-3]].
+Then δ = ½ε and λ1 satisfy
+
+    δ ≤ 2^(−(32d+9)),        λ1 < δ,        log₁₀ δ < −(59/196)(32d + 9).
+
+With d = d_acc and the bounds of [[thm:loss-d]], log₁₀ δ < −5.11 × 10¹⁶, and log₁₀ δ < −7.666 × 10¹⁶ when ϑ_in ≥ 0;
+the same bounds hold for λ1.
+
+*Proof.* The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
+ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So δ = ½ε ≤ ε_NM/(2A) ≤ 2^(−(32d+9)), as A ≥ 1. The proof of [[thm:settling]]
+([[sec:vii-4]]) takes λ1 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so
+2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the binomial expansion, all of whose terms are positive,
+1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, which gives
+the third bound. With d > 5.306 × 10¹⁵,
+(59/196)(32d + 9) > 5.11 × 10¹⁶; with d > 7.959 × 10¹⁵ it exceeds 7.666 × 10¹⁶. ∎
+
+The bounds hold whatever the other constants are, once each constant of an upper bound is taken at least 1, which
+enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), 1/A and 1/C_R, that is, upper
+bounds for every constant of the proof that enters them; [[rem:ec-not-evaluated]] says where those stop.
+
+### The loss at the computational point {#sec:ec-integer}
+
+The numbers of steps of the iterations depend on the weights, which the proof fixes only by inequalities. At one
+choice of the weights at the computational point the bookkeeping of [[def:ec-accounted-loss]] has been carried to an
+integer. The following two remarks report it; no proof uses them.
+
+**Remark {#rem:ec-weights-observed}** (Numerical observation.) At the computational point take ε_ind = 19·10⁻⁹,
+ε_+ = 189·10⁻¹⁰, ε_K = 188·10⁻¹⁰, ε = ε′ = 10⁻¹², η_2 = ε_+ − 3ε, ℓ_I = a_I = 13/4, α = 4 + ε_K, α_1 = 2 + ε_K/2 and
+the levels β_k = α_1 + k·(0.999ε_K), k < K = 106,489,469, with β_K = α, so 106,489,470 levels counting the top
+(53,244,734 below 3, 53,244,734 in (3, 4) and two above 4); all are rational with common denominator 5·10¹², the
+transition face rounds start at τ_0 = 2 + ε_ind − 2ε and the level-3 rounds at τ_3 = 1 + η_2 − 2ε, both rising by
+ε_ind − ε, which are the increments ε_g − ε of [[sec:ec-floor]] when ε_g = ε_ind. Summed exactly as floor sums over the
+levels, the transition face rounds below 3 number 1,401,250,931,461,121 and the level-3 rounds above 3 number
+1,401,251,031,977,897, so that three times their sum is 8,407,505,890,317,054 ≈ 8.41 × 10¹⁵, the exact value at these
+weights of the lower bound 3R of [[thm:loss-d]] (iii). At these weights every admissibility condition checked holds:
+the levels and the round weights are rational, every indicial root of L̂_(b_0)(0) they can meet is an integer or
+irrational (one family of roots of the damping operator could have a fixed fractional part, which no level or round
+weight has), the rational coincidences that remain are not levels, and the least distance of a level from the excluded
+values is at least 3.18·10⁻¹⁶; the gap condition (G) holds by [[prop:gap-sums]], also with the least index set of
+the class data adding 23 chains, none coming nearer than 3 + 5.019·10⁻⁸. These were decided in exact rational
+arithmetic and by certified enclosures of the irrational roots, at the scale of 10⁸ levels; they are not proved in
+this paper.
+
+**Remark {#rem:ec-integer-bound}** (Numerical observation.) At the weights of [[rem:ec-weights-observed]], with the
+least index sets E^C_I and E_+ that the proof admits, the base level's starting values a_K − 2, s_0, τ, t and
+α_0 := α_1, the order 14 for the error terms of the calculus (any order at least 10 serves), the class window taken
+wide and the window loop at its ceiling, every step of the construction was charged an upper bound: the elementary
+losses by [[lem:ec-closed-forms]], with ℓ_tf = 1 (the transition face model's incoming threshold being 0 there), the
+round of the iteration at ι⁺ charged 15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on
+(3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows [k + 1/2, k + 0.5099]
+where a step is added before d_ι rises), the steps of each level taken from the families that the inventory of
+[[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic orders of the index
+sets by induction over the construction's steps, and the index set at ι⁺ left unlisted by the construction computed
+from the constructions that define it (it adds no exponent). The applications of the level-2 step at one exponent act
+on separate terms of one forcing and none on another's output, so their losses do not add, and the count is the same
+whether that step is read once per exponent or once per exponent and power of the logarithm. The result is
+d_acc ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ and N_NM ≤ 970,966,868,316,550,587 ≈ 9.710 × 10¹⁷ (of which the base
+level's loops contribute 5.75 × 10¹⁴; with the calculus at order 10, d_acc = 46,236,501,332,809,678), against the
+lower bound 8.41 × 10¹⁵ at the same weights; at d = 46,236,517,538,883,361 the bound of [[prop:ec-delta-cap]] reads
+log₁₀ δ < −4.45 × 10¹⁷. The count depends on the point: the windows of one construction step,
+⌈(2 − ε − λ_♯)/𝔡₁⌉ = 1,470,302 at the computational point, become about a hundred times as many at e_Υ = 1/10000,
+where 𝔡₁ ≈ 3.33·10⁻⁹, so the bookkeeping gives no bound uniform over the admissible parameters. The integer was
+obtained by exact rational arithmetic over the 1.065 × 10⁸ levels and the 8.0 × 10⁷ steps of the base level; it is
+not proved in this paper, and no proof uses it.

@@ -610,9 +610,11 @@ throughout, [[eq:iii-i-5-2]] uses the latter. [[cor:iii-h2-5-1]] extends the the
 constants independent of b and continuity in b.
 
 *Proof.* Apply [[thm:ii-f1-1-1]] in the form of [[cor:ii-f1-1-2]], with P_0 := 2L_(b₀), ℵ = 2, the sf-weight
-α_+ := β_+ − 5/2 and α_I := β_I − 2, and with [[rem:ii-f1-7-1]] for the relaxed admissibility with margin d_ℵ = 1
-(d raised by 1). Write ε′_0 for the ε_0 of [[thm:ii-f1-1-1]], the threshold for ‖P − P_0‖_((0;d)). Its hypotheses
-hold.
+α_+ := β_+ − 5/2 and α_I := β_I − 2, with [[rem:ii-f1-7-1]] for the relaxed admissibility with margin d_ℵ = 1
+(d raised by 1), and with [[rem:ii-f1-7-4]] for ℓ_♭ = ½: the time function t^♭_* of [[sec:iii-i-1]] is that of
+[[lem:ii-c-3-2]] built for g_(b₀), the metric of P_0, with the exponent ½ ≥ ℓ_I. Write ε′_0 for the ε_0 of
+[[thm:ii-f1-1-1]] in this form, the threshold for ‖P − P_0‖_((0;d)), and ε_♭ for that of [[eq:ii-f1-7-1]]. Its
+hypotheses hold.
 
 (i) P_0 is 2-admissible with sf-weight α_+, sf-loss 0 and margin 1, by [[thm:iii-h1-1-3]] at b₀ for every k, as
 α_+ + 2 = β_+ − ½ ∈ (0, 1), for the orders of [[ch:s09]], which lie in 𝒪_c by [[lem:iii-i-5-1]]. [[eq:ii-f-8-6]], where
@@ -622,10 +624,11 @@ the admissibility enters ([[rem:ii-f-8-2]]), uses these orders over K⁺ with th
 (ii) [[eq:ii-f1-1-3]]: α_I < −½ + S̄ = −½ (S̄ = 0, the least eigenvalue of Ā, [[eq:iii-c-4-3]]) is β_I < 3/2, and
 α_+ < α_I − ½ is β_+ < β_I.
 
-(iii) P = 2L^(g,g_0) is admissible relative to P_0 of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with the ℓ_I ∈ (0, ½) of
-[[sec:iii-i-1]], which is the ℓ of the time function t^♭ of [[thm:ii-f1-1-1]] ([[lem:ii-c-3-2]]), and fixed
-ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], by [[cor:iii-i-5-2]] with h ∈ 𝒳^(k+d+5) (d raised by 5), and
-‖P − P_0‖_((0;d)) ≤ C(|S| + ‖h‖_(𝒳^(d+5))) < ε′_0 for ε_0 small ([[prop:iii-i-3-4]], [[eq:iii-i-3-7]]).
+(iii) P = 2L^(g,g_0) is admissible relative to P_0 of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with the class parameter
+ℓ_I ∈ (0, ½) of [[sec:iii-i-1]] and fixed ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], by [[cor:iii-i-5-2]] with h ∈ 𝒳^(k+d+5)
+(d raised by 5), and ‖P − P_0‖_((0;d)) ≤ C(|S| + ‖h‖_(𝒳^(d+5))) < ε′_0 for ε_0 small ([[prop:iii-i-3-4]],
+[[eq:iii-i-3-7]]). Its metric g satisfies [[eq:ii-f1-7-1]] with ℓ_♭ = ½: by [[eq:s19-time-hyp]] at b = b₀,
+‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) ≤ C(|S| + ‖h‖_(𝒳³)) < ε_♭ for ε_0 small, as d ≥ 3.
 
 The tame form: for ‖h‖_(𝒳^(d+5)) small, ‖P − P_0‖_((0;k+d)) ≤ C_k(|S| + ‖h‖_(𝒳^(k+d+5))), with C_k independent of S
 and h. By Sobolev embedding, as in [[cor:iii-i-5-2]] (2), the left side is at most C times the norm of the coefficients
@@ -644,8 +647,8 @@ x_I^(2ℓ_I), and the bound is that of the proof of [[eq:iii-i-3-7]], with C dep
 C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is [[eq:iii-i-5-2]]. The weights: [[cor:ii-f1-1-2]] with
 b_I = α_I + 2 = β_I, b_+ = α_+ + 5/2 = β_+, sf-loss 0, and the K⁺-weights ½ for f and −ℵ + ½ = −3/2 for u.
 
-Continuity: the last statement of [[thm:ii-f1-1-1]], P depending continuously on (S, h) in the norm of
-[[eq:iii-i-3-7]]. Its coefficients are the sums of products above, multilinear in their factors, so a difference of
+Continuity: the last statement of [[thm:ii-f1-1-1]], in the form of [[rem:ii-f1-7-4]] (every P here satisfies
+[[eq:ii-f1-7-1]], by (iii)), P depending continuously on (S, h) in the norm of [[eq:iii-i-3-7]]. Its coefficients are the sums of products above, multilinear in their factors, so a difference of
 two of them is a sum of products in which one factor is replaced by a difference. For the inverses,
 
     (g_1 + δ)⁻¹ − (g_1 + δ′)⁻¹ = −(g_1 + δ)⁻¹(δ − δ′)(g_1 + δ′)⁻¹,
@@ -695,9 +698,15 @@ that on it ζ and dt_* are independent and g_b⁻¹(dt_*, ζ) ≠ 0 (both hold o
 independent of, and not orthogonal to, the timelike dt_* of (B2), hence near Γ_(b₀) for b near b₀); and (Γ.1)–(Γ.3)
 of (H7) ([[sec:i-b-1-5]]) hold, with ν_min, β_0 and sup_Γ q^Γ continuous in b and positive ((Dyn)).
 
-(B2) dt_* is g_b-timelike over U_Γ (g_b^00 < 0 on X°, [[lem:iii-b-3-7]] (a)), and g_b − g_(b₀) is below the ϵ_G of
-[[lem:ii-c-3-2]] (2), so that the time function t^♭ := t^♭_* built from g_(b₀) serves every g_b and
-Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
+(B2) dt_* is g_b-timelike over U_Γ (g_b^00 < 0 on X°, [[lem:iii-b-3-7]] (a)), and
+‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2, with ε_♭ fixed as follows. Let ϵ_G be the threshold of [[lem:ii-c-3-2]]
+(2) for g_(b₀) at ℓ = ½, and C_♭ the constant of [[rem:ii-f1-7-4]] for ℓ_♭ = ½ and for stationary metrics g_0 with
+x_I²ρ_+²g_0 and its inverse bounded by twice the bounds of x_I²ρ_+²g_(b₀) and its inverse; let ε_♭ ≤ ϵ_G/(4C_♭ + 2)
+be so small that every g_b with ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2 is such a metric. So ε_♭ depends on g_(b₀)
+alone. The condition holds for b near b₀: on {|x| ≥ 3R₁}, g_b − g_(b₀) = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞
+(the proof of [[lem:iii-i-3-6]]), of norm O(|b − b₀|) by the argument of [[lem:iii-i-2-2]], and on {|x| ≤ 3R₁}, g_b is
+smooth in b and stationary. By it the time function t^♭ := t^♭_* of [[sec:iii-i-1]], built from g_(b₀) with ℓ = ½,
+serves every g_b, and Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
 g_b⁻¹(dr, dr) ≤ −c and g_b⁻¹(dt, dr) > 0, with c := 31/450 independent of b; so dr is future timelike for g_b there.
 This makes the inner boundary {r = r₀} spacelike at every b ∈ B̄_1, and r decreasing along future causal curves on the
 collar {r₀ − 2δ₀ ≤ r ≤ r₀} and up to r₂ = 7R₁/8, with a margin uniform in b, as the energy estimates on slabs use at
@@ -740,8 +749,9 @@ verbatim with G_b, its margins (𝖧f_T ≥ ϱ⁻¹ against 2ϱ⁻¹, 𝖧f_W �
 
 This is the only condition on B_* in this chapter; [[ch:s20]] and [[ch:s25]] shrink B_* further. [[thm:iii-h2-3-1]] and
 [[thm:iii-h2-4-1]] apply the slab estimates of [[ch:s07]] relative to 2L_b itself, so no condition on slabs enters (B5).
-The choices are made in this order: B_1 by (B1)–(B4); the constants of [[sec:iii-h2-1]]–[[sec:iii-h2-4]], uniform on
-B̄_1; then B_* by (B5), which involves only the threshold ε′_0 of [[thm:iii-h2-4-1]]. So nothing is circular, and every
+The choices are made in this order: ε_♭ by g_(b₀) alone; B_1 by (B1)–(B4); the constants of
+[[sec:iii-h2-1]]–[[sec:iii-h2-4]], uniform on B̄_1; then B_* by (B5), which involves only the threshold ε′_0 of
+[[thm:iii-h2-4-1]]. So nothing is circular, and every
 statement of [[sec:iii-h2-1]]–[[sec:iii-h2-4]] holds a fortiori on B̄_*.
 
 Put f_b := |dg_b|/(|dt_*| |dx|), a smooth positive stationary function, smooth in b.
@@ -1037,15 +1047,19 @@ by [[thm:iii-h2-2-1]], and [[lem:ii-f-1-3]]–[[lem:ii-f-1-4]], which are qualit
 This section is [Hin26c, Theorem 11.1] uniformly over the family 2L_b.
 
 **Theorem {#thm:iii-h2-4-1}** ([[thm:ii-f1-1-1]] uniformly near b₀.) Let α_I, α_+, ℓ_+, ℓ_K be as in
-[[thm:ii-f1-1-1]], with ℵ = 2, δ = 0 and the order 𝗌 of (B4), and let ℓ_I ∈ (0, ½) be the number of [[sec:iii-i-1]],
-from which the t^♭ and Ω_* of (B2) are built. There are ε_0 > 0 and d ∈ ℕ such that for every
-b ∈ B̄_1 the conclusions of [[thm:ii-f1-1-1]] and [[cor:ii-f1-1-2]] hold with P_0 := 2L_b (with [[rem:ii-f1-7-1]] for
-margin 1), with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be admissible
-relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0 and
-‖P_j − 2L_(b_j)‖_((0;k+d)) bounded, and with coefficients converging in C² on compact subsets of M° ∩ {r > r_0} to those
-of P, admissible relative to 2L_b with ‖P − 2L_b‖_((0;d)) < ε_0; and let f_j → f in [[eq:ii-f1-1-4]]. Then the forward
-solutions u_j of P_ju_j = f_j converge to the forward solution u of Pu = f in
-H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b(Ω_*; E)^(•,−) for every ς > 0.
+[[thm:ii-f1-1-1]], with ℵ = 2, δ = 0 and the order 𝗌 of (B4), let ℓ_I ∈ (0, ½) be the class parameter of
+[[sec:iii-i-1]], and let t^♭ and Ω_* be those of (B2), built for g_(b₀) with the exponent ½, and ε_♭ the number of (B2).
+There are ε_0 > 0 and d ∈ ℕ such that for every b ∈ B̄_1 the conclusions of [[thm:ii-f1-1-1]] and [[cor:ii-f1-1-2]]
+hold with P_0 := 2L_b (with [[rem:ii-f1-7-1]] for margin 1) for every P as there whose metric g satisfies in addition
+
+    ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭,                                                          {#eq:s19-time-hyp-b}
+
+with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be admissible
+relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0, metric satisfying
+[[eq:s19-time-hyp-b]] and ‖P_j − 2L_(b_j)‖_((0;k+d)) bounded, and with coefficients converging in C² on compact subsets
+of M° ∩ {r > r_0} to those of P, admissible relative to 2L_b with ‖P − 2L_b‖_((0;d)) < ε_0 and metric satisfying
+[[eq:s19-time-hyp-b]]; and let f_j → f in [[eq:ii-f1-1-4]]. Then the forward solutions u_j of P_ju_j = f_j converge to
+the forward solution u of Pu = f in H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b(Ω_*; E)^(•,−) for every ς > 0.
 
 *Proof.* The proof of [[thm:ii-f1-1-1]] depends on P_0 only through the following inputs.
 
@@ -1055,8 +1069,15 @@ are applied relative to P_0 = 2L_b ([[prop:ii-f1-3-1]] (iv) on Ω_(1,T_η), [[le
 [[prop:ii-e-4-4]], which rests on [[prop:ii-e-4-3]]), and are uniform on every slab as in the proof of
 [[thm:iii-h2-3-1]] (b).
 
-(ii) The thresholds of [[lem:ii-f1-2-1]] and of [[lem:ii-c-3-2]] and [[lem:ii-c-3-7]], which are continuous in the
-coefficients.
+(ii) The thresholds of [[lem:ii-f1-2-1]] and [[lem:ii-c-3-7]], which are continuous in the coefficients, and the
+hypothesis of [[lem:ii-c-3-2]] for the time function t^♭ of (B2). The proof of [[thm:ii-f1-1-1]] runs here in the form
+of [[rem:ii-f1-7-4]] with g_0 := g_b and ℓ_♭ = ½, the base metric of t^♭ being g_(b₀) instead of g_b. By the last
+statement of that remark, it applies [[lem:ii-c-3-2]] (1)–(2) only to g_b, to g, to metrics g′ with
+‖g′ − g_b‖ ≤ C_♭‖g − g_b‖ and to metrics g′ with ‖g′ − g_b‖ < ϵ_G/2 (the norms of 𝒢̃^(0,(1,0,0))_(e3b), and the last
+by the choices made in the proof of [[thm:ii-f-8-1]], uniform on B̄_1 by [[thm:iii-h2-3-1]]); here C_♭ is that of (B2),
+as x_I²ρ_+²g_b and its inverse are bounded by twice the bounds at b₀ by (B2). With [[eq:s19-time-hyp-b]] and
+‖g_b − g_(b₀)‖ < ε_♭/2 ((B2)), ‖g − g_b‖ < 3ε_♭/2, so each of these metrics lies within
+max((3C_♭ + 1)ε_♭/2 hmm
 
 (iii) The orders ([[sec:ii-f1-2-3]]), fixed by (B4).
 

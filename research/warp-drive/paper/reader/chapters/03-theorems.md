@@ -330,13 +330,14 @@ The remaining chapters prove the following; each is stated in full where it is p
   [[thm:settling]] uses; equivariant gluing matches the mass alone. The perturbations to which [[thm:settling]] (ii)
   applies, directly or through gluing uniformly in the gluing radius, are exactly those small in Hintz's class
   ([[ch:after-shell]]).
-- *Beyond the boundary.* The development of [[thm:settling]] (i) also reaches inside the black hole after the shell,
-  up to the curvature boundary ([[prop:interior]]). Glued to g_λ, taken just before Σ^IVP, along the part of Σ^IVP
-  between the inner radius of the stability theory and R, where the two induce the same data, it forms one smooth
-  vacuum spacetime, for λ small; and the two developments of those data have a maximal common globally hyperbolic
-  development that contains a neighbourhood of that part, how far it reaches being left open
-  ([[lem:interior-one-spacetime]]). The development of g_λ's own data settles, with no gluing, in a data class wider
-  than (ii)'s by half-integer orders, for every λ below a threshold and with no exceptional set ([[thm:own-data]]).
+- *Beyond the boundary.* With r_♭ := ½(√72 μ_end l5²)^(1/4), half the radius of the curvature boundary after the shell,
+  the development of [[thm:settling]] (i) also reaches inside the black hole after the shell, up to that boundary
+  ([[prop:interior]]). Glued to g_λ, taken just before Σ^IVP, along the part of Σ^IVP between r_♭ and R, where the two
+  induce the same data, it forms one smooth vacuum spacetime, for λ small; and the two developments of those data have a
+  maximal common globally hyperbolic development that contains a neighbourhood of that part, how far it reaches being
+  left open ([[lem:interior-one-spacetime]]). The development of g_λ's own data settles, with no gluing, in a data class
+  wider than (ii)'s by half-integer orders, for every λ below a threshold and with no exceptional set
+  ([[thm:own-data]]).
 - *The linear solution in two gauges.* In a Regge–Wheeler-type gauge the gauge vector is explicit, and the
   perturbation settles to the change of mass on each region r ≤ R, the horizon included, at the linear rate with two
   derivatives lost ([[thm:rw-settling]]). In the harmonic gauge a representative exists on the whole domain, induces

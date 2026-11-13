@@ -790,3 +790,14 @@ Items found while chapters were written in parallel; each is settled once, editi
   def:s11-parameters and rem:s12-convexity-sample added, lem:s12-ks-domain removed. For Appendix A (small round): add
   [Shu92, Appendix 1, Lemma 1.4] with its statement and pages. Open in other chapters (R2-S11-S12's O items): O2 at
   S14:2399, O3 at S24:640, O4 at S13:1149-1151 (details in F2-S11.md); for those chapters' next rounds.
+- Ch 3 and chapter 60 fifth reading (R5-00-03) CONFIRMED after the coordinator applied both minors in the reviewer's
+  words: 03 "Beyond the boundary" now names r_♭ := ½(√72 μ_end l5²)^(1/4) and "between r_♭ and R"; 61:252 "fixes before
+  them". Checked: quantifier order and dependences match chapter 60; (Ex1)-(Ex2) imposed by step (4); S⁰ at the 11
+  sites agrees with chapters 46 and 62; N1-N4. Nits for integration: 60:264 and 60:283 cite lem:iii-b-5-1 and
+  lem:iii-i7-1-1 (a) beside eq:s27-motion for ψ_0 = φ_0 = id and the inverses; chapter 60's A means amplitude and spin
+  (name the spin A_b or add a notation sentence); optional "depending only on ε and on the quantities fixed before it".
+  Still open elsewhere (R4 §3 notes 3-5): λ1 against λ_Ω in chapters 5, 6, 9 (06:22-24 "λ1 := min(1, δ0)/10"); the
+  translations at 01:61; env_C in chapter 86. Chapter 60 has two λ_1 (lem:vii-1-1 and thm:settling-precise), consistent.
+- Ch 62 third fix (F3-62): the lemma's wording; m := μ(v)r⁻² with 0 < m ≤ μ_end r⁻² ≤ 1/400 on r ≥ 4R; nits. Not
+  edited, for chapter 63's fix round: 63:670-672 writes μ_end (as 𝔪) where g0's coefficient is μ(v), on sets reaching
+  v < v_end (inequalities still hold; notation only).

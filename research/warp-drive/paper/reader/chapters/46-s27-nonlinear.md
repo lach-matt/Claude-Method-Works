@@ -486,8 +486,8 @@ classes of [[cor:iv3-2-3]] so are the coefficients of the expansion at ℐ⁺.
 
 **Theorem {#thm:iv3-2-1}** (The linear estimate on Ω^♮.) Let g_0 := φ_(S,S⁰)^*g_(b₀) with |S| + |S⁰| small, or
 g_0 := g_(b₀); h small in H^(8,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮) (weights at ℐ⁺ in ρ′_I); L := L^(χ^♮_0)_(g_0+h,g_0);
-α_0 > ℓ^♭_I, k ∈ ℕ with k ≥ 1, and d := 4. For f ∈ H^(k+d,α_0+2,(−′,ℓ^♭_I+1))_b(Ω^♮), data ġ_0, ġ_1 ∈ H^(k+d,α_0)_b(Σ^IVP_(r_1)) and data
-k̇_0, k̇_1 ∈ H^(k+d)(Σ_c), there is a unique ġ ∈ H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) with Lġ = f, ġ = ġ_0 and
+α_0 > ℓ^♭_I, k ∈ ℕ with k ≥ 1, and d := 4. For f ∈ H^(k+d,α_0+2,(−′,ℓ^♭_I+1))_b(Ω^♮), data
+ġ_0, ġ_1 ∈ H^(k+d,α_0)_b(Σ^IVP_(r_1)) and data k̇_0, k̇_1 ∈ H^(k+d)(Σ_c), there is a unique ġ ∈ H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) with Lġ = f, ġ = ġ_0 and
 r ℒ_(∂_(t_IVP))ġ = ġ_1 on Σ^IVP_(r_1), and the Cauchy data (k̇_0, k̇_1) on Σ_c; and [[eq:iv2-2-3]] holds with
 ‖k̇_0‖_(H^(k+d)) + ‖k̇_1‖_(H^(k+d)) added to N(f, ġ_0, ġ_1; k + d) and their H⁸-norms added to N(f, ġ_0, ġ_1; 8).
 
@@ -535,8 +535,8 @@ of [[thm:iv2-3-1]] on Ω_(ext,r_1); and for every k and ε > 0 there is ε_1 ∈
 *Proof.* The proof of [[thm:iv2-3-1]] on Ω^♮, with the spaces F^k of right sides enlarged by H^k(Σ_c)² and the map by
 the traces on Σ_c minus (k_0, k_1); the right inverses are those of [[thm:iv3-2-1]], and the smoothing and the map are
 as there (the smoothing of the radiation field built on ℐ⁺_♮; P^♮ = P^(χ_0) on Ω^♮, and [[cor:iii-c-5-3]] holds for it
-by [[lem:iii-c2-2-1]], near 𝒮 in the translated chart). The data enter the map: ‖Φ(h)‖_k ≤ C′_k(1 + |h|_(k+d)) + Σ_j(‖h_j‖_(H^(k,ℓ^♭_0)_b) + ‖k_j‖_(H^k(Σ_c))),
-with C′_k independent of the data, so for k ≤ N_ex the constants C_k of [[eq:ii-g-2-3]] are bounded independently of
+by [[lem:iii-c2-2-1]], near 𝒮 in the translated chart). The data enter the map:
+‖Φ(h)‖_k ≤ C′_k(1 + |h|_(k+d)) + Σ_j(‖h_j‖_(H^(k,ℓ^♭_0)_b) + ‖k_j‖_(H^k(Σ_c))), with C′_k independent of the data, so for k ≤ N_ex the constants C_k of [[eq:ii-g-2-3]] are bounded independently of
 the data once these norms are at most 1 in H^(N_ex). The threshold of [[thm:ii-g-2-1]] depends on the constants up to
 the order N_ex only, so it is then uniform, and ‖Φ(0)‖_(2d) is below it for data small in H^(N_ex); the shifted scales
 of the proof of [[thm:iv2-3-1]] give the higher norms in the same way, with N_ex + k in place of N_ex. Ω_(ext,r_1) is
@@ -1443,12 +1443,21 @@ that a choice with the conditions listed exists: [[prop:iii-d2-3-1]] for ω_s1(S
 [[prop:iii-d3-3-1]] for the 1-form towers, the table of [[sec:iii-g2-1]] for the states and towers of the rows, the
 step of [[sec:iii-j-2]] for the operators 𝒮_(λ₀), and [[lem:iii-i14-2-1]] for the families in b. The results of
 [[ch:s13]]–[[ch:s25]] that use these objects take them as given by those statements, for any choice with the
-conditions listed, and so hold for the averaged one. Three
-properties used there are not themselves linear conditions, and each is kept. The s1 and v1 states are unique given
+conditions listed, and so hold for the averaged one; the one use that takes more than the statement is (iv) below. Four
+properties used there are not themselves linear conditions, and each is kept. (i) The s1 and v1 states are unique given
 their conditions (the zero energy operator is injective at the weights in the gap, [[prop:iii-d2-3-1]]), so the
-average is the choice. The bijectivity of [[lem:iii-g2-1-2]] is a statement about leading terms, which are prescribed
-by O(4)-equivariant maps onto kernels split by harmonic, and which the average keeps. The isotypic type of each
-construction is that of an equivariant map (Schur's lemma).
+average is the choice. (ii) The bijectivity of [[lem:iii-g2-1-2]] is a statement about leading terms, which are
+prescribed by O(4)-equivariant maps onto kernels split by harmonic, and which the average keeps. (iii) The isotypic
+type of each construction is that of an equivariant map (Schur's lemma). (iv) [[lem:iii-i14-2-1]] takes the leading
+terms at ∂X of the companions h̆^((μ),j)_(b,τ) from the construction of [[prop:iii-d3-3-1]], not from its statement,
+which lists only type τ leading terms: the tower relations fix the leading term of a companion only modulo the indicial
+kernel, and the construction fixes the leading term of ω̆^((μ),k) at μ − k as the model solution ω̆̄^k. The average
+keeps it. Its leading terms are of type τ, the average being O(4)-equivariant (Schur's lemma); they satisfy the model
+recursion of that construction, Ā_0ω̆̄^k = −Ā_1ω̆̄^(k−1), which is linear and O(4)-invariant, the model being that of
+g_(b₀); and as μ − k is no type τ root ((R4) of [[sec:iii-d3-1]]), the model recursion has exactly one type τ
+solution at μ − k, by induction on k the model solution. So the averaged towers, and the companions built from them
+(through δ*_(g_(b₀)), which commutes with the average), have the leading terms of the construction, at b₀ and, through
+(C3′), for b near b₀.
 
 *Proof.* By induction along the definitions; each object is natural, given (C1)–(C4) and (C3′).
 

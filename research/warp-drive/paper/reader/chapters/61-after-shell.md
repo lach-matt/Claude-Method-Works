@@ -249,8 +249,8 @@ For κ the weight is ℓ0 + 1 and the order a + 1, with the same integral. On {r
 [[eq:after-shell-order]]. With C_β in place of Ξ the same argument gives every d, so (h, κ) ∈ ℋ^∞. ∎
 
 **Corollary {#cor:after-shell-every-rate}** (Every rate above 3.) [[thm:settling]] holds for every ℓ0 ∈ (3, 4), its
-constants ε_K, λ1, δ and its data of (i) depending on ℓ0, which its statement fixes first. Let a > 3 and run it with
-ℓ0 ∈ (3, min(a, 4)). Then its item (ii) covers every perturbation of order a of its data of (i) with Ξ below
+constants ε_K, λ1, δ and its data of (i) depending on ℓ0, which its statement fixes before them. Let a > 3 and run it
+with ℓ0 ∈ (3, min(a, 4)). Then its item (ii) covers every perturbation of order a of its data of (i) with Ξ below
 δ/(C_1(1 + (a − ℓ0)^(−1/2))), at the rate t*^(−2−ε) for every ε < ε_K, where ε_K < ℓ0 − 3 < a − 3.
 
 *Proof.* [[prop:after-shell-above]] with that ℓ0. The bound ε_K < ℓ0 − 3 is the chain ε_K < ε_+ < ℓ_I − 3 with

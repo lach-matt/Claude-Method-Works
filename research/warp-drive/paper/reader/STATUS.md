@@ -6,7 +6,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 
 | file | first reading | fix round | second reading |
 |---|---|---|---|
-| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | fifth fix done (quantifier order as in ch 60; N1-N4) with chapter 60's S⁰ (11 sites); fifth reading running (03 and 60) |
+| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | CONFIRMED (fifth reading 0M 2m 3n, with chapter 60; both minors applied by the coordinator in the reviewer's words: r_♭ named in "Beyond the boundary", chapter 61 "fixes before them") |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | third reading CONFIRMED (6 notation nits) |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED; new text read (Step 8 correct, 7 nits); the cut's minor moves to Ch 3 (sentence in INTEGRATION) |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | CONFIRMED (third reading; 2 nits) |
@@ -42,7 +42,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | done (translated background g_(p⃗) with ġ⁰_(S⁰′); Θ(k) → −Υ̇⁰(k); principal-part sign) | second reading NOT CONFIRMED 0M 1m 5n (translation Major fixed; gluing across the cover's edges); second fix running |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | CONFIRMED (second reading; 2 nits) |
-| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | third reading NOT CONFIRMED 0M 2m 3n (domain-of-dependence wording; m := μ(v)r⁻²); third fix running |
+| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | third fix done (wording of lem:interior-one-spacetime; m := μ(v)r⁻²; nits); fourth reading running |
 | 63 M Ch 13 | NOT CONFIRMED 1M 6m 15n (issue-1 k_P = 2k1 + 14 needed and enough; issue-2 a real gap, as in the source: E_T[Z^k h_R] ~ | waits on the cut-off repair's reader; then the fix round (R-63 minors and nits, merge of the repair at 648-653, 660-663, 682-688, 738, 784-786, 800-809, 852-857, lem:own-exterior tail) |^(2a+2k−8)) | waits on the cut-off proof project | - |
 | 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | running | - |
 | 65 M Ch 15 | written (1,132 lines, 58 crosswalk rows, no markers); independent reader running | - | - |

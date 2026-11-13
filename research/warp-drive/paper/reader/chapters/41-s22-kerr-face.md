@@ -1022,12 +1022,12 @@ small ([[lem:iii-i9-2-6]] (a), (c), (d)). For the second, u_0(W⃗) − u_0(0) =
 Σ_(ν∈ℳ_(α′)) m_ν(q_ν(W⃗) − q_ν(0)), and u(W⃗) − u(0) is the solution of [[eq:iii-i8-4-1]] at α′ for the forcing
 F(W⃗) − F(0) = −D_(p⃗)P_4(h, p⃗)(W⃗), of size O(|W⃗|) in 𝒴(α′) ([[lem:iii-i9-2-6]] (b)). So [[prop:iii-i8-4-1]] (i) at α′
 bounds q⃗(W⃗) − q⃗(0) by C|W⃗|, and u(W⃗) − u(0) by C|W⃗| in the seminorm ‖·‖_(α′) of [[sec:iii-i8-1]], taken as in the
-proof of [[lem:iii-i11-3-3]] with w_0 for w, which bounds ‖·‖_(w_0) as w_0 ≤ α′ − 2; and ‖m_ν(W)‖_(w_0) ≤ C|W| for
-every row, m_ν(W) having K⁺-weight at least λ_♯ − 1 − ε ≥ w_0 − ε and ι⁺-weight λ_♯ − ε ([[lem:iii-i9-2-2]]). So the
-second term is O((‖h‖ + |p⃗|)|W⃗|), T_(h,p⃗)W⃗ → W⃗ for every W⃗, and on the finite-dimensional space of the W⃗,
-T_(h,p⃗) → id; so T_(h,p⃗) is invertible for (h, p⃗) small, with |T⁻¹_(h,p⃗)| ≤ 2. Put W⃗ := T_(h,p⃗)⁻¹C(0) and
-p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and F are real and T commutes with the conjugation of
-[[sec:iii-i9-1]].
+proof of [[lem:iii-i11-3-3]] with w_0 for w and with its ε at most that of ‖·‖_(w_0), which then bounds ‖·‖_(w_0) as
+w_0 ≤ α′ − 2; and ‖m_ν(W)‖_(w_0) ≤ C|W| for every row, m_ν(W) having K⁺-weight at least λ_♯ − 1 − ε ≥ w_0 − ε and
+ι⁺-weight λ_♯ − ε ([[lem:iii-i9-2-2]]). So the second term is O((‖h‖ + |p⃗|)|W⃗|), T_(h,p⃗)W⃗ → W⃗ for every W⃗, and on
+the finite-dimensional space of the W⃗, T_(h,p⃗) → id; so T_(h,p⃗) is invertible for (h, p⃗) small, with
+|T⁻¹_(h,p⃗)| ≤ 2. Put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and F are
+real and T commutes with the conjugation of [[sec:iii-i9-1]].
 
 *Uniqueness.* If p⃗″ also gives [[eq:iii-i11-4-2]] at α, its solution lies in [[eq:iii-i8-4-2]] at α′, so its
 𝒫_(α′)-part is q⃗(W⃗″) by the uniqueness at α′ ([[prop:iii-i8-4-1]]), where W⃗″ is its 𝒩′-part; then C(W⃗″) = 0, so
