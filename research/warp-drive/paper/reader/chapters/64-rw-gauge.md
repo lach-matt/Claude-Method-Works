@@ -67,8 +67,8 @@ the derivative in m of the Ricci-flat metrics −(1 − m/r²) dv² + 2 dv dr + 
 ([[lem:ix-2-1]] (b)).
 
 *The linear solution in the class.* Let (γ̇, k̇) be G-invariant data of [[cor:viii-2-3]], ġ its solution and ṁ its
-mass change. ġ is G-invariant, smooth on the interior of N = {t_IVP ≥ −ν(r)}, with DRic(ġ) = 0 there, and its
-restriction to N⁺ = M°_♭ ∩ {t_IVP ≥ 0} is smooth up to Σ° ([[lem:s29-g-on-n]], [[sec:ix-0]]). N and N⁺ are unions of
+mass change. ġ is G-invariant, smooth on the interior of N_ν = {t_IVP ≥ −ν(r)}, with DRic(ġ) = 0 there, and its
+restriction to N⁺ = M°_♭ ∩ {t_IVP ≥ 0} is smooth up to Σ° ([[lem:s29-g-on-n]], [[sec:ix-0]]). N_ν and N⁺ are unions of
 spheres, t_IVP = t − ψ_IVP(r) ([[lem:iii-b-3-7]] (b)). Put
 
     h := ġ − ṁ K_V,        w := α − 2,
@@ -348,7 +348,7 @@ as in [[sec:rw-setting]], h_0 the l = 0 part of h, and N⁺ = M°_♭ ∩ {t_IVP
 
 is a smooth G-invariant linearised vacuum solution on N⁺, smooth up to Σ°, in the Regge–Wheeler-type gauge with l = 0
 part exactly ṁK_V, inducing (γ̇, k̇) plus the data of the linearised diffeomorphism ℒ_(X_RW)g. The same formulas define
-a smooth G-invariant linearised vacuum solution ġ_RW = ġ + ℒ_(X_RW)g on the open set int N ∩ M°_♭, which contains the
+a smooth G-invariant linearised vacuum solution ġ_RW = ġ + ℒ_(X_RW)g on the open set int N_ν ∩ M°_♭, which contains the
 interior of N⁺, in the Regge–Wheeler-type gauge with l = 0 part exactly ṁK_V.
 
 (b) (Decay.) For every k, R′ and ε′ > 0 there are C and T′ with
@@ -383,18 +383,18 @@ as v → ∞, and ζ is smooth up to Σ°, its derivatives being those of 𝔷. 
 ([[lem:ix-2-1]] (b)), and ℒ_Xg changes the induced data by those of a linearised diffeomorphism, read from one side
 up to Σ° ([[lem:viii-1-1]]). Every step is O(4)-equivariant and ġ is G-invariant, so ġ_RW is G-invariant.
 
-*The open set int N ∩ M°_♭.* At fixed x, t_IVP + ν(r) = t − ψ_IVP(r) + ν(r) increases strictly with t, so the interior
-of N = {t_IVP ≥ −ν(r)} is {t > ψ_IVP(r) − ν(r)}. With v = t − T_(m₀)(r) + r, the orbit space of int N ∩ M°_♭ is
+*The open set int N_ν ∩ M°_♭.* At fixed x, t_IVP + ν(r) = t − ψ_IVP(r) + ν(r) increases strictly with t, so the interior
+of N_ν = {t_IVP ≥ −ν(r)} is {t > ψ_IVP(r) − ν(r)}. With v = t − T_(m₀)(r) + r, the orbit space of int N_ν ∩ M°_♭ is
 
     {(v, r) : r > r_♭, v > b(r)},        b(r) := ψ_IVP(r) − ν(r) − T_(m₀)(r) + r,
 
 with b continuous; (v, r) ↦ (v − b(r), r) maps it homeomorphically onto (0, ∞) × (r_♭, ∞), so it is simply connected,
 and it contains the upward ray from each of its points. ġ is smooth there with DRic(ġ) = 0 ([[lem:s29-g-on-n]]), and
-int N ∩ M°_♭ contains the interior of N⁺, as ν ≥ 0. The steps above use, besides these properties, only
+int N_ν ∩ M°_♭ contains the interior of N⁺, as ν ≥ 0. The steps above use, besides these properties, only
 [[eq:gd-0-2]] on the rays {r = r′}, r′ ∈ (r_♭, R′], for v so large that t_* ≥ T′. So they apply verbatim on
-int N ∩ M°_♭, with "smooth" in place of "smooth up to Σ°": the same formulas define ζ, X_RW and ġ_RW there, agreeing
-with the above on the interior of N⁺, and ġ_RW is a smooth G-invariant linearised vacuum solution on int N ∩ M°_♭ in
-the Regge–Wheeler-type gauge with l = 0 part ṁK_V. Nothing is said there about induced data, int N ∩ M°_♭ being open.
+int N_ν ∩ M°_♭, with "smooth" in place of "smooth up to Σ°": the same formulas define ζ, X_RW and ġ_RW there, agreeing
+with the above on the interior of N⁺, and ġ_RW is a smooth G-invariant linearised vacuum solution on int N_ν ∩ M°_♭ in
+the Regge–Wheeler-type gauge with l = 0 part ṁK_V. Nothing is said there about induced data, int N_ν ∩ M°_♭ being open.
 
 (b) ġ_RW − ṁK_V = (h − h_0) + ℒ_(ξ[h])g. Averaging does not increase |·|_k. ℒ_ξg is first order in ξ, and by
 [[lem:gd-1-2]] (d) and [[eq:gd-1-1]] each component of ξ costs one derivative of h (β_a one angular derivative, ∂_a𝓉 one
