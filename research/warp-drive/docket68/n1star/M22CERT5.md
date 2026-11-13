@@ -227,7 +227,9 @@ relabelled) and rerun: **13/13**.
   - 3.44 x 10^-8 is 5.1 x 10^5 times the requirement, on every grid.
 
   Control C5: with C3's factor e^0.527 in place of X3's, the requirement becomes 7.23 and the test fails. So a
-  certified m_lo is not reachable at the data's own truncation. The "128 x 36, about 8 hours" of X4 is not the whole
+  certified m_lo is not reachable at the data's own truncation [reader's minor, final pass: read "so this estimate does
+  not certify m_lo > 0 at the data's own truncation"; a weighted energy is not excluded]. The "128 x 36, about 8
+  hours" of X4 is not the whole
   condition: the data would have to carry about 5 x 10^5 times less energy error, which needs more harmonics and
   certified (validated) mode solves.
 - **minor 4 (status words).** Corollary 3 asserts X_s and C_pt without constructing them, so it is deduced (an
