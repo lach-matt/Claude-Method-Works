@@ -1227,3 +1227,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F-82 done (reports/F-82.md): Major 1 proved in full (λ-scaled theory); Major 2 the two-dust corollary removed
   behind [[pending:issue-82-radial]]; P-K82 attempts it. Integration: F-82's suggestions for chapter 7 line 230 and
   chapter 81 lines 976-980 (in its report).
+- F2-63 done (reports/F2-63.md). FOR THE AUTHOR: F-P-I's observation kept, Σ_4 is not needed for the far window
+  with matched data. n4: the slice parameter σ is kept (about 150 uses); only λ and N are restricted by the outline.
+- R-P-U71-forward NOT CONFIRMED 3M 7m 6n; the counts stand. F-P-U71-forward fixes; chapter texts 7-12 stay in the
+  proof file for the d-bound integration round.
