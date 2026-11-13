@@ -1751,7 +1751,46 @@ these values.
 *The perturbative route at large degree.* Write L_l = ½A_l · Id + ℛ_l in the orthonormal components, ℛ_l of first order.
 A lower bound σ_min(L_l) ≥ σ_min(½A_l) − ‖ℛ_l‖_(X→Y) needs ‖ℛ_l‖ below σ_min(½A_l) ≤ (κ + 1)/(2(κ + 2)^(1/2)). At the
 inner gauge data (c_C = (1/200)dt + (1/800)dr, c_(Υ,H) = −½dr, γ_C = 10⁶), the coefficient of u_3′ in the u_3 component
-of ℛ_l is M_33(r) = −(5000r − 1)/r³, free of κ [[pending:computational-2]]. Fields H with only u_3 nonzero, of high
+of ℛ_l is M_33(r) = −(5000r − 1)/r³, free of κ: this is the following lemma with γ_Ca = 10⁶/200 = 5000.
+
+**Lemma {#lem:rb-m33}** (A first-order entry of ℛ_l.) Where c_C = a dt + b dr, with a and b functions of r, the
+coefficient of u_3′ in the u_3 component of ℛ_l is
+
+    M_33(r) = −(γ_C a(r) r − 1)/r³;                                                              {#eq:rb-m33}
+
+it depends neither on κ nor on b, e_C, c_Υ, γ_Υ, e_Υ, c_(Υ,H) and γ_(Υ,H).
+
+*Proof.* By [[eq:iii-f-1-2]], 2L = □ + 2E^CδG + 2δ*_(E_C)E^ΥG + 2R. Here R, E^ΥG and E^CE^ΥG are of order zero, and
+for a stationary 1-form w the component (δ*w)_(tA) = ½∂_Aw_t − Γ^μ_(tA)w_μ (A an angular index) contains no
+r-derivative of w. So in the component (Lh)_(tA) = F_3∂_AS, F_3 the coefficient of 2dt ⊗_s dS in Lh, the derivatives
+of H_3 come from □h and 2E^CδGh only, and h_(tA) = H_3∂_AS.
+
+In the chart above, g^(tt) = f − 2, g^(tr) = 1 − f = r⁻², g^(rr) = f and |det g|^(1/2) = r³|det g̸|^(1/2) (the
+determinant of the (t, r) block of g is −1), and Γ^t_(tt) = −½g^(tr)∂_rg_(tt) = ½(1 − f)f′,
+Γ^t_(rt) = ½g^(tt)∂_rg_(tt) = ½(2 − f)f′, Γ^B_(rA) = r⁻¹δ^B_A and Γ^B_(tA) = 0. For a symmetric 2-tensor,
+
+    (□h)_(μν) = −g^(αβ)∂_α∂_βh_(μν) + g^(αβ)Γ^λ_(αβ)∂_λh_(μν) + 2g^(αβ)Γ^λ_(αμ)∂_βh_(λν) + 2g^(αβ)Γ^λ_(αν)∂_βh_(μλ)
+
+up to terms without derivatives of h. At (μ, ν) = (t, A), with h stationary, H_3″ enters only through −g^(rr)∂_r²,
+and H_3′ only through λ = r in the second term, λ = t and β = r in the third, and λ angular and β = r in the fourth.
+With g^(αβ)Γ^r_(αβ) = −|det g|^(−1/2)∂_α(|det g|^(1/2)g^(αr)) = −r⁻³(r³f)′ and
+2(g^(tr)Γ^t_(tt) + g^(rr)Γ^t_(rt)) = f′((1 − f)² + f(2 − f)) = f′, this gives
+
+    (□h)_(tA) = (−fH_3″ + (−(3r² − 1)/r³ + f′ + 2f/r)H_3′)∂_AS + … = (−fH_3″ + (−1/r + 1/r³)H_3′)∂_AS + …,
+
+by f = 1 − r⁻², where … stands for terms without H_3′ and H_3″. Next, (E^Cω)_(tA) = γ_C(c_(C,t)ω_A + c_(C,A)ω_t) =
+γ_Caω_A, as g_(tA) = 0 and c_C has no angular component; and in (δGh)_A = −g^(αβ)∇_α(Gh)_(βA) the only term with H_3′
+is −g^(rt)∂_r(Gh)_(tA) = −r⁻²H_3′∂_AS, as (Gh)_(tA) = h_(tA). Hence
+
+    F_3 = −(f/2)H_3″ + (−1/(2r) + 1/(2r³) − γ_Ca r⁻²)H_3′ + … .
+
+In the orthonormal components u_3 = (2κ)^(1/2)H_3/r and (L_lH)_3 = (2κ)^(1/2)F_3/r. Substituting H_3 = r(2κ)^(−1/2)u_3,
+so that H_3′ = (2κ)^(−1/2)(u_3 + ru_3′) and H_3″ = (2κ)^(−1/2)(2u_3′ + ru_3″), the coefficient of u_3′ in (L_lH)_3 is
+−f/r − 1/(2r) + 1/(2r³) − γ_Ca r⁻² = −3/(2r) + 3/(2r³) − γ_Ca r⁻². In ½A_lu_3 = −(f/2)u_3″ − ((3r² − 1)/(2r³))u_3′ +
+κu_3/(2r²) the coefficient of u_3′ is −3/(2r) + 1/(2r³). The difference is [[eq:rb-m33]], and no constant other than
+γ_C and a entered. ∎
+
+Fields H with only u_3 nonzero, of high
 frequency in r and concentrated near r_0, have lim inf ‖ℛ_lH‖_Y/‖H‖_X ≥ r_0|M_33(r_0)| by [[eq:rb-block-norms]] (at α =
 −1 the weights are r and r⁵, and the derivative term dominates both norms); on the domain {r ≥ r_h/2} of the zero-energy
 problem this gives ‖ℛ_l‖ ≥ ½|M_33(½)| = 9996 for every l. And (κ + 1)/(2(κ + 2)^(1/2)) < 9996 exactly when (κ + 1)² < 4

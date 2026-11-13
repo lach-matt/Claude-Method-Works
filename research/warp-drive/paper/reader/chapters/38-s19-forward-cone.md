@@ -71,7 +71,8 @@ with them.
 
 *Time function and domain.* t^♭_* is the function of [[lem:ii-c-3-2]] with ℓ = ½, built for g_(b₀) ([Hin26, (11.3)]),
 and Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω = cl_M{t_* ≥ 1} ([Hin26, (11.4)]). Near 𝓘⁺, (t_*/r)^(1/2) is a smooth positive
-multiple of the x_I of [[sec:iii-i-2]], so t^♭_* is smooth on M_(1/2) there ([[lem:ii-c-3-2]] (a)); [[ch:s27]] uses this.
+multiple of the x_I of [[sec:iii-i-2]], so t^♭_*/t_* = 1 − (t_*/r)^(1/2) is smooth on M_(1/2) there ([[lem:ii-c-3-2]]
+(a)); [[ch:s27]] uses the exponent ½ for this reason.
 
 *The class parameter.* A number ℓ_I ∈ (0, ½) is fixed once and for all. It is the e3b-weight at 𝓘⁺ of the classes of
 admissible operators of [[thm:iii-i-5-3]] and [[thm:iii-h2-4-1]]. The value ½ is excluded for it because

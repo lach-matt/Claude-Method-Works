@@ -1740,10 +1740,18 @@ such that for every spacetime metric g with (g − g_(b₀))|_(Σ_IVP) = h₀ an
 through the size of the frame. Near Σ_IVP write g_(b₀) = a dt_IVP² + 2dt_IVP ⊗_s b + γ_(b₀) and set h₀ := γ̃, extended
 to S²T* by h₀(ν_(b₀), ·) := 0, so that g₀ := g_(b₀) + h₀ induces γ. Let ν_(b₀) and ν₀ = ν_(b₀) + ν̃ be the future unit
 normals; ν̃ ∈ H^(∞,(ℰ₀,ℓ₀))_b. We seek h₁ = rh̃₁ such that g := g₀ + t_IVP h̃₁ (still with unit normal ν₀ at Σ_IVP)
-has second fundamental form κ and Υ⁰(g, g_(b₀)) = 0 there. These are [Hin26, (5.80) and (5.81)]: for X, Y tangent to
-Σ_IVP,
+has second fundamental form k and Υ⁰(g, g_(b₀)) = 0 there. For X, Y tangent to Σ_IVP, g(ν, Y) = 0 along Σ_IVP, so
+X(g(ν, Y)) = 0 gives k_g(X, Y) = −g(ν, ∇^g_XY) for the second fundamental form k_g of g with unit normal ν. As g = g₀
+on Σ_IVP, with the same unit normal ν₀, k_g(X, Y) = −g₀(∇^g_XY, ν₀). Writing g₀ = g_(b₀) + h₀ and ν₀ = ν_(b₀) + ν̃,
 
-    g₀((∇^g_X − ∇^(g₀)_X)Y, ν₀) = κ̃(X, Y) − h₀(∇^(g_(b₀))_XY, ν_(b₀)) − g₀(∇^(g_(b₀))_XY, ν̃)
+    g₀(∇^(g₀)_XY, ν₀) = −k_(b₀)(X, Y) + h₀(∇^(g_(b₀))_XY, ν_(b₀)) + g₀(∇^(g_(b₀))_XY, ν̃)
+                          + g₀((∇^(g₀)_X − ∇^(g_(b₀))_X)Y, ν₀),
+
+as g_(b₀)(∇^(g_(b₀))_XY, ν_(b₀)) = −k_(b₀)(X, Y). Subtracting this from g₀(∇^g_XY, ν₀) = −k_(b₀)(X, Y) − k̃(X, Y),
+which is k_g = k, gives the first of the two conditions; the second is Υ⁰(g, g_(b₀)) = 0 at Σ_IVP. They are the
+conditions of [Hin26, (5.80) and (5.81)], written in the convention of [[lem:iii-b-3-9]]:
+
+    g₀((∇^g_X − ∇^(g₀)_X)Y, ν₀) = −k̃(X, Y) − h₀(∇^(g_(b₀))_XY, ν_(b₀)) − g₀(∇^(g_(b₀))_XY, ν̃)
                                     − g₀((∇^(g₀)_X − ∇^(g_(b₀))_X)Y, ν₀),
     tr_(g₀)(∇^g − ∇^(g₀)) = −tr_(g₀)(∇^(g₀) − ∇^(g_(b₀))).
 

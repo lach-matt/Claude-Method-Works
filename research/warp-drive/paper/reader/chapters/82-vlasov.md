@@ -68,7 +68,7 @@ directions, and in double-null coordinates (u, v) of the round metric, Ric(g0) =
 K_in, K_out ≥ 0: g0 is an Einstein–two-null-dust solution, with one ingoing and one outgoing radial dust.
 
 *Proof.* (a) The mixed components vanish identically for every metric of the class ([[lem:warped-ricci]]). Let K be a
-compact set off the axes and put h := e^(2ψ) g3, as in [[prop:reduction]]. The functions ψ_(i) = ½ log g(∂_(φi), ∂_(φi))
+compact set off the axes and put h := e^(2ψ) g3, as in [[prop:reduction]]. The functions ψi = ½ log g(∂_(φi), ∂_(φi))
 and the components of h and of √|h| h⁻¹ are smooth functions of the components of g on K. Hence for the sequence g_i
 they converge uniformly on K to those of g0, and their first derivatives, being smooth functions of the components times
 first derivatives of the components, converge weakly in L²(K). Each g_i is vacuum, so by [[prop:reduction]]
@@ -107,8 +107,8 @@ is H0^(ab) u_a u_b ∂_θ² f1 = 0, and its coefficient of λ⁰ is ∂_a(H0^(ab
 (H0^(ab) ∂_b f1 + H1^(ab) ∂_b f0 + H1^(ab) u_b ∂_θ f1), whose mean over θ is ∂_a(H0^(ab) ∂_b f0): every oscillating
 contribution is a θ-derivative. For the operator h^(ab) ∂_a∂_b f, not in divergence form, with h = h0 + λ h1, the mean of
 the coefficient of λ⁰ contains ⟨h1(du, du) ∂_θ² f1⟩ = −⟨∂_θ h1(du, du) ∂_θ f1⟩, nonzero in general. The quadratic term
-(3/2) dψ ⊗ dψ of Ric[h] in [[eq:reduced]] keeps its mean (3/2) ⟨(∂_θ ψ_(1))²⟩ du ⊗ du, ψ_(1) the coefficient of λ in ψ:
-the stress of a limit lives on the orbit block.
+(3/2) dψ ⊗ dψ of Ric[h] in [[eq:reduced]] acquires the mean (3/2) ⟨(∂_θ ψ^(1))²⟩ du ⊗ du, λψ^(1) the oscillating part of
+ψ: the stress of a limit lives on the orbit block.
 
 ### The restricted system {#sec:vlasov-restricted}
 
@@ -207,16 +207,16 @@ continuous, and transported by the null geodesic flow of g3 (the Vlasov equation
 timelike vector field n near x0 with T(n, n) ≥ c/ρ2 at the points of that geodesic near x0. So T and Ric(g5) = T are
 unbounded near x0, and g5 is not C² there.
 
-*Proof.* Let F be the fixed set {x2 = x4 = 0} of the two reflections, a three-dimensional submanifold with coordinates
+*Proof.* Let P be the fixed set {x2 = x4 = 0} of the two reflections, a three-dimensional submanifold with coordinates
 (τ, x1, x3). It meets every orbit near x0, at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2,
-∂_4 at the points of F and orthogonal to F by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_F of
-F is g3 in the coordinates (τ, ρ1, ρ2) = (τ, x1, x3). As g5 is smooth, g_F is a smooth Lorentzian metric on F, even in
-x3: g3 extends across the edge {ρ2 = 0} to the smooth metric g_F, and the null geodesic flow of g3 extends to the smooth
-flow of g_F, under which the geodesic reaching x0 transversally crosses {x3 = 0}. On the bundle of null directions the
+∂_4 at the points of P and orthogonal to P by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of
+P is g3 in the coordinates (τ, ρ1, ρ2) = (τ, x1, x3). As g5 is smooth, g_P is a smooth Lorentzian metric on P, even in
+x3: g3 extends across the edge {ρ2 = 0} to the smooth metric g_P, and the null geodesic flow of g3 extends to the smooth
+flow of g_P, under which the geodesic reaching x0 transversally crosses {x3 = 0}. On the bundle of null directions the
 transport of F is X(F) + κ F = 0 along the generator X of this flow, with κ smooth, so F stays positive along the flow
 line of the given direction and, by continuity, F ≥ c1 > 0 on a neighbourhood U of the arriving direction at the points
 of the geodesic near x0. Hence T3(n, n) ≥ ∫_U F (p(n))² ≥ c2 > 0 there, for n timelike. The Killing field ∂_(φ2) = x3 ∂_4
-− x4 ∂_3 has, at points of F, e^(2ψ2) = g5(∂_(φ2), ∂_(φ2)) = x3² (g5)_(44) = ρ2² (g5)_(44), with (g5)_(44) > 0, and e^(ψ1)
+− x4 ∂_3 has, at points of P, e^(2ψ2) = g5(∂_(φ2), ∂_(φ2)) = x3² (g5)_(44) = ρ2² (g5)_(44), with (g5)_(44) > 0, and e^(ψ1)
 is bounded near x0 since ρ1(x0) = r(x0) > 0. So T(n, n) = e^(−ψ1−ψ2) T3(n, n) ≥ c/ρ2. ∎
 
 The mechanism is the focusing of a converging beam: in a flat plane, particles moving radially inward with speed v have
