@@ -141,18 +141,22 @@ t_IVP = t − ψ_IVP(|x|), and
     |V(S_w)|x|| ≤ ½|w||t| ≤ C|w||x|,     |V(S_w)t_IVP| = ½χ_rχ^♯_IVP(1 − χ^♭_K)|w·x − ψ_IVP′ t S_w(x̂)| ≤ C|w||x|
 
 on M, the left sides vanishing off supp V(S_w). Along an integral curve γ(s), s ∈ [0, 1], of ±V(S_w),
-|d log|x(γ(s))|/ds| ≤ C|w|, so e^(−C|w|)|x(γ(0))| ≤ |x(γ(s))| ≤ e^(C|w|)|x(γ(0))|; and
-|d t_IVP(γ(s))/ds| ≤ C|w||x(γ(s))| ≤ Ce^(C|w|)|w||x(γ(0))|. Integrating over s ∈ [0, 1] gives both bounds for φ_(±S),
+
+    |d log|x(γ(s))|/ds| ≤ C|w|,  so  e^(−C|w|)|x(γ(0))| ≤ |x(γ(s))| ≤ e^(C|w|)|x(γ(0))|,
+    |d t_IVP(γ(s))/ds| ≤ C|w||x(γ(s))| ≤ Ce^(C|w|)|w||x(γ(0))|.
+
+Integrating over s ∈ [0, 1] gives both bounds for φ_(±S),
 as e^(C|w|) − 1 ≤ C|w|e^C and 1 − e^(−C|w|) ≤ C|w| for |w| ≤ 1. *Translations.* ψ_(S⁰), S⁰ = S_w, is the time-1 flow
 of V⁰(S⁰) = ½Θ w·∂_x, with Θ = χ_r(|x|)χ^♯_IVP(1 − χ^♭_K) ∈ [0, 1] ([[lem:iii-i7-1-1]]), and ψ_(−S⁰) is that of
 −V⁰(S⁰). So |V⁰(S⁰)|x|| = ½Θ|w·x̂| ≤ ½|w| and |V⁰(S⁰)t_IVP| = ½Θψ_IVP′|w·x̂| ≤ ½|w|, as ψ_IVP′ ∈ [0, 1] on
 supp Θ ⊂ {|x| ≥ 5R₁}. An integral curve of ±V⁰(S⁰) that moves starts and stays in {|x| > 5R₁} (below), so in time 1
 it changes |x| and t_IVP by at most ½|w| ≤ |w||x(p)|/(10R₁); this gives both bounds for ψ_(±S⁰). *Composites.* For
 φ_(S,S⁰) = ψ_(S⁰) ∘ φ_S and q := φ_S(p), r(q) ≤ (1 + C|S|)r(p) ≤ (1 + C)r(p), so
-|t_IVP(ψ_(S⁰)(q)) − t_IVP(p)| ≤ C|S⁰|r(q) + C|S|r(p) ≤ C′(|S| + |S⁰|)r(p) and
-|r(ψ_(S⁰)(q)) − r(p)| ≤ C|S⁰|r(q) + C|S|r(p) ≤ C′(|S| + |S⁰|)r(p); likewise for φ_(S,S⁰)⁻¹ = φ_(−S) ∘ ψ_(−S⁰).
-V(S_w) and V⁰(S⁰) vanish on {|x| ≤ 5R₁} (χ_r = 0 there), whose points are fixed by the flows; by uniqueness of
-integral curves no curve starting in {|x| > 5R₁} reaches it. ∎
+
+    |t_IVP(ψ_(S⁰)(q)) − t_IVP(p)|, |r(ψ_(S⁰)(q)) − r(p)| ≤ C|S⁰|r(q) + C|S|r(p) ≤ C′(|S| + |S⁰|)r(p);
+
+likewise for φ_(S,S⁰)⁻¹ = φ_(−S) ∘ ψ_(−S⁰). V(S_w) and V⁰(S⁰) vanish on {|x| ≤ 5R₁} (χ_r = 0 there), whose points
+are fixed by the flows; by uniqueness of integral curves no curve starting in {|x| > 5R₁} reaches it. ∎
 
 *Proof of [[lem:iii-k-1-1]].* (a) χ_0 ∈ C^∞(M) ([[sec:iii-c2-2]]). Near ℐ⁺, t_* is a smooth function on M
 ([[eq:iii-b-3-6]]); near I₀ and near the corner I₀ ∩ ℐ⁺, t_* → −∞, so χ_♮(t_*) = 0; near ι⁺ and K⁺, t_* → +∞, so

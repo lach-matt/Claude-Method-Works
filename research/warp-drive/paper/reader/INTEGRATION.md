@@ -1132,3 +1132,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   thm:loss-d, prop:ec-rounds; deleting sec:ec-integer would remove several of its repairs, so the bound integration
   must re-home them). Lower-bound numbers unchanged by F-71. Next for chapter 71: after R-P-U71-assembly and
   P-U71-close, one integration round applies the confirmed bounds (and chapter 3's sentence), then one reader.
+- Proof D2-D4 CONFIRMED (R2-P-D234's fixes applied). W-87 writing chapter 87 (thm:ten-l5) with it, printing
+  2.42·10⁻³.
+- W-85 done (report reports/W-85.md): chapter 85 written, 4 pending markers; R-85 reading; P-K85 closing the markers in
+  proofs/P-K85.md (merge after R-85). Decisions to be judged by R-85: (B_(c′)) assumed by the main theorems, x0 =
+  1/(96J²), a λ^(N−2)ε_c term, L.19, L.20 and the exp(−a/x^q) claim dropped. FOR THE FINAL REPORT if a claim of the
+  source is withdrawn here.
+- P-K83b done; R-P-K83b reading.

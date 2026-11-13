@@ -1120,12 +1120,11 @@ future of P_v and its flux kept, as in [[lem:layer-energy-null]]; L0 is tangent 
 vanishes; and the Poincaré inequality of [[lem:past-sobolev]] (b) holds on the thinner slices with the same constant.
 With the oscillating remainder taken as a known forcing term by (a), all forcing terms lie in E_(7/2)(ε²), so the
 energies and the flux through {v′ = v} carry ε² with the t-rates of that proof. The flux gives, as in
-[[lem:layer-null-pointwise]] but
-integrating from infinity along γ_Y, with ∫_r^∞ r′⁻³ dr′ = 1/(2r²), |∂^α Ω^β m̃_j| ≤ C ε² r⁻¹; the proof of
-[[thm:past-approximant]] gives |m̃_j| ≤ C r^(−5/2); and min(x, y) ≤ (xy)^(1/2) gives C ε r^(−7/4). Then σ̃_j := m̃_j(ℓ,
-ℓ) + q_j is at most C ε r^(−7/4) (q_j is quadratic in (m_i, dφ_i), i < j, with no product ∂_v φ_i ∂_v φ_k since g^vv =
-0), φ̃_j = −(1/2) ∫_r^∞ σ̃_j gives |φ̃_j|, |∂_v φ̃_j| ≤ C ε r^(−3/4), and Ψ̃_j, by its transport, is at most C ε
-r^(−7/4).
+[[lem:layer-null-pointwise]] but integrating from infinity along γ_Y, with ∫_r^∞ r′⁻³ dr′ = 1/(2r²), the bound
+|∂^α Ω^β m̃_j| ≤ C ε² r⁻¹; the proof of [[thm:past-approximant]] gives |m̃_j| ≤ C r^(−5/2); and min(x, y) ≤ (xy)^(1/2)
+gives C ε r^(−7/4). Then σ̃_j := m̃_j(ℓ, ℓ) + q_j is at most C ε r^(−7/4) (q_j is quadratic in (m_i, dφ_i), i < j, with
+no product ∂_v φ_i ∂_v φ_k since g^vv = 0), φ̃_j = −(1/2) ∫_r^∞ σ̃_j gives |φ̃_j|, |∂_v φ̃_j| ≤ C ε r^(−3/4), and Ψ̃_j,
+by its transport, is at most C ε r^(−7/4).
 
 (c) As in [[lem:layer-flat]] (c), the forcing term of the transport of the difference is a sum of products of two
 oscillating factors (E_3(ε²)), of mean-type factors with coefficients carrying an oscillating factor (by (b) and the
@@ -1139,19 +1138,20 @@ monomial add to at least 3 (R_N, R′_N ∈ E_3, [[thm:past-approximant]]), and 
 C t^(−3/2) on a slice of P_v ([[sec:past-approximant]]). On Ω: the proof of [[lem:layer-flat]] with the data on Σ_τ0
 replaced by these traces, which are of the stated sizes at the bounded radii of Σ_τ0 ∩ Ω. ∎
 
-**Lemma {#lem:layer-remainder-past}** (The weighted remainder from past null infinity.) Let C_P be such that
-|(g_λ⁻¹ − g0⁻¹)(α, α)| ≤ C_P λ t^(−3/2) |α|_e² on P and ≤ C_P λ |α|_e² on Ω ([[thm:past-approximant]]: g_app⁻¹ − g0⁻¹ is
-λ times a profile of class E_(3/2); items 3 and 4 of [[thm:past-construction]]), s := C_P λ ≤ 1/2, ε_t := 2 C_P λ, and
+**Lemma {#lem:layer-remainder-past}** (The weighted remainder from past null infinity.) Let C_P be such that the
+absolute value of (g_λ⁻¹ − g0⁻¹)(α, α) is at most C_P λ t^(−3/2) |α|_e² on P and at most C_P λ |α|_e² on Ω
+([[thm:past-approximant]]: g_app⁻¹ − g0⁻¹ is λ times a profile of class E_(3/2); items 3 and 4 of
+[[thm:past-construction]]), s := C_P λ ≤ 1/2, ε_t := 2 C_P λ, and
 ψ(τ) := 2 t^(−1/2) for τ ≤ τ0, ψ(τ) := 2 + τ − τ0 for τ ≥ τ0. For v1 ≤ v_♯ with ε_(M_P)(v1) ≤ λ³, M_P := 2 N_P + 8,
 and R_P := (P ∪ Ω) ∩ {v + ε_t ψ(τ) ≤ v1}: for every X ∈ R_P ∩ Ω with r(X) ≥ q0,
 
     |w(X)| ≤ C λ^(N_P−3) ε_(M_P)(v1).                                                          {#eq:layer-remainder-past}
 
-*Proof.* As [[lem:layer-remainder]], with four differences. (1) ψ is C¹ and increasing, with ψ′ = t^(−3/2) on P (dt/dτ
-= −1) and ψ′ = 1 on Ω, both sides giving ψ = 2 and ψ′ = 1 at τ0. The face {v + ε_t ψ(τ) = v1} has conormal dv + ε_t ψ′
-dτ, and as in step 1 of that proof g_λ⁻¹ of it is at most −2sψ′ + 4s³ψ′³ − 4s²ψ′² μ/r² < 0: the tilt decays exactly as
-the perturbation does. ψ ≤ 2 on P, so R_P ⊂ {v ≤ v1} and R_P does not reach the outer boundary B of P, since on R_P, v +
-h_P(τ) ≤ v1 + 1/2 < V_P. (2) There are no data: by [[prop:layer-seed-past]], w = 0 on {v ≤ v_s}, and the energy of w on
+*Proof.* As [[lem:layer-remainder]], with four differences. (1) ψ is C¹ and increasing, with ψ′ = t^(−3/2) on P
+(dt/dτ = −1) and ψ′ = 1 on Ω, both sides giving ψ = 2 and ψ′ = 1 at τ0. The face {v + ε_t ψ(τ) = v1} has conormal
+dv + ε_t ψ′ dτ, and as in step 1 of that proof g_λ⁻¹ of it is at most −2sψ′ + 4s³ψ′³ − 4s²ψ′² μ/r² < 0: the tilt
+decays exactly as the perturbation does. ψ ≤ 2 on P, so R_P ⊂ {v ≤ v1} and R_P does not reach the outer boundary B of
+P, since on R_P, v + h_P(τ) ≤ v1 + 1/2 < V_P. (2) There are no data: by [[prop:layer-seed-past]], w = 0 on {v ≤ v_s}, and the energy of w on
 A_P(τ1) tends to zero as τ1 → −∞ (item 5 of [[thm:past-construction]]), so the energy inequality on R_P ∩ {τ ≤ τ′}
 ([[lem:past-energy]] on P, [[lem:energy]] on Ω, the tilted face's flux dropped) starts from zero at −∞. (3) On P the
 coefficients decay: ∂g_λ and the factor ∂²g_app of (g_λ⁻¹ − g_app⁻¹) ∂²g_app are at most C t^(−3/2), the latter because
@@ -1169,18 +1169,23 @@ conclusions of [[thm:layer]] hold for g_λ with ν(v − τ0) replaced by the co
 exceptional value of τ0, and [[cor:layer]] holds for g_λ.
 
 *Proof.* By [[prop:layer-seed-past]] the layer of [[prop:eq-boundary]] (c) is defined for this g_λ.
-[[cor:layer-expansion]] holds at the boundary points with H_j^∞ in place of H_j ([[lem:layer-flat-past]] (c) and the
-continuation on Ω) and with ν_∞ in place of ν(v − τ0) ([[lem:layer-profiles-past]] (c)). The window, the domination and
-the sign change are those of the proof of [[thm:layer]] with |ν| = |ν_∞| on W_λ, so only the generic case occurs, and
-with the remainder term O(λ^(N_P−3) ε_(M_P)(v1)) of [[lem:layer-remainder-past]], where v1 := v* + 4πλ + ε_t(2 + τ_end −
-τ0) puts every boundary point of W_λ in R_P. The exponent conditions listed after [[thm:layer]] hold with N − 5
-replaced by N_P − 3 ≥ K + 9. ∎
+[[cor:layer-expansion]] holds at the boundary points with N_P, M_P := 2N_P + 8 and H_j^∞ in place of N, M* and H_j
+([[lem:layer-flat-past]] (c) and the continuation on Ω), and with ν_∞ in place of ν(v − τ0)
+([[lem:layer-profiles-past]] (c)). Run the proof of [[thm:layer]] with M := M_P, m := 56 M_P, C_P in place of C1, Δτ
+replaced by 2 + τ_end − τ0, and the other parameters as there; so ε_t = 2 C_P λ and v1 := v* + 4πλ + ε_t(2 + τ_end −
+τ0), which puts every boundary point X of W_λ in R_P, since ψ(τ(X)) ≤ 2 + τ_end − τ0. The window is that of
+[[thm:layer]], and on it ε_(M_P)(v1) ≤ C_ε y^(1−M/m) with p(1 − M/m) = 13.75 > 3, so the hypothesis
+ε_(M_P)(v1) ≤ λ³ of [[lem:layer-remainder-past]] holds for λ small; the remainder term is then
+O(λ^(N_P−3) ε_(M_P)(v1)) by [[lem:layer-remainder-past]], in place of that of [[lem:layer-remainder-weak]]. Since
+|ν| = |ν_∞| is constant, only the generic case occurs, with ν_* := |ν_∞|, and the domination and the sign change are
+those of the proof of [[thm:layer]]; the exponent conditions listed after [[thm:layer]] hold with N − 5 replaced by
+N_P − 3 ≥ K + 9. ∎
 
 ### The layer, region by region {#sec:layer-regions}
 
-Put x := v − v_s, and call v a *first-reach point* if env(v) = E(v) > E(v′) for every v′ < v. Let
+Put x := v − v_s, and call v a *first-reach point* if |env(v)| = E(v) > E(v′) for every v′ < v. Let
 
-    R(v, x̂) := λ³ A env(v) |ν(v − τ0)| |d(ϑ)| / m0(v),
+    R(v, x̂) := λ³ A |env(v)| |ν(v − τ0)| |d(ϑ)| / m0(v),
 
 the ratio of the amplitude of the first-degree term to the margin. In the layer, m0 < 2 C_Φ λ + r_q μ′/(2μ).
 
@@ -1190,8 +1195,8 @@ depending on δ and P, such that for λ ≤ λ_U, every v in the layer v_s < v <
 
 (i) (*upper layer*) if E(v) ≥ λ^(3−δ), the boundary is spacelike for g_λ at (v, x̂), whether or not env vanishes at v;
 
-(ii) (*every level*) if v is a first-reach point with λ^P ≤ env(v) ≤ λ^(3+δ), then on [v, v + 4πλ] the boundary has, at
-x̂, points where it is timelike and points where it is spacelike, also when (v_s − τ0)/√μ0 = ρ*;
+(ii) (*every level*) if v is a first-reach point with λ^P ≤ |env(v)| ≤ λ^(3+δ), then on [v, v + 4πλ] the boundary has,
+at x̂, points where it is timelike and points where it is spacelike, also when (v_s − τ0)/√μ0 = ρ*;
 
 (iii) (*the band*) if λ^(3+δ) ≤ E(v) ≤ λ^(3−δ), then g_λ⁻¹(dΦ0, dΦ0) = −m0 − λ³ A env ν Re[d e^(iv/λ)] + ρ with |ρ| ≤
 λ^γ m0; where R ≥ 1 + 2λ^γ the boundary has, at x̂, timelike points within [v − πλ, v + πλ], and where R ≤ 1 − 2λ^γ it
@@ -1212,12 +1217,14 @@ because (3 − δ)(1 + (M + 1)/m) < 4; λ ε² ≤ C λ E^(2−2M/m) because (3 
 against c_m E^(2+1/m) ≥ c_m λ^(s_A(2+1/m)): s_A(2 + 1/m) ≤ (5/4)(2 + 1/m)/(1 − 4/m) < 3 ≤ K − 3; the other terms are
 handled as before, E ≤ 1. The term q of [[lem:layer-inverse]] is smaller than these. So g_λ⁻¹(dΦ0, dΦ0) ≤ −m0/2 < 0.
 
-(ii) The proof of [[thm:layer]] at the level y := env(v) = λ^p, p ∈ [3 + δ, P], in place of λ^14, with v in place of v*
-and the m, κ above. Its exponent conditions hold uniformly in p: with s = p or s = p(1 + 2/κ), 2p > 3 + s since
-p(1 − 2/κ) ≥ (3 + δ)(1 − δ/4) > 3; 4 + p(1 − M/m) > 3 + s since pM/m ≤ 1/4 and 2p/κ ≤ 1/4; 1 + 2p(1 − M/m) > 3 + s since
-p(1 − 2M/m − 2/κ) ≥ 3 · 0.93 > 2; N − 5 + p(1 − M/m) > 3 + s since N − 8 ≥ 1 > 1/2; p/m < 1; p(1 − 4/m) > 1; and 2p > 1.
-At a first-reach point at level λ^p, Taylor's formula gives v − v_s ≥ (λ^p/C_κ)^(1/κ), which is what the double root
-uses, and v → v_s as λ → 0.
+(ii) The proof of [[thm:layer]] at the level y := |env(v)| = λ^p, p ∈ [3 + δ, P], in place of λ^14, with v in place of
+v* and the m, κ above: since v is a first-reach point, v = v*(y) of [[lem:layer-levels]]; and v lies in the layer,
+whose width tends to 0, so the bounds v1 ≤ v_s + η1 that Λ_0 gives in that proof hold for λ small. Its exponent
+conditions hold uniformly in p: with z = p or z = p(1 + 2/κ), 2p > 3 + z since p(1 − 2/κ) ≥ (3 + δ)(1 − δ/4) > 3;
+4 + p(1 − M/m) > 3 + z since pM/m ≤ 1/4 and 2p/κ ≤ 1/4; 1 + 2p(1 − M/m) > 3 + z since
+p(1 − 2M/m − 2/κ) ≥ 3 · 0.93 > 2; N − 5 + p(1 − M/m) > 3 + z since N − 8 ≥ 1 > 1/2; z > 1; p/m < 1; p(1 − 4/m) > 1;
+and 2p > 1. At a first-reach point at level λ^p, Taylor's formula gives v − v_s ≥ (λ^p/C_κ)^(1/κ), which is what the
+double root uses, and v → v_s as λ → 0.
 
 (iii) Here ε_4(v1) ≤ C λ^((3−δ)(1−4/m)) ≤ λ, so [[lem:layer-remainder-weak]] applies, and every error term is compared
 with λ^γ c_m E^(2+1/m) at the same level, E ≥ λ^(3+δ), using M/m ≤ 1/56 and (M + 1)/m, (2M + 1)/m ≤ 1/27: λ⁴ ε ≤ C λ⁴

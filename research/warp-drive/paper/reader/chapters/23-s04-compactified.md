@@ -398,11 +398,13 @@ of the spectral class of orders (𝗌̂, 𝗅̂) lies in L²(ℝ_σ; L²(X)) ([H
 that the proof is that of Proposition 4.18; [Hin26c] cites them as (4.25a–b)). [[sec:ii-a-5]] to [[sec:ii-a-7]] use it in
 this form for variable orders.
 
-(S10) [Hin26d, Definition 4.20, p. 74; Proposition 4.22, p. 75.] 𝒲_([𝒱]) is the set of W ∈ 𝒲 with [W, V] ∈ 𝒱 for all
-V ∈ 𝒱. If it spans 𝒲 over C^∞_(uni,ℬ), there is a subalgebra Ψ_(𝒱,[ ]) ⊂ Ψ_𝒱, closed under compositions and adjoints
-and containing all quantizations Op_𝒱(a), with ad_(W_1)⋯ad_(W_k)A ∈ Ψ_(𝒱,[ ]) for W_i ∈ 𝒲_([𝒱]); likewise with weights
-and variable orders. The operators of [Hin26c] are taken in this subalgebra [Hin26c, p. 48], and so are those of this
-chapter and the following ones.
+(S10) [Hin26d, Definition 4.20 and (4.27), p. 74; Proposition 4.22 and (4.28), p. 75.] 𝒲_([𝒱]) is the set of W ∈ 𝒲 with
+[W, V] ∈ 𝒱 for all V ∈ 𝒱. If it spans 𝒲 over C^∞_(uni,ℬ), the operators Op_𝒱(a) + R with a ∈ ρ^(−l)S^m and
+R ∈ ρ^∞Ψ^(−∞)_(𝒱,[ ]), the class of the residual operators whose iterated commutators with elements of 𝒲_([𝒱]), and those
+of their adjoints, are residual ((4.27) and (4.28), quoted in (S15)), form a subalgebra Ψ_(𝒱,[ ]) ⊂ Ψ_𝒱, closed under
+compositions and adjoints and containing all quantizations Op_𝒱(a), with ad_(W_1)⋯ad_(W_k)A ∈ Ψ_(𝒱,[ ]) for A ∈ Ψ_(𝒱,[ ])
+and W_i ∈ 𝒲_([𝒱]); likewise with weights and variable orders. The operators of [Hin26c] are taken in this subalgebra
+[Hin26c, p. 48], and so are those of this chapter and the following ones.
 
 (S11) [Hin26d, Proposition 4.2, p. 63.] For phase space weights w, w′, Ψ^w_𝒱 maps H^(w′)_𝒱 to H^(ww′)_𝒱, and
 (H^w_𝒱)* = H^(w⁻¹)_𝒱.
@@ -426,22 +428,40 @@ uniformly bounded coefficients; their principal symbols are the matrices of the 
 operators on such bundles are the sums of matrices of quantizations of symbols in the local charts and of residual
 operators (Remark 3.46).
 
-(S15) [Hin26d, Proposition 2.3 with (2.3) and (2.5), pp. 19–20; Lemma 3.42 and its proof, p. 51; p. 52; proof of
-Proposition 4.22, p. 75.] There are a metric d_ℬ on M (written d in Proposition 2.3) and a constant C ≥ 1 such that
-C⁻¹d_ℬ(p, q) ≤ |φ_α(p) − φ_α(q)| ≤ Cd_ℬ(p, q) for all α and all p, q ∈ U′_α := φ_α⁻¹((−3/2, 3/2)^n); this is (2.3).
-The proof defines d_ℬ by (2.5): d_ℬ(p, q) is the infimum of L(γ, T, I) := Σ_i L(φ_(α_i) ∘ γ|_([t_i,t_(i+1)])) over the
-piecewise smooth curves γ : [0, 1] → M from p to q and the tuples T = (t_0, …, t_k), I = (α_0, …, α_(k−1)) with
-0 = t_0 < t_1 < ⋯ < t_k = 1 and γ|_([t_i,t_(i+1)]) smooth and contained in U_(α_i), where L(β) is the Euclidean length
-of a curve β in (−2, 2)^n. Lemma 3.42 (Off-diagonal behavior of quantizations): "Let ϵ > 0, and let
-η ∈ C^∞_(uni,ℬ×ℬ)(M × M) be 1 in the ϵ-neighborhood {(p, q) ∈ M × M : d_ℬ(p, q) < ϵ} of the diagonal in M × M. Let w
-be a weight, and let a ∈ wS^m(^𝒱T*M). With Op_𝒱(a) denoting the Schwartz kernel, we then have
-(1 − η) Op_𝒱(a) ∈ wρ^∞Ψ^(−∞)_𝒱(M)." Its proof treats the local kernels with the factor
-ψ(x′_α − x_α)(1 − η_0(x_α − x′_α)), η_0 ∈ C_c^∞(ℝ^n) equal to 1 near 0, and shows by integration by parts in ξ that
-they are quantizations of residual symbols, to which [Hin26d, Proposition 3.39] applies. On p. 52: "by Lemma 3.42, we
-may furthermore localize the Schwartz kernels of such local quantizations to a neighborhood |x_α − x′_α| < ϵ for any
-fixed α-independent ϵ > 0." In the proof of Proposition 4.22, under the spanning condition of (S10) (p. 75): "the
-conclusion in Proposition 3.39 can be strengthened to membership in wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) (which then implies an
-analogous strengthening of Lemma 3.42)".
+(S15) [Hin26d, Proposition 2.3 with (2.3) and (2.5), pp. 19–20; Lemma 3.42 and its proof, p. 51; p. 52; (4.27), p. 74;
+Proposition 4.22 with (4.28) and its proof, p. 75.] There are a metric d_ℬ on M (written d in Proposition 2.3) and a
+constant C ≥ 1 such that C⁻¹d_ℬ(p, q) ≤ |φ_α(p) − φ_α(q)| ≤ Cd_ℬ(p, q) for all α and all
+p, q ∈ U′_α := φ_α⁻¹((−3/2, 3/2)^n); this is (2.3). The proof defines d_ℬ by (2.5): d_ℬ(p, q) is the infimum of
+L(γ, T, I) := Σ_i L(φ_(α_i) ∘ γ|_([t_i,t_(i+1)])) over the piecewise smooth curves γ : [0, 1] → M from p to q and the
+tuples T = (t_0, …, t_k), I = (α_0, …, α_(k−1)) with 0 = t_0 < t_1 < ⋯ < t_k = 1 and γ|_([t_i,t_(i+1)]) smooth and
+contained in U_(α_i), where L(β) is the Euclidean length of a curve β in (−2, 2)^n. Lemma 3.42
+(Off-diagonal behavior of quantizations): "Let ϵ > 0, and let η ∈ C^∞_(uni,ℬ×ℬ)(M × M) be 1 in the ϵ-neighborhood
+{(p, q) ∈ M × M : d_ℬ(p, q) < ϵ} of the diagonal in M × M. Let w be a weight, and let a ∈ wS^m(^𝒱T*M). With Op_𝒱(a)
+denoting the Schwartz kernel, we then have (1 − η) Op_𝒱(a) ∈ wρ^∞Ψ^(−∞)_𝒱(M)." Its proof treats the local kernels with
+the factor ψ(x′_α − x_α)(1 − η_0(x_α − x′_α)), η_0 ∈ C_c^∞(ℝ^n) equal to 1 near 0, and shows by integration by parts in ξ
+that, for every N, they are quantizations of symbols uniformly bounded in ρ̄_α^N S^(m−N), to which
+[Hin26d, Proposition 3.39] applies. On p. 52, for the local quantizations Op_α(a_α) of (S4) with a_α supported in
+(−5/4, 5/4)^n × ℝ^n: "by Lemma 3.42, we may furthermore localize the Schwartz kernels of such local quantizations to a
+neighborhood |x_α − x′_α| < ϵ for any fixed α-independent ϵ > 0." On p. 74, under the spanning condition of (S10), which
+is (4.25) there: "we shall write wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) for the space of all residual operators R ∈ wρ^∞Ψ^(−∞)_𝒱(M) in
+Definition 3.34 which satisfy the additional condition
+
+    ad_(W_1) ⋯ ad_(W_k) R, ad_(W_1) ⋯ ad_(W_k) R* ∈ wρ^∞Ψ^(−∞)_𝒱(M) ∀ k ∈ ℕ, W_1, …, W_k ∈ 𝒲_([𝒱])."      (4.27)
+
+Here "ad_(W_1) = [W_1, ·] is the commutator" (p. 75), and Definition 3.34 is the definition of the residual operators in
+(S4). Proposition 4.22 (Sharper ps.d.o. algebra), p. 75: "Assume that (4.25) holds. Define
+
+    ρ^(−l)Ψ^m_(𝒱,[ ])(M) ⊂ ρ^(−l)Ψ^m_𝒱(M)      (4.28)
+
+as the space of operators of the form A = Op_𝒱(a) + R where a ∈ ρ^(−l)S^m(^𝒱T*M) and R ∈ ρ^∞Ψ^(−∞)_(𝒱,[ ])(M). Then
+ad_(W_1) ⋯ ad_(W_k) A ∈ ρ^(−l)Ψ^m_(𝒱,[ ])(M) for all A ∈ ρ^(−l)Ψ^m_(𝒱,[ ])(M), k ∈ ℕ, W_1, …, W_k ∈ 𝒲_([𝒱]). Furthermore,
+⋃_(m,l∈ℝ) ρ^(−l)Ψ^m_(𝒱,[ ])(M) is closed under compositions and adjoints. Analogous statements hold for operators with
+weights, phase space weights, and variable orders." So wρ^∞Ψ^(−∞)_(𝒱,[ ]) is the class of the residual operators R of
+(S4) such that ad_(W_1)⋯ad_(W_k)R and ad_(W_1)⋯ad_(W_k)R* are residual for all k ≥ 1 and W_1, …, W_k ∈ 𝒲_([𝒱]), where
+ad_W := [W, ·]; and the subalgebra Ψ_(𝒱,[ ]) of (S10) is the union over m and l of the spaces (4.28) of the operators
+Op_𝒱(a) + R with a ∈ ρ^(−l)S^m and R in that class, likewise with weights and variable orders. In the proof of
+Proposition 4.22 (p. 75): "the conclusion in Proposition 3.39 can be strengthened to membership in wρ^∞Ψ^(−∞)_(𝒱,[ ])(M)
+(which then implies an analogous strengthening of Lemma 3.42)".
 
 The sharp Gårding inequality is not among these statements and is not used: the real principal type estimate
 ([[thm:ii-a1-5-4]]) is proved without it.

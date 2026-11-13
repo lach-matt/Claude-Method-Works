@@ -747,7 +747,14 @@ operator norm of a component matrix, and for a function φ and σ ≤ 0,
                                                                                                        {#eq:own-energies}
 
 T_g[φ] := dφ ⊗ dφ − ½ g g⁻¹(dφ, dφ) the energy-momentum tensor of φ for g, d⁴x the coordinate measure of x on Σ̃_σ, and
-𝔉_k the corresponding fluxes through N ∩ {T ≤ t̃ ≤ σ}. On Σ̃_σ, d⁵x = dt̃ d⁴x.
+𝔉_k the corresponding fluxes through N ∩ {T ≤ t̃ ≤ σ}. On Σ̃_σ, d⁵x = dt̃ d⁴x. By [[lem:far-scaling]] (a), in Cartesian
+components and with g := g_b0 + h,
+
+    P(h) = −½ g^(ab) ∂_a ∂_b g + Q(g)(∂g, ∂g),
+    Q(g)(∂g, ∂g) := q(g)(∂g, ∂g) + l(g)(Γ̂, ∂g) + c(g)(∂Γ̂) + c′(g)(Γ̂, Γ̂),                          {#eq:own-p-split}
+
+where q, l, c and c′ are multilinear with coefficients polynomial in g and g⁻¹, Γ̂ = Γ[g_b0], |∂^i Γ̂| ≤ C r^(−3−i), and
+every term carries exactly two derivatives, ∂∂g counting two, ∂g and Γ̂ one each, and ∂Γ̂ two.
 
 **Lemma {#lem:own-margins}** (margins). Let 𝔪 ≤ 1/16 and |f′| ≤ ¼, and s_0 := 1/16 + (1 + 1/256)^(1/2) ≤ 1.0645, which
 bounds |g_b0| and |g_b0⁻¹|.
@@ -819,22 +826,36 @@ sign, and Cauchy–Schwarz gives the first. ∎
 These three tools bound the error terms of the energy identity in Section [[sec:far-homogeneity]] (the hypotheses there
 on the energy tools and the pointwise bounds are [[lem:own-rays]] and [[eq:own-pointwise]] below).
 
-*The truncated problems.* Extend f from [4R, ∞) to a smooth function F̂ on [a′, ∞) with |F̂′| ≤ ¼ and |F̂| ≤ C_f. For
-T ≤ −1 put 𝒮_T := {τ = T + F̂(|x|), |x| ≥ a′}, which is {t̃ = T} on r ≥ 4R, δ_0 := V′_P − κ_P − v1 (≥ 4 by
-[[lem:interior-far-part]] (ii)), V_T := V′_P − δ_0/2 − h_P(T − C_f), and let χ_T(v) be smooth, 0 for v ≤ V_T and 1 for
-v ≥ V_T + δ_0/4, with derivatives bounded independently of T. The *truncated problem* is the Cauchy problem for
-Ric^H(g) = 0 relative to g0 with data (g, ∂_τ g) on 𝒮_T equal to those of (1 − χ_T) g_λ + χ_T(g_b0 + Σ). (Σ is defined on
-{v ≥ v1}, which contains the support of χ_T, as V_T ≥ v1 + δ_0/2.)
+**Definition {#def:cutoff-truncation}** (the truncated problems). Let J ≥ 2k1 + 7 be an integer, and let λ be below
+the threshold of [[prop:far-residual]]. Extend f from [4R, ∞) to a smooth function F̂ on [a′, ∞) with |F̂′| ≤ ¼ and
+|F̂| ≤ C_f. For T ≤ −1 put 𝒮_T := {τ = T + F̂(|x|), |x| ≥ a′}, which is {t̃ = T} on r ≥ 4R, δ_0 := V′_P − κ_P − v1
+(≥ 4 by [[lem:interior-far-part]] (ii)), V_T := V′_P − δ_0/2 − h_P(T − C_f), and let χ_T(v) be smooth, 0 for v ≤ V_T and
+1 for v ≥ V_T + δ_0/4, with derivatives bounded independently of T. Put
 
-**Lemma {#lem:own-truncation}** (the truncated problems). There is T_0 such that for T ≤ T_0:
-(i) 𝒮_T ∩ {v ≤ V_T + δ_0/4} ⊂ P′, so the data are defined; 𝒮_T is spacelike for g0 and g_λ.
+    𝔤_T := (1 − χ_T) g_λ + χ_T (g_b0 + Σ + Σ′_J),                                                      {#eq:cutoff-data}
+
+defined where g_λ is defined or χ_T = 1. The *truncated problem* is the Cauchy problem for Ric^H(g) = 0 relative to g0
+with data (g, ∂_τ g) on 𝒮_T equal to those of 𝔤_T; its solution is written g_T, or g_T^(J) when J is to be shown. (Σ is
+defined on {v ≥ v1} and Σ′_J on {r > 0}; {v ≥ v1} contains the support of χ_T, as V_T ≥ v1 + δ_0/2.)
+
+**Lemma {#lem:own-truncation}** (the truncated problems). There is T_0, depending on λ and J, such that for T ≤ T_0:
+(i) 𝒮_T ∩ {v ≤ V_T + δ_0/4} ⊂ P′, so the data are defined; 𝒮_T is spacelike for g0 and g_λ; and r_T ≥ r_3, so that
+|Σ| + |Σ′_J| ≤ 1/100 on W ∩ {r ≥ r_T}, which contains Σ̃_T ([[lem:own-wedge]] (b), [[lem:cutoff-extension]] (c)).
 (ii) Every past g_λ-causal curve from a point p ∈ (P′ ∪ Ω′) ∩ {v ≤ v1, τ − F̂(|x|) ≥ T} stays in P′ ∪ Ω′ and meets 𝒮_T at
 a point with v ≤ V_T. Hence the solution g_T of the truncated problem equals g_λ on (P′ ∪ Ω′) ∩ {v ≤ v1, τ − F̂ ≥ T}, and
 N ∩ {t̃ ≥ T} carries the data of g_λ: no characteristic problem is posed.
-(iii) Beyond the band, {v ≥ V_T + δ_0/4} ∩ 𝒮_T, the data are g_b0 + Σ, so h_R and all its first derivatives vanish at
-t̃ = T there, ∂_t^j h_R = O(λ r^(−4−j)) for j ≥ 2 with their derivatives, and every Γ^α h_R at t̃ = T is O(λ r⁻⁴), its
-first derivatives O(λ r⁻⁵), with constants depending on α and T. On the band, h_R = (1 − χ_T)(g_λ − g_b0 − Σ) and its
-first derivatives at t̃ = T are O(r^(−9/2)), with their derivatives along 𝒮_T ([[lem:own-n-data]] (i)).
+(iii) Let k ≥ 0 and h_R := g_T − g_b0 − Σ. On Σ̃_T, for |α| ≤ k,
+
+    |Γ^α h_R| ≤ C (r⁻⁴ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),     |∂Γ^α h_R| ≤ C (r⁻⁵ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),
+                                                                                         {#eq:cutoff-cap-general}
+
+with C depending on λ, J and k but not on T, where 𝒮^♭_T := Σ̃_T ∩ {v ≤ V_T + δ_0/4}. If J ≥ 2k + 7, then
+|Γ^α h_R| ≤ C r⁻⁴ and |∂Γ^α h_R| ≤ C r⁻⁵ on all of Σ̃_T, and for 0 < a < 3
+
+    E_T[Γ^α h_R] ≤ C |T|^(2a−6)  (|α| ≤ k),     𝔈_k(T) ≤ C |T|^(2a−6).                                   {#eq:cutoff-cap}
+
+On Σ̃_T ∩ {v ≤ V_T}, h_R and all its derivatives are those of g_λ − g_b0 − Σ; on Σ̃_T ∩ {v ≥ V_T + δ_0/4}, h_R = Σ′_J
+and ∂_t h_R = ∂_t Σ′_J, and |∂^β (h_R − Σ′_J)| ≤ C r^(−4−|β|) for |β| ≥ 2.
 (iv) g_T exists on W_T ∩ {t̃ ≤ T + δ_T} for some δ_T > 0, with every derivative bounded, and on any W_T ∩ {t̃ ≤ σ′} on
 which its derivatives up to a fixed order stay bounded and the margins of [[lem:own-margins]] (b) hold, it continues
 beyond σ′. g_T is G-invariant.
@@ -842,7 +863,8 @@ beyond σ′. g_T is G-invariant.
 *Proof.* (i) On 𝒮_T, τ ≤ T + C_f ≤ τ0 and, where v ≤ V_T + δ_0/4, v + h_P(τ) ≤ V′_P − δ_0/4 + h_P(T + C_f) − h_P(T −
 C_f), which is at most V′_P once h_P(T + C_f) − h_P(T − C_f) ≤ 2C_f sup h_P′ ≤ δ_0/4, true for T ≤ T_0. Spacelike: for
 g0, g0⁻¹(dτ − F̂′ dr, ·) = −1 + F̂′² − (μ/r²)(1 + F̂′)² < 0 as in [[lem:interior-far-part]] (i); for g_λ, by the margin
-of [[lem:past-domain]] (f). (ii) On Ω′, Φ_Ω := v + ε_Ω(τ − τ0), with ε_Ω(τ′_end − τ0) < δ_0/2, is a time function for g0
+of [[lem:past-domain]] (f). Finally r_T ≥ c_W (1 + |T|) ([[lem:own-wedge]] (b)), which is at least r_3 for T ≤ T_0.
+(ii) On Ω′, Φ_Ω := v + ε_Ω(τ − τ0), with ε_Ω(τ′_end − τ0) < δ_0/2, is a time function for g0
 with g0⁻¹(dΦ_Ω, dΦ_Ω) = −2ε_Ω − ε_Ω²(1 + 𝔪) < 0 ([[prop:vaidya]] (d)), and for g_λ, |g_λ − g0| ≤ C λ on the compact Ω′,
 for λ small; on P′, Φ_P := v + h_P(τ) is a time function for g_λ ([[lem:past-domain]] (b), (f)). A past causal curve
 leaves neither Ω′ (its boundaries other than Σ_τ0 are spacelike with Ω′ to their past, [[lem:domain]] (e)) nor P′ (its
