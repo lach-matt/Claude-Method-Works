@@ -87,8 +87,8 @@ at ∂X being that of 2L̄ ([[lem:iii-f-2-1]] (3)).
 (P3) The zero energy states of L_b listed in [[sec:iii-g2-1]], their companions, the 1-form towers of
 [[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b are real and smooth in b, with index sets in
 (μ − j) + ℰ_ind, ℰ_ind independent of b, and, except for ġ_b, with leading terms at ∂X that do not depend on b. Those
-of ġ_b may depend on b through the mass (as in the proof of [[lem:iii-i14-2-1]]), and only the index sets of ġ_b and
-its smoothness in b are used. The rotation state h_(b,v1) ∈ 𝒜³ is smooth in b and vanishes at b₀
+of ġ_b may depend on b through the mass (as in the proof of [[lem:iii-i14-2-1]]), and the linear theory uses the index
+sets of ġ_b and its smoothness in b. The rotation state h_(b,v1) ∈ 𝒜³ is smooth in b and vanishes at b₀
 ([[lem:iii-i14-2-1]]). The element −1 of SO(4), x ↦ −x on the spatial factor, is an isometry of every g_b: it commutes
 with the spin matrix, and the metric [[eq:iii-b-3-2]] is even in x ([[lem:iii-e1-2-1]] with O = −1). It preserves
 t_* = t − ψ(|x|) ([[eq:iii-b-3-6]]), the cut-offs and the gauge 1-forms c_Υ, c_(Υ,H) and c_C, which are
@@ -112,8 +112,8 @@ operator (P2), the zero energy states (P3) and [[ch:s18]].
 
 (P6) *Rows at b, corrections at b₀.* The rows and towers are built at the base point's b (the towers T_(ρ,b) of
 [[def:iii-i14-1-2]], smooth in b by (P3)); the corrections of the first to fourth kinds and their counterterms are
-the tensors built from b₀-objects, as [Hin26, p. 275, Definition 11.55] builds them; the operator of [Hin26,
-Definition 11.56] is at b. At a base point (h, p⃗) with parameter b,
+the tensors built from b₀-objects, as [Hin26, p. 275, Definition 11.55] builds them; the operator of
+[Hin26, Definition 11.56] is at b. At a base point (h, p⃗) with parameter b,
 
     D_p⃗P_4(h, p⃗)(W_ν = W) = L_(h,p⃗)m_ν(W) + r^ν_(h,p⃗)(W) + E^ν_(h,p⃗)(W).                          {#eq:iii-i15-1-1}
 
@@ -126,12 +126,12 @@ the difference between the corrections and counterterms built at b₀ and at b, 
 O(|b − b₀||W|). Its support is in supp χ_K, its K⁺-weight is κ_ν − ϵ > α, and its ι⁺-exponents below w_+ lie in
 ℰ^♮ + 2 ([[def:iii-i13-1-2]]).
 
-*Proof.* (P1)–(P4) are the cited statements. (P5): g_b is stationary. The reality in (P3) holds as at b₀: L_b,
-δ*_(g_b) and □_(g_b) are real, and [[prop:iii-d2-3-1]], [[prop:iii-d3-3-1]], [[prop:iii-f4-5-1]] and the normalisation
-of [[lem:iii-i14-2-1]] are real constructions. The parity in (P3) follows from the constructions of the states. Write
-φ for the pullback by −1. P_b is invertible on the b-spaces of [[sec:iii-d2-1]] with weights in the gap (0, ι^Υ_(s1,2))
-of decaying sections, which φ preserves. Since φ commutes with P_b, it commutes with P_b⁻¹ there, and it commutes with
-δ*_(g_b). [[prop:iii-d2-3-1]] builds
+*Proof.* (P1)–(P4) are the cited statements. (P5): g_b is stationary. The reality in (P3) holds as at b₀: L_b, δ*_(g_b)
+and □_(g_b) are real, and [[prop:iii-d2-3-1]], [[prop:iii-d3-3-1]], [[prop:iii-f4-5-1]] and the normalisation of
+[[lem:iii-i14-2-1]] are real constructions. The parity in (P3) follows from the constructions of the states. Write φ for
+the pullback by −1. P_b is invertible on the b-spaces of decaying sections of [[sec:iii-d2-1]] (weights in the gap
+(0, ι^Υ_(s1,2))), which φ preserves. Since φ commutes with P_b, it commutes with P_b⁻¹ there, and it commutes with δ*_(g_b).
+[[prop:iii-d2-3-1]] builds
 
     ω_(b,s1)(S) = ω̄_s1(S) − P_b⁻¹□^Υ_b ω̄_s1(S)
 

@@ -1225,7 +1225,8 @@ the 3b-coordinates over Ω_ι.
 𝖧⁰ξ̂ = −2|η̂|² ≤ −3/8. (c) 𝖧⁰x_I = (ξ̂ − 1)x_I ≤ −½x_I. The errors are absorbed for ϵ_I small. ∎
 
 **Lemma {#lem:ii-c-5-5}** (Near ι⁺; [Hin23c, (C.8)–(C.9)].) Put f_T := ϱ⁻¹(1 − ξ̂_(3b)) and f_W := −ξ̂_(3b). Let
-δ ∈ (0, 1]. For ϵ_ι small depending on δ and C_ι, on Σ⁺ over Ω_ι ∩ {|ξ̂_(3b)| ≤ δ/2}: (a) 𝖧^(3b)f_T ≥ ϱ⁻¹;
+δ ∈ (0, 1] (in this lemma and in [[sec:ii-c-5-2]], a parameter of the construction, not the sf-loss of
+[[def:ii-c-2-7]]). For ϵ_ι small depending on δ and C_ι, on Σ⁺ over Ω_ι ∩ {|ξ̂_(3b)| ≤ δ/2}: (a) 𝖧^(3b)f_T ≥ ϱ⁻¹;
 (b) ξ̂_(3b) ≥ −δ/8, |η̂_(3b)|² ≥ |ξ̂_(3b)| − δ/8 and |η̂_(3b)|² ≤ 3δ; (c) 𝖧^(3b)f_W ≥ δ/8 where
 ξ̂_(3b) ∈ [δ/4, δ/2].
 
@@ -1707,28 +1708,28 @@ The following points compare this chapter with the texts it writes out in dimens
   c = (n − 1)/2, and with it [[lem:ii-c-2-6]].
 - *Misprints in [Hin26c].* In the proof of [Hin26c, Lemma 4.6 (2)], ρ₊ ∘ γ is strictly decreasing for s > 0 (a critical
   point is a strict local maximum), where the text says "strictly increasing"; the argument is otherwise as in
-  [[lem:ii-b-3-3]] (2), which also shows why ρ₊ → 0. In [Hin26c, Lemma 4.6 (4)], the conic extension of
-  {ξ̂_(3b) = 2} is {ξ_(3b) = 2σ_(3b)}, printed as ξ_(3b) = −2σ_(3b), and within Σ⁺ it is the characteristic set of
-  2r∂_(t_*) − r∂_r = r(∂_t − ∂_r), printed as r∂_(t_*) − 2r∂_r; the (t, r)-form r(∂_t − ∂_r) given there is the right
-  one. [Hin26c, (4.18)] has the factor −2 in place of −4; only the sign is used. The angular coefficient 1 in G⁰_(eb)
-  ([[eq:ii-b-7-1]]) comes from the angular term g_(𝕊³)/(2x_I²) of ḡ near ℐ⁺ ∩ ι⁺ ([[sec:ii-a-2-3]]); the term
-  g_(𝕊³)/x_I² printed in [Hin26c, (2.27)] would give ½|η_(eb)|², and [Hin26c, (4.67)] agrees with the former.
-  [Hin26c, Definition 5.15] gives x_I⁻²ρ₊⁻²C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) the norm of
-  C^((d₀;k),(2ℓ_I+2,ℓ₊+2,ℓ_K))_(e3b;b); under the convention of [Hin26c, Definition 3.19] ([[def:ii-a-8-1]]) the factor
-  x_I⁻²ρ₊⁻² lowers both weights by 2, so the norm is that of C^((d₀;k),(2ℓ_I−2,ℓ₊−2,ℓ_K))_(e3b;b) ([[def:ii-c-3-1]]). On
-  [Hin26c, p. 107], after Definition 5.15, the section x_I⁻²ρ₊⁻²(g_(m,a) + h) should read x_I²ρ₊²(g_(m,a) + h)
-  ([[rem:s05-metric-class]] (b)). [Hin26c, Definition 5.11 (1)] says "monotonically non-decreasing along the future
-  null-bicharacteristic flow", which contradicts its own condition ±H_G𝗌 ≤ 0 on ∂Σ^± and [Hin26c, Section 6.2]: the
-  order is non-increasing, high at the radial sets that the future flow leaves and low at those it approaches
-  ([[def:ii-c-2-4]] (1)). In [Hin26c, (6.5)], a covector ζ ∈ Σ lies in Σ⁺ if and only if g⁻¹(ζ, dt^♭_*) > 0, not ≤ 0,
-  since dt^♭_* is past timelike.
+  [[lem:ii-b-3-3]] (2), which also shows why ρ₊ → 0. In [Hin26c, Lemma 4.6 (4)], the conic extension of {ξ̂_(3b) = 2} is
+  {ξ_(3b) = 2σ_(3b)}, printed as ξ_(3b) = −2σ_(3b), and within Σ⁺ it is the characteristic set of 2r∂_(t_*) − r∂_r =
+  r(∂_t − ∂_r), printed as r∂_(t_*) − 2r∂_r; the (t, r)-form r(∂_t − ∂_r) given there is the right one. [Hin26c, (4.18)]
+  has the factor −2 in place of −4; only the sign is used. The angular coefficient 1 in G⁰_(eb) ([[eq:ii-b-7-1]]) comes
+  from the angular term g_(𝕊³)/(2x_I²) of ḡ near ℐ⁺ ∩ ι⁺ ([[sec:ii-a-2-3]]); the term g_(𝕊³)/x_I² printed in [Hin26c,
+  (2.27)] would give ½|η_(eb)|², and [Hin26c, (4.67)] agrees with the former. [Hin26c, Definition 5.15] gives
+  x_I⁻²ρ₊⁻²C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) the norm of C^((d₀;k),(2ℓ_I+2,ℓ₊+2,ℓ_K))_(e3b;b); under the convention of
+  [Hin26c, Definition 3.19] ([[def:ii-a-8-1]]) the factor x_I⁻²ρ₊⁻² lowers both weights by 2, so the norm is that of
+  C^((d₀;k),(2ℓ_I−2,ℓ₊−2,ℓ_K))_(e3b;b) ([[def:ii-c-3-1]]). On [Hin26c, p. 107], after Definition 5.15, the section
+  x_I⁻²ρ₊⁻²(g_(m,a) + h) should read x_I²ρ₊²(g_(m,a) + h) ([[rem:s05-metric-class]] (b)). [Hin26c, Definition 5.11 (1)]
+  says "monotonically non-decreasing along the future null-bicharacteristic flow", which contradicts its own condition
+  ±H_G𝗌 ≤ 0 on ∂Σ^± and [Hin26c, Section 6.2]: the order is non-increasing, high at the radial sets that the future flow
+  leaves and low at those it approaches ([[def:ii-c-2-4]] (1)). In [Hin26c, (6.5)], a covector ζ ∈ Σ lies in Σ⁺ if and
+  only if g⁻¹(ζ, dt^♭_*) > 0, not ≤ 0, since dt^♭_* is past timelike.
 - *Proofs written out.* [Hin26c, Lemma 5.16] takes "a smoothing" of a piecewise function; a smoothing preserves
-  timelikeness only if its differential stays in the past cone, and [[lem:ii-c-3-2]] glues by a smooth minimum in log
-  and a smooth maximum in r, whose differentials are convex combinations of those of the pieces; the comparison of the
-  pieces at r = Ct_* is the inequality φ′ < 0 there. The backward statement of [Hin26c, Proposition 6.1] is proved in
-  [[prop:ii-c-4-2]] by the repulsion of ∂R_(ℐ⁺,out) in x_I backward. [Hin26c, Proposition 6.4] is proved by the
-  construction it cites ([[sec:ii-c-5-2]]), with item (5) added and the localisation χ_t of [Hin23c] unnecessary in
-  this class; the bound on the characteristic set stated as [Hin23c, (C.1)] is replaced by [[lem:ii-c-5-3]].
+  timelikeness only if its differential stays in the past cone, and [[lem:ii-c-3-2]] glues by a smooth minimum in log,
+  taken only where t_*/r ≤ 2/C since 1 − (t_*/r)^ℓ vanishes at r = t_*, and a smooth maximum in r, whose differentials
+  are convex combinations of those of the pieces; the comparison of the pieces at r = Ct_* is the inequality φ′ < 0
+  there. The backward statement of [Hin26c, Proposition 6.1] is proved in [[prop:ii-c-4-2]] by the repulsion of
+  ∂R_(ℐ⁺,out) in x_I backward. [Hin26c, Proposition 6.4] is proved by the construction it cites ([[sec:ii-c-5-2]]), with
+  item (5) added and the localisation χ_t of [Hin23c] unnecessary in this class; the bound on the characteristic set
+  stated as [Hin23c, (C.1)] is replaced by [[lem:ii-c-5-3]].
 - *Changes of statement.* [[def:ii-c-2-1]] takes the threshold of trapping admissibility from (Γ.4), for the density of
   [[ch:s01]], in place of [Hin26c, (5.8)] for |dg|, and realises [Hin26c, (5.9)] as [[lem:i-b-6-0]];
   [[def:ii-c-2-3]] is the tf-admissibility of [[def:i-c-5-1]]. [[prop:ii-c-4-2]] is stated over {r ≥ r₀}, where the

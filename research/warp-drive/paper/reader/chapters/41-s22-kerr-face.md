@@ -41,8 +41,8 @@ degree, by the order of their states at ∂X. (8) The expansion modulo the order
 order every coefficient section is a stationary solution of moderate growth ([[lem:iii-i12-2-3]]), so the
 polyhomogeneous part at K⁺ is a sum of towers whatever the individual pieces are ([[lem:iii-i12-2-4]]). (9) The
 spectral cut-off is an approximate identity with vanishing moments ([[lem:iii-i12-2-1]]), so each spectral piece is,
-near K⁺, the spacetime tower of the inverse transform of its scalar coefficient. (10) Below the order 4 the forcing of the
-last Taylor level has a negative zero frequency weight; the zero energy solve of that level then drops out
+near K⁺, the spacetime tower of the inverse transform of its scalar coefficient. (10) Below the order 4 the forcing of
+the last Taylor level has a negative zero frequency weight; the zero energy solve of that level then drops out
 ([[prop:iii-i13-2-1]]).
 
 The steps that [Hin26, Part 3 (5) of the proof of Theorem 11.59] calls analogous are written out: the order
@@ -122,8 +122,8 @@ a_I > 3 + ε_+ of the class; the class of [Hin26] has the ℐ⁺-order 3 + ε_I.
 theorems below (the form of [Hin26, (11.195)] in dimension 4 + 1) and the derivatives f^S_(h,p⃗), f^(s1)_(h,p⃗)
 (in 𝒴⁰(α)) and f^b_(h,p⃗) (in 𝒴⁰_2(α)) of [[lem:iii-i9-2-6]] (a): the term (∂δ*_(g_0,E_C))ϑ_rows there has plain
 ι⁺-weight λ_♯ + 4 > w_+ (by its proof), and the rest is that of [[lem:iii-i7-3-1]], with the index sets ℰ̃_+ and
-2ℰ_+. The row exponents of real part at least 2 enter only through f^ν_(h,p⃗) = L_(h,p⃗)m_ν + r^ν_(h,p⃗), where r^ν_(h,p⃗)
-carries no index set ([[eq:iii-i9-2-5]]).
+2ℰ_+. The row exponents of real part at least 2 enter only through f^ν_(h,p⃗) = L_(h,p⃗)m_ν + r^ν_(h,p⃗), where
+r^ν_(h,p⃗) carries no index set ([[eq:iii-i9-2-5]]).
 
 *The parameter exponents.* The index set ℰ_par of [[sec:iii-i9-1]], which [Hin26] calls Ẽ′_++ and builds after the
 proof of its Theorem 11.59 by the procedure of its (11.186), is fixed here in advance.
@@ -147,7 +147,7 @@ below 2λ_♯, and only there. For λ ∈ Λ let n(λ) be the number of λ′ �
 
 Put
 
-    ℰ_par := ℳ ∪ {(λ + j, k) : λ ∈ Λ, 2 ≤ Re λ ≤ 3, k ≤ k̄(λ), j ∈ ℕ₀}.                                  {#eq:iii-i10-1-2}
+    ℰ_par := ℳ ∪ {(λ + j, k) : λ ∈ Λ, 2 ≤ Re λ ≤ 3, k ≤ k̄(λ), j ∈ ℕ₀}.                                 {#eq:iii-i10-1-2}
 
 The number 3 ∈ Λ is the u-exponent of the boost row that the zero energy mass state produces ([[sec:iii-i11-3]]); the
 increment 1 accounts for the Taylor levels of the spectral construction, and 2 + π_1ℰ_col for the column terms at its
@@ -230,7 +230,8 @@ with ω̆^(−1)_τ := 0 and ω̆^i_τ := 0 for i > K_τ.
 
 (a) For every function a = a(t_*) and K ≤ K_τ,
 
-    δ*_(g_b)(Σ_(i=0)^K a^((i)) ω̆^i_τ(W)) = Σ_(i=0)^K a^((i)) h̆^i_τ(W) + a^((K+1)) dt_* ⊗_s ω̆^K_τ(W).           {#eq:iii-i10-2-1}
+    δ*_(g_b)(Σ_(i=0)^K a^((i)) ω̆^i_τ(W))
+        = Σ_(i=0)^K a^((i)) h̆^i_τ(W) + a^((K+1)) dt_* ⊗_s ω̆^K_τ(W).                                     {#eq:iii-i10-2-1}
 
 So m_ν(W) = χ_K(Σ_(i≤K_τ) a_ν^((i)) h̆^i_τ(W) + a_ν^((K_τ+1)) dt_* ⊗_s ω̆^(K_τ)_τ(W)) for ν = (τ, λ, k); and
 h̆⁰_τ = h_τ for τ ≠ s0, while h̆⁰_s0 = 0 and h̆¹_s0 = h_s0.
@@ -248,7 +249,7 @@ lengths of the table of roots of [[sec:iii-g2-1]].
 (μ_s0 = μ_s2 := 0). Put V := −λ_0⁻¹V^(−1)_1. Then
 
     χ_K u_(b,0) − Σ_(τ∈𝒯∖{v1}) m_(ν_τ)(W_τ) − χ_K t_*^(−λ_0)(log t_*)^j h_(b,v1)(V)
-        has K⁺-weight Re λ_0 + 1 − ε for every ε > 0.                                                    {#eq:iii-i10-2-2}
+        has K⁺-weight Re λ_0 + 1 − ε for every ε > 0.                                                   {#eq:iii-i10-2-2}
 
 The last term on the left vanishes when h_(b,v1) = 0, in particular at b_0.
 
@@ -480,7 +481,7 @@ L_1 of one order of decay at ∂X ([[lem:iii-i6-1-1]]). L̃_b(σ) is the augment
 L̃_b(σ)(u, ḃ, S) = (L̂_b(σ)u + f̂_ḃ(σ) + f̂_S(σ), r(u)), with ĝ^aug(σ)(ḃ) = iσ⁻¹G_1(σ)(ḃ) and
 ĥ^aug(σ)(S) = −σ⁻²G_2(σ)(S), where
 
-    G_1(σ)(ḃ) := Ψ ġ(ḃ),          G_2(σ)(S) := Ψ h(S) − σ∂_σΨ h(S) − iσΨ h̆(S)                           {#eq:iii-i11-1-1}
+    G_1(σ)(ḃ) := Ψ ġ(ḃ),          G_2(σ)(S) := Ψ h(S) − σ∂_σΨ h(S) − iσΨ h̆(S)                          {#eq:iii-i11-1-1}
 
 ([[lem:iii-h-2-5]], [[eq:iii-h-2-6]]); here Ψ(σ, x) = ∫ e^(iσt_*) ∂_(t_*)χ_K dt_* is entire in σ with Ψ(0, ·) = 1,
 L̂_b(σ)ĝ^aug(σ)(ḃ) = f̂_ḃ(σ), L̂_b(σ)ĥ^aug(σ)(S) = f̂_S(σ), and for Im σ > 0 these are the Fourier transforms of
@@ -566,7 +567,7 @@ s0; 3, 1 + λ^Υ_(s1,2), 1 + λ^Υ_(s1,3) and 5 for s1; 3 and 4 for v1; l + 2 �
 with z > 0, its zf-coefficient g(0) ∈ H^(∞,(E,κ))_b(X̄), and let (û, ḃ, S) be as in [[lem:iii-i11-2-1]] for F = g(0)
 and q′ = κ (the same for both signs, or separately). Put
 
-    g^(+1) := σ⁻¹(g − L̂_b(σ)(χ_zf û) − f̂_ḃ(σ) − f̂_S(σ)).                                              {#eq:iii-i11-2-1}
+    g^(+1) := σ⁻¹(g − L̂_b(σ)(χ_zf û) − f̂_ḃ(σ) − f̂_S(σ)).                                             {#eq:iii-i11-2-1}
 
 Then g^(+1) ∈ H^(∞,(5/2−ε,(E^(+1),κ−1),((0,0),z−1)))_b and
 
@@ -599,7 +600,7 @@ polyhomogeneous. ∎
 to the α_0-derivatives). Let R < 2/ρ_0. On {r ≤ R} and for 0 < ±σ ≤ c_R, χ_zf = 1 and χ_tf = χ_2(ρ + |σ|) = 0
 ([[sec:iii-g4-1]]), so u = |σ|^(α_0−2)u_b there, and
 
-    |σ|^(α_0−2) u_b = Σ_τ c_τ(σ) T_τ(σ) + P_int(σ),                                                      {#eq:iii-i11-2-2}
+    |σ|^(α_0−2) u_b = Σ_τ c_τ(σ) T_τ(σ) + P_int(σ),                                                     {#eq:iii-i11-2-2}
 
 where:
 
@@ -655,7 +656,7 @@ f̂ = Σ_(i∈I) L̂_b(σ)P_i + σ^J g_J on 0 < |σ| ≤ c, where each P_i(σ) l
 σ ≠ 0 (a section smooth on X° and b-conormal at ∂X, or a sum of terms ĝ^aug and ĥ^aug), and let
 (û_f, ḃ_f, S_f) := L̃_b(σ)⁻¹(g_J, 0, 0). Then the outgoing inverse satisfies, for 0 < |σ| ≤ c,
 
-    L̂_b(σ)⁻¹f̂ = Σ_i P_i + σ^J(û_f + ĝ^aug(σ)(ḃ_f) + ĥ^aug(σ)(S_f)).                                      {#eq:iii-i11-2-3}
+    L̂_b(σ)⁻¹f̂ = Σ_i P_i + σ^J(û_f + ĝ^aug(σ)(ḃ_f) + ĥ^aug(σ)(S_f)).                                   {#eq:iii-i11-2-3}
 
 *Proof.* Apply L̂_b(σ): the right side maps to Σ_i L̂_b P_i + σ^J(L̂_b û_f + f̂_(ḃ_f) + f̂_(S_f)) = f̂, by
 [[lem:iii-h-2-5]] (c) and the first component of L̃_b(σ)(û_f, ḃ_f, S_f) = (g_J, 0). Every term lies in 𝒳′_σ
@@ -674,7 +675,7 @@ This section is [Hin26, Theorem 11.59, Steps 2.A.3–2.A.8 and Part 3 of the pro
 χ_K Σ_(i≤2) a^((i)) h̆^i_(b,v1)(Y), with a polyhomogeneous of exponents (α_0, l), Re α_0 = 2, and Y ∈ 𝒱_(1,ℂ) linear
 and continuous in f, such that
 
-    v − Σ_(ν∈𝒩_σ) m_ν(S_ν) − v^rot ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,α−2−ε)_b(Ω_*)^(•,−).                       {#eq:iii-i11-3-1}
+    v − Σ_(ν∈𝒩_σ) m_ν(S_ν) − v^rot ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,α−2−ε)_b(Ω_*)^(•,−).               {#eq:iii-i11-3-1}
 
 The terms of v^rot have K⁺-weight 2 − ε, and 3 − ε > α − 2 when h_(b,v1) = 0; in that case, in particular at b_0,
 v^rot may be put into the remainder.
@@ -826,7 +827,7 @@ admissible, let (h, p⃗) be a base point with black hole parameter b ∈ ℬ̄_
 G ∈ 𝒴⁰(α). Suppose that the forward solution u of L_(h,p⃗)u = G lies in
 ⋂_ε H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,w_0−ε)_b(Ω_*)^(•,−) with w_0 > 0, w_0 + a_K > α and β′_+ ∈ (3/2 − (δ_♯ − ε_+), 3/2). Then
 
-    u = Σ_(ν∈𝒩) m_ν(S_ν) + u^rot + ũ,     ũ ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*)^(•,−)         {#eq:iii-i11-3-2}
+    u = Σ_(ν∈𝒩) m_ν(S_ν) + u^rot + ũ,     ũ ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*)^(•,−)        {#eq:iii-i11-3-2}
 
 for every β_+ < min(3/2, min Re ℰ_+). Here u^rot := u^rot_ι + v^rot is the sum of the v1 terms of
 [[prop:iii-i10-3-1]] and [[prop:iii-i11-3-1]] for the forcing f′ of the proof, and the coefficients
@@ -880,11 +881,12 @@ D_(p⃗)P_4(h, p⃗)(W⃗) := Σ_(ν∈𝒩′) f^ν_(h,p⃗)(W_ν), and 𝒫^fu
 admissible, and let (h, p⃗) be a base point with black hole parameter b_0, with p⃗ ∈ 𝒫 and h ∈ 𝒳^∞ small. For every
 F ∈ 𝒴⁰(α) there is a unique p⃗′ = p⃗′_(h,p⃗)(F) ∈ 𝒫 such that the forward solution of
 
-    L_(h,p⃗)u = F − D_(p⃗)P_4(h, p⃗)(p⃗′)                                                                    {#eq:iii-i11-4-1}
+    L_(h,p⃗)u = F − D_(p⃗)P_4(h, p⃗)(p⃗′)                                                               {#eq:iii-i11-4-1}
 
 satisfies
 
-    u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*; S²T*)^(•,−)     for every β_+ < min(3/2, min Re ℰ_+).     {#eq:iii-i11-4-2}
+    u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*; S²T*)^(•,−)
+        for every β_+ < min(3/2, min Re ℰ_+).                                                            {#eq:iii-i11-4-2}
 
 Moreover p⃗′_(h,p⃗) is linear, with bounds uniform for (h, p⃗) small, and continuous at (0, 0) as in
 [[prop:iii-i8-4-1]] (ii). In compact spatial sets u = O(t_*^(−2−ε_K+ε′+ε)); letting ε′ → 0 along admissible values,
@@ -935,10 +937,10 @@ m_ν(W_ν) of L_(b_0)m = L_(b_0)m_ν(W_ν) lies in [[eq:iii-i8-4-2]] at α′ fo
 differs from it, by admissibility; [[lem:iii-i9-2-2]]), so p⃗′_(0,0,α′)(L_(b_0)m_ν(W_ν)) = 0 by the uniqueness at α′.
 Hence G(W⃗) = G(0) and C(W⃗) = C(0) − W⃗ on 𝒩′: the equation has the unique solution W⃗ = S^(0,0)(G(0)).
 
-*Near (0, 0).* C(W⃗) = C(0) − T_(h,p⃗)W⃗ with T_(h,p⃗)W⃗ := W⃗ − S^(h,p⃗)(G(W⃗) − G(0)), linear on the finite-dimensional space
-of the W⃗. G(W⃗) − G(0) = −Σ r^ν(W_ν) − (the q⃗-terms of q⃗(W⃗) − q⃗(0)); the first is O(|W⃗|(‖h‖ + |p⃗|)) in 𝒴_2(α)
-([[eq:iii-i9-2-5]]), and q⃗(W⃗) − q⃗(0) = −p⃗′_(h,p⃗,α′)(D_(p⃗)P_4(h, p⃗)(W⃗)) tends to −p⃗′_(0,0,α′)(Σ L_(b_0)m_ν(W_ν)) = 0 as
-(h, p⃗) → (0, 0), for fixed W⃗ ([[prop:iii-i8-4-1]] (ii), with [[lem:iii-i9-2-6]] (b)–(d) for the convergence of the
+*Near (0, 0).* C(W⃗) = C(0) − T_(h,p⃗)W⃗ with T_(h,p⃗)W⃗ := W⃗ − S^(h,p⃗)(G(W⃗) − G(0)), linear on the
+finite-dimensional space of the W⃗. G(W⃗) − G(0) = −Σ r^ν(W_ν) − (the q⃗-terms of q⃗(W⃗) − q⃗(0)); the first is
+O(|W⃗|(‖h‖ + |p⃗|)) in 𝒴_2(α) ([[eq:iii-i9-2-5]]), and q⃗(W⃗) − q⃗(0) = −p⃗′_(h,p⃗,α′)(D_(p⃗)P_4(h, p⃗)(W⃗)) tends to
+−p⃗′_(0,0,α′)(Σ L_(b_0)m_ν(W_ν)) = 0 as (h, p⃗) → (0, 0), for fixed W⃗ ([[prop:iii-i8-4-1]] (ii), with [[lem:iii-i9-2-6]] (b)–(d) for the convergence of the
 sources in 𝒴(α′)). With the uniform bounds of [[lem:iii-i11-3-2]] and of [[prop:iii-i8-4-1]] (i), T_(h,p⃗) → id, so
 T_(h,p⃗) is invertible for (h, p⃗) small; put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is
 preserved, as L and F are real and T commutes with the conjugation of [[sec:iii-i9-1]].
@@ -1017,7 +1019,7 @@ d_j ≥ d − j, P(σ, x) := Σ_j (−iσ)^j p_j(x), and let c = Σ_± 1_(±σ>0
 H^(∞,w)_b(±(0, 1), |dσ/σ|), w > −1, or (b) c = |σ|^z(log|σ|)^m sgn(σ)^δ, Re z > −1 (and then w := Re z). Put
 y := ℱ⁻¹(χc). Then on {t_* ≥ 1}
 
-    ℱ⁻¹[χ(|σ|)χ_zf(|σ|r)c(σ)P(σ, x)] = χ_K Σ_j (χ_+y)^((j))(t_*) p_j(x) + R,                                  {#eq:iii-i12-2-1}
+    ℱ⁻¹[χ(|σ|)χ_zf(|σ|r)c(σ)P(σ, x)] = χ_K Σ_j (χ_+y)^((j))(t_*) p_j(x) + R,                            {#eq:iii-i12-2-1}
 
 where R has K⁺-order ∞ (for every N, |R| ≲ (r/t_*)^N t_*^(−w−1)⟨r⟩^(−d) on {r ≤ t_*/8}, up to logarithms, with
 b-derivatives) and, near ι⁺, the order w + 1 + d. In case (b), if the p_j are polyhomogeneous, R and
@@ -1055,7 +1057,7 @@ polyhomogeneous at ι⁺ (in the coordinates t_*⁻¹, r/t_*) with the stated ex
 ḃ ∈ H^(∞,a)_b(±(0, 1), |dσ/σ|; 𝔟_ℂ), and put A := χ_+ℱ⁻¹[−χσS] ∈ Ḣ^(∞,a+2)_b and B := χ_+ℱ⁻¹[iχσ²ḃ] ∈
 Ḣ^(∞,a+3)_b. Then on {t_* ≥ 1}
 
-    ℱ⁻¹[χσ³ĥ^aug(σ)(S)] = χ_K h^(≤1)_(b,s1)(A) + R_S,          ℱ⁻¹[χσ³ĝ^aug(σ)(ḃ)] = χ_K ġ(B) + R_b,           {#eq:iii-i12-2-2}
+    ℱ⁻¹[χσ³ĥ^aug(σ)(S)] = χ_K h^(≤1)_(b,s1)(A) + R_S,          ℱ⁻¹[χσ³ĝ^aug(σ)(ḃ)] = χ_K ġ(B) + R_b,    {#eq:iii-i12-2-2}
 
 with R_S, R_b of K⁺-order a + 4 and of order a + 5 at ι⁺.
 
@@ -1133,13 +1135,13 @@ last statement: a state of root μ grows like r^(−μ). ∎
 
 **Lemma {#lem:iii-i12-2-4}** (Formal solutions at K⁺.) Let b = b_0, β ∈ (α − 1, α], and
 
-    w = χ_K Σ_(i∈I) y_i(t_*)p_i(x) + w′,                                                                  {#eq:iii-i12-2-3}
+    w = χ_K Σ_(i∈I) y_i(t_*)p_i(x) + w′,                                                                {#eq:iii-i12-2-3}
 
 with I finite, conormal profiles p_i of degrees d_i (not necessarily in 𝒢_*: the companions h̆^((μ),1) of the rows with
 μ ∈ (−3, −2] have degree at most −3), y_i ∈ Ḣ^(∞,𝒬(E_i,∞))_b with every (z, k) ∈ E_i satisfying Re z ≥ β − 2 and
 Re z + d_i ≥ λ_♯ (*compatibility*), and w′ of K⁺-order β. If L_(b_0)w has K⁺-order β, then
 
-    χ_K Σ_i y_i p_i = χ_K(Σ_(ψ∈ℛ′) T_ψ(a_ψ) + h^(≤1)_(b_0,s1)(a_s) + ġ(a_b)) + w″,                          {#eq:iii-i12-2-4}
+    χ_K Σ_i y_i p_i = χ_K(Σ_(ψ∈ℛ′) T_ψ(a_ψ) + h^(≤1)_(b_0,s1)(a_s) + ġ(a_b)) + w″,                      {#eq:iii-i12-2-4}
 
 where a_ψ, a_s, a_b are finite sums of terms χ_+t_*^(−z)(log t_*)^k, with exponents in ⋃_i E_i + ℕ₀ (for a_v1,
 ⋃_i E_i + ℕ₀ − 1), those of a_ψ satisfying Re z + d_ψ ≥ λ_♯ and those of a_b of real part at least β − 1, and w″ has
@@ -1193,16 +1195,16 @@ b ∈ ℬ̄_* is [[cor:iii-i15-2-10]].
 
 **Theorem {#thm:iii-i12-3-1}** (The expansion at K⁺.) For every small ε > 0,
 
-    u = χ_K u_exp + ũ,     u_exp = h^(≤1)_(b_0,s1)(Ṡ_rem) + ġ(ḃ_rem) + Σ_(ψ∈ℛ′) T_ψ(Ẏ_ψ),                          {#eq:iii-i12-3-1}
+    u = χ_K u_exp + ũ,     u_exp = h^(≤1)_(b_0,s1)(Ṡ_rem) + ġ(ḃ_rem) + Σ_(ψ∈ℛ′) T_ψ(Ẏ_ψ),               {#eq:iii-i12-3-1}
 
 with
 
     Ṡ_rem ∈ Ḣ^(∞,α−2−ε)_b([1, ∞]; 𝒮_(1,ℂ)),     ḃ_rem ∈ Ḣ^(∞,α−1−ε)_b([1, ∞]; 𝔟_ℂ),
-    Ẏ_ψ ∈ Ḣ^(∞,𝒬(ℰ_♯−d_ψ, w_ψ))_b([1, ∞]; 𝒴_ψ),                                                            {#eq:iii-i12-3-2}
+    Ẏ_ψ ∈ Ḣ^(∞,𝒬(ℰ_♯−d_ψ, w_ψ))_b([1, ∞]; 𝒴_ψ),                                                         {#eq:iii-i12-3-2}
 
 w_ψ := 3 + η_2 − 2ε − d_ψ for every ψ ∈ ℛ′ (d_v1 = 0), and
 
-    ũ ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_♯,3+η_2−2ε),α−ε)_b(Ω_*)^(•,−).                                                  {#eq:iii-i12-3-3}
+    ũ ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_♯,3+η_2−2ε),α−ε)_b(Ω_*)^(•,−).                                            {#eq:iii-i12-3-3}
 
 The coefficients are conjugation-symmetric (u being real), linear and continuous in F, with bounds uniform for (h, p⃗)
 small. Each term of χ_K u_exp has K⁺-order at least α − 2 − ε, so [[eq:iii-i12-3-1]] contains the bound
@@ -1290,7 +1292,7 @@ A ∈ Ḣ^(∞,α−2−ε)_b and B ∈ Ḣ^(∞,α−1−ε)_b, up to K⁺-orde
 
 *Step 2 (assembly).* By Step 1, on {t_* ≥ 1},
 
-    u = χ_K Σ_(i∈I) y_i p_i + χ_K C + w′,                                                                  {#eq:iii-i12-3-4}
+    u = χ_K Σ_(i∈I) y_i p_i + χ_K C + w′,                                                               {#eq:iii-i12-3-4}
 
 where C consists of the conormal towers of (viii) (the truncated boost tower h^(≤1)_(b_0,s1)(A_5),
 A_5 ∈ Ḣ^(∞,α_κ+1)_b, and T_ψ(Y^c_ψ) for the rows with μ ∈ (−1, 0], Y^c_ψ of order at least 3 + η_2 − 2ε − μ) and of
@@ -1412,7 +1414,7 @@ f ∈ 𝒴^♮(β), and let f^♭ and v be as in [[sec:iii-i11-1]] with β in pl
 [[prop:iii-i10-3-1]] (c) for f, and v the forward solution of L_b v = f^♭, of K⁺-weight w_v > 0). Then there are
 S_ν ∈ 𝒲_(τ,ℂ), ν ∈ 𝒩_σ ∩ 𝒩_β, linear and continuous in f, with
 
-    v − Σ_(ν∈𝒩_σ∩𝒩_β) m_ν(S_ν) − v^rot_β ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,β−2−ε)_b(Ω_*)^(•,−),                {#eq:iii-i13-2-1}
+    v − Σ_(ν∈𝒩_σ∩𝒩_β) m_ν(S_ν) − v^rot_β ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,β−2−ε)_b(Ω_*)^(•,−),         {#eq:iii-i13-2-1}
 
 where v^rot_β := 0 for β < 4, and v^rot_β is the v^rot of [[prop:iii-i11-3-1]] at β for β > 4.
 
@@ -1463,7 +1465,7 @@ point with black hole parameter b ∈ ℬ̄_*, with p⃗ ∈ 𝒫 and h ∈ 𝒳
 solution u of L_(h,p⃗)u = G lies in ⋂_ε H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,w_0−ε)_b(Ω_*)^(•,−) with w_0 > 0, w_0 + a_K > β and
 β′_+ ∈ (3/2 − (δ_♯ − ε_+), 3/2). Then
 
-    u = Σ_(ν∈𝒩_β) m_ν(S_ν) + u^rot_β + ũ,     ũ ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,β−2−ε)_b(Ω_*)^(•,−)            {#eq:iii-i13-2-2}
+    u = Σ_(ν∈𝒩_β) m_ν(S_ν) + u^rot_β + ũ,     ũ ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,β−2−ε)_b(Ω_*)^(•,−)    {#eq:iii-i13-2-2}
 
 for every β_+ < min(3/2, min Re ℰ_+). Here u^rot_β is the sum of the terms of u^rot_ι ([[prop:iii-i10-3-1]]) with
 Re λ_0 < β − 2 and of v^rot_β, for the forcing f′ of the proof; the coefficients S_ν = S^(h,p⃗,β)_ν(G) ∈ 𝒲_(τ,ℂ) are
@@ -1482,8 +1484,8 @@ and 𝒴^♮_2(β) lies in it by [[lem:iii-i13-1-3]] (a). ∎
 
 **Lemma {#lem:iii-i13-2-3}** (The coefficients near the reference point, at every level.) Fix b ∈ ℬ̄_*, and let p⃗_b be
 as in [[lem:iii-i11-3-3]]. In [[lem:iii-i13-2-2]], if (h_j, p⃗_j) → (0, p⃗_b), G_j → G in 𝒴^♮(β), and the forward
-solutions u_j of L_(h_j,p⃗_j)u_j = G_j and u of L_(0,p⃗_b)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]] with uniform
-bounds, then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G).
+solutions u_j of L_(h_j,p⃗_j)u_j = G_j and u of L_(0,p⃗_b)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]] with
+uniform bounds, then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G).
 
 *Proof.* The proof of [[lem:iii-i11-3-3]], with [[lem:iii-i13-2-2]] in place of [[lem:iii-i11-3-2]]. ∎
 
@@ -1523,7 +1525,7 @@ h̆^j := h̆^j_(b,s1); 𝒢_* is the space of sections conormal at ∂X of order
 
 is the v1 tower T_v1 of [[sec:iii-i12-1]] at b, the tower of the rotation rows of [[def:iii-i14-1-3]]. Put
 
-    κ_b(V) := h̆¹_(b,v1)(V),          L_0κ_b(V) = −L_1ġ_b(ḃ_V).                                             {#eq:iii-i15-2-6}
+    κ_b(V) := h̆¹_(b,v1)(V),          L_0κ_b(V) = −L_1ġ_b(ḃ_V).                                         {#eq:iii-i15-2-6}
 
 The identity holds by the tower relation L_0h̆¹_(b,v1)(V) = −L_1h_(b,v1)(V) and the formula for h_(b,v1) above. At b_0,
 κ_(b_0)(V) = h̆¹_(b_0,v1)(V) lies in ker L_0.

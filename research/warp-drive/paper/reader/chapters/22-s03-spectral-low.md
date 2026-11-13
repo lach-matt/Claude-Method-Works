@@ -1177,8 +1177,9 @@ finite, and
     ‖u‖_(α,−η) ≤ C‖f‖′_(α+2,0) + C_(ρ_c) ς^η ‖u‖_(α,0).
 
 Inserted in [[eq:i-c-6-9]] this gives ‖u‖_(α,0) + |c| ≤ C(‖f‖′_(α+2,0) + |e|) + C′_(ρ_c) ς^η ‖u‖_(α,0), and for
-ς ≤ c′_k with C′_(ρ_c)(c′_k)^η ≤ ½ the last term is absorbed. With c_k := min_(k′≤k) c′_(k′) this is
-[[eq:i-c-6-6]]. ∎
+ς ≤ c′_k with C′_(ρ_c)(c′_k)^η ≤ ½ the last term is absorbed. Put c_k := min(c_0^*, min_(k′≤k) c′_(k′)), with
+c_0^* > 0 the threshold of the proof of (2) below, which does not depend on the c_k. The c_k are non-increasing in k,
+and for 0 < |σ| ≤ c_k this is [[eq:i-c-6-6]]. ∎
 
 The argument is that of [Hin26c]: the zero energy estimate near zf, the tf estimate [Hin26c, (9.118)] near tf, and
 absorption through the factor ς^η; no symbolic estimate is used. One step differs: [Hin26c] absorbs the model error
@@ -1213,7 +1214,13 @@ ztf, α − η, is that of ℋ̇_ς^(−s,(−𝗋−α_+,−α,−η)), and whe
 [[lem:i-c-6-3]], and the regularity is then lowered to 1 − s. The absorption needs the H^(−s+2)-norm of w^* to be
 finite, and it is: on a neighbourhood of supp χ_tf, P̂(σ)^(*h)v = g, as the φ_j vanish there, and P̂(σ)^(*h) is
 elliptic at fibre infinity there, so [[prop:i-a-5-1]] in its strong form (the left side is finite when the right side
-is) gives v the regularity 2 − s there, with its decay orders. This gives [[eq:i-c-6-7]].
+is) gives v the regularity 2 − s there, with its decay orders.
+
+The absorptions are those of the proof of (1) at k = 0, with C_T now the constant of [[eq:i-c-5-2]] and the constants of
+[[eq:i-c-6-10]], of the adjoint terms (i)–(iv) and of the adjoint form of [[lem:i-c-6-3]] in place of theirs: ρ_c is
+fixed with C_T Cρ_c ≤ ¼, then ς ≤ ρ_c/8 with C_T Cς ≤ ¼, and the last absorption needs C′_(ρ_c)ς^η ≤ ½. These hold for
+0 < ς ≤ c_0^*, for some c_0^* > 0 determined by these constants alone. As c_0 ≤ c_0^* by its definition in the proof of
+(1), this gives [[eq:i-c-6-7]] for 0 < |σ| ≤ c_0.
 
 *(3).* 𝒫(σ) is P̂(σ) ⊕ 0 plus an operator of finite rank, so it is Fredholm by [[thm:i-a-7-2]] (3), and by
 [[eq:i-c-6-6]] at k = 0 it is injective. Let (v, d) ∈ 𝒴_σ^* ⊕ ℂ^(m_2) annihilate its range. Taking c = 0 and
@@ -1243,9 +1250,10 @@ Q = ρ³Q̃ and g_00 = ρ²g̃,
 
     ς⁻² S_ς A_i S_ς⁻¹ = 2iσ̂ρ̂(ρ̂∂_ρ̂ − 3/2 − S) − iσ̂ς²ρ̂³Q̃ + 2^i ς²σ̂²ρ̂²g̃,
 
-with coefficients smooth in (ςρ̂, ω) as in [[lem:i-c-6-3]]: indeed σT = ςσ̂(2iςρ̂(ρ̂∂_ρ̂ − 3/2 − S) − iς³ρ̂³Q̃) and
-σ²P_2 = ς⁴σ̂²ρ̂²g̃. Near sctf, ρ̂∂_ρ̂ uses one b-derivative and each factor ρ̂ raises the decay order by one, so the
-operator maps H_sc^((s′;k′+1),𝗋) to H_sc^((s′;k′),𝗋+1). Near ztf, ρ̂ = r̂⁻¹ lowers the b-weight by one, and
+with coefficients smooth in (ςρ̂, ω) as in [[lem:i-c-6-3]]: indeed, as ρ = ςρ̂, σ = ςσ̂ and ρ∂_ρ = ρ̂∂_ρ̂,
+S_ς(σT)S_ς⁻¹ = ςσ̂(2iςρ̂(ρ̂∂_ρ̂ − 3/2 − S) − iς³ρ̂³Q̃) and S_ς(σ²P_2)S_ς⁻¹ = ς⁴σ̂²ρ̂²g̃. Near sctf,
+ρ̂∂_ρ̂ uses one b-derivative and each factor ρ̂ raises the decay order by one, so the operator maps
+H_sc^((s′;k′+1),𝗋) to H_sc^((s′;k′),𝗋+1). Near ztf, ρ̂ = r̂⁻¹ lowers the b-weight by one, and
 H_(b,c−1)^(s′+k′) ⊂ H_(b,c−2)^(s′+k′) there (r̂ ≤ 2); and ς²ρ̂³ = ρ̂² · ςρ with ρ ≤ ρ_1. So it maps the ztf order q − l
 to q − l − 2, and ς^(−(l+4)) ‖S_ς A_i χ_∂u‖ ≤ C ς^(−(l+2)) ‖S_ς χ_∂u‖ in the norms of [[eq:i-c-6-1]]. ∎
 

@@ -10,8 +10,9 @@ own equation has no such coefficient; and the coupling is absorbed by a phase sh
 This is the mechanism of [Tou23a, Section 3.2.3, p. 21], with a compactly supported mollifier adapted to the slices in
 place of his Fourier cut-off.
 
-Throughout, g0, L0 = ∂_τ − x̂·∂_x, ℓ = g0⁻¹dv = −L0 and □̃ := g0^(ab) ∂_a ∂_b (acting componentwise) are those of
-[[prop:vaidya]], with the commutator identity [[eq:commutator]]. D and Ric^H are the gauge vector and the reduced Ricci
+Throughout, g0, L0 = ∂_τ − x̂·∂_x and □̃ := g0^(ab) ∂_a ∂_b (acting componentwise) are those of [[eq:background]] and
+[[sec:background]], ℓ = g0⁻¹dv = −L0 is that of [[prop:vaidya]] (c), and [[eq:commutator]] is the commutator identity
+of [[prop:vaidya]] (e). D and Ric^H are the gauge vector and the reduced Ricci
 tensor of [[eq:gauge]], so that Ric^H(g) = −(1/2) g^(ab) ∂_a ∂_b g + Q(X; g)(∂g, ∂g), with second derivatives of g
 entering only through the first term. The domain Ω of [[eq:omega]], its slices Σ_τ = A(τ) = {a ≤ |x| ≤ b(τ)}, the times
 τ0 < τ_end and the properties (a)–(f) of Ω are those of [[lem:domain]]. Profiles f(X, θ) on Ω × S¹, their evaluations

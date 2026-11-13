@@ -30,8 +30,8 @@ is a fixed large integer; every a priori term ‖χu‖_(−N′) below is with 
 in [[ch:s04]]), and N_E is the rank of the bundle E = ℂ^(N_E) of [[sec:ii-c-1-1]]. ϕ^u, ϕ^s and ϕ_u, ϕ_s denote the
 defining functions of hypersurfaces at the trapped set that [[ch:s02]] and [[ch:s05]] write φ^(u/s), φ_(u/s); here
 φ_ε is the regulariser of [[sec:ii-d-2]]. β_0 is the constant of (H3) at the horizon ([[eq:i-a-1-3]],
-[[eq:ii-b-4-1]]); the constant ½ min_Γ |q_1| > 0 of condition (Γ.4) of (H7) at the trapped set, which [[ch:s02]] and
-[[ch:s05]] also write β_0, is written β_Γ here.
+[[eq:ii-b-4-1]]); the constant ½ min_Γ |q_(z_0)| > 0 of condition (Γ.4) of (H7) at the trapped set, which [[ch:s02]]
+and [[ch:s05]] also write β_0, is written β_Γ here.
 
 ### The setting and the global estimate {#sec:ii-d-1}
 

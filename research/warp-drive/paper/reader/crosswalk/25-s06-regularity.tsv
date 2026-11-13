@@ -41,7 +41,7 @@ rem:ii-d-3-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:541-546	II.D Remark 
 sec:ii-d-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:548-571	II.D section 4, setting and (T1)-(T3)	D-tag at 551 dropped
 lem:ii-d-4-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:573-633	II.D Lemma 4.1	projection w renamed pi_Y, field N renamed N_Y; D-tag at 579 dropped
 eq:ii-d-4-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:588	II.D (4.1)	
-prop:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:635-932	II.D Proposition 4.2 = [Hin26c] Proposition 7.10 at n = 4, Steps 0-4	tags at 887-888, 892 dropped
+prop:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:635-932	II.D Proposition 4.2 = [Hin26c] Proposition 7.10 at n = 4, Steps 0-4	tags at 887-888, 892 dropped; delta_2 range narrowed to (0, 2^(-J_0-6) delta_1] and added to the choice of delta_2^(1), as G' and E' of (★) need it (fix round R-S06 item 2); half-step count J renamed 𝔫; beta_0 of (T1) written beta_Γ
 eq:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:641-642	II.D (4.2)	
 eq:ii-d-4-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:675-676	II.D (4.3)	
 eq:ii-d-4-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:724	II.D (4.4)	
@@ -51,7 +51,7 @@ eq:ii-d-4-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:785	II.D (4.7)
 eq:ii-d-4-8	docket68/n1star/proof5/PART-II-D-REGULARITY.md:803	II.D (4.8)	
 eq:ii-d-4-9	docket68/n1star/proof5/PART-II-D-REGULARITY.md:811-814	II.D (4.9)	
 eq:ii-d-4-10	docket68/n1star/proof5/PART-II-D-REGULARITY.md:826-828	II.D (4.10)	
-eq:ii-d-4-11	docket68/n1star/proof5/PART-II-D-REGULARITY.md:844-845	II.D (4.11)	
+eq:ii-d-4-11	docket68/n1star/proof5/PART-II-D-REGULARITY.md:844-845	II.D (4.11)	cross term C_δ𝒦X_ε added (the source omits it) and carried through Step 4 by Young's inequality (fix round R-S06 item 1)
 eq:ii-d-4-12	docket68/n1star/proof5/PART-II-D-REGULARITY.md:882	II.D (4.12)	
 eq:ii-d-4-13	docket68/n1star/proof5/PART-II-D-REGULARITY.md:912	II.D (4.13)	
 sec:ii-d-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:934-1041	II.D section 5, proof of Theorem 1.2	
@@ -59,11 +59,11 @@ sec:ii-d1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:18-50	II.D1 method 
 thm:ii-d1-1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:52-65	II.D1 Theorem 1.1 = [Hin26c] Proposition 7.11 at n = 4	weights of (1.2) as corrected in II.D1 (D'2), stated in sec:s06-remarks
 eq:ii-d1-1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:54-56	II.D1 (1.1)	
 eq:ii-d1-1-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:60-61	II.D1 (1.2)	
-sec:ii-d1-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:67-103	II.D1 section 2 setting, (C), (C2), (M)	loss index lambda renamed 𝔩; tag at 90 dropped
+sec:ii-d1-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:67-103	II.D1 section 2 setting, (C), (C2), (M)	loss index lambda renamed 𝔩; tag at 90 dropped; Q_(Jj) := 0, R_J := 0 and the J-cases of (C2) set to 0 (fix round R-S06 item 9)
 lem:ii-d1-2-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:105-122	II.D1 Lemma 2.1	
 eq:ii-d1-2-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:107	II.D1 (2.1)	
 eq:ii-d1-2-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:109-110	II.D1 (2.2)	
-eq:ii-d1-2-2-prime	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:124-132	II.D1 (2.2') (commuting letters)	displayed here; the source defines (2.2') in prose; tag at 132 dropped
+eq:ii-d1-2-2-prime	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:124-132	II.D1 (2.2') (commuting letters)	displayed here; the source defines (2.2') in prose; tag at 132 dropped; alpha<i,j> restricted to j < J as in the source prose; key renamed from eq:ii-d1-2-2p (fix round R-S06 items 3-4)
 lem:ii-d1-2-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:137-166	II.D1 Lemma 2.2	
 eq:ii-d1-2-3	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:141-142	II.D1 (2.3)	
 eq:ii-d1-2-4	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:143-144	II.D1 (2.4)	

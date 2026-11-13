@@ -1573,17 +1573,28 @@ norm-convergent subsequence, whose limit is the weak limit u). ∎
 ### Three remarks {#sec:ii-f1-7}
 
 **Remark {#rem:ii-f1-7-1}** (Relaxed ℵ-admissibility.) Let P_0 be ℵ-admissible with margin d_ℵ ≥ 0 (the relaxed version
-after [[def:ii-c-2-7]]). Then [[thm:ii-f1-1-1]] holds with d increased by ⌈d_ℵ⌉. Indeed, take 𝗌 as in [[lem:ii-f1-2-3]]
-with the margin m_0 + 2d_ℵ and 𝗌_0 := 𝗌 − 2 − d_ℵ. The margins of [[sec:ii-f1-2-3]] (with m_0 + 2d_ℵ for m_0) show: 𝗌_0
-< 𝗌 meet the hypotheses of [[thm:ii-e-6-1]]; 𝗌 − 2 = 𝗌_0 + d_ℵ is admissible with weights α_+, −ℵ and margin d_ℵ and
-with weights α_+, 0 and margin 1 + d_ℵ, so [[rem:ii-f-8-2]] gives ‖u‖_(X(𝗌_0;k)) ≤ C ‖P_0 u‖_(Y(𝗌−2;k)), which replaces
-[[eq:ii-f1-3-6]], the error (P_ε − P_0)u lying in Y(𝗌 − 2;k) by [[eq:ii-f1-2-13]]; and 𝗌 + d_ℵ is admissible with the
-same two pairs of weights and margins d_ℵ, 1 + d_ℵ (its upper margin at R_out with weights α_+, 0 being m_0 + 2d_ℵ − d_ℵ
-− δ + ℵ ≥ 1 + d_ℵ), so [[lem:ii-f1-2-9]] holds for f ∈ Y(𝗌 + d_ℵ;k), with u_ini of order 𝗌 + d_ℵ + 1 and v ∈ X(𝗌;k) by
-[[rem:ii-f-8-2]]. The absorption in [[prop:ii-f1-3-1]] is unchanged, as 𝗌_0 + d_ℵ + 2 = 𝗌. In [[sec:ii-f1-5]], f ∈ Y(𝗌 +
-d_ℵ;k+d′) needs k + d′ + d″ + ⌈d_ℵ⌉ ≤ k + d. This is [Hin26c, Remark 11.2] in dimension 4 + 1. [Hin26c] raises the
-margin by d_ℵ only; the second d_ℵ is needed in the existence step ([[lem:ii-f1-2-9]], [Hin26c, (11.16)]), where
-[[thm:ii-f-8-1]] loses d_ℵ.
+after [[def:ii-c-2-7]]), and put d̄_ℵ := ⌈d_ℵ⌉ ∈ ℕ₀. Then [[thm:ii-f1-1-1]] holds with d increased by d̄_ℵ, that is,
+with d := D_0 + D_1 + d′ + d″ + d̄_ℵ in [[eq:ii-f1-3-3]], the constants of [[sec:ii-f1-3-1]] being taken for the orders
+below, and those of the slab propositions (d^S_0, d^S) for the slab orders 𝗌 and 𝗌 + d̄_ℵ + 1.
+
+Indeed, P_0 is then ℵ-admissible with margin d̄_ℵ: an order admissible with margin d̄_ℵ is admissible with margin d_ℵ,
+so (1)–(2) of [[def:ii-c-2-7]] hold for it, and (3) bounds u at the order 𝗌 − d_ℵ, hence at the order 𝗌 − d̄_ℵ ≤ 𝗌 − d_ℵ.
+The orders are shifted by the integer d̄_ℵ, and not by d_ℵ, because the tame estimates [[eq:ii-e-6-2]] and
+[[eq:ii-e-4-4]] and the extension of [[lem:ii-f1-2-5]] need orders that are constant integers near {r ≤ r_0}. Take 𝗌 as
+in [[lem:ii-f1-2-3]] with the margin m_0 + 2d̄_ℵ and with s_in ≥ 4 + d̄_ℵ (its proof allows every integer s_in above a
+bound), and 𝗌_0 := 𝗌 − 2 − d̄_ℵ. Over Ω_♮ the orders 𝗌_0, 𝗌 − 2, 𝗌, 𝗌 + d̄_ℵ and 𝗌 + d̄_ℵ + 1 used below equal the
+integers s_in − 2 − d̄_ℵ ≥ 2, s_in − 2, s_in, s_in + d̄_ℵ and s_in + d̄_ℵ + 1. The margins of [[sec:ii-f1-2-3]] (with
+m_0 + 2d̄_ℵ for m_0) show: 𝗌_0 < 𝗌 meet the hypotheses of [[thm:ii-e-6-1]]; 𝗌 − 2 = 𝗌_0 + d̄_ℵ is admissible with
+weights α_+, −ℵ and margin d̄_ℵ and with weights α_+, 0 and margin 1 + d̄_ℵ, so [[rem:ii-f-8-2]] with margin d̄_ℵ gives
+‖u‖_(X(𝗌_0;k)) ≤ C ‖P_0 u‖_(Y(𝗌−2;k)), which replaces [[eq:ii-f1-3-6]], the error (P_ε − P_0)u lying in Y(𝗌 − 2;k) by
+[[eq:ii-f1-2-13]]; and 𝗌 + d̄_ℵ is admissible with the same two pairs of weights and margins d̄_ℵ, 1 + d̄_ℵ (its upper
+margin at R_out with weights α_+, 0 being m_0 + 2d̄_ℵ − d̄_ℵ − δ + ℵ ≥ 1 + d̄_ℵ), so [[lem:ii-f1-2-9]] holds for
+f ∈ Y(𝗌 + d̄_ℵ;k), with u_ini of order 𝗌 + d̄_ℵ + 1 and v ∈ X(𝗌;k) by [[rem:ii-f-8-2]]. The absorption in
+[[prop:ii-f1-3-1]] is unchanged, as 𝗌_0 + d̄_ℵ + 2 = 𝗌. In [[sec:ii-f1-5]], f ∈ Y(𝗌 + d̄_ℵ;k+d′) needs
+k + d′ + d″ + d̄_ℵ ≤ k + d, as 𝗌 + d̄_ℵ ≤ d″ + d̄_ℵ.
+
+This is [Hin26c, Remark 11.2] in dimension 4 + 1. [Hin26c] raises the margin by d_ℵ only; the second shift is needed in
+the existence step ([[lem:ii-f1-2-9]], [Hin26c, (11.16)]), where [[thm:ii-f-8-1]] loses d_ℵ.
 
 **Remark {#rem:ii-f1-7-2}** (No loss of b-regularity.) The absorption in [[prop:ii-f1-3-1]] and [[prop:ii-f1-4-1]] uses
 that [[thm:ii-e-6-1]] is lossless in the b-regularity: both u and P_ε u carry k b-derivatives. If it needed k + 1 on

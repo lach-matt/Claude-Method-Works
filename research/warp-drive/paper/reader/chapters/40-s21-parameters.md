@@ -79,18 +79,18 @@ forward solutions of [[ch:s19]] and [[ch:s20]], which hold with the inner radius
 scale-free or far out ({|x| ≥ 4R_1} in [[lem:iii-i7-1-1]] (c), {|x| ≤ 5R_1} for the cut-offs), and its weights are
 fixed at infinity and at K⁺. So every result of this chapter holds with the inner radius r_0 as a parameter.
 
-*Notation.* In this chapter λ denotes an exponent at ι⁺ (an element of the projection π_1 of an index set), as
-in [Hin26]; the wavelength of the main argument does not occur. A pair (λ, k) ∈ ℂ × ℕ₀ is an element of an index
-set, and λ_♯ := 3/2 + (1 − e_Υ)γ_Υ is the least real part of the radiative index set ℰ^♯_+ of
-[[eq:iii-i1-3-2]]. A root of the indicial family 𝒲(ℓ_K) of [[sec:iii-g2-1]] is written μ, and the indicial roots of the gauge potential operator □^Υ are
+*Notation.* In this chapter λ denotes an exponent at ι⁺ (an element of the projection π_1 of an index set), as in
+[Hin26]; the wavelength of the main argument does not occur. A pair (λ, k) ∈ ℂ × ℕ₀ is an element of an index set, and
+λ_♯ := 3/2 + (1 − e_Υ)γ_Υ is the least real part of the radiative index set ℰ^♯_+ of [[eq:iii-i1-3-2]]. A root of the
+indicial family 𝒲(ℓ_K) of [[sec:iii-g2-1]] is written μ, and the indicial roots of the gauge potential operator □^Υ are
 ι^Υ_(s0,2), ι^Υ_(s1,2) as in [[eq:iii-d-4-1]]. The black hole parameters are b = (m, A), b_0 = (m_0, 0). Weights are
 listed at (𝓘⁺, ι⁺, K⁺), with the defining functions ρ_I, ρ_+, ρ_K, and ρ_0 at spatial infinity I_0; Ω_*, t^♭_*, the
 density μ_b and the spaces H^(k,(…),(…),…)_b(Ω_*)^(•,−) of tensors vanishing near {t^♭_* = 1} are those of
 [[sec:iii-i-1]], and the class of perturbations is 𝒳^k := H^(k,(⟨ℰ^C_I⟩,a_I),(ℰ_+,a_+),a_K)_b(Ω_*; S²T*)
-([[eq:iii-i-1-4]]), with a_I > 3/2, a_+ > 1, a_K > 2 and the index set ℰ_+ of [[eq:iii-i-1-3]]. We write
-m_+ := min(a_+, min Re ℰ_+), ‖h‖ for the 𝒳^d-norm, a ⊗_s b := ½(a ⊗ b + b ⊗ a), and 𝒜^ℰ for the polyhomogeneous
-sections with index set ℰ, near ι⁺ or near infinity in X̄ as stated. For an index set ℰ and w ∈ ℝ, ℰ + w is the
-shifted set and (ℰ, w) the data "index set ℰ, remainder weight w".
+([[eq:iii-i-1-4]]), with a_I > 3/2, a_+ > 1, a_K > 2 and the index set ℰ_+ of [[eq:iii-i-1-3]]. We write m_+ := min(a_+,
+min Re ℰ_+), ‖h‖ for the 𝒳^d-norm, a ⊗_s b := ½(a ⊗ b + b ⊗ a), and 𝒜^ℰ for the polyhomogeneous sections with index set
+ℰ, near ι⁺ or near infinity in X̄ as stated. For an index set ℰ and w ∈ ℝ, ℰ + w is the shifted set and (ℰ, w) the data
+"index set ℰ, remainder weight w".
 
 ### Undoing the parameter changes: the translated background {#sec:iii-i7-1}
 

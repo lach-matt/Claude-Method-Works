@@ -1263,10 +1263,11 @@ strong sense. Hence [[eq:i-a-7-1]] holds in the strong sense with the error term
 orders s₀ < s and 𝗋₀ < 𝗋 that are still above the thresholds at ∂ℛ_± and at R_in: if the right side is finite, so is
 the left. Likewise for [[eq:i-a-7-2]], with an a priori order at R_out.
 
-**Remark {#rem:i-a-index-zero}** (Index zero.) Under the hypotheses of [[thm:i-b-1-3]] the index in [[thm:i-a-7-2]]
-(3) is 0. It is constant on {σ ≠ 0, Im σ ≥ 0} by [[thm:i-a-7-2]] (3), and [[thm:i-b-1-3]] (3) gives σ in that set at
-which P̂(σ) : 𝒳_σ → 𝒴_σ is invertible. The proof of [[thm:i-b-1-3]] (3) uses of [[thm:i-a-7-2]] only the Fredholm
-property in (3), so the argument is not circular. This is [Hin26c, Theorem 9.16 (3)] in dimension 4 + 1.
+**Remark {#rem:i-a-index-zero}** (Index zero; compare [Hin26c, Theorem 9.16 (3)].) Under the hypotheses of
+[[thm:i-b-1-3]] the index in [[thm:i-a-7-2]] (3) is 0. It is constant on {σ ≠ 0, Im σ ≥ 0} by [[thm:i-a-7-2]] (3), and
+[[thm:i-b-1-3]] (3) gives σ in that set at which P̂(σ) : 𝒳_σ → 𝒴_σ is invertible; the kernel and the annihilator of
+the range, hence the index, do not depend on the admissible orders. The proof of [[thm:i-b-1-3]] (3) uses only the
+Fredholm property of [[thm:i-a-7-2]] (3), so the argument is not circular.
 
 #### The Fredholm estimates {#sec:i-a-7-1}
 
@@ -1298,19 +1299,20 @@ For each k choose B_k elliptic on WF′(Q_k) from the corresponding estimate, so
 ‖Q_ku‖_𝐬 ≤ C(‖B_ku‖_𝐬 + ‖u‖_(−𝐌)). Let δ_in > 0 be the margin of the threshold at R_in in [[eq:i-a-1-5]], so that
 𝗋 + α₊ ≥ (−1 + ϑ_in)/2 + δ_in there.
 
-*The estimates, in order.* (A): [[prop:i-a-4-2]] (1), with s_c > s₀ > ½ + ϑ_ℋ, gives
-‖B_Au‖_(s_c) ≤ C(‖GP̂u‖_(s_c−1) + ‖Gu‖_(s₀) + ‖u‖_(−M)). (B): by (H4) every point of ∂Σ₀ over {r ≥ b′} outside U′_ℋ
-lies on a curve of 𝖧 whose backward continuation enters U′_ℋ in finite time. [[prop:i-a-5-2]], in the use (i) of
-[[rem:i-a-5-2-uses]], with E microsupported in Ell(B_A), applies along it. By compactness finitely many curves
-suffice. (Near r = b′ such a curve stays over {r > r₀} backward, since r increases backward.) (C): [[prop:i-a-4-6]]
-(1), with 𝗋₀ := 𝗋 − δ_in/2 at R_in. (D): by [[lem:i-a-4-5]] every point of Σ^∂_(σ₀) outside U′_in ∪ U′_out lies on a
-curve of ε₀𝖧_(σ₀) whose backward continuation enters U′_in. [[prop:i-a-5-2]], in the use (ii), applies, with E in
-Ell(B_C) and the order monotone by (O2). (E): [[prop:i-a-4-9]] (1), with E elliptic on the set K_E^∗ of
-[[lem:i-a-3-2]] and microsupported near it, U′_out being chosen disjoint from K_E^∗; the part of K_E^∗ on Σ^∂_(σ₀)
-lies in the region (D), and its part off Σ^∂_(σ₀) lies in (F). (F): [[prop:i-a-5-1]]. Each E-term is bounded by the
-estimates of earlier pieces. Each ‖GP̂(σ)u‖ is at most C‖P̂(σ)u‖_(H̄^(𝐬′)), since G has kernel supported in X̄°. The
-orders used are those of 𝐬, through (O1)–(O3): at fibre infinity over the compact region only s_c matters, at the
-boundary face only 𝗋 + α₊, and at the corner both, by ellipticity.
+*The estimates, in order.* (A): [[prop:i-a-4-2]] (1), with s_c > s₀ > ½ + ϑ_ℋ, gives ‖B_Au‖_(s_c) ≤ C(‖GP̂u‖_(s_c−1) +
+‖Gu‖_(s₀) + ‖u‖_(−M)). (B): by (H4) every point of ∂Σ₀ over {r ≥ b′} outside U′_ℋ lies on a curve of 𝖧 whose backward
+continuation enters U′_ℋ in finite time. [[prop:i-a-5-2]], in the use (i) of [[rem:i-a-5-2-uses]], with E microsupported
+in Ell(B_A), applies along it. By compactness finitely many curves suffice. (Near r = b′ such a curve stays over {r >
+r₀} backward, since r increases backward.) (C): [[prop:i-a-4-6]] (1) at the decay order 𝗋 + α₊, which is constant near
+R_in, with the a priori decay order 𝗋 + α₊ − δ_in/2 there; this lies above (−1 + ϑ_in)/2 by the choice of δ_in. (D): by
+[[lem:i-a-4-5]] every point of Σ^∂_(σ₀) outside U′_in ∪ U′_out lies on a curve of ε₀𝖧_(σ₀) whose backward continuation
+enters U′_in. [[prop:i-a-5-2]], in the use (ii), applies, with E in Ell(B_C) and the order monotone by (O2). (E):
+[[prop:i-a-4-9]] (1), with E elliptic on the set K_E^∗ of [[lem:i-a-3-2]] and microsupported near it, U′_out being
+chosen disjoint from K_E^∗; the part of K_E^∗ on Σ^∂_(σ₀) lies in the region (D), and its part off Σ^∂_(σ₀) lies in (F).
+(F): [[prop:i-a-5-1]]. Each E-term is bounded by the estimates of earlier pieces. Each ‖GP̂(σ)u‖ is at most
+C‖P̂(σ)u‖_(H̄^(𝐬′)), since G has kernel supported in X̄°. The orders used are those of 𝐬, through (O1)–(O3): at fibre
+infinity over the compact region only s_c matters, at the boundary face only 𝗋 + α₊, and at the corner both, by
+ellipticity.
 
 *The artificial boundary.* By [[eq:i-a-6-1]], ‖χu‖_(H̄^s) ≤ C(‖P̂(σ)u‖_(H̄^(s−1)) + ‖χ₁u‖_(H^s)). The function χ₁u
 is compactly supported in {b′ < r < b″}, so ‖χ₁u‖_(H^s) is bounded by the pieces (B) and (F) over that region, at
