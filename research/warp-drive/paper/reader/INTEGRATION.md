@@ -382,3 +382,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Envelope: sin⁴(π(v − ½)/3) is C³, not C⁴; used at 10:820, 62:109-110, possibly chapter 86 and the λ0 statements.
   Chapter 2 (388-391) now says the thresholds use only the support and ∫env². An audit (A-envelope) decides what
   regularity the main theorem needs and which envelope λ0 uses.
+- Proof H (L.24): the source's m0′ − |S′| ≥ 0.93κm0 at R ≤ 1.1 is false (0.9000 at R = 1.1); 0.89 is proved and L.24's
+  per-period decrease 1.7πλκm0 still holds, so chapter 85 replaces 0.93 by 0.89 and cites P-H's results; chapter 85 must
+  supply |S′| ≤ 1.001κ|S| and |S| ≤ 1.001Rm0 (first-degree horizon value). The source's sampled check also misreported
+  m0′/(κm0) (quadrature error). The reader rules on 'm0 ≥ cε²' (source ~2137).

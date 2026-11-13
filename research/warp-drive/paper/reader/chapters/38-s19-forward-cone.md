@@ -279,9 +279,9 @@ elements are extended.
 
     ‖uv‖_(H^k_b) ≤ C_k (‖u‖_(L^∞) ‖v‖_(H^k_b) + ‖u‖_(H^k_b) ‖v‖_(L^∞)).
 
-Applied to w⁻¹u and w′⁻¹v, for weights w and w′, this bounds uv in ww′H^k_b(Ω_*). Applied twice, a product of three
-factors is bounded in H^k_b by (1 + C_k)² times the sum, over the factors, of the H^k_b-norm of one factor times the
-L^∞-norms of the other two.
+Applied to w⁻¹u and w′⁻¹v, for weights w and w′, this bounds uv in ww′H^k_b(Ω_*). Applied r − 1 times, a product of
+r factors in H^k_b(Ω_*) ∩ L^∞(Ω_*) is bounded in H^k_b by (1 + C_k)^(r−1) times the sum, over the factors, of the
+H^k_b-norm of one factor times the L^∞-norms of the others.
 
 (b) Let k ≥ 1. A function u ∈ L²(Ω_*, μ_b) lies in H^k_b(Ω_*) if and only if Vu ∈ H^(k−1)_b(Ω_*) for every V ∈ 𝒱_0,
 the derivatives taken as distributions on the interior of Ω_*; and ‖u‖_(L²) + Σ_(V∈𝒱_0) ‖Vu‖_(H^(k−1)_b) is an
@@ -455,8 +455,8 @@ In dimension 3 + 1 the same count gives ρ_+³, the order P(g_0, g_0) ∈ ρ_+³
 **Corollary {#cor:iii-i-4-2}** (The gauge-fixed Einstein operator; [Hin26, Corollary 11.9] in dimension 4 + 1.) Let
 g_0 = g_(b₀,b,−S) with |b − b₀| and |S| small, and g = g_0 + h with h ∈ 𝒳^∞ of small H^(3,(1,0,0))_b-norm. Then
 
-    P_0(h, S, b) := P(g, g_0) = Ric(g) − δ^*_(g_0,E_C) Υ^(E_Υ)(g, g_0)
-                 ∈ H^(∞,(⟨ℰ_I^C+1⟩′,a_I+1),(ℰ_++2,a_++2),a_K)_b(Ω_*).                                   {#eq:iii-i-4-3}
+    P(g, g_0) = Ric(g) − δ^*_(g_0,E_C) Υ^(E_Υ)(g, g_0)
+              ∈ H^(∞,(⟨ℰ_I^C+1⟩′,a_I+1),(ℰ_++2,a_++2),a_K)_b(Ω_*).                                      {#eq:iii-i-4-3}
 
 *Proof.* P(g_0, g_0) = Ric(g_0), as Υ^(E_Υ)(g_0, g_0) = 0 (the proof of [[cor:iii-c-5-3]]). By [[lem:iii-i-4-3]] it
 lies in ρ_+⁴C^∞, with support whose closure meets ∂M in a compact subset of (ι⁺)°, and (4, 0) ∈ ℰ_+ + 2 as
@@ -550,7 +550,8 @@ constants independent of b and continuity in b.
 
 *Proof.* Apply [[thm:ii-f1-1-1]] in the form of [[cor:ii-f1-1-2]], with P_0 := 2L_(b₀), ℵ = 2, the sf-weight
 α_+ := β_+ − 5/2 and α_I := β_I − 2, and with [[rem:ii-f1-7-1]] for the relaxed admissibility with margin d_ℵ = 1
-(d raised by 1). Its hypotheses hold.
+(d raised by 1). Write ε′_0 for the ε_0 of [[thm:ii-f1-1-1]], the threshold for ‖P − P_0‖_((0;d)). Its hypotheses
+hold.
 
 (i) P_0 is 2-admissible with sf-weight α_+, sf-loss 0 and margin 1, by [[thm:iii-h1-1-3]] at b₀ for every k, as
 α_+ + 2 = β_+ − ½ ∈ (0, 1), for the orders of [[ch:s09]], which lie in 𝒪_c by [[lem:iii-i-5-1]]. [[eq:ii-f-8-6]], where
@@ -564,9 +565,18 @@ the admissibility enters ([[rem:ii-f-8-2]]), uses these orders over K⁺ with th
 ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], by [[cor:iii-i-5-2]] with h ∈ 𝒳^(k+d+5) (d raised by 5), and
 ‖P − P_0‖_((0;d)) ≤ C(|S| + ‖h‖_(𝒳^(d+5))) < ε′_0 for ε_0 small ([[prop:iii-i-3-4]], [[eq:iii-i-3-7]]).
 
-The tame form: ‖P − P_0‖_((0;k+d)) ≤ C_k(|S| + ‖h‖_(𝒳^(k+d+5))) by [[eq:iii-i-3-7]], whose coefficients are polynomial
-in h, g⁻¹ and their derivatives, with tame (Moser) bounds in the b-regularity for ‖h‖_(𝒳^(d+5)) small (the tame
-product estimates of [[sec:ii-a-9]]). With [[eq:ii-f1-1-5]] and C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is
+The tame form: for ‖h‖_(𝒳^(d+5)) small, ‖P − P_0‖_((0;k+d)) ≤ C_k(|S| + ‖h‖_(𝒳^(k+d+5))), with C_k independent of S
+and h. By Sobolev embedding, as in [[cor:iii-i-5-2]] (2), the left side is at most C times the norm of the coefficients
+of P − P_0 in the H^(k+d+3)_b-space of [[eq:iii-i-3-7]]. By [[lem:iii-c-4-3]] with (g′, g_0′) = (g_(b₀), g_(b₀)), and
+the counting of the proof of [[prop:iii-i-3-4]], each coefficient is a sum of products of functions in C^∞_b, of
+components of g⁻¹ − g_(b₀)⁻¹ and g_0⁻¹ − g_(b₀)⁻¹, and of b-derivatives of order at most two of δ := g − g_(b₀) and
+δ_0 := g_0 − g_(b₀), each product containing a factor of the last kind, which carries the weight. By
+[[lem:s19-products]] (a), with weights, and (c), each product is bounded in that space by C times the
+H^(k+d+3)_b-norm of one factor times the L^∞-norms of the others. [[lem:s19-inverse]], with g_1 := g_(b₀), bounds
+the H^m_b-norms of g⁻¹ − g_(b₀)⁻¹ and g_0⁻¹ − g_(b₀)⁻¹ by C‖δ‖_(H^m_b) and C‖δ_0‖_(H^m_b); the L^∞-norms, with the
+weight on the factor that carries it, are at most C(|S| + ‖h‖_(𝒳^(d+5))) by [[lem:s19-products]] (c); and the
+weighted norms of δ and δ_0 of order k + d + 5 are at most C(|S| + ‖h‖_(𝒳^(k+d+5))) ([[lem:iii-i-3-6]]). With
+[[eq:ii-f1-1-5]] and C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is
 [[eq:iii-i-5-2]]. The weights: [[cor:ii-f1-1-2]] with b_I = α_I + 2 = β_I, b_+ = α_+ + 5/2 = β_+, sf-loss 0, and the
 K⁺-weights ½ for f and −ℵ + ½ = −3/2 for u. Continuity: the last statement of [[thm:ii-f1-1-1]], P depending
 continuously on (S, h) in the norm of [[eq:iii-i-3-7]]. ∎
@@ -650,13 +660,13 @@ verbatim with G_b, its margins (𝖧f_T ≥ ϱ⁻¹ against 2ϱ⁻¹, 𝖧f_W �
 [[sec:iii-h2-1]]–[[sec:iii-h2-4]] are stated and proved on B̄_1, with constants uniform there; their proofs use only
 (B1)–(B4). Then fix an open B_* ∋ b₀ with B̄_* ⊂ B_1 and
 
-(B5) |b − b₀| so small, for b ∈ B̄_*, that ‖P − 2L_b‖_((0;d)) < ε_0 of [[thm:iii-h2-4-1]] in [[cor:iii-h2-5-1]] for |S|
-and ‖h‖ small ([[prop:iii-i-3-4]], [[eq:iii-i-3-7]]).
+(B5) |b − b₀| so small, for b ∈ B̄_*, that in [[cor:iii-h2-5-1]] ‖P − 2L_b‖_((0;d)) < ε′_0, the ε_0 of
+[[thm:iii-h2-4-1]], for |S| and ‖h‖ small ([[prop:iii-i-3-4]], [[eq:iii-i-3-7]]).
 
-This is the only condition on B_* in this chapter; [[ch:s25]] shrinks B_* further. [[thm:iii-h2-3-1]] and
+This is the only condition on B_* in this chapter; [[ch:s20]] and [[ch:s25]] shrink B_* further. [[thm:iii-h2-3-1]] and
 [[thm:iii-h2-4-1]] apply the slab estimates of [[ch:s07]] relative to 2L_b itself, so no condition on slabs enters
 (B5). The choices are made in this order: B_1 by (B1)–(B4); the constants of [[sec:iii-h2-1]]–[[sec:iii-h2-4]],
-uniform on B̄_1; then B_* by (B5), which involves only the ε_0 of [[thm:iii-h2-4-1]]. So nothing is circular, and every
+uniform on B̄_1; then B_* by (B5), which involves only the threshold ε′_0 of [[thm:iii-h2-4-1]]. So nothing is circular, and every
 statement of [[sec:iii-h2-1]]–[[sec:iii-h2-4]] holds a fortiori on B̄_*.
 
 Put f_b := |dg_b|/(|dt_*| |dx|), a smooth positive stationary function, smooth in b.

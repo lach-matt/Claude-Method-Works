@@ -1931,7 +1931,7 @@ coefficient that of −Ā_1ω̆̄^(k−1), of scalar type 1, and −k is no s1 r
 leading term the model's ω̆̄^k_s1. By [[eq:iii-d3-1-4]],
 h̆^k = (δ*_(g_b))^(0)ω̆^k + dt_* ⊗_s ω̆^(k−1) ∈ 𝒜^((−k+1,0)∪…). Its ρ⁻¹ term at k = 2 is h̄²_s1(S), which is half the
 symmetric gradient of t_*²ω̄_s1 + 2t_*ω̆̄¹_s1 + 2W̄_2, stationary because t_*ω̄_s1 + ω̆̄¹_s1 is a boost, and nonzero
-for S ≠ 0 ([[prop:np-10-29]] (ii), as e_Υ ≤ ϵ_1 < 4/7).
+for S ≠ 0 ([[prop:np-10-29]] (ii), as e_Υ > 0).
 
 *(3).* For k = 1: ω_v1 := ω^(−1)_(b,v1)(V) = V + 𝒜^((2,0)∪…), and −A_1ω_v1 has ρ⁻² of it with m_* = −2 and leading
 coefficient that of −Ā_1V, of vector type 1; −2 is no v1 root (R3), so [[lem:iii-d3-2-1]] gives ω̆¹ with leading
@@ -1962,6 +1962,11 @@ their degrees are [Hin26]'s, chosen there to capture the pure gauge contribution
 expansion on Kerr. Which window dimension 4 + 1 needs is decided by the decay proved in [[ch:s19]]–[[ch:s24]]; if it
 is wider, the same construction applies to the further roots, given the corresponding root facts. (c) *No logarithm in
 (1).* [Hin26]'s ω̆^((0),1)_(b,s0) lies in 𝒜^((−1,0)∪(0,1)∪(1+ℰ_ind)), with log ρ at the s0 root 0, from the ρ² term of
-its right side; in dimension 4 + 1 that term vanishes. (d) The coefficients β_e and (a_2, b_2, k_2) of
-[[prop:np-10-29]] carry e_Υ⁻¹: at e_Υ = 0, −1 at s0 and −2 at s1 are indicial roots of P_b, the integer coincidences
-that e_Υ > 0 removes [Hin26, p. 81]. The same coincidences at e_Υ = 0 are those of [[prop:np-10-30]] (iv) at z = 0.
+its right side, which on Schwarzschild is (2M, 2M(2γ_Υ + 1)) on (dt, dr) ([[prop:np-10-29]] (iv)); in dimension
+4 + 1 that term vanishes ([[prop:np-10-29]] (i)). (d) The coefficients β_e and (a_2, b_2, k_2) of [[prop:np-10-29]]
+carry e_Υ⁻¹, in both dimensions: at e_Υ = 0, −1 at s0 and −2 at s1 are indicial roots of P_b, the integer coincidences
+that e_Υ > 0 removes [Hin26, p. 81]. The same coincidences at e_Υ = 0 are those of [[prop:np-10-30]] (iv) at z = 0,
+and [[prop:np-10-30]] (vi) shows what they do to the model recursion, for every γ_Υ ≠ 0: at the first step of the class
+−l the recursion has no solution, so that a solution there needs a term ρ^(−l−1)log ρ, while for the class 1 − l the
+first two steps are solvable, for exactly one choice of the free kernel coefficient. Whether the stationary correction
+of the class μ_(l,1) needs a logarithm at e_Υ = 0 is not determined here; with e_Υ > 0 none of these cases arises.

@@ -249,8 +249,8 @@ where H(r_k, x_l) is given by [[eq:cone-data]] and [[eq:cone-w]] through values 
 r_k. Each node value is thus a finite sum of products of the tabulated coefficients with cosines of rational
 multiples of π, together with one value of H. Arranged as Σ_j T_j(x_l) Σ_i (…), all node values of a seed take about
 2 × 10⁵ multiplications at the first seed and 4 × 10⁵ at the second. At the nodes, |G₁| and |F| are at most
-3.1 × 10⁻² at the first seed and 1.5 × 10⁻² at the second, and they cancel. At the end nodes k = 0 and k = n, where
-φ = φ′ = 0, H = F = 0 and G = G₁.
+3.1 × 10⁻² at the first seed and 1.5 × 10⁻² at the second, and they cancel. At the end nodes k = 0 and k = n, that
+is r_k = r_e and r_k = r_s, φ = φ′ = 0, so H = F = 0 and G = G₁.
 
 *The data fix the node values to within 10⁻¹⁶.* The coefficients C_(ij) are exact decimals: they define S. Besides
 them and the angles, G₁ depends only on ℓ, and F only on r_k = c + ℓ t_k. The twenty-decimal values of c and ℓ in
@@ -260,9 +260,8 @@ them and the angles, G₁ depends only on ℓ, and F only on r_k = c + ℓ t_k. 
 neighbourhood of E_ϱ and bounded there by 4Ā². Put δ_ϱ := (ϱ + ϱ^(−1))/2 − 1, which is 1/4 at the first seed and
 1/12 at the second. For real t within δ_ϱ/2 of [−1, 1], every point of the disc of radius δ_ϱ/2 about t lies within
 δ_ϱ of a point of [−1, 1], so the sum of its distances to ±1 is at most 2 + 2δ_ϱ = ϱ + ϱ^(−1); the disc therefore
-lies in E_ϱ, and Cauchy's estimate gives |∂_tH| ≤ 8Ā²/δ_ϱ. Since
-r_k + D_k(x_l) = R_app(r_k, x_l), whose modulus is at most R̄ ([[lem:cone-ellipse]] (iv)), for real r within ℓδ_ϱ/2
-of r_k
+lies in E_ϱ, and Cauchy's estimate gives |∂_tH| ≤ 8Ā²/δ_ϱ. Since r_k + D_k(x_l) = R_app(r_k, x_l) has modulus at
+most R̄ ([[lem:cone-ellipse]] (iv)), |r + D_k(x_l)| ≤ R̄ + 1 for real r within ℓδ_ϱ/2 of r_k, and there
 
     |Φ′(r)| ≤ (4/9)(ℓ^(−1) (8Ā²/δ_ϱ)(R̄ + 1) + 4Ā²) = (16/9) Ā² (2(R̄ + 1)/(ℓ δ_ϱ) + 1) ≤ 2.3 × 10³
 
@@ -346,7 +345,7 @@ most 2.56 × 10⁻⁸ and 2.72 × 10⁻⁸ at the first seed, and 6.85 × 10⁻�
 
 The proof gives more than the proposition states: |Ric_vv[g_app]| ≤ 1.3 × 10⁻⁸ at the first seed and
 ≤ 6.3 × 10⁻⁸ at the second. The two terms on the right of [[eq:cone-raychaudhuri]] cancel in Ric_vv, and the second
-of them is s. At x = −1, [[eq:cone-w]] gives H = 4B², w = (8/9) B² and s = (2/3) f² B². At the first seed and
+of them is −s. At x = −1, [[eq:cone-w]] gives H = 4B², w = (8/9) B² and s = (2/3) f² B². At the first seed and
 r = 10.73, [[eq:cone-v]] and [[eq:cone-data]] give v = 1.47373… and B = 3.9165 × 10⁻², so s = 1.0049 × 10⁻³; at the
 second seed and r = 10.98, v = 1.97801… and B = 2.7668 × 10⁻², so s = 5.019 × 10⁻⁴. With [[lem:cone-w]], sup s lies
 between 1.00 × 10⁻³ and 1.46 × 10⁻³ at the first seed and between 5.0 × 10⁻⁴ and 6.3 × 10⁻⁴ at the second. So the

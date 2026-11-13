@@ -33,7 +33,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | running |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | running |
-| 42 S23 | NOT CONFIRMED 0M 5m 12n | done | NOT CONFIRMED 0M 4m 3n; second fix running |
+| 42 S23 | NOT CONFIRMED 0M 5m 12n | done | NOT CONFIRMED 0M 4m 3n; second fix done; third reading running |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | running (38a and 44) |
 | 45 S26 | running | - | - |
@@ -57,6 +57,6 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | NOT CONFIRMED 1M 9m 9n (constants weaker than source); fix running |
 | P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | running |
 | P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | running; every-h and remote roots: P-A3 being written |
-| P-H-l24 (L.24 m0′, for 85) | being written (gap found by the F reader) | - |
+| P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | running |
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | running |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | running |
