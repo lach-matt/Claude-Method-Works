@@ -200,9 +200,9 @@ perturbation of first degree in the waves exactly and bound the rest by the marg
 
 ### The spheres' horizon at equality {#sec:eq-horizon}
 
-Let C_θ be the constant C3 of [[eq:theta-plus-close]] in the proof of [[prop:one-zero]], so that the functions
-|θ⁺_λ − θ⁺_0| and |∂_r(θ⁺_λ − θ⁺_0)| are at most C_θ λ on the columns, θ⁺_0 := θ⁺(g0); let R_max be the largest r on
-the columns, c_θ := 3/(R_max² + μ(v_end)), and C_h := C_θ/c_θ.
+Let C_θ be the constant C3 of [[eq:theta-plus-close]] in the proof of [[prop:one-zero]], so that on the columns the
+functions θ⁺_λ − θ⁺_0 and ∂_r(θ⁺_λ − θ⁺_0) are at most C_θ λ in absolute value, θ⁺_0 := θ⁺(g0); let R_max be the
+largest r on the columns, c_θ := 3/(R_max² + μ(v_end)), and C_h := C_θ/c_θ.
 
 **Proposition {#prop:eq-horizon}** (The spheres' horizon at equality.) Let K ≥ 6 and λ ≤ λ_H ([[prop:one-zero]]), λ
 small.
@@ -270,8 +270,8 @@ Since v is constant along γ_X, every bound weighted by ε_c(v) holds with the s
 *Constants.* In this and the following sections C denotes a constant depending on N, the order of differentiation, Ω
 (through a, δ0, b(τ0) and τ_end − τ0), μ0, A, finitely many norms sup |env^(i)|, the bounds of the profiles of
 [[thm:approximant]] and of the stage data of [[lem:stage-data]] on Ω × S¹ (each smooth with all derivatives bounded
-independently of λ), the number C of [[thm:uniform-existence]] and C1 of [[eq:eq-c1]]; never on λ, v, v1 or the
-point.
+independently of λ), the constants of [[thm:uniform-existence]] and of Step 1 of its proof, and C1 of [[eq:eq-c1]];
+never on λ, v, v1 or the point.
 
 ### The seed's operators on one harmonic {#sec:layer-operators}
 
@@ -345,7 +345,7 @@ For the trace: g0° is parallel, so tr □h = □ tr h = 0 for h in 𝔖, and tr
 statements about every h in 𝔖, so they hold for dRic^H(h) and, applied to H e^(iv/λ) with H in 𝔖, order by order in λ:
 for R_X H as well as for 𝒯H.
 
-(e) By the same parity, R_(vAϑB) h^(AB) = 0, three indices being angular, so 𝔚(h)_vA = 0. For h with only angular
+(e) By the same parity, (𝔚h)_vA = −R_(vBAC) h^(BC) = 0, three of its four indices being angular. For h with only angular
 components, (∇_c h)_(vA) = −Γ^E_(cv) h_EA = 0 for every c; (∇_b h)_(vv) = (∇_b h)_(vr) = 0; and (∇_b h)_(rA) =
 −Γ^E_(br) h_EA vanishes unless b is angular. In (∇_a ∇_b h)_vA = −Γ^d_(av) (∇_b h)_dA − Γ^d_(aA) (∇_b h)_vd every term
 then vanishes after contraction with g0°^(ab): the first because Γ^d_(av) ≠ 0 only for a ∈ {v, r}, where g^(ab) has no
@@ -473,15 +473,16 @@ by (a) and [[eq:layer-components]], the vv, vr, rr components of 𝒯H_2 = −R_
 they vanish; (∂_r + 1/(2r)) H_2,rϑ = −i a_1 r^(−5/2) gives H_2,rϑ = i a_1 r^(−3/2), since (∂_r + 1/(2r)) r^(−3/2) =
 −r^(−5/2); (∂_r + 1/(2r)) H_2,vϑ = −μ0 H_2,rϑ/r³ reads i a_1 r^(−1/2) β_2′ = −i μ0 a_1 r^(−9/2), which β_2′ = −μ0 r⁻⁴
 satisfies; and (∂_r − 1/(2r)) H_2,AB = −i (R_X H_1)_AB with zero data gives the integral, γ-traceless because (R_X
-H_1)_AB is (tr R_X H_1 = 0). So H_2 is in 𝔖. By [[lem:layer-bianchi]] (b) with J = 2 (Z_1 = Z_2 = 0, G_0 = 0, and G_1
-= 0 at r0 since Pol Pol⁺ = 1), G_1 = i Pol(H_2) + D_X H_1 = 0 on Ω.
+H_1)_AB is (tr R_X H_1 = 0). So H_2 is in 𝔖. By [[lem:layer-bianchi]] (b) with J = 2 (Z_1 = Z_2 = 0, G_0 = 0, and
+G_1 = 0 at r0 since Pol Pol⁺ = 1), G_1 = i Pol(H_2) + D_X H_1 = 0 on Ω.
 
 (c) For h in 𝔖 the same calculation as in (a) gives (div h)_v = r⁻² div_γ(h_(v·)) and (div h)_r = r⁻² div_γ(h_(r·)),
 the divergences on S³ of the covectors h_(vA) and h_(rA): the terms with Γ^A_(·v) vanish, h_vv = h_vr = h_rr = 0, and
 the term −Γ^E_(Ar) h_(BE) contracted with g0°^(AB) is a trace. With tr H_2 = 0 and div_γ(d_1 dϑ) = d, this is the
 stated form of D_X H_2. By (b) and [[lem:layer-seed-operators]] (d), (R_X H_2)_vv = 0 and tr R_X H_2 = 0. Let H_3 be
-given by [[eq:layer-profiles]]. Its data at r0 are, by [[eq:layer-pol-plus]] with V_v = i a_2 r0^(−5/2) β_2(r0) and V_r
-= i a_2 r0^(−7/2): H_3,vv = i V_r/4 = −a_2 r0^(−7/2)/4 and tr H_3 = i(−V_r − 2 V_v) = a_2 (r0^(−7/2) − r0^(−7/2)) = 0.
+given by [[eq:layer-profiles]]. Its data at r0 are, by [[eq:layer-pol-plus]] with V_v = i a_2 r0^(−5/2) β_2(r0) and
+V_r = i a_2 r0^(−7/2): H_3,vv = i V_r/4 = −a_2 r0^(−7/2)/4 and tr H_3 = i(−V_r − 2 V_v) = 0, since β_2(r0) = −1/(2r0)
+gives 2 V_v = −V_r.
 The trace of 𝒯H_3 is −i(∂_r + 3/(2r)) tr H_3, as ∇_ℓ commutes with the trace, and equals −tr R_X H_2 = 0; so r^(3/2)
 tr H_3 is constant along ℓ, and tr H_3 = 0. By [[lem:layer-bianchi]] (b) with J = 3, i Pol(H_3) = −D_X H_2 on Ω, that is
 H_3,rr = i (D_X H_2)_r = −a_2 r^(−7/2) and H_3,vr − (1/2) tr H_3 = i (D_X H_2)_v = −a_2 r^(−5/2) β_2. The vv component of
@@ -526,12 +527,14 @@ so |d|² ≥ (16/9) · 4 = 64/9, with equality only at u = 0. ∎
 
     g_λ⁻¹(dΦ0, dΦ0) = −m0 − k(Φ0♯, Φ0♯) + q,      |q| ≤ C |k(Φ0♯, ·)| (|k(Φ0♯, ·)| + |k|²),           {#eq:layer-inverse}
 
-where C depends on the bounds of g0⁻¹ and g_λ⁻¹ on Ω, and |k| ≤ 1.
+where C depends on the bounds of g0⁻¹ and g_λ⁻¹ on Ω; here |k| ≤ C λ ≤ 1 on Ω, by item 4 of [[thm:main]] and the choice
+of λ0 in [[sec:eq-setting]].
 
 *Proof.* From g_λ = g0 + k, g_λ⁻¹ − g0⁻¹ = −g0⁻¹ k g_λ⁻¹, and substituting this once more for g_λ⁻¹ on the right,
 g_λ⁻¹ = g0⁻¹ − g0⁻¹ k g0⁻¹ + g0⁻¹ k g0⁻¹ k g_λ⁻¹. Contract with dΦ0 twice: the first two terms give −m0 − k(Φ0♯, Φ0♯),
-and the third is q := k(Φ0♯, g0⁻¹ k g_λ⁻¹ dΦ0). The same identity applied to g_λ⁻¹ dΦ0 gives |k(g_λ⁻¹ dΦ0, ·)| ≤
-|k(Φ0♯, ·)| + C |k| |k(Φ0♯, ·)| + C |k|³, and |k|³ ≤ |k|². ∎
+and the third is q := k(Φ0♯, g0⁻¹ k g_λ⁻¹ dΦ0), so that the absolute value of q is at most C |k(Φ0♯, ·)| times
+|k(g_λ⁻¹ dΦ0, ·)|. The same identity applied to g_λ⁻¹ dΦ0 bounds the latter by |k(Φ0♯, ·)| + C |k| |k(Φ0♯, ·)| +
+C |k|³, which is at most C (|k(Φ0♯, ·)| + |k|²) since |k| ≤ 1. ∎
 
 ### Flat-edge bounds {#sec:layer-flat}
 
@@ -603,9 +606,9 @@ so ‖∂_θ⁻¹‖ ≤ π, and ‖Π_osc‖ ≤ 2. Hence ‖𝓜‖ ≤ C by t
 
 *Proof.* In (v, r, ω), γ_Y runs in N_v from r(Y) ≥ a to r_Σ := v − τ0, and the rotations commute with ℓ = ∂_r. On the
 unit S³, |u(r, ·)|_∞ ≤ C Σ_(|β|≤2) ‖Ω^β u(r, ·)‖_(L²(S³)): H² ⊂ L^∞ in dimension three [[thm:std-bh-embedding]], the
-rotations spanning every tangent space. And ‖Ω^β u(r, ·)‖ ≤ ‖Ω^β u(r_Σ, ·)‖ + ∫_r^(r_Σ) ‖ℓ Ω^β u(r′, ·)‖ dr′ ≤ C sup
-|Ω^β u|_(r_Σ) + (r_Σ − a)^(1/2) a^(−3/2) (∫∫ (ℓ Ω^β u)² r′³ dr′ dω)^(1/2), and the last double integral is at most
-2 F_v(Ω^β u) by the formula for T(L0, Y). ∎
+rotations spanning every tangent space. And ‖Ω^β u(r, ·)‖ ≤ ‖Ω^β u(r_Σ, ·)‖ + ∫_r^(r_Σ) ‖ℓ Ω^β u(r′, ·)‖ dr′ ≤
+C sup |Ω^β u|_(r_Σ) + (r_Σ − a)^(1/2) a^(−3/2) (∫∫ (ℓ Ω^β u)² r′³ dr′ dω)^(1/2), and the last double integral is at
+most 2 F_v(Ω^β u) by the formula for T(L0, Y). ∎
 
 The flux through N_v controls exactly the derivatives tangent to N_v, which is what an integration along γ_Y and a
 Sobolev inequality on the spheres need; the slices Σ_τ ∩ Ω_v = {a ≤ r ≤ v − τ} are arbitrarily thin as v − τ ↓ a,
@@ -679,8 +682,9 @@ seed's 𝓜_0 and the forcing term
 
     −[Π_osc(𝒲 + 𝒦_m) − R_X(Re[H_m e^(iθ)])] − (𝓜 − 𝓜_0) Z_(m+1),
 
-whose bracket is R_X(δ_m) + (R_X^(g0) − R_X)(ĝ_m) + (the monomials of Π_osc 𝒦_m with two or more oscillating factors)
-+ Π_osc 𝒲(m_m, φ_m), R_X^(g0) the operator with g0's coefficients. By (c), (a) at the earlier stages, by (b) at stage m
+whose bracket is R_X(δ_m) + (R_X^(g0) − R_X)(ĝ_m) + (the monomials of Π_osc 𝒦_m with two or more oscillating
+factors) + Π_osc 𝒲(m_m, φ_m), R_X^(g0) the operator with g0's coefficients. By (c), (a) at the earlier stages, by (b)
+at stage m
 and |μ − μ0| ≤ C ε², each part is at most C ε_(i+2m+3)(v)²; 𝓜 − 𝓜_0 has coefficients W, χ, m_1, φ_1, μ − μ0, so
 (𝓜 − 𝓜_0) Z_(m+1) is at most C ε². The data differ by (Pol⁺_(g0) − Pol⁺_seed)(·) + Pol⁺(Λ_m(γ_m)) + Pol⁺(D_X δ_m +
 (D_X^(g0) − D_X) ĝ_m + monomials with two oscillating factors), at most C ε² by (e). [[lem:layer-transport]] (b): cost

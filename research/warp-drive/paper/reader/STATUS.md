@@ -14,12 +14,12 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |
 | 21 S2 | NOT CONFIRMED 1M 6m 17n | done | CONFIRMED (4 optional nits) |
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | CONFIRMED (4 nits) |
-| 23 S4 | NOT CONFIRMED 3M 8m 7n | done (d₀ fixed before k by the orders alone) | third fix done ((S15) from [Hin26d] with pages; truncated operators in the subalgebra of (S10); Prop 9.2 growing kernel ranges; Lemma 4.2 auxiliary G_j); fourth reading running |
+| 23 S4 | NOT CONFIRMED 3M 8m 7n | done (d₀ fixed before k by the orders alone) | fourth reading NOT CONFIRMED 0M 1m 6n (all R3 findings fixed; (S15) agrees with arXiv v1; minor: quote [Hin26d] (4.27), (4.28) so the subalgebra claim is checkable); fourth fix running |
 | 24 S5 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (2 optional nits) |
 | 25 S6 | NOT CONFIRMED 0M 5m 8n | done | S4 follow-up done (global error terms, Lemma 4.1 localisers, φ_E at every use, prop:ii-d-3-6 (1)-(2) at t_(*,−) − ½); trapped-set Steps 1, 2, 4 and chapter 26 prop:ii-e-3-2 in a proof-and-fix round (Step 1b(ii) needs a 1.5-order gain to be proved) |
 | 26 S7 | NOT CONFIRMED 2M 4m 3n | done | CONFIRMED (4 nits) |
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done | CONFIRMED; citation resolved and confirmed |
-| 28 S9 | NOT CONFIRMED 2M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (Theorem 1.1 tame estimate) |
+| 28 S9 | NOT CONFIRMED 2M 4m 8n | done | fifth fix done (threshold ϵ_G in (A) proved, also near r_0 and on the collar; (B2) over {t_* ≥ ½, r ≥ r₀ − δ₀}; lem:s09-off-star extends P from Ω_* to Ω; renames; nine line starts); sixth reading running |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
 | 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | CONFIRMED (fourth reading 0M 0m 2n; (E3) proved in full; both nits applied) |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | CONFIRMED (fourth reading, no finding; infimum 0.7881114 ≥ printed 0.788) |
@@ -29,7 +29,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | CONFIRMED (third reading; 4 nits) |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
-| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | fifth reading NOT CONFIRMED 0M 1m 3n (crux holds: exponents compared only in lem:ii-f1-2-6 (b); 16 citations from 46, 48 hold; ϵ_G must cover t_* ≥ ½); fifth fix running (38 and 28) |
+| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | fifth fix done (threshold ϵ_G in (A) proved, also near r_0 and on the collar; (B2) over {t_* ≥ ½, r ≥ r₀ − δ₀}; lem:s09-off-star extends P from Ω_* to Ω; renames; nine line starts); sixth reading running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-keyed to lem:s25-p6 |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (fifth reading, no finding) |
@@ -76,6 +76,6 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-C-lambda0 (λ0 constants, for 86; T-C and T-C261 dropped) | rewritten to the kept results (C261 chain, e_k and the energy constant dropped; no value changed) | CONFIRMED (third reading 0M 1m 1n, 87 exact checks hold; the minor (an unused clause about the threshold of thm:layer) and the nit (G named as the polarization) applied by the coordinator in the reviewer's words) |
 | P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | repair written (data g_b0 + Σ + Σ′_J beyond the band; G_k polynomial in v after the shell; Γ^α h_R = O(r⁻⁴) uniformly in T; cap C(λ, J) times (−T)^(2a−6)); reading NOT CONFIRMED 1M 6m 8n (core confirmed; lem:own-exterior fails for the matched data, e(T) ≍ ϱ⁻⁴); fix running: fixed-T exterior lemma proved and the repair integrated into chapter 63 |
 | P-K83a (ch 83 issue-1: seed continuity in the four-dimensional band) | written (lem:loc-kid-space, lem:loc-continuity from chapter 47; no [CS06], no [CD03]; dust density ε²s(ε) times the γ_D-norm of J₁; dust data C², vacuum corrections smooth) | reading 0M 2m 7n (mathematics holds; "on U" in three places; edit E6 needed); being merged into chapter 83 with the reading's fixes |
-| P-K83b (ch 83: charge sign on the sliver of bands up to 1.8614, computations) | being written | - |
+| P-K83b (ch 83: charge sign on the sliver of bands up to 1.8614, computations) | written (438 lines: tensor charge identity proved via the KID equations, (2π)² confirmed; lem:loc-scalar-reduction replaced with every coefficient; prop:bg-region-three-end: region III ends at 1.8614372 ≤ R_u2 ≤ 1.8614410, Γ/E² ≥ 10.40 on [1.861, R_u2], so the charge sign holds on every vacuum band) | independent reader running; merge into chapter 83 after it and after F-83 |
 | P-U71-forward (ch 71: the forward loss d_FWD = D_0 + D_1 + d′ + d″ + 6, evaluated) | being written (user directive: evaluate and prove the upper bound on d) | evaluated: d_FWD = D_0 + 76 exact (s_in = 11, s_out = −10, D_1 = 49); D_0 ≤ 20,104 by counted indices (T = 100), so d_FWD ≤ 20,180; the D_0 count not yet written site by site; completion running |
 | P-U71-assembly (ch 71: an explicit upper bound on d, proved) | being written (user directive) | assembled: no integer upper bound from the edition as it stands; lower bound raised to d_NM ≥ d_acc > 1.403·10²⁰, N_NM > 2.946·10²¹ (lem:ec-gauge-gap, ε_Υ < 1.46214·10⁻¹⁰), below which the source figure 4.62·10¹⁶ would lie; structural upper bound prop:ec-upper; missing: (G) index sets, ℓ_tf, the losses c, d_BG; independent reader running; closing project running |

@@ -315,7 +315,7 @@ the derivatives of order at most four is bounded, while the forcing term and the
 ([[lem:layer-flat]] (d), (e), [[lem:layer-flat-past]] (d)). Hence E_4(τ) ≤ C λ^(N−7) ε_M(v1), and Sobolev's inequality
 on the slices (step 7 of [[lem:layer-remainder]]) gives |∂^k Ω^β w| ≤ C λ^(N−5−k) ε_M(v1) ≤ C λ^(1−k) η(v1), k ≤ 2.
 
-(3) *The source.* By (2), |u| ≤ C(λε_c + λη), |∂u| ≤ C(ε_c + η) and |∂²u| ≤ C λ⁻¹(ε_c + η), so |𝒩(u)| ≤ C(ε_c +
+(3) *The forcing term.* By (2), |u| ≤ C(λε_c + λη), |∂u| ≤ C(ε_c + η) and |∂²u| ≤ C λ⁻¹(ε_c + η), so |𝒩(u)| ≤ C(ε_c +
 η)², and |f_2| ≤ C(ε_c(v′)² + ε_c(v′) η(v1) + η(v1)²) at points with v = v′ ≤ v. On P each product carries the decay
 of two factors, at least t^(−3), so ‖Ω^β f_2(τ)‖_(L²(Σ̂_τ ∩ S(v))) ≤ C (…) t^(−3/2), integrable in τ.
 
@@ -453,7 +453,7 @@ P, which is integrable, and C on Ω. So
 
     sup_τ ‖∂u(τ)‖ + F_v(u)^(1/2) ≤ C ∫_(−∞)^(τ_end) ‖Ω^β dRic^H(e_M)(τ)‖_(L²(Σ_τ ∩ S(v))) dτ.
 
-(3) *The source.* On Σ_τ ∩ S(v) the L² norm of −Re[λ e^(iv/λ) A I_M Ω^β Q b_M] is at most λ A sup_(v′≤v) |I_M(v′)|
+(3) *The forcing term.* On Σ_τ ∩ S(v) the L² norm of −Re[λ e^(iv/λ) A I_M Ω^β Q b_M] is at most λ A sup_(v′≤v) |I_M(v′)|
 ‖Ω^β Q b_M‖_(L²(Σ_τ ∩ S(v))). As Q b_M lies in E_3, that norm is at most C t^(−3/2) on the slices of P
 ([[sec:past-approximant]]) and bounded on Ω, where τ ∈ [τ0, τ_end].
 
@@ -624,8 +624,9 @@ if λκ_𝒟 ≤ 1, one integration by parts against e^(iv′/λ), with the boun
 (1 − F°/2) ∂_τΨ + (F°/2) ∂_r|_τ Ψ = e^(iv/λ) y exactly. So ∫_(v_s)^v G(√μ0 ← r0(v′)) Y(v′, r0(v′)) dv′ = e^(iv/λ)
 s⁻¹(Gy) by [[eq:edge-sinv]], and the term of f in (2) gives the second term of [[eq:edge-ingoing]] in the same way. ∎
 
-**Lemma {#lem:edge-constraint}** (The constraint correction at first degree.) Write D_X H_(N+1) = Σ_k env^(k) D_k,
-with D_k functions of (r, r0, ϑ) (r0 = v − τ0), and put c_N := N μ0/(r0² + μ0), α(r) := 3r³/(r² + μ0)² and
+**Lemma {#lem:edge-constraint}** (The constraint correction at first degree.) Write D_X H_(N+1) = Σ_k env^(k) D_k, with
+D_k functions of (r, r0, ϑ) (r0 = v − τ0), and put c_N := N μ0/(r0² + μ0), p(r) := 3r³/(r² + μ0)² (the coefficient p of
+[[lem:constraints-evolution]] at the seed's data) and
 
     Ξ := ((1 − c_N) T − i c_N)/(T + i),      T = λκ_(N−1).                                         {#eq:edge-xi}
 
@@ -640,7 +641,7 @@ Assume (H_N) on (v_s, v_s + x0]. Then there is x0′ ∈ (0, x0] such that for v
 
     F_ρ = λ^(N+1) Re{ e^(iv/λ) i^N A d(ϑ) r0^(−7/2) [env^(N) − c_N s env^(N−1)] } (1 + O(1/κ + λ));
 
-(iv) a^(1)(r0) = −λ^(N+1) Re{ e^(iv/λ) i^N A d(ϑ) α(r0)⁻¹ r0^(−7/2) env^(N−1) Ξ } (1 + O(ϵ′ + 1/κ + λ)), with ϵ′ of
+(iv) a^(1)(r0) = −λ^(N+1) Re{ e^(iv/λ) i^N A d(ϑ) p(r0)⁻¹ r0^(−7/2) env^(N−1) Ξ } (1 + O(ϵ′ + 1/κ + λ)), with ϵ′ of
 [[lem:edge-sinv]] (a); and |Ξ|² = ((1 − c_N)² T² + c_N²)/(T² + 1) ≥ min(c_N², (1 − c_N)²), Ξ = −c_N − iT + O(T²);
 
 (v) the vv component on the horizon of the part of [[eq:edge-ingoing]] that the data of a^(1) induce is K_R a^(1) +
@@ -689,20 +690,20 @@ bracket has size at least c_N env^(N−1)/λ, and env^(N) ≍ κ env^(N−1) by 
 as it carries λ^(N+1) without a factor s: its top family is −i 𝒯 c_(N+1,N−1) env^(N) = i^N (R_X c_(1,0)) env^(N), with
 R_X c_(1,0) in 𝔖 without vϑ part ([[prop:layer-linear]] (a)), so Y(n, n) = 0 and tr Y = 0 for it.
 
-(iv) By [[lem:constraints-evolution]] at the seed's data, the ρ-equation of the linear system for U^(1) is α ∂_r a −
-Δ_α a + b′·∂_S a + c a + e·(ϖ, q) = −F_ρ, with α = p = 3r³/(r² + μ0)². On Σ_τ0, r ↦ v = τ0 + r, and ∂_r acts on
-e^(iv/λ) times an amplitude as s on the amplitude. The solution from zero at r = a with this oscillating forcing term
-is a = −(α s)⁻¹ F_ρ plus terms of relative order 1/|s̃| (from Δ_α a, b′·∂_S a, c a and e·(ϖ, q), the last through the
-J-equations, where ϖ is of order (F_J,r + 2r⁻² ∂_ϑ q)/(6 s̃)); the remainder after two terms of this expansion has a
-forcing term of relative order |s̃|⁻², and [[lem:linear-evolution]] on [a, r] makes it O(x^(1/2)/|s̃|) relative. The
-smooth coefficients α⁻¹ r^(−7/2) and c_N commute with s⁻¹ up to O(λ) relative, by one integration by parts with
-[[eq:edge-sinv-parts]]. By [[eq:edge-sinv-parts]], s⁻¹(env^(N) − c_N s env^(N−1)) = (1 − c_N) env^(N−1) − (i/λ) s⁻¹
-env^(N−1), and by [[lem:edge-sinv]] (a) for g := env^(N−1), s⁻¹ env^(N−1) = env^(N−1) (κ_(N−1) + i/λ)⁻¹ (1 + ρ_g), |ρ_g|
-≤ C ϵ′. Its hypotheses hold near v_s by (H_N): g is positive and log-concave with κ_g = κ_(N−1) ∈ [κ/2, 2κ] and the c_R
-bound, and |g^(j)| = |env^(N−1+j)| ≤ c_(N−1+j) κ^(N−1+j) env ≤ c 2^(N−1) κ^j g for j ≤ 3, since env = env^(N−1)/Π_(k<N−1)
-κ_k ≤ 2^(N−1) κ^(−(N−1)) env^(N−1). As (i/λ)/(κ_(N−1) + i/λ) = i/(T + i), the bracket becomes env^(N−1)[(1 − c_N) −
-i/(T + i)] (1 + O(ϵ′)) = env^(N−1) Ξ (1 + O(ϵ′)). The formulas for |Ξ|² and its expansion are direct: (T + i) = i(1 −
-iT) gives Ξ = (−c_N − i(1 − c_N)T)(1 + iT + O(T²)).
+(iv) By [[lem:constraints-evolution]] at the seed's data, the ρ-equation of the linear system for U^(1) is p ∂_r a − Δ_p
+a + b′·∂_S a + c a + e·(ϖ, q) = −F_ρ, with p = 3r³/(r² + μ0)². On Σ_τ0, r ↦ v = τ0 + r, and ∂_r acts on e^(iv/λ) times an
+amplitude as s on the amplitude. The solution from zero at r = a with this oscillating forcing term is a = −(p s)⁻¹ F_ρ
+plus terms of relative order 1/|s̃| (from Δ_p a, b′·∂_S a, c a and e·(ϖ, q), the last through the J-equations, where ϖ is
+of order (F_J,r + 2r⁻² ∂_ϑ q)/(6 s̃)); the remainder after two terms of this expansion has a forcing term of relative
+order |s̃|⁻², and [[lem:linear-evolution]] on [a, r] makes it O(x^(1/2)/|s̃|) relative. The smooth coefficients p⁻¹
+r^(−7/2) and c_N commute with s⁻¹ up to O(λ) relative, by one integration by parts with [[eq:edge-sinv-parts]]. By
+[[eq:edge-sinv-parts]], s⁻¹(env^(N) − c_N s env^(N−1)) = (1 − c_N) env^(N−1) − (i/λ) s⁻¹ env^(N−1), and by
+[[lem:edge-sinv]] (a) for g := env^(N−1), s⁻¹ env^(N−1) = env^(N−1) (κ_(N−1) + i/λ)⁻¹ (1 + ρ_g), |ρ_g| ≤ C ϵ′. Its
+hypotheses hold near v_s by (H_N): g is positive and log-concave with κ_g = κ_(N−1) ∈ [κ/2, 2κ] and the c_R bound,
+and |g^(j)| = |env^(N−1+j)| ≤ c_(N−1+j) κ^(N−1+j) env ≤ c 2^(N−1) κ^j g for j ≤ 3, since env = env^(N−1)/Π_(k<N−1) κ_k ≤
+2^(N−1) κ^(−(N−1)) env^(N−1). As (i/λ)/(κ_(N−1) + i/λ) = i/(T + i), the bracket becomes env^(N−1)[(1 − c_N) − i/(T + i)]
+(1 + O(ϵ′)) = env^(N−1) Ξ (1 + O(ϵ′)). The formulas for |Ξ|² and its expansion are direct: (T + i) = i(1 − iT) gives Ξ =
+(−c_N − i(1 − c_N)T)(1 + iT + O(T²)).
 
 *At c_N = 1*, Ξ = −i/(T + i) and |Ξ| = (1 + T²)^(−1/2) → 0 for large T, so the errors must be relative to the bracket
 and not to env^(N−1). They are: the two terms of the top family cancel exactly to −(i/λ) s⁻¹ env^(N−1), the
@@ -711,14 +712,14 @@ of size env^(N−1)(λ + 1/κ_(N−2))(1 + O(ϵ′)) against |T + i|⁻¹ env^(N
 4λ, so it is O(λ + 1/κ) relative for every T; the commutator with c_N′ is O(λ) relative; and the corrections of the
 solve are relative by construction.
 
-(v) At first degree the data that a := a^(1) induce have, in the coordinates (τ, r), the components h_rr = a, h_τr = a b
-and h_ττ = a b², b := dr(β) = m/(1 + m) the seed's shift (g0°_τr = m and γ_rr = 1 + m); the angular components and their
-τ-derivatives are unchanged. As dτ = dv − dr, a tensor with components X_ττ, X_τr, X_rr in (τ, r) has the components
-X_ττ, X_τr − X_ττ and X_ττ − 2X_τr + X_rr in (v, r), in the order vv, vr, rr. In the notation of [[lem:edge-ingoing]] let
-ĥ be the amplitude of these data and k̂ that of their τ-derivative, k̂_rr =: k being any value. The linearised condition
-D = 0 at the leading order in s, with ∂_τ h ↦ k̂ and ∂_r|_τ h ↦ s ĥ, reads g^(aτ) k̂_ab + g^(ar) s ĥ_ab − (1/2) δ^τ_b
-g^(ac) k̂_ac − (1/2) δ^r_b s g^(ac) ĥ_ac = 0 for b = τ, r, with g^(ab) as in [[lem:edge-characteristic]] (d); its
-solution is
+(v) Write a for a^(1) in this step. At first degree the data that a induces have, in the coordinates (τ, r), the
+components h_rr = a, h_τr = a b and h_ττ = a b², b := dr(β) = m/(1 + m) the seed's shift (g0°_τr = m and γ_rr = 1 + m);
+the angular components and their τ-derivatives are unchanged. As dτ = dv − dr, a tensor with components X_ττ, X_τr, X_rr
+in (τ, r) has the components X_ττ, X_τr − X_ττ and X_ττ − 2X_τr + X_rr in (v, r), in the order vv, vr, rr. In the
+notation of [[lem:edge-ingoing]] let ĥ be the amplitude of these data and k̂ that of their τ-derivative, k̂_rr =: k being
+any value. The linearised condition D = 0 at the leading order in s, with ∂_τ h ↦ k̂ and ∂_r|_τ h ↦ s ĥ, reads g^(aτ)
+k̂_ab + g^(ar) s ĥ_ab − (1/2) δ^τ_b g^(ac) k̂_ac − (1/2) δ^r_b s g^(ac) ĥ_ac = 0 for b = τ, r, with g^(ab) as in
+[[lem:edge-characteristic]] (d); its solution is
 
     k̂_τr = (a s + 2k m(1 + m))/(2(1 + m)²),      k̂_ττ = 2a m s/(1 + m)³ − k(1 − m)/(1 + m).
 
@@ -740,7 +741,7 @@ are x0′ ∈ (0, x0] and C such that for v_s < v ≤ v_s + x0′, with r0 = v �
 
     h^(1)_vv(v, √μ0, ϑ) = Re[S(v, ϑ) e^(iv/λ)],      S = S_st + S_U + E_S,
     S_st := λ³ A ν(r0) d(ϑ) env (1 + 2iλκ) 𝟙_(λκ≤1),      S_U := −λ^(N+1) A Γ_R(r0) i^N d(ϑ) Ξ env^(N−1),
-    Γ_R(r0) := K_R r0^(−7/2)/α(r0) = (r0² + μ0)²/(12 μ0^(3/4) r0⁵) > 0,
+    Γ_R(r0) := K_R r0^(−7/2)/p(r0) = (r0² + μ0)²/(12 μ0^(3/4) r0⁵) > 0,
     |E_S| ≤ C [λ³ env (|ν(r0)| (λκ)² + λ) 𝟙_(λκ≤1) + λ^(N+1) κ^(N−2) env 𝟙_(λκ>1) + (ϵ′ + 1/κ + λ) |S_U|].  {#eq:edge-s}
 
 and |∂_v^k E_S| ≤ C κ^k times the same bound, k ≤ 2.
@@ -793,7 +794,7 @@ env^(k)/env, a₁ a finite sum of smooth coefficients times λ^k env^(k)/env, so
 B_s := −Γ_R i^N Ξ_ex Λ with the exact Ξ_ex := (1 − c_N) − (i/λ) s⁻¹env^(N−1)/env^(N−1), no replacement of s⁻¹ being
 made; and ê the rest, every term of which is O((1/κ + λ)|B_s|) with |∂_v^k ê| ≤ C κ^k (1/κ + λ)|B_s|, k ≤ 2, by the
 proofs of [[lem:edge-constraint]] and [[prop:edge-horizon-value]] (the lower families of F_ρ, the corrections of the
-solve, the commutators with c_N, α and r^(−7/2), the remainder of [[lem:edge-ingoing]] and its forcing term's part).
+solve, the commutators with c_N, p and r^(−7/2), the remainder of [[lem:edge-ingoing]] and its forcing term's part).
 The term ϵ′ |S_U| of [[eq:edge-s]] does not occur, as s⁻¹ is kept.
 
 (2) *Derivatives.* By [[lem:edge-sinv]] (b) for g = env^(N−1), Ξ_ex′ = −c_N′ + (i/λ) ρ_g, and by [[lem:edge-sinv]] (c),

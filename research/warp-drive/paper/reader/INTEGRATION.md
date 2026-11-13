@@ -1119,3 +1119,12 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R-P-K83a: 0 Major, 2 minor, 7 nits; the mathematics holds (chapter 47's lemmas apply in the four-dimensional band;
   KID space ≤ 15 and smooth; continuity; the dust change; the edit list balances). F-83 merges it into chapter 83 with
   R-83's findings; the momentum-seed sliver up to 1.8614 stays pending for P-K83b.
+- R4-S04: chapter 23 0 Major, 1 minor ((S15) to quote [Hin26d] (4.27) p. 74 and (4.28) p. 75; (S10) to say the
+  subalgebra is Op_𝒱(a) + R), 6 nits; fix running. Chapter 25 l. 271 imprecision sent to F4-S06; the appendix (S15)
+  entry is F4-S06's item 3.
+- P-K83b written (report reports/P-K83b.md): tensor charge identity and scalar reduction proved in full; region III
+  ends at 1.8614372 ≤ R_u2 ≤ 1.8614410 with Γ/E² ≥ 10.40 on [1.861, R_u2], closing the sliver; R-P-K83b reading. Then
+  merge into chapter 83 after F-83. Its question: Palatini, Gauss–Riccati, the conformal formula uncited (R-P-K83b
+  decides).
+- F5-S19 done (report reports/F5-S19.md; diff against 64ecf1e): chapters 28 and 38; new lem:s09-off-star; 46:98 note
+  wording in the report. R6-S19 reading.
