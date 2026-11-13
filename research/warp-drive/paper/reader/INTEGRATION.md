@@ -905,3 +905,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   for cos 2ϑ. Chapter 08's lem:first-mean-forcing needs no sentence. Follow-ups in the fix: P-F-edge:9 "c_e the constant
   of [[eq:envelope]]"; chapter 03's remark cites lem:envelope-constant (b). Earlier INTEGRATION lines about C127-C129,
   C259, C261 (proof C's e_k and the energy constant) are superseded by this entry. Second fix running.
+- Ch 80 reading (R-80): NOT CONFIRMED 1M 4m 11n. Every identity checks (Ricci, Kretschmann, (i)-(vi), chart,
+  commutator, trace identity of eq:two-dust-cpw by computer algebra; transport, slice, horizon, mass by hand);
+  departures (a)-(e) correct; B_g mixed symbol +e^(−2σ)n1n2 confirmed. Major: gauge hierarchy (a) claims O(λ²) where
+  two families give −λe^(−4σ)[χ_out] + O(λ²) (conclusion holds). Minors: n = ±2 in stage zero (d); K and F clashes;
+  lem:linear-wave needs g0 around the domain; cone reparametrisation for P-E's gauge e^(2s) = 1/2. Fix running; P-E
+  files may need symbol updates after the K/F renames.

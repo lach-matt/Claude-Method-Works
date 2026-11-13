@@ -420,11 +420,9 @@ accounted one, and the parameters of [[thm:ii-g-2-1]] ([[eq:ii-g-2-5]]). (i) is 
 rounds of [[sec:ec-floor]] are composed one after another, each round's output being the next round's forcing, and
 the level's solution being assembled from the outputs of all its rounds and from the inverse applied to the last
 forcing. So all the rounds of all the levels lie on one chain of compositions, and by [[def:ec-accounted-loss]] and
-[[lem:ec-round-loss]] (a), d_acc ≥ (2 + ℓ_tf)R ≥ 2R. By [[prop:ec-rounds]], 2R > 2(1 − 6δ̄)/δ̄² > 5.306 × 10¹⁵, and
-N_NM = 21d_acc + 6 > 1.114 × 10¹⁷.
-
-(iii) If ϑ_in ≥ 0, then ℓ_tf ≥ 1 by [[lem:ec-closed-forms]] (d), so d_acc ≥ 3R > 3(1 − 6δ̄)/δ̄² = 7.9598…·10¹⁵, and
-N_NM > 21 · 7.959 × 10¹⁵ > 1.671 × 10¹⁷. ∎
+[[lem:ec-round-loss]] (a), d_acc ≥ (2 + ℓ_tf)R. By [[lem:ec-closed-forms]] (d), whose proof uses
+[[lem:ec-theta-in]], ℓ_tf ≥ 1; so by [[prop:ec-rounds]], d_acc ≥ 3R > 3(1 − 6δ̄)/δ̄² = 7.9598…·10¹⁵, and
+N_NM = 21d_acc + 6 > 21 · 7.959 × 10¹⁵ > 1.671 × 10¹⁷. ∎
 
 ### What the proof's formulas give for δ and λ1 {#sec:ec-delta}
 
@@ -436,16 +434,14 @@ Then δ = ½ε and λ1 satisfy
 
     δ ≤ 2^(−(32d+9)),        λ1 < δ,        log₁₀ δ < −(59/196)(32d + 9).
 
-With d = d_acc and the bounds of [[thm:loss-d]], log₁₀ δ < −5.11 × 10¹⁶, and log₁₀ δ < −7.666 × 10¹⁶ when ϑ_in ≥ 0;
-the same bounds hold for λ1.
+With d = d_acc and the bound of [[thm:loss-d]] (ii), log₁₀ δ < −7.666 × 10¹⁶; the same bound holds for λ1.
 
 *Proof.* The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
 ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So δ = ½ε ≤ ε_NM/(2A) ≤ 2^(−(32d+9)), as A ≥ 1. The proof of [[thm:settling]]
 ([[sec:vii-4]]) takes λ1 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so
 2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the binomial expansion, all of whose terms are positive,
 1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, which
-gives the third bound. With d > 5.306 × 10¹⁵, (59/196)(32d + 9) > 5.11 × 10¹⁶; with d > 7.959 × 10¹⁵ it exceeds
-7.666 × 10¹⁶. ∎
+gives the third bound. With d > 7.959 × 10¹⁵, (59/196)(32d + 9) > 7.666 × 10¹⁶. ∎
 
 The bounds hold whatever the other constants are, once each constant of an upper bound is taken at least 1, which
 enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), 1/A and 1/C_R, that is, upper
