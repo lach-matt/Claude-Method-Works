@@ -10,11 +10,11 @@ at spatial infinity as a term ρ^(5/2), ρ := 1/r. The class is therefore widene
 stability theory runs in the wider class with the same index sets.
 
 The argument has five parts. (1) The far part S := Σ^IVP ∩ {r ≥ 4R} of the initial surface has a past domain of
-dependence W for Tangherlini, bounded by S, by an ingoing null cone N on which g_λ is known, and by past null infinity,
+dependence W for Tangherlini, bounded by S, by an ingoing null cone ℋ on which g_λ is known, and by past null infinity,
 where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed
 (Section [[sec:own-tail]]). (3) The stability theory holds in the half-integer class with the same index sets
 (Section [[sec:own-half-class]]). (4) The constants of the construction from past null infinity are polynomial in
-λ^(−1) at every order, which makes the data of g_λ on N small at every weight that the estimate below uses
+λ^(−1) at every order, which makes the data of g_λ on ℋ small at every weight that the estimate below uses
 (Sections [[sec:own-orders]] and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted,
 g_λ continues to W by one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence;
 the continuation is vacuum, unique in a class of weight below ½, and its data on S lie in the half-integer class with
@@ -60,23 +60,23 @@ depending on them.
 
 The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The order k_P is what the subtracted
 expansion of Section [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
-derivatives of their data on N ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in Section
+derivatives of their data on ℋ ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in Section
 [[sec:own-proof]]; its first step checks every use of k_P.
 
 ### The far part of the initial surface and its past domain of dependence {#sec:own-far-part}
 
 We use the far part of Σ^IVP and its past domain of dependence as they are set up before [[lem:interior-far-part]],
-writing f for F, S for Σ_far, N for H₁, Z_b for the set Z there (Z denotes a vector field below) and 𝔪 for m = μ r⁻².
+writing f for F, S for Σ_far, ℋ for H₁, Z_b for the set Z there (Z denotes a vector field below) and 𝔪 for m = μ r⁻².
 So S = Σ^IVP ∩ {r ≥ 4R} = {τ = f(r), r ≥ 4R}, τ_S := f(4R), v1 := 4R + τ_S is the value of v on ∂S,
 τ_max := sup_(r≥4R) f, and
 
-    t̃ := τ − f(r),     W := {v ≥ v1, t̃ ≤ 0, r ≥ 4R},     N := W ∩ {v = v1},
+    t̃ := τ − f(r),     W := {v ≥ v1, t̃ ≤ 0, r ≥ 4R},     ℋ := W ∩ {v = v1},
     Σ̃_σ := W ∩ {t̃ = σ} (σ ≤ 0),     s := (v − v1)/r,     W_T := W ∩ {t̃ ≥ T}.                         {#eq:own-wedge}
 
 Σ̃_0 = S. On r ≥ 4R, 0 < f′ ≤ ¼ and 𝔪 ≤ 1/400, f is bounded, |f| ≤ C_f, and v1 − τ_max > 0. By
-[[lem:interior-far-part]]: W = D⁻(S; g_b0), with boundary S, N and past null infinity at v ≥ v1, and r ≥ v1 − τ on W
-(i); N and the strip {v1 ≤ v ≤ v1 + ½, r ≥ 4R} lie in Ω′ ∪ P′, and v1 ≤ V′_P − κ_P − 1 − m_Ω with m_Ω ≥ 3 (ii); for a
-metric on W ∪ Z_b equal to g_λ on Z_b and within C_W ν (v1 − τ)⁻² of g0 on W, all of W but a strip along N of v-width
+[[lem:interior-far-part]]: W = D⁻(S; g_b0), with boundary S, ℋ and past null infinity at v ≥ v1, and r ≥ v1 − τ on W
+(i); ℋ and the strip {v1 ≤ v ≤ v1 + ½, r ≥ 4R} lie in Ω′ ∪ P′, and v1 ≤ V′_P − κ_P − 1 − m_Ω with m_Ω ≥ 3 (ii); for a
+metric on W ∪ Z_b equal to g_λ on Z_b and within C_W ν (v1 − τ)⁻² of g0 on W, all of W but a strip along ℋ of v-width
 O(λ + ν) lies in the domain of dependence of S ((iv) (b)); and for v ≥ v1 nothing comes in at past null infinity:
 r^(3/2)(g_λ − g0) → 0 as r → ∞ at fixed v ∈ [v1, V′_P) and x̂ (v). Two further facts about W are used.
 
@@ -209,14 +209,14 @@ the set of pairs (z, k) with
 
 r ≥ 1, j ∈ ℕ_0, each (z_i, k_i) in A ∪ 𝒵_Υ, and (z_1, k_1) ∈ A when r = 1.
 
-*Proof.* Let W(A) be the set described. *W(A) ⊂ ⟨A⟩*, by induction on r. For r = 1 this is A ⊂ ⟨A⟩ and the index set
+*Proof.* Let 𝔚(A) be the set described. *𝔚(A) ⊂ ⟨A⟩*, by induction on r. For r = 1 this is A ⊂ ⟨A⟩ and the index set
 property. For r ≥ 2 the word with the first r − 1 factors lies in ⟨A⟩ ∪ 𝒵_Υ ⊂ ⟨A⟩^tot (in 𝒵_Υ only when r − 1 = 1 and
 its factor lies there), so adding z_r − 1 gives an element of ⟨A⟩^tot + (⟨A⟩^tot − 1) ⊂ ⟨A⟩, by (3) of
-[[def:iii-c-3-1]], with log order the sum; translations by ℕ_0 and lower log orders stay in ⟨A⟩. *⟨A⟩ ⊂ W(A).* W(A) is
+[[def:iii-c-3-1]], with log order the sum; translations by ℕ_0 and lower log orders stay in ⟨A⟩. *⟨A⟩ ⊂ 𝔚(A).* 𝔚(A) is
 closed under + ℕ_0 and under lowering the log order. Every z_i has real part at least 3/2, so a word with r ≥ 2 factors
 has real part at least r/2 + 1; below any C there are therefore finitely many r, finitely many factors and finitely many
-j, and W(A) is an index set. It contains A, its minimum real part is at least min(min Re A, 2) > 3/2 + 2γ_Υ, and the
-sum of two elements of W(A) ∪ 𝒵_Υ minus 1 is a word with r_1 + r_2 ≥ 2 factors: W(A) satisfies (2)–(3) of
+j, and 𝔚(A) is an index set. It contains A, its minimum real part is at least min(min Re A, 2) > 3/2 + 2γ_Υ, and the
+sum of two elements of 𝔚(A) ∪ 𝒵_Υ minus 1 is a word with r_1 + r_2 ≥ 2 factors: 𝔚(A) satisfies (2)–(3) of
 [[def:iii-c-3-1]]. ∎
 
 **Proposition {#prop:own-same-index-sets}** (the same index sets). For every m ≥ 0,
@@ -225,31 +225,31 @@ in the proof of [[thm:iii-c1-3-1]] are chosen the same for ℰ_0^½ and ℰ_0^�
 union of the two classes' sets is discrete), then ℰ_I^C is the same for the two classes, and so are Λ, the exclusion sets
 of row d2, the conditions (G) and (G⁺), and the admissible ε_+, ε_K and α of rows w1–w2.
 
-*Proof.* Write E := ℰ_0^ℤ, E′ := ℰ_0^½, F_m := ℰ^((m))(E), L := ½ℤ, and W_L(A) for the set of words [[eq:own-word]] whose
-factors lie in A ∪ {(3/2, 0)}. Put F^L_0 := W_L(E) and F^L_(m+1) := W_L(E ∪̄ F^L_m). By [[lem:own-words]] and the
-monotonicity of ∪̄ and of words in their arguments, F^L_m ⊂ F_m. Every element of F^L_m has its first component in L, and
-F^L_m is closed under (z, k) ↦ (z + ½, k): adjoining the factor (3/2, 0) to a word adds ½ to its value.
+*Proof.* Write E := ℰ_0^ℤ, E′ := ℰ_0^½, F_m := ℰ^((m))(E), and 𝔚_½(A) for the set of words [[eq:own-word]] whose
+factors lie in A ∪ {(3/2, 0)}. Put F^½_0 := 𝔚_½(E) and F^½_(m+1) := 𝔚_½(E ∪̄ F^½_m). By [[lem:own-words]] and the
+monotonicity of ∪̄ and of words in their arguments, F^½_m ⊂ F_m. Every element of F^½_m has its first component in ½ℤ, and
+F^½_m is closed under (z, k) ↦ (z + ½, k): adjoining the factor (3/2, 0) to a word adds ½ to its value.
 
-*Step 1 (lattice points have lattice words).* We show by induction on m: for every (z, k) ∈ F_m there are (z′, k) ∈ F^L_m
-and c ∈ ℕ_0 δ_♯ + ℕ_0 γ_Υ, δ_♯ = (1 − e_Υ)γ_Υ, with z = z′ + c; and every (z, k) ∈ F_m with z ∈ L lies in F^L_m. The
-second statement follows from the first: c = z − z′ lies in L and c ≥ 0, so c = q/2 with q ∈ ℕ_0, and (z, k) =
-(z′ + q/2, k) ∈ F^L_m. For the first, each element of 𝒵_Υ is (3/2, 0) plus s ∈ σ_Υ ⊂ ℕ_0 δ_♯ + ℕ_0 γ_Υ. For m = 0 replace
+*Step 1 (lattice points have lattice words).* We show by induction on m: for every (z, k) ∈ F_m there are (z′, k) ∈ F^½_m
+and c ∈ ℕ_0 δ_♯ + ℕ_0 γ_Υ, δ_♯ = (1 − e_Υ)γ_Υ, with z = z′ + c; and every (z, k) ∈ F_m with z ∈ ½ℤ lies in F^½_m. The
+second statement follows from the first: c = z − z′ lies in ½ℤ and c ≥ 0, so c = q/2 with q ∈ ℕ_0, and (z, k) =
+(z′ + q/2, k) ∈ F^½_m. For the first, each element of 𝒵_Υ is (3/2, 0) plus s ∈ σ_Υ ⊂ ℕ_0 δ_♯ + ℕ_0 γ_Υ. For m = 0 replace
 every factor (3/2 + s, 0) of a word over E ∪ 𝒵_Υ by (3/2, 0). For m ≥ 1 the factors of a word for F_m lie in
 𝒵_Υ or in A_m := E ∪̄ F_(m−1), whose elements are elements of E, elements of F_(m−1), or pairs (p, l + 1) with p ∈ π_1E
 an integer and (p, l) ∈ F_(m−1) (with their translates and lower log orders). An element of F_(m−1) has a shadow in
-F^L_(m−1) by induction; for a pair (p, l + 1), (p, l) ∈ F^L_(m−1) by the second statement at m − 1, so (p, l + 1) ∈ E ∪̄
-F^L_(m−1). Replacing every factor by its shadow gives a word of W_L(E ∪̄ F^L_(m−1)) = F^L_m with the same log order and a
+F^½_(m−1) by induction; for a pair (p, l + 1), (p, l) ∈ F^½_(m−1) by the second statement at m − 1, so (p, l + 1) ∈ E ∪̄
+F^½_(m−1). Replacing every factor by its shadow gives a word of 𝔚_½(E ∪̄ F^½_(m−1)) = F^½_m with the same log order and a
 value smaller by a sum of elements of ℕ_0 δ_♯ + ℕ_0 γ_Υ.
 
-*Step 2 (k(n + ½) ≤ k(n) in F_m).* For m = 0 every factor of a word in W_L(E) has log order 0, so by Step 1 every point
-of F_0 in L has log order 0, and n ∈ π_1 F_0 for n ≥ 2. Let m ≥ 1, assume the claim for F_(m−1), and let (n + ½, k) ∈
-F_m, n ≥ 2 an integer. By Step 1 it is a word [[eq:own-word]] with factors in (E ∪̄ F^L_(m−1)) ∪ {(3/2, 0)}. If r ≥ 2 and
+*Step 2 (k(n + ½) ≤ k(n) in F_m).* For m = 0 every factor of a word in 𝔚_½(E) has log order 0, so by Step 1 every point
+of F_0 in ½ℤ has log order 0, and n ∈ π_1 F_0 for n ≥ 2. Let m ≥ 1, assume the claim for F_(m−1), and let (n + ½, k) ∈
+F_m, n ≥ 2 an integer. By Step 1 it is a word [[eq:own-word]] with factors in (E ∪̄ F^½_(m−1)) ∪ {(3/2, 0)}. If r ≥ 2 and
 some factor is (3/2, 0), remove it: the value drops by ½, the log order is unchanged, and if one factor remains it lies
-in E ∪̄ F^L_(m−1) (two factors (3/2, 0) give an integer value). Otherwise every factor lies in E ∪̄ F^L_(m−1) ⊂ L × ℕ_0,
+in E ∪̄ F^½_(m−1) (two factors (3/2, 0) give an integer value). Otherwise every factor lies in E ∪̄ F^½_(m−1) ⊂ ½ℤ × ℕ_0,
 and as the value lies in ½ + ℤ, some factor (h, k_h) has h ∈ ½ + ℤ, h ≥ 5/2. E has no exponent at h, so k_h ≤ k(F_(m−1),
-h) ≤ k(F_(m−1), h − ½), while E ∪̄ F^L_(m−1) has at the integer h − ½ ≥ 2 the log order k(F_(m−1), h − ½) + 1 (Step 1 at
-m − 1 identifies the log orders of F^L_(m−1) and F_(m−1) on L). Replace (h, k_h) by (h − ½, k_h). In both cases (n, k)
-is a word of F^L_m ⊂ F_m.
+h) ≤ k(F_(m−1), h − ½), while E ∪̄ F^½_(m−1) has at the integer h − ½ ≥ 2 the log order k(F_(m−1), h − ½) + 1 (Step 1 at
+m − 1 identifies the log orders of F^½_(m−1) and F_(m−1) on ½ℤ). Replace (h, k_h) by (h − ½, k_h). In both cases (n, k)
+is a word of F^½_m ⊂ F_m.
 
 *Step 3 (equality).* ⟨E⟩ ⊂ ⟨E′⟩ as E ⊂ E′, and E′ ⊂ ⟨E⟩ since (n + ½, 0) is the word (n, 0) + (3/2, 0) − 1; so ⟨E′⟩ =
 ⟨E⟩. Let m ≥ 1 and F_(m−1) = ℰ^((m−1))(E′). E ∪̄ F_(m−1) ⊂ E′ ∪̄ F_(m−1), so F_m ⊂ ℰ^((m))(E′). Conversely, E′ ∪̄ F_(m−1)
@@ -288,56 +288,56 @@ class. (c) The weights α_1, α′ avoid finitely many more points in each bound
 
 ### The construction from past null infinity at every order {#sec:own-orders}
 
-The data of g_λ on N are controlled by [[thm:past-construction]] at a fixed order of derivatives. This section takes that
+The data of g_λ on ℋ are controlled by [[thm:past-construction]] at a fixed order of derivatives. This section takes that
 order to be arbitrary, with constants polynomial in λ⁻¹ and independent of the order K of the approximant.
 
-**Proposition {#prop:own-far-order}** ([[prop:far-region]] at every order). Let k ≥ 6 and let the approximant have an
-order K′ > 5, so that |Ric^H(g_app)|_(k,P) ≤ C_R(k) λ^(K′) t_P^(−3/2). There are λ_F(k) > 0 and M_F(k), independent of
-τ_n, such that the conclusions of [[prop:far-region]] hold with [[eq:far-energy]] at order k.
+**Proposition {#prop:own-far-order}** ([[prop:far-region]] at every order). Let q ≥ 6 and let the approximant have an
+order K′ > 5, so that |Ric^H(g_app)|_(q,P) ≤ C_R(q) λ^(K′) t_P^(−3/2). There are λ_F(q) > 0 and M_F(q), independent of
+τ_n, such that the conclusions of [[prop:far-region]] hold with [[eq:far-energy]] at order q.
 
-*Proof.* The proof of [[prop:far-region]] uses k at five places. (a) The bootstrap assumption gives through
+*Proof.* The proof of [[prop:far-region]] uses q at five places. (a) The bootstrap assumption gives through
 [[lem:past-sobolev]] the bounds of w_n and ∂w_n, hence the margin of [[lem:past-domain]] (f) and w_n = 0 on
-{v ≤ v_start} ([[lem:seed-region]]); this needs k ≥ 3 only. (b) In the commuted equation, λ^i ∂^i Ω^β of the 1/λ term is
-at most C_k λ⁻¹ t_P^(−3/2) E by Leibniz's rule, every factor λ^(i₂) ∂^(i₂) Ω^(β₂) G2 being bounded by C_k t_P^(−3/2), G2
+{v ≤ v_start} ([[lem:seed-region]]); this needs q ≥ 3 only. (b) In the commuted equation, λ^i ∂^i Ω^β of the 1/λ term is
+at most C_q λ⁻¹ t_P^(−3/2) E by Leibniz's rule, every factor λ^(i₂) ∂^(i₂) Ω^(β₂) G2 being bounded by C_q t_P^(−3/2), G2
 a profile in E_(3/2), and the factors of s by C E ([[lem:past-sobolev]] (b) for the undifferentiated one); B·∂w and C·w,
-and the commutators, give C_k t_P^(−3/2) E. (c) A nonlinear monomial at order j ≤ k has total w-order at most j + 2 and
+and the commutators, give C_q t_P^(−3/2) E. (c) A nonlinear monomial at order j ≤ q has total w-order at most j + 2 and
 no factor of order j + 2; put its factor of highest order in L² and the others in the supremum norm through
-[[lem:past-sobolev]] (a), which costs three orders. The second-largest order is at most ⌊(k + 2)/2⌋, and
-⌊(k + 2)/2⌋ + 3 ≤ k + 1 for k ≥ 5; so these terms are at most C_k λ⁻⁵ t_P^(−3/2) E². (d) The residual gives
-C_R(k) λ^(K′) t_P^(−3/2). (e) Over t_P ≥ λ⁻² the kernels C_k t_P^(−3/2) and C_k λ⁻¹ t_P^(−3/2) integrate to at most 2C_k
-λ and 2C_k, the data at τ_n are fixed by the residual as in the proof of [[prop:far-region]], and Gronwall's inequality
-gives E(τ) ≤ C_k e^(2C_k(1+λ)) (3C_R(k) λ^(K′) + C_k M_F² λ^(2K′−5)) t_P^(−1/2) ≤ M_F λ^(K′) t_P^(−1/2) with
-M_F = M_F(k) := 4C_k e^(6C_k) C_R(k) + 1, for λ ≤ λ_F(k), since 2K′ − 5 > K′. Existence and continuation are Step 8 of
-the proof of [[thm:uniform-existence]] at the regularity k. ∎
+[[lem:past-sobolev]] (a), which costs three orders. The second-largest order is at most ⌊(q + 2)/2⌋, and
+⌊(q + 2)/2⌋ + 3 ≤ q + 1 for q ≥ 5; so these terms are at most C_q λ⁻⁵ t_P^(−3/2) E². (d) The residual gives
+C_R(q) λ^(K′) t_P^(−3/2). (e) Over t_P ≥ λ⁻² the kernels C_q t_P^(−3/2) and C_q λ⁻¹ t_P^(−3/2) integrate to at most 2C_q
+λ and 2C_q, the data at τ_n are fixed by the residual as in the proof of [[prop:far-region]], and Gronwall's inequality
+gives E(τ) ≤ C_q e^(2C_q(1+λ)) (3C_R(q) λ^(K′) + C_q M_F² λ^(2K′−5)) t_P^(−1/2) ≤ M_F λ^(K′) t_P^(−1/2) with
+M_F = M_F(q) := 4C_q e^(6C_q) C_R(q) + 1, for λ ≤ λ_F(q), since 2K′ − 5 > K′. Existence and continuation are Step 8 of
+the proof of [[thm:uniform-existence]] at the regularity q. ∎
 
-**Proposition {#prop:own-near-order}** ([[prop:near-region]] at every order). For k ≥ 6 let C(k) be the sum of the
-constants of [[eq:near-lines]] at the orders j ≤ k, β0(k) := max(2, 4C(k) + 1), and let the approximant have
-N_k := K + 4 + ⌈4β0(k)⌉ stages, K ≥ 6, so that K′ = N_k − 1. There are λ_N(k) > 0 and M_N(k) such that
-[[eq:near-bootstrap]] holds at order k with β0(k), and 𝒩_P(τ0) ≤ M_N(k) λ^(K′−2β0(k)).
+**Proposition {#prop:own-near-order}** ([[prop:near-region]] at every order). For q ≥ 6 let C(q) be the sum of the
+constants of [[eq:near-lines]] at the orders j ≤ q, β0(q) := max(2, 4C(q) + 1), and let the approximant have
+N_q := K + 4 + ⌈4β0(q)⌉ stages, K ≥ 6, so that K′ = N_q − 1. There are λ_N(q) > 0 and M_N(q) such that
+[[eq:near-bootstrap]] holds at order q with β0(q), and 𝒩_P(τ0) ≤ M_N(q) λ^(K′−2β0(q)).
 
-*Proof.* The proof of [[prop:near-region]] at order k: its data come from [[prop:own-far-order]]; every line of
-[[eq:near-lines]] holds at every order j ≤ k with c0 unchanged, the commutation fields commuting with L0 and
-[Z, r^(−c)] carrying r^(−c−1); each integral of a bootstrap quantity returns at most C(k)/(β0(k) − 1) ≤ ¼ of its bound;
-and the nonlinear ratios are at most C″ λ^(K′−8−4β0(k)), which is at most 1/8 for λ small because
-K′ = K + 3 + ⌈4β0(k)⌉ ≥ 9 + 4β0(k). ∎
+*Proof.* The proof of [[prop:near-region]] at order q: its data come from [[prop:own-far-order]]; every line of
+[[eq:near-lines]] holds at every order j ≤ q with c0 unchanged, the commutation fields commuting with L0 and
+[Z, r^(−c)] carrying r^(−c−1); each integral of a bootstrap quantity returns at most C(q)/(β0(q) − 1) ≤ ¼ of its bound;
+and the nonlinear ratios are at most C″ λ^(K′−8−4β0(q)), which is at most 1/8 for λ small because
+K′ = K + 3 + ⌈4β0(q)⌉ ≥ 9 + 4β0(q). ∎
 
-**Corollary {#cor:own-p-order}** ([[thm:past-construction]] at every order). Let k ≥ 6 and K ≥ 6, and let g_app be the
-approximant with N_k stages. There is λ_P(K, k) > 0 such that for λ ≤ λ_P(K, k) the solution g_λ of
-[[thm:past-construction]] satisfies [[eq:far-energy]] at order k on the far region, on Ω′ the conclusions of
-[[thm:uniform-existence]] at the regularity k, 𝒩_k ≤ M_k λ^K on [τ0, τ′_end] with 𝒩_k the quantity [[eq:ue-energy]] at
-order k ([[rem:ue-every-order]]), and on P
+**Corollary {#cor:own-p-order}** ([[thm:past-construction]] at every order). Let q ≥ 6 and K ≥ 6, and let g_app be the
+approximant with N_q stages. There is λ_P(K, q) > 0 such that for λ ≤ λ_P(K, q) the solution g_λ of
+[[thm:past-construction]] satisfies [[eq:far-energy]] at order q on the far region, on Ω′ the conclusions of
+[[thm:uniform-existence]] at the regularity q, 𝒩_q ≤ M_q λ^K on [τ0, τ′_end] with 𝒩_q the quantity [[eq:ue-energy]] at
+order q ([[rem:ue-every-order]]), and on P
 
-    |∂^i Ω^β (g_λ − g_app)| ≤ C_k λ^(K−3−i) t_P⁻²,     i + |β| ≤ k − 3.                                   {#eq:own-p-iii}
+    |∂^i Ω^β (g_λ − g_app)| ≤ C_q λ^(K−3−i) t_P⁻²,     i + |β| ≤ q − 3.                                   {#eq:own-p-iii}
 
-*Proof.* The proof of [[thm:past-construction]] at order k: the data of w_n at τ0 by [[prop:own-near-order]];
-[[thm:uniform-existence]] at the regularity k ([[rem:ue-every-order]]); and the limit n → ∞, the bounds at order k being
-inherited by weak lower semicontinuity. The solution built at order k is g_λ: the two approximants differ by Σ_(j>N_6)
-λ^j [g_j] = O(λ^(N_6)) t_P^(−3/2) in C¹, so the solution at order k lies in the uniqueness class of item 5 of
+*Proof.* The proof of [[thm:past-construction]] at order q: the data of w_n at τ0 by [[prop:own-near-order]];
+[[thm:uniform-existence]] at the regularity q ([[rem:ue-every-order]]); and the limit n → ∞, the bounds at order q being
+inherited by weak lower semicontinuity. The solution built at order q is g_λ: the two approximants differ by Σ_(j>N_6)
+λ^j [g_j] = O(λ^(N_6)) t_P^(−3/2) in C¹, so the solution at order q lies in the uniqueness class of item 5 of
 [[thm:past-construction]] for the order 6. The energies E and 𝒩_P contain the rotations, which cost no power of λ, and
-[[lem:past-sobolev]] (a) costs three derivatives in ∂_r and Ω; on the near region (T_λ/t)^(β0(k)) ≤ λ^(−2β0(k)) is
-absorbed by K′ − 2β0(k) ≥ K + 3. This gives [[eq:own-p-iii]]. ∎
+[[lem:past-sobolev]] (a) costs three derivatives in ∂_r and Ω; on the near region (T_λ/t)^(β0(q)) ≤ λ^(−2β0(q)) is
+absorbed by K′ − 2β0(q) ≥ K + 3. This gives [[eq:own-p-iii]]. ∎
 
-So no order fails; what grows with k is the number of stages N_k, and λ_P(K, k) may decrease.
+So no order fails; what grows with q is the number of stages N_q, and λ_P(K, q) may decrease.
 
 **Proposition {#prop:own-poly}** (the powers of λ at past null infinity). For J ≥ 4 and n, m ≥ 0 there are C and
 λ_0 > 0, depending on J, n, m and the data (seed, A, env, angular profile) and not on K, such that for 0 < λ ≤ λ_0, on
@@ -428,7 +428,7 @@ Vandermonde matrix of the d + 1 nodes y_l := ½ + l/(2d), l = 0, …, d (L_0 := 
 *Proof.* Q(y) := P(y_* y) = Σ_i c_i y_*^i y^i satisfies |Q(y_l)| ≤ η, and its coefficients are the inverse Vandermonde
 matrix applied to (Q(y_l))_l. ∎
 
-**Lemma {#lem:own-e-flux}** (the coefficients and the remainder of e on N). Let a ∈ (0, 7/2), j ≥ 0, M ≥ 15 + 2(j + 1),
+**Lemma {#lem:own-e-flux}** (the coefficients and the remainder of e on ℋ). Let a ∈ (0, 7/2), j ≥ 0, M ≥ 15 + 2(j + 1),
 θ_k := (k − 4)/5, s_R := max(5/2, (2M + 1)/(7 − 2a)), and
 
     K*(a, M, j) := max{ 4 + j + s_R (a + j);  3 + i + (s_R max(0, 2a + 2 − k)/2 + (M + i) θ_k)/(1 − θ_k) :
@@ -438,15 +438,15 @@ Let K > K*(a, M, j), let k_P ≥ j + 5, and let g_λ satisfy [[eq:own-p-iii]] at
 4.
 (1) For 4 ≤ k ≤ 8, i ≤ j + 1 and i + |β| ≤ k_P − 4, |∂_v^i Ω^β e_k(v1, x̂)| ≤ C λ^((K−3−i)(1−θ_k)−(M+i)θ_k), and the
 exponent exceeds 1 for i ≤ j.
-(2) Let Γ ∈ {∂_t, Ω_ab, Z}, Z := (t − v1)∂_t + x·∂_x, and for φ on a neighbourhood of N put
+(2) Let Γ ∈ {∂_t, Ω_ab, Z}, Z := (t − v1)∂_t + x·∂_x, and for φ on a neighbourhood of ℋ put
 
-    𝔉_N^a[φ] := ∫_N r^(2a) ( |ℓφ|² + r⁻² |∇̊φ|² + r⁻² |∂φ|² ) r³ dr dω,                              {#eq:own-flux-n}
+    𝔉_ℋ^a[φ] := ∫_ℋ r^(2a) ( |ℓφ|² + r⁻² |∇̊φ|² + r⁻² |∂φ|² ) r³ dr dω,                              {#eq:own-flux-n}
 
-∇̊ the gradient on S³. Then 𝔉_N^a[Γ^α e_(8)] → 0 as λ → 0 for every |α| ≤ j.
+∇̊ the gradient on S³. Then 𝔉_ℋ^a[Γ^α e_(8)] → 0 as λ → 0 for every |α| ≤ j.
 
-*Proof.* (1) On N at fixed x̂, put y := r^(−1/2), so that r² r^(−k/2) = y^(k−4). By [[eq:own-e-expansion]],
+*Proof.* (1) On ℋ at fixed x̂, put y := r^(−1/2), so that r² r^(−k/2) = y^(k−4). By [[eq:own-e-expansion]],
 r² ∂_v^i Ω^β e = P(y) + r² ∂_v^i Ω^β e_(8) with P(y) := Σ_(k=4)^8 ∂_v^i Ω^β e_k(v1, x̂) y^(k−4), of degree 4. On the far
-region of N, r and t_P are comparable, and |r² ∂_v^i Ω^β e| ≤ C λ^(K−3−i) by [[eq:own-p-iii]] (∂_v = ∂_t at fixed x is a
+region of ℋ, r and t_P are comparable, and |r² ∂_v^i Ω^β e| ≤ C λ^(K−3−i) by [[eq:own-p-iii]] (∂_v = ∂_t at fixed x is a
 Cartesian derivative), while |r² ∂_v^i Ω^β e_(8)| ≤ C λ^(−(15+i)) y⁵ ≤ C λ^(−(M+i)) y⁵. So |P| ≤ η := C(λ^(K−3−i) +
 λ^(−(M+i)) y_*⁵) on [y_*/2, y_*]. Take y_*⁵ := λ^(K−3+M); then η ≤ 2C λ^(K−3−i), and [[lem:own-interpolation]]
 gives |∂_v^i Ω^β e_k| ≤ C λ^(K−3−i) y_*^(−(k−4)) = C λ^((K−3−i)(1−θ_k)−(M+i)θ_k). The interval y ∈ [y_*/2, y_*] is
@@ -455,20 +455,20 @@ at i + 1 ≤ j + 1 gives (K − 4 − i)(1 − θ_k) > (M + i + 1) θ_k, that is
 (K − 3 − i)(1 − θ_k) − (M + i)θ_k > (1 − θ_k) + θ_k = 1.
 
 (2) Let R_λ := λ^(−s_R), which lies in the far region for λ small as s_R ≥ 5/2. *Above R_λ*, by the bounds of e_(8)
-after [[eq:own-e-expansion]] with the ℓ-gain, and Z = rℓ on N (Z(v − v1) = v − v1 and Z = (v − v1)∂_v + rℓ in
+after [[eq:own-e-expansion]] with the ℓ-gain, and Z = rℓ on ℋ (Z(v − v1) = v − v1 and Z = (v − v1)∂_v + rℓ in
 (v, r, x̂)), the integrand of [[eq:own-flux-n]] for Γ^α e_(8), |α| ≤ j, is at most C λ^(−2M) r^(2a−11+3), and its
 integral over r ≥ R_λ is C λ^(−2M) R_λ^(2a−7) = C λ^(−2M + s_R(7−2a)) ≤ C λ, by the choice of s_R. *Below R_λ*, write
 Γ^α e_(8) = Γ^α e − Σ_(k=4)^8 Γ^α(r^(−k/2) e_k). For Γ^α e: Z = rℓ costs a factor r and a derivative, ∂_t a derivative,
-Ω nothing; on N ∩ Ω′ the bounds of [[thm:uniform-existence]] at order k_P hold with λ^(K−3−i) ([[cor:own-p-order]]), and
-on N ∩ P′ [[eq:own-p-iii]] holds; so every derivative in [[eq:own-flux-n]] of Γ^α e is at most C r^j λ^(K−4−j) r⁻², and
+Ω nothing; on ℋ ∩ Ω′ the bounds of [[thm:uniform-existence]] at order k_P hold with λ^(K−3−i) ([[cor:own-p-order]]), and
+on ℋ ∩ P′ [[eq:own-p-iii]] holds; so every derivative in [[eq:own-flux-n]] of Γ^α e is at most C r^j λ^(K−4−j) r⁻², and
 its integral over r ≤ R_λ is at most C λ^(2(K−4−j)) R_λ^(2a+2j) = C λ^(2(K−4−j−s_R(a+j))) → 0 by the first entry of
-[[eq:own-kstar]]. For Γ^α(r^(−k/2) e_k(v, x̂)) on N: ∂_t acts as ∂_v on e_k, Ω on x̂, and Z = rℓ multiplies r^(−k/2) by
+[[eq:own-kstar]]. For Γ^α(r^(−k/2) e_k(v, x̂)) on ℋ: ∂_t acts as ∂_v on e_k, Ω on x̂, and Z = rℓ multiplies r^(−k/2) by
 −k/2; the tangential derivatives in [[eq:own-flux-n]] gain r⁻¹ and the transverse one costs one more ∂_v. So the
 integrand is at most C r^(2a+1−k) times |∂_v^i Ω^β e_k(v1)|² with i ≤ j + 1, and the integral over r ≤ R_λ is at most
 C R_λ^(max(0, 2a+2−k)) (1 + log R_λ) λ^(2((K−3−i)(1−θ_k) −(M+i)θ_k)), which tends to 0 by the second entries of
 [[eq:own-kstar]]. ∎
 
-### The subtracted expansion and the data on N {#sec:own-sigma}
+### The subtracted expansion and the data on ℋ {#sec:own-sigma}
 
 **Lemma {#lem:own-self-similar}** (self-similar solutions of the flat equation). Let p ∈ {2, 5/2, 3, 7/2, 4} and let G be
 a smooth symmetric tensor field on S³ (Cartesian components). There is exactly one F(s, x̂), smooth on [0, 3/2] × S³ up
@@ -534,16 +534,16 @@ Section [[sec:far-homogeneity]], which maps {r = 1, 0 ≤ s ≤ 3/2} onto {r = �
 which generate G, so it is G-invariant; so are the coefficients of its expansion, and the equation of
 [[lem:own-self-similar]] commutes with G. ∎
 
-**Lemma {#lem:own-n-data}** (the remainder on N and on the band). Let 𝒰 := (P′ ∪ Ω′) ∩ {v1 ≤ v ≤ V′_P − h_P(τ)} ∩ W,
+**Lemma {#lem:own-n-data}** (the remainder on ℋ and on the band). Let 𝒰 := (P′ ∪ Ω′) ∩ {v1 ≤ v ≤ V′_P − h_P(τ)} ∩ W,
 on which g_λ is defined, and put h_R := g_λ − g_b0 − Σ there.
-(i) At fixed λ, every Γ^α h_R is O(r^(−9/2)) on 𝒰, with constants depending on λ and α; on N, Γ^α h_R and its
+(i) At fixed λ, every Γ^α h_R is O(r^(−9/2)) on 𝒰, with constants depending on λ and α; on ℋ, Γ^α h_R and its
 derivatives along the spheres are O(r^(−9/2)) and its derivative along ℓ is O(r^(−11/2)).
-(ii) Let a ∈ (0, 7/2). Near N, h_R = e_(8) + Σ_j λ^j m_(j,8) − Σ_rem, where Σ_rem is Σ minus the terms of order at most
+(ii) Let a ∈ (0, 7/2). Near ℋ, h_R = e_(8) + Σ_j λ^j m_(j,8) − Σ_rem, where Σ_rem is Σ minus the terms of order at most
 4 of its expansion at fixed v; for |α| ≤ k1, Γ^α Σ_rem and its first derivatives are O(λ r^(−9/2)) there, its derivatives
 along ℓ and along the spheres O(λ r^(−11/2)). If K > K*(a, M, k1) as in [[thm:own-data]], then
-𝔉_N^a[Γ^α h_R] ≤ C(λ² + ν(λ)) for |α| ≤ k1, with ν(λ) → 0 as λ → 0.
-(iii) The flux through N ∩ {T ≤ t̃ ≤ σ} of the weighted energy of Γ^α h_R for a metric g with |g − g_b0| ≤ C r⁻² is at
-most C 𝔉_N^a[Γ^α h_R], and beyond r = ϱ it is at most C(λ) ϱ^(2a−7) for a < 7/2.
+𝔉_ℋ^a[Γ^α h_R] ≤ C(λ² + ν(λ)) for |α| ≤ k1, with ν(λ) → 0 as λ → 0.
+(iii) The flux through ℋ ∩ {T ≤ t̃ ≤ σ} of the weighted energy of Γ^α h_R for a metric g with |g − g_b0| ≤ C r⁻² is at
+most C 𝔉_ℋ^a[Γ^α h_R], and beyond r = ϱ it is at most C(λ) ϱ^(2a−7) for a < 7/2.
 
 *Proof.* (i) On 𝒰, v > v_end, so g_λ − g_b0 = g_λ − g0 = Σ_(k=4)^9 r^(−k/2) G_k + u_9 ([[prop:bondi-hierarchy]], G_3 = 0
 there). After the shell the coefficients G_k with k ≤ 9 obey the flat recursion [[eq:own-flat-recursion]], by the count
@@ -553,7 +553,7 @@ at fixed v ∈ [v1, V′_P], Taylor's formula in s = (v − v1)/r gives r^(−p)
 v1)^m/m! + O(r^(−p−m₀)), with derivatives; since □_η(r^(−p) F_p) = 0, the coefficients of r^(−q) of this expansion solve
 the same recursion (by [[eq:own-box-p]] at μ = 0, order by order), and at v = v1 they equal F_q(0) = G_(2q)(v1). The
 recursion fixes the coefficient of r^(−q) at v from its value at v1 and the coefficient of r^(−q+1); so the coefficients
-of r^(−k/2), k ≤ 8, of g_λ − g_b0 and of Σ agree on 𝒰, and h_R = O(r^(−9/2)) there with all derivatives. On N, s = 0, Z =
+of r^(−k/2), k ≤ 8, of g_λ − g_b0 and of Σ agree on 𝒰, and h_R = O(r^(−9/2)) there with all derivatives. On ℋ, s = 0, Z =
 rℓ (Z = (v − v1)∂_v + rℓ in (v, r, x̂)) and Ω are tangent, ∂_t = ∂_v; the ℓ-gain of u_9 ([[prop:bondi-hierarchy]]) and of
 the explicit terms give the last claim.
 
@@ -561,12 +561,12 @@ the explicit terms give the last claim.
 G_(2q), q ≤ 4; so h_R = u_8 − Σ_rem, and u_8 = e_(8) + Σ_j λ^j m_(j,8) by [[eq:own-e-expansion]]. Σ_rem is the sum over
 p ∈ Π of r^(−p) times the Taylor remainder of F_p in s at the order m_p := ⌊4 − p⌋ + 1, which is O(λ s^(m_p)) with every
 derivative of order at most k1 + 1 in (s, x̂) by [[lem:own-sigma-data]], and p + m_p ≥ 9/2; ℓ = ∂_r at fixed v and r⁻¹Ω
-gain r⁻¹ on it, while ∂_t = ∂_v and Z = (v − v1)∂_v + rℓ keep its order. So 𝔉_N^a[Γ^α Σ_rem] ≤ C λ² ∫ r^(2a−11+3) dr
+gain r⁻¹ on it, while ∂_t = ∂_v and Z = (v − v1)∂_v + rℓ keep its order. So 𝔉_ℋ^a[Γ^α Σ_rem] ≤ C λ² ∫ r^(2a−11+3) dr
 ≤ C λ² for a < 7/2. The means' part Σ_j λ^j m_(j,8) has, by [[lem:own-means]], λ-independent coefficients with the
 ℓ-gain, and flux O(λ²). The part e_(8) has flux ν(λ) → 0 by [[lem:own-e-flux]] (2) with j = k1.
 
-(iii) N = {v = v1} is null for g_b0, and the flux of T_(g_b0)[φ](X, −∇v), X = w∂_t, through it contains only ℓφ and the
-derivatives along the spheres, with bounded coefficients; w ≤ C r^(2a) on N. For g = g_b0 + H the difference of the
+(iii) ℋ = {v = v1} is null for g_b0, and the flux of T_(g_b0)[φ](X, −∇v), X = w∂_t, through it contains only ℓφ and the
+derivatives along the spheres, with bounded coefficients; w ≤ C r^(2a) on ℋ. For g = g_b0 + H the difference of the
 integrands is at most C|H| w |∂φ|², which the last term of [[eq:own-flux-n]] bounds. The tail: by (i), at fixed λ the
 integrand of [[eq:own-flux-n]] for Γ^α h_R is O(r^(2a−11+3)), and its integral beyond ϱ is C(λ) ϱ^(2a−7)/(7 − 2a). ∎
 
@@ -584,7 +584,7 @@ x̂ := x/r, v = t + r, μ = μ_end, and
 For Lorentzian metrics g and g′, Ric^H(g; g′) denotes the expression [[eq:gauge]] with g′ in place of g0: the vector
 field D and the connection ∇̂ are formed with g′. By [[eq:background]], g_b0 = g0 on {v ≥ v_end}, which contains W, so
 there P(h) is Ric^H(g0 + h) of [[eq:gauge]]. Pointwise norms |·| are those of [[sec:profiles]]: the Euclidean operator
-norm on symmetric 2-tensors and the Frobenius norm on arrays of higher rank. W, N, the slices Σ̃_σ, s = (v − v1)/r and
+norm on symmetric 2-tensors and the Frobenius norm on arrays of higher rank. W, ℋ, the slices Σ̃_σ, s = (v − v1)/r and
 r_σ are those of Section [[sec:own-far-part]]: on W, 0 ≤ s ≤ 5/4 and |t − v1| ≤ r, and r_σ ≥ c_W (1 + |σ|)
 ([[lem:own-wedge]] (b)). The commutators are Γ ∈ {∂_t, L_Ω_ab, Z}, with Ω_ab := x_a ∂_b − x_b ∂_a and
 Z := (t − v1) ∂_t + x·∂_x, acting on Cartesian components; Γ^α is a product of |α| of them. The subtracted expansion
@@ -931,7 +931,7 @@ operator norm of a component matrix, and for a function φ and σ ≤ 0,
                                                                                                        {#eq:own-energies}
 
 T_g[φ] := dφ ⊗ dφ − ½ g g⁻¹(dφ, dφ) the energy-momentum tensor of φ for g, d⁴x the coordinate measure of x on Σ̃_σ, and
-𝔉_k the corresponding fluxes through N ∩ {T ≤ t̃ ≤ σ}. On Σ̃_σ, d⁵x = dt̃ d⁴x. By [[lem:far-scaling]] (a), in Cartesian
+𝔉_k the corresponding fluxes through ℋ ∩ {T ≤ t̃ ≤ σ}. On Σ̃_σ, d⁵x = dt̃ d⁴x. By [[lem:far-scaling]] (a), in Cartesian
 components and with g := g_b0 + h,
 
     P(h) = −½ g^(ab) ∂_a ∂_b g + Q(g)(∂g, ∂g),
@@ -1029,7 +1029,7 @@ the bound |Σ| + |Σ′_J| ≤ 1/100 holds on W ∩ {r ≥ r_T}, which contains 
 [[lem:cutoff-extension]] (c)).
 (ii) Every past g_λ-causal curve from a point p ∈ (P′ ∪ Ω′) ∩ {v ≤ v1, τ − F̂(|x|) ≥ T} stays in P′ ∪ Ω′ and meets 𝒮_T at
 a point with v ≤ V_T. Hence the solution g_T of the truncated problem equals g_λ on (P′ ∪ Ω′) ∩ {v ≤ v1, τ − F̂ ≥ T}, and
-N ∩ {t̃ ≥ T} carries the data of g_λ: no characteristic problem is posed.
+ℋ ∩ {t̃ ≥ T} carries the data of g_λ: no characteristic problem is posed.
 (iii) Let k ≥ 0 and h_R := g_T − g_b0 − Σ. On Σ̃_T, for |α| ≤ k,
 
     |Γ^α h_R| ≤ C (r⁻⁴ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),     |∂Γ^α h_R| ≤ C (r⁻⁵ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),
@@ -1060,7 +1060,7 @@ v(p) ≤ v1: on Ω′, Φ_Ω ≤ v1 + ε_Ω(τ′_end − τ0) < v1 + δ_0/2, so
 Φ_P ≤ v1 + δ_0/2 + κ_P = V′_P − δ_0/2; at its point q on 𝒮_T, τ(q) ≥ T − C_f, h_P is increasing, and
 v(q) ≤ V′_P − δ_0/2 − h_P(T − C_f) = V_T. So p lies in the domain of dependence of 𝒮_T ∩ {v ≤ V_T}, where the data are
 those of g_λ, and the uniqueness of the local theory on domains of dependence (Step 8 of the proof of
-[[thm:uniform-existence]]) gives g_T = g_λ there. N ⊂ Ω′ ∪ P′ by [[lem:interior-far-part]] (ii). (iv) Beyond the band
+[[thm:uniform-existence]]) gives g_T = g_λ there. ℋ ⊂ Ω′ ∪ P′ by [[lem:interior-far-part]] (ii). (iv) Beyond the band
 the data g_b0 + Σ + Σ′_J are smooth with every derivative bounded ([[lem:own-sigma-data]] (b) and [[eq:far-sigma-bounds]]
 at fixed λ, [[lem:cutoff-extension]] (a)), and so are the data of g_λ on the bounded set 𝒮_T ∩ {v ≤ V_T + δ_0/4}; so the
 local theory of Step 8 of the proof of [[thm:uniform-existence]], applied on the balls of a fixed radius, gives
@@ -1075,7 +1075,7 @@ Near Σ̃_T put
     H_0 := Σ + Σ′_J,     𝔐 := (1 − χ_T) m_J  (𝔐 := 0 where χ_T = 1),     H_D := 𝔤_T − g_b0 = H_0 + 𝔐,     {#eq:cutoff-hd}
 
 the identity on 𝒮^♭_T being 𝔤_T − g_b0 = Σ + Σ′_J + (1 − χ_T)(g_λ − g_b0 − Σ − Σ′_J). 𝒮^♭_T is the part of the initial
-slice from N to the outer edge of the band; it is {r_T ≤ r ≤ r_T + d_V} along the rays of Σ̃_T (v increases along them
+slice from ℋ to the outer edge of the band; it is {r_T ≤ r ≤ r_T + d_V} along the rays of Σ̃_T (v increases along them
 with dv/dr ≥ 1, [[lem:own-wedge]] (b)), and r_T ≥ c_W (1 + |T|). Let δ := g_T − 𝔤_T, defined on W_T ∩ {t̃ ≤ T + δ_T}
 near Σ̃_T, and wherever χ_T = 1. Then h_R = g_T − g_b0 − Σ = Σ′_J + 𝔐 + δ there.
 
@@ -1475,12 +1475,12 @@ q = a + 1/2 exactly when a > 1/2, and q = 4 − a exactly when a < 3. ∎
 (i) the kernels of [[cor:far-kernels]]: 1/2 < a < 3;
 (ii) the cap: 𝔈_k1(T) ≤ C(λ, J) |T|^(2a−6), with C(λ, J) independent of T, a bound that is finite and tends to 0 as
 T → −∞ exactly when a < 3;
-(iii) the flux through N: its density is bounded by C(λ) r^(2a−8), and the bound is integrable, with tail C(λ) ϱ^(2a−7)
+(iii) the flux through ℋ: its density is bounded by C(λ) r^(2a−8), and the bound is integrable, with tail C(λ) ϱ^(2a−7)
 beyond r = ϱ, exactly when a < 7/2;
 (iv) the class on S: with ρ := 1/r and L²_b := L²(dρ/ρ dω), the energy places h_R|_S in ρ^(a+1) L²_b, which lies in
 ρ^(ℓ0) L²_b on {ρ ≤ ρ_0} exactly when a ≥ ℓ0 − 1;
 (v) the remaining conditions: a ≥ 3/2, for |H| ≤ r⁻²/4 in Step 1 of the proof of [[thm:own-continuation]]; a > 1/2,
-for uniqueness at a smaller weight ([[lem:own-two-continuations]]); a < 7/2, for the data on N at weight a
+for uniqueness at a smaller weight ([[lem:own-two-continuations]]); a < 7/2, for the data on ℋ at weight a
 ([[lem:own-e-flux]], [[lem:own-n-data]] (ii)); and a < 3, for the finiteness of the energies of the full slices
 ([[lem:own-truncation]] (iii), [[lem:own-exterior]]). None of them restricts a beyond (ii) and (iv).
 Their intersection is [ℓ0 − 1, 3), and [[thm:own-data]] uses its interior a ∈ (ℓ0 − 1, 3).
@@ -1495,13 +1495,13 @@ g_b0(∂_t, L0) = −dv(∂_t) = −1. With L := ∂_t + x̂·∂_x and ∇̸ th
 
     T_(g_b0)[φ](w ∂_t, L0) = w ((1/2)(L0φ)² + (1/2)|∇̸φ|² − (1/2) μ r⁻² (L0φ)²).
 
-It contains only derivatives tangent to N, L0 being the generator. On N, g_T = g_λ with all its derivatives
+It contains only derivatives tangent to ℋ, L0 being the generator. On ℋ, g_T = g_λ with all its derivatives
 ([[lem:own-truncation]] (ii)), so by [[lem:own-n-data]] (i), at fixed λ, the fields Γ^α h_R, |α| ≤ k1 + 1, and all
 their first derivatives are O(r^(−9/2)) there, and their derivatives along the generators O(r^(−11/2)). So
-L0φ = O(r^(−11/2)) on N, and |∇̸φ| ≤ r⁻¹ Σ_(a<b) |Ω_ab φ| = O(r^(−11/2)), Ω_ab φ being a combination of components of
+L0φ = O(r^(−11/2)) on ℋ, and |∇̸φ| ≤ r⁻¹ Σ_(a<b) |Ω_ab φ| = O(r^(−11/2)), Ω_ab φ being a combination of components of
 L_Ω_ab Γ^α h_R and Γ^α h_R, of orders at most k1 + 1. For g = g_b0 + H the density √|g| T_g[φ](w ∂_t, −g⁻¹ dv) differs
 from √|g_b0| times that of g_b0 by at most C w |H| |∂φ|²: g(w ∂_t, −g⁻¹ dv) = −w for both metrics, and
-g⁻¹ − g_b0⁻¹ = O(|H|). This term contains the transverse derivative. On N, |H| ≤ C r⁻² by [[eq:far-sigma-bounds]] and
+g⁻¹ − g_b0⁻¹ = O(|H|). This term contains the transverse derivative. On ℋ, |H| ≤ C r⁻² by [[eq:far-sigma-bounds]] and
 [[lem:own-n-data]] (i), and |∂φ| = O(r^(−9/2)), so it is at most C r^(2a) r⁻² r⁻⁹. With w ≤ C r^(2a) and
 d⁴x = r³ dr dω the flux density is therefore at most C(λ) r^(2a − 11 + 3) = C(λ) r^(2a−8). Its integral beyond ϱ is
 C(λ) ϱ^(2a−7)/(7 − 2a) for a < 7/2, and the bound is not integrable for a ≥ 7/2. (iv) The weighted energy on S bounds
@@ -1518,11 +1518,11 @@ if a solution smooth up to s = 0, with derivatives bounded on 𝔎 as in [[lem:o
 constructed here, and no proof uses this choice. With it the terms of degree −6 in the proof of [[prop:far-residual]]
 sum to −(1/2) □_η Σ_4 + Q_6 = 0, so that P(Σ) is O(λ r^(−13/2)) with every Π_i (Γ_i + c_i), the residual integral of
 [[cor:far-kernels]] is C λ² r_σ^(2a−9)/(9 − 2a), κ_Σ becomes C λ (1 + |σ|)^(a−9/2), and (i) of [[prop:far-window]]
-becomes 1/2 < a < 7/2. On N, where s = 0, both choices of Σ_4 equal r⁻⁴ G_8(v1, ·); on the initial slice the proof of
+becomes 1/2 < a < 7/2. On ℋ, where s = 0, both choices of Σ_4 equal r⁻⁴ G_8(v1, ·); on the initial slice the proof of
 [[lem:own-truncation]] (iii) uses of Σ_4 only that it is smooth and homogeneous of degree −4 with F_4(0, ·) = G_8(v1, ·),
 and that P(Σ) is tame of order 6, the continuation Σ′_J of [[def:cutoff-extension]] being formed with the Taylor
 coefficients F_(4,n) of the chosen F_4. So (ii)–(v) keep their form, the cap's a < 3 binds, and the window is again
-[ℓ0 − 1, 3). (b) Without the term p = 4 in Σ, h_R contains r⁻⁴ G_8(v1, ·) on N, so that its derivatives along the
+[ℓ0 − 1, 3). (b) Without the term p = 4 in Σ, h_R contains r⁻⁴ G_8(v1, ·) on ℋ, so that its derivatives along the
 generators and along the spheres are O(r⁻⁵) there and the flux density of (iii) is bounded by C r^(2a−7), with tail
 C ϱ^(2a−6) beyond ϱ, integrable exactly when a < 3; on the initial slice Σ′_J then contains the terms
 r⁻⁴ s^n G_(8+2n,n), n ≥ 0, still homogeneous of degree −4, so the cap keeps its exponent 2a − 6; and P(Σ) keeps its
@@ -1532,7 +1532,7 @@ terms Q_6 of degree −6, so (i) gives a < 3. The conditions then leave [ℓ0 �
 and ε_2 > 0 such that for 0 < λ ≤ λ_2 the following holds. For every integer J ≥ 2k1 + 7 there is T_1(λ, J) such that
 for T ≤ T_1(λ, J) the solution g_T^(J) of the truncated problem of [[def:cutoff-truncation]] exists on all of W_T, and as
 T → −∞ the g_T^(J) converge in C^(k_J−3) on compact subsets of W, k_J := ⌊(J − 7)/2⌋, to a metric g on W that does not
-depend on J. g is smooth and G-invariant, Ric^H(g; g_b0) = 0, and g joins g_λ smoothly across N. Its remainder
+depend on J. g is smooth and G-invariant, Ric^H(g; g_b0) = 0, and g joins g_λ smoothly across ℋ. Its remainder
 h_R = g − g_b0 − Σ satisfies 𝔈_(k1)(σ) ≤ ε_B² for σ ≤ 0, with ε_B = ε_B(λ) → 0 as λ → 0, 𝔈_k(σ) ≤ C_k(λ) for every
 k, and E_σ[Γ^α h_R] → 0 as σ → −∞ for |α| ≤ k1; the pointwise bounds [[eq:own-pointwise]] hold with ε_B. On S,
 h_R|_S ∈ ρ^(a+1) H_b^k and ∂h_R|_S ∈ ρ^(a+2) H_b^k (dρ/ρ dω) for every k, and the data (γ, k) of g on S satisfy
@@ -1574,10 +1574,10 @@ derivatives has order at most max(|α| − 1, 0): second derivatives of a field 
 DP(H)[Γ^α h_R], as the identities above show by induction. Componentwise DP(H)[k] = −½ g^(ab)∂_a∂_b k +
 B(H)·∂k + C(H)k ([[prop:far-coefficients]]). For φ := (Γ^α h_R)_ij, [[eq:own-energy-identity]] on the bounded domain
 D_*(σ) := W_T ∩ {t̃ ≤ σ} ∩ {Φ_W ≤ V_*}, σ ≤ σ*, whose boundary consists of Σ̃_σ ∩ {Φ_W ≤ V_*} (future), Σ̃_T ∩ {Φ_W ≤
-V_*} and N ∩ D_*(σ) (past) and {Φ_W = V_*} (future, spacelike by [[lem:own-margins]] (c), with nonnegative flux,
+V_*} and ℋ ∩ D_*(σ) (past) and {Φ_W = V_*} (future, spacelike by [[lem:own-margins]] (c), with nonnegative flux,
 dropped), gives
 
-    E_σ[φ] ≤ E_T[φ] + F_N[φ] − ∫∫ √|g| w (□_g φ) ∂_t φ − ½ ∫∫ √|g| w T_g[φ]^(ab) ∂_t g_ab,
+    E_σ[φ] ≤ E_T[φ] + F_ℋ[φ] − ∫∫ √|g| w (□_g φ) ∂_t φ − ½ ∫∫ √|g| w T_g[φ]^(ab) ∂_t g_ab,
                                                                                               {#eq:own-energy-inequality}
 
 with □_g φ = −2(DP(H)[Γ^α h_R])_ij + 2(B(H)·∂Γ^α h_R)_ij + 2(C(H)Γ^α h_R)_ij − g^(ab)Γ[g]^c_ab ∂_c φ, the bulk term
@@ -1629,23 +1629,23 @@ finite and continuous by [[lem:own-exterior]] (c), and Gronwall's inequality clo
 *Step 5 (the limit).* For T′ < T ≤ T_1(λ, J), ξ := g_(T′) − g_T on W_T solves the linear system obtained by subtracting
 the two equations, with g_(T′) as principal part, −½ g_(T′)^(ab)∂_a∂_b ξ = ½(g_(T′)^(ab) − g_T^(ab))∂_a∂_b g_T +
 (Q(g_(T′))(∂g_(T′), ∂g_(T′)) − Q(g_T)(∂g_T, ∂g_T)) ([[eq:own-p-split]]), linear in (ξ, ∂ξ), whose coefficients ∂∂H_T,
-∂H_T, ∂H_(T′) give the kernels of [[cor:far-kernels]]. ξ = 0 near N ∩ W_T, where both equal g_λ. On Σ̃_T,
+∂H_T, ∂H_(T′) give the kernels of [[cor:far-kernels]]. ξ = 0 near ℋ ∩ W_T, where both equal g_λ. On Σ̃_T,
 ξ = h_(R,T′)(T) − h_(R,T)(T): the second is the cap, and the first is bounded by Step 2 run for g_(T′) on
 W_(T′) ∩ {t̃ ≤ T}, whose data are tails: 𝔈[h_(R,T′)](T) ≤ C(𝔈(T′) + 𝔉_(k1)(T′, T) + (∫_(−∞)^T κ_Σ)²) =: ϑ(T), with
-𝔉(T′, T) ≤ C(λ)|T|^(2a−7) (N ∩ {t̃ ≤ T} lies in r ≥ |T| − C, [[lem:own-n-data]] (iii)), the cap at most
+𝔉(T′, T) ≤ C(λ)|T|^(2a−7) (ℋ ∩ {t̃ ≤ T} lies in r ≥ |T| − C, [[lem:own-n-data]] (iii)), the cap at most
 C(λ, J)|T′|^(2a−6) and ∫_(−∞)^T κ_Σ ≤ C λ |T|^(a−3). So the energy of ξ on W_T is at most C ϑ(T) → 0 as T → −∞,
 uniformly in T′ < T: (g_T) is a Cauchy family in the energy of weight a on every W_(T″).
 
-*Convergence.* Let K′ := W ∩ {T″ ≤ t̃ ≤ 0, r ≤ R′}, which is compact and connected and meets N. By Step 4 and the
+*Convergence.* Let 𝔇 := W ∩ {T″ ≤ t̃ ≤ 0, r ≤ R′}, which is compact and connected and meets ℋ. By Step 4 and the
 analogues of [[eq:own-pointwise]] at the order k_J (Step 1 with k_J in place of k1), |Γ^β h_R| and |∂Γ^β h_R| are
-bounded on K′ uniformly in T for |β| ≤ k_J − 3. As ∂_i = r⁻¹ x̂_i (Z − (t − v1)∂_t) − r⁻² x_j Ω_ij
-([[lem:own-rays]] (a)), every Cartesian derivative of order j of h_R is, on K′, a combination of the Γ^β h_R, |β| ≤ j,
-with coefficients bounded on K′; so the g_T are bounded in C^(k_J−2)(K′) uniformly in T. By the Arzelà–Ascoli theorem
-every sequence T_n → −∞ has a subsequence along which g_(T_n) converges in C^(k_J−3)(K′). Two such limits g^(1), g^(2)
-coincide: ∫_(K′) |∂(g_(T_n) − g_(T′_n))|² d⁵x ≤ C |T″| ϑ(max(T_n, T′_n)) → 0 by the Cauchy property, w ≥ 1 and
-[[lem:own-margins]] (d), so ∂(g^(1) − g^(2)) = 0 on K′, and g^(1) = g^(2) = g_λ on N ∩ K′. Hence the whole family
-converges in C^(k_J−3)(K′), and so on every compact subset of W. Its limit g^(J) is of class C^(k_J−3), k_J − 3 ≥ 5,
-solves Ric^H(g^(J); g_b0) = 0, equals g_λ on N with its derivatives of order at most k_J − 3, and, with
+bounded on 𝔇 uniformly in T for |β| ≤ k_J − 3. As ∂_i = r⁻¹ x̂_i (Z − (t − v1)∂_t) − r⁻² x_j Ω_ij
+([[lem:own-rays]] (a)), every Cartesian derivative of order j of h_R is, on 𝔇, a combination of the Γ^β h_R, |β| ≤ j,
+with coefficients bounded on 𝔇; so the g_T are bounded in C^(k_J−2)(𝔇) uniformly in T. By the Arzelà–Ascoli theorem
+every sequence T_n → −∞ has a subsequence along which g_(T_n) converges in C^(k_J−3)(𝔇). Two such limits g^(1), g^(2)
+coincide: ∫_(𝔇) |∂(g_(T_n) − g_(T′_n))|² d⁵x ≤ C |T″| ϑ(max(T_n, T′_n)) → 0 by the Cauchy property, w ≥ 1 and
+[[lem:own-margins]] (d), so ∂(g^(1) − g^(2)) = 0 on 𝔇, and g^(1) = g^(2) = g_λ on ℋ ∩ 𝔇. Hence the whole family
+converges in C^(k_J−3)(𝔇), and so on every compact subset of W. Its limit g^(J) is of class C^(k_J−3), k_J − 3 ≥ 5,
+solves Ric^H(g^(J); g_b0) = 0, equals g_λ on ℋ with its derivatives of order at most k_J − 3, and, with
 h_R^(J) := g^(J) − g_b0 − Σ, has 𝔈_(k1) ≤ ε_B² and 𝔈_k ≤ C_k(λ, J) for k ≤ k_J by lower semicontinuity, satisfies
 [[eq:own-pointwise]] (the g_T satisfy it with constants independent of T, and its derivatives have order at most
 k1 − 2 ≤ k_J − 3), and has E_σ[Γ^α h_R^(J)] ≤ C ϑ(σ) → 0 as σ → −∞ for |α| ≤ k1. G-invariance passes to the limit.
@@ -1653,8 +1653,8 @@ k1 − 2 ≤ k_J − 3), and has E_σ[Γ^α h_R^(J)] ≤ C ϑ(σ) → 0 as σ �
 *The limit does not depend on J.* For J′ ≥ J ≥ 2k1 + 7, g^(J′) = g^(J) by [[lem:cutoff-independence]], which is in
 Section [[sec:own-vacuum]]; its proof uses only the properties of g^(J) and g^(J′) just listed and
 [[lem:own-two-continuations]], not the conclusions of this theorem. Write g for the common limit. As g = g^(J) is of
-class C^(k_J−3) for every J, g is smooth, and as it equals g_λ on N with all its derivatives (each g_T equals g_λ on its
-side v ≤ v1, [[lem:own-truncation]] (ii)), g and g_λ join smoothly across N. Taking J := max(2k1 + 7, 2k + 7) gives
+class C^(k_J−3) for every J, g is smooth, and as it equals g_λ on ℋ with all its derivatives (each g_T equals g_λ on its
+side v ≤ v1, [[lem:own-truncation]] (ii)), g and g_λ join smoothly across ℋ. Taking J := max(2k1 + 7, 2k + 7) gives
 𝔈_k ≤ C_k(λ) := C_k(λ, J) for every k.
 
 *Step 6 (the class on S).* On S = {t = f(r)}, r d/dr (h_R|_S) = (Z h_R)|_S + (v1 − f + r f′)(∂_t h_R)|_S, with
@@ -1695,9 +1695,9 @@ bounded. Take the energy of weight 1 ([[eq:own-energies]] with w = (u* − u)² 
 [[lem:own-exterior]] holding with σ′ = 0 and c = 0.0232 by Steps 1 and 3 of the proof of [[thm:own-continuation]]. By
 [[eq:own-pointwise]] and [[lem:own-sigma-data]], the kernels of its error terms are those of [[cor:far-kernels]], with
 exponents 3, 3/2 + a and a + 1/2, all integrable, the zero-order terms entering through [[eq:own-hardy]]; D_T tends
-to 0 at spatial infinity along the slices by [[lem:own-exterior]] (a). On N, D_T = D(g_λ) = 0 with its tangential
+to 0 at spatial infinity along the slices by [[lem:own-exterior]] (a). On ℋ, D_T = D(g_λ) = 0 with its tangential
 derivatives, g_T being g_λ on the side v ≤ v1 ([[lem:own-truncation]] (ii)) and g_λ vacuum in the wave-map gauge
-([[thm:past-construction]]); so the flux through N vanishes. On Σ̃_T, g_T and ∂g_T are those of 𝔤_T, and
+([[thm:past-construction]]); so the flux through ℋ vanishes. On Σ̃_T, g_T and ∂g_T are those of 𝔤_T, and
 ∂²g_T = ∂²𝔤_T + ∂²δ ([[eq:cutoff-hd]]). On Σ̃_T ∩ {v ≤ V_T}, δ vanishes to every order (the proof of
 [[lem:own-truncation]] (iii)), so D_T and ∂D_T are those of D(g_λ) = 0. On 𝒮^♭_T ∩ {v ≥ V_T},
 H_D = (g_λ − g_b0) − χ_T m_J, so D(g_b0 + H_D) = D(g_λ) + O(r^(−(J+1)/2)) = O(r^(−(J+1)/2)) with its first derivatives
@@ -1711,14 +1711,14 @@ Gronwall's inequality, with constants independent of T, gives E_σ[D_T] ≤ C λ
 which tends to 0 as T → −∞.
 (iii) *The limit.* As T → −∞, g_T = g_T^(J) → g in C² on compact subsets of W ([[thm:own-continuation]],
 k_J − 3 ≥ 5), so D(g_T) → D(g) in C¹ there, and the energy of D(g) on any compact part of any Σ̃_σ is the limit of
-those of D_T, hence 0: ∂D(g) = 0 on W. As D(g) = 0 on N, D(g) = 0.
-Then Ric(g) = Ric^H(g) + ½(∇D + ∇D^T) + C = 0. g_λ is vacuum on P′ ∪ Ω′, and the join across N is smooth
+those of D_T, hence 0: ∂D(g) = 0 on W. As D(g) = 0 on ℋ, D(g) = 0.
+Then Ric(g) = Ric^H(g) + ½(∇D + ∇D^T) + C = 0. g_λ is vacuum on P′ ∪ Ω′, and the join across ℋ is smooth
 ([[thm:own-continuation]]). ∎
 
 **Lemma {#lem:own-two-continuations}** (two continuations coincide). Let a_0 ∈ (0, ½) and 0 < λ ≤ λ_2. Let
-g = g_b0 + Σ + h_R be a C⁵ metric on W with Ric^H(g; g_b0) = 0, g = g_λ on N with its first derivatives, satisfying
+g = g_b0 + Σ + h_R be a C⁵ metric on W with Ric^H(g; g_b0) = 0, g = g_λ on ℋ with its first derivatives, satisfying
 [[eq:own-pointwise]] on every Σ̃_σ, σ ≤ 0, with some ε_B ≤ ε_2, and with E_σ[h_R] → 0 as σ → −∞. Let g′ = g_b0 + h′ be
-a C⁵ metric on W with Ric^H(g′; g_b0) = 0, g′ = g_λ on N with its first derivatives, |h′| ≤ 1/50,
+a C⁵ metric on W with Ric^H(g′; g_b0) = 0, g′ = g_λ on ℋ with its first derivatives, |h′| ≤ 1/50,
 sup_(σ≤0) E^(a_0)_σ[Γ^α h′] < ∞ for |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z}, and E^(a_0)_σ[h′] → 0 as σ → −∞, where E^(a_0) is the
 energy [[eq:own-energies]] for g′ with the weight (u* − u)^(2a_0). Then g′ = g.
 
@@ -1727,8 +1727,8 @@ energy [[eq:own-energies]] for g′ with the weight (u* − u)^(2a_0). Then g′
 σ, |∂h′| ≤ C_0 r^(−3/2−a_0) on every Σ̃_σ, with C_0 independent of σ. (2) Along each ray of Σ̃_σ, |d h′/dr| ≤
 (1 + |f′|) C_0 r^(−3/2−a_0) is integrable, so h′ has a limit c(σ, x̂) at spatial infinity. (3) c does not depend on σ:
 for σ_1 < σ_2 ≤ 0 and r large the time segment from (f(r) + σ_1, r x̂) to (f(r) + σ_2, r x̂) lies in W, and the
-difference of h′ at its ends is at most (σ_2 − σ_1) C_0 r^(−3/2−a_0) → 0. (4) c = 0: the inner edge of Σ̃_σ lies on N,
-where h′ = g_λ − g_b0 = O(r⁻²) (on N, v1 > v_end, so g_λ − g0 = u_1 is in E_2, [[eq:bondi-u-split]] with G_3 = 0);
+difference of h′ at its ends is at most (σ_2 − σ_1) C_0 r^(−3/2−a_0) → 0. (4) c = 0: the inner edge of Σ̃_σ lies on ℋ,
+where h′ = g_λ − g_b0 = O(r⁻²) (on ℋ, v1 > v_end, so g_λ − g0 = u_1 is in E_2, [[eq:bondi-u-split]] with G_3 = 0);
 so |c(x̂)| ≤ C r_σ⁻² + C C_0 r_σ^(−1/2−a_0), and r_σ → ∞ as σ → −∞. Hence h′ = −∫_r^∞ ∂_s h′ ds along the
 rays, and h′ is at most C r^(−1/2−a_0) in modulus with C independent of σ, and [[eq:own-hardy]] holds on every Σ̃_σ
 at the weight a_0 with constants independent of σ. Now ξ := g′ − g solves
@@ -1738,8 +1738,8 @@ r|∂∂H| ≤ C(μ + λ) r⁻³ + C ε_B r^(−1/2−a) by [[eq:own-pointwise]]
 first-order ones |∂g| + |∂g′|. Apply [[eq:own-energy-identity]] to ξ with the metric g′ and the weight a_0: the
 deformation term carries |∂_t h′| ≤ C_0 r^(−3/2−a_0); the bulk term T_(g′)(∇w, ∂_t) is at least −C|h′| |w′| |∂ξ|²,
 with |w′|/w ≤ C r⁻¹, a kernel r^(−3/2−a_0); the zero-order terms through [[eq:own-hardy]] give the exponents
-min(3, a + 1/2) and 2 + 2a_0; all exponents exceed 1 since a > ½. ξ = 0 on N with its first derivatives, so the
-flux through N vanishes; on Σ̃_(σ_1), E^(a_0)[ξ] ≤ 2E^(a_0)[h′] + 2E^(a_0)[g − g_b0], and both tend to 0 as σ_1 → −∞
+min(3, a + 1/2) and 2 + 2a_0; all exponents exceed 1 since a > ½. ξ = 0 on ℋ with its first derivatives, so the
+flux through ℋ vanishes; on Σ̃_(σ_1), E^(a_0)[ξ] ≤ 2E^(a_0)[h′] + 2E^(a_0)[g − g_b0], and both tend to 0 as σ_1 → −∞
 (for Σ, |∂Σ| ≤ C λ r⁻³ gives C λ² r_(σ_1)^(2a_0−2); for h_R, its weight-a energy tends to 0 and dominates its weight-a_0
 energy, as u* − u ≥ 1 on W, the energies of g and g′ being comparable by [[lem:own-margins]] (d), as |H| ≤ 1/50 by
 [[eq:own-pointwise]] and [[lem:own-sigma-data]] (b) as in Step 1 of the proof of [[thm:own-continuation]]). Gronwall's
@@ -1749,12 +1749,12 @@ h′, and of g the bounds [[eq:own-pointwise]] and its energies; so C⁵ regular
 
 **Lemma {#lem:cutoff-independence}** (the limit does not depend on J). For J ≥ 2k1 + 7 let g^(J) be the limit of the
 g_T^(J) given by Steps 1–5 of the proof of [[thm:own-continuation]] at fixed J: a metric on W of class C^(k_J−3) with
-Ric^H(g^(J); g_b0) = 0, equal to g_λ on N with its first derivatives, satisfying [[eq:own-pointwise]] with ε_B and
+Ric^H(g^(J); g_b0) = 0, equal to g_λ on ℋ with its first derivatives, satisfying [[eq:own-pointwise]] with ε_B and
 𝔈_(k1) ≤ ε_B², and with E_σ[Γ^α h_R^(J)] → 0 as σ → −∞ for |α| ≤ k1, h_R^(J) := g^(J) − g_b0 − Σ. Then
 g^(J′) = g^(J) for J′ ≥ J ≥ 2k1 + 7.
 
 *Proof.* Let a_0 ∈ (0, ½). g := g^(J) satisfies the hypotheses of [[lem:own-two-continuations]] on g, as k_J − 3 ≥ 5.
-g′ := g^(J′) is of class C⁵, as k_J′ − 3 ≥ 5, satisfies Ric^H(g′; g_b0) = 0, and equals g_λ on N with its first
+g′ := g^(J′) is of class C⁵, as k_J′ − 3 ≥ 5, satisfies Ric^H(g′; g_b0) = 0, and equals g_λ on ℋ with its first
 derivatives. With h′ := g′ − g_b0 = Σ + h_R^(J′): |h′| ≤ C λ r⁻² + C_S ε_B r^(−1/2−a) ≤ 1/50 as in Step 1 of the proof
 of [[thm:own-continuation]]; the energies of weight a_0 of the Γ^α h_R^(J′), |α| ≤ 3, are bounded uniformly in σ and
 tend to 0 as σ → −∞, being dominated by those of weight a, as u* − u ≥ 1 on W; and those of the Γ^α Σ are at most
@@ -1762,11 +1762,11 @@ C λ² r_σ^(2a_0−2), since |∂Γ^α Σ| ≤ C λ r⁻³ ([[lem:own-sigma-dat
 r_σ^(2a_0−2)/(2 − 2a_0). So g′ satisfies the hypotheses of [[lem:own-two-continuations]] on g′, and g^(J′) = g^(J). ∎
 
 **Proposition {#prop:own-uniqueness}** (uniqueness at a weight below ½). Let a_0 ∈ (0, ½), and let g′ = g_b0 + h′ be a
-smooth metric on W with Ric^H(g′; g_b0) = 0, g′ = g_λ on N with its first derivatives, |h′| ≤ 1/50,
+smooth metric on W with Ric^H(g′; g_b0) = 0, g′ = g_λ on ℋ with its first derivatives, |h′| ≤ 1/50,
 sup_(σ≤0) E^(a_0)_σ[Γ^α h′] < ∞ for |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z}, and E^(a_0)_σ[h′] → 0 as σ → −∞, where E^(a_0) is the
 energy [[eq:own-energies]] for g′ with the weight (u* − u)^(2a_0). Then g′ = g, the metric of [[thm:own-continuation]].
 
-*Proof.* The metric g of [[thm:own-continuation]] is smooth, satisfies Ric^H(g; g_b0) = 0, equals g_λ on N with its
+*Proof.* The metric g of [[thm:own-continuation]] is smooth, satisfies Ric^H(g; g_b0) = 0, equals g_λ on ℋ with its
 derivatives, satisfies [[eq:own-pointwise]] with ε_B ≤ ε_2, and has E_σ[h_R] → 0 as σ → −∞. g′ is smooth, hence C⁵.
 So [[lem:own-two-continuations]] gives g′ = g. ∎
 
@@ -1780,11 +1780,11 @@ a_0 ≤ ½. In the energies of weight a_0 of Γ^α h, h := g − g_b0, without t
 bound C ε r^(−3/2−a_0) of ∂∂h, gives the kernel (1 + |σ|)^(−a_0−1/2), which is not integrable for a_0 ≤ ½. And energies
 of weight a_0 < ½ do not see a radiation field constant in v: for a spherical harmonic Y_l of degree l,
 φ := r^(−3/2) ₂F₁(3/2 + l, −½ − l; 1; s/2) Y_l solves □_η φ = 0 (the equation of the proof of [[lem:own-self-similar]]
-at p = 3/2), its radiation field r^(3/2) φ tends to Y_l at past null infinity at every v ≥ v1, and its flux through N
+at p = 3/2), its radiation field r^(3/2) φ tends to Y_l at past null infinity at every v ≥ v1, and its flux through ℋ
 and its energy on Σ̃_T are finite, the latter tending to 0 as T → −∞, exactly when a_0 < ½ (both densities are of order
 r^(2a_0−2)). On a slice of constant t it reaches spatial infinity as ρ^(3/2) T_(3/2)(l) Y_l, with
 T_(3/2)(l) = √π/(Γ((l + 5/2)/2) Γ((½ − l)/2)) ≠ 0 by [DLMF, (15.4.28)]. The subtraction of Σ and the weight a > ℓ0 − 1
-of [[thm:own-continuation]] avoid both: the remainder decays like r^(−9/2) on N and the weight places it in the class.
+of [[thm:own-continuation]] avoid both: the remainder decays like r^(−9/2) on ℋ and the weight places it in the class.
 
 ### The tail on the initial surface, and the proof of the theorem {#sec:own-proof}
 
@@ -1836,10 +1836,10 @@ and the thresholds λ_P(K, k_P), λ_F(k_P) and λ_0 below.
 [[lem:own-truncation]] and [[thm:own-continuation]]; none depends on whether G_5^∞ vanishes.
 
 (1) [[thm:own-continuation]] gives the continuation g to W, smooth, G-invariant, in the wave-map gauge relative to g_b0,
-joining g_λ smoothly across N; [[prop:own-vacuum]] shows that it is vacuum. On W, |g − g0| ≤ |Σ| + |h_R| ≤
+joining g_λ smoothly across ℋ; [[prop:own-vacuum]] shows that it is vacuum. On W, |g − g0| ≤ |Σ| + |h_R| ≤
 C(λ + ε_B)(v1 − τ)⁻² by [[lem:own-sigma-data]] and [[eq:own-pointwise]] (r ≥ v1 − τ > 0 on W and a ≥ 3/2), and the same
 for the inverse; with g := g_λ on Z_b, [[lem:interior-far-part]] (iv) (b) with ν := λ + ε_B shows that all of W but a
-strip along N of v-width O(λ + ε_B) lies in D⁻(S; g), and ε_B → 0 with λ. g satisfies the hypotheses of
+strip along ℋ of v-width O(λ + ε_B) lies in D⁻(S; g), and ε_B → 0 with λ. g satisfies the hypotheses of
 [[prop:own-uniqueness]] for every a_0 ∈ (0, ½): |h| ≤ 1/50 by Step 1 of the proof of [[thm:own-continuation]], its
 energies of weight a_0 are bounded by those of weight a, uniformly in σ, and tend to 0 as σ → −∞ (for Σ as in the proof
 of [[prop:own-uniqueness]]); so it is the only continuation in that class.
