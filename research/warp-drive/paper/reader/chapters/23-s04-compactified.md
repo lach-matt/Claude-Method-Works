@@ -1973,7 +1973,7 @@ so that 𝖧𝗌 = 0 near WF′(B). Let u = χ(t)v(x), with χ = 1 near the segm
 a point of {τ = 0}. Every hypothesis of that statement holds and its right side is finite, but Bu ∉ H^𝗌: propagation
 does not gain regularity. [[thm:ii-a1-5-4]] asks for 𝖧𝗌 ≤ 0 on a neighbourhood in phase space of the whole backward
 segments, the standard form of the hypothesis ([Vas18, Theorem 5.3]; [[prop:i-a-5-2]] (d)). The Hamilton vector field of
-[Hin26c] is taken on ᵉ³ᵇS*M̃ ([Hin26c, pp. 55 and 71]), which presupposes principal symbols with a continuous extension
+[Hin26c] is taken on ᵉ³ᵇS*M̃ ([Hin26c, pp. 54 and 71]), which presupposes principal symbols with a continuous extension
 there; so the elements of 𝒫_m are taken classical ([[thm:ii-a1-3-1]] needs no such restriction). [Hin26c, p. 71] takes 𝖧
 continuous on all of ᵉ³ᵇS*M̃ because the coefficients of L_1 vanish at ∂M̃; they vanish at the faces ℐ⁺, ι⁺ and K⁺, which
 carry the weight, and need not vanish at I⁰ and K⁻. So χ is taken supported away from these two faces, as it is near Ω̄

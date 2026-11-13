@@ -260,7 +260,8 @@ with Ric := Ric[g′] and indices raised by g′_ab.
 those of g′_ab and of γ. Inserting them in R_bd = ∂_μΓ^μ_bd − ∂_dΓ^μ_bμ + Γ^μ_μνΓ^ν_bd − Γ^μ_dνΓ^ν_bμ, as in the proof
 of [[lem:warped-ricci]]: for b, d on the base, the fibre indices add −3∂_b∂_dR/R + 3Γ^c_bd∂_cR/R = −3D_bD_dR/R, and the
 Ricci tensor of a two-dimensional metric is (𝓇/2)g′_ab. For i, j on the fibre, the base derivatives of Γ^a_ij give
-−(R□R + |dR|²)γ_ij, the products of the mixed symbols give −2|dR|²γ_ij, and the fibre gives Ric[γ] = 2γ. The mixed
+−D_a(RD^aR)γ_ij = −(R□R + |dR|²)γ_ij, the products containing mixed symbols give −3|dR|²γ_ij + 2|dR|²γ_ij, and
+the fibre gives Ric[γ] = 2γ. The mixed
 components vanish since every term carries an odd number of fibre indices of a tensor built from γ and its connection
 alone. For [[eq:rw-ms]]: ∂_am = 2R∂_aR(1 − |dR|²) − 2R²D^bR D_aD_bR. By the formulas just proved,
 D_aD_bR = (R/3)((𝓇/2)g′_ab − Ric_ab), 2(1 − |dR|²) = ρ + R□R and □R = (R/3)(𝓇 − g′^(cd)Ric_cd). Inserting these, the

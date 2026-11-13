@@ -40,6 +40,7 @@ theory).
 | 36-s17-null-infinity.md | ch:s17 | S17 |
 | 37-s18-augmented.md | ch:s18 | S18 |
 | 38-s19-forward-cone.md | part:stability-forward, ch:s19 | S19 |
+| 38a-s25a-base-points.md | ch:s25a | S25, first part (the model at a base point near b₀) |
 | 39-s20-boost.md | ch:s20 | S20 |
 | 40-s21-parameters.md | ch:s21 | S21 |
 | 41-s22-kerr-face.md | ch:s22 | S22 |

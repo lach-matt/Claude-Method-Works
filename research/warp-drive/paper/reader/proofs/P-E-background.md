@@ -281,8 +281,8 @@ at u1 are the sums of [[sec:tab-bg-ray-chain]] ([[lem:bg-tools]] (a)), the defec
 and the rows of [[sec:tab-bg-ray-defects]], and the γ, Γ by [[eq:bg-gamma]]. Since ε₀ ≤ 8.69 × 10⁻⁷ < 10⁻⁵ everywhere,
 the hypothesis |e₀| ≤ 10⁻⁵ holds throughout by continuity.
 
-J = exp(∫_(u1)^u ∂_XG(σ, Ψ) dσ) ∈ (0, 1]. Finally Ψ ≥ Ψ̃ − ε₀ ≥ 1.483 on the last segment and Ψ is decreasing where f >
-0, while μ ≤ 3/2 < 1.483²: so f > 0 along every ray of the box. ∎
+J = exp(∫_(u1)^u ∂_XG(σ, Ψ) dσ) ∈ (0, 1]. Finally Ψ ≥ Ψ̃_min − ε₀ ≥ 1.4832 on every segment
+([[sec:tab-bg-ray-defects]]), while μ ≤ 3/2 < 1.4832²: so f > 0 along every ray of the box. ∎
 
 #### Region III and the seed region {#sec:bg-seed}
 
@@ -296,10 +296,10 @@ of [[sec:tab-bg-ray]]). By [[eq:bg-psi3-def]] and d/dv̂ = a(ρ) d/dρ, the deri
 
     Ψ_1 = a(Φ″/Φ′) + a′ − 2μ3 a Φ′ h3(Φ),     Ψ_2 = a 𝒟Ψ_1,
 
-and Ψ_1 = aK₂/J₂ + a′ − μ3E/Φ³ at u2 (E = f1Φ′/f3(Φ)), which is ψ_v̂ of [[eq:bg-inputs]] at u = u2.
+that is Ψ_1 = aΦ″/Φ′ + a′ − μ3E/Φ³ with E = f1Φ′/f3(Φ), which is ψ_v̂ of [[eq:bg-inputs]] at u = u2, where B = 0.
 
 **Proposition {#prop:bg-seed}** (Region III and the seed region.) Let ψ_s and μ_s be the reference quintic and mass of
-[[sec:tab-bg-spline]].
+[[sec:table-seed-profile]], repeated in [[sec:tab-bg-spline]].
 
 (a) Region III meets Σ_τ0 exactly in the points with R ≤ R_u2, where 1.8614098 ≤ R_u2 ≤ 1.8614596; in particular the
 seed region 0.70 ≤ R ≤ 1.861 (0.02 ≤ v̂ ≤ 1.181) lies in region III, and f3(Φ(ρ)) > 0 for every ρ ∈ [2.32, 3.44].
@@ -368,13 +368,14 @@ decreasing in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decr
 u_a = u1 take ρ_hi ≥ R_* from [[lem:bg-rstar]], at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice
 points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo, ρ_hi]. On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and λ lie between their
 values at u_a and u_b (monotone, [[prop:bg-nprime]] (iii)), which are μ̃, λ̃ there up to the errors of
-[[prop:bg-nprime]]; B lies between its values at the ends (and 17/10 when 6.45 is inside), by [[lem:bg-tools]] (e); J
+[[prop:bg-nprime]]; B lies between its end values, or between the smaller one and 17/10 when 6.45 is inside, by
+[[lem:bg-tools]] (e); J
 and K lie in the Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)].
 Then [[eq:bg-nk-packet]] and [[lem:bg-tools]] (d) give the enclosures of Ef and N_κ in the second table: Ef < 1 and N_κ <
 0 on every row, and the largest upper bound of κK^l_l is −6.00 × 10⁻³, on the row u ∈ [6.05, 6.1]. ∎
 
 Near R = R_* the packet's slice points approach region I, where E = 1 and N_κ = (μ/R³)(f − 3) exactly, and κK^l_l =
-3(3/2)R_*⁻³(f − 3)(1 − f)/(R_*(2 − f)²) = −6.86 × 10⁻³ at R_*; the rows near u1 approach this value.
+3(3/2)R_*⁻³(f − 3)(1 − f)/(R_*(2 − f)²) = −6.86 × 10⁻³ at R_*, f = 1 − 3/(2R_*²); the first rows' bounds are close to it.
 
 #### The theorem {#sec:bg-theorem}
 
