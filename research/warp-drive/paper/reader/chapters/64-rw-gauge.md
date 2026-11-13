@@ -423,8 +423,8 @@ the h_0 of [[cor:viii-2-3]] makes ζ decay faster is not determined here.
 
 The scalar and tensor modes of the class are carried by Kodama and Ishibashi's master fields. We use the following
 results of [KI03], stated at n = 3, Λ = 0, 2M = m₀ and with their curvature constant K = 1 (spherical orbits), so that
-their f is ours and their x is ς; page numbers
-are those of the arXiv version. Their frequency-domain form is [[thm:s15-ki]]; here the time-domain form is needed.
+their f is ours and their x is ς; page numbers are those of the arXiv version. Their frequency-domain form is
+[[thm:s15-ki]]; here the time-domain form is needed.
 
 **Theorem {#thm:rw-ki}** ([KI03, (2.4)–(2.8), pp. 4–5; (2.13), p. 5; (3.11)–(3.14), pp. 9–10; (5.1)–(5.6), p. 13].)
 Let k² = l(l + 2), 𝔭 := k² − 3 (the m of [KI03, (3.3)], and the number written p in [[thm:s15-ki]]; here p is the
