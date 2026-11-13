@@ -1,0 +1,24 @@
+label	source	source_name	note
+part:existence	paper/RESPONSE-HL-5D.md:505	P section 5 (part heading)	edition part heading
+ch:inequalities	docket68/n1star/N1STAR-PROOF.md:229-231	NP s.2 Inequalities on the slices	chapter heading
+eq:lambda-one	docket68/n1star/N1STAR-PROOF.md:231	NP s.2 preamble, lam1
+sec:sobolev	docket68/n1star/N1STAR-PROOF.md:233	NP Lemma 2.1	section heading
+lem:sobolev	docket68/n1star/N1STAR-PROOF.md:233-239	NP Lemma 2.1	proof written out (Leibniz split, chain rule)
+eq:sobolev	docket68/n1star/N1STAR-PROOF.md:233-234	NP Lemma 2.1 first display
+sec:mollifier	docket68/n1star/N1STAR-PROOF.md:241-258; paper/RESPONSE-HL-5D.md:540-548	NP The mollifier; P 5.2	comparison with [Tou23a] s.3.2.3 p.21 from P 546-548
+lem:ramp	docket68/n1star/N1STAR-PROOF.md:241-246	NP sigma0 (linear ramp mollified at radius 1/120)	support5 C14(b) replaced by a hand proof (about 6 lines)
+eq:mollifier	docket68/n1star/N1STAR-PROOF.md:248	NP (2.1)
+lem:shift-map	docket68/n1star/N1STAR-PROOF.md:249-258	NP mollifier paragraph (inclusion, Jacobian)	support5 C4 and C14(a) replaced by hand proofs (about 20 lines)
+lem:mollifier	docket68/n1star/N1STAR-PROOF.md:259-278	NP Lemma 2.2	(M1)-(M6) as labelled displays; change of variables and E1, E2 written out
+eq:mollifier-m1	docket68/n1star/N1STAR-PROOF.md:260	NP (M1)
+eq:mollifier-m2	docket68/n1star/N1STAR-PROOF.md:260	NP (M2)
+eq:mollifier-m3	docket68/n1star/N1STAR-PROOF.md:260	NP (M3)
+eq:mollifier-m4	docket68/n1star/N1STAR-PROOF.md:261	NP (M4)
+eq:mollifier-m5	docket68/n1star/N1STAR-PROOF.md:262	NP (M5)
+eq:mollifier-m6	docket68/n1star/N1STAR-PROOF.md:263	NP (M6)
+sec:energy	docket68/n1star/N1STAR-PROOF.md:280	NP Lemma 2.3	section heading
+lem:energy	docket68/n1star/N1STAR-PROOF.md:280-296	NP Lemma 2.3	the inverse bound (eps1hyp5 H6) cited from chapter 2 as pending
+eq:energy	docket68/n1star/N1STAR-PROOF.md:285	NP (2.2)
+sec:transport	docket68/n1star/N1STAR-PROOF.md:298	NP Lemma 2.4	section heading
+lem:transport	docket68/n1star/N1STAR-PROOF.md:298-308	NP Lemma 2.4	ks5 K4 (div xhat = 3/r) and gronwall5 G0 (rate 1/(2a)) replaced by one-line derivations
+eq:transport	docket68/n1star/N1STAR-PROOF.md:298-302	NP Lemma 2.4 estimate and C

@@ -190,3 +190,71 @@ and put γ := c0 − 3/2. With a₊ := a1 if γ > 0 and a₊ := a2 if γ ≤ 0,
 
 The transports used below have c0 = 0 (φ and its derivatives; γ = −3/2), c0 = 3/2 (the oscillating profiles; γ = 0)
 and c0 = 2 (Ψ; γ = 1/2).
+
+### Decay classes and the approximant from past null infinity {#sec:past-approximant}
+
+On P⁺ we use the coordinates (v, r, x̂): ∂_v is the derivative at fixed (r, x̂), which is ∂_τ at fixed x, and ℓ is the
+derivative at fixed (v, x̂), so that ℓ = −L0, ℓ(v) = 0, ℓ(r) = 1 and the radial derivative at fixed τ is ∂_v + ℓ.
+Profiles are smooth on P × S¹ and vanish for v ≤ v_start, then to all orders at v = v_start, env being smooth.
+
+- E_p: profiles f with |∂_X^α Ω^β ∂_θ^j f| ≤ C r^(−p) on P⁺ × S¹ for all α, β, j (∂_X the Cartesian derivatives).
+- L_p ("a leading term"): f = r^(−p) F + f̃ with F(v, x̂, θ) smooth, bounded with all its derivatives and vanishing for
+  v ≤ v_start, and f̃ in E_(p+1/2).
+- O_p ("transported"): f in L_p whose remainder also has ℓ f̃ in E_(p+3/2); then ℓ f is in L_(p+1).
+
+The L² norm on A_P(τ) of a profile of class E_q is at most C t^(3/2−q): by [[lem:past-domain]] (d) the annulus has
+r ≥ t + a1 and thickness at most d1, so ∫ r^(−2q) r³ dr dω ≤ C t^(3−2q).
+
+**Lemma {#lem:decay-calculus}** (The decay calculus.) (a) E_p E_q ⊂ E_(p+q) and L_p L_q ⊂ L_(p+q); ∂_X, Ω, ∂_θ and
+∂_v preserve E_p and L_p.
+
+(b) In (v, r, x̂), g0⁻¹(du, du′) = ∂_v u ℓu′ + ℓu ∂_v u′ + (1 − μ/r²) ℓu ℓu′ + r⁻² ⟨∂̊u, ∂̊u′⟩, with ∂̊ the
+gradient on the unit S³; that is, g^vv = 0, g^vr = 1 and g^rr = 1 − μ/r². For every function,
+
+    □̃ u = 2 ∂_v ℓ u + (3/r) ∂_v u + (1 − μ/r²) ℓ ℓ u + (3/r) ℓ u + r⁻² Δ̊ u.   {#eq:wave-operator-vr}
+
+(c) □̃(r^(−p) F) = (3 − 2p) r^(−p−1) ∂_v F + E_(p+2) for F as in L_p. At p = 3/2 the first term vanishes, so □̃ W_TT is
+in E_(7/2); and □̃ maps O_p into L_(p+1). The Cartesian components of W_TT are r^(−3/2) F_W with F_W(v, x̂, θ) smooth, so
+W_TT is in O_(3/2), a pure leading term, and (ℓ + 3/(2r)) W_TT = 0.
+
+(d) If S = r^(−q) S_q + S̃ is in L_q with q > 5/2, and c is in E_(3/2) (a multiplication, or a bounded operator on
+zero-mean functions of θ with coefficients in E_(3/2), as in [[pending:lem-th-operator]]), then the transport
+(ℓ + 3/(2r) + c) Z = S has exactly one solution with r^(3/2) Z → 0 along every generator, and
+
+    Z = −r^(1−q) S_q/(q − 5/2) + Z̃   is in O_(q−1).
+
+At q = 5/2 a logarithm appears: (ℓ + 3/(2r))(r^(−3/2) log r · S_(5/2)) = r^(−5/2) S_(5/2).
+
+*Proof.* (a) Leibniz's rule, with ∂_X = x̂ (∂_v + ℓ) + r⁻¹ (angular derivatives), whose coefficients have bounded
+derivatives; ∂_X (r^(−p) F) = r^(−p) x̂ ∂_v F + E_(p+1).
+
+(b) Since v = τ + r, η = −dτ² + dr² + r² dω² = −dv² + 2 dv dr + r² dω², and g0 = η + (μ/r²) dv² = −(1 − μ/r²) dv² +
+2 dv dr + r² dω². The (v, r) block [[−(1 − μ/r²), 1], [1, 0]] has determinant −1 and inverse [[0, 1], [1, 1 − μ/r²]],
+which gives the inverse metric. For [[eq:wave-operator-vr]]: □̃ is the flat wave operator plus −(μ/r²) L0 L0 =
+−(μ/r²) ℓ ℓ (as in the proof of [[lem:past-commutator]]). The flat operator is −∂_τ² + ∂_r² + (3/r) ∂_r + r⁻² Δ̊, and at
+fixed x̂, ∂_τ = ∂_v and the radial derivative at fixed τ is ∂_v + ℓ, so it equals −∂_v² + (∂_v + ℓ)² + (3/r)(∂_v + ℓ) +
+r⁻² Δ̊ = 2 ∂_v ℓ + ℓℓ + (3/r)∂_v + (3/r)ℓ + r⁻² Δ̊, ∂_v and ℓ being coordinate fields. Adding −(μ/r²) ℓℓ gives
+[[eq:wave-operator-vr]].
+
+(c) F does not depend on r at fixed (v, x̂), so ℓ F = 0 and ℓ(r^(−p) F) = −p r^(−p−1) F. In [[eq:wave-operator-vr]],
+2 ∂_v ℓ (r^(−p) F) = −2p r^(−p−1) ∂_v F and (3/r) ∂_v (r^(−p) F) = 3 r^(−p−1) ∂_v F, which sum to (3 − 2p) r^(−p−1)
+∂_v F; the other three terms are (1 − μ/r²) p(p + 1) r^(−p−2) F − 3p r^(−p−2) F + r^(−p−2) Δ̊F, in E_(p+2). On f̃ with
+ℓ f̃ in E_(p+3/2) every term of [[eq:wave-operator-vr]] is in E_(p+3/2). For W_TT: in [[eq:waves-hopf]] write the
+round coframe as r dϑ, r cos ϑ dξ1, r sin ϑ dξ2, whose Cartesian components depend on x̂ alone; then
+
+    W_TT = r^(−3/2) · 2 λ⁻¹ (p1 (r cos ϑ dξ1)² + p2 (r sin ϑ dξ2)² − (p1 + p2)(r dϑ)²),
+
+and λ⁻¹ p1, λ⁻¹ p2 are functions of (v, ϑ, θ). So r^(3/2) W_TT =: F_W does not depend on r, and it is smooth in
+(v, x̂, θ), the axes included, because W_TT is smooth there ([[pending:eq-waves]]). Then (ℓ + 3/(2r)) W_TT =
+−(3/2) r^(−5/2) F_W + (3/2) r^(−5/2) F_W = 0.
+
+(d) Along a generator, with C(r) := −∫_r^∞ c, (r^(3/2) e^C Z)′ = r^(3/2) e^C S, and |C| ≤ C′ r^(−1/2); for an operator
+c, e^C is the propagator of the linear ordinary differential equation along the generator, bounded since the integral of
+the norm of c converges. So Z = −r^(−3/2) e^(−C) ∫_r^∞ r′^(3/2) e^(C(r′)) S dr′ is the solution, and every other
+solution differs from it by r^(−3/2) e^(−C) times a function of (v, x̂, θ). For the leading term,
+(ℓ + 3/(2r))(r^(1−q) A) = (1 − q + 3/2) r^(−q) A = (5/2 − q) r^(−q) A, which equals r^(−q) S_q for A = −S_q/(q − 5/2);
+at q = 5/2 the same calculation with r^(−3/2) log r gives the logarithm. The remainder has forcing terms S̃ and −c Z in
+E_(q+1/2), so the integral formula puts it in E_(q−1/2), and ℓ Z̃ = −(3/(2r)) Z̃ − c Z + S̃ is in E_(q+1/2). ∂_v, Ω and
+∂_θ commute with ℓ and r, which gives the derivatives. ∎
+
+[[PART3-ANCHOR]]
