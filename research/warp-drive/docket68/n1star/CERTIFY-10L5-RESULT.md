@@ -4696,3 +4696,727 @@ imports `checks/resid5.py` and `checks/bondisph5.py`, `checks/rcert5c.py` and `c
     python3 checks/late5b.py RUNDIR                       # given the record's runs
     python3 checks/mtrunc5.py                             # a second, from checks/cpaxis5_a5*.out
 ```
+
+## 13. Round 9 (2026-11-13): the verifier of round 8 seated, M = 48 at 1600 rows, and one text for the wavelengths item
+
+The verifier of round 8 read section 12 (lines 4094–4698, file md5 fa9d849d…). It found M7-A fixed everywhere and
+blocks A–G matching the paper, each old text once. The reruns were identical, mB5 and its own mB6 died, and the
+certificates stand. It did not confirm section 12 because of one Major, on wording. It also found one minor finding and
+four nits. Each is seated below as a bracketed amendment to the section 12 text it names; section 12 is not edited.
+Sections 0–12 are byte-identical before and after this append.
+
+### 13.0 The verifier of round 8: its findings, seated as amendments to section 12
+
+**M8-A. "A rule fixed before the M = 48 and 56 runs were read" cannot be verified, and the verdicts over-read.**
+- [12.1, "The rule, fixed before the results"; block F's mtrunc5 entry, "a rule fixed before the M = 48 and 56 runs were
+  read"; `checks/mtrunc5.py` line 6; block A, "so on these bands it is the angular truncation's", with 1.0–1.2 on
+  [1.8, 1.9) among them: verifier of round 8 (M8-A).]
+  - *Re-derived.* The rule's first trace is mtrunc5.py's first commit (a0413e2, 06:09), after the `--nullstep` outputs
+    (06:07–06:08). When it was written relative to reading them is not documented.
+  - *Repaired (`checks/mtrunc5.py`).*
+    - The docstring states that the rule's timing is not documented.
+    - The verdicts read "consistent with angular truncation".
+    - New M2 prints each verdict's sensitivity to the thresholds θ (0.8) and F (10).
+  - *The sensitivity* (`checks/mtrunc5.out`).
+    - Every one of the five decided verdicts stands for θ anywhere in [0.680, 1.149].
+    - On the two truncation bands the monitor at M = 56 is 23.1 and 38.8 times the null-step level.
+    - Of the undecided bands, 1.0–1.2 on [1.9, 2.0) reads truncation for θ ≥ 0.818 and not truncation for θ ≤ 0.778.
+      1.0–1.2 on [1.8, 1.9) reads truncation for θ ≥ 1.056.
+  - *Corrected text.*
+    - 12.1's "The rule, fixed before the results" reads "The rule (its timing relative to reading the outputs is not
+      documented)".
+    - 12.1's verdicts and block A read "consistent with angular truncation".
+    - 1.0–1.2 on [1.8, 1.9) is undecided by the rule. The M = 48 null-step evidence is stated beside it, as separate
+      evidence (12.1; 13.1).
+    - On the two truncation bands, the monitor at M = 56 is still 23 and 39 times the null-step level. At M = 48 it
+      falls only 1.72- and 1.13-fold from 400 to 800 rows. Block A says so and implies no convergence there.
+
+**m8-1. mtrunc5's controls guarded the thresholds, not the inputs.**
+- [12.1, "Controls: … Both pass": verifier of round 8 (m8-1).] Two of the verifier's mutants passed both controls while
+  changing the verdicts: L computed over all bands, and the M = 48 and 56 inputs swapped.
+- *Repaired.*
+  - Control k3: L's bands must be exactly those whose M = 32 ratio from 400 to 800 rows is second order, [3, 5.5]
+    (14 of 21).
+  - Control k4, run identity: each file's command line must name the M = 32 runs at 400 and 800 rows and, third, the run
+    at the M it is read for.
+  - Rebuilt (`scratchpad/r9/mt/`), L over all bands fails k3 and the swap fails k4. A θ moved to 0.9 fails the
+    decided-range check. Each prints FAILURES; the real program passes.
+
+**Nits.**
+- [12.1, "3.84–4.14"]: at M = 48 the claimed bands fall 3.80–4.14-fold from 400 to 800 rows. It reads 3.80–4.14.
+- [12.1 and block A, "falls 0.48–0.68-fold per step", "falls by only 0.77–0.82 per step"]: they read "falls to
+  0.48–0.68 of its value per step" and "to 0.77–0.82 of its value per step".
+- [`checks/axis5.py`, line 419, "# X6 the counterexample"; its printed "X6 (exact)"]: the comment states M-C's reading.
+  - X1–X3, X6 and X7 now print "(random jets)", and X6 also states what it shows.
+  - axis5 was rerun on the record's run. Only those labels and the timings change, and `checks/axis5.out` is
+    regenerated.
+- [12.0, "Four more readings were fixed"]: it reads "Three more readings were fixed, plus rich5's control description".
+
+### 13.1 M = 48 at 1600 rows (PID 3123, restarted 06:08 UTC)
+
+The run finished at 07:38 UTC: `<scratch>/r8/cp_M48_1600_reg.npz`, 5,365 s, md5 32774883…. 12.1's three commands
+were run on it, with the earlier M = 32 and 40 runs. cp3grid5.py labels its columns for M = 32 and 40, so each output
+is seated with a header naming its runs:
+- `checks/cp3grid5_a7_m48.out`: three null grids at M = 48, with M = 40 as the angular comparison (its "M40/M32" reads
+  M40/M48);
+- `checks/cp3grid5_a7_m32v48.out`: M = 32's three grids against M = 48 at 1600 rows (its "M40/M32" reads M48/M32);
+- `checks/cp3grid5_a9_1600_m48.out`: |P_32 − P_48| at 1600 rows.
+
+**The claimed regions at M = 48** (computed). They are second order on three null grids, as at M = 32:
+- the monitor falls 3.80–4.14-fold from 400 to 800 rows and 3.89–4.08-fold from 800 to 1600;
+- the metric's observed order is 2.00–2.03;
+- at 1600 rows M = 40 gives 0.85–0.96 of M = 48's monitor, and M = 48 gives 1.14–1.49 of M = 32's. The monitor there
+  rises slightly with M, as at 800 rows: it is the null step's;
+- M = 48 changes the metric from M = 32's by at most 3.3 × 10⁻⁹ there.
+
+**1.0–1.2 on [1.8, 1.9), under the rule as stated now.** The rule reads the 800-row monitors for M = 32–56, which this
+run does not change. So the band stays undecided: its steps are 0.30, 0.57 and 1.06, and m(56) is 0.92 L, below ten
+times the null-step level. By M2's sensitivity, it would read consistent with angular truncation only for θ ≥ 1.056,
+and not truncation only for F < 0.92. The run cannot decide it under this rule.
+
+**1.0–1.2 on [1.8, 1.9): the M = 48 evidence, beside the rule** (computed; `checks/cp3grid5_a7_m48.out`).
+- At M = 48 the monitor is 0.00618, 0.00161 and 0.000582 on the three null grids. It falls 3.84-fold and 2.77-fold;
+  the second step is short of second order. cp3grid5's verdict is "converging".
+- The metric's difference falls 4.09-fold (order 2.03).
+- At 1600 rows M = 40 leaves the monitor 3.53 times larger, and M = 32 about 19 times (M48/M32 = 0.05). At this grid
+  the steps M = 32 → 40 → 48 are 0.19 and 0.28. The rule is not defined at 1600 rows, so this is not its verdict.
+- At 1600 rows the monitor is 1.4–1.7 times the claimed bands' level in its class (3.4–4.1 × 10⁻⁴).
+- So, at M = 48, the violation there falls under both null refinements and with M at the finest grid. It has not
+  reached the claimed bands' level, and the second refinement is short of second order. No convergence is claimed.
+
+**The two truncation bands at M = 48** (computed).
+- 0.9–1.0 on [1.8, 1.9): 0.444, 0.258 and 0.262 (ratios 1.72 and 0.98).
+- ≥ 1.2 on [2.0, 2.25): 0.0883, 0.0781 and 0.0869 (ratios 1.13 and 0.90).
+- So at M = 48 the monitor does not fall from 800 to 1600 rows. Its null-step limit at M = 48 is not vacuum there.
+- At 1600 rows it falls with M as at 800 rows: from M = 32 to 40 to 48 the steps are 0.50 and 0.47, and 0.58 and 0.53.
+- The bands stay "consistent with angular truncation". Convergence in the null step at a fixed M is not shown there.
+
+**The other bands beyond** (computed). At M = 48 the monitor does not converge in the null step on any of them
+(ratios 0.96–1.38). At 1600 rows it grows with M where 12.1 reads not truncation (M48/M32 1.43, 2.51 and 3.87). At
+1.0–1.2 on [1.9, 2.0), still undecided, the steps at 1600 rows are 0.81 and 0.78, as at 800 rows (0.82 and 0.77).
+
+### 13.2 The rebuild against growth5 from v = 1.3, at a second null resolution
+
+- *The runs* (`checks/szrun5.py`, unchanged at f2792347…): the first seed at M = 16 and 1600 × 720, with the data
+  cone at R0 = 10 and 20 (`<scratch>/r9/runs/l1_M16_1600.npz`, f7671edc…, and `l1_M16_1600_R20.npz`, ac7abb37…;
+  2,434 and 2,435 s). Their 400- and 800-row partners are section 4's.
+- *Z1, the rebuilt outer zero under the null step* (`checks/szconv5.py`, new; `checks/szconv5.out`).
+  - From 800 to 1600 rows the rebuilt outer zero changes by at most 0.0053 at R0 = 10 and 0.0067 at R0 = 20, for
+    v ≤ 1.375. From 400 to 800 rows it changed by up to 0.058 and 0.025.
+  - Its difference from growth5's at 1600 rows, from v = 1.3, is 0.053–0.106 at R0 = 10 and 0.026–0.046 at R0 = 20.
+    It halves as R0 doubles (2.0–2.3).
+  - So the difference that 6.1's S6 left "not resolved in (u, v)" from v = 1.3 is not the double-null grid's. It is
+    the data truncation's (it halves with R0) and growth5's own, whose record is at one resolution.
+  - Control: the leaves' expansion in place of θ disagrees with growth5 by 0.224 (good).
+- *S6 at 1600 rows* (`checks/secondzero5_trunc1600.out`): all checks pass, with the 400-row block reproduced.
+- *S7 at 1600 rows* (`checks/secondzero5_edges1600.out`). The untrapped band on growth5's 17 columns at r* = 0.64–0.76:
+  - at R0 = 10, every edge is within one column spacing of growth5's up to v = 1.525, and the band is one column
+    longer at v = 1.45;
+  - at R0 = 20, the same, except that from v = 1.5 the column at x = 1, on the axis, is untrapped too;
+  - at v = 1.55, as at 800 rows, growth5's band reaches the axis and the rebuild's stops 3.8–4.0 spacings short.
+  - S7's all-v gate FAILs at 1600 rows as at 800. Its control fails as it should: the leaves' expansion untraps no
+    column.
+- Block B's text in the wavelengths item now states both resolutions (13.3, 13.6).
+
+### 13.3 The paper's "Physical wavelengths" item, as one text (a task of this round)
+
+The item runs from paper line 1446 ("- **Physical wavelengths.**") to line 1504 at md5 805be200…. It holds blocks A
+(lines 1488–1504) and B (1473–1475). Its older sentences had gone stale, or read as open. It is rewritten as one
+old/new pair, keyed by content, with A and B folded in (`scratchpad/r9/bullet_{old,new}.txt`; 13.6). What changed:
+- *Kept, with their status words:*
+  - the scale ratios (R7);
+  - [AB26]'s comparison;
+  - growth5's premise failure and excision figures (excise5);
+  - the growth and amplification factors;
+  - the second zero's reading (sectexp5, secondzero5);
+  - the untrapped columns (B);
+  - the [Wu26] sentence;
+  - seed_escape;
+  - the second seed's angular figures (g1curv5);
+  - block A's certified, deduced and computed lists.
+- *Replaced, as superseded:*
+  - "could settle it … and that is not attempted" now reads: the route is "taken here … what the route reaches at
+    10 l5 is stated at the end of this item";
+  - "its five-dimensional version in the class is not built" now reads: "its counterpart in the class is built in the
+    parts listed below as deduced";
+  - "a certified argument would need the propagator's norm, not a sup-norm bound" is dropped. The three factors stay
+    as computed figures.
+  - "Nothing is said of the event horizon" now reads: "The event horizon is not located: its position depends on the
+    whole future development, which is computed to finite advanced time only."
+  - "the scheme is unstable at 24 and 32" now states what was computed: growth5's step is unstable in angle at
+    N_x = 24 and 32 on the seed itself (supplement 1.5).
+  - "the rebuild does not reach r ≤ 0.3 r_h" now states what holds there: the rebuild reaches no sphere below about
+    0.5 r_h before the cut, so growth5's second zero at 0.21–0.30 r_h is neither reproduced nor contradicted (1.4).
+  - "unresolved in (u, v) from v = 1.3 r_h" is replaced by the 1600-row result (13.2).
+  - "The late region stays unresolved" (second seed) now reads "beyond v ≈ 3.25 the second seed's late region is not
+    resolved in angle".
+  - The first seed's sentence ("not yet told apart") goes, as in 10.4.
+- *The limit is stated once,* at the end. Existence is proved where the solution is the seed (v ≤ r_h/2) and not beyond
+  it. Lemma 9.C's 4F²Gr < 1, at the computed F² = 10^66.9, asks r of order 10⁻⁶⁸/G, against the certified 3.73 × 10⁻⁵
+  and 5.0 × 10⁻⁴. Its hypotheses are established on no region of its form beyond the seed.
+  - The two earlier statements of this limit inside block A, in its deduced and computed lists, are removed, so that it
+    is said once.
+- *Decided by computation this round:* the rebuild's agreement with growth5 from v = 1.3, at a second null resolution
+  (13.2).
+- *Not recomputed, and why:* growth5 at N_x = 24 with a smaller step.
+  - At 0.7 of its step it had not reached v = 0.25 in an hour (supplement 1.5). Reaching its breakdown near v = 1.5
+    would take six hours or more.
+  - Its premise fails at N_x = 16 in any case, and the double-null scheme replaces it.
+  - The bullet states the computed limit instead: its breakdown times are at one angular resolution.
+
+### 13.4 What holds at 10 l5 after round 9
+
+12.2's list stands, with these changes:
+- 1.0–1.2 on [1.8, 1.9) is undecided by the comparison in M (13.0). At M = 48 it falls under both null refinements on
+  three grids, the second short of second order. At 1600 rows M = 40 leaves it 3.5 times larger. That is evidence beside
+  the rule, not its verdict (13.1).
+- The two truncation bands are "consistent with angular truncation". There the monitor at M = 56 is still 23 and 39
+  times the null-step level (13.0). At M = 48 it does not fall from 800 to 1600 rows, and at 1600 rows it still falls
+  with M (13.1).
+- The rebuilt outer zero is resolved in (u, v) to v = 1.375 r_h: from 800 to 1600 rows it changes by at most 0.007 r_h.
+  Its difference from growth5's there is the data truncation's and growth5's own (13.2).
+
+There is no new existence statement. Existence is proved where the solution is the seed and is not claimed beyond it.
+
+### 13.5 Files and outputs (round 9)
+
+| file | what | md5 (round 8 → round 9) |
+|---|---|---|
+| `checks/mtrunc5.py` | M8-A, m8-1: the timing note, M2's sensitivity, controls k3 and k4 | eac22e7a… → 2f836c7d… |
+| `checks/mtrunc5.out` | regenerated | 158dae5a… → 9a23e455… |
+| `checks/axis5.py` | nit: the X labels print "(random jets)"; X6's comment | b0b86449… → 6724ac8e… |
+| `checks/axis5.out` | regenerated; only the labels and timings change | 5cae43e2… → c708b130… |
+| `checks/szconv5.py` (new) | 13.2: Z1, the rebuilt outer zero under the null step, with its control | 3c6c7b0e… |
+| `checks/szconv5.out` (new) | its output | 90d632eb… |
+| `checks/secondzero5_trunc1600.out` (new) | `secondzero5.py` S6 with the 1600-row runs | e64dadd9… |
+| `checks/secondzero5_edges1600.out` (new) | `secondzero5.py` S7 with the 1600-row runs | 5e640f6e… |
+| `checks/cp3grid5_a7_m48.out` (new) | 13.1: `--a7`, three null grids at M = 48, M = 40 at 1600 rows | 02e2724c… |
+| `checks/cp3grid5_a7_m32v48.out` (new) | 13.1: `--a7`, M = 32's three grids, M = 48 at 1600 rows | 64b29e08… |
+| `checks/cp3grid5_a9_1600_m48.out` (new) | 13.1: `--pclass`, M = 32 against 48 at 1600 rows | 20055563… |
+
+- `data/rcert5_C3.npz` (698569f6…) and `data/rcert5_C3R.npz` (88e16664…) are unchanged.
+- The round-8 versions are `scratchpad/r9/mtrunc5.r8.py`, `axis5.r8.py` and `axis5.r8.out`.
+- The mtrunc5 mutants of m8-1 are in `scratchpad/r9/mt/`, with their outputs.
+- The runs: `<scratch>/r8/cp_M48_1600_reg.npz` (32774883…, PID 3123), `cp_M48_400_reg.npz` (f7d818fb…, PID 3124), and
+  `<scratch>/r9/runs/l1_M16_1600.npz` (f7671edc…) and `l1_M16_1600_R20.npz` (ac7abb37…). Every run has finished, and no
+  process of this round is left running.
+
+### 13.6 The paper: the wavelengths item (blocks A and B folded in), and blocks C–G
+
+These replace 12.4's proposal. They are proposed to the main session, which seats them; this note edits neither the paper
+nor N1STAR-PROOF.md.
+- *Keyed by text.* Each old text occurs exactly once in `RESPONSE-HL-5D.md` at md5 805be200b746b7cf480e88639da5508f.
+  - The wavelengths item's old text runs from its first line through the end of block A's old text. Blocks A and B lie
+    inside it, so they are not separate blocks any more.
+  - C, D1, D2, D3, E, F and G have 12.4's old texts.
+  - The files are in `scratchpad/r9/blocks/`, and the item also in `scratchpad/r9/bullet_{old,new}.txt`.
+- *Checked:* every block applied to a copy (`scratchpad/r9/paper_applied.md`). Every line is ≤ 121 characters. Every
+  md5 row of Appendix D matches its file except `CERTIFY-10L5-RESULT.md`'s, which holds fa9d849d… and is rewritten by
+  `python3 response5.py --update-md5` at seating. Longest new line: 121 characters.
+- *Changed from 12.4:*
+  - the item (13.3);
+  - F: the mtrunc5 entry (M8-A);
+  - E: mtrunc5's labels;
+  - D3: the round-9 md5s, and rows for the new outputs.
+  - C, D1, D2 and G are 12.4's.
+
+**The wavelengths item. Old:**
+
+```
+- **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+  curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
+  the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
+  = l5, and at the horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ
+  = 1000 l5²) at the horizon (computed, R7): there is no separation of scales. The statement that the waves are
+  high-frequency on all of D_T once λ < l5/10 is about the approximant, not about λ0. Against the scale on which the
+  curvature varies, r, the ratio is 1.00 and 0.32 at the horizon and 1.85 and 1.04 on x_K = 1 (computed, R7). That is
+  the parameter a construction from exact waves would see, in the manner of [AB26], whose layers are waves exact on a
+  locally linear background, with amplitudes solving ordinary differential equations ("no sinusoidal identity was
+  used", section 3.1); it is not small either, and there the wavelengths are chosen, here prescribed. At a prescribed
+  wavelength without a small parameter, existence on D_T is a large-data question; a computed solution with a certified
+  residual and a certified linear estimate could settle it (the rigorous numerics cited in [AB26] as [4]), and that is
+  not attempted. Its first step was taken: the growth factor measured on the solver's own computed solution at 10 l5
+  (`docket68/n1star/growth5.py`, supplement section 10.2). At both seeds that scheme's premise — one zero of the round
+  spheres' expansion per column and the core boundary outflow, so that the exterior is fixed by its own data — fails
+  before the shell's peak: a second zero holds over 0.04 in v from 1.50 r_h at μ = 100 l5² (1.496 on the finer grid,
+  1.476 with a shorter hold; a single-step excursion at 1.45 is not it) and from 1.583 r_h at 1000 l5² (three grids
+  agreeing to 0.0005), and the boundary ceases to be outflow within 0.1 after; a deeper excision fails earlier, not
+  later (r = 0.39 and 0.25 r_h at the first seed, 0.21 r_h at the second), on the next finer grid too: with the
+  breakdown read as a second zero lasting 0.01 in v, the solver's criterion, the three move by 0.0008, 0.0025 and
+  0.0002 between the grids and the standard excision by 0.0041 and 0.0004, and the order holds for every such duration
+  from 0.005 to 0.06 (`docket68/n1star/checks/excise5.py`). So no approximant on D_T comes from that scheme at 10 l5 at
+  the excision depths run. The second zero belongs to that chart's areal spheres and is not a second marginally trapped
+  surface: wherever a smooth vacuum solution with these data exists in double-null gauge, every leaf inside the seed's
+  horizon generator is outer trapped, and every T²-invariant marginal section of an ingoing cone lies near areal radius
+  1.01–1.05 r_h (deduced, its identities computed in `docket68/n1star/checks/sectexp5.py`; the zero set computed at 100
+  l5² for v ≤ 1.75 r_h in `docket68/n1star/checks/secondzero5.py`; supplement note `CERTIFY-10L5-RESULT.md` section 1).
+  At 100 l5² the Bondi spheres rebuilt on the double-null solution reproduce the untrapped columns to within one column
+  spacing up to v = 1.525 (not at 1.55), which come from the spheres' tilt against the null leaves (computed); at 1000
+  l5² the rebuild does not reach r ≤ 0.3 r_h. The breakdown times are at one angular resolution (N_x = 16); the scheme
+  is unstable at 24 and 32. Nothing is said of the event horizon. The step is re-posed as the characteristic initial
+  value problem in double-null gauge — the incoming wave on an ingoing null hypersurface from past null infinity, the
+  seed's outgoing cone as the other — where Luk's theorem gives local existence without smallness ([Wu26] Theorem 2.1)
+  and [Wu26]'s Theorem 2.2 is the a posteriori structure, introduced there by the sentence "the difference of metrics
+  is controlled by the difference of curvature residues" (section 2.3, p. 6; the sentence before the theorem, not its
+  text); its five-dimensional version in the class is not built. Up to the failure the radiation field's growth factor
+  exp ∫K dv is 1.9 and 2.1, and a finite-difference amplification of the data along one direction, a lower bound for
+  the propagator's norm, is 1.28 and 1.00; where the scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the
+  sup-norm Grönwall factor is 17, 2 × 10⁵ and 6 × 10³: a certified argument would need the propagator's norm, not a
+  sup-norm bound. The linear scattering of the shell off the seed at 10 l5 is computed in
+  `docket68/lemmas/seed_escape.py`. That problem has since been computed as a prototype (supplement
+  `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the class's Einstein equations in double-null
+  gauge, evolved in (u, v) with an expansion in the polar angle, at the prescribed wavelength at both seeds. At the
+  first seed the Kretschmann scalar is moderate and converged in angle up to the point where the runs stop converging,
+  and unresolved after it, where a singularity, a steep smooth feature and a defect at the axis are not yet told apart.
+  At the second seed, with the angular and null grids refined together, the two coarser angular resolutions agree up to
+  v ≈ 3.5 and the finest departs from them from v ≈ 3.25, at every angle. On a finer null grid, 2400 × 1080, the second
+  seed's M = 32 and 40 angular resolutions agree to 0.09 K_0 up to v = 3.5 and to 0.53 K_0 up to v = 4.5 (K_0 = 72/R⁸,
+  Tangherlini's Kretschmann scalar at the same areal radius), away from the cells M = 48 masks; M = 48 departs from v ≈
+  3.25 exactly as at 1600 × 720, so the finer null grid does not move it, and the step condition M²/N ≤ c it had been
+  ascribed to is refuted (M²/N = 0.96). The late region stays unresolved (computed, floating point:
+  `docket68/n1star/checks/g1curv5.py --seed2-2400`, output `checks/g1curv5_seed2_2400.out`; supplement
+  `CERTIFY-10L5.md` section 6b). A first certified step is taken: for an explicit approximant of the characteristic
+  data on the data cone, the constraint along its outgoing generators holds to a certified bound at both seeds (at the
+  second, 2.3 × 10⁻⁵ against terms of size 5.3 × 10⁻⁴; certified, ball arithmetic, `docket68/n1star/checks/cdata5.py`).
+  The full Einstein residual of a smoothed three-dimensional approximant built from a run is computed only, 2.5 × 10⁻³
+  of the curvature scale and falling at second order with the grid (`checks/resid5.py`, floating point), and no linear
+  estimate with explicit constants is available for the characteristic problem in the class, so existence at 10 l5
+  remains open (supplement `CERTIFY-10L5-RESULT.md` section 2).
+```
+
+**New:**
+
+```
+- **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+  curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in the
+  numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L = l5,
+  and at the horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ = 1000
+  l5²) at the horizon (computed, R7): there is no separation of scales. The statement that the waves are high-frequency
+  on all of D_T once λ < l5/10 is about the approximant, not about λ0. Against the scale on which the curvature varies,
+  r, the ratio is 1.00 and 0.32 at the horizon and 1.85 and 1.04 on x_K = 1 (computed, R7). That is the parameter a
+  construction from exact waves would see, in the manner of [AB26], whose layers are waves exact on a locally linear
+  background, with amplitudes solving ordinary differential equations ("no sinusoidal identity was used", section 3.1);
+  it is not small either, and there the wavelengths are chosen, here prescribed. At a prescribed wavelength without a
+  small parameter, existence on D_T is a large-data question, taken here by the route of a computed solution with a
+  certified residual and a certified linear estimate (the rigorous numerics cited in [AB26] as [4]); what the route
+  reaches at 10 l5 is stated at the end of this item. The solver's own scheme came first, with the growth factor measured
+  on its computed solution at 10 l5 (`docket68/n1star/growth5.py`, supplement section 10.2). At both seeds that scheme's
+  premise — one zero of the round spheres' expansion per column and the core boundary outflow, so that the exterior is
+  fixed by its own data — fails before the shell's peak: a second zero holds over 0.04 in v from 1.50 r_h at μ = 100 l5²
+  (1.496 on the finer grid, 1.476 with a shorter hold; a single-step excursion at 1.45 is not it) and from 1.583 r_h at
+  1000 l5² (three grids agreeing to 0.0005), and the boundary ceases to be outflow within 0.1 after; a deeper excision
+  fails earlier, not later (r = 0.39 and 0.25 r_h at the first seed, 0.21 r_h at the second), on the next finer grid too:
+  with the breakdown read as a second zero lasting 0.01 in v, the solver's criterion, the three move by 0.0008, 0.0025
+  and 0.0002 between the grids and the standard excision by 0.0041 and 0.0004, and the order holds for every such
+  duration from 0.005 to 0.06 (`docket68/n1star/checks/excise5.py`). So no approximant on D_T comes from that scheme at
+  10 l5 at the excision depths run. Up to the failure the radiation field's growth factor exp ∫K dv is 1.9 and 2.1, and a
+  finite-difference amplification of the data along one direction, a lower bound for the propagator's norm, is 1.28 and
+  1.00; where the scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the sup-norm Grönwall factor is 17, 2 × 10⁵
+  and 6 × 10³. The scheme's breakdown times are at one angular resolution, N_x = 16: at its own step it is unstable in
+  angle at N_x = 24 and 32 on the seed itself, before the wave arrives (computed; supplement `CERTIFY-10L5-RESULT.md`
+  section 1.5). The second zero belongs to that chart's areal spheres and is not a second marginally trapped surface:
+  wherever a smooth vacuum solution with these data exists in double-null gauge, every leaf inside the seed's horizon
+  generator is outer trapped, and every T²-invariant marginal section of an ingoing cone lies near areal radius
+  1.01–1.05 r_h (deduced, its identities computed in `docket68/n1star/checks/sectexp5.py`; the zero set computed at 100
+  l5² for v ≤ 1.75 r_h in `docket68/n1star/checks/secondzero5.py`; supplement note `CERTIFY-10L5-RESULT.md` section 1).
+  At 100 l5², on the sphere of least areal radius the rebuild reaches before the cut (0.64–0.78 r_h), the band of
+  growth5's columns along which the Bondi spheres rebuilt on the double-null solution are untrapped has each edge within
+  one column spacing of growth5's own up to v = 1.525 r_h, at both data-cone radii run (the sets equal or shifted by one
+  column, except at the larger radius at v = 1.45 and 1.525 r_h, where the rebuild's band is one column shorter); at
+  v = 1.55 r_h growth5's band reaches the axis and the rebuild's stops 3.8–4.0 spacings short. At a second null
+  resolution, 1600 × 720, the edges stay within one column spacing of growth5's up to v = 1.525 r_h at both radii, the
+  rebuild's band one column longer at v = 1.45 r_h, and at the larger radius the column at x = 1, on the axis, is
+  untrapped too from v = 1.5 r_h; and from 800 to 1600 rows the rebuilt outer zero changes by at most 0.007 r_h up to
+  v = 1.375 r_h, against its difference of 0.026–0.046 r_h from growth5's from v = 1.3 r_h at the larger radius
+  (0.053–0.106 r_h at the smaller, so the difference halves as the radius doubles), which is therefore not the
+  double-null grid's (computed, `docket68/n1star/checks/szconv5.py`). The untrapping comes from the spheres' tilt against
+  the null leaves, whose own expansion leaves no column untrapped (computed, `docket68/n1star/checks/secondzero5.py
+  --edges`; supplement `CERTIFY-10L5-RESULT.md` sections 6.1, V2–V3, 9.0 and 13.2). At 1000 l5² the rebuild reaches no
+  sphere below about 0.5 r_h before the cut, so growth5's second zero there, at 0.21–0.30 r_h, is neither reproduced nor
+  contradicted (computed; supplement section 1.4). The event horizon is not located: its position depends on the whole
+  future development, which is computed to finite advanced time only. The step is re-posed as the characteristic initial
+  value problem in double-null gauge — the incoming wave on an ingoing null hypersurface from past null infinity, the
+  seed's outgoing cone as the other — where local existence holds without smallness (Luk's theorem, [Wu26] Theorem 2.1,
+  and in higher dimensions [CTG23] Theorem 1.1) and [Wu26]'s Theorem 2.2 is the a posteriori structure, introduced there
+  by the sentence "the difference of metrics is controlled by the difference of curvature residues" (section 2.3, p. 6;
+  the sentence before the theorem, not its text); its counterpart in the class is built in the parts listed below as
+  deduced. The linear scattering of the shell off the seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`. The
+  characteristic problem itself is computed (supplement `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not
+  certified): the class's Einstein equations in double-null gauge, evolved in (u, v) with an expansion in the polar
+  angle, at the prescribed wavelength at both seeds. At the second seed, with the angular and null grids refined
+  together, the two coarser angular resolutions agree up to v ≈ 3.5 and the finest departs from them from v ≈ 3.25, at
+  every angle. On a finer null grid, 2400 × 1080, the second seed's M = 32 and 40 angular resolutions agree to 0.09 K_0
+  up to v = 3.5 and to 0.53 K_0 up to v = 4.5 (K_0 = 72/R⁸, Tangherlini's Kretschmann scalar at the same areal radius),
+  away from the cells M = 48 masks; M = 48 departs from v ≈ 3.25 exactly as at 1600 × 720, so the finer null grid does
+  not move it, and the step condition M²/N ≤ c it had been ascribed to is refuted (M²/N = 0.96); beyond v ≈ 3.25 the
+  second seed's late region is not resolved in angle (computed, floating point: `docket68/n1star/checks/g1curv5.py
+  --seed2-2400`, output `checks/g1curv5_seed2_2400.out`; supplement `CERTIFY-10L5.md` section 6b). The rest holds with
+  these statuses. Certified (ball arithmetic): on the data cone the outgoing constraint of an explicit approximant holds
+  to 5.0 × 10⁻⁵ and 2.3 × 10⁻⁵ at the two seeds, 4.1–4.3 % of the terms that cancel in it
+  (`docket68/n1star/checks/cdata5.py`); on u ∈ [−4, −1.1] r_h, v ∈ [0.55, 1.6] r_h, |x| ≤ cos(π/32), the Einstein
+  residual of an explicit three-dimensional approximant, Richardson-extrapolated from two null grids, its coefficients
+  pinned by md5 (`docket68/n1star/data/rcert5_C3R.npz`), is at most 3.73 × 10⁻⁵ of the curvature scale at 16,128 points
+  and at most 5.0 × 10⁻⁴ as a supremum over a sub-box of each of four of the 416 boxes covering that region, on which the
+  single-grid approximant (`data/rcert5_C3.npz`) has certified values of 1.09–2.41 × 10⁻³ (`checks/rich5.py`), and the
+  single-grid approximant's supremum over one interior box of the 416 is at most 3.01 × 10⁻⁴ (`checks/rcert5d.py`; both
+  certificates' bounds are checked by a control that runs the whole bound computation on test fields varying in each
+  coordinate, and on the coordinate map, with exact suprema, by a check that the enclosures it forms of the approximant's
+  coefficients contain their values at the corners of their boxes, and by independent certified point values at the
+  centre and corners of every accepted sub-box). Deduced: the class is (2+1)-dimensional gravity coupled to a wave map
+  into the flat plane (`checks/reduce5.py`); in the free metric formulation, at frozen coefficients on spherical states,
+  the shift's angular derivative is of principal size at high angular frequency and drives δR at order k², so no estimate
+  without loss of derivatives holds for the frozen-coefficient problem (`checks/symbol5s.py`; for the
+  constraint-preserving formulation a loss is indicated by a model only); in double-null gauge the reduced transport
+  equations carry no angular derivative of an unknown on their right sides (`checks/null3.py`, `checks/linest5.py`), and
+  a linear estimate with explicit constants holds on truncated domains of dependence away from the axes, at level 0 and
+  at level 1 in the cones' L² norms (supplement Theorems 7.L, 8.L1 and 8.W; `checks/lev1_5.py`, `checks/wgron5.py`); near
+  each axis the class is four-dimensional axisymmetric Einstein–scalar in a chart regular at the axis, where [Wu26]'s
+  curvature pairs have energy identities on the whole section, the angular recoveries hold with explicit Hardy constants,
+  and [Wu26]'s transport equations, mass aspects and the scalar's pairs hold in reduced form with every angular
+  derivative on their right sides recovered from the hierarchy's own unknowns (`checks/axis5.py`,
+  `checks/axisbianchi5.py`, `checks/axhier5.py`; identities verified at random jets); and, for smooth T²-invariant
+  characteristic data that satisfy the constraints, a smooth T²-invariant vacuum development exists on the region
+  u ∈ [−10, u*] r_h, v ∈ [r_h/2, v*] of the gauge, the axes included, whenever, on every slab v ≤ s of that region, every
+  smooth T²-invariant vacuum metric with these data, in the gauge, differs from the approximant by an amount obeying a
+  linear estimate with constant F at every level, the quadratic remainder has constant G, the approximant's residual r
+  satisfies 4F²Gr < 1 and the difference at v = r_h/2 is at most Fr, by continuity from the higher-dimensional
+  neighbourhood theorem of [CTG23], the hierarchy being applied only to genuine metrics, for which its compatibility with
+  the metric holds by definition (`checks/cont5.py`). Computed (floating point): on |x| ≤ 1/2 over the region above,
+  where no truncated domain exists, the estimate's constant is F² = 10^138, and 10^66.9 with Theorem 8.W's weights; the
+  couplings across an angular Galerkin cut, N-independent by an identity (deduced), are of the coefficients' own size
+  there, so the block (Schur) condition under which an estimate on the high angular modes would lower the constant fails
+  at every angular resolution, in Theorem 7.L's unweighted norms and at Theorem 8.W's weights (`checks/blocks5.py`,
+  `checks/blockw5.py`); the first seed's solution, in a constraint-preserving scheme whose singular coupling at the axes
+  is regularised (`checks/cpaxis5.py`), converges at second order in the null step to v ≈ 1.8 r_h at areal
+  radius ≥ 0.9 r_h and to v ≈ 2.0 r_h at ≥ 1.2 r_h, on three null grids from v = 1.4 r_h and on two below it (observed
+  order 2.00–2.03 in the metric, the unimposed constraint and the regularisation's correction falling 3.5–4.0-fold at
+  each refinement, the correction on three grids from v = 1.5 r_h), and is resolved in angle there on the finest grid,
+  M = 40 and 48 changing the metric by at most 3.0 × 10⁻⁹ and 3.3 × 10⁻⁹, with M = 48 also second order on three null
+  grids (`checks/cp3grid5.py`), and the free scheme's solution is consistent with second-order convergence to v ≈ 1.8 r_h
+  at areal radius ≥ r_h as well (`checks/late5b.py`); beyond, at M = 32 the metric still converges at second order in the
+  null step while the unimposed constraint does not fall, so the null-step limit at M = 32 is not vacuum; with M = 32,
+  40, 48 and 56 at 800 × 360 the violation falls to 0.49–0.53 of its value at each step in M at areal radius 0.9–1.0 r_h
+  on [1.8 r_h, 1.9 r_h), and to 0.48–0.68 at ≥ 1.2 r_h on [2.0 r_h, 2.25 r_h), consistent with angular truncation, though
+  at M = 56 it is still 23 and 39 times the null step's level there and at M = 48 falls only 1.72- and 1.13-fold from 400
+  to 800 rows and not at all from 800 to 1600, while at 1600 rows it still falls to 0.47 and 0.53 of its value from
+  M = 40 to 48; from v ≈ 1.9 r_h at 0.9–1.0 r_h and from v ≈ 2.0 r_h at 1.0–1.2 r_h it grows with M and the
+  regularisation's correction does not vanish under refinement; these verdicts hold for the comparison's threshold
+  anywhere in [0.68, 1.15]; at 1.0–1.2 r_h on [1.8 r_h, 2.0 r_h) the comparison in M does not decide, and on [1.8 r_h,
+  1.9 r_h) there, at M = 48, the unimposed constraint falls 3.84-fold from 400 to 800 rows and 2.77-fold from 800 to
+  1600, and at 1600 rows M = 40 leaves it 3.5 times larger (`checks/cpaxis5.py`, `checks/mtrunc5.py`,
+  `checks/cp3grid5.py`). So at 10 l5 existence is proved where the solution is the seed (v ≤ r_h/2) and not beyond it:
+  the continuation's closing condition 4F²Gr < 1 (supplement Lemma 9.C), at the computed F² = 10^66.9, asks a residual r
+  of order 10⁻⁶⁸/G, against the certified 3.73 × 10⁻⁵ at points and 5.0 × 10⁻⁴ over sub-boxes, and its hypotheses are
+  established on no region of its form beyond the seed (supplement `CERTIFY-10L5-RESULT.md` sections 2 and 6–13).
+```
+
+**C. Old:**
+
+```
+- [Wu26] S. Wu, *Picard iteration for the characteristic initial value problem in Einstein equations*,
+  arXiv:2609.08421v1. READ 2026-10-20: abstract; p. 2, (1.1); Theorems 2.1–2.2, p. 6.
+```
+
+**New:**
+
+```
+- [Wu26] S. Wu, *Picard iteration for the characteristic initial value problem in Einstein equations*,
+  arXiv:2609.08421v1. READ 2026-10-20: abstract; p. 2, (1.1); Theorems 2.1–2.2, p. 6.
+- [CTG23] P. T. Chruściel, R. Tagne Wafo, F. Gray, *The "neighborhood theorem" for the general relativistic
+  characteristic Cauchy problem in higher dimensions*, arXiv:2305.07306v1. READ 2026-11-06: abstract; Theorem 1.1,
+  pp. 2–3, and the remark after it on Sobolev spaces; p. 8 (estimates for genuine solutions, not an existence scheme).
+```
+
+**D1. Old:**
+
+```
+recorded here); z3-solver for `foliation5.py`; python-flint for `cdata5.py`; numpy for `bondi5.py` and `growth5.py`,
+```
+
+**New:**
+
+```
+recorded here); z3-solver for `foliation5.py` and `checks/cont5.py`; python-flint for `cdata5.py` and for
+`checks/rcert5.py` and every program that imports it; scipy for `cdata5.py`, `checks/lev1_5.py` and `checks/wgron5.py`;
+numpy for `bondi5.py` and `growth5.py`,
+```
+
+**D2. Old:**
+
+```
+`checks/vii5census.py`; the others import nothing from the research tree:
+```
+
+**New:**
+
+```
+`checks/vii5census.py`, `checks/reduce5.py` imports `dnull5.py`, `checks/symbol5s.py` imports `checks/symbol5.py`, which
+imports `dnsolve5.py`, `checks/linest5.py` imports `checks/null3.py` and `dnsolve5.py`, `checks/lev1_5.py` imports
+`checks/linest5.py` and `checks/wgron5.py`, `checks/wgron5.py` and `checks/blocks5.py` import `checks/linest5.py`,
+`checks/axis5.py` imports `checks/linest5.py` and `dnull5.py`, `checks/axhier5.py` imports `checks/axisbianchi5.py`,
+`checks/cont5.py` imports `checks/null3.py`, `checks/cpsolve5.py` imports `dnsolve5.py`, `checks/cpaxis5.py` imports
+`checks/cpsolve5.py`, `checks/cp3grid5.py` imports `checks/cpsolve5.py` and `checks/cpaxis5.py`, `checks/rcert5.py`
+imports `checks/resid5.py` and `checks/bondisph5.py`, `checks/rcert5c.py` and `checks/rcert5d.py` import
+`checks/rcert5.py`, `checks/rich5.py` imports `checks/rcert5.py` and `checks/rcert5d.py`, `checks/blockw5.py` reads
+`checks/blocks5.out` and `checks/wgron5.out`, `checks/mtrunc5.py` reads `checks/cpaxis5_a5.out`,
+`checks/cpaxis5_a5_m48.out` and `checks/cpaxis5_a5_m56.out`, and `checks/szconv5.py` imports `checks/secondzero5.py`; the
+others import nothing from the research tree:
+```
+
+**D3, after cdata5.out's row. Old:**
+
+```
+| `docket68/n1star/checks/cdata5.out` | `6536abcba46ec57a5dca8ced814b7788` |
+```
+
+**New:**
+
+```
+| `docket68/n1star/checks/cdata5.out` | `6536abcba46ec57a5dca8ced814b7788` |
+| `docket68/n1star/checks/reduce5.py` | `0458f70bc710ad3ce966f242bd76e5f0` |
+| `docket68/n1star/checks/reduce5.out` | `b0fb5b28fa8499d5fa70226a1b3ed1ee` |
+| `docket68/n1star/dnull5.py` | `2035d34bf399cd6ba5c5550d9718ceab` |
+| `docket68/n1star/checks/symbol5s.py` | `8441ecf58bab566dda5b5d50c8327f97` |
+| `docket68/n1star/checks/symbol5s.out` | `7d51dbf663724abf64087f39974f35c9` |
+| `docket68/n1star/checks/symbol5.py` | `14168943230c0c64d18a94fd7f55912e` |
+| `docket68/n1star/checks/null3.py` | `767dd3bd58f5c517c99165e1d44f1eb9` |
+| `docket68/n1star/checks/null3.out` | `0288d263c81bd929f3ce5647350d69ed` |
+| `docket68/n1star/checks/linest5.py` | `34dc9b3d6594771ace2a4257b3a15191` |
+| `docket68/n1star/checks/linest5.out` | `cdc11bfb156dbd6dfa2ec2f744d0e842` |
+| `docket68/n1star/checks/lev1_5.py` | `bbb29f53599e58d3702d8b7dc5c9aeab` |
+| `docket68/n1star/checks/lev1_5.out` | `b6be6a0bf20f95febfba64707fcf3bb8` |
+| `docket68/n1star/checks/wgron5.py` | `a764e73c0be0ec38467bc986f7d84bb2` |
+| `docket68/n1star/checks/wgron5.out` | `47170f09530b20e8d49f1a56660f55c1` |
+| `docket68/n1star/checks/axis5.py` | `6724ac8e96cb31a69d02c3fa03d88627` |
+| `docket68/n1star/checks/axis5.out` | `c708b130e4656a16b6bb1879a31faa14` |
+| `docket68/n1star/checks/axisbianchi5.py` | `86d8af8e9024487ee7bd947bce954588` |
+| `docket68/n1star/checks/axisbianchi5.out` | `999b80bedb9aaccc627e17002746a912` |
+| `docket68/n1star/checks/axhier5.py` | `aa134baade41c3a0664844a4424a567a` |
+| `docket68/n1star/checks/axhier5.out` | `0b192015028c3ea2536964f28af58137` |
+| `docket68/n1star/checks/cont5.py` | `d5ada772efca2d1fd2b8fec5fc1832e9` |
+| `docket68/n1star/checks/cont5.out` | `d4fc239715575ac4757ce2831b259f58` |
+| `docket68/n1star/checks/blocks5.py` | `201c163bb0a554b4677c754a85ab4e83` |
+| `docket68/n1star/checks/blocks5.out` | `b0468571355f78d03975d63da638308a` |
+| `docket68/n1star/checks/blockw5.py` | `6049a5dcb3a362c99ccbe2fb7e950807` |
+| `docket68/n1star/checks/blockw5.out` | `f2ae0d7d80a3c238b83c9ec36a66c87c` |
+| `docket68/n1star/checks/cpsolve5.py` | `96768ccce2e58f7a4d2e38e0219778e0` |
+| `docket68/n1star/checks/cpaxis5.py` | `6fb010b7b948178c58bb7c65e06681d9` |
+| `docket68/n1star/checks/cpaxis5.out` | `e89a7902beebffb67a432baa133cb82f` |
+| `docket68/n1star/checks/cpaxis5_run1.out` | `7775c999a88c195d189c87d9294e9ce4` |
+| `docket68/n1star/checks/cpaxis5_a4.out` | `ae4511e1c474eff3f88bcfeb79aa26cd` |
+| `docket68/n1star/checks/cpaxis5_a5.out` | `6565c01c5191ceca28a03882f82f2d4e` |
+| `docket68/n1star/checks/cpaxis5_a6.out` | `cee235fc3c4833486f3d66a4e20f260c` |
+| `docket68/n1star/checks/cpaxis5_a6_400.out` | `94c9c5a53543c764f1e00d037a49ff33` |
+| `docket68/n1star/checks/cpaxis5_a5_m48.out` | `7360e31b7fb5748829d4e26ff2736aa4` |
+| `docket68/n1star/checks/cpaxis5_a5_m56.out` | `53ee3e4b64f2cec25109a3eda2f7aa44` |
+| `docket68/n1star/checks/cpaxis5_a5_m48_400.out` | `d4a15a41569888c09b76b325519ac1f5` |
+| `docket68/n1star/checks/mtrunc5.py` | `2f836c7d1b3c7ce4517a2afd6c30bd73` |
+| `docket68/n1star/checks/mtrunc5.out` | `9a23e45553ca67cff6478a7b5ba5ee45` |
+| `docket68/n1star/checks/cp3grid5.py` | `3033f5bfcf04065b7e99b5dd8cf09186` |
+| `docket68/n1star/checks/cp3grid5_control.out` | `1af3c04e9c7ec030e11798fb86454da7` |
+| `docket68/n1star/checks/cp3grid5_a8_2grid.out` | `dc3380ec644732a430bb02e7af310c9c` |
+| `docket68/n1star/checks/cp3grid5_a9_800.out` | `c7d7752b7f389ed261b4b1c6871354fb` |
+| `docket68/n1star/checks/cp3grid5_a10_2grid.out` | `7986c6b71f4dc8ec825ae8d28c9475c7` |
+| `docket68/n1star/checks/cp3grid5_a7_3grid.out` | `c654cebc1f5da114da14ee10e38e5bd6` |
+| `docket68/n1star/checks/cp3grid5_a8_3grid.out` | `9e823195af627bc21c2d1854ffbfb6b8` |
+| `docket68/n1star/checks/cp3grid5_a9_1600.out` | `0d0da9dcc0d554d11f97dd40a4a4ee10` |
+| `docket68/n1star/checks/cp3grid5_a10_3grid.out` | `0989baf55d1299a8ff637737215d1426` |
+| `docket68/n1star/checks/late5b.py` | `5225f2b4aa53dc1ab452e2355d499ef8` |
+| `docket68/n1star/checks/late5b.out` | `ece3e7f063a049a15a5b91ed56c2b555` |
+| `docket68/n1star/checks/late5b_small.out` | `be8da58288ee92cd765d25b48c167b41` |
+| `docket68/n1star/checks/rcert5.py` | `bf6d843d5963534eaab5ac4123479aa9` |
+| `docket68/n1star/checks/rcert5c.py` | `281cd2ea76acbe4fb6e04961bdd0521a` |
+| `docket68/n1star/checks/rcert5c.out` | `b4790b613b72f25a492b02ae51dd8503` |
+| `docket68/n1star/checks/rcert5d.py` | `c71659021f86b2eba865beeb095f6a97` |
+| `docket68/n1star/checks/rcert5d.out` | `2411c62db06cfcee3d2620c62c4ef185` |
+| `docket68/n1star/checks/rich5.py` | `2313e4cdbd7eacaa77aead62071da51d` |
+| `docket68/n1star/checks/rich5.out` | `c1eabcf625ccac2e059fab62352ac4a9` |
+| `docket68/n1star/checks/rich5_runs.out` | `64d3a967c368dcd036c758fe842b51f6` |
+| `docket68/n1star/data/rcert5_C3.npz` | `698569f6faaab4420fe2e67abc860561` |
+| `docket68/n1star/data/rcert5_C3R.npz` | `88e16664187868e47eaaaa18709cfc61` |
+| `docket68/n1star/checks/szconv5.py` | `3c6c7b0e0eaf684a4b50fd199a129429` |
+| `docket68/n1star/checks/szconv5.out` | `90d632eb98933c546f90a0be0adbfc63` |
+| `docket68/n1star/checks/secondzero5_trunc1600.out` | `e64dadd9d3562175d9304ea1382935be` |
+| `docket68/n1star/checks/secondzero5_edges1600.out` | `5e640f6eb03700518988c9b414c3c571` |
+| `docket68/n1star/checks/cp3grid5_a7_m48.out` | `02e2724c5fcd172f3b453d5543be0821` |
+| `docket68/n1star/checks/cp3grid5_a7_m32v48.out` | `64b29e088636c01abc7c2437ec8b3ebb` |
+| `docket68/n1star/checks/cp3grid5_a9_1600_m48.out` | `200555635e50f32685d3b5f6f12c3074` |
+| `docket68/n1star/CERTIFY-10L5-RESULT.md` | `fa9d849dac157096b96355307d3d2024` |
+```
+
+**E. Old:**
+
+```
+| section 9: residual of a smoothed 3D approximant | `docket68/n1star/checks/resid5.py` Q1–Q2 |
+```
+
+**New:**
+
+```
+| section 9: the residual of the Richardson approximant | `docket68/n1star/checks/rich5.py` R0–R3, C1–C3 |
+| section 9: the single-grid approximant's supremum over one box | `docket68/n1star/checks/rcert5d.py` D0–D4, C1–C2 |
+| section 9: the class; frozen-coefficient loss; transport structure | `docket68/n1star/checks/reduce5.py` R0–R4; |
+| | `docket68/n1star/checks/symbol5s.py` S1–S6; `checks/null3.py` N0–N10; `checks/linest5.py` E1–E9 |
+| section 9: the linear estimate at levels 0 and 1, and its constant | `docket68/n1star/checks/linest5.py` E1–E9; |
+| | `docket68/n1star/checks/lev1_5.py` L1–L5; `checks/wgron5.py` W1–W5 |
+| section 9: the axes: chart, pairs, Hardy constants, reduced hierarchy | `docket68/n1star/checks/axis5.py` X1–X7; |
+| | `docket68/n1star/checks/axisbianchi5.py` B1–B4; `checks/axhier5.py` A1–A7, M1–M4, S1–S3 |
+| section 9: existence by continuity from [CTG23], conditional | `docket68/n1star/checks/cont5.py` C1–C2 |
+| section 9: the block condition, unweighted and at the weights | `docket68/n1star/checks/blocks5.py` H1–H2; |
+| | `docket68/n1star/checks/blockw5.py` B1–B2 |
+| section 9: the late region | `docket68/n1star/checks/cpaxis5.py` A1–A6; `checks/cp3grid5.py` A7–A10; |
+| | `docket68/n1star/checks/late5b.py` L5–L8 |
+| section 9: the late violation against the angular resolution | `docket68/n1star/checks/mtrunc5.py` M0–M2 |
+| section 9: the rebuilt outer zero under the null step | `docket68/n1star/checks/szconv5.py` Z1 |
+```
+
+**F. Old:**
+
+```
+- `checks/resid5.py` Q1–Q2: section 9's computed residual. Every field of a double-null run at the first seed (800 ×
+  360, M = 16) is fitted by a tensor Chebyshev series on the box u ∈ [−4, −1.1], v ∈ [0.55, 1.6], so that g_app is an
+  explicit smooth metric of the class. Q1, the fit within 7 × 10⁻¹¹ of the run at its nodes; Q2, every frame component
+  of Ric[g_app], from the exact symbolic Ricci tensor of the ansatz, at most 2.46 × 10⁻³ of the curvature scale √K_0 at
+  the same areal radius, against 9.64 × 10⁻³ on the next coarser run (400 × 180), a ratio of 3.92: the residual is the
+  discretisation's, at second order. Control: the lapse moved off the solution (W + 0.01 v) gives a residual 140 times
+  larger. Floating point, not certified. About 11 minutes, given the runs.
+```
+
+**New:**
+
+```
+- `checks/resid5.py` Q1–Q2: the computed residual of a smoothed run. Section 9 now cites the certified residuals of
+  `checks/rich5.py` and `checks/rcert5d.py` instead, whose `checks/rcert5.py` imports this program. Every field of a
+  double-null run at the first seed (800 × 360, M = 16) is fitted by a tensor Chebyshev series on the box u ∈ [−4, −1.1],
+  v ∈ [0.55, 1.6], so that g_app is an explicit smooth metric of the class. Q1, the fit within 7 × 10⁻¹¹ of the run at
+  its nodes; Q2, every frame component of Ric[g_app], from the exact symbolic Ricci tensor of the ansatz, at most
+  2.46 × 10⁻³ of the curvature scale √K_0 at the same areal radius, against 9.64 × 10⁻³ on the next coarser run
+  (400 × 180), a ratio of 3.92: the residual is the discretisation's, at second order. Control: the lapse moved off the
+  solution (W + 0.01 v) gives a residual 140 times larger. Floating point, not certified. About 11 minutes, given the
+  runs.
+- `checks/reduce5.py` R0–R4: section 9's class. For every metric of the class, with no field equation used, the
+  five-dimensional Ricci tensor reduces to (2+1)-dimensional gravity coupled to a wave map into the flat plane (R1–R2);
+  the reduced residues are fixed linear combinations of the five-dimensional Ricci components (R3); and the Einstein
+  frame is written in the record's variables (R4). Exact (sympy). About half an hour.
+- `checks/symbol5s.py` S1–S6: section 9's frozen-coefficient loss. The principal symbol of the free formulation with the
+  shift's second derivatives kept has no Jordan block (S1–S3), but the shift's angular derivative is of principal size at
+  high angular frequency and drives δR at order k² (S4, S6); in the constraint-preserving block the eigenvalue-0 mode
+  drives itself (S5), a loss shown on a model only. Control: the frozen-shift system has the Jordan block. Exact, with
+  S6's model in floating point. About three minutes.
+- `checks/null3.py` N0–N10: section 9's transport structure. In double-null gauge with one-dimensional sections, the
+  reduced system's Ricci coefficients, Raychaudhuri, torsion, lapse, commutators and wave operator (N0–N6); the two
+  equations the hierarchy does not use carry the only angular derivative (N7), so none appears on the hierarchy's right
+  sides (N8); the pairs' energy identities (N9); the linearised pair operators for the difference of two metrics (N10).
+  Exact (sympy). Under a minute.
+- `checks/linest5.py` E1–E9: supplement Theorem 7.L. The pair identities (E1); the hierarchy linearised in fifteen
+  frame-difference unknowns, with no derivative of an unknown on any right side (E2); the two-variable Grönwall lemma
+  (E7); the rows checked against the geometry three ways (E9); and, on the record's run, the constant, the truncated
+  domains it holds on and the demand it puts on the residual (E4–E6, E8). Controls: a row with the angular loss must be
+  flagged (E3); mutated rows must fail E9. Exact for the structure, floating point for the constants. About half a
+  minute, given the run.
+- `checks/lev1_5.py` L1–L5: supplement Theorem 8.L1. The commutators with e_x (L1); the system commuted once closes in
+  thirty unknowns with no level-2 term on any right side (L2), every level-1 row checked against the commutation itself
+  (L5); the level-1 constant on the record's run (L4). Controls: a commutator without its e4 term (L1); a row with the
+  angular loss (L3); two dropped terms (L5). Exact, with L4 in floating point. About eight to eleven minutes, given the
+  run.
+- `checks/wgron5.py` W1–W5: supplement Theorem 8.W, the constant with weights. A model Goursat pair, on which the
+  weighted bound must hold at every weight tried and two mutations of it must fail (W1); equal weights reproducing
+  F² = 10^138 (W2); weights minimising a relaxed objective, F² = 10^66.9 on |x| ≤ 1/2 (W3); a finite-rank approximate
+  inverse cannot lower the constant (W4, supplement Lemma 8.F); the frozen-angle growth of the transported unknowns, at
+  one resolution (W5). Deduced, with computed checks; the constants in floating point. About eight minutes, given the
+  run.
+- `checks/axis5.py` X1–X7: the axis charts. Near each axis the class is four-dimensional axisymmetric Einstein–scalar in
+  a chart regular at the axis (X1), twist-free in its double-null frame (X2), with a measure in which the pair operators
+  are adjoint (X3); the Hardy inequalities that recover angular derivatives from the axis, with explicit constants (X4);
+  the frame quantities bounded on the record's run (X5); the polar-frame connection difference δk not an admissible
+  L²(dμ) unknown at the axis, which excludes Theorem 7.L's unknowns there and nothing else (X6); and the glue (X7).
+  Identities verified at random rational jets with a fixed seed (a probabilistic test), with computed checks. Under a
+  minute.
+- `checks/axisbianchi5.py` B1–B4: the axis chart's curvature pairs. σ's vanishing (B1); the Gauss equation and [Wu26]'s
+  pairs, each found by a linear fit at random jets and checked at fresh random jets (B2–B3b); and the pairs' energy
+  inequality on the whole section, the axis included (B4), deduced from them. Probabilistic identity tests with fixed
+  seeds. About seven minutes.
+- `checks/axhier5.py` A1–A7, M1–M4, S1–S3: [Wu26]'s transport equations, mass aspects and the scalar's pairs in the axis
+  chart, reduced and off shell, each found by a linear fit at random rational jets and checked at fresh random jets
+  (probabilistic identity tests with fixed seeds), with every angular derivative on a right side recovered from the
+  hierarchy's own unknowns (A7). Controls c1–c4: altered coefficients must leave a residual. About a minute and a half.
+- `checks/cont5.py` C1–C2: Lemma 9.C of the supplement. The compatibility relations and the metric recovery hold
+  identically on the general metric of the class (C1, exact); 4AB < 1 and y ≤ A + By² give y ≤ 2A, and y never enters
+  (2A, 1/(2B)) (C2, z3, with a vacuity guard). Controls: χ̲'s relation without b_x (k1); 4AB < 2 (k2); a sharper bound,
+  refuted (k3). Seconds.
+- `checks/blocks5.py` H1–H2: the block (Schur) condition. The coupling of a multiplication across an angular Galerkin cut
+  does not depend on N past the multiplier's degree (H1, exact), and on the record's coefficients it is of their own
+  size, so the condition fails at every N in Theorem 7.L's norms (H2, floating point). About 25–40 minutes, given the
+  run.
+- `checks/blockw5.py` B1–B2: the same condition at Theorem 8.W's weights, from the printed figures of
+  `checks/blocks5.out` and `checks/wgron5.out`, each rounded against the claim: the largest pair's product is at least
+  57.8 at every N. Controls: equal weights reproduce blocks5's 484 (k1); the smallest pair alone is below 1 (k2). A
+  second.
+- `checks/rich5.py` R0–R3, C1–C3: section 9's Richardson approximant. Its pinned tensors (R0); its Einstein residual at
+  16,128 points (R2) and as a supremum over a sub-box of each of four boxes (R3), certified in ball arithmetic with
+  `checks/rcert5d.py`'s engine; the extrapolation's floating-point residual (R1, `--runs`). Controls: the engine end to
+  end on test fields with exact suprema, and its enclosures of the coefficients and of the frame output against their
+  values at the corners of their boxes, on the approximant's tensors and on degree-7 test fields (C1); the perturbed
+  approximant refused (C2); the census regression (C3). Twenty to fifty minutes, read only.
+- `checks/rcert5d.py` D0–D4, C1–C2: the single-grid approximant's supremum over one interior box. Order-3 Taylor models
+  with the Lagrange remainder in ball arithmetic, bisected until every sub-box meets the target (D1); certified centre
+  values that no bound of any method can beat (D2); the census over the 416 boxes (D3); certified point values at the
+  centre and corners of every accepted sub-box below its bound (D4). Controls: as rich5's C1, and the perturbed
+  approximant refused (C2). The bisection about three hours on four processes; the collection and its checks about two
+  minutes.
+- `checks/cpaxis5.py` A1–A6: the late region's constraint-preserving scheme. Its singular coupling at the axes (A1–A2),
+  the regularisation (A3), and the regularised scheme on the record's data at two angular resolutions (A4) and two null
+  grids (A5), with its Kretschmann scalar (A6). Floating point. Each run at 1600 × 720 about four hours; the analyses
+  minutes to half an hour.
+- `checks/cp3grid5.py` A7–A10: the regularised scheme on three null grids. The unimposed constraint and the metric per
+  band of v and class of areal radius, with the observed order (A7); the Kretschmann scalar (A8); the metric's resolution
+  in angle (A9); the regularisation's correction replayed at every cell (A10). The third grid covers v ≥ 1.4, and A10
+  starts at v = 1.5. Control: the 800-row run given in place of the 1600-row one must read as not converging on every
+  band. Floating point. A7 and A9 under a minute, A8 seventeen to twenty minutes and A10 fifteen to thirty, given the
+  runs.
+- `checks/late5b.py` L5–L8: the free scheme's late region on the record's runs. Raychaudhuri's residual per band and
+  class under the null step (L5), in angle (L6) and at small radii (L7); the monotone quantity e^{−2W} R_v along the
+  outgoing generators (L8). Control: a wrong coefficient must not converge (L5). Floating point, given the runs.
+- `checks/mtrunc5.py` M0–M2: the late region's violation against the angular resolution. The interior constraint monitor
+  at 800 rows for M = 32, 40, 48 and 56, read from `checks/cpaxis5.py`'s outputs, is classified: consistent with angular
+  truncation where every step in M lowers it to at most θ = 0.8 of its value; not truncation where the last step does not
+  and it stays above ten times the null-step level; undecided otherwise. When the rule was written relative to reading
+  the runs is not documented, so each verdict's sensitivity is printed: the decided verdicts stand for θ anywhere in
+  [0.68, 1.15] (M2). Controls: a halving sequence (k1); one run given for every M (k2); the bands the null-step level is
+  taken over (k3); each input's run identity, read from its command line (k4). Arithmetic on printed figures. A second.
+- `checks/szconv5.py` Z1: the rebuilt outer zero of the Bondi spheres under the null step, at 400, 800 and 1600 rows and
+  at two data-cone radii, against its difference from growth5's (`checks/secondzero5.py`'s S6 quantity). Control: the
+  leaves' expansion in place of θ must disagree with growth5. Floating point. About five minutes, given the runs.
+```
+
+**G. Old:**
+
+```
+    python3 checks/resid5.py RUNDIR l1_M16_800 l1_M16_400    # about 11 minutes, given the runs
+```
+
+**New:**
+
+```
+    python3 checks/resid5.py RUNDIR l1_M16_800 l1_M16_400    # about 11 minutes, given the runs
+    python3 checks/reduce5.py                             # about half an hour
+    python3 checks/symbol5s.py                            # about three minutes
+    python3 checks/null3.py                               # under a minute
+    python3 checks/linest5.py RUN                         # RUN the record's l1_rc0.9_M32.npz; half a minute
+    python3 checks/lev1_5.py RUN                          # about eight to eleven minutes
+    python3 checks/wgron5.py RUN                          # about eight minutes
+    python3 checks/axis5.py RUN                           # under a minute
+    python3 checks/axisbianchi5.py                        # about seven minutes
+    python3 checks/axhier5.py                             # about a minute and a half
+    python3 checks/cont5.py                               # seconds
+    python3 checks/blocks5.py RUN                         # 25-40 minutes; then checks/blockw5.py (a second)
+    python3 checks/rich5.py                               # 20-50 minutes, read only; --runs RUNDIR for R1
+    python3 checks/rcert5d.py --worker w 4                # w = 0..3 at once, about three hours; then --collect 4
+    python3 checks/rcert5d.py --census                    # about a minute
+    python3 checks/cpaxis5.py --run 1 0.9 M Nu Nv 2.25 OUT reg ld 3   # a regularised run; 1600 x 720 about 4 h
+    python3 checks/cpaxis5.py --nullstep R400 R800 R40_800   # and --compare, --kretschmann (A4-A6)
+    python3 checks/cp3grid5.py --a7 R400 R800 R1600 [R40_1600]   # and --a8, --pclass, --dpm, --control
+    python3 checks/late5b.py RUNDIR                       # given the record's runs
+    python3 checks/mtrunc5.py                             # a second, from checks/cpaxis5_a5*.out
+    python3 checks/szconv5.py RUNDIR                      # about five minutes, given the 1600-row runs
+```

@@ -16,8 +16,9 @@ lemma, step by step, and checks:
      construction's fixed number, 0 < eps1 < s0, s0 in [0.030768559, 0.030768560] g0's least absolute eigenvalue on
      Omega (CONSTANTS5 Round 4; N1STAR-PROOF.md 0.3); C_L1 increases with eps1, so its value at eps1 = s0 bounds it for
      every admissible eps1.  |Phi0#|^2 = (1 - beta0)^2 + beta0^2 (Phi0# = d_v +
-     beta0 d_r = (1 - beta0) d_tau + beta0 xhat.d_x), |dPhi0|^2 = r_q'^2 + (1 - r_q')^2 <= 1, beta0 in [-(sqrt(mu_end/mu0)
-     - 1) - A^2 c^2/(18 sqrt mu0), 0], r_q' in [0, A^2 c^2/(18 sqrt mu0)], c <= 1.3241035 the envelope's peak (R4.5).
+     beta0 d_r = (1 - beta0) d_tau + beta0 xhat.d_x), |dPhi0|^2 = r_q'^2 + (1 - r_q')^2 <= 1, beta0 in
+     [-(sqrt(mu_end/mu0) - 1) - A^2 c^2/(18 sqrt mu0), 0], r_q' in [0, A^2 c^2/(18 sqrt mu0)], c <= 1.3241035 the
+     envelope's peak (R4.5).
      Evaluated at P* in interval arithmetic.  Then 400 boundary points (mu in [mu0, mu_end], mu' in [0, (2/9) A^2 c^2],
      the Kerr-Schild metric in Cartesian components) with random and adversarial k (|k| = s0, k = -+s0 u u^T, u along
      Phi0#): the exact ratio |g^-1(dPhi0, dPhi0) + m0|/|k| is at most the pointwise C_L1 and the uniform one, and |g0^-1|
@@ -26,14 +27,15 @@ lemma, step by step, and checks:
      exceeds the uniform C_L1.  Controls: C_L1 without its quadratic term (pointwise |Phi0#|^2) is exceeded at an
      adversarial k; sup |beta0| without its r_q' term (the reader's mutant) gives a uniform bound below a certified
      pointwise value (detected by the boxes, where the samples, reaching 0.79 of the bound, did not).
-  C2 (computed; C_S3 certified) Theorem 1's.  C_L3 := max_(m<=N) Cb_m, R5.5's node for L.3 (b) (`constL5.py`'s DAG; R5.5 lists it and
+  C2 (computed; C_S3 certified) Theorem 1's.  C_L3 := max_(m<=N) Cb_m, R5.5's node for L.3 (b) (`constL5.py`'s DAG;
+     R5.5 lists it and
      does not name it); C1 := iota (C_app + 2 C_inf M lambda0^(K-4)), iota := 1/(s0 (s0 - eps1)) (EQUALITY5 section 0:
      |g - g0| <= C lam, C from Step 3 of lambda0's proof, and |g^-1 - g0^-1| = |g0^-1 k g^-1| <= |k|/(s0 (s0 - |k|)),
      as Lemma 2.3 carries |g^-1| <= (s0 - eps1)^-1); C_rho1 := 2 C1 (tau_end - tau0) (L.4's
      region {v + 2 C1 lam (tau - tau0) <= v1} contains the boundary point at tau <= tau_end); lam_rec1 := min(lambda0,
      1/(2 C1)) (Theorem 1's g_lam; L.4 step 1 needs s = C1 lam <= 1/2; L.3 (b)'s U-ball condition 4 C_b C0 lam^(N-3)
-     eps_(2N+2) <= 1 is lambda0's ninth term, since eps_(2N+2)(v1) <= eps_(M_P)(v1) <= lam^3 <= 1 by (H2)).  Every leaf is
-     one of lambda0's leaves or nodes, a certified number or a constant of the seed; increasing (decreasing for
+     eps_(2N+2) <= 1 is lambda0's ninth term, since eps_(2N+2)(v1) <= eps_(M_P)(v1) <= lam^3 <= 1 by (H2)).  Every leaf
+     is one of lambda0's leaves or nodes, a certified number or a constant of the seed; increasing (decreasing for
      lam_rec1) in every leaf.  The seed's C_S3 (L.10: |u|_inf <= C_S3 sum_(|beta|<=2) ||Omega^beta u||_(L^2(S^3)))
      certified by harmonics: C_S3^2 <= sum_k (k+1)^2/(2 pi^2 (1 + k(k+2) + k^2 (k+2)^2/6)), the tail bounded (control:
      without the ||Lap u||^2 term the sum diverges).  Control: a node needing a leaf outside the set (Theorem P's C_R)
@@ -61,9 +63,11 @@ lemma, step by step, and checks:
          lambda_P, 1/(2 C_P), lam_kP)).
      Checks: every leaf is Theorem P's (listed with its source), lambda0's, certified or the seed's (control: a planted
      leaf detected); C_P, C_rhoP, C_L3P, C_L4P increasing and every term of lambda_P positive and decreasing in every
-     leaf at fixed betaP except eps_P; an independent transcription agrees at 20 random points (controls: the kernel
+     leaf at fixed betaP except eps_P; a second transcription, written from R9.1's display (so it checks the code
+     against the display, not the display against the supplement), agrees at 20 random points (controls: the kernel
      integral 2 dropped from C_L4P, and lam_N's exponent with 4 betaP -> 2 betaP, are each detected).  None of Theorem
-     P's leaves is certified in the record (CONSTANTS5 treats Theorem 1 only; no program computes Theorem A_P's profiles).
+     P's leaves is certified in the record (CONSTANTS5 treats Theorem 1 only; no program computes Theorem A_P's
+     profiles).
   C4 (computed) the census of sections 9.1-9.4 of N1STAR-PROOF.md (located by content, from "## 9. Theorem P" to
      "### 9.5"): every line with a threshold phrase (lam_X, "small", "absorb", eps_P, eps_U, lam1, d0/20, "lam <= 1",
      "there is/are", "margin of Lemma 9.1", "Theorem E with this K") is classified, T (a term of lambda_P, named) or X
@@ -252,7 +256,8 @@ def c1(control=False):
     out("  C1 C_L1 = |Phi0#|^2 + |Phi0#||dPhi0| n_b^2 eps1/(1 - n_b eps1) at P*: sup r_q' <= %s, sup |beta0| <= %s,"
         " |Phi0#|^2 <= %s, |dPhi0| <= 1, n_b = 1 + 2 mu_end/mu0 <= %s (|g0^-1| at the boundary), eps1 < s0 <= %s (Omega,"
         " the operator norm), n_b^2 eps1/(1 - n_b eps1) <= %s; C_L1 <= %s, log10 C_L1 <= %s (certified, every admissible"
-        " eps1; at CONSTANTS5 1.4's eps1 = 5.2617e-4, C_L1 <= %s).  400 boundary points, 4 k each (adversarial -+s0 u u^T"
+        " eps1; at CONSTANTS5 1.4's eps1 = 5.2617e-4, C_L1 <= %s).  400 boundary points, 4 k each (adversarial -+s0 u"
+        " u^T"
         " and random, |k| = s0): max ratio/pointwise C_L1 = %s, max ratio/uniform C_L1 = %s, max |g0^-1|/n_b = %s: %s"
         % (up(rq, 7), up(beta, 7), up(phi2, 6), up(NB_IV, 6), up(S0, 9), up(quad, 6), up(CL1, 5),
            up(iv.log(CL1)/iv.log(10), 5), up(phi2 + iv.sqrt(phi2)*NB_IV**2*EPS1_R1/(1 - NB_IV*EPS1_R1), 5),
@@ -347,7 +352,8 @@ def c2(control=False):
 
 # ------------------------------------------------------------------------------------------------------------ C3
 PLEAVES = {   # Theorem P's constants, each named by the proof that produces it (N1STAR-PROOF.md, by content)
-    'C_kP': "Theorem A_P / 9.4: g_app^-1 - g0^-1 in lam E_(3/2); |g_app - g0| <= C_kP lam t^(-3/2) on P, C_kP lam on Omega",
+    'C_kP': "Theorem A_P / 9.4: g_app^-1 - g0^-1 in lam E_(3/2); "
+             "|g_app - g0| <= C_kP lam t^(-3/2) on P, C_kP lam on Omega",
     'C_R': "Theorem A_P: |Ric^H(g_app)|_(k,P) <= C_R lam^(N-1) t^(-3/2)",
     'C_RO': "Theorem A_P on Omega: (E1)-(E3) hold on Omega; the residual constant (E4) there",
     'C_F': "Proposition 9.8: Gronwall: E(tau) <= C e^(6C) (2 C_R lam^K' + C M_F^2 lam^(2K'-5))",
@@ -446,7 +452,8 @@ def certP():
 
 
 def tableP(leaf, NP, betaP):
-    """an independent transcription (mpmath, written from R9.1's display line by line)"""
+    """a second transcription (mpmath, written from R9.1's display line by line: it checks the DAG against the
+    display, not the display against the supplement)"""
     mp.mp.dps = 40
     g = lambda nm: mp.mpf(sp.N(leaf[sp.Symbol(nm, positive=True)], 40))           # noqa: E731
     iota, e1, Tn, Cs, C2, Ks, a, b, CS3, A, C3v, Ci, Cdw, Cnl, e2 = [g(x) for x in (
@@ -559,12 +566,15 @@ def c3(control=False):
     lg = lambda x: mp.nstr(mp.log10(mp.mpf(sp.N(vi[x], 30))), 6)                   # noqa: E731
     which = min(nodi['terms'], key=lambda k: sp.N(vi[nodi['terms'][k]], 30))
     ok = not extra and structural and termpos and fd and trans
-    out("  C3 Theorem 2's constants as a DAG (%d named constants at N_P = 18): its uncertified leaves are Theorem P's %s,"
-        " the traces Tr1..Tr18, lambda0's leaves and nodes %s and the seed's %s; outside these and the certified numbers (C_E5 = pi"
+    out("  C3 Theorem 2's constants as a DAG (%d named constants at N_P = 18): its uncertified leaves are Theorem P's"
+        " %s, the traces Tr1..Tr18, lambda0's leaves and nodes %s and the seed's %s; outside these and the certified"
+        " numbers (C_E5 = pi"
         " sqrt(2 d1) <= %s, lam1 >= %s, d0 >= %s): %s; C_P, C_rhoP, C_L3P, C_L4P increasing and every term of lambda_P"
-        " decreasing (eps_P: increasing) in every leaf at betaP = 2, structurally %s, %s, by finite differences %s; an"
-        " independent transcription at 20 random points: largest relative difference %s: %s.  Illustration (every"
-        " uncertified leaf 1, eps1 = 5.2617e-4, iota = 1074.6; so betaP = 5, N_P = 30): log10 C_P = %s, log10 C_rhoP = %s, log10 C_L3P = %s, log10"
+        " decreasing (eps_P: increasing) in every leaf at betaP = 2, structurally %s, %s, by finite differences %s; a"
+        " second transcription (from R9.1's display) at 20 random points: largest relative difference %s: %s. "
+        " Illustration (every"
+        " uncertified leaf 1, eps1 = 5.2617e-4, iota = 1074.6; so betaP = 5, N_P = 30): log10 C_P = %s, log10 C_rhoP ="
+        " %s, log10 C_L3P = %s, log10"
         " C_L4P = %s, lambda_P = %s (binding %s)"
         % (len(d.defs), sorted(PLEAVES), sorted(map(str, (set(leaves) & LAMBDA0))), sorted(map(str, set(leaves) &
                                                                                             CL.SEED)),
@@ -715,7 +725,8 @@ def c5(control=False):
         incK = all(monoK[i].b <= monoK[i + 1].a for i in range(len(monoK) - 1))
         ok &= dep_ok and dok and incr and incK
         lines.append("delta = %s: E_cf = %s (binding %s; %s), so lambda_25 <= 10^(-%s) whatever the leaves are; direct"
-                     " evaluation at 200 points beyond: %s; E_H2 at betaP = 2, 9/4, 3, 5: %s, %s, %s, %s (increasing: %s);"
+                     " evaluation at 200 points beyond: %s; E_H2 at betaP = 2, 9/4, 3, 5: %s, %s, %s, %s (increasing:"
+                     " %s);"
                      " E_H2 at K = 6, 7, 9, 12: %s (increasing: %s)"
                      % (lab, dn(E, 1), nm, ", ".join("%s %s" % (r_[0], up(r_[1], 1)) for r_ in rows), dn(E, 1), dok,
                         dn(h2, 1), *[mp.nstr(mp.mpf(x), 7) for x in mono], incr, ", ".join(dn(x, 1) for x in monoK),

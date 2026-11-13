@@ -3203,8 +3203,8 @@ lower bound with the record's constants as factors, and nothing else is unknown.
 δ) ln 10)^(1/2), n + 2 ≤ s E^(1/2) + 3 and (below λ_h) h_n ≥ λ^(3.4+δ), each condition of the proof reads −aE + b
 E^(1/2) + c + γ ≤ log10 τ and holds for every E ≥ E_i := y₊², y₊ := (b + (b² + 4a(c + γ − log10 τ))^(1/2))/(2a): (W1)
 Theorem 1's remainder, a = N − 8.4 − δ, b = (M* + 1) s log10 2, c = log10(27/I_β) + log10 B⁺_(M*) + 3(M* + 1) log10 2, τ
-= 1/4; (M1) its means, each j ≤ N with a = j, τ = 1/(4N); (W2), (M2) Theorem 2's with N_P, M_P [R9: evaluated at β0
-= 2, N_P = K + 12, as T6; in general N_P = K + 4 + ⌈4β0⌉, β0 = max(2, 4C_9 + 1) unevaluated; and (M2)'s constant is
+= 1/4; (M1) its means, each j ≤ N with a = j, τ = 1/(4N); (W2), (M2) Theorem 2's with N_P, M_P [R9: evaluated at β_P
+= 2, N_P = K + 12, as T6; in general N_P = K + 4 + ⌈4β_P⌉, β_P = max(2, 4C_9 + 1) unevaluated; and (M2)'s constant is
 Theorem 2's, γ_mP := log10(C_L1 C_L3P μ0/A²), which the list below omits (R9.2)]; the hypotheses ε_4(v_1) ≤
 λ (L.4′) and ε_(M_P)(v_1) ≤ λ³ (L.4_P), a = 2 + δ and δ; λ ≤ λ_h(δ); the tail condition e^(2n+1) ≥ 2^(M_P+1); and J_n′
 longer than 4πλ, with γ = log10(4π + C_ρ). So
@@ -3373,7 +3373,7 @@ bfam5 and hyp5 reproduced byte-identically, edge1_5 and lam25_5 apart from their
   construction, which are not λ0's leaves at all. So "these are the leaves λ_L also waits for" (R8.3) and "they depend
   on λ0's leaves" (R7.7's note, R8.6) were not shown. Repaired at the three sites ("[R9, m1: …]") and by doing the work:
   R9.1 writes all five out, R9.2 states what λ_25 is. Reading R8.3 again for this, two more gaps (R9.2): (M2)'s constant
-  is Theorem 2's (γ_mP), which its list omits, and its Theorem-2 rows take β0 = 2.
+  is Theorem 2's (γ_mP), which its list omits, and its Theorem-2 rows take β_P = 2.
 - **Nit 1.** Confirmed: (H_N) of R6.1 (d) includes |env^(j)| ≤ c_j κ^j env for j ≤ N + 2, which hyp5 certifies to j ≤
   16; so L.27 (a) gives (H_N) for N ≤ 14 (note at L.27 (a)); its sentence on (H_N+2), K ≤ 11, stands.
 - **Nit 2.** Confirmed: the sample c_R = 2.309 is R4.1's (L.16's Q2, line 1340); note at L.27's proof.
@@ -3448,10 +3448,10 @@ from (J) (C_ρλ ≤ 2^(−n−2)); L.3_P holds for every λ ≤ 1 (Theorem A_P)
 supplement states λ_P only as existing ("there are lam_P > 0 and C"); its proof fixes every step, and with the constants
 each step names:
 
-    β0 := max(2, 4C_9 + 1),   N_P := K + 4 + ⌈4β0⌉,   K′ := N_P − 1,
+    β_P := max(2, 4C_9 + 1),   N_P := K + 4 + ⌈4β_P⌉,   K′ := N_P − 1,
     M_F := 4 C_F e^(6C_F) C_R + 1   (9.8),        M_N := 8 C_9 C′ (M_F + C_R + 1)   (9.9: B = M_N λ^K′),
     C_Piii := C_93 max(2M_F, M_N (1 + C_kP))   ((P-iii) by Lemma 9.3 (a); the φ-part through ∂_θ g1 ∈ E_(3/2)),
-    M_EP := C3 (M_N + 1 + C_RO) + 1   (Theorem E's M at the trace data N_P(τ0) ≤ M_N λ^(K′−2β0): λ0's M, C_D := M_N),
+    M_EP := C3 (M_N + 1 + C_RO) + 1   (Theorem E's M at the trace data N_P(τ0) ≤ M_N λ^(K′−2β_P): λ0's M, C_D := M_N),
     C_P := ι (C_kP + max(C_Piii, 2 C_inf M_EP)),
     C_dP := C_E5 K_P^(N_P+1) (1 + S_aP + S_bP)^(N_P+1)/(N_P − 2)!,     C_E5 := π (2 d1)^(1/2) ≤ 15.0254,
     C_L4P := C_S e^(C2 (1 + M_EP + K_ΩP) T) (2 C_95 e^(2 C_95 C_k4) C_dP + T C_dΩP),
@@ -3467,19 +3467,19 @@ as L.4's step 6 (R5.5's e^(C2(1+M+K)T) with M_EP) and step 7's C_S. And
     λ_P := min{λ1, d0/20, 1, λ_F, λ_mF, λ_N, λ_abs, λ_mN, λ_EP},
     λ_F := (8 C_F² e^(6C_F) M_F)^(−1/(K′−5))     (9.8's bootstrap closes: C_F e^(6C_F) C_F (2M_F)² λ^(K′−5) ≤ M_F/2),
     λ_mF := min(ε_P/(2ι C_kP), (ε_P/(4ι C_93 M_F))^(1/(K′−3)))     (Lemma 9.1 (f)'s margin on the far region),
-    λ_N := (4 C_9 M_N)^(−1/(K′−8−4β0))     (9.9's nonlinear terms: C_9 B² λ^(−8−4β0) ≤ B/4),
+    λ_N := (4 C_9 M_N)^(−1/(K′−8−4β_P))     (9.9's nonlinear terms: C_9 B² λ^(−8−4β_P) ≤ B/4),
     λ_abs := 1/(8 C_abs)     (9.9: the terms with a profile g_j, j ≥ 3, absorbed),
-    λ_mN := (ε_P/(2ι C_93 M_N (1 + C_kP)))^(1/(K′−3−2β0))     (the margin on the near region),
+    λ_mN := (ε_P/(2ι C_93 M_N (1 + C_kP)))^(1/(K′−3−2β_P))     (the margin on the near region),
     λ_EP := min(ε1/(2C_kP), (min(ε1, ε2)/(4 C_inf M_EP))^(1/(K−3)), (2 C_dw M_EP)^(−1/(K−4)), 1/(C3 C_nl M_EP²))
                                              (Theorem E on Ω, (P-iv): λ0's Steps 3 and 7 with M_EP),
 
 λ1 = min(1, δ0)/10 ≥ 0.026985 and d0 ≥ 10.9372 certified (section 9.2). lamconst5 C3: every leaf is Theorem P's (below),
 λ0's (C2, C3, C_dw, C_inf, C_nl, ε2, ε1 and ι), the seed's (K_s, C_S3) or certified; C_P, C_ρ, C_L3P, C_L4P increase,
-and every term of λ_P decreases (ε_P: increases), in every leaf at fixed β0; an independent transcription agrees to
-10^(−30) at 20 points (controls: L.4_P's factor 2 dropped, λ_N's exponent with 2β0 for 4β0, and a planted leaf, each
+and every term of λ_P decreases (ε_P: increases), in every leaf at fixed β_P; an independent transcription agrees to
+10^(−30) at 20 points (controls: L.4_P's factor 2 dropped, λ_N's exponent with 2β_P for 4β_P, and a planted leaf, each
 detected). C4, the census of N1STAR-PROOF.md sections 9.1-9.4 at 5c1a186a…: 31 lines carry a threshold phrase (lam_X,
 "small", "absorb", eps_P, eps_U, lam1, d0/20, "lam <= 1", "there is/are", "margin of Lemma 9.1", "Theorem E with this
-K"), 23 of them a term of λ_P and 8 setting none (β0's existence, ε_U's class, a local step in τ, an exponent count, an
+K"), 23 of them a term of λ_P and 8 setting none (β_P's existence, ε_U's class, a local step in τ, an exponent count, an
 identity of (9.9b), Lemma 9.5's hypothesis, an amendment note); every term of λ_P has its line (control: a planted "for
 lam small enough by compactness" stays unclassified). Theorem P's leaves: C_kP, C_R, C_RO, K_P, S_aP, S_bP, P6P and
 Tr_1, …, Tr_(N_P) (Theorem A_P's profile classes on P and their continuation on Ω), C_F, C_9, C′, C_abs (the bootstrap
@@ -3499,7 +3499,7 @@ numbers, and each is blocked at a named step:
 - *Theorem P's leaves*: at the same kind of step on the past domain — Theorem A_P's stages solved from past null
   infinity (transports from infinity, the means' energies on P) with their class constants; 9.8's C, 9.9's C, C′ and
   absorption constant are "built from the bounds of g0, g1, g2 ..., from P and from Lemmas 9.3-9.6 and 9.4b"
-  (N1STAR-PROOF.md 9.9), and β0 = max(2, 4C_9 + 1) with them, so even N_P is not known. The geometric three (C_93, C_95,
+  (N1STAR-PROOF.md 9.9), and β_P = max(2, 4C_9 + 1) with them, so even N_P is not known. The geometric three (C_93, C_95,
   ε_P) are computable as CONSTANTS5 computed C_S and ε1 for Ω; they are not computed here, since with the profile
   classes open they would not make λ_25 a number.
 - *The seed's K_s* ("the bound of the seed's operator coefficients on Ω with two derivatives", R5.5): a property of the
@@ -3511,8 +3511,8 @@ numbers, and each is blocked at a named step:
 λ_25(δ) = min(λ_rec, 10^(−E_25(δ))), E_25 := max_i E_i(δ, γ_i) (R8.3), with γ_w = log10(C_L1 C_L4 μ0/A²), γ_m =
 log10(C_L1 C_L3 μ0/A²), γ_wP = log10(C_L1 C_L4P μ0/A²), γ_mP = log10(C_L1 C_L3P μ0/A²), γ_J = log10(4π + C_ρ), and
 λ_rec, C_ρ, C_L3P, C_L4P of R9.1. *Two corrections to R8.3* (notes there): (M2)'s constant is Theorem 2's means on Ω
-(γ_mP; its list named only γ_m), and its (W2), (M2), (H2), (Tl) are written at N_P = K + 12, i.e. β0 = 2, as T6 took it,
-while the supplement's N_P is K + 4 + ⌈4β0⌉ with β0 = max(2, 4C_9 + 1) unevaluated.
+(γ_mP; its list named only γ_m), and its (W2), (M2), (H2), (Tl) are written at N_P = K + 12, i.e. β_P = 2, as T6 took it,
+while the supplement's N_P is K + 4 + ⌈4β_P⌉ with β_P = max(2, 4C_9 + 1) unevaluated.
 
 **Status: λ_25 is not a certified number.** Its formula is explicit with every coefficient certified (lam25_5 L1,
 lamconst5 C1, C5); its value needs λ0's leaves, Theorem P's leaves and K_s (R9.1 (f)), which the record does not
@@ -3521,14 +3521,14 @@ certify. **Certified, whatever those leaves are** (lamconst5 C5): the conditions
 
     λ_25(1/10) ≤ 10^(−130159.0),     λ_25(1/2) ≤ 10^(−6613.6),     λ_25(δ) ≤ 10^(−6613.6) for every δ ∈ (0, 1/2],
 
-binding (H2), L.4_P's hypothesis ε_(M_P)(v_1) ≤ λ³, at β0 = 2. They hold for every β0: E_H2 increases with β0 (130159.0,
-142080.1, 180961.0, 307495.9 at β0 = 2, 9/4, 3, 5 for δ = 1/10; 6613.6, 7194.3, 9079.3, 15151.5 for δ = 1/2). And E_H2
+binding (H2), L.4_P's hypothesis ε_(M_P)(v_1) ≤ λ³, at β_P = 2. They hold for every β_P: E_H2 increases with β_P (130159.0,
+142080.1, 180961.0, 307495.9 at β_P = 2, 9/4, 3, 5 for δ = 1/10; 6613.6, 7194.3, 9079.3, 15151.5 for δ = 1/2). And E_H2
 decreases in δ: at E = E_H2(δ) and δ′ < δ, f_δ′(E) − f_δ(E) = (δ − δ′)E − (b(δ) − b(δ′))√E ≥ (δ − δ′)√E(√E − c_b) > 0
 (√(3 + δ) − √(3 + δ′) ≤ (δ − δ′)/(2√3), c_b := M_P log10 2 (ln 10)^(1/2)/(2√3) ≤ 5.803), since √E ≥ b(0)/δ ≥ 69.62; so
 (H2) fails at δ′ for that E (checked as well at eight δ from 1/2 to 1/100). Direct evaluation at 200 points beyond each
 E_cf, with the actual n and h_n: those conditions hold. Control: (W1) admitted to the constant-free set is rejected (its
 γ involves C_L4). For Theorem 1's dips alone (L.4_P not used), the constant-free conditions give only λ_h's 10^(−35.80)
-and 10^(−40.14). *Illustration* (every uncertified leaf 1, λ0 = 0.00244, ε1 = 5.2617·10^(−4) so ι = 1074.6, β0 = 5 and
+and 10^(−40.14). *Illustration* (every uncertified leaf 1, λ0 = 0.00244, ε1 = 5.2617·10^(−4) so ι = 1074.6, β_P = 5 and
 N_P = 30; a value of the formula, not a bound): log10 C_L3 ≈ 1.80·10^5, log10 C_L4 ≈ 1.80·10^6, log10 C_L3P ≈
 1.96·10^13, log10 C_L4P ≈ 6.08·10^14, λ_rec ≈ 6.0·10^(−9) (λ_P, by λ_EP), E_25 ≈ 2.6·10^13, binding (W2).
 
@@ -3613,7 +3613,7 @@ Sources (R8.5's, extended): λ_25, R8.3, R9.1, R9.2. (P3, final) Appendix A, C, 
 
 - **A48** (m1). R7.7's note, R8.3 and R8.6: λ_25's inputs are not all λ0's leaves; written out in R9.1 (notes "[R9, m1:
   …]").
-- **A49** (R9.2). R8.3: (M2)'s constant is γ_mP, and its Theorem-2 rows are at β0 = 2 (note at R8.3).
+- **A49** (R9.2). R8.3: (M2)'s constant is γ_mP, and its Theorem-2 rows are at β_P = 2 (note at R8.3).
 - **A50** (nits 1-7). L.27 (a): (H_N) for N ≤ 14; L.27's proof: R4.1's sample; R8.0 (8) and R8.1: X17's rows do not
   carry the phase; L.28 (2) R2: the |B_s′| term; R8.1: μ0 = 16 computed; R8.5: the splice md5 at 805be200…; R8.6: the
   pins re-measured. Each by a note "[R9, …]" at its site.
