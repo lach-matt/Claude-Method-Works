@@ -239,3 +239,97 @@ set, use the continuity of [[cor:ii-f-5-9]]. Fix L with ν_1 − 2L < −1. By M
 O(⟨σ⟩^(ν_1−2L)) uniformly on {|Re σ| ≥ 2} in each horizontal strip (|1 + σ²| ≥ |σ|²/2 there), so the contour may be
 moved to Im σ = γ for every γ ≥ max(2, −γ_+). There |τ^(iσ)| = τ^(−γ), and for τ > τ_− the integral is at most
 C (τ_−/τ)^γ → 0 as γ → ∞. So ⟨u(τ, ·), φ⟩ = 0 for τ > τ_−, for every φ: supp u ⊂ {τ ≤ τ_−}. ∎
+
+#### A support lemma, and the proof of strong uniqueness {#sec:ii-f-6-5}
+
+*Fixed-σ transforms.* Let m ∈ ℤ and v ∈ H^(m,(a,b,c))_ebe with τ-support in a compact interval [τ_1, τ_2] ⊂ (0, ∞).
+Then σ ↦ (ℳv)(σ) is entire with values in H^(m,(a,c))_(0,b)(ι⁺), and
+
+    ‖(ℳv)(σ)‖_(H^(m,(a,c))_(0,b)) ≤ C ⟨σ⟩^(|m|) max(τ_1^(Im σ), τ_2^(Im σ)) ‖v‖_(H^(m,(a,b,c))_ebe).    {#eq:ii-f-6-7}
+
+Indeed, the spatial fields among [[eq:ii-f-6-1]] (R∂_R, Z_a near cf; v∂_v, √v Z_a near 𝓘⁺) are the 0,b-fields of ι⁺ at
+bounded frequency and commute with ℳ, while τ∂_τ and Rτ∂_τ become iσ and iσR. For m ≥ 0, [[eq:ii-f-6-7]] without the
+factor ⟨σ⟩^(|m|) follows from the Cauchy–Schwarz inequality in τ on [τ_1, τ_2]. For m < 0 write v = Σ_(|α|≤|m|)
+V^α v_α with V^α products of the fields [[eq:ii-f-6-1]] and v_α ∈ H^(0,(a,b,c)) supported in a slightly larger compact
+τ-interval, Σ ‖v_α‖ ≤ C‖v‖; the weights commute with the fields up to bounded factors.
+
+*Comparison of norms at fixed h.* For constant orders and h ∈ (0, 1], the norms of H^((m;a,c,l;𝖻))_((0ħ,cħ,h)) and of
+H^(m,(a,c))_(0,b) are equivalent with constants C h^(−ν) and C⁻¹ h^ν, ν depending on |m|, |a|, |c|, |l| and sup|𝖻|.
+Indeed, the cells of the structure at parameter h are those of the 0,b-structure rescaled by factors in [h, 1] (the
+scalings (1 + ρ_K|σ|)⁻¹, ⟨σ⟩⁻¹, x_I⟨σ⟩⁻¹ of [[sec:ii-a-6-2]] against 1, 1, x_I), and the weights ρ_cf^c ρ_tf^l ρ_sf^𝖻
+differ from ρ_K^c by factors in [h^ν, h^(−ν)], as ρ_tf = h + ρ_K, ρ_sf = h/(h + ρ_K) and ρ_cf = ρ_K/(h + ρ_K)
+([[sec:ii-f-2-1]]).
+
+The support lemma below uses the Paley–Wiener–Schwartz theorem [Hö83, Theorem 7.3.1], which the appendix of results
+from the literature states with its page: *a distribution u on ℝ with compact support in an interval [a, b] has an
+entire Fourier–Laplace transform û(ζ) = ∫ e^(−itζ) u(t) dt with |û(ζ)| ≤ C (1 + |ζ|)^ν e^(H(Im ζ)) for some C, ν, where
+H(η) := sup_(t∈[a,b]) tη is the supporting function of [a, b]; conversely, an entire function with such a bound is the
+Fourier–Laplace transform of a distribution supported in [a, b].*
+
+**Lemma {#lem:ii-f-6-4}** (Support.) Let m ∈ ℤ, T > 0, and let w ∈ H^(m,(2γ_I,γ_+,γ_cf))_ebe have τ-support in a
+compact subset of (0, ∞), with N_ι⁺(P_0) w ∈ H^(m−1,(2γ_I+2,γ_++2,γ_cf−2))_ebe supported in {t_* ≥ T}. Then w is
+supported in {t_* ≥ T}.
+
+*Proof.* Let f := N_ι⁺(P_0) w, so that N⁰w = τ⁻² f, and let supp w ⊂ {τ_1 ≤ τ ≤ τ_2}. W(σ) := (ℳw)(σ) and
+F(σ) := ℳ(τ⁻² f)(σ) are entire, N⁰(σ) W(σ) = F(σ) by [[eq:ii-f-1-6]], and by [[eq:ii-f-6-7]], as τ ≤ T⁻¹ on supp f,
+
+    ‖F(σ)‖_(H^(m−1,(2γ_I+2,γ_cf−2))_(0,b)) ≤ C ⟨σ⟩^(|m−1|) T^(−Im σ),      Im σ ≥ 0.
+
+For Im σ ≥ −γ_+, W(σ) ∈ 𝒳^m, and [[prop:ii-f-5-1]] (invertibility on 𝒳^m; any order) gives W(σ) = N⁰(σ)⁻¹ F(σ). Let
+φ ∈ C_c^∞((ι⁺)°) and η_0 := max(0, −γ_+). For |σ| ≥ √2 h_0⁻¹, Im σ ≥ η_0, write σ = h⁻¹ z with z in one of the families
+[[eq:ii-f-3-2]] ([[sec:ii-f-3-1]]). At this fixed h, W(σ) ∈ H^𝐨 with the fibre order m (any order is allowed there)
+and the sf-orders of [[sec:ii-f-3-1]], and [[eq:ii-f-3-4]] gives ‖W(σ)‖_𝐨 ≤ C ‖h² F(σ)‖_(Y_𝐨); with the comparison of
+norms and the compact support of φ in (ι⁺)°, |⟨W(σ), φ⟩| ≤ C h^(−ν) ‖F(σ)‖_(H^(m−1,(2γ_I+2,γ_cf−2))_(0,b)). On the
+compact set {|σ| ≤ √2 h_0⁻¹, Im σ ≥ η_0} use the continuity of [[cor:ii-f-5-9]]. Hence |⟨W(σ), φ⟩| ≤ C ⟨σ⟩^(ν_1)
+T^(−Im σ) for Im σ ≥ η_0. In the strip 0 ≤ Im σ ≤ η_0, which is empty unless γ_+ < 0 and where the families
+[[eq:ii-f-3-2]] and the invertibility are not available, [[eq:ii-f-6-7]] alone gives |⟨W(σ), φ⟩| ≤ C ⟨σ⟩^(|m|)
+τ_2^(Im σ), and τ_2^(Im σ) and T^(−Im σ) are bounded above and below there. Taking ν_1 ≥ |m|,
+
+    |⟨W(σ), φ⟩| ≤ C ⟨σ⟩^(ν_1) T^(−Im σ),      Im σ ≥ 0.
+
+In t := −log τ, the Mellin transform [[eq:ii-f-1-3]] of the compactly supported distribution τ ↦ ⟨w(τ, ·), φ⟩ is its
+Fourier transform ∫ e^(iσt) ⟨w, φ⟩ dt, as τ^(−iσ) = e^(iσt). It is entire and, the support lying in t ∈ [−log τ_2,
+−log τ_1], it is bounded by C ⟨σ⟩^(ν_1) e^((log τ_1) Im σ) for Im σ ≤ 0 (|e^(iσt)| = e^(−t Im σ), largest at t =
+−log τ_1). With the last bound for Im σ ≥ 0 it is bounded by C ⟨σ⟩^(ν_1) e^(H(Im σ)), H(η) := sup{−tη : t ∈ [log T,
+−log τ_1]}; this is the supporting function of that interval for the transform σ ↦ û(−σ), û(ζ) = ∫ e^(−itζ) u dt. By
+the Paley–Wiener–Schwartz theorem the support lies in {t ≥ log T} = {t_* ≥ T}. As φ is arbitrary, supp w ⊂ {t_* ≥ T}. ∎
+
+*Proof of [[prop:ii-f-6-2]] (2).* The proof uses only the integer order s″ := ⌊inf 𝗌⌋, and not part (1).
+
+*Reduction.* Work in (t_*, r, ω), in which N_ι := N_ι⁺(P_0) is [[eq:ii-f-1-7]]: translation-invariant in t_* and
+homogeneous under D_Λ ([[sec:ii-f-6-3]]). ũ is a distribution on {t_* > 0, r > 0}, supported in {t_* ≥ τ_0⁻¹}, and on
+{r < R_0 t_*} it lies locally in the edge space of order s″ with weight γ_cf at r = 0. Pick Λ ≥ 1 with Λτ_0⁻¹ ≥ 4R_0⁻¹,
+replace ũ by D_Λ ũ (with the same properties, τ_0/Λ in place of τ_0, as {R < R_0} is D_Λ-invariant), and then translate
+t_* by 1 − Λτ_0⁻¹. The new ũ solves N_ι ũ = 0 on {r > 0}, vanishes for t_* < 1, and on {t_* ≥ 1, r < 4}, which lies in
+the old {R < R_0} because the old t_* is ≥ Λτ_0⁻¹ ≥ 4R_0⁻¹ there, it is locally of edge order s″ with weight γ_cf at
+r = 0. We show ũ = 0 on {t_* < 2}. The same argument after a further translation by 1 (the properties persist, the
+region {t_* ≥ 1, r < 4} moving into itself) then gives ũ = 0 on {t_* < j} for every j, so ũ = 0.
+
+*The extension.* Let χ_(t_*) ∈ C^∞(ℝ) equal 1 near (−∞, 2] and 0 near [3, ∞), χ_r ∈ C_c^∞([0, 3)) equal 1 near
+[0, 2], and χ^♭_(t_*) ∈ C^∞(ℝ) equal 1 on (−∞, 2] and supported in {χ_(t_*) = 1}. Then g := χ_(t_*)[N_ι, χ_r] ũ ∈
+H^(s″−1)_c is supported in {1 ≤ t_* ≤ 3, 2 ≤ r ≤ 3}; let u_ext be the solution of N_ι u_ext = g on {t_* < 3} of
+[[lem:ii-f-6-3]] (T = 1, s′ = s″), which vanishes where t_* + 2r < 5 (the support argument there) and satisfies
+χ^♭_(t_*) u_ext ∈ H^(s″,2γ_I)_e near 𝓘⁺. Put
+
+    w := χ_(t_*) χ_r ũ − χ^♭_(t_*) u_ext,
+    f := N_ι w = [N_ι, χ_(t_*)](χ_r ũ) + χ_(t_*)(1 − χ^♭_(t_*))[N_ι, χ_r] ũ − [N_ι, χ^♭_(t_*)] u_ext.
+
+w is supported in {1 ≤ t_* ≤ 3}, that is τ ∈ [1/3, 1], and lies in H^(s″,(2γ_I,γ_+,γ_cf))_ebe (any τ-weight): near
+r = 0 it is χ_(t_*) ũ, near 𝓘⁺ it is −χ^♭_(t_*) u_ext, and in between it is in H^(s″)_loc. Each term of f is supported in
+{2 ≤ t_* ≤ 3}, that is τ ∈ [1/3, 1/2], and f ∈ H^(s″−1,(2γ_I+2,γ_+,γ_cf−2))_ebe by [[eq:ii-f-6-2]] (the commutators are
+first-order ebe-operators with the weights of N_ι, or better).
+
+*Support.* By [[lem:ii-f-6-4]] with m = s″ and T = 2, w is supported in {t_* ≥ 2}.
+
+*Conclusion.* On {t_* < 2}, χ_(t_*) = χ^♭_(t_*) = 1, so χ_r ũ = u_ext there, and u_ext = 0 where t_* + 2r < 5, which
+contains {t_* < 2, r < 3/2}. Hence ũ = 0 on {t_* < 2, r < 3/2}. Let ū be ũ on X := {t_* < 2} ⊂ ℝ^(1+4), extended by 0
+across {r = 0} and to {t_* ≤ 0}; as ũ vanishes on {t_* < 2, r < 3/2} and on {t_* < 1}, ū ∈ 𝒟′(X), and Ñū = 0 on X, with
+Ñ of [[lem:ii-f-6-3]] (Ñ = N_ι on {r > 1/2}, and ū = 0 on {r < 3/2}). t is a time function for ḡ, supp ū ⊂ {t_* ≥ 1}
+⊂ {t ≥ 1}, and for p ∈ X the Minkowski causal past J⁻(p) lies in X (t_* is non-decreasing along future causal curves,
+[[lem:ii-f-1-4]] (c)) and meets {t ≥ 1/2} in a compact set. [[lem:ii-f-1-3]] with the time function t, c := 1/2 and
+L_p := J⁻(p) ∩ {t ≥ 1/2} gives ū = 0, so ũ = 0 on {t_* < 2}. ∎
+
+[Hin26c] proves part (2) by solving N_ι w′ = f with part (1) and comparing w with w′ by uniqueness. That needs f in the
+space of part (1), with the variable admissible order 𝗌 near 𝓘⁺, where the extension u_ext is controlled only at a
+constant order; [[lem:ii-f-6-4]] avoids this, using only [[prop:ii-f-5-1]] at a constant order and the high-energy
+estimate [[eq:ii-f-3-4]].

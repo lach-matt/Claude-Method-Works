@@ -102,16 +102,16 @@ Jacobian bounded above and below uniformly in λ; and, for (M6), that ∂_τ r_i
 bounded. The Jacobian: Φ is radial, r ↦ r + 2λσ, so DΦ has the radial eigenvalue 1 + 2λ σ0′/Δ and the angular ones
 1 + 2λσ/r. Since σ0 is non-increasing with |σ0′| ≤ 7, and λ/Δ ≤ λ/d0 ≤ 1/20, the radial eigenvalue lies in
 [1 − 14/20, 1] = [3/10, 1]. Since |σ| ≤ 1, r ≥ r_in ≥ 1 and λ ≤ 1/10, |2λσ/r| ≤ 1/5, so the angular ones lie in
-[4/5, 6/5]. The map Φ(x) = x + 2λσ x̂ and ρ are invariant under O(4), so P(f ∘ R) = (P f) ∘ R for R in O(4). ∎
+[4/5, 6/5]. The map Φ(x) = x + 2λσ x̂ and ρ are invariant under O(4), so 𝒫(f ∘ R) = (𝒫 f) ∘ R for R in O(4). ∎
 
-**Lemma {#lem:past-commutator}** (The mollifier's commutator with □̃.) Write P = 𝒞 ∘ M, with M f := ρ_λ * f the
+**Lemma {#lem:past-commutator}** (The mollifier's commutator with □̃.) Write 𝒫 = 𝒞 ∘ M, with M f := ρ_λ * f the
 convolution (ρ_λ(y) := λ⁻⁴ ρ(y/λ)) and 𝒞 g := g ∘ Φ the radial shift. In the coordinates (τ, v, x̂), with Δ(τ) :=
 r_out − r_in, 𝒞 is g(τ, v, x̂) ↦ g(τ, ψ(τ, v), x̂), where ψ(τ, v) = v + 2λ σ0((v − v_start)/Δ(τ)), since |x| − r_in =
 v − v_start at fixed τ. Put
 
     X_f := 4λ σ_v 𝒞(∂_r M f),      σ_v := σ0′((v − v_start)/Δ)/Δ.                                   {#eq:past-commutator}
 
-Then [□̃, P] f = −L0 X_f + R_f, and for j ≤ k, with Z ranging over 𝒵 := {λ∂_τ, λ∂_r, Ω_ab} (∂_r = x̂·∂_x),
+Then [□̃, 𝒫] f = −L0 X_f + R_f, and for j ≤ k, with Z ranging over 𝒵 := {λ∂_τ, λ∂_r, Ω_ab} (∂_r = x̂·∂_x),
 
     ‖Z^j X_f‖ ≤ C λ Σ_(i ≤ j) ‖Z^i ∂f‖,
     ‖Z^j R_f‖ ≤ C (t⁻¹ + h′) Σ_(i ≤ j) ‖Z^i ∂f‖ + ‖Z^j R′_f‖,
@@ -163,7 +163,7 @@ same order, which suffices, since every term of R_f already carries a decaying f
 Z commutes with L0 exactly (∂_τ, ∂_r and Ω_ab do, and L0 = ∂_τ − ∂_r in these coordinates), so the same holds at every
 order. ∎
 
-So the part of [□̃, P] f with no decaying factor is an exact L0-derivative. On Ω the commutator has the same form,
+So the part of [□̃, 𝒫] f with no decaying factor is an exact L0-derivative. On Ω the commutator has the same form,
 harmlessly. On P it would force the transport of Ψ := □̃ φ ([[pending:lem-commutator-transport]]) by a term of size
 ‖∂s‖ with no decay; [[prop:near-region]] removes it by transporting Ψ − ½ X_s in place of Ψ.
 
@@ -331,7 +331,7 @@ the energy of m̃ to that order, f(τ) the norms of ∂_v φ̃ and Ω φ̃, p(τ
 ∂_θ ĝ̃ (zero mean, so ‖ĝ̃‖ ≤ ‖Z̃‖). The L² norm of an E_q-profile on A_P(τ) is at most C t^(3/2−q), and
 [[lem:past-sobolev]] (b) bounds m̃ by e. [[lem:past-energy]] for (a), [[lem:past-transport]] with c0 = 0 for ∂_v φ̃ and
 Ω φ̃ (L0 commutes with ∂_v and Ω), with c0 = 2 for Ψ̃ (the transport of [[pending:lem-commutator-transport]] with
-σ̃ := m̃(ℓ, ℓ) + q_m in place of P s, □̃ σ̃ taken from (a), so that no derivative is lost), and with c0 = 3/2 for Z̃
+σ̃ := m̃(ℓ, ℓ) + q_m in place of 𝒫 s, □̃ σ̃ taken from (a), so that no derivative is lost), and with c0 = 3/2 for Z̃
 ((c) and [[pending:lem-th-operator]]) give, with every integral over (τ_n, τ),
 
     e ≤ C ∫ ( t⁻² e + t^(−3/2) z + t⁻³ f + t⁻² ),            t^(−3/2) f ≤ C ∫ t^(−3/2) ( e + t^(−3/2) ),
@@ -386,7 +386,7 @@ The profile T1 of [[pending:lem-phase-shift]] is in E_3: it collects the λ¹ te
 ∂_θ G, namely ∂_θ ℛ^(1) = 0, −P_0(∂_θ g1) and −T(∂_θ g2), and the count of [[thm:past-approximant]] puts each in E_3.
 For instance □̃(W_TT(· + φ1)) = □̃ W_TT + 2 g0⁻¹(dφ1, d∂_θ W_TT) + (□̃ φ1) ∂_θ W_TT + g0⁻¹(dφ1, dφ1) ∂_θ² W_TT, each in
 E_(7/2), and ℓ + 3/(2r) annihilates W_TT and maps ĝ_2 into L_3. In the equation for h of [[pending:eq-decomposition]]
-and in [[pending:lem-decomposition]] the terms in φ therefore have these coefficients: E_(3/2) on ℓφ = ½ P s and on Ψ;
+and in [[pending:lem-decomposition]] the terms in φ therefore have these coefficients: E_(3/2) on ℓφ = ½ 𝒫 s and on Ψ;
 E_(5/2) on ∂_v φ (the slow coupling (∂_v ∂_θ g1)(∂_r φ) acts through ℓφ, by [[eq:wave-operator-vr]]) and on the
 angular derivatives r⁻¹ Ω φ (the angular block r⁻² ⟨∂̊φ, ∂̊∂_θ g1⟩ of [[eq:wave-operator-vr]] is (r⁻¹ Ω φ) ·
 (r⁻¹ Ω ∂_θ g1)); and E_3 on φ and on λ ∂_x² φ. The same holds for the ℓℓ contraction of [[pending:lem-ell-ell]], in
@@ -400,7 +400,7 @@ which the dφ terms of B1 vanish, since the oscillating part of g1 is transverse
 
 *Proof.* Assume E ≤ 2 M_F λ^(K′) t^(−1/2). [[lem:past-sobolev]] gives |w_n| ≤ C M_F λ^(K′−3) t⁻² and |∂w_n| ≤
 C M_F λ^(K′−4) t⁻², so g_n has the margin of [[lem:past-domain]] (f) (|g_app⁻¹ − g0⁻¹| ≤ C λ t^(−3/2)), and
-[[lem:seed-region]] gives w_n = 0 on {v ≤ v_start}; also |∂g_n| ≤ C t^(−3/2). Apply λ^i ∂^i Ω^β to P(w) = F + N(w), the
+[[lem:seed-region]] gives w_n = 0 on {v ≤ v_start}; also |∂g_n| ≤ C t^(−3/2). Apply λ^i ∂^i Ω^β to P(w) = F + 𝒬(w), the
 equation for w without the decomposition ([[pending:eq-linearisation]]), and [[lem:past-energy]] with
 k(τ) = C t^(−3/2):
 
@@ -424,53 +424,53 @@ P ∩ {τ_i ≤ τ ≤ τ_i + δ}, whose slices are compact annuli of the kind u
 solutions of [[prop:far-region]] continue to P ∩ {τ_λ ≤ τ ≤ τ0}, with w_n = h + φ [∂_θ g1] as in
 [[pending:eq-decomposition]] (φ = 0 on Σ_(τ_λ)), and
 
-    N_P(τ) ≤ M_N λ^(K′) t^(−1/2) (T_λ/t)^β0      on [τ_λ, τ0].                                       {#eq:near-bootstrap}
+    𝒩_P(τ) ≤ M_N λ^(K′) t^(−1/2) (T_λ/t)^β0      on [τ_λ, τ0].                                       {#eq:near-bootstrap}
 
-Here N_P is the quantity N of [[pending:eq-bootstrap-quantity]] with four changes: Ω^β stands beside ∂^i in the
+Here 𝒩_P is the quantity 𝒩 of [[pending:eq-bootstrap-quantity]] with four changes: Ω^β stands beside ∂^i in the
 h-part (i + |β| ≤ k); the parts in φ and Ψ are commuted with Z ∈ 𝒵 = {λ∂_τ, λ∂_r, Ω_ab}, which commute with L0
 exactly, and the second derivatives of φ are taken as λ (∂_r² φ, r⁻¹ ∂_r Ω φ, r⁻² Ω² φ) (with ∂_τ = L0 + ∂_r and
-L0 φ = −½ P s these give every second derivative; at each order the norms are equivalent to the Cartesian ones, with
+L0 φ = −½ 𝒫 s these give every second derivative; at each order the norms are equivalent to the Cartesian ones, with
 constants depending on k); the Ψ-part is that of Ψ′ := Ψ − ½ X_s ([[lem:past-commutator]]); and the factor t^(−1/2) of
 [[eq:near-bootstrap]] is t^(1/2) for the parts in φ. β0 depends only on the constants C of [[eq:near-lines]] below at
 the orders j ≤ k, which are built from the bounds of g0, g1, g2, from P and from [[lem:past-sobolev]],
 [[lem:past-mollifier]], [[lem:past-commutator]], [[lem:past-energy]] and [[lem:past-transport]]. The profiles g0, g1, g2
 do not depend on N, since stage m of [[thm:past-approximant]] is fixed by the stages before it; every term with a
-profile g_j, j ≥ 3, carries a factor λ and is absorbed for λ ≤ λ_N. In particular N_P(τ0) ≤ M_N λ^(K′−2β0).
+profile g_j, j ≥ 3, carries a factor λ and is absorbed for λ ≤ λ_N. In particular 𝒩_P(τ0) ≤ M_N λ^(K′−2β0).
 
 *Proof.* Run Steps 1–7 of the proof of [[thm:uniform-existence]] on [τ_λ, τ], with these changes.
 [[lem:past-sobolev]]–[[lem:past-transport]] replace [[pending:lem-sobolev]], [[pending:lem-mollifier]],
 [[pending:lem-energy]] and [[pending:lem-transport]]; the mollifier is that of [[lem:past-mollifier]]; the
 coefficients have the decay listed above; and the φ-quantities are transported from Σ_(τ_λ), where φ vanishes (h = w_n
-there). Its Z-derivatives containing λ∂_τ, and Ψ′, do not vanish there, but with L0 φ = −½ P s all are bounded by
-C′ E(τ_λ), so N_P(τ_λ) ≤ C′ E(τ_λ) ≤ C′ M_F λ^(K′) T_λ^(−1/2) by [[eq:far-energy]], and each line below carries this
+there). Its Z-derivatives containing λ∂_τ, and Ψ′, do not vanish there, but with L0 φ = −½ 𝒫 s all are bounded by
+C′ E(τ_λ), so 𝒩_P(τ_λ) ≤ C′ E(τ_λ) ≤ C′ M_F λ^(K′) T_λ^(−1/2) by [[eq:far-energy]], and each line below carries this
 data term.
 
-Write H for the h-part of N_P, Q′ for the Ψ′-part, and D0, D1, D2 for the parts ‖φ‖, the first derivatives
+Write H for the h-part of 𝒩_P, Q′ for the Ψ′-part, and D0, D1, D2 for the parts ‖φ‖, the first derivatives
 (∂_τ φ, ∂_r φ, r⁻¹ Ω φ) and the second derivatives of φ. Since Ψ = Ψ′ + ½ X_s and ‖Z^j X_s‖ ≤ C λ H by
 [[lem:past-commutator]], the Ψ-part is at most Q′ + C λ H. The transport of Ψ′ follows from that of Ψ
 ([[pending:lem-commutator-transport]]) and [[lem:past-commutator]]:
 
-    (L0 − 2/r) Ψ′ = −½ P □̃ s − ½ R_s + r⁻¹ X_s − r⁻¹ (∂_τ + ∂_r) P s − 3 r⁻² ∂_r φ,            {#eq:psi-prime-transport}
+    (L0 − 2/r) Ψ′ = −½ 𝒫 □̃ s − ½ R_s + r⁻¹ X_s − r⁻¹ (∂_τ + ∂_r) 𝒫 s − 3 r⁻² ∂_r φ,            {#eq:psi-prime-transport}
 
-in which the term ½ L0 X_s of −½ [□̃, P] s has been absorbed. With every integral over (τ_λ, τ), the initial values at
-τ_λ of [[lem:past-transport]] being those of N_P(τ_λ) and included in the first term of each line:
+in which the term ½ L0 X_s of −½ [□̃, 𝒫] s has been absorbed. With every integral over (τ_λ, τ), the initial values at
+τ_λ of [[lem:past-transport]] being those of 𝒩_P(τ_λ) and included in the first term of each line:
 
-    H ≤ C N_P(τ_λ) + C ∫ ( t^(−3/2) (H + Q′) + t^(−5/2) D1 + t⁻³ (D0 + D2) + λ^(K′) t^(−3/2) + R_nl ),
-    t^(−1/2) (D0 + D1) ≤ C T_λ^(−1/2) N_P(τ_λ) + C ∫ t^(−1/2) H,
-    t^(1/2) D2 ≤ C T_λ^(1/2) N_P(τ_λ) + C ∫ t^(1/2) H,
-    t^(1/2) Q′ ≤ C T_λ^(1/2) N_P(τ_λ)
+    H ≤ C 𝒩_P(τ_λ) + C ∫ ( t^(−3/2) (H + Q′) + t^(−5/2) D1 + t⁻³ (D0 + D2) + λ^(K′) t^(−3/2) + R_nl ),
+    t^(−1/2) (D0 + D1) ≤ C T_λ^(−1/2) 𝒩_P(τ_λ) + C ∫ t^(−1/2) H,
+    t^(1/2) D2 ≤ C T_λ^(1/2) 𝒩_P(τ_λ) + C ∫ t^(1/2) H,
+    t^(1/2) Q′ ≤ C T_λ^(1/2) 𝒩_P(τ_λ)
                  + C ∫ t^(1/2) ( t⁻¹ H + t⁻² D1 + t^(−3/2) (H + Q′) + t⁻³ (D0 + D2) + λ^(K′) t^(−3/2) + R_nl ),
                                                                                                     {#eq:near-lines}
 
-with R_nl the nonlinear terms. The first line is Step 4 with the coefficients above; ℓφ = ½ P s is bounded by H
+with R_nl the nonlinear terms. The first line is Step 4 with the coefficients above; ℓφ = ½ 𝒫 s is bounded by H
 through [[lem:past-sobolev]] (b). The second is Step 5: [[lem:past-transport]] with c0 = 0 for φ, ∂_τ φ and ∂_r φ and
-c0 = 1 for r⁻¹ Ω φ, with forcing −½ Z^j of P s, ∂_τ P s, ∂_r P s and r⁻¹ Ω P s, the last bounded at top order by
+c0 = 1 for r⁻¹ Ω φ, with forcing −½ Z^j of 𝒫 s, ∂_τ 𝒫 s, ∂_r 𝒫 s and r⁻¹ Ω 𝒫 s, the last bounded at top order by
 Bernstein's inequality in one r⁻¹ Ω; the parts with c0 = 0 satisfy the stronger bound with t^(−3/2). The third: the
 transports of λ ∂_r² φ, λ r⁻¹ ∂_r Ω φ and λ r⁻² Ω² φ have c0 = 0, 1, 2, so [[lem:past-transport]] applies with
-c0 ≤ 2, and their forcing, λ times the same derivatives of P s, is bounded by Bernstein's inequality (M2) in one ∂_r or
+c0 ≤ 2, and their forcing, λ times the same derivatives of 𝒫 s, is bounded by Bernstein's inequality (M2) in one ∂_r or
 one r⁻¹ Ω. The fourth is [[lem:past-transport]] with c0 = 2 for [[eq:psi-prime-transport]]: [[lem:past-commutator]]
 bounds R_s and r⁻¹ X_s by C (t⁻¹ + h′) H ≤ C t⁻¹ H, its terms R′_s being rewritten through [[pending:lem-ell-ell]] as
-in Step 6; r⁻¹ (∂_τ + ∂_r) P s and r⁻² ∂_r φ give t⁻¹ H and t⁻² D1; and P □̃ s is bounded through
+in Step 6; r⁻¹ (∂_τ + ∂_r) 𝒫 s and r⁻² ∂_r φ give t⁻¹ H and t⁻² D1; and 𝒫 □̃ s is bounded through
 [[pending:lem-ell-ell]] with the coefficients above. Z commutes with L0, and [Z, r^(−c)] carries the factor r^(−c−1),
 so every line holds at every order j ≤ k with c0 unchanged.
 
@@ -493,9 +493,9 @@ constant, with the following exponents a:
   extra integrable power.
 
 So every integral of a bootstrap quantity returns at most C/(β − 1) times the bound of its line. The data terms and the
-forcing terms λ^(K′) t^(−3/2) together contribute at most B/8 times the bound of each line: N_P(τ_λ) ≤
-C′ M_F λ^(K′) T_λ^(−1/2) and T_λ^(−1/2) ≤ t^(−1/2) for the H-line; t^(1/2) T_λ^(−1/2) N_P(τ_λ) ≤ C′ M_F λ^(K′) t^(1/2)
-T_λ⁻¹ for the D0/D1-line; t^(−1/2) T_λ^(1/2) N_P(τ_λ) ≤ C′ M_F λ^(K′) t^(−1/2) for the D2- and Q′-lines; ∫ λ^(K′)
+forcing terms λ^(K′) t^(−3/2) together contribute at most B/8 times the bound of each line: 𝒩_P(τ_λ) ≤
+C′ M_F λ^(K′) T_λ^(−1/2) and T_λ^(−1/2) ≤ t^(−1/2) for the H-line; t^(1/2) T_λ^(−1/2) 𝒩_P(τ_λ) ≤ C′ M_F λ^(K′) t^(1/2)
+T_λ⁻¹ for the D0/D1-line; t^(−1/2) T_λ^(1/2) 𝒩_P(τ_λ) ≤ C′ M_F λ^(K′) t^(−1/2) for the D2- and Q′-lines; ∫ λ^(K′)
 t′^(−3/2) ≤ 2 λ^(K′) t^(−1/2) in the H-line and ∫ t′^(1/2) λ^(K′) t′^(−3/2) = λ^(K′) log(T_λ/t) ≤ λ^(K′) (T_λ/t)^β/β in
 the Q′-line; and C C′ M_F λ^(K′) + 2 C λ^(K′) ≤ B/8 since C′ ≥ 2.
 
@@ -508,7 +508,7 @@ t^(1/2) Q′ is at least B. Both ratios are at most C B λ^(−8−4β), which i
 
 Take β = β0 := max(2, 4C + 1), so that C/(β0 − 1) ≤ 1/4. Then each line returns at most (1/8 + 1/4 + 1/8) times its
 bound: the bootstrap bounds improve to B/2. The margin of [[lem:past-domain]] (f) holds, by [[lem:past-sobolev]], as in
-[[prop:far-region]]. At τ0, t = 1 and (T_λ/t)^β0 = λ^(−2β0), which gives N_P(τ0) ≤ M_N λ^(K′−2β0). ∎
+[[prop:far-region]]. At τ0, t = 1 and (T_λ/t)^β0 = λ^(−2β0), which gives 𝒩_P(τ0) ≤ M_N λ^(K′−2β0). ∎
 
 ### Proof of the construction {#sec:past-proof}
 
@@ -520,7 +520,7 @@ K + 4 + ⌈4β0⌉, such that:
 - (P-ii) for every v < V_P and x̂, r^(3/2) (g_λ − g0 − λ [W_TT])(v − r, r x̂) → 0 as r → ∞, with [W_TT] taken at the
   phase v/λ;
 - (P-iii) on P, |g_λ − g_app| ≤ C λ^(K−3) t⁻² and |∂(g_λ − g_app)| ≤ C λ^(K−4) t⁻²;
-- (P-iv) on Ω, the conclusions of [[thm:uniform-existence]] with this K, the bound on N included;
+- (P-iv) on Ω, the conclusions of [[thm:uniform-existence]] with this K, the bound on 𝒩 included;
 - (P-v) g_λ is invariant under T² × Z2 × Z2, and it is the only solution of Ric^H(g) = 0 on P with (P-i), with
   |g − g_app| + |∂(g − g_app)| ≤ ε_U t^(−3/2), and with the energy of g − g_app on A_P(τ) tending to zero as τ → −∞;
   here ε_U > 0 is so small that this class lies in the margin of [[lem:past-domain]] (f), since |g_app − g0| ≤
@@ -530,9 +530,9 @@ These are items 1, 2, 3, 5 and the first part of item 4 of [[thm:past-constructi
 [[prop:past-items]].
 
 *Proof of [[thm:past-construction]].* *The solution on P ∪ Ω.* At τ0, Data(w_n), the norm of (E4) of
-[[thm:uniform-existence]], satisfies Data(w_n) ≤ C λ⁻¹ N_P(τ0) ≤ C M_N λ^(K′−2β0−1), since the term ‖∂_x(φ G1)‖
+[[thm:uniform-existence]], satisfies Data(w_n) ≤ C λ⁻¹ 𝒩_P(τ0) ≤ C M_N λ^(K′−2β0−1), since the term ‖∂_x(φ G1)‖
 contains λ⁻¹ ‖φ‖; and K′ − 2β0 − 1 = K + 2 + ⌈4β0⌉ − 2β0 ≥ K + 2. (E1)–(E3) hold on Ω by [[thm:past-approximant]], so
-[[thm:uniform-existence]] with this K continues g_n to Ω with its bound on N: (P-iv) for g_n.
+[[thm:uniform-existence]] with this K continues g_n to Ω with its bound on 𝒩: (P-iv) for g_n.
 
 *The limit.* For n′ > n, δ := g_n − g_n′ solves on P ∩ {τ ≥ τ_n} a linear system −½ g_n^(ab) ∂_a ∂_b δ = f with
 |f| ≤ C(λ) t^(−3/2) (|δ| + |∂δ|), whose coefficient involves ∂²g_n′, at most C λ⁻¹ t^(−3/2). [[lem:past-energy]] gives
@@ -589,11 +589,11 @@ solution, and none about how its data were obtained. We check each for the g_λ 
 g_app the approximant of [[thm:past-approximant]].
 
 (1) *The remainder bounds:* g_λ = g_app + w on Ω with ‖∂^i w‖_∞ ≤ C M λ^(K−3−i) for i ≤ 4, as in
-[[eq:remainder-pointwise]]. These follow from Step 1 of the proof of [[thm:uniform-existence]] once the bound on N of
+[[eq:remainder-pointwise]]. These follow from Step 1 of the proof of [[thm:uniform-existence]] once the bound on 𝒩 of
 that theorem holds for g_λ itself on Ω. It does: the w_n of [[sec:past-proof]] have Data(w_n) ≤ C M_N
 λ^(K′−2β0−1) ≤ C λ^(K+2) uniformly in n, and g_n → g_λ on Σ_τ0, so Data(w_λ) ≤ liminf Data(w_n), since the bound is
 uniform in n and the slice is compact, so that the derivatives up to order k + 1 converge weakly in L². Then
-[[thm:uniform-existence]] applied to the trace of g_λ on Σ_τ0 gives a solution on Ω with the bound on N, which is g_λ
+[[thm:uniform-existence]] applied to the trace of g_λ on Σ_τ0 gives a solution on Ω with the bound on 𝒩, which is g_λ
 by the uniqueness on Ω (Step 8 of its proof).
 
 (2) *The first stage:* g1 = m1 + W(X, θ + φ1) with W = W_TT + χ dv², W(ℓ, ·) = 0 and tr W_TT = 0, m1 independent of θ.

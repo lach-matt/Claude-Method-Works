@@ -194,3 +194,152 @@ diffeomorphism, which with Leibniz's rule for ψ_k gives the first equivalence. 
 and (K4) on 𝕊³, Σ_(j+|α|≤m) ‖∂_t^j Z^α u‖² is equivalent to ∫ Σ_ℓ (1 + τ² + ℓ(ℓ + 2))^m ‖(ℱ_t u)_ℓ(τ)‖² dτ, where
 (·)_ℓ is the projection to ℋ_ℓ, u := e^(ct)v and [∂_t, e^(ct)] = c e^(ct); and (1 + τ² + ν)^m is equivalent to
 Σ_(j≤m) τ^(2j)(1 + ν)^(m−j) for ν ≥ 0. For m < 0 both sides are the dual norms of the case −m, by (d) and Plancherel. ∎
+
+#### The Mellin transform {#sec:i-c-2-3}
+
+For v supported in {t > t_0} with e^(c_0 t)v ∈ L²(μ_b) define the L²(𝕊³)-valued function
+
+    (ℳv)(ι) := ∫_ℝ e^(ιt) v(t, ·) dt = ∫_0^∞ ϱ^(−ι) v dϱ/ϱ.
+
+For Re ι < c_0 the integral converges absolutely (Cauchy–Schwarz with e^((Re ι − c_0)t) ∈ L²((t_0, ∞))), and ℳv is
+holomorphic there. On the line Re ι = x ≤ c_0, ℳv(x + iτ) = ℱ_t(e^(xt)v)(−τ), so by (K6)
+
+    ∫_ℝ ‖ℳv(x + iτ)‖² dτ = 2π‖e^(xt)v‖² ≤ 2π e^(2(x−c_0)t_0) ‖e^(c_0 t)v‖²,     x ≤ c_0,                  {#eq:i-c-2-1}
+
+the last bound because e^(xt) ≤ e^((x−c_0)t_0) e^(c_0 t) for t > t_0. As x ↑ c_0, e^(xt)v → e^(c_0 t)v in L² by
+dominated convergence, so the values on Re ι = c_0 are the L² limits of those on nearby lines. Integration by parts
+gives ℳ((ϱ∂_ϱ)v) = ℳ(−∂_t v) = ι ℳv, and operators on 𝕊³ commute with ℳ. By [[lem:i-c-2-2]] (h), for integers m,
+
+    ‖v‖²_(H_(b,c)^m)  is equivalent to  ∫_ℝ ‖ℳv(c + iτ)‖²_(H_⟨τ⟩^m) dτ.                                    {#eq:i-c-2-2}
+
+**Lemma {#lem:i-c-2-3}** (Moving the line.) Let v be supported in {t > t_0} with e^(c_0 t)v ∈ L², and suppose that
+ℳv extends holomorphically from {Re ι < c_0} to {Re ι < c_1}, c_1 > c_0, with
+Ξ := sup_(c_0≤x<c_1) ∫ ‖ℳv(x + iτ)‖² dτ < ∞. Then e^(c_1 t)v ∈ L² and ‖e^(c_1 t)v‖² ≤ Ξ/2π.
+
+*Proof.* The extension is continuous on Re ι = c_0, so it agrees there with the L² limits above. Let
+φ ∈ C_c^∞(ℝ × 𝕊³) and Ψ(ι) := ∫ e^(−ιt) φ̄(t, ·) dt, which is entire, with ‖Ψ(x + iτ)‖_(L²(𝕊³)) ≤ C_X ⟨τ⟩⁻² for
+|x| ≤ X (integrate by parts twice in t). Put g(ι) := ∫_(𝕊³) ℳv(ι) · Ψ(ι) dω, with a · b := Σ_k a_k b_k the bilinear
+pairing on ℂ^(N_E); g is holomorphic on {Re ι < c_1}. For x ≤ c_0, Parseval for e^(xt)v and e^(−xt)φ gives
+⟨v, φ⟩_(μ_b) = (2π)⁻¹ ∫_ℝ g(x + iτ) dτ. Fix x_0 < c_0 and x_1 ∈ [c_0, c_1). Then
+∫_(x_0)^(x_1) ∫_ℝ |g(s + iT)| dT ds < ∞ by Cauchy–Schwarz, [[eq:i-c-2-1]] and the definition of Ξ, so there are
+T_j → +∞ and T′_j → −∞ with ∫_(x_0)^(x_1) |g(s + iT_j)| ds → 0, and likewise at T′_j. Cauchy's theorem on the
+rectangles [x_0, x_1] × [T′_j, T_j] then gives ∫ g(x_1 + iτ) dτ = ∫ g(x_0 + iτ) dτ, so
+
+    |⟨v, φ⟩_(μ_b)| ≤ (2π)⁻¹ (∫ ‖ℳv(x_1 + iτ)‖² dτ)^(1/2) (∫ ‖Ψ(x_1 + iτ)‖² dτ)^(1/2) ≤ (Ξ/2π)^(1/2) ‖e^(−x_1 t)φ‖,
+
+by (K6) for Ψ(x_1 + iτ) = ℱ_t(e^(−x_1 t)φ̄)(τ). So ‖e^(x_1 t)v‖² ≤ Ξ/2π; let x_1 ↑ c_1 (monotone convergence on
+{t > 0}, dominated convergence on {t_0 < t ≤ 0}). ∎
+
+#### The indicial family {#sec:i-c-2-4}
+
+**Lemma {#lem:i-c-2-4}** Let J(ι) = −ι² + a_J ι + Δ + V_J + b_J, with a_J, b_J ∈ C^∞(𝕊³; End ℂ^(N_E)) and
+V_J ∈ Diff¹(𝕊³; End ℂ^(N_E)), and let m be an integer.
+
+(a) For X > 0 there is μ_X such that for |Re ι| ≤ X and |Im ι| ≥ μ_X, J(ι): H^m(𝕊³) → H^(m−2)(𝕊³) is invertible with
+‖J(ι)⁻¹‖_(H_μ^(m−2) → H_μ^m) ≤ 2, where μ := Im ι.
+
+(b) spec_J := {ι : ker J(ι) ∩ C^∞ ≠ 0} is discrete, with finitely many points in each strip {|Re ι| ≤ X}; off it
+J(ι): H^m → H^(m−2) is invertible, and J⁻¹ is meromorphic on ℂ.
+
+(c) If [x_0, x_1] ∩ Re spec_J = ∅, then sup{‖J(ι)⁻¹‖_(H_μ^(m−2) → H_μ^m) : x_0 ≤ Re ι ≤ x_1} < ∞, μ = Im ι.
+
+*Proof.* (a) Write ι = x + iμ, so −ι² = μ² − x² − 2ixμ and J(ι) = (1 + μ² + Δ) + R with
+R := −1 − x² − 2ixμ + a_J(x + iμ) + V_J + b_J. By (K4) and the spectral theorem, 1 + μ² + Δ is an isometry
+H_μ^m → H_μ^(m−2), and ‖w‖_(H_μ^(m−j)) ≤ (1 + μ²)^(−j/2) ‖w‖_(H_μ^m) for j ≥ 0. Multiplication by a smooth function is
+bounded on H_μ^k uniformly in μ, for every integer k: for k ≥ 0 because ‖w‖²_(H_μ^k) is equivalent, uniformly, to
+Σ_(j≤k) μ^(2(k−j)) ‖w‖²_(H^j), by Leibniz's rule; for k < 0 by duality. Likewise V_J maps H_μ^k to H_μ^(k−1)
+boundedly, uniformly in μ (for k ≥ 1 directly, for k ≤ 0 by duality with V_J^†). So
+
+    ‖Rw‖_(H_μ^(m−2)) ≤ C(1 + |μ|) ‖w‖_(H_μ^(m−2)) + C‖w‖_(H_μ^(m−1)) ≤ C′(1 + |μ|)⁻¹ ‖w‖_(H_μ^m),
+
+and a Neumann series inverts J(ι) with the stated bound once C′(1 + |μ|)⁻¹ ≤ ½. (b) J(ι) = (1 + Δ)(Id + F(ι)) on
+H^m, with F(ι) := (1 + Δ)⁻¹(J(ι) − 1 − Δ) compact on H^m (it maps H^m to H^(m+1), and (K3)–(K4) give compactness on
+𝕊³) and polynomial in ι. By (a), Id + F(ι) is invertible for some ι, so (K5) applies on D = ℂ. Id + F(ι) is Fredholm
+of index 0, so it fails to be invertible exactly when it has a kernel; a kernel element of J(ι) in H^m is smooth by
+(K4), so the exceptional set is spec_J for every m. In a strip it lies in {|Im ι| ≤ μ_X} by (a), a compact set, which
+meets the discrete set in finitely many points. (c) On the part with |Im ι| ≥ μ_X, X := max(|x_0|, |x_1|), the bound is
+2. The rest is compact, J⁻¹ is continuous there, and the μ-weighted norms are equivalent to the unweighted ones for
+|μ| ≤ μ_X. ∎
+
+For the end at ∞ the operator is P⁽⁰⁾, with ϱ∂_ϱ = ρ∂_ρ, and ℳ turns N(P⁽⁰⁾) into multiplication by I(ι), which has
+the form of [[lem:i-c-2-4]] with spec_I = spec_b.
+
+#### The model estimates {#sec:i-c-2-5}
+
+Let L = Σ_(j=0)^2 B_j(ϱ)(ϱ∂_ϱ)^j on {t > t_0}, with B_j ∈ C^∞([0, e^(−t_0)); Diff^(2−j)(𝕊³; End ℂ^(N_E))), and with
+*normal operator* N(L) := Σ_j B_j(0)(ϱ∂_ϱ)^j, whose Mellin symbol J(ι) := Σ_j B_j(0) ι^j has the form of
+[[lem:i-c-2-4]]. Then L ∈ Diff_b^2 and L − N(L) ∈ ϱ Diff_b^2. Assume that L is *b-elliptic*: in the coordinates
+(t, ω) its principal symbol is p Id with |p| ≥ c|(τ, η)|² on {t > t_0}, uniformly. (For N(L) the principal symbol is
+that of −∂_t² + Δ.) Cut-offs below are functions of t, with χ̃ = 1 near the support of χ.
+
+**Lemma {#lem:i-c-2-5}** (The b-elliptic estimate.) For all s, c and M there is C with
+
+    ‖χv‖_(H_(b,c)^s) ≤ C(‖χ̃Lv‖_(H_(b,c)^(s−2)) + ‖χ̃v‖_(H_(b,c)^(−M))).
+
+*Proof.* Under Φ_k the operator L becomes L^(k) on a neighbourhood of Ā, with coefficients bounded in C^∞ uniformly in
+k and principal symbols elliptic with a uniform bound, as ϱ∂_ϱ and Z_i are dilation invariant and on A they are
+combinations of ∂_(y_j) with fixed smooth coefficients. Apply (K2) to the family {L^(k)} and to v ∘ Φ_k itself, with
+φ := (ψ_k χ) ∘ Φ_k and φ̃ equal to 1 near a compact neighbourhood of supp φ and supported in a fixed neighbourhood of
+Ā where χ̃ ∘ Φ_k = 1. This is possible as χ̃ = 1 near supp χ, and only finitely many distinct pairs (φ, φ̃) are
+needed, χ being constant outside a compact set of t. Then φ̃ (Lv) ∘ Φ_k = φ̃ (χ̃Lv) ∘ Φ_k, so
+‖(ψ_k χ v) ∘ Φ_k‖_(H^s) is bounded by the pieces of χ̃Lv and of χ̃v on the neighbouring k, uniformly, and no commutator
+with χ arises. Multiply by e^(2ck) and sum, using [[lem:i-c-2-2]] (a)–(c). ∎
+
+**Lemma {#lem:i-c-2-6}** (The normal operator estimate; [Hin26c, (3.47)].) Let c ∉ Re spec_J and m ∈ ℤ. Then
+‖v‖_(H_(b,c)^m) ≤ C‖N(L)v‖_(H_(b,c)^(m−2)) for v supported in {t > t_0}, and
+
+    ‖χv‖_(H_(b,c)^m) ≤ C(‖χ̃Lv‖_(H_(b,c)^(m−2)) + ‖χ̃v‖_(H_(b,c−1)^m)).                                   {#eq:i-c-2-3}
+
+*Proof.* By [[eq:i-c-2-2]], [[lem:i-c-2-2]] (h) and ℳ(N(L)v)(c + iτ) = J(c + iτ) ℳv(c + iτ), the first estimate is
+[[lem:i-c-2-4]] (c) with x_0 = x_1 = c. For [[eq:i-c-2-3]] apply it to χv:
+N(L)χv = χLv + [L, χ]v + (N(L) − L)χv. The commutator has coefficients supported in supp dχ, a compact set of t, where
+all weights are equivalent; N(L) − L ∈ ϱ Diff_b^2 maps H_(b,c−1)^m to H_(b,c)^(m−2) by [[lem:i-c-2-2]] (b)–(c). The
+transform of [[sec:i-c-2-3]] is defined for e^(c_0 t)v ∈ L²; so the first estimate is proved for v ∈ C_c^∞, whose
+transform is entire, and extends by density ([[lem:i-c-2-2]] (d)) to every v ∈ H_(b,c)^m supported in {t > t_0}, both
+sides being continuous on H_(b,c)^m. This covers m < 0, where it is used. ∎
+
+**Lemma {#lem:i-c-2-7}** (Improving the weight.) Let (c_−, c_+) contain no real part of a point of spec_J, let
+c ∈ (c_−, c_+), and suppose χ̃v ∈ H_(b,c)^∞ and χ̃Lv ∈ H_(b,c′)^∞ for every c′ < c_+. Then χv ∈ H_(b,c′)^∞ for every
+c′ < c_+, so χv ∈ ∩_(c′<c_+) 𝒜^(c′).
+
+*Proof.* Take nested cut-offs χ̃ = χ_0, χ_1, …, χ_p = χ, each equal to 1 near the support of the next. Suppose
+χ_i v ∈ H_(b,c_i)^∞ with c_i ∈ (c_−, c_+), and fix x_1 < min(c_i + 1, c_+). Then
+
+    f := N(L)χ_(i+1)v = χ_(i+1)Lv + [L, χ_(i+1)]v + (N(L) − L)χ_(i+1)v
+
+lies in H_(b,c″)^∞ with c″ := min(c_i + 1, ½(x_1 + c_+)) > x_1: the first term by hypothesis, the second because it is
+supported in a compact set of t inside {χ_i = 1}, the third by [[lem:i-c-2-2]] (b)–(c). So ℳf is holomorphic on
+{Re ι < c″} with line norms bounded by [[eq:i-c-2-1]], and J(ι) ℳ(χ_(i+1)v)(ι) = ℳf(ι) for Re ι < c_i. The strip
+{c_i − ϵ ≤ Re ι ≤ x′_1}, x_1 < x′_1 < c″, contains no root for ϵ small, so J⁻¹ℳf is holomorphic on its interior,
+agrees with ℳ(χ_(i+1)v) near Re ι = c_i − ϵ, and has line norms bounded by [[lem:i-c-2-4]] (c) and [[eq:i-c-2-1]].
+[[lem:i-c-2-3]], with c_0 := c_i − ϵ and c_1 := x′_1, gives χ_(i+1)v ∈ H_(b,x_1)^0; [[lem:i-c-2-5]] at the weight x_1,
+with Lv ∈ H_(b,x_1)^∞ on the support of χ_(i+1), gives χ_(i+2)v ∈ H_(b,x_1)^∞. Each two steps raise the weight by any
+amount less than min(1, c_+ − c_i), so finitely many reach every c′ < c_+. The last claim is [[lem:i-c-2-2]] (f). ∎
+
+#### The spaces on X̄ {#sec:i-c-2-6}
+
+Fix R_1 > r_e + 1 so large that {r ≥ R_1} ⊂ {ρ < ρ_1} and P⁽⁰⁾ is b-elliptic on {r ≥ ½R_1} (possible by (H2), its
+b-principal symbol being that of (ρD_ρ)² + Δ plus O(ρ)), and let χ_∂ = χ_∂(r) with χ_∂ = 0 on {r ≤ R_1} and χ_∂ = 1
+on {r ≥ 2R_1}.
+
+**Definition {#def:i-c-2-8}** (The spaces of [Hin26c, (3.72)] in dimension 4 + 1.) For s, a ∈ ℝ,
+
+    ‖u‖²_(H̄_b^(s,a)) := ‖(1 − χ_∂)u‖²_(H̄^s) + ‖χ_∂ u‖²_(H_(b,a+2)^s),
+
+with H̄^s extendible at ∂_♯X ([[sec:i-a-6-1]]) and H_(b,a+2)^s of [[def:i-c-2-1]] at the end at ∞; Ḣ_b^(s,a) is
+defined with Ḣ^s (supported at ∂_♯X) in the first term. H̄_b^((s;k),a) := H̄_b^(s+k,a) (for b-spaces, b-regularity is
+regularity).
+
+By [[lem:i-c-2-2]], near ∂X the norm is that of ρ^a H_b^s(|dx|) = ρ^(a+2) H_b^s(μ_b), as |dx| = ρ⁻⁴μ_b; the b-weight is
+a + 2. The space does not depend on R_1 or χ_∂, up to equivalent norms.
+
+**Lemma {#lem:i-c-2-9}** (a) The L²(|dx|) pairing identifies the dual of H̄_b^(s,a) with Ḣ_b^(−s,−a).
+(b) For s′ > s and a′ > a, the inclusion H̄_b^(s′,a′) ↪ H̄_b^(s,a) is compact.
+(c) ([Hin26c, (3.72)] in dimension 4 + 1.) H̄_b^(d+3,a) ⊂ ρ^(a+2) C_b^d near ∂X; in particular
+H̄_b^(∞,β−2) ⊂ 𝒜^β near ∂X, and 𝒜^β ⊂ H̄_b^(∞,β−2−ϵ) near ∂X for ϵ > 0.
+(d) P̂(0) maps H̄_b^(s,a) to H̄_b^(s−2,a+2) and Ḣ_b^(s,a) to Ḣ_b^(s−2,a+2).
+
+*Proof.* (a) Near ∂X, ⟨u, v⟩_(|dx|) = ⟨u, ρ⁻⁴v⟩_(μ_b), and v ↦ ρ⁻⁴v maps H_(b,−a+2)^(−s) (the b-weight of
+Ḣ_b^(−s,−a)) onto H_(b,−a−2)^(−s), the dual of H_(b,a+2)^s ([[lem:i-c-2-2]] (b), (d)); in the interior it is
+[[lem:i-a-6-1]] (b); glue with χ_∂. (b) [[lem:i-c-2-2]] (e) and (K3). (c) [[lem:i-c-2-2]] (f) with d + 3 > d + 2.
+(d) Near ∂X, P̂(0) = ρ²P⁽⁰⁾, and [[lem:i-c-2-2]] (b)–(c). ∎

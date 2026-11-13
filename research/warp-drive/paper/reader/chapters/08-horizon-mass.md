@@ -42,8 +42,8 @@ and so does dv = dτ + dr. It follows at once from [[eq:waves-hopf]] that
 Indeed χ dv² vanishes on tangent vectors of the sphere, and tr_S W_TT = r⁻² · 2 r^(1/2) λ⁻¹ (cos²ϑ p1/cos²ϑ + sin²ϑ
 p2/sin²ϑ − (p1 + p2)) = 0.
 
-A *column* is the set of points of D_T ∩ {τ ≥ τ0} with v and the angle ω ∈ S³ fixed and r varying. Its points are
-(τ, x) = (v − r, r ω), so d/dr along a column is −∂_τ + ω·∂_x = ℓ, and a column is an integral curve of ℓ. Since
+A *column* is the set of points of D_T ∩ {τ ≥ τ0} with v and x̂ ∈ S³ fixed and r varying. Its points are
+(τ, x) = (v − r, r x̂), so d/dr along a column is −∂_τ + x̂·∂_x = ℓ, and a column is an integral curve of ℓ. Since
 ℓ(v) = 0, the derivative along a column of a bracket is
 
     (d/dr) [f] = [ℓ f],                                                                           {#eq:column-derivative}
