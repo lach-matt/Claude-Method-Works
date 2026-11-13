@@ -904,8 +904,9 @@ g_(b_0) = −f dt_KS² + 2(1 − f) dt_KS dr + (2 − f) dr² + r²g̸ with f = 
 so in the coordinates (t_KS, r, z), |det g| = r⁶ det g̸ and |dg| = r³(det g̸)^(1/2)|dt_KS dr dz|. The Euclidean metric
 is dr² + r²g̸ in (r, z), so |dx| = r³(det g̸)^(1/2)|dr dz| = r³dr dω. Finally t_* − t_KS is a function of r
 ([[eq:iii-b-3-3]], [[eq:iii-b-3-6]]), so the change of coordinates (t_KS, r, z) ↦ (t_*, r, z) has a triangular Jacobian
-matrix with determinant 1, and |dg| = r³(det g̸)^(1/2)|dt_* dr dz| = |dt_*||dx|. Writing □ = A_0 + A_1∂_(t_*) + A_2∂²_(t_*) with stationary A_k, the
-symmetry gives A_k* = (−1)^kA_k for |dx|, so □̂(σ) = A_0 − iσA_1 − σ²A_2 satisfies □̂(σ)* = □̂(σ̄). Hence
+matrix with determinant 1, and |dg| = r³(det g̸)^(1/2)|dt_* dr dz| = |dt_*||dx|. Writing
+□ = A_0 + A_1∂_(t_*) + A_2∂²_(t_*) with stationary A_k, the symmetry gives A_k* = (−1)^kA_k for |dx|, so
+□̂(σ) = A_0 − iσA_1 − σ²A_2 satisfies □̂(σ)* = □̂(σ̄). Hence
 Im □̂(0) = 0 and Im T = 0 for T = −iA_1; the threshold quantities of [[eq:i-a-1-5]] are ϑ_ℋ = 0 and ϑ_in = 0, as S = 0;
 and the endomorphism p_1 of (Γ.4) vanishes ([[lem:i-b-1-1]] (b), with the standard inner product as h_Γ), so that the
 function of (Γ.4) is −q^Γ times its argument, which decreases at the rate q^Γ = 2β_0, with γ_+ = 0 and
