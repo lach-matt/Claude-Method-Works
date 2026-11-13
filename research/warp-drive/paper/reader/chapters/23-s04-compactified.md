@@ -1827,12 +1827,26 @@ from γ([0, T]). b_0 is elliptic on γ([0, T]), where χ_s = χ_e = ψ_y = 1 and
 U′ := {z ∈ (−δ/2, T + δ/2), |y|² < δ_1²/2}, near fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(Mz) Q_0^(−1/2) lies in
 C^((d_0−2))_1 S̃^(−𝗌).
 
+*Localisers.* The symbols ǎ_ε, b_ε and b_(e,ε) are supported in the closed set
+K_1 := {z ∈ [−δ, T + δ], |y| ≤ δ_1} ∩ supp χ_∞, and e_ε in K_E := {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ∩ supp χ_∞. Choose
+localisers Φ_0 = Op(φ_0) and Φ_E = Op(φ_E) as in [[lem:ii-a1-4-1]], carried by χ, with φ_0 = 1 near the box
+{z ∈ [−2δ, T + 2δ], |y| ≤ 2δ_1} ∩ supp χ_∞ and φ_E = 1 near {z ∈ [−2δ, 0], |y| ≤ 2δ_1} ∩ supp χ_∞, supported, near
+fibre infinity, in the given neighbourhood of γ([0, T]) and in Ell(G), resp. Ell(E) ∩ Ell(G) (the margins serve the
+uniformity below). Put
+
+    Ǎ := Ǎ_ε := Op(ǎ_ε)Φ_0,     B_ε := Op(b_ε)Φ_0,     B_(e,ε) := Op(b_(e,ε))Φ_0,     E_ε := Op(e_ε)Φ_E.
+
+Then φ_0ǎ_ε = ǎ_ε, φ_0b_ε = b_ε, φ_0b_(e,ε) = b_(e,ε) and φ_Ee_ε = e_ε exactly. Every operator identity below is an
+instance of [[prop:ii-a1-2-4]] (b)–(d), (f) for a fixed expression, combined with these exact identities of symbols; so
+its remainder has the stated order, with an index that depends only on the orders ([[sec:ii-a1-1]], *Indices*).
+
 *The commutator.* Write L = Op(ℓ_f) + R_L by [[eq:ii-a1-1-2]], with R_L of every order. Let ℓ_R := (ℓ_f + ℓ_f^*)/2 and
 ℓ_I := (ℓ_f − ℓ_f^*)/(2i). Since ℓ is real and scalar, ℓ_R − ℓ Id and ℓ_I have order m − 1. Then L_R = Op(ℓ_R) + D_R and
 L_I = Op(ℓ_I) + D_I, where D_R and D_I are ±1/2 and ±1/(2i) times D_(ℓ_f) of [[prop:ii-a1-2-4]] (f), plus the parts of
-R_L. So L_I has exact order m − 1, and [D_R, Ǎ], [D_I, Ǎ] have order m + 𝗄 − 2 + δ, with Ǎ := Ǎ_ε := Op(ǎ_ε),
-uniformly in ε. Now i[L_R, Ǎ²] = i[L_R, Ǎ]Ǎ + Ǎ i[L_R, Ǎ], and by [[prop:ii-a1-2-4]] (d) and the above,
-i[L_R, Ǎ] = Op(H_(ℓ_R)ǎ) plus order m + 𝗄 − 2 + δ. Next, H_(ℓ_R)ǎ = (H_ℓǎ) Id + H_(ℓ_R−ℓ)ǎ, where the second term has
+R_L. So L_I has exact order m − 1, and [D_R, Ǎ], [D_I, Ǎ] have order m + 𝗄 − 2 + δ, uniformly in ε. Now
+i[L_R, Ǎ²] = i[L_R, Ǎ]Ǎ + Ǎ i[L_R, Ǎ], and by [[prop:ii-a1-2-4]] (d) and the above, i[L_R, Ǎ] = Op(H_(ℓ_R)ǎ) plus order
+m + 𝗄 − 2 + δ (the principal symbol of i[Op(ℓ_R), Op(ǎ)Φ_0] being H_(ℓ_R)(ǎφ_0) = H_(ℓ_R)ǎ). Next,
+H_(ℓ_R)ǎ = (H_ℓǎ) Id + H_(ℓ_R−ℓ)ǎ, where the second term has
 order m + 𝗄 − 2. With [[prop:ii-a1-2-4]] (b), i[L_R, Ǎ²] is Op(H_ℓ(ǎ²)) plus order 2𝗌 − 1 + δ. Further,
 Ǎ*Ǎ = Ǎ² + D_ǎǍ with D_ǎ := Ǎ* − Ǎ of order 𝗄 − 1 + δ ([[prop:ii-a1-2-4]] (c), ǎ real), and i[L_R, D_ǎǍ] has order
 2𝗌 − 1 + δ by [[prop:ii-a1-2-4]] (f). So
@@ -1848,34 +1862,36 @@ and Ǎ*[Ǎ, L_I] has order 2𝗌 − 1 + δ, by [[prop:ii-a1-2-4]] (d) for Op(�
 
     ς⟨C_ǎw, w⟩ = Re⟨Op(ςH_ℓ(ǎ²))w, w⟩ + 2ς Re⟨L_IǍw, Ǎw⟩ + Re⟨R_2w, w⟩,
 
-where |⟨R_2w, w⟩| ≤ C‖G′w‖²_(𝗌−1/2+δ) + C‖χw‖²_(−N). Here G′ is microlocally the identity on the support of ǎ and
-WF′(G′) ⊂ Ell(G). The microlocalisation of the remainders is by [[prop:ii-a1-2-4]] (e), all of them having a factor
-supported in the support of ǎ.
+where R_2 has order 2𝗌 − 1 + δ, so that |⟨R_2w, w⟩| ≤ C‖w‖²_(𝗌−1/2+δ). No microlocalisation of the remainders is
+needed, the error term of [[eq:ii-a1-4-2]] being a global norm.
 
-*Positivity.* By [[prop:ii-a1-2-4]] (b), (c), Op(b_ε²) = B_ε^*B_ε + (order 2𝗌 − 1 + 2δ), with B_ε := Op(b_ε); likewise
-for b_(e,ε) and e_ε. So
+*Positivity.* By [[prop:ii-a1-2-4]] (b), (c), Φ_0^*Op(b_ε)^*Op(b_ε)Φ_0 − Op(φ_0b_ε²φ_0) has order 2𝗌 − 1 + 2δ, and
+φ_0b_ε²φ_0 = b_ε²; so Op(b_ε²) = B_ε^*B_ε + (order 2𝗌 − 1 + 2δ). Likewise for b_(e,ε) with Φ_0 and for e_ε with Φ_E.
+The symbol ςH_ℓ(ǎ²) + b_ε² + b_(e,ε)² − e_ε² is supported where χ_∞ is not locally constant, a set compact in the
+fibres, so its quantization has every order. So
 
-    Re⟨Op(ςH_ℓ(ǎ²))w, w⟩ ≤ −‖B_εw‖² + ‖E_εw‖² + C(‖G′w‖²_(𝗌−1/2+δ) + ‖χw‖²_(−N)),
+    Re⟨Op(ςH_ℓ(ǎ²))w, w⟩ ≤ −‖B_εw‖² + ‖E_εw‖² + C‖w‖²_(𝗌−1/2+δ),
 
 dropping −‖B_(e,ε)w‖² ≤ 0. For the L_I term, fix elliptic operators Λ_± of orders ±(m − 1)/2 defining the norms of
 H^(±(m−1)/2), and let C_I be the norm of L_I between these spaces. It depends on finitely many norms of the coefficients
 and not on M or ε. Take Λ_+ := Op(λ_+) with λ_+ classical. Then Λ_+Ǎ = Op(λ_+z_ε)B_ε + (order 𝗌 − 1 + 2δ)
-([[prop:ii-a1-2-4]] (b)), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛM^(−1/2), with
+([[prop:ii-a1-2-4]] (b), with ǎ_ε = z_εb_ε), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛM^(−1/2), with
 C_Λ := sup |λ_+μ^(−1/2)|, as Q_ε ≥ M. [[lem:ii-a1-2-6]] with η := M⁻¹ and δ/2 in place of δ, applied to B_εw, and
 (a + b)² ≤ 2a² + 2b² give
 
-    ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)M⁻¹‖B_εw‖² + C‖G′w‖²_(𝗌−1/2+δ) + C‖χw‖²_(−N),
+    ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)M⁻¹‖B_εw‖² + C‖w‖²_(𝗌−1/2+δ),
 
-where ‖B_εw‖_(−1/2+δ/2), with b_ε bounded in the class of order 𝗌 + δ/2, is bounded by the last two norms, b_ε being
-supported in the support of ǎ ([[prop:ii-a1-2-4]] (e)). Enlarge M so that 4C_I(C_Λ² + 1)M⁻¹ ≤ 1/2. Then
+where ‖B_εw‖_(−1/2+δ/2) ≤ C‖w‖_(𝗌−1/2+δ), b_ε being bounded in the class of order 𝗌 + δ/2. Enlarge M so that
+4C_I(C_Λ² + 1)M⁻¹ ≤ 1/2. Then
 
-    ς⟨C_(ǎ_ε)w, w⟩ ≤ −(1/2)‖B_εw‖² + ‖E_εw‖² + C(‖G′w‖²_(𝗌−1/2+δ) + ‖χw‖²_(−N)).
+    ς⟨C_(ǎ_ε)w, w⟩ ≤ −(1/2)‖B_εw‖² + ‖E_εw‖² + C‖w‖²_(𝗌−1/2+δ).
 
 This is [[eq:ii-a1-4-2]] for 2^(−1/2)b_ε, e_ε and 2^(1/2)z_ε, with δ_0 := δ. The other hypotheses of [[lem:ii-a1-4-1]]
 hold by the construction, with d_0 large enough that the norms used are among those available: d_0 − 2 ≥ M′ + 2 for the
 M of [[prop:ii-a1-2-4]] at the orders involved and index 1, called M′ here.
 
-*Conclusion.* The hypotheses of [[lem:ii-a1-4-2]] hold with Γ := γ([0, T]). For each U ⊃ Γ shrink δ and δ_1 so that
+*Conclusion.* The hypotheses of [[lem:ii-a1-4-2]] hold with Γ := γ([0, T]). For each U ⊃ Γ shrink δ and δ_1, and the
+supports of the localisers, so that
 the support lies in U. The E-sets lie in {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ⊂ Ell(E), which misses Γ. There is no threshold, so
 τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and [[eq:ii-a1-4-5]] is [[eq:ii-a1-5-1]], with any
 B ∈ C^∞_b Ψ⁰_e3b carried by χ, microsupported in U_* and elliptic on Γ. On ℂ^(N′) the commutant is scalar and L_I is

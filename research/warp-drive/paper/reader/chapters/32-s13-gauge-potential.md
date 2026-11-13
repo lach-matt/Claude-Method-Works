@@ -13,19 +13,19 @@ generalised zero energy states of □^Υ_b ([[sec:iii-d2-1]]–[[sec:iii-d3-3]])
 
 The dimensional changes are these. The mass of g_b enters g_b − ḡ at |x|⁻² and its rotation at |x|⁻³, where those of
 Kerr enter at |x|⁻¹ and |x|⁻²; so every comparison with Minkowski space gains a power of |x|⁻¹. The radial weight
-ρ∂_ρ − 1 becomes ρ∂_ρ − 3/2, the trace weight of the modification is 2/3 = 2/(d − 2), and the harmonics are those of
+ρ∂_ρ − 1 becomes ρ∂_ρ − 3/2, the trace weight of the modification is 2/3 = 2/(n − 1), and the harmonics are those of
 𝕊³, which has six rotations and a tensor type. The indicial roots move: the gap of the unmodified operator at zero
 energy is (0, 2), and that of □^Υ_b is (0, ι^Υ_(s1,2)) with ι^Υ_(s1,2) just above 2. Two inputs that [Hin26] takes
 from [AHW24, Theorem 5.1] on Kerr, mode stability of the unmodified operator away from zero frequency and its kernel at
 zero frequency, are proved here on five-dimensional Tangherlini, by ordinary differential equations whose potentials
 are positive. The corrections to the boosts and to the time translation carry no logarithm.
 
-Twelve results of the main argument enter as inputs and are proved in this chapter, with every identity derived:
+Thirteen results of the main argument enter as inputs and are proved in this chapter, with every identity derived:
 [[prop:np-10-15]] (the zero energy data of the unmodified operator), [[prop:np-10-16]] (the mode equations on
-Tangherlini), [[prop:np-10-18]] (the structure at infinity and the horizon threshold), [[prop:np-10-20]] (the
-transition face and the weights), [[prop:np-10-28]] (the symmetries and the linearised Myers–Perry metrics),
-[[prop:np-10-29]] and [[prop:np-10-30]] (the model generalised states and their root facts). So are the
-trapping identities [[prop:np-10-17-i]], [[prop:np-10-17-iii]]–[[prop:np-10-17-v]] and [[prop:np-10-19-iii]];
+Tangherlini), [[prop:np-10-18]] (the structure at infinity and the horizon threshold), [[prop:np-10-19-i]] (the radial
+structure at the incoming radial set), [[prop:np-10-20]] (the transition face and the weights), [[prop:np-10-28]]
+(the symmetries and the linearised Myers–Perry metrics), [[prop:np-10-29]] and [[prop:np-10-30]] (the model
+generalised states and their root facts, with their counterparts in dimension 3 + 1). So are the trapping identities [[prop:np-10-17-i]], [[prop:np-10-17-iii]]–[[prop:np-10-17-v]] and [[prop:np-10-19-iii]];
 [[prop:np-10-17-ii]], [[prop:np-10-19-ii]] and [[prop:np-10-19-iv]] are proved in [[ch:s12]].
 
 *The dynamical hypotheses.* The theory of [[ch:s01]]–[[ch:s03]] applies to operators on a trivial bundle satisfying
@@ -139,7 +139,7 @@ x̄⁰ := t̄ + r and x̄¹ := t̄ − r = t_*; and (a, b, c, e′, f, q) is the
 a(dx̄⁰)² + 2b dx̄⁰dx̄¹ + 2dx̄⁰ ⊗_s rc + e′(dx̄¹)² + 2dx̄¹ ⊗_s rf + r²q.
 
 **Lemma {#lem:iii-d-3-1}** (The Minkowski model; [Hin26, Lemma 6.3] in dimension 4 + 1.) Let ν ≥ 2 and m_ν := 2/ν,
-the trace weight 2/(d − 2) of dimension d = ν + 2 (2/3 at ν = 3). In the splitting [[eq:iii-a1-2-2]] for 𝕊^ν, with
+the trace weight 2/(n − 1) of dimension n + 1 = ν + 2 (2/3 at ν = 3). In the splitting [[eq:iii-a1-2-2]] for 𝕊^ν, with
 D := ρ∂_ρ, e := e_Υ and γ := γ_Υ:
 
     c̄ = ρ(½, ½, 0),     ḡ⁻¹(c̄) = −ρ(∂_0 + ∂_1),
@@ -287,9 +287,9 @@ above 2.
 1, then, as tr_g G_g h = −(3/2) tr_g h in dimension 5, ĒḠh = −γ(2ι_(ḡ⁻¹c̄)h − ½(3e − 1)c̄ tr h): every formula of
 [[lem:iii-d-3-1]] and [[eq:s13-dets]] holds with e replaced by (3e − 1)/2. In particular the spectrum of S̄ becomes
 (3/2)(1 − e)γ, 2γ, γ, and the s0 root 2 of the unmodified operator moves to (1 + (9 − 8γ²(1 − 3e))^(1/2))/2, which
-lies in (1, 2) when e < 1/3 and 0 < γ²(1 − 3e) < 1, inside the gap (0, 2). The weight 2/3 = 2/(d − 2) avoids this:
-(2/(d − 2))(1 − d/2) = −1 in every dimension d, so that ĒḠ takes the same form −γ(2ι − e c̄ tr) as in dimension 4
-with the weight 1.
+lies in (1, 2) when e < 1/3 and 0 < γ²(1 − 3e) < 1, inside the gap (0, 2). The weight 2/3 = 2/(n − 1) avoids this:
+(2/(n − 1))(1 − (n + 1)/2) = −1 in every dimension n + 1, so that ĒḠ takes the same form −γ(2ι − e c̄ tr) as in
+dimension 4 with the weight 1.
 
 ### The subprincipal data {#sec:iii-d-5}
 

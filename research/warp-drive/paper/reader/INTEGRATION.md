@@ -317,3 +317,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S27 needs an Appendix A entry for local well-posedness and Cauchy stability of the compact part (F-S27 names it).
 - S27's dependence on the S4 tame estimate is only through S24 (and S9/S19 behind it): Lemma 2.2 (c), Lemma 2.3,
   Theorem 3.2 (ii), (iii) and the smallness step.
+- S8/S9 literature update: S8's last pending marker replaced (cor:std-zero-sobolev entry by entry, thm:std-mazzeo-
+  melrose, Usula 5.20 (1)); S9's Cauchy use is at s ∈ ℤ and lem:ii-f-6-3 narrowed to s′ ∈ ℤ (decided: every use is at
+  an integer order). New label eq:ii-f-lp-prime (S29 at 48:283-286 may cite it; add a crosswalk row at integration).
+  A reader checks both changes.
