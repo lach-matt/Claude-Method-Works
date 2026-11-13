@@ -166,22 +166,24 @@ same proof, the identity being exact for every κ and |1 − φ_ε| ≤ min(1, �
 (b). δ_c ∈ [0, ¼] is the constant in the a priori term of [[lem:ii-a1-4-1]] (an
 inequality with δ_c = 0 implies the same inequality with every δ_c > 0), and ς ∈ {1, −1} the sign there.
 
-**Lemma {#lem:ii-d-2-1}** (One step with a characteristic cut-off.) Let (i)–(ii) of [[lem:ii-a1-4-1]] hold, and in place
-of its (iii) the following: there are real scalar symbols j_ε, bounded in C^(M)_ν S̃^(2𝗌−m) and, for each ε, in
-C^(M)_ν S̃^(2𝗌−m−2κ), supported in K_1, such that for every w ∈ H^(K′)_e3b carried by χ, with J_ε := Op(j_ε),
+**Lemma {#lem:ii-d-2-1}** (One step with a characteristic cut-off.) Let (i)–(ii) of [[lem:ii-a1-4-1]] hold, with its
+localisers Φ_0, Φ_E and its operators Ǎ_ε, B_ε, E_ε, and in place of its (iii) the following: there are real scalar
+symbols j_ε, bounded in C^(M)_ν S̃^(2𝗌−m) and, for each ε, in C^(M)_ν S̃^(2𝗌−m−2κ), supported in K_1, such that for every
+w ∈ H^(K′)_e3b, with J_ε := Op(j_ε)Φ_0,
 
-    ς⟨C_(ǎ_ε) w, w⟩ ≤ −‖B_ε w‖² + ‖E_ε w‖² + 2 Re⟨J_ε L w, w⟩
-                       + C_0 (‖G′w‖²_(𝗌−½+δ_c) + ‖χw‖²_(−N′)).                                             {#eq:ii-d-2-1}
+    ς⟨C_(ǎ_ε) w, w⟩ ≤ −‖B_ε w‖² + ‖E_ε w‖² + 2 Re⟨J_ε L w, w⟩ + C_0‖w‖²_(𝗌−½+δ_c).                         {#eq:ii-d-2-1}
 
 Then the conclusion [[eq:ii-a1-4-3]] of [[lem:ii-a1-4-1]] holds.
 
 *Proof.* As for [[lem:ii-a1-4-1]], with two additions to the steps of that proof. In Step 1, for fixed ε, ⟨J_ε L w_t,
 w_t⟩ → ⟨J_ε L v, v⟩ as t → 0: w_t → v in H^(𝗌−κ), so L w_t → L v in H^(𝗌−κ−m), and J_ε* w_t → J_ε* v in H^(−𝗌+m+κ), J_ε*
-having order 2𝗌 − m − 2κ for this ε without loss ([[prop:ii-a1-2-4]] (a), (c)). In Step 2 the new term is bounded at v =
-Φu: Lv = ΦLu + [L, Φ]u, and J_ε[L, Φ] has every order uniformly, by [[prop:ii-a1-2-4]] (e), as in Step 0; and |⟨ΦLu,
-J_ε* v⟩| ≤ ‖ΦLu‖_(𝗌−m+1) ‖J_ε* v‖_(−𝗌+m−1). J_ε* is uniformly of order 2𝗌 − m + δ for every δ > 0 and microsupported in
-K_1, so ‖J_ε* v‖_(−𝗌+m−1) ≤ C(‖Gu‖_(𝗌−1+δ) + ‖χu‖_(−N′)). With δ ≤ ½ and Step 0, 2|⟨J_ε L v, v⟩| ≤ C(‖GLu‖²_(𝗌−m+1) +
-‖Gu‖²_(𝗌−½+δ_c) + ‖χu‖²_(−N′)), which is of the form of the right side of [[eq:ii-a1-4-3]]. ∎
+having order 2𝗌 − m − 2κ for this ε without loss ([[prop:ii-a1-2-4]] (a), by duality). In Step 2 the new term is
+bounded at v = Φu: Lv = ΦLu + [L, Φ]u, and J_ε[L, Φ] = Op(j_ε)(Φ_0(I − Φ))L − Op(j_ε)(Φ_0L(I − Φ)) has every order
+uniformly, as in Step 0 ([[lem:ii-a1-1-2]], [[prop:ii-a1-2-4]] (e)); and |⟨ΦLu, J_ε* v⟩| ≤ ‖ΦLu‖_(𝗌−m+1)
+‖J_ε* v‖_(−𝗌+m−1). J_ε* is uniformly of order 2𝗌 − m + δ for every δ > 0, so ‖J_ε* v‖_(−𝗌+m−1) ≤ C‖v‖_(𝗌−1+δ) ≤
+C(‖Gu‖_(𝗌−1+δ) + ‖χu‖_(−N′)), the last by (c) of Step 2 of that proof at the order 𝗌 − 1 + δ. With δ ≤ ½ and Step 0,
+2|⟨J_ε L v, v⟩| ≤ C(‖GLu‖²_(𝗌−m+1) + ‖Gu‖²_(𝗌−½+δ_c) + ‖χu‖²_(−N′)), which is of the form of the right side of
+[[eq:ii-a1-4-3]]. The global error term C_0‖v‖²_(𝗌−½+δ_c) is that of [[eq:ii-a1-4-2]], bounded by (c) of Step 2. ∎
 
 **Lemma {#lem:ii-d-2-2}** (Iteration.) [[lem:ii-a1-4-2]] holds with [[lem:ii-d-2-1]] in place of [[lem:ii-a1-4-1]].
 

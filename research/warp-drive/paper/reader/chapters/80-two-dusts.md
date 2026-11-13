@@ -1135,8 +1135,8 @@ from D^(m), only terms without phase derivatives, by (β), namely ½ □̃ ⟨D^
 bounded profiles as coefficients; from D^(m+1), whose mixed harmonics vanish, by (β), Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + M_𝔨)
 Ξ_𝔨 with Ξ_𝔨 := F_𝔨 Π_𝔨 D^(m+1), together with −½ e^(−4σ) χ_out F1 Ξ_in − ½ e^(−4σ) χ_in F2 Ξ_out, which has mixed
 harmonics only; and from D^(m+2), by (α), g0^(uv) F1F2 D^(m+2), which has mixed harmonics only. The terms from D^(j),
-for j ≥ m + 3, are of higher order. So the mean of the order-m equation is the linear wave equation for ⟨D^(m)⟩ of the proof of
-[[lem:gauge-hierarchy]], with the forcing Σ_𝔨 ⟨M_𝔨 Ξ_𝔨⟩; its pure harmonics of θ_𝔨 are the transport
+for j ≥ m + 3, are of higher order. So the mean of the order-m equation is the linear wave equation for ⟨D^(m)⟩ of the
+proof of [[lem:gauge-hierarchy]], with the forcing Σ_𝔨 ⟨M_𝔨 Ξ_𝔨⟩; its pure harmonics of θ_𝔨 are the transport
 
     (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨) Ξ_𝔨 + Π_𝔨 Σ_𝔧 M_𝔧 Ξ_𝔧 = (first order in ⟨D^(m)⟩)
 
