@@ -983,8 +983,9 @@ P of kernel range at most D; and χ_* is carried by χ, through a function of ϑ
 supp χ_1 ⊂ supp χ. As χ_1 = 1 wherever χ = 1, every operator carried by χ is carried by χ_1, through the same function
 and for the same D. The function χ_1, and each of its derivatives along b-vector fields, is χ times a function in
 C^∞(M̃), the functions h_♭^(j)(s)/s being smooth. For a word V^J in the V_i, the identity fVw = V(fw) − (Vf)w, applied
-repeatedly, writes χ_1V^Ju as a sum of terms ±V^(J′)((V^(J″)χ_1)u), with J′ and J″ complementary subwords of J, and
-(V^(J″)χ_1)u = h(χu) with h ∈ C^∞(M̃). By [[eq:ii-a-8-1]] and [[lem:ii-a-8-4]] (a) for the multiplication by h,
+repeatedly, writes χ_1V^Ju as a sum of terms ±V^(J′)((V^(J″)χ_1)u), with J′ a subword of J and J″ the complementary
+subword in reverse order (for J = (1, 2), the term with J′ empty is (V_2V_1χ_1)u), and (V^(J″)χ_1)u = h(χu) with
+h ∈ C^∞(M̃). By [[eq:ii-a-8-1]] and [[lem:ii-a-8-4]] (a) for the multiplication by h,
 
     ‖χ_1V^Ju‖_(H^((𝗍;q))_(e3b;b)) ≤ C‖χu‖_(H^((𝗍;q+|J|))_(e3b;b))     for all 𝗍, q and J.
 
@@ -2274,15 +2275,21 @@ C(‖GLu‖_((𝗌−m+1;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c) an
 [[prop:ii-a-9-1]]. Similarly ‖E_1V_ju‖_((𝗌;k−1)) ≤ C(‖Eu‖_((𝗌;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c), and
 ‖χ_1u^((1))‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)), by (R3). On the left,
 ‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))), and both are bounded by
-C(‖B_1u^((1))‖_((𝗌;k−1)) + ‖χu‖_((−N;k))). For the first, [[lem:ii-a-8-4]] (c) applies with WF′(B) ⊂ Ell(B_1). For the
-second, the wave front set lies in that of B, and the j = 0 component of u^((1)) is u. The finiteness statements follow
-as in [[prop:ii-a-9-1]]. At each k the step applies the statement at k − 1, and through it (L4), to a new system
-L^((1)), of rank N′(N + 1), with finite sets enlarged by the A_(j,l), and to new operators B_1, E_1, G_1 and a new
-cut-off χ_1; it applies [[lem:ii-a-8-6]] (a) with a new cut-off χ_*. The kernel ranges do not accumulate over the k
-levels. The statement at k − 1 holds for all admissible data, whatever bound D their kernel ranges have, and its proof
-finds its room anew in the carriers of B_1, E_1 and G_1 ((R1)); each level adds one truncated parametrix, of range at
-most the room of that level. The truncations change operators by residual ones and so change only constants. Neither
-index depends on these choices ([[thm:ii-a1-5-4]], [[lem:ii-a-8-6]]), so d_0 does not depend on k. ∎
+C(‖B_1u^((1))‖_((𝗌;k−1)) + ‖χu‖_((−N;k))). For both, [[lem:ii-a-8-4]] (c) applies with the cut-off χ_1 of (R3),
+which carries B, [V_j, B] and B_1. For the first, WF′(B) ⊂ Ell(B_1), and
+‖BV_ju‖_((𝗌;k−1)) ≤ C(‖B_1V_ju‖_((𝗌;k−1)) + ‖χ_1V_ju‖_((−N;k−1))), where ‖χ_1V_ju‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)) by (R3).
+For the second, the wave front set lies in that of B, the j = 0 component of u^((1)) is u, and ‖χ_1u‖_((−N;k−1)) ≤
+C‖χu‖_((−N;k)) likewise. The finiteness statements follow as in [[prop:ii-a-9-1]]. At each k the step applies the
+statement at k − 1, and through it (L4), to a new system L^((1)), of rank N′(N + 1), with finite sets enlarged by the
+A_(j,l), and to new operators B_1, E_1, G_1 and a new cut-off χ_1; it applies [[lem:ii-a-8-6]] (a) with a new cut-off
+χ_*. The kernel ranges grow with the depth of the induction: L^((1)) has kernel ranges at most D + ϵ_ϑ, and its proof
+at level k − 1 adds the room found there, so at depth j the ranges are at most D + ϵ^(1) + ⋯ + ϵ^(j), with ϵ^(i) the
+room found at the i-th level. This growth is harmless, as no bound on the ranges is fixed in advance. The statement at
+k − 1 holds for all admissible data, whatever bound their kernel ranges have; here it is applied with the bound
+D + ϵ_ϑ, which the margin D + 7ϵ_ϑ of B_1, E_1 and G_1 covers, and its proof finds its room anew in the carriers of
+B_1, E_1 and G_1 ((R1)). There are k levels, so all ranges stay finite. The truncations change operators by residual
+ones and so change only constants. Neither index depends on these choices ([[thm:ii-a1-5-4]], [[lem:ii-a-8-6]]), so
+d_0 does not depend on k. ∎
 
 #### Tame estimates {#sec:ii-a-9-3}
 
