@@ -331,10 +331,11 @@ of [[sec:tab-bg-ray]]). By [[eq:bg-psi3-def]] and d/dv̂ = a(ρ) d/dρ, the deri
 that is Ψ_1 = aΦ″/Φ′ + a′ − μ3E/Φ³ with E = f1Φ′/f3(Φ), which is ψ_v̂ of [[eq:bg-inputs]] at u = u2, where B = 0.
 
 **Proposition {#prop:bg-seed}** (Region III and the seed region.) Let ψ_s and μ_s be the reference quintic and mass of
-[[sec:table-seed-profile]], repeated in [[sec:tab-bg-spline]].
+[[sec:table-seed-profile]].
 
-(a) Region III meets Σ_τ0 exactly in the points with R ≤ R_u2, where 1.8614098 ≤ R_u2 ≤ 1.8614596; in particular the
-seed region 0.70 ≤ R ≤ 1.861 (0.02 ≤ v̂ ≤ 1.181) lies in region III, and f3(Φ(ρ)) > 0 for every ρ ∈ [2.32, 3.44].
+(a) Region III meets Σ_τ0 ∩ {R ≤ R_*} exactly in the points with 0.68 ≤ R ≤ R_u2, where 1.8614098 ≤ R_u2 ≤ 1.8614596;
+in particular the seed region 0.70 ≤ R ≤ 1.861 (0.02 ≤ v̂ ≤ 1.181) lies in region III, and f3(Φ(ρ)) > 0 for every
+ρ ∈ [2.32, 3.44].
 
 (b) For every v̂ ∈ [0.02, 1.181],
 
@@ -346,7 +347,8 @@ and |μ3 − μ_s| ≤ 1.79 × 10⁻⁶. In particular the bounds 5.1 × 10⁻�
 (c) Consequently (ψ_III, ψ_III′, ψ_III″) lies within (10⁻³, 10⁻³, 3 × 10⁻²) of (ψ_s, ψ_s′, ψ_s″) on the seed region and
 |μ3 − μ_s| ≤ 10⁻⁴: the background lies in the tube of [[prop:margins-seed]] (b), and Γ > 0 on the seed region.
 
-Proof. (a) Let g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 for ρ ∈ [2.32, 3.44]. Its derivative is J(u2, ρ) − 1/a(ρ) < 1 − 2 < 0 since
+Proof. (a) On Σ_τ0, R = v̂ + 0.68 ≥ 0.68 since v̂ ≥ 0, and by [[lem:bg-reduction]] (f) a point of Σ_τ0 with R ≤ R_*
+lies on a ray ρ ∈ [2.321, R_*] ⊂ [2.32, 3.44]. Let g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 for ρ ∈ [2.32, 3.44]. Its derivative is J(u2, ρ) − 1/a(ρ) < 1 − 2 < 0 since
 J ≤ 1 ([[prop:bg-rays]]) and a < 1/2. By [[prop:bg-rays]], g(2.77362) ≥ Φ̃(2.77362) − v̂(2.77362) − 0.68 − ε₀ ≥ 1.89 ×
 10⁻⁵ > 0 and g(2.77364) ≤ −1.27 × 10⁻⁵ < 0; so g has one zero ρ_u2 ∈ (2.77362, 2.77364). A point of Σ_τ0 on the ray ρ
 has R = v̂(ρ) + 0.68; since R decreases along the ray ([[lem:bg-reduction]] (c)) it lies in {u ≥ u2} exactly when R ≤
@@ -371,9 +373,22 @@ of [[eq:bg-seed-split]] is at most
 
     Δ_k := Σ_(j≤3) sup|∂Ψ_k/∂Φ^(j)| ε_j + sup|∂Ψ_k/∂μ3| · 4.07 × 10⁻⁷,  {#eq:bg-seed-delta}
 
-that is Δ_0 = 3.34 × 10⁻⁶, Δ_1 = 5.20 × 10⁻⁶, Δ_2 = 1.50 × 10⁻⁵. The function ẽ_k is explicit, and
-[[lem:bg-tools]] (c) with N = 5 at the midpoint of each interval, the sixth derivative being enclosed by
-[[lem:bg-tools]] (d), bounds it as in the rows of [[sec:tab-bg-seed]]. The largest totals are 3.020 × 10⁻⁵, 2.394 ×
+that is Δ_0 = 3.34 × 10⁻⁶, Δ_1 = 5.20 × 10⁻⁶, Δ_2 = 1.50 × 10⁻⁵.
+
+The function ẽ_k is bounded by [[lem:bg-tools]] (c) with N = 5 at the midpoint ρ_m of each interval: |ẽ_k| ≤
+Σ_(n≤5) |c_n| hⁿ + h⁶ sup |c_6(ξ)|, where c_n is the n-th Taylor coefficient of ẽ_k at ρ_m, c_6(ξ) := ẽ_k^(6)(ξ)/6!
+for ξ in the interval, and h is the half-width. These coefficients are obtained as follows. The function ẽ_k is built
+from ρ by sums, products, quotients, logarithms and 𝒟: Φ̃ = Σ C_j T_j(y) with y = (ρ − 2.88)/0.56 and T_(j+1) =
+2yT_j − T_(j−1); f1 = 1 − 3/(2ρ²), a = f1/2 and f3(Φ̃) = 1 − μ̃3/Φ̃²; Ψ_0 = ln Φ̃′ + ln f1 − ln f3(Φ̃), Ψ_1 = a𝒟Ψ_0
+and Ψ_2 = a𝒟Ψ_1 ([[eq:bg-psi3]]); v̂ = F(ρ) − F(2.321) with F of [[eq:bg-tangherlini]]; and ψ_s^(k)(v̂), where the
+k-th derivative ψ_s^(k) of the quintic is a polynomial. Starting from the Taylor series ρ_0 + t of ρ at a point ρ_0,
+the rules [[eq:bg-series]] give the Taylor coefficients at ρ_0 of each of these functions in turn, up to order 8
+(each 𝒟 lowers the order by one), and so those of ẽ_k up to order 6; every operation on numbers is replaced by
+[[lem:bg-tools]] (d), with √(3/2) enclosed by it. With ρ_0 = ρ_m this encloses c_0, …, c_5. With ρ_0 replaced by
+each of twenty equal parts P of the interval, the same steps enclose, at every ξ ∈ P, the coefficients at ξ, since
+each is the same finite combination of ξ; the sixth one encloses c_6(ξ). This gives the columns "Taylor" and "rest"
+of [[sec:tab-bg-seed]], the rest being at most 2 × 10⁻¹⁰ in every row, and the totals Taylor + rest + Δ_k bound
+|e_k| on each interval. The largest totals are 3.020 × 10⁻⁵, 2.394 ×
 10⁻⁴ and 8.558 × 10⁻⁴, all on the first interval. Finally |μ3 − μ_s| ≤ |μ̃3 − μ_s| + 4.07 × 10⁻⁷ ≤ 1.3809 × 10⁻⁶ + 4.07 ×
 10⁻⁷.
 
@@ -399,10 +414,9 @@ decreasing in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decr
 [[sec:tab-bg-slice-packet]], Ψ̃(u_a, ρ_hi) + ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at
 u_a = u1 take ρ_hi ≥ R_* from [[lem:bg-rstar]], at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice
 points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo, ρ_hi]. On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and λ lie between their
-values at u_a and u_b (monotone, [[prop:bg-nprime]] (iii)), which are μ̃, λ̃ there up to the errors of
-[[prop:bg-nprime]]; B lies between its end values, or between the smaller one and 17/10 when 6.45 is inside, by
-[[lem:bg-tools]] (e); J
-and K lie in the Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)].
+values at u_a and u_b (monotone, [[prop:bg-nprime]] (iii)), which are μ̃, λ̃ there up to the errors
+4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv); B lies between its end values, or between the smaller one and
+17/10 when 6.45 is inside, by [[lem:bg-tools]] (e); J and K lie in the Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)].
 Then [[eq:bg-nk-packet]] and [[lem:bg-tools]] (d) give the enclosures of Ef and N_κ in the second table: Ef < 1 and N_κ <
 0 on every row, and the largest upper bound of κK^l_l is −6.00 × 10⁻³, on the row u ∈ [6.05, 6.1]. ∎
 
@@ -416,7 +430,8 @@ Near R = R_* the packet's slice points approach region I, where E = 1 and N_κ =
 (a) On 𝒩′, λ ≥ 0.529 on [u1, u2]; R(u2) ∈ [1.519357, 1.519359]; the mass of region III satisfies μ3 ∈ [0.8220998,
 0.8221253] and R(u2)² > μ3.
 
-(b) Region III meets Σ_τ0 in R ≤ R_u2, 1.861394 ≤ R_u2 ≤ 1.861466, and contains the seed region. On the seed region,
+(b) Region III meets Σ_τ0 ∩ {R ≤ R_*} exactly in 0.68 ≤ R ≤ R_u2, where 1.861394 ≤ R_u2 ≤ 1.861466, and contains the
+seed region. On the seed region,
 |ψ_s^(k) − ψ_III^(k)| ≤ 5.1 × 10⁻⁵, 2.6 × 10⁻⁴, 8.7 × 10⁻⁴ for k = 0, 1, 2, and |μ3 − μ_s| ≤ 1.4 × 10⁻⁵; so the
 background lies in the tube of [[prop:margins-seed]] (b) and Γ > 0 on the seed region.
 
@@ -424,9 +439,10 @@ background lies in the tube of [[prop:margins-seed]] (b) and Γ > 0 on the seed 
 
 Proof. (a) is [[prop:bg-nprime]], (b) is [[prop:bg-seed]], (c) is [[prop:bg-slice]]. ∎
 
-**Remark {#rem:bg-grid}** (Numerical observation.) The quintic ψ_s is the first piece of a smoothing spline fitted to
-the values of ψ_III on a second-order finite-difference solution of the characteristic problem on a double-null grid
-with 160 steps per unit, and μ_s is that solution's mass in region III; only the printed coefficients of ψ_s and the
-number μ_s enter [[prop:bg-seed]]. The same grid solution reproduces the six inputs [[eq:bg-inputs]] at 40 points of
-the packet on Σ_τ0 to within 2.0 × 10⁻³ (E), 1.1 × 10⁻³ (f), 2.7 × 10⁻³ (ψ_R, of size 0.20), 2.0 × 10⁻³ (ψ_v̂, of size
-0.06), 2.8 × 10⁻³ (f_R) and 7.7 × 10⁻⁴ (f_v̂), up to 3 % of the smaller inputs. No proof uses this comparison.
+**Remark {#rem:bg-grid}** (Numerical observation.) The reference quintic ψ_s of [[sec:table-seed-profile]] is the first
+piece of a degree-5 smoothing spline fitted to the values of ψ_III on a second-order finite-difference solution of the
+characteristic problem on a double-null grid with 160 steps per unit, and μ_s is that solution's mass in region III.
+The same grid solution reproduces the six inputs [[eq:bg-inputs]] at 40 points of the packet on Σ_τ0 to within
+2.0 × 10⁻³ (E), 1.1 × 10⁻³ (f), 2.7 × 10⁻³ (ψ_R, of size 0.20), 2.0 × 10⁻³ (ψ_v̂, of size 0.06), 2.8 × 10⁻³ (f_R) and
+7.7 × 10⁻⁴ (f_v̂), up to 3 % of the smaller inputs. No proof uses this remark: [[prop:bg-seed]] uses only the printed
+coefficients of ψ_s and the number μ_s.

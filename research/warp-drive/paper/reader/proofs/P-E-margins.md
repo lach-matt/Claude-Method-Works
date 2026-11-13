@@ -234,7 +234,8 @@ R_*, and there Σ′ = Σ_τ0. So carrying a domain of influence from one slice 
 at most 3.3 × 10⁻⁴ rad.
 
 *Proof.* On Σ′, τ = τ0 + φ(R). By [[prop:margins-bend]], φ = 0 outside [3.5, 5.75], and φ < 0 on (3.5, 5.75), since φ
-decreases from φ(3.5) = 0 on [3.5, x*] and increases to φ(5.75) = 0 on [x*, 5.75]. This gives the first two statements.
+strictly decreases from φ(3.5) = 0 on [3.5, x*] and strictly increases to φ(5.75) = 0 on [x*, 5.75]. This gives the
+first two statements.
 
 *Time functions in region I.* With τ = v̂ − R, [[eq:margins-vaidya]] reads g = −f dτ² + 2(1 − f) dτ dR + (2 − f) dR² +
 R² dΩ₃², whose inverse on the (τ, R) plane has g^(ττ) = −(2 − f), g^(τR) = 1 − f and g^(RR) = f. So g⁻¹(dτ, dτ) = −(2 −
@@ -370,10 +371,10 @@ fV′))^(1/2), κ′ := −g(∇_T T, n)/g(T, T) has numerator V″ + f_v̂ V′
 (V′(2 − fV′))^(1/2) g(T, T). The trace on the spheres is K′^l_l = 3n^R/R. At V′ = 1, V″ = 0 these are the formulas of
 [[pending:lem-racz-split-formulas]] with ψ = 0, which fixes the signs. ∎
 
-On Σ′ the slice is V(R) = τ0 + R + φ(R), so V′ = 1 + φ′ ∈ [0.99786, 1.00149] and V″ = φ″ by [[prop:margins-bend]], and
-Ξ = φ″ + (μ/R³)V′²(3 − fV′) − μ̇V′³/(2R²). On Σ′ ∩ {R ≥ R_*}, which lies in region I by [[lem:margins-region-one]]
-(c), μ ≥ 3/2, so f ≤ 1 − 3/(2R²); with V′ ≤ 1.00149, and V′ = 1 for R ≥ 5.75, this gives fV′ < 1 on Σ′ ∩ {R ≥ R_*}, so
-K′^l_l < 0 there, and κ′ > 0 exactly where Ξ > 0.
+On Σ′ the slice is V(R) = τ0 + R + φ(R), so V′ = 1 + φ′ ∈ [0.99786, 1.00149] and V″ = φ″ by [[prop:margins-bend]], and Ξ
+= φ″ + (μ/R³)V′²(3 − fV′) − μ̇V′³/(2R²). On Σ′ ∩ {R ≥ R_*}, which lies in region I by [[lem:margins-region-one]] (c), μ
+≥ 3/2, so f ≤ 1 − 3/(2R²); with V′ ≤ 1.00149, and V′ = 1 for R ≥ 5.75, this gives fV′ < 1 on Σ′ ∩ {R ≥ R_*}, so K′^l_l <
+0 there, and κ′ > 0 exactly where Ξ > 0.
 
 ### Hyperbolicity on R ≥ R_* {#sec:margins-hyperbolic}
 
@@ -489,8 +490,8 @@ s)R0_k + sR0_(k+1), and N_κ(v) is within 5 × 10⁻⁶ + M_k/51200 of (1 − s)
   −4.7 × 10⁻⁵, and at s = 0.556, R0 ≤ 4.5238047 + 0.556 × 0.0129054 + 4.5 × 10⁻⁶ ≤ 4.530985.
 
 Since R0 is increasing, N_κ < 0 on R ∈ [R_*, 4.288224] ⊃ [R_*, 4.2882] and on [4.530985, ∞) ⊃ [4.5310, ∞), and N_κ > 0
-on [4.295486, 4.525813] ⊃ [4.2955, 4.5258]. On Σ_τ0, K^l_l < 0 and κ = −N_κ/(2 − f)^(3/2), so the split is hyperbolic where N_κ < 0 and not hyperbolic where N_κ
-> 0. By continuity N_κ vanishes in each of the two intervals left over. ∎
+on [4.295486, 4.525813] ⊃ [4.2955, 4.5258]. On Σ_τ0, K^l_l < 0 and κ = −N_κ/(2 − f)^(3/2), so the split is hyperbolic
+where N_κ < 0 and not hyperbolic where N_κ > 0. By continuity N_κ vanishes in each of the two intervals left over. ∎
 
 The rows give more than the statement: κ′K′^l_l ≤ −3.04 × 10⁻⁴ on Σ′ ∩ {R_* ≤ R ≤ 5.75}. The largest cell bounds occur
 on the cells around R = 4.66, where the bend's central lobe is on its falling side. For 0.68 ≤ R ≤ R_*, where Σ′ =
@@ -519,12 +520,12 @@ Where ψ = 0 this is Γ/E² = 4R³μ/(R² + μ), that is Γ = 4μ/R for the norm
 
 *Proof.* Since E′ = aE and ν = R³, (2νER/√G)′ = E((2R⁴/√G)′ + 2aR⁴/√G), so P = E²p with p := 8R⁴/G − R(2R⁴/√G)′/√G −
 2aR⁵/G = (R⁵/G)(G′/G − 2a), and Γ/E² = 4R³ − 2ap − p′. Here G′/G = ψ′ − w′/(2 − w) with w′ = q(ψ′f + f′), and a = −3/R +
-N_κ/((2 − w)(w − 1)). Substituting, p′ contains ψ″ linearly through ψ″ in (G′/G)′ and in N_κ′ = (q/2)(ψ′f′ + f″)(w −
-3) + (qf′/2)w′ − ψ″, f″ = −6μ/R⁴. Clearing the common denominator qR⁶(2 − w)(1 − w)² and collecting the coefficients of
-1, ψ′, ψ′² and ψ″, the numerator of the ψ′⁰ term becomes 4R⁹n0 after the substitution q = 1 − u, m = μ/R², which gives
-the stated A0, A1, A2, A3. At ψ = 0, u = 0 and ψ′ = ψ″ = 0, so Γ/E² = A0 = 4R³m³/((1 + m)m²) = 4R³μ/(R² + μ). Since E′ = aE
-fixes E only up to a constant factor, and Γ scales with E², the last statement is for the normalisation E = √G/R,
-which solves E′ = aE where ψ = 0; there E² = (R² + μ)/R⁴, and Γ = 4μ/R. ∎
+N_κ/((2 − w)(w − 1)). Substituting, p′ contains ψ″ linearly through ψ″ in (G′/G)′ and in N_κ′ = (q/2)(ψ′f′ + f″)(w − 3)
++ (qf′/2)w′ − ψ″, f″ = −6μ/R⁴. Clearing the common denominator qR⁶(2 − w)(1 − w)² and collecting the coefficients of 1,
+ψ′, ψ′² and ψ″, the numerator of the ψ′⁰ term becomes 4R⁹n0 after the substitution q = 1 − u, m = μ/R², which gives the
+stated A0, A1, A2, A3. At ψ = 0, u = 0 and ψ′ = ψ″ = 0, so Γ/E² = A0 = 4R³m³/((1 + m)m²) = 4R³μ/(R² + μ). Since E′ = aE
+fixes E only up to a constant factor, and Γ scales with E², the last statement is for the normalisation E = √G/R, which
+solves E′ = aE where ψ = 0; there E² = (R² + μ)/R⁴, and Γ = 4μ/R. ∎
 
 **Lemma {#lem:margins-profile-monotone}** (The reference profile.) On [0.02, 1.181], ψ_s is increasing, ψ_s′ is positive
 and decreasing, and ψ_s″ is negative and increasing.
@@ -546,10 +547,9 @@ outgoing packet is within (10⁻³, 10⁻³, 3 × 10⁻²) of ψ_s in C² there 
 [[lem:margins-profile-monotone]], ψ_s, ψ_s′ and ψ_s″ range over the intervals between their values at the ends of the
 cell, which lie within 5 × 10⁻⁸ of the printed end values. For (a) take the intervals between the printed end values,
 each end moved outward by 5 × 10⁻⁸, and μ = μ_s; for (b) widen these intervals further by 10⁻³, 10⁻³ and 3 × 10⁻², and
-take μ ∈ [μ_s − 10⁻⁴, μ_s + 10⁻⁴].
-Evaluate [[eq:margins-gamma-form]] in the written form by [[lem:margins-enclosure]] (a), with R the cell, q = e^ψ, u = 1
-− q, m = μ/R², w = q(1 − m) and 2 − w, 1 − w positive on every cell. The resulting lower ends are columns (a) and (b);
-their least values are 0.456 and 0.438, which exceed 0.4475 and 0.048. ∎
+take μ ∈ [μ_s − 10⁻⁴, μ_s + 10⁻⁴]. Evaluate [[eq:margins-gamma-form]] in the written form by [[lem:margins-enclosure]]
+(a), with R the cell, q = e^ψ, u = 1 − q, m = μ/R², w = q(1 − m) and 2 − w, 1 − w positive on every cell. The resulting
+lower ends are columns (a) and (b); their least values are 0.456 and 0.438, which exceed 0.4475 and 0.048. ∎
 
 By [[prop:bg-seed]] (c), the background itself lies in the tube of (b), which gives Γ > 0 on its seed region
 and so [[pending:cor-charge-seed]] there.

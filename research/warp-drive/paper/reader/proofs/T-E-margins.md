@@ -72,9 +72,8 @@ The reference profile is the pair (ψ_s, μ_s) with μ_s := 0.8221111759474543 a
     c_2 = −0.032306921548756716,         c_1 =  0.11720807953605501,       c_0 = −0.25734075580969945.
 
 We call ψ_s the reference quintic; [[rem:bg-grid]] relates it to a numerical solution, and no proof uses that relation.
-The seed region R ∈
-[0.70, 1.861] of Σ_τ0 has v̂ = τ0 + R ∈ [0.02, 1.181], inside the interval of definition. [[prop:margins-seed]] uses the
-pair, and [[prop:bg-seed]] compares the background with it.
+The seed region R ∈ [0.70, 1.861] of Σ_τ0 has v̂ = τ0 + R ∈ [0.02, 1.181], inside the interval of definition.
+[[prop:margins-seed]] uses the pair, and [[prop:bg-seed]] compares the background with it.
 
 ### Cells of the seed region {#sec:table-seed-cells}
 
@@ -398,20 +397,20 @@ column prints that maximum (rounded up) or minimum (rounded down). The three cel
 
 ### The bent slice over the shell {#sec:table-sigma-bent}
 
-Row k is the point of Σ′ = {v̂ − R − φ(R) = τ0} on the ingoing ray v = v_k. Its radius R′_k (seven decimals)
-satisfies |R′_k + φ_k − R0_k| ≤ 10⁻⁷. The numbers φ_k, φ′_k and φ″_k are the bend of [[prop:margins-bend]] and its
-derivatives at R′_k, rounded to seven, six and seven decimals ([[lem:margins-bump-table]] (c) reproduces φ_k and φ′_k
-from the bump table to within 10⁻⁶ and 1.7 × 10⁻⁶). Ξ_k (seven decimals) is the numerator [[eq:margins-xi]] at R =
-R′_k with μ = μ_k, μ̇ = (3/2) α_k w_k², V′ = 1 + φ′(R′_k) and V″ = φ″(R′_k), all taken before rounding. On the cell v ∈
-[v_k, v_(k+1)], Φ4_k (rounded up to three decimals) is the supremum of |φ⁗| over R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3
-× 10⁻⁶], an interval that contains the true radii of the cell's points of Σ′; it is found from the monotone pieces of β″
+Row k is the point of Σ′ = {v̂ − R − φ(R) = τ0} on the ingoing ray v = v_k. Its radius R′_k (seven decimals) satisfies
+|R′_k + φ_k − R0_k| ≤ 10⁻⁷. The numbers φ_k, φ′_k and φ″_k are the bend of [[prop:margins-bend]] and its derivatives at
+R′_k, rounded to seven, six and seven decimals ([[lem:margins-bump-table]] (c) reproduces φ_k and φ′_k from the bump
+table to within 10⁻⁶ and 1.7 × 10⁻⁶). Ξ_k (seven decimals) is the numerator [[eq:margins-xi]] at R = R′_k with μ = μ_k,
+μ̇ = (3/2) α_k w_k², V′ = 1 + φ′(R′_k) and V″ = φ″(R′_k), all taken before rounding. On the cell v ∈ [v_k, v_(k+1)],
+Φ4_k (rounded up to three decimals) is the supremum of |φ⁗| over R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], an
+interval that contains the true radii of the cell's points of Σ′; it is found from the monotone pieces of β″
 ([[lem:margins-bump]] (c)) in the variable of each lobe that meets the interval, with the extremal values of
 [[lem:margins-bump]] (c) at interior extremal points. M′_k (rounded up to two decimals) is the bound of
-[[lem:margins-curvature]] (b), built from the printed Φ4_k and S2_k and from S_0 and S_1 as in [[sec:table-sigma0]].
-And c_k (rounded down to five decimals) is the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) on the cell of the proof
-of [[thm:margins-hyperbolic]], with R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], μ ∈ [μ_k − 10⁻⁵, μ_(k+1) + 10⁻⁵]
-and V in the interval given there. The bound column (rounded up to seven decimals) is −c_k (min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200), an
-upper bound for κ′K′^l_l on the cell.
+[[lem:margins-curvature]] (b), built from the printed Φ4_k and S2_k and from S_0 and S_1 as in [[sec:table-sigma0]]. And
+c_k (rounded down to five decimals) is the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) on the cell of the proof of
+[[thm:margins-hyperbolic]], with R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], μ ∈ [μ_k − 10⁻⁵, μ_(k+1) + 10⁻⁵] and V
+in the interval given there. The bound column (rounded up to seven decimals) is −c_k (min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ −
+M′_k/51200), an upper bound for κ′K′^l_l on the cell.
 
 | k | R′_k | φ_k | φ′_k | φ″_k | Ξ_k | Φ4_k | M′_k | c_k | bound |
 |---|---|---|---|---|---|---|---|---|---|

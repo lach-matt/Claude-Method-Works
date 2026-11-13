@@ -574,3 +574,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S28 fixed (F-S28): n9 (forward reference to chapter 60) kept by decision — logically acyclic; n10 (Appendix A's
   [CD03] Theorem 3.6 gloss) and the crosswalk row for rem:v-3-4 (cite chapter 61) at the next Appendix A round.
   Chapter 61's step (2) should bound C^(k_g+2) (the S28 reader checks).
+- S21 confirmed (R3-S21). Nits: β′_+ in ‖·‖_(α′) never fixed; line 151 "different constants"; lines 1025-1028 say why
+  the minimum is taken. S20 still writes ε_ind at 39:1269-1369 (ε sweep).
+- S22 third fix (F3-S22): the "→ 0" repair keeps the hypotheses of lem:iii-i11-3-3 and lem:iii-i13-2-3 and proves
+  ‖u_j − u‖ → 0 from uniqueness; chapters 42-44 need no change (reader checks).

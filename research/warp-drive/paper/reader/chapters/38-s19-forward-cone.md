@@ -647,9 +647,9 @@ compactness, as in [[sec:i-a-8]], [[sec:i-b-9]] and [[rem:iii-h-2-6]].
 damping (c_C, e_C, γ_C) of [[sec:iii-f-1]], with e_C ∈ (0, 1) and γ_C > 0, and the dynamical hypotheses (Dyn) of
 [[ch:s12]]. ℬ is the neighbourhood of b₀ of [[cor:iii-h-4-4]], taken inside the parameter set of [[def:s11-parameters]],
 on which [[cor:iii-h-4-2]]–[[cor:iii-h-4-3]] hold uniformly. U_Γ is the fixed neighbourhood of the projections of the
-trapped sets of [[sec:iii-d-1]], over which E^Υ = 0 for every b ∈ ℬ. As in [[sec:iii-f-4]] we take z_0 = 1 (the operator has real coefficients, and z_0 = −1 is
-the conjugate case); then σ = 1 on Γ_b in the normalisation of [[ch:s02]], and Γ_b lies in the future characteristic
-set over {|x| > r_h}.
+trapped sets of [[sec:iii-d-1]], over which E^Υ = 0 for every b ∈ ℬ. As in [[sec:iii-f-4]] we take z_0 = 1 (the
+operator has real coefficients, and z_0 = −1 is the conjugate case); then σ = 1 on Γ_b in the normalisation of
+[[ch:s02]], and Γ_b lies in the future characteristic set over {|x| > r_h}.
 
 The neighbourhoods are chosen in two steps. First fix an open B_1 ∋ b₀ whose closure B̄_1 is a compact subset of ℬ
 such that for b ∈ B̄_1:

@@ -23,7 +23,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
 | 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | running |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | running |
-| 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | NOT CONFIRMED 1M 1m 4n (ε_Υ needs |Re ι| ≤ 10); second fix running |
+| 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | second reading NOT CONFIRMED 1M 1m 4n; second fix done (|Re ι| ≤ 10); third reading running |Re ι| ≤ 10); second fix running |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | running |
 | 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | done (sign by own computation; δ_50 cited; ε_Υ for S13's constant) | running |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
@@ -31,8 +31,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | third reading NOT CONFIRMED 1M 0m 5n (ℓ_I ∈ (0, ½)); third fix running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
-| 40 S21 | NOT CONFIRMED 1M 5m 8n | done | NOT CONFIRMED 0M 3m 6n; third fix done (def:s21-eps-g); third reading running |
-| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | NOT CONFIRMED 0M 1m 4n; third fix running |
+| 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-key running |
+| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | NOT CONFIRMED 0M 1m 4n; third fix done; third reading running |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | NOT CONFIRMED 0M 2m 8n; third fix done (cor:s25-tame); third reading running; step 2 re-key pending |
