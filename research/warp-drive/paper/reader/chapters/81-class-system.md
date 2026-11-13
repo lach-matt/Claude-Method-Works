@@ -1466,10 +1466,26 @@ leaves of U foliating; by the uniqueness in [[lem:class-volterra]] it is also th
 So e(τ) := ∫_(Σ_τ∩Ω_U) ⟨A^0 z, z⟩ satisfies e(τ) ≤ e(τa) + C ∫_(τa)^τ e, and e(τa) = 0; hence z = 0 on Ω_U.
 
 *Existence and uniqueness.* Restart as in the proof of [[thm:class-kato]] (b) (ii): at the times τ_i extend the data
-from Σ_(τ_i) ∩ Ω_U by 𝔼 and solve on R⁴; by the domain of dependence the solutions agree on the adapted domain, whose
-boundary near the axes is determined by the solution there. The bootstrap of Steps 3–8, run on the adapted domain, keeps
-𝒩_k ≤ C ε there, hence the extended data within η_ρ ρ of 0, so the solution exists on the whole adapted domain, and it
-is smooth as in Step 9 of [[thm:class-stability-off-axes]]. A smooth G-invariant development in the gauge D(g) = 0 on
+from Σ_(τ_i) ∩ Ω_U by 𝔼, bounded on H^k uniformly, and solve on R⁴; by the domain of dependence the solutions agree on
+the adapted domain, whose boundary near the axes is determined by the solution there. The bootstrap of Steps 3–8, run
+on the adapted domain, keeps 𝒩_k ≤ C ε there, hence the extended data within η_ρ ρ of 0, so the solution exists on the
+whole adapted domain.
+
+*Smoothness.* Let σ ≥ k be an integer. The proof of [[lem:class-leaf-differences]] (a), with
+[[lem:class-interior-regularity]] at j = σ, the quadratic terms absorbed on 𝔅 and Moser's estimate for the terms of
+lower order, gives ‖σ_A[U] − σ_A[ů]‖_(H^σ(𝒰_δ)) ≤ C_σ (1 + ‖U‖_(H^σ)) for U ∈ 𝔅 ∩ H^σ; with
+[[lem:class-composition]] (b) for the local terms, ‖F(τ, U)‖_(H^σ) ≤ C_σ (1 + ‖U‖_(H^σ)) for U ∈ 𝒟_ρ ∩ H^σ. The
+proof of [[thm:class-kato]] (a) then runs at the order σ with the ball 𝒟_ρ kept in H^k (the step *Boundedness* at the
+order σ, the others at the order k), and its continuation holds while sup_τ ‖U(τ)‖_(H^σ) < ∞ and ‖U(τ)‖_(H^k) ≤ η_ρ ρ.
+On each interval of the restarts the extended data lie in H^σ: the data are smooth on the slice by induction over the
+intervals, so are the leaves through the axis points, by [[lem:class-interior-regularity]] at every order, hence
+T_(τ_i,U), and E_⋆ is bounded on every H^σ. So the solution in H^σ exists for a short time, equals the solution in H^k
+by uniqueness, and [[lem:class-kato-linear]] (c) at the order σ, with the bound on F(τ, U) in H^σ and K_U bounded by
+the H^k bound, gives a linear Gronwall inequality for ‖U(τ)‖_(H^σ), so that it lies in H^σ on the whole interval. By
+the equation, and by differentiating [[eq:class-leaf-volterra]] in τ as in step (4) of the proof of
+[[lem:class-planar-shear]], every ∂_τ^j U is bounded in every H^σ, by induction on j. So the solution is smooth.
+
+*Uniqueness.* A smooth G-invariant development in the gauge D(g) = 0 on
 its own adapted domain, with the same datum and 𝒩_(k−1) ≤ ε2, gives a solution of the augmented system there as in that
 Step 9, its Θ_A on the tubes being □_g u_A and its σ_A that of its own leaves by Step 10 below; by the domain of
 dependence at the order k − 1 it agrees with the solution constructed on its adapted domain, and the two adapted

@@ -330,11 +330,11 @@ Step 1. Fix θ_1 ∈ C_c^∞((−2, 2)ⁿ) equal to 1 on [−15/8, 15/8]ⁿ and 
 Op((1 − θ_1)λ)θ_2 is k(x, y) := (2π)^(−n) ∫ e^(i(x−y)·ξ)(1 − θ_1(x))λ(x, ξ) dξ θ_2(y). On its support the distance
 of x and y is at least 1/16, so that |x − y| ≥ c⟨x⟩ and |x − y|^(−2L)(−Δ_ξ)^L e^(i(x−y)·ξ) = e^(i(x−y)·ξ). Let
 M ∈ ℕ. After L integrations by parts in ξ, 2L ≥ A + B + n + M + 2, the y-derivatives of k of order at most M are
-bounded by
-C⟨x⟩^(−n) and vanish for y ∉ supp θ_2. So |Op((1 − θ_1)λ)θ_2w(x)| ≤ ‖k(x, ·)‖_(H^M)‖w‖_(H^(−M)) ≤
-C⟨x⟩^(−n)‖w‖_(H^(−M)) for w ∈ 𝒮, and Op((1 − θ_1)λ)θ_2 maps H^(−M) to L², with a norm that depends on λ and M only.
-With M := A + B + 1, as Op(λ′) maps L² to H^𝗍 ⊂ H^(−A) and Op(b) maps H^(−A) to H^(−A−B−1) ([[lem:fwd-crude]],
-s = −A), the operator Op((1 − θ_1)λ)θ_2Op(b)Op(λ′) is bounded on L², at the cost n + 1 + A + B.
+bounded by C⟨x⟩^(−n) and vanish for y ∉ supp θ_2. So the value of Op((1 − θ_1)λ)θ_2w at x is at most
+‖k(x, ·)‖_(H^M)‖w‖_(H^(−M)) ≤ C⟨x⟩^(−n)‖w‖_(H^(−M)) in modulus, for w ∈ 𝒮, and Op((1 − θ_1)λ)θ_2 maps H^(−M) to
+L², with a norm that depends on λ and M only. With M := A + B + 1, as Op(λ′) maps L² to H^𝗍 ⊂ H^(−A) and Op(b) maps
+H^(−A) to H^(−A−B−1) ([[lem:fwd-crude]], s = −A), the operator Op((1 − θ_1)λ)θ_2Op(b)Op(λ′) is bounded on L², at
+the cost n + 1 + A + B.
 [[lem:fwd-composition]] with p := θ_1λ (order with values in [−A − B, A + B]), q := b (vanishing off Q_4), J := J_1
 and 6 x-derivatives of the remainder gives Op(θ_1λ)Op(b) = Op(c_1) + Op(r_1). Here c_1 = λ ♯_(J_1) b, as θ_1 = 1 near
 the x-support of b, and r_1 vanishes for x ∉ Q_4, as p does, and has order at most (A + B) + B − J_1 + ½ = −A − ½.
