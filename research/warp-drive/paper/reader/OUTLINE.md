@@ -143,5 +143,7 @@ mathematics. Steps that only a large or floating-point computation establishes a
   the name kept consistent within its chapter and declared at first use).
 - K: the approximant's order, O(λ^K). The Kretschmann scalar is 𝒦; the curvature coordinate keeps the name x_K;
   the mass change of the gauge chapters is written K* as in the source.
+- N_E: the rank of a vector bundle; M: a large integer order (not a constant); 𝒩: an energy.
+- ℐ⁺, ℐ⁻ (the script capital I, U+2110): future and past null infinity, in every chapter.
 - Results named by letters in the record (Theorems A, D, E, P, M, L, Q, T, X, V, N, K; Lemma A; Proposition L) get
   edition numbers only; a chapter may say once, in words, what a result does, never its record letter.

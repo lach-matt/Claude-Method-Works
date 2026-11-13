@@ -25,18 +25,18 @@ nothing in this chapter depends on it beyond these inequalities.
 
 ### Scope of the first half {#sec:ii-g-1}
 
-[Hin26c, Section 12, pp. 233–243], "Application I: nonlinear scalar waves", has five subsections. Its Section 12.2 holds the three
-general tools used later: the Nash–Moser theorem ([Hin26c, Theorem 12.4], with [Hin26c, Remark 12.5] on the norms),
-smoothing operators on spaces of supported b-Sobolev functions ([Hin26c, Proposition 12.6 and Example 12.7]), and tame
-bounds for products and nonlinear functions ([Hin26c, Lemma 12.8]). They are proved in [[sec:ii-g-2]],
+[Hin26c, Section 12, pp. 233–243], "Application I: nonlinear scalar waves", has five subsections. Its Section 12.2 holds
+the three general tools used later: the Nash–Moser theorem ([Hin26c, Theorem 12.4], with [Hin26c, Remark 12.5] on the
+norms), smoothing operators on spaces of supported b-Sobolev functions ([Hin26c, Proposition 12.6 and Example 12.7]), and
+tame bounds for products and nonlinear functions ([Hin26c, Lemma 12.8]). They are proved in [[sec:ii-g-2]],
 [[sec:ii-g-3]] and [[sec:ii-g-4]]. The rest of [Hin26c, Section 12] concerns the scalar wave operator □_g on a
-subextremal Kerr spacetime: its 0-admissibility ([Hin26c, Theorem 12.2], through [Hin26c, Theorem 12.3], "mode
-stability implies 0-admissibility", and the mode stability of Kerr) and three model problems ([Hin26c, Theorems 12.9,
-12.11 and 12.12]: a power nonlinearity, a quasilinear equation and a null form). The stability theory does not use
-them. Its linear operator is the gauge-fixed linearised Einstein operator, whose admissibility has a loss ℵ > 0 from
-zero-energy states and is established in [[ch:s18]], not by [Hin26c, Theorem 12.2]; [Hin26c, Theorem 12.3] in dimension
-4 + 1, the passage from the spectral theory of [[ch:s01]]–[[ch:s03]] to the estimate [[eq:ii-c-2-2]] of
-[[def:ii-c-2-7]] (3) with ℵ = 0, is the model for that admissibility proof ([[sec:ii-g-5-2]]).
+subextremal Kerr spacetime: its 0-admissibility ([Hin26c, Theorem 12.2], through [Hin26c, Theorem 12.3], "mode stability
+implies 0-admissibility", and the mode stability of Kerr) and three model problems ([Hin26c, Theorems 12.9, 12.11 and
+12.12]: a power nonlinearity, a quasilinear equation and a null form). The stability theory does not use them. Its linear
+operator is the gauge-fixed linearised Einstein operator, whose admissibility has a loss ℵ > 0 from zero-energy states
+and is established in [[ch:s18]], not by [Hin26c, Theorem 12.2]; [Hin26c, Theorem 12.3] in dimension 4 + 1, the passage
+from the spectral theory of [[ch:s01]]–[[ch:s03]] to the estimate [[eq:ii-c-2-2]] of [[def:ii-c-2-7]] (3) with ℵ = 0, is
+the model for that admissibility proof ([[sec:ii-g-5-2]]).
 
 ### The Nash–Moser theorem {#sec:ii-g-2}
 
@@ -423,11 +423,11 @@ momentum 0 being 0 and 2 (the same paragraph); so α_+ ∈ (−2, α_I − 1/2),
 
     0 < ε_I < ε_+ < 1.                                                                             {#eq:ii-g-5-1}
 
-In dimension 3 + 1 the same reasoning, with the gap shifted to (−3/2, −1/2) for α_+, gives 0 < ε_I < ε_+ < 1/2;
-[Hin26c, (12.7)] prints 0 < ε_+ < ε_I < 1/2, whereas the condition α_+ < α_I − 1/2 of [Hin26c, Theorem 11.1]
-(β_+ < β_I in the b-weights of [Hin26c, (11.5), p. 228]) is ε_+ > ε_I. In the b-weights of [[cor:ii-f1-1-2]], b_I = α_I + 2 = 3/2 − ε_I and b_+ = α_+ + 5/2 = 3/2 − ε_+, and
-[[eq:ii-f1-1-8]] gives, for k ≥ 3 and forward solutions of Pu = f with P as in [[thm:ii-f1-1-1]] and f in the space
-[[eq:ii-f1-1-4]], with the density μ_b of [[eq:ii-f1-1-7]],
+In dimension 3 + 1 the same reasoning, with the gap shifted to (−3/2, −1/2) for α_+, gives 0 < ε_I < ε_+ < 1/2; [Hin26c,
+(12.7)] prints 0 < ε_+ < ε_I < 1/2, whereas the condition α_+ < α_I − 1/2 of [Hin26c, Theorem 11.1] (β_+ < β_I in the
+b-weights of [Hin26c, (11.5), p. 228]) is ε_+ > ε_I. In the b-weights of [[cor:ii-f1-1-2]], b_I = α_I + 2 = 3/2 − ε_I and
+b_+ = α_+ + 5/2 = 3/2 − ε_+, and [[eq:ii-f1-1-8]] gives, for k ≥ 3 and forward solutions of Pu = f with P as in
+[[thm:ii-f1-1-1]] and f in the space [[eq:ii-f1-1-4]], with the density μ_b of [[eq:ii-f1-1-7]],
 
     |(t_*∂_(t_*), r∂_x)^(≤k−3) u| ≤ C ρ_I^(3/2−ε_I) ρ_+^(3/2−ε_+) ρ_K^(1/2),                       {#eq:ii-g-5-2}
 
@@ -456,15 +456,14 @@ conditions [Hin26c, (12.23)] of its proof, (p − 1)(1 − ε_I) ≥ 1 and (p �
 
 ### Improving decay: scope, and what dimension 4 + 1 changes {#sec:ii-g1-1}
 
-[Hin26c, Section 13, pp. 243–260], "Improving decay", has four subsections. Its Sections 13.1–13.3 are general tools, proved here in
-dimension 4 + 1 in the forms used later: the Fourier transform on the line ([Hin26c, Lemmas 13.2, 13.4, 13.6,
-Corollaries 13.3, 13.5, 13.7]) and on the resolved spaces ([Hin26c, Lemma 13.8, Propositions 13.9 and 13.11, Lemma
+[Hin26c, Section 13, pp. 243–260], "Improving decay", has four subsections. Its Sections 13.1–13.3 are general tools,
+proved here in dimension 4 + 1 in the forms used later: the Fourier transform on the line ([Hin26c, Lemmas 13.2, 13.4,
+13.6, Corollaries 13.3, 13.5, 13.7]) and on the resolved spaces ([Hin26c, Lemma 13.8, Propositions 13.9 and 13.11, Lemma
 13.10, Remark 13.12]); the resolvent bounds ([Hin26c, Lemma 13.13, Corollary 13.14, Proposition 13.16, Corollary 13.17,
 the bounds (13.30), Proposition 13.18]); and the radiation field ([Hin26c, Definition 13.19, Proposition 13.20]). Its
-Section 13.4 ([Hin26c, Theorem 13.21 and Remark 13.22]) is a model application to the scalar wave equation on Kerr and
-is not used ([[sec:ii-g1-6-1]]). The tools are used in the linear theory, where the decay of solutions of the
-linearised gauge-fixed Einstein equations is improved beyond [[thm:ii-f1-1-1]] as [Hin26c, Section 14] does for its
-1-form example.
+Section 13.4 ([Hin26c, Theorem 13.21 and Remark 13.22]) is a model application to the scalar wave equation on Kerr and is
+not used ([[sec:ii-g1-6-1]]). The tools are used in the linear theory, where the decay of solutions of the linearised
+gauge-fixed Einstein equations is improved beyond [[thm:ii-f1-1-1]] as [Hin26c, Section 14] does for its 1-form example.
 
 In dimension 4 + 1 the statements change as follows; each change is derived where the statement is proved.
 
@@ -1252,12 +1251,12 @@ is that of the domain, so integrating in |dσ/σ| gives [[eq:ii-g1-4-6]]. ∎
 
 We use the defining functions [[eq:ii-f1-1-1]], ρ_I = t_*/(t_* + r) and ρ_+ = (t_* + r)/(t_* r), of ℐ⁺ and ι⁺. On
 {t_* > 0, r > 0} the map (t_*, r) ↦ (ρ_I, ρ_+) is a diffeomorphism onto {0 < ρ_I < 1, ρ_+ > 0}, with inverse t_* =
-(ρ_+(1 − ρ_I))⁻¹, r = (ρ_I ρ_+)⁻¹, and ρ_K = 1 − ρ_I. For c_0 ∈ (0, 1/4] let
+(ρ_+(1 − ρ_I))⁻¹, r = (ρ_I ρ_+)⁻¹, and ρ_K = 1 − ρ_I. For c_𝒞 ∈ (0, 1/4] let
 
-    𝒞 := {0 ≤ ρ_I < c_0, 0 ≤ ρ_+ < 4} × 𝕊³,        𝒞_a := 𝒞 ∩ {ρ_I < a}    (0 < a ≤ c_0),
+    𝒞 := {0 ≤ ρ_I < c_𝒞, 0 ≤ ρ_+ < 4} × 𝕊³,        𝒞_a := 𝒞 ∩ {ρ_I < a}    (0 < a ≤ c_𝒞),
 
 a neighbourhood of ℐ⁺ ∩ {t_* > 1/4} (including its corner with ι⁺) in the compactified spacetime, on which r >
-1/(4c_0). On 𝒞 the b-vector fields are spanned by ρ_I∂_(ρ_I), ρ_+∂_(ρ_+) and the vector fields on 𝕊³, and μ_𝒞 :=
+1/(4c_𝒞). On 𝒞 the b-vector fields are spanned by ρ_I∂_(ρ_I), ρ_+∂_(ρ_+) and the vector fields on 𝕊³, and μ_𝒞 :=
 |(dρ_I/ρ_I)(dρ_+/ρ_+) dω| is a b-density equivalent to μ_b = |dt_* dx|/(t_* ⟨x⟩⁴): in logarithmic coordinates the
 Jacobian of (log ρ_I, log ρ_+) ↦ (log t_*, log r) has determinant (1 − ρ_I)⁻¹ ∈ [1, 4/3]. H^(k,(b_I,b_+))_b(𝒞_a) :=
 ρ_I^(b_I) ρ_+^(b_+) H^k_b(𝒞_a, μ_𝒞); near ℐ⁺ these are the spaces of [[cor:ii-g1-4-5]] and of [[eq:ii-f1-1-2]] with
@@ -1274,14 +1273,15 @@ so t_*∂_(t_*) = (1 − ρ_I)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) and ρ∂_ρ =
 ρ_I 𝖶; and ρ t_*⁻¹ = (ρ_I ρ_+)(ρ_+(1 − ρ_I)).
 
 **Lemma {#lem:ii-g1-5-1}** (The normal form in dimension 4 + 1; [Hin26c, (13.32)].) Let P_0 be a stationary wave-type
-operator ([[def:ii-c-1-1]]) with S ∈ ρ C^∞(X̄; End ℂ^N) in [[eq:ii-c-1-1]], that is S|_(∂X) = 0. If c_0 is small, then on 𝒞
+operator ([[def:ii-c-1-1]]) with S ∈ ρ C^∞(X̄; End ℂ^N) in [[eq:ii-c-1-1]], that is S|_(∂X) = 0. If c_𝒞 is small, then on
+𝒞
 
     (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) − 3/2) 𝖶 + P̃,        P̃ ∈ ρ_I Diff²_b(𝒞),                {#eq:ii-g1-5-2}
 
 with coefficients smooth on 𝒞̄. If S|_(∂X) ≠ 0, the left side differs from −(ρ_I∂_(ρ_I) − 3/2)𝖶 by S|_(∂X) 𝖶 modulo
 ρ_I Diff²_b, and [[eq:ii-g1-5-2]] fails.
 
-*Proof.* Choose c_0 so small that ρ < ρ_1 on 𝒞, where [[eq:ii-c-1-1]] holds: P_0 = −2∂_(t_*) ρ(ρ∂_ρ − 3/2 − S) +
+*Proof.* Choose c_𝒞 so small that ρ < ρ_1 on 𝒞, where [[eq:ii-c-1-1]] holds: P_0 = −2∂_(t_*) ρ(ρ∂_ρ − 3/2 − S) +
 P̂_0(0) + Q∂_(t_*) − g_00 ∂²_(t_*), all coefficients t_*-independent and smooth in (ρ, ω), so smooth in (ρ_I, ρ_+, ω) as
 ρ = ρ_I ρ_+. By [[eq:ii-g1-5-1]], as ρ does not depend on t_*,
 
@@ -1302,7 +1302,7 @@ all their b-derivatives. For the tensor wave operators of [[lem:ii-c-1-3]], S = 
 [[prop:ii-g1-5-4]] is carried as a tool; the stability theory does not apply it.
 
 **Definition {#def:ii-g1-5-2}** (Spaces with a radiation field; [Hin26c, Definition 13.19].) Let χ_I ∈ C^∞([0, ∞)) equal
-1 on [0, 1/4] and 0 on [1/2, ∞). For a ∈ (0, c_0], ζ, b_I, b_+ ∈ ℝ with ζ < b_I and k ∈ ℕ₀,
+1 on [0, 1/4] and 0 on [1/2, ∞). For a ∈ (0, c_𝒞], ζ, b_I, b_+ ∈ ℝ with ζ < b_I and k ∈ ℕ₀,
 
     H^(k,(((ζ,0),b_I),b_+))_b(𝒞_a) := {χ_I(ρ_I/a) ρ_I^ζ u_0 + ũ : u_0 ∈ H^(k,b_+)_b(ℐ⁺), ũ ∈ H^(k,(b_I,b_+))_b(𝒞_a)},
 
@@ -1320,7 +1320,7 @@ In the coordinates p := −log ρ_I, q := −log ρ_+, μ_𝒞 = |dp dq dω| and
 fixed c. So the integral curves of 𝖶 are the curves {r = const, ω = const}, run towards ι⁺ (ρ_+ decreasing, ρ_I
 increasing).
 
-**Lemma {#lem:ii-g1-5-3}** (Transport along 𝖶.) Let a ∈ (0, c_0], b, b_+ ∈ ℝ, b ≠ b_+, k ∈ ℕ₀, and let u ∈
+**Lemma {#lem:ii-g1-5-3}** (Transport along 𝖶.) Let a ∈ (0, c_𝒞], b, b_+ ∈ ℝ, b ≠ b_+, k ∈ ℕ₀, and let u ∈
 L²_loc(𝒞_a) with 𝖶u = w ∈ H^(k,(b,b_+))_b(𝒞_a), and (ρ_I∂_(ρ_I))^i (ρ_+∂_(ρ_+))^j Z^γ u ∈ L²_loc for i + j + |γ| ≤ k
 (Z the fields on 𝕊³).
 
@@ -1363,7 +1363,7 @@ over q′ and Young's inequality bound it by (b_+ − b)⁻¹ ‖e^(bc+(b_+−b)
 
     β_+ ≠ 3/2,        β′_I < 3/2 + κ,        β′_I ∉ {3/2, β_+}.
 
-There are ℓ ∈ ℕ₀ and a ∈ (0, c_0], depending only on β_I, β′_I, κ and c_0, such that: if u ∈
+There are ℓ ∈ ℕ₀ and a ∈ (0, c_𝒞], depending only on β_I, β′_I, κ and c_𝒞, such that: if u ∈
 H^(k+ℓ,(β_I,β_+))_b(𝒞) vanishes on {t_* < 1} and P_0 u ∈ H^(k+ℓ,(β′_I+1,β_++2))_b(𝒞), then
 
     u ∈ H^(k,(((3/2,0),β′_I),β_+))_b(𝒞_a).                                                         {#eq:ii-g1-5-3}
@@ -1426,7 +1426,7 @@ the last two terms being supported in {ρ_I ≥ a_1/16}; and u − U = u on {ρ_
 
 *Iteration.* Each step raises b by at least κ/2 until b = β′_I, costs two b-derivatives, and shrinks the region by a
 factor 8. Starting from b := β_I (with u_0 = 0), after n_s := ⌈2(β′_I − β_I)/κ⌉ steps b = β′_I; so [[eq:ii-g1-5-3]]
-holds with ℓ := 2n_s and a := c_0 8^(−n_s). ∎
+holds with ℓ := 2n_s and a := c_𝒞 8^(−n_s). ∎
 
 **Remark {#rem:ii-g1-5-5}** (The radiation field of a forward solution.) With [[lem:ii-g1-5-1]], [[prop:ii-g1-5-4]]
 applies in dimension 4 + 1 with κ = 1 to stationary wave-type operators with S|_(∂X) = 0, for β′_I < 5/2; at the level
@@ -1467,11 +1467,16 @@ which is used ([[sec:ii-g-5-2]] (a), (c)), and their weights in dimension 4 + 1 
 fix them (S̄, ϑ_in, ϑ_ℋ and the data of [[lem:i-a-7-1]]). [[cor:ii-g1-4-2]], [[prop:ii-g1-4-4]], [[cor:ii-g1-4-5]] and
 [[prop:ii-g1-4-7]] depend on P̂ further only through the constants of the estimates they cite: [[thm:i-a-7-2]],
 [[thm:i-b-1-3]] with the constant C_0 and the function δ_Γ, and [[thm:i-c-6-4]] with its radii c_(j,k). In
-[[sec:ii-g1-5]], [[prop:ii-g1-5-4]] depends on P_0 only through κ, c_0, the coordinates of 𝒞 and finitely many
+[[sec:ii-g1-5]], [[prop:ii-g1-5-4]] depends on P_0 only through κ, c_𝒞, the coordinates of 𝒞 and finitely many
 seminorms of the coefficients of P̃ in [[eq:ii-g1-5-2]], as a b-differential operator on 𝒞̄, the number of seminorms
 depending on k and ℓ.
 
 So every bound of this half of the chapter, and every loss ℓ and radius c_k, is uniform over any family of operators for
 which these quantities are uniform. [[sec:i-a-8]], [[sec:i-b-9]] and [[sec:i-c-7]] give conditions under which the
-cited estimates are uniform over a family of operators. For the family of stationary models that the nonlinear theory
-uses, the forward problem is solved uniformly in [[thm:iii-h2-4-1]]; this chapter adds no condition to that.
+cited estimates are uniform over a family of operators. For the stationary models 2L_b, b near b₀ ([[sec:iii-h2-0]]),
+which the later chapters use, the quantities of [[sec:ii-g1-4]] are uniform in b: one order serves every b ((B4) of
+[[sec:iii-h2-0]]); δ_Γ is uniformly small by [[cor:iii-h2-1-2]], which rests on [[prop:iii-h2-1-1]]; and the proof of
+[[thm:iii-h2-2-1]] shows the constants of [[thm:i-a-7-2]] and [[thm:i-b-1-3]], C_0 among them, and the radii of the
+low-energy estimates it uses ([[thm:iii-h-4-1]], the augmented form of [[thm:i-c-6-4]]) to be uniform in b. The
+forward problem is solved uniformly over the same family in [[thm:iii-h2-3-1]] and [[thm:iii-h2-4-1]]. This chapter
+adds no condition to these.
