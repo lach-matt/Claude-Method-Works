@@ -629,3 +629,289 @@ decreases and cannot tend to 0, a contradiction. ∎
 ∂R_(ℋ⁺), through ℛ₊, and ∂Γ_(K⁺), through Γ. Under (H5), extended to (H6)–(H8) in [[sec:i-b-1-5]], and (K4), both
 depend continuously on the parameter b, with the constants of [[lem:ii-b-4-2]] and of (K3) uniform; the radial sets
 over ∂K⁺ and ℐ⁺ do not depend on b. This is [Hin26c, Remark 4.25].
+
+### Stationary wave-type operators {#sec:ii-c-1}
+
+This section and the four that follow are [Hin26c, Sections 5–6] in dimension 4 + 1, except [Hin26c, Proposition 6.3],
+which is [[prop:ii-c1-3-4]]. The definitions are restated at n = 4: the constant 1 of [Hin26c, (5.1a)] becomes
+3/2 = (n − 1)/2, the weight α_sf + 3/2 of the tf-admissibility of [Hin26c] becomes α_sf + 2, and the stationary model
+is that of [[sec:ii-b-1]], a metric satisfying (K1)–(K4) together with (H1)–(H8), in place of Kerr. [Hin26c,
+Proposition 6.4], which [Hin26c] proves by reference to the construction of [Hin23c, Lemma 5.8 and Appendix C], is
+proved by that construction, written out in the coordinates of [[sec:ii-b-3]] and [[sec:ii-b-7]] and with the error
+terms of the present class.
+
+#### The class {#sec:ii-c-1-1}
+
+Throughout, g is the stationary metric of [[sec:ii-b-1-1]], which satisfies (K1)–(K4), E_X := X̃ × ℂ^N is the trivial
+bundle of [[sec:i-a-1-2]], and E := π_X^*E_X is its pullback along π_X(t_*, x) := x. Sections of E are ℂ^N-valued
+functions, and ∂_(t_*) and ρ∂_ρ act componentwise; the connection of [Hin26c, Remark 5.3], needed for non-trivial
+bundles, is not needed here. We write G(ζ) := g⁻¹(ζ, ζ) and ρ := r⁻¹, and ρ₁ is that of [[sec:i-a-1-1]]. The density is
+|dt_* dx| = |dt dx|, the Euclidean density of [[sec:i-a-1-1]] times |dt_*|, and for a fibre inner product h
+([[sec:i-a-1-2]]), A^(*h) and Im_h A := (A − A^(*h))/2i are taken with respect to it.
+
+**Definition {#def:ii-c-1-1}** (Stationary wave-type operators; [Hin26c, Definition 5.1] at n = 4.) A
+t_*-translation-invariant P₀ ∈ Diff²(ℝ_(t_*) × X̃°; E) is a *stationary wave-type operator* (for g) if (1)
+σ₂(P₀) = G Id, and (2) on {ρ < ρ₁},
+
+    P₀ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S) + P̂₀(0) + Q∂_(t_*) − g₀₀∂_(t_*)²,                                 {#eq:ii-c-1-1}
+
+with g₀₀ := g⁻¹(dt_*, dt_*) and, all t_*-independent, P̂₀(0) ∈ ρ²Diff²_b(X̄; E), S ∈ C^∞(X̄; End ℂ^N) and
+Q ∈ ρ³Diff¹_b(X̄; E). Put ([Hin26c, (5.2)])
+
+    S̄ := inf_(p∈∂X) min Re spec S(p).
+
+**Remark {#rem:s05-p0-representation}** (a) g₀₀ ∈ ρ²C^∞(X̄) by (K1): ḡ⁻¹(dt_*, dt_*) = 0, and the components of
+g⁻¹ − ḡ⁻¹ in the frame ∂_(t_*), ∂_x lie in ρ²C^∞(X̄) ([[lem:ii-b-1-1]], the inverses). (b) The representation
+[[eq:ii-c-1-1]] is not unique: a zeroth-order term may be moved between 2ρS∂_(t_*) and Q∂_(t_*) ([Hin26c, Remark 5.2]).
+But S|_(∂X) is determined by P₀. Indeed, if (S, Q) and (S′, Q′) both represent P₀, the parts linear in σ of the spectral
+families ([[lem:ii-c-1-2]]) give 2ρ(S − S′) = −(Q − Q′); the left side is of order 0, so Q − Q′ is a multiplication by
+an element of ρ³C^∞, and S − S′ ∈ ρ²C^∞.
+
+**Lemma {#lem:ii-c-1-2}** (The spectral family; [Hin26c, (5.10)].) Let P₀ be a stationary wave-type operator. Then
+P̂(σ) := e^(iσt_*)P₀e^(−iσt_*) = P̂₀(0) + σT + σ²g₀₀ with T := 2iρ(ρ∂_ρ − 3/2 − S) − iQ on {ρ < ρ₁}, and P̂ satisfies
+(H1) and (H2) of [[sec:i-a-1-3]] and (H6) of [[sec:i-b-1-2]], with this g. Conversely, if a family
+P̂(σ) = P̂(0) + σT + σ²P₂ satisfies (H1), (H2) and (H6), then P₀ := P̂(0) + T i∂_(t_*) − P₂∂_(t_*)²
+([[sec:i-b-1-2]]) is a stationary wave-type operator for the metric of (H6).
+
+*Proof.* e^(iσt_*)∂_(t_*)e^(−iσt_*) = ∂_(t_*) − iσ acts as −iσ on t_*-independent sections, which gives the form and T;
+and P₀ = P̂(0) + T i∂_(t_*) − g₀₀∂_(t_*)². The principal symbol of P₀ at −σ dt_* + ζ is
+σ₂(P̂(0))(ζ) + σ σ₁(T)(ζ) + σ²g₀₀, as σ₁(i∂_(t_*))(−σ dt_* + ζ) = i · i · (−σ) = σ. By [[eq:i-b-1-1]],
+G(−σ dt_* + ζ) = G₀(ζ) + στ₁(ζ) + σ²g₀₀, so condition (1) of [[def:ii-c-1-1]] is equivalent to the three identities of
+(H1) (σ₂(P̂(0)) = G₀ Id, σ₁(T) = τ₁ Id, P₂ = g₀₀ Id), the parts of different degree in σ being separate. (H2): the
+first two equations of [[eq:i-a-1-2]] are the form of T and P̂(0) = ρ²P^(0) with P^(0) ∈ Diff²_b, and g₀₀ ∈ ρ²C^∞ is
+[[rem:s05-p0-representation]] (a). For the normalisation of P^(0), write spatial covectors as
+ξ dr + η = ξ_b dρ/ρ + η, so ξ_b = −rξ; then σ₂(ρ²((ρD_ρ)² + Δ_(𝕊³))) = ρ²(ξ_b² + |η|²) = ξ² + r⁻²|η|² = ḡ⁻¹(ζ, ζ)
+for ζ = ξ dr + η. The components of ζ in the frame dt_*, dx are bounded by C(|ξ| + r⁻¹|η|), so by
+[[rem:s05-p0-representation]] (a), G₀(ζ) − ḡ⁻¹(ζ, ζ) ∈ ρ² · ρ²P^[2](ᵇT*X̄), P^[2] the fibrewise quadratic polynomials
+with smooth coefficients. Hence σ₂(P^(0)) − (ξ_b² + |η|²) ∈ ρ²P^[2], and
+P^(0) − ((ρD_ρ)² + Δ_(𝕊³))Id ∈ Diff¹_b + ρ²Diff²_b. (H6) is a hypothesis on g, which (K2) includes. The converse
+reads the same identities backwards: the form of T in (H2) gives [[eq:ii-c-1-1]]. ∎
+
+So the stationary wave-type operators for g are the operators whose spectral families satisfy (H1), (H2) and (H6), and
+(K2) asks (H3)–(H5) and (H7)–(H8) of them in addition.
+
+#### Tensor wave operators {#sec:ii-c-1-2}
+
+**Lemma {#lem:ii-c-1-3}** (Tensor wave operators; [Hin26c, Example 5.4] at n = 4.) Identify (p, q)-tensors on ℝ^(1+4)
+with ℂ^N-valued functions, N = 5^(p+q), by the coordinate frame of (t_*, x¹, …, x⁴) (for 1-forms, the frame dt_*, dx^i
+of [[sec:i-a-1-2]]). Let ∇ be the Levi-Civita connection of g and □_g^((p,q)) := −g^(μν)∇_μ∇_ν. Then □_g^((p,q)) is a
+stationary wave-type operator for g with S = 0, so S̄ = 0, and
+
+    (□_g^((p,q)))^∧(0) − (□_ḡ^((p,q)))^∧(0) ∈ ρ⁴Diff²_b(X̄; E),                                       {#eq:ii-c-1-2}
+
+where ^∧(0) denotes the spectral family at σ = 0. For the scalar operator,
+
+    □_ḡ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2) + ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ + Δ_(𝕊³)).                                     {#eq:ii-c-1-3}
+
+*Proof.* [[eq:ii-c-1-3]]: □_ḡ = ∂_t² − ∂_r² − 3r⁻¹∂_r + r⁻²Δ_(𝕊³) (Δ_(𝕊³) ≥ 0). In (t_*, r), ∂_t = ∂_(t_*) and
+∂_r|_t = ∂_r − ∂_(t_*), so □_ḡ = 2∂_(t_*)∂_r + 3r⁻¹∂_(t_*) − ∂_r² − 3r⁻¹∂_r + r⁻²Δ_(𝕊³); with ∂_r = −ρ(ρ∂_ρ),
+2∂_(t_*)∂_r + 3ρ∂_(t_*) = −2∂_(t_*)ρ(ρ∂_ρ − 3/2), and
+−∂_r² − 3r⁻¹∂_r = −r⁻²((r∂_r)² + 2r∂_r) = ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ).
+
+In the coordinates z = (t_*, x), ḡ = −dt_*² − 2ω_i dt_* dx^i + (δ_(ij) − ω_iω_j)dx^i dx^j, ω := x/|x|, from
+dt = dt_* + ω_i dx^i. Write D_j := ∂_(x^j)|_(t_*); as D_j = ω_j∂_r + r⁻¹Y_j with Y_j smooth vector fields on 𝕊³,
+D_j ∈ ρ𝒱_b(X̄), and D_j maps ρ^kC^∞(X̄) into ρ^(k+1)C^∞(X̄). The metric components of ḡ are functions of ω
+(homogeneous of degree 0), so the Christoffel symbols Γ̄ lie in ρC^∞(X̄), and by (K1) and [[lem:ii-b-1-1]] those of g
+satisfy Γ − Γ̄ ∈ ρ³C^∞ on {ρ < ρ₁} (on the compact set {R⁻¹ ≤ ρ ≤ ρ₁}, if it is non-empty, every smooth function lies
+in ρ^kC^∞ for every k, so the restriction r > R in (K1) costs nothing), and g^(μν) − ḡ^(μν) ∈ ρ²C^∞. In the frame,
+∇_μ = ∂_μ + A_μ on the tensor indices, A_μ linear in Γ, and
+
+    □_g^((p,q)) = −g^(μν)((∂_μ + A_μ)(∂_ν + A_ν) − Γ^λ_(μν)(∂_λ + A_λ)).
+
+The terms without A form the scalar operator □_g acting componentwise.
+
+*The model.* For ḡ, ω^μΓ̄_(κμν) = 0 for all κ, ν, where ω^μ∂_μ = ∂_r (ω⁰ := 0). In
+Γ̄_(κμν) = ½(∂_μḡ_(κν) + ∂_νḡ_(κμ) − ∂_κḡ_(μν)), the first term gives ω^μ∂_μḡ_(κν) = 0, the components being
+homogeneous of degree 0 in x. For the others, ω^μḡ_(κμ) = −δ_(κ0) is constant, so ω^μ∂_νḡ_(κμ) = −T_(κν) with
+T_(κν) := (∂_νω^μ)ḡ_(κμ), which is r⁻¹(δ_(κν) − ω_κω_ν) for spatial κ, ν and 0 otherwise, as
+∂_νω^μ = r⁻¹(δ^μ_ν − ω_νω^μ); likewise ω^μ∂_κḡ_(μν) = −T_(νκ). T is symmetric, so
+ω^μΓ̄_(κμν) = ½(−T_(κν) + T_(νκ)) = 0. Hence ω^μĀ_μ = 0. The ∂_(t_*)-coefficient of −2ḡ^(μν)Ā_μ∂_ν is
+−2ḡ^(μt_*)Ā_μ = 2ω^iĀ_i = 0, since ḡ⁻¹(dt_*, dt_*) = 0 and ḡ⁻¹(dt_*, dx^i) = −ω^i. The remaining terms with Ā are
+−2ḡ^(μj)Ā_μD_j ∈ ρ²Diff¹_b and zeroth-order terms in ρ²C^∞. So □_ḡ^((p,q)) is [[eq:ii-c-1-3]] componentwise plus an
+element of ρ²Diff¹_b, which is [[eq:ii-c-1-1]] with S = 0, Q = 0 and g₀₀ = 0.
+
+*The difference.* □_g^((p,q)) − □_ḡ^((p,q)) is a sum of −(g^(μν) − ḡ^(μν))∂_μ∂_ν; of first-order terms B^λ∂_λ with
+B^λ ∈ ρ³C^∞ (from (g − ḡ)⁻¹Γ̄, ḡ⁻¹(Γ − Γ̄), (g − ḡ)⁻¹A and ḡ⁻¹(A − Ā), where (g − ḡ)⁻¹ stands for g⁻¹ − ḡ⁻¹); and of
+zeroth-order terms in ρ⁴C^∞. With ∂_μ ∈ {∂_(t_*), D_j}: the ∂_(t_*)²-term is
+−(g⁻¹ − ḡ⁻¹)(dt_*, dt_*)∂_(t_*)² = −g₀₀∂_(t_*)²; the mixed terms ρ²C^∞ · ∂_(t_*)D_j lie in ρ³Diff¹_b ∂_(t_*);
+B^(t_*)∂_(t_*) ∈ ρ³C^∞∂_(t_*); together they form Q∂_(t_*) with Q ∈ ρ³Diff¹_b. The spatial terms lie in
+ρ²(ρ𝒱_b)² + ρ³ρ𝒱_b + ρ⁴C^∞ ⊂ ρ⁴Diff²_b, which gives [[eq:ii-c-1-2]]. Finally σ₂ = G Id holds for every connection
+Laplacian. ∎
+
+In [Hin26c, Example 5.4], S ∈ ρC^∞ and the remainder in [[eq:ii-c-1-2]] has the weight ρ³; both come from the rate r⁻¹
+of Kerr, and the rate r⁻² of (K1) gives S = 0 and ρ⁴.
+
+#### P₀ on the compactifications {#sec:ii-c-1-3}
+
+**Lemma {#lem:ii-c-1-4}** ([Hin26c, Lemma 5.7] at n = 4.) Let P₀ be a stationary wave-type operator.
+(a) P₀ ∈ ⟨x⟩⁻²Diff²_(3b)(M̃₀; E) over {r > r₀ − 2δ₀}. (b) On Ω, P₀ ∈ x_I²ρ₊²Diff²_(e3b)(M; E). (c) Near ℐ⁺ ∩ Ω, in
+the coordinates ρ₊ = t_*⁻¹ ∈ (0, 1], x_I = (t_*/r)^(1/2), ω of [[sec:ii-a-1]],
+
+    2x_I⁻²ρ₊⁻²P₀ ≡ −(x_I∂_(x_I) − 3 − 2S)(x_I∂_(x_I) − 2ρ₊∂_(ρ₊)) + 2x_I²Δ_(𝕊³)    mod x_I Diff²_(eb).  {#eq:ii-c-1-4}
+
+The weight ρ₀² of [Hin26c, Lemma 5.7] is omitted: Ω does not meet I⁰, and ρ₀ is bounded below on it ([[sec:ii-a-1]]).
+
+*Proof.* (a) ³ᵇTM̃₀ is spanned by ⟨x⟩∂_t, ⟨x⟩∂_(x^i) ([[def:ii-a-2-1]]). Near K⁺ away from sf, ⟨x⟩ is bounded above
+and below, and P₀ is a t_*-independent differential operator with smooth coefficients in x, a combination of products
+of ∂_(t_*) = ∂_t and ∂_(x^i)|_(t_*) = ∂_(x^i)|_t + ω^i∂_t. Near sf, r∂_(t_*), r∂_r = −ρ∂_ρ and ∂_ω are 3b-vector
+fields, so 𝒱_b(X̄) ⊂ 𝒱_(3b) and ρ²Diff²_b(X̄) ⊂ r⁻²Diff²_(3b). In [[eq:ii-c-1-1]],
+∂_(t_*)ρ(ρ∂_ρ − 3/2 − S) = r⁻²(r∂_(t_*))(−r∂_r − 3/2 − S), Q∂_(t_*) ∈ ρ³Diff¹_b · r⁻¹(r∂_(t_*)) ⊂ r⁻⁴Diff²_(3b) and
+g₀₀∂_(t_*)² ∈ ρ²r⁻²(r∂_(t_*))². (b), (c) Away from ℐ⁺, (b) is (a), x_I being bounded below there and ρ₊ comparable to
+⟨x⟩⁻¹ near K⁺ ∩ ι⁺. Near ℐ⁺, by [[sec:ii-a-2-3]], ∂_(t_*) = ρ₊(−ρ₊∂_(ρ₊) + ½x_I∂_(x_I)) and
+∂_r = −½ρ₊x_I² · x_I∂_(x_I), and ρ = ρ₊x_I². Hence
+
+    ρ∂_(t_*) = ½x_I²ρ₊²(x_I∂_(x_I) − 2ρ₊∂_(ρ₊)),     ρ∂_ρ = −r∂_r = ½x_I∂_(x_I),     ρ²∂_ω = x_I³ρ₊² · x_I∂_ω,
+
+each in x_I²ρ₊²𝒱_eb or better ([Hin26c, (5.6)]). As ∂_(t_*) commutes with ρ, the first term of [[eq:ii-c-1-1]] is
+−2(ρ∂_(t_*))(ρ∂_ρ − 3/2 − S) = −½x_I²ρ₊²A(x_I∂_(x_I) − 3 − 2S) with A := x_I∂_(x_I) − 2ρ₊∂_(ρ₊). Since Aρ = 2ρ − 2ρ = 0,
+A commutes with S, a function of (ρ, ω), and A(x_I∂_(x_I) − 3 − 2S) = (x_I∂_(x_I) − 3 − 2S)A. Next, P̂₀(0) = ρ²P^(0)
+with P^(0) ≡ (ρD_ρ)² + Δ_(𝕊³) modulo Diff¹_b + ρDiff²_b ([[lem:ii-c-1-2]]):
+2x_I⁻²ρ₊⁻²ρ²Δ_(𝕊³) = 2x_I²Δ_(𝕊³), while 2x_I⁻²ρ₊⁻²ρ²(ρD_ρ)² = −½x_I²(x_I∂_(x_I))², and
+2x_I⁻²ρ₊⁻²ρ²Diff¹_b = 2x_I²Diff¹_b(X̄) ⊂ x_I Diff¹_(eb) (as x_I²∂_ω = x_I · x_I∂_ω), and likewise
+2x_I²ρDiff²_b(X̄) ⊂ x_I²Diff²_(eb). Finally 2x_I⁻²ρ₊⁻²Q∂_(t_*) ∈ x_I³ρ₊²Diff²_(eb) and
+2x_I⁻²ρ₊⁻²g₀₀∂_(t_*)² ∈ x_I²ρ₊²Diff²_(eb). This is [[eq:ii-c-1-4]], uniformly on {ρ₊ ≤ 1}, and
+x_I²Δ_(𝕊³) ∈ Diff²_(eb) gives (b) near ℐ⁺. ∎
+
+The constant 3 in [[eq:ii-c-1-4]] is the 2 of the factor 2(1 + S) of [Hin26c, (5.7)], at n = 4.
+
+### Admissibility of the stationary model {#sec:ii-c-2}
+
+Admissibility collects the conditions under which the forward problem for P₀ is solved in [[ch:s09]]: a threshold at
+the trapped set, tf-admissibility at the transition face, thresholds at the radial sets, and the solvability estimate
+[[eq:ii-c-2-2]].
+
+#### Trapping {#sec:ii-c-2-1}
+
+**Definition {#def:ii-c-2-1}** (Trapping admissibility; [Hin26c, Definition 5.8] at n = 4.) P₀ is *trapping
+admissible* if, for z₀ = 1 and z₀ = −1, (Γ.4) of [[sec:i-b-1-5]] holds with γ₋ < 0: there is a fibre inner product
+h_Γ over Γ_(z₀) with sup_(Γ_(z₀)) λ_max(p₁^Γ) < ½ν_min. It is *strongly trapping admissible* if, for each z₀ and every
+ϵ > 0, there is such an h_Γ with sup_(Γ_(z₀)) λ_max(p₁^Γ) < ϵ.
+
+**Lemma {#lem:ii-c-2-2}** (a) Under (K2), P₀ is trapping admissible. (b) At a point −σ dt_* + ζ with σ > 0 and
+(x, ζ/σ) ∈ Γ₁, and with ρ_∞ := σ⁻¹, ρ_∞σ₁(Im_h P₀)(−σ dt_* + ζ) = p₁(1)(x, ζ/σ), with p₁ as in [[lem:i-b-1-1]]. So
+the case z₀ = 1 of [[def:ii-c-2-1]] is the condition [Hin26c, (5.8)] at the stationary extension of Γ₁, with Im taken
+for the density |dt_* dx| and the inner product h_Γ extended to be stationary and homogeneous of degree 0.
+
+*Proof.* (a) (H7) assumes γ₋ < 0 in (Γ.4). (b) The density |dt_* dx| is t_*-invariant, so
+(T i∂_(t_*))^(*h) = i∂_(t_*)T^(*h), and i∂_(t_*) commutes with T^(*h); hence Im_h(T i∂_(t_*)) = (Im_h T) i∂_(t_*),
+while g₀₀∂_(t_*)² is h-symmetric. So σ₁(Im_h P₀)(−σ dt_* + ζ) = σ₁(Im_h P̂(0))(ζ) + σ σ₀(Im_h T), homogeneous of
+degree 1 in (σ, ζ); at σ = 1 it is p₁(1)(ζ) by [[lem:i-b-1-1]] (b). ∎
+
+[Hin26c, (5.9)], a conjugation by an elliptic operator realising [Hin26c, (5.8)] for a fixed inner product
+([Hin17, Proposition 3.12]), corresponds to [[lem:i-b-6-0]]: for h_Γ on phase space, [[sec:i-b-6]] conjugates by
+Q = Op_h(b̃^(1/2)) near Γ and carries its estimates back. [Hin26c, (5.8)] uses the density |dg|. A change of density by
+a smooth factor f changes Im P₀ by a first-order term with principal symbol ½f⁻¹H_G f, so the two conditions need not
+coincide pointwise; [[def:ii-c-2-1]] is the one that the trapping estimate of [[ch:s02]] uses.
+
+#### The transition face {#sec:ii-c-2-2}
+
+**Definition {#def:ii-c-2-3}** (tf-admissibility; [Hin26c, Definition 5.10] at n = 4.) P₀ is *tf-admissible with
+weight* β if its spectral family is tf-admissible with weight β in the sense of [[def:i-c-5-1]].
+
+By [[cor:i-c-5-2]] (c), tf-admissibility with one weight in an indicial gap implies it for every weight in that gap.
+[[sec:i-c-5-1]] relates [[def:ii-c-2-3]] to [Hin26c, Definition 5.10].
+
+#### Orders {#sec:ii-c-2-3}
+
+Over K⁺ the phase space is the 3b-cosphere bundle of the stationary model, ³ᵇS*M̃₀ ([[sec:ii-b-2]]), and
+t_*-translations act on it. On ∂Σ^± the future field is ±𝖧, with 𝖧 the field [[eq:ii-b-1-4]]. The radial sets
+∂R_(ℋ⁺) and ∂R_(∂K⁺,in/out) are those of [[def:ii-b-4-1]] and [[def:ii-b-3-1]]. For a fibre inner product h on E_X,
+
+    ϑ_out := inf_(R^K_out) λ_min(−ρ_∞σ¹_(3b)(r² Im_h P₀)),     ϑ^(3b)_in := sup_(R^K_in) λ_max(ρ_∞σ¹_(3b)(r² Im_h P₀)),
+                                                                                                        {#eq:ii-c-2-1}
+
+with R^K_(in/out) := ∂R_(∂K⁺,in/out) ([[prop:ii-b-8-1]]) and ρ_∞ := −σ_(3b)⁻¹ ([Hin26c, (5.18)] and after). Here
+r² Im_h P₀ ∈ Diff¹_(3b) near sf by [[lem:ii-c-1-4]] (a), as its principal symbol of order 2 vanishes, and its
+principal symbol σ¹_(3b)(r² Im_h P₀) is an h-self-adjoint endomorphism, homogeneous of degree 1 in the fibres. The
+threshold ϑ_ℋ is that of [[eq:i-a-1-5]] at the horizon: ∂R_(ℋ⁺) lies in {σ = 0}, where
+σ₁(Im_h P₀) = σ₁(Im_h P̂(0)) by the identity in the proof of [[lem:ii-c-2-2]].
+
+**Definition {#def:ii-c-2-4}** (Stationary admissible orders; [Hin26c, Definition 5.11] at n = 4.) A
+t_*-translation-invariant 𝗌 ∈ C^∞(³ᵇS*M̃₀), over {r > r₀ − 2δ₀}, is *stationary-P₀-admissible with weights* α_sf,
+α_K *and margin* η ≥ 0 if:
+
+(1) (*Monotonicity.*) ±𝖧𝗌 ≤ 0 on ∂Σ^±: 𝗌 is non-increasing along the future flow.
+
+(2) (*Evenness.*) 𝗌(−ζ) = 𝗌(ζ).
+
+(3) (*Black hole and trapping.*) 𝗌 is constant over {r ≤ r_Γ}, for some r_Γ > r_h with Γ_(±1) ⊂ T*{r < r_Γ}.
+
+(4) (*Horizon.*) 𝗌 is constant near ∂R_(ℋ⁺), and 𝗌 > ½ + ϑ_ℋ + η there.
+
+(5) (*Outgoing radial set.*) 𝗌 is constant near ∂R_(∂K⁺,out), and 𝗌 + α_sf < ½(−1 + ϑ_out) + α_K − η there.
+
+(6) (*Incoming radial set.*) 𝗌 is constant near ∂R_(∂K⁺,in), and 𝗌 + α_sf > ½(−1 + ϑ^(3b)_in) + α_K + η there.
+
+Each threshold is computed in a fibre inner product chosen for its radial set.
+
+**Lemma {#lem:ii-c-2-5}** (Inner products adapted to S.) Let S ∈ C^∞(X̄; End ℂ^N) and ϵ > 0. There is a fibre inner
+product h on E_X with λ_min(½(S + S^(*h))) ≥ S̄ − ϵ on ∂X. For every fibre inner product,
+inf_(∂X) λ_min(½(S + S^(*h))) ≤ S̄. This is [Hin23c, Proposition B.1].
+
+*Proof.* For p ∈ ∂X write S(p) = A(D + N)A⁻¹ in Jordan form, D diagonal and N with entries 0 or 1 on the first
+superdiagonal. With Λ := diag(1, δ⁻¹, …, δ^(1−N)), ΛNΛ⁻¹ = δN. Put h_p(v, w) := ⟨ΛA⁻¹v, ΛA⁻¹w⟩_(ℂ^N); for
+u := ΛA⁻¹v, Re h_p(S(p)v, v) = Re⟨(D + δN)u, u⟩ ≥ (min Re spec S(p) − δ)|u|² ≥ (S̄ − δ)h_p(v, v). As
+λ_min(½(S + S^(*h))) = min_(h(v,v)=1) Re h(Sv, v), the constant inner product h_p gives λ_min ≥ S̄ − 2δ on a
+neighbourhood U_p of p, by continuity of (q, v) ↦ Re h_p(S(q)v, v) on {h_p(v, v) = 1}. Take a finite cover of ∂X by
+such U_(p_k), a subordinate partition of unity χ_k on a neighbourhood of ∂X, and h := Σ_k χ_k h_(p_k) there, extended
+to X̄ by a convex combination with a fixed inner product away from ∂X. Then
+Re h(Sv, v) = Σ_k χ_k Re h_(p_k)(Sv, v) ≥ (S̄ − 2δ)h(v, v) on ∂X; take δ := ϵ/2. Conversely, the eigenvalues of S(p)
+depend continuously on p, so S̄ is attained: S(p_*)v = μv with Re μ = S̄. Then Re h(S(p_*)v, v) = S̄ h(v, v) for
+every h. ∎
+
+**Lemma {#lem:ii-c-2-6}** ([Hin26c, Lemma 5.12] at n = 4.) For every fibre inner product h,
+ϑ_out = 2 inf_(∂X) λ_min(½(S + S^(*h))) ≤ 2S̄, and for the h of [[lem:ii-c-2-5]], ϑ_out ≥ 2S̄ − 2ϵ. Moreover
+ϑ^(3b)_in = ϑ_in, the threshold of [[eq:i-a-1-5]] at R_in.
+
+*Proof.* Use the 3b-covectors [[eq:ii-b-3-1]], σ_(3b) dt_*/r + ξ_(3b) dr/r + η_(3b), so that σ₁(r∂_(t_*)) = iσ_(3b),
+σ₁(r∂_r) = iξ_(3b), and −σ dt_* + ξ dr + η has σ_(3b) = −rσ, ξ_(3b) = rξ. We compute σ¹_(3b)(r² Im_h P₀) at sf term by
+term in [[eq:ii-c-1-1]].
+
+(i) −2∂_(t_*)ρ(ρ∂_ρ − 3/2) is symmetric for |dt_* dx| = ρ⁻⁵|dt_* dρ dω|: (ρ∂_ρ)* = −ρ∂_ρ + 4 for ρ⁻⁵dρ and
+∂_(t_*)* = −∂_(t_*), so (∂_(t_*)ρ(ρ∂_ρ − c))* = −(−ρ∂_ρ + 4 − c)ρ∂_(t_*) = ∂_(t_*)ρ(ρ∂_ρ − 3 + c), which equals
+∂_(t_*)ρ(ρ∂_ρ − c) exactly for c = 3/2. With h, the adjoint acquires terms H⁻¹[·, H]. As H is t_*-independent and
+ρ∂_ρH ∈ ρC^∞, they lie in ρ · ρ ∂_(t_*)C^∞ ⊂ r⁻³Diff¹_(3b), which vanish at sf after the factor r².
+
+(ii) 2∂_(t_*)ρS = 2ρS∂_(t_*) has Im_h = (1/i)ρ(S + S^(*h))∂_(t_*), as (2ρS∂_(t_*))^(*h) = −2ρS^(*h)∂_(t_*). Its symbol
+at −σ dt_* + ζ is (1/i)ρ(S + S^(*h))(−iσ) = −ρσ(S + S^(*h)) = ρ²σ_(3b)(S + S^(*h)), so r² times it is
+σ_(3b)(S + S^(*h)), and ∓ρ_∞ times that is ±(S + S^(*h)).
+
+(iii) r² Im_h P̂₀(0) ∈ Diff¹_b(X̄) (the remark after (H5) in [[sec:i-a-1-3]]). Its 3b-principal symbol is that of a
+spatial operator, linear in (ξ_(3b), η_(3b)). At ∂R_(∂K⁺,out), where ξ_(3b) = η_(3b) = 0, it vanishes. At
+∂R_(∂K⁺,in), where ξ_(3b) = 2σ_(3b) and η_(3b) = 0, write the scattering symbol of
+ρ⁻¹Im_h P̂₀(0) ∈ ρDiff¹_b = Diff¹_sc at ∂X, at ξ dr, as ξa; then σ(r² Im_h P̂₀(0))(ξ dr) = rξa = ξ_(3b)a at sf, and
+ρ_∞ξ_(3b)a = −ξ̂a = −2a, which is p_in = σ(ρ⁻¹Im_h P̂(0))|_(ξ=−2, η=0) of [[eq:i-a-1-5]].
+
+(iv) Q∂_(t_*), g₀₀∂_(t_*)² ∈ r⁻⁴Diff²_(3b) ([[lem:ii-c-1-4]]), so r² Im_h of them lies in r⁻²Diff¹_(3b) and vanishes at
+sf.
+
+Hence −ρ_∞σ¹_(3b)(r² Im_h P₀) = S + S^(*h) at ∂R_(∂K⁺,out), whose base is all of ∂K⁺ ∩ sf ≅ ∂X, and
+ρ_∞σ¹_(3b)(r² Im_h P₀) = p_in − (S + S^(*h)) at ∂R_(∂K⁺,in). The first gives ϑ_out by [[lem:ii-c-2-5]], the second
+ϑ^(3b)_in = sup λ_max(p_in − (S + S^(*h))) = ϑ_in. ∎
+
+So the thresholds of [[def:ii-c-2-4]] at ∂K⁺ are those of [[eq:i-a-1-5]] and [[sec:i-b-1-4]] written in 3b-terms:
+½(−1 + ϑ_out) ≈ −½ + S̄ and ½(−1 + ϑ_in).
+
+#### The spaces and ℵ-admissibility {#sec:ii-c-2-4}
+
+For an order 𝗌, k ∈ ℕ₀ and weights, H^((𝗌;k),(α_sf,α_K))_(3b;b)(Ω; E)^(•,−) is the space of [[sec:ii-a-7]] (the
+restrictions to {r > r₀} of elements of the weighted mixed 3b-space supported in {t_* ≥ 1}), with local defining
+functions ρ_sf = r⁻¹ and ρ_K = r/(t_* + r) on Ω ([Hin26c, (5.21)]). On Ω, r∂_x and t_*∂_(t_*) form a global frame of
+𝒱_b ([[sec:ii-a-2-1]]), so b-regularity is tested by (t_*∂_(t_*))^j(r∂_x)^α.
+
+**Definition {#def:ii-c-2-7}** (ℵ-admissibility; [Hin26c, Definition 5.13] at n = 4.) Let ℵ, δ ≥ 0 and α_sf ∈ ℝ. P₀
+is *ℵ-admissible with sf-weight α_sf and sf-loss δ* if, for every stationary-P₀-admissible order 𝗌 with weights α_sf,
+−ℵ and margin 0: (1) P₀ is trapping admissible; (2) P₀ is tf-admissible with weight α_sf + 2; (3) for every k ∈ ℕ₀
+and f ∈ H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω; E)^(•,−), the forward solution of P₀u = f lies in
+H^((𝗌;k),(α_sf−δ,−ℵ))_(3b;b)(Ω; E)^(•,−), with
+
+    ‖u‖_(H^((𝗌;k),(α_sf−δ,−ℵ))_(3b;b)) ≤ C_k ‖P₀u‖_(H^((𝗌;k),(α_sf+2,0))_(3b;b)).                      {#eq:ii-c-2-2}
+
+The relaxed version with margin d_ℵ ≥ 0 ([Hin26c, Remark 5.14]) asks (1)–(2) for orders with margin d_ℵ and (3) with
+𝗌 − d_ℵ in place of 𝗌 on the left.
+
+The weight in (2) is the weight α_sf + 3/2 of [Hin26c] at n = 4: by [[lem:i-c-2-2]], ρ^α L²(|dx|) = ρ^(α+2)L²(μ_b), so
+the spatial weight α of an L²(|dx|)-based space is the b-weight α + 2 at n = 4 (that is, α + n/2; see
+[[sec:i-c-1-2]]). In particular α_sf + 2 lies in
+an indicial gap of P̂₀(0). For the scalar wave operator the gap is (0, 2), the indicial roots of [[eq:ii-c-1-3]] at
+ℓ = 0 being 0 and 2, so α_sf ∈ (−2, 0), where [Hin26c] has (−3/2, −1/2).

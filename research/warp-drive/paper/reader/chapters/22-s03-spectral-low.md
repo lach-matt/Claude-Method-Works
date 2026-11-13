@@ -487,3 +487,173 @@ kernel element of norm 1, a contradiction; likewise for [[eq:i-c-3-3]]. ∎
 **Remark {#rem:i-c-3-2}** ([Hin26c, Remark 9.37].) [Hin26c] notes that the error term of [[eq:i-c-3-2]] may be taken
 at orders s^♭ < s and α^♭ < α with α^♭ + 2 in the same gap, and that the kernel is polyhomogeneous. Neither is used
 below, and neither is proved here.
+
+### The transition face normal operator {#sec:i-c-4}
+
+#### The face and the operator {#sec:i-c-4-1}
+
+The interior of the transition face is tf° := ℝ⁴_x̂ ∖ 0, with r̂ := |x̂|, ρ̂ := r̂⁻¹ and ω := x̂/r̂; tf is its
+compactification at both ends, sctf at r̂ = ∞ and ztf at r̂ = 0, with ρ_sctf := ρ̂/(1 + ρ̂) = (1 + r̂)⁻¹ and
+ρ_ztf := (1 + ρ̂)⁻¹ = r̂/(1 + r̂). Each end is an end in the sense of [[sec:i-c-2-2]]: sctf with ϱ = ρ̂, ztf with
+ϱ = r̂. C_b^∞(tf) is the space of smooth functions on tf° with all b-derivatives (r̂∂_r̂, Z_i) bounded, and
+𝒜^(a,b)(tf) := ρ_sctf^a ρ_ztf^b C_b^∞(tf). For σ̂ ∈ ℂ,
+
+    N_tf(σ̂) := 2iσ̂ρ̂(ρ̂∂_ρ̂ − 3/2 − S_0) + ρ̂² N(P⁽⁰⁾),                                                    {#eq:i-c-4-1}
+
+with ρ∂_ρ read as ρ̂∂_ρ̂ in N(P⁽⁰⁾); this is [Hin26c, (9.110)] in dimension 4 + 1. It is the spectral family of the
+*model* P̂_mod(σ) := 2iσρ(ρ∂_ρ − 3/2 − S_0) + ρ²N(P⁽⁰⁾) on ℝ⁴ ∖ 0, written in x̂. For ς > 0 let
+(S_ς u)(x̂) := u(x̂/ς). Since ρ = ςρ̂ and ρ∂_ρ = ρ̂∂_ρ̂ under x̂ = ςx,
+
+    S_ς P̂_mod(σ) S_ς⁻¹ = ς² N_tf(σ/ς),     ς > 0,                                                         {#eq:i-c-4-2}
+
+which is [Hin26c, (5.13)]: N_tf(σ̂) = ς⁻² S_ς P̂_mod(σ̂ς) S_ς⁻¹ for every ς.
+
+*Structure.* (a) On {r̂ > 1}, N_tf(σ̂) is an operator of the form [[eq:i-c-1-1]] at σ = σ̂, with S = S_0,
+P⁽⁰⁾ = N(P⁽⁰⁾), Q = 0, g_00 = 0 and P_2 = 0, so it satisfies (H1)–(H2) on {ρ̂ < 1}. Its thresholds S̄ and ϑ_in,
+computed with the fibre inner product H_0(ω) extended to be independent of ρ̂ (or the inner product of [[lem:i-a-2-4]]
+frozen at ρ = 0), are those of P̂, because they depend only on the coefficients at ρ = 0: S̄ on S_0, and p_in on the
+boundary symbol of ρ⁻¹ Im_h P̂(0) ∈ ρ Diff_b^1, which is that of the same expression for ρ²N(P⁽⁰⁾) and H_0, as
+P⁽⁰⁾ − N(P⁽⁰⁾) ∈ ρ Diff_b^2 and H − H_0 ∈ ρC^∞. (b) On tf°, N_tf(σ̂) is elliptic at fibre infinity: its principal
+symbol is ρ̂² times that of (ρ̂D_ρ̂)² + Δ, which is |ζ̂|² Id in x̂. (c) Near ztf, with ϱ = r̂ and ρ̂∂_ρ̂ = −ϱ∂_ϱ,
+
+    r̂² N_tf(σ̂) = N(P⁽⁰⁾)|_(ρ∂_ρ → −ϱ∂_ϱ) + 2iσ̂r̂(−ϱ∂_ϱ − 3/2 − S_0),
+
+an operator L as in [[sec:i-c-2-5]] at the end at 0, b-elliptic on {r̂ < 2}, whose Mellin symbol is J(ι) = I(−ι),
+with spec_J = −spec_b. Its adjoint for |dx̂| = r̂⁴μ_b and H_0 satisfies
+r̂²N_tf(σ̂)^(*h) = H_0⁻¹ r̂⁻² L^(†_b) r̂² H_0, with Mellin symbol H_0⁻¹ I(ῑ + 2)^† H_0 and roots
+{μ̄ − 2 : μ ∈ spec_b}: L^(†_b) has the roots {μ̄}, and conjugation by r̂^(∓2) shifts them by −2. Indeed, for the
+density r̂⁴μ_b the adjoint of an operator A is r̂⁻⁴A^(†_b)r̂⁴, so (r̂⁻²L)^† = r̂⁻⁴L^(†_b)r̂² and
+r̂²(r̂⁻²L)^† = r̂⁻²L^(†_b)r̂²; the normal operator of L^(†_b) is Σ_j B_j(0)^†(−ϱ∂_ϱ)^j, with symbol J(−ῑ)^†, and
+conjugation by r̂² evaluates it at ι + 2, as in the derivation of [[eq:i-c-3-5]], giving J(−ῑ − 2)^† = I(ῑ + 2)^†,
+whose roots are found as there. This is the shift −n + 2 of [Hin26c] at n = 4.
+
+#### The spaces on the face {#sec:i-c-4-2}
+
+Let φ_∞ ∈ C^∞(tf) be a function of r̂ with φ_∞ = 0 on {r̂ ≤ 1} and φ_∞ = 1 on {r̂ ≥ 2}.
+
+**Definition {#def:i-c-4-1}** ([Hin26c, (3.44)] in dimension 4 + 1.) For s, q ∈ ℝ, k ∈ ℕ_0 and a decay order 𝗋 on the
+scattering phase space of ℝ⁴_x̂ (as in [[sec:i-a-1-4]]),
+
+    ‖w‖²_(H_(sc,b;b)^((s;k),(𝗋,q))(tf)) := ‖φ_∞ w‖²_(H_sc^((s;k),𝗋)(ℝ⁴)) + ‖(1 − φ_∞)w‖²_(H_(b,q−2)^(s+k)),
+
+with H_sc^((s;k),𝗋) the space of [[sec:i-a-4-6]] (k further b-derivatives) and H_(b,q−2)^(s+k) the space of
+[[def:i-c-2-1]] at the end at 0. For k = 0 we write H_(sc,b)^(s,(𝗋,q))(tf).
+
+Near ztf, ρ_ztf^q L²(|dx̂|) = r̂^(q−2) L²(μ_b) as |dx̂| = r̂⁴μ_b, so the b-weight is q − 2, and the norm is that of
+ρ_sctf^𝗋 ρ_ztf^q H_(sc,b)^s(tf) for the Euclidean density, as in [Hin26c]. By [HJS, Propositions 3.7, 3.11 and 3.13,
+Section 10.1] and [[lem:i-c-2-2]]: the L²(|dx̂|) pairing identifies the dual of H_(sc,b)^(s,(𝗋,q)) with
+H_(sc,b)^(−s,(−𝗋,−q)) (near ztf the pairing is ⟨w, r̂⁴v⟩_(μ_b), and v ↦ r̂⁴v maps the b-weight −q − 2 of the second
+space onto −(q − 2), the dual of q − 2); the inclusion is compact when all three orders drop, the decay order by a
+positive constant; and N_tf(σ̂) maps H_(sc,b;b)^((s;k),(𝗋,q)) to H_(sc,b;b)^((s−2;k),(𝗋,q−2)), by (a) and (c) of
+[[sec:i-c-4-1]] (near sctf it lies in Ψ_sc^(2,0), with commutators with b-vector fields of the same class).
+
+#### The theorem {#sec:i-c-4-3}
+
+*Orders.* Let J_± := {σ_0 : |σ_0 ∓ 1| < ¼}, and let 𝗋_± be the decay order of an order pair that is admissible, with
+weight α_+, for every σ_0 ∈ J_± ([[lem:i-a-7-1]] at σ_* = ±1, which concerns only the boundary face; its order is a
+function of ξ and |η|², so it is invariant under rotations). Let Θ_± := {θ ∈ [0, π] : |e^(iθ) ∓ 1| ≤ ½}; for
+θ ∈ Θ_±, ±cos θ = 1 − ½|e^(iθ) ∓ 1|² ≥ 7/8, so Re e^(iθ) ∈ J_±. For orders and q put
+
+    𝒳_(tf,θ) := {w ∈ H_(sc,b)^(s,(𝗋+α_+,q)) : N_tf(e^(iθ))w ∈ 𝒴_(tf,θ)},     𝒴_(tf,θ) := H_(sc,b)^(s−2,(𝗋+α_++1,q−2)),
+
+    𝒳_(tf,θ)^* := {w ∈ H_(sc,b)^(−s+2,(−𝗋−α_+−1,−q+2)) : N_tf(e^(iθ))^(*h)w ∈ H_(sc,b)^(−s,(−𝗋−α_+,−q))},
+
+the adjoint taken for |dx̂| and H_0; 𝒳_(tf,θ) → 𝒴_(tf,θ) is [Hin26c, (9.112)].
+
+**Theorem {#thm:i-c-4-3}** (The transition face normal operator.) Assume (H1)–(H2). Let q ∈ ℝ with −q + 2 in an
+indicial gap (β_−, β_+) of P̂(0), and let α_+, s, M ∈ ℝ.
+
+(1) (*Fredholm estimates, I.*) For θ ∈ Θ_± and 𝗋 = 𝗋_± there is C, uniform in θ ∈ Θ_±, with
+
+    ‖w‖_(H_(sc,b)^(s,(𝗋+α_+,q))) ≤ C(‖N_tf(e^(iθ))w‖_(H_(sc,b)^(s−2,(𝗋+α_++1,q−2))) + ‖w‖_(H_(sc,b)^(−M,(−M,−M)))),
+                                                                              w ∈ 𝒳_(tf,θ),            {#eq:i-c-4-3}
+
+    ‖w‖_(H_(sc,b)^(−s+2,(−𝗋−α_+−1,−q+2)))
+        ≤ C(‖N_tf(e^(iθ))^(*h)w‖_(H_(sc,b)^(−s,(−𝗋−α_+,−q))) + ‖w‖_(H_(sc,b)^(−M,(−M,−M)))),     w ∈ 𝒳_(tf,θ)^*.   {#eq:i-c-4-4}
+
+(2) (*Fredholm estimates, II.*) Let I ⊂ (0, π) be compact and 𝗋 constant near R_out with 𝗋 + α_+ < −½ + S̄ there.
+Then [[eq:i-c-4-3]]–[[eq:i-c-4-4]] hold uniformly for θ ∈ I.
+
+(3) (*Fredholm property.*) In the settings of (1) and (2), N_tf(e^(iθ)): 𝒳_(tf,θ) → 𝒴_(tf,θ) is Fredholm, and the
+annihilator of its range is ker_(𝒳_(tf,θ)^*) N_tf(e^(iθ))^(*h). The kernel and the annihilator depend neither on q
+with −q + 2 ∈ (β_−, β_+), nor on s, nor on the orders allowed in (1)–(2); the index does not depend on θ ∈ [0, π]
+either.
+
+(4) (*Higher b-regularity.*) If w ∈ 𝒳_(tf,θ) and N_tf(e^(iθ))w ∈ H_(sc,b;b)^((s−2;k),(𝗋+α_++1,q−2)), then
+w ∈ H_(sc,b;b)^((s;k),(𝗋+α_+,q)) and
+
+    ‖w‖_(H_(sc,b;b)^((s;k),(𝗋+α_+,q)))
+        ≤ C(‖N_tf(e^(iθ))w‖_(H_(sc,b;b)^((s−2;k),(𝗋+α_++1,q−2))) + ‖w‖_(H_(sc,b)^(s,(𝗋+α_+,q)))).            {#eq:i-c-4-5}
+
+In the settings of (1) and (2), C is uniform in θ.
+
+(5) (*Kernel.*) In the settings of (1) and (2), every w ∈ ker_(𝒳_(tf,θ)) N_tf(e^(iθ)) lies in
+𝒜^(3/2+S̄−ϵ,−β)(tf) for every ϵ > 0 and β ∈ (β_−, β_+). Conversely ∩_(ϵ>0) 𝒜^(3/2+S̄−ϵ,−β_−−ϵ)(tf) ⊂ 𝒳_(tf,θ).
+
+This is [Hin26c, Theorem 9.38] in dimension 4 + 1, on E, with the sign in the definition of Θ_± that matches the
+orders 𝗋_± ([[sec:s03-remarks]]). [Hin26c, Theorem 9.38 (5)] also states [Hin26c, (9.115)]: the annihilator lies in
+e^(−2i/ρ_sctf) 𝒜^(a,−2+β)(tf) (at n = 4). Its proof conjugates the scattering calculus by e^(2ir̂), which lies outside
+the results of [HJS] used in [[ch:s01]], and uses [Hin26c, (9.117)], whose printed proof omits a term
+([[sec:s03-remarks]]). Nothing here uses (9.115): tf-admissibility is stated in [[sec:i-c-5]] on the spaces of this
+theorem. (9.115) is not proved here.
+
+#### Proof {#sec:i-c-4-4}
+
+*Proof of [[thm:i-c-4-3]].* *Near sctf, (1)–(2).* Let N^♭ be an operator on ℝ⁴ equal to N_tf(e^(iθ)) on {r̂ > ½} and
+of the class of (a) of [[sec:i-c-4-1]] on {ρ̂ < 2}. The estimates of [[ch:s01]] at the boundary face hold for it:
+[[lem:i-a-4-4]], [[lem:i-a-4-5]], [[prop:i-a-4-6]], [[prop:i-a-4-9]] and the pieces (C), (D), (E), (F) of
+[[sec:i-a-7-1]] (with [[sec:i-a-7-2]] for (2)) use only (H1)–(H2) on {ρ < ρ_1}, their commutants being microsupported
+at the boundary face, and [[prop:i-a-5-1]] is the elliptic estimate. Apply them to φ_∞w, which is supported in
+{r̂ ≥ 1}: at fibre infinity everything is elliptic by (b), so the regularity loss is 2, and at the boundary face the
+radial estimates gain one order of decay, as in [[eq:i-a-7-1]]. With θ ∈ Θ_± the orders 𝗋_± are admissible for
+Re e^(iθ), uniformly ([[thm:i-a-7-2]] (1), whose constants are uniform for σ_0 in compact subsets of J_± and
+Im σ ∈ [0, 1]); for θ ∈ I ⊂ (0, π), Im e^(iθ) is bounded below and [[thm:i-a-7-2]] (2) applies. The a priori term at
+R_in is absorbed by Ehrling's lemma as in [[sec:i-a-7-1]]. This gives, with φ′ a cut-off to {½ < r̂ < 4} and the
+commutator [N^♭, φ_∞] supported in {1 ≤ r̂ ≤ 2},
+
+    ‖φ_∞w‖_(H_sc^(s,𝗋+α_+)) ≤ C(‖N_tf w‖_(𝒴_(tf,θ)) + ‖φ′w‖_(H^(s−1)) + ‖w‖_(H_(sc,b)^(−M,(−M,−M)))).
+
+*The interior.* (K2) on {¼ < r̂ < 8} bounds ‖φ′w‖_(H^(s−1)) ≤ ‖φ′w‖_(H^s) by ‖N_tf w‖ there plus ‖w‖_(H^(−M)) there.
+
+*Near ztf.* [[lem:i-c-2-5]] for L = r̂²N_tf(e^(iθ)) at the b-weight q − 2 (with r̂⁻² moved by [[lem:i-c-2-2]] (b), so
+that N_tf w ∈ H_(b,q−4)^(s−2) is the weight q − 2 of the target) bounds ‖(1 − φ_∞)w‖_(H_(b,q−2)^s) by
+‖N_tf w‖_(𝒴_(tf,θ)) plus ‖χ̃w‖_(H_(b,q−2)^(−M)), χ̃ a cut-off to {r̂ < 3}. Then [[lem:i-c-2-6]] at c = q − 2 (M an
+integer), which is not a real part of a root of J because −(q − 2) lies in the gap, and [[lem:i-c-2-2]] (g) give
+
+    ‖χ̃w‖_(H_(b,q−2)^(−M)) ≤ C‖N_tf w‖ + Ce^(−k_0)‖χ̃′w‖_(H_(b,q−2)^(−M)) + C_(k_0)‖w‖_(H_(sc,b)^(−M,(−M,−M))),
+
+and the middle term is absorbed as in [[sec:i-c-3-1]]. This is the improvement of the error term in [Hin26c] from
+(−M, q) to (−M, q − 1) and then to (−M, −M). Summing gives [[eq:i-c-4-3]].
+
+*The adjoint.* The same, with the adjoint chain of [[sec:i-a-7-1]] at the boundary face ((E*), (D*), (C*) and (F),
+the a priori term at R_out absorbed as there), (K2) in the interior, and near ztf [[lem:i-c-2-5]]–[[lem:i-c-2-6]] for
+the normal operator of the adjoint, whose roots μ̄ − 2 avoid the real part −q (the b-weight of −q + 2) exactly when
+−q + 2 avoids Re spec_b. This gives [[eq:i-c-4-4]].
+
+*(3).* The inclusion 𝒳_(tf,θ) ↪ H_(sc,b)^(−M,(−M,−M)) is compact for M large, so [[eq:i-c-4-3]]–[[eq:i-c-4-4]] give
+the Fredholm property, by Peetre's lemma, as in [[sec:i-a-7-3]]. Green's formula ⟨N_tf w, v⟩ = ⟨w, N_tf^(*h)v⟩ holds
+for w ∈ 𝒳_(tf,θ), v ∈ 𝒳_(tf,θ)^*: near sctf by the proof in [[sec:i-a-7-3]] (with the regularising family T_t of
+[HJS, Lemma 12.5], there being no artificial boundary); near ztf as in [[sec:i-c-3-1]], by [[lem:i-c-2-5]] and density
+([[lem:i-c-2-2]] (d)). So the annihilator of the range is the kernel of the adjoint on 𝒳_(tf,θ)^*. *Independence.*
+Kernel elements are independent of q, s and the orders by (5) and its converse. For the annihilator: near ztf,
+[[lem:i-c-2-5]] and [[lem:i-c-2-7]] for the adjoint, with roots μ̄ − 2 and gap (β_− − 2, β_+ − 2) containing −q, put
+v in H_(b,c′)^∞ for every c′ < β_+ − 2, which is the b-weight −q′ of 𝒳_(tf,θ)^* for every q′ > 2 − β_+; near sctf,
+the strong forms of the adjoint estimates put it in the space of any other allowed order and any s (the independence
+of the orders in [[sec:i-a-7-3]]). *The index in θ.* As for the local constancy of the index in [[sec:i-a-7-3]]: at
+θ_* ∈ [0, π] fix orders allowed near θ_* (𝗋_± near Θ_±, a constant order of (2) in (0, π)), augment with E_01, E_10
+built from C_c^∞(tf°), and run the contradiction argument with θ_j → θ_* using the uniform estimates
+[[eq:i-c-4-3]]–[[eq:i-c-4-4]] and the compact inclusion. The index is locally constant, the kernels and annihilators
+do not depend on the allowed orders, and [0, π] is connected.
+
+*(4).* Near sctf, the proof of [[thm:i-a-7-2]] (4), with [[prop:i-a-4-9]] (3) and [[lem:i-a-4-10]], applies to N^♭;
+near ztf, b-regularity is regularity in H_(b,q−2), and [[lem:i-c-2-5]] at the order s + k gives it; in the interior,
+(K2). These steps depend on θ only through the constants of (1)–(2), so C is uniform in θ as there.
+
+*(5).* Let w be in the kernel. Near sctf, the first paragraph of the proof of [[thm:i-a-7-2]] (5) ([[rem:i-a-7-3]],
+[[thm:i-a-7-2]] (4) with f = 0, and [[lem:i-a-7-4]] (b)) gives φ_∞w ∈ ρ_sctf^(3/2+S̄−ϵ) C_b^∞. In the interior w is
+smooth by (K2). Near ztf, [[lem:i-c-2-5]] gives χ̃w ∈ H_(b,q−2)^∞, and [[lem:i-c-2-7]] with J = I(−·),
+(c_−, c_+) = (−β_+, −β_−) ∋ q − 2 and Lw = 0 gives (1 − φ_∞)w ∈ 𝒜^(c′) near ztf for every c′ < −β_−, that is, in
+ρ_ztf^(−β) C_b^∞ for every β > β_−. Conversely, for w ∈ ∩_ϵ 𝒜^(3/2+S̄−ϵ,−β_−−ϵ): near sctf, [[lem:i-a-7-4]] (a) and
+the mapping of 𝒜^a to 𝒜^(a+1) by N_tf there (the converse in [[sec:i-a-7-5]]) give membership in the sctf part of
+𝒳_(tf,θ); near ztf, 𝒜^(−β_−−ϵ) ⊂ H_(b,−β_−−2ϵ)^∞ ⊂ H_(b,q−2)^s by [[lem:i-c-2-2]] (f), as q − 2 < −β_−, and
+N_tf w ∈ r̂⁻² 𝒜^(−β_−−ϵ) ⊂ H_(b,q−4)^(s−2) likewise. ∎

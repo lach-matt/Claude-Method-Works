@@ -15,7 +15,7 @@ sec:bondi-statement	paper/RESPONSE-HL-5D.md:413-466	P Theorem 3 and sketch	solve
 thm:bondi-law	paper/RESPONSE-HL-5D.md:413-441; paper/RESPONSE-HL-5D.md:676-680	P Theorem 3 = NP Theorem M; flux (6.1)	item 3 states the flux (6.1) as eq:flux-mean; θ_B renamed ϑ_B
 eq:bondi-form	paper/RESPONSE-HL-5D.md:418-419	P (3.2)	θ_B renamed ϑ_B
 eq:bondi-law	paper/RESPONSE-HL-5D.md:430	P (3.3)	
-eq:flux-mean	paper/RESPONSE-HL-5D.md:676-677	P (6.1) = NP (9.10) with the factor 1 - π/2	
+eq:flux-mean	paper/RESPONSE-HL-5D.md:679	P (6.1) = NP (9.10) with the factor 1 - π/2	
 sec:settling-statement	paper/RESPONSE-HL-5D.md:1180-1269; paper/RESPONSE-HL-5D.md:777-796	P 8.7-8.8, 8.2	
 thm:settling	paper/RESPONSE-HL-5D.md:1239-1259	P Theorem 4 = proof5 Part VII Theorem 0.2	parameters referred to stability chapters; pending stability-parameters
 sec:further-results	paper/RESPONSE-HL-5D.md:1486-1863 (first sentences)	P section 9	
