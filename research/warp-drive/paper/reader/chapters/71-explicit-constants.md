@@ -471,35 +471,52 @@ Adding, R > (1 − 6δ̄)/(ε_Kδ_50); with ε_K < δ_50 < δ̄ this exceeds (1 
 used h beyond ε_ind(h) ≤ δ_50. ∎
 
 **Theorem {#thm:loss-d}** (The loss d and the regularity N_NM.) Let d_acc be the accounted loss of
-[[def:ec-accounted-loss]]. Then [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d = d_acc, the Nash–Moser theorem
-[[thm:ii-g-2-1]] is applied in the proof of [[thm:iii-k-4-3]] at the regularity N_NM = 21d_acc + 6, and:
+[[def:ec-accounted-loss]], and d_NM the loss with which the proof of [[thm:iii-k-3-2]] applies the Nash–Moser theorem
+[[thm:ii-g-2-1]]: the largest of the losses of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], that of
+[[lem:iii-k-2-3]] accounted by [[def:ec-accounted-loss]]. Then [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with
+d = d_acc, [[thm:ii-g-2-1]] is applied at the regularity N_NM = 21d_NM + 6, d_NM ≥ d_acc, and:
 
 (i) d_acc is composed, by the rules of [[def:ec-accounted-loss]], of elementary losses and of the numbers of steps of
-the iterations of [[sec:ec-floor]], each round being charged at least the loss of [[lem:ec-round-loss]]; the
-elementary losses are closed forms in the weights, the thresholds ϑ_in, ϑ_ℋ, the regularity orders s_c and the counts
-n(E, β) of the index sets ([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution
+the iterations of the inventory of [[sec:iii-j2-3]], among them the three of [[sec:ec-floor]], each round of those
+three and of the iteration at ι⁺ of [[prop:iii-i5-2-1]] being charged at least the loss of [[lem:ec-round-loss]]; the
+elementary losses are closed forms in the weights, the small numbers that the proofs choose, the thresholds ϑ_in,
+ϑ_ℋ, the regularity orders s_c, the counts n(E, β) of the index sets and the order d_BG of the bounds of the
+background terms ([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution
 operators, which the proof of [[thm:iii-i-5-3]] fixes without a value ([[rem:ec-other-losses]]);
 
 (ii) at the computational point, for every admissible choice of the weights there,
 
-    d_acc ≥ (2 + ℓ_tf) R ≥ 3R > 7.959 × 10¹⁵,        N_NM = 21d_acc + 6 > 1.671 × 10¹⁷,
+    d_acc ≥ Σ_rounds (2 + ℓ_tf) ≥ 3R > 7.959 × 10¹⁵,        N_NM ≥ 21d_acc + 6 > 1.671 × 10¹⁷,
 
-with R the number of rounds of [[prop:ec-rounds]] and ℓ_tf ≥ 1 the loss of [[cor:iii-f1-3-4]].
+with R the number of rounds of [[prop:ec-rounds]], the sum over those rounds, and ℓ_tf ≥ 1 the lower bound of
+[[lem:ec-closed-forms]] (d) for the loss of [[cor:iii-f1-3-4]] at the weights of each round.
 
 These are lower bounds for the loss that this proof's choices produce, not for the least loss with which the tame
-estimates hold. No upper bound for d_acc is proved in this paper ([[rem:ec-other-losses]]).
+estimates hold. No upper bound for d_acc or d_NM is proved in this paper ([[rem:ec-other-losses]]).
 
-*Proof.* The first assertions are [[lem:iii-j2-1-2]], which gives the tame estimates with any loss at least the
-accounted one, and the parameters of [[thm:ii-g-2-1]] ([[eq:ii-g-2-5]]). (i) is [[def:ec-accounted-loss]] with
-[[lem:ec-closed-forms]], [[rem:ec-other-losses]] and [[lem:ec-round-loss]].
+*Proof.* [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d_acc by [[lem:iii-j2-1-2]], which gives the tame
+estimates with any loss at least the accounted one; N_NM = 21d_NM + 6 is the regularity of [[thm:ii-g-2-1]] at the
+loss d_NM ([[eq:ii-g-2-5]]). *d_NM ≥ d_acc.* Hypothesis (iii) of [[thm:ii-g-2-1]] asks [[eq:ii-g-2-4]], with the loss
+d_NM, of the right inverse Zℛ(U) of the proof of [[thm:iii-k-3-2]], where ℛ(U) is that of [[lem:iii-k-2-3]] and the
+multiplication Z loses nothing; so the loss of ℛ(U), the loss of [[eq:iii-j2-4-2]] for it, is one of the three whose
+largest is d_NM. By the proof of [[lem:iii-k-2-3]], ℛ(U) is the construction of [[thm:iii-j2-4-2]] at the base point
+Ψ(U), with two more terms, linear in the finite-dimensional boost and translation components, in the forcing of
+Step 2 of the proof of [[thm:iii-i14-3-1]] and terms of the same kind in its Step 1; and the construction of
+[[thm:iii-j2-4-2]] applies that of [[thm:iii-j2-4-1]] to the right side and assembles U′ from its output by maps of
+non-negative loss (Step 0 of the proof of [[thm:iii-j1-2-1]]). The base point enters the elementary losses not at all
+([[lem:ec-closed-forms]], [[rem:ec-other-losses]]). By [[def:ec-accounted-loss]], a further summand does not lower the
+largest of the losses of a sum, and a further factor of non-negative loss does not lower the loss of a composition;
+so the loss of ℛ(U) is at least the numbers assigned to both constructions, and d_NM ≥ d_acc. (i) is
+[[def:ec-accounted-loss]] with [[lem:ec-closed-forms]], [[rem:ec-other-losses]] and [[lem:ec-round-loss]].
 
 (ii) Level k + 1 of [[thm:iii-i14-3-1]] takes the solution of level k as input through R_qu, and at each level the
 rounds of [[sec:ec-floor]] are composed one after another, each round's output being the next round's forcing, and
 the level's solution being assembled from the outputs of all its rounds and from the inverse applied to the last
 forcing. So all the rounds of all the levels lie on one chain of compositions, and by [[def:ec-accounted-loss]] and
-[[lem:ec-round-loss]] (a), d_acc ≥ (2 + ℓ_tf)R. By [[lem:ec-closed-forms]] (d), whose proof uses
-[[lem:ec-theta-in]], ℓ_tf ≥ 1; so by [[prop:ec-rounds]], d_acc ≥ 3R > 3(1 − 6δ̄)/δ̄² = 7.9598…·10¹⁵, and
-N_NM = 21d_acc + 6 > 21 · 7.959 × 10¹⁵ > 1.671 × 10¹⁷. ∎
+[[lem:ec-round-loss]] (a), d_acc ≥ Σ_rounds(2 + ℓ_tf). By [[lem:ec-closed-forms]] (d), whose proof uses
+[[lem:ec-theta-in]], ℓ_tf ≥ 1 at every round; so by [[prop:ec-rounds]], d_acc ≥ 3R > 3(1 − 6δ̄)/δ̄² = 7.9598…·10¹⁵,
+and N_NM = 21d_NM + 6 ≥ 21d_acc + 6 > 21 · 7.959 × 10¹⁵ > 1.671 × 10¹⁷. Every lower bound of this chapter is a lower
+bound for d_acc, and holds for d_NM and N_NM because d_NM ≥ d_acc and N_NM increases with d_NM. ∎
 
 ### What the proof's formulas give for δ and λ1 {#sec:ec-delta}
 

@@ -1083,14 +1083,17 @@ are applied relative to P_0 = 2L_b ([[prop:ii-f1-3-1]] (iv) on Ω_(1,T_η), [[le
 (ii) The thresholds of [[lem:ii-f1-2-1]] and [[lem:ii-c-3-7]], which are continuous in the coefficients, and the
 hypothesis of [[lem:ii-c-3-2]] for the time function t^♭ of (B2), built for g_(b₀) with ℓ = ½. The proof of
 [[thm:ii-f1-1-1]] runs in the form of [[rem:ii-f1-7-4]] with g_0 := g_b and ℓ_♭ = ½, except that t^♭ is built for
-g_(b₀). By the last statement of that remark, it applies [[lem:ii-c-3-2]] (1)–(2) only to g_b, to g, to metrics g′
-with ‖g′ − g_b‖ ≤ C_♭‖g − g_b‖, and to metrics g′ with ‖g′ − g_b‖ < ϵ_G/2, the last by the choices of the proof of
-[[thm:ii-f-8-1]], which [[thm:iii-h2-3-1]] makes uniformly on B̄_1 (all norms those of 𝒢̃^(0,(1,0,0))_(e3b)). C_♭ is
-that of (B2), as x_I²ρ_+²g_b and its inverse are bounded by twice the bounds at b₀. By (B2) and
-[[eq:s19-time-hyp-b]], ‖g_b − g_(b₀)‖ < ε_♭/2, ‖g − g_(b₀)‖ < ε_♭ and ‖g − g_b‖ < 3ε_♭/2; so the metrics of the
-third kind lie within (3C_♭ + 1)ε_♭/2 < ϵ_G of g_(b₀), as ε_♭ ≤ ϵ_G/(4C_♭ + 2), and those of the fourth kind within
-ϵ_G/2 + ε_♭/2 < ϵ_G. So [[lem:ii-c-3-2]] (1)–(2), for t^♭ and g_(b₀), applies to all of them. The other uses of t^♭
-in that proof, (B) of [[rem:ii-f1-7-4]], concern the function alone.
+g_(b₀). By the last statement of that remark, it applies (A) of the remark only to g_b, to g on Ω_*, to metrics g′
+within K_♭‖g − g_b‖ of g_b on the sets where they are used, ‖g − g_b‖ being taken over Ω_*, and to metrics g′ within
+ϵ_G/2 of g_b, the last by the choices of the proof of [[thm:ii-f-8-1]], which [[thm:iii-h2-3-1]] makes uniformly on
+B̄_1 (all distances in the norm of 𝒢̃^(0,(1,0,0))_(e3b), over the set named). All these sets lie in
+{t_* ≥ ½, r ≥ r₀ − δ₀}. K_♭ is that of (B2), as x_I²ρ_+²g_b and its inverse are bounded there by twice the bounds at
+b₀. By (B2) and [[eq:s19-time-hyp-b]], ‖g_b − g_(b₀)‖ < η_♭/2 over {t_* ≥ ½, r ≥ r₀ − δ₀}, and ‖g − g_(b₀)‖ < η_♭
+and ‖g − g_b‖ < 3η_♭/2 over Ω_*; so g_b and g lie within η_♭ of g_(b₀), the metrics of the third kind within
+(3K_♭ + 1)η_♭/2 < ϵ_G of g_(b₀), as η_♭ ≤ ϵ_G/(4K_♭ + 2), and those of the fourth kind within ϵ_G/2 + η_♭/2 < ϵ_G. So
+(A) of [[rem:ii-f1-7-4]], for t^♭ and g_(b₀), holds for all of them: the properties of [[lem:ii-c-3-2]] (1)–(2) on Ω,
+and those that [[lem:ii-e-1-2]] (iv) asks below Ω. The other uses of t^♭ in that proof, (B) of [[rem:ii-f1-7-4]],
+concern the function alone.
 
 (iii) The orders ([[sec:ii-f1-2-3]]), fixed by (B4).
 
@@ -1098,7 +1101,7 @@ in that proof, (B) of [[rem:ii-f1-7-4]], concern the function alone.
 
 (v) The 2-admissibility estimate [[eq:ii-c-2-2]], uniform by [[thm:iii-h2-2-1]].
 
-Every other constant depends on P only through ε_0 (the last sentence of [[sec:ii-f1-3-1]]) and the fixed ε_♭. So
+Every other constant depends on P only through ε_0 (the last sentence of [[sec:ii-f1-3-1]]) and the fixed η_♭. So
 ε_0, d and C_k can be chosen independent of b ∈ B̄_1.
 
 *Continuity.* We run the proof of [[sec:ii-f1-6]] with P^((j)) := P_j relative to 2L_(b_j). Let u_j and u be the
@@ -1155,9 +1158,9 @@ u depends continuously on (b, S, h) in H^(k−1,(β_I−ς,β_+−ς,−3/2−ς
 depend on b. (iii) is [[cor:iii-i-5-2]], which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis holds
 by [[thm:iii-h2-2-1]], with ‖P − 2L_b‖_((0;d)) ≤ C(|b − b₀| + |S| + ‖h‖_(𝒳^(d+5))) by [[prop:iii-i-3-4]],
 [[eq:iii-i-3-7]], below ε′_0 by (B5). The metric g of P satisfies [[eq:s19-time-hyp-b]], the additional hypothesis of
-[[thm:iii-h2-4-1]]: by [[eq:s19-time-hyp]] and (B2), ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2 + C(|S| + ‖h‖_(𝒳³)),
-which is below ε_♭ for |S| and ‖h‖_(𝒳^d) small (d ≥ 3), with C independent of b; no condition on b beyond b ∈ B̄_1
-enters.
+[[thm:iii-h2-4-1]]: by [[eq:s19-time-hyp]] and (B2), ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < η_♭/2 + C(|S| + ‖h‖_(𝒳³)),
+over Ω_*, which is below η_♭ for |S| and ‖h‖_(𝒳^d) small (d ≥ 3), with C independent of b; no condition on b beyond
+b ∈ B̄_1 enters.
 
 *Continuity.* Let k ≥ 1. In the notation of the proof of [[thm:iii-i-5-3]], in which h ∈ 𝒳^(k+d+5), let (b_j, S_j, h_j) →
 (b, S, h), with b_j, b ∈ B_*, S_j, S, h_j, h as in the statement and h_j → h in 𝒳^(k+d+5). Put g_(0,j) :=

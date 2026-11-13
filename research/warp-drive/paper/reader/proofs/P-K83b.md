@@ -32,37 +32,37 @@ the divergences drop out and
                                 = ∫ ⟨𝒢(g_ε), h⟩_(g_ε) dvol_(g_ε),
 
 g_ε := g + εh, 𝒢(g) := ½ Scal(g) g − Ric(g). Take g = γ̂ and h = T, and let E(ε) := ∫ Scal(γ̂ + εT) dvol_(γ̂+εT); all
-integrals below are over S³ against dvol_γ̂, and |T|² := |T|²_γ̂. Since Ric(γ̂) = 2γ̂ and Scal(γ̂) = 6, 𝒢(γ̂) = γ̂ and
+integrals below are over S³ against dvol_γ̂, and |T|²_γ̂ := |T|²_γ̂. Since Ric(γ̂) = 2γ̂ and Scal(γ̂) = 6, 𝒢(γ̂) = γ̂ and
 DScal[T] = −⟨T, Ric(γ̂)⟩ = −2 tr T = 0. The Riemann tensor of the unit S³ is γ̂_ikγ̂_jl − γ̂_ilγ̂_jk, and the Ricci
 identity gives, for trace-free T, ∇^k∇_iT_jk = ∇_i∇^kT_jk + 3T_ij = 3T_ij; so Ric′[T] = ½(6T − Δ̂T) = ½(6 + k_T²)T.
 Differentiating E′(ε) = ∫⟨𝒢(γ̂ + εT), T⟩_(γ̂+εT) dvol_(γ̂+εT) at ε = 0, the derivative of 𝒢 is ½DScal[T]γ̂ + ½Scal(γ̂)T −
-Ric′[T] = −(k_T²/2)T, the two inverse metrics in ⟨γ̂, T⟩ contribute −2|T|², and the variation ½ tr T dvol_γ̂ of the
-volume contributes ½⟨γ̂, T⟩ tr T = 0; so E″(0) = −(k_T²/2 + 2)∫|T|². On the other hand
+Ric′[T] = −(k_T²/2)T, the two inverse metrics in ⟨γ̂, T⟩ contribute −2|T|²_γ̂, and the variation ½ tr T dvol_γ̂ of the
+volume contributes ½⟨γ̂, T⟩ tr T = 0; so E″(0) = −(k_T²/2 + 2)∫|T|²_γ̂. On the other hand
 
-    dvol_(γ̂+εT) = (1 + ½ε tr T + ε²(⅛(tr T)² − ¼|T|²) + O(ε³)) dvol_γ̂ = (1 − ¼ε²|T|² + O(ε³)) dvol_γ̂
+    dvol_(γ̂+εT) = (1 + ½ε tr T + ε²(⅛(tr T)² − ¼|T|²_γ̂) + O(ε³)) dvol_γ̂ = (1 − ¼ε²|T|²_γ̂ + O(ε³)) dvol_γ̂
 
-and Scal(γ̂ + εT) = 6 + ½ε² D²Scal_γ̂[T, T] + O(ε³), so E″(0) = ∫ D²Scal_γ̂[T, T] − 3∫|T|². Comparing the two values of
+and Scal(γ̂ + εT) = 6 + ½ε² D²Scal_γ̂[T, T] + O(ε³), so E″(0) = ∫ D²Scal_γ̂[T, T] − 3∫|T|²_γ̂. Comparing the two values of
 E″(0) gives [[eq:loc-tt-second]]. ∎
 
 **Lemma {#lem:loc-tensor-variations}** (Second variations for tensor data on a round slice.) Let γ = G dR² + R²γ̂ and
 K0 = κ0 G dR² + Y0 R² γ̂ be round data on a band, with G > 0, κ0 and Y0 smooth functions of R. Let T be as in
 [[lem:loc-tt-second]], H and Π smooth functions of R, h := 2R²H T and k := R²(Π + 2Y0H) T. For a function X of the
-data write [X]_2 for the ε² coefficient of X(γ + εh, K0 + εk), write ′ := d/dR, and let |T|² := |T|²_γ̂, a function on
+data write [X]_2 for the ε² coefficient of X(γ + εh, K0 + εk), write ′ := d/dR, and let |T|²_γ̂ := |T|²_γ̂, a function on
 S³. Then, with ℳ_R := ℳ(∂_R) the radial component of the momentum constraint,
 
-    [(tr K)² − |K|²]_2 = −(Π² + 4(κ0 + 2Y0)HΠ) |T|²,
-    [ℳ_R]_2 = (2(HΠ)′ + 2HΠ/R − H′Π + 2(Y0 − κ0)HH′) |T|²,
-    ∫_(S³) [Scal]_2 dvol_γ̂ = ((2 − k_T²)H²/R² + (16HH′/R − H′²)/G + 4G^(−1/2)(G^(−1/2)HH′)′) ∫_(S³) |T|² dvol_γ̂.
+    [(tr K)² − |K|²]_2 = −(Π² + 4(κ0 + 2Y0)HΠ) |T|²_γ̂,
+    [ℳ_R]_2 = (2(HΠ)′ + 2HΠ/R − H′Π + 2(Y0 − κ0)HH′) |T|²_γ̂,
+    ∫_(S³) [Scal]_2 dvol_γ̂ = ((2 − k_T²)H²/R² + (16HH′/R − H′²)/G + 4G^(−1/2)(G^(−1/2)HH′)′) ∫_(S³) |T|²_γ̂ dvol_γ̂.
                                                                                              {#eq:loc-tensor-variations}
 
 *Proof.* Let T^♯ be the endomorphism of the tangent spaces of the spheres with γ̂(T^♯X, Z) = T(X, Z); then tr T^♯ = 0
-and tr (T^♯)² = |T|². The tensors h and k have no radial components, and on the spheres γ⁻¹h = 2HT^♯ and γ⁻¹k = (Π +
+and tr (T^♯)² = |T|²_γ̂. The tensors h and k have no radial components, and on the spheres γ⁻¹h = 2HT^♯ and γ⁻¹k = (Π +
 2Y0H)T^♯. Let A_ε := (γ + εh)⁻¹(K0 + εk), as an endomorphism. It is κ0 on ∂_R, and on the spheres, since (1 + 2εHT^♯)⁻¹
 = 1 − 2εHT^♯ + 4ε²H²(T^♯)² + O(ε³),
 
     A_ε = Y0 + εΠT^♯ − 2ε²HΠ(T^♯)² + O(ε³).
 
-So tr A_ε = κ0 + 3Y0 − 2ε²HΠ|T|² + O(ε³) and tr A_ε² = κ0² + 3Y0² + ε²(Π² − 4Y0HΠ)|T|² + O(ε³), the terms of order ε
+So tr A_ε = κ0 + 3Y0 − 2ε²HΠ|T|²_γ̂ + O(ε³) and tr A_ε² = κ0² + 3Y0² + ε²(Π² − 4Y0HΠ)|T|²_γ̂ + O(ε³), the terms of order ε
 vanishing with tr T^♯. Since (tr K)² − |K|² = (tr A_ε)² − tr A_ε², this gives the first identity.
 
 For the second, let γ = G dR² + g with g = g(R) a family of metrics on S³, and K with K(∂_R, ∂_A) = 0, K(∂_R, ∂_R) =
@@ -73,7 +73,7 @@ tr(g⁻¹𝒦), so that
     ℳ_R = ½κ tr(g⁻¹g′) − ½tr(g⁻¹g′ g⁻¹𝒦) − (tr g⁻¹𝒦)′.
 
 Along the family, g = R²(γ̂ + 2εHT), g⁻¹g′ = 2/R + 2εH′T^♯ − 4ε²HH′(T^♯)² + O(ε³), and g⁻¹𝒦 is A_ε on the spheres. The
-ε² coefficients of the three terms are −2κ0HH′|T|², −½(−4HΠ/R + 2H′Π − 4Y0HH′)|T|² and 2(HΠ)′|T|², whose sum is the
+ε² coefficients of the three terms are −2κ0HH′|T|²_γ̂, −½(−4HΠ/R + 2H′Π − 4Y0HH′)|T|²_γ̂ and 2(HΠ)′|T|²_γ̂, whose sum is the
 second identity.
 
 For the third, consider a metric G dR² + R²ĝ with ĝ = ĝ(R) a family of metrics on S³. The lapse G^(1/2) of its
@@ -83,11 +83,11 @@ foliation give
     Scal = R⁻² Scal(ĝ) − (tr L)² − |L|² − 2G^(−1/2)(tr L)′,      L := ½G^(−1/2) ∂_R(R²ĝ),
 
 L the second fundamental form of the spheres with respect to the unit normal G^(−1/2)∂_R. For ĝ = γ̂ + 2εHT, as an
-endomorphism L = G^(−1/2)(1/R + εH′T^♯ − 2ε²HH′(T^♯)²) + O(ε³), so that tr L = G^(−1/2)(3/R − 2ε²HH′|T|²) + O(ε³)
-and |L|² = G⁻¹(3/R² + ε²(H′² − 4HH′/R)|T|²) + O(ε³). The ε² coefficients of the last three terms of Scal are therefore
-12HH′|T|²/(RG), −(H′² − 4HH′/R)|T|²/G and 4G^(−1/2)(G^(−1/2)HH′)′|T|². The ε² coefficient of the first term is R⁻²
+endomorphism L = G^(−1/2)(1/R + εH′T^♯ − 2ε²HH′(T^♯)²) + O(ε³), so that tr L = G^(−1/2)(3/R − 2ε²HH′|T|²_γ̂) + O(ε³)
+and |L|² = G⁻¹(3/R² + ε²(H′² − 4HH′/R)|T|²_γ̂) + O(ε³). The ε² coefficients of the last three terms of Scal are therefore
+12HH′|T|²_γ̂/(RG), −(H′² − 4HH′/R)|T|²_γ̂/G and 4G^(−1/2)(G^(−1/2)HH′)′|T|²_γ̂. The ε² coefficient of the first term is R⁻²
 times half of D²Scal_γ̂[2HT, 2HT] = 4H²D²Scal_γ̂[T, T], whose integral over S³ is, by [[lem:loc-tt-second]],
-R⁻²(2 − k_T²)H²∫|T|². Adding gives the third identity. ∎
+R⁻²(2 − k_T²)H²∫|T|²_γ̂. Adding gives the third identity. ∎
 
 <!-- Part 1. Block 1.2: replaces item (iii) of the proof of thm:loc-tensor (the marker computational-1). -->
 
@@ -353,10 +353,10 @@ v̂(2.7736325) + 0.68 ≤ 1.86144094.
 ([[lem:bg-reduction]] (f), [[prop:bg-seed]] (a)), and there ψ_III^(k)(v̂(ρ)) = Ψ_k(ρ, Φ(ρ), …, Φ‴(ρ), μ3) for k ≤ 2
 ([[eq:bg-psi3]]). Since v̂ is increasing, v̂(2.7734) + 0.68 ≤ 1.8608633 < 1.861 and ρ ≤ ρ_u2 < 2.7737, the ray has ρ ∈
 [2.7734, 2.7737]. Put ρ_m := 2.77355 and h := 1.5 × 10⁻⁴. For such ρ and j ≤ 3, |Φ̃^(j)(ρ) − Φ̃^(j)(ρ_m)| ≤ h
-sup|Φ̃^(j+1)|, the supremum over [2.32, 3.44]; for j + 1 = 1, 2, 3 it is at most 0.9442, 0.344 and 0.376, the bounds of
-|J̃|, |K̃| and |L̃| in the row [7.17, 7.2] of [[sec:tab-bg-ray-defects]] (at u = 7.2, J̃, K̃ and L̃ are Φ̃′, Φ̃″ and Φ̃‴),
-and for j + 1 = 4 it is at most 0.3182, the sum of the absolute values of the Chebyshev coefficients of Φ̃⁗ on [2.32,
-3.44] ([[lem:bg-tools]] (a)). By direct evaluation, to within 10⁻¹⁰,
+sup|Φ̃^(j+1)|, the supremum over [2.32, 3.44]. For j + 1 = 1, 2, 3 the supremum is at most 0.9442, 0.344 and 0.376,
+the bounds of the absolute values of J̃, K̃ and L̃ in the row [7.17, 7.2] of [[sec:tab-bg-ray-defects]] (at u = 7.2,
+J̃, K̃ and L̃ are Φ̃′, Φ̃″ and Φ̃‴), and for j + 1 = 4 it is at most 0.3182, the sum of the absolute values of the
+Chebyshev coefficients of Φ̃⁗ on [2.32, 3.44] ([[lem:bg-tools]] (a)). By direct evaluation, to within 10⁻¹⁰,
 
     Φ̃(ρ_m) = 1.861372901,   Φ̃′(ρ_m) = 0.8111250646,   Φ̃″(ρ_m) = 0.2026504300,   Φ̃‴(ρ_m) = −0.2475621243,
 

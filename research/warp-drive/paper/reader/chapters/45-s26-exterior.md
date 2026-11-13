@@ -946,9 +946,9 @@ which depends on (ρ₀, ω), and its derivatives would enter those of v^((0)) a
 
 **Lemma {#lem:s26-decompositions}** (Decompositions.) For u ∈ 𝒴^k_(a₀)(Ω), Ω ⊃ Ω_c, call a pair (u^((0)), ũ) with
 u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c), ũ_j ∈ H^(k,(a₀,2β))_b in every slot j, ũ₆ = u₆ − χ_Iu^((0)) and ũ_j = u_j for j ≠ 6, a
-*decomposition* of u, and ‖u^((0))‖_(H^(k,a₀)_b(ℐ⁺_c)) + Σ_j‖ũ_j‖_(H^(k,(a₀,2β))_b) its norm of order k; the norm of u in
-𝒴^k_(a₀)(Ω) is the infimum of the norms of order k of its decompositions. Let y_* := C″ − r₀ − 2r₀^(1−ℓ^♭_I). Then
-ℐ⁺ ∩ Ω̄_c is the part of ℐ⁺ where x¹ ≤ y_*, and:
+*decomposition of order k* of u, and ‖u^((0))‖_(H^(k,a₀)_b(ℐ⁺_c)) + Σ_j‖ũ_j‖_(H^(k,(a₀,2β))_b) its norm of order k; the
+norm of u in 𝒴^k_(a₀)(Ω) is the infimum of the norms of its decompositions of order k. Let
+y_* := C″ − r₀ − 2r₀^(1−ℓ^♭_I). Then ℐ⁺ ∩ Ω̄_c is the part of ℐ⁺ where x¹ ≤ y_*, and:
 
 (a) two decompositions of u have the same u^((0)) almost everywhere on ℐ⁺ ∩ Ω̄_c;
 

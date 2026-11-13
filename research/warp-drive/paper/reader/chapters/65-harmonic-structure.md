@@ -1157,7 +1157,9 @@ In (5): u′ = O(t_*^(−α_K)) the same way, with its b-derivatives t_*∂_(t_*
 ∂_(t_*)c_f = ℓ(f)/(4π²) is O(t_*^(−α_K)) by b-Sobolev embedding of f near K⁺. Density as in [[thm:gd-r2-7]], by the
 bounds of [[thm:gd-r5-1]]. ∎
 
-At α_K = ½ this is the bound of [[thm:gd-r2-7]], for b-regular forcing terms. The rates that [[thm:gd-r5-1]] and its
-extension to K⁺-weights in (1, 2) give for the representatives of [[thm:gd-r3-4]], [[cor:gd-r4-4]] and
-[[prop:gd-r2-13]] (b), and for the homogeneous gauge vectors of [[cor:gd-r4-6]], together with the rate
-τ^(−min(p,3/2)+ε) of the harmonic-gauge representative, are in [[ch:harmonic-rate]] ([[thm:harmonic-rate]]).
+At α_K = ½ this is the bound of [[thm:gd-r2-7]], for b-regular forcing terms. In [[ch:harmonic-rate]] this theorem
+gives the faster rates of [[thm:gd-r3-4]] (iii) and [[cor:gd-r4-4]] ([[cor:gd-r5-3]]); its extension to K⁺-weights in
+(1, 2), and past that window to (2, 3) for forcing terms of zero total charge, gives those of the gauge vectors of
+[[cor:gd-r4-6]], of [[prop:gd-r2-13]] (b) and of the Y_h clauses ([[cor:gd-r6-6]], [[cor:gd-r7-4]],
+[[cor:hr-compact-rates]]), and the rate t_*^(−min(p_0,3/2)+ε), for every ε > 0, of the representative of
+[[cor:gd-r4-4]] ([[thm:harmonic-rate]]).
