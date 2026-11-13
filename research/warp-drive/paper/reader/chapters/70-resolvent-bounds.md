@@ -2526,28 +2526,15 @@ r^(−ι)b to r^(−ι−d′)T′(ι)b for every ι, then T′T maps r^(−ι)a
 𝕊³, and the 1-form r dS and the tensor r²q, q on 𝕊³, are identified with tangential fields homogeneous of degree 0, as
 in [[sec:iii-a1-2]].
 
-*𝔚.* In the Cartesian coordinates (t, x¹, …, x⁴) the Christoffel symbols of ḡ vanish, so on stationary sections □̄
-acts on each Cartesian component as the scalar operator −∂_r² − (3/r)∂_r + r⁻²Δᵉ, with Δᵉ the rough Laplacian Δ̸
-of 𝕊³ applied to the component as a function ([[sec:iii-a1-1]]). Write
-h = 𝖠dt² + 2𝖷dt dr + 𝖡dr² + 2dt ⊗_s 𝖶 + 2dr ⊗_s 𝖴 + 𝖰, with 𝖶, 𝖴 tangential 1-forms and 𝖰 a tangential symmetric
-2-tensor, so that h_tt = 𝖠, (h_ti) = 𝖷x̂ + 𝖶 and (h_ij) = 𝖡x̂ ⊗ x̂ + x̂ ⊙ 𝖴 + 𝖰, and put
-□_c := −∂_r² − (3/r)∂_r + r⁻²Δ̸, acting on each of 𝖠, …, 𝖰 with the rough Laplacian Δ̸ of 𝕊³. The identities
-[[eq:iii-a1-1-2a]]–[[eq:iii-a1-1-2e]] at ν = 3, applied to the Cartesian components, give
-
-    (□̄h)_tt = □_c𝖠,     (□̄h)_(t·) = T_X x̂ + T_W,     (□̄h)_(··) = T_B x̂ ⊗ x̂ + x̂ ⊙ T_U + T_Q,
-    T_X = □_c𝖷 + 3r⁻²𝖷 − 2r⁻²δ̸𝖶,     T_W = (□_c + r⁻²)𝖶 − 2r⁻²d𝖷,
-    T_B = □_c𝖡 + 6r⁻²𝖡 − 4r⁻²δ̸𝖴 − 2r⁻² tr 𝖰,     T_U = (□_c + 6r⁻²)𝖴 − 2r⁻²d𝖡 − 2r⁻²δ̸𝖰,
-    T_Q = (□_c + 2r⁻²)𝖰 − 2r⁻²𝖡g̸ − 4r⁻²δ̸*𝖴:
-
-for (h_ti), [[eq:iii-a1-1-2a]] and [[eq:iii-a1-1-2b]] give Δᵉ(𝖷x̂ + 𝖶) = (Δ̸𝖷 + 3𝖷 − 2δ̸𝖶)x̂ + (Δ̸ + 1)𝖶 − 2d𝖷, and for
-(h_ij), [[eq:iii-a1-1-2c]], [[eq:iii-a1-1-2d]] and [[eq:iii-a1-1-2e]] give the x̂ ⊗ x̂ part 6𝖡 − 4δ̸𝖴 − 2 tr 𝖰, the
-x̂ ⊙ · part 6𝖴 − 2d𝖡 − 2δ̸𝖰 and the tangential part 2𝖰 − 2𝖡g̸ − 4δ̸*𝖴 beyond Δ̸ (P = g̸ there); the radial operator
-acts on the coefficients alone, the fields being homogeneous of degree 0. Take 𝖠 = y_0S, 𝖷 = y_1S, 𝖡 = y_2S,
-𝖶 = y_3dS, 𝖴 = y_4dS and 𝖰 = y_5Sg̸ + y_6δ̸*₀dS; then □_c(r^(−ι)X) = r^(−ι−2)(Δ̸ + 2ι − ι²)X for X on 𝕊³, as
-(−∂_r² − (3/r)∂_r)r^(−ι) = (2ι − ι²)r^(−ι−2). The identities [[eq:iii-a1-1-2]] at ν = 3 (δ̸dS = κS,
-Δ̸dS = (κ − 2)dS, δ̸*dS = δ̸*₀dS − (κ/3)g̸S, Δ̸(g̸S) = κg̸S, δ̸(g̸S) = −dS, tr(g̸S) = 3S,
-δ̸(δ̸*₀dS) = (2/3)(κ − 3)dS, Δ̸(δ̸*₀dS) = (κ − 6)δ̸*₀dS) turn □_c𝖠, T_X, T_B, T_W and T_U into the components 0 to 4
-of 𝔚(ι)y, and T_Q into the components 5 and 6; for instance
+*𝔚.* Write h = 𝖠dt² + 2𝖷dt dr + 𝖡dr² + 2dt ⊗_s 𝖶 + 2dr ⊗_s 𝖴 + q, with 𝖶, 𝖴 tangential 1-forms and q a tangential
+symmetric 2-tensor, so that h_tt = 𝖠, (h_ti) = 𝖷x̂ + 𝖶 and (h_ij) = 𝖡x̂ ⊗ x̂ + x̂ ⊙ 𝖴 + q. On stationary sections the
+formula [[eq:s11-box-tensors]] in the proof of [[lem:iii-a1-2-1]], at ν = 3, gives □̄h, with T_X, T_W, T_B, T_U and T_Q
+as there and □_c := −∂_r² − (3/r)∂_r + r⁻²Δ̸ acting on each of 𝖠, …, q, Δ̸ the rough Laplacian of 𝕊³
+([[sec:iii-a1-1]]). Take 𝖠 = y_0S, 𝖷 = y_1S, 𝖡 = y_2S, 𝖶 = y_3dS, 𝖴 = y_4dS and q = y_5Sg̸ + y_6δ̸*₀dS; then
+□_c(r^(−ι)X) = r^(−ι−2)(Δ̸ + 2ι − ι²)X for X on 𝕊³, as (−∂_r² − (3/r)∂_r)r^(−ι) = (2ι − ι²)r^(−ι−2). The identities
+[[eq:iii-a1-1-2]] at ν = 3 (δ̸dS = κS, Δ̸dS = (κ − 2)dS, δ̸*dS = δ̸*₀dS − (κ/3)g̸S, Δ̸(g̸S) = κg̸S, δ̸(g̸S) = −dS,
+tr(g̸S) = 3S, δ̸(δ̸*₀dS) = (2/3)(κ − 3)dS, Δ̸(δ̸*₀dS) = (κ − 6)δ̸*₀dS) turn □_c𝖠, T_X, T_B, T_W and T_U into the
+components 0 to 4 of 𝔚(ι)y, and T_Q into the components 5 and 6; for instance
 T_U = r^(−ι−2)((ϖ + 4)y_4 − 2y_2 + 2y_5 − (4/3)(κ − 3)y_6)dS.
 
 *𝔊.* tr_ḡ h = (y_2 − y_0 + 3y_5)S, and Ḡh = h − ½ḡ tr_ḡ h.
