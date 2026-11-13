@@ -499,7 +499,10 @@ R ∈ C^∞_b Ψ^(−1)_e3b: take Q := Op(q) with q ∈ S^(−2) equal to σ(B)�
 uniformly; then R := I − QB has principal symbol 0 at order 0, so it has order −1 by the principal symbol sequence
 (S5). (This is the first step of [[lem:ii-a-8-4]] (b), which does not use the present lemma; a parametrix to this
 finite order suffices.) Then A = Σ_j AQV_(0,j)^* w_jV_j + ARV_0, and A_j := AQV_(0,j)^* w_j ∈ C^∞_b Ψ^(𝗌−1)_e3b,
-A_0 := AR ∈ C^∞_b Ψ^(𝗌−1)_e3b. ∎
+A_0 := AR ∈ C^∞_b Ψ^(𝗌−1)_e3b. For the last statement, truncate Q to range ϵ ([[sec:ii-a-8-3]]; [Hin26d, Lemma 3.42,
+p. 51]). This changes Q by a residual operator, which goes into R, and R = I − QB then has kernel range at most ϵ, B
+being a differential operator. Kernel supports add under composition, so the kernel ranges of the A_j, j ≥ 1, and of
+A_0 = AR are at most that of A plus ϵ. ∎
 
 Passing to the secondary structure (subdividing the cells into ρ-cuboids) gives the larger classes
 Ψ̃_e3b = C^∞_e3b Ψ_e3b with e3b-regular coefficients ((S13): Ψ_𝒱 ⊂ Ψ_(𝒱′)), still bounded on the same
