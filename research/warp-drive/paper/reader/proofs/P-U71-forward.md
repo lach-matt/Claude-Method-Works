@@ -146,8 +146,8 @@ I′ (side 2a, a := a_j). Schur's test gives ‖T_I T_(I′)^*‖ ≤ CA² when 
 
 *T_I^*T_(I′).* On the Fourier side its kernel is L(ξ, η) = ∫ e^(ix·(η−ξ)) \overline{p_I(x, ξ)} p_(I′)(x, η) dx, which
 vanishes unless the x-boxes meet. Integrating by parts twelve times in x_l, with a̲ := min(a_j, a_(j′)), we obtain the
-bound CA²a̲ⁿ(1 + a̲|ξ − η|)^(−12) for |L|. If |j − j′| ≤ 2 the scales are comparable and Schur's test over the ξ-boxes gives, as
-before, a bound CA²⟨i − i′⟩^(−12) after the boxes of the same shell, summable to CA. If |j − j′| ≥ 3, |ξ − η| ≥
+bound CA²a̲ⁿ(1 + a̲|ξ − η|)^(−12) for |L|. If |j − j′| ≤ 2 the scales are comparable and Schur's test over the
+ξ-boxes gives, as before, a bound CA²⟨i − i′⟩^(−12), summable to CA. If |j − j′| ≥ 3, |ξ − η| ≥
 2^(J−2) with J := max(j, j′), so |L| ≤ CA²2^(−ϰJn)2^(−12(1−ϰ)J) and ‖T_I^*T_(I′)‖ ≤ CA²2^(−ϰJn)2^(−(1−ϰ)J(12−n)); the
 number of I′ in the shell j′ meeting the x-box of I is at most C2^(2ϰJn). The contribution of the shell j′ is therefore
 at most CA2^(J(2ϰn − (1−ϰ)(12−n)/2)) ≤ CA2^(−J), as 2ϰn ≤ 5/4 and (1 − ϰ)(12 − n)/2 ≥ 49/16. Summed over j′ this is
@@ -201,9 +201,9 @@ J_1 + 6 + 2L′_1 derivatives, 2L′_1 = 6T + 8, that is 10T + 15. Op(r_1)Op(λ�
 (from H^(−T) to L², N = 6), as Op(λ′) maps L² to H^𝗍 ⊂ H^(−T). Next Op(c_1)Op(λ′) = Op(c) + Op(r_2) with J_2 :=
 2T + 1; r_2 has order ≤ sup 𝗍 − inf 𝗍 − J_2 + ½ < 0 and is bounded on L² by [[lem:fwd-crude]], at a cost of
 J_2 + 12 derivatives of c_1, that is 6T + 13 of a. The main symbol c = Σ ∂_ξ^(α′)(∂_ξ^α λ · D_x^α a) D_x^(α′)λ′/(α!α′!)
-has pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′| ≤ 0, the variable orders cancelling at every point, so that
-|c|^0_12 ≤ C|a|^𝗆_(J_1+J_2+10) and [[lem:fwd-l2]] bounds Op(c) on L² without loss. The terms with residual factors and
-the low norm ‖Op(a)u‖_(−3T) are bounded by [[lem:fwd-crude]] at constant orders in [−3T, 3T], with at most 3T + 7
+has pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′| ≤ 0, the variable orders cancelling at every point, so that the
+seminorm of c of order 0 and regularity 12 is at most C|a|^𝗆_(J_1+J_2+10), and [[lem:fwd-l2]] bounds Op(c) on L²
+without loss. The terms with residual factors and the low norm ‖Op(a)u‖_(−3T) are bounded by [[lem:fwd-crude]] at constant orders in [−3T, 3T], with at most 3T + 7
 derivatives. So (a) holds with 10T + 15 derivatives, without loss. Multiplication by ℓ is Op(ℓ) ((S4), [[eq:ii-a1-1-1]]),
 so [[lem:ii-a-8-5]] (a) holds with d_0 = 10T + 15, and its b-regularity part follows by Leibniz's rule as there.
 

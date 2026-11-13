@@ -419,13 +419,18 @@ s < α − 4 ≤ ε_K < 2; so the bounds of [[lem:ec-counts]] (b), (c) decrease 
 
 **Remark {#rem:ec-upper-point}** (The upper bound at the computational point.) At the computational point take
 ε_Υ = 1.4619·10⁻¹⁰ ([[lem:ec-gauge-gap]]), ε_ind ≥ ε_Υ (so ε_g = ε_Υ), 3 < ℓ_I < 3.5 and δ < 3.5 − ℓ_I (so
-d^max_ι ≤ 12), η_2 < ε_+ ≤ 2·10⁻⁸, θ = 10⁻³ in [[prop:ec-upper]], and suppose that the gap condition (G) of
-[[def:iii-i10-1-3]] holds with ε_K = 1.46·10⁻¹⁰. Then admissible levels, α, α_1, a_K and ε with the conditions of
-[[prop:ec-upper]] exist (the admissible values are dense), and [[eq:ec-upper]] gives, by exact arithmetic,
+d^max_ι ≤ 12 and r_ι ≤ 16), η_2 < ε_+ ≤ 2·10⁻⁸ and θ := 10⁻³, and suppose that the gap condition (G) of
+[[def:iii-i10-1-3]] holds with ε_K = 1.46·10⁻¹⁰. As the admissible values are dense, one may take α − 4 ≥ (1 − θ)ε_K,
+levels with s ≥ (1 − θ)(α − 4) > ½(α − 4), a_K − 2 ≥ (1 − θ)(α − 4) and ε ≤ θε_g; then [[eq:ec-upper-counts]] holds
+with σ_0 = (1 − θ)²ε_K and ι_0 = (1 − θ)ε_Υ, and exact arithmetic gives
 
-    T_< ≤ 2.3497·10¹⁹,  T_> ≤ 2.3497·10¹⁹,  C_2 ≤ 4.6946·10¹⁹,  W ≤ 3.3525·10⁹,  N_< + N_> ≤ 1.3727·10¹⁰,  N_b ≤ 6.864·10⁹,
+    T_< ≤ 2.3497·10¹⁹,     T_> ≤ 2.3497·10¹⁹,     C_2 ≤ 4.6946·10¹⁹,     W ≤ 3.3525·10⁹,
+    N_< + N_> ≤ 1.3727·10¹⁰,     N_b ≤ 6.864·10⁹,
 
-    d_acc ≤ 9.394·10¹⁹ ℓ_tf + 1.2923·10²¹ + 1.3727·10¹⁰ max_k c(β_k) + 6.864·10⁹ (c_b + c′_b) + c′_b + c_0 + (d_B − 2)_+.
+so that [[eq:ec-upper]] reads
+
+    d_acc ≤ 9.394·10¹⁹ ℓ_tf + 1.2923·10²¹ + 1.3727·10¹⁰ max_k c(β_k)
+            + 6.864·10⁹ (c_b + c′_b) + c′_b + c_0 + (d_B − 2)_+.
 
 The coefficient of ℓ_tf, 9.394·10¹⁹, and the constant 1.2923·10²¹ (of which 1.10·10²¹ comes from the window loops at
 ι⁺, through the bound ε^ι_ind ≥ ε_Υ) are the explicit part. Against the lower bound 3R > 1.403·10²⁰ of
@@ -442,7 +447,9 @@ regularity s is taken large and whose incoming order exceeds a threshold compute
 paper does not fix; ℓ_tf ≥ 1 is proved, no value. (3) The single-step losses c(β), c_b, c′_b and c_0: each is a finite
 composition of the elementary losses of [[lem:ec-closed-forms]] and [[rem:ec-other-losses]] and of the forward loss
 d_F, but their step counts and the counts n(E, β) of the index sets entering [[eq:ec-fourier-loss]] are not evaluated
-here. (4) d_B, the background order in [[lem:iii-j2-2-1]] (b), fixed by the product estimates there and not evaluated.
+here; c_0 contains, besides, the iterations of Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]],
+and the loss of [[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over the exponents of
+Λ ∩ {Re < 3 + ε_+}, a number of steps not evaluated here. (4) d_B, the background order in [[lem:iii-j2-2-1]] (b), fixed by the product estimates there and not evaluated.
 None of them affects the order of magnitude 1/(ε_Kε_g) of d_acc, which [[prop:ec-rounds]] and [[prop:ec-upper]] fix
 from both sides.
 

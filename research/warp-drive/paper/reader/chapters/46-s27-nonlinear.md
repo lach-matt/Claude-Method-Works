@@ -192,8 +192,11 @@ and r by at most C|S|r, so that it maps a neighbourhood of Σ_(IVP,r₁) into {|
 ([[eq:iii-c2-2-2]]) under diffeomorphisms; that S ↦ φ_S^*g_(b₀) is smooth, with derivative in ρ₀²ρ_I²C^∞ with the
 slots of [[eq:iii-c-3-4]] on Ω_(ext,r_1), which (b), differentiated in (S, S⁰), gives; and that pull-back by the flow
 of a b-vector field tangent to every boundary hypersurface preserves the weighted, partially polyhomogeneous b-Sobolev
-spaces near compact subsets of the interior of I₀, which holds for both factors by (a). [[rem:iii-c2-3-2]] is
-uniqueness. ∎
+spaces near compact subsets of the interior of I₀, which holds for both factors by (a); that pull-back by φ_S is
+bounded on H^(k,ℓ^♭₀)_b near Σ_(IVP,r₁), uniformly in S, which holds for φ_(S,S⁰), each factor being the time-1 flow of
+a b-vector field tangent to every boundary hypersurface and smooth in its parameter ([[lem:iii-b-5-1]],
+[[lem:iii-i7-1-1]]); and that the C^∞-seminorms of φ_S^*g_(b₀) that define 𝒢 depend continuously on S, which (b) gives
+for φ_(S,S⁰). [[rem:iii-c2-3-2]] is uniqueness. ∎
 
 Let
 
@@ -204,8 +207,8 @@ Let
 **Proposition {#prop:iii-k-1-2}** (The initial family; [Hin26, (13.5) and (12.33)].) Let γ = γ_(b₀) + γ̃ and
 k = k_(b₀) + k̃ be data on Σ^IVP satisfying the constraint equations, with γ̃ ∈ H^(∞,(ℰ_0,ℓ_0))_b and
 k̃ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b, small in H^(d_0) of these classes, where d_0 is the largest of the regularities that
-[[thm:iii-c2-3-1]] (with [[thm:iii-c1-3-1]]), [[thm:iv3-2-2]] and the local theory on 𝒦 in the proof below ask of the
-data. Let h̊_0, h̊_1 be the Cauchy data of [[prop:iii-c2-4-1]] for (γ, k). For S, S⁰ ∈ 𝒮_1 small let h⁰_(S,S⁰),
+[[thm:iii-c2-3-1]] (with [[thm:iii-c1-3-1]]), [[thm:iv3-2-2]] and the local theory on the compact set 𝒦⁻ of the proof
+below ((N) of [[sec:s27-local]]) ask of the data. Let h̊_0, h̊_1 be the Cauchy data of [[prop:iii-c2-4-1]] for (γ, k). For S, S⁰ ∈ 𝒮_1 small let h⁰_(S,S⁰),
 h¹_(S,S⁰) be the pulled-back data [[eq:iii-c2-3-1]] of these, with φ_(S,S⁰) in place of φ_S, now on all of Σ^IVP. Let
 N_ν := {t_IVP ≥ −ν(r)}, with ν smooth and non-decreasing, ν = 0 on [0, R_ν], R_ν := ½(r_♭ + 5R₁), ν > 0 on (R_ν, ∞),
 0 ≤ ν′ ≤ 1/32, and ν(r) = r/64 for r ≥ 16R_8, where R_8 ≥ max(2r_1, 8, 5R₁) is fixed in [[lem:s27-cover]]. Such ν

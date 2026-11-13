@@ -917,9 +917,13 @@ w_♯ := ρ₀^(a₀)ρ_I^γE(ρ₀^(−a₀)ρ_I^(−γ)w) on Ω^♯_c. Then w_
     v^((0)) := −∫_(−∞)^(s_c) w_♯ ds′,     ṽ(s) := ∫_(−∞)^s w_♯ ds′     on Ω^♯_c.
 
 At a point of Ω_c, v^((0)) + ṽ(s) = −∫_s^(s_c) w_♯ ds′ = −∫_s^(s_c) w ds′ = v(s), as the segment from s to s_c lies in
-Ω_c. By Cauchy–Schwarz,
-|v^((0))|² ≤ ∫_(−∞)^(s_c) e^(2γs′) ds′ · ∫ e^(−2γs′)|w_♯|² ds′ = (2γ)⁻¹c^(2γ)∫ e^(−2γs′)|w_♯|² ds′, and e^(−γs)|ṽ(s)| ≤ ∫_(−∞)^s e^(−γ(s−s′))e^(−γs′)|w_♯(s′)| ds′, a kernel of L¹-norm γ⁻¹; integration in (ρ₀, ω) with
-the weight ρ₀^(−2a₀) gives (b) for m = 0. Over a point of ℐ⁺_c whose curve lies in Ω_c for all ρ_I < c, w_♯ = w along
+Ω_c. By Cauchy–Schwarz and as in (a),
+
+    |v^((0))|² ≤ ∫_(−∞)^(s_c) e^(2γs′) ds′ · ∫ e^(−2γs′)|w_♯|² ds′ = (2γ)⁻¹c^(2γ)∫ e^(−2γs′)|w_♯|² ds′,
+    e^(−γs)|ṽ(s)| ≤ ∫_(−∞)^s e^(−γ(s−s′))e^(−γs′)|w_♯(s′)| ds′,
+
+the second a convolution with a kernel of L¹-norm γ⁻¹; integration in (ρ₀, ω) with the weight ρ₀^(−2a₀) gives (b) for
+m = 0. Over a point of ℐ⁺_c whose curve lies in Ω_c for all ρ_I < c, w_♯ = w along
 it, and for almost every such point ∫ e^(−2γs′)|w|² ds′ is finite; then |ṽ(s)|² ≤ (2γ)⁻¹e^(2γs)∫ e^(−2γs′)|w|² ds′ by
 Cauchy–Schwarz on (−∞, s], so v(s) = v^((0)) + ṽ(s) → v^((0)) as s → −∞. (c): in the coordinates (z, y, ω),
 z := log ρ₀, y := log ρ, X₀ − X_I = ∂_z and log ρ_I = y − z, so the density is dz dy dg̸ and {ρ_I = c} is
