@@ -1445,9 +1445,18 @@ system on its own adapted domain Ω_U, for instance the restriction of a second 
 the proof of [[thm:class-kato]] (b) (i) on Ω_U, whose lateral boundary is spacelike for the system at the states of
 𝒟_ρ, for ρ small, as in Step 9 of [[thm:class-stability-off-axes]], B_U being C¹-close to B; and the local parts of the
 forcing terms differ by at most C |z| pointwise. Near the axes they differ by ½ (σ_A[Ũ]² − σ_A[U]²) times bounded
-factors. On Σ_τ put Ŭ := Ũ + 𝔼 z, with 𝔼 an extension operator from Σ_τ ∩ Ω_U to R⁴, averaged over G and bounded on
-L² and on H^k uniformly in τ (Stein's operator transported by a diffeomorphism C¹-close to ψ_τ, as in the proof of
-[[thm:class-kato]] (b) (ii)). Then Ŭ = U on Σ_τ ∩ Ω_U and Ŭ ∈ 𝔅′ for ρ small. At a point x ∈ Σ_τ ∩ Ω_U the leaf of U
+factors. On Σ_τ put Ŭ := Ũ + 𝔼 z, with 𝔼 the following extension operator from Σ_τ ∩ Ω_U to R⁴. In the coordinates
+of Step 9, Σ_τ ∩ Ω = ψ_τ(Σ_⋆), with Σ_⋆ the annulus and ψ_τ a diffeomorphism of R⁴ whose derivatives of positive order,
+and those of ψ_τ⁻¹, are bounded uniformly in τ, as in the proof of [[thm:class-kato]] (b) (ii). Put Φ := T_(τ,U) ∘
+ψ_τ, with T_(τ,U) of [[def:class-adapted]] written in these coordinates, which maps Σ_⋆ onto Σ_τ ∩ Ω_U; let E_⋆ be
+Stein's extension operator for Σ_⋆ ([[thm:std-sy-extension]]), 𝔼_0 g := E_⋆(g ∘ Φ) ∘ Φ⁻¹ and 𝔼 g := ∫_G (𝔼_0(g ∘
+γ)) ∘ γ⁻¹ dγ, the integral for the Haar probability measure of G. Then 𝔼 g = g on Σ_τ ∩ Ω_U, which G preserves, and
+𝔼 g is G-invariant when g is. The derivatives of Φ of orders 1 to k are bounded uniformly in τ and U, by the bound on
+T_(τ,U) − id in [[def:class-adapted]]; those of Φ⁻¹ are polynomials in the derivatives of Φ at Φ⁻¹ and in (DΦ)⁻¹ ∘
+Φ⁻¹, which is bounded; and the Jacobian determinants of Φ and Φ⁻¹ are bounded. So, by the chain-rule bound of Step 8
+(iv) of [[sec:ue-existence]], composition with Φ and with Φ⁻¹ is bounded on H^σ, 0 ≤ σ ≤ k, uniformly in τ and U, and
+as G acts by isometries of R⁴, 𝔼 is bounded from H^σ(Σ_τ ∩ Ω_U) to H^σ(R⁴), 0 ≤ σ ≤ k, uniformly in τ and U. Then
+Ŭ = U on Σ_τ ∩ Ω_U, and Ŭ ∈ 𝔅′ for ρ small, since ‖𝔼 z‖_(H^(k−1)) ≤ C ‖z‖_(H^(k−1)(Σ_τ∩Ω_U)) ≤ C ρ. At a point x ∈ Σ_τ ∩ Ω_U the leaf of U
 through x comes from an axis point of Ω_U and lies in Ω_U, the boundary of Ω_U near the axes being a leaf of U and the
 leaves of U foliating; by the uniqueness in [[lem:class-volterra]] it is also the leaf of Ŭ through x. So σ_A[Ŭ] =
 σ_A[U] on Σ_τ ∩ Ω_U, and by [[lem:class-leaf-differences]] (b)

@@ -317,19 +317,33 @@ of the symbol: 2|γ| derivatives in the term of index γ, K + 2|γ| when that te
 
     K(A, B) := J_1 + 6 + 𝔢(n + 1 + J_1 + A + B).                                                       {#eq:fwd-local}
 
-Let b vanish for x ∉ Q_4 and have order 𝗆 with values in [−B, B], and let 𝗍 be an order function with values in
-[−A, A]. Then ‖Op(b)w‖_(H^(𝗍−𝗆)(ℝⁿ)) ≤ C|b|^𝗆_(K(A,B)) ‖w‖_(H^𝗍(ℝⁿ)). For A = B = T, K(T, T) = 10T + 15.
+Let b vanish for x ∉ [−7/4, 7/4]ⁿ and have order 𝗆 with values in [−B, B], and let 𝗍 be an order function with values
+in [−A, A]. Then ‖Op(b)w‖_(H^(𝗍−𝗆)(ℝⁿ)) ≤ C|b|^𝗆_(K(A,B)) ‖w‖_(H^𝗍(ℝⁿ)). For A = B = T, K(T, T) = 10T + 15.
 
 *Proof.* Let λ := ⟨ξ⟩^(𝗍(x,ξ)−𝗆(x,ξ)), Λ := Op(⟨ξ⟩^(𝗍)) and λ′ ∈ S^(−𝗍) a smooth symbol with Op(λ′)Λ = I + R_∞,
-R_∞ of order −∞ (smooth calculus). Norm H^(𝗍−𝗆) with N_0 := A + B. Then
-Op(λ)Op(b)w = QΛw − Op(λ)Op(b)R_∞w with Q := Op(λ)Op(b)Op(λ′).
-Step 1. [[lem:fwd-composition]] with p := λ (order with values in [−A − B, A + B]), q := b (vanishing off Q_4), J := J_1
-and 6 x-derivatives of the remainder gives Op(λ)Op(b) = Op(c_1) + Op(r_1), r_1 of order at most (A + B) + B − J_1 + ¾ = −A − ¼. Op(λ′) maps L² to
-H^𝗍 ⊂ H^(−A), and [[lem:fwd-crude]] (s = −A, μ = −A, N = 6) maps H^(−A) to L². Cost on b: J_1 + 6 + 2L′ with
-2L′ = 𝔢(n + 1 + J_1 + A + B), as |sup(𝗍 − 𝗆) − J_1| ≤ J_1 + A + B; this is K(A, B).
+R_∞ of order −∞ (smooth calculus). Norm H^(𝗍−𝗆) with N_0 := A + B + 1. Then
+Op(λ)Op(b)w = QΛw − Op(λ)Op(b)R_∞w with Q := Op(λ)Op(b)Op(λ′). The x-derivatives of b of order j ≤ K(A, B) are
+bounded by |b|^𝗆_(K(A,B))⟨ξ⟩^(B+¼), the loss ϰj being at most ¼; so [[lem:fwd-crude]] applies to b with μ := B + ¼ and
+N := n + 1 + A + B whenever |s − μ| < A + B + 1.
+Step 1. Fix θ_1 ∈ C_c^∞((−2, 2)ⁿ) equal to 1 on [−15/8, 15/8]ⁿ and θ_2 ∈ C_c^∞((−29/16, 29/16)ⁿ) equal to 1 on
+[−7/4, 7/4]ⁿ. As Op(b) = θ_2Op(b), Op(λ)Op(b) = Op(θ_1λ)Op(b) + Op((1 − θ_1)λ)θ_2Op(b). The kernel of
+Op((1 − θ_1)λ)θ_2 is k(x, y) := (2π)^(−n) ∫ e^(i(x−y)·ξ)(1 − θ_1(x))λ(x, ξ) dξ θ_2(y). On its support the distance
+of x and y is at least 1/16, so that |x − y| ≥ c⟨x⟩ and |x − y|^(−2L)(−Δ_ξ)^L e^(i(x−y)·ξ) = e^(i(x−y)·ξ). Let
+M ∈ ℕ. After L integrations by parts in ξ, 2L ≥ A + B + n + M + 2, the y-derivatives of k of order at most M are
+bounded by
+C⟨x⟩^(−n) and vanish for y ∉ supp θ_2. So |Op((1 − θ_1)λ)θ_2w(x)| ≤ ‖k(x, ·)‖_(H^M)‖w‖_(H^(−M)) ≤
+C⟨x⟩^(−n)‖w‖_(H^(−M)) for w ∈ 𝒮, and Op((1 − θ_1)λ)θ_2 maps H^(−M) to L², with a norm that depends on λ and M only.
+With M := A + B + 1, as Op(λ′) maps L² to H^𝗍 ⊂ H^(−A) and Op(b) maps H^(−A) to H^(−A−B−1) ([[lem:fwd-crude]],
+s = −A), the operator Op((1 − θ_1)λ)θ_2Op(b)Op(λ′) is bounded on L², at the cost n + 1 + A + B.
+[[lem:fwd-composition]] with p := θ_1λ (order with values in [−A − B, A + B]), q := b (vanishing off Q_4), J := J_1
+and 6 x-derivatives of the remainder gives Op(θ_1λ)Op(b) = Op(c_1) + Op(r_1). Here c_1 = λ ♯_(J_1) b, as θ_1 = 1 near
+the x-support of b, and r_1 vanishes for x ∉ Q_4, as p does, and has order at most (A + B) + B − J_1 + ½ = −A − ½.
+Op(λ′) maps L² to H^𝗍 ⊂ H^(−A), and [[lem:fwd-crude]] (s = −A, μ = −A, N = 6) maps H^(−A) to L². Cost on b:
+J_1 + 6 + 2L′ with 2L′ = 𝔢(n + 1 + J_1 + A + B), as |sup(𝗍 − 𝗆) − J_1| ≤ J_1 + A + B; this is K(A, B).
 Step 2. [[lem:fwd-composition]] with p := c_1 (order 𝗍, values in [−A, A]), q := λ′ (not compactly supported), J := J_2
-and 6 x-derivatives gives Op(c_1)Op(λ′) = Op(c) + Op(r_2), r_2 of order at most 2A − J_2 + ¾ < 0, bounded on L² by
-[[lem:fwd-crude]] (N = 6). Cost on c_1: J_2 + 12, on b: J_2 + 12 + (J_1 − 1) = 4A + 2B + 13 ≤ K(A, B).
+and 6 x-derivatives gives Op(c_1)Op(λ′) = Op(c) + Op(r_2), r_2 of order at most 2A − J_2 + ½ = −½ and vanishing for
+x ∉ Q_4, as c_1 does; it is bounded on L² by [[lem:fwd-crude]] (N = 6). Cost on c_1: J_2 + 12, on b:
+J_2 + 12 + (J_1 − 1) = 4A + 2B + 13 ≤ K(A, B).
 Step 3. c = Σ ∂_ξ^(α′)(∂_ξ^α λ · D_x^α b) D_x^(α′) λ′/(α!α′!) has the pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′|,
 the variable orders cancelling at every point; [[lem:fwd-l2]] bounds Op(c) on L² by C|c|^0_12, at a cost on b of
 12 + (J_1 − 1) + (J_2 − 1) = 4A + 2B + 12.
