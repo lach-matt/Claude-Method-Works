@@ -324,8 +324,8 @@ DRic(ġ) = 0 on Ω_* by [[eq:viii-2-4]].
 *Step 5 (the initial region).* On 𝒟′ put ġ := ḣ + ġ_(S′) + ġ⁰_(S⁰′). DRic(ḣ) = 0 ([[prop:viii-1-2]] (1)) and
 DRic(ġ_(S′)) = DRic(ġ⁰_(S⁰′)) = 0 ([[sec:viii-0]]). The gauge 1-form of (5) on 𝒟′ is
 Υ̇^♮(ḣ) + (D_1 + D_2)Υ^(χ^♮_0E_Υ)(g, g)(ġ_(S′) + ġ⁰_(S⁰′)) = 0 + 0, as in Step 3, Υ^(χ^♮_0E_Υ)(g_0, g_0) vanishing for
-every metric g_0. On Ω_* ∩ 𝒟′ = Ω_* ∩ {t^♭_* < T̂ + 7/4} the two definitions of ġ agree (Step 3), and so do those of the gauge 1-form,
-χ^♮_0 being 1 there. As Ω_* ∪ 𝒟′ = Ω_* ∪ 𝒟, this gives (1), (2) and (5).
+every metric g_0. On Ω_* ∩ 𝒟′ = Ω_* ∩ {t^♭_* < T̂ + 7/4} the two definitions of ġ agree (Step 3), and so do those of
+the gauge 1-form, χ^♮_0 being 1 there. As Ω_* ∪ 𝒟′ = Ω_* ∪ 𝒟, this gives (1), (2) and (5).
 
 *Step 6 ((3) and (4)).* On {t^♭_* ≥ T̂ + 2}, χ_− = 0, so ġ = D_0𝔤(U′); this is (3), with D_0Φ(U′) in the exact
 classes by [[prop:iii-j3-5-4]]. Where χ_K = 1: g_(p⃗) = g_b for every p⃗ ([[eq:iii-i7-1-3]]), so

@@ -161,15 +161,16 @@ g_λ⁻¹ − g_(b₀)⁻¹ = −g_λ⁻¹Eg_(b₀)⁻¹ has operator norm, and 
 **Lemma {#lem:interior-one-spacetime}** (One vacuum spacetime.) Let Σ := Σ^IVP ∩ {r_♭ < r < R}, with the data (γ, k)
 that g_λ and g both induce on it; in the chart of [[lem:vii-1-2]] Σ is one set for both metrics, and the sets A and B
 below lie in the coordinate space ℝ × ℝ⁴ of that chart. Let λ ≤ λ1 be so small, depending on R and Ω′, that dt_IVP,
-with ψ_IVP continued below r_♭ by ψ′_IVP = 1, is timelike for g_λ on a connected open neighbourhood of the closure Σ̄
-in Ω′_+ (such λ exist, see the proof), and let V ⊂ Ω′_+ be such a neighbourhood, time-oriented as on Ω′. Let D_V(Σ) be
+with ψ_IVP continued below r_♭ by ψ′_IVP = 1, is timelike for g_λ and in the cone of dτ on a connected open
+neighbourhood of the closure Σ̄ in Ω′_+ (such λ exist, see the proof), and let V ⊂ Ω′_+ be such a neighbourhood,
+time-oriented as on Ω′, so that dt_IVP is past timelike on V. Let D_V(Σ) be
 the Cauchy development of Σ in (V, g_λ) ([[thm:std-bgp-development]]), and put
 
     A := D_V(Σ) ∩ {t_IVP ≤ 0}  with g_λ,     B := {|x| > r_♭, t_IVP > 0} ∪ Σ  with g.
 
 B is the domain M ∩ {t_IVP ≥ 0} of g with the points of Σ^IVP ∖ Σ and of {|x| = r_♭} removed. B is time-oriented as
 the development of its data on Σ^IVP, so that the unit normal of Σ pointing into B is future directed; this is the
-orientation in which g induces k on Σ. So A and B are manifolds with boundary, the boundary of each being Σ (see the
+orientation in which g induces k on Σ. A and B are manifolds with boundary, the boundary of each being Σ (see the
 proof), and (i) glues them along the whole of it. The points of Σ^IVP ∖ Σ and of {|x| = r_♭} are left out of B
 because the glued space would have boundary points there, and at the edge of Σ it would not be a manifold.
 
