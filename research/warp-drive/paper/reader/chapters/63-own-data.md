@@ -1420,8 +1420,9 @@ vanishes; on Σ̃_(σ_1), E^(a_0)[ξ] ≤ 2E^(a_0)[h′] + 2E^(a_0)[g − g_b0],
 |∂Σ| ≤ C λ r⁻³ gives C λ² r_(σ_1)^(2a_0−2); for h_R, its weight-a energy tends to 0 and dominates its weight-a_0
 energy, as u* − u ≥ 1 on W, the energies of g and g′ being comparable by [[lem:own-margins]] (d), as |H| ≤ 1/50 by
 [[eq:own-pointwise]] and [[lem:own-sigma-data]] (b) as in Step 1 of the proof of [[thm:own-continuation]]). Gronwall's
-inequality from σ_1, with constants independent of σ_1, and σ_1 → −∞ give ξ = 0. The proof uses of g and g′ their
-energies of the orders displayed and the ray bound on Ω^γ ∂Γ^α h′, |γ| ≤ 2, |α| ≤ 3, which C⁵ regularity provides. ∎
+inequality from σ_1, with constants independent of σ_1, and σ_1 → −∞ give ξ = 0. The proof uses of g′ its energies of
+the Γ^α h′, |α| ≤ 3, and the ray bound [[eq:own-s1]] for Ω^γ ∂h′, |γ| ≤ 2, which involve at most four derivatives of
+h′, and of g the bounds [[eq:own-pointwise]] and its energies; so C⁵ regularity suffices. ∎
 
 **Lemma {#lem:cutoff-independence}** (the limit does not depend on J). For J ≥ 2k1 + 7 let g^(J) be the limit of the
 g_T^(J) given by Steps 1–5 of the proof of [[thm:own-continuation]] at fixed J: a metric on W of class C^(k_J−3) with
