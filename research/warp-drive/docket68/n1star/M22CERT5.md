@@ -25,12 +25,13 @@ CONSTANTS5.md, N1STAR-PROOF.md and the paper are not edited by this file.
     4.2 x 10^4 too large at the finest grid. Extrapolated, it would fall below 17.32 at about 128 x 36, a run of about
     8 hours here. That is a necessary condition only: it uses X3's lower bound, the residual measured and not
     certified, and one component of it.
-- **The certified residual** (X6): the residual is certified pointwise in Arb balls (6.70000884e-6 +/- 6e-30 at a
-  point of the 24 x 12 test, its analogue at 48 x 16 in the output), but on a box of half-width delta its enclosure
-  has radius ~ 13 delta (first-order wrapping). An L^2 certificate at the level the estimate needs (~3e-13 at tau =
-  -0.8) would take delta ~ 2e-14, about 10^27 boxes per slice; even 1e-6 (a dual-weighted residual's level) takes
-  about 10^14 boxes per slice and 10^17 over the run. A certified residual of the needed sharpness needs high-order
-  Taylor or Chebyshev models with certified tails, whose cost is not a multiple of the evaluation count.
+- **The certified residual** (X6): certified pointwise in Arb balls (at tau = -0.8 of the 48 x 16 run, -9.0505e-8 +/-
+  1.1e-30 at a midpoint, with mu and c enclosed by certified quadrature), but on a box of half-width delta its
+  enclosure has radius 10.86 delta (first-order wrapping). An L^2 certificate at the level the estimate needs there
+  (~3e-13) takes delta ~ 2.7e-14, about 1.4 x 10^27 boxes per slice and 6 x 10^30 over the run's 4479 slices (2 x
+  10^29 s at 0.033 s each); even 1e-6 (a dual-weighted residual's level) takes 1.2 x 10^14 boxes per slice, 5.3 x 10^17
+  over the run, 1.8 x 10^16 s. A certified residual of the needed sharpness needs high-order Taylor or Chebyshev models
+  with certified tails, whose cost is not a multiple of the evaluation count.
 - **The certified upper bound on C_stab** is not computed: it needs the lower-order operator of the full 4D
   Cartesian system, which the class reduction does not determine (Section 4). It would only raise the bar: X3 is a
   lower bound on it.
@@ -133,22 +134,25 @@ fix only A_phi . (Omega u) + B u in combination, and an operator norm needs A an
 extraction for a general tensor in Cartesian components, not done here. It cannot change the conclusion, since X3 is a
 lower bound on it.
 
-*The certified residual.* X6 (certified, Arb) evaluates the tau-tau residual of the 48 x 16 interpolant at the slice
-tau ~ -0.8 in Arb balls: the interpolant is the 2D Chebyshev series through the nodal values, mu is enclosed by
-certified quadrature of env^2 (python-flint's Petras integrator, the tails beyond |y| = 1 - 10^-4 bounded), c from its
-defining integral (1.324087298710302 +/- 5e-28). At collocation nodes it reproduces the solver (|rho| < 1e-12), at the
-midpoints it is certified nonzero (values in the output). On a box of half-width delta the enclosure's radius grows as
-(slope) delta, the slope ~ 13 in the test; for the radius the estimate needs there (~3e-13) delta ~ 2e-14, about 10^27
-boxes per slice and 10^30 over the run's slices; for 1e-6 (a dual-weighted residual's level) about 10^14 boxes per
-slice (output). An evaluation takes ~0.03 s, so the first-order interval route is not a cost any machine meets; LAMBDA0-
-DATA5.md's R2 counted evaluations, not this sharpness. What would reach it: Taylor or Chebyshev models of high order
-in (tau, r, x) with certified remainder bounds, whose cost grows with the order and the number of coefficient
-functions (202) and is not a multiple of R2's.
+*The certified residual.* X6 (certified, Arb) evaluates the tau-tau residual of the 48 x 16 interpolant at the slice tau
+= -0.8 in Arb balls: the interpolant is the 2D Chebyshev series through the nodal values, mu is enclosed by certified
+quadrature of env^2 (python-flint's Petras integrator, the tails beyond |y| = 1 - 10^-4 bounded), c from its defining
+integral (1.324087298710302 +/- 2.5e-28). At three collocation nodes it reproduces the solver (|rho| <= 2.5e-18), at the
+three midpoints next to them it is certified nonzero: -9.0505e-8, -8.2298e-8, -5.4529e-8, each +/- 2e-30. Control C4:
+raising the interpolated d_tau^2 m_vv by 1e-6 of its maximum makes the nodal residual 1.1e-8, and the nodal test fails.
+On a box of half-width delta around the first midpoint the enclosure's radius is 1.1e-3, 1.1e-5, 1.1e-7, 1.1e-9 at delta
+= 1e-4, 1e-6, 1e-8, 1e-10: it grows as 10.86 delta, while the residual is 9.1e-8. For the radius the estimate needs
+there (~3e-13, the share of the budget 17.32 at tau = -0.8, where e^Lambda = e^30.4) delta <= 2.7e-14: 1.4 x 10^27 boxes
+per slice, 6.1 x 10^30 over the run's 4479 slices, 2.0 x 10^29 s at 0.033 s an evaluation; for 1e-6 (a dual-weighted
+residual's level) 1.2 x 10^14 boxes per slice, 5.3 x 10^17 in all, 1.8 x 10^16 s. So the first-order interval route is
+not a cost any machine meets; LAMBDA0-DATA5.md's R2 counted evaluations, not this sharpness. What would reach it: Taylor
+or Chebyshev models of high order in (tau, r, x) with certified remainder bounds, whose cost grows with the order and
+the number of coefficient functions (202) and is not a multiple of R2's.
 
 *The resolution* (computed, floating point, X4). The residual's tau-tau component falls with resolution (its L^2
 norm at tau = -0.8: 1.7e-5 at 32 x 12, 6.4e-7 at 48 x 16, 2.3e-8 at 64 x 20), and the estimate's integral with it.
 From the last two grids one step (+16 in r, +4 in x) divides the integral by 27.4, so it would fall below 17.32 after
-3.2 more steps, about 128 x 36, a run of about 8 hours here (scaling Nr^3 Nx (Nr + Nx) from 64 x 20's 1023 s). It
+3.2 more steps, about 128 x 36, a run of about 8 hours here (scaling Nr^3 Nx (Nr + Nx) from 64 x 20's 1043 s). It
 is a necessary condition: X3's factor is a lower bound, rho_tautau one component, and the residual measured.
 
 ## 5. What holds
@@ -164,4 +168,4 @@ gives 2.207737966, 1.1e-7 from it, inside the band.
 `checks/m22cert5.py --selftest` (output `checks/m22cert5.out`, **10/10**): X1 (exact), X2, X3 (certified), X4
 (floating point), X5 (computed), X6 (certified); controls C1-C4. Imported, not copied: m22evol5.py (the system, the
 solver, the data, the chain). READ: stage1rate5 K2 (Q, c_Y), envelope5.out E1 (c's upper end, used in X3), Lemma 9.1.
-md5: program PROGMD5, output OUTMD5.
+md5: program 45c2bc81d1809d9d71e385af92050ac3, output 7a0ba20d3e0a9b8b89f38ca67a2930f4.

@@ -1,0 +1,44 @@
+# python3 checks/cp3grid5.py --a7 <scratch>/r4/cp4/cp_M32_400_reg.npz cp_M32_800_reg.npz r5/cp_M32_1600_reg.npz \
+#   r8/cp_M48_1600_reg.npz   (round 9: its 'M = 40' and 'M40/M32' read M = 48 and M48/M32)
+A7 the regularised scheme, cut 0.9, on three null grids (M = 32) and at 1600 rows M = 40; every quantity on the 400-row
+    nodes kept by all four runs:
+  areal radius 0.9-1.0:
+   v in [1.40, 1.50): monitor 0.00766, 0.00195, 0.000492 (ratios 3.93, 3.96); M40/M32 at 1600: 1.31; |dP| 8.11e-05,
+       2.02e-05 (ratio 4.01, order 2.00) -> second order
+   v in [1.50, 1.65): monitor 0.00797, 0.00202, 0.000508 (ratios 3.94, 3.98); M40/M32 at 1600: 1.39; |dP| 9.74e-05,
+       2.43e-05 (ratio 4.02, order 2.01) -> second order
+   v in [1.65, 1.80): monitor 0.0147, 0.00384, 0.00102 (ratios 3.83, 3.75); M40/M32 at 1600: 1.30; |dP| 2.42e-04,
+       5.94e-05 (ratio 4.08, order 2.03) -> second order
+   v in [1.80, 1.90): monitor 1.17, 1.02, 1.1 (ratios 1.15, 0.92); M40/M32 at 1600: 0.24; |dP| 9.43e-04, 2.17e-04 (ratio
+       4.34, order 2.12) -> not converging
+   v in [1.90, 2.00): monitor 36, 32.7, 33.5 (ratios 1.10, 0.98); M40/M32 at 1600: 1.43; |dP| 2.89e-03, 6.37e-04 (ratio
+       4.54, order 2.18) -> not converging
+   v in [2.00, 2.25): monitor 124, 112, 111 (ratios 1.11, 1.01); M40/M32 at 1600: 2.51; |dP| 6.26e-03, 1.42e-03 (ratio
+       4.42, order 2.14) -> not converging
+  areal radius 1.0-1.2:
+   v in [1.40, 1.50): monitor 0.0041, 0.00104, 0.000262 (ratios 3.95, 3.97); M40/M32 at 1600: 1.29; |dP| 6.46e-05,
+       1.61e-05 (ratio 4.01, order 2.00) -> second order
+   v in [1.50, 1.65): monitor 0.00463, 0.00116, 0.00029 (ratios 3.99, 4.00); M40/M32 at 1600: 1.42; |dP| 8.61e-05,
+       2.14e-05 (ratio 4.02, order 2.01) -> second order
+   v in [1.65, 1.80): monitor 0.00448, 0.00118, 0.000301 (ratios 3.79, 3.92); M40/M32 at 1600: 1.14; |dP| 9.25e-05,
+       2.30e-05 (ratio 4.02, order 2.01) -> second order
+   v in [1.80, 1.90): monitor 0.0148, 0.0094, 0.0108 (ratios 1.58, 0.87); M40/M32 at 1600: 0.05; |dP| 2.59e-04, 6.34e-05
+       (ratio 4.09, order 2.03) -> not converging
+   v in [1.90, 2.00): monitor 5.21, 5.05, 5.35 (ratios 1.03, 0.94); M40/M32 at 1600: 0.63; |dP| 1.00e-03, 2.33e-04 (ratio
+       4.32, order 2.11) -> not converging
+   v in [2.00, 2.25): monitor 145, 136, 136 (ratios 1.07, 1.00); M40/M32 at 1600: 3.87; |dP| 7.40e-03, 1.69e-03 (ratio
+       4.37, order 2.13) -> not converging
+  areal radius >= 1.2:
+   v in [1.40, 1.50): monitor 0.00132, 0.000337, 8.53e-05 (ratios 3.91, 3.96); M40/M32 at 1600: 1.28; |dP| 3.84e-05,
+       9.57e-06 (ratio 4.01, order 2.00) -> second order
+   v in [1.50, 1.65): monitor 0.00174, 0.000438, 0.00011 (ratios 3.98, 3.99); M40/M32 at 1600: 1.40; |dP| 6.15e-05,
+       1.53e-05 (ratio 4.02, order 2.01) -> second order
+   v in [1.65, 1.80): monitor 0.00177, 0.000444, 0.000111 (ratios 3.99, 4.00); M40/M32 at 1600: 1.47; |dP| 7.63e-05,
+       1.90e-05 (ratio 4.02, order 2.01) -> second order
+   v in [1.80, 1.90): monitor 0.00155, 0.0004, 0.000102 (ratios 3.88, 3.93); M40/M32 at 1600: 1.49; |dP| 8.07e-05,
+       2.01e-05 (ratio 4.02, order 2.01) -> second order
+   v in [1.90, 2.00): monitor 0.00386, 0.00101, 0.000254 (ratios 3.82, 3.98); M40/M32 at 1600: 1.28; |dP| 8.17e-05,
+       2.03e-05 (ratio 4.02, order 2.01) -> second order
+   v in [2.00, 2.25): monitor 0.255, 0.272, 0.283 (ratios 0.94, 0.96); M40/M32 at 1600: 0.31; |dP| 3.74e-04, 9.32e-05
+       (ratio 4.01, order 2.01) -> not converging
+cp3grid5 --a7 (41 s)
