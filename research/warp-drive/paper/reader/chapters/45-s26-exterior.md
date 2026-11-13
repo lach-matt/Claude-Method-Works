@@ -1008,7 +1008,8 @@ all its b-derivatives, plus a part c̃ that vanishes at h = 0, with ‖c̃_l‖_
 ‖V_lu₁‖_(L^∞) + ‖u₁‖_(L^∞) ≤ C‖u₁‖_(H^(4,a₀)_b(Ω′)) with the weight a₀ divided out, by the same embedding. So
 [[lem:iv1-2-3]] with s := m, applied to each product c̃V_lu₁ and c̃₀u₁, gives
 
-    ‖[L_g, χ_c]u₁‖_(H^(m,(a₀,2α_I))_b) ≤ C(‖u₁‖_(H^(m+1,a₀)_b(Ω′)) + ‖h‖_(H^(m+1))‖u₁‖_(H^(4,a₀)_b(Ω′))).    {#eq:s26-commutator}
+    ‖[L_g, χ_c]u₁‖_(H^(m,(a₀,2α_I))_b)
+        ≤ C(‖u₁‖_(H^(m+1,a₀)_b(Ω′)) + ‖h‖_(H^(m+1))‖u₁‖_(H^(4,a₀)_b(Ω′))).                 {#eq:s26-commutator}
 
 u₂ is the forward solution on Ω_c from Σ_in (uniqueness by [[lem:ii-f-1-3]]), and [[prop:iv1-2-2]] on Ω_c
 ([[lem:iv2-2-1]]) gives ‖u₂‖_(H^((1;m),(a₀,2α_I))_(e,b;b)) ≤ C(‖f₃‖_m + ‖h‖_(H^(m+3))‖f₃‖_3), where here and below
@@ -1028,11 +1029,11 @@ H^(j,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) given by [[eq:iv2-0-3]]
 [[rem:ii-g-2-2]], which is the norm of B^j in the proof of [[thm:iv2-3-1]]. For integers 0 ≤ s₀ ≤ s ≤ s₁ there is C
 such that for every v ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*)
 
-    |v|_s ≤ C|v|_(s₀)^(1−λ)|v|_(s₁)^λ,     λ := (s − s₀)/(s₁ − s₀)  (λ := 0 if s₁ = s₀),              {#eq:s26-interpolation}
+    |v|_s ≤ C|v|_(s₀)^(1−λ)|v|_(s₁)^λ,     λ := (s − s₀)/(s₁ − s₀) (λ := 0 if s₁ = s₀),    {#eq:s26-interpolation}
 
 and for integers 0 ≤ s₀ ≤ b ≤ a there is C such that for every such v
 
-    |v|_a|v|_b ≤ C|v|_(s₀)|v|_(a+b−s₀).                                                            {#eq:s26-interpolation-product}
+    |v|_a|v|_b ≤ C|v|_(s₀)|v|_(a+b−s₀).                                               {#eq:s26-interpolation-product}
 
 *Proof.* The smoothing operators S_θ, θ > 1, of part (i) of the proof of [[thm:iv2-3-1]] act on
 H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) and satisfy [[eq:ii-g-2-1]] for these norms, the support classes being trivial;
@@ -1770,18 +1771,18 @@ data. So h₁ = rh̃₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b. ∎
 
 These data enter [[thm:iii-c1-3-1]] when min Re ℰ₀ > 3/2 + 2γ_Υ, ℓ₀ > 3/2 and ‖h_j‖_(H^(k₀,ℓ^♭₀)_b) < ε₀ as in
 [[thm:iii-c1-2-1]] (k₀ = N_NM = 153), and they enter [[thm:iii-c2-3-1]] when moreover ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂
-(k₂ = 2N_NM + 2 = 308). Both smallness conditions hold for (γ̃, κ̃) small in a suitable norm, by the continuity in
-[[prop:iii-c2-4-1]]. If (γ, κ) satisfy the constraints, the solutions are vacuum ([[rem:iii-c1-2-2]] (1),
+(k₂ = 2N_NM + 2 = 308). Both smallness conditions hold for (γ̃, k̃) small in a suitable norm, by the continuity in
+[[prop:iii-c2-4-1]]. If (γ, k) satisfy the constraints, the solutions are vacuum ([[rem:iii-c1-2-2]] (1),
 [[thm:iii-c2-3-1]] (3)).
 
 **Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in
 dimension 4 + 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), Σ^BL := t_BL⁻¹(0) near spatial infinity, and
-γ^BL_(b₀), κ^BL_(b₀) the first and second fundamental forms of Σ^BL for g_(b₀). Let ℰ₀, ℓ₀ and ℓ^♭₀ be as in
-[[thm:iii-c1-3-1]], δ ∈ (0, ¼] small, and let γ^BL = γ^BL_(b₀) + γ̃^BL and κ^BL = κ^BL_(b₀) + κ̃^BL be symmetric
-2-tensors on Σ^BL ∩ {r > δ⁻¹} satisfying the vacuum constraint equations, with γ̃^BL ∈ H^(∞,(ℰ₀,ℓ₀))_b and
-κ̃^BL ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b. Let h^BL_0, h^BL_1 be the gauged Cauchy data on Σ^BL that the proof of
-[[prop:iii-c2-4-1]] gives with t_BL in place of t_IVP, and assume them small in H^(N_NM,ℓ^♭₀)_b, N_NM = 153 as in
-[[thm:iv2-3-1]] (by the continuity in [[prop:iii-c2-4-1]], this holds for (γ̃^BL, κ̃^BL) small in a suitable norm).
+γ^BL_(b₀), k^BL_(b₀) the first and second fundamental forms of Σ^BL for g_(b₀), k as in [[prop:iii-c2-4-1]]. Let ℰ₀, ℓ₀
+and ℓ^♭₀ be as in [[thm:iii-c1-3-1]], δ ∈ (0, ¼] small, and let γ^BL = γ^BL_(b₀) + γ̃^BL and k^BL = k^BL_(b₀) + k̃^BL be
+symmetric 2-tensors on Σ^BL ∩ {r > δ⁻¹} satisfying the vacuum constraint equations, with γ̃^BL ∈ H^(∞,(ℰ₀,ℓ₀))_b and
+k̃^BL ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b. Let h^BL_0, h^BL_1 be the gauged Cauchy data on Σ^BL that the proof of [[prop:iii-c2-4-1]]
+gives with t_BL in place of t_IVP, and assume them small in H^(N_NM,ℓ^♭₀)_b, N_NM = 153 as in
+[[thm:iv2-3-1]] (by the continuity in [[prop:iii-c2-4-1]], this holds for (γ̃^BL, k̃^BL) small in a suitable norm).
 Then the solution h of the gauge-fixed equation with Υ⁰,
 Ric(g_(b₀) + h) − δ*_(g_(b₀),E_C)Υ⁰(g_(b₀) + h, g_(b₀)) = 0, with these data, on the domain of dependence D_δ of
 Σ^BL ∩ {r > δ⁻¹} within the conic neighbourhood U_δ := {|t/r| < δ, r > δ⁻¹} of spatial infinity, induces on

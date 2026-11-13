@@ -704,8 +704,9 @@ of (H7) ([[sec:i-b-1-5]]) hold, with ν_min, β_0 and sup_Γ q^Γ continuous in 
 ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2, with ε_♭ fixed as follows. Let ϵ_G be the threshold of [[lem:ii-c-3-2]]
 (2) for g_(b₀) at ℓ = ½, and C_♭ the constant of [[rem:ii-f1-7-4]] for ℓ_♭ = ½ and for stationary metrics g_0 with
 x_I²ρ_+²g_0 and its inverse bounded by twice the bounds of x_I²ρ_+²g_(b₀) and its inverse; let ε_♭ ≤ ϵ_G/(4C_♭ + 2)
-be so small that every g_b with ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2 is such a metric. So ε_♭ depends on g_(b₀)
-alone. The condition holds for b near b₀: on {|x| ≥ 3R₁}, g_b − g_(b₀) = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞
+be so small that every g_b with ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2 is such a metric, and that for such g_0
+the inversion identity of the proof of [[rem:ii-f1-7-4]] applies to every metric within 2ε_♭ of g_0. So ε_♭ depends on
+g_(b₀) alone. The condition holds for b near b₀: on {|x| ≥ 3R₁}, g_b − g_(b₀) = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞
 (the proof of [[lem:iii-i-3-6]]), of norm O(|b − b₀|) by the argument of [[lem:iii-i-2-2]], and on {|x| ≤ 3R₁}, g_b is
 smooth in b and stationary. By it the time function t^♭ := t^♭_* of [[sec:iii-i-1]], built from g_(b₀) with ℓ = ½,
 serves every g_b, and Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
@@ -1089,8 +1090,8 @@ in that proof, (B) of [[rem:ii-f1-7-4]], concern the function alone.
 
 (v) The 2-admissibility estimate [[eq:ii-c-2-2]], uniform by [[thm:iii-h2-2-1]].
 
-Every other constant depends on P only through ε_0 (the last sentence of [[sec:ii-f1-3-1]]). So ε_0, d and C_k can be
-chosen independent of b ∈ B̄_1.
+Every other constant depends on P only through ε_0 (the last sentence of [[sec:ii-f1-3-1]]) and the fixed ε_♭. So
+ε_0, d and C_k can be chosen independent of b ∈ B̄_1.
 
 *Continuity.* We run the proof of [[sec:ii-f1-6]] with P^((j)) := P_j relative to 2L_(b_j). Let u_j and u be the
 forward solutions of P_j u_j = f_j and Pu = f, and write X := X(𝗌;k+d′) ([[eq:ii-f1-2-2]] with δ = 0, ℵ = 2) and

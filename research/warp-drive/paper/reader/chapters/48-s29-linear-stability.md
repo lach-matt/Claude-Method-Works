@@ -10,11 +10,12 @@ symmetry class of [[thm:settling]], ḃ is a change of mass alone and the boost 
 ([[cor:viii-2-3]]). This is [[thm:settling]] one order down.
 
 No new linear theory is needed. The linear solution is the derivative at zero data of the equation P_5(Ψ(U)) = 0 of
-[[ch:s27]], solved directly: the linear Cauchy problem near Σ^IVP ([[thm:iv2-2-4]], [[thm:iv3-2-1]] and the proof of
-[[thm:iii-c1-3-1]], each at h = 0), the right inverse of [[lem:iii-k-2-3]] at U = 0, and the second Bianchi identity
-linearised at the Ricci-flat g_(b₀) in place of the nonlinear one. The Nash–Moser theorem [[thm:ii-g-2-1]] gives
-existence and bounds but no differentiability of the nonlinear solution in the data, so the linear solution is not
-obtained by differentiating the solution of [[thm:iii-k-4-3]]. Being linear, nothing here needs smallness.
+[[ch:s27]], solved directly: the linear Cauchy problem near Σ^IVP ([[thm:iv2-2-4]], [[thm:iv3-2-1]], (L) of
+[[sec:s27-local]] and the proof of [[thm:iii-c1-3-1]], each at h = 0), the right inverse of [[lem:iii-k-2-3]] at U = 0,
+and the second Bianchi identity linearised at the Ricci-flat g_(b₀) in place of the nonlinear one. The Nash–Moser
+theorem [[thm:ii-g-2-1]] gives existence and bounds but no differentiability of the nonlinear solution in the data, so
+the linear solution is not obtained by differentiating the solution of [[thm:iii-k-4-3]]. Being linear, nothing here
+needs smallness.
 
 [[sec:ix-0]]–[[sec:ix-2]] compare ġ with a linearised vacuum solution given in another gauge. Every solution of
 DRic = 0 on the future half of the Cauchy development, in {r > r_♭}, of a piece Σ_U of Σ^IVP, smooth up to Σ_U, whose
@@ -43,7 +44,10 @@ g_(b₀) being stationary, so it holds on all of {r_♭ ≤ r ≤ r^♮}, at eve
 *Notation.* g := g_(b₀). The future unit normal of Σ^IVP for g is written n; the letter ν is kept for the function
 ν(r) of [[prop:iii-k-1-2]]. For data on Σ^IVP, ‖(γ̇, k̇)‖_(H^k) is the norm of H^k of the classes
 H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, as in [[thm:iii-k-4-3]]. G = O(2) × O(2) is the group of
-[[sec:s27-class]]; G_g k := k − ½g tr_g k is the trace reversal ([[sec:iii-b-6]]).
+[[sec:s27-class]]; G_g k := k − ½g tr_g k is the trace reversal ([[sec:iii-b-6]]). [[lem:ii-f-1-3]] asks for the
+principal symbol g⁻¹(ζ, ζ) Id. The operators L^♮ and δ_gG_gδ*_(g,E_C) to which it is applied below have the principal
+symbol ½g⁻¹(ζ, ζ) Id (the proof of [[prop:viii-1-2]]), so it is applied to 2L^♮ and to 2δ_gG_gδ*_(g,E_C), which have
+the same solutions.
 
 ### Setting {#sec:viii-0}
 

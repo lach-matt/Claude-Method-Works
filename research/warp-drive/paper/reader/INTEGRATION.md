@@ -820,3 +820,14 @@ Items found while chapters were written in parallel; each is settled once, editi
   η = 0, not O(ρ²)); 355-356 and 469-471 the e = 0 trace and determinant are limits not shown to exist. Second fix
   running (also O2 at 2399 and proof A's 2557, 2541 items). Other files to update: S27:1276, 62:52, 71:74 (details in
   R2-S14.md) at their next rounds or at integration.
+- Ch 71 written (W-71): 503 lines, 32 labels, 32 crosswalk rows; exports thm:loss-d, ch:explicit-constants. Proved:
+  d as the number lem:iii-j2-1-2's rules assign (def:ec-accounted-loss); closed forms of the elementary losses; R >
+  2.6532×10¹⁵ rounds so d > 5.306×10¹⁵, and d > 7.959×10¹⁵, N_NM > 1.671×10¹⁷ when ϑ_in ≥ 0; δ ≤ 2^−(32d+9), λ1 < δ,
+  log₁₀ δ < −7.666×10¹⁶; the test-function principle. prop:gap-sums and rem:gap-sums merged here from P-A: do NOT merge
+  P-A's copy of that section into chapter 33 (labels would be defined twice). Open: [[pending:issue-1]] (ϑ_in ≥ 0 for
+  N_tf(L_b, ±1) only computed in the source) and the upper bound d ≤ 46,236,517,538,883,361 (N_NM ≤ 9.710×10¹⁷), now a
+  Numerical observation; chapter 3 lines 347-349 cite thm:loss-d for "explicit upper bounds" and must change unless a
+  written upper bound is proved. Proof project running on both. Other observation remarks: the figures at the source's
+  weights, root-avoidance checks, the constants 2.81 and 3.94, trapped-set data, η < 16.48γ_C^(−1/2), resolvent lower
+  bounds from degree-159 test functions (ratios to prop:band-points 19.8 to 93.5). lem:ec-closed-forms (f) to check
+  against chapter 36.
