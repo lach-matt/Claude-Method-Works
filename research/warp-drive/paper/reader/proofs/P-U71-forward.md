@@ -269,9 +269,10 @@ integrable against ψ̂. ∎
 *Near and far parts.* Fix ε ∈ (0, 1/8], depending only on the constants of (S1) and (S15), as below, and
 η_0 ∈ C_c^∞((−ε, ε)ⁿ) equal to 1 near 0. Split O_β(g) = O^ε_β(g) + O^far_β(g), the near part having the kernel of
 Op_ψ(g_β) multiplied by η_0(x − y), and split the adjoint O_β(g)^* likewise. By [[lem:fwd-far]] with
-w := ψ(1 − η_0), O^far_β(g) is φ_β^* Op(b_w) (φ_β)_* with b_w of order sup 𝗆 − 2K, at the cost of 2K ξ-derivatives and
-B x-derivatives of g; (O^far_β(g))^* is its adjoint, bounded by duality between the dual spaces ((S3), (S8)), at the
-same cost. The near kernels have ranges at most Cε in d_ℬ ((S15)).
+w := ψ(1 − η_0) and μ := sup 𝗆 + ¼ (which bounds 𝗆 plus the loss ϰ(B + 2K) of [[eq:fwd-seminorm]]), O^far_β(g) is
+φ_β^* Op(b_w) (φ_β)_* with b_w of order sup 𝗆 + ¼ − 2K, at the cost of 2K ξ-derivatives and B x-derivatives of g;
+(O^far_β(g))^* is its adjoint, bounded by duality between the dual spaces ((S3), (S8)), at the same cost. The near
+kernels have ranges at most Cε in d_ℬ ((S15)).
 
 **Lemma {#lem:fwd-transport}** (Change of chart, term by term.) Let α, β be charts, κ := φ_β ∘ φ_α⁻¹ (defined where
 both are), θ ∈ C_c^∞((−13/8, 13/8)ⁿ), and g a symbol of order 𝗆 with values in [−T, T]. In the chart α the operators
@@ -289,8 +290,9 @@ and A := C|g|^𝗆_(K_c). The transition map κ is differentiated at most K_c + 
 pointwise order 𝗆 − |γ| and consumes 2|γ| derivatives of g, the variable order being carried exactly, as every term is
 evaluated at y = x, that is, at the point of phase space with the chart-α coordinates (x, η).
 
-*Proof.* Let ε be so small that every point within Cε of supp θ ∩ φ_α(supp χ_β) has its segment to x inside the
-domain of κ and inside (−7/4, 7/4)ⁿ, and that ‖Φ(x, y) − Dκ(x)‖ ≤ ½‖Dκ(x)⁻¹‖⁻¹ there; this is possible uniformly in
+*Proof.* Let ε be so small that every pair (x, y) with x ∈ supp θ, |x − y| ≤ Cε and x or y in φ_α(supp χ_β) has the
+segment from y to x inside the domain of κ and inside (−7/4, 7/4)ⁿ, and that ‖Φ(x, y) − Dκ(x)‖ ≤ ½‖Dκ(x)⁻¹‖⁻¹ for
+these pairs; this is possible uniformly in
 (α, β), as supp χ_β ⊂ φ_β⁻¹([−5/4, 5/4]ⁿ) and by (S1), (S15). The kernel of θO^ε_β(g) in the chart α is
 θ(x)K(κ(x), κ(y))|det Dκ(y)| with K that of Op_(ψη_0)(g_β); substituting ξ = Φ(x, y)^(−T)η, as
 (κ(x) − κ(y))·ξ = (x − y)·Φ^Tξ, gives c. For the adjoint of O^ε_β(g), the kernel is μ_α(x)⁻¹ \overline{K^#(y, x)}
