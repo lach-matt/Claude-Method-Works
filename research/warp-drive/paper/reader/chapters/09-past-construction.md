@@ -257,4 +257,116 @@ at q = 5/2 the same calculation with r^(−3/2) log r gives the logarithm. The r
 E_(q+1/2), so the integral formula puts it in E_(q−1/2), and ℓ Z̃ = −(3/(2r)) Z̃ − c Z + S̃ is in E_(q+1/2). ∂_v, Ω and
 ∂_θ commute with ℓ and r, which gives the derivatives. ∎
 
-[[PART3-ANCHOR]]
+**Theorem {#thm:past-approximant}** (The approximant from past null infinity.) For every N the stages of
+[[thm:approximant]] have unique solutions on P with nothing coming in from past null infinity: the energy of each m_m
+on A_P(τ) tends to zero as τ → −∞, and φ_m, χ and ĝ_(m+1) are the transport solutions of [[lem:decay-calculus]] (d)
+that vanish there. They vanish for v ≤ v_start, are T² × Z2 × Z2-invariant, satisfy S g = g ([[lem:quarter-turn]]),
+and
+
+    W_TT ∈ O_(3/2) (a pure leading term),  χ ∈ O_2,  m_m ∈ L_2,  φ_m ∈ L_1 with ℓφ_m ∈ L_2,  ĝ_(m+1) ∈ O_2.
+                                                                                                   {#eq:past-classes}
+
+The approximant g_app built from them as in [[pending:sec-fixed-phase]] satisfies (E1) and (E2) of
+[[thm:uniform-existence]] on P, and Ric^H(g_app) = λ^(N−1) [R_N] + λ^N [R′_N] with R_N, R′_N in E_3, uniformly for
+0 < λ ≤ 1, so |Ric^H(g_app)|_(k,P) ≤ C_R λ^(N−1) t^(−3/2). On Ω the profiles continue as the solutions of
+[[pending:lem-stage-system]] with their own data on Σ_τ0, g_app is smooth on P ∪ Ω, and the conclusions of
+[[thm:approximant]] hold on Ω.
+
+*Proof.* *The count.* Give the factors of [[pending:eq-reduced]] these classes: g0 − η in L_2 (a coefficient, not a
+profile: it does not vanish for v ≤ v_start, and its class is used only through its bounds); Γ[g0] in E_2 (its μ′ part
+is (μ′/(2r²)) ℓ dv dv) and H0 := g0^(ab) Γ[g0]_(ab) in E_3; W_TT in O_(3/2); χ and ĝ_i in O_2; m_i in L_2; φ_i in L_1
+with ℓφ_i in L_2.
+
+*Claim:* for m ≥ 1, every monomial of the coefficient ℛ^(m) of λ^m ([[pending:lem-first-entry]]) that contains none of
+m_m, φ_m, ĝ_(m+1) lies in L_3. A monomial of [[pending:eq-reduced]] has at most two derivatives; g⁻¹ is expanded about
+g0⁻¹, each term of the expansion adding profile factors; the phase enters only through du = dv + Σ λ^j dφ_j acting on
+an oscillating factor. (i) Two profile factors from {W, χ, ĝ_i, m_i} give L_3 at least ([[lem:decay-calculus]] (a)).
+(ii) A factor dφ_i, in E_1 only, occurs as (∂_a φ_i) ∂_θ Y with Y oscillating. With a second profile factor besides Y
+the monomial is in E_4. Without one, both derivatives sit on Y in the principal part, contracted by g0⁻¹, and the
+monomial is one of g0⁻¹(dφ_i, dv) ∂_θ² Y = (ℓφ_i) ∂_θ² Y, g0⁻¹(dφ_i, dφ_j) ∂_θ² Y, g0⁻¹(dφ_i, d∂_θY) or (□̃ φ_i) ∂_θ Y.
+By [[eq:wave-operator-vr]] the first is in L_2 L_(3/2); the second in L_3 L_(3/2), since g^vv = 0 and no product
+∂_v φ_i ∂_v φ_j occurs; the third, ∂_v φ_i ℓ∂_θY + ℓφ_i ∂_v∂_θY + …, is in L_1 L_(5/2) + L_2 L_(3/2), since Y in O_p
+gives ℓY in L_(p+1); and □̃ φ_i = 2 ∂_v ℓφ_i + (3/r) ∂_v φ_i + … is in L_2. Each is in L_(7/2). (iii) A monomial with
+one profile factor and no dφ: the factor has weight j and carries derivatives of total weight m − j. If it is a mean
+m_j, the only such terms are those of its own stage equation (j = m) and Γ[g0] times m_j (E_2 L_2). If it is
+oscillating, two slow derivatives give □̃ Y (j = m; in L_3 by [[lem:decay-calculus]] (c), and in E_(7/2) for W_TT) and
+one fast derivative gives the operator T̂ of [[pending:lem-th-operator]] applied to Y (j = m + 1: the unknown
+ĝ_(m+1)); two fast derivatives carry g0⁻¹(dv, dv) = 0. This proves the claim. The same count shows that the
+coefficients with which the unknowns enter (a)–(c) of [[pending:lem-stage-system]] are in E_2 for m_m and E_3 for dφ_m
+in (a), E_(3/2) for ĝ_(m+1) in (a) (the mean of a product with ∂_θ W), and, in (c), E_(3/2) for m_m, Ψ_m := □̃ φ_m and
+ℓφ_m, and E_(5/2) for ∂_v φ_m and r⁻¹ Ω φ_m (which multiply ℓ∂_θW or r⁻¹ Ω ∂_θW).
+
+*Stage 0.* The identities of stage 0 ([[pending:stage-zero]]) hold pointwise wherever the profiles are defined. The
+second harmonic of R^(0) is r⁻³ times a function of (v, x̂, θ), times dv ⊗ dv. Indeed, the terms of R^(0) linear in
+W_TT are first harmonics, so the second harmonic comes from the terms quadratic in W_TT, which have two factors λ W_TT
+and two fast derivatives λ⁻¹ dv ∂_θ. In the principal part −½ g^(ab) ∂_a ∂_b g the only such term is
+½ λ W_TT^(ab) λ⁻² ∂_a v ∂_b v ∂_θ²(λ W_TT) = ½ W_TT(ℓ, ℓ) ∂_θ² W_TT = 0. The others come from the part of Ric^H
+quadratic in first derivatives, with coefficients taken at g0: Ricci's terms in Γ Γ and in ∂(g⁻¹) ∂g, and those of the
+gauge term, in which g_(mρ) meets only D^ρ and so cancels an inverse metric. Each is a contraction by g0⁻¹ of two
+factors (∂_a v)(∂_θ W_TT)_(bc), with two indices left free. A contraction involving an index of dv gives g0⁻¹(dv, dv) =
+0 or W_TT(ℓ, ·) = 0, so both dv indices are free; the four indices of the two factors ∂_θ W_TT are contracted with each
+other, and on them g0⁻¹ = η⁻¹ − (μ/r²) L0 ⊗ L0 acts as η⁻¹, since W_TT(L0, ·) = 0. Since tr W_TT = 0, the quadratic
+part of R^(0) is c0 |∂_θ W_TT|²_η dv ⊗ dv for a constant c0, and |∂_θ W_TT|²_η = r⁻³ |∂_θ F_W|²_η by
+[[lem:decay-calculus]] (c), the components of η⁻¹ being constant. So χ, the solution of (ℓ + 3/(2r)) ∂_θ χ = (that
+harmonic) vanishing at past null infinity, is r⁻² times a function of (v, x̂, θ): writing the harmonic as r⁻³ f3,
+(ℓ + 3/(2r))(r⁻² A) = −½ r⁻³ A gives ∂_θ χ = −2 r⁻² f3, by [[lem:decay-calculus]] (d) at q = 3 with no remainder. So χ
+is in O_2. It is smooth at the axes, as on Ω ([[pending:stage-zero]]).
+
+*Stage m ≥ 1.* Let the earlier stages be solved, in their classes. By the count, the forcing term of (a) is
+S_m = r⁻³ S_(m,3) + S̃_m with S̃_m in E_(7/2); the forcing term of (c) without the unknowns is r⁻³ K_(m,3) + E_(7/2);
+and q_m is in L_3, each of its terms pairing two of m_i, dφ_i as in (ii). *Leading terms:* M_m := 2 ∫_(−∞)^v S_(m,3)
+dv′, which vanishes for v ≤ v_start; m⁰ := r⁻² M_m; φ⁰ := −½ r⁻¹ M_m(ℓ, ℓ); ĝ⁰ := the leading term of
+[[lem:decay-calculus]] (d) at q = 3 for the forcing r⁻³ K_(m,3). Then −½ □̃ m⁰ = −½ (3 − 4) r⁻³ ∂_v M_m + E_4 = r⁻³
+S_(m,3) + E_4 by [[lem:decay-calculus]] (c) at p = 2, and ℓφ⁰ = ½ r⁻² M_m(ℓ, ℓ) = ½ m⁰(ℓ, ℓ). So the remainders
+(m̃, φ̃, ĝ̃) := (m_m − m⁰, φ_m − φ⁰, ĝ_(m+1) − ĝ⁰) solve the system (a)–(c) with every forcing term in E_(7/2): the
+coefficients act on the leading terms through the classes of the count, and ℓφ̃ = ½ (m̃(ℓ, ℓ) + q_m) with q_m in E_3.
+
+*Estimates.* For n large let P_n := P ∩ {τ ≥ τ_n}. [[pending:lem-stage-system]], whose proof uses only
+[[pending:lem-energy]] and [[pending:lem-transport]], holds on P_n with [[lem:past-energy]] and [[lem:past-transport]]
+in their place, and gives the solution of the stage system on P_n whose data on Σ_(τ_n) are the leading terms; its
+remainders start at zero. Commute the system with ∂_X and Ω to an order j0 (the classes are preserved), and let e(τ) be
+the energy of m̃ to that order, f(τ) the norms of ∂_v φ̃ and Ω φ̃, p(τ) that of Ψ̃ := □̃ φ̃, and z(τ) that of Z̃ :=
+∂_θ ĝ̃ (zero mean, so ‖ĝ̃‖ ≤ ‖Z̃‖). The L² norm of an E_q-profile on A_P(τ) is at most C t^(3/2−q), and
+[[lem:past-sobolev]] (b) bounds m̃ by e. [[lem:past-energy]] for (a), [[lem:past-transport]] with c0 = 0 for ∂_v φ̃ and
+Ω φ̃ (L0 commutes with ∂_v and Ω), with c0 = 2 for Ψ̃ (the transport of [[pending:lem-commutator-transport]] with
+σ̃ := m̃(ℓ, ℓ) + q_m in place of P s, □̃ σ̃ taken from (a), so that no derivative is lost), and with c0 = 3/2 for Z̃
+((c) and [[pending:lem-th-operator]]) give, with every integral over (τ_n, τ),
+
+    e ≤ C ∫ ( t⁻² e + t^(−3/2) z + t⁻³ f + t⁻² ),            t^(−3/2) f ≤ C ∫ t^(−3/2) ( e + t^(−3/2) ),
+    t^(1/2) p ≤ C ∫ t^(1/2) ( t⁻¹ e + t⁻² f + t^(−3/2) (z + p) + t⁻² ),
+    z ≤ C ∫ ( t^(−3/2) (z + e + p) + t^(−5/2) f + t⁻² ).                                         {#eq:stage-estimates}
+
+The bad terms of the forcing of Ψ̃, r⁻¹ (∂_τ + ∂_r) σ̃ and r⁻² ∂_r φ̃, are the t⁻¹ e and t⁻² f. Every kernel is
+integrable at −∞, and the forcing terms give e, z ≤ A_e t⁻¹, f ≤ A_f and p ≤ A_p t⁻¹ uniformly in n, with the
+constants taken in order. The quantities e and z are fed by f and p through kernels with an extra integrable power, so
+for t ≥ T0, T0 large, [[eq:stage-estimates]] returns their bounds with a factor ½. The quantities f and p are fed by e
+with kernels of size O(1): f ≤ (2/3) C sup t e and p ≤ 2C (A_e + A_f + 1) t⁻¹, so A_f := C′ A_e and A_p := C″(A_e +
+A_f) close. And [1, T0] is a bounded interval, on which Gronwall's inequality applies.
+
+As n → ∞ the solutions converge. The difference of the n-th and the n′-th solves the homogeneous system on P_n with
+data on Σ_(τ_n) given by the n′-th remainders there, of sizes C t_n⁻¹ (for e, z, p) and O(1) (for f).
+[[eq:stage-estimates]] without forcing keeps e and z of size C t_n⁻¹, p of size C t^(−1/2) t_n^(−1/2), and f,
+transported with γ = −3/2, of size C (t/t_n)^(3/2) ≤ C t^(3/2) t_n^(−3/2); so the difference tends to zero on every
+bounded part of P. The limit solves the stage system on P with the same bounds. A solution with nothing coming in is
+unique, since the difference of two satisfies [[eq:stage-estimates]] without forcing and tends to zero at −∞.
+
+*Classes.* [[lem:past-sobolev]] (a), with the bound of m̃ by e, turns e ≤ C t⁻¹ into m̃ in E_(5/2). Then σ̃ is in
+E_(5/2); φ̃ = −½ ∫_r^∞ σ̃ dr′ is in E_(3/2), with ℓφ̃ in E_(5/2); Ψ̃ is in E_(5/2) by [[eq:wave-operator-vr]]; the
+forcing term of (c) is in E_(7/2); and ĝ̃ is in E_(5/2) with ℓĝ̃ in E_(7/2). For the last, the integral formula of
+[[lem:decay-calculus]] (d) with no leading term gives |ĝ̃| ≤ C r^(−3/2) ∫_r^∞ r′^(3/2) r′^(−7/2) dr′ = C r^(−5/2),
+likewise for the derivatives that commute with ℓ, and ℓĝ̃ = −(3/(2r)) ĝ̃ − c ĝ̃ + (forcing) is in E_(7/2). So
+ĝ_(m+1) = ĝ⁰ + ĝ̃ is in O_2. This is [[eq:past-classes]] at stage m.
+
+*The residual, the phase, the continuation.* The argument of [[pending:sec-fixed-phase]] gives ℛ^(m) = 0 for m ≤ N − 1.
+The rest of the residual is λ^N times a sum of monomials of [[pending:eq-reduced]] with all factors known, each in E_3
+by the count; the expansion of g⁻¹ converges uniformly, since |g_app − g0| ≤ C λ r^(−3/2). Rewriting with the fixed
+phase v (Taylor's formula in λΨ about θ + φ1) multiplies profiles by powers of φ_j, keeping every product in its class,
+and costs λ^(N+1) in the metric and so λ^(N−1) in Ric^H: R_N is in E_3. The scaled norm follows because ∂^i [f] costs
+λ^(−i) and Ω costs nothing, and the L² norm of an E_3 profile on A_P(τ) is at most C t^(−3/2). (E1) holds (W_TT and
+χ dv dv are transverse to ℓ), and (E2) by stage 0. On Σ_τ0 ([[lem:past-domain]] (c)) the profiles' data determine, by
+[[pending:lem-stage-system]] on Ω, solutions there; the two solve the same smooth linear system and agree on Σ_τ0 with
+all their τ-derivatives, each fixed by the system from the data, so together they are smooth on P ∪ Ω. The stage system
+is equivariant under T² × Z2 × Z2 and under S of [[lem:quarter-turn]], the condition of nothing coming in is invariant,
+and the solutions are unique, so they are invariant. ∎
+
+[[PART4-ANCHOR]]
