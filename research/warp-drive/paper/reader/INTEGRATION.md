@@ -856,3 +856,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   eq:s26-commutator and [L, χ]; prop:iii-c2-4-1 sign error real: lem:iii-b-3-9's convention, letter k, k̃ term flips;
   prop:iii-c2-4-2 writes k^BL. Chapter 48 lines 128 and 133: drop "κ̃ there" (add to S29's next round). Third reading
   running.
+- Chapter 70 markers (P-K70): all three written. Roots 1.0000747438, 1.0000029324, 1.0000169224 bracketed by
+  lem:rb-roots-point (exact Taylor coefficients at 2, sign changes; independent of the pending l ≥ 1 part of
+  prop:np-10-54). The printed least singular values were rounded to nearest, not up, and cannot be proved as printed;
+  proved replacements by prop:rb-quasimode-point (six integer test vectors) with lem:rb-indicial-explicit:
+  3.1412·10⁻⁶ → 3.1413·10⁻⁶, 2.6180·10⁻⁷ → 2.6181·10⁻⁷, 1.4955·10⁻⁶ → 1.4956·10⁻⁶, 0.020 → 0.0204, 0.015 → 0.0149,
+  0.012 → 0.0121 (3.81·10⁶ unchanged; no other citation). lem:rb-m33: M₃₃ = −(γ_C a r − 1)/r³. FOR THE FINAL REPORT
+  TO THE USER: the source's singular-value bounds were rounded the wrong way. Citation of formulas inside chapter 30
+  proofs: allowed as "the formula [[eq:...]] in the proof of [[lem:...]]" when labelled; unlabelled ones restated in
+  chapter 70. Re-merge of proof B running (also crosswalk rows for the seven new labels).

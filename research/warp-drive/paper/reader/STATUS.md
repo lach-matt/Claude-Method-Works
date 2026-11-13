@@ -46,7 +46,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 63 M Ch 13 | NOT CONFIRMED 1M 6m 15n (issue-1 k_P = 2k1 + 14 needed and enough; issue-2 a real gap, as in the source: E_T[Z^k h_R] ~ | waits on the cut-off repair's reader; then the fix round (R-63 minors and nits, merge of the repair at 648-653, 660-663, 682-688, 738, 784-786, 800-809, 852-857, lem:own-exterior tail) |^(2a+2k−8)) | waits on the cut-off proof project | - |
 | 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | done (set r > r_♭; int N proved; XΦ for T^a only; density step; renames) | confirming reader running |
 | 65 M Ch 15 | written (1,132 lines, 58 crosswalk rows, no markers); independent reader running | - | - |
-| 70 M Ch 17 | written (1,624 lines, 102 labels; B2 merged with 4.683; P-B merged pre-fix, to re-merge; 3 computational markers, proof project running) | - | - |
+| 70 M Ch 17 | written (1,624 lines, 102 labels; B2 merged with 4.683); the three computational markers proved (roots bracketed; singular-value bounds proved at slightly larger values; M₃₃ derived); proof B re-merge and gap cor:morawetz-one-derivative (c)-(d) running; then first reading | - | - |
 | 80 M Ch 19 | written (1,240 lines, 70 crosswalk rows, no markers); independent reader running | - | - |
 | 71 M Ch 18 | written (503 lines, 32 labels; marker issue-1; upper bound a remark); proof project running (ϑ_in ≥ 0; a written upper bound on d) | - | - |
 | 66, 81-90 | being written: 66, 81, 82, 83, 84 (writers running); 85, 86, 87, 90 not yet written | - | - |
@@ -59,7 +59,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | NOT CONFIRMED 2M 4m 9n; fixed; CONFIRMED (second reading, 4 nits) |
 | P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | second reading 0M 1m 4n (a rename); fixed; CONFIRMED (diff read) |
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | second reading NOT CONFIRMED 1M 6m 4n (off-band commuted terms; tied to ch 63 issue-2); waits on the cut-off proof project |
-| P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | CONFIRMED (second reading 0M 0m 7n; all 2,643 Bernstein coefficients recomputed exactly; C256 large-σ values only in B2's numerical remark); re-merge into chapter 70 after the chapter 70 proof project |
+| P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | CONFIRMED (second reading 0M 0m 7n; all 2,643 Bernstein coefficients recomputed exactly; C256 large-σ values only in B2's numerical remark); re-merge into chapter 70 running |
 | P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | CONFIRMED (second reading 0M 1m 5n; 4.682 → 4.683 applied; markers resolved to chapter 70) |
 | P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | CONFIRMED (second reading 0M 1m 4n; N1 to N5 applied by the coordinator, N1 the reviewer's exact wording); P-A3 CONFIRMED (second reading 0M 1m 2n; the clause applied) |
 | P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | CONFIRMED (second reading 0M 1m 6n; the reader's slow-variation paragraph seated, checked) |
