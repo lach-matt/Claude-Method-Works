@@ -1383,3 +1383,404 @@ v∂_v = −i − 1. The coefficient of δ^(j+1) in N_sf(λ)u = 0 is −2(λ −
 In dimension 3 + 1 the same argument gives 2 + spec S̄ + ℕ_0, which fits the observation of [Hin26] that its (9.5)
 is available for Re λ < 2. Such poles are invisible on ι⁺ and belong to the radiation field ([BVW15, Remarks 7.5 and
 8.2], as [Hin26] notes).
+
+### Formal solutions at K⁺: the window and its states {#sec:iii-g2-1}
+
+This section and the next three are [Hin26, Definitions 9.8 and 9.10, Propositions 9.9 and 9.11 and Corollary 9.12] in
+dimension 4 + 1 (pp. 172–179). [[thm:iii-g2-3-1]] describes the solutions of [[thm:iii-g1-3-1]] at ι⁺ ∩ K⁺, term by
+term, as formal solutions built from zero energy states. [[thm:iii-g2-4-2]] grafts such a solution into spacetime as an
+approximate solution of L_b on the Myers–Perry family, accurate at ι⁺ and at K⁺, and [[cor:iii-g2-4-3]] does the same
+for sources with logarithms in t_* and at ι⁺-resonances.
+
+*The window.* [Hin26] expands at R = 0 up to R^(ℓ_K) with ℓ_K < 3 + ε_ind, which keeps the indicial roots in [−3, 0],
+each with generalised companions to the orders of [Hin26, (9.32)], because the smallest ι⁺-order it grafts is λ = 1
+and the remainder must have K⁺-order λ + ℓ_K > 4. What the uses of grafting require is λ + ℓ_K ≥ 4 + ε, with ε the
+ε_K or ε_ind of [Hin26, (12.21), p. 308]. In dimension 4 + 1 the expansion is carried to ℓ_K < ℓ_K^max ≤ 3
+([[eq:iii-g2-1-1]]); [[thm:iii-g2-3-1]] and [[thm:iii-g2-4-2]] hold for every ℓ_K < ℓ_K^max, so a graft at ι⁺-order λ
+meets the requirement whenever Re λ > 1 + ε and ℓ_K^max = 3. The pure ι⁺-resonances have real part at least 2
+([[thm:iii-g-5-1]] (2)), and [[cor:iii-g2-4-3]] grafts at orders Re λ_0 > 1. The window (−3, 0] needs no zero energy
+state at −3, and every state it needs is constructed in [[ch:s13]] and [[ch:s15]], with at least the companions
+required ([[def:iii-g2-table-1-1]]).
+
+Throughout this section and the next three we assume (Dyn), the dynamical hypotheses on the metrics g_b verified in
+[[ch:s12]]; the parameters of [[prop:iii-f1-3-3]] with γ_Υ < min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); (C1) of
+[[sec:iii-f1-1]]; and (C2)–(C3) of [[sec:iii-f1-1]] with z_Υ := 4e_Υγ_Υ² outside the exceptional set Z_exc of
+[[prop:iii-f1-2-3]] (e), so that every indicial root of L̂_b(0) is simple. We fix
+
+    ℓ_K^max := min(3, 2 + 2γ_Cv_C),                                                                     {#eq:iii-g2-1-1}
+
+so that the vector type 1 root −2 − 2γ_Cv_C of [[prop:iii-f1-2-3]] lies below the window; the other roots from □^C with
+real part ≤ 0 lie below −101 ([[prop:iii-f1-2-3]] (d)). Under the condition
+
+(C5) γ_Cv_C ≥ ½,
+
+ℓ_K^max = 3. The choice of parameters in [[thm:vi-c-2-1]] satisfies (C5), as there v_C = ½ and γ_C > 10⁶. Without
+(C5) every statement below holds with ℓ_K^max = 2 + 2γ_Cv_C, which still serves every graft with
+Re λ > 2 − 2γ_Cv_C + ε.
+
+For ℓ_K < ℓ_K^max let 𝒲(ℓ_K) be the set of indicial roots μ of L̂_b(0) ([[prop:iii-f1-2-3]]) with
+−ℓ_K < Re μ ≤ 0. All are real ([[lem:iii-g1-1-3]] (c)). For a root μ of type τ and degree l, let 𝒴_τ be the space of
+harmonics of [[sec:iii-a1-1]] that parametrises that type: 𝒮_l for scalar, 𝒱_l for vector and 𝒯_l for tensor types.
+
+**Definition {#def:iii-g2-table-1-1}** (The roots of 𝒲(ℓ_K), ℓ_K < 3, and their states; Table 1.1.) For each root μ in
+the window we list its types; its origin in the factorisation [[eq:iii-f1-2-1]]; the state whose leading term spans
+its indicial solutions ([[lem:iii-g2-1-2]]); the number m_0 of generalised companions constructed; and the number k_μ
+used below.
+
+(1) μ = 0, type s0: the gauge-invariant root −l of [[eq:iii-f1-2-1]] at l = 0; the time translation h^(0)_(b,s0) of
+[[prop:iii-d3-3-1]] (1); m_0 = 3; k_μ = 2.
+
+(2) μ = 0, type s2: the root −l + 1 of □^Υ at scalar type l = 2; [[prop:iii-d3-3-1]] (4)–(7); m_0 = 3; k_μ = 2.
+
+(3) μ = −1, type s1: the boosts; h^(≤k)_(b,s1) of [[prop:iii-d2-3-1]] and [[prop:iii-d3-3-1]] (2); m_0 = 4; k_μ = 3,
+with the indexing of the s1 chain below.
+
+(4) μ = −1, type v1: the rotations; h^(≤k)_(b,v1) of [[prop:iii-d2-3-1]] and [[prop:iii-d3-3-1]] (3); m_0 = 3; k_μ = 2,
+with the indexing of the v1 chain below.
+
+(5) μ = −1, types s3 and v2: the roots −l + 1 (l = 3) and −l (l = 2) of □^Υ; [[prop:iii-d3-3-1]] (4)–(7); m_0 = 2
+for each; k_μ = 1.
+
+(6) μ = −2, types s4 and v3: the roots −l + 1 (l = 4) and −l (l = 3) of □^Υ; [[prop:iii-d3-3-1]] (4)–(7); m_0 = 1
+for each; k_μ = 0.
+
+(7) μ = −2, types s2, v2 and t2: the gauge-invariant root −l of [[eq:iii-f1-2-1]] at l = 2; the states h^(−2)_(b,τ) of
+[[prop:iii-f4-5-1]]; m_0 = 0; k_μ = 0.
+
+(8) μ = 2 − λ^Υ_(s0,2) ∈ [−z_Υ/3, 0), type s0: a class root; [[prop:iii-d3-3-1]] (4)–(7); m_0 = 2; k_μ = 2.
+
+(9) μ = 2 − λ^Υ_(s1,2) ∈ (−¼, 0), type s1: a class root; [[prop:iii-d3-3-1]] (4)–(7); m_0 = 2; k_μ = 2.
+
+(10) μ = 2 − λ^Υ_(s2,3) ∈ (−5/4, −1), type s2, and μ = 2 − λ^Υ_(s1,3) ∈ (−5/4, −1), type s1: class roots;
+[[prop:iii-d3-3-1]] (4)–(7); m_0 = 2; k_μ = 1.
+
+(11) μ = 2 − λ^Υ_(s2,4) and μ = 2 − λ^Υ_(s3,4), in (−9/4, −2), types s2 and s3: class roots; [[prop:iii-d3-3-1]]
+(4)–(7); m_0 = 2; k_μ = 0.
+
+A root μ of L̂_b(0) in the rows from □^Υ is the root μ − 1 of the list of □^Υ in [[prop:iii-d3-3-1]], and the state is
+h^(μ)_b := δ*_(g_b)ω^(μ−1)_b, whose leading term δ̄̂*(0)ω̄ is of degree μ ([[prop:iii-d3-3-1]] (4)–(7)). Only the rows
+with −μ < ℓ_K are used.
+
+*Completeness of the list.* The roots of [[prop:iii-f1-2-3]] with real part in (−3, 0] are those listed and the
+excluded ones. Excluded are the λ^C_(·,≪,·) − 1 (real part < −101); −2 − 2γ_Cv_C (below −ℓ_K^max); and −l, 2 − l,
+1 − l and 2 − λ^Υ_(sl,l+j) with real part ≤ −3. With the ranges of [[lem:iii-d-4-1]],
+λ^Υ_(sl,l+j) − 2 ∈ (l + j − 2, l + j − 7/4) is less than 3 only for l + j ≤ 4; and λ^Υ_(s0,2) − 2 ∈ (0, z_Υ/3].
+
+**Lemma {#lem:iii-g2-1-2}** (The indicial solutions are the leading terms of the states.) For every μ ∈ 𝒲(ℓ_K) and
+every type τ at which μ is a root, the kernel of the indicial family N_τ(L̄̂(0), μ) on the type-τ sections of degree l
+is {h̄_τ(Y) : Y ∈ 𝒴_τ}. Here h̄_τ(Y) is the ρ^μ-leading term of the state of [[def:iii-g2-table-1-1]] (for s1 and v1 at
+−1, of h̆²_(b,s1)(S) and h̆¹_(b,v1)(V)), and Y ↦ h̄_τ(Y) is injective.
+
+*Proof.* On the type-τ sections given by a harmonic Y, the indicial family is a matrix polynomial in μ whose
+determinant has μ as a simple zero (the hypothesis on z_Υ). So its kernel is one-dimensional for each Y in a basis of
+𝒴_τ, and depends linearly on Y. The leading term h̄ = ρ^μφ(ω) of the state lies in the kernel. Indeed it satisfies
+L̄̂(0)h̄ = 0: for the base of a chain this is the leading order of [[eq:iii-g2-2-1]] at m = 0, since
+L̂_b(0) − L̄̂(0) ∈ ρ⁴Diff²_b ([[lem:iii-f-2-1]] (3)); for s1 and v1 it is [[eq:iii-g2-2-4]] at the first index of the
+chain. As 2L̄̂(0) = ρ²L̃(0)(ω, ρ∂_ρ, ∂_ω) ([[eq:iii-g-1-1]]) is dilation invariant, this is N(L̄̂(0), μ)φ = 0. The
+leading term is non-zero for Y ≠ 0: for the roots from □^Υ by (R5) of [[sec:iii-d3-1]], as N(δ̄̂*(0), μ − 1) is
+injective on these types at μ − 1 ∉ {0, −1}, or (at s0 and s2 with μ = 0) by [[lem:iii-f1-2-5]]; for the boosts and
+rotations by [[prop:iii-d3-3-1]] (2)–(3); and for the physical states by [[prop:iii-f4-5-1]], whose leading terms span
+the kernel. ∎
+
+In particular, within the window the leading terms of the states of [[prop:iii-d3-3-1]] span the kernels of the
+indicial families of L̄̂(0).
+
+### Formal solutions {#sec:iii-g2-2}
+
+#### Towers {#sec:iii-g2-2-1}
+
+Let L be a stationary operator of order at most 2 in ∂_(t_*). For stationary h and functions a of t_*,
+L(a(t_*)h) = aL̂(0)h + a′[L, t_*]h + ½a″[[L, t_*], t_*]h: with L = L_0 + L_1∂_(t_*) + L_2∂_(t_*)², L_j stationary,
+[L, t_*]h = L_1h and [[L, t_*], t_*] = 2L_2.
+
+**Lemma {#lem:iii-g2-2-1}** (Towers.) (a) For stationary h̆⁰, …, h̆^(m_0), the following are equivalent:
+L(Σ_(i=0)^k (k!/(k − i)!)t_*^(k−i)h̆^i) = 0 for k = 0, …, m_0; and
+
+    L̂(0)h̆^m + [L, t_*]h̆^(m−1) + ½[[L, t_*], t_*]h̆^(m−2) = 0,   m = 0, …, m_0                         {#eq:iii-g2-2-1}
+
+(with h̆^(−1) = h̆^(−2) = 0). (b) If [[eq:iii-g2-2-1]] holds, then for k ≤ m_0 and every smooth a,
+
+    L(Σ_(j=0)^k a^(j)(t_*)h̆^j) = a^(k+1)([L, t_*]h̆^k + ½[[L, t_*], t_*]h̆^(k−1)) + ½a^(k+2)[[L, t_*], t_*]h̆^k.
+                                                                                                         {#eq:iii-g2-2-2}
+
+*Proof.* (b) Expanding by the rule for L(ah), the coefficient of a^(m) is the left side of [[eq:iii-g2-2-1]] for m ≤ k;
+for m = k + 1, k + 2 it is what remains. (a) With a = t_*^k/k!, [[eq:iii-g2-2-2]] shows that [[eq:iii-g2-2-1]] implies
+the polynomial identities. Conversely, by induction on k: the identity for k minus t_* times k times the one for k − 1
+leaves the t_*⁰-coefficient, which is k! times the left side of [[eq:iii-g2-2-1]] at m = k, plus terms that vanish by
+[[eq:iii-g2-2-1]] at smaller m. ∎
+
+For L = L_b, [[lem:iii-f-2-1]] (3) gives near infinity
+
+    [L_b, t_*] = −ρ(ρ∂_ρ − 3/2 − S̄) − g_b^(00)∂_(t_*) + ½Q_b,   [[L_b, t_*], t_*] = −g_b^(00) ∈ ρ²C^∞,  {#eq:iii-g2-2-3}
+
+and for L̄ ([[eq:iii-g-1-1]], which has no ∂_(t_*)² term), [L̄, t_*] = −ρ(ρ∂_ρ − 3/2 − S̄) and [[L̄, t_*], t_*] = 0.
+Indeed by [[eq:iii-f-2-3]], L_b = L̄ − ½g_b^(00)∂_(t_*)² + ½Q_b∂_(t_*) + ½R_b, and [∂_(t_*)², t_*] = 2∂_(t_*).
+
+The states of [[def:iii-g2-table-1-1]] satisfy [[eq:iii-g2-2-1]] for L = L_b. [[prop:iii-d3-3-1]] gives
+ω^(≤k) ∈ ker □^Υ_b as polynomials in t_*, so δ*_(g_b)ω^(≤k) ∈ ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G_(g_b) ⊂ ker L_b; here
+D_(g_b)Ric(ℒ_Xg_b) = ℒ_XRic(g_b) = 0 and 2δ_(g_b,E_Υ)G_(g_b)δ*_(g_b) = □^Υ_b. The physical states lie in ker L̂_b(0)
+(m_0 = 0).
+
+#### The Minkowski formal solutions {#sec:iii-g2-2-2}
+
+This is [Hin26, Definition 9.8] in dimension 4 + 1. Let (h̆^i_b)_(i≤m_0) be a tower of [[def:iii-g2-table-1-1]] for
+L_b, with h̆^i_b ∈ 𝒜^((μ−i,0) ∪ (μ−i+ℰ_ind)), min Re ℰ_ind > 0, and with ρ^(μ−i)-leading terms h̄̆^i, homogeneous of
+degree μ − i. For s1 and v1 the indexing of [Hin26] is used. The s1 tower is h_(b,s1) ∈ 𝒜^((3,0)∪…),
+h̆¹_(b,s1) ∈ 𝒜^((2,0)∪…), then h̆^k_(b,s1) ∈ 𝒜^((−k+1,0)∪…) for k ≥ 2, and its homogeneous part starts at
+h̄̆²_s1 =: h̄²_s1, of degree −1. The v1 tower is h_(b,v1) ∈ 𝒜^((3,0)∪…), then h̆^k_(b,v1) ∈ 𝒜^((−k,0)∪…) for k ≥ 1,
+starting at h̄¹_v1, of degree −1 ([[eq:iii-d2-3-4]], [[prop:iii-d3-3-1]] (2)–(3)).
+
+**Lemma {#lem:iii-g2-2-2}** (The Minkowski towers.) The leading terms satisfy [[eq:iii-g2-2-1]] for L̄:
+
+    L̄̂(0)h̄̆^m + [L̄, t_*]h̄̆^(m−1) = 0,                                                                {#eq:iii-g2-2-4}
+
+for the s1 chain from m = 2 and for the v1 chain from m = 1 (the earlier terms being omitted).
+
+*Proof.* Under the dilations (t_*, x) ↦ (st_*, sx), t_*^(k−i)h̆^i has leading degree k − μ for every i (for s1,
+k − 1 for i ≥ 2 and k − 3 for i = 0, 1; for v1, k for i ≥ 1 and k − 3 for i = 0). L̄ is homogeneous of degree −2.
+L_b − L̄ = −½g_b^(00)∂_(t_*)² + ½Q_b∂_(t_*) + ½R_b ([[eq:iii-f-2-3]]) lowers the degree by at least 2, and the
+corrections h̆^i_b − χh̄̆^i lower it by min Re ℰ_ind > 0. So the top-degree part of
+L_b(Σ (k!/(k − i)!)t_*^(k−i)h̆^i_b) = 0 is L̄(Σ (k!/(k − i)!)t_*^(k−i)h̄̆^i) = 0, over the indices of top degree.
+[[lem:iii-g2-2-1]] (a) for L̄, with [[L̄, t_*], t_*] = 0, gives [[eq:iii-g2-2-4]]. ∎
+
+**Definition {#def:iii-g2-2-3}** ([Hin26, Definition 9.8] in dimension 4 + 1.) For a function a = a(t_*) (valued in 𝒴_τ
+where the state is linear in Y) and k ≤ m_0,
+
+    h̄^((μ),≤k)(a) := Σ_(j=0)^k a^(j)(t_*)h̄̆^((μ),j),   h̄^(≤k)_s1(a) := Σ_(j=2)^k h̄̆^j_s1(a^(j−2)),
+    h̄^(≤k)_v1(a) := Σ_(j=1)^k h̄̆^j_v1(a^(j−1)).                                                        {#eq:iii-g2-2-5}
+
+**Lemma {#lem:iii-g2-2-4}** ([Hin26, (9.28)–(9.31)] in dimension 4 + 1.) (a)
+L̄h̄^((μ),≤k)(a) = a^(k+1)[L̄, t_*]h̄̆^((μ),k), and likewise for s1 (with a^(k−1) and h̄̆^k_s1) and for v1 (with a^(k)
+and h̄̆^k_v1).
+
+(b) For a = t_*^(−λ+μ) (for s1 and for v1, a = t_*^(−λ−1)), the tensor t_*^λh̄^((μ),≤k)(a) is independent of t_* in
+the coordinates (t_*, R, ω), R = (ρt_*)⁻¹. It is a finite sum Σ_j c_jR^(−μ+j)φ_j(ω), without logarithms. Moreover
+
+    t_*^λt_*²L̄(h̄^((μ),≤k)(t_*^(−λ+μ))) ∈ R^(−μ+k−1)C^∞([0, 1)_R × 𝕊³)                                  {#eq:iii-g2-2-6}
+
+is independent of t_*. The same holds for s1 with R^(k−2), and for v1 with R^(k−1), in place of R^(−μ+k−1).
+
+*Proof.* (a) is [[eq:iii-g2-2-2]] for L̄, with [[L̄, t_*], t_*] = 0, by [[lem:iii-g2-2-2]]. (b) a^(j) = c_jt_*^(−λ+μ−j)
+and h̄̆^j = ρ^(μ−j)φ_j(ω), so t_*^λa^(j)h̄̆^j = c_j(ρt_*)^(μ−j)φ_j = c_jR^(−μ+j)φ_j. By (a) and
+[L̄, t_*] = −ρ(ρ∂_ρ − 3/2 − S̄), the left side of [[eq:iii-g2-2-6]] is
+t_*^(λ+2)c_(k+1)t_*^(−λ+μ−k−1)ρ^(1+μ−k)ψ(ω) = c_(k+1)(ρt_*)^(1+μ−k)ψ = c_(k+1)R^(k−1−μ)ψ. For s1,
+a^(k−1) = ct_*^(−λ−k) and h̄̆^k_s1 has degree 1 − k, which gives R^(k−2); for v1, a^(k) = ct_*^(−λ−1−k) and degree −k
+give R^(k−1). ∎
+
+#### The Myers–Perry formal solutions {#sec:iii-g2-2-3}
+
+This is [Hin26, Definition 9.10] in dimension 4 + 1.
+
+**Definition {#def:iii-g2-2-5}** With the towers of [[def:iii-g2-table-1-1]] for L_b,
+
+    h^((μ),≤k)_b(a) := Σ_(j=0)^k a^(j)(t_*)h̆^((μ),j)_b,
+    h^(≤k)_(b,s1)(a) := h_(b,s1)(a) + Σ_(j=1)^k h̆^j_(b,s1)(a^(j)),
+    h^(≤k)_(b,v1)(a) := h_(b,v1)(a) + Σ_(j=1)^k h̆^j_(b,v1)(a^(j)).
+                                                                                                      {#eq:iii-g2-2-7}
+
+**Lemma {#lem:iii-g2-2-6}** ([Hin26, (9.37)] in dimension 4 + 1.) L_bh^((μ),≤k)_b(a) is given by [[eq:iii-g2-2-2]] with
+h̆^j = h̆^((μ),j)_b, and likewise for s1 and v1. For a = t_*^(−λ+μ) it is, near K⁺ (at bounded r),
+O(t_*^(−λ+μ−k−1)) with all stationary derivatives, that is of K⁺-order λ − μ + k + 1. For s1 with a = a_s1 of
+[[eq:iii-g2-4-2]] the order is λ + k, and for v1 with a = a_v1 it is λ + k + 1. With k = k_μ of
+[[def:iii-g2-table-1-1]], every one of these orders is at least λ + 3.
+
+*Proof.* [[eq:iii-g2-2-2]] and the tower property ([[sec:iii-g2-2-1]]). The coefficients [L_b, t_*]h̆^k_b and
+[[L_b, t_*], t_*]h̆^(k−1)_b are stationary and smooth; a^(k+1) ∼ t_*^(−λ+μ−k−1), and for s1
+a_s1^(k+1) ∼ t_*^(−λ−k), for v1 a_v1^(k+1) ∼ t_*^(−λ−k−1). The bound λ − μ + k_μ + 1 ≥ λ + 3 is k_μ ≥ 2 + μ, which the
+k_μ of [[def:iii-g2-table-1-1]] satisfy: k_μ = 2 + μ at the integer roots; at the class roots
+μ ∈ (−¼, 0), (−5/4, −1), (−9/4, −2), k_μ = 2, 1, 0; for s1, k = 3 gives λ + 3; for v1, k = 2 gives λ + 3. ∎
+
+### The expansion at K⁺ {#sec:iii-g2-3}
+
+**Theorem {#thm:iii-g2-3-1}** ([Hin26, Proposition 9.9] in dimension 4 + 1.) Let λ ∈ ℂ, k ∈ ℕ_0, ℓ_K < ℓ_K^max with
+ℓ_K ≠ −Re μ for every root μ, and α ∈ (−1, 0). Suppose N_ι⁺(λ)u = f on [0, 1)_R × 𝕊³, with f ∈ H^(k,ℓ_K−2)_b and
+u ∈ H^(k+2,α)_b (for the b-density |dR/R dg̸|). Then u = u_0 + ũ, ũ ∈ H^(k+2,ℓ_K)_b, with
+
+    u_0 = Σ_(μ∈𝒲(ℓ_K)) Σ_τ t_*^λ h̄^((μ),≤k_μ)_τ(t_*^(−λ+μ)Y^((μ))_τ),                                   {#eq:iii-g2-3-1}
+
+for suitable Y^((μ))_τ ∈ 𝒴_τ. The sum runs over the types of [[def:iii-g2-table-1-1]] at which μ is a root. At μ = −1
+the s1 and v1 terms are t_*^λh̄^(≤3)_s1(t_*^(−λ−1)S^((−1))_1) and t_*^λh̄^(≤2)_v1(t_*^(−λ−1)V^((−1))_1). Each term is a
+t_*-independent function of (R, ω) ([[lem:iii-g2-2-4]] (b)) and is free of logarithms. The coefficients Y^((μ))_τ are
+continuous linear functionals of (u, f) in these spaces.
+
+*Proof.* [[eq:iii-g2-3-1]] is [Hin26, (9.32)] at n = 4, with the window 𝒲(ℓ_K) and the orders k_μ of
+[[def:iii-g2-table-1-1]]. By [[eq:iii-g1-1-3]], R²N_ι⁺(λ) = A_0 + RA_1 with A_0 = L̃(0)(ω, −R∂_R, ∂_ω) b-elliptic. So
+
+    A_0u = R²f − RA_1u.                                                                                {#eq:iii-g2-3-2}
+
+By [[lem:iii-a-1-4]] (its proof at finite order, as in Step 5 (iv) of the proof of [[thm:iii-g1-3-1]]),
+u ∈ H^(k+2,(ℰ,ℓ_K))_b with ℰ generated by Spec_b(A_0) above α. So u is a finite sum of terms R^z(log R)^jc_(z,j)(ω),
+Re z < ℓ_K, plus an element of H^(k+2,ℓ_K)_b. We remove the terms in order of increasing real part.
+
+*The lowest term.* Suppose some coefficient is non-zero, and let z_0 be the least real part of an exponent present. In
+[[eq:iii-g2-3-2]] the right side has exponents of real part ≥ min(ℓ_K, z_0 + 1) > z_0. So the terms of A_0u at real part
+z_0 vanish: for each z with Re z = z_0 and J the top power of log R, N(A_0, z)c_(z,J) = 0 and
+N(A_0, z)c_(z,J−1) + J∂_zN(A_0, z)c_(z,J) = 0. Hence z = −μ for a root μ, which is real, so z = z_0. As μ is a simple
+root, ∂_zN(A_0, z) maps ker N(A_0, z) injectively into a complement of the range of N(A_0, z). So Jc_(z,J) = 0, J = 0,
+and c := c_(z,0) ∈ ker N(A_0, −μ) = ker N(L̄̂(0), μ). The kernel is finite-dimensional (A_0 is elliptic on 𝕊³) and
+splits by type and harmonic. By [[lem:iii-g2-1-2]], c = Σ_τ h̄_τ(Y_τ) with unique Y_τ ∈ 𝒴_τ, and μ ∈ 𝒲(ℓ_K) as z_0 < ℓ_K.
+
+*Subtraction.* Let w := Σ_τ t_*^λh̄^((μ),≤k_μ)_τ(t_*^(−λ+μ)Y_τ), a function of (R, ω) ([[lem:iii-g2-2-4]] (b)). Its
+R^(−μ)-coefficient is c, since t_*^λa h̄̆⁰ = R^(−μ)h̄_τ(Y); for s1 and v1 the lowest terms are R¹h̄²_s1(S) and
+R¹h̄¹_v1(V). Its other terms have exponents −μ + j, j ≥ 1. On t_*-independent functions w = w(R, ω),
+2L̄(t_*^(−λ)w) = t_*^(−λ−2)N_ι⁺(λ)w ([[eq:iii-g-1-6]], [[def:iii-g-1-1]]: t_*^(−λ)w = ρ^λ(R^λw)). By
+[[eq:iii-g2-2-6]],
+
+    N_ι⁺(λ)w ∈ R^(−μ+k_μ−1)C^∞ ⊂ H^(∞,ℓ_K−2)_b     near R = 0,
+
+as −μ + k_μ − 1 ≥ 1 > ℓ_K − 2 ([[lem:iii-g2-2-6]]); the same holds for s1 and v1, with R¹. So u′ := u − w satisfies the
+hypotheses with f′ := f − N_ι⁺(λ)w, and has no term R^(−μ) of the types removed. Doing this for every type and root at
+real part z_0, the least real part of an exponent of u′ exceeds z_0. By the first step, every new least exponent is −μ′
+for a root μ′ with −μ′ ∈ (z_0, ℓ_K). There are finitely many such roots, so after finitely many steps no term remains,
+and ũ := u − u_0 ∈ H^(k+2,ℓ_K)_b. Each Y_τ is read off from the coefficient c, which is a continuous functional of
+(u, f) (the circle integrals of [[lem:iii-a-1-5]]), and the subtractions are continuous. ∎
+
+**Corollary {#cor:iii-g2-3-2}** (The index set at K⁺.) In [[thm:iii-g1-3-1]], below the order ℓ_K^max, the expansion of
+h at R = 0 has no logarithms. Its exponents are −μ + j (μ ∈ 𝒲(ℓ_K), 0 ≤ j ≤ k_μ, with the conventions for s1 and v1).
+So h ∈ 𝒜^((⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),(ℰ^♭_K,ℓ_K)) for every ℓ_K < ℓ_K^max, with
+
+    ℰ^♭_K := ⋃_(μ∈𝒲(ℓ_K^max)) ⋃_(j≤k_μ) (−μ + j, 0).
+
+This is the counterpart at n = 4 of the index set ℰ_K of [Hin26].
+
+*Proof.* [[thm:iii-g2-3-1]] with f = R² times a function vanishing to infinite order, and u = h near R = 0. ∎
+
+### Grafting {#sec:iii-g2-4}
+
+This section is [Hin26, Proposition 9.11 and Corollary 9.12] in dimension 4 + 1. Let M be the compactified spacetime
+of [[sec:iii-b-2]] ([Hin26, (3.3)]), with its faces 𝓘⁺, ι⁺ and K⁺, and Ω_* := cl_M{t_* ≥ 1} ([Hin26, (9.38)]); the
+b-spaces on Ω_* carry three orders, listed for 𝓘⁺, ι⁺ and K⁺ ([Hin26, Definitions 2.6–2.8]). Let χ_K ∈ C^∞(M) equal 1
+near K⁺ and 0 near t_*⁻¹(1) ∪ 𝓘⁺, and be a function of R alone near ι⁺. Let χ_ι := χ(t_*), with χ ∈ C^∞(ℝ) equal to 0
+on (−∞, 1] and 1 on [2, ∞); it equals 1 near ι⁺ and is supported in Ω_*.
+
+**Lemma {#lem:iii-g2-4-1}** (2L̄ is the ι⁺-normal operator of 2L_b.) For w = w(R, ω) conormal on ι⁺ near {R > 0}
+(equivalently w(v, ω), v = R⁻¹), on {|x| > 3R_1},
+
+    2L_b(t_*^(−λ)w) = t_*^(−λ−2)N_ι⁺(λ)w + t_*^(−λ−4)v²Bw,                                               {#eq:iii-g2-4-1}
+
+with B = B_0 + vB_1 + v²B_2, each B_i a second-order b-operator in (v∂_v, ∂_ω) whose coefficients are smooth functions
+of (ρ, ω) = (v/t_*, ω); B_1 and B_2 come from Q_b and R_b.
+
+*Proof.* 2L̄(t_*^(−λ)w) = t_*^(−λ−2)N_ι⁺(λ)w is the definition of N_ι⁺ ([[eq:iii-g1-1-1]]; [[lem:iii-g-1-2]] (c),
+P_0 = 2L_b). For the rest use [[eq:iii-f-2-3]], stated for 2L_b, with
+∂_(t_*)(t_*^(−λ)w(ρt_*)) = t_*^(−λ−1)(v∂_v − λ)w and ρ∂_ρ = v∂_v at fixed t_*. The term g_b^(00)∂_(t_*)² gives
+ρ²t_*^(−λ−2)(…)w = t_*^(−λ−4)v²(…)w. The term Q_b∂_(t_*) gives ρ³t_*^(−λ−1)(…), and R_b gives ρ⁴(…); both are
+t_*^(−λ−4)v² times v or v². ∎
+
+**Theorem {#thm:iii-g2-4-2}** ([Hin26, Proposition 9.11] in dimension 4 + 1.) Let λ ∉ spec_ι⁺(L̄) with Re λ > 0. Let
+ℓ_K < ℓ_K^max, with ℓ_K ≠ −Re μ for all roots and ℓ_K ∉ Re π_1ℰ_K. Let ℓ_I < 3/2 + s_C with
+ℓ_I ∉ Re π_1ℰ^tot_(ι⁺,𝓘), and Re λ < ℓ_I. Let f_+ ∈ H^(∞,ℓ_I+1,ℓ_K−2)_b(ι⁺; S²T*) and u_+ := N_ι⁺(λ)⁻¹(2f_+)
+([[thm:iii-g1-3-1]] (2), extended holomorphically to λ ∉ spec_ι⁺(L̄)). Write u_+ = χ_K|_ι⁺u_0 + ũ by
+[[thm:iii-g2-3-1]], with ũ ∈ H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),ℓ_K)_b(ι⁺). Define
+
+    a_s1(t_*) := t_*^(−λ+1)/(λ(λ − 1)) if λ ≠ 1,   a_s1(t_*) := −log t_* if λ = 1,   a_v1(t_*) := −t_*^(−λ)/λ,
+                                                                                                         {#eq:iii-g2-4-2}
+
+and let u_(b,0) be [[eq:iii-g2-3-1]] with every Minkowski formal solution replaced by its Myers–Perry version
+([[def:iii-g2-2-5]]), at the same orders, and with the s1 and v1 terms h^(≤3)_(b,s1)(a_s1S^((−1))_1) and
+h^(≤2)_(b,v1)(a_v1V^((−1))_1):
+
+    u_(b,0) := h^(≤3)_(b,s1)(a_s1S^((−1))_1) + h^(≤2)_(b,v1)(a_v1V^((−1))_1)
+               + Σ′_(μ,τ) h^((μ),≤k_μ)_(b,τ)(t_*^(−λ+μ)Y^((μ))_τ),
+                                                                                                      {#eq:iii-g2-4-3}
+
+the primed sum running over the other rows. Let u := χ_Ku_(b,0) + χ_ιt_*^(−λ)ũ. Then
+
+    χ_ιt_*^(−λ−2)f_+ − L_bu ∈ H^(∞,(ℰ^tot_(ι⁺,𝓘)+2, ℓ_I+1), λ+2+ℰ_ind, λ+ℓ_K)_b(Ω_*; S²T*)^(•,−)         {#eq:iii-g2-4-4}
+
+for an index set ℰ_ind with min Re ℰ_ind > 0, depending only on L̄ and on whether λ = 1. Moreover
+(t_*^λu)|_ι⁺ = u_+, and
+
+    u ∈ H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I), (λ,0)∪(λ+ℰ_ind), (ℰ^gr_K(λ),ℓ_K))_b(Ω_*)^(•,−),
+
+where ℰ^gr_K(λ) contains the index sets of a_s1 and a_v1 and (κ, 0) for every exponent κ of t_*⁻¹ in
+[[eq:iii-g2-4-3]].
+
+*Proof.* *The restriction.* At (ι⁺)°, ρ ∼ t_*⁻¹. The leading term at ρ = 0 of each Myers–Perry tensor is the Minkowski
+one. So t_*^λh^((μ),≤k)_b(t_*^(−λ+μ)Y) → t_*^λh̄^((μ),≤k)(t_*^(−λ+μ)Y) at ι⁺, and the corrections are
+O(t_*^(−min Re ℰ_ind)) there. In the s1 and v1 terms, h_(b,s1)(a_s1S), h̆¹_(b,s1)(a′_s1S) and h_(b,v1)(a_v1V) are of
+size ρ³t_*^(−λ+1) (or ρ³log t_*), ρ²t_*^(−λ) and ρ³t_*^(−λ) ([[eq:iii-d2-3-4]]); these are O(t_*^(−λ−2)) at (ι⁺)°.
+The next terms reproduce the Minkowski ones: the coefficient of h̆²_(b,s1) is a″_s1S = t_*^(−λ−1)S, and that of
+h̆¹_(b,v1) is a′_v1V = t_*^(−λ−1)V, as in [[thm:iii-g2-3-1]]. With χ_K|_ι⁺ and χ_ι = 1 near ι⁺,
+(t_*^λu)|_ι⁺ = χ_Ku_0 + ũ = u_+.
+
+*Away from K⁺.* Near ι⁺, u = t_*^(−λ)u_+ up to terms supported near K⁺. [[lem:iii-g2-4-1]] gives
+t_*^(−λ−2)f_+ − L_b(t_*^(−λ)u_+) = −½t_*^(−λ−4)v²Bu_+, as N_ι⁺(λ)u_+ = 2f_+. As u_+ ∈ 𝒜^((⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I)) at v = 0
+([[thm:iii-g1-3-1]]), v²Bu_+ has 𝓘⁺-index set in ℰ^tot_(ι⁺,𝓘) + 2 to order ℓ_I + 2. Its ι⁺-orders are λ + 4 + ℕ_0,
+from the Taylor expansion of the coefficients in ρ = v/t_*. The commutator
+[L_b, χ_ι] = χ′(t_*)[L_b, t_*] + ½χ″(t_*)[[L_b, t_*], t_*] is supported in {1 ≤ t_* ≤ 2}. By [[eq:iii-g2-2-3]], at
+fixed t_* (where ρ = v/t_* and ρ∂_ρ = v∂_v), its main part on t_*^(−λ)ũ is −χ′t_*^(−λ−1)v(v∂_v − 3/2 − S̄)ũ. Near 𝓘⁺,
+ũ = u_+, and (v∂_v − 3/2 − S̄)u_+ ∈ H^(∞,(ℰ^C_(ι⁺,𝓘),ℓ_I))_b by [[thm:iii-g1-3-1]] (2). So this part has 𝓘⁺-index set
+ℰ^C_(ι⁺,𝓘) + 1 = ℰ^tot_(ι⁺,𝓘) + 2 to order ℓ_I + 1, which is the order [[eq:iii-g2-4-4]] asks. The other parts carry
+ρ² = v²t_*⁻² or ρ³ and give ℰ^tot_(ι⁺,𝓘) + 2 as well.
+
+*Near K⁺.* Each term of [[eq:iii-g2-4-4]] has K⁺-order at least λ + ℓ_K: χ_ιt_*^(−λ−2)f_+, as f_+ has weight ℓ_K − 2
+at R = 0 and t_*^(−λ−2)R^(ℓ_K−2) = t_*^(−λ−ℓ_K)r^(ℓ_K−2); L_b(χ_ιt_*^(−λ)ũ), as ũ has weight ℓ_K, L_b is stationary,
+and ∂_(t_*) only adds decay; [L_b, χ_K]u_(b,0), which is supported away from K⁺; and L_bu_(b,0) on supp χ_K, as by
+[[lem:iii-g2-2-6]] each term has K⁺-order at least λ + 3 > λ + ℓ_K.
+
+*The ι⁺-order of the remainder near K⁺ ∩ ι⁺.* t_*^(λ+2)L_bu restricted to ι⁺ is ½N_ι⁺(λ)u_+ = f_+, by
+[[lem:iii-g2-4-1]] and (t_*^λu)|_ι⁺ = u_+. The Myers–Perry corrections in u_(b,0) and the terms of [[lem:iii-g2-4-1]]
+contribute at ι⁺-orders in λ + 2 + ℰ_ind, with ℰ_ind collecting the index sets of the states of [[ch:s13]] and
+[[ch:s15]], 2 + ℕ_0, and (2, 1) when λ = 1: the term h_(b,s1)(−log t_* S) has size ρ³log t_* = v³t_*⁻³log t_*. No
+t_*-dependence of χ_K enters, as χ_K is a function of R near ι⁺. So the ι⁺-index set of the remainder is
+λ + 2 + ℰ_ind. The membership of u follows term by term: t_*^(−λ)ũ, and [[eq:iii-g2-4-3]], whose t_*-exponents are
+those collected in ℰ^gr_K(λ). ∎
+
+As in [Hin26], a right side of size O(t_*^(−λ−2)) can set the black hole in motion. The s1 term is a centre-of-mass
+motion
+of size O(t_*^(−λ+1)), or O(log t_*) at λ = 1; at n = 4 there are four directions. In the v1 term, the summand
+h_(b,v1)(a_v1V) is invisible at ι⁺ and is non-zero only for A ≠ 0 ([[prop:iii-d2-3-1]] (3)), an O(|A|) change of the
+rotation in 𝔰𝔬(4); the summand h̆¹_(b,v1)(a′_v1V) is visible there and reproduces h̄¹_v1. At n = 4 the boost and
+rotation states decay one order faster than in dimension 3 + 1 (ρ³, ρ², ρ³ against ρ², ρ, ρ; [[eq:iii-d2-3-4]]), so
+their invisibility at ι⁺ holds with room.
+
+**Remark {#rem:iii-g2-4-maps}** (The graft as a holomorphic family.) For fixed ε > 0 and λ near λ_0 ≠ 1 with
+λ ∉ spec_ι⁺(L̄) (a_s1 has a pole at λ = 1), [[thm:iii-g2-4-2]] defines Φ_(ι,b)(λ)f_+ := u and
+F_(ι,b)(λ)f_+ := χ_ιt_*^(−λ−2)f_+ − L_bΦ_(ι,b)(λ)f_+ on H^(∞,ℓ_I+1,ℓ_K−2)_b(ι⁺). These are holomorphic in λ, with
+values in H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),λ_0−ε,λ_0−1−ε)_b(Ω_*)^(•,−) and in
+H^(∞,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1),λ_0+2+min Re ℰ_ind−ε,λ_0+ℓ_K−ε)_b(Ω_*)^(•,−) respectively ([Hin26, (9.42a)–(9.42b)]).
+Holomorphy holds because f_+ ↦ u_+ is holomorphic ([[thm:iii-g1-3-1]] (2)), the coefficients Y^((μ))_τ are continuous
+functionals of u_+ ([[thm:iii-g2-3-1]]), t_*^(−λ), a_s1 and a_v1 are holomorphic in λ with values in these weighted
+spaces, and the states do not depend on λ.
+
+**Corollary {#cor:iii-g2-4-3}** ([Hin26, Corollary 9.12] in dimension 4 + 1.) Let Re λ_0 > 1, and let l_0 be the order
+of the pole of N_ι⁺(L̄, ·)⁻¹ at λ_0 (l_0 = 0 if λ_0 ∉ spec_ι⁺(L̄)). Let ℓ_K and ℓ_I be as in [[thm:iii-g2-4-2]], with
+Re λ_0 < ℓ_I. Let k ∈ ℕ_0 and
+
+    f = Σ_(j≤k) χ_ιt_*^(−λ_0−2)(log t_*)^jf^((j))_+ + f′,
+
+with f^((j))_+ ∈ ⋂_ε H^(∞,ℓ_I+1,ℓ_K−2−ε)_b(ι⁺) and f′ ∈ ⋂_ε H^(∞,ℓ_I+1,∞,λ_0+ℓ_K−ε)_b(Ω_*; S²T*)^(•,−). Then there
+are u^((j))_(b,0) of the form [[eq:iii-g2-4-3]], with λ_0 for λ and a factor (log t_*)^j in each argument, and
+ũ^((j)) ∈ ⋂_ε H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),ℓ_K−ε)_b(ι⁺), j = 0, …, k + l_0, such that
+u := Σ_j χ_Ku^((j))_(b,0) + χ_ιt_*^(−λ_0)(log t_*)^jũ^((j)) satisfies
+
+    f − L_bu ∈ ⋂_(ε>0) H^(∞,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1), λ_0+2+ℰ_ind+(0,k+l_0), λ_0+ℓ_K−ε)_b(Ω_*; S²T*)^(•,−),
+                                                                                                         {#eq:iii-g2-4-5}
+
+and u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I), (λ_0,k+l_0)∪(λ_0+ℰ_ind+(0,k+l_0)), (ℰ^gr_K(λ_0)+(0,k+l_0),ℓ_K−ε))_b(Ω_*)^(•,−)
+([Hin26, (9.43)]).
+
+*Proof.* As in [Hin26]. The quasi-homogeneous part is
+f − f′ = (2πi)⁻¹∮ Σ_j (−1)^j j! (λ − λ_0)^(−j−1)χ_ιt_*^(−λ−2)f^((j))_+ dλ, over a small circle around λ_0 on which
+λ ∉ spec_ι⁺(L̄). Put u := (2πi)⁻¹∮ Σ_j (−1)^j j! (λ − λ_0)^(−j−1)Φ_(ι,b)(λ)f^((j))_+ dλ ([[rem:iii-g2-4-maps]]). Then
+f − L_bu is f′ plus the same integral of F_(ι,b)(λ)f^((j))_+, of the stated orders by the holomorphy of
+[[rem:iii-g2-4-maps]]. Expanding in t_* gives the polyhomogeneity: the power of log t_* is at most the order of the pole
+of the integrand at λ_0 minus 1, that is k + l_0. ∎
+
+### Remarks on the comparison with [Hin26] {#sec:s16-remarks}
+
+The following points concern [Hin26, Section 9.1] itself and are recorded for a reader comparing the two texts.
+[Hin26, Proposition 9.11] does not state the hypothesis Re λ < ℓ_I, which its use of [Hin26, Proposition 9.4 (2)]
+(finite decay at 𝓘⁺) needs; [Hin26, Corollary 9.12] states it, and [[thm:iii-g2-4-2]] assumes it. The statement of
+[Hin26, (9.17)], (v∂_v − 1 − S̄)h ∈ 𝒜^(ℰ^tot+1) without an order, holds in dimension 4 + 1 up to the order
+5/2 + s_C of [[eq:iii-g1-3-2]]; beyond it the large eigenvalues of S̄ enter through the coupling by L̃(0), as they do in
+h beyond ℓ_I. The hypothesis of [Hin26, Corollary 9.12] also allows terms t_*^(−λ_0−2−j), j ≥ 1, which its proof does
+not remove; the hypothesis of [[cor:iii-g2-4-3]] excludes them. In the proof of [[thm:iii-g2-4-2]], the step of [Hin26]
+that bounds L_b − N_ι⁺(L_b) through the class of L_b and [Hin26, (9.17)] is replaced by the exact identity
+[[eq:iii-g2-4-1]], and [Hin26, (9.17)] enters only through the commutator with χ_ι, to the finite order of
+[[eq:iii-g1-3-2]]. In [[thm:iii-g2-3-1]] the ordering of the iteration in [Hin26] (the roots at s0 and s2 first) is
+replaced by an induction on the least exponent present, which also shows that the expansion is free of logarithms
+below ℓ_K^max. Finally, the expansion of the inverse of the ι⁺-normal operator at v^λ is controlled through the Mellin
+recursion [[eq:iii-g1-3-6]], which gives the joint meromorphy in (λ, κ) used tacitly in [Hin26, (9.23)–(9.24)] and,
+with [[eq:iii-g1-3-8]], excludes logarithms of every order at v^λ.

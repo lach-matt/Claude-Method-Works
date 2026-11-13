@@ -21,7 +21,7 @@ D_UΦ(U′) for data U′, so that the map Φ of [[thm:iii-j-2-4]] describes the
 ([[thm:iii-j1-2-1]]). The tame forms of the estimates of [[thm:iii-i14-3-1]] and [[thm:iii-j1-2-1]], and their forms at
 exact weights, are proved in [[ch:s24]].
 
-*Dimension 4 + 1.* The following changes against [Hin26] are mathematics and are carried out below.
+*Dimension 4 + 1.* The argument differs from that of [Hin26] in the following points.
 
 (1) *The linearisation is taken at h, not at h + h_rem(q).* [Hin26] proves [Hin26, Corollary 11.66] by applying [Hin26,
 Theorem 11.59] at the background h + h_rem(q), whose K⁺-order is only 2 + ε_K ([Hin26, Remark 11.61]). In dimension 4 +
@@ -56,8 +56,8 @@ used in this paper; the linear stability statement proved here is [[thm:viii-2-2
 (5) *No step at t_*^(−1).* The first step of [Hin26, Section 12.2.1] solves for the t_*^(−1)-term, from the resonance at
 λ = 1 and the t_*^(−1)-tail of the black hole. In dimension 4 + 1 the least ι⁺-exponent is λ_♯ = 3/2 + (1 − e_Υ)γ_Υ, a
 simple pole with Res_(ι⁺)(L̄, λ_♯) = {0} ([[cor:iii-g3-2-6]], [[rem:iii-g3-3-8]]), and the black hole parameters enter
-at t_*^(−2). Likewise the first step of the proof of [Hin26, Theorem 12.8] (the t_*^(−3)-terms of the source) becomes
-the removal of the parameters p⃗′_(≤0), and every exponent is then treated by its second step.
+at t_*^(−2). Likewise the first step of the proof of [Hin26, Theorem 12.8] (the t_*^(−3)-terms of the right-hand side)
+becomes the removal of the parameters p⃗′_(≤0), and every exponent is then treated by its second step.
 
 (6) *The ι⁺-series below 3 + ε_+ is linear.* Every product of two terms has u-exponent at least 2λ_♯ = 3 + 2δ_♯ > 3 +
 ε_+, and the departure of the background from Minkowski space shifts the u-exponent by at least 2. So each step of the
@@ -84,10 +84,10 @@ without this the scheme would lose ε_+ − η_2 at ι⁺ at every step.
 *Base points.* The black hole parameter b ranges near b₀ = (m₀, 0). The coefficients and the augmented operator
 ([[def:iii-i14-1-1]]–[[def:iii-i14-1-3]], [[eq:iii-i14-1-4]]), the towers ([[lem:iii-i14-2-1]]), the order of L_b
 h_(b,rem)(q) ([[lem:iii-i14-2-2]] (b)) and the construction of [[sec:iii-j-1]]–[[sec:iii-j-2]] are stated and proved at
-every such b. [[lem:iii-i14-2-2]] (a), (c), [[lem:iii-i14-2-3]], [[lem:iii-i14-2-4]], [[thm:iii-i14-3-1]] and
-[[thm:iii-j1-2-1]] are stated and proved at b = b₀, with derivatives in b taken at b₀. Their forms at a base point whose
-black hole parameter is near b₀ are proved in [[ch:s25]]; [[sec:s23-base-points]] states what holds there and where it
-is proved.
+every such b. [[lem:iii-i14-2-2]] (a), (c), [[lem:iii-i14-2-3]], [[lem:iii-i14-2-4]], [[thm:iii-i14-3-1]],
+[[rem:iii-i14-3-2]], [[lem:iii-j1-1-1]] and [[thm:iii-j1-2-1]] are stated and proved at b = b₀, with derivatives in b
+taken at b₀. Their forms at a base point whose black hole parameter is near b₀ are proved in [[ch:s25]];
+[[sec:s23-base-points]] states what holds there and where it is proved.
 
 *The inner radius.* Every result of the chapter holds with the inner radius r₀ = r_♭ ∈ (0, ½R₁] of [[def:s12-radii]] as
 a parameter, with constants that depend on it. No result names the inner radius: all work on Ω_* = cl_M{t^♭_* ≥ 1}
@@ -234,7 +234,7 @@ and a K⁺-order above α − 2. supp χ_K ⊂ {t^♭_* ≥ 10} by [[eq:iii-i-1-
 and Y^(k_μ+2), of K⁺-order at least the rate plus k_μ + 1. This is ≥ λ_♯ + 3 > α for the polyhomogeneous parts and > α
 for the conormal ones, as in the proof of [[lem:iii-i12-2-4]]. Next
 
-    L_b h^(≤1)_(b,s1)(S) = S″(L_2 h + L_1 h̆^1) + S‴ L_2 h̆^1,
+    L_b h^(≤1)_(b,s1)(S) = S″(L_2 h_(b,s1) + L_1 h̆^1_(b,s1)) + S‴ L_2 h̆^1_(b,s1),
 
 of K⁺-order (α − 2)− + 2; L_b ġ_b(b_rem) = b_rem′ L_1 ġ_b + b_rem″ L_2 ġ_b, of K⁺-order (α − 1)− + 1; and [L_b, χ_K] is
 supported away from K⁺. Smoothness in b holds by [[lem:iii-i14-2-1]].
@@ -349,7 +349,9 @@ value excluded in [[prop:iii-g4-5-1]]: each is affine in ε with nonzero slope, 
 thresholds at most once. [[prop:iii-g4-5-1]] solves [[eq:iii-g4-5-3]] by Mellin inversion on Re λ = α_τ − 2 − j, and
 moving that line without crossing a root does not change the solution; the recorded expansions and the switch are then
 the same for every ε < ε_0. So the pieces, the coefficients of [[eq:iii-i12-3-1]] and ũ are the same for every ε < ε_0,
-and the estimates hold for each. ∎ ### The decay of forward solutions {#sec:iii-i14-3}
+and the estimates hold for each. ∎
+
+### The decay of forward solutions {#sec:iii-i14-3}
 
 **Theorem {#thm:iii-i14-3-1}** ([Hin26, Corollary 11.66] in dimension 4 + 1.) Let h ∈ 𝒳^∞, p⃗ ∈ 𝒫 (b = b₀) and q ∈ 𝒬 be
 small, and F ∈ 𝒴^♮(α−). There is a unique p⃗′ ∈ 𝒫 (rotation rows included, [[def:iii-i14-1-3]]) such that the forward
@@ -376,7 +378,7 @@ L_(h,p⃗) in every C^k on every slab Ω_(1,T_1). [[prop:ii-e-3-4]] gives a uniq
 L_(h,p⃗) ([[lem:iii-i9-2-4]]), and these agree. So u(p⃗′) exists, is smooth, and is affine in p⃗′.
 
 *Step 1 (the base level, at h + h_rem(q)).* Fix an admissible α_1 ∈ (2, α − 2) in the sense of [[sec:iii-i8-1]]. The
-hypotheses of [[ch:s21]] on the background ask for K⁺-order only above α_1 ([[prop:iii-i8-4-1]]: α_1 < min(a_K, 3);
+hypotheses of [[prop:iii-i8-4-1]] on the background ask for K⁺-order only above α_1 (α_1 < min(a_K, 3) there;
 [[lem:iii-i8-3-1]] and [[lem:iii-i8-3-2]] take steps below a_K − 2), so they hold for h + h_rem(q), which has K⁺-order
 (α − 2)− and the other data of 𝒳 ([[lem:iii-i14-2-2]] (a), (c)). Split p⃗′ = p⃗′_< ⊕ W⃗ with p⃗′_< ∈ 𝒫_(α_1)
 ([[sec:iii-i11-4]]) and W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot). As in the proof of [[thm:iii-i11-4-1]] (its paragraph on
@@ -400,13 +402,14 @@ with w = β_k − 2; for k = K − 1, β_(K−1) + α − 4 > α), and Δ_q(p⃗
 [[eq:iii-i14-3-3]] through D_(p⃗)P_4 at h, whose defects r^ν_(h,p⃗) have the orders of [[lem:iii-i9-2-6]] (c), as a_K ≥
 4 + ε_K. At h + h_rem(q) the row directions differ from these by exactly Δ_q(W⃗) = R_q(h_ν(W⃗)) ([[lem:iii-i14-2-4]]
 (a)), supported in 𝒞, so no row defect of the background h + h_rem(q) enters. For β_(k+1) > 3, u_0 := u + Σ_(ν∈𝒩⊔𝒩_rot)
-m_ν(W′_ν), with W′_ν the row components of p⃗′ (the motions and the rotation rows included), solves
+m_ν(W′_ν), with W′_ν the row components of p⃗′ (the motions and the rotation rows included), solves L_(h,p⃗) u_0 = G′,
+where
 
-    L_(h,p⃗) u_0 = G′ := G̃ − f^S_(h,p⃗)(S′) − f^b_(h,p⃗)(b′) − f^s1_(h,p⃗)(S^(0)′_1) − Σ_(ν∈𝒩⊔𝒩_rot) r^ν_(h,p⃗)(W′_ν)
+    G′ := G̃ − f^S_(h,p⃗)(S′) − f^b_(h,p⃗)(b′) − f^s1_(h,p⃗)(S^(0)′_1) − Σ_(ν∈𝒩⊔𝒩_rot) r^ν_(h,p⃗)(W′_ν)
 
-in 𝒴^♮(β_(k+1)) ([[lem:iii-i9-2-6]] (a), (c); [[sec:iii-i10-1]]; resp. 𝒴^♮(α−)), and has K⁺-weight min(β_k − 2, λ_♯ − 1)
-− ε > 0, with min(β_k − 2, λ_♯ − 1) + a_K > β_(k+1), and ι⁺-weight β′_+. [[lem:iii-i13-2-2]] (with [[lem:iii-i14-2-5]]
-for k + 1 = K) gives
+lies in 𝒴^♮(β_(k+1)) ([[lem:iii-i9-2-6]] (a), (c); [[sec:iii-i10-1]]), resp. in 𝒴^♮(α−) for k + 1 = K; and u_0 has
+K⁺-weight min(β_k − 2, λ_♯ − 1) − ε > 0, with min(β_k − 2, λ_♯ − 1) + a_K > β_(k+1), and ι⁺-weight β′_+.
+[[lem:iii-i13-2-2]] (with [[lem:iii-i14-2-5]] for k + 1 = K) gives
 
     u = Σ_(ν∈𝒩_(β_(k+1))) m_ν(C^(k+1)_ν(p⃗′)) + ũ,     ũ ∈ 𝒵_(β_(k+1)),
     C^(k+1)_ν(p⃗′) := S^(h,p⃗,β_(k+1))_ν(G′) − W′_ν,                                                   {#eq:iii-i14-3-4}
@@ -515,7 +518,9 @@ the exclusion sets of (H4) of [[sec:iii-i10-1]]), and a_+ < 3 + η_2 by (H5). Ev
 ℐ⁺, ι⁺ and K⁺ that it assumes of h, as [Hin26, Corollary 11.66] does.
 
 (3) *Nonlinear errors.* As in [Hin26], P_5(h, p⃗, q) for general small (h, p⃗, q) is not of the class of F; the
-parameterisation that accounts for this is [[sec:iii-j-1]]–[[sec:iii-j-2]]. ### The data space {#sec:iii-j-1}
+parameterisation that accounts for this is [[sec:iii-j-1]]–[[sec:iii-j-2]].
+
+### The data space {#sec:iii-j-1}
 
 Everything of [[sec:iii-i14-1]] is kept, and through it everything of [[ch:s21]] and [[ch:s22]]: α, the constants 0 <
 ε_K < ε_+ < min(δ_♯, ε_ind) of [[eq:iii-i9-1-1]], w_+ = 5 + ε_+, η_2, (H1)–(H5), (C5), (G), Λ, K(λ), L_0, l_*, N_*,
@@ -848,8 +853,9 @@ the rate α. The removed terms are pure gauge (for g_(b₀)) for the rows (types
 zero energy towers for q. As in [Hin26], the construction is much simpler than the forward problem of [[ch:s21]],
 [[ch:s22]] and [[sec:iii-i14-3]]: it uses only the Minkowski model at ι⁺ and the formal solutions at ι⁺ ∩ K⁺, whereas
 the K⁺-expansion of the forward solutions requires the full spectral analysis. In dimension 4 + 1 it is moreover linear
-below 3 + ε_+, by the count of exponents in the proof of [[lem:iii-j-2-1]]. ### The ι⁺-order of the linear solutions
-{#sec:iii-j1-1}
+below 3 + ε_+, by the count of exponents in the proof of [[lem:iii-j-2-1]].
+
+### The ι⁺-order of the linear solutions {#sec:iii-j1-1}
 
 Everything of [[sec:iii-j-1]]–[[sec:iii-j-2]] is kept: α with (A_J), (G⁺), the classes 𝒳_J, ℱ, 𝒬_J, the data space 𝒟
 with Σ and ℛ′_0, Λ_* = Λ ∩ {Re < 3 + ε_+}, the t_*^(−λ)-terms [·]_λ and the map Φ of [[thm:iii-j-2-4]]. Moreover Λ_* =

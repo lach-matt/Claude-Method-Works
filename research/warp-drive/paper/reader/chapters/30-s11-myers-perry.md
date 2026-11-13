@@ -68,11 +68,11 @@ on 𝕊^ν:
 
 (d) δ̸Δ̸ω = Δ̸δ̸ω − (ν − 1)δ̸ω and δ̸Δ̸h = Δ̸δ̸h − (ν + 1)δ̸h − 2d tr h.
 
-*Proof.* Contracting the Ricci identity, ∇̸^d∇̸_a ω_d = ∇̸_a∇̸^d ω_d + (ν − 1)ω_a. (a) With ω = dS and the symmetry of the
-Hessian, −(Δ̸dS)_a = ∇̸^d∇̸_d∇̸_a S = ∇̸^d∇̸_a∇̸_d S = ∇̸_a∇̸^d∇̸_d S + (ν − 1)∇̸_a S. (b)
+*Proof.* Contracting the Ricci identity, ∇̸^d∇̸_a ω_d = ∇̸_a∇̸^d ω_d + (ν − 1)ω_a. (a) With ω = dS and the symmetry of
+the Hessian, −(Δ̸dS)_a = ∇̸^d∇̸_d∇̸_a S = ∇̸^d∇̸_a∇̸_d S = ∇̸_a∇̸^d∇̸_d S + (ν − 1)∇̸_a S. (b)
 2(δ̸δ̸*ω)_b = −∇̸^a∇̸_a ω_b − ∇̸^a∇̸_b ω_a = (Δ̸ω)_b − ∇̸_b∇̸^a ω_a − (ν − 1)ω_b. (c) For a 2-tensor S_eb the Ricci
-identity gives ∇̸_d∇̸_a S_eb − ∇̸_a∇̸_d S_eb = −g̸_ae S_db + g̸_de S_ab − g̸_ab S_ed + g̸_db S_ea; contracting d with e and
-taking S_db := ∇̸_d ω_b, so that ∇̸^d S_db = −(Δ̸ω)_b and tr S = −δ̸ω,
+identity gives ∇̸_d∇̸_a S_eb − ∇̸_a∇̸_d S_eb = −g̸_ae S_db + g̸_de S_ab − g̸_ab S_ed + g̸_db S_ea; contracting d with e
+and taking S_db := ∇̸_d ω_b, so that ∇̸^d S_db = −(Δ̸ω)_b and tr S = −δ̸ω,
 
     ∇̸^d∇̸_a∇̸_d ω_b = −∇̸_a(Δ̸ω)_b + (ν − 1)∇̸_a ω_b + ∇̸_b ω_a + g̸_ab δ̸ω.
 
@@ -87,13 +87,13 @@ adjoints do. ∎
 **Lemma {#lem:iii-a1-1-2}** (Ambient identities.) For a function f, a tangential vector field V and a tangential
 symmetric matrix field Q on 𝕊^ν:
 
-    Δᵉ(f x̂) = (Δ̸f + νf) x̂ − 2∇̸f,                                                                     {#eq:iii-a1-1-2a}
+    Δᵉ(f x̂) = (Δ̸f + νf) x̂ − 2∇̸f,                                                                    {#eq:iii-a1-1-2a}
 
-    ΔᵉV = (Δ̸ + 1)V − 2(δ̸V) x̂,                                                                         {#eq:iii-a1-1-2b}
+    ΔᵉV = (Δ̸ + 1)V − 2(δ̸V) x̂,                                                                        {#eq:iii-a1-1-2b}
 
-    Δᵉ(f x̂ ⊗ x̂) = (Δ̸f + 2νf) x̂ ⊗ x̂ − 2fP − 2x̂ ⊙ ∇̸f,                                                {#eq:iii-a1-1-2c}
+    Δᵉ(f x̂ ⊗ x̂) = (Δ̸f + 2νf) x̂ ⊗ x̂ − 2fP − 2x̂ ⊙ ∇̸f,                                              {#eq:iii-a1-1-2c}
 
-    Δᵉ(x̂ ⊙ V) = x̂ ⊙ (Δ̸ + ν + 3)V − 4(δ̸V) x̂ ⊗ x̂ − 4δ̸*V,                                            {#eq:iii-a1-1-2d}
+    Δᵉ(x̂ ⊙ V) = x̂ ⊙ (Δ̸ + ν + 3)V − 4(δ̸V) x̂ ⊗ x̂ − 4δ̸*V,                                           {#eq:iii-a1-1-2d}
 
     ΔᵉQ = (Δ̸ + 2)Q − 2x̂ ⊙ δ̸Q − 2(tr Q) x̂ ⊗ x̂.                                                      {#eq:iii-a1-1-2e}
 
@@ -241,13 +241,13 @@ The level sets of x̄⁰, x̄¹ are null. The bundle splittings are those of [Hi
                   ⊕ r²S²T*𝕊³;                                                                            {#eq:iii-a1-2-2}
 
 that is, (ω₀, ω₁, ω̸) is the covector ω₀ dx̄⁰ + ω₁ dx̄¹ + rω̸, and (a, b, c, e, f, q) the symmetric tensor
-a(dx̄⁰)² + 2b dx̄⁰dx̄¹ + 2dx̄⁰ ⊗_s rc + e(dx̄¹)² + 2dx̄¹ ⊗_s rf + r²q, with 2α ⊗_s β := α ⊗ β + β ⊗ α and αβ := α ⊗_s β. In
-Cartesian terms, rω̸ is the tangential field V with V♭|_(𝕊³) = ω̸ of the ambient picture, extended homogeneously of
+a(dx̄⁰)² + 2b dx̄⁰dx̄¹ + 2dx̄⁰ ⊗_s rc + e(dx̄¹)² + 2dx̄¹ ⊗_s rf + r²q, with 2α ⊗_s β := α ⊗ β + β ⊗ α and αβ := α ⊗_s β.
+In Cartesian terms, rω̸ is the tangential field V with V♭|_(𝕊³) = ω̸ of the ambient picture, extended homogeneously of
 degree 0, and r²q is likewise the tangential matrix field of q: dxⁱ pulls back to r ∂_a x̂ⁱ dyᵃ on the sphere of radius
 r. Neither identification depends on (t, r). The Minkowski metric and its dual are
 
     ḡ = −dt² + dr² + r²g̸ = −dx̄⁰dx̄¹ + r²g̸,
-    ḡ⁻¹ = −4∂₀ ⊗_s ∂₁ + r⁻²g̸⁻¹ = 2ρ∂_(t_*) ⊗_s ρ∂_ρ + ρ²((ρ∂_ρ)² + g̸⁻¹),                                  {#eq:iii-a1-2-3}
+    ḡ⁻¹ = −4∂₀ ⊗_s ∂₁ + r⁻²g̸⁻¹ = 2ρ∂_(t_*) ⊗_s ρ∂_ρ + ρ²((ρ∂_ρ)² + g̸⁻¹),                               {#eq:iii-a1-2-3}
 
 with ∂₀ := ∂_(x̄⁰), ∂₁ := ∂_(x̄¹) in the coordinates (x̄⁰, x̄¹, ω); ∂₀ = −½ρ²∂_ρ, ∂₁ = ∂_(t_*) + ½ρ²∂_ρ,
 ∂₀r = −∂₁r = ½. In the splitting [[eq:iii-a1-2-2]], ḡ = (0, −½, 0, 0, 0, g̸), tr := tr_ḡ = (0, −4, 0, 0, 0, tr), and
@@ -264,12 +264,12 @@ as in [Hin26, (2.39b)]: tr h = −4b + tr q, so Gh = (a, ¼ tr q, c, e, f, q + 2
 ḡ in the coordinates x̄⁰, x̄¹ and coordinates yᵃ on 𝕊³ vanish except for
 
     Γ̄^c_(0b) = Γ̄^c_(b0) = ½r⁻¹δ^c_b,     Γ̄^c_(1b) = Γ̄^c_(b1) = −½r⁻¹δ^c_b,
-    Γ̄⁰_(ab) = −r g̸_ab,     Γ̄¹_(ab) = r g̸_ab,     Γ̄^c_(ab) = Γ̸^c_(ab),                                    {#eq:iii-a1-2-5}
+    Γ̄⁰_(ab) = −r g̸_ab,     Γ̄¹_(ab) = r g̸_ab,     Γ̄^c_(ab) = Γ̸^c_(ab),                              {#eq:iii-a1-2-5}
 
 as in [Hin26, (2.40)]: ḡ_01 = −½, ḡ^01 = −2, ḡ_ab = r²g̸_ab, and for example Γ̄⁰_(ab) = ½ḡ^01(−∂₁ḡ_ab) = −r g̸_ab,
 Γ̄^c_(0b) = ½r⁻²g̸^cd ∂₀(r²) g̸_bd. The scalar wave operator □̄u = −ḡ^μκ u_(;μκ) is
 
-    □̄ = 4∂₀∂₁ + (3/r)(∂₁ − ∂₀) + r⁻²Δ̸ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2) + ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ + Δ̸).              {#eq:iii-a1-2-6}
+    □̄ = 4∂₀∂₁ + (3/r)(∂₁ − ∂₀) + r⁻²Δ̸ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2) + ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ + Δ̸).            {#eq:iii-a1-2-6}
 
 Indeed ḡ^ab Γ̄⁰_(ab) = −ν/r and ḡ^ab Γ̄¹_(ab) = ν/r at ν = 3; and with D := ρ∂_ρ, ρ²∂_ρ ρ²∂_ρ = ρ²(D + 1)D, so
 4∂₀∂₁ = −2ρD∂_(t_*) − ρ²(D² + D) and (ν/r)(∂₁ − ∂₀) = νρ∂_(t_*) + νρ²D. For general ν, [[eq:iii-a1-2-6]] reads
@@ -326,7 +326,8 @@ is [Hin26, Lemma 2.29], entry by entry.
 component of a tensor as the scalar operator ∂_t² − ∂_r² − (ν/r)∂_r + r⁻²Δ̸, which on a Cartesian component, regarded as
 a function of (t, r) with values in functions on 𝕊^ν, is L₀ + r⁻²Δᵉ, L₀ := ∂_t² − ∂_r² − (ν/r)∂_r. Write
 □_c := L₀ + r⁻²Δ̸ acting componentwise in the splitting; by the calculation of [[eq:iii-a1-2-6]],
-□_c = −2∂_(t_*)ρ(D − ν/2) + ρ²(−D² + (ν − 1)D + Δ̸). Write α := dt = ½(dx̄⁰ + dx̄¹) and β := dr = ½(dx̄⁰ − dx̄¹) = x̂ · dx.
+□_c = −2∂_(t_*)ρ(D − ν/2) + ρ²(−D² + (ν − 1)D + Δ̸). Write α := dt = ½(dx̄⁰ + dx̄¹) and β := dr = ½(dx̄⁰ − dx̄¹) = x̂ ·
+dx.
 
 1-forms: ω₀dx̄⁰ + ω₁dx̄¹ + rω̸ = (ω₀ + ω₁)α + (ω₀ − ω₁)x̂ · dx + V · dx with V the field of ω̸. By [[eq:iii-a1-1-2a]] and
 [[eq:iii-a1-1-2b]],
@@ -763,7 +764,7 @@ and the horizon of g^KS_(m,0) is at |x| = m^(1/2) ∈ (R₁/√2, (3/2)^(1/2)R�
 
 Fix χ_∞ ∈ C^∞(ℝ), non-decreasing, equal to 0 on (−∞, 2R₁] and to 1 on [3R₁, ∞). For m ∈ (½m₀, (3/2)m₀) let
 
-    T_m(ϱ) := 2∫_ϱ^∞ χ_∞(s) m/(s² − m) ds,     Φ_m(t, x) := (t − T_m(|x|), x),     g_b := Φ_m*g^KS_b.       {#eq:iii-b-3-3}
+    T_m(ϱ) := 2∫_ϱ^∞ χ_∞(s) m/(s² − m) ds,     Φ_m(t, x) := (t − T_m(|x|), x),     g_b := Φ_m*g^KS_b.     {#eq:iii-b-3-3}
 
 (s² − m ≥ 4m₀ − (3/2)m₀ = (5/2)m₀ on supp χ_∞.) Write g_m := g_(m,0) and ḡ := η. Since T_m is constant on [0, 2R₁],
 [[eq:iii-b-3-3]] defines g_b on ℝ_t × {|x| ≥ ½r_♭}, and there g_b is g^KS_b translated in time on {|x| ≤ 2R₁}.
@@ -772,7 +773,8 @@ Fix χ_∞ ∈ C^∞(ℝ), non-decreasing, equal to 0 on (−∞, 2R₁] and to 
 T_m(ϱ) = m^(1/2) log((ϱ + m^(1/2))/(ϱ − m^(1/2))) = 2m/ϱ + 2m²/(3ϱ³) + O(ϱ⁻⁵) for ϱ ≥ 3R₁, smooth in m. (b) For
 |x| ≥ 3R₁,
 
-    g_m = η + (m/|x|²)(dt − d|x|)² = −f dt² − (2m/|x|²) dt d|x| + (2 − f) d|x|² + |x|²g̸,     f := 1 − m/|x|²,   {#eq:iii-b-3-4}
+    g_m = η + (m/|x|²)(dt − d|x|)² = −f dt² − (2m/|x|²) dt d|x| + (2 − f) d|x|² + |x|²g̸,     f := 1 − m/|x|²,
+                                                                                                          {#eq:iii-b-3-4}
 
 g̸ the round metric of 𝕊³. (c) Φ_m is a diffeomorphism of ℝ_t × {|x| ≥ r_♭} which equals a time translation on
 {|x| ≤ 2R₁}; it extends to a diffeomorphism of M̃ near {|x| ≥ r_♭} preserving every boundary hypersurface, and Φ_m* maps
@@ -867,9 +869,9 @@ uniformly; for the second: d/ds of g_((m,A+sȦ)) − g_m ∈ |x|⁻³C^∞.)
 second fundamental form induced by g_b on Σ^IVP, identified with X by (t, x) ↦ x (as in [Hin26, Definition 3.12], with
 the future unit normal). Then
 
-    γ_m = (1 + m/|x|²) d|x|² + |x|²g̸  on {|x| ≥ R₃},     γ_b − γ_m ∈ |x|⁻³C^∞(X; S²T*X),                  {#eq:iii-b-3-8}
+    γ_m = (1 + m/|x|²) d|x|² + |x|²g̸  on {|x| ≥ R₃},     γ_b − γ_m ∈ |x|⁻³C^∞(X; S²T*X),                 {#eq:iii-b-3-8}
 
-    k_m, ∂_b k_b ∈ |x|⁻³C^∞(X; S²T*X),     k_b − k_m ∈ |x|⁻⁴C^∞(X; S²T*X).                                 {#eq:iii-b-3-9}
+    k_m, ∂_b k_b ∈ |x|⁻³C^∞(X; S²T*X),     k_b − k_m ∈ |x|⁻⁴C^∞(X; S²T*X).                                {#eq:iii-b-3-9}
 
 *Proof.* On {|x| ≥ R₃}, Σ^IVP = {t = C″} and dt = 0 on it, so by [[eq:iii-b-3-4]] the induced metric of g_m is
 η|_(dt=0) + m|x|⁻²d|x|², which is the first formula of [[eq:iii-b-3-8]]; the second follows from [[eq:iii-b-3-5]]
@@ -893,11 +895,11 @@ and ([Hin26, (3.29)])
 
 **Lemma {#lem:iii-b-4-1}** ([Hin26, (3.30)–(3.33) and Lemma 3.15] in dimension 4 + 1.) On {|x| ≥ 3R₁}:
 
-    g_m = −f dx⁰dx¹ + |x|²g̸,     dx⁰ = dt + ((2 − f)/f) d|x|,     dx¹ = dt − d|x|,                         {#eq:iii-b-4-2}
+    g_m = −f dx⁰dx¹ + |x|²g̸,     dx⁰ = dt + ((2 − f)/f) d|x|,     dx¹ = dt − d|x|,                       {#eq:iii-b-4-2}
 
 with ab := ½(a ⊗ b + b ⊗ a); dx⁰, dx¹ ∈ C^∞(M; T*) near I₀ ∪ ℐ⁺ ∪ ι⁺; ∂₀|x| = f/2, ∂₁|x| = −f/2; and
 
-    ∂₀ = (f/2)(∂_t + ∂_|x|) ∈ ρ₀ρ_Iρ_+ 𝒱_b(M),     ∂₁ = (f/2)(((2 − f)/f)∂_t − ∂_|x|) ∈ ρ₀ρ_+ 𝒱_b(M).          {#eq:iii-b-4-3}
+    ∂₀ = (f/2)(∂_t + ∂_|x|) ∈ ρ₀ρ_Iρ_+ 𝒱_b(M),     ∂₁ = (f/2)(((2 − f)/f)∂_t − ∂_|x|) ∈ ρ₀ρ_+ 𝒱_b(M).     {#eq:iii-b-4-3}
 
 *Proof.* With c := (2 − f)/f = (|x|² + m)/(|x|² − m) = 1 − T_m′, dx⁰ = dt + c d|x| by [[eq:iii-b-4-1]]. Then
 −f(dt + c d|x|)(dt − d|x|) = −f dt² − f(c − 1) dt d|x| + fc d|x|² with f(c − 1) = 2m/|x|² and fc = 2 − f, which is
@@ -918,7 +920,7 @@ Correspondingly ([Hin26, (3.34)–(3.37)]), on {|x| ≥ 3R₁}, where [[eq:iii-b
 
     T* = ⟨dx⁰⟩ ⊕ ⟨dx¹⟩ ⊕ |x|T*𝕊³,
     S²T* = ⟨(dx⁰)²⟩ ⊕ ⟨2dx⁰dx¹⟩ ⊕ (2dx⁰ ⊗_s |x|T*𝕊³) ⊕ ⟨(dx¹)²⟩ ⊕ (2dx¹ ⊗_s |x|T*𝕊³) ⊕ ⟨|x|²g̸⟩
-           ⊕ |x|² ker tr_g̸,                                                                               {#eq:iii-b-4-4}
+           ⊕ |x|² ker tr_g̸,                                                                              {#eq:iii-b-4-4}
 
 and in this splitting g_m = (0, −f/2, 0, 0, 0, 1, 0). *Rescaled components* ([Hin26, Definition 3.16]): with x², x³, x⁴
 local coordinates on 𝕊³ and s(μ₁, …, μ_n) := #{j : μ_j ∈ {2, 3, 4}}, the rescaled components of a tensor T are
@@ -936,10 +938,10 @@ the generator of the Lorentz boosts in the direction w; X_w is Killing for ḡ, 
 X_w is the boost of rapidity s|w|: with ŵ := w/|w|, t ↦ t cosh(s|w|) + (x · ŵ) sinh(s|w|),
 x · ŵ ↦ (x · ŵ) cosh(s|w|) + t sinh(s|w|), the orthogonal components fixed. The cut-offs χ^♭_K, χ_K, χ^♯_K, χ_IVP,
 χ^♯_IVP ∈ C^∞(M) are those of [Hin26, Definition 3.17] with the mass 𝔪 of the Kerr base point there replaced by R₁,
-chosen consistently as follows: χ^♭_K, χ_K, χ^♯_K are supported in {t > 50R₁}; χ^♭_K = 1 on {|x| < t/10, t > 60R₁}; supp χ^♯_K ⊂ {|x| < t/2};
-χ_IVP = 1 on {t_IVP > −|x|/10}; supp χ^♯_IVP ⊂ {t_IVP > −|x|/2}; and each later function equals 1 on a neighbourhood of
-the support of the earlier, with strict nesting: supp χ_IVP ⊂ int{χ^♯_IVP = 1}, supp χ^♭_K ⊂ int{χ_K = 1}. In addition
-fix χ_r ∈ C^∞(ℝ) equal to 0 on (−∞, 5R₁], to 1 on [6R₁, ∞), and less than 1 on (−∞, 6R₁).
+chosen consistently as follows: χ^♭_K, χ_K, χ^♯_K are supported in {t > 50R₁}; χ^♭_K = 1 on {|x| < t/10, t > 60R₁}; supp
+χ^♯_K ⊂ {|x| < t/2}; χ_IVP = 1 on {t_IVP > −|x|/10}; supp χ^♯_IVP ⊂ {t_IVP > −|x|/2}; and each later function equals 1 on
+a neighbourhood of the support of the earlier, with strict nesting: supp χ_IVP ⊂ int{χ^♯_IVP = 1}, supp χ^♭_K ⊂ int{χ_K =
+1}. In addition fix χ_r ∈ C^∞(ℝ) equal to 0 on (−∞, 5R₁], to 1 on [6R₁, ∞), and less than 1 on (−∞, 6R₁).
 
 **Lemma {#lem:iii-b-5-1}** ([Hin26, Lemma 3.18] in dimension 4 + 1.) V(S_w) := ½χ_r(|x|)χ^♯_IVP(1 − χ^♭_K)X_w is a
 b-vector field on ℝ̄^(1+4) near its support, tangent to Y_+; its lift to M is a b-vector field vanishing near
@@ -975,7 +977,7 @@ that
 ((S_w/c) sinh(c/2) = S_w sinh(c/2)/c and cosh(c/2) are smooth in w, so h_(S_w) is smooth in w and vanishes at w = 0.)
 Then for b = (m, A) ∈ ℬ,
 
-    χ_IVP(1 − χ_K)(φ_(S_w)*g_b − (g_b + |x|⁻²h_(S_w)(dx¹)²)) ∈ ρ₀²ρ_I³ρ_+² C^∞(M; S²T*).                    {#eq:iii-b-5-3}
+    χ_IVP(1 − χ_K)(φ_(S_w)*g_b − (g_b + |x|⁻²h_(S_w)(dx¹)²)) ∈ ρ₀²ρ_I³ρ_+² C^∞(M; S²T*).                  {#eq:iii-b-5-3}
 
 [Hin26, (3.43)–(3.44)] have r⁻¹, 2m(a³ − 1), 3/(4π) and the remainder class ρ₀ρ_I²ρ_+.
 
@@ -1020,13 +1022,15 @@ in |x|⁻¹C^∞ with c_Υ = |x|⁻¹dt for large |x|, c_(Υ,H) a stationary 1-f
 {|x| ≥ ½r_♭} ∪ ∂X̄ (the domain of [[lem:s11-ks-domain]]), and e_Υ, γ_Υ, γ_(Υ,H), e_C, γ_C ∈ ℝ. For a metric g₀,
 
     E^Υ_(g₀,∞)h := −γ_Υ(2ι_(g₀⁻¹c_Υ)h − (2/3)(1 − e_Υ) c_Υ tr_(g₀)h),
-    E^Υ_(g₀,H)h := γ_(Υ,H)(2ι_(g₀⁻¹c_(Υ,H))h − (2/3) c_(Υ,H) tr_(g₀)h),                                    {#eq:iii-b-6-1}
+    E^Υ_(g₀,H)h := γ_(Υ,H)(2ι_(g₀⁻¹c_(Υ,H))h − (2/3) c_(Υ,H) tr_(g₀)h),                                   {#eq:iii-b-6-1}
 
 E^Υ_(g₀) := E^Υ_(g₀,∞) + E^Υ_(g₀,H), δ_(g₀,E_Υ) := δ_(g₀) + E^Υ_(g₀);
 
-    E^C_(g₀)ω := γ_C(2c_C ⊗_s ω − (2/3)(1 − e_C) g₀ ι_(g₀⁻¹c_C)ω),     δ*_(g₀,E_C) := δ*_(g₀) + E^C_(g₀);       {#eq:iii-b-6-2}
+    E^C_(g₀)ω := γ_C(2c_C ⊗_s ω − (2/3)(1 − e_C) g₀ ι_(g₀⁻¹c_C)ω),     δ*_(g₀,E_C) := δ*_(g₀) + E^C_(g₀);
+                                                                                                          {#eq:iii-b-6-2}
 
-    Υ⁰(g, g₀)_μ := g_μκ g^σλ (Γ(g)^κ_σλ − Γ(g₀)^κ_σλ),     Υ^(E_Υ)(g, g₀) := Υ⁰(g, g₀) − E^Υ_(g₀)G_(g₀)(g − g₀),  {#eq:iii-b-6-3}
+    Υ⁰(g, g₀)_μ := g_μκ g^σλ (Γ(g)^κ_σλ − Γ(g₀)^κ_σλ),     Υ^(E_Υ)(g, g₀) := Υ⁰(g, g₀) − E^Υ_(g₀)G_(g₀)(g − g₀),
+                                                                                                          {#eq:iii-b-6-3}
 
     P(g, g₀) := Ric(g) − δ*_(g₀,E_C)Υ^(E_Υ)(g, g₀),     □^Υ_(g,E_Υ) := 2δ_(g,E_Υ)G_g δ*_g,
     □^C_(g,E_C) := 2δ_g G_g δ*_(g,E_C),                                                                  {#eq:iii-b-6-4}
@@ -1041,7 +1045,7 @@ coordinates at a point, where ∇ = ∂, both g^σλ(Γ(g)^κ_σλ − Γ(g₀)^
 invertible, G_g⁻¹h = h − (1/3)g tr_g h; and
 
     E^Υ_(g₀,∞)G_(g₀)h = −γ_Υ(2ι_(g₀⁻¹c_Υ)h − e_Υ c_Υ tr_(g₀)h),     E^Υ_(g₀,H)G_(g₀)h = 2γ_(Υ,H) ι_(g₀⁻¹c_(Υ,H))h,
-    G_(g₀)E^C_(g₀)ω = γ_C(2c_C ⊗_s ω − e_C g₀ ι_(g₀⁻¹c_C)ω).                                                {#eq:iii-b-6-5}
+    G_(g₀)E^C_(g₀)ω = γ_C(2c_C ⊗_s ω − e_C g₀ ι_(g₀⁻¹c_C)ω).                                              {#eq:iii-b-6-5}
 
 These are the expressions that [Hin26, (4.1), (4.2) and (4.7)] give in spacetime dimension 4 with the trace weight 1.
 
@@ -1063,7 +1067,7 @@ weight is 2/(5 − 2): the modifications act as in spacetime dimension 4, and th
     D¹|_((g,g₀))Υ⁰ = −δ_g G_g − C_(g,g₀) + Y_(g,g₀),     D¹|_((g,g₀))Υ^(E_Υ) = −δ_g G_g − C_(g,g₀) + Y_(g,g₀) − E^Υ_(g₀)G_(g₀);
                                                                                                          {#eq:iii-b-6-6}
 
-    D_g Ric = ½□_g − δ*_g δ_g G_g + R_g,     (□_g ġ)_μκ := −g^σλ ġ_(μκ;σλ),                                   {#eq:iii-b-6-7}
+    D_g Ric = ½□_g − δ*_g δ_g G_g + R_g,     (□_g ġ)_μκ := −g^σλ ġ_(μκ;σλ),                               {#eq:iii-b-6-7}
 
 with R_g the zeroth order term of [Hin26, (4.12)], (R_g ġ)_λκ = Riem(g)^ρ_λκ^σ ġ_ρσ + ½(Ric(g)^ρ_κ ġ_λρ +
 Ric(g)^ρ_λ ġ_κρ) in the curvature convention of [Hin26]; and
@@ -1081,9 +1085,9 @@ DRiem(ġ)^κ_λμσ = (DΓ(ġ)^κ_λσ)_;μ − (DΓ(ġ)^κ_λμ)_;σ; contracti
 2DRic(ġ)_λσ = (ġ_λ^κ_;σκ − ġ_λ^κ_;κσ) − ġ_λσ;κ^κ + ġ_σ^κ_;λκ − ġ^κ_κ;λσ + ġ_λκ^;κ_σ. The commutator term is a curvature
 term ([Hin26, (4.14)]); the second term is (□_g ġ)_λσ; and −2δ*_g δ_g G_g ġ differs from the remaining terms by another
 commutator, a curvature term; the two curvature terms sum to 2R_g ġ. Each step is the Ricci identity, valid in every
-dimension. [[eq:iii-b-6-8]]: L_(g,g₀) = D_g Ric − δ*_(g₀,E_C)D¹Υ^(E_Υ), and substituting [[eq:iii-b-6-6]]–[[eq:iii-b-6-7]]
-and δ*_(g₀,E_C) − δ*_g = (δ*_(g₀) − δ*_g) + E^C_(g₀) gives the first formula; at g₀ = g, C_(g,g) = 0 = Y_(g,g), and the
-second follows. ∎
+dimension. [[eq:iii-b-6-8]]: L_(g,g₀) = D_g Ric − δ*_(g₀,E_C)D¹Υ^(E_Υ), and substituting
+[[eq:iii-b-6-6]]–[[eq:iii-b-6-7]] and δ*_(g₀,E_C) − δ*_g = (δ*_(g₀) − δ*_g) + E^C_(g₀) gives the first formula; at g₀ =
+g, C_(g,g) = 0 = Y_(g,g), and the second follows. ∎
 
 *Remarks on [Hin26, Sections 3–4].* The Boyer–Lindquist apparatus of [Hin26, Section 3.2] ((3.9)–(3.18), (3.22),
 (3.25)–(3.26)) is not needed here: Kerr–Schild coordinates and the time change [[eq:iii-b-3-3]] replace it, which five
@@ -1124,8 +1128,8 @@ with N(A)(ρ^ι(log ρ)u + ρ^ι u′) = 0. For A ∈ ρ^α Diff^m_b(M), N(A) :=
 of ρ^(−α)A. A is *elliptic* near ∂M if, writing A = Σ_(j+|β|≤m) a_jβ(ρ, y)(ρ∂_ρ)^j ∂_y^β, the polynomial
 Σ_(j+|β|=m) a_jβ(ρ, y)ξ^j η^β has no real zeros (ξ, η) ≠ (0, 0).
 
-(3) (Weighted spaces.) Let M be compact with boundary hypersurfaces H_1, …, H_N and defining functions ρ_1, …, ρ_N, and
-for α⃗ ∈ ℝ^N let ρ⃗^(α⃗) := Π_j ρ_j^(α_j). 𝒜^(α⃗)(M) is the space of smooth u on M° such that ρ⃗^(−α⃗)Au is bounded for
+(3) (Weighted spaces.) Let M be compact with boundary hypersurfaces H_1, …, H_p and defining functions ρ_1, …, ρ_p, and
+for α⃗ ∈ ℝ^p let ρ⃗^(α⃗) := Π_j ρ_j^(α_j). 𝒜^(α⃗)(M) is the space of smooth u on M° such that ρ⃗^(−α⃗)Au is bounded for
 every A ∈ Diff_b(M). For a b-density μ and k ∈ ℕ₀, H^(k,α⃗)_b(M) is the space of u ∈ L²_loc(M°) with
 ρ⃗^(−α⃗)Au ∈ L²(M, μ) for all A ∈ Diff^k_b(M), normed by Σ_(A∈𝒜_k) ‖ρ⃗^(−α⃗)Au‖_(L²(M,μ)) for a finite spanning set 𝒜_k
 of Diff^k_b(M); different choices give equivalent norms. On M = [0, ∞)^k_x × ℝ^(n−k)_y × S, S closed, the same spaces
@@ -1134,7 +1138,7 @@ are defined with μ = |dx¹/x¹ ⋯ dx^k/x^k dy¹ ⋯ dy^(n−k)| ⊗ μ_S and t
 
 (4) (Index sets.) An *index set* is a subset E ⊂ ℂ × ℕ₀ with
 
-    (z, k) ∈ E ⟹ (z + j, k) ∈ E for all j ∈ ℕ₀, and (z, j) ∈ E for all j ≤ k,                           {#eq:s11-index-set}
+    (z, k) ∈ E ⟹ (z + j, k) ∈ E for all j ∈ ℕ₀, and (z, j) ∈ E for all j ≤ k,                         {#eq:s11-index-set}
 
 and with only finitely many (z, k) ∈ E with Re z ≤ C, for every C ∈ ℝ. We write min Re E := inf{Re z : (z, 0) ∈ E}
 (min Re ∅ := ∞); π₁ : ℂ × ℕ₀ → ℂ for the projection and Re π₁E := {Re z : z ∈ π₁E}; k(E, z) := max{k : (z, k) ∈ E} if
@@ -1150,13 +1154,13 @@ min Re E_H ≤ α_H, H^(k,(E⃗,α⃗))_b(M) is the space of u such that for eve
 u^((z,ℓ)) ∈ H^(k,(E⃗(H),α⃗(H)))_b(H), (E⃗(H), α⃗(H)) := (E_(H′), α_(H′))_(H′∈ℋ(H)), with, in a collar
 [0, ε)_(ρ_H) × H and for χ ∈ C_c^∞([0, ε)) equal to 1 on [0, ε/2],
 
-    u − χ(ρ_H) Σ_((z,ℓ)∈E_H, Re z≤α_H) ρ_H^z (log ρ_H)^ℓ u^((z,ℓ)) ∈ H^(k,(E⃗′,α⃗))_b(M),                    {#eq:s11-partial}
+    u − χ(ρ_H) Σ_((z,ℓ)∈E_H, Re z≤α_H) ρ_H^z (log ρ_H)^ℓ u^((z,ℓ)) ∈ H^(k,(E⃗′,α⃗))_b(M),               {#eq:s11-partial}
 
 where E′_H := ∅ and E′_(H′) := E_(H′) for H′ ≠ H. 𝒜^((E⃗,α⃗))(M) is defined in the same way. Another defining function
 ρ′_H = a⁻¹ρ_H, a > 0 smooth, gives the same space: ρ_H^z = a^z(ρ′_H)^z and log ρ_H = log ρ′_H + log a, with a and log a
 Taylor expanded at ρ′_H = 0, turn [[eq:s11-partial]] into the analogous expansion in ρ′_H, by [[eq:s11-index-set]].
 
-(6) (Notation.) With the boundary hypersurfaces ordered, H^(k,(E⃗,α⃗))_b(M) is written H^(k,(E_1,α_1),…,(E_N,α_N))_b(M);
+(6) (Notation.) With the boundary hypersurfaces ordered, H^(k,(E⃗,α⃗))_b(M) is written H^(k,(E_1,α_1),…,(E_p,α_p))_b(M);
 (∅, α) is written α; and H^(k,E_1,(E_2,α_2))_b(M) := ⋂_(α_1∈ℝ) H^(k,(E_1,α_1),(E_2,α_2))_b(M), with the obvious variants
 and the same for 𝒜-spaces. 𝒜^(E⃗)(M) is the space of polyhomogeneous functions, and on a manifold with boundary
 H^(∞,(E,α))_b(M) = 𝒜^E(M) + H^(∞,α)_b(M).
@@ -1198,7 +1202,7 @@ of H, then u ∈ H^(k,(E ∪̄ {(z,0)},α),(F⃗,β⃗))_b.
 *Proof.* x∂_x(x^(−z)u) = x^(−z)f, and multiplication by x^(−z) shifts (E, α) to (E − z, α − Re z) and commutes with
 everything else; so let z = 0, α ≠ 0. By
 
-    x∂_x(x^w(log x)^ℓ v(y)) = w x^w(log x)^ℓ v(y) + ℓ x^w(log x)^(ℓ−1) v(y)                                {#eq:iii-a-1-1}
+    x∂_x(x^w(log x)^ℓ v(y)) = w x^w(log x)^ℓ v(y) + ℓ x^w(log x)^(ℓ−1) v(y)                               {#eq:iii-a-1-1}
 
 a term χ(x)x^w(log x)^ℓ v of f with w ≠ 0 is the image of χ(x)w⁻¹x^w(log x)^ℓ v up to a term with one log fewer and a
 term w⁻¹x^w(log x)^ℓ v x∂_xχ supported in x ∈ [½, ¾]; descending in ℓ and ascending in Re w removes all terms of f with
@@ -1229,7 +1233,7 @@ the constant u(0) is the term (0, 0) of E ∪̄ {(0, 0)} (here E = ∅). ∎
 E_(H,≤) := {(z, ℓ) ∈ E_H : Re z ≤ α_H} (a finite set), and E⃗′ as in [[eq:s11-partial]]. If
 (1 − χ(ρ_H))u ∈ H^(k,(E⃗′,α⃗))_b(M) and
 
-    (Π_((z,ℓ)∈E_(H,≤)) (V − z)) u ∈ H^(k,(E⃗′,α⃗))_b(M),                                                     {#eq:iii-a-1-3}
+    (Π_((z,ℓ)∈E_(H,≤)) (V − z)) u ∈ H^(k,(E⃗′,α⃗))_b(M),                                                  {#eq:iii-a-1-3}
 
 then u ∈ H^(k,(E⃗,α⃗))_b(M). Conversely, u ∈ H^(k,(E⃗,α⃗))_b implies [[eq:iii-a-1-3]] with k − |E_(H,≤)| in place of k.
 
@@ -1237,9 +1241,9 @@ then u ∈ H^(k,(E⃗,α⃗))_b(M). Conversely, u ∈ H^(k,(E⃗,α⃗))_b impli
 positive factor, which by [[def:s11-b-analysis]] (5) does not change the spaces). Conversely: by [[eq:iii-a-1-1]] the
 product annihilates Σ_((z,ℓ)∈E_(H,≤)) ρ_H^z(log ρ_H)^ℓ u^((z,ℓ)), the factor V − z being taken once for each (z, ℓ),
 ℓ ≤ k(E_H, z), so k(E_H, z) + 1 times; derivatives falling on the cut-off are supported away from H; and each factor
-costs one derivative (F1). Directly: order the factors as (z_1, ℓ_1), …, (z_N, ℓ_N) with Re z_1 ≥ ⋯ ≥ Re z_N and put
-w_i := Π_(j>i)(V − z_j)u, so that w_0 is the left side of [[eq:iii-a-1-3]], w_N = u and (V − z_i)w_i = w_(i−1). Apply
-[[lem:iii-a-1-2]] for i = 1, …, N, peeling the outermost factor first (its hypothesis α_H ≠ Re z_i is ours): by
+costs one derivative (F1). Directly: order the factors as (z_1, ℓ_1), …, (z_p, ℓ_p) with Re z_1 ≥ ⋯ ≥ Re z_N and put
+w_i := Π_(j>i)(V − z_j)u, so that w_0 is the left side of [[eq:iii-a-1-3]], w_p = u and (V − z_i)w_i = w_(i−1). Apply
+[[lem:iii-a-1-2]] for i = 1, …, p, peeling the outermost factor first (its hypothesis α_H ≠ Re z_i is ours): by
 [[def:s11-b-analysis]] (4) it raises the logarithmic order at z_i by one and completes by [[eq:s11-index-set]], which
 adds pairs only at z_i + j, j ≥ 1. In this order those points have real part above that of every later factor, so no
 later raise meets a completion; the count at each z ∈ π₁E_(H,≤) starts at −1 (the index set of w_0 at H, that of E⃗′,
@@ -1247,8 +1251,8 @@ being empty) and is raised k(E_H, z) + 1 times, to k(E_H, z), while completions 
 k(E_H, z − j) ≤ k(E_H, z). So the index set of u at H is E_(H,≤) completed by [[eq:s11-index-set]], contained in E_H,
 and the expansion terms with Re z > α_H are absorbed in the remainder. (In another order a raise can meet a completion:
 for V(V − 1) with V peeled first, the completion (1, 0) of (0, 0) is then raised to (1, 1).) The a priori hypothesis of
-[[lem:iii-a-1-2]] holds for each w_i by (F1), but only at the order k − (N − i), so this gives the index set with u of
-order k − N + 1. For the order k: the solution operators of [[lem:iii-a-1-2]] act in ρ_H alone, commute with
+[[lem:iii-a-1-2]] holds for each w_i by (F1), but only at the order k − (p − i), so this gives the index set with u of
+order k − p + 1. For the order k: the solution operators of [[lem:iii-a-1-2]] act in ρ_H alone, commute with
 derivatives along H and preserve H^k, so their composition applied to the left side of [[eq:iii-a-1-3]] gives u_p of
 order k with the same index set; u − u_p is annihilated by the product near H, so it is Σ ρ_H^z(log ρ_H)^ℓ c_(z,ℓ)
 there (the solutions of the ordinary differential equation in ρ_H), and its coefficients are read off u − u_p on
@@ -1325,14 +1329,15 @@ those with real part above the previous weight, all in E(α).) ∎
 β ∈ ℝ, ord(z) the order of the pole of N(A, ·)⁻¹ at z (0 if none), and
 E := {(ι + j, k + m′) : (ι, k) ∈ F, j ∈ ℕ₀, m′ ≤ Σ_(q=0)^j ord(ι + q)}. There is a continuous linear map
 S = S_(A,F,β) : 𝒜^F(M) → 𝒜^E(M), also bounded H^(k,(F,β))_b → H^(k+m,(E,β))_b for every k, such that f − ASf ∈ 𝒜^G(M),
-G := {(ι, k) ∈ E : Re ι ≥ β}, resp. f − ASf ∈ H^(k,β)_b. If A depends smoothly on a finite-dimensional parameter b with b-independent N(A), S can
-be chosen smooth in b; for β = ∞ the statement on 𝒜-spaces holds with S continuous but non-linear.
+G := {(ι, k) ∈ E : Re ι ≥ β}, resp. f − ASf ∈ H^(k,β)_b. If A depends smoothly on a finite-dimensional parameter b with
+b-independent N(A), S can be chosen smooth in b; for β = ∞ the statement on 𝒜-spaces holds with S continuous but
+non-linear.
 
 *Proof.* Consider one term χ(ρ)ρ^ι(log ρ)^ℓ f₀ of f, f₀ ∈ H^k(∂M), with Re ι minimal and ℓ = k(F, ι). By Cauchy's formula
 ρ^ι(log ρ)^ℓ = (ℓ!/(2πi)) ∮_ι ρ^ζ(ζ − ι)^(−ℓ−1) dζ over a small circle around ι enclosing no other pole of N(A, ·)⁻¹;
 put
 
-    u := (ℓ!/(2πi)) ∮_ι ρ^ζ (ζ − ι)^(−ℓ−1) N(A, ζ)⁻¹f₀ dζ.                                                 {#eq:iii-a-1-4}
+    u := (ℓ!/(2πi)) ∮_ι ρ^ζ (ζ − ι)^(−ℓ−1) N(A, ζ)⁻¹f₀ dζ.                                                {#eq:iii-a-1-4}
 
 As N(A)(ρ^ζ g) = ρ^ζ N(A, ζ)g, N(A)u = ρ^ι(log ρ)^ℓ f₀ exactly. By the residue theorem
 u = ρ^ι Σ_(j≤ℓ+q)(log ρ)^j u_j, u_j ∈ H^(k+m)(∂M) (the Laurent coefficients of N(A, ·)⁻¹ gain m derivatives),
@@ -1344,3 +1349,392 @@ definition of E) gives u with f − Au ∈ H^(k,β)_b resp. 𝒜^G; for β = ∞
 many terms, which is continuous but not linear. Each step is a fixed linear operation, the circle integral
 [[eq:iii-a-1-4]] involving no choice (adding an indicial solution ρ^ι u₀ ∈ ker N(A) would be a choice); hence S is
 linear, continuous, and smooth in b. ∎
+
+### Scattering and 3b-notions in dimension 4 + 1 {#sec:iii-a-2}
+
+**Definition {#def:iii-a-2-1}** ([Hin26, Definition 2.16, Example 2.17].) For d ∈ ℕ, ˢᶜT*ℝ^d := ℝ̄^d × ℝ^d with (z, ζ)
+the covector ζ_μ dz^μ, and 𝒱_sc(ℝ̄^d) is the C^∞(ℝ̄^d)-span of ∂_(z⁰), …, ∂_(z^(d−1)). In {z⁰ > 0}, with ρ_∞ := 1/z⁰ and
+ẑ^j := z^j/z⁰,
+
+    ∂_(z⁰) = −ρ_∞(ρ_∞∂_(ρ_∞) + Σ_(j=1)^(d−1) ẑ^j ∂_(ẑ^j)),     ∂_(z^j) = ρ_∞∂_(ẑ^j),
+
+since ∂_(z⁰)ρ_∞ = −ρ_∞² and ∂_(z⁰)ẑ^j = −ρ_∞ẑ^j; so 𝒱_sc(ℝ̄^d) = ρ_d𝒱_b(ℝ̄^d) for a boundary defining function ρ_d. In
+dimension 4 + 1 the Minkowski metric ḡ = −dt² + Σ_(j=1)^4 (dx^j)² is an element of C^∞(ℝ̄⁵; S² ˢᶜT*ℝ⁵).
+
+**Definition {#def:iii-a-2-2}** ([Hin26, (2.10) and Definition 2.18] in dimension 4 + 1.) Write ℝ̄⁵ for the radial
+compactification of ℝ^(1+4)_(t_*,x), let k_± ∈ ∂ℝ̄⁵ be the limits of (t_*, 0) as t_* → ±∞, and
+M̃₀ := [ℝ̄⁵; k_+, k_−], with boundary hypersurfaces sf (the lift of ∂ℝ̄⁵) and K_± (the lifts of k_±);
+ρ_sf := ⟨x⟩⁻¹ and ρ_K := ⟨x⟩(1 + t_*² + |x|²)^(−1/2) are defining functions. 𝒱_3sc(M̃₀) is the C^∞(M̃₀)-span of
+∂_(t_*), ∂_(x¹), …, ∂_(x⁴). (1) ³ᵇT*M̃₀ := M̃₀ × ℝ⁵, (t_*, x; τ, ξ) being τ dt_*/⟨x⟩ + Σ_(j=1)^4 ξ_j dx^j/⟨x⟩; dually
+(v, w) ↦ v⟨x⟩∂_(t_*) + Σ_(j=1)^4 w^j⟨x⟩∂_(x^j). (2) 𝒱_3b(M̃₀) is the C^∞(M̃₀)-span of ⟨x⟩∂_(t_*), ⟨x⟩∂_(x^j),
+j = 1, …, 4, equivalently ρ_sf⁻¹𝒱_3sc(M̃₀). (3) Diff^m_3b(M̃₀) and Diff^(m,(α_sf,α_K))_3b := ρ_sf^(−α_sf)ρ_K^(−α_K)
+Diff^m_3b, and H^(s,(α_sf,α_K))_3b = ρ_sf^(α_sf)ρ_K^(α_K)H^s_3b (with variable orders as in [[sec:ii-a-2-2]]).
+
+A t_*-translation-invariant A ∈ Diff^(m,(α_sf,0))_3b(M̃₀) has the form
+
+    A = Σ_(j+|α|≤m) ⟨x⟩^(α_sf) a_jα(x) (⟨x⟩∂_(t_*))^j (⟨x⟩∂_x)^α,     a_jα ∈ C^∞(ℝ̄⁴),                    {#eq:iii-a-2-1}
+
+α ∈ ℕ₀⁴, and its spectral family, with (ℱu)(σ, x) := ∫ e^(iσt_*) u(t_*, x) dt_*, is
+
+    Â(σ) = Σ_(j+|α|≤m) ⟨x⟩^(α_sf) a_jα(x) (−iσ⟨x⟩)^j (⟨x⟩∂_x)^α.                                          {#eq:iii-a-2-2}
+
+(The wave operator of a stationary metric of [[sec:iii-b-3]] is of this form with m = 2, α_sf = −2: ⟨x⟩⁻² times a
+combination of (⟨x⟩∂)², as in [[ch:s05]].)
+
+**Definition {#def:iii-a-2-3}** ([Hin26, Definition 2.19] in dimension 4 + 1.) X̃ := ℝ⁴,
+X̃_sc-b := [[0, 1]_ς × X̃̄; {0} × ∂X̃̄], X̃̄ the radial compactification of X̃, with the faces scf (the lift of
+[0, 1] × ∂X̃̄), tf (the front face) and zf (the lift of {0} × X̃̄) and, with ρ := ⟨x⟩⁻¹, the defining functions
+ρ_scf = ρ/(ς + ρ), ρ_tf = ς + ρ, ρ_zf = ς/(ς + ρ). 𝒱_sc-b(X̃) is the C^∞(X̃_sc-b)-span of ρ_scf⟨x⟩∂_(x^j),
+j = 1, …, 4; Diff^(m,(α_scf,α_tf,α_zf))_sc-b := ρ_scf^(−α_scf)ρ_tf^(−α_tf)ρ_zf^(−α_zf) Diff^m_sc-b; and
+‖u‖_(H^(m,(α_scf,α_tf,α_zf))_(sc-b,ς)) := Σ_(|α|≤m) ‖ρ_scf^(−α_scf)ρ_tf^(−α_tf)ρ_zf^(−α_zf)(ρ_scf⟨x⟩∂_x)^α u‖_(L²(X̃,μ))
+for a fixed weighted b-density μ (below μ = |dx|), with the variant H^((m;k)) with b-regularity as in [Hin26]. As
+ς⟨x⟩ = ρ_zf/ρ_scf and ⟨x⟩∂_(x^j) ∈ ρ_scf⁻¹𝒱_sc-b, [[eq:iii-a-2-2]] gives, for fixed σ̂ with |σ̂| = 1,
+{Â(σ̂ς)}_(ς∈[0,1]) ∈ Diff^(m,(α_sf+m,α_sf,0))_sc-b(X̃), as in dimension 3 + 1.
+
+**Lemma {#lem:iii-a-2-4}** ([Hin26, Lemma 2.20] in dimension 4 + 1.) For u ∈ H^(m,(α_sf,0))_3b(M̃₀, |dt_*dx|),
+
+    ∫_(−1)^1 ‖û(σ)‖²_(H^(m,(m+α_sf,α_sf,0))_(sc-b,|σ|)(X̃,|dx|)) dσ ≤ C‖u‖²_(H^(m,(α_sf,0))_3b(M̃₀,|dt_*dx|)),
+                                                                                                          {#eq:iii-a-2-3}
+
+and the reverse inequality holds if supp û ⊂ [−1, 1].
+
+*Proof.* The norm on the right is equivalent to Σ_(j+|β|≤m) ‖⟨x⟩^(α_sf)(⟨x⟩∂_(t_*))^j(⟨x⟩∂_x)^β u‖_(L²(|dt_*dx|)), the
+weight commuting with the fields up to lower-order terms with bounded coefficients
+(⟨x⟩∂_x⟨x⟩^c = c⟨x⟩^c x/⟨x⟩), and the weight ρ_K⁰ being trivial. By Plancherel in t_* this is
+Σ_(j+|β|≤m) ∫ ‖⟨x⟩^(α_sf)(σ⟨x⟩)^j(⟨x⟩∂_x)^β û(σ)‖²_(L²(dx)) dσ/(2π), up to constants. For |σ| ≤ 1:
+ρ_scf^(−α_sf)ρ_tf^(−α_sf) = ρ^(−α_sf) = ⟨x⟩^(α_sf), ρ_scf⁻¹ = 1 + |σ|⟨x⟩, and
+ρ_scf^(−m)(ρ_scf⟨x⟩∂_x)^β = ρ_scf^(−(m−|β|))(⟨x⟩∂_x)^β modulo terms of the same form with fewer derivatives and
+bounded coefficients (⟨x⟩∂_x log ρ_scf is bounded); and (1 + |σ|⟨x⟩)^(m−|β|) is comparable to
+Σ_(j≤m−|β|) |σ⟨x⟩|^j. So the integrand of [[eq:iii-a-2-3]] is comparable to
+Σ_(j+|β|≤m) ‖⟨x⟩^(α_sf)(σ⟨x⟩)^j(⟨x⟩∂_x)^β û(σ)‖² at each |σ| ≤ 1, which gives both inequalities. ∎
+
+*The normal operator at sf* ([Hin26, (2.14)–(2.15)] in dimension 4 + 1). For A as in [[eq:iii-a-2-1]], with
+a^∞_jα(ω) := a_jα|_(∂ℝ̄⁴), ω = x/|x| ∈ 𝕊³,
+
+    N_sf(A) := r^(α_sf) Σ_(j+|α|≤m) a^∞_jα(ω)(r∂_(t_*))^j (r∂_x)^α                                        {#eq:iii-a-2-4}
+
+is homogeneous of degree α_sf under (t_*, x) ↦ (λ₀t_*, λ₀x), λ₀ > 0, and A − N_sf(A) ∈ Diff^(m,(α_sf−1,0))_3b on
+{r ≥ 1}, as a_jα − a^∞_jα and ⟨x⟩ − r are O(r⁻¹) with all b-derivatives. In ρ = r⁻¹, ω, v := ρt_* (so
+sf° = ℝ_v × 𝕊³), N_sf(r^(−α_sf)A) = Σ a_jkγ(ω) ∂_v^j (ρ∂_ρ + v∂_v)^k ∂_ω^γ, since ρ⁻¹∂_(t_*) = ∂_v and
+ρ∂_ρ|_(t_*) = ρ∂_ρ|_v + v∂_v; and the Mellin transform in ρ gives
+
+    N_sf(r^(−α_sf)A, ρ^ι) := Σ_(j+k+|γ|≤m) a_jkγ(ω) ∂_v^j (ι + v∂_v)^k ∂_ω^γ ∈ Diff^m_b(sf).              {#eq:iii-a-2-5}
+
+The only change from dimension 3 + 1 is 𝕊³ in place of 𝕊².
+
+*Extendible and supported spaces* ([Hin26, Section 2.1.5, Notation 2.21]). For a compact submanifold with corners Ω of
+a compact manifold with corners, H̄^s_b(Ω) is the space of restrictions to Ω° of elements of H^s_b, with the quotient
+norm; Ḣ^s_b(Ω) is the space of elements of H^s_b supported in Ω; H^s_b(Ω)^(•,−) is supported at some faces and
+extendible at the others, defined through the δ-enlargement Ω_δ; the same with weights and partial expansions; and
+H^s_b := H̄^s_b when every face is extendible. These definitions do not involve the dimension; they are the
+constructions of [[sec:ii-a-7]] in the b-setting.
+
+### Integration along x∂_x and x∂_x − y∂_y {#sec:iii-a-3}
+
+This section is [Hin26, Section 2.2]. On [0, 2)_x × [0, 2)_y × (−2, 2)^d_q with the density |dx/x dy/y dq|, write
+H^(k,(E,α),(F,β))_b for the b-Sobolev space with partial expansions at x = 0 and y = 0, and fix χ ∈ C_c^∞([0, ¾)) equal
+to 1 on [0, ½] ([Hin26, (2.16)]).
+
+**Lemma {#lem:iii-a-3-1}** ([Hin26, Lemma 2.22].) Let Re z < min(α, min Re E) and f ∈ H^(k,(E,α),(F,β))_b. Then
+(x∂_x − z)u = f has a unique solution u ∈ H^(k,(E,α),(F,β))_b.
+
+*Proof.* Multiplication by x^(−z) reduces to z = 0, α > 0, min Re E > 0. The terms χ(x)x^w(log x)^ℓ v of f with
+Re w ≤ α have w ≠ 0 and are removed by [[eq:iii-a-1-1]] as in [[lem:iii-a-1-2]], by terms in H^(k,(E,α),(F,β)). For
+f ∈ H^(k,α,(F,β)), u(x) := ∫_0^x f(s) ds/s solves the equation, and [[eq:iii-a-1-2]] with u in place of u − u(0) shows
+u ∈ H^(k,α,(F,β)) (y, q being parameters and the expansion at y = 0 preserved as in [[lem:iii-a-1-2]]). Uniqueness: a
+solution of x∂_x u = 0 is a function c(y, q) of the other variables, which lies in H^(k,(E,α)) at x = 0 only if c = 0,
+as α > 0 and (0, 0) ∉ E. ∎
+
+**Lemma {#lem:iii-a-3-2}** ([Hin26, Lemma 2.23], with the hypothesis α + Re z > β.) Let z ∈ ℂ, α + Re z > β, and
+Re(w + z) ≠ β for all (w, 0) ∈ E. If (x∂_x − y∂_y + z)u = f ∈ H^(k,(E,α),(F,β))_b and
+(1 − χ(y))u ∈ H^(k,(E,α),∞)_b, then u ∈ H^(k,(E,α),((E+z)∪̄F,β))_b.
+
+*Proof.* (x∂_x − y∂_y)(x^z u) = x^z f; replacing (u, f, E, α) by (x^z u, x^z f, E + z, α + Re z) reduces to z = 0 with
+α > β, which is where α + Re z > β is used.
+
+*Step 1, at x = 0.* Let (w, ℓ), ℓ = k(E, w), with Re w = min Re E ≤ α, and x^w(log x)^ℓ v(y, q),
+v ∈ H^(k,(F,β))_b([0, 2) × (−2, 2)^d), the corresponding term of f. By
+
+    (x∂_x − y∂_y)(x^w(log x)^ℓ a(y, q)) = x^w(log x)^ℓ(w − y∂_y)a + ℓx^w(log x)^(ℓ−1)a,                   {#eq:iii-a-3-1}
+
+the coefficient a of x^w(log x)^ℓ in u on {y ≥ ¾} (which exists by the a priori hypothesis) solves (w − y∂_y)a = v
+there. Extend a to (0, 2) by solving this equation; (y∂_y − w)a = −v, and [[lem:iii-a-1-2]] in the variable y, whose
+hypothesis β ≠ Re w is ours, gives a ∈ H^(k,(F∪̄{(w,0)},β))_b. Then ũ := u − χ(x)x^w(log x)^ℓ a satisfies the hypotheses
+with E replaced by E ∖ {(w, ℓ)} at x = 0 and F by F ∪̄ {(w, 0)} at y = 0 (the cut-off contributes terms supported in
+x ∈ [½, ¾], where the spaces of u and f have no condition at x = 0). Repeating over the finitely many (w, ℓ) ∈ E with
+Re w ≤ α produces u₀ ∈ H^(k,E,(F∪̄E,β))_b near x = 0 with
+
+    ũ := u − u₀:     (x∂_x − y∂_y)ũ =: f̃ ∈ H^(k,α,(E∪̄F,β))_b,     (1 − χ(y))ũ ∈ H^(k,α,∞)_b.            {#eq:iii-a-3-2}
+
+*Step 2, at y = 0.* For (w, ℓ), ℓ = k(E ∪̄ F, w), Re w ≤ β < α, let y^w(log y)^ℓ v(x, q), v ∈ H^(k,α)_b, be the term of
+f̃. As (x∂_x − y∂_y)(y^w(log y)^ℓ a(x, q)) = y^w(log y)^ℓ(x∂_x − w)a − ℓy^w(log y)^(ℓ−1)a, [[lem:iii-a-3-1]]
+(Re w < α, empty index set at x = 0) gives a ∈ H^(k,α)_b with (x∂_x − w)a = v; subtract χ(y)y^w(log y)^ℓ a, descend in ℓ
+and ascend in Re w. This produces ũ₀ ∈ H^(k,α,(E∪̄F,β))_b with (1 − χ(y))ũ₀ = 0 near y ≥ ¾ and u^♭ := ũ − ũ₀
+satisfying
+
+    (x∂_x − y∂_y)u^♭ =: f^♭ ∈ H^(k,α,β)_b,     (1 − χ(y))u^♭ ∈ H^(k,α,∞)_b.                               {#eq:iii-a-3-3}
+
+*Step 3, the remainder.* It suffices to show u^♭ ∈ H^(k,α,β)_b, and to do so for k = 0: x∂_x, y∂_y, ∂_q commute with
+x∂_x − y∂_y. With ψ ∈ C_c^∞([0, 1)) equal to 1 on [0, ¾],
+(x∂_x − y∂_y)(ψ(y)u^♭) = ψf^♭ + yψ′(y)(1 − χ(y))u^♭ still lies in H^(0,α,β) and ψu^♭ vanishes near y = 1; and
+(1 − ψ)u^♭ ∈ H^(0,α,∞). Multiplication by (xy)^(−α) commutes with x∂_x − y∂_y, so let α = 0 > β. Drop q. The solution
+vanishing near y = 1 is, by integration along the characteristics xy = const,
+
+    u^♭(x, y) = ∫_y^1 f^♭(xy/s, s) ds/s
+
+(indeed x∂_x and y∂_y of the integral agree except for the boundary term −f^♭(x, y) from y∂_y). By Cauchy–Schwarz with
+∫_y^1 s^β ds/s ≤ |β|⁻¹y^β, then t := xy/s at fixed (x, s) (so y ∈ (0, s) becomes t ∈ (0, x), dy/y = dt/t), and
+∫_t^2 x^β dx/x ≤ |β|⁻¹t^β:
+
+    ∬ y^(−2β)|u^♭|² (dx/x)(dy/y) ≤ |β|⁻¹ ∬ s^(−β) ∫_0^s y^(−β)|f^♭(xy/s, s)|² (dy/y)(ds/s)(dx/x)
+        = |β|⁻¹ ∬ s^(−2β) ∫_0^x t^(−β)x^β |f^♭(t, s)|² (dt/t)(ds/s)(dx/x) ≤ |β|⁻² ∬ s^(−2β)|f^♭(t, s)|² (dt/t)(ds/s),
+
+with x ranging over (0, 2). ∎
+
+**Lemma {#lem:iii-a-3-3}** (A product of such operators.) Let z_1, …, z_p ∈ ℂ, repetitions allowed, and let Z be the
+smallest index set with k(Z, z) ≥ #{j : z_j = z} − 1 for every z. Let E be an index set without logarithms
+(k(E, w) = 0 for w ∈ π₁E), and suppose α + Re z_j > β and Re(w + z_j) ≠ β for all w ∈ π₁E and all j. If
+
+    Pu = f ∈ H^(k,(E,α),(F,β))_b,     (1 − χ(2y))u ∈ H^(k+p,(E,α),∞)_b,     P := Π_(j=1)^p (x∂_x − y∂_y + z_j),
+                                                                                                          {#eq:iii-a-3-4}
+
+then u ∈ H^(k,(E,α),((E+Z)∪̄F,β))_b, with E + Z the sum of [[def:s11-b-analysis]] (4).
+
+For p = 1 this is [[lem:iii-a-3-2]] for log-free E (Z = {(z_1 + j, 0) : j ∈ ℕ₀} and E + Z = E + z_1). Iterating
+[[lem:iii-a-3-2]] instead loses: once z and z + 1 both occur, the factor z + 1 meets the pair (z + 1, 0) that E + z has
+put into the index set at y = 0 and returns (z + 1, 1), which (E + Z) ∪̄ F need not contain. The cure is to solve for
+each coefficient in x at once.
+
+*Proof.* Order the factors so that Re z_1 ≥ ⋯ ≥ Re z_N, and let G := (E + Z) ∪̄ F.
+
+*Step 1, at x = 0, one coefficient at a time.* As E has no logarithms, [[eq:iii-a-3-1]] gives
+P(x^w a(y, q)) = x^w Π_j(w + z_j − y∂_y)a exactly. For w ∈ π₁E with Re w ≤ α, let v_w ∈ H^(k,(F,β))_b be the
+coefficient of x^w in f, and a_w that of u on {y ≥ 3/8}, which lies in H^(k+p) there by [[eq:iii-a-3-4]] and solves
+Π_j(w + z_j − y∂_y)a_w = v_w there. Extend a_w to y ∈ (0, 2) as the solution of this ordinary differential equation (with
+constant coefficients in log y, q a parameter). Put b_p := a_w and b_(i−1) := (w + z_i − y∂_y)b_i, so that b_0 = v_w and
+(y∂_y − (w + z_i))b_i = −b_(i−1). Apply [[lem:iii-a-1-2]] in y for i = 1, …, p in this order: its hypothesis
+β ≠ Re(w + z_i) is ours, and (1 − χ(y))b_i ∈ H^k because b_i is p − i derivatives of a_w on {y ≥ 3/8}. It gives
+b_i ∈ H^(k,(G_i,β))_b with G_0 := F and G_i := G_(i−1) ∪̄ {(w + z_i, 0)} ([[def:s11-b-analysis]] (4)). The completion by
+[[eq:s11-index-set]] at step i adds pairs only at w + z_i + j, j ≥ 1, whose real parts exceed those of every later
+w + z_(i′). So no later raise meets a completion: the count at c is raised from k(F, c) once for each j with
+w + z_j = c, to at most k(F, c) + k(Z + w, c) + 1 = k((Z + w) ∪̄ F, c), and a completion reaching c from c − j carries
+at most the final count at c − j. By induction on Re c, G_p ⊂ (Z + w) ∪̄ F ⊂ G, the extended union being monotone in
+each argument and Z + w ⊂ E + Z. Moreover (y∂_y)^i a_w, i ≤ p, is a linear combination of b_p, …, b_(p−i), so it too
+lies in H^(k,(G,β))_b.
+
+Let u₀ := Σ_w χ(x)x^w a_w, summed over w ∈ π₁E with Re w ≤ α; then u₀ ∈ H^(k,(E,α),(G,β))_b near x = 0, and
+Pu₀ = Σ_w χ(x)x^w v_w + Σ_w [P, χ(x)](x^w a_w). Each commutator term is supported in x ∈ [½, ¾] and applies at most
+p − 1 of the fields x∂_x, y∂_y to x^w a_w, so it lies in H^(k,∞,(G,β))_b by the last remark. Hence ũ := u − u₀
+satisfies Pũ =: f̃ ∈ H^(k,α,(G,β))_b (f less its expansion at x = 0 lies in H^(k,α,(F,β))_b, and F ⊂ G), and
+(1 − χ(2y))ũ ∈ H^(k+p,α,∞)_b, since the a_w are the coefficients of u on {y ≥ 3/8}, and on {¼ < y < 3/8}, where
+1 − χ(2y) ≠ 0 too, the coefficient of u solves the same equation and equals a_w by uniqueness.
+
+*Step 2, the factors one at a time with nothing at x = 0.* Put w̃_p := ũ and w̃_(i−1) := (x∂_x − y∂_y + z_i)w̃_i, so
+that w̃_0 = f̃. For i = 1, …, p, [[lem:iii-a-3-2]] with the empty index set at x = 0 (its hypothesis on E is then void,
+α + Re z_i > β is ours, and (1 − χ(y))w̃_i ∈ H^(k,α,∞)_b by the order k + p in [[eq:iii-a-3-4]]) gives
+w̃_i ∈ H^(k,α,(∅∪̄G,β))_b = H^(k,α,(G,β))_b. So u = u₀ + w̃_p ∈ H^(k,(E,α),(G,β))_b. ∎
+
+### The Fourier transform with partial expansions {#sec:iii-a-4}
+
+This section is [Hin26, Section 2.3] in dimension 4 + 1. In it ι names a boundary face, not an indicial root.
+
+Let X := ℝ⁴_x (radially compactified), M := [ℝ̄_(t_*) × X̄; {±∞} × ∂X̄] with faces ℐ (the lift of ℝ̄ × ∂X̄), ι (the front
+face) and K (the lift of ∂ℝ̄ × X̄), the b-densities |dt_*/⟨t_*⟩|, |dx/⟨x⟩⁴| and their product, and the spaces
+H^(k,(E_I,β_I),(E_ι,β_ι),(E_K,β_K))_b(M) of [[def:s11-b-analysis]] (5) (orders and index sets at ℐ, ι, K, in this
+order); the testing fields are compositions of ∂_(t_*), t_*∂_(t_*), ⟨x⟩∂_(x^j), j ≤ 4. These are the manifold and the
+spaces of [[sec:ii-g1-3-1]]. At high frequencies H^(k,β,γ)_(b+)(±[½, ∞) × X) is the space of [[sec:ii-g1-3-1]]; at low
+frequencies X^±_sc-b := [±[0, 1]_σ × X̄; {0} × ∂X̄] with faces scf, tf, zf, as in [[sec:ii-g1-3-1]], carries the spaces
+of [[def:s11-b-analysis]] (5) with partial expansions (index set (0, 0) at zf, coefficients in H_b(X), as in
+[[eq:s10-zf]]).
+
+*The inputs in dimension 4 + 1.* The four statements [Hin26, (2.25a)–(2.26b)] are proved in dimension 4 + 1 in
+[[ch:s10]]:
+
+(2.25a) and the matching statement of (2.25b): by [[prop:ii-g1-3-3]] (1), for β_K ∈ (0, ∞) ∖ ℕ, ε ∈ (0, 1),
+β_I ≥ β_ι − min(β_K, 1 − ε) and u ∈ H^(k+1,(β_I,β_ι,β_K))_b(M),
+(ℱu)|_(±(0,1]) ∈ H^(k,(min(β_I,β_ι)−ε,β_ι−1,((0,0),β_K−1)))_b(X^±_sc-b), with the σ-Taylor coefficients of order
+< β_K − 1 of the two signs equal.
+
+(2.25b): [[prop:ii-g1-3-3]] (2), with the loss ℓ = ⌈(½ − min(β_K, β_ι − β_I))_+⌉.
+
+(2.26a): by [[prop:ii-g1-3-5]] (1), with ℓ := ⌈(max(β_ι − β_scf, β_K) + ε − ½)_+⌉, if
+v^± ∈ H^(k+ℓ,(β_scf,β_ι−1,((0,0),β_K−1)))_b(X^±_sc-b) have the same σ-Taylor coefficients, then
+ℱ⁻¹v ∈ H^(k,(min(β_scf,β_ι)−ε,β_ι,β_K))_b(M), v := χ(σ)Σ_± 1_(±σ>0)v^±.
+
+(2.26b): [[prop:ii-g1-3-5]] (2), whose high-frequency space carries the weight δ − 1 where that of [Hin26] carries δ;
+the statement of [Hin26], with any δ, follows by renaming δ.
+
+We also use, from the same proofs, that ℱ ∘ t_*∂_(t_*) = (−σ∂_σ − 1) ∘ ℱ (integration by parts:
+∫ e^(iσt_*) t_*∂_(t_*)u = −∫(iσt_* + 1)e^(iσt_*)u, and ∂_σℱu = ℱ(it_*u)), and that ℱ commutes with operators in x. As
+σ∂_σ commutes with 1_(±σ>0) and [σ∂_σ, χ(σ)] = σχ′(σ) is supported in ½ ≤ |σ| ≤ 1, we have, for v as in (2.26a) and any
+z,
+
+    ℱ⁻¹((σ∂_σ − (z − 1))w) = (−t_*∂_(t_*) − z)ℱ⁻¹w                                                       {#eq:iii-a-4-1}
+
+for every tempered w, and (σ∂_σ − (z − 1))v = χ(σ)Σ_± 1_(±σ>0)(σ∂_σ − (z − 1))v^± + r with r supported in
+½ ≤ |σ| ≤ 1. Such an r, if of class H^(k′,β_scf) there, has ℱ⁻¹r ∈ H^(k′−ℓ′,(β_scf−ε,J,J))_b(M) for every J, with a
+loss ℓ′ = ℓ′(J) that grows with J ([[prop:ii-g1-3-5]] (1)) and is finite for the finitely many J used, by (2.26a)
+with the tf- and zf-weights taken arbitrarily large (r vanishes near tf and zf); we call such terms *harmless*.
+
+**Lemma {#lem:iii-a-4-1}** ([Hin26, Lemma 2.24].) Let χ ∈ C_c^∞((−1, 1)) equal 1 near 0. The following are b-normal
+vector fields: (1) −t_*∂_(t_*) at K; (2) −t_*∂_(t_*) − χ(r⁻¹)r∂_r at ι (defined as −t_*∂_(t_*) near r = 0);
+(3) −χ(r⁻¹)r∂_r at ℐ; (4) σ∂_σ at zf; (5) σ∂_σ + χ(ρ)ρ∂_ρ at tf; (6) χ(ρ)ρ∂_ρ at scf; here r = |x|, ρ = |x|⁻¹,
+ω = x/|x| ∈ 𝕊³.
+
+*Proof.* In t_* > 1 let τ := t_*⁻¹, so −t_*∂_(t_*) = τ∂_τ. Near ι ∩ K: ρ_ι = ρ, ρ_K = τ/ρ; then τ∂_τ = ρ_K∂_(ρ_K)
+and ρ∂_ρ = ρ_ι∂_(ρ_ι) − ρ_K∂_(ρ_K), so −t_*∂_(t_*) − r∂_r = τ∂_τ + ρ∂_ρ = ρ_ι∂_(ρ_ι), and near K° (coordinates τ, x)
+−t_*∂_(t_*) = τ∂_τ with τ defining K. Near ι ∩ ℐ: ρ_ι = τ, ρ_I = ρ/τ; τ∂_τ = ρ_ι∂_(ρ_ι) − ρ_I∂_(ρ_I),
+ρ∂_ρ = ρ_I∂_(ρ_I), so the field in (2) is ρ_ι∂_(ρ_ι) and −r∂_r = ρ_I∂_(ρ_I), and near ℐ° (coordinates t_*, ρ, ω)
+−r∂_r = ρ∂_ρ. The same holds for t_* < −1. On X^±_sc-b near zf ∩ tf: ρ_zf = |σ|/ρ, ρ_tf = ρ, and
+σ∂_σ = ρ_zf∂_(ρ_zf), ρ∂_ρ = ρ_tf∂_(ρ_tf) − ρ_zf∂_(ρ_zf), so σ∂_σ + ρ∂_ρ = ρ_tf∂_(ρ_tf); near zf°, σ∂_σ = ρ_zf∂_(ρ_zf)
+with ρ_zf = |σ|. Near tf ∩ scf: ρ_scf = ρ/|σ|, ρ_tf = |σ|; ρ∂_ρ = ρ_scf∂_(ρ_scf) and
+σ∂_σ = ρ_tf∂_(ρ_tf) − ρ_scf∂_(ρ_scf), so (5) is ρ_tf∂_(ρ_tf) there too, and (6) holds. In each case the field equals
+the normal field of an adapted chart exactly, and the cut-offs act only away from the face. ∎
+
+**Proposition {#prop:iii-a-4-2}** ([Hin26, Proposition 2.25] in dimension 4 + 1.) Let β_K ∈ (0, ∞) ∖ ℕ,
+β_I, β_ι ∈ ℝ, and E_I, E_ι, E_K index sets with β_I, β_ι − 1 ∉ Re π₁E_I, β_ι ∉ Re π₁E_ι, β_K ∉ Re π₁E_K and
+min Re E_K > 0.
+
+(1) (Fourier transform.) Suppose
+
+    β_I ≥ β_ι − β_K,     β_I > β_ι − min(1, min Re E_K).                                                 {#eq:iii-a-4-2}
+
+Let ε > 0 be small and β̃_ι := min(β_ι, min Re E_ι − ε). There is l ∈ ℕ₀, depending only on the weights and index sets,
+such that for u ∈ H^(k+l,(E_I,β_I),(E_ι,β_ι),(E_K,β_K))_b(M),
+
+    (ℱu)|_(σ∈±[0,1]) ∈ H^(k, (E_I, min(β_I,β̃_ι)−ε), ((E_ι−1)∪̄E_I, β_ι−1), ((0,0)∪̄(E_K−1), β_K−1))_b(X^±_sc-b).
+                                                                                                          {#eq:iii-a-4-3}
+
+(2) (Inverse Fourier transform.) Let χ ∈ C_c^∞((−1, 1)) equal 1 near [−½, ½], β_scf ∈ ℝ, and ε and β̃_ι as in (1).
+There is l ∈ ℕ₀ such that if v^± ∈ H^(k+l, β_scf, (E_ι−1,β_ι−1), ((0,0)∪̄(E_K−1),β_K−1))_b(X^±_sc-b) satisfy, at zf,
+
+    (σ∂_σ)^(ℓ_j+1)∂_σ^j v⁻ = (σ∂_σ)^(ℓ_j+1)∂_σ^j v⁺,     j = 0, …, ⌊β_K − 1⌋,     ℓ_j := k(E_K, j + 1),   {#eq:iii-a-4-4}
+
+then for v := χ(σ)Σ_± 1_(±σ>0)v^±,
+
+    ℱ⁻¹v ∈ H^(k, min(β_scf,β̃_ι)−ε, (E_ι,β_ι), (E_K,β_K))_b(M).                                           {#eq:iii-a-4-5}
+
+The meaning of [[eq:iii-a-4-4]]: by (σ∂_σ)∂_σ^j = ∂_σ^j(σ∂_σ − j), it says that the coefficient of σ^j in
+(σ∂_σ − j)^(ℓ_j+1)v^±, which is log-free, is the same for both signs. The factor σ∂_σ − j occurs k(E_K, j + 1) + 1
+times in R_zf below, as (z, m′) ∈ E_K with z − 1 = j.
+
+*Proof.* We take ε so small, and decrease it if necessary, that none of min(β_I, β̃_ι) − ε,
+β̃_K := min(β_K, min Re E_K − ε) and min Re E_ι − ε is an integer or the real part of an element of π₁E_I, π₁E_K
+(finitely many conditions below any bound). We write E_(ι,≤) := {(z, m′) ∈ E_ι : Re z ≤ β_ι} and similarly E_(K,≤),
+E_(I,≤).
+
+*Part (1), E_I = ∅.* Then u ∈ H^(k+l,(β_I,β̃_ι,β̃_K))_b(M), and the hypotheses of (2.25a) hold for these weights:
+β_I ≥ β̃_ι − β̃_K (if β̃_K = β_K by [[eq:iii-a-4-2]], and otherwise because
+β_I > β_ι − min Re E_K ≥ β̃_ι − β̃_K − ε strictly, so for small ε), and β_I ≥ β̃_ι − (1 − ε) for small ε, as
+β_I > β_ι − 1. They remain true when β̃_K is increased up to β_K or β̃_ι up to β_ι. So (2.25a) gives
+
+    ℱu ∈ H^(k,(min(β_I,β̃_ι)−ε, β̃_ι−1, ((0,0),β̃_K−1)))_b(X^±_sc-b).                                     {#eq:iii-a-4-6}
+
+Let R_ι := Π_((z,m′)∈E_(ι,≤)) (−t_*∂_(t_*) − χ(r⁻¹)r∂_r − z). By the converse in [[lem:iii-a-1-3]] at ι
+([[lem:iii-a-4-1]] (2)) and (F1) at ℐ and K, R_ιu ∈ H^(k+l−|E_(ι,≤)|,(β_I,β_ι,β̃_K))_b, so for l large (2.25a) gives
+ℱ(R_ιu) ∈ H^(k,(min(β_I,β_ι)−ε,β_ι−1,((0,0),β̃_K−1))). As ℱ(−t_*∂_(t_*)u) = (σ∂_σ + 1)ℱu and −r∂_r = ρ∂_ρ commutes
+with ℱ, ℱ(R_ιu) = Π_(E_(ι,≤)) (σ∂_σ + χ(ρ)ρ∂_ρ − (z − 1))ℱu. Weakening its scf-weight to min(β_I, β̃_ι) − ε,
+[[lem:iii-a-1-3]] at tf ([[lem:iii-a-4-1]] (5); its hypothesis is β_ι − 1 ∉ Re π₁(E_ι − 1); its a priori hypothesis
+away from tf is [[eq:iii-a-4-6]]) gives
+
+    ℱu ∈ H^(k,(min(β_I,β̃_ι)−ε, (E_ι−1,β_ι−1), ((0,0),β̃_K−1)))_b.                                        {#eq:iii-a-4-7}
+
+Now let R_K := Π_((z,m′)∈E_(K,≤)) (−t_*∂_(t_*) − z). By the converse in [[lem:iii-a-1-3]] at K ([[lem:iii-a-4-1]] (1))
+and (F1), R_Ku ∈ H^(k+l−|E_(K,≤)|,(β_I,(E_ι,β_ι),β_K))_b, with the full weight β_K at K; [[eq:iii-a-4-7]] applied to it
+(with β̃_K replaced by β_K, allowed above) gives
+
+    Π_((z,m′)∈E_(K,≤)) (σ∂_σ − (z − 1)) ℱu = ℱ(R_Ku) ∈ H^(k,(min(β_I,β̃_ι)−ε, (E_ι−1,β_ι−1), ((0,0),β_K−1)))_b.
+
+Apply in addition Π_(j≤⌊β_K−1⌋)(σ∂_σ − j), which annihilates the zf-terms of index set (0, 0) with real part ≤ β_K − 1,
+so that the right side has empty index set at zf and weight β_K − 1; then integrate one factor at a time, in decreasing
+order of real part as in [[lem:iii-a-1-3]], by [[lem:iii-a-1-2]] at zf ([[lem:iii-a-4-1]] (4); its hypotheses are
+β_K − 1 ≠ j, true as β_K ∉ ℕ, and β_K − 1 ≠ Re(z − 1), true as β_K ∉ Re π₁E_K; the a priori hypothesis away from zf is
+[[eq:iii-a-4-7]]). The index set obtained at zf is (0, 0) ∪̄ (E_K − 1) (below the weight β_K − 1): in this order each
+exponent c is raised once per factor, from −1 to k((0, 0), c) + k(E_K − 1, c) + 1, and the completions by
+[[eq:s11-index-set]] stay below that. Each one-factor step costs at most one derivative (as in [[lem:iii-a-1-3]]),
+absorbed in l. With [[eq:iii-a-4-7]] at tf and scf this is [[eq:iii-a-4-3]].
+
+*Part (1), general E_I.* Let χ_K ∈ C^∞(M) equal 1 near K and 0 near ℐ. χ_Ku vanishes near ℐ, so it lies in the space
+with E_I = ∅ and any ℐ-weight β′_I ≥ β_I; the case just proved, with β′_I so large that
+min(β′_I, β̃_ι) = β̃_ι, gives [[eq:iii-a-4-3]] for it (its tf index set E_ι − 1 lies in (E_ι − 1) ∪̄ E_I). So assume u
+vanishes near K; then E_K = ∅ and the K-weight is arbitrary: fix β_K ∉ ℕ, at least its given value (so
+[[eq:iii-a-4-2]] persists), with β_K > β_ι + max(0, −min Re E_I), so that β_K − 1 + Re z > β_ι − 1 for every
+z ∈ π₁E_I, as [[lem:iii-a-3-3]] needs. Let χ̃ ∈ C_c^∞(X) equal 1 on {|x| ≤ 8}. As u vanishes near K, χ̃u has compact
+support in (t_*, x), so ℱ(χ̃u) is entire in σ with values in H^(k+l)_b of compact support in x: it lies in
+H^(k+l,(∞,∞,((0,0),β_K−1)))_b(X^±_sc-b). Let R_I := Π_((z,m′)∈E_(I,≤)) (−χ(r⁻¹)r∂_r − z); by the converse in
+[[lem:iii-a-1-3]] at ℐ ([[lem:iii-a-4-1]] (3)) and (F1), R_Iu ∈ H^(k+l−|E_(I,≤)|,(β_I,(E_ι,β_ι),β_K))_b, and the case
+E_I = ∅ gives
+
+    Π_((z,m′)∈E_(I,≤)) (χ(ρ)ρ∂_ρ − z) ℱu = ℱ(R_Iu) ∈ H^(k+l′, (min(β_I,β̃_ι)−ε, (E_ι−1,β_ι−1), ((0,0),β_K−1)))_b,
+
+l′ := l − |E_(I,≤)| − l₀, l₀ the loss of the case E_I = ∅. Integrate from ρ ≥ 1/8, where ℱu = ℱ(χ̃u), towards ρ = 0.
+Near zf, in ρ_zf = |σ|/ρ, ρ_tf = ρ, each factor ρ∂_ρ − z equals −(ρ_zf∂_(ρ_zf) − ρ_tf∂_(ρ_tf) + z), so the product is
+± the operator of [[lem:iii-a-3-3]] with x = ρ_zf, y = ρ_tf, one z_j for each (z, m′) ∈ E_(I,≤) (so z occurs
+k(E_I, z) + 1 times and Z is E_(I,≤) completed by [[eq:s11-index-set]], contained in E_I), (E, α) = ((0, 0), β_K − 1),
+which has no logarithms, and (F, β) = (E_ι − 1, β_ι − 1). Its hypotheses hold: β_K − 1 + Re z > β_ι − 1 by the choice of
+β_K; Re(w + z) ≠ β_ι − 1 for w ∈ ℕ₀, as β_ι − 1 ∉ Re π₁E_I and index sets are closed under adding ℕ₀; and on ρ ≥ ¼,
+where 1 − χ(2ρ) ≠ 0, the a priori condition is ℱu = ℱ(χ̃u), of order k + l ≥ k + l′ + |E_(I,≤)|. As (0, 0) + Z = Z,
+[[lem:iii-a-3-3]] gives the index sets ((0, 0), β_K − 1) at zf and (Z ∪̄ (E_ι − 1), β_ι − 1) ⊂ (E_I ∪̄ (E_ι − 1), β_ι −
+1) at tf. Near scf, in ρ_scf = ρ/|σ|, ρ_tf = |σ|, ρ∂_ρ − z = ρ_scf∂_(ρ_scf) − z, and [[lem:iii-a-1-2]] at scf, one factor
+at a time in decreasing order of Re z as in [[lem:iii-a-1-3]] (with min(β_I, β̃_ι) − ε ≠ Re z by the choice of ε; the a
+priori condition on ρ_scf ≥ ½ holds in the zf chart, and the tf index set found there is carried as the data at the
+other face), gives the index set (E_I, min(β_I, β̃_ι) − ε) there, the derivatives lost one factor at a time absorbed
+in l. This is [[eq:iii-a-4-3]].
+
+*Part (2), E_K = ∅.* Then [[eq:iii-a-4-4]] is the equality of the σ-Taylor coefficients of v^± of orders
+≤ ⌊β_K − 1⌋ (as ℓ_j = −1), and v^± ∈ H^(k+l,(β_scf,β̃_ι−1,((0,0),β_K−1))), so (2.26a) gives
+
+    u := ℱ⁻¹v ∈ H^(k+l−l₁,(β′_I,β̃_ι,β_K))_b(M),     β′_I := min(β_scf, β̃_ι) − ε,                        {#eq:iii-a-4-8}
+
+l₁ the loss of (2.26a). Let R_tf := Π_((z,m′)∈E_(ι,≤)) (σ∂_σ + χ(ρ)ρ∂_ρ − (z − 1)). By the converse in
+[[lem:iii-a-1-3]] at tf ([[lem:iii-a-4-1]] (5)), R_tf v^± ∈ H^(k+l−|E_(ι,≤)|,(β_scf,β_ι−1,((0,0),β_K−1)))_b, and the
+σ-Taylor coefficients of R_tf v^± still agree: near zf, σ∂_σ multiplies the coefficient of σ^j by j and χ(ρ)ρ∂_ρ acts
+on the coefficients in x, the same on both sides. By [[eq:iii-a-4-1]],
+ℱ⁻¹(R_tf v) = Π(−t_*∂_(t_*) − χ(r⁻¹)r∂_r − z)u, while R_tf v equals χ(σ)Σ_± 1_(±σ>0)R_tf v^± up to harmless terms; so
+(2.26a) gives
+
+    Π_((z,m′)∈E_(ι,≤)) (−t_*∂_(t_*) − χ(r⁻¹)r∂_r − z) u ∈ H^(k+l−|E_(ι,≤)|−l₁,(β′_I,β_ι,β_K))_b(M),
+
+and [[lem:iii-a-1-3]] at ι ([[lem:iii-a-4-1]] (2); β_ι ∉ Re π₁E_ι; a priori hypothesis [[eq:iii-a-4-8]]) gives
+[[eq:iii-a-4-5]] with E_K = ∅.
+
+*Part (2), general E_K.* Weakening the zf data to ((0, 0), β̃_K − 1) (the terms of E_K − 1, and their extended union
+with (0, 0), have real part ≥ min Re E_K − 1 > β̃_K − 1) and using [[eq:iii-a-4-4]] for j ≤ ⌊β̃_K − 1⌋, where it is
+the plain matching (as j + 1 < min Re E_K gives ℓ_j = −1), the case just proved gives
+u ∈ H^(k+l−l₂,(β′_I,(E_ι,β_ι),β̃_K))_b(M). Let R_zf := Π_((z,m′)∈E_(K,≤)) (σ∂_σ − (z − 1)). It annihilates the zf-terms
+of E_K − 1 below β_K − 1, so R_zf v^± ∈ H^(k+l−|E_(K,≤)|,(β_scf,(E_ι−1,β_ι−1),((0,0),β_K−1)))_b. Its coefficient of
+σ^j, j ≤ ⌊β_K − 1⌋, is a nonzero constant (the product of j − (z − 1) over the factors with z − 1 ≠ j, the same for
+both signs) times the coefficient of σ^j in (σ∂_σ − j)^(ℓ_j+1)v^±, so [[eq:iii-a-4-4]] is exactly the matching of the
+Taylor coefficients of R_zf v^±. By [[eq:iii-a-4-1]] and the case E_K = ∅ (harmless terms aside),
+
+    Π_((z,m′)∈E_(K,≤)) (−t_*∂_(t_*) − z) u = ℱ⁻¹(R_zf v) ∈ H^(k′,(β′_I,(E_ι,β_ι),β_K))_b(M),
+
+and [[lem:iii-a-1-3]] at K ([[lem:iii-a-4-1]] (1); β_K ∉ Re π₁E_K) gives the index set (E_K, β_K) at K. With l the sum
+of the losses met, this is [[eq:iii-a-4-5]]. ∎
+
+*Use in the following chapters.* [[lem:iii-a-1-3]] (testing) and [[lem:iii-a-1-2]] (integration) prove partial
+expansions at the faces of M and X_sc-b; [[lem:iii-a-1-4]] and [[lem:iii-a-1-5]] give normal-operator expansions at sf,
+where the indicial roots are those of [[sec:iii-a1-2-3]]; [[lem:iii-a-2-4]] and [[eq:iii-a-2-4]]–[[eq:iii-a-2-5]] give
+the spectral families and the normal operator at sf of the stationary operators of [[sec:iii-b-3]];
+[[lem:iii-a-3-1]]–[[lem:iii-a-3-3]] integrate the transport operators at ι and ℐ; and [[prop:iii-a-4-2]] passes
+between the time and the frequency sides. Every statement of [[sec:iii-a-1]]–[[sec:iii-a-4]] is in b-densities, so the
+numbers in the hypotheses (β_ι − 1, β_K − 1, [[eq:iii-a-4-2]]) are those of [Hin26]; the dimension enters only through
+[[prop:ii-g1-3-3]] and [[prop:ii-g1-3-5]], which hold in dimension 4 + 1.
+
+*Remarks on [Hin26, Sections 2.1–2.3].* Several statements above differ from their counterparts in [Hin26].
+(1) [Hin26, (2.29)] uses ℓ = k(E_K, j) in place of ℓ_j = k(E_K, j + 1) in [[eq:iii-a-4-4]]. The logarithmic terms of
+v^± at σ^j come from (j + 1, ·) ∈ E_K, and R_zf contains σ∂_σ − j exactly k(E_K, j + 1) + 1 times; already for
+E_K = (1, 0), where v^± carries a^± log|σ| at zf, the condition with ℓ = k(E_K, 0) = −1 at j = 0 asks v⁻ = v⁺ at zf,
+which is meaningless for a logarithmically divergent function, while the proof needs a⁻ = a⁺. (2) In the proof of
+[Hin26, Proposition 2.25 (2)] the zf-weight of R_zf v^± is β_K − 1, not β_K. (3) The commutator of σ∂_σ with χ(σ),
+supported in ½ ≤ |σ| ≤ 1, is harmless ([[eq:iii-a-4-1]]). (4) The constant in Cauchy's formula in the proof of
+[[lem:iii-a-1-5]] is ℓ!/(2πi). (5) [Hin26, Lemma 2.23] assumes α > β; the reduction to z = 0 needs α + Re z > β, and the
+condition is necessary: for α + Re z < c < β, u := x^(−z)χ(xy)(xy)^c solves (x∂_x − y∂_y + z)u = 0, satisfies the a
+priori condition with E = ∅, and is not in H^(k,α,β)_b, being y^c times a smooth nonvanishing function near y = 0,
+x = ½. In [[prop:iii-a-4-2]] the weight β_K is free in the case where the condition is used (the function vanishes near
+K) and is taken large enough. (6) For general E_I the proof of [Hin26, Proposition 2.25 (1)] integrates the factors of
+R_I one at a time; once z and z + 1 both occur in E_(I,≤), the extended union returns (z + 1, 1), a logarithm the stated
+index set need not contain. The stated set is right, and follows coefficient by coefficient in the zf variable
+([[lem:iii-a-3-3]]). (7) The integrations in [[lem:iii-a-1-3]] are carried out in decreasing order of real part, on
+which the result depends (for V(V − 1), integrating V first gives (1, 1)); and [[lem:iii-a-1-4]] and [[lem:iii-a-1-5]]
+reach the weight β only once the terms of F with real part β are solved first.

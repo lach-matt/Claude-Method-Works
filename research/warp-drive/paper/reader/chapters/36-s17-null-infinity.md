@@ -1150,3 +1150,188 @@ converge in H^(∞,c)_b by dominated convergence.
 The coefficients ±β⁻¹ of r̂^β and r̂⁰ in l_β have a pole at β = 0, while l_β itself, as a conormal function, does not:
 this is why the expansions below are written with l_β.
 
+### The expansion at r̂ = 0 {#sec:iii-g4-3}
+
+This section is [Hin26, Lemma 9.26 and Remarks 9.27–9.28] in dimension 4 + 1.
+
+*Hypotheses.* Let α₀ ∈ ℂ and ℓ_scf, ℓ_zf ∈ ℝ with
+
+    Re α₀ ∈ (1, 2 + ϵ_ind),     ℓ_scf < 3/2,     w₀ := ℓ_zf − Re α₀ + 2 ∈ (−ϵ_ind, ℓ_K^max),
+    ℓ_zf ∉ ℕ₀,     w₀ ≠ −μ                                                                              {#eq:iii-g4-3-1}
+
+for every root μ of L̂_b(0), with ϵ_ind of [[prop:iii-f1-2-3]] (f). No upper bound on ℓ_zf is needed
+([[lem:iii-g4-3-3]]). The condition ℓ_zf ∉ ℕ₀ keeps a Taylor term r̂^(2−α+ℓ_zf) of the smooth remainders below off the
+last contour of [[lem:iii-g4-3-4]]. A use at an integer ℓ_zf takes ℓ_zf − δ in its place, or first removes the term with
+j = ℓ_zf as a term of type (ii) of the proof of [[lem:iii-g4-3-4]]. For α near α₀ put w(α) := ℓ_zf − Re α + 2 and
+
+    β_μ(α) := 2 − α − {−μ},     z_j(α) := 2 − α + j,     j ∈ ℕ₀,                                         {#eq:iii-g4-3-2}
+
+so that z_(⌊−μ⌋)(α) + μ = β_μ(α).
+
+*Holomorphic families.* For a disc D around α₀, a family a(α) ∈ H^(∞,((0,0),ℓ))_b([0, 1)_r̂ × 𝕊³) is holomorphic if
+a = Σ_(j<ℓ) χ_ztf r̂^j a_j(α) + a′(α) with a_j holomorphic in C^∞(𝕊³) and a′ holomorphic in H^(∞,ℓ)_b. Here and below
+the spaces on [0, 1)_r̂ × 𝕊³ impose their conditions near r̂ = 0 only: u belongs if u ∈ H^∞_loc on (0, 1) × 𝕊³ and χu
+belongs to the b-space for one, hence every, χ ∈ C_c^∞([0, 1)) equal to 1 near 0; so functions smooth on (0, 1) and
+vanishing near 0 lie in all of them. Let 𝔉_D be the space of r̂^(2−α)a(α) with a such a family for ℓ = ℓ_zf.
+
+**Theorem {#thm:iii-g4-3-1}** ([Hin26, Lemma 9.26] in dimension 4 + 1.) Assume [[eq:iii-g4-3-1]]. Let
+f₀ ∈ H^(∞,ℓ_scf+1,((0,0),ℓ_zf))_b(tf) and, for α near α₀, u_α := N_tf⁻¹(ρ_ztf^(−α)f₀) by [[cor:iii-f1-3-4]], with
+β_sctf = ℓ_scf and β_ztf ∈ (−1, min(0, 2 − Re α₀, w₀)). Then u_α does not depend on the choice of β_ztf, is
+holomorphic in α with values in H^(∞,ℓ_scf−ε,β_ztf)_b(tf) for every ε > 0, and
+
+    u_α = χ_ztf(u_(α,0) + r̂^(2−α)u_(α,1)) + (1 − χ_ztf)u_(α,∞),                                         {#eq:iii-g4-3-3}
+
+where u_(α,∞) ∈ H^(∞,ℓ_scf−ε,0)_b(tf) and u_(α,1) ∈ H^(∞,0,((0,0),ℓ_zf))_b(tf) are holomorphic in α near α₀ (the
+latter in the sense above, its remainder at exactly ℓ_zf for every α), and
+
+    u_(α,0) = Σ_(μ∈𝒲(w₀)) Σ_τ l_(β_μ(α))(r̂) H_(μ,τ)(Y^((μ))_τ(α))                                       {#eq:iii-g4-3-4}
+
+with Y^((μ))_τ(α) ∈ 𝒴_τ holomorphic in α. Written out, with the terms with −μ ≥ w₀ omitted, [[eq:iii-g4-3-4]] is
+
+    u_(α,0) = l_(2−α)(r̂)(h̄^(≤3)_(s1)(±r̂, S^((−1))_1) + h̄^(≤2)_(v1)(±r̂, V^((−1))_1)
+                        + h̄^((0),≤2)_(s0)(±r̂, S^((0))_0) + h̄^((0),≤2)_(s2)(±r̂, S^((0))_2)
+                        + h̄^((−1),≤1)_(s3)(±r̂, S^((−1))_3) + h̄^((−1),≤1)_(v2)(±r̂, V^((−1))_2)
+                        + h̄^((−2))_(s4)(±r̂, S^((−2))_4) + h̄^((−2))_(v3)(±r̂, V^((−2))_3)
+                        + h̄^((−2))_(s2,ph)(±r̂, S^((−2))_2) + h̄^((−2))_(v2,ph)(±r̂, V^((−2))_2)
+                        + h̄^((−2))_(t2)(±r̂, T^((−2))_2))
+              + Σ_((l,l+j)) l_(2−α−{λ^Υ_(sl,l+j)})(r̂) h̄^((2−λ^Υ_(sl,l+j)),≤c)_(sl)(±r̂, S_(l,l+j)),    {#eq:iii-g4-3-5}
+
+the last sum over (l, l + j) ∈ {(0, 2), (1, 2), (1, 3), (2, 3), (2, 4), (3, 4)} with c = 2, 2, 1, 1, 0, 0; "ph" marks
+the physical states of [[prop:iii-f4-5-1]], and the other terms at 0, −1, −2 are the states of □^Υ and the boosts and
+rotations of the table of [[sec:iii-g2-1]].
+
+The proof uses three lemmas, with P = N₀ + r̂N₁ of [[eq:iii-g4-1-3]].
+
+**Lemma {#lem:iii-g4-3-2}** P maps 𝔉_D into 𝔉_D.
+
+*Proof.* P(r̂^z a) = r̂^z P_z a with P_z := r̂^(−z)Pr̂^z, a b-operator with smooth coefficients polynomial in z, and
+b-operators with smooth coefficients preserve H^(∞,((0,0),ℓ))_b with holomorphic dependence (property (F1) of
+[[sec:iii-a-1]]; the coefficient maps are polynomial in z = 2 − α). ∎
+
+**Lemma {#lem:iii-g4-3-3}** (The formal terms.) Let μ ∈ 𝒲(w₀), τ a type at which μ is a root and Y(α) holomorphic.
+Then P(l_(β_μ(α))H_(μ,τ)(Y(α))) ∈ 𝔉_D for a small disc D.
+
+*Proof.* P(l_βH) = l_βPH + [P, l_β]H. By [[lem:iii-g4-2-2]] (2), l_βPH = (∓i)^(c_μ+1)l_β r̂^(3+{−μ})ψ_(c_μ).
+
+*If Re α₀ ≤ 2,* then ℓ_zf = w₀ + Re α₀ − 2 ≤ w₀ < ℓ_K^max ≤ 3, and by [[lem:iii-g4-2-4]] (2) this term is holomorphic
+in H^(∞,c)_b for every c < 3 + {−μ} + min(0, Re β_μ) = min(3 + {−μ}, 5 − Re α). Both exceed w(α) for D small, as
+w(α) < 3 and 5 − Re α − w(α) = 3 − ℓ_zf > 0; so for D small this term is r̂^(2−α) times a holomorphic family in
+H^(∞,ℓ_zf+δ)_b, δ > 0.
+
+*If Re α₀ > 2,* then Re β_μ(α₀) = 2 − Re α₀ − {−μ} < 0, so β := β_μ is bounded away from 0 on a small D and
+l_β = β⁻¹(r̂^β − 1); as β + 3 + {−μ} = 5 − α,
+l_β r̂^(3+{−μ})ψ = β⁻¹r̂^(2−α)r̂³ψ − β⁻¹r̂^(2−α)r̂^(1+α+{−μ})ψ. The first is r̂^(2−α) times a holomorphic smooth term (a
+coefficient a₃ if ℓ_zf > 3, part of a′ if ℓ_zf < 3), the second r̂^(2−α) times a holomorphic family in H^(∞,ℓ_zf+δ)_b,
+as 1 + Re α + {−μ} − ℓ_zf = 3 + {−μ} − w(α) > 0; both lie in 𝔉_D. (This is the split of the proof of [Hin26, Lemma
+9.26], its Case 1.)
+
+By [[lem:iii-g4-2-4]] (1), [P, l_β] = r̂^β Q_β with Q_β a b-operator of order 1 polynomial in β, and
+H ∈ r̂^(−μ)C^∞([0, 1) × 𝕊³) is a polynomial in r̂; so [P, l_β]H ∈ r̂^(β_μ−μ)C^∞ = r̂^(2−α+⌊−μ⌋)C^∞, holomorphically,
+which lies in 𝔉_D as ⌊−μ⌋ ∈ ℕ₀. ∎
+
+**Lemma {#lem:iii-g4-3-4}** (One step.) Let b ∈ (−1, w₀), with b not the real part of a root −μ or of a z_j(α₀), and
+b + 1 ≠ w₀. Let R(α) ∈ H^(∞,b)_b([0, 1) × 𝕊³) be holomorphic on a disc D, with PR ∈ 𝔉_D. Let b̃ := min(w₀, b + 1),
+decreased slightly when b̃ < w₀ so that it is not the real part of a root or of a z_j(α₀). Then, after shrinking D,
+
+    R = Σ_(μ: b<−μ<b̃) Σ_τ l_(β_μ)H_(μ,τ)(Y_(μ,τ)) + U + R̃,                                             {#eq:iii-g4-3-6}
+
+with Y_(μ,τ)(α) holomorphic, U ∈ 𝔉_D, and R̃ holomorphic in H^(∞,b̃)_b. If b̃ = w₀, the remainder may be taken with
+r̂^(α−2)R̃ holomorphic in H^(∞,ℓ_zf)_b.
+
+*Proof.* We use the Mellin transform ℳ and the contour shift exactly as in the proof of [[lem:iii-a-1-4]], with the
+facts (M1)–(M2) on the Mellin transforms of b-Sobolev and polyhomogeneous functions and (E1)–(E2) on the inverse of an
+elliptic indicial family of [[sec:iii-a-1-1]] (P is elliptic, [[sec:i-c-4-1]]); all bounds there are locally uniform in
+the holomorphic parameter α. Fix χ ∈ C_c^∞([0, 1)) equal to 1 near 0; then (1 − χ)R vanishes near 0 and is smooth, and
+P(χR) = χPR + [P, χ]R ∈ 𝔉_D, so we may replace R by χR, supported in [0, 1), and put (1 − χ)R into R̃ at the end. Write
+PR = r̂^(2−α)(Σ_(j<ℓ_zf) χ_ztf r̂^j a_j + a′). Since ∫ r̂^(−ζ)χ_ztf dr̂/r̂ = ζ⁻¹∫ r̂^(−ζ)χ′_ztf dr̂ = −ζ⁻¹ + (entire),
+
+    ℳ(PR)(λ) = −Σ_j a_j(α)/(λ − z_j(α)) + G(λ),                                                       {#eq:iii-g4-3-7}
+
+with G holomorphic in {Re λ < w(α)} (G collects the entire parts and ℳ(r̂^(2−α)a′)(λ) = (ℳa′)(λ + α − 2)). From
+N₀R = PR − r̂N₁R and ℳ(r̂N₁R)(λ) = N₁(λ − 1)ℳR(λ − 1), with N₁(λ) = ±i(−λ − 3/2 − S̄) and ℳR holomorphic in
+{Re λ < b} (M1),
+
+    ℳR(λ) = N₀(λ)⁻¹Φ(λ),     Φ(λ) := ℳ(PR)(λ) − N₁(λ − 1)ℳR(λ − 1),                                   {#eq:iii-g4-3-8}
+
+continues ℳR meromorphically to {Re λ < b̃}. In the strip {b < Re λ < b̃}, of width at most 1, the poles are at the
+roots −μ in it ([[lem:iii-g4-1-1]] (2)) and at the at most one z_j(α) in it, all simple; for D small none is on the
+boundary lines. Moving the contour from {Re λ = b − δ} to {Re λ = b̃},
+
+    R = −Σ_p res_(λ=p)(r̂^λℳR(λ)) + R̃,     R̃ := (1/(2πi)) ∫_(Re λ=b̃) r̂^λℳR(λ) dλ ∈ H^(∞,b̃)_b,       {#eq:iii-g4-3-9}
+
+holomorphic in α, as the integrand is and the bounds are locally uniform.
+
+*The pairing.* If z_j(α₀) = −μ for a root, then 2 − α₀ = −μ − j ∈ (−ϵ_ind, 1); as {−μ} is 0 or in
+[ϵ_ind, 1 − ϵ_ind] ([[eq:iii-f1-2-2]]), this forces j = ⌊−μ⌋ and β_μ(α₀) = 0. Indeed, with x := Re(2 − α), for
+j ≥ ⌊−μ⌋ + 1 one has Re(z_j(α) + μ) = x + j − ⌊−μ⌋ − {−μ} ≥ x + 1 − {−μ} ≥ x + ϵ_ind, and for j ≤ ⌊−μ⌋ − 1 one has
+Re(z_j(α) + μ) ≤ x − 1, so |z_j(α) + μ| ≥ min(1 − x, x + ϵ_ind) > 0 for j ≠ ⌊−μ⌋ when x ∈ (−ϵ_ind, 1). So at most one
+root of the strip, −μ_*, can meet the pole z := z_(⌊−μ_*⌋) as α varies, and the other roots and z_j stay apart on D
+small.
+
+*The residues.* (i) At a root −μ apart from the z_j: −res = −r̂^(−μ)Π_μΦ(−μ), a kernel term
+r̂^(−μ) Σ_τ φ^((μ,τ))_0(Y_τ) with Y_τ(α) holomorphic ([[lem:iii-g4-1-1]] (2) and the isomorphism Y ↦ φ₀(Y)). (ii) At a
+z_j apart from the roots: −res = r̂^(z_j)N₀(z_j)⁻¹a_j, of the form r̂^(2−α+j)c(α) with c holomorphic in C^∞(𝕊³)
+(N₀(z_j) is invertible and elliptic for α ∈ D). (iii) At the pair: near −μ_* write N₀(λ)⁻¹ = Π/(λ + μ_*) + Ĩ(λ) and
+Φ(λ) = −a/(λ − z) + Φ̃(λ), with Ĩ, Φ̃ holomorphic and a = a_(⌊−μ_*⌋). By partial fractions,
+Πa/((λ + μ_*)(λ − z)) = (Πa/(z + μ_*))(1/(λ − z) − 1/(λ + μ_*)), and the residues of r̂^λN₀⁻¹Φ at −μ_* and z sum to
+−Πa(r̂^z − r̂^(−μ_*))/(z + μ_*) + r̂^(−μ_*)ΠΦ̃(−μ_*) − r̂^zĨ(z)a. By [[lem:iii-g4-2-4]] (4) and z + μ_* = β_(μ_*), the
+contribution to R is
+
+    Πa r̂^(−μ_*) l_(β_(μ_*))(r̂) − r̂^(−μ_*)ΠΦ̃(−μ_*) + r̂^zĨ(z)a,                                      {#eq:iii-g4-3-10}
+
+each term holomorphic in α ∈ D, also where β_(μ_*) = 0 (z = −μ_*, a double pole, giving log r̂). For z ≠ −μ_*,
+[[eq:iii-g4-3-10]] is the sum of (i) and (ii), so it holds on all of D.
+
+*Normal form.* A kernel term is converted by [[lem:iii-g4-2-4]] (4) with z = β_μ − μ:
+r̂^(−μ)φ₀(Y) = l_(β_μ)r̂^(−μ)φ₀(−β_μY) + r̂^(2−α+⌊−μ⌋)φ₀(Y), the second term of the form (ii). So
+R = Σ_μ l_(β_μ)r̂^(−μ)Σ_τ φ₀(Y_(μ,τ)) + U₀ + R̃ with U₀ a finite sum of terms (ii) and Y_(μ,τ) holomorphic. Now replace
+r̂^(−μ)φ₀ by H_(μ,τ): H_(μ,τ) − r̂^(−μ)φ₀ = Σ_(1≤i≤c_μ) (∓ir̂)^i r̂^(−μ)φ_i. If μ = μ_*, l_β r̂^(i−μ) lies in
+H^(∞,c)_b for c < min(i − μ, i + Re z) ([[lem:iii-g4-2-4]] (2)), and −μ, Re z > b give c up to b + 1 ≥ b̃ with room;
+otherwise β_μ stays away from 0 on D and l_β r̂^(i−μ) = β⁻¹(r̂^(2−α+⌊−μ⌋+i) − r̂^(i−μ)), a term (ii) plus an element of
+H^(∞,c)_b with c < i − μ, and i − μ > b + 1 ≥ b̃. This gives [[eq:iii-g4-3-6]] on (0, 1), with U the sum of U₀ and
+these parts of type (ii), in 𝔉_D.
+
+*The last step.* If b̃ = w₀, then b + 1 > w₀ (as b + 1 ≥ w₀ and b + 1 ≠ w₀), so Φ, and with it ℳR, is meromorphic on
+{Re λ < b + 1}, which contains {Re λ ≤ w(α)} for D small. Shift the contour instead to {Re λ = w(α)}, which depends on
+α: for D small no root lies near it (w₀ ≠ −μ), and the z_j with j < ℓ_zf have Re z_j ≤ w(α) − δ_ℓ,
+δ_ℓ := ℓ_zf − max{j ∈ ℕ₀ : j < ℓ_zf} > 0. With λ = ζ + 2 − α,
+r̂^(α−2)R̃ = (1/(2πi)) ∫_(Re ζ=ℓ_zf) r̂^ζ ℳR(ζ + 2 − α) dζ, an integral over a fixed line of an integrand holomorphic in
+α, with values in H^(∞,ℓ_zf)_b by (M1). ∎
+
+*Proof of [[thm:iii-g4-3-1]].* *The hypotheses of [[cor:iii-f1-3-4]].* At sctf, ρ_ztf ∼ 1 and ρ_ztf^(−α)f₀ has weight
+ℓ_scf + 1 = β_sctf + 1. At ztf, f₀ ∈ H^(∞,c)_b for c < min(0, ℓ_zf), so ρ_ztf^(−α)f₀ has every weight below
+min(−Re α, ℓ_zf − Re α), which exceeds β_ztf − 2 for α near α₀; and β_ztf ∈ [−1, 0). The map α ↦ ρ_ztf^(−α)f₀ is
+holomorphic into that domain, so u_α is holomorphic. Two choices of β_ztf give two solutions in the space with the
+smaller weight, on which N_tf is injective ([[cor:iii-f1-3-4]]); so they agree.
+
+*Away from ztf.* (1 − χ_ztf)u_α = (1 − χ_ztf)u_(α,∞) with u_(α,∞) := χ′u_α, χ′ equal to 1 on supp(1 − χ_ztf) and 0
+near ztf; it is in H^(∞,ℓ_scf−ε,0)_b, holomorphically.
+
+*Near ztf.* Let v := u_α on (0, 1)_r̂, in H^(∞,b₀)_b([0, 1) × 𝕊³), b₀ := β_ztf. Then
+Pv = r̂²ρ_ztf^(−α)f₀ = r̂^(2−α)(1 + r̂)^α f₀ ∈ 𝔉_D. Put R₀ := v, T₀ := U₀ := 0. Inductively, if v = T_i + U_i + R_i with
+T_i a sum of terms l_(β_μ)H_(μ,τ)(Y) over the roots with −μ < b_i, U_i ∈ 𝔉_D and R_i ∈ H^(∞,b_i)_b, then
+PR_i ∈ 𝔉_D by [[lem:iii-g4-3-2]]–[[lem:iii-g4-3-3]], and [[lem:iii-g4-3-4]] (with b_i decreased slightly if it is a
+forbidden real part or if b_i + 1 = w₀, H^(∞,b)_b ⊂ H^(∞,b−δ)_b) gives the data at b_(i+1) := b̃_i. Each step raises the
+weight by almost 1, so after at most five steps b_i = w₀, the last step taken as in the last paragraph of the proof of
+[[lem:iii-g4-3-4]]. As b₀ < 0 and no root has −μ ∈ [−1, 0) ([[prop:iii-f1-2-3]] (a)), the roots met are exactly those
+with 0 ≤ −μ < w₀, that is 𝒲(w₀), each in one step. On supp χ_ztf ⊂ {r̂ < 1}, u_α = v; so [[eq:iii-g4-3-3]] holds with
+u_(α,0) := Σ l_(β_μ)H_(μ,τ)(Y) and u_(α,1) := r̂^(α−2)(U + R) near ztf. [[eq:iii-g4-3-5]] is [[eq:iii-g4-3-4]] written
+out over the rows of the table of [[sec:iii-g2-1]] with c_μ of [[eq:iii-g4-1-4]]; the multiplicities are one per type,
+as each root is simple. ∎
+
+**Remark {#rem:iii-g4-3-5}** ([Hin26, Remark 9.27] in dimension 4 + 1.) (1) Expanding l_β, the coefficients of
+r̂^(z_(⌊−μ⌋)) and r̂^(−μ) in u_(α,0) are ±β_μ(α)⁻¹φ₀(Y): meromorphic, with simple poles where β_μ(α) = 0, that is at
+2 − α = 0 (the integer roots) and at 2 − α = λ^Υ_(sl,l+j) − (l + j) for the six class roots of [[eq:iii-g4-3-5]]. These
+are exactly the α at which an exponent 2 − α + j of the right-hand side meets a root −μ of N₀ (the pairing in the proof
+of [[lem:iii-g4-3-4]]), and there u_(α,0) has log r̂ terms. (2) For other α one may replace l_(β_μ)H by −β_μ⁻¹H, the term
+β_μ⁻¹r̂^(β_μ)H = β_μ⁻¹r̂^(2−α+⌊−μ⌋)(…) being absorbed into r̂^(2−α)u_(α,1); this is not regular as β_μ → 0.
+(3) χ_ztf u_(α,0) is holomorphic in α with values in H^(∞,c)_b near ztf for every c < min(0, 2 − Re α₀): by
+[[lem:iii-g4-2-4]] (2), l_(β_μ)H_(μ,τ) has every weight below
+−μ + min(0, Re β_μ) = min(−μ, 2 − Re α + ⌊−μ⌋) ≥ min(0, 2 − Re α).
+
+**Remark {#rem:iii-g4-3-6}** ([Hin26, Remark 9.28] in dimension 4 + 1.) For α₀ = 2 the right-hand side f₀ may have a
+non-trivial
+smooth expansion at r̂ = 0, unlike the right-hand sides of [[thm:iii-g2-3-1]], which have none at R = 0. Such f₀ arise as
+restrictions to tf of Fourier transforms of functions with good decay at K⁺, which is high regularity, not vanishing,
+at zf ([[prop:iii-a-4-2]], which is [Hin26, Proposition 2.25] in dimension 4 + 1).
+
