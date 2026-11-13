@@ -1016,3 +1016,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   enters only through env ≤ c_e in lem:lambda0-point (e) (the clause about 1 + c_e²/18 ≤ 1.0974028 for thm:layer's
   threshold was unused: chapter 84 leaves C_Φ unevaluated); G named as the polarization of sec:waves. Optional at
   integration: eq:envelope-c's upper end 1.3241035 now has no use. Chapter 86 (λ0) can now be written.
+- S26 third reading (R3-S26): all R2 items and both addenda correct (k₂ = 2·153 + 2 = 308 recounted; interpolation at
+  s₀ = 8, b = 9, a = k + 2 with exponents (k−6)/(k−5), 1/(k−5); [L, χ] structure confirmed; sign test on a 5D
+  Tangherlini slice: residual 6·10⁻⁴² with −k̃, 0.88 with the old +k̃). Minor: thm:iii-c2-3-1 must assume the small
+  solution of thm:iii-c1-2-1. Chapter 48: delete "(γ̃, κ̃) there; " at 128 and "κ̃ there; " at 133 (S29 third round).
+  Chapter 46: lem:s27-translated-exterior (c) two more uses of φ_S; thm:iv3-2-1 needs lem:s26-interpolation on Ω^♮
+  (sent to the S27 third fix). Third fix running.

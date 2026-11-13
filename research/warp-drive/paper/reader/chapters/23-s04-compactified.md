@@ -312,7 +312,7 @@ A = Σ a_(jkα)(ρ_+, ρ_K, ω)(Rτ∂_τ)^j (R∂_R)^k ∂_ω^α and freeze ρ_
 The pseudodifferential calculus used in this chapter and the following ones is that of [Hin26d] (pseudodifferential
 operators on manifolds with scaled bounded geometry; the pages cited are those of its arXiv version 1). We use the
 following results of that paper (and, in (S6), one of [Hin26c]), as stated there; they hold on smooth manifolds
-of every dimension n. The notation inside the list is that of [Hin26d]. Later chapters cite them as (S1)–(S14).
+of every dimension n. The notation inside the list is that of [Hin26d]. Later chapters cite them as (S1)–(S15).
 
 (S1) [Hin26d, Definition 1.1, p. 2; Definition 1.3 and (1.6), pp. 5–6.] A *b.g. structure* on an n-manifold M without
 boundary is a collection ℬ = {(U_α, φ_α)} of charts φ_α : U_α → (−2, 2)^n of finite multiplicity, with

@@ -1072,8 +1072,8 @@ characteristic speeds satisfy c² = 2G/(3R²) > 0. At G = 1 + μ/R² these are t
 (a). The slice Σ_τ0 of the two-dust background is such a slice, with G = e^ψ (2 − e^ψ f) ≥ e^ψ > 0.
 
 *Proof.* The proof of [[lem:constraints-evolution]] (a) is written for γ = ν² dr² + Π_AB (dω^A + σ^A dr)(dω^B + σ^B dr)
-in general. Here ν² = G, σ^A = 0 and Π = R² γ̂, so the second fundamental form of the spheres is 𝒜 = (1/(2ν)) ∂_R Π =
-(R/√G) γ̂ and H = tr_Π 𝒜 = 3/(R √G). The coefficient of ∂_R α is (γ^(RR))^(3/2) H = G^(−3/2) · 3/(R √G) = 3/(R G²), and
+in general. Here ν² = G, the shift σ^A vanishes and Π = R² γ̂, so the second fundamental form of the spheres is
+(1/(2ν)) ∂_R Π = (R/√G) γ̂, with trace H = 3/(R √G) with respect to Π. The coefficient of ∂_R α is (γ^(RR))^(3/2) H = G^(−3/2) · 3/(R √G) = 3/(R G²), and
 the angular second derivatives of α are −γ^(RR) Π^(AB) ∂_A∂_B α = −(G R²)⁻¹ Δ_(S³) α; κ enters ρ only through −|κ_U|² +
 (tr κ_U)², algebraically. The principal part of J there, at γ^(RA) = 0 and α = 0, is J_R ≅ 6 ∂_R ϖ − 2 Π^(AB) ∂_A q_B and
 J_A ≅ 4 ∂_A ϖ − 2 γ^(RR) ∂_R q_A, and [[eq:data-symmetrizer]] at γ^(RA) = 0 is 𝒮 = diag(1, −½ Π⁻¹), with 𝒮A0 = diag(6,
@@ -1084,28 +1084,69 @@ is (2e^ψ − e^(2ψ) f) dR² + R² dΩ₃²; and 2 − e^ψ f ≥ 1, as e^ψ �
 So the slice need not be a Vaidya slice: H > 0 holds on every round slice on which R is a coordinate.
 
 **Lemma {#lem:two-dust-stage-data}** (The gauge hierarchy and the stage data, two families.) (a) [[lem:gauge-hierarchy]]
-holds for the approximant of [[lem:two-dust-stages]], with D^(m)(X, θ1, θ2) two-phase profiles and (F1)–(F2) there for
-all (θ1, θ2).
+holds for the approximant of [[lem:two-dust-stages]] with N stages, with D^(m)(X, θ1, θ2) two-phase profiles, (F1)–(F2)
+there for all (θ1, θ2), and its conclusion ∂_θ D^(N−1) = 0 read as: D^(N−1) does not depend on (θ1, θ2).
 
 (b) For every N there are stage data for [[thm:two-dust-approximant]] satisfying (F1) and (F2) of
 [[lem:gauge-hierarchy]], all vanishing on Σ_τ0 ∩ {R < r1}; "the stage data of [[lem:two-dust-stage-data]]" means those
 constructed in the proof. The mixed harmonics of every profile vanish off the diamond Q×, and in particular on a
 neighbourhood of Σ_τ0.
 
-*Proof.* (a) In two-scale form the principal part ½ g^(ab) ∂_a∂_b of B_g ([[eq:data-bianchi]]) acts on λ^m [Y] at order
-λ^(m−2) through ½ Σ_(𝔧,𝔨) g⁻¹(du_𝔧, du_𝔨) F_𝔧 F_𝔨 Y; with g⁻¹(du_𝔨, du_𝔨) = O(λ²) and g⁻¹(du_in, du_out) = g0^(uv) +
-O(λ), it multiplies the mixed harmonic (n1, n2) of Y by e^(−2σ) n1 n2 + O(λ), which does not vanish, and its pure
-harmonics by O(λ²). At order λ^(m−1) it acts on the pure harmonics of θ_𝔨 as the transport (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨) F_𝔨
-plus a bounded multiplication M, as in the proof of [[lem:gauge-hierarchy]]. Induct on m with the hypothesis: D^(j) = 0
-for j < m, D^(m) does not depend on (θ1, θ2), and the mixed harmonics of D^(m+1) vanish; it holds at m = 0, by
-[[lem:two-dust-stage-zero]] (f) and the order −1 of [[eq:data-bianchi]], whose only term is the mixed one in D^(1). At
-order m, the mean of [[eq:data-bianchi]] is the linear wave equation for ⟨D^(m)⟩ of the proof of
-[[lem:gauge-hierarchy]], its pure harmonics of θ_𝔨 are the transport along ℓ_𝔨 for Z_𝔨 := F_𝔨 Π_𝔨 D^(m+1), and its mixed
-harmonics are algebraic and give the mixed harmonics of D^(m+2) in terms of ⟨D^(m)⟩ and the Z_𝔨; every other term
-vanishes by the hypothesis or contains ℛ^(i), i ≤ m + 1 ≤ N − 1. The data of ⟨D^(m)⟩, ∂_τ⟨D^(m)⟩ and the Z_𝔨 are zero
-by (F1)–(F2), so the system, which closes as the stage equations do ([[lem:two-dust-stages]], both generators reaching
-Σ_τ0 inside Ω₂), gives ⟨D^(m)⟩ = 0 and Z_𝔨 = 0, and then the mixed harmonics of D^(m+2) vanish: the hypothesis at m + 1.
-The rest is the proof of [[lem:gauge-hierarchy]].
+*Proof.* (a) Let G be the profile of [[eq:two-dust-ansatz]], with the phases u_in, u_out, and write D(g_app) =
+[Σ_(m≥0) λ^m D^(m)] in this two-scale form. As in [[sec:data-approximant]], [[eq:data-bianchi]] holds order by order for
+the profiles, its right side at order j involving ℛ^(i), i ≤ j + 1, only; these vanish for i ≤ N − 1
+([[lem:two-dust-stages]]). In two-scale form the principal part ½ g^(ab) ∂_a∂_b of B_g ([[eq:data-bianchi]]) acts on a
+term λ^m [Y] of D as
+
+    λ^(m−2) ½ Σ_(𝔧,𝔨) G⁻¹(du_𝔧, du_𝔨) F_𝔧 F_𝔨 Y + λ^(m−1) Σ_𝔨 (G⁻¹(du_𝔨, ∂_X) + ½ □_G u_𝔨) F_𝔨 Y + λ^m ½ G^(ab) ∂_a∂_b Y,
+
+and its other terms, of first order in D with bounded coefficients, as λ^(m−1) Σ_𝔨 M_𝔨 F_𝔨 Y + O(λ^m), M_𝔨 bounded
+multiplications by profiles. Here G⁻¹(du_𝔨, ∂_X) = ℓ_𝔨·∂_X + O(λ) and □_G u_𝔨 = □_(g0) ϕ_𝔨 + O(λ), the part
+Σ_𝔧 dϕ_𝔧 ⊗ F_𝔧 W_𝔧 of order one of ∂G dropping out because each W_𝔧 is traceless with W_𝔧(ℓ_𝔧, ·) = 0. The contractions
+of the phases are
+
+    G⁻¹(du_in, du_in) = −λ e^(−4σ) χ_out(X, θ2) + O(λ²),      G⁻¹(du_out, du_out) = −λ e^(−4σ) χ_in(X, θ1) + O(λ²),
+    G⁻¹(du_in, du_out) = g0^(uv) + λ c + O(λ²),      g0^(uv) = −e^(−2σ),
+
+with c a bounded profile. Indeed G⁻¹ = ḡ⁻¹ − λ ḡ⁻¹ W ḡ⁻¹ + O(λ²), so G⁻¹(du_in, du_in) = ḡ⁻¹(du_in, du_in) −
+λ W(ℓ_in, ℓ_in) + O(λ²); here ḡ⁻¹(du_in, du_in) = O(λ^(N+1)) by (b′) of [[eq:two-dust-stage-system]], W_in(ℓ_in, ·) =
+0, W_TT^out(ℓ_in, ·) = 0 as W_TT^out is angular, and χ_out (du ⊗ du)(ℓ_in, ℓ_in) = χ_out g0⁻¹(du, dv)² = e^(−4σ)
+χ_out; likewise for out. This is the two-scale form of (L4) of [[lem:two-dust-facts]]: the other family's term χ_out du
+⊗ du is not annihilated by ℓ_in, so G⁻¹(du_in, du_in) is of order λ, not λ². Hence:
+
+(α) at order λ^(m−2) the principal part acts on Y as g0^(uv) F1F2 Y, the coefficients g0⁻¹(dϕ_𝔨, dϕ_𝔨) of F_𝔨²
+vanishing: it multiplies the mixed harmonic (n1, n2) of Y by e^(−2σ) n1 n2, which does not vanish, and annihilates the
+mean and the pure harmonics of Y;
+
+(β) at order λ^(m−1), the principal part and the other terms of B_g act on Y as
+
+    Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + M_𝔨) F_𝔨 Y + c F1F2 Y − ½ e^(−4σ) χ_out F1² Y − ½ e^(−4σ) χ_in F2² Y.
+
+Every term of (β) contains a phase derivative of Y, so (β) vanishes on a Y that does not depend on (θ1, θ2). On a pure
+harmonic Y of θ1, c F1F2 Y = 0 and F2² Y = 0, and −½ e^(−4σ) χ_out F1² Y is the product of a pure harmonic of θ1 with
+the function χ_out of θ2, of zero mean, so it has mixed harmonics only; likewise on a pure harmonic of θ2.
+
+Induct on m = 0, …, N − 2 with the hypothesis (H_m): D^(j) = 0 for j < m, D^(m) does not depend on (θ1, θ2), and the
+mixed harmonics of D^(m+1) vanish. (H_0) holds: D^(0) = 0 by [[lem:two-dust-stage-zero]] (f), and at order −1 the only
+term of [[eq:data-bianchi]] is, by (α), g0^(uv) F1F2 D^(1), its right side involving ℛ^(−1) and ℛ^(0) only; so the mixed
+harmonics of D^(1) vanish. Assume (H_m). At order m the terms of the left side of [[eq:data-bianchi]] are: from D^(m),
+only terms without phase derivatives, by (β), namely ½ □̃ ⟨D^(m)⟩ and terms of first order in ⟨D^(m)⟩ with bounded
+profiles as coefficients; from D^(m+1), whose mixed harmonics vanish, by (β), Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + M_𝔨) Ξ_𝔨
+with Ξ_𝔨 := F_𝔨 Π_𝔨 D^(m+1), together with −½ e^(−4σ) χ_out F1 Ξ_in − ½ e^(−4σ) χ_in F2 Ξ_out, which has mixed harmonics
+only; and from D^(m+2), by (α), g0^(uv) F1F2 D^(m+2), which has mixed harmonics only. Terms from D^(j), j ≥ m + 3, are
+of higher order. So the mean of the order-m equation is the linear wave equation for ⟨D^(m)⟩ of the proof of
+[[lem:gauge-hierarchy]], with the forcing Σ_𝔨 ⟨M_𝔨 Ξ_𝔨⟩; its pure harmonics of θ_𝔨 are the transport
+
+    (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨) Ξ_𝔨 + Π_𝔨 Σ_𝔧 M_𝔧 Ξ_𝔧 = (first order in ⟨D^(m)⟩)
+
+along ℓ_𝔨, the two transports coupled through bounded multiplications; and its mixed harmonics are algebraic and give
+the mixed harmonics of D^(m+2), divided by e^(−2σ) n1 n2, in terms of ⟨D^(m)⟩, the Ξ_𝔨 and their X-derivatives, the
+terms −½ e^(−4σ) χ_out F1 Ξ_in and −½ e^(−4σ) χ_in F2 Ξ_out among them. The data of ⟨D^(m)⟩, ∂_τ⟨D^(m)⟩ and the Ξ_𝔨 are
+zero by (F1)–(F2), so the system for (⟨D^(m)⟩, Ξ_in, Ξ_out), which closes as the stage equations do
+([[lem:two-dust-stages]], both generators reaching Σ_τ0 inside Ω₂), gives ⟨D^(m)⟩ = 0 and Ξ_𝔨 = 0. Then D^(m) = 0, the
+pure harmonics of D^(m+1) vanish, so that D^(m+1) does not depend on (θ1, θ2), and the mixed harmonics of D^(m+2)
+vanish: (H_(m+1)). At m = N − 2 this gives D^(m) = 0 for m ≤ N − 2 and D^(N−1) independent of (θ1, θ2). The rest is the
+proof of [[lem:gauge-hierarchy]].
 
 (b) Supports. The harmonics with n1 ≠ 0 of W_in, and those with n2 ≠ 0 of W_out, vanish where v ∉ (v_start, v_end),
 respectively u ∉ (u1, u2). For every later profile the same holds by induction over the stages: a harmonic with n1 ≠ 0
@@ -1127,7 +1168,7 @@ stages' data and both families' waves do, so on R < r1. ∎
 
 *Proof of [[thm:two-dust-data]].* The proof in [[sec:data-proof]] applies, with [[lem:two-dust-stage-data]] for
 [[lem:gauge-hierarchy]] and [[lem:stage-data]], and with [[lem:constraints-evolution]] (a) at the data of g0 replaced by
-[[lem:two-dust-slice]]. Its parts (b) and (c) hold as stated, with the same proofs: they use of the approximant's data
+[[lem:two-dust-slice]]. [[lem:constraints-evolution]] (b) and (c) hold as stated, with the same proofs: they use of the approximant's data
 only that on Σ_τ0 every phase is a function of R, so that phase derivatives are radial (here v = τ0 + R and u is a
 function of R on the slice, [[prop:two-dust-background]] (a)); that the parts W_TT^𝔨 of the waves have only angular
 components and are traceless on the spheres, and the other parts are multiples of dϕ_𝔨 ⊗ dϕ_𝔨, which on Σ_τ0 is a
