@@ -69,7 +69,7 @@ model objects of [[lem:iii-i15-1-1]] are uniform in b: the forward problem of [[
 in (b, S, h) (property (P1) there); the ι⁺- and tf-normal operators and the indicial roots, which do
 not depend on b (P2); the zero energy states and the 1-form towers at b, real and smooth in b, with index sets
 independent of b (P3); the augmented low energy theory at b (P4); and the time translation, Killing for every g_b
-(P5). Following (P6) there, the rows (the cut-off pure gauge tensors m_ν, among them the motions of [[sec:iii-i8-2]])
+(P5). Following [[lem:s25-p6]], the rows (the cut-off pure gauge tensors m_ν, among them the motions of [[sec:iii-i8-2]])
 are built at the base point's b, while the correction terms and their counterterms are the tensors built from b₀, as
 in [Hin26, p. 275, Definitions 11.55–11.56]. At the reference point (0, p⃗_b), p⃗_b := (0, b − b₀, 0), the background
 in 𝒞 interpolates between g_(b₀) and g_b, so the parameter identities, exact at b₀, acquire an error of size
@@ -83,7 +83,7 @@ last being the identity [[eq:iii-i15-1-1]]. At b = b₀ the errors vanish and p�
 used at b are their statements at b, [[prop:iii-i2-5-1-b]] (the first item of [[thm:iii-i15-3-1]]); [[ch:s20]] is
 written at b. The results of [[sec:iii-i15-1]] cited here are proved from this chapter's statements at b₀ and from
 [[lem:iii-i7-1-3]] (a), [[lem:iii-i9-2-2]] (a)–(e) and [[lem:iii-i9-2-6]] (e) at b, whose proofs use from that section
-only (P3), (P5) and the choice of (P6); so these citations are not circular.
+only (P3), (P5) and the choice of [[lem:s25-p6]]; so these citations are not circular.
 
 *The inner radius.* The chapter works on Ω_* = cl_M{t^♭_* ≥ 1} with the b-Sobolev spaces of [[ch:s09]] and the
 forward solutions of [[ch:s19]] and [[ch:s20]], which hold with the inner radius r₀ = r_♭ of [[def:s12-radii]] as a
@@ -266,7 +266,7 @@ and, with the counterterms of [Hin26, Remark 11.27] as in [[def:iii-i4-2-1]],
 are linear. By [[eq:s21-conv]], [δ_(g_(b₀),E_Υ)G_(g_(b₀)), χ_K]k = −ι_(g_(b₀)⁻¹dχ_K) G_(g_(b₀)) k.
 
 [Hin26]'s h⁽⁰⁾_s1 has ω⁽⁰⁾_(b₀,s1) alone; Θw⁰(S) is the translation of [[eq:iii-i7-1-3]], as Θw(S) is the boost's in
-[[def:iii-i4-2-1]]. These tensors are built at b₀ and serve at every base point ([[lem:iii-i15-1-1]] (P6)).
+[[def:iii-i4-2-1]]. These tensors are built at b₀ and serve at every base point ([[lem:s25-p6]]).
 
 **Lemma {#lem:iii-i7-2-2}** ([Hin26, Lemma 11.38] in dimension 4 + 1.) The tensors of [[def:iii-i7-2-1]] are smooth,
 supported in 𝒞 (so disjoint from ℐ⁺ and K⁺ and from {t^♭_* < 10}), with seminorms O(|ḃ|), resp. O(|S|), and near
@@ -441,7 +441,7 @@ the K⁺-order 5 of ϑ^((0,1))_s1; in dimension 4 + 1 no splitting is made, the 
 
 [[lem:iii-i7-2-4]] is exact at the reference point (0, 0) only. At (0, p⃗_b), p⃗_b := (0, b − b₀, 0), the background
 is G := g_(b₀,b,0) = (1 − χ_K)g_(b₀) + χ_K g_b ([[eq:iii-i7-1-3]]), while the corrections of the first and second
-kind and their counterterms, among them h⁽⁰⁾(ḃ) = −dχ_K ⊗_s ω̇_(b₀)(ḃ), are built at b₀ ([[lem:iii-i15-1-1]] (P6)).
+kind and their counterterms, among them h⁽⁰⁾(ḃ) = −dχ_K ⊗_s ω̇_(b₀)(ḃ), are built at b₀ ([[lem:s25-p6]]).
 So each parameter identity acquires an error, as the boost identity does in [[lem:iii-i15-2-7]]. The maps of the
 elimination in [[sec:iii-i7-4]], and the base step of [[prop:iii-i8-4-1]], are then inverted at b by a direct bound
 ([[prop:iii-i15-2-12]]) rather than by continuity from (0, 0).
@@ -867,7 +867,7 @@ With D_(g′)Ric ∈ ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, δ*_(g_0,E_C) �
 [Hin26, (11.153)] has the K⁺-order λ + 4 − ε and the index set (λ + 2, k) + ((0, 0) ∪ ℰ_ind ∪ ℰ_+ ∪ ℰ̃′_++); its
 (11.154) serves its device u_Σ, which is not needed here.
 
-*At a base point with parameter b.* The rows are built at b ([[lem:iii-i15-1-1]] (P6)): there m_(λ,k)(S) denotes
+*At a base point with parameter b.* The rows are built at b ([[lem:s25-p6]]): there m_(λ,k)(S) denotes
 χ_K δ*_(g_b) ω^(≤4)_b(a_(λ,k)S), built as in [[def:iii-i8-2-1]] from the 1-forms ω̆^i_b(S) := ω̆^((0),i)_(b,s1)(S) of
 [[prop:iii-d3-3-1]] (2) at b, while the corrections h^((λ−1,k))_s1 and their counterterms stay those built at b₀.
 With ν := (s1, λ, k) we write m^(b₀)_ν(S) := χ_K δ*_(g_(b₀)) ω^(≤4)(a_(λ,k)S), h^(b₀)_ν := h^((λ−1,k))_s1 and
@@ -1500,7 +1500,7 @@ L_(h,p⃗).
 *Proof.* As [[lem:iii-i7-2-5]] and [[lem:iii-i8-2-5]]: the new terms h_ν(W_ν) are supported in 𝒞, whose closure meets
 ∂M only in a compact subset of (ι⁺)°, and lie in 𝒜^((λ,k)+ℱ) ⊂ 𝒜^(ℰ_+) there, by [[lem:iii-i9-2-2]] (b) and (H3). ∎
 
-*At a base point with parameter b.* The rows and towers are built at b ([[lem:iii-i15-1-1]] (P6)): there
+*At a base point with parameter b.* The rows and towers are built at b ([[lem:s25-p6]]): there
 m_ν(W) := χ_K δ*_(g_b)ω^b_ν(W), with ω^b_ν(W) := Σ_(i=0)^(K_τ) a_ν^((i))(t_*)ω̆^i_(τ,b)(W) built as in
 [[def:iii-i9-2-1]] from the 1-forms ω̆^i_(τ,b)(W) of [[prop:iii-d3-3-1]] at b, while the corrections and the
 counterterms in P_4 stay those built at b₀. We write ω^(b₀)_ν := ω_ν, m^(b₀)_ν, h^(b₀)_ν, ϑ^(b₀)_ν and ϑ^(b₀)_(ν,♯) for

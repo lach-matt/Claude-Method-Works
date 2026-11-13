@@ -3,11 +3,11 @@
 This chapter proves the linear stability of the five-dimensional Schwarzschild–Tangherlini metric g_(b₀),
 b₀ = (m₀, 0), in the gauge of the nonlinear problem of [[ch:s27]], and compares that gauge with every other. Every
 solution (γ̇, k̇) of the linearised constraint equations in the data class of [[thm:iii-k-4-3]] has a linearised vacuum
-development ġ in the generalised wave gauge of [[prop:iii-k-4-2]]. Up to a linearised boost, ġ induces (γ̇, k̇), and
-where χ_K = 1 it differs from a linearised Myers–Perry metric ∂_b g_b(ḃ) by terms of K⁺-order (α − 2)−: on spatially
-compact sets it is O(t_*^(−2−ε)) for each ε < ε_K, with α chosen for ε ([[thm:viii-2-2]]). In the symmetry class of
-[[thm:settling]], ḃ is a change of mass alone and the boost vanishes ([[cor:viii-2-3]]). This is [[thm:settling]] one
-order down.
+development ġ in the generalised wave gauge of [[prop:iii-k-4-2]]. Up to a linearised boost and translation, ġ induces
+(γ̇, k̇), and where χ_K = 1 it differs from a linearised Myers–Perry metric ∂_b g_b(ḃ) by terms of K⁺-order (α − 2)−:
+on spatially compact sets it is O(t_*^(−2−ε)) for each ε < ε_K, with α chosen for ε ([[thm:viii-2-2]]). In the
+symmetry class of [[thm:settling]], ḃ is a change of mass alone and the boost and the translation vanish
+([[cor:viii-2-3]]). This is [[thm:settling]] one order down.
 
 No new linear theory is needed. The linear solution is the derivative at zero data of the equation P_5(Ψ(U)) = 0 of
 [[ch:s27]], solved directly: the linear Cauchy problem near Σ^IVP ([[thm:iv2-2-4]], [[thm:iv3-2-1]] and the proof of

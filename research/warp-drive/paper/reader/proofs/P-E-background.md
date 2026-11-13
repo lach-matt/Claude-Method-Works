@@ -122,11 +122,11 @@ and κ > 0, K^l_l < 0 exactly when N_κ < 0 and Ef < 1. In the packet (u1 ≤ u 
 
 and in region III, N_κ = (μ3E/R³)(Ef − 3) − ψ_III′(v̂).
 
-Proof. Since E > 0 and Ef < 2, 2/E − f = (2 − Ef)/E > 0. By [[pending:lem-racz-split-formulas]], κ = −N_κ/(E√(2/E −
-f)(2 − Ef)) and K^l_l = 3(Ef − 1)/(ER√(2/E − f)), and E²(2/E − f) = E(2 − Ef); this gives the product, and since E,
-R, √(2/E − f) and 2 − Ef are positive, κ > 0 exactly when N_κ < 0 and K^l_l < 0 exactly when Ef < 1. In the packet
-substitute [[eq:bg-inputs]] with Ef = 2aJ and μ′ = −(2/3)Bλ: the
-terms without B give (μE/R³)(Ef − 3) − (aK/J + a′ − μE/R³), using 2μJa/(R³f) = μE/R³; the terms in B are B times
+Proof. Since E > 0 and Ef < 2, 2/E − f = (2 − Ef)/E > 0. By [[pending:lem-racz-split-formulas]],
+κ = −N_κ/(E√(2/E − f)(2 − Ef)) and K^l_l = 3(Ef − 1)/(ER√(2/E − f)), and E²(2/E − f) = E(2 − Ef); this gives the
+product, and since E, R, √(2/E − f) and 2 − Ef are positive, κ > 0 exactly when N_κ < 0 and K^l_l < 0 exactly when
+Ef < 1. In the packet substitute [[eq:bg-inputs]] with Ef = 2aJ and μ′ = −(2/3)Bλ: the terms without B give
+(μE/R³)(Ef − 3) − (aK/J + a′ − μE/R³), using 2μJa/(R³f) = μE/R³; the terms in B are B times
 (4λ²/(3R²f²))[(Ef)² − (5/2)Ef + 1 − Ef((3/4)Ef − 3/2)] = Bλ²(2 − Ef)²/(3R²f²). In region III, ψ_R = f_v̂ = 0 and
 f_R = 2μ3/R³. ∎
 
@@ -245,8 +245,8 @@ both largest values occur on [7.17, 7.2].
 (i) R̂(u2) = 1.5193579823987569 exactly. (ii) The bound (iv) at u = u2, with the exact values R̂(u2), R̂′(u2) =
 −0.60795759341336… and Ŝ(u2) and the last row's E₀, E₁, I, gives |μ3 − μ̃3| ≤ 4.068 × 10⁻⁷; and R(u2)² ≥ 2.308 > 0.823.
 
-(iii) By the first paragraph, S ≥ Ŝ − I/2 ≥ Ŝ(u2) − 1.82 × 10⁻⁸ > 0.6111 on [u1, u2], so λ = 2S/R² > 0 there. Since
-B ≥ 0, [[eq:bg-nprime]] gives μ′ = −(2/3)Bλ ≤ 0, so μ is nonincreasing and 3/2 = μ(u1) ≥ μ ≥ μ3 > 0 by (ii), where
+(iii) Since Ŝ ≥ Ŝ(u2) and |S − Ŝ| ≤ 1.82 × 10⁻⁸, S ≥ Ŝ(u2) − 1.82 × 10⁻⁸ > 0.6111 on [u1, u2], so λ = 2S/R² > 0 there.
+Since B ≥ 0, [[eq:bg-nprime]] gives μ′ = −(2/3)Bλ ≤ 0, so μ is nonincreasing and 3/2 = μ(u1) ≥ μ ≥ μ3 > 0 by (ii), where
 μ(u1) = 2.321² − 4(0.47)(2.067575) = 3/2. Hence λ′ = −μ/R³ < 0, so λ is decreasing on [u1, u2] and λ ≥ λ(u2) =
 2S(u2)/R(u2)² ≥ 2(Ŝ(u2) − I/2)/(R̂(u2) + E₀)² ≥ 0.529533. ∎
 

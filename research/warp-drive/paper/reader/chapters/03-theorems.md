@@ -128,11 +128,12 @@ on Ω; then Ric(g) = 0. ∎
 Σ_τ0 be those of [[thm:data]], which satisfy the constraints exactly, carry D = 0, equal the seed's data on
 r < v_start − τ0 and are within C λ^K of g_app's in the norm of item 2. [[thm:uniform-existence]] gives, for λ ≤ λ0,
 the solution g_λ of Ric^H(g) = 0 on Ω with these data, unique among C² solutions with these data and |g − g0| ≤ ε1 on
-Ω, together with the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. The solution g_λ is
-smooth, because [[thm:uniform-existence]] gives a smooth solution for smooth data and the data of [[thm:data]] are
-smooth. Take λ0 so small that C λ0 ≤ ε1; then |g_λ − g0| ≤ ε1 < s0, so g_λ is Lorentzian by [[lem:lorentz-margin]].
-Hence [[lem:gauge-propagation]] applies and gives D(g_λ) = 0 and Ric(g_λ) = 0. By [[lem:domain]] (f), D_T ∩ {τ ≥ τ0}
-lies in Ω.
+Ω, together with the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. Taking λ0 so small
+that C λ0 ≤ ε1, g_λ is within ε1 of g0, hence Lorentzian by [[lem:lorentz-margin]] (ε1 < s0), and it is smooth by
+[[thm:uniform-existence]], the data of [[thm:data]] being smooth; so [[lem:gauge-propagation]] gives D(g_λ) = 0 and
+Ric(g_λ) = 0. λ0 and C depend only on (l5, μ0, A, env, T, τ0, K) and a, through Ω, the profiles, C_R and C_D, the
+constants of (E3) ([[def:approximant]]) and of (E4) ([[thm:uniform-existence]]). By [[lem:domain]] (f),
+D_T ∩ {τ ≥ τ0} lies in Ω.
 
 Symmetry. Let ι be an element of G = O(2) × O(2), acting on x by an orthogonal matrix and fixing τ. It preserves r,
 v, η and dv, hence g0, Ω and Σ_τ0. Ric^H and D are built from g and g0 alone, so ι*g_λ solves Ric^H(ι*g_λ) = 0; its

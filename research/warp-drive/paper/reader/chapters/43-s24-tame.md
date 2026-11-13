@@ -178,7 +178,7 @@ smooth in p⃗; so the proof of [[thm:iii-i-5-3]] gives ‖P − P_0‖_((0;k+d)
 (b) (*Background coefficients.*) u ↦ (L^(g,g_0) − L_b)u, u ↦ R_q u, Δ_q, the sources f^S_(h,p⃗), f^b_(h,p⃗),
 f^s1_(h,p⃗), f^ν_(h,p⃗), r^ν_(h,p⃗), L_b h_rem(q) and the remainder L̃ of [[lem:iii-i1-1-1]], between the weighted spaces
 of [[eq:iii-i-4-2]], [[lem:iii-i9-2-6]] and [[lem:iii-i14-2-2]]–[[lem:iii-i14-2-4]]; and the errors E^ν_(h,p⃗) of
-(P6) in [[lem:iii-i15-1-1]], bounded by C|b − b_0||W| in a fixed seminorm. Each is a b-differential operator of order
+[[lem:s25-p6]], bounded by C|b − b_0||W| in a fixed seminorm. Each is a b-differential operator of order
 at most 2 whose coefficients are polynomial in the background, g⁻¹ and their derivatives (or such a coefficient applied
 to a fixed section); by [[cor:ii-a-9-7]] and [[lem:ii-a-9-5]], with [[lem:ii-g-4-1]] for the nonlinear functions of the
 background,
@@ -245,22 +245,22 @@ its own proof, read at the order k:
   states: loss 0.
 
 *Proof.* (a)–(c) are proved in their statements; the continuity in b of the constants is that of the objects at b
-([[lem:iii-i15-1-1]] (P1)–(P4) and (P6)), and the bound on E^ν is (P6) there. (d) and (e) are the cited statements, each
-of which is stated at every order with the loss independent of it, and with constants uniform in b ([[lem:iii-i15-1-1]]
-(P1), (P4)). (f) That ℓ depends only on the orders and the weights is read off from the proof of [[cor:ii-g1-4-5]]:
-ℓ_4 = ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉ is the loss of [[prop:ii-g1-4-4]], with ℓ_1, ℓ_2 and ν from [[lem:ii-g1-4-3]], and
-ℓ_3, ℓ_5 are the losses of [[prop:ii-g1-3-5]] (2) and [[prop:ii-g1-3-3]] (2). For δ: [[cor:iii-h2-1-2]] gives, for every
-k, an inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every b ∈ ℬ̄_1; its proof bounds γ_+ by the
-bound [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by ν_min/(2 sup_Γ q^Γ), where β_0, ν_min and q^Γ
-do not depend on the inner product and are continuous and positive on ℬ̄_1. So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The constants
-of [[cor:ii-g1-4-5]] at the order k, with the inner product h_(η_k,b) of [[cor:iii-h2-1-2]], are uniform in b ∈ ℬ̄_1.
-Indeed [[lem:ii-g1-4-3]], [[prop:ii-g1-3-3]] and [[prop:ii-g1-3-5]] do not involve the operator, and [[prop:ii-g1-4-4]]
-takes its constants and C_0 from [[thm:i-b-1-3]] (3) and (5), whose constants are uniform in b by [[sec:i-b-9]]:
-(H5)–(H8) hold continuously in b ((B1) in [[sec:iii-h2-0]]), and h_(η_k,b) is smooth in b ([[prop:iii-h2-1-1]]). This is
-(ii) of the proof of [[thm:iii-h2-2-1]] ([[lem:iii-i15-1-1]] (P4)). The remark after [[prop:ii-g1-4-4]] treats only
-γ_+ ≤ 0 and is not used. (g) Each statement is a finite composition of maps of (b)–(e) and of the two face inverses
-cited, at a fixed number of steps; [[lem:iii-j2-1-2]] (e)–(f) applies, β entering only through the families of (b) (in
-[[prop:iii-i1-2-1]] and [[prop:iii-i1-3-1]], through L̃). ∎
+([[lem:iii-i15-1-1]] (P1)–(P4) and [[lem:s25-p6]]), and the bound on E^ν is [[lem:s25-p6]]. (d) and (e) are the cited
+statements, each of which is stated at every order with the loss independent of it, and with constants uniform in b
+([[lem:iii-i15-1-1]] (P1), (P4)). (f) That ℓ depends only on the orders and the weights is read off from the proof of
+[[cor:ii-g1-4-5]]: ℓ_4 = ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉ is the loss of [[prop:ii-g1-4-4]], with ℓ_1, ℓ_2 and ν from
+[[lem:ii-g1-4-3]], and ℓ_3, ℓ_5 are the losses of [[prop:ii-g1-3-5]] (2) and [[prop:ii-g1-3-3]] (2). For δ:
+[[cor:iii-h2-1-2]] gives, for every k, an inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every b
+∈ ℬ̄_1; its proof bounds γ_+ by the bound [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by ν_min/(2
+sup_Γ q^Γ), where β_0, ν_min and q^Γ do not depend on the inner product and are continuous and positive on ℬ̄_1. So (k +
+1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The constants of [[cor:ii-g1-4-5]] at the order k, with the inner product h_(η_k,b) of
+[[cor:iii-h2-1-2]], are uniform in b ∈ ℬ̄_1. Indeed [[lem:ii-g1-4-3]], [[prop:ii-g1-3-3]] and [[prop:ii-g1-3-5]] do not
+involve the operator, and [[prop:ii-g1-4-4]] takes its constants and C_0 from [[thm:i-b-1-3]] (3) and (5), whose
+constants are uniform in b by [[sec:i-b-9]]: (H5)–(H8) hold continuously in b ((B1) in [[sec:iii-h2-0]]), and h_(η_k,b)
+is smooth in b ([[prop:iii-h2-1-1]]). This is (ii) of the proof of [[thm:iii-h2-2-1]] ([[lem:iii-i15-1-1]] (P4)). The
+remark after [[prop:ii-g1-4-4]] treats only γ_+ ≤ 0 and is not used. (g) Each statement is a finite composition of maps
+of (b)–(e) and of the two face inverses cited, at a fixed number of steps; [[lem:iii-j2-1-2]] (e)–(f) applies, β entering
+only through the families of (b) (in [[prop:iii-i1-2-1]] and [[prop:iii-i1-3-1]], through L̃). ∎
 
 **Remark {#rem:iii-j2-2-2}** (Choices that depend on the order.) In [[lem:iii-j2-2-1]] (e)–(f) two choices depend on k:
 the radius c_k of the low-energy cut-off, and the trapping data. Both enter only decompositions u = u_hi + u_reg +
@@ -365,7 +365,7 @@ is used in its form at b, named in the entry where it differs from the form at b
 - [[thm:iii-i14-3-1]]: FWD (L_(h+h_rem(q),p⃗)), BG (R_q, Δ_q), FIN, and the entries of [[prop:iii-i8-4-1]] and of
   [[ch:s22]]; levels β_0 < ⋯ < β_K, their number fixed by α and α_1.
 - [[prop:iii-i15-2-5]] ([[thm:iii-i14-3-1]] at a rotating b): as [[thm:iii-i14-3-1]], and FIN (A_b, of finite rank,
-  [[lem:iii-j2-1-2]] (c)), BG (E^ν, (P6) of [[lem:iii-i15-1-1]]); as there.
+  [[lem:iii-j2-1-2]] (c)), BG (E^ν, [[lem:s25-p6]]); as there.
 - [[thm:iii-j1-2-1]]: [[thm:iii-i14-3-1]], or at a rotating b [[prop:iii-i15-2-5]], at Φ(U); MOD
   ([[prop:iii-g3-3-7]]; the t_*^(−λ_0)-terms); BG (D_UΦ); the exponents of Λ_*, finitely many.
 
@@ -417,7 +417,7 @@ This is the estimate of [Hin26, Theorem 12.8, p. 312].
 [[eq:iii-j2-4-1]] has the form [[eq:iii-j2-1-1]] in the background U. At a rotating black hole parameter b,
 [[lem:iii-j1-1-1]] holds for the output of [[prop:iii-i15-2-5]]: the indicial roots are those at b_0 ([[lem:iii-i15-1-1]]
 (P2)), [[prop:iii-h-3-2]] holds at b ((P4) there), and neither A_b, which reads only ι⁺-data and level-1 tf-data
-([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor ((P6) there), depends on η_2. Steps 1–3, which hold at b with the rows
+([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor ([[lem:s25-p6]]), depends on η_2. Steps 1–3, which hold at b with the rows
 built at b_0 ([[sec:s23-base-points]] (3)), subtract D_UΦ(U′_•) for finitely many U′_•: the finite-dimensional data of
 Step 1 (bounded by a low norm of (h′, p⃗′, q′), [[lem:iii-j2-2-1]] (c)); the data of Case B of Step 2,
 f_(λ_0) ∈ Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which are not finite-dimensional and are mapped by the right
