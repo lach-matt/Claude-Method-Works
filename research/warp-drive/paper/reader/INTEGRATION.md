@@ -493,3 +493,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   ε_g := min(ε_Υ, ε_ind) is defined once in S21 under def:s21-eps-g; S22 and later cite it.
 - ε sweep still to do (confirmed chapters): S20, S23 and S24 use ε_ind as the gain that S17 now gives as ε_Υ; they need
   ε_g where they use the gain. One small fix round with a confirming check, after S21 and S22 settle.
+- S17 confirmed (R3-S17). Nits: L1069 and L1433 "min Re ℰ_ind ≥ ε_Υ" should cite S13 and prop:iii-f4-5-1; L590,
+  L731-732, L931 treat λ_♯ as a pole without λ_♯ < ℓ_I; the tensor index m beside the mass m (L1768, L1879,
+  prop:np-10-64); two masses called m at L1792-1794. S20:1269 still calls the gain ε_ind (ε sweep).

@@ -44,7 +44,7 @@ Re λ − 1 lie in [λ_♯ − 1, 1); they occur only for α_K > λ_♯ + 1 > 5/
 below 5/2 ([[prop:iii-i1-3-1]]). So the index set of the motions is fixed in advance and closed under the operations
 that occur ([[eq:iii-i8-1-1]]), the device u_Σ of [Hin26, (11.180)–(11.183)] and [Hin26, Remark 11.52] are not needed,
 and each level of the induction is a finite-dimensional map close to the identity. The zero energy analysis is that of
-[[prop:iii-i6-2-1]], with the improvement at the transition face iterated once α_K ≥ 2 + ε_g (ε_g of [[sec:iii-i7-1]]),
+[[prop:iii-i6-2-1]], with the improvement at the transition face iterated once α_K ≥ 2 + ε_g (ε_g of [[def:s21-eps-g]]),
 as in [Hin26, Step 1.6 of the proof of Proposition 11.51]. The gauge modifications use the generalised gauge 1-forms to
 order 4 of [[prop:iii-d3-3-1]], so that they decay to K⁺-order Re λ + 4.
 
@@ -146,13 +146,17 @@ continuous basis ġ_b(ḃ), h_b(S) (the proof of [[prop:iii-h-3-2]] at b, [[lem:
     2 + ℰ_ind ⊂ ℰ_+,                                                                                    {#eq:iii-i7-1-2}
 
 which is [[eq:iii-i4-2-4]] for this union, so 𝒢 ⊂ ℰ_+ by [[eq:iii-i-1-3]]. The weight ℓ_I is fixed as in
-[[eq:iii-i5-1-2]], and, as in [[sec:iii-i4-4]], ℓ_I ≤ a_I (so a_I ≥ 2). Two gaps of indicial roots enter, and they are
-different numbers: ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the indicial roots of L̂_b(0), with which the
-hypotheses of [[prop:iii-g4-5-1]] are stated; ε_Υ is the constant of [[sec:iii-d2-1]], fixed by the indicial roots of
-□^Υ_b, by which the remainder [[eq:iii-g4-5-1]] of [[prop:iii-g4-5-1]] gains over the forcing at the transition face.
-Where a step uses both, we use
+[[eq:iii-i5-1-2]], and, as in [[sec:iii-i4-4]], ℓ_I ≤ a_I (so a_I ≥ 2).
 
-    ε_g := min(ε_Υ, ε_ind).
+**Definition {#def:s21-eps-g}** (The two gaps.) Two gaps of indicial roots enter, and they are different numbers:
+ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the indicial roots of L̂_b(0), with which the hypotheses of
+[[prop:iii-g4-5-1]] are stated; ε_Υ is the constant of [[sec:iii-d2-1]], fixed by the indicial roots of □^Υ_b, by which
+the remainder [[eq:iii-g4-5-1]] of [[prop:iii-g4-5-1]] gains over the forcing at the transition face. Put
+
+    ε_g := min(ε_Υ, ε_ind),
+
+the lower bound used where a step uses both. As 0 < ε_Υ < 1/2 ([[sec:iii-d2-1]]: every integer in [−10, 10] lies in
+the set that fixes ε_Υ), 0 < ε_g < 1/2.
 
 The rate α_K ∈ (2, min(a_K, 2 + ε_g, 5/2)) lies in the range of [[prop:iii-i6-2-1]], and
 
@@ -937,7 +941,7 @@ O(|b − b₀||S|). ∎
 ### The expansion at one level {#sec:iii-i8-3}
 
 **Lemma {#lem:iii-i8-3-1}** (The base level.) Let α_0 ∈ (2, min(a_K, 2 + ε_g, 5/2)) be admissible (ε_g as in
-[[sec:iii-i7-1]]). Then [[prop:iii-i6-2-1]], [[lem:iii-i7-4-1]], [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]],
+[[def:s21-eps-g]]). Then [[prop:iii-i6-2-1]], [[lem:iii-i7-4-1]], [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]],
 [[cor:iii-i7-4-6]] and [[prop:iii-i15-2-12]] hold with 𝒴(α_0) in place of 𝒴, at the base points of
 [[lem:iii-i8-2-5]], with the conclusions at K⁺-weight α_0 − 2 − ε for every ε > 0.
 
@@ -1039,8 +1043,7 @@ r(v′_i) = O(|σ|^(α_i−2)), and Σ^((i)) = O(|σ|^(α_i−1)). Put
 
     f̂^((i+1)) := f̂^((i)) − σL̂_b(σ)v_i ∈ H^(∞,(5/2−ε,τ_(i+1),α−2−ε′))_b,     τ_(i+1) := τ_i + ε_g − ε.
 
-The increments ε_g − ε are positive for ε < ε_g and below 1/2 (ε_g ≤ ε_Υ, and ε_Υ is less than half the distance
-between consecutive integers, all of which lie in the set of [[sec:iii-d2-1]] that fixes it), so after finitely many
+The increments ε_g − ε are positive for ε < ε_g and below 1/2 ([[def:s21-eps-g]]), so after finitely many
 steps, i_0 say, τ_(i_0) ∈ (α − ε′, α − ε′ + 1) (i_0 = 0 if τ_0 > α − ε′, which is the case α_K < 2 + ε_g of
 [[prop:iii-i6-2-1]]). Then [[lem:iii-i2-4-2]] (at b, [[prop:iii-i2-5-1-b]]) with β_scf := 3/2 − 2ε, β_tf := τ_(i_0) − 2,
 β_zf := α − 2 − ε′, β_tf − β_zf ∈ (0, 1), gives (û_6, b̂_6, Ŝ_6) := L̃_b(σ)⁻¹(f̂^((i_0)), 0, 0),
@@ -1248,7 +1251,7 @@ with the enlarged set, which only strengthens them. Put ℱ := (0, 0) ∪ ℰ_in
 which lies in (0, 1/4), as 0 < e_Υ < 1 and 0 < γ_Υ < 1/4 ([[eq:iii-c-1-1]]). Let ε_ind be the constant of
 [[eq:iii-f1-2-2]], with which the hypotheses of [[prop:iii-g4-5-1]] are stated: (0, ε_ind] lies in the indicial gap of
 L̂_b(0), and the real part of every non-integer root of modulus at most 50 has distance at least ε_ind from ℤ; ε_Υ and
-ε_g = min(ε_Υ, ε_ind) are those of [[sec:iii-i7-1]]. Fix constants
+ε_g = min(ε_Υ, ε_ind) are those of [[def:s21-eps-g]]. Fix constants
 
     0 < ε_K < ε_+ < min(δ_♯, ε_ind),      w_+ := 5 + ε_+,                                                {#eq:iii-i9-1-1}
 

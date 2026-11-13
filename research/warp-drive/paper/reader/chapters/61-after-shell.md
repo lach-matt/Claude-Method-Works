@@ -663,8 +663,8 @@ class that agrees with the examples, and not only for the glued one.
 
 #### The reach of the settling theorem {#sec:after-shell-theorem}
 
-**Theorem {#thm:after-shell-reach}** (Which perturbations [[thm:settling]] (ii) reaches.) Fix ℓ0 ∈ (3, 4), d_1, λ ≤ λ1,
-the data of (i) and δ as in [[thm:settling]], and let a > 3/2.
+**Theorem {#thm:after-shell-reach}** (Which perturbations [[thm:settling]] (ii) reaches.) Fix ℓ0 ∈ (3, 4),
+ε < ε_K, ε_m > 0, d_1, λ ≤ λ1, the data of (i) and δ as in [[thm:settling]], and let a > 3/2.
 
 (i) If a > ℓ0, every perturbation of order a and size Ξ < δ/(C_1(1 + (a − ℓ0)^(−1/2))) lies in the class with
 ‖·‖_(d_1) < δ. So [[thm:settling]] (ii) applies to it directly, and (S) and (S_∞) hold with the perturbation itself as

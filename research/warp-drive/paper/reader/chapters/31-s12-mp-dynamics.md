@@ -502,15 +502,23 @@ b near b₀, uniformly in b as (H5) asks. (H6), (K1) and the first clause of (K4
 Kerr–Schild form ([[lem:vi-b-1-1]]); it is proved by an exact identity. The rest is continuity on compact sets, after a
 diffeomorphism that fixes the horizon ([[lem:vi-b-1-2]]).
 
-For b = (m, A) ∈ ℬ_♭ let s, p, r_A, P, 𝖬, ℓ_A, F_A and H_(m,A) be as in [[lem:iii-b-3-1]] and [[def:iii-b-3-2]].
-In a frame in which A = aJ₁₂ + bJ₃₄ (here b is the second spin, not the parameter), P(r) = (r² + a²)(r² + b²), since
-s = a² + b² and p² = a²b² ([[lem:iii-b-3-1]]). Let r₊(b) be the largest positive root of
+For b = (m, A) ∈ ℬ let s, p, r_A, Π, 𝖬, ℓ_A, F_A and H_(m,A) be as in [[sec:iii-b-3-1]], [[lem:iii-b-3-1]] and
+[[def:iii-b-3-2]]. In a frame in which A = aJ₁₂ + bJ₃₄ (here b is the second spin, not the parameter),
+Π(r) = (r² + a²)(r² + b²), since s = a² + b² and p² = a²b² ([[sec:iii-b-3-1]]). Let r₊(b) be the largest positive
+root of
 
-    Δ_b(r) := P(r) − m r² = 0.                                                                             {#eq:vi-b-1-1}
+    Δ_b(r) := Π(r) − m r² = 0.                                                                             {#eq:vi-b-1-1}
 
-At b₀, Δ_(b₀) = r²(r² − m₀), so r₊(b₀) = m₀^(1/2) = r_h, and ∂_rΔ_(b₀)(r_h) = 4r_h³ − 2m₀r_h = 2m₀^(3/2) ≠ 0. So r₊
-is a simple root, smooth in b near b₀ by the implicit function theorem, as P depends on A only through s and p², which
-are smooth functions of A ([[lem:iii-b-3-1]]); the other roots of Δ_b stay near 0 and −r_h.
+With u := r², Δ_b = u² + (s − m)u + p², whose discriminant is
+(m − s)² − 4p² = (m − (|a| + |b|)²)(m − (|a| − |b|)²) ≥ (m − (|a| + |b|)²)² > 0 for every b ∈ ℬ, as
+(|a| + |b|)² ≤ 4‖A‖² < m₀/100 < m there. So Δ_b has, as a polynomial in u, two simple real roots u₋ < u₊, with
+u₊ + u₋ = m − s > 0 and u₊u₋ = p² ≥ 0. Hence r₊ = u₊^(1/2) is a simple zero of Δ_b; with r₋ := u₋^(1/2),
+
+    Δ_b > 0 on (r₊, ∞),     Δ_b < 0 on (r₋, r₊),     r₋ < ‖A‖ < r_♭/4,
+
+the last because u₊ ≥ ½(m − s) and m − s > 2‖A‖², so that u₋ = p²/u₊ ≤ 2‖A‖⁴/(m − s) < ‖A‖² (if A ≠ 0; u₋ = 0 if
+p = 0). r₊ is smooth in b ∈ ℬ, as u₊ is a smooth function of (m, s, p²) where the discriminant is positive, and s and
+p² are polynomials in A. At b₀, Δ_(b₀) = r²(r² − m₀), r₊(b₀) = m₀^(1/2) = r_h and r₋(b₀) = 0.
 
 **Lemma {#lem:s12-spheroidal}** (The spheroidal form of the radius.) Let A ∈ 𝔰𝔬(4), |x|² > s, r := r_A(x),
 N := (r²I − A²)^(1/2), which is symmetric, positive definite and commutes with A, and ω := N⁻¹x. Then |ω| = 1, and
@@ -546,12 +554,13 @@ since AN⁻⁴ is antisymmetric (A is antisymmetric and commutes with the symmet
 (d) In the frame, A² = −diag(a², a², b², b²), N = diag((r² + a²)^(1/2), (r² + a²)^(1/2), (r² + b²)^(1/2),
 (r² + b²)^(1/2)), s = a² + b² and ωᵀA²ω = −a² sin²ϑ − b² cos²ϑ. ∎
 
-**Lemma {#lem:vi-b-1-1}** (The horizon is null.) For b = (m, A) ∈ ℬ_♭, on {|x|² > s},
+**Lemma {#lem:vi-b-1-1}** (The horizon is null.) For b = (m, A) ∈ ℬ, on {|x|² > s},
 
     (g^KS_(m,A))⁻¹(dr_A, dr_A) = Δ_b(r_A) / (r_A² ϱ²),                                                     {#eq:vi-b-1-2}
 
 with ϱ² of [[eq:s12-varrho]]. Hence ℋ_b := {r_A = r₊(b)} is a smooth null hypersurface invariant under ∂_t. dr_A is
-spacelike just outside it and timelike just inside, where Δ_b < 0.
+spacelike on {r_A > r₊} and timelike on {r₋ < r_A < r₊}, where Δ_b < 0; the latter set contains
+{|x| ≥ ½r_♭, r_A < r₊}.
 
 *Proof.* By [[lem:iii-b-3-3]] (d), (g^KS_(m,A))⁻¹ = η⁻¹ − H_(m,A) k_A^♯ ⊗ k_A^♯ with k_A^♯ = −∂_t + ℓ_A^♯, ℓ_A^♯ the
 Euclidean dual of ℓ_A. As r_A does not depend on t, dr_A(k_A^♯) = ℓ_A(∇r_A) = 1 by [[lem:s12-spheroidal]] (c), and
@@ -561,7 +570,8 @@ Euclidean dual of ℓ_A. As r_A does not depend on t, dr_A(k_A^♯) = ℓ_A(∇r
 
 dr_A ≠ 0 everywhere by [[lem:s12-spheroidal]] (c), so ℋ_b is a smooth hypersurface; its conormal dr_A is null there, as
 Δ_b(r₊) = 0, so ℋ_b is null. It is invariant under ∂_t, as g^KS_(m,A) has t-independent components and r_A does not
-depend on t. Δ_b has a simple zero at its largest root r₊, so Δ_b > 0 on (r₊, ∞) and Δ_b < 0 just below r₊. ∎
+depend on t. The signs of Δ_b on (r₊, ∞) and on (r₋, r₊) are those found after [[eq:vi-b-1-1]], and ϱ² > 0. On
+{|x| ≥ ½r_♭}, r_A² > 3‖A‖² > r₋² by [[lem:s11-ks-domain]]. ∎
 
 [[eq:vi-b-1-2]] is the component g^(rr) of the Myers–Perry metric [MP86] in Boyer–Lindquist coordinates ([ER08]),
 written in the Kerr–Schild coordinates of [[ch:s11]]; the radius r_A of the Kerr–Schild form is the Boyer–Lindquist

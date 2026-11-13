@@ -664,10 +664,11 @@ h_(S,S⁰) there, forward from Σ^IVP and backward to {t_IVP = −ν}, small in 
 H^(k+k′) for some k′, and smooth in (S, S⁰) as its data are (the derivatives in (S, S⁰) solve the linearised equation,
 (L) of [[sec:s27-local]]).
 
-*Slab.* On 𝒮 the solution is the restriction of that of [[thm:iv3-2-2]], posed on Ω^♮ = Ω_(ext,r_1) ∪ 𝒮 from
-Σ^IVP_(r_1) and Σ_c, with the data that 𝒦 gives on Σ_c, which are small in H^(N_ex) when (γ̃, k̃) is small in H^(d_0),
-as are the data on Σ^IVP_(r_1): the continuation near the interior of ℐ⁺ to {t^♭_* = T̂ + 3}, small with the orders
-(⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ ([[cor:iv3-2-3]]). Here χ^♮_0 = 1, as t_IVP ≥ r/4 on 𝒮 ([[lem:s27-cover]] (d)) and so χ_0 = 1.
+*Slab.* On 𝒮 the solution is the restriction of that of [[thm:iv3-2-2]], posed on Ω^♮ = Ω_(ext,r_1) ∪ 𝒮 from Σ^IVP_(r_1)
+and Σ_c, with the data that 𝒦 gives on Σ_c; these data and those on Σ^IVP_(r_1) are small in H^(N_ex) when (γ̃, k̃) is
+small in H^(d_0), by the choice of d_0. It is the continuation near the interior of ℐ⁺ to {t^♭_* = T̂ + 3}, small, with
+the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ ([[cor:iv3-2-3]]). Here χ^♮_0 = 1, as t_IVP ≥ r/4 on 𝒮 ([[lem:s27-cover]] (d)) and so
+χ_0 = 1.
 
 *Agreement and uniqueness.* By [[lem:ii-f-1-3]] with τ := t_IVP, the three solutions agree on overlaps, and the solution
 on 𝒟 is unique; the compact sets that [[lem:ii-f-1-3]] asks for are bounded near infinity by [[lem:iii-k-6-2]] (c), and

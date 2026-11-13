@@ -2427,7 +2427,7 @@ convention of the spin, and the indicial value 3(1 + 2v_Cγ_C) replaces 2 + 4γ_
 The indicial roots of the linearised gauge-fixed Einstein operator, studied in [[ch:s15]], are made of the roots of
 □^C shifted by −1, the roots of the gauge potential operator of [[ch:s13]] shifted by +1, and the roots of the physical
 part. This section proves the two properties of the roots of □^C and of the explicit polynomials of [[ch:s13]] that
-[[ch:s15]] uses for every degree l ≥ 2: simplicity, and a positive distance of the real parts from the integers, the
+[[ch:s15]] uses: simplicity for every degree l ≥ 2, and a positive distance of the real parts from the integers, the
 condition [Hin26, (8.13)]. Throughout, (v, e) = (1/2, 1/102400), and
 
     z := 4e_Υγ_Υ² = 4·10⁻⁶,     Q_l(ι′) := s² − (2 + 2κ + z)s + κ(κ + 1) + zκ,  s := ι′(ι′ − 1),  κ = l(l + 2),
@@ -2435,61 +2435,105 @@ condition [Hin26, (8.13)]. Throughout, (v, e) = (1/2, 1/102400), and
 where (e_Υ, γ_Υ) = (1/100, 1/100) are the constants of the gauge modification of [[ch:s13]]. For l ≥ 2 let ℛ^sc_l be the
 list of the numbers −l, l + 2, 2 − l, l + 4, the four roots of ι ↦ Q_l(ι − 1), and ι − 1 for the six roots ι of P_l;
 let ℛ^v_l be the list of −l, l + 2, 1 − l, l + 3 and ι − 1 for the two roots ι of p_(v); and let ℛ^t_l be the list
-−l, l + 2. These are the indicial roots of that operator at scalar, vector and tensor type l ≥ 2 ([[ch:s15]]).
+−l, l + 2. These are the indicial roots of that operator at scalar, vector and tensor type l ≥ 2 ([[ch:s15]]). The lists
+ℛ^sc_0, ℛ^sc_1 and ℛ^v_1 of its indicial roots at scalar types 0 and 1 and vector type 1 are formed in the same way,
+from the physical roots −l, l + 2, the roots of the gauge potential operator plus 1 and the roots of C, P_1 and p_(v)
+minus 1, without the roots that [[ch:s15]] removes; their entries that do not depend on h and are not integers are
+2 − ι^Υ_(s0,2) and 1 + ι^Υ_(s0,2) at scalar type 0, and the four roots 2 − ι^Υ_(s1,j), 1 + ι^Υ_(s1,j), j = 2, 3, of
+Q_1(ι − 1) at scalar type 1, with ι^Υ_(s0,2) = ½ + (9/4 + z)^(1/2) and ι^Υ_(s1,j) as in [[lem:iii-d-4-1]].
 
-**Proposition {#prop:np-10-52}** (Simplicity and [Hin26, (8.13)] for every l.) (i) For l ≥ 2 put u := l + 1. The four
+**Proposition {#prop:np-10-52}** (Simplicity and [Hin26, (8.13)] for every l.) (i) For l ≥ 1 put u := l + 1. The four
 roots of Q_l(ι − 1) are real and equal to l + 3 + d₁, −l − d₁, l + 2 + d₂ and 1 − l − d₂, where
 
     d₁ := ½((2u + 1)² + 2z + 4w)^(1/2) − ½(2u + 1),     d₂ := ½((2u − 1)² + 2z − 4w)^(1/2) − ½(2u − 1),
     w := (u² + z + z²/4)^(1/2) − u;
 
-and d₁ = z(u + 1)(1 + θ₁)/(2u(2u + 1)), d₂ = z(u − 1)(1 + θ₂)/(2u(2u − 1)) with |θ₁|, |θ₂| ≤ z. In particular
-0 < d₂ < d₁ < 1, and none of these roots is an integer.
+that is, ι^Υ_(sl,l+2) = l + 2 + d₁ and ι^Υ_(sl,l+1) = l + 1 + d₂ in the notation of [[lem:iii-d-4-1]]. Moreover
+d₁ = z(u + 1)(1 + θ₁)/(2u(2u + 1)) and d₂ = z(u − 1)(1 + θ₂)/(2u(2u − 1)) with
 
-(ii) There is a countable set 𝖹′ ⊂ (0, 10⁻⁶] such that for h ∈ (0, 10⁻⁶] ∖ 𝖹′ and every l ≥ 2 the entries of each of
-ℛ^sc_l, ℛ^v_l and ℛ^t_l are pairwise distinct.
+    −2z/(2u + 1)² ≤ θ₁ ≤ z/(4(u + 1)),     −z/(4(u − 1)) − z/(2(2u − 1)²) ≤ θ₂ ≤ 0.                       {#eq:s14-theta}
 
-(iii) For h ∈ (0, 10⁻⁶] let ε_ind(h) be the infimum of dist(Re ι, ℤ) over the entries ι ∉ ℤ with |ι| ≤ 50 of the lists of
-(ii), l ≥ 2, and of the lists ι − 1, ι a root of P_0, P_1 or of p_(v) at l = 1. Then ε_ind(h) > 0 for h ∉ 𝖹′. For every
-h, ε_ind(h) ≤ δ_50, where δ_50 := d₂ at l = 50 = 1.94137… · 10⁻⁸ is the distance of the root −49 − δ_50 of
-Q_50(ι − 1) from −49; and among the entries that do not depend on h, the least distance of a non-integer entry with
-|ι| ≤ 50 from ℤ is δ_50.
+In particular 0 < d₂ < d₁ < 1, and none of these roots is an integer.
+
+(ii) There is a countable set 𝖹₂ ⊂ (0, 10⁻⁶] such that for h ∈ (0, 10⁻⁶] ∖ (𝖹₁ ∪ 𝖹₂), 𝖹₁ the set of
+[[lem:iv4-1-3]] (b), and every l ≥ 2, the entries of each of ℛ^sc_l, ℛ^v_l and ℛ^t_l are pairwise distinct.
+
+(iii) For h ∈ (0, 10⁻⁶] let ε_ind(h) be the infimum of dist(Re ι, ℤ) over the entries ι ∉ ℤ with |ι| ≤ 50 of all the
+lists ℛ^sc_l (l ≥ 0), ℛ^v_l (l ≥ 1) and ℛ^t_l (l ≥ 2). There is a countable set 𝖹₃ ⊂ (0, 10⁻⁶] such that
+ε_ind(h) > 0 for h ∉ 𝖹₃. For every h, ε_ind(h) ≤ δ_50, where
+
+    δ_50 := d₂ at l = 50, u = 51,
+
+is the distance of the entry −49 − δ_50 of ℛ^sc_50 from −49; and among the entries that do not depend on h, the least
+distance of a non-integer entry with |ι| ≤ 50 from ℤ is δ_50. By (i), δ_50 ≤ 50z/(2·51·101) = 2·10⁻⁴/10302.
+
+*The constants.* ε_ind(h) is the largest number that the bound [[eq:iii-f1-2-2]] of [[ch:s15]] admits as its constant
+ε_ind at γ_C = h⁻¹, when ε_ind(h) ≤ 1; the ε_ind of [[ch:s15]] is any number in (0, min(1, ε_ind(h))]. The number
+δ_50 is a constant of its own: it is fixed by the gauge parameters (e_Υ, γ_Υ) of [[ch:s13]] alone, through z, and not by
+h, being ι^Υ_(s50,51) − 51, the distance from 51 of a root of the gauge potential operator at scalar type 50. It is
+neither the constant of [[ch:s13]] that bounds from below the distances from ℤ of the roots of the gauge potential
+operator with |Re ι| ≤ 10, nor the ε_ind of [[ch:s15]], which it bounds from above. Its value is given by
+[[cor:s14-eps-ind-point]], which also proves ε_ind(10⁻⁶) = δ_50.
 
 *Proof.* (i) As a quadratic in s, Q_l has discriminant (2 + 2κ + z)² − 4κ(κ + 1) − 4zκ = (z + 2)² + 4κ = 4u² + 4z + z²,
-so its roots are s_± = (2 + 2κ + z ± (4u² + 4z + z²)^(1/2))/2 = u² + z/2 ± (u + w), both positive. For each, ι′ = (1 ±
-(1 + 4s)^(1/2))/2, and 1 + 4s_± = (2u ± 1)² + 2z ± 4w. So the roots in ι = ι′ + 1 are as stated. Since w = (z +
-z²/4)/((u² + z + z²/4)^(1/2) + u), one has z(1 − z)/(2u) ≤ w ≤ z(1 + z)/(2u); for u ≥ 2, 2z − 4w ≥ 2z − 2z(1 + z)/u >
-0, so d₂ > 0. The elementary bounds ε/(2A) − ε²/(8A³) ≤ (A² + ε)^(1/2) − A ≤ ε/(2A) for A > 0, ε ≥ 0, applied with A =
-2u ± 1 and ε = 2z ± 4w = (2z/u)(u ± 1) + O(z²/u), give the stated forms with |θ_i| ≤ z. The roots lie in the open unit
-intervals (l + 3, l + 4), (−l − 1, −l), (l + 2, l + 3) and (−l, 1 − l).
+so its roots are s_± = (2 + 2κ + z ± (4u² + 4z + z²)^(1/2))/2 = u² + z/2 ± (u + w), both positive. For each,
+ι′ = (1 ± (1 + 4s)^(1/2))/2, and 1 + 4s_± = (2u ± 1)² + 2z ± 4w. So the roots in ι = ι′ + 1 are as stated, and the
+roots ι′ > ½, ½ + (¼ + s_±)^(1/2), are l + 2 + d₁ and l + 1 + d₂, which are ι^Υ_(sl,l+2) and ι^Υ_(sl,l+1).
+
+For the bounds, w = (z + z²/4)/((u² + z + z²/4)^(1/2) + u). Its denominator lies between 2u and 2u + (z + z²/4)/(2u),
+by (u² + y)^(1/2) ≤ u + y/(2u); hence w ≤ z(1 + z/4)/(2u), and w ≥ z/(2u) because
+(z + z²/4)·2u ≥ z(2u + (z + z²/4)/(2u)) is equivalent to u² ≥ 1 + z/4. So
+
+    (2z/u)(u − 1 − z/4) ≤ 2z − 4w ≤ (2z/u)(u − 1),     (2z/u)(u + 1) ≤ 2z + 4w ≤ (2z/u)(u + 1 + z/4),
+
+and 2z − 4w > 0 as u ≥ 2. For A > 0 and ε ≥ 0, ε/(2A) − ε²/(8A³) ≤ (A² + ε)^(1/2) − A ≤ ε/(2A). With A = 2u − 1 and
+ε = 2z − 4w this gives ε/(4A) − ε²/(16A³) ≤ d₂ ≤ ε/(4A); inserting the bounds on ε and dividing by
+z(u − 1)/(2uA) gives θ₂ ≤ 0 and
+
+    1 + θ₂ ≥ 1 − z/(4(u − 1)) − z(u − 1)/(2uA²) ≥ 1 − z/(4(u − 1)) − z/(2A²).
+
+With A = 2u + 1 and ε = 2z + 4w the same gives 1 + θ₁ ≤ 1 + z/(4(u + 1)) and
+1 + θ₁ ≥ 1 − z(u + 1 + z/4)²/(2u(u + 1)A²) ≥ 1 − 2z/A², as (u + 1 + z/4)² ≤ 4u(u + 1). These are
+[[eq:s14-theta]]; they give θ₂ > −1, so d₂ > 0, and d₁ < 1. Finally
+
+    d₁ − d₂ ≥ z(u + 1)/(2u(2u + 1)) − z(u − 1)/(2u(2u − 1)) − z²/(2u + 1)² = z/((2u + 1)(2u − 1)) − z²/(2u + 1)² > 0,
+
+using θ₂ ≤ 0, θ₁ ≥ −2z/(2u + 1)² and (u + 1)/(u(2u + 1)) ≤ 1. The roots lie in the open unit intervals
+(l + 3, l + 4), (−l − 1, −l), (l + 2, l + 3) and (−l, 1 − l).
 
 (ii) *The entries free of h.* −l, l + 2, 2 − l, l + 4 are distinct for l ≥ 2, and so are −l, l + 2, 1 − l, l + 3; the
 four roots of Q_l(ι − 1) lie in four disjoint open unit intervals, so they are distinct and differ from the integers.
-*The roots of P_l and p_(v).* For h ∉ 𝖹 ([[lem:iv4-1-3]] (b)) they are simple. Let y be one of the h-independent
-entries of ℛ^sc_l plus 1, that is y ∈ {1 − l, l + 3, 3 − l, l + 5} or y in one of (l + 4, l + 5), (1 − l, 2 − l), (l +
-3, l + 4), (2 − l, 3 − l). For l ≥ 2 each such y satisfies y ≤ 1 or y ≥ 4, so P_l(y)|_(h=0) = 8v(y − 2)Q_5(y) ≠ 0 by
+*The roots of P_l and p_(v).* For h ∉ 𝖹₁ ([[lem:iv4-1-3]] (b)) they are simple. A root ι of P_l gives the entry ι − 1,
+which equals an h-independent entry y′ exactly when ι = y′ + 1 =: y. For ℛ^sc_l the numbers y are 1 − l, l + 3, 3 − l,
+l + 5 and, by (i), the four roots of Q_l(ι − 1) plus 1, which lie in (l + 4, l + 5), (−l, 1 − l), (l + 3, l + 4) and
+(1 − l, 2 − l). For l ≥ 2 each such y satisfies y ≤ 1 or y ≥ 4, so P_l(y)|_(h=0) = 8v(y − 2)Q_5(y) ≠ 0 by
 [[lem:s14-q5]] (a); hence P_l(y), a polynomial in h, vanishes for finitely many h. For ℛ^v_l, y ∈ {1 − l, l + 3, 2 − l,
-l + 4} and p_(v)(y)|_(h=0) = −2v(y − 3) ≠ 0. Let 𝖹′ be the union of 𝖹 and of these finite sets over all l ≥ 2.
+l + 4} and p_(v)(y)|_(h=0) = −2v(y − 3) ≠ 0. Let 𝖹₂ be the union of these finite sets over all l ≥ 2.
 
 (iii) Fix h > 0. By (i), the h-independent non-integer entries with |ι| ≤ 50 occur only for l ≤ 50, and by
-[[prop:np-10-54]] (iii) only finitely many l have a root of P_l or p_(v) with |ι| ≤ 51; so the infimum is over finitely
-many entries. The roots of Q_l(ι − 1) and of p_(v) are real, so for them dist(Re ι, ℤ) > 0 unless ι ∈ ℤ. A non-real
-entry is ι − 1 for a non-real root ι of P_l (l ≥ 0), and dist(Re(ι − 1), ℤ) = 0 means Re ι = k with k ∈ [−49, 51] an
-integer. By the argument of the proof of [[lem:iv4-1-3]] (b), the set of h at which P_l has a non-real root with real
-part k is finite for each (l, k): the limits of [[lem:s14-small-h]] admit no two roots with sum 2k, as ι₊ + ι₋ = 5 +
-1/13653, and 2 + ι_± = 2k would make 2k − 2 a root of Q_5, which [[lem:s14-q5]] (a) excludes for 2k − 2 ≤ 1 and
-2k − 2 ≥ 4, and which is false for 2k − 2 = 2. The same holds for C, whose finite limit root (4 + 5e)/(2 − 5e) is real
-and not an integer. Adding these finite sets to 𝖹′ keeps it countable, and for h ∉ 𝖹′ every non-integer entry with
-|ι| ≤ 50 has dist(Re ι, ℤ) > 0; so ε_ind(h) > 0.
+[[prop:np-10-54]] (iii) only finitely many l have a root of P_l or p_(v) with |ι| ≤ 51; so the infimum is a minimum
+over finitely many entries. The roots of Q_l(ι − 1), the entries 2 − ι^Υ_(s0,2), 1 + ι^Υ_(s0,2) and the roots of p_(v)
+are real, so for them dist(Re ι, ℤ) > 0 unless ι ∈ ℤ. A non-real entry is ι − 1 for a non-real root ι of P_l (l ≥ 0),
+and dist(Re(ι − 1), ℤ) = 0 means Re ι = k with k ∈ [−49, 51] an integer. By the argument of the proof of
+[[lem:iv4-1-3]] (b), the set of h at which P_l has a non-real root with real part k is finite for each (l, k): the
+limits of [[lem:s14-small-h]] admit no two roots with sum 2k, as ι₊ + ι₋ = 5 + 1/13653, and 2 + ι_± = 2k would make
+2k − 2 a root of Q_5, which [[lem:s14-q5]] (a) excludes for 2k − 2 ≤ 1 and 2k − 2 ≥ 4, and which is false for
+2k − 2 = 2. The same holds for C, whose finite limit root (4 + 5e)/(2 − 5e) is real and not an integer. Let 𝖹₃ be the
+union of these finite sets over l ≥ 0 and k ∈ [−49, 51]; it is countable, and for h ∉ 𝖹₃ every non-integer entry
+with |ι| ≤ 50 has dist(Re ι, ℤ) > 0, so ε_ind(h) > 0.
 
-For the upper bound, 1 − l − d₂ at l = 50 is −49 − δ_50, an entry with |ι| < 50 for every h, at distance δ_50 from ℤ;
-and δ_50 = z·50(1 + θ₂)/(2·51·101) = (2·10⁻⁴/10302)(1 + θ₂), |θ₂| ≤ 4·10⁻⁶, which is 1.94137… · 10⁻⁸. Among the
-h-independent entries, the distances are d₁ and d₂ at the admissible l: 1 − l − d₂ has |ι| ≤ 50 iff l ≤ 50, l + 2 + d₂
-iff l ≤ 47, −l − d₁ iff l ≤ 49, and l + 3 + d₁ iff l ≤ 46. The function z(u − 1)/(2u(2u − 1)) is decreasing for u ≥ 2,
-and its values at consecutive u ≤ 51 differ by a factor at least 1.0198 > (1 + z)/(1 − z), while
-z(u + 1)/(2u(2u + 1)) > z(u − 1)/(2u(2u − 1)); so the least distance is d₂ at l = 50. ∎
+For the upper bound, 1 − l − d₂ at l = 50 is −49 − δ_50, an entry with |ι| < 50 for every h, at distance δ_50 from ℤ,
+and δ_50 ≤ 50z/(2·51·101) by θ₂ ≤ 0. Among the h-independent entries the distances from ℤ are d_s0 := ι^Υ_(s0,2) − 2
+at scalar type 0 and, at l ≥ 1, d₁ and d₂, all below ½: 1 − l − d₂ has |ι| ≤ 50 iff l ≤ 50, l + 2 + d₂ iff l ≤ 47,
+−l − d₁ iff l ≤ 49, and l + 3 + d₁ iff l ≤ 46. First, d_s0 = z/((9/4 + z)^(1/2) + 3/2) > z/(3 + z/3) > 10⁻⁶ > δ_50.
+Next, f(u) := (u − 1)/(u(2u − 1)) is decreasing for u ≥ 2 (the numerator of f′ is −2u² + 4u − 1 < 0), so for
+2 ≤ u ≤ 50, f(u)/f(51) ≥ f(50)/f(51) = 252399/247500 > 1.0197; with [[eq:s14-theta]],
 
-*Remark.* At the single value h = 10⁻⁶ the infimum ε_ind(10⁻⁶) equals δ_50, the roots of P_l and p_(v) staying farther
-from the integers for every l < 10⁴. [[pending:computational-2]] Later chapters use only ε_ind(h) > 0 and
-ε_ind(h) ≤ δ_50, which hold for every admissible h by (iii).
+    d₂(u) = ½zf(u)(1 + θ₂) ≥ ½zf(51)·1.0197·(1 − z/4 − z/18) > ½zf(51) ≥ d₂(51) = δ_50,
 
+and d₁(u) > d₂(u) by (i). So the least distance is d₂ at l = 50. ∎
+
+**Remark {#rem:s14-eps-point}** (The point h = 10⁻⁶.) At h = 10⁻⁶, ε_ind(10⁻⁶) = δ_50, and every entry of the lists of
+(iii) that comes from a root of P_l, P_0 or p_(v), is not an integer and has modulus at most 50 lies at distance more
+than 2.93·10⁻⁶ from ℤ ([[cor:s14-eps-ind-point]]). Later chapters use only ε_ind(h) > 0 and ε_ind(h) ≤ δ_50, which
+hold for every admissible h by (iii).

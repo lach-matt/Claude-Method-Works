@@ -138,19 +138,20 @@ third row by h. This leaves the determinant unchanged and gives M⁰ + hM¹, whe
 (the middle entry of M¹ is 3 + 2ι − ι² + ε₀(ι + 1)). Since the determinant is linear in each row, P_l is a
 polynomial of degree at most 3 in h: its coefficient of h⁰ is det M⁰, that of h¹ the sum of the three determinants
 of M⁰ with one row replaced by the same row of M¹, that of h² the sum of the three determinants of M¹ with one row
-replaced by the same row of M⁰, and that of h³ is det M¹. Expanding along the first column,
+replaced by the same row of M⁰, and that of h³ is det M¹. Expanding det M⁰ along its first column and det M¹ along
+its first row,
 
     det M⁰ = (2 + x − ι)((4 + x − 2ι)(3 + x − ι) − (ε₀ + 2)x) + 4ε₀x(2 + x − ι) = (2 + x − ι)Ψ(ι, x) = U,
     det M¹ = (2ι − ι²)(ι + 1)(ε₀ + 3 − ι)(2ι − ι² − 1) = ι(ι − 2)(ι − 1)²(ι + 1)(ε₀ + 3 − ι) = R₃.
 
-Replacing the first or the third row of M⁰ gives the triangular cases, and the second row a full determinant D₂,
-expanded along the first column:
+The first and the third rows of M¹ have one nonzero entry each; expanding along them, and expanding along its first
+column the determinant D₂ of M⁰ with its second row replaced by that of M¹,
 
     R₁ = (2ι − ι²)((4 + x − 2ι)(3 + x − ι) − (ε₀ + 2)x) + D₂ − (ι − 1)²(2 + x − ι)(4 + x − 2ι),
     D₂ = (2 + x − ι)((ι + 1)(ε₀ + 3 − ι)(3 + x − ι) − 2(ε₀ + 2)x) − 4ε₀(ι + 1)((ι − 2)(3 + x − ι) + (ε₀ + 2)x)
-         + 4ε₀x(2(ι − 2) + (ι + 1)(ε₀ + 3 − ι)).
+         + 4ε₀x(2(ι − 2) + (ι + 1)(ε₀ + 3 − ι)),
 
-Likewise, replacing the first, second and third row of M¹,
+and likewise, replacing the first, the second and the third row of M¹ by that of M⁰,
 
     R₂ = −(ι − 1)²(ι + 1)((2 + x − ι)(ε₀ + 3 − ι) − 4ε₀(ι − 2)) − (2ι − ι²)(ι − 1)²(4 + x − 2ι)
          + (2ι − ι²)((ι + 1)(ε₀ + 3 − ι)(3 + x − ι) − 2(ε₀ + 2)x).
