@@ -783,8 +783,9 @@ tf-exponent of real part ≤ 1 + ε_+ (the exponents of E − 1 exceed 1 + ε_+;
 ((0,0), ℓ_3).
 
 *Level 3.* [[prop:iii-g4-5-1]] at α_τ = 1 + ε_+, ℓ_zf = ℓ_3: α_τ ∈ (1, 2); w := ℓ_3 − α_τ + 2 = ℓ_3 + 1 − ε_+ ∈
-(1 − ε_+, 1), as 0 < ℓ_3 ≤ ε_K < ε_+ ([[eq:iii-i9-1-1]]), so −ε_ind < w < ℓ^max_K; ℓ_3 ∉ ℕ₀; w ≠ −μ and 2 − α_τ = 1 − ε_+ ≠ −μ, as both lie within
-ε_+ < ε_ind of the integer 1 without being integers ([[eq:iii-f1-2-2]]). Its proof uses the conditions
+(1 − ε_+, 1), as 0 < ℓ_3 ≤ ε_K < ε_+ ([[eq:iii-i9-1-1]]), so −ε_ind < w < ℓ^max_K; ℓ_3 ∉ ℕ₀; w ≠ −μ and
+2 − α_τ = 1 − ε_+ ≠ −μ, as both lie within ε_+ < ε_ind of the integer 1 without being integers ([[eq:iii-f1-2-2]]).
+Its proof uses the conditions
 2 − α_τ + j ≠ −μ only for j ≤ ⌊ℓ_zf⌋ = 0. The output is exact at tf and zf: the piece σ³u has tf-weight 2 + ε_+ and
 zf ((0,0), ℓ_3). Later rounds start from tf-weights ≥ 1 + ε_+ + ε_ind − ε, with fixed room above 2 + ε_+ − 1; their α_τ
 may be lowered freely, so their conditions hold off a finite set of α_τ, and their zf-weight ℓ_3 is kept. The final

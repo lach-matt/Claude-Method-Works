@@ -850,8 +850,9 @@ g′ = g_0 = φ*_(−S)g_(b₀) is Ricci flat for every S, and Υ^(E_Υ)(g_0, g_
 P_1(0, S, b) = 0 there for all S, and f_(0,0;b) = 0. In the interior of χ_K⁻¹(1), g′ = g_0 = g_b does not depend on S,
 so again f_(0,0;b) = 0. On both sets L^(G,G)(χ_K h^(≤1)_(b,♮)) vanishes as well. On the first it vanishes trivially.
 On the second it is L_b h^(≤1)_(b,♮), which is 0: h^(≤1)_(b,♮) = δ*_(g_b)ω^(≤1)_(b,♮) lies in ker D_(g_b)Ric by (iii),
-and in ker δ_(g_b,E_Υ)G_(g_b) because ω^(≤1)_(b,♮) is a generalised zero energy state of the gauge potential operator
-□^Υ_b ([[prop:iii-d2-3-1]]). So E^S_b is supported in 𝒞.
+and in ker δ_(g_b,E_Υ)G_(g_b) because ω^(≤1)_(b,♮) = (t_* − C′)ω^(0)_(b,s1) + ω̆^((0),1)_(b,s1) is a generalised zero
+energy state of the gauge potential operator □^Υ_b ([[eq:iii-d2-3-3]]), whose symmetric gradient lies in that kernel
+by [[prop:iii-d2-3-1]] (2). So E^S_b is supported in 𝒞.
 
 *At b₀.* G = g_(b₀), L^(G,G) = L_(b₀) and h^(≤1)_(b₀,♮) = h^(≤1)_♮, so [[eq:iii-i15-2-4]] with E^S_(b₀) = 0 is
 [[eq:iii-i4-2-3]].

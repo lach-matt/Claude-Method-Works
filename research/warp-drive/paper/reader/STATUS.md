@@ -12,7 +12,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | running | - |
 | 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | running | - |
 | 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |
-| 21 S2 | NOT CONFIRMED 1M 6m 17n | done | running |
+| 21 S2 | NOT CONFIRMED 1M 6m 17n | done | CONFIRMED (4 optional nits) |
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | CONFIRMED (4 nits) |
 | 23 S4 | NOT CONFIRMED 3M 8m 7n | running (tameness) | - |
 | 24 S5 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (2 optional nits) |
