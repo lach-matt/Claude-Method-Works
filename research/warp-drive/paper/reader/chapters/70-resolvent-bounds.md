@@ -2375,18 +2375,22 @@ choice β = γ_− + ϵ, β′ = γ_+ + ϵ of [[prop:i-b-6-7]], κ_Γ = 2^(−3/
 4.01064 C′_a for every operator with principal symbol G Id at b_0, once h_0 ≤ 1.
 
 **Lemma {#lem:rb-gluing}** (Gluing through complex absorption.) Let 𝒳, 𝒴, 𝒵 be Banach spaces, P̂ : 𝒳 → 𝒴 bounded,
-j : 𝒳 → 𝒵, k : 𝒵 → 𝒴 and W : 𝒵 → 𝒵 bounded, Q := kWj and P_1 := P̂ − iQ, and suppose that P̂ and P_1 are invertible.
-With C_ext := ‖P_1⁻¹‖_(𝒴→𝒳) and C_D := ‖jP̂⁻¹k‖_(𝒵→𝒵),
+W : 𝒵 → 𝒵 and j : 𝒳 → 𝒵 linear, and k linear from W(𝒵) into 𝒴, such that Wj : 𝒳 → 𝒵 and kW : 𝒵 → 𝒴 are bounded.
+Put Q := kWj and P_1 := P̂ − iQ, and suppose that P̂ and P_1 are invertible. With C_ext := ‖P_1⁻¹‖_(𝒴→𝒳) and C_D the
+norm of jP̂⁻¹k on the subspace W(𝒵) of 𝒵 on which it is defined,
 
-    ‖P̂⁻¹‖_(𝒴→𝒳) ≤ C_ext + C_ext²‖j‖‖k‖‖W‖(1 + ‖W‖C_D).
+    ‖P̂⁻¹‖_(𝒴→𝒳) ≤ C_ext + C_ext²‖kWj‖ + C_ext²‖kW‖ C_D ‖Wj‖.
 
 *Proof.* P_1⁻¹ − P̂⁻¹ = P_1⁻¹(P̂ − P_1)P̂⁻¹ = iP_1⁻¹QP̂⁻¹, and likewise P_1⁻¹ − P̂⁻¹ = iP̂⁻¹QP_1⁻¹. Inserting the second
-into the first, P̂⁻¹ = P_1⁻¹ − iP_1⁻¹QP_1⁻¹ − P_1⁻¹(QP̂⁻¹Q)P_1⁻¹, and QP̂⁻¹Q = kW(jP̂⁻¹k)Wj has norm at most
-‖k‖‖W‖²C_D‖j‖. ∎
+into the first, P̂⁻¹ = P_1⁻¹ − iP_1⁻¹QP_1⁻¹ − P_1⁻¹(QP̂⁻¹Q)P_1⁻¹. For x ∈ 𝒳, v := Wjx lies in W(𝒵) and
+QP̂⁻¹Qx = kW(jP̂⁻¹kv), so ‖QP̂⁻¹Qx‖ ≤ ‖kW‖C_D‖Wj‖‖x‖; and ‖Q‖ = ‖kWj‖. ∎
 
-In the stability theory, 𝒳 = 𝒳_σ, 𝒴 = 𝒴_σ, 𝒵 = L²(I) (or L²(I × 𝕊³)), j and k multiplication by a cut-off χ supported
-in I with 0 ≤ χ ≤ 1, and W smoothing where 𝒴_σ has positive order on I; then C_D ≤ ‖χ_IP̂(σ)⁻¹χ_I‖, the cut-off bound of
-the preceding sections. So, once the cut-off bound is known, an inverse bound in the spaces of the stability theory
+In the stability theory, 𝒳 = 𝒳_σ, 𝒴 = 𝒴_σ, 𝒵 = 𝔏 of [[lem:rb-schur]], and j and k are multiplication by a smooth
+cut-off χ supported in I × 𝕊³ with 0 ≤ χ ≤ 1; j is bounded from 𝒳_σ into 𝔏, as 𝒳_σ has positive regularity. W is the
+identity when 𝒴_σ has order at most 0 on I, so that k is bounded from 𝔏 into 𝒴_σ, and otherwise a smoothing operator
+on 𝔏 with values in fields smooth on I × 𝕊³, for which kW is bounded. For v ∈ W(𝒵), jP̂⁻¹kv = χ(χ_IP̂(σ)⁻¹χ_I)(χv)
+with χv supported in I × 𝕊³ (and smooth in the second case), so C_D ≤ C_D(σ) of [[lem:rb-schur]], the cut-off bound
+of the preceding sections, which is the norm on 𝔏 of χ_IP̂(σ)⁻¹χ_I on the dense subspace of smooth fields. So, once the cut-off bound is known, an inverse bound in the spaces of the stability theory
 needs only C_ext(σ), the inverse of the absorbed problem. Its estimate is the chain of Fredholm estimates at the fixed σ
 with the absorbing term, and involves no trapping estimate and no mode stability; its invertibility is a hypothesis of
 [[lem:rb-gluing]], which the next lemma supplies for the scalar wave.
@@ -2397,9 +2401,10 @@ with the absorbing term, and involves no trapping estimate and no mode stability
 
 *Proof.* Q maps 𝒳_σ into functions of class H^s (s > ½ + ϑ_ℋ the order of 𝒳_σ) supported in a fixed compact subset of
 {r > r_h}, which embed compactly into 𝒴_σ, whose order there is s − 1 (Rellich's theorem). So □̂(σ) − iϵ_σQ is a compact
-perturbation of □̂(σ), which is Fredholm of index 0 by [[thm:i-a-7-2]] (3) and [[thm:i-b-1-3]] (3), as in the proof of
-[[prop:iii-d-6-2]]; it suffices to show that its kernel is trivial. Let ω be in the kernel. As in the proof of
-[[prop:iii-d-6-2]], ω is smooth across the future horizon and outgoing at infinity, and Q, being radial, preserves the
+perturbation of □̂(σ), the spectral family of □ on functions, which is Fredholm of index 0 ([[lem:rb-scalar]], by
+[[thm:i-a-7-2]] (3) and [[thm:i-b-1-3]] (3)); it suffices to show that its kernel is trivial. Let ω be in the kernel. As
+in the proof of [[prop:iii-d-6-2]] (*The class*), ω is smooth across the future horizon and outgoing at infinity, by
+[[thm:i-a-7-2]] (5) applied to □̂(σ)ω = iϵ_σQω, which is smooth with compact support; and Q, being radial, preserves the
 harmonics; so on {r > r_h}, each component r^(−3/2)u(r_*)Se^(−iσt) of e^(−iσt_*)ω, S ∈ 𝒮_l, has u solving
 −u″ + (V_l − σ² − iϵ_σfq)u = 0, with u a multiple of u_h near −∞ and of u_∞ near +∞, where q = 0. As V_l is real,
 Im(ū(−u″ + (V_l − σ² − iϵ_σfq)u)) = −(Im(ūu′))′ − ϵ_σfq|u|², and Im(ūu′) tends to σ|c_+|² at +∞ and to −σ|c_−|² at −∞,

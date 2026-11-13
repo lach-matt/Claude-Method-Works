@@ -1095,10 +1095,9 @@ the null function of Tangherlini's metric of mass 3/2, and for ρ > √(3/2)
     μ_u = −(2/3) ℬ e^(−2σ) R_v,    μ_v = −(2/3) 𝒜 e^(−2σ) R_u,    ψ_u = ℬ/(3R² R_u),
     (e^(−2σ) R_v)_v = −𝒜 e^(−2σ)/(3R²),    (e^(−2σ) R_u)_u = −ℬ e^(−2σ)/(3R²).
 
-Proof. Differentiating, μ_u = 2RR_u + 4Re^(−2σ)R_u²R_v + 2R²e^(−2σ)R_v(R_uu − 2σ_uR_u) + 2R²e^(−2σ)R_uR_uv. By the
-third equation of [[eq:bg-field]] the last term is −2RR_u − 4Re^(−2σ)R_u²R_v, and by the first the third term is
-−(2/3)Be^(−2σ)R_v. The identity for μ_v follows in the same way with u and v exchanged. The two others are e^(−2σ)
-times the first two equations of [[eq:bg-field]], and ψ_u = 2σ_u − R_uu/R_u = ℬ/(3R²R_u) by the first. ∎
+*Proof.* [[eq:bg-field]] are the two-null-dust equations of [[ch:two-dusts]], μ is the mass function
+[[eq:two-dust-mass]] and ψ is that of [[eq:two-dust-chart]]; so these are [[lem:two-dust-identities]] (i), (iv) and
+the identity for ψ_u in (v). ∎
 
 **Lemma {#lem:bg-reduction}** (Reduction to rays.) Let ℛ := {v < 3}.
 
@@ -1131,7 +1130,7 @@ and f3(X) := 1 − μ3/X²,
 
 provided f3(Φ(ρ)) > 0. There g0 = −e^(2ψ_III) f3 dv̂² + 2e^(ψ_III) dv̂ dR + R² dΩ₃².
 
-(f) *The slice.* Every point of Σ_τ0 with 0.68 ≤ R ≤ R_*, R_* as in [[lem:bg-rstar]], lies in ℛ, on the ray ρ with
+(f) *The slice.* Every point of Σ_τ0 with R ≤ R_*, R_* as in [[lem:bg-rstar]], lies in ℛ, on the ray ρ with
 v̂(ρ) − R = τ0 and 2.321 ≤ ρ ≤ R_*.
 
 Proof. (a) On 𝒞_in, σ is constant, so [[eq:bg-field]] gives R″ = −ℬ/(3R²) and R R_uv = −1/2 − 2R′R_v; hence S′ =
@@ -1157,7 +1156,7 @@ u2. There (d) gives e^ψ = 2aΦ′/f3(Φ) = f1Φ′/f3(Φ).
 
 (f) On Σ_τ0, v̂ = R + τ0 ≤ R_* − 0.68 < 2.7572, while v̂(3) = F(6.5) − F(5) > 3.1453 (on 𝒞_out before the shell R = 5 +
 v/2 and dv̂/dR = F′(R)); v̂ is increasing in v, so the point lies in ℛ. Its ray meets u = u1 at the ρ with v̂(ρ) = v̂ ≤
-R_* − 0.68, so ρ ≤ R_* by the definition of R_*; and v̂ ≥ 0 gives ρ ≥ 2.321. ∎
+R_* − 0.68, so ρ ≤ R_* by the definition of R_*; and v̂ = R + τ0 ≥ 0.02 > 0 = v̂(2.321) gives ρ ≥ 2.321. ∎
 
 **Lemma {#lem:bg-rstar}** (The radius R_*.) Let R_* be the radius at which the ray u = u1 meets Σ_τ0, that is the
 zero of τ(R) := F(R) − F(2.321) − R + 0.68 on R > 2.321. Then R_* is unique and 3.43718006 ≤ R_* ≤ 3.43718007.
@@ -1390,7 +1389,7 @@ that is Ψ_1 = aΦ″/Φ′ + a′ − μ3q/Φ³ with q = f1Φ′/f3(Φ), which 
 **Proposition {#prop:bg-seed}** (Region III and the seed region.) Let ψ_s and μ_s be the reference quintic and mass of
 [[sec:table-seed-profile]].
 
-(a) Region III meets Σ_τ0 ∩ {R ≤ R_*} exactly in the points with 0.68 ≤ R ≤ R_u2, where 1.8614098 ≤ R_u2 ≤ 1.8614596;
+(a) Region III meets Σ_τ0 ∩ {R ≤ R_*} exactly in the points with 0.70 ≤ R ≤ R_u2, where 1.8614098 ≤ R_u2 ≤ 1.8614596;
 in particular the seed region 0.70 ≤ R ≤ 1.861 (0.02 ≤ v̂ ≤ 1.181) lies in region III, and f3(Φ(ρ)) > 0 for every
 ρ ∈ [2.32, 3.44].
 
@@ -1404,7 +1403,7 @@ and |μ3 − μ_s| ≤ 1.79 × 10⁻⁶. In particular the bounds 5.1 × 10⁻�
 (c) Consequently (ψ_III, ψ_III′, ψ_III″) lies within (10⁻³, 10⁻³, 3 × 10⁻²) of (ψ_s, ψ_s′, ψ_s″) on the seed region and
 |μ3 − μ_s| ≤ 10⁻⁴: the background lies in the tube of [[prop:margins-seed]] (b), and Γ > 0 on the seed region.
 
-Proof. (a) On Σ_τ0, R = v̂ + 0.68 ≥ 0.68 since v̂ ≥ 0, and by [[lem:bg-reduction]] (f) a point of Σ_τ0 with R ≤ R_* lies
+*Proof.* (a) On Σ_τ0, R = v̂ + 0.68 ≥ 0.70, and by [[lem:bg-reduction]] (f) a point of Σ_τ0 with R ≤ R_* lies
 on a ray ρ ∈ [2.321, R_*] ⊂ [2.32, 3.44]. Let g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 for ρ ∈ [2.32, 3.44]. Its derivative is J(u2,
 ρ) − 1/a(ρ) < 1 − 2 < 0 since J ≤ 1 ([[prop:bg-rays]]) and a < 1/2. By [[prop:bg-rays]], g(2.77362) ≥ Φ̃(2.77362) −
 v̂(2.77362) − 0.68 − ε₀ ≥ 1.89 × 10⁻⁵ > 0 and g(2.77364) ≤ −1.27 × 10⁻⁵ < 0; so g has one zero ρ_u2 ∈ (2.77362, 2.77364).
