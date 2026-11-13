@@ -7,7 +7,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | file | first reading | fix round | second reading |
 |---|---|---|---|
 | 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | running |
-| 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | running |
+| 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | NOT CONFIRMED 0M 2m 3n; third fix running |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | running |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | running | - |
 | 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | running | - |

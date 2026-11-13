@@ -1124,9 +1124,9 @@ the spaces of [[sec:ii-g1-3-1]] with X̄ and μ_b.
 
 [Hin26c, Proposition 13.16] writes the loss as k(1 + δ_Γ(−ε)) + ℓ, which need not be an integer, and states the
 proposition without proof. It also notes that the loss in k is harmless for strongly trapping admissible operators with
-ε = 1/k (here η = 1/k). In the terms of [[eq:i-b-1-4]]: if γ_+ < 0, then δ_Γ(−η) = 0 for η < −γ_+; if γ_+ = 0, then δ_Γ(−η) =
-min(1, η/(−γ_−)) for η > 0, so ⌈k δ_Γ(−1/k)⌉ = min(k, ⌈1/(−γ_−)⌉) for every k ≥ 1. This equals ⌈1/(−γ_−)⌉ for
-k ≥ 1/(−γ_−) and never exceeds it, so this part of the loss is bounded independently of k.
+ε = 1/k (here η = 1/k). In the terms of [[eq:i-b-1-4]]: if γ_+ < 0, then δ_Γ(−η) = 0 for η < −γ_+; if γ_+ = 0, then
+δ_Γ(−η) = min(1, η/(−γ_−)) for η > 0, so ⌈k δ_Γ(−1/k)⌉ = min(k, ⌈1/(−γ_−)⌉) for every k ≥ 1. This equals ⌈1/(−γ_−)⌉ for k
+≥ 1/(−γ_−) and never exceeds it, so this part of the loss is bounded independently of k.
 
 *Proof.* Take z_0 := ±1, h := |σ|⁻¹ (so z = hσ = z_0 for real σ), α_+ := 0, and the orders above with 𝗋_out := β_scf −
 2 − ε/2, 𝖻 ≡ 0; let ℓ_1, ℓ_2, ν be those of [[lem:ii-g1-4-3]] with ε/2. For ±σ ≥ C_0, P̂(σ) is invertible
@@ -1371,9 +1371,9 @@ H^(k+ℓ,(β_I,β_+))_b(𝒞) vanishes on {t_* < 1} and P_0 u ∈ H^(k+ℓ,(β�
     u ∈ H^(k,(((3/2,0),β′_I),β_+))_b(𝒞_a).                                                         {#eq:ii-g1-5-3}
 
 So u = χ_I(ρ_I/a) ρ_I^(3/2) u_0 + ũ: u_0 carries the radiation field, the coefficient of r^(−3/2), and the remainder ũ
-has the weight of P_0 u at ℐ⁺, shifted by the factor ρ_I ρ_+² of [[eq:ii-g1-5-2]]. In dimension 3 + 1, [Hin26c, Proposition 13.20] has the exponent 1,
-the condition 1 ≠ β_+ < β_I, and β′_I < 3/2 = 1 + 1/2 (κ = 1/2); here the hypothesis β_+ < β_I is not used, and the loss
-depends on κ as well as on β_I and β′_I.
+has the weight of P_0 u at ℐ⁺, shifted by the factor ρ_I ρ_+² of [[eq:ii-g1-5-2]]. In dimension 3 + 1, [Hin26c,
+Proposition 13.20] has the exponent 1, the condition 1 ≠ β_+ < β_I, and β′_I < 3/2 = 1 + 1/2 (κ = 1/2); here the
+hypothesis β_+ < β_I is not used, and the loss depends on κ as well as on β_I and β′_I.
 
 *Proof.* If β_I ≥ β′_I there is nothing to prove (u_0 = 0). Otherwise we improve the weight at ℐ⁺ in steps. On 𝒞,
 {ρ_+ > 2} ⊂ {t_* < 1} (as 1 − ρ_I ≥ 3/4), so u = 0 there.
@@ -1432,8 +1432,8 @@ holds with ℓ := 2n_s and a := c_𝒞 8^(−n_s). ∎
 
 **Remark {#rem:ii-g1-5-5}** (The radiation field of a forward solution.) With [[lem:ii-g1-5-1]], [[prop:ii-g1-5-4]]
 applies in dimension 4 + 1 with κ = 1 to stationary wave-type operators with S|_(∂X) = 0, for β′_I < 5/2; at the level
-of P_0 u ∈ ρ_I^(β′_I+1), the remainder of u after its radiation-field term ρ_I^(3/2) u_0 decays like ρ_I^(β′_I). The proof of
-[Hin26c, Proposition 13.20] integrates the equation by [Hin26, Lemmas 2.12 and 2.23]; [[lem:ii-g1-3-2]] and
+of P_0 u ∈ ρ_I^(β′_I+1), the remainder of u after its radiation-field term ρ_I^(3/2) u_0 decays like ρ_I^(β′_I). The
+proof of [Hin26c, Proposition 13.20] integrates the equation by [Hin26, Lemmas 2.12 and 2.23]; [[lem:ii-g1-3-2]] and
 [[lem:ii-g1-5-3]] replace them, and the case distinction in step (iii) follows that proof (b″ against β_+, and the
 transport of the radiation field to a term ρ_+^(3/2) at ι⁺, which the a priori decay at ι⁺ excludes).
 

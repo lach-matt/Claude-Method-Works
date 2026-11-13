@@ -364,3 +364,192 @@ particular h_S has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ on 𝒮, as [[pro
 slot, along X_I and X_0 − X_I near ℐ⁺ ([[lem:iii-a-1-2]], [[lem:iii-a-3-2]]), and on Ω^♮_(c_1) the curves followed
 backward reach {ρ′_I = c_1}, where the solution is smooth ([[lem:iv3-1-1]] (b)); away from ℐ⁺ there is nothing to show.
 The structure [[eq:iii-c-4-4]] used there holds near 𝒮 by [[lem:iv3-0-1]] and the translation. ∎
+
+#### Past causal curves near null infinity and near spatial infinity {#sec:iii-k-6}
+
+The uniqueness lemma [[lem:ii-f-1-3]] asks, at each point p, for a compact set containing the part of the causal past of
+p above a level of the time function. Near ℐ⁺ the levels of t^♭_* reach r = ∞, and near I₀ those of t_IVP do; so these
+sets need a bound on r along past causal curves. [[lem:ii-f-1-4]] (a) bounds r by t_* + R̃(r), a time function of
+g_(b₀) and of the combinations G_θ only: for h small in the class of [[lem:ii-c-3-2]], dt, and with it d(t_* + R̃), can
+be spacelike near ℐ⁺, as (g_(b₀)⁻¹ − η⁻¹)(dt, dt) = O(r⁻²) there while a perturbation of that class is larger. The next
+two lemmas give the bounds for every metric of the classes used.
+
+**Lemma {#lem:iii-k-6-1}** (The radius near ℐ⁺ along past causal curves.) Let ℓ = ½, ε_G, r′_0, r^♮ and t^♭_* be
+those of [[lem:ii-c-3-2]] for g_0 = g_(b₀), C_♭ its constant, and T ≥ ½; put T_1 := T/C_♭ + 1. Let Ω° denote the
+interior of the domain {t_* ≥ ½} of t^♭_* ([[lem:ii-e-1-2]] (iv)). There is R_T < ∞, depending only on T and on the
+constants of [[lem:ii-c-3-2]] and its proof, such that for every g = g_(b₀) + h with
+‖h‖_(𝒢̃^(0,(2ℓ,0,0))_(e3b)) < ε_G:
+
+(a) on W_T := Ω° ∩ {½ < t_* < T_1, r > R_T} the covector α := dt^♭_* + r⁻¹dr is past timelike for g, so
+Ξ := t^♭_* + log r is a time function on W_T;
+
+(b) if ½ < c < t^♭_*(p) ≤ T and γ is a past directed causal curve of g in Ω° from p along which t^♭_* ≥ c, then
+r ≤ R_p := max(R_T, r(p)) e^(t^♭_*(p)−c) on γ;
+
+(c) if moreover X ⊂ Ω° is open and contains L_p := {c ≤ t^♭_* ≤ t^♭_*(p), min(r(p), r^♮) ≤ r ≤ R_p}, then L_p is
+compact and contains J⁻_X(p) ∩ {t^♭_* ≥ c}. These are the compact sets [[lem:ii-f-1-3]] asks for, with τ := t^♭_*.
+
+The proof is pointwise along the curves, so (a)–(c) hold as well for h given and small in that norm on an open
+Y ⊂ Ω° only, with W_T ∩ Y in (a) and the curves and X in Y in (b)–(c).
+
+*Proof.* (a) The proof of [[lem:ii-c-3-2]] gives, near ℐ⁺ and with ρ := ρ_I = t_*/r: the coefficients of g⁻¹ − ḡ⁻¹ in
+the basis
+
+    ρ∂²_(t_*),   ∂_(t_*) ⊗_s ∂_r,   x_I∂_(t_*) ⊗_s r⁻¹∂_ω,   ρ⁻¹∂²_r,   x_I⁻¹∂_r ⊗_s r⁻¹∂_ω,   r⁻¹∂_ω ⊗_s r⁻¹∂_ω
+
+are at most C₁(ε_G + ρ^(1−ℓ))ρ^ℓ ≤ Cρ^ℓ for ρ ≤ 1, with C := max(1, C₁(ε_G + 1)); ḡ⁻¹(dt_*, dt_*) = 0,
+ḡ⁻¹(dt_*, dr) = −1 and ḡ⁻¹(dr, dr) = 1; on {ρ ≤ ρ_−, r ≥ r′_0 + 1}, t^♭_* = t_*F₁(ρ) and dt^♭_* = A dt_* + B dr with
+A = 1 − (1 + ℓ)ρ^ℓ and B = ℓρ^(ℓ+1) (the coefficients of that proof); and V := t∂_t + r∂_r is future timelike for g on
+{r ≥ R_V}, R_V the radius R₂ there, with dt^♭_*(V) > 0. Let x := ρ^ℓ, so ρ ≤ x ≤ 1 for ρ ≤ 1, and
+
+    ρ_T := min(ρ_−, (37CT_1)^(−1/ℓ)),     R_T := max(R_V, r′_0 + 1, T_1/ρ_T).
+
+On W_T, ρ < T_1/R_T ≤ ρ_T, so all of this applies, and x ≤ (37CT_1)⁻¹ ≤ 1/37. Then α = A dt_* + B′dr with
+B′ := B + r⁻¹. As (1 + ℓ)x ≤ 3/74, A ∈ [½, 1]. As t_* ∈ (½, T_1) on W_T, r⁻¹ = ρ/t_* ∈ [ρ/T_1, 2ρ], and
+B = ℓxρ ≤ ½ρ, so B′ ∈ [r⁻¹, (5/2)ρ]. The six basis elements take on α ⊗ α the values ρA², at most 2AB′ in modulus
+(AB′ ≥ 0), 0, ρ⁻¹B′², 0 and 0. Hence
+
+    g⁻¹(α, α) ≤ ḡ⁻¹(α, α) + Cx(ρA² + 2AB′ + ρ⁻¹B′²) = −2AB′ + B′² + Cx(ρA² + 2AB′ + ρ⁻¹B′²).
+
+Each term is bounded as follows. −2AB′ ≤ −2A r⁻¹ ≤ −r⁻¹, as B′ ≥ r⁻¹ and A ≥ ½. B′² ≤ (25/4)ρ². And
+ρA² + 2AB′ + ρ⁻¹B′² ≤ ρ + 5ρ + (25/4)ρ = (49/4)ρ. So
+
+    g⁻¹(α, α) ≤ −r⁻¹ + (25/4)ρ² + (49/4)Cxρ ≤ −r⁻¹ + ((25/4) + (49/4)C)xρ ≤ −r⁻¹ + (37/2)Cxρ,
+
+using ρ ≤ x and C ≥ 1. Finally ρ ≤ T_1 r⁻¹ (as r⁻¹ ≥ ρ/T_1), so
+
+    g⁻¹(α, α) ≤ r⁻¹(−1 + (37/2)CT_1x) ≤ r⁻¹(−1 + ½) = −1/(2r).
+
+So α is timelike, and α(V) = dt^♭_*(V) + 1 > 0, as dr(V) = r: a timelike covector positive on a future timelike vector
+is past timelike. So Ξ, with dΞ = α, is a time function on W_T.
+
+(b) t^♭_* is a time function of g ([[lem:ii-c-3-2]] (2), [[lem:ii-e-1-2]] (iv)), so along γ,
+c ≤ t^♭_* ≤ t^♭_*(p) ≤ T, and
+½ < t_* ≤ t^♭_*/C_♭ < T_1 ([[lem:ii-c-3-2]] (b)). Let R′_p := max(R_T, r(p)), suppose that r > R_p at γ(s_1), and let
+s_0 := sup{s ≤ s_1 : r(γ(s)) ≤ R′_p}, which exists as r(γ(0)) = r(p). On (s_0, s_1], r > R′_p ≥ R_T, so γ lies in W_T
+there and Ξ ∘ γ is non-increasing (dΞ = α is negative on past causal vectors); by continuity Ξ(γ(s_1)) ≤ Ξ(γ(s_0)),
+and r(γ(s_0)) = R′_p. Hence log r(γ(s_1)) ≤ log R′_p + t^♭_*(γ(s_0)) − t^♭_*(γ(s_1)) ≤ log R′_p + t^♭_*(p) − c, that
+is r(γ(s_1)) ≤ R_p, against the assumption. So r ≤ R_p on γ.
+
+(c) For q ∈ J⁻_X(p) ∩ {t^♭_* ≥ c} let γ be a past directed causal curve in X from p to q. t^♭_* decreases along γ, so
+c ≤ t^♭_*(q) ≤ t^♭_* ≤ t^♭_*(p) on it; r ≥ min(r(p), r^♮) on it, dr being future timelike for g on {r ≤ r^♮}
+([[lem:ii-c-3-2]] (1)), as in [[lem:ii-f-1-4]] (a); and r ≤ R_p by (b). So q ∈ L_p. L_p is closed, and on it
+t_* ∈ [c, t^♭_*(p)/C_♭] and min(r(p), r^♮) ≤ r ≤ R_p, where r(p) (p ∈ X) and r^♮ lie in the range of r on M°; so L_p
+is compact. ∎
+
+**Lemma {#lem:iii-k-6-2}** (Uniqueness near spatial infinity for the initial family.) Let g_S := φ_S^*g_(b₀) + h_S on
+𝒟, where h_S is given on 𝒟 ∩ Ω_(ext,r_1) by [[thm:iii-c2-3-1]] and on 𝒮 by [[thm:iv3-2-2]], and is small in C⁰ on 𝒦,
+with |S| and the data small. There is R ≥ R_5 such that 𝒟 ∩ {r ≥ R} ⊂ Ω_(ext,r_1) ∪ 𝒮 and t_IVP = t − C″ there, and:
+
+(a) on 𝒟 ∩ {r ≥ R}, every Cartesian component of g_S − η is at most 1/20 in modulus, g_S⁻¹(dt, dt) ≤ −½, and
+|V^x| ≤ 2|V^t| for every g_S-causal vector V; dt lies in the component of the timelike covectors of g_S that continues
+the past cone of η along η + s(g_S − η), s ∈ [0, 1], and g_S is time-oriented on 𝒟 as a small deformation of g_(b₀),
+for which dt_IVP is past timelike ([[lem:iii-b-3-7]] (b)); so dt_IVP is past timelike for g_S on 𝒟;
+
+(b) along causal curves of g_S in {r ≥ R}, r + 2t_IVP does not increase towards the past and r − 2t_IVP does not
+increase towards the future;
+
+(c) along a past (future) directed causal curve of g_S from p on which τ := t_IVP (τ := −t_IVP) stays ≥ c,
+
+    r ≤ max(R, r(p)) + 2(τ(p) − c).
+
+*Proof.* 𝒦 is compact, so for R above its radius 𝒟 ∩ {r ≥ R} lies in Ω_(ext,r_1) ∪ 𝒮 ([[lem:s27-cover]]), and
+t_IVP = t − C″ for r ≥ R_5. There φ_S^*g_(b₀) agrees with an element of the class 𝒢 of [[def:iii-c-3-4]], so
+φ_S^*g_(b₀) − η ∈ ρ₀²ρ_I²C^∞: on Ω_(ext,r_1) by [[lem:iii-c2-1-1]], and on 𝒮 by [[lem:iv3-0-1]]. And h_S lies in the
+class H^(k,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b of [[def:iii-c-3-1]], k ≥ 5, with norm O(‖(γ̃, k̃)‖_(H^(d_1))): on Ω_(ext,r_1) by
+[[thm:iii-c2-3-1]] (2) with [[thm:iii-c1-3-1]], and on 𝒮 by [[cor:iv3-2-3]]. Its slot coordinates are bounded pointwise
+by that norm (Sobolev embedding on the unit cubes of a b-metric, as in the proof of [[lem:iii-c-2-1]]: k ≥ 5 > 5/2, and
+the weights ℓ_0 > 0, ℓ_I > 3/2 and the real parts of the index sets are positive), and they are bounded multiples of its
+Cartesian components ([[lem:iii-c-1-3]]: the frames are related by F_0(ω)(I + ρ²C^∞)). So for R large and the data and
+|S| small, each Cartesian component of δ := g_S − η is at most ε := 1/20 in modulus on 𝒟 ∩ {r ≥ R}.
+
+Then, in the coordinates (t, x), with η = diag(−1, 1, 1, 1, 1), the matrix η⁻¹δ has entries ±δ_ij, so its maximum
+row-sum norm is at most 5ε = ¼. The Neumann series g_S⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives
+|(g_S⁻¹ − η⁻¹)(dt, dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_S⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound holds
+for η + sδ, s ∈ [0, 1], so dt stays timelike along that path, in the component that continues the past cone of η. For
+V causal for g_S, η(V, V) ≤ −δ(V, V) ≤ Σ_(i,j)|δ_ij||V^i||V^j| ≤ ε(Σ_i|V^i|)² ≤ 5ε((V^t)² + |V^x|²), by the
+Cauchy–Schwarz inequality in five variables; with η(V, V) = −(V^t)² + |V^x|² this gives
+|V^x|² ≤ ((1 + 5ε)/(1 − 5ε))(V^t)² = (5/3)(V^t)², so |V^x| ≤ 2|V^t|.
+
+On 𝒟 ∩ {r ≤ R}, dt_IVP is past timelike for g_(b₀) ([[lem:iii-b-3-7]] (b)), with a margin on this compact set, so also
+for g_S, φ_S tending to the identity there and h_S being small in C⁰ (Cauchy stability on 𝒦, and the classes above).
+This proves (a), dt_IVP = dt on {r ≥ R}.
+
+(b) For a past directed causal V in {r ≥ R}, dt(V) = V^t < 0 and dr(V) ≤ |V^x| ≤ −2V^t, so
+d(r + 2t_IVP)(V) ≤ 0; likewise for future directed V, d(r − 2t_IVP)(V) ≤ |V^x| − 2V^t ≤ 0.
+
+(c) Let γ be a past directed causal curve from p to q along which τ = t_IVP ≥ c, put R′ := max(R, r(p)), and let s_0
+be the last parameter before q at which r ≤ R′ (it exists, as r(p) ≤ R′). Beyond s_0, γ lies in {r > R′} ⊂ {r ≥ R},
+so by (b) r(q) + 2τ(q) ≤ r(γ(s_0)) + 2τ(γ(s_0)) ≤ R′ + 2τ(p), τ decreasing along γ. So
+r(q) ≤ R′ + 2(τ(p) − τ(q)) ≤ R′ + 2(τ(p) − c). For future directed curves and τ = −t_IVP the same argument with
+r − 2t_IVP applies. ∎
+
+#### Proof of the initial family {#sec:s27-initial-proof}
+
+*Proof of [[prop:iii-k-1-2]].* The region 𝒟 is covered by Ω_(ext,r_1), 𝒦 and 𝒮 ([[lem:s27-cover]]), solved in this
+order.
+
+*Exterior.* By [[lem:iii-k-1-1]] (c), P^♮ = P^(χ_0) on Ω_(ext,r_1), so [[thm:iii-c2-3-1]] gives h_S there, smooth in S,
+with (2) there by its (3); its hypotheses (the constraints, and Υ^0 = 0 at Σ^IVP) are [[prop:iii-c2-4-1]] (1)–(2).
+
+*Compact part.* On 𝒦, [[eq:iii-k-1-2]] is a quasilinear wave equation for h_S: P^♮(g, g_0) = −½□_g(g − g_0) + ⋯ in
+the gauge's normal form, with principal part −½g⁻¹(ζ, ζ). Its data on the part of Σ^IVP in 𝒦 are small and smooth, and
+on Σ^fut_(r_1) ∩ ∂𝒦 the exterior solution gives them. dt_IVP is timelike ([[lem:iii-b-3-7]] (b)), and the inner
+boundary {r = r_♭} is spacelike with dr future timelike ([[lem:ii-c-3-2]] (1)). So the standard local theory for
+quasilinear wave equations with small smooth data on the compact domain of dependence 𝒦 ([[lem:s27-cover]] (c)) —
+existence, uniqueness by [[lem:ii-f-1-3]], and Cauchy stability — gives h_S there, forward from Σ^IVP and backward to
+{t_IVP = −ν}, small in every H^k in terms of the data, and smooth in S as its data are. [Hin26, p. 320] cites the same
+theory as "standard local well-posedness results".
+
+*Slab.* On 𝒮 the solution is the restriction of that of [[thm:iv3-2-2]], posed on Ω^♮ = Ω_(ext,r_1) ∪ 𝒮 from
+Σ^IVP_(r_1) and Σ_c, with the data that 𝒦 gives on Σ_c: the continuation near the interior of ℐ⁺ to
+{t^♭_* = T̂ + 3}, small with the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ ([[cor:iv3-2-3]]). Here χ^♮_0 = 1, as t_IVP ≥ r/4 on 𝒮
+([[lem:s27-cover]] (d)) and so χ_0 = 1.
+
+*Agreement and uniqueness.* By [[lem:ii-f-1-3]] with τ := t_IVP, the three solutions agree on overlaps, and the solution
+on 𝒟 is unique; the compact sets that [[lem:ii-f-1-3]] asks for are bounded near infinity by [[lem:iii-k-6-2]] (c), and
+away from infinity they lie in the compact 𝒦 or in the exterior and slab regions, closed under past causal curves
+within 𝒟 ([[lem:s27-cover]] (c)). In each use the solution (or the difference of two solutions) is extended by 0 across
+Σ^IVP, where its Cauchy data vanish, so that it solves the equation across Σ^IVP and its support lies above a level c < 0
+of τ, as [[lem:ii-f-1-3]] asks; on {r ≤ R_ν}, beyond 𝒟, the operator is extended smoothly.
+
+*(2).* The argument of [[thm:iii-c2-3-1]] (3) on 𝒟. The data satisfy the constraints and Υ^(χ^♮_0E_Υ) = Υ^0 = 0 at
+Σ^IVP ([[lem:iii-k-1-1]] (d); [[prop:iii-c2-4-1]] (2)). With g := φ_S^*g_(b₀) + h_S, g_0 := φ_S^*g_(b₀) and
+Υ := Υ^(χ^♮_0E_Υ)(g, g_0), [[eq:iii-k-1-2]] reads Ric(g) = δ*_(g_0,E_C)Υ, and the second Bianchi identity
+δ_gG_gRic(g) = 0 gives
+
+    δ_gG_g δ*_(g_0,E_C) Υ = 0,
+
+a wave equation for Υ: its principal symbol is that of δ_gG_gδ*_g, ½g⁻¹(ζ, ζ) times the identity, as
+δ*_(g_0,E_C) − δ*_g is of order 0 ([[def:iii-b-6-1]]). Its Cauchy data at Σ^IVP vanish: Υ = 0 there, and the
+constraints give (G_g Ric(g))(ν, ·) = 0, that is (G_g δ*_(g_0,E_C)Υ)(ν, ·) = 0 there, which with Υ = 0 gives ∂_νΥ = 0
+([[lem:iii-k-4-1]] below). So Υ vanishes on 𝒟 by [[lem:ii-f-1-3]], with τ := t_IVP forward from Σ^IVP and
+τ := −t_IVP backward to {t_IVP = −ν}, the compact sets being those described above; for the backward problem they are
+bounded as follows. Past directed causal curves lose no r near the inner boundary (by [[lem:ii-c-3-2]] (1)). Future
+directed causal curves lose r inside the horizon ({r ≤ r^♮}, where dr is future timelike), and are bounded below in r
+by three facts: N ∩ {t_IVP < 0} ⊂ {r > R_ν}, as ν = 0 on [0, R_ν]; t_IVP + ν increases along future causal curves,
+{t_IVP = −ν} being spacelike with N to its future; and in the thin slab {0 ≤ t_IVP ≤ |c|} above Σ^IVP, the radial speed
+is bounded, |dr(V)| ≤ C_r dt_IVP(V) for future causal V, with C_r ≥ 2 (dt_IVP being past timelike on the compact part
+of the slab, and |V^x| ≤ 2V^t near infinity by [[lem:iii-k-6-2]] (a)). The backward problem is posed on
+
+    X := (N ∩ {t_IVP < 0}) ∪ ({0 ≤ t_IVP ≤ |c| + δ} ∩ {r + 2C_r t_IVP ≥ R_ν}),     δ > 0 small,
+
+which future causal curves do not leave while t_IVP ≤ |c| + δ: they meet Σ^IVP from N ∩ {t_IVP < 0} at r ≥ R_ν, and
+d(r + 2C_r t_IVP)(V) ≥ C_r dt_IVP(V) > 0 along them. So r ≥ R_ν − 2C_r(|c| + δ) on X, which is closed, and
+[[lem:ii-f-1-3]] is applied on X° with τ := −t_IVP at the level c < 0, the slab being taken to |c| + δ so that the
+sets L_p lie in X°; near infinity [[lem:iii-k-6-2]] (c) bounds r on them. The proof of [[thm:iii-c2-3-1]] (3) uses
+no property of the cut-off but its smoothness.
+
+*(1).* The order is that of the proof of [[thm:iii-c2-3-1]]: first S = 0, which defines h_0 on 𝒟, a two-sided
+neighbourhood of Σ^IVP off {r ≤ R_ν} (the backward part lying in N; on {r ≤ R_ν} 𝒟 ends at Σ^IVP, which is harmless as
+φ_S is the identity there); then S ≠ 0, which uses h_0 at φ_S(p) for p near Σ^IVP ∪ φ_S⁻¹(Σ^IVP). On Ω_(ext,r_1) this
+is [[thm:iii-c2-3-1]] (1). On 𝒦, φ_S is the identity near {r ≤ 5R₁} ([[lem:iii-b-5-1]]), where the data agree;
+elsewhere it is the argument of [[thm:iii-c2-3-1]] (1): Ric(φ_S^*(g_(b₀) + h_0)) = φ_S^*Ric(g_(b₀) + h_0) = 0, and the
+gauge near Σ^IVP and near φ_(±S)(Σ^IVP) is Υ^0 ([[lem:iii-k-1-1]] (d)), which is natural ([[eq:iii-c2-2-2]]), so
+φ_S^*h_0 solves [[eq:iii-k-1-2]] with the data h_(S,0), h_(S,1) there, and equals h_S by uniqueness.
+
+*(3).* The exterior part is [[thm:iii-c1-3-1]] with [[thm:iii-c2-3-1]] (2); the slab part is [[cor:iv3-2-3]]; the
+compact part is Cauchy stability. For the S-derivatives, ∂^j_S h_S solves the linearised equation with data
+∂^j_S(h_(S,0), h_(S,1)), which are pull-backs of h_0 and its derivatives, and so small with h_0; its equation also has
+the term from varying the background φ_S^*g_(b₀), which carries a factor of h_S (the proof of [[thm:iii-c2-3-1]] (2))
+and is small too. ∎

@@ -414,7 +414,7 @@ coordinates (v, r, ϑ, ξ1, ξ2) of [[eq:vr-form]],
 
 In particular ⟨R^(1)⟩ does not depend on χ.
 
-*Proof.* Write v_a := ∂_a v, Ẇ := ∂_θ W and h := λ[W], with indices raised by g0. Four facts are used. (W1) W(ℓ, ·) = 0
+*Proof.* Write v_a := ∂_a v, Ẇ := ∂_θ W and δg := λ[W], with indices raised by g0. Four facts are used. (W1) W(ℓ, ·) = 0
 and tr W = 0 ([[lem:stage-zero]] (a)). (W2) As mixed tensors W and Ẇ commute, and ⟨W Ẇ⟩ = 0. The term χ dv ⊗ dv
 contributes nothing to W^ρ_c Ẇ^c_σ or Ẇ^ρ_c W^c_σ, since ℓ^c Ẇ_cσ = 0 and W_TT^(ρc) v_c = 0. W_TT and Ẇ_TT are diagonal
 in the coordinates (ϑ, ξ1, ξ2), on which g0 is diagonal, so W Ẇ = ½ ∂_θ (W_TT W_TT). (W3) ⟨W⟩ = 0, since W_TT is a first
@@ -424,7 +424,7 @@ Christoffel symbols of g0 give ∇̂_v ℓ^r = −μ/r³, ∇̂_A ℓ^B = r⁻¹
 γ the round metric; so ∇̂_ℓ v = 0.
 
 *The expansion.* As in the proof of [[lem:mean-leading]], with C := Γ[g] − Γ[g0], Ric(g) = Ric(g0) + ∇̂_ρ C^ρ_ab − ∇̂_b
-C^ρ_aρ + C^ρ_ρσ C^σ_ab − C^ρ_bσ C^σ_aρ, C^ρ_ab = ½ g^(ρσ)(∇̂_a h_bσ + ∇̂_b h_aσ − ∇̂_σ h_ab) and D^ρ = g^(ab) C^ρ_ab.
+C^ρ_aρ + C^ρ_ρσ C^σ_ab − C^ρ_bσ C^σ_aρ, C^ρ_ab = ½ g^(ρσ)(∇̂_a δg_bσ + ∇̂_b δg_aσ − ∇̂_σ δg_ab) and D^ρ = g^(ab) C^ρ_ab.
 With ∇̂_a [u] = λ⁻¹ v_a [∂_θ u] + [∇̂_a u] and g⁻¹ = g0⁻¹ − λ W^♯ + O(λ²), C = [C⁽⁰⁾] + λ [C⁽¹⁾] + O(λ²), where C⁽⁰⁾ρ_ab
 = ½(v_a Ẇ_b^ρ + v_b Ẇ_a^ρ − ℓ^ρ Ẇ_ab) and
 
@@ -434,8 +434,11 @@ the second term comes from −λ W^(ρσ) acting on C⁽⁰⁾, whose term in v_
 C⁽⁰⁾ρ_ρb = 0, v_ρ C⁽⁰⁾ρ_ab = 0 and g0^(ab) C⁽⁰⁾ρ_ab = 0. By (W2) and (W3), ⟨C⁽¹⁾⟩ = 0.
 
 *The Ricci part.* At order λ the derivative terms give λ⁻¹ v_ρ [∂_θ C⁽²⁾] and ∇̂ C⁽¹⁾, both of θ-mean zero. The products
-give C⁽⁰⁾ C⁽¹⁾ + C⁽¹⁾ C⁽⁰⁾. In C^ρ_ρσ C^σ_ab both cross terms vanish, since C⁽⁰⁾ρ_ρσ = 0 and v_σ C⁽⁰⁾σ_ab = 0; in
-C^ρ_bσ C^σ_aρ the two cross terms are transposes in (a, b). So the mean of the Ricci part is −2 times the symmetric part
+give C⁽⁰⁾ C⁽¹⁾ + C⁽¹⁾ C⁽⁰⁾. In C^ρ_ρσ C^σ_ab the cross terms are C⁽⁰⁾ρ_ρσ C⁽¹⁾σ_ab, zero since C⁽⁰⁾ρ_ρσ = 0, and
+C⁽¹⁾ρ_ρσ C⁽⁰⁾σ_ab. For the second, the trace of C⁽¹⁾ is C⁽¹⁾ρ_ρσ = −½ v_σ tr(WẆ), the trace C_1^c_ac = −½ v_a W·∂W
+of [[lem:leading-coefficient]]: the G-part has trace G^ρ_ρσ = ½ ∂_σ tr W = 0, and v_ρ (WẆ)^ρ_σ = 0 by W(ℓ, ·) = 0. So
+C⁽¹⁾ρ_ρσ C⁽⁰⁾σ_ab = −½ tr(WẆ) v_σ C⁽⁰⁾σ_ab = 0, as v_σ C⁽⁰⁾σ_ab = 0. In C^ρ_bσ C^σ_aρ the two cross terms are
+transposes in (a, b). So the mean of the Ricci part is −2 times the symmetric part
 of ⟨T⟩, T_ab := C⁽⁰⁾ρ_bσ C⁽¹⁾σ_aρ. By (W1), Ẇ^ρ_σ v_ρ = 0, (WẆ)^σ_ρ ℓ^ρ = 0 and v·ℓ = 0, so
 
     Ẇ^ρ_σ C⁽¹⁾σ_aρ = ½ Ẇ^(ρσ) ∇̂_a W_ρσ − ½ v_a tr(ẆWẆ),
@@ -475,25 +478,25 @@ div_γ the divergence on the unit S³; and V_a = r⁻³ ⟨ω_a^c (div_γ ω̇)_
 on ξ1, ξ2 and is diagonal, so (div_γ ω̇)_ξ1 = (div_γ ω̇)_ξ2 = 0. Every component therefore vanishes except
 ⟨R^(1)⟩_vϑ = −¼ X_ϑ − ½ V_ϑ.
 
-Write c := cos ϑ, s := sin ϑ and K := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form K h (α cos θ + β sin
-θ), with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q and Q′, the second with
+Write c := cos ϑ, s := sin ϑ and κ_A := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form
+κ_A h (α cos θ + β sin θ), with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q and Q′, the second with
 coefficients (α′, β′), the terms with ∂_ϑ h cancel and
 
-    ⟨∂_θ Q ∂_ϑ Q⟩ = ½ K² h² (β ∂_ϑ α − α ∂_ϑ β),      ⟨Q ∂_θ Q′⟩ = ½ K² h² (α β′ − β α′).
+    ⟨∂_θ Q ∂_ϑ Q⟩ = ½ κ_A² h² (β ∂_ϑ α − α ∂_ϑ β),      ⟨Q ∂_θ Q′⟩ = ½ κ_A² h² (α β′ − β α′).
 
-This gives ⟨∂_θ P ∂_ϑ P⟩ = −K² h² c s, ⟨∂_θ Q_i ∂_ϑ Q_i⟩ = 2 K² h² c s (i = 1, 2), ⟨P ∂_θ Q1⟩ = −(3/2) K² h² c² s²
-and ⟨P ∂_θ Q2⟩ = (3/2) K² h² c² s². Now ω̇ · ∂_ϑ ω = 4 (∂_θ P ∂_ϑ P + ∂_θ Q1 ∂_ϑ Q1 + ∂_θ Q2 ∂_ϑ Q2) plus multiples of
-Q_i ∂_θ Q_i, which have mean zero; so X_ϑ = 4 r⁻³ K² h² c s (−1 + 2 + 2) = 12 K² h² c s/r³. The divergence of a diagonal
+This gives ⟨∂_θ P ∂_ϑ P⟩ = −κ_A² h² c s, ⟨∂_θ Q_i ∂_ϑ Q_i⟩ = 2 κ_A² h² c s (i = 1, 2), ⟨P ∂_θ Q1⟩ = −(3/2) κ_A² h² c² s²
+and ⟨P ∂_θ Q2⟩ = (3/2) κ_A² h² c² s². Now ω̇ · ∂_ϑ ω = 4 (∂_θ P ∂_ϑ P + ∂_θ Q1 ∂_ϑ Q1 + ∂_θ Q2 ∂_ϑ Q2) plus multiples of
+Q_i ∂_θ Q_i, which have mean zero; so X_ϑ = 4 r⁻³ κ_A² h² c s (−1 + 2 + 2) = 12 κ_A² h² c s/r³. The divergence of a diagonal
 tensor depending on ϑ alone is (div_γ T)_ϑ = (cs)⁻¹ ∂_ϑ(cs T_ϑϑ) − ½ (∂_ϑ γ_AB) T^(AB), which gives
 
     (div_γ ω̇)_ϑ = −2 ∂_ϑ ∂_θ P + (4 s/c − 2 c/s) ∂_θ Q1 + (2 s/c − 4 c/s) ∂_θ Q2.
 
-With ω_ϑ^ϑ = −2P and ⟨P ∂_ϑ ∂_θ P⟩ = −⟨∂_θ P ∂_ϑ P⟩ = K² h² c s,
+With ω_ϑ^ϑ = −2P and ⟨P ∂_ϑ ∂_θ P⟩ = −⟨∂_θ P ∂_ϑ P⟩ = κ_A² h² c s,
 
-    V_ϑ = r⁻³ (4 K² h² c s + 3 K² h² c² s² ((4 s/c − 2 c/s) − (2 s/c − 4 c/s))) = r⁻³ K² h² (4 c s + 6 c s)
-        = 10 K² h² c s/r³.
+    V_ϑ = r⁻³ (4 κ_A² h² c s + 3 κ_A² h² c² s² ((4 s/c − 2 c/s) − (2 s/c − 4 c/s))) = r⁻³ κ_A² h² (4 c s + 6 c s)
+        = 10 κ_A² h² c s/r³.
 
-So ⟨R^(1)⟩_vϑ = −(3 + 5) K² h² c s/r³ = −(8/9) A² env² h² c s/r³ = −(4/9) A² env² h² sin 2ϑ/r³. ∎
+So ⟨R^(1)⟩_vϑ = −(3 + 5) κ_A² h² c s/r³ = −(8/9) A² env² h² c s/r³ = −(4/9) A² env² h² sin 2ϑ/r³. ∎
 
 **Remark {#rem:mean-mass-aspect}** (What the mass sees.) The first mean m1 need not vanish: by
 [[lem:first-mean-forcing]] the forcing of its equation is nonzero wherever env ≠ 0 off the axes, and it lies in the
