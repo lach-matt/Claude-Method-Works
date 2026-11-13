@@ -1,6 +1,6 @@
 label	source	source_name	note
 ch:own-data	paper/RESPONSE-HL-5D.md:1757-1778; docket68/n1star/SETTLE-GLAM5.md:9-36	P Beyond the boundary (own data); SG section 0	intro composed from P's final wording
-thm:own-data	docket68/n1star/SETTLE-GLAM5.md:1942-1971	SG Theorem R5.1 (R6-E..R10-E status: proved)	k_P = 2k1+14 in place of k1+5 (issue-1, proved in the first step of the proof); rate region r_flat as cor:s27-rate; strip from R9.1(iii)(a); 4R >= 1 added to the notation
+thm:own-data	docket68/n1star/SETTLE-GLAM5.md:1942-1971	SG Theorem R5.1 (R6-E..R10-E status: proved)	k_P = 2k1+14 in place of k1+5 (issue-1, proved in the first step of the proof); rate region r_flat as cor:s27-rate; strip from R9.1(iii)(a); 4R >= 8 added to the notation
 sec:own-far-part	docket68/n1star/SETTLE-GLAM5.md:3358-3483	SG R9-B setting	cites lem:interior-far-part (ch 62) for R9.1 (i)-(v)
 eq:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236	SG R4-D setting
 lem:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236, 2779-2790	SG R4-D setting (B4e) and R7-A conormals	the wedge paragraph of proof project G is this lemma's (b)
@@ -115,7 +115,7 @@ eq:own-gronwall	docket68/n1star/SETTLE-GLAM5.md:1315-1319	SG Step 5 summed inequ
 sec:own-vacuum	docket68/n1star/SETTLE-GLAM5.md:1416-1443	SG R4-F
 prop:own-vacuum	docket68/n1star/SETTLE-GLAM5.md:1418-1443	SG Proposition R4.9	identity (V1) derived from the contracted Bianchi identity; (ii) carries the gauge-field bounds on the initial slice (was lem:cutoff-gauge of proof project I)
 eq:own-bianchi	docket68/n1star/SETTLE-GLAM5.md:1423-1425	SG R4.9 (i)
-lem:own-two-continuations	docket68/n1star/SETTLE-GLAM5.md:1829-1840, 2381-2386	SG Proposition R5.2 with R6-A's proof	uniqueness for two continuations (review R-P-I m2); C5 suffices
+lem:own-two-continuations	docket68/n1star/SETTLE-GLAM5.md:1829-1840, 2381-2386	SG Proposition R5.2 with R6-A's proof	uniqueness for two continuations (review R-P-I m2); C5 suffices; the energy identity on bounded regions cut by a lateral piece as in lem:own-exterior, then V_* -> infinity (R2-63 m1)
 lem:cutoff-independence	-	new	the limit does not depend on J (proof project I), via lem:own-two-continuations
 prop:own-uniqueness	docket68/n1star/SETTLE-GLAM5.md:1829-1840, 2381-2386	SG Proposition R5.2 with R6-A's proof	derived from lem:own-two-continuations
 rem:own-low-weight	docket68/n1star/SETTLE-GLAM5.md:1373-1400, 1841-1847, 440-458	SG Prop R4.7 restated R5.3; Prop R2.6	kept as one remark
