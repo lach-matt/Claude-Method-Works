@@ -295,7 +295,7 @@ the same data as g_λ on Σ^IVP ∩ {r ≤ R}, which settles to five-dimensional
 (ii) (without symmetry) every smooth vacuum data set on Σ^IVP whose difference from the data of (i) lies in Hintz's
 data class — polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric and r^(−3) and
 r^(−4) in the second fundamental form, and conormal remainders in r^(−ℓ0) H_b^∞ and r^(−ℓ0−1) H_b^∞ — and has norm less
-than δ in that class has a vacuum development that, its initial slice moved by a cut-off Lorentz boost and a
+than δ in that class has a vacuum development that, its initial slice moved by a cut-off Lorentz boost and a cut-off
 translation, each below ε_m (the slice φ_(−S,−S⁰)⁻¹(Σ^IVP) = φ_S(ψ_(S⁰)(Σ^IVP)) of [[thm:iii-k-4-3]], with
 φ_(S,S⁰) := ψ_(S⁰) ∘ φ_S as in [[eq:s27-motion]] and |S|, |S⁰| < ε_m), settles at the same rate to a Myers–Perry
 black hole of mass m′ with |m′ − μ_end| < ε_m and spin below ε_m.
@@ -330,11 +330,10 @@ The remaining chapters prove the following; each is stated in full where it is p
 - *Beyond the boundary.* The development of [[thm:settling]] (i) also reaches inside the black hole after the shell,
   up to the curvature boundary ([[prop:interior]]). Glued to g_λ, taken just before Σ^IVP, along the part of Σ^IVP
   between the inner radius of the stability theory and R, where the two induce the same data, it forms one smooth
-  vacuum spacetime, for λ small; and the two
-  developments of those data have a maximal common globally hyperbolic development that contains a neighbourhood of
-  that part, how far it reaches being left open ([[lem:interior-one-spacetime]]). The development of g_λ's own data
-  settles, with no gluing, in a data class wider than (ii)'s by half-integer orders, for every λ below a threshold and
-  with no exceptional set ([[thm:own-data]]).
+  vacuum spacetime, for λ small; and the two developments of those data have a maximal common globally hyperbolic
+  development that contains a neighbourhood of that part, how far it reaches being left open
+  ([[lem:interior-one-spacetime]]). The development of g_λ's own data settles, with no gluing, in a data class wider
+  than (ii)'s by half-integer orders, for every λ below a threshold and with no exceptional set ([[thm:own-data]]).
 - *The linear solution in two gauges.* In a Regge–Wheeler-type gauge the gauge vector is explicit, and the
   perturbation settles to the change of mass on each region r ≤ R, the horizon included, at the linear rate with two
   derivatives lost ([[thm:rw-settling]]). In the harmonic gauge a representative exists on the whole domain, induces

@@ -305,20 +305,20 @@ equivalent norm.
 (c) Multiplication by an element of C^∞_b is bounded on H^k_b(Ω_*), and ‖u‖_(C^j_b) ≤ C‖u‖_(H^(j+3)_b) for j ∈ ℕ₀.
 
 *Proof.* *Charts.* Near {t^♭ = 1} take the charts of Step 3 of the proof of [[prop:ii-g-3-1]] (for Ω_*,
-[[rem:ii-g-3-2]], with c_1 = 1/8), which cover {|t^♭ − 1| ≤ c_1} and in which t^♭ − 1 is the last coordinate and, at {r
-= r_0}, a defining function of {r = r_0} the first. Away from {t^♭ = 1} take those of its Step 4 (b-cells in logarithmic
-coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto orthants at {r = r_0}) that are contained in {t^♭ ≥ 1 + c_1/2}, refining
-its cells if necessary, which keeps the uniform bounds; as t^♭ has bounded b-derivatives near 𝓘⁺ at bounded t_* and {t^♭
-≥ 1 + c_1} contains a neighbourhood of ι⁺ ∪ K⁺ ((T3) of [[rem:ii-g-3-2]]), these cover {t^♭ ≥ 1 + c_1}, and with the
-Step 3 charts they cover Ω_*. Restricted to Ω_*, each chart φ_α maps onto a relatively open subset of an orthant ℝ⁵_q :=
-[0, ∞)^q × ℝ^(5−q), q ≤ 2 (up to the order of the coordinates), whose faces are the images of {r = r_0} and {t^♭ = 1}.
-As there, the family has finite multiplicity, in each chart the b-vector fields and the coordinate fields span the same
-module over the functions uniformly bounded in C^∞, and μ_b is the Lebesgue density times a function bounded above and
-below, uniformly in α. Let
-χ_α be a partition of unity of Ω_* subordinate to the charts, and χ̃_α equal to 1 near supp χ_α, both uniformly bounded
-in C^∞ in the chart coordinates. Let H̄^k(ℝ⁵_q) be the space of restrictions of H^k(ℝ⁵) to the interior of ℝ⁵_q, with
-the quotient norm, and E the composition of Seeley's extension operators across the faces of ℝ⁵_q (Step 2 of that
-proof), bounded from H̄^k(ℝ⁵_q) to H^k(ℝ⁵) for every k. E is also bounded on L^∞: on {x_i < 0} each of its factors is
+[[rem:ii-g-3-2]], with c_1 = 1/8), which cover {|t^♭ − 1| ≤ c_1} and in which t^♭ − 1 is the last coordinate and, at
+{r = r_0}, a defining function of {r = r_0} the first. Away from {t^♭ = 1} take those of its Step 4 (b-cells in
+logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto orthants at {r = r_0}) that are contained in
+{t^♭ ≥ 1 + c_1/2}, refining its cells if necessary, which keeps the uniform bounds; as t^♭ has bounded b-derivatives
+near 𝓘⁺ at bounded t_* and {t^♭ ≥ 1 + c_1} contains a neighbourhood of ι⁺ ∪ K⁺ ((T3) of [[rem:ii-g-3-2]]), these
+cover {t^♭ ≥ 1 + c_1}, and with the Step 3 charts they cover Ω_*. Restricted to Ω_*, each chart φ_α maps onto a
+relatively open subset of an orthant ℝ⁵_q := [0, ∞)^q × ℝ^(5−q), q ≤ 2 (up to the order of the coordinates), whose
+faces are the images of {r = r_0} and {t^♭ = 1}. As there, the family has finite multiplicity, in each chart the
+b-vector fields and the coordinate fields span the same module over the functions uniformly bounded in C^∞, and μ_b is
+the Lebesgue density times a function bounded above and below, uniformly in α. Let χ_α be a partition of unity of Ω_*
+subordinate to the charts, and χ̃_α equal to 1 near supp χ_α, both uniformly bounded in C^∞ in the chart coordinates.
+Let H̄^k(ℝ⁵_q) be the space of restrictions of H^k(ℝ⁵) to the interior of ℝ⁵_q, with the quotient norm, and E the
+composition of Seeley's extension operators across the faces of ℝ⁵_q (Step 2 of that proof), bounded from H̄^k(ℝ⁵_q)
+to H^k(ℝ⁵) for every k. E is also bounded on L^∞: on {x_i < 0} each of its factors is
 Σ_l c_l (χf)(…, −x_i/ε_l, …), with the cut-off χ evaluated at the reflected point (the proof of [[lem:ii-e-1-3]] (b)),
 so it multiplies sup norms by at most sup|χ| Σ_l |c_l| < ∞, as in the proof of [[lem:ii-f1-2-1]]. As in the paragraph
 *Estimates* of the proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of extension, ‖u‖_(H^k_b(Ω_*)) is

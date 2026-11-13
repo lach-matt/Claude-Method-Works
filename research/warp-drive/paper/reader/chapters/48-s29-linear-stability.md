@@ -188,26 +188,25 @@ H^(∞,ℓ^♭_0)_b, as ℓ^♭_0 < min Re ℰ_0 and ℓ^♭_0 < ℓ_0 (the firs
 The three solutions agree on overlaps by [[lem:ii-f-1-3]] with τ := t_IVP, as in the proof of [[prop:iii-k-1-2]].
 *The uniqueness classes:* H^(max(k,1),ℓ^♭_0,(−,ℓ^♭_I))_b of [[thm:iv2-2-4]] on Ω_(ext,r_1), that of [[thm:iv3-2-1]] on
 Ω^♮, with max(k, 1) as in [[thm:iv2-2-4]], and H¹ on 𝒦 (the energy estimate behind (L) of [[sec:s27-local]]). Each
-is preserved by every isometry of
-g that fixes t and |x|, the weights being functions of (t, |x|) ([[eq:iii-b-2-2]]) and ρ′_I a function of (t, |x|)
-([[sec:s27-cover]]).
+is preserved by every isometry of g that fixes t and |x|, the weights being functions of (t, |x|) ([[eq:iii-b-2-2]])
+and ρ′_I a function of (t, |x|) ([[sec:s27-cover]]).
 
 *(2).* On Ω_(ext,r_1) this is the proof of [[thm:iii-c1-3-1]] for L^(χ_0) ([[lem:iii-c2-2-1]]). There
 L^(χ_0)_(g,g)ḣ = 0, with [[lem:iii-c2-2-1]] giving the structure of [[prop:iii-c-4-4]] for L^(χ_0); so [[eq:iii-c1-3-4]]
 holds with right side 0 and [[eq:iii-c1-3-5]] without its integral, and every step is linear in the data. Its
 [[eq:iii-c1-3-2]] becomes ‖ḣ‖_(H^(k,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b) ≤ C_k‖(ḣ_0, ḣ_1)‖_(H^(k_0,(ℰ_0,ℓ_0))_b), a linear map
 continuous at 0 being bounded. On 𝒮, the proof of [[cor:iv3-2-3]] (the proof of [[thm:iii-c1-3-1]] on Ω^♮) gives the
-same, with the data on Σ_c bounded by the energy estimate on 𝒦. On 𝒦 there is nothing at ℐ⁺. [[lem:viii-1-1]] bounds
+same, with the data on Σ_c bounded by (L) on 𝒦. On 𝒦 there is nothing at ℐ⁺. [[lem:viii-1-1]] bounds
 (ḣ_0, ḣ_1) by (γ̇, k̇).
 
 *(1).* This is the argument of [[prop:iii-k-1-2]] (2), linearised. Put η̇ := Υ̇^♮(ḣ). By [[eq:viii-0-1]] and
 [[eq:viii-1-1]], DRic(ḣ) = δ*_(g,E_C)η̇. The second Bianchi identity δ_g̃ G_g̃ Ric(g̃) = 0 holds for every metric g̃.
 Differentiated at the Ricci-flat g, the variation of δ_g̃ G_g̃ multiplies Ric(g) = 0, so δ_g G_g DRic(k) = 0 for
 every k. Hence δ_g G_g δ*_(g,E_C)η̇ = 0 on 𝒟. This operator has the principal symbol of δ_g G_g δ*_g, which is
-½g⁻¹(ζ, ζ) times the identity up to the sign convention of [[sec:iii-b-6]], as δ*_(g,E_C) − δ*_g is of order 0
-([[def:iii-b-6-1]]). At Σ^IVP, η̇ = Υ̇⁰(ḣ) = 0 by [[lem:viii-1-1]] (2). Also
-(G_g δ*_(g,E_C)η̇)(n, ·) = (G_g DRic(ḣ))(n, ·) = 0 there by [[lem:viii-1-1]] (3), so [[lem:iii-k-4-1]], with g for its
-metric, gives ∂_nη̇ = 0. So the Cauchy data of η̇ vanish, and η̇ = 0 on 𝒟 by [[lem:ii-f-1-3]], forward and backward of
+½g⁻¹(ζ, ζ) times the identity ([[lem:ix-2-1]] (a)), as δ*_(g,E_C) − δ*_g is of order 0 ([[def:iii-b-6-1]]). At
+Σ^IVP, η̇ = Υ̇⁰(ḣ) = 0 by [[lem:viii-1-1]] (2). Also (G_g δ*_(g,E_C)η̇)(n, ·) = (G_g DRic(ḣ))(n, ·) = 0 there by
+[[lem:viii-1-1]] (3), so [[lem:iii-k-4-1]], with g for its metric, Σ^IVP for its Σ and n for its unit normal ν, gives
+∂_nη̇ = 0. So the Cauchy data of η̇ vanish, and η̇ = 0 on 𝒟 by [[lem:ii-f-1-3]], forward and backward of
 Σ^IVP, as in the proof of [[prop:iii-k-1-2]] (2). Then DRic(ḣ) = 0, and Υ̇ = Υ̇^♮ on Ω_*. ∎
 
 ### The linear solution {#sec:viii-2}
