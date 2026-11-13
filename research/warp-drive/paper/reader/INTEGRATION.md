@@ -629,3 +629,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   D2b ≤ 4.914e-4; the proved movement of a point value is 1.3·10⁻⁷ (2·10⁻¹¹ was a measurement). D4b cited nowhere,
   dropped. The figure 2.41·10⁻³ (false; the proved value is 2.42·10⁻³) appears in no chapter; chapter 87, when written,
   must print 2.42·10⁻³.
+- S25 and 38a third reading (R3-S25) CONFIRMED: u^rot_β consists only of terms (a), (b) identify; cor:s25-tame's
+  inputs are all cited by S24 and the citation order is acyclic; 38a cites nothing after S19. Nits for integration:
+  44:531 E^ν is lem:iii-j2-2-1 (b), not (c); 44:569 "rates of q exceed 2 + ε_K" only for the polyhomogeneous terms;
+  44:563 the pointer should include *The augmentation at b*; 38a:156 name the weight α. Not counted:
+  sec:s23-base-points (4) points forward to cor:iii-i15-3-2.
