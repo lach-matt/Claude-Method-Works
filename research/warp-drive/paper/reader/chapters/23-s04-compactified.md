@@ -1680,16 +1680,19 @@ Then for every u with χu ∈ H^(−N), Gu ∈ H^(𝗌−κ), GLu ∈ H^(𝗌−
 localisers make every product with disjoint microsupports below have a smooth factor on each side, as
 [[prop:ii-a1-2-4]] (e) requires.
 
-*Step 0: microlocalisation.* Choose Φ = Op(φ), carried by χ, with φ = 1 near supp φ_0 ∪ supp φ_E and supp φ in a closed
-set whose intersection with fibre infinity lies in Ell(G). Put v := Φu. By [[lem:ii-a-8-4]] (c),
-‖v‖_𝗍 ≤ C(‖Gu‖_𝗍 + ‖χu‖_(−N)) for 𝗍 ≤ 𝗌 − κ, and ‖ΦLu‖_(𝗌−m+1) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χ_*Lu‖_(−N−m)) with χ_* as in
-the proof of [[thm:ii-a1-3-1]]; by [[lem:ii-a-8-6]] (a), ‖χ_*Lu‖_(−N−m) ≤ C‖χu‖_(−N). Now Lv = ΦLu + [L, Φ]u, and
-[L, Φ]u = [L, Φ]χu by the support convention. Further
+*Step 0: microlocalisation.* Choose an auxiliary operator Φ = Op(φ) ((R1) of [[sec:ii-a-8-3]], for G, E, Φ_0 and Φ_E),
+carried by χ, with φ = 1 near (supp φ_0 ∪ supp φ_E) ∩ ᵉ³ᵇS*M̃, a compact subset of Ell(G), and supp φ in a closed set
+whose intersection with fibre infinity lies in Ell(G). Φ_0 and Φ_E are microsupported in closed neighbourhoods of their
+wave front sets on which φ = 1 ([[sec:ii-a1-1-2]]). Put v := Φu. By [[lem:ii-a-8-4]] (c),
+‖v‖_𝗍 ≤ C(‖Gu‖_𝗍 + ‖χu‖_(−N)) for 𝗍 ≤ 𝗌 − κ, and ‖ΦLu‖_(𝗌−m+1) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χ_*Lu‖_(−N−m)) with χ_* of
+(R2) of [[sec:ii-a-8-3]], for which Φχ_* = Φ and Gχ_* = G; by [[lem:ii-a-8-6]] (a), ‖χ_*Lu‖_(−N−m) ≤ C‖χu‖_(−N). Now
+Lv = ΦLu + [L, Φ]u, and [L, Φ]u = [L, Φ]χu by the support convention. Further
 
     Ǎ_ε[L, Φ] = Op(ǎ_ε)(Φ_0(I − Φ))L − Op(ǎ_ε)(Φ_0L(I − Φ)).
 
-Φ_0(I − Φ) ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]; I − Φ = Op(1 − φ) by [[eq:ii-a1-1-1]]), and Φ_0L(I − Φ) has every order by
-[[prop:ii-a1-2-4]] (e), Φ_0 and I − Φ being microsupported in the disjoint closed sets supp φ_0 and supp(1 − φ), with
+Φ_0(I − Φ) ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]; I − Φ is Op(1 − φ) up to a residual operator, by [[eq:ii-a1-1-1]]), and
+Φ_0L(I − Φ) has every order by [[prop:ii-a1-2-4]] (e), Φ_0 and I − Φ being microsupported in disjoint closed sets, a
+neighbourhood of WF′(Φ_0) on which φ = 1 and supp(1 − φ), with
 L = Op(ℓ_f) + Σ_j a_jR_j ([[eq:ii-a1-1-2]]). Op(ǎ_ε) is bounded of order 𝗄 uniformly in ε ([[prop:ii-a1-2-4]] (a)),
 and L maps H^(−N) to H^(−N−m) ([[lem:ii-a-8-6]] (a)). Hence
 

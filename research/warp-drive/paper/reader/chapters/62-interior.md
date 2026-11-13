@@ -7,12 +7,14 @@ claimed. The second region is the interior after the time T: q_end ≤ r < μ_en
 horizon and above the curvature boundary, for all later times. This chapter shows that the development of
 [[thm:settling]] (i) covers it. With the inner radius of the stability theory lowered below the curvature boundary,
 the development is defined on all of {r ≥ q_end} to the future of its initial surface, for every final mass, its
-constants then depending on that mass, and it settles there at the rate of [[thm:settling]] ([[prop:interior]]). On
-their common domain of dependence it and g_λ are one vacuum spacetime ([[lem:interior-one-spacetime]]). The last
-section locates the first step towards the continuation of g_λ's own data, the past domain of dependence of the far
-part of the initial surface ([[lem:interior-far-part]]), and defines a data class wider than that of
-[[thm:settling]] (ii) by half-integer orders ([[def:half-class]]), in which [[ch:own-data]] proves that the
-development of g_λ's own data settles.
+constants then depending on that mass, and it settles there at the rate of [[thm:settling]] ([[prop:interior]]).
+Glued along the part of Σ^IVP between that inner radius and the gluing radius, where the two induce the same data, it
+and g_λ form one vacuum spacetime for λ small, and the two developments of those data are isometric on their maximal
+common globally hyperbolic development, which contains a neighbourhood of that part and whose reach is left open
+([[lem:interior-one-spacetime]]). The last section locates the first step towards the continuation of g_λ's own
+data, the past domain of dependence of the far part of the initial surface ([[lem:interior-far-part]]), and defines a
+data class wider than that of [[thm:settling]] (ii) by half-integer orders ([[def:half-class]]), in which
+[[ch:own-data]] proves that the development of g_λ's own data settles.
 
 *Notation.* b₀ := (μ_end, 0), so that the mass m₀ of the stability theory is μ_end and R₁ = μ_end^(1/2) = r_h, the radius
 of the horizon of g_(b₀). q_end := (√72 μ_end l5²)^(1/4) is the radius of the curvature boundary x_K = 1 of the
@@ -120,16 +122,16 @@ q_end ≥ ½μ_end^(1/2) ⟺ √72 μ_end l5² ≥ μ_end²/16 ⟺ [[eq:interior
 while 256 · 72 l5⁴ = 1.8432. For a seed μ0 = 1000 l5², μ_end ≥ μ0 > 16√72 l5² and [[eq:interior-condition]] fails;
 [[prop:interior]] covers both.
 
-### One spacetime on the common domain of dependence {#sec:interior-one-spacetime}
+### One spacetime across the common part of the initial surface {#sec:interior-one-spacetime}
 
 g is the development of the glued data (γ_λ, k_λ) of [[thm:settling]] (i), which equal the data of g_λ on
 Σ^IVP ∩ {r ≤ R} and the data of the Tangherlini metric g^KS_(m_λ,0) on Σ^IVP ∩ {r ≥ 4R} ([[cor:vii-2-3]],
-[[ch:after-shell]]). On the domain of dependence of Σ^IVP ∩ {r < R}, g and g_λ are vacuum developments of the same
-data, so they agree up to a diffeomorphism. [[lem:interior-one-spacetime]] states this precisely; it makes g_λ, near
-the hole just before Σ^IVP, and g, after Σ^IVP, one vacuum spacetime. Its proof compares g_λ with g_(b₀) on a
-neighbourhood of Σ^IVP ∩ {r_♭ ≤ r ≤ R}, which reaches below r_♭, outside the set on which [[lem:vii-1-2]] (a) is
-stated. The next lemma gives that comparison; its part (a) is [[lem:vii-1-2]] (a) on a larger set, and the proof of (a)
-there extends to it, its formula holding at every r > 0.
+[[ch:after-shell]]). On Σ^IVP ∩ {r_♭ < r < R}, g and g_λ induce the same data, so near it they are vacuum
+developments of the same data. [[lem:interior-one-spacetime]] makes this precise, without deciding how far their
+identification reaches; it makes g_λ, near the hole just before Σ^IVP, and g, after Σ^IVP, one vacuum spacetime. Its
+proof compares g_λ with g_(b₀) on a neighbourhood of Σ^IVP ∩ {r_♭ ≤ r ≤ R}, which reaches below r_♭, outside the set
+on which [[lem:vii-1-2]] (a) is stated. The next lemma gives that comparison; its part (a) is [[lem:vii-1-2]] (a) on a
+larger set, and the proof of (a) there extends to it, its formula holding at every r > 0.
 
 **Lemma {#lem:interior-chart}** (The Tangherlini metric in the chart of [[lem:vii-1-2]].) In the chart
 (t, x) = (τ + T_(μ_end)(|x|) + c₀, x) of [[lem:vii-1-2]]:
