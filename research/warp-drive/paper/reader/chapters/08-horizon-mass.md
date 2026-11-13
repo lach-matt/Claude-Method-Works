@@ -305,7 +305,8 @@ fails.
 R^(0)[g0 + λ W_TT] ([[pending:stage-zero]]). By (a) at order 0 and the S-invariance of W_TT, f(JX, 3π/2 − θ) = f(X,
 θ), as J* (dv ⊗ dv) = dv ⊗ dv. Put χ̃(X, θ) := −χ(JX, 3π/2 − θ). Then ∂_θ χ̃ = (∂_θ χ)(JX, 3π/2 − θ), the operator ℓ +
 3/(2r) commutes with J, so χ̃ solves the same transport with the same zero data, and by uniqueness χ̃ = χ. Hence χ dv²
-is S-invariant at weight 1, and so is W.
+is S-invariant at weight 1, and so is W. By (a) applied to the S-invariant family g0 + λ W, its residual is S-odd at
+order one: J* R^(1)[g0 + λ W](·, 3π/2 − ·) = −R^(1)[g0 + λ W], the mean part and the oscillating part alike.
 
 (c) The unknowns of the ansatz ([[pending:ansatz]]) are the means m_j, the phases φ_j and the oscillating profiles ĝ_j,
 with G(X, θ; λ) = g0 + Σ λ^j m_j + λ W + Σ λ^j ĝ_j(X, θ) and phase u = v + Σ λ^j φ_j. Let S act by

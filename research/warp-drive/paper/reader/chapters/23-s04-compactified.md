@@ -390,3 +390,199 @@ chapter and the following ones.
 The sharp Gårding inequality is not among these statements and is not used: the real principal type estimate
 ([[thm:ii-a1-5-4]]) is proved without it.
 
+### The e3b-calculus in dimension 4 + 1 {#sec:ii-a-4}
+
+This section sets up the e3b-calculus as an instance of the calculus of [[sec:ii-a-3]]: its unit cells, its operators
+and Sobolev spaces, and operators on bundles.
+
+#### Unit cells {#sec:ii-a-4-1}
+
+The scaled b.g. structure is that of [Hin26c, Section 3.2.1] with ℝ⁴_x and 𝕊³ in place of ℝ³_x and 𝕊². Its coefficient
+and operator Lie algebras are 𝒲 = C^∞_b 𝒱_b(M̃) and 𝒱 = C^∞_b 𝒱_e3b(M̃), where C^∞_b denotes the functions that remain
+bounded under any finite number of b-vector fields (conormal functions). On Ω ∩ M° there are four families of cells,
+which are compatible on their overlaps: each family's charts are related to the others' by coordinate changes that are
+uniformly bounded together with the scalings, as one checks from the expressions of the spanning fields below.
+
+(1) Near K⁺: U_(1,i) := (2^(i−2) − 1, 2^(i+2) − 1)_t × (−2, 2)⁴_x, with scalings ρ_t = 2^(−i) and ρ_(x^q) = 1; and, for
+j ∈ {1, …, 4}, a sign ±, k ∈ ℕ_0, i ≥ k + 10 and l ∈ ℤ³ with |l| ≤ 2,
+
+    U_(1,i,±jkl) := {2^(i−2) − 1 < t < 2^(i+2) − 1,  ±x^j ∈ (2^(k−2), 2^(k+2)),  x̂_j/x^j ∈ (−2, 2)³ + l}
+
+(x̂_j the other three coordinates), with scalings ρ_t = 2^(k−i) and ρ_(x^q) = 1. In U_(1,i), 𝒲 and 𝒱 are spanned by
+⟨t⟩∂_t, ∂_x and by ∂_(t_*), ∂_x respectively; in U_(1,i,±jkl) by t_*∂_(t_*), r∂_x and by r∂_(t_*), r∂_x respectively.
+
+(2) Near ι⁺ ∩ {ρ_K ≤ 3}, with τ = 1/t_* and ρ_K = r/t_*, and the eight chart domains
+𝕊³_(k±) := {ω ∈ 𝕊³ : ±ω_k > 1/4}, k = 1, …, 4, each a graph over the other three coordinates (they cover 𝕊³, as
+max_k |ω_k| ≥ 1/2; any finite cover by charts gives an equivalent structure [Hin26d, Proposition 3.2]):
+
+    U_(2,ijk±) := (2^(−i−2), 2^(−i+2))_τ × (2^(−j−2), 2^(−j+2))_(ρ_K) × 𝕊³_(k±),     j ≥ i,
+
+with scalings ρ_τ = 2^(−j) and ρ_(ρ_K) = ρ_ω = 1; 𝒱 is spanned by ρ_Kτ∂_τ, ρ_K∂_(ρ_K), ∂_ω (equivalently r∂_(t_*), r∂_r,
+∂_ω), and 𝒲 by τ∂_τ, ρ_K∂_(ρ_K), ∂_ω.
+
+(3) Near ι⁺ ∩ {x_I ≤ 3}, with x_I = (t_*/r)^(1/2):
+
+    U_(3,ijk±) := (2^(−i−2), 2^(−i+2))_τ × (2^(−j−2), 2^(−j+2))_(x_I) × 𝕊³_(k±),
+
+with scalings ρ_τ = ρ_(x_I) = 1 and ρ_ω = 2^(−j); 𝒱 is spanned by τ∂_τ, x_I∂_(x_I), x_I∂_ω, and 𝒲 by the b-vector
+fields.
+
+(4) One cell covering the remaining compact part of Ω ∩ M°; and analogous families for t_* ≤ 1.
+
+#### Operators and spaces {#sec:ii-a-4-2}
+
+With these cells, the calculus of [[sec:ii-a-3]] gives [Hin26c, (3.23)–(3.24)] the weighted e3b-pseudodifferential
+operators
+
+    C^∞_b Ψ^(𝗌,(2α_I,α_+,α_K))_e3b(M̃) = x_I^(−2α_I) ρ_+^(−α_+) ρ_K^(−α_K) Ψ^𝗌_e3b(M̃),     𝗌 ∈ C^∞(ᵉ³ᵇS*M̃),
+
+which contain C^∞_b Diff^m_e3b; the spaces
+
+    H^(𝗌,(2α_I,α_+,α_K))_e3b = x_I^(2α_I) ρ_+^(α_+) ρ_K^(α_K) H^𝗌_e3b(M̃, |dt dx|);
+
+and H^((𝗌;k),(2α_I,α_+,α_K))_(e3b;b), with k b-derivatives (the spaces H^((s;k))_(𝒱;𝒲) of (S3)). The microlocalisation
+locus is ᵉ³ᵇS*M̃. The density |dt dx| is a uniformly positive 𝒱-density times a weight, so (S3) applies with that weight
+absorbed. The operators are taken in the subalgebra Ψ_(𝒱,[ ]) of (S10), which is possible because
+𝒲_([𝒱]) ⊃ 𝒱_(b,[e3b]) spans 𝒲 ([[lem:ii-a-2-9]]). Hence, by (S10),
+
+    A ∈ C^∞_b Ψ^𝗌_e3b,  V ∈ 𝒱_(b,[e3b])   ⟹   [V, A] ∈ C^∞_b Ψ^𝗌_e3b,   WF′_e3b([V, A]) ⊂ WF′_e3b(A).  {#eq:ii-a-4-1}
+
+(The wave front set inclusion holds because, if A is microlocally residual near a point, so is [V, A], by (S10)
+applied to the localised operator.)
+
+**Lemma {#lem:ii-a-4-1}** ([Hin26c, Lemma 3.6].) Let V_1, …, V_N ∈ 𝒱_b(M̃) and let w_j ∈ C^∞(M̃) be bounded, with
+V_(0,j) := w_jV_j ∈ 𝒱_e3b spanning 𝒱_e3b over C^∞, and put V_0 := I. Then every A ∈ C^∞_b Ψ^𝗌_e3b is Σ_(j=0)^N A_jV_j
+with A_j ∈ C^∞_b Ψ^(𝗌−1)_e3b.
+
+*Proof.* B := Σ_j V_(0,j)^* V_(0,j) ∈ Diff²_e3b is elliptic, so I = QB + R with Q ∈ C^∞_b Ψ^(−2)_e3b and
+R ∈ C^∞_b Ψ^(−1)_e3b: take Q := Op(q) with q ∈ S^(−2) equal to σ(B)⁻¹ outside a compact subset of each fibre,
+uniformly; then R := I − QB has principal symbol 0 at order 0, so it has order −1 by the principal symbol sequence
+(S5). (This is the first step of [[lem:ii-a-8-4]] (b), which does not use the present lemma; a parametrix to this
+finite order suffices.) Then A = Σ_j AQV_(0,j)^* w_jV_j + ARV_0, and A_j := AQV_(0,j)^* w_j ∈ C^∞_b Ψ^(𝗌−1)_e3b,
+A_0 := AR ∈ C^∞_b Ψ^(𝗌−1)_e3b. ∎
+
+Passing to the secondary structure (subdividing the cells into ρ-cuboids) gives the larger classes
+Ψ̃_e3b = C^∞_e3b Ψ_e3b with e3b-regular coefficients ([Hin26d, Remark 3.48]: Ψ_𝒱 ⊂ Ψ_(𝒱′)), still bounded on the same
+spaces.
+
+#### Bundles {#sec:ii-a-4-3}
+
+Operators on the trivial bundle ℂ^N (the bundles of [[sec:i-a-1-2]]) are N × N matrices of scalar operators; all
+statements above and below hold for them with matrix-valued symbols, the principal symbols multiplying as matrices
+([Hin26d, Remark 3.13] for differential operators; for pseudodifferential operators, matrices of scalar ones). Where a
+scalar principal symbol is needed (commutators lowering the order), it is assumed and said.
+
+### The Fourier transform near K⁺ {#sec:ii-a-5}
+
+This section identifies the 3b-spaces near K⁺ with spaces of their Fourier transforms in t, and the low-energy spaces of
+[[ch:s03]] with the spectral spaces of this calculus.
+
+#### The 3b-structure and its spectral side {#sec:ii-a-5-1}
+
+Near K⁺ the secondary structure of [[sec:ii-a-4-1]] has the cells U_i := (i − 2, i + 2)_t × (−2, 2)⁴_x and
+
+    U_(i,±jkl) := {(i − 2)2^k < t < (i + 2)2^k,  ±x^j ∈ (2^(k−2), 2^(k+2)),  x̂_j/x^j ∈ (−2, 2)³ + l},
+
+i ∈ ℤ, k ∈ ℕ_0, l ∈ ℤ³, |l| ≤ 2. These are of the product form (S9) over the b-structure on ℝ⁴ (cells (−2, 2)⁴ and
+{±x^j ∈ (2^(k−2), 2^(k+2)), x̂_j/x^j ∈ (−2, 2)³ + l}, scalings 1), with τ_(±jkl) = 2^k ∼ ⟨x⟩ and ρ_0 = 1. Their Lie
+algebra is C^∞_3b 𝒱_3b(M̃_0), and the spaces are Ψ̃^(𝗌,(α_sf,α_K))_3b = ρ_sf^(α_sf) ρ_K^(α_K) Ψ̃^𝗌_3b and
+
+    H^(𝗌,(α_sf,α_K))_3b(M̃_0) = ρ_sf^(α_sf) ρ_K^(α_K) H^𝗌_3b(M̃_0, |dt dx|)
+
+[Hin26c, (3.27)], the weights meaning decay.
+
+By (S9), the Fourier transform in t, û(σ) = ∫ e^(−iσt) u dt, leads to the parameterised scaled b.g. structure on
+X̃ = ℝ̄⁴ with the b-cells and the scalings ρ_(σ,α,i) = (1 + |σ|⟨x⟩)⁻¹ [Hin26c, Section 3.2.2], with coefficient Lie
+algebra C^∞_b 𝒱_b(X̃) for all σ, and the following operator Lie algebras and spaces.
+
+(1) At σ = 0: C^∞_b 𝒱_b(X̃) (the b-setting).
+
+(2) At fixed σ ≠ 0: C^∞_b 𝒱_sc(X̃).
+
+(3) For ±σ ∈ [0, 1]: the scattering-b-transition algebra C^∞_b 𝒱_(sc-b)(X̃) on
+X̃_(sc-b) := [[0, 1]_ς × X̃; {0} × ∂X̃], ς = ±σ, with faces scf, tf and zf, where
+𝒱_(sc-b) = {V ∈ ρ_scf 𝒱_b(X̃_(sc-b)) tangent to the level sets of ς}, ρ_scf = (1 + ς⟨x⟩)⁻¹, spanned by ρ_scf⟨x⟩∂_x;
+and the spaces H^(𝗌,(𝗋,l,q))_(sc-b,σ) := ρ_scf^𝗋 ρ_tf^l ρ_zf^q H^𝗌_(sc-b,σ) [Hin26c, (3.32)].
+
+(4) For ±σ ∈ [1, ∞): the semiclassical scattering algebra with h = |σ|⁻¹, and the spaces
+H^(𝗌,𝗋,𝖻)_(sc,h) = ρ^𝗋 h^𝖻 H^𝗌_(sc,h) [Hin26c, (3.35)], the semiclassical microlocalisation locus being identified with
+the compactified scattering cotangent bundle ˢᶜT̄*X̃ [Hin26c, (3.36)].
+
+All L²-spaces use |dx|. With k further b-derivatives (⟨x⟩∂_x) these spaces are H^((𝗌;k),(𝗋,l,q))_((sc-b,σ);b) and
+H^((𝗌;k),𝗋,𝖻)_((sc,|σ|⁻¹);b) [Hin26c, (3.40)–(3.41)].
+
+For a t-translation-invariant A_0 ∈ ρ_sf^(−l) Diff^m_3b(M̃_0), written near r = ∞ as
+A_0 = Σ a_(jkα)(r⁻¹, 0, ω)(r∂_t)^j (r∂_r)^k ∂_ω^α, the spectral family is
+Â_0(σ) = Σ a_(jkα)(r⁻¹, 0, ω)(−iσr)^j (r∂_r)^k ∂_ω^α ([Hin26c, (3.28)], with the convention e^(iσt)A_0e^(−iσt)), and
+[Hin26c, (3.37)]
+
+    (Â_0(σ̂|σ|))_(|σ|∈[0,1]) ∈ ρ_scf^(−l−m) ρ_tf^(−l) Diff^m_(sc-b)(ℝ̄⁴),
+    (Â_0(iν ± h⁻¹))_(h∈(0,1]) ∈ ρ^(−l−m) h^(−m) Diff^m_(sc,h)(ℝ̄⁴),                                  {#eq:ii-a-5-1}
+
+for |σ̂| = 1 and ν ∈ ℝ. Indeed, each factor −iσr = −iσ̂ · (|σ|r) is ρ_scf⁻¹ρ_tf⁰ times a bounded sc-b-transition
+multiplier, and r∂_r, ∂_ω are b-vector fields, which are ρ_scf⁻¹ times sc-b-transition vector fields; the weight
+ρ_sf^(−l) = ⟨x⟩^l is ρ_scf^(−l) ρ_tf^(−l), as ⟨x⟩⁻¹ ∼ ρ_scf ρ_tf. Likewise in the semiclassical regime, with h in place
+of |σ|⁻¹.
+
+#### Plancherel {#sec:ii-a-5-2}
+
+**Lemma {#lem:ii-a-5-1}** ([Hin26c, Lemma 3.7] in dimension 4 + 1.) Let 𝗌 ∈ C^∞(³ᵇS*M̃_0) be translation-invariant,
+let 𝗌_σ be the induced orders ([Hin26c, (3.18)]: the restriction of 𝗌 to −σ dt + T*X̃), and let α_sf ∈ ℝ. For u
+supported where the 3b-cells of [[sec:ii-a-5-1]] apply,
+
+    ‖u‖²_(H^(𝗌,(α_sf,0))_3b(M̃_0,|dt dx|))
+       ∼ Σ_± ∫_(±[0,1]) ‖û(σ)‖²_(H^(𝗌_σ,(𝗌_σ+α_sf,α_sf,0))_(sc-b,σ)(X̃,|dx|)) dσ
+         + Σ_± ∫_(±[1,∞)) ‖û(σ)‖²_(H^(𝗌_σ,𝗌_σ+α_sf,𝗌_σ)_(sc,|σ|⁻¹)(X̃,|dx|)) dσ.
+
+*Proof.* (S9) ([Hin26d, Proposition 4.18], with the variable-order version referred to in [Hin26c] after (3.16))
+gives the isomorphism onto L²(ℝ_σ; ρ_sf^(α_sf)⟨τσ⟩^(−𝗌_σ) H^(𝗌_σ)_(𝒱̂_σ)) with τ ∼ ⟨x⟩, and |dt dx| on one side, |dx|
+on the other (the t-factor is unitary). It remains to name the spaces. For |σ| ≤ 1, 𝒱̂_σ is the sc-b-transition
+algebra, ⟨τσ⟩⁻¹ ∼ (1 + |σ|⟨x⟩)⁻¹ ∼ ρ_scf and ρ_sf = ⟨x⟩⁻¹ ∼ ρ_scf ρ_tf (with ρ_zf⁰), giving the weights
+(𝗌_σ + α_sf, α_sf, 0). For |σ| ≥ 1, 𝒱̂_σ is the semiclassical scattering algebra with h = |σ|⁻¹, and
+⟨τσ⟩⁻¹ ∼ h⟨x⟩⁻¹, giving ρ^(𝗌_σ+α_sf) h^(𝗌_σ). The dimension does not enter: both sides use Euclidean densities. ∎
+
+**Lemma {#lem:ii-a-5-2}** ([Hin26c, Lemma 3.9] in dimension 4 + 1.) Let
+
+    H^((𝗌;k))_(3b;b)(M̃_0) := {u ∈ H^𝗌_3b : ∂_t^(j_1)(t∂_t)^(j_2)(⟨x⟩∂_x)^α u ∈ H^𝗌_3b,  j_1 + j_2 + |α| ≤ k}
+
+[Hin26c, (3.39)]. Then
+
+    ‖u‖²_(H^((𝗌;k),(α_sf,0))_(3b;b))
+       ∼ Σ_± Σ_(j=0)^k ∫_(±[0,1]) ‖(σ∂_σ)^j û(σ)‖²_(H^((𝗌_σ;k−j),(𝗌_σ+α_sf,α_sf,0))_((sc-b,σ);b)) dσ
+         + Σ_± Σ_(j_1+j_2≤k) ∫_(±[1,∞)) ‖σ^(j_1)(σ∂_σ)^(j_2) û(σ)‖²_(H^((𝗌_σ;k−j),𝗌_σ+α_sf,𝗌_σ)_((sc,|σ|⁻¹);b)) dσ,
+
+with j = j_1 + j_2 in the second sum.
+
+*Proof.* Spatial b-derivatives commute with the Fourier transform ℱ. ℱ(∂_t u) = iσû and
+ℱ(t∂_t u) = −∂_σ(σû) = −(1 + σ∂_σ)û. So, for |σ| ≤ 1, ∂_t costs a factor σ, which is bounded, and t∂_t becomes
+−(1 + σ∂_σ); for |σ| ≥ 1, ∂_t gives σ^(j_1). Apply [[lem:ii-a-5-1]] to each ∂_t^(j_1)(t∂_t)^(j_2)(⟨x⟩∂_x)^α u, expand
+(1 + σ∂_σ)^(j_2), and use that the (𝗌;k)-norms are sums of 𝗌-norms of up to k b-derivatives. The two sides are sums of
+equivalent terms, by induction on k. ∎
+
+#### The low-energy norm {#sec:ii-a-5-3}
+
+**Lemma {#lem:ii-a-5-3}** (The norms of [[def:i-c-6-1]]; [Hin26c, (3.46)] in dimension 4 + 1.) Let χ_zf, χ_tf ∈
+C^∞(X̃_(sc-b)) equal 1 near zf and tf respectively, and be supported near them. Uniformly in ς = |σ| ∈ (0, ς_1],
+
+    ‖χ_zf u‖_(H^(𝗌,(𝗋,l,q))_(sc-b,σ)) ∼ ς^(−q) ‖χ_zf u‖_(H̄^(𝗌,l−q)_b),
+    ‖χ_tf u‖_(H^(𝗌,(𝗋,l,q))_(sc-b,σ)) ∼ ς^(−2−l) ‖S_ς(χ_tf u)‖_(H^(𝗌,(𝗋,q−l))_(sc,b)(tf)),
+
+the latter with the order 𝗋 read on tf ([[sec:i-c-6-1]]); likewise with k b-derivatives. In particular
+H^((s;k),(𝗋,l,q))_((sc-b,ς);b), on functions supported in {ρ < ρ_1} or in the interior, is the space ℋ^((s;k),(𝗋,l,q))_ς
+of [[def:i-c-6-1]], with uniformly equivalent norms. (In dimension 3 + 1 the power in the second equivalence is
+|σ|^(−3/2−l); [Hin26c, (3.46)] prints |σ|^(3/2−l).)
+
+*Proof.* Both norms are defined by sums over cells, (S3). The sc-b-transition cells at ς are the b-cells of ℝ⁴ (at
+radius r ∼ 2^k) with scalings (1 + ς2^k)⁻¹. Where ς2^k ≤ 1 (near zf) the scalings lie in [1/2, 1], so the cells are
+b-cells up to a uniformly compatible change [Hin26d, Proposition 3.2], and the weight ρ_scf^𝗋 ρ_tf^l ρ_zf^q is there
+∼ ρ^(l−q)ς^q (ρ_scf ∼ 1, ρ_tf ∼ ρ + ς ∼ ρ, ρ_zf ∼ ς/ρ): this is the first equivalence. Where ς2^k ≥ 1 the scalings are
+∼ (ς2^k)⁻¹ = r̂⁻¹; under S_ς ([[sec:i-c-6-1]]) the cell at r ∼ 2^k goes to the cell at r̂ = ς2^k with scaling r̂⁻¹, a
+scattering cell of tf near sctf, and the cells at r̂ ≲ 1 go to b-cells of tf near ztf; the weights become
+ρ_sctf^𝗋 ρ_ztf^(q−l) ς^l (ρ_tf ∼ ς there, and ρ_zf/ρ_tf is the ztf weight); and
+‖w‖_(L²(|dx|)) = ς^(−2)‖S_ς w‖_(L²(|dx̂|)), as |dx̂| = ς⁴|dx|. The frequencies match as in [[lem:i-c-6-2]] (c). This
+gives the second equivalence, with ς^(−2−l). ∎
+
+So the low-energy estimates of [[thm:i-c-6-4]] are estimates on the spaces H^((s;k),(𝗋+α_+,α,0))_((sc-b,|σ|);b) of
+[Hin26c, (9.119)] in dimension 4 + 1, which is the form in which they are used at future timelike infinity
+([[ch:s08]]).
+

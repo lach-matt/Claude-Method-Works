@@ -34,7 +34,7 @@ smaller r₀ does not make harder. The inner radius r₀ is therefore a free par
 This section fixes the stationary model, its decay at infinity and the hypotheses on its dynamics that are not part of
 the spectral theory, and describes the metric and its characteristic set on the compactifications of [[ch:s04]].
 
-### The metric and the hypotheses {#sec:ii-b-1-1}
+#### The metric and the hypotheses {#sec:ii-b-1-1}
 
 Let P̂, E, X̃ and g be as in [[sec:i-a-1]] and [[sec:i-b-1-2]], satisfying (H1)–(H8). Thus g is a Lorentzian metric of
 signature (1, 4) on ℝ_(t_*) × X̃°, X̃° = {r > r₀ − 2δ₀}, with t_*-independent components, dt_* is past timelike, and
@@ -73,7 +73,7 @@ for Kerr from Carter's integrability. The splitting and the normal rates follow 
 (1)–(2) of [Hin26c, Proposition 4.19]; the tangential bound is the substance of the hypothesis. (c) (K4) is
 [Hin26c, Remark 4.25].
 
-### The metric on the compactifications {#sec:ii-b-1-2}
+#### The metric on the compactifications {#sec:ii-b-1-2}
 
 **Lemma {#lem:ii-b-1-1}** (The metric on the compactifications.) dt_* is everywhere past timelike. Moreover:
 
@@ -113,7 +113,7 @@ In [Hin26c, (4.9)] the factor on the right of [[eq:ii-b-1-2]] is ρ₀x_I²ρ₊
 below needs more than the rate of [Hin26c], except that errors vanish to second order at ι⁺ and ∂K⁺, which shortens two
 proofs.
 
-### Characteristic sets {#sec:ii-b-1-3}
+#### Characteristic sets {#sec:ii-b-1-3}
 
 Following [Hin26c, (4.11)], put g⁻¹_(e3b) := ρ₀⁻²x_I⁻²ρ₊⁻² g⁻¹ and
 
@@ -150,7 +150,7 @@ Over the Kerr face K⁺ the Hamilton vector field of G preserves the frequency �
 vector field of the stationary symbol. This section identifies the 3b-cosphere bundle over K⁺ with the compactified
 phase spaces of [[ch:s02]], flows included.
 
-### The 3b-phase space over K⁺ {#sec:ii-b-2-1}
+#### The 3b-phase space over K⁺ {#sec:ii-b-2-1}
 
 Over M₀ ∩ {r > r₀ − 2δ₀} write 3b-covectors as −σ dt_* + ζ, ζ ∈ T*X̃°. By [[def:ii-a-2-1]] the 3b-fibre coordinates
 are r(−σ, ζ) in the frame dual to r∂_(t_*), r∂_x, so (σ, ζ) are fibre coordinates up to the positive factor r, smooth
@@ -166,7 +166,7 @@ H_G = (∂_τ G)∂_(t_*) + (∂_ζ G)∂_x − (∂_(t_*)G)∂_τ − (∂_x G)
 and H_G σ = 0, and ∂_(t_*) = −ρ_K²∂_(ρ_K) vanishes at ρ_K = 0. The remaining components are those of the Hamilton
 field of G(τ, ·) on T*X̃° at fixed τ. ∎
 
-### The identification {#sec:ii-b-2-2}
+#### The identification {#sec:ii-b-2-2}
 
 The 3b-cosphere bundle over K⁺ is ³ᵇS*_(K⁺)M₀ = K⁺ × 𝕊⁴: [[def:ii-a-2-1]] trivialises ³ᵇTM₀ globally, and
 K⁺ ≅ ℝ̄⁴ (the radial compactification of ℝ⁴; [[lem:ii-a-2-10]]), with boundary ∂K⁺ = K⁺ ∩ ι⁺, defined within K⁺ by

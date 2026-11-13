@@ -68,7 +68,7 @@ and Gt(S(D))(n, ·) = −(1/2)(n♭(n) Z♭ + g(Z, n) n♭) + (1/2) g(n, Z) n♭
 
 and for a solution of Ric^H(g) = 0 with D = 0 on the slice the constraints hold there exactly when ∂_n D = 0 there.
 
-**What the theorem asks.** Let (γ, κ) on Σ satisfy the constraints, and give g on Σ the lapse and shift of g_app, the
+*What the theorem asks.* Let (γ, κ) on Σ satisfy the constraints, and give g on Σ the lapse and shift of g_app, the
 spatial part γ, ∂_τ of the spatial part fixed by κ, and ∂_τ of the lapse and shift fixed by D(g) = 0 on Σ. The last
 choice is possible because D is linear in ∂_τ g_(τ ·), with an invertible coefficient on a spacelike slice. Indeed, with
 D_σ := g_(σρ) D^ρ = g^(ab) (∂_a g_(σb) − (1/2) ∂_σ g_(ab)) − g_(σρ) g^(ab) Γ[g0]^ρ_ab, the terms containing y_σ := ∂_τ
