@@ -254,6 +254,7 @@ h̆⁰_τ = h_τ for τ ≠ s0, while h̆⁰_s0 = 0 and h̆¹_s0 = h_s0.
 (b) The towers of [[def:iii-g2-2-5]] at b for the types of 𝒯 are these:
 
     h^(≤k)_(b,s1)(aS) = Σ_(i≤k) a^((i)) h̆^i_s1(S),     h^((0),≤k)_(b,s0)(aY) = Σ_(i≤k) a^((i)) h̆^(i+1)_s0(Y),
+    h^(≤k)_(b,v1)(aV) = Σ_(i≤k) a^((i)) h̆^i_v1(V),     V ∈ 𝒱_(1,ℂ),     h̆⁰_v1 = h_(b,v1),
 
 and h^((μ),≤k)_(b,τ)(aY) = Σ_(i≤k) a^((i)) h̆^i_τ(Y) for τ = s2, c0, c1 (with μ = 0, μ_c0, μ_c1), for k up to the
 lengths of the table of roots of [[sec:iii-g2-1]].
@@ -282,8 +283,9 @@ h̆¹_s0 = δ*(t_*ω̆⁰ + ω̆¹) = h_s0 ([[sec:iii-i9-2]]).
 [[prop:iii-d2-3-1]] and [[prop:iii-d3-3-1]] (1)–(7), the same 1-form towers as [[def:iii-i9-2-1]] (whose list cites
 the same items), under δ*_(g_b): the tower of L_b-solutions δ*ω^(≤k), with ω^(≤k) = Σ_(i≤k) (k!/(k − i)!) t_*^(k−i)
 ω̆^i, is by [[eq:iii-i10-2-1]] with a = t_*^k the polynomial Σ_(i≤k) (k!/(k − i)!) t_*^(k−i) h̆^i, which is the
-description of a tower with companions h̆^i in [[lem:iii-g2-2-1]] (a). For s0 the state is h^((0))_(b,s0) = h̆¹, and the
-index is shifted by one.
+description of a tower with companions h̆^i in [[lem:iii-g2-2-1]] (a). For v1 the 1-form towers are those of
+[[prop:iii-d3-3-1]] (3), on all of 𝒱_(1,ℂ), and the tower of [[def:iii-g2-2-5]] has length k_μ = 2. For s0 the state is
+h^((0))_(b,s0) = h̆¹, and the index is shifted by one.
 
 (c) By (b), the term of u_(b,0) of type τ ∈ 𝒯 ∖ {v1} is the sum over i ≤ k_τ (the lengths k_μ of the table: 3 for s1,
 2 for s0, s2, c0, c1) of a^((i)) times companions, with a = c r_(ν_τ): for s1,
@@ -928,10 +930,11 @@ lies in ℬ̄_*. R_j lies in 𝒴⁰(α) ⊂ 𝒴(α′), the class of [[sec:iii
 [[sec:iii-i8-1]] of the same name, and R_j → 0 there. The forward solution u_j − u of L_(0,p⃗_b)(u_j − u) = R_j lies
 in [[eq:iii-i8-4-2]] at α′, so the parameter 0 has, for (0, p⃗_b) and the forcing R_j, the property of the statement at
 α′; by uniqueness at α′, p⃗′_(0,p⃗_b,α′)(R_j) = 0, and u_j − u is the solution of [[eq:iii-i8-4-1]] at α′ for the
-forcing R_j. By (i) at α′ the map from the forcing to this solution is linear and continuous from 𝒴(α′) into the space
-of [[eq:iii-i8-4-2]] at α′, with bounds uniform at the base point (0, p⃗_b); so u_j − u → 0 in that space. As
-w < α′ − 2 and β′_+ < min(3/2, min Re ℰ_+), the seminorm ‖·‖_(w) is bounded by a seminorm of that space, and
-‖u_j − u‖_(w) → 0. Hence S^(0,p⃗_b)_ν(R_j) → 0. ∎
+forcing R_j. By (i) at α′ the map from the forcing to this solution is linear and bounded from 𝒴(α′) into the space
+of [[eq:iii-i8-4-2]] at α′, with bounds uniform at the base point (0, p⃗_b), in the fixed seminorm ‖·‖_(α′) of
+[[sec:iii-i8-1]] at α′. We take that seminorm, as [[sec:iii-i8-1]] allows, with ι⁺-weight β′_+ (which lies in
+(1, 3/2), and 3/2 ≤ min Re ℰ_+) and regularity at least that of ‖·‖_(w); so ‖u_j − u‖_(α′) → 0. As w < α′ − 2, the
+seminorm ‖·‖_(w) is bounded by ‖·‖_(α′), and ‖u_j − u‖_(w) → 0. Hence S^(0,p⃗_b)_ν(R_j) → 0. ∎
 
 ### Elimination {#sec:iii-i11-4}
 
@@ -1018,9 +1021,9 @@ The first term tends to 0 for fixed W⃗, by the above, the q⃗-terms being lin
 small ([[lem:iii-i9-2-6]] (a), (c), (d)). For the second, u_0(W⃗) − u_0(0) = u(W⃗) − u(0) + Σ_(ν∈𝒩′) m_ν(W_ν) +
 Σ_(ν∈ℳ_(α′)) m_ν(q_ν(W⃗) − q_ν(0)), and u(W⃗) − u(0) is the solution of [[eq:iii-i8-4-1]] at α′ for the forcing
 F(W⃗) − F(0) = −D_(p⃗)P_4(h, p⃗)(W⃗), of size O(|W⃗|) in 𝒴(α′) ([[lem:iii-i9-2-6]] (b)). So [[prop:iii-i8-4-1]] (i) at α′
-bounds q⃗(W⃗) − q⃗(0) by C|W⃗|, and u(W⃗) − u(0) by C|W⃗| in the space of [[eq:iii-i8-4-2]] at α′, whose seminorms bound
-‖·‖_(w_0) as w_0 ≤ α′ − 2; and ‖m_ν(W)‖_(w_0) ≤ C|W| for every row, m_ν(W) having K⁺-weight at least λ_♯ − 1 − ε ≥
-w_0 − ε and ι⁺-weight λ_♯ − ε ([[lem:iii-i9-2-2]]). So the second term is O((‖h‖ + |p⃗|)|W⃗|), T_(h,p⃗)W⃗ → W⃗ for every
+bounds q⃗(W⃗) − q⃗(0) by C|W⃗|, and u(W⃗) − u(0) by C|W⃗| in the seminorm ‖·‖_(α′) of [[sec:iii-i8-1]], taken as in the
+proof of [[lem:iii-i11-3-3]] with w_0 for w, which bounds ‖·‖_(w_0) as w_0 ≤ α′ − 2; and ‖m_ν(W)‖_(w_0) ≤ C|W| for
+every row, m_ν(W) having K⁺-weight at least λ_♯ − 1 − ε ≥ w_0 − ε and ι⁺-weight λ_♯ − ε ([[lem:iii-i9-2-2]]). So the second term is O((‖h‖ + |p⃗|)|W⃗|), T_(h,p⃗)W⃗ → W⃗ for every
 W⃗, and on the finite-dimensional space of the W⃗, T_(h,p⃗) → id; so T_(h,p⃗) is invertible for (h, p⃗) small, with
 |T⁻¹_(h,p⃗)| ≤ 2. Put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and F are
 real and T commutes with the conjugation of [[sec:iii-i9-1]].
@@ -1028,13 +1031,13 @@ real and T commutes with the conjugation of [[sec:iii-i9-1]].
 *Uniqueness.* If p⃗″ also gives [[eq:iii-i11-4-2]] at α, its solution lies in [[eq:iii-i8-4-2]] at α′, so its
 𝒫_(α′)-part is q⃗(W⃗″) by the uniqueness at α′ ([[prop:iii-i8-4-1]]), where W⃗″ is its 𝒩′-part; then C(W⃗″) = 0, so
 W⃗″ = W⃗. *Linearity, bounds, continuity:* linearity holds by construction. Write ‖F‖ := ‖F‖_(𝒴⁰(α)); F lies in
-𝒴(α′) with ‖F‖_(𝒴(α′)) ≤ C‖F‖. By [[prop:iii-i8-4-1]] (i) at α′, |q⃗(0)| ≤ C‖F‖ and u(0) is bounded by C‖F‖ in the
-space of [[eq:iii-i8-4-2]] at α′; so ‖G(0)‖_(𝒴⁰(α)) ≤ C‖F‖ and, as above, ‖u_0(0)‖_(w_0) ≤ C‖F‖. The bound of
+𝒴(α′) with ‖F‖_(𝒴(α′)) ≤ C‖F‖. By [[prop:iii-i8-4-1]] (i) at α′, |q⃗(0)| ≤ C‖F‖ and ‖u(0)‖_(α′) ≤ C‖F‖, with the
+seminorm ‖·‖_(α′) taken as above; so ‖G(0)‖_(𝒴⁰(α)) ≤ C‖F‖ and, as above, ‖u_0(0)‖_(w_0) ≤ C‖F‖. The bound of
 [[lem:iii-i11-3-2]] then gives |C(0)| ≤ C‖F‖, so |W⃗| ≤ 2|C(0)| ≤ C‖F‖, and (i) at α′ for the forcing F(W⃗), of size at
-most C‖F‖ in 𝒴(α′), gives |q⃗(W⃗)| ≤ C‖F‖ and bounds u(W⃗) by C‖F‖. So |p⃗′_(h,p⃗)(F)| ≤ C‖F‖, and likewise
+most C‖F‖ in 𝒴(α′), gives |q⃗(W⃗)| ≤ C‖F‖ and ‖u(W⃗)‖_(α′) ≤ C‖F‖. So |p⃗′_(h,p⃗)(F)| ≤ C‖F‖, and likewise
 ‖G(W⃗)‖_(𝒴⁰(α)) ≤ C‖F‖ and ‖u_0(W⃗)‖_(w_0) ≤ C‖F‖, with C uniform for (h, p⃗) small. Continuity at
-(0, 0) as in [[prop:iii-i8-4-1]] (ii), with [[lem:iii-i11-3-3]] at b_0, where it needs only that the solutions u_0 be
-bounded, which they are by these bounds. ∎
+(0, 0) as in [[prop:iii-i8-4-1]] (ii), with [[lem:iii-i11-3-3]] at b_0, whose hypothesis (the solutions u_0 bounded)
+these bounds give. ∎
 
 At a base point with black hole parameter b ∈ ℬ̄_*, the elimination is [[prop:iii-i15-2-5]] with q = 0: when
 h_(b,v1) ≠ 0 the v1 terms u^rot of [[lem:iii-i11-3-2]] are not removed by the parameters of 𝒫, whose v1 rows carry the
@@ -1590,7 +1593,8 @@ admissible α′ ∈ (2, min(3, 2 + w_0)) and w ∈ (0, α′ − 2). By [[eq:ii
 u^rot_β have ι⁺-weight above 3/2 as in the proof of [[lem:iii-i11-3-3]], u_j − u lies in [[eq:iii-i8-4-2]] at α′; and
 R_j → 0 in 𝒴^♮(β) ⊂ 𝒴^♮(α′), which lies in the class 𝒴(α′) of [[sec:iii-i8-1]] (the last sentence of
 [[lem:iii-i13-2-2]]). Uniqueness and (i) of [[prop:iii-i8-4-1]] at α′, at the base point (0, p⃗_b), give, as there,
-u_j − u → 0 in the space of [[eq:iii-i8-4-2]] at α′; so ‖u_j − u‖_(w) → 0, and S^(0,p⃗_b,β)_ν(R_j) → 0. ∎
+‖u_j − u‖_(α′) → 0, with the seminorm ‖·‖_(α′) of [[sec:iii-i8-1]] taken as there; so ‖u_j − u‖_(w) → 0, and
+S^(0,p⃗_b,β)_ν(R_j) → 0. ∎
 
 **Proposition {#prop:iii-i13-2-4}** (The enlarged sources at the top level.) [[thm:iii-i11-4-1]] and
 [[thm:iii-i12-3-1]] hold with F ∈ 𝒴^♮(α) in place of F ∈ 𝒴⁰(α), with the same conclusions.

@@ -1,7 +1,7 @@
 This part proves, at one parameter point, the constants on which the bounds of [[prop:lambda0]] and the threshold of
-[[thm:layer]] rest: the envelope constant c_e, the constants of the domain, the admissible range of ε1, and ε1 and C_app
-in three norms. Every number below is justified by an inequality between explicit rationals, or by the value of an
-elementary function at a rational point, which the reader can check by hand.
+[[thm:layer]] rest: the envelope constant c_e, the constants of the domain, and ε1 and C_app in three norms; the
+admissible range of ε1 there is that of [[sec:profiles]]. Every number below is justified by an inequality between
+explicit rationals, or by the value of an elementary function at a rational point, and can be checked by hand.
 
 ### The numerical point {#sec:lambda0-point}
 

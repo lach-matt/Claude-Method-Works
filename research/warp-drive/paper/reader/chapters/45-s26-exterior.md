@@ -715,6 +715,7 @@ a finite sum of terms c(Z^γ(ψ_if))(Z^δ(ψ_ig)) with c bounded and Z^γ, Z^δ 
 of 𝒱, so |γ| + |δ| ≤ m. In the chart, [[thm:std-gn-moser]] (2) bounds each term in L² by C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) +
 ‖ψ_if‖_(H^m)‖ψ_ig‖_(L^∞)), and the chart comparison and the boundedness of multiplication by ψ_i in the proof of
 [[lem:iv1-2-3]] bound these norms by those of f and g. Summing over i gives
+
     ‖(V₁⋯V_qã)(V′₁⋯V′_rW′u)‖ ≤ C(‖V₁ã‖_(L^∞)‖W′u‖_(H^m_b) + ‖V₁ã‖_(H^m_b)‖W′u‖_(L^∞))
                               ≤ C(‖ã‖_(H⁴)‖u‖_(H^((1;m))) + ‖ã‖_(H^(m+1))‖u‖_(H^((1;3)))),
 

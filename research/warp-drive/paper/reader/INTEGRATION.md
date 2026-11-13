@@ -726,3 +726,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   (χ dv ⊗ dv ∝ env²; thm:data's threshold and items 6-7; α for ε; r_0 → r_♭). Chapter 60 carries S⁰ at 11 sites:
   slice φ_S(ψ_(S⁰)(Σ^IVP)), φ_(−S,−S⁰)⁻¹ = φ_S ∘ ψ_(S⁰); 𝒟_0 := 𝒟_(0,0) kept (chapter 62 cites it). R4 §3 notes 3-5
   concern other chapters (integration).
+- Proof E margins second fix (F2-P-E-margins): the lens corollary states Σ_τ0 acausal, proved via e^ψ f < 1 along the
+  slice (below R_* from the proof of prop:bg-slice); new Appendix A remark rem:std-racz-characteristic quoting Rácz
+  (4.19), the common-symmetrizer definition (p. 12), (4.22), (4.23) (p. 13) of arXiv:1508.01810v3; P computes the roots
+  ξ_n = ±i|ξ_S|√(κK^l_l)/K^l_l and shows no common symmetrizer exists. For integration: add rem:std-racz-characteristic
+  (and the older Rácz keys) to OUTLINE.md; [Rac16] in the references gives only the journal version while Appendix A
+  cites arXiv pages (add the arXiv identifier and version). P now also cites eq:bg-chart. 8 pending-marker lines remain
+  in P (forward references; the reader checks each).

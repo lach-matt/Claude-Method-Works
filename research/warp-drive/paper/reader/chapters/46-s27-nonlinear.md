@@ -280,11 +280,13 @@ before it depends on, we take c ≤ min(½, 1/R_9).
 
 (b) 𝒟 ∩ {t_IVP < 0, r ≥ R_8} ⊂ Ω_(ext,r_1).
 
-(c) 𝒦 is compact. Its boundary consists of the part of Σ^IVP in it, {t_IVP = −ν}, Σ^fut_(r_1) ∩ {ρ′_I ≥ c},
-{ρ′_I = c}, {t^♭_* = T̂ + 3} and {r = r_♭}; the last four are spacelike, for g_(b₀) and for every metric C⁰-close to
-it on 𝒦 whose difference from g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b); 𝒦 lies to the future of
-Σ^fut_(r_1) ∩ {ρ′_I ≥ c} and to the past of the other three. So Ω_(ext,r_1) ∪ 𝒦 is closed
-under past causal curves within 𝒟, and 𝒦 is the domain of dependence of the past part of its boundary.
+(c) 𝒦 is compact. Its boundary lies in the union of Σ^IVP ∩ {r ≤ R_ν}, {t_IVP = −ν}, Σ^fut_(r_1) ∩ {ρ′_I ≥ c},
+Σ^past_(r_1), {ρ′_I = c}, {t^♭_* = T̂ + 3} and {r = r_♭}. These are spacelike, for g_(b₀) and for every metric C⁰-close
+to it on 𝒦 whose difference from g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b); 𝒦 lies to the future of the first three and
+to the past of the other four. So Ω_(ext,r_1) ∪ 𝒦 is closed under past causal curves within 𝒟. 𝒦⁺ := 𝒦 ∩ {t_IVP ≥ 0}
+is the domain of dependence of its part of Σ^IVP together with Σ^fut_(r_1) ∩ {ρ′_I ≥ c}; and 𝒦⁻ := 𝒦 ∩ {t_IVP ≤ 0} is,
+for the reversed time orientation, the domain of dependence of its part of Σ^IVP together with Σ^past_(r_1) ∩ 𝒟, where
+𝒦 reaches below the past slab of Ω_(ext,r_1) (for r slightly above r_1, where ν(r) > (r − r_1)/12).
 
 (d) 𝒮 lies near the interior of ℐ⁺: x¹ is bounded on it. On 𝒮, t_IVP ≥ r/4.
 
@@ -293,13 +295,22 @@ under past causal curves within 𝒟, and 𝒦 is the domain of dependence of th
 {−(r − r_1)/12 ≤ t_IVP ≤ 0} of Ω_(ext,r_1). (c) On 𝒦 near infinity, above Σ^fut_(r_1), t_IVP ≥ r + 2r^(1−ℓ^♭_I) −
 (r_1 + 2r_1^(1−ℓ^♭_I)) and t_IVP = t − C″, so x¹ ≥ C″ − r_1 − 2 (as ℓ^♭_I > 1 and r_1 ≥ 1), and ρ′_I ≥ c, so
 |x| ≤ (T″ + r_1 + 2 − C″)/c. With t^♭_* ≤ T̂ + 3, t_IVP ≥ −ν and (b) on 𝒦, 𝒦 is closed and bounded, hence compact.
+Where ν = 0, that is on {r ≤ R_ν}, 𝒟 = {t_IVP ≥ 0} near Σ^IVP, so only there is Σ^IVP part of the boundary of 𝒦.
 {ρ′_I = c} is spacelike with {ρ′_I < c} to its future ([[lem:iv2-1-1]] (a) in the translated chart); {t^♭_* = T̂ + 3}
 is spacelike for the metrics named, dt^♭_* being past timelike ([[lem:ii-c-3-2]] (2)); {r = r_♭} is spacelike with dr
-future timelike ([[lem:ii-c-3-2]] (1)); Σ^fut_(r_1) is spacelike ([[lem:iii-c1-1-1]]). For g_(b₀), dt_IVP is past
-timelike ([[lem:iii-b-3-7]] (b)) and {t_IVP = −ν} is spacelike (after [[prop:iii-k-1-2]]); on the compact 𝒦 these
-persist for C⁰-close metrics. The boundary that 𝒮 shares with Ω_(ext,r_1) ∪ 𝒦 lies in {ρ′_I = c} ∪ Σ^fut_(r_1), with
-𝒮 to its future; so no past directed causal curve enters 𝒮 from Ω_(ext,r_1) ∪ 𝒦, and 𝒦 is the domain of dependence of
-the part of its boundary in Σ^IVP ∪ {t_IVP = −ν} ∪ Σ^fut_(r_1). (d) 𝒮 is disjoint from Ω_(ext,r_1) and lies near
+future timelike ([[lem:ii-c-3-2]] (1)); Σ^fut_(r_1) and Σ^past_(r_1) are spacelike ([[lem:iii-c1-1-1]]), with
+Ω_(ext,r_1) to the past of the first and to the future of the second. For g_(b₀), dt_IVP is past timelike
+([[lem:iii-b-3-7]] (b)), so Σ^IVP is spacelike, and {t_IVP = −ν} is spacelike (after [[prop:iii-k-1-2]]); on the
+compact 𝒦 these persist for C⁰-close metrics. The points of 𝒦 with r ≥ r_1 and t_IVP < 0 lie below the past slab
+{−(r − r_1)/12 ≤ t_IVP ≤ 0} of Ω_(ext,r_1), that is to the past of Σ^past_(r_1), and by (b) they have r < R_8. The
+boundary that 𝒮 shares with Ω_(ext,r_1) ∪ 𝒦 lies in {ρ′_I = c} ∪ Σ^fut_(r_1), with 𝒮 to its future; so no past
+directed causal curve enters 𝒮 from Ω_(ext,r_1) ∪ 𝒦. *Domains of dependence.* Let p ∈ 𝒦⁺, and let γ be a past directed
+causal curve from p, past inextendible in 𝒟, for one of the metrics named. t_IVP decreases strictly along γ. γ cannot
+leave 𝒦⁺ through {ρ′_I = c}, {t^♭_* = T̂ + 3} or {r = r_♭}, 𝒦 lying to their past; and it cannot stay in the compact
+set 𝒦⁺, on which t_IVP is a time function: parametrised by t_IVP it would converge and extend, as in the proof of
+[[lem:ii-f-1-3]]. So it meets Σ^IVP ∩ 𝒦 or Σ^fut_(r_1) ∩ {ρ′_I ≥ c}. Likewise a future directed causal curve from
+p ∈ 𝒦⁻, along which t_IVP and t_IVP + ν increase, cannot leave 𝒦⁻ through {t_IVP = −ν}, and so meets Σ^IVP ∩ 𝒦 or
+Σ^past_(r_1) ∩ 𝒟. (d) 𝒮 is disjoint from Ω_(ext,r_1) and lies near
 infinity, so by (b) it lies in {t_IVP ≥ 0} ∖ Ω_(ext,r_1), above Σ^fut_(r_1); so x¹ ≥ C″ − r_1 − 2 as in (c), and
 x¹ ≤ T″ − 1. ρ′_I < c ≤ ½ gives t > (1 − c)|x| + T″ ≥ ½|x| + T″, so t_IVP > ½|x| + T″ − C″ ≥ r/4, as r ≥ R_9 ≥ 4C″.
 ∎

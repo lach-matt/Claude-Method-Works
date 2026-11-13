@@ -1041,14 +1041,15 @@ function of R on the slice, [[prop:two-dust-background]] (a)); that the parts W_
 components and are traceless on the spheres, and the other parts are multiples of dϕ_K ⊗ dϕ_K, which on Σ_τ0 is a
 multiple of dR ⊗ dR; that φ_j^K = 0 and (m_j)_(τ ·) = 0 there and γ_RA = O(λ²); that g0^(Aτ) = 0, g0 being round; and
 that the mixed harmonics vanish on Σ_τ0. In particular, at the approximant's data the constraint map of (γ_U, κ_U) has
-no coefficient of order λ⁻¹: the second derivatives of γ of order λ⁻¹ are λ⁻¹ Σ_K (∂_R ϕ_K)² [F_K² W_K] in ∂_R² γ, and
-enter the coefficients of U only through the traces of the W_TT^K on the spheres, which vanish, and through κ̃_RA, the
-order-one oscillating part of κ, which vanishes, while the ∂_R κ_RR terms of div κ and d tr κ cancel. This holds for any
-phases that are functions of R on the slice, null or not; and the constraint map depends only on g and ∂_τ g on Σ_τ0,
-not on ∂_τ² of the phases, so the eikonal equation of the outgoing phase is not used by the data. The principal
-coefficients at the approximant's data have the background's values at order zero in every harmonic, H's oscillating
-part (1/(2ν)) Π0^(AB) Σ_K ∂_R ϕ_K [F_K W_K,AB] vanishing. [[prop:exact-correction]] then holds on [a, b(τ0)] × S³ with
-its proof, U = 0 on R < r1, where 𝒞(γ, κ) and the forcing vanish. ∎
+no coefficient of order λ⁻¹: the second derivatives of γ of order λ⁻¹, λ⁻¹ Σ_K (∂_R ϕ_K)² [F_K² W_K] in ∂_R² γ, enter
+the coefficients of U in ρ only through the traces of the W_TT^K on the spheres, which vanish; and in J the derivatives
+of κ of order λ⁻¹ enter only through κ̃_RA, κ̃ the order-one oscillating part of κ, which vanishes, and through the
+∂_R κ_RR terms of div κ and d tr κ, which cancel. This holds for any phases that are functions of R on the slice, null or
+not; and the constraint map depends only on g and ∂_τ g on Σ_τ0, not on ∂_τ² of the phases, so the eikonal equation of
+the outgoing phase is not used by the data. The principal coefficients at the approximant's data have the background's
+values at order zero in every harmonic, H's oscillating part (1/(2ν)) Π0^(AB) Σ_K ∂_R ϕ_K [F_K W_K,AB] vanishing.
+[[prop:exact-correction]] then holds on [a, b(τ0)] × S³ with its proof, U = 0 on R < r1, where the constraint map of (γ,
+κ) and the forcing vanish. ∎
 
 ### The spheres' horizon and the mean mass {#sec:two-dust-items}
 
