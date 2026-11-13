@@ -697,8 +697,9 @@ Let τ_0 be the trivial representation, τ_1 the standard one on ℂ⁴, and τ_
     Π_cl := Π_G(1 − Π_0),
 
 G = O(2) × O(2) the group of the class. Π_0 is the SO(4)-average, the l = 0 part of [[sec:hg-setting]]. Below Π is
-either Π_(≥2) or Π_cl, and h is an O(4)-invariant fibre inner product equal to the identity in the Cartesian frame at
-∂X (average any admissible choice over O(4)).
+either Π_(≥2) or Π_cl, and h, the index of the pairing ⟨·, ·⟩_h of [[sec:hg-augmented]] (not the tensor
+h = ġ − ṁK_V), is an O(4)-invariant fibre inner product equal to the identity in the Cartesian frame at ∂X (average any
+admissible choice over O(4)).
 
 **Lemma {#lem:gd-r8-2}** (The projections.)
 

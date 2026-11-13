@@ -19,9 +19,10 @@ transition face, whose incoming threshold is non-negative ([[lem:ec-theta-in]], 
 lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds bound what this
 proof's choices produce, not the optimal loss. No upper bound for d is proved: the loss of the forward solution
 operators is fixed by its proof without a value ([[rem:ec-other-losses]]), and the upper bound for d_acc at one choice
-of the weights in [[rem:ec-integer-bound]] is an observation. The same formulas bound λ1 by δ and the modulus of the
-initial family at 2δ in terms of d ([[prop:ec-delta-cap]]). The chapter ends with the parts of the first constants of the linear theory that are in hand, and with the places where explicit evaluation
-stops ([[rem:ec-not-evaluated]]).
+of the weights in [[rem:ec-integer-bound]] is an observation. The same formulas bound λ1 by δ, and the modulus of the
+initial family ([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The chapter
+ends with the parts of the first constants of the linear theory that are in hand, and with the places where explicit
+evaluation stops ([[rem:ec-not-evaluated]]).
 No result of this chapter is used in the proof of any theorem of this paper.
 
 ### The computational point {#sec:ec-point}
@@ -591,10 +592,9 @@ result is d_acc ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ (of which the ba
 with the calculus at order 10, d_acc = 46,236,501,332,809,678), against the lower bound 8.41 × 10¹⁵ at the same
 weights, and 21d_acc + 6 ≤ 970,966,868,316,550,587 ≈ 9.710 × 10¹⁷, which is a bound for N_NM when d_NM = d_acc; the
 bound of [[prop:ec-delta-cap]], evaluated at d = 46,236,517,538,883,361, reads log₁₀ ω_(2d)(2δ) < −4.45 × 10¹⁷. The
-count
-depends on the point: the windows of one construction step, ⌈(2 − ε − λ_♯)/𝔡₁⌉ = 1,470,302 at the computational
-point, become about a hundred times as many at e_Υ = 1/10000,
-where 𝔡₁ ≈ 3.33·10⁻⁹, so the bookkeeping gives no bound uniform over the admissible parameters. The integer was
+count depends on the point: the windows of one construction step, ⌈(2 − ε − λ_♯)/𝔡₁⌉ = 1,470,302 at the
+computational point, become about a hundred times as many at e_Υ = 1/10000, where 𝔡₁ ≈ 3.33·10⁻⁹, so the
+bookkeeping gives no bound uniform over the admissible parameters. The integer was
 obtained by exact rational arithmetic over the 1.065 × 10⁸ levels and the 8.0 × 10⁷ steps of the base level; it is
 not proved in this paper, and no proof uses it.
 
@@ -651,8 +651,7 @@ them.
 
 **Remark {#rem:ec-not-evaluated}** (Where explicit evaluation stops.) The values of λ1 and δ are not determined in this
 paper; [[prop:ec-delta-cap]] bounds λ1 by δ and the modulus at 2δ, and they are positive by the proof of
-[[thm:settling]]. Explicit
-values stop first upstream of every constant: the proof fixes the gauge and damping parameters only below thresholds
+[[thm:settling]]. Explicit values stop first upstream of every constant: the proof fixes the gauge and damping parameters only below thresholds
 whose existence it proves ([[thm:vi-c-2-1]]), and the cut-offs and orders of its function spaces only up to
 admissibility, so explicit constants need those choices made with numbers, which [[def:ec-point]] does only at a point
 outside the proved set. Among the inputs that depend on those choices are the gauge reconstruction, the inverse of the
