@@ -2374,13 +2374,14 @@ Then [[eq:i-b-6-11]] holds with the constant 4F_ΓC′_a: for h ≤ h_0/2 and z 
 imaginary axis. Let σ_0 ≥ h_0⁻¹, so σ_0 ≥ 1, and w ∈ L². Apply [[lem:i-b-6-6]] to F(ζ) := P̂′(3σ_0 + iβ + κ_Γζ)⁻¹w on
 the rectangle [−L, L] + i[0, 1], L := 2σ_0/κ_Γ, where Re σ ∈ [σ_0, 5σ_0] and Im σ ∈ [β, β′]. F is holomorphic near the
 rectangle. Indeed, P̂′(σ) is entire in σ (the sentence after [[eq:i-b-6-10]]) as a family of bounded operators from
-H^(2,0) into L², H^(2,0) being the space H_h^((2,0,0)) of [[prop:i-b-6-7]] at each fixed h ([[sec:i-b-2-3]]). On the
-compact set 𝒦 of the σ above, where the bound C′_a holds, P̂′(σ) is invertible from H^(2,0) onto L², with inverse
+H^(2,0) into L², where H^(2,0) is the scattering Sobolev space of [[sec:i-a-2-2]], which is the space H_h^((2,0,0)) of
+[[prop:i-b-6-7]] at each fixed h, with an equivalent norm ([[sec:i-b-2-3]]). On the compact set 𝒦 of the σ above, where the bound C′_a holds, P̂′(σ) is invertible from H^(2,0) onto L², with inverse
 bounded from L² into H^(2,0) by the open mapping theorem. For σ_1 ∈ 𝒦 put 𝔗(σ) := P̂′(σ_1)⁻¹(P̂′(σ_1) − P̂′(σ)), a
 holomorphic family of bounded operators on H^(2,0); its norm is at most ‖P̂′(σ_1)⁻¹‖‖P̂′(σ_1) − P̂′(σ)‖, less than ½
 for σ near σ_1, P̂′ being continuous in norm. For such σ, P̂′(σ) = P̂′(σ_1)(I − 𝔗(σ)) is invertible and
 P̂′(σ)⁻¹ = Σ_(n≥0) 𝔗(σ)ⁿP̂′(σ_1)⁻¹, a series of holomorphic functions that converges uniformly (its n-th term has norm
-at most 2⁻ⁿ‖P̂′(σ_1)⁻¹‖). So σ ↦ P̂′(σ)⁻¹w is holomorphic on a neighbourhood of 𝒦, and F near the rectangle.
+at most 2⁻ⁿ‖P̂′(σ_1)⁻¹‖), and a uniform limit of holomorphic functions is holomorphic. So σ ↦ P̂′(σ)⁻¹w is holomorphic
+on a neighbourhood of 𝒦, and F near the rectangle.
 There ‖F‖ ≤ A := C′_a‖w‖, and ‖F‖ ≤ A_0 := C′_a‖w‖ on Im ζ = 0 and ‖F‖ ≤ A_1 := C′_aσ_0⁻¹‖w‖ on Im ζ = 1, since
 the modulus of σ is at least σ_0 there; A_1 ≤ A since σ_0 ≥ 1, and the Λ of [[lem:i-b-6-6]] is
 Λ_0 := log(A/A_1) = log σ_0. With t := Im ζ = (Im σ − β)/κ_Γ ∈ [0, 1] and πL/4 = πσ_0/(2κ_Γ), the lemma gives, for
