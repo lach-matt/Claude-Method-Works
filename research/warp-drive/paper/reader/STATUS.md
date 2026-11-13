@@ -23,14 +23,14 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
 | 30 S11 | running | - | - |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | held for S11 (parameter set) | - |
-| 32 S13 | running | - | - |
+| 32 S13 | NOT CONFIRMED 4M 8m 7n | running | - |
 | 33 S14 | running | - | - |
-| 34 S15 | being written | - | - |
+| 34 S15 | running (sign slip and np-10-34-iv to adjudicate) | - | - |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | running | - |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | running | - |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | running | - |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | running |
-| 39 S20 | NOT CONFIRMED 1M 4m 8n | running | - |
+| 39 S20 | NOT CONFIRMED 1M 4m 8n | done | running |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | running | - |
 | 41 S22 | running | - | - |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | running | - |

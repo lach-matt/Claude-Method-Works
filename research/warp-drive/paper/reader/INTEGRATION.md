@@ -184,3 +184,13 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S7 (R2-S07): confirmed. Nits: N1 line 1016 the cut-off φ₂ equals 1 only on the set, not on a neighbourhood; N2
   line 1019 the ν-term bound is justified in one direction only; N3 line 982 η₀ ≤ 1/2 is imposed inside a proof (move
   to the statement); N4 "near {r ≤ r₀}, over …" reads as two conditions.
+
+## From S13, S15 and S20 (2026-11-13)
+
+- S13 reader: NP 10.19 (i), 10.29 (iv) and 10.30 (vi) were carried by no chapter; the S13 fix round carries them with
+  written proofs, and restores NP 10.15 (i) to the source's form (every z > 0, "≥ 3"). DLMF (10.17.5) sector and the
+  [ER08]/[MP86] attribution corrected there.
+- S15: the sources' gauge 1-forms carry a sign slip (doubling H_T and f_a); S15 writes the corrected sign; the reader
+  adjudicates. NP 10.34 (iv) carried as prop:np-10-34-iv, its numeral replaced by ε_ind ≤ δ₅₀ via prop:np-10-52.
+- S20: lem:s20-rows shrinks ℬ_* to radius ≤ 1/(2C_B); the S20 reader lists the chapters whose statements must carry the
+  smaller ball. F-S20 lists citation changes S25 and S19 need.

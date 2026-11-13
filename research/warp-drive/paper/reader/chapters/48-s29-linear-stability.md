@@ -668,10 +668,10 @@ data of ℒ_(Z+V(S′))g. [[thm:ix-2-2]] gives k = ℒ_X g. The second display i
 comparison that [[rem:vii-4-1]] leaves to the nonlinear theory; it is proved here for the linearisation only.
 
 (b) Nothing is asserted here about the size or decay of X. X solves a linear wave equation with right side Θ(k) and
-its own Cauchy data, and its behaviour at ℐ⁺ and K⁺ depends on the gauge of ġ′. A solution in the Regge–Wheeler-type gauge
-or in the harmonic gauge with the same data, given on that region and smooth up to the initial surface, is ġ + ℒ_X g on
-the future of Σ^IVP in {r > r_♭} ([[cor:ix-2-3]]), and so settles modulo ℒ_X g; the decay in those gauges is the decay
-of ℒ_X g there. It is proved in the Regge–Wheeler-type gauge in [[thm:rw-settling]], and for the harmonic-gauge
+its own Cauchy data, and its behaviour at ℐ⁺ and K⁺ depends on the gauge of ġ′. A solution in the Regge–Wheeler-type
+gauge or in the harmonic gauge with the same data, given on N⁺, the future of Σ^IVP in {r > r_♭}, and smooth up to
+Σ°, is ġ + ℒ_X g there ([[cor:ix-2-3]] with U = U^♯), and so settles modulo ℒ_X g; the decay in those gauges is the
+decay of ℒ_X g there. It is proved in the Regge–Wheeler-type gauge in [[thm:rw-settling]], and for the harmonic-gauge
 representative in [[thm:harmonic-rate]].
 
 (c) In the class, if U is G-invariant (for instance U = U^♯: G preserves t_IVP and |x|), so that Ω′ and Ω′_+ are

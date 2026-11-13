@@ -103,16 +103,17 @@ Below, ε ∈ (0, ε_1] is fixed, where ε_1 > 0 satisfies
 
     5ε_1 < ε_+ − max(η^0_2, η_1, ε_K) = ε_+ − η^0_2,        ε_1 < α − 4,
 
-with η_1 and η^0_2 the values of η_1 and η_2 fixed in [[sec:iii-i11-1]] and [[sec:iii-i12-1]] (so
-ε_K < η_1 < η^0_2 < ε_+), and is so small that every statement of [[ch:s19]]–[[ch:s23]] used below holds at every loss
-ε ∈ (0, ε_1]. A statement proved for every small ε off a finite set ([[sec:iii-i11-1]]) holds at every ε ∈ (0, ε_1],
-as its output space at the loss ε contains that at every smaller loss. By the first condition the choice η_2 := ε_+ − 3ε of
+with η_1 and η^0_2 the values of η_1 and η_2 fixed in [[sec:iii-i11-1]] and [[sec:iii-i12-1]]
+(ε_K < η_1 < η^0_2 < ε_+), and is so small that every statement of [[ch:s19]]–[[ch:s23]] used below holds at every loss
+ε ∈ (0, ε_1]. A
+statement proved for every small ε off a finite set ([[sec:iii-i11-1]]) holds at every ε ∈ (0, ε_1], as its output space
+at the loss ε contains that at every smaller loss. By the first condition the choice η_2 := ε_+ − 3ε of
 [[lem:iii-j1-1-1]] is admissible: η_2 ∈ (η^0_2, ε_+) and 2ε < 3ε = ε_+ − η_2. It also gives 1 + ε_+ − 5ε > 1 + ε_K, so
 the level-3 tf-weight τ_3 = 1 + ε_+ − 5ε of [[lem:iii-j1-1-1]] exceeds 1 + ℓ_3, and the K⁺-weight 2 + ε_+ − 5ε of the
 level-3 pieces exceeds α − 2, as ℓ_3 ≤ ε_K and α ≤ 4 + ε_K. By the second, h_rem(q) has the K⁺-order α − 2 − ε > 2
-([[lem:iii-j2-2-1]] (a)), and the zf-weight ℓ_3 = α − 4 − ε of level 3 in the proof of [[prop:iii-i11-3-1]] is
-positive. [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] take their output at the loss ε and their input in the graded
-space of the losses ε′(ε, k) that the statement they estimate assigns.
+([[lem:iii-j2-2-1]] (a)), and the zf-weight ℓ_3 = α − 4 − ε of level 3 in the proof of [[prop:iii-i11-3-1]] is positive.
+[[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] take their output at the loss ε and their input in the graded space of the
+losses ε′(ε, k) that the statement they estimate assigns.
 
 **Definition {#def:iii-j2-1-1}** (Tame families.) Let E, G be graded spaces, d_0, d ∈ ℕ, δ_𝔹 > 0, and
 𝔹 := {β : ‖β‖_(d_0) < δ_𝔹}. A family (T_β)_(β∈𝔹) of linear maps E^∞ → G^∞ is *tame with loss d* if for every
@@ -1043,14 +1044,14 @@ built from the solution map of [[prop:iii-i15-2-5]].
 This is [Hin26, Theorem 12.8, p. 312] in dimension 4 + 1.
 
 *Proof.* Step 0: Φ(U) is admissible in [[thm:iii-j3-5-3]] ([[prop:iii-j3-5-4]]), and f ∈ ℱ_ex ⊂ 𝒴^0_ex(α)
-([[rem:iii-j3-1-2]]); [[thm:iii-j3-5-3]] gives (h′, p⃗′, q′) in the exact classes, with (H5) satisfied as
-a_+ = 3 + ε_+. Steps 1–2 of the proof of [[thm:iii-j1-2-1]], which hold at b with the rows built at b_0
-([[sec:s23-base-points]] (3)), subtract values of D_UΦ, which lie in the exact classes and
-whose images under D_(Φ(U))P_5 lie in ℱ_ex ([[prop:iii-j3-5-4]]); Step 2 reads g_j at ℓ_K(λ_0) − ε, a loss it
-tolerates, as it needs only the formal solutions of rate < α to be visible below ℓ_K. Step 3: after the subtractions h′
-has no ι⁺-term below 3 + ε_+, so its class (ℰ_♯, 3 + ε_+) with vanishing coefficients is the plain weight 3 + ε_+, and
-its K⁺-weight is α; so h′ is in the exact class of h̃, and the conormal parts of q′ have the exact orders. The bounds
-compose finitely many bounded maps; the order d is fixed by [[lem:iii-j2-2-3]]. ∎
+([[rem:iii-j3-1-2]]); [[thm:iii-j3-5-3]] gives (h′, p⃗′, q′) in the exact classes, with (H5) satisfied as a_+ = 3 + ε_+.
+Steps 1–2 of the proof of [[thm:iii-j1-2-1]], which hold at b with the rows built at b_0 ([[sec:s23-base-points]] (3)),
+subtract values of D_UΦ, which lie in the exact classes and whose images under D_(Φ(U))P_5 lie in ℱ_ex
+([[prop:iii-j3-5-4]]); Step 2 reads g_j at ℓ_K(λ_0) − ε, a loss it tolerates, as it needs only the formal solutions of
+rate < α to be visible below ℓ_K. Step 3: after the subtractions h′ has no ι⁺-term below 3 + ε_+, so its class (ℰ_♯, 3 +
+ε_+) with vanishing coefficients is the plain weight 3 + ε_+, and its K⁺-weight is α; so h′ is in the exact class of h̃,
+and the conormal parts of q′ have the exact orders. The bounds compose finitely many bounded maps; the order d is fixed
+by [[lem:iii-j2-2-3]]. ∎
 
 The ι⁺-order of [[lem:iii-j1-1-1]] is thus exactly 3 + ε_+ under (Ex1); its choice η_2 := ε_+ − 3ε and the resulting
 loss 5ε are not needed.

@@ -987,19 +987,19 @@ The same holds uniformly for b near b_0, by [[rem:iii-h-2-6]], as β′ < 0 and 
 This section is [Hin26, Lemma 10.13] in dimension 4 + 1, for variable orders.
 
 **Lemma {#lem:iii-h1-6-1}** (Translation-invariant elliptic operators.) Let 𝗌 ∈ C^∞(³ᵇS*M̃_0) be
-t_*-translation-invariant, d ∈ ℕ and θ_0 > 0. There are t_*-translation-invariant operators A ∈ Ψ̃^𝗌_3b, elliptic,
-B′ ∈ Ψ̃^(−𝗌)_3b and R ∈ Ψ̃^(−d)_3b with
+t_*-translation-invariant, d ∈ ℕ and ν_0 > 0. There are t_*-translation-invariant operators A ∈ Ψ̃^𝗌_3b, elliptic,
+Q′ ∈ Ψ̃^(−𝗌)_3b and R ∈ Ψ̃^(−d)_3b with
 
-    I = B′A + R²,                                                                                       {#eq:iii-h1-6-1}
+    I = Q′A + R²,                                                                                       {#eq:iii-h1-6-1}
 
-whose Schwartz kernels are supported in {|t_* − t′_*| ≤ θ_0⟨x⟩, |x − x′| ≤ θ_0⟨x⟩}. They act on H^(𝗌′,(β,γ))_3b
+whose Schwartz kernels are supported in {|t_* − t′_*| ≤ ν_0⟨x⟩, |x − x′| ≤ ν_0⟨x⟩}. They act on H^(𝗌′,(β,γ))_3b
 with the orders shifted by their own, for all β and γ. (Only b-order k = 0 is claimed: for variable orders,
 commutators with b-vector fields carry logarithmic factors, and [[lem:iii-h1-6-2]] reduces to k = 0 first.)
 
 *Proof.* In the frame ⟨x⟩∂_(t_*), ⟨x⟩∂_(x_i), which is t_*-invariant, a 3b covector has fibre coordinates ζ ∈ ℝ⁵, and
 a t_*-translation-invariant function on the 3b-cotangent bundle is a function of (x, ζ); in particular 𝗌 = 𝗌(x, ζ). For
 a symbol a(x, ζ) of variable order (in the symbol classes of [[sec:ii-a-3]]) put, with ψ ∈ C_c^∞(ℝ⁵) equal to 1 near
-0 and supported in {|y| ≤ θ_1},
+0 and supported in {|y| ≤ ν_1},
 
     Op(a)u(t_*, x) := (2π)⁻⁵ ∫ e^(i((t_*−t′_*)τ+(x−x′)·ξ)) ψ((t_* − t′_*, x − x′)/⟨x⟩)
                           × a(x, ⟨x⟩(τ, ξ)) u(t′_*, x′) dt′_* dx′ dτ dξ.
@@ -1009,13 +1009,13 @@ this is the quantization with the cut-off of [Hin26d, (3.26)] ([[sec:ii-a-8-3]])
 a(x, (⟨x⟩/⟨x_α⟩)ζ̃), which lies in the same class, since ⟨x⟩/⟨x_α⟩ is bounded above and below with bounded scaled
 derivatives; the cut-off is rescaled by the same factor. A change of cut-off changes the operator by one with smooth
 kernel, supported within bounded cell distance and rapidly decaying in the scaled variables: a residual operator
-localized near the diagonal. So Op(a) ∈ Ψ̃^(ord a)_3b, localized near the diagonal, with kernel range θ_1⟨x⟩. Its
+localized near the diagonal. So Op(a) ∈ Ψ̃^(ord a)_3b, localized near the diagonal, with kernel range ν_1⟨x⟩. Its
 kernel depends on (t_* − t′_*, x, x′), so Op(a) commutes with t_*-translations; compositions of such operators commute
-with them and have kernel ranges that add. Take a := ⟨ζ⟩^𝗌, A := Op(a) and B_0 := Op(a⁻¹). Then B_0A = I − R_1 with
+with them and have kernel ranges that add. Take a := ⟨ζ⟩^𝗌, A := Op(a) and Q_0 := Op(a⁻¹). Then Q_0A = I − R_1 with
 R_1 ∈ Ψ̃^(−(1−2δ))_3b translation-invariant (the calculus with variable orders loses δ > 0 in the remainder). With
-d′(1 − 2δ) ≥ d, B := Σ_(j<d′) R_1^j B_0 gives BA = I − R_1^(d′) =: I − R, and I = BA + R = (B + RB)A + R², so
-B′ := B + RB. All of these are translation-invariant, with kernel range at most 4d′(1 + θ_1)θ_1⟨x⟩ ≤ θ_0⟨x⟩ for θ_1
-small (compositions add ranges, with ⟨x′⟩ ≤ (1 + θ_1)⟨x⟩ on them). For the weights w = ρ_sf^β ρ_K^γ, w⁻¹Aw has kernel
+d′(1 − 2δ) ≥ d, Q := Σ_(j<d′) R_1^j Q_0 gives QA = I − R_1^(d′) =: I − R, and I = QA + R = (Q + RQ)A + R², so
+Q′ := Q + RQ. All of these are translation-invariant, with kernel range at most 4d′(1 + ν_1)ν_1⟨x⟩ ≤ ν_0⟨x⟩ for ν_1
+small (compositions add ranges, with ⟨x′⟩ ≤ (1 + ν_1)⟨x⟩ on them). For the weights w = ρ_sf^β ρ_K^γ, w⁻¹Aw has kernel
 K_A(z, z′)w(z′)/w(z), and on the support of the kernel w(z′)/w(z) is smooth and bounded with bounded scaled
 derivatives, as the logarithmic 3b-derivatives of ρ_sf and ρ_K are bounded: an operator of the same class. ∎
 
@@ -1037,34 +1037,47 @@ may assume u = 0 for t_* ≤ −r/2, and then only ∂_(t_*)u =: f enters.
 *b-regularity.* ∂_(t_*) and ⟨x⟩∂_x commute with ∂_(t_*), and ∂_(t_*)(t_*∂_(t_*)u) = t_*∂_(t_*)f + f, which preserves
 the support condition; by induction it suffices to take k = 0.
 
-*The case 𝗌 = 0, with u = 0 for t ≤ θr, where t := t_* + r and θ ∈ (0, 1).* On {t ≥ θr}, ρ_sf = r⁻¹ and ρ_K = r/t
-are defining functions up to bounded factors (r ≥ r_0). As ∂_(t_*) commutes with powers of r we may take β = 0. Dropping
-the angular variables (the density is |dt dr| after the shift of β), f = ρ_K^(1−ℓ)f_0 = r^(1−ℓ)t^(ℓ−1)f_0 with
-f_0 ∈ L²(|dt dr|), and u(t, r) = ∫_(θr)^t f(t′, r) dt′. Fix a ∈ (−½, ℓ − 1), which is possible as ℓ > ½. Then
+*The case 𝗌 = 0.* Let r_1 > 0, c ≥ 0 and ν ∈ (0, 1), put t := t_* + r + c, and let v be a distribution on M̃_0,
+supported in {r ≥ r_1}, with v = 0 for t ≤ νr and g := ∂_(t_*)v ∈ H^(0,(β,−ℓ+1))_3b. Then v ∈ H^(0,(β−1,−ℓ))_3b, with
+norm at most C‖g‖, C depending on r_1, c and ν. Indeed, on {r ≥ r_1, t ≥ νr}, ρ_sf and ρ_K are r⁻¹ and r/t up to
+bounded factors. As ∂_(t_*) commutes with powers of r we may take β = 0. Dropping the angular variables (the density
+is |dt dr| after the shift of β), g = ρ_K^(1−ℓ)g_0 = r^(1−ℓ)t^(ℓ−1)g_0 with g_0 ∈ L²(|dt dr|), and
+v(t, r) = ∫_(νr)^t g(t′, r) dt′. Fix a ∈ (−½, ℓ − 1), which is possible as ℓ > ½. Then
 
-    ‖ρ_sf ρ_K^ℓ u‖² = ∫_(r_0)^∞ ∫_(θr)^∞ t^(−2ℓ) |∫_(θr)^t t′^(ℓ−1) f_0(t′, r) dt′|² dt dr
-                   ≤ ∫∫ t^(−2ℓ) (t^(2a+1)/(2a + 1)) ∫_(θr)^t t′^(2ℓ−2−2a) |f_0|² dt′ dt dr,
+    ‖ρ_sf ρ_K^ℓ v‖² ≤ C ∫_(r_1)^∞ ∫_(νr)^∞ t^(−2ℓ) |∫_(νr)^t t′^(ℓ−1) g_0(t′, r) dt′|² dt dr
+                   ≤ C ∫∫ t^(−2ℓ) (t^(2a+1)/(2a + 1)) ∫_(νr)^t t′^(2ℓ−2−2a) |g_0|² dt′ dt dr,
 
 by Cauchy–Schwarz with t′^(ℓ−1) = t′^a · t′^(ℓ−1−a). Exchanging the integrals and using
 ∫_(t′)^∞ t^(−2ℓ+2a+1) dt = t′^(−2ℓ+2a+2)/(2ℓ − 2a − 2), the right side is at most
-C‖f_0‖²_(L²) = C‖f‖²_(H^(0,(0,1−ℓ))_3b).
+C‖g_0‖²_(L²) = C‖g‖²_(H^(0,(0,1−ℓ))_3b).
 Nothing here depends on the dimension.
 
-*Near r = r_0.* Let χ_1 = χ_1(r) equal 1 near {r = r_0} and vanish on {r ≥ min(r_0 + δ_1, (3/2)r_0)}. It commutes with
-∂_(t_*), so χ_1u and (1 − χ_1)u both satisfy the hypotheses. For (1 − χ_1)u the argument below applies with θ_0 so
-small that the kernels stay away from {r = r_0}. Over supp χ_1 the order is a constant s_0; extend χ_1u across
-{r = r_0} by an extension operator E acting in x only (Seeley's extension [See64], by reflection in r, into
-{r > ½r_0}), which is bounded on the extendible spaces of order s_0 and on the weighted L² spaces and commutes with
-∂_(t_*). Then Eχ_1u is supported in {t_* ≥ −C}, and at bounded r the weights are those of t_*; so the argument below
-applies to it with the constant order s_0 and with t := t_* + r + C′ for a constant C′ that makes t ≥ θr on its
-support. Restriction to {r ≥ r_0} is bounded.
+*Extension across {r = r_0}.* The spaces on M_0 are the restrictions to {r ≥ r_0} of the spaces on M̃_0, with the
+quotient norms ([[def:ii-a-7-2]]), 𝗌 being extended to M̃_0 by its constant value s_0 over {r < r_0}. Let F̃ be an
+extension of f with ‖F̃‖_(H^(𝗌,(β,−ℓ+1))_3b(M̃_0)) ≤ 2‖f‖_(H^(𝗌,(β,−ℓ+1))_3b(M_0)), and put
 
-*General 𝗌.* Take A, B′ and R of [[lem:iii-h1-6-1]] with d ≥ sup|𝗌| + |inf 𝗌| and θ_0 so small that z ∈ supp K_A or
-z ∈ supp K_R (as a function of its first variable, with its second variable in supp u ⊂ {t_* ≥ −r/2}) forces
-t_* ≥ −(3/4)r, that is, t ≥ r/4 (with ⟨x⟩ ≤ Cr on r ≥ r_0). The operators are localized near the diagonal, hence act
-on all distributions, and [[eq:iii-h1-6-1]] holds on them. Au and Ru vanish for t ≤ r/4, and ∂_(t_*)(Au) = Af lies in
-H^(0,(β,−ℓ+1))_3b and ∂_(t_*)(Ru) = Rf in H^(𝗌+d,(β,−ℓ+1))_3b ⊂ H^(0,(β,−ℓ+1))_3b. By the case 𝗌 = 0 with θ = ¼,
-Au, Ru ∈ H^(0,(β−1,−ℓ))_3b, and u = B′(Au) + R(Ru) ∈ H^(𝗌,(β−1,−ℓ))_3b, with the estimate. ∎
+    F := χ_1(r) χ_2(t_*/⟨x⟩) F̃,
+
+where χ_1 ∈ C^∞(ℝ) equals 0 on (−∞, r_0/2] and 1 on [r_0, ∞), and χ_2 ∈ C^∞(ℝ) equals 0 on (−∞, −¾] and 1 on
+[−½, ∞). Both factors are bounded together with all their derivatives along ⟨x⟩∂_(t_*) and ⟨x⟩∂_x (where a derivative
+of χ_2(t_*/⟨x⟩) is nonzero, |t_*| ≤ ⟨x⟩), so multiplication by them is bounded on the 3b spaces ((S3) in
+[[sec:ii-a-3]]), and ‖F‖ ≤ C‖f‖. On {r > r_0}, F = f: there χ_1 = 1, and χ_2(t_*/⟨x⟩) ≠ 1 only where
+t_* < −⟨x⟩/2 ≤ −r/2, where f vanishes. F is supported in {r ≥ r_0/2, t_* ≥ −¾⟨x⟩}. Let U be the primitive of F in t_*
+that vanishes for t_* < −⟨x⟩ (the convolution in t_* with the Heaviside function). Then ∂_(t_*)U = F, U is supported
+in {r ≥ r_0/2, t_* ≥ −¾⟨x⟩}, and U = u on {r > r_0}, as both are primitives of f there that vanish for t_* < −⟨x⟩.
+Restriction to {r ≥ r_0} being bounded, it suffices to prove ‖U‖_(H^(𝗌,(β−1,−ℓ))_3b(M̃_0)) ≤ C‖F‖. No extension
+operator is used: f is extended through the definition of the quotient norm, at its own order, and U is obtained by
+integration in t_*.
+
+*General 𝗌.* Take A, Q′ and R of [[lem:iii-h1-6-1]] for the extended order, with d ≥ sup|𝗌| + |inf 𝗌| and
+ν_0 ≤ min(1/16, r_0/8). Let z = (t_*, x) lie in supp K_A or in supp K_R, as a function of its first variable, with its
+second variable z′ = (t′_*, x′) in supp U, and write r′ := |x′|. Then r ≥ r′ − ν_0⟨x⟩ ≥ r_0/2 − ν_0(1 + r), so
+r ≥ r_0/3. And ⟨x′⟩ ≤ (1 + ν_0)⟨x⟩, so t_* ≥ −¾⟨x′⟩ − ν_0⟨x⟩ ≥ −(¾ + 2ν_0)(1 + r), and t := t_* + r + 1 satisfies
+t ≥ (¼ − 2ν_0)(1 + r) > r/8. The operators are localized near the diagonal, hence act on all distributions, and
+[[eq:iii-h1-6-1]] holds on them. So AU and RU are supported in {r ≥ r_0/3} and vanish for t ≤ r/8, and
+∂_(t_*)(AU) = AF lies in H^(0,(β,−ℓ+1))_3b and ∂_(t_*)(RU) = RF in H^(𝗌+d,(β,−ℓ+1))_3b ⊂ H^(0,(β,−ℓ+1))_3b. By the
+case 𝗌 = 0 with r_1 = r_0/3, c = 1 and ν = 1/8, AU, RU ∈ H^(0,(β−1,−ℓ))_3b, and
+U = Q′(AU) + R(RU) ∈ H^(𝗌,(β−1,−ℓ))_3b, with the estimate. ∎
 
 [Hin26] proves the case 𝗌 = 0 and refers the rest to [Hin26c, Lemma 14.6], whose proof applies the case 𝗌 = 0 to Au.
 This needs A translation-invariant, so that ∂_(t_*)Au = Af, and localized near the diagonal, so that Au keeps a support
@@ -1135,4 +1148,4 @@ statement; here [[thm:i-a-7-2]] (6) and [[eq:i-a-7-6]], with the invertibility o
 
 (f) *Variable orders in [Hin26, Lemma 10.13].* Its reduction to 𝗌 = 0 through [Hin26c, Lemma 14.6] needs an elliptic
 operator that commutes with ∂_(t_*) and is localized near the diagonal, so that Au keeps a forward support condition,
-for which the case 𝗌 = 0 is proved with t ≥ θr for any θ > 0; [[lem:iii-h1-6-1]] constructs it.
+for which the case 𝗌 = 0 is proved with t ≥ νr for any ν > 0; [[lem:iii-h1-6-1]] constructs it.

@@ -259,10 +259,10 @@ columns, C3 enlarged if necessary.
 So √μ(v) − r_q(v) is at least its value at μ0, which is positive when μ0 > √72 l5². Put μ_max := μ(v_end).
 Fix δ in (0, that value) such that ∂_r θ⁺(g0) ≥ 3/(2 μ_max) on |r − √μ(v)| ≤ δ (possible by continuity, since
 ∂_r θ⁺(g0) = 3/μ ≥ 3/μ_max at r = √μ), and let m_δ > 0 be the minimum of |θ⁺(g0)| on the compact rest of the columns.
-Let r_max be the largest value of r on Ω, and let λ_H ≤ λ0 be such that C3 λ_H < min(m_δ, 3/(4 μ_max), 3/r_max) and λ_H
-≤ λ*. For λ ≤ λ_H, by [[eq:theta-plus-close]], θ⁺_λ has no zero where |r − √μ| > δ, and on |r − √μ| ≤ δ its r-derivative
-is at least 3/(2 μ_max) − C3 λ > 3/(4 μ_max), so it is strictly increasing there. Hence it has at most one zero on each
-column, positive above it and negative below it.
+Let r_max be the largest value of r on Ω, and let λ_H ≤ λ0 be such that C3 λ_H < min(m_δ, 3/(4 μ_max), 3/r_max) and
+λ_H ≤ λ*. For λ ≤ λ_H, by [[eq:theta-plus-close]], θ⁺_λ has no zero where |r − √μ| > δ, and on |r − √μ| ≤ δ its
+r-derivative is at least 3/(2 μ_max) − C3 λ > 3/(4 μ_max), so it is strictly increasing there. Hence it has at most one
+zero on each column, positive above it and negative below it.
 
 If the column contains [√μ − δ, √μ + δ], which holds when √μ(v) ≤ v − τ0 − δ1 with δ1 := δ, then θ⁺_λ changes sign on
 that interval (|θ⁺_λ(√μ)| ≤ C3 λ and the slope exceeds 3/(4 μ_max)), so it has exactly one zero R_λ, and

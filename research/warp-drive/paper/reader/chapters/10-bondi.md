@@ -329,11 +329,11 @@ g⁻¹ = g0⁻¹ − g0⁻¹ u g0⁻¹ + O(u²) and g0⁻¹ dv = ℓ. ∎
 
 We write the coordinate components of the G_k in the basis of (v, r, ϑ) as scalar coefficients,
 
-    u_rr = Σ_k s^k C_k,   u_vr = Σ_k s^k B_k,   u_vv = Σ_k s^k A_k,   u_(rϑ) = r Σ_k s^k E_k,   u_(vϑ) = r Σ_k s^k D_k,
-    u_(ϑϑ) = r² Σ_k s^k F_k,   u_(φ1φ1) = r² cos²ϑ Σ_k s^k G_k,   u_(φ2φ2) = r² sin²ϑ Σ_k s^k H_k,     {#eq:bondi-coeffs}
+    u_rr = Σ_k ς^k C_k,   u_vr = Σ_k ς^k B_k,   u_vv = Σ_k ς^k A_k,   u_(rϑ) = r Σ_k ς^k E_k,   u_(vϑ) = r Σ_k ς^k D_k,
+    u_(ϑϑ) = r² Σ_k ς^k F_k,   u_(φ1φ1) = r² cos²ϑ Σ_k ς^k G_k,   u_(φ2φ2) = r² sin²ϑ Σ_k ς^k H_k,     {#eq:bondi-coeffs}
 
-with s := r^(−1/2) and one power of r for each angular index, the classes being of orthonormal components. These
-A_k, …, H_k are scalar functions of (v, ϑ), the subscript being the power of s; they are not the classes E_p, the
+with ς := r^(−1/2) and one power of r for each angular index, the classes being of orthonormal components. These
+A_k, …, H_k are scalar functions of (v, ϑ), the subscript being the power of ς; they are not the classes E_p, the
 tensors G_k of [[eq:bondi-expansion]] or the free data F, G. By [[lem:bondi-ell]], A_3 = B_3 = C_3 = D_3 = E_3 = 0 and
 F_3 + G_3 + H_3 = 0, and by [[eq:waves]], F_3 = −2(p1 + p2), G_3 = 2p1 and H_3 = 2p2. The other components of u
 vanish, by the reflections φ1 ↦ −φ1 and φ2 ↦ −φ2.
@@ -347,10 +347,10 @@ exist with the following properties. (i) g_λ⁻¹(dv_B, dv_B) = 0, and ů → 0
 (ii) g_λ⁻¹(dv_B, dϑ_B) = 0, and ν → 0 likewise. (iii) r_B is the areal radius: r_B⁶ cos²ϑ_B sin²ϑ_B is the determinant
 of the metric induced on {v_B, r_B = const} in the coordinates (ϑ_B, φ1, φ2). (iv) They are invariant under
 T² × Z2 × Z2 and equal (v, ϑ, r) for v ≤ v_start. With u expanded to order J by [[eq:bondi-expansion]], they have
-expansions in s with coefficients smooth in (v, ϑ) and vanishing for v ≤ v_start,
+expansions in ς with coefficients smooth in (v, ϑ) and vanishing for v ≤ v_start,
 
-    ů = Σ_{k=2}^{J−2} s^k ů_k + E_((J−1)/2),     ν = Σ_{k=4}^{J−2} s^k ν_k + E_((J−1)/2),
-    ρ = Σ_{k=4}^{J−2} s^k ρ_k + E_((J−1)/2),                                                       {#eq:bondi-shifts}
+    ů = Σ_{k=2}^{J−2} ς^k ů_k + E_((J−1)/2),     ν = Σ_{k=4}^{J−2} ς^k ν_k + E_((J−1)/2),
+    ρ = Σ_{k=4}^{J−2} ς^k ρ_k + E_((J−1)/2),                                                       {#eq:bondi-shifts}
 
 whose first coefficients are
 
@@ -360,15 +360,15 @@ whose first coefficients are
 and whose remainders gain an order under ℓ. In the chart (v_B, r_B, ϑ_B, φ1, φ2) the metric has the Bondi form
 [[eq:bondi-form]], its functions being given by the inverse components g^{v_B r_B} = e^(−2β), g^{r_B r_B} = e^(−2β) W,
 g^{r_B ϑ_B} = e^(−2β) U, g^{ϑ_B ϑ_B} = 1/(r_B² S) with S := e^(−2(P1+P2)), g^{φ1 φ1} = 1/(r_B² cos²ϑ_B e^(2P1)) and
-g^{φ2 φ2} = 1/(r_B² sin²ϑ_B e^(2P2)). The functions β, W, U, P1, P2 have expansions in s_B := r_B^(−1/2) with
-coefficients smooth in (v_B, ϑ_B), equal to those of g0 for v_B ≤ v_start (zero there, but for W − 1 = −μ0 s_B⁴), to
-order s_B^(J−2), with remainders o(s_B^(J−2)) that stay o(s_B^(J−2)) under every (v_B, ϑ_B)-derivative and gain an
+g^{φ2 φ2} = 1/(r_B² sin²ϑ_B e^(2P2)). The functions β, W, U, P1, P2 have expansions in ς_B := r_B^(−1/2) with
+coefficients smooth in (v_B, ϑ_B), equal to those of g0 for v_B ≤ v_start (zero there, but for W − 1 = −μ0 ς_B⁴), to
+order ς_B^(J−2), with remainders o(ς_B^(J−2)) that stay o(ς_B^(J−2)) under every (v_B, ϑ_B)-derivative and gain an
 order under each r_B-derivative. Their first coefficients are
 
-    e^(2P1) = 1 + 2 p1 s_B³ + O(s_B⁴),    e^(2P2) = 1 + 2 p2 s_B³ + O(s_B⁴),
-    e^(−2β) = 1 − (∂_v C_4/2) s_B² − (∂_v C_5/3) s_B³ + O(s_B⁴),                                 {#eq:bondi-first-metric}
+    e^(2P1) = 1 + 2 p1 ς_B³ + O(ς_B⁴),    e^(2P2) = 1 + 2 p2 ς_B³ + O(ς_B⁴),
+    e^(−2β) = 1 − (∂_v C_4/2) ς_B² − (∂_v C_5/3) ς_B³ + O(ς_B⁴),                                 {#eq:bondi-first-metric}
 
-and W − 1 = O(s_B²), U = O(s_B⁴).
+and W − 1 = O(ς_B²), U = O(ς_B⁴).
 
 Proof. *(i) The null coordinate.* Write L := g_λ⁻¹ dv = ℓ + ε with ε := (g_λ⁻¹ − g0⁻¹)(dv, ·), in E_2 by
 [[lem:bondi-ell]]. Since g_λ⁻¹(dv + dů, dv + dů) = g_λ^{vv} + 2 L(dů) + g_λ⁻¹(dů, dů), condition (i) is the eikonal
@@ -420,20 +420,20 @@ v0 ∘ Φ⁻¹, so that g_λ⁻¹(dv_B, dv_B) = 0, and ů := v_B − v = −ζ �
 Jacobian corrections in E_2) and all derivatives; it vanishes for v ≤ v_start and is invariant.
 
 *Expansion of ů.* v_B satisfies [[eq:bondi-eikonal]] exactly, so ů = −½ ∫_r^∞ N[ů] dr' along the generators of g0. Insert
-[[eq:bondi-expansion]]. The integrals of the powers of s are powers of s, the nonlinear terms at order s^(k+2) involve
+[[eq:bondi-expansion]]. The integrals of the powers of ς are powers of ς, the nonlinear terms at order ς^(k+2) involve
 only ů_j with j < k, and the remainder of ů is the integral along the generator of a remainder, with ℓ of it the
-integrand: this gives [[eq:bondi-shifts]] for ů. Since ∂_r s^k = −(k/2) s^(k+2), the s^(k+2) coefficient of the left side
-2∂_r ů is −k ů_k, so the s^(k+2) coefficient of the equation is −k ů_k plus known terms. The first ones are found as
+integrand: this gives [[eq:bondi-shifts]] for ů. Since ∂_r ς^k = −(k/2) ς^(k+2), the ς^(k+2) coefficient of the left side
+2∂_r ů is −k ů_k, so the ς^(k+2) coefficient of the equation is −k ů_k plus known terms. The first ones are found as
 follows. In the coordinates (v, r, ϑ), ℓ = ∂_r, g0^{vv} = 0, g0^{vr} = 1, g0^{rr} = 1 − μ/r² and g0^{ϑϑ} = r^(−2).
 Expanding g⁻¹ = g0⁻¹ − g0⁻¹ u g0⁻¹ + g0⁻¹ u g0⁻¹ u g0⁻¹ − …, the term quadratic in u of g^{vv} is
-g0⁻¹(u(ℓ, ·), u(ℓ, ·)), built from u_rr, u_rv = O(s⁴) and r⁻¹ u_(rϑ) = O(s⁴), so it is O(s⁸), and
-−g_λ^{vv} = C_4 s⁴ + C_5 s⁵ + C_6 s⁶ + O(s⁷). The components of ε are ε^v = −u_rr, ε^r = −u_rv − (1 − μ/r²) u_rr and
-ε^ϑ = −r^(−2) u_(rϑ), up to terms quadratic in u; with ů = O(s²), ∂_v ů = O(s²) and ∂_r ů = O(s⁴),
-2 ε(dů) = −2 C_4 ∂_v ů_2 s⁶ + O(s⁷), and g_λ⁻¹(dů, dů) = 2 ∂_v ů ∂_r ů + O(s⁸) = −2 ů_2 ∂_v ů_2 s⁶ + O(s⁷). So
+g0⁻¹(u(ℓ, ·), u(ℓ, ·)), built from u_rr, u_rv = O(ς⁴) and r⁻¹ u_(rϑ) = O(ς⁴), so it is O(ς⁸), and
+−g_λ^{vv} = C_4 ς⁴ + C_5 ς⁵ + C_6 ς⁶ + O(ς⁷). The components of ε are ε^v = −u_rr, ε^r = −u_rv − (1 − μ/r²) u_rr and
+ε^ϑ = −r^(−2) u_(rϑ), up to terms quadratic in u; with ů = O(ς²), ∂_v ů = O(ς²) and ∂_r ů = O(ς⁴),
+2 ε(dů) = −2 C_4 ∂_v ů_2 ς⁶ + O(ς⁷), and g_λ⁻¹(dů, dů) = 2 ∂_v ů ∂_r ů + O(ς⁸) = −2 ů_2 ∂_v ů_2 ς⁶ + O(ς⁷). So
 
-    N[ů] = C_4 s⁴ + C_5 s⁵ + (C_6 + 2 C_4 ∂_v ů_2 + 2 ů_2 ∂_v ů_2) s⁶ + O(s⁷),
+    N[ů] = C_4 ς⁴ + C_5 ς⁵ + (C_6 + 2 C_4 ∂_v ů_2 + 2 ů_2 ∂_v ů_2) ς⁶ + O(ς⁷),
 
-and comparing with −Σ_k k ů_k s^(k+2): ů_1 = 0, −2 ů_2 = C_4, −3 ů_3 = C_5, and
+and comparing with −Σ_k k ů_k ς^(k+2): ů_1 = 0, −2 ů_2 = C_4, −3 ů_3 = C_5, and
 −4 ů_4 = C_6 + 2 C_4 ∂_v ů_2 + 2 ů_2 ∂_v ů_2 = C_6 − C_4 ∂_v C_4 + ½ C_4 ∂_v C_4 = C_6 − ½ C_4 ∂_v C_4. These are the
 values in [[eq:bondi-first]].
 
@@ -445,10 +445,10 @@ transport L_B ϑ_B = 0 reads
     2 ℓ ν = −2 ε(dϑ) − 2 g_λ⁻¹(dů, dϑ) − 2 (ε + g_λ⁻¹ dů)(dν),
 
 where ε(dϑ) = −r^(−2) u(∂_ϑ, ℓ) + E_4 = −r⁻¹ u(e_ϑ, ℓ) + E_4 is in E_3 (e_ϑ := r⁻¹ ∂_ϑ) and
-g_λ⁻¹(dů, dϑ) = r^(−2) ∂_ϑ ů + E_4 is in E_3. So ν expands as in [[eq:bondi-shifts]], the s^(k+2) coefficient of the
-equation being −k ν_k plus known terms. In terms of the coefficients, −2 ε(dϑ) = 2 Σ_k E_k s^(k+2) + O(s⁸),
-−2 g_λ⁻¹(dů, dϑ) = −2 ∂_ϑ ů_2 s⁶ + O(s⁷), and the last term is O(s⁸), since ν = O(s⁴), ε = O(s⁴) and dů = O(s²). As
-E_k = 0 for k ≤ 3 and ů_1 = 0, the coefficients ν_1, ν_2, ν_3 vanish, and at s⁶, −4 ν_4 = 2 E_4 − 2 ∂_ϑ ů_2 =
+g_λ⁻¹(dů, dϑ) = r^(−2) ∂_ϑ ů + E_4 is in E_3. So ν expands as in [[eq:bondi-shifts]], the ς^(k+2) coefficient of the
+equation being −k ν_k plus known terms. In terms of the coefficients, −2 ε(dϑ) = 2 Σ_k E_k ς^(k+2) + O(ς⁸),
+−2 g_λ⁻¹(dů, dϑ) = −2 ∂_ϑ ů_2 ς⁶ + O(ς⁷), and the last term is O(ς⁸), since ν = O(ς⁴), ε = O(ς⁴) and dů = O(ς²). As
+E_k = 0 for k ≤ 3 and ů_1 = 0, the coefficients ν_1, ν_2, ν_3 vanish, and at ς⁶, −4 ν_4 = 2 E_4 − 2 ∂_ϑ ů_2 =
 2 E_4 + ∂_ϑ C_4: the value in [[eq:bondi-first]].
 
 *(iii) The areal radius.* Let J0 be the Jacobian of (v, r, ϑ) ↦ (v_B, r_B, ϑ_B). In a chart with
@@ -458,7 +458,7 @@ e^(−2β) = g^{v_B r_B}; the inverse determinant transforms with (det J0)². So
 
     r_B⁶ cos²ϑ_B sin²ϑ_B det(g_λ⁻¹) (det J0)² + (g^{v_B r_B})² = 0,                                 {#eq:bondi-areal}
 
-whose s^k coefficient is 6 ρ_k plus known terms. The factor ∂_r r_B = 1 + ρ + r ∂_r ρ of (det J0)² cancels against
+whose ς^k coefficient is 6 ρ_k plus known terms. The factor ∂_r r_B = 1 + ρ + r ∂_r ρ of (det J0)² cancels against
 the same factor of (g^{v_B r_B})² = (g_λ⁻¹(dv_B, dr_B))², and exactly, not only at this order. With
 g^{v_B v_B} = g^{v_B ϑ_B} = 0 the inverse determinant in the chart is −(g^{v_B r_B})²/det q, q the metric induced on
 {v_B, r_B = const} in (ϑ_B, φ1, φ2), so [[eq:bondi-areal]] is (g^{v_B r_B})² (1 − r_B⁶ cos²ϑ_B sin²ϑ_B/det q) = 0. And q,
@@ -469,61 +469,61 @@ every k ≥ 1.
 
 The first coefficients follow. Since q annihilates the generators, q(∂_(ϑ_B), ∂_(ϑ_B)) = g_λ(X, X) for any vector X
 tangent to N_(v0) with dϑ_B(X) = 1 and dφ_i(X) = 0; take X at fixed r. From d(v + ů)(X) = 0 and dϑ_B(X) = 1,
-X = (1 − ∂_ϑ ν + O(s⁶)) ∂_ϑ − (∂_ϑ ů + O(s⁴)) ∂_v. Since g_(vϑ) = r O(s⁴) and g_vv = O(1), the terms of g_λ(X, X)
-containing ∂_v are r² O(s⁸), and g_λ(X, X) = r² (1 + F_3 s³ + (F_4 − 2 ∂_ϑ ν_4) s⁴ + O(s⁵)). Likewise
-g_λ(∂_(φ1), ∂_(φ1)) = r² cos²ϑ (1 + G_3 s³ + G_4 s⁴ + O(s⁵)) and g_λ(∂_(φ2), ∂_(φ2)) = r² sin²ϑ (1 + H_3 s³ + H_4 s⁴ +
-O(s⁵)), the cross terms vanishing by the reflections, with cos²ϑ = cos²ϑ_B (1 + 2 ν_4 tan ϑ_B s⁴ + O(s⁵)) and
-sin²ϑ = sin²ϑ_B (1 − 2 ν_4 cot ϑ_B s⁴ + O(s⁵)); the shifts of the arguments of the coefficients, by ů = O(s²) and
-ν = O(s⁴), change F_3 s³, G_3 s³ and H_3 s³ only at O(s⁵). Since F_3 + G_3 + H_3 = 0,
+X = (1 − ∂_ϑ ν + O(ς⁶)) ∂_ϑ − (∂_ϑ ů + O(ς⁴)) ∂_v. Since g_(vϑ) = r O(ς⁴) and g_vv = O(1), the terms of g_λ(X, X)
+containing ∂_v are r² O(ς⁸), and g_λ(X, X) = r² (1 + F_3 ς³ + (F_4 − 2 ∂_ϑ ν_4) ς⁴ + O(ς⁵)). Likewise
+g_λ(∂_(φ1), ∂_(φ1)) = r² cos²ϑ (1 + G_3 ς³ + G_4 ς⁴ + O(ς⁵)) and g_λ(∂_(φ2), ∂_(φ2)) = r² sin²ϑ (1 + H_3 ς³ + H_4 ς⁴ +
+O(ς⁵)), the cross terms vanishing by the reflections, with cos²ϑ = cos²ϑ_B (1 + 2 ν_4 tan ϑ_B ς⁴ + O(ς⁵)) and
+sin²ϑ = sin²ϑ_B (1 − 2 ν_4 cot ϑ_B ς⁴ + O(ς⁵)); the shifts of the arguments of the coefficients, by ů = O(ς²) and
+ν = O(ς⁴), change F_3 ς³, G_3 ς³ and H_3 ς³ only at O(ς⁵). Since F_3 + G_3 + H_3 = 0,
 
-    det q = r⁶ cos²ϑ_B sin²ϑ_B (1 + (F_4 + G_4 + H_4 − 2 ∂_ϑ ν_4 + 2 (tan ϑ − cot ϑ) ν_4) s⁴ + O(s⁵))
-          = r⁶ cos²ϑ_B sin²ϑ_B (1 + (F_4 + G_4 + H_4 − 2 div(ν_4)) s⁴ + O(s⁵)),
+    det q = r⁶ cos²ϑ_B sin²ϑ_B (1 + (F_4 + G_4 + H_4 − 2 ∂_ϑ ν_4 + 2 (tan ϑ − cot ϑ) ν_4) ς⁴ + O(ς⁵))
+          = r⁶ cos²ϑ_B sin²ϑ_B (1 + (F_4 + G_4 + H_4 − 2 div(ν_4)) ς⁴ + O(ς⁵)),
 
-because div f = ∂_ϑ f + (cot ϑ − tan ϑ) f. With r_B⁶ = r⁶ (1 + 6 ρ_4 s⁴ + …) the areal condition gives ρ_k = 0 for k ≤ 3
-and 6 ρ_4 = F_4 + G_4 + H_4 − 2 div(ν_4): ρ starts at s⁴ with the value in [[eq:bondi-first]], the trace of G_4 on the
+because div f = ∂_ϑ f + (cot ϑ − tan ϑ) f. With r_B⁶ = r⁶ (1 + 6 ρ_4 ς⁴ + …) the areal condition gives ρ_k = 0 for k ≤ 3
+and 6 ρ_4 = F_4 + G_4 + H_4 − 2 div(ν_4): ρ starts at ς⁴ with the value in [[eq:bondi-first]], the trace of G_4 on the
 sphere plus the Jacobian of the angular shift. The remainder of ρ is algebraic in those of (i)–(ii) and of u.
 
 *(iv) The invariance and the Bondi functions.* The invariance and the values for v ≤ v_start are inherited from the
 construction. The covariant components of [[eq:bondi-form]] in (v_B, r_B, ϑ_B) are g_vv = −e^(2β) W + r_B² S U²,
 g_vr = e^(2β), g_(vϑ) = −r_B² S U, g_(ϑϑ) = r_B² S and g_rr = g_(rϑ) = 0, and multiplying them with the stated inverse
 components gives the identity; so the formulae for β, W, U, S, P1, P2 are the inversion of the (v_B, r_B, ϑ_B) block
-of [[eq:bondi-form]]. To re-express them in (v_B, ϑ_B, s_B), a coefficient f(v, ϑ) = f(v_B − ů, ϑ_B − ν) is expanded by
-Taylor's formula, ů = O(s²) and ν = O(s⁴) shifting the coefficients by two and four half-orders, and
-s = s_B (1 + ρ)^(1/2) by four. The expansion to order s_B^(J−2) with remainders o(s_B^(J−2)) follows, and the
+of [[eq:bondi-form]]. To re-express them in (v_B, ϑ_B, ς_B), a coefficient f(v, ϑ) = f(v_B − ů, ϑ_B − ν) is expanded by
+Taylor's formula, ů = O(ς²) and ν = O(ς⁴) shifting the coefficients by two and four half-orders, and
+ς = ς_B (1 + ρ)^(1/2) by four. The expansion to order ς_B^(J−2) with remainders o(ς_B^(J−2)) follows, and the
 r_B-gains of the remainders follow from the ℓ-gains of the ingredients (∂_(r_B) is a combination of ℓ and of E_2
-multiples of ∂_v and ∂_ϑ). The (v_B, ϑ_B)-derivatives of the remainders stay o(s_B^(J−2)), since the remainders lie in
+multiples of ∂_v and ∂_ϑ). The (v_B, ϑ_B)-derivatives of the remainders stay o(ς_B^(J−2)), since the remainders lie in
 the classes E_p with all their derivatives, and ∂_(v_B) and ∂_(ϑ_B) are combinations of ∂_v, ∂_ϑ and ℓ with
 coefficients bounded with all their derivatives.
 
 The first coefficients. e^(2P1) = 1/(r_B² cos²ϑ_B g^{11}) with g^{11} = g_λ^{11} unchanged, since φ1 is unchanged,
-r_B/r = 1 + O(s⁴) and ϑ_B − ϑ = O(s⁴). By [[eq:bondi-coeffs]] and the reflections, g_λ^{11} = 1/g_(φ1φ1) =
-r^(−2) cos^(−2)ϑ (1 − 2 p1 s³ + O(s⁴)), since G_3 = 2p1. So e^(2P1) = 1 + 2 p1 s_B³ + O(s_B⁴), the change from (v, ϑ, s)
-to (v_B, ϑ_B, s_B) costing O(s⁵); likewise e^(2P2) with H_3 = 2p2. Next, e^(−2β) = g^{v_B r_B} =
-g_λ⁻¹(dv + dů, dr_B). Here g_λ^{vr} = 1 + E_2, since its correction −u_rv − (1 − μ/r²) u_rr is O(s⁴);
-g_λ⁻¹(dů, dr) = ∂_v ů + ℓů + O(s⁶) with ℓů = O(s⁴); and dr_B = (1 + O(s⁴)) dr + O(s²) dv + O(s²) dϑ, whose dv- and
-dϑ-parts enter only at s⁶, because they meet g_λ^{vv} in E_2, g_λ^{vϑ} = O(r^(−3)), ℓů and r^(−2) ∂_ϑ ů. So
-e^(−2β) = 1 + ∂_v ů + O(s⁴) at the orders shown, and with [[eq:bondi-first]],
-e^(−2β) = 1 − (∂_v C_4/2) s² − (∂_v C_5/3) s³ + O(s⁴), which is [[eq:bondi-first-metric]] in s_B.
+r_B/r = 1 + O(ς⁴) and ϑ_B − ϑ = O(ς⁴). By [[eq:bondi-coeffs]] and the reflections, g_λ^{11} = 1/g_(φ1φ1) =
+r^(−2) cos^(−2)ϑ (1 − 2 p1 ς³ + O(ς⁴)), since G_3 = 2p1. So e^(2P1) = 1 + 2 p1 ς_B³ + O(ς_B⁴), the change from (v, ϑ, ς)
+to (v_B, ϑ_B, ς_B) costing O(ς⁵); likewise e^(2P2) with H_3 = 2p2. Next, e^(−2β) = g^{v_B r_B} =
+g_λ⁻¹(dv + dů, dr_B). Here g_λ^{vr} = 1 + E_2, since its correction −u_rv − (1 − μ/r²) u_rr is O(ς⁴);
+g_λ⁻¹(dů, dr) = ∂_v ů + ℓů + O(ς⁶) with ℓů = O(ς⁴); and dr_B = (1 + O(ς⁴)) dr + O(ς²) dv + O(ς²) dϑ, whose dv- and
+dϑ-parts enter only at ς⁶, because they meet g_λ^{vv} in E_2, g_λ^{vϑ} = O(r^(−3)), ℓů and r^(−2) ∂_ϑ ů. So
+e^(−2β) = 1 + ∂_v ů + O(ς⁴) at the orders shown, and with [[eq:bondi-first]],
+e^(−2β) = 1 − (∂_v C_4/2) ς² − (∂_v C_5/3) ς³ + O(ς⁴), which is [[eq:bondi-first-metric]] in ς_B.
 
 Finally W = e^(2β) g^{r_B r_B} and U = e^(2β) g^{r_B ϑ_B}. In g^{r_B r_B} = g_λ⁻¹(dr_B, dr_B), g_λ^{rr} = 1 − μ/r² +
-O(s⁴) = 1 + O(s⁴), since its correction −u_vv − 2 (1 − μ/r²) u_rv − (1 − μ/r²)² u_rr is O(s⁴), and the O(s²) dv- and
-dϑ-parts of dr_B meet g_λ^{rv} = 1 + E_2 and g_λ^{rϑ} = O(s⁶); so g^{r_B r_B} = 1 + O(s²), and W − 1 = O(s²). In
-g^{r_B ϑ_B} = g_λ⁻¹(dr_B, dϑ + dν), g_λ⁻¹(dr, dϑ + dν) = g_λ^{rϑ} + ∂_v ν + O(s⁶) = O(s⁴), while the dv- and
-dϑ-parts of dr_B meet g_λ⁻¹(dv, dϑ_B) = O(s⁶) and g_λ⁻¹(dϑ, dϑ_B) = r^(−2) (1 + O(s³)); so U = O(s⁴). In s_B these are
-W − 1 = O(s_B²) and U = O(s_B⁴). ∎
+O(ς⁴) = 1 + O(ς⁴), since its correction −u_vv − 2 (1 − μ/r²) u_rv − (1 − μ/r²)² u_rr is O(ς⁴), and the O(ς²) dv- and
+dϑ-parts of dr_B meet g_λ^{rv} = 1 + E_2 and g_λ^{rϑ} = O(ς⁶); so g^{r_B r_B} = 1 + O(ς²), and W − 1 = O(ς²). In
+g^{r_B ϑ_B} = g_λ⁻¹(dr_B, dϑ + dν), g_λ⁻¹(dr, dϑ + dν) = g_λ^{rϑ} + ∂_v ν + O(ς⁶) = O(ς⁴), while the dv- and
+dϑ-parts of dr_B meet g_λ⁻¹(dv, dϑ_B) = O(ς⁶) and g_λ⁻¹(dϑ, dϑ_B) = r^(−2) (1 + O(ς³)); so U = O(ς⁴). In ς_B these are
+W − 1 = O(ς_B²) and U = O(ς_B⁴). ∎
 
-**Remark {#rem:bondi-j8}** Taking J = 8 in [[prop:bondi-hierarchy]] gives the Bondi functions to order s_B⁶ with
-o(s_B⁶) remainders, which is what Section [[sec:bondi-hierarchy]] uses. The hierarchy there, run from s¹, gives
+**Remark {#rem:bondi-j8}** Taking J = 8 in [[prop:bondi-hierarchy]] gives the Bondi functions to order ς_B⁶ with
+o(ς_B⁶) remainders, which is what Section [[sec:bondi-hierarchy]] uses. The hierarchy there, run from ς¹, gives
 β_1 = β_2 = β_3 = 0 for a vacuum metric. By [[eq:bondi-first-metric]] this means ∂_v C_4 = ∂_v C_5 = 0, and then
 C_4 = C_5 = 0, since C_4 and C_5 are components of G_4 and G_5, which vanish for v ≤ v_start
 ([[prop:bondi-hierarchy]]): the (ℓ, ℓ) component of g_λ − g0 is O(r^(−3)). This is a consequence, not an input:
-[[prop:hierarchy-scri]] lets β start at s¹.
+[[prop:hierarchy-scri]] lets β start at ς¹.
 
 ### The hierarchy at past null infinity {#sec:bondi-hierarchy}
 
 In this section (v, r, ϑ) are Bondi coordinates and the metric has the form [[eq:bondi-form]] with the subscript B
 dropped, with β, W, U, P1, P2
-functions of (v, r, ϑ), S = e^(−2(P1+P2)) and s = r^(−1/2). The metric of the spheres is q_AB = r² (γ_P)_AB with
+functions of (v, r, ϑ), S = e^(−2(P1+P2)) and ς = r^(−1/2). The metric of the spheres is q_AB = r² (γ_P)_AB with
 γ_P := S dϑ² + cos²ϑ e^(2P1) dφ1² + sin²ϑ e^(2P2) dφ2², as in [[eq:bondi-type]], whose determinant is cos²ϑ sin²ϑ, that
 of γ; capital indices run
 over (ϑ, φ1, φ2), D is the Levi-Civita connection of γ, div f = ∂_ϑ f + (cot ϑ − tan ϑ) f is the divergence on S³ of the
@@ -612,10 +612,10 @@ e_2 c is r^(−2) times a function of ϑ. Give e_0 the weight 0, and e_1, e_2 an
 (c) In R_00 the terms of (b) whose two slots are both e_0 sum to −2((e_0 P1)² + e_0 P1 e_0 P2 + (e_0 P2)²); in every
 other component they sum to 0.
 
-(d) Consequently, if y_α has an expansion in s starting at s^(m_α), a term of R_ij whose factors from y are
-y_(α1), …, y_(αn) and whose slots have total weight w has an expansion starting at s^(m_(α1) + … + m_(αn) + w). In
-particular a coefficient of R_ij at a given power of s is determined by finitely many coefficients of the y_α, and
-remainders o(s⁶), which stay o(s⁶) under e_0 and ∂_ϑ and gain two orders under e_1, enter only through o(·) terms.
+(d) Consequently, if y_α has an expansion in ς starting at ς^(m_α), a term of R_ij whose factors from y are
+y_(α1), …, y_(αn) and whose slots have total weight w has an expansion starting at ς^(m_(α1) + … + m_(αn) + w). In
+particular a coefficient of R_ij at a given power of ς is determined by finitely many coefficients of the y_α, and
+remainders o(ς⁶), which stay o(ς⁶) under e_0 and ∂_ϑ and gain two orders under e_1, enter only through o(·) terms.
 
 Proof. (a) is [[eq:bondi-form]], with the subscript B dropped, in the frame. (b) In a frame the connection coefficients are
 Γ_kij = ½ (e_i G_jk + e_j G_ik − e_k G_ij) plus structure coefficients times components of G, each a sum of terms with
@@ -636,7 +636,7 @@ on ϱ', Γ^c_(ϱ'd) = 0, and in R_(z_i z_i) the only candidate, ∂_(ϱ') Γ^(ϱ
 dQ_i/dσ = e^(−2β) ∂_v Q_i, the Ricci tensor of g' is −Σ_i (∂_v Q_i)² dv² = −2((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²) dv².
 
 (d) e_0 = ∂_v preserves the order of an expansion with smooth coefficients, e_1 = ∂_r raises it by two
-(∂_r s^k = −(k/2) s^(k+2), and the remainders gain by hypothesis), e_2 = r⁻¹ ∂_ϑ raises it by two (r⁻¹ = s²), and so does
+(∂_r ς^k = −(k/2) ς^(k+2), and the remainders gain by hypothesis), e_2 = r⁻¹ ∂_ϑ raises it by two (r⁻¹ = ς²), and so does
 a structure coefficient; products add orders. ∎
 
 Write R_ij = R_ij|_(β=U=0) + L_ij + H_ij, where L_ij collects the terms of degree one in (β, Û) with the other
@@ -647,48 +647,48 @@ components are R_vv = R_00, R_vr = R_01, R_rr = R_11, R_(rϑ) = r R_12 and R_AB 
 
 **Proposition {#prop:hierarchy-scri}** (The hierarchy at past null infinity.) Let a metric of the form
 [[eq:bondi-form]] with the subscript B dropped, with β, W, U, P1, P2 functions of (v, r, ϑ), be vacuum near past null infinity. Let P1, P2, β, U
-and W − 1 have expansions in s to order s⁶, with coefficients smooth in (v, ϑ) and remainders o(s⁶) that stay o(s⁶)
-under every (v, ϑ)-derivative and gain two s-orders (one power of r) under each r-derivative, as in
-[[prop:bondi-chart]]; let P_i = O(s³), and β, U, W − 1 = O(s). Let p and q be the s³ coefficients of P1 and P2, a1 and
-a2 their s⁴ coefficients, and β_k, u_k, w_k the coefficients of β, U and W. Then, in order:
+and W − 1 have expansions in ς to order ς⁶, with coefficients smooth in (v, ϑ) and remainders o(ς⁶) that stay o(ς⁶)
+under every (v, ϑ)-derivative and gain two ς-orders (one power of r) under each r-derivative, as in
+[[prop:bondi-chart]]; let P_i = O(ς³), and β, U, W − 1 = O(ς). Let p and q be the ς³ coefficients of P1 and P2, a1 and
+a2 their ς⁴ coefficients, and β_k, u_k, w_k the coefficients of β, U and W. Then, in order:
 
-(0) from R_rr at s⁵, s⁶ and R_(rϑ) at s¹, s²: β_1 = β_2 = 0 and u_1 = u_2 = 0;
+(0) from R_rr at ς⁵, ς⁶ and R_(rϑ) at ς¹, ς²: β_1 = β_2 = 0 and u_1 = u_2 = 0;
 
-(i) from R_rr at s⁷, …, s¹⁰: β_3 = β_4 = β_5 = 0 and β_6 = −¼ (p² + pq + q²);
+(i) from R_rr at ς⁷, …, ς¹⁰: β_3 = β_4 = β_5 = 0 and β_6 = −¼ (p² + pq + q²);
 
-(ii) from R_(rϑ) at s³, …, s⁶: u_3 = u_4 = 0 and
+(ii) from R_(rϑ) at ς³, …, ς⁶: u_3 = u_4 = 0 and
 
     u_5 = (12/5)(p + q) tan ϑ − (8p + 16q)/(5 sin 2ϑ) − (4/5) ∂_ϑ (p + q),
     u_6 = 4 (a1 + a2) tan ϑ − (8 a1 + 16 a2)/(3 sin 2ϑ) − (4/3) ∂_ϑ (a1 + a2);
 
-(iii) from R_vr at s⁵, s⁶, s⁷: w_1 = w_2 = 0 and w_3 = −(2/3) div(u_5), so that ⟨w_3⟩ = 0;
+(iii) from R_vr at ς⁵, ς⁶, ς⁷: w_1 = w_2 = 0 and w_3 = −(2/3) div(u_5), so that ⟨w_3⟩ = 0;
 
-(iv) from the traceless part of R_AB at s²: ∂_v a1 = ∂_v a2 = 0;
+(iv) from the traceless part of R_AB at ς²: ∂_v a1 = ∂_v a2 = 0;
 
-(v) R_vv at s⁵ is then an identity (the rate of (iii)), and at s⁶ it is linear in ∂_v w_4 and reads
+(v) R_vv at ς⁵ is then an identity (the rate of (iii)), and at ς⁶ it is linear in ∂_v w_4 and reads
 
     ∂_v M = (4/3) ((∂_v p)² + ∂_v p ∂_v q + (∂_v q)²) + (2/3) div(∂_v u_6),       M := −w_4.         {#eq:bondi-law-div}
 
-The coefficient at s⁶ involves only p, q, a1, a2 and w_4, so remainders o(s⁶) do not disturb it. With (iv), ∂_v u_6 = 0,
+The coefficient at ς⁶ involves only p, q, a1, a2 and w_4, so remainders o(ς⁶) do not disturb it. With (iv), ∂_v u_6 = 0,
 and [[eq:bondi-law-div]] is, pointwise, the law [[eq:bondi-law]] with (p1, p2) = (p, q).
 
-Proof. We use ∂_r s^k = −(k/2) s^(k+2) throughout, and [[lem:bondi-orders]] (d) for the orders of the terms not
+Proof. We use ∂_r ς^k = −(k/2) ς^(k+2) throughout, and [[lem:bondi-orders]] (d) for the orders of the terms not
 displayed.
 
-*(0) and (i).* In [[eq:bondi-ric-rr]], (6/r) ∂_r (β_k s^k) = −3k β_k s^(k+4), and ∂_r P_i = −(3/2) p_i s⁵ + O(s⁶), with
-(p_1, p_2) = (p, q), so the second term is −(9/2)(p² + pq + q²) s¹⁰ + O(s¹¹). The coefficient of s^(k+4) in R_rr is
+*(0) and (i).* In [[eq:bondi-ric-rr]], (6/r) ∂_r (β_k ς^k) = −3k β_k ς^(k+4), and ∂_r P_i = −(3/2) p_i ς⁵ + O(ς⁶), with
+(p_1, p_2) = (p, q), so the second term is −(9/2)(p² + pq + q²) ς¹⁰ + O(ς¹¹). The coefficient of ς^(k+4) in R_rr is
 therefore −3k β_k for k ≤ 5 and −18 β_6 − (9/2)(p² + pq + q²) for k = 6; vacuum gives β_1 = … = β_5 = 0 and
-β_6 = −¼ (p² + pq + q²). In [[eq:bondi-ric-rth]], e^(−2β) S = 1 − 2 β_1 s + O(s²) and
-r⁵ e^(−2β) S ∂_r U = −½ u_1 s^(−7) + (β_1 u_1 − u_2) s^(−6) + O(s^(−5)), so its first term is
-(7/8) u_1 s + (3/2)(u_2 − β_1 u_1) s² + O(s³); the second term is (7/2) ∂_ϑ β_1 s³ + O(s⁴), and the terms in P are O(s⁵).
+β_6 = −¼ (p² + pq + q²). In [[eq:bondi-ric-rth]], e^(−2β) S = 1 − 2 β_1 ς + O(ς²) and
+r⁵ e^(−2β) S ∂_r U = −½ u_1 ς^(−7) + (β_1 u_1 − u_2) ς^(−6) + O(ς^(−5)), so its first term is
+(7/8) u_1 ς + (3/2)(u_2 − β_1 u_1) ς² + O(ς³); the second term is (7/2) ∂_ϑ β_1 ς³ + O(ς⁴), and the terms in P are O(ς⁵).
 Vacuum gives u_1 = 0 and then u_2 = 0.
 
-*(ii).* Now β = O(s⁶), so the term of [[eq:bondi-ric-rth]] in ∂_ϑ β is O(s⁸), e^(−2β) − 1 = O(s⁶) and S − 1 = O(s³). For
-U = Σ_{k≥3} u_k s^k, −(1/(2r³)) ∂_r (r⁵ ∂_r U) = −Σ_k (k(k − 8)/8) u_k s^k, while (S − 1) and e^(−2β) − 1 add terms of
-order at least s³ times the lowest order of U. The terms in P are, with ∂_r P_i = −(3/2) p_i s⁵ − 2 a_i s⁶ + O(s⁷),
-(3/2)(∂_ϑ(p + q) − tan ϑ (2p + q) + cot ϑ (p + 2q)) s⁵ + 2 (∂_ϑ(a1 + a2) − tan ϑ (2a1 + a2) + cot ϑ (a1 + 2a2)) s⁶ +
-O(s⁷), the quadratic ones being O(s⁸). So R_(rϑ) is (15/8) u_3 s³ + O(s⁴), which gives u_3 = 0; then 2 u_4 s⁴ + O(s⁵),
-which gives u_4 = 0; and then, U being O(s⁵), the coefficients of s⁵ and s⁶ are
+*(ii).* Now β = O(ς⁶), so the term of [[eq:bondi-ric-rth]] in ∂_ϑ β is O(ς⁸), e^(−2β) − 1 = O(ς⁶) and S − 1 = O(ς³). For
+U = Σ_{k≥3} u_k ς^k, −(1/(2r³)) ∂_r (r⁵ ∂_r U) = −Σ_k (k(k − 8)/8) u_k ς^k, while (S − 1) and e^(−2β) − 1 add terms of
+order at least ς³ times the lowest order of U. The terms in P are, with ∂_r P_i = −(3/2) p_i ς⁵ − 2 a_i ς⁶ + O(ς⁷),
+(3/2)(∂_ϑ(p + q) − tan ϑ (2p + q) + cot ϑ (p + 2q)) ς⁵ + 2 (∂_ϑ(a1 + a2) − tan ϑ (2a1 + a2) + cot ϑ (a1 + 2a2)) ς⁶ +
+O(ς⁷), the quadratic ones being O(ς⁸). So R_(rϑ) is (15/8) u_3 ς³ + O(ς⁴), which gives u_3 = 0; then 2 u_4 ς⁴ + O(ς⁵),
+which gives u_4 = 0; and then, U being O(ς⁵), the coefficients of ς⁵ and ς⁶ are
 
     (15/8) u_5 + (3/2)(∂_ϑ(p + q) − tan ϑ (2p + q) + cot ϑ (p + 2q)),
     (3/2) u_6 + 2 (∂_ϑ(a1 + a2) − tan ϑ (2a1 + a2) + cot ϑ (a1 + 2a2)).
@@ -697,37 +697,37 @@ Vacuum gives u_5 = (4/5)((2p + q) tan ϑ − (p + 2q) cot ϑ − ∂_ϑ(p + q)) 
 u_6 = (4/3)((2a1 + a2) tan ϑ − (a1 + 2a2) cot ϑ − ∂_ϑ(a1 + a2)). These are the stated forms, by
 1/sin 2ϑ = ½ (tan ϑ + cot ϑ).
 
-*(iii).* By [[eq:bondi-ric-0]], R_vr|_(β=U=0) = −½ ∂_r² W − (3/(2r)) ∂_r W + O(s⁸), the last term being a product of ∂_r
-P_i and ∂_v P_j. For W − 1 = Σ_k w_k s^k, −½ ∂_r² (s^k) − (3/(2r)) ∂_r (s^k) = (k(4 − k)/8) s^(k+4). By
-[[eq:bondi-ric-u]], L_vr has the part −(1/(2r²)) ∂_r (r² div U) = ¼ div(u_5) s⁷ + O(s⁸) linear in U, and its part linear
-in β has weight at least 2 and so is O(s⁸), β being O(s⁶). The terms of H_vr contain β, of order 6, or Û, of order 3
-since U = O(s⁵), together with a factor of order 3 (P_i or Û) or of the order m of W − 1, and have weight at least 2:
-they are O(s^(5+m)) when m ≤ 3. With m = 1 the coefficient of s⁵ is (3/8) w_1, so w_1 = 0; then m = 2 and the
-coefficient of s⁶ is ½ w_2, so w_2 = 0; then m = 3 and the coefficient of s⁷ is (3/8) w_3 + ¼ div(u_5), so w_3 = −(2/3)
+*(iii).* By [[eq:bondi-ric-0]], R_vr|_(β=U=0) = −½ ∂_r² W − (3/(2r)) ∂_r W + O(ς⁸), the last term being a product of ∂_r
+P_i and ∂_v P_j. For W − 1 = Σ_k w_k ς^k, −½ ∂_r² (ς^k) − (3/(2r)) ∂_r (ς^k) = (k(4 − k)/8) ς^(k+4). By
+[[eq:bondi-ric-u]], L_vr has the part −(1/(2r²)) ∂_r (r² div U) = ¼ div(u_5) ς⁷ + O(ς⁸) linear in U, and its part linear
+in β has weight at least 2 and so is O(ς⁸), β being O(ς⁶). The terms of H_vr contain β, of order 6, or Û, of order 3
+since U = O(ς⁵), together with a factor of order 3 (P_i or Û) or of the order m of W − 1, and have weight at least 2:
+they are O(ς^(5+m)) when m ≤ 3. With m = 1 the coefficient of ς⁵ is (3/8) w_1, so w_1 = 0; then m = 2 and the
+coefficient of ς⁶ is ½ w_2, so w_2 = 0; then m = 3 and the coefficient of ς⁷ is (3/8) w_3 + ¼ div(u_5), so w_3 = −(2/3)
 div(u_5). Its sphere mean vanishes, since ∫_0^(π/2) ∂_ϑ (f sin ϑ cos ϑ) dϑ = 0 for every smooth f.
 
-*(iv).* Now W − 1, P_i and Û are O(s³) and β is O(s⁶), so H_AB and the part of L_AB linear in β have frame order at
-least 8, that is, coordinate order at least s⁴; by [[eq:bondi-ric-u]] the part linear in U has no derivative in v and
-is O(s³) in coordinates. In R_AB|_(β=U=0) from [[eq:bondi-ric-0]], write W = 1 + ω and γ_P = γ + k, so that q = r²(γ + k)
-with k = diag(−2(P1 + P2), 2 cos²ϑ P1, 2 sin²ϑ P2) + O(s⁶). The terms of degree two or more in (ω, k) have weight at
-least 2 by [[lem:bondi-orders]] (c), hence frame order at least 8 and coordinate order at least s⁴. R[q] = R[γ + k] =
-2γ + O(s³). In the rest, to first order: the constant terms give −2γ, cancelling 2γ; the terms in ω give −(r ∂_r ω +
-2ω) γ_AB = Σ_k (k/2 − 2) w_k s^k γ_AB, which is O(s³) now that w_1 = w_2 = 0; the terms in k with a derivative in v
+*(iv).* Now W − 1, P_i and Û are O(ς³) and β is O(ς⁶), so H_AB and the part of L_AB linear in β have frame order at
+least 8, that is, coordinate order at least ς⁴; by [[eq:bondi-ric-u]] the part linear in U has no derivative in v and
+is O(ς³) in coordinates. In R_AB|_(β=U=0) from [[eq:bondi-ric-0]], write W = 1 + ω and γ_P = γ + k, so that q = r²(γ + k)
+with k = diag(−2(P1 + P2), 2 cos²ϑ P1, 2 sin²ϑ P2) + O(ς⁶). The terms of degree two or more in (ω, k) have weight at
+least 2 by [[lem:bondi-orders]] (c), hence frame order at least 8 and coordinate order at least ς⁴. R[q] = R[γ + k] =
+2γ + O(ς³). In the rest, to first order: the constant terms give −2γ, cancelling 2γ; the terms in ω give −(r ∂_r ω +
+2ω) γ_AB = Σ_k (k/2 − 2) w_k ς^k γ_AB, which is O(ς³) now that w_1 = w_2 = 0; the terms in k with a derivative in v
 come from −∂_v ∂_r q, −(3/(2r)) ∂_v q and ½ (∂_r q q⁻¹ ∂_v q + ∂_v q q⁻¹ ∂_r q), and sum to −r² ∂_r ∂_v k − (3/2) r ∂_v
-k = Σ_j ((j − 3)/2) ∂_v k_j s^(j−2) for k = Σ_j k_j s^j; and the terms in k without a derivative in v are O(s³). So at
-s² the three angular components of R_AB are those of ½ ∂_v k_4, with k_4 = diag(−2(a1 + a2), 2 cos²ϑ a1, 2 sin²ϑ a2):
+k = Σ_j ((j − 3)/2) ∂_v k_j ς^(j−2) for k = Σ_j k_j ς^j; and the terms in k without a derivative in v are O(ς³). So at
+ς² the three angular components of R_AB are those of ½ ∂_v k_4, with k_4 = diag(−2(a1 + a2), 2 cos²ϑ a1, 2 sin²ϑ a2):
 they are −∂_v(a1 + a2), cos²ϑ ∂_v a1 and sin²ϑ ∂_v a2, a traceless tensor. Vacuum gives ∂_v a1 = ∂_v a2 = 0.
 
-*(v).* All of W − 1, P_i and Û are O(s³) and β is O(s⁶). So H_vv and the part of L_vv linear in β are O(s⁸), and the
-part linear in U is −div(∂_v U) = −div(∂_v u_5) s⁵ − div(∂_v u_6) s⁶ + o(s⁶), by [[eq:bondi-ric-u]]. In R_vv|_(β=U=0)
-from [[eq:bondi-ric-0]], ½ W ∂_r² W, (3/(2r)) W ∂_r W and (1/(2r²)) Δ_P W are O(s⁷), −(3/(2r)) ∂_v W = −(3/2) ∂_v w_3 s⁵
-− (3/2) ∂_v w_4 s⁶ + O(s⁷), and −2((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²) = −2((∂_v p)² + ∂_v p ∂_v q + (∂_v q)²) s⁶ +
-O(s⁷). Hence
+*(v).* All of W − 1, P_i and Û are O(ς³) and β is O(ς⁶). So H_vv and the part of L_vv linear in β are O(ς⁸), and the
+part linear in U is −div(∂_v U) = −div(∂_v u_5) ς⁵ − div(∂_v u_6) ς⁶ + o(ς⁶), by [[eq:bondi-ric-u]]. In R_vv|_(β=U=0)
+from [[eq:bondi-ric-0]], ½ W ∂_r² W, (3/(2r)) W ∂_r W and (1/(2r²)) Δ_P W are O(ς⁷), −(3/(2r)) ∂_v W = −(3/2) ∂_v w_3 ς⁵
+− (3/2) ∂_v w_4 ς⁶ + O(ς⁷), and −2((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²) = −2((∂_v p)² + ∂_v p ∂_v q + (∂_v q)²) ς⁶ +
+O(ς⁷). Hence
 
-    R_vv = −((3/2) ∂_v w_3 + div(∂_v u_5)) s⁵
-           − ((3/2) ∂_v w_4 + 2((∂_v p)² + ∂_v p ∂_v q + (∂_v q)²) + div(∂_v u_6)) s⁶ + o(s⁶).
+    R_vv = −((3/2) ∂_v w_3 + div(∂_v u_5)) ς⁵
+           − ((3/2) ∂_v w_4 + 2((∂_v p)² + ∂_v p ∂_v q + (∂_v q)²) + div(∂_v u_6)) ς⁶ + o(ς⁶).
 
-The coefficient of s⁵ vanishes identically by (iii). The coefficient of s⁶ involves only p, q, a1, a2 (through u_6) and
+The coefficient of ς⁵ vanishes identically by (iii). The coefficient of ς⁶ involves only p, q, a1, a2 (through u_6) and
 w_4, and its vanishing is [[eq:bondi-law-div]] with M = −w_4. With (iv), ∂_v u_6 = 0, since u_6 is linear in a1 and a2
 with coefficients depending on ϑ alone. ∎
 
@@ -748,7 +748,7 @@ with the subscript B dropped, C1 = −2(P1 + P2), C2 = 2P1, C3 = 2P2, B = 2β, V
 C21 = 2p, and B1 = −½(p² + pq + q²) = 2 β_6, as in (i); V1 = w_3, as in (iii); (35) is (iv); and (28) becomes
 ∂M/∂u = −(4/3)((∂_u p)² + ∂_u p ∂_u q + (∂_u q)²). The time reversal u = −v leaves the squares unchanged and reverses
 the sign of the rate, which gives the law [[eq:bondi-law]]: an incoming flux raises the mass. [[prop:hierarchy-scri]]
-derives all of this in the form [[eq:bondi-form]] itself, with every coefficient general from s¹ on, and takes nothing
+derives all of this in the form [[eq:bondi-form]] itself, with every coefficient general from ς¹ on, and takes nothing
 from [TTS09].
 
 ### Proof of the mass law {#sec:bondi-proof}
@@ -756,29 +756,29 @@ from [TTS09].
 Proof of [[thm:bondi-law]]. *The chart.* [[prop:bondi-chart]] with J = 8 gives, on the far region P ∩ {t ≥ T_M},
 T_M = T_M(λ), Bondi coordinates (v_B, r_B, ϑ_B, φ1, φ2): v_B is null for g_λ, with v_B − v → 0 at past null infinity
 along every generator of g0; ϑ_B is constant along the generators of {v_B = const}; r_B is the areal radius of the
-spheres {v_B, r_B = const}; and g_λ has the form [[eq:bondi-form]]. In s := r_B^(−1/2), the functions P1, P2, β, U and
-W − 1 have expansions f = Σ_{k=1}^{6} s^k f_k(v_B, ϑ_B) + o(s⁶) whose coefficients are smooth, bounded with all their
+spheres {v_B, r_B = const}; and g_λ has the form [[eq:bondi-form]]. In ς := r_B^(−1/2), the functions P1, P2, β, U and
+W − 1 have expansions f = Σ_{k=1}^{6} ς^k f_k(v_B, ϑ_B) + o(ς⁶) whose coefficients are smooth, bounded with all their
 derivatives, invariant under T² × Z2 × Z2 and equal to those of g0 for v_B ≤ v_start (zero there, but for
-W − 1 = −μ0 s⁴), and whose remainders have every (v_B, ϑ_B)-derivative o(s⁶) and gain an order, one power of r_B and
-two of s, under each r_B-derivative; the remainders of [[prop:bondi-chart]] lie in classes E_p with all their
+W − 1 = −μ0 ς⁴), and whose remainders have every (v_B, ϑ_B)-derivative o(ς⁶) and gain an order, one power of r_B and
+two of ς, under each r_B-derivative; the remainders of [[prop:bondi-chart]] lie in classes E_p with all their
 derivatives. This is the chart and the form of the metric that the theorem asserts. By [[prop:bondi-chart]], P_i and β
-start at s³ and s² ([[eq:bondi-first-metric]]), W − 1 at s² and U at s⁴; so β, U and W − 1 are O(s), and
+start at ς³ and ς² ([[eq:bondi-first-metric]]), W − 1 at ς² and U at ς⁴; so β, U and W − 1 are O(ς), and
 [[prop:hierarchy-scri]] applies to g_λ, which is vacuum.
 
-*Item 1, the angular metric.* The s³ coefficient of P_i is p_i, by the last part of [[prop:bondi-chart]]; it is the
+*Item 1, the angular metric.* The ς³ coefficient of P_i is p_i, by the last part of [[prop:bondi-chart]]; it is the
 polarization of [[eq:waves]] at (v_B, ϑ_B) and the phase v_B/λ:
 
     p1 = (2 cos²ϑ_B G − sin²ϑ_B F)/3,    p2 = (2 sin²ϑ_B F − cos²ϑ_B G)/3,
     F = λ A env(v_B) h sin(v_B/λ),    G = λ A env(v_B) h cos(v_B/λ),                                  {#eq:bondi-p}
 
 with h = h(cos 2ϑ_B) the angular profile of [[sec:waves]]. The radiation field of [[thm:past-construction]] is this
-statement in the wave-map gauge, and the change of chart preserves it. For the s⁴ coefficients a_i: by
+statement in the wave-map gauge, and the change of chart preserves it. For the ς⁴ coefficients a_i: by
 [[prop:hierarchy-scri]] (iv), ∂_v a_i = 0, and a_i = 0 for v_B ≤ v_start, where the metric is g0 ([[prop:bondi-chart]]
 (iv)); so a_i = 0. This is the argument of [TTS09] from spatial infinity, with the seed in its place.
 
-*Item 2, the mass aspect.* By [[prop:hierarchy-scri]] (iii), W = 1 + s³ V1 − s⁴ M + O(s⁵) with V1 := w_3 = −(2/3)
+*Item 2, the mass aspect.* By [[prop:hierarchy-scri]] (iii), W = 1 + ς³ V1 − ς⁴ M + O(ς⁵) with V1 := w_3 = −(2/3)
 div(u_5), a divergence on S³, and by (v) with a_i = 0 the mass aspect obeys [[eq:bondi-law]] pointwise. M = μ0 for
-v_B ≤ v_start, since g_λ = g0 there: the Vaidya metric with μ = μ0, whose W is 1 − μ0 s⁴.
+v_B ≤ v_start, since g_λ = g0 there: the Vaidya metric with μ = μ0, whose W is 1 − μ0 ς⁴.
 
 *Item 3, the Bondi mass.* Let μ_B(v) := ⟨M(v, ·)⟩, the mean over S³. By [[eq:bondi-p]], p_i(v_B, ϑ_B) is the
 polarization P_i of [[sec:flux]] evaluated at (v_B, ϑ_B); there P_i is a function of (v, ϑ), the polarization of
@@ -799,10 +799,10 @@ r³ cos ϑ sin ϑ dϑ dφ1 dφ2, independent of v, so θ⁻ = −3/r exactly and
 
     M[S] = r² (1 − ⟨e^(−2β) (W + (2r/3) div U)⟩).
 
-With β = O(s⁶), W = 1 + w_3 s³ + w_4 s⁴ + O(s⁵), U = u_5 s⁵ + u_6 s⁶ + o(s⁶) and r = s^(−2),
-e^(−2β)(W + (2r/3) div U) = 1 + (w_3 + (2/3) div u_5) s³ + (w_4 + (2/3) div u_6) s⁴ + o(s⁴), and
+With β = O(ς⁶), W = 1 + w_3 ς³ + w_4 ς⁴ + O(ς⁵), U = u_5 ς⁵ + u_6 ς⁶ + o(ς⁶) and r = ς^(−2),
+e^(−2β)(W + (2r/3) div U) = 1 + (w_3 + (2/3) div u_5) ς³ + (w_4 + (2/3) div u_6) ς⁴ + o(ς⁴), and
 
-    M[S] = −s⁻¹ ⟨w_3 + (2/3) div u_5⟩ − ⟨w_4 + (2/3) div u_6⟩ + o(1).
+    M[S] = −ς⁻¹ ⟨w_3 + (2/3) div u_5⟩ − ⟨w_4 + (2/3) div u_6⟩ + o(1).
 
 The divergences have zero mean, so M[S] → ⟨−w_4⟩ = ⟨M⟩ = μ_B(v_B) as r_B → ∞. ∎
 

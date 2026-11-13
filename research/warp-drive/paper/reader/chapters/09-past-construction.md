@@ -149,8 +149,8 @@ commutes with 𝒞 and with ψ_v. When ψ depends on τ, L0 𝒞 g and L0² 𝒞
     ψ_τ = 2λ σ0′((v − v_start)/Δ) (v − v_start) h_P′/Δ²,
 
 since Δ′ = −h_P′ by [[eq:past-domain]]; as |v − v_start| ≤ Δ, |σ0′| ≤ 7 and h_P″ = (5/4) h_P′/t, both ψ_τ and ψ_ττ are
-at most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ sup|μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and |3ψ_v/r − 3/(ψ
-− τ)| ≤ C/r.
+at most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ sup|μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and
+|3ψ_v/r − 3/(ψ − τ)| ≤ C/r.
 
 *The angular part.* Δ̊ acts on x̂ at fixed (τ, v) and commutes with 𝒞, so [r⁻² Δ̊, 𝒞] = (r⁻² − (ψ − τ)⁻²) 𝒞 Δ̊, of size
 C λ r⁻³ times two rotations, that is C λ r⁻¹ times two derivatives.
@@ -389,17 +389,17 @@ forcing term of (c) is in E_(7/2); and ĝ̃ is in E_(5/2) with ℓĝ̃ in E_(7/2
 likewise for the derivatives that commute with ℓ, and ℓĝ̃ = −(3/(2r)) ĝ̃ − c ĝ̃ + (forcing) is in E_(7/2). So
 ĝ_(m+1) = ĝ⁰ + ĝ̃ is in O_2. This is [[eq:past-classes]] at stage m.
 
-*The residual, the phase, the continuation.* The argument of the proof of [[thm:approximant]] gives ℛ^(m) = 0 for m ≤ N
-− 1. The rest of the residual is λ^N times a sum of monomials of [[eq:gauge]] with all factors known, each in E_3 by the
-count; the expansion of g⁻¹ converges uniformly, since |g_app − g0| ≤ C λ r^(−3/2). Rewriting with the fixed phase v
-(Taylor's formula in λ Σ_(j≥2) λ^(j−2) φ_j about θ + φ1) multiplies profiles by powers of φ_j, keeping every product in
-its class, and costs λ^(N+1) in the metric and so λ^(N−1) in Ric^H: R_N is in E_3. The scaled norm follows because ∂^i
-[f] costs λ^(−i) and Ω costs nothing, and the L² norm of an E_3 profile on A_P(τ) is at most C t^(−3/2). (E1) holds
-(W_TT and χ dv dv are transverse to ℓ), and (E2) by stage 0. On Σ_τ0 ([[lem:past-domain]] (c)) the profiles' data
-determine, by [[lem:stage-system]] on Ω, solutions there; the two solve the same smooth linear system and agree on Σ_τ0
-with all their τ-derivatives, each fixed by the system from the data, so together they are smooth on P ∪ Ω. The stage
-system is equivariant under T² × Z2 × Z2 and under S of [[lem:quarter-turn]], the condition of nothing coming in is
-invariant, and the solutions are unique, so they are invariant. ∎
+*The residual, the phase, the continuation.* The argument of the proof of [[thm:approximant]] gives ℛ^(m) = 0
+for m ≤ N − 1. The rest of the residual is λ^N times a sum of monomials of [[eq:gauge]] with all factors known, each in
+E_3 by the count; the expansion of g⁻¹ converges uniformly, since |g_app − g0| ≤ C λ r^(−3/2). Rewriting with the fixed
+phase v (Taylor's formula in λ Σ_(j≥2) λ^(j−2) φ_j about θ + φ1) multiplies profiles by powers of φ_j, keeping every
+product in its class, and costs λ^(N+1) in the metric and so λ^(N−1) in Ric^H: R_N is in E_3. The scaled norm follows
+because ∂^i [f] costs λ^(−i) and Ω costs nothing, and the L² norm of an E_3 profile on A_P(τ) is at most C t^(−3/2).
+(E1) holds (W_TT and χ dv dv are transverse to ℓ), and (E2) by stage 0. On Σ_τ0 ([[lem:past-domain]] (c)) the profiles'
+data determine, by [[lem:stage-system]] on Ω, solutions there; the two solve the same smooth linear system and agree on
+Σ_τ0 with all their τ-derivatives, each fixed by the system from the data, so together they are smooth on P ∪ Ω. The
+stage system is equivariant under T² × Z2 × Z2 and under S of [[lem:quarter-turn]], the condition of nothing coming in
+is invariant, and the solutions are unique, so they are invariant. ∎
 
 ### The far and near regions {#sec:far-near}
 
