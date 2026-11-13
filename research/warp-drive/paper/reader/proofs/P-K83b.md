@@ -182,17 +182,17 @@ dR² + x γ̂ and Scal(γ) = 0; and N_s dvol = R³ dR dvol_γ̂. Integrals over 
 of degree l, Δ̂S = −k²S, ∫S² = (2π)²‖S‖² and ∫|D̂S|² = k²∫S², and ∫Δ̂φ = 0 for every function φ on S³.
 
 *The splitting.* The isometries SO(4) of the round S³ act on the static slice by isometries fixing N_s, so the constraint
-maps are SO(4)-equivariant and 𝔈_V and 𝔈_K are invariant quadratic forms. Under SO(4) ≅ (SU(2) × SU(2))/{±1} the
-scalar harmonics of degree l span the irreducible representation of highest weights (l/2, l/2), and the transverse
-trace-free tensor harmonics of degree l the sum of those of highest weights ((l ± 2)/2, (l ∓ 2)/2) ([[sec:iii-f1-1]]);
-for different types or degrees these representations are pairwise inequivalent. A scalar mode of degree l is the image
-of the scalar harmonics of degree l under the equivariant linear map u ↦ a u dR² + 2R b du dR + R²(c uγ̂ + e(D̂D̂u +
-(k²/3)γ̂u)), and likewise for k, so it lies in the isotypic component of (l/2, l/2); a tensor mode of degree l lies in
-that of ((l ± 2)/2, (l ∓ 2)/2), and the l = 0 part in that of the trivial representation. An invariant bilinear form pairs isotypic components of inequivalent
-representations to zero, and an equivariant linear map takes each isotypic component into the isotypic component of the
-same representation (Schur's lemma). So the polarisations of 𝔈_V and 𝔈_K vanish between different modes, and the
-constraints of a seed hold exactly when those of each mode hold. The mode expansions of smooth data converge with all
-their derivatives, so 𝔈_V and 𝔈_K of a seed are the sums of those of its modes.
+maps are SO(4)-equivariant and 𝔈_V and 𝔈_K are invariant quadratic forms. Under SO(4) ≅ (SU(2) × SU(2))/{±1} the scalar
+harmonics of degree l span the irreducible representation of highest weights (l/2, l/2), and the transverse trace-free
+tensor harmonics of degree l the sum of those of highest weights ((l ± 2)/2, (l ∓ 2)/2) ([[sec:iii-f1-1]]); for different
+types or degrees these representations are pairwise inequivalent. A scalar mode of degree l is the image of the scalar
+harmonics of degree l under the equivariant linear map u ↦ a u dR² + 2R b du dR + R²(c uγ̂ + e(D̂D̂u + (k²/3)γ̂u)), and
+likewise for k, so it lies in the isotypic component of (l/2, l/2); a tensor mode of degree l lies in that of ((l ± 2)/2,
+(l ∓ 2)/2), and the l = 0 part in that of the trivial representation. An invariant bilinear form pairs isotypic
+components of inequivalent representations to zero, and an equivariant linear map takes each isotypic component into the
+isotypic component of the same representation (Schur's lemma). So the polarisations of 𝔈_V and 𝔈_K vanish between
+different modes, and the constraints of a seed hold exactly when those of each mode hold. The mode expansions of smooth
+data converge with all their derivatives, so 𝔈_V and 𝔈_K of a seed are the sums of those of its modes.
 
 *(a) The gauges.* The vector field X has X^R = α̃S and X^ϑ = β̃∂_ϑS, so X_R = α̃S/f and X_A = R²β̃∂_AS. Then (L_Xγ)_RR =
 (α̃(1/f)′ + 2α̃′/f)S, (L_Xγ)_RA = (α̃/f + R²β̃′)∂_AS and (L_Xγ)_AB = 2Rα̃Sγ̂_AB + 2R²β̃D̂_AD̂_BS = R²((2α̃/R − (2k²/3)β̃)Sγ̂ +

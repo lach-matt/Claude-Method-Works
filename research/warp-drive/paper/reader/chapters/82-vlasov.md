@@ -615,6 +615,303 @@ double-null coordinates, √|g3| = e^(2σ) R and g3^(uv) = −e^(−2σ), so □
 So if ℓ_A·dφ = f along the generator of family A, then Ψ := □̃φ satisfies L_A Ψ + a_A Ψ = □̃f − 𝔐_A(f) − 𝔑_A φ, the
 form [[eq:ue-psi]] that the uniform estimate uses, with a_A = 2 □3 u_A.
 
+### The constraints in scaled norms {#sec:vlasov-scaled}
+
+The data of [[thm:vlasov-n-data]] are corrected by solving the constraints outward in r, as in [[sec:data-evolution]].
+There the phase on the initial slice is radial, angular derivatives of the coefficients cost nothing, and
+[[lem:linear-evolution]] applies with constants independent of λ. Here the phases ν_A u_A have angular gradients on the
+slice, the j-th angular derivative of a coefficient is of size λ^(−j), and the constant of [[lem:linear-evolution]] grows
+as λ → 0. We solve the constraints with bounds uniform in λ in norms in which every angular derivative carries a factor
+λ. Two features make this possible: the principal coefficients oscillate only at order λ
+([[lem:vlasov-leaf-curvature]]), so that their first derivatives are bounded; and the norm of the metric unknown α counts
+its first two angular derivatives without the factor λ, which balances the coupling of α and (ϖ, q) through ∂_r α in J
+and through (ϖ, q) in ρ. The section is used for the oscillating data of [[thm:vlasov-n-data]] and, with λ = 1 and no
+phases, for the data of [[prop:vlasov-uniform-n]].
+
+*Setting.* As in [[sec:data-evolution]], Σ := Σ_τ0 ∩ Ω = [a, b1] × S³ with b1 := b(τ0) and coordinates (r, ω), the data
+are (γ, κ), the unknowns are U = (α, w) with w := (ϖ, q), q a covector with q(γ⁻¹dr) = 0 identified with its angular
+components, a 1-form on S³ depending on r, and (γ_U, κ_U) is [[eq:data-u]]. Let E := ℝ ⊕ T*S³ be the bundle in which w
+lies, with the fibre metric of the round S³; ∇, Δ and |·| are the Levi-Civita connection, the Laplacian and the
+pointwise norms of the round S³, and ‖·‖ is the L²(S³) norm. Let X_1, …, X_6 be the Killing fields x_a ∂_b − x_b ∂_a
+(a < b) of the round S³ ⊂ ℝ⁴, independent of r, and 𝓛_i the Lie derivative along X_i, acting on functions, sections of
+E and tensor fields on S³. For a word I = (i_1, …, i_j) put 𝓛^I := 𝓛_(i_1)⋯𝓛_(i_j) and |I| := j. We use four facts.
+
+(K1) Each 𝓛_i commutes with ∇, with Δ, with contractions by the round metric and with ∂_r (X_i is a Killing field).
+
+(K2) Σ_i ⟨X_i, Y⟩² = |Y|² for every tangent vector Y of S³, by Lagrange's identity Σ_(a<b) (x_a Y_b − x_b Y_a)² =
+|x|² |Y|² − (x·Y)² with |x| = 1 and x·Y = 0; so Y = Σ_i ⟨X_i, Y⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order zero in f with
+coefficients built from ∇X_i, |∇f| ≤ C (Σ_i |𝓛_i f| + |f|), |∇² f| ≤ C Σ_(|J|≤2) |𝓛^J f| and |𝓛_i f| ≤ C (|∇f| + |f|)
+for every function, section of E or tensor field f.
+
+(K3) sup |f| ≤ C_S Σ_(|J|≤2) ‖𝓛^J f‖, by (K2) and the embedding of H² in the continuous functions on the compact
+three-manifold S³ ([[thm:std-bh-manifold]]).
+
+(K4) For a pointwise bilinear operation f · g built from the round metric (a product or a contraction), 𝓛^I (f · g) =
+Σ (𝓛^(I′) f) · (𝓛^(I″) g), the sum over the 2^|I| ways of splitting the letters of I into two words I′, I″, each keeping
+the order of I.
+
+*Norms.* For 0 < λ ≤ 1, an integer j ≥ 0 and f on S³,
+
+    ‖f‖_(j) := (Σ_(|I|≤j) λ^(2|I|) ‖𝓛^I f‖²)^(1/2),      ‖f‖_(j),∞ := Σ_(|I|≤j) λ^|I| sup |𝓛^I f|,
+
+and, for the function α, ‖α‖_(j;1) and ‖α‖_(j;2) are defined in the same way with ‖𝓛^I α‖² replaced by ‖𝓛^I α‖² +
+‖∇𝓛^I α‖², respectively by ‖𝓛^I α‖² + ‖∇𝓛^I α‖² + ‖∇²𝓛^I α‖². On [a, r] ⊂ [a, b1] put
+
+    ‖U‖_(𝒴_j(a,r)) := sup_([a,r]) (‖α‖_(j;1) + ‖w‖_(j)) + (∫_a^r (‖α‖²_(j;2) + ‖∂_r α‖²_(j)) dr′)^(1/2),     {#eq:vlasov-scaled-norm}
+
+and ‖U‖_(𝒴_j) := ‖U‖_(𝒴_j(a,b1)). With constants depending on j only, (K1)–(K3) give
+
+    (N1) ‖f‖_(j),∞ ≤ C λ⁻² ‖f‖_(j+2);   (N2) ‖α‖_(j),∞ ≤ C λ⁻¹ ‖α‖_(j+1;1);   (N3) λ ‖∇f‖_(j) ≤ C ‖f‖_(j+1);
+    (N4) ‖∇α‖_(j) ≤ ‖α‖_(j;1),  ‖∇²α‖_(j) ≤ ‖α‖_(j;2).
+
+Indeed, by (K3), λ^|I| sup |𝓛^I f| ≤ C_S Σ_(|J|≤2) λ^(−|J|) λ^(|I|+|J|) ‖𝓛^J 𝓛^I f‖, which gives (N1); for (N2), (K2)
+bounds ‖𝓛^J 𝓛^I α‖ for |J| ≤ 2 by C (‖𝓛^I α‖ + ‖∇𝓛^I α‖ + Σ_i (‖𝓛_i 𝓛^I α‖ + ‖∇𝓛_i 𝓛^I α‖)); (N3) is (K2) applied to
+𝓛^I f; and (N4) holds because ∇ and ∇² commute with 𝓛^I (K1). By (K4), λ^|I| = λ^|I′| λ^|I″| and the fact that one of
+|I′|, |I″| is at most ⌊j/2⌋,
+
+    (P1) ‖f · g‖_(j) ≤ C ‖f‖_(j),∞ ‖g‖_(j);      (P2) ‖f · g‖_(j) ≤ C (‖f‖_(⌊j/2⌋),∞ ‖g‖_(j) + ‖f‖_(j) ‖g‖_(⌊j/2⌋),∞).
+
+*Classes of coefficients.* Fix smooth functions φ_1, …, φ_m on Σ with nonzero differentials (the phases; m = 0 is
+allowed) and a closed ball Y ⊂ ℝ^d centred at 0. A *profile function* is a smooth function h(x, θ_1, …, θ_m, λ, y) on
+Σ × T^m × [0, 1] × Y, and [h](x, y) := h(x, φ_1(x)/λ, …, φ_m(x)/λ, λ, y). By the chain rule 𝓛_i [h] = [X_i h] +
+λ⁻¹ Σ_B X_i(φ_B) [∂_(θ_B) h] and ∂_r [h] = [∂_r h] + λ⁻¹ Σ_B ∂_r φ_B [∂_(θ_B) h], so
+
+    (C0) λ^|I| |𝓛^I ∂_y^β [h]| ≤ C_(I,β) on Σ × Y, for every word I and multi-index β,
+
+and λ ∂_r [h] is again of the form [h′]. A function c(x, y) is of *class 𝔏* if it is [h] for a profile function h, and
+of *class 𝔓* if c = c0 + λ [h] with c0 smooth on Σ × Y and independent of λ; then also λ^|I| |𝓛^I ∂_y^β c| ≤ C λ for
+|I| ≥ 1, and ∂_r c is of class 𝔏. The *class bounds* of c are the constants C_(I,β). With m = 0 and λ = 1 both classes
+consist of the smooth functions on Σ × Y.
+
+*Structure.* We consider maps 𝔉 = (𝔉_ρ, 𝔉_J) of the form, the dependence on x not written,
+
+    𝔉_ρ(U) = p(α) ∂_r α − P(α)^(AB) ∇_A ∇_B α + g_ρ(α, ∇α, w),
+    𝔉_J(U) = A0(α) ∂_r w + A^B(α) ∇_B w + f(α, w) ∂_r α + g_J(α, ∇α, w),                             {#eq:vlasov-structure}
+
+where the coefficients p (a function), P (a symmetric (2,0)-tensor on S³), A0 and A^B (linear maps from E to the space
+of the values of 𝔉_J) are of class 𝔓 in (x, α), f is of class 𝔏 in (x, α, w), and g := (g_ρ, g_J) = 𝔉(0) + g̃ with g̃ of
+class 𝔏 in (x, α, ∇α, w) and g̃(x, 0) = 0. We assume the *signs*: there are η0, p0, δ_e, A00 > 0 and 𝒮(x, α) of class 𝔓
+with values in the invertible linear maps from the values of 𝔉_J to E* such that, for |α| ≤ η0, p ≥ p0, P(ζ, ζ) ≥
+δ_e |ζ|² for every covector ζ of S³, the bilinear form 𝒮A0 on E is symmetric with 𝒮A0 ≥ A00, and every 𝒮A^B is a
+symmetric bilinear form on E. The class bounds include bounds for |p⁻¹|, |𝒮⁻¹| and |A0⁻¹| on |α| ≤ η0.
+
+**Lemma {#lem:vlasov-structure}** (The structure of the constraints.) Let (γ, κ) be data on Σ and 𝒯(x, α) a smooth
+function, valued in the space of the values of the constraint map. Then 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯(·, α) has the form
+[[eq:vlasov-structure]], with p = (γ_U^(rr))^(3/2) H, P = γ_U^(rr) Π^(AB), A0 and A^B the coefficients of the principal
+part of J in the proof of [[lem:constraints-evolution]] (a), f affine in w, and g_ρ, g_J polynomials of degree at most
+two in (∇α, w) whose coefficients are smooth functions of α, of 𝒯 and of the values of γ, ∂γ, ∂²γ, κ and ∂κ at x. The
+second derivatives of γ and the first derivatives of κ enter only g_ρ and g_J, and linearly.
+
+*Proof.* We use the proof of [[lem:constraints-evolution]] (a). In R(γ_U) = R_Π − 2 ∂_(e_r) H − H² − |𝒜|² −
+2 ν_U⁻¹ Δ_Π ν_U, with ν_U² = ν² + α, e_r = ν_U⁻¹(∂_r − σ), H = H̃ ν_U⁻¹ and 𝒜 = 𝒜̃ ν_U⁻¹, the quantities R_Π, H̃,
+𝒜̃ := ½ (∂_r Π − 𝓛_σ Π), Π, σ and ν do not depend on U. Since 2 ν_U ∂ν_U = ∂(ν² + α),
+
+    −2 ∂_(e_r) H = −2 ν_U⁻² (∂_r − σ) H̃ + H̃ ν_U⁻⁴ (∂_r − σ)(ν² + α),
+
+so ∂_r α enters only through H̃ ν_U⁻⁴ ∂_r α = (γ_U^(rr))^(3/2) H ∂_r α (as γ_U^(rr) = ν_U⁻²), and σ(α) is a first angular
+derivative. Further −2 ν_U⁻¹ Δ_Π ν_U = −ν_U⁻² Δ_Π(ν² + α) + ½ ν_U⁻⁴ |d(ν² + α)|²_Π, and Δ_Π α = Π^(AB) ∇_A ∇_B α +
+(Π^(AB)(Γ̊ − Γ(Π))^C_(AB)) ∂_C α, with Γ̊ − Γ(Π) the difference of the Christoffel symbols of the round metric and of Π,
+a tensor built from Π and its first angular derivatives; ν_U⁻² Π^(AB) = γ_U^(rr) Π^(AB). The remaining terms of R(γ_U),
+and −|κ_U|² + (tr κ_U)², which is quadratic in w with coefficients algebraic in α through γ_U⁻¹, belong to g_ρ; second
+derivatives of γ occur in ∂_r H̃, R_Π and Δ_Π ν², linearly. In J = 2(−div_(γ_U) κ_U + d tr_(γ_U) κ_U) the derivatives of
+w come from κ_U − κ, with coefficients algebraic in α, and form A0(α) ∂_r w + A^B(α) ∇_B w up to terms of order zero in
+w; the Christoffel symbols of γ_U are those of γ plus terms linear in ∂α with coefficients algebraic in α, and they
+multiply κ_U, which is affine in w: this gives f(α, w) ∂_r α plus a term linear in ∇α that belongs to g_J; ∂κ enters
+linearly. 𝒯 is algebraic in α. ∎
+
+**Lemma {#lem:vlasov-symmetrizer}** (The symmetrizer on every slice.) Let γ be a Riemannian metric on Σ and α a function
+with 1 + α γ^(rr) > 0. Then the matrix 𝒮 of [[eq:data-symmetrizer]] is invertible and depends on γ alone, 𝒮 A0 =
+diag(6, γ_U^(rr) Π^(AB)) is positive definite, and every 𝒮 A^C is symmetric.
+
+*Proof.* The derivation of the principal part of J in the proof of [[lem:constraints-evolution]] (a) uses only the
+identities Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr) (so that Π^(rk) = 0 and Π_A^k ∂_k = ∂_A), tr_(γ_U) Π = γ^(ij) Π_ij = 4 −
+1 = 3, q(γ⁻¹dr) = 0, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr and (1 + α γ^(rr))⁻¹ γ^(rr) = γ_U^(rr), each of which holds for
+every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the uniqueness
+of the symmetrizer, which [[lem:linear-evolution]] does not use. So that derivation gives, for every such γ and α, the
+principal part 𝒮A0 ∂_r + 𝒮A^C ∂_C of 𝒮J in (ϖ, q_B), with 𝒮A0 = diag(6, γ_U^(rr) Π^(AB)) and the symmetric 𝒮A^C
+displayed there. γ_U^(rr) = γ^(rr)/(1 + α γ^(rr)) > 0, and Π^(AB), the inverse of the induced metric of the spheres, is
+positive definite. 𝒮 = [[1, γ^(rB)/γ^(rr)], [0, −½ Π^(AB)]] is block triangular with invertible diagonal blocks and
+involves γ only. ∎
+
+So (V3), positive mean curvature of the spheres, is the only sign the radial solve needs on the initial slice of
+[[thm:vlasov]]: the second sign of [[lem:constraints-evolution]] (a) holds on every slice.
+
+**Lemma {#lem:vlasov-scaled-evolution}** (The linear evolution in scaled norms.) Let 𝔉 have the structure
+[[eq:vlasov-structure]] with the signs, let k ≥ 6, and let V = (α_V, w_V) be smooth on Σ with ‖V‖_(𝒴_k) ≤ η1 λ³. Consider
+the linear system for U = (α, w), with zero data at r = a,
+
+    p(α_V) ∂_r α − P(α_V)^(AB) ∇_A ∇_B α + b·∇α + c α + e·w = F_ρ,
+    ∂_r w + B^C(α_V) ∇_C w + f̂(α_V, w_V) ∂_r α + f′·∇α + c″ α + c′ w = F_J,                     {#eq:vlasov-scaled-linear}
+
+with B^C := A0⁻¹ A^C, f̂ := A0⁻¹ f, coefficients b, c, e, f′, c″, c′ of class 𝔏 in x, and F = (F_ρ, F_J) smooth on Σ.
+There are η1 > 0 and C, depending on k, b1 − a, η0, p0, δ_e, A00 and the class bounds, and not on λ, V or F, such that
+the solution exists, is unique and smooth, and
+
+    ‖U‖_(𝒴_k(a,r)) ≤ C (∫_a^r ‖F‖²_(k) dr′)^(1/2),      a ≤ r ≤ b1.                                   {#eq:vlasov-scaled-bound}
+
+Moreover, for every k′ > k there is K′, depending on k′, λ, the class bounds and upper bounds for ‖V‖_(𝒴_(k′−1)),
+∫_a^(b1) ‖F‖²_(k) dr and sup_([a,b1]) ‖F‖_(4), such that
+
+    ‖U‖²_(𝒴_(k′)(a,r)) ≤ K′ (∫_a^r ‖F‖²_(k′) dr′ + ∫_a^r ‖V‖²_(𝒴_(k′)(a,r′)) dr′).                          {#eq:vlasov-scaled-tame}
+
+*Proof.* *Existence.* Put S0 := 𝒮(α_V) A0(α_V) and S^C := S0 B^C = 𝒮(α_V) A^C(α_V). With A0 replaced by the identity,
+A^B by B^B and the symmetrizer 𝒮 by S0, [[eq:vlasov-scaled-linear]] is a system of the form [[eq:data-linear]] (the
+difference between ∇_C and ∂_C on w being a term of order zero), with S0 ≥ A00 and S^C symmetric by the signs, since
+|α_V| ≤ C λ⁻¹ ‖α_V‖_(k;1) ≤ C η1 λ² ≤ η0 by (N2) for η1 small. Its coefficients are smooth, so the quantity M_s of
+[[lem:linear-evolution]] is finite for every s, and that lemma gives a unique solution, of every regularity in the
+angles; the equations, solved for ∂_r α and ∂_r w, give its r-derivatives. So the identities below hold, every pairing
+being absolutely continuous in r.
+
+*Step 1: the coefficients.* Let c be one of Q := P(α_V)/p(α_V), 1/p(α_V), B^C, S0, S^C (the principal ones; of class 𝔓
+in (x, α), evaluated at α_V) or f̂(α_V, w_V), b/p(α_V), c/p(α_V), e/p(α_V), f′, c″, c′ (the others). By the chain rule,
+𝓛^I [c̃(x, Y)] for Y = α_V or Y = (α_V, w_V) is the sum, over the partitions of the letters of I into a word I_0 and
+nonempty words J_1, …, J_l (l ≥ 0), each keeping the order of I, of (𝓛^(I_0) ∂_y^l c̃)(x, Y)[𝓛^(J_1) Y, …, 𝓛^(J_l) Y]:
+applying 𝓛_i to such a term adds i to I_0, or to one J_s, or as a new word J_(l+1) = (i). By (N1), (N2) and the
+hypothesis, λ^|J| sup |𝓛^J α_V| ≤ C η1 λ² for |J| ≤ k − 1, λ^|J| sup |𝓛^J w_V| ≤ C η1 λ for |J| ≤ k − 2, and
+‖λ^|J| 𝓛^J Y‖ ≤ η1 λ³ for |J| ≤ k. Put in c_I^♭ the terms of λ^|I| 𝓛^I c in which every factor 𝓛^(J_s) Y has |J_s| ≤
+k − 2 (|J_s| ≤ k − 1 for an α_V factor), and the rest in c_I^♯. Then, for |I| ≤ k: |c_I^♭| ≤ C_0, and |c_I^♭| ≤ C_0 λ if
+c is principal and I ≠ ∅ (a term with I_0 ≠ ∅ carries λ^|I_0| |𝓛^(I_0) c̃| ≤ C λ, and one with l ≥ 1 a factor at most
+C η1 λ²); c_I^♯ = 0 for |I| ≤ k − 2; and ‖c_I^♯‖ ≤ C_0 η1 λ³, since a term of c_I^♯ has exactly one factor of order at
+least k − 1 (two such would have total order 2k − 2 > k), taken in L², the others being bounded. Also |∇c| ≤ C_0 for c
+principal, as ∇[c̃(x, α_V)] = (∇_x c̃) + (∂_y c̃) ∇α_V with |∇_x c̃| ≤ C by (C0) and (K2) and |∇α_V| ≤ C η1 λ; and
+|∂_r S0| ≤ C_0 (1 + μ), μ := C_S λ⁻² ‖∂_r α_V‖_(2), with ∫_a^(b1) μ² ≤ C η1² λ² ≤ 1, as ∂_r c̃ is of class 𝔏.
+
+*Step 2: products and commutators.* For c as in Step 1, Z a function or section and 3 ≤ j ≤ k, by (K4):
+
+    (R1) ‖c Z‖_(j) ≤ C ‖Z‖_(j);      (R2) ‖Σ_(I′≠∅) (λ^|I′| 𝓛^(I′) c)(λ^|I″| 𝓛^(I″) Z)‖ ≤ C λ ‖Z‖_(|I|−1) for c principal,
+                                         4 ≤ |I| ≤ k, and ≤ C λ ‖Z‖_(|I|−1) also for 1 ≤ |I| ≤ 3.
+
+For (R1), the terms with c^♭ are at most C_0 times a term of ‖Z‖_(j); a term with c^♯ has |I″| ≤ 1 and is at most
+‖c^♯‖ sup |λ^|I″| 𝓛^(I″) Z| ≤ C_0 η1 λ³ · C λ⁻² ‖Z‖_(3) by (N1). For (R2), the terms with c^♭ and I′ ≠ ∅ are at most
+C_0 λ ‖λ^|I″| 𝓛^(I″) Z‖ with |I″| ≤ |I| − 1, and the terms with c^♯ occur only for |I| ≥ k − 1 ≥ 4 and are at most
+C η1 λ ‖Z‖_(3) ≤ C λ ‖Z‖_(|I|−1).
+
+*Step 3: the parabolic energy.* Dividing the first equation by p(α_V), ∂_r α = Q^(AB) ∇_A ∇_B α + R_ρ with R_ρ :=
+p(α_V)⁻¹ (F_ρ − b·∇α − c α − e·w). For |I| ≤ k, by (K1),
+
+    ∂_r 𝓛^I α = Q^(AB) ∇_A ∇_B 𝓛^I α + 𝒦_I + 𝓛^I R_ρ,      𝒦_I := Σ_(I′≠∅) (𝓛^(I′) Q)^(AB) ∇_A ∇_B 𝓛^(I″) α.
+
+Put e_I := λ^(2|I|) (‖𝓛^I α‖² + ‖∇𝓛^I α‖²) and g_I := λ^(2|I|) ‖∇²𝓛^I α‖². Integrating by parts on S³, d/dr ½
+(‖f‖² + ‖∇f‖²) = ⟨f − Δf, ∂_r f⟩. For a symmetric (2,0)-tensor Q with Q(ζ, ζ) ≥ δ |ζ|² and |Q| + |∇Q| ≤ M,
+
+    ⟨Δf, Q^(AB) ∇_A ∇_B f⟩ ≥ δ ‖∇²f‖² − C_M (‖∇f‖ ‖∇²f‖ + ‖∇f‖²):                                   {#eq:vlasov-elliptic}
+
+integrating by parts twice, ⟨Δf, Q^(AB) ∇_A ∇_B f⟩ = −∫ ∇^C f (∇_C Q^(AB)) ∇_A ∇_B f − ∫ ∇^C f Q^(AB) ∇_C ∇_A ∇_B f,
+and ∇_C ∇_A ∇_B f = ∇_A ∇_B ∇_C f + (curvature of the round S³) · ∇f, while −∫ ∇^C f Q^(AB) ∇_A ∇_B ∇_C f =
+∫ Q^(AB) ∇_A ∇^C f ∇_B ∇_C f + ∫ (∇_A Q^(AB)) ∇^C f ∇_B ∇_C f ≥ δ ‖∇²f‖² − M ‖∇f‖ ‖∇²f‖. Here Q ≥ δ := δ_e/sup p and
+|Q| + |∇Q| ≤ C_0 by Step 1. With f := 𝓛^I α, using |⟨f, Q·∇²f⟩| ≤ C_0 ‖f‖ ‖∇²f‖ and ‖f − Δf‖ ≤ ‖f‖ + √3 ‖∇²f‖,
+
+    λ^(2|I|) d/dr ½ (‖f‖² + ‖∇f‖²) ≤ −δ g_I + C (e_I^(1/2) g_I^(1/2) + e_I)
+                                         + (e_I^(1/2) + √3 g_I^(1/2)) λ^|I| (‖𝒦_I‖ + ‖𝓛^I R_ρ‖).
+
+By (R2) with Z := ∇²α and (N4), λ^|I| ‖𝒦_I‖ ≤ C λ ‖∇²α‖_(|I|−1) ≤ C (Σ_(|J|<|I|) g_J)^(1/2); by (R1) and (N4),
+λ^|I| ‖𝓛^I R_ρ‖ ≤ ‖R_ρ‖_(k) ≤ C (‖F_ρ‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)).
+
+*Step 4: the hyperbolic energy.* The second equation reads ∂_r w = −B^C ∇_C w + R_J with R_J := F_J − f̂ ∂_r α −
+f′·∇α − c″ α − c′ w. For |I| ≤ k, ∂_r 𝓛^I w = −B^C ∇_C 𝓛^I w − 𝒟_I + 𝓛^I R_J with 𝒟_I := Σ_(I′≠∅) (𝓛^(I′) B^C)
+∇_C 𝓛^(I″) w. Put h_I := λ^(2|I|) ⟨𝓛^I w, S0 𝓛^I w⟩, the L² pairing of the bilinear form S0. Then
+
+    ½ d/dr h_I = ½ λ^(2|I|) ⟨𝓛^I w, (∂_r S0) 𝓛^I w⟩ − λ^(2|I|) ⟨𝓛^I w, S^C ∇_C 𝓛^I w⟩
+                 + λ^(2|I|) ⟨S0 𝓛^I w, −𝒟_I + 𝓛^I R_J⟩,
+
+and since S^C is symmetric, ∇_C (S^C(w̃, w̃)) = (∇_C S^C)(w̃, w̃) + 2 S^C(∇_C w̃, w̃), so the middle term equals
+½ λ^(2|I|) ⟨𝓛^I w, (∇_C S^C) 𝓛^I w⟩ and is at most C_0 λ^(2|I|) ‖𝓛^I w‖². By (R2) and (N3), λ^|I| ‖𝒟_I‖ ≤
+C λ ‖∇w‖_(|I|−1) ≤ C ‖w‖_(k); by (R1), λ^|I| ‖𝓛^I R_J‖ ≤ C (‖F_J‖_(k) + ‖∂_r α‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)); and by the
+first equation, (R1) and (N4),
+
+    ‖∂_r α‖_(k) ≤ ‖Q·∇²α‖_(k) + ‖R_ρ‖_(k) ≤ C (‖α‖_(k;2) + ‖F_ρ‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)).                {#eq:vlasov-scaled-dr}
+
+So ½ d/dr h_I ≤ C (1 + μ) λ^(2|I|) ‖𝓛^I w‖² + C λ^|I| ‖𝓛^I w‖ (‖w‖_(k) + ‖α‖_(k;1) + ‖α‖_(k;2) + ‖F‖_(k)).
+
+*Step 5: closing.* For ϵ ∈ (0, 1/12] put 𝓔 := Σ_(|I|≤k) ϵ^|I| ½ (e_I + h_I) and 𝓖 := Σ_(|I|≤k) ϵ^|I| g_I. Then
+𝓔 ≥ c_ϵ (‖α‖²_(k;1) + ‖w‖²_(k)) with c_ϵ := ½ ϵ^k min(1, A00), 𝓔 ≤ C (‖α‖²_(k;1) + ‖w‖²_(k)), and ‖α‖²_(k;2) ≤
+ϵ^(−k) (𝓖 + 2𝓔). In the sum of Step 3 over I with the weights ϵ^|I|, the commutator terms are at most
+Σ_I ϵ^|I| C (e_I + g_I)^(1/2) (Σ_(|J|<|I|) g_J)^(1/2) ≤ (δ/8) 𝓖 + C𝓔 + C′ Σ_J g_J Σ_(|I|>|J|) ϵ^|I|; there are 6^i words
+of length i, so Σ_(|I|>|J|) ϵ^|I| ≤ 2 (6ϵ)^(|J|+1) ≤ 12 · 6^k ϵ · ϵ^|J|, and with ϵ := min(1/12, δ/(96 · 6^k C′)) these
+terms are at most (δ/4) 𝓖 + C𝓔. The other terms of Step 3 are at most (δ/8) 𝓖 + C_ϵ (𝓔 + ‖F‖²_(k)), by Young's
+inequality. In the sum of Step 4, C ‖w‖_(k) ‖α‖_(k;2) ≤ C ‖w‖_(k) ϵ^(−k/2) (𝓖 + 2𝓔)^(1/2) ≤ (δ/8) 𝓖 + C_ϵ 𝓔. Hence
+
+    d𝓔/dr ≤ −(δ/2) 𝓖 + C_ϵ (1 + μ) 𝓔 + C_ϵ ‖F‖²_(k),      𝓔(a) = 0,
+
+and Gronwall's lemma, with ∫_a^(b1) (1 + μ) ≤ b1 − a + (b1 − a)^(1/2), gives 𝓔(r) + (δ/2) ∫_a^r 𝓖 ≤ C ∫_a^r ‖F‖²_(k).
+With [[eq:vlasov-scaled-dr]] this is [[eq:vlasov-scaled-bound]].
+
+*Step 6: the tame bound.* Repeat Steps 1–5 at the index k′ > k. Step 1 changes: a factor 𝓛^J Y with |J| ≤ k′ − 2 for
+α_V, |J| ≤ k′ − 3 for w_V, is bounded in sup norm by C λ⁻² ‖V‖_(𝒴_(k′−1)), by (N1)–(N2); the remaining factors have
+order at least k′ − 2, so at most one occurs in a term (k′ ≥ 7), and it is bounded in L² by ‖V‖_(𝒴_(k′)(a,r)) at
+points of [a, r], the other factors of the term having total order at most 2. So in (R1) and (R2) at the index k′ the
+terms with such a factor are at most C ‖V‖_(𝒴_(k′)(a,r)) sup |λ^|I″| 𝓛^(I″) Z| with |I″| ≤ 2, which by (N1) is at most
+C λ⁻² ‖V‖_(𝒴_(k′)(a,r)) ‖Z‖_(4); for the Z that occur (∇²α, ∇w, ∂_r α, α, ∇α, w and F), ‖Z‖_(4) is bounded by
+C λ⁻¹ (‖α‖_(5;1) + ‖w‖_(5) + ‖F‖_(4)), by (N2), (N3) and [[eq:vlasov-scaled-dr]], hence by a constant, by
+[[eq:vlasov-scaled-bound]] and the assumed bound on sup ‖F‖_(4). In the energy inequality of Step 5 at the index k′
+these terms are at most K′ ‖V‖_(𝒴_(k′)(a,r)) (𝓔′^(1/2) + 𝓖′^(1/2)) ≤ (δ/8) 𝓖′ + K′ (𝓔′ + ‖V‖²_(𝒴_(k′)(a,r))), and
+Gronwall's lemma gives [[eq:vlasov-scaled-tame]]. ∎
+
+**Proposition {#prop:vlasov-scaled-correction}** (The constraints solved in scaled norms.) Let 𝔉 have the structure
+[[eq:vlasov-structure]] with the signs, with class bounds of every order and 𝔉(0) smooth on Σ, let k ≥ 8, and put ε :=
+sup_([a,b1]) ‖𝔉(0)‖_(k). There are η > 0 and C, depending on k, b1 − a, η0, p0, δ_e, A00 and the class bounds, and not
+on λ, such that if ε ≤ η λ⁴, there is a smooth U on Σ with zero data at r = a,
+
+    𝔉(U) = 0 on Σ,      ‖U‖_(𝒴_k) ≤ C ε;                                                            {#eq:vlasov-scaled-solution}
+
+it is the only solution with zero data at r = a and ‖U‖_(𝒴_k) ≤ C ε. If 𝔉 commutes with a group of isometries of the
+round S³ acting on U by pull-back, U is invariant under that group.
+
+*Proof.* *The scheme.* For V = (α_V, w_V) let L_V U be the left side of [[eq:vlasov-scaled-linear]] with the coefficients
+of [[eq:vlasov-structure]]: p(α_V), P(α_V), B^C(α_V), f̂(α_V, w_V), and the linear parts at U = 0 of the remaining terms,
+b·∇α + c α + e·w := Dg̃_ρ(0)[α, ∇α, w] and f′·∇α + c″ α + c′ w := A0(0)⁻¹ Dg̃_J(0)[α, ∇α, w], which are of class 𝔏.
+Put
+
+    N(V) := (𝔉_ρ(V), A0(α_V)⁻¹ 𝔉_J(V)) − L_V V
+          = (𝔉_ρ(0) + g̃_ρ(V) − Dg̃_ρ(0)[V], A0(α_V)⁻¹ (𝔉_J(0) + g̃_J(V)) − A0(0)⁻¹ Dg̃_J(0)[V]),
+
+with g̃(V) := g̃(α_V, ∇α_V, w_V). Since A0 is invertible, 𝔉(U) = 0 if and only if L_U U + N(U) = 0. Let U_0 := 0 and let
+U_(i+1) solve L_(U_i) U_(i+1) = −N(U_i) with zero data at r = a.
+
+*The forcing.* N(V) is (𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0)) plus G(x, Y), Y := (α_V, ∇α_V, w_V), with G of class 𝔏 vanishing
+with its first derivatives in Y at Y = 0; so G = Σ_(s,t) Y_s Y_t G_(st)(x, Y) with G_(st) := ∫_0^1 (1 − σ) ∂_s ∂_t
+G(x, σ Y) dσ of class 𝔏. By (K4) and the chain rule of Step 1 of the proof of [[lem:vlasov-scaled-evolution]], every term
+of λ^|I| 𝓛^I G(·, Y), |I| ≤ k, is a product with at least two factors 𝓛^J Y, at most one with |J| > k/2; putting it in L²
+and the others in sup norm, with ‖Y‖_(⌊k/2⌋+1),∞ ≤ C λ⁻² ‖V‖_(𝒴_k) ≤ 1 by (N1), (N2) and ⌊k/2⌋ + 4 ≤ k, and ‖Y‖_(k) ≤
+2 ‖V‖_(𝒴_k) by (N4),
+
+    ‖G(·, Y)‖_(k) ≤ C_2 λ⁻² ‖V‖²_(𝒴_k).
+
+By (R1), ‖(𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0))‖_(k) ≤ C_3 ε. So sup_r ‖N(V)‖_(k) ≤ C_3 ε + C_2 λ⁻² ‖V‖²_(𝒴_k).
+
+*Boundedness.* Let C be the constant of [[eq:vlasov-scaled-bound]] at the index k and C_1 := C (b1 − a)^(1/2) C_3. If
+‖U_i‖_(𝒴_k) ≤ 2 C_1 ε ≤ η1 λ³, then [[lem:vlasov-scaled-evolution]] applies with V := U_i and gives ‖U_(i+1)‖_(𝒴_k) ≤
+C (b1 − a)^(1/2) (C_3 ε + C_2 λ⁻² 4 C_1² ε²) ≤ 2 C_1 ε for ε ≤ λ²/(4 C (b1 − a)^(1/2) C_2 C_1); both conditions hold for
+ε ≤ η λ⁴ with η small. By induction every U_i is smooth and ‖U_i‖_(𝒴_k) ≤ 2 C_1 ε.
+
+*Contraction.* Let j := k − 2 ≥ 6 and δ_(i+1) := U_(i+1) − U_i. Then L_(U_i) δ_(i+1) = −(L_(U_i) − L_(U_(i−1))) U_i −
+(N(U_i) − N(U_(i−1))). The first term is a sum of products (Δc) Z, with Δc := c(U_i) − c(U_(i−1)) for c one of p, P,
+B^C, f̂, and Z := ∂_r α_i, ∇²α_i, ∇w_i, ∂_r α_i respectively. Writing Δc as ∫_0^1 ∂_y c dσ applied to the difference of
+the arguments, ‖Δc‖_(j) ≤ C ‖δ_i‖_(𝒴_j) and ‖Δc‖_(⌊j/2⌋),∞ ≤ C λ⁻² ‖δ_i‖_(𝒴_j) (as above, ⌊j/2⌋ + 3 ≤ j). By (P2),
+‖(Δc) Z‖_(j) ≤ C λ⁻² ‖δ_i‖_(𝒴_j) (‖Z‖_(j) + ‖Z‖_(⌊j/2⌋),∞); for Z = ∇w_i, ‖Z‖_(j) + ‖Z‖_(⌊j/2⌋),∞ ≤ C λ⁻³ ‖w_i‖_(k)
+by (N1) and (N3), and for Z = ∂_r α_i, ∇²α_i the same quantity is at most C λ⁻² (‖∂_r α_i‖_(k) + ‖α_i‖_(k;2)), square
+integrable in r. In the same way ‖N(U_i) − N(U_(i−1))‖_(j) ≤ C λ⁻² (ε + ‖U_i‖_(𝒴_k) + ‖U_(i−1)‖_(𝒴_k)) ‖δ_i‖_(𝒴_j),
+writing the difference of A0⁻¹ 𝔉_J(0) terms and of G as integrals of derivatives. So, by [[eq:vlasov-scaled-bound]] at
+the index j with V := U_i, ‖δ_(i+1)‖_(𝒴_j) ≤ C λ⁻⁴ ε ‖δ_i‖_(𝒴_j) ≤ ½ ‖δ_i‖_(𝒴_j) for η small.
+
+*The limit.* So U_i converges in 𝒴_j to some U, and, being bounded in 𝒴_k, U satisfies ‖U‖_(𝒴_k) ≤ 2 C_1 ε (at each r the
+norms of 𝒴_k are lower semicontinuous under convergence in 𝒴_j). The coefficients of L_(U_i) converge uniformly with
+their first derivatives, so L_(U_i) U_(i+1) + N(U_i) → L_U U + N(U) in L²((a, b1); L²(S³)), and 𝔉(U) = 0. Uniqueness in
+the ball: the difference of two solutions U, U′ there satisfies L_U (U − U′) = −(L_U − L_(U′)) U′ − (N(U) − N(U′)), and
+the estimate of the contraction gives ‖U − U′‖_(𝒴_j) ≤ ½ ‖U − U′‖_(𝒴_j). We take C := 2 C_1 in
+[[eq:vlasov-scaled-solution]].
+
+*Smoothness.* Fix λ. Let k′ > k and suppose sup_i ‖U_i‖_(𝒴_(k′−1)) < ∞, as holds for k′ = k + 1. As above, every term of
+λ^|I| 𝓛^I N(U_i), |I| ≤ k′, has at most one factor of order greater than k′/2, so ‖N(U_i)‖_(k′) ≤ K (1 + ‖U_i‖_(𝒴_(k′)
+(a,r))) at r, and sup_r ‖N(U_i)‖_(4) ≤ K, with K independent of i. By [[eq:vlasov-scaled-tame]], ℰ_i(r) :=
+‖U_i‖_(𝒴_(k′)(a,r)) satisfies ℰ_(i+1)(r)² ≤ K′ (1 + ∫_a^r ℰ_i²) with K′ independent of i. By induction ℰ_i(r)² ≤
+K′ e^(K′(r−a)): this holds for ℰ_0 = 0, and if it holds for ℰ_i then ℰ_(i+1)(r)² ≤ K′ (1 + ∫_a^r K′ e^(K′(r′−a)) dr′) =
+K′ e^(K′(r−a)). So the U_i are bounded in 𝒴_(k′), and U ∈ 𝒴_(k′), for every k′: U is smooth in the angles, and the
+equations 𝔉(U) = 0, solved for ∂_r α and ∂_r w, give its r-derivatives, so U is smooth.
+
+*Invariance.* If 𝔉 commutes with an isometry ι of the round S³, then L_(V∘ι) U∘ι = (L_V U)∘ι and N(V∘ι) = N(V)∘ι,
+so by the uniqueness in [[lem:vlasov-scaled-evolution]] each U_i is ι-invariant, and so is U. ∎
+
 ### The n-dust approximants are uniform in n {#sec:vlasov-uniform}
 
 **Lemma {#lem:vlasov-trapezoid}** (The label quadrature.) Let F be smooth on K × S¹, K compact, and
