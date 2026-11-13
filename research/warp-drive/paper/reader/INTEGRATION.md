@@ -77,3 +77,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 
 ## Notation for null infinity
 - Write ℐ⁺ and ℐ⁻ (U+2110) everywhere; S19 and S20 write 𝓘⁺, to be unified in the integration pass.
+- S16-S20 write λ for the ι⁺ spectral parameter, against OUTLINE's λ = wavelength only: rename in the integration
+  pass after a symbol census of files 20-60 (the S16 reader proposes a letter). [AN00, Theorem 3.1] needs a page for
+  Appendix A. S16's window rests on NP 10.35's condition on the grafted order (S16 reader checks).

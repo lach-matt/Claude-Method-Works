@@ -1037,16 +1037,16 @@ are finite compositions of these families at fixed weights with fixed losses: [[
 [[prop:iii-j3-5-4]] are compositions of the maps of [[thm:iii-j-2-4]].
 
 The statements that are not proved anew here run at "w−" weights, with the input losses ε′(ε, k) of the closed graph
-theorem ([[sec:iii-j2-1]]); among them are [[prop:iii-i2-5-1]], [[prop:iii-i3-2-1]], [[prop:iii-i5-2-1]], the lemmas
-of [[prop:iii-i8-4-1]] below the top level, Steps 1–2 of the proof of [[thm:iii-i14-3-1]] below α, the spaces 𝒵_β, and
-the weights β_+ < 3/2 of [[lem:iii-i11-3-2]]. Their losses feed open conditions with room. Every chain of the inventory
-starts from exact data (the right side in ℱ_ex and the background in its exact class), which lies in every lossy class,
-and ends in a statement of [[sec:iii-j3-1]]–[[sec:iii-j3-5]] at an exact weight. So for each k the intermediate margins
-can be chosen backwards from the output. This changes C_k but not the loss of derivatives d, as these losses are
-ceilings of continuous functions of the weights and stay bounded as the margins shrink. So the induction of the proof of
-[[thm:iii-j2-4-1]] runs from exact inputs to exact outputs, with losses independent of k, and the input loss ε′ is 0 for
-every k and every statement of the inventory. The exactness of the outputs rests on [[prop:iii-j3-4-6]], with
-[[lem:iii-j3-4-7]]. The proof of [[thm:iii-j2-4-2]] then gives [[eq:iii-j2-4-2]] with ℱ^(k+d)_ex and 𝒟^k_ex, and
-[[prop:iii-j3-5-4]] gives [[prop:iii-j2-4-3]] on the same scales. At a base point with black hole parameter b the
-results used are stated at b ([[thm:iii-j2-4-1]], [[thm:iii-j2-4-2]], [[thm:iii-j3-5-3]], [[thm:iii-j3-5-5]]), with
-constants uniform in b, and the exact classes do not involve b ([[sec:iii-j3-1]]). ∎
+theorem ([[sec:iii-j2-1]]); among them are [[prop:iii-i2-5-1]], [[prop:iii-i3-2-1]], [[prop:iii-i5-2-1]],
+[[lem:iii-i8-3-1]]–[[lem:iii-i8-3-3]] below the top level, Steps 1–2 of the proof of [[thm:iii-i14-3-1]] below α, the
+spaces 𝒵_β, and the weights β_+ < 3/2 of [[lem:iii-i11-3-2]]. Their losses feed open conditions with room. Every chain
+of the inventory starts from exact data (the right side in ℱ_ex and the background in its exact class), which lies in
+every lossy class, and ends in a statement of [[sec:iii-j3-1]]–[[sec:iii-j3-5]] at an exact weight. So for each k the
+intermediate margins can be chosen backwards from the output. This changes C_k but not the loss of derivatives d, as
+these losses are ceilings of continuous functions of the weights and stay bounded as the margins shrink. So the
+induction of the proof of [[thm:iii-j2-4-1]] runs from exact inputs to exact outputs, with losses independent of k, and
+the input loss ε′ is 0 for every k and every statement of the inventory. The exactness of the outputs rests on
+[[prop:iii-j3-4-6]], with [[lem:iii-j3-4-7]]. The proof of [[thm:iii-j2-4-2]] then gives [[eq:iii-j2-4-2]] with
+ℱ^(k+d)_ex and 𝒟^k_ex, and [[prop:iii-j3-5-4]] gives [[prop:iii-j2-4-3]] on the same scales. At a base point with black
+hole parameter b the results used are stated at b ([[thm:iii-j2-4-1]], [[thm:iii-j2-4-2]], [[thm:iii-j3-5-3]],
+[[thm:iii-j3-5-5]]), with constants uniform in b, and the exact classes do not involve b ([[sec:iii-j3-1]]). ∎
