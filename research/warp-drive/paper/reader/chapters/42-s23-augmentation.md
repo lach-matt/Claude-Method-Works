@@ -110,10 +110,9 @@ levels in the proof of [[thm:iii-i14-3-1]] is written K; it is unrelated to the 
 
 Everything of [[sec:iii-i12-1]], with w_ψ = 3 + η_2 − 2ε − d_ψ, and of [[sec:iii-i13-1]] is kept. α ∈ (4, 4 + ε_K] is
 admissible in the sense of [[def:iii-i10-1-3]], where [[thm:iii-i11-4-1]] and [[thm:iii-i12-3-1]] are proved;
-[[def:iii-i13-1-1]] serves the intermediate levels. The δ_+ of [[sec:iii-i12-1]] is taken ≤ η_E := min Re ℰ_ind. Then
-3 + η_2 + η_E > 3 + ε_+, as η_E ≥ ε_ind > ε_+: the first by the convention for ℰ_ind of [[ch:s13]], with ε_ind the
-constant of [[eq:iii-f1-2-2]] as in [[lem:iii-g4-4-3]], the second by [[eq:iii-i9-1-1]]. The class 𝒳 is restricted by
-two requirements, [Hin26, Remark 11.64 (2)]. The first is ℰ_+ ⊃ (ℰ_♯ ∪ ℰ^♮) ∩ {Re < 3 + ε_+}, which can be imposed
+[[def:iii-i13-1-1]] serves the intermediate levels. The δ_+ of [[sec:iii-i12-1]] is taken ≤ η_E := min Re ℰ_ind,
+which is positive by the convention for ℰ_ind of [[ch:s13]]. Then 3 + η_2 + η_E > 3 + ε_+, as
+η_2 > ε_+ − δ_+ ≥ ε_+ − η_E ([[sec:iii-i12-1]]). The class 𝒳 is restricted by two requirements, [Hin26, Remark 11.64 (2)]. The first is ℰ_+ ⊃ (ℰ_♯ ∪ ℰ^♮) ∩ {Re < 3 + ε_+}, which can be imposed
 together with (H1)–(H3) of [[sec:iii-i9-1]], as both sets do not depend on ℰ_+ below 3 + ε_+ ([[lem:iii-i10-1-2]] (b),
 as in [[sec:iii-i12-1]]). The second is
 
