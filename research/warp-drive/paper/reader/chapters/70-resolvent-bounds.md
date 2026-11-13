@@ -2618,10 +2618,11 @@ weight-zero span of dv dr and T it adds −ζ_hγ_Υ(1 − e_Υ) on dv dr (ι_(�
 to 3ζ_hγ_Υe_Υ dv dr, which keeps that block triangular. Adding these to the diagonal entries above gives the second
 list. ∎
 
-At (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), with a_v = 1/200 (the inner form of c_C) and r_h = 1, x = 5000, and the
-exponents other than the zeros are −9998, −4999, −2559975/512, 0, −1, −2 when c_Υ vanishes near the horizon, and
-−9998, −4999, −2559975/512, −0.0099, −1.01, −2.02 when ζ = 1 there. Whatever makes the scalar-type blocks invertible near
-and inside the horizon is the same at every degree, and it carries exponents of size γ_Ca_vr_h.
+At (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), with a_v = 1/200 (the inner form of c_C) and r_h = 1, x = 5000, and at
+l ≥ 2 the exponents other than the n_l zeros are −9998, −4999, −2559975/512, 0, 0, −1, −2 when c_Υ vanishes near the
+horizon, and −9998, −4999, −2559975/512, −0.0099, 0, −1.01, −2.02 when ζ = 1 there. At the horizon the exponents are
+the same at every degree, and they are of size γ_Ca_vr_h. The zeroth-order coefficients of the block at r_h depend on
+κ.
 
 *The weight.* Let α + 2 =: β lie in the indicial gap at infinity of the block, and use on stationary fields of scalar
 type l, near infinity, the norms

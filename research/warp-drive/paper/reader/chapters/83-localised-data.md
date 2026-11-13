@@ -908,8 +908,11 @@ in (a) Q(δ) = ½(2π)²|T|²ω² ∫ R³|f|β_I² dR + O(ω) > 0 for ω large.
 
 *Proof.* (a) ξ(H) = N_sΠ + Y_s^R∂_RH = 0, and |dH|² = (∂_RH)²(1/G − (Y_s^R)²/N_s²) = (∂_RH)² f/(N_s²G) by
 [[thm:loc-tensor]] (ii). So T_m = ½N_s(R³f(∂_RH)²/(N_s²G) + (k_T² + 2)RH²), and with N_s√G = 1, 2T_m√G =
-R³f(∂_RH)² + (k_T² + 2)RH². (b) ξ(H) = N_sΠ and |dH|² = −Π², so 2T_m√G = R³Π². (c) (∂_RH_ω)² = ω²β_I² cos²(ωR) + O(ω),
-cos² = (1 + cos 2ωR)/2, and ∫R³fβ_I² cos 2ωR dR → 0 by the Riemann–Lebesgue lemma. ∎
+R³f(∂_RH)² + (k_T² + 2)RH². (b) ξ(H) = N_sΠ and |dH|² = −Π², so 2T_m√G = R³Π². (c) ∂_RH_ω = ωβ_I cos(ωR) +
+β_I′ sin(ωR), so (∂_RH_ω)² = ω²β_I² cos²(ωR) + O(ω) uniformly, and cos²(ωR) = (1 + cos 2ωR)/2. One integration by
+parts, β_I having compact support, gives ∫R³fβ_I² cos 2ωR dR = −(2ω)⁻¹∫(R³fβ_I²)′ sin 2ωR dR = O(ω⁻¹). So
+∫R³f(∂_RH_ω)² dR = (ω²/2)∫R³fβ_I² dR + O(ω), while ∫(k_T² + 2)RH_ω² dR = O(1); as f = −|f| on I, (a) gives the
+stated formula. ∎
 
 **Theorem {#thm:loc-inside}** (Inside the apparent horizon.) Let U be a band of Σ_τ0 on which the background is vacuum
 and which meets {f < 0}. Then:

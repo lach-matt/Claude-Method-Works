@@ -1254,54 +1254,69 @@ needs. No smallness threshold enters: the theorem is a large-data statement, its
 
 ### Openness, stability and an explicit family {#sec:vlasov-open}
 
-**Lemma {#lem:vlasov-open}** (The hypotheses are open.) Let (g, F, u), possibly with radial dusts (q_rad, u_rad),
-satisfy (Ω) and (V3). Fix compact sets S ⊂ (Σ_τ0 ∩ Ω) × S¹ (points and labels) and S_r ⊂ Σ_τ0 ∩ Ω, with supp q ⊂ int S
-and supp q_rad ⊂ S_r, and write D_α(S) for the tube of S_α := {x : (x, α) ∈ S}. Suppose that on the tubes of S and S_r
-themselves: the Jacobian of (V1) is at least J0 on the tubes D_α(S); ∂_α β0 ≥ b on S, and β0(x, ·) is injective on
-S_x := {α : (x, α) ∈ S}; dist(D_α(S), axes) ≥ 2δ; and every label of S makes an angle at least η with the radial null
-directions on the tubes of S_r, or those tubes lie at distance at least η. Then there is a neighbourhood 𝒩 of (g, u|Σ_τ0,
-∂u|Σ_τ0, u_rad|Σ_τ0, ∂u_rad|Σ_τ0) in C² × C¹ such that every solution (g′, F′, u′) with radial dusts (q′_rad, u′_rad)
-whose data lie in 𝒩, with supp q′ ⊂ int S and supp q′_rad ⊂ S_r, and whose radial dusts satisfy the second clause of
-(V2′), satisfies (V1), (V2) and the angle clause of (V2′) with margins J0/2, b/2, δ and η/2. (Ω) and (V3) are open in
-C² × C¹.
+**Lemma {#lem:vlasov-open}** (The hypotheses are open.) Let (g, F, u) satisfy (Ω) and (V3), and let S ⊂ (Σ_τ0 ∩ Ω) × S¹
+be compact (points and labels) with supp q ∩ (Σ_τ0 × S¹) ⊂ int S. Suppose that on S and its tubes: each u_α is an
+eikonal of g with ℓ_α future directed near D_α(S); the Jacobian of (V1) is at least J0 on the tubes D_α(S); ∂_α β0 ≥ b_*
+on S, and β0(x, ·) is injective on S_x; and dist(D_α(S), axes) ≥ 2δ. Then there is a neighbourhood 𝒰 of (g, u|Σ_τ0,
+∂u|Σ_τ0) in C² × C¹ such that every solution (g′, F′, u′) whose metric on Ω and data lie in 𝒰, with supp q′ ∩ (Σ_τ0 ×
+S¹) ⊂ int S, satisfies (V1) on S with the margins J0/2 and b_*/2, and (V2) with δ/2 in place of δ, that is
+dist(D′_α(S), axes) ≥ δ for its tubes D′_α(S). (Ω) and (V3) are open in C² × C¹.
 
-*Proof.* The tubes are the images of S and S_r under the flows of the rays of (g′, u′) and (g′, u′_rad), which are null
-geodesics of g′ with initial directions given by ∂u′|Σ_τ0 and ∂u′_rad|Σ_τ0. The rays and their first variation (whose
+*Proof.* The tubes are the images of S under the flows of the rays of (g′, u′), which are null geodesics of g′ with
+initial directions given by ∂u′|Σ_τ0, the τ-component being the future root. The rays and their first variation (whose
 determinant is the Jacobian) solve ordinary differential equations whose coefficients are the Christoffel symbols of g′
 and their first derivatives, so by continuous dependence on coefficients and data they depend continuously on (g′, u′) in
-C² × C¹, uniformly on the compact S × [τ0, τ_end]; β0 and ∂_α β0 depend continuously on u′|Σ_τ0 in C¹. The four margins
-are infima over compact sets of continuous positive functions, so on a neighbourhood they hold halved. For (V1), supp q′
-is a compact subset of int S and the flow is a diffeomorphism, so the tube of supp q′ has a neighbourhood inside the tube
-of S, where the Jacobian bound holds; this is why int S is needed. Injectivity is kept: if α_k ≠ α′_k in S_(x_k) had
-β0′_k(x_k, α_k) = β0′_k(x_k, α′_k) for perturbations tending to zero, a limit point would give, by injectivity of β0(x,
-·), α = α′, and then for k large α_k and α′_k lie in an interval on which ∂_α β0′_k ≥ b/2 > 0, a contradiction. For (V2′)
-the radial tubes are those of S_r, the perturbed radial supports being kept in S_r; its second clause, (H2′) with adapted
-boundaries, is a structural condition at the axes, not an inequality, and it is imposed on the perturbations. (Ω)
-consists of strict inequalities between contractions of g⁻¹, continuous in C⁰, and of the statement on generators, which
-holds for the tubes by their definition; (V3) consists of strict inequalities between functions of the slice data and
-their first derivatives. ∎
+C² × C¹, uniformly on the compact S × [τ0, τ_end]; β0 and ∂_α β0 depend continuously on u′|Σ_τ0 in C¹. The Jacobian, the
+margin b_* and the distance to the axes are infima over compact sets of continuous positive functions, so on a
+neighbourhood they hold halved. Where the Jacobian is positive the rays from S_α foliate a neighbourhood of D′_α(S), so
+the eikonal of g′ with the data u′_α|Σ_τ0 exists there (the method of characteristics); this is why the margins are
+asked on S and not only on supp q, the tube of supp q′ lying inside that of S. Injectivity is kept: if α_k ≠ α′_k in
+S_(x_k) had β0′_k(x_k, α_k) = β0′_k(x_k, α′_k) for perturbations tending to zero, a limit point would give, by
+injectivity of β0(x, ·), α = α′, and then for k large α_k and α′_k lie in an interval on which ∂_α β0′_k ≥ b_*/2 > 0, a
+contradiction. (Ω) consists of strict inequalities between contractions of g⁻¹, continuous in C⁰, and of the statement
+on generators, which holds for the tubes by their definition; (V3) consists of strict inequalities between functions of
+the slice data and their first derivatives. ∎
 
 **Proposition {#prop:vlasov-cauchy}** (Cauchy stability of the restricted system off the axes.) Let (g̊, F̊, ů) be a
-smooth class Einstein–restricted massless Vlasov solution on Ω in label form, possibly with radial dusts satisfying
-(H2′) of [[thm:class-stability]], and let S, S_r be as in [[lem:vlasov-open]] with the margins there. Fix m ≥ 6. There
-are ε > 0 and C such that every invariant datum on Σ_τ0 (metric data satisfying the constraints and the gauge
-condition, a field (F, u|Σ_τ0, ∂u|Σ_τ0) with supp F ⊂ int S, radial dusts with supports in S_r) within ε of the
-reference's in H^m has a unique smooth class development on Ω, a solution of the Einstein–restricted massless Vlasov
-system with radial dusts, within C ε of the reference in H^m. No smallness of the reference is assumed.
+smooth class Einstein–restricted massless Vlasov solution on Ω in label form satisfying (Ω), (V1), (V2) and (V3), with
+the compact set S of (V1); F̊ may vanish identically. Fix m ≥ 6. There are ε0 > 0 and C such that every smooth datum D in
+label form near (g̊, F̊, ů), as defined before [[prop:vlasov-uniform-n]], with d(D) ≤ ε0, has a smooth class
+development (g, F, u) on Ω, invariant under T² and both reflections: a solution of the Einstein–restricted massless
+Vlasov system in label form with Ric^H(g) = T_V, the gauge of [[sec:class-augmented]] relative to g̊, and with ‖g −
+g̊‖_(H^(m+1)) ≤ C d(D) on every Σ_τ. It is the only such solution whose metric is within ε1 of g̊ in C² and whose
+eikonals are those of its metric with the data of D. No smallness of the reference is assumed.
 
-*Proof.* By [[lem:vlasov-open]] the perturbed labels keep their margins, so their tubes stay at distance at least δ from
-the axes and free of caustics. Off the axes write the field as an orbit density f on the bundle ℬ of null directions
-of g3, as in the proof of [[lem:vlasov-separation]]: at each point the labels present are mapped diffeomorphically onto
-their directions, and T_V is algebraic in (f, g). By [[lem:vlasov-flow]] (b) and (c) the Vlasov equation is the
-transport of f along the generator of the null geodesic flow on ℬ, whose coefficients are first derivatives of g3. In
-the energy of the proof of [[thm:class-stability]] put the transport of f in place of the transports of finitely many
-dusts: m derivatives of f cost m + 1 derivatives of the metric through the flow's coefficients, which the metric's
-energy controls at that order, and m derivatives of T_V cost m derivatives of f and of g. So there is no loss of
-derivatives, unlike a single dust in eikonal form, whose density is transported by □5 u, one derivative below g. The
-radial dusts are governed by [[thm:class-stability]], with (H2′). The bootstrap, Gronwall's lemma and local existence
-for the resulting symmetric hyperbolic system with these sources are as in the proof of [[thm:class-stability]]. On the
-tubes, the eikonals of the solution with the data u|Σ_τ0, and the amplitudes transported by [[eq:vlasov-amplitude]],
-represent the solution's field in label form, since by (V1) no caustic forms. ∎
+*Proof.* *Existence.* For n ≥ n0 let g^(n) be the development of the n-dust datum D_n of D given by
+[[prop:vlasov-uniform-n]], with (g̊, F̊, ů) as reference and k = 2: it exists on Ω and ‖g^(n) − g̊‖_(H^(m′+1)) ≤ C_(m′)
+(d(D) + n⁻²) on every Σ_τ, for every m′ ≥ m, with C_(m′) independent of n. The energy [[eq:class-energy]] contains the
+τ-derivatives, so by Sobolev's inequality on the slices ([[lem:sobolev]], with λ = 1) the g^(n) are bounded in C^j(Ω̄)
+for every j, uniformly in n, and by the Arzelà–Ascoli theorem and a diagonal argument a subsequence converges in C^j(Ω̄)
+for every j to a smooth metric g, invariant under T² and both reflections, with ‖g − g̊‖_(H^(m+1)) ≤ C d(D) on every
+Σ_τ. For α ∈ S¹ let u^(n)_α be the eikonal of g^(n) with the data u_D(·, α) (the future root), which exists on a
+neighbourhood of its tube D^(n)_α(S) by [[lem:vlasov-open]], g^(n) being C²-close to g̊, and F^(n)_α the solution of
+[[eq:vlasov-amplitude]] for g^(n) with the data F_D(·, α); they are smooth in (x, α), with derivatives bounded uniformly
+in n, the rays depending smoothly on g^(n) and on the data. For α = α_A they are the family A of g^(n): its eikonal has
+the same data and solves the same equation, and its density solves div(q_A ℓ_A) = 0, which is [[eq:vlasov-amplitude]]
+for (q_A/(2π/n))^(1/2) by [[eq:vlasov-dust]]. So, with h^(n)(x, α) := F^(n)_α(x)² du^(n)_α ⊗ du^(n)_α (zero off the
+tubes), Ric(g^(n)) = (2π/n) Σ_A h^(n)(·, α_A). Along the subsequence the null geodesic flows of g^(n) converge with their
+derivatives to that of g, so u^(n)_α → u_α and F^(n)_α → F_α in C¹, uniformly in α, where (F, u) is the field of g with
+the data of D; and h^(n) → h := F_α² du_α ⊗ du_α uniformly. The Riemann sum error is |(2π/n) Σ_A h^(n)(x, α_A) −
+∫ h^(n)(x, α) dα| ≤ Σ_A ∫_(arc A) |h^(n)(x, α_A) − h^(n)(x, α)| dα ≤ 2π (2π/n) sup |∂_α h^(n)| → 0, the arc A being the
+set of α with α_A − 2π/n ≤ α ≤ α_A. Hence Ric(g) = lim Ric(g^(n)) = ∫_(S¹) h dα = T_V: (g, F, u) solves the
+Einstein–restricted massless Vlasov system in label form. The g^(n) solve Ric^H(g^(n)) = T^(n) in the gauge relative to
+g̊ ([[thm:class-stability-off-axes]]), so g does in the limit, and its data are those of D, since the metric data of
+D_n differ from those of D by at most C n⁻² ([[prop:vlasov-scaled-correction]]).
+
+*Uniqueness.* Let (g_1, F_1, u_1) and (g_2, F_2, u_2) be two such solutions. For each α put p^i_α := du^i_α, Θ^i_α :=
+□5 u^i_α and q^i_α := (F^i_α)²; they solve (Aug2)–(Aug4) of [[sec:class-augmented]] with the family index replaced by α,
+and Ric(P_α, P_α) = ∫ q_β g⁻¹(p_α, p_β)² dβ in (Aug3). Steps 4–8 of the proof of [[thm:class-stability-off-axes]] at the
+order zero, applied to the difference of the two solutions, with Σ_A replaced by the integral over α and the family norms
+by (∫_(S¹) ‖·‖² dα)^(1/2), give for 𝒩̃(τ) := ‖∂(g_1 − g_2)‖ + ‖g_1 − g_2‖ + (∫ (‖δp_α‖² + ‖δΘ_α‖² + ‖δq_α‖²) dα)^(1/2)
+the inequality 𝒩̃(τ) ≤ C (𝒩̃(τ0) + ∫_(τ0)^τ 𝒩̃): the stress difference ∫ (δq_α p¹_α ⊗ p¹_α + q²_α (δp_α ⊗ p¹_α + p²_α ⊗
+δp_α)) dα, and likewise the difference of the terms Ric(P_α, P_α), is bounded in L² by C times the family part of 𝒩̃,
+by the Cauchy–Schwarz inequality on S¹; the transport estimates of Steps 5–7 hold for each α with constants uniform in α,
+the fields being smooth in α; the supports stay at distance at least δ from the axes by (V2) and [[lem:vlasov-open]],
+where ζ_α = 1. As 𝒩̃(τ0) = 0, Gronwall's lemma gives 𝒩̃ ≡ 0. ∎
 
 The explicit family is built on the orbit space of Tangherlini, where the eikonal equation separates. Let μ = 1, f :=
 1 − 1/r², m := 1/r², and let t := τ − κ(r) with κ′ = m/f be the static time on r > 1, so that g3 = −f dt² + f⁻¹dr² +
