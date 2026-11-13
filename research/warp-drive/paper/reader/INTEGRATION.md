@@ -1141,3 +1141,25 @@ Items found while chapters were written in parallel; each is settled once, editi
 - P-K83b done; R-P-K83b reading.
 - R-70b: chapter 70's multipliers and band, 0 Major, 2 minor, 8 nits; all 2,699 Morawetz and 503 band Bernstein
   coefficients and 242 text constants hold. F-70 fixes both readings (R-70a, R-70b).
+- R5-S04 CONFIRMED (chapter 23); n1 applied. Integration item: Appendix A (chapter 95, thm:std-sbg-calculus) needs
+  the (S15) entry, with (4.27), the "ad" sentence and Proposition 4.22 with (4.28), source line "(2.3), (2.5), (4.27),
+  (4.28)".
+- R4-S26 CONFIRMED (chapter 45), six nits for the integration pass (reviews/R4-S26.md). Chapter 46 items (46:646 "lies
+  in U″" reason; optional sentence in thm:iv3-2-1) sent to F3-S27. Chapter 48's two "κ̃ there" (R3's X1) still open.
+- R6-S19 CONFIRMED (chapters 28, 38), three optional nits (reviews/R6-S19.md).
+- R2-66 NOT CONFIRMED 1M 0m 3n. Major: cor:gd-r7-7 (b) applied cor:gd-r7-4 to data vanishing only outside a ball;
+  the gap is in the source too. The reader's repair (an extension of cor:gd-r7-4 by the domain of influence inside the
+  horizon) and its three nits are applied by the coordinator, with the crosswalk note. R3-66 reads the four edits.
+- F-84 done (reports/F-84.md); R2-84 reads it. The two chapter-85 sentences in the report go to chapter 85 after R-85.
+- R-P-U71-assembly NOT CONFIRMED 1M 8m 4n. FOR THE FINAL REPORT: the lower bound d_NM ≥ d_acc > 1.403·10²⁰ is
+  confirmed for every admissible choice. The source's upper bound of 4.62·10¹⁶ rests on weights that break two
+  conditions of the edition, ε_K < ε_Υ and the round increment ≤ ε_g − ε, so no admissible choice gives it; this
+  does not show the source miscounted at its own weights. No integer upper bound yet: ε_K is blocked on the undetermined
+  index sets (G); ϑ_in = 0 is provable; ℓ_tf = max(1, ⌈s − 1⌉) with s unfixed. F-P-U71-assembly repairs the texts.
+- Shell: from about 22:00 every sandboxed command longer than about 16 characters failed with E2BIG (a fixed ~128 KB
+  wrapper argument); bypassing the sandbox was refused. Commands now run as short scripts (sh ~/name.sh), inside the
+  sandbox.
+- F3-S27 done (reports/F3-S27.md): chapter 46's Major repaired (forward problem on 𝒟⁺, data on Σ^IVP only;
+  backward problem on 𝒦⁻), loss d = 4 and N_ex = 153 unchanged, smallness in H^10. Texts for chapter 48 (prop:viii-1-2
+  proof, uniqueness classes, (2), the lem:s29-g-on-n smoothness paragraph, "Up to Σ°", lines 128/133) and chapter 65
+  (c_1 := c_♮ and Q in item 5) are in the report; R4-S27 judges them before they are applied.

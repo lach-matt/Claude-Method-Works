@@ -850,8 +850,9 @@ commutator being uniformly of order −1 (Step 0 (c)). Hence
 
     ‖Ǎ_ε(R_2 + R_2^♭) w‖_(−½) ≤ C‖Op(g_0)Λ_ε w‖_(s′) + C‖w‖_(s′−½) ≤ C(X_ε + 𝒦),
 
-the last as ‖y‖_(s′) ≤ C(‖Op(ρ^(−s′))y‖ + ‖y‖_(−N′)), Op(ρ^(−s′)) being elliptic of order s′ ([[lem:ii-a-8-4]] (c)),
-and Op(ρ^(−s′))Op(g_0)Λ_ε − Op(ρ^(−s′)φ_εg_0) is uniformly of order s′ − 1. So ‖Ǎ_εP′v‖_(−½) ≤ C(X_ε + 𝒦). The term
+the last because ‖y‖_(s′) ≤ C(‖Op(ρ^(−s′))y‖ + ‖y‖_(−N′)), Op(ρ^(−s′)) being elliptic of order s′
+([[lem:ii-a-8-4]] (c)), and Op(ρ^(−s′))Op(g_0)Λ_ε − Op(ρ^(−s′)φ_εg_0) is uniformly of order s′ − 1. So
+‖Ǎ_εP′v‖_(−½) ≤ C(X_ε + 𝒦). The term
 R_2^♭ needs only the one order of (F1): it costs the norm of w at the order s′ near U(2δ_2), regularised, which is
 X_ε, and Step 4 bounds X_ε. (iii) E_ε = Op(e_ε)Φ_E with e_ε uniformly of order s′ + 1, and supp φ_E lies, near fibre
 infinity, in U(δ_2) ∩ ({|ϕ^u| ≥ δ_2/3} ∪ {ρ_K ≥ δ_2/3}) ⊂ 𝒜(δ_2). Let φ_k be a smooth localiser equal to 1 near
@@ -879,9 +880,10 @@ within distance 1 of ∓8, and m > 0 fixed by ∫Θ′ = 1, possible as the two 
     ψ_δ(y) := Θ(y/δ) ψ(y/δ_4)²,       χ̄ := ψ(ϕ^u/δ_4) ψ(ρ²G/δ_4) ψ(ρ_K/δ_4),
 
 ã := ρ^(−2s′−1) ψ_δ(ϕ^s) χ̄² and Ã := ½(Op(ã) + Op(ã)*). ψ_δ(ϕ^s)χ̄ is supported in U(δ_4) ∩ {ϕ^s ≥ −8δ}, where
-χ_1 = 1 and Ψ = 1. Let Φ_a := Op(φ_a), with φ_a a real smooth localiser equal to 1 near supp ã and supported, near fibre
-infinity, in the interior of U(2δ_4), and A_ε := Λ_ε Φ_a* Ã Φ_a Λ_ε, which is self-adjoint. As δ ≤ δ_4/16, ψ(y/δ_4) = 1 on supp Θ′(·/δ) ⊂ [−8δ, 8δ], and on supp ψ′(·/δ_4) ⊂ {½δ_4
-≤ |y| ≤ δ_4}, Θ(y/δ) is 1 for y > 0 and 0 for y < 0. Hence
+χ_1 = 1 and Ψ = 1. Let Φ_a := Op(φ_a), with φ_a a real smooth localiser equal to 1 near supp ã and supported, near
+fibre infinity, in the interior of U(2δ_4), and A_ε := Λ_ε Φ_a* Ã Φ_a Λ_ε, which is self-adjoint. As δ ≤ δ_4/16,
+ψ(y/δ_4) = 1 on supp Θ′(·/δ) ⊂ [−8δ, 8δ], and on supp ψ′(·/δ_4) ⊂ {½δ_4 ≤ |y| ≤ δ_4}, Θ(y/δ) is 1 for y > 0 and 0
+for y < 0. Hence
 
     ψ_δ′(y) = δ⁻¹ θ_Θ(y/δ)² − 2δ_4⁻¹ θ(y/δ_4)² 𝟙_(y>0).                                                    {#eq:ii-d-4-8}
 
@@ -939,7 +941,7 @@ Z^ε w, with ‖Z^ε w‖_(−½) ≤ C_δ‖w‖_(s′−½), gives |⟨Op(k_ε
     ‖B_δ^ε w‖² ≤ Cδ ((X_ε + 𝒦)‖Z^ε w‖ + ‖E_2^ε w‖² + ‖Z^ε w‖²) + C_δ𝒦X_ε + C_δ𝒦².                         {#eq:ii-d-4-11}
 
 This is the commutator form of [[eq:i-b-6-9]]: w is small near {ϕ^s = 0}, by the factor √δ, because Φ_u w is one
-order smoother than u (Step 1) and H_(ϕ^u) crosses {ϕ^s = 0} transversally, at the rate c_us.
+order smoother than w (Step 1) and H_(ϕ^u) crosses {ϕ^s = 0} transversally, at the rate c_us.
 
 *Step 3: propagation away from {ϕ^s = 0}.* Let R_3 := δ_3 := 16δ_2, and for t ≥ 0 let F(t) := Υ(t/δ) ψ(t/R_3) with
 Υ(τ) := Θ(32τ − 24): Υ = 0 on [0, ½], Υ = 1 on [1, ∞), and ΥΥ′ = 32(Θ̌θ_Θ)²(32τ − 24). Let χ̄_3 := ψ(ϕ^u/δ_3)
@@ -962,7 +964,7 @@ supported in {ρ_K ≥ δ_3/2}, and the factor in ρ²G a multiple of G. So [[eq
 Ψ_3 (Q_ε + 2βw_s)^(1/2), one b′-term ρ^(−s′) φ_ε |ϕ^s|^(−β) χ̄_3 b_3(|ϕ^s|), the e-term ρ^(−s′) φ_ε |ϕ^s|^(−β) χ̄_3
 e_3(|ϕ^s|), e-terms supported in {|ϕ^u| ≥ δ_3/2} ∪ {ρ_K ≥ δ_3/2}, and j_ε collecting the multiples of G. Let G‴ be an
 auxiliary operator elliptic on U(32δ_2) and microsupported in U(64δ_2), where φ^♯ = 1. By the localisation and (L1),
-‖G‴Pw‖_(s′) ≤ C(‖Φ^♯f‖_(s′) + ‖χu‖_(−N′)) ≤ C𝒦, and [[lem:ii-a-8-4]] (c) gives ‖Φ Pw‖_(s′) ≤ C(‖G‴Pw‖_(s′) +
+‖G‴Pw‖_(s′) ≤ C(‖Φ^♯f‖_(s′) + ‖χu‖_(−N′)) ≤ C𝒦, and [[lem:ii-a-8-4]] (c) gives ‖ΦPw‖_(s′) ≤ C(‖G‴Pw‖_(s′) +
 ‖Pw‖_(s′−5/2)) ≤ C𝒦 for every smooth Φ ∈ Ψ̃⁰ with WF′(Φ) ⊂ Ell(G‴). Take the localisers of [[lem:ii-d-2-3]] supported
 in the interior of U(16δ_2): φ_0 = 1 near supp Ψ_3, which contains the support of the e-term with e_3 and serves as its
 localiser, and, for the other e-terms, a localiser Φ_(E,3) equal to 1 near their supports and supported in
@@ -995,16 +997,17 @@ order s′ − 2. The symbol of B_δ^ε is at least (c_Θ c_Γ)^(1/2) ρ^(−s�
 𝒜(δ_2), which contains U(16δ_2) ∩ ({|ϕ^u| ≥ δ_4/4} ∪ {ρ_K ≥ δ_4/4}), and P is elliptic on {|ρ²G| ≥ δ_4/4}. A point of
 U(16δ_2) with |ϕ^s| ≥ δ and |ϕ^s|, |ϕ^u|, |ρ²G|, ρ_K ≤ 8δ_2 lies in 𝒰_M; one with |ϕ^s| < 2δ lies in 𝒰_B or has one
 of |ϕ^u|, ρ_K, |ρ²G| above δ_4/2. So these four sets cover, with room, U(8δ_2) and U(16δ_2) ∩ {|ϕ^s| ≤ δ}, and on each
-the corresponding symbol is bounded below independently of δ. Take e′, e″ smooth, with e′ = 1 on the third set and
-supported, near fibre infinity, in a compact subset of Ell(E′), and e″ = 1 on U(16δ_2) ∩ {|ρ²G| ≥ δ_4/4} and supported,
-near fibre infinity, in a compact subset of Ell(P) ∩ Ell(G‴). For e ∈ {e′, e″}, Op(ρ^(−s′)φ_εe) − Λ_εOp(ρ^(−s′)e) is
-uniformly of order s′ − 1, so ‖Op(ρ^(−s′)φ_εe)w‖ ≤ C‖Op(ρ^(−s′)e)w‖ + C‖w‖_(s′−1). By (L2), ‖Op(ρ^(−s′)e′)w‖ ≤ C𝒦.
+the corresponding symbol is bounded below independently of δ. For the last two sets take smooth e′, e″: e′ = 1 on
+U(16δ_2) ∩ ({|ϕ^u| ≥ δ_4/4} ∪ {ρ_K ≥ δ_4/4}) and supported, near fibre infinity, in a compact subset of Ell(E′); e″ = 1
+on U(16δ_2) ∩ {|ρ²G| ≥ δ_4/4} and supported, near fibre infinity, in a compact subset of Ell(P) ∩ Ell(G‴). For
+e ∈ {e′, e″}, Op(ρ^(−s′)φ_εe) − Λ_εOp(ρ^(−s′)e) is uniformly of order s′ − 1, so
+‖Op(ρ^(−s′)φ_εe)w‖ ≤ C‖Op(ρ^(−s′)e)w‖ + C‖w‖_(s′−1). By (L2), ‖Op(ρ^(−s′)e′)w‖ ≤ C𝒦.
 For e″, let Φ_P be an auxiliary operator equal to I microlocally near supp e″ at fibre infinity, with
 WF′(Φ_P) ⊂ Ell(P) ∩ Ell(G‴); Op(ρ^(−s′)e″)(I − Φ_P) is residual ([[lem:ii-a1-1-2]]), and [[thm:ii-a1-3-1]] gives
 ‖Φ_P w‖_(s′) ≤ C(‖G‴Pw‖_(s′−2) + ‖w‖_(−N′)) ≤ C𝒦; so ‖Op(ρ^(−s′)e″)w‖ ≤ C𝒦. Then [[lem:ii-d-2-5]] at w, with the
 localiser Φ_0 of Step 3 for the symbol of M^ε and I for the others, gives
 
-    ‖Op(ρ^(−s′) φ_ε z) w‖ ≤ C(𝒩_ε + 𝒦) + C_δ𝒦                                                              {#eq:ii-d-4-13}
+    ‖Op(ρ^(−s′) φ_ε z) w‖ ≤ C(𝒩_ε + 𝒦) + C_δ𝒦                                                             {#eq:ii-d-4-13}
 
 for every symbol z with |z| ≤ 1 supported in U(4δ_2), with C independent of δ; and, for z supported in U(16δ_2) ∩
 {|ϕ^s| ≤ δ}, which needs only 𝒰_B and the last two sets, the same with ‖B_δ^ε w‖ in place of 𝒩_ε. The first form

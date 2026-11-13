@@ -23,7 +23,7 @@ eq:hr-flat	docket68/n1star/GAUGEDECAY5.md:3345-3352	GD Lemma R7.2 proof (b), T3 
 eq:hr-far	docket68/n1star/GAUGEDECAY5.md:3345-3360; 3947-3960	GD Lemma R7.2 proof (b), T3, T12 ((A78))	identity E = (Pa) d psi + R derived and checked privately; coefficients printed
 thm:gd-r7-3	docket68/n1star/GAUGEDECAY5.md:3379-3391	GD Theorem R7.3	-
 eq:gd-r7-2	docket68/n1star/GAUGEDECAY5.md:3384-3385	GD (R7.2)	-
-cor:gd-r7-4	docket68/n1star/GAUGEDECAY5.md:3393-3411	GD Corollary R7.4	D7's value (L_W* g)_vr = -7/24 r_h^-3 derived by hand
+cor:gd-r7-4	docket68/n1star/GAUGEDECAY5.md:3393-3411	GD Corollary R7.4	D7's value (L_W* g)_vr = -7/24 r_h^-3 derived by hand; extended to data vanishing only outside a ball (domain of influence inside the horizon), as cor:gd-r7-7 (b) needs
 eq:gd-r7-3	docket68/n1star/GAUGEDECAY5.md:3397-3399	GD (R7.3)	-
 cor:hr-compact-rates	docket68/n1star/GAUGEDECAY5.md:2207-2223, 2805-2832, 3412-3416	GD (A33), (A34), (A49), (A54) and the paragraph after Corollary R7.4	the faster rates of Ch 15's cor:gd-r4-6, prop:gd-r2-13 (b) and cor:gd-r4-4's Y_h-clause
 sec:hr-l0	docket68/n1star/GAUGEDECAY5.md:3417-3530	GD R7.b	-

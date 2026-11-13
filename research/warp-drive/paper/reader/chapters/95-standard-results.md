@@ -907,10 +907,9 @@ T_r = χ(r⟨z⟩) Op(χ(⟨rζ⟩)), with χ ∈ C_c^∞(ℝⁿ) even, equal to
 records that one "can require T_r being uniformly bounded in Ψ^(0,0)_sc and T_r → Id in the operator topology of
 Ψ^(δ,δ)_sc".
 
-**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemma 3.24, Propositions 3.2–4.22, Remarks
-3.13–3.48, Theorems 3.21–3.52, (1.6), (3.2), (3.26), (3.28), (4.24a–b), pp. 2–75].) On a smooth manifold M of any
-dimension n, without boundary, the
-following hold.
+**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.24 and 3.42, Propositions 2.3–4.22,
+Remarks 3.13–3.48, Theorems 3.21–3.52, (1.6), (2.3), (2.5), (3.2), (3.26), (3.28), (4.24a–b), (4.27), (4.28),
+pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the following hold.
 
 (S1) Structures [Hin26d, Definitions 1.1 and 1.3, (1.6), pp. 2–6]. A bounded geometry structure is a countable set
 {(U_α, φ_α)} of diffeomorphisms φ_α : U_α → (−2, 2)ⁿ such that the U_α have finite multiplicity,
@@ -1030,6 +1029,27 @@ where π : 𝒱T*M → M is the base projection." The form (3.8) is (φ_α)_* P 
 such E and F "one defines wΨ^m_𝒱(M; E, F) as sums of matrices of quantizations of symbols of class wS^m in local charts
 and residual operators which are smoothing (in the sense of 𝒱-regularity and ρ-decay) between Sobolev spaces of
 sections of E, F. We leave the details to the interested reader."
+
+(S15) Compatible metric and truncation [Hin26d, Proposition 2.3 with (2.3) and (2.5), pp. 19–20; Lemma 3.42 and its
+proof, p. 51; p. 52; (4.27), p. 74; (4.28) and the proof of Proposition 4.22, p. 75]. Proposition 2.3: "There exists a
+metric d : M × M → [0, ∞) which is compatible with 𝓑 in the following sense: there exist constants δ_0 ∈ (0, 1) and
+C ≥ 1 so that (1) for all α ∈ 𝒜 and p, q ∈ U′_α := φ_α⁻¹((−3/2, 3/2)ⁿ), we have
+C⁻¹d(p, q) ≤ |φ_α(p) − φ_α(q)| ≤ Cd(p, q); (2.3) …". Its proof defines d by (2.5): d(p, q) is the infimum of
+L(γ, T, I) := Σ_i L(φ_(α_i) ∘ γ|_([t_i,t_(i+1)])) over the piecewise smooth curves γ : [0, 1] → M from p to q and the
+tuples 0 = t_0 < ⋯ < t_k = 1, (α_0, …, α_(k−1)) with γ|_([t_i,t_(i+1)]) smooth and contained in U_(α_i), L(β) being the
+Euclidean length of a curve β in (−2, 2)ⁿ; Lemma 3.42 writes it d_𝓑. Lemma 3.42 (Off-diagonal behavior of
+quantizations): "Let ϵ > 0, and let η ∈ C^∞_(uni,𝓑×𝓑)(M × M) be 1 in the ϵ-neighborhood
+{(p, q) ∈ M × M : d_𝓑(p, q) < ϵ} of the diagonal in M × M. Let w be a weight, and let a ∈ wS^m(𝒱T*M). With Op_𝒱(a)
+denoting the Schwartz kernel, we then have (1 − η) Op_𝒱(a) ∈ wρ^∞Ψ^(−∞)_𝒱(M)." Its proof treats the local kernels with
+the factor ψ(x′_α − x_α)(1 − η_0(x_α − x′_α)), η_0 ∈ C_c^∞(ℝⁿ) equal to 1 near 0. On p. 52: "by Lemma 3.42, we may
+furthermore localize the Schwartz kernels of such local quantizations to a neighborhood |x_α − x′_α| < ϵ for any fixed
+α-independent ϵ > 0." Under the spanning condition (4.25) of (S10), p. 74: "we shall write wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) for
+the space of all residual operators R ∈ wρ^∞Ψ^(−∞)_𝒱(M) in Definition 3.34 which satisfy the additional condition
+ad_(W_1) ⋯ ad_(W_k) R, ad_(W_1) ⋯ ad_(W_k) R* ∈ wρ^∞Ψ^(−∞)_𝒱(M) ∀ k ∈ ℕ, W_1, …, W_k ∈ 𝒲_[𝒱]" (4.27).
+Proposition 4.22 defines ρ^(−l) Ψ^m_(𝒱,[ ])(M) ⊂ ρ^(−l) Ψ^m_𝒱(M) (4.28) "as the space of operators of the form
+A = Op_𝒱(a) + R where a ∈ ρ^(−l) S^m(𝒱T*M) and R ∈ ρ^∞Ψ^(−∞)_(𝒱,[ ])(M)". In its proof (p. 75): "the conclusion in
+Proposition 3.39 can be strengthened to membership in wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) (which then implies an analogous
+strengthening of Lemma 3.42)."
 
 In [[thm:std-zero-calculus]], [[thm:std-mazzeo-melrose]] and [[cor:std-zero-sobolev]], n denotes the dimension of X,
 as in [Hin23e]. [Usu26] writes n + 1 for the dimension of X; accordingly its exponent −n − 1 is written −n here, also

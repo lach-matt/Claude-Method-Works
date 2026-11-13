@@ -11,15 +11,16 @@ The difficulty is one derivative. The density of a null dust is transported by t
 derivative below the metric, and the Raychaudhuri equation for the expansion holds the shear, again one derivative low.
 In the class the null second fundamental form of every invariant null hypersurface is diagonal, with two of its three
 entries of first order ([[prop:class-structure]]). So off the axes each family's Raychaudhuri equation closes on its
-expansion, and the Einstein–null-dust system, augmented by the expansions, is Cauchy-stable around any smooth solution
-whose dusts avoid the axes, with no smallness of the solution ([[thm:class-stability-off-axes]]). At an axis one entry
-becomes a second derivative ([[prop:class-axis]]). The quantity to be recovered there is the planar shear, the
-trace-free part of the second fundamental form of the family's level sets in the slice, and elliptic regularity of
-those level sets recovers it from the expansion with no loss ([[lem:class-planar-shear]]). With lateral boundaries
-adapted to the dusts where they meet an axis, the system is then Cauchy-stable with the dusts at the axes
-([[thm:class-stability]]), and the two-dust background of [[ch:two-dusts]], which is round, carries every small non-round
-perturbation on its whole adapted domain ([[cor:class-two-dust]]). The local theory needs Kato's iteration with a
-right side that is non-local in the planar directions ([[thm:class-kato]], [[thm:class-kato-stability]]).
+expansion, and the Einstein–null-dust system, augmented by the expansions, is Cauchy-stable around any smooth
+caustic-free solution whose dusts avoid the axes, with no smallness of the solution ([[thm:class-stability-off-axes]]).
+At an axis one entry becomes a second derivative ([[prop:class-axis]]). The quantity to be recovered there is the planar
+shear, the trace-free part of the second fundamental form of the family's level sets in the slice, and elliptic
+regularity of those level sets recovers it from the expansion with no loss ([[lem:class-planar-shear]]). With lateral
+boundaries adapted to the dusts where they meet an axis, the system is then Cauchy-stable with the dusts at the axes
+([[thm:class-stability]]), and the two-dust background of [[ch:two-dusts]], which is round, carries every small
+non-round perturbation on its whole adapted domain, provided its outgoing packet does not reach the inner sphere
+([[cor:class-two-dust]]). The local theory needs Kato's iteration with a right side that is non-local in the planar
+directions ([[lem:class-kato-linear]], [[thm:class-kato]], [[thm:class-kato-stability]], [[cor:class-kato-sphere]]).
 
 ### Null phases in the class {#sec:class-phases}
 
@@ -47,39 +48,43 @@ second claim, g0⁻¹ = η⁻¹ − (μ/r²) L0 ⊗ L0 with L0(τ) = 1 and L0(r)
 which vanishes exactly when β = α (a multiple of dv = dτ + dr) or when (1 − μ/r²) β + (1 + μ/r²) α = 0. ∎
 
 **Lemma {#lem:class-ellipse-phase}** (Non-radial phases.) Let α1, α2 > 0 with α1 ≠ α2, let E := {x ∈ R⁴ : ρ1²/α1² +
-ρ2²/α2² ≤ 1}, and let f(x) be the Euclidean distance from x to E. Then w := τ + f is a phase in the class on
+ρ2²/α2² ≤ 1}, and let d_E(x) be the Euclidean distance from x to E. Then w := τ + d_E is a phase in the class on
 R × (R⁴ ∖ E), an exact eikonal of Minkowski space, η⁻¹(dw, dw) = 0, whose rays are the straight lines normal to ∂E, and:
 
-(a) at every point of an axis, ∂_x f = x̂: the ray is radial;
-(b) at a point off the axes, ∂_x f and x̂ lie in the plane spanned by e_I := (x1, x2, 0, 0)/ρ1 and e_II :=
+(a) at every point of an axis, ∂_x d_E = x̂: the ray is radial;
+(b) at a point off the axes, ∂_x d_E and x̂ lie in the plane spanned by e_I := (x1, x2, 0, 0)/ρ1 and e_II :=
 (0, 0, x3, x4)/ρ2, and the angle β between them satisfies 0 < β < π/2;
 (c) for a dust q dw ⊗ dw with q > 0 at a point off the axes, the restriction of q dw ⊗ dw to the tangent space of the
-sphere {τ, |x| = r} through the point is q (∂_ϑ f)² dϑ ⊗ dϑ with ∂_ϑ f = ± r sin β ≠ 0; it is not a multiple of the
+sphere {τ, |x| = r} through the point is q (∂_ϑ d_E)² dϑ ⊗ dϑ with ∂_ϑ d_E = ± r sin β ≠ 0; it is not a multiple of the
 round metric, so q dw ⊗ dw is not the Ricci tensor of any metric invariant under O(4) near that point.
 
 *Proof.* E is compact and convex, and its boundary {ρ1²/α1² + ρ2²/α2² = 1} is a smooth ellipsoid of R⁴, strictly
 convex. For such a set the map (y, t) ↦ y + t n(y), y ∈ ∂E, t > 0, n the outer unit normal, is a diffeomorphism onto
-R⁴ ∖ E: it is onto and one-to-one because every exterior point has exactly one nearest point π(x) ∈ ∂E and x − π(x) is
-normal there; its differential is invertible because the derivative of n is the shape operator, positive definite for
-a strictly convex boundary. In these coordinates f = t, so f is smooth, ∂_x f = n(π(x)) and |∂_x f| = 1; hence
-η⁻¹(dw, dw) = −1 + |∂_x f|² = 0, and the rays of w are the normal lines. E is G-invariant, hence so is f.
+R⁴ ∖ E. It is onto: every exterior point x has a nearest point π(x) ∈ ∂E, and x − π(x) is an outer normal there. It
+is one-to-one: E lies on the inner side of the tangent hyperplane at each y ∈ ∂E, by convexity, so for x = y + t n(y)
+and z ∈ E, |x − z|² = t² + |y − z|² − 2t ⟨n(y), z − y⟩ ≥ t² + |y − z|², and y is the unique nearest point of x. Its
+differential is invertible because the derivative of n is the shape operator, positive definite for a strictly convex
+boundary. In these coordinates d_E = t, so d_E is smooth, ∂_x d_E = n(π(x)) and |∂_x d_E| = 1; hence η⁻¹(dw, dw) =
+−1 + |∂_x d_E|² = 0, and the rays of w are the normal lines. E is G-invariant, hence so is d_E.
 
-(a) By [[lem:class-phase-axis]], ∂_x f = ± x̂ at an axis point, and the sign is + since f increases along x̂: on axis 2
-the nearest point of E is α1 x̂ (respectively α2 x̂ on axis 1) and x lies beyond it.
+(a) By [[lem:class-phase-axis]], ∂_x d_E = ± x̂ at an axis point, and the sign is + since d_E increases along x̂: on
+axis 2 the nearest point of E is α1 x̂ (respectively α2 x̂ on axis 1) and x lies beyond it.
 
-(b) The argument of [[lem:class-phase-axis]], applied in each plane, shows that the two components of ∂_x f are
-parallel to e_I and e_II. In the basis (e_I, e_II) the point is (ρ1, ρ2) with ρ1, ρ2 > 0, its nearest point on the
-ellipse is y = (α1 cos t, α2 sin t) with 0 < t < π/2, and the normal there is n ∝ (α2 cos t, α1 sin t). The polar
-angles of y and n are arctan((α2/α1) tan t) and arctan((α1/α2) tan t), which differ since α1 ≠ α2, and both lie in
-(0, π/2). The point y + f n is a combination of y and n with positive coefficients, so its angle lies strictly between
-theirs. Hence 0 < β < π/2.
+(b) The argument of [[lem:class-phase-axis]], applied in each plane, shows that the two components of ∂_x d_E are
+parallel to e_I and e_II. In the basis (e_I, e_II) the point is (ρ1, ρ2) with ρ1, ρ2 > 0, and its nearest point on
+the ellipse is y = (α1 cos t, α2 sin t) with 0 < t < π/2: changing the signs of the coordinates of a point of the
+ellipse to those of (ρ1, ρ2) does not increase its distance, so 0 ≤ t ≤ π/2, and at t = 0 or π/2 the normal is
+along a coordinate axis, so that the point y + d_E n would lie on an axis. The normal at y is n ∝ (α2 cos t, α1 sin
+t). The polar angles of y and n are arctan((α2/α1) tan t) and arctan((α1/α2) tan t), which differ since α1 ≠ α2, and
+both lie in (0, π/2). The point y + d_E n is a combination of y and n with positive coefficients, so its angle lies
+strictly between theirs. Hence 0 < β < π/2.
 
-(c) Since w is invariant, dw has no dφ_i components, and on the sphere dw = ∂_ϑ f dϑ. With x = r (c e_I + s e_II),
-∂_ϑ x = r (−s e_I + c e_II), a vector of length r orthogonal to x̂ in the plane of (b), so ∂_ϑ f = ∂_x f · ∂_ϑ x = ± r
+(c) Since w is invariant, dw has no dφ_i components, and on the sphere dw = ∂_ϑ d_E dϑ. With x = r (c e_I + s e_II), ∂_ϑ
+x = r (−s e_I + c e_II), a vector of length r orthogonal to x̂ in the plane of (b), so ∂_ϑ d_E = ∂_x d_E · ∂_ϑ x = ± r
 sin β. The tangent space of the sphere is spanned by ∂_ϑ, ∂_(φ1), ∂_(φ2), on which q dw ⊗ dw has the single nonzero
-entry q (∂_ϑ f)². For a metric invariant under O(4), whose isotropy group at a point of a sphere acts irreducibly on the
-tangent space of the sphere, the restriction of every invariant symmetric tensor to that tangent space is a multiple of
-the round metric dϑ² + c² dφ1² + s² dφ2², which has nonzero φφ entries. ∎
+entry q (∂_ϑ d_E)². For a metric invariant under O(4), whose isotropy group at a point of a sphere acts irreducibly on
+the tangent space of the sphere, the restriction of every invariant symmetric tensor to that tangent space is a multiple
+of the round metric dϑ² + c² dφ1² + s² dφ2², which has nonzero φφ entries. ∎
 
 So families with non-radial phases carry a stress that is not round: their background is a G-invariant solution that
 is not invariant under O(4), a problem on the three-dimensional orbit space with the axes as boundary. The next
@@ -91,8 +96,10 @@ dw), as in [[eq:two-dust-symbol]].
 points at distance d > 0 from E, β/ϑ → |α1² − α2²|/(α2² + d α1) as the point approaches axis 2 (for α1 = 1/2, α2 =
 1/3 and d = 3/2 the limit is 5/31), and near axis 1 the same holds with α1 and α2 exchanged
 and ϑ replaced by π/2 − ϑ. Hence η⁻¹(dv, dw) = −β²/2 + O(β⁴) vanishes like ϑ² at the axes, the mixed symbol is a
-small divisor there, and {v, w} is not angularly separated in the sense of [HL18, Definition 4.1, p. 10] (quoted in
-[[ch:introduction]]): the quotient (∂_x v · ∂_x w)/(|∂_x v| |∂_x w|) = cos β tends to 1 at the axes.
+small divisor there, and {v, w} is not angularly separated in the sense of [HL18, Definition 4.1, p. 10], "we say
+that the set of eikonal functions {u_A}_(A∈A) is angularly separated if there exists η′ ∈ (0, 1) such that δ^(ij)
+(∂_i u_A1)(∂_j u_A2) / (|∇u_A1||∇u_A2|) (t, x) < 1 − η′, ∀(t, x) ∈ I × R², ∀A1 ≠ A2": the quotient (∂_x v · ∂_x
+w)/(|∂_x v| |∂_x w|) = cos β tends to 1 at the axes.
 (b) The radial pair v and τ − r satisfies η⁻¹(dv, d(τ − r)) = −2 everywhere.
 (c) Let u_A, u_B be null phases in the class for g0 of [[eq:background]]. At an axis point where both gradients are
 parallel to dv, or both to the outgoing covector of [[lem:class-phase-axis]], g0⁻¹(du_A, du_B) = 0, so the leading
@@ -102,21 +109,27 @@ axes, at most two are angularly separated in the class: at each axis point one i
 (Σ_A n_A f_A′(v)) dv, so every harmonic has leading symbol 0, and such families form one family with a multi-frequency
 profile.
 
-*Proof.* (a) η⁻¹(dτ + dr, dτ + df) = −1 + x̂·∂_x f = −1 + cos β, and β = 0 at the axes by [[lem:class-ellipse-phase]]
+*Proof.* (a) η⁻¹(dτ + dr, dτ + dd_E) = −1 + x̂·∂_x d_E = −1 + cos β, and β = 0 at the axes by [[lem:class-ellipse-phase]]
 (a). In the plane of [[lem:class-ellipse-phase]] (b) let the foot point be y(t) = (α1 cos t, α2 sin t) and the unit
 normal n̂(t) = (α2 cos t, α1 sin t)/(α2² cos² t + α1² sin² t)^(1/2), so that y(t) = (α1, α2 t) + O(t²) and n̂(t) =
 (1, (α1/α2) t) + O(t²) as t → 0. The point p(t) = y(t) + d n̂(t) = (α1 + d, (α2 + d α1/α2) t) + O(t²) has polar angle
 ϑ = t (α2² + d α1)/(α2 (α1 + d)) + O(t²), and the ray's angle is arctan((α1/α2) tan t) = (α1/α2) t + O(t³). Hence β =
 t |α1² − α2²|/(α2 (α1 + d)) + O(t²) and β/ϑ → |α1² − α2²|/(α2² + d α1); at α1 = 1/2, α2 = 1/3, d = 3/2 this is
 (5/36)/(31/36). Near axis 1 exchange the roles of the two planes. Then cos β − 1 = −β²/2 + O(β⁴). Since ∂_x v = x̂ and
-∂_x w = ∂_x f are unit vectors, the quotient of [HL18, Definition 4.1] is cos β.
+∂_x w = ∂_x d_E are unit vectors, the quotient of [HL18, Definition 4.1] is cos β.
 (b) η⁻¹(dτ + dr, dτ − dr) = −1 − 1.
 (c) Both gradients are multiples of one null covector, so their contraction is a multiple of its square, which is 0.
-If both families have densities that do not vanish at an axis point, their separation would have to hold there.
+If both families have densities that do not vanish at an axis point, their separation would have to hold there. By
+[[lem:class-phase-axis]] the gradient of each phase at an axis point is a multiple of dv or of the outgoing covector;
+so of three families with densities nonzero at an axis point, two have gradients that are multiples of the same
+covector there, with signs fixed by their time orientation du(∂_τ) > 0, and their quotient of [HL18, Definition 4.1]
+is 1 there. At most two families are therefore separated at each axis point, one with gradient a multiple of dv and
+one with gradient a multiple of the outgoing covector.
 (d) d(Σ n_A f_A(v)) = (Σ n_A f_A′) dv and g⁻¹(dv, dv) = 0. ∎
 
-At an axis point the gradient of a phase normalised by du(∂_τ) > 0 is a positive multiple of dv or of the outgoing
-covector, so in (c) the quotient of [HL18, Definition 4.1] equals 1 for two families of one orientation. With densities
+At an axis point the gradient of a phase normalised by du(∂_τ) > 0 is a multiple of dv or of the outgoing covector, with
+the sign fixed by du(∂_τ) > 0 (the dτ-component 1 − μ/r² of the outgoing covector is negative where r² < μ, which Ω
+reaches); so in (c) the quotient of [HL18, Definition 4.1] equals 1 for two families of one orientation. With densities
 that vanish near the axes, separation is needed only on the overlaps of the supports, and any finite number of separated
 families is possible, for instance non-radial phases of different ellipsoids supported away from the axes.
 
@@ -142,8 +155,9 @@ first derivatives of u_A and g, away from the axes.
 
 ### The class structure {#sec:class-structure}
 
-Off the axes write a class metric as in [[eq:class-metric]], g = h + e^(2ψ1) dφ1² + e^(2ψ2) dφ2², with h := g3 the
-orbit metric and ψ1 := A, ψ2 := B, so that e^(2ψ_i) = g(K_i, K_i). For a phase u in the class put P := g⁻¹du,
+Off the axes write a class metric as in [[eq:class-metric]], g = g3 + e^(2ψ1) dφ1² + e^(2ψ2) dφ2², with g3 the
+orbit metric and ψ1, ψ2 the functions written A, B in [[eq:class-metric]] (here A and B index the families), so
+that e^(2ψ_i) = g(K_i, K_i). For a phase u in the class put P := g⁻¹du,
 
     κ_i := g⁻¹(du, dψ_i) = P(ψ_i),      e_i := e^(−ψ_i) K_i      (i = 1, 2).
 
@@ -177,46 +191,46 @@ So the first-order character of κ_i is algebraic, through (a), and not dynamica
 driven by curvature. This is why it can degenerate, and at the axes it does ([[prop:class-axis]]).
 
 *Proof.* (a) By the proof of [[lem:warped-ricci]], the Christoffel symbols of g with an index φ_i are Γ^a_(φiφi) =
-−e^(2ψ_i) ∇^a ψ_i (∇ of h) and Γ^(φi)_(aφi) = ∂_a ψ_i, and all others with an index φ_i vanish. As u does not depend on
+−e^(2ψ_i) ∇^a ψ_i (∇ of g3) and Γ^(φi)_(aφi) = ∂_a ψ_i, and all others with an index φ_i vanish. As u does not depend on
 φ1, φ2: ∇²u(∂_a, ∂_(φi)) = −Γ^(φi)_(aφi) ∂_(φi) u = 0; ∇²u(∂_(φ1), ∂_(φ2)) = −Γ^μ_(φ1φ2) ∂_μ u = 0; and ∇²u(∂_(φi),
-∂_(φi)) = −Γ^a_(φiφi) ∂_a u = e^(2ψ_i) h^(ab) ∂_a u ∂_b ψ_i = e^(2ψ_i) κ_i, since neither du nor dψ_i has a dφ
+∂_(φi)) = −Γ^a_(φiφi) ∂_a u = e^(2ψ_i) g3^(ab) ∂_a u ∂_b ψ_i = e^(2ψ_i) κ_i, since neither du nor dψ_i has a dφ
 component and g⁻¹ is block diagonal. Then g(∇_(K_i) P, X) = ∇²u(K_i, X) = κ_i g(K_i, X) for every X.
 
-(b) Put N := g⁻¹(du, du). As ∇g = 0, dN = 2 ∇²u(P, ·), so N = 0 and dN = 0 at the point give ∇²u(P, ·) = 0. With
+(b) Put ν := g⁻¹(du, du). As ∇g = 0, dν = 2 ∇²u(P, ·), so ν = 0 and dν = 0 at the point give ∇²u(P, ·) = 0. With
 (e_α) an orthonormal frame of the screen, g⁻¹ = −P ⊗ L̄ − L̄ ⊗ P + Σ_α e_α ⊗ e_α. Contracting, □_g u = −2 ∇²u(P, L̄) +
 Σ_α χ(e_α, e_α) = tr χ, and in |∇²u|² = g^(ac) g^(bd) ∇²u_ab ∇²u_cd every term with a factor P puts P into a slot of
 ∇²u and vanishes, leaving Σ_(α,β) χ(e_α, e_β)². The covector du has no dφ components, so P is tangent to the orbit
-space, and g(P, K_i) = du(K_i) = 0. The orbit metric h is Lorentzian of dimension 3 and P is null for it; take L̄ null
+space, and g(P, K_i) = du(K_i) = 0. The orbit metric g3 is Lorentzian of dimension 3 and P is null for it; take L̄ null
 in the orbit space with g(P, L̄) = −1 and e_h a unit vector of the orbit space orthogonal to P and L̄. Then (e_h, e1, e2)
 is an orthonormal frame of the screen, by (a) χ(e_h, e_i) = 0, χ(e1, e2) = 0 and χ(e_i, e_i) = κ_i, and tr χ = □_g u
 gives χ(e_h, e_h) = □_g u − κ1 − κ2. Summing the squares gives [[eq:class-identity]].
 
-(c) Write u_a := ∂_a u. Then ½ □_g N = ∇^b(u^a ∇_b u_a) = |∇²u|² + u^a ∇^b∇_b u_a, and ∇^b∇_b u_a = ∇^b∇_a u_b =
+(c) Write u_a := ∂_a u. Then ½ □_g ν = ∇^b(u^a ∇_b u_a) = |∇²u|² + u^a ∇^b∇_b u_a, and ∇^b∇_b u_a = ∇^b∇_a u_b =
 ∇_a ∇^b u_b + Ric_ab u^b, by the commutation rule ∇_b∇_a X^b − ∇_a∇_b X^b = Ric_ab X^b. Hence
 
-    ½ □_g N = |∇²u|² + P(□_g u) + Ric(P, P).
+    ½ □_g ν = |∇²u|² + P(□_g u) + Ric(P, P).
 
-If N ≡ 0 the left side vanishes and P(Θ) = −|∇²u|² − Ric(P, P), which with (b) is [[eq:class-raychaudhuri]]. For a class
+If ν ≡ 0 the left side vanishes and P(Θ) = −|∇²u|² − Ric(P, P), which with (b) is [[eq:class-raychaudhuri]]. For a class
 solution, Ric(P_A, P_A) = Σ_B q_B (du_B(P_A))² = Σ_B q_B g⁻¹(du_A, du_B)², and ψ_i = ½ log g(K_i, K_i) is a smooth
 function of the metric's components off the axes.
 
-(d) N ≡ 0 gives ∇_P P = g⁻¹∇²u(P, ·) = ½ g⁻¹dN = 0. So P(κ_i) = P(P(ψ_i)) = ∇²ψ_i(P, P) + (∇_P P)(ψ_i) = ∇²ψ_i(P, P).
+(d) ν ≡ 0 gives ∇_P P = g⁻¹∇²u(P, ·) = ½ g⁻¹dν = 0. So P(κ_i) = P(P(ψ_i)) = ∇²ψ_i(P, P) + (∇_P P)(ψ_i) = ∇²ψ_i(P, P).
 The flow of K_i preserves g and u, hence P, so [P, K_i] = 0 and ∇_P K_i = ∇_(K_i) P = κ_i K_i by (a). Then
 
     R(P, K_i) P = ∇_P ∇_(K_i) P − ∇_(K_i) ∇_P P − ∇_([P, K_i]) P = ∇_P (κ_i K_i) = (P(κ_i) + κ_i²) K_i,
 
 and dividing g(R(P, K_i) P, K_i) by g(K_i, K_i) = e^(2ψ_i) gives the second equality. ∎
 
-**Remark {#rem:class-polarised}** (The polarised U(1) case.) In the 2 + 1 quotient of Huneau and Luk the null
-hypersurfaces have one-dimensional sections, so their null second fundamental form is a scalar without shear, and the
-Raychaudhuri equation closes on it: "L_A(χ) + χ² = −R_(L_A L_A) = −(L_A ϕ)² − e^(−4ϕ)(L_A ϖ)²" [HL25, (6.31), p. 22],
-in their notation. [[prop:class-structure]] is the five-dimensional class version of that structure: the two torus
+**Remark {#rem:class-polarised}** (The 2 + 1 quotient of Huneau and Luk.) In the 2 + 1 quotient of Huneau and Luk the
+null hypersurfaces have one-dimensional sections, so their null second fundamental form is a scalar without shear, and
+the Raychaudhuri equation closes on it: "L_A(χ) + χ² = −R_(L_A L_A) = −(L_A ϕ)² − e^(−4ϕ)(L_A ϖ)²" [HL25, (6.31), p.
+22], in their notation. [[prop:class-structure]] is the five-dimensional class version of that structure: the two torus
 directions add principal curvatures of first order, and the one orbit direction carries the whole expansion. It holds
 where the T² action is free. Their symmetry has no fixed points: φ and g are viewed as functions on I × R³ "which do not
 depend on the variable x³" [HL18, p. 3, footnote 5]. Their local theory assumes "‖φ̇‖_(L∞) + ‖∇φ‖_(L∞) + max_A
 ‖F̆_A‖_(L∞) ≤ ε, (3.17)" [HL18, Theorem 3.3, p. 9], a smallness of the dust in L^∞, while "the smallness is not needed
-for the higher norms" (p. 9); and in [HL25] "local existence in the elliptic gauge requires a smallness assumption"
-(p. 4). They use the Raychaudhuri equation for a gain in the wavelength: "To obtain this improvement, we use the
+for the higher norms" (p. 9); and in [HL25] "local existence in the elliptic gauge requires a smallness assumption" (p.
+4). They use the Raychaudhuri equation for a gain in the wavelength: "To obtain this improvement, we use the
 Raychaudhuri equation that χ_A satisfies" [HL25, pp. 4–5].
 
 ### The augmented system {#sec:class-augmented}
@@ -224,7 +238,8 @@ Raychaudhuri equation that χ_A satisfies" [HL25, pp. 4–5].
 **Definition {#def:class-admissible}** (Admissible domains.) Let g̊ be a smooth G-invariant Lorentzian metric on a
 neighbourhood of a compact set Ω ⊂ R × (R⁴ ∖ {0}). Ω is *admissible* for g̊ if Ω = ⋃_(τ0 ≤ τ ≤ τ1) {τ} × Σ_τ, where
 each Σ_τ is a G-invariant compact domain of R⁴ ∖ {0} with smooth boundary, the image of the annulus {1 ≤ |x| ≤ 2}
-under a diffeomorphism depending smoothly on τ with all derivatives bounded uniformly in τ, and:
+under a diffeomorphism ψ_τ of R⁴, smooth in (τ, x), equal to the identity outside a compact set, with every derivative
+of positive order of ψ_τ and ψ_τ⁻¹ bounded uniformly in τ, and:
 
 (a) dτ is timelike for g̊ on Ω, so every Σ_τ is spacelike;
 (b) each lateral boundary component, the hypersurface swept by one component of ∂Σ_τ, is spacelike for g̊ with Ω to
@@ -235,8 +250,13 @@ its past: future causal vectors at its points do not point into Ω;
 The domain Ω of [[eq:omega]] is admissible for g0 by [[lem:domain]] (a)–(c), (e), and the domain Ω₂ of
 [[eq:two-dust-omega]] is admissible for the two-dust background by [[lem:two-dust-domain]] (a)–(c), (e). The slices are
 connected and simply connected, and the Sobolev inequality of [[lem:sobolev]] holds on them with a constant independent
-of τ, by its proof. The energy inequality [[lem:energy]] holds on an admissible domain with g̊ in place of g0, since
-its proof uses only (a)–(c).
+of τ, by its proof. The energy inequality [[lem:energy]] holds on an admissible domain with g̊ in place of g0. Its proof
+uses (a)–(c) for the derivative part; for the norm ‖u‖, whose boundary term there uses the annular slices, add |u|² Y to
+the energy current J. In the coordinate density ∂_a(|u|² Y^a) = 2u Y(u) + |u|² ∂_a Y^a, bounded by C (|u| |∂u| + |u|²);
+its flux through Σ_τ is ∫ |u|² dτ(Y), comparable to ‖u‖² since dτ(Y) = −g̃⁻¹(dτ, dτ) is bounded above and below; and its
+flux through a lateral boundary component {F = 0}, with Ω ⊂ {F ≤ 0} and dF positive on future timelike vectors, is the
+integral of |u|² dF(Y) times a positive density, nonnegative because Y is future timelike. So the energy ‖∂u‖² + ‖u‖²
+obeys the same Gronwall inequality.
 
 Let ů = (g̊, ů_A, q̊_A), A = 1, …, N_f, be a class solution on a neighbourhood of a domain Ω admissible for g̊, with
 dů_A ≠ 0 on Ω. Replacing ů_A by −ů_A where needed (which changes nothing in [[eq:class-system]]), every P̊_A := g̊⁻¹dů_A
@@ -268,8 +288,8 @@ every right side is controlled at order k, and the loop closes. Each of three va
 transport P_A(q_A) = −(div_g P_A) q_A in place of (Aug4), whose right side holds ∂p_A; the general Raychaudhuri right
 side −|∇²u_A|², which holds ∂p_A; and S_A at an axis point, where κ_A2 is of the order of ∂p_A ([[prop:class-axis]] (b)).
 
-(b) (The phase.) P_A(ν_A) = 2 g⁻¹(p_A, ∇_(P_A) p_A), ∇_(P_A) p_A = ½ dν_A + ι_(P_A) dp_A, and ℒ_(P_A)(dp_A) =
-d(ι_(P_A) dp_A), with ι_P ω := ω(P, ·). So under (Aug2) ν_A is constant along P_A, and where ν_A ≡ 0, dp_A is
+(b) (The phase.) P_A(ν_A) = 2 g⁻¹(p_A, ∇_(P_A) p_A), ∇_(P_A) p_A = ½ dν_A + i_(P_A) dp_A, and ℒ_(P_A)(dp_A) =
+d(i_(P_A) dp_A), with i_P ω := ω(P, ·). So under (Aug2) ν_A is constant along P_A, and where ν_A ≡ 0, dp_A is
 Lie-transported along P_A.
 
 (c) (The stress.) div_g T = Σ_A ((P_A(q_A) + q_A div_g P_A) p_A + q_A ∇_(P_A) p_A) and tr_g T = Σ_A q_A ν_A; under
@@ -293,22 +313,23 @@ first-order form with time τ, the speed P_A^i ξ_i/P_A^τ of the transport meet
 speed of another family on hyperplanes of ξ. So condition (A4) of [DS23] ([[thm:std-ds-existence]]), that distinct
 eigenvalues of the symbol never meet, fails for the augmented system.
 
-*Proof.* (a) S_A is a polynomial in Θ_A, κ_Ai, q_B and g⁻¹(p_A, p_B), and κ_Ai = g⁻¹(p_A, dψ_i) holds dψ_i =
-½ d g(K_i, K_i)/g(K_i, K_i), a smooth function of (g, dg) where g(K_i, K_i) > 0, in particular on supp ζ_A; the right
-side of (Aug2) holds Γ[g], of (Aug4) Θ_A q_A; and the lower-order part Q of Ric^H is quadratic in dg by [[eq:gauge]]. The
-three variants hold div_g P_A, |∇²u_A|² and ∂²u_A respectively, each one derivative above p_A.
+*Proof.* (a) S_A is a polynomial in Θ_A, κ_Ai, q_B and g⁻¹(p_A, p_B), and κ_Ai = g⁻¹(p_A, dψ_i) holds dψ_i = ½ d g(K_i,
+K_i)/g(K_i, K_i), a smooth function of (g, dg) where g(K_i, K_i) > 0, in particular on supp ζ_A; the right side of
+(Aug2) holds Γ[g], of (Aug4) Θ_A q_A; and the lower-order part Q of Ric^H is a polynomial of degree two in dg, with
+linear and constant parts, by [[eq:gauge]]. The three variants hold div_g P_A, |∇²u_A|² and ∂²u_A respectively, each one
+derivative above p_A.
 
 (b) P_A(ν_A) = 2 g^(ab) p_(A,a) ∇_(P_A) p_(A,b) since ∇g = 0. For a covector p, P^b ∇_b p_a = P^b ∇_a p_b + P^b
 (∇_b p_a − ∇_a p_b) = ½ ∂_a (g^(bc) p_b p_c) + P^b (dp)_(ba), with (dp)_(ba) := ∂_b p_a − ∂_a p_b. Cartan's formula
-ℒ_P = d ι_P + ι_P d and d(dp) = 0 give the third identity. Under (Aug2) the first gives P_A(ν_A) = 0; where ν_A ≡ 0, the
-second gives ι_(P_A) dp_A = 0, and then ℒ_(P_A)(dp_A) = 0.
+ℒ_P = d i_P + i_P d and d(dp) = 0 give the third identity. Under (Aug2) the first gives P_A(ν_A) = 0; where ν_A ≡ 0, the
+second gives i_(P_A) dp_A = 0, and then ℒ_(P_A)(dp_A) = 0.
 
 (c) ∇^a(q p_a p_b) = P(q) p_b + q (∇^a p_a) p_b + q p_a ∇^a p_b, and p_a ∇^a p_b = (∇_P p)_b; tr_g T = Σ q_A
 g⁻¹(p_A, p_A). Under (Aug2) and (Aug4), the coefficient of p_A is −Θ_A q_A + q_A div_g P_A = −Δ_A q_A.
 
-(d) Put θ̃ := div_g P_A = □_g u_A. Where ζ_A = 1, (Aug3) reads P_A(Θ_A) = −(Θ_A − κ1 − κ2)² − κ1² − κ2² − T(P_A, P_A),
-since T(P_A, P_A) = Σ_B q_B (p_B(P_A))² = Σ_B q_B g⁻¹(p_A, p_B)² (κ_i := κ_Ai). [[eq:class-raychaudhuri]] gives P_A(θ̃) =
-−(θ̃ − κ1 − κ2)² − κ1² − κ2² − Ric(g)(P_A, P_A). Subtracting, P_A(Δ_A) = −(Θ_A − θ̃)(Θ_A + θ̃ − 2κ1 − 2κ2) − (T −
+(d) Put Θ̃ := div_g P_A = □_g u_A. Where ζ_A = 1, (Aug3) reads P_A(Θ_A) = −(Θ_A − κ1 − κ2)² − κ1² − κ2² − T(P_A, P_A),
+since T(P_A, P_A) = Σ_B q_B (p_B(P_A))² = Σ_B q_B g⁻¹(p_A, p_B)² (κ_i := κ_Ai). [[eq:class-raychaudhuri]] gives P_A(Θ̃) =
+−(Θ̃ − κ1 − κ2)² − κ1² − κ2² − Ric(g)(P_A, P_A). Subtracting, P_A(Δ_A) = −(Θ_A − Θ̃)(Θ_A + Θ̃ − 2κ1 − 2κ2) − (T −
 Ric(g))(P_A, P_A).
 
 (e) As in the proof of [[lem:gauge-propagation]], (Aug1) reads Ric(g) = T + ½(∇_m D_n + ∇_n D_m) + L_mn. Put E :=
@@ -322,14 +343,15 @@ eigenvalues, as in Step 8 of [[sec:ue-existence]]. ∎
 
 **Lemma {#lem:class-speeds}** (Speeds on the two-dust background.) Let g0 be the two-dust background of
 [[prop:two-dust-background]] in the chart (τ, R, angles) of [[lem:two-dust-domain]], with v̂ = v, τ = v − R and ψ the
-function of [[eq:two-dust-chart]], and f = 1 − μ/R². Every future causal vector Y with dτ(Y) = 1 satisfies
+function of [[eq:two-dust-chart]], and f = 1 − μ/R² of [[eq:two-dust-mass]]. At every point of Ω₂, every future causal
+vector Y with dτ(Y) = 1 satisfies
 
     R² |Ω̇|² ≤ e^ψ/(2 − e^ψ f) ≤ 1,      dR(Y) ∈ [−1, e^ψ f/(2 − e^ψ f)] ⊂ [−1, 1],
 
 where |Ω̇| is the length of the angular part of Y in the unit round metric; the upper end of the interval is negative
 where f < 0, and 1 − e^ψ/(2 − e^ψ f) = (2 − e^ψ (1 + f))/(2 − e^ψ f).
 
-*Proof.* Put E := e^ψ and x := dR(Y). On G, ψ ≤ 0 (proof of [[lem:two-dust-domain]]) and μ ≥ μ0 > 0
+*Proof.* Put E := e^ψ and x := dR(Y). On Ω₂, ψ ≤ 0 (proof of [[lem:two-dust-domain]]) and μ ≥ μ0 > 0
 ([[prop:two-dust-background]] (b)), so 0 < E ≤ 1, f ≤ 1 and E f ≤ 1. By [[eq:two-dust-chart]] with dv̂(Y) = 1 + x,
 
     g0(Y, Y) = −E² f (1 + x)² + 2E (1 + x) x + R² |Ω̇|²,
@@ -339,9 +361,9 @@ E (E f − 2) < 0 and roots x = −1 and x = E f/(2 − E f), so q ≥ 0 exactly
 and it is negative where f < 0. Its maximum, at x* = −(1 − E f)/(2 − E f) where 1 + x* = 1/(2 − E f), is q(x*) =
 (E² f + 2E (1 − E f))/(2 − E f)² = E/(2 − E f), and E/(2 − E f) ≤ 1 because E (1 + f) ≤ 2. ∎
 
-**Lemma {#lem:class-transport}** (Transport along a causal field.) Let Ω be admissible for g̊, g a Lorentzian metric with
-|g − g̊| ≤ ε1 on Ω, and P a C¹ vector field on Ω, future causal for g, with P(τ) ≥ c_P > 0 and |P| + |∂P| ≤ c_P⁻¹. Let
-P(φ) − c φ = f on Ω, with φ a function or an array and c a bounded function or matrix. Then
+**Lemma {#lem:class-transport}** (Transport along a causal field.) Let Ω be admissible for g̊, g a Lorentzian metric
+with |g − g̊| ≤ ε1 on Ω, and P a C¹ vector field on Ω, future causal for g, with P(τ) ≥ c_P > 0 and |P| + |∂P| ≤ c_P⁻¹.
+Let P(φ) − c φ = f on Ω, with φ a function or an array and c a bounded function or matrix. Then
 
     ‖φ(τ)‖ ≤ C (‖φ(τ0)‖ + ∫_(τ0)^τ ‖f(t)‖ dt),      ‖·‖ the flat L²(Σ_τ) norm,
 
@@ -356,107 +378,451 @@ c_P⁻¹. Gronwall's inequality concludes. ∎
 
 ### Kato's iteration with a non-local term {#sec:class-kato}
 
-Let d ≥ 1, let s > d/2 + 1 be an integer, and let A^0, A^1, …, A^d be smooth symmetric m × m matrix functions of
-(t, x, u) ∈ [0, T0] × R^d × R^m with A^0 ≥ c0 I, every derivative of which is bounded on [0, T0] × R^d × {|u| ≤ R} for
-every R. Let F map [0, T0] × H^s(R^d; R^m) to H^s(R^d; R^m) with:
+Let d ≥ 1, let s > d/2 + 1 be an integer, so s ≥ 2, and let A^0, A^1, …, A^d be smooth symmetric m × m matrix functions
+of (t, x, u) ∈ [0, T0] × R^d × R^m with A^0 ≥ c0 I, c0 > 0, every derivative of which is bounded on [0, T0] × R^d ×
+{|u| ≤ R} for every R. Norms without subscript and ⟨·, ·⟩ are those of L²(R^d). For an integer σ ≥ 0, H^σ := H^σ(R^d;
+R^m) carries the norm (Σ_(|α|≤σ) ‖∂^α u‖²)^(1/2); for real σ ≥ 0 we also use the norm ‖(1 + |ξ|²)^(σ/2) û‖ of
+[[eq:std-moser]], equivalent to the former for integer σ with constants depending on d and σ, and we write H^σ for
+either. Hölder's inequality in ξ gives, for 0 ≤ σ0 ≤ σ′ ≤ σ1 and σ′ = (1 − β) σ0 + β σ1,
 
-(K1) ‖F(t, u)‖_(H^s) ≤ C(M) for ‖u‖_(H^s) ≤ M;
-(K2) ‖F(t, u) − F(t, v)‖_(L²) ≤ L(M) ‖u − v‖_(L²) for ‖u‖_(H^s), ‖v‖_(H^s) ≤ M;
-(K3) t ↦ F(t, u(t)) is continuous into L² whenever u ∈ C([0, T]; L²) ∩ L^∞([0, T]; H^s).
+    ‖w‖_(H^(σ′)) ≤ ‖w‖_(H^(σ0))^(1−β) ‖w‖_(H^(σ1))^β,                                           {#eq:class-interpolation}
 
-Consider
+and the Cauchy–Schwarz inequality, ∫ |ŵ| dξ ≤ ‖(1 + |ξ|²)^(σ/2) ŵ‖ ‖(1 + |ξ|²)^(−σ/2)‖, gives ‖w‖_(L^∞) ≤ C ‖w‖_(H^σ)
+for σ > d/2 and ‖∂w‖_(L^∞) ≤ C ‖w‖_(H^σ) for σ > d/2 + 1. We fix C_S ≥ 1 with ‖w‖_(L^∞) ≤ C_S ‖w‖_(H^(s−1)) and
+‖w‖_(W^(1,∞)) ≤ C_S ‖w‖_(H^s).
 
-    A^0(t, x, u) ∂_t u + A^j(t, x, u) ∂_j u = F(t, u),      u(0) = u0.                            {#eq:class-kato-system}
+*Mollifiers.* Let φ ∈ C_c^∞(R^d) be even and nonnegative with integral one, φ_ε(x) := ε^(−d) φ(x/ε) and J_ε u := φ_ε ∗ u.
+J_ε is self-adjoint on L², commutes with every ∂^α, and does not increase the norms of L², L^∞ and H^σ; ‖∂_j J_ε u‖ ≤
+‖∂_j φ‖_(L¹) ε⁻¹ ‖u‖ by Young's inequality; and since |φ̂(εξ) − 1| ≤ min(2, ε |ξ| ∫ |z| φ(z) dz) ≤ C (ε |ξ|)^β for
+0 ≤ β ≤ 1, ‖J_ε u − u‖_(H^σ) ≤ C ε^β ‖u‖_(H^(σ+β)).
 
-The *domain version* concerns a compact domain Ω = ⋃_t {t} × Σ_t of the kind of [[def:class-admissible]] whose lateral
-boundaries are spacelike for the system: at each of their points, for the outward conormal ν (positive on vectors
-pointing out of Ω), the matrix ν_t A^0 + ν_j A^j is positive semidefinite. It assumes
+*Gronwall's inequality in the form used below.* If E ≥ 0 is Lipschitz on [0, T] and its upper right Dini derivative
+satisfies D⁺E ≤ 2a E + 2b E^(1/2) with a ≥ 0 constant and b ≥ 0 integrable, then E(t)^(1/2) ≤ e^(at) (E(0)^(1/2) +
+∫_0^t b). Indeed E is differentiable almost everywhere with E′ = D⁺E there, so for η > 0 the Lipschitz function
+(E + η)^(1/2) has derivative at most a (E + η)^(1/2) + b almost everywhere; Gronwall's inequality for it, and η → 0,
+give the bound.
 
-(K4) F(t, u) on Σ_t ∩ Ω depends only on u on Σ_t ∩ Ω, and (K1)–(K3) hold with every norm taken on Σ_t ∩ Ω.
+**Lemma {#lem:class-composition}** (Products and compositions.) Let σ ≥ 1 be an integer, and let Φ be a smooth
+function of (t, x, u) ∈ [0, T0] × R^d × R^m, with values in a space of matrices, every derivative of which is bounded
+on [0, T0] × R^d × {|u| ≤ R} for every R. Constants C(·) are increasing functions depending on d, σ and Φ.
 
-The linear problem used below is [[eq:class-kato-system]] with coefficients A^0(t, x, v(t, x)), A^j(t, x, v(t, x)) for a
-given v ∈ C([0, T]; L²) ∩ L^∞([0, T]; H^s) with ∂_t v ∈ L^∞([0, T]; H^(s−1)), and a given forcing term f ∈ C([0, T]; L²)
-∩ L^∞([0, T]; H^s): it has a unique solution w ∈ C([0, T]; L²) ∩ L^∞([0, T]; H^s) with ∂_t w ∈ L^∞([0, T]; H^(s−1)), for
-which the energy inequalities below hold [[pending:issue-1]].
+(a) For f_1, …, f_ℓ ∈ H^σ ∩ L^∞ and multi-indices α_1, …, α_ℓ with |α_1| + … + |α_ℓ| ≤ σ, every component product
+satisfies ‖∂^(α_1) f_1 ⋯ ∂^(α_ℓ) f_ℓ‖ ≤ C Σ_i ‖f_i‖_(H^σ) Π_(j≠i) ‖f_j‖_(L^∞), C depending on d, σ and ℓ.
+(b) For u ∈ H^σ ∩ L^∞, Φ(t, ·, u) − Φ(t, ·, 0) ∈ H^σ and ‖Φ(t, ·, u) − Φ(t, ·, 0)‖_(H^σ) ≤ C(‖u‖_(L^∞)) ‖u‖_(H^σ).
+(c) For u, y ∈ H^σ ∩ L^∞, ‖Φ(t, ·, u) y‖_(H^σ) ≤ C(‖u‖_(L^∞)) (‖y‖_(H^σ) + ‖u‖_(H^σ) ‖y‖_(L^∞)).
+(d) For u ∈ H^σ ∩ W^(1,∞), y ∈ H^(σ−1) ∩ L^∞ and |α| ≤ σ, ‖[∂^α, Φ(t, ·, u)] y‖ ≤ C(‖u‖_(W^(1,∞))) (‖y‖_(H^(σ−1)) +
+‖u‖_(H^σ) ‖y‖_(L^∞)).
 
-**Theorem {#thm:class-kato}** (Kato's iteration with a non-local term.) Under (K1)–(K3), for every u0 ∈ H^s there are
-T* > 0, depending only on ‖u0‖_(H^s), and a unique u ∈ L^∞([0, T*]; H^s) ∩ Lip([0, T*]; L²) solving
-[[eq:class-kato-system]]. The solution continues as long as ‖u(t)‖_(H^s) stays bounded. Under (K4) the same holds on a
-domain whose lateral boundaries are spacelike for the system, with every norm taken on Σ_t ∩ Ω, and the solution on Ω
-depends only on the data on Σ_0 ∩ Ω.
+The bounds hold uniformly in t, and in further parameters on which Φ depends smoothly over a compact set.
 
-*Proof.* Let C_1 bound |A^0| on [0, T0] × R^d × {|u| ≤ C_S ‖u0‖_(H^s)}, C_S the constant of Sobolev's embedding
-H^s ⊂ L^∞, and put M² := 2 C_1 ‖u0‖²_(H^s)/c0 + 1, which depends only on ‖u0‖_(H^s). Let u^0(t) := u0 and let u^(n+1)
-solve
+*Proof.* (a) Let k := |α_1| + … + |α_ℓ|. If k = 0 the product is at most ‖f_1‖ Π_(j≥2) ‖f_j‖_(L^∞). Let k ≥ 1 and let
+the f_i first be real Schwartz functions. The proof of [[thm:std-gn-moser]] (1), at the order k in place of s, shows
+max_(|γ|=j) ‖∂^γ f‖_(L^(2k/j)) ≤ (2k)^(j(k−j)/2) ‖f‖_(L^∞)^(1−j/k) ‖f‖_(H^k)^(j/k) for 0 ≤ j ≤ k. Hölder's inequality
+with the exponents 2k/|α_i| (∞ where α_i = 0), whose reciprocals add to 1/2, gives ‖Π_i ∂^(α_i) f_i‖ ≤ C Π_i
+‖f_i‖_(L^∞)^(1−c_i) ‖f_i‖_(H^k)^(c_i) with c_i := |α_i|/k, Σ_i c_i = 1. With X_i := ‖f_i‖_(H^k) Π_(j≠i) ‖f_j‖_(L^∞),
+each ‖f_j‖_(L^∞) appears in Π_i X_i^(c_i) with the exponent Σ_(i≠j) c_i = 1 − c_j, so the right side is C Π_i
+X_i^(c_i) ≤ C Σ_i c_i X_i, by the inequality between weighted geometric and arithmetic means; and ‖·‖_(H^k) ≤
+‖·‖_(H^σ). For general f_i, take the Schwartz approximations of the proof of [[cor:std-moser-product]] (1) (real when
+f_i is, with L^∞ norms not increased, converging in H^σ); along a subsequence ∂^(α_i) of them converges almost
+everywhere, and Fatou's lemma gives (a).
+(b) Let u first be a Schwartz function. For 0 < |α| ≤ σ, by the chain rule ∂^α[Φ(t, x, u) − Φ(t, x, 0)] is
+(∂_x^α Φ)(t, x, u) − (∂_x^α Φ)(t, x, 0) plus a sum, with coefficients depending on α, of terms (∂_x^β ∂_u^γ Φ)(t, x,
+u) applied to ∂^(α_1) u, …, ∂^(α_ℓ) u, ℓ = |γ| ≥ 1, |β| + |α_1| + … + |α_ℓ| = |α|, every |α_i| ≥ 1. The first part is
+at most sup |∂_u ∂_x^α Φ| |u| pointwise; in the others the coefficient is bounded by C(‖u‖_(L^∞)) and (a) bounds the
+product by C ‖u‖_(H^σ) ‖u‖_(L^∞)^(ℓ−1); for α = 0, |Φ(t, x, u) − Φ(t, x, 0)| ≤ C(‖u‖_(L^∞)) |u|. For general u take
+Schwartz u_n → u in H^σ with ‖u_n‖_(L^∞) ≤ ‖u‖_(L^∞); Φ(t, ·, u_n) − Φ(t, ·, 0) converges to Φ(t, ·, u) − Φ(t, ·, 0)
+in L² and is bounded in H^σ, so the limit lies in H^σ with the same bound.
+(c) By Leibniz's rule ∂^α(Φ(u) y) = Σ_(β≤α) (α choose β) ∂^(α−β)[Φ(u)] ∂^β y, and ∂^(α−β)[Φ(u)] is the sum of
+terms of (b), now including ℓ = 0, (∂_x^(β′) Φ)(t, x, u). Terms with ℓ = 0 are bounded functions times ∂^β y; those
+with ℓ ≥ 1 are bounded functions times products of derivatives of u and of y of total order at most σ, bounded by (a)
+by C(‖u‖_(L^∞)) (‖u‖_(H^σ) ‖y‖_(L^∞) + ‖y‖_(H^σ)). The approximation is that of (b).
+(d) [∂^α, Φ(u)] y = Σ_(0<β≤α) (α choose β) ∂^β[Φ(u)] ∂^(α−β) y. Choose a unit multi-index e ≤ β and write ∂^β[Φ(u)] =
+∂^(β−e)[(∂_(x_e) Φ)(t, x, u) + (∂_u Φ)(t, x, u) ∂_e u]. Expanding as in (b) and writing every derivative of u of
+order at least one as a derivative of some ∂_(e′) u, each term is a function bounded by C(‖u‖_(W^(1,∞))) times a
+product of derivatives of the functions ∂_(e′) u and of y of total order at most |α| − 1 ≤ σ − 1. By (a) at the order
+σ − 1 (for σ = 1 the products are bounded functions times y), with ‖∂u‖_(H^(σ−1)) ≤ ‖u‖_(H^σ) and ‖∂u‖_(L^∞) ≤
+‖u‖_(W^(1,∞)), each is at most C(‖u‖_(W^(1,∞))) (‖y‖_(H^(σ−1)) + ‖u‖_(H^σ) ‖y‖_(L^∞)). ∎
+
+The iteration below solves, at each step, a linear problem, and the energy inequalities it needs are proved now.
+
+**Lemma {#lem:class-kato-linear}** (The linear problem.) Let 0 < T ≤ T0, and let v map [0, T] into H^s with
+‖v(t)‖_(H^s) ≤ 𝔐 and ‖v(t) − v(t′)‖_(H^(s−1)) ≤ 𝔐′ |t − t′| for t, t′ ∈ [0, T]. Put 𝐀^μ(t, x) := A^μ(t, x, v(t, x)),
+E_σ(t; w) := Σ_(|α|≤σ) ⟨𝐀^0(t) ∂^α w, ∂^α w⟩ for w ∈ H^σ, and
+
+    K := sup_t ‖v(t)‖_(W^(1,∞)) + sup_(t≠t′) ‖v(t) − v(t′)‖_(L^∞)/|t − t′| ≤ C_S (𝔐 + 𝔐′),
+
+and consider
+
+    𝐀^0 ∂_t w + 𝐀^j ∂_j w = f,      w(0) = w0.                                                {#eq:class-kato-linear}
+
+(a) Every w ∈ C¹([0, T]; L²) with w(t) ∈ H¹ for every t that solves [[eq:class-kato-linear]] with f ∈ C([0, T]; L²)
+satisfies, for t ∈ [0, T],
+
+    E_0(t; w)^(1/2) ≤ e^(C_0 t) (E_0(0; w)^(1/2) + c0^(−1/2) ∫_0^t ‖f‖),
+
+with C_0 depending only on c0 and on bounds for A^μ and its first derivatives at |u| ≤ K. In particular such a
+solution is unique.
+(b) Let f ∈ C([0, T]; L²) with f(t) ∈ H^s for every t and sup_t ‖f(t)‖_(H^s) < ∞, and w0 ∈ H^s. Then
+[[eq:class-kato-linear]] has a solution w ∈ C¹([0, T]; L²) ∩ C([0, T]; H^(s−1)) with w(t) ∈ H^s for every t,
+
+    ‖∂_t w(t)‖_(H^(s−1)) ≤ C_1 (‖f(t)‖_(H^(s−1)) + ‖w(t)‖_(H^s)),
+    E_s(t; w)^(1/2) ≤ e^(C t) (E_s(0; w)^(1/2) + C ∫_0^t ‖f‖_(H^s)),
+
+with C_1 depending on d, s, c0, 𝔐 and the bounds on the A^μ, and C on these and 𝔐′.
+(c) The solution of (b) satisfies, with K_w := sup_t (‖∂_x w(t)‖_(L^∞) + ‖∂_t w(t)‖_(L^∞)),
+
+    E_s(t; w)^(1/2) ≤ e^(C_* t) (E_s(0; w)^(1/2) + C_* ∫_0^t (‖f‖_(H^s) + K_w ‖v‖_(H^s))),
+
+with C_* depending only on d, s, c0, K and bounds for the A^μ and their derivatives at |u| ≤ K.
+
+*Proof.* (1) *Coefficients.* For every t, ‖v(t)‖_(W^(1,∞)) ≤ C_S 𝔐, and |v(t, x) − v(t′, x)| ≤ C_S 𝔐′ |t − t′|; so the
+pointwise bounds |𝐀^0(t, x) − 𝐀^0(t′, x)| ≤ L_0 |t − t′| and |∂_j 𝐀^j| ≤ L_1 hold, with L_0, L_1 depending on K and the
+bounds of the first derivatives of the A^μ. The inverse (A^0)⁻¹ is smooth with derivatives bounded on bounded sets of u,
+since A^0 ≥ c0 I and d(A⁻¹) = −A⁻¹ (dA) A⁻¹. By [[lem:class-composition]] (c) at σ = s − 1 and σ = s, with ‖y‖_(L^∞) ≤
+C_S ‖y‖_(H^(s−1)), multiplication by 𝐀^μ(t) and by (𝐀^0(t))⁻¹ is bounded on H^(s−1) and on H^s, with norm at most C(𝔐);
+and by [[lem:class-composition]] (d) at σ = s, for |α| ≤ s and y ∈ H^(s−1),
+
+    ‖[∂^α, 𝐀^μ] y‖ ≤ C(K) (‖y‖_(H^(s−1)) + ‖v‖_(H^s) ‖y‖_(L^∞)) ≤ C(𝔐) ‖y‖_(H^(s−1)).          {#eq:class-commutator}
+
+Write 𝐀^μ(t) − 𝐀^μ(t′) = (t − t′) Ψ_1 + Ψ_2 (v(t) − v(t′)), with Ψ_1, Ψ_2 the integrals over η ∈ [0, 1] of ∂_t A^μ
+and ∂_u A^μ at (t′ + η (t − t′), x, v(t′) + η (v(t) − v(t′))). By [[lem:class-composition]] (c) at σ = s − 1, for
+these functions of (x, v(t), v(t′)), and [[cor:std-moser-product]] (1), t ↦ 𝐀^μ(t) is Lipschitz from [0, T] to the
+bounded operators on H^(s−1), with constant C(𝔐)(1 + 𝔐′); likewise (𝐀^0)⁻¹.
+(2) *Regularised problem.* For 0 < ε ≤ 1 consider ∂_t w_ε = (𝐀^0)⁻¹ (f − J_ε(𝐀^j ∂_j J_ε w_ε)), w_ε(0) = w0, in
+H^(s−1). Its operator y ↦ (𝐀^0)⁻¹ J_ε(𝐀^j ∂_j J_ε y) is bounded on H^(s−1), by (1) and ‖∂_j J_ε y‖_(H^(s−1)) ≤ C ε⁻¹
+‖y‖_(H^(s−1)), and Lipschitz in t; and t ↦ (𝐀^0)⁻¹ f is continuous into H^(s−1), since f is continuous into L² and
+bounded in H^s, hence continuous into H^(s−1) by [[eq:class-interpolation]]. Picard's iteration for linear ordinary
+differential equations in a Banach space gives a unique solution w_ε ∈ C¹([0, T]; H^(s−1)). At every t its right side
+lies in H^s with norm at most C_ε := C(𝔐)(sup_t ‖f(t)‖_(H^s) + ε⁻² sup_t ‖w_ε(t)‖_(H^(s−1))). So w_ε is Lipschitz into
+H^s: for φ in the Schwartz class, ⟨w_ε(t) − w_ε(t′), (1 − Δ)^s φ⟩ = ∫_(t′)^t ⟨∂_t w_ε, (1 − Δ)^s φ⟩ is at most
+C_ε |t − t′| ‖φ‖_(H^s), the norms being those of [[eq:std-moser]], and w0 ∈ H^s.
+(3) *Uniform bounds.* Let |α| ≤ s and E^α(t) := ⟨𝐀^0(t) ∂^α w_ε, ∂^α w_ε⟩, which is Lipschitz in t by (2). As w_ε is
+Lipschitz into H^s and continuously differentiable into H^(s−1), the difference quotients of ∂^α w_ε converge weakly in
+L² to ∂^α ∂_t w_ε; with the pointwise Lipschitz bound of (1) and the symmetry of 𝐀^0 this gives D⁺E^α ≤ L_0 ‖∂^α
+w_ε‖² + 2 ⟨𝐀^0 ∂^α ∂_t w_ε, ∂^α w_ε⟩. Apply ∂^α to the equation 𝐀^0 ∂_t w_ε = f − J_ε(𝐀^j ∂_j J_ε w_ε), both sides of
+which lie in H^s, and put y := ∂^α J_ε w_ε = J_ε ∂^α w_ε. As J_ε is self-adjoint and ⟨𝐀^j ∂_j y, y⟩ = −½ ⟨(∂_j 𝐀^j)
+y, y⟩ (the matrices 𝐀^j are symmetric and Lipschitz, y ∈ H¹),
+
+    2 ⟨𝐀^0 ∂^α ∂_t w_ε, ∂^α w_ε⟩ = 2 ⟨∂^α f − [∂^α, 𝐀^0] ∂_t w_ε, ∂^α w_ε⟩ + ⟨(∂_j 𝐀^j) y, y⟩
+                                     − 2 ⟨[∂^α, 𝐀^j] ∂_j J_ε w_ε, y⟩.
+
+By the equation and (1), ‖∂_t w_ε‖_(H^(s−1)) ≤ C_1 (‖f‖_(H^(s−1)) + ‖w_ε‖_(H^s)); with [[eq:class-commutator]] and
+‖y‖ ≤ ‖∂^α w_ε‖, the sum over |α| ≤ s gives D⁺E_s(t; w_ε) ≤ C (E_s(t; w_ε) + ‖f‖_(H^s) E_s(t; w_ε)^(1/2)), as E_s ≥
+c0 ‖·‖²_(H^s). The function t ↦ ‖f(t)‖_(H^s) is lower semicontinuous, f being continuous into L², hence measurable;
+Gronwall's inequality gives the bound of (b) for w_ε, uniformly in ε, since E_s(0; w_ε) = E_s(0; w0). For (c), use the
+first form of [[eq:class-commutator]], ‖∂_x J_ε w_ε‖_(L^∞) ≤ ‖∂_x w_ε‖_(L^∞), and the bound ‖∂_t w_ε‖_(H^(s−1)) ≤
+C(K) (‖f‖_(H^(s−1)) + ‖w_ε‖_(H^s) + ‖v‖_(H^s) (‖∂_x w_ε‖_(L^∞) + ‖∂_t w_ε‖_(L^∞))), which follows from the equation
+by [[lem:class-composition]] (c) at σ = s − 1, applied to 𝐀^j ∂_j J_ε w_ε and to (𝐀^0)⁻¹ (𝐀^0 ∂_t w_ε). This gives
+D⁺E_s ≤ C_* (E_s + (‖f‖_(H^s) + K_(w_ε) ‖v‖_(H^s)) E_s^(1/2)) with K_(w_ε) defined as K_w, and the bound of (c) for w_ε.
+(4) *Limit.* z := w_ε − w_(ε′) solves 𝐀^0 ∂_t z + J_ε(𝐀^j ∂_j J_ε z) = r, z(0) = 0, with r := J_(ε′)(𝐀^j ∂_j
+J_(ε′) w_(ε′)) − J_ε(𝐀^j ∂_j J_ε w_(ε′)), and ‖r‖ ≤ C (ε + ε′) ‖w_(ε′)‖_(H²) ≤ C (ε + ε′), as s ≥ 2. The argument of (3)
+at the order 0, where ⟨J_ε(𝐀^j ∂_j J_ε z), z⟩ = −½ ⟨(∂_j 𝐀^j) J_ε z, J_ε z⟩, gives sup_t ‖z‖ ≤ C (ε + ε′). So w_ε → w
+in C([0, T]; L²). At each t, w_ε(t) is bounded in H^s and converges in L², hence weakly in H^s; so w(t) ∈ H^s, and as
+y ↦ E_s(t; y) is a continuous nonnegative quadratic form on H^s, hence weakly lower semicontinuous, the bound of (b)
+holds for w. By [[eq:class-interpolation]], w_ε → w in C([0, T]; H^(s′)) for every s′ < s, in particular in
+C([0, T]; H^(s−1)), and J_ε(𝐀^j ∂_j J_ε w_ε) → 𝐀^j ∂_j w in C([0, T]; L²), by ‖J_ε g − g‖ ≤ C ε ‖g‖_(H¹). So ∂_t w_ε
+converges in C([0, T]; L²) to (𝐀^0)⁻¹ (f − 𝐀^j ∂_j w), and w ∈ C¹([0, T]; L²) solves [[eq:class-kato-linear]], with
+the bound on ∂_t w by the equation. For (c), fix s′ with max(d/2 + 1, s − 1) < s′ < s and s″ with max(d/2, s − 2)
+< s″ < s − 1. Then ‖∂_x(w_ε − w)‖_(L^∞) ≤ C ‖w_ε − w‖_(H^(s′)) → 0 uniformly in t, and ‖∂_t w_ε − ∂_t w‖_(L^∞) → 0
+uniformly in t: ∂_t w − ∂_t w_ε is (𝐀^0)⁻¹ applied to J_ε(𝐀^j ∂_j J_ε(w_ε − w)) + J_ε(𝐀^j ∂_j (J_ε w − w)) + (J_ε −
+I) g, g := 𝐀^j ∂_j w, whose terms are bounded in L^∞ by C ‖∂_x(w_ε − w)‖_(L^∞), by C ‖J_ε w − w‖_(H^(s′)) ≤ C
+ε^(s−s′) ‖w‖_(H^s), and by C ‖J_ε g − g‖_(H^(s″)) ≤ C ε^(s−1−s″) ‖g‖_(H^(s−1)). So K_(w_ε) → K_w, and the bound of (c)
+passes to the limit as that of (b).
+(5) *The order 0.* For w as in (a), E_0(t; w) is Lipschitz, and D⁺E_0 ≤ L_0 ‖w‖² + 2 ⟨𝐀^0 ∂_t w, w⟩ = L_0 ‖w‖² +
+2 ⟨f, w⟩ + ⟨(∂_j 𝐀^j) w, w⟩, the integral of ∂_j ⟨𝐀^j w, w⟩, a function of W^(1,1)(R^d), being 0. With ‖w‖² ≤
+E_0/c0 this is D⁺E_0 ≤ 2 C_0 E_0 + 2 c0^(−1/2) ‖f‖ E_0^(1/2), and Gronwall's inequality gives (a). ∎
+
+The theorem below solves
+
+    A^0(t, x, u) ∂_t u + A^j(t, x, u) ∂_j u = F(t, u),      u(0) = u0,                            {#eq:class-kato-system}
+
+with a forcing term F that may be non-local, given on a ball about a reference path. Fix a reference path u_* ∈
+C([0, T0]; H^(s+1)) ∩ C¹([0, T0]; H^s) and a radius ρ ∈ (0, ∞], and put 𝒟_ρ := {(t, u) : t ∈ [0, T0], u ∈ H^s,
+‖u − u_*(t)‖_(H^s) ≤ ρ}; for ρ = ∞ take u_* := 0, so that 𝒟_∞ = [0, T0] × H^s. Let F map 𝒟_ρ to H^s with:
+
+(F1) ‖F(t, u)‖_(H^s) ≤ C_F(𝔐) for (t, u) ∈ 𝒟_ρ with ‖u‖_(H^s) ≤ 𝔐;
+(F2) ‖F(t, u) − F(t, v)‖ ≤ L(𝔐) ‖u − v‖ for (t, u), (t, v) ∈ 𝒟_ρ with ‖u‖_(H^s), ‖v‖_(H^s) ≤ 𝔐;
+(F3) t ↦ F(t, u(t)) is continuous into L² whenever u ∈ C([0, T]; L²), (t, u(t)) ∈ 𝒟_ρ for every t, and
+sup_t ‖u(t)‖_(H^s) < ∞;
+
+C_F and L increasing. A *solution on [t1, t2]* is a u ∈ C¹([t1, t2]; L²) with u(t) ∈ H^s and (t, u(t)) ∈ 𝒟_ρ for every
+t, and sup_t ‖u(t)‖_(H^s) < ∞, that satisfies the equation of [[eq:class-kato-system]]. Let C_A bound |A^0| on [0, T0]
+× R^d × {|u| ≤ C_S (sup_t ‖u_*(t)‖_(H^s) + ρ)}, and put η_ρ := ½ (c0/C_A)^(1/2) if ρ < ∞, η_∞ := 1.
+
+The *domain version* concerns a compact set Ω = ⋃_(t∈[0,T0]) {t} × Σ_t ⊂ [0, T0] × R^d with Σ_t = ψ_t(Σ_⋆), where Σ_⋆
+⊂ R^d is a compact domain with smooth boundary and the ψ_t are diffeomorphisms of R^d, smooth in (t, x), equal to the
+identity outside a compact set, with every derivative of positive order of ψ_t and of ψ_t⁻¹ bounded uniformly in t. Its
+lateral boundary is ⋃_t {t} × ∂Σ_t, with ν the outward conormal (positive on vectors pointing out of Ω) at its points.
+It assumes, for a number r_b > 0:
+
+(F4) for (t, u), (t, v) ∈ 𝒟_ρ with u = v on Σ_t, F(t, u) = F(t, v) on Σ_t; and ‖F(t, u) − F(t, v)‖_(L²(Σ_t)) ≤ L(𝔐)
+‖u − v‖_(L²(Σ_t)) when moreover ‖u‖_(H^s), ‖v‖_(H^s) ≤ 𝔐;
+(F5) the lateral boundary is spacelike for the system at the states within r_b of u_*: ν_t A^0(t, x, u) + ν_j A^j(t,
+x, u) ≥ 0 at its points (t, x) for every u with |u − u_*(t, x)| ≤ r_b.
+
+**Theorem {#thm:class-kato}** (Kato's iteration with a non-local term.) Assume (F1)–(F3).
+
+(a) For every u0 ∈ H^s with ‖u0 − u_*(0)‖_(H^s) ≤ η_ρ ρ there are T* > 0, depending only on an upper bound for
+‖u0‖_(H^s), on ρ and on u_*, and a unique solution on [0, T*] with u(0) = u0. If u is a solution on [0, T1] for every
+T1 < T2 ≤ T0, with sup_(t<T2) ‖u(t)‖_(H^s) < ∞ and ‖u(t) − u_*(t)‖_(H^s) ≤ η_ρ ρ for t < T2, then u extends to a
+solution on [0, T2], and beyond T2 if T2 < T0.
+(b) (Domain version.) Assume (F4) and (F5). (i) Two solutions u, ũ on [t1, t2] with |u − u_*| ≤ r_b and |ũ − u_*| ≤
+r_b on Ω, whose values at t1 agree on Σ_(t1), agree on Ω ∩ {t1 ≤ t ≤ t2}. (ii) Let C_S ρ ≤ r_b. There is C_E ≥ 1,
+depending on Ω and s, such that for every u0 ∈ H^s(Σ_0) with ‖u0 − u_*(0)‖_(H^s(Σ_0)) ≤ η_ρ ρ/C_E the system has a
+solution on Ω ∩ {t ≤ T*}, T* > 0 depending only on ρ, u_* and Ω: a function on Ω ∩ {t ≤ T*} equal near every time to
+the restriction of a solution on an interval, with value u0 on Σ_0; by (i) it does not depend on the solutions used. It
+extends to Ω ∩ {t ≤ T2} as long as ‖u(t) − u_*(t)‖_(H^s(Σ_t)) ≤ η_ρ ρ/C_E for t < T2.
+
+*Proof.* (a) Let C_u bound |A^0| on [0, T0] × R^d × {|u| ≤ C_S ‖u0‖_(H^s)}, and put 𝔐² := 2 C_u ‖u0‖²_(H^s)/c0 + 1,
+so that C_u ‖u0‖²_(H^s) < c0 𝔐², and 𝔐′ := C_1(𝔐)(C_F(𝔐) + 𝔐) + sup_t ‖∂_t u_*(t)‖_(H^(s−1)), C_1 the constant of
+[[lem:class-kato-linear]] (b). Put u^0(t) := u0 + u_*(t) − u_*(0) (so u^0 = u0 if ρ = ∞), and for n ≥ 0 let u^(n+1)
+be the solution of [[lem:class-kato-linear]] (b) with v := u^n, f := F(t, u^n) and w0 := u0:
 
     A^0(t, x, u^n) ∂_t u^(n+1) + A^j(t, x, u^n) ∂_j u^(n+1) = F(t, u^n),      u^(n+1)(0) = u0.
 
-*Boundedness.* For |α| ≤ s apply ∂^α, take the L² product with ∂^α u^(n+1) and integrate by parts in x, using the
-symmetry of the matrices. The commutators [∂^α, A^μ(u^n)] ∂_μ u^(n+1), with ∂_t u^(n+1) expressed by the equation, are
-bounded in L² by C(M) ‖u^(n+1)‖_(H^s) by the product estimates of [[thm:std-gn-moser]] and Sobolev's embedding
-H^s ⊂ W^(1,∞) (s > d/2 + 1), and the terms in ∂A^μ(u^n) likewise. With E_s(w) := Σ_(|α|≤s) ⟨A^0 ∂^α w, ∂^α w⟩, which
-is comparable to ‖w‖²_(H^s) with constants depending on c0 and M, this gives
+We show by induction that for T* small, depending only on the quantities named, every u^n satisfies: u^n ∈ C([0, T*];
+L²), u^n(0) = u0, and for t, t′ ∈ [0, T*], ‖u^n(t)‖_(H^s) ≤ 𝔐, ‖u^n(t) − u^n(t′)‖_(H^(s−1)) ≤ 𝔐′ |t − t′| and
+‖u^n(t) − u_*(t)‖_(H^s) ≤ ρ. For u^0 this holds once T* sup_t ‖∂_t u_*(t)‖_(H^s) ≤ 𝔐 − ‖u0‖_(H^s), since ‖u0 −
+u_*(0)‖_(H^s) ≤ ρ. Let it hold for u^n. Then f is defined, continuous into L² by (F3), and ‖f(t)‖_(H^s) ≤ C_F(𝔐) by
+(F1), so u^(n+1) exists. *Boundedness.* E_s(0; u^(n+1)) ≤ C_u ‖u0‖²_(H^s), so by [[lem:class-kato-linear]] (b), with
+its constant C = C(𝔐, 𝔐′),
 
-    d/dt E_s(u^(n+1)) ≤ C(M) (E_s(u^(n+1)) + ‖F(t, u^n)‖_(H^s) E_s(u^(n+1))^(1/2)),
+    c0^(1/2) ‖u^(n+1)(t)‖_(H^s) ≤ E_s(t; u^(n+1))^(1/2) ≤ e^(Ct) (C_u^(1/2) ‖u0‖_(H^s) + C t C_F(𝔐)) ≤ c0^(1/2) 𝔐
 
-for as long as ‖u^n‖_(H^s) ≤ M. As E_s(u^(n+1))(0) ≤ C_1 ‖u0‖²_(H^s) and E_s ≥ c0 ‖·‖²_(H^s), (K1) and Gronwall's
-inequality give ‖u^n(t)‖_(H^s) ≤ M on [0, T*] for all n, by induction, for T* small depending on M. *Contraction.* w :=
-u^(n+1) − u^n solves the linear problem with coefficients at u^n and the forcing term
+for t ≤ T* small. By the same lemma ‖∂_t u^(n+1)(t)‖_(H^(s−1)) ≤ C_1(𝔐)(C_F(𝔐) + 𝔐) ≤ 𝔐′, which gives the Lipschitz
+bound into H^(s−1) by the duality argument of step (2) of that proof. If ρ < ∞, w := u^(n+1) − u_* solves the linear
+problem with the same coefficients, with data u0 − u_*(0) and forcing term F(t, u^n) − 𝐀^0 ∂_t u_* − 𝐀^j ∂_j u_*,
+continuous into L² and bounded in H^s by a constant K_* depending on 𝔐 and u_*; by [[lem:class-kato-linear]] (a) w is
+the solution of (b) there, and as C_u ≤ C_A and η_ρ = ½ (c0/C_A)^(1/2),
 
-    −(A^0(u^n) − A^0(u^(n−1))) ∂_t u^n − (A^j(u^n) − A^j(u^(n−1))) ∂_j u^n + F(t, u^n) − F(t, u^(n−1)),
+    ‖w(t)‖_(H^s) ≤ c0^(−1/2) e^(Ct) (C_A^(1/2) η_ρ ρ + C t K_*) = e^(Ct) (ρ/2 + c0^(−1/2) C t K_*) ≤ ρ
 
-whose L² norm is at most C(M) ‖u^n − u^(n−1)‖_(L²), by the bounds on ∂u^n in L^∞ and by (K2). The L² energy gives
-sup_t ‖w(t)‖_(L²) ≤ C(M) T* sup_t ‖u^n − u^(n−1)‖_(L²), a contraction for T* small. *Limit.* u^n → u in C([0, T*];
-L²), hence in C([0, T*]; H^(s′)) for s′ < s by interpolation, u ∈ L^∞([0, T*]; H^s) by weak-* compactness, F(t, u^n) →
-F(t, u) in L² by (K2), and u solves [[eq:class-kato-system]]. Uniqueness is the same L² estimate for the difference of
-two solutions, and continuation holds because T* depends only on M. Locality of F is used nowhere on R^d. On a domain,
-the energy identities on Σ_t ∩ Ω carry lateral boundary terms ∫ ∂^α w · (ν_t A^0 + ν_j A^j) ∂^α w ≥ 0, which are
-dropped; by (K4) every estimate of F on Σ_t ∩ Ω involves u there only, and the coefficients and forcing terms are
-extended outside Ω as in Step 8 (i) of [[sec:ue-existence]]. ∎
+for t ≤ T* small. *Contraction.* For n ≥ 1, δ^(n+1) := u^(n+1) − u^n solves the linear problem with the coefficients at
+u^n, data 0 and the forcing term
 
-[IT20, Theorem 1, p. 3] is the case A^0 = I and F = 0: "The equation (1.2) is locally well-posed in H^s in the Hadamard
-sense for s > d/2 + 1", for ∂_t u = A^j(u) ∂_j u with "the m × m matrices A^j … symmetric" [IT20, p. 2]; it is due to
-Kato [Kat75] ([IT20, p. 4]). Cauchy stability is part of well-posedness in Hadamard's sense: "for a solution u ∈
+    −(A^0(t, x, u^n) − A^0(t, x, u^(n−1))) ∂_t u^n − (A^j(t, x, u^n) − A^j(t, x, u^(n−1))) ∂_j u^n + F(t, u^n) −
+    F(t, u^(n−1)),
+
+which is continuous into L² with norm at most (C(𝔐, 𝔐′) + L(𝔐)) ‖δ^n‖, since ‖∂_t u^n‖_(L^∞) ≤ C_S 𝔐′ and ‖∂_x
+u^n‖_(L^∞) ≤ C_S 𝔐, and by (F2). [[lem:class-kato-linear]] (a) gives sup_t ‖δ^(n+1)‖ ≤ c0^(−1) e^(C_0 T*) (C(𝔐, 𝔐′) +
+L(𝔐)) T* sup_t ‖δ^n‖ ≤ ½ sup_t ‖δ^n‖ for T* small. *Limit.* So u^n → u in C([0, T*]; L²). For each t, u^n(t) is bounded
+in H^s and converges in L², hence weakly in H^s, and the norms and the ball are weakly closed: ‖u(t)‖_(H^s) ≤ 𝔐, ‖u(t) −
+u_*(t)‖_(H^s) ≤ ρ, and u is Lipschitz into H^(s−1) with constant 𝔐′. By [[eq:class-interpolation]], u^n → u in C([0,
+T*]; H^(s−1)), so ∂_x u^n → ∂_x u in C([0, T*]; L²) and A^μ(t, x, u^n) → A^μ(t, x, u) uniformly; by (F2), F(t, u^n) →
+F(t, u) in C([0, T*]; L²). Passing to the limit in u^(n+1)(t) = u0 + ∫_0^t (A^0)⁻¹(u^n) (F(t′, u^n) − A^j(u^n) ∂_j
+u^(n+1)) dt′ gives u(t) = u0 + ∫_0^t (A^0)⁻¹(u) (F(t′, u) − A^j(u) ∂_j u) dt′, with an integrand continuous into L²: u
+is a solution on [0, T*]. *Uniqueness.* Let u, ũ be solutions on [0, T] with the same data. By its equation ‖∂_t
+u(t)‖_(H^(s−1)) is bounded, so v := u satisfies the hypotheses of [[lem:class-kato-linear]], and z := u − ũ solves the
+linear problem with coefficients at u, data 0 and forcing term F(t, u) − F(t, ũ) − (A^μ(u) − A^μ(ũ)) ∂_μ ũ (∂_0 := ∂_t),
+continuous into L² with norm at most C ‖z‖, by (F2) and the bounds on ∂ũ. Part (a) of the lemma and Gronwall's
+inequality give z = 0. *Continuation.* The hypotheses are unchanged under t ↦ t − t1 on [t1, T0]. With K_1 := sup_(t<T2)
+‖u(t)‖_(H^s), the first part from the time t1 with data u(t1) gives a solution on [t1, t1 + T*(K_1)], T*(K_1) not
+depending on t1; for t1 > T2 − T*(K_1) it agrees with u on [t1, T2) by uniqueness, and the two together form a solution
+on [0, min(t1 + T*(K_1), T0)].
+
+(b) (i) z := u − ũ lies in C¹([t1, t2]; L²) ∩ C([t1, t2]; H^(s−1)), by [[eq:class-interpolation]], so z and its first
+derivatives lie in L² on Ω_t := Ω ∩ {t1 ≤ t′ ≤ t}, and z is bounded. The matrices 𝐀^μ := A^μ(t, x, u) are Lipschitz in
+(t, x), u being Lipschitz in x, and in t into L^∞. On Ω, 𝐀^0 ∂_t z + 𝐀^j ∂_j z = g := F(t, u) − F(t, ũ) − (A^μ(u) −
+A^μ(ũ)) ∂_μ ũ, and by (F4), ‖g(t)‖_(L²(Σ_t)) ≤ C ‖z(t)‖_(L²(Σ_t)). The field V^μ := ⟨𝐀^μ z, z⟩ (x^0 := t, here the
+inner product of R^m) lies in W^(1,1)(Ω_t), with ∂_μ V^μ = ⟨(∂_μ 𝐀^μ) z, z⟩ + 2 ⟨g, z⟩ by the symmetry of the 𝐀^μ.
+Ω_t is the image of [t1, t] × Σ_⋆ under (t′, y) ↦ (t′, ψ_(t′)(y)), a Lipschitz domain, on which the divergence theorem
+holds for W^(1,1) fields, by the density of smooth fields and the continuity of the trace from W^(1,1)(Ω_t) to
+L¹(∂Ω_t). It gives
+
+    e(t) − e(t1) + ∫ ⟨(ν_μ 𝐀^μ) z, z⟩ |ν|⁻¹ dS = ∫_(t1)^t ∫_(Σ_(t′)) ∂_μ V^μ dx dt′,      e(t) := ∫_(Σ_t) ⟨𝐀^0 z, z⟩ dx,
+
+the middle integral over the lateral boundary of Ω_t, ν the outward conormal and dS the Euclidean surface measure. By
+(F5) at the states u, within r_b of u_*, it is nonnegative. As e ≥ c0 ‖z‖²_(L²(Σ_t)), e(t) ≤ e(t1) + C ∫_(t1)^t e,
+and e(t1) = 0; so e = 0. (ii) Let E_⋆ be Stein's extension operator for Σ_⋆ ([[thm:std-sy-extension]]), bounded from
+H^σ(Σ_⋆) to H^σ(R^d) for 0 ≤ σ ≤ s + 1, and E_t g := E_⋆(g ∘ ψ_t) ∘ ψ_t⁻¹. Composition with ψ_t and with ψ_t⁻¹ is
+bounded on H^σ uniformly in t, by the chain rule and the change of variables, as in Step 8 (iv) of
+[[sec:ue-existence]]; so E_t g = g on Σ_t and the norms of E_t on H^σ, σ ≤ s + 1, are bounded uniformly in t. Let C_E
+≥ 1 bound them for σ ≤ s. At a time t1 with ‖u(t1) − u_*(t1)‖_(H^s(Σ_(t1))) ≤ η_ρ ρ/C_E, the datum u_*(t1) + E_(t1)(u(t1)
+− u_*(t1)) lies within η_ρ ρ of u_*(t1) in H^s, so (a) from the time t1 gives a solution on [t1, t1 + T*], T* depending
+only on ρ, u_* and Ω, within ρ of u_* in H^s, hence within C_S ρ ≤ r_b pointwise. Starting at t1 = 0 with u(0) := u0,
+and restarting at the times k T*/2, the restrictions to Ω agree where they overlap, by (i); this gives the solution on
+Ω and its extension. ∎
+
+[IT20, Theorem 1, p. 3] is the case A^0 = I and F = 0 of (a): "The equation (1.2) is locally well-posed in H^s in the
+Hadamard sense for s > d/2 + 1", for ∂_t u = A^j(u) ∂_j u with "the m × m matrices A^j … symmetric" [IT20, p. 2]; it is
+due to Kato [Kat75] ([IT20, p. 4]). Cauchy stability is part of well-posedness in Hadamard's sense: "for a solution u ∈
 C([0, T]; H^s), small perturbations of the initial data u_0 yield solutions which are also defined in [0, T]"
-[IT20, p. 2]. With a non-local term F over a given interval it needs a tame bound.
+[IT20, p. 2]. With a non-local forcing term over a given interval it needs a bound that is linear in the H^s norm.
 
-**Theorem {#thm:class-kato-stability}** (Cauchy stability.) In the setting of [[thm:class-kato]] assume moreover
+**Theorem {#thm:class-kato-stability}** (Cauchy stability.) Let ρ = ∞, and assume (F1)–(F3) and
 
-(K1′) ‖F(t, u)‖_(H^s) ≤ C(‖u‖_(W^(1,∞))) (1 + ‖u‖_(H^s)),
+(F1′) ‖F(t, u)‖_(H^s) ≤ C′(‖u‖_(W^(1,∞))) (1 + ‖u‖_(H^s)), C′ increasing.
 
-and (K4) for the domain version. Let ū ∈ C([0, T]; H^s) solve [[eq:class-kato-system]] on [0, T] (on the domain, with
-lateral boundaries spacelike for the system). There is ε0 > 0 such that for ‖u0 − ū(0)‖_(H^s) ≤ ε0 the solution exists
-on [0, T], and
+(a) Let 0 < T ≤ T0 and let ū ∈ C¹([0, T]; L²), with ū(t) ∈ H^s for every t and sup_t ‖ū(t)‖_(H^s) < ∞, satisfy
 
-    sup_t ‖u − ū‖_(L²) ≤ e^(L T) ‖u0 − ū(0)‖_(L²),      sup_t ‖u‖_(H^s) ≤ M,
-    sup_t ‖u − ū‖_(H^(s′)) ≤ C ‖u0 − ū(0)‖_(L²)^(1 − s′/s)      for d/2 + 1 < s′ < s,
+    A^0(t, x, ū) ∂_t ū + A^j(t, x, ū) ∂_j ū = F(t, ū) + R,                                   {#eq:class-kato-approximate}
 
-with M, L, C depending on ū and T.
+where R ∈ C([0, T]; L²), R(t) ∈ H^s and ‖R(t)‖_(H^s) ≤ 1 for every t. There are ε0 > 0 and C such that, if ‖u0 −
+ū(0)‖_(H^s) ≤ ε0 and sup_t ‖R(t)‖ ≤ ε0, the solution u of [[thm:class-kato]] with u(0) = u0 exists on [0, T], and
 
-*Proof.* Put K_ū := sup_t ‖ū‖_(W^(1,∞)) + 1 and let T* ≤ T be the supremum of the t for which the solution exists on
-[0, t] with ‖u − ū‖_(W^(1,∞)) ≤ 1. On [0, T*): (1) ‖u‖_(W^(1,∞)) ≤ K_ū, so Moser's tame bound for the commutators,
-‖[∂^α, A(u)] ∂u‖_(L²) ≤ C(‖u‖_(W^(1,∞))) ‖u‖_(H^s) ([[thm:std-gn-moser]]), and (K1′) give d/dt E_s ≤ C(K_ū)(1 + E_s), so
-‖u(t)‖_(H^s) ≤ (1 + ‖u0‖_(H^s)) e^(C(K_ū) T) =: M, uniformly for data within ε0 ≤ 1 of ū(0). (2) w := u − ū solves the
-linear system with coefficients at u and forcing term −(A(u) − A(ū)) ∂ū + F(u) − F(ū); its L² energy, with (K2) on the
-H^s ball of radius max(M, sup_t ‖ū‖_(H^s)), gives ‖w(t)‖_(L²) ≤ e^(L t) ‖w(0)‖_(L²). (3) By Sobolev's embedding H^(s′) ⊂
-W^(1,∞) and the interpolation inequality ‖w‖_(H^(s′)) ≤ ‖w‖_(L²)^(1−s′/s) ‖w‖_(H^s)^(s′/s), which on R^d is Hölder's
-inequality for ∫ (1 + |ξ|²)^(s′) |ŵ|² dξ with the exponents s/(s − s′) and s/s′,
+    sup_t ‖u − ū‖ ≤ C (‖u0 − ū(0)‖ + sup_t ‖R(t)‖),      sup_t ‖u‖_(H^s) ≤ C,
+    sup_t ‖u − ū‖_(H^(s′)) ≤ C (‖u0 − ū(0)‖ + sup_t ‖R(t)‖)^(1−s′/s)      for d/2 + 1 < s′ < s.
 
-    ‖w‖_(W^(1,∞)) ≤ C ‖w‖_(H^(s′)) ≤ C (2M)^(s′/s) (e^(L T) ε0)^(1−s′/s) < 1/2      for ε0 small.
+ε0 and C depend only on d, s, s′, c0, T, sup_t ‖ū(t)‖_(H^s), K_ū := sup_t (‖ū(t)‖_(W^(1,∞)) + ‖∂_t ū(t)‖_(L^∞)),
+the functions C_F, L and C′, and the bounds on the A^μ and their derivatives on bounded sets of u.
+(b) (Domain version.) Let Ω be as in the domain version, and let ū, defined on Ω ∩ {t ≤ T}, satisfy the equation of
+[[eq:class-kato-system]] there, with ū ∘ Ψ ∈ C([0, T]; H^(s+1)(Σ_⋆)) ∩ C¹([0, T]; H^s(Σ_⋆)), Ψ(t, y) := (t,
+ψ_t(y)). Let (F4) and (F5) hold with u_* := ū_e, the extension defined in the proof. Then the conclusions of (a), with
+R = 0, every norm taken on Σ_t, and the data given on Σ_0, hold for the solution on Ω ∩ {t ≤ T} of [[thm:class-kato]]
+(b), with constants depending also on Ω.
 
-(4) If T* < T, the solution at T* lies in the H^s ball of radius M, so [[thm:class-kato]] continues it past T*, and by
-continuity ‖w‖_(W^(1,∞)) < 1 a little beyond: a contradiction. So T* = T. On the domain the energy identities on
-Σ_t ∩ Ω carry lateral boundary terms of the good sign, as in [[lem:energy]], and (K4) makes every estimate of F on
-Σ_t ∩ Ω depend on u there only; the inequalities of (3) hold on Σ_t ∩ Ω after a uniform extension
-([[thm:std-sy-extension]]). ∎
+With R = 0, (a) is the stability of an exact solution. If ū solves the system with coefficients Ā^μ and forcing term F̄,
+it satisfies [[eq:class-kato-approximate]] with R := (A^μ(t, x, ū) − Ā^μ(t, x, ū)) ∂_μ ū − F(t, ū) + F̄(t, ū); so (a)
+is also the stability under a perturbation of the coefficients and of the forcing term that is small in L² along ū and
+bounded in H^s, the constants being uniform over a family of systems with uniform bounds.
 
-A term F that is a smooth function of (t, x, u), with every derivative bounded on bounded sets of u, satisfies (K1)–(K4)
-and (K1′), by Moser's estimate [[cor:std-moser-product]].
+*Proof.* (a) Let C_u bound |A^0| on [0, T0] × R^d × {|u| ≤ C_S (sup_t ‖ū(t)‖_(H^s) + 1)}, and let ε0 ≤ 1. K_ū is
+finite: by [[eq:class-kato-approximate]], ‖∂_t ū(t)‖_(H^(s−1)) is bounded. Let u be the solution of [[thm:class-kato]]
+(a) with u(0) = u0 on its maximal interval [0, T_m) ∩ [0, T], and put q(t) := ‖u(t) − ū(t)‖_(W^(1,∞)) + ‖∂_t u(t) −
+∂_t ū(t)‖_(L^∞). q is continuous: u and ū are continuous into H^(s′) for s′ < s by [[eq:class-interpolation]], and
+H^(s′) ⊂ W^(1,∞) for s′ > d/2 + 1; and by their equations ∂_t u and ∂_t ū are continuous into L^∞, since F(t, u(t))
+and R are continuous into L² and bounded in H^s, hence continuous into H^(s″) ⊂ L^∞ for d/2 < s″ < s. Let T* be the
+supremum of the t < min(T_m, T) with q ≤ 1 on [0, t]; we show q ≤ ½ on [0, T*) for ε0 small, which excludes T* <
+min(T_m, T), and T_m ≤ T.
+
+(1) On [0, T*), K := sup (‖u‖_(W^(1,∞)) + ‖∂_t u‖_(L^∞)) ≤ K_ū + 1. On [0, t] for t < T*, v := u satisfies the
+hypotheses of [[lem:class-kato-linear]], ∂_t u being bounded in H^(s−1) by its equation, and u solves the linear problem
+with f := F(t, u); by part (a) of the lemma it is the solution of (b), so (c) and (F1′) give
+
+    E_s(t; u)^(1/2) ≤ e^(C_* t) (E_s(0; u)^(1/2) + C_* ∫_0^t (C′(K)(1 + ‖u‖_(H^s)) + K ‖u‖_(H^s))),
+
+with C_* = C_*(K). As ‖u‖_(H^s) ≤ c0^(−1/2) E_s^(1/2) and E_s(0; u) ≤ C_u (sup_t ‖ū(t)‖_(H^s) + 1)², Gronwall's
+inequality gives ‖u(t)‖_(H^s) ≤ 𝔐 on [0, T*), with 𝔐 depending only on the quantities named.
+
+(2) w := u − ū solves the linear problem with coefficients at u and forcing term f_w := F(t, u) − F(t, ū) − R −
+(A^μ(u) − A^μ(ū)) ∂_μ ū, ∂_0 := ∂_t, and ‖f_w‖ ≤ L_1 ‖w‖ + ‖R‖, with L_1 := L(𝔐_1) + C(K) K_ū and 𝔐_1 := max(𝔐,
+sup_t ‖ū(t)‖_(H^s)). [[lem:class-kato-linear]] (a) and Gronwall's inequality give, with C_0 = C_0(K),
+
+    ‖w(t)‖ ≤ C_2 δ,      δ := ‖w(0)‖ + sup_t ‖R‖,      C_2 := c0^(−1/2) e^(C_0 T) (C_u^(1/2) + c0^(−1/2) T) e^(b T),
+
+with b := c0^(−1) L_1 e^(C_0 T), as E_0(0; w) ≤ C_u ‖w(0)‖² and ‖w‖ ≤ c0^(−1/2) E_0(t; w)^(1/2).
+
+(3) By [[eq:class-interpolation]], for d/2 + 1 < s′ < s, ‖w‖_(W^(1,∞)) ≤ C ‖w‖_(H^(s′)) ≤ C (C_2 δ)^(1−s′/s)
+(2𝔐_1)^(s′/s). By the two equations, 𝐀^0 ∂_t w = F(t, u) − F(t, ū) − R − 𝐀^j ∂_j w − (A^μ(u) − A^μ(ū)) ∂_μ ū, so
+‖∂_t w‖_(L^∞) ≤ C(K)(‖F(t, u) − F(t, ū)‖_(L^∞) + ‖R‖_(L^∞) + (1 + K_ū) ‖w‖_(W^(1,∞))). For d/2 < s″ < s, by
+[[eq:class-interpolation]], (F2) and (F1′),
+
+    ‖F(t, u) − F(t, ū)‖_(L^∞) ≤ C ‖F(t, u) − F(t, ū)‖_(H^(s″)) ≤ C (L(𝔐_1) C_2 δ)^(1−s″/s) (2 C′(K)(1 + 𝔐_1))^(s″/s),
+
+and ‖R‖_(L^∞) ≤ C ‖R‖^(1−s″/s) ‖R‖_(H^s)^(s″/s) ≤ C ε0^(1−s″/s). As δ ≤ 2ε0, q ≤ ½ on [0, T*) for ε0 small,
+depending only on the quantities named.
+
+(4) If T* < min(T_m, T), then q ≤ ½ at T* by continuity and q < 1 a little beyond, against the definition of T*. If
+T_m ≤ T, then on [0, T_m) the bounds (1) and q ≤ ½ hold, so [[thm:class-kato]] (a) extends u beyond T_m, against its
+maximality. So u exists on [0, T] and the bounds of (1)–(3) hold there; they are those stated.
+
+(b) Put ū_e(t) := E_t(ū(t)) with E_t of the proof of [[thm:class-kato]] (b) (ii); by the assumption on ū ∘ Ψ, ū_e ∈
+C([0, T]; H^(s+1)) ∩ C¹([0, T]; H^s), the time derivative falling on ψ_t and ψ_t⁻¹ costing one derivative in x. Let
+R_e := A^0(t, x, ū_e) ∂_t ū_e + A^j(t, x, ū_e) ∂_j ū_e − F(t, ū_e), continuous into L² and bounded in H^s; by (F4),
+R_e = 0 on Σ_t, where ū_e = ū. The system with forcing term F(t, u) + R_e(t) satisfies (F1′), (F1)–(F5) with the same
+u_* := ū_e and agrees with the original on Ω, and ū_e solves it exactly. For data u0 on Σ_0, (a) applies to it with the
+datum ū_e(0) + E_0(u0 − ū(0)), within C_E ‖u0 − ū(0)‖_(H^s(Σ_0)) of ū_e(0) in H^s and within C_E ‖u0 − ū(0)‖_(L²(Σ_0))
+in L² (Stein's operator being bounded on L² as well). The solution stays within r_b of ū_e pointwise for ε0 small, by
+the bound on ‖u − ū_e‖_(H^(s′)), so by [[thm:class-kato]] (b) (i) its restriction to Ω is the solution on Ω, and the
+norms on Σ_t are at most those on R^d. ∎
+
+**Corollary {#cor:class-kato-sphere}** (Closed leaves, perturbed coefficients.) Let n ≥ 1, let S^n be the unit sphere
+of R^(n+1), W_ab := x_a ∂_b − x_b ∂_a (0 ≤ a < b ≤ n) the rotation fields, which are tangent to S^n and span its
+tangent spaces, and H^σ(S^n) the space of u ∈ L²(S^n) with W_(a1b1) ⋯ W_(akbk) u ∈ L²(S^n) for k ≤ σ, normed as in
+[[cor:std-moser-product]] (2). Let s > (n + 1)/2 + 1 be an integer, T > 0, and A^0, A^(ab), F smooth functions of (t,
+ω, u, π) ∈ [0, T] × S^n × R^m × R^q, A^0 and A^(ab) symmetric m × m matrices. Let P̄ : [0, T] × S^n → R^q and ū :
+[0, T] × S^n → R^m be smooth, ū solving
+
+    A^0(t, ω, u, P) ∂_t u + Σ_(a<b) A^(ab)(t, ω, u, P) W_ab u = F(t, ω, u, P)                     {#eq:class-kato-sphere}
+
+with P = P̄, and let A^0 be positive definite at the points (t, ω, ū(t, ω), P̄(t, ω)). There are r0, ε0 > 0 and C
+such that, for every smooth P : [0, T] × S^n → R^q with ‖P − P̄‖_(C^s) ≤ ε0 (derivatives of order at most s in (t,
+ω)) and every u0 ∈ H^s(S^n) with ‖u0 − ū(0)‖_(H^s(S^n)) ≤ ε0:
+
+(a) [[eq:class-kato-sphere]] has a solution u ∈ C¹([0, T] × S^n) with u(0) = u0, u(t) ∈ H^s(S^n), |u − ū| ≤ r0, and
+
+    sup_t ‖u − ū‖_(L²(S^n)) ≤ C (‖u0 − ū(0)‖_(L²(S^n)) + ‖P − P̄‖_(C^0)),      sup_t ‖u(t)‖_(H^s(S^n)) ≤ C;
+
+it is the only solution in C¹([0, T]; L²(S^n)) with u(t) ∈ H^s(S^n) for every t, sup_t ‖u(t)‖_(H^s(S^n)) < ∞ and |u −
+ū| ≤ r0. So every map that carries such solutions with the datum u0 to such solutions with the datum u0 fixes u.
+(b) If u0 is smooth, u is smooth on [0, T] × S^n.
+(c) Let Ω ⊂ [0, T] × S^n be compact, with every Ω_t := Ω ∩ {t′ ≤ t} a Lipschitz domain whose boundary consists of the
+base Ω ∩ {t′ = 0}, the slice Ω ∩ {t′ = t} and a lateral part, a finite union of smooth hypersurfaces at whose points
+(t, ω) the outward conormal ν satisfies ν(∂_t) A^0 + Σ_(a<b) ν(W_ab) A^(ab) ≥ 0 at P̄(t, ω) and at every u with |u −
+ū(t, ω)| ≤ r0. If P = P̄ on Ω and u0 = ū(0) on the base, then u = ū on Ω.
+
+Every vector field Y = Y^K ∂_K tangent to S^n can be written Σ_(a<b) ⟨Y, W_ab⟩ W_ab, since Σ_(a<b) ⟨X, W_ab⟩ W_ab = |x|²
+X − ⟨x, X⟩ x = X for X tangent to S^n at x; so a system ∂_t u + B^K ∂_K u + C = 0 on S^n with a symmetrizer H (H B^K
+symmetric, H positive definite at ū) is of the form [[eq:class-kato-sphere]] with A^0 := H, A^(ab) := H B^K ⟨∂_K, W_ab⟩
+and F := −H C.
+
+*Proof.* (1) *A cut-off of the states.* By compactness there are r0, ε1 > 0 and c0 > 0 with A^0(t, ω, u, π) ≥ 2c0 I
+for |u − ū(t, ω)| ≤ 2r0 and |π − P̄(t, ω)| ≤ ε1. Let ϒ be a smooth map of R^m with ϒ(w) = w for |w| ≤ r0 and |ϒ| ≤
+2r0, and let ε0 ≤ ε1. For w := u − ū the system reads, where |w| ≤ r0,
+
+    B^0 ∂_t w + Σ_(a<b) B^(ab) W_ab w = G(t, ω, w),
+
+with B^μ(t, ω, w) := A^μ(t, ω, ū + ϒ(w), P) (μ = 0 or μ = ab) and G := F(t, ω, ū + ϒ(w), P) − B^0 ∂_t ū − Σ B^(ab)
+W_ab ū; B^0 ≥ 2c0 I for every w, and G(t, ω, 0) = 0 when P = P̄. So |G(t, ω, 0)| ≤ C ‖P − P̄‖_(C^0) and the C^s norm of
+G(·, ·, 0) is at most C ‖P − P̄‖_(C^s), and the derivatives of the B^μ and of G of order at most s are bounded on
+bounded sets of w uniformly in P.
+
+(2) *The system on R^(n+1).* Let χ, χ_1 ∈ C_c^∞((1/2, 2)) take values in [0, 1] and equal 1 on [3/4, 4/3], and for x ≠ 0
+put x̂ := x/|x|. On [0, T] × R^(n+1) let
+
+    Ã^0 := χ(|x|) B^0(t, x̂, W) + (1 − χ(|x|)) I,      Ã^j := χ(|x|) Σ_(a<b) B^(ab)(t, x̂, W) (W_ab)^j(x),
+    F̃ := χ(|x|) G(t, x̂, W),
+
+(W_ab)^j the components of W_ab, linear in x; these are zero or the identity off {1/2 < |x| < 2}. They are smooth and
+symmetric, Ã^0 ≥ min(2c0, 1) I, every derivative is bounded on bounded sets of W, and F̃(t, x, 0) vanishes for |x| ∉
+(1/2, 2). As the W_ab are tangent to the spheres |x| = r and commute with dilations, the system Ã^0 ∂_t W + Ã^j ∂_j W =
+F̃ holds no derivative across the spheres, and on each sphere |x| = r ∈ [3/4, 4/3], with W_r(t, ω) := W(t, rω), it is
+the system of (1) for W_r. Its forcing term is local and satisfies (F1)–(F3) and (F1′) by [[rem:class-kato-local]], and
+for P = P̄, W̄ := 0 solves it; for general P, 0 satisfies [[eq:class-kato-approximate]] with R := −F̃(t, x, 0), ‖R(t)‖ ≤
+C ‖P − P̄‖_(C^0) and ‖R(t)‖_(H^s) ≤ C ‖P − P̄‖_(C^s) ≤ 1.
+
+(3) *Existence and bounds.* Put W(0, x) := χ_1(|x|) w0(x̂), w0 := u0 − ū(0). Since ∂_j = x̂_j ∂_r − |x|⁻² Σ_b x_b W_jb
+(W_jb := −W_bj), ‖W(0)‖_(H^s(R^(n+1))) ≤ C ‖w0‖_(H^s(S^n)) and ‖W(0)‖ ≤ C ‖w0‖_(L²(S^n)). [[thm:class-kato-stability]]
+(a) in R^(n+1), with s > (n + 1)/2 + 1, gives for ε0 small a solution W on [0, T] with sup_t ‖W‖ ≤ C (‖w0‖_(L²(S^n)) +
+‖P − P̄‖_(C^0)), sup_t ‖W‖_(H^s) ≤ C and sup_t ‖W‖_(W^(1,∞)) ≤ C ‖W‖_(H^(s′)) ≤ r0 for ε0 small, the constants uniform
+in P by (1). W lies in C([0, T]; C¹) by [[eq:class-interpolation]], and ∂_t W is continuous by the equation; so W ∈
+C¹([0, T] × R^(n+1)), and every W_r, 3/4 ≤ r ≤ 4/3, is a C¹ solution on [0, T] × S^n of the system of (1) with the datum
+w0. Two such solutions coincide: their difference z satisfies the L² energy identity on S^n, in which ∫_(S^n) ⟨B^(ab)
+W_ab z, z⟩ = −½ ∫_(S^n) ⟨(W_ab B^(ab)) z, z⟩ because the rotations preserve the measure of S^n, and Gronwall's
+inequality gives z = 0. So W(t, rω) = W(t, ω) on the shell 3/4 ≤ |x| ≤ 4/3, and u := ū + W_1 solves
+[[eq:class-kato-sphere]], since |W_1| ≤ r0. On the shell W_ab W(t, rω) = (W_ab W_1)(t, ω), and the W_ab have bounded
+coefficients there; so the L² and H^s norms of W_1(t) on S^n are bounded by C times those of W(t) on R^(n+1). This is (a)
+except uniqueness. *Uniqueness.* For two solutions in the class of (a), the H^s(S^n) norm bounds W_ab u in H^(s−1)(S^n) ⊂
+L^∞ ([[thm:std-bh-manifold]], s − 1 > n/2, the norm of [[cor:std-moser-product]] (2) being equivalent to that of
+[BH17] by the chart comparison in its proof), and ∂_t u is bounded by the equation; the L² energy identity on S^n for
+their difference, as above, gives uniqueness.
+
+(4) *Smoothness.* If u0 is smooth, W(0) and the coefficients are smooth, and for every integer σ ≥ s, [[thm:class-kato]]
+(a) at the order σ gives a solution in H^σ, equal to W on its interval by uniqueness. While it exists,
+[[lem:class-kato-linear]] (c) at the order σ, with v := W, f := F̃(t, W), ‖F̃(t, W)‖_(H^σ) ≤ ‖F̃(t, ·, 0)‖_(H^σ) +
+C(‖W‖_(L^∞)) ‖W‖_(H^σ) ([[lem:class-composition]] (b)) and K_W ≤ sup_([0,T]) (‖∂_x W‖_(L^∞) + ‖∂_t W‖_(L^∞)) < ∞, gives a
+linear Gronwall inequality for ‖W(t)‖_(H^σ); so ‖W(t)‖_(H^σ) is bounded on [0, T] and, by the continuation in
+[[thm:class-kato]] (a), W(t) ∈ H^σ for t ∈ [0, T]. By the equation ∂_t W is a smooth function of (t, x, W, ∂_x W), and
+by induction ∂_t^k W is bounded in every H^σ; so W is smooth, and so is u.
+
+(5) *Domain of influence.* z := u − ū satisfies on Ω, where P = P̄, B^0 ∂_t z + Σ B^(ab) W_ab z = g with |g| ≤ C |z|,
+B^μ := A^μ(t, ω, u, P̄). The field (⟨B^0 z, z⟩, ⟨B^(ab) z, z⟩ W_ab) on [0, T] × S^n has divergence ⟨(∂_t B^0 + Σ W_ab
+B^(ab)) z, z⟩ + 2 ⟨g, z⟩, the W_ab being divergence free; the divergence theorem on Ω_t, as in the proof of
+[[thm:class-kato]] (b) (i), with the lateral terms nonnegative by the condition on ν at the states u, |u − ū| ≤ r0,
+gives e(t) ≤ e(0) + C ∫_0^t e for e(t) := ∫_(Ω∩{t′=t}) ⟨B^0 z, z⟩, and e(0) = 0. ∎
+
+**Remark {#rem:class-kato-local}** (Local forcing terms.) A forcing term F(t, x, u) that is a smooth function of (t, x,
+u), every derivative of which is bounded on [0, T0] × R^d ×
+{|u| ≤ R} for every R, with F(t, x, 0) = 0 for x outside a fixed compact set, satisfies (F1)–(F3) with ρ = ∞, (F1′),
+and (F4) for every domain: by [[lem:class-composition]] (b), ‖F(t, u)‖_(H^s) ≤ ‖F(t, ·, 0)‖_(H^s) + C(‖u‖_(L^∞))
+‖u‖_(H^s), which gives (F1) and (F1′); |F(t, x, u) − F(t, x, v)| ≤ C |u − v| pointwise for |u|, |v| ≤ C_S 𝔐, which gives
+(F2) and the bound of (F4); F(t, x, u) − F(t′, x, u) = (t − t′) ∫_0^1 ∂_t F(t′ + η (t − t′), x, u) dη, bounded in L² by
+C |t − t′| (1 + ‖u‖), which with (F2) gives (F3); and locality is (F4).
 
 **Remark {#rem:class-kato-model}** (Numerical observation.) For the scalar model u_t + (1 + u) u_x = −(1 − ∂_x²)⁻¹(u²)
 on the line, whose right side is non-local, the iteration of [[thm:class-kato]] was run in floating point: the successive
 differences sup_t ‖u^(n+1) − u^n‖_(L²) fell by ratios between 0.053 and 0.110, and the H² norms stayed at 2.40 within
-5 %; with the right side 0.5 u_xx in its place, which violates (K1) and (K2), the H² norms grew from 2.07 to 230. For the
+5 %; with the right side 0.5 u_xx in its place, which violates (F1) and (F2), the H² norms grew from 2.07 to 230. For the
 stability statement, the quotient ‖F(u)‖_(H²)/(‖u‖_(L^∞) ‖u‖_(H²)) stayed below 0.2629 on twenty random states, and on
 [0, 1], inside the lifespan of the computed solution ū, sup_t ‖u_d − ū‖_(H²)/d was 12.46, 12.45, 12.45 for perturbations
 of the data of size d = 4 × 10⁻³, 2 × 10⁻³, 10⁻³; on [0, 3], past the shock of ū, ‖ū‖_(H²) grew by a factor 420. No
@@ -476,7 +842,7 @@ A *datum* on Σ_τ0 is the Cauchy data (g, ∂_τ g) of a metric together with, 
 on Σ_τ0, all smooth and G-invariant. From it, p_A on Σ_τ0 is the covector whose spatial part is ∂_x u_A and whose
 τ-component is the root of g⁻¹(p_A, p_A) = 0 near that of dů_A, and Θ_A := □_g u_A on Σ_τ0, computed with the
 τ-derivative of p_A that (Aug2) gives. The datum satisfies the *gauge condition* if D(g) = 0 on Σ_τ0, and the
-*constraints* if (Ric(g) − ½ R(g) g − T + ½ (tr_g T) g)(N, ·) = 0 on Σ_τ0, N := g⁻¹dτ, the constraints of Ric(g) = T
+*constraints* if (Ric(g) − ½ R(g) g − T + ½ (tr_g T) g)(n♯, ·) = 0 on Σ_τ0, n♯ := g⁻¹dτ, the constraints of Ric(g) = T
 written in Cauchy data. It lies within ε of ů's if the expression [[eq:class-energy]] at τ0, with spatial derivatives
 only and with ∂_τ w included among the first derivatives, is at most ε.
 
@@ -487,17 +853,19 @@ Let Ω be admissible for g̊ and ů = (g̊, ů_A, q̊_A) a class solution of [[e
 (H2) closed G-invariant sets S_A ⊂ Σ_τ0 containing supp q̊_A ∩ Σ_τ0, whose tubes 𝒯̊_A for P̊_A lie at distance at
 least 2δ from the axes.
 
-Then there are ε > 0 and C such that every datum on Σ_τ0 that satisfies the constraints and the gauge condition, lies
-within ε of ů's, and has supp q_A ∩ Σ_τ0 ⊂ S_A for every A, has a unique smooth G-invariant development on Ω solving
-[[eq:class-system]], with 𝒩_k ≤ C ε on [τ0, τ1], p_A = du_A and Θ_A = □_g u_A on supp q_A, and supp q_A within C ε of
-𝒯̊_A. No smallness of ů or of the families is assumed; ε and C depend on ů, Ω, N_f, k and δ.
+Then there are ε, ε2 > 0 and C such that every datum on Σ_τ0 that satisfies the constraints and the gauge condition,
+lies within ε of ů's, and has supp q_A ∩ Σ_τ0 ⊂ S_A for every A, has a smooth G-invariant development on Ω solving
+[[eq:class-system]] in the gauge D(g) = 0 relative to g̊, with 𝒩_k ≤ C ε on [τ0, τ1], p_A = du_A and Θ_A = □_g u_A on
+supp q_A, and supp q_A within C ε of 𝒯̊_A; and it is the only smooth G-invariant development on Ω in that gauge,
+with that datum, whose norm 𝒩_(k−1), computed with p_A := du_A and Θ_A := □_g u_A, is at most ε2 on [τ0, τ1]. No
+smallness of ů or of the families is assumed; ε, ε2 and C depend on ů, Ω, N_f, k and δ.
 
 *Proof.* We follow the steps of [[sec:ue-bootstrap]] and [[sec:ue-existence]].
 
 *Step 1 (Sobolev).* On Σ_τ, ‖∂^i U − ∂^i ů‖_(L^∞) ≤ C 𝒩_k for the first-order variables U = (w, ∂w, δp_A, δΘ_A, δq_A)
 and i ≤ k − 3, by the Sobolev inequality of [[lem:sobolev]] (with λ = 1). Products and compositions of the unknowns are
-estimated in H^k(Σ_τ) by Moser's estimate after a uniform extension ([[thm:std-sy-extension]],
-[[cor:std-moser-product]] (1)).
+estimated in H^k(Σ_τ) by Moser's estimate and the composition estimate after a uniform extension
+([[thm:std-sy-extension]], [[cor:std-moser-product]] (1), [[lem:class-composition]]).
 
 *Step 2 (data).* The τ-derivatives of every order of the unknowns on Σ_τ0 are fixed by (Aug1)–(Aug4), (Aug1) through
 −½ g^(ab) ∂_a ∂_b g with g^(ττ) ≠ 0, and 𝒩_k(τ0) ≤ C ε. The data of Θ_A are □_g u_A, those of q_A the densities.
@@ -541,19 +909,40 @@ the j-th derivatives of 1/g(K_i, K_i). The other term and the commutator are bou
 inequality and Step 2 give 𝒩_k ≤ C3 ε on [τ0, τ*], C3 := C2 C e^(2C2 (τ1 − τ0)). Put C_* := C3; then 𝒩_k ≤ C_* ε <
 2C_* ε for ε ≤ ε0, which improves the bootstrap. Only the perturbation is small.
 
-*Step 9 (existence).* The augmented system in first-order form, with the unknowns (w, ∂_τ w, ∂_y w) of Step 8 (ii)–(iii)
-of [[sec:ue-existence]] together with p_A, Θ_A, q_A, is a quasilinear symmetric hyperbolic system whose zero-order
-terms are smooth and local, so they satisfy (K1)–(K4) and (K1′). It is extended outside Ω as in Step 8 (i) of
-[[sec:ue-existence]], with a cut-off on p_A that keeps P_A^τ > 0, as for w. By [[prop:class-augmented]] (f) the
-theorem of [DS23] does not apply as stated; [[thm:class-kato]] gives local existence in H^k and continuation while
-𝒩_k stays bounded, so by Steps 3–8 the solution exists on Ω with 𝒩_k ≤ C ε. Higher norms obey linear Gronwall
-inequalities with coefficients bounded by 𝒩_k, so the solution is smooth, the datum being smooth. The system is
-invariant under G: g(K_i, K_i) is invariant, K_i is mapped to ± K_i, and ζ_A, S̊_A are invariant. So the image of the
-solution under an element of G solves the same system with the same datum, and equals it by uniqueness.
+*Step 9 (existence).* Extend the coefficients outside Ω as in Step 8 (i) of [[sec:ue-existence]], to a background equal
+to Minkowski space outside a compact set, with the families extended smoothly and cut off to vanish there (S̊_A and the
+ζ_A likewise), and use the coordinates (τ, y) of Step 8 (ii) there, the cut-off of Step 8 (iii) there, and a cut-off on
+p_A that keeps P_A^τ ≥ c > 0. In the unknowns U := (w, ∂_τ w, ∂_y w, δp_A, δΘ_A, δq_A), the differences from the
+extended ů, the augmented system is then a quasilinear symmetric hyperbolic system on [τ0, τ1] × R⁴ of the form of
+[[eq:class-kato-system]], with A^0 = diag(1, −g^(00), g^(ab)) on the wave block and P_A^τ on the transports, and with a
+forcing term F(τ, y, U) that is a smooth function, every derivative bounded on bounded sets of U, with F(τ, y, 0) = 0
+outside a compact set (the extended background solves the extended system there). By [[rem:class-kato-local]] it
+satisfies (F1)–(F4) and (F1′). (F5) holds at the states within some r_b of 0: on the wave block the boundary matrix at a
+conormal ν is ν_0 on w and, on (u_0, u_b), the form −(g^(00) ν_0 + 2 g^(0c) ν_c) u_0² + ν_0 g^(ab) u_a u_b − 2 u_0
+g^(cb) ν_c u_b; by the Cauchy–Schwarz inequality for the positive definite g^(ab), it is nonnegative exactly when ν_0 ≥
+0 and g⁻¹(ν, ν) ≤ 0, that is, where the boundary is spacelike or null with Ω to its past; on a transport it is ν(P_A),
+nonnegative when P_A is future causal. At ů both hold strictly, by [[def:class-admissible]] (a)–(b), so they hold at the
+states within some r_b of it. By [[prop:class-augmented]] (f) the theorem of [DS23] does not apply as stated.
+[[thm:class-kato]] (b) (ii) with s = k, u_* := 0 and C_S ρ ≤ r_b gives the solution on Ω ∩ {τ ≤ τ0 + T*} and its
+extension on Ω while ‖U(τ)‖_(H^k(Σ_τ)) ≤ η_ρ ρ/C_E; that norm is at most C 𝒩_k, so by Steps 3–8 the solution exists on Ω
+with 𝒩_k ≤ C ε. On each interval of the restarts the solution on R⁴ is smooth, the datum being smooth, by the argument
+of step (4) of the proof of [[cor:class-kato-sphere]] ([[lem:class-kato-linear]] (c) at every order, with coefficients
+bounded by 𝒩_k); so the solution is smooth. The system is invariant under G: g(K_i, K_i) is invariant, K_i is mapped to
+± K_i, and ζ_A, S̊_A are invariant. So the image of the solution under an element of G solves the same system with the
+same datum, and equals it on Ω by [[thm:class-kato]] (b) (i). *Uniqueness.* Let (g, u_A, q_A) be a smooth G-invariant
+development on Ω in the gauge D(g) = 0, with the same datum and 𝒩_(k−1) ≤ ε2, computed with p_A := du_A and Θ_A := □_g
+u_A. With p_A := du_A, (Aug1) and (Aug2) hold, since Ric^H(g) = Ric(g) = T and ∇_(P_A) du_A = ½ d g⁻¹(du_A, du_A) = 0.
+Let Θ_A solve (Aug3) with the data □_g u_A on Σ_τ0. On the tube of supp q_A ∩ Σ_τ0, which contains supp q_A and lies in
+{ζ_A = 1} for ε2 small (as in Step 3), Θ_A and □_g u_A solve the same ordinary differential equation along P_A
+([[prop:class-structure]] (c)) with the same data, so they agree, and (Aug4) is the conservation law there; off it q_A =
+0. So the development gives a solution of the augmented system on Ω, within C ε2 of ů in 𝒩_(k−1) by the estimate of Step
+6 at the order k − 1. For ε2 small both it and the solution constructed lie within r_b of ů pointwise, and the argument
+of [[thm:class-kato]] (b) (i), which uses the solutions on Ω only, at the order s = k − 1 > 3, shows that they agree on
+Ω.
 
 *Step 10 (constraints).* On Σ_τ0, ν_A = 0 by the choice of p_A, and P_A(ν_A) = 0 with P_A^τ ≠ 0 gives ∂_τ ν_A = 0
-there, so dν_A = 0 on Σ_τ0. Then ι_(P_A) dp_A = ∇_(P_A) p_A − ½ dν_A = 0 on Σ_τ0 ([[prop:class-augmented]] (b)); the
-spatial components of dp_A vanish there (p_A has spatial part ∂_x u_A), so dp_A = E_i dτ ∧ dx^i, and ι_(P_A) dp_A = 0
+there, so dν_A = 0 on Σ_τ0. Then i_(P_A) dp_A = ∇_(P_A) p_A − ½ dν_A = 0 on Σ_τ0 ([[prop:class-augmented]] (b)); the
+spatial components of dp_A vanish there (p_A has spatial part ∂_x u_A), so dp_A = E_i dτ ∧ dx^i, and i_(P_A) dp_A = 0
 with P_A^τ ≠ 0 gives E_i = 0: dp_A = 0 on Σ_τ0. Every point of Ω lies on an integral curve of P_A that meets Σ_τ0
 inside Ω ([[def:class-admissible]] (c)), so by [[prop:class-augmented]] (b), ν_A ≡ 0 and dp_A ≡ 0 on Ω. Ω is simply
 connected, so p_A = du_A with u_A an eikonal of g.
@@ -574,8 +963,8 @@ the transport has no flux through it. Its value at τ0 is 0, so D = 0 and Δ_A =
 **Corollary {#cor:class-seed-families}** (Non-round families on the seed.) Let g̊ be g0 of [[eq:background]] with μ ≡
 μ0 ≥ √72 l5², the seed, on the domain Ω of [[eq:omega]], with q̊_A = 0, and let ů_A be finitely many phases in the class
 that are eikonals of g̊, smooth with dů_A ≠ 0 on Ω, with closed sets S_A ⊂ Σ_τ0 whose tubes lie at distance at least
-2δ from the axes: for instance radial eikonals with S_A in an angular band {ϑ1 ≤ ϑ ≤ ϑ2}, 0 < ϑ1 < ϑ2 < π/2, or
-non-radial invariant eikonals of g̊ without caustics on Ω. Then every datum satisfying the constraints and the gauge
+2δ from the axes: for instance radial eikonals with S_A in an angular band {ϑ1 ≤ ϑ ≤ ϑ2}, 0 < ϑ1 < ϑ2 < π/2. Then
+every datum satisfying the constraints and the gauge
 condition, within ε of ů's, with supp q_A ∩ Σ_τ0 ⊂ S_A, has its non-round Einstein–null-dust development on the whole
 of Ω, within C ε of the seed.
 
@@ -589,13 +978,16 @@ examined; data localised in an angle are the subject of [[ch:localised-data]].
 
 **Corollary {#cor:class-short-time}** (Large data for a short time.) Let a datum on Σ_τ0 satisfy the constraints and
 the gauge condition, with densities vanishing within 2δ of the axes, and let Ω be admissible for a smooth G-invariant
-metric g̃ whose Cauchy data on Σ_τ0 are those of the datum. With ζ_A equal to 1 on the points at distance at least 2δ
-from the axes and S̊_A replaced by any fixed smooth function, the augmented system has a solution on Ω ∩ {τ ≤ τ0 + T},
+metric g̃ whose Cauchy data on Σ_τ0 are those of the datum. With g̃ in place of g̊ in the gauge of (Aug1), ζ_A equal
+to 1 on the points at distance at least 2δ from the axes, S̊_A replaced by any fixed smooth function, and p_A on
+Σ_τ0 the root of g⁻¹(p_A, p_A) = 0 with spatial part ∂_x u_A for which P_A is future directed, the augmented system
+has a solution on Ω ∩ {τ ≤ τ0 + T},
 T > 0 depending on the datum, which solves [[eq:class-system]] as long as the tubes of the S_A := supp q_A ∩ Σ_τ0 stay
 in {ζ_A = 1}.
 
-*Proof.* Step 9 gives the solution for a short time, during which g stays within ε1 of g̃ and the admissibility of Ω
-persists ([[def:class-admissible]] (c)); Steps 4–8 bound it on a short interval, and Step 10 applies on the tubes. ∎
+*Proof.* Step 9, with g̃ in place of g̊ and the datum, constant in τ, as the reference path u_*, gives the solution for
+a short time, during which g stays within ε1 of g̃ and the admissibility of Ω persists ([[def:class-admissible]]
+(c)); Steps 4–8 bound it on a short interval, and Step 10 applies on the tubes. ∎
 
 ### The axes {#sec:class-axes}
 
@@ -610,9 +1002,10 @@ a_⊥ := g(K2, K2)/ρ2², an invariant function equal to ĝ(∂_4, ∂_4) at (ρ
 Taylor's formula, an odd smooth function of ρ2 divided by ρ2, and an even one vanishing at 0 divided by ρ2², are smooth
 and even; so at (ρ2, 0) the metric is
 
-    ĝ = h_BC dX^B dX^C + 2 (c_B dX^B)(x·dx) + a_⊥ |dx|² + b_⊥ (x·dx)²,                            {#eq:class-axis-metric}
+    ĝ = ĝ_BC dX^B dX^C + 2 (c_B dX^B)(x·dx) + a_⊥ |dx|² + b_⊥ (x·dx)²,                            {#eq:class-axis-metric}
 
-with h_BC, c_B := ĝ(∂_B, ∂_3)/ρ2, a_⊥ and b_⊥ := (ĝ(∂_3, ∂_3) − ĝ(∂_4, ∂_4))/ρ2² smooth even functions of ρ2.
+with ĝ_BC := ĝ(∂_B, ∂_C), c_B := ĝ(∂_B, ∂_3)/ρ2, a_⊥ and b_⊥ := (ĝ(∂_3, ∂_3) − ĝ(∂_4, ∂_4))/ρ2² smooth even
+functions of ρ2.
 
 **Proposition {#prop:class-axis}** (The torus curvature at the axis.) Let g be a class metric and u a phase in the class
 near a point of axis 2 with ρ1 > 0, and work at the points (ρ2, 0).
@@ -652,7 +1045,9 @@ rotation fixes the point; so their difference is O(ρ2²), and so is that of ĝ(
 and ĝ(∂_B, ∂_i) = 0, so ∂_3, ∂_4 and K1 are orthogonal to P, and they span a screen of P. The argument of
 [[prop:class-structure]] (a) for the free circle of K1 gives ∇²u(∂_i, K1) = 0 and ∇²u(K1, K1) = e^(2ψ1) κ1; the planar
 block of ∇²u is invariant under the rotations of x, hence m ĝ|_plane for a number m; and the trace over the screen is
-□_g u by [[prop:class-structure]] (b), so Θ = κ1 + 2m and m = (Θ − κ1)/2. By continuity κ2 = ∇²u(∂_4, ∂_4)/ĝ(∂_4, ∂_4)
+□_g u by the first part of [[prop:class-structure]] (b), which is pointwise and holds at the axis (its proof uses
+only that P is null with ∇²u(P, ·) = 0 at the point, and the screen is {P, L̄}^⊥ for a null L̄ with g(P, L̄) = −1), so
+Θ = κ1 + 2m and m = (Θ − κ1)/2. By continuity κ2 = ∇²u(∂_4, ∂_4)/ĝ(∂_4, ∂_4)
 tends to m, and Θ_h = Θ − κ1 − κ2 tends to m. Finally [[eq:class-identity]] reads |χ|² = Θ_h² + κ1² + κ2², and Θ_h² +
 κ2² = ½ (Θ_h + κ2)² + ½ (Θ_h − κ2)² with Θ_h + κ2 = Θ − κ1. ∎
 
@@ -662,28 +1057,32 @@ growing like δ^(−1−j) at order j by (c), and fails at an axis, where by (b)
 du ↦ κ2 is unbounded and that σ is nevertheless recovered from the Laplacian with no loss.
 
 **Proposition {#prop:class-flat-model}** (The flat model.) On R² with polar radius ρ, for a radial function u put κ :=
-∂_ρ u/ρ, the flat κ2, and f := Δu = ∂_ρ²u + ∂_ρ u/ρ.
+∂_ρ u/ρ, the flat κ2, and ℓ := Δu = ∂_ρ²u + ∂_ρ u/ρ.
 
 (a) For u_ε := exp(−ρ²/ε²), ‖κ‖_(L²(R²))/‖∇u_ε‖_(L²(R²)) = √2/ε, and for every j ≥ 0 the quotient of the homogeneous
 Ḣ^j seminorms of κ and ∇u_ε is ε⁻¹ times its value at ε = 1. So no bound ‖κ‖_(H^j) ≤ C ‖∇u‖_(H^j) holds near the axis.
-For the rings u_ε := exp(−(ρ − ρ0)²/ε²), ρ0 > 0, the L² quotient tends to 1/ρ0 as ε → 0.
-(b) For a radial Schwartz function u, put 𝒜f(ρ) := ρ⁻² ∫_0^ρ t f(t) dt and σ_pl := ∂_ρ²u − ∂_ρ u/ρ, the flat planar
-shear. Then 𝒜f = κ = ∫_0^1 t f(t ·) dt, σ_pl = f − 2𝒜f, ‖σ_pl‖_(L²(R²)) = ‖f‖_(L²(R²)), and ‖𝒜f‖_(Ḣ^j) ≤
-‖f‖_(Ḣ^j)/(j + 1) for every j. For the Gaussians of (a), ‖𝒜f‖_(L²) = ‖f‖_(L²)/√2 at every ε.
+For the rings u_ε := exp(−(ρ² − ρ0²)²/ε²), ρ0 > 0, smooth on R², the L² quotient is at most 1/ρ0 and tends to
+1/ρ0 as ε → 0.
+(b) For a radial Schwartz function u, put 𝒜ℓ(ρ) := ρ⁻² ∫_0^ρ t ℓ(t) dt and σ_pl := ∂_ρ²u − ∂_ρ u/ρ, the flat planar
+shear. Then 𝒜ℓ = κ = ∫_0^1 t ℓ(t ·) dt, σ_pl = ℓ − 2𝒜ℓ, ‖σ_pl‖_(L²(R²)) = ‖ℓ‖_(L²(R²)), and ‖𝒜ℓ‖_(Ḣ^j) ≤
+‖ℓ‖_(Ḣ^j)/(j + 1) for every j. For the Gaussians of (a), ‖𝒜ℓ‖_(L²) = ‖ℓ‖_(L²)/√2 at every ε.
 
 *Proof.* (a) ∂_ρ u_ε = −(2ρ/ε²) u_ε, so κ = −(2/ε²) u_ε, and with ∫_0^∞ e^(−2ρ²/ε²) ρ dρ = ε²/4 and ∫_0^∞ ρ³
 e^(−2ρ²/ε²) dρ = ε⁴/8, ‖κ‖² = 2π (4/ε⁴)(ε²/4) = 2π/ε² and ‖∇u_ε‖² = 2π (4/ε⁴)(ε⁴/8) = π. For the scaling, u_ε(x) =
 u_1(x/ε), so ∂^β ∇u_ε = ε^(−1−|β|) (∂^β ∇u_1)(x/ε) and ∂^β κ_ε = ε^(−2−|β|) (∂^β κ_1)(x/ε), and in two dimensions
 ‖F(·/ε)‖_(L²) = ε ‖F‖_(L²); so every Ḣ^j quotient carries the factor ε⁻¹, and for ε small the top seminorms dominate
-the H^j norms. For the rings, ‖κ‖²/‖∇u_ε‖² = ∫ (∂_ρ u_ε)² ρ⁻¹ dρ / ∫ (∂_ρ u_ε)² ρ dρ; the weight (∂_ρ u_ε)² concentrates
-at ρ0, with mass outside {|ρ − ρ0| < η} exponentially small against its total, and ∂_ρ u_ε = O(ρ) near 0, so the
-quotient tends to ρ0⁻².
-(b) (ρ ∂_ρ u)′ = ρ f, so ∫_0^ρ t f(t) dt = ρ ∂_ρ u and 𝒜f = κ; the substitution t ↦ ρt gives the dilation average; and
-f − 2𝒜f = ∂_ρ²u − ∂_ρ u/ρ. With a := ∂_ρ²u and b := ∂_ρ u/ρ, f² − σ_pl² = 4ab, and ∫_(R²) 4ab = 8π ∫_0^∞ ∂_ρ²u ∂_ρ u dρ
-= 4π [(∂_ρ u)²]_0^∞ = 0. For the seminorms, ∂^β(f(t ·)) = t^|β| (∂^β f)(t ·) and ‖F(t ·)‖_(L²(R²)) = t⁻¹ ‖F‖_(L²(R²)),
-so Minkowski's integral inequality gives ‖∂^β 𝒜f‖ ≤ ∫_0^1 t^|β| ‖∂^β f‖ dt = ‖∂^β f‖/(|β| + 1). For the Gaussians, f =
-(4/ε²)(ρ²/ε² − 1) u_ε, and with ρ² = ε² t, ‖f‖² = 2π (16/ε⁴)(ε²/2) ∫_0^∞ (t − 1)² e^(−2t) dt = (16π/ε²)(1/4) = 4π/ε²,
-twice ‖𝒜f‖² = ‖κ‖² = 2π/ε². ∎
+the H^j norms. For the rings, u_ε is a smooth function of ρ² = |x|², ∂_ρ u_ε = −(4ρ (ρ² − ρ0²)/ε²) u_ε and κ =
+−(4 (ρ² − ρ0²)/ε²) u_ε is smooth. The quotient ‖κ‖²/‖∇u_ε‖² is ∫ (∂_ρ u_ε)² ρ⁻¹ dρ / ∫ (∂_ρ u_ε)² ρ dρ, and with t :=
+ρ² − ρ0² the two integrals are (8/ε⁴) I_ε and (8/ε⁴)(ρ0² I_ε + R_ε), where I_ε := ∫_(−ρ0²)^∞ t² e^(−2t²/ε²) dt and R_ε :=
+∫_(ρ0²)^∞ t³ e^(−2t²/ε²) dt, the odd integrand t³ e^(−2t²/ε²) cancelling on [−ρ0², ρ0²]. Here I_ε ≥ ∫_0^∞ t²
+e^(−2t²/ε²) dt = √(2π) ε³/16 and R_ε = (ε²/8)(2ρ0⁴ + ε²) e^(−2ρ0⁴/ε²) ≥ 0. So the quotient I_ε/(ρ0² I_ε + R_ε) is at
+most ρ0⁻², and as 0 ≤ R_ε/I_ε ≤ (2/(√(2π) ε))(2ρ0⁴ + ε²) e^(−2ρ0⁴/ε²) → 0, it tends to ρ0⁻².
+(b) (ρ ∂_ρ u)′ = ρ ℓ, so ∫_0^ρ t ℓ(t) dt = ρ ∂_ρ u and 𝒜ℓ = κ; the substitution t ↦ ρt gives the dilation average; and ℓ
+− 2𝒜ℓ = ∂_ρ²u − ∂_ρ u/ρ. With a := ∂_ρ²u and b := ∂_ρ u/ρ, ℓ² − σ_pl² = 4ab, and ∫_(R²) 4ab = 8π ∫_0^∞ ∂_ρ²u ∂_ρ u dρ =
+4π [(∂_ρ u)²]_0^∞ = 0. For the seminorms, ∂^β(ℓ(t ·)) = t^|β| (∂^β ℓ)(t ·) and ‖F(t ·)‖_(L²(R²)) = t⁻¹ ‖F‖_(L²(R²)), so
+Minkowski's integral inequality gives ‖∂^β 𝒜ℓ‖ ≤ ∫_0^1 t^|β| ‖∂^β ℓ‖ dt = ‖∂^β ℓ‖/(|β| + 1). For the Gaussians, ℓ =
+(4/ε²)(ρ²/ε² − 1) u_ε, and with ρ² = ε² t, ‖ℓ‖² = 2π (16/ε⁴)(ε²/2) ∫_0^∞ (t − 1)² e^(−2t) dt = (16π/ε²)(1/4) = 4π/ε²,
+twice ‖𝒜ℓ‖² = ‖κ‖² = 2π/ε². ∎
 
 At an axis point the family's generator runs along the axis ([[lem:class-phase-axis]]), while the recovery of (b) is an
 integral in ρ from the axis, across every generator: no transport along P_A supplies it, and it loses nothing, 𝒜 being
@@ -721,13 +1120,13 @@ M3 is totally geodesic.
 vanishes on it) and does not contain P (P is null), so it is a screen, and by [[prop:class-structure]] (b) the trace of
 ∇²u over it is Θ. By [[prop:class-structure]] (a), ∇²u(e1, e1) = κ1 and ∇²u(e1, TΣ_L) = 0, which gives the trace over
 TΣ_L. On TΣ_L, hess_M3 u = |∇_M3 u| k_L, the second fundamental form of a level set, and |∇_M3 u| = |∇_Σ u|; with (a)
-this is the formula for χ̸. The frame (e_r, e2) diagonalises k_L, K_Σ and ∇²u by the reflection φ2 ↦ −φ2, and χ̸(e2, e2)
-= κ2 by [[prop:class-structure]] (a). The vectors e_r and e_h of [[prop:class-structure]] (b) are unit, orthogonal to P
-and tangent to the orbit space; the vectors of the orbit space orthogonal to P form the plane span(P, e_h), so e_r =
-± e_h + c P, and ∇²u(P, ·) = 0 gives χ̸(e_r, e_r) = Θ_h. Then σ = χ̸(e_r, e_r) − χ̸(e2, e2), and a symmetric form on a
-plane with eigenvalues x, y has trace-free part of norm |x − y|/√2.
-(c) ν_L is invariant, so [K2, ν_L] = 0 and k_φ = |K2|⁻² γ3(∇_(K2) ν_L, K2) = |K2|⁻² γ3(∇_(ν_L) K2, K2) =
-|K2|⁻² ½ ν_L(|K2|²). ∎
+this is the formula for χ̸. The frame (e_r, e2) diagonalises k_L, K_Σ and ∇²u by the reflection φ2 ↦ −φ2, and χ̸(e2,
+e2) = κ2 by [[prop:class-structure]] (a). The vectors e_r and e_h of [[prop:class-structure]] (b) are unit, orthogonal
+to P and tangent to the orbit space; the vectors of the orbit space orthogonal to P form the plane span(P, e_h), so
+e_r = ± e_h + c P, and ∇²u(P, ·) = 0 gives χ̸(e_r, e_r) = Θ_h. Then σ = χ̸(e_r, e_r) − χ̸(e2, e2), and a symmetric form
+on a plane with eigenvalues x, y has trace-free part of norm |x − y|/√2.
+(c) ν_L is invariant, so [K2, ν_L] = 0 and k_φ = |K2|⁻² γ3(∇_(K2) ν_L, K2) = |K2|⁻² γ3(∇_(ν_L) K2, K2) = |K2|⁻² ½
+ν_L(|K2|²). ∎
 
 **Lemma {#lem:class-leaf}** (The leaf's equation.) Near a point of axis 2 use on M3 the coordinates (z, y) := (ρ1, x3,
 x4), with r := |y| = ρ2 and φ := φ2.
@@ -784,13 +1183,38 @@ det₂ and a_L are smooth and even; H_L is a smooth invariant function on the le
 [[eq:class-leaf-volterra]]. By [[lem:class-gauss]] (c) with |K2|² = B3 r², k_φ = ν(log r) + ½ ν(log B3) = ν^r/r +
 ½ ν(log B3), and k_r + k_φ = H_L. In the flat case, linearised at h = 0, H_L = −(h″ + h′/r) and E_L = 0. ∎
 
+**Lemma {#lem:class-volterra}** (The leaf equation is uniquely solvable.) In the coordinates of [[lem:class-leaf]], let H
+be a C¹ function of (z, r) near (z0, 0). There are r0 > 0 and C, depending on lower bounds for A3, B3 and det₂ near
+(z0, 0), on bounds for A3, B3, C3, D3 and their derivatives of order at most two, and on bounds for H and its first
+derivatives, such that [[eq:class-leaf-volterra]], with H_L(ρ) := H(h(ρ), ρ) and a_L, E_L evaluated at (ρ, h(ρ),
+h′(ρ)), has exactly one solution h ∈ C¹([0, r0]) with h(0) = z0; and |h′(r)| ≤ C r. For r > 0 the equation is the
+regular ordinary differential equation (r h′)′ = r H_L/a_L − E_L, so the solution continues uniquely while it stays in
+the chart.
+
+*Proof.* Write a_L(r, z, p) and E_L(r, z, p) for the functions of [[lem:class-leaf]] (c) with h := z and h′ := p; they
+are smooth. By the proof of [[lem:class-leaf]] (c), H_L = a_L h″ + ν^r/r + B̃ with B̃ smooth in (r, z, p), so E_L =
+ν^r/a_L − p + r B̃/a_L, and at r = 0, where det₂ = A3 B3 and N_L² = B3 + A3 p², ν^r/a_L = (C3 r + A3 p) N_L²/det₂ = p +
+A3 p³/B3; so E_L(0, z, p) = A3 p³/B3. Put G(r, z, p) := r H(z, r)/a_L(r, z, p) − E_L(r, z, p). Then G(0, z, p) = −A3
+p³/B3, ∂_p G vanishes at r = p = 0, and on a neighbourhood of (0, z0, 0), |G(r, z, 0)| ≤ C_0 r, |∂_z G| ≤ C_1 and |∂_p
+G| ≤ C_2 (r + |p|). A solution h ∈ C¹ has p := h′ continuous and r p(r) = ∫_0^r G(ρ, h(ρ), p(ρ)) dρ, so p(0) = G(0, z0,
+p(0)) = −A3 p(0)³/B3, and p(0) = 0 as A3, B3 > 0. For δ_p, r0 > 0 put X := {p ∈ C([0, r0]) : sup |p| ≤ δ_p}, h_p(r) :=
+z0 + ∫_0^r p, and 𝒯p(r) := r⁻¹ ∫_0^r G(ρ, h_p(ρ), p(ρ)) dρ, 𝒯p(0) := G(0, z0, p(0)). Then |𝒯p(r)| ≤ C_0 r/2 + C_2 (r0 +
+δ_p) δ_p, and as |h_(p1)(ρ) − h_(p2)(ρ)| ≤ ρ sup |p1 − p2|, sup |𝒯p1 − 𝒯p2| ≤ (C_1 r0/2 + C_2 (r0 + δ_p)) sup |p1 − p2|.
+For C_2 (r0 + δ_p) ≤ ¼, C_0 r0 ≤ δ_p and C_1 r0 ≤ ½, 𝒯 maps X to itself and is a contraction with constant ½. Its fixed
+point p gives the solution h_p. Every C¹ solution has h′ ∈ X on some [0, r1], r1 ≤ r0, and equals h_p there, the same
+contraction holding on [0, r1]; for r > 0 the equation is regular and Lipschitz in (h, h′), and the Picard–Lindelöf
+theorem gives uniqueness on [r1, r0]. Finally q(r) := sup_([0,r]) |p| satisfies q(r) ≤ C_0 r/2 + q(r)/4, so |h′(r)| ≤
+C_0 r. ∎
+
 **Lemma {#lem:class-interior-regularity}** (Interior regularity in two variables.) Let L := a^(ij) ∂_i ∂_j + b^i ∂_i + c
 on the disc 𝔻_(2δ) ⊂ R², with a^(ij) = a^(ji), b^i, c ∈ C^∞(𝔻̄_(2δ)) and a^(ij) ξ_i ξ_j ≥ c_a |ξ|², c_a > 0. Let j ≥ 0.
 If w ∈ H¹(𝔻_(2δ)) and Lw = f ∈ H^j(𝔻_(2δ)) in the sense of distributions, then w ∈ H^(j+2)(𝔻_δ) and
 
     ‖w‖_(H^(j+2)(𝔻_δ)) ≤ C (‖f‖_(H^j(𝔻_(2δ))) + ‖w‖_(L²(𝔻_(2δ)))),
 
-C depending on δ, j, c_a and norms of the coefficients.
+C depending only on δ, j, c_a, the C^(j+1) norms of the a^(ij) and the C^j norms of the b^i and c on 𝔻̄_(2δ); for
+j = 0, only on δ, c_a, sup |a^(ij)|, sup |∂a^(ij)|, sup |b^i| and sup |c|, which are the quantities steps (i) and (ii)
+of the proof use.
 
 *Proof.* Write Lw = ∂_i(a^(ij) ∂_j w) + b̃^i ∂_i w + c w, b̃^i := b^i − ∂_j a^(ij), so that Lw = f means ∫ a^(ij) ∂_j w
 ∂_i φ = ∫ (b̃^i ∂_i w + c w − f) φ =: ∫ G φ for φ ∈ H¹_0. Let 𝔻′ ⊂ 𝔻″ be concentric discs between 𝔻_δ and 𝔻_(2δ), and ζ a
@@ -805,10 +1229,11 @@ j ≥ 1, the case j − 1 on a larger disc gives w ∈ H^(j+1), so ∂_e w ∈ H
 w − (∂_e b^i) ∂_i w − (∂_e c) w ∈ H^(j−1); the case j − 1 applied to ∂_e w gives ∂_e w ∈ H^(j+1) on a smaller disc.
 Finitely many nested discs between 𝔻_δ and 𝔻_(2δ) conclude. ∎
 
-On the slice, near a point of axis 2 where ρ1 ≥ c0 > 0, let 𝒰_δ := {ρ2 < δ}.
+On the slice, near a point p of axis 2 with ρ1(p) > 0, let 𝒰_δ := {x : |ρ1(x) − ρ1(p)| < δ, ρ2(x) < δ}, a
+G-invariant neighbourhood of the orbit of p, for 0 < δ ≤ ρ1(p)/4.
 
 **Lemma {#lem:class-planar-shear}** (The planar shear at an axis.) Let g be a smooth class metric and u a phase in the
-class with g⁻¹(du, du) = 0, near a point of axis 2 where ρ1 ≥ c0 > 0, and Θ := □_g u. Fix k ≥ 5. There is C, depending
+class with g⁻¹(du, du) = 0, near a point p of axis 2 with ρ1(p) > 0, and Θ := □_g u. Fix k ≥ 5. There is C, depending
 on δ, on lower bounds for |∇_Σ u| and |∂_z u| on 𝒰_(2δ), on C² norms of g, on C¹ norms of u and on sup |Θ| over
 𝒰_(2δ), such that
 
@@ -825,10 +1250,21 @@ the sign that of ∂_z u; κ1 is smooth near axis 2. So H_L ∈ H^k(𝒰_(2δ)) 
 (2) In the coordinates (z, y) of M3 the leaf is the graph z = h(y), and it solves [[eq:class-leaf-cartesian]], uniformly
 elliptic on the disc with the axis interior, with b_L holding ∂γ3 only ([[lem:class-leaf]] (b)).
 (3) Freeze the coefficients of [[eq:class-leaf-cartesian]] at the solution and apply [[lem:class-interior-regularity]]
-to h and its derivatives along the disc: ‖h‖_(H^(k+2)(𝔻_δ)) ≤ C (‖H_L‖_(H^k(𝔻_(2δ))) + ‖γ3‖_(H^(k+1)) + 1), the
-derivatives of the frozen coefficients being estimated by Moser's estimate. The constant needs sup |∂h| and sup |∂²h|;
-∂h = −∂_y u/∂_z u is bounded by the C¹ norm of u, and the two eigenvalues h″ and h′/r of ∂²h are bounded by sup |H_L|,
-sup |∂h| and the 1-jet of γ3 through [[eq:class-leaf-volterra]]: this is why C² norms of u are not needed.
+with j = 0 to the derivatives ∂^β h along the disc, |β| ≤ k: ∂^β h solves the frozen equation with right side ∂^β(H_L
+− b_L) minus the commutator of ∂^β with the frozen coefficients, bounded in L² by Moser's estimate
+([[thm:std-gn-moser]] (1), [[lem:class-composition]]), and induction on |β| gives ‖h‖_(H^(k+2)(𝔻_δ)) ≤ C
+(‖H_L‖_(H^k(𝔻_(2δ))) + ‖γ3‖_(H^(k+1)) + 1). The constant of that lemma at j = 0 needs sup |∂h| and sup |∂²h|. Here
+∂h = −∂_y u/∂_z u is bounded by the C¹ norm of u, and the Hessian of the radial function h has the eigenvalues h″ and
+h′/r. In the coordinates (z, r) of [[lem:class-leaf]], √det γ3 = r (B3 det₂)^(1/2) and √det γ3 H_L = ∂_z(√det γ3
+ν^z) + ∂_r(√det γ3 ν^r), so along z = h(r)
+
+    (√det γ3 ν^r)(h(r), r) = ∫_0^r (√det γ3 H_L − ∂_z(√det γ3 ν^z) + h′ ∂_z(√det γ3 ν^r))|_(z=h(ρ)) dρ,
+
+the left side vanishing at r = 0. The field ν depends on z only through the coefficients of γ3, so each term of the
+integrand is O(ρ), with constants depending on sup |H_L|, sup |h′| and the 1-jet of γ3. Hence |ν^r| ≤ C r, so |h′| ≤ C
+r by ν^r = −(C3 r + A3 h′)/(det₂^(1/2) N_L), and, as H_L = a_L h″ + ν^r/r + (terms in r, h′ and the 1-jet of γ3) by
+the proof of [[lem:class-leaf]] (c) with |a_L| bounded below, |h″| ≤ C. So sup |∂²h| is bounded by sup |H_L|, sup |∂h|
+and the 1-jet of γ3: this is why C² norms of u are not needed.
 (4) Derivatives across the leaves, in c = u, and in τ follow by differentiating the equation in c and in τ: each
 derivative gives the same elliptic equation, linearised at h, for ∂_c h (or ∂_τ h), with a right side one order lower and
 coefficients again of first order in γ3, and ∂_c (H_L(h(y), y)) = ∂_z H_L ∂_c h. The change of variables (z, y) ↔ (c, y)
@@ -840,16 +1276,20 @@ The radial form [[eq:class-leaf-volterra]] is step (3) in the radial variable: t
 Hardy-type averages of [[prop:class-flat-model]] (b).
 
 **Lemma {#lem:class-leaf-differences}** (The planar shear of nearby solutions.) Let ů be a smooth class solution and,
-near a point of axis 2, let h̊ be the leaves of ů_A. For U = (g, p_A, Θ_A, q_A) let the leaves of family A be defined
-from (p_A, Θ_A) by H_L := H_L[Θ_A], the formula of step (1) of [[lem:class-planar-shear]] with Θ_A in place of Θ, and
-by [[eq:class-leaf-volterra]] from the axis, the value of u_A on the axis being transported along it; and let σ[U] be
-the planar shear [[eq:class-shear-leaf]] of these leaves. Let k ≥ 6. There are a ball 𝔅 around ů in the norm 𝒩_k and C
-such that for U, U′ ∈ 𝔅:
+near a point of axis 2, let h̊ be the leaves of ů_A. For U = (g, p_A, Θ_A, q_A) on a slice let the leaves of family A
+be the graphs z = h(r) through the points of the axis near that point, each solving [[eq:class-leaf-volterra]] with
+H_L := H_L[Θ_A], the formula of step (1) of [[lem:class-planar-shear]] with Θ_A in place of Θ and the spatial part of
+p_A in place of ∇_Σ u; they exist and are unique by [[lem:class-volterra]], and for U near ů they are C¹-close to the
+leaves of ů and foliate a neighbourhood of the axis. Let σ[U] at a point be the planar shear [[eq:class-shear-leaf]] of
+the leaf through it. Let k ≥ 6. There are a ball 𝔅 around ů in the norm 𝒩_k, a ball 𝔅′ ⊃ 𝔅 around ů in the norm
+𝒩_(k−1), and C, such that:
 
-(a) ‖∂^α(σ[U] − σ[ů])‖_(L²(𝒰_δ)) ≤ C 𝒩_k(U) for |α| ≤ k;
-(b) ‖σ[U] − σ[U′]‖_(L²(𝒰_δ)) ≤ C ‖U − U′‖_(L²(𝒰_(2δ))), where U includes ∂g among its components.
+(a) ‖∂^α(σ[U] − σ[ů])‖_(L²(𝒰_δ)) ≤ C 𝒩_k(U) for |α| ≤ k and U ∈ 𝔅;
+(b) ‖σ[U] − σ[U′]‖_(L²(𝒰_δ)) ≤ C ‖U − U′‖_(L²(𝒰_(2δ))) for U, U′ ∈ 𝔅′, where U includes ∂g among its components.
 
-The constants use C¹ norms of the phases and sup |Θ_A|, not C² norms of the phases.
+The constants use C¹ norms of the phases and sup |Θ_A|, not C² norms of the phases. For a solution of the class system
+with Θ_A = □_g u_A the leaves are the level sets of u_A near the axis, by [[lem:class-leaf]] (c) and the uniqueness in
+[[lem:class-volterra]].
 
 *Proof.* (a) The difference δh of the leaves solves L_ů δh = δH_L − (terms in δγ3 and its first derivatives) + Q(δh),
 with L_ů the mean curvature operator of [[eq:class-leaf-cartesian]] linearised at h̊, smooth and uniformly elliptic on
@@ -860,8 +1300,11 @@ coefficients, so ∂_⊥ δh obeys the same equation with a right side controlle
 number of transverse derivatives gives (a) for all |α| ≤ k. The shift δc of the foliation enters as (∂_c σ[ů]) δc, the
 derivative falling on ů.
 (b) The same with [[lem:class-interior-regularity]] for j = 0 applied to the difference of the leaves of U and U′, on a
-ball 𝔅 small enough that L_U − L_ů is absorbed; the shift of the foliation costs ∂_c σ, bounded on 𝔅. The bound needs
-the coefficients of L_U, which hold first derivatives of g, among the components of U. ∎
+ball 𝔅′ small enough that L_U − L_ů is absorbed. The constant of that lemma at j = 0 holds the sup norms of the
+coefficients of L_U and of their first derivatives, that is, of first and second derivatives of the leaves and of first
+derivatives of g; on 𝔅′ these are bounded by the Sobolev inequality of [[lem:sobolev]] at the order k − 4 ≥ 2 and by the
+bound of step (3) of [[lem:class-planar-shear]]. The shift of the foliation costs ∂_c σ, bounded on 𝔅′. The bound
+needs the coefficients of L_U, which hold first derivatives of g, among the components of U. ∎
 
 **Remark {#rem:class-leaf-numerics}** (Numerical observation.) On a metric γ3 of the form [[eq:class-m3-metric]] with
 non-constant A3, B3, C3, D3, whose leaf z = 0 has mean curvature of order one, the leaves h_ε = ε² exp(−r²/ε²) for ε =
@@ -875,20 +1318,31 @@ within 4.1 × 10⁻¹¹ and σ_L within 8.0 × 10⁻¹⁰, while the flat equati
 
 ### Cauchy stability with the dusts at the axes {#sec:class-axes-stability}
 
-A lateral boundary component B of an admissible domain meets an axis at the points of B ∩ Σ_τ on the axis. B is
-*adapted* to the family A near such points if there, in every slice, B ∩ Σ_τ is a leaf {ů_A = c_B(τ)} ∩ Σ_τ of that
-family. For a solution of the augmented system near ů, the *adapted domain* is the domain obtained from Ω by replacing,
-near those points, B by the leaves {u_A = c_B(τ)} of the solution's own phase, with the same values c_B(τ).
+**Definition {#def:class-adapted}** (Adapted boundaries and the adapted domain.) Let Ω be admissible for g̊ and B a
+lateral boundary component of Ω that meets an axis. B is *adapted* to the family A near the points where it meets an
+axis if there are a G-invariant neighbourhood 𝒱_B of those points and a smooth function c_B with B ∩ Σ_τ ∩ 𝒱_B = {ů_A =
+c_B(τ)} ∩ Σ_τ ∩ 𝒱_B for every τ. Fix then a defining function F_B of B, with Ω ⊂ {F_B ≤ 0} near B and F_B = e_B (ů_A −
+c_B(τ)) in 𝒱_B for a sign e_B ∈ {1, −1}, and a G-invariant cut-off χ_B, equal to 1 near the points of B on the axes and
+supported in 𝒱_B. For a solution U of the augmented system near ů, let u_A[U] be the phase of family A in 𝒱_B defined
+by U: on each slice it is constant on the leaves of [[lem:class-leaf-differences]], and on the axis it is constant
+along the integral curves of P_A, which run in the axis there ([[lem:class-phase-axis]]), with the values of the
+datum on Σ_τ0. The *adapted boundary* of U is B_U := {χ_B e_B (u_A[U] − c_B(τ)) + (1 − χ_B) F_B = 0}, and the *adapted
+domain* Ω_U is Ω with every adapted component B replaced by B_U. For U = ů, B_U = B. Where χ_B = 1, B_U ∩ Σ_τ is a leaf
+{u_A[U] = c_B(τ)} ∩ Σ_τ of the family. For U near ů in 𝒩_k, B_U is a C¹-small perturbation of B, by
+[[lem:class-leaf-differences]] (a) and [[lem:sobolev]], so it stays spacelike with Ω_U to its past, these being open
+conditions.
 
 **Theorem {#thm:class-stability}** (Cauchy stability of the class Einstein–null-dust system.) The conclusion of
 [[thm:class-stability-off-axes]] holds, on the adapted domain, with (H2) replaced by
 
 (H2′) closed G-invariant sets S_A ⊂ Σ_τ0 containing supp q̊_A ∩ Σ_τ0 such that, where a lateral boundary component B
 of Ω meets an axis, the tubes 𝒯̊_(A′) meeting a neighbourhood of that point all belong to one family A = A(B), and B is
-adapted to that family there if there are such tubes.
+adapted to that family there ([[def:class-adapted]]) if there are such tubes.
 
-The dusts may reach the axes. The lateral boundaries of the adapted domain depend on the solution through u_A and stay
-spacelike with the domain to their past, these being open conditions. No smallness of ů or of the families is assumed;
+The dusts may reach the axes. The development lies on its own adapted domain, whose lateral boundaries depend on the
+solution through u_A and stay spacelike with the domain to their past, these being open conditions; the uniqueness is
+among the smooth G-invariant developments, each on its own adapted domain, in the gauge D(g) = 0 relative to g̊ with
+𝒩_(k−1) ≤ ε2. No smallness of ů or of the families is assumed;
 ε and C depend on ů, Ω, N_f, k and the constants of [[lem:class-planar-shear]] and [[lem:class-leaf-differences]].
 Where no dust meets a point at which a lateral boundary meets an axis, (H2′) puts no condition there.
 
@@ -907,22 +1361,59 @@ O(ε); so ζ_(A′) = 0 near the points where B meets an axis, for A′ ≠ A(B)
 dust of A′ there, and in Step 10 the energy of Δ_(A′) is taken on a set inside {ζ_(A′) = 1} that is a union of leaves of
 u_(A′).
 
-*Step 9.* The right side of the augmented system is now non-local in the planar directions, an integral from the axis
-along each leaf. It is tame by [[lem:class-leaf-differences]] (a), L²-Lipschitz on the ball 𝔅 by
-[[lem:class-leaf-differences]] (b), and local in the sense of (K4), the leaves being solved on discs 𝒰_(2δ) ⊂ Σ_τ ∩ Ω
-centred on the axis; so [[thm:class-kato]] and [[thm:class-kato-stability]] apply. On the extension outside the domain
-the right side is ζ_A S_A^ax, with the leaves near an axis defined by the values of u_A on the axis, transported along it
-(the generator runs along the axis there, [[lem:class-phase-axis]]), and by [[eq:class-leaf-volterra]] from Θ_A; so
-p_A need not be closed for the leaves to exist. The cut-off on p_A keeps P_A^τ > 0, as before.
+*Step 9.* Near the axes the right side of the augmented system is non-local in the planar directions, an integral from
+the axis along each leaf. Extend the system as in Step 9 of [[thm:class-stability-off-axes]], with the right side ζ_A
+S_A^ax near the axes; the leaves are those of [[lem:class-leaf-differences]], defined on each slice from (g, p_A, Θ_A)
+by [[eq:class-leaf-volterra]] and [[lem:class-volterra]], so that p_A need not be closed for them to exist, and the right
+side at a time depends on the unknowns at that time only. The cut-off on p_A keeps P_A^τ > 0, as before. In the
+unknowns U of that Step 9 the forcing term is defined on a ball 𝒟_ρ about u_* := 0 in H^k, with ρ so small that the
+states of 𝒟_ρ lie in the balls 𝔅 and 𝔅′ of [[lem:class-leaf-differences]] near the axes; it satisfies (F1) by
+[[lem:class-leaf-differences]] (a) and [[rem:class-kato-local]] for the local terms, (F2) by
+[[lem:class-leaf-differences]] (b) and [[rem:class-kato-local]], and (F3) by (F2) and its smoothness in τ.
+[[thm:class-kato]] (a) gives a solution on R⁴ for a short time, for data within η_ρ ρ of 0 in H^k, and its continuation
+while ‖U(τ)‖_(H^k) ≤ η_ρ ρ.
 
-*Step 10.* [[eq:class-leaf-volterra]] is uniquely solvable, so on a solution with Θ_A = □_g u_A it returns the true
-leaves of u_A, hence the true σ_A. So near an axis Δ_A = Θ_A − □_g u_A obeys
+*The adapted domain is a domain of dependence.* Let Ũ be a solution on [τa, τb] × R⁴ and U a solution of the augmented
+system on its own adapted domain Ω_U, for instance the restriction of a second solution on R⁴, both with states in
+𝒟_ρ, with U = Ũ on Σ_(τa) ∩ Ω_U. Then U = Ũ on Ω_U ∩ {τa ≤ τ ≤ τb}. Indeed z := U − Ũ satisfies the energy identity of
+the proof of [[thm:class-kato]] (b) (i) on Ω_U, whose lateral boundary is spacelike for the system at the states of
+𝒟_ρ, for ρ small, as in Step 9 of [[thm:class-stability-off-axes]], B_U being C¹-close to B; and the local parts of the
+forcing terms differ by at most C |z| pointwise. Near the axes they differ by ½ (σ_A[Ũ]² − σ_A[U]²) times bounded
+factors. On Σ_τ put Ŭ := Ũ + 𝔼 z, with 𝔼 an extension operator from Σ_τ ∩ Ω_U to R⁴, averaged over G and bounded on
+L² and on H^k uniformly in τ (Stein's operator transported by a diffeomorphism C¹-close to ψ_τ, as in the proof of
+[[thm:class-kato]] (b) (ii)). Then Ŭ = U on Σ_τ ∩ Ω_U and Ŭ ∈ 𝔅′ for ρ small. At a point x ∈ Σ_τ ∩ Ω_U the leaf of U
+through x comes from an axis point of Ω_U and lies in Ω_U, the boundary of Ω_U near the axes being a leaf of U and the
+leaves of U foliating; by the uniqueness in [[lem:class-volterra]] it is also the leaf of Ŭ through x. So σ_A[Ŭ] =
+σ_A[U] on Σ_τ ∩ Ω_U, and by [[lem:class-leaf-differences]] (b)
+
+    ‖σ_A[U] − σ_A[Ũ]‖_(L²(Σ_τ∩Ω_U∩𝒰_δ)) ≤ ‖σ_A[Ŭ] − σ_A[Ũ]‖_(L²(𝒰_δ)) ≤ C ‖𝔼 z‖_(L²(𝒰_(2δ))) ≤ C ‖z‖_(L²(Σ_τ∩Ω_U)).
+
+So e(τ) := ∫_(Σ_τ∩Ω_U) ⟨A^0 z, z⟩ satisfies e(τ) ≤ e(τa) + C ∫_(τa)^τ e, and e(τa) = 0; hence z = 0 on Ω_U.
+
+*Existence and uniqueness.* Restart as in the proof of [[thm:class-kato]] (b) (ii): at the times τ_i extend the data
+from Σ_(τ_i) ∩ Ω_U by 𝔼 and solve on R⁴; by the domain of dependence the solutions agree on the adapted domain, whose
+boundary near the axes is determined by the solution there. The bootstrap of Steps 3–8, run on the adapted domain, keeps
+𝒩_k ≤ C ε there, hence the extended data within η_ρ ρ of 0, so the solution exists on the whole adapted domain, and it
+is smooth as in Step 9 of [[thm:class-stability-off-axes]]. A smooth G-invariant development in the gauge D(g) = 0 on
+its own adapted domain, with the same datum and 𝒩_(k−1) ≤ ε2, gives a solution of the augmented system there as in that
+Step 9, its Θ_A on the tubes being □_g u_A and its σ_A that of its own leaves by Step 10 below; by the domain of
+dependence at the order k − 1 it agrees with the solution constructed on its adapted domain, and the two adapted
+domains coincide, their boundaries near the axes being leaves of the same phase. Invariance under G follows as before.
+
+*Step 10.* [[eq:class-leaf-volterra]] is uniquely solvable ([[lem:class-volterra]]), so on a solution with Θ_A = □_g
+u_A it returns the true leaves of u_A, hence the true σ_A. So near an axis Δ_A = Θ_A − □_g u_A obeys
 
     P_A(Δ_A) = −½ Δ_A (Θ_A + div_g P_A − 2κ_A1) − ½ (σ_A[Θ_A]² − σ_A[□_g u_A]²) + g(∇_(P_A) D, P_A) + L(P_A, P_A).
 
-The middle term is a bounded operator on L² applied to Δ_A: the map of [[eq:class-leaf-volterra]] from H_L to σ_L is a
-Hardy-type average, and [[lem:class-leaf-differences]] (b) gives the bound. With zero data the energy of (D, Δ_A)
-obeys a linear Gronwall inequality, as before, so Δ_A = 0. ∎
+Here σ_A[□_g u_A] is computed from U′ := U with Θ_A replaced by □_g u_A = div_g P_A. 𝒩_k(U) controls div_g P_A at the
+order k − 1 only, so U′ lies in the ball 𝔅′ of [[lem:class-leaf-differences]] (b), which bounds the middle term on 𝒰_δ
+by C ‖Δ_A‖_(L²(𝒰_(2δ))), the factor σ_A[Θ_A] + σ_A[□_g u_A] being bounded: the map of [[eq:class-leaf-volterra]] from
+H_L to σ_L is a Hardy-type average. Near an axis the energy of Δ_A is taken on 𝒯′_A, the tube for P_A of S_A ∪ ({ρ2 ≤
+δ1} ∩ Σ_τ0), δ1 > 0 fixed. The axis {ρ2 = 0}, the zero set of K2, is invariant under the flow of P_A, since [P_A, K2] =
+0; that flow being Lipschitz on the compact domain, ρ2 grows along it at most by a factor e^(L (τ − τ0)), so for 2δ e^(L
+(τ1 − τ0)) ≤ δ1 every 𝒯′_A ∩ Σ_τ contains the points of {ρ2 < 2δ} near the axis, as the bound on 𝒰_δ needs. Its lateral
+boundary is ruled by integral curves of P_A, so the transport has no flux through it. With zero data the energy of (D,
+Δ_A) obeys a linear Gronwall inequality, as before, so Δ_A = 0. ∎
 
 **Corollary {#cor:class-two-dust}** (The two-dust background with non-round perturbations.) Let ů be the two-dust
 background of [[prop:two-dust-background]] on Ω₂ ([[lem:two-dust-domain]]), with the ingoing family v, density 𝒜/R³,
@@ -931,26 +1422,28 @@ the inner sphere: {u1 ≤ u ≤ u2} ∩ Ω₂ ∩ {R = a} = ∅. Replace the lat
 
 - *inner:* {v_ε − τ = a}, a leaf of the ingoing family in each slice, v_ε the ingoing phase of the solution;
 - *outer:* {u_ε = U_b(τ)}, U_b(τ) the value of the background's outgoing phase on {R = b(τ)}, a leaf of the outgoing
-  family, u_ε the outgoing phase of the solution.
+family, u_ε the outgoing phase of the solution.
 
 For the background both are the spheres {R = a} and {R = b(τ)} of Ω₂. Let S_in := {v_start − η ≤ v ≤ v_end + η} ∩ Σ_τ0
 and S_out := {u1 − η ≤ u ≤ u2 + η} ∩ Σ_τ0 with 0 < η < 1 so small that {u1 − η ≤ u ≤ u2 + η} ∩ Ω₂ does not meet
 {R = a}, and let ů_A, A = 3, …, N_f, be further phases in the class, eikonals of ů without caustics on Ω₂, with q̊_A =
 0 and sets S_A whose tubes avoid neighbourhoods of the points where the lateral boundaries meet the axes. Then every
 datum on Σ_τ0 that satisfies the constraints and the gauge condition, lies within ε of ů's and has supp q_A ∩ Σ_τ0 ⊂
-S_A for every A has its Einstein–null-dust development on the whole adapted domain, within C ε of ů. The datum may be
+S_A for every A has its Einstein–null-dust development on the whole adapted domain, in the gauge D(g) = 0 relative to
+the metric of ů and unique there as in [[thm:class-stability]], within C ε of ů. The datum may be
 non-round, and it carries the further families with small densities.
 
-*Proof.* v and u are double-null coordinates of ů, smooth on Ω₂ with dv, du ≠ 0 ([[prop:two-dust-background]]), so
-(H1) holds. On Σ_τ, v = τ + R, so {R = a} = {v − τ = a}; and u is constant on the spheres and strictly decreasing in R
-along each slice, since du(∂_R|_τ) = (1 − R_v)/R_u with R_u < 0 ([[prop:two-dust-background]] (c)) and, by
-[[eq:two-dust-mass]], R_v = −e^(2σ) f/(2R_u) = e^ψ f/2 ≤ 1/2, as e^ψ ≤ 1 (proof of [[lem:two-dust-domain]]) and f ≤ 1; so
-{R = b(τ)} ∩ Σ_τ = {u = U_b(τ)} ∩ Σ_τ. Both boundaries are spacelike with Ω₂ to their past ([[lem:two-dust-domain]] (b),
-(c)). The ingoing tube 𝒯̊_in = {v_start − η ≤ v ≤ v_end + η} ∩ Ω₂ stays away from the outer boundary, where v = V + 1 +
-τ_end − τ ≥ V + 1 > v_end + η by [[eq:two-dust-omega]]; the outgoing tube 𝒯̊_out = {u1 − η ≤ u ≤ u2 + η} ∩ Ω₂ stays away
-from the inner one by the choice of η; and the further tubes avoid both near the axes. So near the points where the inner
-boundary meets an axis only the ingoing family has tubes, near those of the outer boundary at most the outgoing family,
-and (H2′) holds. Apply [[thm:class-stability]]. ∎
+*Proof.* v and u are double-null coordinates of ů, smooth on Ω₂ with dv, du ≠ 0 ([[prop:two-dust-background]]), so (H1)
+holds. On Σ_τ, v = τ + R, so {R = a} = {v − τ = a}; and u is constant on the spheres and strictly decreasing in R along
+each slice, since du(∂_R|_τ) = (1 − R_v)/R_u with R_u < 0 ([[prop:two-dust-background]] (c)), and R_v = e^ψ f/2 ≤ 1/2:
+the vector ∂_v at fixed u, which is ∂_v + R_v ∂_R in the chart (v, R) of [[eq:two-dust-chart]], is null, so −e^(2ψ) f +
+2 e^ψ R_v = 0, and e^ψ ≤ 1 (proof of [[lem:two-dust-domain]]) and f ≤ 1; so {R = b(τ)} ∩ Σ_τ = {u = U_b(τ)} ∩ Σ_τ. Both
+boundaries are spacelike with Ω₂ to their past ([[lem:two-dust-domain]] (b), (c)). The ingoing tube 𝒯̊_in = {v_start − η
+≤ v ≤ v_end + η} ∩ Ω₂ stays away from the outer boundary, where v = V + 1 + τ_end − τ ≥ V + 1 > v_end + η by
+[[eq:two-dust-omega]]; the outgoing tube 𝒯̊_out = {u1 − η ≤ u ≤ u2 + η} ∩ Ω₂ stays away from the inner one by the choice
+of η; and the further tubes avoid both near the axes. So near the points where the inner boundary meets an axis only the
+ingoing family has tubes, near those of the outer boundary at most the outgoing family, and (H2′) holds. Apply
+[[thm:class-stability]]. ∎
 
 Whether the outgoing packet stays off the inner sphere is a property of the background that [[prop:two-dust-background]]
 does not decide; it is assumed here. Data for the corollary are any small invariant solutions of the constraints with

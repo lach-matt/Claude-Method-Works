@@ -118,7 +118,7 @@ Chapter 10: {#lem:every-order-fixed} Lemma 11.0 (every order at fixed λ); {#pro
 Chapter 62: {#prop:interior} BEYOND5 Proposition 6.2 (the development continues inside to the curvature boundary).
 Chapter 63: {#thm:own-data} SETTLE-GLAM5 Theorem R5.1 (g_λ's own data settle, half-integer class, no gluing).
 Chapter 64: {#thm:rw-settling} GAUGEDECAY5 Theorem 1.5 (settling in the Regge–Wheeler-type gauge).
-Chapter 66: {#thm:harmonic-rate} the harmonic-gauge representative and its rate τ^(−min(p,3/2)+ε).
+Chapter 66: {#thm:harmonic-rate} the harmonic-gauge representative and its rate t_*^(−min(p_0,3/2)+ε).
 Chapter 71: {#thm:loss-d} the loss d and the regularity N = 21d + 6, with the explicit figures.
 Chapter 80: {#thm:two-dusts} Theorem E_2 (two crossing dusts).
 Chapter 81: {#thm:class-stability} Cauchy stability of the class Einstein–null-dust system (Theorem N′).

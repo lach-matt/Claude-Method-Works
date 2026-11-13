@@ -399,12 +399,12 @@ that the proof is that of Proposition 4.18; [Hin26c] cites them as (4.25a–b)).
 this form for variable orders.
 
 (S10) [Hin26d, Definition 4.20 and (4.27), p. 74; Proposition 4.22 and (4.28), p. 75.] 𝒲_([𝒱]) is the set of W ∈ 𝒲 with
-[W, V] ∈ 𝒱 for all V ∈ 𝒱. If it spans 𝒲 over C^∞_(uni,ℬ), the operators Op_𝒱(a) + R with a ∈ ρ^(−l)S^m and
-R ∈ ρ^∞Ψ^(−∞)_(𝒱,[ ]), the class of the residual operators whose iterated commutators with elements of 𝒲_([𝒱]), and those
-of their adjoints, are residual ((4.27) and (4.28), quoted in (S15)), form a subalgebra Ψ_(𝒱,[ ]) ⊂ Ψ_𝒱, closed under
-compositions and adjoints and containing all quantizations Op_𝒱(a), with ad_(W_1)⋯ad_(W_k)A ∈ Ψ_(𝒱,[ ]) for A ∈ Ψ_(𝒱,[ ])
-and W_i ∈ 𝒲_([𝒱]); likewise with weights and variable orders. The operators of [Hin26c] are taken in this subalgebra
-[Hin26c, p. 48], and so are those of this chapter and the following ones.
+[W, V] ∈ 𝒱 for all V ∈ 𝒱. If it spans 𝒲 over C^∞_(uni,ℬ), the operators Op_𝒱(a) + R with a ∈ ρ^(−l)S^m and R ∈
+ρ^∞Ψ^(−∞)_(𝒱,[ ]), the class of the residual operators whose iterated commutators with elements of 𝒲_([𝒱]), and those of
+their adjoints, are residual ((4.27) and (4.28), quoted in (S15)), form a subalgebra Ψ_(𝒱,[ ]) ⊂ Ψ_𝒱, closed under
+compositions and adjoints and containing all quantizations Op_𝒱(a), with ad_(W_1)⋯ad_(W_k)A ∈ Ψ_(𝒱,[ ]) of the same
+orders as A for A ∈ Ψ_(𝒱,[ ]) and W_i ∈ 𝒲_([𝒱]); likewise with weights and variable orders. The operators of [Hin26c]
+are taken in this subalgebra [Hin26c, p. 48], and so are those of this chapter and the following ones.
 
 (S11) [Hin26d, Proposition 4.2, p. 63.] For phase space weights w, w′, Ψ^w_𝒱 maps H^(w′)_𝒱 to H^(ww′)_𝒱, and
 (H^w_𝒱)* = H^(w⁻¹)_𝒱.

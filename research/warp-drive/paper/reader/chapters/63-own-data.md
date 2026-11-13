@@ -1380,22 +1380,23 @@ W_T, so D_T := D(g_T) solves (i)'s system there. D(g) is linear in ∂(g − g_b
 (g⁻¹ − g_b0⁻¹)Γ̂, so |D(g_b0 + H)| ≤ C(|∂H| + r⁻³|H|), and |∂D(g_b0 + H)| ≤ C(|∂∂H| + |∂H| + r⁻³|H|) where |∂H| is
 bounded. Take the energy of weight 1 ([[eq:own-energies]] with w = (u* − u)² ≤ C r² ≤ C r^(2a)); it is finite on every
 Σ̃_σ, σ ∈ [T, 0], by [[lem:own-exterior]] (b) and [[lem:own-sigma-data]] (b), H = Σ + h_R, the hypotheses of
-[[lem:own-exterior]] holding with σ′ = 0 and c = 0.0232 by Steps 1 and 3 of the proof of [[thm:own-continuation]]. By [[eq:own-pointwise]] and
-[[lem:own-sigma-data]], the kernels of its error terms are those of [[cor:far-kernels]], with exponents 3, 3/2 + a and
-a + 1/2, all integrable, the zero-order terms entering through [[eq:own-hardy]]; D_T tends to 0 at spatial infinity
-along the slices by [[lem:own-exterior]] (a). On N, D_T = D(g_λ) = 0 with its tangential derivatives, g_T being g_λ on
-the side v ≤ v1 ([[lem:own-truncation]] (ii)) and g_λ vacuum in the wave-map gauge ([[thm:past-construction]]); so the
-flux through N vanishes. On Σ̃_T, g_T and ∂g_T are those of 𝔤_T and ∂²g_T = ∂²𝔤_T + ∂²δ ([[eq:cutoff-hd]]). On
-Σ̃_T ∩ {v ≤ V_T}, δ vanishes to every order (the proof of [[lem:own-truncation]] (iii)), so D_T and ∂D_T are those of
-D(g_λ) = 0. On 𝒮^♭_T ∩ {v ≥ V_T}, H_D = (g_λ − g_b0) − χ_T m_J, so D(g_b0 + H_D) = D(g_λ) + O(r^(−(J+1)/2)) =
-O(r^(−(J+1)/2)) with its first derivatives ([[lem:cutoff-extension]] (b)), and |∂²δ| ≤ C r^(−(J+3)/2) + C r⁻⁶
-([[lem:cutoff-jets]]); as J ≥ 9, |D_T| + |∂D_T| ≤ C r⁻⁵ there. On Σ̃_T ∩ {v ≥ V_T + δ_0/4}, H_D = Σ + Σ′_J;
-D(g_b0 + Σ) = O(λ r⁻³) and ∂D(g_b0 + Σ) = O(λ r⁻⁴), as |∂^j Σ| ≤ C λ r^(−2−j) ([[lem:own-sigma-data]] (b)); the terms of
-Σ′_J add O(r⁻⁵) and O(r⁻⁶) ([[lem:cutoff-extension]] (a)); and |∂²δ| ≤ C r⁻⁶; so |∂D_T| ≤ C λ r⁻⁴ + C r⁻⁶ there. Here
-C depends on λ and J. With w ≤ C r², d⁴x = r³ dr dω and 𝒮^♭_T = {r_T ≤ r ≤ r_T + d_V} along the rays, the energy of D_T
-on Σ̃_T is at most C ∫_(r_T)^∞ r² (λ² r⁻⁸ + r⁻¹²) r³ dr + C r_T^(2+3) r_T^(−10) d_V ≤ C λ² |T|⁻² + C |T|⁻⁴, as
-r_T ≥ c_W (1 + |T|). Gronwall's inequality, with constants independent of T, gives E_σ[D_T] ≤ C λ² |T|⁻² + C(λ, J) |T|⁻⁴
-for σ ∈ [T, 0], which tends to 0 as T → −∞.
+[[lem:own-exterior]] holding with σ′ = 0 and c = 0.0232 by Steps 1 and 3 of the proof of [[thm:own-continuation]]. By
+[[eq:own-pointwise]] and [[lem:own-sigma-data]], the kernels of its error terms are those of [[cor:far-kernels]], with
+exponents 3, 3/2 + a and a + 1/2, all integrable, the zero-order terms entering through [[eq:own-hardy]]; D_T tends
+to 0 at spatial infinity along the slices by [[lem:own-exterior]] (a). On N, D_T = D(g_λ) = 0 with its tangential
+derivatives, g_T being g_λ on the side v ≤ v1 ([[lem:own-truncation]] (ii)) and g_λ vacuum in the wave-map gauge
+([[thm:past-construction]]); so the flux through N vanishes. On Σ̃_T, g_T and ∂g_T are those of 𝔤_T, and
+∂²g_T = ∂²𝔤_T + ∂²δ ([[eq:cutoff-hd]]). On Σ̃_T ∩ {v ≤ V_T}, δ vanishes to every order (the proof of
+[[lem:own-truncation]] (iii)), so D_T and ∂D_T are those of D(g_λ) = 0. On 𝒮^♭_T ∩ {v ≥ V_T},
+H_D = (g_λ − g_b0) − χ_T m_J, so D(g_b0 + H_D) = D(g_λ) + O(r^(−(J+1)/2)) = O(r^(−(J+1)/2)) with its first derivatives
+([[lem:cutoff-extension]] (b)), and |∂²δ| ≤ C r^(−(J+3)/2) + C r⁻⁶ ([[lem:cutoff-jets]]); as J ≥ 9, the
+bound |D_T| + |∂D_T| ≤ C r⁻⁵ holds there. On Σ̃_T ∩ {v ≥ V_T + δ_0/4}, H_D = Σ + Σ′_J; D(g_b0 + Σ) = O(λ r⁻³) and
+∂D(g_b0 + Σ) = O(λ r⁻⁴), as |∂^j Σ| ≤ C λ r^(−2−j) ([[lem:own-sigma-data]] (b)); the terms of Σ′_J add O(r⁻⁵) and
+O(r⁻⁶) ([[lem:cutoff-extension]] (a)); and |∂²δ| ≤ C r⁻⁶; so |∂D_T| ≤ C λ r⁻⁴ + C r⁻⁶ there. Here C depends on λ and
+J. With w ≤ C r², d⁴x = r³ dr dω and 𝒮^♭_T = {r_T ≤ r ≤ r_T + d_V} along the rays, the energy of D_T on Σ̃_T is at most
+C ∫_(r_T)^∞ r² (λ² r⁻⁸ + r⁻¹²) r³ dr + C r_T^(2+3) r_T^(−10) d_V ≤ C λ² |T|⁻² + C |T|⁻⁴, as r_T ≥ c_W (1 + |T|).
+Gronwall's inequality, with constants independent of T, gives E_σ[D_T] ≤ C λ² |T|⁻² + C(λ, J) |T|⁻⁴ for σ ∈ [T, 0],
+which tends to 0 as T → −∞.
 (iii) *The limit.* As T → −∞, g_T = g_T^(J) → g in C² on compact subsets of W ([[thm:own-continuation]],
 k_J − 3 ≥ 5), so D(g_T) → D(g) in C¹ there, and the energy of D(g) on any compact part of any Σ̃_σ is the limit of
 those of D_T, hence 0: ∂D(g) = 0 on W. As D(g) = 0 on N, D(g) = 0.

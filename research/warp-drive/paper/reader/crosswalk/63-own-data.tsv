@@ -40,8 +40,24 @@ def:own-sigma	docket68/n1star/SETTLE-GLAM5.md:1225-1233, 2223-2236	SG R4-D setti
 eq:own-sigma	docket68/n1star/SETTLE-GLAM5.md:1225-1233	SG R4-D
 lem:own-sigma-data	docket68/n1star/SETTLE-GLAM5.md:1342-1345, 1690-1700	SG Step 9 coefficients; R5.0 (r3-m4) invariance	angular order 2k1+10 (issue-1)
 lem:own-n-data	docket68/n1star/SETTLE-GLAM5.md:1176-1196, 2387-2400	SG Lemma R4.5 widened in R6-B, R5.0 (r4-m12)
+sec:cutoff-expansion	-	new	proof project I (issue-2, the matched truncation), integrated: expansion after the shell to every order
+eq:cutoff-cartesian	-	new
+eq:cutoff-hj	-	new	from prop:bondi-hierarchy on U_1
+lem:cutoff-expansion	-	new	the operator at fixed v (K renamed K_0)
+eq:cutoff-pi	-	new
+eq:cutoff-terms	-	new
+lem:cutoff-polynomial	-	new	G_k polynomial in v - v1 after the shell; weights above -4 equal Sigma's Taylor coefficients (N renamed Q-script)
+eq:cutoff-gkn	-	new
+eq:cutoff-recursion	-	new
+eq:cutoff-weight-recursion	-	new	checked against 2F1 Taylor coefficients (p in Pi, l <= 3)
+eq:cutoff-ode	-	new	bracket of lem:own-self-similar for F(s, xhat)
+def:cutoff-extension	-	new	Sigma'_J; mismatch m_J on U_1 and v >= v1 only
+eq:cutoff-extension	-	new
+lem:cutoff-extension	-	new	(c) P(Sigma + Sigma'_J) tame of order 6, moved here from the proof of lem:cutoff-jets
+rem:cutoff-weights	-	new
 sec:own-continuation	docket68/n1star/SETTLE-GLAM5.md:1197-1372	SG R4-D
 eq:own-energies	docket68/n1star/SETTLE-GLAM5.md:1240-1247	SG (R4a)
+eq:own-p-split	-	new	P = -1/2 g dd g + Q(g)(dg, dg) from lem:far-scaling (a); defines the Q of Step 5 and of the uniqueness proof
 lem:own-margins	docket68/n1star/SETTLE-GLAM5.md:1249-1256, 2779-2810, 3046-3072	SG Step 1, R7-A, R8-A (K1-K6, D4-D5, F1x)	c1, c2 by compactness instead of the sampled 0.24, 0.76
 lem:own-energy-identity	docket68/n1star/SETTLE-GLAM5.md:787-795	SG (R3a)	derivation written (T3)
 eq:own-energy-identity	docket68/n1star/SETTLE-GLAM5.md:789-790	SG (R3a)
@@ -49,17 +65,43 @@ lem:own-rays	docket68/n1star/SETTLE-GLAM5.md:1258-1268, 2357-2380, 862-864	SG St
 eq:own-ray-derivative	docket68/n1star/SETTLE-GLAM5.md:2361-2364	SG R6-A (v) (Y1)
 eq:own-s1	docket68/n1star/SETTLE-GLAM5.md:487-488	SG R2.5 (S1)
 eq:own-hardy	docket68/n1star/SETTLE-GLAM5.md:1262-1264, 2369-2375	SG Step 2 Hardy; R6-A (vi)
-lem:own-truncation	docket68/n1star/SETTLE-GLAM5.md:752-778, 1237-1247, 1777-1791	SG Lemma R3.3 (iii withdrawn), R4-D truncations, R5-B	slice extended inward by F-hat (needed for the domain of dependence)
-lem:own-exterior	docket68/n1star/SETTLE-GLAM5.md:2295-2346, 2779-2793	SG R6-A (i)-(iv), R7-A	flat Sigma_4; exponent 2a-6 from the Z-structure of the data
-thm:own-continuation	docket68/n1star/SETTLE-GLAM5.md:1361-1366, 1822-1826	SG Theorem R4.6 = R5.1' (Steps 1-9, R5-B, R6-A, R7-A, R8-A)	cap: issue-2
+def:cutoff-truncation	docket68/n1star/SETTLE-GLAM5.md:1237-1247, 1777-1791	SG R4-D truncations, R5-B	replaces the paragraph "The truncated problems": data g_b0 + Sigma + Sigma'_J beyond the band (proof project I)
+eq:cutoff-data	-	new	data metric of the truncated problem
+lem:own-truncation	docket68/n1star/SETTLE-GLAM5.md:752-778, 1237-1247, 1777-1791	SG Lemma R3.3 (iii withdrawn), R4-D truncations, R5-B	slice extended inward by F-hat; (iii) is the cap of the matched truncation (was prop:cutoff-cap of proof project I), proved after lem:cutoff-jets
+eq:cutoff-cap-general	-	new	in lem:own-truncation (iii)
+eq:cutoff-cap	-	new	in lem:own-truncation (iii); E_T <= C(lambda, J)|T|^(2a-6) for J >= 2k + 7
+eq:cutoff-hd	-	new	H_0, the band mismatch (M renamed fraktur M), H_D, delta = g_T - data metric
+def:cutoff-classes	-	new	classes T^q, B^q on the initial slice (N_0 renamed N_d, E renamed O-script)
+lem:cutoff-classes	-	new
+lem:cutoff-jets	-	new	jets delta_[nu] (renamed from delta_nu)
+eq:cutoff-jets	-	new
+eq:cutoff-induction	-	new
+eq:cutoff-jet-equation	-	new
+eq:own-gamma-cartesian	-	new	Gamma^alpha = sum c d^beta, deg c <= |beta|; used by lem:own-truncation (iii) and lem:own-exterior
+rem:cutoff-growth	-	new	why the matching is needed: |T|^(2a+2k-8) growth of the unmatched cap
+lem:own-exterior	docket68/n1star/SETTLE-GLAM5.md:2295-2346, 2779-2793	SG R6-A (i)-(iv), R7-A	rewritten (fix round F-P-I, review R-P-I M1): decay of delta by graded weighted energies with a continuity argument at large r; tail C(T, sigma', k, lambda, J) rho^(2a-6) with no dyadic sum; the source's e(T) step fails for the matched data
+eq:own-ext-tail	-	new
+eq:own-ext-density	-	new
+eq:own-ext-energy	-	new
+eq:own-ext-l2	-	new	L2 part weighted r^(2p-2), controlled by integrating d_t on the shrinking slices
+eq:own-ext-delta	-	new
+eq:own-ext-derivatives	-	new
+eq:own-ext-pg	-	new	bootstrap |d^i delta| <= K r^-i
+eq:own-ext-products	-	new	uses the decay of the zero-order coefficients
+eq:own-ext-weighted	-	new
+eq:own-ext-sobolev	-	new	ray and S3 Sobolev on unit intervals (thm:std-bh-manifold)
+eq:own-ext-pointwise	-	new
+thm:own-continuation	docket68/n1star/SETTLE-GLAM5.md:1361-1366, 1822-1826	SG Theorem R4.6 = R5.1' (Steps 1-9, R5-B, R6-A, R7-A, R8-A)	restated for J (proof project I): convergence in C^(k_J - 3), limit independent of J (lem:cutoff-independence); (BA) includes the margin used by lem:own-exterior
 eq:own-pointwise	docket68/n1star/SETTLE-GLAM5.md:1258-1262	SG (R4b)
 eq:own-commuted	docket68/n1star/SETTLE-GLAM5.md:1276-1288, 1696-1704, 2253-2258	SG (R4c)-(R4d) with R5.0 (r4-m5) and R6.0 nit
 eq:own-energy-inequality	docket68/n1star/SETTLE-GLAM5.md:1290-1298, 1814-1822	SG (R4e) with R5-B
 eq:own-gronwall	docket68/n1star/SETTLE-GLAM5.md:1315-1319	SG Step 5 summed inequality	kernels from P-G-far
 sec:own-vacuum	docket68/n1star/SETTLE-GLAM5.md:1416-1443	SG R4-F
-prop:own-vacuum	docket68/n1star/SETTLE-GLAM5.md:1418-1443	SG Proposition R4.9	identity (V1) derived from the contracted Bianchi identity
+prop:own-vacuum	docket68/n1star/SETTLE-GLAM5.md:1418-1443	SG Proposition R4.9	identity (V1) derived from the contracted Bianchi identity; (ii) carries the gauge-field bounds on the initial slice (was lem:cutoff-gauge of proof project I)
 eq:own-bianchi	docket68/n1star/SETTLE-GLAM5.md:1423-1425	SG R4.9 (i)
-prop:own-uniqueness	docket68/n1star/SETTLE-GLAM5.md:1829-1840, 2381-2386	SG Proposition R5.2 with R6-A's proof
+lem:own-two-continuations	docket68/n1star/SETTLE-GLAM5.md:1829-1840, 2381-2386	SG Proposition R5.2 with R6-A's proof	uniqueness for two continuations (review R-P-I m2); C5 suffices
+lem:cutoff-independence	-	new	the limit does not depend on J (proof project I), via lem:own-two-continuations
+prop:own-uniqueness	docket68/n1star/SETTLE-GLAM5.md:1829-1840, 2381-2386	SG Proposition R5.2 with R6-A's proof	derived from lem:own-two-continuations
 rem:own-low-weight	docket68/n1star/SETTLE-GLAM5.md:1373-1400, 1841-1847, 440-458	SG Prop R4.7 restated R5.3; Prop R2.6	kept as one remark
 sec:own-proof	docket68/n1star/SETTLE-GLAM5.md:1444-1509, 1973-1974	SG R4-G with R5-E substitutions
 prop:own-transfer	docket68/n1star/SETTLE-GLAM5.md:145-188	SG Proposition 4.1 and Corollary 4.2	now unconditional (the continuation is constructed); Remark 4.3 dropped

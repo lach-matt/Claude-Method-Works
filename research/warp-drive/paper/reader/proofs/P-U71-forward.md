@@ -365,63 +365,124 @@ which it stood on the right and ξ-derivatives from the later ones), and s_i con
 j ≤ r this gives the last two entries of [[eq:fwd-ecount]], and the statement on t_α. The grades are those of
 [[lem:fwd-composition]] and [[lem:fwd-transport]]. ∎
 
-**Proposition {#prop:fwd-calculus}** (Explicit indices.) Let T ∈ ℕ and put 𝔐(T) := 200T + 100. For orders 𝗍, 𝗆,
-𝗆_i (constant or variable) with values in [−T, T], index ν ≤ 2, and expressions in at most six quantizations,
-[[prop:ii-a1-2-4]] (a)–(f) hold with M + 2 = 𝔐(T), and [[lem:ii-a-8-5]] (a) and (b) hold with d_0 = 𝔐(T). In (e) the
-number N of that item may be any N ≤ T.
+**Proposition {#prop:fwd-calculus}** (Explicit indices.) Let T ∈ ℕ. Let 𝗍 (the order of the space on which an item is
+applied) and the orders 𝗆, 𝗆_1, 𝗆_2 of the symbols have values in [−T, T], of any index ν. Then [[prop:ii-a1-2-4]]
+holds with M + 2 = 𝔐(T) = 200T + 100 in the following form.
 
-*Proof.* *Reduction to charts.* By (S3)–(S5), (S8) and (S13), for a fixed elliptic Λ_𝗍 ∈ Ψ̃^𝗍 with symbol ρ_∞^(−𝗍),
-‖v‖_𝗍 is equivalent to ‖Λ_𝗍v‖ + ‖v‖_(−3T), and the norms localise to the charts of ρℬ: Λ_𝗍 restricted to functions
-supported in a chart is the chart quantization of a smooth symbol plus a residual operator, uniformly over the charts,
-and sums over the charts are controlled by their finite multiplicity. These are statements of the smooth calculus and
-enter only constants. Op(a) is the sum over the charts of local quantizations Op_β((ψ_β)_*(χ_β a)), with x-support in
-(−5/4, 5/4)ⁿ, and the cut-off ψ(x − x′) of (S4) turns each into Op of a symbol with the same seminorms
-[[eq:fwd-seminorm]] (convolution in ξ with the Schwartz function ψ̂/(2π)ⁿ; the variable order is handled by
-⟨ξ − η⟩^(𝗆(x,ξ−η)) ≤ C⟨ξ⟩^(𝗆(x,ξ))⟨η⟩^(2T+1)). Smooth operators, cut-offs and residual operators are moved between
-charts freely; only the finite-regularity factors are counted.
+(a)–(d) as stated there, with at most 10T + 15, 34T + 24, 18T + 23 and 34T + 32 derivatives of each symbol.
 
-*(a).* In one chart, with smooth symbols λ of order 𝗍 − 𝗆 and λ′ of order −𝗍 (a parametrix of Λ_𝗍), consider
-Q := Op(λ)Op(a)Op(λ′) on L². By [[lem:fwd-composition]] with J_1 := 4T + 1 and B = n + 1 = 6, Op(λ)Op(a) = Op(c_1) +
-Op(r_1), and the order of r_1 is at most 3T − J_1 + ½ < −T; here a is the factor q, with compact x-support, and needs
-J_1 + 6 + 2L′_1 derivatives, 2L′_1 = 6T + 8, that is 10T + 15. Op(r_1)Op(λ′) is bounded on L² by [[lem:fwd-crude]]
-(from H^(−T) to L², N = 6), as Op(λ′) maps L² to H^𝗍 ⊂ H^(−T). Next Op(c_1)Op(λ′) = Op(c) + Op(r_2) with J_2 :=
-2T + 1; r_2 has order ≤ sup 𝗍 − inf 𝗍 − J_2 + ½ < 0 and is bounded on L² by [[lem:fwd-crude]], at a cost of
-J_2 + 12 derivatives of c_1, that is 6T + 13 of a. The main symbol c = Σ ∂_ξ^(α′)(∂_ξ^α λ · D_x^α a) D_x^(α′)λ′/(α!α′!)
-has pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′| ≤ 0, the variable orders cancelling at every point, so that the
-seminorm of c of order 0 and regularity 12 is at most C|a|^𝗆_(J_1+J_2+10), and [[lem:fwd-l2]] bounds Op(c) on L²
-without loss. The terms with residual factors and the low norm ‖Op(a)u‖_(−3T) are bounded by [[lem:fwd-crude]] at
-constant orders in [−3T, 3T], with at most 3T + 7 derivatives. So (a) holds with 10T + 15 derivatives, without
-loss. Multiplication by ℓ is Op(ℓ) ((S4), [[eq:ii-a1-1-1]]), so [[lem:ii-a-8-5]] (a) holds with
-d_0 = 10T + 15, and its b-regularity part follows by Leibniz's rule as there.
+(e) For every N ≤ T and every expression S_1B_1TB_2S_2 with at most six quantizations in each of its products (the
+localisers and B_1, B_2 included), each quantized symbol of order with values in [−T, T]: at most 95T + 7 derivatives.
 
-*(b)–(d).* Op(a_1)Op(a_2) − Op(a_1a_2) is a sum over pairs of charts. In a pair, the local operator of a_2 is
-expressed in the chart of a_1: with κ the transition and κ(x) − κ(x′) = Φ(x, x′)(x − x′), the substitution
-ξ = Φ^(−T)η and the reduction of the amplitude to a left symbol, expanded to J_T := 6T + 2 terms with a remainder of
-order ≤ −5T, give the symbol of the transported operator as q̂ + q_1, where q̂ is a_2 at the image point under the
-canonical transformation (the same function on phase space) and q_1 has order 𝗆_2 − 1 + ¼ϰ′ for every small ϰ′, at a
-cost of at most 2J_T + 2L′ + 12 ≤ 30T + 30 derivatives of a_2; the part of the kernel cut-off away from the diagonal
-has order ≤ −5T at a cost of 5T + 7 ξ-derivatives. Then [[lem:fwd-composition]] with J := 6T + 2 gives the terms
-Σ_(1≤|α|<J), of exact variable order 𝗆_1 + 𝗆_2 − |α| up to the factor ⟨ξ⟩^(2ϰ|α|), which (a) bounds as one symbol of
-order 𝗆_1 + 𝗆_2 − 1 + δ at regularity 10(2T + 1) + 15 + J, and a remainder of order ≤ −4T − 1, which
-[[lem:fwd-crude]] bounds from H^(−T) to H^(3T+1) with 3T + 7 derivatives. Each a_i needs at most 26T + 27 derivatives
-here, and at most 30T + 30 with the transport. (c) is the same with the adjoint expansion, the density factor and the
-weight being smooth; (d) is (b) to one more term, the scalar factor H_(a_1)a_2 being the second term exactly.
+(f) For every expression T with at most six quantizations in each product, each quantized symbol (a product of the a_i
+included) of order with values in [−T, T], and every order function μ with values in [−6T − 3, 6T + 3] such that, in
+every chart α, the symbol t_α of T ([[lem:fwd-expansion]], the signed sum over the products of T) is a sum of products
+of derivatives of pointwise order at most μ (up to the loss ϰ times the number of derivatives): T has order μ + δ, with
+at most 158T + 52 derivatives.
 
-*(e), (f).* An expression T(a_1, …, a_r), r ≤ 6, is expanded factor by factor: each composition by
-[[lem:fwd-composition]] with J := 2(r + 2)T + 2, each adjoint likewise, each transport as in (b). The formal symbol
-t is a finite sum of products of derivatives of the a_i, and T − Op(t) has order ≤ −(r + 2)T; it is bounded by
-[[lem:fwd-crude]]. In (f) the hypothesis is used in the following form: the terms of t of formal order above μ cancel
-identically, as polynomials in the derivatives of the a_i. This holds for the expressions to which (f) is applied in
-the edition, which are commutators with scalar symbols, differences of an adjoint and the quantization of the
-conjugate symbol, and their composites, whose leading terms cancel by commutativity of scalar products and by
-Op(a)^* = Op(ā) + (order m − 1). The remaining terms are bounded by (a) as one symbol of order μ + δ, with box
-(r + 1)T + 1. In (e), every term of t is a product containing a derivative of the symbol of B_1 and one of B_2 at the
-same point, so t = 0 by the disjointness of the supports, and only the remainder, of order ≤ −N, is left. The
-derivative counts are at most 10((r + 1)T + 1) + 15 + r(2(r + 2)T + 2) ≤ 166T + 37 for r ≤ 6. [[lem:ii-a-8-5]] (b) is
-(e) with the expression B ℓ (I − B^♯) and N ≤ T.
+[[lem:ii-a-8-5]] (a) holds with d_0 = 𝔐(T) when 𝗌 has values in [−T, T] (10T + 15 derivatives), and (b) when 𝗌_0 has
+values in [−T, T] and sup 𝗌 − inf 𝗌_0 ≤ T (34T + 16 derivatives). For T = 100 the largest count is 15,852 ≤ 𝔐(100) − 2.
 
-In every case the count is at most 166T + 37 ≤ 𝔐(T) − 2 and the number of derivatives taken of any symbol is at most
-D_max = 400T + 200, which justifies the choice of ϰ. ∎
+In this form the hypothesis of (f) is an identity of symbols, and it is checked at each use in [[lem:fwd-box]]: there
+the terms above the order μ cancel because the leading terms of an adjoint and of the conjugate symbol agree, because
+scalar symbols commute with all others, and by exact identities such as φ_0ǎ = ǎ.
+
+*Proof.* Every symbol below is read in the charts of ρℬ, where |a_α|^𝗆_K ≤ C‖a‖_((K);ν,𝗆) (the beginning of this
+section); the constants C depend on ϰ, ν, the orders, the bounds of (S1) for the transition maps (differentiated at
+most 𝔐(T) + 1 times, by [[lem:fwd-transport]] and the counts below), and on the smooth symbols involved, never on
+their supports beyond the identities used. The global estimate is assembled in the same way in every item: if
+T = Σ_α φ_α^* Op(t_α)(φ_α)_*θ̃_α + E with t_α vanishing for x ∉ [−5/4, 5/4]ⁿ, |t_α|^(μ+δ)_(K(T,B_G)) ≤ C uniformly in
+α, μ with values in [−B_G, B_G], and E bounded from H^𝗍 to H^S with S ≥ sup(𝗍 − μ), then by [[lem:fwd-local]] (with
+A := T, B := B_G) and [[lem:fwd-norms]] (twice)
+
+    ‖Tu‖_(𝗍−μ−δ) ≤ C(Σ_α ‖Op(t_α)(φ_α)_*(θ̃_αu)‖²_(H^((𝗍−μ−δ)_α)))^(1/2) + ‖Eu‖_S ≤ C‖u‖_𝗍.        {#eq:fwd-assembly}
+
+So each item reduces to: the parameters (S, B_G) of [[lem:fwd-expansion]] and [[lem:fwd-local]], the check that t_α has
+the stated order, and the counts. The integers in brackets are those for T = 100.
+
+*(a).* By [[eq:fwd-chart-op]] and [[lem:fwd-far]], Op(a)u = Σ_α φ_α^* Op((a_α)_ψ)(φ_α)_*(θ̃_α u), the kernel of
+Op_ψ(a_α) joining points within ¼, and |(a_α)_ψ|^𝗆_K ≤ C|a_α|^𝗆_K: no change of chart and no expansion is needed.
+[[lem:fwd-local]] with A = B = T and [[lem:fwd-norms]] give (a) without loss, with K(T, T) = 10T + 15 [1,015]
+derivatives: J_1 = 4T + 1 [401], 2L′ = 6T + 8 [608]. Multiplication by ℓ is Op(ℓ) ((S4), [[eq:ii-a1-1-1]]), with
+𝗆 = 0 and ‖ℓ‖_((K);0,0) ≤ C‖ℓ‖_(C^K_e3b); so [[lem:ii-a-8-5]] (a) holds with d_0 = 10T + 15 [1,015], and its
+b-regularity part follows by Leibniz's rule as there.
+
+*The symbols of one operator in a chart.* For a symbol g let s^α_j(g), resp. s^α_j(g^*), be the symbol s_j of
+[[lem:fwd-expansion]] for F_j = Op(g), resp. Op(g)^*, with the left cut-off θ^(j). By [[lem:fwd-transport]] its term
+of index 0 is θ^(j) Σ_β χ_β g = θ^(j)g, resp. θ^(j)g^*, read in the chart α, and its term of index 1 is θ^(j)V_α(g),
+resp. θ^(j)V^*_α(g), with V_α(g) the sum over β of the terms of index 1 of the reductions of the amplitudes of
+[[eq:fwd-transport]] without the factor θ: a linear expression in g and its first and second derivatives with scalar
+coefficients, so that V_α(g) is scalar when g is, and commutes with every matrix when g is scalar. Every term of
+s^α_j(g) vanishes where all derivatives of g vanish, that is, outside the support of g read in the chart α.
+
+*(b).* Here T := Op(a_1)Op(a_2) − Op(a_1a_2). [[lem:fwd-expansion]] applies to Op(a_1)Op(a_2) with r = 2, and to
+Op(a_1a_2) with r = 1 and T replaced by 2T (its symbol has order 𝗆_1 + 𝗆_2 with values in [−2T, 2T], and the
+order 𝗍 has values in [−2T, 2T]), both with S := 3T + 1 [301] ≥ sup(𝗍 − 𝗆_1 − 𝗆_2 + 1). Then
+t_α = s^α_1(a_1) ♯ s^α_2(a_2) − s^α_1(a_1a_2), and its terms of grade 0 are χ_αa_1 · θ̂a_2 − χ_αa_1a_2 = 0, as θ̂ = 1
+on supp χ_α. So t_α is a sum of terms of grade at least 1, of pointwise order at most 𝗆_1 + 𝗆_2 − 1 up to the loss:
+μ := 𝗆_1 + 𝗆_2 − 1, B_G := 2T + 1. Counts for Op(a_1)Op(a_2), from [[eq:fwd-expansion]]: R = 5T + 1 [501],
+B = 4T + 7 [407], J_R = 6T + 2 [602], 2K = 6T + 2 [602], J_C = 7T + 2 [702]; by [[eq:fwd-ecount]] the remainder of
+the reductions costs 2J_R + B + 𝔢(7T + 8) ≤ 23T + 21 [2,321], the far parts 10T + 9 [1,009], a factor Op(s_j)
+16T + 9 [1,609], the compositions at most J_C + B + 𝔢(8T + 8) + 2(J_R − 1) ≤ 31T + 21 [3,121]; the main symbol costs
+K(T, 2T + 1) + (J_C − 1) + 2(J_R − 1) ≤ (15T + 21) + (7T + 1) + (12T + 2) = 34T + 24 [3,424], with
+K(T, 2T + 1) = J_1 + 6 + 𝔢(9T + 10), J_1 = 6T + 3 [603]. For Op(a_1a_2) (T replaced by 2T): R = 5T + 1, B = 4T + 6,
+J_R = 7T + 2, the remainders cost at most 27T + 20 [2,720], 11T + 9 and 18T + 8, and the main symbol at most
+K(T, 2T + 1) + 2(J_R − 1) ≤ 29T + 23 [2,923]; derivatives of a_1a_2 are derivatives of a_1 and a_2 in equal number.
+So (b) holds with 34T + 24 [3,424] derivatives, by [[eq:fwd-assembly]].
+
+*(c).* Here T := Op(a)^* − Op(a^*), a^* the conjugate transpose (the conjugate for scalar a). [[lem:fwd-expansion]]
+with r = 1 for both, S := 2T + 1 [201]. The terms of grade 0 of t_α = s^α_1(a^*) − s^α_1(a^*) (the first for the
+adjoint, the second for the quantization of a^*) are χ_αa^* − χ_αa^* = 0 by [[lem:fwd-transport]]. μ := 𝗆 − 1,
+B_G := T + 1. Counts: R = 3T + 1 [301], B = 2T + 7 [207], J_R = 4T + 2 [402]; the remainders cost at most
+2J_R + B + 𝔢(5T + 8) ≤ 15T + 21 [1,521], 6T + 10 [609] and 10T + 9 [1,009]; the main symbol
+K(T, T + 1) + 2(J_R − 1) = (10T + 21) + (8T + 2) = 18T + 23 [1,823], K(T, T + 1) = (4T + 3) + 6 + (6T + 12).
+
+*(d).* Here T := i[Op(a_1), Op(a_2)] − Op(H_(a_1)a_2), one of a_1, a_2 scalar. [[lem:fwd-expansion]] with r = 2 for
+the two products and r = 1, T replaced by 2T + 1, for Op(H_(a_1)a_2), whose symbol consumes one derivative of each a_i;
+S := 3T + 2 [302]. In t_α the terms of grade 0 are iχ_α(a_1a_2 − a_2a_1) = 0. The terms of grade 1 are, as θ̂ = 1 and
+D_xθ̂ = 0 on supp χ_α and ∂_ξχ_α = 0,
+
+    iχ_α(a_1V_α(a_2) − V_α(a_2)a_1 + V_α(a_1)a_2 − a_2V_α(a_1)) + χ_α Σ_j (∂_(ξ_j)a_1 ∂_(x_j)a_2 − ∂_(ξ_j)a_2 ∂_(x_j)a_1)
+        − χ_α H_(a_1)a_2.
+
+The first group vanishes as one of a_1, a_2, and then also its V_α, is scalar. The second is χ_α times the principal
+symbol of i[Op(a_1), Op(a_2)] in the chart α, which is H_(a_1)a_2 by (S5) (entrywise when one symbol is a matrix). So
+t_α has terms of grade at least 2 only: μ := 𝗆_1 + 𝗆_2 − 2, B_G := 2T + 2. Counts for the products: R = 5T + 2,
+B = 4T + 8, J_R = 6T + 3, 2K ≤ 6T + 4, J_C = 7T + 3; remainders at most 23T + 25, 10T + 12, 16T + 12, 31T + 25; main
+K(T, 2T + 2) + (J_C − 1) + 2(J_R − 1) ≤ (15T + 26) + (7T + 2) + (12T + 4) = 34T + 32 [3,431]. For Op(H_(a_1)a_2):
+R = 5T + 3, B = 4T + 8, J_R = 7T + 5, counts at most 27T + 33, 11T + 15, 18T + 17 and 29T + 35, each including the
+derivative taken by H. So (d) holds with 34T + 32 [3,431] ≤ M + 1 derivatives.
+
+*(e).* Write B_i = Op(b_i) + R_i with supp b_i ⊂ K_i and R_i ∈ Ψ̃^(−∞) ([[sec:ii-a1-1-2]]), and expand the expression
+into products. A product containing R_1 or R_2 is a product of at most six operators, R_i of every order and the others
+of order at most T, bounded from H^𝗍 to H^(T+N) by [[lem:fwd-crude]] as in the proof of [[lem:fwd-expansion]], at the
+cost B + 2(J_R − 1) below. For a product containing Op(b_1) and Op(b_2), [[lem:fwd-expansion]] applies with r ≤ 6 and
+S := T + N ≤ 2T. Every term of its t_α contains a derivative of a term of s^α(b_1), which vanishes outside K_1 read in
+the chart α, and one of a term of s^α(b_2), which vanishes outside K_2, both at the same point (x, η); as K_1 ∩ K_2 = ∅,
+t_α = 0. So the operator is E of [[eq:fwd-product]], bounded from H^𝗍 to H^(T+N) ⊂ H^(𝗍+N): it has order −N. The counts
+are largest for r = 6 and S = 2T: R = 8T [800], B = 7T + 6 [706], J_R = 9T + 1 [901], 2K ≤ 9T + 2 [902],
+J_C = 14T + 1 [1,401]. By [[eq:fwd-ecount]]: 2J_R + B + 𝔢(10T + 7) = 35T + 16 [3,516]; 16T + 8 [1,608]; 25T + 6
+[2,506]; (J_C + B) + 4(J_C − 1) + 2(J_R − 1) = 95T + 7 [9,507]; J_C + B + 𝔢(19T + 7) + 2(J_R − 1) ≤ 58T + 16 [5,815].
+So (e) holds with 95T + 7 [9,507] derivatives. No auxiliary symbol y and no commutator expansion is needed: the
+operators B_1, B_2 enter only the constants, through their symbols and the sets K_1, K_2.
+
+*(f).* [[lem:fwd-expansion]] for each product, r ≤ 6, S := 7T + 3 [703] ≥ sup(𝗍 − μ), and [[eq:fwd-assembly]] with
+B_G := 6T + 3, which the hypothesis on t_α allows. The counts are largest for r = 6: R = 13T + 3 [1,303],
+B = 12T + 9 [1,209], J_R = 14T + 4 [1,404], 2K = 14T + 4 [1,404], J_C = 19T + 4 [1,904]; the remainders cost at most
+2J_R + B + 𝔢(15T + 10) ≤ 55T + 29 [5,529], 26T + 13 [2,613], 40T + 15 [4,015],
+(J_C + B) + 4(J_C − 1) + 2(J_R − 1) = 135T + 31 [13,531] and J_C + B + 𝔢(24T + 10) + 2(J_R − 1) ≤ 83T + 31
+[8,331]; the main symbol K(T, 6T + 3) + 5(J_C − 1) + 2(J_R − 1) ≤ (35T + 31) + (95T + 15) + (28T + 6) = 158T + 52
+[15,852], with K(T, 6T + 3) = (14T + 7) + 6 + 𝔢(21T + 16).
+
+*[[lem:ii-a-8-5]] (b).* By [[sec:ii-a1-1-2]], B and I − B^♯ are microsupported in disjoint closed sets, near fibre
+infinity. So Bℓ(I − B^♯), a product of three quantizations of order 0 (ℓ = Op(ℓ) as in (a)), is the case r = 3 of (e)
+at the constant order 𝗍 := inf 𝗌_0 with N := max(0, ⌈sup 𝗌 − inf 𝗌_0⌉) ≤ T: it maps H^(𝗌_0) ⊂ H^(inf 𝗌_0) to
+H^(inf 𝗌_0 + N) ⊂ H^𝗌. With S = 2T: R = 5T, B = 4T + 6, J_R = 6T + 1, J_C = 8T + 1, and the counts of
+[[eq:fwd-ecount]] are at most 23T + 17, 10T + 8, 16T + 6, 32T + 7 and 34T + 16 [3,415]. So d_0 = 34T + 16 serves in
+(b), and d_0 = 𝔐(T) a fortiori. The index does not depend on B and B^♯.
+
+In every item the number of derivatives of any symbol is at most 158T + 52 ≤ 𝔐(T) − 2, and every product estimated
+has at most eight factors, which justifies the choice of ϰ. ∎
 
 #### The orders that occur, and the increments {#sec:fwd-box}
 
