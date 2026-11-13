@@ -1242,8 +1242,8 @@ point of I satisfies the bound on ρ above. The margin changes over I by a relat
 C λ E(v)^(−2/m) = o(λ^γ), since on I the bounds |m0′| ≤ C (env² + |env| |env′|) ≤ C E(v)^(2−1/m) and
 m0 ≥ c_m E^(2+1/m) ≥ c_m (E(v)/2)^(2+1/m) hold; and the factor ν(· − τ0) changes by a relative amount at most
 C λ/(v − v_s), ν having at most a double zero near v_s, which is o(λ^γ) since v − v_s ≥ (E(v)/C_κ)^(1/κ) by Taylor's
-formula at v_s and (3 + δ)/κ < 1/10. So R ≥ 1 + (3/2)λ^γ on I. The phase v′/λ runs over an interval of length 2π on I, so there are points v′ of I where
-Re[σ d e^(iv′/λ)] = |d|, and at them, using ν ≤ 0,
+formula at v_s and (3 + δ)/κ < 1/10. So R ≥ 1 + (3/2)λ^γ on I. The phase v′/λ runs over an interval of length 2π
+on I, so there are points v′ of I where Re[σ d e^(iv′/λ)] = |d|, and at them, using ν ≤ 0,
 
     g_λ⁻¹(dΦ0, dΦ0) = −m0 + λ³ A |env| |ν| Re[σ d e^(iv′/λ)] + ρ ≥ m0 (R − 1 − λ^γ) > 0.
 

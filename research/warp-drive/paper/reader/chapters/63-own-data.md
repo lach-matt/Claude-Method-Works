@@ -1091,7 +1091,7 @@ derivative of δ occurs. For a multi-index β of Cartesian derivatives with |β|
 ∂^(β′) (g_T⁻¹) is a sum of products of g_T⁻¹ with factors ∂^(β_i) g_T = ∂^(β_i) 𝔤_T + ∂^(β_i) δ, Σ_i β_i = β′,
 |β_i| ≥ 1. Hence
 
-    g_T^(ab) ∂_a ∂_b ∂^β δ = 2 ∂^β F + ℛ_β,                                                           {#eq:own-ext-derivatives}
+    g_T^(ab) ∂_a ∂_b ∂^β δ = 2 ∂^β F + ℛ_β,                                                  {#eq:own-ext-derivatives}
 
 where ℛ_β is a finite sum of products of components of g_T^(±1), 𝔤_T^(±1) and δ with factors ∂^i 𝔤_T (i ≥ 1), ∂^i Γ̂
 (counting i + 1) and ∂^i δ (i ≥ 1), in which the derivatives number exactly |β| + 2, at least one factor is δ or a
@@ -1112,8 +1112,8 @@ order at most min(i_0, |β| + 2 − i_0) ≤ (m + 2)/2 ≤ m − 2, as m ≥ 6. 
 and these i add up to |β| + 2 − i_0; the factors without derivatives are bounded. So the product is at most
 C K^(n_β) r^(−(|β|+2−i_0)) |∂^(i_0) δ|, n_β the largest number of factors, and
 
-    ‖r^(a+|β|) ℛ_β‖_(L²(A_σ″)) ≤ C_K Σ_(i_0≤|β|+1) ‖r^(a+i_0−2) ∂^(i_0) δ‖_(L²(A_σ″)) ≤ C_K 𝒥(σ″; ϱ, V_*)^(1/2):
-                                                                                                       {#eq:own-ext-products}
+    ‖r^(a+|β|) ℛ_β‖_(L²(A_σ″)) ≤ C_K Σ_(i_0≤|β|+1) ‖r^(a+i_0−2) ∂^(i_0) δ‖_(L²(A_σ″))
+                                ≤ C_K 𝒥(σ″; ϱ, V_*)^(1/2):                                        {#eq:own-ext-products}
 
 for i_0 ≥ 1, ∂^(i_0) δ is a first derivative ∂∂^(β̃) δ with |β̃| = i_0 − 1 ≤ m, carried in 𝒥 with the weight
 r^(a+i_0−1) ≥ r^(a+i_0−2); for i_0 = 0, δ is carried with the weight r^(a−1). Here C_K depends on K besides. The terms
@@ -1137,7 +1137,7 @@ The data: δ = ∂δ = 0 on A_T(ϱ, V_*), and A_T(ϱ, V_*) lies off 𝒮^♭_T, 
 C r^(2(a+|β|)) r^(−10−2|β|), and 𝒥(T) ≤ C ∫_ϱ^∞ r^(2a−10) r³ dr = C ϱ^(2a−6)/(6 − 2a), as a < 3. And A_σ‴ ⊂ {r ≥ ϱ},
 so f(σ‴)² ≤ C ∫_ϱ^∞ r^(2(a+|β|)) r^(−12−2|β|) r³ dr ≤ C ϱ^(2a−8). Hence
 
-    𝒥(σ″; ϱ, V_*) ≤ C_K ϱ^(2a−6)   for σ″ ∈ [T, σ] and ϱ ≥ ϱ_1,                                         {#eq:own-ext-weighted}
+    𝒥(σ″; ϱ, V_*) ≤ C_K ϱ^(2a−6)   for σ″ ∈ [T, σ] and ϱ ≥ ϱ_1,                           {#eq:own-ext-weighted}
 
 with C_K independent of ϱ, ϱ_1 and V_*.
 
@@ -1147,10 +1147,10 @@ G(r) := ‖ψ(r, ·)‖_(L²(S³)) and G̃(r) := ‖(d/dr) ψ(r, ·)‖_(L²(S³
 G(r_p)² = G(s)² + ∫_s^(r_p) (G²)′ with |(G²)′| ≤ 2 G G̃; averaging over s ∈ I, G(r_p)² ≤ ∫_I (G² + 2G G̃) dr ≤
 2 ∫_I (G² + G̃²) dr. The fields Ω_ab are tangent to the spheres and span their tangent spaces, so they bound the norm of
 W^(2,2)(S³), and [[thm:std-bh-manifold]] (with s = p = 2, sp = 4 > 3) gives
-sup_(S³) |ψ(r_p, ·)|² ≤ C Σ_(|γ|≤2) ‖Ω^γ ψ(r_p, ·)‖²_(L²(S³)). On I, r ≥ r_p − 1 ≥ r_p/2, so dr dω = r⁻³ d⁴x ≤ 8 r_p⁻³ d⁴x,
-and
+sup_(S³) |ψ(r_p, ·)|² ≤ C Σ_(|γ|≤2) ‖Ω^γ ψ(r_p, ·)‖²_(L²(S³)). On I, r ≥ r_p − 1 ≥ r_p/2, so
+dr dω = r⁻³ d⁴x ≤ 8 r_p⁻³ d⁴x, and
 
-    sup_(S³) |ψ(r_p, ·)|² ≤ C r_p⁻³ Σ_(|γ|≤2) ∫_(I×S³) (|Ω^γ ψ|² + |(d/dr) Ω^γ ψ|²) d⁴x.                       {#eq:own-ext-sobolev}
+    sup_(S³) |ψ(r_p, ·)|² ≤ C r_p⁻³ Σ_(|γ|≤2) ∫_(I×S³) (|Ω^γ ψ|² + |(d/dr) Ω^γ ψ|²) d⁴x.      {#eq:own-ext-sobolev}
 
 By [[eq:own-gamma-cartesian]] for products of the Ω_ab, Ω^γ = Σ_(|β|≤|γ|) c_β ∂^β with |∂^i c_β| ≤ C r^(|β|−i), and
 |f′| ≤ ¼; so |Ω^γ ψ| + |(d/dr) Ω^γ ψ| ≤ C Σ_(i≤2) (r^i |∂^i ψ| + r^i |∂^(i+1) ψ|) for r ≥ 1. Take ψ := ∂^(β_0) δ,
