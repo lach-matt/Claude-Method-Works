@@ -90,6 +90,10 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      (kappa x^2 -> 0, (H_rho*)'s first half fails) with the computed b4 = i (366 rho*^2 - 153 rho* - 934)/420 =
      -0.0381909... i and b5 = 3 b4 (bfam5 B5), lam = 1e-40: every window decided for N = 9, 10, 11, 12, 13, and with b5
      in {0, 1, i, -1, -i} at N = 10.  Control: X15's adversarial (b4, b5) in place of the computed ones: undecided.
+     [round 9, the reader of round 8's nit 3: these rows do not test delta_* > 0 -- b4 rotated onto the positive real
+     axis with |b4| kept and b5 = 3 b4 is decided too (printed, N = 10).  The phase rows: X15's adversarial (b4, b5),
+     whose b4 is positive real (delta_* = 0), with b4 rotated to the computed phase -i (and to i, -1; |b4| and b5 kept):
+     every window decided, while unrotated it is undecided (the control): only the phase changes the decision.]
   X16 (computed, sampled; round 7) L.21 at c_N = 1: the lower families against the bracket -(i/lam) s^-1 env^(N-1)
      are O(lam + 1/kappa) for lam kappa in [10^-2, 10^4].  Control: a lower term with one s too many.
 
@@ -1055,6 +1059,22 @@ def e17(control=False):
                        d['nA'], d['nB'], d['ok']))
     out("  X17 Lemma L.28 at rho* on exp(-1/x^(1/2)) (kappa x^2 -> 0), lam = 1e-40, unit constants, the computed b4 = %s"
         " (bfam5 B5): " % mp.nstr(b4, 12) + "; ".join(rows) + "; all decided: %s  [%.0f s]" % (ok, time.time() - T0))
+    # round 9 (nit 3): the rows above do not test the phase; X15's adversarial configuration does
+    dm = dichotomy(nm, lam, 10, rs, 'K', b4=abs(b4), b5=3*abs(b4), nwin=40, ngrid=41)
+    if 'adv' not in CACHE15:
+        e15(control=True)
+    ba, bb = CACHE15['adv'][0], CACHE15['adv'][1]
+    prow, pok = [], True
+    for lab, rot in (("-i (the computed phase)", -1j), ("i", 1j), ("-1", -1)):
+        d = dichotomy(nm, lam, 10, rs, 'K', b4=rot*abs(ba), b5=bb, nwin=40, ngrid=41)
+        pok &= d['ok']
+        prow.append("b4 rotated to %s |b4|: by (A') %d, by (B) %d, decided: %s" % (lab, d['nA'], d['nB'], d['ok']))
+    ok &= pok
+    out("  X17 the phase (round 9): printed, not a check -- b4 rotated onto the positive real axis (|b4| kept, b5 = 3 b4),"
+        " N = 10: decided: %s (so the rows above do not test delta_* > 0); X15's adversarial configuration (N = 10, lam ="
+        " 1e-40, b4 = %s, arg b4/pi = %s, b5 = %s), |b4| and b5 kept: %s; unrotated (positive real, delta_* = 0) it is"
+        " undecided (the control): only the phase changes the decision  [%.0f s]"
+        % (dm['ok'], mp.nstr(ba, 6), mp.nstr(mp.arg(ba)/mp.pi, 3), mp.nstr(bb, 4), "; ".join(prow), time.time() - T0))
     return ok
 
 
