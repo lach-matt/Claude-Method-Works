@@ -1614,14 +1614,15 @@ C|S|r ([[lem:iii-b-5-1]], [[lem:iii-b-5-2]]), while for r ≥ r₁ = 2r₀ the p
 the bound depending only on b₀ and ℓ^♭ that [Hin26, Theorem 5.23] states.)
 
 **Theorem {#thm:iii-c2-3-1}** ([Hin26, Theorem 5.23] in dimension 4 + 1.) There are k₂ ∈ ℕ and ε₂ > 0 such that the
-following holds. Let h₀, h₁ be data as in [[thm:iii-c1-3-1]] with ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂ (j = 0, 1), and let
-h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₀)) solve
+following holds. Let h₀, h₁ be data as in [[thm:iii-c1-3-1]] with ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂ (j = 0, 1), and let h be
+the solution of
 
     P^(χ₀)(g_(b₀) + h, g_(b₀)) = 0,     h|_(Σ_(IVP,r₀)) = h₀,     rℒ_(∂_(t_IVP))h|_(Σ_(IVP,r₀)) = h₁     {#eq:iii-c2-3-2}
 
-(it exists by [[thm:iii-c1-2-1]] and [[thm:iii-c1-3-1]] in the cut-off gauge: [[cor:iv2-4-1]] gives the former, and
-the proof of the latter holds for L^(χ₀) by [[lem:iii-c2-2-1]], which leaves the leading part at ℐ⁺ unchanged and adds
-to the error of [[eq:iii-c-4-4]] a term of that class). For S ∈ 𝒮₁ small, depending only on b₀, ℓ^♭₀ and ℓ^♭_I, the
+that [[thm:iii-c1-2-1]] gives in the cut-off gauge ([[cor:iv2-4-1]]), which by its proof is small in H^(3d) of its
+class for the d = 7 of [[thm:iv2-3-1]]. It lies in H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₀)) by [[thm:iii-c1-3-1]], whose
+proof holds for L^(χ₀) by [[lem:iii-c2-2-1]], which leaves the leading part at ℐ⁺ unchanged and adds to the error of
+[[eq:iii-c-4-4]] a term of that class. For S ∈ 𝒮₁ small, depending only on b₀, ℓ^♭₀ and ℓ^♭_I, the
 problem
 
     P^(χ₀)(φ_S*g_(b₀) + h_S, φ_S*g_(b₀)) = 0 in Ω_(ext,r₁),     h_S = h_(S,0),  rℒ_(∂_(t_IVP))h_S = h_(S,1) on Σ_(IVP,r₁)
@@ -1663,7 +1664,9 @@ restriction to Σ_(IVP,r₁) is bounded from H^(k+1,ℓ^♭₀)_b to H^(k,ℓ^�
     ‖h_(S,j)‖_(H^(N_NM,ℓ^♭₀)_b(Σ_(IVP,r₁))) ≤ C_*‖h‖_(H^(N_NM+2,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀))),     j = 0, 1.
 
 Let k₂ and ε₂ be the k₁ and ε₁ that the clause of [[thm:iii-c1-2-1]] on higher norms, in the cut-off gauge, gives for
-k := N_NM + 2 and ε := ε_*/C_*; by its proof, k₂ = N_NM + k = 2N_NM + 2. If ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂, then
+k := N_NM + 2 and ε := ε_*/C_*; by its proof, k₂ = N_NM + k = 2N_NM + 2. As k₂ is at least, and ε₂ at most, the k₀ and
+ε₀ of [[thm:iii-c1-2-1]] for g_(b₀) on Ω_(ext,r₀), data with ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂ have the smallness that theorem
+asks, so h exists, and the clause on higher norms applies to it. If ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂, then
 ‖h‖_(H^(N_NM+2,ℓ^♭₀,(−,ℓ^♭_I))_b) < ε_*/C_*, so the data [[eq:iii-c2-3-1]] have H^(N_NM,ℓ^♭₀)_b-norm below ε_*, and
 [[thm:iii-c1-2-1]] for the background φ_S*g_(b₀) gives h_S and its uniqueness, for |S| < min(½ε_φ, ε′_φ), a bound
 depending only on b₀, ℓ^♭₀ and ℓ^♭_I. The data [[eq:iii-c2-3-1]] lie in H^(∞,(ℰ₀,ℓ₀))_b(Σ_(IVP,r₁)): h is of that class
