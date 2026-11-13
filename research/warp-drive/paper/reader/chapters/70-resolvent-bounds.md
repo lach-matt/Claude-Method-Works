@@ -2621,12 +2621,12 @@ as (r − r_h)A_0/f is smooth; so the exponents are 0 (n_l times) and the eigenv
 *The coefficient of ∂_r at r_h.* At r_h the Christoffel symbols with a lower index v are Γ^v_vv = f′/2 and
 Γ^r_vr = −f′/2, all others vanishing ([[eq:s13-chris]] and the formula after it; Γ^r_vv = ff′/2 vanishes at r_h). So at
 r_h, ∇_(∂_v)dv = −(f′/2)dv, ∇_(∂_v)dr = (f′/2)dr and ∇_(∂_v)e = 0 for e = r ê, ê an angular covector of unit length
-for γ (∂_vr = 0): ∇_(∂_v) acts on the frame by 𝔄_v = −(f′(r_h)/2)K_0, where K_0 is 1 on dv, −1 on dr and 0 on the
+for g̸ (∂_vr = 0): ∇_(∂_v) acts on the frame by 𝔄_v = −(f′(r_h)/2)K_0, where K_0 is 1 on dv, −1 on dr and 0 on the
 angular covectors, extended to symmetric 2-tensors by the Leibniz rule. In □ = ∇*∇ = −g^(μν)∇_μ∇_ν the first-order
 terms in ∂_r are −(1/√|g|)∂_μ(√|g|g^(μr))∂_r = −r⁻³(r³f)′∂_r, which is −f′(r_h)∂_r at r_h, and −2g^(μr)𝔄_μ∂_r =
 −2𝔄_v∂_r at r_h; together −f′(r_h)(1 − K_0)∂_r. The first-order operators 2E^CδG and 2δ*E^ΥG have, at r_h,
-∂_r-coefficients equal to their principal symbols at the covector ξdr divided by iξ. With σ_1(δ)(ζ)h = −iι_(g⁻¹ζ)h,
-σ_1(δ*)(ζ)w = iζ ⊗_s w, g⁻¹dr = ∂_v at r_h, f′(r_h) = 2/r_h and E^Υ equal to its horizon part near r_h, these
+∂_r-coefficients equal to their principal symbols at the covector ξdr divided by iξ. With σ_1(δ)(ξdr)h = −iξι_(g⁻¹dr)h,
+σ_1(δ*)(ξdr)w = iξ dr ⊗_s w, g⁻¹dr = ∂_v at r_h, f′(r_h) = 2/r_h and E^Υ equal to its horizon part near r_h, these
 coefficients are f′(r_h)K_C and f′(r_h)K_Υ, where by [[eq:iii-b-6-2]] and [[eq:iii-b-6-5]]
 
     K_Ch := −r_hγ_C(2c_C ⊗_s ι_(∂_v)Gh − (2/3)(1 − e_C)g⟨c_C, ι_(∂_v)Gh⟩),   K_Υh := 2r_hγ_(Υ,H) dr ⊗_s ι_(g⁻¹c_(Υ,H))h,
@@ -2634,7 +2634,7 @@ coefficients are f′(r_h)K_C and f′(r_h)K_Υ, where by [[eq:iii-b-6-2]] and [
 ⟨·, ·⟩ the pairing by g⁻¹. All other terms are of order zero in r on stationary fields of one degree. So the
 coefficient of ∂_r of 2L at r_h is −f′(r_h)(1 − K) with K := K_0 + K_C + K_Υ, and 1 + A_1(r_h)/f′(r_h) = K on the
 block. This K is the endomorphism of [[lem:iii-f2-1-1]]: on half-densities by |dg| = 𝔪|dv dr dz|, with
-z = (z¹, z², z³) coordinates on 𝕊³ and 𝔪 := r³|det γ|^(1/2) (the (v, r) block of g has determinant −1), an operator
+z = (z¹, z², z³) coordinates on 𝕊³ and 𝔪 := r³|det g̸|^(1/2) (the (v, r) block of g has determinant −1), an operator
 −g^(μν)∂_μ∂_ν + b^μ∂_μ + c has subprincipal symbol iξ(b^r + 𝔪⁻¹∂_μ(𝔪g^(μr))) at the covector ξdr, and
 𝔪⁻¹∂_μ(𝔪g^(μr)) = r⁻³(r³f)′ = f′(r_h) at r_h, so the subprincipal symbol of 2L there is iξf′(r_h)K.
 

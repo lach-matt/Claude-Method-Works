@@ -1255,3 +1255,4 @@ Items found while chapters were written in parallel; each is settled once, editi
 - P-K83c done. FOR THE FINAL REPORT: chapter 83's cone data with dust (m4) rests on a characteristic initial value
   problem for five-dimensional Einstein-null dust that no published theorem covers (Luk-Rodnianski is 3+1 only); the
   chapter states only what holds and names the loss. Its localisation (c) drops radial localisation inside the lens.
+- R3-70 CONFIRMED; chapter 70 CONFIRMED (with chapter 21's two nit edits).
