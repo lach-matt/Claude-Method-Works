@@ -212,13 +212,15 @@ of [[def:two-dust-data]]. There is a past set 𝒟 ⊂ Q, the development of the
 has exactly one smooth solution g0 of the two-null-dust equations, and:
 
 (a) *Structure.* Where ℬ = 0 the background is an ingoing Vaidya metric, after reparametrising v, and where 𝒜 = 0 and
-R_v ≠ 0 an outgoing Vaidya metric: the only region where it is not a Vaidya metric is the compact crossing diamond
-Q× := [u1, u2] × [v_start, v_end]. Off Q× it is explicit from the data only in {u ≤ u1}, where it is the ingoing
-Vaidya metric of the data on 𝒞_out with v its advanced time, and in {v ≤ v_start}, where it is the outgoing Vaidya
-metric of the data on 𝒞_in; in {u ≥ u2} and in {v ≥ v_end} it is a Vaidya metric with the mass functions μ(u2, ·) and
-μ(·, v_end), read from the solution on the edges of the diamond. On the slice Σ_τ0 of [[lem:two-dust-domain]] the
-Cauchy data are the seed's for R < r1, outgoing Vaidya on the packet r1 ≤ R ≤ r2, Tangherlini of mass μ0 + E₂ between
-the packet and the shell, and those of the shell of [[thm:main]] outside.
+R_v > 0 an outgoing Vaidya metric, after reparametrising u. The two dusts cross only on the compact crossing diamond
+Q× := [u1, u2] × [v_start, v_end]: off Q× one of 𝒜, ℬ vanishes. Off Q× the background is explicit from the data only
+in {u ≤ u1}, where it is the ingoing Vaidya metric of the data on 𝒞_out with v its advanced time, and in
+{v ≤ v_start}, where R_v > 0 and it is the outgoing Vaidya metric of the data on 𝒞_in; in {u ≥ u2} it is the ingoing
+Vaidya metric with the mass function μ(u2, ·), and in {v ≥ v_end} its mass function is μ(·, v_end), an outgoing Vaidya
+metric where R_v > 0; both mass functions are read from the solution on the edges of the diamond. On the slice Σ_τ0 of
+[[lem:two-dust-domain]] the Cauchy data are the seed's for R < r1, outgoing Vaidya on the packet r1 ≤ R ≤ r2,
+Tangherlini of mass μ0 + E₂ between the packet and the shell, and, outside, those of the shell of [[thm:main]] on a
+Tangherlini metric of mass μ0 + E₂.
 
 (b) *The mass bound.* μ ≥ μ0 on 𝒟.
 
