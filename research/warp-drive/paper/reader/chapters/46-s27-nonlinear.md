@@ -596,42 +596,44 @@ c ≤ t^♭_*(q) ≤ t^♭_* ≤ t^♭_*(p) on it; r ≥ min(r(p), r^♮) on it,
 t_* ∈ [c, t^♭_*(p)/C_♭] and min(r(p), r^♮) ≤ r ≤ R_p, where r(p) (p ∈ X) and r^♮ lie in the range of r on M°; so L_p
 is compact. ∎
 
-**Lemma {#lem:iii-k-6-2}** (Uniqueness near spatial infinity for the initial family.) Let g_S := φ_S^*g_(b₀) + h_S on
-𝒟, where h_S is given on 𝒟 ∩ Ω_(ext,r_1) by [[thm:iii-c2-3-1]] and on 𝒮 by [[thm:iv3-2-2]], and is small in C⁰ on 𝒦,
-with |S| and the data small. There is R ≥ R_5 such that 𝒟 ∩ {r ≥ R} ⊂ Ω_(ext,r_1) ∪ 𝒮 and t_IVP = t − C″ there, and:
+**Lemma {#lem:iii-k-6-2}** (Uniqueness near spatial infinity for the initial family.) Let g_(S,S⁰) := φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰) on
+𝒟, where h_(S,S⁰) is given on 𝒟 ∩ Ω_(ext,r_1) by [[thm:iii-c2-3-1]] for φ_(S,S⁰) and on 𝒮 by
+[[thm:iv3-2-2]], and is small in C⁰ on 𝒦,
+with |S| + |S⁰| and the data small. There is R ≥ R_5 such that 𝒟 ∩ {r ≥ R} ⊂ Ω_(ext,r_1) ∪ 𝒮 and t_IVP = t − C″ there, and:
 
-(a) on 𝒟 ∩ {r ≥ R}, every Cartesian component of g_S − η is at most 1/20 in modulus, g_S⁻¹(dt, dt) ≤ −½, and
-|V^x| ≤ 2|V^t| for every g_S-causal vector V; dt lies in the component of the timelike covectors of g_S that continues
-the past cone of η along η + s(g_S − η), s ∈ [0, 1], and g_S is time-oriented on 𝒟 as a small deformation of g_(b₀),
-for which dt_IVP is past timelike ([[lem:iii-b-3-7]] (b)); so dt_IVP is past timelike for g_S on 𝒟;
+(a) on 𝒟 ∩ {r ≥ R}, every Cartesian component of g_(S,S⁰) − η is at most 1/20 in modulus, g_(S,S⁰)⁻¹(dt, dt) ≤ −½, and
+|V^x| ≤ 2|V^t| for every g_(S,S⁰)-causal vector V; dt lies in the component of the timelike covectors of g_(S,S⁰) that continues
+the past cone of η along η + s(g_(S,S⁰) − η), s ∈ [0, 1], and g_(S,S⁰) is time-oriented on 𝒟 as a small deformation of g_(b₀),
+for which dt_IVP is past timelike ([[lem:iii-b-3-7]] (b)); so dt_IVP is past timelike for g_(S,S⁰) on 𝒟;
 
-(b) along causal curves of g_S in {r ≥ R}, r + 2t_IVP does not increase towards the past and r − 2t_IVP does not
+(b) along causal curves of g_(S,S⁰) in {r ≥ R}, r + 2t_IVP does not increase towards the past and r − 2t_IVP does not
 increase towards the future;
 
-(c) along a past (future) directed causal curve of g_S from p on which τ := t_IVP (τ := −t_IVP) stays ≥ c,
+(c) along a past (future) directed causal curve of g_(S,S⁰) from p on which τ := t_IVP (τ := −t_IVP) stays ≥ c,
 
     r ≤ max(R, r(p)) + 2(τ(p) − c).
 
 *Proof.* 𝒦 is compact, so for R above its radius 𝒟 ∩ {r ≥ R} lies in Ω_(ext,r_1) ∪ 𝒮 ([[lem:s27-cover]]), and
-t_IVP = t − C″ for r ≥ R_5. There φ_S^*g_(b₀) agrees with an element of the class 𝒢 of [[def:iii-c-3-4]], so
-φ_S^*g_(b₀) − η ∈ ρ₀²ρ_I²C^∞: on Ω_(ext,r_1) by [[lem:iii-c2-1-1]], and on 𝒮 by [[lem:iv3-0-1]]. And h_S lies in the
-class H^(k,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b of [[def:iii-c-3-1]], k ≥ 5, with norm O(‖(γ̃, k̃)‖_(H^(d_1))): on Ω_(ext,r_1) by
+t_IVP = t − C″ for r ≥ R_5. There φ_(S,S⁰)^*g_(b₀) agrees with an element of the class 𝒢 of [[def:iii-c-3-4]], so
+φ_(S,S⁰)^*g_(b₀) − η ∈ ρ₀²ρ_I²C^∞: on Ω_(ext,r_1) by [[lem:iii-c2-1-1]] for φ_(S,S⁰) ([[lem:s27-translated-exterior]] (c)), and on 𝒮 by
+[[lem:iv3-0-1]]. And h_(S,S⁰) lies in the
+class H^(k,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b of [[def:iii-c-3-1]], k ≥ 5, with norm tending to 0 with ‖(γ̃, k̃)‖_(H^(d_0)): on Ω_(ext,r_1) by
 [[thm:iii-c2-3-1]] (2) with [[thm:iii-c1-3-1]], and on 𝒮 by [[cor:iv3-2-3]]. Its slot coordinates are bounded pointwise
 by that norm (Sobolev embedding on the unit cubes of a b-metric, as in the proof of [[lem:iii-c-2-1]]: k ≥ 5 > 5/2, and
 the weights ℓ_0 > 0, ℓ_I > 3/2 and the real parts of the index sets are positive), and they are bounded multiples of its
 Cartesian components ([[lem:iii-c-1-3]]: the frames are related by F_0(ω)(I + ρ²C^∞)). So for R large and the data and
-|S| small, each Cartesian component of δ := g_S − η is at most ε := 1/20 in modulus on 𝒟 ∩ {r ≥ R}.
+|S| + |S⁰| small, each Cartesian component of δ := g_(S,S⁰) − η is at most ε := 1/20 in modulus on 𝒟 ∩ {r ≥ R}.
 
 Then, in the coordinates (t, x), with η = diag(−1, 1, 1, 1, 1), the matrix η⁻¹δ has entries ±δ_ij, so its maximum
-row-sum norm is at most 5ε = ¼. The Neumann series g_S⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives
-|(g_S⁻¹ − η⁻¹)(dt, dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_S⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound holds
+row-sum norm is at most 5ε = ¼. The Neumann series g_(S,S⁰)⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives
+|(g_(S,S⁰)⁻¹ − η⁻¹)(dt, dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_(S,S⁰)⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound holds
 for η + sδ, s ∈ [0, 1], so dt stays timelike along that path, in the component that continues the past cone of η. For
-V causal for g_S, η(V, V) ≤ −δ(V, V) ≤ Σ_(i,j)|δ_ij||V^i||V^j| ≤ ε(Σ_i|V^i|)² ≤ 5ε((V^t)² + |V^x|²), by the
+V causal for g_(S,S⁰), η(V, V) ≤ −δ(V, V) ≤ Σ_(i,j)|δ_ij||V^i||V^j| ≤ ε(Σ_i|V^i|)² ≤ 5ε((V^t)² + |V^x|²), by the
 Cauchy–Schwarz inequality in five variables; with η(V, V) = −(V^t)² + |V^x|² this gives
 |V^x|² ≤ ((1 + 5ε)/(1 − 5ε))(V^t)² = (5/3)(V^t)², so |V^x| ≤ 2|V^t|.
 
 On 𝒟 ∩ {r ≤ R}, dt_IVP is past timelike for g_(b₀) ([[lem:iii-b-3-7]] (b)), with a margin on this compact set, so also
-for g_S, φ_S tending to the identity there and h_S being small in C⁰ (Cauchy stability on 𝒦, and the classes above).
+for g_(S,S⁰), φ_(S,S⁰) tending to the identity there and h_(S,S⁰) being small in C⁰ (Cauchy stability on 𝒦, (N) of [[sec:s27-local]], and the classes above).
 This proves (a), dt_IVP = dt on {r ≥ R}.
 
 (b) For a past directed causal V in {r ≥ R}, dt(V) = V^t < 0 and dr(V) ≤ |V^x| ≤ −2V^t, so

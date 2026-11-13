@@ -1155,7 +1155,7 @@ is H(ξ) = sup_(x∈K) ⟨x, ξ⟩, ξ ∈ ℝⁿ, and the Fourier–Laplace tra
 entire function û(ζ) = u(e^(−i⟨·,ζ⟩)), ζ ∈ ℂⁿ. Let K be a convex compact subset of ℝⁿ with supporting function H. If u
 is a distribution of order N with support contained in K, then
 
-    |û(ζ)| ≤ C (1 + |ζ|)^N e^(H(Im ζ)),   ζ ∈ ℂⁿ.
+    |û(ζ)| ≤ C (1 + |ζ|)^N e^(H(Im ζ)),   ζ ∈ ℂⁿ.      (7.3.2)
 
 Conversely, every entire analytic function in ℂⁿ satisfying an estimate of this form is the Fourier–Laplace transform
 of a distribution with support contained in K. If u ∈ C_c^∞(ℝⁿ) has support in K, there is for every N a constant C_N

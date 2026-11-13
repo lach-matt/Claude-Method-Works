@@ -44,8 +44,8 @@ Re λ − 1 lie in [λ_♯ − 1, 1); they occur only for α_K > λ_♯ + 1 > 5/
 below 5/2 ([[prop:iii-i1-3-1]]). So the index set of the motions is fixed in advance and closed under the operations
 that occur ([[eq:iii-i8-1-1]]), the device u_Σ of [Hin26, (11.180)–(11.183)] and [Hin26, Remark 11.52] are not needed,
 and each level of the induction is a finite-dimensional map close to the identity. The zero energy analysis is that of
-[[prop:iii-i6-2-1]], with the improvement at the transition face iterated once α_K ≥ 2 + ε_ind, as in [Hin26, Step
-1.6 of the proof of Proposition 11.51]. The gauge modifications use the generalised gauge 1-forms to order 4 of
+[[prop:iii-i6-2-1]], with the improvement at the transition face iterated once α_K ≥ 2 + ε_g (ε_g of
+[[sec:iii-i7-1]]), as in [Hin26, Step 1.6 of the proof of Proposition 11.51]. The gauge modifications use the generalised gauge 1-forms to order 4 of
 [[prop:iii-d3-3-1]], so that they decay to K⁺-order Re λ + 4.
 
 For the pure gauge terms, the exponent 1 does not occur at ι⁺, so the logarithmic time reparametrisation of
@@ -60,9 +60,13 @@ remainder is joined by the difference E^ν, of size O(|b − b₀|), of the corr
 ([[lem:iii-i9-2-6]] (e)). This replaces [Hin26, (11.194)] and makes the elimination of [[ch:s22]] a perturbation of
 the identity. Every dimensional change is mathematics and is carried below.
 
-*The base point.* The base points of the linearisation have black hole parameter b in the closed ball ℬ̄_* around
-b₀ of [[lem:iii-i15-1-1]], on which the model objects are uniform in b: the forward problem of [[thm:iii-i-5-3]] at b,
-with continuity in (b, S, h) (property (P1) there); the ι⁺- and tf-normal operators and the indicial roots, which do
+*The base point.* The base points of the linearisation have black hole parameter b in the closed ball ℬ̄_* about b₀
+of [[sec:s20-setting]], of radius at most 1/(2C_B) ([[lem:s20-rows]]), on which the states at b are injective uniformly
+in b ([[lem:s20-injective]]). It is shrunk finitely many more times below, in [[prop:iii-i15-2-12]], in the step of
+[[prop:iii-i8-4-1]], and for the joint injectivity [[lem:iii-i15-1-2]] used in [[sec:iii-i9-2]], each time to a smaller
+ball about b₀; every statement holds on the final ℬ_*, and the segment from b₀ to each b ∈ ℬ̄_* lies in ℬ̄_*. On it the
+model objects of [[lem:iii-i15-1-1]] are uniform in b: the forward problem of [[thm:iii-i-5-3]] at b, with continuity
+in (b, S, h) (property (P1) there); the ι⁺- and tf-normal operators and the indicial roots, which do
 not depend on b (P2); the zero energy states and the 1-form towers at b, real and smooth in b, with index sets
 independent of b (P3); the augmented low energy theory at b (P4); and the time translation, Killing for every g_b
 (P5). Following (P6) there, the rows (the cut-off pure gauge tensors m_ν, among them the motions of [[sec:iii-i8-2]])
