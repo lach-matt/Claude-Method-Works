@@ -14,8 +14,8 @@ lem:class-leaf-differences (b) another. The lemma below proves the needed unique
 axis, by an energy estimate on a region whose three lateral pieces are spacelike. Insert it after the end of the proof
 of thm:loc-bent-slice (the line ending "3.25 × 10⁻⁴ < 3.3 × 10⁻⁴ for ε small. ∎", which Block 3 replaces) and before
 rem:loc-band-grid. Its statement fixes the constant 3.3 × 10⁻⁴ of thm:loc-bent-slice (c); the causal-curve argument
-of the old paragraph "The angular widening" is no longer needed and Block 3 removes it. New labels: lem:loc-lens-
-dependence, eq:loc-lens-region, eq:loc-lens-shear (three rows for the crosswalk of chapter 83). -->
+of the old paragraph "The angular widening" is no longer needed and Block 3 removes it. New labels:
+lem:loc-lens-dependence, eq:loc-lens-region, eq:loc-lens-shear. -->
 
 **Lemma {#lem:loc-lens-dependence}** (Dependence across the lens.) Let Ω_L, t and δ1 be as in the proof of
 [[thm:loc-bent-slice]] (c), and let (g, u_A, q_A) be the development constructed there. Let 3.3 × 10⁻⁴ < α < π/2, and
@@ -23,7 +23,7 @@ let the data of [[thm:loc-bent-slice]] (b), the metric and second fundamental fo
 equal the background's at the points of Σ′ with 3.44 ≤ R ≤ 5.85 and ϑ < α. Then for ε small, depending also on α, at
 every point of the lens with ϑ < α − 3.3 × 10⁻⁴ the metric g and its first derivatives equal those of g0, the
 differential of the ingoing family's phase equals the background's, and every density equals the background's. The
-same holds for 3.3 × 10⁻⁴ < π/2 − β, 0 < β < π/2, with ϑ > β and ϑ > β + 3.3 × 10⁻⁴ in place of ϑ < α and
+same holds, for 0 < β < π/2 − 3.3 × 10⁻⁴, with ϑ > β and ϑ > β + 3.3 × 10⁻⁴ in place of ϑ < α and
 ϑ < α − 3.3 × 10⁻⁴.
 
 *Proof.* We prove the first statement; the second is proved in the same way, with axis 1 in place of axis 2.
@@ -48,13 +48,13 @@ Then W t1 = 1.015 M/3.5756 ≤ 3.2918 × 10⁻⁴, and on 𝒟, ϑ ≤ α′ < �
 
 Every point of 𝒟 lies in region I. Where τ ≤ τ0 this is [[lem:margins-region-one]] (c), as R ≥ 3.4399 > R_*. Where
 τ > τ0, the ray u = 5.7 is {τ = τ_ray(R)} with dτ_ray/dR = 2/f − 1 ≥ 1 ([[lem:margins-region-one]] (b), (c), its time
-v̂ ≤ τ0 + M + 3.4384 < v̂(v = 3) there), so it meets the slice {τ = const} at a radius at most R_* + (τ − τ0) ≤ 3.43719
-+ tδ1 < 3.44 + t(λ − δ1) − Cε, since λ ≥ 2δ1; and u decreases strictly in R along that slice (proof of
+v̂ ≤ τ0 + M + 3.4384 < v̂(v = 3) there), so it meets the slice {τ = const} at a radius at most R_* + (τ − τ0), which is
+at most 3.43719 + tδ1 < 3.44 + t(λ − δ1) − Cε, since λ ≥ 2δ1; and u decreases strictly in R along that slice (proof of
 [[cor:class-two-dust]]), so u < 5.7 at the points of 𝒟. Hence on 𝒟, by [[lem:margins-region-one]] (a),
 
     g0 = −f dτ² + 2(1 − f) dτ dR + (2 − f) dR² + R² dΩ₃²,      f = 1 − μ/R²,      3/2 ≤ μ ≤ 3.6059,
 
-so 0.69 < f < 0.957; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f, g0^(ϑϑ) = R⁻² and no other
+so 0.69 < f ≤ 1 − 1.5/5.86² ≤ 0.95632; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f, g0^(ϑϑ) = R⁻² and no other
 entry pairing dϑ with dτ or dR. The background's outgoing density vanishes on 𝒟, as ℬ = 0 in region I. 𝒟 lies in the
 interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1. On 𝒟 the coordinate field ∂_t of the chart
 (t, x) is (δ1 − φ)∂_τ, with g0(∂_τ, ∂_τ) = −f < 0 and dτ(∂_τ) = 1: it is future timelike, for g as well when ε is small.
@@ -126,7 +126,7 @@ equations from the development's gives on 𝒟 a linear system 𝐀^0 ∂_t 𝔡
 g^(ab)) on the wave block and P^t on the transports, 𝐀^j its other matrices, all symmetric and evaluated at the
 development, and
 
-    |F_𝔡| ≤ C |𝔡| + C χ_Z |σ − σ̊|,                                                                 
+    |F_𝔡| ≤ C |𝔡| + C χ_Z |σ − σ̊|,
 
 σ̊ the background's, C bounding the derivatives of the smooth functions concerned on the compact 𝒟, where both
 solutions are smooth. On 𝒟, dt is timelike and ∂_t future timelike for g; so −g^(tt) > 0, g^(ab), the restriction of
@@ -152,13 +152,13 @@ r = 0, so |h′(r)| = |∂_r v_in/∂_z v_in| ≤ r sup |∂_r² v_in|/0.97 ≤ 
 rh′)/h² > 0, since rh′ ≤ r² < h. So along the leaf from the axis to y, ϑ increases and v_in is constant: the arc
 {(h(r), r) : 0 ≤ r ≤ ρ2(y)}, with its images under G, lies in 𝒟_s.
 
-*An extension.* The map x ↦ (v_in(s, x), x/|x|) is a G-equivariant diffeomorphism of a neighbourhood of 𝒟_s onto its
-image in R × S³, under which 𝒟_s is [c_a + λs, c_b − λs] × {ϑ ≤ α′ − Ws}; at s = 0, v_in = v̂. Compose it with the
-affine map of the first factor onto [c_a, c_b] and with the flow on S³, for the time Ws, of a G-invariant vector field
-equal to ∂_ϑ near {ϑ = α′ − Ws, 0 ≤ s ≤ t1} and to 0 near the axes. This gives G-equivariant diffeomorphisms ψ_s, C¹-
-close to the identity, with ψ_s(𝒟_0) = 𝒟_s, whose derivatives of order at most k − 1, and those of their inverses, are
-bounded independently of s and of ε by the bound on v_in − v̂; we extend them to diffeomorphisms of R⁴ equal to the
-identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a bounded Lipschitz domain of the x-space.
+*An extension.* The map Φ_s(x) := (v_in(s, x), x/|x|) is a G-equivariant diffeomorphism of a neighbourhood of 𝒟_s onto
+its image in R × S³, under which 𝒟_s is [c_a + λs, c_b − λs] × {ϑ ≤ α′ − Ws}; at s = 0, v_in = v̂. Let A_s be the
+affine map of [c_a, c_b] onto [c_a + λs, c_b − λs], and m_s the flow on S³, for the time Ws, of a G-invariant vector
+field equal to −∂_ϑ on {α′ − W t1 ≤ ϑ ≤ α′} and to 0 near the axes. Then ψ_s := Φ_s⁻¹ ∘ (A_s × m_s) ∘ Φ_0 is a
+G-equivariant diffeomorphism near 𝒟_0, C¹-close to the identity, with ψ_s(𝒟_0) = 𝒟_s, whose derivatives of order at
+most k − 1, and those of its inverse, are bounded independently of s and of ε by the bound on v_in − v̂; we extend it
+to a diffeomorphism of R⁴ equal to the identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a bounded Lipschitz domain of the x-space.
 Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the average over G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By
 [[thm:std-sy-extension]] and [[thm:std-ly-extension]] (Lemma 27 there), 𝔼_s is bounded on L² and on H^(k−1), with a
 bound C_E depending on α but not on s or ε; and 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.

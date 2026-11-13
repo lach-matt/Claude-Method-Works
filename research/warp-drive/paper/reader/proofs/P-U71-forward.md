@@ -45,7 +45,7 @@ for δ = ¼ there is a fixed fibre inner product with ϑ_ℋ < ϑ_L + ¼ < 9/4 a
 
 *The incoming radial set over ∂K⁺.* By [[lem:ii-c-2-6]], ϑ^(3b)_in = ϑ_in, the threshold of [[eq:i-a-1-5]] at R_in.
 By [[lem:ec-theta-in]] (a), p_in − (S + S^(∗h)) = −2 Re_h(A + S) at ∂X for every fibre inner product h, so that
-ϑ_in = −2 inf_(∂X) λ_min(Re_h(A + S)) by [[eq:i-a-1-5]]. We show that every eigenvalue of A + S at every point of ∂X
+ϑ_in computed in h is −2 inf_(∂X) λ_min(Re_h(A + S)) ([[eq:i-a-1-5]]). We show that every eigenvalue of A + S on ∂X
 is real and ≥ 0. A + S is homogeneous of degree 0 ([[lem:ec-theta-in]] (b)), so it suffices to take it at a point x
 with |x| > 0, where ρ(A + S) = −Ē^C ι_(ḡ⁻¹ζ) Ḡ + (ζ ⊗_s ·) Ē^Υ Ḡ by [[eq:ec-theta-in-l]]. Use the frame
 (dx̄⁰, dx̄¹, |x|e^a) of the proof of [[lem:iii-c-4-2]], in which ζ = dt̄ + d|x| = dt_* + 2d|x| = dx̄⁰ and dt_* = dx̄¹,
