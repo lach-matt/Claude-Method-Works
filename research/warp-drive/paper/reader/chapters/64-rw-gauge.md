@@ -18,10 +18,10 @@ components are, mode by mode, Kodama and Ishibashi's reconstruction from the mas
 uniformly in l in a suitable normalisation ([[prop:np-10-1]]). For [HKW18]'s data they settle on each region r ≤ R at
 [HKW18]'s rate τ⁻² in energy, once one more datum is finite: the second derivative of the master fields transversal
 to the horizon. That datum is needed, because [HKW18]'s energies are first order and the master equation degenerates
-at the horizon ([[lem:np-10-1b]]), and it suffices, by a red-shift commutation that is exact in the class
-([[lem:np-10-1a]]). Uniformly in r the statement fails: on the outgoing part of [HKW18]'s leaves the orbit-space
-components can grow as r^(1/2) ([[thm:rwg-1]]), and with that weight, and only with it, they settle pointwise and
-uniformly in r ([[thm:rwg-2]], [[thm:rwg-2-prime]]).
+at the horizon ([[lem:np-10-1b]]), and it suffices, by a red-shift commutation that is exact for the class's master
+equations ([[lem:np-10-1a]]). Uniformly in r the statement fails: on the outgoing part of [HKW18]'s leaves the
+orbit-space components can grow as r^(1/2) ([[thm:rwg-1]]), and with that weight, and only with it, they settle
+pointwise and uniformly in r ([[thm:rwg-2]], [[thm:rwg-2-prime]]).
 
 ### Setting {#sec:rw-setting}
 
@@ -32,14 +32,20 @@ spheres {t = c, |x| = r}, and SO(4), acting on x, acts by isometries. Put
 
     v := t − T_(m₀)(r) + r   (that is, t_KS + r),     f := 1 − m₀/r²,     r_h := m₀^(1/2) = R₁,     ς := m₀/r².
 
-On {r ≥ r_♭} (r_♭ ∈ (0, ½R₁] the inner radius of [[ch:s11]]), with γ = dϑ² + c²dφ1² + s²dφ2² the round metric of the
-unit sphere (c := cos ϑ, s := sin ϑ, in the coordinates of [[sec:background]]),
+On {r ≥ r_♭} (r_♭ ∈ (0, ½R₁] the inner radius of [[ch:s11]]), with γ = dϑ² + cos²ϑ dφ1² + sin²ϑ dφ2² the round
+metric of the unit sphere in the coordinates of [[sec:background]],
 
     g = −f dv² + 2 dv dr + r² γ,                                                                         {#eq:rw-ingoing}
 
 since −dt_KS² + d|x|² = −(dv − dr)² + dr² = −dv² + 2 dv dr. The surface gravity of the horizon {r = r_h} is
 f′(r_h)/2 = m₀/r_h³ = 1/r_h. The function t_* of [[eq:iii-b-3-6]] has t_* − v = T_(m₀)(r) − ψ(r) − r, a function of r
-alone; so on {r ≤ R′}, |t_* − v| ≤ C_(R′), and ∂_v = ∂_t = ∂_(t_*) at fixed x.
+alone; so on {r ≤ R′}, |t_* − v| ≤ C_(R′), and ∂_v = ∂_t = ∂_(t_*) at fixed x. On {r > r_h} put
+
+    r_* := r + (r_h/2) log((r − r_h)/(r + r_h)),        t_s := v − r_*,
+
+so that dr_*/dr = 1 + r_h²/(r² − r_h²) = f⁻¹; t_s is the static time, g = −f dt_s² + f⁻¹dr² + r²γ (insert
+dv = dt_s + f⁻¹dr in [[eq:rw-ingoing]]), and ∂_(t_s) at fixed r is ∂_v. The letter t without index is kept for the
+coordinate of [[sec:iii-b-3]].
 
 *The class.* G = O(2) × O(2) acts as in [[sec:class]]. In the coordinates (v, r, ϑ, φ1, φ2) the torus acts by
 translation of φ1, φ2, so the components of a G-invariant tensor in the coordinate frame do not depend on φ1, φ2, and
@@ -67,7 +73,8 @@ spheres, t_IVP = t − ψ_IVP(r) ([[lem:iii-b-3-7]] (b)). Put
 
     h := ġ − ṁ K_V,        w := α − 2,
 
-so that w > 2 + ε_t by [[thm:viii-2-2]] (4). For a tensor field u put
+with α chosen as in [[thm:viii-2-2]] (4), α > 4 + ε_t, so that w > 2 + ε_t; of this, the present chapter uses only
+w − ε′ > 1. For a tensor field u put
 
     |u|_k(v, r) := Σ_(j≤k) sup_(S³_(v,r)) |𝒫_j u|,
 

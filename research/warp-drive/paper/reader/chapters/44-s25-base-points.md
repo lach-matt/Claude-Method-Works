@@ -203,15 +203,24 @@ level 1 is α₀ (the piece is σu_((α₀,k)), and c_v1 contributes |σ|^(α₀
 (c) As stated. ∎
 
 **Definition {#def:iii-i15-2-3}** (The assigned rotation coordinates.) Let (h, p⃗) be a base point with parameter
-b ∈ ℬ̄_*, and G ∈ 𝒴^♮(β), β > 3. The *assigned rotation coordinates* A_(b,ν)(G) ∈ 𝒱_(1,ℂ), ν ∈ 𝒩_rot, are the
-coefficients of the rotation rows that [[prop:iii-i15-2-2]] (a)–(b) produces in the forward solution of
-L_(h,p⃗)u = G: the graft's v1 coefficients at the exponents of ℳ (spacetime phase), and the spectral level-1
-coefficients at the exponents of real part 2. They do not depend on β or on ε, and neither does E^ν ((P6)). A_b
-commutes with complex conjugation: A_(b,ν̄)(Ḡ) is the complex conjugate of A_(b,ν)(G), as L_(h,p⃗) is real and the
-objects of [[prop:iii-i15-2-2]] are real ((P3)). So for real G the tuple (A_(b,ν)(G))_ν is conjugation-symmetric, as
-[[eq:iii-i15-2-2]] and [[def:iii-i14-1-3]] need. A_b := (A_(b,ν))_ν is linear and continuous on 𝒴^♮(β), uniformly in
-b and in (h, p⃗) small ([[prop:iii-i15-2-2]], (P2), (P4)). No continuity in b is claimed or needed (Step 3 of the proof
-of [[prop:iii-i15-2-5]]). A_(b₀) is defined at b₀ by the same formulas.
+b ∈ ℬ̄_*, β > 3, and G ∈ 𝒴^♮(β) such that the forward solution u of L_(h,p⃗)u = G satisfies the hypothesis of
+[[lem:iii-i13-2-2]] with some w_0. The *assigned rotation coordinates* A_(b,ν)(G) ∈ 𝒱_(1,ℂ), ν ∈ 𝒩_rot, are the
+coefficients of the rotation rows that [[prop:iii-i15-2-2]] (a)–(b) produces in u: the graft's v1 coefficients at the
+exponents of ℳ (spacetime phase), and the spectral level-1 coefficients at the exponents of real part 2. They do not
+depend on β or on ε, and neither does E^ν ((P6)). A_b commutes with complex conjugation: A_(b,ν̄)(Ḡ) is the complex
+conjugate of A_(b,ν)(G), as L_(h,p⃗) is real and the objects of [[prop:iii-i15-2-2]] are real ((P3)). So for real G the
+tuple (A_(b,ν)(G))_ν is conjugation-symmetric, as [[eq:iii-i15-2-2]] and [[def:iii-i14-1-3]] need. A_b := (A_(b,ν))_ν
+is linear in G and has the bound of [[lem:iii-i13-2-2]]: for every w ∈ (0, w_0],
+
+    |A_b(G)| ≤ C‖G‖_(𝒴^♮(β)) + C(‖h‖ + |p⃗|)‖u‖_(w),
+
+with the seminorms of [[lem:iii-i13-2-2]] and C depending on w and uniform in b and in (h, p⃗) small. Indeed
+[[prop:iii-i15-2-2]] reads A_b(G) from the forcing f′ := G − (L_(h,p⃗) − L_b)u = L_b u of the proof of
+[[lem:iii-i13-2-2]], by maps linear and bounded uniformly in b ((P2), (P4)); and the count of Step 0 of the proof of
+[[lem:iii-i11-3-2]], as in [[lem:iii-i13-2-2]], gives ‖f′‖_(𝒴^♮(β)) ≤ ‖G‖_(𝒴^♮(β)) + C(‖h‖ + |p⃗|)‖u‖_(w). This is
+not a bound by G alone: the last term does not vanish at (0, p⃗_b), p⃗_b the parameter whose only nonzero component is
+b − b₀, when b ≠ b₀ ([[lem:iii-i11-3-2]]). No continuity in b is claimed or needed (Step 3 of the proof of
+[[prop:iii-i15-2-5]]). A_(b₀) is defined at b₀ by the same formulas.
 
 **Lemma {#lem:iii-i15-2-4}** ([[lem:iii-i13-2-2]] and [[lem:iii-i13-2-3]] at b.) Let β ∈ (3, 4 + ε_K] be admissible,
 (h, p⃗) a base point with parameter b ∈ ℬ̄_* and h ∈ 𝒳^∞ small, G ∈ 𝒴^♮(β), and let the forward solution u of
@@ -221,7 +230,13 @@ L_(h,p⃗)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]]. Then
         𝒩^(<β)_rot := {ν ∈ 𝒩_rot : Re λ_ν < β − 2},                                                 {#eq:iii-i15-2-1}
 
 with ũ in the class of [[eq:iii-i13-2-2]] and S_ν = S^(h,p⃗,β)_ν(G) determined by
-u − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)), conjugation-symmetric, linear and continuous in G, uniformly. At a fixed b: if
+u − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)), conjugation-symmetric and linear in G, with the bound of [[lem:iii-i13-2-2]]: for
+every w ∈ (0, w_0], w_0 that of the hypothesis,
+
+    |S^(h,p⃗,β)_ν(G)| + |A_b(G)| ≤ C‖G‖_(𝒴^♮(β)) + C(‖h‖ + |p⃗|)‖u‖_(w),
+
+with the seminorms of [[lem:iii-i13-2-2]] and C depending on w and uniform for (h, p⃗) small and b ∈ ℬ̄_*. This is not a
+bound by G alone ([[def:iii-i15-2-3]]). At a fixed b: if
 (h_j, p⃗_j) → (0, p⃗_b), with p⃗_b the parameter whose only nonzero component is b − b₀, and G_j → G in 𝒴^♮(β), with
 the hypothesis of [[lem:iii-i13-2-3]], then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G). At b₀ the second sum in
 [[eq:iii-i15-2-1]] is absent (the rotation rows' rates there are Re λ + 1 > α − 2 ≥ β − 2), and [[eq:iii-i15-2-1]] is
@@ -239,8 +254,9 @@ the hypothesis of [[lem:iii-i13-2-3]], then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p
 which goes into ũ. Indeed, for (λ, k) ∈ ℳ_rot, λ lies in Λ (π_1ℳ_rot ⊂ π_1ℰ_♯ ⊂ Λ), so λ + 1 ∈ Λ has real part at least
 λ_♯ + 1 > 2 ([[lem:iii-i10-1-2]] (a)), hence above 2 + ε_K by (G), while β − 2 ≤ 2 + ε_K. As u^rot_β − Σ_(𝒩^(<β)_rot)
 m_ν(A_(b,ν)(G)) has K⁺-weight above β − 2, the S_ν, read by [[cor:iii-i10-2-3]] at b ([[lem:iii-i15-1-2]]) from the rows
-of rate below β − 2, are also determined by u − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)). Their conjugation symmetry, linearity and
-uniform bounds are those of [[lem:iii-i13-2-2]]; A_b has the same properties ([[def:iii-i15-2-3]]). The continuity at
+of rate below β − 2, are also determined by u − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)). They are the S_ν of
+[[lem:iii-i13-2-2]], whose conjugation symmetry, linearity and bound they have; A_b has the same bound
+([[def:iii-i15-2-3]]). The continuity at
 fixed b is [[lem:iii-i13-2-3]]. Continuity across b is not claimed: the proofs perturb from a reference operator, and
 L_b − L_(b₀) gains only 2 at K⁺. ∎
 

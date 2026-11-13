@@ -1568,12 +1568,13 @@ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b for data of regularity depending on 
 *Proof.* *The solution h_S.* For |S| < ε_φ, [[lem:iii-c2-1-1]], [[rem:iii-c1-2-2]] (2) and [[cor:iv2-4-1]] give
 [[thm:iii-c1-2-1]] on Ω_(ext,r₁) in the cut-off gauge with φ_S*g_(b₀) in place of g_(b₀). Its threshold ε₀ can be taken
 equal to one ε_* > 0 for all |S| ≤ ½ε_φ. Indeed, the constants of [[thm:iv2-2-4]] and [[thm:iv2-3-1]] depend on the
-background g₀ only through the pointwise bounds of the proof of [[lem:iii-c1-1-1]] and through finitely many seminorms of
-g₀ − g_(b₀) in the class 𝒢 on Ω_(ext,r₁) ([[def:iii-c-3-4]]): the coefficients of P^(χ₀) and of L^(χ₀) are smooth
-functions of g₀ and of its b-derivatives of order at most two, and the leading part at ℐ⁺ does not depend on g₀
-([[rem:iii-c1-2-2]] (2)). For g₀ = φ_S*g_(b₀), g₀ − g_(b₀) depends smoothly on S in each of these seminorms (the
-expansion of the proof of [[lem:iii-c2-1-1]], differentiated in S as in the proof of (2) below), so the seminorms are
-bounded for |S| ≤ ½ε_φ, and so are the constants C_k, C_(s,t) and δ of [[thm:ii-g-2-1]] that fix ε₀.
+background g₀ only through the pointwise bounds of the proof of [[lem:iii-c1-1-1]] and through finitely many of the
+seminorms that define 𝒢 ([[def:iii-c-3-4]]), the C^∞-seminorms on Ω_(ext,r₁) of ρ₀⁻²ρ_I⁻²(g₀ − η) and of
+ρ₀⁻²ρ_I⁻³π(g₀ − η): the coefficients of P^(χ₀) and of L^(χ₀) are smooth functions of g₀ and of its b-derivatives of
+order at most two, and the leading part at ℐ⁺ does not depend on g₀ ([[rem:iii-c1-2-2]] (2)). For g₀ = φ_S*g_(b₀) these
+seminorms depend continuously on S (the expansion of the proof of [[lem:iii-c2-1-1]] is smooth in S, as used in the
+proof of (2) below), so they are bounded for |S| ≤ ½ε_φ, and so are the constants C_k, C_(s,t) and δ of
+[[thm:ii-g-2-1]] that fix ε₀.
 
 Let |S| < ε′_φ, and let 𝒰 be a neighbourhood of Σ_(IVP,r₁) that φ_S maps into {|t_IVP| < r/8} ∩ Ω_(ext,r₀) (after
 [[eq:iii-c2-3-1]]). There ρ_I is bounded below, so the class of h there is H^(∞,ℓ^♭₀)_b. Pullback by φ_S is bounded from

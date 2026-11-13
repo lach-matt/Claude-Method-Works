@@ -1383,9 +1383,9 @@ wherever N(A, ι) is, in particular at ι₀. By [[thm:std-analytic-fredholm]], 
 discrete set and is meromorphic on ℂ; so is N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ : L² → H^m. At a pole ι₁ of order p write
 W(ι) = Σ_(k≥−p) W_k(ι − ι₁)^k and B(ι) = Σ_(k≥0) B_k(ι − ι₁)^k. From (Id + B)W = Id, (Id + B₀)W_(−p) = 0 and
 (Id + B₀)W_(−p+k) = −Σ_(1≤l≤k) B_lW_(−p+k−l) for 1 ≤ k < p. The kernel of Id + B₀ is finite-dimensional, as B₀ acts
-on it as −Id and B₀ is compact; so W_(−p) has finite rank, and inductively each W_(−p+k), k < p, maps into the preimage under
-Id + B₀ of a finite-dimensional space, which is finite-dimensional. So the coefficients of the negative powers of
-N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ have finite rank.
+on it as −Id and B₀ is compact; so W_(−p) has finite rank, and inductively each W_(−p+k), k < p, maps into the
+preimage under Id + B₀ of a finite-dimensional space, which is finite-dimensional. So the coefficients of the negative
+powers of N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ have finite rank.
 
 *Bounds off the poles.* Let s ≥ 0 be an integer and Ω ⊂ ℂ a compact set containing no pole. Choose c₁ ≤ c₂ and T ≥ 0
 with Ω ⊂ {c₁ ≤ Re ι ≤ c₂, |Im ι| ≤ T}, and let C₁ be the constant of (EE) at the order s for the P_(c,κ),
