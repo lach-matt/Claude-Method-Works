@@ -69,12 +69,19 @@ This section is [Hin26, (11.1)–(11.11)] in dimension 4 + 1.
 a further condition of the same kind as those of [[sec:iii-b-5]] (supports in {t > T} with T large), and compatible
 with them.
 
-*Time function and domain.* t^♭_* is the function of [[lem:ii-c-3-2]] with ℓ = ℓ_I for a number ℓ_I ∈ (0, ½) fixed
-once and for all, built for g_(b₀) ([Hin26, (11.3)]), and Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω = cl_M{t_* ≥ 1} ([Hin26, (11.4)]).
-The value ½, which [[lem:ii-c-3-2]] allows, is excluded because [[eq:iii-i-3-7]] fails there (see its proof); [Hin26]
-likewise takes ℓ_I < ½. L²-based spaces on Ω_* use the unweighted b-density μ_b = |dt_* dx|/(t_*⟨x⟩⁴) of
-[[cor:ii-f1-1-2]] ([Hin26] has t_*⁻¹⟨x⟩⁻³|dt_* dx|), and weights are listed at (𝓘⁺, ι⁺, K⁺), with the defining
-functions ρ_I, ρ_+, ρ_K of [[eq:iii-b-2-2]].
+*Time function and domain.* t^♭_* is the function of [[lem:ii-c-3-2]] with ℓ = ½, built for g_(b₀) ([Hin26, (11.3)]),
+and Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω = cl_M{t_* ≥ 1} ([Hin26, (11.4)]). Near 𝓘⁺, (t_*/r)^(1/2) is a smooth positive
+multiple of the x_I of [[sec:iii-i-2]], so t^♭_* is smooth on M_(1/2) there ([[lem:ii-c-3-2]] (a)); [[ch:s27]] uses this.
+
+*The class parameter.* A number ℓ_I ∈ (0, ½) is fixed once and for all. It is the e3b-weight at 𝓘⁺ of the classes of
+admissible operators of [[thm:iii-i-5-3]] and [[thm:iii-h2-4-1]]. The value ½ is excluded for it because
+[[eq:iii-i-3-7]] fails there (see its proof); [Hin26] likewise takes ℓ_I < ½. In [[thm:ii-f1-1-1]] the exponent of the
+time function and the weight of the class are one number; here the exponent ½ exceeds ℓ_I, and the forward solution
+theory of [[ch:s09]] is applied in the form of [[rem:ii-f1-7-4]], which allows this.
+
+L²-based spaces on Ω_* use the unweighted b-density μ_b = |dt_* dx|/(t_*⟨x⟩⁴) of [[cor:ii-f1-1-2]] ([Hin26] has
+t_*⁻¹⟨x⟩⁻³|dt_* dx|), and weights are listed at (𝓘⁺, ι⁺, K⁺), with the defining functions ρ_I, ρ_+, ρ_K of
+[[eq:iii-b-2-2]].
 
 **Definition {#def:iii-i-1-1}** (Metric perturbations and their sources; [Hin26, Definition 11.3] in dimension 4 + 1.)
 Let ℰ_+ ⊂ ℂ × ℕ₀ be an index set with

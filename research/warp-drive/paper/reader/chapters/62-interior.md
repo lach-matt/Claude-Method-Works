@@ -306,21 +306,20 @@ curves. So c lies in {s > 0} ⊂ B ∖ Σ just after the parameter 0, and if c m
 it does; then c((0, σ₁)) is a connected subset of (A ∖ Σ) ⊔ (B ∖ Σ) meeting both open sets, which is impossible. So Σ
 is acausal in M_gl.
 
-So Σ is an acausal smooth spacelike hypersurface in each of the connected time-oriented Lorentzian manifolds M_gl and
-V. D_(M_gl)(Σ) and D_V(Σ) are open and globally hyperbolic, with Σ as a Cauchy hypersurface
-([[thm:std-bgp-development]]), and connected (shown above). In the chart, Σ is the graph of a function over the shell
-{r_♭ < |x| < R} ⊂ ℝ⁴, which is connected; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss
-and Codazzi equations, both metrics being vacuum. So (Σ, γ, k) is initial data in the sense of [Sbi15, p. 11], with
-d = 4, and both Cauchy developments, with the inclusion of Σ, are globally hyperbolic developments of it [Sbi15,
-Definition 2.1] ([[thm:std-sbierski]] (1)): they are connected and time oriented, as [Sbi15] assumes of every
-Lorentzian manifold (p. 10), vacuum, and induce (γ, k) on Σ with respect to the future normal, by (i) for M_gl. By
-[Sbi15, Theorem 2.6] they have a common globally hyperbolic development, and by [Sbi15, Theorem 3.4] a maximal one ([[thm:std-sbierski]]
-(3), (4)), U ⊂ D_(M_gl)(Σ), with an isometric embedding j into D_V(Σ) that preserves the time orientation and the
-embedding of Σ [Sbi15, Definitions 2.2 and 2.4] ([[thm:std-sbierski]] (2)), so that j is the identity on Σ. U is open
-(the proof of [Sbi15, Theorem 3.4]; [[thm:std-sbierski]] (4)) and contains Σ, a Cauchy surface of U. By [Sbi15,
-Theorem 3.13] U has no corresponding boundary points ([[thm:std-sbierski]] (5)), and gluing the two developments
-along U by j gives a Hausdorff globally hyperbolic development that extends both [Sbi15, Theorem 2.7 and its proof]
-([[thm:std-sbierski]] (3), (6)). ∎
+So Σ is an acausal smooth spacelike hypersurface in each of the connected time-oriented Lorentzian manifolds M_gl and V.
+D_(M_gl)(Σ) and D_V(Σ) are open and globally hyperbolic, with Σ as a Cauchy hypersurface ([[thm:std-bgp-development]]),
+and connected (shown above). In the chart, Σ is the graph of a function over the shell {r_♭ < |x| < R} ⊂ ℝ⁴, which is
+connected; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss and Codazzi equations, both
+metrics being vacuum. So (Σ, γ, k) is initial data in the sense of [Sbi15, p. 11], with d = 4, and both Cauchy
+developments, with the inclusion of Σ, are globally hyperbolic developments of it [Sbi15, Definition 2.1]
+([[thm:std-sbierski]] (1)): they are connected and time oriented, as [Sbi15] assumes of every Lorentzian manifold
+(p. 10), vacuum, and induce (γ, k) on Σ with respect to the future normal, by (i) for M_gl. By [Sbi15, Theorem 2.6] they
+have a common globally hyperbolic development, and by [Sbi15, Theorem 3.4] a maximal one ([[thm:std-sbierski]] (3), (4)),
+U ⊂ D_(M_gl)(Σ), with an isometric embedding j into D_V(Σ) that preserves the time orientation and the embedding of Σ
+[Sbi15, Definitions 2.2 and 2.4] ([[thm:std-sbierski]] (2)), so that j is the identity on Σ. U is open (the proof of
+[Sbi15, Theorem 3.4]; [[thm:std-sbierski]] (4)) and contains Σ, a Cauchy surface of U. By [Sbi15, Theorem 3.13] U has no
+corresponding boundary points ([[thm:std-sbierski]] (5)), and gluing the two developments along U by j gives a Hausdorff
+globally hyperbolic development that extends both [Sbi15, Theorem 2.7 and its proof] ([[thm:std-sbierski]] (3), (6)). ∎
 
 **Remark {#rem:interior-one-spacetime}** (What [[lem:interior-one-spacetime]] says.)
 

@@ -1314,7 +1314,7 @@ trivialisations, A "is called elliptic if this matrix is invertible for every (x
 elliptic if there exists C > 0 such that (1.4) |a_m⁻¹(x, ξ)| ≤ C|ξ|^(−m), (x, ξ) ∈ T*X, ξ ≠ 0", with |ξ| the length in
 the Riemannian metric of X; W_p^(−∞)(X, E) is the union of the W_p^s(X, E), s ∈ ℝ; and W_2^s(X, E) is the Sobolev
 space of order s, the completion of C_0^∞(X, E) in a norm built from a partition of unity subordinate to coordinate
-balls and Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–68).
+balls and Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–69).
 
 Let Z be a compact manifold without boundary, fix a Riemannian metric on it, and let P be a differential operator of
 order m on Z with smooth coefficients, acting on ℂ^(N_E)-valued functions, whose principal symbol is invertible at every
@@ -1327,7 +1327,8 @@ these range over a compact set (the orthonormal frame bundle times the closed ba
 all their derivatives, uniformly, and P is C^∞-bounded. The function |a_m⁻¹(x, ξ)||ξ|^m is continuous on T*Z ∖ o and
 homogeneous of degree 0 in ξ, so it is bounded by its maximum on the compact set {|ξ| = 1}; this is (1.4). On the
 compact Z, W_2^k, k ∈ ℕ₀, is the usual Sobolev space of ℂ^(N_E)-valued functions, so it is H^k(Z) with an equivalent
-norm, the norms of this section being built, as on ∂M above, from smooth fields spanning TZ. So (1.5) with s + m in
+norm: the norms of this section, built from smooth fields spanning TZ, are equivalent to the usual one by
+[Hin26d, Definition 3.14 and Remark 3.15], as on ∂M above. So (1.5) with s + m in
 place of s, t = 0 and p = 2, extended from C^∞(Z) to H^(s+m)(Z) by density and by the continuity of both of its sides
 in H^(s+m)(Z) (P maps H^(s+m)(Z) continuously to H^s(Z), p. 69), and the last sentence of the quotation give, for
 every integer s ≥ 0, a constant C with
