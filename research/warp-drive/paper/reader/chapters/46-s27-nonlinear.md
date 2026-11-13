@@ -209,7 +209,8 @@ k = k_(b₀) + k̃ be data on Σ^IVP satisfying the constraint equations, with �
 k̃ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b, small in H^(d_0) of these classes, where d_0 is the largest of the regularities that
 [[thm:iii-c2-3-1]] (with [[thm:iii-c1-3-1]]), [[thm:iv3-2-2]] and the local theory on the compact set 𝒦⁻ of the proof
 below ((N) of [[sec:s27-local]]) ask of the data. Let h̊_0, h̊_1 be the Cauchy data of [[prop:iii-c2-4-1]] for (γ, k).
-For S, S⁰ ∈ 𝒮_1 small let h⁰_(S,S⁰), h¹_(S,S⁰) be the pulled-back data [[eq:iii-c2-3-1]] of these, with φ_(S,S⁰) in place of φ_S, now on all of Σ^IVP. Let
+For S, S⁰ ∈ 𝒮_1 small let h⁰_(S,S⁰), h¹_(S,S⁰) be the pulled-back data [[eq:iii-c2-3-1]] of these, with φ_(S,S⁰) in
+place of φ_S, now on all of Σ^IVP. Let
 N_ν := {t_IVP ≥ −ν(r)}, with ν smooth and non-decreasing, ν = 0 on [0, R_ν], R_ν := ½(r_♭ + 5R₁), ν > 0 on (R_ν, ∞),
 0 ≤ ν′ ≤ 1/32, and ν(r) = r/64 for r ≥ 16R_8, where R_8 ≥ max(2r_1, 8, 5R₁) is fixed in [[lem:s27-cover]]. Such ν
 exists, as 16R_8/64 ≤ (16R_8 − R_ν)/32; and ν(r) ≤ (r − R_ν)/32 ≤ r/32. So {t_IVP = −ν} is spacelike for g_(b₀) (see
@@ -1030,41 +1031,68 @@ r − 2t_IVP applies. ∎
 
 #### Proof of the initial family {#sec:s27-initial-proof}
 
-*Proof of [[prop:iii-k-1-2]].* The region 𝒟 is covered by Ω_(ext,r_1), 𝒦 and 𝒮 ([[lem:s27-cover]]), solved in this
-order. Write φ := φ_(S,S⁰).
+*Proof of [[prop:iii-k-1-2]].* By [[lem:s27-cover]] (b) and (e), 𝒟 is the union of 𝒟 ∩ Ω_(ext,r_1), of 𝒟⁺ and of 𝒦⁻.
+The solution is found on each, the three agree where two of them are defined, and they are glued across Σ^IVP. Write
+φ := φ_(S,S⁰).
 
 *Exterior.* By [[lem:iii-k-1-1]] (c), P^♮ = P^(χ_0) on Ω_(ext,r_1), so [[thm:iii-c2-3-1]] for φ_(S,S⁰)
-([[lem:s27-translated-exterior]] (c)) gives h_(S,S⁰) there, smooth in (S, S⁰), with (2) there by its (3); its
-hypotheses (the constraints, and Υ^0 = 0 at Σ^IVP) are [[prop:iii-c2-4-1]] (1)–(2).
+([[lem:s27-translated-exterior]] (c)), its h being the solution that [[thm:iii-c1-2-1]] gives for the data h̊_0, h̊_1,
+gives h_(S,S⁰) on Ω_(ext,r_1), smooth in (S, S⁰), with (2) there by its (3); its hypotheses (the constraints, and
+Υ^0 = 0 at Σ^IVP) are [[prop:iii-c2-4-1]] (1)–(2).
 
-*Compact part.* On 𝒦, [[eq:iii-k-1-2]] is the quasilinear wave equation of [[sec:s27-local]]. Its data on the part of
-Σ^IVP in 𝒦 are small and smooth, and where 𝒦 borders Ω_(ext,r_1) the exterior solution gives them. dt_IVP is past
-timelike ([[lem:iii-b-3-7]] (b)), and the inner boundary {r = r_♭} is spacelike with dr future timelike
-([[lem:ii-c-3-2]] (1)); 𝒦 is a compact domain of dependence ([[lem:s27-cover]] (c)). So (N) of [[sec:s27-local]] gives
-h_(S,S⁰) there, forward from Σ^IVP and backward to {t_IVP = −ν}, small in every H^k when the data are small in
-H^(k+k′) for some k′. It is smooth in (S, S⁰) as its data are: the candidate derivative ḣ solves the linearised
-equation with the differentiated data and the forcing from varying the background, which (L) of [[sec:s27-local]]
-solves; and, as in [[thm:iii-c2-3-1]] (2), the difference of a difference quotient and ḣ solves a linear equation of
-this kind, with coefficients bounded uniformly and with data and forcing tending to 0, so by (L) it tends to 0, and the
-difference quotients converge to ḣ. Higher derivatives follow likewise.
+*Forward part.* On 𝒟⁺ the solution is that of [[thm:iv3-2-2]] with the data h⁰_(S,S⁰), h¹_(S,S⁰) on Σ^IVP, which are
+small in H^(N_ex) of their class when (γ̃, k̃) is small in H^(d_0), by the choice of d_0. On Ω_(ext,r_1) ∩ 𝒟⁺ it equals
+the exterior solution, which is the solution of [[thm:iv2-3-1]] for the background φ^*g_(b₀) in the cut-off gauge (the
+proof of [[thm:iii-c2-3-1]]), by the last clause of [[thm:iv3-2-2]]. It is the continuation near the interior of ℐ⁺ to
+{t^♭_* = T̂ + 3}, small, with the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ ([[cor:iv3-2-3]]). On 𝒮, χ^♮_0 = 1, as t_IVP ≥ r/4
+there ([[lem:s27-cover]] (d)) and so χ_0 = 1.
 
-*Slab.* On 𝒮 the solution is the restriction of that of [[thm:iv3-2-2]], posed on Ω^♮ = Ω_(ext,r_1) ∪ 𝒮 from Σ^IVP_(r_1)
-and Σ_c, with the data that 𝒦 gives on Σ_c; these data and those on Σ^IVP_(r_1) are small in H^(N_ex) when (γ̃, k̃) is
-small in H^(d_0), by the choice of d_0. It is the continuation near the interior of ℐ⁺ to {t^♭_* = T̂ + 3}, small, with
-the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ ([[cor:iv3-2-3]]). Here χ^♮_0 = 1, as t_IVP ≥ r/4 on 𝒮 ([[lem:s27-cover]] (d)) and so
-χ_0 = 1.
+*Backward part.* On 𝒦⁻, [[eq:iii-k-1-2]] is the quasilinear wave equation of [[sec:s27-local]], and 𝒦⁻ is a compact set
+of the second kind there ([[lem:s27-cover]] (e)). Its data on Σ^IVP ∩ 𝒦⁻ are small and smooth, and (N) gives h_(S,S⁰)
+on 𝒦⁻, backward from Σ^IVP to {t_IVP = −ν}, small in every H^k when the data are small in H^(k+k′) for some k′. On
+Ω_(ext,r_1) ∩ 𝒦⁻, which lies in the past slab, it equals the exterior solution: the difference v of the two solves
+L̄v = 0 with vanishing Cauchy data on Σ^IVP ∩ Ω_(ext,r_1) ∩ 𝒦⁻, L̄ the average of the linearisations along the segment
+between them (as in the uniqueness of *(1)* below), an operator of the kind of (L) of [[sec:s27-local]] for a metric
+C⁰-close to g_(b₀); and Ω_(ext,r_1) ∩ 𝒦⁻ is a compact set of the second kind for it, future directed causal curves in
+𝒟⁻ from its points staying in 𝒦⁻ ([[lem:s27-cover]] (e)) and in the past slab, which lies to the future of the
+spacelike Σ^past_(r_1) ([[lem:iii-c1-1-1]]), while its part of Σ^IVP is the annulus {r_1 ≤ r ≤ 2R_8}. So v = 0 there by
+the uniqueness clause of (L).
 
-*Agreement and uniqueness.* By [[lem:ii-f-1-3]] with τ := t_IVP, the three solutions agree on overlaps, and the solution
-on 𝒟 is unique; the compact sets that [[lem:ii-f-1-3]] asks for are bounded near infinity by [[lem:iii-k-6-2]] (c), and
-away from infinity they lie in the compact 𝒦 or in the exterior and slab regions, closed under past causal curves
+*Gluing.* 𝒟⁺ ∩ 𝒦⁻ = Σ^IVP ∩ {r ≤ 2R_8}, where the forward and the backward solutions have the same Cauchy data
+h⁰_(S,S⁰), h¹_(S,S⁰). Every point of 𝒟 that does not lie on Σ^IVP ∩ {R_ν ≤ r ≤ r_1} has a neighbourhood in 𝒟 contained
+in one of the three sets: in 𝒟⁺ if t_IVP > 0, or if t_IVP = 0 and r < R_ν (𝒟 ending at Σ^IVP there); in 𝒦⁻ if
+t_IVP < 0 and r < R_8; and in Ω_(ext,r_1) if t_IVP = 0 and r > r_1, or if t_IVP < 0 and r ≥ R_8, as ν(r) < (r − r_1)/12
+there. Let p ∈ Σ^IVP with R_ν ≤ r(p) ≤ r_1, and m ≥ 2. The forward solution lies in H^k of its class on 𝒟⁺ for every
+k, a space of restrictions, so near p it is the restriction to {t_IVP ≥ 0} of a tensor u_1 of class C^m on a coordinate
+ball V about p in M (Sobolev embedding, k > m + 5/2). The backward solution is, near p, the restriction of the solution
+on the slab of the proof of (N), which is of class C^m and solves [[eq:iii-k-1-2]] near p below Σ^IVP, beyond 𝒟 as well
+(the coefficients there are those of the equation, p lying in 𝒦⁻); let u_2 be it on V, V being small. u_1 and u_2 have
+the same Cauchy data on Σ^IVP ∩ V, solve [[eq:iii-k-1-2]] on V ∩ {t_IVP > 0} and on V ∩ {t_IVP < 0}, and Σ^IVP is
+spacelike for φ^*g_(b₀) + u_1. [[lem:s27-gluing]], with A₁ := V ∩ {t_IVP ≥ 0}, A₂ := V ∩ {t_IVP ≤ 0} and the one
+hypersurface Σ^IVP ∩ V, every point of Γ = Σ^IVP ∩ V lying in Γ_1, shows that the tensor equal to u_i on A_i is C^m on V.
+It equals h_(S,S⁰) on V ∩ 𝒟. As m is arbitrary, h_(S,S⁰) is smooth on 𝒟, up to its boundary.
+
+*Uniqueness.* The solution on 𝒟 is unique: the difference of two solutions solves an equation L̄v = 0 as in the
+uniqueness of *(1)* below, and vanishes by [[lem:ii-f-1-3]], with τ := t_IVP forward from Σ^IVP and τ := −t_IVP backward.
+The compact sets that [[lem:ii-f-1-3]] asks for are bounded near infinity by [[lem:iii-k-6-2]] (c), and away from
+infinity they lie in the compact sets 𝒦 and 𝒦⁻ or in the exterior and slab regions, closed under past causal curves
 within 𝒟 ([[lem:s27-cover]] (c)). In each use the solution (or the difference of two solutions) is extended by 0 across
 Σ^IVP, where its Cauchy data vanish, so that it solves the equation across Σ^IVP and its support lies above a level c < 0
-of τ, as [[lem:ii-f-1-3]] asks; on {r ≤ R_ν}, beyond 𝒟, the operator is extended smoothly.
+of τ, as [[lem:ii-f-1-3]] asks. For the forward problem, past causal curves from points of 𝒟 near Σ^IVP with r slightly
+above R_ν reach {t_IVP = −ν} while t_IVP > c, as ν(r) → 0 when r ↓ R_ν; so the problem is posed on 𝒟° ∪ W_ν°, where, for
+δ > 0 with |c| + δ < ½r_♭ and R′_ν > R_ν with ν(R′_ν) > |c| + δ,
 
-*(2).* The argument of [[thm:iii-c2-3-1]] (3) on 𝒟. The data satisfy the constraints and Υ^(χ^♮_0E_Υ) = Υ^0 = 0 at
-Σ^IVP ([[lem:iii-k-1-1]] (d); [[prop:iii-c2-4-1]] (2)). With g := φ^*g_(b₀) + h_(S,S⁰), g_0 := φ^*g_(b₀) and
-Υ := Υ^(χ^♮_0E_Υ)(g, g_0), [[eq:iii-k-1-2]] reads Ric(g) = δ*_(g_0,E_C)Υ, and the second Bianchi identity
-δ_gG_gRic(g) = 0 gives
+    W_ν := {c − δ ≤ t_IVP ≤ 0,  r_♭ ≤ r ≤ R′_ν} ⊂ M
+
+(t ≥ t_IVP ≥ c − δ > −½|x| on W_ν). On W_ν, beyond 𝒟, the metric and the operator are extended smoothly from 𝒟, dt_IVP
+keeping its margin on the compact W_ν, and the zero extension of the solution vanishes there. Where r ≥ R′_ν, 𝒟 contains
+{t_IVP ≥ −ν(R′_ν)} ⊃ {t_IVP ≥ c − δ} near Σ^IVP, ν being non-decreasing; so past causal curves from 𝒟 along which
+t_IVP ≥ c stay in 𝒟 ∪ W_ν, and the compact sets lie there.
+
+*(2).* The argument of [[thm:iii-c2-3-1]] (3) on 𝒟, h_(S,S⁰) being smooth on 𝒟 (*Gluing*). The data satisfy the
+constraints and Υ^(χ^♮_0E_Υ) = Υ^0 = 0 at Σ^IVP ([[lem:iii-k-1-1]] (d); [[prop:iii-c2-4-1]] (2)). With
+g := φ^*g_(b₀) + h_(S,S⁰), g_0 := φ^*g_(b₀) and Υ := Υ^(χ^♮_0E_Υ)(g, g_0), [[eq:iii-k-1-2]] reads Ric(g) = δ*_(g_0,E_C)Υ,
+and the second Bianchi identity δ_gG_gRic(g) = 0 gives
 
     δ_gG_g δ*_(g_0,E_C) Υ = 0,
 
@@ -1119,31 +1147,45 @@ of [[thm:iii-c2-3-1]] (1); it acts on a vanishing 1-form.)
 
 *Uniqueness.* v := h_(S,S⁰) − φ^*h_0 solves L̄v = 0 on 𝒰′, L̄ := ∫_0^1 L^(χ^♮_0)_(g_s,g_0) ds with g_0 := φ^*g_(b₀)
 and g_s := g_0 + φ^*h_0 + sv, and v and its first derivatives vanish on Σ^IVP. Each g_s is a convex combination of
-φ^*(g_(b₀) + h_0) and φ^*g_(b₀) + h_(S,S⁰), so 2L̄ has principal symbol ḡ⁻¹(ζ, ζ)Id, ḡ⁻¹ := ∫_0^1 g_s⁻¹ ds, and ḡ is a
+φ^*(g_(b₀) + h_0) and φ^*g_(b₀) + h_(S,S⁰), so 2L̄ has principal symbol ğ⁻¹(ζ, ζ)Id, ğ⁻¹ := ∫_0^1 g_s⁻¹ ds, and ğ is a
 Lorentzian metric, C⁰-close to g_(b₀) on 𝒰′ ∩ {r ≤ R} and with Cartesian components within 1/20 of those of η on
 𝒰′ ∩ {r ≥ R}, as g_(S,S⁰) is in [[lem:iii-k-6-2]] (a), for |S| + |S⁰| and the data small. So (a)–(c) of
-[[lem:iii-k-6-2]] hold for ḡ, with the same proofs, and d(t_IVP − c′r), d(t_IVP + c′r) are past timelike for ḡ on
+[[lem:iii-k-6-2]] hold for ğ, with the same proofs, and d(t_IVP − c′r), d(t_IVP + c′r) are past timelike for ğ on
 𝒰′. Then v = 0 on 𝒰′ by [[lem:ii-f-1-3]], applied to 2L̄ as in the *(2)* paragraph, with 𝒰′ in place of 𝒟, the
-constants there taken for ḡ, and |c| + δ moreover below c′(R_ν − 2C_r(|c| + δ)): forward from Σ^IVP with
-τ := t_IVP, and backward on X ∩ 𝒰′ with τ := −t_IVP. The compact sets described there lie in 𝒰′: along future causal
-curves of ḡ, t_IVP − c′r and t_IVP + c′r increase, so past curves from points with t_IVP < c′r keep t_IVP < c′r, and
-future curves from points with t_IVP > −c′r keep t_IVP > −c′r; and the slab {0 ≤ t_IVP ≤ |c| + δ} ∩ X lies in
-{t_IVP < c′r}, as r ≥ R_ν − 2C_r(|c| + δ) there. Finally φ⁻¹(Σ^IVP) ⊂ 𝒟 (the inclusions above) and
-|t_IVP| ≤ ¼c′r on it ([[lem:s27-boost-move]]), so 𝒰′ is a neighbourhood of Σ^IVP ∪ φ⁻¹(Σ^IVP) in 𝒟, on which
-h_(S,S⁰) = φ^*h_0.
+constants there taken for ğ, and |c| + δ moreover below c′(R_ν − 2C_r(|c| + δ)) and below c′r_♭: forward from Σ^IVP with
+τ := t_IVP, on (𝒰′ ∪ W_ν)° with W_ν of the *Uniqueness* paragraph above, which lies in {|t_IVP| < c′r}; and backward on
+X ∩ 𝒰′ with τ := −t_IVP. The compact sets described there lie in 𝒰′ ∪ W_ν: along future causal curves of ğ,
+t_IVP − c′r and t_IVP + c′r increase, so past curves from points with t_IVP < c′r keep t_IVP < c′r, and future curves
+from points with t_IVP > −c′r keep t_IVP > −c′r; and the slab {0 ≤ t_IVP ≤ |c| + δ} ∩ X lies in {t_IVP < c′r}, as
+r ≥ R_ν − 2C_r(|c| + δ) there. Finally φ⁻¹(Σ^IVP) ⊂ 𝒟 (the inclusions above) and |t_IVP| ≤ ¼c′r on it
+([[lem:s27-boost-move]]), so 𝒰′ is a neighbourhood of Σ^IVP ∪ φ⁻¹(Σ^IVP) in 𝒟, on which h_(S,S⁰) = φ^*h_0.
 
-*(3).* The exterior part is [[thm:iii-c1-3-1]] with [[thm:iii-c2-3-1]] (2), for φ_(S,S⁰); the slab part is
-[[cor:iv3-2-3]]; the compact part is (N) of [[sec:s27-local]]. For the derivatives in (S, S⁰), ∂^j_(S,S⁰)h_(S,S⁰)
-solves the linearised equation with data ∂^j_(S,S⁰)(h⁰_(S,S⁰), h¹_(S,S⁰)), which are pull-backs of h_0 and its
-derivatives, and so small with h_0; its equation also has the term from varying the background φ^*g_(b₀), which carries
-a factor of h_(S,S⁰) (the proof of [[thm:iii-c2-3-1]] (2)) and is small too; so (L) and the linear estimates of
-[[thm:iv2-2-4]] and [[thm:iv3-2-1]] bound it by quantities that tend to 0 with the data. The sources give continuity at
-0, not a linear bound: (N), [[eq:iii-c1-3-2]] and the ε₁ clauses of [[thm:iv2-3-1]] and [[thm:iv3-2-2]] state that the
-solution tends to 0 as the data do, at a finite loss of derivatives; uniformly in (S, S⁰) small, as the proof of (N)
-gives continuity at every (0, S, S⁰), the closed ball of parameters is compact, and the constants of the exterior and
-slab theorems depend on the background only through bounds uniform in it. k′_k collects the losses up to the order
-k + 2, and ω_k(s) is the supremum of the left side over the parameters and the data with ‖(γ̃, k̃)‖_(H^(k+k′_k)) ≤ s,
-finite for s ≤ s_k and tending to 0 with s. ∎
+*(3).* 𝒟 ∩ Ω_* lies in 𝒟⁺, as t_IVP ≥ t_* ≥ t^♭_* ≥ 1 there. The orders at ℐ⁺ are [[thm:iii-c1-3-1]] with
+[[thm:iii-c2-3-1]] (2) on the exterior part, for φ_(S,S⁰), and [[cor:iv3-2-3]] on 𝒟⁺. *Derivatives in (S, S⁰).* The
+data h^j_(S,S⁰) are smooth in (S, S⁰), being pull-backs of h_0 near Σ^IVP ∪ φ⁻¹(Σ^IVP) by φ_(S,S⁰), smooth in
+(S, S⁰) ([[lem:s27-translated-exterior]] (a)). With g_0 := φ^*g_(b₀) and ġ_0 its derivative in a direction of
+(S, S⁰), the candidate derivative ḣ of h_(S,S⁰) in that direction solves on 𝒟⁺
+
+    L^(χ^♮_0)_(g_0+h_(S,S⁰),g_0) ḣ = −[(D₁ + D₂)P^♮(g_0 + h_(S,S⁰), g_0) − (D₁ + D₂)P^♮(g_0, g_0)]ġ_0,
+
+with the differentiated data, D₁ and D₂ the derivatives in the two arguments; the term (D₁ + D₂)P^♮(g_0, g_0)ġ_0 is 0,
+as P^♮(g_0, g_0) = 0 for every (S, S⁰). The right side carries a factor of h_(S,S⁰) and lies in the forcing class, as
+in the proof of [[thm:iii-c2-3-1]] (2) near infinity (with [[lem:iv3-0-1]] differentiated in (S, S⁰) over 𝒮), and
+trivially on the compact part; so [[thm:iv3-2-1]] gives ḣ in the class of h_(S,S⁰). The difference of a difference
+quotient and ḣ solves L̄w = f_ε, L̄ the average of the linearisations along the segment between the two solutions, with
+data and forcing tending to 0 with the increment; [[thm:iv3-2-1]] holds for L̄ with the same proof, as in the
+uniqueness of [[thm:iv3-2-2]], with constants depending on L̄ only through bounds that are uniform here (on Q through
+(L) of [[sec:s27-local]], whose constants depend on the coefficients only through bounds on finitely many of their
+derivatives); so the difference quotients converge to ḣ. Higher derivatives follow likewise, with the losses of
+[Hin26, footnote 59]. *The modulus.* ∂^j_(S,S⁰)h_(S,S⁰), j ≤ 2, solves the linearised equation with data
+∂^j_(S,S⁰)(h⁰_(S,S⁰), h¹_(S,S⁰)), which are pull-backs of h_0 and its derivatives, and so small with h_0, and with the
+term from varying the background, which carries a factor of h_(S,S⁰) and is small too; so [[thm:iv3-2-1]] bounds it by
+quantities that tend to 0 with the data. The sources give continuity at 0, not a linear bound: [[eq:iii-c1-3-2]] and
+the ε₁ clauses of [[thm:iv2-3-1]] and [[thm:iv3-2-2]] state that the solution tends to 0 as the data do, at a finite
+loss of derivatives; uniformly in (S, S⁰) small, as the constants of these theorems depend on the background only
+through bounds uniform for |S| + |S⁰| small (as in the proof of [[thm:iii-c2-3-1]]), and so do their thresholds. k′_k
+collects the losses up to the order k + 2, and ω_k(s) is the supremum of the left side over the parameters and the data
+with ‖(γ̃, k̃)‖_(H^(k+k′_k)) ≤ s, finite for s ≤ s_k and tending to 0 with s. ∎
 
 ### The map Ψ {#sec:iii-k-2}
 

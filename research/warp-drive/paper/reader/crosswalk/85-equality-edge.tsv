@@ -1,0 +1,112 @@
+label	source	source_name	note
+ch:equality-edge	docket68/n1star/EQUALITY5-LAYER.md:1279-1473; docket68/n1star/EQUALITY5-LAYER.md:1838-2211; docket68/n1star/EQUALITY5-LAYER.md:3236-3255	EL R4.1-R4.2, R5.2-R5.4, R8.4	introduction composed; Proposition L.19, Remark L.20 and R4.2 (b) not carried: they concern stage-N data left free, which lem:stage-data fixes
+sec:edge-setting	docket68/n1star/EQUALITY5-LAYER.md:1291-1297; docket68/n1star/EQUALITY5-LAYER.md:2354-2356	EL R4.1 setting (s, I_n), R6.1 notation (s^-1, T0, T, eps')	s^-1 defined from v_s; very edge {lambda kappa >= 1}
+eq:edge-sinv	docket68/n1star/EQUALITY5-LAYER.md:2354-2356	EL R6.1 definition of s^-1	
+eq:edge-sinv-parts	docket68/n1star/EQUALITY5-LAYER.md:2371-2376	EL R6.1 (b) integration by parts	written as identities
+eq:edge-in	docket68/n1star/EQUALITY5-LAYER.md:1295-1297	EL R4.1 I_n	
+def:edge-hypotheses	docket68/n1star/EQUALITY5-LAYER.md:2414-2425; docket68/n1star/EQUALITY5-LAYER.md:2776-2780; docket68/n1star/EQUALITY5-LAYER.md:1903-1908; paper/reader/proofs/P-F-edge.md:1-25	EL R6.1 (d) (H_N), (H_rho*) first half; R7.2 (b) (H_N+2), (H_t); L.18 (H_D); P-F list	the list collected once; (B_J) names L.16 (c)'s first bound to the cost J, which L.18 uses (EL 1903-1936) and P 1848 includes
+lem:edge-kappa	docket68/n1star/EQUALITY5-LAYER.md:1316-1340; paper/reader/proofs/P-H-l24.md:115-149	EL L.16 (b) comparison; P-H lem:l-24-kappa	new lemma collecting facts the source uses: kappa -> infinity, comparison, the decay half of L.16 (c) derived from the c_R bound (as EL 2378-2381 does for env^(N-1)), log-concave integrals, kappa^p env -> 0 from (H_D)
+sec:edge-kernel	docket68/n1star/EQUALITY5-LAYER.md:1316-1343; docket68/n1star/EQUALITY5-LAYER.md:2370-2393; docket68/n1star/EQUALITY5-LAYER.md:2734-2752	EL L.16, L.21 (iv'), (iv'')	
+lem:edge-kernel	docket68/n1star/EQUALITY5-LAYER.md:1316-1340	EL Lemma L.16	proof written in full; the bound of the integral over [0, U_*] computed (3c/kappa^2 + 8c^2/kappa^4); T_2 stated with kappa >= 1
+eq:edge-r2	docket68/n1star/EQUALITY5-LAYER.md:1321-1322	EL L.16 (b) R_2	
+eq:edge-r2-bound	docket68/n1star/EQUALITY5-LAYER.md:1322-1326	EL L.16 (b) bound	
+lem:edge-sinv	docket68/n1star/EQUALITY5-LAYER.md:2370-2393; docket68/n1star/EQUALITY5-LAYER.md:2734-2752; docket68/n1star/EQUALITY5-LAYER.md:2799-2803	EL L.21 (iv') with A39, (iv''); rho_g' of L.26 (2)	stated for general g; (b) (s^-1 g/g)' = -rho_g and rho_g' written out (EL 2799-2803); decay condition 12 c_R kappa^(alpha-1) <= 1
+eq:edge-rho-g	docket68/n1star/EQUALITY5-LAYER.md:2372-2374	EL L.21 (iv')	
+eq:edge-rho-sharp	docket68/n1star/EQUALITY5-LAYER.md:2734-2738	EL L.21 (iv'')	
+sec:edge-two-signs	docket68/n1star/EQUALITY5-LAYER.md:2053-2065; docket68/n1star/EQUALITY5-LAYER.md:2728-2733	EL Lemma W	
+lem:edge-two-signs	docket68/n1star/EQUALITY5-LAYER.md:2728-2733; docket68/n1star/EQUALITY5-LAYER.md:2053-2065	EL Lemma W (A') (R7.1 (a)) and (B) (R5.3 (e))	A in the pointwise form A' (A37); (B) used by L.26 and L.28
+sec:edge-degree-two	docket68/n1star/EQUALITY5-LAYER.md:1838-1937; docket68/n1star/EQUALITY5-LAYER.md:1940-1947	EL R5.2, R5.3 (a)	cases P and Omega; definition of h^(1) in both cases
+eq:edge-p-q	docket68/n1star/EQUALITY5-LAYER.md:1281-1284	EL R4.1 dRic^H = -P d_v + Q	derived from lem:layer-seed-operators (b) and prop:layer-structure (a)
+eq:edge-happ	docket68/n1star/EQUALITY5-LAYER.md:1938-1940	EL R5.3 (a) h_app^(1)	
+eq:edge-e-equation	docket68/n1star/EQUALITY5-LAYER.md:1944-1946	EL R5.3 (a) equation of e	data of U^(1) per sec:data-proof (lapse and shift vector kept, reading 2)
+lem:edge-u-difference	docket68/n1star/EQUALITY5-LAYER.md:2536-2544	EL (m7) U - U^(1) (R6.3)	
+lem:edge-degree-two	docket68/n1star/EQUALITY5-LAYER.md:1864-1902	EL Lemma L.17	Gamma[g0] - Gamma[g0deg] polynomial structure written out (degtwo5 T2); costs per lem:layer-flat
+eq:edge-degree-two	docket68/n1star/EQUALITY5-LAYER.md:1868-1871	EL L.17 display	
+lem:edge-localisation	docket68/n1star/EQUALITY5-LAYER.md:1903-1936; docket68/n1star/EQUALITY5-LAYER.md:2554-2555	EL Lemma L.18 with A26	c_R bound added to the hypotheses (the source uses kappa(v_s+y) y -> infinity, which it supplies); stage 1 started from the global bound of thm:uniform-existence [[pending:issue-1]]; T3 written out
+eq:edge-localised	docket68/n1star/EQUALITY5-LAYER.md:1905-1908	EL L.18 conclusion	
+rem:edge-localisation-numbers	docket68/n1star/EQUALITY5-LAYER.md:1931-1934; docket68/n1star/EQUALITY5-LAYER.md:1369-1371	degtwo5 T4; edgeP5 Q4	numerical observation
+sec:edge-past	docket68/n1star/EQUALITY5-LAYER.md:1279-1409	EL R4.1	
+lem:edge-resummation	docket68/n1star/EQUALITY5-LAYER.md:1293-1314; docket68/n1star/EQUALITY5-LAYER.md:1844-1863	EL Lemma L.15_P (a)-(c), (b) in full (R5.2)	closed form (a) proved by the generating series (edgeP5 Q1 replaced); existence and classes of b_n argued from lem:layer-profiles-past
+eq:edge-resummation	docket68/n1star/EQUALITY5-LAYER.md:1301-1302	EL L.15_P (a)	
+thm:edge-past	docket68/n1star/EQUALITY5-LAYER.md:1373-1404; docket68/n1star/EQUALITY5-LAYER.md:2552-2553	EL Theorem L_E with A23, A25	degree-two terms by L.17, L.18 at every depth (A23); hypothesis (H_D) (A25); L.16 (c) to the cost J; lambda^(-2c-3) (R5.1 nit); P0 = 2c'+6
+lem:edge-past-levels	docket68/n1star/EQUALITY5-LAYER.md:1385-1388	EL L_E last sentence (L.12 (ii) for Theorem 2)	proof written from prop:layer-regions (ii) and thm:layer-past with m = max(56M_P, 4PM_P, ceil(4M_P/delta))
+rem:edge-past-numbers	docket68/n1star/EQUALITY5-LAYER.md:1338-1343; docket68/n1star/EQUALITY5-LAYER.md:1405-1409	edgeP5 Q2, Q3	numerical observation
+sec:edge-first-degree	docket68/n1star/EQUALITY5-LAYER.md:1938-2052; docket68/n1star/EQUALITY5-LAYER.md:2354-2406	EL R5.3, R6.1 (a)-(c)	
+lem:edge-characteristic	docket68/n1star/EQUALITY5-LAYER.md:1964-1966; docket68/n1star/EQUALITY5-LAYER.md:1972-1976; docket68/n1star/EQUALITY5-LAYER.md:1956-1957	EL H_Sigma proof steps (1), (4): edge1_5 X1, X2, X3	X1-X3 written as derivations; the transport closed form integrated by hand
+eq:edge-transport	docket68/n1star/EQUALITY5-LAYER.md:1956-1957	EL H_Sigma (X3 closed form)	
+lem:edge-ingoing	docket68/n1star/EQUALITY5-LAYER.md:1948-1989; docket68/n1star/EQUALITY5-LAYER.md:2359-2369; docket68/n1star/EQUALITY5-LAYER.md:2555-2556	EL Lemma H_Sigma, exact form R6.1 (a), A28	stated with a majorant D of the amplitudes; 1+O(eps) form not carried (R6-f1)
+eq:edge-ingoing	docket68/n1star/EQUALITY5-LAYER.md:2361-2363	EL R6.1 (a) display	
+lem:edge-constraint	docket68/n1star/EQUALITY5-LAYER.md:1990-2032; docket68/n1star/EQUALITY5-LAYER.md:2370-2405; docket68/n1star/EQUALITY5-LAYER.md:2753-2766	EL Lemma L.21 (i)-(v), (iv'), (v'), c_N = 1 (R7.1 (c))	X4-X8 replaced by written derivations: Bianchi propagation via lem:layer-bianchi, the family recursion for all N (X5 checked N <= 40), 2Gt(S(D))(n,n), K_R = mu0^(-3/4) r0^(3/2)/4 from the leading-order gauge solve (reading 2 is the edition's convention); coefficient alpha(r) renamed p(r)
+eq:edge-xi	docket68/n1star/EQUALITY5-LAYER.md:2015-2017	EL L.21 (iv) Xi	
+prop:edge-horizon-value	docket68/n1star/EQUALITY5-LAYER.md:2034-2052; docket68/n1star/EQUALITY5-LAYER.md:2394-2406	EL Proposition L.22 with the E_S bound of L.22'	Gamma_R written in closed form
+eq:edge-s	docket68/n1star/EQUALITY5-LAYER.md:2400-2402; docket68/n1star/EQUALITY5-LAYER.md:2038-2040	EL L.22' bound	
+sec:edge-crossover	docket68/n1star/EQUALITY5-LAYER.md:2422-2467; docket68/n1star/EQUALITY5-LAYER.md:2767-2837; docket68/n1star/EQUALITY5-LAYER.md:3055-3164	EL R6.1 (d) proof setup, R7.2, R8.1	
+eq:edge-sigma	docket68/n1star/EQUALITY5-LAYER.md:2422-2427	EL R6.1 (d) sigma, Lambda, e-hat	X renamed X_c in the theorem's proof
+prop:l-26	docket68/n1star/EQUALITY5-LAYER.md:2788-2830; docket68/n1star/EQUALITY5-LAYER.md:3048-3050	EL Proposition L.26 (R7.2 (c)) with R8.0 nit 9	key required by P-F; nu'(st-1) term kept in L.28
+lem:edge-next-family	docket68/n1star/EQUALITY5-LAYER.md:3060-3100	EL R8.1 (bfam5 B1-B6)	[[pending:computational-1]]: alpha4, beta4 and c_(5,1) = 3i c_(4,0) come from a large exact symbolic computation; the reduction of alpha4(rho*) and the cubic were checked
+lem:edge-rho-star	docket68/n1star/EQUALITY5-LAYER.md:3101-3147	EL Lemma L.28 with R9 nit 4	
+rem:edge-crossover-numbers	docket68/n1star/EQUALITY5-LAYER.md:2464-2467; docket68/n1star/EQUALITY5-LAYER.md:2819-2837; docket68/n1star/EQUALITY5-LAYER.md:3140-3147	edge1_5 X12, X14, X15, X17	numerical observation
+sec:edge-theorem	docket68/n1star/EQUALITY5-LAYER.md:3236-3255	EL R8.4	
+thm:very-edge	docket68/n1star/EQUALITY5-LAYER.md:3236-3255; docket68/n1star/EQUALITY5-LAYER.md:2838-2851; docket68/n1star/EQUALITY5-LAYER.md:2407-2463; docket68/n1star/EQUALITY5-LAYER.md:2066-2103	EL Theorem L_1E''' (one theorem from L_1E, L_1E', L_1E'', L.26, L.28)	hypotheses include (B_(c')) (L.16 (c) to the cost, used by L.18); case persistence over J argued; |Xi| >= c_N(1+T^2)^(-1/2) used in Case 1; levels via prop:layer-regions (ii) at P1+1
+rem:edge-carried	docket68/n1star/EQUALITY5-LAYER.md:2104-2112; docket68/n1star/EQUALITY5-LAYER.md:2753-2766	EL R5.3 Remark (1); R7.1 (c)	
+rem:edge-very-edge-numbers	docket68/n1star/EQUALITY5-LAYER.md:2099-2103	edge1_5 X11	numerical observation
+sec:edge-envelope	paper/reader/proofs/P-F-edge.md:1-10; docket68/n1star/EQUALITY5-LAYER.md:3148-3198	P-F (EL Proposition L.27)	hypothesis list moved to def:edge-hypotheses
+eq:edge-envelope	paper/reader/proofs/P-F-edge.md:7	P-F eq:edge-envelope	
+lem:edge-logderivatives	paper/reader/proofs/P-F-edge.md	P-F lem:edge-logderivatives (replaces EL Proposition L.27, hyp5)	merged from the proof project
+eq:edge-recursion	paper/reader/proofs/P-F-edge.md	P-F eq:edge-recursion (replaces EL Proposition L.27, hyp5)	merged from the proof project
+sec:edge-envelope-a	paper/reader/proofs/P-F-edge.md	P-F sec:edge-envelope-a (replaces EL Proposition L.27, hyp5)	merged from the proof project
+lem:edge-a	paper/reader/proofs/P-F-edge.md	P-F lem:edge-a (replaces EL Proposition L.27, hyp5)	merged from the proof project; E, E-hat renamed e_0, e-hat_0
+eq:edge-a	paper/reader/proofs/P-F-edge.md	P-F eq:edge-a (replaces EL Proposition L.27, hyp5)	merged from the proof project
+eq:edge-a-disc	paper/reader/proofs/P-F-edge.md	P-F eq:edge-a-disc (replaces EL Proposition L.27, hyp5)	merged from the proof project
+eq:edge-a-real	paper/reader/proofs/P-F-edge.md	P-F eq:edge-a-real (replaces EL Proposition L.27, hyp5)	merged from the proof project
+eq:edge-log	paper/reader/proofs/P-F-edge.md	P-F eq:edge-log (replaces EL Proposition L.27, hyp5)	merged from the proof project
+lem:edge-disc	paper/reader/proofs/P-F-edge.md	P-F lem:edge-disc (replaces EL Proposition L.27, hyp5)	merged from the proof project
+eq:edge-disc	paper/reader/proofs/P-F-edge.md	P-F eq:edge-disc (replaces EL Proposition L.27, hyp5)	merged from the proof project
+sec:edge-envelope-every-k	paper/reader/proofs/P-F-edge.md	P-F sec:edge-envelope-every-k (replaces EL Proposition L.27, hyp5)	merged from the proof project
+prop:edge-envelope	paper/reader/proofs/P-F-edge.md	P-F prop:edge-envelope (replaces EL Proposition L.27, hyp5)	merged from the proof project
+cor:edge-envelope	paper/reader/proofs/P-F-edge.md:150-170	P-F cor:edge-envelope	x0 := 1/(96 J^2) with J >= N+4 so that (B_J) holds to the cost the theorems use; eq:edge-decay for j <= J
+eq:edge-decay	paper/reader/proofs/P-F-edge.md:155-157	P-F eq:edge-decay	j <= J
+rem:edge-envelope-limits	paper/reader/proofs/P-F-edge.md	P-F rem:edge-envelope-limits	merged
+rem:edge-scaled	paper/reader/proofs/P-F-edge.md	P-F rem:edge-scaled	merged
+rem:edge-sin4	paper/reader/proofs/P-F-edge.md	P-F rem:edge-sin4	merged
+sec:edge-switch	docket68/n1star/EQUALITY5-LAYER.md:2116-2141	EL R5.4	
+thm:l-24	docket68/n1star/EQUALITY5-LAYER.md:2116-2141; docket68/n1star/EQUALITY5-LAYER.md:2555-2557	EL Theorem L.24 with A29	statement made precise (which periods have which sign; both kinds shown to occur); T5 sentence replaced by P-H; 0.93 -> P-H's bounds; m0 >= c eps^2 replaced by eq:l-24-eps (eq:layer-cost-margin, m = 84c)
+lem:edge-w-minus-e	docket68/n1star/EQUALITY5-LAYER.md:2124-2128; docket68/n1star/EQUALITY5-LAYER.md:2536-2544	EL L.24 proof (rho_r) with A29	first-degree term lambda^(N-2) eps_c added: g_app stops at lambda^N while e's equation carries lambda^(N+1) H_(N+1)
+eq:edge-w-minus-e	docket68/n1star/EQUALITY5-LAYER.md:2124-2128	EL L.24 proof	
+sec:l-24-margin	paper/reader/proofs/P-H-l24.md	P-H sec:l-24-margin (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-margin	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-margin (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+lem:l-24-margin	paper/reader/proofs/P-H-l24.md	P-H lem:l-24-margin (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-xi	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-xi (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-margin-bounds	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-margin-bounds (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-logconcave	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-logconcave (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-m0	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-m0 (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-dm0	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-dm0 (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-split	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-split (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+prop:l-24-band	paper/reader/proofs/P-H-l24.md	P-H prop:l-24-band (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-band	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-band (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+cor:l-24-envelopes	paper/reader/proofs/P-H-l24.md	P-H cor:l-24-envelopes (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+lem:l-24-kappa	paper/reader/proofs/P-H-l24.md	P-H lem:l-24-kappa (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-kappa-low	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-kappa-low (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-kappa-up	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-kappa-up (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-kappa-band	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-kappa-band (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+prop:l-24-transition	paper/reader/proofs/P-H-l24.md	P-H prop:l-24-transition (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-s-bounds	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-s-bounds (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-transition	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-transition (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-s-split	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-s-split (replaces EL degtwo5 T5 in L.24)	pending ch85-s-bounds resolved by prop:edge-horizon-value
+prop:l-24-s-bounds	paper/reader/proofs/P-H-l24.md	P-H prop:l-24-s-bounds (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-s-two-sided	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-s-two-sided (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-s-size	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-s-size (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+rem:l-24-sharp	paper/reader/proofs/P-H-l24.md	P-H rem:l-24-sharp (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+cor:l-24-period	paper/reader/proofs/P-H-l24.md	P-H cor:l-24-period (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-period-cond	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-period-cond (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+eq:l-24-period	paper/reader/proofs/P-H-l24.md	P-H eq:l-24-period (replaces EL degtwo5 T5 in L.24)	merged from the proof project; omega -> x-hat, theta -> eps_lambda
+rem:l-24-eps	paper/reader/proofs/P-H-l24.md:298-312	P-H rem:l-24-eps	interpolation via cor:layer-interpolation-band, eq:layer-cost-margin with m = 84c (not m = 56c)
+eq:l-24-eps	paper/reader/proofs/P-H-l24.md:306	P-H eq:l-24-eps	now eq:layer-cost-margin
+rem:l-24-numbers	docket68/n1star/EQUALITY5-LAYER.md:2138-2141	degtwo5 T5 model	numerical observation; T5's 2.001/0.936 figures not carried (P-H: false as stated)
+sec:edge-dips	docket68/n1star/EQUALITY5-LAYER.md:2481-2533; docket68/n1star/EQUALITY5-LAYER.md:2885-2910	EL R6.2, R7.4	
+prop:edge-dips	docket68/n1star/EQUALITY5-LAYER.md:2481-2516; docket68/n1star/EQUALITY5-LAYER.md:2885-2900	EL Proposition L.25'' (a) (L.25' (a) for every delta <= 1/2) with A40, V6-n4	bump called phi; B_k a sum of sups; means cost 2j+1 as lem:layer-flat (b)
+eq:edge-dips	docket68/n1star/EQUALITY5-LAYER.md:2481-2483	EL L.25' (a) envelope	
+rem:edge-criterion	docket68/n1star/EQUALITY5-LAYER.md:2901-2910	EL criterion (b'')	
+rem:edge-dips-numbers	docket68/n1star/EQUALITY5-LAYER.md:2894-2900	degtwo5 T6	numerical observation
+sec:edge-thresholds	docket68/n1star/EQUALITY5-LAYER.md:3199-3233; docket68/n1star/EQUALITY5-LAYER.md:3395-3549; docket68/n1star/EQUALITY5-LAYER.md:2170-2211	EL R8.3, R9.1-R9.2, R5.5	
+rem:edge-thresholds	docket68/n1star/EQUALITY5-LAYER.md:3199-3233; docket68/n1star/EQUALITY5-LAYER.md:3518-3549; docket68/n1star/EQUALITY5-LAYER.md:2170-2202	EL R8.3 formula for lambda_25; R9.2 bound; R5.5 C_L11, C_L4	lambda_25 <= 10^(-5004) proved by hand from (H2); the record's 10^(-6613.6) needs B_44 [[pending:computational-2]]; R5.5 and R9.1 constant formulas not carried [[pending:issue-2]]
