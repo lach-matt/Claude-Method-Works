@@ -30,3 +30,8 @@ S4 mbsign5 E4 (a) and (c) exactly, on the static slice, every (R, theta, mu) (mu
    (c) D R[L_X gamma] = 0: True; the Euler operator of N D R[h] sqrt(gamma) zero in all five components: True; M[k_psi] = 0: True; Euler_psi of N(<k, k_psi> - tr k tr k_psi) sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div M[k]): True; control: k = D^2 psi without - psi Ric does not solve M (rejected): True (62 s)
 S4 PASS
 S5 qsign5 Q1 exactly: the momentum-seed identity for arbitrary G = g^2, kappa0, Y0, nu and E = e^(Ia), every (R, theta)
+   the seed (psi, s1) solves the linearised H, M_R, M_th identically: True; the Euler operator of (Q-density - decomposition) in psi and s1 is the zero rational function of (R, t, the jets of g, kappa0, Y0, nu, psi, s1, and e^(Ia)): True; control: 4 nu E^2 -> 3 nu E^2 gives a nonzero Euler operator (rejected): True (33 s)
+S5 PASS
+controls rejected: PASS
+S1-S5: PASS (121 s)
+exit 0
