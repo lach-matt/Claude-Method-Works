@@ -77,9 +77,9 @@ exact identities [[lem:iii-i7-2-4]], [[lem:iii-i8-2-4]], [[lem:iii-i9-2-4]] and 
 stated at b₀; their forms at b are [[lem:iii-i15-2-11]], [[lem:s21-motions-at-b]] and [[lem:iii-i9-2-6]] (e), the
 last being the identity [[eq:iii-i15-1-1]]. At b = b₀ the errors vanish and p⃗_(b₀) = 0. The results of [[ch:s19]]
 used at b are their statements at b, [[prop:iii-i2-5-1-b]] (the first item of [[thm:iii-i15-3-1]]); [[ch:s20]] is
-written at b. The results of [[sec:iii-i15-1]] cited here rest on this chapter's statements at b₀, on
-[[lem:iii-i7-1-3]] (a), and on [[lem:iii-i9-2-2]] and [[lem:iii-i9-2-6]] (e) at b, whose proofs use only (P3), (P5)
-and the choice of (P6); so these citations are not circular.
+written at b. The results of [[sec:iii-i15-1]] cited here are proved from this chapter's statements at b₀ and from
+[[lem:iii-i7-1-3]] (a), [[lem:iii-i9-2-2]] (a)–(e) and [[lem:iii-i9-2-6]] (e) at b, whose proofs use from that section
+only (P3), (P5) and the choice of (P6); so these citations are not circular.
 
 *The inner radius.* The chapter works on Ω_* = cl_M{t^♭_* ≥ 1} with the b-Sobolev spaces of [[ch:s09]] and the
 forward solutions of [[ch:s19]] and [[ch:s20]], which hold with the inner radius r₀ = r_♭ of [[def:s12-radii]] as a
@@ -226,8 +226,8 @@ and that the exterior metric minus η lies in ρ_+²C^∞ near (ι⁺)°, which 
 (b) [[prop:iii-i-3-3]], [[prop:iii-i-3-4]], [[prop:iii-i-4-1]] and [[cor:iii-i-5-2]] are stated for g_0 ∈ 𝒢⁺ with
 [[eq:iii-i-3-5]] ([[prop:iii-i-3-4]] "or more generally"), which (a) gives; [[cor:iii-i-4-2]] rests on
 [[prop:iii-i-4-1]] and [[lem:iii-i-4-3]]; the proof of [[thm:iii-i-5-3]] uses g_0 only through [[cor:iii-i-5-2]] and
-[[eq:iii-i-3-7]], whose bound is linear in the seminorms of g_0 − g_b, now O(|S| + |S⁽⁰⁾_1|); the continuity follows as
-g_p⃗ depends smoothly on p⃗. At b, [[lem:iii-i15-1-1]] (P1) gives [[thm:iii-i-5-3]] for these backgrounds with
+[[eq:iii-i-3-7]], whose bound is linear in the seminorms of g_0 − g_(b₀), at b = b₀ now O(|S| + |S⁽⁰⁾_1|); the
+continuity follows as g_p⃗ depends smoothly on p⃗. At b, [[lem:iii-i15-1-1]] (P1) gives [[thm:iii-i-5-3]] for these backgrounds with
 continuity in (b, S, h), its proof covering g_p⃗ through (a).
 
 (c) On {Θ = 1} both flows are exact ([[lem:iii-b-5-2]], [[lem:iii-i7-1-1]] (b)), so the composite is a Lorentz boost

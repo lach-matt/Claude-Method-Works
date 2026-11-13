@@ -199,11 +199,12 @@ such that
 ℰ_I^tot + (ℰ_I^tot − 1) ⊂ ℰ_I^C.
 
 This strengthens the condition ℰ_I^C + (ℰ_I^tot − 1) ⊂ ℰ_I^C of [Hin26, Definition 5.3], and it implies the condition
-jℰ_I^tot ⊂ ℰ_I^C, j ≥ 2, there ([[lem:iii-c-3-2]] (b)). It is needed for [[prop:iii-c-5-2]]. Under the conditions of
-[Hin26] alone, ℰ_I^C + (ℰ_I^tot − 1) ⊂ ℰ_I^C and jℰ_I^tot ⊂ ℰ_I^C for j ≥ 2, the conclusion of
+jℰ_I^tot ⊂ ℰ_I^C, j ≥ 2, there ([[lem:iii-c-3-2]] (b)). It is needed for [[prop:iii-c-5-2]]. Under the counterparts
+of the conditions of [Hin26] alone, ℰ_I^C + (ℰ_I^tot − 1) ⊂ ℰ_I^C and jℰ_I^tot ⊂ ℰ_I^C for j ≥ 2, the conclusion of
 [[lem:iii-c-3-2]] (b) fails. Indeed, let z₀ ∈ (3/2 + 2γ_Υ, 2) and let ℰ_I^C be the smallest index set containing (z₀, 0)
-with these two properties. Every element it acquires beyond (z₀, 0) lies in ℰ_I^C + (ℰ_I^tot − 1), with real part at
-least min(2z₀ − 1, z₀ + ½) > 2, or in jℰ_I^tot, j ≥ 2, with real part at least 3. So (2, 0) ∉ ℰ_I^C, while
+with these two properties. Every element it acquires beyond (z₀, 0) is z + j with z an element and j ≥ 1 (real part at
+least z₀ + 1 > 2), or lies in ℰ_I^C + (ℰ_I^tot − 1) (real part at least z₀ + ½ > 2) or in jℰ_I^tot, j ≥ 2 (real part
+at least 3). So (2, 0) ∉ ℰ_I^C, while
 (3, 0) = 2(3/2, 0) ∈ 2ℰ_I^tot; and (3, 0) ∈ ℰ_I^C + 1 would need (2, 0) ∈ ℰ_I^C. Hence 2ℰ_I^tot ⊄ ℰ_I^C + 1.
 
 Set
@@ -267,8 +268,10 @@ k ≥ 5, ℓ₀ > 0, ℓ_I > 3/2, H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b(�
 
 The class ⟨(2, 0)⟩₀ of [Hin26] has (1, 0) for π̸₀ and π₁₁. For π₁₁ that is the mass order, (2, 0) here. For π̸₀ it is
 the radiation order; the class above contains no radiation field of π̸₀, and with (3/2, 0) in slot 6 the mapping
-property [[eq:iii-c-5-3]] below would fail (the error term ρ₀²ρ_I²C^∞Diff²_b of [[eq:iii-c-4-4]] maps ρ_I^(3/2) to
-ρ_I^(7/2), outside (4, 0)). [Hin26] uses ⟨(2, 0)⟩₀ to subtract the radiation fields in [Hin26, Theorem 5.21, Step 2]
+property [[eq:iii-c-5-3]] below would fail as soon as ℓ_I > 5/2: the error term ρ₀²ρ_I²C^∞Diff²_b of [[eq:iii-c-4-4]]
+maps ρ_I^(3/2) to ρ_I^(7/2), a term that (4, 0) does not contain and that has weight below ℓ_I + 1. (For
+ℓ_I ≤ 5/2 that term lies in the remainder; the backgrounds of [[def:iii-c-3-4]] and [[lem:iii-c-3-5]] lie in the class
+with ℓ_I = ∞.) [Hin26] uses ⟨(2, 0)⟩₀ to subtract the radiation fields in [Hin26, Theorem 5.21, Step 2]
 ((5.64), p. 104). In dimension 4 + 1 that subtraction is not needed ([[rem:iii-c1-3-2]]).
 
 **Definition {#def:iii-c-3-4}** (The background class.) 𝒢 is the set of Lorentzian metrics g₀ on Ω_ext, smooth on M,

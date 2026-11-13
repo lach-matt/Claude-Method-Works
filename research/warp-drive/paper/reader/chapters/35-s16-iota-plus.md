@@ -643,9 +643,9 @@ holds also at fibre infinity over this compact region, where ℓ𝒬 and 𝒫_1 
 On Σ := {p = 0} (finite frequencies), ξ ≠ 0, and ξ̃ is non-decreasing along H_p over {v > −1}, strictly where η ≠ 0; on
 Σ ∩ {η = 0}, ξ̃ ∈ {−2, 0}.
 
-(c) Σ = Σ_+ ∪ Σ_−, ±ξ > 0. With w := v + 1, t := |ξ| and L := |η| (constant along the flow): Σ_+ lies over
-{−1 − δ_1 ≤ v < 0} for small δ_1 > 0, with ξ ≥ −1/v there and H_pv ≤ −2 on {−1 < v < 0} (and H_pv < 0 on
-[−1 − δ_1, −1]). Σ_− over {−1 − δ_1 ≤ v ≤ 0} has H_pv > 0 and
+(c) Σ = Σ_+ ∪ Σ_−, ±ξ > 0. With w := v + 1, t := |ξ| and L := |η| (constant along the flow): Σ_+ ∩ {v ≥ −1 − δ_1}
+lies over {v < 0} for small δ_1 > 0, with ξ ≥ −1/v over {−1 ≤ v < 0}, H_pv ≤ −2 on {−1 < v < 0} and H_pv < 0 over
+[−1 − δ_1, −1]. Σ_− over {−1 − δ_1 ≤ v ≤ 0} has H_pv > 0 and
 
     t = [−w + (1 + L²(1 − w²))^(1/2)]/(1 − w²),
 
@@ -694,7 +694,8 @@ as p − |η|² = (vξ + 1)((v + 2)ξ + 1) = (w² − 1)ξ² + 2wξ + 1. H_p|η|
 
 (c) With k := wξ + 1 we have a = k − ξ, b = k + ξ, so p = k² − ξ² + |η|²; and H_pv = ∂_ξp = 2(v(v + 2)ξ + v + 1),
 H_pξ = −∂_vp = −2ξk. On Σ_+ over {v ≥ −1}, k ≥ 1 and ξ² ≥ k² give ξ ≥ wξ + 1, so v < 0 and ξ ≥ −1/v, whence
-v(v + 2)ξ ≤ −(v + 2) and H_pv ≤ −2; near v = −1 the same expression is negative by continuity. On Σ_− (ξ = −t) over
+v(v + 2)ξ ≤ −(v + 2) and H_pv ≤ −2 on {−1 < v < 0}; over {v < −1} the inequality v < 0 is trivial, and near v = −1
+the same expression for H_pv is negative by continuity. On Σ_− (ξ = −t) over
 [−1, 0], H_pv = 2(w + (1 − w²)t) > 0 (at w = 0 it is 2t > 0), and near v = −1 likewise by continuity; in these
 variables p = 0 is (1 − w²)t² + 2wt − (1 + L²) = 0, whose positive root is the stated t (at w = 1 the equation is
 2t = 1 + L²). Over v > 0: t ≥ |1 − wt| gives 1/(v + 2) ≤ t ≤ 1/v, and real roots of the same quadratic need
@@ -722,8 +723,8 @@ is ξ_cħ over sf, and η_cħ = R⁻¹η = vη. With a := vξ + 1, ξ_cħ = −v
     G_(ι,1) = 2(1 + Rξ_cħ)ξ_cħ + ξ_cħ² + |η_cħ|² = 2va(a − 1) + v²a² + v²|η|² = v²p,
 
 as v²p = v²a(a + 2(a − 1)/v) + v²|η|² (since (v + 2)ξ + 1 = a + 2ξ and ξ = (a − 1)/v). Also
-ξ̃ = −(v + 2)(vξ + 1) = (1 + 2/v)ξ_cħ = (1 + 2R)ξ_cħ. The conjugation carries p to R⁻² times the symbol of h²N⁰, that
-is v²p = G_(ι,1), and preserves the Hamilton field up to the factor v² > 0 on Σ. Finally, at ĥ = 0 and z = 1,
+ξ̃ = −(v + 2)(vξ + 1) = (1 + 2/v)ξ_cħ = (1 + 2R)ξ_cħ. The conjugation carries R⁻²p, that is v²p, to the symbol
+G_(ι,1) of h²N⁰, and preserves the Hamilton field up to the factor v² > 0 on Σ. Finally, at ĥ = 0 and z = 1,
 [[eq:ii-f-3-12]] gives, with ξ := ξ_cħ, η := η_cħ,
 
     𝖧ξ̃ = (2(1 + 2R)ξ + 2) · 2Rξ + 2(|η|² − Rξ²)(1 + 2R),

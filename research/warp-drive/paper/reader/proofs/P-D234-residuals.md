@@ -213,7 +213,7 @@ where e_d is the d-th unit multi-index.
 for F_γ at c to first order, with the Lagrange remainder bounded by [[lem:tl5-chebyshev]], gives the claim. ∎
 
 **Definition {#def:tl5-jets}** (jets and enclosures). The jet of f at p is J_p f := (f_α(p))_(|α|≤3), twenty numbers.
-For jets a, b put (a + b)_α := a_α + b_α and (ab)_α := Σ_(β+β′=α) a_β b_β′; for a jet a write a₀ for its
+For jets a, a′ put (a + a′)_α := a_α + a′_α and (aa′)_α := Σ_(β+β′=α) a_β a′_β′; for a jet a write a₀ for its
 coefficient at α = 0 and N := a − a₀ (the jet a with a₀ replaced by 0), and put
 
     1/a := Σ_(j=0..3) (−1)^j a₀^(−j−1) N^j,     √a := Σ_(j=0..3) binom(1/2, j) a₀^(1/2−j) N^j,

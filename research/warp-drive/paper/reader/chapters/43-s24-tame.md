@@ -247,9 +247,9 @@ its own proof, read at the order k:
 *Proof.* (a)–(c) are proved in their statements; the continuity in b of the constants is that of the objects at b
 ([[lem:iii-i15-1-1]] (P1)–(P4) and (P6)), and the bound on E^ν is (P6) there. (d) and (e) are the cited statements, each
 of which is stated at every order with the loss independent of it, and with constants uniform in b ([[lem:iii-i15-1-1]]
-(P1), (P4)). (f) That ℓ depends only on the orders and the weights is read off from the proof of [[cor:ii-g1-4-5]]: ℓ_4 =
-ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉ is the loss of [[prop:ii-g1-4-4]], with ℓ_1, ℓ_2 and ν from [[lem:ii-g1-4-3]], and ℓ_3,
-ℓ_5 are the losses of [[prop:ii-g1-3-5]] (2) and [[prop:ii-g1-3-3]] (2). For δ: [[cor:iii-h2-1-2]] gives, for every k, an
+(P1), (P4)). (f) That ℓ depends only on the orders and the weights is read off from the proof of [[cor:ii-g1-4-5]]:
+ℓ_4 = ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉ is the loss of [[prop:ii-g1-4-4]], with ℓ_1, ℓ_2 and ν from [[lem:ii-g1-4-3]], and
+ℓ_3, ℓ_5 are the losses of [[prop:ii-g1-3-5]] (2) and [[prop:ii-g1-3-3]] (2). For δ: [[cor:iii-h2-1-2]] gives, for every k, an
 inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every b ∈ ℬ̄_1; its proof bounds γ_+ by the bound
 [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by ν_min/(2 sup_Γ q^Γ), where β_0, ν_min and q^Γ do not
 depend on the inner product and are continuous and positive on ℬ̄_1. So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The constants of
@@ -419,8 +419,8 @@ This is the estimate of [Hin26, Theorem 12.8, p. 312].
 (P2)), [[prop:iii-h-3-2]] holds at b ((P4) there), and neither A_b, which reads only ι⁺-data and level-1 tf-data
 ([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor ((P6) there), depends on η_2. Steps 1–3, which hold at b with the rows
 built at b_0 ([[sec:s23-base-points]] (3)), subtract D_UΦ(U′_•) for finitely many U′_•: the finite-dimensional data of
-Step 1 (bounded by a low norm of (h′, p⃗′, q′), [[lem:iii-j2-2-1]] (c)); the data of Case B of Step 2, f_(λ_0) ∈
-Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which are not finite-dimensional and are mapped by the right inverse of
+Step 1 (bounded by a low norm of (h′, p⃗′, q′), [[lem:iii-j2-2-1]] (c)); the data of Case B of Step 2,
+f_(λ_0) ∈ Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which are not finite-dimensional and are mapped by the right inverse of
 [[prop:iii-g3-3-7]], independent of U with the loss l, on the finitely many λ_0 ∈ Λ_* ([[lem:iii-j2-2-1]] (g),
 [[lem:iii-j2-1-2]] (d)); and the conormal remainders of Step 3 (the conormal components of q′, [[lem:iii-j2-2-1]] (c)).
 By [[rem:iii-j-2-5]],
@@ -1046,8 +1046,8 @@ This is [Hin26, Theorem 12.8, p. 312] in dimension 4 + 1.
 Steps 1–2 of the proof of [[thm:iii-j1-2-1]], which hold at b with the rows built at b_0 ([[sec:s23-base-points]] (3)),
 subtract values of D_UΦ, which lie in the exact classes and whose images under D_(Φ(U))P_5 lie in ℱ_ex
 ([[prop:iii-j3-5-4]]); Step 2 reads g_j at ℓ_K(λ_0) − ε, a loss it tolerates, as it needs only the formal solutions of
-rate < α to be visible below ℓ_K. Step 3: after the subtractions h′ has no ι⁺-term below 3 + ε_+, so its class (ℰ_♯, 3 +
-ε_+) with vanishing coefficients is the plain weight 3 + ε_+, and its K⁺-weight is α; so h′ is in the exact class of h̃,
+rate < α to be visible below ℓ_K. Step 3: after the subtractions h′ has no ι⁺-term below 3 + ε_+, so its class
+(ℰ_♯, 3 + ε_+) with vanishing coefficients is the plain weight 3 + ε_+, and its K⁺-weight is α; so h′ is in the exact class of h̃,
 and the conormal parts of q′ have the exact orders. The bounds compose finitely many bounded maps; the order d is fixed
 by [[lem:iii-j2-2-3]]. ∎
 

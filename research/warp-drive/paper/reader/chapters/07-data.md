@@ -5,8 +5,8 @@ uses. The data are posed on the slice Σ := Σ_τ0, before the shell reaches the
 is used. The approximate solution of [[thm:approximant]], with suitable stage data, has data that satisfy the
 constraints and the gauge condition D = 0 to high order ([[sec:data-approximant]]). The remaining error is removed
 exactly by solving the constraints outward in r, as a parabolic–hyperbolic system, from a sphere inside the shell where
-the approximant's data are the seed's exactly ([[sec:data-evolution]]). The data then coincide with the seed's on Σ ∩ {r
-< v_start − τ0}.
+the approximant's data are the seed's exactly ([[sec:data-evolution]]). The data then coincide with the seed's on
+Σ ∩ {r < v_start − τ0}.
 
 Notation is that of [[ch:uniform-existence]]. In addition, the ansatz [[eq:ansatz]], G = ḡ + λ W + Σ_(j=2)^(N+1) λ^j ĝ_j
 with the mean metric ḡ = g0 + Σ_(j=1)^(N) λ^j m_j, the phase u = v + Σ_(j=1)^(N) λ^j φ_j and the approximant g_app = G(X,
