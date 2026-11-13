@@ -531,8 +531,11 @@ the linear theory at it beyond the levels of [[ch:s21]] below α − 2 (Step 1),
 (2) *The class reproduces.* h′ has the ℐ⁺-data (⟨ℰ^C_I⟩, ℓ_I), the ι⁺-data (ℰ_♯, (3 + η_2)−) and the K⁺-order α−. This
 is the class of h if (H2) of [[sec:iii-i9-1]] is read as "K⁺-order α−" with α ≤ 4 + ε_K the level used, a_I = ℓ_I (off
 the exclusion sets of (H4) of [[sec:iii-i10-1]]), and a_+ < 3 + η_2 by (H5). Every use of a_K in [[ch:s21]] and
-[[ch:s22]] is a strict inequality at an admissible level, or the membership of f^b_(h,p⃗) in 𝒴_2(α) ([[lem:iii-i9-2-6]]
-(a)), which becomes 𝒴_2(α−) and is accepted by [[lem:iii-i14-2-5]]. So [[thm:iii-i14-3-1]] proves for h′ the decay at
+[[ch:s22]], and in [[sec:iii-i14-2]]–[[sec:iii-i14-3]], is a strict inequality at an admissible level, or the
+membership of f^b_(h,p⃗) in 𝒴_2(α) ([[lem:iii-i9-2-6]] (a)), which becomes 𝒴_2(α−) and is accepted by
+[[lem:iii-i14-2-5]]. In [[sec:iii-i14-2]]–[[sec:iii-i14-3]] the inequalities are a_K > α − 2 for the coefficients in the
+proof of [[lem:iii-i14-2-4]] (c), min(β_k − 2, λ_♯ − 1) + a_K > β_(k+1) in Step 2 of the proof of [[thm:iii-i14-3-1]],
+and Re e_ν + a_K − ε > α for the defects r^ν there (Re e_ν ≥ λ_♯ − 1); each holds with a_K = α − ε for ε small. So [[thm:iii-i14-3-1]] proves for h′ the decay at
 ℐ⁺, ι⁺ and K⁺ that it assumes of h, as [Hin26, Corollary 11.66] does.
 
 (3) *Nonlinear errors.* As in [Hin26], P_5(h, p⃗, q) for general small (h, p⃗, q) is not of the class of F; the
@@ -548,8 +551,8 @@ p⃗_(≤0) = (S, b − b₀, S^(0)_1), with g_0 = g_(p⃗_(≤0)) ([[eq:iii-i7-
 [[eq:iii-g3-1-2]]–[[eq:iii-g3-3-5]], the inverse [[eq:iii-g3-2-2]] of N_(ι⁺)(L̄, ·) on partially polyhomogeneous spaces,
 spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I), [[cor:iii-g3-3-1]], Res^k_(ι⁺)(L̄, ℰ^C_I, λ), Res_(ι⁺)(L̄, λ) and the map
 [[eq:iii-g3-3-6]]. ℓ_I is the one of the class, with ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]]
-holds, s_C being large by (C1). K_ι(λ) denotes the order of the pole of [[eq:iii-g3-2-2]] at λ, as in
-[[prop:iii-g3-3-7]]. Also from [[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions
+holds, s_C being large by (C1). K_ι(λ) denotes the order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in
+[[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also from [[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions
 ([[def:iii-g2-2-3]]), [[thm:iii-g2-3-1]] and [[lem:iii-g2-4-1]]. Two further conditions are imposed, each removing
 finitely many values.
 

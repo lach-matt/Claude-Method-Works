@@ -265,7 +265,8 @@ r-derivative is at least 3/(2 μ_max) − C3 λ > 3/(4 μ_max), so it is strictl
 zero on each column, positive above it and negative below it.
 
 If the column contains [√μ − δ, √μ + δ], which holds when √μ(v) ≤ v − τ0 − δ1 with δ1 := δ, then θ⁺_λ changes sign on
-that interval (|θ⁺_λ(√μ)| ≤ C3 λ and the slope exceeds 3/(4 μ_max)), so it has exactly one zero R_λ, and
+that interval (at r = √μ ± δ, |θ⁺(g0)| ≥ m_δ > C3 λ, so θ⁺_λ has the sign of θ⁺(g0), ± there), so it has exactly one
+zero R_λ; since |θ⁺_λ(√μ)| ≤ C3 λ and the slope exceeds 3/(4 μ_max),
 
     |R_λ − √μ(v)| ≤ C′ λ,     C′ := C3/(3/(4 μ_max)).
 
@@ -279,7 +280,7 @@ which is why C is taken to be twice C′. Off the band θ⁺_λ has the sign of 
 [[eq:theta-plus-close]] and the choice of λ_H. So the spheres with r ≤ √μ − C λ are trapped, both future null
 expansions being negative at every point, and those with r ≥ √μ + C λ are untrapped.
 
-If μ0 = √72 l5², fix instead δ in (0, √μ_max − r_q(μ_max)) with the same band property. The argument for the zero and
+If μ0 = √72 l5², fix instead δ in (0, √μ_max − b μ_max^(1/4)) with the same band property. The argument for the zero and
 the signs runs on the columns where √μ − r_q ≥ δ; by the monotonicity in μ shown above, this is μ(v) ≥ μ0 + δ2 for some
 δ2 > 0. The first assertion uses only the monotonicity band and the absence of zeros off it, and holds on every column. ∎
 

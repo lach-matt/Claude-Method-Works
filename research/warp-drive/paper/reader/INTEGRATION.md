@@ -350,3 +350,8 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S11 (R-S11): [ER08] (42) confirmed verbatim and the change to Kerr-Schild form proved, so that integration item is
   closed. One parameter set for S11 and S12 (decided): defined once in S11, containing ℬ_♭ and every base point S12
   uses; S12's duplicates removed.
+- Proof B (R-P-B): mathematics correct, but several constants weaker than the source's certified values (l = 0 summed H¹
+  202.6 vs 184.82, X_0(3) 202.6 vs 158.57, unweighted 1079.4 vs 986.4, master rows C, S4, S3, T2). Decision: first try
+  the source's multipliers (l = 0: 43 sech² bumps, coefficients printed in Appendix B) to reach the source's values;
+  where that fails, state the edition's proved constants and carry them downstream (listed by the fix). No written
+  chapter needs B_0(3) = 275.2; the band constants 963.4 and 1516 depend on these and on B2's 11.477.

@@ -1173,7 +1173,7 @@ min Re ℰ > 0, into polyhomogeneous spaces. *All b-spaces from here on use an u
 
 *Indicial roots.* By [[lem:iii-d-4-1]] the indicial roots of (□^Υ_b)^(0) do not depend on b or on the horizon
 modification, and for 0 < z ≤ ½: at s0 they are 0, 3, ι^Υ_(s0,2) ∈ (2, 3) and 1 − ι^Υ_(s0,2); at s1 they are 0, 4,
-ι^Υ_(s1,2) ∈ (2, ι^Υ_(s0,2)), a root in (3, 4), and their mirror images 1 − ι; at sl, l ≥ 2, and vl, l ≥ 1, every
+ι^Υ_(s1,2) ∈ (2, ι^Υ_(s0,2)), a root in (3, 4), and the mirror images 1 − ι of the last two; at sl, l ≥ 2, and vl, l ≥ 1, every
 root is ≤ 0 or ≥ 3. In particular *neither 1 nor 2 is an indicial root, of any type*: the integer roots are 0, 3,
 1 − l, l + 3, −l and l + 2, none of which is 1 or 2 for l ≥ 1, and by [[eq:iii-d-4-2]] the others lie strictly
 between consecutive integers for 0 < z ≤ ½.

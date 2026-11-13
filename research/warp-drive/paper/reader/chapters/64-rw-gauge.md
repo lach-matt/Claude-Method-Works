@@ -35,7 +35,7 @@ spheres {t = c, |x| = r}, and SO(4), acting on x, acts by isometries. Put
 On {r ≥ r_♭} (r_♭ ∈ (0, ½R₁] the inner radius of [[ch:s11]]), with γ = dϑ² + c²dφ1² + s²dφ2² the round metric of the
 unit sphere (c := cos ϑ, s := sin ϑ, in the coordinates of [[sec:background]]),
 
-    g = −f dv² + 2 dv dr + r² γ,                                                                            {#eq:rw-ingoing}
+    g = −f dv² + 2 dv dr + r² γ,                                                                         {#eq:rw-ingoing}
 
 since −dt_KS² + d|x|² = −(dv − dr)² + dr² = −dv² + 2 dv dr. The surface gravity of the horizon {r = r_h} is
 f′(r_h)/2 = m₀/r_h³ = 1/r_h. The function t_* of [[eq:iii-b-3-6]] has t_* − v = T_(m₀)(r) − ψ(r) − r, a function of r
@@ -205,12 +205,13 @@ For a scalar mode the conditions β_a = 0, τ = 0 are Kodama and Ishibashi's f_a
 
     ξ[h] := (−β_a + (r²/2) ∂_a(τ/r²)) dy^a − (1/2) D̂τ.                                                    {#eq:gd-1-1}
 
-(a) ℒ_(ξ[h]) g has the mixed components (ℒ_ξ g)_(ai) dz^i = −dβ_a, and its angular block has trace-free part
+(a) ℒ_(ξ[h]) g has the mixed components (ℒ_ξ g)_(aj) dz^j = −dβ_a, and its angular block has trace-free part
 −(D̂D̂ − (1/3)γΔ̂)τ. So h + ℒ_(ξ[h])g has β = 0, τ = 0, the same h^TT as h, and the same l = 0 part.
 
 (b) For a scalar mode of degree l ≥ 2 written as in [KI03, (2.4)–(2.6), p. 4],
 
-    h_ab = f_ab S,   h_ai = r f_a S_i,   h_ij = 2r²(H_L γ_ij S + H_T S_ij),   S_i = −D̂_iS/k,   S_ij = D̂_iD̂_jS/k² + γ_ijS/3,
+    h_ab = f_ab S,  h_ai = r f_a S_i,  h_ij = 2r²(H_L γ_ij S + H_T S_ij),
+    S_i = −D̂_iS/k,  S_ij = D̂_iD̂_jS/k² + γ_ijS/3,
 
 one has β_a = −(r/k)f_a S and τ = 2r²H_TS/k²; the orbit part of ξ[h] is X_aS with Kodama and Ishibashi's
 X_a = (r/k)(f_a + (r/k)D_aH_T) [KI03, (2.8), p. 5], and

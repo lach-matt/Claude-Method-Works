@@ -408,8 +408,8 @@ chapter and the following ones.
 
 (S12) [Hin26d, Proposition 3.2, p. 28.] Two scaled b.g. structures on M have the same operator Lie algebra if and only
 if they are compatible, and then they also have the same coefficient and large operator Lie algebras. Since the
-calculus and the spaces are defined from these algebras, they do not change when the cells are replaced by a compatible
-family (for instance, when a cover of 𝕊³ by charts is replaced by another finite one).
+calculus and the spaces depend only on these algebras ([Hin26d, p. 52]), they do not change when the cells are
+replaced by a compatible family (for instance, when a cover of 𝕊³ by charts is replaced by another finite one).
 
 (S13) [Hin26d, Proposition 3.3, p. 29; Remark 3.48, p. 52.] Subdividing each cell of ℬ^× into cuboids of side lengths
 comparable to the scalings gives, for a large enough subdivision constant, a b.g. structure ρℬ, the *secondary

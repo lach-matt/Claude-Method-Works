@@ -5,22 +5,52 @@ wavelength parameters are λ = 1 (the first seed) and λ = 1/√10 (the second s
 constraint determines the areal radius R from the other data. We prove two things. First, an explicit approximant
 R_app, a tensor Chebyshev series with the coefficients of Appendix B ([[sec:cone-tables]]), satisfies the constraint
 up to an explicit residual ([[prop:cone-residual]]). Second, the constraint has an exact solution on every generator,
-positive and within an explicit distance of the Tangherlini radius ([[prop:cone-exact]]); the approximant lies within
-10⁻⁶ of it ([[cor:cone-compare]]).
+positive and within an explicit distance of the Tangherlini radius ([[prop:cone-exact]]); the approximant equals it
+for v ≤ 1/2, lies within 10⁻⁶ of it for 1/2 ≤ v ≤ 7/2, and departs from it at most linearly in r beyond
+([[cor:cone-compare]]).
 
 ### The constraint on the data cone {#sec:cone-constraint}
 
-The metrics of the class in double-null gauge are
+The metrics of the class are written in double-null gauge as
 
     g = −4 e^(2W) du dv + G_x (dx − β du)² + R² ((1 + x)/2) e^(2P) dφ1² + R² ((1 − x)/2) e^(2Q) dφ2²,
+    G_x = R² e^(−2(P + Q))/(4(1 − x²)),
 
-with R, P, Q, W, G_x, β functions of (u, v, x) and x ∈ [−1, 1]. For every such metric
-(see [[pending:raychaudhuri-identity]])
+with R > 0, P, Q, W and β functions of (u, v, x), and x ∈ [−1, 1]. The choice of G_x is the gauge: the leaves
+u = const, v = const carry the volume element (R³/4) dx dφ1 dφ2.
 
-    Ric_vv = −(3/R) (∂_v²R − 2 ∂_vW ∂_vR) − ((∂_vP)² + (∂_vQ)² + (∂_vP + ∂_vQ)²),          {#eq:cone-raychaudhuri}
+**Lemma {#lem:cone-raychaudhuri}** (The outgoing constraint.) For every metric of the class, at every point with
+|x| < 1,
 
-which contains no shift and no derivative in x, and so is determined by the data (R, P, Q, W) on an outgoing cone
-u = const. For such data, Ric_vv[R] denotes the right side of [[eq:cone-raychaudhuri]].
+    Ric_vv = −(3/R) (∂_v²R − 2 ∂_vW ∂_vR) − ((∂_vP)² + (∂_vQ)² + (∂_vP + ∂_vQ)²).          {#eq:cone-raychaudhuri}
+
+*Proof.* Write (y¹, y², y³) := (x, φ1, φ2), let γ be the diagonal matrix with entries γ₁₁ := G_x,
+γ₂₂ := R² ((1 + x)/2) e^(2P) and γ₃₃ := R² ((1 − x)/2) e^(2Q), and put β¹ := β and β² = β³ := 0, so that
+g = −4 e^(2W) du dv + γ_AB (dy^A − β^A du)(dy^B − β^B du), indices A, B, C running over 1, 2, 3. Then
+g_vv = g_vA = 0 and g_uv = −2 e^(2W). The inverse metric has g^(uu) = g^(uA) = 0, g^(uv) = −e^(−2W)/2 and
+g^(AB) = γ^(AB), and det g = −4 e^(4W) det γ, since in the coframe (du, dv, dy^A − β^A du), whose determinant
+against (du, dv, dy^A) is 1, the metric is block diagonal. With the Christoffel symbols
+Γ^μ_αβ = (1/2) g^(μν)(∂_α g_νβ + ∂_β g_να − ∂_ν g_αβ) this gives
+
+    Γ^μ_vv = g^(μu) ∂_v g_uv,  so  Γ^v_vv = 2 ∂_vW  and  Γ^u_vv = Γ^A_vv = 0;
+    Γ^u_vν = (1/2) g^(uv) ∂_ν g_vv = 0;      Γ^A_vB = (1/2) γ^(AC) ∂_vγ_CB =: χ^A_B;
+    Γ^μ_μv = ∂_v ln |det g|^(1/2) = 2 ∂_vW + (1/2) ∂_v ln det γ,
+
+where every other term of Γ^A_vB contains g^(Au) = 0 or a derivative of g_vv or of g_vC, which vanish. In
+Ric_vv = ∂_μΓ^μ_vv − ∂_vΓ^μ_vμ + Γ^μ_μν Γ^ν_vv − Γ^μ_vν Γ^ν_vμ, the last sum has no term with μ = u or ν = u, and
+Γ^A_vv = 0 reduces it to (Γ^v_vv)² + χ^A_B χ^B_A. So
+
+    Ric_vv = ∂_v(2∂_vW) − ∂_v(2∂_vW + (1/2) ∂_v ln det γ) + 2∂_vW (2∂_vW + (1/2) ∂_v ln det γ) − 4 (∂_vW)²
+             − χ^A_B χ^B_A
+           = −(1/2) ∂_v² ln det γ + ∂_vW ∂_v ln det γ − χ^A_B χ^B_A.
+
+In the gauge, det γ = R⁶/16, so ∂_v ln det γ = 6 ∂_vR/R and ∂_v² ln det γ = 6 ∂_v²R/R − 6 (∂_vR/R)². The matrix χ
+is diagonal with entries (1/2) ∂_v ln γ_AA, namely ρ − ∂_vP − ∂_vQ, ρ + ∂_vP and ρ + ∂_vQ, where ρ := ∂_vR/R; so
+χ^A_B χ^B_A = 3ρ² + (∂_vP)² + (∂_vQ)² + (∂_vP + ∂_vQ)². Substituting gives [[eq:cone-raychaudhuri]]. ∎
+
+The right side of [[eq:cone-raychaudhuri]] contains no shift and no derivative in x, and so is determined by the data
+(R, P, Q, W) on an outgoing cone u = const. For such data, given for x ∈ [−1, 1], Ric_vv[R] denotes the right side
+of [[eq:cone-raychaudhuri]], also at x = ±1.
 
 Put f(r) := 1 − r^(−2). Along the cone u = −10 the Tangherlini areal radius r ∈ [10, ∞) is a parameter on each
 generator, related to v by
@@ -31,8 +61,8 @@ so v(10) = 0 and dr/dv = f/2. Let r_s < r_e be the solutions of v(r_s) = 1/2 and
 r_s = 10.2475603901…, r_e = 11.7350863591…. The data on the cone are W = (1/2) ln(f(r)/(2 f(10))) and
 
     m = h(x) φ(r) cos θ(r),     n = h(x) φ(r) sin θ(r),     h(x) = (2/(1 + x²))^(1/2),
-    φ(r) = (λ/2) r^(−3/2) env(v(r)),     θ(r) = v(r)/λ,                                                   {#eq:cone-data}
-    P = (2(1 + x) m − (1 − x) n)/3,     Q = (2(1 − x) n − (1 + x) m)/3,
+    φ(r) = (λ/2) r^(−3/2) env(v(r)),     θ(r) = v(r)/λ,
+    P = (2(1 + x) m − (1 − x) n)/3,     Q = (2(1 − x) n − (1 + x) m)/3,                               {#eq:cone-data}
 
 where env(v) = sin⁴(π(v − 1/2)/3) for 1/2 < v < 7/2 and env(v) = 0 otherwise. The function env is C³, so φ is C³ in
 r, and φ = φ′ = 0 for r ∉ (r_s, r_e): there the data are those of Tangherlini. R is the unknown.
@@ -90,7 +120,8 @@ seed, g(y) = α y³ − γ y⁴ + 2aβ y³ (1 − y)^(1/2) with α := a² + β²
 its maximum on [0, ∞) at y = 3α/(4γ), equal to 27α⁴/(256γ³) ≤ 2.2097. So g ≤ 2.2097 + 2aβ (0.23803) ≤ 2.3557 and
 w ≤ (8/9)(9.473 × 10⁻⁴)(2.3557) ≤ 1.99 × 10⁻³. At the second seed, λ² = 1/10 and the polynomial part of g is
 (1 − a²/10) y⁴ + ((a² + β²)/10) y³, whose derivative y² (4(1 − a²/10) y + 3(a² + β²)/10) is positive on (0, 1]
-because 1 − a²/10 < 0 and 4(1 − a²/10) + 3a²/10 = 4 − a²/10 > 0. So the polynomial part is at most its value 1 + β²/10
+because 1 − a²/10 < 0 and 4(1 − a²/10) + 3(a² + β²)/10 ≥ 4 − a²/10 > 0. So the polynomial part is at most its value
+1 + β²/10
 at y = 1, g ≤ 1 + β²/10 + (2aβ/10)(0.23803) ≤ 1.0152, and w ≤ (8/9)(9.473 × 10⁻⁴)(1.0152) ≤ 8.55 × 10⁻⁴. Finally
 s = (3f²/4) w ≤ (2f²/3)(A² + B²) = (2/3) r^(−3) σ⁶ (σ² + λ² (aκ − 3fσ/(4r))²) ≤ (2/3) r_s^(−3) g, with
 r_s^(−3) ≤ 9.294 × 10⁻⁴; this gives s̄. ∎

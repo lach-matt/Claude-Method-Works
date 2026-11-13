@@ -749,8 +749,8 @@ finite set {−μ − j}, which we impose on δ. It gives
 with a remainder of tf-weight at least α_κ + ε_g − ε, which exceeds κ by ε_g − ε when α_κ = κ, and, when α_κ = 2 − δ < κ,
 exceeds 2 + ℓ_3 + ε (as δ + ℓ_3 + 2ε < ε_g), after which the loop ends; the pieces are σ³u. After finitely many rounds
 κ > 2 + ℓ_3 + ε; lowering κ if necessary (a forcing of tf-weight κ has every smaller tf-weight), κ ∈ (2 + ℓ_3 + ε, 3).
-[[lem:iii-i11-2-1]] with q_3 := κ − ε, q′ := κ and E = ∅ gives (û_3, ḃ_3, S_3)^± and the pieces σ³(χ_zf
-û_3 + ĝ^aug(ḃ_3) + ĥ^aug(S_3)). The rest,
+[[lem:iii-i11-2-1]] with q_3 := κ − ε, q′ := κ and E = ∅ gives (û_3, ḃ_3, S_3)^± and the pieces
+σ³(χ_zf û_3 + ĝ^aug(ḃ_3) + ĥ^aug(S_3)). The rest,
 
     g_J := (the level-3 source) − L̂_b(σ)(χ_zf û_3) − f̂_(ḃ_3) − f̂_(S_3) ∈ H^(∞,(5/2−ε,κ−ε,ℓ_3))_b
 

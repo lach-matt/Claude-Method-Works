@@ -245,8 +245,8 @@ The rows of [[sec:tb2-algebraic-rows]] show a_* ≥ A_ν + (7/2)ν⁴ in each ra
 applies to every such l, with α ≥ (a_* − A_ν)/ν (the lower bound [[eq:band-wi]] increases with α). With the τ and the
 constants listed there, B♯(σ_b) is less than 10.297, 10.579 and 10.381 in the three ranges.
 
-So for every l ≥ 0 and 3 ≤ |σ| ≤ 384 the norm is at most max(10.51, 9.261, 9.544, 10.297, 10.579, 10.381, 9.107, 7.4872)
-= 10.579 < 11.477. ∎
+So for every l ≥ 0 and 3 ≤ |σ| ≤ 384 the norm is at most
+max(10.51, 9.261, 9.544, 10.297, 10.579, 10.381, 4.531, 9.107, 4.100, 7.4872) = 10.579 < 11.477. ∎
 
 The six ranges, with the bound for the harmonics served by each multiplier and for those below it:
 
@@ -264,7 +264,7 @@ Together with [[prop:morawetz-resolvent-l-ge-1]] and [[prop:morawetz-l-zero]], w
 
 **Proposition {#prop:band-points}** (Sampled frequencies.) For every harmonic l ≥ 0, ‖χ_I R_l(σ) χ_I‖ is at most
 8.878, 4.682, 5.990, 4.097, 3.022 and 2.252 at |σ| = 3, 6, 12, 24, 48 and 96; at most 2.024, 1.869 and 1.743 at
-|σ| = 128, 160 and 192; and at most 1.677, 1.815 and 1.963 for |σ| in [σ − 1/20, σ] with σ = 256, 320 and 384.
+|σ| = 128, 160 and 192; and at most 1.677, 1.815 and 1.963 for every |σ| in [s − 1/20, s] with s = 256, 320 and 384.
 
 *Proof.* At |σ| = 3, [[prop:band-polynomial]] with M5 gives B♯(3) < 8.878 for l ≥ 5, and [[lem:band-barrier]] gives
 4.531 for l ≤ 4. At |σ| = 6, M11 gives B♯(6) < 4.682 for l ≥ 11 and [[lem:band-barrier]] gives 4.100 for l ≤ 10. At
@@ -288,8 +288,9 @@ in particular ‖u′‖_I ≤ 963.4‖f‖ for l ≥ 1 and ≤ 1516‖f‖ for 
 X(B̃)‖f‖ with X(B̃) = (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′), with (m′, M′) = (15/256, 0.74362) for l ≥ 1
 ([[prop:morawetz-resolvent-l-ge-1]]) and (3315/65536, 0.3999) at l = 0 ([[prop:morawetz-l-zero]]). X(B̃) increases
 with |σ|, so its value at |σ| = 384 bounds the band: for l ≥ 1,
-2m′(M′ + 768)B̃ = (15/128)(768.74362)(11.477) < 1033.94, so X < (1 + 32.171)/(15/128) < 283.06; at l = 0,
-2m′(M′ + 768)B̃ = (3315/32768)(768.3999)(11.477) < 892.18, so X_0 < (1 + 29.8862)(32768/3315) < 305.31.
+2m′(M′ + 768)B̃ = (15/128)(768.74362)(11.477) < 1033.94, whose increment by 1 has square root less than 32.171, so
+X < (1 + 32.171)/(15/128) < 283.06; at l = 0, 2m′(M′ + 768)B̃ = (3315/32768)(768.3999)(11.477) < 892.18, whose
+increment by 1 has square root less than 29.8862, so X_0 < (1 + 29.8862)(32768/3315) < 305.31.
 
 For the sum, [[cor:morawetz-one-derivative]] (a) with B_l replaced by B̃ gives, for l ≥ 2,
 κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))K‖f_l‖², K := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.88 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
