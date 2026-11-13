@@ -350,9 +350,13 @@ m_rows(W⃗) := Σ_ν m_ν(W_ν),
     D_(W⃗)P_5(W⃗) = L_(h″,p⃗)m_rows(W⃗) + e_rows(W⃗),
     e_rows(W⃗) := Σ_ν (r^ν_(h,p⃗) + E^ν_(h,p⃗))(W_ν) − R_q m_rows(W⃗) + Δ_q(W⃗).
 
+As W⃗ is conjugation-symmetric, m_rows(W⃗) is real ([[def:iii-i9-2-1]]: m_(ν̄)(W̄) is the complex conjugate of
+m_ν(W)), and D_(W⃗)P_5(W⃗) is real; so e_rows(W⃗) is real.
+
 (2) *The remainder is small.* The class 𝒴(α_1) contains the class 𝒴_2(α_1) of [[sec:iii-i8-1]], which holds every
-section supported in supp χ_K ⊂ supp χ^♯_K ([[eq:iii-i-1-2]]) with K⁺-weight above α_1 and plain ι⁺-weight above 4;
-the 𝒴(α_1)-norm of such a section is at most a seminorm of it in those weights. The four kinds of terms of e_rows(W⃗):
+conormal section supported in supp χ_K ⊂ supp χ^♯_K ([[eq:iii-i-1-2]]) of K⁺-weight above α_1 and plain ι⁺-weight
+above 4 (below the weight 4 − ε its ι⁺-index set ℰ_++ + 2 is then not used); the 𝒴(α_1)-norm of such a section is at
+most a seminorm of it in those weights. The four kinds of terms of e_rows(W⃗):
 
 - r^ν_(h,p⃗)(W) is supported in supp χ_K and lies in the class [[eq:iii-i9-2-5]], of plain ι⁺-weight
   Re λ + 2 + λ_♯ − ε > 4 and K⁺-weight Re e_ν + a_K − ε > α_1, with norm at most C|W|(‖h‖ + |p⃗|), uniformly on ℬ̄_*
@@ -377,9 +381,8 @@ solution of L_(h″,p⃗)u = L_(h″,p⃗)m_rows(W⃗) (Step 0). It lies in 𝒵
 α_1 − 2 and, by admissibility, not equal to it (the paragraph *The map* of the proof of [[thm:iii-i11-4-1]], with α_1
 in place of α′). So its m_ν(W_ν) has K⁺-weight α_1 − 2 − ε for every ε > 0 ([[lem:iii-i9-2-2]] (e)). A rotation row
 has K⁺-weight Re λ − ε > 1 > α_1 − 2 ([[lem:iii-i15-2-1]]). Every m_ν(W) has ι⁺-weight λ_♯ − ε > 3/2 and vanishes
-near ℐ⁺ ([[lem:iii-i9-2-2]] (b), (c)), which are the other conditions of [[eq:iii-i8-4-2]] at α_1. m_rows(W⃗) is
-real, as W⃗ is conjugation-symmetric ([[def:iii-i9-2-1]]). Moreover L_(h″,p⃗)m_rows(W⃗) = D_(W⃗)P_5(W⃗) − e_rows(W⃗)
-lies in 𝒴(α_1), by Step 1 and (2). So the parameter 0 has, for the
+near ℐ⁺ ([[lem:iii-i9-2-2]] (b), (c)), which are the other conditions of [[eq:iii-i8-4-2]] at α_1. Moreover
+L_(h″,p⃗)m_rows(W⃗) = D_(W⃗)P_5(W⃗) − e_rows(W⃗) lies in 𝒴(α_1), by Step 1 and (2). So the parameter 0 has, for the
 forcing L_(h″,p⃗)m_rows(W⃗), the property that defines p⃗′_(α_1), and by the uniqueness in [[prop:iii-i8-4-1]],
 p⃗′_(α_1)(L_(h″,p⃗)m_rows(W⃗)) = 0. This is the argument of the paragraph *The level map* of the proof of
 [[prop:iii-i8-4-1]], and of the paragraph *At (0, 0)* of the proof of [[thm:iii-i11-4-1]].

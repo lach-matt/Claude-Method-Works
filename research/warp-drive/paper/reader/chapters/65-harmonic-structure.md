@@ -968,9 +968,9 @@ needs.
     |ġ_H − ṁK* − c_∞ℒ_(W*)g| ≤ Ct_*^(−1/2),        c_∞ := (4π²)⁻¹ ∫ ℓ(χ′J_h + [□, χ′]Z_1) dv,
 
 the limit of a horizon charge. For a 1-form Y_h on N⁺, smooth up to Σ°, with □Y_h = 0 and Cauchy data of compact
-support on Σ°, ġ_H + ℒ_(Y_h)g has the properties above with three changes: c_∞ + Q[Y_h]/4π² replaces c_∞; near Σ° it
-equals ġ + ℒ_(Y_h)g, so it induces (γ̇, k̇) plus the data of ℒ_(Y_h)g; and it is G-invariant when Y_h is. With the
-same three changes, (i)–(iii) of [[thm:gd-r3-4]] hold for that theorem's representative plus ℒ_(Y_h)g.
+support on Σ°, ġ_H + ℒ_(Y_h)g has the properties above with three changes: c_∞ + Q[Y_h]/4π² replaces c_∞; where
+ġ_H equals ġ it equals ġ + ℒ_(Y_h)g, so it induces (γ̇, k̇) plus the data of ℒ_(Y_h)g; and it is G-invariant when Y_h
+is. With the same three changes, (i)–(iii) of [[thm:gd-r3-4]] hold for that theorem's representative plus ℒ_(Y_h)g.
 
 *Proof.* [[prop:gd-r3-6]], whose hypothesis is [[thm:gd-r4-3]]. Z_1 is G-invariant by the argument of
 [[prop:gd-2-1]] (a). *Near Σ°.* χ_K = 0 there, and F_Y = χ^♮_0E^ΥGḣ (step (1) of the proof of [[thm:gd-r4-3]])
