@@ -232,11 +232,14 @@ R²e^(2β)γ̂. Then, with ζ := α − β,
     R²e^(2β) Scal(γ_ε) = 6 − 2Δ̂ζ − 2|D̂ζ|² − 6Δ̂β − 6D̂α·D̂β − 6√f e^(−α) ∂_R(R√f e^(2β−α)(1 + R∂_Rβ)).
                                                                                                     {#eq:loc-scal-exact}
 
-Indeed, γ_ε = b²ĝ with b := Re^β and ĝ := ã²dR² + γ̂, ã := e^(α−β)/(R√f). The spheres {R = const} carry the metric γ̂ in
-ĝ for every R, so their second fundamental form vanishes, and the Gauss and Riccati equations give Scal(ĝ) = 6 − 2ã⁻¹Δ̂ã.
-In dimension four Scal(b²ĝ) = b⁻²(Scal(ĝ) − 6b⁻¹Δ_ĝb), and Δ_ĝb = ã⁻¹∂_R(ã⁻¹∂_Rb) + ã⁻¹D̂·(ãD̂b), the volume form of ĝ
-being ã dR dvol_γ̂. Inserting ã⁻¹Δ̂ã = Δ̂ζ + |D̂ζ|², b⁻¹ã⁻¹∂_R(ã⁻¹∂_Rb) = √f e^(−α)∂_R(R√f e^(2β−α)(1 + R∂_Rβ)) and
-b⁻¹ã⁻¹D̂·(ãD̂b) = Δ̂β + D̂α·D̂β gives [[eq:loc-scal-exact]].
+Indeed, γ_ε = Λ²ĝ with Λ := Re^β and ĝ := ã²dR² + γ̂, ã := e^(α−β)/(R√f). The spheres {R = const} carry the metric γ̂ in
+ĝ for every R, so their second fundamental form vanishes, and the Gauss and Riccati equations of the proof of
+[[lem:constraints-evolution]] (a), with lapse ã and second fundamental form 0, give Scal(ĝ) = 6 − 2ã⁻¹Δ̂ã. Tracing the
+formula for Ric[h] − Ric[g] in the proof of [[lem:conformal]] with m = 4, g = ĝ and h = Λ²ĝ (so that ψ = ln Λ and □ =
+Δ_ĝ there) gives Scal(Λ²ĝ) = Λ⁻²(Scal(ĝ) − 6Δ_ĝ ln Λ − 6|d ln Λ|²_ĝ) = Λ⁻²(Scal(ĝ) − 6Λ⁻¹Δ_ĝΛ), since Δ_ĝ ln Λ +
+|d ln Λ|²_ĝ = Λ⁻¹Δ_ĝΛ; and Δ_ĝΛ = ã⁻¹∂_R(ã⁻¹∂_RΛ) + ã⁻¹D̂·(ãD̂Λ), the volume form of ĝ being ã dR dvol_γ̂. Inserting
+ã⁻¹Δ̂ã = Δ̂ζ + |D̂ζ|², Λ⁻¹ã⁻¹∂_R(ã⁻¹∂_RΛ) = √f e^(−α)∂_R(R√f e^(2β−α)(1 + R∂_Rβ)) and Λ⁻¹ã⁻¹D̂·(ãD̂Λ) = Δ̂β + D̂α·D̂β
+gives [[eq:loc-scal-exact]].
 
 For b = e = 0, γ + εh = f⁻¹(1 + εfAS)dR² + R²(1 + 2εFS)γ̂, so α = εα_1 + ε²α_2 + O(ε³) and β = εβ_1 + ε²β_2 + O(ε³) with
 α_1 = fAS/2, α_2 = −f²A²S²/4, β_1 = FS and β_2 = −F²S². Write Y := R√f e^(2β−α)(1 + R∂_Rβ) = Y_0 + εy_1S + ε²y_2S² +

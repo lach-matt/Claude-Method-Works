@@ -646,7 +646,9 @@ by the site above it. So every index is at most 𝔐(100) + 4, attained only at 
 20,104. By [[lem:fwd-orders]] and [[lem:fwd-tame]], d′ = 10, d″ = 11 and D_1 = 49. So by [[eq:fwd-split]]
 d ≤ 20,104 + 49 + 10 + 11 + 1 + 5 = 20,180, and the theorem holds with any larger d, in particular with d = 20,180. ∎
 
-**Remark {#rem:fwd-sharpness}** (Sharpness.) Only the term D_0 is crude. It is driven by the uniform box of
-[[lem:fwd-box]] and by the generous expansion lengths of [[prop:fwd-calculus]]; counting each application of the
-calculus at its own orders would lower it by more than an order of magnitude. The terms d′, d″ and D_1 are the exact
-values that the proofs of [[sec:ii-f1-3-1]], [[thm:ii-e-6-1]] and [[prop:ii-e-4-4]] fix for these orders.
+**Remark {#rem:fwd-sharpness}** (Sharpness.) Only the term D_0 is crude. The counts of [[prop:fwd-calculus]] at T = 100
+are at most 15,852 (item (f) with six quantizations), so the same proof gives D_0 ≤ 15,858 and d ≤ 15,934; the value
+𝔐(100) = 20,100 keeps a margin. Counting each application of the calculus at its own orders (symbol orders at most 71,
+Sobolev orders in [−51, 38], at most five quantizations, by [[lem:fwd-box]]) would lower D_0 further. The terms d′, d″
+and D_1 are the exact values that the proofs of [[sec:ii-f1-3-1]], [[thm:ii-e-6-1]] and [[prop:ii-e-4-4]] fix for
+these orders.
