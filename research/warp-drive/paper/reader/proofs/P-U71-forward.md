@@ -347,8 +347,9 @@ J_2 + 12 + (J_1 − 1) = 4A + 2B + 13 ≤ K(A, B).
 Step 3. c = Σ ∂_ξ^(α′)(∂_ξ^α λ · D_x^α b) D_x^(α′) λ′/(α!α′!) has the pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′|,
 the variable orders cancelling at every point; [[lem:fwd-l2]] bounds Op(c) on L² by C|c|^0_12, at a cost on b of
 12 + (J_1 − 1) + (J_2 − 1) = 4A + 2B + 12.
-Step 4. ‖Op(b)w‖_(H^(−A−B)) ≤ C‖w‖_(H^(−A)) and ‖Op(λ)Op(b)R_∞w‖ ≤ C‖Op(b)R_∞w‖_(H^(A+B)) ≤ C‖w‖_(H^(−N_0)) by
-[[lem:fwd-crude]], at most n + 1 + A + B x-derivatives of b.
+Step 4. ‖Op(b)w‖_(H^(−A−B−1)) ≤ C‖w‖_(H^(−A)), and ‖Op(λ)Op(b)R_∞w‖ ≤ C‖Op(b)R_∞w‖_(H^(A+B)) ≤
+C‖R_∞w‖_(H^(A+2B+1)) ≤ C‖w‖_(H^(−N_0)), by [[lem:fwd-crude]] with μ := B + ¼ (s = −A, resp. s = A + 2B + 1), at most
+n + 1 + A + B x-derivatives of b. Together with Steps 1–3 and ‖Λw‖ ≤ ‖w‖_(H^𝗍) this is the claim.
 The largest count is that of Step 1. For A = B = T: J_1 = 4T + 1, 2L′ = 𝔢(6T + 7) = 6T + 8, K = 10T + 15. ∎
 
 **Lemma {#lem:fwd-norms}** (Localisation of the norms.) For every order function 𝗋 there is C such that, for cut-offs

@@ -1180,19 +1180,18 @@ Then there is a solution g on D, and y_σ(g) ≤ 2A for every σ ∈ [1/2, v*].
 data, [[thm:std-ctg-neighbourhood]] gives a vacuum development containing a future neighbourhood of N₀ ∪ N₁ (its
 proof, [CTG23, Section 4, p. 10], runs the argument of [CCTW16, Theorem 5.3] in any maximal domain of existence and
 does not show that this domain is unique), and likewise for the data that a solution on D_s induces on {v = s} ∩ D
-and on N₁ ∩ {v ≥ s}, which meet transversally at the sphere {u = −10, v = s}. Three further facts would give
-(F1)–(F3) from it: that the T² action of the data and the
-reflections φ1 ↦ −φ1 and φ2 ↦ −φ2 extend to isometries of the development, which puts the metric in the form of the
-class; that double-null coordinates on that neighbourhood, with u constant on the outgoing null hypersurfaces through
-the leaves of N₀, v constant on the ingoing ones through the leaves of N₁, and x, φ1 and φ2 constant along the
-outgoing generators and equal on N₀ to those of the data, cover a region D_(s′) with s′ > s; and that a solution in the
-gauge is determined by its data. The first and the third rest on the uniqueness, up to isometry, of the vacuum
-development of characteristic data on a neighbourhood of the whole of the two hypersurfaces, which no result quoted in
-[[app:standard-results]] provides. [CP12, Section 4.3, p. 16] writes of the characteristic problem that "Here
-uniqueness is understood locally, though again it is clear that unique maximal globally hyperbolic developments should
-exist in the current context", and the proof of [CCTW16, Theorem 5.3, p. 55] notes that "the question, whether a
-unique such maximal domain exists is irrelevant for our purposes". So (F1)–(F3) are hypotheses of the lemma. No proof
-in this paper uses the lemma.
+and on N₁ ∩ {v ≥ s}, which meet transversally at the sphere {u = −10, v = s}. Three further facts would give (F1)–(F3)
+from it: that the T² action of the data and the reflections φ1 ↦ −φ1 and φ2 ↦ −φ2 extend to isometries of the
+development, which puts the metric in the form of the class; that double-null coordinates on that neighbourhood, with u
+constant on the outgoing null hypersurfaces through the leaves of N₀, v constant on the ingoing ones through the leaves
+of N₁, and x, φ1 and φ2 constant along the outgoing generators and equal on N₀ to those of the data, cover a region
+D_(s′) with s′ > s; and that a solution in the gauge is determined by its data. The first and the third rest on the
+uniqueness, up to isometry, of the vacuum development of characteristic data on a neighbourhood of the whole of the two
+hypersurfaces, which no result quoted in [[app:standard-results]] provides. [CP12, Section 4.3, p. 16] writes of the
+characteristic problem that "Here uniqueness is understood locally, though again it is clear that unique maximal
+globally hyperbolic developments should exist in the current context", and the proof of [CCTW16, Theorem 5.3, p. 55]
+notes that "the question, whether a unique such maximal domain exists is irrelevant for our purposes". So (F1)–(F3) are
+hypotheses of the lemma. No proof in this paper uses the lemma.
 
 *Proof.* First, if 4AB < 1 and y ≥ 0 satisfies y ≤ A + By², then y ∉ (2A, 1/(2B)), and if moreover y ≤ 2A then
 y ≤ A + 4A²B < 2A. Indeed q(y) := By² − y + A is convex with q(2A) = A(4AB − 1) < 0 and q(1/(2B)) =

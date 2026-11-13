@@ -1488,8 +1488,11 @@ the equation, and by differentiating [[eq:class-leaf-volterra]] in τ as in step
 *Uniqueness.* A smooth G-invariant development in the gauge D(g) = 0 on
 its own adapted domain, with the same datum and 𝒩_(k−1) ≤ ε2, gives a solution of the augmented system there as in that
 Step 9, its Θ_A on the tubes being □_g u_A and its σ_A that of its own leaves by Step 10 below; by the domain of
-dependence at the order k − 1 it agrees with the solution constructed on its adapted domain, and the two adapted
-domains coincide, their boundaries near the axes being leaves of the same phase. Invariance under G follows as before.
+dependence at the order k − 1 (with the bound of [[def:class-adapted]] on T_(τ,U) − id at the order k − 1, from the
+proof of [[lem:class-leaf-differences]] (a) at that order, and 𝔼 bounded on H^(k−1)) it agrees with the solution
+constructed on its adapted domain. The two adapted domains coincide: T_(τ,U) depends only on the values of U on the
+axes, along the integral curves of P_A from Σ_τ0, and on the leaves h_B, and for the development these lie in its own
+adapted domain, where the two solutions agree. Invariance under G follows as before.
 
 *Step 10.* [[eq:class-leaf-volterra]] is uniquely solvable ([[lem:class-volterra]]), so on a solution with Θ_A = □_g
 u_A it returns the true leaves of u_A, hence the true σ_A. So near an axis Δ_A = Θ_A − □_g u_A obeys
@@ -1511,9 +1514,10 @@ background of [[prop:two-dust-background]] on Ω₂ ([[lem:two-dust-domain]]), w
 and the outgoing family u, density ℬ/R³ ([[eq:two-dust-limit]]), and assume that the outgoing packet does not reach
 the inner sphere: {u1 ≤ u ≤ u2} ∩ Ω₂ ∩ {R = a} = ∅. Replace the lateral boundaries of Ω₂ by adapted ones:
 
-- *inner:* {v_ε − τ = a}, a leaf of the ingoing family in each slice, v_ε the ingoing phase of the solution;
-- *outer:* {u_ε = U_b(τ)}, U_b(τ) the value of the background's outgoing phase on {R = b(τ)}, a leaf of the outgoing
-family, u_ε the outgoing phase of the solution.
+- *inner:* the boundary B_U of [[def:class-adapted]] for B = {R = a}, the ingoing family and c_B(τ) := τ + a, near the
+axes the leaf {v_ε − τ = a} of the ingoing phase v_ε of the solution;
+- *outer:* the boundary B_U for B = {R = b(τ)}, the outgoing family and c_B(τ) := U_b(τ), the value of the
+background's outgoing phase on {R = b(τ)}, near the axes the leaf {u_ε = U_b(τ)} of the outgoing phase u_ε.
 
 For the background both are the spheres {R = a} and {R = b(τ)} of Ω₂. Let S_in := {v_start − η ≤ v ≤ v_end + η} ∩ Σ_τ0
 and S_out := {u1 − η ≤ u ≤ u2 + η} ∩ Σ_τ0 with 0 < η < 1 so small that {u1 − η ≤ u ≤ u2 + η} ∩ Ω₂ does not meet {R = a},
