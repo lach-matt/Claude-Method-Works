@@ -1361,15 +1361,41 @@ within 4.1 × 10⁻¹¹ and σ_L within 8.0 × 10⁻¹⁰, while the flat equati
 **Definition {#def:class-adapted}** (Adapted boundaries and the adapted domain.) Let Ω be admissible for g̊ and B a
 lateral boundary component of Ω that meets an axis. B is *adapted* to the family A near the points where it meets an
 axis if there are a G-invariant neighbourhood 𝒱_B of those points and a smooth function c_B with B ∩ Σ_τ ∩ 𝒱_B = {ů_A =
-c_B(τ)} ∩ Σ_τ ∩ 𝒱_B for every τ. Fix then a defining function F_B of B, with Ω ⊂ {F_B ≤ 0} near B and F_B = e_B (ů_A −
-c_B(τ)) in 𝒱_B for a sign e_B ∈ {1, −1}, and a G-invariant cut-off χ_B, equal to 1 near the points of B on the axes and
-supported in 𝒱_B. For a solution U of the augmented system near ů, let u_A[U] be the phase of family A in 𝒱_B defined
-by U: on each slice it is constant on the leaves of [[lem:class-leaf-differences]], and on the axis it is constant
-along the integral curves of P_A, which run in the axis there ([[lem:class-phase-axis]]), with the values of the
-datum on Σ_τ0. The *adapted boundary* of U is B_U := {χ_B e_B (u_A[U] − c_B(τ)) + (1 − χ_B) F_B = 0}, and the *adapted
-domain* Ω_U is Ω with every adapted component B replaced by B_U. For U = ů, B_U = B. Where χ_B = 1, B_U ∩ Σ_τ is a leaf
-{u_A[U] = c_B(τ)} ∩ Σ_τ of the family. For U near ů in 𝒩_k, B_U is a C¹-small perturbation of B, by
-[[lem:class-leaf-differences]] (a) and [[lem:sobolev]], so it stays spacelike with Ω_U to its past, these being open
+c_B(τ)} ∩ Σ_τ ∩ 𝒱_B for every τ. Take 𝒱_B so small that, near each point of B on axis 2, it lies over the disc
+{|y| < δ} on which the leaves of [[lem:class-leaf-differences]] are graphs z = h(y) in the coordinates (z, y) of
+[[lem:class-leaf]], and likewise near axis 1 with the two planes exchanged; then B ∩ Σ_τ ∩ 𝒱_B is a part of the leaf
+of ů_A at the value c_B(τ). Fix a G-invariant cut-off χ_B, equal to 1 near the points of B on the axes and supported in
+𝒱_B. The phases of a datum within ε of ů's are normalised by adding constants, which changes neither the development
+nor the augmented system, so that |u_A − ů_A| ≤ C ε on Σ_τ0 ∩ Ω: by [[lem:sobolev]], |d(u_A − ů_A)| ≤ C ε on the slice,
+whose points are joined in it by paths of bounded length, as it is the image of an annulus under ψ_τ0.
+
+For a solution U of the augmented system near ů, the phase of family A defined by U on the axes in 𝒱_B is constant along
+the integral curves of P_A, which run in the axis there (the argument of [[lem:class-phase-axis]] applies to the
+G-invariant covector p_A), with the values of the datum on Σ_τ0. Let z_B(τ) be the point of the axis, near the point
+z̊_B(τ) of B ∩ Σ_τ there, at which this phase takes the value c_B(τ); let h_B be the leaf of U through z_B(τ) and h̊_B
+the leaf of ů through z̊_B(τ), and put, on Σ_τ,
+
+    T_(τ,U)(x) := x + Σ_B χ_B(x) (h_B − h̊_B)(y) e(x),
+
+the sum over the adapted components, with e := (x1, x2, 0, 0)/ρ1 and y := (x3, x4) near axis 2, e := (0, 0, x3,
+x4)/ρ2 and y := (x1, x2) near axis 1, so that T_(τ,U) adds χ_B (h_B − h̊_B)(y) to z and leaves y fixed. The *adapted
+domain* of U is Ω_U := ⋃_τ {τ} × T_(τ,U)(Σ_τ ∩ Ω), whose lateral boundary components are the *adapted boundaries*
+B_U := ⋃_τ T_(τ,U)(B ∩ Σ_τ) and the components of Ω that are not adapted. For U = ů, T_(τ,U) is the identity and B_U =
+B. Near the points of B on the axes, where χ_B = 1, B_U ∩ Σ_τ is the graph of h_B, the leaf of U through z_B(τ); for a
+solution with p_A = du_A and Θ_A = □_g u_A it is the level set {u_A = c_B(τ)} ∩ Σ_τ, by the last statement of
+[[lem:class-leaf-differences]].
+
+For U in the ball 𝔅 of [[lem:class-leaf-differences]], every derivative of T_(τ,U) − id of order at most k is bounded
+by C (sup_(τ′≤τ) 𝒩_k(τ′) + ε). Indeed the proof of [[lem:class-leaf-differences]] (a) bounds the difference of the
+leaves of U and of ů through one axis point by C 𝒩_k in H^(k+2) of the disc, hence in C^k of the disc, by
+[[thm:std-bh-embedding]] applied to its derivatives of order at most k; the leaves of ů depend smoothly on their axis
+point; and |z_B(τ) − z̊_B(τ)| ≤ C (sup_(τ′≤τ) 𝒩_k(τ′) + ε), since ∂_z ů_A ≠ 0 on the axis, the integral curves of P_A
+and of P̊_A in the axis stay within C sup_(τ′≤τ) 𝒩_k(τ′) of each other by Gronwall's inequality, and the data of the
+phases differ by at most C ε. So for U near ů, T_(τ,U) − id is small in C^k, and T_(τ,U) is a G-equivariant
+diffeomorphism of R⁴, equal to the identity outside the 𝒱_B: it is injective, as |T_(τ,U)(x) − T_(τ,U)(x′)| ≥ |x −
+x′|/2, onto, the map x ↦ x′ − (T_(τ,U)(x) − x) being a contraction for each x′, and of class C^k with invertible
+differential. The same argument for the τ-derivatives, which the proof of [[lem:class-leaf-differences]] (a) bounds as
+well, shows that B_U is a C¹-small perturbation of B, so it stays spacelike with Ω_U to its past, these being open
 conditions.
 
 **Theorem {#thm:class-stability}** (Cauchy stability of the class Einstein–null-dust system.) The conclusion of

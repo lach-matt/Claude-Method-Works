@@ -552,12 +552,12 @@ hence so are those of its Ricci tensor; they vanish on the open set {u < −1} o
 they vanish identically, and the metric is vacuum on D_seed × S³ by continuity at the axes, where it is R² times the
 round metric in the angular directions and smooth. It is the seed on all of D_seed × S³, the horizon u = −1 and the
 region u > −1 included: differentiating [[eq:tl5-seed-radius]] in u gives F′(R) ∂_uR = −2u² e^(v − 2u)/(u − 1)², so
-∂_uR = −2e^(2W) by the formula for F′ in (a) and [[eq:tl5-seed-lapse]], and with ∂_vR = f(R)/2 from (b), we have
-−4e^(2W) du dv = 2 dv dR − f(R) dv². For each v the admissible u form an interval: by (a) they are the u ∈ [−10, −1]
+∂_uR = −2e^(2W) by the formula for F′ in (a) and [[eq:tl5-seed-lapse]], and with ∂_vR = f(R)/2 from (b) this gives
+2 dv dR − f(R) dv² = −4e^(2W) du dv. For each v the admissible u form an interval: by (a) they are the u ∈ [−10, −1]
 and the u ∈ (−1, 0) with h(u) > v, and h is decreasing. As ∂_uR < 0, the map (u, v) ↦ (v, R) is therefore injective
 on D_seed, with Jacobian determinant −∂_uR > 0, so (v, R, ϑ, φ1, φ2) are coordinates on D_seed × S³ away from the
-axes, and in them the metric is [[eq:vr-form]] with μ = 1 and r = R. By continuity, the map
-(u, v, ω) ↦ (v, R(u, v), ω), ω ∈ S³, is then an isometry of D_seed × S³, the axes included, onto a region of the seed.
+axes, and in them the metric is [[eq:vr-form]] with μ = 1 and r = R. By continuity, (u, v, ω) ↦ (v, R(u, v), ω),
+ω ∈ S³, is then an isometry of D_seed × S³, the axes included, onto a region of the seed.
 
 (d) At v = 0, R = −u solves [[eq:tl5-seed-radius]], since F(−u) = e^(−2u)(u + 1)/(u − 1), and then
 [[eq:tl5-seed-lapse]] gives e^(2W) = (1 − u)² u²/(2u² (u − 1)²) = 1/2. At u = −10 the equation reads
@@ -582,7 +582,7 @@ On N ∩ {v ≤ 1/2}, r ≤ r_s, so the R of [[prop:cone-exact]] is r and the da
 horizon it is more than 2.91 times it at the first seed and more than 0.92 times it at the second;
 
 (b) the characteristic problem of [[def:tl5-problem]] has a solution where the solution is the seed: on
-D⁰ := ({−10 ≤ u ≤ u*, 0 ≤ v ≤ 1/2} ∩ D_seed) × S³, which is all of {−10 ≤ u ≤ u*, 0 ≤ v ≤ r_h/2} × S³ when u* < u₀
+D⁰ := ({−10 ≤ u ≤ u*, 0 ≤ v ≤ 1/2} ∩ D_seed) × S³, which is all of {−10 ≤ u ≤ u*, 0 ≤ v ≤ 1/2} × S³ when u* < u₀
 ([[lem:tl5-seed]] (a)), the seed of [[lem:tl5-seed]] is a smooth vacuum metric of the class in the gauge that induces
 the data on D⁰ ∩ C₀ and on D⁰ ∩ N;
 

@@ -292,8 +292,8 @@ evaluated at y = x, that is, at the point of phase space with the chart-α coord
 
 *Proof.* Let ε be so small that every pair (x, y) with x ∈ supp θ, |x − y| ≤ Cε and x or y in φ_α(supp χ_β) has the
 segment from y to x inside the domain of κ and inside (−7/4, 7/4)ⁿ, and that ‖Φ(x, y) − Dκ(x)‖ ≤ ½‖Dκ(x)⁻¹‖⁻¹ for
-these pairs; this is possible uniformly in
-(α, β), as supp χ_β ⊂ φ_β⁻¹([−5/4, 5/4]ⁿ) and by (S1), (S15). The kernel of θO^ε_β(g) in the chart α is
+these pairs; this is possible uniformly in (α, β), as supp χ_β ⊂ φ_β⁻¹([−5/4, 5/4]ⁿ) and by (S1), (S15). (For c^*
+the symbol is evaluated at κ(y), with y in φ_α(supp χ_β).) The kernel of θO^ε_β(g) in the chart α is
 θ(x)K(κ(x), κ(y))|det Dκ(y)| with K that of Op_(ψη_0)(g_β); substituting ξ = Φ(x, y)^(−T)η, as
 (κ(x) − κ(y))·ξ = (x − y)·Φ^Tξ, gives c. For the adjoint of O^ε_β(g), the kernel is μ_α(x)⁻¹ \overline{K^#(y, x)}
 μ_α(y) with K^#(y, x) = K(κ(y), κ(x))|det Dκ(x)|; as κ(y) − κ(x) = −Φ(x, y)(x − y), the same substitution gives c^*
