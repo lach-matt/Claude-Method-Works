@@ -1,0 +1,97 @@
+label	source	source_name	note
+ch:s15	docket68/n1star/proof5/PART-III-F-LINEARISED.md:10-215; docket68/n1star/proof5/PART-III-F2-INDICIAL.md:14-492; docket68/n1star/proof5/PART-III-F3-MODES.md:17-270; docket68/n1star/proof5/PART-III-F4-ZERO.md:17-457; docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:16-330	III.F, III.F1-III.F4 (kept ranges)	intro composed from the status sentences and intros; inner radius per docket68/n1star/BEYOND5-R0-PROOF.md:186-240
+sec:iii-f-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:17-32	III.F section 1	
+eq:iii-f-1-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:26	III.F (1.1)	
+eq:iii-f-1-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:28	III.F (1.2)	
+sec:iii-f-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:34-89	III.F section 2	
+eq:iii-f-2-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:40	III.F (2.1)	
+lem:iii-f-2-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:42-89	III.F Lemma 2.1	
+eq:iii-f-2-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:47-49	III.F (2.2)	
+eq:iii-f-2-3	docket68/n1star/proof5/PART-III-F-LINEARISED.md:52-55	III.F (2.3)	
+sec:iii-f-3	docket68/n1star/proof5/PART-III-F-LINEARISED.md:91-131	III.F section 3	
+lem:iii-f-3-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:93-126	III.F Lemma 3.1	program parenthetical (sbar5, cpmodes5, thresh5) dropped; hand proof kept
+eq:iii-f-3-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:95-97	III.F (3.1)	
+sec:iii-f-4	docket68/n1star/proof5/PART-III-F-LINEARISED.md:133-214	III.F section 4	
+prop:iii-f-4-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:141-214	III.F Proposition 4.1	grading computations written out monomial by monomial (lgrade5 G1, strap5 P2-P3 parenthetical dropped)
+eq:iii-f-4-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:150-152	III.F (4.1)	
+eq:iii-f-4-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:168	III.F (4.2)	rotation function renamed varkappa (kappa is l(l+2) in this chapter)
+sec:iii-f1-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:14-58	III.F1 section 1	(C1)-(C4) read from thm:iii-e-1-1 (3); parameter-point paragraph replaced; types-and-representations paragraph moved here from 245-251
+sec:iii-f1-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:60-263	III.F1 section 2	
+lem:iii-f1-2-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:68-76	III.F1 Lemma 2.1	new written proof (block determinant identity + flat case by Clebsch-Gordan) replacing lin5.py E2; c = (-1)^k determined
+eq:iii-f1-2-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:69-72	III.F1 (2.1)	
+lem:iii-f1-2-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:89-102	III.F1 Lemma 2.2	linroots5 R1 parenthetical dropped
+prop:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:104-188	III.F1 Proposition 2.3	(f): numeral eps_ind<3e-6 replaced by eps_ind<=delta_50 (VI.C row w1, PART-VI4-PARAMS.md:38), citing prop:np-10-52
+eq:iii-f1-2-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:130-132	III.F1 (2.2)	
+lem:iii-f1-2-4	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:190-243	III.F1 Lemma 2.4	
+lem:iii-f1-2-5	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:226-263	III.F1 Lemma 2.5	linroots5 R2-R3 parenthetical dropped
+eq:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:229	III.F1 (2.3)	
+sec:iii-f1-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:265-491	III.F1 section 3	
+lem:iii-f1-3-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:291-360	III.F1 Lemma 3.1	
+eq:iii-f1-3-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:294-296	III.F1 (3.1)	
+lem:iii-f1-3-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:362-373	III.F1 Lemma 3.2	
+prop:iii-f1-3-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:375-458	III.F1 Proposition 3.3	
+cor:iii-f1-3-4	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:462-491	III.F1 Corollary 3.4	
+eq:iii-f1-3-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:463-465	III.F1 (3.2)	
+eq:iii-f1-3-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:467-469	III.F1 (3.3)	
+sec:iii-f2-1	docket68/n1star/proof5/PART-III-F3-MODES.md:17-73	III.F2 section 1	
+lem:iii-f2-1-1	docket68/n1star/proof5/PART-III-F3-MODES.md:19-49	III.F2 Lemma 1.1	new written proof of (1.1) by a weight grading at N*H, replacing lhor5.py H1-H2
+eq:iii-f2-1-1	docket68/n1star/proof5/PART-III-F3-MODES.md:23	III.F2 (1.1)	variable k renamed nu
+cor:iii-f2-1-2	docket68/n1star/proof5/PART-III-F3-MODES.md:51-60	III.F2 Corollary 1.2	
+lem:iii-f2-1-3	docket68/n1star/proof5/PART-III-F3-MODES.md:62-73	III.F2 Lemma 1.3	
+sec:iii-f2-2	docket68/n1star/proof5/PART-III-F3-MODES.md:75-214	III.F2 section 2	ODE fact cited from the proof of prop:iii-d-6-2
+thm:s15-ki	docket68/n1star/N1STAR-PROOF.md:4846-4880	[KI03] (2.4)-(2.24), (3.1)-(3.12), (4.1)-(4.3), (5.1)-(5.17)	black box, specialised to n=3, K=1, Lambda=0, 2M=m_0; pages of arXiv:hep-th/0305147v3
+eq:s15-ki-q	docket68/n1star/proof5/PART-III-F3-MODES.md:151-153	[KI03] (3.7) at n=3; III.F2 Step 3 Q	positivity proof written (4ac-b^2 = 48p^2(23p-24)(35p+192)) replacing gmodes5 G5
+lem:s15-low	docket68/n1star/proof5/PART-III-F3-MODES.md:160-171; docket68/n1star/proof5/PART-III-F4-ZERO.md:240-262	III.F2 Step 4 and III.F3 Steps 4, 6 (static5 S4, S6; gmodes5 G4)	new: components of D Ric on the low sectors written out (checked privately); (c) from the Einstein tensor of static warped products
+cor:s15-low	docket68/n1star/proof5/PART-III-F3-MODES.md:160-171; docket68/n1star/proof5/PART-III-F4-ZERO.md:240-262	III.F2 Step 4; III.F3 Steps 4, 6	eliminations written out
+lem:iii-f2-2-1	docket68/n1star/proof5/PART-III-F3-MODES.md:91-120	III.F2 Lemma 2.1	
+thm:iii-f2-2-2	docket68/n1star/proof5/PART-III-F3-MODES.md:122-191	III.F2 Theorem 2.2	KI master equations as black box; gauge 1-forms written with the sign that cancels H_T (pending issue-1)
+lem:iii-f2-2-3	docket68/n1star/proof5/PART-III-F3-MODES.md:196-214	III.F2 Lemma 2.3	
+sec:iii-f2-3	docket68/n1star/proof5/PART-III-F3-MODES.md:216-245	III.F2 section 3	
+prop:iii-f2-3-1	docket68/n1star/proof5/PART-III-F3-MODES.md:218-245	III.F2 Proposition 3.1	
+sec:iii-f2-4	docket68/n1star/proof5/PART-III-F3-MODES.md:247-258	III.F2 section 4	
+prop:iii-f2-4-1	docket68/n1star/proof5/PART-III-F3-MODES.md:249-258	III.F2 Proposition 4.1	
+sec:iii-f2-5	docket68/n1star/proof5/PART-III-F3-MODES.md:260-269	III.F2 section 5	forward pointer to cor:iii-h-4-3, cor:iii-h-4-4 (III.H C4.3-4.4)
+sec:iii-f3-1	docket68/n1star/proof5/PART-III-F4-ZERO.md:17-61	III.F3 section 1	
+lem:iii-f3-1-1	docket68/n1star/proof5/PART-III-F4-ZERO.md:47-61	III.F3 Lemma 1.1	mp5 M3 parenthetical dropped
+sec:iii-f3-2	docket68/n1star/proof5/PART-III-F4-ZERO.md:63-158	III.F3 section 2	
+lem:iii-f3-2-1	docket68/n1star/proof5/PART-III-F4-ZERO.md:65-83	III.F3 Lemma 2.1	zstates5 Z5 cross-check values 2(2+z), 3 derived from eq:s13-dets
+prop:iii-f3-2-2	docket68/n1star/proof5/PART-III-F4-ZERO.md:85-134	III.F3 Proposition 2.2	(4): static5 S5 derived from the Christoffel symbols
+eq:iii-f3-2-1	docket68/n1star/proof5/PART-III-F4-ZERO.md:87-89	III.F3 (2.1)	
+eq:iii-f3-2-2	docket68/n1star/proof5/PART-III-F4-ZERO.md:96-97	III.F3 (2.2)	
+rem:iii-f3-2-3	docket68/n1star/proof5/PART-III-F4-ZERO.md:139-158	III.F3 Remark 2.3	with the paragraph following it
+eq:iii-f3-2-3	docket68/n1star/proof5/PART-III-F4-ZERO.md:141-142	III.F3 (2.3)	
+sec:iii-f3-3	docket68/n1star/proof5/PART-III-F4-ZERO.md:160-283	III.F3 section 3	
+thm:iii-f3-3-1	docket68/n1star/proof5/PART-III-F4-ZERO.md:174-271	III.F3 Theorem 3.1	static5 S1-S6 replaced by KI black box + lem:s15-low; gauge sign pending issue-1
+eq:iii-f3-3-1	docket68/n1star/proof5/PART-III-F4-ZERO.md:215-216	III.F3 (3.1)	derived as [KI03] (4.2) at n=3
+eq:iii-f3-3-2	docket68/n1star/proof5/PART-III-F4-ZERO.md:220	III.F3 (3.2)	derived; identified with [KI03] (4.3)
+cor:iii-f3-3-2	docket68/n1star/proof5/PART-III-F4-ZERO.md:273-283	III.F3 Corollary 3.2	
+sec:iii-f3-4	docket68/n1star/proof5/PART-III-F4-ZERO.md:285-456	III.F3 section 4	
+eq:iii-f3-4-1	docket68/n1star/proof5/PART-III-F4-ZERO.md:288-289	III.F3 (4.1)	
+prop:iii-f3-4-1	docket68/n1star/proof5/PART-III-F4-ZERO.md:294-413	III.F3 Proposition 4.1	self-adjointness of G D Ric stated as the standard property of the linearised Einstein operator
+eq:iii-f3-4-2	docket68/n1star/proof5/PART-III-F4-ZERO.md:298-300	III.F3 (4.2)	
+eq:iii-f3-4-3	docket68/n1star/proof5/PART-III-F4-ZERO.md:305-306	III.F3 (4.3)	
+eq:iii-f3-4-4	docket68/n1star/proof5/PART-III-F4-ZERO.md:323	III.F3 (4.4)	
+eq:iii-f3-4-5	docket68/n1star/proof5/PART-III-F4-ZERO.md:380	III.F3 (4.5)	
+cor:iii-f3-4-2	docket68/n1star/proof5/PART-III-F4-ZERO.md:415-456	III.F3 Corollary 4.2	
+eq:iii-f3-4-6	docket68/n1star/proof5/PART-III-F4-ZERO.md:418-420	III.F3 (4.6)	
+sec:iii-f4-1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:16-40	III.F4 section 1	
+sec:iii-f4-2	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:42-136	III.F4 section 2	flux formulas (a)-(c) and eq:s15-p0p1 new, replacing pairing5.py
+lem:iii-f4-2-1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:49-62	III.F4 Lemma 2.1	
+lem:iii-f4-2-2	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:64-133	III.F4 Lemma 2.2	
+eq:iii-f4-2-1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:68	III.F4 (2.1)	
+eq:iii-f4-2-2	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:73-74	III.F4 (2.2)	
+eq:s15-p0p1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:135-136	III.F4 remark on pairing5.py	new: coefficients of D Ric on Minkowski in the static time
+sec:iii-f4-3	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:138-195	III.F4 section 3	
+lem:iii-f4-3-1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:140-190	III.F4 Lemma 3.1	pairing5 P2-P5 replaced by hand flux computations (checked privately)
+sec:iii-f4-4	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:197-251	III.F4 section 4	
+eq:iii-f4-4-1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:200-202	III.F4 (4.1)	lambda-sharp renamed ell-sharp (lambda reserved)
+eq:iii-f4-4-2	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:206	III.F4 (4.2)	
+prop:np-10-34-iv	docket68/n1star/N1STAR-PROOF.md:5642-5645	NP section 10.34, Proposition 10.31 (iv) (physical5.py Y4)	carried with a written proof; see report on the ambiguity with Proposition 10.34 (iv) of NP section 10.37
+lem:iii-f4-4-1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:213-251	III.F4 Lemma 4.1	
+eq:iii-f4-4-3	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:222-224	III.F4 (4.3)	
+sec:iii-f4-5	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:253-329	III.F4 section 5	
+prop:iii-f4-5-1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:262-329	III.F4 Proposition 5.1	
+eq:iii-f4-5-1	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:264-265	III.F4 (5.1)	
+eq:iii-f4-5-2	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:290-291	III.F4 (5.2)	
+eq:iii-f4-5-3	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:316	III.F4 (5.3)	
+rem:s15-window	docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:349-353	III.F4 finding (F4 prime x4, 3); NP section 10.35 Proposition 10.32 (ii) (window5.py W2, physical5.py Y3)	window bookkeeping and the root -3 at s2, v2, t2 derived

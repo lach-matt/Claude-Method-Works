@@ -105,14 +105,14 @@ Below, ε ∈ (0, ε_1] is fixed, where ε_1 > 0 satisfies
 
 with η_1 and η^0_2 the values of η_1 and η_2 fixed in [[sec:iii-i11-1]] and [[sec:iii-i12-1]] (so
 ε_K < η_1 < η^0_2 < ε_+), and is so small that every statement of [[ch:s19]]–[[ch:s23]] used below holds at every loss
-ε ∈ (0, ε_1]. A statement proved for every small ε off a finite set ([[sec:iii-i11-1]]) holds at every such ε, as its
-output space at the loss ε contains that at every smaller loss. By the first condition the choice η_2 := ε_+ − 3ε of
+ε ∈ (0, ε_1]. A statement proved for every small ε off a finite set ([[sec:iii-i11-1]]) holds at every ε ∈ (0, ε_1],
+as its output space at the loss ε contains that at every smaller loss. By the first condition the choice η_2 := ε_+ − 3ε of
 [[lem:iii-j1-1-1]] is admissible: η_2 ∈ (η^0_2, ε_+) and 2ε < 3ε = ε_+ − η_2. It also gives 1 + ε_+ − 5ε > 1 + ε_K, so
 the level-3 tf-weight τ_3 = 1 + ε_+ − 5ε of [[lem:iii-j1-1-1]] exceeds 1 + ℓ_3, and the K⁺-weight 2 + ε_+ − 5ε of the
 level-3 pieces exceeds α − 2, as ℓ_3 ≤ ε_K and α ≤ 4 + ε_K. By the second, h_rem(q) has the K⁺-order α − 2 − ε > 2
 ([[lem:iii-j2-2-1]] (a)), and the zf-weight ℓ_3 = α − 4 − ε of level 3 in the proof of [[prop:iii-i11-3-1]] is
-positive. The output of each theorem below is taken at the loss ε, and its input in the graded space of the losses
-ε′(ε, k) that it assigns.
+positive. [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] take their output at the loss ε and their input in the graded
+space of the losses ε′(ε, k) that the statement they estimate assigns.
 
 **Definition {#def:iii-j2-1-1}** (Tame families.) Let E, G be graded spaces, d_0, d ∈ ℕ, δ_𝔹 > 0, and
 𝔹 := {β : ‖β‖_(d_0) < δ_𝔹}. A family (T_β)_(β∈𝔹) of linear maps E^∞ → G^∞ is *tame with loss d* if for every

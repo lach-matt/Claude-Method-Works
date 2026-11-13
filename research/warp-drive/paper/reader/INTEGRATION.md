@@ -174,3 +174,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   lem:iii-i2-4-2 for "takes their place". S10 depends on S4's tame estimate; re-check after the S4 repair.
 - S2 (R2-S02): confirmed. The fixes add 4 optional nits; δ_O looks like δ_0 (rename). S8 lines 412-413, 513 and 632
   still use S2's old K notation (S16's lines are being brought up to date in its fix round).
+
+## From the S19 fix (2026-11-13)
+
+- Reverse the earlier "unify B_* to ℬ_*" item: S19 keeps B₁, B_*, because ℬ₁ would clash with S18's ℬ_k.
+- S19 uses σ_C and s, not s_C (s_C is one number in S16/S17).
+- [Hin17, Proposition 4.1, p. 20 of arXiv:1502.03183v2] is stated exactly in S19; its Appendix A block is in F-S19.
+- F-S19 lists the S19 results that use S4's (L3), (L4) and d₀; re-check them after the S4 repair.
