@@ -62,6 +62,8 @@ def scan_text(name, text, assembled):
                 hits.append((i, why, ln.strip()[:110]))
         if assembled and ("{#" in ln or "[[" in ln):
             hits.append((i, "unresolved symbolic label", ln.strip()[:110]))
+        if "[[pending:" in ln:
+            hits.append((i, "pending: an open issue the coordinator must resolve", ln.strip()[:110]))
     proofs = len(re.findall(r"^\s*\*?\*?Proof\b", text, re.M))
     qeds = text.count("∎")
     if proofs != qeds:

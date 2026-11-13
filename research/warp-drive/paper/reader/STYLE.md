@@ -59,16 +59,18 @@ Chapters are written in parallel, so numbers are symbolic in the chapter sources
   "Chapter 12", "Section 12.4". Keys are lowercase words joined by hyphens. Exported keys (results other chapters use)
   are fixed in `OUTLINE.md`; a chapter may define private keys freely.
 - A computation: `[[C:key]]`, printed "Computation C17". The key is the registry's (one per program); numbers follow
-  the order in which the assembled edition first cites them. Appendix A describes each computation; Appendix B carries
+  the order in which the assembled edition first cites them. Appendix B describes each computation; Appendix C carries
   its code.
 - Literature: `[Hin26, Theorem 6.9]` with the bibliography keys of `OUTLINE.md`.
 
-## 5. The two appendices
+## 5. The appendices
 
-- **Appendix A. Computations.** One entry per computation, in number order: what it decides, in mathematical terms;
+- **Appendix A. Results from the literature.** Each published result the proofs use as a black box, stated exactly,
+  with its source, number and page.
+- **Appendix B. Computations.** One entry per computation, in number order: what it decides, in mathematical terms;
   the method (exact symbolic, exact rational, certified interval, numerical) and the libraries; the control that must
   make it fail (a deliberately wrong input that it rejects); its running time; the results that cite it.
-- **Appendix B. Code.** The programs, one per computation, cleaned (no repository paths, no process words in comments
+- **Appendix C. Code.** The programs, one per computation, cleaned (no repository paths, no process words in comments
   or output), each named by its computation number, with a one-line command that runs it. Every cleaned program must
   produce the same mathematical output as its original on the same input; `code/EQUIVALENCE.tsv` (working file) records
   that comparison.
