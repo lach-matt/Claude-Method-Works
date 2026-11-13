@@ -1028,7 +1028,7 @@ WF′_e3b(I − B^♯) ∩ WF′_e3b(B) = ∅. Then there is C, depending on B a
 *Proof.* *Smooth coefficients.* Let C^∞_e3b be the space of functions all of whose e3b-derivatives are bounded. With the
 seminorms ‖·‖_(C^d_e3b) it is a Fréchet space. Such a function ℓ is a symbol of order 0, independent of the fibre
 variable, for the secondary b.g. structure ρℬ. In its charts the e3b-vector fields are the uniformly bounded
-combinations of the coordinate vector fields ((S6), [Hin26d, Remark 3.33]). Its quantization is multiplication by ℓ:
+combinations of the coordinate vector fields ((S13)). Its quantization is multiplication by ℓ:
 in the local quantization of [Hin26d, (3.26)] the cut-off ψ(x − x′) equals 1 near x = x′, so a fibre-independent symbol
 is quantized to multiplication by itself, and the cut-offs χ_α of [Hin26d, Definition 3.31] sum to 1. Hence
 multiplication by ℓ lies in Ψ̃⁰_e3b, which is bounded on H^𝗌_e3b ([[sec:ii-a-4-2]], with (S8)). Consider
@@ -1107,7 +1107,8 @@ representation 𝐚; d_0 depends neither on k and 𝒫 nor on the operators G, G
 
 *Proof.* (a) [[lem:ii-a-8-5]] (a) at the order 𝗌 − m, and [[lem:ii-a-8-4]] (a) for the P_j.
 
-(b) First k = 0. Choose G″, G‴ ∈ C^∞_b Ψ⁰_e3b carried by χ, microlocally equal to I near WF′_e3b(G), with
+(b) First k = 0. Choose auxiliary operators G″, G‴ ∈ C^∞_b Ψ⁰_e3b ((R1) of [[sec:ii-a-8-3]], for G and G′), carried by
+χ, microlocally equal to I near WF′_e3b(G), with
 WF′_e3b(G″) ⊂ Ell_e3b(G′) and WF′_e3b(G‴) ∩ WF′_e3b(I − G″) = ∅. By the support convention, GAu = GAχu. Then
 
     Ga_jP_jχu = Ga_jP_jG″χu + Ga_j(I − G‴)P_j(I − G″)χu + Ga_jG‴P_j(I − G″)χu.
@@ -1125,11 +1126,11 @@ For k ≥ 1, argue by induction. By [[eq:ii-a-8-1]] it suffices to bound ‖V_iG
 
 The first three terms are of the form treated at level k − 1: they involve [V_i, G] (wave front set in that of G), or
 the coefficients V_ia_j ∈ C^((d_0;k−1)) ([[lem:ii-a-8-2]] (b)), or the finite set 𝒫 ∪ {[V_i, P_j]}. For the last,
-choose G_♭ carried by χ with WF′(G) ⊂ Ell(G_♭) and WF′(G_♭) ⊂ Ell(G′). The level k − 1 bounds it by
-C‖𝐚‖(‖G_♭V_iu‖_((𝗌;k−1)) + ‖χ_1V_iu‖_((−N;k−1))), with an inner cut-off χ_1 carrying G and G_♭. Next,
-‖G_♭V_iu‖_((𝗌;k−1)) ≤ ‖G_♭u‖_((𝗌;k)) + ‖[G_♭, V_i]u‖_((𝗌;k−1)), and both are bounded by
-C(‖G′u‖_((𝗌;k)) + ‖χu‖_((−N;k))) ([[lem:ii-a-8-4]] (c)). Finally
-‖χ_1V_iu‖_((−N;k−1)) ≤ ‖V_i(χ_1u)‖ + ‖(V_iχ_1)χu‖ ≤ C‖χu‖_((−N;k)), as χ = 1 on supp χ_1. The step from k − 1 to k
+choose an auxiliary operator G_♭ ((R1) of [[sec:ii-a-8-3]]) with WF′(G) ⊂ Ell(G_♭) and WF′(G_♭) ⊂ Ell(G′). The level
+k − 1 bounds it by C‖𝐚‖(‖G_♭V_iu‖_((𝗌;k−1)) + ‖χ_1V_iu‖_((−N;k−1))), with the inner cut-off χ_1 := h_♭(χ) of (R3),
+which carries G, [V_i, G] and G_♭. Next, ‖G_♭V_iu‖_((𝗌;k−1)) ≤ ‖G_♭u‖_((𝗌;k)) + ‖[G_♭, V_i]u‖_((𝗌;k−1)), and both
+are bounded by C(‖G′u‖_((𝗌;k)) + ‖χu‖_((−N;k))) ([[lem:ii-a-8-4]] (c)). Finally ‖χ_1V_iu‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)),
+by (R3). The step from k − 1 to k
 applies the statement at k − 1 to the operators [V_i, G] and G_♭, to the cut-off χ_1 and to the finite set
 𝒫 ∪ {[V_i, P_j]}, all chosen anew at each k, with the same d_0; this is possible because the d_0 of the case k = 0
 depends on none of them. So d_0 does not depend on k. ∎
@@ -1438,8 +1439,8 @@ for every N, B_1T(a_1, …, a_r)B_2 has order −N, with norm at most C ∏_i �
 S_1B_1TB_2S_2 with expressions S_1, S_2 as in (f), and a product of bounded operators one of which lies in Ψ̃^(−∞) has
 every order.
 
-(f) (General principle.) Let T(a_1, …, a_r) be a finite expression in the operators Op(a_i) and their adjoints, formed
-by sums and compositions. Suppose that for smooth symbols it lies in the class of order μ, by (S5) and (S8): a
+(f) (General principle.) Let T(a_1, …, a_r) be a finite expression in the operators Op(a_i), Op of products and of
+complex conjugates of the a_i, and their adjoints, formed by sums and compositions. Suppose that for smooth symbols it lies in the class of order μ, by (S5) and (S8): a
 difference of operators with the same principal symbol is one order lower, and a commutator is one order lower than the
 product. This is to hold for all symbols of the stated orders, the expression being fixed; a relation between the
 symbols, such as one being 1 on the support of another, is not allowed to enter. Then for symbols of finite regularity
