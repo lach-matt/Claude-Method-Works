@@ -1106,30 +1106,77 @@ w spatial, w_r := x̂·w, the null condition is −1 + |w|² + (μ/r²)(1 + w_r)
 b′ − dr(l) ≤ −1, and at r = a < √μ, dr(l) ≤ (a² − μ)/(a² + μ) < 0: both boundary terms of step (5) have the right sign
 for every family on Tangherlini. For a general g the signs come from (Ω).
 
-**Theorem {#thm:vlasov-n-data}** (Data with overlapping families.) Under (i)–(iii), with (V3) on Σ_τ0, let K ≥ 6 and N :=
-K + 3. For λ ≤ λ0(n) there is a vacuum Cauchy datum on Σ_τ0 ∩ Ω, with the gauge condition imposed through ∂_τ g,
-within O(λ^K) of the data of the approximant of [[thm:vlasov-n-approximant]], in the sense of (E4); the n families may
-overlap anywhere on Σ_τ0.
+**Theorem {#thm:vlasov-n-data}** (Data with overlapping families.) Under (i)–(iv), with (V3) on Σ_τ0, let K ≥ 6 and
+N := K + 10, and let g_app be the approximant of [[thm:vlasov-n-approximant]] with N stages and the stage data of
+[[lem:stage-data]], taken family by family as below, in its fixed-phase form. For λ ≤ λ0(n) there is a smooth vacuum
+Cauchy datum on Σ_τ0 ∩ Ω, invariant under T² and both reflections, with the gauge condition imposed through ∂_τ g, whose
+w := g − g_app satisfies (E4) of [[thm:uniform-existence]], Data(w) ≤ C λ^K; the n families may overlap anywhere on
+Σ_τ0.
 
-*Proof.* The approximant's slice data carry every family's wave and the second and mixed harmonics at order λ²; the
-mixed amplitudes are those of the spacetime scheme (stage (d)) evaluated on Σ_τ0, algebraic in the pure ones. They
-satisfy the constraints to O(λ^(N−1)), g_app solving Einstein's equations to that order. The correction is the radial
-solve of [[lem:linear-evolution]] and [[prop:exact-correction]], whose hypotheses are: (a) the two signs of
-[[lem:constraints-evolution]] (a) on the slice, which are (V3); (b) no coefficient of order λ⁻¹ in the constraint map
-at the approximant's data, as a function of the unknowns, which is [[lem:vlasov-constraint-coefficient]] (a)–(b): the
-coefficient is linear in the waves and the sum of the single-family ones, each zero for a torus-polarised wave (for the
-radial dusts' waves, by [[thm:two-dusts]]), while the second and mixed harmonics enter at order λ⁰; (c) the principal
-coefficients at order λ⁰ are the background's, which is [[lem:vlasov-leaf-curvature]]; (d) the constraint map depends
-on (γ, κ) only ([[eq:data-constraint-map]]). The gauge hierarchy is that of [[lem:gauge-hierarchy]] with n phases: the
-oscillating part at each order is a transport along each generator for the pure harmonics, and algebraic, with the
-divisor Q_j ≠ 0, for the mixed ones, which therefore take no data. The stage data are those of [[lem:stage-data]] for
-each family's covector, the polarisation map being onto for each; the mixed harmonics take no data and need not vanish
-on Σ_τ0, which no step uses.
+*Proof.* *The approximant's data.* The gauge hierarchy is that of [[lem:gauge-hierarchy]] with n phases: the oscillating
+part at each order is a transport along each generator for the pure harmonics, and algebraic, with the divisor Q_j ≠ 0,
+for the mixed ones, which therefore take no data. The stage data are those of [[lem:stage-data]] for each family's
+covector, its proof applied with the polarisation map Pol_A(Y) := Y(ℓ_A, ·) − ½ ν_A du_A tr Y of each family, onto at
+every point by the argument given there (with a null vector k_A, du_A(k_A) = 1, and a covector ζ_A with ζ_A(ℓ_A) = 0 and
+g0⁻¹(ζ_A, ζ_A) = 1); the linear solves of its step (iii) have coefficients independent of λ (θ-means of profile
+functions), so [[lem:linear-evolution]] applies to them as stated; the mixed harmonics take no data and need not vanish
+on Σ_τ0, which no step uses. So, as in [[lem:gauge-hierarchy]], the constraint map of the data (γ, κ) of g_app on Σ :=
+Σ_τ0 ∩ Ω is λ^(N−2) times a function of the form [h] of [[sec:vlasov-scaled]], with the phases φ_A := ν_A u_A|Σ (the
+phase corrections vanish on Σ_τ0). The data (γ, κ) are polynomials in λ whose coefficients are of the form [h]; they
+carry every family's wave, whose gauge part vanishes on Σ_τ0 with its θ-derivatives ([[def:vlasov-wave]]), so that W_A
+and κ1_A on Σ_τ0 are torus-polarised, and the second and mixed harmonics at order λ².
 
-No division is made on the slice. The phases are the background's eikonals, with corrections φ_A = 0 on Σ_τ0, and the
-initial value of Ψ_A is fixed by its transport, which divides only by ℓ_A(τ) ≠ 0. Nothing prescribes the eikonal's data
-against a parametrix. The only divisors are the spacetime symbols Q_j; for an antipodal pair of labels of equal energy
-E, 2 ν_A ν_B g0⁻¹(k_A, k_B) = −4 ν_A ν_B E² ≠ 0. ∎
+*The structure.* Let 𝔉(U) := 𝒞(γ_U, κ_U). By [[lem:vlasov-structure]] (with 𝒯 = 0) it has the structure
+[[eq:vlasov-structure]]. Its coefficients are smooth functions of the values of γ, ∂γ, ∂²γ, κ and ∂κ, so they are of the
+form [h] except for the terms carrying a factor λ⁻¹, which come from ∂²(λ W_A) in ∂²γ and from ∂κ1_A in ∂κ, enter
+linearly, and by [[lem:vlasov-constraint-coefficient]] (b) have coefficients that vanish identically for every U (α dr
+⊗ dr has no torus components); the second and mixed harmonics enter at order λ⁰ by [[lem:vlasov-constraint-coefficient]]
+(a). So f and g̃ are of class 𝔏 and 𝔉(0) = 𝒞(γ, κ). By [[lem:vlasov-leaf-curvature]], p, P, A0, A^B and 𝒮 are of
+class 𝔓, with parts of order λ⁰ those of the data (γ0, κ0) of g0. The signs: at (γ0, κ0) and α = 0, p > 0 by (V3), P =
+γ0^(rr) Π0^(AB) is positive definite, and 𝒮A0 > 0 with 𝒮A^C symmetric by [[lem:vlasov-symmetrizer]]; by continuity in α
+these hold with constants p0, δ_e, A00 for |α| ≤ η0, and for λ ≤ λ1 the terms λ[h] change them by at most half.
+
+*The correction.* Take k := 18 in [[prop:vlasov-scaled-correction]]. Since 𝒞(γ, κ) = λ^(N−2)[h], ε := sup_r
+‖𝒞(γ, κ)‖_(18) ≤ C λ^(N−2) by (C0), and ε ≤ η λ⁴ for λ ≤ λ0, as N − 2 > 4. So there is a smooth U with zero data at
+r = a, 𝒞(γ_U, κ_U) = 0 and ‖U‖_(𝒴_18) ≤ C λ^(N−2), invariant under T² and both reflections, which act on S³ by
+isometries commuting with 𝔉.
+
+*The derivatives in r.* We show that for i ≥ 0 and words I with 2i + |I| ≤ 14,
+
+    ‖λ^(2i+|I|) ∂_r^i 𝓛^I α‖_(L²((a,b1);L²(S³))) + ‖λ^(2i+|I|) ∂_r^i 𝓛^I w‖_(L²((a,b1);L²(S³))) ≤ C λ^(N−2).     {#eq:vlasov-data-dr}
+
+Solving 𝔉(U) = 0 for ∂_r α and ∂_r w, and substituting the first into the second,
+
+    ∂_r α = G_α(x, 𝔍),      ∂_r w = G_w(x, 𝔍),      𝔍 := (α, ∇α, ∇²α, w, ∇w),
+
+with G_α, G_w of the form 𝒞-term plus class-𝔏 functions of (x, 𝔍), affine in (∇²α, ∇w): G_α = Q ∇²α − p⁻¹ g_ρ, G_w =
+−B^C ∇_C w − A0⁻¹ (f G_α + g_J), with Q := P/p and B^C := A0⁻¹A^C at α. By induction on i, ∂_r^i U is a finite sum of
+terms λ^(−β) c(x, α, ∇α, w) Π_(s=1)^l ∇^(m_s) Y_s, with c of class 𝔏, Y_s ∈ {α, w}, β + Σ_s m_s ≤ 2i, m_s ≤ 2i for
+Y_s = w and m_s ≤ 2i + 2 for Y_s = α, and l ≥ 1 except for terms with c a derivative of λ^(N−2)[h]: applying ∂_r to such
+a term, ∂_r of the x-dependence of c costs λ⁻¹ by (C0), and ∂_r of an argument or of a factor ∇^(m_s) Y_s is replaced by
+∇^(m_s) of G_α or G_w, which raises Σ m_s + β by at most 2. Apply λ^(2i+|I|) 𝓛^I to such a term and expand by (K4) and the
+chain rule: every factor λ^|J| 𝓛^J ∇^m Y with Y = w and |J| + m ≤ 18, or Y = α and |J| + m ≤ 20, has L²(S³) norm at most
+C ‖U‖_(𝒴_18) at each r for Y = w, and at most C ‖α‖_(18;2) for Y = α, square integrable in r (by (N1)–(N4) and the
+definition of the norms); the factor of highest order is taken in L², the others in sup norm, where by (N1)–(N2) they are
+at most C λ⁻² ‖U‖_(𝒴_18) ≤ C λ^(N−4) ≤ 1 at each r, for factors of order at most 9; and the coefficients contribute at
+most C. This gives [[eq:vlasov-data-dr]].
+
+*The datum.* Put g on Σ as in [[sec:data-proof]]: the spatial part γ + α dr dr, the lapse and shift of g_app's
+two-scale form, ∂_τ of the spatial part fixed by κ + ϖ Π + q ⊗ dr + dr ⊗ q, and ∂_τ of the lapse and shift fixed by
+D(g) = 0. Then the constraints hold exactly, D = 0, and by [[eq:data-constraint-gauge]] ∂_τ D = 0 on Σ for the solution
+of Ric^H = 0 with these data. As in [[sec:data-proof]], w′ := g − G on Σ, G the two-scale form, has spatial part α dr ⊗
+dr, ∂_τ of its spatial part a combination of (ϖ, q) and of first tangential derivatives of α, components w′_(τ·)
+algebraic in α, and ∂_τ w′_(τ·) fixed by the linear relation D(g) − D(G) = −D(G) = O(λ^(N−1)) with invertible
+coefficient. A Cartesian derivative of order j on Σ is a combination, with coefficients bounded with all their
+derivatives (r ≥ a > 0), of ∂_r^i 𝓛^I with i + |I| ≤ j, by (K2); and λ^(i+|I|) ≤ λ^(−i) λ^(2i+|I|). So, by
+[[eq:vlasov-data-dr]] with 2i + |I| ≤ 14, Σ_(j≤7) λ^j ‖∂^j (α, ϖ, q)‖_(L²(Σ)) ≤ C λ^(−7) λ^(N−2), and Data(w′) ≤
+C λ⁻¹ λ^(N−9) = C λ^(N−10) = C λ^K. The two-scale form and the fixed-phase form differ by O(λ^(N+1)) in scaled norms, as
+in the proof of [[thm:two-dust-approximant]], so Data(w) ≤ C λ^K: (E4). The datum is smooth and invariant, U being so.
+
+*No division on the slice.* The phases are the background's eikonals, with corrections φ_A = 0 on Σ_τ0, and the initial
+value of Ψ_A is fixed by its transport, which divides only by ℓ_A(τ) ≠ 0. Nothing prescribes the eikonal's data against
+a parametrix. The only divisors are the spacetime symbols Q_j; for an antipodal pair of labels of equal energy E,
+2 ν_A ν_B g0⁻¹(k_A, k_B) = −4 ν_A ν_B E² ≠ 0. ∎
 
 **Remark {#rem:vlasov-n-odd}** (Odd n.) [HL25] prescribe the data of their eikonals on the initial slice through the
 symbol of Δ − (cos α_A ∂_1 + sin α_A ∂_2)², and bound below the divisors (ν_B sin(α_A − α_B))², which vanish for an

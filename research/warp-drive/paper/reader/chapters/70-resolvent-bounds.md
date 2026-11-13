@@ -898,7 +898,8 @@ smooth compactly supported u, v. Moreover |dg| = |dt_*||dx|: in the static chart
 symmetry gives A_k* = (−1)^kA_k for |dx|, so □̂(σ) = A_0 − iσA_1 − σ²A_2 satisfies □̂(σ)* = □̂(σ̄). Hence
 Im □̂(0) = 0 and Im T = 0 for T = −iA_1; the threshold quantities of [[eq:i-a-1-5]] are ϑ_ℋ = 0 and ϑ_in = 0, as S = 0;
 and the endomorphism p_1 of (Γ.4) vanishes ([[lem:i-b-1-1]] (b), with the standard inner product as h_Γ), so that the
-function of (Γ.4) is η ↦ −q^Γη, which decreases at the rate q^Γ = 2β_0, with γ_+ = 0 and γ_− = −ν_min/(2q^Γ) < 0.
+function of (Γ.4) is −q^Γ times its argument, which decreases at the rate q^Γ = 2β_0, with γ_+ = 0 and
+γ_− = −ν_min/(2q^Γ) < 0.
 
 *Fredholm of index 0.* So [[thm:i-a-7-2]] (3) and [[thm:i-b-1-3]] (3) apply: □̂(σ) : 𝒳_σ → 𝒴_σ is Fredholm with an index
 that does not depend on σ ∈ {σ ≠ 0, Im σ ≥ 0}, and it is invertible for |σ| ≥ C_0; so the index is 0.
