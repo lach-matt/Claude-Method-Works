@@ -716,21 +716,21 @@ e^i Π d_p^(n_p), at e = μ ς⁻² and d_p = λ ς^(−p) and multiplied by ς�
 degree −2 − 2i − Σ n_p p; in particular Q_6 is homogeneous of degree −6.
 
 Now count degrees, with Σ n_p ≥ 1 and ς = r. The terms of degree greater than −13/2, that is 2 + 2i + Σ n_p p < 13/2,
-are: i = 0 and one factor d_p, every p ∈ Π (degree −p − 2); i = 1 and the factor d_2 (degree −6); i = 0 and d_2²
-(degree −6). The first vanish on 𝒞, since □_η Σ_p = 0 there for every p ∈ Π. The other two sum to Q_6, which carries
-the factor λ of Σ_2. Every other term of [[eq:far-taylor]] has degree at most −13/2 and carries a factor λ. Since |d| ≤ C λ ς⁻², Rem
+are: i = 0 and one factor d_p, every p ∈ Π (degree −p − 2); i = 1 and the factor d_2 (degree −6); i = 0 and d_2² (degree
+−6). The first vanish on 𝒞, since □_η Σ_p = 0 there for every p ∈ Π. The other two sum to Q_6, which carries the factor λ
+of Σ_2. Every other term of [[eq:far-taylor]] has degree at most −13/2 and carries a factor λ. Since |d| ≤ C λ ς⁻², Rem
 contributes ς⁻² |Rem| ≤ C λ ς⁻⁴ (μ ς⁻² + λ ς⁻²)² ≤ C λ r⁻⁸. So P(Σ) − Q_6 is at most C λ r^(−13/2) in norm, and P(Σ) at
 most C λ r⁻⁶. The terms of degree −13/2 are μ M_1[Σ_(5/2)] and M_2[Σ_2, Σ_(5/2)].
 
 The commutators. A homogeneous term of degree −q is mapped by Z to −q times itself, by L_Ω_ab to a homogeneous term of
-degree −q and by ∂_t to one of degree −q − 1, so it keeps its bound. For the remainder put
-Rem′(D_ς X) := ς⁻² Rem(X; μ ς⁻², (λ ς^(−p))_p); it does not depend on the choice of (X, ς) with D_ς X given, since P(Σ)
-and the homogeneous terms do not. Differentiation in ς gives Z Rem′ = −ς⁻² (2 + 2e ∂_e + Σ_p p d_p ∂_(d_p)) Rem. Here
-e ∂_e Rem and d_p′ ∂_(d_p′) Rem are again of the form Σ_p d_p Ψ″_p, with Ψ″_p vanishing to second order at
-(e, d) = (0, 0), and so is an X-derivative of Rem. Further ∂_a Rem′ = ς⁻¹ (∂_X Rem)′, and L_Ω_ab, which commutes with
-D_ς, maps Rem′ to (L_Ω_ab Rem)′. So every Π_i (Γ_i + c_i) Rem′ is O(λ r⁻⁸), and [[eq:far-residual]] follows. The
-derivatives in X that enter number at most |α|, and the homogeneous terms involve the Σ̂_p through their jets of order
-|α| + 2 on 𝔎; so the constants are independent of λ for |α| ≤ k1 + 2. ∎
+degree −q and by ∂_t to one of degree −q − 1, so it keeps its bound. For the remainder put Rem′(D_ς X) := ς⁻² Rem(X; μ
+ς⁻², (λ ς^(−p))_p); it does not depend on the choice of (X, ς) with D_ς X given, since P(Σ) and the homogeneous terms do
+not. Differentiation in ς gives Z Rem′ = −ς⁻² (2 + 2e ∂_e + Σ_p p d_p ∂_(d_p)) Rem. Here e ∂_e Rem and d_p′ ∂_(d_p′) Rem
+are again of the form Σ_p d_p Ψ″_p, with Ψ″_p vanishing to second order at (e, d) = (0, 0), and so is an X-derivative of
+Rem. Further ∂_a Rem′ = ς⁻¹ (∂_X Rem)′, and L_Ω_ab, which commutes with D_ς, maps Rem′ to (L_Ω_ab Rem)′. So every Π_i
+(Γ_i + c_i) Rem′ is O(λ r⁻⁸), and [[eq:far-residual]] follows. The derivatives in X that enter number at most |α|, and
+the homogeneous terms involve the Σ̂_p through their jets of order |α| + 2 on 𝔎; so the constants are independent of λ
+for |α| ≤ k1 + 2. ∎
 
 **Lemma {#lem:far-naturality}** (naturality). Let O ∈ O(4), Õ(t, x) := (t, O x) and Ō := diag(1, O). For every
 symmetric h, in Cartesian components,

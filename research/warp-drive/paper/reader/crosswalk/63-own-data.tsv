@@ -1,9 +1,9 @@
 label	source	source_name	note
 ch:own-data	paper/RESPONSE-HL-5D.md:1757-1778; docket68/n1star/SETTLE-GLAM5.md:9-36	P Beyond the boundary (own data); SG section 0	intro composed from P's final wording
-thm:own-data	docket68/n1star/SETTLE-GLAM5.md:1942-1971	SG Theorem R5.1 (R6-E..R10-E status: proved)	k_P = 2k1+14 in place of k1+5 (issue-1); rate region r_flat as cor:s27-rate; strip from R9.1(iii)(a)
+thm:own-data	docket68/n1star/SETTLE-GLAM5.md:1942-1971	SG Theorem R5.1 (R6-E..R10-E status: proved)	k_P = 2k1+14 in place of k1+5 (issue-1, proved in the first step of the proof); rate region r_flat as cor:s27-rate; strip from R9.1(iii)(a); 4R >= 1 added to the notation
 sec:own-far-part	docket68/n1star/SETTLE-GLAM5.md:3358-3483	SG R9-B setting	cites lem:interior-far-part (ch 62) for R9.1 (i)-(v)
 eq:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236	SG R4-D setting
-lem:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236, 2779-2790	SG R4-D setting (B4e) and R7-A conormals	(b) duplicates P-G-far's wedge paragraph after merge
+lem:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236, 2779-2790	SG R4-D setting (B4e) and R7-A conormals	the wedge paragraph of proof project G is this lemma's (b)
 eq:own-cones	docket68/n1star/SETTLE-GLAM5.md:2780-2786	SG R7-A (K1)
 sec:own-tail	docket68/n1star/SETTLE-GLAM5.md:84-142	SG section 3
 eq:own-g3	docket68/n1star/SETTLE-GLAM5.md:86-89	SG section 3 G_3	T_F, T_G written out from lem:waves (a)
@@ -22,7 +22,7 @@ rem:own-half-changes	docket68/n1star/SETTLE-GLAM5.md:387-397	SG R2.1 what the ha
 sec:own-orders	docket68/n1star/SETTLE-GLAM5.md:981-1048	SG R4-A
 prop:own-far-order	docket68/n1star/SETTLE-GLAM5.md:986-1013	SG Proposition R4.1	O1-O2 replaced by the inequality floor((k+2)/2)+3 <= k+1
 prop:own-near-order	docket68/n1star/SETTLE-GLAM5.md:1015-1031	SG Proposition R4.2
-cor:own-p-order	docket68/n1star/SETTLE-GLAM5.md:1033-1048	SG Corollary R4.3	rotations stated in (P-iii) (what the proof gives)
+cor:own-p-order	docket68/n1star/SETTLE-GLAM5.md:1033-1048	SG Corollary R4.3	rotations stated in (P-iii); conclusions of thm:uniform-existence on Omega' at order q added; order written q
 eq:own-p-iii	docket68/n1star/SETTLE-GLAM5.md:1033-1037	SG R4.3 (P-iii) at order k
 prop:own-poly	docket68/n1star/SETTLE-GLAM5.md:1747-1771	SG Proposition R5.4 (R3.1 corrected)	monomial count written out (r5settle5 A)
 eq:own-poly	docket68/n1star/SETTLE-GLAM5.md:1752-1754	SG R5.4
@@ -36,10 +36,21 @@ eq:own-flux-n	-	new	flux functional with the transverse term of R4.5 (i)
 sec:own-sigma	docket68/n1star/SETTLE-GLAM5.md:1176-1196	SG R4-C
 lem:own-self-similar	docket68/n1star/SETTLE-GLAM5.md:171-176, 1229-1233, 2401-2407	SG Prop 4.1 (i) (T2), R4-D setting (B9c), R6-B (S2)	uniform-in-l bound by an energy argument (B9c)
 eq:own-2f1	docket68/n1star/SETTLE-GLAM5.md:173-176	SG Prop 4.1 (T2b)
-def:own-sigma	docket68/n1star/SETTLE-GLAM5.md:1225-1233, 2223-2236	SG R4-D setting; R6.0 (r6-F4)	Sigma_4 taken flat (r6-F4)
+def:own-sigma	docket68/n1star/SETTLE-GLAM5.md:1225-1233, 2223-2236	SG R4-D setting; R6.0 (r6-F4)	Sigma_4 taken flat (r6-F4); the extension in s removed (not used)
 eq:own-sigma	docket68/n1star/SETTLE-GLAM5.md:1225-1233	SG R4-D
-lem:own-sigma-data	docket68/n1star/SETTLE-GLAM5.md:1342-1345, 1690-1700	SG Step 9 coefficients; R5.0 (r3-m4) invariance	angular order 2k1+10 (issue-1)
+lem:own-sigma-data	docket68/n1star/SETTLE-GLAM5.md:1342-1345, 1690-1700	SG Step 9 coefficients; R5.0 (r3-m4) invariance	angular order 2k1+10 (issue-1); all derivatives at fixed lambda
 lem:own-n-data	docket68/n1star/SETTLE-GLAM5.md:1176-1196, 2387-2400	SG Lemma R4.5 widened in R6-B, R5.0 (r4-m12)
+sec:far-homogeneity	docket68/n1star/SETTLE-GLAM5.md:836-886, 1197-1340	SG R3-D (O1-O3), R4-D Steps 3-5	proof project G (far part) merged; the wedge, the weight and the expansion cite lem:own-wedge, the continuation setting and def:own-sigma; sections far-coefficients, far-residual, far-naturality folded in
+eq:far-operator	docket68/n1star/SETTLE-GLAM5.md:1197-1240	SG R4-D setting	P(h) = Ric^H(g_b0 + h; g_b0); covector dv written out
+eq:far-sigma-bounds	docket68/n1star/SETTLE-GLAM5.md:1225-1233	SG R4-D setting (B9c)	constants independent of lambda for j + |alpha| <= k1 + 4 (lem:own-sigma-data (b))
+lem:far-scaling	docket68/n1star/SETTLE-GLAM5.md:836-886	SG R3-D (O1)	proof project G (far part) merged; Gamma-hat = mu Theta_3 + mu^2 Theta_5
+eq:far-scaling	docket68/n1star/SETTLE-GLAM5.md:836-886	SG R3-D
+prop:far-coefficients	docket68/n1star/SETTLE-GLAM5.md:836-886	SG R3-D (O1)	proof project G (far part) merged; exponents by counting, no fitted values
+prop:far-residual	docket68/n1star/SETTLE-GLAM5.md:836-886, 2225-2234	SG R3-D (O2), R6.0 (r6-F4)	proof project G (far part) merged; flat Sigma_4 as the main choice (r6-F4); C independent of lambda for |alpha| <= k1 + 2; on the closed cone, no extension in s
+eq:far-residual	docket68/n1star/SETTLE-GLAM5.md:836-886	SG R3-D (O2)	lambda r^-6, and P(Sigma) - Q_6 = O(lambda r^(-13/2))
+eq:far-psi	docket68/n1star/SETTLE-GLAM5.md:836-886	SG R3-D
+eq:far-taylor	docket68/n1star/SETTLE-GLAM5.md:836-886	SG R3-D
+lem:far-naturality	docket68/n1star/SETTLE-GLAM5.md:836-886	SG R3-D (O3)	proof project G (far part) merged; matrix diag(1, O) written O-bar
 sec:cutoff-expansion	-	new	proof project I (issue-2, the matched truncation), integrated: expansion after the shell to every order
 eq:cutoff-cartesian	-	new
 eq:cutoff-hj	-	new	from prop:bondi-hierarchy on U_1
@@ -91,11 +102,16 @@ eq:own-ext-products	-	new	uses the decay of the zero-order coefficients
 eq:own-ext-weighted	-	new
 eq:own-ext-sobolev	-	new	ray and S3 Sobolev on unit intervals (thm:std-bh-manifold)
 eq:own-ext-pointwise	-	new
-thm:own-continuation	docket68/n1star/SETTLE-GLAM5.md:1361-1366, 1822-1826	SG Theorem R4.6 = R5.1' (Steps 1-9, R5-B, R6-A, R7-A, R8-A)	restated for J (proof project I): convergence in C^(k_J - 3), limit independent of J (lem:cutoff-independence); (BA) includes the margin used by lem:own-exterior
-eq:own-pointwise	docket68/n1star/SETTLE-GLAM5.md:1258-1262	SG (R4b)
+cor:far-kernels	docket68/n1star/SETTLE-GLAM5.md:1197-1340, 1600-1672	SG R4-D Steps 3-5, R5.0 (r4-m5)	proof project G (far part) merged; tools cite lem:own-margins (d), lem:own-rays; eq:own-pointwise stated here as the hypothesis; slots of order 0 allowed (review R2-P-G m6)
+eq:own-pointwise	docket68/n1star/SETTLE-GLAM5.md:1258-1262	SG (R4b)	defined in cor:far-kernels as its hypothesis; proved under (BA) in Step 1
+eq:far-kernels	docket68/n1star/SETTLE-GLAM5.md:1600-1672	SG R5.0	kappa_Sigma with exponent a - 4 (flat Sigma_4)
+prop:far-window	docket68/n1star/SETTLE-GLAM5.md:1600-1672, 1855-1860, 2387-2426	SG R5.0 window, R5-C (v), R6-B	proof project G (far part) merged; hypotheses supplied by lem:own-truncation (iii) and lem:own-n-data (i); (v) cites the chapter's results
+rem:far-window-sigma4	docket68/n1star/SETTLE-GLAM5.md:2225-2234	SG R6.0 (r6-F4)	(a) the sourced Sigma_4 as an alternative no proof uses (no solution constructed); (b) without Sigma_4 the window is unchanged (fix round F-P-I)
+eq:far-sigma4	docket68/n1star/SETTLE-GLAM5.md:2225-2234	SG R6.0	in rem:far-window-sigma4 only
+thm:own-continuation	docket68/n1star/SETTLE-GLAM5.md:1361-1366, 1822-1826	SG Theorem R4.6 = R5.1' (Steps 1-9, R5-B, R6-A, R7-A, R8-A)	restated for J (proof project I): convergence in C^(k_J - 3), limit independent of J (lem:cutoff-independence); (BA) is 𝔈 <= 4 eps_B^2 and |H| <= 1/50 on the whole region; g_T smooth up to t-tilde = 0
 eq:own-commuted	docket68/n1star/SETTLE-GLAM5.md:1276-1288, 1696-1704, 2253-2258	SG (R4c)-(R4d) with R5.0 (r4-m5) and R6.0 nit
 eq:own-energy-inequality	docket68/n1star/SETTLE-GLAM5.md:1290-1298, 1814-1822	SG (R4e) with R5-B
-eq:own-gronwall	docket68/n1star/SETTLE-GLAM5.md:1315-1319	SG Step 5 summed inequality	kernels from P-G-far
+eq:own-gronwall	docket68/n1star/SETTLE-GLAM5.md:1315-1319	SG Step 5 summed inequality	kernels from cor:far-kernels
 sec:own-vacuum	docket68/n1star/SETTLE-GLAM5.md:1416-1443	SG R4-F
 prop:own-vacuum	docket68/n1star/SETTLE-GLAM5.md:1418-1443	SG Proposition R4.9	identity (V1) derived from the contracted Bianchi identity; (ii) carries the gauge-field bounds on the initial slice (was lem:cutoff-gauge of proof project I)
 eq:own-bianchi	docket68/n1star/SETTLE-GLAM5.md:1423-1425	SG R4.9 (i)

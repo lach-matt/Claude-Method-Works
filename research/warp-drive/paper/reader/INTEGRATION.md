@@ -1216,3 +1216,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   Appendix A entry: all to P-K83c. M-83b merges P-K83b with F-83's renames. Then R2-83 reads chapter 83.
 - R5-S06 NOT CONFIRMED 1M 1m 3n (reviews/R5-S06.md): the Major is the forward-loss project's chapter-26 finding,
   confirmed; F5-S06 applies items 9-11 with the reader's corrections, the (S15) ad definition and the nits.
+- F4-S27 done (reports/F4-S27.md); R5-S27 reads the diff of chapters 46, 48, 65.
+- P-K87 done (reports/P-K87.md). FOR THE FINAL REPORT: the source's continuation lemma for 10 l5 relies on three
+  facts, symmetry extension to the development, the double-null gauge and MGHD uniqueness, which the cited literature
+  ([CCTW16] p. 55, [CP12] §4.3 p. 16) calls open; the edition states them as hypotheses of that lemma, which no proof
+  uses. The source's Theorem 7.L (linear estimates) is not carried; the sentence is reworded. F-87 merges and fixes.
