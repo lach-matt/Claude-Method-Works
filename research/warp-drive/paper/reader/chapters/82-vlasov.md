@@ -1060,29 +1060,31 @@ on Σ_τ0 for Ric^H(g) = 0 with w := g − g_app satisfying (E4) of [[thm:unifor
 
     w = h + Σ_A φ_A Y_A,      𝒩_n(τ) ≤ M(n) λ^K   on [τ0, τ_end],                                {#eq:vlasov-n-remainder}
 
-𝒩_n the energy of [[pending:two-dust-uniform]] summed over the n families. In particular |w| ≤ M(n) λ^(K−3) and |∂w| ≤
+𝒩_n the energy [[eq:two-dust-energy]] summed over the n families. In particular |w| ≤ M(n) λ^(K−3) and |∂w| ≤
 M(n) λ^(K−4) on Ω.
 
-*Proof.* The proof of [[pending:two-dust-uniform]], with these changes.
+*Proof.* The proof of [[thm:two-dust-uniform]], with these changes.
 
 (1) *The decomposition.* The phase shifts solve n transports ℓ_A·dφ_A = ½ 𝒫 s_A(h), φ_A = 0 on Σ_τ0, coupled through the
 bounded maps φ ↦ 𝒫([Y_B(ℓ_A, ℓ_A)] φ) of [[eq:mollifier-m1]]; on slabs of a length independent of the data the coupled
 map is a contraction, and Picard's theorem gives the decomposition.
 
 (2) *The term of order λ⁻¹.* The part of order λ⁻¹ of the linearisation is ½ λ⁻¹ Σ_A s_A(h) G2^A, linear in the waves,
-as in (F1) of [[pending:two-dust-facts]].
+as in (L1) of [[lem:two-dust-facts]].
 
 (3) *The ℓ_A ⊗ ℓ_A component.* Contracting the equation for h with ℓ_A ⊗ ℓ_A kills family A's term of order λ⁻¹ and its
-□̃φ_A term, as for one family. Every B ≠ A remains exactly as the other family remains in [[pending:two-dust-ell-ell]]:
+□̃φ_A term, as for one family. Every B ≠ A remains exactly as the other family remains in [[lem:two-dust-ell-ell]]:
 ½ λ⁻¹((1 − 𝒫) s_B(h)) G2^B(ℓ_A, ℓ_A) = O(∂ s_B(h)) and λ⁻¹((ℓ_app^B − ℓ_B)·dφ_B) G2^B(ℓ_A, ℓ_A) = O(|dφ_B|), with Ψ_B :=
-□̃φ_B carrying a bounded coefficient. For a torus-polarised wave of family B, the wave part of G2^B vanishes on vectors
-of the orbit space, so G2^B(ℓ_A, ℓ_A) is its gauge part χ_B (ℓ_A·du_B)², as for two families.
+□̃φ_B carrying a bounded coefficient. The torus part of W_B vanishes on vectors of the orbit space, so G2^B(ℓ_A, ℓ_A) is
+the contribution of the gauge part, ν_B² [∂²_(θ_B) χ_B] (ℓ_A·du_B)², a bounded profile in θ_B alone, as for two
+families ([[lem:two-dust-facts]] (L4)).
 
-(4) *The transport of Ψ_A.* For a non-radial family, Ψ_A := □̃φ_A satisfies L_A Ψ_A + a_A Ψ_A = □̃f_A − M_A(f_A) − N_A
-φ_A by [[cor:vlasov-commutator]], with f_A := ½ 𝒫 s_A(h); for a radial family this is [[pending:two-dust-commutator]].
+(4) *The transport of Ψ_A.* Ψ_A := □̃φ_A satisfies L_A Ψ_A + a_A Ψ_A = □̃f_A − 𝔐_A(f_A) − 𝔑_A φ_A by
+[[cor:vlasov-commutator]], with f_A := ½ 𝒫 s_A(h); its coefficients are bounded on the support of the family, which
+lies at distance at least δ from the axes by (iv).
 
 (5) *The transport estimates.* Each family's transport field Z_A, with ℓ_A = ℓ_A(τ) Z_A and ℓ_A(τ) ≠ 0 since a null
-vector is never tangent to a spacelike slice, satisfies the identity of [[pending:two-dust-transport]] with c x̂ replaced
+vector is never tangent to a spacelike slice, satisfies the identity of [[lem:two-dust-transport]] with c x̂ replaced
 by the spatial part of Z_A. Its boundary terms are nonpositive by (Ω): at {r = a}, r decreases along future causal
 curves, and at the outer boundary v + τ increases, which is b′(τ) − dr(Z_A) < 0 there. So the estimate holds for every
 family, whatever its direction.
@@ -1092,7 +1094,7 @@ its family labels replaced; and the bound of each type in the bootstrap (its pow
 part of the energy that controls it) depends on the type alone. From stage 1 on, terms carry three or more families;
 they are products of profiles of the same orders, and a product of oscillating profiles at the phases θ_A has m-th
 derivatives of order λ^(−m), by the Leibniz rule, whatever the phases. The number of terms is finite for each n and
-enters only the constants. So Steps 4–7 of [[thm:uniform-existence]], in the form of [[pending:two-dust-uniform]], give
+enters only the constants. So Steps 4–7 of [[thm:uniform-existence]], in the form of [[thm:two-dust-uniform]], give
 𝒩_n(τ) ≤ C3(n)((C_D + 1 + C_R) λ^K + C(n) M² λ^(K+1)), and the bootstrap closes with M(n) := C3(n)(C_D + 1 + C_R) + 1
 and λ0(n) so small that C3(n) C(n) M(n)² λ0(n) ≤ 1. Existence, uniqueness and smoothness follow as in
 [[thm:uniform-existence]]. ∎

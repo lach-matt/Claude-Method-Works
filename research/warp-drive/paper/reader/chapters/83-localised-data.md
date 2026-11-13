@@ -469,6 +469,174 @@ D_ε that φ_ε*g0 induces on the slice are vacuum data, the background's data o
 they equal the background's outside a compact subset of U″, where Z is zero or a Killing field; and D_ε = bg + εδ + c_ε
 with ‖c_ε‖_(C²) ≤ Cε², by Taylor's formula. So [[prop:loc-projection]] (a) gives ε²Q(δ) + O(ε³) = 0, and Q(δ) = 0.
 
+**Lemma {#lem:loc-continuity}** (Corrections depending continuously on a parameter.) Let U be a band as in
+[[lem:loc-kid]] (b), Ω_c ⊂ U compact, [s_a, s_b] a compact interval, and δ_s, s ∈ [s_a, s_b], seeds on U supported in
+Ω_c, with s ↦ δ_s continuous into C^l(U) for every l. Let ρ_1 be a smooth invariant function supported in Ω_c, possibly
+zero, and J_1 := −ρ_1 dR/|dR|_γ. Fix an integer k ≥ 3. There are a smooth invariant function 𝔴 ≥ 0 with compact
+support in U, positive on a band containing Ω_c, and ε_0 > 0 and C, such that for ε ∈ (0, ε_0] and s ∈ [s_a, s_b]
+there are invariant pairs c_(ε,s) on Σ_τ0 with the following properties. Write D_(ε,s) := bg + εδ_s + c_(ε,s), γ_D for
+its metric and g_(ε,s) for the metric of bg + εδ_s.
+
+(i) c_(ε,s) is of class C^(k−1), vanishes outside a compact subset of U independent of ε and s, satisfies
+‖c_(ε,s)‖_(C²) ≤ Cε², and is continuous in s in C². If ρ_1 = 0, c_(ε,s) is smooth.
+
+(ii) For a real number m(ε, s), on U,
+
+    ℋ(D_(ε,s)) = 2ε²s |J_1|_(γ_D) + m(ε, s) 𝔴 N_s,      ℳ(D_(ε,s)) = ε²s J_1 + ½ m(ε, s) 𝔴 g_(ε,s)(Y_s, ·).
+                                                                                                {#eq:loc-continuity-res}
+
+(iii) m(ε, ·) is continuous on [s_a, s_b], and, uniformly in s,
+
+    m(ε, s) 𝔫(ε, s) = ε² (Q(δ_s) − 2s ∫_U (N_s ρ_1 + Y_s·J_1) dvol) + O(ε³),
+    𝔫(ε, s) := ∫_U 𝔴 (N_s² + g_(ε,s)(Y_s, Y_s)) dvol > 0.                                          {#eq:loc-continuity-m}
+
+*Proof.* *The band and the solvability statement.* Write U = {R1 < R < R2}, choose R1 < R₋ < R₊ < R2 with
+Ω_c ⊂ {R₋ < R < R₊}, and let 𝒱 := Σ_τ0 ∩ {R₋ ≤ R ≤ R₊}: a compact manifold with boundary of dimension 4, the product
+[R₋, R₊] × S³. Put 𝔩(R) := ∫_(R₋)^R √G(R′) dR′ and 𝔩₊ := 𝔩(R₊). As γ = G dR² + R² dΩ₃², |d𝔩|_γ = 1, so along a curve
+in 𝒱 the function 𝔩 changes by at most the length of the curve, and the radial segments attain this; so the γ-distance
+from a point of 𝒱 to ∂𝒱 is min(𝔩, 𝔩₊ − 𝔩). Let h ∈ C^∞([0, 𝔩₊]) with 0 < h ≤ 1 on (0, 𝔩₊), h(t) = t near 0 and
+h(t) = 𝔩₊ − t near 𝔩₊, and x := h ∘ 𝔩. Then x is a defining function of ∂𝒱 as in [[sec:s28-solvability]]: smooth on 𝒱,
+positive and at most 1 on 𝒱°, and equal to the γ-distance to ∂𝒱 near ∂𝒱; it depends on R alone. Put 𝔴 := e^(−2/x) on
+𝒱° and 𝔴 := 0 on the rest of Σ_τ0. As e^(−2/x) and all its derivatives tend to 0 at ∂𝒱, 𝔴 is smooth; it is invariant,
+its support is 𝒱 ⊂ U, and it is positive on 𝒱° ⊃ Ω_c.
+
+We apply [[sec:s28-solvability]] with 𝒜 := 𝒱, u₀ := (K, γ) on 𝒱, this x, the weight parameter equal to 1 (so that the
+weights are e^(±1/x)), and the integer k, which exceeds half the dimension. The space 𝒦₀ of [[sec:s28-solvability]]
+consists of pairs with the regularity required in [[lem:loc-kid-space]] on which P* times positive weights vanishes,
+that is, of Killing initial data pairs on 𝒱°. By [[lem:loc-kid-space]] (a) these are smooth on 𝒱 and form a
+finite-dimensional space, so (Fin) holds, with a basis of pairs smooth on 𝒱. Conversely a Killing initial data pair
+smooth on 𝒱 lies in the spaces of 𝒦₀ (*The spaces* in [[sec:s28-solvability]]), hence in 𝒦₀. In particular 𝔨 ∈ 𝒦₀,
+and by [[lem:loc-kid-space]] (b) the invariant elements of 𝒦₀ are the constant multiples of 𝔨. So [[lem:s28-setting]]
+and [[lem:v-3-2]] apply. Let ε_c, r_c, B, C₁, ε_s and C₅ be as there, C₆ the constant of the proof of [[lem:v-3-2]] (c),
+so that ‖π₀♯_(g′)e^(2/x)σ‖_𝒵 ≤ C₆‖σ‖_𝒮 for σ ∈ 𝒮 and u′ = (K′, g′) ∈ 𝒩_(ε_c), and C_T a bound for the norm of T_(u′)
+from 𝒴 to 𝒳, uniform for u′ ∈ 𝒩_(ε_c) (proof of [[lem:v-3-2]] (a)). We write σ for the right side (δJ, δρ) of
+[[eq:v-3-1]].
+
+*The data.* For δ_s = (δγ_s, δK_s) put u′ = u′_(ε,s) := (K + εδK_s, γ + εδγ_s) on 𝒱, so that g′ = g_(ε,s). As x ≤ 1
+and the derivatives of x are bounded, the norm of 𝒩 of u′ − u₀ is at most Cε(‖δK_s‖_(C^(k+3)) + ‖δγ_s‖_(C^(k+4))),
+which is at most Cε uniformly in s, s ↦ δ_s being continuous on a compact interval; so u′ ∈ 𝒩_(ε_c) for ε small, and
+s ↦ u′ is continuous in that norm. 𝔍 is a smooth function of the 2-jet of the data, it vanishes at the background's
+data on U, and P annihilates δ_s, as δ_s is a seed. By Taylor's formula, ‖𝔍(u′)‖_(C^(k+2)) ≤ Cε² uniformly in s;
+𝔍(u′) is supported in Ω_c and continuous in s in C^(k+2). As x is bounded below on Ω_c, the weights of 𝒮 are bounded
+there, and ‖𝔍(u′)‖_𝒮 ≤ C‖𝔍(u′)‖_(C^(k+1)) ≤ Cε².
+
+*The matter term.* For a metric γ′ with |γ′ − γ|_γ < ½ put 𝔣(γ′) := |dR|_(γ′)/|dR|_γ. In coordinates (R, y), 𝔣 is a
+smooth function of the point and of the components of γ′, 𝔣(γ) = 1, and ρ_1 𝔣(γ′) = |J_1|_(γ′). Choose a closed band
+𝒱′ ⊂ 𝒱° with Ω_c in its interior; x is bounded below on 𝒱′. We claim:
+
+(C) There is C such that for metrics a, b on 𝒱′ with |a − γ|_γ, |b − γ|_γ ≤ ¼ and ‖a − γ‖_(H^(k+2)(𝒱′)) ≤ 1,
+‖b − γ‖_(H^(k+2)(𝒱′)) ≤ 1,
+
+    ‖ρ_1 (𝔣(a) − 𝔣(b))‖_(H^k(𝒱′)) ≤ C ‖a − b‖_(H^(k+2)(𝒱′)).
+
+Cover 𝒱′ by finitely many coordinate boxes [R₋′, R₊′] × Ō, O a ball of coordinates on S³; on each, the Sobolev norms of
+𝒱′ are equivalent to the sums of those of the components on a bounded Lipschitz domain of ℝ⁴. There, by
+[[thm:std-bh-embedding]] applied to derivatives of order at most k − 1, which lie in H³ with 3 · 2 > 4, and by
+[[thm:std-bh17-embedding]] with (s, p, t, q) = (2, 2, 0, 4) applied to derivatives of order k, every component u of
+a − γ, b − γ or ζ := a − b satisfies sup|∂^βu| ≤ C‖u‖_(H^(k+2)) for |β| ≤ k − 1, and
+‖∂^βu‖_(L⁴) ≤ C‖u‖_(H^(k+2)) for |β| = k. Put a_t := b + tζ, t ∈ [0, 1]; then |a_t − γ|_γ ≤ ¼,
+‖a_t − γ‖_(H^(k+2)) ≤ 1, and 𝔣(a) − 𝔣(b) = ∫₀¹ D𝔣(a_t)[ζ] dt, D𝔣 being the derivative in the metric. For |α| ≤ k, by
+the Leibniz and chain rules, ∂^α(ρ_1 D𝔣(a_t)[ζ]) is a finite sum of terms
+
+    b_t · (∂^(β₁)a_t ⊗ ⋯ ⊗ ∂^(β_i)a_t ⊗ ∂^(β₀)ζ),      |β₀| + |β₁| + ⋯ + |β_i| ≤ |α|,   |β_l| ≥ 1 for l ≥ 1,
+
+where b_t is a derivative of ρ_1 times a derivative of 𝔣 in the point and the metric, evaluated at a_t, and is bounded,
+as |a_t − γ|_γ ≤ ¼ on the compact 𝒱′. At most one of β₀, …, β_i has order k, two such orders adding up to 2k > k; the
+other factors are bounded, by C‖ζ‖_(H^(k+2)) for the factor carrying ζ and by C for those carrying a_t, whose
+derivatives are those of γ plus those of a_t − γ. The factor of order k, if there is one, is bounded in L⁴ in the same
+way. So each term has L²-norm at most C‖ζ‖_(H^(k+2)) on a box, the L⁴-norm bounding the L²-norm there, and integrating
+in t gives (C).
+
+*The equation.* For z ∈ 𝒴 let (δK_z, δg_z) := T_(u′)z, and, when |εδγ_s + δg_z|_γ < ½ on Ω_c,
+
+    σ(z) := −𝔍(u′) + ε²s (−2J_1, 2ρ_1 𝔣(g′ + δg_z)).                                     {#eq:loc-continuity-source}
+
+By the proof of [[lem:s28-setting]] (a), [[eq:v-3-1]] with right side [[eq:loc-continuity-source]] holds for
+(δK, δg) = T_(u′)z exactly when ♯_(g′)e^(2/x){𝔍(u′ + T_(u′)z) − 𝔍(u′) − σ(z)} ∈ 𝒦₀, that is,
+
+    ♯_(g′)e^(2/x){𝔍(u′ + T_(u′)z) − ε²s (−2J_1, 2|J_1|_(g′ + δg_z))} ∈ 𝒦₀,               {#eq:loc-continuity-kid}
+
+and, by [[lem:s28-setting]] (a), exactly when Ψ(u′, z) = π₀♯_(g′)e^(2/x)σ(z).
+
+*Bounds.* ‖T_(u′)z‖_𝒳 ≤ C_T‖z‖_𝒴. On 𝒱′ the weights of 𝒳 are bounded above and below, so the norm of 𝒳 bounds
+‖δg_z‖_(H^(k+2)(𝒱′)); and ‖δg_z‖_(C⁰) ≤ C‖T_(u′)z‖_𝒳 ([[lem:s28-setting]] (c)). The norm of the second factor of 𝒮
+of a function supported in Ω_c is at most C times its H^k(𝒱′)-norm. Fix r ∈ (0, r_c) so small that ‖z‖_𝒴 ≤ r
+implies |δg_z|_γ ≤ ⅛ and ‖δg_z‖_(H^(k+2)(𝒱′)) ≤ ½, and take ε_0 so small that |εδγ_s|_γ ≤ ⅛ and
+‖εδγ_s‖_(H^(k+2)(𝒱′)) ≤ ½ for all s. Then (C), with a := g′ + δg_z and b := g′ + δg_w, gives for ‖z‖_𝒴, ‖w‖_𝒴 ≤ r
+
+    ‖σ(z) − σ(w)‖_𝒮 ≤ C ε² ‖z − w‖_𝒴,      ‖σ(z)‖_𝒮 ≤ C ε²,
+
+the second because ‖σ(0)‖_𝒮 ≤ ‖𝔍(u′)‖_𝒮 + Cε², ρ_1 𝔣(g′) being smooth and bounded with its derivatives uniformly in
+s. Diminishing ε_0, Cε_0² < ε_s and C₅Cε_0² ≤ r.
+
+*The fixed point.* Let B̄_r be the closed ball of radius r about zero in 𝒴, so B̄_r ⊂ B. For z ∈ B̄_r,
+‖σ(z)‖_𝒮 < ε_s, so [[lem:v-3-2]] (c) gives z̃ ∈ B with Ψ(u′, z̃) = π₀♯_(g′)e^(2/x)σ(z) and
+‖z̃‖_𝒴 ≤ C₅‖σ(z)‖_𝒮 ≤ r, and by [[lem:v-3-2]] (a) it is the only such z̃ in B. Put Θ(z) := z̃. So Θ maps B̄_r into
+itself, and for z, w ∈ B̄_r, by [[eq:s28-lower]],
+
+    ‖Θ(z) − Θ(w)‖_𝒴 ≤ 2C₁‖Ψ(u′, Θ(z)) − Ψ(u′, Θ(w))‖_𝒵 = 2C₁‖π₀♯_(g′)e^(2/x)(σ(z) − σ(w))‖_𝒵
+                    ≤ 2C₁C₆‖σ(z) − σ(w)‖_𝒮 ≤ 2C₁C₆Cε²‖z − w‖_𝒴,
+
+which is at most ½‖z − w‖_𝒴 once ε_0 is small. By the contraction mapping theorem, Θ has exactly one fixed point
+z* = z*(ε, s) in B̄_r. Let (δK, δg) := T_(u′)z* and put c_(ε,s) := (δg, δK) on 𝒱 and c_(ε,s) := 0 on the rest of Σ_τ0.
+If ρ_1 = 0, σ does not depend on z, and z* is the solution of [[lem:v-3-2]] (c) with right side −𝔍(u′).
+
+*Invariance.* 𝒢 acts on 𝒱 by isometries of γ that preserve K and x. They map Killing initial data pairs to Killing
+initial data pairs and preserve the weighted spaces and their norms, so 𝒦₀ is 𝒢-invariant; for invariant u′ the
+L²-products with the weight e^(−1/x) built with g′ and with γ are 𝒢-invariant, so π_(g′) and π₀ commute with 𝒢. The
+constraint map and P*_(u′) are natural, the weights are functions of x, and ♯_(g′) commutes with 𝒢 as g′ is invariant;
+so T_(u′) commutes with 𝒢, and Ψ(u′, ·) is 𝒢-equivariant, as in step (3) of the proof of [[prop:vii-2-2]]. As 𝔍(u′),
+ρ_1 and J_1 are invariant and |J_1|_(φ*g) = φ*|J_1|_g for φ ∈ 𝒢, σ(φ·z) = φ·σ(z). For φ ∈ 𝒢 and z ∈ B̄_r, φ·Θ(z) lies
+in B and Ψ(u′, φ·Θ(z)) = φ·Ψ(u′, Θ(z)) = π₀♯_(g′)e^(2/x)σ(φ·z), so Θ(φ·z) = φ·Θ(z) by uniqueness. Then φ·z* is a fixed
+point of Θ in B̄_r, so φ·z* = z*, and c_(ε,s) is invariant.
+
+*Regularity and support.* T_(u′)z* lies in 𝒳 = x²H^(k+2)_(x²,e^(1/x)) × x⁴H^(k+2)_(x²,e^(1/x)); write it as
+(x²w₁, x⁴w₂). As in the proof of [[lem:s28-setting]] (c), x^(4i)e^(2/x) is bounded below on 𝒱°, so w₁, w₂ ∈
+H^(k+2)(𝒱), which lies in C^(k−1)(𝒱) by Sobolev's inequality, as (k + 2) − (k − 1) > 2. Let w be w₁ or w₂ and
+i ≤ k − 1. ∇^iw is continuous on 𝒱, and ∫_𝒱 x^(4i)e^(2/x)|∇^iw|² dvol is finite. If ∇^iw did not vanish at a point of
+∂𝒱, |∇^iw| would be bounded below on a neighbourhood, where in the coordinates (x, y) the volume element is bounded
+below by a multiple of dx dy and ∫₀ t^(4i)e^(2/t) dt diverges. So the derivatives of w₁ and w₂ of order at most k − 1
+vanish on ∂𝒱, and so do those of c := c_(ε,s). Hence c_(ε,s) is of class C^(k−1) on Σ_τ0 and vanishes outside 𝒱. By
+[[lem:s28-setting]] (c), ‖c_(ε,s)‖_(C²) ≤ C‖T_(u′)z*‖_𝒳 ≤ CC_T‖z*‖_𝒴 ≤ CC_TC₅‖σ(z*)‖_𝒮 ≤ Cε². If ρ_1 = 0, by the
+last sentence of [[lem:v-3-2]] (c) the correction is that of [[lem:s28-setting]] (a), and (b) of that lemma, with this
+Ω_c and the bound ‖𝔍(u′)‖_(C^(k+2)) ≤ Cε², shows that it is smooth on 𝒱 and extends smoothly by zero.
+
+*The residual.* The metric of D := D_(ε,s) is γ_D = g′ + δg_(z*) on 𝒱. As z* is a fixed point, Ψ(u′, z*) =
+π₀♯_(g′)e^(2/x)σ(z*), so by [[eq:loc-continuity-kid]] the pair v := ♯_(g′)e^(2/x){𝔍(D) − ε²s(−2J_1, 2|J_1|_(γ_D))}
+lies in 𝒦₀. It is invariant, as u′, g′, x, ρ_1, J_1 and c are; so v = m𝔨 on 𝒱° for a real number m = m(ε, s).
+Lowering the index with g′ and multiplying by e^(−2/x), 𝔍(D) − ε²s(−2J_1, 2|J_1|_(γ_D)) = m e^(−2/x)(−g′(Y_s, ·), N_s)
+on 𝒱°; as 𝔍 = (−2ℳ, ℋ), this is [[eq:loc-continuity-res]] on 𝒱°. On U ∖ 𝒱, D is the background's data, which are
+vacuum there, and both sides of [[eq:loc-continuity-res]] vanish, as ρ_1, J_1 and 𝔴 do; on ∂𝒱 both sides are
+continuous. This proves (ii).
+
+*The coefficient.* Pair [[eq:loc-continuity-res]] with (N_s, 2Y_s) over U. The right sides give
+
+    2ε²s ∫_U (N_s|J_1|_(γ_D) + Y_s·J_1) dvol + m𝔫 = 2ε²s ∫_U (N_sρ_1 + Y_s·J_1) dvol + O(ε³) + m𝔫,
+
+since |J_1|_γ = ρ_1 and ||J_1|_(γ_D) − |J_1|_γ| ≤ Cρ_1|γ_D − γ|_γ ≤ Cερ_1, uniformly in s. For the left sides let
+w := εδ_s + c_(ε,s), which is of class C², vanishes outside 𝒱 and has ‖w‖_(C²) ≤ Cε. Φ = (ℋ, ℳ) is a smooth function
+of the 2-jet of the data and vanishes at the background's data on U, so on 𝒱, by Taylor's formula,
+Φ(bg + w) = DΦ[w] + ½D²Φ[w, w] + O(ε³) uniformly in s, with DΦ[w] = DΦ[c_(ε,s)], as DΦ[δ_s] = 0, and
+½D²Φ[w, w] = ½ε²D²Φ[δ_s, δ_s] + O(ε³). For c_(ε,s) = (δg, δK), the pairing of DΦ[c_(ε,s)] with (N_s, 2Y_s) is
+∫_U ⟨P*(𝔨), (δK, δg)⟩ dvol = 0, by the identity in the proof of [[lem:loc-kid-space]] (b), the integrations by parts
+being valid for a pair of class C² that vanishes outside the compact 𝒱. So the left sides give ε²Q(δ_s) + O(ε³), by
+[[eq:loc-charge]], uniformly in s, and [[eq:loc-continuity-m]] follows; 𝔫 ≥ ∫_U 𝔴 N_s² dvol > 0.
+
+*Continuity in s.* Let Θ_s be the map Θ built with s and u′_(ε,s), and z*_s its fixed point. For s, s′ ∈ [s_a, s_b],
+
+    ‖z*_s − z*_(s′)‖_𝒴 ≤ ‖Θ_s(z*_s) − Θ_s(z*_(s′))‖_𝒴 + ‖Θ_s(z*_(s′)) − Θ_(s′)(z*_(s′))‖_𝒴
+                        ≤ ½‖z*_s − z*_(s′)‖_𝒴 + ‖Θ_s(z*_(s′)) − Θ_(s′)(z*_(s′))‖_𝒴,
+
+so ‖z*_s − z*_(s′)‖_𝒴 ≤ 2‖Θ_s(w) − Θ_(s′)(w)‖_𝒴 with w := z*_(s′). By *The equation*, Θ_s(w) and Θ_(s′)(w) are the
+solutions in B of [[eq:v-3-1]] for (u′_(ε,s), σ_s(w)) and (u′_(ε,s′), σ_(s′)(w)), σ_s being σ built with s and
+u′_(ε,s). By [[lem:v-3-2]] (b) their difference tends to zero as s → s′, as u′_(ε,s) → u′_(ε,s′) in the norm of 𝒩 and
+σ_s(w) → σ_(s′)(w) in 𝒮. The latter holds because 𝔍(u′_(ε,s)) → 𝔍(u′_(ε,s′)) in C^(k+2) with supports in Ω_c;
+T_(u′) depends continuously on u′ in operator norm (proof of [[lem:v-3-2]] (a)), so the metric part of T_(u′_(ε,s))w
+tends to that of T_(u′_(ε,s′))w in 𝒳; g_(ε,s) → g_(ε,s′) in C^(k+4); and (C) applies. So s ↦ z*_s is continuous in
+𝒴, and c_(ε,s), built from T_(u′_(ε,s))z*_s, is continuous in 𝒳, hence in C² ([[lem:s28-setting]] (c)). Finally
+m(ε, s) is the left side of the pairing minus 2ε²s ∫_U (N_s|J_1|_(γ_D) + Y_s·J_1) dvol, divided by 𝔫(ε, s); D_(ε,s)
+and γ_D are continuous in s in C², and 𝔫 is continuous in s, so m(ε, ·) is continuous. ∎
+
 **Proposition {#prop:loc-projection}** (The charge decides localisation at second order.) Let U be a band as in
 [[lem:loc-kid]] (b) and δ a seed on U.
 
@@ -479,28 +647,31 @@ U, with ‖c_ε‖_(C²) ≤ Cε²,
 
 So if Q(δ) ≠ 0, no such D_ε satisfies the vacuum constraints for ε small.
 
-(b) There are invariant corrections c_ε, supported in U, with ‖c_ε‖ ≤ Cε² in the norms of [[thm:std-cd-compact]], such
-that Φ(bg + εδ + c_ε) is m(ε) times one fixed invariant element of the weighted image of the static Killing initial
-data, whose pairing with (N_s, 2Y_s) is positive; then m(ε) has the sign of ε²Q(δ) + O(ε³). For a family of seeds
-δ_s, s ∈ [0, 1], continuous in s, the corrections can be chosen continuous in s [[pending:issue-1]], with the O(ε³)
-uniform in s. Hence, if Q(δ_0) < 0 < Q(δ_1), then for ε small there is s(ε) ∈ (0, 1) such that bg + εδ_(s(ε)) +
-c_ε satisfies the vacuum constraints exactly and equals the background's data outside a compact subset of U.
+(b) Let [s_a, s_b] be a compact interval and δ_s, s ∈ [s_a, s_b], seeds on U supported in a fixed compact subset of U,
+with s ↦ δ_s continuous into C^l(U) for every l; for a single seed δ take δ_s := δ. There are a smooth invariant
+function 𝔴 ≥ 0 with compact support in U, positive on a band containing the supports, and, for ε small, smooth
+invariant corrections c_(ε,s) that vanish outside a compact subset of U independent of ε and s, with
+‖c_(ε,s)‖_(C²) ≤ Cε² and continuous in s in C², such that, on U,
+
+    ℋ(bg + εδ_s + c_(ε,s)) = m(ε, s) 𝔴 N_s,      ℳ(bg + εδ_s + c_(ε,s)) = ½ m(ε, s) 𝔴 g_(ε,s)(Y_s, ·),
+
+g_(ε,s) the metric of bg + εδ_s, where m(ε, ·) is continuous on [s_a, s_b] and, uniformly in s,
+
+    m(ε, s) 𝔫(ε, s) = ε² Q(δ_s) + O(ε³),      𝔫(ε, s) := ∫_U 𝔴 (N_s² + g_(ε,s)(Y_s, Y_s)) dvol > 0.
+
+So m(ε, s) has the sign of ε²Q(δ_s) + O(ε³). Hence, if Q(δ_(s_a)) < 0 < Q(δ_(s_b)), then for ε small there is
+s(ε) ∈ (s_a, s_b) such that bg + εδ_(s(ε)) + c_(ε,s(ε)) satisfies the vacuum constraints exactly on U and equals the
+background's data outside a compact subset of U.
 
 *Proof.* (a) By Taylor's formula, Φ(D_ε) = Φ(bg) + DΦ[εδ + c_ε] + ½ε² D²Φ[δ, δ] + O(ε³), with Φ(bg) = 0 and DΦ[δ] =
-0. Pairing with (N_s, 2Y_s), the term DΦ[c_ε] drops out by [[lem:loc-kid]] (b), and the quadratic term gives ε²Q(δ).
-Vacuum data have Φ(D_ε) = 0.
+0. Pairing with (N_s, 2Y_s), the term DΦ[c_ε] drops out by [[lem:loc-kid]] (b), which holds for c_ε of class C²
+vanishing outside a compact subset of U by [[lem:loc-kid-space]] (b) and integration by parts, and the quadratic term
+gives ε²Q(δ). Vacuum data have Φ(D_ε) = 0.
 
-(b) Apply [[thm:std-cd-compact]] on the closure M of a band U′ ⋐ U containing supp δ, with x a defining function of
-∂M, at the data bg + εδ, which are close to the background's, with the right side (δJ, δρ) := −(J, ρ)(bg + εδ). This
-right side is O(ε²), since DΦ[δ] = 0, and supported in U′. The theorem gives a correction c_ε of the form
-x^(2s−n)Φ²P*(Y, N), close to zero and extending smoothly by zero across ∂M, such that the projection of
-x^(−2s+n)(J, ρ)(bg + εδ + c_ε) onto the orthogonal complement of the space 𝒦0 of Killing initial data of the
-background on M vanishes. The problem is invariant under the isometries T² × Z2 × Z2 and the solution near zero is
-unique, so c_ε is invariant, and x^(−2s+n)(J, ρ)(bg + εδ + c_ε) lies in the invariant part of 𝒦0. By [[lem:loc-kid]]
-(b) the pair (Y, N) := (−Y_s, N_s) pairs to zero with every compactly supported variation of (J, ρ) = (−2ℳ, ℋ), and by
-[[lem:loc-kid]] (c) it spans the invariant part of 𝒦0; so (J, ρ)(bg + εδ + c_ε) = m(ε) x^(2s−n)(−Y_s^♭, N_s). Pairing
-with (N_s, 2Y_s) gives m(ε) ∫ x^(2s−n)(N_s² + |Y_s|²) dvol = ε²Q(δ) + O(ε³), as in (a). The last statement follows
-from the intermediate value theorem applied to m(ε, ·) on [0, 1]. ∎
+(b) This is [[lem:loc-continuity]] with ρ_1 = 0 and k = 3: by its item (i) the corrections are smooth, and its items
+(ii) and (iii) are the displayed identities. If Q(δ_(s_a)) < 0 < Q(δ_(s_b)), the O(ε³) being uniform in s,
+m(ε, s_a) < 0 < m(ε, s_b) for ε small, and the intermediate value theorem, applied to the continuous function m(ε, ·)
+on [s_a, s_b], gives s(ε) with m(ε, s(ε)) = 0. ∎
 
 ### Momentum seeds {#sec:loc-momentum}
 
