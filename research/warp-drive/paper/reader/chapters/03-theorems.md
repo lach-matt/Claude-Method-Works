@@ -341,10 +341,13 @@ The remaining chapters prove the following; each is stated in full where it is p
 - *The linear solution in two gauges.* In a Regge–Wheeler-type gauge the gauge vector is explicit, and the
   perturbation settles to the change of mass on each region r ≤ R, the horizon included, at the linear rate with two
   derivatives lost ([[thm:rw-settling]]). In the harmonic gauge a representative exists on the whole domain, induces
-  the given data and settles on each region r ≤ R to μ̇K* + c π_(W*), the gauge-fixed change of mass plus a multiple of
-  the pure-gauge solution of an explicit stationary one-form W*, at the rate τ^(−min(p,3/2)+ε), where p > 1/2 + 2γ_Υ
-  is the order of decay of its spherically symmetric gauge data at spatial infinity and γ_Υ a parameter of the gauge
-  of the stability theory ([[thm:harmonic-rate]]).
+  the given data and settles on each region r_♭ < r ≤ R′, the horizon included, to ṁK* + cℒ_(W*)g: the gauge-fixed
+  change of mass ṁK*, ṁ being the mass change of the perturbation, plus a multiple of the pure-gauge solution
+  ℒ_(W*)g of an explicit stationary one-form W*. The rate is t*^(−min(p_0,3/2)+ε) for every ε > 0, where
+  p_0 > 1/2 + 2γ_Υ is the supremum of the orders of decay at spatial infinity of the data of the one-form Z′_0 for
+  which ṁK* + ℒ_(Z′_0)g is the spherically symmetric part of the representative, γ_Υ is a parameter of the gauge of
+  the stability theory, and c is fixed by the horizon charge of Z′_0 and the Killing part of its data
+  ([[thm:harmonic-rate]]).
 - *The constants of [[thm:settling]].* The loss d of the tame estimates and the regularity N_NM = 21d + 6 of the
   Nash–Moser step, with explicit lower bounds at a parameter point that lies outside the proved set ([[thm:loss-d]])
   and, through them, upper bounds for δ and λ1, explicit resolvent bounds on five-dimensional Tangherlini

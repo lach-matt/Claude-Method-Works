@@ -630,7 +630,8 @@ the admissibility enters ([[rem:ii-f-8-2]]), uses these orders over K⁺ with th
 ℓ_I ∈ (0, ½) of [[sec:iii-i-1]] and fixed ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], by [[cor:iii-i-5-2]] with h ∈ 𝒳^(k+d+5)
 (d raised by 5), and ‖P − P_0‖_((0;d)) ≤ C(|S| + ‖h‖_(𝒳^(d+5))) < ε′_0 for ε_0 small ([[prop:iii-i-3-4]],
 [[eq:iii-i-3-7]]). Its metric g satisfies [[eq:ii-f1-7-1]] with ℓ_♭ = ½: by [[eq:s19-time-hyp]] at b = b₀,
-‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) ≤ C(|S| + ‖h‖_(𝒳³)) < ε_♭ for ε_0 small, as d ≥ 3.
+‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) ≤ C(|S| + ‖h‖_(𝒳³)) < η_♭ for ε_0 small, as d ≥ 3. P is given on Ω_*, where h is,
+and these norms are taken over Ω_*, which is all that [[thm:ii-f1-1-1]] asks (the paragraph after it).
 
 The tame form: for ‖h‖_(𝒳^(d+5)) small, ‖P − P_0‖_((0;k+d)) ≤ C_k(|S| + ‖h‖_(𝒳^(k+d+5))), with C_k independent of S
 and h. By Sobolev embedding, as in [[cor:iii-i-5-2]] (2), the left side is at most C times the norm of the coefficients
@@ -759,7 +760,7 @@ verbatim with G_b, its margins (𝖧f_T ≥ ϱ⁻¹ against 2ϱ⁻¹, 𝖧f_W �
 
 This is the only condition on B_* in this chapter; [[ch:s20]] and [[ch:s25]] shrink B_* further. [[thm:iii-h2-3-1]] and
 [[thm:iii-h2-4-1]] apply the slab estimates of [[ch:s07]] relative to 2L_b itself, so no condition on slabs enters (B5).
-The choices are made in this order: ε_♭ by g_(b₀) alone; B_1 by (B1)–(B4); the constants of
+The choices are made in this order: η_♭ by g_(b₀) alone; B_1 by (B1)–(B4); the constants of
 [[sec:iii-h2-1]]–[[sec:iii-h2-4]], uniform on B̄_1; then B_* by (B5), which involves only the threshold ε′_0 of
 [[thm:iii-h2-4-1]]. So nothing is circular, and every
 statement of [[sec:iii-h2-1]]–[[sec:iii-h2-4]] holds a fortiori on B̄_*.
@@ -1058,13 +1059,13 @@ This section is [Hin26c, Theorem 11.1] uniformly over the family 2L_b.
 
 **Theorem {#thm:iii-h2-4-1}** ([[thm:ii-f1-1-1]] uniformly near b₀.) Let α_I, α_+, ℓ_+, ℓ_K be as in
 [[thm:ii-f1-1-1]], with ℵ = 2, δ = 0 and the order 𝗌 of (B4), let ℓ_I ∈ (0, ½) be the class parameter of
-[[sec:iii-i-1]], and let t^♭ and Ω_* be those of (B2), built for g_(b₀) with the exponent ½, and ε_♭ the number of (B2).
+[[sec:iii-i-1]], and let t^♭ and Ω_* be those of (B2), built for g_(b₀) with the exponent ½, and η_♭ the number of (B2).
 There are ε_0 > 0 and d ∈ ℕ such that for every b ∈ B̄_1 the conclusions of [[thm:ii-f1-1-1]] and [[cor:ii-f1-1-2]]
 hold with P_0 := 2L_b (with [[rem:ii-f1-7-1]] for margin 1) for every P as there whose metric g satisfies in addition
 
-    ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭,                                                       {#eq:s19-time-hyp-b}
+    ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < η_♭,                                                       {#eq:s19-time-hyp-b}
 
-with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be admissible
+the norm taken over Ω_*, with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be admissible
 relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0, metric satisfying
 [[eq:s19-time-hyp-b]] and ‖P_j − 2L_(b_j)‖_((0;k+d)) bounded, and with coefficients converging in C² on compact subsets
 of M° ∩ {r > r_0} to those of P, admissible relative to 2L_b with ‖P − 2L_b‖_((0;d)) < ε_0 and metric satisfying

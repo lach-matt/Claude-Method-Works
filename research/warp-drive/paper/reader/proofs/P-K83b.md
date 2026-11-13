@@ -18,7 +18,7 @@ endpoint printed in thm:bg-margins (b). -->
 trace-free symmetric 2-tensor on the unit S³ with Δ̂T = −k_T²T, and put D²Scal_γ̂[T, T] := d²/dε² Scal(γ̂ + εT) at
 ε = 0. Then
 
-    ∫_(S³) D²Scal_γ̂[T, T] dvol_γ̂ = (1 − k_T²/2) ∫_(S³) |T|²_γ̂ dvol_γ̂.                                {#eq:loc-tt-second}
+    ∫_(S³) D²Scal_γ̂[T, T] dvol_γ̂ = (1 − k_T²/2) ∫_(S³) |T|²_γ̂ dvol_γ̂.                             {#eq:loc-tt-second}
 
 *Proof.* For a family g + εh of metrics on a closed manifold, the Levi-Civita connection varies by δΓ^k_ij =
 ½(∇_ih_j^k + ∇_jh_i^k − ∇^kh_ij), and Palatini's identity Ric′[h]_ij = ∇_kδΓ^k_ij − ∇_jδΓ^k_ki gives
@@ -28,7 +28,8 @@ trace-free symmetric 2-tensor on the unit S³ with Δ̂T = −k_T²T, and put D�
 whose trace gives the first variation DScal[h] = div div h − Δ tr h − ⟨h, Ric⟩ of the scalar curvature. Integrating,
 the divergences drop out and
 
-    d/dε ∫ Scal(g_ε) dvol_(g_ε) = ∫ (DScal_(g_ε)[h] + ½ Scal(g_ε) tr_(g_ε) h) dvol_(g_ε) = ∫ ⟨𝒢(g_ε), h⟩_(g_ε) dvol_(g_ε),
+    d/dε ∫ Scal(g_ε) dvol_(g_ε) = ∫ (DScal_(g_ε)[h] + ½ Scal(g_ε) tr_(g_ε) h) dvol_(g_ε)
+                                = ∫ ⟨𝒢(g_ε), h⟩_(g_ε) dvol_(g_ε),
 
 g_ε := g + εh, 𝒢(g) := ½ Scal(g) g − Ric(g). Take g = γ̂ and h = T, and let E(ε) := ∫ Scal(γ̂ + εT) dvol_(γ̂+εT); all
 integrals below are over S³ against dvol_γ̂, and |T|² := |T|²_γ̂. Since Ric(γ̂) = 2γ̂ and Scal(γ̂) = 6, 𝒢(γ̂) = γ̂ and
@@ -82,8 +83,8 @@ foliation give
     Scal = R⁻² Scal(ĝ) − (tr L)² − |L|² − 2G^(−1/2)(tr L)′,      L := ½G^(−1/2) ∂_R(R²ĝ),
 
 L the second fundamental form of the spheres with respect to the unit normal G^(−1/2)∂_R. For ĝ = γ̂ + 2εHT, as an
-endomorphism L = G^(−1/2)(1/R + εH′T^♯ − 2ε²HH′(T^♯)²) + O(ε³), so that tr L = G^(−1/2)(3/R − 2ε²HH′|T|²) + O(ε³) and
-|L|² = G⁻¹(3/R² + ε²(H′² − 4HH′/R)|T|²) + O(ε³). The ε² coefficients of the last three terms of Scal are therefore
+endomorphism L = G^(−1/2)(1/R + εH′T^♯ − 2ε²HH′(T^♯)²) + O(ε³), so that tr L = G^(−1/2)(3/R − 2ε²HH′|T|²) + O(ε³)
+and |L|² = G⁻¹(3/R² + ε²(H′² − 4HH′/R)|T|²) + O(ε³). The ε² coefficients of the last three terms of Scal are therefore
 12HH′|T|²/(RG), −(H′² − 4HH′/R)|T|²/G and 4G^(−1/2)(G^(−1/2)HH′)′|T|². The ε² coefficient of the first term is R⁻²
 times half of D²Scal_γ̂[2HT, 2HT] = 4H²D²Scal_γ̂[T, T], whose integral over S³ is, by [[lem:loc-tt-second]],
 R⁻²(2 − k_T²)H²∫|T|². Adding gives the third identity. ∎
@@ -205,7 +206,7 @@ from the data and their R-derivatives, so they have compact support with the dat
 With the Christoffel symbols above, (div k)_R = (fp′ + f′p + (3fp − 3w − k²q_k)/R)S and (div k)_A = (Rf q_k′ + (4 −
 3x)q_k + w)∂_AS, and ℳ = div k − d tr k gives [[eq:loc-mom-modes]]. Expanding, with Rf′ = 2x,
 
-    Z′ + (R²H_KI/3) q_k + R² 𝔪_ϑ + (R³/3) 𝔪_R = 0                                                       {#eq:loc-z-identity}
+    Z′ + (R²H_KI/3) q_k + R² 𝔪_ϑ + (R³/3) 𝔪_R = 0                                                    {#eq:loc-z-identity}
 
 identically. If 𝔪_R = 𝔪_ϑ = 0, then [[eq:loc-z-identity]] gives q_k = −3Z′/(R²H_KI) (H_KI ≥ m > 0), w = Z/R³ + fq_k
 by the definition of Z, and p from 𝔪_ϑ = 0 (f > 0): the data are the image of their Z. Conversely, for the image of a
@@ -304,8 +305,8 @@ On the constraint R⁴F′C(A, F) = 0, and 𝔅_1, 𝔅_2 and P_2ρρ′Φ_M² h
 [[eq:loc-ev]].
 
 *(d) The l = 0 part.* For l = 0, S = 1, Ŝ = 0 and D̂S = 0, so h_(l=0) = a dR² + R²cγ̂ and k_(l=0) = p dR² + R²wγ̂
-with a, c, p, w functions of R. The computation of (c) uses neither b nor e, so [[eq:loc-c]] holds with k² = 0, A := a
-and F := c/2. By the computation of (a) with S = 1 and β̃ = 0, X := RF∂_R gives L_Xγ = ((1/f)′RF + 2(RF)′/f)dR² +
+with a, c, p, w functions of R. The derivation of [[eq:loc-c]] in (c) uses neither b nor e, so [[eq:loc-c]] holds with
+k² = 0, A := a and F := c/2. By (a) with S = 1 and β̃ = 0, X := RF∂_R gives L_Xγ = ((1/f)′RF + 2(RF)′/f)dR² +
 2R²Fγ̂, and DScal[L_Xγ] = X(Scal(γ)) = 0. So on the constraint A_r := a − (1/f)′RF − 2(RF)′/f satisfies C(A_r, 0) = 0
 with k² = 0, that is 6(1 + x)fA_r + 3Rf²A_r′ = 0, whose solutions are the constant multiples of x/f², since
 (ln(x/f²))′ = −2/R − 4x/(Rf) = −2(1 + x)/(Rf); these vanish nowhere unless the constant is 0. Compact support gives
@@ -345,8 +346,8 @@ background is vacuum lies in region III, {0.70 ≤ R ≤ R_u2}, or in {R ≥ R_*
 the single zero ρ_u2, and R_u2 = v̂(ρ_u2) + 0.68. By direct evaluation of the polynomial Φ̃ of [[sec:tab-bg-ray]] and of
 [[eq:bg-tangherlini]], Φ̃(2.773631) − v̂(2.773631) − 0.68 ≥ 1.3949 × 10⁻⁶ and Φ̃(2.7736325) − v̂(2.7736325) − 0.68 ≤
 −1.1149 × 10⁻⁶. Since |Φ − Φ̃| ≤ ε₀ = 8.69 × 10⁻⁷ at u = u2 ([[prop:bg-rays]]), g(2.773631) > 0 > g(2.7736325), so
-2.773631 < ρ_u2 < 2.7736325. As v̂ is increasing, R_u2 lies between v̂(2.773631) + 0.68 ≥ 1.86143720 and v̂(2.7736325)
-+ 0.68 ≤ 1.86144094.
+2.773631 < ρ_u2 < 2.7736325. As v̂ is increasing, R_u2 lies between v̂(2.773631) + 0.68 ≥ 1.86143720 and
+v̂(2.7736325) + 0.68 ≤ 1.86144094.
 
 (b) Let P be a point of Σ_τ0 with 1.861 ≤ R ≤ R_u2. It lies in region III, on the ray ρ with v̂(ρ) + 0.68 = R
 ([[lem:bg-reduction]] (f), [[prop:bg-seed]] (a)), and there ψ_III^(k)(v̂(ρ)) = Ψ_k(ρ, Φ(ρ), …, Φ‴(ρ), μ3) for k ≤ 2
