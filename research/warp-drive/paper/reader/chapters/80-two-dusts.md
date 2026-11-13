@@ -319,6 +319,47 @@ uniformly Cauchy, so ∂_u P exists and is continuous, and likewise ∂_v Q̄. S
 Volterra equations of the same form, with coefficients built from lower derivatives, so U ∈ C^∞ by induction, the data
 being smooth. ∎
 
+The double-null coordinates of [[def:two-dust-data]] are one normalisation among many. Data posed in another one define
+the same background.
+
+**Lemma {#lem:two-dust-reparametrisation}** (Reparametrising the cones.) Let g0 be a round double-null metric
+[[eq:two-dust-metric]] on a region of the (u, v)-plane, and let ũ(u) and ṽ(v) be smooth with ũ′ > 0 and ṽ′ > 0. Then
+
+    g0 = −2 e^(2σ̃) dũ dṽ + R² dΩ₃²,      σ̃ := σ − ½ ln(ũ′ ṽ′),
+
+and g0 solves the two-null-dust equations with the fluxes 𝒜(v), ℬ(u) exactly when it solves them in the coordinates
+(ũ, ṽ) with the fluxes 𝒜̃ := 𝒜/ṽ′² and ℬ̃ := ℬ/ũ′², read as functions of ṽ and of ũ. The constraints
+[[eq:two-dust-constraints]] in (ũ, ṽ) are C̃_ũ = C_u/ũ′² and C̃_ṽ = C_v/ṽ′², and R, μ, f, e^(−4σ) 𝒜ℬ and, for a fixed
+increasing function v̂ of v, ψ are the same functions in both coordinates. Moreover:
+
+(a) the advanced time v of [[def:two-dust-data]] is, up to an additive constant, the increasing function v̂ of the
+parameter of 𝒞_out with ψ = 0 on 𝒞_out, and the retarded time on 𝒞_in ∩ {u ≤ u2} is, up to an additive constant, the
+increasing function of the parameter of 𝒞_in for which ψ̃ = 0 there, ψ̃ as in [[lem:two-dust-identities]] (v);
+
+(b) let characteristic data on 𝒞_in and 𝒞_out be given in parameters ũ, ṽ of the cones (R and σ̃ on both cones, 𝒜̃ and
+ℬ̃) which, rewritten by these formulas in the normalisation of [[def:two-dust-data]], are the data of
+[[def:two-dust-data]]. Then the background g0 of [[prop:two-dust-background]], written in (ũ, ṽ), solves the
+characteristic problem posed in (ũ, ṽ) on the development 𝒟, and it is the only solution there. Parts (b)–(d) of
+[[prop:two-dust-background]] and [[lem:two-dust-domain]] hold as stated: they concern g0, R, μ, the cones, the advanced
+time v and the sets J⁻(p) = {u ≤ u(p), v ≤ v(p)}, none of which depends on the parametrisation, by (a) for v.
+
+*Proof.* As dũ = ũ′ du and dṽ = ṽ′ dv, −2 e^(2σ̃) dũ dṽ = −2 e^(2σ̃) ũ′ ṽ′ du dv = −2 e^(2σ) du dv. Ric(g0) is a
+tensor, and (𝒜/R³) dv ⊗ dv + (ℬ/R³) du ⊗ du = (𝒜̃/R³) dṽ ⊗ dṽ + (ℬ̃/R³) dũ ⊗ dũ. For the constraints, R_ũ = R_u/ũ′,
+R_ũũ = R_uu/ũ′² − ũ″ R_u/ũ′³ and σ̃_ũ = σ_u/ũ′ − ũ″/(2ũ′²), so R_ũũ − 2σ̃_ũ R_ũ = (R_uu − 2σ_u R_u)/ũ′², while
+ℬ̃/(3R²) = ℬ/(3R² ũ′²); the same computation in ṽ gives C̃_ṽ. By [[eq:two-dust-mass]], f = g0⁻¹(dR, dR) and μ = R²(1 −
+f); by [[eq:two-dust-chart]], e^ψ = g0(∂_v̂, ∂_R) in the coordinates (v̂, R, ϑ, φ1, φ2); these depend only on g0, R and
+v̂. Finally e^(−4σ̃) 𝒜̃ℬ̃ = e^(−4σ) (ũ′ṽ′)² 𝒜ℬ/(ũ′ṽ′)².
+
+(a) By the proof of [[prop:two-dust-background]] (a), ψ = 0 on 𝒞_out when v̂ is the advanced time, and ψ̃ = 0 on
+𝒞_in ∩ {u ≤ u2} when the outgoing coordinate is the retarded time. Conversely, ψ = 0 on 𝒞_out means v̂′ = −e^(2σ)/R_u
+along 𝒞_out, by the definition of ψ in [[lem:two-dust-identities]] (v), which fixes v̂ up to a constant; likewise
+ψ̃ = 0 fixes the outgoing coordinate on 𝒞_in ∩ {u ≤ u2} up to a constant.
+
+(b) By the first part, g0 written in (ũ, ṽ) solves the two-null-dust equations with 𝒜̃, ℬ̃ and takes the given data.
+Conversely, a solution of the problem posed in (ũ, ṽ) on a past set, written in the coordinates of
+[[def:two-dust-data]], solves the problem of [[prop:two-dust-background]] there, by the first part, and so equals g0
+by the uniqueness there. The rest is read off. ∎
+
 **Lemma {#lem:two-dust-domain}** (The domain.) Use the double-null coordinates of [[def:two-dust-data]], so that v̂ = v
 in [[eq:two-dust-chart]] and e^ψ = −e^(2σ)/R_u, and on G the chart X = (τ, x), τ := v − R, x := R x̂. Let r_q(m) :=
 (√72 m l5²)^(1/4), V := v_end + T, and

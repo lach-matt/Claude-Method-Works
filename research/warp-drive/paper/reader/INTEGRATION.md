@@ -1002,3 +1002,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   chapter 64 renames applied. Outside: 66:32 needs K̄ (chapter 66's fix round); chapters 36, 40, 42 print λ_♯ and the
   row λ (rename to ϰ at integration); the compact part 𝒦 of chapters 46/48 clashes with the Kretschmann 𝒦 (integration
   rename). Confirming reader running.
+- S14 third reading (R3-S14): ϑ_in argument complete; trace and determinant reproduce exactly (limits 5v, 2v²(3 − 2x²));
+  minors: cite S11's new (E3) with Π = Id at 2465-2471; lines 626 and 2517 start with "> " and "+ " (pandoc renders a
+  block quote and a bullet and drops the sign). Third fix running.
+- INTEGRATION (global): add to lint.py a check for wrapped lines starting with "+ ", "- " (outside real lists), "* ",
+  "> ", "#", "=" or "|" in running text, and for uppercase label keys; then sweep every chapter and proof file. The
+  pandoc GFM reader drops the sign or makes a quote/table/list of such lines.
