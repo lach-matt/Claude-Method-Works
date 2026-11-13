@@ -323,7 +323,9 @@ K′ = K + 3 + ⌈4β0(k)⌉ ≥ 9 + 4β0(k). ∎
 
 **Corollary {#cor:own-p-order}** ([[thm:past-construction]] at every order). Let k ≥ 6 and K ≥ 6, and let g_app be the
 approximant with N_k stages. There is λ_P(K, k) > 0 such that for λ ≤ λ_P(K, k) the solution g_λ of
-[[thm:past-construction]] satisfies [[eq:far-energy]] at order k on the far region, and on P
+[[thm:past-construction]] satisfies [[eq:far-energy]] at order k on the far region, on Ω′ the conclusions of
+[[thm:uniform-existence]] at the regularity k, 𝒩_k ≤ M_k λ^K on [τ0, τ′_end] with 𝒩_k the quantity [[eq:ue-energy]] at
+order k ([[rem:ue-every-order]]), and on P
 
     |∂^i Ω^β (g_λ − g_app)| ≤ C_k λ^(K−3−i) t_P⁻²,     i + |β| ≤ k − 3.                                   {#eq:own-p-iii}
 
@@ -335,7 +337,7 @@ inherited by weak lower semicontinuity. The solution built at order k is g_λ: t
 [[lem:past-sobolev]] (a) costs three derivatives in ∂_r and Ω; on the near region (T_λ/t)^(β0(k)) ≤ λ^(−2β0(k)) is
 absorbed by K′ − 2β0(k) ≥ K + 3. This gives [[eq:own-p-iii]]. ∎
 
-So no order fails; what grows with k is the number of stages N_k, and λ_P(K, k) decreases.
+So no order fails; what grows with k is the number of stages N_k, and λ_P(K, k) may decrease.
 
 **Proposition {#prop:own-poly}** (the powers of λ at past null infinity). For J ≥ 4 and n, m ≥ 0 there are C and
 λ_0 > 0, depending on J, n, m and the data (seed, A, env, angular profile) and not on K, such that for 0 < λ ≤ λ_0, on
@@ -419,12 +421,12 @@ so for the remainder e := g_λ − g_app there the expansions of [[prop:bondi-hi
 
 and by [[eq:own-poly]] and [[lem:own-means]], |∂_X^α Ω^β ℓ^m e_(8)| ≤ C λ^(−(15+|α|+m)) r^(−9/2−m) on {t_P ≥ λ⁻² + d1}.
 
-**Lemma {#lem:own-interpolation}** (interpolation). Let d ≥ 0, P(y) = Σ_(i=0)^d c_i y^i, σ > 0, and |P| ≤ η on [σ/2, σ].
-Then |c_i| ≤ L_d σ^(−i) η, where L_d is the largest row sum of the absolute values of the inverse of the Vandermonde
-matrix of the d + 1 nodes y_l := ½ + l/(2d), l = 0, …, d (L_0 := 1).
+**Lemma {#lem:own-interpolation}** (interpolation). Let d ≥ 0, P(y) = Σ_(i=0)^d c_i y^i, y_* > 0, and |P| ≤ η on
+[y_*/2, y_*]. Then |c_i| ≤ L_d y_*^(−i) η, where L_d is the largest row sum of the absolute values of the inverse of the
+Vandermonde matrix of the d + 1 nodes y_l := ½ + l/(2d), l = 0, …, d (L_0 := 1).
 
-*Proof.* Q(y) := P(σy) = Σ_i c_i σ^i y^i satisfies |Q(y_l)| ≤ η, and its coefficients are the inverse Vandermonde matrix
-applied to (Q(y_l))_l. ∎
+*Proof.* Q(y) := P(y_* y) = Σ_i c_i y_*^i y^i satisfies |Q(y_l)| ≤ η, and its coefficients are the inverse Vandermonde
+matrix applied to (Q(y_l))_l. ∎
 
 **Lemma {#lem:own-e-flux}** (the coefficients and the remainder of e on N). Let a ∈ (0, 7/2), j ≥ 0, M ≥ 15 + 2(j + 1),
 θ_k := (k − 4)/5, s_R := max(5/2, (2M + 1)/(7 − 2a)), and
@@ -446,9 +448,9 @@ exponent exceeds 1 for i ≤ j.
 r² ∂_v^i Ω^β e = P(y) + r² ∂_v^i Ω^β e_(8) with P(y) := Σ_(k=4)^8 ∂_v^i Ω^β e_k(v1, x̂) y^(k−4), of degree 4. On the far
 region of N, r and t_P are comparable, and |r² ∂_v^i Ω^β e| ≤ C λ^(K−3−i) by [[eq:own-p-iii]] (∂_v = ∂_t at fixed x is a
 Cartesian derivative), while |r² ∂_v^i Ω^β e_(8)| ≤ C λ^(−(15+i)) y⁵ ≤ C λ^(−(M+i)) y⁵. So |P| ≤ η := C(λ^(K−3−i) +
-λ^(−(M+i)) σ⁵) on [σ/2, σ]. Take σ⁵ := λ^(K−3+M); then η ≤ 2C λ^(K−3−i), and [[lem:own-interpolation]]
-gives |∂_v^i Ω^β e_k| ≤ C λ^(K−3−i) σ^(−(k−4)) = C λ^((K−3−i)(1−θ_k)−(M+i)θ_k). The interval y ∈ [σ/2, σ] is
-r ∈ [σ⁻², 4σ⁻²], in the far region for λ small since K − 3 + M > 5. For i ≤ j, the condition of [[eq:own-kstar]]
+λ^(−(M+i)) y_*⁵) on [y_*/2, y_*]. Take y_*⁵ := λ^(K−3+M); then η ≤ 2C λ^(K−3−i), and [[lem:own-interpolation]]
+gives |∂_v^i Ω^β e_k| ≤ C λ^(K−3−i) y_*^(−(k−4)) = C λ^((K−3−i)(1−θ_k)−(M+i)θ_k). The interval y ∈ [y_*/2, y_*] is
+r ∈ [y_*⁻², 4y_*⁻²], in the far region for λ small since K − 3 + M > 5. For i ≤ j, the condition of [[eq:own-kstar]]
 at i + 1 ≤ j + 1 gives (K − 4 − i)(1 − θ_k) > (M + i + 1) θ_k, that is
 (K − 3 − i)(1 − θ_k) − (M + i)θ_k > (1 − θ_k) + θ_k = 1.
 

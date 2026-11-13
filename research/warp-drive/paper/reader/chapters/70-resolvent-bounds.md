@@ -2416,7 +2416,8 @@ the structure at infinity nor the thresholds verified in the proof of [[lem:rb-s
 applies to □̂(σ) − iϵ_σQ: ω ∈ 𝒜^(3/2−ε)(X̄) for every ε > 0. So, as in *The class* in the proof of
 [[prop:iii-d-6-2]], ω is smooth across the future horizon and outgoing at infinity; and Q, being radial, preserves the
 harmonics; so on {r > r_h}, each component r^(−3/2)u(r_*)Se^(−iσt) of e^(−iσt_*)ω, S ∈ 𝒮_l, has u solving
-−u″ + (V_l − σ² − iϵ_σfq)u = 0, with u a multiple of u_h near −∞ and of u_∞ near +∞, where q = 0. As V_l is real,
+−u″ + (V_l − σ² − iϵ_σfq)u = 0, with u a multiple of u_h near −∞ and of u_∞ near +∞, where q = 0, as in the proof of
+[[lem:rb-transfer]]. As V_l is real,
 Im(ū(−u″ + (V_l − σ² − iϵ_σfq)u)) = −(Im(ūu′))′ − ϵ_σfq|u|², and Im(ūu′) tends to σ|c_+|² at +∞ and to −σ|c_−|² at −∞,
 where u − c_±e^(±iσr_*) → 0. Integrating over ℝ, 0 = −σ(|c_+|² + |c_−|²) − ϵ_σ∫fq|u|²dr_*. Both terms have the sign of
 −σ, so c_+ = 0; u is then the zero multiple of u_∞ near +∞, and u = 0. So ω = 0 on {r > r_h}, and inside the horizon

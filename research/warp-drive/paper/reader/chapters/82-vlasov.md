@@ -833,9 +833,10 @@ of length i, so Σ_(|I|>|J|) ϵ^|I| ≤ 2 (6ϵ)^(|J|+1) ≤ 12 · 6^k ϵ · ϵ^|
 terms are at most (δ/4) 𝓖 + C𝓔. The other terms of Step 3 are at most (δ/8) 𝓖 + C_ϵ (𝓔 + ‖F‖²_(k)), by Young's
 inequality. In the sum of Step 4, C ‖w‖_(k) ‖α‖_(k;2) ≤ C ‖w‖_(k) ϵ^(−k/2) (𝓖 + 2𝓔)^(1/2) ≤ (δ/8) 𝓖 + C_ϵ 𝓔. Hence
 
-    d𝓔/dr ≤ −(δ/2) 𝓖 + C_ϵ (1 + μ) 𝓔 + C_ϵ ‖F‖²_(k),      𝓔(a) = 0,
+    d𝓔/dr ≤ −(δ/4) 𝓖 + C_ϵ (1 + μ) 𝓔 + C_ϵ ‖F‖²_(k),      𝓔(a) = 0,
 
-and Gronwall's lemma, with ∫_a^(b1) (1 + μ) ≤ b1 − a + (b1 − a)^(1/2), gives 𝓔(r) + (δ/2) ∫_a^r 𝓖 ≤ C ∫_a^r ‖F‖²_(k).
+(the terms in 𝓖 add up to at most (−δ + δ/4 + δ/8 + δ/8 + δ/8) 𝓖), and Gronwall's lemma, with ∫_a^(b1) (1 + μ) ≤
+b1 − a + (b1 − a)^(1/2), gives 𝓔(r) + (δ/4) ∫_a^r 𝓖 ≤ C ∫_a^r ‖F‖²_(k).
 With [[eq:vlasov-scaled-dr]] this is [[eq:vlasov-scaled-bound]].
 
 *Step 6: the tame bound.* Repeat Steps 1–5 at the index k′ > k. Step 1 changes: a factor 𝓛^J Y with |J| ≤ k′ − 2 for

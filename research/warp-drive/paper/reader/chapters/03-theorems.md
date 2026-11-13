@@ -359,9 +359,10 @@ The remaining chapters prove the following; each is stated in full where it is p
   included where the lateral boundaries meeting them are adapted to the dust ([[thm:class-stability]]); restricted
   massless Vlasov limits, for fields that are caustic-free families of dusts meeting the hypotheses stated there, as
   weak limits of class vacuum metrics along odd numbers of dusts ([[thm:vlasov]]); and exactly localised vacuum data
-  near the initial data of the two-dust background of [[thm:two-dusts]]: on a vacuum band of the initial slice (a
-  shell {R1 < r < R2} whose closure lies where the background is vacuum), data equal to the background's outside a
-  compact subset of the band and vacuum in the band, whose first-order part in a small amplitude is a perturbation of
+  near the initial data of an explicit two-dust background of [[thm:two-dusts]] ([[sec:bg-data]]): on a vacuum band
+  of the initial slice (a shell {R1 < r < R2} whose closure lies where the background is vacuum), data equal to the
+  background's outside a compact subset of the band and vacuum in the band, whose first-order part in a small
+  amplitude is a perturbation of
   the metric that is not a gauge perturbation. On every vacuum band that meets the inside of the apparent horizon such
   data exist for small amplitude, while on vacuum bands outside it the sign of their charge at second order excludes
   them for small amplitude when the first-order part is T² × Z2 × Z2-invariant ([[thm:charge-sign]]).

@@ -503,38 +503,6 @@ solution given by Theorem 5.9 is in x² C^∞_(x²,e^(s/x))(g) × x⁴ C^∞_(x�
 (δK, δg) can be smoothly extended by zero across ∂M." Corollary 5.11 thus carries both smallness conditions of
 Proposition 5.10.
 
-**Theorem {#thm:std-cd-compact}** ([CD03, Theorems 5.4 and 5.6, pp. 23–24; p. 33].) Theorem 5.4: let M be a compact
-manifold with boundary and k ≥ 0, and let g0 have (W^(k+4,∞)_x, k + 4)–behaviour at ∂M with x²|Ric(g0)| → 0,
-x|∇∇x| → 0, K0 ∈ x^(−1) W^(k+3,∞)_x(g0) and x|K0| + x²|∇K0| → 0 ((5.4a–c)). "Then for all s ≠ (n − 1)/2, (n − 3)/2
-and all (K, g) close to (K0, g0) … the map π_(𝒦0^(⊥g)) L_(x,x^(s−n/2)) … is an isomorphism such that the norm of its
-inverse does not depend on (K, g)."
-
-Theorem 5.6: "Under the hypotheses of Theorem 5.4 with s ≥ n − 2, s > 1 if n = 3, k > n/2", the map (5.7) "is
-bijective in a neighborhood of zero". There is ε > 0 such that for all (K, g) with ‖(K − K0, g − g0)‖ < ε and for all
-(δJ, δρ) ∈ H̊^(s−n)_(k+1)(g) × H̊^(s−n)_k(g) with norm < ε, "there exists a solution (δK, δg) = x^(2s−n) Φ² P*(Y, N) ∈
-H̊^(s−n+1)_(k+2)(g) × H̊^(s−n+2)_(k+2)(g), close to zero, of the equation π_(𝒦0^(⊥g)) x^(−2s+n) [(J, ρ)(K + δK, g + δg)
-− (J, ρ)(K, g)] = π_(𝒦0^(⊥g)) x^(−2s+n) (δJ, δρ)" (5.8).
-
-On p. 33: "Elements in the kernel of P* are called Killing initial data (KIDs). Existence of non-zero KIDs implies
-existence of non-zero Killing vectors in the associated vacuum space-time."
-
-The constraint map (J, ρ) and its linearisation P are those of [[thm:std-cd-constraints]]. The theorems hold for every
-space dimension n.
-
-**Theorem {#thm:std-corvino-schoen}** ([CS06, Theorem 2, p. 13].) "Let Ω ⊂ M³ be a compactly contained
-C^(k+2)-domain, and let g0 be a C^(k+4,α)-metric and π0 a C^(k+3,α)-symmetric (2,0)-tensor. Suppose that the
-linearization DΦ_(g0,π0) of the constraint map Φ : C^(k+2,α)(Ω) × S^(k+2,α)_(2,0)(Ω) → C^(k,α)(Ω) × X^(k+1,α)(Ω) has
-an injective formal L²-adjoint DΦ*_(g0,π0) at (g0, π0), where we can consider DΦ*_(g0,π0) : H^(2,1)_loc(Ω) →
-L²_loc(Ω). Then for a sufficiently decaying weight ρ, there is an ε > 0 such that for any function v ∈ C^(k,α)(Ω) and
-any vector field W ∈ X^(k+1,α)(Ω) for which (v, W) − Φ(g0, π0) ∈ C^(k,α)_(ρ⁻¹)(Ω) × X^(k+1,α)_(ρ⁻¹)(Ω) with the
-support of (v, W) − Φ(g0, π0) contained in Ω and with ‖(v, W) − Φ(g0, π0)‖_(C^(k,α)_(ρ⁻¹) × X^(k+1,α)_(ρ⁻¹)) < ε,
-there is a C^(k+2,α)-metric g and a C^(k+2,α)-symmetric tensor π on M with Φ(g, π) = (v, W) in Ω and
-(g, π) = (g0, π0) outside Ω. Moreover, (g, π) depends continuously on (v, W). If in addition (v, W) − Φ(g0, π0) ∈
-C_c^∞(Ω), (g0, π0) and ∂Ω are smooth, and we use an exponential weight, then we can solve for (g, π) smooth. If the
-adjoint of the linearization has nontrivial kernel, then the analogous theorem holds for solving Φ(g, π) = (v, W) up to
-a finite-dimensional error." Here M³ is a three-manifold, and the constraint map Φ, the weight ρ and the weighted
-spaces are those of [CS06].
-
 ### The characteristic initial value problem {#sec:std-characteristic}
 
 **Theorem {#thm:std-wu-characteristic}** ([Wu26, Theorem 2.1, p. 6].) The setting is that of [Wu26]: the Einstein

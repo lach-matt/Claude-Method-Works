@@ -48,8 +48,6 @@
   271–300. doi:10.1007/BF01213014
 - [CP12] P. T. Chruściel, T.-T. Paetz, *The many ways of the characteristic Cauchy problem*, Class. Quantum Grav. 29
   (2012), 145006. doi:10.1088/0264-9381/29/14/145006 arXiv:1203.4534v2
-- [CS06] J. Corvino, R. M. Schoen, *On the asymptotics for the vacuum Einstein constraint equations*, J. Differential
-  Geom. 73 (2006), 185–217. doi:10.4310/jdg/1146169910 arXiv:gr-qc/0301071v1
 - [CTG23] P. T. Chruściel, R. Tagne Wafo, F. Gray, *The "neighborhood theorem" for the general relativistic
   characteristic Cauchy problem in higher dimension*, preprint (2023). arXiv:2305.07306v1
 - [CTWG23] See [CTG23].
