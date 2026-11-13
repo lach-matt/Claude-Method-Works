@@ -1042,3 +1042,165 @@ and [[lem:iv2-2-3]] hold for L̄ (their proofs use only these properties), and t
 the gauge condition on Σ_(IVP,r₀), the solution is Ricci flat and satisfies the gauge condition on Ω_(ext,r₀):
 [[rem:iii-c1-2-2]] (1) applies to it as stated there.
 
+### The exterior solution {#sec:iii-c1-2}
+
+This section states [Hin26, (5.52)–(5.53) and Theorem 5.17] in dimension 4 + 1, and proves the propagation of the
+gauge condition and of the vacuum equation that [Hin26, Remark 5.18] uses.
+
+**Theorem {#thm:iii-c1-2-1}** ([Hin26, Theorem 5.17] in dimension 4 + 1.) There is k₀ ∈ ℕ such that the following
+holds. Let ℓ^♭₀, ℓ^♭_I be as in [[eq:iii-c1-1-1]] and r₀ ≥ R₀, with R₀ of [[lem:iii-c1-1-1]] enlarged so that
+[[lem:s26-development]] and the lemmas of [[sec:iv2-1]]–[[sec:iv2-2]] hold for r₀ ≥ R₀. There is ε₀ > 0 such that for
+h₀, h₁ ∈ H^(∞,ℓ^♭₀)_b(Σ_(IVP,r₀); S²T*) with ‖h_j‖_(H^(k₀,ℓ^♭₀)_b) < ε₀, the problem
+
+    P(g_(b₀) + h, g_(b₀)) = 0 in Ω_(ext,r₀),     h = h₀,  rℒ_(∂_(t_IVP))h = h₁ on Σ_(IVP,r₀),           {#eq:iii-c1-2-1}
+
+has a solution h ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀)), unique among the solutions of this class that are small in
+H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b; and for every ε > 0 and k there are k₁ ≥ k₀ and ε₁ ∈ (0, ε₀] such that
+‖h_j‖_(H^(k₁,ℓ^♭₀)_b) < ε₁ gives ‖h‖_(H^(k,ℓ^♭₀,(−,ℓ^♭_I))_b) < ε. Moreover, for h ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b small in
+H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b and every α₀ > ℓ^♭_I, d := 4, the solution of
+
+    L^(g_(b₀)+h,g_(b₀))ġ = f ∈ H^(k+d,α₀+2,(−′,ℓ^♭_I+1))_b,     ġ|_(Σ_(IVP,r₀)) = ġ₀,
+    rℒ_(∂_(t_IVP))ġ|_(Σ_(IVP,r₀)) = ġ₁,     ġ₀, ġ₁ ∈ H^(k+d,α₀)_b,
+
+satisfies
+
+    ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b) ≤ C(‖f‖_(H^(k+d,α₀+2,(−′,ℓ^♭_I+1))_b) + ‖ġ₀‖_(H^(k+d,α₀)_b) + ‖ġ₁‖_(H^(k+d,α₀)_b)),
+                                                                                                          {#eq:iii-c1-2-2}
+
+with C depending on k, α₀, ℓ^♭_I and h; and the tame form of [[eq:iii-c1-2-2]] at α₀ = ℓ^♭₀, [Hin26, (5.52)], is
+[[eq:iv2-2-3]].
+
+Here (−′, ℓ^♭_I + 1) is the class of [[def:iii-c-5-1]] (2) with the index sets left out, as in [Hin26].
+
+*Proof.* [[thm:iv2-3-1]] with g₀ = g_(b₀) gives the solution, its uniqueness and the smallness, with k₀ := 14 and
+k₁ := 14 + k. [[thm:iv2-2-4]] gives [[eq:iii-c1-2-2]] and its tame form [[eq:iv2-2-3]]. ∎
+
+[Hin26] derives its Theorem 5.17 from [Hin23a, Theorem 3.35 and Corollary 3.36] by a change of notation: the tame
+estimate (5.52), a Nash–Moser scheme (by [SR89] there; here [[thm:ii-g-2-1]], which is [Hin26c, Theorem 12.4]), and the
+radiation fields of π₁₁ġ and π̸₀ġ recovered by integrating the leading part. In dimension 4 + 1 the leading part is that
+of [[eq:iii-c-4-4]], and only π̸₀ carries a radiation field ([[rem:s17-no-radiation]]). [Hin23a, Section 3] is written
+out in dimension 4 + 1 in [[sec:iv-0]]–[[sec:iv2-3]], and [[prop:np-10-64]] collects the places where the dimension
+enters it.
+
+The data and the gauge condition propagate by the second Bianchi identity. We first record the uniqueness statement for
+linear wave equations that this uses.
+
+**Lemma {#lem:s26-uniqueness}** (Uniqueness for the Cauchy problem.) Let X be a globally hyperbolic Lorentzian manifold
+with metric g and a smooth spacelike Cauchy hypersurface S, and let P be a second-order operator with smooth
+coefficients on a vector bundle over X, with principal symbol g⁻¹(ζ, ζ)Id. If v ∈ C²(X) solves Pv = 0 and v and all its
+first derivatives vanish along S, then v = 0.
+
+*Proof.* By [[thm:std-bgp-causal]] (3) there is a Cauchy time function τ on X with S = τ⁻¹(0); its level sets are
+spacelike Cauchy hypersurfaces ([[thm:std-bgp-causal]] (2)). Let H be the Heaviside function and w := H(τ)v. In local
+coordinates and a trivialisation, P = −g^(ij)∂_i∂_j + A^j∂_j + B; as v = 0 on S, ∂_j(H(τ)v) = H(τ)∂_jv, and as
+∂_jv = 0 on S, ∂_i(H(τ)∂_jv) = H(τ)∂_i∂_jv, in the sense of distributions. So Pw = H(τ)Pv = 0 in 𝒟′(X), and
+supp w ⊂ {τ ≥ 0}. For p ∈ X with τ(p) > −1, the set L_p := J⁻_X(p) ∩ J⁺_X(τ⁻¹(−1)) is compact
+([[thm:std-bgp-causal]] (4) with K = {p}), and it contains J⁻_X(p) ∩ {τ ≥ −1}: through a point q with τ(q) ≥ −1 the
+maximal integral curve of the gradient of τ, which is timelike, is an inextendible causal curve, so it meets the Cauchy
+hypersurface τ⁻¹(−1), at a point where τ ≤ τ(q), that is, to the past of q. [[lem:ii-f-1-3]] with c = −1 gives w = 0,
+so v = 0 on {τ ≥ 0}. With the time orientation of X reversed, X is globally hyperbolic with the same Cauchy
+hypersurfaces, −τ is a Cauchy time function, and P is unchanged; the same argument applied to H(−τ)v gives v = 0 on
+{τ ≤ 0}. ∎
+
+**Proposition {#prop:np-10-57-d}** (Propagation of the gauge condition and of the vacuum equation.) Let X be a globally
+hyperbolic Lorentzian manifold with metric g and a smooth spacelike Cauchy hypersurface S, with future unit normal n.
+Let g₀ be a smooth Lorentzian metric on X, δ*_(g₀,E_C) = δ*_(g₀) + E^C_(g₀) the operator of [[eq:iii-b-6-2]] (with any
+smooth 1-form c_C), and Υ a smooth 1-form on X with
+
+    Ric(g) = δ*_(g₀,E_C)Υ     on X.                                                                     {#eq:s26-gauge-eq}
+
+If Υ = 0 along S and the first and second fundamental forms of S satisfy the vacuum constraint equations, then Υ = 0
+and Ric(g) = 0 on X. The dimension does not enter. In particular [[eq:s26-gauge-eq]] holds with
+Υ = Υ^(E_Υ)(g, g₀) when P(g, g₀) = 0 ([[eq:iii-b-6-4]]), and with Υ = Υ^(χ₀E_Υ)(g, g₀) when P^(χ₀)(g, g₀) = 0
+([[eq:iii-c2-2-1]]).
+
+*Proof.* *The equation for Υ.* The contracted second Bianchi identity δ_gG_gRic(g) = 0 holds in every dimension.
+Applying 2δ_gG_g to [[eq:s26-gauge-eq]] gives QΥ = 0, with Q := 2δ_gG_gδ*_(g₀,E_C). For a 1-form ω, with
+(δ_gu)_μ = −∇^κu_(κμ) and G_g = I − ½g tr_g,
+
+    (2δ_gG_gδ*_gω)_μ = −∇^κ∇_κω_μ − ∇^κ∇_μω_κ + ∇_μ∇^κω_κ,
+
+and by the Ricci identity ∇^κ∇_μω_κ − ∇_μ∇^κω_κ is of order zero in ω, linear in the curvature of g. The operator
+δ*_(g₀,E_C) − δ*_g = (δ*_(g₀) − δ*_g) + E^C_(g₀) is of order zero. So Q = □_g + Q₁ with Q₁ of first order, and Q has
+principal symbol g⁻¹(ζ, ζ)Id.
+
+*The data of Υ.* Along S, Υ = 0, so its derivatives along S vanish, and there ∇Υ = −n♭ ⊗ Z with Z := ∇_nΥ,
+n♭ := g(n, ·), g(n, n) = −1, where (∇Υ)(V, W) := (∇_VΥ)(W). The terms of order zero in δ*_(g₀,E_C)Υ vanish along S,
+so there, with a ⊗_s b := ½(a ⊗ b + b ⊗ a),
+
+    Ric(g) = δ*_gΥ = −n♭ ⊗_s Z,     G_gRic(g) = −n♭ ⊗_s Z + ½Z(n)g,
+
+as tr_g(n♭ ⊗_s Z) = Z(n). For every vector Y, (G_gRic(g))(n, Y) = −½(n♭(n)Z(Y) + Z(n)g(n, Y)) + ½Z(n)g(n, Y) = ½Z(Y).
+By the Gauss and Codazzi equations, the vacuum constraint equations for the first and second fundamental forms of S are
+the equations (G_gRic(g))(n, ·) = 0 along S. So Z = 0, and all first derivatives of Υ vanish along S.
+
+*Conclusion.* [[lem:s26-uniqueness]] with P = Q and v = Υ gives Υ = 0 on X, and then Ric(g) = 0 by
+[[eq:s26-gauge-eq]]. ∎
+
+**Remark {#rem:iii-c1-2-2}** ([Hin26, Remarks 5.18 and 5.20] in dimension 4 + 1.) (1) Let h be the solution of
+[[thm:iii-c1-2-1]], and ĝ := g_(b₀) + h₀ + t_IVP r⁻¹h₁, with h₀, h₁ extended to be independent of t_IVP near
+Σ_(IVP,r₀). If the first and second fundamental forms of Σ_(IVP,r₀) for ĝ satisfy the vacuum constraint equations and
+Υ^(E_Υ)(ĝ, g_(b₀)) = 0 on Σ_(IVP,r₀), then Υ^(E_Υ)(g_(b₀) + h, g_(b₀)) = 0 and Ric(g_(b₀) + h) = 0 on Ω_(ext,r₀).
+Indeed g_(b₀) + h and ĝ agree on Σ_(IVP,r₀) with their first derivatives (h = h₀ and rℒ_(∂_(t_IVP))h = h₁ there), so
+they have the same fundamental forms and the same Υ^(E_Υ) there; h is smooth in the interior Ω° of Ω_(ext,r₀); and Ω°
+is globally hyperbolic with the spacelike Cauchy hypersurface Σ° ([[lem:s26-development]]). [[prop:np-10-57-d]] on Ω°
+gives the claim there, and by continuity on Ω_(ext,r₀). The same argument applies in the cut-off gauge of
+[[sec:iii-c2-2]] and to the gauged data of [[sec:iii-c2-4]] ([[thm:iii-c2-3-1]]). ([Hin26, Remark 5.18] prints
+t_IVP r h₁; with h₁ = rℒ_(∂_(t_IVP))h as in [[eq:iii-c1-2-1]] the factor is r⁻¹, as in [Hin26, Proposition 5.25 and
+Section 5.7.1].)
+
+(2) The structure [[eq:iii-c-4-4]] holds for every g₀ ∈ 𝒢 ([[def:iii-c-3-4]]), and [[cor:iii-c-5-3]] needs only
+Ric(g₀) = 0; so [[thm:iii-c1-2-1]] holds for P(g₀ + h, g₀) = 0 with g₀ ∈ 𝒢 Ricci flat and g₀ − g_(b₀) small in the
+sense of the pointwise bounds of the proof of [[lem:iii-c1-1-1]]: this is [[thm:iv2-3-1]] and [[thm:iv2-2-4]] for such
+g₀. In particular it holds for g₀ = φ_S*g_(b₀) where [[lem:iii-c-3-5]] (2) applies; the cut-off region near I₀ is
+treated in [[sec:iii-c2-1]].
+
+### The cut-off gauge {#sec:iii-c2-2}
+
+This section is [Hin26, (5.75)–(5.76)] in dimension 4 + 1. Fix χ̌₀ ∈ C_c^∞((−¼, ¼)) equal to 1 on [−⅛, ⅛] ([Hin26]
+prints [−⅛, −⅛]), and χ₀ := 1 − χ̌₀(t_IVP/r), extended by 1 where r is small relative to t_IVP. Near I₀ and ℐ⁺,
+t_IVP/r is a smooth function on M (τ = t/|x| near the interior of I₀, [[lem:iii-c-1-1]]), so χ₀ ∈ C^∞(M). It equals 0
+on {|t_IVP| ≤ r/8} ⊃ Ω_(ext,r₀) ∩ {t_IVP ≤ 0} and near Σ_IVP, and 1 on {t_IVP ≥ r/4}, a neighbourhood of
+ℐ⁺ ∩ Ω_(ext,r₀) (there t_IVP/r → 1). Let
+
+    Υ^(χ₀E_Υ)(g, g₀) := Υ⁰(g, g₀) − χ₀E^Υ_(g₀)G_(g₀)(g − g₀),
+    P^(χ₀)(g, g₀) := Ric(g) − δ*_(g₀,E_C)Υ^(χ₀E_Υ)(g, g₀),                                               {#eq:iii-c2-2-1}
+
+and L^(χ₀)_(g,g₀) the linearisation of P^(χ₀) in g. Υ⁰ is natural: for a diffeomorphism φ,
+
+    φ*Υ⁰(g, g₀) = Υ⁰(φ*g, φ*g₀),                                                                       {#eq:iii-c2-2-2}
+
+[Hin26, (5.75)], in any dimension, since ∇^(φ*g) = φ*∇^g and the trace is natural. The term E^Υ_(g₀)G_(g₀)(g − g₀)
+is not natural in this sense when E^Υ is stationary relative to g_(b₀); this is why the cut-off is introduced.
+
+**Lemma {#lem:iii-c2-2-1}** (The structure in the cut-off gauge.) For g₀ ∈ 𝒢, [[prop:iii-c-4-4]], [[prop:iii-c-5-2]]
+and [[cor:iii-c-5-3]] hold for L^(χ₀) and P^(χ₀) in place of L and P.
+
+*Proof.* L^(χ₀)_(g,g₀) − L_(g,g₀) = −δ*_(g₀,E_C)((1 − χ₀)E^Υ_(g₀)G_(g₀)(·)), as E^Υ_(g₀)G_(g₀)(g − g₀) is linear in
+g − g₀. Its coefficients are those of the E^Υ-term of [[eq:iii-c-4-1]], which lie in ρ₀²C^∞Diff¹_b near I₀
+([[def:iii-b-6-1]]: E^Υ_(g₀) is homogeneous of degree −1, and δ* is of degree −1 in |x|), times 1 − χ₀, which is
+supported in {|t_IVP| < r/4}, a set on which ρ_I is bounded below. So the difference lies in
+ρ₀²ρ_I²C^∞Diff¹_b, the error class of [[eq:iii-c-4-4]], and the leading part at ℐ⁺ is unchanged (χ₀ = 1 there). The
+proofs of [[prop:iii-c-5-2]] and [[cor:iii-c-5-3]] use only [[eq:iii-c-4-4]] and P^(χ₀)(g₀, g₀) = 0, which holds as
+Ric(g₀) = 0 and G_(g₀)(g₀ − g₀) = 0. ∎
+
+### The exterior estimates in the cut-off gauge {#sec:iv2-4}
+
+**Corollary {#cor:iv2-4-1}** (The cut-off gauge.) [[thm:iv2-2-4]], [[thm:iv2-3-1]], [[lem:iv2-2-2]] and
+[[lem:iv2-2-3]] hold with
+L^(χ₀)_(g,g₀) and P^(χ₀) of [[eq:iii-c2-2-1]] in place of L^(g,g₀) and P, for every g₀ of [[sec:iv2-0]].
+
+*Proof.* χ₀ = 1 − χ̌₀(t_IVP/r) equals 1 on {t_IVP ≥ r/4} ([[sec:iii-c2-2]]). On Ω_c, ρ_I < c ≤ ½ gives
+t > (1 − c)|x| + 2, so t_IVP ≥ ¼|x| for |x| ≥ r₀ large, which suffices; so L^(χ₀) = L on Ω_c, and the edge-b
+structure ([[prop:iv1-1-2]]), [[prop:iv1-2-2]] and the integration of [[sec:iv2-2]], which are used only on Ω_c, are
+unchanged. Elsewhere only the b-structure enters ([[prop:iv-4-1]] in [[lem:iv2-2-2]] and [[lem:iv2-2-3]]), and
+L^(χ₀) − L ∈ ρ₀²ρ_I²C^∞Diff¹_b (the proof of [[lem:iii-c2-2-1]]), a first-order term of the class those proofs absorb.
+In [[thm:iv2-3-1]], [[prop:iii-c-5-2]] and [[cor:iii-c-5-3]] hold for L^(χ₀), P^(χ₀) by [[lem:iii-c2-2-1]], and
+P^(χ₀)(g₀, g₀) = 0 there. For g₀ ≠ g_(b₀): [[sec:iv1-0]] is stated for g₁, g₀ ∈ 𝒢; the hypersurfaces Σ_(IVP,r₀),
+Σ_(fut,r₀), Σ_(past,r₀) are spacelike for g₀ + h when g₀ − g_(b₀) is small as in [[lem:iii-c1-1-1]] (its proof uses
+only the size of g₀ + h − η in the frame); and [[lem:iv2-1-1]] (a) persists likewise. ∎
+
+So the change of gauge lies where only robust estimates are used, and the structure at ℐ⁺ is that of the original
+gauge; this is the content of [Hin26]'s remark that the stationarity of E^Υ and the choice of c_Υ away from ℐ⁺ play
+no role in its Theorems 5.17 and 5.21.
+

@@ -83,9 +83,10 @@ the inequality of the time orientation. So Φ ∘ γ < 0 immediately after τ1: 
 there. If γ(τ2) ∈ D_T for some τ2 > τ1, let τ3 be the infimum of the τ > τ1 with Φ(γ(τ)) ≥ 0. Then τ3 > τ1,
 Φ(γ(τ3)) = 0 and Φ ∘ γ < 0 on (τ1, τ3), which contradicts the strict decrease of Φ ∘ γ near τ3. So γ does not return.
 
-*The margin.* If μ0 > √72 l5², then 1 − √(μ/(√72 l5²)) ≤ 1 − √(μ0/(√72 l5²)) = −δ_b and the third term is at most 0, so
-g0⁻¹(dΦ, dΦ) ≤ −δ_b on the whole boundary. By item 4 of [[thm:main]], |g_λ − g0| ≤ C λ on Ω; since g0⁻¹ is bounded on
-the compact Ω and inversion is smooth, |g_λ⁻¹ − g0⁻¹| ≤ C1 λ. The covector dΦ = dr − r_q′ dv is bounded on Ω, so
+*The margin.* If μ0 > √72 l5², then 1 − √(μ/(√72 l5²)) ≤ 1 − √(μ0/(√72 l5²)) = −δ_b, with δ_b the number of
+[[prop:boundary-spacelike]], and the third term is at most 0, so g0⁻¹(dΦ, dΦ) ≤ −δ_b on the whole boundary. By item 4 of
+[[thm:main]], |g_λ − g0| ≤ C λ on Ω; since g0⁻¹ is bounded on the compact Ω and inversion is smooth, |g_λ⁻¹ − g0⁻¹| ≤ C1
+λ. The covector dΦ = dr − r_q′ dv is bounded on Ω, so
 
     g_λ⁻¹(dΦ, dΦ) ≤ g0⁻¹(dΦ, dΦ) + C λ ≤ −δ_b + C λ ≤ −δ_b/2      once C λ ≤ δ_b/2.
 

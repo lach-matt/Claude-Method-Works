@@ -1220,24 +1220,27 @@ L̂_b(σ)(u + ĝ^aug(σ)(ḃ) + ĥ^aug(σ)(S)) = 0, so u = −ĝ^aug(σ)(ḃ) �
 (u, ḃ, S) lies in the kernel on 𝒳_σ, which is trivial for |σ| small ([[thm:iii-h-4-1]]). So L̃_b(σ) is invertible on
 both spaces, and the inverses agree. ∎
 
-**Lemma {#lem:iii-i6-1-3}** (Row data.) For e = (e_1, e_2) ∈ 𝔟_ℂ ⊕ 𝒮_(1,ℂ) put w_e := χ_zf(ġ_b(e_1) + h_b(e_2)). Then
-r(w_e) = e, and for 0 < |σ| ≤ c
+**Lemma {#lem:iii-i6-1-3}** (Row data.) For e = (e_1, e_2) ∈ 𝔟_ℂ ⊕ 𝒮_(1,ℂ) put e′ = (e′_1, e′_2) := B(b)⁻¹e, with
+B(b) the matrix [[eq:s20-rows]] of the rows on the states, and w_e := χ_zf(ġ_b(e′_1) + h_b(e′_2)). Then r(w_e) = e,
+and for 0 < |σ| ≤ c
 
     L̃_b(σ)⁻¹(0, e) = (w_e, 0, 0) − L̃_b(σ)⁻¹(L̂_b(σ)w_e, 0, 0),
 
 whose 𝔟- and 𝒮_1-components are O(|σ|^(1−ε)) and whose first component lies in H^(∞,(3/2−ε,1−ε,0))_b, uniformly for
-|e| ≤ 1, for every ε > 0.
+|e| ≤ 1 and b ∈ ℬ̄_*, for every ε > 0.
 
-*Proof.* χ_zf = 1 on supp f*_j for |σ| ≤ c ([[sec:iii-i3-1]]), so r(w_e) = e by [[eq:iii-h-3-1]]. w_e has compact
-support for σ ≠ 0, so it lies in 𝒳_σ, and L̃_b(σ)(w_e, 0, 0) = (L̂_b(σ)w_e, e), which is the identity.
-ġ_b(e_1) + h_b(e_2) ∈ 𝒜² ⊂ H^(∞,2−ε)_b(X) lies in the kernel of L_0, so L̂_b(σ)w_e =
-[L_0, χ_zf](ġ_b(e_1) + h_b(e_2)) + (L̂_b(σ) − L_0)(χ_zf(ġ_b(e_1) + h_b(e_2))) ∈ H^(∞,(∞,4−ε,γ))_b for γ < 1
-([[lem:iii-i3-1-1]] (b) and [[lem:iii-i3-1-2]] (a), with a = 2 − ε). [[lem:iii-i2-4-2]] with β_scf := 3/2 − ε,
-β_zf := 1 − 2ε and β_tf := 1 − ε (α + 2 = ε ∈ (0, 1)) gives the claim; w_e itself has the zf-weight 0 and the
+*Proof.* χ_zf = 1 on supp f*_j for |σ| ≤ c ([[sec:iii-i3-1]]), so r(w_e) = r(ġ_b(e′_1) + h_b(e′_2)) = B(b)e′ = e by
+[[eq:s20-rows]]. w_e has compact support for σ ≠ 0, so it lies in 𝒳_σ, and L̃_b(σ)(w_e, 0, 0) = (L̂_b(σ)w_e, e), which
+is the identity. For |e| ≤ 1, |e′| ≤ |B(b)⁻¹| ≤ 2 ([[lem:s20-rows]]), so ġ_b(e′_1) + h_b(e′_2) ∈ 𝒜² ⊂ H^(∞,2−ε)_b(X),
+with seminorms at most 2 times those of the states, which are bounded uniformly on ℬ̄_* ((BP3)). It lies in the
+kernel of L_0, so L̂_b(σ)w_e = [L_0, χ_zf](ġ_b(e′_1) + h_b(e′_2)) + (L̂_b(σ) − L_0)(χ_zf(ġ_b(e′_1) + h_b(e′_2))) lies
+in H^(∞,(∞,4−ε,γ))_b for γ < 1 ([[lem:iii-i3-1-1]] (b) and [[lem:iii-i3-1-2]] (a), with a = 2 − ε), with norms bounded
+uniformly for |e| ≤ 1 and b ∈ ℬ̄_*. [[lem:iii-i2-4-2]] with β_scf := 3/2 − ε, β_zf := 1 − 2ε and β_tf := 1 − ε
+(α + 2 = ε ∈ (0, 1)), whose constants are uniform in b ((BP4)), gives the claim; w_e itself has the zf-weight 0 and the
 tf-weight 2 − ε. ∎
 
-At σ = 0 the identity reads L̃_b(0)⁻¹(0, e) = (ġ_b(e_1) + h_b(e_2), 0, 0): row data are answered by the nullspace,
-with no column.
+At σ = 0 the identity reads L̃_b(0)⁻¹(0, e) = (ġ_b(e′_1) + h_b(e′_2), 0, 0), e′ = B(b)⁻¹e: row data are answered by
+the nullspace, with no column. At b₀, B(b₀) = I and e′ = e.
 
 **Lemma {#lem:iii-i6-1-4}** (The boost-type term of [[prop:iii-g4-5-1]].) Let α ∈ (1, 2),
 S′ ∈ H^(∞,0)_b(±[0, 1)_σ, |dσ/σ|; 𝒮_1), and Σ(σ) := −σ²|σ|^(α−3)S′(σ). Let h^(≤3)_(b,s1)(σ, S) =
@@ -1375,9 +1378,18 @@ the first component of L̃_b(σ)(û_5, b̂_5, Ŝ_5) = (f̂_5, 0, 0) is f̂_5, th
 the rows give 0 + σ(r(û′_3) + 0 + 0) − σr(û′_3) = 0. Every first component lies in the space 𝒳′_σ of
 [[lem:iii-i6-1-2]], which contains 𝒳_σ: χ_zf û_0, χ_zf û_4 and χ_zf u_b have compact support for σ ≠ 0; ĥ^aug lies
 there by [[lem:iii-h-2-5]] (b); û_5 and U_r by construction; and χ^♯_tf ũ by [[lem:iii-i6-1-2]], being b-conormal of
-weight 3/2 − 2ε at ∂X̄. So [[eq:iii-i6-2-8]] follows from the injectivity of L̃_b(σ) ([[lem:iii-i6-1-2]]). By
-[[lem:iii-i6-1-3]], B_r, Σ_r = O(|σ|^(1−ε)) · O(|σ|^(1−ε)) = O(|σ|^(2−2ε)) and
-U_r ∈ H^(∞,(3/2−ε,2−2ε,1−2ε))_b, as σr(û′_3) = O(|σ|^(1−ε)) with σ∂_σ-regularity.
+weight 3/2 − 2ε at ∂X̄. So [[eq:iii-i6-2-8]] follows from the injectivity of L̃_b(σ) ([[lem:iii-i6-1-2]]).
+
+The row term is bounded by [[lem:iii-i6-1-3]] at b. Let E_1, …, E_11 be the basis of 𝔟_ℂ ⊕ 𝒮_(1,ℂ) fixed in
+[[lem:s20-rows]], and write σr(û′_3(σ)) = Σ_k e_k(σ)E_k. Then
+
+    (U_r, B_r, Σ_r) = Σ_k e_k(σ) L̃_b(σ)⁻¹(0, E_k),
+
+and the coefficients e_k(σ) are O(|σ|^(1−ε)) with σ∂_σ-regularity, as r(û′_3) = O(|σ|^(−ε)) (Step 3.2). For each k,
+[[lem:iii-i6-1-3]] with e = E_k (so e′ = B(b)⁻¹E_k, |e′| ≤ 2 by [[lem:s20-rows]]) bounds the 𝔟- and 𝒮_1-components of
+L̃_b(σ)⁻¹(0, E_k) by O(|σ|^(1−ε)) and puts its first component in H^(∞,(3/2−ε,1−ε,0))_b, uniformly in b ∈ ℬ̄_*. So
+B_r, Σ_r = O(|σ|^(1−ε)) · O(|σ|^(1−ε)) = O(|σ|^(2−2ε)), and, multiplication by e_k(σ) adding 1 − ε to the tf- and
+zf-weights (|σ| = ρ_tf ρ_zf), U_r ∈ H^(∞,(3/2−ε,2−2ε,1−ε))_b ⊂ H^(∞,(3/2−ε,2−2ε,1−2ε))_b, uniformly in b ∈ ℬ̄_*.
 
 Consequently, with all weights for ε small,
 
@@ -1385,7 +1397,9 @@ Consequently, with all weights for ε small,
     b̂_1 − ḃ_0,  σ⁻¹Ŝ_1 − Ŝ_4^± ∈ H^(∞,α_K−2)_b(±(0, c], |dσ/σ|),                                        {#eq:iii-i6-2-9}
 
 since σû′_3, σχ_zf û_4, σû_5 and U_r have the zf-weight at least 1 − 2ε > α_K − 2 and the tf-weight at least 1 − 2ε,
-σ(b̂_4 + b̂_5) − B_r = O(|σ|), and σ⁻¹Ŝ_1 − Ŝ_4 = Σ_3 + Ŝ_5 − σ⁻¹Σ_r = O(|σ|^(α_K−2)) with σ∂_σ-regularity.
+σ(b̂_4 + b̂_5) − B_r = O(|σ|) (B_r = O(|σ|^(2−2ε)) and ε ≤ 1/2), and σ⁻¹Ŝ_1 − Ŝ_4 = Σ_3 + Ŝ_5 − σ⁻¹Σ_r =
+O(|σ|^(α_K−2)) with σ∂_σ-regularity (Σ_3 = O(|σ|^(1−ε)), Ŝ_5 ∈ H^(∞,α_K−2)_b and σ⁻¹Σ_r = O(|σ|^(1−2ε)), with
+α_K − 2 < 1/2 < 1 − 2ε). These bounds are uniform in b ∈ ℬ̄_*, as those of the row term are.
 
 *Step 4* (the regular part). By [[prop:ii-g1-3-5]] (1) with β_K := α_K − 1 ∈ (1, 2), the one Taylor coefficient (of
 order 0 < α_K − 2) being û_0 for both signs, u_reg ∈ H^(∞,(3/2−4ε,2−2ε,α_K−1))_b(M′).

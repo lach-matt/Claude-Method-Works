@@ -12,7 +12,7 @@ defined and estimated directly from a linear flux identity ([[sec:v-1]]); this r
 parity condition, since 2α > n − 1 = 3. Second, the exponentially weighted spaces of [CD03, Theorem 5.9] are used from
 the start, so the glued data are smooth. Third, the powers of R are those of space dimension 4: R⁻² for the energy and
 the momentum, R⁻³ for the angular momentum and the centre of mass. Every result of [CD03] used here holds in every space
-dimension n ≥ 2 ([CD03, p. 4]); each is stated where it is used. [CD03, Lemma 3.18] is proved again
+dimension n ≥ 2 ([CD03, p. 4]); each is stated exactly, here or in [[app:standard-results]]. [CD03, Lemma 3.18] is proved again
 ([[lem:v-3-3]]), and the continuity in the parameter that [CD03, Theorem 3.19] needs is proved as [[lem:v-3-2]].
 
 [[sec:vii-2]] runs the construction in the symmetry class of [[sec:class]], G = O(2) × O(2), on the initial surface
@@ -376,7 +376,7 @@ and ‖π_(g′) − π_(g″)‖_(𝒵̃→𝒵̃) ≤ C‖g′ − g″‖_(W^
 and (5.10c) as K₀ and its derivatives are bounded. The ε and the solution are those of [[thm:std-cd-exponential]]. Its
 (Y, N)-spaces are those of [[thm:std-cd-bijective]] with ψ = e^(−s/x), as its solution
 (δK, δg) = e^(−2s/x)Φ²P*(Y, N) = ψ²Φ²P*(Y, N) shows, and ψ²H^j_(x²,ψ) = H^j_(x²,ψ⁻¹), as x²|dψ|/ψ = s|dx| is
-bounded; so its sources e^(2s/x)(δJ, δρ) lie in 𝒵̃ and [[thm:std-cd-bijective]] gives the bijectivity.
+bounded; and [[thm:std-cd-bijective]] gives the bijectivity.
 
 (b) A smooth pair with compact support in 𝒜° lies in C^∞_(x²,e^(s/x)), and [CD03, Corollary 5.11]
 ([[thm:std-cd-exponential]]) applies.
@@ -424,8 +424,8 @@ z ∈ B.
 of u′. T_(u′) is bounded from 𝒴 to 𝒳, continuously in u′ in operator norm, its coefficients being polynomial in the
 2-jet of u′ and in g′⁻¹. The constraint map is a polynomial in the 2-jet of the data, with coefficients rational in the
 metric. The spaces H^(k+2)_(x²,e^(s/x)), with k + 2 > n/2 + 1, embed in C¹(𝒜) and are stable under products with each
-other and with C^(k+2)(𝒜), by Sobolev's inequality on the balls of centre p and radius x(p)²/2 of [CD03, Appendix B,
-pp. 60–62], on which x is comparable to x(p). So (u′, δu) ↦ (J, ρ)(u′ + δu) − (J, ρ)(u′) is C² in δu ∈ 𝒳 near zero,
+other and with C^(k+2)(𝒜), by Sobolev's inequality on the balls B_p of centre p and radius x(p)²/2, on which x and
+e^(s/x) are comparable to their values at p ([CD03, Appendix B, (B.2)–(B.3), pp. 61–62]). So (u′, δu) ↦ (J, ρ)(u′ + δu) − (J, ρ)(u′) is C² in δu ∈ 𝒳 near zero,
 with derivatives continuous in u′ and bounded uniformly. With D_zΨ(u′, z) = π_(g′)e^(2s/x)D(J, ρ)(u′ + T_(u′)z)T_(u′),
 this gives a constant C₃, independent of u′ ∈ 𝒩_ε for ε small (it includes the factor ‖T_(u′)‖², bounded
 uniformly), with

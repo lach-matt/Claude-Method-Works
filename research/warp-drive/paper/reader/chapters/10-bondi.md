@@ -62,16 +62,31 @@ fixed λ, uniformly; this is [[lem:every-order-fixed]], which the induction of S
 
 ### Every order at fixed λ {#sec:bondi-every-order}
 
+**Lemma {#lem:bondi-equation-u}** (The equation for u.) On P, −½ □̃ u = S(u) with
+
+    S(u) := −Ric(g0) + ½ (g_λ^{ab} − g0^{ab}) ∂_a ∂_b (g0 + u)
+            − [ Q(X; g0 + u)(∂g0 + ∂u, ∂g0 + ∂u) − Q(X; g0)(∂g0, ∂g0) ].                             {#eq:bondi-s-def}
+
+At every order at which the derivatives of u are in E_(3/2), the terms of S have the following classes:
+Ric(g0) = (3μ'/(2r³)) dv dv exactly ([[prop:vaidya]] (a)); g_λ⁻¹ − g0⁻¹ is in E_(3/2), ∂²g0 = O(r^(−2)) and ∂²u is in
+E_(3/2); and the difference of the Q terms is quadratic in ∂u (in E_3) plus Γ[g0] times ∂u (in E_2 E_(3/2)). So S(u)
+is in E_3 at those orders. The construction gives them for the first few orders (Section [[sec:bondi-setting]]), and
+[[lem:every-order-fixed]] gives them at every order.
+
+Proof. Ric^H(g_λ) = 0, since g_λ is vacuum and in the wave-map gauge, and Ric^H(g0) = Ric(g0) ([[sec:gauge]]); subtract
+the two, using the form [[eq:gauge]] of Ric^H for both. The classes are those of the count in the proof of
+[[thm:past-approximant]]. ∎
+
 **Lemma {#lem:every-order-fixed}** (Every order at fixed λ.) Every Cartesian derivative ∂_X^α Ω^β u_1 is in E_2 on the
 far region, with constants depending on λ and on the order.
 
-Proof. Write g := g_λ = g0 + r^(−3/2) G_3 + u_1. By [[lem:bondi-equation-u]] below, u_1 = u − r^(−3/2) G_3 solves
+Proof. Write g := g_λ = g0 + r^(−3/2) G_3 + u_1. By [[lem:bondi-equation-u]], u_1 = u − r^(−3/2) G_3 solves
 
     −½ g^{ab} ∂_a ∂_b u_1 = F_1 := S(u) − ½ (g^{ab} − g0^{ab}) ∂_a ∂_b u_1 + ½ □̃ (r^(−3/2) G_3).          {#eq:bondi-f1}
 
-*The structure of F_1.* By the reduced equations [[pending:ch2-reduced-equations]], every Lorentzian g satisfies
-Ric^H(g) = −½ g^{ab} ∂_a ∂_b g + Q(X; g)(∂g, ∂g), with Q a polynomial of degree two in ∂g whose coefficients are
-rational in g and smooth in X through Γ[g0] and its first derivatives, and Ric^H(g0) = Ric(g0). Insert the definition
+*The structure of F_1.* By [[eq:gauge]], every Lorentzian g satisfies Ric^H(g) = −½ g^{ab} ∂_a ∂_b g +
+Q(X; g)(∂g, ∂g), with Q a polynomial of degree two in ∂g whose coefficients are rational in g and smooth in X through
+Γ[g0] and its first derivatives, and Ric^H(g0) = Ric(g0) ([[sec:gauge]]). Insert the definition
 [[eq:bondi-s-def]] of S into [[eq:bondi-f1]], use ∂_a ∂_b (g0 + u) = ∂_a ∂_b (g0 + r^(−3/2) G_3) + ∂_a ∂_b u_1, and
 replace Ric(g0) by −½ g0^{ab} ∂_a ∂_b g0 + Q(X; g0)(∂g0, ∂g0). The terms in g0 alone cancel, and
 
@@ -185,20 +200,6 @@ Poincaré inequality, with kernel t^(−2). The remark on c U taken as a forcing
 derivatives on compact sets [[pending:ch9-proof-of-past-construction]], and the higher derivatives of u_1^n are bounded
 uniformly in n on each compact set. By the Arzelà–Ascoli theorem a subsequence converges in every C^j, its limit is
 ∂^γ u_1, and the bound is inherited: ∂^γ u_1 is in E_2. ∎
-
-**Lemma {#lem:bondi-equation-u}** (The equation for u.) On P, −½ □̃ u = S(u) with
-
-    S(u) := −Ric(g0) + ½ (g_λ^{ab} − g0^{ab}) ∂_a ∂_b (g0 + u)
-            − [ Q(X; g0 + u)(∂g0 + ∂u, ∂g0 + ∂u) − Q(X; g0)(∂g0, ∂g0) ],                             {#eq:bondi-s-def}
-
-and S(u) is in E_3. The terms of S have the following classes: Ric(g0) = (3μ'/(2r³)) dv dv exactly
-[[pending:ch2-vaidya-ricci]]; g_λ⁻¹ − g0⁻¹ is in E_(3/2), ∂²g0 = O(r^(−2)) and ∂²u is in E_(3/2); and the difference of
-the Q terms is quadratic in ∂u (in E_3) plus Γ[g0] times ∂u (in E_2 E_(3/2)).
-
-Proof. Ric^H(g_λ) = 0 and Ric^H(g0) = Ric(g0) [[pending:ch2-reduced-equations]]; subtract the two, using the form
-Ric^H(g) = −½ g^{ab} ∂_a ∂_b g + Q(X; g)(∂g, ∂g) for both. The classes are those of the count in the proof of
-[[thm:past-approximant]], with ∂^i u in E_(3/2) at fixed λ for the orders that [[lem:every-order-fixed]] controls; that
-lemma supplies them in turn, order by order. ∎
 
 ### The half-order gain and the expansion in r^(−1/2) {#sec:bondi-expansion}
 
