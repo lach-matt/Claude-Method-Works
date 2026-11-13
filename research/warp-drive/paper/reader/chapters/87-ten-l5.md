@@ -1214,8 +1214,9 @@ components of g and of g⁻¹ in the charts of the atlas are bounded on D ∩ {v
 so each component and each derivative is uniformly continuous there and extends continuously to D_(s̄); the extended
 components are smooth, and the extended metric is nondegenerate, since the components of g⁻¹ extend as well. The
 extension is T²-invariant, of the form of the class in the gauge, vacuum and induces the data on D_(s̄), since each of
-these conditions is preserved under limits of the components and their derivatives. So it is a solution on D_(s̄), and
-y_(s̄) ≤ 2A by the continuity of y_σ. Hence s̄ ∈ I.
+these conditions is preserved under limits of the components and their derivatives. So it is a solution ḡ on D_(s̄).
+For σ ≤ s_n, y_σ(ḡ) = y_σ(g_n) ≤ 2A, since y_σ depends only on the restriction to D_σ; so y_σ(ḡ) ≤ 2A for σ < s̄,
+and y_(s̄)(ḡ) ≤ 2A by the continuity of y_σ(ḡ) in σ. Hence s̄ ∈ I.
 
 So I = (1/2, v*], and v* ∈ I is the claim. ∎
 
