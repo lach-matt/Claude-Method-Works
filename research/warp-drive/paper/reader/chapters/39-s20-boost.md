@@ -867,9 +867,6 @@ This proves [[eq:iii-i15-2-5]], and the Neumann series gives the inverse once th
 at most 1/2. The proofs of [[cor:iii-i4-4-3]] and [[cor:iii-i5-2-2]] use the invertibility alone, so they hold at
 b. ∎
 
-The same pattern, a direct bound in place of a continuity at fixed base point, serves for the parameter columns of
-[[ch:s21]].
-
 **Corollary {#cor:iii-i4-4-3}** ([Hin26, (11.95)] in dimension 4 + 1.) For b ∈ ℬ̄_* and (h, S) and f as in
 [[prop:iii-i4-4-1]] (1), put S″ := (S^(−1)_(h,S))⁻¹Ṡ(f). The forward solution u of
 

@@ -60,3 +60,5 @@ Items found while chapters were written in parallel; each is settled once, editi
 
 ## From R-06-07
 - Items 1-5 of the main theorem are proved in both Ch 3 and Ch 7: keep one proof (fix writer proposes which).
+- Key choices to hold the later writers to: II.G Example 3.2 → rem:ii-g-3-2; II.G1 Proposition 2.8 → prop:ii-g1-2-8
+  (S24, S27 cite them).

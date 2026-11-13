@@ -309,8 +309,8 @@ the derivative D₁|_((g,g₀))P of [Hin26], with L^(g_b,g_b) = L_b of [[eq:iii-
 with S̄ the endomorphism of [[lem:iii-f-2-1]] (2), and R̃_b with coefficients in C^∞(U).
 
 *Proof.* By [[eq:iii-f-2-2]]–[[eq:iii-f-2-3]], on {|x| > 3R₁},
-2L_b = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄) + (2L̄)^(0) − g_b^(00)∂²_(t_*) + Q_b∂_(t_*) + R_b, where (2L̄)^(0) denotes the
-stationary part of 2L̄, with (2L̄)^(0) ∈ ρ²Diff²_b, g_b^(00) ∈ ρ²C^∞(X̄), Q_b ∈ ρ³Diff¹_b, R_b ∈ ρ⁴Diff²_b, all
+2L_b = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄) + 2L̄̂(0) − g_b^(00)∂²_(t_*) + Q_b∂_(t_*) + R_b, where 2L̄̂(0), the spectral
+family of 2L̄ at σ = 0, is its stationary part, with 2L̄̂(0) ∈ ρ²Diff²_b, g_b^(00) ∈ ρ²C^∞(X̄), Q_b ∈ ρ³Diff¹_b, R_b ∈ ρ⁴Diff²_b, all
 stationary b-operators on X̄: polynomials in ρ∂_ρ|_(t_*) and ∂_ω with coefficients in C^∞(X̄). By [[eq:iii-c-1-4]]
 these vector fields are b-vector fields on U (∂_ω at fixed t_*, ρ is ∂_ω at fixed ρ₀, ρ_I, as t_* and ρ do not depend on
 ω), and ρ = ρ₀ρ_I, ∂_(t_*) = ρ₀(X₀ − X_I). So the last four terms lie in ρ₀²ρ_I²Diff²_b(U); for instance
@@ -930,4 +930,221 @@ degree ([[sec:iii-a1-1]]). The formal solutions at R = 0 below ℓ_K^max occur o
 expansion of u at R = 0 is trivial modulo O(R^(ℓ_K)) for every ℓ_K < ℓ_K^max. Even an arbitrarily high finite order of
 vanishing at R = 0 thus leaves an infinite-dimensional space of resonant states that are not pure. ([Hin26]: degree at
 most 5, l ≥ 6.)
+
+### The operator at null infinity and the radiative order at ι⁺ {#sec:s17-radiative}
+
+This section collects what the preceding sections give for the gauge-fixed operator at null infinity, entry by entry,
+and for the order at which a radiative term reaches future timelike infinity; [[ch:s26]] uses it.
+
+**Proposition {#prop:np-10-38}** (The operator at null infinity, and the radiative order at ι⁺.) Let the parameters be
+as in [[sec:iii-c-1]] and [[sec:iii-g3-1]].
+
+(1) (*The matrix at null infinity.*) In the splitting [[eq:iii-c-1-6]], the matrix Ā of [[lem:iii-c-4-2]] is lower
+triangular with the diagonal [[eq:iii-c-4-3]] and the off-diagonal entries
+
+    Ā₃₁ = (4/3)(1 − e_C)(1 + v_C)γ_C,              Ā₄₁ = (1 + 2e_C)(1 + v_C)γ_C/3 + γ_Υ,
+    Ā₄₃ = ((1 + 2e_C)(1 − v_C)γ_C + 3e_Υγ_Υ)/4,    Ā₅₂ = (1 + v_C)γ_C + γ_Υ,
+    Ā₇₃ = (3/2)((1 + v_C)γ_C + e_Υγ_Υ),            Ā₇₄ = 2(1 − e_Υ)γ_Υ,                                {#eq:s17-abar}
+
+all other entries being 0. In spatial dimension 3 the same construction, with the factor 1 in place of ⅔ in E^C and
+½tr̸h as the coordinate of the third slot, gives [Hin26, (5.28)] at h = 0: the same diagonal and the same entries
+(5, 2) and (7, 4), and Ā₃₁ = 2(1 − e_C)(1 + v_C)γ_C, Ā₄₁ = e_C(1 + v_C)γ_C + γ_Υ,
+Ā₄₃ = (e_C(1 − v_C)γ_C + e_Υγ_Υ)/2, Ā₇₃ = (1 + v_C)γ_C + e_Υγ_Υ.
+
+(2) (*The exponents at null infinity.*) The coordinate subspaces spanned by the slots {1, 3, 4, 7}, {2, 5},
+{2, 5, 6} and {6} are invariant under Ā, and on each of them det(x − 3/2 − Ā) is the product of x − 3/2 − Ā_(jj) over
+its slots j. The roots are the constraint exponents 3/2 + σ_C (slots 1–3, σ_C := γ_C{2(1 − v_C), 1 − v_C,
+(1 − e_C)(1 − v_C)}) and the radiative exponents 3/2 + σ_Υ (slots 4–7): 3/2 + (1 − e_Υ)γ_Υ, 3/2 + γ_Υ, 3/2 and
+3/2 + 2γ_Υ, the exponents of the index sets [[eq:iii-c-3-2]].
+
+(3) (*Couplings through the perturbation.*) For g = g₁ + h as in [[prop:iii-c-4-4]], every coupling through h lies in
+the error term of [[eq:iii-c-4-4]], a factor ρ_I^(1/2) below Ā at ℐ⁺ when ℱ = ℰ_I^tot. The entry Ā₇₄ couples the
+leading term of π₀₁ into the 11-component at the exponent λ_♯ = 3/2 + (1 − e_Υ)γ_Υ; the radiation field of π̸₀ reaches
+the 11-component only at the order 2, which lies in ℰ_I^C: ℱ_(I,11) = 1 + (ℰ_I^C ∪ (λ_♯, 0)).
+
+(4) (*The radiative order at ι⁺.*) spec_(ι⁺)(L̄) ⊂ {Re λ ≥ 2}. In particular no radiative exponent 3/2 + s, s ∈ σ_Υ,
+lies in spec_(ι⁺)(L̄): there is no pure resonant state at a radiative exponent (Res_(ι⁺)(L̄, 3/2 + s) = {0} whenever
+3/2 + s < ℓ_I). On the spaces of [[def:iii-g3-1-1]], the only pole of [[eq:iii-g3-2-2]] with real part at most
+3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f only if f has the exceptional term
+f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇ ≠ 0 of [[eq:iii-g3-3-5]]. The radiative exponents 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ are not
+poles.
+
+*Proof.* (1) The proof of [[lem:iii-c-4-2]] gives the slots of S̄h in terms of those of h; their coefficients are
+[[eq:s17-abar]]. In spatial dimension n the same calculation applies with ⅔ replaced by 2/(n − 1) in Ē^C, with the
+coordinate s := tr̸h/(n − 1) of the third slot, and with tr h = −4h₀₁ + (n − 1)s; the formula for Ē^ΥḠ is the same in
+every dimension, by the calculation that gives [[eq:iii-b-6-5]] (the trace weight 2/(n − 1) is chosen for this). Then
+ω₁ = −((n − 1)/2)s, the factor 1 − ⅔(1 − e_C) of slot 4 becomes (n − 3 + 2e_C)/(n − 1), and the calculation gives the
+same diagonal, Ā₅₂ and Ā₇₄, and
+
+    Ā₃₁ = (4/(n − 1))(1 − e_C)(1 + v_C)γ_C,         Ā₄₁ = ((n − 3 + 2e_C)/(n − 1))(1 + v_C)γ_C + γ_Υ,
+    Ā₄₃ = ((n − 3 + 2e_C)(1 − v_C)γ_C + (n − 1)e_Υγ_Υ)/4,         Ā₇₃ = ((n − 1)/2)((1 + v_C)γ_C + e_Υγ_Υ).
+
+At n = 4 these are [[eq:s17-abar]]; at n = 3, where 2/(n − 1) = 1 and s = ½tr̸h, they are the values stated, which are
+those printed in [Hin26, (5.28)] at h = 0.
+
+(2) The off-diagonal entries of [[eq:s17-abar]] connect slots within {1, 3, 4, 7} or within {2, 5}, and row 6 of Ā
+vanishes off the diagonal. So each of the four coordinate subspaces is invariant, Ā restricted to it is lower
+triangular, and the determinant is the product of the diagonal entries. The diagonal is [[eq:iii-c-4-3]].
+
+(3) This is [[prop:iii-c-4-4]] with [[lem:iii-c-3-2]] (b)–(c), [[rem:iii-c-4-5]], the calculation of the leading part in
+the proof of [[prop:iii-c-5-2]], [[def:iii-c-5-1]] and [[rem:s17-no-radiation]].
+
+(4) The first statement is [[lem:iii-g1-4-2]] (a). As γ_Υ < ¼, every radiative exponent is at most 3/2 + 2γ_Υ < 2. An
+element of Res_(ι⁺)(L̄, λ) is a residue at λ of t_*^(−z) times the inverse of [[thm:iii-g1-3-1]] applied to a
+polynomial ([[def:iii-g3-3-6]]), and that inverse is holomorphic off spec_(ι⁺)(L̄); so Res_(ι⁺)(L̄, λ) = {0} for
+Re λ < 2. By [[prop:iii-g3-2-4]] the poles of [[eq:iii-g3-2-2]] lie in spec_(ι⁺)(L̄) ∪ π₁ℰ^C_(I,♯), and
+π₁ℰ^C_(I,♯) = {λ_♯} ∪ π₁ℰ_I^C with min Re ℰ_I^C > 3/2 + 2γ_Υ ([[def:iii-c-3-1]] (2)). So the only possible pole with
+real part at most 3/2 + 2γ_Υ is λ_♯, which is a simple pole by [[cor:iii-g3-2-6]], excited only by the exceptional
+term by [[rem:iii-g3-3-8]]. As 0 < e_Υ < 1, λ_♯ differs from 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ. ∎
+
+In dimension 3 + 1 the radiative order and the Coulombic order of the mass coincide, both at 1, and the incoming pole
+of [Hin26, (9.49)] at 1 records both. In dimension 4 + 1 the radiation fields sit at 3/2 + σ_Υ and the mass at 2, and
+the only incoming pole below 3/2 + 2γ_Υ is λ_♯, which requires the exceptional term of [[rem:s17-exceptional]].
+
+### Setting at the transition face {#sec:iii-g4-1}
+
+The remaining sections are [Hin26, Section 9.2] in dimension 4 + 1. As there, only infinite b-regularity is stated;
+finite b-regularity loses fixed amounts. Against [Hin26], dimension 4 + 1 changes the following. (a) The tf-normal
+operator carries −r̂∂_r̂ − 3/2 − S̄ in its first-order part, and its inverse is [[cor:iii-f1-3-4]], with the sctf weight
+below 3/2 (1 in [Hin26]) and the ztf weight in [−1, 0) ((−ϵ_ind, 0) in [Hin26]). (b) The expansion at r̂ = 0 runs over
+the window (−3, 0] of the table of [[sec:iii-g2-1]], with its states and their companions: the class roots are
+2 − λ^Υ_(sl,l+j) with l + j ≤ 4, the physical roots at −2 include the tensor type t2, and no root at −3 enters. (c) So
+the window w₀ < ℓ_K^max ≤ 3 ([[sec:iii-g4-3]]) replaces 3 + ϵ_ind of [Hin26]. (d) The spectral family differs from the
+tf model by ρ_scf²ρ_tf⁴Diff²_b ([[lem:iii-g4-1-2]]), where [Hin26] has ρ_tf³, as the mass enters at ρ². (e) Three
+points of [Hin26] are corrected: [Hin26, (9.59)] prints ρ^(−λ−j) for ρ^(−λ+j) ([[def:iii-g4-2-1]]); the operator of
+[Hin26, (9.58)] is the one of 2L̄, not of L̄ ([[lem:iii-g4-1-1]] (3)); and the first step of the proof of [Hin26,
+Proposition 9.35] needs a dilation-invariant inverse in place of a pointwise one ([[prop:iii-g4-5-1]]).
+
+*The space.* For σ ∈ ±[0, 1], X^±_(sc-b) := [±[0, 1]_σ × X̄; {0} × ∂X̄], with faces scf, tf, zf and the defining
+functions of [[eq:ii-g1-3-2]],
+
+    ρ_scf = ρ/(ρ + |σ|),     ρ_tf = ρ + |σ|,     ρ_zf = |σ|/(ρ + |σ|),                                   {#eq:iii-g4-1-1}
+
+ρ = r⁻¹ near ∂X̄ = 𝕊³, X the spatial slice of [[sec:iii-b-2]]. All spaces on X^±_(sc-b) are b-Sobolev and partially
+polyhomogeneous spaces for a b-density (|dσ/σ| times a b-density on X; [[sec:iii-a-1]], [Hin26, Definitions 2.6–2.8]),
+with orders listed for scf, tf, zf. Let r̂ := |σ|r = |σ|/ρ. Then tf = [0, ∞]_r̂ × 𝕊³ with faces
+ztf = {r̂ = 0} = tf ∩ zf and sctf = {r̂ = ∞} = tf ∩ scf, ρ_sctf := (1 + r̂)⁻¹, ρ_ztf := r̂/(1 + r̂), the b-density
+|(dr̂/r̂)dg̸| and H^(k,a,c)_b(tf) := ρ_sctf^a ρ_ztf^c H^k_b(tf) ([[sec:i-c-4-1]]; [[cor:iii-f1-3-4]]). On {ρ < ρ₀} the
+functions (σ, r̂, ω) are coordinates, in which ρ_scf = ρ_sctf and ρ_zf = ρ_ztf are functions of r̂ alone,
+|σ| = ρ_tf ρ_zf, and the b-vector fields are spanned by σ∂_σ|_r̂, r̂∂_r̂|_σ and ∂_ω (from
+σ∂_σ|_x = σ∂_σ|_r̂ + r̂∂_r̂ and ρ∂_ρ|_σ = −r̂∂_r̂). Near tf ∩ zf also (ρ, r̂, ω) are coordinates, with ρ_tf ∼ ρ and
+ρ_zf ∼ r̂. Fix χ₁ ∈ C^∞([0, ∞)) equal to 1 on [0, 1/8] and 0 on [1/4, ∞), χ_zf := χ₁(r̂) (1 near zf, 0 near scf; as in
+[[ch:s10]]), χ_ztf := χ_zf|_tf, and χ_tf := χ₂(ρ + |σ|) with χ₂ ∈ C_c^∞([0, ½ρ₀)) equal to 1 near 0.
+
+*The operator.* L_b is the linearised gauge-fixed Einstein operator of [[ch:s15]], with the parameters and hypotheses of
+[[sec:iii-g2-1]]; in particular z_Υ ∉ Z_exc, so that every indicial root of L̂_b(0) is simple ([[prop:iii-f1-2-3]] (e)).
+With (ℱu)(σ) = ∫ e^(iσt_*)u dt_* ([[eq:iii-a-2-2]]), so that ∂_(t_*) becomes −iσ, [[lem:iii-f-2-1]] (2) gives exactly
+
+    L̄̂(σ) = iσρ(ρ∂_ρ − 3/2 − S̄) + ρ²𝒩,     𝒩 := ρ⁻²L̄̂(0),                                         {#eq:iii-g4-1-2}
+
+where L̄̂(σ) denotes the spectral family of L̄, 𝒩 is a dilation-invariant b-operator in (ρ∂_ρ, ∂_ω)
+([[sec:iii-f1-1]]) and S̄ a bundle endomorphism depending on ω alone. Write 𝒩(λ) for its indicial family,
+𝒩(ρ^λφ) = ρ^λ𝒩(λ)φ; its roots are the indicial roots of L̂_b(0) ([[prop:iii-f1-2-3]]). For ±σ > 0 the tf-normal
+operator is
+
+    N_tf := N_tf(L̂_b, ±1) = r̂⁻²N₀ + r̂⁻¹N₁,     N₀ := 𝒩(−r̂∂_r̂),     N₁ := ±i(−r̂∂_r̂ − 3/2 − S̄),    {#eq:iii-g4-1-3}
+
+on sections over tf of π_tf^*(S²T*X|_(∂X)); P := r̂²N_tf = N₀ + r̂N₁ is a b-operator at ztf.
+
+**Lemma {#lem:iii-g4-1-1}** (The tf model.) (1) For σ = ±|σ| ≠ 0, L̄̂(σ) = |σ|²N_tf on {ρ < ρ₀}, in the coordinates
+(σ, r̂, ω) (with N_tf acting at fixed σ). (2) N₀(r̂^zφ) = r̂^z𝒩(−z)φ. So the Mellin family of N₀ (with
+û(λ) := ∫ r̂^(−λ)u dr̂/r̂) is N₀(λ) = 𝒩(−λ), its roots are −μ for the roots μ of L̂_b(0), and at each −μ the inverse
+N₀(λ)⁻¹ has a simple pole whose residue Π_μ has range ker 𝒩(μ). (3) N_tf(2L̂_b, ±1) = 2N_tf ([[eq:i-c-4-1]]).
+
+*Proof.* (1) Both sides are b-operators in (ρ∂_ρ, ∂_ω) whose coefficients depend on ω alone, so it suffices to compare
+them on ρ^aφ(ω), a ∈ ℂ. By [[eq:iii-g4-1-2]], L̄̂(σ)(ρ^aφ) = iσρ^(a+1)(a − 3/2 − S̄)φ + ρ^(a+2)𝒩(a)φ, and with
+ρ = |σ|r̂⁻¹, iσ = ±i|σ|, this is |σ|^(a+2)(±i r̂^(−a−1)(a − 3/2 − S̄) + r̂^(−a−2)𝒩(a))φ. And
+|σ|²N_tf(|σ|^a r̂^(−a)φ) is the same, as −r̂∂_r̂ r̂^(−a) = a r̂^(−a).
+
+(2) The first statement is the definition. The roots are simple, so on each isotypic component (type and harmonic) the
+determinant of the matrix polynomial 𝒩(λ) has a simple zero at μ, and 𝒩(λ)⁻¹ = adj 𝒩(λ)/det 𝒩(λ) has a simple pole
+with residue adj 𝒩(μ)/(det 𝒩)′(μ). Its range lies in ker 𝒩(μ), as 𝒩(μ) adj 𝒩(μ) = 0, and it is non-zero, as the
+kernel is one-dimensional, so adj 𝒩(μ) ≠ 0; hence its range is the kernel. Only finitely many components have μ as a
+root ([[prop:iii-f1-2-3]] (f)). Then Π_μ = −res_(x=μ)𝒩(x)⁻¹.
+
+(3) [[eq:i-c-4-1]] at σ̂ = ±1 for the spectral family of 2L_b, with S₀ = S̄ and N(P⁽⁰⁾) = 2𝒩. ∎
+
+**Lemma {#lem:iii-g4-1-2}** ([Hin26, (8.2b), (8.4), (8.15)] in dimension 4 + 1.) On {ρ < ρ₀},
+L̂_b(σ) ∈ ρ_scf ρ_tf² Diff²_b(X^±_(sc-b)) and L̂_b(σ) − L̄̂(σ) ∈ ρ_scf² ρ_tf⁴ Diff²_b(X^±_(sc-b)). On all of X,
+L̂_b(σ) is a differential operator polynomial in σ (of degree 2) with smooth stationary coefficients.
+
+*Proof.* ρ∂_ρ at fixed σ and ∂_ω lift to b-vector fields (see *The space* above), and smooth functions of (ρ, ω) to
+smooth functions. In [[eq:iii-g4-1-2]], σρ = ρ_scf ρ_tf² ρ_zf (up to sign) and ρ² = ρ_scf²ρ_tf². By
+[[lem:iii-f-2-1]] (3), 2(L_b − L̄) = −g_b^(00)∂²_(t_*) + Q_b∂_(t_*) + R_b with g_b^(00) ∈ ρ²C^∞, Q_b ∈ ρ³Diff¹_b,
+R_b ∈ ρ⁴Diff²_b, so 2(L̂_b(σ) − L̄̂(σ)) = σ²g_b^(00) − iσQ_b + R_b, and σ²ρ², σρ³, ρ⁴ are ρ_scf²ρ_tf⁴ times
+ρ_zf², ρ_scf ρ_zf, ρ_scf². The last statement is [[lem:iii-f-2-1]] (1). ∎
+
+*The window and the states.* For w < ℓ_K^max ([[eq:iii-g2-1-1]]) let 𝒲(w) be the set of roots μ of L̂_b(0) with
+−w < μ ≤ 0 (all real, [[lem:iii-g1-1-3]] (c)); they and their states are those of the table of [[sec:iii-g2-1]]. For
+μ ∈ 𝒲 at a type τ (harmonics 𝒴_τ) the tower (h̆^((μ),j)_(b,τ)(Y))_(j≤K_μ) of the table has the Minkowski leading terms
+h̆̄^((μ),j)_τ(Y) = ρ^(μ−j)φ^((μ,τ))_j(ω; Y) ([[sec:iii-g2-2-2]]), and Y ↦ φ^((μ,τ))_0(Y) maps 𝒴_τ isomorphically onto
+the type-τ part of ker 𝒩(μ) ([[lem:iii-g2-1-2]]). For the types s1 and v1 at μ = −1 we re-index, with
+φ^((−1,s1))_j := (ρ^(1+j)h̆̄^(j+2)_(s1))|_(∂X) and φ^((−1,v1))_j := (ρ^(1+j)h̆̄^(j+1)_(v1))|_(∂X), j ≥ 0; these chains
+then satisfy [[eq:iii-g2-2-4]] as the generic ones do with μ = −1 ([[lem:iii-g2-2-2]]). Let
+
+    c_μ := 2 − ⌊−μ⌋,     {−μ} := −μ − ⌊−μ⌋.                                                             {#eq:iii-g4-1-4}
+
+So c_μ = 2 + μ at the integer roots, and c_μ = 2, 1, 0 at the class roots in (−¼, 0), (−5/4, −1), (−9/4, −2); these
+are the numbers k_μ of the table of [[sec:iii-g2-1]] (for s1 and v1, c₋₁ + 2 = 3 and c₋₁ + 1 = 2), so c_μ ≤ K_μ,
+resp. c₋₁ + 2 ≤ 4 and c₋₁ + 1 ≤ 3. And ⌊−μ⌋ + c_μ + 1 = 3. The fractional part {−μ} is 0 at the integer roots. At a
+class root μ = 2 − λ^Υ_(sl,l+j), −μ ∈ (l + j − 2, l + j − 7/4) (the ranges of [[lem:iii-d-4-1]], as [[sec:iii-g2-1]]
+uses them; (0, z_Υ/3] for (l, l + j) = (0, 2)), so {−μ} ∈ (0, ¼), and {−μ} ≥ ϵ_ind by [[eq:iii-f1-2-2]].
+
+### Formal solutions at ztf {#sec:iii-g4-2}
+
+This section is [Hin26, (9.57)–(9.61) and Definition 9.25] in dimension 4 + 1.
+
+**Definition {#def:iii-g4-2-1}** For μ ∈ 𝒲, a type τ at which μ is a root, Y ∈ 𝒴_τ and k ≤ K_μ (resp. K − 2, K − 1
+for s1, v1),
+
+    h̄^((μ),≤k)_τ(±r̂, Y) := Σ_(j=0)^k (∓ir̂)^j r̂^(−μ) φ^((μ,τ))_j(ω; Y),                               {#eq:iii-g4-2-1}
+
+a function on tf with values in π_tf^*(S²T*X|_(∂X)), and H_(μ,τ)(Y) := h̄^((μ),≤c_μ)_τ(±r̂, Y). For s1 and v1 these
+are, in the indexing of [Hin26],
+h̄^(≤3)_(s1)(±r̂, S) = Σ_(j=0)^1 (∓ir̂)^j r̂ (ρ^(1+j)h̆̄^(2+j)_(s1)(S))|_(∂X) and
+h̄^(≤2)_(v1)(±r̂, V) = Σ_(j=0)^1 (∓ir̂)^j r̂ (ρ^(1+j)h̆̄^(1+j)_(v1)(V))|_(∂X).
+
+[Hin26, (9.59)] prints ρ^(−λ−j)h̄^((λ),j); the companions have degree λ − j ([Hin26, (9.37) and (9.57)], where
+ρ^j h̆̄^((0),j) appears), so the restriction to ∂X needs ρ^(−λ+j).
+
+**Lemma {#lem:iii-g4-2-2}** ([Hin26, (9.57), (9.60)] in dimension 4 + 1.) (1) For σ = ±|σ| ≠ 0 and r̂ = |σ|r,
+Σ_(j=0)^k (−iσ)^j h̆̄^((μ),j)_τ(Y) = |σ|^μ h̄^((μ),≤k)_τ(±r̂, Y), with the re-indexed chains for s1 and v1. (2) Exactly,
+
+    N_tf h̄^((μ),≤k)_τ(±r̂, Y) = (∓i)^(k+1) r̂^(k−1−μ) ψ^((μ,τ))_k(ω; Y),     ψ_k := −(μ − k − 3/2 − S̄)φ_k.     {#eq:iii-g4-2-2}
+
+In particular PH_(μ,τ)(Y) = (∓i)^(c_μ+1) r̂^(3+{−μ}) ψ_(c_μ), as c_μ + 1 − μ = 3 + {−μ}.
+
+*Proof.* (1) (−iσ)^jρ^(μ−j) = (∓i)^j|σ|^jρ^(μ−j) = (∓i)^j|σ|^μ r̂^(j−μ).
+
+(2) By [[lem:iii-g2-2-4]] (a) with a = e^(−iσt_*),
+L̄(e^(−iσt_*) Σ_(j≤k) (−iσ)^j h̆̄^j) = (−iσ)^(k+1)e^(−iσt_*)[L̄, t_*]h̆̄^k, and [L̄, t_*] = −ρ(ρ∂_ρ − 3/2 − S̄)
+([[sec:iii-g2-2-1]], after [[eq:iii-g2-2-3]]) gives [L̄, t_*](ρ^(μ−k)φ_k) = ρ^(μ−k+1)ψ_k. So by (1),
+L̄̂(σ)(|σ|^μ h̄^(≤k)) = (−iσ)^(k+1)ρ^(μ−k+1)ψ_k = (∓i)^(k+1)|σ|^(μ+2) r̂^(k−1−μ)ψ_k, and [[lem:iii-g4-1-1]] (1) divides
+by |σ|^(μ+2). For s1 and v1, [[lem:iii-g2-2-4]] (a) is stated with a^((k−1)) and a^((k)) in the indexing of [Hin26],
+which is the same statement after the re-indexing. ∎
+
+[[eq:iii-g4-2-2]] is an identity; [Hin26, (9.60)] records the membership in r̂^(−λ+k−1)C^∞. It is exact because L̄ is
+homogeneous and the chains are those of Minkowski space.
+
+**Definition {#def:iii-g4-2-3}** ([Hin26, (9.61)].) l_β(r̂) := (r̂^β − 1)/β for β ≠ 0, and l₀(r̂) := log r̂.
+
+**Lemma {#lem:iii-g4-2-4}** (1) [r̂∂_r̂, l_β(r̂)] = r̂^β. For a polynomial p of degree d with coefficients in Diff(𝕊³),
+[p(r̂∂_r̂), l_β] = r̂^β q_β(r̂∂_r̂), with q_β of degree d − 1 and coefficients polynomial in β. (2) For C₀ ∈ ℝ and
+χ ∈ C_c^∞([0, 1)), β ↦ χl_β is holomorphic on {Re β > C₀} with values in H^(∞,c)_b([0, 1)_r̂) for every
+c < min(0, C₀), including at β = 0. (3) For t > 0, l_β(r̂) − l_β(t) = t^β l_β(r̂/t). (4) (r̂^z − r̂^m)/(z − m) =
+r̂^m l_(z−m)(r̂).
+
+*Proof.* (1) r̂∂_r̂ l_β = r̂^β for every β. With D := r̂∂_r̂, D(l_β g) = l_β Dg + r̂^β g and D(r̂^β g) = r̂^β(D + β)g, so
+by induction D^m(l_β g) = l_β D^m g + r̂^β Σ_(i<m) (D + β)^(m−1−i)D^i g.
+
+(2) l_β(r̂) = log r̂ ∫₀¹ r̂^(sβ) ds is entire in β for r̂ > 0, and |r̂^(sβ)| ≤ r̂^(min(0,Re β)) for r̂ ≤ 1, s ∈ [0, 1].
+Differentiating under the integral, |∂_β^p l_β| ≤ C_p|log r̂|^(p+1) r̂^(min(0,Re β)), and for m ≥ 1,
+D^m l_β = β^(m−1)r̂^β, whose β-derivatives are bounded by C|log r̂|^p r̂^(Re β)(1 + |β|)^m. These bounds are locally
+uniform on {Re β > C₀}, and χ|log r̂|^N r̂^(min(0,C₀)) ∈ H^(0,c)_b for c < min(0, C₀); so difference quotients
+converge in H^(∞,c)_b by dominated convergence.
+
+(3) l_β(r̂) − l_β(t) = (r̂^β − t^β)/β = t^β((r̂/t)^β − 1)/β, and likewise for β = 0. (4) r̂^m(r̂^(z−m) − 1)/(z − m). ∎
+
+The coefficients ±β⁻¹ of r̂^β and r̂⁰ in l_β have a pole at β = 0, while l_β itself, as a conormal function, does not:
+this is why the expansions below are written with l_β.
 
