@@ -323,8 +323,9 @@ equivalent norm.
 
 *Proof.* *Charts.* Near {t^♭ = 1} take the charts of Step 3 of the proof of [[prop:ii-g-3-1]] (for Ω_*,
 [[rem:ii-g-3-2]], with c_1 = 1/8 and, in (T2), ε = ½, the exponent of t^♭), which cover {|t^♭ − 1| ≤ c_1} and in
-which t^♭ − 1 is the last coordinate and, at {r = r_0}, a defining function of {r = r_0} the first. Away from {t^♭ = 1} take those of its Step 4 (b-cells in
-logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto orthants at {r = r_0}) that are contained in
+which t^♭ − 1 is the last coordinate and, at {r = r_0}, a defining function of {r = r_0} the first. Away from
+{t^♭ = 1} take those of its Step 4 (b-cells in logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto orthants
+at {r = r_0}) that are contained in
 {t^♭ ≥ 1 + c_1/2}, refining its cells if necessary, which keeps the uniform bounds; as t^♭ has bounded b-derivatives
 near 𝓘⁺ at bounded t_* and {t^♭ ≥ 1 + c_1} contains a neighbourhood of ι⁺ ∪ K⁺ ((T3) of [[rem:ii-g-3-2]]), these
 cover {t^♭ ≥ 1 + c_1}, and with the Step 3 charts they cover Ω_*. Restricted to Ω_*, each chart φ_α maps onto a

@@ -419,49 +419,46 @@ partition of unity subordinate to a cover of Σ_U by such charts and to U ∩ {t
 𝒟 = N_ν ∩ {t^♭_* ≤ T̂ + 3}, with the convention of [[sec:viii-0]] that this sublevel set contains the points where
 t^♭_* is not defined. So Ω_* ∪ 𝒟 = N_ν, and DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
 
-*ḣ is smooth on the interior of 𝒟.* The proof of [[prop:viii-1-2]] gives ḣ on two closed sets that cover 𝒟: the
-compact set 𝒦 ([[lem:s27-cover]] (c)), and the closure 𝒜 of Ω^♮ = Ω_(ext,r_1) ∪ 𝒮 in 𝒟, on which ḣ is the solution of
-[[thm:iv3-2-1]], equal to the exterior solution on Ω_(ext,r_1), with its past slab. On each of the two, near each of
-its points in the interior
-of M, ḣ is for every k the restriction of a tensor of class H^k on a neighbourhood: on 𝒦 by (L) of [[sec:s27-local]],
-its data being smooth and H^k(𝒦) consisting of restrictions; on 𝒜 because ḣ lies, for every k, in the classes of
-order k of [[thm:iv2-2-4]] and [[thm:iv3-2-1]], b-Sobolev spaces of restrictions ([[sec:iii-c-2]]), which near points
-of the interior of M are the spaces H^k. Fix an interior point q of 𝒟 and m ≥ 2. By Sobolev embedding on ℝ⁵, for
-k > m + 5/2, there are a coordinate ball V ∋ q in the interior of 𝒟 and u_1, u_2 ∈ C^m(V) with ḣ = u_1 on 𝒦 ∩ V and
+*ḣ is smooth on the interior of 𝒟.* The proof of [[prop:viii-1-2]] gives ḣ on two closed sets that cover 𝒟: the compact
+set 𝒦 ([[lem:s27-cover]] (c)), and the closure 𝒜 of Ω^♮ = Ω_(ext,r_1) ∪ 𝒮 in 𝒟, on which ḣ is the solution of
+[[thm:iv3-2-1]], equal to the exterior solution on Ω_(ext,r_1), with its past slab. On each of the two, near each of its
+points in the interior of M, ḣ is for every k the restriction of a tensor of class H^k on a neighbourhood: on 𝒦 by (L)
+of [[sec:s27-local]], its data being smooth and H^k(𝒦) consisting of restrictions; on 𝒜 because ḣ lies, for every k, in
+the classes of order k of [[thm:iv2-2-4]] and [[thm:iv3-2-1]], b-Sobolev spaces of restrictions ([[sec:iii-c-2]]), which
+near points of the interior of M are the spaces H^k. Fix an interior point q of 𝒟 and m ≥ 2. By Sobolev embedding on ℝ⁵,
+for k > m + 5/2, there are a coordinate ball V ∋ q in the interior of 𝒟 and u_1, u_2 ∈ C^m(V) with ḣ = u_1 on 𝒦 ∩ V and
 ḣ = u_2 on 𝒜 ∩ V. Put Γ := 𝒦 ∩ 𝒜 ∩ V and w := u_1 − u_2. If Γ is empty, the connected V lies in one of the two closed
 sets, and ḣ is C^m on V. Otherwise ḣ is C^m on V by (i) and (ii) below. As q and m are arbitrary, ḣ is smooth on the
 interior of 𝒟.
 
 (i) *Every derivative of w of order at most m vanishes on Γ.* In the interior of 𝒟, 𝒦 meets 𝒜 only on three spacelike
 hypersurfaces ([[lem:s27-cover]] (c), [[lem:iii-c1-1-1]]): Σ^fut_(r_1) ∩ {ρ′_I ≥ c}, with 𝒦 above it and Ω_(ext,r_1)
-below; Σ^past_(r_1) where 𝒦 reaches below the past slab, with Ω_(ext,r_1) above it; and {ρ′_I = c}, with 𝒦 below it
-and 𝒮 above. Let p ∈ Γ lie on only one of them, H, so that near p the set 𝒦 lies on one side of H and 𝒜 on the other.
-In the proof of [[prop:viii-1-2]] the solution on one side gives the solution on the other its Cauchy data on H; so u_1
-and u_2 have the same restriction and the same first transversal derivative on H near p, and w and its first
-derivatives vanish there. Take coordinates (s, y) near p with H = {s = 0}. As H is spacelike, g⁻¹(ds, ds) < 0, and the
-principal part ½□_g ⊗ id of L^♮ gives 2L^♮ = −g⁻¹(ds, ds)∂²_s + R, with R of order 2 and of order at most 1 in ∂_s: H
-is noncharacteristic. L^♮u_1 = 0 on the interior of 𝒦, which lies on one side of H near p; so every derivative of L^♮u_1
-of order at most m − 2 vanishes on H near p, by continuity. Likewise for L^♮u_2, from the side of 𝒜. So
-∂^(j−2)_s L^♮w = 0 on H near p for 2 ≤ j ≤ m. If every derivative of w of order below j vanishes on H near p, so does
-every derivative of order j with at most j − 1 factors ∂_s, a tangential derivative of one of order below j; and the
-identity gives ∂^j_s w = 0 there. By induction on j, as in Step 3 of the proof of [[thm:ix-2-2]], every derivative of w
-of order at most m vanishes on H near p. The other points of Γ lie on two of the three hypersurfaces, on one of two
-edges. The first is {r = r_1, t_IVP = 0}, where Σ^fut_(r_1) and Σ^past_(r_1) bound the wedge Ω_(ext,r_1) and 𝒦 fills
-the rest of a neighbourhood; its points are interior points of 𝒟, as ν(r_1) > 0 (r_1 > R_ν, as in the last step of
-this proof). The second is the intersection of Σ^fut_(r_1) with {ρ′_I = c}, where 𝒦, Ω_(ext,r_1) and 𝒮 meet.
-({ρ′_I = c} does not meet Σ^past_(r_1) in Γ: its points in Γ lie in the closure of 𝒮, where t_IVP ≥ r/4 > 0
-([[lem:s27-cover]] (d)), while t_IVP ≤ 0 on Σ^past_(r_1).) Each point of an edge is a limit of points of Γ that lie on
-only one of the three hypersurfaces, and the derivatives of w of order at most m are continuous; so they vanish on the
-edges too.
+below; Σ^past_(r_1) where 𝒦 reaches below the past slab, with Ω_(ext,r_1) above it; and {ρ′_I = c}, with 𝒦 below it and
+𝒮 above. Let p ∈ Γ lie on only one of them, H, so that near p the set 𝒦 lies on one side of H and 𝒜 on the other. In the
+proof of [[prop:viii-1-2]] the solution on one side gives the solution on the other its Cauchy data on H; so u_1 and u_2
+have the same restriction and the same first transversal derivative on H near p, and w and its first derivatives vanish
+there. Take coordinates (s, y) near p with H = {s = 0}. As H is spacelike, g⁻¹(ds, ds) < 0, and the principal part ½□_g
+⊗ id of L^♮ gives 2L^♮ = −g⁻¹(ds, ds)∂²_s + R, with R of order 2 and of order at most 1 in ∂_s: H is noncharacteristic.
+L^♮u_1 = 0 on the interior of 𝒦, which lies on one side of H near p; so every derivative of L^♮u_1 of order at most m −
+2 vanishes on H near p, by continuity. Likewise for L^♮u_2, from the side of 𝒜. So ∂^(j−2)_s L^♮w = 0 on H near p for 2
+≤ j ≤ m. If every derivative of w of order below j vanishes on H near p, so does every derivative of order j with at
+most j − 1 factors ∂_s, a tangential derivative of one of order below j; and the identity gives ∂^j_s w = 0 there. By
+induction on j, as in Step 3 of the proof of [[thm:ix-2-2]], every derivative of w of order at most m vanishes on H near
+p. The other points of Γ lie on two of the three hypersurfaces, on one of two edges. The first is {r = r_1, t_IVP = 0},
+where Σ^fut_(r_1) and Σ^past_(r_1) bound the wedge Ω_(ext,r_1) and 𝒦 fills the rest of a neighbourhood; its points are
+interior points of 𝒟, as ν(r_1) > 0 (r_1 > R_ν, as in the last step of this proof). The second is the intersection of
+Σ^fut_(r_1) with {ρ′_I = c}, where 𝒦, Ω_(ext,r_1) and 𝒮 meet. ({ρ′_I = c} does not meet Σ^past_(r_1) in Γ: its points in
+Γ lie in the closure of 𝒮, where t_IVP ≥ r/4 > 0 ([[lem:s27-cover]] (d)), while t_IVP ≤ 0 on Σ^past_(r_1).) Each point
+of an edge is a limit of points of Γ that lie on only one of the three hypersurfaces, and the derivatives of w of order
+at most m are continuous; so they vanish on the edges too.
 
-(ii) *Gluing.* For a function v on V that vanishes on Γ, let v^Γ := v on 𝒦 ∩ V and v^Γ := 0 on 𝒜 ∩ V. If v ∈ C¹(V)
-and its first derivatives vanish on Γ as well, then v^Γ is C¹ on V, with first derivatives (∂v)^Γ. Indeed V is the
-union of Γ and of the open sets V ∖ 𝒜 ⊂ 𝒦 and V ∖ 𝒦 ⊂ 𝒜, on which v^Γ is v and 0. At p ∈ Γ, v(p) = 0 and ∂v(p) = 0,
-so |v^Γ(p′)| ≤ |v(p′)| = o(|p′ − p|) as p′ → p: v^Γ is differentiable at p with derivative 0 = ∂v(p). And (∂v)^Γ is
-continuous on V, its restrictions to the closed sets 𝒦 ∩ V and 𝒜 ∩ V, which cover V, being ∂v and 0. Applied to w and
-to its derivatives of order below m, which vanish with their first derivatives on Γ by (i), this gives, by induction on
-the order, w^Γ ∈ C^m(V) with ∂^βw^Γ = (∂^βw)^Γ for |β| ≤ m. So ḣ = u_2 + w^Γ, which is u_1 on 𝒦 ∩ V and u_2 on
-𝒜 ∩ V, is C^m on V.
+(ii) *Gluing.* For a function v on V that vanishes on Γ, let v^Γ := v on 𝒦 ∩ V and v^Γ := 0 on 𝒜 ∩ V. If v ∈ C¹(V) and
+its first derivatives vanish on Γ as well, then v^Γ is C¹ on V, with first derivatives (∂v)^Γ. Indeed V is the union of
+Γ and of the open sets V ∖ 𝒜 ⊂ 𝒦 and V ∖ 𝒦 ⊂ 𝒜, on which v^Γ is v and 0. At p ∈ Γ, v(p) = 0 and ∂v(p) = 0, so |v^Γ(p′)|
+≤ |v(p′)| = o(|p′ − p|) as p′ → p: v^Γ is differentiable at p with derivative 0 = ∂v(p). And (∂v)^Γ is continuous on V,
+its restrictions to the closed sets 𝒦 ∩ V and 𝒜 ∩ V, which cover V, being ∂v and 0. Applied to w and to its derivatives
+of order below m, which vanish with their first derivatives on Γ by (i), this gives, by induction on the order, w^Γ ∈
+C^m(V) with ∂^βw^Γ = (∂^βw)^Γ for |β| ≤ m. So ḣ = u_2 + w^Γ, which is u_1 on 𝒦 ∩ V and u_2 on 𝒜 ∩ V, is C^m on V.
 
 *ġ is smooth on the interior of N_ν.* The interior of N_ν is covered by two open sets: its points with t^♭_* > 1,
 which lie in the interior of Ω_*, and its points outside the closed set {t^♭_* ≥ T̂ + 7/4}, which lie in 𝒟′

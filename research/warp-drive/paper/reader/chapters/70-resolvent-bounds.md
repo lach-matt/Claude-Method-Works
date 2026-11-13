@@ -1712,8 +1712,8 @@ these are the components of the tensor whose coordinates are r^(−ι−1)𝔖(�
 Ē^ΥḠh = −γ_Υ(2ι_(ḡ⁻¹c̄)h − e_Υc̄ tr_ḡ h) with c̄ = r⁻¹dt; as ḡ⁻¹c̄ = −r⁻¹∂_t and
 h(∂_t, ·) = (y_0dt + y_1dr)S + y_3r dS, the coordinates of Ē^ΥḠh are r⁻¹𝔈_Υy. ∎
 
-**Proposition {#prop:rb-quasimode-point}** (Upper bounds at the computational point.) Let (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100,
-1/100). The least singular value of L_l from H̄_b^(1,α) to H̄_b^(0,α+2), in the norms [[eq:rb-block-norms]] (at l = 0
+**Proposition {#prop:rb-quasimode-point}** (Upper bounds at γ_C = 10⁶.) Let (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100). The
+least singular value of L_l from H̄_b^(1,α) to H̄_b^(0,α+2), in the norms [[eq:rb-block-norms]] (at l = 0
 on the complement of the zero-energy state), is at most
 
     3.1413 · 10⁻⁶, 2.6181 · 10⁻⁷ and 1.4956 · 10⁻⁶ at α = −1,     0.0204, 0.0149 and 0.0121 at α + 2 = 1/2,
