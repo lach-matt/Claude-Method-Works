@@ -313,7 +313,7 @@ operators on manifolds with scaled bounded geometry; the pages cited are those o
 following results of that paper, as stated there; they hold on smooth manifolds of every dimension n. The notation
 inside the list is that of [Hin26d]. Later chapters cite them as (S1)–(S11).
 
-(S1) [Hin26d, Definition 1.1, p. 2; Definition 1.3 and (1.6), p. 5.] A *b.g. structure* on an n-manifold M without
+(S1) [Hin26d, Definition 1.1, p. 2; Definition 1.3 and (1.6), pp. 5–6.] A *b.g. structure* on an n-manifold M without
 boundary is a collection ℬ = {(U_α, φ_α)} of charts φ_α : U_α → (−2, 2)^n of finite multiplicity, with
 M = ⋃ φ_α⁻¹((−1, 1)^n) and transition maps τ_(βα) = φ_β ∘ φ_α⁻¹ uniformly bounded in C^∞. A *scaled b.g. structure*
 ℬ^× = {(U_α, φ_α, ρ_α)} adds scalings ρ_α ∈ (0, 1]^n with |∂^γ(ρ_(α,i) ∂_i τ^j_(βα)(x))| ≤ C_γ ρ_(β,j). Then:
@@ -332,11 +332,16 @@ ww′H^((s−m;k))_(𝒱;𝒲) boundedly. For weights with w/w′ → 0 at infin
 strictly), the inclusion wH^((s;k))_(𝒱;𝒲) ↪ w′H^((s′;k′))_(𝒱;𝒲) is compact. For a uniformly positive 𝒱-density μ, the
 L²(μ) pairing identifies (wH^s_𝒱)* with w⁻¹H^(−s)_𝒱.
 
-(S4) [Hin26d, Definitions 3.7 and 3.8, p. 31; Definition 3.31, p. 44; Definition 3.34, p. 46; Definition 3.43, p. 51.]
-The 𝒱-cotangent bundle ^𝒱T*M has the trivialisations U_α × ℝ^n ∋ (p, ξ) ↦ Σ ξ_i dx^i_α/ρ_(α,i). S^m(^𝒱T*M) consists of
-the functions a whose local expressions satisfy |∂_x^β ∂_ξ^γ a| ≤ C_(βγ)⟨ξ⟩^(m−|γ|) uniformly in α.
-Op_𝒱(a) := Σ_α φ_α^* Op_α((φ_α)_*(χ_α a)), with Op_α the quantization with phase Σ (x^j − x′^j)ξ_j/ρ_(α,j) and a
-cut-off ψ(x − x′). The residual operators wρ^∞Ψ^(−∞)_𝒱 are those which, together with their adjoints, map
+(S4) [Hin26d, Definitions 3.7 and 3.8, p. 31; the cut-off ψ and (3.26), p. 43; (3.27)–(3.28) and Definition 3.31,
+p. 44; Definition 3.34, p. 46; Definition 3.43, p. 51.] The 𝒱-cotangent bundle ^𝒱T*M has the trivialisations
+U_α × ℝ^n ∋ (p, ξ) ↦ Σ ξ_i dx^i_α/ρ_(α,i). S^m(^𝒱T*M) consists of the functions a whose local expressions satisfy
+|∂_x^β ∂_ξ^γ a| ≤ C_(βγ)⟨ξ⟩^(m−|γ|) uniformly in α. Fix ψ ∈ C_c^∞((−1/4, 1/4)^n) with ψ = 1 near 0. For a symbol a
+on T*ℝ^n with x-support in (−5/4, 5/4)^n, the local quantization has the Schwartz kernel
+
+    Op_α(a)(x, x′) = (2π)^(−n) ∫ exp(i Σ_j (x^j − x′^j)ξ_j/ρ_(α,j)) ψ(x − x′) a(x, ξ) dξ |dx′|/(ρ_(α,1)⋯ρ_(α,n)).
+
+With χ ∈ C_c^∞((−5/4, 5/4)^n) nonnegative and equal to 1 on [−1, 1]^n, and χ_α := φ_α^*χ/Σ_β φ_β^*χ,
+Op_𝒱(a) := Σ_α φ_α^* Op_α((φ_α)_*(χ_α a)). The residual operators wρ^∞Ψ^(−∞)_𝒱 are those which, together with their adjoints, map
 w′ρ^(−N)H^((−N;k))_(𝒱;𝒲) to ww′ρ^N H^((N;k))_(𝒱;𝒲) for all w′, N and k. Finally
 wΨ^m_𝒱(M) := {Op_𝒱(a) + R : a ∈ wS^m, R residual}.
 
@@ -344,14 +349,19 @@ wΨ^m_𝒱(M) := {Op_𝒱(a) + R : a ∈ wS^m, R residual}.
 p. 57.] A ∈ wΨ^m_𝒱 maps w′H^((s;k))_(𝒱;𝒲) to ww′H^((s−m;k))_(𝒱;𝒲) boundedly, with norm bounded by a seminorm of A
 (Remark 3.47). The classes wρ^(−l)Ψ^m_𝒱 are closed under adjoints (σ(A*) is the complex conjugate of σ(A)) and
 compositions (σ(A_1A_2) = σ(A_1)σ(A_2)); σ(i[A_1, A_2]) = H_(σ(A_1))σ(A_2); WF′(A_1A_2) ⊂ WF′(A_1) ∩ WF′(A_2); and
-these operations are continuous. Microlocal elliptic regularity: if WF′(B) ⊂ Ell(A), A ∈ w′Ψ^(m′), then
-‖Bu‖_(wρ^l H^m) ≤ C_N(‖Au‖_(ww′ρ^l H^(m−m′)) + ‖u‖_(wρ^(−N)H^(−N))). Elliptic operators are Fredholm when 𝒱 is fully
-symbolic.
+these operations are continuous. Microlocal elliptic regularity: if B ∈ Ψ⁰_𝒱, A ∈ w′Ψ^(m′)_𝒱 and
+WF′(B) ⊂ Ell(A), then ‖Bu‖_(wρ^l H^m) ≤ C_N(‖Au‖_(ww′ρ^l H^(m−m′)) + ‖u‖_(wρ^(−N)H^(−N))). Elliptic operators are
+Fredholm when 𝒱 is *fully symbolic*, that is, when for every ε > 0 the scaling weight ρ is smaller than ε outside a
+compact subset of M [Hin26d, Definition 3.27, p. 41].
 
-(S6) [Hin26d, Remark 3.33, p. 45; Lemma 3.5, p. 30.] The boundedness
+(S6) [Hin26d, Remark 3.33, p. 45; Hintz, [Hin26c, Lemma 3.5, p. 49].] The boundedness
 Op_𝒱(a) : w′H^((s;k))_(𝒱;𝒲) → ww′H^((s−m;k))_(𝒱;𝒲) requires only uniform bounds ⟨ξ⟩^(m−|γ|) on
-(ρ_α∂_x)^β ∂_x^(β′) ∂_ξ^γ a_α for |β′| ≤ k (𝒱-regular symbols with x-derivatives up to order k); the proof gives
-operator norms bounded by finitely many such seminorms, their number depending on s and m in a compact set.
+(ρ_α∂_x)^β ∂_x^(β′) ∂_ξ^γ a_α for |β′| ≤ k (𝒱-regular symbols with x-derivatives up to order k) [Hin26d, Remark 3.33].
+[Hin26c, Lemma 3.5] states: given a compact interval I ⊂ ℝ, there exist d_0 ∈ ℕ and C such that for all s, m ∈ I and
+all symbols a of order m with d_0 bounded 𝒱-derivatives, ‖Op_𝒱(a)‖_(ℒ(H^s_𝒱, H^(s−m)_𝒱)) ≤ C‖a‖_(C^(d_0)_𝒱 S^m), and,
+for the same d_0 and all k, the same bound between H^((s;k))_(𝒱;𝒲) and H^((s−m;k))_(𝒱;𝒲) with the norm of a in
+C^((d_0;k))_(𝒱;𝒲) S^m. Neither statement is used below: the bounds of this kind that the chapter needs are proved in
+[[sec:ii-a-8]] and [[sec:ii-a1-2]].
 
 (S7) [Hin26d, Definitions 3.58 and 3.59, p. 59.] For a parameterised scaled b.g. structure (ℬ^(p,×))_(p∈P), with all
 bounds uniform in p, the above holds uniformly in p; operators are families with uniformly bounded symbols and residual

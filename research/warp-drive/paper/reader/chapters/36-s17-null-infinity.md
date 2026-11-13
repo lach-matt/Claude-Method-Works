@@ -980,9 +980,9 @@ the 11-component only at the order 2, which lies in ℰ_I^C: ℱ_(I,11) = 1 + (�
 
 (4) (*The radiative order at ι⁺.*) spec_(ι⁺)(L̄) ⊂ {Re λ ≥ 2}. In particular no radiative exponent 3/2 + s, s ∈ σ_Υ,
 lies in spec_(ι⁺)(L̄): there is no pure resonant state at a radiative exponent (Res_(ι⁺)(L̄, 3/2 + s) = {0} whenever
-3/2 + s < ℓ_I). Nor is there an outgoing solution at such an exponent, or at any λ with Re λ < min(ℓ_I, 2): if h lies
-in the space H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) of [[def:iii-g1-1-2]] (2), the target of [[thm:iii-g1-3-1]] (2),
-and N_(ι⁺)(λ)h = 0, then h = 0. On the spaces of [[def:iii-g3-1-1]], the only pole of [[eq:iii-g3-2-2]] with real part
+3/2 + s < ℓ_I). Nor is there an outgoing solution there, or at any other λ with Re λ < min(ℓ_I, 2): if h lies in the
+space H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) of [[def:iii-g1-1-2]] (2), the target of [[thm:iii-g1-3-1]] (2), and
+N_(ι⁺)(λ)h = 0 with Re λ < min(ℓ_I, 2), then h = 0. On the spaces of [[def:iii-g3-1-1]], the only pole of [[eq:iii-g3-2-2]] with real part
 at most 3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f only if f has the exceptional term
 f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇ ≠ 0 of [[eq:iii-g3-3-5]]. The radiative exponents 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ are not
 poles.
