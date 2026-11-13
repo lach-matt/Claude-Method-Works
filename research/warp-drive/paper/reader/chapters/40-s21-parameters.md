@@ -898,10 +898,10 @@ b are those of [[def:iii-i8-2-1]], so E^ν = 0; at (h, p⃗) = (0, 0) also g′ 
 coefficients linear in g′ − g_b, g_0 − g_b and their b-derivatives of order at most 2 ([[eq:iii-i-4-2]]); there
 g_0 − g_b ∈ ρ_+²C^∞ and g′ − g_0 ∈ H^(k,(ℰ_+,a_+))_b, of sizes O(|p⃗|) and O(|p⃗| + ‖h‖) ([[lem:iii-i7-1-3]] (a), (c),
 [[lem:iii-i8-2-5]]), both in ρ_+^(m_+−ε)H^k_b, and ζ^b_ν ∈ 𝒜^((λ,k)+ℱ). So the first term has plain ι⁺-weight
-Re λ + 2 + m_+ − 2ε > 4 (m_+ > 1); near K⁺, g_0 = g_b and h_tot(p⃗) = 0, so L_(h,p⃗) − L_b = L^(g_b+h,g_b) − L_b has
-coefficients of K⁺-weight a_K with norm O(‖h‖), and, ζ^b_ν being m_(λ,k)(S) there, of K⁺-weight Re λ − 1 − ε, the
-first term has K⁺-weight Re λ − 1 + a_K − ε > a_K > α, as α < a_K. ζ^b_ν vanishes near ℐ⁺, and the two weights
-combine at the corner of ι⁺ and K⁺ as in [[prop:iii-i-4-1]]. The second term is supported in 𝒞, as
+Re λ + 2 + m_+ − 2ε > 4 (m_+ > 1). Near K⁺, g_0 = g_b and h_tot(p⃗) = 0, so L_(h,p⃗) − L_b = L^(g_b+h,g_b) − L_b has
+coefficients of K⁺-weight a_K with norm O(‖h‖); ζ^b_ν is m_(λ,k)(S) there, of K⁺-weight Re λ − 1 − ε, so the first
+term has K⁺-weight Re λ − 1 + a_K − ε > a_K > α, as α < a_K. ζ^b_ν vanishes near ℐ⁺, and the two weights combine at
+the corner of ι⁺ and K⁺ as in [[prop:iii-i-4-1]]. The second term is supported in 𝒞, as
 g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_b) is supported in supp(1 − χ_K);
 δ*_(g_0,E_C) − δ*_(g_b,E_C) ∈ ρ_+³Diff¹_b near (ι⁺)° with seminorms O(|p⃗|), so the term has ι⁺-order Re λ + 4. Hence
 r^ν ∈ 𝒴_2(α) with norm at most C|S|(‖h‖ + |p⃗|), and |p⃗| ≤ |p⃗ − p⃗_b| + |b − b₀|.
@@ -1533,8 +1533,8 @@ Re e_ν + a_K ≥ λ_♯ − 1 + 4 + ε_K > α by (H2) (e_ν ≥ λ − 1); so r
 on (h, p⃗) ([[lem:iii-i7-1-3]] (a), [[lem:iii-i9-2-5]]); the values at (0, 0) are [[lem:iii-i9-2-4]].
 
 (e) *The identity.* The first line of the proof of (c), f^ν = L_(h,p⃗)h_ν + δ*_(g_0,E_C)ϑ_(ν,♯), uses only
-[[eq:iii-i9-2-6]] and L_(h,p⃗) = L^(g′,g_0), so it holds at every base point; so
-f^ν = L_(h,p⃗)h^b_ν + δ*_(g_0,E_C)ϑ^b_(ν,♯) + E^ν. By [[eq:s21-conv]] at g_b, h^b_ν = m_ν − ζ^b_ν, and the display of
+[[eq:iii-i9-2-6]] and L_(h,p⃗) = L^(g′,g_0), and holds at every base point; adding and subtracting the tensors built at
+b, f^ν = L_(h,p⃗)h^b_ν + δ*_(g_0,E_C)ϑ^b_(ν,♯) + E^ν. By [[eq:s21-conv]] at g_b, h^b_ν = m_ν − ζ^b_ν, and the display of
 the proof of (c), at g_b, which is Ricci flat, gives L_bζ^b_ν = δ*_(g_b,E_C)ϑ^b_(ν,♯). Writing
 L_(h,p⃗)ζ^b_ν = L_bζ^b_ν + (L_(h,p⃗) − L_b)ζ^b_ν gives [[eq:s21-rows-at-b]], as in the proof of
 [[lem:s21-motions-at-b]]. *The class of r^ν.* The counts of (c) apply with L_b, g_b, ζ^b_ν and ϑ^b_(ν,♯) in place of

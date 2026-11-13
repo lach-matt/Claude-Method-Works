@@ -22,9 +22,8 @@ t_IVP, the initial surface Σ^IVP := t_IVP⁻¹(0) and the radius R₃ beyond wh
 ([[eq:iii-b-3-3]], [[eq:iii-b-3-6]], [[lem:iii-b-3-7]]). Since ψ_IVP = ψ on [r_♭, 5R₁] and ψ′ > 0 on [3R₁, ∞),
 R₃ ≥ 5R₁. Ω_*, 𝒟_0, t^♭_* and T̂ are those of [[sec:iii-k-0]] and [[prop:iii-k-1-2]]. The domain Ω′ of the form
 [[eq:omega]] with constants (T′, δ′_0), a′ := q0 − δ′_0, V′ := v_end + T′ and τ′_end := max_(v ≤ V′)(v − r_q(v)), the
-constant c_0 of the chart (t, x) = (τ + T_(μ_end)(|x|) + c_0, x), which places Σ^IVP in the coordinates (τ, x) of
-[[sec:background]], and the gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and of [[thm:settling]] (i)
-([[cor:vii-2-3]]); Ω′_+ := Ω′ ∩ {v ≥ v_end + 1}. G = O(2) × O(2) is the group of [[sec:s27-class]].
+constant c₀ of the chart (t, x) = (τ + T_(μ_end)(|x|) + c₀, x), which places Σ^IVP in the coordinates (τ, x) of
+[[sec:background]], and the gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and [[thm:settling-precise]]; Ω′_+ := Ω′ ∩ {v ≥ v_end + 1}. G = O(2) × O(2) is the group of [[sec:s27-class]].
 
 ### The development inside the black hole {#sec:interior-development}
 
@@ -104,7 +103,7 @@ rate is [[cor:s27-rate]] (c) with b = (m′, 0) and ε_t := ε, on {r_♭ ≤ r 
 **Remark {#rem:interior-condition}** (At the inner radius ½R₁.) With the inner radius ½R₁ the development already
 covers {r ≥ q_end} exactly when q_end ≥ ½R₁, that is when
 
-    μ_end ≤ 16√72 l5² ≈ 135.76 l5²:                                                                    {#eq:interior-condition}
+    μ_end ≤ 16√72 l5² ≈ 135.76 l5²:                                                             {#eq:interior-condition}
 
 q_end ≥ ½μ_end^(1/2) ⟺ √72 μ_end l5² ≥ μ_end²/16 ⟺ [[eq:interior-condition]]. At the numerical point of
 [[ch:lambda0]] (μ0 = 1, l5 = 1/10, A = 1, ∫ env² = 105/128), [[eq:mu-rate]] gives μ_end = 1 + (2/9)(105/128) =
@@ -140,10 +139,10 @@ developments glued along U by j form one Hausdorff globally hyperbolic developme
 *Proof.* *V exists.* Σ̄ = Σ^IVP ∩ {r_♭ ≤ r ≤ R} is compact and lies in the interior of Ω′_+ ([[lem:vii-1-2]] (b)),
 and there g0 = g_(b₀) ((a) there). dt_IVP is timelike for g_(b₀) on {|x| ≥ ½r_♭}: on {|x| ≥ r_♭} by
 [[lem:iii-b-3-7]] (b), and on {½r_♭ ≤ |x| ≤ r_♭}, where ψ′_IVP = ψ′ = 1, as for t_* after [[lem:iii-b-3-7]]. In the
-Kerr–Schild coordinates, with τ = t_KS − c_0, dt_IVP = dt_KS − β dr with β ∈ (−1, 1], and
+Kerr–Schild coordinates, with τ = t_KS − c₀, dt_IVP = dt_KS − β dr with β ∈ (−1, 1], and
 g_(b₀)⁻¹(dt_KS, dt_IVP) = −1 − H(1 + β) < 0, H = μ_end r⁻² ([[lem:iii-b-3-3]] (d)); so dt_IVP lies in the cone of
 dτ. By [[lem:vii-1-1]], g_λ − g_(b₀) = O(λ) in C⁰ on Ω′_+. So for λ small dt_IVP is timelike for g_λ, in the cone of
-dτ, on a connected open neighbourhood V of Σ̄ in Ω′_+ that meets r ≥ ½r_♭ only, and t_IVP increases strictly along
+dτ, on a connected open neighbourhood V of Σ̄ in Ω′_+ ∩ {|x| > ½r_♭}, and t_IVP increases strictly along
 future causal curves of (V, g_λ).
 
 *(i), the charts at Σ.* Let K ⊂ Σ be compact, n_λ and n the future unit normals of Σ for g_λ and g, and
@@ -215,9 +214,9 @@ on a domain reaching spatial infinity at the time of Σ^IVP; the construction fr
 
 Let P′ be the past domain [[eq:past-domain]] built with V′, τ′_end and a′ in place of V, τ_end and a, so that
 V′_P := V′ + 1 + (τ′_end − τ0) + κ_P, with κ_P = ½ and h_P(τ) = κ_P t^(−1/4), t := 1 + τ0 − τ. [[lem:vii-1-2]] chooses
-c_0 and T′ so that on Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}
+c₀ and T′ so that on Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}
 
-    τ ≥ τ0 + 1,     v ≥ v_end + 2,     τ ≤ τ_top,     and     V′ ≥ τ_top + 2R + q_end + 1,                {#eq:interior-placing}
+    τ ≥ τ0 + 1,   v ≥ v_end + 2,   τ ≤ τ_top,   and   V′ ≥ τ_top + 2R + q_end + 1,               {#eq:interior-placing}
 
 τ_top a constant; then τ′_end ≥ V′ − q_end ≥ τ_top + 1, as r_q(v) ≤ q_end. Also a′ < ½r_♭ < 4R.
 
@@ -225,13 +224,13 @@ c_0 and T′ so that on Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}
 gives its solution on P′ ∪ Ω′; both domains lie in {v ≤ V′_P}: on Ω′, v ≤ V′ + 1 + τ′_end − τ ≤ V′_P − κ_P, as
 τ ≥ τ0; on P′, v ≤ V′_P − h_P(τ).
 
-(ii) On r ≥ R₃, Σ^IVP = {τ = F(r)} with F(r) := C″ − c_0 − T_(μ_end)(r), and v = r + F(r) → ∞ along it as r → ∞. So
+(ii) On r ≥ R₃, Σ^IVP = {τ = F(r)} with F(r) := C″ − c₀ − T_(μ_end)(r), and v = r + F(r) → ∞ along it as r → ∞. So
 Σ^IVP ∩ {v > V′_P} is not empty and contains the whole end of Σ^IVP at spatial infinity, where neither solution gives
 data; [[thm:settling]] (i) replaces the data there, beyond 4R, by those of g^KS_(m_λ,0).
 
 *Proof.* (i) Ω′ = {τ0 ≤ τ ≤ τ′_end, |x| ≥ a′, v + (τ − τ′_end) ≤ V′ + 1}, and V′_P − κ_P = V′ + 1 + τ′_end − τ0. P′
 is {v + h_P(τ) ≤ V′_P} intersected with {τ ≤ τ0, |x| ≥ a′}. (ii) In the chart of [[lem:vii-1-2]], t = τ + T_(μ_end)(r)
-+ c_0, and Σ^IVP = {t = C″} on r ≥ R₃ ([[lem:iii-b-3-7]] (b)). T_(μ_end)(r) → 0 as r → ∞ ([[lem:iii-b-3-5]] (a)). ∎
++ c₀, and Σ^IVP = {t = C″} on r ≥ R₃ ([[lem:iii-b-3-7]] (b)). T_(μ_end)(r) → 0 as r → ∞ ([[lem:iii-b-3-5]] (a)). ∎
 
 **Remark {#rem:interior-reach}** (Neither construction reaches further at a fixed λ.) The threshold of [[thm:main]] on
 Ω′ depends on T′. The constants of [[thm:past-construction]] depend on the past domain, through V′_P: the annuli
