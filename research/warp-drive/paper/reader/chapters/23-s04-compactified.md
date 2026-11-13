@@ -1798,8 +1798,11 @@ conclusion of step j − 1, and gives
 
 Take δ_0 ≤ 1/4 − κ, which is positive as J > 4τ, so that 𝗌_j − 1/2 + δ_0 ≤ 𝗌_(j−1). [[lem:ii-a1-4-1]] at step j
 applies with G_(j−1) in the role of G, which is elliptic on Ū_(j−1) ⊃ K_1 ∪ supp φ_0 ∪ supp φ_E near fibre infinity,
-and with E, which is elliptic on K_E^* ⊃ K_E(U_(j−1)) ⊃ supp φ_E near fibre infinity. Induction on j
-bounds ‖G_Ju‖_𝗌, and [[eq:ii-a1-4-5]] follows for B microsupported in U_* := U_J by [[lem:ii-a-8-4]] (c). ∎
+and with E, which is elliptic on K_E^* ⊃ K_E(U_(j−1)) ⊃ supp φ_E near fibre infinity. In its bound,
+‖G_(j−1)Lu‖_(𝗌_j−m+1) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χ_*Lu‖_(−N−m)) by [[lem:ii-a-8-4]] (c), with χ_* of (R2) of
+[[sec:ii-a-8-3]] for G and E: WF′(G_(j−1)) ⊂ Ell(G), G_(j−1)χ_* = G_(j−1), Gχ_* = G and 𝗌_j ≤ 𝗌. As χ_*L = χ_*Lχ,
+[[lem:ii-a-8-6]] (a) gives ‖χ_*Lu‖_(−N−m) ≤ C‖χu‖_(−N). Induction on j bounds ‖G_Ju‖_𝗌, and [[eq:ii-a1-4-5]] follows
+for B microsupported in U_* := U_J by [[lem:ii-a-8-4]] (c), with the cut-off χ, as G_Jχ = G_J and Bχ = B. ∎
 
 ### Real principal type propagation {#sec:ii-a1-5}
 

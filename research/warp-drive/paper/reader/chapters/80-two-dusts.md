@@ -718,8 +718,8 @@ plus a polynomial in the earlier stages; the first part of −c_m F1F2 ĝ_2 belo
 c_1 is linear in (m1, dφ_1^𝔨), and −c_1 F1F2 ĝ_2 belongs to 𝒲. T̂ is defined at G1 = g0 + λ (m1 + W) with the phases v +
 λ φ_1^in and u + λ φ_1^out as in [[def:first-stage-operator]], and its form on pure harmonics of θ_𝔨 is that of
 [[lem:first-stage-operator]], with ℓ_𝔨 and ϕ_𝔨: the principal term gives −(ℓ_𝔨·∂_X) F_𝔨 Y − ½ (□̃ϕ_𝔨) F_𝔨 Y − ½ e_1^𝔨
-F_𝔨² Y, and e_1^𝔨 = 0. The products of such Y with the other family's wave, for instance ½ Y(ℓ_𝔧, ℓ_𝔧) F_𝔧² W_𝔧 with 𝔧 ≠
-𝔨, have mixed harmonics; they are the mixed part of T̂ ĝ_(m+1), which (d′) carries.
+F_𝔨² Y, and e_1^𝔨 = 0. The products of such Y with the other family's wave, for instance ½ Y(ℓ_𝔧, ℓ_𝔧) F_𝔧² W_𝔧 with
+𝔧 ≠ 𝔨, have mixed harmonics; they are the mixed part of T̂ ĝ_(m+1), which (d′) carries.
 
 (c) (b′) is e_m^𝔨 = 0. The mean of [[eq:two-dust-stage-m]] is (a′), its pure harmonics of θ_𝔨 are (c′), and its mixed
 harmonics are (d′), which, by [[lem:two-dust-nonresonance]], is solved pointwise in X by division by −e^(−2σ) n1 n2.
@@ -760,9 +760,9 @@ harmonics of ĝ_j for j ≤ N + 1. By [[lem:two-dust-stages]] (a)–(b), ℛ^(m)
 profile bounded uniformly in λ. Rewriting with the fixed phases v and u, the Taylor expansion in λΦ_𝔨, Φ_𝔨 := Σ_(j≥2)
 λ^(j−2) φ_j^𝔨, about θ_𝔨 + φ_1^𝔨, as in the proof of [[thm:approximant]], gives profiles g_j(X, θ1, θ2) with the stated
 g1 and a remainder that changes Ric^H by O(λ^(N−1)) in |·|_k. (E1₂) holds because W_𝔨(ℓ_𝔨, ·) = 0 and ⟨g1⟩ = m1. (E2₂)
-holds by the two-phase form of [[lem:phase-shift-symmetry]] (b) with Φ_𝔨 = φ_1^𝔨 + λΦ_𝔨: the coefficient of λ⁰ of R[G(·,
-· + Φ)] is R^(0) of g_app, and it equals ℛ^(0)(X, θ1 + φ_1^in, θ2 + φ_1^out) = 0, since ℛ^(−1) = 0. (E3) holds with K = N
-− 1. ∎
+holds by the two-phase form of [[lem:phase-shift-symmetry]] (b) with Φ_𝔨 = φ_1^𝔨 + λΦ_𝔨: the coefficient of λ⁰ of
+R[G(·, · + Φ)] is R^(0) of g_app, and it equals ℛ^(0)(X, θ1 + φ_1^in, θ2 + φ_1^out) = 0, since ℛ^(−1) = 0. (E3) holds
+with K = N − 1. ∎
 
 [[thm:approximant]] is the case W_out = 0.
 
@@ -1309,8 +1309,8 @@ function of (τ, R), u and v among them. The proof of [[lem:quarter-turn]] (a) a
 λ⁻¹ (∂_a v) F1 + λ⁻¹ (∂_a u) F2 and ρ(θ1, θ2) := (3π/2 − θ1, 3π/2 − θ2): D^λ_a(f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, and J*
 commutes with D^λ.
 (b) The outgoing wave has the algebraic form [[eq:waves-hopf]] of the ingoing one, its two quadratures having A₂,
-env₂(u) and θ2 in place of A, env(v) and θ, and J fixes u; so the calculation of [[lem:quarter-turn]] (b) gives (J*
-W_TT^𝔨)(X, 3π/2 − θ_𝔨) = −W_TT^𝔨(X, θ_𝔨) for both families. χ_in and χ_out are S-invariant by the uniqueness of the
+env₂(u) and θ2 in place of A, env(v) and θ, and J fixes u; so the calculation of [[lem:quarter-turn]] (b) gives
+(J* W_TT^𝔨)(X, 3π/2 − θ_𝔨) = −W_TT^𝔨(X, θ_𝔨) for both families. χ_in and χ_out are S-invariant by the uniqueness of the
 transports [[eq:two-dust-chi]], which commute with J and whose forcing terms are S-even by (a) at order 0, as in
 [[lem:quarter-turn]] (b). The last claim is (a) at order 1 for the S-invariant family g0 + λ W_𝔨.
 (c) By (a), applied to the S-invariant family g0 + λ (W_in + W_out), J* R^(0)(X, 3π/2 − θ1, 3π/2 − θ2) = R^(0)(X, θ1,

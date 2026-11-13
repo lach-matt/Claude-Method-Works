@@ -34,8 +34,8 @@ uniform in r_♭; the neighbourhood of b₀ and the thresholds in h may depend o
 
 The parameter space ℬ, the metrics g_b, b = (m, A), the time function t_*, the boundary defining function ρ = |x|⁻¹
 near ∂X, the bundle E (trivialised by dt_*, dx¹, …, dx⁴) and the Minkowski metric ḡ are those of [[sec:iii-d2-1]].
-With the 1-form modification of [[eq:iii-b-6-2]], for v_C ∈ (0, 1), e_C, γ_C and a stationary c_C ∈ |x|⁻¹C^∞ equal to
-|x|⁻¹(dt − v_C d|x|) for large |x|, put
+With the 1-form modification of [[eq:iii-b-6-2]], for v_C ∈ (0, 1), e_C, γ_C and a stationary c_C ∈ |x|⁻¹C^∞
+equal to |x|⁻¹(dt − v_C d|x|) for large |x|, put
 
     δ*_(g,E_C) := δ*_g + E^C_g,     E^C_g ω = γ_C (2 c_C ⊗_s ω − (2/3)(1 − e_C) g ι_(g⁻¹c_C) ω),
     □^C_b := 2 δ_(g_b) G_(g_b) δ*_(g_b,E_C),                                                              {#eq:iii-e-1-1}
@@ -115,10 +115,10 @@ and at C_0 − 1, and h_tf the threshold of [[thm:iv6-3-1]]; and 𝖹 := 𝖹₁
 made of the set 𝖹₁ of [[lem:iv4-1-3]] (b) and the sets 𝖹₂, 𝖹₃ of [[prop:np-10-52]] (ii), (iii). The nonlinear theorem
 of [[ch:s27]] takes C_0 = 100.
 The 1-form c_C is that of [[prop:np-10-14]] at m = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 as in
-[[prop:np-10-14]] (b), only on [r_0/4, r_0/2] and [2r_0, 3r_0], so that it is unchanged on [r_0/2, 2r_0] and equals
-r⁻¹(dt − v_C dr) for r ≥ 3r_0, and rescaled to m₀ (every condition on it depends on m r_0⁻² and r/r_0 only, by
-scaling). It is stationary and equals
-|x|⁻¹(dt − v_C d|x|) for large |x| up to O(m₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the static time, and the
+[[prop:np-10-14]] (b), with ε small enough that (i) and (ii) of that proposition hold, only on [r_0/4, r_0/2] and
+[2r_0, 3r_0], so that it is unchanged on [r_0/2, 2r_0] and equals r⁻¹(dt − v_C dr) for r ≥ 3r_0, and rescaled to m₀
+(every condition on it depends on m r_0⁻² and r/r_0 only, by scaling). It is stationary and equals |x|⁻¹(dt − v_C d|x|)
+for large |x| up to O(m₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the static time, and the
 time t of [[sec:iii-b-3-1]] is the outgoing Kerr–Schild time, whose differential differs from the static one by
 O(m₀|x|⁻²) d|x|, which changes |x|⁻¹(dt − v_C d|x|) by O(m₀|x|⁻³) d|x|.
 
@@ -313,8 +313,8 @@ real part > 19/10 and three with real part < −100; for l ≥ 2 no root has rea
 root with real part in (19/10, 2] is ι = 2, a simple root.
 
 (iii) Fix h. By [[prop:np-10-12]] (iii), P_l(ι) = h³(κ − ι²)³ + Σ_(j+2k≤5) a_(jk)ι^jκ^k, with coefficients a_(jk)
-depending on (v, e, h) and not on l: the part of top weight is h³(κ − ι²)³, and every other term has weight at most
-5. Put ι = κ^(1/2)w. Then
+depending on (v, e, h) and not on l: the part of top weight is h³(κ − ι²)³, and every other term has weight
+at most 5. Put ι = κ^(1/2)w. Then
 
     κ⁻³P_l(κ^(1/2)w) = h³(1 − w²)³ + Σ_(j+2k≤5) a_(jk)κ^(j/2+k−3)w^j,
 
@@ -322,8 +322,8 @@ a polynomial in w of degree 6 with leading coefficient −h³ and the other coef
 j/2 + k − 3 ≤ −1/2. So its roots lie in a disc |w| ≤ W independent of l, and on that disc it converges uniformly to
 h³(1 − w²)³ as κ → ∞. By Hurwitz's theorem, for κ large its six roots lie within ½ of ±1, three near each; so every
 root of P_l satisfies |Re ι| ≥ ½κ^(1/2) once κ ≥ κ_h, for some κ_h depending on h. Likewise
-κ⁻¹p_(v)(κ^(1/2)w) = h(1 − w²) + (2h − 2v)κ^(−1/2)w + 6vκ⁻¹, whose two roots tend to ±1. Hence a root with
-|Re ι| ≤ R occurs only where κ < κ_h or κ ≤ 4R², that is for finitely many l, each contributing at most six
+κ⁻¹p_(v)(κ^(1/2)w) = h(1 − w²) + (2h − 2v)κ^(−1/2)w + 6vκ⁻¹, whose two roots tend to ±1. Hence a root
+with |Re ι| ≤ R occurs only where κ < κ_h or κ ≤ 4R², that is for finitely many l, each contributing at most six
 roots. ∎
 
 **Remark {#rem:s14-u6}** (Numerical observation.) At v = 1/2, for e, h ∈ {10⁻², 10⁻³, 10⁻⁴} and 85 sampled degrees
@@ -573,8 +573,8 @@ with b = 1/4 for r ≤ 50, b = (100 − r)/200 ∈ [−1/2, 1/4] for 50 ≤ r �
 b ≥ 1/320 = e^(1/2), f ≥ 1 − 1/2500, α⁻¹⟨c, dr⟩ ≥ fb > 0, and α⁻²|G(c)| = (1 − b)(2 − f(1 − b)) ≤ (1 − b)(1 + b + r⁻²)
 ≤ 1 + 1/2500. So α⁻²·2(1 − e)⟨c, dr⟩² ≥ 2(1 − e)f²b² ≥ 1.99e > 1.0004e ≥ α⁻² f e|G(c)|. *100.625 ≤ r ≤ 200*: here
 b ≤ −1/320, |b| ≥ e^(1/2), r⁻² ≤ 10⁻⁴ ≤ 0.032|b|, so α⁻¹⟨c, dr⟩ ≤ r⁻² − f|b| ≤ −0.967|b| < 0, and
-α⁻²·2(1 − e)⟨c, dr⟩² ≥ 1.87b² ≥ 1.87e, while α⁻² f e|G(c)| ≤ eα⁻²|G(c)| = e(1 − b)(2 − f(1 − b))
-= e(1 − b² + r⁻²(1 − b)²) ≤ e(1 + 10⁻⁴) ≤ 1.0002e, as r = 100(1 − 2b) and (1 − b)/(1 − 2b) ≤ 1 for b ≤ 0. *r ≥ 200*:
+α⁻²·2(1 − e)⟨c, dr⟩² ≥ 1.87b² ≥ 1.87e, while α⁻² f e|G(c)| ≤ eα⁻²|G(c)| = e(1 − b)(2 − f(1 − b)) =
+e(1 − b² + r⁻²(1 − b)²) ≤ e(1 + 10⁻⁴) ≤ 1.0002e, as r = 100(1 − 2b) and (1 − b)/(1 − 2b) ≤ 1 for b ≤ 0. *r ≥ 200*:
 α⁻¹⟨c, dr⟩ = r⁻² − f/2 < −0.49, α⁻²|G(c)| ≤ 3, and 2(1 − e)·0.24 > 3e.
 
 (iii) On r_0/2 ≤ r ≤ 2r_0, c = c_t dt + c_r dr with c_t = (2r_0)⁻¹ and c_r = −v(r − r_0)/(2r_0²); it is closed, so
@@ -620,11 +620,11 @@ determinant numerators on Tangherlini space in [[app:tables]]; among them
 
 For |x| ≤ 6/5, 25x³ − 1920064x − 204820480 ≤ 25·(216/125) + 1920064·(6/5) − 204820480 < 0, so the denominator of tr is
 negative and that of det is positive. Next Σ_(k≥1)|t_k|(6/5)^k < 8.93·10²² < −t_0, so n_T < 0 and tr > 0. For n_D,
-d_0 + d_2x² ≥ d_0 + (36/25)d_2 > 2.846·10⁴⁰, as d_2 < 0. The odd cubic p(x) := d_1x + d_3x³ (d_1 > 0 > d_3) increases on
-|x| ≤ x_* := (d_1/(3|d_3|))^(1/2) < 0.6 and decreases outside, so on [−6/5, 6/5] its minimum is
-min(p(−x_*), p(6/5)) > −1.26·10⁴⁰; and Σ_(k≥4)|d_k|(6/5)^k < 1.72·10³⁹. So n_D > 2.846·10⁴⁰ − 1.26·10⁴⁰ − 1.72·10³⁹
-> 1.4·10⁴⁰, and det > 0. The block, B-self-adjoint with positive trace and determinant, is positive definite, and with
-the angular entry S is positive definite on the window.
+d_0 + d_2x² ≥ d_0 + (36/25)d_2 > 2.846·10⁴⁰, as d_2 < 0. The odd cubic p(x) := d_1x + d_3x³ (d_1 > 0 > d_3)
+increases on |x| ≤ x_* := (d_1/(3|d_3|))^(1/2) < 0.6 and decreases outside, so on [−6/5, 6/5] its minimum is
+min(p(−x_*), p(6/5)) > −1.26·10⁴⁰; and Σ_(k≥4)|d_k|(6/5)^k < 1.72·10³⁹.
+So n_D > 2.846·10⁴⁰ − 1.26·10⁴⁰ − 1.72·10³⁹ > 1.4·10⁴⁰, and det > 0. The block, B-self-adjoint with positive trace
+and determinant, is positive definite, and with the angular entry S is positive definite on the window.
 
 (iv) By [[prop:np-10-13]] (ii) at (v, e) = (1/2, 1/102400): 2v(2 − d) = 2 − d, and 102400 q_(1/2,e)(ν) = q(d, ν). The
 two roots of q(d, ·) are real (T is B-self-adjoint); their sum (307202 − 307199d)/102400 is positive iff
@@ -712,9 +712,10 @@ reverses the signs of dr and of ω_r. So the spectrum of M + 2N is that of M_(�
 as M_(−v) is.
 
 For ϑ_in, recall p_in = σ(ρ⁻¹Im_H P̂(0))|_(ρ=0, ξ=−2, η=0) and the structure [[eq:i-a-1-2]] of the spectral family,
-here with S = S̄^C = h⁻¹M at ρ = 0. H denotes the fibre inner product; in the Cartesian frame M + 2N, and so H, depend
-on the angles only. Adjoints are taken for |dx|, as in [[sec:i-a-1]], and A^(*H) := H⁻¹A^†H for a matrix A. For a
-matrix-valued function A and a vector field Y, (AY)^(*H) = −A^(*H)Y − H⁻¹Y(HA^(*H)) − (div Y)A^(*H), so
+here with S = S̄^C = h⁻¹M at ρ = 0. H denotes the fibre inner product of (ii). In the Cartesian frame, M + 2N depends
+on the angles only, and we take H to depend on the angles only, as the eigenspaces of M + 2N allow. Adjoints are
+taken for |dx|, as in [[sec:i-a-1]], and A^(*H) := H⁻¹A^†H for a matrix A. For a matrix-valued function A and a
+vector field Y, (AY)^(*H) = −A^(*H)Y − H⁻¹Y(HA^(*H)) − (div Y)A^(*H), so
 
     Im_H(AY) = (Re_H A)(Y/i) + (2i)⁻¹(H⁻¹Y(HA^(*H)) + (div Y)A^(*H)).
 
@@ -906,13 +907,13 @@ on Tangherlini space g_(b₀), for some δ_r > 0 and with δ_sf = 1/100. In dime
 saddle (the r_0 of [Hin26a]) and r_♯ the inner radius ([[sec:iv5-0]]), these conditions are: (1) r c is past timelike on
 {r ≥ r_♯}; (2) c = ½r_c⁻²(r_c dt − v(r − r_c) dr) on [r_c/2, 2r_c] and c = r⁻¹(dt − v dr) for r ≥ 3r_c; (3) the S of
 [[eq:s14-s]] is positive definite on |r − r_c| ≤ (6/5)r_ce^(1/2)/v; (4) r²(−ℓ(dw/w) + S) is positive definite near the
-corner ∂K⁺, on {ρ_sf ≤ 2δ_r, ρ_K ≤ 2δ_r}; (5) r²(−ℓ(dw′/w′) + S) is positive definite near the sink, on {ρ_sf ≤ 2δ_r,
-|(r/t)/v − 1| ≤ 2δ_sf}; (6) −ℓ(−dr) is positive definite on [r_♯, r_c − r_ce^(1/2)/v] and −ℓ(dr) on [r_c + r_ce^(1/2)/v,
-∞), and on 𝗌𝖿 the two conditions of [Hin26a, (5.8)] hold: −r²ℓ(d(r/t)) is positive definite for r/t ∈ [δ_r, v(1 −
-δ_sf)], and −r²ℓ(−d(r/t)) for r/t ∈ [v(1 + δ_sf), 10]. The conditions also hold on g_b for b near b₀, with smaller δ_r
-and the same δ_sf, conditions (5)–(6) on 𝗌𝖿 not depending on b. The same holds with C_0 − 1 for C_0 in [[eq:iv4-2-1]],
-that is at α_sf = −C_0 − 3/2, for every C_0 ≥ 0: the conditions at 𝗌𝖿 are then b_sf = −C_0 − 1/2 < b* and b_K = 1 > b_sf
-− b*.
+corner ∂K⁺, on {ρ_sf ≤ 2δ_r, ρ_K ≤ 2δ_r}; (5) r²(−ℓ(dw′/w′) + S) is positive definite near the sink, on
+{ρ_sf ≤ 2δ_r, |(r/t)/v − 1| ≤ 2δ_sf}; (6) −ℓ(−dr) is positive definite on [r_♯, r_c − r_ce^(1/2)/v] and −ℓ(dr) on
+[r_c + r_ce^(1/2)/v, ∞), and on 𝗌𝖿 the two conditions of [Hin26a, (5.8)] hold: −r²ℓ(d(r/t)) is positive definite for
+r/t ∈ [δ_r, v(1 − δ_sf)], and −r²ℓ(−d(r/t)) for r/t ∈ [v(1 + δ_sf), 10]. The conditions also hold on g_b for b near
+b₀, with smaller δ_r and the same δ_sf, conditions (5)–(6) on 𝗌𝖿 not depending on b. The same holds with C_0 − 1 for
+C_0 in [[eq:iv4-2-1]], that is at α_sf = −C_0 − 3/2, for every C_0 ≥ 0: the conditions at 𝗌𝖿 are then
+b_sf = −C_0 − 1/2 < b* and b_K = 1 > b_sf − b*.
 
 *Proof.* (1)–(3) and (6) off 𝗌𝖿 are [[prop:np-10-14]] (i)–(iii). (4)–(6) at 𝗌𝖿: the symbol T = r²(−ℓ(dw/w) + S)
 depends only on ρ_K and the weights there; it is positive definite at ∂K⁺ iff b_K > b_sf − b* and at the sink iff
@@ -1224,8 +1225,8 @@ K := {|r − r_c| ≤ (3/2)ε_c, ρ_K ≤ 4δ}, the following holds for every χ
 small neighbourhood of K, all B_0, B_1, E ∈ Ψ_(3b,ħ)(M^♭) with compact operator wave front sets and Schwartz kernels
 supported in K × K, and all sufficiently small h > 0.
 
-(1) If WF′(B_0) ⊂ {|r − r_c| ≤ (55/50)ε_c, ρ_K ≤ 2δ, |ζ| < 1}, Ell(E) ⊃ {|r − r_c| ≤ (60/50)ε_c, δ ≤ ρ_K ≤ 3δ,
-|ζ| < 1} and Ell(B_1) ⊃ {|r − r_c| ≤ (60/50)ε_c, ρ_K ≤ 3δ, |ζ| < 2}, then for every N there is C with
+(1) If WF′(B_0) ⊂ {|r − r_c| ≤ (55/50)ε_c, ρ_K ≤ 2δ, |ζ| < 1}, Ell(E) ⊃ {|r − r_c| ≤ (60/50)ε_c, δ ≤ ρ_K ≤ 3δ, |ζ| < 1}
+and Ell(B_1) ⊃ {|r − r_c| ≤ (60/50)ε_c, ρ_K ≤ 3δ, |ζ| < 2}, then for every N there is C with
 
     ‖B_0ω‖_(ρ_K^(α_K)L²) ≤ C(h⁻¹‖B_1P_hω‖_(ρ_K^(α_K)L²) + ‖Eω‖_(ρ_K^(α_K)L²) + h^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h))).
 
@@ -1246,8 +1247,8 @@ The bracket has principal symbol aH_(−ℓ+j)a − Sa². As ℓ is linear in th
 M^♭. This gives [Hin26a, (5.39)], aH_(−ℓ+j)a − Sa² = −c_0a² − b_0² − b_R² + e² + f, with b_0, b_R, e and f those of
 [Hin26a, (5.40)–(5.43)]. Their square roots exist for the following reasons.
 
-- b_0: S is positive definite on {|r − r_c| ≤ (6/5)r_c e^(1/2)/v} ([[lem:iv5-0-5]] (3)), so S ≥ 2c_0 there; ℓ(dρ_K/ρ_K²)
-= −ℓ(dt) and H_jρ_K⁻¹ are bounded on supp χ_0(𝔛|ζ|) and carry the factor ρ_K ≲ 𝔛⁻¹.
+- b_0: S is positive definite on {|r − r_c| ≤ (6/5)r_c e^(1/2)/v} ([[lem:iv5-0-5]] (3)), so S ≥ 2c_0 there;
+ℓ(dρ_K/ρ_K²) = −ℓ(dt) and H_jρ_K⁻¹ are bounded on supp χ_0(𝔛|ζ|) and carry the factor ρ_K ≲ 𝔛⁻¹.
 
 - b_R: on supp ψ′ ∩ {±(r − r_c) > 0}, −ℓ(±dr) ≥ 2c₁ ([[lem:iv5-0-5]] (6)), and |H_jr| = O(|ζ|²) < c₁ on
 supp χ_0(𝔛|ζ|) for 𝔛 large.
@@ -1318,8 +1319,8 @@ the weight at K⁺ and the differential order are dropped, and s := r/t. There i
 K := {|s/v − 1| ≤ 3δ_sf, ρ_sf ≤ 3δ}, the following holds for χ, B_0, B_1 and E as in [[prop:iv5-2-1]] with this K,
 and all sufficiently small h > 0.
 
-(1) If WF′(B_0) ⊂ {|s/v − 1| ≤ (3/2)δ_sf, ρ_sf ≤ (3/2)δ, |ζ| < 1}, Ell(B_1) ⊃ {|s/v − 1| ≤ 2δ_sf, ρ_sf ≤ 2δ,
-|ζ| < 2} and Ell(E) ⊃ {|s/v − 1| ≤ 2δ_sf, ρ_sf ≤ 2δ, |ζ| < 1} ∖ {|s/v − 1| ≤ (5/4)δ_sf, ρ_sf ≤ (5/4)δ}, then for
+(1) If WF′(B_0) ⊂ {|s/v − 1| ≤ (3/2)δ_sf, ρ_sf ≤ (3/2)δ, |ζ| < 1}, Ell(B_1) ⊃ {|s/v − 1| ≤ 2δ_sf, ρ_sf ≤ 2δ, |ζ| < 2} and
+Ell(E) ⊃ {|s/v − 1| ≤ 2δ_sf, ρ_sf ≤ 2δ, |ζ| < 1} ∖ {|s/v − 1| ≤ (5/4)δ_sf, ρ_sf ≤ (5/4)δ}, then for
 every N there is C with
 
     ‖B_0ω‖_(ρ_sf^(α_sf)L²) ≤ C(h⁻¹‖B_1P_hω‖_(ρ_sf^(α_sf+2)L²) + ‖Eω‖_(ρ_sf^(α_sf)L²)
@@ -1537,8 +1538,8 @@ identity [Hin26a, (5.73)] holds: aT_(G,−da,ℓ) = ρ_sf⁴T_(ρ_sf⁻²G, −a
 −a da is past timelike for 𝔛 large, since dτ is past timelike with r²g⁻¹(dτ, dτ) ≤ −¾ ([[lem:iv5-0-3]] (b)) and the
 δ(r − r_♯)-part of −a da is a positive multiple of −dr, past timelike ([[lem:iv5-0-3]] (c)). So [Hin26a, Corollary
 5.15] is integrated over {r ≥ r_♯, 0 ≤ τ ≤ T_0} twice: with dτ and φ² = 𝔛a² + ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(T_0 − τ), and
-with −dr and φ² = ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(r − r_♯). Here the level sets of τ carry r⁴|dr d𝑔̸|, which tensored with
-|dτ| is |dg| ([[lem:iv5-0-2]] (b)). This gives [Hin26a, (5.74)].
+with −dr and φ² = ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(r − r_♯). Here the level sets of τ carry r⁴|dr d𝑔̸|,
+which tensored with |dτ| is |dg| ([[lem:iv5-0-2]] (b)). This gives [Hin26a, (5.74)].
 
 The other terms of [Hin26a, (5.71)] carry the total weight ρ_sf⁴ of ∇*T∇ and are bounded by [Hin26a, (5.75)] and its
 companions. The left side of [Hin26a, (5.70)] is at least −½h⁻¹(‖aP_hω‖² + ‖aL_hω‖²), which gives [Hin26a, (5.76)].
@@ -1791,9 +1792,9 @@ negatives of those at infinity. (iii) The first statement is [[prop:np-10-14]] (
 second, with ζ = dr/r, ⟨c, ζ⟩ = −v r⁻², G(c) = −(1 − v²)r⁻², G(ζ) = r⁻²; by [[prop:np-10-13]] (i), ½ℓ(ζ) has eigenvalue
 −vr⁻² three times and on span{c, ζ} trace −(3 − e)vr⁻² and determinant (2(1 − e)v² − e(1 − v²))r⁻⁴; multiplying by −r²
 gives (ν − v)³(ν² − (3 − e)vν + (2 − e)v² − e). At (1/2, 1/102400) the quadratic has positive sum (3 − e)/2 and
-positive product (2 − e)/4 − e; at e = 0 its roots are v and 2v. (iv) is arithmetic, with b* ∈ (0.9934, 0.9935) and dt
-= r dτ + τ dr. (v) On stationary sections □_η = −Δ componentwise in the frame dt, dx^i. A section of scalar type l has
-its dt-component r^ιS, with −Δ(r^ιS) = 0 at leading order iff ι ∈ {l, −l − 2}, and its spatial part a 1-form whose
+positive product (2 − e)/4 − e; at e = 0 its roots are v and 2v. (iv) is arithmetic, with b* ∈ (0.9934, 0.9935) and
+dt = r dτ + τ dr. (v) On stationary sections □_η = −Δ componentwise in the frame dt, dx^i. A section of scalar type l
+has its dt-component r^ιS, with −Δ(r^ιS) = 0 at leading order iff ι ∈ {l, −l − 2}, and its spatial part a 1-form whose
 Cartesian components are, at each order r^ι, combinations of harmonics of degree l ± 1 (for l = 0, of degree 1 only),
 with the roots ι ∈ {l − 1, −l − 1} and {l + 1, −l − 3}; a section of vector type has Cartesian components of degree l,
 with roots {l, −l − 2}. These are simple, and each group of three (two at l = 0, one for the vector type) lies on one
@@ -1938,8 +1939,8 @@ sector, and the index of [[eq:iv6-1-1]] is 0. ∎
 On M the edge-b vector fields are spanned by r∂_t, r∂_(x^i). Unit cells
 (2^j(k − 2), 2^j(k + 2))_t × (2^(j−2), 2^(j+2))_r × U̸_β, with U̸_β charts of 𝕊³, give the parameterised scaled bounded
 geometry ([[prop:np-10-65-a]]). On it P_h := h²□^C = □_h − iL_h ∈ r⁻²Diff²_(eb,ħ)(M; 𝒯*) has principal symbol G − iℓ
-([[lem:iv5-0-2]] (d) on the model). H^(s,(α_sf,α_cf))_(eb,h) is weighted with L²(|dg|),
-|dg| = |dt dx| = r⁴|dt (dr/r) d𝑔̸|, and the fibre inner product B of [[lem:iv5-0-4]]. Let Ω := {t ≥ 0},
+([[lem:iv5-0-2]] (d) on the model). H^(s,(α_sf,α_cf))_(eb,h) is weighted with
+L²(|dg|), |dg| = |dt dx| = r⁴|dt (dr/r) d𝑔̸|, and the fibre inner product B of [[lem:iv5-0-4]]. Let Ω := {t ≥ 0},
 X_0 := {t = 0} and τ := t/r.
 
 **Theorem {#thm:iv6-2-1}** ([Hin26a, Theorem B.4] in dimension 4 + 1.) Let α_sf < b* − 1 and α_cf > 1 − b*, with
@@ -2026,8 +2027,8 @@ supported in τ ≥ (2.25/10)T > κ; its late set (large t, r ≤ (t + c₁)/κ,
 {(5/2)δ_r ≤ ρ_cf ≤ 4δ_r} covered by (c) (2) and, near 𝗌𝖿, by (b) (2); and [Hin26a, (B.35)], its a priori set
 τ⁻¹([T/2, T]) covered by the steps before. Each step's a priori set lies in the controlled set of an earlier step, as in
 [[prop:iv5-7-1]] and [[prop:iv5-7-2]]. Duality, extension and restriction, and the initial value problem are the
-arguments of [[thm:iv5-7-3]] with these estimates. The data weights in [[eq:iv6-2-1]] follow because
-|dg| = r⁴|dt (dr/r) d𝑔̸| = r|dτ| ⊗ r³|dr d𝑔̸| on {t/r ∈ I}, so the weights shift by ½ at both faces
+arguments of [[thm:iv5-7-3]] with these estimates. The data weights in [[eq:iv6-2-1]] follow
+because |dg| = r⁴|dt (dr/r) d𝑔̸| = r|dτ| ⊗ r³|dr d𝑔̸| on {t/r ∈ I}, so the weights shift by ½ at both faces
 ([[lem:s14-tf-inputs]] (iv)).
 
 *Strong uniqueness.* By finite speed of propagation for wave equations with smooth coefficients in {r > 0}, a solution
@@ -2097,9 +2098,9 @@ the term ρS̃ of [[eq:iv4-1-1]] included in the first class. Dividing by 2iσρ
 in ρ gives ω′ ∈ 𝒜^(γ+1) as long as γ + 1 < 3/2 + min spec S̄^C; iterating, ω′ ∈ 𝒜¹, as S̄^C > 0 ([[lem:iv4-1-2]]).
 [[thm:iv5-7-3]] is applied in the Kerr–Schild coordinates of [[sec:iv5-0]] ([[rem:iv5-7-4]]), in which
 t = t_KS + T_m(|x|) ([[sec:iii-b-3-1]]). The data
-(ω, r𝓛_(∂_t)ω)|_(t_KS=0) = (e^(iσ(ψ−T_m))ω′, −iσre^(iσ(ψ−T_m))ω′) satisfy |ω^(0)| ≤ Cr⁻¹,
-|(r∂_r, ∂_ω)ω^(0)| ≤ C (the phase contributes σr, and ω′ ∈ 𝒜¹ is conormal) and |ω^(1)| ≤ C. Indeed
-|e^(iσ(ψ−T_m))| = e^(−(Im σ)(ψ−T_m)) is bounded, ψ − T_m being continuous on [r_♯, ∞) and tending to +∞. So the data
+(ω, r𝓛_(∂_t)ω)|_(t_KS=0) = (e^(iσ(ψ−T_m))ω′, −iσre^(iσ(ψ−T_m))ω′) satisfy |ω^(0)| ≤ Cr⁻¹, |(r∂_r, ∂_ω)ω^(0)| ≤ C
+(the phase contributes σr, and ω′ ∈ 𝒜¹ is conormal) and |ω^(1)| ≤ C. Indeed |e^(iσ(ψ−T_m))| = e^(−(Im σ)(ψ−T_m)) is
+bounded, ψ − T_m being continuous on [r_♯, ∞) and tending to +∞. So the data
 lie in ρ^(−2−ε)H̄^(1−j)_b(X, r³|dr d𝑔̸|) for every ε > 0 ([[prop:np-10-21]] (iii): ρ^k ∈ ρ^aL²(r³dr) near ∂X iff
 a < k − 2), which lies in ρ^(α_sf+½)H̄^(1−j)_b, as α_sf + ½ = −C_0 − 2 < −2 − ε. The initial value problem of
 [[thm:iv5-7-3]] (b) has a solution with these data in its class, and it is ω: both are H¹_loc solutions with the same
@@ -2153,8 +2154,8 @@ tf-admissible ([[def:i-c-5-1]]) with every weight β_tf ∈ [−C_0, 2).
 [[sec:iv6-0]] with ℓ := 𝗋 + α₊ and β := q: X is tf, ρ_sc and ρ_b are ρ_sctf and ρ_ztf, and the density is r³|dr d𝑔̸| in
 both. The map 𝒳_(tf,θ) → 𝒴_(tf,θ) of [[sec:i-c-4]] is then [[eq:iv6-1-1]] at σ = e^(iθ), by [[lem:iv6-0-1]] (d).
 These orders are admissible in the sense of [[def:iv6-0-2]]: q = β ∈ (0, 2 + C_0]; the orders 𝗋_± with weight α₊ are
-those of [[lem:i-a-7-1]] at σ_* = ±1, constant near the radial sets and monotone along the flow, functions of ξ and
-|η|²; and their thresholds are those of [[eq:i-a-1-5]] for (□^C_b)^, which are the data of □^C_b at ρ = 0
+those of [[lem:i-a-7-1]] at σ_* = ±1, constant near the radial sets and monotone along the flow, functions of ξ
+and |η|²; and their thresholds are those of [[eq:i-a-1-5]] for (□^C_b)^, which are the data of □^C_b at ρ = 0
 ([[sec:i-c-4]]): at R_out, −½ + S̄ with S̄ = min spec S̄^C = h⁻¹(1 − e)(1 − v) ([[prop:np-10-21]] (i)); at R_in,
 (−1 + ϑ_in)/2 = −½ − h⁻¹(1 − e)(1 + v) by [[eq:s14-theta-in]]. These are the thresholds of [[def:iv6-0-2]].
 
@@ -2462,15 +2463,11 @@ for c ∈ C^∞(∂X; T*X|_(∂X)). For 3 ≤ j ≤ J, N(ρ⁻²P*, j) is invert
 dt_*, dx¹, …, dx⁴, ρ⁻²P* is near ∂X a b-operator with values in 5 × 5 matrices. Its principal symbol at ∂X is, like
 that of ρ⁻²P^C_b (the proof of [[lem:iv4-1-6]], (H2)), that of the Euclidean Laplacian in b-form times the identity,
 since a formal adjoint for a smooth nondegenerate pairing has the adjoint principal symbol and this one is real and
-scalar. So ρ⁻²P* is elliptic near ∂X, it lies in the setting of [[sec:iii-a-1-1]] with N_E = 5, and (E2) there
-applies to N(ρ⁻²P*, ι). The number j is not an indicial root of P*, whose indicial roots are 0, have negative real
-part, or have real part > C_0 + 2 ≥ J ([[lem:iii-e-2-1]] (2)). Hence j is not a pole of N(ρ⁻²P*, ·)⁻¹. Otherwise, at a
-pole of order p ≥ 1, the coefficient W of (ι − j)^(−p) is nonzero, bounded on L² and, by (E2), maps C^∞(∂X) to
-C^∞(∂X); as C^∞(∂X) is dense in L², Wg ≠ 0 for some g ∈ C^∞(∂X); and the coefficient of (ι − j)^(−p) in the identity
-N(ρ⁻²P*, ι)N(ρ⁻²P*, ι)⁻¹g = g is N(ρ⁻²P*, j)Wg = 0, so j would be an indicial root. By (E2), N(ρ⁻²P*, j)⁻¹ maps
-C^∞(∂X) to C^∞(∂X), and there it inverts N(ρ⁻²P*, j). Removing in turn, for j = 3, …, J, the coefficient of ρ^(j+2)
-of the current remainder by ρ^jc_j(W), c_j(W) := −N(ρ⁻²P*, j)⁻¹ applied to that coefficient, gives
-ω′♯₁(W) := Σ_(j=3)^J ρ^jc_j(W), linear in W and smooth in b, with
+scalar. So ρ⁻²P* is elliptic near ∂X and lies in the setting of [[sec:iii-a-1-1]] with N_E = 5. The number j is not an
+indicial root of P*, whose indicial roots are 0, have negative real part, or have real part > C_0 + 2 ≥ J
+([[lem:iii-e-2-1]] (2)); so by (E3) there, with Π = Id, N(ρ⁻²P*, j) maps C^∞(∂X) bijectively onto itself. Removing
+in turn, for j = 3, …, J, the coefficient of ρ^(j+2) of the current remainder by ρ^jc_j(W), c_j(W) := −N(ρ⁻²P*, j)⁻¹
+applied to that coefficient, gives ω′♯₁(W) := Σ_(j=3)^J ρ^jc_j(W), linear in W and smooth in b, with
 
     r_b(W) := f₁(W) + P*(χω′♯₁(W)) ∈ C_c^∞(X°) + ρ^(J+3)C^∞.                                             {#eq:iii-e1-3-7}
 
@@ -2513,8 +2510,8 @@ C_c^∞ + ρ^(J+3)C^∞, resp. C_c^∞. (3): if W = [A, A_V] ≠ 0, then h̄♯(
 **Remark {#rem:s14-dim3}** (Comparison with dimension 3 + 1.) [Hin26, (7.31) and (7.18)] are the counterparts in
 dimension 3 + 1 of c_0|x|⁻³V(W) and [[eq:iii-e1-3-3]]: with m ↔ 2m_K (the mass enters as m|x|⁻² where the Kerr mass m_K
 of [Hin26] enters as 2m_K|x|⁻¹), ρ³ ↔ ρ² and the bracket for the cross product, the same coefficients 1 + 2(v_C ∓ 1)γ_C
-over 1 + 2v_Cγ_C appear, up to the orientation convention of the spin, and the indicial value 3(1 + 2v_Cγ_C) replaces 2
-+ 4γ_Cv_C. In [Hin26] the term ρS(a)S′dr + ½d̸(S(a)S′) of the ansatz cancels the pure gauge term of [Hin26, (7.20)];
+over 1 + 2v_Cγ_C appear, up to the orientation convention of the spin, and the indicial value 3(1 + 2v_Cγ_C) replaces
+2 + 4γ_Cv_C. In [Hin26] the term ρS(a)S′dr + ½d̸(S(a)S′) of the ansatz cancels the pure gauge term of [Hin26, (7.20)];
 here there is none to cancel.
 
 ### Simplicity of the roots and their distance from the integers {#sec:s14-simple}
