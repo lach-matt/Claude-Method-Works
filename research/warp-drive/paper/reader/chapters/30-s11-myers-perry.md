@@ -1304,8 +1304,22 @@ that N(A, ι) : H^(s+m)(∂M) → H^s(∂M) is invertible for |Im ι| ≥ R in t
 ι. Every coefficient of its Laurent expansion at any point of ℂ maps H^s(∂M) to H^(s+m)(∂M), so C^∞(∂M) to C^∞(∂M);
 the coefficients of the negative powers have finite rank.
 
-Both are proved from one result of the literature, the elliptic estimate on a manifold without boundary. In the
-following quotation the letters A, X, E, F, m, s, t, p, u and C are the source's. [Shu92, Appendix 1, Lemma 1.4,
+(E3) *Poles and indicial roots.* Let Π be a bounded projection on L²(∂M) that maps H^s(∂M) into itself for every
+integer s ≥ 0 and satisfies ΠN(A, ι)u = N(A, ι)Πu for all u ∈ H^m(∂M) and ι ∈ ℂ (Π = Id is allowed); so
+ΠH^s(∂M) = {u ∈ H^s(∂M) : Πu = u}. Then N(A, ·)⁻¹Π : L²(∂M) → H^m(∂M) has a pole at ι₁ ∈ ℂ if and only if
+N(A, ι₁)u = 0 for some 0 ≠ u ∈ ΠC^∞(∂M). If it has no pole at ι₁, N(A, ι₁) maps ΠH^(s+m)(∂M) bijectively onto
+ΠH^s(∂M) for every integer s ≥ 0, and ΠC^∞(∂M) bijectively onto itself. In particular (Π = Id), the poles of
+N(A, ·)⁻¹ are exactly the indicial roots; N(A, ι) : H^(s+m)(∂M) → H^s(∂M) and N(A, ι) : C^∞(∂M) → C^∞(∂M) are
+bijective if ι ∉ spec_b(A) and not injective if ι ∈ spec_b(A); and spec_b(A) has finitely many points in every strip
+{c₁ ≤ Re ι ≤ c₂}.
+
+The three facts rest on the following results of the literature. All three use the elliptic estimate on a compact
+manifold without boundary, quoted below, and the equivalence of the norms of this section with the usual Sobolev
+norms, [Hin26d, Definition 3.14 and Remark 3.15]. The proof of (E2), on which that of (E3) builds, also uses the
+compact inclusion H^(m+1)(∂M) ↪ H^m(∂M), [Hin26d, Theorem 3.21], and analytic Fredholm theory,
+[[thm:std-analytic-fredholm]]; (E2) and (E3) also use the Sobolev embedding theorem on the compact ∂M, by which
+C^∞(∂M) is the intersection of the H^s(∂M). In the following quotation the letters A, X, E, F, m, s, t, p, u and C are
+the source's. [Shu92, Appendix 1, Lemma 1.4,
 pp. 69–70] states: "Let A be a C^∞-bounded uniformly elliptic differential operator acting as in (1.2) between spaces
 of sections of vector bundles of bounded geometry. Then for every s, t ∈ ℝ, p ∈ (1, +∞) there exists C > 0 such that
 (1.5) ‖u‖_(s,p) ≤ C(‖Au‖_(s−m,p) + ‖u‖_(t,p)), u ∈ C_0^∞(X, E). Moreover if u ∈ W_p^(−∞)(X, E) and
@@ -1415,12 +1429,47 @@ coefficient (the Riemann sums are the same, and convergence in H^(s+m) implies c
 maps H^s to H^(s+m), with norm at most r₁^(−k)C′_Ω. As s is arbitrary, it maps C^∞(∂M), the intersection of the
 H^s(∂M), to itself. ∎
 
+*Proof of (E3).* Fix ι₁ ∈ ℂ and write, near ι₁, N(A, ι)⁻¹ = Σ_(k≥−p) R_k(ι − ι₁)^k with p ≥ 0 and R_k : L² → H^m, and
+N(A, ι) = Σ_(j≤m) 𝒩_j(ι − ι₁)^j with 𝒩_j : H^m → L² bounded and 𝒩_0 = N(A, ι₁). At every ι that is not a pole, Π
+commutes with N(A, ι)⁻¹: for g ∈ L² and u := N(A, ι)⁻¹g, Πu ∈ H^m and N(A, ι)Πu = ΠN(A, ι)u = Πg, so
+ΠN(A, ι)⁻¹g = N(A, ι)⁻¹Πg. Applying Π to the circle integrals that give the R_k (proof of (E2)) yields ΠR_k = R_kΠ
+for every k, as operators on L².
+
+*A pole gives a kernel.* Suppose that N(A, ·)⁻¹Π has a pole at ι₁, and let q ≥ 1 be the largest integer with
+R_(−q)Π ≠ 0. For ι ≠ ι₁ near ι₁, N(A, ι)N(A, ι)⁻¹Π = Π. The coefficient of (ι − ι₁)^(−q) on the left is 𝒩_0R_(−q)Π,
+as R_kΠ = 0 for k < −q, and on the right it is 0; so N(A, ι₁)R_(−q)Π = 0. Take g ∈ L² with u := R_(−q)Πg ≠ 0. Then
+u ∈ H^m, N(A, ι₁)u = 0, and u = R_(−q)ΠΠg = ΠR_(−q)Πg = Πu. Write ι₁ = c + iτ, n := ⌊τ⌋, κ := τ − n and
+v := e^(inx)u ∈ L²(Z), as in the proof of (E1). Then P_(c,κ)v = e^(inx)N(A, ι₁)u = 0, so (EE), which holds for
+P_(c,κ) (proof of (E1)), gives v ∈ H^(s+m)(Z) for every s, and the comparison of ‖v‖_(H^k(Z)) with [u]_(k,τ) in the
+proof of (E1) gives u ∈ H^(s+m)(∂M) for every s. So u ∈ C^∞(∂M), and u = Πu ∈ ΠC^∞(∂M) is a nonzero solution of
+N(A, ι₁)u = 0.
+
+*No pole gives invertibility.* Suppose that N(A, ·)⁻¹Π has no pole at ι₁: R_kΠ = 0 for k < 0, and N(A, ι)⁻¹Π → R_0Π
+in the norm of operators L² → H^m as ι → ι₁. For u ∈ ΠH^m and ι ≠ ι₁ near ι₁,
+N(A, ι)⁻¹ΠN(A, ι)u = N(A, ι)⁻¹N(A, ι)Πu = u, and letting ι → ι₁ (N(A, ·) : H^m → L² is continuous) gives
+R_0ΠN(A, ι₁)u = u. So N(A, ι₁) is injective on ΠH^m, and in particular N(A, ι₁)u = 0 has no solution
+0 ≠ u ∈ ΠC^∞(∂M); with the last paragraph this proves the equivalence. Letting ι → ι₁ in N(A, ι)N(A, ι)⁻¹Π = Π gives
+N(A, ι₁)R_0Π = Π on L². Let s ≥ 0 be an integer and g ∈ ΠH^s. Then u := R_0Πg = R_0g lies in H^(s+m) by (E2), R_0
+being a Laurent coefficient, and u = ΠR_0g = Πu; and N(A, ι₁)u = Πg = g. So N(A, ι₁) maps ΠH^(s+m) onto ΠH^s, and
+injectively, as ΠH^(s+m) ⊂ ΠH^m. As s is arbitrary and C^∞(∂M) is the intersection of the H^s(∂M), it maps ΠC^∞(∂M)
+bijectively onto itself.
+
+*The case Π = Id.* By the equivalence, ι₁ is a pole of N(A, ·)⁻¹ if and only if N(A, ι₁)u = 0 for some
+0 ≠ u ∈ C^∞(∂M), that is, if and only if ι₁ ∈ spec_b(A) ([[def:s11-b-analysis]] (2)). Off spec_b(A) the bijectivity
+was just shown; on spec_b(A), N(A, ι) has a nonzero kernel in C^∞(∂M). The poles lie in the set S of
+[[thm:std-analytic-fredholm]] used in the proof of (E2), which is discrete and is closed, being the set where
+Id + B(ι) is not invertible, whose complement is open (B is continuous in norm, and a Neumann series inverts small
+perturbations of an invertible operator); so only finitely many poles lie in any compact set. By (E1), for every strip
+{c₁ ≤ Re ι ≤ c₂} there is R such that N(A, ι) : H^m → L² is invertible, so ι is not a pole, for |Im ι| ≥ R in the
+strip. So the poles in the strip lie in the compact set {c₁ ≤ Re ι ≤ c₂, |Im ι| ≤ R}, and there are finitely many. ∎
+
 Define
 
     Spec_b(A) := {(ι, k) : N(A, ζ)⁻¹ has a pole of order ≥ k + 1 at ζ = ι}
 
 (this set contains all smaller k, as an index set must; the smallest index set containing it, as [[lem:iii-a-1-4]]
-uses, is the same whether "of order ≥ k + 1" or "of order k + 1" is used).
+uses, is the same whether "of order ≥ k + 1" or "of order k + 1" is used). By (E3), π₁Spec_b(A) = spec_b(A), and, the
+pole orders being finite, Spec_b(A) has finitely many elements (ι, k) with c₁ ≤ Re ι ≤ c₂, for all c₁ ≤ c₂.
 
 The Mellin transform is ℳg(ι) := ∫_0^∞ ρ^(−ι) g(ρ) dρ/ρ. In the variable s = −log ρ it is the Fourier–Laplace transform
 ∫ e^(ιs) g(e^(−s)) ds, so Plancherel's theorem gives (M1): for g supported in ρ < ρ₀, g ∈ ρ^γ L²(|dρ/ρ|; 𝓗) if and only

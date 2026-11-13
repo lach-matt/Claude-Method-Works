@@ -622,15 +622,18 @@ Y_H, has "Y|_(r=r_h) = −∂/∂R" (p. 38) and is extended "such that Y is caus
 "the strictly timelike red-shift multiplier", and "E^N_Ψ(Σ_τ) := ∫_(Σ_τ) J^N_a[Ψ]n^a_(Σ_τ) dVol_(Σ_τ), Ě^N_Ψ(Σ_τ) :=
 ∫_(Σ_τ) Ť_ab[Ψ]n^a_(Σ_τ)N^b dVol_(Σ_τ)" (115); by Lemma 11, E^N_Ψ(Σ_τ) ≈ Ě^N_Ψ(Σ_τ) (p. 39).
 
-(B) (Boundedness and decay.) For Ψ solving any of the master equations (134), (149), (153), (174),
-Ě^N_Ψ(Σ_τ) ≲ Ě^N_Ψ(Σ_0) (116) and, in spacetime dimension six and below, Ě^N_Ψ(Σ_τ) ≲ I_Ψ(Σ_0)/τ² (130). As (116) and
-(130) these are their Theorems 12 and 18, which assume their comparison (111) and Lemma 13; for the master quantities
-they are stated without further hypothesis in [HKW18, Theorem 2, (6)–(7), p. 4] ([[thm:std-hkw-decay]]) and Theorem 22,
-(183)–(184), pp. 68–69, and it is in this form that they are used below. Here
-"I_Ψ(Σ_0) := E²_(Ψ,L_KΨ)(Σ_0) + E^N_(Ψ,L_KΨ,L²_KΨ)(Σ_0)" (131), "with K := {T, Ω_i} ranging over the background Killing
-fields" (129) (their K a set of Killing fields), the constants depending only on n and M. In the proof of (130),
-with τ_k = 2^k, "there exist τ̃_k ∈ [τ_(k−1), τ_k] such that E¹_Ψ(Σ_(τ̃_k)) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_(k−1))) +
-Ě^N_Ψ(Σ_(τ_(k−1)))) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_0)) + Ě^N_Ψ(Σ_(τ_0)))" (p. 47).
+(B) (Boundedness and decay.) For Ψ solving any of the master equations (134), (149), (153), (174), Ě^N_Ψ(Σ_τ) ≲
+Ě^N_Ψ(Σ_0) (116) and, in spacetime dimension six and below, Ě^N_Ψ(Σ_τ) ≲ I_Ψ(Σ_0)/τ² (130). As (116) and (130) these are
+their Theorems 12 and 18, which assume their T-energy comparison (111), and Theorem 18 also their Morawetz estimate
+(Lemma 13) with k and R_1 chosen as in their Proposition 15; for the master quantities they are stated without further
+hypothesis in [HKW18, Theorem 2, (6)–(7), p. 4] ([[thm:std-hkw-decay]]) and Theorem 22, (183)–(184), pp. 68–69, and it
+is in this form that they are used below. Lemma 11 assumes (111), and Theorem 16 below assumes (111) and Lemma 13 with
+that choice of k and R_1; for the master equations (134), (149) and (174) these hypotheses are established in [HKW18,
+Sections 8.3, 9.3 and 10.4, pp. 49–67], with R_1 and k chosen for all three at once (p. 46), and Lemma 11 and (128) are
+used below for master quantities only. Here "I_Ψ(Σ_0) := E²_(Ψ,L_KΨ)(Σ_0) + E^N_(Ψ,L_KΨ,L²_KΨ)(Σ_0)" (131), "with K :=
+{T, Ω_i} ranging over the background Killing fields" (129) (their K a set of Killing fields), the constants depending
+only on n and M. In the proof of (130), with τ_k = 2^k, "there exist τ̃_k ∈ [τ_(k−1), τ_k] such that E¹_Ψ(Σ_(τ̃_k)) ≤
+(C/τ_k)(E²_Ψ(Σ_(τ_(k−1))) + Ě^N_Ψ(Σ_(τ_(k−1)))) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_0)) + Ě^N_Ψ(Σ_(τ_0)))" (p. 47).
 
 (P) (The r^p hierarchy.) "Φ := r^(n/2)Ψ" (124), and "E^p_Ψ(Σ_τ) := ∫_(Σ_τ∩{r≥R_1}) (r^(p−n)/(1 − μ)^k)
 (|∇_LΦ|²/(1 − μ)) r^n dv dVol_(S^n)" (127), with an exponent k ≥ 0 fixed in their Proposition 15, which we write k_H.

@@ -923,3 +923,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   packet not reaching R = a is now a hypothesis (the source used a computed example) — check chapters 3, 60, 82. Ch 82's
   two pending keys class-augmented-system, class-adapted-domain to map to chapter 81's labels at integration.
   Independent reader running.
+- Ch 64 CONFIRMED (R2-64): all six minors and thirteen nits of R-64 fixed correctly; the one new minor ([HKW18]
+  Lemma 11 and Theorem 16 quoted without their hypotheses) applied by the coordinator in the reviewer's exact words.
+  Nits for integration: ϱ and ρ near each other; σ names two numbers in one sentence of the remark; lem:rwg-cone writes
+  both L_i and L_(Ω_i); the ψ / F(r) / g(𝒰) clashes deferred by F-64. Chapter 65: K at 65:33 and about twenty later
+  lines, ω at 65:343 for 𝔷 — sent to the chapter 65 fix round.
+- S14 second fix (F2-S14): both minors and the nits applied; O1, O2, O4 and 2635 ("has real part at distance");
+  four lint hits are labels in proof A not yet merged (prop:s14-scalar-every-h, lem:s14-delta50,
+  cor:s14-eps-ind-point); crosswalk notes for np-10-54, np-10-14, np-10-52 say "pending" (update at integration).
+  Third reading running.

@@ -366,11 +366,10 @@ a_0 = r⁻²(1 − r²/t²)^(−1/2) tends to r⁻² with its r-derivatives whil
 as ∂_t = ∂_w and ∂_r|_t = ∂_r|_w − ∂_w; so Pa_0 = 0 on {w > 0}. Near w = 0, a_0 = w^(−1/2)g(w, r), with
 g(w, r) := (w + r)r⁻²(w + 2r)^(−1/2) smooth on [0, ∞) × (0, ∞) and g(0, r) = 2^(−1/2)r^(−3/2); as
 (2∂_r + 3/r)r^(−3/2) = 0, 𝔟 := (2∂_r + 3/r)a_0 = w^(−1/2)(2∂_r + 3/r)g is O(w^(1/2)) as w → 0+, locally uniformly in
-r. Now a(T, r) = ∫_0^∞ χ_on′(T − w)a_0(w, r) dw, as χ_on(T) = ∫_0^∞ χ_on′(T − w)
-dw. The r-derivatives of a_0 are w^(−1/2)
-times functions smooth up to w = 0, so they are locally integrable, uniformly for r in compact subsets of (0, ∞); hence
-a is smooth on {r > 0}, and we may differentiate under the integral, the T-derivatives falling on χ_on′. As
-χ_on″(T − w) = −∂_w(χ_on′(T − w)), an integration by parts on [ε, ∞) gives
+r. Now a(T, r) = ∫_0^∞ χ_on′(T − w)a_0(w, r) dw, as χ_on(T) = ∫_0^∞ χ_on′(T − w) dw. The r-derivatives of a_0 are
+w^(−1/2) times functions smooth up to w = 0, so they are locally integrable, uniformly for r in compact subsets of
+(0, ∞); hence a is smooth on {r > 0}, and we may differentiate under the integral, the T-derivatives falling on χ_on′.
+As χ_on″(T − w) = −∂_w(χ_on′(T − w)), an integration by parts on [ε, ∞) gives
 
     Pa(T, r) = lim_(ε→0) (χ_on′(T − ε)𝔟(ε, r) + ∫_ε^∞ χ_on′(T − w)(Pa_0)(w, r) dw) = 0,                    {#eq:hr-flat}
 
@@ -876,8 +875,8 @@ every θ ∈ [0, π]; (iii) N_tf(1)^(*h) is injective on 𝒳^*_(tf,0) ∩ ran �
 *Proof.* (i) is [[lem:gd-r8-3]] (c). The transition-face data of P̂ are those of the model: in the Cartesian frame
 S_0 = 0, N(P⁽⁰⁾) = (−(ρ∂_ρ)² + 2ρ∂_ρ + Δ_(𝕊³))Id and H_0 = Id (the proof of [[lem:iii-d-7-1]] at γ_Υ = 0). So
 N_tf(σ̂) = e^(−iσ̂r̂)(Δ_e − σ̂²)e^(iσ̂r̂) on each component (the proof of [[prop:i-c-5-3]]), and on the part of degree
-ℓ in ω each component solves the equation of [[lem:i-c-5-4]] (a). Π commutes with N_tf and with the projections Π_ℓ of the
-proof of [[prop:i-c-5-3]], and on ran Π every component has degrees ℓ ≥ 1 only ([[lem:gd-r8-2]] (d)).
+ℓ in ω each component solves the equation of [[lem:i-c-5-4]] (a). Π commutes with N_tf and with the projections Π_ℓ of
+the proof of [[prop:i-c-5-3]], and on ran Π every component has degrees ℓ ≥ 1 only ([[lem:gd-r8-2]] (d)).
 
 (ii) The argument of (ii) in the proof of [[prop:i-c-5-3]], with [[thm:i-c-4-3]] (5) applied at the gap of the full
 bundle that contains β, (−1, 0) or (0, 2) (its part at sctf uses no gap): a kernel element lies in
@@ -1037,8 +1036,8 @@ weight below.
 *Step 2* is that of [[thm:gd-r6-4]]: [[lem:iii-i2-4-1]] at (w_I, γ_+ + 2, α_K), whose conditions are w_I − 1 ≥ 3/2 and
 w_I ≥ γ_+ + 1 + ε_1 (as α_K > 1 − ε_1), gives u_hi ∈ H^(∞,(3/2−ε,N,N))_b; and [[prop:ii-g1-3-3]] (1) with ε_PP gives
 f̂|_(±(0,c]) ∈ H^(∞,(min(w_I,γ_++2)−ε,γ_++1,((0,0),α_K−1)))_b, with f̂(0) = ∫f dt_* ∈ H^(∞,γ_++1)_b(X) ∩ ran Π. The
-density step takes b_+ := ½(½ + γ_+) ∈ (½, γ_+) and b_I := ½(b_+ + 3/2) in [[cor:ii-f1-1-2]]: ½ < b_+ < b_I < 3/2, b_+ ≤ γ_+,
-b_I + 1 < 5/2 ≤ w_I and α_K ≥ ½, and b_+ − ½ ∈ (0, 1).
+density step takes b_+ := ½(½ + γ_+) ∈ (½, γ_+) and b_I := ½(b_+ + 3/2) in [[cor:ii-f1-1-2]]: ½ < b_+ < b_I < 3/2, b_+ ≤
+γ_+, b_I + 1 < 5/2 ≤ w_I and α_K ≥ ½, and b_+ − ½ ∈ (0, 1).
 
 *Step 3.1 (zero energy, without the column).* At α := γ_+ − 3, α + 2 = γ_+ − 1 ∈ (−1, 0), and 𝒴_0 has the μ_b-weight
 γ_+ + 1, so f̂(0) ∈ 𝒴_0 ∩ ran Π and û_0 := P_Π(0)⁻¹f̂(0) ∈ H^(∞,γ_+−1)_b(X) ([[prop:gd-r8-5]] at every regularity). With

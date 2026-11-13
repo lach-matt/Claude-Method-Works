@@ -1,10 +1,10 @@
 ## The linear solution in harmonic gauge, I: structure, the horizon charge and decay modulo W* {#ch:harmonic-structure}
 
 [[ch:rw-gauge]] determined the gauge vector that carries the linear solution of [[cor:viii-2-3]] to a
-Regge–Wheeler-type gauge. This chapter and the next do the same for the harmonic gauge Θ(ġ) = 0, in which the
-linearised vacuum equation is the Lichnerowicz wave equation; in four dimensions the passage is Hung's [Hun19]. In
-the class the harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is a forcing
-term with no spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The
+Regge–Wheeler-type gauge. This chapter and the next do the same for the harmonic gauge Υ̇⁰(ġ) = 0 of [[sec:ix-0]], in
+which the linearised vacuum equation is the Lichnerowicz wave equation; in four dimensions the passage is Hung's
+[Hun19]. In the class the harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is
+a forcing term with no spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The
 structure of the passage is explicit ([[prop:np-10-2]]): the tensor part is in harmonic gauge already, each scalar
 mode of the gauge vector solves three coupled 1 + 1 wave equations with the master field as source, and the
 spherically symmetric sector has two solutions that do not decay, the stationary 1-form W* and a gauge-fixed mass
@@ -30,11 +30,11 @@ this, and the representative's rate, are in [[ch:harmonic-rate]].
 
 Everything of [[sec:rw-setting]] is kept: g = g_(b₀), the Schwarzschild–Tangherlini metric of mass m₀, in the ingoing
 chart g = −f dv² + 2 dv dr + r²γ on {r ≥ r_♭} ([[eq:rw-ingoing]]), f = 1 − m₀/r², r_h = m₀^(1/2); the class, G =
-O(2) × O(2); K := r⁻²dv² and K_V = K + ℒ_Vg, with ℒ_Vg = 0 on {r ≤ 2R₁} ([[eq:gd-0-1]]); the linear solution ġ of
-[[cor:viii-2-3]], its mass change ṁ, h := ġ − ṁK_V and w := α − 2 > 2 + ε_t; the seminorms |·|_k, the bound
-[[eq:gd-0-2]], and the l = 0 part of a class tensor ([[sec:rw-spheres]]); the operators D, □ on the orbit space
-and D̂, Δ̂ on (S³, γ), with dω the measure of γ and |S³| = 2π²; and the representative ġ_RW = ġ + ℒ_(X_RW)g of
-[[thm:rw-settling]]. We put
+O(2) × O(2); K̄ := r⁻²dv² and K_V = K̄ + ℒ_Vg, with ℒ_Vg = 0 on {r ≤ 2R₁} ([[eq:gd-0-1]]); the linear solution ġ
+of [[cor:viii-2-3]], its mass change ṁ, h := ġ − ṁK_V and w := α − 2 > 2 + ε_t, α that of [[thm:viii-2-2]] (4); the
+seminorms |·|_k, the bound [[eq:gd-0-2]], and the l = 0 part of a class tensor ([[sec:rw-spheres]]); the covariant
+derivative D of the orbit metric, and D̂, Δ̂ on (S³, γ), with dω the measure of γ and |S³| = 2π²; and the
+representative ġ_RW = ġ + ℒ_(X_RW)g of [[thm:rw-settling]]. We put
 
     e := ġ_RW − ṁK_V,
 
@@ -43,15 +43,17 @@ with Ω^♯ := D_(U^♯)(Σ°) and Ω^♯ ∩ {t_IVP ≥ 0} = N⁺ ([[lem:ix-1-2
 b₀ for every operator with principal symbol G Id ([[thm:vi-a-6-1]]), so the results of [[ch:s13]] stated under it
 apply to □ below. The curvature is written with [∇_α, ∇_β]ω_λ = −R^σ_(λαβ)ω_σ and Ric_(λβ) = R^σ_(λσβ).
 
-*Operators.* As in [[sec:ix-0]]: (δk)_μ = −∇^αk_αμ, Gk = k − ½g tr_g k, δ* the symmetrised covariant derivative and
-Θ(k) := δGk. We identify vector fields and 1-forms by g and write ℒ_Xg for ℒ_(X^♯)g, so that ℒ_Xg = 2δ*X. Put
+*Operators.* As in [[sec:ix-0]]: (δk)_μ = −∇^αk_αμ, Gk = k − ½g tr_g k, δ* the symmetrised covariant derivative, and
+Υ̇⁰ the derivative at (g, g) in the first argument of Υ⁰, for which Υ̇⁰(k) = −δGk ([[lem:iii-b-6-3]]); −Υ̇⁰(k) is the
+linearised harmonic gauge 1-form. We identify vector fields and 1-forms by g and write ℒ_Xg for ℒ_(X^♯)g, so that
+ℒ_Xg = 2δ*X. Put
 
-    □ := 2δGδ*   on 1-forms,        so that   Θ(ℒ_Xg) = □X.                                              {#eq:hg-box}
+    □ := 2δGδ*   on 1-forms,        so that   Υ̇⁰(ℒ_Xg) = −□X.                                           {#eq:hg-box}
 
 At the Ricci-flat g, □ = −∇^α∇_α ([[lem:ix-2-1]] (a)) = dδ + δd ([[sec:iii-d-1]]), and on functions we write
-□_0 := δd = −∇^α∇_α. A symmetric 2-tensor k is in *harmonic gauge* if Θ(k) = 0. For 1-forms a, b put
+□_0 := δd = −∇^α∇_α. A symmetric 2-tensor k is in *harmonic gauge* if Υ̇⁰(k) = 0. For 1-forms a, b put
 a ⊗_s b := ½(a ⊗ b + b ⊗ a); then ℒ_(cX)g = cℒ_Xg + 2 dc ⊗_s X for a function c. The *l = 0 part* X_0 of a 1-form X
-is its average over SO(4); d, δ, □ and Θ commute with this average, the rotations being isometries of g.
+is its average over SO(4); d, δ, □ and Υ̇⁰ commute with this average, the rotations being isometries of g.
 
 *The 1-form W* and the horizon functional.* Let
 
@@ -111,13 +113,13 @@ has (φ, q) = (0, 0). Its components are m₀r⁻² + f = 1 and −m₀/(r(r + r
 
 (i) (*The Lichnerowicz equation.*) For every symmetric 2-tensor h,
 
-    DRic(h) = −½(∇^α∇_αh_μν + 2R_μ^λ_ν^σ h_λσ) − (δ*Θ(h))_μν.
+    DRic(h) = −½(∇^α∇_αh_μν + 2R_μ^λ_ν^σ h_λσ) + (δ*Υ̇⁰(h))_μν.
 
-So under Θ(h) = 0 the linearised vacuum equation DRic(h) = 0 is the Lichnerowicz equation
-∇^α∇_αh_μν + 2R_μ^λ_ν^σ h_λσ = 0; and h + ℒ_Xg is in harmonic gauge exactly when □X = −Θ(h).
+So under Υ̇⁰(h) = 0 the linearised vacuum equation DRic(h) = 0 is the Lichnerowicz equation
+∇^α∇_αh_μν + 2R_μ^λ_ν^σ h_λσ = 0; and h + ℒ_Xg is in harmonic gauge exactly when □X = Υ̇⁰(h).
 
 (ii) (*The tensor part.*) For a class tensor h, the tensor h^TT whose only components are the angular block h^TT of
-[[sec:rw-spheres]] (γ-trace-free and divergence-free on each sphere, [[lem:gd-1-2]] (c)) satisfies Θ(h^TT) = 0: the
+[[sec:rw-spheres]] (γ-trace-free and divergence-free on each sphere, [[lem:gd-1-2]] (c)) satisfies Υ̇⁰(h^TT) = 0: the
 tensor part is in harmonic gauge as it stands.
 
 (iii) (*The scalar modes.*) Every class 1-form X is, on each sphere, a sum over even l of X_a^(l)S_l dy^a + η_l dS_l,
@@ -125,7 +127,7 @@ S_l := P_(l/2)(cos 2ϑ), with X_a^(l) and η_l functions on the orbit space. For
 X_aS_l dy^a + η dS_l to class 1-forms of the same kind, and □X = J is, for (X_v, X_r, η), a system of three equations
 on the orbit space with coefficients depending on r, m₀ and l only, each with principal part −g^(ab)∂_a∂_b (in the
 static chart f⁻¹∂_t² − f∂_r²), coupled at first order. For the scalar mode h_S = F_abS_l dy^ady^b + 2r²FS_lγ of
-[[prop:np-10-1]] (ii), the forcing term −Θ(h_S) is of the same kind and linear in F, F_ab and their first derivatives; by
+[[prop:np-10-1]] (ii), the forcing term Υ̇⁰(h_S) is of the same kind and linear in F, F_ab and their first derivatives; by
 [[eq:np-10-1]] it is linear in the master field Φ of the mode and its derivatives of order at most three.
 
 (iv) (*The spherically symmetric sector.*) By [[lem:gd-r2-9]], W* spans the stationary spherically symmetric solutions
@@ -133,26 +135,27 @@ of □W = 0 on {r > r_h} that extend smoothly across the future horizon and deca
 
     W** := (v/2)W* + A dv + B dr,        W**_H := W** − V^♭,
     A := (r_h² + 2r² log((r + r_h)/r))/(4r_hr²),
-    B := N(r)/(4rr_h(r² − r_h²)),
-    N(r) := r²r_h − 3rr_h² + 2r_h³ + 2r³ log r + 2(r_h³ − r³) log(r + r_h) − 2r_h³ log r_h,                {#eq:np-10-2}
+    B := 𝔑(r)/(4rr_h(r² − r_h²)),
+    𝔑(r) := r²r_h − 3rr_h² + 2r_h³ + 2r³ log r + 2(r_h³ − r³) log(r + r_h) − 2r_h³ log r_h,                {#eq:np-10-2}
 
 with V of [[eq:gd-0-1]]. Then:
 
 (a) A and B are real-analytic on {r > 0}, the numerator of B vanishing at r = r_h; rA → ½ and rB → −¼ as r → ∞.
 
-(b) δW** = 0 and r³(dW**)_(vr) = v + r_h/2. Hence □W** = r⁻³dv = −Θ(K) and □W**_H = −Θ(K_V).
+(b) δW** = 0 and r³(dW**)_(vr) = v + r_h/2. Hence □W** = r⁻³dv = Υ̇⁰(K̄) and □W**_H = Υ̇⁰(K_V).
 
-(c) K* := K_V + ℒ_(W**_H)g = K + ℒ_(W**)g is smooth across the horizon, Θ(K*) = 0, δm[K*] = 1 (the linearised mass
-of [[lem:gd-1-4]] (a)), and
+(c) K* := K_V + ℒ_(W**_H)g = K̄ + ℒ_(W**)g is smooth across the horizon, Υ̇⁰(K*) = 0, δm[K*] = 1 (the linearised
+mass of [[lem:gd-1-4]] (a)), and
 
-    K* − (v/2)ℒ_(W*)g = K + dv ⊗_s W* + ℒ_(A dv + B dr)g                                                {#eq:np-10-2-k}
+    K* − (v/2)ℒ_(W*)g = K̄ + dv ⊗_s W* + ℒ_(A dv + B dr)g                                                {#eq:np-10-2-k}
 
 is stationary and smooth across the horizon, with ℒ_(W*)g ≠ 0. So the gauge-fixed mass change K* grows linearly in v.
 
 (d) (*The coefficient ½.*) If c is a constant, U a stationary 1-form smooth near the horizon sphere, and
-□(cvW* + U) = −Θ(K) near the horizon sphere, then c = ½.
+□(cvW* + U) = Υ̇⁰(K̄) near the horizon sphere, then c = ½.
 
-*Proof.* (i) [[lem:ix-2-1]] (a) gives 2(DRic + δ*Θ)(k) = −∇^α∇_αk + ([∇^λ, ∇_μ]k_λν + [∇^λ, ∇_ν]k_λμ)_(μν).
+*Proof.* (i) By [[eq:ix-0-1]] and [[lem:ix-2-1]] (a), 2(DRic − δ*Υ̇⁰)(k) = 2L⁰k = −∇^α∇_αk + ([∇^λ, ∇_μ]k_λν +
+[∇^λ, ∇_ν]k_λμ)_(μν).
 With the convention of [[sec:hg-setting]], [∇^λ, ∇_μ]k_λν = g^(λα)[∇_α, ∇_μ]k_λν = Ric^σ_μ k_σν − R_(σνλμ)k^(λσ),
 and the Ricci term vanishes. The pair symmetry R_(σμλν) = R_(λνσμ) and the symmetry of k give
 R_(σμλν)k^(λσ) = R_(σνλμ)k^(λσ), so the bracket is −2R_(σνλμ)k^(λσ) = −2R_μ^λ_ν^σ k_λσ. The last claim is

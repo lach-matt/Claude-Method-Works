@@ -148,9 +148,10 @@ may exceed it. Each elementary loss is a non-negative integer, so d_acc is at le
 family of steps that are composed one after another in the construction.
 
 One threshold enters the lower bounds below: the incoming threshold ϑ_in of [[eq:i-a-1-5]] of the transition face
-model N_tf((2L_b)^(·), ±1) of [[cor:iii-f1-3-4]], which bounds from below the decay orders that its proof takes at
-the incoming radial sets. Its sign is fixed by the structure of L_b at infinity. For an operator with (H1)–(H2) of
-[[sec:i-a-1-3]], a = A_1(0) denotes the coefficient of ρ∂_ρ at ρ = 0 in [[eq:i-c-1-2]].
+model N_tf(L_b^(·), ±1) of [[cor:iii-f1-3-4]], taken, as its proof takes it, for 2L_b, which has the form (H1)–(H2) of
+[[sec:i-a-1-3]] ([[lem:iii-f-2-1]]). It bounds from below the decay orders that the proof takes at the incoming
+radial sets, and its sign is fixed by the structure of L_b at infinity. For an operator with (H1)–(H2), a = A_1(0)
+denotes the coefficient of ρ∂_ρ at ρ = 0 in [[eq:i-c-1-2]].
 
 **Lemma {#lem:ec-theta-in}** (The incoming threshold of the transition face model.) (a) Let P̂ satisfy (H1)–(H2) and
 put A := 2 Id − a. For every fibre inner product h, at every point of ∂X,
@@ -408,7 +409,7 @@ used h beyond ε_ind(h) ≤ δ_50. ∎
 the iterations of [[sec:ec-floor]], each round being charged at least the loss of [[lem:ec-round-loss]]; the
 elementary losses are closed forms in the weights, the thresholds ϑ_in, ϑ_ℋ, the regularity orders s_c and the counts
 n(E, β) of the index sets ([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution
-operators, which their proof fixes without a value ([[rem:ec-other-losses]]);
+operators, which the proof of [[thm:iii-i-5-3]] fixes without a value ([[rem:ec-other-losses]]);
 
 (ii) at the computational point, for every admissible choice of the weights there,
 
