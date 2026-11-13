@@ -2960,8 +2960,8 @@ Programs behind section 9, in `docket68/n1star/`:
   behind supplement Proposition 10.1 (iv) (its Lemmas 10.1a–10.1b), the amendments it carried to the supplement's
   sections 8, 9 and 10.3, and (R13) the paper's replacement blocks against the seated text. Controls: one for each check,
   each a mutation that must fail, e.g. (51) without its first-order term (R1), an extremal horizon (R2), the first-order
-  part dropped (R3), the orientation reversed (R4, R5), Z3 without λ ≤ d0/20 (R14), a mutated new text (R13). Computed
-  (exact, sympy, unless marked numerical); READ where quoted. About four minutes under load.
+  part dropped (R3), the orientation reversed (R4), the density 1 + s′f/2 (R5), Z3 without λ ≤ d0/20 (R14), a mutated
+  new text (R13). Computed (exact, sympy, unless marked numerical); READ where quoted. About four minutes under load.
 - `checks/rwgauge5u.py` U1–U11: the metric components of a scalar-type perturbation in the Regge–Wheeler-type gauge of
   [KI03], uniformly in r on the leaves of [HKW18]'s decay foliation (supplement RWGAUGE5): the growth r^(1/2) attained
   and the weighted decay. Controls: one for each check, each a mutation that must fail, e.g. the chart change dv = du +
@@ -4267,7 +4267,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/edgeP5.py` | `0b4787f2c27c3a7c6a08a51c842b3439` |
 | `docket68/n1star/checks/edgeP5.out` | `62c824d860afcdb1379669672938ffd5` |
 | `docket68/n1star/checks/stagefree5.py` | `05f3737e27f1448838ed3e106d613448` |
-| `docket68/n1star/checks/stagefree5.out` | `52ab4030da6b699739275880215eae67` |
+| `docket68/n1star/checks/stagefree5.out` | `828b37797a8bb5674d383f5bd8375380` |
 | `docket68/n1star/checks/bandL4p5.py` | `70650afded413e425907488241405c23` |
 | `docket68/n1star/checks/bandL4p5.out` | `8ef875a7eb48f4056198f4d681b98f4b` |
 | `docket68/n1star/checks/lamL5b.py` | `8633d245a37cbbb57757eb3b64825c81` |
