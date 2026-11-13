@@ -792,68 +792,79 @@ There are d and ε_0 such that for U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < 
 scales ([[cor:iii-j3-6-6]]). If the tail h̃ of U and f vanish on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4], then so does the tail
 h̃′ of ℛ(U)f.
 
-*Proof.* *The base point.* Ψ(U) = (h + χ_−h_(−S), p⃗, q) with (h, p⃗, q) = Φ(U). Its black hole parameter b lies in
-ℬ_*, as |b − b₀| ≤ ‖U‖_(𝒟^d). Its metric component h + χ_−h_(−S) lies in the background class 𝒳^∞ of
+*Proof.* Write S⁰ := S^(0)_1 for the translation component of U, and S′, S⁰′ for the boost and translation components
+of U′. *The base point.* Ψ(U) = (h + χ_−h_(−S,−S⁰), p⃗, q) with (h, p⃗, q) = Φ(U). Its black hole parameter b lies in
+ℬ_*, as |b − b₀| ≤ ‖U‖_(𝒟^d). Its metric component h + χ_−h_(−S,−S⁰) lies in the background class 𝒳^∞ of
 [[eq:iii-i-1-4]], which has no support condition, and is small there ([[prop:iii-k-1-2]] (3)). [[thm:iii-i14-3-1]] (at
 a rotating b, through [[prop:iii-i15-2-5]]) and [[thm:iii-j2-4-1]] take the base point only through such a class and its
 smallness. The proof of [[thm:iii-j1-2-1]] takes it only through these and through D_UΦ at U, which depends on U only
-through U_0 = (b − b₀, S, S^(0)_1), as Φ is affine in U_1 ([[thm:iii-j-2-4]]).
+through U_0 = (b − b₀, S, S⁰), as Φ is affine in U_1 ([[thm:iii-j-2-4]]).
 
-*The boost direction.* D_UΨ(U′) = D_UΦ(U′) + (χ_− ∂_S h_(−S)(S′), 0, 0), so
+*The boost and translation directions.* With H(S, S⁰) := h_(−S,−S⁰),
+D_UΨ(U′) = D_UΦ(U′) + (χ_−(∂_S H(S′) + ∂_(S⁰) H(S⁰′)), 0, 0), so
 
-    D_U(P_5 ∘ Ψ)(U′) = D_(Ψ(U))P_5(D_UΦ(U′)) + D_hP_5(Ψ(U))(χ_− ∂_S h_(−S)(S′)).
+    D_U(P_5 ∘ Ψ)(U′) = D_(Ψ(U))P_5(D_UΦ(U′)) + D_hP_5(Ψ(U))(χ_−(∂_S H(S′) + ∂_(S⁰) H(S⁰′))).
 
 In the construction of the proof of [[thm:iii-j1-2-1]], D_(Ψ(U))P_5(D_UΦ(U′)) enters [[eq:iii-i14-3-1]] through
-D_(p⃗)P_5(p⃗′). The boost component S′ enters there through its row and its defect f^S_(h,p⃗)(S′) (Step 2 of the proof of
-[[thm:iii-i14-3-1]]). Replace that defect by
+D_(p⃗)P_5(p⃗′). The boost component S′ enters there through its defect f^S_(h,p⃗)(S′), and the translation component
+S⁰′ through its defect f^s1_(h,p⃗)(S⁰′) ([[lem:iii-i7-3-1]]; Step 2 of the proof of [[thm:iii-i14-3-1]]). Replace
+these defects by
 
-    f^S_Ψ(S′) := f^S_(h,p⃗)(S′) + e_S(S′),
-    e_S(S′) := (D_(p⃗)P_5|_(Ψ(U)) − D_(p⃗)P_5|_(Φ(U)))(S′) + D_hP_5(Ψ(U))(χ_− ∂_S h_(−S)(S′)).
+    f^S_Ψ(S′) := f^S_(h,p⃗)(S′) + e_S(S′),     f^s1_Ψ(S⁰′) := f^s1_(h,p⃗)(S⁰′) + e_(S⁰)(S⁰′),
+    e_S(S′) := (D_(p⃗)P_5|_(Ψ(U)) − D_(p⃗)P_5|_(Φ(U)))(S′, 0, 0) + D_hP_5(Ψ(U))(χ_− ∂_S H(S′)),
+    e_(S⁰)(S⁰′) := (D_(p⃗)P_5|_(Ψ(U)) − D_(p⃗)P_5|_(Φ(U)))(0, 0, S⁰′) + D_hP_5(Ψ(U))(χ_− ∂_(S⁰) H(S⁰′)),
 
-e_S(S′) is supported in Ω_* ∩ {t^♭_* ≤ T̂ + 2}: the two base points differ by χ_−h_(−S), and D_(p⃗)P_5 is local. On
-{t^♭_* < T̂ + 7/4}, e_S(S′) = f^S_Ψ(S′) − f^S_(h,p⃗)(S′), and both terms are O(h̃): where h̃ vanishes, P_5 vanishes
-identically in S along both families ([[lem:iii-k-2-2]] (b) for Ψ, and P(φ_(−S)^*g_(b₀), φ_(−S)^*g_(b₀)) = 0 for Φ),
-the boost row is supported in supp χ_K, and so both defects vanish there; in general each is an integral of h̃ as in
-[[lem:iii-k-2-2]] (c). So for U whose tail vanishes on {t^♭_* < T̂}, e_S(S′) vanishes there, and it lies in ℱ^∞_ex, at
-ℐ⁺ by [[cor:iii-c-5-3]] as in [[lem:iii-k-2-2]] (c). Its bound is tame, e_S involving h̃ through D_hP_5 at Ψ(U):
+the parameter directions written (S, b, S^(0)_1). e_S and e_(S⁰) are supported in Ω_* ∩ {t^♭_* ≤ T̂ + 2}: the two base
+points differ by χ_−h_(−S,−S⁰), and D_(p⃗)P_5 is local. On {t^♭_* < T̂ + 7/4}, e_S(S′) = f^S_Ψ(S′) − f^S_(h,p⃗)(S′)
+and e_(S⁰)(S⁰′) = f^s1_Ψ(S⁰′) − f^s1_(h,p⃗)(S⁰′), and the four terms are O(h̃): f^S_Ψ and f^s1_Ψ are the derivatives
+of U ↦ P_5(Ψ(U)) in the boost and translation directions, and f^S_(h,p⃗), f^s1_(h,p⃗) those of P_5 at Φ(U); where h̃
+vanishes, P_5 vanishes identically in (S, S⁰) along both families ([[lem:iii-k-2-2]] (b) for Ψ; for Φ,
+P(ĝ_(S,S⁰), ĝ_(S,S⁰)) = Ric(ĝ_(S,S⁰)) = 0, the other parameter terms being supported in supp χ_K), so the four
+derivatives vanish there; in general each is an integral of h̃ as in [[lem:iii-k-2-2]] (c). So for U whose tail
+vanishes on {t^♭_* < T̂}, e_S and e_(S⁰) vanish there, and they lie in ℱ^∞_ex, at ℐ⁺ by [[cor:iii-c-5-3]] as in
+[[lem:iii-k-2-2]] (c). Their bounds are tame, e_S and e_(S⁰) involving h̃ through D_hP_5 at Ψ(U):
 
-    ‖e_S(S′)‖_(ℱ^k_ex) ≤ C_k (‖(γ̃, k̃)‖_(H^(k+k′_k)) + ‖(γ̃, k̃)‖_(H^(k″)) ‖U‖_(𝒟^(k+d)_ex)) |S′|,
+    ‖e_S(S′)‖_(ℱ^k_ex) + ‖e_(S⁰)(S⁰′)‖_(ℱ^k_ex)
+        ≤ C_k (‖(γ̃, k̃)‖_(H^(k+k′_k)) + ‖(γ̃, k̃)‖_(H^(k″)) ‖U‖_(𝒟^(k+d)_ex)) (|S′| + |S⁰′|),
 
 by [[prop:iii-k-1-2]] (3) and the tame bounds of [[sec:iii-j2-1]].
 
-So [[thm:iii-i14-3-1]] at the base point Ψ(U), with the boost defect f^S_Ψ, is [[thm:iii-i14-3-1]] with one more term
-e_S(S′) in the forcing G′ of Step 2 of its proof. This term is small with the data and linear in the finite-dimensional
-S′; it enters the maps A_k of Step 3 as Δ_q does ([[lem:iii-i14-2-4]]), and it perturbs Step 1 (the base level, where
-the parameters of low rate are determined) by a term of the same kind, small with the data. So the elimination runs
-unchanged for data small, and the construction of U′ in the proof of [[thm:iii-j1-2-1]], [[thm:iii-j2-4-2]] and
-[[cor:iii-j3-6-6]] follow as for Φ. At a rotating b, [[cor:iii-i15-3-2]] provides them.
+So [[thm:iii-i14-3-1]] at the base point Ψ(U), with the defects f^S_Ψ and f^s1_Ψ, is [[thm:iii-i14-3-1]] with two
+more terms e_S(S′) + e_(S⁰)(S⁰′) in the forcing G′ of Step 2 of its proof. They are small with the data and linear in
+the finite-dimensional (S′, S⁰′); they enter the maps A_k of Step 3 as Δ_q does ([[lem:iii-i14-2-4]]), and they perturb
+Step 1 (the base level, where the parameters of low rate, among them S′ and S⁰′, are determined) by terms of the same
+kind, small with the data. So the elimination runs unchanged for data small, and the construction of U′ in the proof of
+[[thm:iii-j1-2-1]], [[thm:iii-j2-4-2]] and [[cor:iii-j3-6-6]] follow as for Φ. At a rotating b,
+[[cor:iii-i15-3-2]] provides them.
 
 *Supports.* Let h̃ and f vanish on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4]. There χ_ι, χ_K and the corrections vanish, as in
-[[lem:iii-k-2-2]], and χ_− = 1; so P_5 ∘ Ψ = Q(S, h̃) := P(G_S + h̃, φ_(−S)^*g_(b₀)) there. As Q(S, 0) = 0 for every S
-([[prop:iii-k-1-2]] (2) with −S), ∂_SQ(S, 0) = 0, and on {t^♭_* < c}
+[[lem:iii-k-2-2]], and χ_− = 1; so P_5 ∘ Ψ = Q(S, S⁰, h̃) := P(G_(S,S⁰) + h̃, ĝ_(S,S⁰)) there, Q being a differential
+operator in h̃. As Q(S, S⁰, 0) = 0 for all small (S, S⁰) ([[prop:iii-k-1-2]] (2) with (−S, −S⁰)),
+∂_(S,S⁰)Q(S, S⁰, 0) = 0; and as h̃ vanishes on the open set {t^♭_* < c}, there
 
-    D_U(P_5 ∘ Ψ)(U′) = ∂_SQ(S, 0)(S′) + D_(h̃)Q(S, 0)h̃′ = L_(G_S, φ_(−S)^*g_(b₀)) h̃′;
+    D_U(P_5 ∘ Ψ)(U′) = ∂_(S,S⁰)Q(S, S⁰, 0)(S′, S⁰′) + D_(h̃)Q(S, S⁰, 0)h̃′ = L_(G_(S,S⁰), ĝ_(S,S⁰)) h̃′;
 
-the boost component S′ of U′ enters only through the first term, which vanishes. So
-L_(G_S, φ_(−S)^*g_(b₀)) h̃′ = f = 0 on {t^♭_* < c}. Within the construction, h̃′ is the remainder of the forward
+the boost and translation components of U′ enter only through the first term, which vanishes. So
+L_(G_(S,S⁰), ĝ_(S,S⁰)) h̃′ = f = 0 on {t^♭_* < c}. Within the construction, h̃′ is the remainder of the forward
 solution there: the rows and towers are supported in supp χ_K, and the ι⁺-terms carry χ_ι. h̃′ has supported character
-at {t^♭_* = 1} (the spaces of [[def:iii-j-1-1]]), so, extended by 0, it solves L_(G_S, φ_(−S)^*g_(b₀)) h̃′ = 0 on
+at {t^♭_* = 1} (the spaces of [[def:iii-j-1-1]]), so, extended by 0, it solves L_(G_(S,S⁰), ĝ_(S,S⁰)) h̃′ = 0 on
 
-    X := 𝒟°_(−S) ∩ {¾ < t^♭_* < c},
+    X := 𝒟°_(−S,−S⁰) ∩ {¾ < t^♭_* < c},
 
-and [[lem:ii-f-1-3]] is applied on X with τ := t^♭_* at the level 7/8, below its support. [[lem:iii-k-6-1]] with G_S
-in place of g, Y := X, its c equal to 7/8 and T := T̂ + 2 gives the compact sets [[pending:issue-2]]. Indeed
-L_p ⊂ X: 7/8 ≤ t^♭_* ≤ t^♭_*(p) < c on L_p, and {t^♭_* > ¾} lies in φ_(−S)⁻¹({t_IVP ≥ 0}), since on it
-t_IVP = t_* + F ≥ t^♭_* + F > ¾ + F, F ≥ r/4 for r ≥ R_6 ([[eq:s27-f]]), while φ_(−S) moves t_IVP by at most C|S|r
-and not at all on {r ≤ 5R₁} ([[lem:s27-boost-move]]). G_S lies in the class of [[lem:iii-k-6-1]] on X: on Ω_* as
-G_S − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) on Ω_* ∩ {t^♭_* ≤ T̂ + 2} ([[lem:ii-c-3-2]] (2), [[prop:iii-k-1-2]] (3),
-[[lem:iii-b-5-2]]); below Ω_* near ℐ⁺ by the same facts, h_(−S) having the orders of [[def:iii-c-3-1]] on 𝒟 near
-infinity ([[thm:iii-c2-3-1]] (2), [[cor:iv3-2-3]]); and on the compact rest by its smallness in C⁰. So h̃′ = 0 on
-{t^♭_* < c}.
+and [[lem:ii-f-1-3]] is applied on X with τ := t^♭_* at the level 7/8, below its support; t^♭_* is a time function of
+G_(S,S⁰) on X by [[lem:s27-below]] (iii) on Y := X. [[lem:iii-k-6-1]] with G_(S,S⁰) in place of g, Y := X, its c equal
+to 7/8 and T := T̂ + 2 gives the compact sets. Indeed L_p ⊂ X: 7/8 ≤ t^♭_* ≤ t^♭_*(p) < c on L_p, and {t^♭_* > ¾}
+lies in φ_(−S,−S⁰)⁻¹({t_IVP ≥ 0}), since on it t_IVP = t_* + F ≥ t^♭_* + F > ¾ + F, F ≥ r/4 for r ≥ R_6
+([[eq:s27-f]]), while φ_(−S,−S⁰) moves t_IVP by at most C(|S| + |S⁰|)r and not at all on {r ≤ 5R₁}
+([[lem:s27-boost-move]]). G_(S,S⁰) lies in the class of [[lem:s27-below]] on X: on Ω_* as G_(S,S⁰) − g_(b₀) is small in
+𝒢̃^(0,(1,0,0))_(e3b) on Ω_* ∩ {t^♭_* ≤ T̂ + 2} ([[prop:iii-k-1-2]] (3), [[lem:iii-b-5-2]],
+[[lem:s27-translated-exterior]] (b)); below Ω_* near ℐ⁺ by the same facts, h_(−S,−S⁰) having the orders of
+[[def:iii-c-3-1]] on 𝒟 near infinity ([[thm:iii-c2-3-1]] (2), [[cor:iv3-2-3]]); and on the compact rest by its
+smallness in C⁰. So h̃′ = 0 on {t^♭_* < c}.
 
-Without the hypothesis on h̃, D_U(P_5 ∘ Ψ)(U′) contains ∂_SQ(S, h̃)(S′), which need not vanish on {t^♭_* < c}; so the
-support property holds only at base points whose tail vanishes below the level. [[thm:ii-g-2-1]] (iii) asks it only
-there ([[rem:s10-right-inverses]]), and that is how [[thm:iii-k-3-2]] uses it. ∎
+Without the hypothesis on h̃, D_U(P_5 ∘ Ψ)(U′) contains ∂_(S,S⁰)Q(S, S⁰, h̃)(S′, S⁰′), which need not vanish on
+{t^♭_* < c}; so the support property holds only at base points whose tail vanishes below the level.
+[[thm:ii-g-2-1]] (iii) asks it only there ([[rem:s10-right-inverses]]), and that is how [[thm:iii-k-3-2]] uses it. ∎
 
 ### The Nash–Moser iteration {#sec:iii-k-3}
 
@@ -866,11 +877,11 @@ t̄ := t_* − T̂. The weighted b-Sobolev spaces on
 M and on M_(1/2) coincide, their b-vector fields being the same. Fix χ_9 ∈ C^∞(ℝ) equal to 0 on (−∞, 17/2] and 1 on
 [9, ∞). For η ∈ [0, 1] and k ∈ ℕ₀ ∪ {∞} let
 
-    B^k := {U ∈ 𝒟^k_ex : S_rem, b_rem, Y_(ρ,rem) supported in {t_* ≥ 8}, supp h̃ ⊂ {t^♭_* ≥ T̂}},
+    B^k := {U ∈ 𝒟^k_ex : S_rem, b_rem, Y_(ψ,rem) supported in {t_* ≥ 8}, supp h̃ ⊂ {t^♭_* ≥ T̂}},
     B^k_η := {U ∈ B^k : supp h̃ ⊂ {t^♭_* ≥ T̂ + c_0η}, the q-tails supported in {t_* ≥ 8 + c_0η}},
     F^k := {f ∈ ℱ^k_ex : supp f ⊂ {t^♭_* ≥ T̂}},     F^∞_η := {f ∈ F^∞ : supp f ⊂ {t^♭_* ≥ T̂ + c_0η}},
 
-with the norms of 𝒟^k_ex and ℱ^k_ex. Here the q-tails are the components S_rem, b_rem, Y_(ρ,rem) of U
+with the norms of 𝒟^k_ex and ℱ^k_ex. Here the q-tails are the components S_rem, b_rem, Y_(ψ,rem) of U
 ([[def:iii-j-1-1]]). B^k_η is closed in B^k (support conditions are closed), non-increasing in η, and B^k_0 = B^k;
 F^k is closed in ℱ^k_ex.
 
@@ -888,7 +899,7 @@ manifold with boundary, with no support condition. Smooth each expansion coeffic
 S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]], the smoothing on all of w H̄^0_b with no condition on supports, built
 on the manifold carrying it; then reassemble.
 
-*The q-tails* S_rem, b_rem, Y_(ρ,rem): weighted b-Sobolev functions of t_* ∈ [1, ∞]. Use [[prop:ii-g-3-1]] on the
+*The q-tails* S_rem, b_rem, Y_(ψ,rem): weighted b-Sobolev functions of t_* ∈ [1, ∞]. Use [[prop:ii-g-3-1]] on the
 one-dimensional manifold [1, ∞] with t := t_* − 8, for which (T1)–(T3) hold trivially (the set {|t| < 2c_1} lies in
 the interior). This gives the support behaviour.
 

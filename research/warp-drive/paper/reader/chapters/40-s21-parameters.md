@@ -1010,8 +1010,8 @@ K⁺-weight > −1), û′_3, Σ_3, (û_4, b̂_4, Ŝ_4) and
 
     f̂_5 ∈ H^(∞,(5/2−ε,τ_0,α−2−ε′))_b,     τ_0 := 2 + ε_g − 2ε     ([[eq:iii-i6-2-7]]);
 
-the tf-weight τ_0 rests on the gain ε_Υ − ε of [[eq:iii-g4-5-1]] over the forcing in Step 3.2 there and on the
-indicial gap (0, ε_ind] of L̂_b(0) for the zero energy solve of Step 3.3, so it uses both constants.
+with ε < ½ε_g, τ_0 is a lower bound for the tf-weight 2 + ε_Υ − 2ε that the gain ε_Υ − ε of [[eq:iii-g4-5-1]] gives
+in Step 3.2 there; ε_Υ − 2ε lies in the indicial gap (0, 1] of L̂_b(0), as the zero energy solve of Step 3.3 needs.
 
 *Step 3.4′ (the iteration at the transition face; [Hin26, Step 1.6 of the proof of Proposition 11.51]).* Put
 f̂^((0)) := f̂_5. While τ_i ≤ α − ε′, apply [[prop:iii-g4-5-1]] on X^±_(sc-b) separately to

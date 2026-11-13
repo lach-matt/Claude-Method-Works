@@ -986,7 +986,7 @@ hG_gE^C the form of [Hin26a], so L_h = 4ih δ_g(c ⊗_s ·) + 2ihe dι_(c♯) is
 symbols are [Hin26a, Lemma 3.2], a pointwise identity free of the dimension ([[prop:np-10-13]] (i)). ∎
 
 **Lemma {#lem:iv5-0-3}** (The causal facts; [Hin26a, p. 15] and the uses in [Hin26a, Propositions 5.6, 5.16] in
-dimension 4 + 1.) Let r̂ := ¾R₁ and T_0 := ½. There is a neighbourhood U ⊂ ℬ of b₀ such that for b ∈ U:
+dimension 4 + 1.) Let T_0 := ½ and r̂ = ¾R₁. There is a neighbourhood U ⊂ ℬ of b₀ such that for b ∈ U:
 
 (a) for every β ∈ (−1, 1], d(t − βr) is past timelike on {r ≥ ½r_♯}, with
 g⁻¹(dt − β dr, dt − β dr) ≤ −(1 − β²); in particular dt and d(t ± κr), κ ∈ (0, 1), are past timelike, X_0 is
@@ -1001,13 +1001,13 @@ point out of Ω there, and −dr is past timelike;
 
 *Proof.* (a) The time orientation is the one in which dt is past timelike ([Hin26a, p. 14]). By [[lem:iii-b-3-3]] (e),
 g⁻¹(dt − β dr, dt − β dr) = −(1 − β²) − H_b(1 + βr_A/|x|)² < 0 for β ∈ (−1, 1], wherever the condition of
-[[lem:iii-b-3-3]] (c) holds, which is all of {r ≥ ½r_♯}. The family s ↦ d(t − sβr), s ∈ [0, 1], is timelike throughout
+[[lem:iii-b-3-3]] (c) holds, which is all of {r ≥ ½r_♯} ([[lem:s11-ks-domain]]). The family s ↦ d(t − sβr), s ∈ [0, 1], is timelike throughout
 and starts at dt, so it stays in the past cone. A future timelike V has dt(V) > 0, since dt is past timelike.
 
 (b) dτ = r⁻¹(dt − τ dr), so r²g⁻¹(dτ, dτ) is the quantity of (a) at β = τ ∈ [0, ½], at most −(1 − ¼). As
 g_3b⁻¹ = r²g⁻¹, this is the claim; on Tangherlini space it is [[prop:np-10-22]] (ii).
 
-(c) At b₀, g⁻¹(dr, dr) = 1 − m₀r⁻² ≤ 1 − 16/9 on [½r_♯, r̂] and g⁻¹(dr, dt) = m₀r⁻² > 0 ([[prop:np-10-22]] (iii)). The
+(c) At b₀, g⁻¹(dr, dr) = 1 − m₀r⁻² ≤ 1 − 16/9 on [½r_♯, r̂], its value at r̂, as smaller r make it more negative, and g⁻¹(dr, dt) = m₀r⁻² > 0 ([[prop:np-10-22]] (iii)). The
 second says that the timelike covectors dr and dt lie in opposite cones, so dr is future timelike. Both strict
 inequalities hold on a compact set, and g⁻¹ is continuous in b there, so they persist on a neighbourhood U of b₀. A
 future timelike V has dr(V) < 0, so V points out of {r ≥ r_♯}.
@@ -1437,8 +1437,8 @@ forward solution ω̃ ∈ H^(0,(α_sf,α_K))_(3b,h)(Ω̃)^(•,−) exists with 
 s′ = 1 on Ω̃ and duality. On Ω̃ the argument runs with two changes. [[prop:iv5-5-1]] is used with r_1 ≥ r_♯, and the
 transition of χ_r in [[prop:iv5-5-3]] is placed in {r ≥ r_♯}, where c is the 1-form of [[prop:np-10-14]] and
 [[lem:iv5-0-5]] (6) holds. On {¾r_♯ ≤ r ≤ r_3}, r_3 < r̂, the estimates [Hin26a, (5.68)–(5.69)] of
-[[prop:iv5-6-1]] are used, with ¾r_♯ for r_♯; they need only [[lem:iv5-0-3]] (c) and [[lem:iv5-0-4]], which hold for
-every stationary past timelike extension of c, [[lem:iv5-0-3]] holding on {r ≥ ½r_♯}. [[prop:iv5-1-3]] needs only
+[[prop:iv5-6-1]] are used, with ¾r_♯ for r_♯; they need only [[lem:iv5-0-3]] (c) and [[lem:iv5-0-4]], which hold on
+{r ≥ ½r_♯}, where g is defined and c is past timelike ([[sec:iv5-0]]). [[prop:iv5-1-3]] needs only
 [[lem:iv5-0-3]] (c) there. Moreover ω̃ = ω on Ω, by uniqueness of forward solutions: Σ^♯ is spacelike with future
 timelike vectors pointing out, and X_0 is spacelike ([[lem:iv5-0-3]] (a), (c)). The microlocal estimates of
 [[sec:iv5-1]]–[[sec:iv5-5]] hold for every s in the strong sense; near the zero section the order is irrelevant. They

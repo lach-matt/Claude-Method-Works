@@ -44,7 +44,9 @@ time by a function smooth in |x|⁻¹, so the Cauchy data acquire no logarithms 
 [[thm:iii-c2-3-1]] needs the constraints, as the operator δ*_(g₀,E_C) is not natural under boosts; and the size of the
 boost is made independent of r₀ by r₁ := 2r₀.
 
-*Notation and the inner radius.* n = 4, D = 5. The notation is that of [[ch:s11]] and [[ch:s17]]: the family g_b,
+### Notation and the inner radius {#sec:iii-c1-0}
+
+n = 4, D = 5. The notation is that of [[ch:s11]] and [[ch:s17]]: the family g_b,
 b = (m, A) ∈ ℬ, with b₀ = (m₀, 0) and R₁ = m₀^(1/2); the time functions t_* and t_IVP of [[sec:iii-b-3]], with
 t_IVP = t − C″ on {|x| ≥ R₃} ([[lem:iii-b-3-7]] (b)); the gauge-fixed operator P(g, g₀) of [[eq:iii-b-6-4]] and its
 linearisation L^(g,g₀) of [[eq:iii-c-4-1]], with the gauge parameters of [[sec:iii-f-1]] and [[eq:iii-c-1-1]], so
@@ -58,8 +60,11 @@ weights at ℐ⁺ are powers of ρ_I, and the b-spaces are taken with the b-dens
 k > 5/2) a weight is the pointwise order. A vector field on 𝕊³ is written Θ. In this chapter r₀ is the exterior radius
 of [Hin26, Lemma 5.16], not the radius of the artificial boundary of [[sec:i-a-1-1]]. The inner radius r_♭ ∈ (0, ½R₁]
 of the spacetime ([[sec:iii-b-2]]) enters this chapter only through the constants C′ of t_* and C″ of t_IVP near
-infinity: the exterior domain lies in {|x| ≥ r₀} with r₀ large, and no step reaches the inner boundary. So every result
-of the chapter holds for each r_♭ ∈ (0, ½R₁], with r₀ and the constants chosen after r_♭.
+infinity. Every result posed on the exterior domain or near infinity lives in {|x| ≥ r₀} with r₀ large and does not
+reach the inner boundary. [[prop:iii-c2-4-1]], [[rem:iii-c2-3-2]] and [[rem:iii-c2-4-3]] concern all of Σ_IVP, which
+does reach it; but the proof of [[prop:iii-c2-4-1]] is pointwise on Σ_IVP and uses only that g_(b₀) is smooth and dt_IVP
+is timelike for g_(b₀) on {|x| ≥ r_♭} ([[lem:iii-b-3-7]] (b)). So every result of the chapter holds for each
+r_♭ ∈ (0, ½R₁], with r₀ and the constants chosen after r_♭.
 
 ### The exterior domain {#sec:iii-c1-1}
 
