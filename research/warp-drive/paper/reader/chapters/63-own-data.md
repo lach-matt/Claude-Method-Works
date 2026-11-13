@@ -486,9 +486,10 @@ gives, for G_l of degree l (Δ̊ G_l = −l(l + 2) G_l),
 
 With y := s/2 the bracket vanishes exactly when y(1 − y) F_yy + (p − ½)(1 − 2y) F_y − (p² − 2p − l(l + 2)) F = 0, the
 hypergeometric equation [DLMF, (15.10.1)] with a = p + l, b = p − l − 2, c = p − ½ (a + b + 1 = 2p − 1,
-ab = p² − 2p − l(l + 2)); in this proof (a, b, c) are the parameters of [DLMF], not the weight a. Its exponents at y = 0 are 0 and 1 − c = 3/2 − p < 0; c is not a nonpositive integer, so the
-solutions bounded at y = 0 are the multiples of ₂F₁(a, b; c; y), analytic for |y| < 1. This gives existence and
-uniqueness harmonic by harmonic, and [[eq:own-2f1]] once the sum converges.
+ab = p² − 2p − l(l + 2)); in this proof (a, b, c) are the parameters of [DLMF], not the weight a. Its exponents at
+y = 0 are 0 and 1 − c = 3/2 − p < 0; c is not a nonpositive integer, so the solutions bounded at y = 0 are the
+multiples of ₂F₁(a, b; c; y), analytic for |y| < 1. This gives existence and uniqueness harmonic by harmonic, and
+[[eq:own-2f1]] once the sum converges.
 
 *Bounds uniform in l.* Let φ := ₂F₁(a, b; c; y) on [0, ¾], c ≥ 3/2, and suppose κ² := −ab = (l + 1)² − (p − 1)² > 0. Then
 y(1 − y) φ″ + c(1 − 2y) φ′ + κ² φ = 0, and 𝓔 := y(1 − y) φ′² + κ² φ² satisfies 𝓔′ = (1 − 2y)(1 − 2c) φ′². On [0, ½],

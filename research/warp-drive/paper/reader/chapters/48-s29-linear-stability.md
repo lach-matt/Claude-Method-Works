@@ -459,12 +459,12 @@ smooth on the interior of N_ν.
 *Up to Σ°.* Where ν > 0, Σ° lies in the interior of N_ν, where ġ is smooth. Where ν = 0, Σ° is part of the boundary
 of N_ν. Such points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]],
 [[sec:s27-cover]]), as ψ′_IVP = ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the proof of [[lem:iii-b-3-7]] (b)). So of
-the cover of 𝒟 used in [[prop:viii-1-2]] only the compact part 𝒦 reaches them: Ω_(ext,r_1) ⊂ {r ≥ r_1}, and the slab
-𝒮 lies in {|x| > R_9}, R_9 ≥ R₃ > 5R₁ > R_ν, and does not meet Σ^IVP, as t_IVP ≥ r/4 > 0 on 𝒮 ([[lem:s27-cover]] (a),
-(d)). So a half-ball {t_IVP ≥ 0} about each such point lies in 𝒦. There ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′)
-([[thm:viii-2-2]] (2)); ġ_(S′) and ġ⁰_(S⁰′) vanish on {|x| < 5R₁}, which contains these points ([[sec:viii-0]]), and
-ḣ ∈ H^k(𝒦) for every k, up to Σ^IVP ((L) of [[sec:s27-local]]). In a chart {t_IVP ≥ 0} near such a point, H^k for
-every k gives every derivative continuous up to Σ°: after a cut-off, extend by the operator of [[thm:std-ly-extension]],
+the three sets on which [[prop:viii-1-2]] solves, only 𝒟⁺ reaches them off Σ^IVP: Ω_(ext,r_1) ⊂ {r ≥ r_1}, and
+𝒦⁻ ⊂ 𝒟⁻ meets {r ≤ R_ν} only in Σ^IVP, as ν = 0 there. So a half-ball {t_IVP ≥ 0} about each such point lies in
+𝒟⁺ ∩ {r < r_1}. There ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′) ([[thm:viii-2-2]] (2)); ġ_(S′) and ġ⁰_(S⁰′) vanish on {|x| < 5R₁},
+which contains these points ([[sec:viii-0]]), and ḣ is, for every k, of class H^k up to Σ^IVP on 𝒟⁺ ∩ {r ≤ r_1}, the
+class of [[thm:iv3-2-1]] imposing H^k away from infinity ([[sec:iv3-1]]). In a chart {t_IVP ≥ 0} near such a point,
+H^k for every k gives every derivative continuous up to Σ°: after a cut-off, extend by the operator of [[thm:std-ly-extension]],
 bounded on every W^(k,2) of a half-space, and apply Sobolev embedding on ℝ⁵. ∎
 
 *Time orientation.* As in [[lem:ii-b-1-1]], dt_* is past timelike. dt_IVP is timelike for g on M_♭
