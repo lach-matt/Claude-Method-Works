@@ -333,7 +333,7 @@ carrying the data (a level set of t_IVP, with a forward and a backward problem, 
 boundary). On a domain, H^k denotes the restrictions of H^k functions, with the quotient norm.
 
 (L) Let k ≥ 4. For a linear equation of this kind with smooth coefficients, data in H^(k+1) × H^k and forcing
-f ∈ H^k(𝒦′), there is a unique solution h on 𝒦′ in H²(𝒦′); it lies in H^(k+1)(𝒦′), and
+f ∈ H^k(𝒦′), there is a unique solution h ∈ H²(𝒦′) on 𝒦′; it lies in H^(k+1)(𝒦′), and
 ‖h‖_(H^(k+1)(𝒦′)) ≤ C_k(‖h₀‖_(H^(k+1)) + ‖h₁‖_(H^k) + ‖f‖_(H^k(𝒦′))) for the data (h₀, h₁).
 
 (N) (Cauchy stability) for the quasilinear equation, there is r_0 such that for data small in H^(r_0+1) × H^(r_0) and
@@ -364,7 +364,7 @@ shows that solutions with data near 0 at t₀ exist on [t₀ − T, t₀ + T] an
 the data tend to 0. Applied on successive intervals of length T, each time with the values of the solution at the end
 of the previous one as data, finitely many to cover the t_IVP-range of 𝒦′ in both time directions, this gives (N) with
 r_0 := 4, in C(I; H^r) for u; the higher regularity is [[thm:std-ds-continuation]], and the spacetime norm on 𝒦′
-follows as in step (iv) below.
+follows as in step (iv) below, the equation being solved for the second time derivative in the same way.
 
 *(L).* For a linear equation, A^i = A^i(t, x) and R = B(t, x)u + F(t, x), with A^i, B smooth and bounded with all their
 derivatives, and F the forcing; (A1)–(A4) hold on U = ℝ^m, so the distance M̃ of [[thm:std-ds-existence]] is infinite,
@@ -473,7 +473,14 @@ and r_c = (T″ − x¹_p)/c_♮ ≥ 1/c_♮ ≥ 4/c ≥ 4R_9, as T″ − x¹ �
 Ω_(ext,r_1); t_IVP(t_c) ≥ ½|x| + T″ − C″ > 0; and ρ′_I < c_♮ along it, so it avoids 𝒦. (c) is the definition of 𝒮
 and 𝒦 ⊂ 𝒟 ∖ 𝒮. ∎
 
-So [[lem:iv2-1-2]] holds on Ω^♮_(c_♮) := Ω^♮ ∩ {ρ′_I < c_♮}, in the translated chart, with the same proof.
+So [[lem:iv2-1-2]] holds on Ω^♮_(c_♮) := Ω^♮ ∩ {ρ′_I < c_♮}, in the translated chart, with the same proof, with
+ℐ⁺_c of [[lem:iv2-1-2]] (b) and of [[eq:iv2-0-3]] replaced by ℐ⁺_♮, the image of Ω^♮ ∩ {ρ′_I < c} under
+(ρ′_0, ρ′_I, ω) ↦ (ρ′_0, ω): a domain of ℐ⁺ containing ℐ⁺ ∩ cl Ω^♮, and in general larger. Near ℐ⁺, Ω^♮ ends at the
+future boundary {t^♭_* = T̂ + 3}, and t^♭_* = t_*(1 − ρ_I^(1/2)) increases along an X′_I-curve at fixed x¹ towards ℐ⁺;
+so the curves through points with t^♭_* < T̂ + 3 < t_* leave Ω^♮ before they reach ℐ⁺, at points of ℐ⁺ with
+t_* > T̂ + 3. The classes on Ω^♮ below, H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) and the classes of [[cor:iv3-2-3]], are those of
+[[eq:iv2-0-3]] in the translated chart with χ_I := χ̂(ρ′_I) and ℐ⁺_♮ in place of ℐ⁺_c: they norm the radiation field,
+and the coefficients of the expansion at ℐ⁺, as functions on ℐ⁺_♮.
 
 #### The solution on Ω^♮ {#sec:iv3-2}
 

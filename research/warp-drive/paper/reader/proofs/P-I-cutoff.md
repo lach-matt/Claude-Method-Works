@@ -229,18 +229,21 @@ with C depending on λ, J and N_0 but not on T. In the notation of [[def:cutoff-
 the derivatives of order at least 2.
 
 *Proof.* *The forcing at the slice.* Put ℱ := P(H_D). We show ℱ ∈ 𝒯^6 + ℬ^((J+3)/2). First, P(H_0) is tame of order 6.
-P(Σ) is: by the proof of [[prop:far-residual]] (with □_η Σ_4 = 0), P(Σ) is a finite sum of homogeneous terms of degrees
-at most −6 and of Rem′, and ∂ lowers the degree of a homogeneous term by one, while ∂_a Rem′ = ς⁻¹ (∂_X Rem)′; so |∂^j
-Γ^α P(Σ)| ≤ C λ r^(−6−j). And P(H_0) − P(Σ) = ∫_0^1 DP(Σ + θ Σ′_J)[Σ′_J] dθ, with DP(H)[k] = −½ g^(ab) ∂_a ∂_b k +
-B(H)·∂k + C(H) k ([[prop:far-coefficients]]); g^(ab), B and C are polynomials in g^(±1), ∂g, ∂∂g, Γ̂ and ∂Γ̂, so by
-Leibniz's rule, [[eq:far-sigma-bounds]] and [[lem:cutoff-extension]] (a) they are tame of orders 0, 3 and 4 for H = Σ +
-θ Σ′_J, while Σ′_J is tame of order 4; each of the three terms is tame of order 6. Second, ℱ − P(H_0) = P(H_0 + M) −
-P(H_0) vanishes where χ_T = 1, and on the strip it equals −½ g_M^(ab) ∂_a ∂_b M − ½ (g_M^(ab) − g_0^(ab)) ∂_a ∂_b H_0 +
-N(X, H_0 + M, ∂H_0 + ∂M) − N(X, H_0, ∂H_0), with g_M := g_b0 + H_D and g_0 := g_b0 + H_0. M is of strip order (J + 1)/2,
-uniformly in T, by [[lem:cutoff-extension]] (b) and the bounds on χ_T(v). As in the proof of [[lem:cutoff-polynomial]],
+For P(Σ): by the proof of [[prop:far-residual]] (with □_η Σ_4 = 0), P(Σ) is a finite sum of homogeneous terms of
+degrees at most −6 and of Rem′; ∂ lowers the degree of a homogeneous term by one, and ∂_a Rem′ = ς⁻¹ (∂_X Rem)′; so
+|∂^j Γ^α P(Σ)| ≤ C λ r^(−6−j). And P(H_0) − P(Σ) = ∫_0^1 DP(Σ + θ Σ′_J)[Σ′_J] dθ, with
+DP(H)[k] = −½ g^(ab) ∂_a ∂_b k + B(H)·∂k + C(H) k ([[prop:far-coefficients]]); g^(ab), B and C are polynomials in
+g^(±1), ∂g, ∂∂g, Γ̂ and ∂Γ̂, so by Leibniz's rule, [[eq:far-sigma-bounds]] and [[lem:cutoff-extension]] (a) they are
+tame of orders 0, 3 and 4 for H = Σ + θ Σ′_J, while Σ′_J is tame of order 4; each of the three terms is tame of
+order 6. Second, ℱ − P(H_0) = P(H_0 + M) − P(H_0) vanishes where χ_T = 1, and on the strip it equals
+
+    −½ g_M^(ab) ∂_a ∂_b M − ½ (g_M^(ab) − g_0^(ab)) ∂_a ∂_b H_0 + N(X, H_0 + M, ∂H_0 + ∂M) − N(X, H_0, ∂H_0),
+
+with g_M := g_b0 + H_D and g_0 := g_b0 + H_0. M is of strip order (J + 1)/2, uniformly in T, by
+[[lem:cutoff-extension]] (b) and the bounds on χ_T(v). As in the proof of [[lem:cutoff-polynomial]],
 g_M⁻¹(dv, dv) = O(r⁻²) and every other second derivative in the first term contains ℓ, r⁻¹ Y or an O(r⁻¹) coefficient,
-so the first term is of strip order (J + 3)/2; the other two contain M or ∂M times factors of strip order at least 2. By
-[[lem:cutoff-classes]] (c), ℱ − P(H_0) ∈ ℬ^((J+3)/2).
+so the first term is of strip order (J + 3)/2; the other two contain M or ∂M times factors of strip order at least 2.
+By [[lem:cutoff-classes]] (c), ℱ − P(H_0) ∈ ℬ^((J+3)/2).
 
 *Coordinates at the slice.* Use (y, x), y := t̃ − T, on r ≥ 4R: ∂_y = ∂_t, and ∂̃_i := ∂_i + f′ x̂_i ∂_t is tangent to
 the slices, so ∂_i = ∂̃_i − f′ x̂_i ∂_y with f′ x̂_i tame of order 2 (f′ ∈ |x|⁻² C^∞). The classes may therefore be
@@ -252,22 +255,26 @@ and D_T agree, so δ_0 = δ_1 = 0 and every ∂̃^γ δ_0, ∂̃^γ δ_1 vanishe
 which gives [[eq:cutoff-jets]], a Cartesian ∂^β at y = 0 being a combination of the ∂̃^γ δ_ν, ν + |γ| ≤ |β|, with
 coefficients in ℰ that gain r⁻¹ for each order they lack.
 
-*The equation.* P(H_D + δ) = 0, and P(H_D + δ) − P(H_D) = −½ g_δ^(ab) ∂_a ∂_b δ + e_0 δ + e_1·∂δ, with g_δ := g_b0 + H_D
-+ δ = g_T, e_0 = ∫_0^1 [∂_H(−½ g^(ab)(H_D + θδ)) ∂_a ∂_b H_D + ∂_H N(X, H_D + θδ, ∂H_D + θ∂δ)] dθ and e_1 = ∫_0^1 ∂_(∂H)
-N(X, H_D + θδ, ∂H_D + θ∂δ) dθ. In (y, x), g^(ab) ∂_a ∂_b = g⁻¹(dt̃, dt̃) ∂_y² + 2 g⁻¹(dt̃, dx^i) ∂_y ∂̃_i + g^(ij) ∂̃_i
-∂̃_j + b^y ∂_y + b^i ∂̃_i, with b^y, b^i built from g⁻¹ and second derivatives of f(r), tame of order 3. Apply ∂_y^ν, ν
-≥ 0, and restrict to y = 0, where δ = ∂δ = 0 and g_δ = g_D := g_b0 + H_D:
+*The equation.* P(H_D + δ) = 0, and P(H_D + δ) − P(H_D) = −½ g_δ^(ab) ∂_a ∂_b δ + e_0 δ + e_1·∂δ, where
+g_δ := g_b0 + H_D + δ = g_T and
+
+    e_0 := ∫_0^1 [∂_H(−½ g^(ab)(H_D + θδ)) ∂_a ∂_b H_D + ∂_H N(X, H_D + θδ, ∂H_D + θ∂δ)] dθ,
+    e_1 := ∫_0^1 ∂_(∂H) N(X, H_D + θδ, ∂H_D + θ∂δ) dθ.
+
+In (y, x), g^(ab) ∂_a ∂_b = g⁻¹(dt̃, dt̃) ∂_y² + 2 g⁻¹(dt̃, dx^i) ∂_y ∂̃_i + g^(ij) ∂̃_i ∂̃_j + b^y ∂_y + b^i ∂̃_i, with
+b^y, b^i built from g⁻¹ and second derivatives of f(r), tame of order 3. Apply ∂_y^ν, ν ≥ 0, and restrict to y = 0,
+where δ = ∂δ = 0 and g_δ = g_D := g_b0 + H_D:
 
     −½ g_D⁻¹(dt̃, dt̃) δ_(ν+2) = −∂_y^ν ℱ|_(y=0) − ℛ_ν.                                         {#eq:cutoff-jet-equation}
 
 By Leibniz's rule ℛ_ν is a finite sum of products, each with at least one factor ∂̃^γ δ_μ, μ ≤ ν + 1, and the other
 factors further such factors or y- and tangential derivatives, at y = 0, of g⁻¹(H_D), e_0, e_1, b^y, b^i at δ = 0 and of
 their derivatives in δ, ∂δ. The term δ_(ν+2) occurs only on the left: the only way to place ν + 2 derivatives ∂_y on δ
-is ∂_y^ν on ∂_y² δ with the undifferentiated coefficient. At δ = 0, by [[lem:cutoff-classes]] (d) applied with A = (H_0,
-∂H_0, ∂∂H_0) ∈ 𝒯^2 × 𝒯^3 × 𝒯^4 ⊂ ℰ and B = (M, ∂M, ∂∂M) ∈ ℬ^((J+1)/2), the coefficients are: g⁻¹(H_D) and b in 𝒯^0 +
-ℬ^((J+1)/2), e_1 in 𝒯^3 + ℬ^((J+1)/2) (∂_(∂H) N is linear in ∂g = μ ∂m + ∂H and in Γ̂, tame of order 3), e_0 in 𝒯^4 +
-ℬ^((J+1)/2) (it is linear in ∂∂g, quadratic in ∂g, Γ̂, or contains ∂Γ̂, tame of order 4). Each y- or tangential
-derivative of a coefficient lowers its 𝒯-part by one more order and keeps its ℬ-part.
+is ∂_y^ν on ∂_y² δ with the undifferentiated coefficient. At δ = 0, by [[lem:cutoff-classes]] (d) applied with
+A = (H_0, ∂H_0, ∂∂H_0) ∈ 𝒯^2 × 𝒯^3 × 𝒯^4 ⊂ ℰ and B = (M, ∂M, ∂∂M) ∈ ℬ^((J+1)/2), the coefficients are: g⁻¹(H_D) and b
+in 𝒯^0 + ℬ^((J+1)/2); e_1 in 𝒯^3 + ℬ^((J+1)/2), since ∂_(∂H) N is linear in ∂g = μ ∂m + ∂H and in Γ̂, tame of order 3;
+e_0 in 𝒯^4 + ℬ^((J+1)/2), since it is linear in ∂∂g, quadratic in ∂g and Γ̂, or contains ∂Γ̂, tame of order 4. Each y-
+or tangential derivative of a coefficient raises the order of its 𝒯-part by one and keeps its ℬ-part.
 
 *The count.* Suppose [[eq:cutoff-induction]] for 2 ≤ μ ≤ ν + 1. In ∂_y^ν of g_δ^(ab) ∂_a ∂_b δ the derivatives on δ and
 on the coefficients number ν + 2 in total; in ∂_y^ν (e_1·∂δ) they number ν + 1 and e_1 brings the order 3; in
