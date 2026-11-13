@@ -47,10 +47,11 @@ of [[lem:iii-d-4-1]] and [[prop:iii-f1-2-3]], since z has other uses here. The f
 parameter, and from [[sec:iii-g1-3]] on it denotes sections (solutions of N_ι⁺(ϰ)h = f, and metric perturbations).
 σ_S, σ_Υ and σ_C are sets of eigenvalues of S̄ ([[eq:iii-g1-1-4]]), not values of σ. Large integers that bound the
 orders of error terms are written M, as in [[ch:s01]] and [[ch:s02]]; in [[sec:iii-g2-4]] M is the compactified
-spacetime and Ω a domain in it, while elsewhere Ω and Ω_a are rotation fields of 𝕊³ and Ω_(a,b) is a slab. The faces 𝓘⁺, ι⁺ and K⁺ of the compactified spacetime are those of [[ch:s04]]. The inner radius of the
-artificial boundary plays no role in this chapter: the spectral family lives on Minkowski space, and the grafting of
-[[sec:iii-g2-4]] takes place near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which
-[[thm:iii-e-1-1]] (3) provides, and γ_Υ is small as in [[prop:iii-f1-3-3]].
+spacetime and Ω a domain in it, while elsewhere Ω and Ω_a are rotation fields of 𝕊³ and Ω_(a,b) is a slab. The faces
+𝓘⁺, ι⁺ and K⁺ of the compactified spacetime are those of [[ch:s04]]. The inner radius of the artificial boundary plays
+no role in this chapter: the spectral family lives on Minkowski space, and the grafting of [[sec:iii-g2-4]] takes place
+near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which [[thm:iii-e-1-1]] (3) provides, and
+γ_Υ is small as in [[prop:iii-f1-3-3]].
 
 ### The spectral family: the operator and the spaces {#sec:iii-g-1}
 
@@ -1340,9 +1341,9 @@ subset of ℂ into a Banach space X such that x* ∘ g is holomorphic for every 
 points of X is holomorphic ([AN00, Theorem 3.1] [[pending:literature-page-AN00]]); applied with X the ℓ_I-weighted
 space and the functionals of the larger space, this shows that the remainder is holomorphic in the ℓ_I-weighted space.
 So [[eq:iii-g1-3-3]] is finite-meromorphic on {Re ϰ < ℓ_I}. Its principal part at ϰ_0 is obtained by expanding R^(±ϰ)
-about ϰ_0: its Laurent coefficients are finite combinations of R^(−ϰ_0)(log R)^iA_(−j)(log R)^(i′)R^(2+ϰ_0), with A_(−j) those of N_sf⁻¹.
-These have finite rank and do not depend on (s, μ), as the inverses agree ([[thm:iii-g-5-1]] (2)); so they do not
-depend on k, ℓ_I or ℓ_K. For f ∈ Ċ^∞(ι⁺), the coefficient of order j is
+about ϰ_0: its Laurent coefficients are finite combinations of R^(−ϰ_0)(log R)^iA_(−j)(log R)^(i′)R^(2+ϰ_0), with
+A_(−j) those of N_sf⁻¹. These have finite rank and do not depend on (s, μ), as the inverses agree ([[thm:iii-g-5-1]]
+(2)); so they do not depend on k, ℓ_I or ℓ_K. For f ∈ Ċ^∞(ι⁺), the coefficient of order j is
 (2πi)⁻¹∮(ϰ − ϰ_0)^(j−1)N_ι⁺(ϰ)⁻¹f dϰ over a small circle in 𝒪. By (1), with expansion coefficients and remainders
 continuous in ϰ on the circle, it lies in the space of (1). The coefficients have finite rank and Ċ^∞(ι⁺) is dense,
 so their ranges lie there for all f. ∎

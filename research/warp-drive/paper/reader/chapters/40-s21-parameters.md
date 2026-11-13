@@ -1188,7 +1188,7 @@ values.
 (H3) is stated below, after the rows.
 
 (H2) is what the b-derivative needs ([[lem:iii-i9-2-6]] (a)) and what the K⁺-weight of the remainder r^ν needs
-([[lem:iii-i9-2-6]] (c), which asks a_K > α + 1 − λ_♯); (H3) asks ℰ_+ to contain the index sets of the new
+([[lem:iii-i9-2-6]] (c) and (e), which ask a_K > α + 1 − λ_♯); (H3) asks ℰ_+ to contain the index sets of the new
 corrections; and (H1) gives the gain m_+ = λ_♯ at ι⁺ behind [[eq:iii-i9-2-5]].
 
 *The parameter exponents.* Fix an index set ℰ_par ⊂ ℂ × ℕ₀, closed under conjugation, with
@@ -1261,7 +1261,7 @@ let 𝒴_2(α) be the sections supported in supp χ^♯_K ([[eq:iii-i-1-2]]) lyi
 [[ch:s22]], 𝒴_1(α), 𝒴_2(α) and 𝒴(α) denote these classes. For α ∈ (2, 3), 𝒴(α) lies in the class of
 [[sec:iii-i8-1]] of the same name: 𝒴_1(α) has plain ι⁺-weight 4 − ε, and the exponents of ℰ_src + 2 below 4 lie in
 ℰ_++ + 2 by [[eq:iii-i9-1-3]]. "h small" means as in [[sec:iii-i8-1]]. For complex W, the tensors f^ν(W) and r^ν(W)
-of [[lem:iii-i9-2-6]] lie in 𝒴_2(α) + i𝒴_2(α); the conjugation-symmetric sums over 𝒩 are real and lie in 𝒴_2(α).
+of [[lem:iii-i9-2-6]] (b), (c) and (e) lie in 𝒴_2(α) + i𝒴_2(α); the conjugation-symmetric sums over 𝒩 are real and lie in 𝒴_2(α).
 
 ### Correction terms of the fourth kind and the operator {#sec:iii-i9-2}
 
@@ -1366,18 +1366,19 @@ a^((K_τ+2)) times stationary tensors smooth on compact spatial sets. For τ ≠
 Re e_ν + K_τ + 1 − ε: Re λ − 1 + 5 (s1), Re λ + 4 (v1, s2), Re λ + d_τ + 3 (c0, c1); for s0, A_ν^((5)) = r_ν^((4)) has
 weight Re λ + 4 − ε. Since Re λ ≥ λ_♯ by [[eq:iii-i9-1-2]] and d_τ > 0, κ_ν > λ_♯ + 3.
 
-(e) For stationary v, δ*_(g_(b₀))(φ(t_*)v) = φ δ̂*(0)v + φ′ dt_* ⊗_s v ([[eq:s21-conv]]). For τ ≠ s0 the term of
-δ*ω_ν without a derivative of a is a δ̂*(0)ω̆⁰_τ = r_νh_τ, and every other term carries a^((j)), j ≥ 1, of K⁺-weight
+(e) For stationary v, δ*_(g_(b₀))(φ(t_*)v) = φ(δ*_(g_(b₀)))^(0)v + φ′ dt_* ⊗_s v ([[eq:s21-conv]],
+[[eq:iii-d3-1-2]]). For τ ≠ s0 the term of δ*ω_ν without a derivative of a is a(δ*_(g_(b₀)))^(0)ω̆⁰_τ = r_νh_τ, and every other term carries a^((j)), j ≥ 1, of K⁺-weight
 Re e_ν + 1 − ε. For s0, δ̂*(0)ω̆⁰ = 0 (Killing); the terms carrying A′_ν = r_ν are
 r_ν(dt_* ⊗_s ω̆⁰ + δ̂*(0)ω̆¹) = r_νh⁽⁰⁾_(b₀,s0) (as h⁽⁰⁾_(b₀,s0) = δ*(t_*ω̆⁰ + ω̆¹)), and the others carry
 A_ν^((j)) = r_ν^((j−1)), j ≥ 2, of weight Re λ + 1 − ε. h_τ is stationary, which gives the weight of m_ν.
 
 (f) s1: h is injective by the rows of [[eq:iii-h-3-1]] ([[sec:iii-i7-1]]). v1: by the choice of 𝒱′. s0: 𝒮_0 = ℝ, and
 h⁽⁰⁾_(b₀,s0) has the nonzero leading term h̄⁽⁰⁾_s0 ([[prop:iii-d3-3-1]] (1)). s2, c0, c1: h_τ(S) has the leading term
-δ̄̂*(0)ω̄, nonzero for the nonzero indicial solution ω̄ that S ≠ 0 gives ([[prop:iii-d3-3-1]] (4)–(7)). The
+(δ̄*)^(0)ω̄, nonzero for the nonzero indicial solution ω̄ that S ≠ 0 gives ([[prop:iii-d3-3-1]] (4)–(7)). The
 complex-linear extension keeps injectivity. ∎
 
-Here δ̂*(0) is the zero energy operator of δ*_(g_(b₀)) of [[eq:iii-d3-1-2]], and δ̄̂*(0) that of the Minkowski model.
+Here (δ*_(g_(b₀)))^(0) is the zero energy operator of δ*_(g_(b₀)) of [[eq:iii-d3-1-2]], and (δ̄*)^(0) that of the
+Minkowski model.
 The gauge towers of [[prop:iii-d3-3-1]] have exactly the lengths needed: every counterterm ϑ_ν has K⁺-order
 κ_ν > 9/2 + δ_♯, above the 4 + ε_K that the forcings of [[ch:s22]] carry; the shortest towers (length 2, the class
 roots) are compensated by their larger rate λ + d_τ.

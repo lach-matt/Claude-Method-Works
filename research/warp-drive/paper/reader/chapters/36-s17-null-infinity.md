@@ -789,9 +789,9 @@ the proof of [[prop:iii-c-5-2]], slot 7 of (v∂_v − 3/2 − Ā)h at v^(λ_♯
 along that eigenvector. The set ℰ_(I,11) allows such a term, and the space of [[def:iii-g1-1-2]] does not. In
 [[ch:s23]] the right-hand sides of the steps have no expansion at ℐ⁺, so the pole at λ_♯ enters only through a datum
 at that frequency, and the index sets at ι⁺ contain (λ_♯, 0). The identification of [[prop:iii-g3-2-4]] with the
-inverse of [[thm:iii-g1-3-1]] below λ_♯ holds by uniqueness in the admissible spaces of [[thm:iii-g-5-1]]: the extension by zero
-of v₊^(w−λ), Re(w − λ) > 0, lies in them and creates no term at the light cone ([[lem:iii-g3-2-3]]); at the incoming
-exponent itself the extension by zero creates δ(v), which is why λ_♯ is a pole.
+inverse of [[thm:iii-g1-3-1]] below λ_♯ holds by uniqueness in the admissible spaces of [[thm:iii-g-5-1]]: the
+extension by zero of v₊^(w−λ), Re(w − λ) > 0, lies in them and creates no term at the light cone ([[lem:iii-g3-2-3]]);
+at the incoming exponent itself the extension by zero creates δ(v), which is why λ_♯ is a pole.
 
 **Remark {#rem:iii-g3-2-7}** ([Hin26, Remark 9.17] in dimension 4 + 1.) Let (α, 0) ∈ ℰ_I^C with
 3/2 + 2γ_Υ < α < ℓ_I, α ∉ spec_(ι⁺)(L̄) and α ∉ π₁ℰ^C_(ι⁺,ℐ) ∪ (3/2 + σ_Υ + ℕ₀), and f := χ_I v^(α+1)f₀(ω),
@@ -1731,9 +1731,9 @@ the input slots) is, with γ_C, γ_Υ written C, U,
              ( 2C   0     0    0     0    C          0 )                ( 2C   0      0    0     0    3C/2       0 )
              ( 0    0     0    0     0    0          0 )                ( 0    0      0    0     0    0          0 )
 
-the matrix at n = 3 being [Hin23a, (2.11)]. In both dimensions the block of π_C = (00, 0a, tr) is invariant; the
-matrix is block lower triangular with respect to ran π_CΥ ⊕ ran π̸₀ ⊕ ran π₁₁, π_CΥ := (00, 01, 0a, 1a, tr); the
-eigenvalues on π_CΥ are 2C, C, C, −U, −U at n = 3 ([Hin23a, (2.15a)–(2.15b)]) and 2C, C, 3C/2, −3U/2, −U at n = 4,
+the matrix at n = 3 being [Hin23a, (2.11)]. In both dimensions π_C A_(E_C,E_Υ) = π_C A_(E_C,E_Υ)π_C, with
+π_C := (00, 0a, tr): the rows 00, 0a, tr involve only the columns 00, 0a, tr. The matrix is block lower triangular with
+respect to ran π_CΥ ⊕ ran π̸₀ ⊕ ran π₁₁, π_CΥ := (00, 01, 0a, 1a, tr); the eigenvalues on π_CΥ are 2C, C, C, −U, −U at n = 3 ([Hin23a, (2.15a)–(2.15b)]) and 2C, C, 3C/2, −3U/2, −U at n = 4,
 that on π̸₀ is 0 and that on π₁₁ is −2U. With the adjoint taken for the fibre inner products of η,
 
     G⁻¹A^*_(E_C,E_Υ)G = −A_(E_Υ,E_C),                                                                   {#eq:s17-duality}
@@ -1817,8 +1817,9 @@ so [L₀, w²] = w²(4α_ID₀ + (4α₀ − 8α_I)D_I − 8α_I(α₀ − α_I)
 Collecting the terms of order two: D₀² has the coefficient 4α_I; D₀D_I has −4α_I(1 + c) + 4α₀ − 8α_I − 4α₀ +
 4(1 + c)α_I = −8α_I; D_I² has −(1 + c)(4α₀ − 8α_I) + 4α₀ − 4(1 + c)α_I = 4α_I − 4c(α₀ − α_I). So the second-order part
 in (D₀, D_I) is 4α_I(D₀ − D_I)² − 4c(α₀ − α_I)D_I², and the angular part is
-(1 + c + 2α₀ − 2(1 + c)α_I)e^(s_I)Λ = (1 + 2(α₀ − α_I) + c(1 − 2α_I))x_I²Λ. With D ↦ iξ this is
-[[eq:s17-energy-form]]. On functions of ω alone, VD-terms and L₀'s first term vanish, which gives the last statement.
+(1 + c + 2α₀ − 2(1 + c)α_I)e^(s_I)Λ = (1 + 2(α₀ − α_I) + c(1 − 2α_I))x_I²Λ. With D₀ ↦ iξ₀, D_I ↦ iξ_I and
+Λ ↦ λ + q_n this is [[eq:s17-energy-form]]. On functions of ω alone, VD-terms and L₀'s first term vanish, which gives
+the last statement.
 
 (4) Let t_U := tr̸U/(n − 1), so tr_ηU = −4U₀₁ + (n − 1)t_U. Then (GU)₀₀ = U₀₀, (GU)₀₁ = (n − 1)t_U/4,
 (GU)_(0a) = U_(0a), (GU)₁₁ = U₁₁, (GU)_(1a) = U_(1a), and tr GU = −((n − 1)/2)tr U. Since η⁻¹dx¹ = −2∂₀,
@@ -1887,7 +1888,7 @@ so (δ^*Υ)₁₁ = 2aφ″ − 2φa″. Hence the bilinear part of P₁₁ is 2
 2r^(k+1) they are the three values stated. At n = 3, k = 1, they are 4(χ′f′ + χ″f)T̂, −2χ′f′ and 4ζ″f, independent of
 r; at n = 4 they carry r^(1−k) = r^(−1/2).
 
-(8) −f dt² + f⁻¹dr² = −f(dt − dr*)(dt + dr*) = −f dx⁰·dx¹, so g_m⁻¹(dx⁰, dx¹) = −2/f and
+(8) −f dt² + f⁻¹dr² = −f(dt² − dr*²) = −(f/2)(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰), so g_m⁻¹(dx⁰, dx¹) = −2/f and
 g_m⁻¹(dx⁰, dx⁰) = g_m⁻¹(dx¹, dx¹) = 0. As r* − t = −x¹, ρ₀ = −1/x¹ and dρ₀ = ρ₀²dx¹, which is null. With
 ρ_I = −x¹/r and dr = f dr* = (f/2)(dx⁰ − dx¹), r dρ_I = −dx¹ + (x¹/r)dr = (x¹f/(2r))dx⁰ − (1 + x¹f/(2r))dx¹, so
 g_m⁻¹(r dρ_I, r dρ_I) = 2(x¹f/(2r))(−(1 + x¹f/(2r)))(−2/f) = (2x¹/r)(1 + x¹f/(2r)). Since r = (ρ₀ρ_I)⁻¹ = ρ₀⁻¹x_I⁻²,

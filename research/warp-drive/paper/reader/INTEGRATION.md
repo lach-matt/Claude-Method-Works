@@ -227,3 +227,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S29: Part IX written at r_♭ (the source's inner-radius re-proof covers only the earlier version); the S29 reader
   checks every radius-dependent step. Notation clashes: Σ^IVP (chapters 30, 46) against Σ_(IVP,r₀) (45); 𝒦 for III.K's
   compact part against the Kretschmann 𝒦; Θ a cut-off in chapters 40 and 46.
+- S24 fix: S25 "(E1)-(E5)" → "(Ex1)-(Ex4) and (A_K)" and δ₀ → δ_𝔹 (sent to the S25 fix); S23's base-points opening
+  sentence cites S25 §3 (resolve in S25 step 2). S24's tame chain: cor:ii-a-9-7's d₀ feeds lem:iii-j2-2-1 (b) and
+  lem:iii-j2-2-4; thm:ii-f1-1-1 feeds lem:iii-j2-2-1 (a) and lem:iii-j2-2-3; a k-dependent d₀ would break the
+  k-independent loss d. This is what the S4 repair must deliver.
