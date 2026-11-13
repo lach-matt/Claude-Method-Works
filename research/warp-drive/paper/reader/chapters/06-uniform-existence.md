@@ -10,39 +10,27 @@ own equation has no such coefficient; and the coupling is absorbed by a phase sh
 This is the mechanism of [Tou23a, Section 3.2.3, p. 21], with a compactly supported mollifier adapted to the slices in
 place of his Fourier cut-off.
 
-Throughout, g0, L0 = ∂_τ − x̂·∂_x, ℓ = g0⁻¹dv = −L0 and □̃ := g0^(ab) ∂_a ∂_b (acting componentwise) are as in
-[[pending:background]], whose commutator identity reads, for every function u,
-
-    [L0, □̃] u = (2/r) (□̃ u + (∂_τ + ∂_r) L0 u) − (3/r²) ∂_r u,      ∂_r = x̂·∂_x.                  {#eq:ue-commutator}
-
-D and Ric^H are the gauge vector and the reduced Ricci tensor of [[pending:gauge]], so that Ric^H(g) = −(1/2) g^(ab) ∂_a
-∂_b g + Q(X; g)(∂g, ∂g), with second derivatives of g entering only through the first term. The domain Ω, its slices Σ_τ
-= A(τ) = {a ≤ |x| ≤ b(τ)}, the times τ0 < τ_end and the properties (a)–(f) of Ω are those of [[pending:domain]].
-Profiles f(X, θ) on Ω × S¹, their evaluations [f](X) := f(X, v(X)/λ), their θ-means ⟨f⟩, the scaled norms
-
-    |f|_j := Σ_(i≤j) λ^i ‖∂^i f‖     (‖·‖ the flat L²(Σ_τ), ∂^i all spacetime derivatives of order i)
-
-and the chain rule ∂_a [f] = λ⁻¹ (∂_a v) [∂_θ f] + [∂_a f] are those of [[pending:scaled-norms]]. The number ε1, with 0
-< ε1 < min(s0, μ0/a² − 1), is fixed as in [[pending:eps1]]: every g̃ with |g̃ − g0| ≤ ε1 on Ω is Lorentzian, satisfies
-the conclusions of the domain lemma, and has |g̃⁻¹| ≤ (s0 − ε1)⁻¹. All constants below depend on Ω and not on λ, and 0 <
-λ ≤ λ1 := min(1, δ0)/10. The inequalities on the slices used below are the Sobolev and product bounds
-[[pending:sobolev]], the compactly supported mollifier 𝒫 adapted to the annuli with its properties (M1)–(M6)
-[[pending:mollifier]], the energy inequality for −(1/2) g̃^(ab) ∂_a ∂_b u = f with |g̃ − g0| ≤ ε1
-[[pending:energy-inequality]], and the transport estimate along L0 [[pending:transport-estimate]].
+Throughout, g0, L0 = ∂_τ − x̂·∂_x, ℓ = g0⁻¹dv = −L0 and □̃ := g0^(ab) ∂_a ∂_b (acting componentwise) are those of
+[[prop:vaidya]], with the commutator identity [[eq:commutator]]. D and Ric^H are the gauge vector and the reduced Ricci
+tensor of [[eq:gauge]], so that Ric^H(g) = −(1/2) g^(ab) ∂_a ∂_b g + Q(X; g)(∂g, ∂g), with second derivatives of g
+entering only through the first term. The domain Ω of [[eq:omega]], its slices Σ_τ = A(τ) = {a ≤ |x| ≤ b(τ)}, the times
+τ0 < τ_end and the properties (a)–(f) of Ω are those of [[lem:domain]]. Profiles f(X, θ) on Ω × S¹, their evaluations
+[f](X) := f(X, v(X)/λ), their θ-means ⟨f⟩, the scaled norms |f|_j of [[eq:scaled-norm]] and the chain rule ∂_a [f] = λ⁻¹
+(∂_a v) [∂_θ f] + [∂_a f] are those of [[sec:profiles]]. The number ε1, with 0 < ε1 < min(s0, μ0/a² − 1), is the one
+fixed after [[lem:eigen]]: every g̃ with |g̃ − g0| ≤ ε1 on Ω is Lorentzian, satisfies the conclusions of [[lem:domain]]
+(e), and has |g̃⁻¹| ≤ (s0 − ε1)⁻¹ ([[lem:lorentz-margin]]). All constants below depend on Ω and not on λ, and 0 < λ ≤ λ1
+:= min(1, δ0)/10. The inequalities on the slices used below are the Sobolev and product bounds of [[lem:sobolev]], the
+compactly supported mollifier 𝒫 adapted to the annuli with its properties (M1)–(M6) ([[lem:mollifier]]), the energy
+inequality [[eq:energy]] of [[lem:energy]] for −(1/2) g̃^(ab) ∂_a ∂_b u = f with |g̃ − g0| ≤ ε1, and the transport
+estimate [[eq:transport]] of [[lem:transport]] along L0.
 
 ### The theorem {#sec:ue-theorem}
 
-**Theorem {#thm:uniform-existence}** (Uniform existence.) Fix k = 6 and K ≥ 6. Let
+**Theorem {#thm:uniform-existence}** (Uniform existence.) Fix k = 6 and K ≥ 6. Let g_app be an approximant with N stages
+of order K at regularity k ([[def:approximant]]): g_app is [[eq:approximant]], with profiles g_j bounded with all their
+derivatives independently of λ, and it satisfies (E1)–(E3) there, (E3) with the constant C_R. Suppose moreover:
 
-    g_app = g0 + λ [g1] + Σ_(j=2)^(N) λ^j [g_j],      g_j profiles,                                     {#eq:ue-gapp}
-
-with every ∂^i_(X,θ) g_j bounded on Ω × S¹ independently of λ, and suppose:
-
-- (E1) *transversality of the wave*: (g1 − ⟨g1⟩)(ℓ, ·) = 0 for all (X, θ) (the mean ⟨g1⟩ is unrestricted);
-- (E2) *the leading equation*: the λ⁰ coefficient R^(0)(X, θ) of the two-scale expansion of Ric^H(g_app)
-  ([[pending:two-scale]]) vanishes identically in (X, θ);
-- (E3) *the residual*: |Ric^H(g_app)|_k (τ) ≤ C_R λ^K on [τ0, τ_end];
-- (E4) *the data*: g is a Cauchy datum on Σ_τ0 for Ric^H(g) = 0 with w := g − g_app satisfying
+- (E4) *The data*: g is a Cauchy datum on Σ_τ0 for Ric^H(g) = 0 with w := g − g_app satisfying
 
       Data(w) := ‖w‖ + Σ_(1≤j≤k+1) λ^(j−1) ‖∂_x^j w‖ + Σ_(j≤k) λ^j ‖∂_x^j ∂_τ w‖ ≤ C_D λ^K   on Σ_τ0.
 
@@ -61,10 +49,9 @@ The proof occupies the rest of the chapter: the linear structure in [[sec:ue-lin
 
 ### The linearisation and its one large coefficient {#sec:ue-linearisation}
 
-For a profile G(X, θ) let R[G](X, θ; λ) be Ric^H with every ∂_a replaced by ∂_a + λ⁻¹ (∂_a v) ∂_θ, so that Ric^H([G]) =
-[R[G]]. It contains no explicit θ, and so ([[pending:two-scale]])
-
-    R[G(·, · + c)](X, θ) = R[G](X, θ + c)     for every constant c.                                 {#eq:ue-translation}
+Let R = R_v be the two-scale operator of [[def:two-scale]], so that Ric^H([G]) = [R[G]] for a profile G; by
+[[lem:phase-shift-symmetry]] (a) it satisfies the translation identity [[eq:phase-equivariance]], R[G(·, · + c)](X, θ) =
+R[G](X, θ + c) for every constant c.
 
 For the profile of g_app, R = λ⁻¹ R^(−1) + R^(0) + λ R^(1) + …, with R^(−1) = −(1/2) g0⁻¹(dv, dv) ∂_θ² g1 = 0.
 
@@ -96,7 +83,7 @@ coupling described in [Tou23a, Section 3.2.2, p. 20].
 
 **Lemma {#lem:phase-shift}** (The phase-shift identity.) Under (E2), T(∂_θ g1) = λ T1 with T1 a profile.
 
-*Proof.* Differentiate [[eq:ue-translation]] for G the profile of g_app at c = 0: the linearisation of R at G in the
+*Proof.* Differentiate [[eq:phase-equivariance]] for G the profile of g_app at c = 0: the linearisation of R at G in the
 direction ∂_θ G equals ∂_θ R[G]. Now ∂_θ G = λ ∂_θ g1 + λ² ∂_θ g2 + …, and P([Y]) = [D_G R[Y]], so the left side is λ⁻¹
 T(λ ∂_θ g1 + λ² ∂_θ g2 + …) + P_0(λ ∂_θ g1 + …) = T(∂_θ g1) + O(λ). The right side is ∂_θ(λ⁻¹ R^(−1) + R^(0)) + O(λ) =
 O(λ), since R^(−1) = 0 and R^(0) = 0 by (E2). Both sides are expansions in powers of λ with profile coefficients, the
@@ -134,10 +121,10 @@ Let s := s(w) and define φ by the transport
     L0 φ = −(1/2) 𝒫 s,      φ = 0 on Σ_τ0,                                                            {#eq:ue-transport}
 
 that is ℓ·∂φ = (1/2) 𝒫 s. It exists on Ω, because the integral curves of L0 followed to the past stay in Ω and meet Σ_τ0
-(property (d) of [[pending:domain]]). Put h := w − φ G1. Then s(h) = s(w) = s, since G1(ℓ, ℓ) = 0. Write F :=
-−Ric^H(g_app) and 𝒬(w) for the terms of Ric^H(g_app + w) of second and higher order in (w, ∂w) other than the principal
-part. The equation Ric^H(g_app + w) = 0 reads −(1/2) g^(ab) ∂_a ∂_b w + (1/2) λ⁻¹ s G2 + B·∂w + C·w = F + 𝒬(w), and by
-[[eq:ue-phi-g1]], [[eq:ue-transport]] and [[lem:phase-shift]] it becomes
+([[lem:domain]] (d)). Put h := w − φ G1. Then s(h) = s(w) = s, since G1(ℓ, ℓ) = 0. Write F := −Ric^H(g_app) and 𝒬(w) for
+the terms of Ric^H(g_app + w) of second and higher order in (w, ∂w) other than the principal part. The equation
+Ric^H(g_app + w) = 0 reads −(1/2) g^(ab) ∂_a ∂_b w + (1/2) λ⁻¹ s G2 + B·∂w + C·w = F + 𝒬(w), and by [[eq:ue-phi-g1]],
+[[eq:ue-transport]] and [[lem:phase-shift]] it becomes
 
     −(1/2) g^(ab) ∂_a ∂_b h + B·∂h + C·h = F + 𝒬(w) − 𝒬_φ − (1/2) λ⁻¹ ((1 − 𝒫) s) G2
           + λ⁻¹ ((ℓ_app − ℓ)·∂φ) G2 − φ [T1] + (1/2)(□̃_app φ) G1 − B1·∂φ − C1 φ.                         {#eq:ue-h}
@@ -160,10 +147,10 @@ i spatial, |c^(bi)| ≤ C(λ + |w|) and |∂c^(bi)| ≤ C(1 + |∂w|), and 𝒬_
 no coefficient of size 1/λ.
 
 *Proof.* □̃ s = (□̃ h)(ℓ, ℓ) + 2 g0^(ab) ∂_a(ℓ ⊗ ℓ)·∂_b h + h·□̃(ℓ ⊗ ℓ). Write g0^(ab) ∂_a ∂_b = q g^(ab) ∂_a ∂_b + Σ
-c^(bi) ∂_b ∂_i with q := g0^(ττ)/g^(ττ); here g^(ττ) ≠ 0, since the slices stay spacelike for g (property (e) of
-[[pending:domain]]), and c^(bi) = O(|g⁻¹ − g0⁻¹|) = O(λ + |w|). Contract [[eq:ue-h]] with ℓ ⊗ ℓ: G2(ℓ, ℓ) = G1(ℓ, ℓ) = 0
-removes the 1/λ terms and the □̃_app φ term exactly; B1·∂φ and C1 φ stay of first order; the second derivatives of φ in
-𝒬_φ multiply G1 and also drop. ∎
+c^(bi) ∂_b ∂_i with q := g0^(ττ)/g^(ττ); here g^(ττ) ≠ 0, since the slices stay spacelike for g ([[lem:domain]] (e)),
+and c^(bi) = O(|g⁻¹ − g0⁻¹|) = O(λ + |w|). Contract [[eq:ue-h]] with ℓ ⊗ ℓ: G2(ℓ, ℓ) = G1(ℓ, ℓ) = 0 removes the 1/λ
+terms and the □̃_app φ term exactly; B1·∂φ and C1 φ stay of first order; the second derivatives of φ in 𝒬_φ multiply G1
+and also drop. ∎
 
 **Lemma {#lem:commutator-transport}** (The commutator transport.) Ψ := □̃ φ satisfies
 
@@ -176,8 +163,8 @@ coefficients, of L0 𝒫 s, ∂_x 𝒫 s, ∂φ and the spatial Hessian ∂_x² 
 
 where * denotes contractions with bounded coefficients.
 
-*Proof.* Apply [[eq:ue-commutator]] to φ: L0 Ψ = □̃ L0 φ + (2/r)(Ψ + (∂_τ + ∂_r) L0 φ) − (3/r²) ∂_r φ, and substitute L0
-φ = −(1/2) 𝒫 s. Next, g_app⁻¹ − g0⁻¹ = O(λ) gives □̃_app φ − Ψ = c^(ab) ∂_a ∂_b φ with |c| ≤ C λ. For the second
+*Proof.* Apply [[eq:commutator]] to φ: L0 Ψ = □̃ L0 φ + (2/r)(Ψ + (∂_τ + ∂_r) L0 φ) − (3/r²) ∂_r φ, and substitute L0 φ
+= −(1/2) 𝒫 s. Next, g_app⁻¹ − g0⁻¹ = O(λ) gives □̃_app φ − Ψ = c^(ab) ∂_a ∂_b φ with |c| ≤ C λ. For the second
 derivatives, ∂_τ = L0 + x̂·∂_x, L0 L0 φ = −(1/2) L0 𝒫 s and L0 ∂_i φ = ∂_i L0 φ + (∂_i x̂^m) ∂_m φ; the commutator [L0,
 ∂_i] = (∂_i x̂^m) ∂_m involves spatial derivatives only, since the ∂_τ coefficient of L0 is the constant 1. Applying ∂_i
 ∂_j to L0 φ = −(1/2) 𝒫 s and commuting gives the transport of ∂_x² φ. ∎
@@ -195,7 +182,7 @@ gives existence.
 λ · λ^(i−1) ‖∂^(i−1) ∂h‖ ≤ 𝒩. For φ G1, the Leibniz rule writes λ^j ∂^j (φ G1) as a sum of λ^i ∂^i φ · λ^(j−i) ∂^(j−i)
 G1, and λ^(j−i) |∂^(j−i) G1| ≤ C by the chain rule (each derivative of the evaluation costs at most λ⁻¹); moreover ‖φ‖ ≤
 𝒩 and λ^i ‖∂^i φ‖ = λ · λ^(i−1) ‖∂^(i−1) ∂φ‖ ≤ λ 𝒩 for 1 ≤ i ≤ k + 1. Hence, by the Sobolev bound ‖∂^i f‖_(L^∞) ≤ C
-λ^(−3−i) |f|_(i+3) of [[pending:sobolev]], ‖∂^i w‖_(L^∞) ≤ C λ^(−3−i) 𝒩 for i ≤ 4, and |∂w|_k ≤ λ⁻¹ |w|_(k+1) ≤ C λ⁻¹ 𝒩.
+λ^(−3−i) |f|_(i+3) of [[eq:sobolev]], ‖∂^i w‖_(L^∞) ≤ C λ^(−3−i) 𝒩 for i ≤ 4, and |∂w|_k ≤ λ⁻¹ |w|_(k+1) ≤ C λ⁻¹ 𝒩.
 
 **Step 2** (data). φ = 0 on Σ_τ0, so h = w there. The derivatives of h, φ and Ψ on Σ_τ0 of order up to k + 1 in τ are
 fixed by [[eq:ue-transport]], [[eq:ue-h]] and the equation for w, whose coefficients obey the scaled bounds of the chain
@@ -399,10 +386,10 @@ whatever k is; the constants C, C2, M and λ0 then depend on k. So 𝒩_k(τ) �
 at order k.
 
 (c) *The inputs at order k.* (E3) at order k: the residual of the approximant of [[thm:approximant]] is λ^N times a
-profile bounded with all its derivatives ([[pending:fixed-phase]]), so |Ric^H(g_app)|_k ≤ C_k λ^N for every k. (E4) at
-order k: [[prop:exact-correction]] bounds the correction at every order, sup_r ‖∂_r^j U(r)‖_(H^s(S³)) ≤ C_(j,s)
-λ^(N−2−j), with λ0 independent of the order, so Data(w) at order k is O(λ^(N−3)) = O(λ^K) with N = K + 3, as in the
-proof of [[thm:data]].
+profile bounded with all its derivatives ([[sec:approximant]]), so |Ric^H(g_app)|_k ≤ C_k λ^N for every k: the
+approximant of [[thm:approximant]] is of order N − 1 at every regularity k. (E4) at order k: [[prop:exact-correction]]
+bounds the correction at every order, sup_r ‖∂_r^j U(r)‖_(H^s(S³)) ≤ C_(j,s) λ^(N−2−j), with λ0 independent of the
+order, so Data(w) at order k is O(λ^(N−3)) = O(λ^K) with N = K + 3, as in the proof of [[thm:data]].
 
 (d) *Unscaled norms.* 𝒩_k ≤ M_k λ^K gives ‖∂^j ∂h‖ ≤ M_k λ^(K−j) for j ≤ k, and likewise for φ G1 by Step 1, so the
 remainder is O(λ) in H^d once k ≥ d and K ≥ d + 1. ∎

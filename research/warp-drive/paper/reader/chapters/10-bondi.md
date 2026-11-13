@@ -202,3 +202,111 @@ Ric^H(g) = −½ g^{ab} ∂_a ∂_b g + Q(X; g)(∂g, ∂g) for both. The classe
 [[thm:past-approximant]], with ∂^i u in E_(3/2) at fixed λ for the orders that [[lem:every-order-fixed]] controls; that
 lemma supplies them in turn, order by order. ∎
 
+### The half-order gain and the expansion in r^(−1/2) {#sec:bondi-expansion}
+
+**Lemma {#lem:bondi-half-order}** (One half-order.) Let q ∈ {3, 7/2, 4, …}, and let ũ be a symmetric tensor on the far
+region, vanishing for v ≤ v_start, with every Cartesian derivative ∂_X^α Ω^β ũ in E_(q−1), solving
+
+    −½ g_λ^{ab} ∂_a ∂_b ũ = r^(−q) S_q + S̃,       S̃ ∈ E_(q+1/2) with all derivatives,                  {#eq:bondi-half}
+
+with S_q(v, x̂) smooth, bounded with all derivatives and vanishing for v ≤ v_start. Put
+Y_q(v, x̂) := (2/(2q − 5)) ∫_{v_start}^{v} S_q dv'. Then ũ = r^(1−q) Y_q + ǔ with every Cartesian derivative of ǔ in
+E_(q−1/2). If moreover, for some m ≥ 1 and every j < m,
+
+    (H_m)    ℓ^j S̃ ∈ E_(q+1/2+j)   and   ℓ^j (g_λ − g0) ∈ E_(3/2+j),   each with all derivatives,
+
+then ℓ^m ǔ is in E_(q−1/2+m) with all derivatives.
+
+Proof. By the decay calculus [[pending:ch9-decay-calculus]], −½ □̃(r^(1−q) Y_q) = −½ (3 − 2(q − 1)) r^(−q) ∂_v Y_q +
+E_(q+1) = r^(−q) S_q + E_(q+1), and (g_λ⁻¹ − g0⁻¹) ∂²(r^(1−q) Y_q) is in E_(3/2) E_(q−1) = E_(q+1/2). So
+ǔ := ũ − r^(1−q) Y_q solves −½ g_λ^{ab} ∂_a ∂_b ǔ = S′ with S′ in E_(q+1/2) with all derivatives, vanishes for
+v ≤ v_start, and has every derivative in E_(q−1).
+
+*Energy.* The L² norm of an element of E_p on Σ_τ ∩ P+ is at most C t^(3/2 − p), the volume being at most C t³. Apply
+the energy inequality of Chapter 9 [[pending:ch9-energy]] with the metric g_λ, which has the margin required there on P
+by [[thm:past-construction]] [[pending:ch9-past-domain]] and satisfies ‖∂g_λ‖_∞ ≤ C t^(−3/2) on P+, an integrable
+kernel, and with forcing S′, from τ1 → −∞. Since ‖∂ǔ(τ1)‖ ≤ C t1^(3/2 − (q−1)) → 0 because q > 5/2, and
+‖S′(τ')‖ ≤ C t'^(3/2 − q − 1/2) = C t'^(1−q), we get ‖∂ǔ(τ)‖ ≤ C ∫_{−∞}^{τ} t'^(1−q) dτ' = C t^(2−q)/(q − 2).
+Commuting with ∂_X and Ω preserves the form of the equation. [∂_X, g_λ^{ab} ∂_a ∂_b] = (∂_X g_λ^{ab}) ∂_a ∂_b with
+∂_X g_λ^{ab} in E_(3/2) produces a forcing in E_(q+1/2), by the hypothesis on ǔ (its second derivatives are in
+E_(q−1)), within the bound t^(1−q) of S′. And [Ω, □̃] = 0: the rotations are linear maps of R⁴ that preserve g0, and for
+such a map R, □̃(f ∘ R) = (□̃ f) ∘ R. So every commuted energy is at most C t^(2−q). *Pointwise.* The Sobolev inequality
+with rotations and the Poincaré inequality (ǔ = 0 on {v = v_start}) [[pending:ch9-sobolev]] give
+|∂_X^α Ω^β ǔ| ≤ C t^(−3/2) t^(2−q) = C t^(1/2 − q). That is E_(q−1/2), since t and r are comparable on P+.
+
+*The ℓ-gain.* In the coordinates (v, r, x̂) the operator □̃ reads [[pending:ch9-decay-calculus]]
+
+    □̃ f = 2 ∂_v ℓ f + (3/r) ∂_v f + (1 − μ/r²) ℓ ℓ f + (3/r) ℓ f + r^(−2) Δ̊ f,                       {#eq:bondi-box-vr}
+
+with Δ̊ the Laplacian of the unit S³. With ψ := ℓǔ (ℓ acting on Cartesian components) the equation of ǔ becomes
+
+    2 ∂_v ψ + (1 − μ/r²) ℓ ψ + (3/r) ψ = −2 S′ − (3/r) ∂_v ǔ − r^(−2) Δ̊ ǔ − (g_λ^{ab} − g0^{ab}) ∂_a ∂_b ǔ =: f,
+                                                                                                    {#eq:bondi-transport}
+
+with f in E_(q+1/2): its terms are in E_(q+1/2), E_(q+1/2), E_(q+3/2) and E_(3/2) E_(q−1/2). The operator
+L₊ := 2 ∂_v + (1 − μ/r²) ℓ is the outgoing null direction of g0: in (v, r), L₊ = 2 ∂_v + (1 − μ/r²) ∂_r, while
+g0⁻¹(dv, dv) = 0, g0⁻¹(dv, dr) = 1 and g0⁻¹(dr, dr) = 1 − μ/r², so g0(L₊, L₊) = −4 (1 − μ/r²) + 4 (1 − μ/r²) = 0. So
+(eq:bondi-transport) is a transport along the outgoing generators. Along one of them, parametrised by σ, dv/dσ = 2 and
+dr/dσ = 1 − μ/r² ∈ (0, 1]. From a point (v, r) the generator therefore reaches {v = v_start}, where ψ = 0, after a
+parameter length (v − v_start)/2 ≤ d1/2 [[pending:ch9-past-domain]], at a radius r' ∈ [r − d1/2, r]. Integrating
+(L₊ + 3/r) ψ = f along it gives |ψ(v, r)| ≤ e^(3 d1/(2 r')) (d1/2) sup |f| ≤ C r^(−q−1/2), the supremum taken over the
+segment, which lies in the far region once r is large.
+
+Derivatives commute through (eq:bondi-transport) up to terms of the same kind. Ω commutes with L₊ and with 3/r, since it
+annihilates v, r and μ(v); so Ω^b ψ solves (eq:bondi-transport) with the forcing Ω^b f. ∂_v commutes up to
+[∂_v, L₊] = −(μ'/r²) ℓ, and ℓψ is read off (eq:bondi-transport) itself, (1 − μ/r²) ℓψ = f − 2 ∂_v ψ − (3/r) ψ. So
+∂_v^a Ω^b ψ solves (eq:bondi-transport) with a term of order zero, O(r^(−2)) times ∂_v^a Ω^b ψ, moved to the left (over
+a parameter length at most d1/2 it changes the integrating factor by a bounded factor), and a forcing in E_(q+1/2) by
+the lower a. The ℓ-components of the derivatives of ψ are then read off (eq:bondi-transport) in the same way:
+ℓ^c ∂_v^a Ω^b ψ is in E_(q+1/2) by induction on c, and every Cartesian derivative is a combination of ℓ, ∂_v and
+r⁻¹ Ω with coefficients bounded with all their derivatives. So ℓǔ is in E_(q+1/2) with all derivatives. This is the
+case m = 1, which needs nothing of (H_m), since f contains no ℓ-derivative of S′ or of g_λ.
+
+For m ≥ 2, under (H_m), the equation of ℓ^m ǔ = ℓ^(m−1) ψ is (eq:bondi-transport) commuted m − 1 times with ℓ. Its
+forcing is ℓ^(m−1) f plus the commutators [ℓ, L₊] = (2μ/r³) ℓ, [ℓ, 3/r] = −3/r² and
+[ℓ, (g_λ^{ab} − g0^{ab}) ∂_a ∂_b] = (ℓ (g_λ − g0)^{ab}) ∂_a ∂_b applied to the lower ℓ^j ǔ, with one exception:
+[ℓ^(m−1), L₊] ψ = 2 (m − 1)(μ/r³) ℓ^m ǔ plus terms in ℓ^j ǔ with j < m contains the unknown itself, not a lower term.
+It is moved to the left, and the transport becomes (L₊ + 3/r + 2 (m − 1) μ/r³) ℓ^(m−1) ψ = (the rest), whose O(r^(−3))
+coefficient changes the integrating factor by a bounded factor. Each term of ℓ^(m−1) f is in E_(q+1/2+m−1): ℓ^j S′ by
+(H_m) (S′ is S̃ plus (g_λ⁻¹ − g0⁻¹) ∂²(r^(1−q) Y_q) and □̃(r^(1−q) Y_q) − r^(−q) S_q, whose ℓ-derivatives gain by
+(H_m) and explicitly), ℓ^j of (3/r) ∂_v ǔ and of r^(−2) Δ̊ ǔ by the gains already established for j < m, and
+(ℓ^j (g_λ − g0)^{ab}) ∂² ℓ^(m−1−j) ǔ by (H_m) with those gains, E_(3/2+j) E_(q−1/2+m−1−j) = E_(q+m). The commutator terms
+are of the same kind. So the transport gives ℓ^m ǔ in E_(q−1/2+m), and derivatives commute as before. ∎
+
+**Proposition {#prop:bondi-hierarchy}** (The expansion in r^(−1/2).) For every J ≥ 3 there are smooth tensors G_k(v, x̂),
+k = 3, …, J, bounded with all derivatives, vanishing for v ≤ v_start and invariant under T² × Z2 × Z2, with G_3 as in
+(eq:bondi-u-split), such that on the far region
+
+    u = Σ_{k=3}^{J} r^(−k/2) G_k + u_J,       ∂_X^α Ω^β ℓ^m u_J ∈ E_((J+1)/2 + m)   for all α, β, m.       {#eq:bondi-expansion}
+
+The G_k are determined inductively: G_k = (2/(k − 3)) ∫_{v_start}^{v} S_(k/2+1) dv' for k ≥ 4 (so G_4 = 2 ∫ S_3), where
+r^(−q) S_q is the leading term of the forcing once the terms below it are known.
+
+Proof. We induct on J with [[lem:bondi-half-order]]. For J = 3, u_3 := u_1 is in E_2 with all derivatives by
+[[lem:every-order-fixed]], and by [[lem:bondi-equation-u]] it solves
+−½ g_λ^{ab} ∂_a ∂_b u_3 = S(u) − ½ (g_λ^{ab} − g0^{ab}) ∂_a ∂_b u_3 + ½ □̃(r^(−3/2) G_3) =: F_1. The second term is in
+E_(7/2) (E_(3/2) E_2), the third in E_(7/2) [[pending:ch9-decay-calculus]], and S(u) is in E_3 with a leading term
+r^(−3) determined by G_3 alone: −(3μ'/2) dv dv from Ric(g0), plus the terms of (eq:bondi-S) quadratic in
+∂(r^(−3/2) G_3) or of the form (r^(−3/2) G_3) ∂²(g0 + r^(−3/2) G_3), since every term containing u_3 is in E_(7/2)
+(E_(3/2) E_2, or Γ[g0] times E_2). So (eq:bondi-half) holds at q = 3, and [[lem:bondi-half-order]] gives
+u = r^(−3/2) G_3 + r^(−2) G_4 + u_4 with every derivative of u_4 in E_(5/2).
+
+*The ℓ-gains at J = 3, by induction on m.* The case m = 1 needs no hypothesis: ℓu_4 is in E_3, hence
+ℓu_1 = ℓ(r^(−2) G_4) + ℓu_4 is in E_3 and ℓ(g_λ − g0) = ℓ(r^(−3/2) G_3) + ℓu_1 is in E_(5/2), with all derivatives.
+Suppose ℓ^j u_4 is in E_(5/2+j) for j < m. Then ℓ^j (g_λ − g0) is in E_(3/2+j) for j < m, and ℓ^j S̃ is in E_(7/2+j):
+S̃ = F_1 − r^(−3) S_3 is a polynomial in g0, g_λ⁻¹, u, ∂u and ∂²u each of whose terms either is explicit (the terms in
+G_3 and g0, whose ℓ-derivatives gain an order each because r^(−k) and the profiles do) or contains u_1 or a derivative
+of it, on which ℓ^j gains j orders by the hypothesis, the other factors keeping their classes. So (H_m) holds, and
+[[lem:bondi-half-order]] gives ℓ^m u_4 in E_(5/2+m): (eq:bondi-expansion) at J = 4.
+
+*Stage J ≥ 4.* The remainder u_J has every ℓ-gain. So the forcing of u_J, a polynomial in (u, ∂u, ∂²u) with
+coefficients smooth in (X, g) whose arguments are expanded to the previous order with remainders in E_((J+1)/2), has
+the form r^(−q) S_q + S̃ with q = (J + 3)/2 and S̃ satisfying (H_m) for every m: every product with a remainder factor is
+in E_(3/2 + (J+1)/2) = E_(q+1/2) or better and gains under ℓ. So the coefficient of r^(−q) is a polynomial in the G_k,
+k ≤ J, and their derivatives, and [[lem:bondi-half-order]] applies at every m. The invariance and the vanishing for
+v ≤ v_start are inherited by the integrals from v_start. ∎
+
+**Remark {#rem:bondi-lambda}** The coefficients from G_4 on depend on λ, through the phase v/λ and the powers of λ of the
+profiles, and [[prop:bondi-hierarchy]] claims nothing uniform in λ. It is an asymptotic statement at past null infinity
+at each fixed λ, which is all the mass law needs.
+

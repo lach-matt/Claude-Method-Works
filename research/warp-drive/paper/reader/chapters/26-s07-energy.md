@@ -250,3 +250,245 @@ spaces the same holds, as the operations commute with b-vector fields up to term
 
 The equivalence of the quotient norm on H^(m,2α)(Ω′)^(−,•) with the norm on the slab, proved in (b), is what the
 duality step of [Hin26c, Proposition 8.3] uses.
+
+### Energy estimates {#sec:ii-e-2}
+
+#### Three identities {#sec:ii-e-2-1}
+
+For a C¹ Lorentzian metric g, a real C¹ vector field X and real covectors ζ put
+
+    K_X(ζ) := (1/2) (H_G(ζ(X)) − (div_g X) G(ζ)),        T(V,W)(ζ) := ζ(V) ζ(W) − (1/2) g(V,W) G(ζ),
+
+with G(ζ) = g⁻¹(ζ, ζ). For u with values in the fibre, K_X(du) and T(V,W)(du) are the corresponding Hermitian forms in
+du (sums over the real and imaginary parts of the components in a unitary frame). In coordinates
+K_X(ζ) = (∇_μ X_ν) ζ^μ ζ^ν − (1/2)(div_g X) G(ζ), as
+
+    H_G(X^ν ζ_ν) = 2 g^(μλ) ζ_λ (∂_μ X^ν) ζ_ν − (∂_κ g^(μν)) X^κ ζ_μ ζ_ν,
+    2 ζ^μ ζ_ν Γ^ν_(μκ) = ζ^μ ζ^λ ∂_κ g_(λμ) = −(∂_κ g^(μν)) ζ_μ ζ_ν.
+
+P_□ := −□_g acts componentwise; σ_2(P_□) = G.
+
+**Lemma {#lem:ii-e-2-1}** (Energy identity.) Let O be a region whose boundary in M° consists of finitely many C¹
+hypersurfaces {φ_j = 0} meeting transversally, with O = {φ_j > 0 for all j} near them, and let X be a real C¹ vector
+field. For u ∈ C²(Ō) with values in the fibre and with compact support in Ō,
+
+    2 Re ∫_O ⟨P_□ u, Xu⟩ |dg| = ∫_O 2K_X(du) |dg| + Σ_j ∫ 2T(X, ∇φ_j)(du) δ(φ_j) |dg|.                {#eq:ii-e-2-1}
+
+For f ∈ C¹ real, K_(fX) = f K_X + 2T(X, (1/2)∇f), that is,
+K_(fX)(ζ) = f K_X(ζ) + ζ(X) g⁻¹(df, ζ) − (1/2)(Xf) G(ζ).
+
+*Proof.* For a real component a of u, with J := −(Xa)∇a + (1/2) G(da) X,
+
+    div J = −(Xa) □a − (∇_μ X_ν) ∇^μ a ∇^ν a − (1/2) X(G(da)) + (1/2) X(G(da)) + (1/2)(div X) G(da),
+
+using ∇^μ a ∇_μ(X^ν ∇_ν a) = (∇_μ X_ν) ∇^μ a ∇^ν a + (1/2) X(G(da)). So (−□a)(Xa) = div J + K_X(da). Integrate over O:
+∫ div(1_O J) |dg| = 0 and div(1_O J) = 1_O div J + Σ_j δ(φ_j) J(dφ_j) (the divergence theorem on the Lipschitz domain
+O), and −J(dφ_j) = (Xa) da(∇φ_j) − (1/2)(Xφ_j) G(da) = T(X, ∇φ_j)(da). Sum over the real and imaginary parts of all
+components. The formula for K_(fX) follows from H_G(f ζ(X)) = f H_G(ζ(X)) + ζ(X) H_G f, H_G f = 2g⁻¹(df, ζ) and
+div(fX) = f div X + Xf. ∎
+
+**Lemma {#lem:ii-e-2-2}** (Dominant energy.) If V and W are both future causal, or both past causal, then
+T(V,W)(ζ) ≥ 0 for all real ζ. If V is timelike, T(V,V)(ζ) ≥ c|ζ|² with c > 0 depending continuously on V and on a
+Riemannian norm.
+
+*Proof.* T is bilinear in (V, W), so the past case follows from the future one. Let Z := ζ^♯ and
+Y := g(Z,V) Z − (1/2) g(Z,Z) V. Then T(V,W)(ζ) = g(Y,W), g(Y,Y) = (1/4) g(Z,Z)² g(V,V) ≤ 0, and
+g(Y,V) = T(V,V)(ζ). In an orthonormal frame with V a positive multiple of e_0 (if V is timelike),
+T(V,V)(ζ) = (1/2)|V|²(Z_0² + |Z_⊥|²), which is the second claim; if V is null, T(V,V)(ζ) = g(Z,V)² ≥ 0. So Y is causal
+or zero, with g(Y,V) ≥ 0, hence past causal or zero, and g(Y,W) ≥ 0 for W future causal. In the remaining case,
+g(Y,V) = 0 with V null, g(Z,V)² = T(V,V)(ζ) = 0, so Y = −(1/2) g(Z,Z) V; and Z ⊥ V with V null forces Z spacelike or
+parallel to V, so g(Z,Z) ≥ 0, and Y is a non-positive multiple of V, again past causal or zero. ∎
+
+**Lemma {#lem:ii-e-2-3}** (Poincaré inequality with an exponential weight.) Let O be as in [[lem:ii-e-2-1]], Y a C¹
+vector field and τ a C¹ function with Yτ = 1 and |div_g Y| ≤ C_0 on O, w > 0 a C¹ weight with |Y log w| ≤ C_1, and
+Φ ≥ C_0 + C_1. Let u ∈ C¹(Ō) have compact support in Ō and vanish near the part of every boundary face {φ_j = 0} where
+Yφ_j > 0. Then
+
+    ∫_O e^(−2Φτ) w |u|² |dg| ≤ 4Φ⁻² ∫_O e^(−2Φτ) w |Yu|² |dg|.                                     {#eq:ii-e-2-2}
+
+*Proof.* With Y_Φ := e^(−2Φτ) w Y,
+
+    div(|u|² Y_Φ) = e^(−2Φτ) w Y|u|² + e^(−2Φτ) w (div Y + Y log w − 2Φ) |u|².
+
+Integrating as in [[lem:ii-e-2-1]], ∫_O div(|u|² Y_Φ) |dg| = −Σ_j ∫ δ(φ_j) |u|² Y_Φ φ_j |dg| ≥ 0, as u = 0 near the
+faces with Yφ_j > 0. With |Y|u|²| ≤ 2|u||Yu| and the Cauchy–Schwarz inequality,
+
+    (2Φ − C_0 − C_1) ∫ e^(−2Φτ) w |u|² ≤ 2 (∫ e^(−2Φτ) w |u|²)^(1/2) (∫ e^(−2Φτ) w |Yu|²)^(1/2),
+
+which gives [[eq:ii-e-2-2]], as 2Φ − C_0 − C_1 ≥ Φ. ∎
+
+With Y replaced by −Y and τ by −τ this is the inequality for the reverse direction:
+∫ e^(2Φτ) w |u|² ≤ 4Φ⁻² ∫ e^(2Φτ) w |Yu|² when u vanishes near the faces with Yφ_j < 0.
+
+#### The multiplier near ℐ⁺ {#sec:ii-e-2-2}
+
+Near ℐ⁺ at finite times put, for β ∈ ℝ,
+
+    X_0^(β) := x_I^(−4β−2) (∂_(t_*) − x_I∂_(x_I)) = r^(2β+1) (∂_(t_*) + 2r∂_r).
+
+For covectors write ζ = ζ_(t_*) dt_* + ξ dx_I/x_I + η and η̂ := x_I η, so that ζ(∂_(t_*)), ζ(x_I∂_(x_I)) and η̂ are the
+components of ζ on the edge frame, and |η̂|² = x_I² |η|²_(g̸).
+
+**Lemma {#lem:ii-e-2-4}** (The current of the multiplier.) For the Minkowski metric ḡ = −dt_*² − 2dt_* dr + r² g̸,
+
+    K_(X_0^(β))(ζ) = x_I^(−4β) [−(2β+1) ζ_(t_*)² − 3 ζ_(t_*) ξ − (2β+3)|η̂|²
+                                 + x_I² ((2β−1)/4 · ξ² − (2β+1)/2 · ζ_(t_*) ξ)],
+    T(X_0^(β), −∇t_*)(ζ) = (1/2) x_I^(−4β) (ξ² + |η̂|² + (1/4) x_I² ξ²).
+
+For the metric g of P, the two sides change by x_I^(−4β) O(x_I^(2ℓ_I)) (ζ_(t_*)² + ξ² + |η̂|²), uniformly for ε_P ≤ 1,
+with d_0 ≥ 2.
+
+This is [Hin26c, (8.10)] in dimension 4 + 1. In dimension 3 + 1 the cross term −3ζ_(t_*)ξ is −2ζ_(t_*)ξ and the angular
+coefficient −(2β+3) is −2(β+1); the coefficient −(2β+1) of ζ_(t_*)², which carries the threshold, is the same in both
+dimensions, so the threshold of [[lem:ii-e-2-5]] is the same as there. The cross term is absorbed whatever its size.
+
+*Proof.* With ⊗_s as in [[lem:ii-e-1-1]], ḡ⁻¹ = −2 ∂_(t_*) ⊗_s ∂_r + ∂_r ⊗ ∂_r + r⁻² g̸⁻¹, so in (t_*, r, ω)
+
+    G(ζ) = −2 ζ_(t_*) ζ_r + ζ_r² + r⁻² |η|²,
+
+and div_ḡ Y = r⁻³ ∂_μ(r³ Y^μ) for Y = Y^(t_*) ∂_(t_*) + Y^r ∂_r. Put c := 2β + 1 and X := r^c (∂_(t_*) + 2r∂_r). Then
+ζ(X) = r^c (ζ_(t_*) + 2r ζ_r), which does not depend on t_*, ω or η, so
+
+    H_G(ζ(X)) = ∂_(ζ_r)G · ∂_r(ζ(X)) − ∂_r G · ∂_(ζ_r)(ζ(X)),
+
+with ∂_(ζ_r)G = −2ζ_(t_*) + 2ζ_r, ∂_r G = −2r⁻³|η|², ∂_r(ζ(X)) = r^(c−1)(c ζ_(t_*) + 2(c+1) r ζ_r) and
+∂_(ζ_r)(ζ(X)) = 2r^(c+1); and div X = r⁻³ ∂_r(2r^(c+4)) = 2(c+4) r^c. So
+
+    2K_X = r^(c−1) [(−2ζ_(t_*) + 2ζ_r)(c ζ_(t_*) + 2(c+1) r ζ_r) + 4r⁻¹|η|²]
+           − 2(c+4) r^c (−2ζ_(t_*) ζ_r + ζ_r² + r⁻² |η|²).
+
+Insert ζ_r = −ξ/(2r) (as dr = −2r dx_I/x_I) and |η|² = r|η̂|², and use r^(c−1) = x_I^(−4β) and r⁻¹ = x_I². The terms
+are, after division by r^(c−1):
+
+- ζ_(t_*)²: from the first product, −2c.
+- ζ_(t_*)ξ: the first product gives ζ_(t_*)ζ_r(2c − 4(c+1)r) = ζ_(t_*)ξ(2(c+1) − c x_I²), and the second term gives
+  4(c+4) r ζ_(t_*) ζ_r = −2(c+4) ζ_(t_*) ξ; the sum is −6 − c x_I².
+- |η̂|²: 4 from the first bracket and −2(c+4) from the second term; the sum is −2c − 4.
+- ξ²: the first product gives 4(c+1) r ζ_r² = (c+1) x_I² ξ², and the second term gives
+  −2(c+4) r ζ_r² = −(c+4)/2 · x_I² ξ²; the sum is (c−2)/2 · x_I².
+
+Halving gives K, with −c = −(2β+1), −3 − (c/2) x_I² = −3 − (2β+1)/2 · x_I², −c − 2 = −(2β+3) and
+(c−2)/4 = (2β−1)/4. For T: ζ(X_0^(β)) = r^c(ζ_(t_*) + 2rζ_r) = r^c(ζ_(t_*) − ξ),
+ζ(−∇t_*) = −ḡ⁻¹(dt_*, ζ) = ζ_r = −ξ/(2r), and ḡ(X_0^(β), −∇t_*) = −dt_*(X_0^(β)) = −r^c; so
+
+    T = r^c (ζ_(t_*) − ξ)(−ξ/(2r)) + (1/2) r^c (−2ζ_(t_*)ζ_r + ζ_r² + r⁻²|η|²)
+      = r^(c−1) (−(1/2)ζ_(t_*)ξ + (1/2)ξ²) + r^(c−1) ((1/2)ζ_(t_*)ξ + (1/8) r⁻¹ ξ² + (1/2)|η̂|²),
+
+which is (1/2) r^(c−1)(ξ² + |η̂|² + (1/4) r⁻¹ ξ²), the ζ_(t_*)ξ terms cancelling. For g: by [[lem:ii-e-1-1]] and
+[[eq:ii-c-5-1]], g⁻¹ − ḡ⁻¹ is x_I^(2+2ℓ_I) times a quadratic form in (ζ_(t_*), ξ, η̂) with coefficients bounded in
+C^(d_0−1)_e, and |dg|/|dḡ| − 1 ∈ x_I^(2ℓ_I) C^(d_0−1)_e; K and T involve these and one edge derivative of them. ∎
+
+**Lemma {#lem:ii-e-2-5}** (Energy estimate near ℐ⁺.) Let α < −1/2 + p̄_1 and Ω′ = Ω_(T_0,T_1), T_0 ≥ 1; put
+t′ := t_* + r^(ℓ_I/2). There are δ_I > 0 and T_2, with Ω′ ∩ {t′ ≥ T_2} ⊂ {x_I ≤ δ_I}, and C, such that:
+
+(i) for u ∈ D(Ω′) supported in {x_I ≤ δ_I}, ‖u‖_(H^(1,2α)(Ω′)) ≤ C ‖Pu‖_(H^(0,2α+2)(Ω′));
+
+(ii) for v ∈ C^∞(Ω̄′ ∩ {t′ ≥ T_2}) vanishing near {t^♭ = T_1} and near ℐ⁺,
+‖v‖_(H^(1,−2α−2)(Ω′∩{t′≥T_2})) ≤ C ‖P*v‖_(H^(0,−2α)(Ω′∩{t′≥T_2})).
+
+Here H^(1,2β)(O) and H^(0,2β)(O) denote the norms
+
+    (∫_O x_I^(−4β) (|u|² + |∂_(t_*)u|² + |x_I∂_(x_I)u|² + |x_I∂_ω u|²) |dg|)^(1/2),     (∫_O x_I^(−4β) |u|² |dg|)^(1/2),
+
+and P* is the adjoint for |dg| and the fibre inner product h_I of [[eq:ii-e-1-2]]. C is uniform for ε_P small, with
+d_0 = 2.
+
+This is [Hin26c, Lemma 8.1] in dimension 4 + 1.
+
+*Proof.* *The level sets of t′.* With α′ := ℓ_I/2, dt′ = dt_* + α′ r^(α′−1) dr has
+ḡ⁻¹(dt′, dt′) = −2α′ r^(α′−1) + α′² r^(2α′−2). The proof of [[lem:ii-c-3-2]] bounds the coefficients of g⁻¹ − ḡ⁻¹ in
+its basis by C(ε_P + ρ_I^(1−ℓ_I)) ρ_I^(ℓ_I), ρ_I = t_*/r; the basis evaluated on (dt′)^(⊗2) gives ρ_I, O(r^(α′−1)), 0,
+ρ_I⁻¹ α′² r^(2α′−2), 0, 0, all at most C r^(α′−1) · r^(α′) at bounded t_*. So g⁻¹(dt′, dt′) ≤ −α′ r^(α′−1) for r ≥ R_0,
+as ρ_I^(ℓ_I) r^(α′) = O(r^(−ℓ_I/2)). Moreover dt′(V) = t_* + α′ r^(α′) > 0 for the future timelike V = t∂_t + r∂_r of
+the proof of [[lem:ii-c-3-2]], so dt′ is past timelike there, and t′ increases along future causal curves. As t_* is
+bounded on Ω′, Ω′ ∩ {t′ ≥ T_2} ⊂ {x_I ≤ δ_I} for T_2 large.
+
+*Conjugation.* Put v_♭ := A_I⁻¹ u and P̃ := A_I⁻¹ P A_I. As A_I is independent of x_I, P̃ − P is of first order: the
+commutator [x_I² x_I∂_(x_I) ∂_(t_*), A_I] is x_I² (∂_(t_*)A_I) x_I∂_(x_I), the commutator with x_I⁴ Δ_(𝕊³) is x_I³ times
+a first-order edge operator, and the rest is of order 0 with coefficient O(x_I²). By [[lem:ii-e-1-1]], with P_□ for g
+satisfying [[eq:ii-e-1-1]] with p_0 = p_1 = 0 (its difference from −□_ḡ comes from g − ḡ), near ℐ⁺
+
+    P̃ = P_□ + 2x_I² p_1^A ∂_(t_*) + x_I² b x_I∂_(x_I) + R_1 + R_0,        p_1^A := A_I⁻¹ p_1 A_I,         {#eq:ii-e-2-3}
+
+with b bounded, R_1 a first-order edge operator with coefficients O(x_I^(2+2ℓ_I)) (of class C^(d_0−1)_e), and R_0 of
+order 0 with coefficient O(x_I²). By [[eq:ii-e-1-2]], Re p_1^A = A_I⁻¹ (Re_(h_I) p_1) A_I, so
+⟨Re p_1^A w, w⟩ = h_I(Re_(h_I) p_1 A_I w, A_I w) ≥ (p̄_1 − δ′)|w|²; take δ′ := (p̄_1 − 1/2 − α)/4.
+
+*(i).* Let X := e^(−2Φt_*) X_0^(α), future timelike near ℐ⁺: ḡ(X_0^(α), X_0^(α)) = r^(2c)(−1 − 4r), c = 2α + 1, which
+dominates the change O(x_I^(2ℓ_I)) r^(2c+1) from g − ḡ. Apply [[lem:ii-e-2-1]] on O := Ω′. Its faces near supp u are
+{t^♭ = T_0}, where v_♭ = 0, and {t^♭ = T_1}, with φ = T_1 − t^♭ and ∇φ = −∇t^♭ future timelike, so the boundary term is
+≥ 0 by [[lem:ii-e-2-2]]. So
+
+    2 Re ∫ ⟨P̃ v_♭, X v_♭⟩ ≥ ∫ 2K_X(dv_♭) + 2 Re ∫ ⟨(P̃ − P_□) v_♭, X v_♭⟩.
+
+By [[lem:ii-e-2-1]] and [[lem:ii-e-2-4]], K_X = e^(−2Φt_*) (K_(X_0^(α)) + 2Φ T(X_0^(α), −∇t_*)). Write
+τ_0 := |∂_(t_*) v_♭|, τ_1 := |x_I∂_(x_I) v_♭| and τ_2 := |x_I∂_ω v_♭|. Pointwise, after division by
+e^(−2Φt_*) x_I^(−4α), the integrand on the right is at least
+
+    (−2(2α+1) + 4(p̄_1 − δ′)) τ_0² − C_1 τ_0 τ_1 − C_1 τ_1² + 2Φ(τ_1² + τ_2²) − 2(2α+3)_+ τ_2²
+        − C_2 (1 + Φ)(δ^(2ℓ_I) + δ²)(τ_0² + τ_1² + τ_2²) − C_2 |v_♭| (τ_0 + τ_1 + τ_2)
+
+on {x_I ≤ δ}: the first term is 4⟨Re p_1^A ∂_(t_*) v_♭, ∂_(t_*) v_♭⟩ plus the ζ_(t_*)² part of 2K_(X_0^(α)); C_1 bounds
+the cross terms −6 Re⟨∂_(t_*) v_♭, x_I∂_(x_I) v_♭⟩, −4 Re⟨p_1^A ∂_(t_*) v_♭, x_I∂_(x_I) v_♭⟩ and those of b; C_2 bounds
+the x_I²-terms of [[lem:ii-e-2-4]], the change from ḡ to g, and R_1, R_0. The first coefficient is
+a := −2(2α+1) + 4(p̄_1 − δ′) = 16δ′ − 4δ′ = 12δ′ > 0. Use C_1 τ_0 τ_1 ≤ (a/4) τ_0² + (C_1²/a) τ_1² and
+C_2 |v_♭| τ_j ≤ (a/16) τ_j² + (4C_2²/a) |v_♭|², and [[lem:ii-e-2-3]] with Y = ∂_(t_*), τ = t_*, w = x_I^(−4α) (as
+∂_(t_*)φ > 0 only at the initial face, where v_♭ = 0, and |div_g ∂_(t_*)| ≤ C_0), which gives
+∫ e^(−2Φt_*) x_I^(−4α) |v_♭|² ≤ 4Φ⁻² ∫ e^(−2Φt_*) x_I^(−4α) τ_0². Choose Φ large, then δ ≤ δ_I small depending on Φ, to
+get
+
+    2 Re ∫ ⟨P̃ v_♭, X v_♭⟩ ≥ ∫ e^(−2Φt_*) x_I^(−4α) ((a/4) τ_0² + (Φ/4)(τ_1² + τ_2²)) |dg|
+                          ≥ c ‖e^(−Φt_*) v_♭‖²_(H^(1,2α)).
+
+The left side is at most
+
+    2 ∫ e^(−2Φt_*) x_I^(−4α−2) |P̃ v_♭| (τ_0 + τ_1) ≤ (c/2) ‖e^(−Φt_*) v_♭‖²_(H^(1,2α))
+                                                  + C ‖e^(−Φt_*) P̃ v_♭‖²_(H^(0,2α+2)).
+
+As t_* is bounded on Ω′ and A_I, A_I⁻¹ are bounded with bounded derivatives, (i) follows.
+
+*(ii).* Let β := −α − 1, O := Ω′ ∩ {t′ ≥ T_2}, w_♭ := A_I⁻¹ v and X_* := −e^(2Φt_*) X_0^(β), which is past timelike.
+P̃* is the standard adjoint of P̃, and A_I⁻¹ P* A_I = P̃* (the proof of [[lem:ii-d-1-1]]). P_□ is symmetric for |dg|. So
+
+    P̃* = P_□ − 2x_I² (p_1^A)* ∂_(t_*) − x_I² b* x_I∂_(x_I) + R_1′ + R_0′,
+
+with R_1′, R_0′ as before ((x_I∂_(x_I))* = −x_I∂_(x_I) + 8 + O(x_I^(2ℓ_I)) for |dg|). Apply [[lem:ii-e-2-1]] on O with
+the multiplier X_*: the faces with w_♭ ≠ 0 nearby are {t^♭ = T_0} and {t′ = T_2}, with ∇φ = ∇t^♭, resp. ∇t′, past
+timelike, so the boundary terms 2T(X_*, ∇φ)(dw_♭) are ≥ 0 by [[lem:ii-e-2-2]] (both vectors past causal). By
+[[lem:ii-e-2-1]], K_(X_*) = e^(2Φt_*) (−K_(X_0^(β)) + 2Φ T(X_0^(β), −∇t_*)). The ζ_(t_*)² coefficient of −2K_(X_0^(β))
+is 2(2β+1) = −2(2α+1), and the term 2 Re⟨−2x_I² (p_1^A)* ∂_(t_*) w_♭, X_* w_♭⟩ contributes
+4⟨Re p_1^A ∂_(t_*) w_♭, ∂_(t_*) w_♭⟩, so the coefficient is again a. The rest is as in (i), with [[lem:ii-e-2-3]] in the
+reverse direction (w_♭ = 0 near {t^♭ = T_1}, the only face of O with ∂_(t_*)φ < 0). ∎
+
+**Lemma {#lem:ii-e-2-6}** (Energy estimate on a compact region.) Let Ω′ and t′ be as in [[lem:ii-e-2-5]], T ≥ T_2 and
+O_T := Ω′ ∩ {t′ ≤ T}, which is compact. There is C such that ‖u‖_(H¹(O_T)) ≤ C ‖Pu‖_(L²(O_T)) for u ∈ C^∞(Ō_T)
+vanishing near {t^♭ = T_0}, and ‖v‖_(H¹(O_T)) ≤ C ‖P*v‖_(L²(O_T)) for v ∈ C^∞(Ō_T) vanishing near {t^♭ = T_1},
+{r = r_0} and {t′ = T}; uniformly for ε_P small, with d_0 = 2.
+
+*Proof.* Let Y_♭ := −∇t^♭, which is future timelike and of class C^(d_0−1), Ŷ_♭ := Y_♭/(Y_♭ t^♭), and
+X := e^(−2Φt^♭) Y_♭. By [[lem:ii-e-2-1]], K_X = e^(−2Φt^♭)(K_(Y_♭) + 2Φ T(Y_♭, Y_♭)), and by [[lem:ii-e-2-2]] and
+compactness, T(Y_♭, Y_♭)(ζ) ≥ c|ζ|² on Ō_T. The faces with u ≠ 0 nearby are {t^♭ = T_1}, {r = r_0} and {t′ = T}, with
+∇φ equal to −∇t^♭, ∇r and −∇t′, all future timelike ([[lem:ii-c-3-2]] and [[lem:ii-e-2-5]]); the boundary terms are
+≥ 0 by [[lem:ii-e-2-2]]. The first- and zeroth-order terms of P − P_□ contribute at most
+C e^(−2Φt^♭)(|du|² + |u||du|), and [[lem:ii-e-2-3]] with Y = Ŷ_♭ and τ = t^♭ bounds ∫ e^(−2Φt^♭)|u|² by
+4Φ⁻² ∫ e^(−2Φt^♭)|Ŷ_♭ u|², the only face with Ŷ_♭ φ > 0 being the initial one. For Φ large this gives the first
+estimate, as in [[lem:ii-e-2-5]]. For P* use −e^(2Φt^♭) Y_♭ and the reverse inequality of [[lem:ii-e-2-3]]. ∎
+
+**Proposition {#prop:ii-e-2-7}** (Energy estimates on slabs.) Let α < −1/2 + p̄_1 and Ω′ = Ω_(T_0,T_1), T_0 ≥ 1. There
+is C, uniform for ε_P small with d_0 = 2, such that for u ∈ D(Ω′) and v ∈ D_*(Ω′)
+
+    ‖u‖_(H^(1,2α)(Ω′)) ≤ C ‖Pu‖_(H^(0,2α+2)(Ω′)),     ‖v‖_(H^(1,−2α−2)(Ω′)) ≤ C ‖P*v‖_(H^(0,−2α)(Ω′)).   {#eq:ii-e-2-4}
+
+The same holds on Ω′ ∩ {t′ ≤ T} for T ≥ T_2, with {t′ = T} a further final face, and for P^ext on the slabs
+{T_0 ≤ t^♭ ≤ T_1, r ≥ r^♯} of [[lem:ii-e-1-2]], T_0 ≥ 1 − η_0.
+
+This is [Hin26c, Lemma 8.1 and (8.23)] in dimension 4 + 1.
+
+*Proof.* Let χ = χ(t′) equal 1 for t′ ≤ T_2 and 0 for t′ ≥ T_2 + 1. For u: ‖χu‖_(H¹) ≤ C‖u‖_(H¹(O_(T_2+1))) ≤ C‖Pu‖ by
+[[lem:ii-e-2-6]], the weights being bounded on O_(T_2+1). (1 − χ)u ∈ D(Ω′) is supported in {x_I ≤ δ_I}, so by
+[[lem:ii-e-2-5]] (i), ‖(1 − χ)u‖_(H^(1,2α)) ≤ C(‖Pu‖ + ‖[P, χ]u‖_(H^(0,2α+2))), and [P, χ]u is supported in O_(T_2+1)
+with norm at most C‖u‖_(H¹(O_(T_2+1))). For v, in the reverse order: [[lem:ii-e-2-5]] (ii) bounds v on
+Ω′ ∩ {t′ ≥ T_2}, which contains the support of [P*, χ]v; then [[lem:ii-e-2-6]] applied to χv, which vanishes near
+{t′ = T_2 + 1}, bounds χv. On the extended slabs the proofs apply verbatim, by [[lem:ii-e-1-2]] (iii)–(iv), with
+[[eq:ii-e-1-2]] holding at 2δ′, so that the coefficient of [[lem:ii-e-2-5]] is a = −2(2α+1) + 4(p̄_1 − 2δ′) = 8δ′ in
+place of 12δ′. ∎
