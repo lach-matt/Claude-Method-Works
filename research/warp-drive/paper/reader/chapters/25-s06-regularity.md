@@ -1215,7 +1215,8 @@ operators E′, G′ (the union of the sets of two applications, for B′ and a 
 U_(k−1) in place of U, to w := u^(k), giving B_k, E_k, G_k microsupported in U_(k−1); choose auxiliary operators
 G^♯_1, G^♯_2 ((R1) of [[sec:ii-a-8-3]]) with WF′(G_k) ⊂ Ell(G^♯_1), WF′(G^♯_1) ⊂ Ell(G^♯_2) and
 WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at Γ. By [[lem:ii-d1-2-1]],
-‖G_k L^(k) u^(k)‖ ≤ ‖G_k f^(k)‖ + ‖G_k f̃^(k)‖ + ‖G_k f̃^(k)_♭‖, all norms of order 𝗍 − 1 + 𝔩. We bound each term of [[eq:ii-d1-2-5]] at w = u^(k).
+‖G_k L^(k) u^(k)‖ ≤ ‖G_k f^(k)‖ + ‖G_k f̃^(k)‖ + ‖G_k f̃^(k)_♭‖, all norms of order 𝗍 − 1 + 𝔩. We bound each term of
+[[eq:ii-d1-2-5]] at w = u^(k).
 
 *The left side.* By [[eq:ii-d1-2-3]] with B̃ := G^♯_1, ‖Bu‖_(𝗍;k) ≤ C(‖G^♯_1 u‖_(𝗍;k−1) + Σ_α ‖BX^α u‖_𝗍 +
 ‖χ̃u‖_(𝗍_0;k)), and ‖BX^α u‖_𝗍 ≤ C(‖B_k u^(k)‖_𝗍 + ‖χ̃u‖_(𝗍_0;k)), as B_k is elliptic on WF′(B) and ‖χ̃X^α u‖_(𝗍_0) ≤
