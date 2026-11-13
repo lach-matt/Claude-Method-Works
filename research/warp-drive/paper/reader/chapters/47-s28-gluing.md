@@ -509,8 +509,8 @@ with δf as in [[lem:s28-setting]] (a); both terms on the right tend to zero as 
 the right side (δJ, δρ), and so does (δK, δg) = T_(u′)z in 𝒳;
 
 (c) there are ε_s > 0 and C₅ such that for u′ ∈ 𝒩_(ε_c) and ‖(δJ, δρ)‖_𝒮 < ε_s, [[eq:v-3-1]] has a solution
-(δK, δg) = T_(u′)z with z ∈ B, and ‖z‖_𝒴 + ‖(δK, δg)‖_𝒳 ≤ C₅‖(δJ, δρ)‖_𝒮. Diminishing ε_s, it is the solution of
-[[lem:s28-setting]] (a), so (b) of that lemma applies to it.
+(δK, δg) = T_(u′)z with z ∈ B, and ‖z‖_𝒴 + ‖(δK, δg)‖_𝒳 ≤ C₅‖(δJ, δρ)‖_𝒮. Diminishing ε_c and ε_s, it is the
+solution of [[lem:s28-setting]] (a), so (b) of that lemma applies to it.
 
 *Proof.* (a) By [[lem:s28-setting]] (d), D_zΨ(u′, 0) is an isomorphism with inverse of norm at most C₁, independently of
 u′. T_(u′) is bounded from 𝒴 to 𝒳, continuously in u′ in operator norm: so is e^(−2s/x)Φ²P*_(u′), its coefficients
@@ -559,19 +559,20 @@ v, v + h ∈ B, B being convex,
 of norm at most C₃‖h‖²/2. So there are ε_G and C_G such that for u′ ∈ 𝒩_(ε_c) and δf ∈ 𝒵 with ‖δf‖_𝒵 < ε_G there is
 z ∈ B with Ψ(u′, z) − Ψ(u′, 0) = δf and ‖z‖_𝒴 ≤ C_G‖δf‖_𝒵; and Ψ(u′, 0) = 0. Take δf := π₀♯_(g′)e^(2s/x)(δJ, δρ). By
 [[lem:s28-setting]] (e) and *The spaces*, ‖δf‖_𝒵 ≤ C₆‖(δJ, δρ)‖_𝒮 with C₆ independent of u′. For
-‖(δJ, δρ)‖_𝒮 < ε_G/C₆ this gives z ∈ B with Ψ(u′, z) = δf, that is, by [[lem:s28-setting]] (a), a solution
+‖(δJ, δρ)‖_𝒮 < ε_s ≤ ε_G/C₆ this gives z ∈ B with Ψ(u′, z) = δf, that is, by [[lem:s28-setting]] (a), a solution
 (δK, δg) = T_(u′)z of [[eq:v-3-1]], with ‖z‖_𝒴 ≤ C_GC₆‖(δJ, δρ)‖_𝒮 and ‖(δK, δg)‖_𝒳 ≤ ‖T_(u′)‖‖z‖_𝒴, ‖T_(u′)‖ being
-bounded uniformly.
+bounded uniformly; this gives C₅.
 
-Now let (δK′, δg′) = e^(−2s/x)Φ²P*_(u′)(Y, N), (Y, N) ∈ 𝒴_(g′), be the solution of [[lem:s28-setting]] (a), and
-z′ := π₀(Y, N), so that (δK′, δg′) = T_(u′)z′ and Ψ(u′, z′) = δf ([[lem:s28-setting]] (a)). As
+Now let (δK_*, δg_*) = e^(−2s/x)Φ²P*_(u′)(Y, N), (Y, N) ∈ 𝒴_(g′), be the solution of [[lem:s28-setting]] (a), and
+z_* := π₀(Y, N), so that (δK_*, δg_*) = T_(u′)z_* and Ψ(u′, z_*) = δf ([[lem:s28-setting]] (a)). As
 D_zΨ(u′, 0) = π₀♯_(g′)e^(2s/x)D(J, ρ)(u′)T_(u′), the inverse bound of [[lem:s28-setting]] (d) and the uniform bound on
 the derivative of the constraint map in the proof of (a) give a constant C₄, independent of u′, with
 
-    ‖z′‖_𝒴 ≤ C₁‖D_zΨ(u′, 0)z′‖_𝒵 ≤ C₁C₄‖T_(u′)z′‖_𝒳.
+    ‖z_*‖_𝒴 ≤ C₁‖D_zΨ(u′, 0)z_*‖_𝒵 ≤ C₁C₄‖T_(u′)z_*‖_𝒳.
 
-Diminishing ε_s, and with it the ε of [[lem:s28-setting]] (a), the solution of [[lem:s28-setting]] (a) has
-‖T_(u′)z′‖_𝒳 < r_c/(C₁C₄), in the form in which that lemma uses "close to zero". Then z′ ∈ B, and z′ = z by (a). ∎
+[[lem:s28-setting]] (a) uses "close to zero" in the form that, for every r > 0, the solution has 𝒳-norm below r once
+the background and (δJ, δρ) are small enough. With r := r_c/(C₁C₄), diminishing ε_c and ε_s, which leaves r_c, C₁, C₃
+and C₄ valid, gives ‖T_(u′)z_*‖_𝒳 < r_c/(C₁C₄). Then z_* ∈ B, and z_* = z by (a). ∎
 
 **Lemma {#lem:v-3-3}** ([CD03, Lemma 3.18, p. 19].) Let U′, V′ ⊂ ℝ^D be open, f : U′ → V′ a homeomorphism, and
 f_R : U′ → ℝ^D, R ≥ R′, continuous maps with f_R → f uniformly on U′ as R → ∞. For every y ∈ V′ and every R large

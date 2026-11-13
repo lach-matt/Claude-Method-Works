@@ -1556,13 +1556,15 @@ solution u of L_(h,p⃗)u = G lies in ⋂_ε H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_
 
 for every β_+ < min(3/2, min Re ℰ_+). Here u^rot_β is the sum of the terms of u^rot_ι ([[prop:iii-i10-3-1]]) with
 Re λ_0 < β − 2 and of v^rot_β, for the forcing f′ of the proof; the coefficients S_ν = S^(h,p⃗,β)_ν(G) ∈ 𝒲_(τ,ℂ) are
-determined by u − u^rot_β; u^rot_β and the S_ν are conjugation-symmetric, linear and continuous in G, with bounds
-uniform for (h, p⃗) small and b ∈ ℬ̄_*. When h_(b,v1) = 0, in particular at b_0, u^rot_β is put into ũ. For β ∈ (2, 3),
-[[lem:iii-i8-3-2]] holds for G ∈ 𝒴^♮(β).
+determined by u − u^rot_β; u^rot_β and the S_ν are conjugation-symmetric and linear in G, and satisfy the bound of
+[[lem:iii-i11-3-2]] with ‖G‖_(𝒴^♮(β)), one fixed seminorm of 𝒴^♮(β), in place of ‖G‖_(𝒴⁰(α)), for every
+w ∈ (0, w_0], with C uniform for (h, p⃗) small and b ∈ ℬ̄_*. When h_(b,v1) = 0, in particular at b_0, u^rot_β is put
+into ũ. For β ∈ (2, 3), [[lem:iii-i8-3-2]] holds for G ∈ 𝒴^♮(β).
 
 *Proof.* The proof of [[lem:iii-i11-3-2]], with [[prop:iii-i10-3-1]] at β (as in the proof of [[prop:iii-i13-2-1]])
 and [[prop:iii-i13-2-1]] in place of [[prop:iii-i11-3-1]]. Step 0 gives f′ ∈ 𝒴^♮(β) (the 𝒴^♮_2-part of G is
-untouched, and (L − L_b)u lies in 𝒴⁰(β) as there). The rows of 𝒩_ι of rate at least β − 2 have rate above β − 2
+untouched, and (L − L_b)u lies in 𝒴⁰(β) as there, with ‖(L − L_b)u‖_(𝒴⁰(β)) ≤ C(‖h‖ + |p⃗|)‖u‖_(w) by the same count,
+w − ε + a_K ≥ β). The rows of 𝒩_ι of rate at least β − 2 have rate above β − 2
 ([[def:iii-i13-1-1]] (a)), so their m_ν(S_ν) have K⁺-weight at least β − 2 − ε ([[lem:iii-i9-2-2]] (e)) and join ũ; so
 do the terms χ_K t_*^(−λ_0)(log t_*)^j h_(b,v1)(V) of u^rot_ι with Re λ_0 > β − 2, whose rate Re λ_0 is that of the
 triple (v1, λ_0, j). *Determination:* by [[cor:iii-i10-2-3]] on 𝒩_β, all rates there being below β − 2. For β ∈ (2, 3):
@@ -1572,10 +1574,19 @@ and 𝒴^♮_2(β) lies in it by [[lem:iii-i13-1-3]] (a). ∎
 **Lemma {#lem:iii-i13-2-3}** (The coefficients near the reference point, at every level.) Fix b ∈ ℬ̄_*, and let p⃗_b be
 as in [[lem:iii-i11-3-3]]. In [[lem:iii-i13-2-2]], if the base points (h_j, p⃗_j) have black hole parameter b,
 (h_j, p⃗_j) → (0, p⃗_b), G_j → G in 𝒴^♮(β), and the forward solutions u_j of L_(h_j,p⃗_j)u_j = G_j and u of
-L_(0,p⃗_b)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]] with uniform bounds, then
-S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G).
+L_(0,p⃗_b)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]] with the same w_0 and β′_+, the u_j being bounded there,
+then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G).
 
-*Proof.* The proof of [[lem:iii-i11-3-3]], with [[lem:iii-i13-2-2]] in place of [[lem:iii-i11-3-2]]. ∎
+*Proof.* The proof of [[lem:iii-i11-3-3]], with [[lem:iii-i13-2-2]] in place of [[lem:iii-i11-3-2]], 𝒴^♮(β) in place
+of 𝒴⁰(α) and [[eq:iii-i13-2-2]] in place of [[eq:iii-i11-3-2]]. In detail: R_j := G_j − G − (L_j − L_(0,p⃗_b))u_j tends
+to 0 in 𝒴^♮(β) by the count of Step 0, the u_j being bounded, and S^(h_j,p⃗_j,β)_ν(G_j) − S^(0,p⃗_b,β)_ν(G) =
+S^(0,p⃗_b,β)_ν(R_j), which the bound of [[lem:iii-i13-2-2]] at (0, p⃗_b) bounds by C‖R_j‖_(𝒴^♮(β)) +
+C|p⃗_b|‖u_j − u‖_(w). At b = b_0 this tends to 0. Otherwise fix an admissible α′ ∈ (2, min(3, 2 + w_0)) and
+w ∈ (0, α′ − 2). By [[eq:iii-i13-2-2]] for u_j and u, whose terms m_ν and u^rot_β have ι⁺-weight above 3/2 as in the
+proof of [[lem:iii-i11-3-3]], u_j − u lies in [[eq:iii-i8-4-2]] at α′; and R_j → 0 in 𝒴^♮(β) ⊂ 𝒴^♮(α′), which lies in
+the class 𝒴(α′) of [[sec:iii-i8-1]] (the last sentence of [[lem:iii-i13-2-2]]). Uniqueness and (i) of
+[[prop:iii-i8-4-1]] at α′, at the base point (0, p⃗_b), give, as there, u_j − u → 0 in the space of [[eq:iii-i8-4-2]]
+at α′, so ‖u_j − u‖_(w) → 0, and S^(0,p⃗_b,β)_ν(R_j) → 0. ∎
 
 **Proposition {#prop:iii-i13-2-4}** (The enlarged sources at the top level.) [[thm:iii-i11-4-1]] and
 [[thm:iii-i12-3-1]] hold with F ∈ 𝒴^♮(α) in place of F ∈ 𝒴⁰(α), with the same conclusions.

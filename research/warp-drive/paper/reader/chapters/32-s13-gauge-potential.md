@@ -46,9 +46,10 @@ hold with r_0 as a parameter. So every result of this chapter holds with the inn
 *Notation.* b = (m, A) are the parameters of [[sec:iii-b-3]], b_0 = (m_0, 0), and g_m := g_((m,0)) is the
 five-dimensional Schwarzschild–Tangherlini metric of mass parameter m. On g_(b_0) we write f := 1 − m_0/r²,
 r_h := m_0^(1/2), r := |x|, ρ := r⁻¹ near infinity, and x̂ := x/|x|. On 𝕊³, g_𝕊 is the round metric, and d_𝕊, δ_𝕊,
-δ*_𝕊 and Δ_𝕊 := δ_𝕊 d_𝕊 ≥ 0 its differential, divergence, symmetric gradient and Laplacian, with the conventions of
-[[sec:iii-a1-1]]; 𝒮_l and 𝒱_l are the scalar and vector harmonics of degree l ([[def:iii-a1-1-3]]), and κ := l(l + 2)
-is the eigenvalue of Δ_𝕊 on 𝒮_l. The variable of indicial families is ι ∈ ℂ, and an indicial root is a value of ι.
+δ*_𝕊 and Δ_𝕊 ≥ 0 its differential, divergence, symmetric gradient and Laplacian, with the conventions of
+[[sec:iii-a1-1]], where they are written d, δ̸, δ̸* and Δ̸: Δ_𝕊 is the rough Laplacian, equal to δ_𝕊d_𝕊 on functions.
+𝒮_l and 𝒱_l are the scalar and vector harmonics of degree l ([[def:iii-a1-1-3]]), and κ := l(l + 2) is the eigenvalue
+of Δ_𝕊 on 𝒮_l. The variable of indicial families is ι ∈ ℂ, and an indicial root is a value of ι.
 When we use the static chart of g_(b_0) we write t for its static time, so that g_(b_0) = −f dt² + f⁻¹dr² + r²g_𝕊 on
 {r > r_h}; this t differs from the time of [[eq:iii-b-3-6]] by a function of r. The ingoing time is v := t + r_*, with
 the tortoise coordinate r_* of [[prop:np-10-16]] (v).
@@ -1495,7 +1496,8 @@ so its constant coefficient is k! h̆^k; and δ*_(g_b)ω^(≤k) lies in ker D_(g
 
 *Dimension 3 + 1.* The comparisons with [Hin26] in [[prop:np-10-29]] (iv) and [[prop:np-10-30]] use the model on
 Minkowski space ℝ^(1+3): the splitting [[eq:iii-a1-2-2]] for 𝕊², which is [Hin26, (2.37b)], Ē of [[lem:iii-d-3-1]] at
-ν = 2, that is with the trace weight 1 and c̄ = r⁻¹dt̄, and ρ, t_*, t̄ as before. On 𝕊² we write κ := l(l + 1).
+ν = 2, that is with the trace weight 1 and c̄ = r⁻¹dt̄, and ρ, t_*, t̄ as before. On 𝕊² we write κ := l(l + 1), and
+d_𝕊, δ_𝕊 and Δ_𝕊 for the operators of the unit 𝕊², with the conventions of the notation above.
 
 **Lemma {#lem:s13-dim-four}** (The model in dimension 3 + 1.) Write e := e_Υ, γ := γ_Υ, z := 4eγ² and p := −ι² + ι.
 

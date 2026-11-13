@@ -21,8 +21,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done | CONFIRMED; citation resolved and confirmed |
 | 28 S9 | NOT CONFIRMED 2M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (Theorem 1.1 tame estimate) |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
-| 30 S11 | NOT CONFIRMED 0M 2m 6n | running (combined with S12: one parameter set) | fixed (one parameter set def:s11-parameters); confirming reader running |
-| 31 S12 | NOT CONFIRMED 2M 7m 9n | running (combined with S11) | fixed (with S11); confirming reader running |
+| 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | running |
+| 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | running |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | NOT CONFIRMED 1M 1m 4n (ε_Υ needs |Re ι| ≤ 10); second fix running |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | running |
 | 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | running | - |
@@ -64,4 +64,5 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n (arithmetic digits, lens corollary); fix running; C2 deleted |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | NOT CONFIRMED 1M 6m 8n (circular λ > 0; outward rounding); fix running |
 | P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | - |
+| P-C-lambda0 + T-C + T-C261 (λ0 constants, for 86) | C2a and C2b done: e_k larger than printed (5 rounded down); C261 proved, S closed form, 242 entries | independent reader running |
 | P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | - |
