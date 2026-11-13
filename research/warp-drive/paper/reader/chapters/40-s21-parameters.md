@@ -1187,8 +1187,8 @@ q⃗ = p⃗′_(h,p⃗,α′)(F(S⃗″)) by uniqueness at α′, the solution i
 *(i) at α″.* Linearity holds by construction. Write ‖F‖ := ‖F‖_(𝒴(α″)). By (i) at α′ and [[lem:iii-i8-2-6]],
 ‖G(0)‖_(𝒴(α″)) ≤ C‖F‖, and u(0), the solution of [[eq:iii-i8-4-1]] at α′ for the forcing F, has ‖u(0)‖_(α′) ≤ C‖F‖;
 so the bound of [[lem:iii-i8-3-2]] gives |C(0)| ≤ C‖F‖, and |S⃗| ≤ 2|C(0)| ≤ C‖F‖. Then ‖F(S⃗)‖_(𝒴(α″)) ≤ C‖F‖
-([[lem:iii-i8-2-6]] (b)), and (i) at α′ bounds p⃗′_(h,p⃗,α′)(F(S⃗)), G(S⃗) and u(S⃗), the solution of [[eq:iii-i8-4-1]]
-at α′ for F(S⃗), by C‖F‖ in 𝒫_(α′), 𝒴(α″) and ‖·‖_(α′). So |p⃗′_(h,p⃗,α″)(F)| ≤ C‖F‖, and the bound of
+([[lem:iii-i8-2-6]] (b)), and (i) at α′, with [[lem:iii-i8-2-6]] for G(S⃗), bounds p⃗′_(h,p⃗,α′)(F(S⃗)), G(S⃗) and
+u(S⃗), the solution of [[eq:iii-i8-4-1]] at α′ for F(S⃗), by C‖F‖ in 𝒫_(α′), 𝒴(α″) and ‖·‖_(α′). So |p⃗′_(h,p⃗,α″)(F)| ≤ C‖F‖, and the bound of
 [[lem:iii-i8-3-2]] on the remainder, which is u(S⃗) itself, gives ‖u(S⃗)‖_(α″) ≤ C‖F‖. The constants are uniform for
 (h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*, as those of (i) at α′, of [[lem:iii-i8-3-2]] and the bound on T_(h,p⃗)⁻¹ are.
 

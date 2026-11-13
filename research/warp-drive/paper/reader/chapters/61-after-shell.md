@@ -146,6 +146,7 @@ O(λ)-close to Tangherlini in the weighted norm of the stability theory at a fix
 [[rem:s28-mass-bound]]). The stability theorem, run on G-invariant spaces with its choices made equivariant
 ([[lem:vii-3-1]]), gives a G-invariant development whose final parameters, fixed by G, are a mass alone
 ([[prop:vii-3-2]]). These are the data and the development of item (i) of [[thm:settling]].
+
 The glued data are not the data of a continuation of g_λ beyond the ball, and their development is not one. The
 developments of two data sets that agree on Σ^IVP ∩ {r ≤ R} agree on the domain of dependence of that set; the
 statement of settling concerns late times near the hole, outside it.
@@ -154,12 +155,12 @@ statement of settling concerns late times near the hole, outside it.
 
 In this section the letter a denotes an order of decay, not the inner radius of Ω.
 
-*The data of (i).* Fix ℓ0 ∈ (3, 4), and let d_1 ([[thm:iii-k-4-3]]), λ1, δ and the data (γ_λ, k_λ) of item (i) be
-those of [[thm:settling]] and its proof run with this ℓ0, a fixed ε < ε_K and a fixed ε_m > 0, and fix λ ≤ λ1. By [[cor:vii-2-3]], (γ_λ, k_λ) are G-invariant
-smooth vacuum data on Σ := Σ^IVP, equal to (γ^(m_λ), k^(m_λ)) on Σ ∩ {r ≥ 4R_i}, where R_i is the gluing radius there,
-|m_λ − μ_end| ≤ C λ, and (γ^m, k^m) are the data that g^KS_(m,0) induces on Σ far out ([[sec:vii-2]]). We write
-b₀ = (μ_end, 0) and R₁ = μ_end^(1/2). For r ≥ R₃, Σ is the graph {t_KS = f(|x|)} in the Kerr–Schild time of
-g^KS_(μ_end,0), with
+*The data of (i).* Fix ℓ0 ∈ (3, 4), and let d_1 ([[thm:iii-k-4-3]]), λ1, δ and the data (γ_λ, k_λ) of item (i) be those
+of [[thm:settling]] and its proof run with this ℓ0, a fixed ε < ε_K and a fixed ε_m > 0, and fix λ ≤ λ1. By
+[[cor:vii-2-3]], (γ_λ, k_λ) are G-invariant smooth vacuum data on Σ := Σ^IVP, equal to (γ^(m_λ), k^(m_λ)) on
+Σ ∩ {r ≥ 4R_i}, where R_i is the gluing radius there, |m_λ − μ_end| ≤ C λ, and (γ^m, k^m) are the data that g^KS_(m,0)
+induces on Σ far out ([[sec:vii-2]]). We write b₀ = (μ_end, 0) and R₁ = μ_end^(1/2). For r ≥ R₃, Σ is the graph
+{t_KS = f(|x|)} in the Kerr–Schild time of g^KS_(μ_end,0), with
 
     f := C″ − T_(μ_end)(|x|),      f′(r) = 2μ_end/(r² − μ_end)   (r ≥ 3R₁)                            {#eq:after-shell-f}
 

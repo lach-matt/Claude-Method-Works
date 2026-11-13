@@ -551,7 +551,7 @@ is 𝖬(rI + A)x/Π = 𝒟⁻²(rI + A)x, so
 
     ℓ_A(∇r_A) = xᵀ(rI − A)𝒟⁻⁴x/(r xᵀ𝒟⁻⁴x) = 1,
 
-since AN⁻⁴ is antisymmetric (A is antisymmetric and commutes with the symmetric 𝒟⁻⁴), so xᵀAN⁻⁴x = 0.
+since A𝒟⁻⁴ is antisymmetric (A is antisymmetric and commutes with the symmetric 𝒟⁻⁴), so xᵀA𝒟⁻⁴x = 0.
 (d) In the frame, A² = −diag(a², a², b², b²), 𝒟 = diag((r² + a²)^(1/2), (r² + a²)^(1/2), (r² + b²)^(1/2),
 (r² + b²)^(1/2)), s = a² + b² and ωᵀA²ω = −a² sin²ϑ − b² cos²ϑ. ∎
 
@@ -685,8 +685,8 @@ Let b = (m, A) with |b − b₀| small, and use the notation of [[ch:s11]]: s = 
 By [[lem:s12-spheroidal]], r = r_A(x) and ω = (r_A²I − A²)^(−1/2)x; conversely, for x given by [[eq:vi-b1-0-1]] with
 |x|² > s, xᵀ(r²I − A²)⁻¹x = |ω|² = 1, so r is the unique positive zero of Q(·, x) ([[lem:iii-b-3-1]]), r = r_A(x). So
 [[eq:vi-b1-0-1]] is a diffeomorphism (r, ω) ↦ x onto {|x|² > s}, smooth in A, with no frame chosen. Write
-𝒟 := (r²I − A²)^(1/2). Differentiating 𝒟² = r²I − A², with 𝒟 and ∂_rN commuting (both are functions of A²),
-∂_rN = rN⁻¹; so dx = rN⁻¹ω dr + 𝒟 dω, with ⟨rN⁻¹ω, 𝒟 dω⟩ = r⟨ω, dω⟩ = 0 and |rN⁻¹ω|² = r² xᵀ𝒟⁻⁴x = r²ϱ²/Π by
+𝒟 := (r²I − A²)^(1/2). Differentiating 𝒟² = r²I − A², with 𝒟 and ∂_r𝒟 commuting (both are functions of A²),
+∂_r𝒟 = r𝒟⁻¹; so dx = r𝒟⁻¹ω dr + 𝒟 dω, with ⟨r𝒟⁻¹ω, 𝒟 dω⟩ = r⟨ω, dω⟩ = 0 and |r𝒟⁻¹ω|² = r² xᵀ𝒟⁻⁴x = r²ϱ²/Π by
 [[lem:s12-spheroidal]] (a). Hence
 
     |dx|² = (r²ϱ²/Π) dr² + ⟨(r²I − A²) dω, dω⟩,     ϱ² = r² + s + ωᵀA²ω,
@@ -722,7 +722,7 @@ depend on (ω, η) only through (Φ, Ψ, 𝔎), and H_𝒢 f = 0 for every funct
 
 *Proof.* (a) By [[lem:iii-b-3-3]] (d), g_b⁻¹ = η_M⁻¹ − H_(m,A) k_A^♯ ⊗ k_A^♯ with η_M := −dt² + dx² the Minkowski
 metric and k_A^♯ = −∂_t + ℓ_A^♯. From the formula for |dx|², η_M⁻¹(ν, ν) = −E² + (Π/(r²ϱ²)) p_r² + |η|²_(e,r). The
-coefficient vector of ℓ_A is 𝒟⁻²(rI + A)x = rN⁻²x + 𝒟⁻¹Aω ([[lem:s12-spheroidal]]). At fixed ω, ∂_r x = rN⁻¹ω = rN⁻²x,
+coefficient vector of ℓ_A is 𝒟⁻²(rI + A)x = r𝒟⁻²x + 𝒟⁻¹Aω ([[lem:s12-spheroidal]]). At fixed ω, ∂_r x = r𝒟⁻¹ω = r𝒟⁻²x,
 and the vector 𝒟⁻¹Aω = 𝒟(Y_rω) is the image of Y_rω ∈ T_ω𝕊³ under (r, ω) ↦ x at fixed r. So ℓ_A^♯ = ∂_r + Y_rω in
 the coordinates (r, ω), and ν(k_A^♯) = E + p_r + η(Y_rω) = Ẽ + p_r. By [[lem:s12-spheroidal]] (b), H_(m,A) = m/ϱ².
 Hence
