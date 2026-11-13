@@ -202,9 +202,8 @@ coefficients are assigned in [[sec:iii-i15-2]], not read from the K⁺-expansion
 *Proof.* At b, h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in ker L̂_b(0) in the
 space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀,
 with the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of
-[[prop:iii-h-3-2]]: the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is
-invertible). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with
-|ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses
+[[prop:iii-h-3-2]]: the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is invertible). So
+h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses
 h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by the injectivity of S ↦ h_b(S) ([[lem:iii-i15-1-2]]). So
 h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, the ġ_b(ḃ) being part of a basis. ∎
 
@@ -405,3 +404,233 @@ F ↦ (p⃗′, q′, h′):
   exact and the lossy solutions. At b, the constrained uniqueness of [[prop:iii-i15-2-5]] serves there: A_b does not
   depend on the loss, being computed from ι⁺- and tf-data, which the exact and the lossy classes share.
 
+### The linear theory at b {#sec:iii-i15-3}
+
+**Theorem {#thm:iii-i15-3-1}** (The linear theory at base points near b₀.) For base points with black hole parameter
+b ∈ ℬ̄_*, the statements at b ([[def:s25-at-b]]) of the following hold, with constants and smallness conditions
+uniform in b:
+
+- the results below level 3 ([[lem:iii-i1-1-1]]–[[prop:iii-i1-3-1]], [[lem:iii-i2-2-1]]–[[prop:iii-i2-5-1]],
+  [[lem:iii-i3-1-1]]–[[prop:iii-i3-2-1]], [[def:iii-i4-1-1]]–[[cor:iii-i4-4-3]], [[prop:iii-i5-2-1]],
+  [[cor:iii-i5-2-2]] and [[lem:iii-i6-1-1]]–[[prop:iii-i6-2-1]]), the backgrounds g_0 := g_(b₀,b₀,−S) of
+  [[sec:iii-i2-1]] and g_S of [[eq:iii-i4-1-1]] becoming g_(b₀,b,−S), and the correction of the first kind staying
+  the tensor built at b₀ ((P6)), with [[prop:iii-i4-4-1]] (2), [[cor:iii-i4-4-3]] and [[cor:iii-i5-2-2]] in the form
+  of [[prop:iii-i15-2-8]];
+- [[lem:iii-i7-1-3]], [[lem:iii-i7-2-2]], [[lem:iii-i7-2-4]], [[lem:iii-i7-2-5]], [[lem:iii-i7-3-1]],
+  [[lem:iii-i7-4-1]], [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]], [[def:iii-i7-4-4]] and [[cor:iii-i7-4-6]]:
+  [[lem:iii-i7-2-2]] being independent of b, [[lem:iii-i7-3-1]] with p⃗ = (S, b − b₀, S^(0)_1) (its proof transfers,
+  g_b being Ricci flat for every b and ġ_b given by (P3)), [[lem:iii-i7-2-4]] in the form of [[lem:iii-i15-2-11]],
+  [[lem:iii-i7-4-1]] at fixed b only, and [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and [[cor:iii-i7-4-6]] in the form of
+  [[prop:iii-i15-2-12]];
+- [[prop:iii-i8-4-1]] and the lemmas it rests on ([[lem:iii-i8-2-2]]–[[lem:iii-i8-3-3]]), in the form of the direct
+  bound of [[prop:iii-i15-2-5]], with the base step by [[prop:iii-i15-2-12]], [[lem:iii-i8-2-4]] in the form
+  [[eq:iii-i15-1-1]], its rows being rows of the set 𝒩 of [[sec:iii-i9-1]], and [[prop:iii-i8-4-1]] (ii) and
+  [[lem:iii-i8-3-3]] at fixed b only;
+- [[sec:iii-i9-2]], with [[lem:iii-i9-2-4]] and [[lem:iii-i9-2-6]] (c) (r_(0,0) = 0) in the form [[eq:iii-i15-1-1]];
+- [[def:iii-i10-1-1]], [[def:iii-i10-1-3]], [[lem:iii-i10-1-2]], [[lem:iii-i10-2-1]] (c) and [[prop:iii-i10-3-1]];
+- [[prop:iii-i11-3-1]], [[lem:iii-i11-3-2]] and [[lem:iii-i11-3-3]] (at fixed b, the proof of [[lem:iii-i15-2-4]]),
+  and [[thm:iii-i11-4-1]] only inside [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]: at a rotating b its parameter
+  space lacks the rotation rows, and [[prop:iii-i15-2-5]] with q = 0 is its form there;
+- [[lem:iii-i12-2-3]], [[lem:iii-i12-2-4]] and [[thm:iii-i12-3-1]], in the forms of [[lem:iii-i15-2-9]] and
+  [[cor:iii-i15-2-10]];
+- [[prop:iii-i13-2-1]], [[lem:iii-i13-2-2]] and [[lem:iii-i13-2-3]] in the form of [[lem:iii-i15-2-4]], and
+  [[prop:iii-i13-2-4]] only inside [[prop:iii-i15-2-5]], as for [[thm:iii-i11-4-1]];
+- [[def:iii-i14-1-2]] with [[eq:iii-i14-1-4]], [[lem:iii-i14-2-2]]–[[lem:iii-i14-2-5]], [[rem:iii-i14-3-2]] (2), and
+  [[thm:iii-i14-3-1]] in the form of [[prop:iii-i15-2-5]] (unique among the p⃗′ with the assigned rotation
+  coordinates);
+- [[lem:iii-j-2-1]], [[lem:iii-j-2-2]], [[thm:iii-j-2-4]] and [[rem:iii-j-2-5]], as written, with the rows built at b₀
+  ((viii) below);
+- [[lem:iii-j1-1-1]], for the output of [[prop:iii-i15-2-5]], and [[thm:iii-j1-2-1]];
+- [[thm:iii-j2-4-1]], [[thm:iii-j2-4-2]] and [[prop:iii-j2-4-3]];
+- [[prop:iii-j3-3-4]], [[prop:iii-j3-4-3]], [[prop:iii-j3-4-6]], [[prop:iii-j3-5-2]], [[prop:iii-j3-5-4]],
+  [[thm:iii-j3-5-3]], [[thm:iii-j3-5-5]] and [[cor:iii-j3-6-6]], [[thm:iii-j3-5-3]] in the form of
+  [[prop:iii-i15-2-5]] at exact weights.
+
+*Proof.* The listed results are proved at b as follows. [[ch:s20]], [[ch:s21]], [[ch:s22]] and [[ch:s24]] state and
+prove theirs at a base point with parameter b ∈ ℬ̄_*, with constants uniform in b, from (P1)–(P6), [[lem:iii-i15-1-2]]
+and [[sec:iii-i15-2]]. The results of [[ch:s19]] below level 3 hold at b by [[prop:iii-i2-5-1-b]] below. The results of
+[[ch:s23]] stated at b₀ hold at b by [[prop:iii-i15-2-5]] and by the paragraph *The augmentation at b* below. In every
+case, a step whose justification uses a property of the base point that a general b ∈ ℬ̄_* need not have, or an
+object built at b₀, is supplied at b by one of (P1)–(P6), [[lem:iii-i15-1-2]], or [[sec:iii-i15-2]] together with
+[[lem:iii-i15-2-7]], [[prop:iii-i15-2-8]], [[lem:iii-i15-2-9]], [[cor:iii-i15-2-10]], [[lem:iii-i15-2-11]] and
+[[prop:iii-i15-2-12]]. Implicit uses count, the symmetries of b₀ among them (static, spherical, isotypic, Killing,
+SO(4)). The supplies group into the uses (i)–(xi).
+
+(i) *The forward solutions.* The results listed solve with L^(g,g_0) at the base point through [[thm:iii-i-5-3]] and its
+corollaries ((P1)). The splitting L_(h,p⃗) = L_(b₀) + (L_(h,p⃗) − L_(b₀)) near K⁺, used to move a perturbation into the
+right-hand side (in [[ch:s21]] and [[ch:s22]], for instance in Step 0 of the proof of [[thm:iii-i12-3-1]]), becomes
+L_(h,p⃗) = L_b + (L_(h,p⃗) − L_b). This has the same K⁺-gain, as g_0 = g_b near K⁺ ([[lem:iii-i-3-6]]). The class
+statement k_S ∈ 𝒦 of [[ch:s20]] reads k_S := g_(b₀,b,−S) − g_b ∈ 𝒦 at b, with differences taken from g_b; k′ := ∂_S k_S
+is unchanged and vanishes near K⁺. At b, L_(h,S) := D_hP_1(·, S, b), and P_1(0, 0, b) ≠ 0 in 𝒞; the linear theory uses
+only D_hP_1 and D_SP_1.
+
+(ii) *The model at ι⁺ and at tf:* the results of [[ch:s16]] and [[ch:s17]], through (P2) and (P4).
+
+(iii) *The states, towers and index sets.* [[ch:s20]] and [[ch:s21]] use the index sets of [[prop:iii-d2-3-1]],
+[[prop:iii-d3-3-1]], [[prop:iii-f3-2-2]] and [[prop:iii-f3-4-1]] at b₀. They are independent of b ((P3)), so the index
+sets ℰ_ind, ℰ_♯ and ℰ_+ serve at every b, and so does ℰ^♮ ([[def:iii-i13-1-2]]), built from ℰ_♯ and ℰ_ind. The
+collision set ℰ_col ([[def:iii-i10-1-1]], [[lem:iii-i11-1-1]]), which generates Λ and through it ℰ_par, 𝒩, ℰ_♯, ℰ^♮,
+(G) and admissibility, is read at every b as the b-independent set
+
+    ℰ_col = (({(2, 0), (3, 0)} ∪ (2 + ℰ_ind) ∪ (3 + ℰ_ind)) + ℕ_0) ∩ {Re ≥ 0},
+
+which contains the exponents it collects at b, by the index sets of (P3), the smooth coefficients of the L_k
+([[lem:iii-i3-1-1]] at b) and the boundedness of F ([[lem:iii-h-2-4]] (a), (P4)).
+
+(iv) *The derivatives in b,* taken at b₀ in [[cor:iii-i7-4-6]] and [[lem:iii-i14-2-4]] (c): at b, the b-column is ġ_b
+((P3)). So is ġ = ∂_b g_b in [[ch:s19]] and [[ch:s20]], which enters through the columns and the singular part of
+[[ch:s18]] ((P3), (P4)). The proof of [[lem:iii-i14-2-4]] (c) is written for every b near b₀, and the use of
+L̂_(b₀)(0)∂_b h_(b,v1) = 0 in Step 1 of the proof of [[thm:iii-i14-3-1]] is replaced at b by the rates of the v1
+coefficients of q, as [[sec:s23-base-points]] (1) shows.
+
+(v) *The joint injectivity:* [[lem:iii-i10-2-2]] and [[cor:iii-i10-2-3]] hold at b by [[lem:iii-i15-1-2]]. Step 4′ of
+the proof of [[thm:iii-i14-3-1]] is not used at b, [[prop:iii-i15-2-5]] replacing it. The injectivity of S ↦ h(S)
+([[prop:iii-f3-4-1]] (1), proved at b₀ by symmetry), used in the proofs of [[prop:iii-i3-2-1]], [[prop:iii-i4-4-1]] and
+[[prop:iii-i5-2-1]], holds at b by [[lem:iii-i15-1-2]], the s1 states alone.
+
+(vi) *The v1 terms:* [[sec:iii-i9-1]] (𝒲_v1 = 𝒱′ = 0, kept at every b), [[lem:iii-i10-2-1]] and
+[[prop:iii-i10-3-1]], [[lem:iii-i11-2-3]], [[sec:iii-i12-1]], [[lem:iii-i12-2-3]], [[lem:iii-i12-2-4]] and
+[[thm:iii-i12-3-1]], and [[def:iii-i14-1-1]], [[def:iii-i14-1-3]] and Steps 2–3 and 4′ of the proof of
+[[thm:iii-i14-3-1]]. These are [[sec:iii-i15-2]]: [[prop:iii-i15-2-2]], [[lem:iii-i15-2-4]], [[prop:iii-i15-2-5]],
+[[lem:iii-i15-2-9]] and [[cor:iii-i15-2-10]]. At a rotating b, the rate of a v1 coefficient at z ([[def:iii-i14-1-1]],
+[[lem:iii-i14-2-4]], and the construction of [[sec:iii-j-2]]) is at least Re z, and Re z + 1 on ker h_(b,v1), the
+rotations commuting with the spin; only the lower bound is used. The a_v1 term in the proof of [[prop:iii-i5-2-1]] is
+covered by [[lem:iii-i15-2-1]]: if present, its bottom a_ν h_(b,v1) has K⁺-weight Re λ₀ − ϵ ≥ Re λ₀ − 1, so the bound
+used there survives.
+
+(vii) *The time translation as a Killing field:* (P5).
+
+(viii) *The data and the tame and exact forms* ([[ch:s23]], [[ch:s24]]). Their base points U map by Φ to (h, p⃗, q)
+with parameter b ([[thm:iii-j-2-4]]), and their proofs use [[thm:iii-i14-3-1]] and the maps of [[sec:iii-j-2]] at that
+base point, by (i)–(vii). The tame calculus of [[ch:s24]] ([[def:iii-j2-1-1]]–[[lem:iii-j2-2-4]]) has constants that
+depend on the base point through finitely many seminorms, continuous in b; the exact classes and the conditions
+(E1)–(E5) of [[def:iii-j3-1-3]] do not involve b ((P2)–(P3): the exponents, roots and index sets are those at b₀); and
+at b the rotation rows add K⁺-exponents λ + ℕ_0 with Re λ ≤ 2, none of real part α − 2, α − 1 or α, so the values
+excluded by (E3) are unchanged. The solution maps of [[ch:s19]]–[[ch:s23]] in [[thm:iii-j2-4-1]] are read at b as in
+[[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]. The new objects enter the inventory of [[lem:iii-j2-2-1]] (c): A_b is
+bounded by a fixed low seminorm of G, as it reads the ι⁺-data u_+ and the tf-data ([[prop:iii-i15-2-2]]); E^ν is
+bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id + A_k as the other rows do; and d_*
+includes their orders.
+
+In [[lem:iii-j2-2-1]] (f), the loss at every order holds at b by [[prop:iii-h2-1-1]], uniformly on ℬ̄_1, so the
+neighbourhood of b₀ does not shrink with the order. The continuity of [[lem:iii-j2-2-3]] is read at b through
+[[lem:iii-i15-2-4]] at (0, p⃗_b) and the direct bound of [[prop:iii-i15-2-5]], both in fixed seminorms, so d_* is
+unchanged; and [[thm:iii-j2-4-1]] at b takes its smallness δ₀ at most the radius of ℬ_* as shrunk below.
+[[thm:iii-j3-5-3]] at b is [[prop:iii-i15-2-5]] at the exact weights, as its proof shows: E^ν is exact there, A_b does
+not depend on the loss ([[rem:iii-i15-2-6]]), and the errors of the identification of the rotation rows have room.
+[[prop:iii-j3-3-4]] and [[prop:iii-j3-4-3]] carry the rotation rows of [[prop:iii-i15-2-2]].
+
+[[sec:iii-j-2]] builds its rows at b₀, and [[lem:iii-j-2-1]], [[lem:iii-j-2-2]], [[thm:iii-j-2-4]] and
+[[rem:iii-j-2-5]] hold as written at b, with the rows m^(b₀)_ν, the towers T_(ρ,b) and the corrections at b₀: the rule
+of (P6), rows at b, is not applied there, and the pure gauge of [[rem:iii-j-2-6]] refers to g_(b₀). P_5 and the
+coordinates W_ν do not depend on the convention ([[sec:s23-base-points]] (3)). [[lem:iii-j1-1-1]], whose proof applies
+L̃_(b₀)(0)⁻¹, holds for the output of [[prop:iii-i15-2-5]]: at b its roots are those of (P2), [[prop:iii-h-3-2]] holds
+by (P4), and neither A_b, which reads only ι⁺-data and level-1 tf-data ([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor
+((P6)), depends on η_2.
+
+(ix) *The boost column:* [[lem:iii-i4-2-4]], [[prop:iii-i4-4-1]] (2), [[cor:iii-i4-4-3]] and [[cor:iii-i5-2-2]] at b are
+[[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]].
+
+(x) *The parameter columns:* [[lem:iii-i7-2-4]] at b is [[lem:iii-i15-2-11]], and [[lem:iii-i7-4-3]],
+[[lem:iii-i7-4-5]], [[cor:iii-i7-4-6]] and the base step of [[prop:iii-i8-4-1]] at b are [[prop:iii-i15-2-12]].
+
+(xi) *The expansion:* [[lem:iii-i12-2-3]], [[lem:iii-i12-2-4]] and [[thm:iii-i12-3-1]] at b are [[lem:iii-i15-2-9]] and
+[[cor:iii-i15-2-10]].
+
+*The augmentation at b.* The results of [[ch:s23]] stated at b₀ use b₀ only as follows, and each use is supplied at b.
+
+- [[sec:iii-i14-1]] and [[def:iii-i14-1-1]]–[[def:iii-i14-1-3]]: η_E = min Re ℰ_ind > 0, the inclusion
+  ℰ_+ ⊃ (ℰ_♯ ∪ ℰ^♮) ∩ {Re < 3 + ϵ_+}, the sets ℰ^α_ρ and ℳ_rot are (iii) and (P3); the v1 rate Re z at a rotating b
+  exceeds 2 + ϵ_K by (G), which does not depend on b; h_(b,rem), T_(ρ,b), h^(≤2)_(b,v1) and ġ_b are defined at b
+  ((P3), (P6)); [[eq:iii-i14-1-3]] is defined at every b, so [[eq:iii-i14-1-4]] holds at b with h_(b,rem); at b,
+  h_(b,rem)(q) is the χ_K u_exp of [[thm:iii-i12-3-1]] at b, with the towers T_(ρ,b) ([[cor:iii-i15-2-10]]); the
+  corrections of the rotation rows are those of [[def:iii-i9-2-1]] at b₀ ((P6)); the rate of the rotation rows at b is
+  [[lem:iii-i15-2-1]], and they become new rows ([[prop:iii-i15-2-5]]); [[thm:iii-i11-4-1]] is used only with the
+  parameter in the non-rotation part of 𝒫, and v1 stays excluded from [[cor:iii-i10-2-3]] at b ([[rem:iii-i15-1-2]]);
+  and f^ν = L m_ν + r^ν acquires E^ν ([[eq:iii-i15-1-1]]).
+- [[lem:iii-i14-2-2]] (a), (c) and [[lem:iii-i14-2-3]]: the index sets are (P3), with the loss of (P4) absorbed by the
+  orders "−"; h_(b,rem)(q) is real ((P3)); L_b h^(≤1)_(b,s1)(S) is computed by the stationarity of L_b ((P5)) and the
+  tower relations at b ((P3)).
+- [[lem:iii-i14-2-4]]: in (a), the corrections h_ν are built at b₀ and supported in 𝒞 ((P6)); in (b), g_0 depends on S
+  only off χ_K, and ∂_S g_p⃗ ∈ ρ²C^∞ by [[lem:iii-i7-1-3]] at b; in (c), the derivative in b is taken at b, every
+  coefficient of q having rate > 2 at every b ((iv)); ∂_b g_b has weight 2 ([[sec:iii-h-1]]), [[lem:iii-i7-2-2]] holds
+  for every g_0, and the exponents of ∂_b h_(b,rem)(q) are those of [[lem:iii-i14-2-1]] ((P3)).
+- [[lem:iii-i14-2-5]]: the thresholds, the roots and the tf-propositions [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]]
+  are (P2), (P4).
+- [[thm:iii-i14-3-1]]: at b it is [[prop:iii-i15-2-5]]. Step 1 runs by (P1)–(P6) with E^ν ∈ 𝒴(α_1), and (iv) for the v1
+  part; Step 2 by (P6) with E^ν; [[cor:iii-i10-2-3]] by [[lem:iii-i15-1-2]]; Step 3 by the direct bound; Step 4′ is not
+  used ((v)); the v1 coefficient of q′ has no exponent in ℳ_rot by [[prop:iii-i15-2-5]] with the class of ũ in
+  [[lem:iii-i15-2-4]]; and χ_K u_exp = h_(b,rem)(q′) with the towers T_(ρ,b) ((P6)). [[rem:iii-i14-3-2]] (2) does not
+  involve b: the inputs at b use a_K only through strict inequalities.
+- [[lem:iii-j1-1-1]] and [[thm:iii-j1-2-1]]: [[lem:iii-j1-1-1]] at b is as in (viii), its thresholds being on
+  tf-exponents and so unaffected by the rate shift of [[prop:iii-i15-2-2]] (b), and the absence of indicial roots in
+  (0, 1) being (P2). Step 0 of the proof of [[thm:iii-j1-2-1]] uses only the constructed map of [[prop:iii-i15-2-5]]
+  ([[rem:iii-i15-2-6]]); h_(b,rem)(q′) takes the place of h_(b₀,rem)(q′), and of the rows m_ν only the rows at λ₀ enter,
+  whose λ₀-terms do not depend on b ([[lem:iii-j-2-2]]); the order of [h′]_(λ₀) comes from u ∈ 𝒵_α
+  ([[prop:iii-i15-2-5]]); the rates of q′ are below α ([[prop:iii-i15-2-5]], [[lem:iii-i15-2-4]]), the v1 part with
+  Re z ≤ 3 by (G⁺); the independent injective leading terms of distinct rows are those of [[lem:iii-g2-1-2]] at the
+  Minkowski model ((P2), (P3)); and the bounds of [[prop:iii-i15-2-5]] are uniform in b.
+
+*The constants.* Every constant above is a finite combination of constants of (P1)–(P4) and (P6), of
+[[lem:iii-i15-1-2]], of [[lem:iii-i15-2-1]], [[lem:iii-i15-2-4]], [[lem:iii-i15-2-7]], [[lem:iii-i15-2-9]] and
+[[lem:iii-i15-2-11]], of [[prop:iii-i15-2-8]] and [[prop:iii-i15-2-12]], and of the maps of [[prop:iii-i15-2-2]], each
+uniform on ℬ̄_*. The continuity statements ([[prop:iii-i8-4-1]] (ii) and [[lem:iii-i8-3-3]], [[lem:iii-i11-3-3]],
+[[lem:iii-i13-2-3]]) enter [[lem:iii-i15-2-4]] at fixed b only and are not used for the bounds of the elimination.
+[[lem:iii-i4-4-2]] (b) and [[lem:iii-i7-4-1]] are not used across b; the direct bounds of [[prop:iii-i15-2-8]] and
+[[prop:iii-i15-2-12]] replace them. The smallness of the elimination, across b, comes from the direct bound of Step 3
+of the proof of [[prop:iii-i15-2-5]], through (P6) and [[def:iii-i15-2-3]]. ℬ_* is shrunk, beyond condition (B5) of
+[[sec:iii-h2-0]], so that the bound of [[lem:iii-i15-1-2]] holds and the maps −id + A_k of [[prop:iii-i15-2-5]] are
+invertible on it. ∎
+
+**Proposition {#prop:iii-i2-5-1-b}** (Null infinity and the almost linear bounds at b.) Let b ∈ ℬ̄_*, let L_b be the
+operator at b, and put g_0 := g_(b₀,b,−S), g := g_0 + h and L := L^(g,g_0), with |S| < ϵ_0, h ∈ 𝒳^∞ and ‖h‖_(𝒳^d) < ϵ_0,
+where ϵ_0 and d are those of [[cor:iii-h2-5-1]], independent of b. Then [[lem:iii-i1-1-1]], [[prop:iii-i1-2-1]],
+[[lem:iii-i1-2-2]], [[prop:iii-i1-3-1]], [[lem:iii-i2-2-1]], [[lem:iii-i2-3-1]], [[lem:iii-i2-4-1]]–[[lem:iii-i2-4-3]]
+and [[prop:iii-i2-5-1]] hold with these L_b, g_0, g and L, and with the states ġ_b(ḃ), h_b(S), h̆_b(S) at b in place of
+those at b₀, with constants and smallness conditions uniform in b ∈ ℬ̄_*. In particular, for ℓ_I with [[eq:iii-i2-5-1]],
+α_K ∈ [½, 1), α_+ > α_K, β_+ < min(α_+, 3/2, min Re ℰ_+) and f as in [[prop:iii-i2-5-1]], the forward solution u of
+Lu = f lies in the space [[eq:iii-i2-5-2]]; and, at fixed b, u depends continuously on (S, h) in that space with every weight
+lowered by ς, for every ς > 0.
+
+*Proof.* The results on null infinity are stated for L = L^(g,g_0) with g_0 = g_(b₀,b,−S) ([[sec:iii-i1-1]]), with
+[[prop:iii-i-3-3]] and [[prop:iii-i-3-4]] for general b ((P1)). The structure of L_b at 𝓘⁺ is [[lem:iii-i-3-2]], which
+is stated for L_b at every b, and S̄ and Ā do not depend on b ((P2), [[lem:iii-h2-3-2]]). The index sets ℰ^C_I, ℰ_+ and
+ℰ^tot_I at 𝓘⁺ and ι⁺ are gauge data, independent of b ((iii) of the proof of [[thm:iii-i15-3-1]]). So
+[[lem:iii-i1-1-1]]–[[prop:iii-i1-3-1]] hold at b, uniformly.
+
+For the almost linear bounds, the steps of [[sec:iii-i2-1]]–[[sec:iii-i2-5]] that use b₀ are supplied as follows.
+
+- *The setting.* ϵ_0 and d are uniform in b ((P1)). X = {r ≥ r_0} is the same at every b, and [[thm:iii-h2-2-1]] runs
+  the second result of [[ch:s18]] on it for b ∈ ℬ̄_1 ((P4)). L̂_b(σ) is invertible for real σ ≠ 0
+  ([[cor:iii-h-4-4]]) and L̃_b(σ) for 0 < |σ| ≤ c_k ([[cor:iii-h-4-2]]), with c_k uniform ((P4)). No indicial root of
+  L̂_b(0) has real part in (0, 1] ((P2)), so the window (0, 1) is the same at every b.
+- [[lem:iii-i2-2-1]] does not involve the operator. In [[lem:iii-i2-3-1]] and [[sec:iii-i2-4]] the constants c ≤ c_k′
+  of [[cor:iii-h-4-2]] and c_(j,k′) of [[thm:iii-h-4-1]] (3) are those at b, uniform by (P4).
+- *The three frequency ranges.* The Fourier transform in t_* uses only that g_b is stationary. The splitting
+  u = u_hi + u_reg + u_sing of [[lem:iii-h1-2-1]] and [[eq:iii-h1-4-1]]–[[eq:iii-h1-5-2]], with u_sing = ġ + h_s1,
+  holds at b ((P4): [[thm:iii-h2-2-1]] reruns [[sec:iii-h1-2]]–[[sec:iii-h1-7]] at b), with ġ = ġ_b and
+  h_s1 = h_(b,s1) the states at b ((P3), (iv) of the proof of [[thm:iii-i15-3-1]]). The forward map is continuous
+  ([[thm:iii-i-5-3]] at b, (P1)). [[lem:iii-i2-4-1]] and [[lem:iii-i2-4-2]] use [[cor:ii-g1-4-5]] with the hypotheses of
+  [[ch:s02]] for 2L_b, which hold at b by (P4) ([[thm:iii-h2-2-1]]), and S̄ = 0, which does not depend on b ((P2),
+  [[lem:iii-h2-3-2]]); [[lem:iii-i2-4-2]] uses [[cor:iii-h-4-2]] and [[thm:iii-h-4-1]] (3) for L̃_b ((P4)). In
+  [[lem:iii-i2-4-3]], ġ_b(ḃ) ∈ 𝒜² (in the mass) and 𝒜³ (in the rotation), h_b(S) ∈ 𝒜³ and h̆_b(S) ∈ 𝒜², and the map
+  Ψ of [[lem:iii-h-2-5]], are those at b ((P3)), the leading terms not depending on b; uniformly in b,
+  [[rem:iii-h-2-6]] gives these memberships in 𝒜^(q−δ), and the loss δ < ϵ is absorbed by the ϵ of [[eq:iii-i2-4-3]].
+- [[prop:iii-i2-5-1]]. Its start is [[thm:iii-i-5-3]] at b ((P1)). The K⁺-gain of (L − L_b)u in [[eq:iii-i-4-2]] holds
+  with L_b the base point's operator, as g_0 = g_b near K⁺ ([[lem:iii-i-3-6]]; (i) of the proof of
+  [[thm:iii-i15-3-1]]). [[prop:iii-i1-3-1]] for L_b and [[prop:ii-e-3-4]] hold at every b. The holomorphy of F(v),
+  with at most a pole at 0, is [[sec:iii-h1-5]] at b ((P4)). The continuity in (S, h) is that of (P1) at fixed b.
+
+Each supply is uniform on ℬ̄_*, which gives the uniform constants. ∎
+
+**Corollary {#cor:iii-i15-3-2}** (Right inverses at every base point.) [[thm:iii-j1-2-1]] and its tame and exact forms
+([[thm:iii-j2-4-2]], [[cor:iii-j3-6-6]]) hold at every base point U ∈ 𝒟^∞ small in 𝒟^d, with black hole parameter
+b ∈ ℬ_*, which the smallness of U in 𝒟^d ensures, with constants uniform in U; at a rotating b the right inverse is the
+one constructed by [[prop:iii-i15-2-5]]. These are the right inverses that [[thm:ii-g-2-1]] (iii) asks for at every
+point of its neighbourhood.
+
+*Proof.* The black hole parameter of U is one of its components ([[def:iii-j-1-1]]) and is that of Φ(U)
+([[thm:iii-j-2-4]]), so b ∈ ℬ_* for U small in 𝒟^d. At such U, [[thm:iii-j1-2-1]], [[thm:iii-j2-4-2]] and
+[[cor:iii-j3-6-6]] hold in their statements at b, with constants uniform in b, by [[thm:iii-i15-3-1]]; at a rotating b
+the solution map used in Step 0 of the proof of [[thm:iii-j1-2-1]] is that of [[prop:iii-i15-2-5]]
+([[rem:iii-i15-2-6]]). ∎

@@ -681,9 +681,8 @@ are carried by χ in K × K; and δ_2⁽ʲ⁾ := 2^(−J_0−3) δ_2⁽ʲ⁻¹�
 (★), at the order s_j, is taken with G′ elliptic on U(2^(J_0+3) δ_2⁽ʲ⁾) and microsupported in U(2^(J_0+4) δ_2⁽ʲ⁾),
 which lies in U(δ_1/4) as δ_2⁽ʲ⁾ ≤ 2^(−J_0−6) δ_1; it has its hypothesis G′u ∈ H^(s_j−½) from step j − 1 (from χ̃u ∈
 H^(s_0) for j = 1), as s_j − ½ ≤ s_(j−1). Take B := B′ of step 𝔫, G elliptic on U(2^(J_0+4) δ_2⁽¹⁾) and
-microsupported in U_Γ, and E elliptic on ⋃_j WF′(E′⁽ʲ⁾), a closed
-set disjoint from Γ^u_(K⁺), with WF′(E) still disjoint from it. The norms of each step are bounded by the right side
-of [[eq:ii-d-4-2]], with ‖χu‖_(−N′) ≤ C‖χ̃u‖_(s_0), and [[sec:ii-d-1-2]] returns the estimate to the weighted spaces.
+microsupported in U_Γ, and E elliptic on ⋃_j WF′(E′⁽ʲ⁾), a closed set disjoint from Γ^u_(K⁺), with WF′(E) still
+disjoint from it. The norms of each step are bounded by the right side of [[eq:ii-d-4-2]], with ‖χu‖_(−N′) ≤ C‖χ̃u‖_(s_0), and [[sec:ii-d-1-2]] returns the estimate to the weighted spaces.
 The constants depend on P only through finitely many norms and the constants of (b) and of [[prop:ii-c1-3-4]], which
 are uniform for ε_P small ([[rem:ii-d-1-3]]); d_0 is fixed by the regularity the symbol classes need at the orders in
 [s_0 − 3, s + 3], plus 4 for [[lem:ii-d-4-1]].

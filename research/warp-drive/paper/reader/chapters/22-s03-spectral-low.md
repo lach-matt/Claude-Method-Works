@@ -548,7 +548,7 @@ with H_sc^((s;k),𝗋) the space of [[sec:i-a-4-6]] (k further b-derivatives) an
 
 Near ztf, ρ_ztf^q L²(|dx̂|) = r̂^(q−2) L²(μ_b) as |dx̂| = r̂⁴μ_b, so the b-weight is q − 2, and the norm is that of
 ρ_sctf^𝗋 ρ_ztf^q H_(sc,b)^s(tf) for the Euclidean density, as in [Hin26c]. By [HJS, Propositions 3.7, 3.11 and 3.13,
-Section 10.1] and [[lem:i-c-2-2]]: the L²(|dx̂|) pairing identifies the dual of H_(sc,b)^(s,(𝗋,q)) with
+Sections 10.1–10.3] and [[lem:i-c-2-2]]: the L²(|dx̂|) pairing identifies the dual of H_(sc,b)^(s,(𝗋,q)) with
 H_(sc,b)^(−s,(−𝗋,−q)) (near ztf the pairing is ⟨w, r̂⁴v⟩_(μ_b), and v ↦ r̂⁴v maps the b-weight −q − 2 of the second
 space onto −(q − 2), the dual of q − 2); the inclusion is compact when all three orders drop, the decay order by a
 positive constant; and N_tf(σ̂) maps H_(sc,b;b)^((s;k),(𝗋,q)) to H_(sc,b;b)^((s−2;k),(𝗋,q−2)), by (a) and (c) of
@@ -671,10 +671,11 @@ N_tf w ∈ r̂⁻² 𝒜^(−β_−−ϵ) ⊂ H_(b,q−4)^(s−2) likewise. ∎
 #### The definition and its consequences {#sec:i-c-5-1}
 
 **Definition {#def:i-c-5-1}** (tf-admissibility in dimension 4 + 1.) P̂ is *tf-admissible with weight* β if (i) β lies
-in an indicial gap (β_−, β_+) of P̂(0); and, with q := 2 − β and s, α_+, 𝗋_± as in [[thm:i-c-4-3]], (ii)
+in an indicial gap (β_−, β_+) of P̂(0); and, with q := 2 − β, s and α_+ as in [[thm:i-c-4-3]], and the orders of
+[[thm:i-c-4-3]] (1)–(2) (𝗋_± for θ ∈ Θ_±, a constant order as in (2) for θ ∈ (0, π)), (ii)
 N_tf(e^(iθ)): 𝒳_(tf,θ) → 𝒴_(tf,θ) is injective for every θ ∈ [0, π], and (iii) N_tf(1)^(*h) is injective on
-𝒳_(tf,0)^* (with 𝗋 = 𝗋_+). By [[thm:i-c-4-3]] (3), (ii) and (iii) do not depend on the choices of s, α_+ and 𝗋_±,
-nor on q with −q + 2 in the gap.
+𝒳_(tf,0)^* (with 𝗋 = 𝗋_+). By [[thm:i-c-4-3]] (3), (ii) and (iii) do not depend on the choices of s, α_+ and the
+orders, nor on q with −q + 2 in the gap.
 
 *Relation to [Hin26c, Definition 5.10]* (with the weight −n + 2 + β = −2 + β of [Hin26c, Corollary 9.39]). There, (ii)
 is the triviality of the kernel of N_tf(e^(iθ)) on 𝒜^(a,−β)(tf) for every a, which implies (ii) here by [[thm:i-c-4-3]]
@@ -852,8 +853,22 @@ Qχ_∞Π_ℓ v ∈ H^(0,𝗋′_0), it follows that χ_∞ Σ_m a_(1m) g_1Y_m �
 ztf: ∫_0 r̂^(2(q−2−ℓ)) dr̂/r̂ < ∞ would need q > 2 + ℓ, which is false as q < 2. So a_(2m) = 0, and v = 0. ∎
 
 The proof is that of [Hin26c], run for (iii) on the spaces of [[thm:i-c-4-3]]; the condition (iii) of [Hin26c], on
-e^(−2i/ρ_sctf)𝒜^(a,−2+β), is settled by the same argument. The interval (0, 2) is the whole indicial gap containing
-it, since 0 and 2 are the roots for ℓ = 0.
+e^(−2i/ρ_sctf)𝒜^(a,−2+β), is settled by the same argument. The interval (0, 2) is the indicial gap between the roots
+0 and 2 of ℓ = 0.
+
+**Remark {#rem:s03-sharp}** (The upper end is sharp.) In the setting of [[prop:i-c-5-3]], P̂ is tf-admissible with no
+weight β ≥ 2.
+
+*Proof.* If β is the real part of a root, (i) of [[def:i-c-5-1]] fails. Otherwise β lies in an indicial gap
+(β_−, β_+), and β_− ≥ 2, as 2 is a root. Let q := 2 − β, let Y_0 ∈ ℋ_0 be a nonzero constant, let f_1, g_1 be the
+functions of [[lem:i-c-5-4]] at ℓ = 0 and θ = 0, and put w := g_1Y_0 = e^(−ir̂)f_1Y_0 ≠ 0. Then
+N_tf(1)w = e^(−ir̂)(Δ_e − 1)(f_1Y_0) = 0 by [[lem:i-c-5-4]] (a), and w ∈ 𝒜^(3/2) near sctf by [[lem:i-c-5-4]] (b).
+Near ztf, r̂²|w| = r̂|H_1^(1)(r̂)| is bounded on (0, 2], by [DLMF, (10.7.7)] (H_1^(1)(z) ∼ −2i/(πz)) and continuity; so
+‖r̂^(−c)w‖_(L²(μ_b)) is finite on {r̂ < 2} for every c < −2, as ∫_0^2 r̂^(−2c−4) dr̂/r̂ < ∞. Since r̂²N_tf(1) is
+b-elliptic there ((c) of [[sec:i-c-4-1]]), [[lem:i-c-2-5]] and [[lem:i-c-2-2]] (f) give w ∈ 𝒜^c near ztf for every
+c < −2. As w is smooth on tf° and −β_− − ϵ ≤ −2 − ϵ, w ∈ ∩_(ϵ>0) 𝒜^(3/2−ϵ,−β_−−ϵ)(tf), which lies in 𝒳_(tf,0) by
+the converse in [[thm:i-c-4-3]] (5) (S̄ = 0). So N_tf(1) is not injective on 𝒳_(tf,0), and (ii) of [[def:i-c-5-1]]
+fails. ∎
 
 ### Low energies {#sec:i-c-6}
 

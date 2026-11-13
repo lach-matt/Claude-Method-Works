@@ -1,0 +1,84 @@
+label	source	source_name	note
+ch:s21	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:12; docket68/n1star/proof5/PART-III-I9-COMMOTION.md:11; docket68/n1star/proof5/PART-III-I10-CORR4.md:11; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:532	III.I(7)-(9) intros; III.I(15) §2.8 opening	chapter heading; intro composed from the three "what n = 4 changes" paragraphs; base-point paragraph from III.I(15) (P1)-(P6) and §2.8; inner-radius paragraph from BEYOND5-R0-PROOF §5 (these parts name no inner radius)
+sec:iii-i7-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:23	III.I(7) §1	title expanded ("the translated background")
+eq:s21-conv	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:59	III.I(4) (1.2)	private restatement, with identities (i)-(iii) of III.I(4) §1, for the reader
+eq:iii-i7-1-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:38	III.I(7) (1.1)	
+eq:iii-i7-1-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:45	III.I(7) (1.2)	
+lem:iii-i7-1-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:60	III.I(7) Lemma 1.1	neighbourhood N renamed 𝒩_0 (𝒩 is III.I(9)'s row set)
+def:iii-i7-1-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:87	III.I(7) Definition 1.2	
+eq:iii-i7-1-3	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:89	III.I(7) (1.3)	
+lem:iii-i7-1-3	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:92; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:39-43	III.I(7) Lemma 1.3 with III.I(15) (P1)	(b) at b by (P1); (c) stated for every b near b_0 (g_b − η ∈ |x|^-2 C^∞, III.B (3.5)), as the proofs at b of III.I(7) L3.1 and III.I(15) L2.11 use it
+sec:iii-i7-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:137	III.I(7) §2	
+def:iii-i7-2-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:139	III.I(7) Definition 2.1	named "corrections of the second kind"; built at b_0 at every base point (P6)
+lem:iii-i7-2-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:153	III.I(7) Lemma 2.2	
+eq:iii-i7-2-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:156	III.I(7) (2.1)	
+def:iii-i7-2-3	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:181	III.I(7) Definition 2.3	
+eq:iii-i7-2-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:187	III.I(7) (2.2)	L_(h,p) moved out of the display
+lem:iii-i7-2-4	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:196	III.I(7) Lemma 2.4	exact at b_0; at b its form is lem:iii-i15-2-11
+eq:iii-i7-2-3	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:198	III.I(7) (2.3)	
+lem:iii-i7-2-5	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:234; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:654-657	III.I(7) Lemma 2.5 at b (III.I(15) Thm 3.1 list)	stated at a general base point b in the closed ball around b_0; (b) at b via (P1)-(P4) and the boost column of III.I(15) L2.7, P2.8
+sec:iii-i7-3	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:264	III.I(7) §3	
+lem:iii-i7-3-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:266; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:655-656	III.I(7) Lemma 3.1 with p = (S, b−b_0, S^(0)_1)	proof of (b) written with g_b and ∂_b g_b, as III.I(15) Thm 3.1 says the proof transfers
+eq:iii-i7-3-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:277	III.I(7) (3.1)	
+sec:iii-i15-2-8	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:532	III.I(15) §2.8	placed between III.I(7) §3 and §4; holds Lemma 2.11; Prop 2.12 is in §4 before Lemma 4.3
+lem:iii-i15-2-11	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:541	III.I(15) Lemma 2.11	"corrections #1-#2" written "corrections of the first and second kind"
+eq:iii-i15-2-7	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:543	III.I(15) (2.7)	display split over two lines
+sec:iii-i7-4	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:328	III.I(7) §4	opening paragraph at b; Ṡ and Q read at b (I16:592-594)
+lem:iii-i7-4-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:339; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:639-641	III.I(7) Lemma 4.1 at fixed b	reference L_(0,p_b) in place of L_(b_0) (Thm 3.1 list: "Lemma 4.1 at fixed b only")
+eq:iii-i7-4-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:349	III.I(7) (4.1)	
+def:iii-i7-4-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:382	III.I(7) Definition 4.2	
+eq:s21-boost-choice	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:405	formula in the proof of III.I(7) Lemma 4.3	private; placed before P2.12 with the boost map and the reduced map M (I16:582-583)
+prop:iii-i15-2-12	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:580	III.I(15) Proposition 2.12	statement ordered so that M is defined once S^(-1) is invertible; the bound on A = p'^(<0)(0,·) (I16:588, 626, 633-634) stated explicitly; proof I16:592-637
+eq:iii-i15-2-8	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:585	III.I(15) (2.8)	
+lem:iii-i7-4-3	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:387; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:587-588	III.I(7) Lemma 4.3 in the form of III.I(15) P2.12	o(1) replaced by O(‖h‖+|p−p_b|+|b−b_0|) (I16:588); invertibility from P2.12
+eq:iii-i7-4-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:390	III.I(7) (4.2)	
+def:iii-i7-4-4	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:412	III.I(7) Definition 4.4	the dotted vector written ṗ^(=0)
+lem:iii-i7-4-5	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:417; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:587	III.I(7) Lemma 4.5 in the form of III.I(15) P2.12	value −id at (0,0) kept from the b_0 proof
+cor:iii-i7-4-6	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:433; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:587	III.I(7) Corollary 4.6 at b	
+eq:iii-i7-4-3	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:436	III.I(7) (4.3)	
+eq:iii-i7-4-4	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:438	III.I(7) (4.4)	
+sec:iii-i8-1	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:28	III.I(8) §1	λ renamed z (λ is the wavelength); right-hand sides called "forcings"
+eq:iii-i8-1-1	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:38	III.I(8) (1.1)	display split
+eq:iii-i8-1-2	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:46	III.I(8) (1.2)	
+sec:iii-i8-2	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:68	III.I(8) §2	
+def:iii-i8-2-1	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:79	III.I(8) Definition 2.1	named "corrections of the third kind"
+lem:iii-i8-2-2	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:89	III.I(8) Lemma 2.2	
+eq:iii-i8-2-1	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:91	III.I(8) (2.1)	
+eq:iii-i8-2-2	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:101	III.I(8) (2.2)	
+def:iii-i8-2-3	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:125	III.I(8) Definition 2.3	h^{III.I(7)}_tot written h_(tot,2)
+eq:iii-i8-2-3	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:133	III.I(8) (2.3)	L_(h,p) moved out of the display
+lem:iii-i8-2-4	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:137	III.I(8) Lemma 2.4	at b its form is lem:s21-motions-at-b
+lem:iii-i8-2-5	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:155	III.I(8) Lemma 2.5	
+lem:iii-i8-2-6	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:163	III.I(8) Lemma 2.6	
+lem:s21-motions-at-b	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:84; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:659-661; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:300-305; docket68/n1star/proof5/PART-III-I10-CORR4.md:312	III.I(15) (1.1) for the motion rows	composed from Thm 3.1 list ("Lemma 2.4 in the form (1.1), its rows being rows of III.I(9)'s N"); the bound on r+E in III.I(8)'s classes written out with m_+ > 1 for the gain at iota+ (see report)
+eq:s21-motions-at-b	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:84	III.I(15) (1.1) for nu = (s1, z, k)	private
+sec:iii-i8-3	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:199	III.I(8) §3	
+lem:iii-i8-3-1	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:201; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:659-660	III.I(8) Lemma 3.1	P2.12 added to the results that hold at the base level
+lem:iii-i8-3-2	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:239; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:288-290	III.I(8) Lemma 3.2 at b	h_b in place of h (III.I(15) Lemma 2.4: holds at b as at b_0 for beta < 3); "rounds" written "steps"; "weight N" written "arbitrarily large weight"
+eq:iii-i8-3-1	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:244	III.I(8) (3.1)	
+eq:iii-i8-3-2	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:260	III.I(8) (3.2)	
+eq:iii-i8-3-3	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:312	III.I(8) (3.3)	display split
+lem:iii-i8-3-3	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:344; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:661	III.I(8) Lemma 3.3 at fixed b	reference L_(0,p_b)
+sec:iii-i8-4	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:355	III.I(8) §4	the set of new motions N renamed 𝓜′
+prop:iii-i8-4-1	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:363; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:580-591; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:659-661; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:300-305	III.I(8) Proposition 4.1 at b, in the form of III.I(15) P2.5 Step 3 direct bound	base step by P2.12; step: |T−id| ≤ C(‖h‖+|p−p_b|+|b−b_0|) written out via lem:s21-motions-at-b; (ii) at fixed b; alpha_N renamed alpha_n
+eq:iii-i8-4-1	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:366	III.I(8) (4.1)	
+eq:iii-i8-4-2	docket68/n1star/proof5/PART-III-I9-COMMOTION.md:368	III.I(8) (4.2)	
+sec:iii-i9-1	docket68/n1star/proof5/PART-III-I10-CORR4.md:31	III.I(9) §1	findings (2), (4), (5) of the part folded as sentences in neutral words
+eq:iii-i9-1-1	docket68/n1star/proof5/PART-III-I10-CORR4.md:47	III.I(9) (1.1) (lines 32-48)	fixes eps_K, eps_+ against eps_ind; eps_ind named as the constant of III.F1 (2.2) with which III.G4 P5.1 is stated (VI.C row w1); delta_sharp = (1−e_Ups)gamma_Ups written out
+eq:iii-i9-1-2	docket68/n1star/proof5/PART-III-I10-CORR4.md:63	III.I(9) (1.2)	
+def:iii-i9-gap	docket68/n1star/proof5/PART-III-I10-CORR4.md:68-76	III.I(9) lines 72-74 (the offsets used by the gap (G))	definition environment created for the offsets d_tau and rows; states how d_c0, d_c1 enter (G) of III.I(10) Def 1.3; z_Ups written 4 e_Ups gamma_Ups^2
+eq:iii-i9-gap	docket68/n1star/proof5/PART-III-I10-CORR4.md:73	III.I(9) lines 73-75	
+eq:iii-i9-1-3	docket68/n1star/proof5/PART-III-I10-CORR4.md:106	III.I(9) (1.3)	
+sec:iii-i9-2	docket68/n1star/proof5/PART-III-I10-CORR4.md:125	III.I(9) §2	bare K := K_tau written K_tau throughout
+eq:iii-i9-2-1	docket68/n1star/proof5/PART-III-I10-CORR4.md:152	III.I(9) (2.1)	sigma_tau renamed varsigma_tau (sigma is the spectral parameter)
+def:iii-i9-2-1	docket68/n1star/proof5/PART-III-I10-CORR4.md:167	III.I(9) Definition 2.1	named "corrections of the fourth kind"; ∂_lambda written ∂_z
+lem:iii-i9-2-2	docket68/n1star/proof5/PART-III-I10-CORR4.md:188	III.I(9) Lemma 2.2	finding (4) of the part folded after the proof
+eq:iii-i9-2-2	docket68/n1star/proof5/PART-III-I10-CORR4.md:192	III.I(9) (2.2)	
+def:iii-i9-2-3	docket68/n1star/proof5/PART-III-I10-CORR4.md:256	III.I(9) Definition 2.3	
+eq:iii-i9-2-3	docket68/n1star/proof5/PART-III-I10-CORR4.md:262	III.I(9) (2.3)	L_(h,p) moved out of the display
+lem:iii-i9-2-4	docket68/n1star/proof5/PART-III-I10-CORR4.md:270	III.I(9) Lemma 2.4	at b in the form of III.I(15) (1.1) (I16:663)
+lem:iii-i9-2-5	docket68/n1star/proof5/PART-III-I10-CORR4.md:288	III.I(9) Lemma 2.5	
+lem:iii-i9-2-6	docket68/n1star/proof5/PART-III-I10-CORR4.md:296; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:663	III.I(9) Lemma 2.6	(c) at b in the form of III.I(15) (1.1); finding (3) folded as a remark
+eq:iii-i9-2-4	docket68/n1star/proof5/PART-III-I10-CORR4.md:314	III.I(9) (2.4)	
+eq:iii-i9-2-5	docket68/n1star/proof5/PART-III-I10-CORR4.md:317	III.I(9) (2.5)	
+eq:iii-i9-2-6	docket68/n1star/proof5/PART-III-I10-CORR4.md:348	III.I(9) (2.6)	

@@ -1117,9 +1117,9 @@ t^♭∂_(t^♭), with C′t_*/t^♭ = t_*/(t_* + R̃) and C′R̃′/t^♭ in C
 and of (t^♭)⁻¹ are bounded). On N_κ the weights x_I^(2a) ρ_+^b ρ_K^c are (t^♭)^(−c) times smooth positive functions with
 bounded b-derivatives, and |dt dx| is a smooth positive multiple of |dt^♭ dr dω|.
 
-Let c_l, ε_l = 3^(−l) be the constants of Seeley's operator ([[lem:ii-e-1-3]] (b): Σ_l |c_l| ε_l^(−q) < ∞ and Σ_l
-c_l (−ε_l⁻¹)^q = 1 for all q ∈ ℕ₀). For w on {r > r_0} ∩ N_κ supported in {r < r_0 + 2κ} put ℰ_r w := w on {r > r_0}
-and
+Let c_l, ε_l = 3^(−l) be the constants of Seeley's operator in the proof of [[lem:ii-e-1-3]] (b): sin(πs/2) =
+Σ_l c_l s^l, so that Σ_l |c_l| ε_l^(−q) < ∞ and Σ_l c_l ε_l^(−q) = sin(π3^q/2) = (−1)^q, that is Σ_l c_l (−ε_l⁻¹)^q = 1,
+for all q ∈ ℕ₀. For w on {r > r_0} ∩ N_κ supported in {r < r_0 + 2κ} put ℰ_r w := w on {r > r_0} and
 
     (ℰ_r w)(t^♭, r, ω) := Σ_l c_l w(t^♭, r_0 + (r_0 − r)/ε_l, ω),      r < r_0,                         {#eq:ii-f1-2-6}
 
@@ -1509,9 +1509,13 @@ and |dt dx| = |dt_* dx| = t_* ⟨x⟩⁴ μ_b; so |dt dx| = c x_I⁻⁸ ρ_+⁻�
 H^(k,(a_I,a_+,a_K))_b(|dt dx|) = H^(k,(a_I+2,a_++5/2,a_K+1/2))_b(μ_b) with equivalent norms (b-derivatives of the
 weights being the weights times smooth functions). This turns [[eq:ii-f1-1-5]] into [[eq:ii-f1-1-7]]; α_I < −1/2 + S̄ is
 b_I < 3/2 + S̄, and α_+ < α_I − 1/2 is b_+ < b_I. Writing out the norms with the frame t_*∂_(t_*), r∂_x of 𝒱_b on Ω, and
-⟨x⟩ ∼ r on Ω, gives the integrals. [[eq:ii-f1-1-8]] is [[eq:ii-a-8-2]] of [[lem:ii-a-8-8]] with d = k − 3, applied to an
-extension of u and restricted to {r > r_0}: its left side is the C^(k−3)_b-norm with the weight x_I^(2(α_I+2))
-ρ_+^(α_+−δ+5/2) ρ_K^(−ℵ+1/2) = ρ_I^(b_I) ρ_+^(b_+−δ) ρ_K^(−ℵ+1/2). ∎
+⟨x⟩ ∼ r on Ω, gives the integrals. For [[eq:ii-f1-1-8]], let ũ be an extension of u supported in {t^♭ ≥ 1}, of at
+most twice the norm of u in the space on the left of [[eq:ii-f1-1-7]]; it reaches {r < r_0}, so [[eq:ii-a-8-2]], stated
+for functions supported in Ω, does not apply to it, but the statement of [[lem:ii-a-8-8]] for the unweighted b-density
+μ_b has no support condition. With d = k − 3 and the weights (2b_I, b_+ − δ, −ℵ + 1/2) it bounds the C^(k−3)_b-norm of
+ũ with the weight x_I^(2b_I) ρ_+^(b_+−δ) ρ_K^(−ℵ+1/2) = ρ_I^(b_I) ρ_+^(b_+−δ) ρ_K^(−ℵ+1/2) by C times the norm of ũ in
+H^(k,(b_I,b_+−δ,−ℵ+1/2))_b(M̃, μ_b), which is at most twice the left side of [[eq:ii-f1-1-7]]; restricting to
+{r > r_0} gives [[eq:ii-f1-1-8]]. ∎
 
 ### Continuous dependence {#sec:ii-f1-6}
 
