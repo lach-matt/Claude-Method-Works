@@ -2,7 +2,7 @@
 
 The linear theory of [[ch:s19]] is written at the base point b₀ = (m₀, 0), and in the chapters that follow it is written
 at a base point whose black hole parameter b lies in a fixed neighbourhood ℬ_* of b₀. This chapter collects what that
-requires, using only [[ch:s11]]–[[ch:s19]]: the statement at b of a result proved at b₀ ([[def:s25-at-b]]); the model
+requires, using nothing after [[ch:s19]]: the statement at b of a result proved at b₀ ([[def:s25-at-b]]); the model
 objects at b, with bounds uniform in b ([[lem:iii-i15-1-1]]): the forward solutions, the ι⁺- and tf-normal operators and
 the indicial roots, which do not depend on b, the zero energy states, towers and physical states at b, real and smooth in
 b and equivariant under the antipodal map, the augmented low-energy theory, and the Killing time translation; the
@@ -34,8 +34,9 @@ boundary, and with the results of [[ch:s04]]–[[ch:s19]], which hold at every s
 are those chosen in [[sec:iii-h2-0]] for the given r_♭.
 
 **Definition {#def:s25-at-b}** (Base points and the statement at b.) A *base point with black hole parameter b* is a
-background of the linear theory, in the chapters that follow, that equals g_b near K⁺; for a pair (h, S), with
-h ∈ 𝒳^∞ small and S ∈ 𝒮_1 small, b is the black hole parameter of its background g_(b₀,b,−S) of [[eq:iii-i-1-1]]. For
+base point of the linear theory in the chapters that follow (a pair (h, S) or (h, p⃗), or a triple (h, p⃗, q)) whose
+background equals g_b near K⁺; for (h, S), with h ∈ 𝒳^∞ small and S ∈ 𝒮_1 small, that background is g_(b₀,b,−S) of
+[[eq:iii-i-1-1]]. For
 a statement of the linear theory made at the base points with parameter b₀, *the statement at b* is obtained as
 follows: L_(b₀), g_(b₀) near K⁺, the states, towers and companions at b₀, and the index set ℰ_ind are replaced by those
 at b; and derivatives in b are taken at b. At a rotating b the v1 terms of exponent of real part at most 2 need more

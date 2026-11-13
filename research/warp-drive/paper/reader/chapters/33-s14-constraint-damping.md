@@ -2554,7 +2554,8 @@ any number in (0, min(1, ε_ind(h))]. The number δ_50 is a constant of its own:
 potential operator at scalar type 50. It is neither the constant of [[ch:s13]] that bounds from below the distances from
 ℤ of the roots of the gauge potential operator with |Re ι| ≤ 10, nor the ε_ind of [[ch:s15]], which it bounds from
 above. Its value is given by [[cor:s14-eps-ind-point]], which also proves ε_ind(10⁻⁶) = δ_50.
+
 **Remark {#rem:s14-eps-point}** (The point h = 10⁻⁶.) At h = 10⁻⁶, ε_ind(10⁻⁶) = δ_50, and every entry of the lists of
-(iii) that comes from a root of P_l, P_0 or p_(v), is not an integer and has modulus at most 50 lies at distance more
-than 2.93·10⁻⁶ from ℤ ([[cor:s14-eps-ind-point]]). Later chapters use only ε_ind(h) > 0 and ε_ind(h) ≤ δ_50, which
-hold for every admissible h by (iii).
+[[prop:np-10-52]] (iii) that comes from a root of P_l, P_0 or p_(v), is not an integer and has modulus at most 50 lies
+at distance more than 2.93·10⁻⁶ from ℤ ([[cor:s14-eps-ind-point]]). Later chapters use only ε_ind(h) > 0 and ε_ind(h) ≤
+δ_50, which hold for every admissible h by [[prop:np-10-52]] (iii).

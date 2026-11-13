@@ -442,11 +442,16 @@ properties only on {t̃ ≤ 0, r ≥ 4R}, which is W ∪ Z. For p in W_+ and c a
 p, v ≥ v1 + I(τ) ≥ v1 along c while it is in W, as v − I is nondecreasing; and the argument of
 (i) applies verbatim: c meets Σ_far.
 
-(iv) (a) On Ω′, item 4 of [[thm:past-construction]] gives the estimates of [[thm:uniform-existence]], so
-|g_λ − g_app| = O(λ^K) and |g_app − g0| = O(λ) there; on P′, items 1 and 3 and the bound |g_app − g0| ≤ Cλ t^(−3/2) of
-the proof of [[thm:past-construction]] ([[sec:past-proof]]) give |g_λ − g0| ≤ Cλ^(K−3) t^(−2) + Cλ t^(−3/2) and
-g_λ = g0 for v ≤ v_start. By (ii), Z ⊂ Ω′ ∪ P′ and Z ⊂ {τ ≤ τ_S}. So ε_λ bounds |g_λ − g0|_op on Z, and
-|g_λ⁻¹ − g0⁻¹|_op by the Neumann series, for λ small. The integral is ∫_(−∞)^(τ0) t^(−3/2) dτ = ∫_1^∞ t^(−3/2) dt = 2
+(iv) (a) On Ω′, item 4 of [[thm:past-construction]] gives items 1 and 3–5 of [[thm:main]], among them
+|g_λ − g0| ≤ Cλ (item 4 of [[thm:main]]). On P′, g_app − g0 = λW + Σ_j λ^j m_j + Σ_j λ^j ĝ_j, evaluated at θ = u/λ
+([[eq:ansatz]]), a finite sum whose profiles vanish for v ≤ v_start and are at most C r^(−3/2) on P′ ∩ {v ≥ v_start}
+by [[eq:past-classes]]: W_TT ∈ O_(3/2), while χ, m_j and ĝ_j lie in O_2 or L_2 and are at most
+C r⁻² ≤ C a1^(−1/2) r^(−3/2), dv ⊗ dv having bounded Cartesian components. As r ≥ t + a1 ≥ t there
+([[lem:past-domain]] (d)) and 0 < λ ≤ 1, |g_app − g0| ≤ Cλ t^(−3/2) on P′, the bound stated in (P-v) of
+[[sec:past-proof]]. With items 1 and 3 of [[thm:past-construction]], |g_λ − g0| ≤ Cλ^(K−3) t^(−2) + Cλ t^(−3/2) ≤
+C′λ t^(−3/2) on P′, as K ≥ 6 and t ≥ 1 there, and g_λ = g0 for v ≤ v_start. By (ii), Z ⊂ Ω′ ∪ P′ and Z ⊂ {τ ≤ τ_S},
+and t ≤ 1 on Z ∩ Ω′. So ε_λ bounds |g_λ − g0|_op on Z, the operator norm of a 5 × 5 matrix being at most five times
+its largest entry, and |g_λ⁻¹ − g0⁻¹|_op by the Neumann series, for λ small. The integral is ∫_(−∞)^(τ0) t^(−3/2) dτ = ∫_1^∞ t^(−3/2) dt = 2
 plus τ_S − τ0. (b) ε_g is continuous, at most 1/8 for λ and ν small, as v1 − τ ≥ v1 − τ_max > 0 on W ∪ Z, and it
 bounds both norms on W ∪ Z by (a) and the hypothesis. Its integral over (−∞, τ_max] is at most
 C_1λ(τ_max − τ0 + 2) + C_W ν ∫_(−∞)^(τ_max) (v1 − τ)⁻² dτ = C_1λ(τ_max − τ0 + 2) + C_W ν/(v1 − τ_max). (iii) applies.

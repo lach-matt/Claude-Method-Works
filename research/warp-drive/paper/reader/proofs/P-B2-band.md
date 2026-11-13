@@ -63,25 +63,26 @@ Since every hypothesis and the constant depend on σ only through |σ|, every bo
 σ² − κ/4 − 25/48 ≥ |σ|/2, then ‖χ_I R_l(σ) χ_I‖ ≤ 2Λ < 7.4872.
 
 *Proof.* U = (1 − y)y ≤ 1/4 and Q = (1 − y)y² ≤ 4/27 on [0, 1], so V_l ≤ (κ + 3/4)/4 + (9/4)(4/27) = κ/4 + 25/48. The
-bound above the barrier of [[ch:resolvent-bounds]] then gives the first estimate, and t ↦ Λt/(t² − C) decreases for
-t² > C, its derivative being −Λ(t² + C)/(t² − C)². The last statement is the first with σ² − κ/4 − 25/48 ≥ |σ|/2. ∎
+bound above the barrier ([[pending:resolvent-above-barrier]]) then gives the first estimate, and t ↦ Λt/(t² − C)
+decreases for t² > C, its derivative being −Λ(t² + C)/(t² − C)². The last statement is the first with
+σ² − κ/4 − 25/48 ≥ |σ|/2. ∎
 
 ### The weight of a multiplier in the variable z {#sec:band-weights}
 
 **Lemma {#lem:band-weight-z}** (The weight in the variable z.) Let F be a smooth function of z ∈ [−1, 1] and
 φ := F(z(r_*)). Then φ′ = 4ηF_z, and for V = V_(a,b) the weight w := −φV′ − ½φ‴ is w = ηG with
 
-    G = 2FV_y − ½E_zzF_z − (3/2)E_zF_zz − EF_zzz,     E := (1 + z)²(1 − z)³,
+    G = 2FV_y − ½Ξ_zzF_z − (3/2)Ξ_zF_zz − ΞF_zzz,     Ξ := (1 + z)²(1 − z)³,
     V_y = az + (b/4)(1 − z)(1 + 3z),
-    E_z = −(1 + z)(1 − z)²(1 + 5z),     E_zz = 4(1 − z)(5z² + 2z − 1).                              {#eq:band-weight-z}
+    Ξ_z = −(1 + z)(1 − z)²(1 + 5z),     Ξ_zz = 4(1 − z)(5z² + 2z − 1).                              {#eq:band-weight-z}
 
 If F has the sign of z, then for a ≥ a′ the weights of V_(a,b) and V_(a′,b) satisfy G_(a,b) − G_(a′,b) = 2(a − a′)zF ≥ 0.
 
 *Proof.* [[eq:pb-weight-general]] with g = 0 gives φ′ = −2ηF_y and G = 2FV_y + 4(η(ηF_y)_y)_y. Since
 η(ηF_y)_y = ½(η²)_yF_y + η²F_yy, the second term is 2(η²)_yyF_y + 6(η²)_yF_yy + 4η²F_yyy. As y = (1 − z)/2 and
-1 − y = (1 + z)/2, η² = (1 − y)²y³ = E/32; and d/dy = −2 d/dz, so (η²)_y = −E_z/16, (η²)_yy = E_zz/8, F_y = −2F_z,
-F_yy = 4F_zz and F_yyy = −8F_zzz. Substituting gives [[eq:band-weight-z]] and φ′ = 4ηF_z. The formulas for E_z and
-E_zz follow by differentiating E, and V_y = a(1 − 2y) + by(2 − 3y) with y(2 − 3y) = (1 − z)(1 + 3z)/4 (as in the proof
+1 − y = (1 + z)/2, η² = (1 − y)²y³ = Ξ/32; and d/dy = −2 d/dz, so (η²)_y = −Ξ_z/16, (η²)_yy = Ξ_zz/8, F_y = −2F_z,
+F_yy = 4F_zz and F_yyy = −8F_zzz. Substituting gives [[eq:band-weight-z]] and φ′ = 4ηF_z. The formulas for Ξ_z and
+Ξ_zz follow by differentiating Ξ, and V_y = a(1 − 2y) + by(2 − 3y) with y(2 − 3y) = (1 − z)(1 + 3z)/4 (as in the proof
 of [[prop:morawetz-weight]]). G is affine in a, and the coefficient of a is 2zF. ∎
 
 ### Polynomial multipliers for 3 ≤ |σ| ≤ 14 {#sec:band-polynomial}

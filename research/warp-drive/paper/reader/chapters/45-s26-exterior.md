@@ -121,15 +121,15 @@ Lemma 5.6 for the pointwise bounds; here the slots of h and of g_(b₀) − η g
 *The radius R₀.* Enlarging R₀ keeps [[lem:iii-c1-1-1]] true. We fix R₀ once, so that in addition R₀ ≥ 4|C″| + 4, the
 function F₀ of [[lem:s26-development]] is increasing on [R₀, ∞), and every statement of this chapter made for r₀ large
 (in [[lem:s26-development]], [[rem:iv-4-2]], [[lem:iv2-1-1]] (a), [[lem:iv2-2-2]], [[lem:iv2-2-3]] and [[cor:iv2-4-1]])
-holds for every r₀ ≥ R₀. Each of these asks r₀ above a bound depending only on b₀, the gauge
-parameters, ℓ^♭₀, ℓ^♭_I and the constant c of [[lem:iv2-2-1]], whose choice does not involve r₀ (it is the smallness of
-x_I in [[prop:iv-3-1]] and [[prop:iv1-2-2]]). From here on R₀ is this radius.
+holds for every r₀ ≥ R₀. Each of these asks r₀ above a bound depending only on b₀, the gauge parameters, ℓ^♭₀, ℓ^♭_I
+and the constant c of [[lem:iv2-2-1]], whose choice does not involve r₀ (it is the smallness of x_I in [[prop:iv-3-1]]
+and [[prop:iv1-2-2]]). From here on R₀ is this radius.
 
 The causal structure of Ω_(ext,r₀) is that of a domain of dependence of Σ_(IVP,r₀). We record it in the form used for
 uniqueness.
 
-**Lemma {#lem:s26-development}** (Ω_(ext,r₀) is a Cauchy development.) Let r₀ ≥ R₀, let g₀ = g_(b₀), or g₀ ∈ 𝒢 with g₀ −
-g_(b₀) satisfying the pointwise bounds of the proof of [[lem:iii-c1-1-1]], and let g := g₀ + h with h as in
+**Lemma {#lem:s26-development}** (Ω_(ext,r₀) is a Cauchy development.) Let r₀ ≥ R₀, let g₀ = g_(b₀), or g₀ ∈ 𝒢
+with g₀ − g_(b₀) satisfying the pointwise bounds of the proof of [[lem:iii-c1-1-1]], and let g := g₀ + h with h as in
 [[lem:iii-c1-1-1]] and smooth in the interior of Ω_(ext,r₀). Time-orient g by ∂_t. Then the interior Ω° of Ω_(ext,r₀) is
 globally hyperbolic for g, and Σ° := Ω° ∩ {t_IVP = 0} is a smooth spacelike Cauchy hypersurface of Ω°.
 
