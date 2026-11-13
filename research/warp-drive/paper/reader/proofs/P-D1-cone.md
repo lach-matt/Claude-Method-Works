@@ -170,12 +170,14 @@ p ≥ r_− := c − ℓ(ϱ + ϱ^(−1))/2. At the first seed η ≤ 0.5579, ℓ
 with η_v ≤ 1.128 (first seed) and η_v ≤ 0.6266 (second). Also v′(z) = 2 + 2/(z² − 1) and |z² − 1| ≥ |z|² − 1 ≥
 r_−² − 1, so |v′(z)| ≤ V.
 
-(ii) The trigonometric factors. For complex ξ, |sin ξ| and |cos ξ| are at most cosh(Im ξ). Hence
+(ii) The trigonometric factors. For complex ξ, |sin ξ| and |cos ξ| are at most cosh(Im ξ). With env and d env/dv
+extended as the entire functions sin⁴(π(v − 1/2)/3) and (4π/3) sin³(π(v − 1/2)/3) cos(π(v − 1/2)/3), this gives
 |env(v(z))| ≤ c₄ and |d env/dv (v(z))| ≤ (4π/3) c₄, where c₄ := cosh⁴(π η_v/3) ≤ 10.1 (first seed), ≤ 2.24
 (second); and |cos θ|, |sin θ| ≤ cosh(η_v/λ) ≤ 1.707 (first seed), ≤ 3.696 (second).
 
 (iii) A and B. Here φ = (λ/2) z^(−3/2) env(v(z)), φ′ = (λ/2)(−(3/2) z^(−5/2) env + z^(−3/2) (d env/dv) v′) and
-θ′ = v′/λ, with |z| ≥ p ≥ r_−. So |A| and |B| are at most (|φ′| + |φ| |θ′|) cosh(η_v/λ) ≤ Ā, where
+θ′ = v′/λ, with |z| ≥ p ≥ r_−. Since A = φ′ cos θ − φ θ′ sin θ and B = φ′ sin θ + φ θ′ cos θ, |A| and |B| are at
+most (|φ′| + |φ| |θ′|) cosh(η_v/λ) ≤ Ā, where
 
     Ā := r_−^(−3/2) c₄ cosh(η_v/λ) ((λ/2)(3/(2r_−) + (4π/3) V) + V/2).
 

@@ -20,45 +20,45 @@ and oscillating profiles ĝ_j of the stages ([[eq:ansatz]]), and □̃ := g0^(ab
 
 ### The past domain {#sec:past-domain}
 
-Put t := 1 + τ0 − τ for τ ≤ τ0, fix κ := 1/2, h(τ) := κ t^(−1/4), and V_P := V + 1 + (τ_end − τ0) + κ, with
-V := v_end + T and τ_end as in [[sec:domain]], so that V_P − κ is the largest v on Σ_τ0 ∩ Ω. Let
+Put t := 1 + τ0 − τ for τ ≤ τ0, fix κ_P := 1/2, h_P(τ) := κ_P t^(−1/4), and V_P := V + 1 + (τ_end − τ0) + κ_P, with
+V := v_end + T and τ_end as in [[sec:domain]], so that V_P − κ_P is the largest v on Σ_τ0 ∩ Ω. Let
 
-    P := { τ ≤ τ0,  |x| ≥ a,  v + h(τ) ≤ V_P },      P⁺ := P ∩ {v ≥ v_start},
-    A_P(τ) := Σ_τ ∩ P⁺ = { r_in(τ) ≤ |x| ≤ r_out(τ) },   r_in := v_start − τ,   r_out := V_P − h(τ) − τ.
+    P := { τ ≤ τ0,  |x| ≥ a,  v + h_P(τ) ≤ V_P },      P⁺ := P ∩ {v ≥ v_start},
+    A_P(τ) := Σ_τ ∩ P⁺ = { r_in(τ) ≤ |x| ≤ r_out(τ) },   r_in := v_start − τ,   r_out := V_P − h_P(τ) − τ.
                                                                                                     {#eq:past-domain}
 
-**Lemma {#lem:past-domain}** (The past domain.) (a) Each Σ_τ is spacelike. (b) The outer boundary B := {v + h(τ) =
-V_P} is spacelike, with Φ := v + h(τ),
+**Lemma {#lem:past-domain}** (The past domain.) (a) Each Σ_τ is spacelike. (b) The outer boundary B := {v + h_P(τ) =
+V_P} is spacelike, with Φ_B := v + h_P(τ),
 
-    g0⁻¹(dΦ, dΦ) = −2 h′ − h′² (1 + μ/r²) ≤ −(κ/2) t^(−5/4),
+    g0⁻¹(dΦ_B, dΦ_B) = −2 h_P′ − h_P′² (1 + μ/r²) ≤ −(κ_P/2) t^(−5/4),
 
-and v + h(τ) increases along future causal curves, so P lies to the past of B. (c) Σ_τ0 ∩ P = Σ_τ0 ∩ Ω. (d) On P⁺,
+and v + h_P(τ) increases along future causal curves, so P lies to the past of B. (c) Σ_τ0 ∩ P = Σ_τ0 ∩ Ω. (d) On P⁺,
 t + a1 ≤ r ≤ t + a2 with a1 := v_start − τ0 − 1 > √μ0 and a2 := V_P − τ0 − 1, and the thickness r_out − r_in =
-V_P − h − v_start lies in [d0, d1], d0 := V_P − κ − v_start ≥ 1, d1 := V_P − v_start. (e) L0 is tangent to the inner
+V_P − h_P − v_start lies in [d0, d1], d0 := V_P − κ_P − v_start ≥ 1, d1 := V_P − v_start. (e) L0 is tangent to the inner
 boundary {v = v_start} of P⁺; the past integral curve of L0 through any point of P stays in P and runs to past null
 infinity (v and x̂ fixed, r → ∞). (f) There is ε_P > 0 such that for every Lorentzian g on P with |g⁻¹ − g0⁻¹| ≤
-ε_P t^(−5/4): B and the Σ_τ are spacelike for g with g⁻¹(dΦ, dΦ) ≤ −(κ/4) t^(−5/4); {r = a} is spacelike with r
+ε_P t^(−5/4): B and the Σ_τ are spacelike for g with g⁻¹(dΦ_B, dΦ_B) ≤ −(κ_P/4) t^(−5/4); {r = a} is spacelike with r
 decreasing along future causal curves; L0 is transverse to Σ_τ; and J⁻(p; g) ∩ {τ ≥ τ1} lies in P for every p in P and
 τ1 ≤ τ(p).
 
-*Proof.* (a) is [[lem:domain]] (a). (b) dΦ = dv + h′ dτ, with h′ = dh/dτ = (κ/4) t^(−5/4) > 0 because
+*Proof.* (a) is [[lem:domain]] (a). (b) dΦ_B = dv + h_P′ dτ, with h_P′ = dh_P/dτ = (κ_P/4) t^(−5/4) > 0 because
 dt/dτ = −1. By [[prop:vaidya]] (c)–(d), g0⁻¹(dv, dv) = 0, g0⁻¹(dv, dτ) = −1 and g0⁻¹(dτ, dτ) = −1 − μ/r²,
-so g0⁻¹(dΦ, dΦ) = −2h′ − h′²(1 + μ/r²) ≤ −2h′ = −(κ/2) t^(−5/4). For a future causal Y, dv(Y) = −g0(L0, Y) ≥ 0 and
-dτ(Y) > 0, so dΦ(Y) > 0. (c) At τ0, h = κ and the condition reads v ≤ V_P − κ. (d) On P⁺, r = v − τ = v − τ0 − 1 + t
-with v ∈ [v_start, V_P]; a1 > √μ0 because v_start − τ0 > √μ0 + 1; and d0 ≥ 1 because V_P − κ = V + 1 + τ_end − τ0 ≥
-v_start + 1. (e) Along −L0, v and x̂ are fixed, τ decreases and h decreases, so v + h ≤ V_P is kept, r = v − τ grows
+so g0⁻¹(dΦ_B, dΦ_B) = −2h_P′ − h_P′²(1 + μ/r²) ≤ −2h_P′ = −(κ_P/2) t^(−5/4). For a future causal Y, dv(Y) = −g0(L0, Y) ≥ 0 and
+dτ(Y) > 0, so dΦ_B(Y) > 0. (c) At τ0, h_P = κ_P and the condition reads v ≤ V_P − κ_P. (d) On P⁺, r = v − τ = v − τ0 − 1 + t
+with v ∈ [v_start, V_P]; a1 > √μ0 because v_start − τ0 > √μ0 + 1; and d0 ≥ 1 because V_P − κ_P = V + 1 + τ_end − τ0 ≥
+v_start + 1. (e) Along −L0, v and x̂ are fixed, τ decreases and h_P decreases, so v + h_P ≤ V_P is kept, r = v − τ grows
 without bound, and v ≥ v_start is kept. (f) The inequalities of (a), (b) and of [[lem:domain]] (b) are strict,
-with a margin of at least (κ/2) t^(−5/4) in (b) and fixed margins in (a) and in [[lem:domain]] (b), the latter
+with a margin of at least (κ_P/2) t^(−5/4) in (b) and fixed margins in (a) and in [[lem:domain]] (b), the latter
 holding at r = a < √μ0 whatever τ is; the causal claim follows as in [[lem:domain]] (e). ∎
 
 **Lemma {#lem:seed-region}** (The seed region.) Let g solve Ric^H(g) = 0 on P ∩ {τ1 ≤ τ ≤ τ2}, be C², satisfy the
 margin of [[lem:past-domain]] (f), and agree with g0 on Σ_τ1 ∩ {v ≤ v_start} together with its first τ-derivative.
 Then g = g0 on P ∩ {τ1 ≤ τ ≤ τ2, v ≤ v_start}.
 
-*Proof.* g0 is vacuum on {v ≤ v_start}, where μ is constant. For 0 < ε ≤ 1 let R_ε := P ∩ {τ ≥ τ1, v + ε h(τ) ≤
+*Proof.* g0 is vacuum on {v ≤ v_start}, where μ is constant. For 0 < ε ≤ 1 let R_ε := P ∩ {τ ≥ τ1, v + ε h_P(τ) ≤
 v_start}, and τ* the supremum of the τ′ ≤ τ2 with g = g0 on R_ε ∩ {τ ≤ τ′}. R_ε ∩ Σ_τ* is compact, g = g0 on it, and g is
-continuous, so on a neighbourhood U of it |g⁻¹ − g0⁻¹| ≤ (εκ/8) t^(−5/4). There {v + ε h = v_start} is spacelike for g
-and g0 with R_ε to its past (the calculation of [[lem:past-domain]] (b) with εκ in place of κ), and {r = a} likewise
+continuous, so on a neighbourhood U of it |g⁻¹ − g0⁻¹| ≤ (εκ_P/8) t^(−5/4). There {v + ε h_P = v_start} is spacelike for g
+and g0 with R_ε to its past (the calculation of [[lem:past-domain]] (b) with εκ_P in place of κ_P), and {r = a} likewise
 ([[lem:past-domain]] (f)). The difference u := g − g0 solves −½ g^(ab) ∂_a ∂_b u = f with |f| ≤ C(|u| + |∂u|), since
 the principal part and Q of [[eq:gauge]] are smooth in (g, ∂g) and ∂²g0 is bounded; u = ∂_τ u = 0 on Σ_τ*,
 and the proof of [[lem:energy]] on R_ε ∩ {τ* ≤ τ ≤ τ* + δ}, δ small so that the region lies in U, gives u = 0
@@ -66,7 +66,7 @@ there. So τ* = τ2. Letting ε → 0 covers {v < v_start}, and continuity cover
 
 ### Inequalities on the past slices {#sec:past-inequalities}
 
-All constants below depend on P (through a, a1, a2, d0, d1, κ) and not on τ or λ, and 0 < λ ≤ min(λ1, d0/20) with
+All constants below depend on P (through a, a1, a2, d0, d1, κ_P) and not on τ or λ, and 0 < λ ≤ min(λ1, d0/20) with
 λ1 := min(1, δ0)/10 as in [[eq:lambda-one]]. With Ω_ab := x_a ∂_b − x_b ∂_a the rotations of R⁴, the scaled norms
 on A_P(τ) are
 
@@ -81,9 +81,12 @@ L0^a L0^b ∂_a ∂_b u, the Cartesian components (1, −x̂) of L0 being consta
 f‖ on A_P(τ), ∂_r = x̂·∂_x; hence ‖∂^i f‖_∞ ≤ C λ^(−3−i) t^(−3/2) |f|_(i+3,P). (b) If f = 0 on {r = r_in(τ)}, then
 ‖f‖ ≤ C ‖∂_r f‖.
 
-*Proof.* (a) In polar coordinates A_P(τ) = [r_in, r_out] × S³ with r_out − r_in in [d0, d1]. On [0, d] × S³ with the
-product metric, H³ embeds in L^∞ with a constant uniform for d in [d0, d1] ([BH17, Theorem 7.26] in charts, for a
-compact family of compact manifolds with boundary). The covariant derivatives of S³ are bounded by the rotations,
+*Proof.* (a) In polar coordinates A_P(τ) = [r_in, r_in + d] × S³ with d := r_out − r_in in [d0, d1]. Put
+r = r_in + d s, s ∈ [0, 1]. Then ∂_r = d⁻¹ ∂_s with d⁻¹ ∈ [d1⁻¹, d0⁻¹] and dr = d ds, so the H³ norm on
+[r_in, r_in + d] × S³ with the product metric dr² + (round metric) and the H³ norm in s on the fixed manifold
+[0, 1] × S³ bound each other with constants depending only on d0 and d1. On [0, 1] × S³, H³ embeds in L^∞
+([BH17, Theorem 7.26] in charts), so H³ embeds in L^∞ on [r_in, r_in + d] × S³ with a constant uniform for d in
+[d0, d1]. The covariant derivatives of S³ are bounded by the rotations,
 |∇^k f| ≤ C Σ_(|β| ≤ k) |Ω^β f|, because the Ω_ab span every tangent space of S³ and their commutators are rotations.
 And ∫ |·|² dr dω ≤ r_in⁻³ ∫ |·|² r³ dr dω ≤ t⁻³ ‖·‖², since r_in ≥ t by [[lem:past-domain]] (d). For the scaled form
 apply this to ∂^i f and reorder, using [Ω_ab, ∂_c] = −δ_ac ∂_b + δ_bc ∂_a. (b) On each ray f(r) is the integral of
@@ -98,7 +101,7 @@ reflections.
 *Proof.* The proof of [[lem:mollifier]] is local at the scale λ and uses only that the annulus has thickness
 Δ := r_out − r_in at least d0 ≥ 1 and inner radius at least 1; that DΦ = I + λ E with E bounded with its derivatives
 (E involves ∂σ, of size at most 7/d0, and ∂x̂, of size 1/r ≤ 1); that Φ is a diffeomorphism onto its image with
-Jacobian bounded above and below uniformly in λ; and, for (M6), that ∂_τ r_in = −1 and ∂_τ r_out = −1 − h′ are
+Jacobian bounded above and below uniformly in λ; and, for (M6), that ∂_τ r_in = −1 and ∂_τ r_out = −1 − h_P′ are
 bounded. The Jacobian: Φ is radial, r ↦ r + 2λσ, so DΦ has the radial eigenvalue 1 + 2λ σ0′/Δ and the angular ones
 1 + 2λσ/r. Since σ0 is non-increasing with |σ0′| ≤ 7, and λ/Δ ≤ λ/d0 ≤ 1/20, the radial eigenvalue lies in
 [1 − 14/20, 1] = [3/10, 1]. Since |σ| ≤ 1, r ≥ r_in ≥ 1 and λ ≤ 1/10, |2λσ/r| ≤ 1/5, so the angular ones lie in
@@ -114,7 +117,7 @@ v − v_start at fixed τ. Put
 Then [□̃, 𝒫] f = −L0 X_f + R_f, and for j ≤ k, with Z ranging over 𝒵 := {λ∂_τ, λ∂_r, Ω_ab} (∂_r = x̂·∂_x),
 
     ‖Z^j X_f‖ ≤ C λ Σ_(i ≤ j) ‖Z^i ∂f‖,
-    ‖Z^j R_f‖ ≤ C (t⁻¹ + h′) Σ_(i ≤ j) ‖Z^i ∂f‖ + ‖Z^j R′_f‖,
+    ‖Z^j R_f‖ ≤ C (t⁻¹ + h_P′) Σ_(i ≤ j) ‖Z^i ∂f‖ + ‖Z^j R′_f‖,
 
 where R′_f collects the terms with two time derivatives of f, each with a factor at most C λ (μ r⁻³ + |μ′| r⁻²); for
 f = s := w(ℓ, ℓ) these are rewritten through the equation of [[lem:ell-ell]], as in Step 6 of the proof of
@@ -141,10 +144,10 @@ commutes with 𝒞 and with ψ_v. When ψ depends on τ, L0 𝒞 g and L0² 𝒞
 −2(ψ_v − 1) 𝒞 ∂_v L0 g as −L0(2(ψ_v − 1) 𝒞 ∂_v g) adds 2 ∂_τ ψ_v 𝒞 ∂_v g + 2(ψ_v − 1) ψ_τ 𝒞 ∂_v² g; the terms with
 ∂_τ ψ_v cancel against those from −2 ∂_v L0 𝒞 g, and what remains is the last line. Here 2(ψ_v − 1) = 4λ σ_v, and
 
-    ψ_τ = 2λ σ0′((v − v_start)/Δ) (v − v_start) h′/Δ²,
+    ψ_τ = 2λ σ0′((v − v_start)/Δ) (v − v_start) h_P′/Δ²,
 
-since Δ′ = −h′ by [[eq:past-domain]]; as |v − v_start| ≤ Δ, |σ0′| ≤ 7 and h″ = (5/4) h′/t, both ψ_τ and ψ_ττ are at
-most C λ h′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ |μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and |3ψ_v/r − 3/(ψ − τ)|
+since Δ′ = −h_P′ by [[eq:past-domain]]; as |v − v_start| ≤ Δ, |σ0′| ≤ 7 and h_P″ = (5/4) h_P′/t, both ψ_τ and ψ_ττ are at
+most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ |μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and |3ψ_v/r − 3/(ψ − τ)|
 ≤ C/r.
 
 *The angular part.* Δ̊ acts on x̂ at fixed (τ, v) and commutes with 𝒞, so [r⁻² Δ̊, 𝒞] = (r⁻² − (ψ − τ)⁻²) 𝒞 Δ̊, of size
@@ -155,9 +158,9 @@ it commutes up to terms with the factor λ |∂(μ x̂ x̂/r²)| ≤ C λ (μ r�
 
 *The bounds.* Apply the radial and angular identities to g = M f. A λ-weighted second spatial derivative of M f costs
 no more than one derivative of f (Bernstein's inequality, (M2)). The term −L0(4λ σ_v 𝒞 ∂_v M f) is −L0 X_f, and
-‖Z^j X_f‖ ≤ C λ Σ ‖Z^i ∂f‖ needs no decaying factor. Every other term carries a factor C/r ≤ C t⁻¹, or C λ h′ (the
+‖Z^j X_f‖ ≤ C λ Σ ‖Z^i ∂f‖ needs no decaying factor. Every other term carries a factor C/r ≤ C t⁻¹, or C λ h_P′ (the
 last line, with two derivatives of M f, of which one is absorbed by the factor λ), or C λ (μ r⁻³ + |μ′| r⁻²) (the
-terms with L0², which form R′_f). L0 commutes with λσ_v, 𝒞 and M up to factors C(h′ + r⁻¹): L0 σ_v = O(h′), the ψ_τ
+terms with L0², which form R′_f). L0 commutes with λσ_v, 𝒞 and M up to factors C(h_P′ + r⁻¹): L0 σ_v = O(h_P′), the ψ_τ
 terms above, and [x̂·∂_x, M] = O(λ r⁻¹) by (M5). The fields Z commute with these operators up to bounded operators of the
 same order, which suffices, since every term of R_f already carries a decaying factor and the bound on X_f needs none.
 Z commutes with L0 exactly (∂_τ, ∂_r and Ω_ab do, and L0 = ∂_τ − ∂_r in these coordinates), so the same holds at every
@@ -185,7 +188,7 @@ and put γ := c0 − 3/2. With a₊ := a1 if γ > 0 and a₊ := a2 if γ ≤ 0,
     (t + a₊)^γ ‖ψ(τ)‖ ≤ (t1 + a₊)^γ ‖ψ(τ1)‖ + ∫_(τ1)^τ (t′ + a₊)^γ ‖f(τ′)‖ dτ′.                      {#eq:past-transport}
 
 *Proof.* As in [[lem:transport]], ∂_τ ‖ψ‖² = 2⟨ψ, L0 ψ⟩ − ∫ (3/r) ψ² plus boundary terms. L0 is tangent to
-{v = v_start}, so that face contributes nothing, and the outer face contributes −h′ ∫_(r = r_out) ψ² r³ dω ≤ 0. Hence
+{v = v_start}, so that face contributes nothing, and the outer face contributes −h_P′ ∫_(r = r_out) ψ² r³ dω ≤ 0. Hence
 ∂_τ ‖ψ‖² ≤ 2γ ∫ ψ²/r + 2⟨ψ, f⟩, and t + a1 ≤ r ≤ t + a2 ([[lem:past-domain]] (d)) gives ∂_τ ‖ψ‖ ≤ γ (t + a₊)⁻¹ ‖ψ‖ +
 ‖f‖. Since ∂_τ t = −1, ∂_τ ((t + a₊)^γ ‖ψ‖) ≤ (t + a₊)^γ ‖f‖. ∎
 
@@ -461,7 +464,7 @@ Bernstein's inequality in one r⁻¹ Ω; the parts with c0 = 0 satisfy the stron
 transports of λ ∂_r² φ, λ r⁻¹ ∂_r Ω φ and λ r⁻² Ω² φ have c0 = 0, 1, 2, so [[lem:past-transport]] applies with
 c0 ≤ 2, and their forcing, λ times the same derivatives of 𝒫 s, is bounded by Bernstein's inequality (M2) in one ∂_r or
 one r⁻¹ Ω. The fourth is [[lem:past-transport]] with c0 = 2 for [[eq:psi-prime-transport]]: [[lem:past-commutator]]
-bounds R_s and r⁻¹ X_s by C (t⁻¹ + h′) H ≤ C t⁻¹ H, its terms R′_s being rewritten through [[lem:ell-ell]] as
+bounds R_s and r⁻¹ X_s by C (t⁻¹ + h_P′) H ≤ C t⁻¹ H, its terms R′_s being rewritten through [[lem:ell-ell]] as
 in Step 6; r⁻¹ (∂_τ + ∂_r) 𝒫 s and r⁻² ∂_r φ give t⁻¹ H and t⁻² D1; and 𝒫 □̃ s is bounded through
 [[lem:ell-ell]] with the coefficients above. Z commutes with L0, and [Z, r^(−c)] carries the factor r^(−c−1),
 so every line holds at every order j ≤ k with c0 unchanged.

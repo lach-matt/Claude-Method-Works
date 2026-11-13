@@ -28,12 +28,12 @@ u := t − r, with r ≤ u* − u ≤ 2r + C on W.
 *The dilation.* For ς > 0 put D_ς(t, x) := (v_1 + ς(t − v_1), ς x). It fixes s and x̂, maps {r = 1} onto {r = ς}, and
 Z = (d/dς) D_ς at ς = 1. A function, or a tensor read through its Cartesian components, is *homogeneous of degree −q*
 if f(D_ς X) = ς^(−q) f(X) for all ς > 0. Then ∂_a f is homogeneous of degree −q − 1, Z f = −q f (differentiate in ς at
-ς = 1), and L_Ω_ij f is homogeneous of degree −q, D_ς commuting with rotations. Since the region C_1 := {r ≥ 1,
+ς = 1), and L_Ω_ij f is homogeneous of degree −q, D_ς commuting with rotations. Since the region 𝒞_1 := {r ≥ 1,
 0 ≤ s ≤ 3/2} is the union of the D_ς-images, ς ≥ 1, of the compact set K := {r = 1, 0 ≤ s ≤ 3/2}, a smooth f
-homogeneous of degree −q satisfies |∂^j f| ≤ (max_K |∂^j f|) r^(−q−j) on C_1. In particular m and every Σ_p are
-homogeneous, of degrees −2 and −p, and on C_1
+homogeneous of degree −q satisfies |∂^j f| ≤ (max_K |∂^j f|) r^(−q−j) on 𝒞_1. In particular m and every Σ_p are
+homogeneous, of degrees −2 and −p, and on 𝒞_1
 
-    |∂^j m| ≤ C_j r^(−2−j),      |∂^j Σ_p| ≤ C_j λ r^(−p−j),      |Γ^α Σ_p| ≤ C_α λ r^(−p).          {#eq:far-sigma-bounds}
+    |∂^j m| ≤ C_j r^(−2−j),    |∂^j Σ_p| ≤ C_j λ r^(−p−j),    |Γ^α Σ_p| ≤ C_α λ r^(−p).            {#eq:far-sigma-bounds}
 
 **Lemma {#lem:far-scaling}** (structure and scaling of the operator). (a) With g := g_b0 + h and Γ̂ := Γ[g_b0],
 
@@ -86,18 +86,18 @@ g-derivatives. By [[eq:far-sigma-bounds]] and [[lem:far-scaling]] (a), |∂g_b0|
 C μ r⁻⁴; so |∂g| ≤ C μ r⁻³ + |∂H| and |∂∂g| ≤ C μ r⁻⁴ + |∂∂H|, and (a) follows term by term, with μ² r⁻⁶ ≤ μ r⁻⁴/16
 and 2|Γ̂| |∂H| ≤ |Γ̂|² + |∂H|². (b) Each coefficient is a polynomial in g^(±1), ∂g, ∂∂g, Γ̂, ∂Γ̂; between H and 0, g^(±1)
 change by at most C|H|, ∂g by ∂H, ∂∂g by ∂∂H, and Γ̂ not at all. Bounding the difference of a product by the sum, over
-its factors, of the change of one factor times the bounds of the others gives (b). (c) The coefficients depend on μ through g = η + μ m + H
-and Γ̂ only, and μ ∂_μ g = μ m, μ ∂_μ ∂g = μ ∂m, μ ∂_μ ∂∂g = μ ∂∂m, μ ∂_μ g⁻¹ = −g⁻¹ (μ m) g⁻¹, μ ∂_μ Γ̂ = O(μ r⁻³),
+its factors, of the change of one factor times the bounds of the others gives (b). (c) The coefficients depend on μ
+through g = η + μ m + H and Γ̂ only, and μ ∂_μ g = μ m, μ ∂_μ ∂g = μ ∂m, μ ∂_μ ∂∂g = μ ∂∂m, μ ∂_μ g⁻¹ = −g⁻¹ (μ m) g⁻¹, μ ∂_μ Γ̂ = O(μ r⁻³),
 μ ∂_μ ∂Γ̂ = O(μ r⁻⁴). By the product rule μ ∂_μ of each term of the proof of (a) replaces one factor by its μ ∂_μ: a
 factor of size O(1) by one of size O(μ r⁻²), and ∂g, ∂∂g, Γ̂, ∂Γ̂ by factors of sizes O(μ r⁻³), O(μ r⁻⁴), O(μ r⁻³),
 O(μ r⁻⁴). Collecting the terms gives (c). ∎
 
 ### The residual of the subtracted expansion {#sec:far-residual}
 
-**Proposition {#prop:far-residual}** (the degree of the residual). Let M[k] be the part of DP_μ(0)[k] linear in μ,
-divided by μ, and B[k, k′] := D² Ric^H(η + ·; η)(0)[k, k′]; put
+**Proposition {#prop:far-residual}** (the degree of the residual). Let M_1[k] := ∂_μ(DP_μ(0)[k]) at μ = 0, the first
+variation of P_μ at 0 differentiated in the mass, and M_2[k, k′] the second variation of Ric^H(η + ·; η) at 0; put
 
-    Q_6 := μ M[Σ_2] + (1/2) B[Σ_2, Σ_2],
+    Q_6 := μ M_1[Σ_2] + (1/2) M_2[Σ_2, Σ_2],
 
 homogeneous of degree −6. For λ small, on W ∩ {r ≥ 4R}, for every multi-index α of commutators Γ and constants c_i,
 
@@ -107,7 +107,7 @@ homogeneous of degree −6. For λ small, on W ∩ {r ≥ 4R}, for every multi-i
 *Proof.* Put Ψ(X; e, d) := Ric^H(η + e m + Σ_p d_p Σ̂_p; η + e m)(X), d = (d_p)_(p∈Π), for X near K and (e, d) near 0;
 it is smooth in all its arguments, its components being rational in the jets of the two metrics with nonvanishing
 denominators near (e, d) = 0; for λ small, the values (e, d) = (μ ς⁻², (λ ς^(−p))_p), ς ≥ 4R, lie in a compact set on
-which it is smooth. Since D_ς preserves the region in which Σ̂_p is defined and Σ̂_p ∘ D_ς = ς^(−p) Σ̂_p,
+which it is smooth, with bounds independent of λ, since the jets of Σ̂_p on K are. Since D_ς preserves the region in which Σ̂_p is defined and Σ̂_p ∘ D_ς = ς^(−p) Σ̂_p,
 [[eq:far-scaling]] gives, for X ∈ K and ς ≥ 4R,
 
     P(Σ)(D_ς X) = ς⁻² Ψ(X; μ ς⁻², (λ ς^(−p))_p).                                                    {#eq:far-psi}
@@ -120,9 +120,10 @@ D = 0, and η + e m is the vacuum metric of [[prop:vaidya]] with constant mass e
                  + (1/2) Σ_(p,p′) d_p d_p′ ∂_(d_p) ∂_(d_p′) Ψ(X; 0, 0) + Rem(X; e, d),                {#eq:far-taylor}
 
 where Rem = Σ_p d_p ρ_p with ρ_p smooth and vanishing to second order at (e, d) = (0, 0), so that |Rem| ≤ C |d| (|e| +
-|d|)², uniformly for X ∈ K and (e, d) in that compact set. Second, since Γ[η] = 0, the linearisation of Ric^H(η + ·; η) at 0 is −(1/2) □_η acting on
-components, so ∂_(d_p)Ψ(X; 0, 0) = −(1/2) □_η Σ̂_p(X), and ∂_e ∂_(d_p)Ψ(X; 0, 0) = M[Σ̂_p](X), ∂_(d_p) ∂_(d_p′) Ψ(X; 0, 0)
-= B[Σ̂_p, Σ̂_p′](X). Third, each of these coefficient functions, extended to C_1 by the homogeneity of degree −p − 2,
+|d|)², uniformly for X ∈ K and (e, d) in that compact set. Second, since Γ[η] = 0, the linearisation of
+Ric^H(η + ·; η) at 0 is −(1/2) □_η acting on components, so ∂_(d_p)Ψ(X; 0, 0) = −(1/2) □_η Σ̂_p(X), and
+∂_e ∂_(d_p)Ψ(X; 0, 0) = M_1[Σ̂_p](X), ∂_(d_p) ∂_(d_p′) Ψ(X; 0, 0) = M_2[Σ̂_p, Σ̂_p′](X). Third, each of these coefficient
+functions, extended to 𝒞_1 by the homogeneity of degree −p − 2,
 −p − 4 and −p − p′ − 2 respectively, is the corresponding term of P(Σ) at D_ς X: inserting e = μ ς⁻² and d_p = λ ς^(−p)
 into [[eq:far-taylor]] and multiplying by ς⁻², the term with e^i Π d_p^(n_p) has the factor ς^(−2−2i−Σ n_p p).
 
@@ -132,7 +133,7 @@ are: i = 0 and one factor d_p, every p ∈ Π (degree −p − 2); i = 1 and the
 −(1/2) □_η Σ_4 + Q_6, which is 0 by [[eq:far-sigma4]]. Every other term of [[eq:far-taylor]] has degree at most −13/2
 and carries λ (or λ² ≤ λ), and Rem contributes ς⁻² |Rem| ≤ C λ ς⁻² ς⁻² (μ ς⁻² + λ ς⁻²)² ≤ C λ r⁻⁸, |d| ≤ C λ ς⁻².
 So |P(Σ)| ≤ C λ r^(−13/2). If instead □_η Σ_4 = 0, the degree −6 terms sum to Q_6 = O(λ r⁻⁶), and |P(Σ)| ≤ C λ r⁻⁶.
-The terms of degree −13/2 are μ M[Σ_(5/2)] and the cross terms of B[Σ_2, Σ_(5/2)].
+The terms of degree −13/2 are μ M_1[Σ_(5/2)] and M_2[Σ_2, Σ_(5/2)].
 
 The commutators. A homogeneous term of degree −q is mapped by Z to −q times itself, by L_Ω_ij to a homogeneous term of
 degree −q and by ∂_t to one of degree −q − 1, so it keeps its bound. For the remainder Rem′(D_ς X) := ς⁻² Rem(X; μ ς⁻²,
@@ -182,8 +183,8 @@ with (1 + |σ|)^(a−4) in place of (1 + |σ|)^(a−9/2) if □_η Σ_4 = 0. Hen
 coefficients with factors ∂^(j_i) k_i, ∂^j H, Γ̂ and ∂Γ̂ in which the derivatives, Γ̂ counted as one and ∂Γ̂ as two,
 number exactly two. The terms linear in Γ^β h_R with every other slot a field Γ^γ Σ, which is O(λ r⁻²) with each
 derivative gaining r⁻¹ ([[eq:far-sigma-bounds]]), therefore have coefficients O(λ r^(−4+j)) on ∂^j Γ^β h_R: λ r⁻²
-(second order, kernel 2), λ r⁻³ (first order, 3) and λ r⁻⁴ (zero order, 3). By [[prop:far-coefficients]] with H = Σ + h_R, the bounds of Σ and the
-pointwise bounds: the terms μ ∂_μ DP(H) give μ r⁻² (second order, 2) and smaller; B(H)·∂φ and the first-order part
+(second order, kernel 2), λ r⁻³ (first order, 3) and λ r⁻⁴ (zero order, 3). By [[prop:far-coefficients]] with
+H = Σ + h_R, the bounds of Σ and the pointwise bounds: the terms μ ∂_μ DP(H) give μ r⁻² (second order, 2) and smaller; B(H)·∂φ and the first-order part
 of □_g give (μ + λ) r⁻³ + C ε r^(−3/2−a) (kernels 3 and 3/2 + a); C(H) φ gives (μ + λ) r⁻⁴ + C ε r^(−3/2−a) (zero
 order: kernels 3 and a + 1/2); the deformation term (1/2) w T^(ab) ∂_t g_ab carries ∂_t H = O(λ r⁻³ + ε r^(−3/2−a))
 (kernels 3 and 3/2 + a). The terms with at least two slots h_R have one slot in L², an undifferentiated one through
@@ -199,8 +200,8 @@ exactly when q > 1: q = 2 always, q = a + 1/2 when a > 1/2, q = 9/2 − a when a
 **Proposition {#prop:far-window}** (the weight window). Let ℓ0 ∈ (3, 4) ∖ {7/2} and suppose that on the initial slice
 of the truncated problems the field h_R vanishes off {v_1 ≤ v ≤ v_1 + C}, that there the fields Γ^α h_R, |α| ≤ k1,
 and their first derivatives are O(r^(−9/2)), and that on N the fields Γ^α h_R are O(r^(−9/2)), their derivatives
-along the generators O(r^(−11/2)) [[pending:far-hR-decay]]. The
-conditions on the weight a of the weighted estimate are:
+along the generators O(r^(−11/2)) [[pending:far-hR-decay]]. The conditions on the weight a of the weighted
+estimate are:
 (i) the kernels of [[cor:far-kernels]]: 1/2 < a < 7/2 (a < 3 if □_η Σ_4 = 0);
 (ii) the cap: 𝔈_k1(T) ≤ C(λ) |T|^(2a−6), which tends to 0 as T → −∞ exactly when a < 3;
 (iii) the flux through N: finite, with tail C R^(2a−7) beyond r = R, exactly when a < 7/2;
@@ -210,8 +211,8 @@ conditions on the weight a of the weighted estimate are:
 Their intersection is (ℓ0 − 1, 3) up to its lower end point, and the theorem uses a ∈ (ℓ0 − 1, 3).
 
 *Proof.* (i) is [[cor:far-kernels]]. (ii) On the initial slice at t̃ = T the support of h_R lies where v − v_1 ≤ C and
-t = T + f(r), so r = |T| + O(1), f being bounded; there w ≤ C r^(2a), |∂h_R| ≤ C r^(−9/2) (a cut-off in v of bounded derivative included)
-and the volume is at most C r³, so the energy is at most C r^(2a − 9 + 3) = C |T|^(2a−6). (iii) On N, the flux density
+t = T + f(r), so r = |T| + O(1), f being bounded; there w ≤ C r^(2a), |∂h_R| ≤ C r^(−9/2) (a cut-off in v of
+bounded derivative included) and the volume is at most C r³, so the energy is at most C r^(2a − 9 + 3) = C |T|^(2a−6). (iii) On N, the flux density
 of the weighted energy of h_R involves its derivatives tangent to N, of size r^(−11/2) along the generators and r⁻¹
 times r^(−9/2) along the spheres; with w ≤ C r^(2a) and r³ dr dω it is at most C r^(2a − 11 + 3) = C r^(2a−8), whose
 integral beyond R is C R^(2a−7)/(7 − 2a) for a < 7/2 and infinite otherwise. (iv) The weighted energy on S bounds

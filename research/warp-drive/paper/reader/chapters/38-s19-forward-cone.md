@@ -1434,8 +1434,8 @@ u^♭ := u − u_I vanishes for t_* < 1 and solves L_b u^♭ = f^♭, so it is t
 
 the zf index set (0, 0) dropping as α̃_K − 1 < 0.
 
-*High frequencies.* [[lem:iii-i2-4-1]] (β^f_I = ℓ_I, β_ι = γ_+, β_K = α̃_K; its weight condition is the one just
-checked) gives u_hi ∈ H^(∞,(3/2−ε,N,N))_b(M′).
+*High frequencies.* [[lem:iii-i2-4-1]] (β^f_I = ℓ_I ≥ 3/2, β_ι = γ_+, β_K = α̃_K ∈ (0, 1); its weight condition is the
+inequality ℓ_I + 1 ≥ γ_+ + 2 − min(α̃_K, 1 − ε_1) above) gives u_hi ∈ H^(∞,(3/2−ε,N,N))_b(M′).
 
 *The regular part.* [[lem:iii-i2-4-2]] with β_scf := 3/2 − ε, β_tf := γ_+ − 1, β_zf := α̃_K − 1
 (α + 2 := γ_+ − α̃_K ∈ (0, 1); the space of the right side contains f̂^♭, as 5/2 − ε ≤ min(ℓ_I + 1, γ_+ + 2) − ε)

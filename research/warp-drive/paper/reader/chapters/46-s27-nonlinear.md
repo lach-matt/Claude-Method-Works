@@ -55,7 +55,9 @@ Re z < 2, can overturn it. t^♭_* is smooth on M_(1/2) near ℐ⁺ ([[lem:ii-c-
 
 so χ_K = 0 on {t_* < T_K}, as t^♭_* ≤ t_*. Every statement of [[ch:s19]]–[[ch:s25]] holds with this threshold, the
 supports only shrinking. 𝒮_1 and the boosts φ_S are those of [[sec:iii-b-5]], g_(b₀,b,−S) is [[eq:iii-i-1-1]], and P_5
-is the augmented operator [[eq:iii-i14-1-3]]. Φ, the data space 𝒟, the class ℱ and 𝒳_J are those of [[def:iii-j-1-1]],
+is the augmented operator [[eq:iii-i14-1-3]]; its background at p⃗_(≤0) = (S, b − b₀, S^(0)_1) is the translated
+background g_(p⃗_(≤0)) of [[eq:iii-i7-1-3]], which is g_(b₀,b,−S) when S^(0)_1 = 0, and we write g_(b₀,b,−S) for it
+below [[pending:issue-1]]. Φ, the data space 𝒟, the class ℱ and 𝒳_J are those of [[def:iii-j-1-1]],
 [[def:iii-j-classes]] and [[thm:iii-j-2-4]], and 𝒟_ex, ℱ_ex, 𝒳_(J,ex), 𝒬_ex are the exact classes of [[def:iii-j3-1-1]].
 
 *The two time functions.* Put F(r) := t_IVP − t_* = ψ(r) − ψ_IVP(r). By [[lem:iii-b-3-7]] (b), ψ_IVP = ψ on [r_♭, 5R₁]
@@ -553,3 +555,302 @@ compact part is Cauchy stability. For the S-derivatives, ∂^j_S h_S solves the 
 ∂^j_S(h_(S,0), h_(S,1)), which are pull-backs of h_0 and its derivatives, and so small with h_0; its equation also has
 the term from varying the background φ_S^*g_(b₀), which carries a factor of h_S (the proof of [[thm:iii-c2-3-1]] (2))
 and is small too. ∎
+
+### The map Ψ {#sec:iii-k-2}
+
+**Definition {#def:iii-k-2-1}** (The map Ψ; [Hin26, (12.34)].) Let χ_− ∈ C^∞(ℝ) equal 1 on (−∞, T̂ + 7/4] and 0 on
+[T̂ + 2, ∞). For U ∈ 𝒟^∞_ex small, with boost component S,
+
+    Ψ(U) := (χ_−(t^♭_*) h_(−S), 0, 0) + Φ(U).                                                           {#eq:iii-k-2-1}
+
+The first component is defined on Ω_* ∩ {t^♭_* ≤ T̂ + 2} ⊂ 𝒟_(−S), and extended by 0.
+
+**Lemma {#lem:iii-k-2-2}** ([[thm:iii-j-2-4]] for Ψ; [Hin26, Lemma 12.7].) For U ∈ 𝒟^∞_ex small in 𝒟^d_ex:
+
+(a) Ψ(U) − Φ(U) is supported in {t^♭_* ≤ T̂ + 2}, and P_5(Ψ(U)) = P_5(Φ(U)) on {t^♭_* > T̂ + 2};
+
+(b) if the tail h̃ of U vanishes on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4], then P_5(Ψ(U)) = 0 on Ω_* ∩ {t^♭_* < c};
+
+(c) P_5(Ψ(U)) ∈ ℱ^∞_ex, and U ↦ P_5(Ψ(U)) satisfies [[prop:iii-j2-4-3]] on the scales of [[cor:iii-j3-6-6]], with
+constants depending on the data through finitely many norms of (γ̃, k̃);
+
+(d) P_5(Ψ(0)) is supported in {T̂ + 7/4 ≤ t^♭_* ≤ T̂ + 2}, and ‖P_5(Ψ(0))‖_(ℱ^k_ex) ≤ C_k‖(γ̃, k̃)‖_(H^(k+k′_k)),
+with k′_k the k′ of [[prop:iii-k-1-2]] (3) at the order k.
+
+Below, N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] and k″ := max_(k≤N_NM) k′_k. The smallness constants use
+orders k ≤ N_NM only; a bound needed at every order k (the bound on e_S in the proof of [[lem:iii-k-2-3]], which feeds
+[[eq:ii-g-2-4]]) carries k′_k.
+
+*Proof.* On {t^♭_* < T̂ + 2}, χ_K = 0 (as T_K > T̂ + 2), so g_(b₀,b,−S) = φ_(−S)^*g_(b₀). Also h_tot(p⃗) and ϑ_tot(p⃗)
+vanish there, being supported in 𝒞 ⊂ supp χ_K ([[lem:iii-i7-2-2]], [[def:iii-i9-2-3]]), and so does h_(b,rem)(q), which
+carries χ_K ([[eq:iii-i14-1-2]]). By [[eq:iii-j-2-1]], the metric component of Φ(U) is
+χ_ι Σ_λ u_λ + h̃ + χ_ι Σ_(λ₀) h_(λ₀), which is h̃ on {t^♭_* ≤ T̂ + 2}, as χ_ι = 0 there ([[sec:iii-k-0]]). So on
+Ω_* ∩ {t^♭_* < T̂ + 2},
+
+    P_5(Ψ(U)) = P(φ_(−S)^*g_(b₀) + χ_−h_(−S) + h̃, φ_(−S)^*g_(b₀)),     P(g, g_0) := Ric(g) − δ*_(g_0,E_C)Υ^(E_Υ)(g, g_0)
+
+([[eq:iii-i9-2-3]]).
+
+(a) holds as χ_− = 0 on {t^♭_* ≥ T̂ + 2} and P_5 is a differential operator.
+
+(b) On Ω_* ∩ {t^♭_* < c}, χ_− = 1 and h̃ = 0, so P_5(Ψ(U)) = P(φ_(−S)^*g_(b₀) + h_(−S), φ_(−S)^*g_(b₀)). This is
+0 − δ*0 = 0 by [[prop:iii-k-1-2]] (2) with −S, as Ω_* ⊂ {t_* ≥ 1}, where χ^♮_0 = 1.
+
+(c) Near ℐ⁺ ∩ {t^♭_* ≤ T̂ + 2}, [[cor:iii-c-5-3]] applies with g_0 = φ_(−S)^*g_(b₀) (in 𝒢, Ric(g_0) = 0) and
+h = χ_−h_(−S) + h̃, which has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ ([[prop:iii-k-1-2]] (3), [[def:iii-j3-1-1]]). So
+P_5(Ψ(U)) has the orders (⟨ℰ^C_I + 1⟩′, ℓ_I + 1) of ℱ_ex there. On {t^♭_* > T̂ + 2} it is P_5(Φ(U)) ∈ ℱ^∞_ex
+([[cor:iii-j3-6-6]]). Supported character: for U whose tail vanishes on {t^♭_* < T̂} (the class B^∞ of
+[[sec:iii-k-3]]), P_5(Ψ(U)) vanishes there by (b); and on {t^♭_* < T̂ + 7/4},
+
+    P_5(Ψ(U)) = ∫_0^1 L_(G_S+sh̃, φ_(−S)^*g_(b₀)) h̃ ds,     G_S := φ_(−S)^*g_(b₀) + h_(−S),
+
+as P(G_S, φ_(−S)^*g_(b₀)) = 0; here L_(g,g_0) is the linearisation of P in its first argument. This is a differential
+operator applied to h̃, which has supported character. The bounds of [[prop:iii-j2-4-3]] hold for Φ. The added terms
+are χ_−h_(−S), a fixed tensor smooth in the finite-dimensional S ([[prop:iii-k-1-2]] (3)), and its products with h̃ in
+P on the compact t^♭_*-range [1, T̂ + 2]. The tame bounds of [[sec:iii-j2-1]] (with [[lem:ii-g-4-1]]) bound them, with
+constants depending on finitely many norms of h_(−S) and ∂^j_S h_(−S), j ≤ 2.
+
+(d) At U = 0, h̃ = 0 and S = 0, so P_5(Ψ(0)) = P(g_(b₀) + χ_−h_0, g_(b₀)) on Ω_* ∩ {t^♭_* < T̂ + 2} by the display
+above, and P_5(Ψ(0)) = P_5(Φ(0)) = P(g_(b₀), g_(b₀)) = 0 on {t^♭_* > T̂ + 2} by (a). On {t^♭_* < T̂ + 7/4} it is
+P(g_(b₀) + h_0, g_(b₀)) = 0 by [[prop:iii-k-1-2]] (2). So it vanishes outside supp dχ_−, is a smooth function of h_0
+and its derivatives vanishing at h_0 = 0, and so is bounded by [[prop:iii-k-1-2]] (3). ∎
+
+**Lemma {#lem:iii-k-2-3}** (Right inverses for Ψ; [[thm:iii-j1-2-1]] for Ψ, [Hin26, Theorem 12.8, last paragraph].)
+There are d and ε_0 such that for U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < ε_0 there is a linear map
+ℛ(U) : ℱ^∞_ex → 𝒟^∞_ex with D_U(P_5 ∘ Ψ)(ℛ(U)f) = f. It satisfies the tame estimate [[eq:iii-j2-4-2]] on the exact
+scales ([[cor:iii-j3-6-6]]). If the tail h̃ of U and f vanish on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4], then so does the tail
+h̃′ of ℛ(U)f.
+
+*Proof.* *The base point.* Ψ(U) = (h + χ_−h_(−S), p⃗, q) with (h, p⃗, q) = Φ(U). Its black hole parameter b lies in
+ℬ_*, as |b − b₀| ≤ ‖U‖_(𝒟^d). Its metric component h + χ_−h_(−S) lies in the background class 𝒳^∞ of
+[[eq:iii-i-1-4]], which has no support condition, and is small there ([[prop:iii-k-1-2]] (3)). [[thm:iii-i14-3-1]] (at
+a rotating b, through [[prop:iii-i15-2-5]]) and [[thm:iii-j2-4-1]] take the base point only through such a class and its
+smallness. The proof of [[thm:iii-j1-2-1]] takes it only through these and through D_UΦ at U, which depends on U only
+through U_0 = (b − b₀, S, S^(0)_1), as Φ is affine in U_1 ([[thm:iii-j-2-4]]).
+
+*The boost direction.* D_UΨ(U′) = D_UΦ(U′) + (χ_− ∂_S h_(−S)(S′), 0, 0), so
+
+    D_U(P_5 ∘ Ψ)(U′) = D_(Ψ(U))P_5(D_UΦ(U′)) + D_hP_5(Ψ(U))(χ_− ∂_S h_(−S)(S′)).
+
+In the construction of the proof of [[thm:iii-j1-2-1]], D_(Ψ(U))P_5(D_UΦ(U′)) enters [[eq:iii-i14-3-1]] through
+D_(p⃗)P_5(p⃗′). The boost component S′ enters there through its row and its defect f^S_(h,p⃗)(S′) (Step 2 of the proof of
+[[thm:iii-i14-3-1]]). Replace that defect by
+
+    f^S_Ψ(S′) := f^S_(h,p⃗)(S′) + e_S(S′),
+    e_S(S′) := (D_(p⃗)P_5|_(Ψ(U)) − D_(p⃗)P_5|_(Φ(U)))(S′) + D_hP_5(Ψ(U))(χ_− ∂_S h_(−S)(S′)).
+
+e_S(S′) is supported in Ω_* ∩ {t^♭_* ≤ T̂ + 2}: the two base points differ by χ_−h_(−S), and D_(p⃗)P_5 is local. On
+{t^♭_* < T̂ + 7/4}, e_S(S′) = f^S_Ψ(S′) − f^S_(h,p⃗)(S′), and both terms are O(h̃): where h̃ vanishes, P_5 vanishes
+identically in S along both families ([[lem:iii-k-2-2]] (b) for Ψ, and P(φ_(−S)^*g_(b₀), φ_(−S)^*g_(b₀)) = 0 for Φ),
+the boost row is supported in supp χ_K, and so both defects vanish there; in general each is an integral of h̃ as in
+[[lem:iii-k-2-2]] (c). So for U whose tail vanishes on {t^♭_* < T̂}, e_S(S′) vanishes there, and it lies in ℱ^∞_ex, at
+ℐ⁺ by [[cor:iii-c-5-3]] as in [[lem:iii-k-2-2]] (c). Its bound is tame, e_S involving h̃ through D_hP_5 at Ψ(U):
+
+    ‖e_S(S′)‖_(ℱ^k_ex) ≤ C_k (‖(γ̃, k̃)‖_(H^(k+k′_k)) + ‖(γ̃, k̃)‖_(H^(k″)) ‖U‖_(𝒟^(k+d)_ex)) |S′|,
+
+by [[prop:iii-k-1-2]] (3) and the tame bounds of [[sec:iii-j2-1]].
+
+So [[thm:iii-i14-3-1]] at the base point Ψ(U), with the boost defect f^S_Ψ, is [[thm:iii-i14-3-1]] with one more term
+e_S(S′) in the forcing G′ of Step 2 of its proof. This term is small with the data and linear in the finite-dimensional
+S′; it enters the maps A_k of Step 3 as Δ_q does ([[lem:iii-i14-2-4]]), and it perturbs Step 1 (the base level, where
+the parameters of low rate are determined) by a term of the same kind, small with the data. So the elimination runs
+unchanged for data small, and the construction of U′ in the proof of [[thm:iii-j1-2-1]], [[thm:iii-j2-4-2]] and
+[[cor:iii-j3-6-6]] follow as for Φ. At a rotating b, [[cor:iii-i15-3-2]] provides them.
+
+*Supports.* Let h̃ and f vanish on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4]. There χ_ι, χ_K and the corrections vanish, as in
+[[lem:iii-k-2-2]], and χ_− = 1; so P_5 ∘ Ψ = Q(S, h̃) := P(G_S + h̃, φ_(−S)^*g_(b₀)) there. As Q(S, 0) = 0 for every S
+([[prop:iii-k-1-2]] (2) with −S), ∂_SQ(S, 0) = 0, and on {t^♭_* < c}
+
+    D_U(P_5 ∘ Ψ)(U′) = ∂_SQ(S, 0)(S′) + D_(h̃)Q(S, 0)h̃′ = L_(G_S, φ_(−S)^*g_(b₀)) h̃′;
+
+the boost component S′ of U′ enters only through the first term, which vanishes. So
+L_(G_S, φ_(−S)^*g_(b₀)) h̃′ = f = 0 on {t^♭_* < c}. Within the construction, h̃′ is the remainder of the forward
+solution there: the rows and towers are supported in supp χ_K, and the ι⁺-terms carry χ_ι. h̃′ has supported character
+at {t^♭_* = 1} (the spaces of [[def:iii-j-1-1]]), so, extended by 0, it solves L_(G_S, φ_(−S)^*g_(b₀)) h̃′ = 0 on
+
+    X := 𝒟°_(−S) ∩ {¾ < t^♭_* < c},
+
+and [[lem:ii-f-1-3]] is applied on X with τ := t^♭_* at the level 7/8, below its support. [[lem:iii-k-6-1]] with G_S
+in place of g, Y := X, its c equal to 7/8 and T := T̂ + 2 gives the compact sets [[pending:issue-2]]. Indeed
+L_p ⊂ X: 7/8 ≤ t^♭_* ≤ t^♭_*(p) < c on L_p, and {t^♭_* > ¾} lies in φ_(−S)⁻¹({t_IVP ≥ 0}), since on it
+t_IVP = t_* + F ≥ t^♭_* + F > ¾ + F, F ≥ r/4 for r ≥ R_6 ([[eq:s27-f]]), while φ_(−S) moves t_IVP by at most C|S|r
+and not at all on {r ≤ 5R₁} ([[lem:s27-boost-move]]). G_S lies in the class of [[lem:iii-k-6-1]] on X: on Ω_* as
+G_S − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) on Ω_* ∩ {t^♭_* ≤ T̂ + 2} ([[lem:ii-c-3-2]] (2), [[prop:iii-k-1-2]] (3),
+[[lem:iii-b-5-2]]); below Ω_* near ℐ⁺ by the same facts, h_(−S) having the orders of [[def:iii-c-3-1]] on 𝒟 near
+infinity ([[thm:iii-c2-3-1]] (2), [[cor:iv3-2-3]]); and on the compact rest by its smallness in C⁰. So h̃′ = 0 on
+{t^♭_* < c}.
+
+Without the hypothesis on h̃, D_U(P_5 ∘ Ψ)(U′) contains ∂_SQ(S, h̃)(S′), which need not vanish on {t^♭_* < c}; so the
+support property holds only at base points whose tail vanishes below the level. [[thm:ii-g-2-1]] (iii) asks it only
+there ([[rem:s10-right-inverses]]), and that is how [[thm:iii-k-3-2]] uses it. ∎
+
+### The Nash–Moser iteration {#sec:iii-k-3}
+
+*The scales.* Let c_1 := ⅛ and c_0 := c_1/8 = 1/64 be the constants of [[prop:ii-g-3-1]] for t := t^♭_* − T̂ on
+M_(1/2), with t := −1 where t_* < ½. (T1)–(T3) of [[sec:ii-g-3-1]] hold for this t as for t^♭_* − 1 in
+[[rem:ii-g-3-2]], the level only moving: t^♭_* is smooth on M_(1/2) with dt^♭_*|_(Tℐ⁺) = dt_*|_(Tℐ⁺) ≠ 0, the set
+{|t| ≤ 2c_1} is bounded in t_* (t_* ≤ (T̂ + ¼)/C_♭ there) and lies in {t_* ≥ T̂ − ¼ ≥ 7/4}, so it meets neither ι⁺ nor
+K⁺ nor {t_* = ½}, and on ℐ⁺, t^♭_* = t_* and t − t̄ ∈ ρ_I^(1/2)C^∞_b with
+t̄ := t_* − T̂. The weighted b-Sobolev spaces on
+M and on M_(1/2) coincide, their b-vector fields being the same. Fix χ_9 ∈ C^∞(ℝ) equal to 0 on (−∞, 17/2] and 1 on
+[9, ∞). For η ∈ [0, 1] and k ∈ ℕ₀ ∪ {∞} let
+
+    B^k := {U ∈ 𝒟^k_ex : S_rem, b_rem, Y_(ρ,rem) supported in {t_* ≥ 8}, supp h̃ ⊂ {t^♭_* ≥ T̂}},
+    B^k_η := {U ∈ B^k : supp h̃ ⊂ {t^♭_* ≥ T̂ + c_0η}, the q-tails supported in {t_* ≥ 8 + c_0η}},
+    F^k := {f ∈ ℱ^k_ex : supp f ⊂ {t^♭_* ≥ T̂}},     F^∞_η := {f ∈ F^∞ : supp f ⊂ {t^♭_* ≥ T̂ + c_0η}},
+
+with the norms of 𝒟^k_ex and ℱ^k_ex. Here the q-tails are the components S_rem, b_rem, Y_(ρ,rem) of U
+([[def:iii-j-1-1]]). B^k_η is closed in B^k (support conditions are closed), non-increasing in η, and B^k_0 = B^k;
+F^k is closed in ℱ^k_ex.
+
+**Lemma {#lem:iii-k-3-1}** (Smoothing on 𝒟_ex; [Hin26, Section 13.1, Step 3 (4)].) For θ > 1 there are linear maps
+S_θ : B^∞_(θ^(−1/2)) → B^∞ with S_θ(B^∞_η) ⊂ B^∞_(η−θ^(−1/2)) for η ∈ [θ^(−1/2), 1], satisfying [[eq:ii-g-2-1]] with
+constants independent of θ.
+
+*Proof.* Componentwise: the norm of 𝒟^k_ex is the sum of the norms of the components ([[def:iii-j3-1-1]]), so
+[[eq:ii-g-2-1]] for each component gives it for the sum.
+
+*The finite-dimensional components* b − b₀, S, S^(0)_1 and u^0_λ: S_θ := id.
+
+*f_λ:* a polynomial in z of bounded degree with coefficients in a partially polyhomogeneous b-Sobolev space on a compact
+manifold with boundary, with no support condition. Smooth each expansion coefficient and the remainder by the operator
+S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]], the smoothing on all of w H̄^0_b with no condition on supports, built
+on the manifold carrying it; then reassemble.
+
+*The q-tails* S_rem, b_rem, Y_(ρ,rem): weighted b-Sobolev functions of t_* ∈ [1, ∞]. Use [[prop:ii-g-3-1]] on the
+one-dimensional manifold [1, ∞] with t := t_* − 8, for which (T1)–(T3) hold trivially (the set {|t| < 2c_1} lies in
+the interior). This gives the support behaviour.
+
+*h̃:* partially polyhomogeneous at ℐ⁺ with index set collection ⟨ℰ^C_I⟩ and remainder of order ℓ_I ([[eq:iii-c-3-3]],
+in the splitting [[eq:iii-c-1-6]]). By the definition of these spaces, h̃ corresponds one to one to its expansion
+coefficients a_(z,j) (functions on ℐ⁺ ∩ Ω_*) and its remainder, and the norm is the sum of their norms. Put
+
+    S_θ h̃ := Σ_((z,j)) χ_I ρ_I^z (log ρ_I)^j E(S^ℐ_θ(a_(z,j))) + S_θ(h̃_rem).
+
+Here S^ℐ_θ is [[prop:ii-g-3-1]] on ℐ⁺ with t|_ℐ⁺ (= t^♭_* − T̂ there), S_θ(h̃_rem) is [[prop:ii-g-3-1]] on M_(1/2) with
+t = t^♭_* − T̂, and E(a) is the extension of a function a on ℐ⁺ that is constant along the fibres of a collar of ℐ⁺
+which lie in the level sets of (t^♭_*, ω) on {t^♭_* ≤ T̂ + 2}, and along any b-smooth collar beyond. (t^♭_*, x_I, ω)
+are smooth coordinates on M_(1/2) near ℐ⁺, so the fibres are smooth curves in M_(1/2) transversal to ℐ⁺, and a function
+constant along them is smooth on M_(1/2): on M it is polyhomogeneous at ℐ⁺ with index set ½ℕ₀, without logarithms. So
+passing from a smooth collar of M to this one changes χ_Iρ_I^z(log ρ_I)^jE(a) by terms ρ_I^(z+k/2)(log ρ_I)^j times
+smooth functions, k ≥ 1. These stay in the class: each slot's index set ℰ_s in [[eq:iii-c-3-3]] is ℰ^C_I together with
+points of ℰ^tot_I ([[eq:iii-c-3-2]]), so ℰ_s + ½ ⊂ ℰ^C_I ⊂ ℰ_s by [[lem:iii-c-3-2]] (a), logarithmic orders included.
+The terms of order below ℓ_I join the expansion and the others the remainder, so the space and its norm are unchanged
+up to equivalence. For U ∈ B_η the coefficients vanish on {t^♭_* < T̂ + c_0η} ∩ ℐ⁺, as h̃ does near it; so each term
+χ_Iρ_I^z(log ρ_I)^jE(a_(z,j)), and hence the remainder, is supported in {t^♭_* ≥ T̂ + c_0η}, the fibres preserving
+t^♭_*. The operators of [[prop:ii-g-3-1]] preserve the support classes, and [[eq:ii-g-2-1]] holds for each piece by
+[[eq:ii-g-3-1]]. The collar follows the levels of the function that defines the classes, and that function has a robust
+timelike margin; the cost is the half-integer powers just absorbed. ∎
+
+**Theorem {#thm:iii-k-3-2}** (The solution of the gauge-fixed equation in the cone; [Hin26, Section 13.1, Step 3].)
+There are d_1 and ε > 0 such that, if ‖(γ̃, k̃)‖_(H^(d_1)) < ε, there is U ∈ B^∞_(1/2), small in 𝒟^(3d)_ex, with
+P_5(Ψ(U)) = 0 on Ω_*. Its tail h̃ is supported in {t^♭_* ≥ T̂ + ½c_0}.
+
+*Proof.* Apply [[thm:ii-g-2-1]] with B^k, B^k_η, F^k and F^∞_η as above, η_0 := 1, d the largest of the d's of
+[[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], and the map U ↦ P_5(Ψ(U)) on {U ∈ B^∞ : |U|_(3d) < δ}
+in the role of the map of [[thm:ii-g-2-1]].
+
+*(i)* is [[lem:iii-k-3-1]].
+
+*(ii)* For U ∈ B_η, η ≤ 1, the tail vanishes on {t^♭_* < T̂ + c_0η}, and T̂ + c_0η ≤ T̂ + 1/64 < T̂ + 7/4. So
+P_5(Ψ(U)) ∈ F^∞_η by [[lem:iii-k-2-2]] (b)–(c). The map is twice differentiable in the sense of [[thm:ii-g-2-1]], with
+[[eq:ii-g-2-2]]–[[eq:ii-g-2-3]], by [[lem:iii-k-2-2]] (c). Its q-tails enter only through h_(b,rem)(q), whose factor χ_K
+vanishes on {t_* < 10} ([[eq:iii-i14-1-2]], and T_K ≥ 10). They also enter through the iteration of [[sec:iii-j-2]],
+whose sources involve them only through h_(b,rem)(q) ([[thm:iii-j-2-4]] (2)). So the map depends on the q-tails only
+through their values on {t_* ≥ 10}.
+
+*(iii)* For U in the domain put Ψ_NM(U) := Zℛ(U), the right inverse that [[thm:ii-g-2-1]] (iii) asks for, with ℛ(U)
+from [[lem:iii-k-2-3]] and Z the multiplication of the q-tails by χ_9(t_*). By the last sentence of (ii),
+D_U(P_5 ∘ Ψ)(ZU′) = D_U(P_5 ∘ Ψ)(U′), as χ_9 = 1 on {t_* ≥ 9}. So Ψ_NM(U) is a right inverse. Z is bounded on every
+𝒟^k_ex (χ_9(t_*) is smooth and constant near t_* = ∞), so [[eq:ii-g-2-4]] holds by [[lem:iii-k-2-3]]. As far as the
+q-tails are concerned Z maps into B^∞_1: their support lies in {t_* ≥ 17/2} ⊂ {t_* ≥ 8 + c_0}. For U ∈ B_η in the
+domain and f ∈ F_η, the tails of U and f vanish on {t^♭_* < T̂ + c_0η}, so the tail of ℛ(U)f does
+([[lem:iii-k-2-3]]), and Ψ_NM(U)(F^∞_η) ⊂ B^∞_η; at η = 0 this says that Ψ_NM(U) maps F^∞ into B^∞. This is
+[[thm:ii-g-2-1]] (iii), which asks the support property for u ∈ U ∩ B^∞_η only ([[rem:s10-right-inverses]]); the form
+at every u in the domain does not hold here (the proof of [[lem:iii-k-2-3]]).
+
+*Smallness.* The constants C_k (k ≤ N_NM), C_1, C_2 and δ depend on the data only through
+‖(γ̃, k̃)‖_(H^(N_NM+k″)) ([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded once that norm is at most 1. So the
+threshold of [[thm:ii-g-2-1]], ε_NM, is uniform, and ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1),
+d_1 := N_NM + k″, by [[lem:iii-k-2-2]] (d). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2) with |U|_(3d) < δ and
+P_5(Ψ(U)) = 0. ∎
+
+### Constraint propagation and the theorem {#sec:iii-k-4}
+
+**Lemma {#lem:iii-k-4-1}** (The normal derivative; in any dimension.) Let g be a Lorentzian metric, Σ a spacelike
+hypersurface with unit normal ν, η a 1-form with η|_Σ = 0, and δ*_(g_0,E_C) as in [[def:iii-b-6-1]]. If
+(G_g δ*_(g_0,E_C)η)(ν, ·) = 0 on Σ, then ∂_νη = 0 on Σ.
+
+*Proof.* On Σ the tangential derivatives of η vanish, and the zeroth-order part of δ*_(g_0,E_C) vanishes as η = 0
+(δ*_(g_0,E_C) − δ*_(g_0) and δ*_(g_0) − δ*_g are of order 0). So k := δ*_(g_0,E_C)η = ½(ν^♭ ⊗ w + w ⊗ ν^♭) with
+w := ∂_νη, ν^♭ := g(ν, ·), g(ν, ν) = −1. Then tr_g k = g^(ab)ν_a w_b = w(ν), and
+(G_gk)(ν, X) = k(ν, X) − ½g(ν, X)w(ν). For X tangent to Σ: k(ν, X) = ½(g(ν, ν)w(X) + w(ν)g(ν, X)) = −½w(X) and
+g(ν, X) = 0, so w(X) = 0. For X = ν: k(ν, ν) = −w(ν), so (G_gk)(ν, ν) = −w(ν) + ½w(ν) = −½w(ν), and w(ν) = 0. So
+w = 0. ∎
+
+**Proposition {#prop:iii-k-4-2}** (The metric and the constraints.) Let U be given by [[thm:iii-k-3-2]],
+(h, p⃗, q) := Φ(U), S its boost and b its black hole parameter. Define
+
+    g := g_(b₀,b,−S) + h_tot(p⃗) + h_(b,rem)(q) + χ_−(t^♭_*)h_(−S) + h     on Ω_*,
+    g := φ_(−S)^*g_(b₀) + h_(−S)                                            on 𝒟_(−S) ∩ {t^♭_* ≤ T̂ + ¼c_0},
+
+    η := Υ^(E_Υ)(g, g_(b₀,b,−S)) − ϑ_tot(p⃗)          on Ω_*,
+    η := Υ^(χ^♮_0E_Υ)(g, φ_(−S)^*g_(b₀))              on 𝒟_(−S) ∩ {t^♭_* ≤ T̂ + ¼c_0}.
+
+The two definitions agree on the overlap Ω_* ∩ {t^♭_* ≤ T̂ + ¼c_0}, and Ric(g) = 0, η = 0 on the union.
+
+*Proof.* *Overlap.* There χ_K = 0, so g_(b₀,b,−S) = φ_(−S)^*g_(b₀); h_tot, h_(b,rem) and ϑ_tot vanish; h = h̃ = 0 (the
+proof of [[lem:iii-k-2-2]], and supp h̃ ⊂ {t^♭_* ≥ T̂ + ½c_0}); χ_− = 1; and χ^♮_0 = 1 ([[lem:iii-k-1-1]] (b)). So the
+two lines of each definition coincide.
+
+*The equation.* On Ω_*, P_5(Ψ(U)) = 0 reads Ric(g) − δ*_(g_0,E_C)η = 0 with g_0 := g_(b₀,b,−S): this is
+[[eq:iii-i9-2-3]] with g′ = g, and [[eq:iii-i14-1-3]], P_5(h′, p⃗, q) = P_4(h′ + h_(b,rem)(q), p⃗), with
+h′ := h + χ_−h_(−S). On the second region, Ric(g) = 0 and η = 0 by [[prop:iii-k-1-2]] (2) with −S.
+
+*Propagation.* On Ω_* the second Bianchi identity δ_gG_gRic(g) = 0 gives δ_gG_gδ*_(g_0,E_C)η = 0. The operator
+δ_gG_gδ*_(g_0,E_C) has the principal symbol of δ_gG_gδ*_g, which is ½g⁻¹(ζ, ζ) times the identity, as
+δ*_(g_0,E_C) − δ*_g is of order 0. η vanishes on Ω_* ∩ {t^♭_* ≤ T̂ + ¼c_0}, which contains Ω_* ∩ {t^♭_* ≤ 2}
+(T̂ ≥ 2). [[lem:ii-f-1-3]] on Ω°_*, with τ := t^♭_* and c := 3/2, gives η = 0. Its compact sets are those of
+[[lem:iii-k-6-1]] (c), with X := Ω°_*, c := 3/2 and T := t^♭_*(p): L_p ⊂ X, as t^♭_* ≥ c > 1 on it. The lemma applies,
+g being a metric whose difference from g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b), by (B2) of [[sec:iii-h2-0]] and the
+smallness of U and h_(−S); near the inner boundary, past causal curves stay in {r ≥ min(r(p), r^♮)} by
+[[lem:ii-c-3-2]] (1), as in [[lem:ii-f-1-4]] (a). So Ric(g) = δ*_(g_0,E_C)0 = 0. ∎
+
+[Hin26] propagates the constraints from φ_S(Σ^IVP), using [[lem:iii-k-4-1]] there. Here η already
+vanishes on an open slab of Ω_* ([[prop:iii-k-1-2]] (2)), and [[lem:iii-k-4-1]] enters only through the proof of
+[[prop:iii-k-1-2]].
+
+**Theorem {#thm:iii-k-4-3}** (Nonlinear stability near Tangherlini; [Hin26, Theorem 13.1] in dimension 4 + 1.) Let
+b₀ = (m₀, 0), let the parameters be chosen as in [[thm:vi-c-2-1]], and let ℰ_0, ℓ_0 be as in [[sec:iii-k-0]]. There
+are ε > 0 and d_1 such that the following holds. Let (γ, k) be initial data on Σ^IVP satisfying the constraint
+equations, with
+
+    γ − γ_(b₀) ∈ H^(∞,(ℰ_0,ℓ_0))_b(Σ^IVP),     k − k_(b₀) ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b(Σ^IVP),
+
+of norm < ε in H^(d_1) of these classes. Then there are a Myers–Perry parameter b ∈ ℬ_* and S ∈ 𝒮_1, with |b − b₀|
+and |S| small, and a Lorentzian metric g on Ω_* ∪ 𝒟_(−S) with:
+
+(1) Ric(g) = 0;
+
+(2) g = φ_(−S)^*(g_(b₀) + h_0) near φ_(−S)⁻¹(Σ^IVP), so g induces on φ_(−S)⁻¹(Σ^IVP) the data (φ_(−S)|)^*(γ, k);
+
+(3) on Ω_* ∩ {t^♭_* ≥ T̂ + 2},
+
+    g = g_(b₀,b,−S) + h_tot(p⃗) + h_(b,rem)(q) + h,     (h, p⃗, q) = Φ(U),  U ∈ 𝒟^∞_ex,
+
+with h ∈ 𝒳^∞_(J,ex) (orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺, (ℰ_+, 3 + ε_+) at ι⁺, α at K⁺), q ∈ 𝒬_ex, and p⃗ with the
+components b − b₀, S, S^(0)_1 of U ([[thm:iii-j-2-4]] (1)–(2));
+
+(4) where χ_K = 1, g_(b₀,b,−S) = g_b, so g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h there: g settles to the Myers–Perry
+metric g_b at ι⁺ and K⁺ at the orders of these classes;
+
+(5) the gauge condition η = 0 of [[prop:iii-k-4-2]] holds on Ω_* ∪ 𝒟_(−S).
+
+*Proof.* [[thm:iii-k-3-2]] and [[prop:iii-k-4-2]]. (2) is [[prop:iii-k-1-2]] (1) with −S: there
+g = φ_(−S)^*g_(b₀) + h_(−S) = φ_(−S)^*(g_(b₀) + h_0). (3) holds as χ_− = 0 on {t^♭_* ≥ T̂ + 2}, with
+[[cor:iii-j3-6-6]] for the exact classes. (4) is [[eq:iii-i-1-1]]. ∎
+
+**Remark {#rem:iii-k-4-4}** ([Hin26, Remark 13.4 and Theorem 1.1].) (3) is [Hin26, Remark 13.4 (1)]. As in [Hin26],
+the slowest terms at ι⁺ come from h_tot(p⃗), which is supported in 𝒞 ([[lem:iii-i7-2-2]]); in dimension 4 + 1 their
+orders are those of [[ch:s21]]. [Hin26] deduces its Theorem 1.1 by pulling back along a diffeomorphism of M that is the
+identity near ℐ⁺ ∪ ι⁺ ∪ K⁺, which changes nothing above.
