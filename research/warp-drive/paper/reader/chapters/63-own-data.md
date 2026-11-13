@@ -90,8 +90,8 @@ both at most −7/4, with β̂(∂_τ) = 2 and α̂(∂_τ) = −2; |α̂|_E², 
 r + f(r) = v1 − σ, and r_σ ≥ c_W (1 + |σ|) for some c_W > 0.
 
 *Proof.* (a) These are the contractions of the proof of [[lem:interior-far-part]] (i) ((2f′ − 3)(2f′ + 1) =
-−3 − 4f′ + 4f′², (2f′ − 1)(2f′ + 3) = −3 + 4f′ + 4f′²); α̂ = (1 + 2f′) dr − 2 dτ and β̂ = (1 − 2f′) dr + 2 dτ, so
-|α̂|_E² = 4 + (1 + 2f′)² and |β̂|_E² = 4 + (1 − 2f′)². (b) On W, v − v1 = τ + r −
+−3 − 4f′ + 4f′², (2f′ − 1)(2f′ + 3) = −3 + 4f′ + 4f′²); and α̂ = (1 + 2f′) dr − 2 dτ, β̂ = (1 − 2f′) dr + 2 dτ give
+the Euclidean norms |α̂|_E² = 4 + (1 + 2f′)² and |β̂|_E² = 4 + (1 − 2f′)². (b) On W, v − v1 = τ + r −
 v1 ≥ 0 and τ ≤ f(r), so v − v1 ≤ f(r) − f(4R) + r − 4R ≤ (5/4)(r − 4R): hence 0 ≤ s ≤ 5/4. τ − v1 = (v − v1) − r ≥ −r,
 and τ − v1 ≤ f(r) − f(4R) − 4R ≤ r. On Σ̃_σ, v = r + f(r) + σ increases in r (1 + f′ ≥ 1), so v ≥ v1 exactly for
 r ≥ r_σ; and r_σ ≥ max(4R, |σ| + v1 − C_f) for σ ≤ 0, which is at least c_W (1 + |σ|) for some c_W > 0 depending on R,
@@ -227,8 +227,8 @@ of row d2, the conditions (G) and (G⁺), and the admissible ε_+, ε_K and α o
 
 *Proof.* Write E := ℰ_0^ℤ, E′ := ℰ_0^½, F_m := ℰ^((m))(E), and 𝔚_½(A) for the set of words [[eq:own-word]] whose
 factors lie in A ∪ {(3/2, 0)}. Put F^½_0 := 𝔚_½(E) and F^½_(m+1) := 𝔚_½(E ∪̄ F^½_m). By [[lem:own-words]] and the
-monotonicity of ∪̄ and of words in their arguments, F^½_m ⊂ F_m. Every element of F^½_m has its first component in ½ℤ, and
-F^½_m is closed under (z, k) ↦ (z + ½, k): adjoining the factor (3/2, 0) to a word adds ½ to its value.
+monotonicity of ∪̄ and of words in their arguments, F^½_m ⊂ F_m. Every element of F^½_m has its first component in
+½ℤ, and F^½_m is closed under (z, k) ↦ (z + ½, k): adjoining the factor (3/2, 0) to a word adds ½ to its value.
 
 *Step 1 (lattice points have lattice words).* We show by induction on m: for every (z, k) ∈ F_m there are (z′, k) ∈ F^½_m
 and c ∈ ℕ_0 δ_♯ + ℕ_0 γ_Υ, δ_♯ = (1 − e_Υ)γ_Υ, with z = z′ + c; and every (z, k) ∈ F_m with z ∈ ½ℤ lies in F^½_m. The

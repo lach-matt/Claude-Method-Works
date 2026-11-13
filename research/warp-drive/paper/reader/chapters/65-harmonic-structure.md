@@ -838,15 +838,17 @@ on each Cartesian component of L_□ by (b). Its coefficients are 4|α_I| (writt
 some κ > 0 needs α_I < 0 and α₀ > α_I. ∎
 
 **Proposition {#prop:gd-r4-2}** (The exterior estimate for □.) Let 𝒟, Ω_(ext,r_1), 𝒦, 𝒮,
-Ω^♮ := Ω_(ext,r_1) ∪ 𝒮, ρ′₀, ρ′_I and c_1 be those of [[sec:iii-k-0]], the proof of [[prop:iii-k-1-2]] and
-[[sec:iv3-0]]–[[sec:iv3-2]], at S = 0; put 𝒟⁺ := 𝒟 ∩ {t_IVP ≥ 0}, τ′ := t_IVP/|x| and
-Ω^♮_(c_1) := Ω^♮ ∩ {ρ′_I < c_1}. Let a₀ ∈ ℝ, α_I < min(a₀, 0) and m ∈ ℕ_0. Let F be a smooth 1-form on 𝒟⁺ with
+Ω^♮ := Ω_(ext,r_1) ∪ 𝒮, ρ′₀ and ρ′_I be those of [[sec:iii-k-0]], the proof of [[prop:iii-k-1-2]] and
+[[sec:iv3-0]]–[[sec:iv3-2]], at S = 0, and 𝒟⁺ := 𝒟 ∩ {t_IVP ≥ 0}, 𝒦⁺ := 𝒦 ∩ {t_IVP ≥ 0} those of
+[[lem:s27-cover]] (e); put τ′ := t_IVP/|x|. Let a₀ ∈ ℝ, α_I < min(a₀, 0) and m ∈ ℕ_0; let c_1 ∈ (0, c_♮], with c_♮
+the constant fixed in [[sec:iv3-1]], be so small that 2 of the proof holds on {ρ′_I < c_1} for these weights, and put
+Ω^♮_(c_1) := Ω^♮ ∩ {ρ′_I < c_1}. Let F be a smooth 1-form on 𝒟⁺ with
 f_♭ := ρ_Iρ^(−7/2)F ∈ H^(m+4,(a₀,2α_I))_b over Ω^♮ near infinity (in the translated chart over 𝒮) and
-F ∈ H^(m+4)(𝒦). Then the solution Z of □Z = F on 𝒟⁺ with vanishing Cauchy data on Σ^IVP lies in H^(m+1)(𝒦), and
+F ∈ H^(m+4)(𝒦⁺). Then the solution Z of □Z = F on 𝒟⁺ with vanishing Cauchy data on Σ^IVP lies in H^(m+1)(𝒦⁺), and
 u := ρ^(−3/2)Z satisfies
 
     ‖u‖_(H^(m+1,a₀)_b(Ω^♮∩{ρ′_I>c_1/2})) + ‖u‖_(H^((1;m),(a₀,2α_I))_(e,b;b)(Ω^♮_(c_1)))
-        ≤ C(‖f_♭‖_(H^(m+4,(a₀,2α_I))_b) + ‖F‖_(H^(m+4)(𝒦))).                                         {#eq:gd-r4-2}
+        ≤ C(‖f_♭‖_(H^(m+4,(a₀,2α_I))_b) + ‖F‖_(H^(m+4)(𝒦⁺))).                                        {#eq:gd-r4-2}
 
 (The loss of four derivatives is the d of [[thm:iv2-2-4]]. Compactly supported F is allowed.)
 
