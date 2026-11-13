@@ -118,11 +118,17 @@ The past slab of [Hin26, Lemma 5.16] has the slope ¼; the slope 1/12 keeps Ω_(
 Lemma 5.6 for the pointwise bounds; here the slots of h and of g_(b₀) − η give them directly, the mass entering at
 ρ₀²ρ_I² in the slot π₁₁ only ([[lem:iii-c-3-5]]).
 
+*The radius R₀.* Enlarging R₀ keeps [[lem:iii-c1-1-1]] true. We fix R₀ once, so that in addition R₀ ≥ 4|C″| + 4, the
+function F₀ of [[lem:s26-development]] is increasing on [R₀, ∞), and every statement of this chapter made for r₀ large
+(in [[lem:s26-development]], [[rem:iv-4-2]], [[lem:iv2-1-1]] (a), [[lem:iv2-2-2]], [[lem:iv2-2-3]], [[cor:iv2-4-1]] and
+[[prop:iii-c2-4-2]]) holds for every r₀ ≥ R₀. Each of these asks r₀ above a bound depending only on b₀, the gauge
+parameters, ℓ^♭₀, ℓ^♭_I and the constant c of [[lem:iv2-2-1]], whose choice does not involve r₀ (it is the smallness of
+x_I in [[prop:iv-3-1]] and [[prop:iv1-2-2]]). From here on R₀ is this radius.
+
 The causal structure of Ω_(ext,r₀) is that of a domain of dependence of Σ_(IVP,r₀). We record it in the form used for
 uniqueness.
 
-**Lemma {#lem:s26-development}** (Ω_(ext,r₀) is a Cauchy development.) Let r₀ ≥ R₀, with R₀ enlarged if necessary,
-let g₀ = g_(b₀), or g₀ ∈ 𝒢 with g₀ − g_(b₀) satisfying the pointwise bounds of the proof of [[lem:iii-c1-1-1]], and let
+**Lemma {#lem:s26-development}** (Ω_(ext,r₀) is a Cauchy development.) Let r₀ ≥ R₀, let g₀ = g_(b₀), or g₀ ∈ 𝒢 with g₀ − g_(b₀) satisfying the pointwise bounds of the proof of [[lem:iii-c1-1-1]], and let
 g := g₀ + h with h as in [[lem:iii-c1-1-1]] and smooth in the interior of Ω_(ext,r₀). Time-orient g by ∂_t. Then the
 interior Ω° of Ω_(ext,r₀) is globally hyperbolic for g, and Σ° := Ω° ∩ {t_IVP = 0} is a smooth spacelike Cauchy
 hypersurface of Ω°.
@@ -139,9 +145,10 @@ strictly increasing along causal curves, Σ° is acausal in Ω°; it is spacelik
 
 Let p ∈ Ω° with t_IVP(p) > 0 and γ a past inextendible causal curve in Ω° from p. If γ did not meet Σ°, then
 t_IVP > 0 along γ (t_IVP is continuous along γ, and Ω° ∩ {t_IVP = 0} = Σ°); φ₊ ≤ φ₊(p) < 0 along γ; and
-|x| ≤ |x(p)| + 2t_IVP(p) along γ. So γ would lie in the compact set
-K := {0 ≤ t_IVP ≤ t_IVP(p), φ₊ ≤ φ₊(p), |x| ≤ |x(p)| + 2t_IVP(p)}, which lies in Ω°: at its points F₀(|x|) > t_IVP ≥ 0,
-so |x| > r₀ and −(|x| − r₀)/12 < 0 ≤ t_IVP < F₀(|x|). As in the proof of [[lem:ii-f-1-3]], t_IVP is strictly monotone
+|x| ≤ |x(p)| + 2t_IVP(p) along γ; and |x| ≥ r₀ on Ω°. So γ would lie in the compact set
+K := {0 ≤ t_IVP ≤ t_IVP(p), φ₊ ≤ φ₊(p), r₀ ≤ |x| ≤ |x(p)| + 2t_IVP(p)}, which lies in Ω°: at its points
+F₀(|x|) > t_IVP ≥ 0, and F₀(r₀) = 0 with F₀ increasing on [r₀, ∞) (the choice of R₀), so |x| > r₀ and
+−(|x| − r₀)/12 < 0 ≤ t_IVP < F₀(|x|). As in the proof of [[lem:ii-f-1-3]], t_IVP is strictly monotone
 along γ and serves as a parameter in which the tangent lies in the compact set of causal vectors V over K with
 dt_IVP(V) = 1; so γ extends continuously to its past end point in K ⊂ Ω°, against its inextendibility. Hence γ meets
 Σ°. For p with t_IVP(p) < 0 the same argument, with future inextendible curves, φ₋ ≥ φ₋(p) > 0 in place of φ₊ and

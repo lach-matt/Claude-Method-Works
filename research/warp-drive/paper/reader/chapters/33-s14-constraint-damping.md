@@ -1017,22 +1017,22 @@ future timelike V has dr(V) < 0, so V points out of {r ≥ r_♯}.
 **Lemma {#lem:iv5-0-4}** (The fibre algebra and the subprincipal symbol; [Hin26a, Lemmas 3.3–3.9, Corollary 3.6] in
 dimension 4 + 1.) At every point of M^♭, [Hin26a, Lemmas 3.3–3.8 and Corollary 3.6] hold for (g, c, e), with
 B := g⁻¹ − (1 + e)G(c)⁻¹c♯ ⊗ c♯. The skew-adjoint part S := (2ih)⁻¹(L_h − L_h*), adjoint for |dg| and B, is the bundle
-map of [Hin26a, Lemma 3.9], with the same formula. There is C > 0, uniform for b ∈ U, such that
+map of [[eq:s14-s]], which is [Hin26a, Lemma 3.9] in dimension 4 + 1. There is C > 0, uniform for b ∈ U, such that
 C(ρ_sf⁻²ℓ(ζ))² + ρ_sf⁻²G(ζ) is B-positive definite for 0 ≠ ζ ∈ ³ᵇT*_Ω M^♭.
 
 *Proof.* [Hin26a, Lemmas 3.3–3.8] are [[lem:iv4-1-1]]; [Hin26a, Corollary 3.6] follows from [Hin26a, Lemma 3.5] on
-one fibre, as there. For [Hin26a, Lemma 3.9], the proof evaluates (L_h − L_h*)ω at a point p for an ω covariantly
-constant at p. It uses [Hin26a, (3.10)], the formula (2ih)⁻¹L_h^(*g⁻¹) = −ec δ_g − 2ι_(c♯)δ*_g, which follows from
-[Hin26a, (3.2)], and the map b̃_(g,c,e) of [Hin26a, (3.7)]. These are index calculations in which the dimension
-appears only as the range of summation, and the metric adjoint is taken with |dg| in every dimension ([[eq:s14-s]]).
+one fibre, as there. As (2ih)⁻¹(L_h − L_h*) = A + A* with
+A = (2ih)⁻¹L_h, the formula for S is [[prop:np-10-13]] (ii), proved there on a Lorentzian manifold of any dimension
+with the adjoint taken for |dg| and B.
 For the uniform C, note that ρ_sf⁻²G and ρ_sf⁻²ℓ are smooth homogeneous functions on ³ᵇT*M^♭ ([[lem:iv5-0-2]] (a),
 (d)), and B is continuous on the compact Ω, K⁺ and 𝗌𝖿 included. [Hin26a, Corollary 3.6] at each point and compactness
 of the unit sphere bundle over Ω give one C ([Hin26a, p. 47]), and continuity in b gives it for b ∈ U, shrinking U. ∎
 
 **Lemma {#lem:iv5-0-5}** (The 1-form; [Hin26a, Proposition 5.1] in dimension 4 + 1.) Let (α_sf, α_K) = (−C_0 − 5/2, 1)
 with C_0 ∈ [0, 100], the weights [[eq:iv4-2-1]]. Put w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1). Shrinking U,
-there are δ_r ∈ (0, (4r_c)⁻¹) and δ_sf = 1/100 such that for b ∈ U, c satisfies [Hin26a, Proposition 5.1] (1)–(6)
-with r_c for r_0 and r_♯ for the inner radius of [Hin26a, Proposition 5.1]. The positivity statements (3)–(6) hold with lower bounds uniform in b ∈ U.
+there are δ_r ∈ (0, (4r_c)⁻¹) and δ_sf = 1/100 such that for b ∈ U, c satisfies the conditions (1)–(6) of
+[[lem:iv4-1-4]] ([Hin26a, Proposition 5.1] with r_c for r_0 and r_♯ for its inner radius). The positivity statements
+(3)–(6) hold with lower bounds uniform in b ∈ U.
 
 *Proof.* [[lem:iv4-1-4]]. Each positivity is a strict inequality for a continuous function of (b, point) on a compact
 set, or holds at 𝗌𝖿, where every g, b ∈ U, has the 3sc model η ([[lem:iv5-0-2]] (a)); so the lower bounds are uniform

@@ -732,7 +732,8 @@ sections ([Hin26, (11.155)] in dimension 4 + 1). "h small" means as in [[sec:iii
 parameter b ∈ ℬ̄_*, as throughout. 𝒴(α) is a Fréchet space, and bounds in it are taken in one fixed seminorm
 ‖·‖_(𝒴(α)): the quotient norm on 𝒴_1(α) + 𝒴_2(α) of the two defining spaces at one finite regularity and one ε > 0.
 The regularity is taken so large, and ε so small, that the linear maps used below, which are continuous on 𝒴(α)
-uniformly for (h, p⃗) small and b ∈ ℬ̄_* ([[lem:iii-i8-3-2]], [[prop:iii-i8-4-1]] (i)), are bounded in this seminorm;
+uniformly for (h, p⃗) small and b ∈ ℬ̄_* (in the proof of [[lem:iii-i8-3-2]], the maps from the forcing f′ of its
+Step 0 to the coefficients and to the remainder; and those of [[prop:iii-i8-4-1]] (i)), are bounded in this seminorm;
 and d is taken so large that the bounds of [[lem:iii-i8-2-6]] (b) and [[lem:s21-motions-at-b]] in it are bounds by
 ‖h‖. In the same way ‖·‖_(α′) is one fixed seminorm of the space of the hypothesis of [[lem:iii-i8-3-2]] at the level
 α′.

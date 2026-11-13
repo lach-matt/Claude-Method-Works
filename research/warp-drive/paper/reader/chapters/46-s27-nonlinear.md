@@ -881,7 +881,7 @@ M and on M_(1/2) coincide, their b-vector fields being the same. Fix χ_9 ∈ C^
     B^k_η := {U ∈ B^k : supp h̃ ⊂ {t^♭_* ≥ T̂ + c_0η}, the q-tails supported in {t_* ≥ 8 + c_0η}},
     F^k := {f ∈ ℱ^k_ex : supp f ⊂ {t^♭_* ≥ T̂}},     F^∞_η := {f ∈ F^∞ : supp f ⊂ {t^♭_* ≥ T̂ + c_0η}},
 
-with the norms of 𝒟^k_ex and ℱ^k_ex. Here the q-tails are the components S_rem, b_rem, Y_(ψ,rem) of U
+with the norms of 𝒟^k_ex and ℱ^k_ex. Here the q-tails are the components S_rem, b_rem and Y_(ψ,rem), ψ ∈ ℛ′_0, of U
 ([[def:iii-j-1-1]]). B^k_η is closed in B^k (support conditions are closed), non-increasing in η, and B^k_0 = B^k;
 F^k is closed in ℱ^k_ex.
 
@@ -930,7 +930,8 @@ P_5(Ψ(U)) = 0 on Ω_*. Its tail h̃ is supported in {t^♭_* ≥ T̂ + ½c_0}.
 
 *Proof.* Apply [[thm:ii-g-2-1]] with B^k, B^k_η, F^k and F^∞_η as above, η_0 := 1, d the largest of the d's of
 [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], and the map U ↦ P_5(Ψ(U)) on {U ∈ B^∞ : |U|_(3d) < δ}
-in the role of the map of [[thm:ii-g-2-1]].
+in the role of the map of [[thm:ii-g-2-1]], with δ at most the ε_0 of [[lem:iii-k-2-2]] and [[lem:iii-k-2-3]] (a bound
+in 𝒟^d_ex) and of [[prop:iii-j2-4-3]] (a bound in 𝒟^(3d)_ex), as ‖U‖_(𝒟^d_ex) ≤ |U|_(3d).
 
 *(i)* is [[lem:iii-k-3-1]].
 
@@ -954,7 +955,7 @@ at every u in the domain does not hold here (the proof of [[lem:iii-k-2-3]]).
 *Smallness.* The constants C_k (k ≤ N_NM), C_1, C_2 and δ depend on the data only through
 ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded once that norm is at most 1. So the
 threshold of [[thm:ii-g-2-1]], ε_NM, is uniform, and ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1),
-d_1 := N_NM + k″, by [[lem:iii-k-2-2]] (d). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2) with |U|_(3d) < δ and
+d_1 := max(d_0, N_NM + k″) with d_0 of [[prop:iii-k-1-2]], by [[lem:iii-k-2-2]] (d). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2) with |U|_(3d) < δ and
 P_5(Ψ(U)) = 0. ∎
 
 ### Constraint propagation and the theorem {#sec:iii-k-4}
