@@ -227,9 +227,9 @@ direction whose g3-geodesic reaches x0 transversally to the axis.
 near x0, at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2, ∂_4 at the points of P and
 orthogonal to P by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P is g3 in the coordinates
 (τ, ρ1, ρ2) = (τ, x1, x3). As g5 is C², g_P is a C² Lorentzian metric on P, even in x3: g3 extends across the edge
-{ρ2 = 0} to g_P, and
-the null geodesic flow of g3 extends to the flow of g_P, which is C¹, under which the geodesic reaching x0 transversally
-crosses {x3 = 0}. In the coordinates of P, κ is the same function of g_P and its first derivatives, so it is continuous
+{ρ2 = 0} to g_P, and the null geodesic flow of g3 extends to the flow of g_P, which is C¹, under which the geodesic
+reaching x0 transversally crosses {x3 = 0}. In the coordinates of P, κ is the same function of g_P and its first
+derivatives, so it is continuous
 on the bundle of null directions of g_P over a neighbourhood of x0. Hence f, which equals its initial value times
 exp(−∫κ) along each flow line, stays positive along the flow line of the given direction, and, by continuity, f ≥ c1 > 0
 on a neighbourhood U of the arriving direction at the points of the geodesic near x0. So T3(e0, e0) ≥ ∫_U f (p(e0))² ≥
