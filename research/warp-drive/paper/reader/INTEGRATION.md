@@ -1231,3 +1231,11 @@ Items found while chapters were written in parallel; each is settled once, editi
   with matched data. n4: the slice parameter σ is kept (about 150 uses); only λ and N are restricted by the outline.
 - R-P-U71-forward NOT CONFIRMED 3M 7m 6n; the counts stand. F-P-U71-forward fixes; chapter texts 7-12 stay in the
   proof file for the d-bound integration round.
+- R-P-U71-close NOT CONFIRMED 3M 7m 1n. The conclusion "no integer upper bound is proved" stands, for a different
+  reason: the bound needs (IS), the index-set exponents below Re 5 (explicit data, bookkeeping), and (SP), the pole
+  orders of N_ι⁺(L̄, ·)⁻¹ (new analysis). Per the author's directive both are now proof projects, P-U71-IS and
+  P-U71-SP. FOR THE FINAL REPORT: with ℰ_ind as constructed, 𝔡₀ and 𝔡₁ are exponents and (G) forces
+  ε_K < 1.6417·10⁻¹⁴ (about 2.5·10¹² pairs below 3), so the explicit point ε_K = 1.46·10⁻¹⁰ of the assembly fails;
+  and lem:iii-j2-2-4 and lem:iii-k-2-2 (d) use a lossless composition bound the edition does not prove (loss 3,
+  absorbed by every use). The d-bound integration round for chapters 71 and 3 waits for F-P-U71-forward,
+  F-P-U71-close, R2-P-U71-assembly, P-U71-IS and P-U71-SP.
