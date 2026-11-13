@@ -818,19 +818,24 @@ such annuli (the proof of [[lem:sobolev]]: images of a fixed annulus under radia
 gives |w(X)| ≤ C Σ_(p≤3) ‖∂_x^p w(τ(X))‖ ≤ C E_2(τ(X)). ∎
 
 **Lemma {#lem:layer-remainder-weak}** (The weighted remainder under a weaker hypothesis.) [[lem:layer-remainder]] holds
-with its hypothesis ε_(M*)(v1) ≤ λ³ replaced by ε_4(v1) ≤ λ: for X ∈ R with r(X) ≥ q0, |w(X)| ≤ C λ^(N−5)
-ε_(M*)(v1).
+with its hypothesis ε_(M*)(v1) ≤ λ³ replaced by ε_4(v1) ≤ λ: for X ∈ R with r(X) ≥ q0,
+
+    |w(X)| ≤ C_L4 λ^(N−5) ε_(M*)(v1),
+
+C_L4 depending on the quantities of [[sec:layer-setting]] and not on λ, v1 or X.
 
 *Proof.* Steps 1, 2, 5 and 7 of the proof of [[lem:layer-remainder]] do not use the hypothesis, step 5 using the
-coefficients of step 3 only as below. Step 3 gives |∂^j (g_app − g0)| ≤ C (λ + λ^(1−j) ε_j(v1)): bounded for j ≤ 2,
-since ε_2 ≤ λ, and of size λ^(1−j) ε_j for j = 3, 4. Order the energies E^(0), E^(1), E^(2), E^(i) controlling ∂^(i+1)
-w and ∂^i w. In ∂^i of [[eq:layer-w-equation]], every coefficient of a w-factor of the same level is a derivative of
-order at most 2 of g_λ or at most 1 of g_app, bounded; ∂³g_app and ∂⁴g_app occur only in ∂^(i−p) w ∂^(p+2) g_app (p ≥
-1), in ∂^(1+a) g_app ∂^(1+b) w and in the cubic Q-terms, each multiplying a w-factor of a strictly lower level. So
-E^(0) obeys [[lem:energy]] with bounded coefficients, E^(0) ≤ C λ^(N−3) ε_(M*)(v1), and E^(i) ≤ C (E^(i)(τ0) + ∫
-(‖∂^i Ric^H(g_app)‖ + Σ_(j<i) L_ij E^(j))) with L_ij ≤ C λ^(j−i) (ε_4/λ) ≤ C λ^(j−i); inductively E^(i) ≤ C λ^(N−3−i)
-ε_(M*)(v1). In the data of step 5 the coefficients of the same level are bounded and the large ones multiply lower
-levels, so the same triangular argument applies there. Step 7 as written. ∎
+coefficients of step 3 only as below. In step 3, the terms with l = 1 and p ≥ 1 cost j, those with l ≥ 2 are bounded
+by C λ^(l−p) through the global bounds of the profiles, and those with p = 0 by C λ; so
+|∂^j (g_app − g0)| ≤ C (λ + λ^(1−j) ε_j(v1) + λ^(2−j)), which is bounded for j ≤ 2, since ε_2 ≤ λ, and at most
+C λ^(2−j) for j = 3, 4, since ε_4 ≤ λ. Order the energies E^(0), E^(1), E^(2), E^(i) controlling ∂^(i+1) w and ∂^i w.
+In ∂^i of [[eq:layer-w-equation]], every coefficient of a w-factor of the same level is a derivative of order at most 2
+of g_λ or at most 1 of g_app, bounded; ∂³g_app and ∂⁴g_app occur only in ∂^(i−p) w ∂^(p+2) g_app (p ≥ 1), in
+∂^(1+a) g_app ∂^(1+b) w and in the cubic Q-terms, each multiplying a w-factor of a strictly lower level. So E^(0) obeys
+[[lem:energy]] with bounded coefficients, E^(0) ≤ C λ^(N−3) ε_(M*)(v1), and
+E^(i) ≤ C (E^(i)(τ0) + ∫ (‖∂^i Ric^H(g_app)‖ + Σ_(j<i) L_ij E^(j))) with L_ij ≤ C λ^(j−i); inductively
+E^(i) ≤ C λ^(N−3−i) ε_(M*)(v1). In the data of step 5 the coefficients of the same level are bounded and the large ones
+multiply lower levels, so the same triangular argument applies there. Step 7 as written. ∎
 
 ### The window {#sec:layer-window}
 
