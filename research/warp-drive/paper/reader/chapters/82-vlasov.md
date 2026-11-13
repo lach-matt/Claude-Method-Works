@@ -514,11 +514,14 @@ for (W_A, κ1_A, p_A), and the second and mixed harmonics of order λ² in γ, o
 (b) For torus-polarised waves, W_A = 2 ξ_A cos θ_A (e^(2ψ10) dφ1² − e^(2ψ20) dφ2²) and κ1_A = z_A sin θ_A (e^(2ψ10)
 dφ1² − e^(2ψ20) dφ2²), the part of order λ⁻¹ of Φ(γ + h, κ + k) vanishes for every slow h without torus components and
 every slow k. In particular the corrections of [[lem:constraints-evolution]], which change γ by multiples of dr ⊗ dr,
-meet no coefficient of order λ⁻¹.
+meet no coefficient of order λ⁻¹. More precisely, the terms of Φ(γ + h, κ + k) that carry a second derivative of a
+λ W_A or a first derivative of a κ1_A, which are those of order λ⁻¹, have coefficients that vanish identically at every
+point for every h without torus components and every k, slow or not.
 
-(c) For the other polarisation, W = ζ cos θ (q̂ ⊗ q̂ − ½ (e^(2ψ10) dφ1² + e^(2ψ20) dφ2²)) with q̂ the γ0-unit covector
-of the orbit slice orthogonal to p and ζ ≠ 0, and h = c dr ⊗ dr, dρ⁽⁻¹⁾ = −c ζ |p|² cos θ ⟨dr, q̂⟩², which is not zero
-where c ≠ 0 and the phase is not radial (p not parallel to dr).
+(c) For a wave with an orbit part, W = cos θ (ζ q̂ ⊗ q̂ + W_T) with q̂ the γ0-unit covector of the orbit slice orthogonal
+to p, ζ ≠ 0, W_T with torus components only and tr W = 0 (for instance W_T = −½ ζ (e^(2ψ10) dφ1² + e^(2ψ20) dφ2²)),
+and h = c dr ⊗ dr, dρ⁽⁻¹⁾ = −c ζ |p|² cos θ ⟨dr, q̂⟩², which is not zero where c ≠ 0 and the phase is not radial (p not
+parallel to dr). So every non-radial wave with a nonzero orbit part leaves a term of order λ⁻¹.
 
 *Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In
 R(γ) = γ^(ij)(∂_k Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j
@@ -536,11 +539,12 @@ vanish, each W_A depending on one phase; ∂²(λ² M(x, θ_A ± θ_B)) is of or
 orbit–torus components, γ_h⁻¹ is block-diagonal and p^♯ is an orbit vector, while W″ and κ1′ have torus components only.
 So W″(p^♯, ·) = 0, γ_h^(jl) p_l κ1′_(ji) = 0, and the torus traces vanish: tr W″ = −2ξ cos θ (e^(−2ψ10) e^(2ψ10) −
 e^(−2ψ20) e^(2ψ20)) + O(λ) = O(λ) and likewise tr κ1′ = O(λ). The corrections of [[lem:constraints-evolution]] change γ
-by a multiple of dr ⊗ dr only.
+by a multiple of dr ⊗ dr only. The argument is pointwise and algebraic in h and k: the terms of order λ⁻¹ are those
+displayed, with the inverse of γ + h, and they vanish wherever γ + h is block-diagonal, whatever the derivatives of h.
 
-(c) Here W″ = −W, W″p = 0 because q̂ ⊥ p and the torus block annihilates p, and tr W″ = −ζ cos θ (|q̂|² − ½ − ½) = 0.
-So dρ⁽⁻¹⁾ = |p|² ⟨h, W″⟩ = −c ζ |p|² cos θ ⟨dr, q̂⟩². In the two-dimensional orbit slice ⟨dr, q̂⟩ = 0 exactly when dr is
-parallel to p. ∎
+(c) Here W″ = −W, W″p = 0 because q̂ ⊥ p and the torus block annihilates p, and tr W″ = −tr W = 0. So dρ⁽⁻¹⁾ =
+|p|² ⟨h, W″⟩ = −c |p|² W(γ0⁻¹dr, γ0⁻¹dr) = −c ζ |p|² cos θ ⟨dr, q̂⟩², since γ0⁻¹dr is an orbit vector, on which W_T
+vanishes. In the two-dimensional orbit slice ⟨dr, q̂⟩ = 0 exactly when dr is parallel to p. ∎
 
 **Lemma {#lem:vlasov-leaf-curvature}** (The principal coefficients do not oscillate.) At data of the form of
 [[lem:vlasov-constraint-coefficient]] with torus-polarised waves W_A and with second and mixed harmonics of order λ² in

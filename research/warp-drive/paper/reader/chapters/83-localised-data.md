@@ -187,12 +187,53 @@ has a solution on the whole compact interval of the background's solution, by th
 systems [[pending:thm-class-kato-stability]]; by uniqueness the solution is invariant. The leaves are three-spheres, so
 the axes are interior points of the leaves and need no condition. By [[thm:std-racz-hyperbolic]] the fields built from
 the solution and the free data satisfy the constraints in the domain of dependence of the initial sphere, which here
-is all of {a ≤ R ≤ R2}, and outside the domain of influence of the perturbation's support the solution is the
-background's.
+is all of {0.70 ≤ R ≤ R2}, and outside the domain of influence of 𝒫 the solution is the background's.
 
-(c) The lens is a compact region of region I with no lateral boundary, and by [[cor:margins-lens]] every causal curve
-joining Σ′ to Σ_τ0 runs in it. The development exists near the smooth background by the Cauchy stability of the class
-Einstein–null-dust system ([[thm:class-stability]]), and the angular widening is that of [[cor:margins-lens]]. ∎
+(c) *A domain containing the lens.* The lens is the set between Σ′ and Σ_τ0, {τ0 + φ(R) ≤ τ ≤ τ0, 3.5 ≤ R ≤ 5.75}, in
+region I ([[lem:margins-region-one]] (c)). Fix δ1 ∈ (0, 0.01] and put t := (τ − τ0 − φ(R))/(δ1 − φ(R)), smooth since
+δ1 − φ ≥ δ1. Its level set {t = s} is {τ = τ0 + (1 − s)φ(R) + sδ1}: Σ′ for s = 0, Σ_(τ0+δ1) for s = 1, and the lens
+lies in {0 ≤ t < 1}. The differential dt is a positive multiple of dτ − (1 − t)φ′ dR. Where φ′ ≠ 0, R ∈ (3.5, 5.75)
+and 0 < f < 1, and for θ ∈ [0, 1], as in the proof of [[cor:margins-lens]],
+
+    g⁻¹(dτ − θφ′ dR, dτ − θφ′ dR) = −(2 − f) − 2θ(1 − f)φ′ + θ²fφ′² ≤ −1 + 2 × 0.0022 + 0.0022² < 0;
+
+where φ′ = 0 the covector is dτ, timelike by [[lem:two-dust-domain]] (a). So dt is timelike, in the cone of dτ, and t
+is a time function; (t, x) is a chart, as ∂_τt > 0. Let
+
+    Ω_L := {0 ≤ t ≤ 1, R ≥ 0.70, v̂ + τ ≤ 2τ0 + 6}.
+
+Where φ = 0, in particular for R ≤ 3.5 and for R ≥ 5.75, Ω_L agrees with {τ0 ≤ τ ≤ τ0 + δ1, R ≥ 0.70, v̂ + τ ≤ 2τ0 +
+6}, which lies in Ω₂, as b(τ) = b(τ0) − 2(τ − τ0) > 6 there ([[sec:loc-setting]]). So the lateral boundaries of Ω_L
+are pieces of {R = 0.70} and of {v̂ + τ = 2τ0 + 6}, spacelike with Ω_L to their past by [[lem:two-dust-domain]] (b),
+(c), and the slices {t = s} ∩ Ω_L are the annuli 0.70 ≤ R ≤ 6 − 2sδ1 of the coordinates (s, x). These conditions are
+strict on the compact Ω_L, so they hold for every Lorentzian metric C⁰-close to g0, and Ω_L is admissible for g0
+([[def:class-admissible]]) in the chart (t, x).
+
+*The hypotheses of [[thm:class-stability]].* (H1) holds for the background's phases v̂ and u, double-null coordinates
+of g0, smooth with nonzero differentials (proof of [[cor:class-two-dust]]), and for the further phases by (b), once δ1
+is small. For a small η > 0, let S_in be the set of points of Σ′ with v̂(v = 3) − η ≤ v̂ ≤ v̂(v = 4.5) + η, S_out the set
+with u1 − η ≤ u ≤ u2 + η, and take S_in ∪ 𝒫, S_out ∪ 𝒫 for the background's families and 𝒫 for the further ones. On
+Σ′, v̂ − R ∈ [τ0 − 0.0012, τ0], so S_in lies in 3.7 < R < 5.5 ([[sec:table-shell]]: v̂(v = 3) + 0.68 = 3.8253… and
+v̂(v = 4.5) + 0.68 = 5.3724…), and S_out, which is the part of Σ_τ0 with R_u2 ≤ R ≤ R_* when η = 0 ([[prop:bg-seed]] (a),
+[[lem:bg-rstar]]), lies in 1.8 < R < 3.5 for η small. Along Ω_L the integral curves of the background's dust fields
+move by at most Cδ1 in R and in angle, so for δ1 small the tubes of S_in and S_out stay in 1.7 < R < 5.6, away from the
+lateral boundaries, and those of 𝒫 stay away from the axes. Hence no tube meets a neighbourhood of a point where a
+lateral boundary meets an axis, and (H2′) puts no condition.
+
+*The development.* Complete the constraint data of (b) on Σ′, with their dust phases and densities, to a datum of
+[[thm:class-stability]]: the metric on Σ′ with the background's lapse and shift, and the gauge condition D(g) = 0
+imposed through the transversal derivatives, as in [[thm:data]]. This datum is within Cε of the background's, so for ε
+small [[thm:class-stability]] gives the development on Ω_L, within Cε of g0. Since Σ_τ0 ∩ {3.5 ≤ R ≤ 5.75} lies in Ω_L,
+and Σ_τ0 = Σ′ elsewhere, it induces constraint data on the whole of Σ_τ0. The development equals the background's
+outside the domain of influence of 𝒫 by the uniqueness of class Einstein–null-dust developments on domains of
+dependence [[pending:class-domain-of-dependence]].
+
+*The angular widening.* The development's metric g is within Cε of g0 in C⁰ on Ω_L. The proof of [[cor:margins-lens]]
+uses of g0, on the lens, only that dτ and d(τ − φ) are timelike, which holds for g when ε is small, and the bound
+R²|Ω̇|² ≤ τ̇²/(2 − f) for causal vectors, which for g holds with τ̇²/(2 − f) replaced by (1 + Cε)τ̇²/(2 − f), the
+quadratic form of g differing from that of g0 by at most Cε(τ̇² + Ṙ² + R²|Ω̇|²); and Σ_τ0 is acausal for g, τ increasing
+along its causal curves. So a causal curve of g joining Σ′ to Σ_τ0 has angular displacement at most (1 + Cε)^(1/2) ×
+3.25 × 10⁻⁴ < 3.3 × 10⁻⁴ for ε small. ∎
 
 **Remark {#rem:loc-band-grid}** (Numerical observation.) On the discretisation of [[rem:two-dust-example]] at 40, 80 and
 160 steps per unit, N_κ evaluated on Σ_τ0 from the grid solution was negative except on R ∈ [4.2956, 4.5264] at 160

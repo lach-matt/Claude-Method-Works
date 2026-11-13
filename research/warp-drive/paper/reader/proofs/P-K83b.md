@@ -357,7 +357,7 @@ bounds of the absolute values of J̃, K̃ and L̃ in the row [7.17, 7.2] of [[se
 and L̃ are Φ̃′, Φ̃″ and Φ̃‴), and for j + 1 = 4 it is at most 0.3182, the sum of the absolute values of the Chebyshev
 coefficients of Φ̃⁗ on [2.32, 3.44] ([[lem:bg-tools]] (a)). By direct evaluation, to within 10⁻¹⁰,
 
-    Φ̃(ρ_m) = 1.861372901,   Φ̃′(ρ_m) = 0.8111250646,   Φ̃″(ρ_m) = 0.2026504300,   Φ̃‴(ρ_m) = −0.2475621243,
+    Φ̃(ρ_m) = 1.8613729013,   Φ̃′(ρ_m) = 0.8111250646,   Φ̃″(ρ_m) = 0.2026504300,   Φ̃‴(ρ_m) = −0.2475621243,
 
 and |Φ^(j) − Φ̃^(j)| ≤ ε_j, (ε₀, ε₁, ε₂, ε₃) = (8.69 × 10⁻⁷, 1.68 × 10⁻⁶, 6.10 × 10⁻⁶, 3.65 × 10⁻⁵) at u = u2
 ([[prop:bg-rays]]). This gives the first four rows of the table below. Each later row follows from the rows above it,
