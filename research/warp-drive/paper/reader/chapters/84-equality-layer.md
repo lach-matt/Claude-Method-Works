@@ -1231,18 +1231,19 @@ C λ^(N−5) E^(1−M/m), as N − 5 − γ > (3 + δ)(1 + (M + 1)/m), N − 5 �
 (7/2)/27 < 0.9. Each comparison is strict in the exponent of λ, so it holds with room for a constant factor in E: for
 λ small, |ρ| ≤ λ^γ m0 at every v′ of the layer with λ^(3+δ)/2 ≤ E(v′) ≤ 2 λ^(3−δ).
 
-Now let R(v) ≥ 1 + 2λ^γ, and put I := [v − πλ, v + πλ]. Then env(v) ≠ 0; let σ be its sign. Since R(v) ≥ 1, |env(v)| ≥
-m0(v)/(λ³ A |ν| |d|) ≥ c λ⁻³ E(v)^(2+1/m), c := c_m/(A ν_max d_max), where |ν| ≤ ν_max := μ0^(−7/4)/4 for ρ ≥ 1 by
-[[eq:layer-nu]], as |2 − 3/ρ − 2/ρ³| ≤ 3 there, and d_max := sup |d| < ∞ by [[eq:layer-d]]. On I, E ≤ (5/4) E(v)
-and |env′| ≤ C E(v)^(1−1/m), so over I env changes by a relative amount at most πλ C E(v)^(1−1/m)/|env(v)| ≤ C λ⁴
-E(v)^(−1−2/m) ≤ C λ^(4−(3+δ)(1+2/m)) ≤ C λ^(0.49), which is o(λ^γ); in particular env keeps the sign σ on I. Also E(v −
-πλ) ≥ E(v) − πλ C E(v)^(1−1/m) = E(v)(1 − o(1)), since |env| reaches E(v) at a point of (−∞, v] and moves by at most πλ C
-E(v)^(1−1/m) on I; so every point of I satisfies the bound on ρ above. The margin changes over I by a relative amount at
-most C λ E(v)^(−2/m) = o(λ^γ), since |m0′| ≤ C (env² + |env| |env′|) ≤ C E(v)^(2−1/m) on I and m0 ≥ c_m E^(2+1/m) ≥ c_m
-(E(v)/2)^(2+1/m) there; and |ν(· − τ0)| by at most C λ/(v − v_s), ν having at most a double zero near v_s, which is
-o(λ^γ) since v − v_s ≥ (E(v)/C_κ)^(1/κ) by Taylor's formula at v_s and (3 + δ)/κ < 1/10. So R ≥ 1 + (3/2)λ^γ on I. The
-phase v′/λ runs over an interval of length 2π on I, so there are points v′ of I where Re[σ d e^(iv′/λ)] = |d|, and at
-them, using ν ≤ 0,
+Now let R(v) ≥ 1 + 2λ^γ, and put I := [v − πλ, v + πλ]. Then env(v) ≠ 0; let σ be its sign. Since R(v) ≥ 1, the
+bound |env(v)| ≥ m0(v)/(λ³ A |ν| |d|) ≥ c λ⁻³ E(v)^(2+1/m) holds, with c := c_m/(A ν_max d_max), where
+ν_max := μ0^(−7/4)/4 bounds |ν| for ρ ≥ 1 by [[eq:layer-nu]], as |2 − 3/ρ − 2/ρ³| ≤ 3 there, and d_max := sup |d| is
+finite by [[eq:layer-d]]. On I, E ≤ (5/4) E(v) and |env′| ≤ C E(v)^(1−1/m), so over I env changes by a relative
+amount at most πλ C E(v)^(1−1/m)/|env(v)| ≤ C λ⁴ E(v)^(−1−2/m) ≤ C λ^(4−(3+δ)(1+2/m)) ≤ C λ^(0.49), which is
+o(λ^γ); in particular env keeps the sign σ on I. Also E(v − πλ) ≥ E(v) − πλ C E(v)^(1−1/m) = E(v)(1 − o(1)), since
+|env| reaches E(v) at a point of (−∞, v] and moves by at most πλ C E(v)^(1−1/m) on I; so every point of I satisfies
+the bound on ρ above. The margin changes over I by a relative amount at most C λ E(v)^(−2/m) = o(λ^γ), since on I
+the bounds |m0′| ≤ C (env² + |env| |env′|) ≤ C E(v)^(2−1/m) and m0 ≥ c_m E^(2+1/m) ≥ c_m (E(v)/2)^(2+1/m) hold; and
+the factor ν(· − τ0) changes by a relative amount at most C λ/(v − v_s), ν having at most a double zero near v_s,
+which is o(λ^γ) since v − v_s ≥ (E(v)/C_κ)^(1/κ) by Taylor's formula at v_s and (3 + δ)/κ < 1/10. So
+R ≥ 1 + (3/2)λ^γ on I. The phase v′/λ runs over an interval of length 2π on I, so there are points v′ of I where
+Re[σ d e^(iv′/λ)] = |d|, and at them, using ν ≤ 0,
 
     g_λ⁻¹(dΦ0, dΦ0) = −m0 + λ³ A |env| |ν| Re[σ d e^(iv′/λ)] + ρ ≥ m0 (R − 1 − λ^γ) > 0.
 

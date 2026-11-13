@@ -1409,16 +1409,42 @@ difference of h′ at its ends is at most (σ_2 − σ_1) C_0 r^(−3/2−a_0) �
 where h′ = g_λ − g_b0 = O(r⁻²) (on N, v1 > v_end, so g_λ − g0 = u_1 is in E_2, [[eq:bondi-u-split]] with G_3 = 0); so
 |c(x̂)| ≤ C r_σ⁻² + C C_0 r_σ^(−1/2−a_0), and r_σ → ∞ as σ → −∞. Hence h′ = −∫_r^∞ ∂_s h′ ds along the rays,
 |h′| ≤ C r^(−1/2−a_0) with C independent of σ, and [[eq:own-hardy]] holds on every Σ̃_σ at the weight a_0 with constants
-independent of σ. Now δ := g′ − g solves −½ g′^(ab) ∂_a ∂_b δ = ½(g′^(ab) − g^(ab)) ∂_a ∂_b g + (Q(g′)(∂g′, ∂g′) −
-Q(g)(∂g, ∂g)), linear in (δ, ∂δ): the zero-order coefficients are ∂∂g, with r|∂∂H| ≤ C(μ + λ) r⁻³ + C ε_B r^(−1/2−a)
-by [[eq:own-pointwise]], and |∂g′|², and the first-order ones |∂g| + |∂g′|. Apply [[eq:own-energy-identity]] to δ with
-the metric g′ and the weight a_0: the deformation term carries |∂_t h′| ≤ C_0 r^(−3/2−a_0); the bulk term T_(g′)(∇w, ∂_t)
-is at least −C|h′| |w′| |∂δ|², with |w′|/w ≤ C r⁻¹, a kernel r^(−3/2−a_0); the zero-order terms through [[eq:own-hardy]]
-give the exponents min(3, a + 1/2) and 2 + 2a_0; all exponents exceed 1 since a > ½. δ = 0 on N with its first
-derivatives, so the flux through N vanishes; on Σ̃_(σ_1), E^(a_0)[δ] ≤ 2E^(a_0)[h′] + 2E^(a_0)[g − g_b0], and both tend
-to 0 as σ_1 → −∞ (for Σ, |∂Σ| ≤ C λ r⁻³ gives C λ² r_(σ_1)^(2a_0−2); for h_R, its weight-a energy tends to 0 and
-dominates its weight-a_0 energy, as u* − u ≥ 1 on W). Gronwall's inequality from σ_1, with constants independent of σ_1,
-and σ_1 → −∞ give δ = 0. ∎
+independent of σ. Now ξ := g′ − g solves −½ g′^(ab) ∂_a ∂_b ξ = ½(g′^(ab) − g^(ab)) ∂_a ∂_b g + (Q(g′)(∂g′, ∂g′) −
+Q(g)(∂g, ∂g)) ([[eq:own-p-split]]), linear in (ξ, ∂ξ): the zero-order coefficients are ∂∂g, with H := g − g_b0 and
+r|∂∂H| ≤ C(μ + λ) r⁻³ + C ε_B r^(−1/2−a) by [[eq:own-pointwise]] and [[lem:own-sigma-data]] (b), and |∂g′|², and the
+first-order ones |∂g| + |∂g′|. Apply [[eq:own-energy-identity]] to ξ with the metric g′ and the weight a_0: the
+deformation term carries |∂_t h′| ≤ C_0 r^(−3/2−a_0); the bulk term T_(g′)(∇w, ∂_t) is at least −C|h′| |w′| |∂ξ|², with
+|w′|/w ≤ C r⁻¹, a kernel r^(−3/2−a_0); the zero-order terms through [[eq:own-hardy]] give the exponents min(3, a + 1/2)
+and 2 + 2a_0; all exponents exceed 1 since a > ½. ξ = 0 on N with its first derivatives, so the flux through N
+vanishes; on Σ̃_(σ_1), E^(a_0)[ξ] ≤ 2E^(a_0)[h′] + 2E^(a_0)[g − g_b0], and both tend to 0 as σ_1 → −∞ (for Σ,
+|∂Σ| ≤ C λ r⁻³ gives C λ² r_(σ_1)^(2a_0−2); for h_R, its weight-a energy tends to 0 and dominates its weight-a_0
+energy, as u* − u ≥ 1 on W, the energies of g and g′ being comparable by [[lem:own-margins]] (d), as |H| ≤ 1/50 by
+[[eq:own-pointwise]] and [[lem:own-sigma-data]] (b) as in Step 1 of the proof of [[thm:own-continuation]]). Gronwall's
+inequality from σ_1, with constants independent of σ_1, and σ_1 → −∞ give ξ = 0. The proof uses of g and g′ their
+energies of the orders displayed and the ray bound on Ω^γ ∂Γ^α h′, |γ| ≤ 2, |α| ≤ 3, which C⁵ regularity provides. ∎
+
+**Lemma {#lem:cutoff-independence}** (the limit does not depend on J). For J ≥ 2k1 + 7 let g^(J) be the limit of the
+g_T^(J) given by Steps 1–5 of the proof of [[thm:own-continuation]] at fixed J: a metric on W of class C^(k_J−3) with
+Ric^H(g^(J); g_b0) = 0, equal to g_λ on N with its first derivatives, satisfying [[eq:own-pointwise]] with ε_B and
+𝔈_(k1) ≤ ε_B², and with E_σ[Γ^α h_R^(J)] → 0 as σ → −∞ for |α| ≤ k1, h_R^(J) := g^(J) − g_b0 − Σ. Then
+g^(J′) = g^(J) for J′ ≥ J ≥ 2k1 + 7.
+
+*Proof.* Let a_0 ∈ (0, ½). g := g^(J) satisfies the hypotheses of [[lem:own-two-continuations]] on g, as k_J − 3 ≥ 5.
+g′ := g^(J′) is of class C⁵, as k_J′ − 3 ≥ 5, satisfies Ric^H(g′; g_b0) = 0, and equals g_λ on N with its first
+derivatives. With h′ := g′ − g_b0 = Σ + h_R^(J′): |h′| ≤ C λ r⁻² + C_S ε_B r^(−1/2−a) ≤ 1/50 as in Step 1 of the proof
+of [[thm:own-continuation]]; the energies of weight a_0 of the Γ^α h_R^(J′), |α| ≤ 3, are bounded uniformly in σ and
+tend to 0 as σ → −∞, being dominated by those of weight a, as u* − u ≥ 1 on W; and those of the Γ^α Σ are at most
+C λ² r_σ^(2a_0−2), since |∂Γ^α Σ| ≤ C λ r⁻³ ([[lem:own-sigma-data]] (b)) and ∫_(r_σ)^∞ r^(2a_0) r⁻⁶ r³ dr =
+r_σ^(2a_0−2)/(2 − 2a_0). So g′ satisfies the hypotheses of [[lem:own-two-continuations]] on g′, and g^(J′) = g^(J). ∎
+
+**Proposition {#prop:own-uniqueness}** (uniqueness at a weight below ½). Let a_0 ∈ (0, ½), and let g′ = g_b0 + h′ be a
+smooth metric on W with Ric^H(g′; g_b0) = 0, g′ = g_λ on N with its first derivatives, |h′| ≤ 1/50,
+sup_(σ≤0) E^(a_0)_σ[Γ^α h′] < ∞ for |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z}, and E^(a_0)_σ[h′] → 0 as σ → −∞, where E^(a_0) is the
+energy [[eq:own-energies]] for g′ with the weight (u* − u)^(2a_0). Then g′ = g, the metric of [[thm:own-continuation]].
+
+*Proof.* The metric g of [[thm:own-continuation]] is smooth, satisfies Ric^H(g; g_b0) = 0, equals g_λ on N with its
+derivatives, satisfies [[eq:own-pointwise]] with ε_B ≤ ε_2, and has E_σ[h_R] → 0 as σ → −∞. g′ is smooth, hence C⁵.
+So [[lem:own-two-continuations]] gives g′ = g. ∎
 
 The class of [[prop:own-uniqueness]] contains every candidate whose difference from g_b0 approaches it like r⁻² without
 radiation, with bounded commuted energies; the metric g of [[thm:own-continuation]] lies in it, since its energies of
