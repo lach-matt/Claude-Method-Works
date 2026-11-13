@@ -49,10 +49,11 @@ R₁ = μ_end^(1/2). In the coordinates (t, x) of [[sec:iii-b-2]], g_(b₀) = Φ
 t = t_KS + T_(μ_end)(|x|) with t_KS the Kerr–Schild time ([[eq:iii-b-3-3]]). The time functions t_* and
 t_IVP = t − ψ_IVP(|x|), the initial surface Σ^IVP := t_IVP⁻¹(0), the radius R₃ beyond which ψ_IVP is constant and its
 value C″ there are those of [[eq:iii-b-3-6]] and [[lem:iii-b-3-7]]; (γ_(b₀), k_(b₀)) are the data that g_(b₀) induces
-on Σ^IVP ([[lem:iii-b-3-9]]). Ω_*, the region 𝒟 and its parts 𝒟_S, the cut-off χ_K, the boosts φ_S, S ∈ 𝒮_1, the
-parameter set ℬ_*, and the terms h_tot(p⃗) and h_(b,rem)(q) are those of [[sec:iii-k-0]], [[prop:iii-k-1-2]] and
-[[thm:iii-k-4-3]]. The parameters of the stability theory are chosen by [[thm:vi-c-2-1]], with the data class
-[[eq:vii-0-1]] at its step (3):
+on Σ^IVP ([[lem:iii-b-3-9]]). Ω_*, the region 𝒟 and its parts 𝒟_(S,S⁰), the cut-off χ_K, the cut-off Lorentz boosts
+φ_S of [[sec:iii-b-5]] and the cut-off translations ψ_(S⁰) of [[lem:iii-i7-1-1]], S, S⁰ ∈ 𝒮_1, composed as
+φ_(S,S⁰) := ψ_(S⁰) ∘ φ_S in [[eq:s27-motion]], the parameter set ℬ_*, and the terms h_tot(p⃗) and h_(b,rem)(q) are
+those of [[sec:iii-k-0]], [[prop:iii-k-1-2]] and [[thm:iii-k-4-3]]. The parameters of the stability theory are chosen
+by [[thm:vi-c-2-1]], with the data class [[eq:vii-0-1]] at its step (3):
 
     ℰ_0 = {(j, 0) : j ∈ ℕ, j ≥ 2},     ℓ_0 ∈ (3, 4),     ℓ_I ∈ (3, ℓ_0);
 
@@ -62,12 +63,12 @@ exponent of the rate; with them the order d_1 and the norm ‖·‖_(d_1) of [[s
 G = O(2) × O(2) acts as in [[sec:s27-class]], and the choices of [[lem:vii-3-1]] are made O(4)-equivariant; they are
 admissible choices of the stability theory, so [[thm:iii-k-4-3]] holds with them.
 
-**Theorem {#thm:settling-precise}** (Settling, precise form.) Let r_♭ ∈ (0, ½R₁], let steps (0)–(4) of
-[[thm:vi-c-2-1]], up to the choice of α, be made as above, and let A and the envelope be fixed. For every
-ε_t ∈ (0, ε_K) there are a choice of α in row w2 and of steps (5)–(6), R ≥ R₃ and a domain Ω′ of the form
-[[eq:omega]], depending on ε_t and r_♭ only, such that for every ε_m > 0 there are λ_1 > 0 and δ > 0 for which the
-following holds for 0 < λ ≤ λ_1. Here g_λ is the solution of [[thm:main]] on Ω′, built with K = d_1 + 14 and
-N = K + 3 stages, and Σ^IVP is placed in the coordinates (τ, x) by [[lem:vii-1-2]].
+**Theorem {#thm:settling-precise}** (Settling, precise form.) Let l5, μ0, A, env and τ0 be fixed and
+b₀ = (μ_end, 0), as above; let r_♭ ∈ (0, ½R₁], and let steps (0)–(4) of [[thm:vi-c-2-1]], up to the choice of α, be
+made as above. For every ε_t ∈ (0, ε_K) there are a choice of α in row w2 and of steps (5)–(6), R ≥ R₃ and a domain Ω′
+of the form [[eq:omega]], depending on ε_t and r_♭ only, such that for every ε_m > 0 there are λ_1 > 0 and δ > 0,
+depending moreover on ε_m, for which the following holds for 0 < λ ≤ λ_1. Here g_λ is the solution of [[thm:main]] on
+Ω′, built with K = d_1 + 14 and N = K + 3 stages, and Σ^IVP is placed in the coordinates (τ, x) by [[lem:vii-1-2]].
 
 (i) *In the class.* There are G-invariant smooth vacuum data (γ_λ, k_λ) on Σ^IVP that equal the data of g_λ on
 Σ^IVP ∩ {r ≤ R}, and on Σ^IVP ∩ {r ≥ 4R} the data (γ^(m_λ), k^(m_λ)) that the Tangherlini metric g^KS_(m_λ,0) induces

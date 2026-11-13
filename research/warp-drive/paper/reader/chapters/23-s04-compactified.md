@@ -1878,25 +1878,32 @@ C^((d_0−1)) S̃^𝗄 (index 0), and lies in C^((d_0−1)) S̃^(𝗄−κ) for 
     𝖧_f(ǎ_ε²) = ρ_∞^(−2𝗄) φ_ε² ψ_y² e^(−2Mz) [−χ_s²χ_e² Q_ε + χ_e² ∂_z(χ_s²) + χ_s² ∂_z(χ_e²)],
     Q_ε := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ + 2(𝖧_f𝗄) log ρ_∞,     𝗄_ε := 𝗄 − κθ_ε.
 
-On the support, 𝖧_f𝗄 = 𝖧_f𝗌 ≤ 0 and log ρ_∞ < 0, so the last term of Q_ε is nonnegative. Choose
-M ≥ 1 + sup |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|, uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ M; M will be enlarged once more below.
-Write Q_ε = Q_(0,ε) + λ with Q_(0,ε) := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ ≥ M and λ := 2(𝖧_f𝗄) log ρ_∞ ≥ 0. Q_(0,ε) has d_0 − 2
-bounded derivatives, and λ has d_0 − 2 derivatives bounded by C⟨log ρ_∞⟩, uniformly in ε ([[lem:ii-a1-5-1]] (b) and
-[[def:ii-a1-1-3]]). By [[lem:ii-a1-2-5]] (ii) with ν = 0, Q_ε^(−1/2) is bounded in C^((d_0−2))_1 S̃⁰ and Q_ε^(1/2) in
-C^((d_0−2))_1 S̃^δ for every δ > 0. Put
+On the support, 𝖧_f𝗄 = 𝖧_f𝗌 ≤ 0 and log ρ_∞ < 0, so the last term of Q_ε is nonnegative. These two signs hold on the
+set W where (z, y) are defined, 𝖧_f𝗌 ≤ 0 and ρ_∞ < 1, a neighbourhood of the box
+{z ∈ [−2δ, T + 2δ], |y| ≤ 2δ_1} ∩ supp χ_∞; off W, Q_ε need not be positive, nor even defined. Fix
+ζ ∈ C^∞(ᵉ³ᵇT̄*M̃) with values in [0, 1], equal to 1 near that box and supported in W, and choose M ≥ 1 + sup_(supp ζ) |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|,
+uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ M on supp ζ; M will be enlarged once more below. Put
 
-    b_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s χ_e Q_ε^(1/2) χ_∞,
+    Q̃_ε := ζQ_ε + (1 − ζ)M = Q̃_(0,ε) + ζλ,     Q̃_(0,ε) := ζQ_(0,ε) + (1 − ζ)M,
+
+with Q_(0,ε) := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ and λ := 2(𝖧_f𝗄) log ρ_∞. Then Q̃_ε is defined on all of phase space,
+Q̃_(0,ε) ≥ M and ζλ ≥ 0 everywhere, so Q̃_ε ≥ M everywhere, and Q̃_ε = Q_ε near the box. Q̃_(0,ε) has d_0 − 2 bounded
+derivatives, and ζλ has d_0 − 2 derivatives bounded by C⟨log ρ_∞⟩, uniformly in ε ([[lem:ii-a1-5-1]] (b),
+[[def:ii-a1-1-3]], and [[lem:ii-a1-1-1]] for ζ). By [[lem:ii-a1-2-5]] (ii) with ν = 0, Q̃_ε^(−1/2) is bounded in
+C^((d_0−2))_1 S̃⁰ and Q̃_ε^(1/2) in C^((d_0−2))_1 S̃^δ for every δ > 0. Put
+
+    b_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s χ_e Q̃_ε^(1/2) χ_∞,
     b_(e,ε) := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s (−∂_z(χ_e²))^(1/2) χ_∞,
     e_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_e (∂_z(χ_s²))^(1/2) χ_∞,
-    z_ε := μ^(−1/2) Q_ε^(−1/2).
+    z_ε := μ^(−1/2) Q̃_ε^(−1/2).
 
-Then ςH_ℓ(ǎ_ε²) = μ𝖧_f(ǎ_ε²) = −b_ε² − b_(e,ε)² + e_ε² modulo symbols of order −∞ (from χ_∞), and ǎ_ε = z_εb_ε. The
-factor μρ_∞^(−2𝗄) has order 2𝗌. So, all with index 1 and d_0 − 2 derivatives, b_ε is bounded in the class of order
-𝗌 + δ for every δ > 0 (the factor Q_ε^(1/2)), e_ε and b_(e,ε) in that of order 𝗌, and z_ε in that of order −(m − 1)/2,
-on which it acts without loss ([[prop:ii-a1-2-4]] (a)). e_ε is supported in {z ∈ [−δ, −δ/2]}, inside Ell(E) and away
-from γ([0, T]). b_0 is elliptic on γ([0, T]), where χ_s = χ_e = ψ_y = 1 and Q_0 ≥ M: on the open set
-U′ := {z ∈ (−δ/2, T + δ/2), |y|² < δ_1²/2}, near fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(Mz) Q_0^(−1/2) lies in
-C^((d_0−2))_1 S̃^(−𝗌).
+Then ςH_ℓ(ǎ_ε²) = μ𝖧_f(ǎ_ε²) = −b_ε² − b_(e,ε)² + e_ε² modulo symbols of order −∞ (from χ_∞), as Q̃_ε = Q_ε on the
+supports, and ǎ_ε = z_εb_ε exactly, on all of phase space. The factor μρ_∞^(−2𝗄) has order 2𝗌. So, all with index 1
+and d_0 − 2 derivatives, b_ε is bounded in the class of order 𝗌 + δ for every δ > 0 (the factor Q̃_ε^(1/2)), e_ε and
+b_(e,ε) in that of order 𝗌, and z_ε, a global symbol, in that of order −(m − 1)/2, on which it acts without loss
+([[prop:ii-a1-2-4]] (a)). e_ε is supported in {z ∈ [−δ, −δ/2]}, inside Ell(E) and away from γ([0, T]). b_0 is elliptic
+on γ([0, T]), where χ_s = χ_e = ψ_y = 1 and Q̃_0 ≥ M: on the open set U′ := {z ∈ (−δ/2, T + δ/2), |y|² < δ_1²/2}, near
+fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(Mz) Q̃_0^(−1/2) lies in C^((d_0−2))_1 S̃^(−𝗌).
 
 *Localisers.* The symbols ǎ_ε, b_ε and b_(e,ε) are supported in the closed set
 K_1 := {z ∈ [−δ, T + δ], |y| ≤ δ_1} ∩ supp χ_∞, and e_ε in K_E := {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ∩ supp χ_∞. Choose
@@ -1947,7 +1954,7 @@ dropping −‖B_(e,ε)w‖² ≤ 0. For the L_I term, fix elliptic operators Λ
 H^(±(m−1)/2), and let C_I be the norm of L_I between these spaces. It depends on finitely many norms of the coefficients
 and not on M or ε. Take Λ_+ := Op(λ_+) with λ_+ classical. Then Λ_+Ǎ = Op(λ_+z_ε)B_ε + (order 𝗌 − 1 + 2δ)
 ([[prop:ii-a1-2-4]] (b), with ǎ_ε = z_εb_ε), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛM^(−1/2), with
-C_Λ := sup |λ_+μ^(−1/2)|, as Q_ε ≥ M. [[lem:ii-a1-2-6]] with η := M⁻¹ and δ/2 in place of δ, applied to B_εw, and
+C_Λ := sup |λ_+μ^(−1/2)|, as Q̃_ε ≥ M on all of phase space. [[lem:ii-a1-2-6]] with η := M⁻¹ and δ/2 in place of δ, applied to B_εw, and
 (a + b)² ≤ 2a² + 2b² give
 
     ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)M⁻¹‖B_εw‖² + C‖w‖²_(𝗌−1/2+δ),
