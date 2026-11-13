@@ -107,7 +107,9 @@ def run_chapters(files):
     exported = set()
     op = os.path.join(HERE, "OUTLINE.md")
     if os.path.isfile(op):
-        exported = {m.group(1) + ":" + m.group(2) for m in DEF_RX.finditer(open(op, encoding="utf-8").read())}
+        otext = open(op, encoding="utf-8").read()
+        exported = {m.group(1) + ":" + m.group(2) for m in DEF_RX.finditer(otext)}
+        exported |= set(re.findall(r"\b(?:part|ch|app):[a-z0-9][a-z0-9\-]*", otext))  # the outline's table
     for name, kind, key in refs:
         if kind == "C":
             continue

@@ -1156,3 +1156,455 @@ C‖E″u‖_(𝐨+k(1,1,0)) + C‖u‖_(−K𝟏), since (hV)^α ∈ Ψ^(k(1,1,
 ‖B_*′u‖_(𝐨;k) ≤ C(‖B_* u^(k)‖_𝐨 + ‖G̃u‖_(𝐨;k−1) + ‖u‖_(−K𝟏)) for B_*′ microsupported where B_* is elliptic, since
 [B_*′, (hV)^α] is a sum of terms (hV)^γ [B_*′, hV] (hV)^(γ′), |γ| + |γ′| = k − 1, with [B_*′, hV] ∈ Ψ^((0,0,−1)) by
 [[thm:i-b-2-4]]. ∎
+
+### The trapped set {#sec:i-b-6}
+
+This section is [Hin26c, Section 9.3.4] on E. Fix z_0 ∈ {1, −1} and Γ = Γ_(z_0) of (H7). Near Γ everything happens at
+finite frequencies over a compact set K_Γ ⊂ {r_2 < r < ρ_1⁻¹}, where ⟨x⟩ and ⟨ζ⟩ are bounded above and below and an
+admissible 𝖻 is constant ([[sec:i-b-1-4]]). So for operators microsupported there, every norm ‖·‖_𝐨 is h^(−𝖻) times a
+norm equivalent to that of L², and we state the estimates of this section in L² (that is, with 𝐨 = 0). χ_Γ ∈ C_c^∞
+equals 1 near K_Γ, and ‖u‖_(−M) := ‖χ_Γ u‖_(H_h^(−M)). By [[lem:i-b-6-0]] below we take h_Γ to be the standard inner
+product of a trivialisation of E over K_Γ. For h_Γ from the base this is the choice of an h_Γ-orthonormal frame, the
+adjoint in another fibre inner product being conjugate to this one by a matrix function ([[prop:i-a-4-2]]); for h_Γ on
+phase space it is the replacement of P by P_Q, every estimate being carried back by [[lem:i-b-6-0]] (d). Adjoints are
+then ordinary adjoints. A small number ε_Γ > 0, fixed in [[sec:i-b-6-1]], measures the neighbourhoods Γ(δ) of Γ used
+throughout this section.
+
+#### Inner products on phase space {#sec:i-b-6-0}
+
+**Lemma {#lem:i-b-6-0}** (Cf. [Hin26c, (5.9)] and [Hin17, Proposition 3.12].) Let h_Γ be a smooth fibre inner product on
+π*E over a neighbourhood of Γ, given in the trivialisation of E over K_Γ by a positive definite Hermitian matrix
+function b(x, ζ). At z = z_0, G := G_(z_0) is real, and h⁻¹ Im P and h⁻¹(Re P − Op_h(G)), taken in the standard inner
+product, are of order 0 near Γ; let p_1 (as in [[eq:i-b-6-1]]) and r be their symbols (r is Hermitian up to a scalar
+that depends on the quantisation and drops out below). Put
+
+    p_1^(h_Γ) := ½(p_1 + b⁻¹p_1b) + (i/2) b⁻¹[r, b] + ½ b⁻¹H_G b,                                       {#eq:i-b-6-0}
+
+which is h_Γ-self-adjoint (b p_1^(h_Γ) is Hermitian, term by term) and equals p_1 when b = Id. Let ψ_Γ ∈ C_c^∞,
+0 ≤ ψ_Γ ≤ 1, equal 1 near Γ, supported in Γ(ε_Γ/3) ([[sec:i-b-6-5]]) and in the domain of b; let
+b̃ := ψ_Γ b + (1 − ψ_Γ) Id, q := b̃^(1/2) (the positive square root) and Q := Op_h(q). Then for h < h_0:
+
+(a) Q is invertible on L² and on every H_h^𝐨, and Q − I and Q⁻¹ − I lie in Ψ^(−∞), microsupported in supp ψ_Γ up to
+O(h^∞) smoothing terms.
+
+(b) P_Q := QPQ⁻¹ = P + hX, where X = X(z) := h⁻¹[Q, P]Q⁻¹ ∈ Ψ^(−∞) is microsupported in supp ψ_Γ and holomorphic in z.
+
+(c) Where ψ_Γ = 1, the symbol of h⁻¹ Im P_Q (standard inner product) at z_0 is q p_1^(h_Γ) q⁻¹; at z ∈ z_0 + i[0, ν′]
+the symbols of h⁻¹ Im P_Q and h⁻¹ Im P change by the same scalar and, for P_Q, by O(Im z) more. As conjugation preserves
+eigenvalues, [[eq:i-b-1-4]] is the same for P in h_Γ and for P_Q in the standard inner product.
+
+(d) If B_1, E_1, G_1 ∈ Ψ^0 and ‖B_1w‖ ≤ C(h^(−a)‖G_1𝐏_Q w‖ + h^(−c)‖E_1w‖ + h^M‖w‖_(−M)) for all w, where
+𝐏_Q ∈ {P_Q, P_Q*}, then the same estimate holds for 𝐏 ∈ {P, P*} and all u, with B_1, E_1, G_1 replaced by B_1Q^♭,
+E_1Q^♭, G_1Q^♭, Q^♭ := Q for P and Q^♭ := (Q*)⁻¹ for P*; these have the elliptic sets and microsupports of B_1, E_1,
+G_1.
+
+*Proof.* (a) q − Id is smooth with compact support in supp ψ_Γ, so Q − I ∈ Ψ^(−∞); as q is invertible, the symbol
+calculus gives Q^− with Q^− − I of the same kind and QQ^− − I =: R, Q^−Q − I in h^∞Ψ^(−∞), so for h small Q is
+invertible with Q⁻¹ = Q^−(I + R)⁻¹, which is Q^− up to O(h^∞) smoothing terms.
+
+(b) QPQ⁻¹ − P = [Q − I, P]Q⁻¹, and [Q − I, P] is h times an operator in Ψ^(−∞) microsupported in supp ψ_Γ, since the
+principal symbol G_z Id of P commutes with q; P is polynomial in z and Q does not depend on z.
+
+(c) With B := Q*Q, (QPQ⁻¹)* = (Q*)⁻¹P*Q*, so, exactly,
+
+    Im(QPQ⁻¹) = (1/2i)(QPQ⁻¹ − (Q*)⁻¹P*Q*) = Q (Im_B P) Q⁻¹,     Im_B P := (1/2i)(P − B⁻¹P*B).
+
+B has symbol q*q = b̃, equal to b where ψ_Γ = 1. At z_0, P − B⁻¹P*B = B⁻¹[B, Re P] + i(Im P + B⁻¹(Im P)B); as b
+commutes with G Id, h⁻¹[B, Re P] has symbol −i{b, G} + [b, r] = iH_G b + [b, r], and dividing by 2ih gives
+p_1^(h_Γ) as the symbol of h⁻¹ Im_B P (a scalar part of r drops out of [b, r]). For z ≠ z_0, h⁻¹ Im P changes by
+h⁻¹ Op_h(Im G_z), a scalar, and X(z) − X(z_0) = O(Im z) in Ψ^(−∞).
+
+(d) P_Q Q = QP and P_Q*(Q*)⁻¹ = (Q*)⁻¹P*; take w := Q^♭u and use ‖Q^♭u‖_(−M) ≤ C‖u‖_(−M) and the ellipticity of
+Q^♭. ∎
+
+So an inner product on phase space costs nothing. Of this section only [[prop:i-b-6-1]] and [[prop:i-b-6-4]] (with
+[[lem:i-b-6-3]] behind [[prop:i-b-6-4]]) use the threshold structure; we prove them for P_Q and P_Q* in the standard
+inner product and carry them to P and P* by (d). Their proofs use 𝐏 on Γ(ε_Γ/3), where P_Q = P + hX, only through its
+principal symbol, which X does not change, and through the symbol of ςh⁻¹ Im 𝐏 in [[eq:i-b-6-2]] and [[eq:i-b-6-5]],
+which X changes as in [[prop:i-b-6-1]], to p^♮ + ςσ(Im X), that is, by (c), to z_0 q p_1^(h_Γ) q⁻¹ on Γ at z_0. The
+proof of [[prop:i-b-6-4]] also uses, for P_Q, [[prop:i-b-4-5]], [[cor:i-b-4-6]] and the commutator of
+[[thm:i-b-2-4]], which hold as hX is a bounded addition to the lower-order part ([[rem:i-b-4-7]]) and
+h[X, Φ] ∈ h²Ψ. The O(Im z) dependence of X is O(h) where Im z = O(h), so it enters the h^(1/2)Ψ^0 remainders there, and
+for Im z ≤ ν′ it is absorbed by the continuity step of [[prop:i-b-6-1]]. [[sec:i-b-6-5]] and [[sec:i-b-6-6]] use
+[[prop:i-b-6-1]] and [[prop:i-b-6-4]] only as microlocal estimates near Γ, for P and for P′, which agree there up to
+O(h^∞).
+
+#### Set-up {#sec:i-b-6-1}
+
+Let 𝐏 ∈ {P, P*}, ϵ_♭ := ±1 accordingly, and ς := ϵ_♭z_0. We take Re z = z_0 and 0 ≤ Im z ≤ ν′, ν′ small: for
+Im z ≥ ν′, 𝐏 is elliptic near Γ by [[lem:i-b-1-1]] (d), and [[prop:i-b-4-2]] gives every estimate below with h⁻¹
+replaced by 1. Write H := H_(G_(z_0)), ℓ := Im z/h ≥ 0, and, on a neighbourhood of Γ,
+
+    p^♮ := z_0 p_1(z_0),     q^♮ := z_0 q_(z_0),     V := ςH.                                              {#eq:i-b-6-1}
+
+q^♮ ≥ 2β_0 on Γ by (H7) and [[lem:i-b-1-1]] (e), p^♮ is the endomorphism p_1^Γ of [[eq:i-b-1-4]] on Γ, and both depend
+on Re z = z_0 only ([[lem:i-b-1-1]] (b)). For a real scalar a ∈ C_c^∞ near Γ and A = A* quantising a Id, the operator C
+of [[eq:i-b-3-1]] for 𝐏 satisfies, by [[eq:i-b-4-3]],
+
+    σ(ςC) = ςH_(Re G_z) a + 2a(p^♮ − ℓq^♮),     ςH_(Re G_z) a = Va + O((Im z)²)                           {#eq:i-b-6-2}
+
+([[lem:i-b-4-1]]: H_(Re G_z) − H = −(Im z)² H_(g_00)). V is the field along which estimates for 𝐏 propagate
+([[prop:i-b-4-5]]): the future field z_0H for P, the past field for P*. Accordingly put
+(φ_u^♮, φ_s^♮, ν_u^♮, ν_s^♮) := (φ_u, φ_s, ν_u, ν_s) if ϵ_♭ = 1 and (φ_s, φ_u, ν_s, ν_u) if ϵ_♭ = −1, and
+Γ_(u/s)^♮ := {φ_(u/s)^♮ = 0} ∩ Σ_(z_0) ∩ O. Then by (Γ.2), on Σ_(z_0) ∩ O,
+
+    Vφ_u^♮ = −ν_u^♮ φ_u^♮,     Vφ_s^♮ = ν_s^♮ φ_s^♮,     {φ_u^♮, φ_s^♮} ≠ 0 on Γ,                          {#eq:i-b-6-3}
+
+with min(inf_Γ ν_u^♮, inf_Γ ν_s^♮) = ν_min. Extend φ_(u/s) and ν_(u/s) smoothly to O. As dG_(z_0) ≠ 0 near Γ (Γ.3),
+the differences in [[eq:i-b-6-3]] are smooth multiples of G_(z_0) off Σ_(z_0): Vφ_u^♮ = −ν_u^♮φ_u^♮ + j_u^♮G_(z_0),
+Vφ_s^♮ = ν_s^♮φ_s^♮ + j_s^♮G_(z_0) on O. For δ ≤ ε_Γ let
+
+    Γ(δ) := {|φ_u| ≤ δ, |φ_s| ≤ δ, |G_(z_0)| ≤ δ} ∩ Ō′,
+
+O′ ⋐ O a neighbourhood of Γ; by (Γ.1), Γ = ⋂_δ Γ(δ), so the Γ(δ) are compact neighbourhoods of Γ shrinking to it, and
+ε_Γ is taken so small that Γ(ε_Γ) ⊂ O′ and [[eq:i-b-6-3]] and (Γ.3) hold, with |{φ_u^♮, φ_s^♮}| ≥ c_Γ > 0, on
+Γ(ε_Γ).
+
+*Dynamics in Γ(ε_Γ).* Let γ be an integral curve of V in Σ_(z_0) ∩ Γ(ε_Γ). Along it
+φ_u^♮(γ(t)) = φ_u^♮(γ(0)) exp(−∫_0^t ν_u^♮) and φ_s^♮(γ(t)) = φ_s^♮(γ(0)) exp ∫_0^t ν_s^♮, with
+ν_(u/s)^♮ ≥ ½ν_min on Γ(ε_Γ) after shrinking ε_Γ. So:
+
+- (D1) if γ(0) ∉ Γ_u^♮, then γ leaves Γ(ε_Γ) in finite backward time;
+- (D2) if γ(0) ∈ Γ_u^♮, then as long as it stays in Γ(ε_Γ) backward in time it stays in Γ_u^♮, |φ_s^♮| decreases
+  exponentially, and γ(t) → Γ as t → −∞ (the ω-limit points lie in Γ_u^♮ ∩ Γ_s^♮ = Γ);
+- (D3) if γ(0) ∈ Γ_u^♮ ∖ Γ, then γ leaves Γ(ε_Γ) in finite forward time.
+
+Combined with (H8) (a)–(b): a point of Σ_(z_0) near Γ not on Γ_u^♮ is not on the corresponding global set, so its
+backward V-curve leaves Γ(ε_Γ) and tends to the radial sets.
+
+#### The lossless estimate {#sec:i-b-6-2}
+
+**Proposition {#prop:i-b-6-1}** (Cf. [Hin26c, (9.83)].) Let 𝐏′ := 𝐏 + h𝐗 with 𝐗 = 𝐗(z) ∈ Ψ^0 microsupported near Γ
+and continuous in z (as the X of [[lem:i-b-6-0]]), and let p′^♮ := p^♮ + ςσ(Im 𝐗(z_0)) (so that ςh⁻¹ Im 𝐏′ has symbol
+p′^♮ − ℓq^♮ up to O(Im z)). Let γ ∈ ℝ with sup_(ϖ∈Γ) max spec(p′^♮(ϖ) − γq^♮(ϖ)) < 0. There are ν′ > 0 and, for every
+neighbourhood U of Γ, operators B, E, G ∈ Ψ^0 microsupported in U, B elliptic at Γ, WF′_h(E) ∩ Γ_u^♮ = ∅, such that
+for z ∈ z_0 + i[hγ, ν′] with Im z ≥ −ν′, h < h_0 and all M,
+
+    ‖Bu‖ ≤ C(h⁻¹‖G𝐏′u‖ + ‖Eu‖ + h^M‖u‖_(−M)).                                                         {#eq:i-b-6-4}
+
+For 𝐗 = 0 the condition is γ > γ_+, with γ_+ of [[eq:i-b-1-4]].
+
+*Proof.* With χ_0 as in the proof of [[lem:i-b-5-1]], let ψ_u := χ_0(M_1(φ_u^♮)²), ψ_s := χ_0(M_1(φ_s^♮)²),
+ψ_Σ := χ_0(M_Σ G_(z_0)²) and ǎ := ψ_uψ_sψ_Σ, with M_Σ ≥ M_1 ≥ M_0 large; supp ǎ ⊂ Γ(√(2/M_1)) (for M_Σ ≥ M_1).
+Compute [[eq:i-b-6-2]] with a = ǎ². First, with χ_0χ_0′ ≤ 0,
+
+    Vψ_u² = 4M_1 χ_0χ_0′(M_1(φ_u^♮)²) φ_u^♮ (−ν_u^♮φ_u^♮ + j_u^♮G_(z_0)),
+    Vψ_s² = 4M_1 χ_0χ_0′(M_1(φ_s^♮)²) φ_s^♮ (ν_s^♮φ_s^♮ + j_s^♮G_(z_0)).
+
+On supp χ_0′(M_1(φ_u^♮)²) ∩ supp ψ_Σ we have (φ_u^♮)² ≥ M_1⁻¹ and G_(z_0)² ≤ 2M_Σ⁻¹, so
+|j_u^♮G_(z_0)| ≤ ¼ν_min|φ_u^♮| once M_Σ ≥ CM_1; then Vψ_u² = e_u² ≥ 0 with
+e_u := 2M_1^(1/2) θ_u |φ_u^♮| (ν_u^♮ − j_u^♮G_(z_0)/φ_u^♮)^(1/2), θ_u := √(−χ_0χ_0′)(M_1(φ_u^♮)²), smooth, and
+likewise Vψ_s² = −f_s². The O((Im z)²) term of [[eq:i-b-6-2]] changes these by at most
+C(Im z)²M_1|φ| · |χ_0χ_0′|, which keeps the signs and smoothness for Im z ≤ ν′, ν′ small depending on M_1. The
+derivative of ψ_Σ is supported where G_(z_0)² ≥ M_Σ⁻¹, where G_z is elliptic for ν′ small; it gives a term J𝐏′ as in
+[[lem:i-b-5-1]]. Next, on supp ǎ,
+
+    p′_z^♮ − ℓq^♮ = (p′_z^♮ − γq^♮) − (ℓ − γ)q^♮,
+
+where p′_z^♮ := p′^♮ + ςσ(Im 𝐗(z) − Im 𝐗(z_0)) is the symbol at z. p′^♮ − γq^♮ ≤ −c Id there for M_1 large, by the
+hypothesis and continuity, and p′_z^♮ − γq^♮ ≤ −(c/2) Id for Im z ≤ ν′, ν′ small depending on M_1; the symbol b below is
+built from the symbol at z. So, with b := ǎ(−2(p′_z^♮ − γq^♮))^(1/2) (the positive square root of a positive definite
+smooth matrix function, smooth),
+
+    ςC = −B*B − F_s*F_s + E_u*E_u + J𝐏′ − 2(ℓ − γ)Ǎ ςϵ_♭𝒬 Ǎ + R,     R ∈ h^(1/2)Ψ^0,
+
+where ςϵ_♭𝒬 = z_0𝒬 has principal symbol q^♮ ≥ β_0 on supp ǎ; since 0 ≤ ℓ − γ ≤ 3h⁻¹, the paragraph on positivity
+of absorbing terms in [[sec:i-b-3-3]] makes 2(ℓ − γ)Ǎz_0𝒬Ǎ a term F of [[lem:i-b-3-3]], with the double commutator in
+R. [[lem:i-b-3-3]] and [[lem:i-b-3-4]], with Λ := Γ and the sets Γ(√(2/M_1)) for an increasing sequence of M_1 in
+[M_0, 2M_0] (and M_Σ := CM_1), give [[eq:i-b-6-4]] with E elliptic on the union of the sets supp e_u, which lie in
+{(φ_u^♮)² ≥ M_0⁻¹ · ½} (as M_1 ≤ 2M_0) and so avoid Γ_u^♮. Here ν′ was chosen depending on M_1, hence on U; for
+ν′(U) ≤ Im z ≤ ν′, ν′ the constant of [[sec:i-b-6-1]], 𝐏′ is elliptic near Γ ([[lem:i-b-1-1]] (d)) and
+[[prop:i-b-4-2]] gives [[eq:i-b-6-4]] with the same operators, so the ν′ of the statement does not depend on U. ∎
+
+#### Defect measures with values in matrices {#sec:i-b-6-3}
+
+In this section and the next, h_j → 0 is a sequence, the u_j are ℂ^(N_E)-valued, and we drop j. U is an open
+precompact set at finite frequencies over the interior of K_Γ. The family is *tempered on U* if
+‖u‖_(−K_0) ≤ C h^(−K_0) for some K_0 and sup ‖Gu‖ < ∞ for some G ∈ Ψ^0 elliptic on Ū.
+
+**Lemma {#lem:i-b-6-2}** (Cf. [Hin26c, Lemma 9.30], on E.) If (u_j) is tempered on U, a subsequence has a *defect
+measure* on U: a positive semidefinite End(ℂ^(N_E))-valued Radon measure μ on U, such that
+⟨Bu, u⟩ → ∫_U tr(b dμ) for every B ∈ Ψ^0 with WF′_h(B) a compact subset of U and principal symbol
+b ∈ C_c^∞(U; End ℂ^(N_E)). Write ν := tr μ ≥ 0; then dμ = m_μ dν with m_μ ≥ 0, tr m_μ = 1, ν-almost everywhere, and
+for every Hermitian continuous p, tr(p dμ) ≤ max spec(p) dν.
+
+*Proof.* (a) For B as stated, limsup |⟨Bu, u⟩| ≤ C_b := sup|b| · sup_Ū |g|^(−2) · sup ‖Gu‖², where the G of the
+definition is taken scalar with principal symbol g, |g| ≥ c > 0 on Ū. As in [Hin26c, (9.87)–(9.88)], B = G*QG + R with
+Q ∈ Ψ^0 of principal symbol q := b|g|^(−2) ∈ C_c^∞(U) (the construction of [[prop:i-b-2-10]]), so that R ∈ hΨ^0 is
+microsupported in Ell_h(G) up to a term in h^∞Ψ^(−∞); then R = G*R′G + R″ with R′ ∈ hΨ^0 and R″ residual. By
+[[thm:i-b-2-7]], |⟨QGu, Gu⟩| ≤ (sup|q| + ϵ + Ch^(1/4))‖Gu‖² for every ϵ > 0, and
+|⟨Ru, u⟩| ≤ Ch sup‖Gu‖² + C_M h^M ‖u‖²_(−K_0) = o(1) by temperedness.
+
+(b) The value depends only on b: two such B with the same b differ by hΨ^0 plus residual terms, whose pairings tend to
+0 by (a).
+
+(c) A diagonal argument over a countable dense subset of C_c^∞(U; End ℂ^(N_E)) (dense in C_c in the supremum norm on
+each compact set) gives a subsequence along which L(b) := lim ⟨Op_h(b)u, u⟩ exists for all b in that set, and by (a) L
+extends to a linear functional on C_c(U; End ℂ^(N_E)), continuous for the supremum norm on each compact set. By the
+Riesz representation theorem applied to each matrix entry, L(b) = ∫ tr(b dμ) for a matrix of complex Radon measures.
+
+(d) Positivity: let b ≥ 0 with supp b ⊂ K ⋐ U, and j ∈ C_c^∞(U) scalar equal to 1 on K. For ϵ > 0, b + ϵj² Id is
+positive definite on K and equal to ϵj² Id off K, so it is q_ϵ*q_ϵ with q_ϵ ∈ C_c^∞(U) (on K the positive square
+root; off K, √ϵ j); then Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)* Op_h(q_ϵ) + hR′, so
+liminf ⟨Op_h(b)u, u⟩ ≥ −ϵ limsup ‖Op_h(j)u‖² ≥ −Cϵ. Hence L(b) ≥ 0 for b ≥ 0; taking b = φvv* with φ ≥ 0 scalar and
+v ∈ ℂ^(N_E) shows v*μv ≥ 0, so μ is Hermitian and positive semidefinite. Each entry is then absolutely continuous with
+respect to ν (|μ_ab| ≤ ν for a positive matrix measure), which gives m_μ; and tr(p m_μ) ≤ max spec(p) tr m_μ for
+m_μ ≥ 0. ∎
+
+**Lemma {#lem:i-b-6-3}** (Cf. [Hin26c, Lemmas 9.31–9.32], on E.) Let (u_j) be tempered on U with defect measure μ, and
+𝐏_j := 𝐏_(h_j,z_j) with Im z_j/h_j → η ∈ [0, ∞).
+
+(a) If ‖G𝐏_ju_j‖ = o(1) with G elliptic on Ū, then supp μ ⊂ Σ_(z_0).
+
+(b) For real scalar a ∈ C_c^∞(U), and Y ∈ Ψ^0 microsupported in U with WF′_h(I − Y) ∩ supp a = ∅,
+
+    |∫_U (Va dν + 2a tr((p^♮ − ηq^♮) dμ))| ≤ 4 sup|a| limsup h⁻¹‖Y𝐏u‖ ‖Yu‖.                           {#eq:i-b-6-5}
+
+(c) The same holds with 𝐏 replaced by a self-adjoint Φ ∈ Ψ^0 with real scalar principal symbol φ, with Va replaced by
+H_φ a and with p^♮ − ηq^♮ replaced by 0.
+
+*Proof.* (a) For b ∈ C_c^∞(U) with supp b ∩ Σ_(z_0) = ∅, 𝐏_j is elliptic on supp b for j large, so
+Op_h(b) = Q𝐏_j + R with Q bounded and R ∈ h^∞Ψ^(−∞) near supp b, and ∫ |b|² dν = lim ‖Op_h(b)u‖² = 0.
+
+(b) With A = A* quantising a Id and WF′_h(A) ⊂ supp a, [[eq:i-b-3-1]] gives (2/h) Im⟨𝐏u, Au⟩ = ⟨Cu, u⟩, and by
+[[eq:i-b-6-2]] the principal symbol of ςC is Va + 2a(p^♮ − ℓ_jq^♮) + O((Im z_j)²), which converges in C_c^∞ to
+Va + 2a(p^♮ − ηq^♮); as ⟨Op_h(c_j − c)u, u⟩ → 0 when c_j → c uniformly ([[lem:i-b-6-2]] (a)),
+⟨ςCu, u⟩ → ∫ tr((Va + 2a(p^♮ − ηq^♮)) dμ), and tr(Va dμ) = Va dν for scalar a. The left side is bounded by
+(2/h)(‖Y𝐏u‖ + O(h^∞))(‖AYu‖ + O(h^∞)) and ‖AYu‖ ≤ (sup|a| + ϵ + Ch^(1/4))‖Yu‖ by [[thm:i-b-2-7]], with ϵ ≤ sup|a|.
+
+(c) is the same argument with Im Φ = 0. ∎
+
+#### The estimate with loss one {#sec:i-b-6-4}
+
+**Proposition {#prop:i-b-6-4}** (Cf. [Hin26c, Theorem 9.28] with loss one.) Let β > γ_− and U a neighbourhood of Γ.
+There are B, E, G ∈ Ψ^0 microsupported in U, B elliptic at Γ, WF′_h(E) ∩ Γ_u^♮ = ∅, with: every backward V-curve from a
+point of WF′_h(B) ∖ Γ_u^♮ reaches Ell_h(E) in finite time within Ell_h(G); Γ ∪ WF′_h(B) ⊂ Ell_h(G); and for
+z ∈ z_0 + i[hβ, ν′], h < h_0,
+
+    ‖Bu‖ ≤ C(h⁻²‖G𝐏u‖ + h⁻¹‖Eu‖ + h^M‖u‖_(−M)).                                                       {#eq:i-b-6-6}
+
+*Proof.* Fix γ > γ_+. For Im z ≥ hγ, [[eq:i-b-6-6]] follows from [[eq:i-b-6-4]]. Choose B, E, G for the dynamics as
+stated, with WF′_h(B) ⊂ Γ(ε_Γ)° ⊂ Ell_h(G); this is possible by (D1)–(D2). Suppose [[eq:i-b-6-6]] fails for every C in
+the range hβ ≤ Im z ≤ hγ. Then there are h_j → 0, z_j and u_j with
+
+    ‖Bu‖ = 1,     ‖G𝐏u‖ = o(h²),     ‖Eu‖ = o(h),     h^M‖u‖_(−M) = o(1),                                {#eq:i-b-6-7}
+
+and after passing to a subsequence Im z_j/h_j → η ∈ [β, γ] and (u_j) has a defect measure μ on U_1 := Ell_h(B) (B itself
+shows (u_j) is tempered there). We use [[prop:i-b-4-5]] and [[cor:i-b-4-6]] (real principal type) for the 𝐏_j, with
+constants uniform in j; for Im z_j < 0 they hold near Γ because ℓ_j is bounded, so ℓ_j𝒬 is a bounded term of the class
+of 𝒫_1 over the compact set K_Γ, and the absorbing sign is not needed ([[rem:i-b-4-7]]).
+
+*Localisation.* For ϖ ∈ U_1 ∖ Γ_u^♮, the backward V-curve from ϖ reaches Ell_h(E) within Ell_h(G), so
+[[cor:i-b-4-6]] gives ‖B′u‖ ≤ C(h⁻¹‖G𝐏u‖ + ‖Eu‖ + h^M‖u‖_(−M)) = o(1) for B′ elliptic at ϖ; so ϖ ∉ supp μ. With
+[[lem:i-b-6-3]] (a), supp μ ⊂ Γ_u^♮ ∩ Σ_(z_0). By (D2), backward curves from Γ_u^♮ ∩ WF′_h(B) reach any neighbourhood
+of Γ; so with E′ elliptic on Γ, ‖Bu‖ ≤ C(h⁻¹‖G𝐏u‖ + ‖Eu‖ + ‖E′u‖ + h^M‖u‖_(−M)), and it suffices to find such E′
+with ‖E′u‖ → 0. Taking WF′_h(E′) ⊂ Γ(δ), ‖E′u‖² → ∫ |e′|² dν, and it suffices to show 𝗆(δ) = 0 for some δ > 0, where
+
+    𝗆(x) := ν(Γ_u^♮ ∩ Γ(ε_Γ) ∩ {|φ_s^♮| < x}).
+
+*Step 1: an auxiliary equation.* Let Φ, N_u, J_u ∈ Ψ^0 be self-adjoint quantisations of φ_u^♮ Id, ν_u^♮ Id,
+j_u^♮ Id, cut off to U_1 and equal to the uncut quantisations modulo h^∞ near Γ(ε_Γ). By [[thm:i-b-2-4]] and
+[[eq:i-b-6-2]] (the symbols being scalar, the commutator of the matrix-valued lower order part of 𝐏 with Φ is in h²Ψ),
+ς(i/h)[𝐏, Φ] = −N_uΦ + J_u𝐏 + hR + R_away, with R ∈ Ψ^0 and R_away microsupported off Γ(ε_Γ), as Im z = O(h). Hence
+f := 𝐏u gives
+
+    (𝐏 − iςhN_u)Φu = (Φ − iςhJ_u)f − iςh²Ru + R′_away u.                                               {#eq:i-b-6-8}
+
+The operator 𝐏′ := 𝐏 − iςhN_u is of the form of [[prop:i-b-6-1]] with p′^♮ = p^♮ − ν_u^♮, and
+sup_Γ max spec(p^♮ − βq^♮ − ν_u^♮) ≤ sup_Γ max spec(p_1^Γ − βq^♮) − ν_min < 0, because β > γ_− means
+sup_Γ max spec(p_1^Γ − βq^♮) < ½ν_min. So [[prop:i-b-6-1]] applies to 𝐏′ with γ := β, on a small neighbourhood of Γ,
+with operators B_1, E_1, G_1. Its right side for Φu: h⁻¹‖G_1(…)‖ = O(h) by [[eq:i-b-6-7]] and sup‖G_1u‖ < ∞;
+‖E_1Φu‖ ≤ C‖E_1′u‖ + O(h^∞) with E_1′ microsupported off Γ_u^♮ near WF′_h(E_1), and ‖E_1′u‖ = o(h) by
+[[cor:i-b-4-6]] as in the localisation; the last term is O(h^∞). So ‖B_1Φu‖ = O(h).
+
+*Step 2.* Fix δ_1 ∈ (0, ε_Γ) with Γ(δ_1) ⊂ U_1 ∩ Ell_h(B_1), U_1 = Ell_h(B), possible as B and B_1 are elliptic at Γ.
+In Steps 2–4, and in the definition of 𝗆, ε_Γ is replaced by δ_1, so that every function a below is supported in
+U_1 ∩ Ell_h(B_1), where μ lives and [[lem:i-b-6-3]] (c) applies. [[lem:i-b-6-3]] (c) with Φ and Y a cut-off elliptic
+where B_1 is gives, for real a ∈ C_c^∞(Ell_h(B_1)), |∫ H_(φ_u^♮) a dν| ≤ C_1 sup|a|, C_1 independent of a. Take
+a := a_0(φ_u^♮) a_1(φ_s^♮) ψ(G_(z_0)) with a_0, ψ ∈ C_c^∞((−δ_1, δ_1)) equal to 1 near 0, 0 ≤ a_0, ψ ≤ 1 (so that
+a ≥ 0 in Step 3), and a_1(t) := Θ(t/δ)χ_c(t), where Θ is smooth, non-decreasing, Θ(s) = ∓1 for ±s ≤ −2,
+Θ′ ≥ ½ on [−1, 1], and χ_c ∈ C_c^∞((−δ_1, δ_1)) equals 1 on [−δ_1/2, δ_1/2] with |χ_c′| ≤ 4/δ_1. On
+supp ν ⊂ Γ_u^♮ ∩ Σ_(z_0), H_(φ_u^♮) a = a_1′(φ_s^♮){φ_u^♮, φ_s^♮} (the other terms contain H_(φ_u)φ_u = 0, or
+ψ′(G_(z_0)), which vanishes near Σ_(z_0)). Replacing a_1 by −a_1 if {φ_u^♮, φ_s^♮} < 0, and using a_1′ ≥ 1/(2δ) on
+[−δ, δ], a_1′ ≥ 0 on [−2δ, 2δ] and |a_1′| ≤ 4/δ_1 elsewhere:
+
+    (c_Γ/(2δ)) 𝗆(δ) ≤ C_1 + (4C_Γ/δ_1) ν(U_1),     so     𝗆(δ) ≤ C_2 δ                                   {#eq:i-b-6-9}
+
+with C_2 independent of δ ∈ (0, δ_1/4).
+
+*Step 3: propagation for logarithmic times.* [[lem:i-b-6-3]] (b), with ‖G𝐏u‖ = o(h²), gives
+∫(Va dν + 2a tr((p^♮ − ηq^♮) dμ)) = 0 for real a ∈ C_c^∞(Ell_h(B)). Let p_η := max spec(p^♮ − ηq^♮), continuous;
+for a ≥ 0 [[lem:i-b-6-2]] gives ∫(Va + 2ap_η) dν ≥ 0. Since η ≥ β and q^♮ > 0, p_η ≤ max spec(p^♮ − βq^♮), and
+β > γ_− gives sup_Γ p_η < ½ν_min; so we can fix κ′ with sup_(Γ(δ_1)) p_η^+/ν_s^♮ < κ′ < ½ (shrinking δ_1;
+p_η^+ := max(p_η, 0)). Take a := a_0(φ_u^♮) a_1(φ_s^♮) ψ(G_(z_0)) with a_0, ψ as before and
+a_1(t) := |t|^(−2κ′) f(|t|), f ∈ C_c^∞((δ/2, δ_1)), f ≥ 0, f = 1 on [δ, δ_1/2], f′ ≤ 0 on [δ, ∞), |xf′(x)| ≤ 4 on
+[δ/2, δ]. On supp ν, by [[eq:i-b-6-3]], V|φ_s^♮|^(−2κ′) = −2κ′ν_s^♮|φ_s^♮|^(−2κ′), so
+
+    Va + 2ap_η = ν_s^♮ |φ_s^♮|^(−2κ′) (−2(κ′ − p_η/ν_s^♮) f + |φ_s^♮| f′(|φ_s^♮|)).
+
+This is ≤ 0 where |φ_s^♮| ≥ δ, ≤ −c_3 on {δ ≤ |φ_s^♮| ≤ δ_1/2} with c_3 > 0 independent of δ, and bounded by
+Cδ^(−2κ′) on {δ/2 ≤ |φ_s^♮| ≤ δ}. Hence c_3(𝗆(δ_1/2) − 𝗆(δ)) ≤ Cδ^(−2κ′) 𝗆(δ).
+
+*Step 4.* With [[eq:i-b-6-9]], 𝗆(δ_1/2) ≤ (1 + Cδ^(−2κ′))C_2δ → 0 as δ → 0, since 2κ′ < 1. So 𝗆(δ_1/2) = 0,
+contradicting ‖Bu‖ = 1 as explained. ∎
+
+[Hin26c] writes the range in this proof as −β ≤ h⁻¹ Im z and p_z ≤ p_1 + 2ββ_0, while its theorem is stated for
+Im(h⁻¹z) ≥ β. With the range η ≥ β the bound used is p_η ≤ max spec(p^♮ − βq^♮), and Steps 1 and 3 need exactly
+sup_Γ max spec(p_1^Γ − βq^♮) < ½ν_min, which is the definition of β > γ_− in [[eq:i-b-1-4]]. When β < 0 this
+involves the largest value of q^♮ on Γ, not the smallest, which is why [[eq:i-b-1-4]] defines γ_± as these thresholds
+and not through β_0 alone ([[rem:i-b-relation]]). The steps and the use of {φ_u, φ_s} follow [Hin26c], which follows
+[Dya16]; the matrix-valued measure enters only through tr and max spec ([[lem:i-b-6-2]]).
+
+#### Complex absorption {#sec:i-b-6-5}
+
+To interpolate between [[prop:i-b-6-1]] and [[prop:i-b-6-4]] we need an invertible problem depending holomorphically
+on σ, equal to 𝐏 near Γ. As in [Hin26c] the absorbing operator is built by averaging a symbol in the time frequency,
+which makes it entire in σ; here it is also written as W*W, so that its sign is exact. We write the construction for
+z_0 = 1; for z_0 = −1, q̃_1 below is defined with −τ in place of τ, and the factor z_0 in [[eq:i-b-6-10]] makes the
+absorbing sign the right one.
+
+Let χ_0 ∈ C_c^∞((−1, 1)) equal 1 on [−½, ½] and Υ(σ) := (2π)⁻¹ ∫ e^(−iσs) χ_0(s) ds: Υ is entire,
+∫_ℝ Υ(τ + iη) dτ = χ_0(0) = 1 for every η (shift of contour), and |∂^k Υ(τ + iη)| ≤ C_(k,M) ⟨τ⟩^(−M) e^(|η|)
+(Paley–Wiener). Let q̃_0 ∈ C^∞(T*X̃°), 0 ≤ q̃_0 ≤ 1, with q̃_0 = 0 on Γ(ε_Γ/2) and q̃_0 = 1 off Γ(¾ε_Γ). Put
+
+    a(x; τ, ζ) := (1 − χ_0(|(τ, ζ)|)) |(τ, ζ)| q̃_1(x; τ, ζ),
+    q̃_1 := q̃_0(x, ζ/τ) if τ > 0 and (x, ζ/τ) ∈ Γ(ε_Γ),     q̃_1 := 1 otherwise.
+
+q̃_1 is smooth and homogeneous of degree 0 on (τ, ζ) ≠ 0, because q̃_0 = 1 near the boundary of Γ(ε_Γ) and |ζ/τ| is
+large near τ = 0, ζ ≠ 0; so a is a symbol of order 1 in (τ, ζ), homogeneous of degree 1 for |(τ, ζ)| ≥ 1. Let
+a_♭(x; σ, ζ) := ∫ Υ(σ − τ) a(x; τ, ζ) dτ, entire in σ; for |Im σ| ≤ C, a_♭ − a(·; Re σ, ·) is a symbol of order 0 in
+(Re σ, ζ), uniformly, by Taylor's formula in τ and ∫ Υ = 1. Let χ ∈ C_c^∞(ℝ⁴), 0 ≤ χ ≤ 1, equal 1 near the base
+projection of Γ(ε_Γ), and χ_1 ∈ C_c^∞ equal 1 on supp χ, both supported in the interior of K_Γ. With Op the standard
+quantisation in x (dual variable ζ, σ a parameter), acting componentwise,
+
+    Q̂_♭(σ) := χ_1 Op(a_♭(·; σ, ·)) χ_1,     Q̂(σ) := Q̂_♭(σ̄)* Q̂_♭(σ),
+    P̂′(σ) := χP̂(σ)χ − iz_0(χQ̂(σ)χ + (1 − χ²)(σ² + Δ)),     P′_(h,z) := h² P̂′(z/h),                   {#eq:i-b-6-10}
+
+on ℝ⁴, Δ ≥ 0 the Euclidean Laplacian. All three terms are entire in σ (σ ↦ Q̂_♭(σ̄)* is holomorphic, being
+antiholomorphic composed with the antilinear adjoint).
+
+**Lemma {#lem:i-b-6-5}** Let Re z = z_0 and Im z = hη, |η| ≤ C.
+
+(a) W := hQ̂_♭(z/h) ∈ Ψ^((1,0,0)) has principal symbol w := χ_1² |(1, ζ)| q̃_0, and h²Q̂(z/h) = W*W + hR_W with
+R_W ∈ Ψ^((1,0,0)).
+
+(b) WF′_h(W) ∩ Γ(ε_Γ/3) = ∅; so P′_(h,z) − P_(h,z) is microlocally O(h^∞) near Γ(ε_Γ/3).
+
+(c) P′_(h,z) is semiclassically elliptic, in the scattering sense on all of 𝒫, outside Γ(¾ε_Γ).
+
+(d) Over {χ = 1}, h⁻¹ Im P′_(h,z) = h⁻¹ Im P_(h,z) − z_0h⁻¹W*W − z_0 Re R_W and
+Re P′_(h,z) − Re P_(h,z) = z_0h Im R_W.
+
+*Proof.* (a) For a symbol b of order m in (σ, ζ), h^m b(x; z/h, ζ/h) is a semiclassical symbol of order (m, 0, 0): its
+ζ-derivatives of order k are h^(m−k)(∂^k b) at (z/h, ζ/h), bounded by C(|z|² + |ζ|²)^((m−k)/2). Hence
+h(a_♭ − a)(x; z/h, ζ/h) ∈ hS^0, and h a(x; 1/h, ζ/h) = |(1, ζ)| q̃_1(x; 1, ζ) = |(1, ζ)| q̃_0(x, ζ) for h ≤ 1
+(homogeneity), with q̃_0 := 1 off Γ(ε_Γ); and Op(b(x; σ, ζ)) = Op_h(b(x; σ, ζ/h)). hQ̂_♭(z̄/h) − W ∈ hΨ^0 since
+a_♭(σ̄) − a_♭(σ) is of order 0; so h²Q̂ = W*W + hR_W with R_W := (h⁻¹(hQ̂_♭(z̄/h) − W))* W.
+
+(b) If (x, ζ) ∈ Γ(ε_Γ/3) and |hτ − 1| ≤ ϵ, then (x, ζ/(hτ)) ∈ Γ(ε_Γ/2) for ϵ small (uniform continuity of φ_u, φ_s,
+G_1 on a compact set), so a(x; τ, ζ/h) = 0; the rest of the integral defining a_♭(x; 1/h + iη, ζ/h) is over
+|τ − 1/h| ≥ ϵ/h, where |Υ| ≤ C_M(h/ϵ)^M, and likewise for all derivatives. So the symbol of W is O(h^∞) in S^((1,0,0))
+near Γ(ε_Γ/3), and so is R_W (which ends in W). Near the base projection of Γ(ε_Γ), χ = 1 and 1 − χ² = 0.
+
+(c) The principal symbol of P′_(h,z) is χ²G_(z_0) − iz_0(1 + |ζ|²)(χ²q̃_0² + 1 − χ²), as χ_1 = 1 on supp χ and
+z² = 1 + O(h). Its imaginary part vanishes only where χ = 1 and q̃_0 = 0, which is inside Γ(¾ε_Γ); at fibre infinity
+q̃_0 = 1, and over ∂X, χ = 0 and the symbol is −iz_0(z² + |ζ|²).
+
+(d) W*W is self-adjoint, and Im(−iX) = −Re X, Re(−iX) = Im X. ∎
+
+By (d), in the region 0 < q̃_0 < 1, 𝐏′ ∈ {P′, P′*} has the structure of [[prop:i-b-4-5]] with the additional term
+−ϵ_♭z_0h⁻¹W*W in h⁻¹ Im 𝐏′ and a bounded addition to 𝒫_1; since ςϵ_♭z_0 = z_0² = 1, [[rem:i-b-4-7]] (b) applies, and
+[[prop:i-b-4-5]] holds for it.
+
+**Lemma {#lem:i-b-6-6}** (Three lines.) Let F be holomorphic near the rectangle ℛ := [a − L, a + L] + i[0, 1], with
+values in a Hilbert space, ‖F‖ ≤ A on ℛ, ‖F‖ ≤ A_0 on {Im w = 0} and ‖F‖ ≤ A_1 on {Im w = 1}, where
+0 < A_0, A_1 ≤ A. Then for |Re w − a| ≤ L/2 and y := Im w,
+
+    ‖F(w)‖ ≤ A_0^(1−y) A_1^y exp(3Λ e^(−πL/4)),     Λ := log(A/min(A_0, A_1)).
+
+*Proof.* u := log‖F‖ is subharmonic, as the supremum over unit vectors e of the subharmonic functions
+log|⟨F, e⟩|, attained at each point, and upper semicontinuous. v := (1 − y) log A_0 + y log A_1 is harmonic, and so is
+k(w) := cosh((π/2)(x − a)) cos((π/2)(y − ½))/cos(π/4), x := Re w; k ≥ 1 on ℛ and k ≥ cosh((π/2)L) on its vertical
+sides. So u − v − Λk/cosh((π/2)L) ≤ 0 on ∂ℛ (u − v ≤ 0 on the horizontal sides and ≤ Λ on the vertical ones), hence on
+ℛ by the maximum principle. For |x − a| ≤ L/2, k/cosh((π/2)L) ≤ √2 cosh((π/4)L)/cosh((π/2)L) ≤ 2√2 e^(−πL/4). ∎
+
+**Proposition {#prop:i-b-6-7}** (Cf. [Hin26c, Lemma 9.33].) Let γ_− < β < γ_+ < β′. There is h_0 such that for
+z ∈ z_0 + i[hβ, hβ′] and h < h_0, P′_(h,z) : H_h^((2,0,0)) → L² is invertible, and
+
+    ‖(P′_(h,z))⁻¹‖_(L²→L²) ≤ C h^(−1−(β′−Im(z/h))/(β′−β)).                                              {#eq:i-b-6-11}
+
+Consequently, for every ϵ > 0 and z ∈ z_0 + i[h(γ_− + ϵ), h(γ_+ + ϵ)],
+‖(P′_(h,z))⁻¹‖ ≤ C_ϵ h^(−1−δ_Γ(Im(z/h)−ϵ)).
+
+*Proof.* (a) A priori estimates. Let 𝐏′ ∈ {P′, P′*}. Outside Γ(¾ε_Γ), [[prop:i-b-4-2]] bounds u by
+‖𝐏′u‖_(H_h^((−2,0,0))). In Γ(ε_Γ): a point of the characteristic set not on Γ_u^♮ has a backward V-curve that leaves
+Γ(ε_Γ) (D1), crossing {0 < q̃_0 < 1} into {q̃_0 = 1}, where 𝐏′ is elliptic; [[cor:i-b-4-6]] (with [[rem:i-b-4-7]])
+propagates the elliptic bound along it. Near Γ, [[prop:i-b-6-4]] applies, with all its operators microsupported in
+Γ(ε_Γ/3), where 𝐏′ = 𝐏 modulo O(h^∞) ([[lem:i-b-6-5]] (b)), its term ‖Eu‖ being bounded by the propagation just
+described. Altogether, for z ∈ z_0 + i[hβ, hβ′],
+
+    ‖u‖_(L²) ≤ C h⁻² ‖𝐏′u‖_(L²) + C h^M ‖u‖_(−M𝟏),
+
+and with h⁻¹ in place of h⁻² at Im z = hβ′, using [[prop:i-b-6-1]] there; the last term is absorbed for h < h_0.
+
+(b) Invertibility. For fixed h, P′_(h,z) is elliptic in the scattering sense at fibre infinity and over ∂X
+([[lem:i-b-6-5]] (c)), so it has a parametrix modulo an operator with symbol in S^(−K𝟏), K large, which is compact on
+L²; so P′_(h,z) : H_h^((2,0,0)) → L² is Fredholm, and by (a) it and its adjoint are injective.
+
+(c) Interpolation. In terms of σ = z/h, (a) gives ‖P̂′(σ)⁻¹‖_(L²→L²) ≤ C for Re σ ≥ h_0⁻¹ and Im σ ∈ [β, β′], and
+≤ C|σ|⁻¹ on Im σ = β′ (here ‖P̂′(σ)u‖_(L²) = h⁻²‖P′_(h,z)u‖_(L²) with h := |Re σ|⁻¹; for z_0 = −1 use
+Re σ ≤ −h_0⁻¹). For σ_0 ≥ h_0⁻¹, f ∈ L² and κ := β′ − β, apply [[lem:i-b-6-6]] to F(w) := P̂′(3σ_0 + iβ + κw)⁻¹f on
+[−2σ_0/κ, 2σ_0/κ] + i[0, 1], with A = A_0 = C‖f‖, A_1 = Cσ_0⁻¹‖f‖, L = 2σ_0/κ, Λ = log σ_0; Λe^(−πL/4) → 0, so
+‖P̂′(σ)⁻¹f‖ ≤ Cσ_0^(−(Im σ−β)/κ)‖f‖ for Re σ ∈ [2σ_0, 4σ_0], with C independent of σ_0. With |σ| ≤ 5σ_0 and
+(P′_(h,z))⁻¹ = h⁻² P̂′(z/h)⁻¹ this is [[eq:i-b-6-11]]. For the consequence take β := γ_− + ϵ and β′ := γ_+ + ϵ; then
+(β′ − η)/(β′ − β) = δ_Γ(η − ϵ) for η ∈ [β, β′]. ∎
+
+#### The precise loss {#sec:i-b-6-6}
+
+**Theorem {#thm:i-b-6-8}** (Cf. [Hin26c, Theorem 9.28], on E.) Let β > γ_− and U a neighbourhood of Γ. There are
+B, E, G ∈ Ψ^0 microsupported in U, with B elliptic at Γ, WF′_h(E) ∩ Γ_u^♮ = ∅, Γ ∪ WF′_h(B) ⊂ Ell_h(G), and every
+backward V-curve from WF′_h(B) ∖ Γ_u^♮ reaching Ell_h(E) within Ell_h(G), such that for z ∈ z_0 + i[hβ, ν′], h < h_0,
+ϵ > 0 and all M, with δ := δ_Γ(Im(z/h) − ϵ),
+
+    ‖Bu‖ ≤ C_ϵ(h^(−1−δ)‖G𝐏u‖ + h^(−δ)‖Eu‖ + h^M‖u‖_(−M)).                                              {#eq:i-b-6-12}
+
+*Proof.* For Im z ≥ h(γ_+ + ϵ) this is [[eq:i-b-6-4]], with δ = 0; for Im z ∈ [hβ, h(γ_− + ϵ)] it is
+[[eq:i-b-6-6]], as then δ = 1. Let Im z ∈ [h(γ_− + ϵ), h(γ_+ + ϵ)]. We follow [HV16, Theorem 4.7] as recalled in
+[Hin26c]; all operators have kernels supported over {χ = 1}². Fix c ∈ (0, ε_Γ/12). Choose B elliptic at Γ with
+WF′_h(B) ⊂ Γ(c/2), and B^♯ ∈ Ψ^0 with WF′_h(B^♯) ⊂ Γ(c) and WF′_h(I − B^♯) ∩ Γ(3c/4) = ∅; Γ(c) ⊂ Γ(ε_Γ/3). Then
+B(I − B^♯) is residual and, by [[lem:i-b-6-5]] (b),
+
+    Bu = B(P′_(h,z))⁻¹B^♯𝐏u + B(P′_(h,z))⁻¹[𝐏, B^♯]u + O(h^∞)‖u‖_(−M)
+
+(for 𝐏 = P* use (P′*)⁻¹). The first term is bounded by C_ϵh^(−1−δ)(‖G𝐏u‖ + h^M‖u‖_(−M)) by [[prop:i-b-6-7]]. The
+commutator is h times an operator microsupported in Γ(c) ∖ Γ(3c/4). Let X_u ∈ Ψ^0 be microsupported in
+Γ(ε_Γ) ∩ {|φ_u^♮| < c/8}, with WF′_h(I − X_u) disjoint from Γ_u^♮ ∩ Γ(c), and such that backward V-curves from
+WF′_h(I − X_u) ∩ Γ(c) reach Ell_h(E) ((D1), choosing E elliptic on Γ(ε_Γ) ∩ {|φ_u^♮| ≥ c/16}).
+
+(i) By [[cor:i-b-4-6]], ‖(I − X_u)[𝐏, B^♯]u‖ ≤ Ch(h⁻¹‖G𝐏u‖ + ‖Eu‖ + h^M‖u‖_(−M)), and [[prop:i-b-6-7]] turns this
+into a bound C_ϵh^(−δ)(h⁻¹‖G𝐏u‖ + ‖Eu‖ + h^M‖u‖_(−M)) for B(P′)⁻¹(I − X_u)[𝐏, B^♯]u.
+
+(ii) f_u := X_u[𝐏, B^♯]u is microsupported in K_f := Γ(c) ∖ Γ(3c/4) ∩ {|φ_u^♮| < c/8}, where |φ_s^♮| ≥ 3c/4 or
+|G_1| ≥ 3c/4. Let W̃ := Op_h(w̃) Id with w̃ ∈ C_c^∞ real and scalar, w̃ ≠ 0 on Γ(c/4) and supp w̃ ⊂ Γ(c/2), and
+Q̃ := W̃*W̃. Then every backward bicharacteristic of the characteristic set in Γ(ε_Γ) reaches Ell_h(Q̃) (if on Γ_u^♮,
+by (D2)) or the region q̃_0 = 1, so the argument of part (a) of the proof of [[prop:i-b-6-7]] (with −iz_0Q̃ as a
+further absorbing term: [[rem:i-b-4-7]] (b) with ϵ_W := z_0 for P′, and with ϵ_W := −z_0 for the adjoint
+P′* + iz_0Q̃, so ςϵ_W = 1 as in [[sec:i-b-6-5]]) gives ‖(P′ − iz_0Q̃)⁻¹‖ ≤ Ch⁻¹, and [[lem:i-b-6-9]] applies to
+P′ − iz_0Q̃. The factor z_0 in the absorbing term is needed: without it the absorbing sign is wrong for z_0 = −1. The
+forward V-flowout of K_f ∩ Σ_(z_0) stays in {|φ_s^♮| ≥ 3c/4} while it remains in Γ(ε_Γ) (as |φ_s^♮| increases
+forward), and the part of K_f off Σ_(z_0) is elliptic; so the flowout misses WF′_h(Q̃) ∪ WF′_h(B) ⊂ Γ(c/2). By
+[[lem:i-b-6-9]], Q̃(P′ − iz_0Q̃)⁻¹f_u and B(P′ − iz_0Q̃)⁻¹f_u are O(h^∞)‖u‖_(−M). Since
+v := (P′)⁻¹f_u − (P′ − iz_0Q̃)⁻¹f_u satisfies P′v = −iz_0Q̃(P′ − iz_0Q̃)⁻¹f_u, [[prop:i-b-6-7]] gives
+‖v‖ ≤ C_Mh^M‖u‖_(−M); so ‖B(P′)⁻¹f_u‖ ≤ C_Mh^M‖u‖_(−M).
+
+Summing (i) and (ii) gives [[eq:i-b-6-12]]. ∎
+
+**Lemma {#lem:i-b-6-9}** (Direction of propagation.) Let 𝐏″ be P′ − iz_0Q̃ (or its adjoint, with forward replaced by
+backward) with ‖(𝐏″)⁻¹‖ ≤ Ch⁻¹. Let X ∈ Ψ^0 be microsupported in a compact K ⊂ T*X̃°, and let ϖ ∉ K not lie in the
+closure of the forward V-flowout of K ∩ Σ_(z_0) inside Γ(ε_Γ). Then there is B_ϖ elliptic at ϖ with
+‖B_ϖ(𝐏″)⁻¹Xf‖ ≤ C_Mh^M‖f‖_(−M𝟏).
+
+*Proof.* If ϖ is in the elliptic set of 𝐏″, [[prop:i-b-2-10]] gives ‖B_ϖw‖ ≤ C(‖G𝐏″w‖ + h^M‖w‖) with G microsupported
+near ϖ, off K. Otherwise the backward V-curve from ϖ reaches the elliptic set of the absorption without meeting K, and
+[[cor:i-b-4-6]] gives ‖B_ϖw‖ ≤ C(h⁻¹‖G𝐏″w‖ + h^M‖w‖) with G microsupported near that curve, again off K. Take
+w := (𝐏″)⁻¹Xf: G𝐏″w = GXf = O(h^∞) and ‖w‖ ≤ Ch⁻¹‖Xf‖. ∎

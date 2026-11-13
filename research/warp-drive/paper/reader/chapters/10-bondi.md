@@ -310,3 +310,196 @@ v ≤ v_start are inherited by the integrals from v_start. ∎
 profiles, and [[prop:bondi-hierarchy]] claims nothing uniform in λ. It is an asymptotic statement at past null infinity
 at each fixed λ, which is all the mass law needs.
 
+### Bondi coordinates at past null infinity {#sec:bondi-chart}
+
+**Lemma {#lem:bondi-ell}** (The ℓ-components.) G_3(ℓ, ·) = 0 and tr G_3 = 0. Hence u(ℓ, ·) is in E_2, the trace tr_S u
+on the spheres S_(v,r) is in E_2, g_λ^{vv} = −u(ℓ, ℓ) + E_3 is in E_2, and (g_λ⁻¹ − g0⁻¹)(dv, ·) = −g0⁻¹ u(ℓ, ·) + E_3
+is in E_2.
+
+Proof. By (eq:bondi-wave) the wave λW_TT has no dv or dr component and is traceless on the spheres
+[[pending:ch2-waves]], so G_3(ℓ, ·) = 0 and tr G_3 = tr_S G_3 = 0; the rest of u is u_1, in E_2. Then
+g⁻¹ = g0⁻¹ − g0⁻¹ u g0⁻¹ + O(u²) and g0⁻¹ dv = ℓ. ∎
+
+We write the coordinate components of the G_k in the basis of (v, r, ϑ) as scalar coefficients,
+
+    u_rr = Σ_k s^k C_k,   u_vr = Σ_k s^k B_k,   u_vv = Σ_k s^k A_k,   u_(rϑ) = r Σ_k s^k E_k,   u_(vϑ) = r Σ_k s^k D_k,
+    u_(ϑϑ) = r² Σ_k s^k F_k,   u_(φ1φ1) = r² cos²ϑ Σ_k s^k G_k,   u_(φ2φ2) = r² sin²ϑ Σ_k s^k H_k,     {#eq:bondi-coeffs}
+
+with s := r^(−1/2) and one power of r for each angular index, the classes being of orthonormal components. These
+A_k, …, H_k are scalar functions of (v, ϑ), the subscript being the power of s; they are not the classes E_p, the
+tensors G_k of (eq:bondi-expansion) or the free data F, G. By [[lem:bondi-ell]], A_3 = B_3 = C_3 = D_3 = E_3 = 0 and
+F_3 + G_3 + H_3 = 0, and by (eq:bondi-wave), F_3 = −2(p1 + p2), G_3 = 2p1 and H_3 = 2p2. The other components of u
+vanish, by the reflections φ1 ↦ −φ1 and φ2 ↦ −φ2.
+
+**Proposition {#prop:bondi-chart}** (The Bondi chart.) There is T_M(λ) such that on the far region P ∩ {t ≥ T_M} the
+functions
+
+    v_B := v + ů,      ϑ_B := ϑ + ν,      r_B := r (1 + ρ)
+
+exist with the following properties. (i) g_λ⁻¹(dv_B, dv_B) = 0, and ů → 0 along every generator of g0 as r → ∞.
+(ii) g_λ⁻¹(dv_B, dϑ_B) = 0, and ν → 0 likewise. (iii) r_B is the areal radius: r_B⁶ cos²ϑ_B sin²ϑ_B is the determinant
+of the metric induced on {v_B, r_B = const} in the coordinates (ϑ_B, φ1, φ2). (iv) They are invariant under
+T² × Z2 × Z2 and equal (v, ϑ, r) for v ≤ v_start. With u expanded to order J by (eq:bondi-expansion), they have
+expansions in s with coefficients smooth in (v, ϑ) and vanishing for v ≤ v_start,
+
+    ů = Σ_{k=2}^{J−2} s^k ů_k + E_((J−1)/2),     ν = Σ_{k=4}^{J−2} s^k ν_k + E_((J−1)/2),
+    ρ = Σ_{k=4}^{J−2} s^k ρ_k + E_((J−1)/2),                                                       {#eq:bondi-shifts}
+
+whose first coefficients are
+
+    ů_2 = −C_4/2,   ů_3 = −C_5/3,   ů_4 = −C_6/4 + C_4 ∂_v C_4/8,   ν_4 = −E_4/2 − ∂_ϑ C_4/4,
+    ρ_4 = (F_4 + G_4 + H_4)/6 − (1/3) div(ν_4),       div f := (sin ϑ cos ϑ)⁻¹ ∂_ϑ (f sin ϑ cos ϑ),     {#eq:bondi-first}
+
+and whose remainders gain an order under ℓ. In the chart (v_B, r_B, ϑ_B, φ1, φ2) the metric has the form
+
+    g_λ = −e^(2b) W dv_B² + 2 e^(2b) dv_B dr_B
+          + r_B² [ e^(−2(P1+P2)) (dϑ_B − U dv_B)² + cos²ϑ_B e^(2P1) dφ1² + sin²ϑ_B e^(2P2) dφ2² ],     {#eq:bondi-metric}
+
+its functions being given by the inverse components g^{v_B r_B} = e^(−2b), g^{r_B r_B} = e^(−2b) W,
+g^{r_B ϑ_B} = e^(−2b) U, g^{ϑ_B ϑ_B} = 1/(r_B² S) with S := e^(−2(P1+P2)), g^{φ1 φ1} = 1/(r_B² cos²ϑ_B e^(2P1)) and
+g^{φ2 φ2} = 1/(r_B² sin²ϑ_B e^(2P2)). The functions b, W, U, P1, P2 have expansions in s_B := r_B^(−1/2) with
+coefficients smooth in (v_B, ϑ_B), equal to those of g0 for v_B ≤ v_start (zero there, but for W − 1 = −μ0 s_B⁴), to
+order s_B^(J−2), with remainders o(s_B^(J−2)) whose r_B-derivatives gain an order each. Their first coefficients are
+
+    e^(2P1) = 1 + 2 p1 s_B³ + O(s_B⁴),    e^(2P2) = 1 + 2 p2 s_B³ + O(s_B⁴),
+    e^(−2b) = 1 − (∂_v C_4/2) s_B² − (∂_v C_5/3) s_B³ + O(s_B⁴).                                 {#eq:bondi-first-metric}
+
+Proof. *(i) The null coordinate.* Write L := g_λ⁻¹ dv = ℓ + ε with ε := (g_λ⁻¹ − g0⁻¹)(dv, ·), in E_2 by
+[[lem:bondi-ell]]. Since g_λ⁻¹(dv + dů, dv + dů) = g_λ^{vv} + 2 L(dů) + g_λ⁻¹(dů, dů), condition (i) is the eikonal
+equation
+
+    2 ℓ ů = −g_λ^{vv} − 2 ε(dů) − g_λ⁻¹(dů, dů) =: N[ů].                                             {#eq:bondi-eikonal}
+
+We build v_B by characteristics, not by iterating (eq:bondi-eikonal): an iteration in a norm of ů and ℓů loses a
+derivative at each step through the term ε(dů). In g0 the generators of {v = v0} are the affinely parametrised null
+geodesics y0(r) = (v0, r, x̂0), with ℓ = ∂_r their tangent and Γ[g0]^a_rr = 0. For each (v0, x̂0) let y be the null
+geodesic of g_λ asymptotic to y0: y(r) = (v0 + ζ(r), r, x̂0 + ξ(r)), parametrised by r, solving
+d²y^a/dr² + Γ[g_λ]^a_bc y'^b y'^c = κ_y y'^a with κ_y fixed by the r-component (y^r = r), and with ζ, ζ', ξ, ξ' → 0 as
+r → ∞. Writing y' = ∂_r + η, the system is
+
+    η' = −(Γ[g_λ] − Γ[g0])^a_rr − 2 Γ[g_λ]^a_rb η^b − Γ^a_bc η^b η^c + κ_y y'^a,
+
+a Volterra system from r = ∞. Its forcing (Γ[g_λ] − Γ[g0])^v_rr = ½ g^{vd}(2 ∂_r u_(dr) − ∂_d u_rr) is in E_3 by
+[[lem:bondi-ell]] and the ℓ-gain of u (g^{vr} = 1 + E_(3/2) multiplies ∂_r u_rr, in E_3; g^{vv}, in E_2, multiplies
+E_2; and g^{vϑ} r⁻¹ is in E_3). Its angular forcing is in E_4 (g^{ϑϑ} = r^(−2)(1 + E_(3/2)) times
+∂_r u_(ϑr) = r ∂_r u(e_ϑ, ℓ) + u(e_ϑ, ℓ), in E_2). Its linear part −2 Γ[g0]^a_rb η^b vanishes for a = v
+(Γ[g0]^v_rb = 0 in the ingoing chart) and is −(2/r) ξ' for a = ϑ (Γ[g0]^ϑ_rϑ = 1/r). This is not an integrable
+perturbation but the unperturbed operator of the angular equation, ξ'' + (2/r) ξ' = E_4, which the integrating factor r²
+solves with ξ' in E_3 and ξ in E_2. The remaining coefficients are Lipschitz in (ζ, ξ, ζ', ξ') in the weighted norms
+below, with constants integrable in r: ∂(Γ[g_λ] − Γ[g0]) is in E_(3/2), and the terms quadratic in η, whose largest
+coefficient is Γ[g0]^v_ϑϑ = −r, are O(r^(−2)) times the norm. κ_y = Γ^r_bc y'^b y'^c is in E_2 and multiplies η. So
+for r ≥ T_M the Picard iteration converges in the weighted supremum norm r² |ζ'| + r |ζ| + r³ |ξ'| + r² |ξ| (a
+contraction for an ordinary differential equation, so no derivative is lost). The solution depends smoothly on
+(v0, x̂0), with derivatives of the same decay (the variational equations have the same structure), it is invariant, and
+it is y0 for v0 ≤ v_start (there g_λ = g0 along the whole generator).
+
+Each generator stays in P outward, so the system is posed where g_λ is defined. Along y,
+d/dr (v + h(τ)) = ζ'(1 + h') − h', with τ = v − r (so dτ/dr = ζ' − 1) and h' = dh/dτ = h/(4t), a positive multiple
+of t^(−5/4) [[pending:ch9-past-domain]]. Moreover |ζ'| ≤ C r^(−2) < h'/2 and h' < 1 once T_M is large, t and r being
+comparable on P+. So v + h decreases outward along each generator while t increases, and the ray of a generator from a
+point of P ∩ {t ≥ T_M} out to past null infinity lies in P ∩ {t ≥ T_M} and never meets the outer boundary
+{v + h(τ) = V_P}. (To solve for every (v0, x̂0) at once, continue g_λ − g0 across that boundary by a Seeley extension in
+v + h(τ), which keeps every class E_p; by this monotonicity neither the generator through a point of P ∩ {t ≥ T_M} nor
+Φ⁻¹ there depends on the continuation, so Φ⁻¹, below, is defined on all of P ∩ {t ≥ T_M}.)
+
+The map Φ: (v0, r, x̂0) ↦ y(r) is then a C¹-small perturbation of the identity for r ≥ T_M, a diffeomorphism onto a
+neighbourhood of past null infinity, and N_(v0) := Φ({v0} × [T_M, ∞) × S³) is a null hypersurface. Indeed, along each y,
+d/dr g_λ(y', y') = 2 κ_y g_λ(y', y'), so g_λ(y', y') e^(−2∫κ_y) is constant and equal to its limit g0(ℓ, ℓ) = 0 at
+infinity (y is null). And for each Jacobi field X = ∂_(x̂0) y of the congruence, tangent to N_(v0) as y' is, d/dr
+g_λ(y', X) = κ_y g_λ(y', X) + g_λ(y', ∇_X y') = κ_y g_λ(y', X) + ½ X g_λ(y', y') = κ_y g_λ(y', X), so g_λ(y', X)
+e^(−∫κ_y) is constant along y and equal to its limit at infinity, which is 0: g_λ(y', X) = ∂_(x̂0) ζ + r² ξ' (1 +
+∂_(x̂0) ξ) + r u(ℓ, e_ϑ) + smaller terms, with ∂_(x̂0) ζ, r² ξ' and r u(ℓ, e_ϑ) in E_1. (The transverse field ∂_(v0) y
+is not needed, and it is not orthogonal to y': g0(ℓ, ∂_v) = 1.) Hence y' is normal to N_(v0), which is null. Put v_B :=
+v0 ∘ Φ⁻¹, so that g_λ⁻¹(dv_B, dv_B) = 0, and ů := v_B − v = −ζ ∘ Φ⁻¹. Then ů is in E_1, with ℓů in E_2 (ℓů = −ζ' up to
+Jacobian corrections in E_2) and all derivatives; it vanishes for v ≤ v_start and is invariant.
+
+*Expansion of ů.* v_B satisfies (eq:bondi-eikonal) exactly, so ů = −½ ∫_r^∞ N[ů] dr' along the generators of g0. Insert
+(eq:bondi-expansion). The integrals of the powers of s are powers of s, the nonlinear terms at order s^(k+2) involve
+only ů_j with j < k, and the remainder of ů is the integral along the generator of a remainder, with ℓ of it the
+integrand: this gives (eq:bondi-shifts) for ů. Since ∂_r s^k = −(k/2) s^(k+2), the s^(k+2) coefficient of the left side
+2∂_r ů is −k ů_k, so the s^(k+2) coefficient of the equation is −k ů_k plus known terms. The first ones are found as
+follows. In the coordinates (v, r, ϑ), ℓ = ∂_r, g0^{vv} = 0, g0^{vr} = 1, g0^{rr} = 1 − μ/r² and g0^{ϑϑ} = r^(−2).
+Expanding g⁻¹ = g0⁻¹ − g0⁻¹ u g0⁻¹ + g0⁻¹ u g0⁻¹ u g0⁻¹ − …, the term quadratic in u of g^{vv} is
+g0⁻¹(u(ℓ, ·), u(ℓ, ·)), built from u_rr, u_rv = O(s⁴) and r⁻¹ u_(rϑ) = O(s⁴), so it is O(s⁸), and
+−g_λ^{vv} = C_4 s⁴ + C_5 s⁵ + C_6 s⁶ + O(s⁷). The components of ε are ε^v = −u_rr, ε^r = −u_rv − (1 − μ/r²) u_rr and
+ε^ϑ = −r^(−2) u_(rϑ), up to terms quadratic in u; with ů = O(s²), ∂_v ů = O(s²) and ∂_r ů = O(s⁴),
+2 ε(dů) = −2 C_4 ∂_v ů_2 s⁶ + O(s⁷), and g_λ⁻¹(dů, dů) = 2 ∂_v ů ∂_r ů + O(s⁸) = −2 ů_2 ∂_v ů_2 s⁶ + O(s⁷). So
+
+    N[ů] = C_4 s⁴ + C_5 s⁵ + (C_6 + 2 C_4 ∂_v ů_2 + 2 ů_2 ∂_v ů_2) s⁶ + O(s⁷),
+
+and comparing with −Σ_k k ů_k s^(k+2): ů_1 = 0, −2 ů_2 = C_4, −3 ů_3 = C_5, and
+−4 ů_4 = C_6 + 2 C_4 ∂_v ů_2 + 2 ů_2 ∂_v ů_2 = C_6 − C_4 ∂_v C_4 + ½ C_4 ∂_v C_4 = C_6 − ½ C_4 ∂_v C_4. These are the
+values in (eq:bondi-first).
+
+*(ii) The angular coordinate.* ϑ_B := x̂0 ∘ Φ⁻¹ (the angle of the generator of g0 to which y is asymptotic) is constant
+along the generators of N_(v0), whose tangent is L_B := g_λ⁻¹ dv_B up to a factor (y' is the null normal of N_(v0)). So
+L_B ϑ_B = 0, which is (ii), and ν = ϑ_B − ϑ = −ξ ∘ Φ⁻¹ is in E_2 with ℓν in E_3. With L_B = ℓ + ε + g_λ⁻¹ dů, the
+transport L_B ϑ_B = 0 reads
+
+    2 ℓ ν = −2 ε(dϑ) − 2 g_λ⁻¹(dů, dϑ) − 2 (ε + g_λ⁻¹ dů)(dν),
+
+where ε(dϑ) = −r^(−2) u(∂_ϑ, ℓ) + E_4 = −r⁻¹ u(e_ϑ, ℓ) + E_4 is in E_3 (e_ϑ := r⁻¹ ∂_ϑ) and
+g_λ⁻¹(dů, dϑ) = r^(−2) ∂_ϑ ů + E_4 is in E_3. So ν expands as in (eq:bondi-shifts), the s^(k+2) coefficient of the
+equation being −k ν_k plus known terms. In terms of the coefficients, −2 ε(dϑ) = 2 Σ_k E_k s^(k+2) + O(s⁸),
+−2 g_λ⁻¹(dů, dϑ) = −2 ∂_ϑ ů_2 s⁶ + O(s⁷), and the last term is O(s⁸), since ν = O(s⁴), ε = O(s⁴) and dů = O(s²). As
+E_k = 0 for k ≤ 3 and ů_1 = 0, the coefficients ν_1, ν_2, ν_3 vanish, and at s⁶, −4 ν_4 = 2 E_4 − 2 ∂_ϑ ů_2 =
+2 E_4 + ∂_ϑ C_4: the value in (eq:bondi-first).
+
+*(iii) The areal radius.* Let J0 be the Jacobian of (v, s, ϑ) ↦ (v_B, r_B, ϑ_B). In a chart with
+g^{v_B v_B} = g^{v_B ϑ_B} = 0 the covariant metric has g_(r_B r_B) = g_(r_B ϑ_B) = 0, so it has the form
+(eq:bondi-metric) once r_B is areal, and its inverse determinant is −e^(−4b)/(r_B⁶ cos²ϑ_B sin²ϑ_B) with
+e^(−2b) = g^{v_B r_B}; the inverse determinant transforms with (det J0)². So the areal condition is the equation
+
+    r_B⁶ cos²ϑ_B sin²ϑ_B det(g_λ⁻¹) (det J0)² + (g^{v_B r_B})² = 0,                                 {#eq:bondi-areal}
+
+whose s^k coefficient is 6 ρ_k plus known terms. The factor ∂_r r_B = 1 + ρ + r ∂_r ρ of (det J0)² cancels against
+the same factor of (g^{v_B r_B})² = (g_λ⁻¹(dv_B, dr_B))², and exactly, not only at this order. With
+g^{v_B v_B} = g^{v_B ϑ_B} = 0 the inverse determinant in the chart is −(g^{v_B r_B})²/det q, q the metric induced on
+{v_B, r_B = const} in (ϑ_B, φ1, φ2), so (eq:bondi-areal) is (g^{v_B r_B})² (1 − r_B⁶ cos²ϑ_B sin²ϑ_B/det q) = 0. And q,
+induced on a cross-section of the null hypersurface {v_B = const} in coordinates constant along its generators, has no
+component along them, so it depends on the points of the cross-section and not on its tilt: no derivative of ρ enters,
+and r_B⁶ contributes 6 ρ_k (the leading determinant being 1). The condition is therefore algebraic in ρ and solvable for
+every k ≥ 1.
+
+The first coefficients follow. Since q annihilates the generators, q(∂_(ϑ_B), ∂_(ϑ_B)) = g_λ(X, X) for any vector X
+tangent to N_(v0) with dϑ_B(X) = 1 and dφ_i(X) = 0; take X at fixed r. From d(v + ů)(X) = 0 and dϑ_B(X) = 1,
+X = (1 − ∂_ϑ ν + O(s⁶)) ∂_ϑ − (∂_ϑ ů + O(s⁴)) ∂_v. Since g_(vϑ) = r O(s⁴) and g_vv = O(1), the terms of g_λ(X, X)
+containing ∂_v are r² O(s⁸), and g_λ(X, X) = r² (1 + F_3 s³ + (F_4 − 2 ∂_ϑ ν_4) s⁴ + O(s⁵)). Likewise
+g_λ(∂_(φ1), ∂_(φ1)) = r² cos²ϑ (1 + G_3 s³ + G_4 s⁴ + O(s⁵)) and g_λ(∂_(φ2), ∂_(φ2)) = r² sin²ϑ (1 + H_3 s³ + H_4 s⁴ +
+O(s⁵)), the cross terms vanishing by the reflections, with cos²ϑ = cos²ϑ_B (1 + 2 ν_4 tan ϑ_B s⁴ + O(s⁵)) and
+sin²ϑ = sin²ϑ_B (1 − 2 ν_4 cot ϑ_B s⁴ + O(s⁵)); the shifts of the arguments of the coefficients, by ů = O(s²) and
+ν = O(s⁴), change F_3 s³, G_3 s³ and H_3 s³ only at O(s⁵). Since F_3 + G_3 + H_3 = 0,
+
+    det q = r⁶ cos²ϑ_B sin²ϑ_B (1 + (F_4 + G_4 + H_4 − 2 ∂_ϑ ν_4 + 2 (tan ϑ − cot ϑ) ν_4) s⁴ + O(s⁵))
+          = r⁶ cos²ϑ_B sin²ϑ_B (1 + (F_4 + G_4 + H_4 − 2 div(ν_4)) s⁴ + O(s⁵)),
+
+because div f = ∂_ϑ f + (cot ϑ − tan ϑ) f. With r_B⁶ = r⁶ (1 + 6 ρ_4 s⁴ + …) the areal condition gives ρ_k = 0 for k ≤ 3
+and 6 ρ_4 = F_4 + G_4 + H_4 − 2 div(ν_4): ρ starts at s⁴ with the value in (eq:bondi-first), the trace of G_4 on the
+sphere plus the Jacobian of the angular shift. The remainder of ρ is algebraic in those of (i)–(ii) and of u.
+
+*(iv) The invariance and the Bondi functions.* The invariance and the values for v ≤ v_start are inherited from the
+construction. The covariant components of (eq:bondi-metric) in (v_B, r_B, ϑ_B) are g_vv = −e^(2b) W + r_B² S U²,
+g_vr = e^(2b), g_(vϑ) = −r_B² S U, g_(ϑϑ) = r_B² S and g_rr = g_(rϑ) = 0, and multiplying them with the stated inverse
+components gives the identity; so the formulae for b, W, U, S, P1, P2 are the inversion of (eq:bondi-metric)'s
+(v_B, r_B, ϑ_B) block. To re-express them in (v_B, ϑ_B, s_B), a coefficient f(v, ϑ) = f(v_B − ů, ϑ_B − ν) is expanded by
+Taylor's formula, ů = O(s²) and ν = O(s⁴) shifting the coefficients by two and four half-orders, and
+s = s_B (1 + ρ)^(1/2) by four. The expansion to order s_B^(J−2) with remainders o(s_B^(J−2)) follows, and the
+r_B-gains of the remainders follow from the ℓ-gains of the ingredients (∂_(r_B) is a combination of ℓ and of E_2
+multiples of ∂_v and ∂_ϑ).
+
+The first coefficients. e^(2P1) = 1/(r_B² cos²ϑ_B g^{11}) with g^{11} = g_λ^{11} unchanged, since φ1 is unchanged,
+r_B/r = 1 + O(s⁴) and ϑ_B − ϑ = O(s⁴). By (eq:bondi-coeffs) and the reflections, g_λ^{11} = 1/g_(φ1φ1) =
+r^(−2) cos^(−2)ϑ (1 − 2 p1 s³ + O(s⁴)), since G_3 = 2p1. So e^(2P1) = 1 + 2 p1 s_B³ + O(s_B⁴), the change from (v, ϑ, s)
+to (v_B, ϑ_B, s_B) costing O(s⁵); likewise e^(2P2) with H_3 = 2p2. Next, e^(−2b) = g^{v_B r_B} =
+g_λ⁻¹(dv + dů, dr_B). Here g_λ^{vr} = 1 + E_2, since its correction −u_rv − (1 − μ/r²) u_rr is O(s⁴);
+g_λ⁻¹(dů, dr) = ∂_v ů + ℓů + O(s⁶) with ℓů = O(s⁴); and dr_B = (1 + O(s⁴)) dr + O(s²) dv + O(s²) dϑ, whose dv- and
+dϑ-parts enter only at s⁶, because they meet g_λ^{vv} in E_2, g_λ^{vϑ} = O(r^(−3)), ℓů and r^(−2) ∂_ϑ ů. So
+e^(−2b) = 1 + ∂_v ů + O(s⁴) at the orders shown, and with (eq:bondi-first),
+e^(−2b) = 1 − (∂_v C_4/2) s² − (∂_v C_5/3) s³ + O(s⁴), which is (eq:bondi-first-metric) in s_B. ∎
+
+**Remark {#rem:bondi-j8}** Taking J = 8 in [[prop:bondi-hierarchy]] gives the Bondi functions to order s_B⁶ with
+o(s_B⁶) remainders, which is what Section [[sec:bondi-hierarchy]] uses. The hierarchy there, run from s¹, gives
+b_1 = b_2 = b_3 = 0 for a vacuum metric. By (eq:bondi-first-metric) this means ∂_v C_4 = ∂_v C_5 = 0, and then
+C_4 = C_5 = 0 by (iv): the (ℓ, ℓ) component of g_λ − g0 is O(r^(−3)). This is a consequence, not an input:
+[[prop:hierarchy-scri]] lets b start at s¹.
+

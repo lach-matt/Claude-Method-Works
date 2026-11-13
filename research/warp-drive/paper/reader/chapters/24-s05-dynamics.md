@@ -915,3 +915,212 @@ the spatial weight α of an L²(|dx|)-based space is the b-weight α + 2 at n = 
 [[sec:i-c-1-2]]). In particular α_sf + 2 lies in
 an indicial gap of P̂₀(0). For the scalar wave operator the gap is (0, 2), the indicial roots of [[eq:ii-c-1-3]] at
 ℓ = 0 being 0 and 2, so α_sf ∈ (−2, 0), where [Hin26c] has (−3/2, −1/2).
+
+### Asymptotically stationary metrics and wave-type operators {#sec:ii-c-3}
+
+From here on the stationary metric of [[sec:ii-c-1]] is written g₀, and G₀(ζ) := g₀⁻¹(ζ, ζ) on spacetime covectors (on
+spatial covectors, G₀ of [[sec:i-a-1-3]] is its restriction). On Ω we use the e3b-structure of [[sec:ii-a-2-4]], the
+weight w_(α) = x_I^(2α_I)ρ₊^(α₊)ρ_K^(α_K) and the spaces C^((d₀;k),(·))_(e3b;b) of [[def:ii-a-8-1]], for sections of a
+bundle in a fixed smooth frame.
+
+**Definition {#def:ii-c-3-1}** (Asymptotically stationary metrics; [Hin26c, Definition 5.15] at n = 4.) Let
+ℓ_I ∈ [0, ½], ℓ₊ ∈ [0, 1], ℓ_K ≥ 0 and d₀, k ∈ ℕ₀. Put
+
+    𝒢̃^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) := x_I⁻²ρ₊⁻² C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b)(Ω; S² ᵉ³ᵇT*_Ω M),
+    𝒢^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) := g₀ + 𝒢̃^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b),
+
+with the norm of C^((d₀;k),(2ℓ_I+2,ℓ₊+2,ℓ_K))_(e3b;b) on the first and the induced metric on the second. Subscripts are
+dropped for d₀ = 0 ("e3b") or k = 0 ("b").
+
+**Remark {#rem:s05-metric-class}** (a) g₀ − ḡ ∈ x_I⁻²ρ₊⁻² C^(∞,(2,2,0))(Ω; S² ᵉ³ᵇT*_Ω M) by [[eq:ii-b-1-2]], as ρ₀ is
+bounded below on Ω, so g₀ − ḡ lies in 𝒢̃^(∞,(2ℓ_I,ℓ₊,0)) for all admissible ℓ_I, ℓ₊; for Kerr the weights are
+(1, 0, 0) ([Hin26c, Remark 5.17]). (b) If h ∈ 𝒢̃^(0,(0,0,0))_(e3b) has small norm, then x_I²ρ₊²(g₀ + h) is a
+non-degenerate section of S² ᵉ³ᵇT*_Ω M of Lorentzian signature, and g₀ + h is a Lorentzian metric on Ω°. Indeed
+x_I²ρ₊²g₀ is non-degenerate of signature (1, 4) and continuous up to the boundary on the compact closure of Ω in
+ᵉ³ᵇT*M ([[lem:ii-b-1-1]] (3)), so its inverse is bounded, and x_I²ρ₊²h is small in C⁰. g₀ + h is time-oriented by
+[[lem:ii-c-3-2]], which makes dt^♭_* past timelike when h is small in 𝒢̃^(0,(2ℓ_I,0,0)), ℓ_I > 0.
+
+**Lemma {#lem:ii-c-3-2}** (The time function; [Hin26c, Lemma 5.16] at n = 4.) Let ℓ := ℓ_I ∈ (0, ½] and
+r^♮ := ½(r₀ + r₂). There are ϵ_G > 0, C′ ∈ (0, 1), r′₀ > r₂ and t^♭_* ∈ C^∞(Ω°) with
+
+(a) t^♭_* = t_*(1 − (t_*/r)^ℓ) where t_*/r is small;
+
+(b) C′t_* ≤ t^♭_* ≤ t_*;
+
+(c) t^♭_* = C′t_* + C′r′₀ for r ≤ r′₀ − 1;
+
+such that for every g = g₀ + h with ‖h‖_(𝒢̃^(0,(2ℓ,0,0))_(e3b)) < ϵ_G: (1) dr is future timelike for g on
+{r₀ ≤ r ≤ r^♮}; (2) dt^♭_* is past timelike for g on Ω°.
+
+*Proof.* *Bounds on g⁻¹.* By [[lem:ii-a-2-5]], near ℐ⁺ the covectors x_I⁻¹dt_*, x_I dr and r dω span
+ρ₊⁻¹x_I⁻¹C^∞(ᵉᵇT*), so the pointwise dual vectors x_I∂_(t_*), x_I⁻¹∂_r, r⁻¹∂_ω span ρ₊x_I C^∞(ᵉᵇT), and the
+symmetric products
+
+    ρ_I∂_(t_*)²,   ∂_(t_*) ⊗_s ∂_r,   x_I∂_(t_*) ⊗_s r⁻¹∂_ω,   ρ_I⁻¹∂_r²,   x_I⁻¹∂_r ⊗_s r⁻¹∂_ω,
+    r⁻¹∂_ω ⊗_s r⁻¹∂_ω,        ρ_I := x_I² = t_*/r,
+
+span x_I²ρ₊² C^∞(S² ᵉᵇT). As x_I²ρ₊²g₀ has a bounded inverse, g⁻¹ − g₀⁻¹ (by a Neumann series) lies in
+x_I²ρ₊² · x_I^(2ℓ) C⁰(S² ᵉ³ᵇT) with norm ≤ C‖h‖; and g₀⁻¹ − ḡ⁻¹ ∈ x_I⁴ρ₊⁴C^∞(S² ᵉ³ᵇT) ([[lem:ii-b-1-1]], the
+inverses). Since ρ₊ ≤ 1 on Ω, the coefficients of g⁻¹ − ḡ⁻¹ in the basis above are bounded by
+C₁(ϵ_G + ρ_I^(1−ℓ))ρ_I^ℓ. Away from ℐ⁺, where x_I is bounded below, the same membership gives
+|(g⁻¹ − g₀⁻¹)(α, α)| ≤ Cϵ_G(|α_t| + |α_r| + r⁻¹|α_ω|)² for α = α_t dt + α_r dr + α_ω: near K⁺ ∩ ι⁺ the 3b-vectors r∂_t,
+r∂_x span ³ᵇT and x_I²ρ₊² ∼ r⁻² there; near K⁺ away from sf, ∂_t, ∂_x span it and x_I, ρ₊ are bounded below; near
+ι⁺ ∩ ℐ⁺ with x_I ≥ c, dt and dr evaluated on the eb-frame are O(t + r) = O(ρ₊⁻¹x_I⁻²).
+
+*The function near ℐ⁺.* With ρ := ρ_I and F₁(ρ) := 1 − ρ^ℓ, d(t_*F₁(ρ_I)) = A dt_* + B dr with A = 1 − (1 + ℓ)ρ^ℓ and
+B = ℓρ^(ℓ+1), as dρ_I = ρ_I(dt_*/t_* − dr/r). Since ḡ⁻¹(dt_*, dt_*) = 0, ḡ⁻¹(dt_*, dr) = −1 and ḡ⁻¹(dr, dr) = 1, the
+covector A dt_* + B dr has ḡ⁻¹-square −2AB + B², and −2AB ≤ −2ℓρ^(ℓ+1)(1 − 2ρ^ℓ) as 1 + ℓ ≤ 2. The basis elements
+evaluated on (A dt_* + B dr)^(⊗2) give ρA², O(|AB|), 0, ρ⁻¹B², 0, 0, all at most ρ in size for ρ ≤ 1. So
+
+    g⁻¹(d(t_*F₁), d(t_*F₁)) ≤ −2ℓρ^(ℓ+1)(1 − 2ρ^ℓ) + ρ^(2ℓ+2) + C₂(ϵ_G + ρ^(1−ℓ))ρ^(ℓ+1) ≤ −ℓρ^(ℓ+1)
+
+for ρ ≤ ρ_a and ϵ_G ≤ ϵ_a, with ρ_a, ϵ_a small depending on ℓ and C₂ (the error is of the order of the main term,
+which is why ϵ_G must be small). This is timelike. It is past directed: V := t∂_t + r∂_r is future timelike for g on
+{r ≥ R₂} ∩ Ω ([[sec:ii-b-7]] for g₀; for g, |h(V, V)| ≤ Cϵ_G x_I^(2ℓ) r t_* against |g₀(V, V)| ≥ ½(t_*² + 2t_*r), and
+the orientation is continuous along g₀ + τh), and d(t_*F₁)(V) = At_* + Br > 0, as Vt_* = t_* and Vr = r; a timelike
+covector that is positive on a future timelike vector is past timelike.
+
+*The function away from ℐ⁺.* dt = dt_* + dr has ḡ⁻¹(dt, dt) = −1, |(g₀⁻¹ − ḡ⁻¹)(dt, dt)| ≤ Cr⁻² by (K1), and
+|(g⁻¹ − g₀⁻¹)(dt, dt)| ≤ Cϵ_G where x_I ≥ c, by the bounds above. So g⁻¹(dt, dt) ≤ −½ on {r ≥ r′₀ − 1, x_I ≥ c} for r′₀
+large and ϵ_G small, and dt is past timelike there (dt(V) = t > 0). On {r₀ ≤ r ≤ r′₀ + 1},
+g₀⁻¹(dt_*, dt_*) = g₀₀ ≤ −c₀ < 0 by (H6) and compactness, so g⁻¹(dt_*, dt_*) ≤ −½c₀ for ϵ_G small, and dt_* is past
+timelike there, for g₀ by (H6) and for g by continuity.
+
+*Gluing.* Fix C large (below), C′ := (1 − C^(−ℓ))/(1 + C) and F₂(ρ) := C′(1 + ρ⁻¹), so that
+t_*F₂(ρ_I) = C′(t_* + r) = C′t and F₁ = F₂ at ρ = 1/C. The function φ(ρ) := F₂(ρ) − F₁(ρ) satisfies φ(1/C) = 0 and
+φ′(ρ) = −C′ρ⁻² + ℓρ^(ℓ−1) < 0 on (0, 2/C] for C large (as C′ ≥ (4C)⁻¹ and ℓρ^(ℓ+1) ≤ ℓ(2/C)^(ℓ+1)), and
+F₁/F₂ ≥ 3/2 at ρ = 2/C. Let m_κ be smooth, even and convex, with m_κ(y) = |y| for |y| ≥ κ, and
+M(a, b) := ½(a + b − m_κ(a − b)), a smooth minimum: M = min(a, b) when |a − b| ≥ κ, and ∂_aM, ∂_bM ∈ [0, 1] with
+∂_aM + ∂_bM = 1. Put F := exp M(log F₁, log F₂) with κ ≤ ¼ small; then F = F₁ on (0, ρ₋] and F = F₂ on [ρ⁺, ∞) for some
+ρ₋ < 1/C < ρ⁺ < 2/C, and F′/F = θF₁′/F₁ + (1 − θ)F₂′/F₂ with θ ∈ [0, 1]. Hence
+
+    d(t_*F(ρ_I)) = F[(1 + ρF′/F)dt_* − ρ²(F′/F)dr] = F[θ d(t_*F₁)/F₁ + (1 − θ) d(t_*F₂)/F₂],
+
+a positive combination of two past timelike covectors, hence past timelike, wherever both are. On the transition
+interval [ρ₋, ρ⁺], with κ so small that ρ₋ ≥ 1/(2C), d(t_*F₁) is past timelike as ρ⁺ ≤ 2/C ≤ ρ_a, and d(t_*F₂) = C′dt
+is past timelike by the previous paragraph with c := (2C)^(−1/2) (so that x_I = ρ_I^(1/2) ≥ c) and ϵ_G small depending
+on C. Let R̃(r) be a smooth maximum of r and r′₀, equal to r′₀ for r ≤ r′₀ − 1 and to r for r ≥ r′₀ + 1, with
+R̃′ ∈ [0, 1]. Define
+
+    t^♭_* := C′(t_* + R̃(r)) on {r ≤ Ct_*/2},        t^♭_* := t_*F(t_*/r) on {r ≥ r′₀ + 1}.
+
+For C > 2(r′₀ + 1) and t_* ≥ 1 the overlap {r′₀ + 1 ≤ r ≤ Ct_*/2} is where both are defined, and there both equal
+C′(t_* + r), as ρ_I ≥ 2/C gives F = F₂. On {r ≤ Ct_*/2}, dt^♭_* = C′((1 − R̃′)dt_* + R̃′dt), a positive combination of
+dt_* (past timelike for r ≤ r′₀ + 1) and dt (past timelike for r ≥ r′₀ − 1, x_I ≥ c, as ρ_I ≥ 2/C there). On
+{r ≥ r′₀ + 1} the previous paragraph applies. This proves (2), and (a), (c) hold by construction. (b):
+t_*F₁ ∈ [(1 − C^(−ℓ))t_*, t_*] for ρ ≤ 1/C, and t_*F₂ = C′t_*(1 + ρ⁻¹) ∈ [C′t_*, (1 − C^(−ℓ))t_*] for ρ ≥ 1/C. A smooth
+convex even m_κ equal to |y| for |y| ≥ κ satisfies |y| ≤ m_κ ≤ κ on [−κ, κ], so
+e^(−κ/2)min(F₁, F₂) ≤ F ≤ min(F₁, F₂); on the transition interval min(F₁, F₂) ≥ C′(1 + C/2) (for C large, F₁ ≥ ½
+there, and C′(1 + C/2) ≤ ½ as C^ℓ ≤ 2 + C for ℓ ≤ 1), and e^(−1/8)(1 + C/2) ≥ 1, so C′ ≤ F ≤ 1. And
+C′(t_* + R̃) ≤ C′(t_* + r′₀ + r) ≤ t_* where r ≤ Ct_*/2 and r′₀ ≤ C/2. (1): g₀⁻¹(dr, dr) = G₀(dr) < 0 on
+{r₀ − 2δ₀ < r < r₂} by (H4), so G₀(dr) ≤ −c₁ < 0 on the compact set {r₀ ≤ r ≤ r^♮}; the perturbation is O(ϵ_G) there,
+and dr is future timelike for g₀ (∇r is future timelike, [[sec:i-b-1-2]]) and for g by continuity. ∎
+
+By (b), Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω ([Hin26c, (6.2)]).
+
+**Definition {#def:ii-c-3-3}** (Admissible operators; [Hin26c, Definition 5.18] at n = 4.) Let ℵ, δ ≥ 0 and
+ℓ_I ∈ (0, ½], ℓ₊ > δ, ℓ_K > ℵ ([Hin26c, (5.23)]). Let P₀ be ℵ-admissible with sf-weight α_sf and sf-loss δ. An
+operator P ∈ Diff²(Ω°; E) is *admissible* (relative to P₀) *of class* ((d₀;k), (2ℓ_I, ℓ₊, ℓ_K)) if:
+
+(1) σ₂(P) = G Id, G(ζ) = g⁻¹(ζ, ζ), for some g ∈ 𝒢^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b);
+
+(2) with a cut-off χ_I = χ_I(x_I), equal to 1 near 0 and supported in {x_I < 1}, there are
+
+    p₀, p̃₁ ∈ ρ₊^(ℓ₊)C^(k+d₀)_b(ℐ⁺ ∩ Ω; End ℂ^N)                                                       {#eq:ii-c-3-1}
+
+(extended to supp χ_I independently of x_I) with
+
+    P̃ := P − [P₀ + χ_I ½x_I²ρ₊²(2p̃₁(x_I∂_(x_I) − 2ρ₊∂_(ρ₊)) + p₀)]
+         ∈ x_I²ρ₊² C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) Diff²_(e3b)(Ω; E);                                  {#eq:ii-c-3-2}
+
+(3) there is a splitting ℂ^N = ⊕_(j=1)^J E_j, over ∂X, in which p₁ := S|_(∂X) + p̃₁ is lower triangular with diagonal
+blocks of real spectrum, and p₀ is strictly lower triangular.
+
+P is *weakly admissible* if only ℓ_I ∈ (0, ½], ℓ₊ > 0 and ℓ_K > 0 are assumed ([Hin26c, (5.26)]).
+
+Here S|_(∂X) is pulled back to ℐ⁺ along its fibration over ∂X ≅ Y⁺ ([[sec:ii-a-1]]), and the operators in
+[[eq:ii-c-3-2]] are those of [[sec:ii-a-8-2]] with coefficients in the stated space.
+
+**Lemma {#lem:ii-c-3-4}** ([Hin26c, (5.27)] at n = 4.) For P as in [[def:ii-c-3-3]], near ℐ⁺ ∩ {ρ₊ ≤ 1},
+
+    2x_I⁻²ρ₊⁻²P − [−(x_I∂_(x_I) − 3 − 2p₁)(x_I∂_(x_I) − 2ρ₊∂_(ρ₊)) + 2x_I²Δ_(𝕊³) + p₀]
+        ∈ C^((d₀;k),(2ℓ_I,0))_(eb;b) Diff²_(eb).                                                         {#eq:ii-c-3-3}
+
+The characteristic exponents of x_I∂_(x_I) − 3 − 2p₁ are 3 + 2μ, μ ∈ spec p₁ (2(1 + μ) in [Hin26c]).
+
+*Proof.* Where χ_I = 1,
+2x_I⁻²ρ₊⁻²P = 2x_I⁻²ρ₊⁻²P₀ + 2p̃₁(x_I∂_(x_I) − 2ρ₊∂_(ρ₊)) + p₀ + 2x_I⁻²ρ₊⁻²P̃. Insert [[eq:ii-c-1-4]];
+S − S|_(∂X) ∈ ρC^∞ = x_I²ρ₊C^∞, so replacing S by S|_(∂X) costs x_I Diff¹_(eb), and
+−(x_I∂_(x_I) − 3 − 2S|_(∂X))A + 2p̃₁A = −(x_I∂_(x_I) − 3 − 2p₁)A with A = x_I∂_(x_I) − 2ρ₊∂_(ρ₊). The remainders are
+x_I Diff²_(eb) ⊂ C^(∞,(2ℓ_I,0))Diff²_(eb) (as 2ℓ_I ≤ 1) and
+2x_I⁻²ρ₊⁻²P̃ ∈ x_I^(2ℓ_I)ρ₊^(ℓ₊)C^((d₀;k))_(e3b;b) Diff²_(eb) (near ℐ⁺ the e3b- and eb-structures agree). ∎
+
+**Definition {#def:ii-c-3-5}** ([Hin26c, Definition 5.20].) p̄₁ := inf_(p∈ℐ⁺) min Re spec p₁(p).
+
+The lower bounds on ℓ₊ and ℓ_K in [Hin26c, (5.23)] matter only when estimates for P are closed with the mapping
+properties of P₀ ([Hin26c, Remark 5.21]); the regularity of p₀, p̃₁ in [[eq:ii-c-3-1]] follows [Hin26c, Remark 5.22].
+
+**Definition {#def:ii-c-3-6}** ([Hin26c, Definition 5.23].) ‖P − P₀‖_((d₀;k),(2ℓ_I,ℓ₊,ℓ_K)) is the sum of the norms of
+p₀, p̃₁ in [[eq:ii-c-3-1]] and of a representation of P̃ in [[eq:ii-c-3-2]] ([[sec:ii-a-8-2]]); on Ω′ ⊂ Ω the suprema
+are taken over Ω′.
+
+**Lemma {#lem:ii-c-3-7}** ‖g − g₀‖_(𝒢̃^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b)) ≤ C‖P − P₀‖_((d₀;k),(2ℓ_I,ℓ₊,ℓ_K)) when the
+right side is small, and likewise on subsets.
+
+*Proof.* The bracket in [[eq:ii-c-3-2]] has the principal symbol of P₀, the χ_I-terms being of first order. So
+G − G₀ = σ₂(P̃), and g⁻¹ − g₀⁻¹ ∈ x_I²ρ₊²C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b)(S² ᵉ³ᵇT) with norm ≤ C‖P̃‖. Then
+g − g₀ = −g₀(g⁻¹ − g₀⁻¹)g₀ + …, a convergent Neumann series in x_I⁻²ρ₊⁻²C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b), by
+[[lem:ii-a-8-2]] (c)–(d). ∎
+
+### The global dynamics of perturbed metrics {#sec:ii-c-4}
+
+Fix ℓ_I ∈ (0, ½], ℓ₊ ∈ (0, 1], ℓ_K > 0 ([Hin26c, (6.1)]) and d₀ ≥ 2, and consider
+
+    g = g₀ + h,      h ∈ 𝒢̃^(d₀,(2ℓ_I,ℓ₊,ℓ_K))_(e3b)(Ω_*),      ‖h‖ < ϵ_G ≤ 1,                        {#eq:ii-c-4-1}
+
+with ϵ_G at most that of [[lem:ii-c-3-2]]. Write w := x_I^(2ℓ_I)ρ₊^(ℓ₊)ρ_K^(ℓ_K), G(ζ) := g⁻¹(ζ, ζ),
+G_(e3b) := x_I⁻²ρ₊⁻²G and, with ρ_∞ a defining function of fibre infinity,
+
+    𝖧_G := ρ_∞H_(G_(e3b)),                                                                              {#eq:ii-c-4-2}
+
+which on the characteristic set equals ρ_∞x_I⁻²ρ₊⁻²H_G, the field [[eq:ii-b-1-4]] ([Hin26c, (6.4b)]). Put
+Σ := {G_(e3b) = 0} ⊂ ᵉ³ᵇT*_(Ω_*)M ∖ o; Σ⁺ is the closure of the set of null covectors ν over Ω_*° with
+g⁻¹(ν, dt^♭_*) > 0, that is, with ν^♯ future directed, as dt^♭_* is past timelike ([[lem:ii-c-3-2]]); and Σ⁻ := −Σ⁺.
+
+**Lemma {#lem:ii-c-4-1}** (a) G_(e3b) − G_(0,e3b) ∈ ϵ_G w C^(d₀) P^[2](ᵉ³ᵇT*_(Ω_*)M), and 𝖧_G − 𝖧_(G₀) is a
+C^(d₀−1) b-vector field on ᵉ³ᵇT̄*_(Ω_*)M in ϵ_G w C^(d₀−1)𝒱_b, tangent to fibre infinity. In particular Σ and 𝖧_G agree
+with those of g₀ over Ω_* ∩ ∂M, and 𝖧_G is C¹, so its integral curves are unique. (b) Σ⁺ ∩ Σ⁻ = ∅, and Σ^± agree with
+those of g₀ over ∂M.
+
+*Proof.* (a) g⁻¹ − g₀⁻¹ ∈ x_I²ρ₊²ϵ_G w C^(d₀)(S² ᵉ³ᵇT) (Neumann series, as in the proof of [[lem:ii-c-3-7]]), which is
+the first statement. For p ∈ wC^(d₀)P^[2], H_p is a first-order e3b-differential operator applied to p
+([[sec:ii-a-2-5]]); b-vector fields preserve wC⁰, so H_p ∈ wC^(d₀−1)𝒱_b(ᵉ³ᵇT*M), and ρ_∞H_p is tangent to fibre
+infinity by homogeneity. w vanishes on ℐ⁺, ι⁺ and K⁺ as ℓ_I, ℓ₊, ℓ_K > 0. (b) Over Ω_*° a nonzero null covector is not
+orthogonal to the timelike dt^♭_*. Over ∂M, use (a) and [[sec:ii-b-1-3]]. ∎
+
+**Proposition {#prop:ii-c-4-2}** (Global dynamics of perturbed metrics; [Hin26c, Proposition 6.1] at n = 4.) Let
+γ : I → ∂Σ⁺ be a maximal integral curve of 𝖧_G over Ω_* ∩ {r ≥ r₀}. Then either γ lies over
+(Ω_* ∩ ℐ⁺) ∪ ι⁺ ∪ K⁺, where it is an integral curve of 𝖧_(G₀) and is described by [[prop:ii-b-8-1]]; or γ reaches
+{t^♭_* = 1} backward at a finite parameter, and forward either reaches {r = r₀} at a finite parameter, where
+𝖧_G r < 0, or tends to ᵉ³ᵇS*M over (Ω_* ∩ ℐ⁺) ∪ ι⁺ ∪ K⁺.
+
+*Proof.* The boundary faces are invariant, as 𝖧_G is a b-vector field; over them 𝖧_G = 𝖧_(G₀) ([[lem:ii-c-4-1]]). Let
+γ lie over M°. At ν ∈ Σ⁺ over M°, H_G t^♭_* = 2g⁻¹(ν, dt^♭_*) > 0, and 𝖧_G t^♭_* is bounded below by a positive
+constant on each compact subset of ∂Σ⁺ over Ω_* ∩ M°, by continuity.
+
+*Forward.* If t^♭_* ∘ γ is unbounded, its limit points lie over {t^♭_* = ∞} ∩ Ω_* = ι⁺ ∪ K⁺. Otherwise, either γ reaches
+{r = r₀}, or sup I = ∞ and a limit point over M° would be visited infinitely often, each visit to a fixed small
+neighbourhood lasting a parameter time bounded below and raising t^♭_* by a fixed amount, so t^♭_* → ∞; hence the limit
+points lie over ∂M at bounded t_*, which in Ω_* is ℐ⁺. At {r = r₀}, H_G r = 2g⁻¹(ν, dr) < 0 for future null ν, as dr
+is future timelike there ([[lem:ii-c-3-2]] (1)), so γ leaves {r ≥ r₀} there.
+
+*Backward.* Suppose that γ does not reach {t^♭_* = 1}. As 𝖧_G r < 0 at {r = r₀}, r increases backward there, so γ
+does not leave through {r = r₀} backward. Then inf I = −∞ and t^♭_* ∘ γ ↓ L ≥ 1, and as before the α-limit set 𝒜 lies
+over ℐ⁺ ∩ {t^♭_* = L}. Over ℐ⁺, t^♭_* = t_* by [[lem:ii-c-3-2]] (a), so ρ₊ = L⁻¹ on 𝒜. 𝒜 is non-empty, compact and
+invariant under 𝖧_(G₀), and every curve in it has ρ₊ constant, so by [[eq:ii-b-7-5]] ξ̂ = 0 and then η̂ = 0:
+𝒜 ⊂ ∂R_(ℐ⁺,out). Near ∂R_(ℐ⁺,out), by [[eq:ii-b-7-4]] and [[lem:ii-c-4-1]] (a),
+σ_(eb)⁻¹H_(G_(eb))x_I = (ξ̂ − 1)x_I + O(x_I^(1+2ℓ_I)) ≤ −½x_I for x_I small (with σ_(eb) > 0 on Σ⁺ there,
+[[lem:ii-c-5-3]] below, for ϵ_G small). So on a tail (−∞, s₁], x_I ∘ γ > 0 increases as s decreases and cannot tend
+to 0, a contradiction. ∎
+
+The backward statement for g₀ is [[prop:ii-b-8-2]], and the argument carries over by [[lem:ii-c-4-1]].

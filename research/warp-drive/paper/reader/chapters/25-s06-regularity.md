@@ -855,3 +855,87 @@ microsupported in U(2δ_2). ∎
 
 The constant ϑ_Γ < ½ν_min enters twice, as in [[sec:i-b-6-4]]: in Step 1, through ν_min − ϑ_Γ > 0, and in Step 4,
 through β < ½ with βν_min > ϑ_Γ, which is what lets the loss δ^(−β) of Step 3 be paid by the gain δ^(1/2) of Step 2.
+
+### Proof of the global estimate {#sec:ii-d-5}
+
+*Proof of [[thm:ii-d-1-2]].* Let u be as in [[thm:ii-d-1-2]] with the right side of [[eq:ii-d-1-4]] finite, and write
+ℛ for that right side. Extended by zero, u and Pu are supported in {t_*^♭ ≥ 1} ([[sec:ii-d-1-1]]). Below, ‖·‖_𝗍 is the
+norm of H^(𝗍,(2α_I,α_+,α_K))_e3b, and Pu is measured in H^(𝗍,(2α_I+2,α_++2,α_K))_e3b, which is the measure of Lu =
+W⁻¹Pu in H^𝗍 with the weights of u ([[sec:ii-d-1-1]]). We say u is *controlled at order* 𝗍 on an open set V ⊂ ᵉ³ᵇS*M
+if ‖Bu‖_𝗍 ≤ Cℛ, in the strong sense, for every B ∈ C_b^∞Ψ^0_e3b carried by χ with WF′(B) ⊂ V. Off the characteristic
+set u is controlled at every order up to 𝗌 + 1 ([[thm:ii-a1-3-1]]), so only ∂Σ^± matter. We treat ∂Σ⁺; on ∂Σ⁻ the
+future field is −𝖧, and the same steps apply to the antipodal images of the sets below, for which [[sec:ii-d-3]] and
+[[sec:ii-d-4]] prove the same estimates.
+
+Three facts are used throughout. (P1) *Propagation.* [[thm:ii-a1-5-4]], for L and with the weights put into the
+operator as in [[sec:ii-d-1-2]]: control at order 𝗍 on an open set V gives control at order 𝗍 at every ϖ whose
+backward 𝖧-curve enters V in finite time, provided 𝖧𝗍 ≤ 0 along it and Pu is in H^(𝗍−1) near it; for a compact set of
+such ϖ the entrance times are bounded, the flow being continuous on the compactified bundle. The orders 𝗌 and 𝗌 + 1
+are non-increasing along the future flow on ∂Σ⁺ for P ([[prop:ii-c-5-1]] (2)). (P2) *Initial surface.* As u = 0 in
+{t_*^♭ < 1}, u is controlled at every order there. (P3) *Dynamics.* Over M° every backward curve in ∂Σ⁺ reaches {t_*^♭
+= 1} at a finite parameter ([[prop:ii-c-4-2]]); over ∂M the curves are those of P_0 ([[lem:ii-c-4-1]]), described by
+[[prop:ii-b-8-1]], whose table we use with its notation R_𝓗, R^I_in, R^K_in, Γ_K, R^K_out, R^I_out.
+
+*Step 1: finite times.* Let t^♯ ∈ (1, ∞) and 𝒱_out a neighbourhood of ∂R_(ℐ⁺,out). Then u is controlled at order 𝗌 + 1
+on a neighbourhood of every compact subset of ∂Σ⁺ over Ω_* ∩ {t_*^♭ ≤ t^♯} disjoint from 𝒱_out, with C depending on
+t^♯ and 𝒱_out. Indeed, a point over M° has its backward curve reach {t_*^♭ < 1} by (P3). A point over ℐ⁺ at finite t_*,
+not in ∂R_(ℐ⁺,out), lies on a curve of the first row of the table, which reaches {t_* = 1} backward, and t_*^♭ = t_*
+there ([[lem:ii-c-3-2]] (a)). (P1) at order 𝗌 + 1, with Pu ∈ H^𝗌, and (P2) give the claim. Points of ∂R_(ℐ⁺,out) are
+fixed by the flow and are left to Step 6. ([Hin26c] propagates into them already here, by its Proposition 7.9 with
+finite t_(*,+); see [[sec:s06-remarks]].)
+
+*Step 2: the horizon and ∂R_(ℐ⁺,in,+).* [[prop:ii-d-3-1]] with the orders (𝗌 + 1, 𝗌_0), which are constant near
+∂R_(𝓗⁺), with 𝗌_0 > ½ + ϑ_𝓗 as 𝗌_0 is admissible ([[def:ii-c-2-4]] (4)), and [[prop:ii-d-3-5]] with the same orders,
+whose condition [[eq:ii-d-3-7]] is [[eq:ii-d-1-3]], have their E supported at finite times: in {ρ_K ≥ (2𝔐)⁻¹}, resp.
+{ρ_+ ≥ (2𝔐)⁻¹}. The E of [[prop:ii-d-3-5]] is microsupported near ξ̂ = 2, so away from ∂R_(ℐ⁺,out) = {ξ̂ = 0}, and that
+of [[prop:ii-d-3-1]] lies over a neighbourhood of the horizon, away from ℐ⁺. So Step 1, with t^♯ large and 𝒱_out small,
+bounds ‖Eu‖_(𝗌+1), and u is controlled at order 𝗌 + 1 on neighbourhoods V_𝓗 of ∂R_(𝓗⁺) and V_I of ∂R_(ℐ⁺,in,+).
+
+*Step 3: ∂R_(∂K⁺,in).* [[prop:ii-d-3-2]] with the orders (𝗌 + 1, 𝗌_0), where [[eq:ii-d-3-3]] holds as 𝗌_0 is
+admissible ([[def:ii-c-2-4]] (6)). Its E has kernel supported away from K⁺, near ∂K⁺, and is microsupported in a small
+neighbourhood of ∂R_(∂K⁺,in) where ρ_K⁻¹𝖧ρ_K ≤ −1. Let ϖ ∈ WF′(E) ∩ ∂Σ⁺. Over M°, its backward curve reaches {t_*^♭ <
+1} (P3). Over (ι⁺)°, ρ_K increases backward from ϖ, and it keeps increasing: a backward critical point of ρ_K with ρ_K
+> 0 would be a local maximum along the curve, against 𝖧²ρ_K > 0 there ([[lem:ii-b-3-3]] (3)). So the curve does not
+tend to R^K_out backward, where ρ_K = 0, and by the table over (ι⁺)° it tends to R^I_in, entering V_I. Points over ℐ⁺
+do not occur, ∂K⁺ being away from ℐ⁺. (P1) at order 𝗌 + 1 from V_I and (P2) bound ‖Eu‖_(𝗌+1), and u is controlled at
+order 𝗌 + 1 on a neighbourhood V_K of ∂R_(∂K⁺,in).
+
+*Step 4: the trapped set.* [[prop:ii-d-4-2]] with the orders (𝗌, 𝗌_0), constant over {r ≤ r_Γ} ([[def:ii-c-2-4]]
+(3)), with U_Γ ⊂ Φ_1(O) small and Pu ∈ H^𝗌. Let ϖ ∈ WF′(E) ∩ ∂Σ⁺. Over M°, its backward curve reaches {t_*^♭ < 1}.
+Over (K⁺)°, ϖ ∉ Γ^u_(K⁺), so ϖ is not in the global unstable set ∂Γ̄^u_(K⁺), as ∂Γ̄^u_(K⁺) ∩ Φ_1(O) = Γ^u_(K⁺)
+([[lem:ii-b-5-2]] (b), from the no-return condition (H8) (b)); by [[prop:ii-b-6-1]] (2) its curve tends backward to
+∂R_(𝓗⁺) or ∂R_(∂K⁺,in), entering V_𝓗 ∪ V_K. As WF′(E) is compact and the entrance times are locally bounded, (P1) at
+order 𝗌 + 1 and (P2) bound ‖Eu‖_(𝗌+1). So u is controlled at order 𝗌 on a neighbourhood V_Γ of ∂Γ_(K⁺). This is the
+step that needs Pu in H^𝗌, and the reason Steps 1–3 work at the order 𝗌 + 1.
+
+*Step 5: ∂R_(∂K⁺,out).* [[prop:ii-d-3-3]] with the orders (𝗌, 𝗌_0), with [[eq:ii-d-3-5]] from [[def:ii-c-2-4]] (5),
+at the order 𝗌 itself, the threshold being an upper bound. Its E is microsupported near ∂R_(∂K⁺,out) with WF′(E) ∩
+∂W_out = ∅. Let ϖ ∈ WF′(E) ∩ ∂Σ⁺. Over ∂K⁺ its curve is of type (R^K_in, R^K_out) and enters V_K backward. Over (K⁺)°,
+of type (A, R^K_out) with A ∈ {R_𝓗, R^K_in, Γ_K}, it enters V_𝓗 ∪ V_K ∪ V_Γ. Over (ι⁺)°, A ≠ R^K_out as ϖ ∉ ∂W_out,
+the unstable manifold of ∂R_(∂K⁺,out) over ι⁺ ([[lem:ii-b-3-3]] (4)), so by the table A = R^I_in, and the curve enters
+V_I. Over M°, it reaches {t_*^♭ < 1}. (P1) at order 𝗌 bounds ‖Eu‖_𝗌, and u is controlled at order 𝗌 on a neighbourhood
+V_(K,out) of ∂R_(∂K⁺,out).
+
+*Step 6: ∂R_(ℐ⁺,out).* [[prop:ii-d-3-6]] with t_(*,−) := ½, the orders (𝗌, 𝗌_0), constant near ∂R_(ℐ⁺,out)
+([[prop:ii-c-5-1]] (5)), and [[eq:ii-d-3-9]] from [[eq:ii-d-1-3]]. Its B is elliptic on ∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥ ½},
+which contains all of it over Ω_*. The part of E from the cut-off ψ_− has kernel in {t_*^♭ < 1}², where u = 0 (the
+paragraph after [[prop:ii-d-3-6]]). The rest of E is microsupported in a punctured neighbourhood of ∂R_(ℐ⁺,out). Let ϖ
+be a point of it in ∂Σ⁺. Over (ℐ⁺)°, its curve reaches {t_* = 1} backward (first row of the table). Over ℐ⁺ ∩ ι⁺ it is
+of type (R^I_in, R^I_out), and over (ι⁺)° of type (R^I_in, ·) or (R^K_out, R^I_out); it enters V_I ∪ V_(K,out). Over
+M°, it reaches {t_*^♭ < 1}. (P1) at order 𝗌 bounds ‖Eu‖_𝗌, and u is controlled at order 𝗌 on a neighbourhood V_(I,out)
+of ∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥ ½}.
+
+*Conclusion.* Let ϖ ∈ ∂Σ⁺ over supp χ. If ϖ lies over M° or over ℐ⁺ at finite t_*, it is controlled at order 𝗌 by Step
+1 when ϖ ∉ 𝒱_out, with t^♯ > t_*^♭(ϖ), and by Step 6 when ϖ ∈ V_(I,out), choosing 𝒱_out inside V_(I,out). If ϖ lies
+over K⁺ ∪ ι⁺, it lies in one of the sets of Steps 2–6 or on a curve of the table, whose backward end A is {t_* = 1} or
+one of R_𝓗, R^I_in, R^K_in, Γ_K, R^K_out, each of which has a controlled neighbourhood. This includes the curves inside
+the black hole, from ∂R_(𝓗⁺) to {r < r_0 − δ_0} ([[prop:ii-b-6-1]]), which reach supp χ ⊂ {r ≥ r_1}; (P1) at order 𝗌
+applies. By compactness of the cosphere bundle over supp χ, finitely many such B, with elliptic estimates off Σ, are
+jointly elliptic there, and the elliptic estimate ([[lem:ii-a-8-4]] (c)), with the a priori term ‖χu‖_(−N′) ≤
+‖u‖_(𝗌_0), gives [[eq:ii-d-1-4]], in the strong sense since every step propagates regularity.
+
+*Uniformity.* Each estimate used holds uniformly for P with ε_P small ([[prop:ii-d-3-1]]–[[prop:ii-d-3-6]],
+[[prop:ii-d-4-2]], [[thm:ii-a1-3-1]] and [[thm:ii-a1-5-4]]). The flow of P agrees with that of P_0 over ∂M, and over
+M° it differs by O(ε_P) in C¹ ([[lem:ii-c-4-1]] (a)), so the finitely many backward segments used above, which enter
+open sets in bounded times, have nearby segments for P with the same properties. d_0 is the largest of those required
+by the steps, at the orders 𝗌_0, 𝗌 and 𝗌 + 1. With [[rem:ii-d-1-3]] this proves [[thm:ii-d-1-2]]. ∎
