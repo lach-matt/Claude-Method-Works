@@ -44,7 +44,7 @@ and [[prop:iii-i15-2-12]]), and every statement below holds on the final ℬ_*. 
 at ι⁺; it is not the wavelength. The letter ϵ > 0 is small, and "order w−" means order w − ϵ for every ϵ > 0
 ([[sec:iii-i14-1]]). The types 𝒯 = {s1, v1, s0, s2, c0, c1}, the rows ν = (τ, λ, k) with their K⁺-exponents e_ν and
 weights κ_ν, the index set 𝒩 = 𝒩_ι ⊔ 𝒩_σ, the coefficient spaces 𝒲_(τ,ℂ), the parameter space 𝒫, the operator P_4 and
-the source classes 𝒴_2(α), 𝒴(α) are those of [[sec:iii-i9-1]] and [[sec:iii-i9-2]] (with (G) and the levels of
+the classes of sources 𝒴_2(α), 𝒴(α) are those of [[sec:iii-i9-1]] and [[sec:iii-i9-2]] (with (G) and the levels of
 [[ch:s22]]); ℳ, ℰ_(++), λ_♯ and the class 𝒴(α_1) of the levels below 3 are those of [[sec:iii-i8-1]]; ℰ_♯, ℰ^♮,
 𝒴^♮_2(β), 𝒴^♮(β) and the spaces 𝒵_β are those of [[ch:s22]] ([[def:iii-i13-1-2]]); 𝒬, h_(b,rem), P_5, R_q, Δ_q,
 𝒩_rot and ℳ_rot are those of [[def:iii-i14-1-1]]–[[def:iii-i14-1-3]]. The corrections of the first to fourth kinds
@@ -103,7 +103,7 @@ b near b₀, and [[lem:iii-h1-2-1]], [[eq:iii-h1-4-1]]–[[eq:iii-h1-5-2]] and [
 [[sec:iii-h1-2]]–[[sec:iii-h1-7]] at b, and its compactness argument covers [[prop:iii-h-3-2]]. The states' bounds are
 uniform in 𝒜^(q−δ) for every δ > 0 ([[rem:iii-h-2-6]]), a loss that the linear theory absorbs, each of its results
 using its weights with room. [[prop:iii-h2-1-1]] bounds the high-frequency loss at every order k at every
-b ∈ ℬ̄_1, with constants independent of b (the computation in its proof). The propositions of [[ch:s17]] on the
+b ∈ ℬ̄_1, with constants independent of b (by the argument of its proof). The propositions of [[ch:s17]] on the
 tf-normal operator and [[lem:iii-g4-4-3]] (used in [[lem:iii-i6-1-4]]) hold at b, their inputs being the tf-normal
 operator (P2), the zero energy states (P3) and [[ch:s18]].
 
@@ -150,8 +150,9 @@ and so is ġ_b(ḃ) = ġ^Υ_b(ḃ) = ∂_b g_b(ḃ) + δ*_(g_b)ω̇_b(ḃ), the 
 The reparametrisation by the leading coefficients in the proof of [[lem:iii-i14-2-1]] is linear in the parameter and
 keeps each family's parity.
 
-(P6): f^ν_b is the computation of [[lem:iii-i9-2-6]] (c) at b. Its errors near K⁺ are L_(h,p⃗) − L_b, which gains a_K
-there, as g_0 = g_b near K⁺ ([[lem:iii-i-3-6]]); its objects are smooth in b (P3), so the bounds are uniform. For E^ν:
+(P6): f^ν_b is the expression of [[lem:iii-i9-2-6]] (c), derived at b. Its errors near K⁺ are L_(h,p⃗) − L_b,
+which gains a_K there, as g_0 = g_b near K⁺ ([[lem:iii-i-3-6]]); its objects are smooth in b (P3), so the bounds are
+uniform. For E^ν:
 
 - The differences h^(b₀)_ν − h^b_ν and ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯) are b-differences of the 1-form towers and of their
   commutators with χ_K, so O(|b − b₀|) by (P3), and supported in supp χ_K.
@@ -187,7 +188,7 @@ injective ([[lem:iii-i10-2-2]]). Each nonzero element of its range is a nonzero 
 open set, so by compactness of the unit sphere of 𝒲 there is a compact 𝔎_0 ⊂ X° on which
 sup_(𝔎_0)|Θ_(b₀)W| ≥ 2c|W|. Θ_b depends continuously on b in C⁰(𝔎_0) (P3), so the bound with c holds for b near b₀.
 The proof of [[cor:iii-i10-2-3]] uses only [[lem:iii-i10-2-2]] and [[lem:iii-i9-2-2]] (e), the K⁺-weight
-Re e_ν + 1 − ϵ of m_ν(W) − χ_K r_ν h_τ(W), which is a computation with the tower relations and holds at b (P3). ∎
+Re e_ν + 1 − ϵ of m_ν(W) − χ_K r_ν h_τ(W), which follows from the tower relations alone and holds at b (P3). ∎
 
 **Remark {#rem:iii-i15-1-2}** (The rotation state at b.) For b ∈ ℬ̄_* and V ∈ 𝒱_1 there is ḃ_V, linear in V, with
 |ḃ_V| = O(|b − b₀||V|) and
@@ -201,7 +202,8 @@ coefficients are assigned in [[sec:iii-i15-2]], not read from the K⁺-expansion
 *Proof.* At b, h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in ker L̂_b(0) in the
 space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀,
 with the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of
-[[prop:iii-h-3-2]]: the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is invertible). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with
+[[prop:iii-h-3-2]]: the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is
+invertible). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with
 |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses
 h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by the injectivity of S ↦ h_b(S) ([[lem:iii-i15-1-2]]). So
 h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, the ġ_b(ḃ) being part of a basis. ∎

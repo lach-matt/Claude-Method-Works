@@ -1551,8 +1551,8 @@ of [[def:s11-b-analysis]] (5) with partial expansions (index set (0, 0) at zf, c
 *The inputs in dimension 4 + 1.* The four statements [Hin26, (2.25a)–(2.26b)], called (T1)–(T4) here, are proved in
 dimension 4 + 1 in [[ch:s10]]:
 
-(T1) ([Hin26, (2.25a)] and the matching statement of [Hin26, (2.25b)]): by [[prop:ii-g1-3-3]] (1), for β_K ∈ (0, ∞) ∖ ℕ, ε ∈ (0, 1),
-β_I ≥ β_ι − min(β_K, 1 − ε) and u ∈ H^(k+1,(β_I,β_ι,β_K))_b(M),
+(T1) ([Hin26, (2.25a)] and the matching statement of [Hin26, (2.25b)]): by [[prop:ii-g1-3-3]] (1), for β_K ∈ (0, ∞) ∖ ℕ,
+ε ∈ (0, 1), β_I ≥ β_ι − min(β_K, 1 − ε) and u ∈ H^(k+1,(β_I,β_ι,β_K))_b(M),
 (ℱu)|_(±(0,1]) ∈ H^(k,(min(β_I,β_ι)−ε,β_ι−1,((0,0),β_K−1)))_b(X^±_sc-b), with the σ-Taylor coefficients of order
 < β_K − 1 of the two signs equal.
 
@@ -1562,8 +1562,8 @@ dimension 4 + 1 in [[ch:s10]]:
 v^± ∈ H^(k+ℓ,(β_scf,β_ι−1,((0,0),β_K−1)))_b(X^±_sc-b) have the same σ-Taylor coefficients, then
 ℱ⁻¹v ∈ H^(k,(min(β_scf,β_ι)−ε,β_ι,β_K))_b(M), v := χ(σ)Σ_± 1_(±σ>0)v^±.
 
-(T4) ([Hin26, (2.26b)]): [[prop:ii-g1-3-5]] (2), whose high-frequency space carries the weight δ − 1 where that of [Hin26] carries δ;
-the statement of [Hin26], with any δ, follows by renaming δ.
+(T4) ([Hin26, (2.26b)]): [[prop:ii-g1-3-5]] (2), whose high-frequency space carries the weight δ − 1 where that of
+[Hin26] carries δ; the statement of [Hin26], with any δ, follows by renaming δ.
 
 We also use, from the same proofs, that ℱ ∘ t_*∂_(t_*) = (−σ∂_σ − 1) ∘ ℱ (integration by parts:
 ∫ e^(iσt_*) t_*∂_(t_*)u = −∫(iσt_* + 1)e^(iσt_*)u, and ∂_σℱu = ℱ(it_*u)), and that ℱ commutes with operators in x. As

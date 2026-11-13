@@ -28,13 +28,13 @@ With the 1-form modification of [[eq:iii-b-6-2]], for v_C ∈ (0, 1), e_C, γ_C 
 |x|⁻¹(dt − v_C d|x|) for large |x|, put
 
     δ*_(g,E_C) := δ*_g + E^C_g,     E^C_g ω = γ_C (2 c_C ⊗_s ω − (2/3)(1 − e_C) g ι_(g⁻¹c_C) ω),
-    □^C_b := 2 δ_(g_b) G_(g_b) δ*_(g_b,E_C),                                                                 {#eq:iii-e-1-1}
+    □^C_b := 2 δ_(g_b) G_(g_b) δ*_(g_b,E_C),                                                              {#eq:iii-e-1-1}
 
 the *constraint propagation operator*; P^C_b := (□^C_b)^(0) is its zero energy operator. Here
 δ*ω = ½(ω_(a;b) + ω_(b;a)), G_g = Id − ½ g tr_g, (δk)_a = −g^(bc) k_(ab;c) and a ⊗_s b = ½(a ⊗ b + b ⊗ a). The formal
 adjoint of □^C_b for the fibre pairing g_b⁻¹ and the volume density |dg_b| is
 
-    (□^C_b)* = 2 (δ*_(g_b,E_C))* G_(g_b) δ*_(g_b)                                                             {#eq:iii-e-1-2}
+    (□^C_b)* = 2 (δ*_(g_b,E_C))* G_(g_b) δ*_(g_b)                                                         {#eq:iii-e-1-2}
 
 ([Hin26, (7.11)]), as δ_g = (δ*_g)* and G_g is symmetric. On stationary sections the spectral family of (□^C_b)* at zero
 energy is the formal adjoint of P^C_b for the pairing B(u, w) := ∫_X g_b⁻¹(u, w̄) |dg_b|_X|, |dg_b| = |dt_*| ⊗ |dg_b|_X|,
@@ -87,7 +87,7 @@ The bundle E, the operators □^C_b, P^C_b and (P^C_b)* are those of [[sec:iii-e
 is the modification C_(g,c,e,h) of [Hin26a, (3.1)] with the trace weight 2/3 in place of 1, and □^C_b = □^(C_h)_g of
 [Hin26a, (3.2)], with
 
-    h² □^C_b = 2h² δ_g G_g δ*_g − i L_(g,c,e,h),     L_(g,c,e,h) = 4ih δ_g(c ⊗_s ·) + 2ihe d ι_(c♯).            {#eq:iv4-0-2}
+    h² □^C_b = 2h² δ_g G_g δ*_g − i L_(g,c,e,h),     L_(g,c,e,h) = 4ih δ_g(c ⊗_s ·) + 2ihe d ι_(c♯).        {#eq:iv4-0-2}
 
 The weight 2/3 = 2/(D − 2) is the one for which h G_g E^C ω has the form 2c ⊗_s ω − e g⟨c, ω⟩ for every e
 ([[prop:np-10-12]] (i)). With the weight 1, the literal transcription of the four-dimensional operator, the conclusions
@@ -364,13 +364,13 @@ w)) ≥ 2 > 1. The first condition is ±(r − r_0) > 0. ∎
 
 **Proposition {#prop:np-10-14}** (A damping 1-form on Tangherlini space.) Let μ = 1, so that r_h = 1, and let
 
-    g = −f dt² + 2(1 − f) dt dr + (2 − f) dr² + r² 𝑔̸,     f = 1 − μr⁻²,                                    {#eq:s14-tang}
+    g = −f dt² + 2(1 − f) dt dr + (2 − f) dr² + r² 𝑔̸,     f = 1 − μr⁻²,                                   {#eq:s14-tang}
 
 the Tangherlini metric in Kerr–Schild time, regular across the horizon; its t differs from the static time by
 ∫(f⁻¹ − 1) dr, and g⁻¹ has (t, r) block g^(tt) = −1 − μr⁻², g^(tr) = μr⁻², g^(rr) = f. Let r_0 := 100 and
 
     c := (2r_0)⁻¹(dt + (v/2) dr)  (r ≤ r_0/2),   ½ r_0⁻²(r_0 dt − v(r − r_0) dr)  (r_0/2 ≤ r ≤ 2r_0),
-    c := r⁻¹(dt − v dr)  (r ≥ 2r_0).                                                                       {#eq:s14-cform}
+    c := r⁻¹(dt − v dr)  (r ≥ 2r_0).                                                                      {#eq:s14-cform}
 
 Then c is continuous, and:
 
@@ -513,7 +513,7 @@ the fibre inner product B. At ζ = ξ dr over r = r_h, ξ > 0:
 (iv) ϑ_ℋ is the largest eigenvalue of (r_h/2)(X_s − h⁻¹ℓ(dr)): the larger of −ar_h/h, on r dω, and the larger root ν₊
 of
 
-    χ(ν) := ν² + (3 − e)sν + (1 + e)s + 2(1 − e)s² − (1 + e)²/(4e),     s := ar_h/h = 1/(200h);               {#eq:s14-chi}
+    χ(ν) := ν² + (3 − e)sν + (1 + e)s + 2(1 − e)s² − (1 + e)²/(4e),     s := ar_h/h = 1/(200h);             {#eq:s14-chi}
 
 (v) at (v, e) = (1/2, 1/102400), ½ + ϑ_ℋ < −100 for every h ∈ (0, h_2), where h_2 = 2.6197… · 10⁻⁵ is the positive root
 of 31744512005000h² + 3077109850h − 102399; in particular for every h ∈ (0, 10⁻⁶]. At h = 10⁻⁶, ϑ_ℋ = −4995.83…; and
@@ -565,7 +565,7 @@ appears to the third power instead of the second, which no step uses beyond its 
 **Lemma {#lem:iv4-1-2}** (The structure at infinity; [Hin26a, (6.4)] in dimension 4 + 1.) Near ∂X, in t_*, ρ and
 spherical coordinates,
 
-    □^C_b = −2∂_(t_*) ρ(ρ∂_ρ − 3/2 − S̄^C − ρS̃) + P^C_b + Q∂_(t_*) + R∂²_(t_*),                              {#eq:iv4-1-1}
+    □^C_b = −2∂_(t_*) ρ(ρ∂_ρ − 3/2 − S̄^C − ρS̃) + P^C_b + Q∂_(t_*) + R∂²_(t_*),                            {#eq:iv4-1-1}
 
 with S̃ smooth, Q ∈ ρ³Diff¹_b, R ∈ ρ²C^∞, P^C_b ∈ ρ²Diff²_b, and S̄^C constant with spectrum
 γ_C{2(1 − v_C), (1 − e_C)(1 − v_C), 1 − v_C (three times)}, all positive.
@@ -895,7 +895,7 @@ term. ∎
 
 By [[lem:iv5-0-4]] there is C with C(ρ_sf⁻²ℓ)² + ρ_sf⁻²G > 0 on ³ᵇT*_Ω M^♭ ∖ o. As in [Hin26a, (5.31)–(5.32)], define
 
-    𝓛_h := −i(1 + iCL_h*ρ_sf⁻²)P_h = −L_h + J − iQ ∈ ρ_sf²Diff³_(3b,ħ),                                      {#eq:iv5-2-1}
+    𝓛_h := −i(1 + iCL_h*ρ_sf⁻²)P_h = −L_h + J − iQ ∈ ρ_sf²Diff³_(3b,ħ),                                     {#eq:iv5-2-1}
 
 with J = h²J_0 + h³J_1, J_0 = Im □_g, J_1 = Ch⁻³Re(L_h*ρ_sf⁻²□_h), Q = h²Q_0 + h³Q_1,
 Q_0 = h⁻²Re(□_h + CL_h*ρ_sf⁻²L_h) and Q_1 = −Ch⁻³Im(L_h*ρ_sf⁻²□_h). The memberships J_0 ∈ ρ²Diff¹_3b,
@@ -1169,7 +1169,7 @@ Fix (α_sf, α_K) as in [[lem:iv5-0-5]] and b ∈ U.
 **Proposition {#prop:iv5-7-1}** ([Hin26a, Proposition 5.17] in dimension 4 + 1.) For s ≥ 1 there are h_0 > 0 and C such
 that for h ∈ (0, h_0) and ω ∈ H^(s+1,(α_sf,α_K))_(3b,h)(Ω)^(•,−),
 
-    ‖ω‖_(H^(s,(α_sf,α_K))_(3b,h)(Ω)^(•,−)) ≤ Ch⁻¹‖P_hω‖_(H^(s−1,(α_sf+2,α_K))_(3b,h)(Ω)^(•,−)).                {#eq:iv5-5-79}
+    ‖ω‖_(H^(s,(α_sf,α_K))_(3b,h)(Ω)^(•,−)) ≤ Ch⁻¹‖P_hω‖_(H^(s−1,(α_sf+2,α_K))_(3b,h)(Ω)^(•,−)).            {#eq:iv5-5-79}
 
 *Proof.* Take s = 1 first. Every microlocal estimate below bounds ‖B_0ω‖ by h⁻¹‖B_1P_hω‖, an a priori term ‖Eω‖ and
 h^N‖χω‖_(H^(−N)). Each step's a priori set lies in the elliptic sets of the B_0's of earlier steps, so the estimates
@@ -1230,7 +1230,7 @@ apply to ω̃ on {r ≥ (7/8)r_♯}, where Σ^♯ is now interior. Near τ = 0 t
 **Proposition {#prop:iv5-7-2}** (The adjoint estimate [Hin26a, (5.81)] in dimension 4 + 1.) For s′ ≥ 1 there are h_0 > 0
 and C such that for h ∈ (0, h_0),
 
-    ‖ω′‖_(H^(s′,(−α_sf−2,−α_K))_(3b,h)(Ω)^(−,•)) ≤ Ch⁻¹‖P_h*ω′‖_(H^(s′−1,(−α_sf,−α_K))_(3b,h)(Ω)^(−,•)).          {#eq:iv5-5-81}
+    ‖ω′‖_(H^(s′,(−α_sf−2,−α_K))_(3b,h)(Ω)^(−,•)) ≤ Ch⁻¹‖P_h*ω′‖_(H^(s′−1,(−α_sf,−α_K))_(3b,h)(Ω)^(−,•)).   {#eq:iv5-5-81}
 
 *Proof.* At s′ = 1 the estimates chain as follows, each later a priori set covered by earlier steps.
 
@@ -1279,7 +1279,7 @@ weights ([Hin26a, (5.18)]);
 (b) the initial value problem
 
     □^C_bω = f ∈ ρ_sf^(α_sf+2)ρ_K^(α_K)H̄⁰_3b(Ω, |dg|),
-    (ω, r𝓛_(∂_t)ω)|_(X_0) ∈ ρ_sf^(α_sf+½)H̄¹_b(X_0, r³|dr d𝑔̸|) ⊕ ρ_sf^(α_sf+½)H̄⁰_b(X_0, r³|dr d𝑔̸|)        {#eq:iv5-5-16}
+    (ω, r𝓛_(∂_t)ω)|_(X_0) ∈ ρ_sf^(α_sf+½)H̄¹_b(X_0, r³|dr d𝑔̸|) ⊕ ρ_sf^(α_sf+½)H̄⁰_b(X_0, r³|dr d𝑔̸|)      {#eq:iv5-5-16}
 
 has a unique solution ω ∈ ρ_sf^(α_sf)ρ_K^(α_K)H̄¹_3b(Ω, |dg|), the densities on X_0 being Euclidean;
 
@@ -1367,7 +1367,7 @@ faces 𝗌𝖿 (the lift of ∂ℝ̄^(1+4)) and 𝖼𝖿 (the lift of {r = 0}). 
 bundle, with frame dt, dx¹, …, dx⁴. Let X := [ℝ̄⁴; {0}] = [0, ∞]_ρ × 𝕊³, ρ = r⁻¹, and 𝒯*_X := 𝒯*|_X. In t_* := t − r,
 the spectral family is
 
-    (□^C)^(σ) := e^(iσt_*) □^C e^(−iσt_*) on stationary sections,     σ ∈ ℂ ∖ 0, Im σ ≥ 0.                      {#eq:iv6-0-1}
+    (□^C)^(σ) := e^(iσt_*) □^C e^(−iσt_*) on stationary sections,     σ ∈ ℂ ∖ 0, Im σ ≥ 0.                  {#eq:iv6-0-1}
 
 **Lemma {#lem:s14-tf-inputs}** (The model's homogeneity, weights and thresholds.) (i) In the frame dt, dx^i and in
 (t_*, x), the coefficient of every derivative of order k in □^C is homogeneous of degree k − 2 in x.
@@ -1412,7 +1412,7 @@ dx^i; so r²(□^C)^(0) ∈ Diff²_b(X; 𝒯*_X) is dilation invariant.
 
 (b) In the splitting of 𝒯*_X by dr, dt_* = dt − dr and r dω,
 
-    (□^C)^(σ) = 2iσρ(ρ∂_ρ − 3/2 − h⁻¹S̄) + (□^C)^(0),     (□^C)^(0) ∈ ρ²Diff²_b(X; 𝒯*_X),                     {#eq:iv6-0-2}
+    (□^C)^(σ) = 2iσρ(ρ∂_ρ − 3/2 − h⁻¹S̄) + (□^C)^(0),     (□^C)^(0) ∈ ρ²Diff²_b(X; 𝒯*_X),                   {#eq:iv6-0-2}
 
 where S̄ = M of [[prop:np-10-21]] is constant and lower triangular with diagonal 2(1 − v), (1 − e)(1 − v) and
 (1 − v)Id_(T*𝕊³); it is diagonalisable with spectrum {2(1 − v), (1 − e)(1 − v), 1 − v}, the last three times.
@@ -1452,12 +1452,13 @@ constant near R_in and R_out and non-increasing along σH_(G_σ).
 **Proposition {#prop:iv6-1-1}** ([Hin26a, Proposition B.2] in dimension 4 + 1.) For (s, ℓ, β) admissible at
 σ ∈ e^(i[0,π]),
 
-    (□^C)^(σ) : {ω ∈ H^(s,(ℓ,β))_(sc,b) : (□^C)^(σ)ω ∈ H^(s−2,(ℓ+1,β−2))_(sc,b)} → H^(s−2,(ℓ+1,β−2))_(sc,b)          {#eq:iv6-1-1}
+    (□^C)^(σ) : {ω ∈ H^(s,(ℓ,β))_(sc,b) : (□^C)^(σ)ω ∈ H^(s−2,(ℓ+1,β−2))_(sc,b)}
+                  → H^(s−2,(ℓ+1,β−2))_(sc,b)                                                             {#eq:iv6-1-1}
 
 is Fredholm of index 0, and its nullspace and the annihilator of its range do not depend on the admissible (s, ℓ, β).
 The estimate
 
-    ‖ω‖_(H^(s,(ℓ,β))_(sc,b)) ≤ C(‖(□^C)^(σ)ω‖_(H^(s−2,(ℓ+1,β−2))_(sc,b)) + ‖ω‖_(H^(s_0,(ℓ_0,β_0))_(sc,b)))       {#eq:iv6-1-2}
+    ‖ω‖_(H^(s,(ℓ,β))_(sc,b)) ≤ C(‖(□^C)^(σ)ω‖_(H^(s−2,(ℓ+1,β−2))_(sc,b)) + ‖ω‖_(H^(s_0,(ℓ_0,β_0))_(sc,b)))  {#eq:iv6-1-2}
 
 (for admissible s_0 < s, ℓ_0 < ℓ, β_0 < β, in the strong sense) and its dual ([Hin26a, (B.28)]) hold uniformly for σ in
 e^(i[0,π−δ]) near 1 and in e^(i[δ,π]) near −1, for fixed orders admissible there.
@@ -1556,7 +1557,7 @@ H^(−N,(−N,α_cf))_eb(Ω_(≤t_0))^(•,−) for all t_0 and some N ≤ C₁;
 
 (2) the initial value problem with f ∈ H̄^(0,(α_sf+2,α_cf−2))_eb(Ω, |dg|) and
 
-    (ω, r𝓛_(∂_t)ω)|_(X_0) ∈ ρ_sf^(α_sf+½)ρ_cf^(α_cf−½)(H̄¹_b ⊕ H̄⁰_b)(X_0, r³|dr d𝑔̸|)                         {#eq:iv6-2-1}
+    (ω, r𝓛_(∂_t)ω)|_(X_0) ∈ ρ_sf^(α_sf+½)ρ_cf^(α_cf−½)(H̄¹_b ⊕ H̄⁰_b)(X_0, r³|dr d𝑔̸|)                      {#eq:iv6-2-1}
 
 has a solution ω ∈ H̄^(1,(α_sf,α_cf))_eb(Ω), unique among solutions whose restrictions to every Ω_(≤t_0) lie in
 H̄^(1,(−N,α_cf))_eb for some N.
@@ -1844,7 +1845,8 @@ With ω̄_s0, ω̄_s1(S) and V as in [[eq:iii-d2-1-2]]:
 **Proposition {#prop:iii-e-3-1}** ([Hin26, Proposition 7.3] in dimension 4 + 1.) Assume (Dyn). (1) (*States.*) There
 are stationary 1-forms
 
-    ω*^((0))_(b,s0), ω*^((0))_(b,s1)(S) ∈ Ḣ_b^(1,((0,0),C_0+2)),     ω*^((−1))_(b,v1)(V) ∈ Ḣ_b^(1,((−1,0),C_0+2)),       {#eq:iii-e-3-1}
+    ω*^((0))_(b,s0), ω*^((0))_(b,s1)(S) ∈ Ḣ_b^(1,((0,0),C_0+2)),
+    ω*^((−1))_(b,v1)(V) ∈ Ḣ_b^(1,((−1,0),C_0+2)),                                                        {#eq:iii-e-3-1}
 
 linear in S ∈ 𝒮₁ and V ∈ 𝒱₁, of class C^k in b with values in Ḣ_b^(1−k,((0,0),C_0+2)), resp.
 Ḣ_b^(1−k,((−1,0),C_0+2)), with leading terms ω̄_s0, ω̄_s1(S), V, and ω*^((0))_(b,s0) − χg_b(∂_(t_*), ·) ∈ Ḣ_b^(1,C_0+2),
@@ -1854,7 +1856,8 @@ which lie in ker(□^C_b)*. The corrections to the translations and rotations, �
 
 (2) (*Dual pure gauge states.*)
 
-    h*_(b,s0) := G_(g_b)δ*_(g_b)ω*^((0))_(b,s0) ∈ Ḣ_b^(0,C_0+3),     h*_(b,s1)(S), h*_(b,v1)(V) ∈ Ḣ_b^(0,((3,0),C_0+3)),     {#eq:iii-e-3-2}
+    h*_(b,s0) := G_(g_b)δ*_(g_b)ω*^((0))_(b,s0) ∈ Ḣ_b^(0,C_0+3),
+    h*_(b,s1)(S), h*_(b,v1)(V) ∈ Ḣ_b^(0,((3,0),C_0+3)),                                                  {#eq:iii-e-3-2}
 
 with h*_(b,s1)(S) := G_(g_b)δ*_(g_b)ω*^((0))_(b,s1)(S) and likewise for V, of class C^k in b in Ḣ_b^(−k,C_0+3), resp.
 Ḣ_b^(−k,((3,0),C_0+3)); and h*_(b,v1)(V) ∈ Ḣ_b^(0,C_0+3) when R_V is Killing for g_b. All these 1-forms and tensors
@@ -1922,7 +1925,7 @@ self-adjointness of G D Ric; the argument of [Hin26] uses G² = Id, which fails 
 [[sec:iii-e-1]]; g_b = Φ_μ*g^KS_(μ,A) as in [[sec:iii-b-3-1]]. C^∞ means smooth on X̄ in the trivialisation by dt_*,
 dx^i. For W ∈ 𝔰𝔬(4) put
 
-    R_W := (Wx)·∂_x,     V(W) := ḡ(R_W, ·) = (Wx)·dx,                                                       {#eq:iii-e1-1-1}
+    R_W := (Wx)·∂_x,     V(W) := ḡ(R_W, ·) = (Wx)·dx,                                                    {#eq:iii-e1-1-1}
 
 so that 𝒱₁ = {V(W) : W ∈ 𝔰𝔬(4)} is the six-dimensional space of rotation 1-forms of [[eq:iii-d2-1-2]], and
 ρV(W) = (Wω)·dx ∈ C^∞, ω := x/|x|. For V = V(A_V) ∈ 𝒱₁ write V_b := g_b(R_(A_V), ·) = g_bḡ⁻¹V. P* := (P^C_b)* is the
@@ -1944,11 +1947,11 @@ through |x| only, and so commute with, resp. are invariant under, φ_O; χ is a 
 **Lemma {#lem:iii-e1-2-2}** ([Hin26, Lemma 7.5] in dimension 4 + 1.) Let b = (μ, A), A_V ∈ 𝔰𝔬(4), V := V(A_V),
 R := R_(A_V) and W := [A, A_V]. Then exactly
 
-    δ*_(g_b)V_b = ½D_Ag_((μ,A))(W),     D_Ag_((μ,A))(W) := (d/ds)g_((μ,A+sW))|_(s=0),                            {#eq:iii-e1-2-1}
+    δ*_(g_b)V_b = ½D_Ag_((μ,A))(W),     D_Ag_((μ,A))(W) := (d/ds)g_((μ,A+sW))|_(s=0),                    {#eq:iii-e1-2-1}
 
 and near ∂X
 
-    δ*_(g_b)V_b = μρ³(dt_* + 2 d|x|) ⊗_s ρV(W) + h̃_b(W),                                                     {#eq:iii-e1-2-2}
+    δ*_(g_b)V_b = μρ³(dt_* + 2 d|x|) ⊗_s ρV(W) + h̃_b(W),                                                {#eq:iii-e1-2-2}
 
 with h̃_b : 𝔰𝔬(4) → ρ⁴C^∞(X̄; S²T*X) linear and smooth in b. So δ*_(g_b)V_b depends on V only through W, and the right
 side of [[eq:iii-e1-2-1]] is defined for every W ∈ 𝔰𝔬(4).
@@ -2000,23 +2003,24 @@ dimension 3 + 1 the dimensions are 3 and 1.
 
 Let
 
-    c_0 := μ(1 + 2(1 + v_C)γ_C)/(3(1 + 2v_Cγ_C)),     κ_C := (1 + 2(v_C − 1)γ_C)/(1 + 2v_Cγ_C).                       {#eq:iii-e1-3-1}
+    c_0 := μ(1 + 2(1 + v_C)γ_C)/(3(1 + 2v_Cγ_C)),     κ_C := (1 + 2(v_C − 1)γ_C)/(1 + 2v_Cγ_C).          {#eq:iii-e1-3-1}
 
 **Proposition {#prop:iii-e1-3-1}** ([Hin26, Proposition 7.4] in dimension 4 + 1.) Assume (Dyn). Write A(b) := A for
 b = (μ, A). The dual states of [[prop:iii-e-3-1]] can be written
 
-    h*_(b,v1)(V) = h♯_(b,v1)([A(b), A_V]) + h♭_(b,v1)(V),     V = V(A_V) ∈ 𝒱₁,                                {#eq:iii-e1-3-2}
+    h*_(b,v1)(V) = h♯_(b,v1)([A(b), A_V]) + h♭_(b,v1)(V),     V = V(A_V) ∈ 𝒱₁,                           {#eq:iii-e1-3-2}
 
 where:
 
 (1) h♯_(b,v1)(W) ∈ ρ³C^∞(X̄; S²T*X) is linear in W ∈ 𝔰𝔬(4), smooth in b, vanishes where χ = 0, and has the ρ³ leading
 term
 
-    h̄♯(W) = μρ³(dt_* + κ_C d|x|) ⊗_s ρV(W);                                                                  {#eq:iii-e1-3-3}
+    h̄♯(W) = μρ³(dt_* + κ_C d|x|) ⊗_s ρV(W);                                                             {#eq:iii-e1-3-3}
 
 moreover, for every W ∈ 𝔰𝔬(4),
 
-    (δ*_(g_b,E_C))*h♯_(b,v1)(W) ∈ ρ^(⌊C_0⌋+5)C^∞(X̄; T*X),     (D_(g_b)Ric)^(0)*h♯_(b,v1)(W) ∈ C_c^∞(X°; S²T*X);     {#eq:iii-e1-3-4}
+    (δ*_(g_b,E_C))*h♯_(b,v1)(W) ∈ ρ^(⌊C_0⌋+5)C^∞(X̄; T*X),
+    (D_(g_b)Ric)^(0)*h♯_(b,v1)(W) ∈ C_c^∞(X°; S²T*X);                                                    {#eq:iii-e1-3-4}
 
 (2) h♭_(b,v1)(V) ∈ Ḣ_b^(0,C_0+3)(X; S²T*X) is linear in V and of class C^k in b with values in Ḣ_b^(−k,C_0+3);
 
@@ -2025,7 +2029,7 @@ is Killing for g_b.
 
 *Proof. Step 1, the leading order.* For W ∈ 𝔰𝔬(4) put, on supp χ,
 
-    k_b(W) := G_(g_b)(½D_Ag_b(W) + c_0 δ*_(g_b)(|x|⁻³V(W))),                                                {#eq:iii-e1-3-5}
+    k_b(W) := G_(g_b)(½D_Ag_b(W) + c_0 δ*_(g_b)(|x|⁻³V(W))),                                             {#eq:iii-e1-3-5}
 
 linear in W and smooth in b. If W = [A, A_V], then k_b(W) = G_(g_b)δ*_(g_b)ω♯(V) with ω♯(V) := V_b + c_0|x|⁻³V(W), by
 [[eq:iii-e1-2-1]]. Near ∂X: g_b − ḡ ∈ ρ²C^∞, so G_(g_b) − Ḡ ∈ ρ²C^∞ and δ*_(g_b) − δ̄* ∈ ρ³C^∞ (the Christoffel symbols);
@@ -2046,7 +2050,7 @@ which cancel by [[eq:iii-e1-3-1]]; 3(1 + 2v_Cγ_C) is the vector type 1 indicial
 ([[prop:np-10-31]] (i)). And (δ*_(g_b,E_C))* − (δ̄ + Ē_C*) ∈ ρ³Diff¹_b near ∂X (g_b − ḡ ∈ ρ²C^∞,
 c_C − c̄_C ∈ ρ³C^∞, [[sec:iii-e-1]]), while δ̄ + Ē_C* ∈ ρDiff¹_b; hence
 
-    f₁(W) := 2(δ*_(g_b,E_C))*(χk_b(W)) ∈ C_c^∞(X°) + ρ⁵C^∞,                                                   {#eq:iii-e1-3-6}
+    f₁(W) := 2(δ*_(g_b,E_C))*(χk_b(W)) ∈ C_c^∞(X°) + ρ⁵C^∞,                                              {#eq:iii-e1-3-6}
 
 the commutator with χ being supported where dχ ≠ 0. The leading term of k_b(W) is
 h_0 − 3c_0r⁻⁴dr ⊗_s V = ρ³(μ dt_* + (2μ − 3c_0) d|x|) ⊗_s ρV, and 2μ − 3c_0 = μκ_C: this is [[eq:iii-e1-3-3]].
@@ -2059,7 +2063,7 @@ hypothesis (E2) of [[ch:s11]]). Removing in turn, for j = 3, …, J, the coeffic
 by ρ^jc_j(W), c_j(W) := −N(ρ⁻²P*, j)⁻¹ applied to that coefficient, gives ω′♯₁(W) := Σ_(j=3)^J ρ^jc_j(W), linear in W
 and smooth in b, with
 
-    r_b(W) := f₁(W) + P*(χω′♯₁(W)) ∈ C_c^∞(X°) + ρ^(J+3)C^∞.                                                  {#eq:iii-e1-3-7}
+    r_b(W) := f₁(W) + P*(χω′♯₁(W)) ∈ C_c^∞(X°) + ρ^(J+3)C^∞.                                             {#eq:iii-e1-3-7}
 
 (This is [[lem:iii-a-1-5]] with no pole met.)
 
@@ -2173,3 +2177,4 @@ z(u + 1)/(2u(2u + 1)) > z(u − 1)/(2u(2u − 1)); so the least distance is d₂
 *Remark.* At the single value h = 10⁻⁶ the infimum ε_ind(10⁻⁶) equals δ_50, the roots of P_l and p_(v) staying farther
 from the integers for every l < 10⁴. [[pending:computational-2]] Later chapters use only ε_ind(h) > 0 and
 ε_ind(h) ≤ δ_50, which hold for every admissible h by (iii).
+

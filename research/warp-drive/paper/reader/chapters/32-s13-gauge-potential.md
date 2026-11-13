@@ -20,13 +20,13 @@ from [AHW24, Theorem 5.1] on Kerr, mode stability of the unmodified operator awa
 zero frequency, are proved here on five-dimensional Tangherlini, by ordinary differential equations whose potentials
 are positive. The corrections to the boosts and to the time translation carry no logarithm.
 
-Seven results of the main argument enter as inputs and are proved in this chapter, with every identity derived:
+Twelve results of the main argument enter as inputs and are proved in this chapter, with every identity derived:
 [[prop:np-10-15]] (the zero energy data of the unmodified operator), [[prop:np-10-16]] (the mode equations on
 Tangherlini), [[prop:np-10-18]] (the structure at infinity and the horizon threshold), [[prop:np-10-20]] (the
 transition face and the weights), [[prop:np-10-28]] (the symmetries and the linearised Myers–Perry metrics),
-[[prop:np-10-29]] and [[prop:np-10-30]] (the model generalised states and their root facts). The trapping results
-of [[prop:np-10-17-i]]–[[prop:np-10-17-v]] and [[prop:np-10-19-ii]]–[[prop:np-10-19-iii]] are proved in
-[[ch:s12]].
+[[prop:np-10-29]] and [[prop:np-10-30]] (the model generalised states and their root facts). So are the
+trapping identities [[prop:np-10-17-i]], [[prop:np-10-17-iii]]–[[prop:np-10-17-v]] and [[prop:np-10-19-iii]];
+[[prop:np-10-17-ii]], [[prop:np-10-19-ii]] and [[prop:np-10-19-iv]] are proved in [[ch:s12]].
 
 *The dynamical hypotheses.* The theory of [[ch:s01]]–[[ch:s03]] applies to operators on a trivial bundle satisfying
 hypotheses (H1)–(H8), (G), (Z) and (TF). Some of these concern the metric alone: the radial structure of the horizon in
@@ -377,22 +377,114 @@ dimension 4 + 1 it is the same at γ_(Υ,H) = 0, and for this c_(Υ,H) it is exa
 fibre inner product makes the skew part at the trapped set smaller than ϵ) at every subextremal Kerr parameter. The
 theory of [[ch:s02]] does not use that property: [[thm:i-b-1-3]] assumes (Γ.4), the condition γ_− < 0, that is
 sup_Γ λ_max(p_1^Γ) < ½ν_min, and its losses are governed by δ_Γ ([[eq:i-b-1-4]]). That condition is open, and we
-prove it near b_0. We use the following facts on Tangherlini, proved in [[ch:s12]].
+prove it near b_0. We use the facts (a)–(d) below on Tangherlini. Those in (b) are proved in [[ch:s12]], and the others
+are proved here.
+
+On {r > r_h}, in the static chart, write a covector as ζ = −σ dt + ξ dr + η with η angular, and put
+G(ζ) := g⁻¹(ζ, ζ) = −σ²f⁻¹ + fξ² + r⁻²C, where C := r²g⁻¹(η, η) = |η|²_(g_𝕊) is the Casimir of 𝕊³. H_G is the
+Hamiltonian vector field of G, and π_*H_G = 2g⁻¹(ζ, ·) =: X, so X^t = 2σ/f, X^r = 2fξ and X^a = 2r⁻²g_𝕊^(ab)η_b. With
+the g-orthonormal covectors w^(0) := f^(1/2)dt and w^(1) := f^(−1/2)dr (g⁻¹(w^(0), w^(0)) = −1), write
+ζ = ζ_(0)w^(0) + ζ_(1)w^(1) + η, so that ζ_(0) = −σf^(−1/2) and ζ_(1) = ξf^(1/2). A section of π*T* over T*X is
+u = u_ν(x, ζ)dx^ν, and ∇_(H_G)u := (H_G u_ν − X^λΓ^μ_(λν)u_μ)dx^ν is its covariant derivative ∇^(π*T*)_(H_G). For an
+operator P on 1-forms with principal symbol G Id, the subprincipal operator in a frame is
+S_sub(P) := −iH_G + σ_sub(P), σ_sub(P) being the matrix p̃_1 − (1/2i)Σ_j ∂_(x^j)∂_(ζ_j)p̃_2 of the proof of
+[[prop:np-10-18]] (iii). The static Christoffel symbols are Γ^t_tr = f′/(2f), Γ^r_tt = ff′/2, Γ^r_rr = −f′/(2f),
+Γ^r_ab = −rf(g_𝕊)_ab, Γ^a_rb = r⁻¹δ^a_b and the Γ^a_bc of g_𝕊; the others vanish.
+
+**Proposition {#prop:np-10-17-i}** (The subprincipal operator; [Hin17, Proposition 4.1] in dimension 4 + 1.) For every
+metric g, on half-densities by |dg| and in a coordinate frame, □_g = 2δ_gG_gδ*_g has principal part G Id and
+subprincipal symbol the matrix iΓ^μ_(αν)∂_(ζ_α)G. Equivalently, S_sub(□_g) = −i∇^(π*T*)_(H_G).
+
+*Proof.* By [[prop:np-10-16]] (i), □_g = ∇*∇ − Ric, and the Ricci term is of order zero. The proof of
+[[prop:np-10-18]] (iii) uses g only through the formal self-adjointness of the scalar wave operator for |dg|. It shows
+that the subprincipal symbol of ∇*∇ is the matrix u ↦ (2iζ^αΓ^μ_(αν)u_μ)_ν, and 2ζ^α = ∂_(ζ_α)G. Then
+−i∇_(H_G)u = (−iH_G u_ν + 2iζ^λΓ^μ_(λν)u_μ)dx^ν, which is S_sub(□_g)u. ∎
+
+**Proposition {#prop:np-10-17-iii}** (A frame at the trapped set.) On g_(b_0), over {r > r_h}, H_G C = 0. On {G = 0}
+the covectors
+
+    e_0 := ζ,     e_1 := r(ζ_(1)w^(0) + ζ_(0)w^(1)),     e_2 := ½r²(ζ_(0)w^(0) + ζ_(1)w^(1) − η)
+
+have the Gram matrix (g⁻¹(e_i, e_j)) = CJ with J := ((0, 0, −1), (0, 1, 0), (−1, 0, 0)), whose determinant is −C³. An
+angular covector is g-orthogonal to e_0, e_1 and e_2 if and only if it is orthogonal to η.
+
+*Proof.* C depends only on the angular variables and on η, and G = −σ²f⁻¹ + fξ² + r⁻²C. So H_G C = r⁻²{C, C} = 0,
+because the Poisson bracket of C with functions of (r, ξ, σ) vanishes. Next, G = −ζ_(0)² + ζ_(1)² + r⁻²C, so on
+{G = 0} we have ζ_(0)² − ζ_(1)² = r⁻²C. The entries of the Gram matrix are:
+
+- g⁻¹(e_0, e_0) = G = 0;
+- g⁻¹(e_0, e_1) = r(−ζ_(0)ζ_(1) + ζ_(1)ζ_(0)) = 0;
+- g⁻¹(e_0, e_2) = ½r²(−ζ_(0)² + ζ_(1)² − r⁻²C) = −C;
+- g⁻¹(e_1, e_1) = r²(ζ_(0)² − ζ_(1)²) = C;
+- g⁻¹(e_1, e_2) = ½r³(−ζ_(1)ζ_(0) + ζ_(0)ζ_(1)) = 0;
+- g⁻¹(e_2, e_2) = ¼r⁴G = 0.
+
+det J = −1. For an angular covector θ, g⁻¹(θ, e_0) = g⁻¹(θ, η), g⁻¹(θ, e_1) = 0 and g⁻¹(θ, e_2) = −½r²g⁻¹(θ, η). ∎
+
+**Proposition {#prop:np-10-17-iv}** (The connection on the frame.) On g_(b_0), over {r > r_h} ∩ {G = 0},
+
+    ∇_(H_G)e_0 = 0,     ∇_(H_G)e_1 = −2σe_0,     ∇_(H_G)e_2 = −2σe_1.
+
+*Proof.* We use H_G r = 2fξ, H_G σ = 0 and H_G ξ = −∂_r G = −σ²f′f⁻² − f′ξ² + 2r⁻³C.
+
+*e_0.* (∇_(H_G)ζ)_ν = −∂_ν G − X^λΓ^μ_(λν)ζ_μ. Since ∂_ν g^(αβ) = −g^(αλ)Γ^β_(νλ) − g^(βλ)Γ^α_(νλ), we have
+−∂_ν G = X^λΓ^μ_(νλ)ζ_μ. So ∇_(H_G)ζ = 0 everywhere; this is the geodesic equation.
+
+*e_2.* Write ζ = ζ_tr + η with ζ_tr := −σ dt + ξ dr = ζ_(0)w^(0) + ζ_(1)w^(1). The components of ∇_(H_G)η are:
+
+- (∇_(H_G)η)_t = 0;
+- (∇_(H_G)η)_r = −X^aΓ^b_(ar)η_b = −2r⁻³C;
+- (∇_(H_G)η)_a = −2r⁻¹fξη_a.
+
+In the last, the remaining terms are r⁻² times those of the geodesic equation on 𝕊³, and they cancel as for e_0. So
+∇_(H_G)ζ_tr = −∇_(H_G)η = 2r⁻³C dr + 2r⁻¹fξη. Now e_2 = r²ζ_tr − ½r²ζ and H_G(r²) = 4rfξ, so
+
+    ∇_(H_G)e_2 = 4rfξζ_tr + r²∇_(H_G)ζ_tr − 2rfξζ = 2rfξζ_tr + 2r⁻¹C dr = −2σrfξ dt + 2r(fξ² + r⁻²C)dr.
+
+On {G = 0}, fξ² + r⁻²C = σ²/f. Since e_1 = r(fξ dt − σf⁻¹dr), this is −2σe_1.
+
+*e_1.* Write e_1 = a dt + b dr with a := rfξ and b := −rσ/f. Then
+
+    (∇_(H_G)e_1)_t = H_G a − X^tΓ^r_tt b − X^rΓ^t_rt a,     (∇_(H_G)e_1)_r = H_G b − X^tΓ^t_tr a − X^rΓ^r_rr b,
+
+and (∇_(H_G)e_1)_c = −X^aΓ^r_ac b = 2r⁻¹fbη_c = −2ση_c. For the first component,
+H_G a = 2f²ξ² + rff′ξ² − rσ²f′/f + 2r⁻²fC, so (∇_(H_G)e_1)_t = 2f²ξ² + 2r⁻²fC = 2f(fξ² + r⁻²C), which is 2σ² on
+{G = 0}. For the second, H_G b = −σ(2ξ − 2rf′ξ/f), so (∇_(H_G)e_1)_r = −2σξ + 2σrf′ξ/f − 2σrf′ξ/f = −2σξ. Hence
+∇_(H_G)e_1 = 2σ²dt − 2σξ dr − 2ση = −2σζ. ∎
+
+**Proposition {#prop:np-10-17-v}** (A nilpotent endomorphism.) Let N be the endomorphism of span{e_0, e_1, e_2} with
+Ne_0 = 0, Ne_1 = e_0 and Ne_2 = e_1, and let ϵ > 0. For the inner product diag(1, ϵ⁻¹, ϵ⁻²) in the basis
+(e_0, e_1, e_2)/C^(1/2), N + N* has norm 2^(1/2)ϵ^(1/2). For diag(1, ϵ⁻², ϵ⁻⁴) its norm is 2^(1/2)ϵ.
+
+*Proof.* The vectors e_0/C^(1/2), ϵ^(1/2)e_1/C^(1/2) and ϵe_2/C^(1/2) are orthonormal. In this basis N has the entries
+ϵ^(1/2), ϵ^(1/2) above the diagonal and zeros elsewhere. So N + N* = ϵ^(1/2)B with B := ((0, 1, 0), (1, 0, 1),
+(0, 1, 0)), whose eigenvalues are 0 and ±2^(1/2). For the second inner product the basis is e_0, ϵe_1, ϵ²e_2 (divided
+by C^(1/2)), and the entries are ϵ, ϵ. ∎
+
+**Proposition {#prop:np-10-19-iii}** (The loss at the trapped set.) At a point of the trapped set Γ of
+[[prop:np-10-19-ii]], where σ = 1 and C = 4m_0, ∇_(H_G) maps e_0 ↦ 0, e_1 ↦ −2e_0 and e_2 ↦ −2e_1. It preserves
+𝒫 := span{e_0, e_1, e_2} and the g-orthogonal complement V_⊥ of 𝒫. With the inner product diag(1, ϵ⁻¹, ϵ⁻²) on 𝒫 in
+the basis e_j/C^(1/2), and M the matrix of ∇_(H_G) on 𝒫 there, p_1 := −½(M + M*) has spectrum 0, ±(2ϵ)^(1/2). So
+sup p_1/(2β_0) = (2ϵ)^(1/2)/4 and 2 sup p_1/ν = (m_0ϵ)^(1/2) there, with β_0 = 2 and ν = 4(2m_0)^(−1/2) of
+[[prop:np-10-19-ii]].
+
+*Proof.* On Γ, G = 0, σ = 1 and C = 4m_0 > 0, so the frame is defined. By [[prop:np-10-17-iv]], 𝒫 is invariant. Since
+H_G C = 0 ([[prop:np-10-17-iii]]), the matrix of ∇_(H_G) in the basis e_j/C^(1/2) is M = −2N. Because ∇ is metric,
+V_⊥ is invariant as well. Then p_1 = N + N*, whose spectrum is 0, ±(2ϵ)^(1/2) by the proof of [[prop:np-10-17-v]].
+Finally, (2ϵ)^(1/2)/(2 · 2) = (2ϵ)^(1/2)/4, and 2(2ϵ)^(1/2)(2m_0)^(1/2)/4 = (m_0ϵ)^(1/2). ∎
 
 (a) The subprincipal operator of □_(g_(b_0)) on half-densities by |dg| is −i∇^(π*T*)_(H_G) ([[prop:np-10-17-i]]).
 
-(b) The trapped set in the future characteristic set is {r² = 2m_0, ξ = 0}; at the value 1 of the semiclassical
-parameter it is {r² = 2m_0, ξ = 0, C = 4m_0}, C = r²|η|² the Casimir of 𝕊³, with expansion rates ±ν,
-ν = 4(2m_0)^(−1/2), {φ_u, φ_s} = ν/f > 0, dG_1 ≠ 0, and β_0 = 1/f(r_ph) = 2 ([[prop:np-10-17-ii]],
-[[prop:np-10-19-ii]]).
+(b) The trapped set in the future characteristic set is {r² = 2m_0, ξ = 0}. At the value 1 of the semiclassical
+parameter it is {r² = 2m_0, ξ = 0, C = 4m_0}. Its expansion rates are ±ν with ν = 4(2m_0)^(−1/2), and
+{φ_u, φ_s} = ν/f > 0, dG_1 ≠ 0 and β_0 = 1/f(r_ph) = 2 ([[prop:np-10-17-ii]], [[prop:np-10-19-ii]]).
 
-(c) On the characteristic set, the frame e_0 = ζ, e_1 = r(ζ_(1)w^(0) + ζ_(0)w^(1)),
-e_2 = ½r²(ζ_(0)w^(0) + ζ_(1)w^(1) − η), with w^(0) = f^(1/2)dt and w^(1) = f^(−1/2)dr, has Gram matrix CJ,
-J = ((0, 0, −1), (0, 1, 0), (−1, 0, 0)), and ∇_(H_G)e_0 = 0, ∇_(H_G)e_1 = −2σe_0, ∇_(H_G)e_2 = −2σe_1; an angular
-covector is orthogonal to all three if and only if it is orthogonal to η ([[prop:np-10-17-iii]], [[prop:np-10-17-iv]]).
+(c) On the characteristic set, the frame e_0, e_1, e_2 of [[prop:np-10-17-iii]] has Gram matrix CJ, and
+∇_(H_G)e_0 = 0, ∇_(H_G)e_1 = −2σe_0 and ∇_(H_G)e_2 = −2σe_1 ([[prop:np-10-17-iv]]). An angular covector is orthogonal
+to all three if and only if it is orthogonal to η.
 
-(d) In the inner product diag(1, ϵ_1⁻¹, ϵ_1⁻²) on span{e_0, e_1, e_2}/C^(1/2), the endomorphism p_1 = −½(M + M*), M
-the connection matrix of (c), has spectrum 0, ±(2ϵ_1)^(1/2) ([[prop:np-10-17-v]], [[prop:np-10-19-iii]]).
+(d) In the inner product diag(1, ϵ_1⁻¹, ϵ_1⁻²) on span{e_0, e_1, e_2}/C^(1/2), the endomorphism p_1 = −½(M + M*), with
+M the connection matrix of (c), has spectrum 0, ±(2ϵ_1)^(1/2) at σ = 1 ([[prop:np-10-17-v]], [[prop:np-10-19-iii]]).
 
 **Lemma {#lem:iii-d-5-2}** (The trapped set; [Hin26, Lemma 6.4] in dimension 4 + 1, in the form [[thm:i-b-1-3]]
 uses.) Assume (Dyn), with the trapped sets Γ_b (at z_0 = ±1) depending continuously on b and Γ_(b_0) as in (b). For

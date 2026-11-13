@@ -38,7 +38,7 @@ has α_K − ε ([[prop:iii-i2-5-1]]). The cap 3/2 is the transport of the radia
 3 + 1 it is 1.
 
 *Notation and the inner radius.* The notation is that of [[ch:s04]]–[[ch:s10]] and of [[ch:s11]], [[ch:s13]]–
-[[ch:s18]]. The black hole parameters are b = (m, A), b₀ = (m₀, 0) and R₁ = m₀^(1/2); g_m := g_((m,0)). L_b is the
+[[ch:s18]]. The black hole parameters are b = (m, A), b₀ = (m₀, 0) and R₁ = m₀^(1/2). L_b is the
 linearised gauge-fixed Einstein operator of [[ch:s15]], with the gauge modification E_Υ of [[sec:iii-d-1]] and the
 constraint damping (c_C, e_C, γ_C) of [[sec:iii-f-1]] fixed there, and for metrics g, g_0, L^(g,g_0) is the
 linearisation [[eq:iii-c-4-1]] of the gauge-fixed Einstein operator P(g, g_0) of [[eq:iii-b-6-4]] in g, so that

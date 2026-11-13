@@ -41,17 +41,16 @@ transmits the loss of (a) ([[prop:iii-j3-4-1]]). (c) At ι⁺, the level-2 margi
 the 5ε of [[lem:iii-j1-1-1]] are choices, not losses of an estimate: at the closed endpoint of (G⁺) every map is exact
 ([[prop:iii-j3-4-3]]), as in Part 4 of the proof of [Hin26, Theorem 11.59, pp. 289–291]. At 𝓘⁺ every class and every
 main statement is already exact. (5) The K⁺-weight is one fixed admissible α, not the number 4 + ε_K; α = 4 + ε_K itself
-is admissible off a finite set of ε_K ([[def:iii-j3-1-3]], (A_K)). (6) The conditions (E2)–(E4) of [[def:iii-j3-1-3]]
-are new, each excluding finitely many values, of the kind of (G⁺) and of admissibility; (E1) is (G⁺) at its closed
-endpoint. No condition on spec_ι⁺(L̄) beyond (G⁺) is needed, as no improvement after the fact is made.
+is admissible off a finite set of ε_K ([[def:iii-j3-1-3]], (A_K)). (6) The conditions (E2)–(E4) of [[def:iii-j3-1-3]],
+each excluding finitely many values, are of the kind of (G⁺) and of admissibility, and are not in [Hin26]; (E1) is (G⁺)
+at its closed endpoint. No condition on spec_ι⁺(L̄) beyond (G⁺) is needed, as no improvement after the fact is made.
 
 *Base points.* Throughout, the base point has black hole parameter b ∈ ℬ̄_*, the neighbourhood of b_0 of
 [[sec:iii-h2-0]], shrunk so that [[lem:iii-i15-1-2]] and [[prop:iii-i15-2-5]] hold on it. The results of
 [[ch:s19]]–[[ch:s23]] are used at b, with constants uniform in b: L_(b_0), g_(b_0) near K⁺, the states, towers and
 companions at b_0 and the index set ℰ_ind are replaced by those at b, derivatives in b are taken at b, and the v1 terms
 of exponent of real part at most 2 are the rotation rows with the assigned coordinates of [[def:iii-i15-2-3]]. At a
-rotating b the solution map of [[thm:iii-i14-3-1]] is the one constructed in [[prop:iii-i15-2-5]]. At b = b_0 every
-statement below reduces to its form at b_0.
+rotating b the solution map of [[thm:iii-i14-3-1]] is the one constructed in [[prop:iii-i15-2-5]].
 
 *Notation.* As in [[ch:s23]]. In particular w_+ := 5 + ε_+; ρ_+ and ρ_K are the defining functions of ι⁺ and K⁺ near
 their corner, ρ_+ = 1/r and ρ_K = R = r/t_*, so t_*⁻¹ = ρ_+ρ_K there ([[sec:iii-i2-1]]); μ runs over the indicial roots
@@ -66,7 +65,7 @@ A *background* is β = (h, p⃗, q) with h ∈ 𝒳^∞, p⃗ ∈ 𝒫 and q ∈
 
     ‖β‖_k := ‖h‖_(𝒳^k) + |p⃗| + ‖q‖_(𝒬^k).
 
-The black hole parameter of β is the component b of p⃗. A *graded space* is a family of Banach spaces E^k, k ∈ ℕ₀, with
+The black hole parameter b of β is given by the component b − b_0 of p⃗. A *graded space* is a family of Banach spaces E^k, k ∈ ℕ₀, with
 continuous inclusions E^(k+1) ↪ E^k of norm at most 1 ([[rem:ii-g-2-2]]), and E^∞ := ⋂_k E^k. The spaces of
 [[ch:s19]]–[[ch:s23]] are of this kind: weighted b-Sobolev spaces of b-regularity k; partially polyhomogeneous ones,
 normed by the order-k norms of their finitely many coefficients and of the remainder; finite-dimensional spaces
@@ -80,8 +79,9 @@ Banach space with every order w− replaced by w − ε, and E^∞_ε := ⋂_k E
 statements whose proofs choose every margin from the loss the output is to have, ε′ can be taken independent of k:
 [[prop:iii-i2-5-1]], [[prop:iii-i6-2-1]], the level-3 loop of [[prop:iii-i11-3-1]] (the margin ε_ind − ε), the levels
 β_k of [[thm:iii-i14-3-1]], [[lem:iii-j1-1-1]] (η_2 := ε_+ − 3ε, which gives the ι⁺-order 3 + ε_+ − 5ε) and
-[[cor:ii-g1-4-5]] (β_scf := β′_I + ε); no margin there depends on k. This is not used for the other statements: at the
-exact weights of [[sec:iii-j3-1]] the input and the output are taken at the loss 0 for every k ([[cor:iii-j3-6-6]]).
+[[cor:ii-g1-4-5]] (β_scf := β′_I + ε); no margin there depends on k. For the other statements the independence of k is not
+needed: at the exact weights of [[sec:iii-j3-1]] the input and the output are taken at the loss 0 for every k
+([[cor:iii-j3-6-6]]).
 Below, ε ∈ (0, ε_1] is fixed, for a fixed ε_1 > 0; every output space is taken at the loss ε and every input space at
 the loss ε′ that the statement assigns.
 
@@ -166,7 +166,7 @@ the bound of [[prop:iii-i15-2-8]]), (S^(−1)_(h,p⃗))⁻¹ ([[cor:iii-i7-4-6]]
 inverse of C^rot in W⃗′^rot (Step 4′ of the proof of [[thm:iii-i14-3-1]]), and (z − 3/2 − Ā)⁻¹ ([[prop:iii-i1-3-1]]):
 bounded on 𝔹 by the cited statements (close to ±id, or fixed). The coefficient functionals (Ṡ, S_ν, C^(k+1)_ν, C^rot,
 the dual functionals of Step 4′ of the proof of [[thm:iii-i14-3-1]], the t_*-coefficients at K⁺), and at a rotating b
-the assigned rotation coordinates A_b of [[def:iii-i15-2-3]], which read the ι⁺-data and the tf-data of the source
+the assigned rotation coordinates A_b of [[def:iii-i15-2-3]], which read the ι⁺-data and the tf-data of the right side
 ([[prop:iii-i15-2-2]]): bounded by a fixed low norm of the solution or right side they are applied to, by the cited
 statements and [[lem:iii-i12-2-3]] (a). The finite-dimensional states, the rows m_ν (the rotation rows among them), the
 towers T_(ρ,b) and the states of [[lem:iii-i14-2-1]] they are paired with are fixed smooth sections, smooth in b
@@ -306,7 +306,7 @@ is used in its form at b, named in the entry where it differs from the form at b
   MOD ([[prop:iii-i1-2-1]], [[prop:iii-i1-3-1]]; [[cor:iii-g2-4-3]]; [[prop:iii-h-3-2]]), FIN; exponents in a window,
   and steps raising α′_K to α_K.
 - [[lem:iii-i6-1-2]]–[[lem:iii-i6-1-4]], [[prop:iii-i6-2-1]]: FWD ([[cor:iii-i5-2-2]]), BG ((L − L_b)u,
-  [[eq:iii-i-4-2]]), MOD ([[prop:iii-a-4-2]]; L̂_b(σ)⁻¹ by [[lem:iii-i2-4-2]]; [[lem:iii-i2-2-1]], [[lem:iii-i2-4-1]],
+  [[eq:iii-i-4-2]]), MOD ([[prop:iii-a-4-2]]; L̃_b(σ)⁻¹ by [[lem:iii-i2-4-2]]; [[lem:iii-i2-2-1]], [[lem:iii-i2-4-1]],
   [[lem:iii-i2-4-3]]; [[prop:iii-i1-2-1]]; [[lem:iii-i3-1-3]]; [[prop:iii-h-3-2]]; [[cor:iii-g2-4-3]];
   [[prop:iii-g4-5-1]]; [[prop:ii-g1-3-3]], [[prop:ii-g1-3-5]] (1)), FIN; one step.
 - [[lem:iii-i7-4-1]], [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]], [[cor:iii-i7-4-6]] (at b, in the form of

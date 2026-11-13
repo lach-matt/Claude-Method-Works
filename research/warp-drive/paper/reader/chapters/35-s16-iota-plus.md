@@ -24,15 +24,16 @@ s < 2 − Re λ (against 3/2 − Re λ in dimension 3 + 1). The spectral family 
 are invisible on ι⁺ lie in 5/2 + spec S̄ + ℕ_0. And the expansion at K⁺ is needed only below R³, which requires no zero
 energy state at −3.
 
-The method differs from [Hin26] in four places. For fixed λ, the estimates of [Vas13], [Hin25a] and [HV15] used there
+The method is that of [Hin26], with these changes. For fixed λ, the estimates of [Vas13], [Hin25a] and [HV15] used there
 are replaced by those of [[ch:s01]] and [[ch:s03]], whose proofs use only properties that are verified for N_sf(λ)
 here: it is the spectral family, in the dilation-invariant time T = log |x|, of a stationary operator whose principal
 symbol is the dual of the metric |x|⁻²ḡ ([[lem:iii-g-1-2]] (g)); its light cone {v = 0} is a Killing horizon of ∂_T,
 at whose conormal bundle the radial estimate runs with an explicit threshold ([[lem:iii-g-2-2]]); v is a time function
 on {−2 < v < 0} ([[lem:iii-g-2-3]]); and v = ∞ is a b-elliptic end. The b-regularity at the light cone ([HV15,
 Theorem 6.3] in [Hin26]) is proved by commuting with the dilation and with the Lie derivatives along the rotations
-([[prop:iii-g-2-7]]). Injectivity is the argument of [[lem:ii-f-5-8]], with the tf-admissibility of
-[[prop:iii-f1-3-3]]. The index is 0 because the family is invertible for |Im λ| large in every vertical strip, by a
+([[prop:iii-g-2-7]]). Injectivity is the argument of [[lem:ii-f-5-8]], which contains the Fourier transform and the
+tf-normal operator of [Hin26], with the tf-admissibility of [[prop:iii-f1-3-3]]. The index is 0 because the family is
+invertible for |Im λ| large in every vertical strip, by a
 semiclassical estimate; across the light cone that estimate is written out with an escape function
 ([[lem:iii-g-4-1]] (b)), which also serves as the variable semiclassical order ([[lem:iii-g-4-2]]).
 
@@ -914,7 +915,8 @@ through 𝒫_1, with |y/h| ≤ C_λ.
 conditions of [[lem:iii-g-4-2]]. With Step 1, [[eq:iii-g-4-6]] follows for h small.
 
 *Step 3: the adjoint.* The same steps apply to P^(*h) on the dual spaces, with the directions of propagation reversed
-and sources and sinks interchanged: [[eq:iii-g-4-4]] at ∂ℛ_±, now with no control term; propagation backwards along
+and sources and sinks interchanged: [[eq:iii-g-4-4]] at ∂ℛ_±, this time without the control term; propagation backwards
+along
 the curves (ii)–(iii) to the cone point and through it ([[sec:ii-f-3-6]], the adjoint, for (R3)–(R4) and F_K); on Σ_+
 and at fibre infinity, propagation from ∂ℛ_± to {v < −¼}; and near v = −1 the second estimate of [[eq:iii-g-4-5]],
 whose term ‖χ_1v‖ lies over {−½ < v < −¼} and is controlled by the propagation just described. The dual semiclassical
@@ -1305,7 +1307,7 @@ near R = 0 as μ < ℓ_K + Re λ. So h̃ := N_sf(λ)⁻¹F ∈ Ḣ^((s;k+d),μ)_
 weighted L² bound with a loss δ in the weight. The induction of Step 2 then runs with the L² version of
 [[lem:iii-g1-2-2]]. Each step loses two b-derivatives (through L̃(0)), and the number of steps is at most
 ⌈ℓ_I − Re λ⌉ + 2; this fixes d in terms of Re λ and ℓ_I. Here the f-term of g stops the expansion at ℓ_I. In the first
-application of [[lem:iii-g1-2-2]], now with γ_0 = Re λ + s − ½ − δ < Re λ, terms c_λ(f)v^λ and, when
+application of [[lem:iii-g1-2-2]], this time with γ_0 = Re λ + s − ½ − δ < Re λ, terms c_λ(f)v^λ and, when
 λ ∈ π_1ℰ^C_(ι⁺,𝓘), c′_λ(f)v^λ log v may appear, with c_λ and c′_λ continuous linear functionals. By Steps 3–4, c′_λ(f)
 and c_λ(f) vanish (or c_λ(f) is a coefficient permitted by [[eq:iii-g1-3-2]], when λ ∈ π_1ℰ^tot_(ι⁺,𝓘)) for
 f ∈ Ċ^∞(ι⁺). That space is dense, so the same holds for all f.
@@ -1402,8 +1404,9 @@ meets the requirement whenever Re λ > 1 + ε and ℓ_K^max = 3. The pure ι⁺-
 state at −3, and every state it needs is constructed in [[ch:s13]] and [[ch:s15]], with at least the companions
 required ([[def:iii-g2-table-1-1]]).
 
-Throughout this section and the next three we assume (Dyn), the dynamical hypotheses on the metrics g_b verified in
-[[ch:s12]]; the parameters of [[prop:iii-f1-3-3]] with γ_Υ < min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); (C1) of
+Throughout this section and the next three we assume (Dyn), the dynamical hypotheses of [[ch:s13]], which hold
+for g_b, b near b_0, by [[thm:vi-a-6-1]] and [[thm:vi-b1-5-1]]; the parameters of [[prop:iii-f1-3-3]] with γ_Υ <
+min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); (C1) of
 [[sec:iii-f1-1]]; and (C2)–(C3) of [[sec:iii-f1-1]] with z_Υ := 4e_Υγ_Υ² outside the exceptional set Z_exc of
 [[prop:iii-f1-2-3]] (e), so that every indicial root of L̂_b(0) is simple. We fix
 

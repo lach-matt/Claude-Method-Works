@@ -1,0 +1,53 @@
+label	source	source_name	note
+ch:s23	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:12; docket68/n1star/proof5/PART-III-J-PARAM.md:12; docket68/n1star/proof5/PART-III-J2-LINEAR.md:11	III.I(14), III.J, III.J1 (intros)	chapter heading; intro from the three parts' opening sentences and "What n = 4 changes"; deferral of [Hin26] C11.67 dropped (unused anywhere), Psi and Thm 12.8 for Psi pointed to S27 (III.K Def 2.1, L2.2, L2.3); inner-radius paragraph from BEYOND5-R0-PROOF.md:273-280
+sec:iii-i14-1	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:34	III.I(14) section 1	heading in the edition: The coefficients and the augmented operator; (H5) at 46 kept as a display
+def:iii-i14-1-1	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:52	III.I(14) Definition 1.1	"q small" and the rate sentence (61-65, cited by VII and VIII) kept inside the definition
+eq:iii-i14-1-1	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:58	III.I(14) (1.1)	
+def:iii-i14-1-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:67	III.I(14) Definition 1.2	mass derivative written m-dot (m is the black-hole mass in the edition)
+eq:iii-i14-1-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:68	III.I(14) (1.2)	
+eq:iii-i14-1-3	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:74	III.I(14) (1.3)	
+eq:iii-i14-1-4	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:78	III.I(14) (1.4)	source states it at b0; written at b with h_(b,rem) (chain rule; listed at b in III.I(15) Thm 3.1)
+def:iii-i14-1-3	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:83	III.I(14) Definition 1.3	"counted in the source" rendered "part of the right-hand side"
+sec:iii-i14-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:116	III.I(14) section 2	heading: Properties of the augmented operator
+lem:iii-i14-2-1	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:118	III.I(14) Lemma 2.1	
+lem:iii-i14-2-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:145	III.I(14) Lemma 2.2	the h of (b)'s formula written h_(b,s1)
+lem:iii-i14-2-3	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:173	III.I(14) Lemma 2.3	"Let b = b0" explicit (R_q is formed at b0 there)
+lem:iii-i14-2-4	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:190	III.I(14) Lemma 2.4	
+lem:iii-i14-2-5	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:253	III.I(14) Lemma 2.5	
+sec:iii-i14-3	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:282	III.I(14) section 3	
+thm:iii-i14-3-1	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:284	III.I(14) Theorem 3.1	number of levels kept as K (declared in Notation); the finite-dimensional space of Step 4' renamed H_st and its compact set Z_0 (script K is the Kretschmann scalar)
+eq:iii-i14-3-1	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:287	III.I(14) (3.1)	
+eq:iii-i14-3-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:292	III.I(14) (3.2)	
+eq:iii-i14-3-3	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:327	III.I(14) (3.3)	
+eq:iii-i14-3-4	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:343	III.I(14) (3.4)	
+eq:iii-i14-3-5	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:377	III.I(14) (3.5)	
+rem:iii-i14-3-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:446	III.I(14) Remark 3.2	
+sec:iii-j-1	docket68/n1star/proof5/PART-III-J-PARAM.md:31	III.J section 1	heading: The data space
+def:iii-j-g-plus	docket68/n1star/proof5/PART-III-J-PARAM.md:48	III.J (G+)	cited by VI.C row w1 and the paper's Theorem 4 (chapter 3 cites "(G+) of ch:s23")
+def:iii-j-a-j	docket68/n1star/proof5/PART-III-J-PARAM.md:53	III.J (A_J)	with the density statement (57), cited by VI.C row w2
+def:iii-j-classes	docket68/n1star/proof5/PART-III-J-PARAM.md:59	III.J "Classes" paragraph	X_J, F, Q_J; private key
+def:iii-j-terms	docket68/n1star/proof5/PART-III-J-PARAM.md:72	III.J "Terms at iota+" paragraph	private key
+def:iii-j-1-1	docket68/n1star/proof5/PART-III-J-PARAM.md:81	III.J Definition 1.1	
+eq:iii-j-1-1	docket68/n1star/proof5/PART-III-J-PARAM.md:85	III.J (1.1)	
+lem:iii-j-1-2	docket68/n1star/proof5/PART-III-J-PARAM.md:99	III.J Lemma 1.2	
+sec:iii-j-2	docket68/n1star/proof5/PART-III-J-PARAM.md:119	III.J section 2	heading: Approximate solutions from data
+eq:iii-j-2-1	docket68/n1star/proof5/PART-III-J-PARAM.md:127	III.J (2.1)	sentence added that the rows m_nu are those built at b0 (III.I(15) Thm 3.1 proof, item (viii), I16:770-773)
+lem:iii-j-2-1	docket68/n1star/proof5/PART-III-J-PARAM.md:136	III.J Lemma 2.1	in-body attribution at 158 dropped
+eq:iii-j-2-2	docket68/n1star/proof5/PART-III-J-PARAM.md:139	III.J (2.2)	
+lem:iii-j-2-2	docket68/n1star/proof5/PART-III-J-PARAM.md:175	III.J Lemma 2.2	s0 coefficient a_nu = A_nu (III.I(9) Def 2.1) made explicit; breve-bar notation declared in the proof
+sec:s23-step	docket68/n1star/proof5/PART-III-J-PARAM.md:221	III.J "Step lambda_0"	subsection; log bound J expressed by reference to III.G3 Cor 3.1 (2); closing sentence on the exceptional term from finding (J2), J:386-391
+eq:iii-j-2-3	docket68/n1star/proof5/PART-III-J-PARAM.md:259	III.J (2.3)	
+lem:iii-j-2-3	docket68/n1star/proof5/PART-III-J-PARAM.md:278	III.J Lemma 2.3	
+thm:iii-j-2-4	docket68/n1star/proof5/PART-III-J-PARAM.md:301	III.J Theorem 2.4	the reference (G'''4) (a finding in III.G3's dropped tail) replaced by III.G3 Proposition 2.4
+eq:iii-j-2-4	docket68/n1star/proof5/PART-III-J-PARAM.md:303	III.J (2.4)	
+eq:iii-j-2-5	docket68/n1star/proof5/PART-III-J-PARAM.md:310	III.J (2.5)	
+rem:iii-j-2-5	docket68/n1star/proof5/PART-III-J-PARAM.md:364	III.J Remark 2.5	
+rem:iii-j-2-6	docket68/n1star/proof5/PART-III-J-PARAM.md:369	III.J Remark 2.6	"pure gauge (for g_b0)" from III.I(15) item (viii), I16:774-775
+sec:iii-j1-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:20	III.J1 section 1	heading: The iota+-order of the linear solutions
+lem:iii-j1-1-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:29	III.J1 Lemma 1.1	
+sec:iii-j1-2	docket68/n1star/proof5/PART-III-J2-LINEAR.md:67	III.J1 section 2	
+thm:iii-j1-2-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:69	III.J1 Theorem 2.1	stated at b0 as in the source; at b by III.I(15) Cor 3.2 (S25)
+eq:iii-j1-2-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:72	III.J1 (2.1)	
+eq:iii-j1-2-2	docket68/n1star/proof5/PART-III-J2-LINEAR.md:86	III.J1 (2.2)	
+rem:iii-j1-2-2	docket68/n1star/proof5/PART-III-J2-LINEAR.md:159	III.J1 Remark 2.2	last sentences from finding (J'2), J1:171-177 (tame form), pointing to III.J2 Thm 4.2 and III.J3 Thm 5.5 (S24)
+sec:s23-base-points	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:645-690; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:722-731, 748-779; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:800-804	III.I(15) Thm 3.1 (forms of III.I(14), III.J, III.J1), proof items (iv), (viii); Cor 3.2	private section: what holds at b and where (S25) it is proved; no III.I(15) key defined here
