@@ -27,7 +27,8 @@ estimates without b-regularity, for coefficients of finite regularity and variab
 ([[thm:ii-a1-3-1]]) and the real principal type propagation estimate ([[thm:ii-a1-5-4]]). [[sec:ii-a-9]] derives from
 them the estimates with b-regularity and their tame versions.
 
-*Notation.* Variable orders are written in sans-serif letters 𝗌, 𝗆, 𝗅, 𝗋, 𝖻, constant orders in italic. ℝ̄^N is the
+*Notation.* Variable orders are written in sans-serif letters 𝗌, 𝗆, 𝗅, 𝗋, 𝖻, 𝗄, 𝗍, constant orders in italic; the
+sans-serif 𝖧 is not an order but the rescaled Hamilton vector field of [[sec:ii-a1-5-1]]. ℝ̄^N is the
 radial compactification of ℝ^N, g̸ the round metric on 𝕊³, and ⟨x⟩ = (1 + |x|²)^(1/2). The bundles of the various
 structures are written ᵇT, ³ᵇT, ᵉᵇT, ᵉ³ᵇT, ˢᶜT, and their duals with a star. Constants C may change from line to line.
 

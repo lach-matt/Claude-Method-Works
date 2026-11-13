@@ -28,7 +28,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 34 S15 | running (sign slip and np-10-34-iv to adjudicate) | - | - |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | running | - |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | running | - |
-| 37 S18 | NOT CONFIRMED 1M 3m 5n | running | - |
+| 37 S18 | NOT CONFIRMED 1M 3m 5n | done | running |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | running |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | running | - |

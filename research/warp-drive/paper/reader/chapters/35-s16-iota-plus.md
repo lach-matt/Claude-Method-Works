@@ -1265,7 +1265,7 @@ Here H_s is the transform of −χΠ_sf/(2v) and of the commutator of the operat
 the term vanishing to infinite order it is supported in [½, 1). So H_s is entire in ζ and holomorphic in ν ∈ D. By
 induction on the strips {Re ζ < 3/2 − 2ε_0 + j}, [[eq:iii-g1-3-6]] continues ℳ(χh(ν))(ζ) meromorphically to D × ℂ. Its
 singularities lie on {ζ ∈ ν + ℕ_0} ∪ {ζ ∈ 3/2 + σ_S + ℕ_0}, and it decays rapidly as |Im ζ| → ∞ on vertical lines away
-from them, since ℳ(χ(v∂_v)^Nh) = ζ^Nℳ(χh) plus terms supported in [½, 1). By Mellin inversion and the circle
+from them, since ℳ(χ(v∂_v)^Mh) = ζ^Mℳ(χh) plus terms supported in [½, 1). By Mellin inversion and the circle
 integrals of [[lem:iii-a-1-5]], the expansion of χh(ν) at v = 0 is read off from the principal parts: a term
 c v^z(log v)^k corresponds to the principal part −k! c (ζ − z)^(−k−1) at ζ = z, since
 ℳ(χv^z)(ζ) = −(ζ − z)⁻¹ + (an entire function).
