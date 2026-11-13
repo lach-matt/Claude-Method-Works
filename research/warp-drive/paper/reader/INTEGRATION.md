@@ -293,3 +293,17 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Proof E-b (margins): C2 (the computed approximation's grid values) is used by no theorem (the reader checks); by the
   ruling it becomes a "(Numerical observation.)" remark in chapter 83, or is dropped. The seed-region spline is one
   quintic. E-a and E-b must print the same n = 160 coefficients (sent to E-a).
+
+## From S18, the front matter and chapter 62 (2026-11-13)
+
+- S18 confirmed (R2-S18). Optional nits: the weak limit at 367-368 credited to the wrong result; the reason for weight
+  β → β − 2ϵ at 863-864 incomplete; ϵ undefined at 789; broken source line 1131. S19 line 757 may write ϵ′.
+- Two-dust correction confirmed (R3-00-03 §2): chapter 83 must state thm:charge-sign for the two-dust background of
+  thm:two-dusts (radial bands; f < 0 is the apparent horizon, not the black-hole region; Q = −E; existence for small
+  amplitude; no data at second order where f > 0; the continuity step proved in four space dimensions since [CS06] is
+  three-dimensional); nothing for the single-dust background. Chapter 80's statement must fix the background too.
+- Chapter 62: [[pending:issue-1]] — B taken open (the source's closed B makes the glued space not a manifold at the
+  edge of Σ); accepted provided the reader confirms. One unproved, unused clause of BEYOND5 Proposition 6.1 dropped.
+  [Sbi15] is a new Appendix A entry (arXiv:1309.7591v3, pages in W-62). Chapter 62 exports lem:interior-far-part,
+  lem:interior-where, eq:interior-placing, def:half-class, eq:half-class, lem:half-class, rem:half-class-changes for
+  chapter 63.

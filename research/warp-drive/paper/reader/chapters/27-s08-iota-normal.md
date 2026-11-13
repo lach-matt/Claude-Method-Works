@@ -1394,8 +1394,8 @@ either side, and these parts map x^αH^(m−2)_0 to x^αH^m_0 for every integer 
 x^αH^m_0 as well, for every integer m and every real α, by the boundedness of the small 0-calculus on weighted 0-Sobolev
 spaces. Read on functions through g ↦ gν_0^(1/2), this part is a matrix of operators of Ψ^(−2)_0(X̂) in the sense of
 [Usu26] ([[thm:std-mazzeo-melrose]] (5)); near ∂X̂ the density μ_b is x⁻¹|dx dω|, so L²(μ_b) is the space L²_b of
-[[thm:std-mazzeo-melrose]] (2); and [[cor:std-zero-sobolev]], at the order −2 and with k = m, bounds each entry from
-x^αH^(m−2)_0 to x^αH^m_0 (for m ≥ 2 this is [Usu26, Theorem 5.20 (1), p. 119] itself). The proof of
+[[thm:std-mazzeo-melrose]] (2); and [[cor:std-zero-sobolev]], at the order −2 and with its k equal to m, bounds each
+entry from x^αH^(m−2)_0 to x^αH^m_0 (for m ≥ 2 this is [Usu26, Theorem 5.20 (1), p. 119] itself). The proof of
 [Hin23e, Corollary 3.3, pp. 31–32] uses this in the same way. By (i) with α_R = α and α < α_L < α_1, R′ maps x^αH^m_0
 boundedly into x^(α_L)H^(m+1)_0, which embeds compactly in x^αH^m_0
 ([[lem:ii-f-5-3]]); likewise R (a = ∞, b = 3 − α_0 > 3 − α) is compact on x^αH^(m−2)_0. So Q′P̂ = I − R′ and P̂Q = I − R

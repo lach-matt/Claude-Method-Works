@@ -1570,7 +1570,8 @@ auxiliary K_i, χ̃_i, χ_*, which enter only the constants. So d_0 depends only
 
 Let L be of the form [[eq:ii-a1-1-2]], possibly on ℂ^(N′), with real scalar principal symbol ℓ, so that
 ℓ_f − ℓ ∈ C^((d_0)) S̃^(m−1) (matrix-valued). Put L_R := (L + L*)/2 and L_I := (L − L*)/(2i). By [[prop:ii-a1-2-4]] (c),
-L_I has order m − 1 + δ. For a real scalar symbol ǎ and Ǎ := Op(ǎ), which need not be self-adjoint,
+L_I has order m − 1 + δ. For an operator Ǎ, which need not be self-adjoint (below, Ǎ = Op(ǎ)Φ_0 with ǎ a real scalar
+symbol and Φ_0 a smooth localiser, as in [[lem:ii-a1-4-1]]),
 
     C_ǎ := i(L*Ǎ*Ǎ − Ǎ*ǍL) = i[L_R, Ǎ*Ǎ] + L_IǍ*Ǎ + Ǎ*ǍL_I,     ⟨C_ǎw, w⟩ = 2 Im⟨ǍLw, Ǎw⟩                {#eq:ii-a1-4-1}
 
@@ -1589,25 +1590,37 @@ K_1 ∩ ᵉ³ᵇS*M̃ ⊂ Ell(G). Here ν ∈ ℕ_0 is fixed, all classes below 
 pointwise with these bounds. e_ε is bounded in C^((M))_ν S̃^𝗌, lies in C^((M))_ν S̃^(𝗌−κ) for each ε, and is supported in
 a closed set K_E ⊂ K_1 with K_E ∩ ᵉ³ᵇS*M̃ ⊂ Ell(E). z_ε is bounded in C^((M))_ν S̃^(−(m−1)/2), and ǎ_ε = z_εb_ε.
 
-(iii) For every w ∈ H^(K′)_e3b carried by χ, where K′ ≥ sup |𝗌| + m + 2 is a fixed integer, with B_ε := Op(b_ε),
-E_ε := Op(e_ε), Ǎ_ε := Op(ǎ_ε) and a G′ carried by χ with WF′(G′) ⊂ Ell(G),
+Fix smooth localisers Φ_0 = Op(φ_0) and Φ_E = Op(φ_E), carried by χ, with φ_0, φ_E ∈ C^∞(ᵉ³ᵇT̄*M̃), φ_0 = 1 near K_1,
+φ_E = 1 near K_E, supp φ_0 ∩ ᵉ³ᵇS*M̃ ⊂ Ell(G) and supp φ_E ∩ ᵉ³ᵇS*M̃ ⊂ Ell(E) ∩ Ell(G), and put
 
-    ς⟨C_(ǎ_ε)w, w⟩ ≤ −‖B_εw‖² + ‖E_εw‖² + C_0(‖G′w‖²_(𝗌−1/2+δ_0) + ‖χw‖²_(−N)),                          {#eq:ii-a1-4-2}
+    Ǎ_ε := Op(ǎ_ε)Φ_0,     B_ε := Op(b_ε)Φ_0,     E_ε := Op(e_ε)Φ_E.
 
-with C_0 independent of ε.
+(iii) For every w ∈ H^(K′)_e3b carried by χ, where K′ ≥ sup |𝗌| + m + 2 is a fixed integer,
 
-Then for every u with χu ∈ H^(−N), Gu ∈ H^(𝗌−κ), GLu ∈ H^(𝗌−m+1) and Eu ∈ H^𝗌, we have B_0u ∈ L² and
+    ς⟨C_(ǎ_ε)w, w⟩ ≤ −‖B_εw‖² + ‖E_εw‖² + C_0‖w‖²_(𝗌−1/2+δ_0),                                           {#eq:ii-a1-4-2}
+
+with C_(ǎ_ε) the operator [[eq:ii-a1-4-1]] for Ǎ = Ǎ_ε and C_0 independent of ε.
+
+Then for every u with χu ∈ H^(−N), Gu ∈ H^(𝗌−κ), GLu ∈ H^(𝗌−m+1) and Eu ∈ H^𝗌, we have B_0u ∈ L², B_0 := Op(b_0)Φ_0, and
 
     ‖B_0u‖² ≤ C(‖GLu‖²_(𝗌−m+1) + ‖Eu‖²_𝗌 + ‖Gu‖²_(𝗌−1/2+δ_0) + ‖χu‖²_(−N)).                            {#eq:ii-a1-4-3}
 
-*Proof.* Norms are those of L² and of H^𝗍_e3b; C changes from line to line and does not depend on ε or t.
+*Proof.* Norms are those of L² and of H^𝗍_e3b; C changes from line to line and does not depend on ε or t. The
+localisers make every product with disjoint microsupports below have a smooth factor on each side, as
+[[prop:ii-a1-2-4]] (e) requires.
 
-*Step 0: microlocalisation.* Choose Φ = Op(φ), carried by χ, with φ = 1 near K_1 ∪ K_E and supp φ in a closed set whose
-intersection with fibre infinity lies in Ell(G). Put v := Φu. By [[lem:ii-a-8-4]] (c), ‖v‖_𝗍 ≤ C(‖Gu‖_𝗍 + ‖χu‖_(−N))
-for 𝗍 ≤ 𝗌 − κ, and ‖ΦLu‖_(𝗌−m+1) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χu‖_(−N)) (with [[lem:ii-a-8-6]] (a) for the error term). Now
-Lv = ΦLu + [L, Φ]u, and Ǎ_ε[L, Φ] = Ǎ_ε(I − Φ)L − Ǎ_εL(I − Φ). Both terms have every order, uniformly in ε, by
-[[prop:ii-a1-2-4]] (e) with L = Op(ℓ_f) + residual and I − Φ = Op(1 − φ) ([[sec:ii-a1-1-1]]), since ǎ_ε and 1 − φ have
-disjoint supports. Hence, as Ǎ_ε is bounded of order 𝗄 ([[prop:ii-a1-2-4]] (a)),
+*Step 0: microlocalisation.* Choose Φ = Op(φ), carried by χ, with φ = 1 near supp φ_0 ∪ supp φ_E and supp φ in a closed
+set whose intersection with fibre infinity lies in Ell(G). Put v := Φu. By [[lem:ii-a-8-4]] (c),
+‖v‖_𝗍 ≤ C(‖Gu‖_𝗍 + ‖χu‖_(−N)) for 𝗍 ≤ 𝗌 − κ, and ‖ΦLu‖_(𝗌−m+1) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χ_*Lu‖_(−N−m)) with χ_* as in
+the proof of [[thm:ii-a1-3-1]]; by [[lem:ii-a-8-6]] (a), ‖χ_*Lu‖_(−N−m) ≤ C‖χu‖_(−N). Now Lv = ΦLu + [L, Φ]u, and
+[L, Φ]u = [L, Φ]χu by the support convention. Further
+
+    Ǎ_ε[L, Φ] = Op(ǎ_ε)(Φ_0(I − Φ))L − Op(ǎ_ε)(Φ_0L(I − Φ)).
+
+Φ_0(I − Φ) ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]; I − Φ = Op(1 − φ) by [[eq:ii-a1-1-1]]), and Φ_0L(I − Φ) has every order by
+[[prop:ii-a1-2-4]] (e), Φ_0 and I − Φ being microsupported in the disjoint closed sets supp φ_0 and supp(1 − φ), with
+L = Op(ℓ_f) + Σ_j a_jR_j ([[eq:ii-a1-1-2]]). Op(ǎ_ε) is bounded of order 𝗄 uniformly in ε ([[prop:ii-a1-2-4]] (a)),
+and L maps H^(−N) to H^(−N−m) ([[lem:ii-a-8-6]] (a)). Hence
 
     ‖Ǎ_εLv‖_((1−m)/2) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χu‖_(−N)).                                                    {#eq:ii-a1-4-4}
 
@@ -1617,29 +1630,34 @@ diagonal). We show ⟨Ǎ_εLw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εLv, Ǎ_εv⟩ as t → 
 exact orders ([[prop:ii-a1-2-4]] (a)), and only remainders lose δ. So Ǎ_ε has order 𝗄 − κ for this ε, and as
 v ∈ H^(𝗌−κ), Ǎ_εw_t → Ǎ_εv strongly in H^((m−1)/2). Next, Ǎ_εLw_t = Ǎ_εT_tLv + Ǎ_ε[L, T_t]v. The first term tends to
 Ǎ_εLv in H^((1−m)/2): T_t → I strongly on H^(𝗌−m+1), applied to ΦLu; the part with [L, Φ]u is handled as in Step 0,
-uniformly in t. For the second, L and T_t have the constant orders m and 0. So [[prop:ii-a1-2-4]] (d), with a_1 = ℓ_f
+uniformly in t, with Φ_0T_t(I − Φ) and Φ_0T_tL(I − Φ) in place of Φ_0(I − Φ) and Φ_0L(I − Φ) ([[prop:ii-a1-2-4]] (e)
+with the expressions T_t and T_tL, τ_t being bounded in S̃⁰). For the second, L and T_t have the constant orders m and
+0. So [[prop:ii-a1-2-4]] (d), with a_1 = ℓ_f
 and a_2 = τ_t bounded in S̃⁰, shows that [L, T_t] is bounded of order m − 1, uniformly in t; and it tends to 0 as an
 operator of order m − 1 + δ, since τ_t → 1 in S̃^δ. Hence Ǎ_ε[L, T_t]v is bounded in H^((1−m)/2) uniformly in t and
 tends to 0 in 𝒟′, so weakly in H^((1−m)/2). A weakly null sequence paired with a strongly convergent one tends to 0.
 
 *Step 2: the inequality at v.* Apply [[eq:ii-a1-4-2]] at w = w_t and let t → 0. The pairing converges by Step 1. The
-other terms converge: E_ε and G′ have orders at most 𝗌 − κ and 𝗌 − 1/2 + δ_0 ≤ 𝗌 − κ, and T_t → I strongly.
+other terms converge: E_ε has order at most 𝗌 − κ, 𝗌 − 1/2 + δ_0 ≤ 𝗌 − κ, and T_t → I strongly on H^(𝗌−κ).
 B_εw_t → B_εv in H^(−δ), B_ε having order 𝗌 − κ + δ for this ε. Since ‖B_εw_t‖² is bounded by the convergent right
 side, B_εv ∈ L², and by weak lower semicontinuity
 
-    ‖B_εv‖² ≤ −2ς Im⟨Ǎ_εLv, Ǎ_εv⟩ + ‖E_εv‖² + C_0(‖G′v‖²_(𝗌−1/2+δ_0) + ‖χv‖²_(−N)).
+    ‖B_εv‖² ≤ −2ς Im⟨Ǎ_εLv, Ǎ_εv⟩ + ‖E_εv‖² + C_0‖v‖²_(𝗌−1/2+δ_0).
 
-(a) By [[prop:ii-a1-2-4]] (b), Ǎ_ε = Op(z_ε)B_ε + D_ε with D_ε bounded of order 𝗄 − 1 + 2δ. As Op(z_ε) is bounded of
+(a) Ǎ_ε = Op(z_ε)B_ε + D_ε with D_ε := (Op(z_εb_ε) − Op(z_ε)Op(b_ε))Φ_0, by the exact identity ǎ_ε = z_εb_ε; by
+[[prop:ii-a1-2-4]] (b), D_ε is bounded of order 𝗄 − 1 + 2δ. As Op(z_ε) is bounded of
 order −(m − 1)/2 without loss ([[prop:ii-a1-2-4]] (a)), ‖Ǎ_εv‖_((m−1)/2) ≤ C‖B_εv‖ + C‖v‖_(𝗌−1+2δ). With
 [[eq:ii-a1-4-4]],
 
     2|⟨Ǎ_εLv, Ǎ_εv⟩| ≤ (1/2)‖B_εv‖² + C(‖GLu‖²_(𝗌−m+1) + ‖v‖²_(𝗌−1/2) + ‖χu‖²_(−N)).
 
-(b) E_εv = E_εu − E_ε(I − Φ)u. The second term has every order, uniformly ([[prop:ii-a1-2-4]] (e)). For the first, E is
-elliptic on K_E ∩ ᵉ³ᵇS*M̃, and E_ε is bounded of order 𝗌 and microsupported in K_E. So the iteration of the proof of
-[[thm:ii-a1-3-1]], with E in place of L (E smooth, of order 0), gives ‖E_εu‖ ≤ C(‖Eu‖_𝗌 + ‖χu‖_(−N)).
+(b) E_εv = E_εu − Op(e_ε)(Φ_E(I − Φ))χu, and Φ_E(I − Φ) ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]), so the second term is bounded by
+C‖χu‖_(−N), uniformly. For the first, E is elliptic on the essential support of φ_E, so the parametrix construction of
+[[lem:ii-a-8-4]] (b), carried out in the smooth calculus Ψ̃ of ρℬ, to which (S5) applies, gives Φ_E = Q_EE + R_E with
+Q_E ∈ Ψ̃⁰ and R_E ∈ Ψ̃^(−J), J ≥ sup 𝗌 + N, both carried by χ. As Op(e_ε) is bounded of order 𝗌 uniformly,
+‖E_εu‖ ≤ ‖Op(e_ε)Q_EEu‖ + ‖Op(e_ε)R_Eχu‖ ≤ C(‖Eu‖_𝗌 + ‖χu‖_(−N)).
 
-(c) ‖G′v‖_(𝗌−1/2+δ_0) + ‖χv‖_(−N) ≤ C(‖Gu‖_(𝗌−1/2+δ_0) + ‖χu‖_(−N)).
+(c) ‖v‖_(𝗌−1/2+δ_0) ≤ C(‖Gu‖_(𝗌−1/2+δ_0) + ‖χu‖_(−N)), by [[lem:ii-a-8-4]] (c).
 
 Absorbing (1/2)‖B_εv‖², which is finite,
 
@@ -1647,7 +1665,7 @@ Absorbing (1/2)‖B_εv‖², which is finite,
 
 *Step 3: the limit.* B_εv → B_0v in 𝒟′ ([[prop:ii-a1-2-4]] (a) and the proof of its finite regularity part, as
 b_ε → b_0 pointwise with uniform bounds in the class of order 𝗌 + δ). B_εv is bounded in L², so B_0v ∈ L² with the same
-bound. Finally B_0u = B_0v + B_0(I − Φ)u, and B_0(I − Φ) has every order ([[prop:ii-a1-2-4]] (e)). ∎
+bound. Finally B_0u = B_0v + Op(b_0)(Φ_0(I − Φ))χu, and Φ_0(I − Φ) ∈ Ψ̃^(−∞). ∎
 
 The a priori hypothesis Gu ∈ H^(𝗌−κ) is used only for the limits t → 0; the bound uses ‖Gu‖_(𝗌−1/2+δ_0).
 

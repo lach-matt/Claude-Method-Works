@@ -1,8 +1,9 @@
 This part proves, at one parameter point, the constants on which the bounds of [[prop:lambda0]] and the threshold of
 [[thm:layer]] rest: the normalising constant of the envelope and the derivatives of the envelope, the admissible range
-of ε1, the energy constant of the wave operator of g0 on Ω, and the size of the explicit profiles of stage 0. Every
-number below is justified by an inequality between explicit rationals, or by the value of an elementary function at a
-rational point, which the reader can check by hand.
+of ε1, the energy constant of the wave operator of g0 on Ω, the size of the explicit profiles of stage 0, and the
+bounds on ε1 and C_app in three norms. Every number below is justified by an inequality between explicit rationals,
+or by the value of an elementary function at a rational point, which the reader can check by hand; the tables that
+the bounds on the derivatives of the envelope use are in [[sec:envelope-tables]].
 
 ### The numerical point {#sec:lambda0-point}
 
@@ -235,16 +236,19 @@ exponential and twelve trigonometric values per node, then the recursion and a c
 **Remark {#rem:envelope-dependence}** (Which end of c each bound uses.) The two ends of [[eq:envelope-c]] enter different
 bounds. (i) The lower end enters every bound on λ0 at the numerical point that rests on the size of the wave: at the
 point v = 2, r = a, ϑ = 0, θ = 0 of Ω × S¹ the operator norm of W_TT is (4/3) c a^(−3/2) ([[prop:stage-zero-bounds]]),
-and by [[lem:lambda0-point]] (a), a^(−3/2) > 7.133376, so
+every admissible C_app is at least this, whatever the mean m1 ([[prop:lambda0-norms]]), and by [[lem:lambda0-point]]
+(a), a^(−3/2) > 7.133376, so
 
     (4/3) c a^(−3/2) ≥ (4/3) · 1.3240711 · 7.133376 > 12.593309.
 
 This uses c ≥ 1.3240711 and nothing else about c; with any proven lower bound c_− in its place the constant is
 (4/3) c_− a^(−3/2). Combined with ε1 < s0 < 0.030768560 ([[lem:epsilon-one]]), the quotient of the two is
 0.030768560/12.593309 < 0.0024433, which is the operator-norm bound of [[prop:lambda0]]; that bound therefore holds
-exactly as far as the lower end of c does. (ii) The upper end enters through env ≤ c: in [[lem:lambda0-point]] (c),
-where any c < 3 suffices; in the range 0 ≤ μ' ≤ (2/9) c² used in [[prop:energy-constant]]; and in the bound
-1 + c²/18 ≤ 1.0974028 used for the threshold of [[thm:layer]], which needs c ≤ 1.3241035.
+exactly as far as the lower end of c does. The Frobenius and largest-entry bounds 0.0019079 and 0.0012228 use the
+lower end in the same way, and no other property of c ([[rem:lambda0-norms-c]]). (ii) The upper end enters through
+env ≤ c: in [[lem:lambda0-point]] (c), where any c < 3 suffices; in the range 0 ≤ μ' ≤ (2/9) c² used in
+[[prop:energy-constant]]; and in the bound 1 + c²/18 ≤ 1.0974028 used for the threshold of [[thm:layer]], which needs
+c ≤ 1.3241035. The bounds e_k of [[lem:envelope-derivatives]] use both ends.
 
 ### The admissible range of ε1 {#sec:epsilon-one}
 
@@ -427,3 +431,87 @@ from c > 1.3240867, a^(−3/2) > 7.133376 at the point of equality. ∎
 Bounds on the derivatives of orders 1 to 14 on Ω × S¹ of W_TT, of χ dv ⊗ dv and of the θ-mean of R^(1) at
 stage 1, of the kind [[lem:envelope-derivatives]] gives for the envelope, are [[pending:computational-1]]. No result
 of the paper uses them.
+
+### The threshold in three norms {#sec:lambda0-norms}
+
+The bounds of [[prop:lambda0]] compare ε1 with a constant C_app such that |g_app − g0| ≤ C_app λ. Both depend on how
+|·| is read on symmetric 2-tensors of Cartesian components. This section treats three readings: the operator norm of
+[[sec:profiles]], the Frobenius norm |·|_F, and the largest absolute entry |·|_max. Let X* be the point
+τ = 2 − a, x = (a, 0, 0, 0) (so r = a, v = 2, ϑ = 0, φ1 = 0). It lies in Ω of [[eq:omega]], since τ0 < 2 − a < τ_end
+by [[lem:lambda0-point]] (c) and v + τ − τ_end < 4 < V + 1. Put
+
+    K := c a^(−3/2),      χ* := (c²/3)(a⁻² − a^(−3/2)/2),      B := (4/3) K² + 4 χ*².
+
+**Proposition {#prop:lambda0-norms}** (ε1 and C_app in three norms.) At the numerical point let g_app = g0 + λ [g1] +
+Σ_(j≥2) λ^j [g_j] be an approximant of [[thm:approximant]], built from any stage data, and let C_app be a number such
+that |g_app − g0| ≤ C_app λ on Ω for every λ in some interval (0, λ̄], λ̄ > 0. Let ε1 > 0 be such that every symmetric
+g̃ with |g̃ − g0| ≤ ε1 on Ω is nondegenerate, as [[lem:lorentz-margin]] requires of it, and let M_22 be the (x2, x2)
+Cartesian component of the mean m1(X*) of g1 at X*. Then:
+
+(i) in the operator norm, ε1 < s0 and C_app ≥ (4/3) K + |M_22|;
+
+(ii) in the Frobenius norm, ε1 < s0 and C_app² ≥ B + |m1(X*)|_F²;
+
+(iii) in the largest absolute entry, ε1 < 1/(4m*) and C_app ≥ (4/3) K + |M_22|.
+
+In particular, whatever the stage data, C_app > 12.593309 in (i) and (iii) and C_app > 16.127552 in (ii), and
+
+    ε1/C_app < 0.0024433 in (i),    ε1/C_app < 0.0019079 in (ii),    ε1/C_app < 0.0012228 in (iii).  {#eq:lambda0-norms}
+
+*Proof.* *C_app bounds g1 at every point.* Fix (X, θ) ∈ Ω × S¹ with v(X) > 0, and take θ ∈ (0, 2π]. For n = 1, 2, …
+put λ_n := v(X)/(θ + 2πn). Then λ_n → 0 and v(X)/λ_n = θ + 2πn, so at X, (g_app − g0)/λ_n = g1(X, θ) +
+Σ_(j≥2) λ_n^(j−1) g_j(X, θ). The profiles g_j are bounded, so letting n → ∞ gives |g1(X, θ)| ≤ C_app. At X*, v = 2.
+
+*g1 at X*.* By [[thm:approximant]], g1(X*, θ) = m1(X*) + W_TT(X*, s) + χ(X*, s) D with s := θ + φ1(X*) and
+D := dv ⊗ dv; as θ runs over S¹, so does s. At X*, A = 1, env(2) = c β(0) = c, cos 2ϑ = 1 and h = 1, and
+x1 = a, x2 = x3 = x4 = 0, cos²ϑ = 1, sin²ϑ = 0. The Cartesian formula of [[lem:waves]] (a), at the phase s, gives
+λ W_TT = 2 a^(−3/2) (G dx2² − (G/3)(dx2² + dx3² + dx4²)) with G/λ = A env h cos s = c cos s, so in the components
+(τ, x1, x2, x3, x4)
+
+    W_TT(X*, s) = K cos s Λ,      Λ := diag(0, 0, 4/3, −2/3, −2/3).
+
+By [[lem:chi-closed-form]], with cos 2ϑ = 1, h = 1 and v − τ0 = 4, χ(X*, s) = −(1/3) c² sin 2s (a⁻² − a^(−3/2)/2) =
+−χ* sin 2s. And dv = dτ + dx1 at X*, so D = U Uᵀ with U = (1, 1, 0, 0, 0): D_22 = 0 and |D|_F = |U|² = 2.
+
+*(i) and (iii).* The (x2, x2) entry of g1(X*, θ) is M_22 + (4/3) K cos s. It is e2ᵀ g1 e2 for the unit vector e2, so
+it bounds both the operator norm and the largest absolute entry, and its supremum over s is |M_22| + (4/3) K.
+
+*(ii).* Write W(s) := W_TT(X*, s), χ := χ(X*, s) and Y(s) := g1 at the phase s. Since W(s + π) = −W(s),
+χ(X*, s + π) = χ and χ(X*, s ± π/2) = −χ, the parallelogram law gives |Y(s)|_F² + |Y(s + π)|_F² =
+2|m1(X*) + χD|_F² + 2|W(s)|_F² and |Y(s + π/2)|_F² + |Y(s − π/2)|_F² = 2|m1(X*) − χD|_F² + 2|W(s + π/2)|_F². Here
+|W(s)|_F² + |W(s + π/2)|_F² = K² |Λ|_F² = (8/3) K² and |m1(X*) + χD|_F² + |m1(X*) − χD|_F² = 2|m1(X*)|_F² + 8χ², so
+the four squares sum to 4|m1(X*)|_F² + 16χ² + (16/3) K², and the largest of them is at least
+|m1(X*)|_F² + 4χ² + (4/3) K². At s = π/4, χ² = χ*², so C_app² ≥ |m1(X*)|_F² + B.
+
+*The thresholds for ε1.* At a point of Ω where μ/r² = m*, let e be the unit eigenvector of g0 with eigenvalue −s0
+([[lem:lorentz-margin]]). Then g0 + s0 e eᵀ annihilates e, and |s0 e eᵀ| = s0 in the operator and in the Frobenius
+norm, e eᵀ having rank one; so ε1 < s0 in (i) and (ii). For (iii) take the point (τ_end, (a, 0, 0, 0)) of Ω, where
+μ/r² = m* ([[lem:lambda0-point]] (d)) and x̂ = e1. There the (τ, x1) block of g0 is [[−1 + m*, m*], [m*, 1 + m*]], with
+inverse [[−1 − m*, m*], [m*, 1 − m*]], and g0 is the identity on the other directions. For ξ := (1, −1, 0, 0, 0),
+ξᵀ g0⁻¹ ξ = (−1 − m*) − 2m* + (1 − m*) = −4m*, so the rank-one formula gives det(g0 + t ξ ξᵀ) = det g0 (1 − 4m* t) =
+4m* t − 1. Every entry of t ξ ξᵀ is ±t or 0, so g0 + ξ ξᵀ/(4m*) is degenerate and |ξ ξᵀ/(4m*)|_max = 1/(4m*); so
+ε1 < 1/(4m*).
+
+*The numbers.* By [[lem:lambda0-point]] (a), 0.2698587885 < a < 0.269858789, so a^(−3/2) > 7.1333765,
+a^(−3/2) < 7.1333766 and a⁻² > 13.7317809: indeed 0.269858789³ · 7.1333765² < 1, 0.2698587885³ · 7.1333766² > 1 and
+0.269858789² · 13.7317809 < 1. Hence a⁻² − a^(−3/2)/2 > 13.7317809 − 3.5666883 = 10.1650926. With c > 1.3240711
+([[eq:envelope-c]]),
+
+    (4/3) K > (4/3)(1.3240711)(7.1333765) > 12.5934635,      χ* > (1.3240711²/3)(10.1650926) > 5.9403588,
+    B > (3/4)(12.5934635)² + 4 (5.9403588)² > 260.097942 > 16.127552² = 260.0979337….
+
+By [[lem:epsilon-one]] (c), s0 < 0.030768560, and by [[lem:lambda0-point]] (d), m* > 16.23497014, so 1/(4m*) <
+0.0153989. Now 0.0024433 · 12.593309 > 0.03076918, 0.0019079 · 16.127552 > 0.03076975 and 0.0012228 · 12.593309 >
+0.01539909, which with these bounds give [[eq:lambda0-norms]]. ∎
+
+Since the threshold of [[prop:lambda0]] lies below ε1/C_app, [[eq:lambda0-norms]] bounds it by 0.0024433, 0.0019079
+and 0.0012228 in the three readings, whatever the stage data. A nonzero M_22 lowers the bounds of (i) and (iii), and a
+nonzero m1(X*) that of (ii).
+
+**Remark {#rem:lambda0-norms-c}** (The constant c in the three bounds.) [[prop:lambda0-norms]] uses about c only a
+lower bound, through K, χ* and B, which increase with c; s0 and m* depend on a and μ_end = 227/192 alone, and the upper
+end of c enters nowhere. The figure 12.593309 holds for every c ≥ 1.3240549 and 16.127552 for every c ≥ 1.3240711,
+while the three bounds of [[eq:lambda0-norms]] hold for every c ≥ 1.32404: at c = 1.32404 the arithmetic above gives
+(4/3) K > 12.593167 and B > 16.12696², and 0.0024433 · 12.593167, 0.0019079 · 16.12696 and 0.0012228 · 12.593167
+exceed 0.030768560, 0.030768560 and 0.0153989. With the sharper lower end
+c > 1.3240867 of [[eq:envelope-c]] one gets C_app > 12.593611 in (i) and (iii) and C_app > 16.127845 in (ii).

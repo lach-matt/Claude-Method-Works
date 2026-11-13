@@ -25,7 +25,7 @@ of its proof). The rows this produces are all the rows of [[sec:iii-i9-1]] with 
 through the towers ([[lem:iii-i10-2-1]]). (2) The parameter exponents, which [Hin26] builds after the proof by the
 procedure of its (11.186), are fixed in advance ([[def:iii-i10-1-1]]), with logarithmic orders that grow with the real
 part. The rows' own sources never enter the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]] (c);
-at a general b, (e) adds a source E^ν of K⁺-weight above α); this is how the self-consistency of [Hin26, Remark 11.62]
+at a general b, (e) adds a forcing term E^ν of K⁺-weight above α); this is how the self-consistency of [Hin26, Remark 11.62]
 enters. (3) Two further conditions are needed: (H4), ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero
 frequency Taylor expansion of the transformed forcing has
 four terms (orders σ⁰ to σ³, as α − 1 > 3); the four zero energy solves are written out, with the polyhomogeneous
@@ -1612,7 +1612,7 @@ place of those at b_0, the v1 tower being T_(v1,b). Two changes are needed:
 
 The solution of [[thm:iii-i11-4-1]] at b_0 and the solution of [[prop:iii-i15-2-5]] at b are of this form: the first by
 [[lem:iii-i9-2-6]] (c), its forcing lying in 𝒴⁰(α) ⊂ 𝒴^♮(α−); the second by [[lem:iii-i9-2-6]] (e), the identity
-[[eq:iii-i15-1-1]], whose added source E^ν lies in 𝒴^♮_2(α−), its forcing lying in 𝒴^♮(α−) by Step 2 of the proof of
+[[eq:iii-i15-1-1]], whose added term E^ν lies in 𝒴^♮_2(α−), its forcing lying in 𝒴^♮(α−) by Step 2 of the proof of
 [[prop:iii-i15-2-5]].
 
 *Proof.* The proof of [[thm:iii-i12-3-1]] uses its setting only through the hypothesis stated here (the remark after
