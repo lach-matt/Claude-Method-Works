@@ -138,14 +138,13 @@ u = w(x/|x|) and polarised, Σ_i ∫ (Ω_iw)(Ω_iw′) dω = ∫ ⟨D̂w, D̂w�
 inequality.
 
 For T: extend T to R⁴ ∖ 0 by T(PX, PY), P = 1 − xxᵀ/|x|² the projection onto the tangent spaces of the spheres; its
-Cartesian components T_IJ (I, J = 1, …, 4) restrict to functions on S³ with Σ_(I,J) T_IJ² = |T|². The rotations
-preserve P, so the Lie derivative of the extension along Ω_i is the extension of L_iT, and in Cartesian components
-Ω_i(T_IJ) = (L_iT)_IJ − (A_iᵀT + TA_i)_IJ, A_i the constant antisymmetric matrix with Ω_i = A_ix · ∂_x, of operator
-norm 1. So, with
+Cartesian components T_IJ (I, J = 1, …, 4) restrict to functions on S³ with Σ_(I,J) T_IJ² = |T|². The rotations preserve
+P, so the Lie derivative of the extension along Ω_i is the extension of L_iT, and in Cartesian components Ω_i(T_IJ) =
+(L_iT)_IJ − (A_iᵀT + TA_i)_IJ, A_i the constant antisymmetric matrix with Ω_i = A_ix · ∂_x, of operator norm 1. So, with
 |·|_F the Frobenius norm, |Ω_iT|_F ≤ |L_iT| + 2|T| and |Ω_iΩ_jT|_F ≤ |L_iL_jT| + 2|L_jT| + 2|L_iT| + 4|T|. Sum the
 inequality for functions over (I, J), use (a + b + c + d)² ≤ 4(a² + b² + c² + d²) and count the six rotations: the
-coefficient of ‖T‖² is 1 + 4 · 16 · 36 = 2305, that of Σ_i ‖L_iT‖² is 4 · 4 · 6 + 4 · 4 · 6 = 192, and that of
-Σ_(i,j) ‖L_iL_jT‖² is 4. ∎
+coefficient of ‖T‖² is 1 + 4 · 16 · 36 = 2305, that of Σ_i ‖L_iT‖² is 4 · 4 · 6 + 4 · 4 · 6 = 192, and that of Σ_(i,j)
+‖L_iL_jT‖² is 4. ∎
 
 **Lemma {#lem:gd-1-2}** (The sphere.) (a) The T²-invariant spherical harmonics on S³ are the functions P_j(cos 2ϑ),
 P_j the Legendre polynomials, with Δ̂P_j(cos 2ϑ) = −l(l + 2)P_j(cos 2ϑ), l = 2j; they are complete in the T²-invariant

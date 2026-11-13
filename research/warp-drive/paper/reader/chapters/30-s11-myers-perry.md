@@ -1461,8 +1461,9 @@ is justified by (E1) and (M2): on the horizontal segments {c ≤ Re ι ≤ γ, I
 |ι|^(J′)‖ℳf′‖_(H^(J′)), uniform in the strip, makes T ↦ ∫_c^γ ‖ℳf′(s ± iT)‖²_(H^(J′)) ds integrable, hence small along
 a sequence, which a diagonal choice makes one for all J; (E1) bounds N(A, ·)⁻¹ there). This is a statement in L² on the
 segments, not a pointwise one, and it is what the contour shift uses. The residues at the finitely many poles in
-α < Re ι < γ are of the form ρ^ι Σ_(j≤q)(log ρ)^j a_j, a_j ∈ C^∞(∂M), with q + 1 the pole order: by the order count these
-lie in H^(∞,(E(α)∪̄F,γ′)) for every γ′ < γ (the extended union E ∪̄ F of [[def:s11-b-analysis]] (4) is precisely the
+α < Re ι < γ are of the form ρ^ι Σ_(j≤q)(log ρ)^j a_j, with q + 1 the pole order and a_j ∈ C^∞(∂M) (the Laurent
+coefficients of N(A, ·)⁻¹ that enter, of negative and of non-negative powers, map C^∞(∂M) to itself by (E2)): by the
+order count these lie in H^(∞,(E(α)∪̄F,γ′)) for every γ′ < γ (the extended union E ∪̄ F of [[def:s11-b-analysis]] (4) is precisely the
 addition of pole orders, (z, k + l + 1) from orders k + 1 and l + 1). The integral on Re ι = γ lies in H^(∞,γ)_b by
 (M1), using (E1) for all |ι|-weighted norms. So v ∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done. Otherwise γ < β (and
 γ ≤ α + 1); repeat with α replaced by γ − δ′ for small δ′ > 0 and the expansion found so far moved into the right side:

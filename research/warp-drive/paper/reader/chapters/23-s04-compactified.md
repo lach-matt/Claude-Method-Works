@@ -1130,10 +1130,9 @@ choose an auxiliary operator G_♭ ((R1) of [[sec:ii-a-8-3]]) with WF′(G) ⊂ 
 k − 1 bounds it by C‖𝐚‖(‖G_♭V_iu‖_((𝗌;k−1)) + ‖χ_1V_iu‖_((−N;k−1))), with the inner cut-off χ_1 := h_♭(χ) of (R3),
 which carries G, [V_i, G] and G_♭. Next, ‖G_♭V_iu‖_((𝗌;k−1)) ≤ ‖G_♭u‖_((𝗌;k)) + ‖[G_♭, V_i]u‖_((𝗌;k−1)), and both
 are bounded by C(‖G′u‖_((𝗌;k)) + ‖χu‖_((−N;k))) ([[lem:ii-a-8-4]] (c)). Finally ‖χ_1V_iu‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)),
-by (R3). The step from k − 1 to k
-applies the statement at k − 1 to the operators [V_i, G] and G_♭, to the cut-off χ_1 and to the finite set
-𝒫 ∪ {[V_i, P_j]}, all chosen anew at each k, with the same d_0; this is possible because the d_0 of the case k = 0
-depends on none of them. So d_0 does not depend on k. ∎
+by (R3). The step from k − 1 to k applies the statement at k − 1 to the operators [V_i, G] and G_♭, to the cut-off χ_1
+and to the finite set 𝒫 ∪ {[V_i, P_j]}, all chosen anew at each k, with the same d_0; this is possible because the d_0 of
+the case k = 0 depends on none of them. So d_0 does not depend on k. ∎
 
 #### Sobolev embedding {#sec:ii-a-8-5}
 
@@ -2079,8 +2078,9 @@ the rules (R1)–(R3) of [[sec:ii-a-8-3]] for the operators of the statement at 
 instance). Then there are auxiliary operators B_1, B_2, … ∈ C^∞_b Ψ⁰_e3b in the sense of (R1), carried by χ and by
 χ_1 := h_♭(χ), with K ⊂ Ell(B_1), WF′(B_i) ⊂ Ell(B_(i+1)) and all wave front sets in O. Some B_i may be chosen
 microlocally equal to I near K, that is, with WF′(I − B_i) ∩ K = ∅: quantize the symbols f(ϑ)χ̃_i, with
-χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃) supported near fibre infinity in O and χ̃_i = 1 near the support of χ̃_(i−1), and truncate to
-range ϵ_ϑ. Every finite chain of such operators fits: only the fibre supports are nested, in the fixed open set O.
+χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃), χ̃_1 = 1 near K, χ̃_i = 1 near the support of χ̃_(i−1), and supp χ̃_i ∩ ᵉ³ᵇS*M̃ ⊂ O, and truncate
+to range ϵ_ϑ. Every finite chain of such operators fits: only the supports in the fibres are nested, inside the fixed
+open set O, while the base factor f(ϑ) and the room ϵ_ϑ are the same for all of them.
 
 The hypotheses of the propagation estimates are open. Let T be the union of the backward segments of the integral
 curves of 𝖧 from WF′(B) ∩ Char(L) up to their first entry into Ell(E), and suppose that they reach Ell(E) within a time

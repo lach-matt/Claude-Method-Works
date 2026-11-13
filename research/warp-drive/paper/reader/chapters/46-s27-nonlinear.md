@@ -322,34 +322,84 @@ The slab 𝒮 is bounded by {ρ′_I = c} ∪ Σ^fut_(r_1) to the past and by {t
 
 On the compact pieces of 𝒟 (the set 𝒦, and the part of 𝒮 away from ℐ⁺ in the proof of [[thm:iv3-2-1]]) the equations are
 solved by the local theory of quasilinear wave equations. The equation [[eq:iii-k-1-2]] is, in the gauge's normal form,
-P^♮(g_0 + h, g_0) = −½□_(g_0+h)h plus a smooth function of (x, h, ∂h), with g_0 = φ_(S,S⁰)^*g_(b₀), principal part
-−½(g_0 + h)⁻¹(ζ, ζ) times the identity, and everything smooth in the parameters (S, S⁰); h = 0 solves it for every value
-of the parameters, as P^♮(g_0, g_0) = Ric(g_0) = 0. Its linearisations have the same principal part at h. Two statements
-are used, on a compact set 𝒦′ that is the domain of dependence, within 𝒟, of the part of its boundary carrying the data
-(a level set of t_IVP, with a forward and a backward problem, or a piecewise smooth spacelike past boundary):
+P^♮(g_0 + h, g_0) = ½□_(g_0+h)h plus a smooth function of (x, h, ∂h), with g_0 = φ_(S,S⁰)^*g_(b₀) and □ the operator of
+[[eq:iii-b-6-7]]: its principal part is ½□_(g_0+h) ⊗ id = −½(g_0 + h)^(αβ)∂_α∂_β ⊗ id, with principal symbol
+½(g_0 + h)⁻¹(ζ, ζ) times the identity (∂ → iζ), and everything is smooth in the parameters (S, S⁰); h = 0 solves it for
+every value of the parameters, as P^♮(g_0, g_0) = Ric(g_0) = 0. Its linearisations have the same principal part at h.
+[[lem:ii-f-1-3]] and [[lem:s26-uniqueness]] are applied below to twice these operators, and to twice the operators
+δ_gG_gδ*_(g_0,E_C) of the constraint propagation, whose principal symbol is then g⁻¹(ζ, ζ) times the identity. Two
+statements are used, on a compact set 𝒦′ that is the domain of dependence, within 𝒟, of the part of its boundary
+carrying the data (a level set of t_IVP, with a forward and a backward problem, or a piecewise smooth spacelike past
+boundary). On a domain, H^k denotes the restrictions of H^k functions, with the quotient norm.
 
-(L) for a linear equation of this kind with smooth coefficients, and data in H^(k+1) × H^k and forcing in H^k, there
-is a unique solution on 𝒦′, bounded in H^k(𝒦′) by the data and the forcing;
+(L) Let k ≥ 4. For a linear equation of this kind with smooth coefficients, data in H^(k+1) × H^k and forcing
+f ∈ H^k(𝒦′), there is a unique solution h on 𝒦′ in H²(𝒦′); it lies in H^(k+1)(𝒦′), and
+‖h‖_(H^(k+1)(𝒦′)) ≤ C_k(‖h₀‖_(H^(k+1)) + ‖h₁‖_(H^k) + ‖f‖_(H^k(𝒦′))) for the data (h₀, h₁).
 
 (N) (Cauchy stability) for the quasilinear equation, there is r_0 such that for data small in H^(r_0+1) × H^(r_0) and
 (S, S⁰) small there is a unique solution on all of 𝒦′; it lies in H^(r+1)(𝒦′) for every r for which the data lie in
 H^(r+1) × H^r, and it tends to 0 in H^(r+1)(𝒦′) as the data tend to 0 in H^(r+1) × H^r and (S, S⁰) tends to 0.
 
-Both are [DS23, Theorems 2.4, 2.5 and 2.6] ([[thm:std-ds-existence]], [[thm:std-ds-stability]],
+Both rest on [DS23, Theorems 2.4, 2.5 and 2.6] ([[thm:std-ds-existence]], [[thm:std-ds-stability]],
 [[thm:std-ds-continuation]]). Data on a piecewise smooth past boundary are first made zero by subtracting an extension
 of them, cut off near the boundary, as in [[rem:iv-4-2]]; the forcing problem is then posed with zero data on a level
 set of t_IVP to the past of 𝒦′. dt_IVP is past timelike for g_(b₀) ([[lem:iii-b-3-7]] (b)), with a margin on a
 neighbourhood of 𝒦′, hence for every metric C⁰-close to g_(b₀) there. As in Step 8 (ii)–(iii) of [[sec:ue-existence]],
-the coefficients are extended from a neighbourhood of 𝒦′ to a spatial torus with a cut-off of the values, the time
+the coefficients are extended from a neighbourhood of 𝒦′ to a spatial torus 𝕋⁴ with a cut-off of the values, the time
 lines are taken orthogonal to the level sets of t_IVP, and the equation becomes a first-order symmetric hyperbolic
-system for (h, ∂h) satisfying (A1)–(A4) of [DS23]; the parameters (S, S⁰) are adjoined as unknowns constant in t_IVP,
-which adds the eigenvalue 0 that the symbol already has. [[thm:std-ds-stability]] at the solution 0, which exists for
-all t_IVP and all parameters, gives (N) on the t_IVP-range of 𝒦′, in both time directions; the higher regularity is
-[[thm:std-ds-continuation]], and finite speed of propagation, [[lem:ii-f-1-3]] with the compact sets of
-[[lem:s27-cover]] (c) and [[lem:iii-k-6-2]], shows that on 𝒦′ the solution depends only on the data on its past
-boundary, not on the extension. For a linear system the time of [[thm:std-ds-existence]] does not depend on the data,
-as solutions scale with them, so its solutions exist on every bounded time interval, and the solution map, linear and
-continuous by [[thm:std-ds-stability]], is bounded: this is (L). [Hin26, p. 320] cites the same theory as "standard
+system ∂_tu + A^i(t, x, u)∂_iu = R(t, x, u) for u = (h, ∂h) satisfying (A1)–(A4) of [DS23], t = t_IVP; the data and
+the forcing are extended to the torus by the definition of the spaces and cut off in the same way. The parameters
+(S, S⁰) are adjoined as unknowns constant in t_IVP, which adds the eigenvalue 0 that the symbol already has. [DS23] asks
+r > N/2 + 1 = 3 for u ∈ H^r, r an integer, so r ≥ 4, which for h means data in H^(r+1) × H^r; this is why (L) is
+stated for k ≥ 4. Finite speed of propagation, [[lem:ii-f-1-3]] with the compact sets of [[lem:s27-cover]] (c) and
+[[lem:iii-k-6-2]], shows that on 𝒦′ the solution depends only on the data on its past boundary and on the forcing on
+𝒦′, not on the extensions; and that it is unique among solutions in H²(𝒦′), which, extended by 0 across the data
+surface where their Cauchy data vanish, are solutions in the sense of distributions, as in the proof of
+[[prop:iii-k-1-2]].
+
+*(N).* [[thm:std-ds-existence]] at u₀ = 0, from a starting level t₀ of t_IVP, gives an interval [t₀ − T, t₀ + T] with
+T > 0 depending on ‖u₀‖_r = 0 and on the structure only, so not on t₀, the bounds of (A1)–(A2) holding uniformly in
+t_IVP. The solution 0 exists for all t_IVP and all parameters, and [[thm:std-ds-stability]] at it, on that interval,
+shows that solutions with data near 0 at t₀ exist on [t₀ − T, t₀ + T] and tend to 0 in C([t₀ − T, t₀ + T]; H^r) as
+the data tend to 0. Applied on successive intervals of length T, each time with the values of the solution at the end
+of the previous one as data, finitely many to cover the t_IVP-range of 𝒦′ in both time directions, this gives (N) with
+r_0 := 4, in C(I; H^r) for u; the higher regularity is [[thm:std-ds-continuation]], and the spacetime norm on 𝒦′
+follows as in step (iv) below.
+
+*(L).* For a linear equation, A^i = A^i(t, x) and R = B(t, x)u + F(t, x), with A^i, B smooth and bounded with all their
+derivatives, and F the forcing; (A1)–(A4) hold on U = ℝ^m, so the distance M̃ of [[thm:std-ds-existence]] is infinite,
+and solutions scale with their data. Let I be the t_IVP-range of 𝒦′, enlarged by 1, and r ≥ 4.
+
+(i) *The homogeneous system* (F = 0). For σ ∈ ℝ, w(τ) := u(σ + τ) solves the system with coefficients A^i(σ + τ, x),
+B(σ + τ, x); adjoin σ as an unknown constant in τ, as the parameters are. At the solution (0, σ₀),
+[[thm:std-ds-existence]] gives an interval [−T(σ₀), T(σ₀)], and [[thm:std-ds-stability]] a δ(σ₀) > 0 such that data
+(w₀, σ) with ‖w₀‖_r ≤ δ(σ₀) and |σ − σ₀| ≤ δ(σ₀) have solutions on that interval with ‖w(τ)‖_r ≤ 1. Covering I by
+finitely many intervals (σ₀ − δ(σ₀), σ₀ + δ(σ₀)), and scaling, there are T₁ > 0 and K such that for every s ∈ I and
+u₀ ∈ H^r the solution with u(s) = u₀ exists on [s − T₁, s + T₁] and satisfies ‖u(t)‖_r ≤ K‖u₀‖_r there. So the
+solution operators 𝒰(t, s) exist for t, s ∈ I; they are linear, by uniqueness, satisfy 𝒰(t, s)𝒰(s, s′) = 𝒰(t, s′),
+and are bounded on H^r by K^m, m the least integer ≥ |I|/T₁, uniformly in t, s ∈ I. By [[thm:std-ds-existence]],
+t ↦ 𝒰(t, s)u₀ is continuous into H^r and C¹ into H^(r−1), with derivative 𝒜(t)𝒰(t, s)u₀, 𝒜(t) := −A^i∂_i + B; and
+s ↦ 𝒰(t, s)u₀ is continuous into H^r, as 𝒰(t, s′)u₀ − 𝒰(t, s)u₀ = 𝒰(t, s′)(u₀ − 𝒰(s′, s)u₀) and the 𝒰(t, s′) are
+uniformly bounded.
+
+(ii) *Duhamel's formula.* Let u₀ and F be smooth, and u the solution of [[thm:std-ds-existence]] with u(t₀) = u₀,
+t₀ ∈ I; R = Bu + F satisfies (A2). On an interval J ⊂ I on which u exists, u ∈ C(J; H^(r+1)) ∩ C¹(J; H^r) for every r.
+For fixed t, w(s) := 𝒰(t, s)u(s) satisfies w(s + ε) − w(s) = 𝒰(t, s + ε)(u(s + ε) − 𝒰(s + ε, s)u(s)), and in H^r
+the bracket is εF(s) + o(ε), u and 𝒰(·, s)u(s) being C¹ into H^r with derivatives at s differing by F(s). With the
+uniform bound and the continuity in s of (i), w has the continuous right derivative 𝒰(t, s)F(s) in H^r; a continuous
+function with a continuous right derivative is continuously differentiable, so
+u(t) = 𝒰(t, t₀)u₀ + ∫_(t₀)^t 𝒰(t, s)F(s) ds, and ‖u(t)‖_r ≤ K^m(‖u₀‖_r + ∫_I ‖F(s)‖_r ds) on J. This bounds u in
+C(J; C¹) ∩ C¹(J; C), H^r lying in C¹ for r ≥ 4, so by [[thm:std-ds-continuation]] u exists on all of I.
+
+(iii) *Density.* For u₀ ∈ H^r and F ∈ L¹(I; H^r), approximate by smooth ones. By (ii) the solutions converge in
+C(I; H^r), and the limit solves the system in the sense of distributions, with the same bound.
+
+(iv) *The spacetime norm.* With r := k, u ∈ C(I; H^k) gives h ∈ C(I; H^(k+1)) and ∂_(t_IVP)h ∈ C(I; H^k). The
+derivatives of h with j ≥ 2 derivatives along the time lines follow from the equation, solved for the second time
+derivative (its coefficient does not vanish, the level sets of t_IVP being spacelike), by induction on j: each is a
+combination, with smooth coefficients, of derivatives of h with at most j − 1 time derivatives and of j − 2 derivatives
+of f. So h ∈ H^(k+1) of the slab I × 𝕋⁴, with norm at most C_k(‖h₀‖_(H^(k+1)) + ‖h₁‖_(H^k) + ‖f‖_(H^k)), f ∈ H^k of
+the slab lying in L¹(I; H^k); its restriction to 𝒦′ gives (L). [Hin26, p. 320] cites the same theory as "standard
 local well-posedness results".
 
 #### The slab near null infinity: setting {#sec:iv3-0}
