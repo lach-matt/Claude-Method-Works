@@ -44,7 +44,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | CONFIRMED (second reading; 2 nits) |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | third fix done (wording of lem:interior-one-spacetime; m := μ(v)r⁻²; nits); fourth reading running |
 | 63 M Ch 13 | NOT CONFIRMED 1M 6m 15n (issue-1 k_P = 2k1 + 14 needed and enough; issue-2 a real gap, as in the source: E_T[Z^k h_R] ~ | waits on the cut-off repair's reader; then the fix round (R-63 minors and nits, merge of the repair at 648-653, 660-663, 682-688, 738, 784-786, 800-809, 852-857, lem:own-exterior tail) |^(2a+2k−8)) | waits on the cut-off proof project | - |
-| 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | running | - |
+| 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | done (set r > r_♭; int N proved; XΦ for T^a only; density step; renames) | confirming reader running |
 | 65 M Ch 15 | written (1,132 lines, 58 crosswalk rows, no markers); independent reader running | - | - |
 | 70 M Ch 17 | written (1,624 lines, 102 labels; B2 merged with 4.683; P-B merged pre-fix, to re-merge; 3 computational markers, proof project running) | - | - |
 | 80 M Ch 19 | written (1,240 lines, 70 crosswalk rows, no markers); independent reader running | - | - |

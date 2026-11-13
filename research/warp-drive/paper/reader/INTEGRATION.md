@@ -831,3 +831,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   weights, root-avoidance checks, the constants 2.81 and 3.94, trapped-set data, η < 16.48γ_C^(−1/2), resolvent lower
   bounds from degree-159 test functions (ratios to prop:band-points 19.8 to 93.5). lem:ec-closed-forms (f) to check
   against chapter 36.
+- Ch 64 fix (F-64): six minors and 13 nits: set limited to r > r_♭; int N clause kept and proved (no use needs it);
+  XΦ only for T^a, rotations via ΣĚ(Ω_iΨ) = λĚ and Σ_ijĚ(Ω_iΩ_jΨ) = λ²Ě (thm:rwg-2 Steps 1-3 rewritten); T² on the cone
+  from T = (𝒱∂_𝒱 − 𝒰∂_𝒰)/r_h; uniformity in l with 𝔭Φ as a jet; the density step for lem:np-10-1b (b). Renames in
+  chapter 64: K → K̄, 𝔪 → 𝔭, τ → 𝓉, ω → 𝔷, t_s, Y_H, v_Σ, 𝔠, ϱ, N → N_ν. ṁ kept (chapter 3's μ̇ is out of line: rename
+  at integration). Chapter 65 needs K → K̄. Confirming reader running.

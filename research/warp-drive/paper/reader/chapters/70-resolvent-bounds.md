@@ -1548,7 +1548,7 @@ moreover, P_2(5/2) = 0.2498…, P_2(3) = −2.1037…·10⁻⁴, P_4(5/2) = 0.24
 root in (2 + ε_−, 2 + ε_+), which is its only root greater than 2; and P_l has a root in each of (2 + ε_−, 2 + ε_+),
 (2 + ε_+, 5/2) and (5/2, 3), which are therefore its three roots with real part greater than 2, each simple, the least
 being ι_l. So ι_l − 1 ∈ (1 + ε_−, 1 + ε_+), which is [[eq:rb-roots-point]]; every other root of det N^n_l coming from C
-or P_l has real part below −99 or, at l = 2, 4, greater than 1 + ε_+; and with the first part the lemma follows. ∎
+or P_l has real part below −101 or, at l = 2, 4, greater than 1 + ε_+; with the first part the lemma follows. ∎
 
 *The horizon.* Write x := a_vγ_C r_h, with a_v the dv-component of c_C at r_h.
 
@@ -1653,7 +1653,7 @@ coordinates y_3, y_4, y_6 and ω_2, are absent, and the corresponding rows and c
 
 **Lemma {#lem:rb-indicial-explicit}** (The indicial family of the block.) Put ϖ := κ + 2ι − ι². Then
 
-    N^y_l(ι) = ½𝔚(ι) + 𝔈_C𝔇(ι)𝔊 + (𝔖(ι + 1) + 𝔈_C)𝔈_Υ,                                          {#eq:rb-indicial-explicit}
+    N^y_l(ι) = ½𝔚(ι) + 𝔈_C𝔇(ι)𝔊 + (𝔖(ι + 1) + 𝔈_C)𝔈_Υ,                                         {#eq:rb-indicial-explicit}
 
 where, for y ∈ ℂ⁷ and ω ∈ ℂ³,
 
@@ -1795,6 +1795,6 @@ r_0|M_33(r_0)| by [[eq:rb-block-norms]] (at α = −1 the weights are r and r⁵
 norms); on the domain {r ≥ r_h/2} of the zero-energy problem this gives ‖ℛ_l‖ ≥ ½|M_33(½)| = 9996 for every l. And
 (κ + 1)/(2(κ + 2)^(1/2)) < 9996 exactly when (κ + 1)² < 4 · 9996²(κ + 2), which holds for every l ≤ 19,991, in
 particular at l = 19,990 (κ = 399,640,080: (κ + 1)² < 1.59713 · 10¹⁷ < 1.59728 · 10¹⁷ < 4 · 9996²(κ + 2)) and fails
-from l = 19,992 on. So this route gives no lower bound at any degree l ≤ 19,991; if a perturbative regime exists at all, it begins above
-that degree, and the horizon part of the block does not become perturbative at any degree
+from l = 19,992 on. So this route gives no lower bound at any degree l ≤ 19,991; if a perturbative regime exists at
+all, it begins above that degree, and the horizon part of the block does not become perturbative at any degree
 ([[lem:rb-horizon-exponents]]).

@@ -222,3 +222,136 @@ is bounded near x0 since ρ1(x0) = r(x0) > 0. So T(n, n) = e^(−ψ1−ψ2) T3(n
 The mechanism is the focusing of a converging beam: in a flat plane, particles moving radially inward with speed v have
 a density n(ρ, t) solving ∂_t n − v ρ⁻¹ ∂_ρ(ρ n) = 0, so ρ n(ρ, t) = (ρ + v t) n0(ρ + v t) and ρ n → v t n0(v t) > 0 as
 ρ → 0 once the beam has reached the centre; particles moving along the axis (v = 0) keep their density.
+
+### The theorem {#sec:vlasov-theorem}
+
+Let Ω be a domain of the type [[eq:omega]], Ω = {τ0 ≤ τ ≤ τ_end, r ≥ a, v + (τ − τ_end) ≤ V + 1}, with Σ_τ := Ω ∩ {τ}
+and its outer radius b(τ) := V + 1 − τ + (τ_end − τ). Let (g, q, u) be a smooth class solution on Ω of the
+Einstein–restricted massless Vlasov system in label form, Ric(g) = T_V + T_rad, where T_rad is zero or a pair of null
+dusts q_in du_in ⊗ du_in + q_out du_out ⊗ du_out, one ingoing and one outgoing, that may reach the axes as in
+[[thm:class-stability]] (the *radial dusts*; on the round backgrounds of [[thm:two-dusts]] they are the two radial
+families). We assume:
+
+- (Ω) For g: each Σ_τ is spacelike; {r = a} is spacelike and r decreases along future causal curves near it;
+  {v + τ = const} is spacelike and v + τ increases along future causal curves; every generator of a dust present in Ω
+  (a ray of u_α through a point of D_α, or a generator of a radial dust on its support), followed to the past, stays
+  in Ω and meets Σ_τ0. These are (a)–(d) of [[lem:domain]], for g.
+- (V1) q and u are smooth in (x, α), and the field is labelled by initial direction. For each α and each x0 in a
+  neighbourhood of supp q(·, α) ∩ Σ_τ0, the point y_τ(x0) where the ray of u_α from x0 meets Σ_τ depends on x0 with
+  Jacobian determinant ≥ J0 > 0 in the coordinates (r, ϑ) of the orbit slices, for every τ with y_τ(x0) in a
+  neighbourhood of Ω (no caustic). On Σ_τ0 ∩ supp q, ∂_α β0 ≥ b > 0.
+- (V2) dist(D_α, axes) ≥ 2δ > 0 for every α.
+- (V2′) On the support of each radial dust, every label present has a momentum du_α whose spatial part makes an angle
+  ≥ η > 0, in the orbit slice, with both radial null directions, or the supports are disjoint. The radial dusts satisfy
+  the condition (H2′) of [[thm:class-stability]], with the lateral boundaries of Ω adapted where they meet an axis.
+- (V3) On Σ_τ0 ∩ Ω the spheres {r = const} have positive mean curvature, and the symmetrizer 𝒮 of
+  [[eq:data-symmetrizer]] makes the r-coefficient 𝒮 A0 of the momentum system positive definite: the two signs of
+  [[lem:constraints-evolution]] (a).
+
+**Theorem {#thm:vlasov}** (Restricted massless Vlasov limits.) Let (g, q, u) satisfy (Ω), (V1), (V2), (V2′) and (V3).
+Then there are smooth metrics g_i on Ω, invariant under T² and under both reflections, with Ric(g_i) = 0,
+
+    g_i → g uniformly on Ω,      ∂g_i ⇀ ∂g weakly in L²(Ω).
+
+The metric g_i is a vacuum approximation of the n_i-dust approximant of the field, along odd n_i → ∞.
+
+No smallness of g or of the field is assumed. The properties (b) and (c) of [[lem:constraints-evolution]], no
+coefficient of order λ⁻¹ and unchanged principal coefficients, are properties of the approximant's data; they are proved
+in [[thm:vlasov-n-data]] for torus-polarised waves and are not hypotheses. The hypotheses are open
+([[lem:vlasov-open]]), and an explicit family on Tangherlini meets them ([[prop:vlasov-nonempty]]), so the theorem
+covers a nonempty open set of solutions.
+
+**Remark {#rem:vlasov-v2}** ((V2) for smooth solutions.) Let (g, q, u) be smooth on Ω̄, with no label having an axial
+momentum at an axis point of supp q. Then (V2) holds for some δ > 0. Indeed, the set D := {(x, α) : x ∈ D_α} is the
+image of the compact set supp q ∩ (Σ_τ0 × S¹) under the continuous flow of the rays, intersected with Ω̄ × S¹, so it is
+compact. A ray of g3 that meets an axis either crosses it transversally or lies in it: in the meridional picture of
+the proof of [[prop:vlasov-axis-focus]], a null geodesic of g_P tangent to {x3 = 0} at a point is mapped to a geodesic
+with the same initial data by x3 ↦ −x3, so it lies in that set. The first is excluded by [[prop:vlasov-axis-focus]],
+since g is C²; the second by assumption. So D does not meet axes × S¹, and a compact set disjoint from a closed set lies
+at positive distance from it.
+
+**Remark {#rem:vlasov-obstructions}** (What the hypotheses avoid.) Four obstructions are proved in this chapter, and the
+theorem is built so that none applies. (O1) At an axis point every invariant null phase is radial, and two of one
+orientation have vanishing mixed symbol ([[lem:vlasov-axis-phases]]): the labels are kept off the axes, which only the
+radial dusts reach. (O2) Restricted particles reaching an axis focus there ([[prop:vlasov-axis-focus]]). (O3) Without a
+hierarchy of frequencies, an antipodal pair and any third phase resonate exactly ([[lem:vlasov-resonance]]): the
+frequencies are 1, Λ, …, Λ^(n−1). (O4) A non-radial wave with a component on the orbit block leaves a term of order λ⁻¹
+in the constraints ([[lem:vlasov-constraint-coefficient]] (c)): the waves are torus-polarised. Where a label is
+parallel to a radial direction on a radial dust's support every mixed harmonic of the pair is resonant
+([[rem:vlasov-radial-pair]]): hence (V2′).
+
+### Separation and coherence of the labels {#sec:vlasov-coherence}
+
+**Lemma {#lem:vlasov-separation}** (The flow keeps the labels separated.) Under (Ω), (V1) and (V2) there is c0 > 0,
+depending on Ω and on the field and not on any choice of labels, such that at every point y ∈ D_α ∩ D_α′
+
+    |g⁻¹(du_α, du_α′)(y)| ≥ c0 d(α, α′)².                                                       {#eq:vlasov-separation}
+
+*Proof.* Let 𝒫 be the bundle of null directions of g3 over the orbit slices, a circle bundle, with the angle β of the
+spatial part in a frame orthonormal for the slice metric. For τ ∈ [τ0, τ_end] let Φ_τ take (x0, α) ∈ Σ_τ0 × S¹ to (y, β)
+∈ 𝒫|Σ_τ, the point where the ray of u_α from x0 meets Σ_τ and the angle of du_α there. Φ_τ is the flow of the null
+geodesic spray on 𝒫 from Σ_τ0 to Σ_τ composed with the section σ(x0, α) := (x0, β0(x0, α)). The flow is a
+diffeomorphism with positive Jacobian (it depends continuously on τ and is the identity at τ0), and Dσ is triangular
+with determinant ∂_α β0 ≥ b. So det DΦ_τ ≥ c_Φ > 0 on the compact set of the (x0, α) in question. Write DΦ_τ in blocks,
+with A := ∂y/∂x0, B := ∂y/∂α, C := ∂β/∂x0, D := ∂β/∂α. At fixed y the label α determines its ray, and x0 = x0(y, α),
+since A is invertible by (V1); the angle at y of du_α is β(y; α) := β(x0(y, α), α), and
+
+    ∂_α β(y; α) = D − C A⁻¹ B = det DΦ_τ / det A,
+
+the Schur complement. Since 0 < det A ≤ C_A on the compact set, ∂_α β(y; α) ≥ c1 := c_Φ/C_A > 0 wherever the labels
+between α and α′ are present at y, which holds on a uniform neighbourhood of the diagonal α′ = α by (V1). In 2+1
+dimensions null covectors at y are k = E(−1, cos β, sin β) in an orthonormal frame, E > 0, and
+
+    g⁻¹(k, k′) = −E E′ (1 − cos(β − β′)),      |g⁻¹(k, k′)| = 2 E E′ sin²((β − β′)/2).
+
+So near the diagonal |g⁻¹(du_α, du_α′)| ≥ c d(α, α′)², with E bounded below on the compact set. Away from the diagonal
+the left side of [[eq:vlasov-separation]] divided by d(α, α′)² is continuous on a compact set, and it is positive: if
+du_α and du_α′ were parallel at y, the null geodesic of g3 through y in that direction, followed to the past, would
+meet Σ_τ0 at one point x0 with one direction, so β0(x0, α) = β0(x0, α′), and α = α′ since the field is labelled by
+initial direction. Its infimum c0 is positive. ∎
+
+For the n labels α_A := 2πA/n, d(α_A, α_B) ≥ 2π/n, so the dusts sampled at them are pairwise separated with constant
+c0 (2π/n)². This is the separation η′ ≳ 1/n² of [HL25, Lemma 4.15, p. 18]; for n directions 2πA/n on the flat orbit
+space with unit energies the least mixed symbol is exactly 1 − cos(2π/n), and n²(1 − cos(2π/n)) → 2π².
+
+Pairwise separation is not enough for the scheme of [[thm:vlasov-n-approximant]]. At stage m its residual carries the
+harmonics e^(i j·θ) with |j|₁ ≤ m + 2, and a harmonic with two or more nonzero entries is removed by division by
+
+    Q_j := g⁻¹(K_j, K_j),      K_j := Σ_A j_A ν_A du_A,                                           {#eq:vlasov-symbol}
+
+ν_A the frequency of family A.
+
+**Lemma {#lem:vlasov-resonance}** (An exact resonance.) In 2+1-dimensional Minkowski space let k_a, k_b be future null
+covectors of equal energy with antipodal spatial directions, and k_c any future null covector of that energy. Then
+K := k_a + k_b − k_c is null. So with equal frequencies the mixed harmonic e^(i(θ_a + θ_b − θ_c)) is exactly resonant,
+whatever the pairwise separations.
+
+*Proof.* In an orthonormal frame, k_a = E(−1, e), k_b = E(−1, −e), k_c = E(−1, f), with e, f unit vectors. Then K =
+E(−1, −f), and g⁻¹(K, K) = E²(−1 + 1) = 0. ∎
+
+**Lemma {#lem:vlasov-hierarchy}** (Coherence under a hierarchy of frequencies.) Let k_1, …, k_n be covectors at a point of
+a 2+1-dimensional Lorentzian space with g⁻¹(k_A, k_A) = 0, |g⁻¹(k_A, k_B)| ≥ c > 0 for A ≠ B, and |k_A| ≤ M in an
+orthonormal frame. Let Λ > 1 and ν_A := Λ^(A−1). For every j ∈ ℤⁿ with at least two nonzero entries and |j|₁ ≤ m, let
+B1 > B2 be its two largest indices with nonzero entries. Then
+
+    |g⁻¹(K_j, K_j)| ≥ 2 ν_B1 ν_B2 (c − m M²/Λ − m² M²/(2Λ)).                                    {#eq:vlasov-hierarchy}
+
+In particular every such combination is non-null, with this margin, once Λ > (m + m²/2) M²/c.
+
+*Proof.* In the orthonormal frame |g⁻¹(k, k′)| ≤ |k| |k′|. Put K := K_j = j_B1 ν_B1 k_B1 + V, V := Σ_(A ≠ B1) j_A ν_A k_A.
+Since k_B1 is null, g⁻¹(K, K) = 2 j_B1 ν_B1 g⁻¹(k_B1, V) + g⁻¹(V, V). Here g⁻¹(k_B1, V) = j_B2 ν_B2 g⁻¹(k_B1, k_B2) +
+Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m M²/Λ), using |j_B2| ≥ 1
+and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A M ≤ m ν_B2 M, so |g⁻¹(V, V)| ≤ m² M² ν_B2² ≤ m² M² ν_B1 ν_B2/Λ. With
+|j_B1| ≥ 1, |g⁻¹(K, K)| ≥ 2 ν_B1 ν_B2 (c − m M²/Λ) − m² M² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
+
+With c = c0 (2π/n)² this is the choice ν_A = c n² ν_(A−1) of [HL25, Lemma 4.16, p. 18]. The phases ν_A u_A are
+eikonals, so the two-scale scheme is unchanged; the wave of family A carries the amplitude λ F_A/ν_A, so that its
+derivatives are of the size of F_A.
+
+**Remark {#rem:vlasov-coherence-values}** (Numerical observation.) On the orbit space of Tangherlini with μ = 1 and labels
+in [−0.6, 0.6], the Schur formula of [[lem:vlasov-separation]] agreed with shooting to 1.1 × 10⁻⁹, ∂_α β was at least
+0.798, and the least mixed symbol of adjacent labels divided by (Δα)² was 0.2923, 0.2926, 0.2927, 0.2927 at n = 8, 16,
+32, 64. For the four labels 2πA/4 on flat 2+1 with the hierarchy, every Q_j with |j|₁ ≤ 5 was found exactly to satisfy
+|Q_j|/(ν_B1 ν_B2) ≥ 359/216; with two radial covectors added and labels at angle at least η from them (label–radial
+symbols at least 1/5), every combination with |j|₁ ≤ 4 had |Q_j|/(ν_B1 ν_B2) ≥ 35612/609961, above the bound 4/50765
+of [[eq:vlasov-hierarchy]]. No proof uses these values.

@@ -44,10 +44,7 @@ g_(b₀) being stationary, so it holds on all of {r_♭ ≤ r ≤ r^♮}, at eve
 *Notation.* g := g_(b₀). The future unit normal of Σ^IVP for g is written n; the letter ν is kept for the function
 ν(r) of [[prop:iii-k-1-2]]. For data on Σ^IVP, ‖(γ̇, k̇)‖_(H^k) is the norm of H^k of the classes
 H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, as in [[thm:iii-k-4-3]]. G = O(2) × O(2) is the group of
-[[sec:s27-class]]; G_g k := k − ½g tr_g k is the trace reversal ([[sec:iii-b-6]]). [[lem:ii-f-1-3]] asks for the
-principal symbol g⁻¹(ζ, ζ) Id. The operators L^♮ and δ_gG_gδ*_(g,E_C) to which it is applied below have the principal
-symbol ½g⁻¹(ζ, ζ) Id (the proof of [[prop:viii-1-2]]), so it is applied to 2L^♮ and to 2δ_gG_gδ*_(g,E_C), which have
-the same solutions.
+[[sec:s27-class]]; G_g k := k − ½g tr_g k is the trace reversal ([[sec:iii-b-6]]).
 
 ### Setting {#sec:viii-0}
 
@@ -73,7 +70,10 @@ t_IVP ≥ t_* ≥ t^♭_* ≥ 1 there.
 L is the operator L_g of [[eq:iii-b-6-4]], and L^♮ is the linearisation L^(χ^♮_0)_(g,g) of P^♮. On Ω_*, χ^♮_0 = 1
 ([[lem:iii-k-1-1]] (b)), so L^♮ = L and Υ̇^♮ = Υ̇ there. Near Σ^IVP, χ^♮_0 = 0 ([[lem:iii-k-1-1]] (d)), so
 Υ̇^♮ = Υ̇⁰ there. And Υ^(E_Υ)(g_0, g_0) = Υ^(χ^♮_0E_Υ)(g_0, g_0) = 0 for every metric g_0, since Υ⁰(g_0, g_0) = 0 and the
-E^Υ-term is linear in g − g_0 ([[eq:iii-b-6-3]], [[eq:iii-c2-2-1]]).
+E^Υ-term is linear in g − g_0 ([[eq:iii-b-6-3]], [[eq:iii-c2-2-1]]). [[lem:ii-f-1-3]] asks for the principal symbol
+g⁻¹(ζ, ζ) Id. L^♮ and the operator δ_gG_gδ*_(g,E_C) of the constraint propagation have the principal symbol
+½g⁻¹(ζ, ζ) Id (the proof of [[prop:viii-1-2]]); so wherever [[lem:ii-f-1-3]] is applied below to one of them, it is
+applied to twice the operator, 2L^♮ or 2δ_gG_gδ*_(g,E_C), which has the same solutions.
 
 *The constraints.* For a metric g̃ near Σ^IVP with future unit normal n_g̃, inducing the first and second fundamental
 forms (γ, k), the Gauss and Codazzi equations write (G_g̃ Ric(g̃))(n_g̃, ·)|_(Σ^IVP) = 𝒞(γ, k), where 𝒞 is the
@@ -184,8 +184,9 @@ H^(∞,ℓ^♭_0)_b, as ℓ^♭_0 < min Re ℰ_0 and ℓ^♭_0 < ℓ_0 (the firs
   ½□_g ⊗ id = −½g^(αβ)∂_α∂_β ⊗ id, □_g as in [[eq:iii-b-6-7]], that is with principal symbol ½g⁻¹(ζ, ζ) Id (∂ → iζ):
   this is the normal form of the gauge of [[sec:s27-local]], at h = 0. Its data on Σ^IVP ∩ 𝒦 are given, and on the
   parts of ∂𝒦 that 𝒦 shares with Ω_(ext,r_1) the exterior solution gives them: Σ^fut_(r_1) ∩ ∂𝒦, and, for the backward
-  problem, the past boundary of Ω_(ext,r_1) where 𝒦 reaches below it (for r slightly above r_1, where
-  ν(r) > (r − r_1)/12), spacelike by [[lem:iii-c1-1-1]]. The linear local theory (L) of [[sec:s27-local]], with 𝒦′ := 𝒦,
+  problem, the past boundary of Ω_(ext,r_1) where 𝒦 reaches below it, that is where ν(r) > (r − r_1)/12, which happens
+  only for r < 2r_1, as ν(r) ≤ r/32 ([[prop:iii-k-1-2]]; the proof of [[lem:s27-cover]] (b)); it is spacelike by
+  [[lem:iii-c1-1-1]]. The linear local theory (L) of [[sec:s27-local]], with 𝒦′ := 𝒦,
   then gives ḣ on 𝒦, forward from Σ^IVP and backward to {t_IVP = −ν}, unique, and bounded in H^k(𝒦) for every k by
   finitely many norms of the data; uniqueness also follows from [[lem:ii-f-1-3]].
 
@@ -242,7 +243,7 @@ there, continuously, as [[lem:iii-k-2-2]] (c) uses [[cor:iii-c-5-3]]. The bound 
 
 (2) ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′) on 𝒟′ ([[sec:viii-0]]), with ḣ of [[prop:viii-1-2]] and ġ_(S′), ġ⁰_(S⁰′) of
 [[eq:viii-0-2]]; so ġ − ġ_(S′) − ġ⁰_(S⁰′) induces the linearised data (γ̇, k̇) on Σ^IVP ([[lem:viii-1-1]] (1)), and
-ġ induces them up to the linearised diffeomorphism −ℒ_(V(S′)+V⁰(S⁰′))g;
+ġ induces them up to the data of the linearised diffeomorphism −ℒ_(V(S′)+V⁰(S⁰′))g;
 
 (3) on Ω_* ∩ {t^♭_* ≥ T̂ + 2}, ġ = D_0𝔤(U′), the derivative at U = 0 of
 
@@ -483,7 +484,8 @@ the operator L of [[eq:viii-0-1]] with E_C = E_Υ = 0.
 
 *Linearised data.* As in [[lem:viii-1-1]] (1): a symmetric 2-tensor k, defined near a piece of Σ^IVP or on one side of
 it up to Σ^IVP, *induces* the linearised data (γ̇, K̇), the s-derivatives at s = 0 of the first and second fundamental
-forms of Σ^IVP for g + sk, with K(X, Y) := g(∇_X n, Y). They are linear in k and depend only on its 1-jet at Σ^IVP;
+forms of Σ^IVP for g + sk, with K(X, Y) := g(∇_X n, Y), the convention of [[lem:iii-b-3-9]]. They are linear in k and
+depend only on its 1-jet at Σ^IVP;
 γ̇ is the restriction of k to TΣ^IVP. K is the second fundamental form, written k_(b₀) for g in
 [[sec:viii-0]]–[[sec:viii-2]], where k̇ denotes its variation; so the linearised data (γ̇, k̇) of [[thm:viii-2-2]] are
 a pair (γ̇, K̇) in the present notation, and the tensor ḣ of [[prop:viii-1-2]] induces them ([[lem:viii-1-1]] (1)).
