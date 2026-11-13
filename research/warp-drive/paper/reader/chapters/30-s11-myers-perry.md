@@ -1467,11 +1467,11 @@ order count these lie in H^(∞,(E(α)∪̄F,γ′)) for every γ′ < γ (the e
 is precisely the addition of pole orders, (z, k + l + 1) from orders k + 1 and l + 1). The integral on Re ι = γ lies in
 H^(∞,γ)_b by (M1), using (E1) for all |ι|-weighted norms. So v ∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done.
 Otherwise γ < β (and γ ≤ α + 1); repeat with α replaced by γ − δ′ for small δ′ > 0 and the expansion found so far moved
-into the right side: (A − N(A)) applied to ρ^ι(log ρ)^j a is, by Taylor expansion of the coefficients A_j(ρ) at ρ = 0, an expansion with
-exponents in ι + 1 + ℕ₀ and the same log powers, which is E_0 + 1; so f′ ∈ H^(∞,(F∪̄(E_0+1),β)) + H^(∞,γ+1−δ′), and the
-same argument gives E_1 up to the weight min(β, γ + 1 − δ′). Each step raises the weight by almost 1 until β is reached;
-finitely many steps suffice, the index sets being contained in E. (The poles of N(A, ·)⁻¹ that enter at a later step are
-those with real part above the previous weight, all in E(α).) ∎
+into the right side: (A − N(A)) applied to ρ^ι(log ρ)^j a is, by Taylor expansion of the coefficients A_j(ρ) at
+ρ = 0, an expansion with exponents in ι + 1 + ℕ₀ and the same log powers, which is E_0 + 1; so
+f′ ∈ H^(∞,(F∪̄(E_0+1),β)) + H^(∞,γ+1−δ′), and the same argument gives E_1 up to the weight min(β, γ + 1 − δ′). Each
+step raises the weight by almost 1 until β is reached; finitely many steps suffice, the index sets being contained in E.
+(The poles of N(A, ·)⁻¹ that enter at a later step are those with real part above the previous weight, all in E(α).) ∎
 
 **Lemma {#lem:iii-a-1-5}** ([Hin26, Lemma 2.15], formal solutions.) Let A ∈ Diff^m_b(M; ℂ^(N_E)) be elliptic, F an
 index set, β ∈ ℝ, ord(z) the order of the pole of N(A, ·)⁻¹ at z (0 if none), and

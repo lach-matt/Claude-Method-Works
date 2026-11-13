@@ -140,7 +140,7 @@ inequality.
 For T: extend T to R⁴ ∖ 0 by T(PX, PY), P = 1 − xxᵀ/|x|² the projection onto the tangent spaces of the spheres; its
 Cartesian components T_IJ (I, J = 1, …, 4) restrict to functions on S³ with Σ_(I,J) T_IJ² = |T|². The rotations preserve
 P, so the Lie derivative of the extension along Ω_i is the extension of L_iT, and in Cartesian components Ω_i(T_IJ) =
-(L_iT)_IJ − (A_iᵀT + TA_i)_IJ, A_i the constant antisymmetric matrix with Ω_i = A_ix · ∂_x, of operator norm 1. So, with
+(L_iT)_IJ − (A_iᵀT + TA_i)_IJ, A_i the constant antisymmetric matrix with Ω_i = (A_ix) · ∂_x, of operator norm 1. So, with
 |·|_F the Frobenius norm, |Ω_iT|_F ≤ |L_iT| + 2|T| and |Ω_iΩ_jT|_F ≤ |L_iL_jT| + 2|L_jT| + 2|L_iT| + 4|T|. Sum the
 inequality for functions over (I, J), use (a + b + c + d)² ≤ 4(a² + b² + c² + d²) and count the six rotations: the
 coefficient of ‖T‖² is 1 + 4 · 16 · 36 = 2305, that of Σ_i ‖L_iT‖² is 4 · 4 · 6 + 4 · 4 · 6 = 192, and that of Σ_(i,j)
@@ -151,7 +151,7 @@ P_j the Legendre polynomials, with Δ̂P_j(cos 2ϑ) = −l(l + 2)P_j(cos 2ϑ), l
 part of L²(S³). So class functions carry only even l, and on their mean-zero part k² = l(l + 2) ≥ 8 and
 (2/3)k²(k² − 3) ≥ 80/3: 𝒢 is defined.
 
-(b) For every function τ, D̂^iD̂^j(D̂_iD̂_j − (1/3)γ_ijΔ̂)τ = (2/3)Δ̂(Δ̂ + 3)τ. So D̂^iD̂^jh^TT_ij = 0.
+(b) For every function u on S³, D̂^iD̂^j(D̂_iD̂_j − (1/3)γ_ijΔ̂)u = (2/3)Δ̂(Δ̂ + 3)u. So D̂^iD̂^jh^TT_ij = 0.
 
 (c) A class 1-form on S³ with zero divergence vanishes, and every class 1-form on S³ is exact: there is no
 vector-type part in the class, and h_ai dz^i = dβ_a. The divergence of a class symmetric 2-tensor is a class 1-form;
@@ -160,29 +160,30 @@ so D̂^ih^TT_ij = 0, and h^TT is transverse and trace-free (the tensor type).
 (d) (Bounds uniform in l.) For a harmonic S of degree l, ‖D̂S‖² = k²‖S‖² and
 ‖(D̂D̂ − (1/3)γΔ̂)S‖² = (2/3)k²(k² − 3)‖S‖². Hence, for a class tensor h,
 
-    ‖β_a‖_(H^1) ≤ (9/8)^(1/2) ‖h_(a·)‖,        ‖τ‖_(H^2) ≤ (243/80)^(1/2) ‖h^TF‖,
+    ‖β_a‖_(H^1) ≤ (9/8)^(1/2) ‖h_(a·)‖,        ‖𝓉‖_(H^2) ≤ (243/80)^(1/2) ‖h^TF‖,
 
 and, with constants independent of h and of l,
 
-    sup|β_a| ≤ C|h_(a·)|_1,     sup|τ| ≤ C|h^TF|_0,     sup|D̂τ| ≤ C|h^TF|_1,
+    sup|β_a| ≤ C|h_(a·)|_1,     sup|𝓉| ≤ C|h^TF|_0,     sup|D̂𝓉| ≤ C|h^TF|_1,
 
 the same holding with any product 𝒫_j of ℒ_(∂_v), ℒ_(∂_r) and the rotations applied to both sides. Here |h_(a·)|_k and
 |h^TF|_k are taken with the norm of the unit sphere; on {r_♭ ≤ r ≤ R′} each is at most C_(R′)|h|_k. No sum over
 harmonics is formed.
 
-*Proof.* (a) In the coordinates (ϑ, φ1, φ2), dω = cs dϑ dφ1 dφ2, and on functions of ϑ alone
-Δ̂u = (cs)⁻¹∂_ϑ(cs ∂_ϑu) = (sin 2ϑ)⁻¹∂_ϑ(sin 2ϑ ∂_ϑu). With x := cos 2ϑ, ∂_ϑ = −2 sin 2ϑ ∂_x, so
+*Proof.* (a) In the coordinates (ϑ, φ1, φ2), dω = cos ϑ sin ϑ dϑ dφ1 dφ2 = (1/2) sin 2ϑ dϑ dφ1 dφ2, and on
+functions of ϑ alone Δ̂u = (sin 2ϑ)⁻¹∂_ϑ(sin 2ϑ ∂_ϑu). With x := cos 2ϑ, ∂_ϑ = −2 sin 2ϑ ∂_x, so
 sin 2ϑ ∂_ϑu = −2(1 − x²)∂_xu and Δ̂u = 4∂_x((1 − x²)∂_xu). Legendre's equation ((1 − x²)P_j′)′ = −j(j + 1)P_j gives
 Δ̂P_j(cos 2ϑ) = −4j(j + 1)P_j = −2j(2j + 2)P_j. The T²-orbits are the level sets of ϑ, so T²-invariant functions are
-functions of ϑ, and after the φ integrals dω = 4π² cs dϑ = π² dx; the Legendre polynomials are complete in L²(−1, 1).
+functions of ϑ, and after the φ integrals dω becomes 2π² sin 2ϑ dϑ, which is π² dx as a measure on (−1, 1); the
+Legendre polynomials are complete in L²(−1, 1).
 For l = 2j ≥ 2, k² ≥ 8 and (2/3)k²(k² − 3) ≥ (2/3) · 8 · 5 = 80/3.
 
-(b) On the unit S³, Ric = 2γ, so D̂^jD̂_iD̂_jτ = D̂_iΔ̂τ + 2D̂_iτ, and D̂^iD̂^jD̂_iD̂_jτ = Δ̂²τ + 2Δ̂τ. Subtracting
-(1/3)Δ̂²τ gives (2/3)Δ̂² τ + 2Δ̂τ = (2/3)Δ̂(Δ̂ + 3)τ. D̂^iD̂^jh^TF_ij is a divergence, so of mean zero, and by
-definition of τ, D̂^iD̂^jh^TT_ij = D̂^iD̂^jh^TF_ij − (2/3)Δ̂(Δ̂ + 3)τ = 0.
+(b) On the unit S³, Ric = 2γ, so D̂^jD̂_iD̂_ju = D̂_iΔ̂u + 2D̂_iu, and D̂^iD̂^jD̂_iD̂_ju = Δ̂²u + 2Δ̂u. Subtracting
+(1/3)Δ̂²u gives (2/3)Δ̂²u + 2Δ̂u = (2/3)Δ̂(Δ̂ + 3)u. D̂^iD̂^jh^TF_ij is a divergence, so of mean zero, and by
+definition of 𝓉, D̂^iD̂^jh^TT_ij = D̂^iD̂^jh^TF_ij − (2/3)Δ̂(Δ̂ + 3)𝓉 = 0.
 
 (c) A class 1-form on S³ is a(ϑ) dϑ: the components along dφ1, dφ2 have one φ_i index. Its divergence is
-(cs)⁻¹∂_ϑ(cs a); if this vanishes, a = C/sin 2ϑ, and |a dϑ| = |a| is bounded near ϑ = 0 only if C = 0. For any class
+(sin 2ϑ)⁻¹∂_ϑ(sin 2ϑ a); if this vanishes, a = C/sin 2ϑ, and |a dϑ| = |a| is bounded near ϑ = 0 only if C = 0. For any class
 1-form α let η be the mean-zero solution of Δ̂η = D̂^iα_i; η is a class function (Δ̂ commutes with G), so α − dη is
 a class 1-form with zero divergence, hence 0. Every operator above is G-equivariant, so the divergence of a class
 tensor is a class 1-form; by (b) D̂^ih^TT_ij has zero divergence, so it vanishes. For h_(a·): h_(a·) = dη_a with
@@ -192,46 +193,46 @@ tensor is a class 1-form; by (b) D̂^ih^TT_ij has zero divergence, so it vanishe
 ‖(D̂D̂ − (1/3)γΔ̂)S‖² = ⟨S, D̂^iD̂^j(D̂_iD̂_j − (1/3)γ_ijΔ̂)S⟩ = ⟨S, (2/3)Δ̂(Δ̂ + 3)S⟩ = (2/3)k²(k² − 3)‖S‖².
 As h_(a·) = dβ_a, ‖h_(a·)‖² = Σ_l k²‖β_(a,l)‖², and ‖β_a‖²_(H^1) = Σ_l (1 + k²)‖β_(a,l)‖² ≤ (9/8)‖h_(a·)‖², since
 (1 + k²)/k² decreases in k² ≥ 8. The two parts of h^TF are orthogonal:
-⟨(D̂D̂ − (1/3)γΔ̂)τ, h^TT⟩ = ⟨τ, D̂^iD̂^jh^TT_ij⟩ = 0. So ‖h^TF‖² ≥ Σ_l (2/3)k²(k² − 3)‖τ_l‖², and
-‖τ‖²_(H^2) ≤ (243/80)‖h^TF‖², since (1 + k²)²/((2/3)k²(k² − 3)) decreases in k² ≥ 8 (the logarithmic derivative in
+⟨(D̂D̂ − (1/3)γΔ̂)𝓉, h^TT⟩ = ⟨𝓉, D̂^iD̂^jh^TT_ij⟩ = 0. So ‖h^TF‖² ≥ Σ_l (2/3)k²(k² − 3)‖𝓉_l‖², and
+‖𝓉‖²_(H^2) ≤ (243/80)‖h^TF‖², since (1 + k²)²/((2/3)k²(k² − 3)) decreases in k² ≥ 8 (the logarithmic derivative in
 x = k² is 2/(1 + x) − 1/x − 1/(x − 3) = (3 − 5x)/(x(1 + x)(x − 3)) < 0) and equals 243/80 at k² = 8.
 
 The rotations are Killing fields of (S³, γ), so they commute with D̂, Δ̂, 𝒢 and the decomposition, and preserve the
 degree. By [[lem:rwg-a]], sup|β_a|² ≤ (1/12)‖β_a‖²_(H^2), and
 ‖β_a‖²_(H^2) = Σ_l (1 + k²)²‖β_(a,l)‖² ≤ (9/8) Σ_l (k² + k⁴)‖β_(a,l)‖² = (9/8)(‖h_(a·)‖² + Σ_i ‖L_ih_(a·)‖²),
 as Σ_i ‖L_i dβ_(a,l)‖² = Σ_i ‖dΩ_iβ_(a,l)‖² = k²Σ_i‖Ω_iβ_(a,l)‖² = k⁴‖β_(a,l)‖² by [[lem:rwg-a]]. The L² norms are at
-most 2π² times the squared suprema. Likewise sup|τ|² ≤ (1/12)‖τ‖²_(H^2) ≤ C‖h^TF‖², and
-sup|D̂τ|² = sup Σ_i (Ω_iτ)² ≤ (1/12) Σ_i ‖Ω_iτ‖²_(H^2) ≤ (1/12) Σ_l (1 + k²)³‖τ_l‖², which is at most
+most 2π² times the squared suprema. Likewise sup|𝓉|² ≤ (1/12)‖𝓉‖²_(H^2) ≤ C‖h^TF‖², and
+sup|D̂𝓉|² = sup Σ_i (Ω_i𝓉)² ≤ (1/12) Σ_i ‖Ω_i𝓉‖²_(H^2) ≤ (1/12) Σ_l (1 + k²)³‖𝓉_l‖², which is at most
 (243/80)(1/12)(‖h^TF‖² + Σ_i ‖L_ih^TF‖²), the projection of h^TF on its scalar-derived part being orthogonal and
 commuting with the L_i. Finally ℒ_(∂_v) and ℒ_(∂_r) commute with every operator on the spheres, γ not depending on
 (v, r). ∎
 
 **Definition {#def:gd-1-1}** (The Regge–Wheeler-type gauge in the class.) A class tensor h is in the
-*Regge–Wheeler-type gauge* if β_v = β_r = 0, τ = 0 and h_0 = cK_V for a constant c. When K̄ replaces K_V in the last
+*Regge–Wheeler-type gauge* if β_v = β_r = 0, 𝓉 = 0 and h_0 = cK_V for a constant c. When K̄ replaces K_V in the last
 condition we say *with the mass change K̄*; on {r ≤ 2R₁} the two conditions agree ([[eq:gd-0-1]]).
 
-For a scalar mode the conditions β_a = 0, τ = 0 are Kodama and Ishibashi's f_a = 0 = H_T ([[lem:gd-1-3]] (b)).
+For a scalar mode the conditions β_a = 0, 𝓉 = 0 are Kodama and Ishibashi's f_a = 0 = H_T ([[lem:gd-1-3]] (b)).
 
 **Lemma {#lem:gd-1-3}** (The gauge vector.) For a class tensor h put
 
-    ξ[h] := (−β_a + (r²/2) ∂_a(τ/r²)) dy^a − (1/2) D̂τ.                                                    {#eq:gd-1-1}
+    ξ[h] := (−β_a + (r²/2) ∂_a(𝓉/r²)) dy^a − (1/2) D̂𝓉.                                                    {#eq:gd-1-1}
 
 (a) ℒ_(ξ[h]) g has the mixed components (ℒ_ξ g)_(aj) dz^j = −dβ_a, and its angular block has trace-free part
-−(D̂D̂ − (1/3)γΔ̂)τ. So h + ℒ_(ξ[h])g has β = 0, τ = 0, the same h^TT as h, and the same l = 0 part.
+−(D̂D̂ − (1/3)γΔ̂)𝓉. So h + ℒ_(ξ[h])g has β = 0, 𝓉 = 0, the same h^TT as h, and the same l = 0 part.
 
 (b) For a scalar mode of degree l ≥ 2 written as in [KI03, (2.4)–(2.6), p. 4],
 
     h_ab = f_ab S,  h_ai = r f_a S_i,  h_ij = 2r²(H_L γ_ij S + H_T S_ij),
     S_i = −D̂_iS/k,  S_ij = D̂_iD̂_jS/k² + γ_ijS/3,
 
-one has β_a = −(r/k)f_a S and τ = 2r²H_TS/k²; the orbit part of ξ[h] is X_aS with Kodama and Ishibashi's
+one has β_a = −(r/k)f_a S and 𝓉 = 2r²H_TS/k²; the orbit part of ξ[h] is X_aS with Kodama and Ishibashi's
 X_a = (r/k)(f_a + (r/k)D_aH_T) [KI03, (2.8), p. 5], and
 
     h + ℒ_(ξ[h]) g = F_ab S dy^a dy^b + 2r²F S γ,
 
 with their gauge invariants F = H_L + H_T/3 + r⁻¹D^arX_a and F_ab = f_ab + D_aX_b + D_bX_a [KI03, (2.7), p. 5].
 
-(c) (Uniqueness.) For a class 1-form Z with no l = 0 part, ξ[ℒ_Z g] = −Z. In particular ℒ_Z g has β = τ = 0 only if
+(c) (Uniqueness.) For a class 1-form Z with no l = 0 part, ξ[ℒ_Z g] = −Z. In particular ℒ_Z g has β = 𝓉 = 0 only if
 Z = 0.
 
 *Proof.* For g = g_ab dy^ady^b + r²γ the Christoffel symbols mixing the factors are Γ^a_ij = −r D^ar γ_ij and
@@ -239,14 +240,14 @@ Z = 0.
 
     (ℒ_ξg)_ab = D_aξ_b + D_bξ_a,   (ℒ_ξg)_ai = ∂_iξ_a + r²∂_a(ξ_i/r²),   (ℒ_ξg)_ij = D̂_iξ_j + D̂_jξ_i + 2rD^arξ_a γ_ij.
 
-(a) With ξ_i = −(1/2)D̂_iτ and ξ_a = −β_a + (r²/2)∂_a(τ/r²): (ℒ_ξg)_ai = ∂_i(ξ_a − (r²/2)∂_a(τ/r²)) = −∂_iβ_a, and
-(ℒ_ξg)_ij = −D̂_iD̂_jτ + (a multiple of γ_ij), whose trace-free part is −(D̂D̂ − (1/3)γΔ̂)τ. As h_(a·) = dβ_a
-([[lem:gd-1-2]] (c)), h + ℒ_ξg has vanishing mixed components, so β = 0; its h^TF is h^TT, so τ = 0 and the tensor part
+(a) With ξ_i = −(1/2)D̂_i𝓉 and ξ_a = −β_a + (r²/2)∂_a(𝓉/r²): (ℒ_ξg)_ai = ∂_i(ξ_a − (r²/2)∂_a(𝓉/r²)) = −∂_iβ_a, and
+(ℒ_ξg)_ij = −D̂_iD̂_j𝓉 + (a multiple of γ_ij), whose trace-free part is −(D̂D̂ − (1/3)γΔ̂)𝓉. As h_(a·) = dβ_a
+([[lem:gd-1-2]] (c)), h + ℒ_ξg has vanishing mixed components, so β = 0; its h^TF is h^TT, so 𝓉 = 0 and the tensor part
 is unchanged. The components of ξ have mean zero on each sphere, so the SO(4)-average of ξ vanishes; rotations are
 isometries, so the average of ℒ_ξg is ℒ of the average of ξ, which is 0.
 
 (b) h_ai = rf_a(−D̂_iS/k) = ∂_i(−(r/k)f_aS), so β_a = −(r/k)f_aS. As Δ̂S = −k²S,
-h^TF = 2r²H_T(D̂D̂S − (1/3)γΔ̂S)/k², so h^TT = 0 and τ = 2r²H_TS/k². Then
+h^TF = 2r²H_T(D̂D̂S − (1/3)γΔ̂S)/k², so h^TT = 0 and 𝓉 = 2r²H_TS/k². Then
 ξ_a = (r/k)f_aS + (r²/2)∂_a(2H_TS/k²) = (r/k)(f_a + (r/k)D_aH_T)S = X_aS. The orbit block of h + ℒ_ξg is
 (f_ab + D_aX_b + D_bX_a)S = F_abS. Its angular block is
 
@@ -254,7 +255,7 @@ h^TF = 2r²H_T(D̂D̂S − (1/3)γΔ̂S)/k², so h^TT = 0 and τ = 2r²H_TS/k².
 
 (c) Write Z = Z_a dy^a + Z_ϑ dϑ; by [[lem:gd-1-2]] (c), Z_ϑ dϑ = dη on each sphere with ⟨η⟩ = 0, and ⟨Z_a⟩ = 0. By the
 formulas above, (ℒ_Zg)_ai dz^i = d(Z_a + r²∂_a(η/r²)), so β_a[ℒ_Zg] = Z_a + r²∂_a(η/r²); and the trace-free angular
-part of ℒ_Zg is 2(D̂D̂ − (1/3)γΔ̂)η, so τ[ℒ_Zg] = 2η by (b) of [[lem:gd-1-2]]. Inserting in [[eq:gd-1-1]]:
+part of ℒ_Zg is 2(D̂D̂ − (1/3)γΔ̂)η, so 𝓉[ℒ_Zg] = 2η by (b) of [[lem:gd-1-2]]. Inserting in [[eq:gd-1-1]]:
 ξ[ℒ_Zg] = (−Z_a − r²∂_a(η/r²) + r²∂_a(η/r²))dy^a − dη = −Z. ∎
 
 ### The spherically symmetric part {#sec:rw-l0}

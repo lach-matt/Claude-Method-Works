@@ -485,9 +485,8 @@ classes of [[cor:iv3-2-3]] so are the coefficients of the expansion at ℐ⁺.
 #### The solution on Ω^♮ {#sec:iv3-2}
 
 **Theorem {#thm:iv3-2-1}** (The linear estimate on Ω^♮.) Let g_0 := φ_(S,S⁰)^*g_(b₀) with |S| + |S⁰| small, or
-g_0 := g_(b₀); h
-small in H^(8,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮) (weights at ℐ⁺ in ρ′_I); L := L^(χ^♮_0)_(g_0+h,g_0); α_0 > ℓ^♭_I, k ∈ ℕ₀ and
-d := 4. For f ∈ H^(k+d,α_0+2,(−′,ℓ^♭_I+1))_b(Ω^♮), data ġ_0, ġ_1 ∈ H^(k+d,α_0)_b(Σ^IVP_(r_1)) and data
+g_0 := g_(b₀); h small in H^(8,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮) (weights at ℐ⁺ in ρ′_I); L := L^(χ^♮_0)_(g_0+h,g_0);
+α_0 > ℓ^♭_I, k ∈ ℕ with k ≥ 1, and d := 4. For f ∈ H^(k+d,α_0+2,(−′,ℓ^♭_I+1))_b(Ω^♮), data ġ_0, ġ_1 ∈ H^(k+d,α_0)_b(Σ^IVP_(r_1)) and data
 k̇_0, k̇_1 ∈ H^(k+d)(Σ_c), there is a unique ġ ∈ H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) with Lġ = f, ġ = ġ_0 and
 r ℒ_(∂_(t_IVP))ġ = ġ_1 on Σ^IVP_(r_1), and the Cauchy data (k̇_0, k̇_1) on Σ_c; and [[eq:iv2-2-3]] holds with
 ‖k̇_0‖_(H^(k+d)) + ‖k̇_1‖_(H^(k+d)) added to N(f, ġ_0, ġ_1; k + d) and their H⁸-norms added to N(f, ġ_0, ġ_1; 8).
@@ -509,7 +508,8 @@ with h′ small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:ii-c-3-2]] (2)); every X′_I
 energy estimates on the compact part); then its part in 𝒮, which is compact (|x| ≤ 4(T″ − x¹)/c_♮, x¹ bounded), by the
 energy estimate for the Cauchy problem of a linear wave equation on a compact domain of dependence, with data on Σ_c
 (given) and on Σ^fut_(r_1) ∩ {c_♮/4 ≤ ρ′_I < c} (from the part in Ω_(ext,r_1)), both spacelike and compact: this is
-the local theory of [[sec:s27-local]] for a linear equation, whose solution map, linear and continuous, is bounded. Its
+(L) of [[sec:s27-local]] at the order k + 3, which is at least 4 as k ≥ 1: the data on Σ_c lie in H^(k+4) × H^(k+3)
+and the forcing in H^(k+3), and the solution lies in H^(k+4) there, the order the next step uses. Its
 boundary to the future, {ρ′_I = c_♮/4}, {t^♭_* = T̂ + 3} and Σ^fut_(r_1) ∩ {ρ′_I ≥ c} (where Ω^♮ borders 𝒦), is
 spacelike, so the region is closed under past causal curves within Ω^♮, and [[lem:ii-f-1-3]] gives uniqueness.
 
@@ -520,7 +520,8 @@ below, where the weight at I₀ is immaterial.
 
 The forcing of each step vanishes near its initial surface after the cut-offs of the proof of [[thm:iv2-2-4]] and of
 [[lem:iv2-2-3]], and the estimates compose as there; the data on Σ_c enter through (ii) only, at the order of
-H^(k+4). Uniqueness: [[lem:ii-f-1-3]] on each region. ∎
+H^(k+4). Uniqueness: [[lem:ii-f-1-3]] on each region. The case k = 0 is not needed: [[thm:iv3-2-2]] uses the estimate
+for k ≥ d only, as [[eq:ii-g-2-4]] asks, and a bound in H^(0,α_0,(−,ℓ^♭_I))_b follows from the case k = 1. ∎
 
 **Theorem {#thm:iv3-2-2}** (The nonlinear solution on Ω^♮; [Hin26, p. 321].) Let g_0 be as in [[thm:iv3-2-1]],
 (h_0, h_1) data on Σ^IVP_(r_1) as in [[thm:iv2-3-1]], and (k_0, k_1) the Cauchy data on Σ_c of a solution of
