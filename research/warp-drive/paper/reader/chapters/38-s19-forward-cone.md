@@ -560,7 +560,7 @@ margin 1 for the orders of 𝒪_c ([[def:iii-h1-1-1]]). By [[thm:iii-h1-1-3]] th
 [[thm:iii-h2-2-1]] at every b of the neighbourhood B̄_1 of [[sec:iii-h2-0]], for every k. Moreover, for
 g_0 = g_(b₀,b,−S) the metric g of P satisfies
 
-    ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) ≤ ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) + C(|S| + ‖h‖_(𝒳³)),      {#eq:s19-time-hyp}
+    ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) ≤ ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) + C(|S| + ‖h‖_(𝒳³)),   {#eq:s19-time-hyp}
 
 and for g_0 with [[eq:iii-i-3-5]] the left side is at most ‖g_0 − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) + C‖h‖_(𝒳³), the
 first term being at most a constant times a seminorm of g_0 − g_(b₀) in the class of [[eq:iii-i-3-5]]. When the
@@ -1053,7 +1053,7 @@ This section is [Hin26c, Theorem 11.1] uniformly over the family 2L_b.
 There are ε_0 > 0 and d ∈ ℕ such that for every b ∈ B̄_1 the conclusions of [[thm:ii-f1-1-1]] and [[cor:ii-f1-1-2]]
 hold with P_0 := 2L_b (with [[rem:ii-f1-7-1]] for margin 1) for every P as there whose metric g satisfies in addition
 
-    ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭,                                                          {#eq:s19-time-hyp-b}
+    ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭,                                                       {#eq:s19-time-hyp-b}
 
 with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be admissible
 relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0, metric satisfying

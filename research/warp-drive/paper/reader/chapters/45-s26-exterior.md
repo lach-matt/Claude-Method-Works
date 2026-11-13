@@ -1728,12 +1728,13 @@ as gluing produces them ([CD03]; [[ch:s28]]).
 ### Gauged Cauchy data {#sec:iii-c2-4}
 
 **Proposition {#prop:iii-c2-4-1}** ([Hin26, Proposition 5.25] in dimension 4 + 1.) Let ℰ₀ be an index set with
-min Re ℰ₀ > 0 and jℰ₀ ⊂ ℰ₀ for j ∈ ℕ, and ℓ₀ > 0. Let γ = γ_(b₀) + γ̃ and κ = κ_(b₀) + κ̃ be symmetric 2-tensors on
-Σ_IVP, γ_(b₀) and κ_(b₀) the first and second fundamental forms of Σ_IVP for g_(b₀), with
-γ̃ ∈ H^(∞,(ℰ₀,ℓ₀))_b(Σ_IVP; S²T*Σ_IVP), κ̃ ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b(Σ_IVP; S²T*Σ_IVP), and γ̃ small in H³_b. There are
-h₀, h₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b(Σ_IVP; S²T*), depending continuously on (γ̃, κ̃) and 0 at (0, 0), such that for every
-spacetime metric g with (g − g_(b₀))|_(Σ_IVP) = h₀ and (rℒ_(∂_(t_IVP))(g − g_(b₀)))|_(Σ_IVP) = h₁: (1) the first and
-second fundamental forms of Σ_IVP for g are γ and κ; (2) Υ⁰(g, g_(b₀)) = 0 at Σ_IVP.
+min Re ℰ₀ > 0 and jℰ₀ ⊂ ℰ₀ for j ∈ ℕ, and ℓ₀ > 0. The second fundamental form of Σ_IVP for a metric g is taken as in
+[[lem:iii-b-3-9]]: k(X, Y) := g(∇^g_Xν, Y) for X, Y tangent to Σ_IVP, with ν the future unit normal. Let
+γ = γ_(b₀) + γ̃ and k = k_(b₀) + k̃ be symmetric 2-tensors on Σ_IVP, γ_(b₀) and k_(b₀) the first and second fundamental
+forms of Σ_IVP for g_(b₀), with γ̃ ∈ H^(∞,(ℰ₀,ℓ₀))_b(Σ_IVP; S²T*Σ_IVP), k̃ ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b(Σ_IVP; S²T*Σ_IVP), and
+γ̃ small in H³_b. There are h₀, h₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b(Σ_IVP; S²T*), depending continuously on (γ̃, k̃) and 0 at (0, 0),
+such that for every spacetime metric g with (g − g_(b₀))|_(Σ_IVP) = h₀ and (rℒ_(∂_(t_IVP))(g − g_(b₀)))|_(Σ_IVP) = h₁:
+(1) the first and second fundamental forms of Σ_IVP for g are γ and k; (2) Υ⁰(g, g_(b₀)) = 0 at Σ_IVP.
 
 *Proof.* We follow [Hin26], which follows [HV18b, Proposition 3.10] and [HV24, Theorem 4.2]; the dimension enters only
 through the size of the frame. Near Σ_IVP write g_(b₀) = a dt_IVP² + 2dt_IVP ⊗_s b + γ_(b₀) and set h₀ := γ̃, extended

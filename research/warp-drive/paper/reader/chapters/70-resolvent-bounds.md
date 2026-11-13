@@ -1738,10 +1738,8 @@ With (1 + β² + κ)^(1/2) = √2, √10 and √26 at β = 1 (κ = 0, 8, 24), la
 less than 3.14128 · 10⁻⁶, 2.61805 · 10⁻⁷, 1.49554 · 10⁻⁶, 0.0203988, 0.0148362 and 0.0120540, which gives the bounds;
 and 1/(2.6181 · 10⁻⁷) > 3.8195 · 10⁶. ∎
 
-The quotients for the vectors above lie within 2 · 10⁻⁵ of their own values relative to the least singular values of
-N^n_l(β) divided by (1 + β² + κ)^(1/2), so the six bounds are those of [[lem:rb-quasimode]] at its best vector, to the
-digits given. An explicit constant for these blocks is therefore to be sought at a weight in the middle of the gap,
-where the bounds are about 10⁵ times weaker; α + 2 ∈ (0, 1) is what [[sec:iii-d1-1]] uses.
+An explicit constant for these blocks is therefore to be sought at a weight in the middle of the gap; α + 2 ∈ (0, 1) is
+what [[sec:iii-d1-1]] uses.
 
 **Remark {#rem:rb-quasimode-observed}** (Numerical observation.) On the full degree-2 block at the parameters above,
 the quasi-mode of the proof of [[lem:rb-quasimode]] with x_0 = log 400 and widths W = 100, 1000 and 10000, evaluated in
