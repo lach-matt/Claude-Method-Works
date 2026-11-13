@@ -1251,3 +1251,4 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F-P-U71-close done. FOR THE FINAL REPORT: lem:iii-j2-2-4 is lossless as stated in both halves (composition and
   product) and the edition proves neither; corrected to a fixed loss 3, absorbed by every use (also lem:iii-k-2-2 (d)).
   Chapter texts for these are in reports/F-P-U71-close.md, for the d-bound integration round.
+- R3-87 CONFIRMED (no findings): chapter 87 CONFIRMED. Chapter 90 is the last writer.
