@@ -1242,3 +1242,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R5-S27 CONFIRMED (0M 0m 1n; the nit applied: chapter 46 lines 416-417 'linear' to 'affine').
 - R6-S06 CONFIRMED (chapters 25, 26 with (S15) of 95). Observation for P-U71-forward: its order list omits -10 and -8,
   both within its bound (passed to the d-bound integration round).
+- R7-S06 CONFIRMED the three statement nits: chapters 25 and 26 CONFIRMED.
+- F-85 done. Integration: chapter 3 lines 369-371 (m12), exact text in reports/F-85.md, after R2-85 checks it.
+  FOR THE FINAL REPORT: the proof project's own last step for λ_25 was short (79.259² = 6281.989 < 6282); sharpened
+  to 79.2593², the bound λ_25 ≤ 10^(−6282) stands.

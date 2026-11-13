@@ -368,7 +368,7 @@ is N_ℬ such that each U_α meets at most N_ℬ of the U_β; let A_α be the se
     ‖Σ_α φ_α^* w_α‖²_k ≤ C Σ_α ‖w_α‖²_(H^k(ℝⁿ))  (supp w_α ⊂ K),      Σ_α ‖(φ_α)_*(ϑ_α u)‖²_(H^k(ℝⁿ)) ≤ C ‖u‖²_k.
 
 By (S3), ‖u‖²_k = Σ_β ‖(φ_β)_*(χ°_βu)‖²_(H^k(ℝⁿ)) with χ°_β := φ_β^*χ°, the cut-off χ° of (S3) being nonnegative,
-in C_c^∞((−2, 2)ⁿ) and equal to 1 on [−1, 1]ⁿ; as M = ⋃_β φ_β⁻¹((−1, 1)ⁿ) ((S1)), 1 ≤ Σ_β χ°_β ≤ N_ℬ. For charts
+in C_c^∞((−2, 2)ⁿ) and equal to 1 on [−1, 1]ⁿ; as the sets φ_β⁻¹((−1, 1)ⁿ) cover ((S1)), 1 ≤ Σ_β χ°_β ≤ N_ℬ. For charts
 α, β and a function ϕ on (−2, 2)ⁿ that vanishes outside φ_α(F), with F ⊂ U_α ∩ U_β compact, put
 T^ϕ_(βα)w := (ϕw) ∘ φ_α ∘ φ_β⁻¹ on φ_β(U_α ∩ U_β), extended by 0. If the derivatives of ϕ of order at most |k| are
 bounded, then ‖T^ϕ_(βα)w‖_(H^k) ≤ C‖w‖_(H^k). For k ≥ 0 this is Leibniz's rule, the chain rule and the change of
@@ -383,9 +383,9 @@ the charts are bounded, and (φ_α)_*(ϑ_αζχ°_βu) = T^ϕ_(αβ)(φ_β)_*(χ
 
 *Two facts.* Put Λ := Op(ρ_∞^(−𝗋)) ∈ Ψ̃^𝗋 and Λ′_0 := Op(ρ_∞^𝗋). By (S5) and (S8), Λ′_0Λ = I − R_1 with R_1 of
 order −½, as the principal symbols multiply to 1 and Op(1) = I ([[eq:ii-a1-1-1]]). So Λ′ := Σ_(j<4N_0) R_1^jΛ′_0
-satisfies Λ′Λ = I + R with R := −R_1^(4N_0) of order −2N_0, and Λ′ = Op(λ′) + R′ with λ′ a smooth symbol of order
-−𝗋 and R′ ∈ Ψ̃^(−∞) ((S4), (S8)). H^𝗋 is the space of the u ∈ H^(−N_0) with Λu ∈ L² ([[sec:ii-a1-1-1]], (S8)),
-normed by ‖u‖_𝗋 := ‖Λu‖ + ‖u‖_(−N_0). On ℝⁿ, ‖w‖_(H^(𝗋_α)) ≤ C‖w‖_(H^(N_0)), as Op(⟨ξ⟩^(𝗋_α))⟨D⟩^(−N_0) is
+satisfies Λ′Λ = I + R with R := −R_1^(4N_0) of order −2N_0, and Λ′ = Op(λ′) + R′, where λ′ is a smooth symbol of
+order −𝗋 and R′ ∈ Ψ̃^(−∞) ((S4), (S8)). H^𝗋 is the space of the u ∈ H^(−N_0) with Λu ∈ L² ([[sec:ii-a1-1-1]],
+(S8)), normed by ‖u‖_𝗋 := ‖Λu‖ + ‖u‖_(−N_0). On ℝⁿ, ‖w‖_(H^(𝗋_α)) ≤ C‖w‖_(H^(N_0)), as Op(⟨ξ⟩^(𝗋_α))⟨D⟩^(−N_0) is
 Op(⟨ξ⟩^(𝗋_α−N_0)), bounded on L² by [[lem:fwd-l2]]. Let θ̌ ∈ C_c^∞((−2, 2)ⁿ) equal 1 on [−7/4, 7/4]ⁿ and
 θ̌_α := φ_α^*θ̌. For a smooth symbol g of order 𝗆 with values in [−N_0, N_0], Op(g) = Σ_β O^ε_β(g) + Σ_β O^far_β(g)
 ([[eq:fwd-chart-op]] and the near and far parts above).
@@ -396,7 +396,8 @@ x ∉ (−5/4, 5/4)ⁿ and of order at most −2N_0. By [[lem:fwd-crude]] (s = �
 the orders N_0 and −N_0, ‖Σ_β O^far_β(g)u‖²_(N_0) ≤ C Σ_β ‖(φ_β)_*(θ̌_βu)‖²_(H^(−N_0)) ≤ C‖u‖²_(−N_0).
 
 (P2) For charts α, β, (φ_α)_*(θ̃_αO^ε_β(g)f) = (Op(σ) + Op(ρ))(φ_α)_*(θ̌_αf), where σ and ρ vanish for x ∉ supp θ̃
-and unless β ∈ A_α, σ has order 𝗆_α, and |∂_x^γ ρ| ≤ C⟨ξ⟩^(−2N_0) for every γ. Indeed, by [[lem:fwd-transport]]
+and unless β ∈ A_α, σ has order 𝗆_α, and every x-derivative of ρ is bounded by C⟨ξ⟩^(−2N_0). Indeed, by
+[[lem:fwd-transport]]
 with θ := θ̃, the left side is R_c applied to (φ_α)_*f, whose amplitude c contains the factor θ̃(x) and vanishes
 unless |x − y| ≤ Cε, so that θ̌_α may be inserted; θ̃_α and O^ε_β(g)f are supported in U_α and U_β. Then
 [[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have the pointwise
@@ -419,7 +420,7 @@ h := Σ_β O^far_β(λ′)f + R′f − Ru. By (P1), and as R′ is residual and
 Σ_α ‖(φ_α)_*(θ̃_αh)‖²_(H^(𝗋_α)) ≤ C Σ_α ‖(φ_α)_*(θ̃_αh)‖²_(H^(N_0)) ≤ C‖u‖²_𝗋. By (P2) with g := λ′, of order −𝗋, and
 𝗍 := 0, ‖(φ_α)_*(θ̃_αO^ε_β(λ′)f)‖_(H^(𝗋_α)) ≤ C‖(φ_α)_*(θ̌_αf)‖, and the left side vanishes unless β ∈ A_α. So, by
 the integer bound at the order 0 with ϑ := θ̌, the sum over α of ‖(φ_α)_*(θ̃_α Σ_β O^ε_β(λ′)f)‖²_(H^(𝗋_α)) is at most
-CN_ℬ² Σ_α ‖(φ_α)_*(θ̌_αf)‖² ≤ C‖f‖² ≤ C‖u‖²_𝗋. ∎
+CN_ℬ² Σ_α ‖(φ_α)_*(θ̌_αf)‖² ≤ C‖f‖² ≤ C‖u‖²_𝗋. As θ̃_αu = θ̃_α Σ_β O^ε_β(λ′)f + θ̃_αh, the second bound follows. ∎
 
 **Lemma {#lem:fwd-expansion}** (A product in a chart.) Let r ∈ {1, …, 6}, S ≥ 0 an integer, and F_1, …, F_r each of
 the form Op(g_j) or Op(g_j)^*, the symbol g_j of order 𝗆_j with values in [−T, T] (smooth symbols, such as those of
