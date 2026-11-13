@@ -39,7 +39,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | second fix done (Step 4 at low order by Leibniz; k = 0 clause; h_S smallness k₂ = 308; nits); the k ≥ 7 interpolation and two commutator tame terms being added; then confirming reader |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | NOT CONFIRMED 1M 6m 8n (lem:s27-below (iii) on ½ ≤ t_* ≤ 1); second fix running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | CONFIRMED (second reading 0M 0m 7n; [CD03] quoted literally against page images) |
-| 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | done (translated background g_(p⃗) with ġ⁰_(S⁰′); Θ(k) → −Υ̇⁰(k); principal-part sign) | confirming reader running |
+| 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | done (translated background g_(p⃗) with ġ⁰_(S⁰′); Θ(k) → −Υ̇⁰(k); principal-part sign) | second reading NOT CONFIRMED 0M 1m 5n (translation Major fixed; gluing across the cover's edges); second fix running |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | CONFIRMED (second reading; 2 nits) |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | third reading NOT CONFIRMED 0M 2m 3n (domain-of-dependence wording; m := μ(v)r⁻²); third fix running |

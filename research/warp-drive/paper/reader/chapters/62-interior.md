@@ -139,11 +139,11 @@ larger set, and the proof of (a) there extends to it, its formula holding at eve
 (a) the Tangherlini metric g^KS_(μ_end,0) = η + (μ_end/r²)(dτ + dr)² of [[lem:vii-1-1]] is g_(b₀) on
 ℝ_t × {|x| ≥ ½r_♭}, and g0 = g_(b₀) on {v ≥ v_end, |x| ≥ ½r_♭};
 
-(b) let J := d_1 + 10, d_1 the order of [[thm:iii-k-4-3]], so that K = J + 4 = d_1 + 14 is the order of
-[[thm:settling-precise]], and let C_J and the threshold of [[lem:vii-1-1]] at this J be as there, the threshold written
-λ_J here to keep it apart from the threshold λ1 of [[thm:settling]]. Then the components of g_λ − g_(b₀) in the chart are at most 25C_Jλ on
-Ω′_+ ∩ {|x| ≥ ½r_♭} for 0 < λ ≤ λ_J; and for every compact set Q ⊂ Ω′_+ ∩ {|x| ≥ ½r_♭} there are C_Q and λ_Q > 0 such
-that the components of g_λ⁻¹ − g_(b₀)⁻¹ in the chart are at most C_Qλ on Q for 0 < λ ≤ λ_Q.
+(b) with J := d_1 + 10, d_1 the order of [[thm:iii-k-4-3]], so that K = J + 4 = d_1 + 14 is the order of
+[[thm:settling-precise]], and with C_J and the threshold of [[lem:vii-1-1]] at this J, the threshold written λ_J here
+to keep it apart from the threshold λ1 of [[thm:settling]], the components of g_λ − g_(b₀) in the chart are at most
+25C_Jλ on Ω′_+ ∩ {|x| ≥ ½r_♭} for 0 < λ ≤ λ_J; and for every compact set Q ⊂ Ω′_+ ∩ {|x| ≥ ½r_♭} there are C_Q and
+λ_Q > 0 such that the components of g_λ⁻¹ − g_(b₀)⁻¹ in the chart are at most C_Qλ on Q for 0 < λ ≤ λ_Q.
 
 *Proof.* (a) The map (t, x) ↦ (τ, x) is the map Φ_(μ_end)(t, x) = (t − T_(μ_end)(|x|), x) of [[eq:iii-b-3-3]]
 followed by the translation τ ↦ τ − c₀. T_(μ_end) is smooth on [0, ∞) and constant on [0, 2R₁], so this is a
@@ -310,11 +310,11 @@ So Σ is an acausal smooth spacelike hypersurface in each of the connected time-
 V. D_(M_gl)(Σ) and D_V(Σ) are open and globally hyperbolic, with Σ as a Cauchy hypersurface
 ([[thm:std-bgp-development]]), and connected (shown above). In the chart, Σ is the graph of a function over the shell
 {r_♭ < |x| < R} ⊂ ℝ⁴, which is connected; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss
-and Codazzi equations, both metrics being vacuum. So (Σ, γ, k) is initial data in the sense of [Sbi15, p. 11], with d = 4, and both Cauchy
-developments, with the inclusion of Σ, are globally hyperbolic developments of it [Sbi15, Definition 2.1]
-([[thm:std-sbierski]] (1)): they are connected and time oriented, as [Sbi15] assumes of every Lorentzian manifold
-(p. 10), vacuum, and induce (γ, k) on Σ with respect to the future normal, by (i) for M_gl. By [Sbi15, Theorem 2.6]
-they have a common globally hyperbolic development, and by [Sbi15, Theorem 3.4] a maximal one ([[thm:std-sbierski]]
+and Codazzi equations, both metrics being vacuum. So (Σ, γ, k) is initial data in the sense of [Sbi15, p. 11], with
+d = 4, and both Cauchy developments, with the inclusion of Σ, are globally hyperbolic developments of it [Sbi15,
+Definition 2.1] ([[thm:std-sbierski]] (1)): they are connected and time oriented, as [Sbi15] assumes of every
+Lorentzian manifold (p. 10), vacuum, and induce (γ, k) on Σ with respect to the future normal, by (i) for M_gl. By
+[Sbi15, Theorem 2.6] they have a common globally hyperbolic development, and by [Sbi15, Theorem 3.4] a maximal one ([[thm:std-sbierski]]
 (3), (4)), U ⊂ D_(M_gl)(Σ), with an isometric embedding j into D_V(Σ) that preserves the time orientation and the
 embedding of Σ [Sbi15, Definitions 2.2 and 2.4] ([[thm:std-sbierski]] (2)), so that j is the identity on Σ. U is open
 (the proof of [Sbi15, Theorem 3.4]; [[thm:std-sbierski]] (4)) and contains Σ, a Cauchy surface of U. By [Sbi15,

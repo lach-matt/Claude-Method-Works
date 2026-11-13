@@ -773,3 +773,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   the diagonal by [Hin26d, Lemma 3.42, p. 51] and placed in the carriers with explicit room; χ_* needs no margin; nested
   inner cut-offs h(χ), h = 0 near 0, h(1) = 1, need no room). Lemma 4.1 changed only in (iii): "for every w ∈ H^(K′)".
   Chapter 25's analogues (lines ~168, 211, 231) must drop "carried by χ" (the S6 two-sided update, after the S4 reading).
+- S29 second reading (R2-S29): the translation Major fixed (g_(p⃗), V⁰, ġ⁰ = −ℒ_(V⁰)g through thm:viii-2-2, lem:s29-g-on-n,
+  cor:viii-2-3, cor:ix-2-3; composition order, signs, derivatives of κ rederived); Θ(k) → −Υ̇⁰(k) sign right (exact
+  check); prop:viii-1-2's principal part ½□_g with symbol +½g⁻¹(ζ,ζ). Minor: lem:s29-g-on-n glues only across smooth
+  hypersurfaces but the cover has edges inside 𝒟 ({r = r_1, t_IVP = 0}). Nits: (L) at 13; lem:iii-b-3-9 for K's sign
+  at 483; 241; 183; a factor 2 with lem:ii-f-1-3. Second fix running. Chapter 46 (in flux): lem:s27-cover (c) omits a
+  past-slab boundary piece and the backward problem, and sec:s27-local's symbol sign (both already sent to the S27 fix).
+  Chapter 45: prop:iii-c2-4-1 uses κ = −g(∇_Xν, Y), opposite to lem:iii-b-3-9 and chapter 48's K (sent to the S26
+  fixer). Chapter 64: N → N_ν at 64, line 84 restrict to r > r_♭ (sent to the chapter 64 fixer). Chapter 65: ġ_0 →
+  ġ_(p⃗′) as in chapter 48, "S′ = 0" → "S′ = S⁰′ = 0", N → N_ν, and Θ attributed to sec:ix-0 (for its fix round).
