@@ -1317,9 +1317,9 @@ rational in h and its first two b-derivatives. [[eq:ii-g-2-2]] and [[eq:ii-g-2-3
 most 5 ≤ d. The trace on Σ_(IVP,r₀) is bounded B^(k+1) → H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀)) (χ_I = 0 near Σ_(IVP,r₀)), which lies
 within the loss d. The data enter the constants C_k of [[eq:ii-g-2-3]]:
 ‖Φ(x)‖_k ≤ C^P_k(1 + |x|_(k+d)) + ‖h₀‖_(H^(k,ℓ^♭₀)_b) + ‖h₁‖_(H^(k,ℓ^♭₀)_b), with C^P_k depending only on g₀, k and δ.
-For k ≤ N_NM and ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) ≤ 1 this is at most (C^P_k + 2)(1 + |x|_(k+d));
-so we take C_k := C^P_k + 2 for k ≤ N_NM, which does not depend on the data. For k > N_NM,
-C_k := C^P_k + ‖h₀‖_(H^k) + ‖h₁‖_(H^k) is finite, as h_j ∈ H^∞, and does not enter the threshold of [[thm:ii-g-2-1]].
+For k ≤ N_NM and ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) ≤ 1 this is at most (C^P_k + 2)(1 + |x|_(k+d)); so we take
+C_k := C^P_k + 2 for k ≤ N_NM, which does not depend on the data. For k > N_NM, C_k := C^P_k + ‖h₀‖_(H^k) + ‖h₁‖_(H^k)
+is finite, as h_j ∈ H^∞, and does not enter the threshold of [[thm:ii-g-2-1]].
 (Smallness in H^(2d) alone is not enough for this argument: the threshold of [[thm:ii-g-2-1]] depends on the C_k with
 k ≤ N_NM.)
 
@@ -1340,11 +1340,11 @@ with constants depending on k; as above, those of order i ≤ N_NM do not depend
 such that data with ‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) < ε₁ have a solution h_x with |x|_(3d+k) < ε/C, so with norm below ε in
 H^(3d+k) of its class; it is small in H⁸ of its class, so by uniqueness it is the h above.
 *Uniqueness.* If h and h′ solve [[eq:iv2-3-1]] and are small in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b, then L̄(h − h′) = 0 with
-vanishing data, where
-L̄ := ∫₀¹ L^(g₀+h′+s(h−h′),g₀) ds. Each L^(g₀+h_s,g₀) has the form [[eq:iv1-1-1]] with the same leading part, which does
-not depend on h, and a remainder in the class [[eq:iv2-0-4]], uniformly in s; so L̄ has this form too, and its principal
-part, an average of ½□_(g_s) with g_s close to g_(b₀), is a wave operator with the same causal structure. [[lem:iv2-2-2]]
-and [[lem:iv2-2-3]] hold for L̄ (their proofs use only these properties), and the difference vanishes. ∎
+vanishing data, where L̄ := ∫₀¹ L^(g₀+h′+s(h−h′),g₀) ds. Each L^(g₀+h_s,g₀) has the form [[eq:iv1-1-1]] with the same
+leading part, which does not depend on h, and a remainder in the class [[eq:iv2-0-4]], uniformly in s; so L̄ has this
+form too, and its principal part, an average of ½□_(g_s) with g_s close to g_(b₀), is a wave operator with the same
+causal structure. [[lem:iv2-2-2]] and [[lem:iv2-2-3]] hold for L̄ (their proofs use only these properties), and the
+difference vanishes. ∎
 
 **Remark {#rem:iv2-3-2}** (Constraints.) If the data of [[thm:iv2-3-1]] satisfy the vacuum constraint equations and
 the gauge condition on Σ_(IVP,r₀), the solution is Ricci flat and satisfies the gauge condition on Ω_(ext,r₀):
@@ -1699,8 +1699,7 @@ the solution of
 that [[thm:iii-c1-2-1]] gives in the cut-off gauge ([[cor:iv2-4-1]]), which by its proof is small in H^(3d) of its
 class for the d = 7 of [[thm:iv2-3-1]]. It lies in H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₀)) by [[thm:iii-c1-3-1]], whose
 proof holds for L^(χ₀) by [[lem:iii-c2-2-1]], which leaves the leading part at ℐ⁺ unchanged and adds to the error of
-[[eq:iii-c-4-4]] a term of that class. For S ∈ 𝒮₁ small, depending only on b₀, ℓ^♭₀ and ℓ^♭_I, the
-problem
+[[eq:iii-c-4-4]] a term of that class. For S ∈ 𝒮₁ small, depending only on b₀, ℓ^♭₀ and ℓ^♭_I, the problem
 
     P^(χ₀)(φ_S*g_(b₀) + h_S, φ_S*g_(b₀)) = 0 in Ω_(ext,r₁),     h_S = h_(S,0),  rℒ_(∂_(t_IVP))h_S = h_(S,1) on Σ_(IVP,r₁)
                                                                                                          {#eq:iii-c2-3-3}
