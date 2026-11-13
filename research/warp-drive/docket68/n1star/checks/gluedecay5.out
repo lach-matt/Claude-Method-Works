@@ -62,7 +62,7 @@ E4 PASS (mutants failing as they must: no_decouple, box_strong, energy_trsign, m
       0: True, True; (d) tr Hess f = 2 mu r^-3 + ... for f' = 2 mu/(r^2 - mu): True
 E5 PASS (mutants failing as they must: mass, dim3)
   E6: GLUEDECAY5.md lines over 121 characters: none; new block lines over 121: 0; section 8.5's blocks; state of the
-      paper found: seated, the blocks at lines a 1198, b 1202, c 1847, d 2483, e 3106, f 3280, g 3169, h 3489. Before
+      paper found: seated, the blocks at lines a 1201, b 1205, c 1875, d 2527, e 3339, f 3586, g 3450, h 3886. Before
       seating (rebuilt from the seated paper): each old block once, no new block, disjoint, (a) immediately followed
       by (b), and with all blocks applied: 8.7 cites support8b.py M3 and GLUEDECAY5.md True; section 9 lists
       gluedecay5.py True; Appendix A has its entry True; Appendix C maps it and the note True; Appendix D runs it and
