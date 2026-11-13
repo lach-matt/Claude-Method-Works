@@ -200,8 +200,9 @@ where the angular term in the bracket is printed g̸/x_I²).
 **Definition {#def:ii-a-2-4}** ([Hin26c, Definition 2.13].) 𝒱_eb(M̃) is the space of b-vector fields on M̃ tangent to the
 fibres of the fibration of ℐ⁺ ([[sec:ii-a-1]]); ᵉᵇTM̃ is the bundle with 𝒱_eb = C^∞(M̃; ᵉᵇTM̃), and Diff^m_eb is defined
 as before. A local frame near ℐ⁺ ∩ ι⁺ is ρ_+∂_(ρ_+), x_I∂_(x_I), x_I∂_ω (with ∂_ω the coordinate fields of a chart of
-𝕊³), dual to dρ_+/ρ_+, dx_I/x_I, dω/x_I. Thus ḡ ∈ ρ_0⁻²x_I⁻²ρ_+⁻² C^∞(M̃ ∖ K⁺; S² ᵉᵇT*M̃), and ᵉᵇTM̃ = ᵇTM̃ away
-from ℐ⁺.
+𝕊³), dual to dρ_+/ρ_+, dx_I/x_I, dω/x_I. Thus ḡ ∈ ρ_0⁻²x_I⁻²ρ_+⁻² C^∞(M̃ ∖ (K⁺ ∪ K⁻); S² ᵉᵇT*M̃), and ᵉᵇTM̃ = ᵇTM̃
+away from ℐ⁺. ([Hin26c, (2.29)] states this on M̃ ∖ K⁺. Near (K⁻)°, in the coordinates (1/|t|, x), ḡ = −t²(dt/t)² + dx²
+has the unbounded coefficient t² while ρ_0, x_I and ρ_+ stay near 1: ḡ grows like t² there, as near K⁺.)
 
 **Lemma {#lem:ii-a-2-5}** ([Hin26c, Lemma 2.14].) Near ℐ⁺ (writing dω for a 1-form on 𝕊³),
 ρ_0⁻²x_I⁻²ρ_+⁻² C^∞(M̃; S² ᵉᵇT*M̃) is spanned by x_I⁻²dt_*², dt_* ⊗_s dr, x_I⁻¹dt_* ⊗_s r dω, x_I²dr²,

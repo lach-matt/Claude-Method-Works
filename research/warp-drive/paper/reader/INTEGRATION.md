@@ -688,3 +688,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   (0.1084602, |g′| 0.01569509); every Σ_τ0, Σ′ and seed row reproduces (worst cell −3.04218·10⁻⁴); row 99 right; C2,
   its marker and the interpolant clause gone. Minors: Σ_τ0 acausal below R_* for the lens's closing sentence; Rácz
   (4.22) (arXiv p. 13) into Appendix A with the complex-roots line. Second fix running (adds the Appendix A entry).
+- Ch 63 first reading (R-63): issue-1 settled: k_P = 2k1 + 14 is needed (each s-derivative of F_p costs two angular
+  derivatives, ∂_y^i ₂F₁ at 0 grows like l^(2i), sharp) and enough (K* unchanged), consistent with chapters 3, 8, 9.
+  issue-2 is a real gap, also in the source: on the cut-off band ∂_t² of the true solution differs from the cut-off
+  profile by −2P/g⁻¹(dt̃,dt̃) ≈ 6χ′r^(−11/2)G_9(v1); E_T[Z^k h_R] grows like |T|^(2a+2k−8) and diverges for every a in
+  the window. It breaks Steps 3-5 of thm:own-continuation, hence prop:own-vacuum, prop:own-transfer,
+  prop:own-uniqueness and thm:own-data as stated; the first four sections, thm:own-half-settling and a conditional
+  theorem (assuming a continuation) survive. Forwarded to the cut-off proof project. prop:own-same-index-sets correct;
+  three DLMF formulas exact. Minors include cor:own-p-order on Ω′ and lem:vii-1-1 used only through its proof. Ch 63's
+  fix round waits on the cut-off proof project.
