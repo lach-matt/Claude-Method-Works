@@ -462,8 +462,8 @@ K_p − K_((m,0,w,0)) ∈ ρ⁴C^∞, so 𝔮_0(p) = 𝔮_0(m, 0, w, 0): the ene
 ã11 = a11 and ã12 = a12 = 0. At w = 0 the differences of the graph's data from the slice's are ρ⁴C^∞ in the metric and
 ∇²f + ρ⁵C^∞ in K, smoothly in (m, A, c), by (d). The term ∇²f does not depend on p and carries no angular momentum:
 for W antisymmetric, (Wx) · x̂ = 0, so (Wx) · ∇²f · x̂ = f″ (Wx) · x̂ = 0, and the trace term of the flux vanishes too.
-The degree-1 fluxes of the A- and c-derivatives of the rest tend to 0, as r · ρ⁵ · r³ → 0 and ρ⁴ · r³ → 0. So c̃_J = c_J and ã22 = a22, and
-det D𝔮̃(p_λ) = c̃_E (ã11 ã22)⁴ c̃_J⁶ = 6π² (6π² m_λ)⁸ (4π² m_λ)⁶ ≠ 0. The p₂-block of D𝔮̃_0 is diag(c_E, a11 I₄),
+The degree-1 fluxes of the A- and c-derivatives of the rest tend to 0, as r · ρ⁵ · r³ → 0 and ρ⁴ · r³ → 0. So
+c̃_J = c_J and ã22 = a22, and det D𝔮̃(p_λ) = c̃_E (ã11 ã22)⁴ c̃_J⁶ = 6π² (6π² m_λ)⁸ (4π² m_λ)⁶ ≠ 0. The p₂-block of D𝔮̃_0 is diag(c_E, a11 I₄),
 invertible. The rest is the inverse function theorem. ∎
 
 So, by [[lem:vii-0-1]], a smooth vacuum data set on Σ that agrees for r large with the data (g̃_p, K̃_p) of a nearby

@@ -78,10 +78,10 @@ this piece. [[prop:margins-seed]] uses it.
 
 Thirty-two cells [R_a, R_b] cover [0.70, 1.861]. For each, the columns give the values of ψ_s, ψ_s′ and ψ_s″ at v̂ =
 τ0 + R_a and τ0 + R_b (τ0 = −0.68), rounded to seven decimals; by [[lem:margins-profile-monotone]] they are the ends of
-the ranges of ψ_s, ψ_s′ and ψ_s″ on the cell. Column (a) is a lower bound for Γ/E² on the cell for the reference profile,
-column (b) a lower bound over the tube of [[prop:margins-seed]] (b). Both are rounded down to three decimals. They come
-from [[eq:margins-gamma-form]] evaluated by the enclosure rule of [[lem:margins-enclosure]] (a), in the form written
-there, with q = e^ψ, u = 1 − q and m = μ/R².
+the ranges of ψ_s, ψ_s′ and ψ_s″ on the cell. Column (a) is a lower bound for Γ/E² on the cell for the reference
+profile, column (b) a lower bound over the tube of [[prop:margins-seed]] (b). Both are rounded down to three decimals.
+They come from [[eq:margins-gamma-form]] evaluated by the enclosure rule of [[lem:margins-enclosure]] (a), in the form
+written there, with q = e^ψ, u = 1 − q and m = μ/R².
 
 | R_a | R_b | ψ_s(a) | ψ_s(b) | ψ_s′(b) | ψ_s′(a) | ψ_s″(a) | ψ_s″(b) | (a) | (b) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -120,13 +120,13 @@ there, with q = e^ψ, u = 1 − q and m = μ/R².
 
 ### The data on the shell {#sec:table-shell}
 
-Along the cone 𝒩 = {u = 0}, at v_k := 3 + k/80 (k = 0, …, 120), the table lists the shell profile α_k := α(v_k) =
-3.6 b(v_k; 3, 4.5) with its first two derivatives (rounded to nine, eight and six decimals), and the numbers R_k, P_k,
-μ_k, v̂_k (rounded to eight decimals) that satisfy the scheme [[eq:margins-scheme]] of [[lem:margins-shell-data]] to
-within 10⁻⁸ in each component, the residuals summing to at most 5 × 10⁻⁷ in each component. By that lemma the true
-radius, its v-derivative, the mass and the time v̂ on 𝒩 at v_k are within 4 × 10⁻⁶, 6 × 10⁻⁷, 10⁻⁵ and 4 × 10⁻⁶ of
-R_k, P_k, μ_k and v̂_k. For k = 0 the values are exact: R_0 =
-13/2, P_0 = 1/2, μ_0 = 3/2 and v̂_0 = 3 + √(3/2) ln[(13/2 − √(3/2))(5 + √(3/2))/((13/2 + √(3/2))(5 − √(3/2)))].
+Along the cone 𝒩 = {u = 0}, at v_k := 3 + k/80 (k = 0, …, 120), the table lists the shell profile α_k := α(v_k) = 3.6
+b(v_k; 3, 4.5) with its first two derivatives (rounded to nine, eight and six decimals), and the numbers R_k, P_k, μ_k,
+v̂_k (rounded to eight decimals) that satisfy the scheme [[eq:margins-scheme]] of [[lem:margins-shell-data]] to within
+10⁻⁸ in each component, the residuals summing to at most 5 × 10⁻⁷ in each component. By that lemma the true radius, its
+v-derivative, the mass and the time v̂ on 𝒩 at v_k are within 4 × 10⁻⁶, 6 × 10⁻⁷, 10⁻⁵ and 4 × 10⁻⁶ of R_k, P_k, μ_k and
+v̂_k. For k = 0 the values are exact: R_0 = 13/2, P_0 = 1/2, μ_0 = 3/2 and v̂_0 = 3 + √(3/2) ln[(13/2 − √(3/2))(5 +
+√(3/2))/((13/2 + √(3/2))(5 − √(3/2)))].
 
 | k | v_k | α_k | α′_k | α″_k | R_k | P_k | μ_k | v̂_k |
 |---|---|---|---|---|---|---|---|---|
@@ -256,12 +256,16 @@ R_k, P_k, μ_k and v̂_k. For k = 0 the values are exact: R_0 =
 
 Row k is the point of Σ_τ0 on the ingoing ray v = v_k: R0_k := v̂_k + 0.68 (seven decimals), a_k := (3/2) α_k w_k² with
 w_k := (1 − μ_k/R_k²)/(3P_k) (six decimals), and N_k := −2μ_k R0_k⁻³ − μ_k² R0_k⁻⁵ + (1/2) a_k R0_k⁻² (eight decimals),
-from the shell table. By [[lem:margins-shell-data]] the true value of N_κ at the point is within 5 × 10⁻⁶ of N_k. On
-the cell v ∈ [v_k, v_(k+1)], the column S2_k is the supremum of |α″| (rounded up to one decimal; from the monotone
-pieces of [[lem:margins-bump]]) and M_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for
-the second v-derivative of N_κ along Σ_τ0. The sign column is − when max(N_k, N_(k+1)) + 5 × 10⁻⁶ + M_k/51200 < 0, + when
-min(N_k, N_(k+1)) − 5 × 10⁻⁶ − M_k/51200 > 0, and 0 otherwise. The bound column prints that maximum (rounded up) or
-minimum (rounded down). The three cells marked 0 are treated in the proof of [[thm:margins-hyperbolic]].
+from the shell table. By [[lem:margins-shell-data]] the true value of N_κ at the point is within 5 × 10⁻⁶ of N_k. On the
+cell v ∈ [v_k, v_(k+1)], M_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for the second
+v-derivative of N_κ along Σ_τ0, built from S_0, S_1 and S_2 := sup|α″| (the column S2_k, rounded up to one decimal). By
+the monotone pieces of [[lem:margins-bump]], S_0 and S_1 are the larger end values of α and |α′| on the cell, except
+that S_1 = 4.8 × 2.17036 on the cells k = 14 and 105, which contain v = 3.75 ∓ 0.75 × 3^(−1/4); and S_2 is the larger
+end value of |α″|, except on the cells k = 6, 23, 96 and 113, which contain a zero of β‴ in the variable y = (4v −
+15)/3, where the extremal value of [[lem:margins-bump]] (c) times 6.4 is used. The sign column is − when max(N_k,
+N_(k+1)) + 5 × 10⁻⁶ + M_k/51200 < 0, + when min(N_k, N_(k+1)) − 5 × 10⁻⁶ − M_k/51200 > 0, and 0 otherwise. The bound
+column prints that maximum (rounded up) or minimum (rounded down). The three cells marked 0 are treated in the proof of
+[[thm:margins-hyperbolic]].
 
 | k | R0_k | a_k | N_k | S2_k | M_k | sign | bound |
 |---|---|---|---|---|---|---|---|
@@ -389,14 +393,15 @@ minimum (rounded down). The three cells marked 0 are treated in the proof of [[t
 
 ### The bent slice over the shell {#sec:table-sigma-bent}
 
-Row k is the point of Σ′ = {v̂ − R − φ(R) = τ0} on the ingoing ray v = v_k. Its radius R′_k (seven decimals) satisfies
-|R′_k + φ_k − R0_k| ≤ 2 × 10⁻⁷. The numbers φ_k, φ′_k and φ″_k are the bend of [[prop:margins-bend]] and its
+Row k is the point of Σ′ = {v̂ − R − φ(R) = τ0} on the ingoing ray v = v_k. Its radius R′_k (seven decimals)
+satisfies |R′_k + φ_k − R0_k| ≤ 2 × 10⁻⁷. The numbers φ_k, φ′_k and φ″_k are the bend of [[prop:margins-bend]] and its
 derivatives at R′_k (seven, six and seven decimals; φ_k and φ′_k as [[lem:margins-bump-table]] (c) gives them), and Ξ_k
-(seven decimals) is the numerator [[eq:margins-xi]] at the point, with μ = μ_k, μ̇ = a_k and V = 1 + φ′_k. On the cell
-v ∈ [v_k, v_(k+1)], Φ4_k (rounded up) is the supremum of |φ⁗| over R ∈ [R′_k, R′_(k+1)], M′_k (rounded up) the bound of
-[[lem:margins-curvature]] (b), and c_k (rounded down) the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) of the proof of
-[[thm:margins-hyperbolic]]. The bound column (rounded up) is −c_k (min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200), an upper
-bound for κ′K′^l_l on the cell.
+(seven decimals) is the numerator [[eq:margins-xi]] at the point, with μ = μ_k, μ̇ = a_k and V = 1 + φ′_k. On the cell v
+∈ [v_k, v_(k+1)], Φ4_k (rounded up) is the supremum of |φ⁗| over R ∈ [R′_k, R′_(k+1)], found from the monotone pieces of
+β″ ([[lem:margins-bump]] (c)) in the variable of the lobe that meets the interval; M′_k (rounded up) is the bound of
+[[lem:margins-curvature]] (b), with S_0, S_1 and S_2 as in [[sec:table-sigma0]]; and c_k (rounded down) is the lower
+bound for c := 3(1 − fV)/(R V²(2 − fV)²) of the proof of [[thm:margins-hyperbolic]]. The bound column (rounded up) is
+−c_k (min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200), an upper bound for κ′K′^l_l on the cell.
 
 | k | R′_k | φ_k | φ′_k | φ″_k | Ξ_k | Φ4_k | M′_k | c_k | bound |
 |---|---|---|---|---|---|---|---|---|---|

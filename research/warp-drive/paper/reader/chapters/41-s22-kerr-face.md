@@ -64,8 +64,8 @@ On the spectral side, X̄, M′, X^±_(sc-b) with the faces scf, tf, zf and the 
 *The base point.* The base points of the linearisation are pairs (h, p⃗) as in [[sec:iii-i9-2]], whose black hole
 parameter b lies in the closed ball ℬ̄_* about b_0 of [[sec:iii-h2-0]], shrunk as in [[ch:s20]] (to a radius at most
 1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]) and in [[lem:iii-i15-1-2]]; every result below holds on this
-ball. On ℬ̄_* the model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem at b with continuity in (b, S, h) (property
-(P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots of L̂_b(0) at ∂X, which
+ball. On ℬ̄_* the model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem at b with continuity in
+(b, S, h) (property (P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots of L̂_b(0) at ∂X, which
 do not depend on b (P2); the zero energy states of the table of roots of [[sec:iii-g2-1]] for L_b, their companions,
 the 1-form towers of [[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b, which are real and smooth
 in b, with index sets in (μ − j) + ℰ_ind, ℰ_ind independent of b (P3); the augmented low energy theory of [[ch:s18]]
@@ -1528,13 +1528,8 @@ v1 content through an antiderivative. At a rotating b both steps change. This se
 b ∈ ℬ̄_*, with the rotation tower T_(v1,b) in place of the antiderivative, and with them the expansion of
 [[thm:iii-i12-3-1]] at b.
 
-*The rotation state at b.* h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in
-ker L̂_b(0) in the space 𝒳_0 of [[ch:s18]], and it is O(|b − b_0||V|) ([[lem:iii-i15-1-1]] (P3)). Near b_0 that
-nullspace has the dimension it has at b_0, with the continuous basis ġ_b(ḃ), the gauge-corrected state of
-[[eq:iii-f3-2-1]], and h_b(S) (the proof of [[prop:iii-h-3-2]], where the matrix B(b) is invertible). So
-h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V), with |ḃ_V| + |S_V| = O(|b − b_0||V|). Moreover S_V = 0: the pullback by the
-element −1 of SO(4) fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by the
-injectivity of S ↦ h_b(S) ([[lem:iii-i10-2-2]] at b, for the s1 states alone). Hence
+*The rotation state at b.* By [[rem:iii-i15-1-2]], for V ∈ 𝒱_1 there is ḃ_V ∈ 𝔟, linear in V, with
+|ḃ_V| = O(|b − b_0||V|) and
 
     h_(b,v1)(V) = ġ_b(ḃ_V),          ker h_(b,v1) = 𝒱⁰_b := {V : ḃ_V = 0}.
 
@@ -1543,17 +1538,18 @@ h̆^j := h̆^j_(b,s1); 𝒢_* is the space of sections conormal at ∂X of order
 
     T_(v1,b)(aV) := Σ_j a^((j)) h̆^j_(b,v1)(V),     h̆⁰_(b,v1) := h_(b,v1),
 
-is the v1 tower T_v1 of [[sec:iii-i12-1]] at b, the tower of the rotation rows of [[def:iii-i14-1-3]]. Put
+is the v1 tower T_v1 of [[sec:iii-i12-1]] at b, the tower of the rotation rows of [[def:iii-i14-1-3]]. Its companion
+h̆¹_(b,v1)(V) satisfies
 
-    κ_b(V) := h̆¹_(b,v1)(V),          L_0κ_b(V) = −L_1ġ_b(ḃ_V).                                         {#eq:iii-i15-2-6}
+    L_0h̆¹_(b,v1)(V) = −L_1ġ_b(ḃ_V),                                                                    {#eq:iii-i15-2-6}
 
-The identity holds by the tower relation L_0h̆¹_(b,v1)(V) = −L_1h_(b,v1)(V) and the formula for h_(b,v1) above. At b_0,
-κ_(b_0)(V) = h̆¹_(b_0,v1)(V) lies in ker L_0.
+by the tower relation L_0h̆¹_(b,v1)(V) = −L_1h_(b,v1)(V) and the formula for h_(b,v1) above. At b_0, h̆¹_(b_0,v1)(V)
+lies in ker L_0.
 
 **Lemma {#lem:iii-i15-2-9}** ([[lem:iii-i12-2-3]] and [[lem:iii-i12-2-4]] at b.) Let b ∈ ℬ̄_*.
 
-(a) If p ∈ 𝒢_* and L_0p = 0, then p = Σ_ψ h̆^((μ_ψ),0)_(b,τ_ψ)(Y_ψ) + κ_b(V) + ġ_b(ḃ) + h(S), the sum over the rows
-of ℛ′ other than v1, with V ∈ 𝒱⁰_b and unique coefficients.
+(a) If p ∈ 𝒢_* and L_0p = 0, then p = Σ_ψ h̆^((μ_ψ),0)_(b,τ_ψ)(Y_ψ) + h̆¹_(b,v1)(V) + ġ_b(ḃ) + h(S), the sum over the
+rows of ℛ′ other than v1, with V ∈ 𝒱⁰_b and unique coefficients.
 
 (b) If X ∈ 𝒢_* and L_0X = L_1ġ_b(ḃ) + L_1h̆¹(S) + L_2h(S), then ḃ + ḃ_(V_X) = 0, where V_X is the v1 coefficient that
 the reduction of X in the proof of [[lem:iii-i12-2-3]] removes at the root −1. The statement on s1 is as at b_0.
@@ -1566,8 +1562,8 @@ The exponents are as there; those of a_v1 lie in ⋃_i E_i + ℕ₀ − 1, and t
 constants are uniform on ℬ̄_*, and no map V ↦ h_(b,v1)(V) is inverted.
 
 *Proof.* (a) and (b). Run the reduction of the proof of [[lem:iii-i12-2-3]] at b, with the states at b ((P3)). At the
-v1 root −1, subtract κ_b(V), whose leading coefficient is h̄_v1(V), independent of b ((P3)). By [[eq:iii-i15-2-6]] this
-adds L_1ġ_b(ḃ_V) to the right side. So the reduced section X_1 ∈ 𝒜¹ satisfies
+v1 root −1, subtract h̆¹_(b,v1)(V), whose leading coefficient is h̄_v1(V), independent of b ((P3)). By
+[[eq:iii-i15-2-6]] this adds L_1ġ_b(ḃ_V) to the right side. So the reduced section X_1 ∈ 𝒜¹ satisfies
 
     L_0X_1 = L_1ġ_b(ḃ + ḃ_(V_X)) + L_1h̆¹(S + S′) + L_2h(S + S′).
 
@@ -1577,19 +1573,19 @@ the nullspace of [[prop:iii-f3-4-1]] at b being spanned by ġ_b and h_b.
 
 (c) The removal of pairs proceeds as at b_0. By (a), the coefficient section of the first pair (z_0, k_0) is
 
-    P = Σ_ψ h̆^((μ_ψ),0)_(b,τ_ψ)(Y_ψ) + κ_b(V) + ġ_b(ḃ) + h(S),     V ∈ 𝒱⁰_b.
+    P = Σ_ψ h̆^((μ_ψ),0)_(b,τ_ψ)(Y_ψ) + h̆¹_(b,v1)(V) + ġ_b(ḃ) + h(S),     V ∈ 𝒱⁰_b.
 
 Two steps change. Write a := χ_+t_*^(−z_0)(log t_*)^(k_0), and let ã be its antiderivative.
 
 *The v1 part of P.* Subtract T_(v1,b)(ãV). Its bottom ã h_(b,v1)(V) vanishes, as V ∈ 𝒱⁰_b = ker h_(b,v1), and its next
-term is aκ_b(V). It is a tower, so L_b of it involves a″ and higher only, and has K⁺-order Re z_0 + 2 ≥ β. Its
+term is a h̆¹_(b,v1)(V). It is a tower, so L_b of it involves a″ and higher only, and has K⁺-order Re z_0 + 2 ≥ β. Its
 coefficient ãV enters a_v1 at the exponent z_0 − 1, and a_s is unchanged; this is why the exponents are as at b_0.
 
 *The ġ part of P.* If Re z_0 + 1 ≥ β, subtract ġ_b(aḃ) as at b_0. Otherwise the next coefficient gives L_0P_1 = z_0L_1P,
 and with the tower relations L_0X = z_0L_1ġ_b(ḃ) for a section X ∈ 𝒢_*. By (b), z_0ḃ = −ḃ_(V_X). Put V″ := −V_X/z_0,
 so that ḃ_(V″) = ḃ, and subtract T_(v1,b)(aV″) instead of ġ_b(aḃ). Its bottom is a h_(b,v1)(V″) = aġ_b(ḃ_(V″)) =
-aġ_b(ḃ), as required, and L_b of it involves a″ and higher. Its next term, a′κ_b(V″), carries the v1 content V_X that
-the reduction at the next pair would remove; that content is therefore removed here, at the earlier pair.
+aġ_b(ḃ), as required, and L_b of it involves a″ and higher. Its next term, a′h̆¹_(b,v1)(V″), carries the v1 content
+V_X that the reduction at the next pair would remove; that content is therefore removed here, at the earlier pair.
 
 The new terms are again compatible: a companion a^((j))h̆^j has the exponent z + j and the degree μ − j, as at b_0.
 |V″| ≤ C|V_X|, with C depending only on |z_0|⁻¹, and Re z_0 ≥ β − 2 > 1. The coefficients are read off leading

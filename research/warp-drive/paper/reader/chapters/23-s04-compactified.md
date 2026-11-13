@@ -1242,16 +1242,19 @@ complement.
 
 **Lemma {#lem:ii-a1-1-2}** (Disjoint microsupports.) Let K_1, K_2 ⊂ ᵉ³ᵇT̄*M̃ be disjoint closed sets. Then the distance
 between K_1 and K_2 in the coordinates (x, ζ/|ζ|, log |ζ|) of each chart of ρℬ, for |ζ| ≥ 1, is bounded below
-uniformly. For a_i ∈ S̃^(m_i) supported in K_i, Op(a_1)Op(a_2) ∈ Ψ̃^(−∞), and the map (a_1, a_2) ↦ Op(a_1)Op(a_2), on
-the closed subspaces of symbols supported in K_1 and in K_2, is continuous into Ψ̃^(−N) for every N.
+uniformly. For a_i ∈ S̃^(m_i) supported in K_i, Op(a_1)Op(a_2) ∈ Ψ̃^(−∞). Hence A_1A_2 ∈ Ψ̃^(−∞) whenever
+A_1, A_2 ∈ Ψ̃ are microsupported in K_1 and K_2.
 
 *Proof.* The charts of ρℬ are, uniformly, rescalings of charts of the compact manifold with corners in which cells near
 the boundary are magnified. Distances therefore do not shrink: a smooth metric on the compact ᵉ³ᵇT̄*M̃ is bounded by a
 constant times the Euclidean metric of each chart. So the symbols have disjoint essential supports in the sense of
-[Hin26d], being uniformly separated. The wave front set of the composition is empty ((S5)), so it is residual. The
-bilinear map is continuous into Ψ̃^m ((S5)) and takes values in Ψ̃^(−N). Its graph in Ψ̃^(−N) is closed, since
-convergence in Ψ̃^(−N) implies convergence in Ψ̃^m. So it is separately continuous into Ψ̃^(−N) by the closed graph
-theorem, hence jointly continuous on these Fréchet spaces. ∎
+[Hin26d], being uniformly separated. The wave front set of the composition is empty ((S5)), so it is residual. For
+A_i = Op(a_i) + R_i with supp a_i ⊂ K_i and R_i ∈ Ψ̃^(−∞), the other products have a residual factor. ∎
+
+The symbols here are smooth, and no bound in terms of their seminorms is claimed. A closed graph argument on the
+subspaces of symbols supported in K_1 and K_2 would bound Op(a_1)Op(a_2) in Ψ̃^(−N) by seminorms whose number may
+depend on K_1 and K_2; it is not used. Products of operators of finite regularity with disjoint microsupports are
+estimated by [[prop:ii-a1-2-4]] (e) instead, with indices that depend only on the orders.
 
 #### The operators and the statements {#sec:ii-a1-1-3}
 
@@ -1364,19 +1367,26 @@ adjoint is w⁻¹A^⋆w with A^⋆ the adjoint for that density, and conjugation
 C‖a_1‖_((M+1);ν,𝗆_1)‖a_2‖_((M+1);ν,𝗆_2). If one of a_1, a_2 is scalar and the other matrix-valued, H_(a_1)a_2 is taken
 entrywise.
 
-(e) If two of a_1, …, a_r (r ≥ 2) are supported in disjoint closed sets of the compactified bundle, then
-Op(a_1)⋯Op(a_r) has order −N for every N, with norm at most C_N times the product of the (M)-norms, M = M(N, r).
+(e) (Disjoint microsupports.) Let T(a_1, …, a_r) be an expression as in (f), of order μ for smooth symbols, and let
+B_1, B_2 ∈ Ψ̃⁰ be microsupported in disjoint closed sets K_1, K_2 of the compactified bundle ([[sec:ii-a1-1-2]]). Then
+for every N, B_1T(a_1, …, a_r)B_2 has order −N, with norm at most C ∏_i ‖a_i‖_((M);ν,𝗆_i), where M depends only on N,
+𝗍, μ, the expression, its orders 𝗆_i, ν and δ; B_1 and B_2 enter only the constant C. The same holds for
+S_1B_1TB_2S_2 with expressions S_1, S_2 as in (f), and a product of bounded operators one of which lies in Ψ̃^(−∞) has
+every order.
 
 (f) (General principle.) Let T(a_1, …, a_r) be a finite expression in the operators Op(a_i) and their adjoints, formed
 by sums and compositions. Suppose that for smooth symbols it lies in the class of order μ, by (S5) and (S8): a
 difference of operators with the same principal symbol is one order lower, and a commutator is one order lower than the
-product. Then for symbols of finite regularity the operator given by the same expression has order μ + δ, or μ when all
-orders are constant and ν = 0. Its norm is at most C ∏_i ‖a_i‖_((M);ν,𝗆_i). In particular, for a of constant order m
+product. This is to hold for all symbols of the stated orders, the expression being fixed; a relation between the
+symbols, such as one being 1 on the support of another, is not allowed to enter. Then for symbols of finite regularity
+the operator given by the same expression has order μ + δ, or μ when all orders are constant and ν = 0. Its norm is at
+most C ∏_i ‖a_i‖_((M);ν,𝗆_i), with M depending only on the expression, the orders 𝗆_i and 𝗍, ν and δ. In particular,
+for a of constant order m
 with ν = 0 and a real symbol ǎ of order 𝗄 and any index: D_a := Op(a)* − Op(a*) has order m − 1, and [D_a, Op(ǎ)] and
 [ [D_a, Op(ǎ)], Op(ǎ) ] have orders m + 𝗄 − 2 + δ and m + 2𝗄 − 3 + δ.
 
-The constants are uniform for symbols bounded in the stated norms. For (e) the supports are fixed, or vary within fixed
-disjoint closed sets.
+The constants are uniform for symbols bounded in the stated norms. In (e) they depend in addition on B_1 and B_2,
+while M does not.
 
 *Proof.* *Smooth symbols.* (a) For smooth a ∈ S̃^𝗆_ν, Op(a) is bounded of order 𝗆, without loss ((S8) and
 [[def:ii-a1-1-3]]). The linear map a ↦ Op(a) from the Fréchet space S̃^𝗆_ν to the bounded operators H^𝗍 → H^(𝗍−𝗆) has
@@ -1384,12 +1394,12 @@ closed graph: if a_j → a and Op(a_j) → T, then Op(a_j)u → Op(a)u pointwise
 T = Op(a) on the dense set C_c^∞ ([[lem:ii-a1-2-3]] (a)). So it is continuous, and bounded by C‖a‖_((M);ν,𝗆)
 ([[sec:ii-a1-2-1]]). (b) By (S5) and (S8), Op(a_1)Op(a_2) has principal symbol a_1a_2, as does Op(a_1a_2), so the
 difference lies in the class of order 𝗆_1 + 𝗆_2 − 1 + δ. The bilinear map into that class is separately continuous by
-the closed graph argument of [[lem:ii-a1-1-2]], using the continuity of composition into the class of order
-𝗆_1 + 𝗆_2 + δ. [[lem:ii-a1-2-1]] then applies. (c) is the same, with σ(A*) the complex conjugate of σ(A). (d) By (S5),
+the closed graph theorem: it is continuous into the class of order 𝗆_1 + 𝗆_2 + δ, by the continuity of composition, and
+convergence in the smaller class implies convergence in the larger one, so its graph in the smaller class is closed.
+[[lem:ii-a1-2-1]] then applies. (c) is the same, with σ(A*) the complex conjugate of σ(A). (d) By (S5),
 i[Op(a_1), Op(a_2)] has order 𝗆_1 + 𝗆_2 − 1 + δ and principal symbol H_(a_1)a_2. Then H_(a_1)a_2 is a symbol of that
 order, and Op(H_(a_1)a_2) has full symbol H_(a_1)a_2. So the difference has order one lower; continuity is as in (b).
-Its norm involves one more derivative of each symbol, through H_(a_1)a_2. (e) [[lem:ii-a1-1-2]], and its analogue for r
-factors, with the same proof: the wave front set of the product is empty ((S5)).
+Its norm involves one more derivative of each symbol, through H_(a_1)a_2. (e) is proved after (f).
 
 *Finite regularity.* For each item, let a_(i,ε) be the mollifications of [[lem:ii-a1-2-2]], with uniformly bounded
 norms. For u ∈ C_c^∞, Op(a_(i,ε))u → Op(a_i)u pointwise and boundedly on compact sets, by dominated convergence in the
@@ -1401,12 +1411,32 @@ vary with ε, so the convergence of the outer factors is needed, and this gives 
 operators applied to u converge in a Sobolev space of lower order, hence in 𝒟′. The smooth bounds hold uniformly in ε.
 A bounded sequence in the Hilbert space H^(𝗍−𝗋) has weakly convergent subsequences, whose limits are identified in 𝒟′,
 and the norm is weakly lower semicontinuous. So the bounds hold for u ∈ C_c^∞ with the limit operators, and extend by
-density ([[lem:ii-a1-2-3]] (a)). In (a) this defines the extension. In (e), the supports of the mollified symbols stay in
-fixed disjoint closed neighbourhoods for small ε, by [[lem:ii-a1-2-2]] (iii) and [[lem:ii-a1-1-2]]. (f) is proved as
-(b): for smooth symbols the multilinear map is continuous into the class of order μ + δ. It is continuous into a larger
-class because compositions and adjoints are continuous, and its graph in the smaller class is closed. Then
-[[lem:ii-a1-2-1]] and the passage to finite regularity apply. When all orders are constant and ν = 0, the classes are
-those of (S5) without loss, and the same argument gives order μ. ∎
+density ([[lem:ii-a1-2-3]] (a)). In (a) this defines the extension. (f) is proved as (b): for smooth symbols the
+multilinear map is continuous into the class of order μ + δ. It is continuous into a larger class because compositions
+and adjoints are continuous, and its graph in the smaller class is closed. Then [[lem:ii-a1-2-1]] and the passage to
+finite regularity apply. The multilinear map is defined on the whole spaces of symbols of the stated orders and is
+determined by the expression, so the seminorms that [[lem:ii-a1-2-1]] produces, and hence M, depend only on the
+expression and the orders. When all orders are constant and ν = 0, the classes are those of (S5) without loss, and the
+same argument gives order μ.
+
+*Proof of (e).* Choose y ∈ C^∞(ᵉ³ᵇT̄*M̃) with y = 1 near K_1 and y = 0 near K_2, and put Y := Op(y) ∈ Ψ̃⁰
+([[lem:ii-a1-1-1]]). Then B_1(I − Y) and YB_2 lie in Ψ̃^(−∞) by [[lem:ii-a1-1-2]], I − Y being Op(1 − y)
+([[eq:ii-a1-1-1]]) and supp(1 − y), supp y being disjoint from K_1, K_2. By [[eq:ii-a-comm-split]] (with B_1, B_2 for B,
+I − B^♯), applied to T_0 := T, T_1, …, T_(J−1), where T_j := ad_Y^j T,
+
+    B_1TB_2 = Σ_(j=0)^(J−1) (B_1(I − Y)T_jB_2 + B_1T_jYB_2) + B_1T_JB_2.
+
+T_j is the expression ad_(Op(y_1))⋯ad_(Op(y_j))T(a_1, …, a_r) in the r + j symbols y_1, …, y_j, a_1, …, a_r, at
+y_1 = ⋯ = y_j = y. For smooth symbols it has order μ − j: y_i is scalar of order 0, and each commutator with Op(y_i)
+lowers the order by one ((S5), (S8)). By (f), T_j has order μ − j + δ, with norm at most
+C‖y‖^j_((M);0,0) ∏_i ‖a_i‖_((M);ν,𝗆_i), M being the number of (f) for this expression. Take δ ≤ 1,
+J := ⌈sup μ⌉ + N + 1 and 𝗍′ := 𝗍 + N + ⌈sup μ⌉ + 1. B_1 and B_2 are bounded on every H^𝗍_e3b ((S5), (S8)). So
+B_1T_JB_2 has order −N, as μ − J + δ ≤ −N. B_1(I − Y)T_jB_2 maps H^𝗍 to H^(𝗍−sup μ−1) by T_j, and then to H^(𝗍+N)
+by the residual factor. B_1T_jYB_2 maps H^𝗍 to H^(𝗍′) by the residual factor YB_2, and then to
+H^(𝗍′−sup μ−1) = H^(𝗍+N) by T_j. Hence the bound, with M the largest of the numbers of (f) for T_0, …, T_J at the
+orders 𝗍 and 𝗍′. It depends only on N, 𝗍, μ, the expression, its orders, ν and δ; B_1, B_2 and y enter only the
+constant. For S_1B_1TB_2S_2, the factors S_1 and S_2 are bounded by (f) at the orders involved, with indices of the same
+kind. ∎
 
 **Lemma {#lem:ii-a1-2-5}** (Square roots.) Let Q be a Hermitian matrix-valued function on a set W of phase space with
 Q ≥ c Id, c > 0. Derivatives are taken in the coordinates of [[lem:ii-a1-2-2]].
@@ -1437,7 +1467,8 @@ C⟨log ρ_∞⟩^(ν|β|).
 As Q(s + Q)⁻¹ = I − s(s + Q)⁻¹, for β ≠ 0 this gives ∂^β Q^(1/2) = −π⁻¹ ∫_0^∞ s^(1/2) ∂^β(s + Q)⁻¹ ds. Now
 Q ≥ (c + λ)Id, so ‖(s + Q)⁻¹‖ ≤ (s + c + λ)⁻¹, and |∂^(β_i)Q| ≤ 2C_0⟨log ρ_∞⟩^(1+ν|β_i|). Expanding ∂^β(s + Q)⁻¹ as in
 (i), a product with k factors ∂^(β_i)Q is bounded by C(s + c + λ)^(−k−1)⟨log ρ_∞⟩^(k+ν|β|), with 1 ≤ k ≤ |β|. Since
-∫_0^∞ s^(∓1/2)(s + c + λ)^(−k−1) ds = C_k(c + λ)^(±1/2−k) ≤ C_k c^(±1/2−k) for k ≥ 1, both derivative bounds follow.
+∫_0^∞ s^(∓1/2)(s + c + λ)^(−k−1) ds = C_k(c + λ)^(∓1/2−k) ≤ C_k c^(∓1/2−k) for k ≥ 1 (the exponent ∓1/2 − k being
+negative), both derivative bounds follow.
 Finally |Q^(−1/2)| ≤ c^(−1/2) and |Q^(1/2)| ≤ |Q|^(1/2) ≤ (C_0 + C_0⟨log ρ_∞⟩)^(1/2). ∎
 
 **Lemma {#lem:ii-a1-2-6}** (The supremum bound.) Let z ∈ C^((M))_ν S̃⁰, possibly matrix-valued, with M large, and
