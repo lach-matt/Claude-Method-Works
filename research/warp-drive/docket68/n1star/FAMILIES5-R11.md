@@ -51,3 +51,21 @@ edited.
 The R10.1 block stands unchanged; this round changes no word of it. Its "(the reduction and the positivity computed
 exactly; …)" is now true of E4 (b) as well, through S4 (b). The single old/new pair in the wording file is the
 paper's current "More families" bullet (OLD) and FAMILIES5-R10.md R10.1 (NEW), as before.
+
+## [R11-nits] The confirming reader's two nits
+
+- **S4 (b)'s controls changed the target, so they could not fail once (b) passed.** They are replaced by input
+  mutations:
+  - the vector field X = αS∂_R + βS∂_θ, with S in place of S′, fails the shift formulas;
+  - the lapse ψS′ in place of ψS fails the trace-free claim.
+  Both are rejected. `checks/mbslice5.py` was rerun and its `.out` saved: S1-S5 PASS.
+- **"Ends trapped, so it lies in the black-hole region"** is now named in ehband5's docstring and in MB's status note.
+  It is the standard result that a trapped surface lies inside the black-hole region of a strongly asymptotically
+  predictable spacetime satisfying the null convergence condition: Wald, General Relativity (1984), Proposition 12.2.2;
+  Hawking and Ellis (1973), Proposition 9.2.1.
+  - Not READ at source: neither book is reachable here. It is cited in arXiv:1909.02001 and in
+    doi:10.1007/s10714-024-03245-5, Appendix A.
+  - It holds in five dimensions: the proof uses only the null Raychaudhuri equation and the causal structure of
+    J⁻(I⁺), and vacuum and null dust satisfy the null convergence condition.
+  - In this SO(4) class the direct argument also suffices (deduced).
+- The R10.1 block is unchanged, and so is the wording pair.

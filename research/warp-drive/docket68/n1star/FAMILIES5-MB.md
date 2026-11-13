@@ -17,7 +17,16 @@ ingoing shell arrives, where A > 0 makes e^(−2s)R_v strictly decrease, so the 
 trapped; trappedness after the shell is open in the starting radius, so nearby rays with f > 0 at the start are trapped
 too -- and computed on the computed background, `checks/ehband5.py` H1: every row crossing Σ_τ0 between √μ3 and R_x =
 1.000 (n = 80 and 160) ends trapped, every row above 1.005 does not; control, no ingoing shell: none is trapped.
-FAMILIES5-R11.md.]
+FAMILIES5-R11.md.] [R11-nits: "ends trapped, so it lies in the black-hole region" is the standard result that a trapped
+surface lies inside the black-hole region of a strongly asymptotically predictable spacetime satisfying the null
+convergence condition: Wald, General Relativity (1984), Proposition 12.2.2; Hawking and Ellis, The Large Scale Structure
+of Space-Time (1973), Proposition 9.2.1. Not READ at source: neither book is reachable from this container; it is cited
+as Wald's Proposition 12.2.2 in arXiv:1909.02001 and in doi:10.1007/s10714-024-03245-5, Appendix A. Its proof uses only
+the Raychaudhuri equation for the null congruence orthogonal to the surface and the causal structure of J⁻(I⁺), so it
+holds in five dimensions; vacuum and null dust satisfy the null convergence condition (R_ab k^a k^b = 8π ρ (l·k)² ≥ 0
+for dust T = ρ l l). In this SO(4)-symmetric class the direct argument also suffices: e^(−2s)R_v never increases, so R
+decreases along the trapped outgoing ray for good, it cannot reach I⁺, and no future causal curve from its start does
+(deduced).]
 
 **The quantity whose sign is decided.** With the record's constraint map (H = R + (tr K)² − |K|², M_i = D_jK^j_i −
 D_i tr K, K = ½ L_n γ, n the future unit normal; bandconst5) and its KID (N_s, 2Y_s), ξ = N_s n + Y_s the static

@@ -5,8 +5,8 @@ their angular terms with the axisymmetric measure, the axis contributing no boun
 tamed by Hardy inequalities with explicit constants; and the frame quantities of the record's solution are bounded up
 to the axis, where Theorem 7.L's grow like the inverse distance.  Labels: deduced, verified at random rational jets
 with a fixed seed (a probabilistic identity test, not a symbolic proof; the verifier of round 4, m11) for X1-X3, X6
-and X7, whose printed '(exact)' is to be read so; deduced with a computed check for X4; computed (floating point, on
-the record's run) for X5.
+and X7 (printed '(random jets)'); deduced with a computed check for X4; computed (floating point, on the record's
+run) for X5.
 
 The chart at x = +1 (the phi2-circle degenerates there; reduce on phi1 alone).  g5 = g4 + e^{2A} dphi1^2 with
 g4 = h + e^{2B} dphi2^2 (reduce5.py's A, B, h).  In dimension four the Einstein frame is ghat = e^A g4, and
@@ -17,21 +17,20 @@ d_phi2, hypersurface orthogonal (twist free) and with the reflection phi2 -> -ph
     Omh^2 = e^{A + 2W},  gh = e^A Gx,  Y = e^{A/2 + B},  b = (1 - x^2) s.
 The chart at x = -1 is the same with (A, phi1) and (B, phi2) exchanged.
 
-  X1 (exact) the reduction identities above, for the general warped metric (h general (2+1), A, B free), and the chart
-     is regular at x = 1 in the record's variables: e^A -> R e^P, so Omh^2 -> R e^{P + 2W} > 0 (where the three-
-     dimensional Einstein frame of reduce5.py R4 has Omt^2 ~ (1 - x^2) -> 0); and with s the proper distance to the
-     axis along x, Y/s -> e^{P + 2Q} = e^{(1 - x) n} -> 1 (elementary flatness, exact in the record's variables).
-     Control: with P + 2Q -> c != 0 at x = 1 (a conical defect) the limit is e^c, not 1.
-  X2 (exact) the twist-free double-null structure of the general ghat: with e4 = Omh^-1 d_v, e3 = Omh^-1 (d_u + b d_x),
-     e1 = gh^-1/2 d_x, e2 = Y^-1 d_phi, the Ricci coefficients of [Wu26] (2.1) have chi_12 = chib_12 = eta_2 = etab_2
-     = zeta_2 = 0 and
-        chi_11 = e4 log sqrt(gh), chi_22 = e4 log Y, chib_11 = Omh^-1 ((d_u + b d_x) log sqrt(gh) + b_x),
-        chib_22 = e3 log Y, omega = -(1/2) e4 log Omh, omegab = -(1/2) e3 log Omh,
-        zeta = -(1/4) Omh^-2 sqrt(gh) b_v, eta = zeta + e1 log Omh, etab = -zeta + e1 log Omh,
-     every Christoffel symbol with an odd number of phi indices vanishes (so sigma = 0 and every curvature component
-     odd under phi -> -phi vanishes: the reduced curvature is (alpha_11, beta_1, rho, betab_1, alphab_11, K)).  The
-     section S_{u,v} has metric gh dx^2 + Y^2 dphi^2 and Gauss curvature K = -Y^-1 e1 e1 Y.
-  X3 (exact) the measure: with dmu = Y sqrt(gh) dx,  d_v log(Y sqrt(gh)) = Omh tr chi  and
+  X1 (random jets) the reduction identities above, for the general warped metric (h general (2+1), A, B free), and the
+     chart is regular at x = 1 in the record's variables: e^A -> R e^P, so Omh^2 -> R e^{P + 2W} > 0 (where the three-
+     dimensional Einstein frame of reduce5.py R4 has Omt^2 ~ (1 - x^2) -> 0); and with s the proper distance to the axis
+     along x, Y/s -> e^{P + 2Q} = e^{(1 - x) n} -> 1 (elementary flatness, exact in the record's variables). Control:
+     with P + 2Q -> c != 0 at x = 1 (a conical defect) the limit is e^c, not 1.
+  X2 (random jets) the twist-free double-null structure of the general ghat: with e4 = Omh^-1 d_v, e3 = Omh^-1 (d_u + b
+     d_x), e1 = gh^-1/2 d_x, e2 = Y^-1 d_phi, the Ricci coefficients of [Wu26] (2.1) have chi_12 = chib_12 = eta_2 =
+     etab_2 = zeta_2 = 0 and chi_11 = e4 log sqrt(gh), chi_22 = e4 log Y, chib_11 = Omh^-1 ((d_u + b d_x) log sqrt(gh) +
+     b_x), chib_22 = e3 log Y, omega = -(1/2) e4 log Omh, omegab = -(1/2) e3 log Omh, zeta = -(1/4) Omh^-2 sqrt(gh) b_v,
+     eta = zeta + e1 log Omh, etab = -zeta + e1 log Omh, every Christoffel symbol with an odd number of phi indices
+     vanishes (so sigma = 0 and every curvature component odd under phi -> -phi vanishes: the reduced curvature is
+     (alpha_11, beta_1, rho, betab_1, alphab_11, K)).  The section S_{u,v} has metric gh dx^2 + Y^2 dphi^2 and Gauss
+     curvature K = -Y^-1 e1 e1 Y.
+  X3 (random jets) the measure: with dmu = Y sqrt(gh) dx,  d_v log(Y sqrt(gh)) = Omh tr chi  and
      d_u (Y sqrt(gh)) + d_x (b Y sqrt(gh)) = Omh tr chib Y sqrt(gh)  (div e4 and div e3 on S);  and for any functions
      K, beta (a scalar and the e1-component of a one-form), the pair operators div and grad are adjoint:
         K div(Omh beta) + Omh beta e1 K = (Y sqrt(gh))^-1 d_x (Y Omh K beta),
@@ -382,7 +381,7 @@ def main():
     r = x1()
     res, zsq, zbox, ctl, lim_om, ratio, zr, ctl2, flat = r
     good = all(res) and zsq and zbox and not ctl and zr and not ctl2 and flat == 0
-    print('X1 (exact) Ric(ghat) - (3/2) dA dA = Ric5|_4 + (1/2) e^{-2A} Ric5_11 g4 on the eight components %s; '
+    print('X1 (random jets) Ric(ghat) - (3/2) dA dA = Ric5|_4 + (1/2) e^{-2A} Ric5_11 g4 on the eight components %s; '
           'sqrt|det ghat| exact %s; Box_ghat A = -e^{-3A} Ric5_11 %s; control (weight e^{2A}) %s' % (
               'all hold' if all(res) else 'FAIL', zsq, zbox, 'fails (good)' if not ctl else 'holds (bad)'))
     print('   at x = 1 in the record\'s variables: Omh^2 -> %s; Y/s -> %s (= e^{P+2Q}: %s); P + 2Q at x = 1 with the '
@@ -392,7 +391,7 @@ def main():
     print('   (%.0f s)' % (time.time() - t0), flush=True)
     odd, out, ctl, zK = x2()
     good = odd and all(out.values()) and not ctl and zK
-    print('X2 (exact) every Christoffel symbol with an odd number of phi indices vanishes: %s' % odd)
+    print('X2 (random jets) every Christoffel symbol with an odd number of phi indices vanishes: %s' % odd)
     for k_, v_ in out.items():
         print('   %s: %s' % (k_, 'holds' if v_ else 'FAILS'))
     print('   K = -Y^-1 e1 e1 Y for the section metric: %s; control (chi_22 = e4 log sqrt(gh)): %s' % (
@@ -401,7 +400,8 @@ def main():
     print('   (%.0f s)' % (time.time() - t0), flush=True)
     m1, m2, p_ok, rem_is = x3()
     good = m1 and m2 and p_ok and rem_is
-    print('X3 (exact) d_v log(Y sqrt(gh)) = Omh tr chi: %s; d_u(Y sqrt gh) + d_x(b Y sqrt gh) = Omh tr chib Y sqrt gh: '
+    print('X3 (random jets) d_v log(Y sqrt(gh)) = Omh tr chi: %s; d_u(Y sqrt gh) + d_x(b Y sqrt gh) = Omh tr chib Y '
+          'sqrt gh: '
           '%s; K div(Omh beta) + Omh beta e1 K = (Y sqrt gh)^-1 d_x(Y Omh K beta): %s; control (measure sqrt(gh) dx): '
           'the remainder is exactly (e1 log Y) Omh K beta, not zero: %s' % (m1, m2, p_ok, rem_is))
     print('X3', 'PASS' if good else 'FAIL'); ok &= good
@@ -416,7 +416,8 @@ def main():
             C1s, C2s, s1, s2))
     print('X4', 'PASS (the bounds hold; the control grows with the grid, unbounded)' if good else 'FAIL')
     ok &= good
-    # X6 the counterexample: dk = -(eps/2) k exactly, and int k^2 Y ds diverges
+    # X6: dk = -(eps/2) k (random jets), and int k^2 Y ds diverges (exact): dk is not an admissible L^2(dmu) unknown
+    # at the axis in the polar frame, which excludes Theorem 7.L's unknowns there and nothing else (M-C)
     eps, s_, S = sp.symbols('epsilon s S', positive=True)
     gg = sp.Function('gg')(s_); Yf = sp.Function('Yf')(s_)
     k0 = sp.diff(Yf, s_) / Yf / sp.sqrt(gg)
@@ -427,13 +428,14 @@ def main():
     Ilog = sp.integrate((1 / s_) ** 2 * s_, (s_, a_, 1))
     div = sp.limit(Ilog, a_, 0)
     good = zk and div == sp.oo
-    print('X6 (exact) under gh -> (1 + eps) gh, Y -> (1 + eps)^(1/2) Y: dk = -(eps/2) k to first order: %s; '
+    print('X6 (random jets; dk not an admissible L^2(dmu) unknown in the polar frame) under gh -> (1 + eps) gh, '
+          'Y -> (1 + eps)^(1/2) Y: dk = -(eps/2) k to first order: %s; '
           'with k ~ 1/s, '
           'Y ~ s: int_a^1 k^2 Y ds = %s -> %s as a -> 0 ->' % (zk, Ilog, div), 'PASS' if good else 'FAIL')
     ok &= good
     i1, i2, ctl = x7()
     good = i1 and i2 and not ctl
-    print('X7 (exact) the cut-off identities: angular %s, shift %s; control (without the (e1 psi) term): %s ->' % (
+    print('X7 (random jets) the cut-off identities: angular %s, shift %s; control (without the (e1 psi) term): %s ->' % (
         i1, i2, 'fails (good)' if not ctl else 'holds (bad)'), 'PASS' if good else 'FAIL')
     ok &= good
     if len(sys.argv) > 1:

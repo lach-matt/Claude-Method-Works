@@ -46,9 +46,9 @@ derivative in it is replaced by the exact quantity above, symbol by symbol.
      s1 is the zero rational function, atoms R, t, 1 - t, 1 + t, 1 + t^2, E, g, Y0.
   Controls (each must fail, i.e. give a nonzero polynomial): S1 with |T|^2 halved (l = 2..8); S1 with K_RR's w' term
   dropped (a wrong slice); S2 with k_T^2 + 2 replaced by k_T^2 + 3, and with R^3 P^2 doubled (every l); S4 the lapse
-  direction without its curvature term, [R11] the c-shift's 2 k^2/3 -> k^2/3, the lapse claim doubled, and the
-  eigen-relation's cot th - tan th -> cot th (which the theta-freeness test must reject); S5 with 4 nu E^2 -> 3 nu E^2
-  in Gamma.
+  direction without its curvature term, [R11-nits] the vector field X = alpha S d_R + beta S d_th, the lapse psi S', and
+  the eigen-relation's cot th - tan th -> cot th (which the theta-freeness test must reject); S5 with 4 nu E^2 -> 3 nu
+  E^2 in Gamma.
 
 Labels: computed, exact (polynomial identities over the rationals). Run: python3 checks/mbslice5.py   (a few minutes)
 """
@@ -554,7 +554,12 @@ def s4():
     def zero_b(M_, fs_):
         return all(convert(eig(M_[i, j], fs_=fs_), F, table, th).iszero() for i in range(4) for j in range(i, 4))
     gok = zero_b(LX - claim_of(sp.Rational(2, 3)), fns_b)
-    gctl = not zero_b(LX - claim_of(sp.Rational(1, 3)), fns_b)
+    # [R11-nits] control on the input: X = alpha S d_R + beta S d_th (S in place of S' in the theta component) is not
+    # the class mode's vector field, and the shift formulas must fail for it
+    Xb = [al * SF, be * SF, 0, 0]
+    LXb = sp.Matrix(4, 4, lambda i, j: sum(Xb[k] * sp.diff(G0[i, j], X4[k]) + G0[k, j] * sp.diff(Xb[k], X4[i])
+                                           + G0[i, k] * sp.diff(Xb[k], X4[j]) for k in range(4)))
+    gctl = not zero_b(LXb - claim_of(sp.Rational(2, 3)), fns_b)
     kps = MB.hess(ps_ * SF, X4, Gm) - ps_ * SF * Ric
     ang = sp.Matrix(3, 3, lambda i, j: kps[i + 1, j + 1])
     SHa = sp.Matrix(3, 3, lambda i, j: MB.shat()[i + 1, j + 1])
@@ -565,12 +570,17 @@ def s4():
         return cf * ps_ * (SHa - (sum(SHa[i, i] / gh3[i, i] for i in range(3)) / 3) * gh3)
     zok = all(convert(eig((tf - tf_claim(1))[i, j], fs_=fns_b), F, table, th).iszero() for i in range(3)
               for j in range(i, 3))
-    zctl = not all(convert(eig((tf - tf_claim(2))[i, j], fs_=fns_b), F, table, th).iszero() for i in range(3)
+    # [R11-nits] control on the input: the lapse psi S' in place of psi S (not a scalar mode) must fail the claim
+    kpb = MB.hess(ps_ * sp.diff(SF, th), X4, Gm) - ps_ * sp.diff(SF, th) * Ric
+    angb = sp.Matrix(3, 3, lambda i, j: kpb[i + 1, j + 1])
+    tfb = angb - (sum(angb[i, i] / gh3[i, i] for i in range(3)) / 3) * gh3
+    zctl = not all(convert(eig((tfb - tf_claim(1))[i, j], fs_=fns_b), F, table, th).iszero() for i in range(3)
                    for j in range(i, 3))
     print("   (b) L_X gamma, X = alpha S d_R + beta S' d_th, shifts (a, b, c, e) by ((1/f)' alpha + 2 alpha'/f, "
           "alpha/(R f) + R beta', 2 alpha/R - (2 k^2/3) beta, 2 beta), every component: %s; the lapse direction's "
-          "trace-free angular part is psi (S_hat)^TF: %s; controls: (2 k^2/3) -> (k^2/3) in the c-shift (rejected): %s; "
-          "the lapse claim doubled (rejected): %s (%.0f s)" % (gok, zok, gctl, zctl, time.time() - t0), flush=True)
+          "trace-free angular part is psi (S_hat)^TF: %s; controls (the input mutated): X = alpha S d_R + beta S d_th "
+          "fails the shift formulas (rejected): %s; the lapse psi S' fails the claim (rejected): %s (%.0f s)"
+          % (gok, zok, gctl, zctl, time.time() - t0), flush=True)
     # (c) the mode-free identities, every (R, theta, mu)
     gi, Gm = MB.christoffel(G0, X4)
     Ric = MB.ricci(X4, Gm)

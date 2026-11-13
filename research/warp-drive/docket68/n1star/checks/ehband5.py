@@ -11,6 +11,14 @@ infinity, and its starting point is in the black-hole region. Trappedness at v =
 starting radius (continuous dependence of the rays), so the rays from R in (sqrt(mu3), sqrt(mu3) + delta) are trapped
 too, for some delta > 0: those slice points lie in the black-hole region with f > 0. Theorem P applies to vacuum bands
 there; Theorem X to bands meeting {f < 0}.
+[R11-nits] "Ends trapped, so it lies in the black-hole region" is the standard result that a trapped surface lies
+inside the black-hole region of a strongly asymptotically predictable spacetime satisfying the null convergence
+condition: Wald, General Relativity (1984), Proposition 12.2.2; Hawking and Ellis (1973), Proposition 9.2.1. Not READ
+at source (neither book is reachable here; it is cited as Wald's 12.2.2 in arXiv:1909.02001 and in
+doi:10.1007/s10714-024-03245-5, Appendix A). The proof uses only the null Raychaudhuri equation and the causal structure
+of J^-(I^+), so it holds in five dimensions; vacuum and null dust satisfy the null convergence condition. In this
+SO(4)-symmetric class the direct argument also suffices: lambda never increases, so R decreases along the trapped
+outgoing ray for good and neither it nor any future causal curve from its start reaches I^+ (deduced).
 
   H1 (computed, floating point, the computed background twobg5 at n = 80 and 160) the grid rows (outgoing rays u =
      const) crossing Sigma_tau0 at R in (sqrt(mu3), 1.2): R_v > 0 at the crossing (untrapped there, f > 0), and R_v at
