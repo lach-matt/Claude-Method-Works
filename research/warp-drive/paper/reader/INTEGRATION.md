@@ -1246,3 +1246,5 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F-85 done. Integration: chapter 3 lines 369-371 (m12), exact text in reports/F-85.md, after R2-85 checks it.
   FOR THE FINAL REPORT: the proof project's own last step for λ_25 was short (79.259² = 6281.989 < 6282); sharpened
   to 79.2593², the bound λ_25 ≤ 10^(−6282) stands.
+- F2-81 done. Chapter 83 needs the replacement at 83:196-199 given in reports/F2-81.md (cor:class-kato-sphere's new
+  form); apply with the P-K83c merge, after R3-81 confirms it. P-K82 told of the def:class-adapted change.
