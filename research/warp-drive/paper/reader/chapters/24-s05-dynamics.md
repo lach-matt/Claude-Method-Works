@@ -1673,12 +1673,12 @@ e^(sV)(Γ^u₀ ∩ {ρ_K = 1})"). The slice is immaterial in the sequel: [[ch:s0
 
 The following points compare this chapter with the texts it writes out in dimension 4 + 1.
 
-- *The stationary model.* The Kerr computations of [Hin26c, Lemmas 4.1–4.3, 4.7, 4.10–4.18 and Proposition 4.19] are
-  replaced by the hypotheses (H3), (H4), (H7), (H8) and (K3), from which [[sec:ii-b-2]] recovers the dynamics over the
-  Kerr face. [Hin26c, Lemma 4.20] serves in [Hin26c] only to prove part (3) of [Hin26c, Proposition 4.19] from the
-  Carter flow, and is not needed here, (K3) being assumed for 𝖵 itself. The first row of [Hin26c, (4.72)], the curves
-  over M°, is replaced by [[prop:ii-b-8-2]], the form that [Hin26c] states as its Proposition 6.1 and uses later
-  ([Hin26c, p. 111]).
+- *The stationary model.* The arguments of [Hin26c, Lemmas 4.1–4.3, 4.7, 4.10–4.18 and Proposition 4.19] from the
+  explicit Kerr metric are replaced by the hypotheses (H3), (H4), (H7), (H8) and (K3), from which [[sec:ii-b-2]]
+  recovers the dynamics over the Kerr face. [Hin26c, Lemma 4.20] serves in [Hin26c] only to prove part (3) of [Hin26c,
+  Proposition 4.19] from the Carter flow, and is not needed here, (K3) being assumed for 𝖵 itself. The first row of
+  [Hin26c, (4.72)], the curves over M°, is replaced by [[prop:ii-b-8-2]], the form that [Hin26c] states as its
+  Proposition 6.1 and uses later ([Hin26c, p. 111]).
 - *Rates.* (K1) has r⁻² where Kerr has r⁻¹, and no logarithm enters the hyperboloidal time. Accordingly
   [[eq:ii-b-1-2]] has ρ₀²x_I²ρ₊² for ρ₀x_I²ρ₊, H_(G_(3b)) − H_(Ḡ_(3b)) ∈ ρ₊²𝒱_b where [Hin26c] has ρ₊,
   G_(eb) − Ḡ_(eb) ∈ x_I²ρ₊²P^[2], S = 0 in [[lem:ii-c-1-3]], and the remainder of [[eq:ii-c-1-2]] carries ρ⁴. Nothing

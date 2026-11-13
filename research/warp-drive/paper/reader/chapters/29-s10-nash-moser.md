@@ -955,3 +955,288 @@ Seeley's extension in |x| across |x| = r_0 (the operator with infinitely many re
 and below; it commutes with t_*, with ℱ in t_* and with σ∂_σ, and is bounded on the extendible b-spaces of every order
 at once, so the norms of ⋂_j H^(j,β)_b(ℝ; H̄^(k−j,γ)_b(X̄)) and of the restrictions of H^(k,(γ,β+γ,β))_b(M) are
 equivalent, as in [[lem:ii-g1-3-1]].
+
+### Resolvent bounds in dimension 4 + 1 {#sec:ii-g1-4}
+
+#### Fixed frequencies {#sec:ii-g1-4-1}
+
+On X̄, μ = |dx| and μ_b = |dx|/⟨x⟩⁴. The spaces H̄^((s;k),𝗋) are those of [[sec:i-a-4-6]] (scattering regularity s,
+decay order 𝗋, k b-derivatives, for μ). For a constant decay order and s = 0, H̄^((0;k),β−2) = H̄^(k,β)_b(X̄, μ_b), the
+b-Sobolev space with weight β for μ_b, as ⟨x⟩^(−β+2) L²(μ) = ⟨x⟩^(−β) L²(μ_b); and the space H̄^(s,a)_b of
+[[def:i-c-2-8]] is H̄^(s,a+2)_b(X̄, μ_b). R_out is the zero section of the boundary face over ∂X ([[eq:i-a-4-6]]).
+
+**Lemma {#lem:ii-g1-4-1}** (Scattering spaces and b-spaces; [Hin26c, Lemma 13.13] in dimension 4 + 1.) Let s ∈ ℝ be
+constant and 𝗋 a decay order ([[sec:i-a-1-4]]) equal to the constant 𝗋_out on a neighbourhood of R_out. Let α ∈ ℝ,
+k ∈ ℕ₀, ε > 0, and
+
+    ℓ := max(⌈sup 𝗋 − 𝗋_out⌉, ⌈(s − 1)_+⌉),        ℓ̃ := max(⌈𝗋_out − inf 𝗋⌉, ⌈(−s)_+⌉).
+
+Then there are continuous inclusions
+
+    H̄^(k+ℓ, 𝗋_out+α+3+ε)_b(X̄, μ_b) ↪ H̄^((s−1;k), 𝗋+α+1),                                           {#eq:ii-g1-4-1a}
+
+    H̄^((s;k), 𝗋+α) ↪ H̄^(k−ℓ̃, 𝗋_out+α+2−ε)_b(X̄, μ_b)        (k ≥ ℓ̃),                               {#eq:ii-g1-4-1b}
+
+and likewise on ℝ⁴ without the artificial boundary.
+
+[Hin26c, (13.23a)–(13.23b)] have 5/2 and 3/2 in place of 3 and 2, and allow a variable regularity order and a decay
+order that is not constant near R_out (with its supremum, resp. infimum, there); the orders of [[ch:s01]] have constant
+regularity order ([[rem:i-a-1-1]]) and decay orders constant near R_out ((O2) of [[sec:i-a-1-4]]).
+
+*Proof.* It suffices to prove the inequalities for distributions on ℝ⁴: for the extendible spaces, apply them to an
+extension of almost minimal norm and restrict. We use the scattering calculus with variable orders of [[sec:i-a-2]]
+(boundedness Ψ^(m,l) : H^(s,𝗋) → H^(s−m,𝗋−l), microlocality, composition) and [[lem:i-a-4-10]]. Let q_0 be a symbol
+of order (0, 0), equal to 1 near R_out and supported in a neighbourhood U of it, at finite frequencies, on which 𝗋 =
+𝗋_out; Q_0 := Op(q_0) and Q_1 := I − Q_0, so WF′(Q_1) ∩ R_out = ∅. For a multi-index γ and V^γ := (⟨x⟩D_x)^γ, as
+⟨x⟩D_(x_j) ∈ Ψ^(1,1) and commutators with elements of Ψ^(0,0) lie in Ψ^(0,0), V^γ Q_0 = Σ_(γ′≤γ) Q_(γγ′) V^(γ′) with
+Q_(γγ′) ∈ Ψ^(0,0) microsupported in WF′(Q_0).
+
+[[eq:ii-g1-4-1b]]: put k′ := k − ℓ̃. On WF′(Q_(γγ′)) ⊂ U the frequencies are finite and 𝗋 + α ≥ 𝗋_out + α − ε, so
+Q_(γγ′) maps H^(s,𝗋+α) to H^(0,𝗋_out+α−ε) (its symbol lies in the class of order (−L, 𝗋 − 𝗋_out + ε) for every L),
+and ‖Q_0 u‖_((0;k′),𝗋_out+α−ε) ≤ C ‖u‖_((s;k′),𝗋+α). For Q_1, [[lem:i-a-4-10]] and its converse give
+
+    ‖Q_1 u‖_((0;k′),𝗋_out+α−ε) ≤ C (‖Q_1 u‖_(k′,𝗋_out+α−ε+k′) + ‖u‖_(−L,−L))
+                                 ≤ C (‖Q_1 u‖_(s+k,𝗋+α+k) + ‖u‖_(−L,−L)) ≤ C ‖u‖_((s;k),𝗋+α),
+
+the middle inequality as k′ ≤ s + k and 𝗋_out − ε + k′ ≤ inf 𝗋 + k (both by the choice of ℓ̃), the last as Q_1 is
+bounded on H^((s;k),𝗋+α) (commute V^γ through it as above). With H̄^((0;k′),𝗋_out+α−ε) =
+H̄^(k′,𝗋_out+α+2−ε)_b(μ_b) this is [[eq:ii-g1-4-1b]].
+
+[[eq:ii-g1-4-1a]]: for f in the space on the left, f ∈ H^((0;k+ℓ),𝗋_out+α+1+ε). On WF′(Q_(γγ′)), 𝗋 + α + 1 = 𝗋_out
++ α + 1, so ‖Q_0 f‖_((s−1;k),𝗋+α+1) ≤ C ‖f‖_((0;k),𝗋_out+α+1+ε). And
+
+    ‖Q_1 f‖_((s−1;k),𝗋+α+1) ≤ C (‖Q_1 f‖_(s−1+k,𝗋+α+1+k) + ‖f‖_(−L,−L))
+                              ≤ C (‖Q_1 f‖_(k+ℓ,𝗋_out+α+1+ε+k+ℓ) + ‖f‖_(−L,−L)) ≤ C ‖f‖_((0;k+ℓ),𝗋_out+α+1+ε),
+
+as s − 1 ≤ ℓ and sup 𝗋 ≤ 𝗋_out + ℓ. ∎
+
+**Corollary {#cor:ii-g1-4-2}** (Resolvent bounds at bounded nonzero frequencies; [Hin26c, Corollary 13.14] in dimension
+4 + 1.) Assume (H1)–(H4) of [[sec:i-a-1-3]], and let β_scf < 3/2 + S̄ and ε ∈ (0, 1). There is ℓ ∈ ℕ₀, depending only
+on P̂ and β_scf, such that:
+
+(1) if σ_0 ≠ 0, Im σ_0 ≥ 0, and P̂(σ_0) : 𝒳_(σ_0) → 𝒴_(σ_0) is invertible ([[thm:i-a-7-2]]; this does not depend on
+the admissible orders), then for j, k ∈ ℕ₀
+
+    ∂^j_σ P̂(σ_0)⁻¹ : H̄^(k+j+ℓ, β_scf+1)_b(X̄, μ_b) → H̄^(k, β_scf−ε)_b(X̄, μ_b)   is bounded;
+
+(2) if I ⊂ ℝ is a bounded open interval with 0 ∉ Ī and P̂(σ) is invertible for every σ ∈ Ī, then P̂⁻¹ : f̂ ↦ (σ ↦
+P̂(σ)⁻¹ f̂(σ)) is bounded from H̄^(k+ℓ,β_scf+1)_b(I × X̄) to H̄^(k,β_scf−ε)_b(I × X̄), where ‖v‖²_(H̄^(k,β)_b(I×X̄)) :=
+Σ_(k′≤k) ∫_I ‖∂^(k′)_σ v(σ)‖²_(H̄^(k−k′,β)_b(X̄,μ_b)) dσ.
+
+[Hin26c, Corollary 13.14 (2)] asks only that P̂(σ) be invertible on the open interval I. The bound on I × X̄ needs
+constants uniform in σ ∈ I, which the cited estimates give on a compact set of invertible σ; on a bounded open I with
+P̂(σ) invertible on I but not at an endpoint, the norm of P̂(σ)⁻¹ may be unbounded on I.
+
+*Proof.* *Orders.* Let 𝗋_out := β_scf − 2 − ε/2, which is < −1/2 + S̄, the threshold at R_out of [[eq:i-a-1-5]] with
+weight α_+ = 0; 𝗋_in := max(𝗋_out, (1/2)(−1 + ϑ_in) + 1); and s := s_c a fixed constant > 1/2 + ϑ_ℋ, with ϑ_in, ϑ_ℋ
+the thresholds of [[eq:i-a-1-5]]. If Re σ_0 ≠ 0, [[lem:i-a-7-1]] at σ_* := Re σ_0 gives an order pair (s, 𝗋)
+admissible for every real part near σ_*, with 𝗋 = 𝗋_out + (𝗋_in − 𝗋_out) Θ χ_c taking values in [𝗋_out, 𝗋_in] and
+equal to 𝗋_out near R_out (Θ = 0 near ξ = 0). If Re σ_0 = 0, then Im σ_0 > 0 and the constant order 𝗋 ≡ 𝗋_out is
+allowed by [[thm:i-a-7-2]] (2). In both cases [[lem:ii-g1-4-1]] applies with
+
+    ℓ_a := max(⌈((1/2)(−1 + ϑ_in) + 7/2 − β_scf)_+⌉, ⌈(s − 1)_+⌉),
+
+which is at least ⌈𝗋_in − 𝗋_out⌉ for every ε ∈ (0, 1) ([[lem:ii-g1-4-1]] holds with any larger loss), so that ℓ does
+not depend on ε, and ℓ̃ := ⌈(−s)_+⌉; put ℓ := ℓ_a + ℓ̃.
+
+(1) By [[thm:i-a-7-2]] (6), [[eq:i-a-7-6]], with α_+ = 0 (at Re σ_0 = 0 the proof of [[eq:i-a-7-6]] uses only
+[[thm:i-a-7-2]] (4) and the invertibility at the orders (s + ℓ, 𝗋), which hold with the constant order): ∂^j_σ
+P̂(σ_0)⁻¹ : H̄^((s−1;k+ℓ̃+j),𝗋+1) → H̄^((s+j;k+ℓ̃),𝗋) ⊂ H̄^((s;k+ℓ̃),𝗋). Precompose with [[eq:ii-g1-4-1a]] at α = 0, ε/2
+and order k + ℓ̃ + j, whose domain is H̄^(k+j+ℓ,β_scf+1)_b as 𝗋_out + 3 + ε/2 = β_scf + 1, and compose with
+[[eq:ii-g1-4-1b]] at ε/2 and order k + ℓ̃, whose target is H̄^(k,β_scf−ε)_b.
+
+(2) For σ_* ∈ Ī, the orders chosen at σ_* serve for all σ near σ_* ([[lem:i-a-7-1]], resp. [[thm:i-a-7-2]] (2)), and by
+[[thm:i-a-7-2]] (6) the estimates [[eq:i-a-7-1]], [[eq:i-a-7-3]] hold there without their last terms uniformly, so
+P̂(σ)⁻¹ is bounded uniformly near σ_*; as ∂_σ P̂⁻¹ = −P̂⁻¹(∂_σ P̂)P̂⁻¹, the bounds [[eq:i-a-7-6]] for ∂^j_σ P̂⁻¹ are
+uniform near σ_* too. By compactness of Ī, finitely many such neighbourhoods cover it, and (1) holds with constants
+uniform in σ ∈ Ī. For f̂ smooth in σ, ∂^(k′)_σ(P̂⁻¹ f̂) = Σ_(k″≤k′) c_(k′k″) (∂^(k″)_σ P̂⁻¹)(∂^(k′−k″)_σ f̂), with
+binomial coefficients c_(k′k″), by the strong differentiability of [[thm:i-a-7-2]] (6), and (1) with k − k′ in place of
+k and j = k″ bounds the k″-th term in H̄^(k−k′,β_scf−ε)_b by C ‖∂^(k′−k″)_σ f̂(σ)‖_(H̄^(k−k′+k″+ℓ,β_scf+1)_b), a term of
+the norm of f̂ in H̄^(k+ℓ,β_scf+1)_b(I × X̄); such f̂ are dense. ∎
+
+#### High frequencies {#sec:ii-g1-4-2}
+
+The semiclassical spaces and the norms ‖·‖_((s;k),𝗋,𝖻;+) are those of [[eq:i-b-1-5]], with the quantisation Op_h of
+[[sec:i-b-2]]. For constant orders (0, 𝗋′, 0), H^(0,𝗋′,0)_h = ⟨x⟩^(−𝗋′) L² for every h ([[sec:i-b-2-3]]), so
+
+    ‖v‖_((0;k),𝗋′,0;+) = Σ_(j≤k) h^(−j) ‖v‖_(H̄^(k−j,𝗋′+2)_b(X̄,μ_b)),                              {#eq:ii-g1-4-2}
+
+which at h = |σ|⁻¹ is the norm at fixed σ of the spaces H^(k,β,γ)_(b+) of [[sec:ii-g1-3-1]].
+
+*Admissible orders.* For z_0 ∈ {1, −1} and constants 𝗋_out < −1/2 + S̄, 𝗋_in ≥ 𝗋_out with 𝗋_in > (1/2)(−1 + ϑ_in), the
+order 𝗋 := 𝗋_out + (𝗋_in − 𝗋_out) Θ(ξ) χ_c(ξ² + |η|²) of [[lem:i-a-7-1]] at σ_* := z_0, read in the semiclassical
+frequency ζ = (ξ, η) on the face over ∂X and extended off it independently of ρ, is admissible for z_0 with weight 0 in
+the sense of [[sec:i-b-1-4]]. It is constant near R_(z_0,in) = {ξ = −2z_0, η = 0} and near R_out. By [[eq:i-a-4-5]],
+𝖧_(z_0) ξ = 2|η|² on the whole face, 𝖧_(z_0) being, up to a positive factor, the field of [[eq:i-a-4-5]] there
+([[lem:i-b-4-1]]); so on W := {χ_c = 1}°, a neighbourhood of Σ^∂_(z_0) in the face, 𝖧_(z_0) 𝗋 = 2(𝗋_in − 𝗋_out)
+Θ′(ξ)|η|². On supp Θ′, ε_* ξ ∈ [−3/2, −1/2] (ε_* = z_0), and q = −2ξ there ([[lem:i-b-4-1]] (b)), so sgn q̂_(z_0) =
+z_0 and 𝖧^♮ 𝗋 = z_0 𝖧_(z_0) 𝗋 ≤ 0, as z_0 Θ′ ≤ 0. The semiclassical order 𝖻 ≡ 0 is admissible (constant orders are).
+Below, (s, 𝗋, 𝖻) are these orders, with s := s_c.
+
+**Lemma {#lem:ii-g1-4-3}** (b-spaces and semiclassical spaces.) Let z_0 and (s, 𝗋, 𝖻) be as above, 𝖻 being any order
+constant near R_out, and ε > 0. There are ℓ_1, ℓ_2, ν ∈ ℕ₀, depending only on the orders, such that for h ∈ (0, h_0] and
+k ∈ ℕ₀
+
+    ‖f‖_((s−1;k),𝗋+1,𝖻;+) ≤ C_k h^(−ν) ‖f‖_((0;k+ℓ_1),𝗋_out+1+ε,0;+),                                {#eq:ii-g1-4-3a}
+
+    ‖u‖_((0;k),𝗋_out−ε,0;+) ≤ C_k h^(−ν) ‖u‖_((s;k+ℓ_2),𝗋,𝖻;+).                                    {#eq:ii-g1-4-3b}
+
+*Proof.* As in [[lem:ii-g1-4-1]] it suffices to work on ℝ⁴, with the b-derivatives V := ⟨x⟩D_x ([[sec:i-b-5-5]]: on
+X̄ they and the V's there span the b-vector fields, with equivalent norms). By [[eq:i-b-5-9]], ‖u‖_((s;k),𝗋,𝖻;+) is
+equivalent, uniformly in h, to h^(−k) ‖u‖_(𝐨;k) with ‖u‖_(𝐨;k) := Σ_(|γ|≤k) ‖(hV)^γ u‖_𝐨, 𝐨 := (s, 𝗋, 𝖻). The
+operators hV_j have scalar symbols ⟨x⟩ζ_j, of order (1, 1, 0), and by [[eq:i-b-2-5]] their commutators with Q ∈ Ψ^0 lie
+in Ψ^((0,0,−1)+ε′𝟏), microsupported in WF′_h(Q); inductively (hV)^γ Q = Σ_(γ′≤γ) Q_(γγ′) (hV)^(γ′) with Q_(γγ′) ∈
+Ψ^(ε′𝟏) microsupported in WF′_h(Q). Choose c, ρ_* ∈ (0, 1) such that 𝗋 and 𝖻 are constant (𝗋_out, 𝖻_out) on U_0 :=
+{ρ < 2ρ_*, |ζ| < 2c}, and functions ϕ_0, ϕ_1, ϕ_2 on the compactified phase space 𝒫 of [[sec:i-b-2]] with ϕ_0 + ϕ_1 +
+ϕ_2 = 1, supp ϕ_0 ⊂ U_0, supp ϕ_1 ⊂ {|ζ| > c}, supp ϕ_2 ⊂ {|ζ| < 2c, ρ > ρ_*}; Q_i := Op_h(ϕ_i), Σ Q_i = I.
+
+[[eq:ii-g1-4-3b]]: let 𝐨_t := (0, 𝗋_out − ε, 0); we show ‖u‖_(𝐨_t;k) ≤ C h^(−ν) ‖u‖_(𝐨;k+ℓ_2), which with
+[[eq:i-b-5-9]] and [[eq:ii-g1-4-2]] gives [[eq:ii-g1-4-3b]]. On U_0, w_(𝐨_t) w_𝐨⁻¹ = ⟨ζ⟩^(−s) ⟨x⟩^(−ε) h^(𝖻_out) ≤
+C h^(𝖻_out), and on supp ϕ_2, where x ranges over a compact set and ζ is bounded, w_(𝐨_t) w_𝐨⁻¹ ≤ C h^(inf 𝖻); so for
+i = 0, 2, W_(𝐨_t) Q_(i,γγ′) W_𝐨⁻¹ has a symbol bounded by C h^(min(𝖻_out, inf 𝖻)−2ε′) times a symbol of order 0, and by
+[[thm:i-b-2-7]] and [[prop:i-b-2-8]], ‖(hV)^γ Q_i u‖_(𝐨_t) ≤ C h^(−ν_0) ‖u‖_(𝐨;|γ|) + C ‖u‖_(−L𝟏), ν_0 :=
+⌈(−min(𝖻_out, inf 𝖻))_+ + 1⌉. For i = 1: (hV)^γ ∈ Ψ^(|γ|(1,1,0)), so by [[prop:i-b-2-8]] ‖(hV)^γ Q_1 u‖_(𝐨_t) ≤
+C ‖Q_1 u‖_(𝐨_t+k(1,1,0)) for |γ| ≤ k. With ℓ_2 := max(⌈(−s)_+⌉, ⌈𝗋_out − inf 𝗋⌉), m := k + ℓ_2 and ν_1 := ⌈(−inf
+𝖻)_+⌉, 𝐨_t + k(1, 1, 0) ≤ 𝐨 + m(1, 1, 0) + (0, 0, ν_1) componentwise, so ‖Q_1 u‖_(𝐨_t+k(1,1,0)) ≤ C ‖Q_1
+u‖_(𝐨+m(1,1,0)+(0,0,ν_1)) = C h^(−ν_1) ‖Q_1 u‖_(𝐨+m(1,1,0)). Finally A := Σ_(|γ|=m) ((hV)^γ)^* (hV)^γ ∈
+Ψ^(2m(1,1,0)) has principal symbol Σ_(|γ|=m) |⟨x⟩^m ζ^γ|² ≥ c′ ⟨x⟩^(2m) ⟨ζ⟩^(2m) on {|ζ| ≥ c}, so it is elliptic on
+WF′_h(Q_1) (as in the proof of [[thm:i-b-1-3]] (4), [[sec:i-b-8-5]], step (ii)), and [[prop:i-b-2-10]] gives ‖Q_1
+u‖_(𝐨+m(1,1,0)) ≤ C(‖Au‖_(𝐨−m(1,1,0)) + ‖u‖_(−L𝟏)) ≤ C(‖u‖_(𝐨;m) + ‖u‖_(−L𝟏)), by [[prop:i-b-2-8]] for ((hV)^γ)^* ∈
+Ψ^(m(1,1,0)). As ‖u‖_(−L𝟏) ≤ C ‖u‖_𝐨, [[eq:ii-g1-4-3b]] holds with ν := max(ν_0, ν_1).
+
+[[eq:ii-g1-4-3a]] is proved in the same way, with 𝐨_d := (0, 𝗋_out + 1 + ε, 0) as the orders of the domain and 𝐨′ :=
+(s − 1, 𝗋 + 1, 𝖻) as the target: w_(𝐨′) w_(𝐨_d)⁻¹ ≤ C h^(−𝖻_out) on U_0 and ≤ C h^(−sup 𝖻) on supp ϕ_2; and 𝐨′ +
+k(1, 1, 0) ≤ 𝐨_d + (k + ℓ_1)(1, 1, 0) + (0, 0, ν_1) with ℓ_1 := max(⌈(s − 1)_+⌉, ⌈sup 𝗋 − 𝗋_out⌉) and ν_1 :=
+⌈(sup 𝖻)_+⌉. ∎
+
+**Proposition {#prop:ii-g1-4-4}** (Resolvent bounds at high frequencies; [Hin26c, Proposition 13.16] in dimension 4 + 1.)
+Assume (H1)–(H8) of [[sec:i-a-1-3]], [[sec:i-b-1-2]] and [[sec:i-b-1-5]], and let C_0 be as in [[thm:i-b-1-3]] (3). Let
+β_scf < 3/2 + S̄, ε ∈ (0, 1), η > 0, δ_1, δ_2 ∈ ℝ, and δ := δ_Γ(−η) ([[eq:i-b-1-4]]). There is ℓ ∈ ℕ₀ such that for
+all k ∈ ℕ₀, P̂⁻¹ : f̂ ↦ (σ ↦ P̂(σ)⁻¹ f̂(σ)) is bounded
+
+    H^(k+⌈kδ⌉+ℓ, β_scf+1, δ_1)_(b+)(±[C_0, ∞) × X̄) → H^(k, β_scf−ε, δ_2)_(b+)(±[C_0, ∞) × X̄),          {#eq:ii-g1-4-4}
+
+the spaces of [[sec:ii-g1-3-1]] with X̄ and μ_b.
+
+[Hin26c, Proposition 13.16] writes the loss as k(1 + δ_Γ(−ε)) + ℓ, which need not be an integer, and states the
+proposition without proof. It also notes that the loss in k is harmless for strongly trapping admissible operators with
+ε = 1/k. In the terms of [[eq:i-b-1-4]]: if γ_+ < 0, then δ_Γ(−η) = 0 for η < −γ_+; if γ_+ = 0, then δ_Γ(−η) =
+η/(−γ_−) for 0 < η ≤ −γ_−, and ⌈k δ_Γ(−1/k)⌉ = ⌈1/(−γ_−)⌉ for every k ≥ 1/(−γ_−) [[pending:issue-1]].
+
+*Proof.* Take z_0 := ±1, h := |σ|⁻¹ (so z = hσ = z_0 for real σ), α_+ := 0, and the orders above with 𝗋_out := β_scf −
+2 − ε/2, 𝖻 ≡ 0; let ℓ_1, ℓ_2, ν be those of [[lem:ii-g1-4-3]] with ε/2. For ±σ ≥ C_0, P̂(σ) is invertible
+([[thm:i-b-1-3]] (3)), and [[eq:i-b-1-8]] reads
+
+    ‖(σ∂_σ)^j P̂(σ)⁻¹ g‖_((s+j;m),𝗋,0;+) ≤ C |σ|^(−1+(j+1)δ) ‖g‖_((s−1;m+j),𝗋+1,0;+).
+
+By [[eq:ii-g1-4-2]] at h = |σ|⁻¹, the norm of v := P̂⁻¹ f̂ in the target of [[eq:ii-g1-4-4]] is equivalent to (Σ_(l≤k)
+∫ |σ|^(2δ_2) ‖(σ∂_σ)^l v‖²_((0;k−l),𝗋_out−ε/2,0;+) |dσ/σ|)^(1/2), as β_scf − ε − 2 = 𝗋_out − ε/2. By Leibniz' rule
+(first for f̂ in the dense subspace of functions smooth in σ, as in [[cor:ii-g1-4-2]] (2), then by continuity),
+(σ∂_σ)^l v is a combination of ((σ∂_σ)^(l′) P̂⁻¹) g_(l′), g_(l′) := (σ∂_σ)^(l−l′) f̂, l′ ≤ l ([[thm:i-b-1-3]] (5)
+gives the differentiability), and by [[eq:ii-g1-4-3b]], [[eq:i-b-1-8]] and [[eq:ii-g1-4-3a]], at fixed σ,
+
+    ‖((σ∂_σ)^(l′) P̂⁻¹) g‖_((0;k−l),𝗋_out−ε/2,0;+) ≤ C |σ|^(2ν−1+(l′+1)δ) ‖g‖_((0;k_1),𝗋_out+1+ε/2,0;+),
+                                                          k_1 := k − l + l′ + ℓ_1 + ℓ_2,
+
+and 2ν − 1 + (l′ + 1)δ ≤ 2ν + kδ as l′ ≤ k, δ ≤ 1, |σ| ≥ 1. By [[eq:ii-g1-4-2]], as 𝗋_out + 1 + ε/2 + 2 = β_scf + 1,
+the last norm is Σ_(j≤k_1) |σ|^j ‖g‖_(H̄^(k_1−j,β_scf+1)_b). Let m_1 := 2ν + ⌈kδ⌉ + ⌈(δ_2 − δ_1)_+⌉, so |σ|^(δ_2)
+|σ|^(2ν+kδ) |σ|^j ≤ |σ|^(δ_1) |σ|^(j+m_1). The function σ^(j+m_1) (σ∂_σ)^(l−l′) f̂ with values in
+H̄^(k_1−j,β_scf+1)_b is a term of the norm of f̂ in H^(k′,β_scf+1,δ_1)_(b+) with k′ = (j + m_1) + (l − l′) + (k_1 − j) =
+k + m_1 + ℓ_1 + ℓ_2. So [[eq:ii-g1-4-4]] holds with ℓ := ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉. ∎
+
+**Corollary {#cor:ii-g1-4-5}** (The high-frequency part of a forward solution; [Hin26c, Corollary 13.17] in dimension 4
++ 1.) Assume (H1)–(H8) of [[sec:i-a-1-3]], [[sec:i-b-1-2]] and [[sec:i-b-1-5]] for the spectral family P̂ of a
+stationary wave-type operator P_0 ([[lem:ii-c-1-2]]), let C_0 ≥ 1 be as in [[thm:i-b-1-3]] (3) (enlarged if necessary,
+which preserves invertibility), χ ∈ C^∞_c(ℝ) equal to 1 on [−C_0, C_0], and χ_T ∈ C^∞(ℝ) equal to 0 on (−∞, 1] and to
+1 on [2, ∞). Let β_I, β_ι, β_K, β′_ι, β′_K ∈ ℝ, β′_I < min(β_I, 3/2 + S̄), η > 0 and δ := δ_Γ(−η). There is ℓ ∈ ℕ₀
+such that for every k and every f ∈ H^(k+⌈kδ⌉+ℓ,(β_I+1,β_ι+2,β_K))_b(M; E) (M over X̄, [[rem:ii-g1-3-7]]), u :=
+ℱ⁻¹((1 − χ(σ)) P̂(σ)⁻¹ f̂(σ)) lies in H^(k,(β′_I,β′_ι,β′_K))_b(M; E), with norm ≤ C_k ‖f‖. If f ∈
+H^(k+⌈kδ⌉+ℓ,(β_I+1,β_ι+2,β_K))_b(Ω; E)^(•,−) (extended by 0 to t_* < 1), then χ_T(t_*) u ∈
+H^(k,(β′_I,β′_ι,β′_K))_b(Ω; E)^(•,−).
+
+Here, as in [Hin26c, Section 13], the b-spaces on Ω are those of [[eq:ii-f1-1-2]] with the unweighted b-density μ_b of
+[[cor:ii-f1-1-2]]; on Ω the defining functions [[eq:ii-g1-3-1]] and those of [[eq:ii-f1-1-1]] (ρ_I, ρ_+, ρ_K for ℐ⁺,
+ι⁺, K⁺) are comparable with ratios bounded with all their b-derivatives, and μ_M and μ_b likewise, so these spaces are
+restrictions of those on M.
+
+*Proof.* Let k_f be the order of f. By [[prop:ii-g1-3-3]] (2) with the weights (β_I + 1, β_ι + 2, β_K),
+f̂|_(±[1/2,∞)) ∈ H^(k_f−ℓ_5,β_I+1,0)_(b+), ℓ_5 := ⌈(1/2 − min(β_K, β_ι + 1 − β_I))_+⌉. Let β_scf := β′_I + ε with ε > 0
+so small that β_scf < min(β_I, 3/2 + S̄); then H^(·,β_I+1,·)_(b+) ⊂ H^(·,β_scf+1,·)_(b+). Let ℓ_3 := 1 + ⌈(max(β′_K,
+β′_ι − β′_I) − 1/2)_+⌉, the loss of [[prop:ii-g1-3-5]] (2) with δ = 1 and the weights (β′_I, β′_ι, β′_K), and ℓ_4 that
+of [[prop:ii-g1-4-4]] with δ_1 = 0 = δ_2. By [[prop:ii-g1-4-4]] at the order k + ℓ_3 (and ⌈(k + ℓ_3)δ⌉ ≤ ⌈kδ⌉ + ℓ_3),
+P̂⁻¹ f̂ ∈ H^(k+ℓ_3,β′_I,0)_(b+)(±[C_0, ∞) × X̄) when k_f ≥ k + ⌈kδ⌉ + 2ℓ_3 + ℓ_4 + ℓ_5. Multiplied by 1 − χ, which
+vanishes on [−C_0, C_0] and is smooth with bounded σ∂_σ-derivatives, and extended by 0, it lies in
+H^(k+ℓ_3,β′_I,0)_(b+)(±[1/2, ∞) × X̄) and vanishes near [−1/2, 1/2]; [[prop:ii-g1-3-5]] (2) (with δ − 1 = 0) gives u ∈
+H^(k,(β′_I,β′_ι,β′_K))_b(M). So ℓ := 2ℓ_3 + ℓ_4 + ℓ_5. Finally χ_T(t_*) is smooth with bounded b-derivatives on M, and
+χ_T(t_*) u is supported in {t_* ≥ 1}, so its restriction lies in the space on Ω. ∎
+
+#### Low frequencies {#sec:ii-g1-4-3}
+
+For ς > 0 and weights β = (β_scf, β_tf, β_zf), let w_β(ς) be the product of ρ_scf^(β_scf), ρ_tf^(β_tf) and
+ρ_zf^(β_zf) of [[eq:ii-g1-3-2]] at |σ| = ς, a function of x, and ‖u‖_(H^(k,β)_(b,ς)) := ‖w_β(ς)⁻¹ u‖_(H̄^k_b(X̄,μ_b))
+([Hin26c, after (13.30a)]). The b-derivatives of log w_β(ς) in x are bounded uniformly in ς, so weights and derivatives
+may be ordered either way, and the norm of H^(k,β)_b(X^±_(sc-b)) is equivalent to (Σ_(k′≤k) ∫ ‖(σ∂_σ)^(k′)
+u(σ)‖²_(H^(k−k′,β)_(b,|σ|)) |dσ/σ|)^(1/2), as σ∂_σ log w_β is bounded too. The norms ‖·‖_((s;k),(𝗋,l,q),ς) are those
+of [[def:i-c-6-1]], with a decay order 𝗋 on the scattering face of tf, and ς_1 that of [[lem:i-c-6-2]].
+
+**Lemma {#lem:ii-g1-4-6}** (Low-energy spaces and b-spaces; [Hin26c, (13.30a)–(13.30b)] in dimension 4 + 1.) Let (s, 𝗋)
+be an order pair with s constant and 𝗋 equal to 𝗋_out near the zero section over the scattering face of tf, let ℓ, ℓ̃
+be as in [[lem:ii-g1-4-1]], and l ∈ ℝ, k ∈ ℕ₀, ε > 0. Uniformly in ς ∈ (0, ς_1],
+
+    ‖u‖_((s−1;k),(𝗋+1,l+2,0),ς) ≤ C ‖u‖_(H^(k+ℓ,(𝗋_out+3+ε, l+4, 0))_(b,ς)),                           {#eq:ii-g1-4-5a}
+
+    ‖u‖_(H^(k−ℓ̃,(𝗋_out+2−ε, l+2, 0))_(b,ς)) ≤ C ‖u‖_((s;k),(𝗋,l,0),ς)        (k ≥ ℓ̃).               {#eq:ii-g1-4-5b}
+
+[Hin26c, (13.30a)–(13.30b)] have 5/2, 7/2 and 3/2, 3/2 in place of 3, 4 and 2, 2 (the shift n/2 with n the spatial
+dimension), and are written with α_+, α_tf (here absorbed in 𝗋 and l).
+
+*Proof.* By [[def:i-c-6-1]], ‖u‖²_((s;k),(𝗋,l,0),ς) = ‖(1 − χ_∂)u‖²_(H̄^(s+k)) + ς^(−2(l+2)) ‖S_ς(χ_∂
+u)‖²_(H^((s;k),(𝗋,−l))_(sc,b;b)(tf)), and by [[lem:i-c-6-2]] (b) multiplication by χ_∂ is bounded uniformly on both
+sides. *The interior.* On supp(1 − χ_∂), a compact set, ρ_tf and ρ_scf are bounded above and below and
+ρ_zf^(β_zf) = 1 (β_zf = 0), so the norms on the right of [[eq:ii-g1-4-5a]] and the left of [[eq:ii-g1-4-5b]] are
+equivalent to H̄^(k+ℓ), resp. H̄^(k−ℓ̃), there, and k + ℓ ≥ s − 1 + k, k − ℓ̃ ≤ s + k. *Near ∂X.* Let x̂ := ςx and ρ̂ :=
+⟨x⟩⁻¹/ς; then ρ_scf = ρ̂/(1 + ρ̂), ρ_tf = ς(1 + ρ̂) and ρ_zf = (1 + ρ̂)⁻¹ exactly, so w_β(ς) = ς^(β_tf) W_β(ρ̂) with
+W_β(ρ̂) := (ρ̂/(1 + ρ̂))^(β_scf) (1 + ρ̂)^(β_tf−β_zf), independent of ς. On supp χ_∂ (|x| ≥ R_1) the dilation S_ς
+preserves μ_b and maps the b-fields ⟨x⟩∂_x to fields spanning, with bounded coefficients, the b-fields of tf
+([[sec:i-c-4]]: r̂∂_(x̂) near ztf, ⟨x̂⟩∂_(x̂) near sctf). Hence ‖χ_∂ u‖_(H^(k,β)_(b,ς)) is equivalent, uniformly in ς,
+to ς^(−β_tf) ‖W_β⁻¹ S_ς(χ_∂ u)‖_(H^k_b(tf,μ_b)), a b-norm on tf with the weight ρ̂^(β_scf) at sctf (ρ̂ → 0) and
+r̂^(β_zf−β_tf), r̂ = |x̂|, at ztf. For [[eq:ii-g1-4-5b]], β = (𝗋_out + 2 − ε, l + 2, 0): the powers ς^(−(l+2)) agree;
+at ztf both norms are b-norms ([[def:i-c-4-1]]: b-regularity is regularity there) with the b-weight −l − 2 for μ_b; at
+sctf the tf norm is that of H^((s;k),𝗋)_sc(ℝ⁴_(x̂)) and the b-norm has the scattering decay order 𝗋_out − ε
+([[def:i-c-4-1]] and the density shift), and [[lem:ii-g1-4-1]] [[eq:ii-g1-4-1b]] on ℝ⁴_(x̂), with α = 0, compares them;
+in between, on compact subsets of tf°, both are standard Sobolev norms of orders s + k ≥ k − ℓ̃. [[eq:ii-g1-4-5a]] is
+the same with β = (𝗋_out + 3 + ε, l + 4, 0): the powers are ς^(−(l+4)) on both sides (the norm of [[def:i-c-6-1]] has
+l + 2 in place of l), the b-weight at ztf is −l − 4 on both sides (q − (l + 2) − 2 with q = 0), and at sctf
+[[eq:ii-g1-4-1a]] compares the decay orders 𝗋_out + 1 + ε and 𝗋 + 1. ∎
+
+**Proposition {#prop:ii-g1-4-7}** (Resolvent bounds at low frequencies; [Hin26c, Proposition 13.18] in dimension 4 + 1.)
+Assume (H1)–(H4) of [[sec:i-a-1-3]] and (G), (Z) and (TF) of [[sec:i-c-1-2]] with the weight α (α + 2 in an indicial gap
+of P̂(0), for μ_b). Let β_scf < 3/2 + S̄ and ε ∈ (0, 1). There is ℓ ∈ ℕ₀, depending only on P̂ and β_scf, and for each
+k ∈ ℕ₀ there is c_k > 0 such that, with X^±_(sc-b) built on ±[0, c_k], for all β_tf, β_zf with β_tf − β_zf = α + 2,
+
+    P̂⁻¹ : H^(k+ℓ,(β_scf+1, β_tf+2, β_zf))_b(X^±_(sc-b)) → H^(k,(β_scf−ε, β_tf, β_zf))_b(X^±_(sc-b))   is bounded.
+                                                                                                  {#eq:ii-g1-4-6}
+
+[Hin26c, Proposition 13.18] fixes one c for all k; [[thm:i-c-6-4]] (4) gives radii c_(j,k) depending on j and k
+([[rem:i-c-6-7]] (a)), so here c_k depends on k. The gap condition is on the b-weight for μ_b, as in (G). As
+[[thm:i-c-6-4]] (5) gives its conclusions at every weight of the gap ((Z) by [[thm:i-c-3-1]] (4), (TF) by
+[[cor:i-c-5-2]] (c)), and ℓ = ℓ_a + ℓ̃ does not depend on α, the proposition holds for every β_tf − β_zf in the gap with
+one ℓ, as [Hin26c, (13.31)] states; only c_k and the constants depend on the weight.
+
+*Proof.* As |σ|^(β_zf) = ρ_tf^(β_zf) ρ_zf^(β_zf) is scalar in σ, commutes with P̂(σ)⁻¹, and σ∂_σ |σ|^(β_zf) = β_zf
+|σ|^(β_zf), dividing by it reduces to β_zf = 0, β_tf = α + 2. Take α_+ := 0, 𝗋_out := β_scf − 2 − ε/2, 𝗋_in and s as in
+[[cor:ii-g1-4-2]], and the decay orders 𝗋_± of [[sec:i-c-4-3]] built from them ([[lem:i-a-7-1]] at σ_* = ±1), which
+equal 𝗋_out near the zero section over sctf; let ℓ_a, ℓ̃ be those of [[lem:ii-g1-4-1]] for them and ℓ := ℓ_a + ℓ̃. By
+[[thm:i-c-6-4]] (4) (with m_1 = m_2 = 0, which (Z) allows) and (5), for 0 < |σ| ≤ c_(j,m), Im σ ≥ 0,
+
+    ‖(σ∂_σ)^j P̂(σ)⁻¹ g‖_((s+j;m),(𝗋,α,0),ς) ≤ C ‖g‖_((s−1;m+j),(𝗋+1,α+2,0),ς),        ς = |σ|.
+
+Let c_k := min(ς_1, min{c_(j,m) : j ≤ k, m ≤ k + ℓ̃}). For k′ ≤ k, Leibniz' rule (first for f̂ in the dense subspace of
+functions smooth in σ, as in [[cor:ii-g1-4-2]] (2), then by continuity) writes (σ∂_σ)^(k′)(P̂⁻¹ f̂) as a combination of
+((σ∂_σ)^(k″) P̂⁻¹) g, g := (σ∂_σ)^(k′−k″) f̂, and at fixed σ, by [[eq:ii-g1-4-5b]] with l = α and ε/2, the estimate
+above with m = k − k′ + ℓ̃, and [[eq:ii-g1-4-5a]] with l = α and ε/2,
+
+    ‖((σ∂_σ)^(k″) P̂⁻¹) g‖_(H^(k−k′,(β_scf−ε,α+2,0))_(b,ς)) ≤ C ‖g‖_(H^(k−k′+k″+ℓ,(β_scf+1,α+4,0))_(b,ς)),
+
+as 𝗋_out + 2 − ε/2 = β_scf − ε and 𝗋_out + 3 + ε/2 = β_scf + 1. The total order (k′ − k″) + (k − k′ + k″ + ℓ) = k + ℓ
+is that of the domain, so integrating in |dσ/σ| gives [[eq:ii-g1-4-6]]. ∎
