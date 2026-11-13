@@ -395,11 +395,13 @@ while b decreases. So the condition holds once the cone meets Σ_τ0 at a radius
 The slices. By [[prop:two-dust-background]] (c), R_u < 0 on G, so (v, R) are coordinates there. ψ = 0 on 𝒞_out
 ([[prop:two-dust-background]] (a)) and ψ_u = ℬ/(3R² R_u) ≤ 0, so ψ ≤ 0 on G. Along each ingoing ray {v = const}, R
 decreases strictly inward from 𝒞_out, the point of the ray on 𝒞_out lies in G, and G is closed with boundary in {R = a};
-so the ray lies in G until R = a, and G = {a ≤ R ≤ R(u0, v)} in the coordinates (v, R). Along 𝒞_out, which lies where
-R² > μ_end, dR/dv = R_v = f/2 < 1, so R(u0, τ + R) − R is strictly decreasing in R, and {τ = const} ∩ G is an interval
-a ≤ R ≤ R_out(τ), R_out(τ) the radius at which the slice meets 𝒞_out. By the choice of the cone, R_out(τ) > b(τ) for τ ≥
-τ0, and the third condition of [[eq:two-dust-omega]] is R ≤ b(τ); the choice of V1 in [[prop:two-dust-background]]
-makes Q contain the values v = τ + R ≤ V + 1 + τ_end − τ0 < 2V + 1 − τ0 there. So Σ_τ = A(τ).
+so the ray lies in G until R = a, and G = {a ≤ R ≤ R(u0, v)} in the coordinates (v, R). On 𝒞_out, ψ = 0, so dR/dv =
+R_v = f/2 ≤ 1/2 there, and R(u0, τ + R) − R is strictly decreasing in R. So {τ = const} ∩ G is an interval a ≤ R ≤
+R_out(τ), R_out(τ) the radius at which the slice meets 𝒞_out or, if it reaches the edge {v = V1} of Q first, the radius
+V1 − τ at which it does. For τ0 ≤ τ ≤ τ_end, R_out(τ) > b(τ): in the first case by the choice of the cone, in the
+second because b(τ) + τ = V + 1 + τ_end − τ ≤ V + 1 + τ_end − τ0 < 2V + 1 − τ0 < V1, as τ_end ≤ V − q0 (proof of (f) below)
+and by the choice of V1 in [[prop:two-dust-background]]. The third condition of [[eq:two-dust-omega]] is R ≤ b(τ). So
+Σ_τ = A(τ).
 
 (a)–(c) are the contractions of the inverse in [[eq:two-dust-chart]] with dτ = dv − dR and d(v + τ) = 2dv − dR, with
 e^(−ψ) ≥ 1 and f = 1 − μ/R². As in the proof of [[lem:domain]], dτ is timelike and positive on future causal vectors; at

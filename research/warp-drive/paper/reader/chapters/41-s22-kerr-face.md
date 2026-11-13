@@ -1454,10 +1454,10 @@ where ‖·‖_(𝒴⁰(α)) is a seminorm of 𝒴⁰(α) and ‖·‖_(w) one o
 in place of w_0, both depending on the seminorm bounded (of large enough regularity, as in [[sec:iii-i8-1]]), and C
 depends on w and these seminorms and is uniform for (h, p⃗) small. This is not a bound by G alone. In the setting of
 this section, 𝒩″ = 𝒩, G is the G(W⃗) of Step 0, and the coefficients W_ν are the S_ν of Step 0, which are the row
-components of p⃗′ (the C_ν vanish). Take for w the number w_(α′) = min(α′ − 2, λ_♯ − 1) of Step 6, which lies in (0,
-w_0]. The bounds at the end of the proof of [[thm:iii-i11-4-1]], which hold for every choice of the seminorms of large
-enough regularity, give |p⃗′_(h,p⃗)(F)|, ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0(W⃗)‖_(w) at most C‖F‖_(𝒴⁰(α)); so the three terms are
-at most C‖F‖_(𝒴⁰(α)), which is the bound of Step 6.
+components of p⃗′ (the C_ν vanish). Take for w the number w_(α′) = min(α′ − 2, λ_♯ − 1) of Step 6, which lies in
+(0, w_0]. The bounds at the end of the proof of [[thm:iii-i11-4-1]], which hold for every choice of the seminorms of
+large enough regularity, give |p⃗′_(h,p⃗)(F)|, ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0(W⃗)‖_(w) at most C‖F‖_(𝒴⁰(α)); so the three
+terms are at most C‖F‖_(𝒴⁰(α)), which is the bound of Step 6.
 
 ### Admissible levels and enlarged sources {#sec:iii-i13-1}
 
