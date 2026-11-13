@@ -2484,9 +2484,9 @@ derivative in m of the Kerr–Schild metrics η + mr⁻²(dt + dr)², satisfies 
 
 *Proof.* L = D Ric + δ*_(E_C)δ_(E_Υ)G at the Ricci-flat g_(b_0). (a) δ*w = ½ℒ_(w♯)g_(b_0), and
 D Ric(ℒ_Xg) = ℒ_X Ric(g) = 0 at a Ricci-flat g, so Lδ*w = δ*_(E_C)δ_(E_Υ)Gδ*w = δ*_(E_C)(½□^Υw). (b) The
-contracted Bianchi identity δ_gG_g Ric(g) = 0 holds for every metric; differentiating at the Ricci-flat g_(b_0), where Ric = 0, gives δG(D Ric(h)) = 0. So
-2δG(Lh) = 2δGδ*_(E_C)(δ_(E_Υ)Gh) = □^C Υ(h). (c) The Kerr–Schild metrics are Ricci-flat for every m
-([[prop:iii-b-3-4]]); differentiate at m = 1. ∎
+contracted Bianchi identity δ_gG_g Ric(g) = 0 holds for every metric; differentiating at the Ricci-flat g_(b_0), where
+Ric = 0, gives δG(D Ric(h)) = 0. So 2δG(Lh) = 2δGδ*_(E_C)(δ_(E_Υ)Gh) = □^C Υ(h). (c) The Kerr–Schild metrics are
+Ricci-flat for every m ([[prop:iii-b-3-4]]); differentiate at m = 1. ∎
 
 So on the scalar-type block, L factors through the constraint propagation operator □^C and the gauge potential
 operator □^Υ, as it does on all of the bundle.

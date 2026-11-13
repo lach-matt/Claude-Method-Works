@@ -90,7 +90,8 @@ both at most −7/4, with β̂(∂_τ) = 2 and α̂(∂_τ) = −2; |α̂|_E², 
 r + f(r) = v1 − σ, and r_σ ≥ c_W (1 + |σ|) for some c_W > 0.
 
 *Proof.* (a) These are the contractions of the proof of [[lem:interior-far-part]] (i) ((2f′ − 3)(2f′ + 1) =
-−3 − 4f′ + 4f′², (2f′ − 1)(2f′ + 3) = −3 + 4f′ + 4f′²), and |α̂|_E², |β̂|_E² = 4 + (1 ± 2f′)². (b) On W, v − v1 = τ + r −
+−3 − 4f′ + 4f′², (2f′ − 1)(2f′ + 3) = −3 + 4f′ + 4f′²); α̂ = (1 + 2f′) dr − 2 dτ and β̂ = (1 − 2f′) dr + 2 dτ, so
+|α̂|_E² = 4 + (1 + 2f′)² and |β̂|_E² = 4 + (1 − 2f′)². (b) On W, v − v1 = τ + r −
 v1 ≥ 0 and τ ≤ f(r), so v − v1 ≤ f(r) − f(4R) + r − 4R ≤ (5/4)(r − 4R): hence 0 ≤ s ≤ 5/4. τ − v1 = (v − v1) − r ≥ −r,
 and τ − v1 ≤ f(r) − f(4R) − 4R ≤ r. On Σ̃_σ, v = r + f(r) + σ increases in r (1 + f′ ≥ 1), so v ≥ v1 exactly for
 r ≥ r_σ; and r_σ ≥ max(4R, |σ| + v1 − C_f) for σ ≤ 0, which is at least c_W (1 + |σ|) for some c_W > 0 depending on R,
@@ -126,9 +127,9 @@ part μ0 r⁻² enters the inverse metric through −(μ/r²) ℓℓ, which rais
 of Γ[g0] it produces have order at least 3. ∂_v keeps the order; ℓ and r⁻¹ Ω raise it by 1. A term of S_(7/2) has order
 7/2 and contains a factor from u. No factor has order ½, so its factors are either G_3 together with one factor of order
 2 (G_4, μ − μ0, μ′ or μ″, with ∂_v-derivatives), of degree 3, or G_3 with two order-raising derivatives, which comes
-from the flat operator. The latter: by [[eq:wave-operator-vr]], for Z(v, x̂) smooth,
+from the flat operator. The latter: by [[eq:wave-operator-vr]], for ψ(v, x̂) smooth,
 
-    □̃(r^(−p) Z) = (3 − 2p) r^(−p−1) ∂_v Z + r^(−p−2) (Δ̊ + p² − 2p) Z − μ p(p + 1) r^(−p−4) Z,
+    □̃(r^(−p) ψ) = (3 − 2p) r^(−p−1) ∂_v ψ + r^(−p−2) (Δ̊ + p² − 2p) ψ − μ p(p + 1) r^(−p−4) ψ,
                                                                                                     {#eq:own-box-p}
 
 so □̃(r^(−3/2) G_3) = r^(−7/2)(Δ̊ − ¾) G_3 − (15/4) μ r^(−11/2) G_3, and the forcing [[eq:bondi-f1]] carries
@@ -178,8 +179,9 @@ agreement with (c): its two-scale expansion vanishes at every order in λ.
 **Remark {#rem:own-tail-bump}** (Numerical observation.) For the bump envelope env_b(v) = exp(−1/(1 − y²)),
 y = (v − 2)/(3/2), on [½, 7/2], e^(−2iω) ê_b(ω) is real, env_b being even about v = 2, so a_1 vanishes exactly at the
 real zeros of that function. Evaluated numerically, ê_b(1/λ) ≠ 0 at λ = 2⁻¹, …, 2⁻⁷ (|ê_b| from 0.297 down to
-3.4 × 10⁻⁸, falling faster than λ⁵ over [2⁻⁷, 2⁻⁵]), and the first zeros are at ω ≈ 3.331, 5.926, 8.399, 10.81: the
-exceptional set of [[prop:own-tail]] (d) is infinite for this envelope, and accumulates only at λ = 0. For the envelope
+3.4 × 10⁻⁸, falling faster than λ⁵ over [2⁻⁷, 2⁻⁵]), and its first zeros are at ω ≈ 3.331, 5.926, 8.399, 10.81: as far
+as it was evaluated, the zero set of a_1 for this envelope continues without end and accumulates only at λ = 0. It does
+not by itself determine the exceptional set of [[prop:own-tail]] (d), which also involves a_3. For the envelope
 sin⁴(π(v − ½)/3), which is C³ but not C^∞ at its ends, |ê(ω)| ω⁵ stays between 17 and 61 for ω = 10, …, 320, so a_1 is of
 order λ⁶ there rather than O(λ^∞). No proof uses these values.
 
