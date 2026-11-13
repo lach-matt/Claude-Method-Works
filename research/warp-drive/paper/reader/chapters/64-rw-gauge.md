@@ -245,4 +245,148 @@ formulas above, (ℒ_Zg)_ai dz^i = d(Z_a + r²∂_a(η/r²)), so β_a[ℒ_Zg] = 
 part of ℒ_Zg is 2(D̂D̂ − (1/3)γΔ̂)η, so τ[ℒ_Zg] = 2η by (b) of [[lem:gd-1-2]]. Inserting in [[eq:gd-1-1]]:
 ξ[ℒ_Zg] = (−Z_a − r²∂_a(η/r²) + r²∂_a(η/r²))dy^a − dη = −Z. ∎
 
+### The spherically symmetric part {#sec:rw-l0}
+
+**Lemma {#lem:rw-warped}** (Warped products over S³.) Let g′ = g′_ab dy^a dy^b + R²γ, with g′_ab a Lorentzian metric
+and R > 0 a function on a two-dimensional manifold, D, □ and 𝓇 the covariant derivative, wave operator and scalar
+curvature of g′_ab. Then Ric[g′]_ab = (𝓇/2)g′_ab − (3/R)D_aD_bR, Ric[g′]_ai = 0 and
+Ric[g′]_ij = ρ γ_ij with ρ := 2(1 − |dR|²) − R□R. The Misner–Sharp mass m(g′) := R²(1 − |dR|²) satisfies
+
+    ∂_a m(g′) = (2R³/3)(Ric_ab − (1/2)g′_ab g′^(cd)Ric_cd) D^bR + Rρ ∂_aR,                                 {#eq:rw-ms}
+
+with Ric := Ric[g′] and indices raised by g′_ab.
+
+*Proof.* The Christoffel symbols mixing the factors are Γ^a_ij = −RD^aR γ_ij and Γ^i_aj = (∂_aR/R)δ^i_j; the others are
+those of g′_ab and of γ. Inserting them in R_bd = ∂_μΓ^μ_bd − ∂_dΓ^μ_bμ + Γ^μ_μνΓ^ν_bd − Γ^μ_dνΓ^ν_bμ, as in the proof
+of [[lem:warped-ricci]]: for b, d on the base, the fibre indices add −3∂_b∂_dR/R + 3Γ^c_bd∂_cR/R = −3D_bD_dR/R, and the
+Ricci tensor of a two-dimensional metric is (𝓇/2)g′_ab. For i, j on the fibre, the base derivatives of Γ^a_ij give
+−(R□R + |dR|²)γ_ij, the products of the mixed symbols give −2|dR|²γ_ij, and the fibre gives Ric[γ] = 2γ. The mixed
+components vanish since every term carries an odd number of fibre indices of a tensor built from γ and its connection
+alone. For [[eq:rw-ms]]: ∂_am = 2R∂_aR(1 − |dR|²) − 2R²D^bR D_aD_bR. By the formulas just proved,
+D_aD_bR = (R/3)((𝓇/2)g′_ab − Ric_ab), 2(1 − |dR|²) = ρ + R□R and □R = (R/3)(𝓇 − g′^(cd)Ric_cd). Inserting these, the
+terms in 𝓇 cancel and [[eq:rw-ms]] remains. ∎
+
+**Lemma {#lem:gd-1-4}** (The spherically symmetric part: the linearised mass and Birkhoff's theorem.) Let
+h_0 = A dv² + 2B dv dr + C dr² + 2r²H_L γ, with A, B, C, H_L functions of (v, r) on a simply connected open subset U of
+the orbit space of {r > r_♭}, and write Ṙ := DRic(h_0).
+
+(a) The linearisation of the Misner–Sharp mass at g (where it equals m₀) is
+
+    δm[h_0] = 2m₀H_L + r²(A + 2fB + f²C) − 2r²(∂_v + f∂_r)(rH_L).
+
+It vanishes on ℒ_Y g for every spherically symmetric vector field Y; δm[K] = δm[K_V] = 1; and
+
+    ∂_v δm = (2/3)r³(Ṙ_vv + fṘ_vr),        ∂_r δm = (1/3)r³fṘ_rr + rṘ_ϑϑ.
+
+(b) If DRic(h_0) = 0 on U, then δm[h_0] =: c is constant; with Y_1 := −rH_L∂_r and h′ := h_0 − cK + ℒ_(Y_1)g =
+A′dv² + 2B′dvdr + C′dr², the 1-form ω := (B′ + (f/2)C′)dv + (1/2)C′dr is closed, and for dζ = ω, ℒ_(ζ∂_v)g = h′. So
+
+    h_0 = cK + ℒ_(Y[h_0]) g,        Y[h_0] := ζ∂_v + rH_L∂_r.                                               {#eq:gd-1-2}
+
+(c) The spherically symmetric Killing fields of g are the multiples c′∂_v of ∂_v = ∂_t. So Y[h_0] is unique up to
+c′∂_v, the choice of the constant in ζ.
+
+*Proof.* (a) For ε small, g + εh_0 has the orbit metric g_ab + εh_ab, h_ab dy^ady^b := A dv² + 2B dvdr + C dr², and the
+area radius R_ε with R_ε² = r²(1 + 2εH_L), so R_ε = r + εrH_L + O(ε²). The inverse orbit metric of g is
+g^(vv) = 0, g^(vr) = 1, g^(rr) = f, and its variation is −h^(ab) = −g^(ac)g^(bd)h_cd, with h^(rr) = A + 2fB + f²C. So
+δ|dR|² = −(A + 2fB + f²C) + 2g^(rb)∂_b(rH_L) = −(A + 2fB + f²C) + 2(∂_v + f∂_r)(rH_L), and
+δm = 2r·rH_L(1 − f) − r²δ|dR|², which is the formula, as r²(1 − f) = m₀. A spherically symmetric Y is a field
+Y^a(y)∂_a (S³ carries no SO(4)-invariant vector field), so its flow φ_s maps spherically symmetric metrics to
+spherically symmetric metrics, with R(φ_s*g) = R(g) ∘ φ_s, and m(φ_s*g) = m(g) ∘ φ_s = m₀; differentiating at s = 0,
+δm[ℒ_Yg] = 0. For K, A = r⁻² and the rest vanish, so δm[K] = 1; δm[K_V] = 1 by [[eq:gd-0-1]], V being spherically
+symmetric. Finally, linearise [[eq:rw-ms]] at g, where Ric = 0, R = r and D^br = g^(br): only the variation of the
+Ricci tensor survives, ρ̇ = Ṙ_ϑϑ, and ∂_aδm = (2r³/3)(Ṙ_ab − (1/2)g_ab g^(cd)Ṙ_cd)g^(br) + rṘ_ϑϑ∂_ar. For a = v,
+g^(br)(Ṙ_vb − (1/2)g_vb tr) = Ṙ_vv + fṘ_vr − (1/2)(g_vv + fg_vr)tr = Ṙ_vv + fṘ_vr, as g_vv + fg_vr = 0, and ∂_vr = 0.
+For a = r, Ṙ_rv + fṘ_rr − (1/2)(g_rv + fg_rr)(2Ṙ_vr + fṘ_rr) = (1/2)fṘ_rr.
+
+(b) U is connected, so δm[h_0] is constant by (a). For a field Y = Y^r∂_r, (ℒ_Yg)_ij = Y(r²)γ_ij = 2rY^rγ_ij, so
+ℒ_(Y_1)g removes the angular block, and h′ has the stated form. DRic(K) = 0, DRic(ℒ_(Y_1)g) = 0 ([[lem:ix-2-1]] (b)),
+so DRic(h′) = 0, and δm[h′] = c − c + 0 = 0 by (a), that is A′ = −2fB′ − f²C′. The metrics g + εh′ keep R = r, so by
+[[lem:rw-warped]] their rr Ricci component is (𝓇_ε/2)(g + εh′)_rr − (3/r)D^ε_rD^ε_r r. At ε = 0, g_rr = 0 and
+𝓇 = −f″ (the scalar curvature of −f dv² + 2 dv dr), and D_rD_rr = −Γ^r_rr; the first-order variation of Γ^r_rr is
+(1/2)g^(rd)(2∂_rh′_dr − ∂_dh′_rr) = (1/2)(2∂_rB′ − ∂_vC′ + f∂_rC′), the term with the variation of g^(rd) vanishing
+as the lowered symbols Γ_(d,rr) of g vanish. So
+
+    0 = Ṙ_rr[h′] = −(f″/2)C′ + (3/(2r))(2∂_rB′ − ∂_vC′ + f∂_rC′) = (3/r)(∂_r(B′ + (f/2)C′) − ∂_v(C′/2)),
+
+using −rf″/6 = m₀/r³ = f′/2. So dω = 0, and ω = dζ on the simply connected U. For Y = ζ∂_v, ∂_v being Killing,
+ℒ_Yg = dζ ⊗ (∂_v)^♭ + (∂_v)^♭ ⊗ dζ with (∂_v)^♭ = −f dv + dr, that is
+
+    ℒ_(ζ∂_v)g = −2f∂_vζ dv² + 2(∂_vζ − f∂_rζ) dv dr + 2∂_rζ dr².
+
+With ∂_rζ = C′/2 and ∂_vζ = B′ + fC′/2 this is A′dv² + 2B′dvdr + C′dr², by A′ = −2fB′ − f²C′. Hence
+h_0 = h′ + cK − ℒ_(Y_1)g = cK + ℒ_(ζ∂_v − Y_1)g, which is [[eq:gd-1-2]].
+
+(c) For Y = a∂_v + b∂_r with ℒ_Yg = 0, the angular block 2rbγ forces b = 0, and the formula for ℒ_(a∂_v)g forces
+∂_ra = 0 and ∂_va = 0. ∎
+
+### The theorem {#sec:rw-theorem}
+
+The following theorem passes the decay of [[thm:viii-2-2]] to the Regge–Wheeler-type gauge directly, sphere by sphere;
+it uses neither the reconstruction of the metric from the master fields nor the estimates of [HKW18].
+
+**Theorem {#thm:rw-settling}** (Part VIII's solution in the Regge–Wheeler-type gauge.) Let ġ, ṁ and h = ġ − ṁK_V be
+as in [[sec:rw-setting]], h_0 the l = 0 part of h, and N⁺ = M°_♭ ∩ {t_IVP ≥ 0}.
+
+(a) δm[h_0] = 0, and with Y[h_0] of [[eq:gd-1-2]], ζ normalised by ζ(v, r) → 0 as v → ∞,
+
+    X_RW := ξ[h] − Y[h_0]^♭,        ġ_RW := ġ + ℒ_(X_RW) g = ṁK_V + (h − h_0) + ℒ_(ξ[h]) g
+
+is a smooth G-invariant linearised vacuum solution on N⁺, smooth up to Σ°, in the Regge–Wheeler-type gauge with l = 0
+part exactly ṁK_V, inducing (γ̇, k̇) plus the data of the linearised diffeomorphism ℒ_(X_RW)g. Except for the data,
+the same holds on the open set int N ∩ M°_♭.
+
+(b) (Decay.) For every k, R′ and ε′ > 0 there are C and T′ with
+
+    |ġ_RW − ṁK_V|_k ≤ C ‖(γ̇, k̇)‖_(H^(k₁(k+2))) t_*^(−w+ε′)     on {r_♭ < r ≤ R′, t_* ≥ T′}:
+
+the rate of [[thm:viii-2-2]], with a loss of two derivatives, the horizon included (r_♭ < r_h), uniformly in l (no
+sum over harmonics is formed). The constant depends on R′; nothing is claimed uniformly in r.
+
+(c) (The gauge vector.) On the same set, |ξ[h]|_k ≤ C‖(γ̇, k̇)‖_(H^(k₁(k+1))) t_*^(−w+ε′); the radial component rH_L
+of Y[h_0] = ζ∂_v + rH_L∂_r, and every derivative of ξ[h] and of the components ζ and rH_L, are O(t_*^(−w+ε′)); and
+|ζ| ≤ Ct_*^(−w+1+ε′). As a 1-form, X_(RW,0) := −Y[h_0]^♭ = (fζ − rH_L) dv − ζ dr; its dr component, and the term f′ζ
+in the r-derivative of its dv component, are only O(t_*^(−(w−1)+ε′)). So X_RW = O(t_*^(−(w−1)+ε′)). X_RW is unique up
+to c′(∂_t)^♭, and these are the only G-invariant Killing fields.
+
+(d) (Uniqueness of the representative.) Let U ⊂ U^♯ be open and SO(4)-invariant, Ω′_+ := D_U(Σ_U) ∩ {t_IVP ≥ 0}, and
+let ġ′ be a G-invariant linearised vacuum solution on Ω′_+, smooth up to Σ_U, in the Regge–Wheeler-type gauge,
+inducing (γ̇, k̇) plus the data of ℒ_Z g for a vector field Z near Σ_U, smooth up to Σ_U. Then ġ′ = ġ_RW on Ω′_+.
+
+*Proof.* (a) β and τ depend smoothly on (v, r, ϑ) (elliptic inverses on S³ with smooth parameters, commuting with
+ℒ_(∂_v), ℒ_(∂_r)), so ξ[h] is smooth up to Σ°, and its β and τ are those of ġ, K_V being spherically symmetric. DRic
+commutes with the SO(4)-average, so DRic(h_0) = (DRic ġ)_0 − ṁ DRic(K_V) = 0. The orbit space of the interior of N⁺,
+{t > ψ_IVP(r), r > r_♭}, lies above a graph, so it is simply connected, and the upward rays {(v′, r) : v′ ≥ v} stay in
+it, t_IVP increasing with v at fixed r. [[lem:gd-1-4]] (b) applies there: δm[h_0] is a constant, and being an
+expression in h_0 and its first derivatives it tends to 0 along {r = r_1}, for any r_1 ∈ (r_♭, R′], by [[eq:gd-0-2]];
+so it vanishes, and h_0 = ℒ_(Y[h_0])g. The 1-form ω of [[lem:gd-1-4]] (b) is algebraic in h_0 and the first
+derivatives of H_L, so |ω|_k ≤ C|h|_(k+1), integrable in v by [[eq:gd-0-2]] as w − ε′ > 1. Put
+ζ(v, r) := −∫_v^∞ ω_v(v′, r) dv′. Then ∂_vζ = ω_v, and as dω = 0, ∂_rζ = −∫_v^∞ ∂_(v′)ω_r dv′ = ω_r; so dζ = ω, ζ → 0
+as v → ∞, and ζ is smooth up to Σ°, its derivatives being those of ω. Hence ġ_0 − ℒ_(Y[h_0])g = ṁK_V, and with
+[[lem:gd-1-3]] (a), ġ_RW is in the Regge–Wheeler-type gauge with l = 0 part ṁK_V. DRic(ℒ_Xg) = 0
+([[lem:ix-2-1]] (b)), and ℒ_Xg changes the induced data by those of a linearised diffeomorphism, read from one side
+up to Σ° ([[lem:viii-1-1]]). Every step is O(4)-equivariant and ġ is G-invariant, so ġ_RW is G-invariant.
+
+(b) ġ_RW − ṁK_V = (h − h_0) + ℒ_(ξ[h])g. Averaging does not increase |·|_k. ℒ_ξg is first order in ξ, and by
+[[lem:gd-1-2]] (d) and [[eq:gd-1-1]] each component of ξ costs one derivative of h (β_a one angular derivative, ∂_aτ one
+orbit derivative, D̂τ one angular derivative), so |ℒ_(ξ[h])g|_k ≤ C|ξ[h]|_(k+1) ≤ C|h|_(k+2). Apply [[eq:gd-0-2]].
+
+(c) The bounds on ξ[h] and rH_L are [[lem:gd-1-2]] (d) and [[eq:gd-0-2]]; those on the derivatives of ζ are those on ω,
+and |ζ| ≤ C∫_v^∞ v′^(−w+ε′)dv′ ≤ C′v^(−w+1+ε′), with |t_* − v| ≤ C_(R′). The form of X_(RW,0) follows from
+(∂_v)^♭ = −f dv + dr and (∂_r)^♭ = dv. A G-invariant Killing field Z has ξ[ℒ_Zg] = −Z_(≥2) = 0 by [[lem:gd-1-3]] (c),
+where Z_(≥2) := Z − Z_0 has only harmonics of degree l ≥ 2 ([[lem:gd-1-2]]), and Z_0 = c′∂_v by [[lem:gd-1-4]] (c).
+For two gauge vectors X_RW and X′ as in (a), Z := X′ − X_RW has ℒ_Zg in the Regge–Wheeler-type gauge with l = 0
+part 0, so ℒ_Zg = 0 by the argument of (d), and Z = c′(∂_v)^♭.
+
+(d) By [[cor:ix-2-3]] and [[rem:ix-2-4]] (c), ġ′ = ġ + ℒ_(X′)g on Ω′_+ with X′ G-invariant: an SO(4)-invariant U is a
+union of sets {(t, x) : (t, |x|) ∈ A}, hence O(4)- and G-invariant. So ġ′ − ġ_RW = ℒ_Zg, Z := X′ − X_RW, is in the
+Regge–Wheeler-type gauge, with l = 0 part c″K_V for a constant c″. By [[lem:gd-1-3]] (c), Z_(≥2) = 0, as the β and
+τ of ℒ_Zg are those of ℒ_(Z_(≥2))g. Its l = 0 part ℒ_(Z_0)g is c″K_V, and c″ = δm[ℒ_(Z_0)g] = 0 by
+[[lem:gd-1-4]] (a). So ℒ_Zg = 0. ∎
+
+**Remark {#rem:rw-zeta}** (The loss of one power in ζ.) It comes from the time integral and is attained by the
+implication "ℒ_Yg decays ⇒ Y decays": by the formula for ℒ_(ζ∂_v)g, Y = (1 + v)^(−q)∂_v has
+ℒ_Yg = 2q(1 + v)^(−q−1)(f dv² − dv dr) = O(v^(−q−1)), with every derivative, while Y is only O(v^(−q)). Whether
+Part VIII's own h_0 makes ζ decay faster is not determined here.
+
 [[pending:issue-rw-continue]]

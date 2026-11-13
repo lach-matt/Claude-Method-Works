@@ -340,10 +340,10 @@ on T*ℝ^n with x-support in (−5/4, 5/4)^n, the local quantization has the Sch
 
     Op_α(a)(x, x′) = (2π)^(−n) ∫ exp(i Σ_j (x^j − x′^j)ξ_j/ρ_(α,j)) ψ(x − x′) a(x, ξ) dξ |dx′|/(ρ_(α,1)⋯ρ_(α,n)).
 
-With χ ∈ C_c^∞((−5/4, 5/4)^n) nonnegative and equal to 1 on [−1, 1]^n, and χ_α := φ_α^*χ/Σ_β φ_β^*χ,
-Op_𝒱(a) := Σ_α φ_α^* Op_α((φ_α)_*(χ_α a)). The residual operators wρ^∞Ψ^(−∞)_𝒱 are those which, together with their adjoints, map
-w′ρ^(−N)H^((−N;k))_(𝒱;𝒲) to ww′ρ^N H^((N;k))_(𝒱;𝒲) for all w′, N and k. Finally
-wΨ^m_𝒱(M) := {Op_𝒱(a) + R : a ∈ wS^m, R residual}.
+With χ ∈ C_c^∞((−5/4, 5/4)^n) nonnegative and equal to 1 on [−1, 1]^n, and χ_α := φ_α^*χ/Σ_β φ_β^*χ, Op_𝒱(a) := Σ_α φ_α^*
+Op_α((φ_α)_*(χ_α a)). The residual operators wρ^∞Ψ^(−∞)_𝒱 are those which, together with their adjoints, map
+w′ρ^(−N)H^((−N;k))_(𝒱;𝒲) to ww′ρ^N H^((N;k))_(𝒱;𝒲) for all w′, N and k. Finally wΨ^m_𝒱(M) := {Op_𝒱(a) + R : a ∈ wS^m, R
+residual}.
 
 (S5) [Hin26d, Theorem 3.44, p. 51; Remark 3.47, p. 52; Theorem 3.51, p. 55; Theorem 3.52, p. 56; Proposition 3.55,
 p. 57.] A ∈ wΨ^m_𝒱 maps w′H^((s;k))_(𝒱;𝒲) to ww′H^((s−m;k))_(𝒱;𝒲) boundedly, with norm bounded by a seminorm of A
@@ -368,16 +368,15 @@ bounds uniform in p, the above holds uniformly in p; operators are families with
 parts, bounded uniformly on the p-dependent spaces.
 
 (S8) [Hin26d, Definition 4.6 and the paragraph after it, p. 66; Section 4.2.] Variable orders 𝗆, 𝗅 ∈ S⁰: the symbols
-ρ^(−𝗅)λ^(−𝗆)a_0 with a_0 ∈ ⋂_(δ∈(0,1/2)) S⁰_(1−δ,δ), λ being an *elliptic weight*, a positive symbol of order −1
-whose reciprocal is a symbol of order 1 [Hin26d, Lemma 3.24 (2), p. 40]. They are contained in
-⋂_δ ρ^(−sup 𝗅) S^(sup 𝗆)_(1−δ,δ), and the corresponding
-operators and Sobolev spaces (variable decay orders when the scaling weight tends to 0). The paper states that orders
-are additive under composition and that its Theorem 3.44 "remains valid, mutatis mutandis, in the variable order case",
-the principal symbol being taken modulo ⋂_δ ρ^(−𝗅+1−2δ) S^(𝗆−1+2δ). Theorem 3.44 there is the boundedness theorem; the
-statement concerns composition, and we read it as including the calculus of its Theorem 3.51. It also states that the
-operators map H^(𝗆′,𝗅′) to H^(𝗆′−𝗆,𝗅′−𝗅), and that (wH^(𝗆,𝗅)_𝒱)* = w⁻¹H^(−𝗆,−𝗅)_𝒱, by the proof of its Proposition 4.2;
-the duality is that of the L²-pairing of a uniformly positive 𝒱-density, as in (S3). The factor a_0 need not lie in S⁰: its
-derivatives may carry logarithmic factors, as those of λ^(−𝗆) do.
+ρ^(−𝗅)λ^(−𝗆)a_0 with a_0 ∈ ⋂_(δ∈(0,1/2)) S⁰_(1−δ,δ), λ being an *elliptic weight*, a positive symbol of order −1 whose
+reciprocal is a symbol of order 1 [Hin26d, Lemma 3.24 (2), p. 40]. They are contained in ⋂_δ ρ^(−sup 𝗅) S^(sup
+𝗆)_(1−δ,δ), and the corresponding operators and Sobolev spaces (variable decay orders when the scaling weight tends to
+0). The paper states that orders are additive under composition and that its Theorem 3.44 "remains valid, mutatis
+mutandis, in the variable order case", the principal symbol being taken modulo ⋂_δ ρ^(−𝗅+1−2δ) S^(𝗆−1+2δ). Theorem 3.44
+there is the boundedness theorem; the statement concerns composition, and we read it as including the calculus of its
+Theorem 3.51. It also states that the operators map H^(𝗆′,𝗅′) to H^(𝗆′−𝗆,𝗅′−𝗅), and that (wH^(𝗆,𝗅)_𝒱)* = w⁻¹H^(−𝗆,−𝗅)_𝒱,
+by the proof of its Proposition 4.2; the duality is that of the L²-pairing of a uniformly positive 𝒱-density, as in (S3).
+The factor a_0 need not lie in S⁰: its derivatives may carry logarithmic factors, as those of λ^(−𝗆) do.
 
 (S9) [Hin26d, Definition 4.11, p. 68; Definition 4.14, p. 69; Proposition 4.15, p. 70; Proposition 4.17, p. 71;
 Proposition 4.18, p. 73; (4.24a)–(4.24b), pp. 73–74.] On M = ℝ_t × X with the product structure built from a scaled
@@ -414,9 +413,9 @@ family (for instance, when a cover of 𝕊³ by charts is replaced by another fi
 
 (S13) [Hin26d, Proposition 3.3, p. 29; Remark 3.48, p. 52.] Subdividing each cell of ℬ^× into cuboids of side lengths
 comparable to the scalings gives, for a large enough subdivision constant, a b.g. structure ρℬ, the *secondary
-structure*, whose coordinate vector fields span the large operator Lie algebra:
-𝒱′ = C^∞_(uni,ρℬ)(M; TM) = 𝒱 ⊗_(C^∞_(uni,ℬ)) C^∞_(uni,ρℬ). With all scalings equal to 1, ρℬ defines a calculus Ψ_(𝒱′), and
-wΨ^m_𝒱(M) ⊂ wΨ^m_(𝒱′)(M); the residual operators of Ψ_(𝒱′) are not required to be localised near the diagonal.
+structure*, whose coordinate vector fields span the large operator Lie algebra: 𝒱′ = C^∞_(uni,ρℬ)(M; TM) = 𝒱
+⊗_(C^∞_(uni,ℬ)) C^∞_(uni,ρℬ). With all scalings equal to 1, ρℬ defines a calculus Ψ_(𝒱′), and wΨ^m_𝒱(M) ⊂ wΨ^m_(𝒱′)(M);
+the residual operators of Ψ_(𝒱′) are not required to be localised near the diagonal.
 
 (S14) [Hin26d, Remark 3.13, p. 34.] On vector bundles of bounded geometry (trivialisations over the U_α with transition
 functions uniformly bounded in C^∞), 𝒱-differential operators are those which, in the charts and trivialisations, are
@@ -1338,11 +1337,11 @@ functions. (iii) is the support of η_ε. ∎
 order 𝗌. (b) Let K ∈ ℕ and T_t := Op(τ_t), τ_t := (1 + tρ_∞⁻¹)^(−K), t ∈ (0, 1]. Then T_t is bounded in Ψ̃⁰, lies in
 Ψ̃^(−K) for each t, and T_t → I strongly on every H^𝗌_e3b as t → 0.
 
-*Proof.* (a) If not, there is 0 ≠ w in the dual space H^(−𝗌) ((S8), the duality for variable orders) annihilating
-C_c^∞; then w = 0 as a distribution, a contradiction. (b) τ_t is bounded in S̃⁰: ρ_∞∂_(ρ_∞) of it is Ktρ_∞⁻¹(1 + tρ_∞⁻¹)⁻¹τ_t, which is bounded,
-and the other derivatives act on ρ_∞ only through such factors. It lies in S̃^(−K) for fixed t > 0. Moreover
-|1 − τ_t| ≤ min(1, Ktρ_∞⁻¹) ≤ K(tρ_∞⁻¹)^δ, and likewise for its derivatives, so τ_t → 1 in S̃^δ for every δ > 0. So
-‖(T_t − I)v‖_(H^𝗌) → 0 for v ∈ H^(𝗌+δ), by (S5). T_t is uniformly bounded on H^𝗌, and C_c^∞ ⊂ H^(𝗌+δ) is dense by (a),
+*Proof.* (a) If not, there is 0 ≠ w in the dual space H^(−𝗌) ((S8), the duality for variable orders) annihilating C_c^∞;
+then w = 0 as a distribution, a contradiction. (b) τ_t is bounded in S̃⁰: ρ_∞∂_(ρ_∞) of it is Ktρ_∞⁻¹(1 + tρ_∞⁻¹)⁻¹τ_t,
+which is bounded, and the other derivatives act on ρ_∞ only through such factors. It lies in S̃^(−K) for fixed t > 0.
+Moreover |1 − τ_t| ≤ min(1, Ktρ_∞⁻¹) ≤ K(tρ_∞⁻¹)^δ, and likewise for its derivatives, so τ_t → 1 in S̃^δ for every δ > 0.
+So ‖(T_t − I)v‖_(H^𝗌) → 0 for v ∈ H^(𝗌+δ), by (S5). T_t is uniformly bounded on H^𝗌, and C_c^∞ ⊂ H^(𝗌+δ) is dense by (a),
 so the convergence holds on all of H^𝗌. ∎
 
 For a ∈ C^((M))_ν S̃^𝗆 and u ∈ C_c^∞(M̃°), Op(a)u is defined by the formulae of (S4). The local quantization is
@@ -1417,7 +1416,7 @@ and adjoints are continuous, and its graph in the smaller class is closed. Then 
 finite regularity apply. The multilinear map is defined on the whole spaces of symbols of the stated orders and is
 determined by the expression, so the seminorms that [[lem:ii-a1-2-1]] produces, and hence M, depend only on the
 expression and the orders. When all orders are constant and ν = 0, the classes are those of (S5) without loss, and the
-same argument gives order μ.
+same argument gives order μ. ∎
 
 *Proof of (e).* Choose y ∈ C^∞(ᵉ³ᵇT̄*M̃) with y = 1 near K_1 and y = 0 near K_2, and put Y := Op(y) ∈ Ψ̃⁰
 ([[lem:ii-a1-1-1]]). Then B_1(I − Y) and YB_2 lie in Ψ̃^(−∞) by [[lem:ii-a1-1-2]], I − Y being Op(1 − y)
@@ -1513,9 +1512,9 @@ Ell(L) is defined by such a bound on a neighbourhood. Fix cut-offs χ̃_i ∈ C^
 supp χ̃_i ⊂ K_i, multiplied by base cut-offs so that the operators are carried by χ. Put G_i := Op(χ̃_i), i ≥ 1. By
 [[sec:ii-a1-1-2]], B is microsupported in K_0: B = Op(b) + R_B with supp b ⊂ K_0.
 
-*One step.* Let A ∈ Ψ̃^𝗋 be microsupported in K_i, A = Op(a) + R_A with a ∈ S̃^𝗋 (smooth) supported in K_i, and i ≤ J. Put
-q := χ̃_(i+1) a ℓ⁻¹ ∈ C^((d_0)) S̃^(𝗋−m), which is defined since ℓ is invertible on K_(i+1); writing ℓ = ρ_∞^(−m)ℓ_0, its
-norms are bounded by those of ℓ and by C_ℓ, by ∂(ℓ_0⁻¹) = −ℓ_0⁻¹(∂ℓ_0)ℓ_0⁻¹. By [[eq:ii-a1-1-2]],
+*One step.* Let A ∈ Ψ̃^𝗋 be microsupported in K_i, A = Op(a) + R_A with a ∈ S̃^𝗋 (smooth) supported in K_i, and i ≤ J.
+Put q := χ̃_(i+1) a ℓ⁻¹ ∈ C^((d_0)) S̃^(𝗋−m), which is defined since ℓ is invertible on K_(i+1); writing ℓ = ρ_∞^(−m)ℓ_0,
+its norms are bounded by those of ℓ and by C_ℓ, by ∂(ℓ_0⁻¹) = −ℓ_0⁻¹(∂ℓ_0)ℓ_0⁻¹. By [[eq:ii-a1-1-2]],
 
     Op(q)L = Op(q)Op(ℓ_f) + Op(q) Σ_j a_jR_j = Op(qℓ_f) + D_1 + Op(q) Σ_j a_jR_j,
 
@@ -1891,10 +1890,10 @@ hold by the construction, with d_0 large enough that the norms used are among th
 M of [[prop:ii-a1-2-4]] at the orders involved and index 1, called M′ here.
 
 *Conclusion.* The hypotheses of [[lem:ii-a1-4-2]] hold with Γ := γ([0, T]). For each U ⊃ Γ shrink δ and δ_1, and the
-supports of the localisers, so that the supports lie in U. The E-sets lie in {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ⊂ Ell(E), which misses Γ. There is no threshold, so
-τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and [[eq:ii-a1-4-5]] is [[eq:ii-a1-5-1]], with any
-B ∈ C^∞_b Ψ⁰_e3b carried by χ, microsupported in U_* and elliptic on Γ. On ℂ^(N′) the commutant is scalar and L_I is
-matrix-valued; nothing above used a scalar L_I.
+supports of the localisers, so that the supports lie in U. The E-sets lie in {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ⊂ Ell(E), which
+misses Γ. There is no threshold, so τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and
+[[eq:ii-a1-4-5]] is [[eq:ii-a1-5-1]], with any B ∈ C^∞_b Ψ⁰_e3b carried by χ, microsupported in U_* and elliptic on Γ. On
+ℂ^(N′) the commutant is scalar and L_I is matrix-valued; nothing above used a scalar L_I.
 
 The uniformity: all constants are bounded by finitely many norms of the coefficients, by the bounds of
 [[lem:ii-a1-5-2]], and by M, δ and δ_1. Let L′ be a perturbation small in C^(d_0), with field 𝖧′, let γ′ be the

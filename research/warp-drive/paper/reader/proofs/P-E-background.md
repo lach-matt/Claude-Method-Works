@@ -235,7 +235,8 @@ has Chebyshev sums σ_m of ∂_ρ^m P on each box [a, b] × [2.32, 3.44]. Since 
 and Leibniz's rule give
 
     |D_m| ≤ Σ_(j≤m) C(m, j) (σ_(m−j)/(4Ŝ_min)) g_j,    g_0 = Ψ̃_min^(−2),  g_1 = 2J̄Ψ̃_min^(−3),
-    g_2 = 6J̄²Ψ̃_min^(−4) + 2K̄Ψ̃_min^(−3),  g_3 = 24J̄³Ψ̃_min^(−5) + 18J̄K̄Ψ̃_min^(−4) + 2L̄Ψ̃_min^(−3),  {#eq:bg-ray-defects}
+    g_2 = 6J̄²Ψ̃_min^(−4) + 2K̄Ψ̃_min^(−3),
+    g_3 = 24J̄³Ψ̃_min^(−5) + 18J̄K̄Ψ̃_min^(−4) + 2L̄Ψ̃_min^(−3),  {#eq:bg-ray-defects}
 
 J̄, K̄, L̄ the bounds of |J̃|, |K̃|, |L̃| on the box ([[sec:tab-bg-ray-defects]]).
 
@@ -305,7 +306,7 @@ seed region 0.70 ≤ R ≤ 1.861 (0.02 ≤ v̂ ≤ 1.181) lies in region III, an
 
 (b) For every v̂ ∈ [0.02, 1.181],
 
-    |ψ_s(v̂) − ψ_III(v̂)| ≤ 3.03 × 10⁻⁵,   |ψ_s′(v̂) − ψ_III′(v̂)| ≤ 2.40 × 10⁻⁴,   |ψ_s″(v̂) − ψ_III″(v̂)| ≤ 8.56 × 10⁻⁴,
+    |ψ_s(v̂) − ψ_III(v̂)| ≤ 3.03 × 10⁻⁵,  |ψ_s′(v̂) − ψ_III′(v̂)| ≤ 2.40 × 10⁻⁴,  |ψ_s″(v̂) − ψ_III″(v̂)| ≤ 8.56 × 10⁻⁴,
 
 and |μ3 − μ_s| ≤ 1.79 × 10⁻⁶. In particular the bounds 5.1 × 10⁻⁵, 2.6 × 10⁻⁴, 8.7 × 10⁻⁴ (k = 0, 1, 2) and 1.4 ×
 10⁻⁵ hold at every point of the seed region.
@@ -324,11 +325,13 @@ has R = v̂(ρ) + 0.68; since R decreases along the ray ([[lem:bg-reduction]] (c
 (b) Since v̂(2.3282) ≤ 0.0199332 < 0.02 and v̂(2.7735) ≥ 1.18111 > 1.181, it suffices to bound, for ρ ∈ [2.3282,
 2.7735] and k = 0, 1, 2, the function e_k(ρ) := ψ_s^(k)(v̂(ρ)) − Ψ_k(ρ, Φ, …, μ3). Split
 
-    e_k = ẽ_k + (Ψ_k(ρ, Φ̃, …, μ̃3) − Ψ_k(ρ, Φ, …, μ3)),   ẽ_k(ρ) := ψ_s^(k)(v̂(ρ)) − Ψ_k(ρ, Φ̃, …, μ̃3).  {#eq:bg-seed-split}
+    e_k = ẽ_k + (Ψ_k(ρ, Φ̃, …, μ̃3) − Ψ_k(ρ, Φ, …, μ3)),
+    ẽ_k(ρ) := ψ_s^(k)(v̂(ρ)) − Ψ_k(ρ, Φ̃, …, μ̃3).  {#eq:bg-seed-split}
 
 On each interval of [[sec:tab-bg-seed]], consider the box
 
-    ρ in the interval,   Φ^(j) in the enclosure of Φ̃^(j) on it widened by ε_j (j ≤ 3),   |μ3 − μ̃3| ≤ 4.07 × 10⁻⁷.  {#eq:bg-seed-box}
+    ρ in the interval,   Φ^(j) in the enclosure of Φ̃^(j) on it widened by ε_j (j ≤ 3),
+    |μ3 − μ̃3| ≤ 4.07 × 10⁻⁷.  {#eq:bg-seed-box}
 
 It contains (Φ, …, μ3) and (Φ̃, …, μ̃3) ([[prop:bg-rays]] at u2, [[prop:bg-nprime]] (ii)), and the partial derivatives
 of Ψ_k are bounded there as in [[sec:tab-bg-seed]] ([[lem:bg-tools]] (d)). By the mean value theorem the second term
