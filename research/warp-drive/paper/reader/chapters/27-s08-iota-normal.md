@@ -246,11 +246,11 @@ manifold with metric g, P a second-order operator with smooth coefficients on a 
 symbol g⁻¹(ζ, ζ) Id, τ a time function on X and c ∈ ℝ. Assume that for every p ∈ X with τ(p) > c there is a compact set
 L_p ⊂ X containing J⁻_X(p) ∩ {τ ≥ c}. If w ∈ 𝒟′(X), Pw = 0 and supp w ⊂ {τ > c}, then w = 0.
 
-*Proof.* We use the following from [BGP]. Theorem 3.1.1 (p. 68): on a connected time-oriented Lorentzian manifold with
-no causal loops, a closed causal relation and a finite continuous time separation, a distribution with past or future
-compact support solving Pu = 0, P normally hyperbolic, vanishes. Remark 3.1.3 (p. 72): these assumptions hold on
-globally hyperbolic manifolds. Definition 1.3.8 (p. 23): global hyperbolicity is strong causality with J⁺(p) ∩ J⁻(q)
-compact for all p, q. A set A is past compact if A ∩ J⁻(p) is compact for every p, and a curve is inextendible if no
+*Proof.* We use the following from [BGP], whose pages are cited from its arXiv version 1. Theorem 3.1.1 (p. 68): on a
+connected time-oriented Lorentzian manifold with no causal loops, a closed causal relation and a finite continuous time
+separation, a distribution with past or future compact support solving Pu = 0, P normally hyperbolic, vanishes. Remark
+3.1.3 (p. 72): these assumptions hold on globally hyperbolic manifolds. Definition 1.3.8 (p. 23): global hyperbolicity
+is strong causality with J⁺(p) ∩ J⁻(q) compact for all p, q. A set A is past compact if A ∩ J⁻(p) is compact for every p, and a curve is inextendible if no
 piecewise C¹ reparametrisation extends continuously to an end point (p. 18). The Cauchy development D(S) of S is the set
 of points through which every inextendible causal curve meets S (Definition 1.3.5, p. 22), and the causal future of a
 Cauchy hypersurface is past compact (p. 22). Lemma A.5.9 (p. 176): for an acausal hypersurface S, D(S) is an open,

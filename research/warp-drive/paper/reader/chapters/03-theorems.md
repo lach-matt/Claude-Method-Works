@@ -43,8 +43,8 @@ stages, λ ≤ λ_Ω := min(1, δ0)/10 with δ0 = q0 − a as in [[sec:domain]] 
 bound below which the theorem holds: that is λ0), and the data are solved in H^s(S³) with s > 3/2 + 4 ([[ch:data]]). λ0
 and C are not evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point. Every constant of the approximant's own
 estimates is independent of λ, because its profiles are ([[thm:approximant]]). The waves are high-frequency on all of
-D_T once λ < l5/10: on D_T, x_K = l5² √𝒦 ≤ 1, so the curvature length 𝒦^(−1/4) is at least l5, and λ 𝒦^(1/4) ≤ λ/l5
-< 1/10.
+D_T once λ < l5/10: on D_T, x_K = l5² √𝒦 ≤ 1, so the curvature length 𝒦^(−1/4) is at least l5, and λ 𝒦^(1/4) ≤
+λ/l5 < 1/10.
 
 **Proposition {#prop:boundary-spacelike}** (the boundary). On x_K = 1, with Φ := r − r_q(v),
 

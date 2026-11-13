@@ -943,33 +943,157 @@ the order staying 𝗌, so that d_0 depends only on 𝗌. Finally, by [[lem:ii-e
 *The extension in the tame estimates.* A tame bound controls a low and a high b-regularity of one function at once, so
 its proof needs one extension of the right-hand side f across the final faces of the slab that is nearly minimal for
 the norms of every order (𝗌 − 1; j) at once; the minimal extension used in the proof of [[prop:ii-e-4-3]] is minimal
-for one norm only. Across {r = r_0}, where Ω_* ends and no room is available, the extension of [[lem:ii-f1-2-5]]
-provides it when the order is constant near {r ≤ r_0} with value a nonnegative integer there: it is a Seeley extension
-in r at fixed (t^♭, ω), glued to any extension away from {r = r_0}, and it is bounded at every order of b-regularity at
-once. Its construction uses nothing from this section, so the reference is not circular. Across the time-final face
-{t^♭ = T_1} the right-hand side is, wherever the tame estimates below are applied (in [[thm:ii-e-6-1]], in
-[[sec:ii-f1-3]] and [[sec:ii-f1-4]], and in the proof of [[thm:ii-f-8-1]]), the restriction to the slab of one given on
-a larger slab, and the cut-off χ_3 of the proof of [[lem:ii-e-4-1]] (b) provides the extension there
-[[pending:issue-2]]. The orders of [[lem:ii-f1-2-3]], at which [[eq:ii-e-4-4]], [[eq:ii-e-5-6]] and [[eq:ii-e-6-2]] are
-applied, are constant near {r ≤ r_0}, with a nonnegative integer value there.
+for one norm only. Across {r = r_0}, where Ω_* ends and no room is available, and across the final face {r = a} of the
+r-slabs of [[sec:ii-e-5]], [[lem:s07-extension]] below provides one when the order 𝗌 − 1 of the right-hand side is
+constant near the face with value a nonnegative integer there, that is, when 𝗌 is a positive integer there. Across the
+time-final face {t^♭ = T_1}, which meets ℐ⁺, where an order need not be constant, no such extension is constructed (no
+single extension operator respects all variable orders, [Hin26c, footnote 64]); the tame estimate on a slab is
+therefore stated for a right-hand side given on the larger slab Ω_(T_0,T_1+1), and a cut-off in t^♭ provides the
+extension there. Wherever the tame estimates are applied, in the proof of [[thm:ii-e-6-1]] below and in
+[[lem:ii-f1-2-9]] and [[prop:ii-f1-4-1]], the right-hand side is the restriction of one given on Ω_*; in the last two
+the orders are those of [[lem:ii-f1-2-3]], which are constant near {r ≤ r_0} with values at least 2 there.
 
-**Proposition {#prop:ii-e-4-4}** (Tame estimates on slabs.) In the setting of [[prop:ii-e-4-3]], let 𝗌 be constant near
-{r ≤ r_0}, with value a nonnegative integer there [[pending:issue-1]]. There is d ∈ ℕ, depending only on 𝗌, such that
-for all k and all P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ‖P − P_0‖_((d_0;d),(2ℓ_I,ℓ_+,ℓ_K)) small,
+**Lemma {#lem:s07-extension}** (A simultaneous extension across an r-face.) Let 𝗍 be an order function, m ∈ ℕ_0 and
+κ_0 > 0, and let Ω′_+ be one of the following, with r-face {r = c} and final time T_+:
+
+(S) a slab Ω_(T_0,T_+) with T_0 ≥ 1 and T_+ ≥ T_0 + 1, with c := r_0 and the spaces of [[sec:ii-e-1-1]] at a weight
+2β, that is, at the weights (2β, 0, 0);
+
+(K) an r-slab Ω^K_([c,b]) of [[sec:ii-e-5-1]] with T_0 ≥ 1 − η_0/2 and r^♯ < c < b ≤ r^♮, with T_+ := ∞ and the spaces
+of [[sec:ii-e-5-1]] at a weight β, that is, at the weights (0, 0, β).
+
+Write H^((𝗍;j))(Ω′_+)^(•,−) for the space of forward problems on Ω′_+ of order (𝗍;j) at that weight, and
+H^((𝗍;j))_(e3b;b) for the space at those weights on M. Suppose that 𝗍 = m over
+
+    𝒰 := {T_0 − κ_0 < t^♭ < T_+ + κ_0, c − κ_0 < r < c + κ_0},
+
+a subset of the region {t_* ≥ 1/2, r ≥ r^♯} on which t^♭ is defined ([[lem:ii-e-1-2]] (iv)). Then there is a linear
+map ℰ on H^((𝗍;0))(Ω′_+)^(•,−) such that for every u in it:
+
+(i) ℰu ∈ H^((𝗍;0))_(e3b;b) is supported in {t^♭ ≥ T_0}, and in case (K) in {t^♭ ≥ T_0, r ≤ b};
+
+(ii) ℰu = u on {t^♭ < T_+ − 1/2, r > c};
+
+(iii) for every j ∈ ℕ_0, in the strong sense and with C_j independent of u,
+
+    ‖ℰu‖_(H^((𝗍;j))_(e3b;b)) ≤ C_j ‖u‖_(H^((𝗍;j))(Ω′_+)^(•,−)).
+
+*Proof.* *Choices.* Decreasing κ_0, we may assume κ_0 ≤ η_0/4, c − κ_0 > r^♯ and c + κ_0 < r^♮ (in case (S),
+r^♯ < r_0 < r^♮); as η_0 of [[lem:ii-e-1-2]] may be decreased, we take η_0 ≤ 1/2, so that T_0 − κ_0 ≥ 1/2. Fix
+κ ∈ (0, κ_0/3], in case (K) with c + 2κ ≤ b. Let ψ = ψ(r) equal 1 for r ≤ c + κ and 0 for r ≥ c + 2κ; ψ_− = ψ_−(r)
+equal 1 for r ≥ c and 0 for r ≤ c − κ; and χ_+ = χ_+(t^♭) equal 1 on (−∞, T_+ − 1/2] and 0 on [T_+ − 1/4, ∞), with
+χ_+ ≡ 1 if T_+ = ∞. These have bounded b-derivatives: ψ and ψ_− are smooth functions of x on a bounded range of r, and
+χ_+ varies only where t_* ≤ T_+/C′ ([[lem:ii-c-3-2]] (b)), at bounded times, where t^♭ has bounded b-derivatives.
+
+*Coordinates.* Let W := {t_* ≥ 1/2, r^♯ ≤ r < r^♮}. With the constant C ≥ 4(r′_0 + 1) of the proof of
+[[lem:ii-e-1-2]] (iv), r < r^♮ < r′_0 ≤ Ct_*/2 − 1 on W, so the gluing formula of the proof of [[lem:ii-c-3-2]] gives
+
+    t^♭ = C′(t_* + R̃(r))     on W,
+
+with R̃ smooth, R̃′ ∈ [0, 1] and r′_0 ≤ R̃ ≤ r′_0 + 1 on W. So (t^♭, r, ω) are coordinates on W, with
+t_* = t^♭/C′ − R̃(r). As C′ < (1 + C)⁻¹ ≤ 1/5, C′R̃ < 1/4 < (1 − C′)t_*, that is, t^♭ < t_* on W. Hence 𝒰 ⊂ W lies in
+{t_* > T_0 − κ_0} ⊂ {t_* > 1/2} and is open in M. As r ∈ (r^♯, r^♮) on 𝒰, its closure meets ∂M at most in (K⁺)°,
+where x_I and ρ_+ are smooth and positive, ρ_K = t_*⁻¹, the e3b-vector fields are spanned by ∂_(t_*), ∂_x and the
+b-vector fields by t_*∂_(t_*), ∂_x ([[sec:ii-e-5-1]]); in M° both structures are the standard one. As r is bounded
+above and below on 𝒰, ∂_x and the fields ∂_r, Ω_12, …, Ω_34 (the rotation fields of [[sec:ii-e-4-2]]) span the same
+module over functions of x with bounded derivatives; and
+
+    ∂_(t_*) = C′∂_(t^♭),     ∂_r|_(t_*) = ∂_r|_(t^♭) + C′R̃′ ∂_(t^♭),     t_*∂_(t_*) = q t^♭∂_(t^♭),
+
+with q := C′t_*/t^♭ = t_*/(t_* + R̃). The functions q, q⁻¹ = 1 + R̃ t_*⁻¹ and C′R̃′/t^♭ have bounded b-derivatives. So on
+𝒰 the e3b-vector fields are spanned by ∂_(t^♭), ∂_r and the Ω_ab, and the b-vector fields by t^♭∂_(t^♭), ∂_r and the
+Ω_ab, with coefficients in C^∞_b. The weight function of the spaces, x_I^(2β) in case (S) and ρ_K^β in case (K), is
+(t^♭)^(−e) times a function bounded above and below with bounded b-derivatives, where e := 0 in case (S) (t^♭ being
+bounded on 𝒰) and e := β in case (K) (as ρ_K = t_*⁻¹ = C′q⁻¹(t^♭)⁻¹). The density |dg| is a smooth positive multiple
+of |dt_* dx| = r³ |dt_* dr dω| = (r³/C′) |dt^♭ dr dω| ([[sec:ii-e-5-1]] near K⁺).
+
+*Differential norms.* Let 𝒦 := {T_0 ≤ t^♭ ≤ T_+, c − 2κ ≤ r ≤ c + 2κ}. For v supported in 𝒦 and j ∈ ℕ_0 put
+
+    D_(m,j)(v) := Σ_(i+q≤j) Σ_(p+q′≤m) ‖(t^♭)^e (t^♭∂_(t^♭))^i Y^q ∂^p_(t^♭) Y^(q′) v‖_(L²(|dt^♭ dr dω|)),
+
+where Y^q runs over the products of q fields among ∂_r and the Ω_ab. Then ‖v‖_(H^((𝗍;j))_(e3b;b)) and D_(m,j)(v) are
+equivalent on such v, with constants depending on m and j. Indeed, let φ := φ_1(t^♭) φ_2(r), with φ_1 equal to 1 on
+[T_0 − κ_0/3, T_+ + κ_0/3] and supported in (T_0 − 2κ_0/3, T_+ + 2κ_0/3), and φ_2 equal to 1 on [c − 2κ, c + 2κ] and
+supported in (c − κ_0, c + κ_0). Then φ ∈ C^∞_b, supp φ ⊂ 𝒰 and φ = 1 near 𝒦. By [[lem:ii-f1-2-4]] (with U := 𝒰, and
+𝗍 against the constant m both ways), whose proof uses only [[ch:s04]], the norms of orders (𝗍;j) and (m;j) are
+equivalent on such v, the terms of order (−ν;j) of that lemma being bounded by either side, as m ≥ 0 ≥ −ν. As
+m ∈ ℕ_0, the norm of order (m;j) is equivalent on such v to D_(m,j)(v): by [[eq:ii-a-8-1]] it is the sum of the
+H^m_e3b-norms of up to j b-derivatives of v, and on 𝒰 the spanning set used there may be replaced by t^♭∂_(t^♭), ∂_r
+and the Ω_ab; in each scaled chart of (S3) of [[sec:ii-a-3]] the H^m(ℝ⁵)-norm is the sum of the L²-norms of up to m
+derivatives, and on 𝒰 the scaled coordinate fields and ∂_(t^♭), ∂_r, Ω_ab span the e3b-vector fields over C^∞_b;
+derivatives falling on coefficients, on the partition functions of (S3) and on the weight, and the reordering of the
+factors, give terms of the same form with fewer derivatives; and the weight and the density are as above.
+
+*The reflection.* Let c_l and ε_l = 3^(−l) be the constants of [[lem:ii-e-1-3]] (b), so that Σ_l |c_l| ε_l^(−q) < ∞
+and Σ_l c_l (−ε_l⁻¹)^q = 1 for q ∈ ℕ_0. For z on {r > c} supported in 𝒦 put ℰ_c z := z on {r > c} and
+
+    (ℰ_c z)(t^♭, r, ω) := Σ_l c_l z(t^♭, c + (c − r)/ε_l, ω),     r < c.
+
+As (c − r)/ε_l ≥ c − r, ℰ_c z vanishes for r < c − 2κ, so it is supported in 𝒦. ℰ_c commutes with ∂_(t^♭),
+t^♭∂_(t^♭), the Ω_ab and multiplication by functions of t^♭. On {r < c}, a product of these fields containing q_r
+factors ∂_r, applied to ℰ_c z, is Σ_l c_l (−ε_l⁻¹)^(q_r) times the same product applied to z, evaluated at
+(t^♭, c + (c − r)/ε_l, ω); by the substitution r ↦ c + (c − r)/ε_l, the L²-norm on {r < c} of each such term is ε_l^(1/2)
+times the L²-norm on {r > c} of the product applied to z. For z smooth up to {r = c}, the derivatives of every order of
+ℰ_c z match across {r = c}, as Σ_l c_l (−ε_l⁻¹)^q = 1, so its distributional derivatives carry no term supported on
+{r = c}. Hence, with D⁺_(m,j) denoting D_(m,j) with the integrals taken over {r > c},
+
+    D_(m,j)(ℰ_c z) ≤ (1 + Σ_l |c_l| ε_l^(1/2−m−j)) D⁺_(m,j)(z),
+
+first for such z and then, by density, for every z with D⁺_(m,j)(z) < ∞.
+
+*The map.* For u ∈ H^((𝗍;0))(Ω′_+)^(•,−) let ũ be an extension of u with the support required in the definition of
+the space ({t^♭ ≥ T_0}, in case (K) {t^♭ ≥ T_0, r ≤ b}), and put
+
+    ℰu := χ_+ (1 − ψ) ũ + ℰ_c(χ_+ ψ u).
+
+Two such extensions differ by a distribution supported in {t^♭ ≥ T_+} ∪ {r ≤ c}, near which χ_+(1 − ψ) vanishes, so
+the first term does not depend on ũ. In the second, χ_+ψu, extended by zero to {t^♭ ≥ T_+}, is a distribution on
+{r > c} supported in {T_0 ≤ t^♭ ≤ T_+ − 1/4, r ≤ c + 2κ} ⊂ 𝒦. So ℰ is well defined and linear. (i): the first term is
+supported in supp ũ, the second in 𝒦 ∩ {t^♭ ≥ T_0}, which lies in {r ≤ c + 2κ} ⊂ {r ≤ b} in case (K). (ii): on
+{t^♭ < T_+ − 1/2, r > c}, χ_+ = 1 and ℰu = (1 − ψ)u + ψu = u.
+
+(iii) For every j and every extension ũ as above with finite norm of order (𝗍;j),
+‖χ_+(1 − ψ)ũ‖_((𝗍;j)) ≤ C_j ‖ũ‖_((𝗍;j)) ([[lem:ii-a-8-4]] (a)); the left side does not depend on ũ, so it is at most
+C_j ‖u‖_(H^((𝗍;j))(Ω′_+)^(•,−)). For the second term, ψ_−ψχ_+ũ is supported in 𝒦 and equals χ_+ψu on {r > c}, so by
+the equivalence of norms and [[lem:ii-a-8-4]] (a)
+
+    D⁺_(m,j)(χ_+ψu) ≤ D_(m,j)(ψ_−ψχ_+ũ) ≤ C ‖ψ_−ψχ_+ũ‖_((𝗍;j)) ≤ C_j ‖ũ‖_((𝗍;j)),
+
+and the infimum over ũ, taken for each j separately, bounds D⁺_(m,j)(χ_+ψu) by C_j ‖u‖_(H^((𝗍;j))(Ω′_+)^(•,−)). As
+ℰ_c(χ_+ψu) is supported in 𝒦, ‖ℰ_c(χ_+ψu)‖_((𝗍;j)) ≤ C D_(m,j)(ℰ_c(χ_+ψu)) ≤ C D⁺_(m,j)(χ_+ψu). Each step holds
+whenever its right side is finite, which gives (iii) in the strong sense. ∎
+
+The construction is the one by which [[lem:ii-f1-2-5]] extends functions on Ω_* across {r = r_0}. On a slab the cut-off
+χ_+ makes the first term independent of the extension beyond the time-final face, where the extensions of u are not
+unique; ℰu then agrees with u only up to t^♭ = T_+ − 1/2, which is why the tame estimate below takes its right-hand
+side on a slab one unit of time longer.
+
+**Proposition {#prop:ii-e-4-4}** (Tame estimates on slabs.) In the setting of [[prop:ii-e-4-3]], let 𝗌 be constant
+near {r ≤ r_0}, over {t_* ≥ 1/2, r^♯ ≤ r < r_0 + κ_0} for some κ_0 > 0, with value a positive integer there, and put
+Ω′_+ := Ω_(T_0,T_1+1). There is d ∈ ℕ, depending only on 𝗌, such that for all k, all P of class
+((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ‖P − P_0‖_((d_0;d),(2ℓ_I,ℓ_+,ℓ_K)) small and all f ∈ H^((𝗌−1;k),2α+2)(Ω′_+)^(•,−), the
+forward solution u on Ω′ of Pu = f (that is, of Pu = f|_(Ω′)) satisfies
 
     ‖u‖_(H^((𝗌;k),2α)(Ω′)^(•,−))
-        ≤ C_k (‖f‖_(H^((𝗌−1;k),2α+2)(Ω′)^(•,−)) + ε_(P,k) ‖f‖_(H^((𝗌−1;d),2α+2)(Ω′)^(•,−))),               {#eq:ii-e-4-4}
+        ≤ C_k (‖f‖_(H^((𝗌−1;k),2α+2)(Ω′_+)^(•,−)) + ε_(P,k) ‖f‖_(H^((𝗌−1;d),2α+2)(Ω′_+)^(•,−))),           {#eq:ii-e-4-4}
 
 with ε_(P,k) := ‖P − P_0‖_((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)), which may be taken over a neighbourhood of Ω′, and C_k depending on P
 only through a bound for ε_(P,d).
 
-This is [Hin26c, Proposition 8.9] in dimension 4 + 1. [Hin26c] states it for "s ∈ ℕ an admissible order function"; the
-proof uses only what [[prop:ii-e-4-3]] uses, together with the extension just described.
+This is [Hin26c, Proposition 8.9] in dimension 4 + 1, with the right-hand side given on a slab one unit of time longer
+than Ω′. [Hin26c] states it for "s ∈ ℕ an admissible order function"; the proof uses only what [[prop:ii-e-4-3]] uses,
+together with [[lem:s07-extension]].
 
 *Proof.* Let d̃ and the regularity of [[prop:ii-a-9-6]] be those of [[lem:ii-e-4-1]] (b) at the orders 𝗌 + 1 and
-𝗌 − 1, and d := d̃ + 3. For k ≤ d, [[eq:ii-e-4-4]] is [[eq:ii-e-4-2]], whose constant depends on ε_(P,k) ≤ ε_(P,d).
-For k > d, let Ω″ := Ω^♯_(T_0,T_1) and u″ be as in the proof of [[prop:ii-e-4-3]], with f″ now the restriction to Ω″ of
-the extension of f described before the statement, so that ‖f″‖_((𝗌−1;j)) ≤ C_j ‖f‖_((𝗌−1;j)) for every j at once.
+𝗌 − 1, and d := d̃ + 3. An extension of f supported in {t^♭ ≥ T_0} also extends f|_(Ω′), so the norms of f|_(Ω′) on Ω′
+are at most those of f on Ω′_+. For k ≤ d, [[eq:ii-e-4-4]] therefore follows from [[eq:ii-e-4-2]], whose constant
+depends on ε_(P,k) ≤ ε_(P,d). For k > d, let Ω″ := Ω^♯_(T_0,T_1) and u″ be as in the proof of [[prop:ii-e-4-3]], with
+f″ := (ℰf)|_(Ω″) now, ℰ the extension of [[lem:s07-extension]] (S) for the slab Ω′_+, the order 𝗍 := 𝗌 − 1 and the
+weight 2α + 2 (its hypothesis holds with κ_0 replaced by min(κ_0, r_0 − r^♯)). As ℰf is supported in {t^♭ ≥ T_0} and
+equals f on {t^♭ < T_1 + 1/2, r > r_0}, f″ = f on Ω′, so u″|_(Ω′) = u by uniqueness, and, for every j at once,
+
+    ‖f″‖_(H^((𝗌−1;j),2α+2)(Ω″)^(•,−)) ≤ ‖ℰf‖_(H^((𝗌−1;j),2α+2)_(e;b)) ≤ C_j ‖f‖_(H^((𝗌−1;j),2α+2)(Ω′_+)^(•,−)).
+
 Run the induction of [[prop:ii-e-4-3]] on nested slabs
 
     Ω′ ⊂ Ω_(2k) ⊂ Ω_(2k−1) ⊂ ⋯ ⊂ Ω_(0) = Ω″,
@@ -1226,8 +1350,8 @@ small, every u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^•, s′ ∈ ℝ, with f := 
     ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a,b]))^•)
         ≤ C_k (‖f‖_(H^((𝗌−1;k),α_K)(Ω^K_([a,b]))^•) + ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a⁺,b]))^•)).                {#eq:ii-e-5-5}
 
-(b) If 𝗌 is constant near {r = a}, with value a nonnegative integer there [[pending:issue-1]], there is d ∈ ℕ,
-depending only on 𝗌, such that for all k and P of that class with ε_(P,d) small,
+(b) If 𝗌 is constant over {t^♭ > T_0 − κ_0, a − κ_0 < r < a + κ_0} for some κ_0 > 0, with value a positive integer
+there, there is d ∈ ℕ, depending only on 𝗌, such that for all k and P of that class with ε_(P,d) small,
 
     ‖u‖_((𝗌;k)) ≤ C_k (‖f‖_((𝗌−1;k)) + ‖u‖^([a⁺,b])_((𝗌;k))
                        + ε_(P,k) (‖f‖_((𝗌−1;d)) + ‖u‖^([a⁺,b])_((𝗌;d)))),                             {#eq:ii-e-5-6}
@@ -1269,9 +1393,11 @@ j − q + 1 ≤ j − 1, bounded by [[eq:ii-e-5-8]] at j − 1. This proves [[eq
 
     Ω^K_([a,b]) ⊂ Ω_(2k) ⊂ ⋯ ⊂ Ω_(0) = Ω″
 
-with room 2^(−i−2) δ_1 at the final face, two per step as there, and d := d̃ + 3; the right-hand side is extended
-across {r = a} by an extension bounded at every order of b-regularity at once, as described before
-[[prop:ii-e-4-4]]. The one new term is [P, χ]u in [[eq:ii-e-5-7]]. Its coefficients are χ′ times those of P, which are
+with room 2^(−i−2) δ_1 at the final face, two per step as there, and d := d̃ + 3. The right-hand side is now
+g″ := (ℰg)|_(Ω″), with ℰ the extension of [[lem:s07-extension]] (K) for the r-slab Ω^K_([a,b]), the order 𝗍 := 𝗌 − 1
+and the weight α_K. As ℰg is supported in {t^♭ ≥ T_0, r ≤ b} and equals g on {r > a}, v″|_(Ω^K_([a,b])) = v by
+uniqueness, and ‖g″‖_(H^((𝗌−1;j),α_K)(Ω″)^(•,−)) ≤ C_j ‖g‖_(H^((𝗌−1;j),α_K)(Ω^K_([a,b]))^(•,−)) for every j at once.
+The one new term is [P, χ]u in [[eq:ii-e-5-7]]. Its coefficients are χ′ times those of P, which are
 stationary smooth ones plus O(ε_(P,k)) in C^((d_0;k)); by [[lem:ii-e-4-1]] (b), whose proof applies verbatim to the
 spaces H(·)^• with room at both r-faces, here {a⁺ + δ_2 ≤ r ≤ b − δ_2} inside Ω^K_([a⁺,b]),
 
@@ -1300,9 +1426,9 @@ the scheme of [[prop:ii-e-3-4]]), and admissible orders are slab orders by [[pro
 
 for P = P_0, in the strong sense, and for every weakly admissible P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) (conditions (1)
 and (2) of [[def:ii-c-3-3]], as in [[sec:ii-e-1-1]]) with ε_(P,k)
-small, with C_k uniform; d_0 depends only on 𝗌_0 and 𝗌. Moreover, if 𝗌 and 𝗌_0 are constant near {r ≤ r_0}, with
-nonnegative integer values there [[pending:issue-1]], there is d ∈ ℕ such that for every k and every P of that class
-with ε_(P,d) small,
+small, with C_k uniform; d_0 depends only on 𝗌_0 and 𝗌. Moreover, if 𝗌 and 𝗌_0 are constant near {r ≤ r_0}, over
+{t_* ≥ 1/2, r^♯ ≤ r < r_0 + κ_0} for some κ_0 > 0, with values there a positive integer and a nonnegative integer
+respectively, there is d ∈ ℕ such that for every k and every P of that class with ε_(P,d) small,
 
     ‖u‖_((𝗌;k)) ≤ C_k (‖Pu‖_((𝗌;k)) + ‖u‖_((𝗌_0;k)) + ε_(P,k) (‖Pu‖_((𝗌;d)) + ‖u‖_((𝗌_0;d)))),           {#eq:ii-e-6-2}
 
@@ -1356,9 +1482,11 @@ On Ω^K_([r_1^+,r^♮]), u = ψ_t(t^♭)u + (1 − ψ_t(t^♭))χu, as χ = 1 on
 C times the sum of the first two norms on the right of [[eq:ii-e-6-3]], which (A) and (B) bound.
 
 Inserting (A)–(C) in [[eq:ii-e-6-3]] gives [[eq:ii-e-6-1]], and in the strong sense, as each of (A)–(C) holds in it.
-For [[eq:ii-e-6-2]] use [[prop:ii-e-4-4]], [[eq:ii-d1-1-2]] and [[prop:ii-e-5-6]] (b) instead; in (A) the right-hand
-side f is the restriction of Pu, given on all of Ω_*, so its norms on the larger slabs used in the proof of
-[[prop:ii-e-4-4]] are bounded by the norms on Ω_*. The term ε_(P,k) ‖u‖^([r_1^+,r^♮])_((𝗌;d)) of [[eq:ii-e-5-6]] is
+For [[eq:ii-e-6-2]] use [[prop:ii-e-4-4]], [[eq:ii-d1-1-2]] and [[prop:ii-e-5-6]] (b) instead, whose hypotheses on 𝗌
+hold by assumption (for [[prop:ii-e-5-6]] (b) with a := r_0, T_0 = 1 and κ_0 replaced by min(κ_0, r_0 − r^♯)). In
+(A), [[prop:ii-e-4-4]] on Ω_(1,5) bounds u by the norms of f on Ω_(1,6); f is the restriction of Pu, given on all of
+Ω_*, and on Ω_(1,6), as on Ω_(1,5), ρ_+ and ρ_K are bounded above and below, so for every j its norm there of order
+(𝗌 − 1; j) is at most C_j times the norm of Pu of order (𝗌; j) on Ω_*. The term ε_(P,k) ‖u‖^([r_1^+,r^♮])_((𝗌;d)) of [[eq:ii-e-5-6]] is
 bounded by (A) and (B) at k = d, with constants depending on ε_(P,d) only. d_0 and d are the largest of those of the
 three pieces. Uniformity in P_0: the constants of [[sec:ii-e-2]]–[[sec:ii-e-5]] depend on P_0 through finitely many
 coefficient norms and the margins of [[lem:ii-c-3-2]], of [[eq:ii-e-1-2]] and of the dynamics of [[ch:s05]], which are
