@@ -34,7 +34,7 @@ timelike curve of the spatial origin, at each time; it is not K⁺. The *ebe-vec
 are the b-vector fields of [0, ∞] × ι⁺ tangent to the fibres of 𝓘⁺ → 𝕊³ and of cf → [0, ∞]_τ. With χ ∈ C_c^∞([0, 3))
 equal to 1 on [0, 2] they are spanned over C^∞ by
 
-    χ(R) R∂_R,   χ(R) Z_a,   χ(R) Rτ∂_τ,      χ(v) v∂_v,   χ(v) √v Z_a,   χ(v) τ∂_τ,      v = R⁻¹,      {#eq:ii-f-6-1}
+    χ(R) R∂_R,   χ(R) Z_a,   χ(R) Rτ∂_τ,      χ(v) v∂_v,   χ(v) √v Z_a,   χ(v) τ∂_τ,      v = R⁻¹,       {#eq:ii-f-6-1}
 
 where Z_a, a = 1, …, 6, are the rotation fields Z_(ij) = x_i ∂_(x_j) − x_j ∂_(x_i), 1 ≤ i < j ≤ 4, of 𝕊³ ⊂ ℝ⁴, in
 place of the coordinate fields ∂_ω of [Hin26c, (10.42)]. They span T𝕊³ at every point: for x ∈ 𝕊³ and w ∈ T_x𝕊³,
@@ -44,12 +44,12 @@ place of the coordinate fields ∂_ω of [Hin26c, (10.42)]. They span T𝕊³ at
 since the summand is symmetric under the exchange of i and j and vanishes for i = j. By [[eq:ii-f-1-5]] and
 N_ι⁺(P_0) = τ² N⁰ ([[def:ii-f-1-1]]), with R⁻¹ τ∂_τ = R⁻² (Rτ∂_τ) and R⁻¹ R∂_R near cf, and by [[eq:ii-f-1-6]] near 𝓘⁺,
 
-    N_ι⁺(P_0) ∈ x_I² ρ_+² ρ_cf⁻² Diff²_ebe([0, ∞] × ι⁺),                                                  {#eq:ii-f-6-2}
+    N_ι⁺(P_0) ∈ x_I² ρ_+² ρ_cf⁻² Diff²_ebe([0, ∞] × ι⁺),                                                 {#eq:ii-f-6-2}
 
 which is [Hin26c, (10.43)]. The spaces of [Hin26c, (10.45)–(10.48)] are, in dimension 4 + 1,
 
     H^((𝗌;k),(2γ_I,γ_+,γ_cf))_(ebe;b)
-        := x_I^(2γ_I) τ^(γ_+) ρ_cf^(γ_cf) H^((𝗌;k))_(ebe;b)((0, ∞)_τ × ι⁺; |dτ/τ| μ_b),                    {#eq:ii-f-6-3}
+        := x_I^(2γ_I) τ^(γ_+) ρ_cf^(γ_cf) H^((𝗌;k))_(ebe;b)((0, ∞)_τ × ι⁺; |dτ/τ| μ_b),                  {#eq:ii-f-6-3}
 
 the Sobolev spaces of the product structure of [[sec:ii-a-6-2]] (cells: unit intervals in t = −log₂ τ times the cells
 U_(2,jk±), U_(3,jk±) of ι⁺), with k further b-derivatives along τ∂_τ and the fields W_i of [[sec:ii-f-4-1]]. The order
@@ -68,7 +68,7 @@ Its induced orders are those of [[sec:ii-f-1-3]]: 𝗌_(0,b) at fibre infinity f
 𝐨_± := (𝗌_(0ħ,cħ); 2γ_I, γ_cf, γ_cf; 𝖻_±),
 
     ‖u‖²_(H^((𝗌;k),(2γ_I,γ_+,γ_cf))_(ebe;b)) ∼ ∫_(−1)^1 ‖(ℳu)(ζ − iγ_+)‖²_(H^((𝗌_(0,b);k),(2γ_I,γ_cf))_(0,b;b)) dζ
-                                         + Σ_± ∫_(±[1,∞)) ‖(ℳu)(ζ − iγ_+)‖²_(𝐨_±;k,+) dζ,              {#eq:ii-f-6-4}
+                                         + Σ_± ∫_(±[1,∞)) ‖(ℳu)(ζ − iγ_+)‖²_(𝐨_±;k,+) dζ,                {#eq:ii-f-6-4}
 
 with h = |ζ|⁻¹ in the norm [[eq:ii-f-4-1]]. This is [Hin26c, (10.47)] in dimension 4 + 1.
 
@@ -90,7 +90,7 @@ order 𝗌_(0,b) enters. ∎
 u ∈ Ḣ^((𝗌;k),(2γ_I,γ_+,γ_cf))_(ebe;b)([0, τ_0] × ι⁺) with
 
     N_ι⁺(P_0) u = f,
-    ‖u‖_(H^((𝗌;k),(2γ_I,γ_+,γ_cf))_(ebe;b)) ≤ C ‖f‖_(H^((𝗌−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b)),           {#eq:ii-f-6-5}
+    ‖u‖_(H^((𝗌;k),(2γ_I,γ_+,γ_cf))_(ebe;b)) ≤ C ‖f‖_(H^((𝗌−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b)),         {#eq:ii-f-6-5}
 
 C independent of τ_0 and f. Uniqueness holds in H^((𝗌;k),(2γ_I,γ_+,γ_cf))_(ebe;b)((0, ∞) × ι⁺).
 
@@ -191,7 +191,7 @@ of [[lem:ii-a-6-1]]), and undoing D_Λ gives the claim. ∎
 [[eq:ii-f-6-5]], the τ-weight being τ^(γ_+). For σ on the line Im σ = −γ_+, which lies in {Im σ > max(−γ_I, −1 − β_+)},
 define
 
-    (ℳu)(σ) := N⁰(σ)⁻¹ ℳ(τ⁻² f)(σ),                                                                     {#eq:ii-f-6-6}
+    (ℳu)(σ) := N⁰(σ)⁻¹ ℳ(τ⁻² f)(σ),                                                                      {#eq:ii-f-6-6}
 
 which is well defined by [[cor:ii-f-5-9]].
 
@@ -245,7 +245,7 @@ C (τ_−/τ)^γ → 0 as γ → ∞. So ⟨u(τ, ·), φ⟩ = 0 for τ > τ_−
 *Fixed-σ transforms.* Let m ∈ ℤ and v ∈ H^(m,(a,b,c))_ebe with τ-support in a compact interval [τ_1, τ_2] ⊂ (0, ∞).
 Then σ ↦ (ℳv)(σ) is entire with values in H^(m,(a,c))_(0,b)(ι⁺), and
 
-    ‖(ℳv)(σ)‖_(H^(m,(a,c))_(0,b)) ≤ C ⟨σ⟩^(|m|) max(τ_1^(Im σ), τ_2^(Im σ)) ‖v‖_(H^(m,(a,b,c))_ebe).    {#eq:ii-f-6-7}
+    ‖(ℳv)(σ)‖_(H^(m,(a,c))_(0,b)) ≤ C ⟨σ⟩^(|m|) max(τ_1^(Im σ), τ_2^(Im σ)) ‖v‖_(H^(m,(a,b,c))_ebe).     {#eq:ii-f-6-7}
 
 Indeed, the spatial fields among [[eq:ii-f-6-1]] (R∂_R, Z_a near cf; v∂_v, √v Z_a near 𝓘⁺) are the 0,b-fields of ι⁺ at
 bounded frequency and commute with ℳ, while τ∂_τ and Rτ∂_τ become iσ and iσR. For m ≥ 0, [[eq:ii-f-6-7]] without the
@@ -374,7 +374,7 @@ Let 𝗌 be admissible for P_0 with weights α_+, 0 and margin 0 ([[def:ii-c-5-2
 has margin 0 at the upper threshold (5); [[sec:ii-f-8]] uses both. Let 𝗌_I be the τ-dilation-invariant extension of
 𝗌|_(ᵉ³ᵇS*_ι⁺M) ([[sec:ii-f-6-1]]), and
 
-    𝗌′ := χ(R) 𝗌_I + (1 − χ(R)) 𝗌      on ᵉᵇᵉS*([0, T_+⁻¹) × ι⁺).                                         {#eq:ii-f-7-1}
+    𝗌′ := χ(R) 𝗌_I + (1 − χ(R)) 𝗌      on ᵉᵇᵉS*([0, T_+⁻¹) × ι⁺).                                        {#eq:ii-f-7-1}
 
 Fix η_1 > 0 so small that 𝗌_♭ := 𝗌 − 1 − η_1 is admissible with weights α_+, 0 and margin 0. This is possible: the
 threshold conditions (4)–(6) of [[def:ii-c-2-4]] are strict inequalities for the constant values of 𝗌 near finitely
@@ -584,7 +584,7 @@ future causal curves), so this is (√(−ψ_+ψ′_+))² · 2(−𝖧τ̃) ≥ 
 Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b) lies in Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b) and
 
     ‖u‖_((𝗌′;k),(2γ_I,γ_+,γ_cf))
-        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf))).       {#eq:ii-f-7-2}
+        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf))).            {#eq:ii-f-7-2}
 
 Here P^ε_+ := χ_0(τ/ε) N_ι + (1 − χ_0(τ/ε)) P_+, with χ_0 ∈ C_c^∞([0, 2)) equal to 1 on [0, 1]. This is [Hin26c,
 (10.54)–(10.55)] in dimension 4 + 1.
@@ -640,7 +640,7 @@ extension of an order admissible with weights α_+, 0 and margin 0, the uniquene
 using 𝗌_(♭,I) + 1 ≤ 𝗌′ ([[lem:ii-f-7-3]] (a)). With [[eq:ii-f-7-2]],
 
     ‖u‖_((𝗌′;k),(2γ_I,γ_+,γ_cf))
-        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌′;k),(2γ_I,γ_+−1,γ_cf))).                 {#eq:ii-f-7-3}
+        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌′;k),(2γ_I,γ_+−1,γ_cf))).               {#eq:ii-f-7-3}
 
 *Absorption.* Multiplication by χ_0(τ/δ_1) maps H^((𝗌′;k),(2γ_I,γ_+,γ_cf)) to H^((𝗌′;k),(2γ_I,γ_+−1,γ_cf)) with norm ≤
 Cδ_1, as it equals τχ_0(τ/δ_1) times the identity of weights, and τχ_0(τ/δ_1) = δ_1·(τ/δ_1)χ_0(τ/δ_1) has
@@ -650,7 +650,7 @@ C^∞_b-seminorms O(δ_1). Fix δ_1 with C·Cδ_1 ≤ 1/2 in [[eq:ii-f-7-3]]. Fo
 finite-time solution by uniqueness. Hence, for u in the space of [[lem:ii-f-7-7]] and ε < δ_1/2,
 
     ‖u‖_(Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b))
-        ≤ C ‖P^ε_+ u‖_(Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b)),                                   {#eq:ii-f-7-4}
+        ≤ C ‖P^ε_+ u‖_(Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b)),                                      {#eq:ii-f-7-4}
 
 C independent of ε ([Hin26c, (10.58)]); the absorbed term is finite because [[lem:ii-f-7-7]] places u in the space of
 order 𝗌′.
@@ -676,7 +676,7 @@ Since P^ε_+ = P_+ on {τ ≥ 2ε}, P_+ u = f on {τ > 2ε_j} for every j, hence
 ([[def:ii-c-1-1]]), in the setting of [[sec:ii-e-1-1]], with Ω_* = cl_M{t^♭ ≥ 1} and its slabs Ω_(1,T). Let α_I,
 α_+ ∈ ℝ with
 
-    α_I < −1/2 + S̄,      α_+ < α_I − 1/2.                                                                 {#eq:ii-f-8-1}
+    α_I < −1/2 + S̄,      α_+ < α_I − 1/2.                                                               {#eq:ii-f-8-1}
 
 Assume that P_0 is ℵ-admissible with sf-weight α_+ and sf-loss δ ([[def:ii-c-2-7]]), and let 𝗌 ∈ C^∞(ᵉ³ᵇS*M) be
 admissible with weights α_+, −ℵ and margin 0, and with weights α_+, 0 and margin 1 ([[def:ii-c-5-2]]). Let k ∈ ℕ₀ and
@@ -687,7 +687,7 @@ restrictions of f lie in the slab spaces, the weights at ι⁺ and K⁺ being bo
 the solutions on two slabs agree on the smaller by [[prop:ii-e-3-4]] (i). Then there is C_k, independent of f, with
 
     ‖u‖_(H^((𝗌;k),(2α_I,α_+−δ,−ℵ))_(e3b;b)(Ω_*;E)^(•,−))
-        ≤ C_k ‖f‖_(H^((𝗌;k),(2α_I+2,α_++2,0))_(e3b;b)(Ω_*;E)^(•,−)).                                      {#eq:ii-f-8-2}
+        ≤ C_k ‖f‖_(H^((𝗌;k),(2α_I+2,α_++2,0))_(e3b;b)(Ω_*;E)^(•,−)).                                     {#eq:ii-f-8-2}
 
 This is [Hin26c, Theorem 10.1] in dimension 4 + 1. [Hin26c] states it on Ω = {t_* ≥ 1}; it is stated and proved here
 on Ω_*, where the slab theory of [[ch:s07]] lives and where [[thm:ii-f1-1-1]] uses it.
@@ -712,7 +712,7 @@ With the metric density |dt dx| on Ω and the b-densities of [[sec:ii-f-6-1]], [
 and, on functions supported away from K⁺ (near 𝓘⁺ and (ι⁺)°), the e3b-spaces are the ebe-spaces of [[eq:ii-f-6-3]] with
 the weights
 
-    γ_I := α_I + 2,      γ_+ := α_+ + 5/2,      γ_cf := −(α_+ + 2)                                         {#eq:ii-f-8-3}
+    γ_I := α_I + 2,      γ_+ := α_+ + 5/2,      γ_cf := −(α_+ + 2)                                       {#eq:ii-f-8-3}
 
 (the orders transported by the identification of [[lem:ii-f-7-2]] (a); near ι⁺, τ ∼ ρ_+ on {R ≥ 1/2}). They satisfy the
 hypotheses of [[prop:ii-f-6-2]] and [[prop:ii-f-7-4]]: γ_I < 3/2 + S̄ and γ_+ < γ_I by [[eq:ii-f-8-1]]; and γ_+ − 1/2 =
@@ -752,7 +752,7 @@ with norm ≤ C‖f‖. Apply [[prop:ii-f-7-4]] (1) at the order 𝗌 + 1, for w
 ([[lem:ii-f-7-3]] (a)), so that (1 − χ_2) f lies in the space of its right-hand side: the forward solution u_I of
 P_+ u_I = (1 − χ_2) f satisfies
 
-    u_I ∈ Ḣ^((𝗌′+1;k),(2γ_I,γ_+,γ_cf))_(ebe;b)([0, τ_0] × ι⁺),      ‖u_I‖ ≤ C ‖f‖.                         {#eq:ii-f-8-4}
+    u_I ∈ Ḣ^((𝗌′+1;k),(2γ_I,γ_+,γ_cf))_(ebe;b)([0, τ_0] × ι⁺),      ‖u_I‖ ≤ C ‖f‖.                       {#eq:ii-f-8-4}
 
 On supp(1 − χ_3) ⊂ {R ≥ 3}, P_0 = P_+ and χ_2 = 0, so
 
@@ -762,14 +762,14 @@ f′ is supported in {R ≤ 4}, away from 𝓘⁺, so it is a function on M̃_0 
 e3b-operator with the weight ρ_+² of P_0 ([[lem:ii-c-1-4]]), supported in {3 ≤ R ≤ 4}, and u_I has order 𝗌 + 1 there;
 so, with the identification of e3b- and 3b-spaces away from 𝓘⁺,
 
-    f′ ∈ H^((𝗌;k),(α_++2,0))_(3b;b)(Ω)^(•,−),      supp f′ ⊂ {t_* ≥ τ_0⁻¹, R ≤ 4},      ‖f′‖ ≤ C ‖f‖.      {#eq:ii-f-8-5}
+    f′ ∈ H^((𝗌;k),(α_++2,0))_(3b;b)(Ω)^(•,−),      supp f′ ⊂ {t_* ≥ τ_0⁻¹, R ≤ 4},      ‖f′‖ ≤ C ‖f‖.    {#eq:ii-f-8-5}
 
 *Step 2: the solution with right-hand side f′.* f, supported in {t^♭ ≥ 1} ⊂ {t_* ≥ 1}, lies in the corresponding space
 on Ω with no larger norm, the quotient there being over more extensions; so [[eq:ii-f-8-5]] holds on Ω. By
 ℵ-admissibility ([[def:ii-c-2-7]] (3), [[eq:ii-c-2-2]]), for the order 𝗌, which over K⁺ is stationary-P_0-admissible
 with weights α_+, −ℵ and margin 0 ([[prop:ii-c-5-1]] (1)), the forward solution u′ of P_0 u′ = f′ on Ω satisfies
 
-    u′ ∈ H^((𝗌;k),(α_+−δ,−ℵ))_(3b;b)(Ω)^(•,−),      ‖u′‖ ≤ C ‖f′‖.                                         {#eq:ii-f-8-6}
+    u′ ∈ H^((𝗌;k),(α_+−δ,−ℵ))_(3b;b)(Ω)^(•,−),      ‖u′‖ ≤ C ‖f′‖.                                       {#eq:ii-f-8-6}
 
 u′ is the restriction to {r > r_0} of a distribution ũ′ supported in {t_* ≥ 1}, and P_0 u′ = f′ on {r > r_0} as such
 distributions. So on Y := {1/2 < t_* < τ_0⁻¹, r > r_0}, P_0 u′ = 0, and u′ = 0 on {t_* < 1}. t_* is a time function for
@@ -798,7 +798,7 @@ the order 𝗌 and with γ_+ − δ in place of γ_+ (allowed, δ ≥ 0; 𝗌′
 P_+ ũ = f″ − f″ = 0; near cf it equals u″, as (1 − χ_4) u′ vanishes on {R ≤ 4}, so ũ ∈ H^(𝗌′,γ_cf)_(e,loc)((0, ∞) ×
 {R < 4}). By [[prop:ii-f-7-4]] (2), ũ = 0. Hence, as 𝗌′ = 𝗌 on {R ≥ 1} and by [[sec:ii-f-8-1]],
 
-    (1 − χ_4) u′ = u″ ∈ H^((𝗌;k),(2α_I,α_+−δ,∞))_(e3b;b)(Ω_*)^(•,−),      ‖(1 − χ_4) u′‖ ≤ C ‖f‖.          {#eq:ii-f-8-7}
+    (1 − χ_4) u′ = u″ ∈ H^((𝗌;k),(2α_I,α_+−δ,∞))_(e3b;b)(Ω_*)^(•,−),      ‖(1 − χ_4) u′‖ ≤ C ‖f‖.        {#eq:ii-f-8-7}
 
 *Step 4: conclusion.* On Ω_* ∩ {r > r_0}, P_0((1 − χ_3) u_I + u′) = (f − f′) + f′ = f. Both terms lie in the spaces on
 Ω_*: (1 − χ_3) u_I by [[eq:ii-f-8-4]], its support lying in {t_* ≥ τ_0⁻¹} ⊂ {t^♭ ≥ 1}, and u′ by Step 2; their
@@ -852,7 +852,7 @@ E)^(•,−) is the space of restrictions to {r > r_0} of elements of H^((𝗍;k
 supported in {t^♭ ≥ 1}, with the quotient norm ([[sec:ii-a-7]], [[sec:ii-d-1-1]]). As in [Hin26c, (11.1)], the
 *b-spaces* carry powers of ρ_I = x_I² at 𝓘⁺:
 
-    H^(k,(α_I,α_+,α_K))_b := ρ_I^(α_I) ρ_+^(α_+) ρ_K^(α_K) H^k_b = H^((0;k),(2α_I,α_+,α_K))_(e3b;b)       {#eq:ii-f1-1-2}
+    H^(k,(α_I,α_+,α_K))_b := ρ_I^(α_I) ρ_+^(α_+) ρ_K^(α_K) H^k_b = H^((0;k),(2α_I,α_+,α_K))_(e3b;b)     {#eq:ii-f1-1-2}
 
 ([[lem:ii-a-8-4]] (d)), with the density |dt dx|, and H^(k,(α_I,α_+,α_K))_b(Ω_*; E)^(•,−) likewise. On Ω, t_*∂_(t_*)
 and r∂_x span 𝒱_b ([[sec:ii-c-2-4]]). C^∞_b denotes the functions on a neighbourhood of Ω_* in M that are bounded with
@@ -867,13 +867,13 @@ the spaces (Ω_*)^(•,−). Powers ρ^a, a ≥ 0, of the functions [[eq:ii-f1-1
 **Theorem {#thm:ii-f1-1-1}** (Forward solutions of admissible operators, with tame estimates.) Let P_0 be ℵ-admissible
 with sf-weight α_+ and sf-loss δ ([[def:ii-c-2-7]]), let
 
-    α_I < −1/2 + S̄,      α_+ < α_I − 1/2,                                                                {#eq:ii-f1-1-3}
+    α_I < −1/2 + S̄,      α_+ < α_I − 1/2,                                                              {#eq:ii-f1-1-3}
 
 and let ℓ_I ∈ (0, 1/2], ℓ_+ ∈ (δ, 1], ℓ_K > ℵ. There are ε_0 > 0 and d ∈ ℕ such that the following holds for every
 k ∈ ℕ₀ and every P admissible relative to P_0 of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) ([[def:ii-c-3-3]]) with
 ‖P − P_0‖_((0;d),(2ℓ_I,ℓ_+,ℓ_K)) < ε_0 ([[def:ii-c-3-6]], over Ω_*). For every
 
-    f ∈ H^(k+d,(α_I+1,α_++2,0))_b(Ω_*; E)^(•,−)                                                          {#eq:ii-f1-1-4}
+    f ∈ H^(k+d,(α_I+1,α_++2,0))_b(Ω_*; E)^(•,−)                                                         {#eq:ii-f1-1-4}
 
 there is exactly one u in ⋃_(s′ ≥ s_u, β_+, β_K ∈ ℝ) H^(s′,(2α_I,β_+,β_K))_e3b(Ω_*; E)^(•,−) with Pu = f, the *forward
 solution*; here s_u := inf 𝗌 − 2 for the order 𝗌 of [[sec:ii-f1-3-1]], which depends only on P_0 and the weights. It
@@ -881,7 +881,7 @@ lies in H^(k,(α_I,α_+−δ,−ℵ))_b(Ω_*; E)^(•,−), and
 
     ‖u‖_(H^(k,(α_I,α_+−δ,−ℵ))_b)
         ≤ C_k (‖f‖_(H^(k+d,(α_I+1,α_++2,0))_b)
-               + ‖P − P_0‖_((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) ‖f‖_(H^(d,(α_I+1,α_++2,0))_b)),                       {#eq:ii-f1-1-5}
+               + ‖P − P_0‖_((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) ‖f‖_(H^(d,(α_I+1,α_++2,0))_b)),                     {#eq:ii-f1-1-5}
 
 the norms over Ω_*, with C_k independent of P and f. For k ≥ 1 the map (P, f) ↦ u is continuous from the set of such P,
 with the norm ‖P − P_0‖_((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), times the space [[eq:ii-f1-1-4]], to
@@ -894,14 +894,14 @@ This is [Hin26c, Theorem 11.1] in dimension 4 + 1. [Hin26c] states it with ℓ_+
 **Corollary {#cor:ii-f1-1-2}** (The estimate with unweighted b-densities.) Put μ_b := |dt_* dx|/(t_* ⟨x⟩⁴), a smooth
 positive b-density on M̃ near Ω̄ ([[lem:ii-a-8-8]]), and
 
-    b_I := α_I + 2,      b_+ := α_+ + 5/2.                                                                {#eq:ii-f1-1-6}
+    b_I := α_I + 2,      b_+ := α_+ + 5/2.                                                              {#eq:ii-f1-1-6}
 
 Then [[eq:ii-f1-1-3]] reads b_I < 3/2 + S̄ and b_+ < b_I, and P_0 is ℵ-admissible with sf-weight b_+ − 5/2. With μ_b,
 [[eq:ii-f1-1-5]] reads
 
     ‖u‖_(H^(k,(b_I,b_+−δ,−ℵ+1/2))_b(Ω_*,μ_b))
         ≤ C_k (‖f‖_(H^(k+d,(b_I+1,b_++2,1/2))_b(Ω_*,μ_b))
-               + ‖P − P_0‖_((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) ‖f‖_(H^(d,(b_I+1,b_++2,1/2))_b(Ω_*,μ_b))).            {#eq:ii-f1-1-7}
+               + ‖P − P_0‖_((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) ‖f‖_(H^(d,(b_I+1,b_++2,1/2))_b(Ω_*,μ_b))).          {#eq:ii-f1-1-7}
 
 In terms of integrals, the square of the left side of [[eq:ii-f1-1-7]] is equivalent to
 
@@ -911,7 +911,7 @@ the power meaning all products of at most k of the fields, with the weights [[eq
 This is [Hin26c, (11.6b)], with r⁴ for r³. Pointwise, for k ≥ 3, on Ω_* ∩ {r > r_0},
 
     |(t_*∂_(t_*), r∂_x)^(≤k−3) u|
-        ≤ C_k (right side of [[eq:ii-f1-1-5]]) ρ_I^(b_I) ρ_+^(b_+−δ) ρ_K^(−ℵ+1/2).                        {#eq:ii-f1-1-8}
+        ≤ C_k (right side of [[eq:ii-f1-1-5]]) ρ_I^(b_I) ρ_+^(b_+−δ) ρ_K^(−ℵ+1/2).                      {#eq:ii-f1-1-8}
 
 This is [Hin26c, (11.4)–(11.7)] in dimension 4 + 1; in dimension 3 + 1 [Hin26c] has b_I = α_I + 3/2, b_+ = α_+ + 2, the
 density |dt_* dx|/(t_* r³) and the conditions b_I < 1 + S̄, b_+ < b_I.
@@ -935,7 +935,7 @@ fixed. For the stationary models 2L_b, b near b_0, which the later chapters use,
 
 Throughout, α_I, α_+, ℓ_I, ℓ_+, ℓ_K, ℵ and δ are as in [[thm:ii-f1-1-1]], and
 
-    δ′ := min(ℓ_+ − δ, ℓ_K − ℵ) > 0.                                                                     {#eq:ii-f1-2-1}
+    δ′ := min(ℓ_+ − δ, ℓ_K − ℵ) > 0.                                                                    {#eq:ii-f1-2-1}
 
 For an order function 𝗍 and k ∈ ℕ₀ we write, all over Ω_* with the spaces (Ω_*; E)^(•,−) of [[sec:ii-f1-1-1]],
 
@@ -973,7 +973,7 @@ eigenvalue μ of p_1 has an eigenvector v, and Re μ h_S(v, v) = Re h_S(p_1 v, v
 δ′_I := (p̄_1 − 1/2 − α)/4 ([[prop:ii-d-3-6]]; [[eq:ii-e-1-2]], with [[lem:ii-e-1-2]] (iii) for 2δ′_I), and they use
 that inequality only through its consequence
 
-    4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′_I > 0                                                                  {#eq:ii-f1-2-3}
+    4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′_I > 0                                                                {#eq:ii-f1-2-3}
 
 at the radial set R = ∂R_(𝓘⁺,out): in [[prop:ii-d-3-6]], where Q_ε ≥ 4(p̄_1 − δ′_I − 1/2 − α_I) = 12δ′_I; in
 [[lem:ii-e-2-5]], where the coefficient of τ_0² is −2(2α + 1) + 4(p̄_1 − δ′_I) = 12δ′_I; and in [[prop:ii-e-3-2]], where
@@ -1017,14 +1017,14 @@ Write T_ℋ := 1/2 + ϑ_ℋ, T_out := (−1 + ϑ_out)/2 and T_in := (−1 + ϑ^(
 with weights a_+, a_K and margin η ([[def:ii-c-5-2]]) if it has (2)–(5) of [[prop:ii-c-5-1]], which do not involve the
 weights, and, near the three radial sets over K⁺,
 
-    𝗍 > T_ℋ + η,      𝗍 + a_+ − a_K < T_out − η,      𝗍 + a_+ − a_K > T_in + η,                           {#eq:ii-f1-2-4}
+    𝗍 > T_ℋ + η,      𝗍 + a_+ − a_K < T_out − η,      𝗍 + a_+ − a_K > T_in + η,                         {#eq:ii-f1-2-4}
 
 by (1)–(6) of [[def:ii-c-2-4]] with α_sf = a_+, α_K = a_K (the order being constant near each radial set).
 
 **Lemma {#lem:ii-f1-2-3}** (The orders.) Let m_0 := 3 + δ + ℵ. There is 𝗌 ∈ C^∞(ᵉ³ᵇS*_ΩM), admissible for P_0 with
 weights α_+ − δ, −ℵ and margin m_0, and an integer s_in ≥ 4, such that 𝗌 = s_in over
 
-    Ω_♮ := {t_* ≥ 1/2, r_0 − 2δ_0 < r ≤ r_0 + 4}                                                          {#eq:ii-f1-2-5}
+    Ω_♮ := {t_* ≥ 1/2, r_0 − 2δ_0 < r ≤ r_0 + 4}                                                        {#eq:ii-f1-2-5}
 
 (with the extension of [[sec:ii-e-3-2]] below r = r_0), and 𝗌 ≤ s_in everywhere. Put 𝗌_0 := 𝗌 − 2. Then:
 
@@ -1108,7 +1108,7 @@ Let c_l, ε_l = 3^(−l) be the constants of Seeley's operator ([[lem:ii-e-1-3]]
 c_l (−ε_l⁻¹)^q = 1 for all q ∈ ℕ₀). For w on {r > r_0} ∩ N_κ supported in {r < r_0 + 2κ} put ℰ_r w := w on {r > r_0}
 and
 
-    (ℰ_r w)(t^♭, r, ω) := Σ_l c_l w(t^♭, r_0 + (r_0 − r)/ε_l, ω),      r < r_0,                           {#eq:ii-f1-2-6}
+    (ℰ_r w)(t^♭, r, ω) := Σ_l c_l w(t^♭, r_0 + (r_0 − r)/ε_l, ω),      r < r_0,                         {#eq:ii-f1-2-6}
 
 which vanishes for r ≤ r_0 − 2κ.
 
@@ -1116,7 +1116,7 @@ which vanishes for r ≤ r_0 − 2κ.
 (as 𝗌 + j, j ≥ −s_in, is), and w a weight x_I^(2a) ρ_+^b ρ_K^c. There is a linear map ℰ, defined on
 ⋃_j H^((𝗍;j),w)(Ω_*; E)^(•,−), with ℰu supported in {t^♭ ≥ 1}, ℰu = u on {r > r_0}, and, for every j ∈ ℕ₀,
 
-    ‖ℰu‖_(H^((𝗍;j),w)_(e3b;b)) ≤ C_j ‖u‖_(H^((𝗍;j),w)(Ω_*;E)^(•,−)).                                      {#eq:ii-f1-2-7}
+    ‖ℰu‖_(H^((𝗍;j),w)_(e3b;b)) ≤ C_j ‖u‖_(H^((𝗍;j),w)(Ω_*;E)^(•,−)).                                    {#eq:ii-f1-2-7}
 
 *Proof.* Let ψ = ψ(r) equal 1 for r ≤ r_0 + κ and 0 for r ≥ r_0 + 2κ, and ψ_− = ψ_−(r) equal 1 for r ≥ r_0 and 0 for
 r ≤ r_0 − κ. For u with an extension ũ supported in {t^♭ ≥ 1} put
@@ -1164,7 +1164,7 @@ every level of b-regularity at once, for orders constant and in ℕ₀ near {r �
 
 Fix χ_0 ∈ C_c^∞([0, 2)) with 0 ≤ χ_0 ≤ 1 and χ_0 = 1 on [0, 3/2]. For ε ∈ (0, 1] put
 
-    χ_ε := χ_0(1/(ε t^♭)),      χ̃_ε := 1 − χ_ε,      P_ε := χ_ε P_0 + χ̃_ε P = P_0 + χ̃_ε (P − P_0),     {#eq:ii-f1-2-8}
+    χ_ε := χ_0(1/(ε t^♭)),      χ̃_ε := 1 − χ_ε,      P_ε := χ_ε P_0 + χ̃_ε P = P_0 + χ̃_ε (P − P_0),   {#eq:ii-f1-2-8}
 
 on {r ≥ r^♯, t_* ≥ 1/2} (with P^ext of [[lem:ii-e-1-2]] for P there).
 
@@ -1175,7 +1175,7 @@ C_c^∞((0, ∞)), lies in C^∞_b with seminorms bounded uniformly in ε ∈ (0
 (b) P_ε satisfies (1) and (2) of [[def:ii-c-3-3]], and for all d_0, j
 
     ‖P_ε − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)) ≤ C_j ‖P − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)),
-    sup|p̃^ε_1| ≤ sup|p̃_1|,                                                                              {#eq:ii-f1-2-9}
+    sup|p̃^ε_1| ≤ sup|p̃_1|,                                                                            {#eq:ii-f1-2-9}
 
 with C_j independent of ε and P (and depending on d_0). In particular P_ε is admissible in the sense of
 [[sec:ii-f1-2-1]] when P is, with the same bounds.
@@ -1200,7 +1200,7 @@ those of p_0, p̃_1; and |p̃^ε_1| ≤ |p̃_1| as 0 ≤ χ̃_ε ≤ 1. Let π b
 with the corner, the coordinates on 𝓘⁺ including ρ_+, so that ρ_+ ∘ π/ρ_+ is smooth and positive. Then
 
     P_ε − [P_0 + χ_I ½ x_I² ρ_+² (2p̃^ε_1 A + p^ε_0)] = χ̃_ε P̃ + χ_I ½ x_I² ρ_+² δ_ε (2p̃_1 A + p_0),
-    δ_ε := χ̃_ε − χ̃_ε|_(𝓘⁺) ∘ π,                                                                        {#eq:ii-f1-2-10}
+    δ_ε := χ̃_ε − χ̃_ε|_(𝓘⁺) ∘ π,                                                                      {#eq:ii-f1-2-10}
 
 with A := x_I∂_(x_I) − 2ρ_+∂_(ρ_+) and P̃ as in [[eq:ii-c-3-2]]. We show δ_ε ∈ x_I^(2ℓ_I) C^∞_b uniformly in ε. Let L :=
 −log t^♭ and L_I := L|_(𝓘⁺) ∘ π. With ς_υ := ε⁻¹ e^(L_I + υ(L − L_I)), υ ∈ [0, 1],
@@ -1234,7 +1234,7 @@ and the orders and weights.
 (c) For η ∈ (0, 1] let χ_η := χ_0(1/(η t^♭)) as in [[eq:ii-f1-2-8]]. Then ‖χ_η v‖ ≤ C‖v‖ in each of the spaces
 [[eq:ii-f1-2-2]], and
 
-    ‖χ_η u‖_(Z(𝗍;k)) ≤ C_k η^(δ′) ‖u‖_(X(𝗍;k)),                                                          {#eq:ii-f1-2-11}
+    ‖χ_η u‖_(Z(𝗍;k)) ≤ C_k η^(δ′) ‖u‖_(X(𝗍;k)),                                                        {#eq:ii-f1-2-11}
 
 with C, C_k independent of η.
 
@@ -1260,7 +1260,7 @@ Q_q in a fixed finite subset of Diff²_e3b and b_q ∈ C^((d_0;j),(2ℓ_I,ℓ_+,
 of the b_q (bounded) and dividing by ρ_K^(ℓ_K) on supp χ_I (where ρ_K is bounded below),
 
     P_ε − P_0 = x_I² ρ_+^(2+ℓ_+) ρ_K^(ℓ_K) Σ_q (χ̃_ε a_q) Q′_q,
-    ‖χ̃_ε a_q‖_(C^((d_0;j))_(e3b;b)) ≤ C_j e_j,      e_j := ‖P − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)),          {#eq:ii-f1-2-12}
+    ‖χ̃_ε a_q‖_(C^((d_0;j))_(e3b;b)) ≤ C_j e_j,      e_j := ‖P − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)),        {#eq:ii-f1-2-12}
 
 with Q′_q in a fixed finite subset of C^∞_b Diff²_e3b (the Q_q, χ_I A and χ_I), C_j independent of ε ([[lem:ii-a-8-2]]
 (c), [[lem:ii-f1-2-6]] (a)).
@@ -1269,7 +1269,7 @@ with Q′_q in a fixed finite subset of C^∞_b Diff²_e3b (the Q_q, χ_I A and 
 d_0 and d̃, depending only on 𝗍, such that for all k, ε and v ∈ Z(𝗍;k),
 
     ‖(P_ε − P_0)v‖_(Y(𝗍−2;k)) ≤ C_k (e_(d̃) ‖v‖_(Z(𝗍;k)) + e_k ‖v‖_(Z(𝗍;d̃))),
-    ‖(P_ε − P_0)v‖_(Y(𝗍−2;k)) ≤ C_k e_k ‖v‖_(Z(𝗍;k)),                                                    {#eq:ii-f1-2-13}
+    ‖(P_ε − P_0)v‖_(Y(𝗍−2;k)) ≤ C_k e_k ‖v‖_(Z(𝗍;k)),                                                  {#eq:ii-f1-2-13}
 
 with e_j of [[eq:ii-f1-2-12]] and C_k independent of ε and P.
 
@@ -1325,15 +1325,16 @@ b-regularity controls e3b-regularity: as Diff^(d_0)_e3b ⊂ C^∞(M̃) Diff^(d_0
 [[lem:ii-a-8-2]] (a), ‖a‖_(C^((d_0;j))_(e3b;b)) ≤ C ‖a‖_(C^((0;j+d_0))_(e3b;b)), with weights; the data p_0, p̃_1 carry
 j + d_0 b-derivatives in both classes. Hence, for P of class ((0;j+d_0),·),
 
-    e_j = ‖P − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)) ≤ C ‖P − P_0‖_((0;j+d_0),(2ℓ_I,ℓ_+,ℓ_K)).                    {#eq:ii-f1-3-1}
+    e_j = ‖P − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)) ≤ C ‖P − P_0‖_((0;j+d_0),(2ℓ_I,ℓ_+,ℓ_K)).                  {#eq:ii-f1-3-1}
 
 Let d^E_0, d^E be the d_0 and d of [[thm:ii-e-6-1]] for (𝗌_0, 𝗌) at the weights α_+ − δ, −ℵ; d^S_0, d^S the largest of
 those of [[prop:ii-e-3-4]], [[prop:ii-e-4-3]] and [[prop:ii-e-4-4]] for the slab orders 𝗌 and 𝗌 + 1; d^T_0, d̃ those
 of [[lem:ii-f1-2-8]] for 𝗍 = 𝗌; and d^U_0 the d_0 of [[prop:ii-e-3-4]] (i) at s′ = s_u := inf 𝗌 − 2. Put
 
-    D_0 := max(d^E_0, d^S_0, d^T_0, d^U_0),      D_1 := max(d^E, d^S, d̃),      e_j := ‖P − P_0‖_((D_0;j),(2ℓ_I,ℓ_+,ℓ_K)),  {#eq:ii-f1-3-2}
+    D_0 := max(d^E_0, d^S_0, d^T_0, d^U_0),      D_1 := max(d^E, d^S, d̃),
+    e_j := ‖P − P_0‖_((D_0;j),(2ℓ_I,ℓ_+,ℓ_K)),                                                          {#eq:ii-f1-3-2}
 
-    d := D_0 + D_1 + d′ + d″,      d′ := max(0, ⌈−inf 𝗌⌉),      d″ := s_in (= max(0, ⌈sup 𝗌⌉)).           {#eq:ii-f1-3-3}
+    d := D_0 + D_1 + d′ + d″,      d′ := max(0, ⌈−inf 𝗌⌉),      d″ := s_in (= max(0, ⌈sup 𝗌⌉)).         {#eq:ii-f1-3-3}
 
 Choose ε_0 > 0 so small that ‖P − P_0‖_((0;d)) < ε_0 makes e_j, j ≤ D_1, and hence (by [[eq:ii-f1-2-9]]) the
 corresponding norms of every P_ε, smaller than the thresholds of [[lem:ii-f1-2-1]], of [[lem:ii-c-3-2]] (through
@@ -1346,7 +1347,7 @@ every such P. All constants below depend on P only through ε_0, unless e_k appe
 **Proposition {#prop:ii-f1-3-1}** (The uniform estimate.) For every k ≤ D_1 there are η_k ∈ (0, 1] and C_k such that
 for every ε ∈ (0, η_k/8] and every u ∈ X(𝗌;k) with P_ε u ∈ Y(𝗌;k),
 
-    ‖u‖_(X(𝗌;k)) ≤ C_k ‖P_ε u‖_(Y(𝗌;k)).                                                                  {#eq:ii-f1-3-4}
+    ‖u‖_(X(𝗌;k)) ≤ C_k ‖P_ε u‖_(Y(𝗌;k)).                                                                {#eq:ii-f1-3-4}
 
 This is [Hin26c, (11.15)] in dimension 4 + 1.
 
@@ -1354,19 +1355,19 @@ This is [Hin26c, (11.15)] in dimension 4 + 1.
 orders 𝗌_0 < 𝗌 ([[lem:ii-f1-2-3]] (a); [[lem:ii-f1-2-1]] and [[lem:ii-f1-2-6]] (b) for the hypotheses on P_ε; [Hin26c,
 (11.10)]),
 
-    ‖u‖_(X(𝗌;k)) ≤ C_k (‖P_ε u‖_(Y′(𝗌;k)) + ‖u‖_(X(𝗌_0;k))) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + ‖u‖_(X(𝗌_0;k))).    {#eq:ii-f1-3-5}
+    ‖u‖_(X(𝗌;k)) ≤ C_k (‖P_ε u‖_(Y′(𝗌;k)) + ‖u‖_(X(𝗌_0;k))) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + ‖u‖_(X(𝗌_0;k))).  {#eq:ii-f1-3-5}
 
 *(ii) Inversion of P_0.* By [[lem:ii-f1-2-8]], second bound of [[eq:ii-f1-2-13]] with 𝗍 = 𝗌, (P_ε − P_0)u ∈ Y(𝗌_0;k),
 as u ∈ X(𝗌;k) ⊂ Z(𝗌;k) and 𝗌 − 2 = 𝗌_0. So P_0 u = P_ε u − (P_ε − P_0)u ∈ Y(𝗌_0;k). Let v be the forward solution of
 P_0 v = P_0 u given by [[thm:ii-f-8-1]] at the order 𝗌_0 ([[lem:ii-f1-2-3]] (b)); u − v ∈ X(𝗌_0;k) and P_0(u − v) = 0,
 so u = v by [[lem:ii-f1-2-2]], and ([Hin26c, (11.11)])
 
-    ‖u‖_(X(𝗌_0;k)) ≤ C_k ‖P_0 u‖_(Y(𝗌_0;k)) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + ‖(P_ε − P_0)u‖_(Y(𝗌_0;k))).         {#eq:ii-f1-3-6}
+    ‖u‖_(X(𝗌_0;k)) ≤ C_k ‖P_0 u‖_(Y(𝗌_0;k)) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + ‖(P_ε − P_0)u‖_(Y(𝗌_0;k))).       {#eq:ii-f1-3-6}
 
 *(iii) The error near ι⁺ ∪ K⁺.* With χ_η of [[lem:ii-f1-2-7]] (c), by [[eq:ii-f1-2-13]] and [[eq:ii-f1-2-11]] ([Hin26c,
 (11.13)–(11.14)]),
 
-    ‖(P_ε − P_0) χ_η u‖_(Y(𝗌_0;k)) ≤ C_k e_k ‖χ_η u‖_(Z(𝗌;k)) ≤ C^((1))_k ε_0 η^(δ′) ‖u‖_(X(𝗌;k)),        {#eq:ii-f1-3-7}
+    ‖(P_ε − P_0) χ_η u‖_(Y(𝗌_0;k)) ≤ C_k e_k ‖χ_η u‖_(Z(𝗌;k)) ≤ C^((1))_k ε_0 η^(δ′) ‖u‖_(X(𝗌;k)),      {#eq:ii-f1-3-7}
 
 with C^((1))_k independent of η and ε.
 
@@ -1377,7 +1378,7 @@ with C^((1))_k independent of η and ε.
 (b),
 
     ‖(P_ε − P_0)(1 − χ_η)u‖_(Y(𝗌_0;k)) ≤ C_k ‖(1 − χ_η)u‖_(Z(𝗌;k)) ≤ C_(k,η) ‖u‖_(H^((𝗌;k),2α_I)(Ω_(1,T_η)))
-        ≤ C_(k,η) ‖P_ε u‖_(Y(𝗌;k)).                                                                       {#eq:ii-f1-3-8}
+        ≤ C_(k,η) ‖P_ε u‖_(Y(𝗌;k)).                                                                     {#eq:ii-f1-3-8}
 
 *(v) Absorption.* Inserting [[eq:ii-f1-3-6]]–[[eq:ii-f1-3-8]] in [[eq:ii-f1-3-5]],
 
@@ -1410,7 +1411,7 @@ This section is Step 2 of the proof of [Hin26c, Theorem 11.1] in dimension 4 + 1
 **Proposition {#prop:ii-f1-4-1}** (The tame a priori estimate.) For every k ∈ ℕ₀ there are η_k ∈ (0, 1] and C_k such
 that for every ε ∈ (0, min(η_k, η_(D_1))/8], every P as in [[thm:ii-f1-1-1]] and every u ∈ X(𝗌;k) with P_ε u ∈ Y(𝗌;k),
 
-    ‖u‖_(X(𝗌;k)) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + e_k ‖P_ε u‖_(Y(𝗌;D_1))),                                       {#eq:ii-f1-4-1}
+    ‖u‖_(X(𝗌;k)) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + e_k ‖P_ε u‖_(Y(𝗌;D_1))),                                     {#eq:ii-f1-4-1}
 
 with e_k of [[eq:ii-f1-3-2]]. This is [Hin26c, (11.19)] in dimension 4 + 1.
 
@@ -1420,14 +1421,16 @@ A_k, B_k are finite. By [[prop:ii-f1-3-1]] at D_1 (as ε ≤ η_(D_1)/8), A_j �
 *(i) The tame global estimate.* By [[eq:ii-e-6-2]] of [[thm:ii-e-6-1]], for P_ε (its d = d^E ≤ D_1, and ‖P_ε −
 P_0‖_((d^E_0;d^E)) small), with [[eq:ii-f1-2-9]] and ‖·‖_(Y′) ≤ C‖·‖_Y,
 
-    A_k ≤ C_k (B_k + ‖u‖_(X(𝗌_0;k)) + e_k (B_(D_1) + A_(D_1))) ≤ C_k (B_k + ‖u‖_(X(𝗌_0;k)) + e_k B_(D_1)).  {#eq:ii-f1-4-2}
+    A_k ≤ C_k (B_k + ‖u‖_(X(𝗌_0;k)) + e_k (B_(D_1) + A_(D_1)))
+        ≤ C_k (B_k + ‖u‖_(X(𝗌_0;k)) + e_k B_(D_1)).                                                     {#eq:ii-f1-4-2}
 
 *(ii) Inversion of P_0.* As in [[prop:ii-f1-3-1]] (ii), ‖u‖_(X(𝗌_0;k)) ≤ C_k (B_k + ‖(P_ε − P_0)u‖_(Y(𝗌_0;k))).
 
 *(iii) The error, tamely.* With χ_η of [[lem:ii-f1-2-7]] (c), the first bound of [[eq:ii-f1-2-13]] (with e_(d̃) ≤
 e_(D_1) ≤ Cε_0) and [[eq:ii-f1-2-11]],
 
-    ‖(P_ε − P_0) χ_η u‖_(Y(𝗌_0;k)) ≤ C_k (ε_0 η^(δ′) A_k + e_k ‖χ_η u‖_(Z(𝗌;d̃))) ≤ C^((1))_k ε_0 η^(δ′) A_k + C_k e_k B_(D_1),
+    ‖(P_ε − P_0) χ_η u‖_(Y(𝗌_0;k)) ≤ C_k (ε_0 η^(δ′) A_k + e_k ‖χ_η u‖_(Z(𝗌;d̃)))
+        ≤ C^((1))_k ε_0 η^(δ′) A_k + C_k e_k B_(D_1),
 
 using ‖χ_η u‖_(Z(𝗌;d̃)) ≤ C A_(d̃) ≤ C B_(D_1). With T_η := 2/η as in [[prop:ii-f1-3-1]] (iv), and [[prop:ii-e-4-4]]
 for P on Ω_(1,T_η) ([Hin26c, Proposition 8.9]) in place of [[prop:ii-e-4-3]],
@@ -1449,7 +1452,7 @@ with C^((2))_k independent of η; fix η_k with C^((2))_k ε_0 η_k^(δ′) ≤ 
 **Proposition {#prop:ii-f1-4-2}** (Existence with the tame bound.) For every k ∈ ℕ₀, every P as in [[thm:ii-f1-1-1]]
 and every f ∈ Y(𝗌;k), the forward solution u of Pu = f lies in X(𝗌;k), and
 
-    ‖u‖_(X(𝗌;k)) ≤ C_k (‖f‖_(Y(𝗌;k)) + e_k ‖f‖_(Y(𝗌;D_1))).                                               {#eq:ii-f1-4-3}
+    ‖u‖_(X(𝗌;k)) ≤ C_k (‖f‖_(Y(𝗌;k)) + e_k ‖f‖_(Y(𝗌;D_1))).                                             {#eq:ii-f1-4-3}
 
 *Proof.* As for [[prop:ii-f1-3-2]], with [[lem:ii-f1-2-9]] at the level k (which needs only the smallness of ‖P_ε −
 P_0‖_((d^S_0;d^S))) and [[eq:ii-f1-4-1]] for ε ≤ min(η_k, η_(D_1))/8; the right side of [[eq:ii-f1-4-1]] with P_ε u_ε =
@@ -1464,7 +1467,8 @@ This section is Step 3 of the proof of [Hin26c, Theorem 11.1] in dimension 4 + 1
 H^((𝗌;j))_(e3b;b), with weights. Both inclusions preserve supports, so they hold for the spaces (Ω_*)^(•,−) with the
 same constants (an extension in the smaller space is one in the larger). With [[eq:ii-f1-1-2]],
 
-    ‖u‖_(H^(k,(α_I,α_+−δ,−ℵ))_b(Ω_*)) ≤ C ‖u‖_(X(𝗌;k+d′)),      ‖f‖_(Y(𝗌;j)) ≤ C ‖f‖_(H^(j+d″,(α_I+1,α_++2,0))_b(Ω_*)).  {#eq:ii-f1-5-1}
+    ‖u‖_(H^(k,(α_I,α_+−δ,−ℵ))_b(Ω_*)) ≤ C ‖u‖_(X(𝗌;k+d′)),
+    ‖f‖_(Y(𝗌;j)) ≤ C ‖f‖_(H^(j+d″,(α_I+1,α_++2,0))_b(Ω_*)).                                             {#eq:ii-f1-5-1}
 
 *Proof of [[thm:ii-f1-1-1]].* Let ε_0, d be as in [[eq:ii-f1-3-3]] and [[sec:ii-f1-3-1]], k ∈ ℕ₀, and P and f as in
 the theorem. By [[eq:ii-f1-5-1]], f ∈ Y(𝗌;k+d′), as k + d′ + d″ ≤ k + d. By [[prop:ii-f1-4-2]] at the level k + d′ (for

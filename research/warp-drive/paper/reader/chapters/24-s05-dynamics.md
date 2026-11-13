@@ -1544,3 +1544,182 @@ Let O′ := Ψ₀⁻¹(Γ × (−δ, δ)²) and, for (t, x) ∈ [T₀, ∞) × O
 Then {φ_s + ψ_s = 0} = W^s and {φ_u + ψ_u = 0} = W^u in [T₀, ∞) × O′, and the bounds follow by the chain rule, π and
 φ_(u/s) being smooth. W^u ∩ {t = T₀} = {φ_u = 0} as α(T₀, ·) = α₀ = 0. The constants depend only on the quantities
 listed in [[thm:ii-c1-1-1]]. ∎
+
+### The stable and unstable hypersurfaces of perturbed metrics {#sec:ii-c1-3}
+
+This section applies [[thm:ii-c1-1-1]] to the null-bicharacteristic flow of a metric g = g₀ + h that decays in time to
+the stationary model g₀ of [[sec:ii-c-3]]: the perturbed characteristic set near the trapped set is written as a graph
+over the stationary one, the flow is pulled back to it, and the theorem gives the hypersurfaces.
+
+#### The stationary data {#sec:ii-c1-3-1}
+
+Let Γ := Γ₁ ⊂ Σ^♭₁ ⊂ T*X̃° be the trapped set of (H7) at z₀ = 1, with O, φ_u, φ_s, ν_u, ν_s as there, let
+q₁ = 2g₀⁻¹(−dt_* + ζ, dt_*) ([[lem:i-b-1-1]] and (K3)), and let 𝖵 := q₁⁻¹H_(G₁) on Σ^♭₁ near Γ, where
+G₁(x, ζ) := G₀(−dt_* + ζ) and G₀(ν) = g₀⁻¹(ν, ν). By (Γ.3), dG₁ ≠ 0 near Γ, so Y := Σ^♭₁ ∩ O₀, for a small
+neighbourhood O₀ of Γ, is a smooth hypersurface of T*X̃°; q₁ ≥ 2β₀ > 0 on Γ by (Γ.4), hence q₁ ≥ β₀ on O₀. Wherever
+injectivity on (−c, c) × Y is used below, Y is replaced by a relatively compact open neighbourhood of Γ in it.
+
+**Lemma {#lem:ii-c1-3-1}** Y, V₀ := 𝖵, Γ and the restrictions to Y of φ_u, φ_s and of ν_u/q₁, ν_s/q₁ satisfy
+(i)–(iii) of [[thm:ii-c1-1-1]], after shrinking O₀, with ν := ν_min/(4 sup_(O₀) q₁); and the constants are uniform in
+the parameter b of (H5) and (K4).
+
+*Proof.* (ii): (Γ.2) gives H_(G₁)φ_u = −ν_uφ_u and H_(G₁)φ_s = ν_sφ_s on Σ^♭₁ ∩ O, so 𝖵φ_u = −(ν_u/q₁)φ_u and
+𝖵φ_s = (ν_s/q₁)φ_s; and ν_(u/s) ≥ ½ν_min near Γ by continuity. (i): Γ = Γ_u ∩ Γ_s within O by (Γ.1). Suppose that at
+p ∈ Γ, a dφ_u + b dφ_s vanishes on T_pY for some (a, b) ≠ 0; as T_pY = ker dG₁, a dφ_u + b dφ_s = c dG₁ at p. The
+Poisson bracket with φ_s gives a{φ_u, φ_s} = c{G₁, φ_s} = c H_(G₁)φ_s = c ν_sφ_s = 0 at p, so a = 0 by (Γ.3); with φ_u,
+likewise b = 0. (iii): Γ is invariant, 𝖵 being tangent to Γ_u and Γ_s (Γ.1); the bound is the tangential part of (K3)
+for 𝖵. Uniformity: (H5), extended to (H6)–(H8) in [[sec:i-b-1-5]], and (K4) give continuity in b of Γ, φ_(u/s),
+ν_(u/s) and q₁ into C^∞, and uniform ν_min, β₀ and C_ε; the choices of [[sec:ii-c1-2-1]] can then be made uniformly for
+b near any b₀, and ℬ is compact. ∎
+
+#### The slice and the projected flow {#sec:ii-c1-3-2}
+
+Let T_♭ := 2/C′, with C′ of [[lem:ii-c-3-2]], and let [r_(Γ,−), r_(Γ,+)] ⊂ (r₂, ρ₁⁻¹) contain the projection of Γ. By
+[[lem:ii-c-3-2]] (b), Ω_* ⊃ {t_* ≥ 1/C′}, a neighbourhood of {t_* ≥ T_♭} on which g is defined with its d₀
+derivatives, so what is stated below for t_* > T_♭ holds on the closed set where t_* ≥ T_♭, as [[thm:ii-c1-1-1]]
+requires. Over D := {t_* > T_♭, r_(Γ,−) < r < r_(Γ,+)}, near (K⁺)°, the e3b-structure is spanned by ∂_(t_*), ∂_x
+([[sec:ii-a-2-2]] and [[sec:ii-b-2-1]]), and ᵉ³ᵇT*_D M = T*D with covectors −σ dt_* + ζ. On {σ > 0} use the slice
+coordinates (t_*, x, z), z := ζ/σ, which identify {σ > 0} ∩ ᵉ³ᵇS*_D M with (T_♭, ∞) × T*{r_(Γ,−) < r < r_(Γ,+)}; at
+ρ_K = t_*⁻¹ = 0 this is the map Φ₁ of [[def:ii-b-2-2]]. Let g = g₀ + h with h ∈ 𝒢̃^(d₀,(0,0,ℓ_K))_(e3b), d₀ ≥ 3,
+ℓ_K > 0 and ‖h‖ ≤ ϵ. Over D, x_I and ρ₊ are bounded above and below and ρ_K ∼ t_*⁻¹, so the components of
+g⁻¹ − g₀⁻¹ in the frame ∂_(t_*), ∂_x have derivatives of order ≤ d₀ along ∂_(t_*), ∂_x bounded by Cϵt_*^(−ℓ_K)
+(Neumann series, [[lem:ii-a-8-2]]). Put
+
+    p₁(t_*, x, z) := G(t_*, x; −dt_* + z),        g̃ := p₁ − G₁ = (g⁻¹ − g₀⁻¹)(−dt_* + z, −dt_* + z),     {#eq:ii-c1-3-1}
+
+so g̃ is quadratic in z, with |∂^αg̃| ≤ Cϵt_*^(−ℓ_K), |α| ≤ d₀, on compact z-sets.
+
+**Lemma {#lem:ii-c1-3-2}** (The projected field.) For p := G (homogeneous of degree 2 on T*D), σ⁻¹H_p descends to
+{σ > 0} ∩ ᵉ³ᵇS*_D M, and in the slice coordinates
+
+    Ŵ := σ⁻¹H_p = (z·∂_zp₁ − 2p₁)∂_(t_*) + ∂_zp₁·∂_x − ∂_xp₁·∂_z − (∂_(t_*)p₁) z·∂_z.                     {#eq:ii-c1-3-2}
+
+Ŵ is tangent to {p₁ = 0}, and on {p₁ = 0} it is a positive multiple of the field 𝖧_G of [[eq:ii-c-4-2]].
+
+*Proof.* With τ := −σ, p = τ²p₁(t_*, x, −ζ/τ), so ∂_τp = σ(z·∂_zp₁ − 2p₁), ∂_ζp = σ∂_zp₁, ∂_(t_*)p = σ²∂_(t_*)p₁ and
+∂_xp = σ²∂_xp₁; and for f = f(t_*, x, z), ∂_τf = σ⁻¹z·∂_zf and ∂_ζf = σ⁻¹∂_zf. Inserting these into
+H_p = ∂_τp ∂_(t_*) + ∂_ζp·∂_x − ∂_(t_*)p ∂_τ − ∂_xp·∂_ζ gives [[eq:ii-c1-3-2]]. Next, Ŵp₁ = −2p₁∂_(t_*)p₁, which
+vanishes on {p₁ = 0}. On the characteristic set, 𝖧_G = ρ_∞H_(G_(e3b)) = ρ_∞fH_G with f = x_I⁻²ρ₊⁻² > 0, so
+𝖧_G = ρ_∞fσŴ. ∎
+
+For g = g₀, [[eq:ii-c1-3-2]] on {G₁ = 0} is q₁∂_(t_*) + H_(G₁), as z·∂_zG₁ = q₁ there ([[lem:ii-b-5-2]] (d)): the
+stationary field of [[sec:ii-b-2]].
+
+#### Graphing the perturbed characteristic set {#sec:ii-c1-3-3}
+
+Let N be a smooth vector field on a neighbourhood O_N of Γ in T*X̃° with NG₁ = 1 there (N := ∇G₁/|∇G₁|² for a
+Riemannian metric, as dG₁ ≠ 0). After shrinking, Ψ̂₀(f, w) := e^(fN)(w) is a diffeomorphism from (−c, c) × Y onto a
+neighbourhood of Y, and G₁(e^(fN)w) = f, as (d/df)G₁(e^(fN)w) = (NG₁)(e^(fN)w) = 1. Write w(x, z) and f(x, z) for the
+inverse.
+
+**Lemma {#lem:ii-c1-3-3}** (The graph.) For ϵ small there is F ∈ C^(d₀)((T_♭, ∞) × Y) with |∂^αF| ≤ Cϵt_*^(−ℓ_K) for
+|α| ≤ d₀ and {p₁(t_*, ·) = 0} ∩ Ψ̂₀((−c, c) × Y) = {e^(F(t_*,w)N)w : w ∈ Y}. The map
+Ψ̂(t_*, f, w) := (t_*, e^((f+F(t_*,w))N)w) is a C^(d₀) diffeomorphism onto a neighbourhood of the perturbed
+characteristic set near Γ, with ‖Ψ̂ − Ψ̂₀‖_(C^(d₀)) ≤ Cϵt_*^(−ℓ_K) (where Ψ̂₀(t_*, f, w) := (t_*, e^(fN)w)), and it maps
+{f = 0} onto the perturbed characteristic set.
+
+*Proof.* At e^(fN)w, p₁ = f + g̃(t_*, e^(fN)w). The map f ↦ −g̃(t_*, e^(fN)w) sends [−c/2, c/2] into itself and has
+Lipschitz constant sup|Ng̃| ≤ Cϵ < 1, so it has a unique fixed point F(t_*, w), with |F| ≤ Cϵt_*^(−ℓ_K). Since
+∂_f(f + g̃(t_*, e^(fN)w)) = 1 + Ng̃ ≥ ½, F ∈ C^(d₀) by the implicit function theorem, and each derivative of order ≤ d₀
+of the identity F + g̃(t_*, e^(FN)w) = 0 expresses ∂^αF through derivatives of g̃, each O(ϵt_*^(−ℓ_K)), and lower
+derivatives of F. Ψ̂ is then C^(d₀)-close to Ψ̂₀, hence a diffeomorphism near f = 0. ∎
+
+Near Γ, Ŵt_* = z·∂_zp₁ − 2p₁, which is ≥ ½β₀ near Γ for ϵ small: at ϵ = 0 it is exactly q₁, as
+z·∂_zG₁ = 2g₀⁻¹(−dt_* + z, z) = 2G₁ + q₁. Put V^h := Ŵ/(Ŵt_*), a C^(d₀−1) vector field near (T_♭, ∞) × Γ with
+V^ht_* = 1, tangent to {p₁ = 0} ([[lem:ii-c1-3-2]]), and V⁰ := Ŵ₀/(Ŵ₀t_*) = ∂_(t_*) + H_(G₁)/q₁ for g₀ (where
+∂_(t_*)G₁ = 0). By [[eq:ii-c1-3-1]] and [[eq:ii-c1-3-2]], V^h − V⁰ has coefficients with derivatives of order ≤ d₀ − 1
+bounded by Cϵt_*^(−ℓ_K). Let V := Ψ̂^*V^h restricted to {f = 0} = (T_♭, ∞) × Y, which is tangent to it since V^h is
+tangent to the characteristic set; Vt_* = 1, as Ψ̂ preserves t_*. As Ψ̂₀^*V⁰ restricted to {f = 0} is
+∂_(t_*) + q₁⁻¹H_(G₁) = ∂_(t_*) + 𝖵, and Ψ̂ − Ψ̂₀ and V^h − V⁰ are O(ϵt_*^(−ℓ_K)) in C^(d₀), resp. C^(d₀−1),
+
+    V = ∂_(t_*) + 𝖵 + Ṽ,     Ṽ(t_*, ·) tangent to Y,     |∂^αṼ| ≤ Cϵt_*^(−ℓ_K),  |α| ≤ d₀ − 1.            {#eq:ii-c1-3-3}
+
+#### The statement {#sec:ii-c1-3-4}
+
+**Proposition {#prop:ii-c1-3-4}** (The stable and unstable hypersurfaces; [Hin26c, Proposition 6.3] at n = 4.) Let
+d₀ ≥ 3, ℓ_K > 0 and g = g₀ + h with h ∈ 𝒢̃^(d₀,(0,0,ℓ_K))_(e3b) of sufficiently small norm ϵ. With T_♭ of
+[[sec:ii-c1-3-2]], let ∂Γ₀ := {t_* > T_♭} × Γ in the slice coordinates (the stationary extension of ∂Γ_(K⁺),
+[[def:ii-b-5-1]]), and U a small conic neighbourhood of it in ᵉ³ᵇS*_D M. There are functions φ₀^(u/s) ∈ C^∞(U),
+independent of t_*, with φ₀^(u/s) = φ_(u/s)(x, z) on the stationary characteristic set, and φ̃^u ∈ C^(d₀−1)(U),
+φ̃^s ∈ C^(d₀−2)(U), with
+
+    |∂^αφ̃^u| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 1),        |∂^αφ̃^s| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 2),
+
+derivatives along ∂_(t_*), ∂_x and the fibres, such that, with φ^(u/s) := φ₀^(u/s) + φ̃^(u/s), the field 𝖧_G is tangent
+to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). For ϵ ≤ ϵ₁ the norms are at most 1. The same holds, with uniform constants, for
+the stationary models of parameters b near b₀ ((K4)).
+
+*Proof.* By [[lem:ii-c1-3-1]] and [[eq:ii-c1-3-3]], [[thm:ii-c1-1-1]] applies on Y with V₀ = 𝖵, k := d₀ − 1 ≥ 2,
+ℓ := ℓ_K and T₀ := T_♭ (the metric is defined on Ω_* by [[eq:ii-c-4-1]], and Ω_* ⊃ {t_* ≥ T_♭} because t^♭_* ≥ C′t_*
+by [[lem:ii-c-3-2]] (b)). It gives ψ_u ∈ C^(d₀−1) and ψ_s ∈ C^(d₀−2) on (T_♭, ∞) × O′ with V tangent to
+W^(u/s) = {φ_(u/s) + ψ_(u/s) = 0}. For (t_*, x, z) in U, write (x, z) = e^(fN)w (w = w(x, z) ∈ Y) and put
+
+    φ₀^(u/s)(x, z) := φ_(u/s)(w(x, z)),        φ̃^(u/s)(t_*, x, z) := ψ_(u/s)(t_*, w(x, z)),
+
+extended homogeneously of degree 0 in (σ, ζ). On the perturbed characteristic set, (x, z) = e^(F(t_*,w)N)w
+([[lem:ii-c1-3-3]]) and w(x, z) = w, so φ^(u/s)(t_*, x, z) = (φ_(u/s) + ψ_(u/s))(t_*, w), and
+Γ^(u/s) = Ψ̂({f = 0} ∩ W^(u/s)). Since V is tangent to W^(u/s), V^h = Ψ̂_*V is tangent to Ψ̂(W^(u/s)); and Ŵ and 𝖧_G
+are positive multiples of V^h on the characteristic set ([[lem:ii-c1-3-2]] and Ŵt_* > 0). The bounds follow by the
+chain rule, w(x, z) being smooth and t_*-independent. Uniformity follows from [[lem:ii-c1-3-1]] and the explicit
+dependence of the constants in [[thm:ii-c1-1-1]]. ∎
+
+**Remark {#rem:s05-trapped-hypersurfaces}** (a) φ₀^(u/s) agrees with φ_(u/s) of (H7) on the stationary characteristic
+set; off it the two may differ, which is immaterial for Γ^(u/s). (b) The intersections of Γ^(u/s) with the stationary
+face {t_* = ∞} are the sets Γ^(u/s)_(K⁺) of [[def:ii-b-5-1]] (within U), as φ̃^(u/s) → 0. (c) W^u at t_* = T_♭ is the
+stationary unstable hypersurface; [Hin26c, p. 113] makes the same choice at its slice {ρ_K = 1} ("Γ^u = ⋃_(s≥0)
+e^(sV)(Γ^u₀ ∩ {ρ_K = 1})"). The slice is immaterial in the sequel: [[ch:s06]] uses Γ^(u/s) only where ρ_K is small.
+
+### Remarks on [Hin26c] and [Hin21] {#sec:s05-literature}
+
+The following points compare this chapter with the texts it writes out in dimension 4 + 1.
+
+- *The stationary model.* The Kerr computations of [Hin26c, Lemmas 4.1–4.3, 4.7, 4.10–4.18 and Proposition 4.19] are
+  replaced by the hypotheses (H3), (H4), (H7), (H8) and (K3), from which [[sec:ii-b-2]] recovers the dynamics over the
+  Kerr face. [Hin26c, Lemma 4.20] serves in [Hin26c] only to prove part (3) of [Hin26c, Proposition 4.19] from the
+  Carter flow, and is not needed here, (K3) being assumed for 𝖵 itself. The first row of [Hin26c, (4.72)], the curves
+  over M°, is replaced by [[prop:ii-b-8-2]], the form that [Hin26c] states as its Proposition 6.1 and uses later
+  ([Hin26c, p. 111]).
+- *Rates.* (K1) has r⁻² where Kerr has r⁻¹, and no logarithm enters the hyperboloidal time. Accordingly
+  [[eq:ii-b-1-2]] has ρ₀²x_I²ρ₊² for ρ₀x_I²ρ₊, H_(G_(3b)) − H_(Ḡ_(3b)) ∈ ρ₊²𝒱_b where [Hin26c] has ρ₊,
+  G_(eb) − Ḡ_(eb) ∈ x_I²ρ₊²P^[2], S = 0 in [[lem:ii-c-1-3]], and the remainder of [[eq:ii-c-1-2]] carries ρ⁴. Nothing
+  uses more than the rates of [Hin26c], except the shortened proofs of [[lem:ii-b-3-3]] (1)–(2).
+- *The constants at n = 4.* The 1 of [Hin26c, (5.1a)] is 3/2; the factor 2(1 + S) of [Hin26c, (5.7)] is 3 + 2S; the
+  characteristic exponents 2(1 + μ) are 3 + 2μ; the tf-weight α_sf + 3/2 is α_sf + 2; the sf-weights (−3/2, −1/2) of the
+  scalar wave operator are (−2, 0). The symmetry of −2∂_(t_*)ρ(ρ∂_ρ − c) for the density ρ^(−n−1)dρ forces
+  c = (n − 1)/2, and with it [[lem:ii-c-2-6]].
+- *Misprints in [Hin26c].* In the proof of [Hin26c, Lemma 4.6 (2)], ρ₊ ∘ γ is strictly decreasing for s > 0 (a critical
+  point is a strict local maximum), where the text says "strictly increasing"; the argument is otherwise as in
+  [[lem:ii-b-3-3]] (2), which also shows why ρ₊ → 0. In [Hin26c, Lemma 4.6 (4)], the conic extension of
+  {ξ̂_(3b) = 2} is {ξ_(3b) = 2σ_(3b)}, printed as ξ_(3b) = −2σ_(3b), and within Σ⁺ it is the characteristic set of
+  2r∂_(t_*) − r∂_r = r(∂_t − ∂_r), printed as r∂_(t_*) − 2r∂_r; the (t, r)-form r(∂_t − ∂_r) given there is the right
+  one. [Hin26c, (4.18)] has the factor −2 in place of −4; only the sign is used. The angular coefficient 1 in G⁰_(eb)
+  ([[eq:ii-b-7-1]]) comes from the angular term g_(𝕊³)/(2x_I²) of ḡ near ℐ⁺ ∩ ι⁺ ([[sec:ii-a-2-3]]); the term
+  g_(𝕊³)/x_I² printed in [Hin26c, (2.27)] would give ½|η_(eb)|², and [Hin26c, (4.67)] agrees with the former. On
+  [Hin26c, p. 107], after Definition 5.15, the section x_I⁻²ρ₊⁻²(g_(m,a) + h) should read x_I²ρ₊²(g_(m,a) + h)
+  ([[rem:s05-metric-class]] (b)). [Hin26c, Definition 5.11 (1)] says "monotonically non-decreasing along the future
+  null-bicharacteristic flow", which contradicts its own condition ±H_G𝗌 ≤ 0 on ∂Σ^± and [Hin26c, Section 6.2]: the
+  order is non-increasing, high at the radial sets that the future flow leaves and low at those it approaches
+  ([[def:ii-c-2-4]] (1)). In [Hin26c, (6.5)], a covector ζ ∈ Σ lies in Σ⁺ if and only if g⁻¹(ζ, dt^♭_*) > 0, not ≤ 0,
+  since dt^♭_* is past timelike.
+- *Proofs written out.* [Hin26c, Lemma 5.16] takes "a smoothing" of a piecewise function; a smoothing preserves
+  timelikeness only if its differential stays in the past cone, and [[lem:ii-c-3-2]] glues by a smooth minimum in log
+  and a smooth maximum in r, whose differentials are convex combinations of those of the pieces; the comparison of the
+  pieces at r = Ct_* is the inequality φ′ < 0 there. The backward statement of [Hin26c, Proposition 6.1] is proved in
+  [[prop:ii-c-4-2]] by the repulsion of ∂R_(ℐ⁺,out) in x_I backward. [Hin26c, Proposition 6.4] is proved by the
+  construction it cites ([[sec:ii-c-5-2]]), with item (5) added and the localisation χ_t of [Hin23c] unnecessary in
+  this class; the bound on the characteristic set stated as [Hin23c, (C.1)] is replaced by [[lem:ii-c-5-3]].
+- *Changes of statement.* [[def:ii-c-2-1]] takes the threshold of trapping admissibility from (Γ.4), for the density of
+  [[ch:s01]], in place of [Hin26c, (5.8)] for |dg|, and realises [Hin26c, (5.9)] as [[lem:i-b-6-0]];
+  [[def:ii-c-2-3]] is the tf-admissibility of [[def:i-c-5-1]]. [[prop:ii-c-4-2]] is stated over {r ≥ r₀}, where the
+  perturbation is defined, with "reaches {r = r₀}" for "crosses {r = m}".
+- *The persistence of the trapped hypersurfaces.* The proof of [Hin26c, Proposition 6.3] rests on
+  [Hin21, Theorem 2.6]. That theorem is stated for a closed manifold, a C^∞ invariant splitting (the relaxation to
+  continuous splittings is [Hin21, footnote 8]) and a fixed perturbation, and the uniformity in the perturbation that
+  [Hin26c] asserts is a reading of its proof. [[thm:ii-c1-1-1]] proves what is needed directly, with explicit
+  dependence of the constants, from (Γ.1)–(Γ.3) and the tangential half of (K3), so the continuous splitting of (K3) is
+  enough and is not used. [Hin26c] states φ̃^(u/s) ∈ C^(d₀−1,ℓ_K)_cu on all of the cosphere bundle over D; here
+  φ̃^u ∈ C^(d₀−1) and φ̃^s ∈ C^(d₀−2), on a neighbourhood U of ∂Γ₀: the stable hypersurface is obtained as a limit and
+  loses one derivative. d₀ is a free parameter, taken large wherever [[prop:ii-c1-3-4]] is used ([[ch:s06]]), and only
+  a neighbourhood of the trapped set enters the trapping estimates. The graphing of the characteristic set on
+  [Hin26c, p. 113] is [[lem:ii-c1-3-3]], with the projected field computed in [[lem:ii-c1-3-2]]; the space ℝ⁵ there is
+  the five-dimensional characteristic set of Kerr at fibre infinity over (K⁺)°, which at n = 4 is seven-dimensional.

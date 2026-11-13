@@ -534,12 +534,12 @@ and the terms in 1/r² and in (∂_r b)² cancel, as do the cross terms (2/r)(�
 
     R_rr = (6/r) ∂_r b − 2 ((∂_r P1)² + ∂_r P1 ∂_r P2 + (∂_r P2)²),                                  {#eq:bondi-Rrr}
 
-exactly. In the same way, R_(rϑ) is ∂_r Γ^r_(rϑ) + ∂_ϑ Γ^ϑ_(rϑ) − 2 ∂_r ∂_ϑ b + Γ^r_(rϑ) ∂_r log √|det g| +
-Γ^ϑ_(rϑ) ∂_ϑ log √|det g| minus Γ^r_(ϑr) Γ^r_rr + Γ^ϑ_(ϑr) Γ^r_(rϑ) + Γ^v_(ϑϑ) Γ^ϑ_(rv) + Γ^ϑ_(ϑϑ) Γ^ϑ_(rϑ) +
-Σ_i Γ^(φi)_(ϑφi) Γ^(φi)_(rφi); the other products vanish by the symbols listed. Collecting: the undifferentiated U cancels
-between Γ^v_(ϑϑ) Γ^ϑ_(rv) and U Γ^v_(ϑϑ) Γ^ϑ_(rϑ), because Γ^ϑ_(rϑ) = ∂_r(r²S)/(2r²S); the terms in ∂_r U combine to
-−½ ∂_r(r² e^(−2b) S ∂_r U) − (3/(2r)) r² e^(−2b) S ∂_r U; the terms in ∂_ϑ b combine to −∂_r ∂_ϑ b + (3/r) ∂_ϑ b; and the
-terms in P alone give the last line below. So, exactly,
+exactly. In the same way, R_(rϑ) is ∂_r Γ^r_(rϑ) + ∂_ϑ Γ^ϑ_(rϑ) − 2 ∂_r ∂_ϑ b + Γ^r_(rϑ) ∂_r log √|det g| + Γ^ϑ_(rϑ) ∂_ϑ
+log √|det g| minus Γ^r_(ϑr) Γ^r_rr + Γ^ϑ_(ϑr) Γ^r_(rϑ) + Γ^v_(ϑϑ) Γ^ϑ_(rv) + Γ^ϑ_(ϑϑ) Γ^ϑ_(rϑ) + Σ_i Γ^(φi)_(ϑφi)
+Γ^(φi)_(rφi); the other products vanish by the symbols listed. Collecting: the undifferentiated U cancels between
+Γ^v_(ϑϑ) Γ^ϑ_(rv) and U Γ^v_(ϑϑ) Γ^ϑ_(rϑ), because Γ^ϑ_(rϑ) = ∂_r(r²S)/(2r²S); the terms in ∂_r U combine to −½ ∂_r(r²
+e^(−2b) S ∂_r U) − (3/(2r)) r² e^(−2b) S ∂_r U; the terms in ∂_ϑ b combine to −∂_r ∂_ϑ b + (3/r) ∂_ϑ b; and the terms in
+P alone give the last line below. So, exactly,
 
     R_(rϑ) = −(1/(2r³)) ∂_r (r⁵ e^(−2b) S ∂_r U) − r³ ∂_r (r^(−3) ∂_ϑ b) − ∂_r ∂_ϑ (P1 + P2)
              + tan ϑ (2 ∂_r P1 + ∂_r P2) − cot ϑ (∂_r P1 + 2 ∂_r P2)
@@ -549,7 +549,7 @@ terms in P alone give the last line below. So, exactly,
 
     Γ^v_vv = ½ ∂_r W,   Γ^v_AB = −½ ∂_r q_AB,   Γ^r_vv = ½ (W ∂_r W − ∂_v W),   Γ^r_vr = −½ ∂_r W,
     Γ^r_vA = −½ ∂_A W,   Γ^r_AB = −½ (∂_v q_AB + W ∂_r q_AB),   Γ^A_vv = ½ q^{AB} ∂_B W,
-    Γ^A_vB = ½ q^{AC} ∂_v q_CB,   Γ^A_rB = ½ q^{AC} ∂_r q_CB,   Γ^A_BC = Γ[q]^A_BC,                       {#eq:bondi-gamma-0}
+    Γ^A_vB = ½ q^{AC} ∂_v q_CB,   Γ^A_rB = ½ q^{AC} ∂_r q_CB,   Γ^A_BC = Γ[q]^A_BC,                   {#eq:bondi-gamma-0}
 
 and √|det g| = r³ cos ϑ sin ϑ does not depend on v. Inserting them in the formula for R_ab,
 R_vr = ∂_r Γ^r_vr + (3/r) Γ^r_vr − Γ^A_rB Γ^B_vA, R_vv = (r³ cos ϑ sin ϑ)⁻¹ ∂_c (r³ cos ϑ sin ϑ Γ^c_vv) − (Γ^v_vv)² −
@@ -570,7 +570,7 @@ With W = 1 − μ/r² and P1 = P2 = 0, (eq:bondi-R0) gives R_vr = 0 and R_vv = 3
 single component U^ϑ = U and U_A := γ_AB U^B. The Christoffel symbols linear in U are
 
     δΓ^v_vA = δΓ^r_vA = ½ ∂_r (r² U_A),   δΓ^r_rA = −½ r² ∂_r U_A,   δΓ^r_AB = −½ r² (D_A U_B + D_B U_A),
-    δΓ^A_vv = −∂_v U^A,   δΓ^A_vr = −(1/(2r²)) ∂_r (r² U^A),   δΓ^C_AB = −r U^C γ_AB,                  {#eq:bondi-gamma-U}
+    δΓ^A_vv = −∂_v U^A,   δΓ^A_vr = −(1/(2r²)) ∂_r (r² U^A),   δΓ^C_AB = −r U^C γ_AB,                 {#eq:bondi-gamma-U}
 
 and the others vanish; U does not change det g. By Palatini's identity δR_ab = ∇̄_c δΓ^c_ab − ∇̄_b δΓ^c_ac, with ∇̄ the
 connection of η_B and δΓ^c_ac = 0, the parts of R_ab linear in U at η_B are
@@ -591,8 +591,8 @@ e_k e_l y_α, (e_k y_α)(e_l y_β), c e_k y_α, c c' or e_k c, where c, c' are s
 [e_i, e_j] = c^k_ij e_k. Each structure coefficient is r⁻¹ times 1, tan ϑ or cot ϑ, so e_0 c = 0, e_1 c = −r⁻¹ c, and
 e_2 c is r^(−2) times a function of ϑ. Give e_0 the weight 0, and e_1, e_2 and a structure coefficient the weight 2.
 
-(c) In R_00 the terms of (b) whose two slots are both e_0 sum to −2((e_0 P1)² + e_0 P1 e_0 P2 + (e_0 P2)²); in every other
-component they sum to 0.
+(c) In R_00 the terms of (b) whose two slots are both e_0 sum to −2((e_0 P1)² + e_0 P1 e_0 P2 + (e_0 P2)²); in every
+other component they sum to 0.
 
 (d) Consequently, if y_α has an expansion in s starting at s^(m_α), a term of R_ij whose factors from y are
 y_(α1), …, y_(αn) and whose slots have total weight w has an expansion starting at s^(m_(α1) + … + m_(αn) + w). In
@@ -649,7 +649,7 @@ and b_k, u_k, w_k the coefficients of b, U and W. Then, in order:
 
 (v) R_vv at s⁵ is then an identity (the rate of (iii)), and at s⁶ it is linear in ∂_v w_4 and reads
 
-    ∂_v M = (4/3) (p_v² + p_v q_v + q_v²) + (2/3) div(∂_v u_6),       M := −w_4.                       {#eq:bondi-law-div}
+    ∂_v M = (4/3) (p_v² + p_v q_v + q_v²) + (2/3) div(∂_v u_6),       M := −w_4.                      {#eq:bondi-law-div}
 
 The coefficient at s⁶ involves only p, q, a1, a2 and w_4, so remainders o(s⁶) do not disturb it. With (iv), ∂_v u_6 = 0,
 and (eq:bondi-law-div) is, pointwise,
@@ -692,16 +692,15 @@ sphere mean vanishes, since ∫_0^(π/2) ∂_ϑ (f sin ϑ cos ϑ) dϑ = 0 for ev
 
 *(iv).* Now W − 1, P_i and Û are O(s³) and b is O(s⁶), so H_AB and the part of L_AB linear in b have frame order at
 least 8, that is, coordinate order at least s⁴; by (eq:bondi-RU) the part linear in U has no derivative in v and is
-O(s³) in coordinates. In R_AB|_(b=U=0) from (eq:bondi-R0), write W = 1 + ω and h = γ + k, so that q = r²(γ + k) with
-k = diag(−2(P1 + P2), 2 cos²ϑ P1, 2 sin²ϑ P2) + O(s⁶). The terms of degree two or more in (ω, k) have weight at least
-2 by [[lem:bondi-orders]] (c), hence frame order at least 8 and coordinate order at least s⁴. R[q] = R[γ + k] =
-2γ + O(s³). In the rest, to first order: the constant terms give −2γ, cancelling 2γ; the terms in ω give
-−(r ∂_r ω + 2ω) γ_AB = Σ_k (k/2 − 2) w_k s^k γ_AB, which is O(s³) now that w_1 = w_2 = 0; the terms in k with a derivative
-in v come from −∂_v ∂_r q, −(3/(2r)) ∂_v q and ½ (∂_r q q⁻¹ ∂_v q + ∂_v q q⁻¹ ∂_r q), and sum to
-−r² ∂_r ∂_v k − (3/2) r ∂_v k = Σ_j ((j − 3)/2) ∂_v k_j s^(j−2) for k = Σ_j k_j s^j; and the terms in k without a
-derivative in v are O(s³). So at s² the three angular components of R_AB are those of ½ ∂_v k_4, with
-k_4 = diag(−2(a1 + a2), 2 cos²ϑ a1, 2 sin²ϑ a2): they are −∂_v(a1 + a2), cos²ϑ ∂_v a1 and sin²ϑ ∂_v a2, a traceless
-tensor. Vacuum gives ∂_v a1 = ∂_v a2 = 0.
+O(s³) in coordinates. In R_AB|_(b=U=0) from (eq:bondi-R0), write W = 1 + ω and h = γ + k, so that q = r²(γ + k) with k =
+diag(−2(P1 + P2), 2 cos²ϑ P1, 2 sin²ϑ P2) + O(s⁶). The terms of degree two or more in (ω, k) have weight at least 2 by
+[[lem:bondi-orders]] (c), hence frame order at least 8 and coordinate order at least s⁴. R[q] = R[γ + k] = 2γ + O(s³).
+In the rest, to first order: the constant terms give −2γ, cancelling 2γ; the terms in ω give −(r ∂_r ω + 2ω) γ_AB = Σ_k
+(k/2 − 2) w_k s^k γ_AB, which is O(s³) now that w_1 = w_2 = 0; the terms in k with a derivative in v come from −∂_v ∂_r
+q, −(3/(2r)) ∂_v q and ½ (∂_r q q⁻¹ ∂_v q + ∂_v q q⁻¹ ∂_r q), and sum to −r² ∂_r ∂_v k − (3/2) r ∂_v k = Σ_j ((j − 3)/2)
+∂_v k_j s^(j−2) for k = Σ_j k_j s^j; and the terms in k without a derivative in v are O(s³). So at s² the three angular
+components of R_AB are those of ½ ∂_v k_4, with k_4 = diag(−2(a1 + a2), 2 cos²ϑ a1, 2 sin²ϑ a2): they are −∂_v(a1 + a2),
+cos²ϑ ∂_v a1 and sin²ϑ ∂_v a2, a traceless tensor. Vacuum gives ∂_v a1 = ∂_v a2 = 0.
 
 *(v).* All of W − 1, P_i and Û are O(s³) and b is O(s⁶). So H_vv and the part of L_vv linear in b are O(s⁸), and the
 part linear in U is −div(∂_v U) = −div(∂_v u_5) s⁵ − div(∂_v u_6) s⁶ + o(s⁶), by (eq:bondi-RU). In R_vv|_(b=U=0) from

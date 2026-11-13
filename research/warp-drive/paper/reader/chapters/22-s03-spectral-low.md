@@ -14,8 +14,7 @@ The shift of [Hin26c, Lemma 3.11] is n/2 = 2, so α + 3/2 becomes α + 2 in Theo
 of [Hin26c], and H_b^(∞,β−3/2) becomes H_b^(∞,β−2). In [Hin26c, Section 9.5], which is stated for every n,
 (n − 1)/2 = 3/2, n/2 = 2 and −n + 2 + β = −2 + β. The Bessel order in Proposition 9.40 is ℓ + 1 and its weights are
 (0, 2). [[thm:i-c-6-4]] carries an estimate for the adjoint that [Hin26c] does not state; the proof of [[cor:i-c-6-6]]
-needs it, because the augmented operator used there has an index that is not known in advance (see the remarks at the
-end of the chapter). The smallness of |σ| in [[thm:i-c-6-4]] may depend on the b-regularity order ([[rem:i-c-6-7]]).
+needs it, because the augmented operator used there has an index that is not known in advance ([[sec:s03-remarks]]). The smallness of |σ| in [[thm:i-c-6-4]] may depend on the b-regularity order ([[rem:i-c-6-7]]).
 
 Every input is proved here or in [[ch:s01]]–[[ch:s02]], from the classical facts of [[sec:i-c-2-1]], the scattering
 calculus of [HJS] as used in [[ch:s01]], and the facts about Hankel functions from [DLMF] stated in [[sec:i-c-5-2]].
@@ -464,7 +463,7 @@ hold in the strong sense ([[rem:i-a-7-3]]: [[prop:i-a-4-2]] (1), [[prop:i-a-5-1]
 [[cor:i-a-6-5]] do), with the a priori term at the horizon given by the order s of u, so u ∈ H̄^(s′) on {r < 3R_1}
 for every s′: u is smooth up to ∂_♯X. Near ∂X, [[lem:i-c-2-5]] at every order gives χ_∂u ∈ H_(b,α+2)^∞, and
 [[lem:i-c-2-7]] for L = P⁽⁰⁾, with (c_−, c_+) = I and c = α + 2, gives χ_∂u ∈ 𝒜^β for every β < β_+. In [Hin26c]
-this step is a contour shift through (9.109); here it is done by [[lem:i-c-2-3]] and [[lem:i-c-2-7]]. ∎
+this step is a contour shift through [Hin26c, (9.109)]; here it is done by [[lem:i-c-2-3]] and [[lem:i-c-2-7]]. ∎
 
 #### Proof of (3) and (4) {#sec:i-c-3-3}
 
@@ -595,8 +594,8 @@ This is [Hin26c, Theorem 9.38] in dimension 4 + 1, on E, with the sign in the de
 orders 𝗋_± ([[sec:s03-remarks]]). [Hin26c, Theorem 9.38 (5)] also states [Hin26c, (9.115)]: the annihilator lies in
 e^(−2i/ρ_sctf) 𝒜^(a,−2+β)(tf) (at n = 4). Its proof conjugates the scattering calculus by e^(2ir̂), which lies outside
 the results of [HJS] used in [[ch:s01]], and uses [Hin26c, (9.117)], whose printed proof omits a term
-([[sec:s03-remarks]]). Nothing here uses (9.115): tf-admissibility is stated in [[sec:i-c-5]] on the spaces of this
-theorem. (9.115) is not proved here.
+([[sec:s03-remarks]]). Nothing here uses [Hin26c, (9.115)]: tf-admissibility is stated in [[sec:i-c-5]] on the spaces of this
+theorem. [Hin26c, (9.115)] is not proved here.
 
 #### Proof {#sec:i-c-4-4}
 
@@ -672,7 +671,7 @@ nor on q with −q + 2 in the gap.
 *Relation to [Hin26c, Definition 5.10]* (with the weight −n + 2 + β = −2 + β of [Hin26c, Corollary 9.39]). There,
 (ii) is the triviality of the kernel of N_tf(e^(iθ)) on 𝒜^(a,−β)(tf) for every a, which implies (ii) here by
 [[thm:i-c-4-3]] (5); and (iii) is its triviality on e^(−2i/ρ_sctf)𝒜^(a,−2+β)(tf) for every a, which implies (iii)
-here when [Hin26c, (9.115)] holds. So the tf-admissibility of [Hin26c] implies this one, given (9.115), which is not
+here when [Hin26c, (9.115)] holds. So the tf-admissibility of [Hin26c] implies this one, given [Hin26c, (9.115)], which is not
 proved here ([[sec:i-c-4-3]]). [[cor:i-c-5-2]] needs only [[def:i-c-5-1]], and [[prop:i-c-5-3]] verifies
 [[def:i-c-5-1]] directly.
 
@@ -752,13 +751,13 @@ as 1 + ℓ(ℓ + 2) = (ℓ + 1)². So u solves the equation if and only if Z sol
 the ray {σ̂r̂ : r̂ > 0}, which lies in ℂ ∖ (−∞, 0] for θ ∈ [0, π); in particular f_1 and f_2 are solutions. The
 equation is of second order with smooth coefficients on (0, ∞), so its solutions form a two-dimensional space; f_1 and
 f_2 are independent because on the ray ph z = θ their leading terms e^(±iz) in [DLMF, (10.17.5)–(10.17.6)] are,
-e^(2iz) not tending to a constant. (b) The remainders after the first term in (10.17.5)–(10.17.6) are O(|z|^(−3/2))
+e^(2iz) not tending to a constant. (b) The remainders after the first term in [DLMF, (10.17.5)–(10.17.6)] are O(|z|^(−3/2))
 uniformly in closed subsectors; e^(∓iz) z^(1/2) H_ν^(j)(z) is holomorphic on {|ph z| < π/2}, and for real x ≥ 1 the
 disc of radius x/2 about x lies in {|ph z| ≤ π/6}, so Cauchy's estimates give |x^k ∂_x^k(·)| ≤ C_k times the bound on
 the disc, for the remainder of the expansion as well as for each term. As (r̂∂_r̂)^k is a combination of the r̂^i∂^i,
 i ≤ k, this gives (b); the constant is that of the first term, r̂⁻¹(2/π)^(1/2) r̂^(−1/2) e^(∓i(½νπ+¼π)). (c) On the ray
-z = e^(iθ)r̂, θ ∈ (0, π) fixed, (10.17.5)–(10.17.6) apply, |e^(iz)| = e^(−r̂ sin θ) and |e^(−iz)| = e^(r̂ sin θ).
-(d) (10.7.7) with |z| = r̂ and Γ(ν) ≠ 0 gives |f_j(r̂)| = r̂⁻¹|H_ν^(j)(σ̂r̂)| ≥ c r̂^(−1−ν) = c r̂^(−2−ℓ). ∎
+z = e^(iθ)r̂, θ ∈ (0, π) fixed, [DLMF, (10.17.5)–(10.17.6)] apply, |e^(iz)| = e^(−r̂ sin θ) and |e^(−iz)| = e^(r̂ sin θ).
+(d) [DLMF, (10.7.7)] with |z| = r̂ and Γ(ν) ≠ 0 gives |f_j(r̂)| = r̂⁻¹|H_ν^(j)(σ̂r̂)| ≥ c r̂^(−1−ν) = c r̂^(−2−ℓ). ∎
 
 **Lemma {#lem:i-c-5-5}** (Spherical waves.) Let κ ∈ ℝ, g ∈ C^∞([1, ∞)) with |∂^k g| ≤ C_k r̂^(−γ−k),
 Y ∈ C^∞(𝕊³; ℂ^(N_E)), χ_∞ a cut-off to {r̂ ≥ 2}, and v := χ_∞ e^(iκr̂) g(r̂) Y(ω). Then v ∈ H_sc^(m,l) for all m and
@@ -1195,8 +1194,8 @@ P̂(σ)^(*h)v = −Σ_j d_jφ_j as a supported distribution; this lies in Ḣ^(�
 ⟨v, ψ_i⟩_h = 0. So 𝒫(σ)^*(v, d) = 0, and (v, d) = 0 by [[eq:i-c-6-7]]. The range is closed and has trivial
 annihilator, so 𝒫(σ) is onto. ∎
 
-[Hin26c] derives the invertibility in its Theorem 9.41 from the injectivity given by its (9.119) and the index 0 of its
-(9.18). That route is not available for an augmented operator, whose index is m_1 − m_2 plus that of P̂(σ); that index
+[Hin26c] derives the invertibility in its Theorem 9.41 from the injectivity given by [Hin26c, (9.119)] and the index 0 of
+[Hin26c, (9.18)]. That route is not available for an augmented operator, whose index is m_1 − m_2 plus that of P̂(σ); that index
 is what [[cor:i-c-6-6]] determines, and (2) is the uniform estimate its proof needs.
 
 #### Proof of (4) and (5) {#sec:i-c-6-6}
@@ -1352,8 +1351,8 @@ that of the domain, H̄_b^(s_0,α); the weight there is −α, as in [[eq:i-c-3-
 
 (4) The proof of [Hin26c, (9.117), p. 196] expands −ρ̂²(ρ̂∂_ρ̂ − n + 2 + 2iρ̂⁻¹)² with the middle term
 −2iρ̂(ρ̂∂_ρ̂ − n + 1). Of the two cross products, (ρ̂∂_ρ̂ − n + 2)·2iρ̂⁻¹ = 2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 1) and
-2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 2), only the first is kept; with both, the middle term is −2iρ̂(2ρ̂∂_ρ̂ − 2n + 3). (9.117) serves
-only (9.115), which is not used here ([[sec:i-c-4-3]]).
+2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 2), only the first is kept; with both, the middle term is −2iρ̂(2ρ̂∂_ρ̂ − 2n + 3). [Hin26c, (9.117)] serves
+only [Hin26c, (9.115)], which is not used here ([[sec:i-c-4-3]]).
 
 (5) [Hin26c, Theorem 9.38 (1), p. 195] takes θ with |e^(iθ) ± 1| ≤ ½ and 𝗋 = 𝗋_±. The orders 𝗋_± are those for
 frequencies near ±1 ([Hin26c, Theorem 9.41] uses 𝗋_+ for arg σ ∈ [0, π/4]), so the condition is |e^(iθ) ∓ 1| ≤ ½, as
@@ -1361,19 +1360,19 @@ in Θ_± of [[sec:i-c-4-3]].
 
 (6) The proof of [Hin26c, Corollary 9.43, p. 200] augments P̂(0) by maps E_01: ℂ^(d_1) → C_c^∞(X°) and
 E_10: 𝒳_0 → ℂ^(d_0), applies [Hin26c, Theorem 9.41] to the augmented operator to obtain its invertibility at σ = iϵ,
-and concludes d_0 = d_1 from the index 0 of [Hin26c, (9.18)]. The estimate (9.119) gives injectivity; for P̂(σ)
-itself invertibility then follows from the index 0 of (9.18). The augmented operator has index d_1 − d_0, which is
+and concludes d_0 = d_1 from the index 0 of [Hin26c, (9.18)]. The estimate [Hin26c, (9.119)] gives injectivity; for P̂(σ)
+itself invertibility then follows from the index 0 of [Hin26c, (9.18)]. The augmented operator has index d_1 − d_0, which is
 the quantity the corollary asserts to vanish, and injectivity gives only d_1 ≤ d_0; surjectivity needs an estimate
 for the adjoint of the augmented operator, uniform as σ → 0, which [Hin26c] does not state. [[thm:i-c-6-4]] (2) is
 that estimate and (3) the invertibility, proved for augmented operators; with them [[cor:i-c-6-6]] follows by the
 argument of [Hin26c], and the statement of [Hin26c, Corollary 9.43] stands.
 
 (7) In the proof of [Hin26c, Theorem 9.41, p. 198] the zero energy step writes the error and target norms with tf
-orders α_+ and α_+ + 2 where the orders are α and α + 2, as in (9.121) a few lines later. In [Hin26c, Theorem 9.38
+orders α_+ and α_+ + 2 where the orders are α and α + 2, as in [Hin26c, (9.121)] a few lines later. In [Hin26c, Theorem 9.38
 (3), p. 195], N_tf(P_0, e^(iθ)u) stands for N_tf(P_0, e^(iθ))u.
 
 Not proved in this chapter, and not used in it: [Hin26c, (9.115)] and the conjugation behind it ([[sec:i-c-4-3]]);
 the improvements of [Hin26c, Remark 9.37] ([[rem:i-c-3-2]]); and, in [Hin26c, Theorem 9.41], a smallness independent
-of k, uniformity in α, and (9.120) for augmented operators ([[rem:i-c-6-7]]). tf-admissibility is stated here on the
-Fredholm spaces ([[def:i-c-5-1]]), which [Hin26c, Definition 5.10] implies given (9.115) ([[sec:i-c-5-1]]);
+of k, uniformity in α, and [Hin26c, (9.120)] for augmented operators ([[rem:i-c-6-7]]). tf-admissibility is stated here on the
+Fredholm spaces ([[def:i-c-5-1]]), which [Hin26c, Definition 5.10] implies given [Hin26c, (9.115)] ([[sec:i-c-5-1]]);
 [[prop:i-c-5-3]] verifies [[def:i-c-5-1]] directly.

@@ -90,7 +90,7 @@ source; the chapter that carries the result defines exactly that key, and every 
   II.A1 → ii-a1, II.F1 → ii-f1, III.D2 → iii-d2, III.I(15) → iii-i15, IV → iv, IV(3) → iv3, VI.B1 → vi-b1,
   VI.C → vi-c, VII → vii, IX → ix), and number is the result's number with "." replaced by "-". Examples: III.K
   Theorem 4.3 → `thm:iii-k-4-3`; III.D1 Lemma 2.1 → `lem:iii-d1-2-1`; III.B (3.6) → `eq:iii-b-3-6`; II.G Theorem
-  2.1 → `thm:ii-g-2-1`.
+  2.1 → `thm:ii-g-2-1`. A prime is spelt out: I.B Corollary 4.6′ → `cor:i-b-4-6-prime` (two primes: `-prime2`).
 - The main proof's section 10 items carried into the stability chapters: `<kind>:np-10-<n>[-<item>]`, for example
   NP 10.17 (ii) → `prop:np-10-17-ii`. The chapter carrying it is the lowest-numbered stability chapter whose entry in
   outline-S lists it; the others cite it.
