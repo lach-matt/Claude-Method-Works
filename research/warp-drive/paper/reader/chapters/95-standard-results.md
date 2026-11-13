@@ -335,6 +335,43 @@ c ∈ ρ_sf C^∞(M; T*) satisfying the following properties for some r0 > 100m,
 
 The objects S_(g,c,e), B_(g,c,e) and ℓ_(g,c,e) are those of [Hin26a, Lemmas 3.3 and 3.9], and r/t/v in (5) is (r/t)/v.
 
+**Theorem {#thm:std-sbierski}** (Globally hyperbolic developments; [Sbi15, p. 11; Definitions 2.1, 2.2 and 2.4, p. 11;
+Theorems 2.6 and 2.7, p. 12; Theorem 3.4, p. 14; Definition 3.5, p. 15; Theorem 3.13, p. 20; proof of Theorem 2.7,
+pp. 20–22].) [Sbi15] works with the vacuum Einstein equations Ric(g) = 0 in any dimension. "Initial data (𝓜, ḡ, k̄)
+for the vacuum Einstein equations consists of a connected d-dimensional Riemannian manifold (𝓜, ḡ) together with a
+symmetric 2-covariant tensor field k̄ on 𝓜 that satisfy the constraint equations: R̄ − |k̄|² + (tr k̄)² = 0,
+∇̄^i k̄_ij − ∇̄_j tr k̄ = 0" (p. 11).
+
+(1) Definition 2.1: "A globally hyperbolic development (GHD) (M, g, ι) of initial data (𝓜, ḡ, k̄) is a time oriented,
+globally hyperbolic Lorentzian manifold (M, g) that satisfies the vacuum Einstein equations, together with an
+embedding ι : 𝓜 → M such that 1. ι^*(g) = ḡ 2. ι^*(k) = k̄, where k denotes the second fundamental form of ι(𝓜) in M
+with respect to the future normal 3. ι(𝓜) is a Cauchy surface in (M, g)."
+
+(2) Definition 2.2: "Given two GHDs (M, g, ι) and (M′, g′, ι′) of the same initial data, we say that (M′, g′, ι′) is an
+extension of (M, g, ι) iff there exists a time orientation preserving isometric embedding ψ : M → M′ that preserves the
+initial data, i.e. ψ ∘ ι = ι′." Definition 2.4: "Given two GHDs (M, g, ι) and (M′, g′, ι′) of initial data
+(𝓜, ḡ, k̄), we say that a GHD (U ⊆ M, g|_U, ι) is a common globally hyperbolic development (CGHD) of (M, g, ι) and
+(M′, g′, ι′) iff (M′, g′, ι′) is an extension of (U, g_U, ι_U)."
+
+(3) Theorem 2.6: "Given initial data for the vacuum Einstein equations, there exists a GHD, and for any two GHDs of the
+same initial data, there exists a CGHD." Theorem 2.7 (Global uniqueness): "Given two GHDs M and M′ of the same initial
+data, there exists a GHD M̃ that is an extension of M and M′."
+
+(4) Theorem 3.4 (Existence of MCGHD): "Given two GHDs M and M′ of the same initial data, there exists a unique CGHD U of
+M and M′ with the property that if V is another CGHD of M and M′, then U is an extension of V. We call U the maximal
+common globally hyperbolic development (MCGHD) of M and M′." In its proof U is the union of all CGHDs of M and M′
+contained in M, and "U is open" (p. 14).
+
+(5) Definition 3.5: "Let U be a CGHD of M and M′, and let us denote the isometric embedding of U into M′ with ψ. Two
+points p ∈ ∂U ⊆ M and p′ ∈ ∂ψ(U) ⊆ M′ are called corresponding boundary points of U iff for all neighbourhoods V of p
+and for all neighbourhoods V′ of p′ one has ψ⁻¹(V′ ∩ ψ(U)) ∩ V ≠ ∅." Theorem 3.13: "Let M and M′ be GHDs of the same
+initial data, and let U be the MCGHD of M and M′. Then U does not have corresponding boundary points in M and M′."
+
+(6) The proof of Theorem 2.7 (pp. 20–22) glues M and M′ along U: M̃ := (M ⊔ M′)/∼, where p ∼ ψ(p) for p ∈ U. By
+Theorem 3.13 the quotient is Hausdorff (p. 21), and "(M̃, g̃, ι̃) is a GHD of (𝓜, ḡ, k̄) and, moreover, it is an
+extension of M and M′, where the isometric embeddings are given by the maps π ∘ j and π ∘ j′" (p. 22), π being the
+quotient map and j, j′ the inclusions of M and M′ into M ⊔ M′.
+
 ### The constraint equations {#sec:std-constraints}
 
 **Theorem {#thm:std-cd-constraints}** ([CD03, (2.1)–(2.2), p. 4].) "Initial data (g, K) for the vacuum Einstein
@@ -1165,10 +1202,10 @@ these estimates for every N is the Fourier–Laplace transform of a function in 
 ### Chebyshev interpolation {#sec:std-chebyshev}
 
 **Theorem {#thm:std-chebyshev}** ([Tre19, (2.2); Chapter 8, pp. 55–57; Theorems 8.1 and 8.2, p. 57; (15.2)–(15.4),
-p. 108; Theorem 15.2, p. 109].) Let n ≥ 0. In [Tre19], "by 'Chebyshev points' we mean Chebyshev points of the second
-kind, defined by (2.2)" (p. 109), x_j = cos(jπ/n), 0 ≤ j ≤ n (2.2); the Chebyshev interpolant p_n of a continuous f on
-[−1, 1] is the polynomial of degree at most n that equals f at these n + 1 points, and ‖·‖ is the maximum norm on
-[−1, 1].
+p. 108; Theorem 15.2, p. 109].) In [Tre19], "by 'Chebyshev points' we mean Chebyshev points of the second kind,
+defined by (2.2)" (p. 109), x_j = cos(jπ/n), 0 ≤ j ≤ n (2.2), for n ≥ 1; the Chebyshev interpolant p_n of a
+continuous f on [−1, 1] is the polynomial of degree at most n that equals f at these n + 1 points, and ‖·‖ is the
+maximum norm on [−1, 1].
 
 (1) The Bernstein ellipse (Chapter 8, pp. 55–57): "pick a number ρ > 1 and plot the image in the complex x-plane of the
 circle of radius ρ in the z-plane under the Joukowsky map x = (z + z⁻¹)/2. We let E_ρ denote the open region bounded

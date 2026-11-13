@@ -485,7 +485,7 @@ base point near b₀. Let (h, p⃗) be as in [[lem:iii-i7-2-5]], with parameter 
 the boost parameter of [[prop:iii-i4-4-1]] (1) for L_(h,p⃗), read at b with the leading term built at b
 ([[prop:iii-i15-2-8]]): 𝒴 lies in its space of forcings for every α ∈ (1, min(a_K − 1, 3/2)) and α_+ ∈ (α, 2), and
 Ṡ is determined by the forward solution, as the coefficient of t_* at K⁺ (S ↦ h_b(S) being injective,
-[[lem:iii-i15-1-2]]). If Ṡ_(h,p⃗)(f) = 0, write Q_(h,p⃗)(f) := (ḃ, Ṡ⁽⁰⁾_1) ∈ 𝔟 ⊕ 𝒮_1 for its parameters in
+[[lem:s20-injective]]). If Ṡ_(h,p⃗)(f) = 0, write Q_(h,p⃗)(f) := (ḃ, Ṡ⁽⁰⁾_1) ∈ 𝔟 ⊕ 𝒮_1 for its parameters in
 [[eq:iii-i6-2-1]] at b, which are determined by the forward solution: a stationary tensor of positive K⁺-weight
 vanishes, and (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective ([[sec:iii-i7-1]]). Forcings converge in the finite-regularity
 spaces on which the bounds of [[lem:iii-i7-2-5]] (c) hold, which, d being large, is what [[lem:iii-i7-3-1]] (c) gives
@@ -519,7 +519,7 @@ meet the hypothesis ℓ_+ ≤ max(a_+, min Re ℰ_+) of [[eq:iii-i-4-2]] (m_+ > 
 (⟨ℰ^C_I+1⟩′, ℓ_I + 1). So R_j → 0 there. By [[prop:iii-i4-4-1]] (1) for L_0,
 u_j − u = χ_K h^(≤1)_(b,♮)(Ṡ_(0,p⃗_b)(R_j)) + ũ_(R_j) with ũ_(R_j) of K⁺-weight α − 2 > −1; also
 u_j − u = χ_K h^(≤1)_(b,♮)(Ṡ_j − Ṡ_(0,p⃗_b)(F)) + (ũ_j − ũ). A K⁺-weight above −1 forces the coefficient of t_* to
-vanish, and S ↦ h_b(S) is injective ([[prop:iii-f3-4-1]] (1) at b₀, [[lem:iii-i15-1-2]] at b), so
+vanish, and S ↦ h_b(S) is injective ([[lem:s20-injective]]), so
 Ṡ_j − Ṡ_(0,p⃗_b)(F) = Ṡ_(0,p⃗_b)(R_j) → 0.
 
 (b) Now [[prop:iii-i6-2-1]] for L_j gives u_j = χ_K ġ_b(ḃ_j) + χ_K h_b(Ṡ⁽⁰⁾_j) + ũ_j, bounded uniformly
