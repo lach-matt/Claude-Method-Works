@@ -1101,8 +1101,8 @@ and λ0(n) so small that C3(n) C(n) M(n)² λ0(n) ≤ 1. Existence, uniqueness a
 
 **Remark {#rem:vlasov-boundary-instance}** (The boundary signs on Tangherlini.) For g0 = η + (μ/r²) dv ⊗ dv, μ > 0 and
 any future null vector l with l(τ) = 1, radial or not, dr(l) ∈ [−1, (r² − μ)/(r² + μ)]. Indeed, writing l = ∂_τ + w with
-w spatial, w_r := x̂·w, the null condition is −1 + |w|² + (μ/r²)(1 + w_r)² = 0, so with |w|² ≥ w_r² and m := μ/r²,
-(1 + m) w_r² + 2m w_r + m − 1 ≤ 0, whose roots are −1 and (1 − m)/(1 + m). So at the outer boundary, b′ = −2,
+w spatial, w_r := x̂·w, the null condition is −1 + |w|² + (μ/r²)(1 + w_r)² = 0, so with |w|² ≥ w_r² and 𝔪 := μ/r²,
+(1 + 𝔪) w_r² + 2𝔪 w_r + 𝔪 − 1 ≤ 0, whose roots are −1 and (1 − 𝔪)/(1 + 𝔪). So at the outer boundary, b′ = −2,
 b′ − dr(l) ≤ −1, and at r = a < √μ, dr(l) ≤ (a² − μ)/(a² + μ) < 0: both boundary terms of step (5) have the right sign
 for every family on Tangherlini. For a general g the signs come from (Ω).
 

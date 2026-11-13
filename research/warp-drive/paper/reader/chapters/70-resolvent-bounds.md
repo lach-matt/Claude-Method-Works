@@ -2336,8 +2336,8 @@ h^(1−δ) ≤ (1 − ν′²)^(−(1−δ)/2)|σ|^(−(1−δ)). Otherwise h = 
 ‖u‖_𝐨 ≤ 2C|σ|⁻¹‖P̂(σ)u‖_(𝐨′), and |σ|⁻¹ ≤ |σ|^(−1+δ) ≤ (1 − ν′²)^(−(1−δ)/2)|σ|^(−1+δ) as |σ| ≥ 1. ∎
 
 The assumptions C_a ≥ ½ and C ≥ ¼ cost nothing, as enlarging a constant keeps an estimate true. The thresholds h_a and
-h_c are those of the chains of estimates in [[prop:i-b-6-7]] (a) and [[prop:i-b-8-1]], which contain the threshold of
-[[eq:i-b-6-6]]. The bound [[eq:rb-high-energy]] is uniform in σ in the semiclassical norms at h = h(σ); at each fixed h
+h_c are those of the chains of estimates [[eq:i-b-6-apriori]] and [[eq:i-b-8-chain]] in the proofs of [[prop:i-b-6-7]]
+(a) and [[prop:i-b-8-1]], which contain the threshold of [[eq:i-b-6-6]]. The bound [[eq:rb-high-energy]] is uniform in σ in the semiclassical norms at h = h(σ); at each fixed h
 these are equivalent to the norms of 𝒳_σ and 𝒴_σ ([[sec:i-b-8-4]]), with constants that depend on h.
 
 **Lemma {#lem:rb-interpolation}** (The constant of the interpolation.) In [[prop:i-b-6-7]], let C′_a be such that, after
