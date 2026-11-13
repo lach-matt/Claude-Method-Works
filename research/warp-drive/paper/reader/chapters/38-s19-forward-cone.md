@@ -224,8 +224,10 @@ h-dependent A^h, B^h.
 frame dt_*, dx^i is non-degenerate of Lorentzian signature at every point of the compact set Ω_*, its boundary included,
 with, on U⁺ ∩ {ρ_I ≤ 1}, g_0 − η ∈ ρ_+²ρ_I²C^∞ and π(g_0 − η) ∈ ρ_+²ρ_I³C^∞ for π ≠ π₁₁ ([[def:iii-c-3-4]] with ρ_+
 for ρ_0). The components of g_0 ∈ 𝒢⁺, and by Cramer's rule those of g_0⁻¹, are smooth on a neighbourhood of Ω_* in M,
-so they lie in C^∞_b. g_b and g_(b₀) lie in 𝒢⁺: their components and inverses lie in C^∞(M) ([[prop:iii-b-3-6]]), and
-the asymptotic conditions are those of [[lem:iii-i-3-6]] at S = 0; g_(b₀,b,−S) does by [[lem:iii-i-3-6]].
+so they lie in C^∞_b. g_b lies in 𝒢⁺ for b near b₀: its components and inverse lie in C^∞(M) ([[prop:iii-b-3-6]]),
+and near 𝓘⁺ ∩ ι⁺, g_b − η = (g_b − g_(b₀)) + (g_(b₀) − η) = m|x|⁻²(dx¹)² + |x|⁻³C^∞ (the proof of [[lem:iii-i-3-6]]),
+whose slot π₁₁ has order ρ_+²ρ_I² and whose other slots have order ρ_+³ρ_I³. g_(b₀,b,−S) lies in 𝒢⁺ by
+[[lem:iii-i-3-6]].
 
 **Proposition {#prop:iii-i-3-3}** (The leading part at 𝓘⁺; [Hin26, Proposition 11.6 (1)] in dimension 4 + 1.) Let
 g_1, g_0 ∈ 𝒢⁺, k ≥ 5, and h ∈ 𝒳^k with small H^(3,(1,0,0))_b-norm. Then g := g_1 + h satisfies, on U⁺ ∩ {ρ_I ≤ 1}, in
@@ -395,9 +397,7 @@ the bound at k. ∎
 
 Smallness enters only through g⁻¹. In [[prop:iii-i-3-4]] apply [[lem:s19-inverse]] with g_1 := g_b, whose components and
 inverse lie in C^∞(M) ⊂ C^∞_b ([[prop:iii-b-3-6]]), and δ := g − g_b; in [[prop:iii-i-3-3]] apply it with the g_1 there,
-smooth on M and Lorentzian up to the boundary of the compact set Ω_* (its component matrix in the frame dt_*, dx^i
-non-degenerate there, as in [[def:iii-c-3-4]] and the proof of [[prop:iii-c-4-4]]), so that its components and inverse
-lie in C^∞_b, and δ := h. By
+whose components and inverse lie in C^∞_b by the definition of 𝒢⁺, and δ := h. By
 [[lem:s19-products]] (c), sup|δ| is at most C(|b − b₀| + |S| + ‖h‖_(H^(3,(1,0,0))_b)) ([[lem:iii-i-3-6]]; in
 [[prop:iii-i-3-3]], C‖h‖_(H^(3,(1,0,0))_b)), which is at most ϵ when these are small, and ‖δ‖_(C¹_b) ≤ C‖δ‖_(H⁴_b). So
 (g_1 + δ)⁻¹ − g_1⁻¹ lies in H^k_b with weights 0, with norm at most C_k‖δ‖_(H^k_b), C_k depending on an upper bound for
@@ -431,7 +431,11 @@ by [[eq:iii-b-5-3]], φ_(−S)^* g_(b₀) − g_(b₀) = |x|⁻²h_(−S)(ω)(dx
 |x|⁻² ∈ ρ_+²C^∞. This is the class stated, as 1 − χ_K is smooth on M. For [[eq:iii-i-3-5]]: g_(b₀,b,−S) − g_(b₀) =
 (g_(b₀,b,−S) − g_b) + (g_b − g_(b₀)), the last term being independent of χ_K, smooth at K⁺ and of the same classes; and
 g_(b₀,b,−S) = g_b on χ_K⁻¹(1), a neighbourhood of K⁺. 𝒢⁺: near 𝓘⁺ ∩ ι⁺, g_(b₀,b,−S) = φ_(−S)^* g_(b₀), and
-g_(b₀) − η = m₀|x|⁻²(dx¹)² has the slot π₁₁ only. ∎
+g_(b₀) − η = m₀|x|⁻²(dx¹)² has the slot π₁₁ only. Non-degeneracy: the components of g_(b₀,b,−S) − g_b in the frame
+dt_*, dx^i are bounded on Ω_* by O(|b − b₀| + |S|), by the class above and [[lem:s19-products]] (c), and those of
+g_b⁻¹ are bounded there ([[prop:iii-b-3-6]]); so for |b − b₀| and |S| small every g_b + τ(g_(b₀,b,−S) − g_b),
+τ ∈ [0, 1], has a non-degenerate component matrix at every point of Ω_*, and the signature, Lorentzian at τ = 0, is
+the same at τ = 1. ∎
 
 ### Forward mapping {#sec:iii-i-4}
 

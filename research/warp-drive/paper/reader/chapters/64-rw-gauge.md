@@ -731,10 +731,10 @@ by it. ∎
 
 **Lemma {#lem:np-10-1a}** (The red-shift commutation for the class's master fields.) Let Φ be a smooth solution, up
 to and including the future horizon, of □Φ = WΦ on {r ≥ r_h}, □ = 2∂_v∂_r + ∂_r(f∂_r), W the potential of a mode of
-either type, and let s be the function with Σ_τ ∩ {r ≤ R_H} = {v = τ + s(r)}; 0 < s′ < 2/f, the leaves being spacelike
-there. With u_j := ∂_r^jΦ (∂_r at fixed v), for the mode l put
+either type, and let v_Σ be the function with Σ_τ ∩ {r ≤ R_H} = {v = τ + v_Σ(r)}; 0 < v_Σ′ < 2/f, the leaves being
+spacelike there. With u_j := ∂_r^jΦ (∂_r at fixed v), for the mode l put
 
-    Q(τ) := ∫_(r_h)^(R_H) (1 − s′f/2) u_2²(τ + s(r), r) dr,        𝒟_l := I_Ψ(Σ_0) + Σ_(i,j) I_(Ω_iΩ_jΨ)(Σ_0).
+    Q(τ) := ∫_(r_h)^(R_H) (1 − v_Σ′f/2) u_2²(τ + v_Σ(r), r) dr,     𝒟_l := I_Ψ(Σ_0) + Σ_(i,j) I_(Ω_iΩ_jΨ)(Σ_0).
 
 Then Q(τ) ≤ C(Q(0) + 𝒟_l/‖𝒴‖²)(1 + τ)⁻², ‖𝒴‖ the L²(S³) norm of the harmonic in Ψ = r^(1/2)Φ𝒴, with C depending on m₀
 and Σ_0 only. Summed over the modes with the weights ‖U_l‖² of Q_0,
@@ -749,19 +749,19 @@ F_j a combination of u_0, …, u_j with coefficients built from derivatives of f
 ∂_r(Lu_1) = Lu_2 + (f′/2)u_2 and ∂_r((f′/2)u_1) = (f″/2)u_1 + (f′/2)u_2, so F_1 = (1/2)(W′u_0 + (W − f″)u_1). The top
 coefficient (j + 1)f′/2 does not involve W (Leibniz on Wu_0 reaches u_j only), and at the horizon it is
 (j + 1)/r_h > 0, (j + 1) times the surface gravity. This is the red-shift commutation of Dafermos and Rodnianski
-([DR08, Theorem 7.2, p. 87]); in 1 + 1 dimensions it is exact.
+([DR08, Theorem 7.2, p. 87 of the arXiv version]); in 1 + 1 dimensions it is exact.
 
 (2) The energy identity. For u = u_(j+1), 2u · [[eq:np-10-1a]] and 2uLu = ∂_v(u²) + ∂_r((f/2)u²) − (f′/2)u² give
 
     ∂_v(u²) + ∂_r((f/2)u²) + ((2j + 1)f′/2)u² = 2uF_j.                                                     {#eq:np-10-1b}
 
-Integrate over {τ_1 ≤ v − s(r) ≤ τ_2, r_h ≤ r ≤ R_H} in the (v, r)-plane. The leaves carry the flux density
-(1 − s′f/2)u² dr, positive as they are spacelike; the horizon carries none (f = 0), and {r = R_H} the outgoing flux
+Integrate over {τ_1 ≤ v − v_Σ(r) ≤ τ_2, r_h ≤ r ≤ R_H} in the (v, r)-plane. The leaves carry the flux density
+(1 − v_Σ′f/2)u² dr, positive as they are spacelike; the horizon carries none (f = 0), and {r = R_H} the outgoing flux
 (f/2)u² ≥ 0. With j = 1, b := 3m₀/R_H³ ≤ 3f′/2 on [r_h, R_H], Q(w) ≤ ∫u_2² dr on Σ_w, and
 2|uF_1| ≤ (b/2)u² + (2/b)F_1²,
 
     Q(τ_2) + (b/2)∫_(τ_1)^(τ_2) Q(w) dw ≤ Q(τ_1) + (2/b)∫_(τ_1)^(τ_2) G(w) dw,
-    G(w) := ∫_(r_h)^(R_H) F_1²(w + s(r), r) dr.
+    G(w) := ∫_(r_h)^(R_H) F_1²(w + v_Σ(r), r) dr.
 
 (3) The forcing. |W′| + |W − f″| ≤ C(1 + k²) on [r_h, R_H] ([[lem:rw-potentials]]), and u_0, u_1 are bounded in L² on
 the spacelike part by Ě^N_Ψ ([[lem:rwg-cone]]). So G(w) ≤ C(1 + k²)²Ě^N_Ψ(Σ_w)/‖𝒴‖² ≤ C(Ě^N_Ψ + Σ_(i,j)
@@ -774,7 +774,7 @@ d(τ) ≤ −(b/2)∫_(τ′)^τ d < 0, a contradiction. And for c > 0,
 ∫_0^τ e^(−c(τ−w))(1 + w)⁻² dw ≤ C_c(1 + τ)⁻², C_c = max(1, 16e^(c/2−2)/c²) + 4/c: split at τ/2; the part over
 [0, τ/2] is at most e^(−cτ/2) ≤ max(1, 16e^(c/2−2)/c²)(1 + τ)⁻² (the maximum of e^(−cτ/2)(1 + τ)² over τ ≥ 0), and
 the part over [τ/2, τ] at most (1 + τ/2)⁻²/c ≤ 4(1 + τ)⁻²/c. Also e^(−bτ/2) ≤ C_(b/2)(1 + τ)⁻². Since
-c_Σ ∫u_2² dr ≤ Q, c_Σ := min (1 − s′f/2) > 0, this is the lemma for the mode; every constant is uniform in l. Multiply
+c_Σ ∫u_2² dr ≤ Q, c_Σ := min (1 − v_Σ′f/2) > 0, this is the lemma for the mode; every constant is uniform in l. Multiply
 by ‖U_l‖²: for the tensor type U_l and the harmonic in Ψ are one harmonic up to the factor 2, and for the scalar type
 ‖Y_αβ‖² ≥ (80/3)‖S‖² ([[lem:rw-hkw-field]]); with Σ_l ‖U_l‖²Q_l(0) ≤ Q_0 and the orthogonality of the harmonics, the
 sum gives the rest. ∎
@@ -793,31 +793,76 @@ is the one input their class lacks, and nothing weaker than it suffices.
 *Proof.* (a) An outgoing null ray r = ρ(v), ρ′ = f/2, carries no flux of [[eq:np-10-1b]]: along it the flux density
 u²ρ′ − (f/2)u² vanishes. So the identity on the region between Σ_0, Σ_τ, the horizon and the ray from (Σ_0, ρ_1), ρ_1
 close enough to r_h that the ray stays below R_H until Σ_τ, has no outer term. With 2|uF_1| ≤ u² + F_1² and
-3f′/2 ≤ 3/r_h it gives q(w) ≤ q(τ) + C∫_w^τ q + C∫_w^τ G, for q the integral of (1 − s′f/2)u_2² between the horizon
+3f′/2 ≤ 3/r_h it gives q(w) ≤ q(τ) + C∫_w^τ q + C∫_w^τ G, for q the integral of (1 − v_Σ′f/2)u_2² between the horizon
 and the ray, and Gronwall backward in time gives q(0) ≤ e^(Cτ)(q(τ) + C∫_0^τ G). On [ρ_1, R_H] the equation,
 f∂_r²Φ = WΦ − 2∂_r(TΦ) − f′∂_rΦ with f ≥ f(ρ_1) > 0, bounds ∂_r²Φ on Σ_0 by the energies of Ψ, TΨ and the
 Ω_iΩ_jΨ. For the scalar type, by [[lem:rw-coefficients]], ∂_r²ψ = rF_rr − 2(H′/H)∂_rψ − (H″/H)ψ, and the lower terms
 are bounded by the energies; so the left side of [[eq:np-10-1-iv-b]] at time τ, with 𝒟, bounds Q(τ).
 
-(b) Take Φ = e^(−σv)R(r). The equation becomes fR″ + (f′ − 2σ)R′ − WR = 0; at r_h, f = (2/r_h)(r − r_h) + O((r − r_h)²),
-and the indicial roots are 0 and σr_h. Take R = (r − r_h)^(σr_h)(1 + O(r − r_h)), the convergent Frobenius series of
-the larger root: the coefficients of the equation divided by f are analytic near r_h with a simple pole there, and the
-recursion's denominators (2/r_h)n(n + σr_h) do not vanish for n ≥ 1. Cut its data on Σ_0 off outside a neighbourhood
-{r < ρ_0} of the horizon. On Σ_0 near the horizon the solution is e^(−σv)R, with T^aΦ = (−σ)^aΦ, and R and
-R′ ~ (r − r_h)^(σr_h−1) are square integrable (σr_h > 1/2), so every I_(XΨ)(Σ_0) is finite; but
-R″ ~ σr_h(σr_h − 1)(r − r_h)^(σr_h−2), whose coefficient is not 0 (σr_h ≠ 1), is not square integrable
-(σr_h ≤ 3/2): Q(0) = ∞. The solution is smooth on {r > r_h}, since the past of each of its points meets Σ_0 there.
-For τ > 0 run (a)'s argument between the outgoing rays from (Σ_0, r_h + ε) and from (Σ_0, ρ_1), both of which carry
-no flux and stay in {r_h < r < R_H} until Σ_τ: it gives q_ε(0) ≤ e^(Cτ)(q_ε(τ) + C∫_0^τ G), q_ε the integral of
-(1 − s′f/2)u_2² between the two rays and G bounded by the energies, which the finite I's bound. As ε → 0,
-q_ε(0) → ∞, so q_ε(τ) → ∞, and q_ε(τ) ≤ Q(τ).
+(b) Take Φ_* := e^(−σv)R(r). The equation becomes fR″ + (f′ − 2σ)R′ − WR = 0; at r_h,
+f = (2/r_h)(r − r_h) + O((r − r_h)²), and the indicial roots are 0 and σr_h. Take R = (r − r_h)^(σr_h)(1 + O(r − r_h)),
+the convergent Frobenius series of the larger root, continued to (r_h, ∞) as a solution of the equation: the
+coefficients of the equation divided by f are analytic near r_h with a simple pole there, and the recursion's
+denominators (2/r_h)n(n + σr_h) do not vanish for n ≥ 1. Fix r_h < ρ_0′ < ρ_0 < R_H and a smooth χ_0(r), equal to 1 on
+{r ≤ ρ_0′} and to 0 on {r ≥ ρ_0}, and let Φ be the solution whose data on Σ_0 are those of χ_0Φ_*. It is smooth on
+{r > r_h}, since the past of each of its points meets Σ_0 there, and it equals Φ_* on the domain of dependence
+{v < v_Σ(ρ_0′)} of Σ_0 ∩ {r < ρ_0′} (a past directed causal curve from a point with v < v_Σ(ρ_0′) meets Σ_0 where
+r < ρ_0′). On Σ_0 near the horizon T^aΦ = (−σ)^aΦ, and R and R′ ~ (r − r_h)^(σr_h−1) are square integrable
+(σr_h > 1/2), so every I_(XΨ)(Σ_0) is finite; but R″ ~ σr_h(σr_h − 1)(r − r_h)^(σr_h−2), whose coefficient is not 0
+(σr_h ≠ 1), is not square integrable (σr_h ≤ 3/2): Q(0) = ∞.
 
-For smooth h: let V_n be smooth data of that mode converging to such a solution's data in I_Ψ(Σ_0), Φ_n their
-solutions, and χ ≥ 0 smooth, not identically 0, with support in (0, t_0), 0 < t_0 < s(ρ_0) − s(r_h). The averages
-∫χ(t)Φ_n(φ_t(·)) dt over the flow φ_t of T are smooth solutions, and they converge in every I_(XΨ)(Σ_0) (each T
-falls on χ, and the evolution is bounded on [0, t_0]) to the same average of the solution, which near the horizon on
-Σ_0 is (∫χ(t)e^(−σt) dt)e^(−σv)R, again one of these solutions. Their Q(0) tend to ∞, Q(0) being lower semicontinuous
-under this convergence, while a bound of the left side of [[eq:np-10-1-iv-b]] by the data would bound Q(0) by (a). ∎
+*Approximation.* The bounds (B) of [[thm:rw-hkw]] and Lemma 11 are stated for solutions smooth up to and including the
+horizon, and Φ is not one. They extend to it, as follows. Write the data of Φ on the spacelike part of Σ_0 as
+a(r) := Φ(v_Σ(r), r) and b(r) := ∂_vΦ(v_Σ(r), r), r_h < r ≤ R_H: they vanish for r ≥ ρ_0, a, a′ and b are square
+integrable, and a(r)² ≤ C(r − r_h)^(2σr_h). For n with r_h + 2/n < ρ_0′ let χ_n be smooth, 0 on [r_h, r_h + 1/n] and 1
+on [r_h + 2/n, ∞), with 0 ≤ χ_n ≤ 1 and |χ_n′| ≤ 2n; let Φ_n be the solution with data (χ_na, χ_nb) on the spacelike part
+of Σ_0 and 0 on its null part, and Ψ_n := r^(1/2)Φ_n𝒴.
+
+(i) Φ_n is smooth up to and including the future horizon: its data are smooth and vanish near the horizon, and the
+master equation is a linear wave equation whose coefficients are smooth across {r = r_h} in the chart (v, r)
+([[thm:std-bgp-cauchy]]). So (B) and Lemma 11 hold for Ψ_n and for each difference Ψ_n − Ψ_m.
+
+(ii) On the spacelike part of a leaf, Ě^N_Ψ lies between c and C times ∫((∂_vΦ)² + (∂_rΦ)² + k²Φ²) dr ‖𝒴‖² (the
+lower bound is [[lem:rwg-cone]]; the upper bound holds as N and n_(Σ_τ) are bounded there), and on Σ_0,
+∂_rΦ = a′ − v_Σ′b. The data of Φ − Φ_n are ((1 − χ_n)a, (1 − χ_n)b), supported in [r_h, r_h + 2/n]. The integrals of
+((1 − χ_n)a)², ((1 − χ_n)a′)² and ((1 − χ_n)b)² tend to 0, and
+∫(χ_n′a)² dr ≤ 4n² ∫_(r_h)^(r_h+2/n) C(r − r_h)^(2σr_h) dr ≤ C′n^(1−2σr_h) → 0, as 2σr_h > 1. So the energy of the data
+of Ψ − Ψ_n on Σ_0 tends to 0, and Ě^N_(Ψ_n−Ψ_m)(Σ_0) → 0 as n, m → ∞.
+
+(iii) Φ_n = Φ on the part of the future of Σ_0 on or to the right of the outgoing null ray from the point of Σ_0 with
+r = r_h + 2/n: that part is the domain of dependence of Σ_0 ∩ {r ≥ r_h + 2/n}, a past directed causal curve from one of
+its points staying to the right of the ray, and the two solutions have the same data there. On Σ_w this part is
+{r ≥ ρ_n(w)}, and ρ_n(w) → r_h as n → ∞ for each w, the outgoing ray from the point of Σ_0 on the horizon being the
+horizon itself.
+
+(iv) By (B) for Ψ_n − Ψ_m and (ii), Ě^N_(Ψ_n−Ψ_m)(Σ_w) ≤ CĚ^N_(Ψ_n−Ψ_m)(Σ_0) → 0, uniformly in w ≥ 0. So on each leaf
+Φ_n converges in the norm that Ě^N defines, which on the spacelike part is that of ∂_vΦ, ∂_rΦ and Φ in L²(dr), and on
+the null part Φ_n = Φ for n large, by (iii); and by (iii) the limit is Φ on Σ_w ∩ {r > r_h}. Hence, for every w ≥ 0,
+
+    Ě^N_Ψ(Σ_w) = lim_n Ě^N_(Ψ_n)(Σ_w) ≤ C lim_n Ě^N_(Ψ_n)(Σ_0) = CĚ^N_Ψ(Σ_0) ≤ CI_Ψ(Σ_0),
+
+the last by Lemma 11 at Σ_0, a comparison of two quadratic forms in the data that passes to the limit. Likewise
+Ě^N_(Ψ_n−Ψ)(Σ_t) → 0 uniformly in t ≥ 0.
+
+*Q(τ) = ∞.* For τ > 0 run (a)'s argument between the outgoing rays from (Σ_0, r_h + ε) and from (Σ_0, ρ_1), both of
+which carry no flux and stay in {r_h < r < R_H} until Σ_τ, so that Φ is smooth on the region between them. It gives
+q_ε(0) ≤ e^(Cτ)(q_ε(τ) + C∫_0^τ G), q_ε the integral of (1 − v_Σ′f/2)u_2² between the two rays and
+G(w) ≤ C(1 + k²)²Ě^N_Ψ(Σ_w)/‖𝒴‖² ≤ C(1 + k²)²I_Ψ(Σ_0)/‖𝒴‖² by [[lem:rwg-cone]] and (iv), a bound independent of ε. As
+ε → 0, q_ε(0) → ∞, so q_ε(τ) → ∞, and q_ε(τ) ≤ Q(τ).
+
+*For smooth h.* Let χ ≥ 0 be smooth, not identically 0, with support in (0, t_0), 0 < t_0 < v_Σ(ρ_0′) − v_Σ(r_h), and
+let Φ̄_n := ∫χ(t)Φ_n∘φ_t dt and Φ̄ := ∫χ(t)Φ∘φ_t dt, φ_t the flow of T. The Φ̄_n are solutions smooth up to and
+including the horizon, and they converge to Φ̄ in every I_(XΨ)(Σ_0). Each T falls on χ: T^aΦ̄_n = (−1)^a∫χ^((a))(t)Φ_n∘φ_t dt,
+and the energy on Σ_0 of Φ_n∘φ_t − Φ∘φ_t is Ě^N_(Ψ_n−Ψ)(Σ_t), φ_t being an isometry that maps Σ_0 to Σ_t, so the
+energies of T^a(Φ̄_n − Φ̄) on Σ_0 are at most (∫|χ^((a))|)² sup_(0≤t≤t_0) Ě^N_(Ψ_n−Ψ)(Σ_t) → 0 by (iv). The rotations act
+within the mode and multiply these energies by λ or λ² ([[lem:rwg-cone]]). The r^p energies of the differences on the
+null part of Σ_0 vanish for n large, as Φ_n = Φ on the null parts of the Σ_t, 0 ≤ t ≤ t_0, by (iii). Near the horizon
+on Σ_0, φ_t maps the points of Σ_0 into {v < v_Σ(ρ_0′)} for 0 ≤ t ≤ t_0, where Φ = Φ_*, so there
+Φ̄ = (∫χ(t)e^(−σt) dt)Φ_*, a positive multiple of Φ_*: Q(0) = ∞ for Φ̄. The Q(0) of the Φ̄_n tend to ∞: for each
+ρ ∈ (r_h, R_H) the part of Q(0) over [ρ, R_H] converges, as there f∂_r²Φ = WΦ − 2∂_r(TΦ) − f′∂_rΦ with f ≥ f(ρ) > 0
+expresses u_2 through first derivatives of Φ and TΦ, which converge in L²; and for Φ̄ that part tends to ∞ as ρ → r_h.
+A bound of the left side of [[eq:np-10-1-iv-b]] by the data would bound the Q(0) of the Φ̄_n by (a), the perturbations
+built from them being smooth up to and including the horizon and in the class. ∎
 
 *Proof of [[prop:np-10-1]] (iv-b).* By [[lem:rw-hkw-field]] the master quantities of [HKW18] are Ψ = r^(1/2)Φ𝒴, and
 (B) of [[thm:rw-hkw]] with Lemma 11 gives Ě^N_(XΨ)(Σ_τ) ≤ CI_(XΨ)(Σ_0)(1 + τ)⁻² for each X, which commutes with their
