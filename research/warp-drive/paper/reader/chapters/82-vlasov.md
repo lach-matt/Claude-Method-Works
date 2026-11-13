@@ -324,10 +324,10 @@ its inverse being the future flow. By [[lem:vlasov-flow]] (b) the rays of u_α a
 that of du_α; so if the ray of u_α from x0 ∈ S_α passes through y ∈ Σ_τ, then Ψ_τ(y, β(y; α)) = 𝔰(x0, α), β(y; α) the
 angle of du_α at y.
 
-Let K be the compact set of (x0, α, τ) with (x0, α) ∈ S whose ray reaches Σ_τ inside Ω̄, and Φ_τ(x0, α) :=
+Let 𝔇 be the compact set of (x0, α, τ) with (x0, α) ∈ S whose ray reaches Σ_τ inside Ω̄, and Φ_τ(x0, α) :=
 (y_τ(x0), β(y_τ(x0); α)) = Ψ_τ⁻¹(𝔰(x0, α)) on it. det DΦ_τ = det DΨ_τ⁻¹ · ∂_α β0 is positive, the flow Ψ_τ⁻¹ depending
-continuously on τ and being the identity at τ0, so det DΦ_τ ≥ c_Φ > 0 on K. Write DΦ_τ in blocks, with A := ∂y/∂x0,
-B := ∂y/∂α, C := ∂β/∂x0, D := ∂β/∂α; A is invertible by (V1), with 0 < det A ≤ C_A on K. At fixed y, inverting
+continuously on τ and being the identity at τ0, so det DΦ_τ ≥ c_Φ > 0 on 𝔇. Write DΦ_τ in blocks, with A := ∂y/∂x0,
+B := ∂y/∂α, C := ∂β/∂x0, D := ∂β/∂α; A is invertible by (V1), with 0 < det A ≤ C_A on 𝔇. At fixed y, inverting
 x0 ↦ y_τ(x0) gives x0 = x0(y, α) with ∂_α x0 = −A⁻¹B, and the angle β(y; α) = β(x0(y, α), α) has
 
     ∂_α β(y; α) = D − C A⁻¹ B = det DΦ_τ / det A ≥ c1 := c_Φ/C_A,
@@ -336,7 +336,7 @@ the Schur complement.
 
 Fix τ and y ∈ Σ_τ ∩ Ω̄. On the open set B_y := {β : Ψ_τ(y, β) ∈ 𝔰(int S)} put Λ_y(β) := the label of 𝔰⁻¹(Ψ_τ(y, β)),
 a smooth function; if y ∈ D_α(S′), then β(y; α) ∈ B_y and Λ_y(β(y; α)) = α. At β ∈ B_y, with (x0, α″) :=
-𝔰⁻¹(Ψ_τ(y, β)) ∈ int S, whose ray reaches y, so that (x0, α″, τ) ∈ K, Λ_y is the inverse of α ↦ β(y; α) near α″, and
+𝔰⁻¹(Ψ_τ(y, β)) ∈ int S, whose ray reaches y, so that (x0, α″, τ) ∈ 𝔇, Λ_y is the inverse of α ↦ β(y; α) near α″, and
 0 < Λ_y′(β) = 1/∂_α β(y; α″) ≤ 1/c1. Since 𝔰(S′) is a compact subset of the open set 𝔰(int S) and Ψ is uniformly
 continuous on the compact set of the (τ, y, β), there is ρ0 > 0 such that for every τ, y ∈ Σ_τ ∩ Ω̄ and β with Ψ_τ(y, β)
 ∈ 𝔰(S′), the arc of the β″ with |β″ − β| ≤ ρ0 lies in B_y.
@@ -639,8 +639,8 @@ E and tensor fields on S³. For a word I = (i_1, …, i_j) put 𝓛^I := 𝓛_(i
 
 (K1) Each 𝓛_i commutes with ∇, with Δ, with contractions by the round metric and with ∂_r (X_i is a Killing field).
 
-(K2) Σ_i ⟨X_i, Y⟩² = |Y|² for every tangent vector Y of S³, by Lagrange's identity: with |x| = 1 and x·Y = 0,
-Σ_(a<b) (x_a Y_b − x_b Y_a)² = |x|² |Y|² − (x·Y)² = |Y|²; so Y = Σ_i ⟨X_i, Y⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order
+(K2) Σ_i ⟨X_i, Υ⟩² = |Υ|² for every tangent vector Υ of S³, by Lagrange's identity: with |x| = 1 and x·Υ = 0,
+Σ_(a<b) (x_a Υ_b − x_b Υ_a)² = |x|² |Υ|² − (x·Υ)² = |Υ|²; so Υ = Σ_i ⟨X_i, Υ⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order
 zero in f with coefficients built from ∇X_i, it follows that |∇f| ≤ C (Σ_i |𝓛_i f| + |f|), |∇² f| ≤ C Σ_(|J|≤2) |𝓛^J f|
 and |𝓛_i f| ≤ C (|∇f| + |f|) for every function, section of E or tensor field f.
 
@@ -674,16 +674,16 @@ of |I′|, |I″| is at most ⌊j/2⌋,
     (P1) ‖f · g‖_(j) ≤ C ‖f‖_(j),∞ ‖g‖_(j);      (P2) ‖f · g‖_(j) ≤ C (‖f‖_(⌊j/2⌋),∞ ‖g‖_(j) + ‖f‖_(j) ‖g‖_(⌊j/2⌋),∞).
 
 *Classes of coefficients.* Fix smooth functions φ_1, …, φ_m on Σ with nonzero differentials (the phases; m = 0 is
-allowed) and a closed ball Y ⊂ ℝ^d centred at 0. A *profile function* is a smooth function h(x, θ_1, …, θ_m, λ, y) on
-Σ × T^m × [0, 1] × Y, and [h](x, y) := h(x, φ_1(x)/λ, …, φ_m(x)/λ, λ, y). By the chain rule 𝓛_i [h] = [X_i h] +
+allowed) and a closed ball 𝔅 ⊂ ℝ^d centred at 0. A *profile function* is a smooth function h(x, θ_1, …, θ_m, λ, y) on
+Σ × T^m × [0, 1] × 𝔅, and [h](x, y) := h(x, φ_1(x)/λ, …, φ_m(x)/λ, λ, y). By the chain rule 𝓛_i [h] = [X_i h] +
 λ⁻¹ Σ_B X_i(φ_B) [∂_(θ_B) h] and ∂_r [h] = [∂_r h] + λ⁻¹ Σ_B ∂_r φ_B [∂_(θ_B) h], so
 
-    (C0) λ^|I| |𝓛^I ∂_y^β [h]| ≤ C_(I,β) on Σ × Y, for every word I and multi-index β,
+    (C0) λ^|I| |𝓛^I ∂_y^β [h]| ≤ C_(I,β) on Σ × 𝔅, for every word I and multi-index β,
 
 and λ ∂_r [h] is again of the form [h′]. A function c(x, y) is of *class 𝔏* if it is [h] for a profile function h, and
-of *class 𝔓* if c = c0 + λ [h] with c0 smooth on Σ × Y and independent of λ; then also λ^|I| |𝓛^I ∂_y^β c| ≤ C λ for |I|
+of *class 𝔓* if c = c0 + λ [h] with c0 smooth on Σ × 𝔅 and independent of λ; then also λ^|I| |𝓛^I ∂_y^β c| ≤ C λ for |I|
 ≥ 1, and ∂_r c is of class 𝔏. The *class bounds* of c are the constants C_(I,β). With m = 0 and λ = 1 both classes
-consist of the smooth functions on Σ × Y.
+consist of the smooth functions on Σ × 𝔅.
 
 *Structure.* We consider maps 𝔉 = (𝔉_ρ, 𝔉_J) of the form, the dependence on x not written,
 
@@ -920,11 +920,11 @@ so by the uniqueness in [[lem:vlasov-scaled-evolution]] each U_i is ι-invariant
 
 ### The n-dust approximants are uniform in n {#sec:vlasov-uniform}
 
-**Lemma {#lem:vlasov-trapezoid}** (The label quadrature.) Let h be smooth on Y × S¹, Y compact, and
+**Lemma {#lem:vlasov-trapezoid}** (The label quadrature.) Let h be smooth on 𝒪 × S¹, 𝒪 compact, and
 
     E_n(x) := ∫_(S¹) h(x, α) dα − (2π/n) Σ_(A=1)^n h(x, 2πA/n).
 
-Then for every j and every k ≥ 2, sup_Y |∂_x^j E_n| ≤ 2 ζ(k) n^(−k) sup_(x∈Y) ∫_(S¹) |∂_x^j ∂_α^k h(x, α)| dα, ζ the
+Then for every j and every k ≥ 2, sup_𝒪 |∂_x^j E_n| ≤ 2 ζ(k) n^(−k) sup_(x∈𝒪) ∫_(S¹) |∂_x^j ∂_α^k h(x, α)| dα, ζ the
 Riemann zeta function.
 
 *Proof.* The x-derivatives commute with both terms, so take j = 0. Expand h(x, α) = Σ_(m∈ℤ) ĥ_m(x) e^(imα), absolutely
@@ -1126,7 +1126,7 @@ w := g − g_app satisfies (E4) of [[thm:uniform-existence]], Data(w) ≤ C λ^K
 *Proof.* *The approximant's data.* The gauge hierarchy is that of [[lem:gauge-hierarchy]] with n phases: the oscillating
 part at each order is a transport along each generator for the pure harmonics, and algebraic, with the divisor Q_j ≠ 0,
 for the mixed ones, which therefore take no data. The stage data are those of [[lem:stage-data]] for each family's
-covector, its proof applied with the polarisation map Pol_A(Y) := Y(ℓ_A, ·) − ½ ν_A du_A tr Y of each family, onto at
+covector, its proof applied with the polarisation map Pol_A(Z) := ν_A (Z(ℓ_A, ·) − ½ du_A tr Z) of each family, onto at
 every point by the argument given there (with a null vector k_A, du_A(k_A) = 1, and a covector ζ_A with ζ_A(ℓ_A) = 0 and
 g0⁻¹(ζ_A, ζ_A) = 1); the linear solves of its step (iii) have coefficients independent of λ (θ-means of profile
 functions), so [[lem:linear-evolution]] applies to them as stated; the mixed harmonics take no data and need not vanish

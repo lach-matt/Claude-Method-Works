@@ -1200,3 +1200,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   exp(−a/x^q) claim rightly dropped: no chapter uses them). Its marker judgements are sent to P-K85. F-85 follows P-K85:
   R-85's findings, P-K85's merge, R2-84's X1 (lines 26, 1285-1286) and F-84's two sentences, the env_C name, five "="
   line starts.
+- F-70 done (reports/F-70.md): both readings fixed (2M 14m 20n); [KI03, (5.3)] no longer cited, the identity and 15/16
+  proved in lem:rb-tensor-ricci. R2-70 reads it. Integration lint item: chapter 21 has older wrapped lines starting
+  with "|" (e.g. 253, 299, 1872).

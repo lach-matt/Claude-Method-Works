@@ -570,6 +570,179 @@ derivatives along the spheres, with bounded coefficients; w ≤ C r^(2a) on N. F
 integrands is at most C|H| w |∂φ|², which the last term of [[eq:own-flux-n]] bounds. The tail: by (i), at fixed λ the
 integrand of [[eq:own-flux-n]] for Γ^α h_R is O(r^(2a−11+3)), and its integral beyond ϱ is C(λ) ϱ^(2a−7)/(7 − 2a). ∎
 
+### The far region by homogeneity {#sec:far-homogeneity}
+
+This section proves the exponents on which the weighted energy estimate of Section [[sec:own-continuation]] rests: the
+decay of the coefficients of the linearised operator, the degree of the residual of the subtracted expansion, and the
+naturality of the operator under G. Every exponent is obtained by counting powers of r under one dilation.
+
+*Setting.* We work in the far region with the Cartesian coordinates (t, x), t = τ, of the Notation, r := |x|,
+x̂ := x/r, v = t + r, μ = μ_end, and
+
+    g_b0 = η + μ m,      m := r⁻² dv ⊗ dv,      P(h) := Ric^H(g_b0 + h; g_b0).                       {#eq:far-operator}
+
+For Lorentzian metrics g and g′, Ric^H(g; g′) denotes the expression [[eq:gauge]] with g′ in place of g0: the vector
+field D and the connection ∇̂ are formed with g′. By [[eq:background]], g_b0 = g0 on {v ≥ v_end}, which contains W, so
+there P(h) is Ric^H(g0 + h) of [[eq:gauge]]. Pointwise norms |·| are those of [[sec:profiles]]: the Euclidean operator
+norm on symmetric 2-tensors and the Frobenius norm on arrays of higher rank. W, N, the slices Σ̃_σ, s = (v − v1)/r and
+r_σ are those of Section [[sec:own-far-part]]: on W, 0 ≤ s ≤ 5/4 and |t − v1| ≤ r, and r_σ ≥ c_W (1 + |σ|)
+([[lem:own-wedge]] (b)). The commutators are Γ ∈ {∂_t, L_Ω_ab, Z}, with Ω_ab := x_a ∂_b − x_b ∂_a and
+Z := (t − v1) ∂_t + x·∂_x, acting on Cartesian components; Γ^α is a product of |α| of them. The subtracted expansion
+Σ = Σ_(p∈Π) Σ_p, Σ_p = r^(−p) F_p(s, x̂), is that of [[def:own-sigma]]: □_η Σ_p = 0 for every p ∈ Π; each F_p is smooth
+up to the boundary on [0, 3/2] × S³ ([[lem:own-self-similar]]), so that Σ_p is smooth up to the boundary on the closed
+cone 𝒞 := {r > 0, 0 ≤ s ≤ 3/2}; and Σ_p = λ Σ̂_p, the derivatives of Σ̂_p on 𝔎 := {r = 1, 0 ≤ s ≤ 3/2} being bounded as
+in [[lem:own-sigma-data]] (b): those of order at most k1 + 4 independently of λ, all of them at fixed λ.
+
+*The dilation.* For ς > 0 put D_ς(t, x) := (v1 + ς(t − v1), ς x). It fixes s and x̂, maps {r = 1} onto {r = ς} and 𝒞
+onto itself, and Z = (d/dς) D_ς at ς = 1. A function, or a tensor read through its Cartesian components, is
+*homogeneous of degree −q* if f(D_ς X) = ς^(−q) f(X) for all ς > 0. Then ∂_a f is homogeneous of degree −q − 1,
+Z f = −q f (differentiate in ς at ς = 1), and L_Ω_ab f is homogeneous of degree −q, D_ς commuting with rotations. The
+region 𝒞_1 := 𝒞 ∩ {r ≥ 1} is the union of the images D_ς 𝔎, ς ≥ 1, and W ⊂ 𝒞_1, as 4R ≥ 1. So a function f on 𝒞,
+smooth up to the boundary and homogeneous of degree −q, satisfies |∂^j f| ≤ (max_𝔎 |∂^j f|) r^(−q−j) on 𝒞_1. In
+particular m and every Σ_p are homogeneous, of degrees −2 and −p, and Γ^α Σ_p is λ times a sum of homogeneous tensors
+of degrees at most −p (Z and L_Ω_ab keep the degree, ∂_t lowers it by one), whose derivatives of order j on 𝔎 are
+combinations of derivatives of Σ̂_p of order at most j + |α|. Hence on 𝒞_1
+
+    |∂^j m| ≤ C_j r^(−2−j),      |∂^j Γ^α Σ_p| ≤ C_(j,α) λ r^(−p−j),                               {#eq:far-sigma-bounds}
+
+with C_(j,α) independent of λ for j + |α| ≤ k1 + 4 and depending on λ otherwise.
+
+**Lemma {#lem:far-scaling}** (structure and scaling of the operator). (a) With g := g_b0 + h and Γ̂ := Γ[g_b0],
+
+    P(h)_mn = −(1/2) g^(ab) ∂_a ∂_b g_mn + q_mn(g)(∂g, ∂g) + l_mn(g)(Γ̂, ∂g) + c_mn(g)(∂Γ̂) + c′_mn(g)(Γ̂, Γ̂),
+
+where q, l, c and c′ are multilinear in the displayed arguments with coefficients polynomial in the components of g
+and g⁻¹. The components of Γ̂ are μ Θ_3 + μ² Θ_5, with Θ_3 and Θ_5 homogeneous of degrees −3 and −5.
+(b) For every ς > 0 and every h, writing P_μ for P and h^(ς) := h ∘ D_ς,
+
+    ς² P_μ(h)(D_ς X) = P_(μ ς⁻²)(h^(ς))(X).                                                    {#eq:far-scaling}
+
+*Proof.* (a) In Cartesian coordinates Γ[η] = 0, so [[eq:gauge]] with reference metric η reads Ric^H(g; η)_mn =
+−(1/2) g^(ab) ∂_a∂_b g_mn + q_mn(g)(∂g, ∂g) with q purely quadratic, its coefficients polynomial in g and g⁻¹; and the
+gauge term of Ric^H(g; η) is −(1/2)(g_mρ ∂_n Γ^ρ + g_nρ ∂_m Γ^ρ), Γ^ρ := g^(ab) Γ[g]^ρ_ab. For the reference g_b0,
+D^ρ = Γ^ρ − g^(ab) Γ̂^ρ_ab and ∇̂_n D^ρ = ∂_n D^ρ + Γ̂^ρ_nν D^ν. So Ric^H(g; g_b0) is Ric^H(g; η) plus the
+symmetrisation of g_mρ (∂_n(g^(ab) Γ̂^ρ_ab) − Γ̂^ρ_nν (Γ^ν − g^(ab) Γ̂^ν_ab)). Here ∂_n g^(ab) = −g^(ac) g^(bd) ∂_n g_cd
+and Γ^ν is linear in ∂g with coefficients polynomial in g⁻¹, which gives the form stated. By [[eq:background]],
+g_b0⁻¹ = η⁻¹ − μ r⁻² L0 ⊗ L0 with L0 homogeneous of degree 0, and ∂g_b0 = μ ∂m, which gives the degrees of Γ̂.
+(b) D_ς^* dt = ς dt and D_ς^* dx^i = ς dx^i, so D_ς^* η = ς² η; and v ∘ D_ς = v1 + ς(v − v1), r ∘ D_ς = ς r, so
+D_ς^* m = m. Hence D_ς^* g_b0(μ) = ς² g_b0(μ ς⁻²), and the components of ς⁻² D_ς^* h are those of h^(ς). Ric^H is built
+from the two metrics by Levi-Civita connections, curvature and contraction, so φ^* Ric^H(g; g′) = Ric^H(φ^* g; φ^* g′)
+for every diffeomorphism φ, and Ric^H(c g; c g′) = Ric^H(g; g′) for every constant c > 0 (Christoffel symbols are
+unchanged, D^ρ is multiplied by c⁻¹ and g_mρ by c). With φ = D_ς and c = ς⁻², D_ς^* P_μ(h) = P_(μ ς⁻²)(ς⁻² D_ς^* h),
+and the components of D_ς^* T are ς² T(D_ς ·). ∎
+
+**Proposition {#prop:far-coefficients}** (decay of the coefficients). On {r ≥ 4R}, where μ r⁻² ≤ 1/16, let H be a
+symmetric tensor with |H| ≤ 1/50, g := g_b0 + H, and write
+
+    DP(H)[k] = −(1/2) g^(ab) ∂_a ∂_b k + B(H)·∂k + C(H) k.
+
+There are constants C and C_j, depending only on μ and j, such that:
+(a) |B(H)| ≤ C(μ r⁻³ + |∂H|) and |C(H)| ≤ C(μ r⁻⁴ + |∂∂H| + |∂H|²);
+(b) |g⁻¹ − g_b0⁻¹| ≤ C|H|, |B(H) − B(0)| ≤ C(|∂H| + μ r⁻³ |H|) and
+|C(H) − C(0)| ≤ C(|∂∂H| + |∂H|² + μ r⁻³ |∂H| + μ r⁻⁴ |H|);
+(c) for every j ≥ 1, the coefficients of (μ ∂_μ)^j DP(H) are bounded by C_j μ r⁻² (second order),
+C_j μ (r⁻³ + r⁻²|∂H|) (first order) and C_j μ (r⁻⁴ + r⁻² |∂∂H| + r⁻² |∂H|² + r⁻³ |∂H|) (zero order).
+In particular B(0) = O(μ r⁻³) and C(0) = O(μ r⁻⁴); and for λ small and H = Σ on W, by [[eq:far-sigma-bounds]],
+g⁻¹ − g_b0⁻¹ = O(λ r⁻²), B(Σ) − B(0) = O(λ r⁻³) and C(Σ) − C(0) = O(λ r⁻⁴).
+
+*Proof.* Differentiating [[lem:far-scaling]] (a) in h in the direction k,
+
+    DP(H)[k] = −(1/2) g^(ab) ∂_a∂_b k + (1/2)(g⁻¹ k g⁻¹)^(ab) ∂_a∂_b g + 2 q(g)(∂g, ∂k) + (∂_g q)[k](∂g, ∂g)
+               + l(g)(Γ̂, ∂k) + (∂_g l)[k](Γ̂, ∂g) + (∂_g c)[k](∂Γ̂) + (∂_g c′)[k](Γ̂, Γ̂),
+
+so B(H)·∂k = 2q(g)(∂g, ∂k) + l(g)(Γ̂, ∂k) and C(H)k is the rest. *Bounds on g.* The covector dv has Cartesian
+components (1, x̂), of Euclidean length √2, so |μ m| = 2μ r⁻² ≤ 1/8. By [[eq:background]], g_b0⁻¹ = η⁻¹ − μ r⁻² L0 ⊗ L0
+with |L0|² = 2, so |g_b0⁻¹| ≤ 9/8. Hence |g_b0⁻¹ H| ≤ 9/400, and g = g_b0 (1 + g_b0⁻¹ H) is invertible with
+|g⁻¹| ≤ (9/8)/(1 − 9/400) < 6/5; also the norm of g is at most 1 + 1/8 + 1/50 < 6/5. So the components of g and g⁻¹ are
+bounded by an absolute constant, and so are the coefficients of q, l, c, c′ and their g-derivatives. (a) By
+[[eq:far-sigma-bounds]] and [[lem:far-scaling]] (a), |∂g_b0| + |Γ̂| ≤ C μ r⁻³ and |∂∂g_b0| + |∂Γ̂| ≤ C μ r⁻⁴. So
+|∂g| ≤ C μ r⁻³ + |∂H| and |∂∂g| ≤ C μ r⁻⁴ + |∂∂H|, and (a) follows term by term, with μ² r⁻⁶ ≤ μ r⁻⁴/16 and
+2|Γ̂| |∂H| ≤ |Γ̂|² + |∂H|². (b) Each coefficient is a polynomial in g^(±1), ∂g, ∂∂g, Γ̂, ∂Γ̂. Between H and 0, g^(±1)
+change by at most C|H| (g⁻¹ − g_b0⁻¹ = −g⁻¹ H g_b0⁻¹), ∂g by ∂H, ∂∂g by ∂∂H, and Γ̂ not at all. Bounding the difference
+of a product by the sum, over its factors, of the change of one factor times the bounds of the others gives (b). (c) The
+coefficients depend on μ only through g = η + μ m + H and Γ̂. The operator μ ∂_μ maps μ m, μ ∂m and μ ∂∂m to themselves
+and g⁻¹ to −g⁻¹ (μ m) g⁻¹. By [[lem:far-scaling]] (a), Γ̂ = μ Θ_3 + μ² Θ_5, and μ ∂_μ maps it to μ Θ_3 + 2μ² Θ_5;
+likewise ∂Γ̂. So μ ∂_μ of a term of the proof of (a) is a sum of terms in each of which one factor is replaced: a
+factor of size O(1) by one of size O(μ r⁻²), and ∂g, ∂∂g, Γ̂, ∂Γ̂ by factors of sizes O(μ r⁻³), O(μ r⁻⁴), O(μ r⁻³),
+O(μ r⁻⁴). Collecting the terms gives (c) for j = 1. A further μ ∂_μ acts on the new factors in the same way: it maps
+μ m, μ ∂m and μ ∂∂m to themselves, μ Θ_3 + 2μ² Θ_5 to μ Θ_3 + 4μ² Θ_5, and a g-derivative of a coefficient evaluated
+on μ m to terms of the same size or smaller. So each application replaces a factor by one of the same size or a
+smaller one, and induction on j gives (c). ∎
+
+**Proposition {#prop:far-residual}** (the degree of the residual). Let M_1[h] := ∂_μ(DP_μ(0)[h]) at μ = 0, the first
+variation of P_μ at 0 differentiated in the mass, and M_2[h, h′] the second variation of Ric^H(η + ·; η) at 0; put
+
+    Q_6 := μ M_1[Σ_2] + (1/2) M_2[Σ_2, Σ_2],
+
+homogeneous of degree −6. For λ small, on W, for every multi-index α of commutators Γ and constants c = (c_i),
+
+    |Π_i (Γ_i + c_i) P(Σ)| ≤ C_(α,c) λ r⁻⁶,     |Π_i (Γ_i + c_i) (P(Σ) − Q_6)| ≤ C_(α,c) λ r^(−13/2),   {#eq:far-residual}
+
+with C_(α,c) independent of λ for |α| ≤ k1 + 2 and depending on λ otherwise.
+
+*Proof.* For X ∈ 𝔎′ := 𝒞 ∩ {½ ≤ r ≤ 2}, 0 ≤ e ≤ 1/16 and d = (d_p)_(p∈Π) with |d| ≤ d_0, put
+
+    Ψ(X; e, d) := Ric^H(η + e m + Σ_p d_p Σ̂_p; η + e m)(X).
+
+Its components are rational in the jets of order at most two of the two metrics at X. The denominators do not vanish:
+det(η + e m) = −1, since dv is null for η ([[eq:background]]), and d_0 is small. So Ψ is smooth in (e, d), and in X up
+to the boundary of 𝔎′. Its derivatives of order at most k1 + 2 in X, with any number of derivatives in (e, d), are
+bounded independently of λ, since the derivatives of order at most k1 + 4 of the Σ̂_p are bounded on 𝔎′ independently
+of λ (on 𝔎 by [[lem:own-sigma-data]] (b), and on 𝔎′ by homogeneity); at fixed λ all its derivatives are bounded. For λ
+small the values (e, d) = (μ ς⁻², (λ ς^(−p))_p), ς ≥ 4R, lie in this set. D_ς maps 𝒞 onto itself and
+Σ̂_p ∘ D_ς = ς^(−p) Σ̂_p, so [[eq:far-scaling]] gives, for X ∈ 𝔎′ and ς ≥ 4R,
+
+    P(Σ)(D_ς X) = ς⁻² Ψ(X; μ ς⁻², (λ ς^(−p))_p).                                                    {#eq:far-psi}
+
+Three facts about Ψ. First, Ψ(X; e, 0) = Ric(η + e m)(X) = 0 for every e: the reference and the metric coincide, so
+D = 0, and η + e m is flat for e = 0 and the vacuum metric of [[prop:vaidya]] (a) with constant mass e for e > 0. Hence
+Ψ = Σ_p d_p Ψ_p with Ψ_p := ∫_0^1 ∂_(d_p)Ψ(X; e, y d) dy smooth, and Taylor's formula for each Ψ_p at (e, d) = (0, 0)
+gives
+
+    Ψ(X; e, d) = Σ_p d_p ∂_(d_p)Ψ(X; 0, 0) + Σ_p e d_p ∂_e ∂_(d_p)Ψ(X; 0, 0)
+                 + (1/2) Σ_(p,p′) d_p d_p′ ∂_(d_p) ∂_(d_p′) Ψ(X; 0, 0) + Rem(X; e, d),                {#eq:far-taylor}
+
+where Rem = Σ_p d_p Ψ′_p with Ψ′_p smooth and vanishing to second order at (e, d) = (0, 0). So Rem is at most
+C |d| (|e| + |d|)² in norm, uniformly in X and (e, d). Second, since Γ[η] = 0, the linearisation of Ric^H(η + ·; η) at
+0 is −(1/2) □_η acting on components. So ∂_(d_p)Ψ(X; 0, 0) = −(1/2) □_η Σ̂_p(X), ∂_e ∂_(d_p)Ψ(X; 0, 0) = M_1[Σ̂_p](X)
+and ∂_(d_p) ∂_(d_p′) Ψ(X; 0, 0) = M_2[Σ̂_p, Σ̂_p′](X). Third, [[eq:far-psi]] holds for every mass in place of μ and for
+independent amplitudes λ_p in place of λ, both sides being smooth in them near 0. By the second fact, the coefficients
+of μ^i Π_p λ_p^(n_p) in their Taylor expansions at 0 are, on the left, constant multiples of −(1/2) □_η Σ̂_p,
+M_1[Σ̂_p] and M_2[Σ̂_p, Σ̂_p′] at D_ς X, and on the right ς^(−2−2i−Σ n_p p) times the same multiples at X. Hence
+(□_η Σ̂_p)(D_ς X) = ς^(−p−2) (□_η Σ̂_p)(X), M_1[Σ̂_p](D_ς X) = ς^(−p−4) M_1[Σ̂_p](X) and
+M_2[Σ̂_p, Σ̂_p′](D_ς X) = ς^(−p−p′−2) M_2[Σ̂_p, Σ̂_p′](X). So, by [[eq:far-psi]], the term of [[eq:far-taylor]] with
+e^i Π d_p^(n_p), at e = μ ς⁻² and d_p = λ ς^(−p) and multiplied by ς⁻², is a term of P(Σ) at D_ς X homogeneous of
+degree −2 − 2i − Σ n_p p; in particular Q_6 is homogeneous of degree −6.
+
+Now count degrees, with Σ n_p ≥ 1 and ς = r. The terms of degree greater than −13/2, that is 2 + 2i + Σ n_p p < 13/2,
+are: i = 0 and one factor d_p, every p ∈ Π (degree −p − 2); i = 1 and the factor d_2 (degree −6); i = 0 and d_2²
+(degree −6). The first vanish on 𝒞, since □_η Σ_p = 0 there for every p ∈ Π. The other two sum to Q_6, which carries
+the factor λ of Σ_2. Every other term of [[eq:far-taylor]] has degree at most −13/2 and carries a factor λ. Since
+|d| ≤ C λ ς⁻², Rem contributes ς⁻² |Rem| ≤ C λ ς⁻⁴ (μ ς⁻² + λ ς⁻²)² ≤ C λ r⁻⁸. So P(Σ) − Q_6 is at most C λ r^(−13/2)
+in norm, and P(Σ) at most C λ r⁻⁶. The terms of degree −13/2 are μ M_1[Σ_(5/2)] and M_2[Σ_2, Σ_(5/2)].
+
+The commutators. A homogeneous term of degree −q is mapped by Z to −q times itself, by L_Ω_ab to a homogeneous term of
+degree −q and by ∂_t to one of degree −q − 1, so it keeps its bound. For the remainder put
+Rem′(D_ς X) := ς⁻² Rem(X; μ ς⁻², (λ ς^(−p))_p); it does not depend on the choice of (X, ς) with D_ς X given, since P(Σ)
+and the homogeneous terms do not. Differentiation in ς gives Z Rem′ = −ς⁻² (2 + 2e ∂_e + Σ_p p d_p ∂_(d_p)) Rem. Here
+e ∂_e Rem and d_p′ ∂_(d_p′) Rem are again of the form Σ_p d_p Ψ″_p, with Ψ″_p vanishing to second order at
+(e, d) = (0, 0), and so is an X-derivative of Rem. Further ∂_a Rem′ = ς⁻¹ (∂_X Rem)′, and L_Ω_ab, which commutes with
+D_ς, maps Rem′ to (L_Ω_ab Rem)′. So every Π_i (Γ_i + c_i) Rem′ is O(λ r⁻⁸), and [[eq:far-residual]] follows. At most
+|α| derivatives in X enter, and the homogeneous terms involve the Σ̂_p through their jets of order |α| + 2 on 𝔎; so the
+constants are independent of λ for |α| ≤ k1 + 2. ∎
+
+**Lemma {#lem:far-naturality}** (naturality). Let O ∈ O(4), Õ(t, x) := (t, O x) and Ō := diag(1, O). For every
+symmetric h, in Cartesian components,
+
+    P(Ōᵀ h(Ō ·) Ō) = Ōᵀ P(h)(Ō ·) Ō.
+
+In particular, for O ∈ G = O(2) × O(2), P maps G-invariant tensors to G-invariant tensors, and Õ^* g solves
+Ric^H(·; g_b0) = 0 whenever g does.
+
+*Proof.* r ∘ Õ = r and t ∘ Õ = t, so Õ^* η = η, Õ^* dv = dv and Õ^* g_b0 = g_b0. By the naturality of Ric^H used in
+the proof of [[lem:far-scaling]] (b), Õ^* P(h) = Ric^H(Õ^* g_b0 + Õ^* h; Õ^* g_b0) = P(Õ^* h), and the Cartesian
+components of Õ^* h are Ōᵀ h(Ō ·) Ō. ∎
+
 ### The expansion after the shell to every order {#sec:cutoff-expansion}
 
 The truncated problems of Section [[sec:own-continuation]] interpolate, on a band of bounded width in v, between the
@@ -835,8 +1008,8 @@ lim inf r^(2a+4) 𝐅(r)² = 0, and R″ → ∞ along such a sequence removes t
 ∫ r^(2a+1) φ² = [r^(2a+2) φ²/(2a + 2)] − (a + 1)⁻¹ ∫ r^(2a+2) φ φ′ vanishes at infinity, the one at r_σ has the good
 sign, and Cauchy–Schwarz gives the first. ∎
 
-These three tools bound the error terms of the energy identity in Section [[sec:far-homogeneity]] (the hypotheses there
-on the energy tools and the pointwise bounds are [[lem:own-rays]] and [[eq:own-pointwise]] below).
+With [[lem:own-margins]] (d), these three tools bound the error terms of the energy identity ([[cor:far-kernels]]
+below).
 
 **Definition {#def:cutoff-truncation}** (the truncated problems). Let J ≥ 2k1 + 7 be an integer, and let λ be below
 the threshold of [[prop:far-residual]]. Extend f from [4R, ∞) to a smooth function F̂ on [a′, ∞) with derivative at

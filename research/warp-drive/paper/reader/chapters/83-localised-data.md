@@ -27,8 +27,7 @@ characteristic data of [[sec:bg-data]]: e^(2σ) = 1/2 on the cones 𝒞_out = {u
 shell 𝒜(v) = 3.6 b(v; 3, 4.5) on 𝒞_out, the outgoing packet ℬ(u) = 1.7 b(u; 5.7, 7.2) on 𝒞_in, and at the corner
 R = 5, R_u = −0.47, R_v = 1/2 and mass 3/2. In the chart (v̂, R) of [[eq:bg-chart]] it reads
 g0 = −q² f dv̂² + 2q dv̂ dR + R² dΩ₃², q := e^ψ, f = 1 − μ/R². Region I is {u ≤ u1}, u1 = 5.7, where ψ = 0 and g0 is
-ingoing Vaidya
-([[lem:margins-region-one]]); region III is {u ≥ u2}, u2 = 7.2, past the outgoing packet, where ψ = ψ_III(v̂) and
+ingoing Vaidya ([[lem:margins-region-one]]); region III is {u ≥ u2}, u2 = 7.2, past the outgoing packet, where ψ = ψ_III(v̂) and
 μ = μ3 ∈ [0.8220998, 0.8221253] ([[lem:bg-reduction]] (e), [[thm:bg-margins]] (a)).
 
 *The background as two-dust data.* g0 is the background of [[def:two-dust-data]], written in the normalisation
@@ -38,7 +37,7 @@ the support of the shell in v̂; T := 1; l5 fixed by q0 := (√72 μ3 l5²)^(1/4
 radius of [[sec:domain]] is q0 − δ0 = 0.70 and τ0 := −0.68 = −0.70 + 0.02. The square roots of the profiles 𝒜 and ℬ,
 rewritten as in [[lem:two-dust-reparametrisation]], are smooth, the bump being the exponential of a function that tends
 to −∞ with all its derivatives at the ends of its support. The conditions of [[def:two-dust-data]] hold: μ0 ≥ √72 l5²,
-that is μ3² ≥ q0⁴ = 0.3164…; v_start − τ0 > 3.14533 + 0.68 > √μ3 + 1 ([[lem:margins-region-one]] (b)); 𝒞_in = {v̂ = 0}
+that is μ3² ≥ q0⁴ = 0.3164…; v_start − τ0 > 3.1453 + 0.68 > √μ3 + 1 (proof of [[lem:bg-reduction]] (f)); 𝒞_in = {v̂ = 0}
 with 0 < τ0 + 0.70; and on [u1, u2] the cone 𝒞_in is untrapped, R² > 1.5² > 3/2 ≥ μ ([[prop:bg-nprime]] and its
 proof). The slice is Σ_τ0 := {v̂ − R = τ0} ∩ Ω₂ = {0.70 ≤ R ≤ b(τ0)} ([[lem:two-dust-domain]]), and b(τ0) > 12:
 by [[eq:two-dust-omega]], b(τ0) = V + 1 + τ_end − 2τ0 with V = v_end + T ≥ 4.6924 + 1 ([[lem:margins-shell-data]] (c)
@@ -206,9 +205,9 @@ data satisfy the constraints in the domain of dependence of the initial sphere, 
 region I ([[lem:margins-region-one]] (c)). Fix δ1 ∈ (0, 0.01] and put t := (τ − τ0 − φ(R))/(δ1 − φ(R)), smooth since
 δ1 − φ ≥ δ1. Its level set {t = s} is {τ = τ0 + (1 − s)φ(R) + sδ1}: Σ′ for s = 0, Σ_(τ0+δ1) for s = 1, and the lens
 lies in {0 ≤ t < 1}. The differential dt is a positive multiple of dτ − (1 − t)φ′ dR. Where φ′ ≠ 0, R ∈ (3.5, 5.75)
-and 0 < f < 1, and for θ ∈ [0, 1], as in the proof of [[cor:margins-lens]],
+and 0 < f < 1, and for c ∈ [0, 1], as in the proof of [[cor:margins-lens]],
 
-    g⁻¹(dτ − θφ′ dR, dτ − θφ′ dR) = −(2 − f) − 2θ(1 − f)φ′ + θ²fφ′² ≤ −1 + 2 × 0.0022 + 0.0022² < 0;
+    g⁻¹(dτ − cφ′ dR, dτ − cφ′ dR) = −(2 − f) − 2c(1 − f)φ′ + c²fφ′² ≤ −1 + 2 × 0.0022 + 0.0022² < 0;
 
 where φ′ = 0 the covector is dτ, timelike by [[lem:two-dust-domain]] (a). So dt is timelike, in the cone of dτ, and t
 is a time function; (t, x) is a chart, as ∂_τt > 0. Let
@@ -948,16 +947,16 @@ theorem on [−k_0ε, k_0ε] gives data bg + εδ_0 + O(ε²). Seeds in the radi
 
 ### Outside the apparent horizon {#sec:loc-outside}
 
-**Lemma {#lem:loc-gauge-unique}** (Linearised vacuum solutions with zero data.) Let (M, g) be a globally hyperbolic
+**Lemma {#lem:loc-gauge-unique}** (Linearised vacuum solutions with zero data.) Let (𝒰, g) be a globally hyperbolic
 Ricci-flat Lorentzian manifold, S a smooth spacelike Cauchy hypersurface with future unit normal n, and k a smooth
-symmetric 2-tensor on M with DRic(k) = 0 that induces zero linearised data on S: the first variations of the induced
-metric and of the second fundamental form of S vanish. Then k = L_X g for a smooth vector field X on M.
+symmetric 2-tensor on 𝒰 with DRic(k) = 0 that induces zero linearised data on S: the first variations of the induced
+metric and of the second fundamental form of S vanish. Then k = L_X g for a smooth vector field X on 𝒰.
 
 *Proof.* We use [[lem:ix-2-1]], whose proof uses of the metric only that it is Ricci-flat, with S in place of the
 hypersurface there, and its notation −Υ̇⁰(k)_ν = −∇^λk_λν + ½∇_ν tr_g k. Let Y be the vector field on S with
 Y^♭ = k(n, ·) + ½k(n, n)n^♭, and, by [[lem:ix-1-1]] with the normally hyperbolic operator 2δ_gG_gδ*_g = −∇^α∇_α on
-1-forms ([[lem:ix-2-1]] (a)), w the smooth 1-form on M with 2δ_gG_gδ*_g w = −Υ̇⁰(k), w|_S = 0 and ∇_n w|_S = Y^♭. Put
-X := w^♯ and h := k − L_X g. Since −Υ̇⁰(L_X g) = δ_gG_g(2δ*_g w) = −Υ̇⁰(k), Υ̇⁰(h) = 0 on M. By [[lem:ix-2-1]] (e), h = 0
+1-forms ([[lem:ix-2-1]] (a)), w the smooth 1-form on 𝒰 with 2δ_gG_gδ*_g w = −Υ̇⁰(k), w|_S = 0 and ∇_n w|_S = Y^♭. Put
+X := w^♯ and h := k − L_X g. Since −Υ̇⁰(L_X g) = δ_gG_g(2δ*_g w) = −Υ̇⁰(k), Υ̇⁰(h) = 0 on 𝒰. By [[lem:ix-2-1]] (e), h = 0
 on S; h induces zero linearised data, as k does and L_X g does by [[lem:ix-2-1]] (f); so (∇_n h)(e_i, e_j) = 0 for e_i,
 e_j tangent to S by [[lem:ix-2-1]] (c), and then (∇_n h)(n, ·) = 0 by [[lem:ix-2-1]] (d) and Υ̇⁰(h) = 0. Finally
 DRic(h) = 0 by [[lem:ix-2-1]] (b), so 2L⁰h = 0, L⁰ := DRic − δ*_gΥ̇⁰ being normally hyperbolic ([[lem:ix-2-1]] (a)),
@@ -1141,9 +1140,8 @@ and b(x; a, c) = β((2x − a − c)/(c − a)), both as in [[sec:table-bump]], 
 
     ℬ(u) := 1.7 b(u; 5.7, 7.2),        𝒜(v) := 3.6 b(v; 3, 4.5).                                       {#eq:bg-profiles}
 
-The background is the spherically symmetric metric g0 = −2e^(2σ) du dv + R² dΩ₃² of
-[[sec:two-dust-background]]
-with an outgoing null dust of profile ℬ(u) and an ingoing one of profile 𝒜(v), so that ([[ch:two-dusts]])
+The background is the spherically symmetric metric g0 = −2e^(2σ) du dv + R² dΩ₃² of [[sec:two-dust-background]] with
+an outgoing null dust of profile ℬ(u) and an ingoing one of profile 𝒜(v), so that ([[ch:two-dusts]])
 
     R_uu − 2σ_u R_u = −ℬ/(3R²),     R_vv − 2σ_v R_v = −𝒜/(3R²),     R R_uv = −e^(2σ) − 2R_u R_v,       {#eq:bg-field}
 
