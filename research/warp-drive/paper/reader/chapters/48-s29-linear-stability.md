@@ -439,9 +439,9 @@ smooth, and it vanishes on {t^♭_* > T̂ + 2}. The derivative of 𝔤 is
 h_(b,rem)(q) being linear in q and vanishing at q = 0 for every b ([[eq:iii-i14-1-2]]). The first two terms are
 smooth, g_(p⃗) and h_tot(p⃗) being smooth tensors depending smoothly on p⃗ ([[sec:viii-0]]; the definitions cited in
 Step 2 of that proof). As U′ ∈ 𝒟^∞_ex, h′ ∈ 𝒳^∞_(J,ex) and q′ ∈ 𝒬_ex ([[prop:iii-j3-5-4]]): h′ lies in a b-Sobolev
-class of infinite order, and
-h_(b₀,rem)(q′) is χ_K times smooth tensors applied to the components of q′, functions of t_* of infinite b-regularity
-([[eq:iii-i14-1-1]], [[eq:iii-i14-1-2]]); both are smooth on the interior of M. So ġ is smooth on the interior of N_ν.
+class of infinite order, and h_(b₀,rem)(q′) is χ_K times smooth tensors applied to the components of q′, functions of
+t_* of infinite b-regularity ([[eq:iii-i14-1-1]], [[eq:iii-i14-1-2]]); both are smooth on the interior of M. So ġ is
+smooth on the interior of N_ν.
 
 *Up to Σ°.* Where ν > 0, Σ° lies in the interior of N_ν, where ġ is smooth. Where ν = 0, Σ° is part of the boundary
 of N_ν. Such points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]],

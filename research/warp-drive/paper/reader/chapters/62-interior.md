@@ -23,10 +23,11 @@ t_IVP, the initial surface Σ^IVP := t_IVP⁻¹(0) and the radius R₃ beyond wh
 Ω_*, t^♭_* and T̂ are those of [[sec:iii-k-0]] and [[prop:iii-k-1-2]], and 𝒟_0 := 𝒟_(0,0) is the region 𝒟_(S,S⁰) of
 [[prop:iii-k-1-2]] at (S, S⁰) = (0, 0); φ_(0,0) = ψ_0 ∘ φ_0 ([[eq:s27-motion]]) is the identity, its factors being the
 time-1 flows of the vector fields V(0) and V⁰(0) of [[lem:iii-b-5-1]] and [[lem:iii-i7-1-1]] (a), which are zero, these
-fields being linear in S. The domain Ω′ of the form [[eq:omega]] with constants (T′, δ′_0), a′ := q0 − δ′_0, V′ := v_end + T′ and τ′_end := max_(v ≤ V′)(v − r_q(v)), the
-constant c₀ of the chart (t, x) = (τ + T_(μ_end)(|x|) + c₀, x), which places Σ^IVP in the coordinates (τ, x) of
-[[sec:background]], and the gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and [[thm:settling-precise]]; Ω′_+ := Ω′ ∩
-{v ≥ v_end + 1}. G = O(2) × O(2) is the group of [[sec:s27-class]].
+fields being linear in S. The domain Ω′ of the form [[eq:omega]] with constants (T′, δ′_0), a′ := q0 − δ′_0,
+V′ := v_end + T′ and τ′_end := max_(v ≤ V′)(v − r_q(v)), the constant c₀ of the chart
+(t, x) = (τ + T_(μ_end)(|x|) + c₀, x), which places Σ^IVP in the coordinates (τ, x) of [[sec:background]], and the
+gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and [[thm:settling-precise]]; Ω′_+ := Ω′ ∩ {v ≥ v_end + 1}.
+G = O(2) × O(2) is the group of [[sec:s27-class]].
 
 ### The development inside the black hole {#sec:interior-development}
 
@@ -314,10 +315,10 @@ developments, with the inclusion of Σ, are globally hyperbolic developments of 
 they have a common globally hyperbolic development, and by [Sbi15, Theorem 3.4] a maximal one ([[thm:std-sbierski]]
 (3), (4)), U ⊂ D_(M_gl)(Σ), with an isometric embedding j into D_V(Σ) that preserves the time orientation and the
 embedding of Σ [Sbi15, Definitions 2.2 and 2.4] ([[thm:std-sbierski]] (2)), so that j is the identity on Σ. U is open
-(the proof of [Sbi15, Theorem 3.4]; [[thm:std-sbierski]] (4)) and contains Σ, a Cauchy surface of U. By [Sbi15, Theorem 3.13] U has no
-corresponding boundary points ([[thm:std-sbierski]] (5)), and gluing the two developments along U by j gives a
-Hausdorff globally hyperbolic development that extends both [Sbi15, Theorem 2.7 and its proof] ([[thm:std-sbierski]]
-(3), (6)). ∎
+(the proof of [Sbi15, Theorem 3.4]; [[thm:std-sbierski]] (4)) and contains Σ, a Cauchy surface of U. By [Sbi15,
+Theorem 3.13] U has no corresponding boundary points ([[thm:std-sbierski]] (5)), and gluing the two developments
+along U by j gives a Hausdorff globally hyperbolic development that extends both [Sbi15, Theorem 2.7 and its proof]
+([[thm:std-sbierski]] (3), (6)). ∎
 
 **Remark {#rem:interior-one-spacetime}** (What [[lem:interior-one-spacetime]] says.)
 
