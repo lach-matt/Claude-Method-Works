@@ -21,9 +21,9 @@ throughout occur for every small λ ([[prop:edge-dips]]): some regularity of the
 Throughout, μ0 = √72 l5², and the notation is that of [[ch:equality-layer]]: g0, the seed g0°, r_q, Φ0, Φ0♯ = ∂_v + β_Φ
 ∂_r, the margin m0 of [[eq:eq-margin]], the coefficient ν of [[eq:layer-nu]], the angular factors d_1, d of
 [[eq:layer-divergence]], the operators 𝒯, R_X, D_X, Pol and Pol⁺ of [[sec:layer-operators]], the profiles H_j of
-[[def:layer-profiles]], the level E(v) and the costs ε_c(v) of [[eq:layer-costs]], M* := 2N + 8, and the ratio R(v, x̂)
-:= λ³ A |env(v)| |ν(v − τ0)| |d(ϑ)|/m0(v) of [[sec:layer-regions]]. A boundary point is X = (v, r_q(v), x̂), x̂ ∈ S³ with
-polar angle ϑ. The phase is θ.
+[[def:layer-profiles]], the level E(v) and the costs ε_c(v) of [[eq:layer-costs]], M* := 2N + 8, and the ratio R(v,
+x̂) := λ³ A |env(v)| |ν(v − τ0)| |d(ϑ)|/m0(v) of [[sec:layer-regions]]. A boundary point is X = (v, r_q(v), x̂), x̂ ∈ S³
+with polar angle ϑ. The phase is θ.
 
 ### Setting and hypotheses on the edge {#sec:edge-setting}
 
@@ -148,9 +148,9 @@ get |I_n| ≤ λ^n env + n c_1 λ^(n+1) κ env + C λ^(n+1) κ env. If λκ ≤ 
 1/κ)^n; if λκ > 1, (a) gives env κ^(−n) = env min(λ, 1/κ)^n. ∎
 
 **Lemma {#lem:edge-sinv}** (The inverse of s on a log-concave function.) Let env satisfy the hypotheses of
-[[lem:edge-kappa]] on (v_s, v_s + x0]. Let g be smooth on ℝ, zero on (−∞, v_s], positive and log-concave on (v_s,
-v_s + x0], with κ_g := (log g)′ ∈ [κ/2, 2κ], |κ_g′| ≤ c_R κ_g^(1+α) and |g^(j)| ≤ c_j κ^j g for j ≤ 3 there. Put s̃_g
-:= κ_g + i/λ, T_g := λκ_g, and define ρ_g by
+[[lem:edge-kappa]] on (v_s, v_s + x0]. Let g be smooth on ℝ, zero on (−∞, v_s], positive and log-concave on (v_s, v_s +
+x0], with κ_g := (log g)′ ∈ [κ/2, 2κ], |κ_g′| ≤ c_R κ_g^(1+α) and |g^(j)| ≤ c_j κ^j g for j ≤ 3 there. Put s̃_g := κ_g +
+i/λ, T_g := λκ_g, and define ρ_g by
 
     s⁻¹g = g s̃_g⁻¹ (1 + ρ_g).                                                                      {#eq:edge-rho-g}
 

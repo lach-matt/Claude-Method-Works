@@ -588,9 +588,9 @@ the data on D⁰ ∩ C₀ and on D⁰ ∩ N;
 
 (c) for every solution on a set D as in [[prop:tl5-leaves]] whose transverse derivative ∂_vR on C₀ is the seed's,
 every leaf with −1 < u < 0 is outer trapped where it meets D; every T²-invariant marginally outer trapped section of an
-ingoing cone contained in D has its innermost point at u ≤ −1; and every such section for which D contains the two
-generator segments named in [[cor:tl5-mots]] (c) lies in the band of [[cor:tl5-mots]] (c), between the infimum and the
-supremum of u over the zeros of the leaves' expansion on that cone in D.
+ingoing cone contained in the interior of D has its innermost point at u ≤ −1; and every such section for which D
+contains the two generator segments named in [[cor:tl5-mots]] (c) lies in the band of [[cor:tl5-mots]] (c), between
+the infimum and the supremum of u over the zeros of the leaves' expansion on that cone in D.
 
 No existence is asserted for v > 1/2: [[lem:tl5-continuation]] states what a continuation would need, and
 [[rem:tl5-beyond]] why the bounds proved in this chapter do not provide it.
@@ -675,8 +675,8 @@ of the leaf at p, Z(p) = 0, a(p) = 0, and da(p) = 0 because a is quadratic in th
 e_A be an orthonormal frame of S near p. In g(∇_(e_A) l_S, e_A) = g(∇_(e_A) ∂_v, e_A) + e_A(a) g(L̲, e_A) +
 a g(∇_(e_A) L̲, e_A) + g(∇_(e_A) Z, e_A) the middle two terms vanish at p. The first, summed, depends only on the
 e_A(p), an orthonormal basis of the leaf's tangent space, and gives θ_leaf(p). In the last, ∇_(e_A(p)) Z depends only
-on e_A(p); for X and Y tangent to a leaf and Z tangent to the leaves, the component of ∇_X Z tangent to the leaf is
-D_X Z, D the Levi-Civita connection of γ, so the sum is the divergence of Z in γ at p:
+on e_A(p); for X tangent to a leaf and Z tangent to the leaves, the component of ∇_X Z tangent to the leaf is ∇^γ_X Z,
+∇^γ the Levi-Civita connection of γ, so the sum is the divergence of Z in γ at p:
 2 e^(2W) Δ_γ Ũ(p) + 2 γ(grad_γ e^(2W), grad_γ Ũ)(p) = 2 e^(2W) Δ_γ Ũ(p). Finally, label the points of S and of the
 leaf through p by the generators through them. In these coordinates U and Ũ are the same function, the two induced
 metrics coincide at p, and both functions are critical at p, so Δ_S U(p) and Δ_γ Ũ(p) are both the trace of the
@@ -687,7 +687,8 @@ at the axes as well, where θ_leaf = 3 ∂_vR/R by continuity.
 vector of the curve is X′ ∂_x, so Δ_S U = U″/(X′² G_x) at a critical point. ∎
 
 **Corollary {#cor:tl5-mots}** (Sections of an ingoing cone.) Let g be a solution on D as in [[prop:tl5-leaves]], and S
-a T²-invariant section of C_v contained in D, with innermost point p and outermost point q.
+a T²-invariant section of C_v contained in the interior of D, so that [[lem:tl5-section]] applies, with innermost point
+p and outermost point q.
 
 (a) θ_S(p) ≤ θ_leaf(p) and θ_S(q) ≥ θ_leaf(q).
 
@@ -1167,18 +1168,20 @@ finite atlas of [−10, u*] × [1/2, v*] × S³;
 Suppose moreover that the characteristic initial value problem in the gauge has, for these data, the following three
 properties.
 
-(F1) There are s > 1/2 and a solution on D_s.
+(F1) There are s ∈ (1/2, v*] and a solution on D_s.
 
 (F2) Two solutions on the same D_s coincide.
 
-(F3) A solution on D_s with s < v* is the restriction of a solution on D_(s′) for some s′ > s.
+(F3) A solution on D_s with s < v* is the restriction of a solution on D_(s′) for some s′ ∈ (s, v*].
 
 Then there is a solution g on D, and y_σ(g) ≤ 2A for every σ ∈ [1/2, v*].
 
 (F1)–(F3) are the local existence, uniqueness and continuation of the characteristic problem in the gauge. For smooth
-data, [[thm:std-ctg-neighbourhood]] gives a vacuum development containing a future neighbourhood of N₀ ∪ N₁, and
-likewise for the data that a solution on D_s induces on {v = s} ∩ D and on N₁ ∩ {v ≥ s}, which meet transversally at
-the sphere {u = −10, v = s}. Three further facts would give (F1)–(F3) from it: that the T² action of the data and the
+data, [[thm:std-ctg-neighbourhood]] gives a vacuum development containing a future neighbourhood of N₀ ∪ N₁ (its
+proof, [CTG23, Section 4, p. 10], runs the argument of [CCTW16, Theorem 5.3] in any maximal domain of existence and
+does not show that this domain is unique), and likewise for the data that a solution on D_s induces on {v = s} ∩ D
+and on N₁ ∩ {v ≥ s}, which meet transversally at the sphere {u = −10, v = s}. Three further facts would give
+(F1)–(F3) from it: that the T² action of the data and the
 reflections φ1 ↦ −φ1 and φ2 ↦ −φ2 extend to isometries of the development, which puts the metric in the form of the
 class; that double-null coordinates on that neighbourhood, with u constant on the outgoing null hypersurfaces through
 the leaves of N₀, v constant on the ingoing ones through the leaves of N₁, and x, φ1 and φ2 constant along the

@@ -1428,8 +1428,8 @@ dust of A′ there, and in Step 10 the energy of Δ_(A′) is taken on a set ins
 u_(A′).
 
 *Step 9.* Near the axes the right side of the augmented system is non-local in the planar directions, an integral from
-the axis along each leaf. Extend the system as in Step 9 of [[thm:class-stability-off-axes]], with the right side ζ_A
-S_A^ax near the axes; the leaves are those of [[lem:class-leaf-differences]], defined on each slice from (g, p_A, Θ_A)
+the axis along each leaf. Extend the system as in Step 9 of [[thm:class-stability-off-axes]], with the right side
+S_A^ax near the axes for the families present there (Step 6) and ζ_A S_A away from them; the leaves are those of [[lem:class-leaf-differences]], defined on each slice from (g, p_A, Θ_A)
 by [[eq:class-leaf-volterra]] and [[lem:class-volterra]], so that p_A need not be closed for them to exist, and the right
 side at a time depends on the unknowns at that time only. The cut-off on p_A keeps P_A^τ > 0, as before. In the
 unknowns U of that Step 9 the forcing term is defined on a ball 𝒟_ρ about u_* := 0 in H^k, with ρ so small that the
