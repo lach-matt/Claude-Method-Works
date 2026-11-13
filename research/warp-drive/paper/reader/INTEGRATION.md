@@ -843,3 +843,16 @@ Items found while chapters were written in parallel; each is settled once, editi
   (lem:s27-cover (c); (L) in H²; thm:iv3-2-1 now k ≥ 1; lem:iii-k-2-2 (d)): update at S29's next round. Chapters 3, 60:
   no cited statement changed. Open: chapter 38's class at ℓ_I < ½ against chapter 46's time function at ℓ = ½ (S19
   decoupling round running). Third reading running.
+- Proof B CONFIRMED (R2-P-B): 0M 0m 7n; every weight polynomial and all 2,643 Bernstein coefficients of T-B recomputed
+  in exact arithmetic; lem:morawetz-identity's new form holds; five chapter-70 citations match. Nits at re-merge:
+  T-B:7 "five significant digits" (integers printed to the unit); "product" columns are rounded unrounded products;
+  part (c)'s 61.37, 129.87, X_0 = 26.71, 23.72 come from the rows' constants, not the two-decimal table; f for both
+  1 − 1/r² and the right-hand side (chapter 70 writes F); M := at line 90 uses a reserved letter; part (c) does not say
+  Σ u_l converges; R(σ) for other potentials needs only a real integrable V, cite lem:rb-flux for 𝒲 ≠ 0. Re-merge:
+  chapter 70's lem:morawetz-complex must add |φ| ≤ 1; rem:rb-multiplier-observed reads oddly against the proved values;
+  P-B2 line 319 B_l → B*_l. Re-merge waits for the chapter 70 proof project (same file).
+- S26 addenda (F2-S26): lem:s26-interpolation added (smoothing operators of thm:iv2-3-1 (i); s₀ = 8, b = 9, a = k + 2)
+  for ‖u₂‖_(H⁵) carrying ‖h‖_(H⁹) at k ≥ 7; thm:iv2-2-4's estimate written step by step; tame terms in
+  eq:s26-commutator and [L, χ]; prop:iii-c2-4-1 sign error real: lem:iii-b-3-9's convention, letter k, k̃ term flips;
+  prop:iii-c2-4-2 writes k^BL. Chapter 48 lines 128 and 133: drop "κ̃ there" (add to S29's next round). Third reading
+  running.

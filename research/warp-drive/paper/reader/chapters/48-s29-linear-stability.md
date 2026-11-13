@@ -425,10 +425,11 @@ to the exterior solution on Ω_(ext,r_1), with its past slab. On each of the two
 of M, ḣ is for every k the restriction of a tensor of class H^k on a neighbourhood: on 𝒦 by (L) of [[sec:s27-local]],
 its data being smooth and H^k(𝒦) consisting of restrictions; on 𝒜 because ḣ lies, for every k, in the classes of
 order k of [[thm:iv2-2-4]] and [[thm:iv3-2-1]], b-Sobolev spaces of restrictions ([[sec:iii-c-2]]), which near points
-of the interior of M are the spaces H^k. Fix an interior point q of 𝒟 and m ∈ ℕ. By Sobolev embedding on ℝ⁵, for k > m + 5/2,
-there are a coordinate ball V ∋ q in the interior of 𝒟 and u_1, u_2 ∈ C^m(V) with ḣ = u_1 on 𝒦 ∩ V and ḣ = u_2 on
-𝒜 ∩ V. Put Γ := 𝒦 ∩ 𝒜 ∩ V and w := u_1 − u_2. If Γ is empty, the connected V lies in one of the two closed sets, and ḣ
-is C^m on V. Otherwise ḣ is C^m on V by (i) and (ii) below. As q and m are arbitrary, ḣ is smooth on the interior of 𝒟.
+of the interior of M are the spaces H^k. Fix an interior point q of 𝒟 and m ≥ 2. By Sobolev embedding on ℝ⁵, for
+k > m + 5/2, there are a coordinate ball V ∋ q in the interior of 𝒟 and u_1, u_2 ∈ C^m(V) with ḣ = u_1 on 𝒦 ∩ V and
+ḣ = u_2 on 𝒜 ∩ V. Put Γ := 𝒦 ∩ 𝒜 ∩ V and w := u_1 − u_2. If Γ is empty, the connected V lies in one of the two closed
+sets, and ḣ is C^m on V. Otherwise ḣ is C^m on V by (i) and (ii) below. As q and m are arbitrary, ḣ is smooth on the
+interior of 𝒟.
 
 (i) *Every derivative of w of order at most m vanishes on Γ.* In the interior of 𝒟, 𝒦 meets 𝒜 only on three spacelike
 hypersurfaces ([[lem:s27-cover]] (c), [[lem:iii-c1-1-1]]): Σ^fut_(r_1) ∩ {ρ′_I ≥ c}, with 𝒦 above it and Ω_(ext,r_1)
@@ -445,7 +446,8 @@ every derivative of order j with at most j − 1 factors ∂_s, a tangential der
 identity gives ∂^j_s w = 0 there. By induction on j, as in Step 3 of the proof of [[thm:ix-2-2]], every derivative of w
 of order at most m vanishes on H near p. The other points of Γ lie on two of the three hypersurfaces, on one of two
 edges. The first is {r = r_1, t_IVP = 0}, where Σ^fut_(r_1) and Σ^past_(r_1) bound the wedge Ω_(ext,r_1) and 𝒦 fills
-the rest of a neighbourhood; its points are interior points of 𝒟, as ν(r_1) > 0. The second is the intersection of
+the rest of a neighbourhood; its points are interior points of 𝒟, as ν(r_1) > 0 (r_1 > R_ν, as in the last step of
+this proof). The second is the intersection of
 Σ^fut_(r_1) with {ρ′_I = c}, where 𝒦, Ω_(ext,r_1) and 𝒮 meet. ({ρ′_I = c} does not meet Σ^past_(r_1) in Γ: its
 points in Γ lie in the closure of 𝒮, where t_IVP ≥ r/4 > 0 ([[lem:s27-cover]] (d)), while t_IVP ≤ 0 on
 Σ^past_(r_1).) Each point of an edge is a limit of points of Γ that lie on only one of the three hypersurfaces, and the

@@ -1675,9 +1675,9 @@ the metrics of (i)–(iii) by [[eq:ii-f1-7-1]], and for those of (iv) when the p
 [[lem:ii-f1-2-6]] use of t^♭ at 𝓘⁺. In (b), C′ = (1 − C^(−ℓ))/(1 + C) depends on ℓ; every constant chosen from it
 (T_♭ = 2/C′ in [[sec:ii-c1-3-2]], the bounds t_* ≤ T/C′ on slabs, T ≥ 8/C′ in [[sec:ii-f-6-3]], τ_0 < C′τ_1/2 in
 [[sec:ii-f-7-3]]) is chosen with the C′ of ℓ_♭, and no condition relates C′ to ℓ_I. (c) and the gluing on
-{r ≤ r′_0 + 1} involve ℓ only through C′. Near 𝓘⁺, t^♭ = t_*(1 − (t_*/r)^(ℓ_♭)), and (t_*/r)^(ℓ_♭) = (x_I²/(1 − x_I²))^(ℓ_♭)
-is conormal: its b-derivatives, and at bounded t_* its edge derivatives, are bounded, and it tends to 0 at 𝓘⁺. Only
-these properties are used: in the collar of [[sec:ii-e-1-5]] (∂_(t_*)t^♭ = 1 − (1 + ℓ_♭)(t_*/r)^(ℓ_♭) ≥ ½ for r
+{r ≤ r′_0 + 1} involve ℓ only through C′. Near 𝓘⁺, t^♭ = t_*(1 − (t_*/r)^(ℓ_♭)), and
+(t_*/r)^(ℓ_♭) = (x_I²/(1 − x_I²))^(ℓ_♭) is conormal: its b-derivatives, and at bounded t_* its edge derivatives, are
+bounded, and it tends to 0 at 𝓘⁺. Only these properties are used: in the collar of [[sec:ii-e-1-5]] (∂_(t_*)t^♭ = 1 − (1 + ℓ_♭)(t_*/r)^(ℓ_♭) ≥ ½ for r
 large, and t^♭ − t_* = −t_*^(1+ℓ_♭)x_I^(2ℓ_♭), with x_I = r^(−1/2) there, has bounded edge derivatives), in the proof
 of [[lem:ii-e-3-3]] (t^♭ ≤ t_*, and t_*^(1+ℓ_♭)x_I^(2ℓ_♭) < ω_0/4 near a compact part of 𝓘⁺), in [[lem:s07-extension]],
 in [[lem:ii-f1-2-6]] (a) and through it in [[lem:ii-f1-2-2]] and [[lem:ii-f1-2-7]], and in (T2)–(T3) of

@@ -351,7 +351,7 @@ derivatives are of the size of F_A.
 **Remark {#rem:vlasov-coherence-values}** (Numerical observation.) On the orbit space of Tangherlini with μ = 1 and labels
 in [−0.6, 0.6], the Schur formula of [[lem:vlasov-separation]] agreed with shooting to 1.1 × 10⁻⁹, ∂_α β was at least
 0.798, and the least mixed symbol of adjacent labels divided by (Δα)² was 0.2923, 0.2926, 0.2927, 0.2927 at n = 8, 16,
-32, 64. For the four labels 2πA/4 on flat 2+1 with the hierarchy, every Q_j with |j|₁ ≤ 5 was found exactly to satisfy
+32, 64. For the four labels 2πA/4 on flat 2+1 with the hierarchy, every Q_j with |j|₁ ≤ 5 satisfied exactly
 |Q_j|/(ν_B1 ν_B2) ≥ 359/216; with two radial covectors added and labels at angle at least η from them (label–radial
 symbols at least 1/5), every combination with |j|₁ ≤ 4 had |Q_j|/(ν_B1 ν_B2) ≥ 35612/609961, above the bound 4/50765
 of [[eq:vlasov-hierarchy]]. No proof uses these values.

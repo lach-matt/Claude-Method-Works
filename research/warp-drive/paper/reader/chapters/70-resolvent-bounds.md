@@ -1644,8 +1644,8 @@ the inverse of the indicial family on the weight line. For the scalar model ½A_
 ½(ι(2 − ι) + κ), it gives at β = 1 an upper bound (κ + 1)/(2(κ + 2)^(1/2)) for its least singular value in these norms.
 
 At α = −1 (β = 1) the indicial family of the degree-2 block has the root 1.0000029324, less than 2.94 · 10⁻⁶ from the
-weight line ([[lem:rb-roots-point]]), and [[lem:rb-quasimode]] gives a correspondingly small upper bound. To evaluate it
-we write the indicial family out.
+weight line ([[lem:rb-roots-point]]), and [[lem:rb-quasimode]] then gives small upper bounds. To evaluate them we write
+the indicial family out.
 
 *The indicial family, explicitly.* Put y_j := u_j/ν_j, with (ν_0, …, ν_6) := (1, √2, 1, (2κ)^(1/2), (2κ)^(1/2), √3,
 ((2/3)κ(κ − 3))^(1/2)), so that (y_0, …, y_6) = (H_0, H_1, H_2, H_3/r, H_4/r, H_5, H_6) and
@@ -1673,7 +1673,8 @@ where, for y ∈ ℂ⁷ and ω ∈ ℂ³,
     𝔈_Υy = γ_Υ((2 − e_Υ)y_0 + e_Υ(y_2 + 3y_5), 2y_1, 2y_3).
 
 *Proof.* The model is ½ times 2L̄ = □̄ + 2Ē^Cδ̄Ḡ + 2(δ̄* + Ē^C)Ē^ΥḠ ([[eq:iii-f-2-1]]) on stationary sections of
-scalar type l, in the frame (dt, dr, r dω) of ḡ = −dt² + dr² + r²g̸. On the coordinates of a section r^(−ι)ŷ (or
+scalar type l, in the frame (dt̄, dr, r dω), where ḡ = −dt̄² + dr² + r²g̸; we write t for t̄, so that
+c̄_C = r⁻¹(dt − v_Cdr) and c̄ = r⁻¹dt in [[eq:iii-f-2-1]]. On the coordinates of a section r^(−ι)ŷ (or
 r^(−ι)ω̂), □̄ acts by 𝔚(ι) and the result carries r^(−ι−2); δ̄ acts by 𝔇(ι), δ̄* by 𝔖(ι), Ē^C by 𝔈_C and Ē^ΥḠ by
 𝔈_Υ, the result carrying r^(−ι−1); and Ḡ acts by 𝔊. So the composition rule of the proof of [[lem:iii-f1-2-1]] gives
 [[eq:rb-indicial-explicit]], and it remains to derive the six matrices. Below, dS, g̸ and δ̸*₀dS are the objects on
@@ -1690,10 +1691,11 @@ T_U = r^(−ι−2)((ϖ + 4)y_4 − 2y_2 + 2y_5 − (4/3)(κ − 3)y_6)dS.
 *𝔊.* tr_ḡ h = (y_2 − y_0 + 3y_5)S, and Ḡh = h − ½ḡ tr_ḡ h.
 
 *𝔇.* In Cartesian coordinates, on stationary sections, (δ̄k)_t = −∂_ik_(it) and (δ̄k)_j = −∂_ik_(ij). For a function
-f(r), a 1-form V and a symmetric 2-tensor Q on 𝕊³, regarded as tangential fields homogeneous of degree 0, the relation
-∂_ix̂_j = r⁻¹(δ_ij − x̂_ix̂_j) and the Gauss formula of the proof of [[lem:iii-a1-1-2]] give
+f(r), a function S, a 1-form V and a symmetric 2-tensor Q on 𝕊³, regarded as fields homogeneous of degree 0 (V and Q
+tangential), the relations ∂_ix̂_j = r⁻¹(δ_ij − x̂_ix̂_j) and x̂_i∂_iS = 0 and the Gauss formula of the proof of
+[[lem:iii-a1-1-2]] give
 
-    ∂_i(fx̂_i) = f′ + 3f/r,     ∂_i(fV_i) = −r⁻¹fδ̸V,     ∂_i(fx̂_ix̂_j) = (f′ + 3f/r)x̂_j,
+    ∂_i(fSx̂_i) = (f′ + 3f/r)S,     ∂_i(fV_i) = −r⁻¹fδ̸V,     ∂_i(fSx̂_ix̂_j) = (f′ + 3f/r)Sx̂_j,
     ∂_i(f(x̂_iV_j + V_ix̂_j)) = (f′ + 4f/r)V_j − r⁻¹f(δ̸V)x̂_j,     ∂_i(fQ_ij) = −r⁻¹f((δ̸Q)_j + (tr Q)x̂_j).
 
 For k with the coordinates y, k_(ti) = y_1Sx̂_i + y_3(dS)_i and k_(ij) = y_2Sx̂_ix̂_j + y_4(x̂_i(dS)_j + (dS)_ix̂_j) +
@@ -1771,8 +1773,9 @@ for a stationary 1-form w the component (δ*w)_(tA) = ½∂_Aw_t − Γ^μ_(tA)w
 r-derivative of w. So in the component (Lh)_(tA) = F_3∂_AS, F_3 the coefficient of 2dt ⊗_s dS in Lh, the derivatives
 of H_3 come from □h and 2E^CδGh only, and h_(tA) = H_3∂_AS.
 
-In the chart above, g^(tt) = f − 2, g^(tr) = 1 − f = r⁻², g^(rr) = f and |det g|^(1/2) = r³|det g̸|^(1/2) (the
-determinant of the (t, r) block of g is −1), and Γ^t_(tt) = −½g^(tr)∂_rg_(tt) = ½(1 − f)f′,
+In the Kerr–Schild chart of the operator above, where g = −f dt² + 2(1 − f) dt dr + (2 − f) dr² + r²g̸, one has
+g^(tt) = f − 2, g^(tr) = 1 − f = r⁻², g^(rr) = f and |det g|^(1/2) = r³|det g̸|^(1/2) (the determinant of the (t, r)
+block of g is −1), and Γ^t_(tt) = −½g^(tr)∂_rg_(tt) = ½(1 − f)f′,
 Γ^t_(rt) = ½g^(tt)∂_rg_(tt) = ½(2 − f)f′, Γ^B_(rA) = r⁻¹δ^B_A and Γ^B_(tA) = 0. For a symmetric 2-tensor,
 
     (□h)_(μν) = −g^(αβ)∂_α∂_βh_(μν) + g^(αβ)Γ^λ_(αβ)∂_λh_(μν) + 2g^(αβ)Γ^λ_(αμ)∂_βh_(λν) + 2g^(αβ)Γ^λ_(αν)∂_βh_(μλ)
