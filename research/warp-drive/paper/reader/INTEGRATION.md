@@ -1165,3 +1165,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   (c_1 := c_♮ and Q in item 5) are in the report; R4-S27 judges them before they are applied.
 - R-P-K83b NOT CONFIRMED 0M 4m 7n, the mathematics correct throughout (reviews/R-P-K83b.md). F-P-K83b fixes the
   proof file; the merge into chapter 83 follows F-83, then one confirming reading of the merged sections.
+- F-P-I done (reports/F-P-I.md): the cut-off repair is integrated into chapter 63 with the new lem:own-exterior
+  (fixed-T exterior decay, |∂^jΓ^γh_R| ≤ C r^(−7/2−j), half a power weaker than R-P-I asked, enough for every use per the
+  fixer), lem:own-two-continuations; P-I-cutoff.md deleted. The fixer notes that with the matched data Σ_4 is not needed
+  for the far window: FOR THE FINAL REPORT (the author may want to see it). F2-63 now does R-63's minors and nits, the
+  issue-1 proof, and P-G-far's fixes and merge; then one reading of the whole of chapter 63.

@@ -118,18 +118,19 @@ t |α1² − α2²|/(α2 (α1 + d)) + O(t²) and β/ϑ → |α1² − α2²|/(α
 (5/36)/(31/36). Near axis 1 exchange the roles of the two planes. Then cos β − 1 = −β²/2 + O(β⁴). Since ∂_x v = x̂ and
 ∂_x w = ∂_x d_E are unit vectors, the quotient of [HL18, Definition 4.1] is cos β.
 (b) η⁻¹(dτ + dr, dτ − dr) = −1 − 1.
-(c) Both gradients are multiples of one null covector, so their contraction is a multiple of its square, which is 0.
-If both families have densities that do not vanish at an axis point, their separation would have to hold there. By
-[[lem:class-phase-axis]] the gradient of each phase at an axis point is a multiple of dv or of the outgoing covector;
-so of three families with densities nonzero at an axis point, two have gradients that are multiples of the same
-covector there, with signs fixed by their time orientation du(∂_τ) > 0, and their quotient of [HL18, Definition 4.1]
-is 1 there. At most two families are therefore separated at each axis point, one with gradient a multiple of dv and
+(c) Both gradients are multiples of one null covector, so their contraction is a multiple of its square, which is 0. If
+both families have densities that do not vanish at an axis point, their separation would have to hold there. By
+[[lem:class-phase-axis]] the gradient of each phase at an axis point is a multiple of dv or of the outgoing covector; so
+of three families with densities nonzero at an axis point, two have gradients that are multiples of the same covector
+there, of the same sign when g⁻¹du_A and g⁻¹du_B have the same time orientation, and their quotient of [HL18, Definition
+4.1] is 1 there. At most two families are therefore separated at each axis point, one with gradient a multiple of dv and
 one with gradient a multiple of the outgoing covector.
 (d) d(Σ n_A f_A(v)) = (Σ n_A f_A′) dv and g⁻¹(dv, dv) = 0. ∎
 
-At an axis point the gradient of a phase normalised by du(∂_τ) > 0 is a multiple of dv or of the outgoing covector, with
-the sign fixed by du(∂_τ) > 0 (the dτ-component 1 − μ/r² of the outgoing covector is negative where r² < μ, which Ω
-reaches); so in (c) the quotient of [HL18, Definition 4.1] equals 1 for two families of one orientation. With densities
+At an axis point the gradient of a phase with g⁻¹du future directed is a multiple of dv or of the outgoing covector,
+of the sign fixed by that time orientation; it is not always a positive multiple, since the dτ-component 1 − μ/r² of
+the outgoing covector is negative where r² < μ, which Ω reaches. So in (c) the quotient of [HL18, Definition 4.1]
+equals 1 for two families of one orientation. With densities
 that vanish near the axes, separation is needed only on the overlaps of the supports, and any finite number of separated
 families is possible, for instance non-radial phases of different ellipsoids supported away from the axes.
 
@@ -383,7 +384,8 @@ of (t, x, u) ∈ [0, T0] × R^d × R^m with A^0 ≥ c0 I, c0 > 0, every derivati
 {|u| ≤ R} for every R. Norms without subscript and ⟨·, ·⟩ are those of L²(R^d). For an integer σ ≥ 0, H^σ := H^σ(R^d;
 R^m) carries the norm (Σ_(|α|≤σ) ‖∂^α u‖²)^(1/2); for real σ ≥ 0 we also use the norm ‖(1 + |ξ|²)^(σ/2) û‖ of
 [[eq:std-moser]], equivalent to the former for integer σ with constants depending on d and σ, and we write H^σ for
-either. Hölder's inequality in ξ gives, for 0 ≤ σ0 ≤ σ′ ≤ σ1 and σ′ = (1 − β) σ0 + β σ1,
+either. Hölder's inequality in ξ gives, for the norms of [[eq:std-moser]], 0 ≤ σ0 ≤ σ′ ≤ σ1 and σ′ = (1 − β) σ0 +
+β σ1,
 
     ‖w‖_(H^(σ′)) ≤ ‖w‖_(H^(σ0))^(1−β) ‖w‖_(H^(σ1))^β,                                           {#eq:class-interpolation}
 
@@ -667,9 +669,10 @@ where R ∈ C([0, T]; L²), R(t) ∈ H^s and ‖R(t)‖_(H^s) ≤ 1 for every t.
 the functions C_F, L and C′, and the bounds on the A^μ and their derivatives on bounded sets of u.
 (b) (Domain version.) Let Ω be as in the domain version, and let ū, defined on Ω ∩ {t ≤ T}, satisfy the equation of
 [[eq:class-kato-system]] there, with ū ∘ Ψ ∈ C([0, T]; H^(s+1)(Σ_⋆)) ∩ C¹([0, T]; H^s(Σ_⋆)), Ψ(t, y) := (t,
-ψ_t(y)). Let (F4) and (F5) hold with u_* := ū_e, the extension defined in the proof. Then the conclusions of (a), with
-R = 0, every norm taken on Σ_t, and the data given on Σ_0, hold for the solution on Ω ∩ {t ≤ T} of [[thm:class-kato]]
-(b), with constants depending also on Ω.
+ψ_t(y)). Let (F4) and (F5) hold with u_* := ū_e, the extension defined in the proof. Then for data u0 on Σ_0 with ‖u0
+− ū(0)‖_(H^s(Σ_0)) ≤ ε0 the system has a solution on Ω ∩ {t ≤ T}: the restriction to Ω of a solution on [0, T] of the
+system with a forcing term equal to F on every Σ_t. It is the only such restriction within r_b of ū_e, and the
+conclusions of (a) hold for it with R = 0 and every norm taken on Σ_t, the constants depending also on Ω.
 
 With R = 0, (a) is the stability of an exact solution. If ū solves the system with coefficients Ā^μ and forcing term F̄,
 it satisfies [[eq:class-kato-approximate]] with R := (A^μ(t, x, ū) − Ā^μ(t, x, ū)) ∂_μ ū − F(t, ū) + F̄(t, ū); so (a)
@@ -723,8 +726,9 @@ R_e = 0 on Σ_t, where ū_e = ū. The system with forcing term F(t, u) + R_e(t) 
 u_* := ū_e and agrees with the original on Ω, and ū_e solves it exactly. For data u0 on Σ_0, (a) applies to it with the
 datum ū_e(0) + E_0(u0 − ū(0)), within C_E ‖u0 − ū(0)‖_(H^s(Σ_0)) of ū_e(0) in H^s and within C_E ‖u0 − ū(0)‖_(L²(Σ_0))
 in L² (Stein's operator being bounded on L² as well). The solution stays within r_b of ū_e pointwise for ε0 small, by
-the bound on ‖u − ū_e‖_(H^(s′)), so by [[thm:class-kato]] (b) (i) its restriction to Ω is the solution on Ω, and the
-norms on Σ_t are at most those on R^d. ∎
+the bound on ‖u − ū_e‖_(H^(s′)). The argument of [[thm:class-kato]] (b) (i) uses the equations on Ω only, where the
+forcing terms of such systems agree with F, so it gives the uniqueness; and the norms on Σ_t are at most those on
+R^d. ∎
 
 **Corollary {#cor:class-kato-sphere}** (Closed leaves, perturbed coefficients.) Let n ≥ 1, let S^n be the unit sphere
 of R^(n+1), W_ab := x_a ∂_b − x_b ∂_a (0 ≤ a < b ≤ n) the rotation fields, which are tangent to S^n and span its
@@ -812,10 +816,10 @@ B^(ab)) z, z⟩ + 2 ⟨g, z⟩, the W_ab being divergence free; the divergence t
 gives e(t) ≤ e(0) + C ∫_0^t e for e(t) := ∫_(Ω∩{t′=t}) ⟨B^0 z, z⟩, and e(0) = 0. ∎
 
 **Remark {#rem:class-kato-local}** (Local forcing terms.) A forcing term F(t, x, u) that is a smooth function of (t, x,
-u), every derivative of which is bounded on [0, T0] × R^d ×
-{|u| ≤ R} for every R, with F(t, x, 0) = 0 for x outside a fixed compact set, satisfies (F1)–(F3) with ρ = ∞, (F1′),
-and (F4) for every domain: by [[lem:class-composition]] (b), ‖F(t, u)‖_(H^s) ≤ ‖F(t, ·, 0)‖_(H^s) + C(‖u‖_(L^∞))
-‖u‖_(H^s), which gives (F1) and (F1′); |F(t, x, u) − F(t, x, v)| ≤ C |u − v| pointwise for |u|, |v| ≤ C_S 𝔐, which gives
+u), every derivative of which is bounded on [0, T0] × R^d × {|u| ≤ R} for every R, with F(t, x, 0) = 0 for x outside a
+fixed compact set, satisfies (F1)–(F3) with ρ = ∞, (F1′), and (F4) for every domain: by [[lem:class-composition]] (b),
+‖F(t, u)‖_(H^s) ≤ ‖F(t, ·, 0)‖_(H^s) + C(‖u‖_(L^∞)) ‖u‖_(H^s), which gives (F1) and (F1′); |F(t, x, u) − F(t, x, v)| ≤
+C |u − v| pointwise for |u|, |v| ≤ C_S 𝔐, which gives
 (F2) and the bound of (F4); F(t, x, u) − F(t′, x, u) = (t − t′) ∫_0^1 ∂_t F(t′ + η (t − t′), x, u) dη, bounded in L² by
 C |t − t′| (1 + ‖u‖), which with (F2) gives (F3); and locality is (F4).
 
@@ -960,13 +964,12 @@ the transport has no flux through it. Its value at τ0 is 0, so D = 0 and Δ_A =
 □_g u_A on supp q_A, and (Aug4) is the conservation law div_g(q_A P_A) = 0 there: (g, u_A, q_A) solves
 [[eq:class-system]]. ∎
 
-**Corollary {#cor:class-seed-families}** (Non-round families on the seed.) Let g̊ be g0 of [[eq:background]] with μ ≡
-μ0 ≥ √72 l5², the seed, on the domain Ω of [[eq:omega]], with q̊_A = 0, and let ů_A be finitely many phases in the class
-that are eikonals of g̊, smooth with dů_A ≠ 0 on Ω, with closed sets S_A ⊂ Σ_τ0 whose tubes lie at distance at least
-2δ from the axes: for instance radial eikonals with S_A in an angular band {ϑ1 ≤ ϑ ≤ ϑ2}, 0 < ϑ1 < ϑ2 < π/2. Then
-every datum satisfying the constraints and the gauge
-condition, within ε of ů's, with supp q_A ∩ Σ_τ0 ⊂ S_A, has its non-round Einstein–null-dust development on the whole
-of Ω, within C ε of the seed.
+**Corollary {#cor:class-seed-families}** (Non-round families on the seed.) Let g̊ be g0 of [[eq:background]] with μ ≡ μ0
+≥ √72 l5², the seed, on the domain Ω of [[eq:omega]], with q̊_A = 0, and let ů_A be finitely many phases in the class
+that are eikonals of g̊, smooth with dů_A ≠ 0 on Ω, with closed sets S_A ⊂ Σ_τ0 whose tubes lie at distance at least 2δ
+from the axes: for instance radial eikonals with S_A in an angular band {ϑ1 ≤ ϑ ≤ ϑ2}, 0 < ϑ1 < ϑ2 < π/2. Then every
+datum satisfying the constraints and the gauge condition, within ε of ů's, with supp q_A ∩ Σ_τ0 ⊂ S_A, has its non-round
+Einstein–null-dust development on the whole of Ω, within C ε of the seed.
 
 *Proof.* (H1) and (H2) hold, and Ω is admissible for g̊ by [[lem:domain]]; apply [[thm:class-stability-off-axes]]. ∎
 
@@ -976,14 +979,13 @@ the data. They are not constructed here: the outward radial solve of [[ch:data]]
 wavelength, and a small non-round dust density, with regularity at the axes for a solve that is parabolic in ϑ, is not
 examined; data localised in an angle are the subject of [[ch:localised-data]].
 
-**Corollary {#cor:class-short-time}** (Large data for a short time.) Let a datum on Σ_τ0 satisfy the constraints and
-the gauge condition, with densities vanishing within 2δ of the axes, and let Ω be admissible for a smooth G-invariant
-metric g̃ whose Cauchy data on Σ_τ0 are those of the datum. With g̃ in place of g̊ in the gauge of (Aug1), ζ_A equal
-to 1 on the points at distance at least 2δ from the axes, S̊_A replaced by any fixed smooth function, and p_A on
-Σ_τ0 the root of g⁻¹(p_A, p_A) = 0 with spatial part ∂_x u_A for which P_A is future directed, the augmented system
-has a solution on Ω ∩ {τ ≤ τ0 + T},
-T > 0 depending on the datum, which solves [[eq:class-system]] as long as the tubes of the S_A := supp q_A ∩ Σ_τ0 stay
-in {ζ_A = 1}.
+**Corollary {#cor:class-short-time}** (Large data for a short time.) Let a datum on Σ_τ0 satisfy the constraints and the
+gauge condition, with densities vanishing within 2δ of the axes, and let Ω be admissible for a smooth G-invariant metric
+g̃ whose Cauchy data on Σ_τ0 are those of the datum. With g̃ in place of g̊ in the gauge of (Aug1), ζ_A equal to 1 on
+the points at distance at least 2δ from the axes, S̊_A replaced by any fixed smooth function, and p_A on Σ_τ0 the root
+of g⁻¹(p_A, p_A) = 0 with spatial part ∂_x u_A for which P_A is future directed, the augmented system has a solution on
+Ω ∩ {τ ≤ τ0 + T}, T > 0 depending on the datum, which solves [[eq:class-system]] as long as the tubes of the S_A := supp
+q_A ∩ Σ_τ0 stay in {ζ_A = 1}.
 
 *Proof.* Step 9, with g̃ in place of g̊ and the datum, constant in τ, as the reference path u_*, gives the solution for
 a short time, during which g stays within ε1 of g̃ and the admissibility of Ω persists ([[def:class-admissible]]
@@ -1342,8 +1344,8 @@ adapted to that family there ([[def:class-adapted]]) if there are such tubes.
 The dusts may reach the axes. The development lies on its own adapted domain, whose lateral boundaries depend on the
 solution through u_A and stay spacelike with the domain to their past, these being open conditions; the uniqueness is
 among the smooth G-invariant developments, each on its own adapted domain, in the gauge D(g) = 0 relative to g̊ with
-𝒩_(k−1) ≤ ε2. No smallness of ů or of the families is assumed;
-ε and C depend on ů, Ω, N_f, k and the constants of [[lem:class-planar-shear]] and [[lem:class-leaf-differences]].
+𝒩_(k−1) ≤ ε2. No smallness of ů or of the families is assumed; ε, ε2 and C depend on ů, Ω, N_f, k and the
+constants of [[lem:class-planar-shear]] and [[lem:class-leaf-differences]].
 Where no dust meets a point at which a lateral boundary meets an axis, (H2′) puts no condition there.
 
 *Proof.* The proof of [[thm:class-stability-off-axes]] holds with the following changes.
@@ -1425,13 +1427,13 @@ the inner sphere: {u1 ≤ u ≤ u2} ∩ Ω₂ ∩ {R = a} = ∅. Replace the lat
 family, u_ε the outgoing phase of the solution.
 
 For the background both are the spheres {R = a} and {R = b(τ)} of Ω₂. Let S_in := {v_start − η ≤ v ≤ v_end + η} ∩ Σ_τ0
-and S_out := {u1 − η ≤ u ≤ u2 + η} ∩ Σ_τ0 with 0 < η < 1 so small that {u1 − η ≤ u ≤ u2 + η} ∩ Ω₂ does not meet
-{R = a}, and let ů_A, A = 3, …, N_f, be further phases in the class, eikonals of ů without caustics on Ω₂, with q̊_A =
-0 and sets S_A whose tubes avoid neighbourhoods of the points where the lateral boundaries meet the axes. Then every
-datum on Σ_τ0 that satisfies the constraints and the gauge condition, lies within ε of ů's and has supp q_A ∩ Σ_τ0 ⊂
-S_A for every A has its Einstein–null-dust development on the whole adapted domain, in the gauge D(g) = 0 relative to
-the metric of ů and unique there as in [[thm:class-stability]], within C ε of ů. The datum may be
-non-round, and it carries the further families with small densities.
+and S_out := {u1 − η ≤ u ≤ u2 + η} ∩ Σ_τ0 with 0 < η < 1 so small that {u1 − η ≤ u ≤ u2 + η} ∩ Ω₂ does not meet {R = a},
+and let ů_A, A = 3, …, N_f, be further phases in the class, eikonals of ů without caustics on Ω₂, with q̊_A = 0 and sets
+S_A whose tubes avoid neighbourhoods of the points where the lateral boundaries meet the axes. Then every datum on Σ_τ0
+that satisfies the constraints and the gauge condition, lies within ε of ů's and has supp q_A ∩ Σ_τ0 ⊂ S_A for every A
+has its Einstein–null-dust development on the whole adapted domain, in the gauge D(g) = 0 relative to the metric of ů
+and unique there as in [[thm:class-stability]], within C ε of ů. The datum may be non-round, and it carries the further
+families with small densities.
 
 *Proof.* v and u are double-null coordinates of ů, smooth on Ω₂ with dv, du ≠ 0 ([[prop:two-dust-background]]), so (H1)
 holds. On Σ_τ, v = τ + R, so {R = a} = {v − τ = a}; and u is constant on the spheres and strictly decreasing in R along

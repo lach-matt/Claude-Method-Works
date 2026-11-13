@@ -245,29 +245,28 @@ a density ϱ(ρ, t) solving ∂_t ϱ − v ρ⁻¹ ∂_ρ(ρ ϱ) = 0, so ρ ϱ(�
 
 Let Ω be a domain of the type [[eq:omega]], Ω = {τ0 ≤ τ ≤ τ_end, r ≥ a, v + (τ − τ_end) ≤ V + 1}, with Σ_τ := Ω ∩ {τ}
 and its outer radius b(τ) := V + 1 − τ + (τ_end − τ). Let (g, F, u) be a smooth class solution on Ω of the
-Einstein–restricted massless Vlasov system in label form, Ric(g) = T_V + T_rad, where T_rad is zero or a pair of null
-dusts q_in du_in ⊗ du_in + q_out du_out ⊗ du_out, one ingoing and one outgoing, that may reach the axes as in
-[[thm:class-stability]] (the *radial dusts*; on the round backgrounds of [[thm:two-dusts]] they are the two radial
-families). We assume:
+Einstein–restricted massless Vlasov system in label form, Ric(g) = T_V. For a compact set S ⊂ (Σ_τ0 ∩ Ω) × S¹ (points
+and labels) put S_x := {α : (x, α) ∈ S}, S_α := {x : (x, α) ∈ S}, and let D_α(S) be the set of points of Ω on the
+future rays of u_α from S_α that stay in Ω, the *tube* of S_α. We assume:
 
 - (Ω) For g: each Σ_τ is spacelike; {r = a} is spacelike and r decreases along future causal curves near it;
-  {v + τ = const} is spacelike and v + τ increases along future causal curves; every generator of a dust present in Ω
-  (a ray of u_α through a point of D_α, or a generator of a radial dust on its support), followed to the past, stays
-  in Ω and meets Σ_τ0. These are (a)–(d) of [[lem:domain]], for g.
-- (V1) F and u are smooth in (x, α), and the field is labelled by initial direction. For each α and each x0 in a
-  neighbourhood of supp q(·, α) ∩ Σ_τ0, the point y_τ(x0) where the ray of u_α from x0 meets Σ_τ depends on x0 with
-  Jacobian determinant ≥ J0 > 0 in the coordinates (r, ϑ) of the orbit slices, for every τ with y_τ(x0) in a
-  neighbourhood of Ω (no caustic). On Σ_τ0 ∩ supp q, ∂_α β0 ≥ b > 0.
-- (V2) dist(D_α, axes) ≥ 2δ > 0 for every α.
-- (V2′) On the support of each radial dust, every label present has a momentum du_α whose spatial part makes an angle
-  ≥ η > 0, in the orbit slice, with both radial null directions, or the supports are disjoint. The radial dusts satisfy
-  the condition (H2′) of [[thm:class-stability]], with the lateral boundaries of Ω adapted where they meet an axis.
-- (V3) On Σ_τ0 ∩ Ω the spheres {r = const} have positive mean curvature, and the symmetrizer 𝒮 of
-  [[eq:data-symmetrizer]] makes the r-coefficient 𝒮 A0 of the momentum system positive definite: the two signs of
-  [[lem:constraints-evolution]] (a).
+  {v + τ = const} is spacelike and v + τ increases along future causal curves; every ray of u_α through a point of
+  D_α(S), S the set of (V1), followed to the past, stays in Ω and meets Σ_τ0. These are (a)–(d) of [[lem:domain]], for
+  g.
+- (V1) F and u are smooth in (x, α), and there is a compact set S ⊂ (Σ_τ0 ∩ Ω) × S¹ whose interior int S, relative to
+  (Σ_τ0 ∩ Ω) × S¹, contains supp q ∩ (Σ_τ0 × S¹), such that: each u_α is an eikonal of g, with ℓ_α future directed, on
+  a neighbourhood of D_α(S); for every x, α ↦ β0(x, α) is injective on S_x (the field is labelled by initial
+  direction); ∂_α β0 ≥ b_* > 0 on S; and for (x0, α) ∈ S the point y_τ(x0) where the ray of u_α from x0 meets Σ_τ
+  depends on x0 with Jacobian determinant ≥ J0 > 0 in the coordinates (r, ϑ) of the orbit slices, for every τ with
+  y_τ(x0) in a neighbourhood of Ω̄ (no caustic).
+- (V2) dist(D_α(S), axes) ≥ 2δ > 0 for every α.
+- (V3) On Σ_τ0 ∩ Ω the spheres {r = const} have positive mean curvature.
 
-**Theorem {#thm:vlasov}** (Restricted massless Vlasov limits.) Let (g, F, u) satisfy (Ω), (V1), (V2), (V2′) and (V3).
-Then there are smooth metrics g_i on Ω, invariant under T² and under both reflections, with Ric(g_i) = 0,
+The tube D_α of supp q(·, α) lies in D_α(S). (V3) is the first of the two signs of [[lem:constraints-evolution]] (a);
+the second, 𝒮 A0 > 0 for the symmetrizer 𝒮 of [[eq:data-symmetrizer]], holds on every slice ([[lem:vlasov-symmetrizer]]).
+
+**Theorem {#thm:vlasov}** (Restricted massless Vlasov limits.) Let (g, F, u) satisfy (Ω), (V1), (V2) and (V3). Then
+there are smooth metrics g_i on Ω, invariant under T² and under both reflections, with Ric(g_i) = 0,
 
     g_i → g uniformly on Ω,      ∂g_i ⇀ ∂g weakly in L²(Ω).
 
@@ -277,26 +276,27 @@ No smallness of g or of the field is assumed. The properties (b) and (c) of [[le
 coefficient of order λ⁻¹ and unchanged principal coefficients, are properties of the approximant's data; they are proved
 in [[thm:vlasov-n-data]] for torus-polarised waves and are not hypotheses. The hypotheses are open
 ([[lem:vlasov-open]]), and an explicit family on Tangherlini meets them ([[prop:vlasov-nonempty]]), so the theorem
-covers a nonempty open set of solutions.
+covers a nonempty open set of solutions. Radial null dusts reaching the axes, added to T_V: [[pending:issue-82-radial]].
 
-**Remark {#rem:vlasov-v2}** ((V2) for smooth solutions.) Let (g, F, u) be smooth on Ω̄, with no label having an axial
-momentum at an axis point of supp q. Then (V2) holds for some δ > 0. Indeed, the set D := {(x, α) : x ∈ D_α} is the
-image of the compact set supp q ∩ (Σ_τ0 × S¹) under the continuous flow of the rays, intersected with Ω̄ × S¹, so it is
-compact. A ray of g3 that meets an axis either crosses it transversally or lies in it: in the meridional picture of
-the proof of [[prop:vlasov-axis-focus]], a null geodesic of g_P tangent to {x3 = 0} at a point is mapped to a geodesic
-with the same initial data by x3 ↦ −x3, so it lies in that set. The first is excluded by [[prop:vlasov-axis-focus]],
-since g is C²; the second by assumption. So D does not meet axes × S¹, and a compact set disjoint from a closed set lies
-at positive distance from it.
+**Remark {#rem:vlasov-v2}** ((V2) for smooth solutions.) Let (g, F, u) be smooth on Ω̄ and satisfy (Ω) and (V1), with S
+disjoint from axes × S¹. Then (V2) holds for some δ > 0. Indeed, let x be a point of an axis, say {ρ2 = 0}, with
+r(x) > 0. By [[lem:vlasov-axis-phases]], du_α(x) ∈ span(dτ, dr). The components of g⁻¹dτ and g⁻¹dr along ∂_3 are
+g^(τ3) and (x1 g^(13) + x2 g^(23))/r at x, and those along ∂_4 are g^(τ4) and (x1 g^(14) + x2 g^(24))/r; g is invariant
+under x3 ↦ −x3 (a rotation by π composed with x4 ↦ −x4) and under x4 ↦ −x4, so these components are odd in x3,
+respectively x4, and vanish on the axis. So ℓ_α(x) is tangent to the axis, the axis is invariant under the flow of
+ℓ_α, and by uniqueness of integral curves a ray that meets the axis lies in it at every parameter, its starting point
+included. The rays start on S_α, off the axes, so the set {(x, α) : x ∈ D_α(S)}, the image of the compact set of
+(x0, α, τ) with (x0, α) ∈ S whose ray reaches Σ_τ inside Ω̄ under the continuous map (x0, α, τ) ↦ (y_τ(x0), α), is
+compact and disjoint from the closed set axes × S¹, hence at positive distance from it.
 
 **Remark {#rem:vlasov-obstructions}** (What the hypotheses avoid.) Four obstructions are proved in this chapter, and the
 theorem is built so that none applies. (O1) At an axis point every invariant null phase is radial, and two of one
-orientation have vanishing mixed symbol ([[lem:vlasov-axis-phases]]): the labels are kept off the axes, which only the
-radial dusts reach. (O2) Restricted particles reaching an axis focus there ([[prop:vlasov-axis-focus]]). (O3) Without a
-hierarchy of frequencies, an antipodal pair and any third phase resonate exactly ([[lem:vlasov-resonance]]): the
-frequencies are 1, Λ, …, Λ^(n−1). (O4) A non-radial wave with a component on the orbit block leaves a term of order λ⁻¹
-in the constraints ([[lem:vlasov-constraint-coefficient]] (c)): the waves are torus-polarised. Where a label is
-parallel to a radial direction on a radial dust's support every mixed harmonic of the pair is resonant
-([[rem:vlasov-radial-pair]]): hence (V2′).
+orientation have vanishing mixed symbol ([[lem:vlasov-axis-phases]]): the labels are kept off the axes. (O2) Under a C²
+metric a continuous orbit density carries no particle to an axis transversally: it would focus there
+([[prop:vlasov-axis-focus]]). (O3) Without a hierarchy of frequencies, an antipodal pair and any third phase resonate
+exactly ([[lem:vlasov-resonance]]): the frequencies are 1, Λ, …, Λ^(n−1). (O4) A non-radial wave with a component on
+the orbit block leaves a term of order λ⁻¹ in the constraints ([[lem:vlasov-constraint-coefficient]] (c)): the waves are
+torus-polarised.
 
 ### Separation and coherence of the labels {#sec:vlasov-coherence}
 

@@ -24,16 +24,34 @@ The inequalities on the background that these results use are proved at the end 
 
 *The background.* The background g0 is the solution of the two-null-dust equations [[eq:two-dust-limit]] with the
 characteristic data of [[sec:bg-data]]: e^(2σ) = 1/2 on the cones 𝒞_out = {u = 0} and 𝒞_in = {v = 0}, the ingoing
-shell 𝒜(v) = 3.6 b(v; 3, 4.5) on 𝒞_out, the outgoing packet ℬ(u) = 1.7 b(u;
-5.7, 7.2) on 𝒞_in, and at the corner R = 5, R_u = −0.47, R_v = 1/2 and mass 3/2. In the chart (v̂, R) of
-[[eq:bg-chart]] it reads g0 = −q² f dv̂² + 2q dv̂ dR + R² dΩ₃², q := e^ψ, f = 1 − μ/R². Region I is {u ≤ u1}, u1 =
-5.7, where ψ = 0 and g0 is ingoing Vaidya ([[lem:margins-region-one]]); region III is {u ≥ u2}, u2 = 7.2, past the
-outgoing packet, where ψ = ψ_III(v̂) and μ = μ3 ∈ [0.8220998, 0.8221253] ([[lem:bg-reduction]] (e),
-[[thm:bg-margins]] (a)). The slice is Σ_τ0 = {v̂ − R = τ0} ∩ Ω₂, which is {a ≤ R ≤ b(τ0)} with a = 0.70
-([[lem:two-dust-domain]]). Its *seed region* is {0.70 ≤ R ≤ 1.861}; it lies in region III ([[prop:bg-seed]] (a)), and
-there f < 0 exactly where R < √μ3, and √μ3 ∈ (0.9066, 0.9068). The radius R_* ∈ [3.43718006, 3.43718007] of
-[[lem:bg-rstar]] is where the ray u = u1 meets Σ_τ0; the points of Σ_τ0 with R ≥ R_* lie in region I
-([[lem:margins-region-one]] (c)). At every point of Σ_τ0, qf < 1 ([[cor:margins-lens]], proof).
+shell 𝒜(v) = 3.6 b(v; 3, 4.5) on 𝒞_out, the outgoing packet ℬ(u) = 1.7 b(u; 5.7, 7.2) on 𝒞_in, and at the corner
+R = 5, R_u = −0.47, R_v = 1/2 and mass 3/2. In the chart (v̂, R) of [[eq:bg-chart]] it reads g0 = −q² f dv̂² + 2q dv̂ dR
++ R² dΩ₃², q := e^ψ, f = 1 − μ/R². Region I is {u ≤ u1}, u1 = 5.7, where ψ = 0 and g0 is ingoing Vaidya
+([[lem:margins-region-one]]); region III is {u ≥ u2}, u2 = 7.2, past the outgoing packet, where ψ = ψ_III(v̂) and
+μ = μ3 ∈ [0.8220998, 0.8221253] ([[lem:bg-reduction]] (e), [[thm:bg-margins]] (a)).
+
+*The background as two-dust data.* g0 is the background of [[def:two-dust-data]], written in the normalisation
+e^(2σ) = 1/2 of the cones, which [[lem:two-dust-reparametrisation]] (b) allows; its advanced time is v̂. The parameters
+are the seed mass μ0 := μ3, with μ0 + E₂ = 3/2 the mass before the packet; [v_start, v_end] := [v̂(v = 3), v̂(v = 4.5)],
+the support of the shell in v̂; T := 1; l5 fixed by q0 := (√72 μ3 l5²)^(1/4) = 0.75; and δ0 := 0.05, so that the inner
+radius of [[sec:domain]] is q0 − δ0 = 0.70 and τ0 := −0.68 = −0.70 + 0.02. The square roots of the profiles 𝒜 and ℬ,
+rewritten as in [[lem:two-dust-reparametrisation]], are smooth, the bump being the exponential of a function that tends
+to −∞ with all its derivatives at the ends of its support. The conditions of [[def:two-dust-data]] hold: μ0 ≥ √72 l5²,
+that is μ3² ≥ q0⁴ = 0.3164…; v_start − τ0 > 3.14533 + 0.68 > √μ3 + 1 ([[lem:margins-region-one]] (b)); 𝒞_in = {v̂ = 0}
+with 0 < τ0 + 0.70; and on [u1, u2] the cone 𝒞_in is untrapped, R² > 1.5² > 3/2 ≥ μ ([[prop:bg-nprime]] and its
+proof). The slice is Σ_τ0 := {v̂ − R = τ0} ∩ Ω₂ = {0.70 ≤ R ≤ b(τ0)} ([[lem:two-dust-domain]]), and b(τ0) > 12:
+by [[eq:two-dust-omega]], b(τ0) = V + 1 + τ_end − 2τ0 with V = v_end + T ≥ 4.6924 + 1 ([[lem:margins-shell-data]] (c)
+and the last row of [[sec:table-shell]]), and τ_end ≥ V − r_q^♭(V) ≥ V − r_q(3.6059) ≥ V − 1.0854: the point p of the
+ray v̂ = V on the outer cone of [[lem:two-dust-domain]] lies in region I, where μ(p) ≤ 3.6059
+([[lem:margins-region-one]] (a)), and in D_T, its radius exceeding 5 > r_q(μ(p)); and r_q(3.6059) = 0.75
+(3.6059/μ3)^(1/4) ≤ 1.0854.
+
+Its *seed region* is {0.70 ≤ R ≤ 1.861}; it lies in region III ([[prop:bg-seed]] (a)), and there f < 0 exactly where
+R < √μ3, and √μ3 ∈ (0.9066, 0.9068). The radius R_* ∈ [3.43718006, 3.43718007] of [[lem:bg-rstar]] is where the ray
+u = u1 meets Σ_τ0; the points of Σ_τ0 with R ≥ R_* lie in region I ([[lem:margins-region-one]] (c)). At every point of
+Σ_τ0, qf < 1: for R ≤ R_* by [[thm:bg-margins]] (c), and for R ≥ R_* because there q = 1 and f = 1 − μ/R² < 1
+([[lem:margins-region-one]] (a), (c)). [[sec:bg-below]] and [[sec:margins]] prove their inequalities on the whole of
+{v̂ − R = τ0, v̂ ≥ 0}, on which R ≥ 0.68; there Σ_τ0 denotes this set, which contains the slice above.
 
 *The angles and the class.* On S³ we use the angles (ϑ, φ1, φ2) of [[sec:background]], with the round metric dΩ₃² =
 dϑ² + cos²ϑ dφ1² + sin²ϑ dφ2², and write sc := sin ϑ cos ϑ. Data on a slice are *invariant* if they are invariant
@@ -110,8 +128,9 @@ chart becomes −f dv² + 2 dv dR + R² dΩ₃². In [[eq:racz-kappa]], ψ_R = 0
 [[eq:racz-vacuum]]. For the last claim, the slice v̂ = τ + R is v = Λ(τ + R) with Λ′ = e^ψ, and Λ := V(· − τ) has this
 form. ∎
 
-On Σ_τ0 every point has qf < 1, so K^l_l < 0 there and Rácz's split ([[thm:std-racz-hyperbolic]]) is hyperbolic
-exactly where N_κ < 0. In region I, q = 1 and [[eq:racz-kappa]] reduces to the formulas of [[lem:margins-racz]].
+On Σ_τ0 every point has qf < 1 ([[sec:loc-setting]]), so K^l_l < 0 there and Rácz's split
+([[thm:std-racz-hyperbolic]]) is hyperbolic exactly where N_κ < 0. In region I, q = 1 and [[eq:racz-kappa]] reduces to
+the formulas of [[lem:margins-racz]].
 
 **Proposition {#prop:loc-band}** (The band.) Rácz's split, for the foliation of Σ_τ0 by the round spheres, is
 hyperbolic on Σ_τ0 ∩ {R ∉ [4.2882, 4.5310]} and not hyperbolic on Σ_τ0 ∩ {4.2955 ≤ R ≤ 4.5258}. At every point of

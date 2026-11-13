@@ -4,8 +4,9 @@
 
 The stability theory obtains its inverse bounds for the spectral families by Fredholm, compactness and contradiction
 arguments, which give no number. This chapter makes the first of them explicit for one operator: the scalar wave
-operator □ = δd on five-dimensional Schwarzschild–Tangherlini, the operator of [[prop:iii-d-6-2]], whose invertibility
-for Im σ ≥ 0, σ ≠ 0 rests harmonic by harmonic on an ordinary differential equation. For each harmonic the resolvent,
+operator □ = δd on functions on five-dimensional Schwarzschild–Tangherlini, whose mode equation is step (a) of the proof
+of [[prop:iii-d-6-2]] and whose spectral family is invertible for Im σ ≥ 0, σ ≠ 0 ([[lem:rb-scalar]]); harmonic by
+harmonic, its mode equation is an ordinary differential equation. For each harmonic the resolvent,
 cut off to an interval about the photon sphere, is bounded with explicit constants: off the real axis by self-adjointness
 ([[lem:rb-off-axis]]); on the real axis first with a constant exponential in the harmonic's degree
 ([[prop:resolvent-outgoing]]), then uniformly in the degree where the potential barrier covers the interval
@@ -47,8 +48,8 @@ V_l = (κ + 3/4)r_*⁻² + O(r_*⁻³). The integral of V_l in r_* is explicit:
 
 *Solutions at the ends.* Let σ ∈ ℂ ∖ {0} with Im σ ≥ 0. V_l is integrable in r_* at both ends, so the Volterra
 equations u(x) = e^(−iσx) + ∫_(−∞)^x σ⁻¹ sin(σ(x − x′))V_l(x′)u(x′) dx′ and
-u(x) = e^(iσx) − ∫_x^∞ σ⁻¹ sin(σ(x − x′))V_l(x′)u(x′) dx′ have unique solutions by iteration, as in the proof of
-[[prop:iii-d-6-2]]. They define the solutions u_h and u_∞ of −u″ + (V_l − σ²)u = 0 with
+u(x) = e^(iσx) − ∫_x^∞ σ⁻¹ sin(σ(x − x′))V_l(x′)u(x′) dx′ have unique solutions by iteration, as in the fact stated
+in the proof of [[prop:iii-d-6-2]]. They define the solutions u_h and u_∞ of −u″ + (V_l − σ²)u = 0 with
 
     u_h e^(iσr_*) → 1,  u_h′ + iσu_h → 0 as r_* → −∞;     u_∞ e^(−iσr_*) → 1,  u_∞′ − iσu_∞ → 0 as r_* → ∞,
 
