@@ -30,3 +30,17 @@ Items found while chapters were written in parallel; each is settled once, editi
   of thm:past-construction; add it there if Ch 9 proves it.
 - Ch 10 restates eq:bondi-law, eq:bondi-form, eq:flux-mean, eq:hawking-mass under its own keys; cite Ch 3's.
 - 12 cross-chapter pending keys in Ch 10 (ch2-…, ch9-…) map to Ch 2 and Ch 9 labels; the reader gives the table.
+
+## From the literature pass (scratchpad literature-statements.md: 37 appendix blocks)
+- Merge the 37 blocks into 95-standard-results.md after W2's fix round; 31 confirmed at source, 2 from the record's
+  wording only ([RS1] Thm VI.14, [DLMF] modified Bessel in S8), 4 not found ([Tay11] 3.6-3.7, [MM87], [Hö85],
+  [Hö83] 7.3.1; [BGP] 3.2.11 an alternative for smooth data).
+- [BH17] Thm 9.14 misquoted in the current appendix; [CBCL06] quoted without hypotheses; [0C] Prop 2.7 is p. 11.
+- [CS06] Theorem 2 is stated on three-manifolds only; [Wu26] Theorem 2.1 is 3+1 vacuum only, yet the localised-data
+  chapter applies both to five-dimensional data: investigate (agent launched).
+- S11: a written proof that its Kerr-Schild Myers-Perry form matches [ER08] (42).
+
+## Proof projects (maps/proof-projects.md)
+- Written proofs in proofs/P-<project>.md, merged into their chapters by the chapter writers: A (C87, Theorem 4's
+  epsilon_ind), B multipliers, C (lambda0 constants), F (edge theorem hypotheses), G (far-region exponents) launched.
+- Held for the author: D (residuals at 10 l5), E (the families' example), B's band constant, class (b), class (c).

@@ -8,16 +8,13 @@ functions on the annulus Σ_τ to functions on it, with the bounds of Bernstein 
 for wave equations on Ω; and the estimate for transport along L0.
 
 The domain Ω, its slices Σ_τ = A(τ) := {a ≤ |x| ≤ b(τ)} with outer radius b(τ), the numbers a, δ0, τ0 and τ_end, and
-the properties of Ω under g0 and its small perturbations are those of [[pending:setting-domain]] and
-[[pending:setting-domain-lemma]]; the scaled norms |f|_j = Σ_(i≤j) λ^i ‖∂^i f‖, with ‖·‖ the flat L²(Σ_τ) norm and ∂^i
-all spacetime coordinate derivatives of order i, and the chain rule for profiles are those of
-[[pending:setting-scaled-norms]]; and the numbers ε1 and s0 are those of [[pending:setting-eps1-s0]]. All constants below
+the properties of Ω under g0 and its small perturbations are those of [[sec:domain]], [[eq:omega]] and [[lem:domain]]; the scaled norms |f|_j = Σ_(i≤j) λ^i ‖∂^i f‖, with ‖·‖ the flat L²(Σ_τ) norm and ∂^i
+all spacetime coordinate derivatives of order i, and the chain rule for profiles are those of [[sec:profiles]] ([[eq:scaled-norm]]); and the numbers ε1 and s0 are those fixed in [[sec:profiles]], after [[lem:lorentz-margin]]. All constants below
 depend on Ω, through a, b(τ0) and δ0, and not on λ, and throughout
 
     0 < λ ≤ λ1 := min(1, δ0)/10.                                                                        {#eq:lambda-one}
 
-The outer radius is b(τ) = V + 1 − τ + (τ_end − τ), so b' = −2, and b(τ) − a ≥ 1 + δ0 and b(τ) ≤ b(τ0) on [τ0, τ_end]
-[[pending:setting-domain-lemma]].
+The outer radius is b(τ) = V + 1 − τ + (τ_end − τ), so b' = −2, and b(τ) − a ≥ 1 + δ0 and b(τ) ≤ b(τ0) on [τ0, τ_end] ([[lem:domain]] (f)).
 
 ### Sobolev inequalities and products {#sec:sobolev}
 
@@ -25,7 +22,7 @@ The outer radius is b(τ) = V + 1 − τ + (τ_end − τ), so b' = −2, and b(
 
     ‖f‖_(L^∞) ≤ C Σ_(i≤3) ‖∂_x^i f‖,     hence     ‖∂^i f‖_(L^∞) ≤ C λ^(−3−i) |f|_(i+3).                  {#eq:sobolev}
 
-For k = 6, |f g|_k ≤ C λ⁻³ |f|_k |g|_k; and if a is a profile, |[a] f|_k ≤ C |f|_k.
+For k = 6, |f g|_k ≤ C λ⁻³ |f|_k |g|_k; and if m is a profile, |[m] f|_k ≤ C |f|_k.
 
 *Proof.* The annuli A(τ) are images of the fixed annulus {a ≤ |x| ≤ a + 1 + δ0} under radial maps with derivatives of
 all orders bounded uniformly in τ, since b(τ) − a ∈ [1 + δ0, b(τ0) − a]. So Sobolev's embedding of H³ into L^∞ in four
@@ -35,8 +32,7 @@ it gives ‖∂^i f‖_(L^∞) ≤ C Σ_(j≤3) λ^(−i−j) λ^(i+j) ‖∂^(i
 For products, expand λ^j ∂^j (f g) for j ≤ 6 by Leibniz's rule into terms λ^i ∂^i f · λ^(j−i) ∂^(j−i) g and put the
 factor with at most three derivatives in L^∞. If i ≤ 3, then ‖λ^i ∂^i f‖_(L^∞) ≤ C λ⁻³ |f|_(i+3) ≤ C λ⁻³ |f|_6 by
 [[eq:sobolev]], and ‖λ^(j−i) ∂^(j−i) g‖ ≤ |g|_6; if i ≥ 4, then j − i ≤ 2 and the roles are exchanged. For the last
-claim, the chain rule for profiles [[pending:setting-scaled-norms]] gives ‖λ^i ∂^i [a]‖_(L^∞) ≤ C_i for every i, so
-each term λ^i ∂^i [a] · λ^(j−i) ∂^(j−i) f of λ^j ∂^j ([a] f) is bounded in L² by C |f|_k. ∎
+claim, the chain rule for profiles in [[sec:profiles]] gives ‖λ^i ∂^i [m]‖_(L^∞) ≤ C_i for every i, so each term λ^i ∂^i [m] · λ^(j−i) ∂^(j−i) f of λ^j ∂^j ([m] f) is bounded in L² by C |f|_k. ∎
 
 ### The mollifier {#sec:mollifier}
 
@@ -90,14 +86,14 @@ eigenvalues are positive is a diffeomorphism onto its image, and DΦ − I = λ 
 derivatives, bounded with all derivatives. For the last claim, the Jacobian of x ↦ x + t (Φ(x) − λz − x) is (1 − t) I +
 t DΦ, with the eigenvalues 1 + t (e − 1), e those of DΦ, which lie between 1 and e. ∎
 
-**Lemma {#lem:mollifier}** (The mollifier.) For f on A(τ) and a smooth bounded function or profile a, with E1 and E2
+**Lemma {#lem:mollifier}** (The mollifier.) For f on A(τ) and a smooth bounded function or profile m, with E1 and E2
 bounded matrices of functions:
 
     (M1)   ‖𝒫 f‖ ≤ C ‖f‖;                                                                              {#eq:mollifier-m1}
     (M2)   ‖∂_x 𝒫 f‖ ≤ C λ⁻¹ ‖f‖;                                                                      {#eq:mollifier-m2}
     (M3)   ‖f − 𝒫 f‖ ≤ C λ ‖∂_x f‖;                                                                    {#eq:mollifier-m3}
     (M4)   ∂_x 𝒫 f = 𝒫(∂_x f) + λ E1 𝒫(∂_x f),   and   λ ‖𝒫 ∂_x f‖ ≤ C ‖f‖;                            {#eq:mollifier-m4}
-    (M5)   ‖[a, 𝒫] ∂_x f‖ ≤ C ‖∂_x a‖_∞ ‖f‖   and   ‖[a, 𝒫] f‖ ≤ C λ ‖∂_x a‖_∞ ‖f‖;                    {#eq:mollifier-m5}
+    (M5)   ‖[m, 𝒫] ∂_x f‖ ≤ C ‖∂_x m‖_∞ ‖f‖   and   ‖[m, 𝒫] f‖ ≤ C λ ‖∂_x m‖_∞ ‖f‖;                    {#eq:mollifier-m5}
     (M6)   ∂_τ 𝒫 f = 𝒫(∂_τ f) + λ E2 𝒫(∂_x f).                                                         {#eq:mollifier-m6}
 
 Iterating, λ^j ‖∂^j 𝒫 f‖ ≤ C Σ_(i≤j) λ^i ‖∂^i f‖, and the same holds with 1 − 𝒫 in place of 𝒫.
@@ -119,10 +115,9 @@ onto ρ gives 𝒫(∂_j f) = λ⁻¹ ∫ (∂_j ρ)(z) f(Φ(x) − λz) dz, so 
 
 (M5) is Friedrichs' lemma in this form:
 
-    [a, 𝒫] ∂_j f (x) = ∫ ρ(z) (a(x) − a(Φ(x) − λz)) (∂_j f)(Φ(x) − λz) dz.
+    [m, 𝒫] ∂_j f (x) = ∫ ρ(z) (m(x) − m(Φ(x) − λz)) (∂_j f)(Φ(x) − λz) dz.
 
-Integrating by parts in z as in (M4), the factor λ⁻¹ meets either ∂_z of a(Φ(x) − λz), which is −λ (∂a)(Φ(x) − λz), or
-a(x) − a(Φ(x) − λz), whose size is at most 3λ ‖∂_x a‖_∞ by the length of the segment. Both are O(λ ‖∂_x a‖_∞), and the
+Integrating by parts in z as in (M4), the factor λ⁻¹ meets either ∂_z of m(Φ(x) − λz), which is −λ (∂m)(Φ(x) − λz), or m(x) − m(Φ(x) − λz), whose size is at most 3λ ‖∂_x m‖_∞ by the length of the segment. Both are O(λ ‖∂_x m‖_∞), and the
 change of variables of (M1) gives the first bound. The second is the same without the integration by parts.
 
 (M6): σ depends on τ through b(τ), with ∂_τ σ = −σ0' (|x| − a) b'/(b − a)², bounded since b' = −2 and b − a ≥ 1. So
@@ -134,20 +129,18 @@ bounded factors. ∎
 
 ### The energy inequality {#sec:energy}
 
-**Lemma {#lem:energy}** (Energy inequality.) Let g̃ be a Lorentzian metric on Ω with |g̃ − g0| ≤ ε1, ε1 the number of
-[[pending:setting-eps1-s0]], so that the conclusions of [[pending:setting-domain-lemma]] (e) apply to g̃ and |g̃⁻¹| ≤ (s0
-− ε1)⁻¹, and with ‖∂g̃‖_∞ ≤ M1. Let u, a function or a Cartesian array, satisfy −(1/2) g̃^(ab) ∂_a ∂_b u = f on Ω. Then
+**Lemma {#lem:energy}** (Energy inequality.) Let g̃ be a Lorentzian metric on Ω with |g̃ − g0| ≤ ε1, ε1 the number fixed after [[lem:lorentz-margin]], so that [[lem:domain]] (e) applies to g̃ and |g̃⁻¹| ≤ (s0 − ε1)⁻¹ by [[lem:lorentz-margin]], and with ‖∂g̃‖_∞ ≤ M. Let u, a function or a Cartesian array, satisfy −(1/2) g̃^(ab) ∂_a ∂_b u = f on Ω. Then
 for τ ∈ [τ0, τ_end],
 
-    ‖∂u(τ)‖ + ‖u(τ)‖ ≤ C(M1) (‖∂u(τ0)‖ + ‖u(τ0)‖ + ∫_(τ0)^τ ‖f(s)‖ ds).                                {#eq:energy}
+    ‖∂u(τ)‖ + ‖u(τ)‖ ≤ C(M) (‖∂u(τ0)‖ + ‖u(τ0)‖ + ∫_(τ0)^τ ‖f(s)‖ ds).                                {#eq:energy}
 
-*Proof.* Take the multiplier Y := −g̃⁻¹ dτ, future timelike by [[pending:setting-domain-lemma]] (e), the energy current
+*Proof.* Take the multiplier Y := −g̃⁻¹ dτ, future timelike by [[lem:domain]] (e), the energy current
 J^a = T^a_b Y^b with T_ab = ∂_a u ∂_b u − (1/2) g̃_ab g̃(du, du), and apply the divergence theorem on Ω ∩ {τ0 ≤ s ≤ τ}
 in the coordinate density. The flux through Σ_τ equals the flux through Σ_τ0, minus the fluxes through the lateral
 boundaries, plus the bulk integral. The lateral boundaries are spacelike with Ω to their past
-([[pending:setting-domain-lemma]] (b), (c), (e)), so their fluxes are nonnegative and are dropped. The fluxes through
+([[lem:domain]] (b), (c), (e)), so their fluxes are nonnegative and are dropped. The fluxes through
 Σ_τ are comparable to ‖∂u‖², by the dominant energy condition, since Y and the normal are uniformly timelike by
-[[pending:setting-domain-lemma]] (e) and |g̃⁻¹| ≤ (s0 − ε1)⁻¹. The bulk is bounded by C(M1)(‖∂u‖² + ‖f‖ ‖∂u‖), since ∂g̃,
+[[lem:domain]] (e) and |g̃⁻¹| ≤ (s0 − ε1)⁻¹. The bulk is bounded by C(M)(‖∂u‖² + ‖f‖ ‖∂u‖), since ∂g̃,
 g̃⁻¹ and ∂Y = g̃⁻¹ (∂g̃) g̃⁻¹ dτ are bounded, the constant depending also on Ω and s0 − ε1. The norm ‖u‖ is added through
 ∂_τ ‖u‖² = 2 ⟨u, ∂_τ u⟩ plus the boundary term b'(τ) ∫_(|x|=b) |u|² ≤ 0. Gronwall's inequality concludes. ∎
 

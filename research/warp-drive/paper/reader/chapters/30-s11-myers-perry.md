@@ -223,3 +223,330 @@ A ↦ V(A) is an isomorphism 𝔰𝔬(4) → 𝒱_1 by [[lem:iii-a1-1-4]] (2) (b
 and V ∈ 𝒱_1 (or their complexifications) a(S) and A(V) denote the unique a and A with S = S(a), V = V(A). As in
 [Hin26], S(a) is homogeneous of degree 0 and V(A) is dual, with respect to the Euclidean metric, to a rotation field.
 The forms V(a) = (a × x) · dx, a ∈ ℝ³, of [Hin26] are the case 𝔰𝔬(3) ≅ ℝ³.
+
+### The Minkowski operators in dimension 4 + 1 {#sec:iii-a1-2}
+
+This section is [Hin26, Section 2.4.1] in dimension 4 + 1.
+
+#### Coordinates, splittings and the metric {#sec:iii-a1-2-1}
+
+On ℝ^(1+4) use t ∈ ℝ, r = |x| > 0, ω = x/|x| ∈ 𝕊³ for 0 ≠ x ∈ ℝ⁴, and
+
+    t_* := t − r,     ρ := r⁻¹,     x̄⁰ := t + r,     x̄¹ := t − r.                                      {#eq:iii-a1-2-1}
+
+The level sets of x̄⁰, x̄¹ are null. The bundle splittings are those of [Hin26, (2.37b)] with 𝕊³ in place of 𝕊²:
+
+    T*ℝ^(1+4) = ⟨dx̄⁰⟩ ⊕ ⟨dx̄¹⟩ ⊕ rT*𝕊³,
+    S²T*ℝ^(1+4) = ⟨(dx̄⁰)²⟩ ⊕ ⟨2 dx̄⁰dx̄¹⟩ ⊕ (2 dx̄⁰ ⊗_s rT*𝕊³) ⊕ ⟨(dx̄¹)²⟩ ⊕ (2 dx̄¹ ⊗_s rT*𝕊³)
+                  ⊕ r²S²T*𝕊³;                                                                            {#eq:iii-a1-2-2}
+
+that is, (ω₀, ω₁, ω̸) is the covector ω₀ dx̄⁰ + ω₁ dx̄¹ + rω̸, and (a, b, c, e, f, q) the symmetric tensor
+a(dx̄⁰)² + 2b dx̄⁰dx̄¹ + 2dx̄⁰ ⊗_s rc + e(dx̄¹)² + 2dx̄¹ ⊗_s rf + r²q, with 2α ⊗_s β := α ⊗ β + β ⊗ α and αβ := α ⊗_s β. In
+Cartesian terms, rω̸ is the tangential field V with V♭|_(𝕊³) = ω̸ of the ambient picture, extended homogeneously of
+degree 0, and r²q is likewise the tangential matrix field of q: dxⁱ pulls back to r ∂_a x̂ⁱ dyᵃ on the sphere of radius
+r. Neither identification depends on (t, r). The Minkowski metric and its dual are
+
+    ḡ = −dt² + dr² + r²g̸ = −dx̄⁰dx̄¹ + r²g̸,
+    ḡ⁻¹ = −4∂₀ ⊗_s ∂₁ + r⁻²g̸⁻¹ = 2ρ∂_(t_*) ⊗_s ρ∂_ρ + ρ²((ρ∂_ρ)² + g̸⁻¹),                                  {#eq:iii-a1-2-3}
+
+with ∂₀ := ∂_(x̄⁰), ∂₁ := ∂_(x̄¹) in the coordinates (x̄⁰, x̄¹, ω); ∂₀ = −½ρ²∂_ρ, ∂₁ = ∂_(t_*) + ½ρ²∂_ρ,
+∂₀r = −∂₁r = ½. In the splitting [[eq:iii-a1-2-2]], ḡ = (0, −½, 0, 0, 0, g̸), tr := tr_ḡ = (0, −4, 0, 0, 0, tr), and
+G := I − ½ḡ tr (the operator G_g = I − ½g tr_g of [Hin26], defined the same way in every dimension) is
+
+         [ 1    0     0   0   0   0       ]
+         [ 0    0     0   0   0   ¼ tr    ]
+    G =  [ 0    0     1   0   0   0       ],     G̸ := I − ½g̸ tr,                                       {#eq:iii-a1-2-4}
+         [ 0    0     0   1   0   0       ]
+         [ 0    0     0   0   1   0       ]
+         [ 0    2g̸   0   0   0   G̸       ]
+
+as in [Hin26, (2.39b)]: tr h = −4b + tr q, so Gh = (a, ¼ tr q, c, e, f, q + 2bg̸ − ½g̸ tr q). The Christoffel symbols of
+ḡ in the coordinates x̄⁰, x̄¹ and coordinates yᵃ on 𝕊³ vanish except for
+
+    Γ̄^c_(0b) = Γ̄^c_(b0) = ½r⁻¹δ^c_b,     Γ̄^c_(1b) = Γ̄^c_(b1) = −½r⁻¹δ^c_b,
+    Γ̄⁰_(ab) = −r g̸_ab,     Γ̄¹_(ab) = r g̸_ab,     Γ̄^c_(ab) = Γ̸^c_(ab),                                    {#eq:iii-a1-2-5}
+
+as in [Hin26, (2.40)]: ḡ_01 = −½, ḡ^01 = −2, ḡ_ab = r²g̸_ab, and for example Γ̄⁰_(ab) = ½ḡ^01(−∂₁ḡ_ab) = −r g̸_ab,
+Γ̄^c_(0b) = ½r⁻²g̸^cd ∂₀(r²) g̸_bd. The scalar wave operator □̄u = −ḡ^μκ u_(;μκ) is
+
+    □̄ = 4∂₀∂₁ + (3/r)(∂₁ − ∂₀) + r⁻²Δ̸ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2) + ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ + Δ̸).              {#eq:iii-a1-2-6}
+
+Indeed ḡ^ab Γ̄⁰_(ab) = −ν/r and ḡ^ab Γ̄¹_(ab) = ν/r at ν = 3; and with D := ρ∂_ρ, ρ²∂_ρ ρ²∂_ρ = ρ²(D + 1)D, so
+4∂₀∂₁ = −2ρD∂_(t_*) − ρ²(D² + D) and (ν/r)(∂₁ − ∂₀) = νρ∂_(t_*) + νρ²D. For general ν, [[eq:iii-a1-2-6]] reads
+−2∂_(t_*)ρ(D − ν/2) + ρ²(−D² + (ν − 1)D + Δ̸); at ν = 2 it is [Hin26]'s. Equivalently
+□̄ = ∂_t² − ∂_r² − (ν/r)∂_r + r⁻²Δ̸.
+
+#### The operators in the splittings {#sec:iii-a1-2-2}
+
+**Lemma {#lem:iii-a1-2-1}** ([Hin26, Lemma 2.29] in dimension 4 + 1.) In the coordinates t_*, ρ, ω and the splittings
+[[eq:iii-a1-2-2]], with Δ̸ the tensor Laplacian acting componentwise on the summands and D := ρ∂_ρ:
+
+(1) (1-forms.) □̄ = −2∂_(t_*)ρ(D − 3/2) + ᵇ□̄(0), where
+
+                                             [  3/2   −3/2   −δ̸ ]
+    ᵇ□̄(0) = ρ²(−D² + 2D + Δ̸ + B₁),    B₁ := [ −3/2    3/2    δ̸ ];
+                                             [ −2d     2d     1  ]
+
+and δ̄* = E₁∂_(t_*) + ᵇδ̄*(0), where, with rows ordered as in [[eq:iii-a1-2-2]] and columns as (ω₀, ω₁, ω̸),
+
+          [ 0   0   0 ]                      [ −½D    0      0         ]
+          [ ½   0   0 ]                      [  ¼D   −¼D     0         ]
+    E₁ := [ 0   0   0 ],     ᵇδ̄*(0) = ρ ·  [  ½d    0     −¼(D + 1)  ].
+          [ 0   1   0 ]                      [  0     ½D     0         ]
+          [ 0   0   ½ ]                      [  0     ½d     ¼(D + 1)  ]
+          [ 0   0   0 ]                      [  g̸   −g̸     δ̸*        ]
+
+(2) (Symmetric 2-tensors.) □̄ = −2∂_(t_*)ρ(D − 3/2) + ᵇ□̄(0), where ᵇ□̄(0) = ρ²(−D² + 2D + Δ̸ + B₂) with, in the order
+(a, b, c, e, f, q),
+
+          [  3     −3     −2δ̸     0     0     −½tr ]
+          [ −3/2    3      δ̸    −3/2   −δ̸     ½tr ]
+    B₂ := [ −2d    2d     7/2     0    −5/2   −δ̸   ];                                                   {#eq:iii-a1-2-7}
+          [  0     −3      0      3     2δ̸    −½tr ]
+          [  0    −2d    −5/2    2d    7/2     δ̸   ]
+          [ −2g̸   4g̸   −4δ̸*   −2g̸   4δ̸*    2    ]
+
+and δ̄ = E₂∂_(t_*) + ᵇδ̄(0), with rows (ω₀, ω₁, ω̸),
+
+          [ 2  0  0  0  0  0 ]
+    E₂ := [ 0  2  0  0  0  0 ],
+          [ 0  0  2  0  0  0 ]
+                   [ D − 3   −D + 3    δ̸       0        0        ½tr ]
+    ᵇδ̄(0) = ρ ·  [ 0        D − 3    0       −D + 3   δ̸       −½tr ].                                  {#eq:iii-a1-2-8}
+                   [ 0        0        D − 4   0        −D + 4   δ̸   ]
+
+For general ν the same holds with 3/2 and 2D in the scalar part replaced by ν/2 and (ν − 1)D; with the 1-form matrix
+entries ±3/2 replaced by ±ν/2; with the entries 3, −3, −3/2, 7/2, −5/2 of [[eq:iii-a1-2-7]] replaced by ν, −ν, −ν/2,
+(ν + 4)/2, −(ν + 2)/2; and with 3, 4 in [[eq:iii-a1-2-8]] replaced by ν, ν + 1; δ̄* does not depend on ν. At ν = 2 this
+is [Hin26, Lemma 2.29], entry by entry.
+
+*Proof.* We prove the general-ν statement.
+
+*The wave operator.* In Cartesian coordinates the Christoffel symbols of ḡ vanish, so □̄ acts on each Cartesian
+component of a tensor as the scalar operator ∂_t² − ∂_r² − (ν/r)∂_r + r⁻²Δ̸, which on a Cartesian component, regarded as
+a function of (t, r) with values in functions on 𝕊^ν, is L₀ + r⁻²Δᵉ, L₀ := ∂_t² − ∂_r² − (ν/r)∂_r. Write
+□_c := L₀ + r⁻²Δ̸ acting componentwise in the splitting; by the calculation of [[eq:iii-a1-2-6]],
+□_c = −2∂_(t_*)ρ(D − ν/2) + ρ²(−D² + (ν − 1)D + Δ̸). Write α := dt = ½(dx̄⁰ + dx̄¹) and β := dr = ½(dx̄⁰ − dx̄¹) = x̂ · dx.
+
+1-forms: ω₀dx̄⁰ + ω₁dx̄¹ + rω̸ = (ω₀ + ω₁)α + (ω₀ − ω₁)x̂ · dx + V · dx with V the field of ω̸. By [[eq:iii-a1-1-2a]] and
+[[eq:iii-a1-1-2b]],
+
+    □̄ω = Aα + Bβ + W · dx,     A = □_c(ω₀ + ω₁),     B = □_c(ω₀ − ω₁) + νr⁻²(ω₀ − ω₁) − 2r⁻²δ̸ω̸,
+    W = (□_c + r⁻²)ω̸ − 2r⁻²d(ω₀ − ω₁),
+
+and Aα + Bβ = ½(A + B)dx̄⁰ + ½(A − B)dx̄¹, which is (1).
+
+2-tensors: in terms of α and β, h = (a, b, c, e, f, q) is h = 𝖠α² + 2𝖷αβ + 𝖡β² + 2α ⊗_s 𝖶 + 2β ⊗_s 𝖴 + 𝖰, where
+𝖠 = a + 2b + e, 𝖷 = a − e, 𝖡 = a − 2b + e, 𝖶 = c + f, 𝖴 = c − f (as tangential fields) and 𝖰 the field of q; in
+Cartesian components, h_tt = 𝖠, (h_ti) = 𝖷x̂ + 𝖶, (h_ij) = 𝖡x̂ ⊗ x̂ + x̂ ⊙ 𝖴 + 𝖰. By [[lem:iii-a1-1-2]],
+
+    (□̄h)_tt = □_c𝖠,     (□̄h)_(t·) = T_X x̂ + T_W,     (□̄h)_(··) = T_B x̂ ⊗ x̂ + x̂ ⊙ T_U + T_Q,
+    T_X = □_c𝖷 + νr⁻²𝖷 − 2r⁻²δ̸𝖶,     T_W = (□_c + r⁻²)𝖶 − 2r⁻²d𝖷,
+    T_B = □_c𝖡 + 2νr⁻²𝖡 − 4r⁻²δ̸𝖴 − 2r⁻² tr q,     T_U = (□_c + (ν + 3)r⁻²)𝖴 − 2r⁻²d𝖡 − 2r⁻²δ̸q,
+    T_Q = (□_c + 2r⁻²)q − 2r⁻²𝖡g̸ − 4r⁻²δ̸*𝖴.
+
+Inverting, the components of □̄h in [[eq:iii-a1-2-2]] are a′ = ¼(□_c𝖠 + T_B) + ½T_X, b′ = ¼(□_c𝖠 − T_B),
+e′ = ¼(□_c𝖠 + T_B) − ½T_X, c′ = ½(T_W + T_U), f′ = ½(T_W − T_U), q′ = T_Q. Substituting:
+
+    a′ = □_c a + r⁻²(νa − νb − 2δ̸c − ½ tr q),
+    b′ = □_c b + r⁻²(−(ν/2)a + νb − (ν/2)e + δ̸c − δ̸f + ½ tr q),
+    e′ = □_c e + r⁻²(−νb + νe + 2δ̸f − ½ tr q),
+    c′ = □_c c + r⁻²(−2da + 2db + ((ν + 4)/2)c − ((ν + 2)/2)f − δ̸q),
+    f′ = □_c f + r⁻²(−2db + 2de − ((ν + 2)/2)c + ((ν + 4)/2)f + δ̸q),
+    q′ = □_c q + r⁻²(−2g̸a + 4g̸b − 4δ̸*c − 2g̸e + 4δ̸*f + 2q),
+
+which is (2) for □̄. (For instance, in c′ the coefficient of c is ½ + (ν + 3)/2, from ½(□_c + r⁻²)𝖶 and
+½(□_c + (ν + 3)r⁻²)𝖴; the coefficient of da is −1 − 1, from −r⁻²d𝖷 and −r⁻²d𝖡.)
+
+*The symmetric gradient.* From [[eq:iii-a1-2-5]], for a 1-form with coordinate components ω₀, ω₁, ω_b = rω̸_b:
+∇̄₀ω₀ = ∂₀ω₀, ∇̄₁ω₁ = ∂₁ω₁, ∇̄₀ω₁ = ∂₀ω₁, ∇̄₁ω₀ = ∂₁ω₀, ∇̄₀ω_b = r∂₀ω̸_b, ∇̄₁ω_b = r∂₁ω̸_b,
+∇̄_bω₀ = ∂_bω₀ − ½ω̸_b, ∇̄_bω₁ = ∂_bω₁ + ½ω̸_b, ∇̄_aω_b = r∇̸_aω̸_b + r g̸_ab(ω₀ − ω₁). Symmetrising and reading off the
+components of [[eq:iii-a1-2-2]]: a = ∂₀ω₀, b = ½(∂₀ω₁ + ∂₁ω₀), c = ½∂₀ω̸ + (ρ/2)(dω₀ − ½ω̸), e = ∂₁ω₁,
+f = ½∂₁ω̸ + (ρ/2)(dω₁ + ½ω̸), q = ρ(δ̸*ω̸ + g̸(ω₀ − ω₁)); with ∂₀ = −½ρD, ∂₁ = ∂_(t_*) + ½ρD this is the stated δ̄*.
+No trace over the sphere occurs, so ν does not enter.
+
+*The divergence.* (δ̄h)_κ = −ḡ^μσ ∇̄_μ h_σκ = 2(∇̄₀h_1κ + ∇̄₁h_0κ) − r⁻²g̸^ab ∇̄_a h_bκ, with h_00 = a, h_01 = b,
+h_0b = rc_b, h_11 = e, h_1b = rf_b, h_ab = r²q_ab. From [[eq:iii-a1-2-5]]: ∇̄₀h_10 = ∂₀b, ∇̄₁h_00 = ∂₁a,
+g̸^ab ∇̄_a h_b0 = −rδ̸c + rν(a − b) − (r/2) tr q; ∇̄₀h_11 = ∂₀e, ∇̄₁h_01 = ∂₁b,
+g̸^ab ∇̄_a h_b1 = −rδ̸f + rν(b − e) + (r/2) tr q; ∇̄₀h_1c = r∂₀f_c, ∇̄₁h_0c = r∂₁c_c,
+g̸^ab ∇̄_a h_bc = r²(−δ̸q + (ν + 1)(c − f))_c, the ν + 1 being g̸^ab g̸_ab + 1. Hence
+(δ̄h)₀ = 2∂_(t_*)a + ρ((D − ν)a + (−D + ν)b + δ̸c + ½ tr q),
+(δ̄h)₁ = 2∂_(t_*)b + ρ((D − ν)b + (−D + ν)e + δ̸f − ½ tr q), and the rT*𝕊^ν component is
+2∂_(t_*)c + ρ((D − ν − 1)c + (−D + ν + 1)f + δ̸q).
+
+Setting ν = 2 reproduces every entry of [Hin26, Lemma 2.29] ([Hin26, (2.41), (2.42)] and the 1-form statements);
+setting ν = 3 gives (1)–(2). ∎
+
+#### Types, and the indicial roots by type {#sec:iii-a1-2-3}
+
+Applying [[lem:iii-a1-1-6]] to each component of a tensor in the splittings [[eq:iii-a1-2-2]] at each sphere of
+constant (t_*, ρ) gives the types of [Hin26, (2.43)–(2.44)], with 𝕊³ harmonics, and one more:
+
+    s0 1-forms: (aS, bS, 0), S ∈ 𝒮_0;     sl 1-forms, l ≥ 1: (aS, bS, c dS), S ∈ 𝒮_l;
+    vl 1-forms, l ≥ 1: (0, 0, cV), V ∈ 𝒱_l;                                                             {#eq:iii-a1-2-9}
+
+and, writing the last component of [[eq:iii-a1-2-2]] as pSg̸ + qδ̸*₀dS, qδ̸*V or τT,
+
+    s0: (aS, bS, 0, eS, 0, pSg̸), S ∈ 𝒮_0;     s1: (aS, bS, c dS, eS, f dS, pSg̸), S ∈ 𝒮_1;
+    sl, l ≥ 2: (aS, bS, c dS, eS, f dS, pSg̸ + qδ̸*₀dS), S ∈ 𝒮_l;     v1: (0, 0, cV, 0, fV, 0), V ∈ 𝒱_1;
+    vl, l ≥ 2: (0, 0, cV, 0, fV, qδ̸*V), V ∈ 𝒱_l;     tl, l ≥ 2: (0, 0, 0, 0, 0, τT), T ∈ 𝒯_l,          {#eq:iii-a1-2-10}
+
+with a, b, c, e, f, p, q, τ functions of (t_*, ρ). The tensor type tl is new in dimension 4 + 1. The operators of
+[[lem:iii-a1-2-1]] are built from d, δ̸, δ̸*, tr, g̸·, Δ̸ and constants, and by [[eq:iii-a1-1-2]]–[[eq:iii-a1-1-3]] each
+of these maps the components of a type to components of the same type, degree and harmonic; so the operators of
+[[lem:iii-a1-2-1]] preserve the type, the degree l and the particular S, V or T, and act on each type by a matrix of
+operators in (t_*, ρ). For example, on sl 1-forms, l ≥ 1, ᵇ□̄(0) is ρ² times
+
+                  [ k²  0    0      ]   [  3/2   −3/2   −k² ]
+    −D² + 2D +    [ 0   k²   0      ] + [ −3/2    3/2    k² ],     k² = l(l + 2),                       {#eq:iii-a1-2-11}
+                  [ 0   0    k² − 2 ]   [ −2      2      1   ]
+
+the analogue of [Hin26, (2.45)].
+
+**Definition {#def:iii-a1-2-2}** ([Hin26, Definition 2.30] in dimension 4 + 1.) On X := [0, ∞)_ρ × 𝕊³, for
+A ∈ ρ^α Diff^m_b(X) acting on one of the bundles above, ι ∈ ℂ is a *scalar*, *vector* or *tensor type l indicial
+root* of A if there is a nonzero u of that type and degree with N(A)(ρ^ι u) = 0, N(A) the normal operator of
+[[def:s11-b-analysis]].
+
+Replacing D by ι in [[eq:iii-a1-2-11]], the determinant is
+−(ι + l + 1)(ι + l)(ι + l − 1)(ι − l − 1)(ι − l − 2)(ι − l − 3) (the type sl of 1-forms in [[lem:iii-a1-2-3]] below),
+so −l − 1, −l, −l + 1, l + 1, l + 2, l + 3 are the scalar type l indicial roots of ᵇ□̄(0) on 1-forms (in dimension
+3 + 1 the six numbers of [Hin26] are −l − 1, −l, −l + 1, l, l + 1, l + 2).
+
+**Lemma {#lem:iii-a1-2-3}** (Indicial roots of ᵇ□̄(0) by type in dimension 4 + 1.) For a finite list 𝒟 of integers
+write R(𝒟) for the list of −d and d + 2, d ∈ 𝒟, with multiplicity. The indicial roots of ᵇ□̄(0), as the zeros of the
+determinant of its type-wise indicial matrix with multiplicity, are R(𝒟) with: on functions of degree l, 𝒟 = (l); on
+1-forms, s0: (0, 1); sl, l ≥ 1: (l − 1, l, l + 1); vl: (l); on symmetric 2-tensors, s0: (0, 0, 1, 2); s1:
+(0, 1, 1, 1, 2, 3); sl, l ≥ 2: (l − 2, l − 1, l, l, l, l + 1, l + 2); v1: (1, 2); vl, l ≥ 2: (l − 1, l, l + 1); tl,
+l ≥ 2: (l). In particular every indicial root is an integer, the roots on scalar functions are −l and l + 2 (in
+dimension 3 + 1, −l and l + 1), and none lies in the open interval (0, 2).
+
+*Proof.* We prove the statement for general ν, with −d and d + ν − 1 in place of −d and d + 2; ν = 3 gives the
+lemma. The list 𝒟 is the list of degrees of the harmonic polynomials that make up the Cartesian components of a tensor
+of the given type.
+
+*Step 1: reduction to Cartesian components.* Write a 1-form as ω_t dt + Σ_i ω_i dxⁱ and a symmetric 2-tensor by its
+Cartesian components h_tt, h_ti, h_ij. As dt and dxⁱ are parallel for ḡ, □̄ acts on each Cartesian component as the
+scalar operator, which by [[eq:iii-a1-2-6]] for general ν is −2∂_(t_*)ρ(D − ν/2) + ρ²(−D² + (ν − 1)D + Δ̸); on a
+Cartesian component, regarded as a function on 𝕊^ν depending on (t_*, ρ), Δ̸ is Δᵉ. So in Cartesian components
+ᵇ□̄(0) = ρ²(−D² + (ν − 1)D + Δᵉ). Let C be the passage from the components of [[eq:iii-a1-2-2]] to the Cartesian
+ones, given by dx̄⁰ = dt + x̂ · dx, dx̄¹ = dt − x̂ · dx and rω̸ ↔ V · dx, and for 2-tensors by the formulas for h_tt,
+(h_ti), (h_ij) in the proof of [[lem:iii-a1-2-1]]; C is a pointwise isomorphism and does not depend on (t_*, ρ).
+
+Fix a type and a degree l, and let J : ℂ^k → C^∞(𝕊^ν; ·) be the map from the k constant coefficients to the tensor of
+that type in [[eq:iii-a1-2-9]]–[[eq:iii-a1-2-10]], with S, V or T fixed. By the paragraph before [[eq:iii-a1-2-11]]
+there is a type-wise indicial matrix I(ι) ∈ ℂ^(k×k) with ᵇ□̄(0)(ρ^ι J(u)) = ρ^(ι+2) J(I(ι)u). The map J is injective:
+the summands of [[eq:iii-a1-2-2]] are independent; S ↦ dS is injective on 𝒮_l for l ≥ 1; pSg̸ + qδ̸*₀dS = 0 forces
+p = q = 0 for l ≥ 2, the two terms being pure trace and trace-free, and δ̸*₀dS ≠ 0 as its divergence
+((ν − 1)/ν)(k_l² − ν)dS is nonzero; and δ̸*V ≠ 0 for V ∈ 𝒱_l, l ≥ 2, as δ̸δ̸*V = ½(k_l² − ν)V ≠ 0. Let W := CJ(ℂ^k), a
+k-dimensional space of Cartesian component vectors. Applying C, which commutes with ρ and D,
+
+    CJ(I(ι)u) = (−ι² + (ν − 1)ι + Δᵉ) CJ(u),     u ∈ ℂ^k,
+
+so W is invariant under Δᵉ and I(ι) is similar to the restriction of −ι² + (ν − 1)ι + Δᵉ to W. If W has a basis of
+Δᵉ-eigenvectors with eigenvalues k_d², d ∈ 𝒟, then, as −ι² + (ν − 1)ι + d(d + ν − 1) = −(ι + d)(ι − d − ν + 1),
+
+    det I(ι) = Π_(d∈𝒟) (−ι² + (ν − 1)ι + k_d²) = Π_(d∈𝒟) (−(ι + d)(ι − d − ν + 1)),
+
+whose zeros with multiplicity are −d and d + ν − 1, d ∈ 𝒟. It remains to exhibit such a basis for each type.
+
+*Step 2: harmonic polynomials.* Write ℋ_d for the harmonic homogeneous polynomials of degree d on ℝ^(ν+1), with
+values in ℂ, in ℂ^(ν+1) or in matrices. By [[lem:iii-a1-1-4]] (1), the restriction to 𝕊^ν of an element of ℋ_d is a
+Δᵉ-eigenvector with eigenvalue k_d². For f ∈ ℋ_d and j ≥ 1,
+
+    Δ(|x|^(2j) f) = 2j(2j + ν − 1 + 2d) |x|^(2j−2) f,     Δ(xⁱ f) = 2∂_i f,
+
+by Δ|x|^(2j) = 2j(2j + ν − 1)|x|^(2j−2), Euler's identity x · ∇f = df and the harmonicity of f. For p ∈ ℋ_l with
+S := p|_(𝕊^ν), on 𝕊^ν
+
+    (∇p)| = ∇̸S + lSx̂,     (∇²p)| = ∇̸²S + lSP + (l − 1)x̂ ⊙ ∇̸S + l(l − 1)S x̂ ⊗ x̂,
+
+with ∇̸S the tangential field of dS and ∇̸²S = δ̸*dS the tangential matrix field of the Hessian on 𝕊^ν: the first is
+Euler's identity; for the second, ∇p is homogeneous of degree l − 1, so D_(x̂)(∇p) = (l − 1)(∇̸S + lSx̂), and for
+tangential X, D_X(∇̸S + lSx̂) = ∇̸_X∇̸S − ⟨X, ∇̸S⟩x̂ + l(XS)x̂ + lSX by the Gauss formula.
+
+*Step 3: the bases.* In each case below W is spanned by the restrictions listed, which are Δᵉ-eigenvectors by Step 2,
+and their number is k = dim W; so they form a basis.
+
+*Functions:* W = span{S}; 𝒟 = (l).
+
+*1-forms*, in Cartesian components (ω_t; ω_i). s0: S is constant and W = span{(1; 0), (0; x̂)}, x̂ the restriction of
+x ∈ ℋ_1; 𝒟 = (0, 1). sl, l ≥ 1: W is the sum of span{(S; 0)} and of the spatial span{(0; Sx̂), (0; ∇̸S)}. Let
+H := xp − (ν + 2l − 1)⁻¹|x|²∇p; by Step 2, Δ(xp) = 2∇p and Δ(|x|²∇p) = 2(ν + 2l − 1)∇p as ∇p ∈ ℋ_(l−1), so
+H ∈ ℋ_(l+1). On 𝕊^ν, H| = Sx̂ − (ν + 2l − 1)⁻¹(∇p)| and (∇p)| = ∇̸S + lSx̂, so the spatial span is span{H|, (∇p)|};
+𝒟 = (l − 1, l, l + 1). vl: W = span{(0; V)}, and the Cartesian components of V lie in 𝒮_l by [[lem:iii-a1-1-4]] (2);
+𝒟 = (l).
+
+*2-tensors*, in Cartesian components (h_tt; h_ti; h_ij). As (𝖠, 𝖷, 𝖡) and (a, b, e), and (𝖶, 𝖴) and (c, f), determine
+each other linearly, W = W_tt ⊕ W_tx ⊕ W_xx, with W_tt spanned by the values of 𝖠, W_tx by those of 𝖷x̂ + 𝖶 and W_xx
+by those of 𝖡x̂ ⊗ x̂ + x̂ ⊙ 𝖴 + 𝖰, over the type.
+
+s0: W_tt = span{1}, W_tx = span{x̂}, and W_xx = span{x̂ ⊗ x̂, P} = span{I, x̂ ⊗ x̂ − (ν + 1)⁻¹I}, the restrictions of the
+constant I and of x ⊗ x − (ν + 1)⁻¹|x|²I ∈ ℋ_2; 𝒟 = (0, 1, 0, 2).
+
+sl, l ≥ 1 (this includes s1): W_tt = span{S}, and W_tx = span{Sx̂, ∇̸S} = span{H|, (∇p)|} as for 1-forms. W_xx is
+spanned by Sx̂ ⊗ x̂, x̂ ⊙ ∇̸S and SP, and, for l ≥ 2, by the field of δ̸*₀dS. By Step 2 and [[eq:iii-a1-1-2]]
+(∇̸²S = δ̸*₀dS − (k_l²/ν)SP),
+
+    (∇²p)| = δ̸*₀dS + (l − k_l²/ν)SP + (l − 1)x̂ ⊙ ∇̸S + l(l − 1)S x̂ ⊗ x̂,     (x ⊙ ∇p)| = x̂ ⊙ ∇̸S + 2lS x̂ ⊗ x̂,
+
+and Sδ = SP + Sx̂ ⊗ x̂, δ the identity matrix; for l = 1, ∇²p = 0 and δ̸*₀dS = 0 by [[eq:iii-a1-1-3]]. So
+W_xx = span{Sx̂ ⊗ x̂, (x ⊙ ∇p)|, Sδ, (∇²p)|}, without the last for l = 1. Now ∇²p ∈ ℋ_(l−2) and pδ ∈ ℋ_l. With
+Q := x ⊙ ∇p, ΔQ = 4∇²p and Δ(|x|²∇²p) = 2(ν + 2l − 3)∇²p, so Q^h := Q − 2(ν + 2l − 3)⁻¹|x|²∇²p ∈ ℋ_l. With
+K := p x ⊗ x, ΔK = 2pδ + 2Q = 2pδ + 2Q^h + 4(ν + 2l − 3)⁻¹|x|²∇²p; and Δ(|x|²pδ) = 2(ν + 2l + 1)pδ,
+Δ(|x|²Q^h) = 2(ν + 2l + 1)Q^h, Δ(|x|⁴∇²p) = 4(ν + 2l − 1)|x|²∇²p. Hence
+
+    H₂ := K − (ν + 2l + 1)⁻¹|x|²(pδ + Q^h) − (ν + 2l − 3)⁻¹(ν + 2l − 1)⁻¹|x|⁴∇²p ∈ ℋ_(l+2).
+
+On 𝕊^ν, Sx̂ ⊗ x̂ and (x ⊙ ∇p)| are combinations of H₂|, Q^h|, Sδ and (∇²p)|, so W_xx = span{H₂|, Q^h|, Sδ, (∇²p)|}
+(without the last for l = 1), with eigenvalues k_(l+2)², k_l², k_l², k_(l−2)². So 𝒟 = (l) ∪ (l − 1, l + 1) ∪
+(l − 2, l, l, l + 2) for l ≥ 2, and (1) ∪ (0, 2) ∪ (1, 1, 3) = (0, 1, 1, 1, 2, 3) for l = 1.
+
+v1 and vl: W_tt = 0, W_tx = span{V}, and W_xx = span{x̂ ⊙ V} for l = 1, span{x̂ ⊙ V, δ̸*V} for l ≥ 2. By
+[[lem:iii-a1-1-4]] (2) there is v ∈ ℋ_l with values in ℝ^(ν+1) and v| = V; v is homogeneous of degree l, so x · v = 0
+everywhere and D_(x̂)v = lV on 𝕊^ν. By the Gauss formula D_X V = ∇̸_X V − ⟨X, V⟩x̂ for tangential X, the Jacobian
+J_v := (∂_i v_j) is lx̂ ⊗ V + ∇̸V − V ⊗ x̂ on 𝕊^ν, with ∇̸V := Σ_a e_a ⊗ ∇̸_(e_a)V; so
+
+    (∂ ⊙ v)| := (J_v + J_vᵀ)| = (l − 1)x̂ ⊙ V + 2δ̸*V,     ∂ ⊙ v ∈ ℋ_(l−1).
+
+Also Δ(x ⊙ v) = 2∂ ⊙ v, so H₁ := x ⊙ v − (ν + 2l − 1)⁻¹|x|²∂ ⊙ v ∈ ℋ_(l+1). For l = 1, v = Ax with A antisymmetric,
+∂ ⊙ v = A + Aᵀ = 0, and x̂ ⊙ V = H₁|; for l ≥ 2, W_xx = span{H₁|, (∂ ⊙ v)|}. So 𝒟 = (1, 2) for v1 and
+(l − 1, l, l + 1) for vl.
+
+tl: W = span{T}, whose Cartesian components lie in 𝒮_l by [[lem:iii-a1-1-4]] (3); 𝒟 = (l).
+
+Every d in these lists is ≥ 0, so −d ≤ 0 and d + 2 ≥ 2 at ν = 3. ∎
+
+#### The symmetric gradient's indicial families {#sec:iii-a1-2-4}
+
+Reading off [[lem:iii-a1-2-1]] (1) on the types s0, s1 and v1 (for s1 the entry −1 in the last row comes from
+δ̸*dS = −Sg̸ at l = 1, which holds for every ν by [[eq:iii-a1-1-2]]–[[eq:iii-a1-1-3]], as k_1² = ν):
+
+                         [ −ι/2    0   ]                         [ −ι/2   0     0          ]
+                         [  ι/4   −ι/4 ]                         [  ι/4  −ι/4   0          ]
+    N_s0(ᵇδ̄*(0), ι) =  [  0      ι/2 ],    N_s1(ᵇδ̄*(0), ι) =  [  1/2   0    −¼(ι + 1)  ],
+                         [  1     −1   ]                         [  0     ι/2   0          ]
+                                                                 [  0     1/2   ¼(ι + 1)   ]
+                                                                 [  1    −1    −1          ]
+
+                         [ −¼(ι + 1) ]
+    N_v1(ᵇδ̄*(0), ι) =  [  ¼(ι + 1) ].                                                                {#eq:iii-a1-2-12}
+
+(The rows are the components of [[eq:iii-a1-2-2]] that the type carries: a, b, e, q for s0; a, b, c, e, f, q for s1;
+c, f for v1.) These are [Hin26, (2.46a)–(2.46c)] unchanged.
+
+**Lemma {#lem:iii-a1-2-4}** (Injectivity; the remark after [Hin26, (2.46)] in dimension 4 + 1.) For every type other
+than s0, s1, v1 and every ι ∈ ℂ, N_•(ᵇδ̄*(0), ι) is injective; N_s0 and N_s1 are injective for ι ≠ 0, and N_v1 for
+ι ≠ −1. At the exceptional values the kernels are spanned by (1, 1) (from dt), by (1, −1, 2) (from dxⁱ, with
+S = x̂_i), and by the rotations V ∈ 𝒱_1.
+
+*Proof.* By [[lem:iii-a1-2-1]] (1), ᵇδ̄*(0) is ρ times an operator with coefficients polynomial in D and independent of
+ρ, so for u of one type ᵇδ̄*(0)(ρ^ι u) = ρ^(ι+1) N_•(ᵇδ̄*(0), ι)u, and ρ^ι u does not depend on t_*. So if
+N_•(ι)u = 0 then ω := ρ^ι u satisfies δ̄*ω = 0 on ℝ_t × (ℝ⁴ ∖ 0), and so do its real and imaginary parts, as δ̄* is
+real. In Cartesian coordinates a 1-form with ∂_μω_κ + ∂_κω_μ = 0 satisfies ∂_σ∂_μω_κ = 0 (the identity
+∂_σ∂_μω_κ = ∂_σ s_μκ + ∂_μ s_σκ − ∂_κ s_σμ, s := δ̄*ω), so on the connected set ℝ_t × (ℝ⁴ ∖ 0) it is affine,
+ω_μ = a_μ + B_μκ x^κ with B antisymmetric. The splitting [[eq:iii-a1-2-2]] does not depend on t, so ω is independent of
+t, which forces B_μ0 = 0: ω is a combination of dt, the dxⁱ and the rotation forms B_ij xʲ dxⁱ. These are homogeneous
+of degree 0, 0 and 1 in x and, in [[eq:iii-a1-2-2]], of the types s0 (dt = ½(dx̄⁰ + dx̄¹)), s1
+(dxⁱ = x̂_i dr + r dx̂_i = ½x̂_i(dx̄⁰ − dx̄¹) + r dx̂_i) and v1 (by [[def:iii-a1-1-7]]). A nonzero ρ^ι u of a single type
+and degree is therefore one of these, with ι = 0, 0 and −1 respectively. ∎

@@ -314,16 +314,20 @@ order; in φ_m through dφ_m and □̃φ_m, the latter only as −(1/2)(□̃φ_
 *Proof.* We count weights. A factor of stage m + 1 has weight m + 1 (ĝ_(m+1), m_(m+1)) or contributes the derivative λ^m
 (∂φ_(m+1)) ∂_θ of weight m. In a monomial of order m containing ĝ_(m+1), the other factors and the derivatives therefore
 have weights summing to −1. Every weight is at least 0 except that of λ⁻¹ (∂v) ∂_θ, and there are at most two
-derivatives. So either ĝ_(m+1) is hit by one λ⁻¹ (∂v) ∂_θ and every other factor and derivative has weight 0, or it is
-hit by two and the remaining factors have total weight 1, or it stands undifferentiated in g⁻¹ against W hit twice by
-λ⁻¹ (∂v) ∂_θ (the term (1/2) ĝ_(m+1)(ℓ, ℓ) ∂_θ² W). In every case ĝ_(m+1) appears linearly, since two such factors have
+derivatives. Let n be the number of derivatives λ⁻¹ (∂v) ∂_θ in the monomial; then n ∈ {1, 2}, and the other factors
+and derivatives have weights summing to n − 1. If n = 1, they all have weight 0, and the derivative λ⁻¹ (∂v) ∂_θ hits
+ĝ_(m+1), since ∂_θ needs an oscillating factor and the only factor of weight 0 is g0. If n = 2, exactly one other
+factor has weight 1 and every other factor and derivative weight 0; the two derivatives λ⁻¹ (∂v) ∂_θ both hit
+ĝ_(m+1), or one hits ĝ_(m+1) and the other W, or both hit W while ĝ_(m+1) stands undifferentiated in g⁻¹ (the term
+(1/2) ĝ_(m+1)(ℓ, ℓ) ∂_θ² W). In every case ĝ_(m+1) appears linearly, since two such factors have
 weight at least 2(m + 1) − 2 > m, and the other factors have weight at most 1: they are g0, v, W, m1 and φ1 (the
 derivative (∂φ1) ∂_θ having weight 0). These are the factors of weight at most 1 of G1 and u1, and the same count
 applies to λ Y in R_(u1)[G1 + ε λ Y], which has weight 1; so these terms are T̂ ĝ_(m+1). A monomial of order m
 containing m_(m+1) or ∂φ_(m+1) has the remaining weights summing to −1 or 0 respectively; they arise only in the phase
 contraction [[eq:eikonal-coefficients]], where both derivatives of λ W fall on the phase, and give −(1/2) e_(m+1) ∂_θ²
-W. Two factors of stage m have weights at least m − 1 each, and every ∂_θ needs an oscillating factor; so they reach
-order m only when m = 1, in the phase contraction, through the q_2 terms, which [[eq:eikonal-coefficients]] places in
+W. Two factors among m_m and ∂φ_m have weights at least
+m − 1 each (m_m has weight m, and the derivative λ^(m−1) (∂φ_m) ∂_θ weight m − 1), and every ∂_θ needs an oscillating
+factor, of weight at least 1; so they reach order m only when m = 1, in the phase contraction, through the q_2 terms, which [[eq:eikonal-coefficients]] places in
 e_2. The second harmonic of W hit twice by λ⁻¹ (∂v) ∂_θ is contracted with ḡ⁻¹(dv, dv), of weight at least 1, since
 g0⁻¹(dv, dv) = 0.
 
@@ -343,7 +347,8 @@ At order −1 the only term is −(1/2) g0⁻¹(dv, dv) ∂_θ² W = 0. ∎
 
     T̂ Y = −(ℓ·∂_X) ∂_θ Y + ℳ Y,
 
-with ℳ algebraic in X, with smooth bounded profile coefficients, and of first order in θ.
+with ℳ algebraic in X and of first order in θ, its coefficients smooth bounded profiles built from g0, its
+derivatives, v and W alone. In particular, when e_1 = 0, T̂ does not depend on m1 or φ1.
 
 *Proof.* We take the terms of R_(u1)[G1 + ε λ Y] linear in ε at order λ⁰. Here ∂^(u1)_a = ∂_a + λ⁻¹ v_a ∂_θ + (∂_a φ1)
 ∂_θ, so
@@ -359,17 +364,60 @@ and G1⁻¹ = g0⁻¹ − λ (m1 + W)^♯ + O(λ²). The principal term −(1/2)
 
 since W(ℓ, ℓ) = 0 and e_1 = 2 ℓ·dφ1 − m1(ℓ, ℓ). The variation of G⁻¹ in the principal term, −λ Y^♯ + O(λ²), meets
 ∂^(u1)_a ∂^(u1)_b G1 = λ⁻¹ v_a v_b ∂_θ² W + O(1) and gives (1/2) Y(ℓ, ℓ) ∂_θ² W. The remaining terms of Ric^H are of first order
-in g [[sec:gauge]]; their variation contains D(λ Y) = dv ⊗ ∂_θ Y + O(λ) times coefficients built from G1,
-D G1 and g0, which are bounded profiles, and λ Y times bounded profiles, which is O(λ). So T̂ Y = −(ℓ·∂_X) ∂_θ Y −
-(1/2) e_1 ∂_θ² Y + ℳ Y with ℳ Y := −(1/2)(□̃v) ∂_θ Y + (1/2) Y(ℓ, ℓ) ∂_θ² W + B·(dv ⊗ ∂_θ Y), B a bounded profile. With
-e_1 = 0 this is the claim. ∎
+in g [[sec:gauge]]; their variation contains ∂^(u1)(λ Y) = dv ⊗ ∂_θ Y + O(λ) times coefficients built from G1, ∂^(u1) G1 and g0,
+bounded profiles whose parts of order λ⁰ are built from g0, ∂g0 and dv ⊗ ∂_θ W (m1 has zero θ-derivative, and φ1
+enters ∂^(u1) G1 only at order λ), and λ Y times bounded profiles, which is O(λ). So T̂ Y = −(ℓ·∂_X) ∂_θ Y −
+(1/2) e_1 ∂_θ² Y + ℳ Y with ℳ Y := −(1/2)(□̃v) ∂_θ Y + (1/2) Y(ℓ, ℓ) ∂_θ² W + B·(dv ⊗ ∂_θ Y), B a bounded profile built from g0, ∂g0, v and
+W. With e_1 = 0 this is the claim; m1 and φ1 entered only through e_1. ∎
+
+**Lemma {#lem:linear-wave}** (Linear wave equations on Ω.) Let d ≥ 1, and let B^a and C be smooth d × d matrices of
+functions on Ω, smooth meaning that all their derivatives extend continuously to the boundary. For every smooth f on Ω
+with values in ℝ^d and smooth u0, u1 on Σ_τ0 there is a unique smooth u on Ω with
+
+    −(1/2) □̃ u + B^a ∂_a u + C u = f   on Ω,      u = u0  and  ∂_τ u = u1   on Σ_τ0.                {#eq:linear-wave}
+
+*Proof.* Uniqueness. The difference w of two solutions solves −(1/2) □̃ w = −B^a ∂_a w − C w with zero data, so
+[[lem:energy]] with g̃ = g0 gives ‖∂w(τ)‖ + ‖w(τ)‖ ≤ C ∫_(τ0)^τ (‖∂w(s)‖ + ‖w(s)‖) ds, and w = 0 by Gronwall's
+inequality.
+
+Existence. (i) The domain. Let M := {(τ, x) : |x| > a/2} with the metric g0, time-oriented so that τ increases to the
+future, and S := Σ_τ0 ∩ M. Since g0⁻¹(dτ, dτ) = −1 − μ/r² < 0 ([[prop:vaidya]] (d)), τ is strictly increasing along
+future causal curves, so S is a smooth spacelike hypersurface which every causal curve meets at most once: S is
+acausal. By [[thm:std-bgp-development]] its Cauchy development D, the set of points of M through which every
+inextendible causal curve meets S, is open and globally hyperbolic, with S as a Cauchy hypersurface. We show Ω ⊂ D.
+Let p ∈ Ω, and follow an inextendible causal curve γ of M through p to the past. While τ ≥ τ0 along γ, γ stays in Ω,
+by [[lem:domain]] (e) applied to g0. Suppose τ > τ0 along all of it. Parametrised by τ ∈ (τ*, τ(p)], τ* ≥ τ0, its
+velocity V has dτ(V) = 1. At the points of the compact set Ω the causal vectors V with dτ(V) = 1 form a compact set:
+a sequence of them with Euclidean norms tending to infinity would have, after normalisation, a causal limit V ≠ 0
+with dτ(V) = 0, which the timelike covector dτ excludes. So γ is Lipschitz in τ and converges, as τ decreases to τ*,
+to a point of Ω ⊂ M, and γ is extendible, a contradiction. Hence γ reaches {τ = τ0}, at a point of Ω ∩ Σ_τ0 ⊂ S, and
+p ∈ D. Ω is connected and meets S, so it lies in the connected component of D that contains the connected set S. This
+component is open and globally hyperbolic with Cauchy hypersurface S, since an inextendible causal curve in it is one
+of D; we call it D again.
+
+(ii) The extension. The interior of Ω is a bounded Lipschitz domain in ℝ⁵: near each point of its boundary it is
+bounded by at most two of the hypersurfaces Σ_τ0, Σ_τ_end, {r = a} and {v + τ = V + 1 + τ_end}, which are smooth and
+have linearly independent normals where two of them meet. Stein's operator of [[thm:std-sy-extension]], applied to
+B^a, C and f, which lie in W^(k,∞) of the interior for every k, gives extensions to ℝ⁵ with bounded derivatives of
+every order, hence smooth. Likewise extend u0 and u1 from the annulus Σ_τ0 ∩ Ω to smooth functions on {τ = τ0}. Let
+ψ be a smooth function with compact support in D, equal to 1 on a neighbourhood of Ω, which exists since Ω is compact
+and D open; multiply the extensions of f, u0 and u1 by ψ.
+
+(iii) The solution. The operator P := □̃ − 2 B^a ∂_a − 2 C acts on sections of the trivial bundle D × ℝ^d and has
+principal symbol ∓ g0⁻¹(ξ, ξ) id, so P or −P is normally hyperbolic for g0 ([[def:std-normally-hyperbolic]]); we take
+that one, changing the sign of the right-hand side with it. With n the future unit normal of S and ∇ the connection
+of [[thm:std-bgp-cauchy]], prescribing u and ∇_n u on S is equivalent to prescribing u and ∂_τ u on S, since dτ(n) > 0
+and the other terms of ∇_n u are tangential derivatives of u and multiples of u. [[thm:std-bgp-cauchy]] therefore
+gives u ∈ C^∞(D) solving P u = −2 ψ f̃, f̃ the extension of f, with the data ψ ũ0, ψ ũ1, the extensions of u0 and u1.
+On Ω the cut-off equals 1 and the extensions agree with B^a, C, f, u0 and u1, so u restricted to Ω solves
+[[eq:linear-wave]]. ∎
 
 **Lemma {#lem:stage-system}** (Each stage is a linear hyperbolic system.) Let m ≥ 1 and let everything of earlier stages
 be given and smooth. Write the θ-mean of 𝒲(m_m, 0) as −(1/2) □̃ m_m + B̄·∂m_m + C̄ m_m, put 𝒲_φ(φ_m) := 𝒲(0, φ_m),
 𝒮_m := −⟨𝒦_m⟩, and let Π_osc := 1 − ⟨·⟩ be the projection onto zero θ-mean. Impose e_m = 0, the θ-mean of
 [[eq:stage-m]], and its oscillating part without the e_(m+1) term:
 
-    (a) −(1/2) □̃ m_m + B̄·∂m_m + C̄ m_m = 𝒮_m − ⟨𝒲_φ(dφ_m)⟩ − ⟨T̂ ĝ_(m+1)⟩,
+    (a) −(1/2) □̃ m_m + B̄·∂m_m + C̄ m_m = 𝒮_m − ⟨𝒲_φ(φ_m)⟩ − ⟨T̂ ĝ_(m+1)⟩,
     (b) L0 φ_m = −(1/2) m_m(ℓ, ℓ) − (1/2) q_m,
     (c) Π_osc T̂ ĝ_(m+1) = −Π_osc (𝒲(m_m, φ_m) + 𝒦_m),                                                {#eq:stage-system}
 
@@ -381,7 +429,7 @@ whose mean is zero. For Z := ∂_θ ĝ_(m+1), equation (c) is the transport
 
     −(ℓ·∂_X) Z + ℳ' Z = F
 
-along ℓ, with ℳ' := ℳ ∂_θ⁻¹ a bounded operator on smooth zero-mean profiles ([[lem:first-stage-operator]]; ∂_θ⁻¹ the
+along ℓ, with ℳ' := Π_osc ℳ ∂_θ⁻¹ a bounded operator on smooth zero-mean profiles ([[lem:first-stage-operator]]; ∂_θ⁻¹ the
 zero-mean primitive): an ordinary differential equation along the integral curves of ℓ, which reach Σ_τ0 inside Ω
 [[lem:domain]] (d). Its right-hand side contains □̃φ_m. Put Ψ_m := □̃φ_m. By the commutator identity for
 [L0, □̃] [[eq:commutator]] applied to (b), Ψ_m satisfies the transport
@@ -389,10 +437,22 @@ zero-mean primitive): an ordinary differential equation along the integral curve
     L0 Ψ_m − (2/r) Ψ_m = −(1/2) □̃(m_m(ℓ, ℓ) + q_m) − (1/r)(∂_τ + ∂_r)(m_m(ℓ, ℓ) + q_m) − (3/r²) ∂_r φ_m,
 
 and □̃(m_m(ℓ, ℓ)) = (□̃ m_m)(ℓ, ℓ) + first order, with □̃ m_m from (a): first order in (m_m, φ_m) and algebraic in
-ĝ_(m+1). The system for (m_m, φ_m, Ψ_m, Z) is then linear with smooth coefficients and closes without loss: m_m in
-H^(s+1), φ_m in H^(s+1), Ψ_m and Z in H^s. Existence and uniqueness on Ω follow by Picard iteration from the energy and
-transport estimates [[lem:energy]] and [[lem:transport]], in which λ plays no role. Ψ_m = □̃φ_m holds because their
-difference solves a homogeneous transport with zero data. Smooth data give smooth solutions. ∎
+ĝ_(m+1). The datum of Ψ_m on Σ_τ0 is □̃φ_m computed from the data: φ_m is given there, ∂_τ φ_m = L0 φ_m + x̂·∂_x φ_m
+with L0 φ_m from (b), and ∂_τ² φ_m follows from the τ-derivative of (b), which involves ∂_τ m_m on Σ_τ0. The system for
+(m_m, φ_m, Ψ_m, Z) is then linear with smooth coefficients and closes without loss: m_m in H^(s+1), φ_m in H^(s+1),
+Ψ_m and Z in H^s.
+
+We solve it by Picard iteration on Ω. Given an iterate, the next one takes m_m from (a) by [[lem:linear-wave]], with
+the right-hand side evaluated at the given iterate, and φ_m, Ψ_m and Z from their transports, which are ordinary
+differential equations with smooth coefficients along the integral curves of ℓ, solved from Σ_τ0 ([[lem:domain]] (d)).
+Every iterate is smooth. The difference of two successive iterates solves the same linear system with zero data and
+with the previous difference in its right-hand sides. So the energy and transport estimates [[lem:energy]] and
+[[lem:transport]], in which λ plays no role, give for the sum e_n(τ) of the norms of the n-th difference, at the
+regularities just stated, e_(n+1)(τ) ≤ C ∫_(τ0)^τ e_n(s) ds, hence e_n(τ) ≤ (C (τ − τ0))^n sup e_0 / n!. The iterates
+converge and the limit solves the system; the same estimate, for zero data and zero right-hand side, gives uniqueness.
+Ψ_m = □̃φ_m holds because, by [[eq:commutator]] applied to (b), □̃φ_m solves the same transport as Ψ_m, so their
+difference solves a homogeneous transport with zero data. Smooth data give smooth solutions, the iteration closing at
+every s. ∎
 
 ### The approximant {#sec:approximant}
 

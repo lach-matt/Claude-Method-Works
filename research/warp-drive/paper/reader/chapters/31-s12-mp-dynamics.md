@@ -666,3 +666,473 @@ in b on compact sets of initial points away from ∂ℛ_±. ∎
 
 This is the non-degenerate radial point structure at the conormal bundle of the event horizon that
 [Hin26, Remark 1.4 (b)] describes, for the Myers–Perry metrics near Tangherlini.
+
+### Spheroidal coordinates and the separation {#sec:vi-b1-0}
+
+This section and the next five prove the remaining dynamical hypotheses for g_b, b near b₀: the normally hyperbolic
+trapping (Γ.1)–(Γ.3) of (H7), the r-normal hyperbolicity (K3) with the uniformity (K4), and the global dynamics (H8),
+with the uniformity of (H5) extended to them ([[sec:i-b-1-5]]). With [[sec:vi-a-1]] ((H6), (K1), and (Dyn) at b₀) and
+[[sec:vi-b-2]] ((H3)–(H4) near b₀) this completes (Dyn) near b₀ ([[thm:vi-b1-5-1]]).
+
+*Notation.* In these sections b is the parameter and, in a frame, the second spin; Ψ is a momentum in a frame and Ψ_b
+the diffeomorphism of [[lem:vi-b-1-2]]; β is the coefficient of [[lem:vi-b1-0-1]] (c) and β₀ the rate of (H3); ψ is an
+azimuth; and ℛ_c, 𝒮 are the functions of [[lem:vi-b1-2-1]].
+
+Let b = (m, A) with |b − b₀| small, and use the notation of [[ch:s11]]: s = −½ tr(A²), P(r) = r⁴ + sr² + p²,
+Δ_b = P − m r², r_A, ℓ_A and H_(m,A) ([[lem:iii-b-3-1]], [[def:iii-b-3-2]]), and r₊(b), the largest root of Δ_b
+([[eq:vi-b-1-1]]). On {|x| ≥ r₀ − 2δ₀}, which lies in {|x|² > s} by [[lem:s12-ks-domain]], write
+
+    x = (r²I − A²)^(1/2) ω,     r > 0,     ω ∈ 𝕊³ ⊂ ℝ⁴.                                                   {#eq:vi-b1-0-1}
+
+By [[lem:s12-spheroidal]], r = r_A(x) and ω = (r_A²I − A²)^(−1/2)x; conversely, for x given by [[eq:vi-b1-0-1]] with
+|x|² > s, xᵀ(r²I − A²)⁻¹x = |ω|² = 1, so r is the unique positive zero of Q(·, x) ([[lem:iii-b-3-1]]), r = r_A(x). So
+[[eq:vi-b1-0-1]] is a diffeomorphism (r, ω) ↦ x onto {|x|² > s}, smooth in A, with no frame chosen. Write
+N := (r²I − A²)^(1/2). Differentiating N² = r²I − A², with N and ∂_rN commuting (both are functions of A²),
+∂_rN = rN⁻¹; so dx = rN⁻¹ω dr + N dω, with ⟨rN⁻¹ω, N dω⟩ = r⟨ω, dω⟩ = 0 and |rN⁻¹ω|² = r² xᵀN⁻⁴x = r²ϱ²/P by
+[[lem:s12-spheroidal]] (a). Hence
+
+    |dx|² = (r²ϱ²/P) dr² + ⟨(r²I − A²) dω, dω⟩,     ϱ² = r² + s + ωᵀA²ω,
+
+with ϱ² of [[eq:s12-varrho]]. Write a covector as ν = −E dt + p_r dr + η, η ∈ T*_ω𝕊³, with t the Kerr–Schild time,
+|η|²_(𝕊³) its round norm and |η|²_(e,r) its norm for the second term of |dx|². Put Y_r := (r²I − A²)⁻¹A, which is
+antisymmetric, so that Y_rω ∈ T_ω𝕊³; Ẽ := E + η(Y_rω); 𝒯 := |η|²_(𝕊³) − ϱ²|η|²_(e,r); and
+
+    𝔄 := (P/r²) p_r² − r²E² − 𝒯 − m(Ẽ + p_r)²,     𝒦 := |η|²_(𝕊³) − (s + ωᵀA²ω) E².                       {#eq:vi-b1-0-2}
+
+*A frame.* Rotating, A = aJ₁₂ + bJ₃₄ with J₁₂ = e₁e₂ᵀ − e₂e₁ᵀ and J₃₄ = e₃e₄ᵀ − e₄e₃ᵀ, and
+ω = (sin ϑ e^(iφ), cos ϑ e^(iψ)). Put Φ := η(J₁₂ω) and Ψ := η(J₃₄ω), the generators of the two rotations; as
+J₁₂ω = −∂_φ and J₃₄ω = −∂_ψ, they are minus the momenta conjugate to φ and ψ. Then ϱ² = r² + a² cos²ϑ + b² sin²ϑ and
+
+    𝒦 = p_ϑ² + Φ²/sin²ϑ + Ψ²/cos²ϑ − (a² cos²ϑ + b² sin²ϑ) E²,     η(Y_rω) = aΦ/(r² + a²) + bΨ/(r² + b²),
+    𝒯 = (a² − b²)(Φ²/(r² + a²) − Ψ²/(r² + b²)).                                                          {#eq:vi-b1-0-3}
+
+So 𝔄 depends on (r, p_r, E, Φ, Ψ) only, and 𝒦 on (ϑ, p_ϑ, E, Φ, Ψ) only. The frame is used only to compute; every
+statement below is about the frame-free functions [[eq:vi-b1-0-2]].
+
+**Lemma {#lem:vi-b1-0-1}** (Separation.) On T*(ℝ_t × {|x| ≥ r₀ − 2δ₀}), with 𝒢 := 𝔄 + 𝒦 and g_b written in the
+Kerr–Schild time t (that is, g^KS_b):
+
+(a) ϱ² g_b⁻¹(ν, ν) = 𝒢.
+
+(b) E, 𝒦 and, in any frame, Φ and Ψ are constant along the flow of H_𝒢, and they Poisson-commute with each other.
+
+(c) 𝔄 = αp_r² + 2βp_r + γ with α := Δ_b/r², β := −mẼ and γ := −r²E² − 𝒯 − mẼ². With p̃ := αp_r + β and the
+*radial function* ℛ := β² − α(γ + 𝒦), α𝒢 = p̃² − ℛ.
+
+(d) H_𝒢 r = 2p̃ and H_𝒢 p̃ = ∂_rℛ + (α′/α)(p̃² − ℛ), where ∂_r is taken at fixed (ω, η). In a frame, ℛ, α, β and p̃
+depend on (ω, η) only through (Φ, Ψ, 𝒦), and H_𝒢 f = 0 for every function f of (E, Φ, Ψ, 𝒦).
+
+*Proof.* (a) By [[lem:iii-b-3-3]] (d), g_b⁻¹ = η_M⁻¹ − H_(m,A) k_A^♯ ⊗ k_A^♯ with η_M := −dt² + dx² the Minkowski
+metric and k_A^♯ = −∂_t + ℓ_A^♯. From the formula for |dx|², η_M⁻¹(ν, ν) = −E² + (P/(r²ϱ²)) p_r² + |η|²_(e,r). The
+coefficient vector of ℓ_A is N⁻²(rI + A)x = rN⁻²x + N⁻¹Aω ([[lem:s12-spheroidal]]). At fixed ω, ∂_r x = rN⁻¹ω = rN⁻²x,
+and the vector N⁻¹Aω = N(Y_rω) is the image of Y_rω ∈ T_ω𝕊³ under (r, ω) ↦ x at fixed r. So ℓ_A^♯ = ∂_r + Y_rω in
+the coordinates (r, ω), and ν(k_A^♯) = E + p_r + η(Y_rω) = Ẽ + p_r. By [[lem:s12-spheroidal]] (b), H_(m,A) = m/ϱ².
+Hence
+
+    ϱ² g_b⁻¹(ν, ν) = (P/r²) p_r² − ϱ²E² + ϱ²|η|²_(e,r) − m(Ẽ + p_r)²,
+
+and ϱ²E² = r²E² + (s + ωᵀA²ω)E² and ϱ²|η|²_(e,r) = |η|²_(𝕊³) − 𝒯 give (a).
+
+*The frame formulas [[eq:vi-b1-0-3]].* In the frame, r²I − A² = diag(r² + a², r² + a², r² + b², r² + b²) and
+dω = (cos ϑ e^(iφ) dϑ + i sin ϑ e^(iφ) dφ, −sin ϑ e^(iψ) dϑ + i cos ϑ e^(iψ) dψ), so
+
+    ⟨(r²I − A²) dω, dω⟩ = ϱ² dϑ² + (r² + a²) sin²ϑ dφ² + (r² + b²) cos²ϑ dψ²,
+
+since (r² + a²) cos²ϑ + (r² + b²) sin²ϑ = ϱ². The round metric is dϑ² + sin²ϑ dφ² + cos²ϑ dψ². With p_φ = −Φ and
+p_ψ = −Ψ, |η|²_(𝕊³) = p_ϑ² + Φ²/sin²ϑ + Ψ²/cos²ϑ and |η|²_(e,r) = p_ϑ²/ϱ² + Φ²/((r² + a²) sin²ϑ) +
+Ψ²/((r² + b²) cos²ϑ). Writing ϱ² = r² + a² − (a² − b²) sin²ϑ in the second term and ϱ² = r² + b² + (a² − b²) cos²ϑ in
+the third,
+
+    ϱ²|η|²_(e,r) = |η|²_(𝕊³) − (a² − b²) Φ²/(r² + a²) + (a² − b²) Ψ²/(r² + b²),
+
+which is the formula for 𝒯. Next, s + ωᵀA²ω = a² + b² − a² sin²ϑ − b² cos²ϑ = a² cos²ϑ + b² sin²ϑ gives 𝒦. Finally
+(r²I − A²)⁻¹ is (r² + a²)⁻¹ on span(e₁, e₂) and (r² + b²)⁻¹ on span(e₃, e₄), which contain J₁₂ω and J₃₄ω, so
+Y_rω = aJ₁₂ω/(r² + a²) + bJ₃₄ω/(r² + b²) and η(Y_rω) is as stated. The proof of (a) chose no frame; the frame enters
+only these formulas.
+
+(b) E is the momentum of the Killing field ∂_t. In a frame, where sin 2ϑ ≠ 0, the coordinates (t, r, ϑ, φ, ψ) and
+their conjugate momenta (−E, p_r, p_ϑ, −Φ, −Ψ) are canonical, and by [[eq:vi-b1-0-3]] 𝔄 and 𝒦 share only the momenta
+E, Φ, Ψ, whose coordinates t, φ, ψ appear in neither. So {𝔄, 𝒦} = 0, hence {𝒢, 𝒦} = 0, and E, Φ, Ψ Poisson-commute
+with 𝔄, 𝒦 and with each other. These identities hold on a dense open set and so everywhere, by continuity; E and 𝒦 are
+defined without a frame.
+
+(c) is algebra: P/r² − m = Δ_b/r² = α, so 𝔄 = αp_r² − 2mẼp_r − r²E² − 𝒯 − mẼ², and
+α𝔄 = (αp_r + β)² − β² + αγ. Adding α𝒦 gives α𝒢 = p̃² − ℛ.
+
+(d) In a frame, 𝒦 does not involve (r, p_r), and α, β and p̃ are functions of (r, p_r, E, Φ, Ψ); so
+H_𝒢 r = ∂_(p_r)𝒢 = ∂_(p_r)𝔄 = 2αp_r + 2β = 2p̃. Since E, Φ and Ψ are conserved, H_𝒢 p̃ = ∂_(p_r)𝒢 · ∂_r p̃ −
+∂_r𝒢 · ∂_(p_r)p̃ = 2p̃ ∂_r p̃ − α ∂_r𝒢, with ∂_r at fixed (p_r, ϑ, p_ϑ, Φ, Ψ, E), that is at fixed (ω, η). From
+𝒢 = α⁻¹(p̃² − ℛ), α∂_r𝒢 = −(α′/α)(p̃² − ℛ) + 2p̃ ∂_r p̃ − ∂_rℛ. Hence H_𝒢 p̃ = ∂_rℛ + (α′/α)(p̃² − ℛ). The last claim
+is (b). ∎
+
+So on the characteristic set Σ = {𝒢 = 0} over {r > r₊}, where α > 0, p̃² = ℛ(r), with ℛ evaluated at the constant
+values of (E, Φ, Ψ, 𝒦) along the curve, and the pair (r, p̃) moves as a particle in the potential −ℛ:
+H_𝒢 r = 2p̃, H_𝒢 p̃ = ∂_rℛ. For a covector ν = −z₀ dt + ζ as in [[sec:vi-a-0]], E = z₀; the Hamilton vector field of
+G_(z₀) = ϱ⁻²𝒢 on Σ is ϱ⁻²H_𝒢, and the future field on Σ^±_(z₀) is ±ϱ⁻²H_𝒢. This is [Hin26c, (4.30)–(4.32)] and
+Carter's constant, for Myers–Perry.
+
+### The radial function {#sec:vi-b1-1}
+
+Put Λ := 𝒦 + sE² = |η|²_(𝕊³) + E²|Aω|² ≥ |η|²_(𝕊³), using −ωᵀA²ω = |Aω|². In a frame, with u := r², the function
+𝒫(u) := uPℛ is
+
+    𝒫 = m(PE + aΦ(u + b²) + bΨ(u + a²))² + Δ_b(uPE² + (a² − b²)(Φ²(u + b²) − Ψ²(u + a²)) − 𝒦P),           {#eq:vi-b1-1-1}
+
+a polynomial of degree 5 in u whose coefficients are polynomials in (m, a, b, E, Φ, Ψ, Λ). Indeed, with α = Δ_b/u,
+β = −mẼ and m + Δ_b/u = P/u, ℛ = m²Ẽ² + (Δ_b/u)(uE² + 𝒯 + mẼ² − 𝒦) = mẼ²P/u + (Δ_b/u)(uE² + 𝒯 − 𝒦); and
+P = (u + a²)(u + b²), so PẼ = PE + aΦ(u + b²) + bΨ(u + a²) and P𝒯 = (a² − b²)(Φ²(u + b²) − Ψ²(u + a²)), by
+[[eq:vi-b1-0-3]]. Multiplying by uP gives [[eq:vi-b1-1-1]]; its terms have degrees at most 4, 5, 3 and 4 in u, the
+coefficient of u⁵ is E², and 𝒦 = Λ − (a² + b²)E². Then 𝒬(w) := w⁵𝒫(w⁻¹) is a polynomial in w with 𝒬(0) = E², and at
+A = 0, where P = u², Δ_b = u² − mu, Ẽ = E, 𝒯 = 0 and 𝒦 = Λ, 𝒫 = u⁵E² − Λu⁴ + mΛu³, so
+
+    𝒬 = E² − Λw + mΛw².                                                                                   {#eq:vi-b1-1-2}
+
+ℛ(r) = r⁸𝒬(r⁻²)/P(r), so ℛ and 𝒬(r⁻²) have the same sign and the same zeros, with multiplicity, as P > 0. ℛ and 𝒬 are
+homogeneous of degree 2 in (E, Φ, Ψ, Λ^(1/2)), so their signs and zeros depend only on the normalised values in
+
+    𝒩 := {(E, Φ, Ψ, Λ) : E² + Λ/m₀ = 1, (|Φ| + |Ψ|)² ≤ Λ},
+
+a compact set. Every covector with E ≠ 0 (as in every use below, where E = z₀) has its normalised values in 𝒩:
+by the Cauchy–Schwarz inequality, |η|²_(𝕊³) ≥ Φ²/sin²ϑ + Ψ²/cos²ϑ ≥ (|Φ| + |Ψ|)², and Λ ≥ |η|²_(𝕊³).
+
+**Lemma {#lem:vi-b1-1-1}** (Convexity.) There is ε_R > 0 such that for |b − b₀| ≤ ε_R, in any frame, and every point
+of 𝒩, on [0, 2/m₀]: if Λ ≥ m₀/6, then 𝒬″ ≥ m₀²/12; if Λ < m₀/6, then 𝒬 ≥ ½.
+
+*Proof.* At A = 0 and |m − m₀| ≤ ½m₀, [[eq:vi-b1-1-2]] gives 𝒬″ = 2mΛ ≥ m₀²/6 when Λ ≥ m₀/6, and
+𝒬 ≥ E² − Λ/(4m) ≥ 5/6 − 1/12 = 3/4 when Λ < m₀/6. The coefficients of 𝒬 at (m, A) minus those at (m, 0) are
+polynomials in (m, a, b, E, Φ, Ψ, Λ) vanishing at a = b = 0, hence bounded by C‖A‖ on the compact set
+𝒩 × {|m − m₀| ≤ ½m₀}, with C independent of the frame, as |a|, |b| ≤ ‖A‖. So the difference is at most C′‖A‖ in
+C²([0, 2/m₀]), which is below min(m₀²/12, ¼) for ‖A‖ small. ∎
+
+**Corollary {#cor:vi-b1-1-2}** (The radial structure.) Let ε_R also be so small that r₊(b)⁻² < 2/m₀, and let
+|b − b₀| ≤ ε_R and E ≠ 0. Then on (r₊, ∞):
+
+(a) ℛ > 0 near ∞, and {r > r₊ : ℛ(r) < 0} is an interval, possibly empty.
+
+(b) A double zero r_c of ℛ in (r₊, ∞) has ∂_r²ℛ(r_c) > 0, and then ℛ > 0 on (r₊, ∞) ∖ {r_c}.
+
+(c) For every δ > 0 there is ε(δ) ≤ ε_R such that for |b − b₀| ≤ ε(δ) every double zero has |r_c − (2m)^(1/2)| < δ and
+|Λ − 4mE²| < δE².
+
+*Proof.* In w = r⁻² ∈ (0, w₊), w₊ := r₊⁻², 𝒬(0) = E² > 0, and 𝒬 is either positive on [0, w₊] or strictly convex
+there ([[lem:vi-b1-1-1]], after normalising). A strictly convex function is negative on an interval and has a double
+zero only at its minimum, with 𝒬″ > 0; it is then positive elsewhere. As ℛ = r⁸𝒬(r⁻²)/P and dw/dr ≠ 0, this gives
+(a) and (b), with ∂_r²ℛ(r_c) = (r_c⁸/P) 𝒬″(w_c)(dw/dr)² > 0, the other terms vanishing with 𝒬(w_c) and 𝒬′(w_c).
+(c) Suppose b_n → b₀ and normalised double zeros (π_n, w_n) ∈ 𝒩 × [0, 2/m₀] have a limit (π, w). By continuity it is a
+double zero of [[eq:vi-b1-1-2]] at m = m₀: E² − Λw(1 − m₀w) = 0 = −Λ(1 − 2m₀w). Λ = 0 would give E² = 1 and
+𝒬(w) = 1, so w = 1/(2m₀) and Λ = 4m₀E². Compactness gives (c). ∎
+
+This is [Hin26c, Lemmas 4.11–4.12] near b₀. [Hin26c, Lemma 4.12] proves its convexity for all subextremal Kerr metrics;
+here the convexity of 𝒬 in w = r⁻² is proved by perturbation from [[eq:vi-b1-1-2]], which suffices near b₀.
+
+### The trapped set near b₀ {#sec:vi-b1-2}
+
+Fix z₀ ∈ {1, −1}, so E = z₀ and E² = 1. Let I_Γ := ((1.2m₀)^(1/2), (3m₀)^(1/2)), which contains r_ph = (2m₀)^(1/2)
+and lies in (r_h, 7R₁/4), and 𝒲 := {(ω, η) ∈ T*𝕊³ : 3m₀ < |η|²_(𝕊³) < 5m₀}.
+
+**Lemma {#lem:vi-b1-2-1}** (The critical radius.) There is ε_Γ ∈ (0, ε_R] such that for |b − b₀| < ε_Γ: ∂_r²ℛ > 0 on
+Ī_Γ × 𝒲̄; ∂_rℛ(·; ω, η) has a unique zero r_c(ω, η) ∈ I_Γ; and with ℛ_c := ℛ(r_c) and 𝒮 := (ℛ − ℛ_c)/(r − r_c)², the
+functions r_c, ℛ_c on 𝒲̄ and 𝒮 on Ī_Γ × 𝒲̄ are smooth in (b, ·), 𝒮 > 0, and dℛ_c ≠ 0 on
+{ℛ_c = 0} ∩ 𝒲̄ ⊂ {3.5m₀ < |η|² < 4.5m₀}. In a frame they depend on (ω, η) only through (Φ, Ψ, 𝒦). At b₀, with
+C = |η|²: r_c² = C/2, ℛ_c = C(m₀ − C/4) and 𝒮 = (r + r_c)².
+
+*Proof.* At b₀, ℛ = r⁸𝒬(r⁻²)/r⁴ = r⁴ − C(r² − m₀) by [[eq:vi-b1-1-2]] with Λ = C, so ∂_rℛ = 2r(2r² − C) vanishes at
+r² = C/2 ∈ (1.5m₀, 2.5m₀), and ∂_r²ℛ = 12r² − 2C ≥ 14.4m₀ − 10m₀ > 0 on Ī_Γ × 𝒲̄. Then ℛ_c = C(m₀ − C/4) vanishes on
+𝒲̄ only at C = 4m₀, where dℛ_c = (m₀ − C/2) dC = −m₀ dC ≠ 0, and ℛ − ℛ_c = r⁴ − Cr² + C²/4 = (r² − C/2)², so
+𝒮 = (r² − r_c²)²/(r − r_c)² = (r + r_c)². ℛ is smooth in (b, r, ω, η) and Ī_Γ × 𝒲̄ is compact, so ℛ_b → ℛ_(b₀) in C³
+there. Hence for b near b₀, ∂_r²ℛ > 0, ∂_rℛ has exactly one zero in I_Γ, smooth in (b, ω, η) by the implicit function
+theorem, and the statements on ℛ_c persist. 𝒮 = ∫₀¹ (1 − τ) ∂_r²ℛ(r_c + τ(r − r_c)) dτ is smooth and positive. The
+frame statement holds because it holds for ℛ ([[lem:vi-b1-0-1]] (d)). ∎
+
+On O := {(r, ω; p_r, η) : r ∈ I_Γ, (ω, η) ∈ 𝒲} define
+
+    φ_± := p̃ ∓ (r − r_c)√𝒮,     T_Γ := ∂_r((r − r_c)√𝒮),     Γ_b := Σ_(z₀) ∩ {φ₊ = φ₋ = 0} ∩ O.         {#eq:vi-b1-2-1}
+
+**Proposition {#prop:vi-b1-2-2}** ((Γ.1)–(Γ.3) near b₀.) Let |b − b₀| < ε_Γ. In the variables of the Kerr–Schild
+time:
+
+(a) Γ_b = {r = r_c, p̃ = 0, ℛ_c = 0} ∩ O. It is a compact submanifold of codimension 2 of Σ_(z₀), invariant under the
+flow, and Γ_(b₀) is the set Γ of [[eq:vi-a-3-1]].
+
+(b) On Σ_(z₀) ∩ O, φ₊φ₋ = ℛ_c, and the future field 𝖧 := z₀ϱ⁻²H_𝒢 satisfies
+
+    𝖧φ₊ = −2z₀ϱ⁻²T_Γ φ₊,     𝖧φ₋ = 2z₀ϱ⁻²T_Γ φ₋,                                                         {#eq:vi-b1-2-2}
+
+with T_Γ = √𝒮 > 0 on Γ_b.
+
+(c) (Γ.1)–(Γ.3) hold with (φ_u, φ_s) := (φ₊, φ₋) for z₀ = 1 and (φ₋, −φ₊) for z₀ = −1, ν_u = ν_s = 2ϱ⁻²T_Γ, and
+{φ_u, φ_s} = 2α√𝒮 > 0 on Γ_b. At b₀, ν_u = ν_s = 4(2m₀)^(−1/2) on Γ.
+
+(d) The same holds for g̃_b with the time function Ψ_b^* t_*, after the fibre translation of [[lem:vi-a-0-1]] from t
+to t_* and the cotangent lift of the diffeomorphism Ψ_b of [[lem:vi-b-1-2]]. All the data are smooth in b with values in
+C^∞, Γ̃_b ⊂ T*{r₂ < r < ρ₁⁻¹}, and ν_min(b), β₀(b) := ½ min_(Γ̃_b) |q_(z₀)| and max_(Γ̃_b) |q^Γ − 4| tend to
+4(2m₀)^(−1/2), 2 and 0 as b → b₀.
+
+*Proof.* (a) φ₊ = φ₋ = 0 means p̃ = 0 and (r − r_c)√𝒮 = 0, so r = r_c; on Σ, [[lem:vi-b1-0-1]] (c) then gives
+0 = p̃² − ℛ = −ℛ_c. Conversely, r = r_c, p̃ = 0 and ℛ_c = 0 give 𝒢 = α⁻¹(p̃² − ℛ) = 0. By [[lem:vi-b1-2-1]], (ω, η)
+ranges over the compact set {ℛ_c = 0} ∩ 𝒲̄, which lies inside 𝒲, and (r, p_r) is a smooth function of (ω, η) on it
+(r = r_c, p_r = −β/α). So Γ_b is compact, and it is smooth of codimension 2 in Σ by (c) below. It is invariant: on Γ_b,
+H_𝒢 r = 2p̃ = 0 and H_𝒢 p̃ = ∂_rℛ(r_c) = 0, while r_c and ℛ_c are constant along the flow ([[lem:vi-b1-0-1]] (d)). At
+b₀, p̃ = (r² − m₀)p_r − m₀E, and the static time t_s = t − F_s, F_s′ = m₀/(r² − m₀), moves p_r to ξ_s = p_r − z₀F_s′
+([[lem:vi-a-0-1]] (a)). So p̃ = (r² − m₀)ξ_s, and {r = r_ph, p̃ = 0, C = 4m₀} is the set of [[eq:vi-a-3-1]].
+
+(b) On Σ ∩ O, φ₊φ₋ = p̃² − (r − r_c)²𝒮 = ℛ − (r − r_c)²𝒮 = ℛ_c. By [[lem:vi-b1-0-1]] (d), on Σ: H_𝒢 r = 2p̃;
+H_𝒢 p̃ = ∂_rℛ = 2(r − r_c)𝒮 + (r − r_c)²∂_r𝒮, as ℛ_c does not depend on r; and H_𝒢 annihilates r_c and ℛ_c and acts on
+𝒮 through r only. Hence H_𝒢((r − r_c)√𝒮) = 2p̃ T_Γ. Since 2√𝒮 ∂_r√𝒮 = ∂_r𝒮,
+
+    2(r − r_c)√𝒮 T_Γ = 2(r − r_c)𝒮 + (r − r_c)² ∂_r𝒮 = ∂_rℛ,
+
+so H_𝒢 p̃ = 2(r − r_c)√𝒮 T_Γ, and H_𝒢φ_± = 2(r − r_c)√𝒮 T_Γ ∓ 2p̃ T_Γ = ∓2T_Γ(p̃ ∓ (r − r_c)√𝒮) = ∓2T_Γφ_±
+exactly. Multiplying by z₀ϱ⁻² gives [[eq:vi-b1-2-2]]. On Γ_b, r = r_c, so T_Γ = √𝒮.
+
+(c) (Γ.2) is [[eq:vi-b1-2-2]], the sign choices making φ_u decay and φ_s grow along 𝖧; ν_(u/s) are smooth and positive
+near Γ_b. For (Γ.1) and (Γ.3): at Γ_b, d𝒢 = α⁻¹(2p̃ dp̃ − dℛ) = −α⁻¹dℛ_c, as p̃ = 0, ∂_rℛ = 0, and
+d_((ω,η))ℛ = dℛ_c at r = r_c (since ∂_rℛ(r_c) = 0). So dG_(z₀) = ϱ⁻²d𝒢 ≠ 0. At Γ_b, dφ_± = dp̃ ∓ √𝒮(dr − dr_c). Of
+the three covectors dφ₊, dφ₋, dℛ_c, only dp̃ has a dp_r component (it is α ≠ 0), only dr − dr_c has a dr component, and
+dℛ_c ≠ 0 has neither; so they are independent. Hence Γ_u and Γ_s are smooth hypersurfaces of Σ near Γ_b, meeting
+transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]]. For the bracket,
+{φ₊, φ₋} = 2{p̃, (r − r_c)√𝒮}, which at r = r_c is 2√𝒮({p̃, r} − {p̃, r_c}) = 2α√𝒮. Here {p̃, r} = ∂_(p_r)p̃ = α,
+and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of (Φ, Ψ, 𝒦), which Poisson-commute
+([[lem:vi-b1-0-1]] (b)). α > 0 on I_Γ, as I_Γ ⊂ (r₊, ∞). For z₀ = −1, {φ₋, −φ₊} = {φ₊, φ₋}. At b₀, ϱ² = r_ph² = 2m₀
+and √𝒮 = 2r_ph on Γ, so ν = 4r_ph/(2m₀) = 4(2m₀)^(−1/2), the rate of [[prop:vi-a-3-1]].
+
+(d) dt and dt_* are timelike for g_b ([[lem:iii-b-3-3]] (e) with β = 0, valid by [[lem:s12-ks-domain]], and
+[[lem:vi-a-1-1]]). They are co-oriented: g_b⁻¹(dt, dt_*) cannot vanish where both are timelike, the region is
+connected, and near infinity it is close to η_M⁻¹(dt, dt − d|x|) = −1. The difference t − t_* is a function of |x|
+([[eq:iii-b-3-3]], [[eq:iii-b-3-6]]). So [[lem:vi-a-0-1]] (a)–(b) carries Γ_b, φ_(u/s), (Γ.1)–(Γ.3) and the future
+field to t_*, and the cotangent lift of Ψ_b, a symplectomorphism intertwining the Hamilton vector fields, carries them
+to g̃_b. Everything in [[eq:vi-b1-2-1]] is built from frame-free functions smooth in (b, ·), and so are the two maps.
+At b₀, Γ ⊂ {r = r_ph} and r₂ < r_ph < 3R₁ = ρ₁⁻¹; by continuity Γ̃_b stays in T*{r₂ < r < ρ₁⁻¹}. q_(z₀) is continuous
+in b and the point, and on Γ_(b₀) it is 4z₀ in t_* ([[thm:vi-a-6-1]]); so β₀(b) → 2 and q^Γ → 4 uniformly. In
+particular, after shrinking O uniformly in b, z₀q_(z₀) > 0 on Σ_(z₀) ∩ O, so there Σ_(z₀) agrees with the set
+Σ^♭_(z₀) = Σ^(z₀)_(z₀) = Σ_(z₀) ∩ {z₀q_(z₀) > 0} of (H7), and the Γ_(u/s) of [[eq:vi-b1-2-1]] are those of (H7). For
+the continuity in b that (H5) asks, φ_(u/s) are taken on a fixed neighbourhood of Γ̃_(b₀) contained in the transported
+O_b for every b near b₀. ∎
+
+This is [Hin26c, Lemmas 4.14–4.18 and Definitions 4.13, 4.15, 4.17] for Myers–Perry near Tangherlini. The separation
+gives the separatrices in closed form, smooth in b; the persistence of normally hyperbolic manifolds would give them
+only in C^k for each k, on neighbourhoods shrinking with k.
+
+### r-normal hyperbolicity near b₀ {#sec:vi-b1-3}
+
+(K3) concerns z₀ = 1 and 𝖵 := q₁⁻¹H_(G₁) on Σ^♭₁ near Γ. Its tangential bound, for every ϵ > 0, is the substance;
+[Hin26c, Proposition 4.19 (3)] proves it for Kerr from the integrable structure of the flow on the trapped set, and so
+does this section, for the flow of 𝒦 on T*𝕊³. At b ≠ b₀ that flow is not periodic.
+
+**Lemma {#lem:vi-b1-3-1}** (The flow on Γ_b.) Let |b − b₀| < ε_Γ and z₀ = 1. The projection
+π : (r, ω; p_r, η) ↦ (ω, η) restricts to a diffeomorphism of Γ_b onto Γ^𝕊_b := {ℛ_c = 0} ∩ 𝒲, and
+π_*(H_𝒢|_(Γ_b)) = H_𝔥 on Γ^𝕊_b, where 𝔥 := 𝒦 + 𝔄(r_c, p_r^c; ·) on 𝒲 and p_r^c := −β(r_c)/α(r_c). In a frame, 𝔥 is
+a smooth function of (𝒦, Φ, Ψ), so H_𝔥 = c₀H_𝒦 + c₁H_Φ + c₂H_Ψ, with c₀, c₁, c₂ the partial derivatives of that
+function, constant along each orbit.
+
+*Proof.* The inverse is (ω, η) ↦ (r_c, ω; p_r^c, η) ([[prop:vi-b1-2-2]] (a)). The (ω, η)-components of
+H_𝒢 = H_𝔄 + H_𝒦 are those of the Hamilton vector field on T*𝕊³ of 𝒦 + 𝔄(r, p_r; ·) with (r, p_r) frozen. This differs
+from H_𝔥 by (∂_r𝔄)H_(r_c) + (∂_(p_r)𝔄)H_(p_r^c). On Γ_b, ∂_(p_r)𝔄 = 2p̃ = 0, and ∂_r𝔄 = −H_𝒢 p_r = 0, because
+p_r = p_r^c there is a function of the conserved (Φ, Ψ, 𝒦) and Γ_b is invariant. In a frame, 𝔄(r, p_r; ·) depends on
+(ω, η) through (Φ, Ψ), and r_c, p_r^c through (Φ, Ψ, 𝒦) ([[lem:vi-b1-2-1]]). The Hamilton vector fields of 𝒦, Φ and
+Ψ commute ([[lem:vi-b1-0-1]] (b)), so the c_i are constant along orbits. ∎
+
+Let 𝒴 := {(ω, η) : 3m₀ ≤ 𝒦 ≤ 5m₀} ⊂ T*𝕊³ (with E² = 1), compact and invariant under H_𝒦, H_Φ and H_Ψ; for b near b₀
+it contains Γ^𝕊_b. Fix any Riemannian metric on T*𝕊³ for the norms.
+
+**Lemma {#lem:vi-b1-3-2}** (The flow of 𝒦.) Let ‖A‖² ≤ m₀/100. For every p ∈ 𝒴 there is C_p with
+|D_p e^(sH_𝒦) v| ≤ C_p(1 + |s|)|v| for all v and all s ∈ ℝ.
+
+*Proof.* Work in a frame, with Π := (Π₀, Π₁, Π₂) := (𝒦, Φ, Ψ) and X₀ := H_𝒦, X₁ := H_Φ, X₂ := H_Ψ, which commute.
+With Φ, Ψ fixed, write U(ϑ) := Φ²/sin²ϑ + Ψ²/cos²ϑ − a² + (a² − b²) sin²ϑ, so that 𝒦 = p_ϑ² + U (with E² = 1). Then
+
+    U″ ≥ 2Φ²/sin²ϑ + 2Ψ²/cos²ϑ − 2|a² − b²|,                                                              {#eq:vi-b1-3-1}
+
+since (sin⁻²ϑ)″ = 2 sin⁻²ϑ + 6 cos²ϑ sin⁻⁴ϑ ≥ 2 sin⁻²ϑ, (cos⁻²ϑ)″ = 2 cos⁻²ϑ + 6 sin²ϑ cos⁻⁴ϑ ≥ 2 cos⁻²ϑ, and
+(sin²ϑ)″ = 2 cos 2ϑ ≥ −2. On 𝒴, wherever p_ϑ = 0, Φ²/sin²ϑ + Ψ²/cos²ϑ = 𝒦 + a² − (a² − b²) sin²ϑ ≥ 3m₀ − 2‖A‖², so
+U″ ≥ 6m₀ − 6‖A‖² > 0 there.
+
+*The singular set.* Let Z := {p ∈ 𝒴 : dΠ₀, dΠ₁, dΠ₂ are dependent at p}. Where sin 2ϑ ≠ 0, (ϑ, φ, ψ) and their momenta
+are canonical coordinates, dΦ and dΨ are independent, and d𝒦 = 2p_ϑ dp_ϑ + U′ dϑ + (…) dΦ + (…) dΨ. So p ∈ Z there
+if and only if p_ϑ = 0 = U′(ϑ). If Φ = 0, then U′ = 2 sin ϑ cos ϑ (Ψ²/cos⁴ϑ + a² − b²) > 0, since
+Ψ²/cos⁴ϑ ≥ Ψ²/cos²ϑ ≥ 3m₀ − 2‖A‖² > |a² − b²| there; likewise for Ψ = 0. So these points of Z have ΦΨ ≠ 0 and lie on
+Z₁ := {p_ϑ = 0, ϑ = ϑ₀(Φ, Ψ)}, ϑ₀ a critical point of U: a family of invariant 2-tori, one for each (Φ, Ψ) and ϑ₀.
+Near ω₁ = 0 use y := ω₁ ∈ ℂ ≅ ℝ², ω = (y, (1 − |y|²)^(1/2) e^(iψ)), with momenta (η_y, η_ψ). The round metric is
+|dy|² + (y·dy)²/(1 − |y|²) + (1 − |y|²) dψ², whose inverse on the y-block is I − yyᵀ, and |y| = sin ϑ; so
+
+    𝒦 = |η_y|² − (y·η_y)² + η_ψ²/(1 − |y|²) − a² + (a² − b²)|y|²,                                         {#eq:vi-b1-3-2}
+
+Ψ = −η_ψ and Φ = −(y₁η₂ − y₂η₁). At y = 0, dΦ = −(η₂ dy₁ − η₁ dy₂), dΨ = −dη_ψ and d𝒦 = 2η_y·dη_y + 2η_ψ dη_ψ. These
+are independent if η_y ≠ 0. If η_y = 0, the point lies on Z₂ := {y = 0, η_y = 0}, a family of invariant circles, one
+for each η_ψ (by [[eq:vi-b1-3-2]], ẏ = η̇_y = 0 there). The same holds near ω₂ = 0, with a, b and Φ, Ψ exchanged,
+giving the family of circles Z₂′. So Z = Z₁ ∪ Z₂ ∪ Z₂′.
+
+*The singular levels.* Every local maximum ϑ_m of U has U″(ϑ_m) ≤ 0. By [[eq:vi-b1-3-1]],
+Φ²/sin²ϑ_m + Ψ²/cos²ϑ_m ≤ |a² − b²| there, so U(ϑ_m) ≤ 2‖A‖² < 3m₀. Hence for ΦΨ ≠ 0 and k ∈ [3m₀, 5m₀], {U ≤ k} is an
+interval, as U → ∞ at both ends and every local maximum lies below k. If k = U(ϑ₀) is a critical value, then
+U″(ϑ₀) > 0, ϑ₀ is the unique minimum, and Π⁻¹(Π(p)) for p ∈ Z₁ is the torus through p. For p ∈ Z₂,
+Π(p) = (Ψ₀² − a², 0, Ψ₀). A point with Φ = 0, Ψ = Ψ₀ and ϑ > 0 has 𝒦 ≥ U(ϑ), and
+U(ϑ) − (Ψ₀² − a²) = Ψ₀² tan²ϑ + (a² − b²) sin²ϑ > 0 because Ψ₀² ≥ 3m₀ − ‖A‖² > |a² − b²|. So Π⁻¹(Π(p)) is the circle
+of Z₂ through p; likewise for Z₂′. Consequently every fibre of Π that meets Z lies in Z, and for p ∈ 𝒴 ∖ Z the
+connected component L of Π⁻¹(Π(p)) ∩ 𝒴 containing p is compact and disjoint from Z.
+
+*Regular orbits.* Let p ∉ Z and let V be a compact neighbourhood of L in 𝒴 ∖ Z. On V the X_i are independent and span
+⋂_j ker dΠ_j: each X_i annihilates every Π_j, and both spaces have dimension 3. Let Y_i := Σ_j (𝔊⁻¹)_ij ∇Π_j, with
+𝔊_ij := ⟨∇Π_i, ∇Π_j⟩, so that dΠ_j(Y_i) = δ_ij; the X_i and Y_i form a bounded frame on V. Since dΠ_k is closed and
+X₀Π_k = 0, dΠ_k([X₀, Y_i]) = X₀(dΠ_k(Y_i)) − Y_i(X₀Π_k) = 0, so [X₀, Y_i] = Σ_j d_ij X_j with d_ij bounded on V. Let
+q_s := e^(sX₀)p. Then De^(sX₀) X_i(p) = X_i(q_s), and W_i(s) := De^(−sX₀) Y_i(q_s) satisfies
+W_i′ = Σ_j d_ij(q_s) X_j(p), so De^(sX₀) Y_i(p) = Y_i(q_s) − Σ_j c_ij(s) X_j(q_s) with
+c_ij(s) = ∫₀^s d_ij(q_σ) dσ, |c_ij| ≤ C|s|. Hence |D_p e^(sX₀)| ≤ C_p(1 + |s|).
+
+*The tori Z₁.* On Z₁, sin 2ϑ₀ ≠ 0. Along the orbit the linearised equations, in the canonical coordinates, are
+δΦ̇ = δΨ̇ = 0 and
+
+    d/ds (δϑ, δp_ϑ) = (2δp_ϑ, −U″(ϑ₀) δϑ − ∂_Φ U′ δΦ − ∂_Ψ U′ δΨ),
+
+with constant coefficients, and δφ̇, δψ̇ linear in (δϑ, δΦ, δΨ) with constant coefficients. As U″(ϑ₀) > 0 the matrix
+of the (δϑ, δp_ϑ)-system is invertible with imaginary eigenvalues, so (δϑ, δp_ϑ) is bounded and (δφ, δψ) grows at most
+linearly. *The circles Z₂, Z₂′.* By [[eq:vi-b1-3-2]], the Hessian of 𝒦 at Z₂ has no terms mixing (y, η_y) with
+(ψ, η_ψ), so the linearisation splits: δẏ = 2δη_y and δη̇_y = −2(Ψ₀² + a² − b²) δy, an oscillator since
+Ψ₀² + a² − b² > 0; and δη̇_ψ = 0, δψ̇ = 2δη_ψ. So the growth is at most linear. ∎
+
+The singular orbits are the 2-tori of Z₁ and the circles of Z₂ and Z₂′, where Kerr has its equatorial set; all are
+elliptic near b₀.
+
+**Lemma {#lem:vi-b1-3-3}** (Reparametrisation; compare [Hin26c, Lemma 4.20].) Let V₁ be a smooth vector field, a > 0
+smooth, V₂ := aV₁, and let the V₂-orbit of p lie in a compact set on which a, 1/a, |da| ≤ c_a. If
+|D_p e^(sV₁)| ≤ c(1 + |s|)^k for s ∈ ℝ, then |D_p e^(sV₂)| ≤ c′(1 + |s|)^(k+1).
+
+*Proof.* e^(sV₂)p = e^(τ(s)V₁)p with τ′ = a(e^(sV₂)p), τ(0) = 0, so |τ| ≤ c_a|s|. Then
+D_p e^(sV₂) = D_p e^(τV₁) + V₁ ⊗ D_pτ, and ∂_s D_pτ = da(D_p e^(τV₁)) + (V₁a) D_pτ. Along the orbit,
+V₁a = ∂_s log a(e^(sV₂)p), so ∂_s(D_pτ/a) = da(D_p e^(τV₁))/a and
+|D_pτ(s)| ≤ c_a³ ∫₀^(|s|) c(1 + c_aσ)^k dσ. As V₁ is bounded on the compact set, the bound follows. ∎
+
+**Proposition {#prop:vi-b1-3-4}** ((K3) and (K4) near b₀.) There is ε_K ∈ (0, ε_Γ] such that for |b − b₀| ≤ ε_K, (K3)
+holds for g̃_b with Ψ_b^* t_*, and the splitting [[eq:ii-b-1-1]] and the constants μ, C, C_ϵ can be chosen continuous in
+b and uniform, as (K4) asks.
+
+*Proof.* *Tangential bound.* By [[prop:vi-b1-2-2]] (d) it suffices to work in the Kerr–Schild variables of g_b. There,
+on Σ^♭₁ near Γ_b, the field 𝖵 of t_*, transported by T_F, is aH_𝒢 with a := (ϱ²q_*)⁻¹, where q_* > 0 is the q₁ of t_*; a
+is smooth and positive. Let p ∈ Γ_b. By [[lem:vi-b1-3-1]], e^(sH_𝒢)|_(Γ_b) is conjugate by π to e^(sH_𝔥) = e^(sc₀X₀)
+e^(sc₁X₁) e^(sc₂X₂), the c_i being constant along the orbit. Differentiating, D_(πp) e^(sH_𝔥) = De^(sc₀X₀) De^(sc₁X₁)
+De^(sc₂X₂) + s Σ_i X_i ⊗ dc_i. Here e^(tX₁) and e^(tX₂) are cotangent lifts of rotations of 𝕊³ (by the frame's J₁₂ and
+J₃₄), with derivatives bounded uniformly in t on 𝒴. [[lem:vi-b1-3-2]] enters at the rotated point e^(sc₁X₁) e^(sc₂X₂)
+πp; the rotations commute with X₀ and have derivatives bounded on 𝒴, so its constant there is at most C·C_(πp). Hence
+|D_p e^(sH_𝒢)|_(TΓ_b)| ≤ C_p(1 + |s|)², and by [[lem:vi-b1-3-3]], |D_p e^(s𝖵)|_(TΓ_b)| ≤ C′_p(1 + |s|)³. Now let ϵ > 0.
+Identify Γ_b with Γ_(b₀) smoothly in b by ι_b(ω, η) := (ω, κ_b(ω, η)η) on Γ^𝕊_(b₀), where κ_b, near 1, solves ℛ_c(ω,
+κ_bη) = 0 with ℛ_c taken at b ([[lem:vi-b1-2-1]]: the radial derivative η·∂_ηℛ_c is −8m₀² ≠ 0 at b₀, from ℛ_c = C(m₀ −
+C/4) at C = 4m₀), followed by π⁻¹. The set 𝒮_K := {(b, p) : |b − b₀| ≤ ε_K, p ∈ Γ_b} ≅ {|b − b₀| ≤ ε_K} × Γ_(b₀) is
+compact. For each (b, p) ∈ 𝒮_K the polynomial bound gives T ≥ 1 with |D_p e^(±T𝖵_b)|_(TΓ_b)| ≤ e^(ϵT/2). By continuity
+in (b, p), read through ι_b, the same T gives e^(ϵT) on a neighbourhood. Finitely many such neighbourhoods cover 𝒮_K,
+with times T_j ≤ T_max. Composing the flow over successive times T_j chosen at the current point gives |D_p
+e^(s𝖵_b)|_(TΓ_b)| ≤ C_ϵ e^(ϵ|s|) for all (b, p) ∈ 𝒮_K and s ∈ ℝ, with C_ϵ := sup{|De^(t𝖵_b)| : |t| ≤ T_max, (b, p) ∈
+𝒮_K}.
+
+*Splitting and normal rates.* On Γ_b, [[eq:vi-b1-2-2]] gives 𝖵φ_s = (ν_s/q₁)φ_s and 𝖵φ_u = −(ν_u/q₁)φ_u, so
+dφ_s(De^(s𝖵)v) = Θ_s dφ_s(v) for v ∈ TΓ_u|_(Γ_b), with Θ_s := exp ∫₀^s (ν_s/q₁)(e^(σ𝖵)p) dσ ≥ e^(ν′s) for s ≥ 0.
+Here ν′ := inf ν_s/q₁ > 0 is uniform in b. Fix ϵ := ν′/4. Let n_u be a smooth section of TΓ_u|_(Γ_b) with
+dφ_s(n_u) = 1, which exists by transversality. Write De^(s𝖵) n_u(p) = Θ_s(p) n_u(e^(s𝖵)p) + w_s(p) with
+w_s(p) ∈ TΓ_b. An invariant line N^u = span(n_u + h), h a section of TΓ_b, is a fixed point of
+(𝒞_t h)(e^(t𝖵)p) := Θ_t(p)⁻¹(De^(t𝖵) h(p) + w_t(p)). For t so large that C_ϵ e^(ϵt) e^(−ν′t) ≤ ½, 𝒞_t is a
+contraction on bounded continuous sections, uniformly in b. So h exists, is unique and continuous in (b, p), and
+𝒞_s h = h for all s by uniqueness. On N^u, De^(s𝖵) is multiplication by Θ_s, so |De^(s𝖵)v| ≤ Ce^(−ν′|s|)|v| for
+s ≤ 0. N^s ⊂ TΓ_s is the same with time reversed. TΓ_b, N^u and N^s span T_(Γ_b)Σ^♭₁: the dimensions are 5 + 1 + 1,
+N^u ⊄ TΓ_s as dφ_s(n_u + h) = 1, and TΓ_u ∩ TΓ_s = TΓ_b. This is [[eq:ii-b-1-1]] with μ := ν′, continuous in b, with
+uniform constants. ∎
+
+This is [Hin26c, Proposition 4.19 and Lemma 4.20] for Myers–Perry near Tangherlini.
+
+### The global dynamics near b₀ {#sec:vi-b1-4}
+
+**Proposition {#prop:vi-b1-4-1}** ((H8) near b₀.) There is ε₈ ∈ (0, ε_K] such that for |b − b₀| ≤ ε₈ and
+z₀ ∈ {1, −1}, (H8) (a) and (b) hold for g̃_b with Ψ_b^* t_*, the radii of [[def:s12-radii]] and the trapped set of
+[[prop:vi-b1-2-2]], with Γ̄_(u/s) the global backward and forward trapped sets. The convergence in (a) is uniform on
+compact sets of (b, initial point), as the extension of (H5) asks.
+
+*Proof.* All the sets named in (H8) are carried by the cotangent lift of Ψ_b to the corresponding sets for g_b (∂ℛ_± to
+the conormal of ℋ_b at fibre infinity), and Ψ_b is the identity on {|x| ≤ 5R₁/8} ⊃ {r < r₀ − δ₀} and on
+{|x| ≥ 7R₁/4} ([[lem:vi-b-1-2]]; r₀ − δ₀ < r_♭ ≤ ½R₁). So it suffices to prove (H8) for g_b, where the separation
+holds. The time function only translates fibres ([[lem:vi-a-0-1]]), so the projected curves, r, and the limits at fibre
+infinity do not depend on it. Limits over ∂X are read in t_*. Write γ for a maximal integral curve of the future field
+in Σ_(z₀) ∩ T*{r > r₀ − 2δ₀}, parametrised by the rescaled field near fibre infinity ([[sec:vi-a-5]]).
+
+*Outside the horizon.* On {r_A > r₊}, (r, p̃) moves with p̃² = ℛ(r), ṙ = ±2ϱ⁻²p̃ and (p̃)˙ = ±ϱ⁻²∂_rℛ
+([[lem:vi-b1-0-1]] (d)), the conserved values of (Φ, Ψ, 𝒦) fixed. By [[cor:vi-b1-1-2]], either ℛ has no double zero,
+or it has exactly one, r_c, and then ℛ_c = 0. In the first case r is strictly monotone except at most at one simple
+turning point, where p̃ = 0 ≠ ∂_rℛ. Indeed r cannot converge to a point r̄ > r₊: p̃² = ℛ(r̄) > 0 would keep |ṙ| bounded
+below, and a simple zero is passed in finite time. So at each end r → r₊ or r → ∞, or the curve leaves {r_A > r₊}. In
+the second case ℛ > 0 off r_c, the curve is Γ_b or lies on {φ₊φ₋ = 0}, and r is monotone, tending to r_c at one end
+and to r₊ or ∞ at the other. By [[cor:vi-b1-1-2]] (c), with ε₈ ≤ ε(δ) for a δ that places r_c in I_Γ and (ω, η) in 𝒲
+(|η|²_(𝕊³) = Λ − |Aω|²E²), and [[lem:vi-b1-2-1]] (uniqueness of r_c in I_Γ, with {ℛ_c = 0} ∩ 𝒲̄ ⊂ 𝒲), every double
+zero lies in O, so these curves are exactly those through {φ_u = 0} ∩ Σ ∩ O (backward asymptotic to Γ_b) or
+{φ_s = 0} ∩ Σ ∩ O (forward asymptotic), extended by the flow.
+
+*At infinity.* As r → ∞, ℛ = r⁴E² + O(r²(1 + Λ)) and α = r² + O(1), so
+p_r = (p̃ − β)/α = sgn(p̃) + O((1 + Λ) r⁻²); and r_A = |x|(1 + O(|x|⁻²)) ([[lem:iii-b-3-1]] (b)) gives
+ξ_t = p_r + O((1 + Λ^(1/2)) r⁻²) for the coefficient ξ_t of d|x|, while |η|/r ≤ Λ^(1/2) r⁻¹. Forward with r → ∞,
+ṙ > 0 forces sgn p̃ = z₀, so ξ_t → z₀; and with t_* = t − F(|x|), F := t − t_* a function of |x| with
+F′ = 1 + O(r⁻²) ([[eq:iii-b-3-3]], [[lem:iii-b-3-5]] (a), [[eq:iii-b-3-6]]), ξ_* = ξ_t − z₀F′ → 0. Backward,
+ξ_* → −2z₀. The bounds are uniform for Λ ≤ Λ_𝖪, so the argument at infinity of [[prop:vi-a-5-1]] applies verbatim
+with C replaced by Λ. This gives convergence to R_out and R_(z₀,in), and the absorbing sets
+𝒜_out = {r > R, |ξ_*| < ϵ} and 𝒜_in = {r > R, |ξ_* + 2z₀| < ϵ}.
+
+*Near the radial sets.* (H3), as proved in [[prop:vi-b-2-2]], gives 𝖧_b q ≥ ½β₀q on ∂Σ₀ ∩ {q < ϵ_q} near ∂ℛ_±
+and ρ_∞⁻¹𝖧_bρ_∞ ≥ ½β₀ at ∂ℛ_±, with β₀ := β₀(b₀). By continuity there is a neighbourhood U_R of ∂ℛ_± in the
+compactified Σ, with compact closure and the same for all b near b₀, on which 𝖧_b q ≥ ¼β₀q − cρ_∞ and
+𝖧_bρ_∞ ≥ ¼β₀ρ_∞, with q extended as |η/ξ|². So L := q + (8c/β₀)ρ_∞ satisfies
+𝖧_bL ≥ ¼β₀q + cρ_∞ ≥ ⅛β₀L on U_R. Shrinking it, take U_R with closure inside a neighbourhood with these properties, so
+that what follows holds on the boundary of U_R too. L vanishes on ∂ℛ_± and is positive on the rest of U_R: ρ_∞ > 0 at
+finite covectors, and at fibre infinity near ∂ℛ_±, q = |η̂|² vanishes only on ∂ℛ_± ([[prop:vi-b-2-2]]: there ∂Σ₀ is a
+graph over (ω, η̂) and ∂ℛ_± = {η̂ = 0}). Fix 0 < δ_L < min L over the boundary of U_R, and let 𝒰_L := {L < δ_L} ∩ U_R,
+an open neighbourhood of ∂ℛ_±. Backward along a curve in U_R, L does not increase; so a curve in 𝒰_L never reaches
+{L ≥ δ_L}, which contains the boundary of U_R, and it stays in 𝒰_L backward, with L decaying backward exponentially at
+the uniform rate ⅛β₀.
+
+*At the horizon.* ℋ_b is a null hypersurface ([[lem:vi-b-1-1]]), and dr_A(w) < 0 for every future-directed causal w at
+ℋ_b not tangent to its null generators. Indeed this set of w is connected, dr_A(w) vanishes on it only for w tangent to
+the generators, and the sign is that at b₀ ([[sec:vi-a-5]]), by continuity. The velocity of γ is a nonzero multiple of
+ν^♯, and ν^♯ tangent to a generator would make ν a multiple of dr_A, so ν(∂_t) = 0, against E = z₀. So a curve meeting
+ℋ_b at a finite covector crosses it inward, transversally, and by continuity each finite covector p₀ over ℋ_b has
+δ, T > 0 such that the curve through any point within δ of p₀ is in {r_A < r₊} a parameter T later and in
+{r_A > r₊} a parameter T earlier. Let γ stay in {r_A > r₊} on a forward or a backward half-line, with r → r₊ along
+it, and let 𝓛 be its limit set at that end, in the compactified characteristic set: compact, invariant, over ℋ_b, and
+approached by γ. 𝓛 contains no finite covector p₀: γ comes within δ of p₀ arbitrarily far along the half-line, and is
+then in {r_A < r₊} a parameter T later, still on the half-line. So 𝓛 ⊂ ∂Σ₀. A point of ∂Σ₀ ∖ ∂ℛ_± reaches
+{r < r_h − d₁} forward in finite time ([[prop:vi-b-2-2]], (H4)), which an invariant set over ℋ_b cannot contain; so
+𝓛 ⊂ ∂ℛ_±, and γ lies in 𝒰_L near that end. Forward this is impossible: L > 0 along γ does not decrease forward in
+𝒰_L, so it cannot tend to 0. Hence an exterior curve with r → r₊ forward leaves {r_A > r₊}, so meets ℋ_b and crosses
+it inward; one with r → r₊ backward tends backward to ∂ℛ_±. Inside, read for g̃_b (Ψ_b carries {r < r_h} to the inside
+of ℋ_b, [[lem:vi-b-1-2]]): on {r₀ − 2δ₀ ≤ r < r_h}, dr is timelike ([[lem:vi-b-1-1]] and [[prop:vi-b-2-2]]), so r
+decreases strictly along γ. On compact subsets of the compactified Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r₁}, r₁ < r_h, the rescaled
+ṙ is bounded above by a negative constant, so γ reaches {r < r₀ − δ₀} in finite time. Backward, r increases strictly
+along an interior curve. If the curve meets ℋ_b backward, it crossed it inward there, and its earlier part is an
+exterior curve, treated above. Otherwise, with s₀ a parameter at which γ is inside, r → r̄ ≤ r_h as s → −∞. The case
+r̄ < r_h is impossible: on the compact part of the compactified Σ_(z₀) over
+{r(γ(s₀)) ≤ r ≤ r̄} ⊂ {r₀ − 2δ₀ ≤ r < r_h}, where dr is timelike, the rescaled ṙ is at most a negative constant −c, so
+r would exceed r̄ within the backward parameter (r̄ − r(γ(s₀)))/c. If r̄ = r_h, a finite covector p₀ in the backward
+limit set is impossible, since γ would be outside ℋ_b a parameter T before passing within δ of p₀, still on the
+backward half-line; so the limit set lies in ∂Σ₀ over ℋ_b, hence in ∂ℛ_± as above, and γ tends backward to ∂ℛ_±.
+
+*(a).* Combining: a curve not in Γ̄_u tends backward to ∂ℛ_± or R_(z₀,in), and a curve not in Γ̄_s tends forward to
+R_out or reaches {r < r₀ − δ₀} in finite time. *Uniformity.* With the absorbing sets 𝒜_out, 𝒜_in, 𝒰_L (in which L
+decays backward at the uniform rate) and {r < r₀ − δ₀}, the cover argument of [[prop:vi-a-5-1]] applies on compact
+subsets of {(b, p)}: the set of (b, p) whose curve enters the relevant absorbing set before parameter T is open and
+increases with T, and these sets cover by the pointwise statement.
+
+*(b).* Within O, a point with φ_u = 0 has ℛ_c = 0 and lies on the branch on which r → r_c and p̃ → 0 backward, so its
+curve tends to Γ_b backward. A point with φ_s = 0 ≠ φ_u moves away from r_c backward, and a point with ℛ_c ≠ 0 has no
+double zero. So Γ̄_u ∩ O = {φ_u = 0} ∩ Σ ∩ O = Γ_u, and likewise for Γ̄_s. ∎
+
+This is [Hin26c, Proposition 4.24] for Myers–Perry near Tangherlini.
+
+### The theorem near b₀ {#sec:vi-b1-5}
+
+**Theorem {#thm:vi-b1-5-1}** ((Dyn) near b₀.) There is ε_VI > 0 such that on the compact parameter set
+ℬ_VI := {|b − b₀| ≤ ε_VI}, the metrics g̃_b = Ψ_b^* g_b with the time function Ψ_b^* t_* and the radii of
+[[def:s12-radii]] satisfy: the dynamical conditions of (H3), and (H4) ([[prop:vi-b-2-2]]); (H6) and (K1)
+([[lem:vi-a-1-1]]); (Γ.1)–(Γ.3), with ν_min → 4(2m₀)^(−1/2), β₀ → 2 and q^Γ → 4 as b → b₀ ([[prop:vi-b1-2-2]]); (K3)
+and (K4) ([[prop:vi-b1-3-4]]); and (H8) ([[prop:vi-b1-4-1]]). All the data depend continuously on b into C^∞, with the
+constants uniform, as (H5), its extension in [[sec:i-b-1-5]], and (K4) ask. These hold for every operator with
+principal symbol g̃_b⁻¹ ⊗ Id. The operator hypotheses, the threshold in (H3) and condition (Γ.4), are verified in
+[[ch:s13]], [[ch:s14]] and [[ch:s15]], read through Ψ_b ([[sec:vi-b-1]]).
+
+*Proof.* Take ε_VI := min(ε₁/2, ε₈), with ε₁ from [[prop:vi-b-2-2]] and ε₈ from [[prop:vi-b1-4-1]]; the results cited
+hold on ℬ_VI. ∎
+
+For every r_♭ ∈ (0, ½R₁], ε_VI may be taken so small that ℬ_VI ⊂ ℬ_♭; ε_VI and the constants of the theorem depend
+on r_♭.
