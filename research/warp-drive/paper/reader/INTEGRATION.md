@@ -645,3 +645,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   bound at b; the same in chapter 44 (lem:iii-i15-2-4, def:iii-i15-2-3, prop:iii-i15-2-5 Step 3 claim bounds by G
   alone). Nits: 1035 leftover phrase; seminorm for (i); sec:iii-g4-1 pointer; v1 in lem:iii-i10-2-1 (b). Third fix
   running on 41 and 44 together; S25 reopened for that minor only.
+- Ch 62 second fix (F2-62): V has dt_IVP timelike and in the cone of dτ (dτ past by lem:domain (e)); new lem:interior-chart
+  proves lem:vii-1-2 (a) on {|x| ≥ ½r_♭} and the g_λ vs g_(b₀) bound, inverse included; 8 nits applied. Chapter 60's
+  optional widening is no longer needed (drop it from the follow-ups).
