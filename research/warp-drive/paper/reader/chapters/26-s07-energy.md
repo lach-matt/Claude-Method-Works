@@ -1005,8 +1005,8 @@ map ℰ on H^((𝗍;0))(Ω′_+)^(•,−) such that for every u in it:
     ‖ℰu‖_(H^((𝗍;j))_(e3b;b)) ≤ C_j ‖u‖_(H^((𝗍;j))(Ω′_+)^(•,−)).
 
 *Proof.* *Choices.* Decreasing κ_0, we may assume κ_0 ≤ η_0/4, c − κ_0 > r^♯ and c + κ_0 < r^♮ (in case (S),
-r^♯ < r_0 < r^♮); as η_0 ≤ 1/2 ([[lem:ii-e-1-2]] (iv)), T_0 − κ_0 ≥ 1/2. Fix κ ∈ (0, κ_0/3], in case (K) with
-c + 2κ ≤ b. Let ψ = ψ(r) equal 1 for r ≤ c + κ and 0 for r ≥ c + 2κ; ψ_− = ψ_−(r)
+r^♯ < r_0 < r^♮); as η_0 ≤ 1/2 ([[lem:ii-e-1-2]] (iv)), T_0 − κ_0 ≥ 1/2. Fix κ ∈ (0, κ_0/3], in case (K) with c + 2κ ≤ b.
+Let ψ = ψ(r) equal 1 for r ≤ c + κ and 0 for r ≥ c + 2κ; ψ_− = ψ_−(r)
 equal 1 for r ≥ c and 0 for r ≤ c − κ; and χ_+ = χ_+(t^♭) equal 1 on (−∞, T_+ − 1/2] and 0 on [T_+ − 1/4, ∞), with
 χ_+ ≡ 1 if T_+ = ∞. These have bounded b-derivatives: ψ and ψ_− are smooth functions of x on a bounded range of r, and
 χ_+ varies only where t_* ≤ T_+/C′ ([[lem:ii-c-3-2]] (b)), at bounded times, where t^♭ has bounded b-derivatives.
