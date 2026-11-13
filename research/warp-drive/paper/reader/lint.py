@@ -42,6 +42,7 @@ FORBIDDEN = [
     (r"(?i)\bcrucially\b|\bimportantly\b|\bit is worth noting\b|\bdelve\w*|\bleverag\w*|\bseamless\w*|"
      r"\bin essence\b|\blet us now turn\b|\btapestry\b", "filler"),
     (r"(?i)\bSOURCE\b(?= )|\bTheorem E\b", "working name"),
+    (r"\[\[C:|\bComputation C\d|(?i:\bcomputations?\b|\bprograms?\b|\bcode\b|\bscripts?\b|\bsympy\b|\bmpmath\b|\binterval arithmetic\b|\bfloating[- ]point\b|\bnumerically\b|\bcomputer\b)", "no-code ruling"),
 ]
 RX = [(re.compile(p), why) for p, why in FORBIDDEN]
 
@@ -115,14 +116,15 @@ def selftest():
         "see checks/ix5.py", "the docket", "the verifier found", "as seated in", "round 9 of", "R10.1 states",
         "D612 records", "the record's text", "the supplement's Lemma", "the brief", "a census of", "mutant 3",
         "READ at source", "(computed, exactly)", "Claude", "an earlier version", "crucially", "N1* says", "`x`",
-        "warp field", "5c1a186aa2528e503e24c336f9a6dcef", "x" * 130, "Proof. trivial",
+        "warp field", "5c1a186aa2528e503e24c336f9a6dcef", "x" * 130, "Proof. trivial", "see [[C:ix5]]", "Computation C12 verifies",
+        "checked numerically", "by interval arithmetic", "the program", "sympy",
     ]
     ok = True
     for p in planted:
         if not scan_text("selftest", p, assembled=False):
             print("CONTROL FAILED to fire:", p); ok = False
     clean = ("**Theorem {#thm:main}** Let λ > 0. Then the metric g_λ satisfies [[eq:energy]].\n"
-             "Proof. By Lemma 5.3 and Computation C12, which verifies the identity exactly. ∎")
+             "Proof. By Lemma 5.3 and the identity (5.2), expanded term by term. ∎")
     if scan_text("selftest", clean, assembled=False):
         print("FALSE POSITIVE on clean text:", scan_text("selftest", clean, assembled=False)); ok = False
     if not scan_text("selftest", "see [[thm:main]]", assembled=True):

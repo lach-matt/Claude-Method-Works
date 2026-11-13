@@ -20,16 +20,19 @@ a later one.
    Copy formulas exactly; do not re-derive or simplify a formula unless the source's own amendment does. Keep each
    claim's scope exactly (a statement "for l ≤ 12, computed" stays that; a numerical result says "numerically").
 2. In the edition's voice (STYLE.md section 3): no history, no process words, no record letters for results, no status
-   tags. The epistemic content of a tag goes into prose: "Computation [[C:key]] verifies this identity exactly",
-   "… with certified bounds (interval arithmetic)", "… numerically, on three grids", "by [Hin26, Proposition 6.9]".
+   tags. What a tag asserted goes into mathematics: the derivation itself, or "by [Hin26, Proposition 6.9]".
 3. Labels as in STYLE.md section 4. Export exactly the keys `OUTLINE.md` assigns to your chapter. Cite other
    chapters' results by their exported keys. Where you need a result of another chapter that has no exported key,
    write `[[pending:short-description]]` and list it in your report; never cite a source file or a record name.
 4. Literature: cite `[KEY, Theorem n]` with the bibliography keys of the record's reference list (P section 10). When
    a proof uses a published result as a black box, state the result exactly once (with page), in the chapter or as a
    request for the standard-results appendix in your report.
-5. Every computation keeps its citation: `[[C:key]]` (key rule in OUTLINE.md). Say what it decides and by which
-   method; never give program names, label sets (X1–X8) or runtimes in the text.
+5. No code and no computation citations (the author's ruling). Where the source cites a program for a step, write
+   the step's mathematics out: the identity with its derivation, the count with its enumeration, the bound with its
+   estimate. Where the source has no hand derivation, write one; check it privately with computer algebra in a scratch
+   directory under the session scratchpad (never in the repository), and present only the mathematics. A step only a
+   large or floating-point computation establishes, with no written proof you can give, is marked
+   `[[pending:computational-N]]` and described in your report; never state such a step as proved and never drop it.
 
 ## When the sources do not support a clean text
 
@@ -43,8 +46,8 @@ weaker than the statement the chapter must make, write the chapter as far as the
   chapters/NN-key.md` reporting 0 hits other than `[[pending:…]]` markers.
 - `crosswalk/NN-key.tsv`: one row per labelled item of your chapter: `label`, `source` (file:line of the final form
   you used), `source_name` (the record's name, e.g. "NP Theorem E", "GD Lemma R7.2 as corrected by (A76)"), `note`.
-- A report at the path your prompt gives: the issues (with evidence), the `[[pending:…]]` list, the computations you
-  cited (key → what it decides, method), the literature results you used as black boxes (key, number, page), and any
+- A report at the path your prompt gives: the issues (with evidence), the `[[pending:…]]` list, every computation citation you replaced by a derivation (program, length of
+  the derivation), the literature results you used as black boxes (key, number, page), and any
   notation you had to fix. At most 600 words.
 
 Work in place: write the chapter file early and extend it, so nothing is lost if your context fills. Do not modify

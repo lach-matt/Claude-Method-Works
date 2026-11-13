@@ -17,10 +17,12 @@ files; only the assembled `PAPER.md`, its PDF and the code appendix are publishe
   sources named in the chapter brief (latest form, every amendment folded in), removes the history, and writes it as
   ordinary mathematical prose. A writer never strengthens, weakens or "improves" a claim. Where the sources disagree or a
   step is missing, the writer stops and reports it; the writer does not repair mathematics silently.
-- Every computed step stays computed. It cites its computation by key (section 4) and says by which method the
-  computation decides it: exactly (symbolic or rational arithmetic), with certified bounds (interval arithmetic), or
-  numerically (floating point). A numerical computation is never the proof of a non-numerical claim; where the record
-  calls something computed in floating point, the edition says "numerically" and keeps the claim's own scope.
+- No code whatsoever (the author's ruling). The edition carries no program, no computation citation and no code
+  appendix: every step is proved in the text. Where the record supports a step by a program, the edition writes that
+  step's mathematics out (the identity and its derivation, the count and its enumeration, the bound and its estimate).
+  Writers may check their algebra privately with computer algebra; the text presents only the mathematics. A step the
+  record establishes only by a large or floating-point computation, for which no written proof is found, is not stated
+  as proved: it is marked `[[pending:computational-N]]` for the coordinator, who decides it with the author.
 
 ## 2. Forbidden in the edition (checked by `lint.py`)
 
@@ -58,19 +60,9 @@ Chapters are written in parallel, so numbers are symbolic in the chapter sources
 - A reference: `[[thm:key]]`, `[[eq:key]]`, `[[ch:key]]`, `[[sec:key]]`, printed "Theorem 12.3", "(12.7)",
   "Chapter 12", "Section 12.4". Keys are lowercase words joined by hyphens. Exported keys (results other chapters use)
   are fixed in `OUTLINE.md`; a chapter may define private keys freely.
-- A computation: `[[C:key]]`, printed "Computation C17". The key is the registry's (one per program); numbers follow
-  the order in which the assembled edition first cites them. Appendix B describes each computation; Appendix C carries
-  its code.
 - Literature: `[Hin26, Theorem 6.9]` with the bibliography keys of `OUTLINE.md`.
 
-## 5. The appendices
+## 5. The appendix
 
 - **Appendix A. Results from the literature.** Each published result the proofs use as a black box, stated exactly,
-  with its source, number and page.
-- **Appendix B. Computations.** One entry per computation, in number order: what it decides, in mathematical terms;
-  the method (exact symbolic, exact rational, certified interval, numerical) and the libraries; the control that must
-  make it fail (a deliberately wrong input that it rejects); its running time; the results that cite it.
-- **Appendix C. Code.** The programs, one per computation, cleaned (no repository paths, no process words in comments
-  or output), each named by its computation number, with a one-line command that runs it. Every cleaned program must
-  produce the same mathematical output as its original on the same input; `code/EQUIVALENCE.tsv` (working file) records
-  that comparison.
+  with its source, number and page. There is no other appendix: no computations and no code.
