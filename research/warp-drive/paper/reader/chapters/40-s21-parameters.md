@@ -773,11 +773,12 @@ a^((i)) ∈ 𝒜^((λ−1+i,k)); so each term of ω^(≤4)(aS) lies in 𝒜^((λ
 [[lem:iii-i4-2-2]]), which gives the ι⁺-orders. *Supports* are clear. *K⁺.* Near K⁺, χ_K = 1 and
 ϑ^((λ−1,k))_s1 = ½□ω^(≤4)(aS), which by [[eq:iii-i8-2-1]] is a^((5)) and a^((6)) times stationary tensors smooth on
 compact spatial sets, of K⁺-weight Re λ + 4 − ε. [[eq:iii-i8-2-2]]: δ*_(g_(b₀))(a^((i))ω̆^i) =
-a^((i)) δ̂*(0)ω̆^i + a^((i+1)) dt_* ⊗_s ω̆^i, and δ̂*(0)ω̆⁰ = h(S); every other term carries a^((j)), j ≥ 1, of
-K⁺-weight Re λ − ε. ∎
+a^((i)) (δ*_(g_(b₀)))^(0)ω̆^i + a^((i+1)) dt_* ⊗_s ω̆^i, and (δ*_(g_(b₀)))^(0)ω̆⁰ = h(S); every other term carries
+a^((j)), j ≥ 1, of K⁺-weight Re λ − ε. ∎
 
-Here δ̂*(0) is the zero energy operator of δ*_(g_(b₀)): δ*_(g_(b₀)) = δ̂*(0) + dt_* ⊗_s (·) on stationary 1-forms
-([[eq:iii-d3-1-2]]).
+Here (δ*_(g_(b₀)))^(0) is the zero energy operator of [[eq:iii-d3-1-2]], δ*_(g_(b₀)) = (δ*_(g_(b₀)))^(0) +
+dt_* ⊗_s (·)∂_(t_*); so δ*_(g_(b₀))(φ(t_*)v) = φ(δ*_(g_(b₀)))^(0)v + φ′ dt_* ⊗_s v for stationary v, which is also
+[[eq:s21-conv]].
 
 **Definition {#def:iii-i8-2-3}** (The operator with the motions; [Hin26, Definition 11.48] in dimension 4 + 1.) For
 p⃗ = (p⃗_(≤0), (S^((λ−1,k))_1)_((λ,k)∈ℳ)), p⃗_(≤0) := (S, b − b₀, S⁽⁰⁾_1), small and h small, with g_0 := g_(p⃗_(≤0))

@@ -1000,9 +1000,17 @@ same diagonal, Ā₅₂ and Ā₇₄, and
 At n = 4 these are [[eq:s17-abar]]; at n = 3, where 2/(n − 1) = 1 and s = ½tr̸h, they are the values stated, which are
 those printed in [Hin26, (5.28)] at h = 0.
 
-(2) The off-diagonal entries of [[eq:s17-abar]] connect slots within {1, 3, 4, 7} or within {2, 5}, and row 6 of Ā
-vanishes off the diagonal. So each of the four coordinate subspaces is invariant, Ā restricted to it is lower
-triangular, and the determinant is the product of the diagonal entries. The diagonal is [[eq:iii-c-4-3]].
+(2) A symmetric 2-tensor of scalar type given by S ∈ 𝒮_l has its slots 1, 3, 4, 7 multiples of S, its slots 2, 5
+multiples of dS and its slot 6 a multiple of δ̸*₀dS; one of vector type given by V ∈ 𝒱_l has its slots 2, 5 multiples
+of V and its slot 6 a multiple of δ̸*V; one of tensor type given by T ∈ 𝒯_l has only its slot 6, a multiple of T
+([[def:iii-a1-1-3]]). For S ∈ 𝒮_0, dS = 0; for V ∈ 𝒱_1, δ̸*V = 0 ([[eq:iii-a1-1-3]]); and for 0 ≠ V ∈ 𝒱_2,
+δ̸*V ≠ 0, as δ̸δ̸*V = (5/2)V ([[eq:iii-a1-1-2]] with ν = 3, k² = 8). This gives the sets J_τ, with one dimension per
+slot. By the proof of [[lem:iii-c-4-2]] the entries of Ā act between scalar slots and between vector slots as scalars,
+and the off-diagonal entries of [[eq:s17-abar]] connect slots within {1, 3, 4, 7} or within {2, 5}; row and column 6
+of Ā vanish off the diagonal. So Ā maps the type-τ tensors given by Y to themselves, by its submatrix on J_τ, which is
+lower triangular, and the determinant of −2(x − λ)(x − 3/2 − Ā) there is the product of its diagonal entries; the
+diagonal is [[eq:iii-c-4-3]]. [[eq:s17-indicial]] is [[eq:iii-g3-1-1]] applied to v^xφ: (v∂_v − λ)v^x = (x − λ)v^x,
+S̄ does not depend on v, and L̃(0)(ω, v∂_v, ∂_ω)v^xφ = v^xL̃(0)(ω, x, ∂_ω)φ.
 
 (3) This is [[prop:iii-c-4-4]] with [[lem:iii-c-3-2]] (b)–(c), [[rem:iii-c-4-5]], the calculation of the leading part in
 the proof of [[prop:iii-c-5-2]], [[def:iii-c-5-1]] and [[rem:s17-no-radiation]].
@@ -1010,7 +1018,33 @@ the proof of [[prop:iii-c-5-2]], [[def:iii-c-5-1]] and [[rem:s17-no-radiation]].
 (4) The first statement is [[lem:iii-g1-4-2]] (a). As γ_Υ < ¼, every radiative exponent is at most 3/2 + 2γ_Υ < 2. An
 element of Res_(ι⁺)(L̄, λ) is a residue at λ of t_*^(−z) times the inverse of [[thm:iii-g1-3-1]] applied to a
 polynomial ([[def:iii-g3-3-6]]), and that inverse is holomorphic off spec_(ι⁺)(L̄); so Res_(ι⁺)(L̄, λ) = {0} for
-Re λ < 2. By [[prop:iii-g3-2-4]] the poles of [[eq:iii-g3-2-2]] lie in spec_(ι⁺)(L̄) ∪ π₁ℰ^C_(I,♯), and
+Re λ < 2.
+
+*No outgoing solution.* Let h and λ be as in (4). By [[lem:iii-g1-1-1]], Π_s commutes with v∂_v and with S̄, and
+S̄Π_s = sΠ_s. Near v = 0, by [[eq:iii-g1-1-5]], Π_sh (s ∈ σ_Υ) is a term v^(3/2+s)c_s(ω) with Π_sc_s = c_s, plus terms
+with exponents in ℰ^C_(ι⁺,ℐ) and a remainder of weight ℓ_I, and Π_Ch has only terms of the latter two kinds. As
+(v∂_v − 3/2 − S̄)(v^(3/2+s)c_s) = v^(3/2+s)(s − S̄)c_s = 0, the section
+
+    f := 2v(v∂_v − 3/2 − S̄)h
+
+has near v = 0 only exponents in ℰ^C_(ι⁺,ℐ) + 1, of real part at least 7/2, and a remainder of weight ℓ_I + 1. Near
+R = 0, h ∈ H^(∞,β)_b for every β < min(0, ℓ_K), as ℰ_K ⊂ {Re ≥ 0} ([[lem:iii-g1-1-3]] (b)); fix
+β ∈ (−1, min(0, ℓ_K)). As 2v(v∂_v − 3/2 − S̄) ∈ R⁻¹Diff¹_b there, f ∈ H^(∞,β−2)_b near R = 0. Fix
+ℓ′ ∈ (Re λ, min(ℓ_I, 2)) with ℓ′ ∉ Re π₁ℰ^tot_(ι⁺,ℐ). Then f ∈ H^(∞,ℓ′+1,β−2)_b(ι⁺), and by [[thm:iii-g1-3-1]] (2),
+with ℓ′ and β in place of ℓ_I and ℓ_K, and [[lem:iii-g1-4-2]], F(z) := N_(ι⁺)(z)⁻¹f, with the inverse
+[[eq:iii-g1-3-3]], is holomorphic on the half plane {Re z < ℓ′}, which contains λ. As N_(ι⁺) is linear in its parameter,
+with ∂_λN_(ι⁺) = 2v(v∂_v − 3/2 − S̄),
+
+    N_(ι⁺)(z)h = N_(ι⁺)(λ)h + (z − λ)f = (z − λ)f.
+
+Let Re z < min(3/2, ℓ′) and ℓ″ ∈ (Re z, min(3/2, ℓ′)). By [[lem:iii-g3-1-2]] (2), h ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),β)_b(ι⁺),
+its exponents at v = 0 have real part at least 3/2, and (z − λ)f ∈ H^(∞,ℓ″+1,β−2)_b; so [[lem:iii-g3-2-3]] (with
+w₀ = 3/2 and ℓ″ for its ℓ′) gives h = N_(ι⁺)(z)⁻¹N_(ι⁺)(z)h = (z − λ)F(z). Here the inverses of
+[[thm:iii-g1-3-1]] (2) for ℓ″ and for ℓ′ agree on H^(∞,ℓ′+1,β−2)_b, as both extend [[eq:iii-g1-3-1]] by continuity
+from the dense subspace Ċ^∞(ι⁺). Both sides of h = (z − λ)F(z) are holomorphic on {Re z < ℓ′}, so the identity holds
+there, and at z = λ it gives h = 0.
+
+*The poles.* By [[prop:iii-g3-2-4]] the poles of [[eq:iii-g3-2-2]] lie in spec_(ι⁺)(L̄) ∪ π₁ℰ^C_(I,♯), and
 π₁ℰ^C_(I,♯) = {λ_♯} ∪ π₁ℰ_I^C with min Re ℰ_I^C > 3/2 + 2γ_Υ ([[def:iii-c-3-1]] (2)). So the only possible pole with
 real part at most 3/2 + 2γ_Υ is λ_♯, which is a simple pole by [[cor:iii-g3-2-6]], excited only by the exceptional
 term by [[rem:iii-g3-3-8]]. As 0 < e_Υ < 1, λ_♯ differs from 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ. ∎

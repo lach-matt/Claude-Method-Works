@@ -255,9 +255,9 @@ named below are defined there.
 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ℓ_I ∈ (3, ℓ0), δ_♯ = (1 − e_Υ) γ_Υ and ε_ind the index distance
 ([[eq:iii-i9-1-1]], [[eq:iii-f1-2-2]]), such that no parameter exponent z at timelike infinity (a discrete set fixed
 before these constants) has real part in (3, 3 + ε_+] (the condition (G⁺), [[def:iii-j-g-plus]]), and none has real part
-in (2, 2 + ε_K] ∪ (3, 3 + ε_K], nor z + d_c0, z + d_c1 in (2, 2 + ε_K] (the gap (G), [[def:iii-i10-1-3]]), d_c0, d_c1 ∈
-(0, 1) being the offsets of the two class roots of [[def:iii-i9-gap]]. [[ch:s27]] collects these conditions with the
-other choices of parameters. Fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K
+in (2, 2 + ε_K] ∪ (3, 3 + ε_K], nor z + d_c0, z + d_c1 in (2, 2 + ε_K] (the gap (G), [[def:iii-i10-1-3]]),
+d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots of [[def:iii-i9-gap]]. [[ch:s27]] collects these conditions
+with the other choices of parameters. Fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K
 large enough and on a domain enlarged as in [[ch:after-shell]]. For every ε_m > 0 there are λ1 > 0 and δ > 0, depending
 on ε_m and ε, such that for λ ≤ λ1:
 

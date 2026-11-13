@@ -1668,7 +1668,7 @@ This section is [Hin26, Proposition 9.11 and Corollary 9.12] in dimension 4 + 1.
 of [[sec:iii-b-2]] ([Hin26, (3.3)]), with its faces 𝓘⁺, ι⁺ and K⁺, and Ω_* := cl_M{t_* ≥ 1} ([Hin26, (9.38)]); the
 b-spaces on Ω_* carry three orders, listed for 𝓘⁺, ι⁺ and K⁺ ([Hin26, Definitions 2.6–2.8]). Let χ_K ∈ C^∞(M) equal 1
 near K⁺ and 0 near t_*⁻¹(1) ∪ 𝓘⁺, and be a function of R alone near ι⁺. Let χ_ι := χ(t_*), with χ ∈ C^∞(ℝ) equal to 0
-on (−∞, 1] and 1 on [2, ∞); it equals 1 near ι⁺ and is supported in Ω_*.
+on (−∞, 1] and 1 on [2, ∞); it equals 1 near ι⁺ and is supported in Ω.
 
 **Lemma {#lem:iii-g2-4-1}** (2L̄ is the ι⁺-normal operator of 2L_b.) For w = w(R, ω) conormal on ι⁺ near {R > 0}
 (equivalently w(v, ω), v = R⁻¹), on {|x| > 3R_1},
@@ -1703,12 +1703,12 @@ h^(≤2)_(b,v1)(a_v1V^((−1))_1):
 
 the primed sum running over the other rows. Let u := χ_Ku_(b,0) + χ_ιt_*^(−ϰ)ũ. Then
 
-    χ_ιt_*^(−ϰ−2)f_+ − L_bu ∈ H^(∞,(ℰ^tot_(ι⁺,𝓘)+2, ℓ_I+1), ϰ+2+ℰ_ind, ϰ+ℓ_K)_b(Ω_*; S²T*)^(•,−)         {#eq:iii-g2-4-4}
+    χ_ιt_*^(−ϰ−2)f_+ − L_bu ∈ H^(∞,(ℰ^tot_(ι⁺,𝓘)+2, ℓ_I+1), ϰ+2+ℰ_ind, ϰ+ℓ_K)_b(Ω; S²T*)^(•,−)         {#eq:iii-g2-4-4}
 
 for an index set ℰ_ind with min Re ℰ_ind > 0, depending only on L̄ and on whether ϰ = 1. Moreover
 (t_*^ϰu)|_ι⁺ = u_+, and
 
-    u ∈ H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I), (ϰ,0)∪(ϰ+ℰ_ind), (ℰ^gr_K(ϰ),ℓ_K))_b(Ω_*)^(•,−),
+    u ∈ H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I), (ϰ,0)∪(ϰ+ℰ_ind), (ℰ^gr_K(ϰ),ℓ_K))_b(Ω)^(•,−),
 
 where ℰ^gr_K(ϰ) contains the index sets of a_s1 and a_v1 and (z, 0) for every exponent z of t_*⁻¹ in
 [[eq:iii-g2-4-3]].
@@ -1755,8 +1755,8 @@ their invisibility at ι⁺ holds with room.
 **Remark {#rem:iii-g2-4-maps}** (The graft as a holomorphic family.) For fixed ε > 0 and ϰ near ϰ_0 ≠ 1 with
 ϰ ∉ spec_ι⁺(L̄) (a_s1 has a pole at ϰ = 1), [[thm:iii-g2-4-2]] defines Φ_(ι,b)(ϰ)f_+ := u and
 F_(ι,b)(ϰ)f_+ := χ_ιt_*^(−ϰ−2)f_+ − L_bΦ_(ι,b)(ϰ)f_+ on H^(∞,ℓ_I+1,ℓ_K−2)_b(ι⁺). These are holomorphic in ϰ, with
-values in H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),ϰ_0−ε,ϰ_0−1−ε)_b(Ω_*)^(•,−) and in
-H^(∞,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1),ϰ_0+2+min Re ℰ_ind−ε,ϰ_0+ℓ_K−ε)_b(Ω_*)^(•,−) respectively ([Hin26, (9.42a)–(9.42b)]).
+values in H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),ϰ_0−ε,ϰ_0−1−ε)_b(Ω)^(•,−) and in
+H^(∞,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1),ϰ_0+2+min Re ℰ_ind−ε,ϰ_0+ℓ_K−ε)_b(Ω)^(•,−) respectively ([Hin26, (9.42a)–(9.42b)]).
 Holomorphy holds because f_+ ↦ u_+ is holomorphic ([[thm:iii-g1-3-1]] (2)), the coefficients Y^((μ))_τ are continuous
 functionals of u_+ ([[thm:iii-g2-3-1]]), t_*^(−ϰ), a_s1 and a_v1 are holomorphic in ϰ with values in these weighted
 spaces, and the states do not depend on ϰ.
@@ -1767,15 +1767,15 @@ Re ϰ_0 < ℓ_I. Let k ∈ ℕ_0 and
 
     f = Σ_(j≤k) χ_ιt_*^(−ϰ_0−2)(log t_*)^jf^((j))_+ + f′,
 
-with f^((j))_+ ∈ ⋂_ε H^(∞,ℓ_I+1,ℓ_K−2−ε)_b(ι⁺) and f′ ∈ ⋂_ε H^(∞,ℓ_I+1,∞,ϰ_0+ℓ_K−ε)_b(Ω_*; S²T*)^(•,−). Then there
+with f^((j))_+ ∈ ⋂_ε H^(∞,ℓ_I+1,ℓ_K−2−ε)_b(ι⁺) and f′ ∈ ⋂_ε H^(∞,ℓ_I+1,∞,ϰ_0+ℓ_K−ε)_b(Ω; S²T*)^(•,−). Then there
 are u^((j))_(b,0) of the form [[eq:iii-g2-4-3]], with ϰ_0 for ϰ and a factor (log t_*)^j in each argument, and
 ũ^((j)) ∈ ⋂_ε H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),ℓ_K−ε)_b(ι⁺), j = 0, …, k + l_0, such that
 u := Σ_j χ_Ku^((j))_(b,0) + χ_ιt_*^(−ϰ_0)(log t_*)^jũ^((j)) satisfies
 
-    f − L_bu ∈ ⋂_(ε>0) H^(∞,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1), ϰ_0+2+ℰ_ind+(0,k+l_0), ϰ_0+ℓ_K−ε)_b(Ω_*; S²T*)^(•,−),
+    f − L_bu ∈ ⋂_(ε>0) H^(∞,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1), ϰ_0+2+ℰ_ind+(0,k+l_0), ϰ_0+ℓ_K−ε)_b(Ω; S²T*)^(•,−),
                                                                                                          {#eq:iii-g2-4-5}
 
-and u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I), (ϰ_0,k+l_0)∪(ϰ_0+ℰ_ind+(0,k+l_0)), (ℰ^gr_K(ϰ_0)+(0,k+l_0),ℓ_K−ε))_b(Ω_*)^(•,−)
+and u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I), (ϰ_0,k+l_0)∪(ϰ_0+ℰ_ind+(0,k+l_0)), (ℰ^gr_K(ϰ_0)+(0,k+l_0),ℓ_K−ε))_b(Ω)^(•,−)
 ([Hin26, (9.43)]).
 
 *Proof.* As in [Hin26]. The quasi-homogeneous part is
