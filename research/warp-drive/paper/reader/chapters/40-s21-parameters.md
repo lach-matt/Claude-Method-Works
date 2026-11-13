@@ -1209,7 +1209,7 @@ v1) and 0 (s0, s2) of L̂_(b₀)(0), and its class roots μ_c0 := 2 − ι^Υ_(s
 
 so that d_c0, d_c1 ∈ (0, 1). A *row* is ν = (τ, λ, k) with τ ∈ 𝒯 and (λ, k) ∈ ℰ_par; its K⁺-exponent is
 e_ν := λ + d_τ. The offsets d_c0, d_c1 of the two class roots enter the gap condition (G) of [[def:iii-i10-1-3]]: no
-λ + d_c0 and no λ + d_c1, λ in the exponent set Λ there, has real part in (2, 2 + ε_K].
+λ + d_c0 and no λ + d_c1, λ in the exponent set Λ of [[def:iii-i10-1-1]], has real part in (2, 2 + ε_K].
 
 Let
 

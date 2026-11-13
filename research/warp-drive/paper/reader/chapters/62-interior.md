@@ -80,25 +80,25 @@ the whole coordinate region outside the curvature boundary x_K = 1 of the backgr
 m′ and ε being those of [[thm:settling]]. This holds for every final mass μ_end; λ1, δ and the constants depend on
 r_♭, hence on μ_end. The part {r_♭ ≤ r < q_end} of the domain lies beyond the curvature boundary.
 
-*Proof.* *The inner radius.* r_♭ ∈ (0, ½R₁] since q_end ≤ R₁. The results of [[ch:s11]]–[[ch:s27]] hold at r_♭, with
-constants and neighbourhoods of b₀ depending on r_♭ ([[ch:s27]]). The radius enters them through choices of small
-constants that a smaller inner radius does not make harder, and through four facts at the inner radius, each of which
-holds at r_♭: the Kerr–Schild family is defined on {|x| ≥ ½r_♭} ([[lem:s11-ks-domain]]); ψ ≥ 0 and dt_*, dt_IVP are
-timelike on {|x| ≥ r_♭} ([[lem:iii-b-3-7]]); dr is future timelike inside the horizon for g_(b₀), as shown above, and
-for b near b₀ uniformly on the compact {½r_♭ ≤ r ≤ ¾R₁}, by continuity in b; and the damping 1-form has the signs of
-[[prop:np-10-14]] (i)–(ii) down to r = ½r_♭ ([[lem:interior-damping]]). So [[prop:vii-3-2]] and [[cor:s27-rate]] hold
-at r_♭, and so does the proof of [[thm:settling]] (i) in [[ch:settling-proof]], with [[lem:vii-1-2]] taken at a
-δ′_0 ∈ (max(0, q0 − ½r_♭), q0), which gives a′ = q0 − δ′_0 < ½r_♭ as that lemma asks. As μ_end ≥ μ0, ½r_♭ = ¼q_end
-≥ ¼q0 > 0, so this interval is not empty; and [[thm:main]] holds on such an Ω′ for every δ′_0 ∈ (0, q0).
+*Proof.* *The inner radius.* r_♭ ∈ (0, ½R₁] since q_end ≤ R₁, and [[thm:settling-precise]] holds at every such
+inner radius, its choices depending on r_♭ ([[sec:vii-4]]); its g is the development of [[thm:settling]] (i). The
+stability theory it rests on is written at every r_♭ ∈ (0, ½R₁] ([[ch:s11]], [[def:s12-radii]], [[ch:s27]]). The
+radius enters it through choices of small constants that a smaller inner radius does not make harder, and through four
+facts at the inner radius, each of which holds at r_♭: the Kerr–Schild family is defined on {|x| ≥ ½r_♭}
+([[lem:s11-ks-domain]]); ψ ≥ 0, and dt_* and dt_IVP are timelike on {|x| ≥ r_♭} ([[lem:iii-b-3-7]]); dr is future
+timelike inside the horizon for g_(b₀), as shown above, and for b near b₀ uniformly on the compact
+{½r_♭ ≤ r ≤ ¾R₁}, by continuity in b; and the damping 1-form has the signs of [[prop:np-10-14]] (i)–(ii) on all of
+(0, r_h/2], which contains the collar down to ½r_♭ ([[lem:interior-damping]]). In [[lem:vii-1-2]], δ′_0 is taken in
+(max(0, q0 − ½r_♭), q0), which is not empty, so that a′ = q0 − δ′_0 < ½r_♭; [[thm:main]] holds on such an Ω′.
 
-*The domain.* g is defined on Ω_* ∪ 𝒟_0 ([[thm:iii-k-4-3]] with S = 0, [[prop:vii-3-2]]). This set is
-M ∩ {t_IVP ≥ 0}. Indeed, t^♭_* ≤ t_* ≤ t_IVP where t^♭_* is defined ([[sec:iii-k-0]]), so Ω_* = cl_M{t^♭_* ≥ 1} lies
-in {t_IVP ≥ 1}; and a point of M with t_IVP ≥ 0 lies in 𝒟_0 = {t_IVP ≥ 0} ∩ {t^♭_* ≤ T̂ + 2} or in
-{t^♭_* > T̂ + 2} ⊂ Ω_*. Since t_IVP ≤ t, t_IVP ≥ 0 implies t ≥ 0 ≥ −½|x|, so M ∩ {t_IVP ≥ 0} = {|x| ≥ r_♭, t_IVP ≥ 0}.
-As r_♭ = ½q_end < q_end, it contains {r ≥ q_end, t_IVP ≥ 0}.
+*The domain.* g is defined on Ω_* ∪ 𝒟_0 ([[thm:settling-precise]] (i)). This set is M ∩ {t_IVP ≥ 0}. Indeed,
+t^♭_* ≤ t_* ≤ t_IVP where t^♭_* is defined ([[sec:iii-k-0]]), so Ω_* = cl_M{t^♭_* ≥ 1} lies in {t_IVP ≥ 1}; and a
+point of M with t_IVP ≥ 0 lies in 𝒟_0 = {t_IVP ≥ 0} ∩ {t^♭_* ≤ T̂ + 2} or in {t^♭_* > T̂ + 2} ⊂ Ω_*. Since t_IVP ≤ t,
+t_IVP ≥ 0 implies t ≥ 0 ≥ −½|x|, so M ∩ {t_IVP ≥ 0} = {|x| ≥ r_♭, t_IVP ≥ 0}. As r_♭ = ½q_end < q_end, it contains
+{r ≥ q_end, t_IVP ≥ 0}.
 
-*The data and the rate.* The data bound is [[cor:vii-2-3]]. G-invariance and Ric(g) = 0 are [[prop:vii-3-2]]. The
-rate is [[cor:s27-rate]] (c) with b = (m′, 0) and ε_t := ε, on {r_♭ ≤ r ≤ R′, t_* ≥ T′} ⊃ {q_end ≤ r ≤ R′, t_* ≥ T′}. ∎
+*The data and the rate.* G-invariance, Ric(g) = 0 and the bound on the data are [[thm:settling-precise]] (i), and the
+rate is [[eq:vii-0-2]] with ε_t := ε, on {r_♭ ≤ r ≤ R′, t_* ≥ T′} ⊃ {q_end ≤ r ≤ R′, t_* ≥ T′}. ∎
 
 **Remark {#rem:interior-condition}** (At the inner radius ½R₁.) With the inner radius ½R₁ the development already
 covers {r ≥ q_end} exactly when q_end ≥ ½R₁, that is when
@@ -127,8 +127,10 @@ timelike for g_λ (such V exists, see the proof), time-oriented as on Ω′. Let
 
     A := D_V(Σ) ∩ {t_IVP ≤ 0}  with g_λ,     B := {|x| > r_♭, t_IVP > 0} ∪ Σ  with g.
 
+B is the domain M ∩ {t_IVP ≥ 0} of g with the points of Σ^IVP ∖ Σ and of {|x| = r_♭} removed. [[pending:issue-1]]
+
 (i) The space M_gl := (A ⊔ B)/∼, gluing Σ ⊂ A to Σ ⊂ B by the identity, is a smooth, Hausdorff, time-oriented
-vacuum spacetime, equal to (A, g_λ) and (B, g) away from Σ. [[pending:issue-1]]
+vacuum spacetime, equal to (A, g_λ) and (B, g) away from Σ.
 
 (ii) Σ is acausal in M_gl and in V, and its Cauchy developments D_(M_gl)(Σ) and D_V(Σ) are globally hyperbolic
 developments of (Σ, γ, k) in the sense of [Sbi15, Definition 2.1]. Their maximal common globally hyperbolic

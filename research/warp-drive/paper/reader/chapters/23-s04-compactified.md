@@ -953,11 +953,13 @@ V^J u ∈ L² for |J| ≤ s̄. ∎
 **Lemma {#lem:ii-a-8-5}** (Multiplication and pseudolocality; the part of [Hin26c, Lemma 3.5] that is used, and the
 pseudolocality in the proof of [Hin26c, Proposition 3.28].) Let 𝗌 and 𝗌_0 be variable orders.
 
-(a) There are d_0 ∈ ℕ and C with ‖ℓu‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^𝗌_e3b) for all ℓ ∈ C^(d_0)_e3b. Moreover, for
-every k, ‖ℓu‖_(H^((𝗌;k))_(e3b;b)) ≤ C_k Σ_(j≤k) ‖ℓ‖_(C^((d_0;j))_(e3b;b)) ‖u‖_(H^((𝗌;k−j))_(e3b;b)), with the same d_0.
+(a) There are d_0 ∈ ℕ, depending only on 𝗌, and C with ‖ℓu‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^𝗌_e3b) for all
+ℓ ∈ C^(d_0)_e3b. Moreover, for every k, ‖ℓu‖_(H^((𝗌;k))_(e3b;b)) ≤ C_k Σ_(j≤k) ‖ℓ‖_(C^((d_0;j))_(e3b;b))
+‖u‖_(H^((𝗌;k−j))_(e3b;b)), with the same d_0.
 
-(b) Let B, B^♯ ∈ C^∞_b Ψ⁰_e3b with WF′_e3b(I − B^♯) ∩ WF′_e3b(B) = ∅. Then there are d_0 and C with
-‖Bℓ(I − B^♯)u‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^(𝗌_0)_e3b).
+(b) There is d_0 ∈ ℕ, depending only on 𝗌 and 𝗌_0, with the following property. Let B, B^♯ ∈ C^∞_b Ψ⁰_e3b with
+WF′_e3b(I − B^♯) ∩ WF′_e3b(B) = ∅. Then there is C, depending on B and B^♯, with
+‖Bℓ(I − B^♯)u‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^(𝗌_0)_e3b) for all ℓ ∈ C^(d_0)_e3b.
 
 *Proof.* *Smooth coefficients.* Let C^∞_e3b be the space of functions all of whose e3b-derivatives are bounded. With the
 seminorms ‖·‖_(C^d_e3b) it is a Fréchet space. Such a function ℓ is a symbol of order 0, independent of the fibre
@@ -968,29 +970,66 @@ is quantized to multiplication by itself, and the cut-offs χ_α of [Hin26d, Def
 multiplication by ℓ lies in Ψ̃⁰_e3b, which is bounded on H^𝗌_e3b ([[sec:ii-a-4-2]], with (S8)). Consider
 T : ℓ ↦ (u ↦ ℓu), from C^∞_e3b to ℒ(H^𝗌_e3b). Its graph is closed. Suppose ℓ_n → ℓ in C^∞_e3b and Tℓ_n → T′. For
 u ∈ H^𝗌_e3b (a distribution on ℝ^(1+4), locally in H^(inf 𝗌)), ℓ_nu → ℓu in 𝒟′. So T′u = ℓu. By the closed graph
-theorem (from a Fréchet space to a Banach space), T is continuous, that is, ‖Tℓ‖ ≤ C‖ℓ‖_(C^(d_0)_e3b) for some d_0.
-Likewise ℓ ↦ Bℓ(I − B^♯) ∈ ℒ(H^(𝗌_0)_e3b, H^𝗌_e3b) is well defined, as Bℓ(I − B^♯) ∈ Ψ̃⁰_e3b has empty wave front set
-((S5)) and so lies in Ψ̃^(−∞)_e3b. Its graph is closed by the same argument, the convergence holding in
-ℒ(H^(𝗌_0), H^(𝗌_0)). So it is bounded by C‖ℓ‖_(C^(d_0)_e3b).
+theorem (from a Fréchet space to a Banach space), T is continuous, that is, ‖Tℓ‖ ≤ C‖ℓ‖_(C^(d_*)_e3b) for some d_*.
+The map T does not involve any auxiliary operator, so d_* depends only on 𝗌.
 
-*Finite regularity.* Let d_* be the largest of the numbers just found, for (a) at the orders 𝗌 and 𝗌_0 and for (b),
-let K := max(0, ⌈−inf 𝗌⌉, ⌈−inf 𝗌_0⌉), and put d_0 := d_* + K + 1. Let ℓ ∈ C^(d_0)_e3b. In the charts ψ_β of ρℬ, with
-a uniformly smooth partition of unity θ_β and a mollifier η_ε, put
+*Finite regularity.* Let d_* be the number just found, let K := max(0, ⌈−inf 𝗌⌉), and put d_0 := d_* + K + 1. Let
+ℓ ∈ C^(d_0)_e3b. In the charts ψ_β of ρℬ, with a uniformly smooth partition of unity θ_β and a mollifier η_ε, put
 ℓ_ε := Σ_β ((θ_βℓ) ∘ ψ_β⁻¹ ∗ η_ε) ∘ ψ_β. Derivatives commute with convolution, the charts have uniformly bounded
 transitions and finite multiplicity, and e3b-derivatives are uniformly equivalent to coordinate derivatives in these
 charts. Hence ‖ℓ_ε‖_(C^d_e3b) ≤ C‖ℓ‖_(C^d_e3b) for d ≤ d_0, and ℓ_ε ∈ C^∞_e3b. Moreover ℓ_ε → ℓ in C^K on compact sets.
 For u ∈ H^𝗌_e3b, ℓ_εu → ℓu in 𝒟′, while ‖ℓ_εu‖_(H^𝗌) ≤ C‖ℓ‖_(C^(d_*)_e3b)‖u‖_(H^𝗌). A subsequence converges weakly in
 the Hilbert space H^𝗌_e3b, which embeds continuously in 𝒟′, so its limit is ℓu. The norm is weakly lower
-semicontinuous, which gives the first claim of (a). For (b), ℓ_ε(I − B^♯)u → ℓ(I − B^♯)u weakly in H^(𝗌_0), by the
-first claim and the same argument. B is weakly continuous on H^(𝗌_0), and the bound holds uniformly in ε. So the limit
-Bℓ(I − B^♯)u lies in H^𝗌, with the bound.
+semicontinuous, which gives the first claim of (a). Write d_a(𝗌) for the number d_0 so obtained.
 
 *b-regularity.* By [[eq:ii-a-8-1]] and the Leibniz rule, V^J(ℓu) = Σ (V^(J_1)ℓ)(V^(J_2)u) over splittings of J, and
-‖V^(J_1)ℓ‖_(C^(d_0)_e3b) ≤ C‖ℓ‖_(C^((d_0;|J_1|))_(e3b;b)) by [[lem:ii-a-8-2]] (a). ∎
+‖V^(J_1)ℓ‖_(C^(d_0)_e3b) ≤ C‖ℓ‖_(C^((d_0;|J_1|))_(e3b;b)) by [[lem:ii-a-8-2]] (a).
+
+*(b): a commutator expansion.* As a symbol of the secondary structure ρℬ, ℓ is independent of the fibre variable, of
+order 0 and index 0, with ‖ℓ‖_((M);0,0) ≤ C‖ℓ‖_(C^M_e3b) for every M ([[def:ii-a1-1-3]]; e3b-derivatives are the
+rescaled coordinate derivatives in the charts of ρℬ, as after [[eq:ii-a1-1-2]]), and Op(ℓ) is multiplication by ℓ, as
+shown above for smooth ℓ and, for ℓ of finite regularity, by the extension in [[prop:ii-a1-2-4]] (a). WF′(B) and
+WF′(I − B^♯) are disjoint compact subsets of ᵉ³ᵇS*M̃, so B and I − B^♯ are microsupported in disjoint closed sets K_1,
+K_2 of the compactified bundle ([[sec:ii-a1-1-2]]). Choose y ∈ C^∞(ᵉ³ᵇT̄*M̃) with y = 1 near K_1 and y = 0 near K_2,
+and put Y := Op(y) ∈ Ψ̃⁰ ([[lem:ii-a1-1-1]]). Then WF′(B) ∩ WF′(I − Y) = ∅ = WF′(Y) ∩ WF′(I − B^♯), and
+R_1 := B(I − Y) and R_2 := Y(I − B^♯) lie in Ψ̃^(−∞) ([[lem:ii-a1-1-2]]; I − Y = Op(1 − y) by [[eq:ii-a1-1-1]]).
+For every operator T, with ad_Y T := YT − TY,
+
+    BT(I − B^♯) = B(I − Y)T(I − B^♯) + BTY(I − B^♯) + B(ad_Y T)(I − B^♯),                         {#eq:ii-a-comm-split}
+
+as the right side is B(T − YT + TY + YT − TY)(I − B^♯). Let T_0 be multiplication by ℓ, T_j := ad_Y^j T_0, and
+J := max(0, ⌈sup 𝗌 − inf 𝗌_0⌉). Applying [[eq:ii-a-comm-split]] to T_0, T_1, …, T_(J−1) in turn,
+
+    Bℓ(I − B^♯) = Σ_(j=0)^(J−1) (R_1T_j(I − B^♯) + BT_jR_2) + BT_J(I − B^♯).
+
+For j ≥ 1, T_j is the operator ad_(Op(y_1))⋯ad_(Op(y_j))Op(ℓ) at y_1 = ⋯ = y_j = y, an expression in the j + 1 symbols
+y_1, …, y_j, ℓ in the sense of [[prop:ii-a1-2-4]] (f). For smooth symbols it has order −j, each commutator with an
+operator of order 0 lowering the order by one ((S5)); all its symbols have constant order 0 and index 0. So by
+[[prop:ii-a1-2-4]] (f), for every order 𝗍, T_j is bounded from H^𝗍_e3b to H^(𝗍+j)_e3b with norm at most
+C‖y‖_((M_j(𝗍));0,0)^j ‖ℓ‖_(C^(M_j(𝗍)+2)_e3b), where M_j(𝗍) is the number that (f) gives for this expression and the order
+𝗍: it depends only on j and 𝗍. For j = 0, (a) bounds T_0 on H^𝗍 with the index d_a(𝗍). The terms are bounded as
+follows.
+
+(i) R_1T_j(I − B^♯): I − B^♯ is bounded on H^(𝗌_0), T_j is bounded on H^(𝗌_0) (index M_j(𝗌_0), or d_a(𝗌_0) for
+j = 0), and R_1 maps H^(𝗌_0) to H^𝗌.
+
+(ii) BT_jR_2: R_2 maps H^(𝗌_0) to H^𝗌, and T_j and B are bounded on H^𝗌 (index M_j(𝗌), or d_a(𝗌) for j = 0).
+
+(iii) BT_J(I − B^♯): T_J maps H^(𝗌_0) to H^(𝗌_0+J) ⊂ H^𝗌, as 𝗌_0 + J ≥ 𝗌 (index M_J(𝗌_0), or d_a(𝗌_0) when J = 0).
+
+Hence (b) holds with
+
+    d_0 := max(d_a(𝗌), d_a(𝗌_0), max_(1≤j≤J) (M_j(𝗌), M_j(𝗌_0)) + 2),
+
+which depends only on 𝗌 and 𝗌_0. B, B^♯ and y enter only the constant, through the norms of B, I − B^♯, R_1 and R_2
+and through ‖y‖_((M_j(𝗍));0,0). [[prop:ii-a1-2-4]] is proved in [[sec:ii-a1-2]] without using (b). ∎
 
 [Hin26c] states (a) as a consequence of its Lemma 3.5, whose proof is by inspection of [Hin26d, Proposition 3.32], and
-uses (b) in the proof of its Proposition 3.28 for smooth ℓ, applying it to ℓ of finite regularity. Here both are proved
-from (S5), (S6), (S8) and the closed graph theorem.
+uses (b) in the proof of its Proposition 3.28 for smooth ℓ, applying it to ℓ of finite regularity, with "a finite
+seminorm of ℓ" for each pair (B, B^♯). A closed graph argument for a fixed pair gives such a bound with an index that
+may depend on the pair. The commutator expansion [[eq:ii-a-comm-split]] makes the auxiliary symbol y an argument of a
+fixed multilinear map, so that only constants depend on B and B^♯. This uniformity is what the inductions of
+[[sec:ii-a-9]] need: they apply (b), and the results built on it, to new pairs of operators at every order k.
 
 **Lemma {#lem:ii-a-8-6}** (Operators of limited regularity.) Let 𝒫 ⊂ C^∞_b Ψ^m_e3b be finite and
 A ∈ C^((d_0;k))_(e3b;b) 𝒫, with a representation 𝐚. Let 𝗌 and N be given. There is d_0 = d_0(𝗌, m, N), independent of

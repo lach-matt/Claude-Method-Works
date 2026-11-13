@@ -82,12 +82,11 @@ by half-integer orders, is [[thm:own-data]].
 
 ### No oscillation after the shell {#sec:after-shell-profiles}
 
-We use the approximant of [[thm:approximant]] with the stage data of [[lem:stage-data]] (as [[thm:main]] does), with
-the notation of [[sec:ansatz]]: the mean metric ḡ = g0 + Σ_(j=1)^N λ^j m_j, the phase u = v + Σ_(j=1)^N λ^j φ_j, the
-leading oscillation W = W_TT + χ dv ⊗ dv of [[sec:stage-zero]], and the oscillating profiles ĝ_j, 2 ≤ j ≤ N + 1, of
-zero θ-mean. The *oscillating profiles* are W and the ĝ_j.
+We use the approximant of [[thm:approximant]] with the stage data of [[lem:stage-data]], as [[thm:main]] does, in the
+notation of [[sec:ansatz]]: the means m_j, the phases φ_j, the leading oscillation W = W_TT + χ dv ⊗ dv of
+[[sec:stage-zero]] and the oscillating profiles ĝ_j, 2 ≤ j ≤ N + 1, of zero θ-mean.
 
-**Proposition {#prop:after-shell-profiles}** (No oscillation after the shell.) Let g_λ and g_app be as in [[thm:main]].
+**Proposition {#prop:after-shell-profiles}** (After the shell.) Let g_λ and g_app be as in [[thm:main]].
 
 (a) On Ω ∩ {v > v_end}, W = 0 and ĝ_j = 0 for 2 ≤ j ≤ N + 1, so that there
 
@@ -97,51 +96,20 @@ with g0 = η + (μ_end/r²) dv ⊗ dv, five-dimensional Schwarzschild–Tangherl
 independent of λ. In the coordinates (t, x) := (τ, x), g0 = g^KS_(μ_end,0) of [[def:iii-b-3-2]] there.
 
 (b) On Ω ∩ {v > v_end}, |g_λ − g0 − λ m1| ≤ C λ² and |∂(g_λ − g0 − λ m1)| ≤ C λ². If [[thm:main]] is run at order k ≥ d
-with K ≥ d + 1, then g_λ − g0 is O(λ) in H^d of the slices Σ_τ ∩ {v > v_end} ([[rem:ue-every-order]]).
+with K ≥ d + 1, then g_λ − g0 is O(λ) in H^d of the slices Σ_τ ∩ {v > v_end}.
 
 (c) If T > r_q(μ_end) − a, a the inner radius of Ω ([[sec:domain]]), then for every τ1 ∈ (v_end − a, τ_end] the whole
 slice Σ_τ1 lies in {v > v_end}, and its inner sphere {r = a} lies inside the horizon {r = √μ_end} of g0.
 
-*Proof.* (a) *The leading oscillation.* μ′ = (2/9) A² env² ([[eq:mu-rate]]) and env is supported in [v_start, v_end], so
-μ = μ_end and env = 0 for v ≥ v_end. W_TT is proportional to α = A env(v) h r^(−3/2) ([[sec:stage-zero]]), so it vanishes
-on {v > v_end}. The right-hand side F_2 of the transport [[eq:chi-transport]] is quadratic in α, since y1 and y2 are
-linear in α; so F_2 = 0 on {v > v_end}. The transport runs along ℓ = ∂_r, the derivative at fixed v. By [[lem:domain]]
-(d) the integral curve of L0 = −ℓ through a point of Ω, followed to the past, stays in Ω, keeps v (L0(v) = 0) and meets
-Σ_τ0. So {v > v_end} ∩ Ω is a union of such curves. On each of them ∂_θ χ solves (∂_r + 3/(2r)) ∂_θ χ = 0 with ∂_θ χ = 0
-on Σ_τ0 ([[lem:stage-data]]: χ = 0 on Σ_τ0), hence ∂_θ χ = 0, and χ, its primitive of zero mean, vanishes. So W = 0 on Ω
-∩ {v > v_end}.
-
-*An oscillating factor in every term.* By [[lem:first-entry]] the coefficients ℛ^(m) and, likewise, the coefficients
-D^(m) of the gauge function ([[sec:data-approximant]]) are sums of monomials in g0, v, the means m_i, the phases φ_i,
-W and the ĝ_i, with their X-derivatives and with ∂_θ acting only on W and the ĝ_i. A monomial with no factor W or ĝ_i
-(differentiated or not) does not depend on θ, so its oscillating part Π_osc vanishes. Hence every term of the
-oscillating part of such a coefficient contains W or some ĝ_i, or a derivative of one, as a factor.
-
-*Induction on the stage.* Let 1 ≤ m ≤ N and suppose ĝ_i = 0 on Ω ∩ {v > v_end} for 2 ≤ i ≤ m (for m = 1 there is no
-such i). As this set is relatively open in Ω, W and these ĝ_i vanish there with all their derivatives, by continuity up
-to the boundary of Ω.
-
-The data of ĝ_(m+1) on Σ_τ0 are given pointwise by [[lem:stage-data]] (i): ∂_θ ĝ_(m+1) = −Pol⁺(Λ_m(γ_m) + known), where
-Λ_m(γ_m) is bilinear with ∂_θ W and "known" is the rest of the oscillating part of D^(m) on Σ_τ0, which involves the
-profiles of stages up to m only. Each term of both contains an oscillating factor W or ĝ_i with i ≤ m, so at every point
-of Σ_τ0 ∩ {v > v_end}, ∂_θ ĝ_(m+1) = 0, and ĝ_(m+1), of zero θ-mean, vanishes there.
-
-On Ω, Z := ∂_θ ĝ_(m+1) solves the transport −(ℓ·∂_X) Z + ℳ′ Z = F of the proof of [[lem:stage-system]], where ℳ′ is a
-bounded operator on the zero-mean functions of θ, uniformly in X, and F = −Π_osc(𝒲(m_m, φ_m) + 𝒦_m), the oscillating
-part of the terms of ℛ^(m) other than T̂ ĝ_(m+1) and the e_(m+1) term. By [[lem:first-entry]], 𝒦_m involves only m_i,
-φ_i (i < m) and ĝ_i (i ≤ m), and the θ-dependent part of 𝒲(m_m, φ_m) carries the factor W (the term in □̃φ_m being
-−(1/2)(□̃φ_m) ∂_θ W). So F = 0 on Ω ∩ {v > v_end}. On each integral curve of ℓ in Ω ∩ {v > v_end}, Z therefore solves a
-linear homogeneous ordinary differential equation with values in L²(S¹), with Z = 0 where the curve meets Σ_τ0;
-Gronwall's inequality gives Z = 0 on the curve. So ĝ_(m+1) = 0 on Ω ∩ {v > v_end}, which completes the induction.
-
-*The approximant.* On Ω ∩ {v > v_end} we now have G = ḡ ([[eq:ansatz]]), which does not depend on θ. The profiles of the
-fixed-phase form of [[thm:approximant]] come from the Taylor expansion of G(X, θ + φ1 + λΨ) about θ + φ1; every term
-with a θ-derivative of G vanishes, so g1 = m1 + W(X, θ + φ1) = m1 and g_j = m_j for 2 ≤ j ≤ N. This is
-[[eq:after-shell-gapp]]. The m_j are profiles of [[thm:approximant]] with zero oscillation, hence smooth and independent
-of λ. For v ≥ v_end, μ = μ_end, so g0 = η + (μ_end/r²) dv ⊗ dv ([[eq:background]]), which is
-[[eq:vr-form]] with f = 1 − μ_end/r², five-dimensional Schwarzschild–Tangherlini of mass μ_end in ingoing
-Eddington–Finkelstein form. As dv = dτ + d|x|, it is η + μ_end|x|⁻²(dτ + d|x|)², which is g^KS_(μ_end,0) of
-[[def:iii-b-3-2]] at A = 0 ([[prop:iii-b-3-4]]) with t = τ.
+*Proof.* (a) is [[lem:np-10-50-a]]. Its proof uses three facts. W_TT is proportional to the envelope, which vanishes
+for v ≥ v_end, and the right-hand side of the transport [[eq:chi-transport]] of χ is quadratic in it. Every term of the
+oscillating part of an expression polynomial in the profiles contains W, some ĝ_j or a derivative of one, since a
+product of factors that do not depend on θ has zero oscillating part; this applies to the stage data of
+[[lem:stage-data]] (i) and to the right-hand side of the transport (c) of [[lem:stage-system]]. And the transports run
+along ℓ = −L0, whose integral curves keep v and reach Σ_τ0 inside Ω ([[lem:domain]] (d)). By induction on the stage,
+every oscillating profile has zero data and zero right-hand side on Ω ∩ {v > v_end}, hence vanishes there. As
+dv = dτ + d|x|, g0 = η + μ_end|x|⁻²(dτ + d|x|)² there, which is g^KS_(μ_end,0) of [[def:iii-b-3-2]] at A = 0
+([[prop:iii-b-3-4]]) with t = τ.
 
 (b) By [[thm:main]] item 3, g_λ = g_app + w with |w| ≤ C λ^(K−3) and |∂w| ≤ C λ^(K−4) on Ω, and K ≥ 6. By (a),
 g_λ − g0 − λ m1 = Σ_(j=2)^N λ^j m_j + w on Ω ∩ {v > v_end}, and the m_j are bounded with their first derivatives on the
@@ -153,11 +121,11 @@ V − r_q(μ_end) = v_end + T − r_q(μ_end) > v_end − a, so the interval (v_
 condition μ0 ≥ √72 l5² gives q0⁴ = √72 μ0 l5² ≤ μ0², that is q0 ≤ √μ0, and μ_end = μ0 + (2/9) A² ∫ env² ≥ μ0, so
 a < √μ_end. ∎
 
-By (b), with K and the order of [[thm:main]] large enough for the number of derivatives needed, the data of g_λ near the
-hole are small in every norm the stability theory uses. The proof of [[thm:settling]] ([[ch:settling-proof]]) places
-Hintz's initial surface Σ^IVP in an enlarged domain of the form of Ω, so that its part near the hole lies in the region
-after the shell, and there the data of g_λ differ from those of Tangherlini of mass μ_end by O(λ) in every C^j
-([[cor:vii-2-3]]).
+With K and the order of [[thm:main]] large enough for the number of derivatives needed, the data of g_λ near the hole
+are therefore small in every norm the stability theory uses. The proof of [[thm:settling]] enlarges the domain of
+[[thm:main]] and places Hintz's initial surface Σ^IVP so that its part near the hole lies in the region after the shell
+([[lem:vii-1-2]]); there g_λ is within O(λ) of g^KS_(μ_end,0) in every C^J ([[lem:vii-1-1]]), and its data on Σ^IVP
+are within O(λ) of those of Tangherlini of mass μ_end ([[cor:vii-2-3]]).
 
 ### Gluing in the class: only the mass is matched {#sec:after-shell-gluing}
 
