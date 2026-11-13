@@ -750,15 +750,15 @@ expressions have at most five quantizations. ∎
 *Proof.* By [[lem:fwd-box]] and [[lem:fwd-derived]], every index entering D_0 is a maximum over sites, and each site's
 index is the larger of 𝔐(100) plus its increment and the indices of the sites it invokes, ending at the items of
 [[prop:fwd-calculus]] (index M + 2 = 𝔐(100) for [[prop:ii-a1-2-4]], d_0 = 𝔐(100) for [[lem:ii-a-8-5]]) at orders that
-satisfy (B1)–(B5). The increments along any chain of sites, site by site: (D1)–(D4), (D6), (D8)–(D11) add 0 (they take
-maxima); (D5) adds 2 ([[thm:ii-a1-5-4]], *The index*: the flow box of [[lem:ii-a1-5-2]] has d_0 − 1 derivatives, the
-commutant symbols d_0 − 2, so d_0 − 2 ≥ M′ + 2, that is d_0 ≥ 𝔐(100) + 2); (D7) adds 0 to (D5); (R) adds 1; (Γ) adds 4;
-(Sl), through [[prop:ii-e-3-2]], adds 2; (Tm), (St) and [[prop:ii-e-5-6]] (b) add 2 (d_0 ≥ d_1 + 2, d_1 = 𝔐(100) being
-the index of (D8)); (G), (I), (B), (Sv), (W), (Sb), (K), (E), (T), (U), (F) add 0. No chain passes through two sites with
-a positive increment in such a way that they add: (D5), (R), (Γ) and (Sl) raise the regularity required of the symbols
-they quantize, and (Tm), (St) the regularity of the coefficients of P − P_0 above that of (D8); each is the maximum taken
-by the site above it. So every index is at most 𝔐(100) + 4, attained only at (Γ). The energy estimates need d_0 = 2
-([[lem:ii-e-2-5]], [[prop:ii-e-2-7]]) and [[lem:ii-d-4-1]] asks d_0 ≥ 5. ∎
+satisfy (B1)–(B5). The increments, site by site: (D1)–(D4), (D6), (D8)–(D11) have increment 0 (they take maxima);
+(D5) has 2 ([[thm:ii-a1-5-4]], *The index*: the flow box of [[lem:ii-a1-5-2]] has d_0 − 1 derivatives, the commutant
+symbols d_0 − 2, so d_0 − 2 ≥ M′ + 2, that is d_0 ≥ 𝔐(100) + 2); (D7) has 0 beyond (D5); (R) has 1; (Γ) has 4; (Sl),
+through [[prop:ii-e-3-2]], has 2; (Tm), (St) and [[prop:ii-e-5-6]] (b) have 2 (d_0 ≥ d_1 + 2, d_1 = 𝔐(100) being the
+index of (D8)); (G), (I), (B), (Sv), (W), (Sb), (K), (E), (T), (U), (F) have 0. Increments do not add along a chain:
+(D5), (R), (Γ) and (Sl) raise the regularity required of the symbols they quantize, and (Tm), (St) the regularity of the
+coefficients of P − P_0 above that of (D8), each above the index of the items it applies, and the site above takes the
+maximum. So, by induction over the sites, every index is at most 𝔐(100) + 4, attained only at (Γ). The energy
+estimates need d_0 = 2 ([[lem:ii-e-2-5]], [[prop:ii-e-2-7]]) and [[lem:ii-d-4-1]] asks d_0 ≥ 5. ∎
 
 *Proof of [[thm:fwd-loss]].* By [[lem:fwd-increments]], D_0 = max(d^E_0, d^S_0, d^T_0, d^U_0) ≤ 𝔐(100) + 4 =
 20,104. By [[lem:fwd-orders]] and [[lem:fwd-tame]], d′ = 10, d″ = 11 and D_1 = 49. So by [[eq:fwd-split]]
