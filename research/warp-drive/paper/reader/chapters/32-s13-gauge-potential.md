@@ -1534,13 +1534,14 @@ at vl no such coincidence occurs for any z.
 N_0(−l − i)w̄_i = −N_1(−l − i + 1)w̄_(i−1) gives w̄_i = k_iw̄_0 with k_0 = 1 and
 k_i = k_(i−1)·2(l + i + γ)/(i(2l + i + 1)); at l = 1, k_1 = 1 + γ/2, as in [Hin26, p. 134].
 
-*Proof.* (1) [[lem:iii-a1-2-1]] holds for every sphere dimension ν: the radial term is −2∂_(t_*)ρ(D − ν/2), the scalar
-part of ᵇ□̄(0) is ρ²(−D² + (ν − 1)D + Δ̸), and the entries ±3/2 of B₁ become ±ν/2. [[lem:iii-d-3-1]] holds for every ν
-with the trace weight 2/ν. At ν = 2 the radial term of □̄^Υ is −2∂_(t_*)ρ(D − 1 − S̄). On sl 1-forms ᵇ□̄(0)
-contributes, as for [[eq:s13-nsl]], −ι² + ι + κ on the first two components (Δ̸S = κS), −ι² + ι + κ − 1 on the third
-(Δ̸dS = (κ − 1)dS, [[eq:iii-a1-1-2]] at ν = 2), and B₁ with the rows (1, −1, −κ), (−1, 1, κ), (−2, 2, 1); and γρ²M_E
-contributes γ times the rows (−(1 + e)ι + 2e, −(1 − e)ι − 2e, −eκ), ((1 − e)ι + 2e, (1 + e)ι − 2e, −eκ), (2, 2, 0). On
-vl, Δ̸V = (κ − 1)V ([[eq:iii-a1-1-2]]), the third diagonal entry of B₁ is 1, and M_E vanishes.
+*Proof.* (1) [[lem:iii-a1-2-1]] (1) holds for every sphere dimension ν: the radial term is −2∂_(t_*)ρ(D − ν/2), the
+scalar part of ᵇ□̄(0) is ρ²(−D² + (ν − 1)D + Δ_𝕊), and the entries ±3/2 of the matrix B₁ of that lemma become ±ν/2.
+[[lem:iii-d-3-1]] holds for every ν with the trace weight 2/ν. At ν = 2 the radial term of □̄^Υ is
+−2∂_(t_*)ρ(D − 1 − S̄). On sl 1-forms ᵇ□̄(0) contributes, as for [[eq:s13-nsl]], −ι² + ι + κ on the first two
+components (Δ_𝕊S = κS), −ι² + ι + κ − 1 on the third (Δ_𝕊d_𝕊S = (κ − 1)d_𝕊S, [[eq:iii-a1-1-2]] at ν = 2), and B₁ with
+the rows (1, −1, −κ), (−1, 1, κ), (−2, 2, 1); and γρ²M_E contributes γ times the rows (−(1 + e)ι + 2e, −(1 − e)ι − 2e,
+−eκ), ((1 − e)ι + 2e, (1 + e)ι − 2e, −eκ), (2, 2, 0). On vl, Δ_𝕊V = (κ − 1)V ([[eq:iii-a1-1-2]]), the third diagonal
+entry of B₁ is 1, and M_E vanishes.
 
 (2) For s0, (p + 1)² − γ²((1 + e)ι − 2e)² − 1 + γ²((1 − e)ι + 2e)² = p(p + 2) − zι(ι − 2), and p = −ι(ι − 1),
 p + 2 = −(ι − 2)(ι + 1). For sl, the change to (u, w, c) of the proof of [[lem:iii-d-4-1]] gives, with P := p + κ,

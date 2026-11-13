@@ -1578,8 +1578,8 @@ L_(0,p⃗_b)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]] with the same w_
 then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G).
 
 *Proof.* The proof of [[lem:iii-i11-3-3]], with [[lem:iii-i13-2-2]] in place of [[lem:iii-i11-3-2]], 𝒴^♮(β) in place
-of 𝒴⁰(α) and [[eq:iii-i13-2-2]] in place of [[eq:iii-i11-3-2]]. In detail: R_j := G_j − G − (L_j − L_(0,p⃗_b))u_j tends
-to 0 in 𝒴^♮(β) by the count of Step 0, the u_j being bounded, and S^(h_j,p⃗_j,β)_ν(G_j) − S^(0,p⃗_b,β)_ν(G) =
+of 𝒴⁰(α) and [[eq:iii-i13-2-2]] in place of [[eq:iii-i11-3-2]]. In detail: R_j := G_j − G − (L_(h_j,p⃗_j) −
+L_(0,p⃗_b))u_j tends to 0 in 𝒴^♮(β) by the count of Step 0, the u_j being bounded, and S^(h_j,p⃗_j,β)_ν(G_j) − S^(0,p⃗_b,β)_ν(G) =
 S^(0,p⃗_b,β)_ν(R_j), which the bound of [[lem:iii-i13-2-2]] at (0, p⃗_b) bounds by C‖R_j‖_(𝒴^♮(β)) +
 C|p⃗_b|‖u_j − u‖_(w). At b = b_0 this tends to 0. Otherwise fix an admissible α′ ∈ (2, min(3, 2 + w_0)) and
 w ∈ (0, α′ − 2). By [[eq:iii-i13-2-2]] for u_j and u, whose terms m_ν and u^rot_β have ι⁺-weight above 3/2 as in the

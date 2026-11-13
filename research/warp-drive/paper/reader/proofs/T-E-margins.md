@@ -14,8 +14,8 @@ C̃_0 = D̃_0 = 0 and
     C̃_(j+1) = C̃_j + (δ/2)(β(y_j) + β(y_(j+1))) − (δ²/12)(β′(y_(j+1)) − β′(y_j)),
     D̃_(j+1) = D̃_j + (δ/2)(C̃_j + C̃_(j+1)) − (δ²/12)(β(y_(j+1)) − β(y_j)),
 
-with the exact values β(y_j) and β′(y_j), not their printed roundings, and then rounded to ten decimals (run from the
-printed values, the recursion reproduces the columns to within 4 × 10⁻¹⁰). [[lem:margins-bump-table]] shows |C(y_j) − C̃_j| ≤ 5 × 10⁻⁵ and |D(y_j) − D̃_j| ≤ 10⁻⁴.
+evaluated with the exact values β(y_j) and β′(y_j), not their printed roundings, and with C̃ unrounded, and then
+rounded to ten decimals. [[lem:margins-bump-table]] shows |C(y_j) − C̃_j| ≤ 5 × 10⁻⁵ and |D(y_j) − D̃_j| ≤ 10⁻⁴.
 The table is used in [[prop:margins-bend]] and, through the values of the bend, in [[thm:margins-hyperbolic]].
 
 | j | y_j | β(y_j) | β′(y_j) | C̃_j | D̃_j |
