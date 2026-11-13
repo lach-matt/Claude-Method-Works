@@ -475,12 +475,12 @@ for every real σ ≠ 0, ‖χ_I R_0(σ) χ_I‖ ≤ B_0(σ) := ((2/m′ + (M′
 226.50, 585.53 and 1857.54 at σ → 0, σ = 1, 3 and 10. In [[lem:morawetz-complex]],
 max q = 2√6/27 < 0.18145, attained at y = 2/3.
 
-*Proof.* q = ηg with g = (2 + 3y)/4 ≥ 0, and φ′ = 4η, so q/φ′ = (2 + 3y)/16 ≤ 5/16. In [[eq:pb-weight-general]],
-h = (6 + 5y − 21y²)/8 and (2 − 3y)h + y(1 − y)h_y = (12 − 3y − 104y² + 105y³)/8, so the q″-term is
-½y(12 − 3y − 104y² + 105y³). By [[prop:morawetz-weight]] the φ-terms give P_(3/4,9/4) = 3/2 − 21y + (141/2)y² − 53y³ in
-the variable y, and −2gV_(3/4,9/4) = −(3/8)y(1 − y)(2 + 3y)(1 + 3y) = −(3/4)y − (21/8)y² + (27/8)y⁴. The sum is (3/8)Q_4, and
-the second form of Q_4 is checked by expansion. In it, 28y² − 49y + 22.75 = 28(y − 7/8)² + 21/16 > 0, and the two terms
-do not vanish together, since the second vanishes only at y = 0, where the first is 4.
+*Proof.* q = ηg with g = (2 + 3y)/4 ≥ 0, and φ′ = 4η, so q/φ′ = (2 + 3y)/16 ≤ 5/16. In [[eq:pb-weight-general]], h = (6
++ 5y − 21y²)/8 and (2 − 3y)h + y(1 − y)h_y = (12 − 3y − 104y² + 105y³)/8, so the q″-term is ½y(12 − 3y − 104y² + 105y³).
+By [[prop:morawetz-weight]] the φ-terms give P_(3/4,9/4) = 3/2 − 21y + (141/2)y² − 53y³ in the variable y, and
+−2gV_(3/4,9/4) = −(3/8)y(1 − y)(2 + 3y)(1 + 3y) = −(3/4)y − (21/8)y² + (27/8)y⁴. The sum is (3/8)Q_4, and the second
+form of Q_4 is checked by expansion. In it, 28y² − 49y + 22.75 = 28(y − 7/8)² + 21/16 > 0, and the two terms do not
+vanish together, since the second vanishes only at y = 0, where the first is 4.
 
 The constants. φ′ − q = η(14 − 3y)/4. On [1/16, 1/4], d log(η(14 − 3y))/dy = 3/(2y) − 1/(1 − y) − 3/(14 − 3y) ≥
 6 − 4/3 − 3/13 > 0, so the least value there is at y = 1/16: (15/1024)(221/64) = 3315/65536; on [1/4, 25/36],
@@ -636,7 +636,8 @@ l in question. Then, on fields of the block named,
     ‖χ_I P̂(σ)⁻¹ χ_I‖_(𝔏→𝔏) ≤ (15/16) B(σ)
 
 in each of the following cases: P̂ = □ on functions of degree l, V = V_l; P̂ = □ on 1-forms of vector type l, V = V^v
-(the potential V_1 of [[prop:np-10-16]] (iii)); P̂ = 2L_(b_0) on symmetric 2-tensors of tensor type l ≥ 2, V = V_T of [[thm:s15-ki]] (T).
+(the potential V_1 of [[prop:np-10-16]] (iii)); P̂ = 2L_(b_0) on symmetric 2-tensors of tensor type l ≥ 2, V = V_T of
+[[thm:s15-ki]] (T).
 
 *Proof.* P̂(σ) is invertible on the spaces of the stability theory ([[prop:iii-d-6-2]] for □, [[prop:iii-f2-3-1]] for
 2L_(b_0)). Let F be smooth, supported in I × 𝕊³ and in the block; then ω := P̂(σ)⁻¹F lies in the block
@@ -800,7 +801,7 @@ at most 3.7436 · 3/2.479 < 4.54 and B_5(3) < 23.10; for σ ≥ 6 the first term
 
 ### The resolvent bound on the band 3 ≤ |σ| ≤ 384 {#sec:band}
 
-This part proves that the cut-off resolvent of the scalar wave operator on five-dimensional Schwarzschild–Tangherlini
+This section proves that the cut-off resolvent of the scalar wave operator on five-dimensional Schwarzschild–Tangherlini
 with m = 1 is bounded by 11.477 for every harmonic and every real 3 ≤ |σ| ≤ 384, and derives from it the one-derivative
 constants on that band. The notation is that of [[sec:morawetz-identity]]: y = 1/r², z = 1 − 2y, η = (1 − y)y^(3/2),
 d/dr_* = −2η d/dy, I = {6/5 ≤ r ≤ 4} = {−7/18 ≤ z ≤ 7/8}, Λ < 3.7436 its length in r_*, U = (1 − y)y, Q = (1 − y)y²,
@@ -1376,8 +1377,8 @@ Then [[eq:i-b-6-11]] holds with the constant 4F_ΓC′_a: for h ≤ h_0/2 and z 
 ‖(P′_(h,z))⁻¹‖ ≤ 4F_ΓC′_a h^(−1−(β′−Im(z/h))/κ_Γ). If κ_Γ = 2^(−3/2) and h_0 ≤ 1, then F_Γ ≤ 1.002659.
 
 *Proof.* In part (c) of the proof of [[prop:i-b-6-7]], [[lem:i-b-6-6]] is applied on a rectangle with L = 2σ_0/κ_Γ,
-A = A_0 = C′_a‖f‖, A_1 = C′_aσ_0⁻¹‖f‖ and Λ = log σ_0, f ∈ L². It gives
-‖P̂′(σ)⁻¹f‖ ≤ C′_a σ_0^(−θ) exp(3 log σ_0 e^(−πσ_0/(2κ_Γ)))‖f‖ ≤ F_Γ C′_a σ_0^(−θ)‖f‖, θ := (Im σ − β)/κ_Γ ∈ [0, 1],
+A = A_0 = C′_a‖w‖, A_1 = C′_aσ_0⁻¹‖w‖ and Λ = log σ_0, w ∈ L². It gives
+‖P̂′(σ)⁻¹w‖ ≤ C′_a σ_0^(−θ) exp(3 log σ_0 e^(−πσ_0/(2κ_Γ)))‖w‖ ≤ F_Γ C′_a σ_0^(−θ)‖w‖, θ := (Im σ − β)/κ_Γ ∈ [0, 1],
 for Re σ ∈ [2σ_0, 4σ_0]. There h = 1/Re σ ∈ [1/(4σ_0), 1/(2σ_0)], so σ_0^(−θ) ≤ (4h)^θ ≤ 4h^θ, and
 (P′_(h,z))⁻¹ = h⁻²P̂′(z/h)⁻¹; as 2 − θ = 1 + (β′ − Im(z/h))/κ_Γ, this is the bound. For the value: with
 c := π/(2κ_Γ) = √2π > 4.44288 and s := σ_0 ≥ 1, the function g(s) := log s · e^(−cs) has g′(s) = e^(−cs)(1/s − c log s),
@@ -1385,8 +1386,8 @@ and 1/s − c log s decreases, so g attains its maximum on [1, ∞) at the point
 g(s_*) = e^(−cs_*)/(cs_*). As s log s increases on [1, ∞) and 1.205 log 1.205 < 0.22471 < 0.22507 < 1/c, s_* > 1.205;
 and t ↦ e^(−t)/t decreases, so g(s_*) < e^(−5.3536)/5.3536 < 8.837 · 10⁻⁴. Hence F_Γ ≤ exp(0.0026511) < 1.002659. ∎
 
-At b_0 with m_0 = 1, q^Γ = 4 on Γ and ν_min = 2^(3/2) ([[thm:vi-a-6-1]]), so the function f of (Γ.4) is
-f(η) = sup_Γ λ_max(p_1^Γ) − 4η exactly, whatever the fibre inner product, and γ_+ − γ_− = ν_min/8 = 2^(−3/2). For the
+At b_0 with m_0 = 1, q^Γ = 4 on Γ and ν_min = 2^(3/2) ([[thm:vi-a-6-1]]), so the function of η in (Γ.4) is
+sup_Γ λ_max(p_1^Γ) − 4η exactly, whatever the fibre inner product, and γ_+ − γ_− = ν_min/8 = 2^(−3/2). For the
 choice β = γ_− + ϵ, β′ = γ_+ + ϵ of [[prop:i-b-6-7]], κ_Γ = 2^(−3/2), and [[eq:i-b-6-11]] holds with the constant
 4.01064 C′_a for every operator with principal symbol G Id at b_0, once h_0 ≤ 1.
 
@@ -1408,22 +1409,22 @@ with the absorbing term, and involves no trapping estimate and no mode stability
 [[lem:rb-gluing]], which the next lemma supplies for the scalar wave.
 
 **Lemma {#lem:rb-absorbed}** (The absorbed scalar problem is invertible.) At b_0, let q ≥ 0 be a smooth radial function
-(q = q(r)) with compact support in {r > r_h}, Q multiplication by q, σ real and nonzero and s := sgn σ. Then
-□̂(σ) − isQ : 𝒳_σ → 𝒴_σ is invertible.
+(q = q(r)) with compact support in {r > r_h}, Q multiplication by q, σ real and nonzero and ϵ_σ := sgn σ. Then
+□̂(σ) − iϵ_σQ : 𝒳_σ → 𝒴_σ is invertible.
 
 *Proof.* Q maps 𝒳_σ into functions of class H^s (s > ½ + ϑ_ℋ the order of 𝒳_σ) supported in a fixed compact subset of
-{r > r_h}, which embed compactly into 𝒴_σ, whose order there is s − 1 (Rellich's theorem). So □̂(σ) − isQ is a compact
+{r > r_h}, which embed compactly into 𝒴_σ, whose order there is s − 1 (Rellich's theorem). So □̂(σ) − iϵ_σQ is a compact
 perturbation of □̂(σ), which is Fredholm of index 0 by [[thm:i-a-7-2]] (3) and [[thm:i-b-1-3]] (3), as in the proof of
 [[prop:iii-d-6-2]]; it suffices to show that its kernel is trivial. Let ω be in the kernel. As in the proof of
 [[prop:iii-d-6-2]], ω is smooth across the future horizon and outgoing at infinity, and Q, being radial, preserves the
 harmonics; so on {r > r_h}, each component r^(−3/2)u(r_*)Se^(−iσt) of e^(−iσt_*)ω, S ∈ 𝒮_l, has u solving
-−u″ + (V_l − σ² − isfq)u = 0, with u a multiple of u_h near −∞ and of u_∞ near +∞, where q = 0. As V_l is real,
-Im(ū(−u″ + (V_l − σ² − isfq)u)) = −(Im(ūu′))′ − sfq|u|², and Im(ūu′) tends to σ|c_+|² at +∞ and to −σ|c_−|² at −∞,
-where u − c_±e^(±iσr_*) → 0. Integrating over ℝ, 0 = −σ(|c_+|² + |c_−|²) − s∫fq|u|²dr_*. Both terms have the sign of
+−u″ + (V_l − σ² − iϵ_σfq)u = 0, with u a multiple of u_h near −∞ and of u_∞ near +∞, where q = 0. As V_l is real,
+Im(ū(−u″ + (V_l − σ² − iϵ_σfq)u)) = −(Im(ūu′))′ − ϵ_σfq|u|², and Im(ūu′) tends to σ|c_+|² at +∞ and to −σ|c_−|² at −∞,
+where u − c_±e^(±iσr_*) → 0. Integrating over ℝ, 0 = −σ(|c_+|² + |c_−|²) − ϵ_σ∫fq|u|²dr_*. Both terms have the sign of
 −σ, so c_+ = 0; u is then the zero multiple of u_∞ near +∞, and u = 0. So ω = 0 on {r > r_h}, and inside the horizon
 ω = 0 follows as in part (d) of the proof of [[prop:iii-d-6-2]]. ∎
 
-In the notation of [[lem:rb-gluing]], W = sgn(σ)q, and [[lem:rb-gluing]] uses no sign of W. With s replaced by −sgn σ
+In the notation of [[lem:rb-gluing]], W = sgn(σ)q, and [[lem:rb-gluing]] uses no sign of W. With ϵ_σ replaced by −sgn σ
 the two terms in the proof can cancel.
 
 ### The scalar-type blocks at zero energy {#sec:rb-scalar-blocks}
@@ -1514,24 +1515,23 @@ at l = 1 the same without one of the two zeros, and at l = 0 the values 2 − 2x
 c_Υ = ζr⁻¹dt with ζ(r_h) = ζ_h near r_h, the values 0, −1 and −2 are replaced by −ζ_hγ_Υ(1 − e_Υ), −1 − ζ_hγ_Υ and
 −2 − 2ζ_hγ_Υ, the others being unchanged. None of these depends on l.
 
-*Proof.* Work in the ingoing chart (v, r), in which stationary fields are those independent of v, and use the frame
-(dv, dr, r dω), which differs from (dt, dr, r dω) by the constant change dt = dv − dr; this changes neither the order
-of the singularity nor the exponents. In this chart g^(vv) = 0, g^(vr) = 1 and g^(rr) = f, with f = f′(r_h)(r − r_h)
-(1 + O(r − r_h)). By [[lem:rb-block-structure]], the block has the form −fU″ + A_1(r)U′ + A_0(r)U on the vector U of
-radial coefficients, with A_1, A_0 smooth across r_h; for Y := (U, (r − r_h)U′),
+*Proof.* Work in the ingoing chart (v, r), in which stationary fields are those independent of v, and use the frame (dv,
+dr, r dω), which differs from (dt, dr, r dω) by the constant change dt = dv − dr; this changes neither the order of the
+singularity nor the exponents. In this chart g^(vv) = 0, g^(vr) = 1 and g^(rr) = f, with f = f′(r_h)(r − r_h) (1 + O(r −
+r_h)). By [[lem:rb-block-structure]], the block of 2L, which has the exponents of L_l, has the form −fU″ + A_1(r)U′ +
+A_0(r)U on the vector U of radial coefficients, with A_1, A_0 smooth across r_h; for Y := (U, (r − r_h)U′),
 
     (r − r_h)Y′ = 𝔐(r)Y,     𝔐(r_h) = ⎛ 0    1                    ⎞ ,
                                        ⎝ 0    1 + A_1(r_h)/f′(r_h) ⎠
 
 as (r − r_h)A_0/f is smooth; so the exponents are 0 (n_l times) and the eigenvalues of 1 + A_1(r_h)/f′(r_h). We compute
-A_1(r_h), the coefficient of ∂_r at r_h of the stationary operator 2L, halved. In □ = ∇*∇ the first-order terms in ∂_r
+A_1(r_h), the coefficient of ∂_r at r_h of the stationary operator 2L. In □ = ∇*∇ the first-order terms in ∂_r
 are −(1/√|g|)∂_μ(√|g|g^(μr))∂_r = −r⁻³(r³f)′∂_r, which is −f′(r_h)∂_r at r_h, and −2g^(μr)𝔄_μ∂_r = −2𝔄_v∂_r at r_h,
 where ∇_(∂_v) acts on the frame by the matrix 𝔄_v; the proof of [[lem:iii-f2-1-1]] gives 𝔄_v = −(f′(r_h)/2)K_0. The
 first-order operators 2E^CδG and 2δ*E^ΥG have, at r_h, ∂_r-coefficients equal to their principal symbols at ζ = ξdr
 divided by iξ, which are f′(r_h)K_C and f′(r_h)K_Υ in the notation of that proof (where E^Υ is its horizon part); all
 other terms are of order zero in r on stationary fields of one degree. So the coefficient of ∂_r of 2L at r_h is
-−f′(r_h)(1 − K), K = K_0 + K_C + K_Υ, and 1 + A_1(r_h)/f′(r_h) = K on the block (the factor ½ of L multiplying both A_1
-and the second-order part).
+−f′(r_h)(1 − K), K = K_0 + K_C + K_Υ, and 1 + A_1(r_h)/f′(r_h) = K on the block.
 
 K is a fibre endomorphism commuting with the rotations that fix the point. It therefore maps the span of dv², dv dr,
 dr², T := Σ_a e_a² (four copies of the trivial representation of the stabiliser) into itself, the span of dv ⊗_s e and
