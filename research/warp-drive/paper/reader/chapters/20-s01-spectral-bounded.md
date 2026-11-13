@@ -43,9 +43,9 @@ Myers–Perry metrics are fixed in [[ch:s12]].
 The condition r₀ + δ₀ < r₂ costs nothing. Decreasing δ₀ shrinks X̃, on which (H1)–(H3) below continue to hold; it
 leaves X̄ and every space below unchanged; and it only weakens (H4) and (H5): the region of (H4) on which G₀ is
 Lorentzian shrinks, the set {r < r₀ − δ₀} that the curves of (H4) must reach grows, and the parameters at which they
-reach it, bounded in (H5), can only decrease. So radii with 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h for which (H1)–(H5) hold
-satisfy the ordering above once δ₀ is replaced by min(δ₀, (r₂ − r₀)/2). The condition is used in
-[[cor:i-a-6-5]], where it makes room for the radii b′ < b″ in (r₀, r₂ − δ₀).
+reach it, bounded in (H5), can only decrease. So if (H1)–(H5) hold for radii with 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h,
+they still hold, and so does the ordering above, once δ₀ is replaced by min(δ₀, (r₂ − r₀)/2). The condition is used
+in [[cor:i-a-6-5]], where it makes room for the radii b′ < b″ in (r₀, r₂ − δ₀).
 
 #### The bundle {#sec:i-a-1-2}
 

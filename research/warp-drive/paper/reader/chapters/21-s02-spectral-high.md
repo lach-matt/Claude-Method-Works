@@ -1533,14 +1533,14 @@ R_W ∈ Ψ^((1,0,0)).
 (d) Over {χ = 1}, h⁻¹ Im P′_(h,z) = h⁻¹ Im P_(h,z) − z_0h⁻¹W*W − z_0 Re R_W and
 Re P′_(h,z) − Re P_(h,z) = z_0h Im R_W.
 
-*Proof.* (a) For a symbol b of order m in (σ, ζ), h^m b(x; z/h, ζ/h) is a semiclassical symbol of order (m, 0, 0): its
-ζ-derivatives of order k are h^(m−k)(∂^k b) at (z/h, ζ/h), bounded by C(|z|² + |ζ|²)^((m−k)/2). Hence
+*Proof.* (a) For a symbol b of order l in (σ, ζ), h^l b(x; z/h, ζ/h) is a semiclassical symbol of order (l, 0, 0): its
+ζ-derivatives of order k are h^(l−k)(∂^k b) at (z/h, ζ/h), bounded by C(|z|² + |ζ|²)^((l−k)/2). Hence
 h(a_♭ − a)(x; z/h, ζ/h) ∈ hS^0, and h a(x; 1/h, ζ/h) = |(1, ζ)| q̃_1(x; 1, ζ) = |(1, ζ)| q̃_0(x, ζ) for h ≤ 1
 (homogeneity), with q̃_0 := 1 off Γ(ε_Γ); and Op(b(x; σ, ζ)) = Op_h(b(x; σ, ζ/h)). hQ̂_♭(z̄/h) − W ∈ hΨ^0 since
 a_♭(σ̄) − a_♭(σ) is of order 0; so h²Q̂ = W*W + hR_W with R_W := (h⁻¹(hQ̂_♭(z̄/h) − W))* W.
 
 (b) If (x, ζ) ∈ Γ(ε_Γ/3) and |hτ − 1| ≤ ϵ, then (x, ζ/(hτ)) ∈ Γ(ε_Γ/2) for ϵ small (uniform continuity of φ_u, φ_s,
-G_1 on a compact set), so a(x; τ, ζ/h) = 0; the rest of the integral defining a_♭(x; 1/h + iη, ζ/h) is over
+G_(z_0) on a compact set), so a(x; τ, ζ/h) = 0; the rest of the integral defining a_♭(x; 1/h + iη, ζ/h) is over
 |τ − 1/h| ≥ ϵ/h, where |Υ| ≤ C_M(h/ϵ)^M, and likewise for all derivatives. So the symbol of W is O(h^∞) in S^((1,0,0))
 near Γ(ε_Γ/3), and so is R_W (which ends in W). Near the base projection of Γ(ε_Γ), χ = 1 and 1 − χ² = 0.
 
@@ -1586,7 +1586,7 @@ described. Altogether, for z ∈ z_0 + i[hβ, hβ′],
 and with h⁻¹ in place of h⁻² at Im z = hβ′, using [[prop:i-b-6-1]] there; the last term is absorbed for h < h_0.
 
 (b) Invertibility. For fixed h, P′_(h,z) is elliptic in the scattering sense at fibre infinity and over ∂X
-([[lem:i-b-6-5]] (c)), so it has a parametrix modulo an operator with symbol in S^(−M𝟏), K large, which is compact on
+([[lem:i-b-6-5]] (c)), so it has a parametrix modulo an operator with symbol in S^(−M𝟏), M large, which is compact on
 L²; so P′_(h,z) : H_h^((2,0,0)) → L² is Fredholm, and by (a) it and its adjoint are injective.
 
 (c) Interpolation. In terms of σ = z/h, (a) gives ‖P̂′(σ)⁻¹‖_(L²→L²) ≤ C for Re σ ≥ h_0⁻¹ and Im σ ∈ [β, β′], and
@@ -1623,7 +1623,7 @@ WF′_h(I − X_u) ∩ Γ(c) reach Ell_h(E) ((D1), choosing E elliptic on Γ(ε_
 into a bound C_ϵh^(−δ)(h⁻¹‖G𝐏u‖ + ‖Eu‖ + h^M‖u‖_(−M)) for B(P′)⁻¹(I − X_u)[𝐏, B^♯]u.
 
 (ii) f_u := X_u[𝐏, B^♯]u is microsupported in K_f := Γ(c) ∖ Γ(3c/4) ∩ {|φ_u^♮| < c/8}, where |φ_s^♮| ≥ 3c/4 or
-|G_1| ≥ 3c/4. Let W̃ := Op_h(w̃) Id with w̃ ∈ C_c^∞ real and scalar, w̃ ≠ 0 on Γ(c/4) and supp w̃ ⊂ Γ(c/2), and
+|G_(z_0)| ≥ 3c/4. Let W̃ := Op_h(w̃) Id with w̃ ∈ C_c^∞ real and scalar, w̃ ≠ 0 on Γ(c/4) and supp w̃ ⊂ Γ(c/2), and
 Q̃ := W̃*W̃. Then every backward bicharacteristic of the characteristic set in Γ(ε_Γ) reaches Ell_h(Q̃) (if on Γ_u^♮,
 by (D2)) or the region q̃_0 = 1, so the argument of part (a) of the proof of [[prop:i-b-6-7]] (with −iz_0Q̃ as a
 further absorbing term: [[rem:i-b-4-7]] (b) with ϵ_W := z_0 for P′, and with ϵ_W := −z_0 for the adjoint

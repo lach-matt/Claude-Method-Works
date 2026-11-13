@@ -336,43 +336,47 @@ term −γ^(jk) Γ(γ_U)^l_(jk) κ_lA of −div κ_U contributes 2 γ^(jk) Γ(γ
 κ_Ar, whose oscillating parts are multiples of δ_A^C or zero; the oscillating part −γ^(rr) Π^(BC) κ̃_AB is not a
 multiple of δ_A^C, W_TT being traceless, so it does not cancel. The remaining claims are those of (a). ∎
 
-**Lemma {#lem:linear-evolution}** (The linear evolution.) Consider on [a, R] × S³ the linear system, with coefficients
-measurable in r for which M_s below is finite,
+**Lemma {#lem:linear-evolution}** (The linear evolution.) Consider on [a, b1] × S³, b1 > a, the linear system, with
+coefficients measurable in r for which M_s below is finite,
 
     p ∂_r α − Δ_p α + b·∂_S α + c α + e·(ϖ, q) = F_ρ,
     A0 ∂_r (ϖ, q) + A^B ∂_B (ϖ, q) + c′ (ϖ, q) + f ∂_r α + f′·∂_S α + c″ α = F_J,                      {#eq:data-linear}
 
-with Δ_p a second-order angular operator, elliptic on each sphere with ellipticity constant at least δ_e > 0, p ≥ p0 >
-0, and an invertible symmetrizer 𝒮 with 𝒮 A0 ≥ A00 > 0 and 𝒮 A^B symmetric, with zero data at r = a. For s > 3/2 + 2
-there is a unique solution, and
+with ∂_S the first-order angular derivatives, Δ_p a second-order angular operator, elliptic on each sphere with
+ellipticity constant at least δ_e > 0, p ≥ p0 > 0, and an invertible symmetrizer 𝒮 with 𝒮 A0 ≥ A00 > 0 and 𝒮 A^B
+symmetric, with zero data at r = a. For s > 3/2 + 2 there is a unique solution, and
 
     sup_r (‖α‖_(H^(s+1)) + ‖(ϖ, q)‖_(H^s)) + ‖α‖_(L² H^(s+2)) ≤ C (‖F_ρ‖_(L² H^s) + ‖F_J‖_(L² H^s)),
 
-norms on the spheres S³, with C depending only on s, R − a, p0, δ_e, A00 and an upper bound for
+norms on the spheres S³, with C depending only on s, b1 − a, p0, δ_e, A00 and an upper bound for
 
     M_s := sup_r ‖(p, Δ_p, 𝒮, 𝒮 A0, 𝒮 A^B)‖_(H^(s+1)(S³)) + sup_r ‖(b, c, e, c′, f, f′, c″)‖_(H^s(S³))
-           + ∫_a^R ‖∂_r (𝒮 A0)‖_(L^∞) dr,
+           + ∫_a^(b1) ‖∂_r (𝒮 A0)‖_(L^∞) dr,
 
-and increasing in M_s; no other r-derivative of a coefficient enters. Write ‖U‖_(X_s) for the left side of the bound
-plus ‖∂_r α‖_(L² H^s). The bound is tame: at an index s″ > s, with ‖U‖_(s″; [a, r]) the left side at index s″ on [a, r]
-and m_(s″)(r) the norms at index s″ of the coefficients at r (those of M_(s″), without the supremum),
+and increasing in M_s; no other r-derivative of a coefficient enters. Write ‖U‖_(X_s) for the left side of the bound plus
+‖∂_r α‖_(L² H^s). The bound is tame: at an index s″ > s, with ‖U‖_(s″; [a, r]) the left side at index s″ on [a, r] and
+m_(s″)(r) the norms at index s″ of the coefficients at r (those of M_(s″), without the supremum),
 
     ‖U‖_(s″; [a, r]) ≤ C (‖F‖_(L²((a, r); H^(s″))) + ∫_a^r m_(s″)(r′) ω_s(r′) dr′ + ‖m_(s″) ω_∞‖_(L²(a, r))),
 
-with C depending only on s″, M_s and the bounds above; ω_s square-integrable on (a, R), its L² norm bounded by the
+with C depending only on s″, M_s and the bounds above; ω_s square-integrable on (a, b1), its L² norm bounded by the
 solution's X_s norm and ‖F‖_(L² H^(s−1)) (‖∂_r (ϖ, q)‖_(L^∞), a part of ω_s, contains F_J); and ω_∞ := ‖α‖_(W^(1,∞)) +
-‖(ϖ, q)‖_(L^∞), bounded by C times the X_s norm. For the squared energy Y at index s″ the proof gives
+‖(ϖ, q)‖_(L^∞), bounded by C times the X_s norm. For the squared energy 𝒴 at index s″ (the parabolic energy at index s″ + 1 plus the
+hyperbolic one at index s″) the proof gives
 
-    ∂_r Y + c0 ‖α‖²_(H^(s″+2)) ≤ ω_0 Y + C ‖F‖²_(H^(s″)) + C m_(s″) ω_s Y^(1/2) + C m_(s″)² ω_∞²,
+    ∂_r 𝒴 + c0 ‖α‖²_(H^(s″+2)) ≤ ω_0 𝒴 + C ‖F‖²_(H^(s″)) + C m_(s″) ω_s 𝒴^(1/2) + C m_(s″)² ω_∞²,
 
-and integrating, taking the supremum over [a, r], and Young's and Gronwall's lemmas give the bound.
+with c0 > 0 the gain from the ellipticity of Δ_p after division by p, depending only on δ_e and M_s (also below, at index
+s), and ω_0 := C (1 + ‖∂_r (𝒮 A0)‖_(L^∞)), integrable on (a, b1), with C as above; and integrating, taking the supremum
+over [a, r], and Young's and Gronwall's lemmas give the bound.
 
 The commutator and product estimates used are these. The Kato–Ponce inequality [GO13, p. 1] ([[thm:std-kato-ponce]], for
 Schwartz functions, extended at p = 2 to the compactly supported functions used here by [[cor:std-kato-ponce]]): for 1 <
-p < ∞ and s > 0, ‖J^s(f g) − f J^s g‖_(L^p) ≤ C (‖∇f‖_(L^∞) ‖J^(s−1) g‖_(L^p) + ‖J^s f‖_(L^p) ‖g‖_(L^∞)), J := (1 −
-Δ)^(1/2) on R^n. The Moser estimate [DS23, Remark 2.3(i)] ([[rem:std-ds-moser]], for s > N/2 and Φ satisfying (A2) of
-[DS23]): for a smooth function Φ of u, ‖Φ(u)‖_s ≤ C_I + F_I(‖u‖_∞) ‖u‖_s for u ∈ H^s, with C_I and F_I depending on Φ.
-On S³ both follow from R³ through a finite atlas and a partition of unity.
+p < ∞ and s > 0, ‖𝒥^s(f g) − f 𝒥^s g‖_(L^p) ≤ C (‖∇f‖_(L^∞) ‖𝒥^(s−1) g‖_(L^p) + ‖𝒥^s f‖_(L^p) ‖g‖_(L^∞)), 𝒥 := (1 −
+Δ)^(1/2) on R^n. The Moser estimate [DS23, Remark 2.3(i)] ([[rem:std-ds-moser]], for s > n/2 in n dimensions and Φ
+satisfying (A2) of [DS23]): for a smooth function Φ of u, ‖Φ(u)‖_s ≤ C_I + F_I(‖u‖_∞) ‖u‖_s for u ∈ H^s, with C_I and F_I
+depending on Φ. On S³ both follow from R³ through a finite atlas and a partition of unity, the Moser estimate for s >
+3/2, which covers every index used here (s > 3/2 + 2).
 
 *Proof.* Commute s angular derivatives, by the Killing fields X^I of the round S³, through [[eq:data-linear]]; the
 commutators are estimated in terms of M_s by the Moser and Kato–Ponce inequalities on S³. Parabolic energy:
@@ -395,23 +399,22 @@ coefficients b, c and e lie in H^(s″) only, so pairing the first equation at i
 α: |⟨α, c α⟩_(H^(s″+1))| ≤ ‖α‖_(H^(s″+2)) ‖c α‖_(H^(s″)), with ‖c α‖_(H^(s″)) ≤ C (‖c‖_(H^(s″)) ‖α‖_(L^∞) + ‖c‖_(L^∞)
 ‖α‖_(H^(s″))), and Young's inequality against the gain c0 ‖α‖²_(H^(s″+2)) leaves C m_(s″)² ‖α‖²_(L^∞); likewise b·∂_S α,
 with ‖α‖_(W^(1,∞)), and e·(ϖ, q), with ‖(ϖ, q)‖_(L^∞), which must be paired so in any case, (ϖ, q) lying in H^(s″) only.
-The hyperbolic part needs no such term: it is paired at index s″, where C m_(s″) ω_s Y^(1/2) suffices.
+The hyperbolic part needs no such term: it is paired at index s″, where C m_(s″) ω_s 𝒴^(1/2) suffices.
 
 Existence, by the Faedo–Galerkin method. Let P_L be the L²(S³)-orthogonal projection onto the eigenfunctions of the
 Laplacian with eigenvalue at most L(L + 2), and for the covector q onto those of the Hodge Laplacian on 1-forms. The
 eigenspaces are SO(4)-invariant, so P_L commutes with the Laplacian and with the Lie derivative along every Killing
-field, which is what X^I means on q. Solve the first equation for ∂_r α (dividing by p), and seek α_L and (ϖ, q)_L in
-the range of P_L with ∂_r α_L = P_L[…] and P_L[𝒮 A0 ∂_r (ϖ, q)_L] = P_L[…] (the symmetrized second equation, ∂_r α_L in
-it), with the data of the lemma projected by P_L. This is a linear system of ordinary differential equations in r for
-finitely many coefficients, whose matrix P_L 𝒮 A0 P_L is positive definite on the range (𝒮 A0 > 0) and continuous in r,
-the other coefficients and the forcing terms being integrable in r, so Picard iteration gives a unique absolutely
-continuous solution on [a, R]. The test functions of the argument above, X^(I*) X^I applied to α_L or to (ϖ, q)_L, lie
-in the range of P_L, so the projection drops out of each tested equation (⟨P_L G, f⟩ = ⟨G, f⟩ for f in the range), and
-the energy identities are those above, with one addition: the commutator [X^I, 𝒮 A0] ∂_r (ϖ, q)_L needs ‖∂_r (ϖ,
-q)_L‖_(H^(s−1)), which testing the projected second equation with X^(J*) X^J ∂_r (ϖ, q)_L, |J| = 0, …, s − 1 in turn,
-bounds by C (‖(ϖ, q)_L‖_(H^s) + ‖∂_r α_L‖_(H^(s−1)) + ‖F_J‖_(H^(s−1))) (𝒮 A0 > 0; the commutators are of lower order in
-J). So the bound holds for (α_L, (ϖ, q)_L) uniformly in L; a weak-* limit as L → ∞ solves [[eq:data-linear]] and obeys
-it.
+field, which is what X^I means on q. Solve the first equation for ∂_r α (dividing by p), and seek α_L and (ϖ, q)_L in the
+range of P_L with ∂_r α_L = P_L[…] and P_L[𝒮 A0 ∂_r (ϖ, q)_L] = P_L[…] (the symmetrized second equation, ∂_r α_L in it),
+with the data of the lemma projected by P_L. This is a linear system of ordinary differential equations in r for finitely
+many coefficients, whose matrix P_L 𝒮 A0 P_L is positive definite on the range (𝒮 A0 > 0) and continuous in r, the other
+coefficients and the forcing terms being integrable in r, so Picard iteration gives a unique absolutely continuous
+solution on [a, b1]. The test functions of the argument above, X^(I*) X^I applied to α_L or to (ϖ, q)_L, lie in the range
+of P_L, so the projection drops out of each tested equation (⟨P_L G, f⟩ = ⟨G, f⟩ for f in the range), and the energy
+identities are those above, with one addition: the commutator [X^I, 𝒮 A0] ∂_r (ϖ, q)_L needs ‖∂_r (ϖ, q)_L‖_(H^(s−1)),
+which testing the projected second equation with X^(I′*) X^(I′) ∂_r (ϖ, q)_L, |I′| = 0, …, s − 1 in turn, bounds by C
+(‖(ϖ, q)_L‖_(H^s) + ‖∂_r α_L‖_(H^(s−1)) + ‖F_J‖_(H^(s−1))) (𝒮 A0 > 0; the commutators are of lower order in I′). So the
+bound holds for (α_L, (ϖ, q)_L) uniformly in L; a weak-* limit as L → ∞ solves [[eq:data-linear]] and obeys it.
 
 Uniqueness follows from the energy estimate at index 0, applied to the difference of two solutions whose left side is
 finite. For such a difference α lies in L² H^(s+2) with ∂_r α in L² H^s, and (ϖ, q) in L^∞ H^s with ∂_r (ϖ, q) in L²
