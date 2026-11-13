@@ -48,7 +48,7 @@ constant c,
 
     R[G(·, · + c)](X, θ) = R[G](X, θ + c).                                                       {#eq:phase-equivariance}
 
-(b) If Φ is a smooth function on Ω and u = v + λΦ, then R[G(·, · + Φ)](X, θ) = R_u[G](X, θ + Φ(X)).
+(b) If Φ is a smooth function on Ω, possibly depending on λ, and u = v + λΦ, then for each λ R[G(·, · + Φ)](X, θ) = R_u[G](X, θ + Φ(X)).
 
 *Proof.* (b) contains (a): for Φ = c, ∂u = ∂v, so R_u = R. For a profile f put f_Φ(X, θ) := f(X, θ + Φ(X)). Then
 
@@ -97,10 +97,14 @@ The leading coefficient R^(0) of a wave on g0 has a closed form once the wave is
 where ∇ is the Levi-Civita connection of g0 acting on W at fixed θ, □_(g0) the wave operator of g0 on functions, and
 |∂_θ W|² := g0^(ac) g0^(bd) ∂_θ W_ab ∂_θ W_cd.
 
-*Proof.* The statement is tensorial. Ric^H is a tensor built from g and g0 [[sec:gauge]], and the chain rule
-∂_a [f] = [∂^v_a f] holds in every chart, since v is a scalar; so the two-scale expansion of Ric^H(g0 + λ[W]) may be
-computed covariantly. Write ∂ := ∂_θ, v_a := ∂_a v, raise and lower indices with g0, so that ℓ^a = g0^(ab) v_b, and put h
-:= λ [W], g := g0 + h. The hypotheses give, at every (X, θ),
+*Proof.* We compute with profiles. The formulas below for Ric(g), C, D and S are polynomial identities in the 2-jet of
+h := g − g0 at a point, with coefficients from the 2-jet of g0, and they hold for every symmetric array of second
+derivatives. The two-scale derivative ∂^v_a := ∂_a + λ⁻¹ v_a ∂_θ satisfies ∂^v_a ∂^v_b = ∂^v_b ∂^v_a, and ∂_a [F] = [∂^v_a
+F] in every chart, since v is a scalar. So the identities hold for profiles, with ∂_a replaced by ∂^v_a and the
+covariant derivative of g0 by ∇^v_a := ∇_a + λ⁻¹ v_a ∂_θ, where ∇_a acts at fixed θ; R[g0 + λ W] is Ric^H(g0 + λ W)
+computed in this way, in any chart, and we identify the coefficients of the powers of λ, which are profiles. Write ∂ :=
+∂_θ and v_a := ∂_a v, raise and lower indices with g0, so that ℓ^a = g0^(ab) v_b, and put h := λ W, g := g0 + h.
+The hypotheses give, at every (X, θ),
 
     W_ab ℓ^b = 0,   ∂W_ab ℓ^b = 0,   ℓ^a v_a = 0,   g0^(ab) W_ab = 0,   g0^(ab) ∂W_ab = 0.
 
@@ -110,9 +114,8 @@ The tensor C := Γ[g] − Γ[g0] satisfies
     Ric(g)_ab = Ric(g0)_ab + ∇_c C^c_ab − ∇_b C^c_ac + C^c_cd C^d_ab − C^c_bd C^d_ac,
 
 and the gauge field is D^ρ = g^(ab) C^ρ_ab, so that Ric^H(g)_mn = Ric(g)_mn − S_mn with S_mn := (1/2)(g_mρ ∇_n D^ρ + g_nρ
-∇_m D^ρ) [[sec:gauge]]. For a profile F, ∇_a [F] = λ⁻¹ v_a [∂F] + [∇_a F], with ∇_a F taken at fixed θ.
-Hence ∇_a h = v_a [∂W] + λ [∇_a W], and g⁻¹ = g0⁻¹ − λ [W^♯] + O(λ²) with W^♯ := g0⁻¹ W g0⁻¹. So C = [C_0] + λ [C_1] +
-O(λ²) with the profiles
+∇_m D^ρ) [[sec:gauge]], with ∇ read as ∇^v. Now ∇^v_a h = v_a ∂W + λ ∇_a W, and g⁻¹ = g0⁻¹ − λ W^♯ + O(λ²) with W^♯ :=
+g0⁻¹ W g0⁻¹. So C = C_0 + λ C_1 + O(λ²) with the profiles
 
     C_0^c_ab = (1/2)(v_a ∂W_b^c + v_b ∂W_a^c − ℓ^c ∂W_ab),
     C_1^c_ab = (1/2)(∇_a W_b^c + ∇_b W_a^c − ∇^c W_ab) − (1/2) W^(cd) (v_a ∂W_bd + v_b ∂W_ad − v_d ∂W_ab).
@@ -125,17 +128,17 @@ Their traces are C_0^c_ac = (1/2) v_a g0^(cd) ∂W_cd = 0 and, writing W·∂W :
 The gauge field. At order λ⁰, D is g0^(ab) C_0^ρ_ab = (1/2)(ℓ^b ∂W_b^ρ + ℓ^a ∂W_a^ρ − ℓ^ρ g0^(ab) ∂W_ab) = 0. At order λ,
 D_1^ρ := g0^(ab) C_1^ρ_ab − W^(ab) C_0^ρ_ab. In the first term the linear part is (div W)^ρ − (1/2) ∇^ρ tr W = (div W)^ρ,
 with (div W)_b := ∇^a W_ab, and the quadratic part is −(1/2) W^(ρd)(2 ℓ^b ∂W_bd − v_d g0^(ab) ∂W_ab) = 0; the second term
-is −(1/2)(2 W^(ab) v_a ∂W_b^ρ − ℓ^ρ W·∂W) = (1/2) ℓ^ρ W·∂W. So D = λ [D_1] + O(λ²) with
+is −(1/2)(2 W^(ab) v_a ∂W_b^ρ − ℓ^ρ W·∂W) = (1/2) ℓ^ρ W·∂W. So D = λ D_1 + O(λ²) with
 
     D_1^ρ = (div W)^ρ + (1/2) ℓ^ρ W·∂W.
 
-The order λ⁻¹. The only terms of size λ⁻¹ come from the derivatives of C_0 in phase: ∇_c C^c_ab − ∇_b C^c_ac contains
-λ⁻¹ [v_c ∂C_0^c_ab − v_b ∂C_0^c_ac] = λ⁻¹ (1/2)[∂(v_a v_c ∂W_b^c + v_b v_c ∂W_a^c − v_c ℓ^c ∂W_ab)] = 0, since v_c ∂W_b^c
-= ∂W_bc ℓ^c = 0. The products C C are O(1), and S = O(1) because D = O(λ). So R^(−1) = 0.
+The order λ⁻¹. The only terms of size λ⁻¹ come from the derivatives of C_0 in phase: ∇^v_c C^c_ab − ∇^v_b C^c_ac
+contains λ⁻¹ (v_c ∂C_0^c_ab − v_b ∂C_0^c_ac). Since C_0^c_ac = 0, this is λ⁻¹ v_c ∂C_0^c_ab = λ⁻¹ (1/2) ∂(v_a v_c
+∂W_b^c + v_b v_c ∂W_a^c − v_c ℓ^c ∂W_ab) = 0, because v_c ∂W_b^c = ∂W_bc ℓ^c = 0. The products C C are O(1), and S = O(1) because D = O(λ). So R^(−1) = 0.
 
 The order λ⁰ of Ric(g) − Ric(g0) has four parts.
 
-(i) From ∇_c C^c_ab: the term [∇_c C_0^c_ab] and the phase derivative v_c ∂C_1^c_ab. First,
+(i) From ∇^v_c C^c_ab: the term ∇_c C_0^c_ab and the phase derivative v_c ∂C_1^c_ab. First,
 
     ∇_c C_0^c_ab = (1/2)(∇_c v_a ∂W_b^c + ∇_c v_b ∂W_a^c + v_a ∇_c ∂W_b^c + v_b ∇_c ∂W_a^c − (∇_c ℓ^c) ∂W_ab
                    − ∇_ℓ ∂W_ab).
@@ -150,7 +153,7 @@ cancel in pairs. With ∇_c ℓ^c = □_(g0) v the sum of (i) is
 
     −∇_ℓ ∂W_ab − (1/2)(□_(g0) v) ∂W_ab + (1/2)(v_a (div ∂W)_b + v_b (div ∂W)_a).
 
-(ii) From −∇_b C^c_ac: −[∇_b C_0^c_ac] − v_b ∂C_1^c_ac = 0 + (1/2) v_a v_b ∂(W·∂W).
+(ii) From −∇^v_b C^c_ac: −∇_b C_0^c_ac − v_b ∂C_1^c_ac = 0 + (1/2) v_a v_b ∂(W·∂W).
 
 (iii) From C^c_cd C^d_ab: at order λ⁰ this is C_0^c_cd C_0^d_ab = 0.
 
@@ -161,7 +164,7 @@ cancel in pairs. With ∇_c ℓ^c = □_(g0) v the sum of (i) is
 eight contain a contraction of ∂W with v or with ℓ, or the contraction v_c ℓ^c, and vanish; the ninth is v_a v_b ∂W_d^c
 ∂W_c^d = v_a v_b |∂W|². So (iv) is −(1/4) v_a v_b |∂W|².
 
-The term S at order λ⁰. As D = λ [D_1] + O(λ²), ∇_n D^ρ = v_n [∂D_1^ρ] + O(λ), and g_mρ = (g0)_mρ + O(λ). So S has the
+The term S at order λ⁰. As D = λ D_1 + O(λ²), ∇^v_n D^ρ = v_n ∂D_1^ρ + O(λ), and g_mρ = (g0)_mρ + O(λ). So S has the
 λ⁰ coefficient
 
     (1/2)(v_n ∂D_1m + v_m ∂D_1n) = (1/2)(v_n (div ∂W)_m + v_m (div ∂W)_n) + (1/2) v_m v_n ∂(W·∂W),
@@ -192,13 +195,14 @@ tensor Y with only angular components, ∇_ℓ Y has only angular components, eq
 
 The Ricci tensor of g0 is Ric(g0) = (3 μ'(v)/(2 r³)) dv ⊗ dv [[prop:vaidya]].
 
-The leading wave of [[eq:waves]], written as a profile, is
+In these coordinates the leading wave W_TT of [[eq:waves]] reads, with y_i := r^(−3/2) p_i/λ,
 
-    W_TT := 2 r² (−(y1 + y2) dϑ² + c² y1 dφ1² + s² y2 dφ2²),
-    y1 := (α/3)(2 c² cos θ − s² sin θ),     y2 := (α/3)(2 s² sin θ − c² cos θ),     α := A env(v) h r^(−3/2),
-                                                                                                       {#eq:wave-profile}
+    W_TT = 2 r² (−(y1 + y2) dϑ² + c² y1 dφ1² + s² y2 dφ2²),
+    y1 = (α/3)(2 c² cos θ − s² sin θ),     y2 = (α/3)(2 s² sin θ − c² cos θ),     α := A env(v) h r^(−3/2),
 
-with h := (2/(1 + cos² 2ϑ))^(1/2); the tensor λ W_TT evaluated at θ = v/λ is the wave of [[eq:waves]].
+with h = h(cos 2ϑ) of [[sec:waves]]. The chart (v, r, ϑ, φ1, φ2) is singular on the axes c = 0 and s = 0. Every
+identity below holds off the axes between tensors smooth on r > 0 ([[lem:waves]] (a), and the smoothness of χ shown
+after [[lem:stage-zero]]), so it holds on the axes by continuity.
 
 **Lemma {#lem:stage-zero}** (Stage 0.) Let χ be a smooth function on Ω × S¹ and W := W_TT + χ dv ⊗ dv. Then:
 
@@ -235,20 +239,17 @@ diagonal with entries −2 ∂_θ(y1 + y2), 2 ∂_θ y1, 2 ∂_θ y2, so
 
 With Ric(g0) = (3 μ'/(2 r³)) dv ⊗ dv this is [[eq:stage-zero]].
 
-(c) Put p := 2 c² sin θ + s² cos θ and q := c² sin θ + 2 s² cos θ. Then ∂_θ y1 = −α p/3 and ∂_θ y2 = α q/3, so
-
-    (∂_θ y1)² + ∂_θ y1 ∂_θ y2 + (∂_θ y2)² = (α²/9)(p² − p q + q²).
-
-With ⟨sin² θ⟩ = ⟨cos² θ⟩ = 1/2 and ⟨sin θ cos θ⟩ = 0, ⟨p²⟩ = (4 c⁴ + s⁴)/2, ⟨q²⟩ = (c⁴ + 4 s⁴)/2 and ⟨p q⟩ = c⁴ + s⁴,
-so ⟨p² − p q + q²⟩ = (3/2)(c⁴ + s⁴). The χ term is a θ-derivative and has mean zero. By (b),
+(c) The χ term is a θ-derivative and has mean zero. By the formula for (1/4)|∂_θ W_TT|² in (b) and [[eq:wave-energy]],
+2 ⟨(∂_θ y1)² + ∂_θ y1 ∂_θ y2 + (∂_θ y2)²⟩ = (1/4) ⟨|∂_θ W_TT|²⟩ = (1/3) A² env² h² (c⁴ + s⁴) r⁻³, so
 
     ⟨R^(0)⟩ = r⁻³ ((3/2) μ' − (1/3) A² env² h² (c⁴ + s⁴)) dv ⊗ dv,
 
-which vanishes exactly when μ' = (2/9) A² env² h² (c⁴ + s⁴). Finally c⁴ + s⁴ = 1 − 2 c² s² = 1 − (1/2) sin² 2ϑ = (1 +
-cos² 2ϑ)/2 = h⁻².
+which vanishes exactly when μ' = (2/9) A² env² h² (c⁴ + s⁴); and h² (c⁴ + s⁴) = 1 by [[eq:wave-energy]]. This is
+[[prop:limit]], here with the oscillating part of R^(0) in full.
 
-(d) p and q are combinations of sin θ and cos θ, so p² − p q + q² is a combination of 1, cos 2θ and sin 2θ, and its
-oscillating part is a second harmonic. By (b) every component of R^(0) other than vv vanishes.
+(d) ∂_θ y1 and ∂_θ y2 are combinations of sin θ and cos θ, so the quadratic expression in [[eq:stage-zero]] is a
+combination of 1, cos 2θ and sin 2θ, and its oscillating part is a second harmonic. By (b) every component of R^(0)
+other than vv vanishes.
 
 (e) is read from (b). ∎
 

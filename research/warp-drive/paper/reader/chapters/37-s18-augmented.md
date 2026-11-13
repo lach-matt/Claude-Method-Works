@@ -584,3 +584,203 @@ Kerr from the Teukolsky equation and has no counterpart for the five-dimensional
 ([[prop:iii-h-3-2]]) through the uniform low-energy estimate; the perturbation does not degenerate, because c_0 is
 uniform in b. With [[prop:iii-f2-4-1]] this gives [Hin26, Proposition 8.8] in dimension 4 + 1 on the fixed
 neighbourhood ℬ of b_0.
+
+### The spectral-side augmentation {#sec:iii-h-5}
+
+This section is [Hin26, Section 10.1.3] in dimension 4 + 1. Fix φ_s ∈ C^∞([0, ∞)) equal to 0 on [0, 1] and to 1 on
+[2, ∞), and for real σ ≠ 0 put χ_s := φ_s(ρ/|σ|); it is 1 near zf and 0 near scf.
+
+**Definition {#def:iii-h-5-1}** ([Hin26, (10.38b), (10.39b)] in dimension 4 + 1.) For 0 ≠ σ ∈ [−1, 1] put
+
+    ġ^sing(σ)(ḃ) := iσ⁻¹χ_s ġ(ḃ),     h^sing(σ)(S) := χ_s(−σ⁻²h(S) + iσ⁻¹h̆(S)),
+    F′_ḃ(σ) := L̂_b(σ)ġ^sing(σ)(ḃ),     F′_S(σ) := L̂_b(σ)h^sing(σ)(S),
+    F′_ḃ(0) := L_1ġ(ḃ),     F′_S(0) := L_2h(S) + L_1h̆(S),
+
+and let L̃′_b(σ) be [[eq:iii-h-3-2]] with F′ in place of f̂ ([Hin26, (10.41)]).
+
+**Lemma {#lem:iii-h-5-2}** (a) F′_ḃ(σ) = χ_s(L_1ġ − iσL_2ġ) + iσ⁻¹[L̂_b(σ), χ_s]ġ and
+F′_S(σ) = χ_s(L_2h + L_1h̆ − iσL_2h̆) + [L̂_b(σ), χ_s](−σ⁻²h + iσ⁻¹h̆).
+
+(b) The F′ satisfy (A1)–(A4) of [[thm:iii-h-4-1]] on Σ′ = Σ_0 ∩ ℝ, with ϵ_0 = ¼(1 − (α + 2)), uniformly near b_0
+([[rem:iii-h-2-6]]).
+
+(c) L̃′_b(0) is invertible, as in [[prop:iii-h-3-2]]. So the conclusions of [[cor:iii-h-4-2]] hold for L̃′_b(σ),
+0 ≠ σ ∈ [−c_k, c_k], and, L̂_b(σ) being invertible there ([[cor:iii-h-4-3]]), so do those of [[thm:iii-h-4-1]] (3).
+
+*Proof.* (a) L̂_b(σ)(χ_sv) = χ_sL̂_b(σ)v + [L̂_b(σ), χ_s]v, with L̂_b(σ) = L_0 − iσL_1 − σ²L_2, L_0ġ = 0, L_0h = 0 and
+L_1h + L_0h̆ = 0. So L̂_b(σ)(iσ⁻¹ġ) = L_1ġ − iσL_2ġ, and
+
+    L̂_b(σ)(−σ⁻²h + iσ⁻¹h̆) = −σ⁻²L_0h + iσ⁻¹(L_1h + L_0h̆) + L_2h + L_1h̆ − iσL_2h̆ = L_2h + L_1h̆ − iσL_2h̆.
+
+(b) [L̂_b(σ), χ_s] = [L_0, χ_s] − iσ[L_1, χ_s] has coefficients supported in {ς ≤ ρ ≤ 2ς}, with
+[L_0, χ_s] ∈ ρ²Diff_b^1 and [L_1, χ_s] ∈ ρC^∞, their coefficients bounded with their b-derivatives uniformly in ς. As
+ρ ∼ ς there, each commutator term is O(ρ³) with its b-derivatives: ς⁻¹ρ²ρ² and ρρ² for ġ (weight 2; ρ³ for ġ(0, Ȧ)),
+and ς⁻²ρ²ρ³, ς⁻¹ρρ³, ς⁻¹ρ²ρ² and ρρ² for h and h̆. The main terms are χ_s times 𝒜³ (the terms free of σ, by
+[[eq:iii-h-2-2]]) and ςχ_s𝒜⁴. Hence F′(σ) is supported in {ρ ≥ ς}, that is, where ρ̂ ≥ c, where ρ_scf ≥ c′ and
+ρ_tf ∼ ρ; and it is O(ρ³) there, together with its b-derivatives and its σ∂_σ-derivatives (σ∂_σ falls on φ_s(ρ/ς),
+giving a bounded function supported where ρ ∼ ς, and on the powers of σ). As in [[lem:iii-h-2-4]] (b), its
+H^(k,(M,β_tf,0))_(b,ς)-norms are bounded for β_tf < 3, and (A2) follows by [[eq:ii-g1-4-5a]]. (A1): F′(0) ∈ 𝒜³ by
+[[eq:iii-h-2-2]]. (A3): on supp χ_zf ⊂ {ρ ≥ 2ς}, χ_s = 1 and dχ_s = 0, so χ_zf(F′(σ) − F′(0)) equals
+−iσχ_zfL_2ġ, resp. −iσχ_zfL_2h̆, of norm O(|σ|) in H̄_b^(p,α+2), as L_2ġ, L_2h̆ ∈ 𝒜⁴. (A4): for σ ≠ 0, F′(σ) is
+supported in {ρ ≥ ς}, which is compact in X for fixed σ, and is smooth in σ.
+
+(c) F′(0) is [[eq:iii-h-2-2]] without the terms L_0w, and the proof of [[prop:iii-h-3-2]] used [[eq:iii-h-2-2]] only
+through them; the index argument is unchanged. ∎
+
+**Remark {#rem:iii-h-5-3}** ([Hin26, Remark 10.8] in dimension 4 + 1.) σġ^sing(σ) = iχ_sġ and
+σ²h^sing(σ) = χ_s(−h + iσh̆). There are no correction terms ([Hin26, (10.38a), (10.39a)], which [Hin26] obtains from
+its Proposition 9.30) and no logarithmic terms σ log|σ|, since the naive columns are already of tf-order 3 (they are
+O(ρ_tf³)), above the tf-weight α + 4 < 3 of the target for μ_b ([[lem:iii-h-2-4]] (b)). The spacetime counterparts
+behave alike: by [[lem:iii-h-2-5]] (b), ℱ(∂_(t_*)ġ^aug)(σ) = −iσĝ^aug(σ) = Φ(σr)ġ for r ≥ 1, which equals ġ at
+σ = 0 and carries no logarithm (the t_*⁻¹- and log t_*-terms of [Hin26, (10.13)] do not arise).
+
+### 2-admissibility: setting, orders and the statement {#sec:iii-h1-1}
+
+*Spaces.* M̃_0 is the 3b-compactification of ℝ_(t_*) × ℝ⁴ of [[sec:ii-a-5]] (the space [ℝ̄⁴; k⁺, k⁻] of [Hin26] in
+dimension 4 + 1), with boundary hypersurfaces sf and K^±; M_0 := cl_(M̃_0){r ≥ r_0}, with X = {r ≥ r_0} as in
+[[sec:iii-h-1]]; and ([Hin26, (10.2)] in dimension 4 + 1)
+
+    Ω := cl_(M_0){t_* ≥ 1},     Ω_− := cl_(M_0){t_* ≤ 1}.
+
+On M_0, ρ_sf = r⁻¹ and, near K⁺, ρ_K = r/(t_* + r) are defining functions, and r∂_(t_*), r∂_r, ∂_ω span 𝒱_3b over
+C_b^∞ (equivalently ⟨x⟩∂_(t_*), ⟨x⟩∂_(x_i): the scaled bounded geometry of (S9) in [[sec:ii-a-3]] with the scale ⟨x⟩
+in all directions). We write
+
+    H^((𝗌;k),(β,γ))_(3b;b) := ρ_sf^β ρ_K^γ H^((𝗌;k))_(3b;b),
+
+with H^((𝗌;k))_(3b;b) of [[lem:ii-a-5-2]] (tested with up to k of ∂_(t_*), t_*∂_(t_*), ⟨x⟩∂_x), on L²(|dt_* dx|). On Ω
+the spaces are supported at {t_* = 1} and extendible at {r = r_0} (superscript •,−); on M_0 they are extendible at
+{r = r_0}; on Ω_− they are extendible (bar). As ρ_K ≤ 1, H^((𝗌;k),(β,0))_(3b;b) ⊂ H^((𝗌;k),(β,−ℓ))_(3b;b) for ℓ ≥ 0,
+and ∂_(t_*) = ρ_sf · r∂_(t_*) maps H^((𝗌;k),(β,γ))_(3b;b) to H^((𝗌−1;k),(β+1,γ))_(3b;b).
+
+*The operator and the weight.* L_b is the operator of [[sec:iii-h-1]], b near b_0, and throughout
+
+    α_sf ∈ ℝ,     α_sf + 2 ∈ (0, 1),                                                                     {#eq:iii-h1-1-1}
+
+the weight α of [[eq:iii-h-1-1]]. By [[lem:ii-a-5-1]] a spacetime sf-weight β with K-weight 0 is the spectral weight
+(· + β, β, 0), so the spectral weight α of [[sec:iii-h-1]] is α_sf; the tf-weight α_sf + 2 of [[def:ii-c-2-7]] is the
+weight α_sf + 3/2 of [Hin26]. In this half of the chapter 𝒫 denotes the compactified phase space of [[sec:i-b-2-4]],
+and Φ_(z_0) : 𝒫 → ³ᵇS*_(K⁺)M_0 the map of [[def:ii-b-2-2]], under which characteristic sets and flows correspond
+([[lem:ii-b-2-3]]) and fibre infinity of 𝒫 goes to {σ = 0}.
+
+**Definition {#def:iii-h1-1-1}** (The orders.) 𝒪_c = 𝒪_c(α_sf) is the set of t_*-translation-invariant
+𝗌 ∈ C^∞(³ᵇS*M̃_0) that are stationary-L_b-admissible with weights α_sf, −2 and margin 1 ([[def:ii-c-2-4]]) and
+moreover satisfy:
+
+(C1) 𝗌 is constant, =: s_c, on {σ = 0} = Φ_(z_0)(fibre infinity of 𝒫);
+
+(C2) 𝗌 is constant over {r ≤ r_2 − δ_0}, with the radii r_2, δ_0 of [[sec:i-a-1-1]] that [[sec:i-b-1-4]] uses;
+
+(C3) the monotonicity of [[def:ii-c-2-4]] (1) holds on a neighbourhood of the characteristic set, not only on it.
+
+(C2) follows from [[def:ii-c-2-4]] (3), as r_Γ > r_h > r_2; it is listed because [[sec:i-b-1-4]] uses it. 𝒪_c is a
+restriction of the orders of [[def:ii-c-2-7]], which asks its (3) for all admissible orders; the orders with which
+this 2-admissibility is used lie in 𝒪_c ([[lem:iii-i-5-1]]).
+
+For 𝗌 ∈ 𝒪_c and z_0 = ±1 put S_(z_0) := 𝗌 ∘ Φ_(z_0) on 𝒫. The order induced at σ ∈ ℝ ∖ 0 (by [[lem:ii-a-5-1]], the
+restriction of 𝗌 to −σ dt_* + T*X̃) is 𝗌_σ(x, ξ) = S_(z_0)(x, ξ/|σ|), with z_0 the sign fixed by the conventions of
+[[lem:ii-a-5-1]] and [[def:ii-b-2-2]] (by [[def:ii-c-2-4]] (2) the choice is immaterial): 𝗌 is homogeneous of degree 0
+in the 3b covector (σ_3b, ξ_3b, η_3b) = (−rσ, rξ, rη) (proof of [[lem:ii-c-2-6]]). By (C1), 𝗌_σ = s_c at fibre
+infinity, and its decay order is 𝗋_σ := 𝗌_σ on the face over ∂X.
+
+**Lemma {#lem:iii-h1-1-2}** (The induced orders.) Let 𝗌 ∈ 𝒪_c, let 𝗋 := S_(z_0) on the face over ∂X, and let
+𝖻 := S_(z_0).
+
+(a) For real σ ≠ 0 the order pairs (s_c, 𝗋_σ) and (s_c + 1, 𝗋_σ + 1) are admissible for σ in the sense of (O1)–(O3)
+of [[def:i-a-admissible]], with the weights α_sf + 1 and α_sf respectively, that is, with the decay order
+𝗌_σ + α_sf + 1 in both cases, and with margin at the thresholds.
+
+(b) 𝗋 (with the weight α_sf + 1) and 𝖻 are admissible for z_0 in the sense of [[sec:i-b-1-4]], and
+𝗋_σ(x, ξ) = 𝗋(x, ξ/|σ|) is the order of [[sec:i-b-8-4]] at the semiclassical parameter |σ|⁻¹.
+
+(c) 𝗋_σ is the dilated order 𝗋_ς of [[sec:i-c-6-1]], ς = |σ|; and (s_c + 1, 𝗋 + 1) with the weight α_+ := α_sf is
+admissible at σ_0 = ±1. This is what [[cor:iii-h-4-2]] and [[thm:iii-h-4-1]] (3) use on Σ′ = Σ_0 ∩ ℝ, where the
+rescaled frequency σ/|σ| is ±1. Off the real axis the orders of [[sec:i-c-6]], admissible on J_± = {|σ_0 ∓ 1| < ¼},
+are used, and only through pairings ([[sec:iii-h1-4]]).
+
+*Proof.* Under Φ_(z_0) the radial sets correspond: ∂R_(ℋ⁺) (at fibre infinity, inside {σ = 0}), ∂R_(∂K⁺,in) and
+∂R_(∂K⁺,out) are the images of ∂ℛ_±, R_(z_0,in) and R_out, as sources and sinks of corresponding flows
+([[lem:ii-b-2-3]]); and the thresholds agree: ϑ^(3b)_in = ϑ_in and ϑ_out ≤ 2S̄ ([[lem:ii-c-2-6]]).
+
+*Constancy.* Near ∂ℛ_± by (C1); near Γ_(z_0) and over {r_0 − δ_0 ≤ r ≤ r_2 − δ_0} by [[def:ii-c-2-4]] (3) and (C2);
+near R_(z_0,in) and R_out by [[def:ii-c-2-4]] (5)–(6).
+
+*Monotonicity on a neighbourhood of the characteristic set.* This is (C3). As 𝗌 is t_*-invariant and G is
+t_*-independent, 𝖧_G𝗌 at σ = z_0 is 𝖧_(G_(z_0))S_(z_0) identically, and the fields of [[eq:ii-b-1-4]] and of
+[[sec:i-b-1-4]] are, up to terms vanishing on the characteristic set (which shrink the neighbourhood), positive
+multiples of these Hamilton fields. So (C3) transfers to a neighbourhood in 𝒫 ([[lem:ii-b-2-3]] relates the fields on
+Σ_(z_0)).
+
+*Thresholds.* By [[def:ii-c-2-4]] (4)–(6) with α_K = −2 and margin 1: s_c > 3/2 + ϑ_ℋ;
+𝗋 + α_sf > ½(−1 + ϑ_in) − 1 at R_(z_0,in); and 𝗋 + α_sf < ½(−1 + ϑ_out) − 3 ≤ −½ + S̄ − 3 at R_out. Hence 𝗋 + α_sf + 1
+lies above ½(−1 + ϑ_in) at R_(z_0,in) and below −½ + S̄ at R_out, with margin, and s_c, s_c + 1 > ½ + ϑ_ℋ. So (O3) and
+the thresholds of [[sec:i-b-1-4]] hold.
+
+(b) is then [[sec:i-b-1-4]], and the identification of 𝗋_σ is [[sec:i-b-8-4]]. (a): [[sec:i-b-1-4]] asks more than (O2),
+and (s_c, 𝗋_σ) is admissible for σ_0 = z_0|σ| for every |σ| > 0 ([[sec:i-b-1-4]]), that is, for every real σ ≠ 0.
+(c): [[lem:i-c-6-2]] (c), 𝗋 being admissible for z_0 and constant near R_out with the threshold there. ∎
+
+*Neighbourhoods.* ℬ is the neighbourhood of b_0 of [[cor:iii-h-4-4]] (invertibility of L̂_b(σ) for all σ ≠ 0 with
+Im σ ≥ 0), on which [[cor:iii-h-4-2]] and [[cor:iii-h-4-3]] hold. For k ∈ ℕ_0, ℬ_k is the set of b ∈ ℬ at which (Γ.4)
+of [[sec:i-b-1-5]] holds for 2L_b, for z_0 = ±1, with a stationary fibre inner product h_Γ such that
+δ_Γ(0) < 1/(2(k + 1)) ([[eq:i-b-1-4]]). By [[prop:iii-f-4-1]], which gives δ_Γ(0) as small as wished on a neighbourhood
+of b_0 and at b_0 for every bound, b_0 ∈ ℬ_k and ℬ_k contains a neighbourhood of b_0, for every k.
+
+**Theorem {#thm:iii-h1-1-3}** ([Hin26, Theorem 10.1] in dimension 4 + 1.) Let α_sf be as in [[eq:iii-h1-1-1]], let
+k ∈ ℕ_0, b ∈ ℬ_k and 𝗌 ∈ 𝒪_c. For f ∈ H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω, |dt_* dx|; S²T*)^(•,−) the forward solution u of
+L_bu = f satisfies
+
+    ‖u‖_(H^((𝗌−1;k),(α_sf,−2))_(3b;b)(Ω)^(•,−)) ≤ C‖f‖_(H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω)^(•,−)).           {#eq:iii-h1-1-2}
+
+So, in the relaxed form of [[def:ii-c-2-7]] with margin d_ℵ = 1, L_b is 2-admissible with sf-weight α_sf, sf-loss 0
+and margin 1, for orders in 𝒪_c, at every b ∈ ⋂_k ℬ_k, in particular at b = b_0: (1) of [[def:ii-c-2-7]] holds by the
+definition of ℬ_k (at b_0 by [[prop:iii-f-4-1]]), (2) by [[prop:iii-f1-3-3]] at the weight α_sf + 2, and (3) by
+[[eq:iii-h1-1-2]].
+
+[Hin26, (10.3)] has 𝗌 − 1 and the weights (α_sf − δ, −2) with δ > α_sf + 3/2; [[eq:iii-h1-1-2]] has δ = 0. The proof
+is in [[sec:iii-h1-7]].
+
+**Remark {#rem:s18-every-k}** (Every k on a fixed neighbourhood.) By [[prop:iii-f-4-1]] alone, ℬ_k contains a
+neighbourhood of b_0 that may shrink as k grows. By [[cor:iii-h2-1-2]], which rests on the trapping bound of
+[[prop:iii-h2-1-1]] at every b of a fixed neighbourhood, from a frame built from the null geometry alone, the fixed
+neighbourhood B̄_1 of b_0 of [[sec:iii-h2-0]] satisfies B̄_1 ⊂ ℬ_k for every k ∈ ℕ_0. So [[thm:iii-h1-1-3]] holds for
+every k at every b ∈ B̄_1, and L_b is 2-admissible with sf-weight α_sf, sf-loss 0 and margin 1 at every b ∈ B̄_1. By
+[[thm:iii-h2-2-1]] the constant C of [[eq:iii-h1-1-2]] can moreover be taken independent of b ∈ B̄_1.
+
+### The representation of the forward solution {#sec:iii-h1-2}
+
+By density ([Hin26, p. 212]) it suffices to take f ∈ C_c^∞(Ω°; S²T*) with t_* ≥ t_1 > 1 on supp f. Then
+f̂(σ) := ∫ e^(iσt_*) f dt_* is entire with values in C_c^∞(X°), and ‖f̂(σ)‖ ≤ C_M⟨σ⟩^(−M)e^(−t_1 Im σ) in every norm,
+for Im σ ≥ 0. Fix k, b ∈ ℬ_k and 𝗌 ∈ 𝒪_c. Let c ∈ (0, ς_1], with ς_1 of [[eq:ii-g1-4-5a]], be at most the
+constants c_(j,k′) of [[thm:iii-h-4-1]] (3) for L̃_b on Σ′ = Σ_0 ∩ ℝ, with the orders (s_c + 1, 𝗋 + 1) of
+[[lem:iii-h1-1-2]] (c), for j + k′ ≤ k ([[cor:iii-h-4-3]]); and fix χ ∈ C_c^∞([0, c)) with χ = 1 on [0, c/2]. Put
+
+    𝒞_− := (−∞, −c/2],     𝒞_0 := (c/2)e^(i[π,0]),     𝒞_+ := [c/2, ∞).
+
+**Lemma {#lem:iii-h1-2-1}** ([Hin26, (10.4)].) The forward solution u of L_bu = f satisfies
+û(σ) = L̂_b(σ)⁻¹f̂(σ) for Im σ > 0, and
+
+    u(t_*, ·) = (2π)⁻¹ ∫_(𝒞_−∪𝒞_0∪𝒞_+) e^(−iσt_*) L̂_b(σ)⁻¹ f̂(σ) dσ                                   {#eq:iii-h1-2-1}
+
+as distributions on ℝ_(t_*) × X°.
+
+*Proof.* We follow the proof of [Hin26c, Theorem 12.2], as [Hin26, p. 200] does, with the following inputs.
+
+*High energy.* For |σ| ≥ C_0 with Im σ ≥ 0, L̂_b(σ) is invertible ([[thm:i-b-1-3]] (3)), and
+‖L̂_b(σ)⁻¹g‖ ≤ C|σ|^(−1+δ)‖g‖ in the norms of [[eq:i-b-1-8]] (j = k = 0), with δ = δ_Γ(Im σ − ϵ) ≤ 1, uniformly for
+Im σ in compact sets, and δ = 0 for Im σ large. At fixed |σ| the semiclassical norms are equivalent to the fixed ones,
+with constants polynomial in |σ|.
+
+*Paley–Wiener.* Let γ ≥ C_0 be large and ũ(t_*) := (2π)⁻¹∫_(Im σ=γ) e^(−iσt_*)L̂_b(σ)⁻¹f̂(σ) dσ, absolutely
+convergent by the decay of f̂. By holomorphy on {Im σ ≥ γ} and the bounds there, the integral does not depend on
+γ′ ≥ γ; for t_* < t_1 the integrand is O(⟨σ⟩^(−M)e^((t_*−t_1)γ′)), so letting γ′ → ∞ gives ũ = 0 for t_* < t_1. As
+∂_(t_*) becomes −iσ ([[eq:iii-a-2-2]]), L_bũ = f by Fourier inversion on Im σ = γ. L̂_b(σ)⁻¹f̂(σ) lies in 𝒳_σ for
+every admissible choice of orders ([[thm:i-a-7-2]] (3): the kernel and the range do not depend on them), so ũ is
+smooth, with growth e^(γt_*). ũ − u solves L_b(ũ − u) = 0 and vanishes for t_* < 1, so ũ = u by the uniqueness of
+[[prop:ii-e-3-4]] on each slab {t_* ≤ T}.
+
+*Shifting the contour.* L̂_b(σ)⁻¹ exists for every σ ≠ 0 with Im σ ≥ 0 ([[cor:iii-h-4-4]]), is holomorphic in
+Im σ > 0 ([[thm:i-a-7-2]] (6)), and is polynomially bounded for |Re σ| ≥ C_0, uniformly in Im σ ∈ [0, γ]. With the
+decay of f̂, Cauchy's theorem moves the contour to Im σ = γ″ ∈ (0, γ), and then to 𝒞_− ∪ 𝒞_0 ∪ 𝒞_+: on
+|Re σ| ≥ c/2, L̂_b(σ)⁻¹ is continuous up to the real axis ([[thm:i-a-7-2]] (6) at each real σ_* ≠ 0, where it is
+invertible), with the polynomial bounds above for dominated convergence. ∎

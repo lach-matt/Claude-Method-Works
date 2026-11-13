@@ -207,12 +207,15 @@ code. Lengths are printed lines of 121 characters, with a factor of about 2 eith
 - Sources: `S/N1STAR-PROOF.md:7259-7297` (10.52, Proposition 10.43), `:4600-4640` (10.24 (a)), `:3414-3520`
   (10.12, Proposition 10.9); `S/eind5.py` and `S/checks/eindcert5.py` docstrings; `S/CONSTANTS5.md:158`.
 - Strategy, feasibility and length: section 3. A1 can be proved by hand with the paper's constant δ_50 exactly;
-  about 490 lines, of which about 100 are a crossing table of 92 rows. A2: closed forms of d0, d1, δ_2, δ′_1 from section 3's
-  formulas and one ceiling computation; about 40 lines, but A2 needs d1 to 15 digits and nothing uses it: drop.
+  about 490 lines, of which about 100 are a crossing table of 92 rows. A2: closed forms of d0, d1, δ_2, δ′_1 from
+  section 3's formulas and one ceiling computation; about 40 lines, but A2 needs d1 to 15 digits and nothing uses
+  it: drop.
 - Objects defined only by code: none. The sextic's coefficients come from damping5's det N (DERIVE, C50), which the
   edition writes out anyway; A1 needs it printed as seven polynomials in κ.
 
-### Project B. Morawetz and resolvent bounds on five-dimensional Tangherlini (C210, C256, C258, C281, C282, C284-C287, C123)
+### Project B. Morawetz and resolvent bounds on five-dimensional Tangherlini
+
+Items: C210, C256, C258, C281, C282, C284, C285, C286, C287, C123.
 
 Claims and constants (μ = 1, I = {1.2 ≤ r ≤ 4}, a = l(l + 2) + 3/4, b = 9/4, V_l = (1 − y)(ay + by²), y = 1/r²):
 
@@ -458,20 +461,20 @@ with R_1, R_2, R_3 of total degrees 4, 5, 6 (21, 19 and 10 terms), and in λ = �
   roots between 2 and 3 (near 2 + (3ε − 1)t/2 and 3 − (3ε − 4)t/2 for small t), for 136 ≤ l < 10⁴ a complex pair
   with real part (3t + 10)/4 = 2.5 + 0.75t and imaginary part (214.375t − t² − 4)^(1/2)/4.
 - Rouché on discs about U's roots with h|R_1 + hR_2 + h²R_3| < |U| on their boundaries; |∂_λ U| at B1 equals 3(ε −
-  1)t, so the discs have radius O(h(1 + t²)/t) and the correction is h c(t) with c explicit. (Check: at l = 2, 10,
-  135, 1000, 5000, 9999 the exact upper roots agree with U's to within 10⁻⁵-10⁻²; the planning comparison is in the
-  scratch notes.)
+  1)t, so the discs have radius O(h(1 + t²)/t) and the correction is h c(t) with c explicit. (Planning check: at l = 2,
+  10, 135, 1000, 5000, 9999 the exact upper roots agree with U's to within 5 × 10⁻⁶ to 10⁻², the h c(t) term;
+  not recorded in the repository.)
 - Near t = 0 U has the double root 2 (U(λ, 0) = −2(λ − 2)²(λ − 3)), so for small l the expansion parameter is h/t =
   1/κ ≤ 1/8: B1 and the quadratic's lower root are 13t apart (10⁻⁴ at l = 2) against corrections of 5 × 10⁻⁶; one
   disc holds both, then the roots are separated by the sign of P on a dividing circle. l = 2 gives B1 − 2 =
   2.93235 × 10⁻⁶, the record's least box^C distance; l ≤ about 20 are best written as explicit cases.
 - Crossing table: B1 meets the integer n (3 ≤ n ≤ 51) at one κ_n ≈ (n − 2) × 10⁶ + c_n with c_n of order (n − 2)²
   (κ_3 = 1,000,013.4, κ_51 = 49,002,580.7), a root of the cubic κ ↦ P(n, κ) with integer coefficients; the pair's
-  real part meets n (3 ≤ n ≤ 45; beyond, |λ − 1| > 50 for box^C's root) at one κ′_n ≈ (4n − 10) × 10⁶/3 + c′_n, a root of the Hurwitz
-  determinant of P shifted to Re λ = n (a cubic in κ). Exactly one root each in [8, κ*] (Sturm counts in planning).
-  The table prints, for each of the 49 + 43 crossings, a bracket of κ_n between two rationals with a sign change, the
-  neighbouring values l(l + 2) and the gap. The least gap in planning is 14.4 (n = 3, l = 999) for B1 and 141 for
-  the pair (n = 18, l = 4545).
+  real part meets n (3 ≤ n ≤ 45; beyond, |λ − 1| > 50 for box^C's root) at one κ′_n ≈ (4n − 10) × 10⁶/3 + c′_n,
+  a root of the Hurwitz determinant of P shifted to Re λ = n (a cubic in κ). Exactly one root each in [8, κ*]
+  (Sturm counts in planning). The table prints, for each of the 49 + 43 crossings, a bracket of κ_n between two
+  rationals with a sign change, the neighbouring values l(l + 2) and the gap. The least gap in planning is 14.4
+  (n = 3, l = 999) for B1 and 141 for the pair (n = 18, l = 4545).
 - Distance: between consecutive crossings each root stays strictly between consecutive integers; near a crossing
   |root − n| ≥ |κ − κ_n| · inf |dλ/dκ|, with dλ/dκ = h(1 + O(ht)) for B1 and 0.75h(1 + O(ht)) for the real part of
   the pair, from the implicit function theorem on the disc. With gaps ≥ 14 this gives ≥ 1.0 × 10⁻⁵ at the
@@ -480,8 +483,8 @@ with R_1, R_2, R_3 of total degrees 4, 5, 6 (21, 19 and 10 terms), and in λ = �
 Step 4 (l ≥ 10⁴; about 30 lines). eind5 E2's Sturm certificate in writing: substitute κ = κ* + u in the constant
 coefficient and in the Hurwitz determinant of P shifted to Re λ = 51 (cubics in κ in planning) and show by
 Descartes' rule, or a Sturm sequence of four printed polynomials, that neither has a root u ≥ 0; with three upper
-roots right of 51 at κ* (Step 3 at t = 100) none crosses for u ≥ 0. The vector
-root: λ_v > 51 for κ ≥ κ* from the quadratic formula. box^Υ: |λ| ≥ l − 1 > 50 for l ≥ 52 by Step 1.
+roots right of 51 at κ* (Step 3 at t = 100) none crosses for u ≥ 0. The vector root: λ_v > 51 for κ ≥ κ* from
+the quadratic formula. box^Υ: |λ| ≥ l − 1 > 50 for l ≥ 52 by Step 1.
 
 Step 5 (l = 0, 1; about 40 lines). box^C's quartic at l = 0 and the sextic at κ = 3 (Coulomb root 2 exact, an integer,
 and a quintic cofactor), with the vector quadratic at κ = 3 (integer root 3): Rouché brackets of the few roots in
