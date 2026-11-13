@@ -489,11 +489,12 @@ s)R0_k + sR0_(k+1), and N_κ(v) is within 5 × 10⁻⁶ + M_k/51200 of (1 − s)
   −4.7 × 10⁻⁵, and at s = 0.556, R0 ≤ 4.5238047 + 0.556 × 0.0129054 + 4.5 × 10⁻⁶ ≤ 4.530985.
 
 Since R0 is increasing, N_κ < 0 on R ∈ [R_*, 4.288224] ⊃ [R_*, 4.2882] and on [4.530985, ∞) ⊃ [4.5310, ∞), and N_κ > 0
-on [4.295486, 4.525813] ⊃ [4.2955, 4.5258]. On Σ_τ0, K^l_l < 0, so the split is hyperbolic exactly where N_κ < 0. By
-continuity N_κ vanishes in each of the two intervals left over. ∎
+on [4.295486, 4.525813] ⊃ [4.2955, 4.5258]. On Σ_τ0, K^l_l < 0 and κ = −N_κ/(2 − f)^(3/2), so the split is hyperbolic where N_κ < 0 and not hyperbolic where N_κ
+> 0. By continuity N_κ vanishes in each of the two intervals left over. ∎
 
 The rows give more than the statement: κ′K′^l_l ≤ −3.04 × 10⁻⁴ on Σ′ ∩ {R_* ≤ R ≤ 5.75}. The largest cell bounds occur
-on the cells around R = 4.66, where the bend's central lobe is on its falling side.
+on the cells around R = 4.66, where the bend's central lobe is on its falling side. For 0.68 ≤ R ≤ R_*, where Σ′ =
+Σ_τ0, the margin is that of [[thm:bg-margins]] (c).
 
 ### Γ on the seed region {#sec:margins-seed}
 
@@ -521,8 +522,9 @@ Where ψ = 0 this is Γ/E² = 4R³μ/(R² + μ), that is Γ = 4μ/R.
 N_κ/((2 − w)(w − 1)). Substituting, p′ contains ψ″ linearly through ψ″ in (G′/G)′ and in N_κ′ = (q/2)(ψ′f′ + f″)(w −
 3) + (qf′/2)w′ − ψ″, f″ = −6μ/R⁴. Clearing the common denominator qR⁶(2 − w)(1 − w)² and collecting the coefficients of
 1, ψ′, ψ′² and ψ″, the numerator of the ψ′⁰ term becomes 4R⁹n0 after the substitution q = 1 − u, m = μ/R², which gives
-the stated A0, A1, A2, A3. At ψ = 0, u = 0 and ψ′ = ψ″ = 0, so Γ/E² = A0 = 4R³m³/((1 + m)m²) = 4R³μ/(R² + μ); with E² =
-G/R² = (R² + μ)/R⁴ this is Γ = 4μ/R. ∎
+the stated A0, A1, A2, A3. At ψ = 0, u = 0 and ψ′ = ψ″ = 0, so Γ/E² = A0 = 4R³m³/((1 + m)m²) = 4R³μ/(R² + μ). Since E′ = aE
+fixes E only up to a constant factor, and Γ scales with E², the last statement is for the normalisation E = √G/R,
+which solves E′ = aE where ψ = 0; there E² = (R² + μ)/R⁴, and Γ = 4μ/R. ∎
 
 **Lemma {#lem:margins-profile-monotone}** (The reference profile.) On [0.02, 1.181], ψ_s is increasing, ψ_s′ is positive
 and decreasing, and ψ_s″ is negative and increasing.
@@ -541,16 +543,13 @@ decreases, and ψ_s′(1.181) = 0.0617566 > 0. So ψ_s increases. ∎
 outgoing packet is within (10⁻³, 10⁻³, 3 × 10⁻²) of ψ_s in C² there and whose mass there is within 10⁻⁴ of μ_s.
 
 *Proof.* Cover [0.70, 1.861] by the thirty-two cells of [[sec:table-seed-cells]]. On a cell, by
-[[lem:margins-profile-monotone]], ψ_s, ψ_s′ and ψ_s″ range over the intervals between their printed end values. For (a)
-take these intervals and μ = μ_s; for (b) widen them by 10⁻³, 10⁻³ and 3 × 10⁻², and take μ ∈ [μ_s − 10⁻⁴, μ_s + 10⁻⁴].
+[[lem:margins-profile-monotone]], ψ_s, ψ_s′ and ψ_s″ range over the intervals between their values at the ends of the
+cell, which lie within 5 × 10⁻⁸ of the printed end values. For (a) take the intervals between the printed end values,
+each end moved outward by 5 × 10⁻⁸, and μ = μ_s; for (b) widen these intervals further by 10⁻³, 10⁻³ and 3 × 10⁻², and
+take μ ∈ [μ_s − 10⁻⁴, μ_s + 10⁻⁴].
 Evaluate [[eq:margins-gamma-form]] in the written form by [[lem:margins-enclosure]] (a), with R the cell, q = e^ψ, u = 1
 − q, m = μ/R², w = q(1 − m) and 2 − w, 1 − w positive on every cell. The resulting lower ends are columns (a) and (b);
 their least values are 0.456 and 0.438, which exceed 0.4475 and 0.048. ∎
 
-By [[pending:thm-background-tube]], the background itself lies in the tube of (b), which gives Γ > 0 on its seed region
+By [[prop:bg-seed]] (c), the background itself lies in the tube of (b), which gives Γ > 0 on its seed region
 and so [[pending:cor-charge-seed]] there.
-
-The same margin as in [[thm:margins-hyperbolic]] (a) is asserted, on the whole of Σ′, for an approximation of the
-background whose slice inputs are the piecewise-linear interpolant of finitely many stated values, with the bound
-κ′K′^l_l ≤ −3.01 × 10⁻⁴. That assertion is not proved here [[pending:computational-1]]; for the background itself the
-bound on Σ′ ∩ {R ≥ R_*} is the one proved above, and below R_* it is [[pending:thm-background-hyperbolic-below]].

@@ -241,8 +241,8 @@ bounds. On each segment they are at most 4.17 × 10⁻⁷ and 4.89 × 10⁻⁸ w
 and by R̂_min in the denominators, |R̂′| by R̂′_max of [[sec:tab-bg-ray-chain]] and Ŝ by its value at the left end;
 both largest values occur on [7.17, 7.2].
 
-(i) R̂(u2) = 1.5193579823987569 exactly. (ii) This is (iv) at u = u2 with the exact values R̂(u2), R̂′(u2) =
-−0.60795759341336… and Ŝ(u2); and R(u2)² ≥ 2.308 > 0.823.
+(i) R̂(u2) = 1.5193579823987569 exactly. (ii) The bound (iv) at u = u2, with the exact values R̂(u2), R̂′(u2) =
+−0.60795759341336… and Ŝ(u2) and the last row's E₀, E₁, I, gives |μ3 − μ̃3| ≤ 4.068 × 10⁻⁷; and R(u2)² ≥ 2.308 > 0.823.
 
 (iii) By the first paragraph, S ≥ Ŝ − I/2 ≥ Ŝ(u2) − 1.82 × 10⁻⁸ > 0.6111 on [u1, u2], so λ = 2S/R² > 0 there. Since
 B ≥ 0, [[eq:bg-nprime]] gives μ′ = −(2/3)Bλ ≤ 0, so μ is nonincreasing and 3/2 = μ(u1) ≥ μ ≥ μ3 > 0 by (ii), where
