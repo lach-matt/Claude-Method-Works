@@ -106,8 +106,8 @@ and m_lo > 0 requires that this be below |M~_22| = 2.207738.
   m_taur - T, m_rr = m_rr' - 2 m_taur + T, e_tau = d_tau, e_r = d_r at fixed tau): the principal parts cancel, there
   is no d_th T, and
 
-      L_tautau = (mu' r - mu/2)/r^3 e_tau T + (5 mu/2 - mu' r)/r^3 e_r T + (2 mu^3 - mu^2 r^2 + mu mu' r^3 - mu' r^5)/r^8 T
-                 + (the other components).
+      L_tautau = (mu' r - mu/2)/r^3 e_tau T + (5 mu/2 - mu' r)/r^3 e_r T
+                 + (2 mu^3 - mu^2 r^2 + mu mu' r^3 - mu' r^5)/r^8 T + (the other components).
 
   At X* (r = a, mu ~ 1.1) the e_r entry is about 146 and the zero-order one about 1e5. Control C1: P_eta without its
   factor 1/2 leaves second derivatives (the cancellation fails).

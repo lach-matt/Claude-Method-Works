@@ -1,0 +1,29 @@
+M1 (computed) the interior Ric_xx monitor at 800 rows for M = 32, 40, 48, 56, its steps m(M + 8)/m(M), and the verdict by
+    the fixed rule; the null-step level L per class: 0.9-1.0 5.88e-03, 1.0-1.2 1.84e-03, >= 1.2 1.37e-03
+  areal radius 0.9-1.0:
+   v from 0.50: 0.000522, 0.000577, 0.000619, 0.000652; steps 1.11, 1.07, 1.05 -> claimed band (null-step level)
+   v from 1.00: 0.00195, 0.00229, 0.00255, 0.00275; steps 1.17, 1.11, 1.08 -> claimed band (null-step level)
+   v from 1.50: 0.00202, 0.00243, 0.00281, 0.00312; steps 1.20, 1.16, 1.11 -> claimed band (null-step level)
+   v from 1.65: 0.00384, 0.0046, 0.00529, 0.00588; steps 1.20, 1.15, 1.11 -> claimed band (null-step level)
+   v from 1.80: 1.02, 0.53, 0.258, 0.136; steps 0.52, 0.49, 0.53 -> angular truncation
+   v from 1.90: 34, 39.7, 48.3, 55.5; steps 1.17, 1.22, 1.15 -> not truncation
+   v from 2.00: 114, 211, 284, 540; steps 1.85, 1.35, 1.90 -> not truncation
+  areal radius 1.0-1.2:
+   v from 0.50: 0.000207, 0.000229, 0.000245, 0.000258; steps 1.11, 1.07, 1.05 -> claimed band (null-step level)
+   v from 1.00: 0.00104, 0.00121, 0.00134, 0.00144; steps 1.16, 1.11, 1.07 -> claimed band (null-step level)
+   v from 1.50: 0.00116, 0.00143, 0.00164, 0.00184; steps 1.23, 1.15, 1.12 -> claimed band (null-step level)
+   v from 1.65: 0.00118, 0.00128, 0.00141, 0.00165; steps 1.08, 1.10, 1.17 -> claimed band (null-step level)
+   v from 1.80: 0.0094, 0.00282, 0.00161, 0.0017; steps 0.30, 0.57, 1.06 -> undecided
+   v from 1.90: 5.05, 4.13, 3.2, 2.49; steps 0.82, 0.77, 0.78 -> undecided
+   v from 2.00: 142, 374, 556, 1.12e+03; steps 2.63, 1.49, 2.01 -> not truncation
+  areal radius >= 1.2:
+   v from 0.50: 6.35e-05, 7.03e-05, 7.55e-05, 7.97e-05; steps 1.11, 1.07, 1.06 -> claimed band (null-step level)
+   v from 1.00: 0.000337, 0.000391, 0.000432, 0.000464; steps 1.16, 1.10, 1.07 -> claimed band (null-step level)
+   v from 1.50: 0.000438, 0.000535, 0.00061, 0.00067; steps 1.22, 1.14, 1.10 -> claimed band (null-step level)
+   v from 1.65: 0.000444, 0.000558, 0.000649, 0.000723; steps 1.26, 1.16, 1.11 -> claimed band (null-step level)
+   v from 1.80: 0.0004, 0.000505, 0.000599, 0.000681; steps 1.26, 1.19, 1.14 -> claimed band (null-step level)
+   v from 1.90: 0.00101, 0.00115, 0.00126, 0.00137; steps 1.14, 1.10, 1.09 -> claimed band (null-step level)
+   v from 2.00: 0.272, 0.164, 0.0781, 0.0531; steps 0.60, 0.48, 0.68 -> angular truncation
+   control (k1) a halving sequence reads angular truncation on every class: yes (good)
+   control (k2) M = 32 given for every M: never angular truncation, not truncation exactly where m(32) > 10 L: yes (good)
+mtrunc5: all checks pass
