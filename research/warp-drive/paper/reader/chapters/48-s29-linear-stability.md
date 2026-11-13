@@ -372,16 +372,17 @@ G-invariant, every ingredient being equivariant and U″ fixed. ∎
 **Remark {#rem:viii-2-4}** (What is and is not asserted.) (a) [[thm:viii-2-2]] has the form of [[thm:settling]]: every
 linearised data set in the class has a linearised vacuum development, in a fixed gauge, that settles at the stated
 rate. By itself it does not assert that a given linearised solution in another gauge differs from ġ by a linearised
-diffeomorphism on Ω_* ∪ 𝒟. That comparison is the linear counterpart of [[rem:vii-4-1]]: a linear wave equation for
-the 1-form that generates the change of gauge, solved on the whole domain. It is [[thm:ix-2-2]] and [[cor:ix-2-3]]
-below, and nothing in [[sec:viii-1]]–[[sec:viii-2]] uses it. (b) The rate is that of the slowest term at K⁺,
+diffeomorphism. That comparison, on the future N⁺ of Σ^IVP in {r > r_♭}, is [[thm:ix-2-2]] and [[cor:ix-2-3]] below,
+by a linear wave equation for the 1-form that generates the change of gauge; it is the linear counterpart of the
+nonlinear comparison of [[rem:vii-4-1]] ([[lem:interior-one-spacetime]]). Nothing in [[sec:viii-1]]–[[sec:viii-2]]
+uses it. (b) The rate is that of the slowest term at K⁺,
 h_(b₀,rem)(q′), which carries the decaying tails of the parameter and centre-of-mass motions ([[eq:iii-i14-1-2]]).
 
 ### The comparison of gauges: setting and conventions {#sec:ix-0}
 
 This section and the next two compare the solution ġ of [[thm:viii-2-2]] with a linearised vacuum solution given in
-another gauge, on the whole future of Σ^IVP in {r > r_♭}: the future half of a Cauchy development of Σ^IVP
-([[lem:ix-1-2]]).
+another gauge, on the whole future of Σ^IVP in {r > r_♭}: the future half of the Cauchy development of
+Σ^IVP ∩ {r > r_♭} ([[lem:ix-1-2]]).
 
 *The spacetime.* g := g_(b₀) on M_♭ := ℝ_t × {|x| ≥ r_♭}, in the coordinates (t, x) of [[sec:iii-b-3]]
 ([[eq:iii-b-3-3]] defines g_(b₀) there, by [[lem:s11-ks-domain]]), with interior M°_♭ := ℝ_t × {|x| > r_♭}. t_IVP is
