@@ -78,9 +78,9 @@ coefficients of the three terms are −2κ0HH′|T|²_γ̂, −½(−4HΠ/R + 2H
 second identity.
 
 For the third, consider a metric G dR² + R²ĝ with ĝ = ĝ(R) a family of metrics on S³. For a foliation by hypersurfaces
-S with unit normal ν, lapse N and second fundamental form L, the Gauss equation Scal = Scal_S + 2Ric(ν, ν) − (tr L)² +
-|L|² and the Riccati equation Ric(ν, ν) = −ν(tr L) − |L|² − N⁻¹Δ_S N hold (as in the proof of
-[[lem:constraints-evolution]] (a)). The lapse G^(1/2) of the foliation by the spheres {R = const} is constant on each
+S with unit normal ν, lapse N and second fundamental form L, the Gauss equation Scal = Scal_S + 2Ric(ν, ν) −
+(tr L)² + |L|² and the Riccati equation Ric(ν, ν) = −ν(tr L) − |L|² − N⁻¹Δ_S N hold, as in the proof of
+[[lem:constraints-evolution]] (a). The lapse G^(1/2) of the foliation by the spheres {R = const} is constant on each
 sphere, so the last term vanishes and
 
     Scal = R⁻² Scal(ĝ) − (tr L)² − |L|² − 2G^(−1/2)(tr L)′,      L := ½G^(−1/2) ∂_R(R²ĝ),

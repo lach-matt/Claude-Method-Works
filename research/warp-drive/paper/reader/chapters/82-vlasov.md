@@ -567,7 +567,7 @@ so the same holds as functions of α. If ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(
 order λ⁰. ∎
 
 Next the commutator of the wave operator with a generator, which the uniform estimate needs for each family. For a
-radial family on a round background it is [[pending:two-dust-commutator]], whose proof uses that the generator is
+radial family on a round background it is [[lem:two-dust-commutator]], whose proof uses that the generator is
 shear-free. A non-radial family on a non-round background is not shear-free in five dimensions, but its shear lives
 in the torus directions, where the Hessian of an invariant function is of first order, and in the orbit space it has
 no shear.
@@ -578,10 +578,10 @@ bilinear form S with S(ℓ, ·) = 0 at that point,
 
     ⟨Hess u, S⟩ = (□3 u) tr S.                                                                  {#eq:vlasov-no-shear}
 
-So F(S) := ⟨Hess u, S⟩ − (□3 u) tr S depends only on S(ℓ, ·). In a null frame (ℓ, ℓ̄, e), g3(ℓ, ℓ̄) = −1, e a unit
+So 𝔣(S) := ⟨Hess u, S⟩ − (□3 u) tr S depends only on S(ℓ, ·). In a null frame (ℓ, ℓ̄, e), g3(ℓ, ℓ̄) = −1, e a unit
 vector orthogonal to both, with H := Hess u (not the mean curvature),
 
-    F(S) = H(ℓ̄, ℓ̄) S(ℓ, ℓ) − 2 H(ℓ̄, e) S(ℓ, e) + 2 H(e, e) S(ℓ, ℓ̄).                           {#eq:vlasov-shear-form}
+    𝔣(S) = H(ℓ̄, ℓ̄) S(ℓ, ℓ) − 2 H(ℓ̄, e) S(ℓ, e) + 2 H(e, e) S(ℓ, ℓ̄).                           {#eq:vlasov-shear-form}
 
 *Proof.* H(ℓ, X) = ½ X(|du|²) = 0 for every X at the point, since |du|² vanishes to first order. In the frame, g3⁻¹ = −ℓ
 ⊗ ℓ̄ − ℓ̄ ⊗ ℓ + e ⊗ e. In ⟨H, S⟩ = g3^(ik) g3^(jl) H_(ij) S_(kl) only the components of H on ℓ̄ and e enter, and the
@@ -596,11 +596,11 @@ corollary hold.
 **Corollary {#cor:vlasov-commutator}** (The commutator with a non-radial generator.) Let u be an invariant eikonal of a
 class metric g5, ℓ := g5⁻¹du = g3⁻¹du and L := ℓ·∂. For every invariant function φ,
 
-    [□5, L] φ = a □5 φ + M(L φ) + N φ,      a := 2 □3 u,                                          {#eq:vlasov-commutator}
+    [□5, L] φ = a □5 φ + 𝔐(L φ) + 𝔑 φ,      a := 2 □3 u,                                          {#eq:vlasov-commutator}
 
-with M a first-order operator and N a first-order operator, with coefficients smooth where u is; the same holds for
-□̃ := g5^(ab) ∂_a∂_b in the chart X, with another N. On a round background with u = v, a = 2 L(R)/R, the coefficient of
-[[pending:two-dust-commutator]].
+with 𝔐 and 𝔑 first-order operators whose coefficients are smooth off the axes where u is (𝔑 contains ⟨dψ_i, du⟩
+⟨dψ_i, dφ⟩); the same holds for □̃ := g5^(ab) ∂_a∂_b in the chart X, with another 𝔑. On a round background with u = v,
+a = 2 L(R)/R, the coefficient of [[lem:two-dust-commutator]].
 
 *Proof.* For any metric, [□, ℓ^μ ∇_μ] φ = 2 ⟨∇ℓ, Hess φ⟩ + (□ℓ^μ + Ric^μ_ν ℓ^ν) ∂_μ φ, and ∇ℓ = Hess_(g5) u. For
 invariant functions the Christoffel symbols of [[lem:warped-ricci]] give Hess_(g5) f(∂_a, ∂_b) = Hess_(g3) f(∂_a, ∂_b),

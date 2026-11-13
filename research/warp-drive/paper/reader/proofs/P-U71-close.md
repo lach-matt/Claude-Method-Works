@@ -188,10 +188,10 @@ H^((s−2;k),(𝗋+1,q−2))_(sc,b;b) to H^((s;k),(𝗋,q))_(sc,b;b), as in the 
 𝗋_in ≥ 𝗋_out, with ϑ_in in an inner product of our choice at the incoming radial sets ((O3) of [[sec:i-a-1-4]]). With
 the inner product of [[lem:uc-theta-in]] at δ = 1/8, ϑ_in < 1/4, so (−1 + ϑ_in)/2 < −3/8 < −¼ = 𝗋_in; and
 𝗋_out < −½ < 𝗋_in. The order of [[lem:i-a-7-1]] is 𝗋 = 𝗋_out + (𝗋_in − 𝗋_out)Θχ_c with 0 ≤ Θχ_c ≤ 1, equal to
-𝗋_out near R_out; so inf 𝗋 = 𝗋_out and sup 𝗋 ≤ 𝗋_in.
+𝗋_out near R_out and to 𝗋_in near the incoming radial sets; so inf 𝗋 = 𝗋_out and sup 𝗋 = 𝗋_in.
 
 *The losses.* In [[lem:ii-g1-4-1]] at s = 1, ⌈(s − 1)_+⌉ = ⌈(−s)_+⌉ = 0, so ℓ = ⌈sup 𝗋 − 𝗋_out⌉ and
-ℓ̃ = ⌈𝗋_out − inf 𝗋⌉ = 0. Here 0 < sup 𝗋 − 𝗋_out ≤ 𝗋_in − 𝗋_out = 7/4 − β_sctf + ϵ/2 ≤ 3/4 + 1/16 < 1, as β_sctf ≥ 1
+ℓ̃ = ⌈𝗋_out − inf 𝗋⌉ = 0. Here 0 < sup 𝗋 − 𝗋_out = 𝗋_in − 𝗋_out = 7/4 − β_sctf + ϵ/2 < 3/4 + 1/16 < 1, as β_sctf ≥ 1
 and ϵ < 1/8; so ℓ = 1 for every such ϵ, and the last step of the proof of [[cor:iii-f1-3-4]] (k replaced by k + ℓ̃,
 ℓ made independent of ϵ) changes nothing. Near ztf the two spaces are H^(s−2+k)_(b,β_ztf−2) = H^(k−1)_(b,β_ztf−2) and
 H^(s+k)_(b,β_ztf) = H^(k+1)_(b,β_ztf), which the input order k + 1 and the output order k accommodate. So
@@ -203,8 +203,9 @@ is at least 1 at every choice.
 with ℓ_scf := 3/2 − ε: in Step 3.2 of the proof of [[prop:iii-i6-2-1]], in Step 3.4′ of the proof of
 [[lem:iii-i8-3-2]], at level 1 of the proof of [[prop:iii-i11-3-1]], and at levels 2 and 3 there and in
 [[prop:iii-i13-2-1]] and [[prop:iii-j3-4-3]], whose forcings keep the scf-order 5/2 − ε of Step 0
-([[lem:iii-i11-2-2]]). The loss ε satisfies 5ε ≤ 5ε_1 < ε_+ < δ_♯ < ¼ ([[sec:iii-j2-1]], [[eq:iii-i9-1-1]]), so
-β_sctf = 3/2 − ε ∈ (1, 3/2). ∎
+([[lem:iii-i11-2-2]]). In each of them ε is a loss that the proof takes small, and the bounds on it there give ε < ¼:
+ε < ½ε_g < ¼ in [[lem:iii-i8-3-2]], 2ε < ε_+ − η_2 in [[sec:iii-i11-1]], and 5ε ≤ 5ε_1 < ε_+ in [[sec:iii-j2-1]],
+with ε_+ < δ_♯ < ¼ ([[eq:iii-i9-1-1]]). So β_sctf = 3/2 − ε ∈ (1, 3/2). ∎
 
 #### The order of the background terms {#sec:uc-dbg}
 
@@ -292,7 +293,8 @@ of w = (h″, D_b h″, D²_b h″), h″ := h + h_(b,rem)(q), with coefficients
 derivatives of Φ by the chain rule. So d_FM ≤ d_Φ + 8. [[lem:iii-k-2-2]] (c) is the same bound for Ψ(U), which
 differs from Φ(U) by fixed tensors smooth in the finite-dimensional components of U, on the exact scales, where
 [[prop:iii-j3-5-4]] follows the proof of [[thm:iii-j-2-4]] step by step; so d_Ψ ≤ d_Φ + 8 as well. d_NM is the largest
-of the three losses ([[def:ec-accounted-loss]] and the paragraph after it), and N_NM = 21d_NM + 6 is the regularity of
+of the losses of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], that of [[lem:iii-k-2-3]] accounted by
+[[def:ec-accounted-loss]] and at least d_acc ([[thm:loss-d]]), and N_NM = 21d_NM + 6 is the regularity of
 [[thm:ii-g-2-1]] at that loss ([[thm:loss-d]], [[eq:ii-g-2-5]]). ∎
 
 #### What the statements give {#sec:uc-reduction}
@@ -303,9 +305,9 @@ of the three losses ([[def:ec-accounted-loss]] and the paragraph after it), and 
 ([[prop:uc-ltf]], [[prop:uc-dbg]]); the explicit part of the bound of [[rem:ec-upper-point]] is then
 9.394·10¹⁹ + 1.2923·10²¹ < 1.3863·10²¹, under the hypothesis made there that (G) holds at ε_K = 1.46·10⁻¹⁰.
 
-(ii) d_NM ≤ max(d_acc, 62N_Λ + 10), N_NM = 21d_NM + 6, and every term of the bound of [[prop:ec-upper]] other than
-the single-step losses is explicit in ε_K; the single-step losses at the levels above 3 are at least 1 + n_ι, with n_ι
-bounded by [[lem:uc-fourier-count]] in N_Λ, l_* and k̄_0.
+(ii) d_NM = max(d_R, d_FM, d_Ψ) with d_R ≥ d_acc and d_FM, d_Ψ ≤ 62N_Λ + 10, N_NM = 21d_NM + 6, and every term of the
+bound of [[prop:ec-upper]] other than the single-step losses is explicit in ε_K and the other weights; the single-step
+losses at the levels above 3 are at least 1 + n_ι, with n_ι bounded by [[lem:uc-fourier-count]] in N_Λ, l_* and k̄_0.
 
 (iii) The numbers ε_K (through (G)), N_Λ, l_* and k̄_0 are fixed by the index sets of [[sec:uc-index-sets]] alone, and
 the statements of this paper fix none of them: for every M > 0 there is a choice of ℰ_ind compatible with every
