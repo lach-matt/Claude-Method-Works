@@ -310,11 +310,18 @@ costs nothing more; for general E_K, R_zf costs n_K and [[lem:iii-a-1-3]] at K n
 [[prop:ii-g1-3-3]] (1) and [[prop:iii-h-3-2]], 2 for second-order operators (L_b, L̃_b, and the background terms
 applied to a solution), ℓ + 1 for [[cor:ii-g1-4-5]] at every order, where ℓ = 2ℓ_3 + ℓ_4 + ℓ_5 is assembled from the
 losses of [[prop:ii-g1-3-5]] (2), [[prop:ii-g1-4-4]] and [[prop:ii-g1-3-3]] (2), each a closed form in the weights, and
-d_ι + 2 for [[cor:iii-g2-4-3]]. The order of choices behind ℓ + 1 is: d_acc first, then N_NM, then the trapping data
+d_ι + 2 for [[cor:iii-g2-4-3]]. The forward solution operators of [[lem:iii-j2-2-1]] (a) lose the d of
+[[thm:iii-i-5-3]], which its proof takes from [[thm:ii-f1-1-1]] and raises by 6. There d = D_0 + D_1 + d′ + d″
+([[eq:ii-f1-3-3]]): d′ and d″ are read off the order 𝗌, while D_0 and D_1 are maxima of the orders d_0 and d of the
+energy estimates of [[ch:s07]] and of [[lem:ii-f1-2-8]] ([[eq:ii-f1-3-2]]), whose existence is proved and whose values
+are not determined in this paper. The order of choices behind ℓ + 1 is: d_acc first, then N_NM, then the trapping data
 at the orders k ≤ N_NM ([[cor:iii-h2-1-2]]); the constants of the smallness conditions are used at those orders only,
 the tame estimates themselves at every order. The statement "d_acc is an explicit number" needs, besides these closed
-forms, numbers for the weights at the parameters in question, the index sets n(E, β) and the numbers of steps of the
-iterations; the next section bounds two of these iterations from below.
+forms, values of D_0 and D_1, numbers for the weights at the parameters in question, the index sets n(E, β) and the
+numbers of steps of the iterations; the next section bounds two of these iterations from below. The forward solution
+operators are a factor of the construction of [[thm:iii-i14-3-1]] (Step 0 of its proof), so d_acc is at least their
+loss, and an upper bound for d_acc would bound D_0 + D_1. None is proved here; [[rem:ec-integer-bound]] records one at
+one choice of the weights.
 
 ### Two long iterations, and a lower bound for d {#sec:ec-floor}
 
@@ -461,7 +468,7 @@ transition face rounds start at τ_0 = 2 + ε_ind − 2ε and the level-3 rounds
 ε_ind − ε, which are the increments ε_g − ε of [[sec:ec-floor]] when ε_g = ε_ind. Summed exactly as floor sums over the
 levels, the transition face rounds below 3 number 1,401,250,931,461,121 and the level-3 rounds above 3 number
 1,401,251,031,977,897, so that three times their sum is 8,407,505,890,317,054 ≈ 8.41 × 10¹⁵, the exact value at these
-weights of the lower bound 3R of [[thm:loss-d]] (iii). At these weights every admissibility condition checked holds:
+weights of the lower bound 3R of [[thm:loss-d]] (ii). At these weights every admissibility condition checked holds:
 the levels and the round weights are rational, every indicial root of L̂_(b_0)(0) they can meet is an integer or
 irrational (one family of roots of the damping operator could have a fixed fractional part, which no level or round
 weight has), the rational coincidences that remain are not levels, and the least distance of a level from the excluded
@@ -475,7 +482,8 @@ least index sets E^C_I and E_+ that the proof admits, the base level's starting 
 α_0 := α_1, the order 14 for the error terms of the calculus (any order at least 10 serves), the class window taken
 wide and the window loop at its ceiling, every step of the construction was charged an upper bound: the elementary
 losses by [[lem:ec-closed-forms]], with ℓ_tf = 1 (the transition face model's incoming threshold being 0 there), the
-round of the iteration at ι⁺ charged 15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on
+forward solution operators D_0 + D_1 + d′ + d″ + 6 ≤ 766 + 88 + 8 + 9 + 6 = 877 ([[rem:ec-other-losses]]), with D_0
+and D_1 bounded over the orders at which the calculus of [[ch:s04]] is used, the round of the iteration at ι⁺ charged 15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on
 (3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows [k + 1/2, k + 0.5099]
 where a step is added before d_ι rises), the steps of each level taken from the families that the inventory of
 [[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic orders of the index

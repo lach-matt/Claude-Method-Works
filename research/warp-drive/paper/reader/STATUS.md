@@ -49,7 +49,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 70 M Ch 17 | written (1,624 lines, 102 labels; B2 merged with 4.683); the three computational markers proved (roots bracketed; singular-value bounds proved at slightly larger values; M₃₃ derived); proof B re-merge and gap cor:morawetz-one-derivative (c)-(d) running; then first reading | - | - |
 | 80 M Ch 19 | written (1,240 lines, 70 crosswalk rows, no markers); independent reader running; reading NOT CONFIRMED 1M 4m 11n (two-family O(λ) term in the gauge hierarchy; n = ±2; K and F clashes; lem:linear-wave region; cone reparametrisation) | fix running | - |
 | 71 M Ch 18 | written (503 lines, 32 labels; marker issue-1; upper bound a remark); proof project running (ϑ_in ≥ 0; a written upper bound on d) | - | - |
-| 66, 81-90 | being written: 66, 81, 82, 83, 84 (writers running); 85, 86, 87, 90 not yet written | - | - |
+| 82 M Ch 21 | written (912 lines, 62 labels; thm:vlasov; non-vacuity by a separable Tangherlini family with margins; 11 pending keys to chapters 80 and 81; (V3) symmetrizer for non-round slices open); independent reader running | - | - |
+| 66, 81, 83-90 | being written: 66, 81, 83, 84 (writers running); 85, 86, 87, 90 not yet written | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | CONFIRMED (5 nits); CD03 block and Sbierski entry to be read after their edits |
 
 ## Proof files (merged into their chapters after an independent reading)

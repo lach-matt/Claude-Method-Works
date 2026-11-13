@@ -499,7 +499,8 @@ valid for every e ∈ (0, 1). With x and v fixed these are rational functions of
 (1 − ex²)² and the factor v + qx of r_0² tr K, equal 1, 1 and v at q = 0. So both are continuous at q = 0 and tend, as
 e → 0, to their values at q = 0, where r_0² tr K = −v: the trace to 2v + 3v = 5v and the determinant to
 2v·3v − 4v²x² = 2v²(3 − 2x²). At |x| ≤ 6/5 the latter is at least 2v²(3 − 72/25) > 0. Inserting (v, q) = (1/2, 1/320),
-that is (v, e) = (1/2, 1/102400), into the two formulas gives the stated functions.
+that is (v, e) = (1/2, 1/102400), into the two formulas, with 1 − ex² = −(x − 320)(x + 320)/102400 and
+v + qx = (x + 160)/320, gives the stated functions.
 For |x| ≤ 6/5 the denominator of tr is negative and its numerator is at most −4194312192000 + 73400524800·(6/5) +
 24575920·(36/25) + 614401·(216/125) < 0, so tr > 0. The denominator of det is positive. Write N(x) = A₀ + A₁x + A₂x² +
 A₃x³ + A₄x⁴ + A₅x⁵ + A₆x⁶ with the coefficients displayed. For |x| ≤ 6/5, A₀ + A₂x² ≥ A₀ + (36/25)A₂ > 8.3·10¹⁷; the

@@ -911,3 +911,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   two families give −λe^(−4σ)[χ_out] + O(λ²) (conclusion holds). Minors: n = ±2 in stage zero (d); K and F clashes;
   lem:linear-wave needs g0 around the domain; cone reparametrisation for P-E's gauge e^(2s) = 1/2. Fix running; P-E
   files may need symbol updates after the K/F renames.
+- Ch 82 written (W-82): 912 lines, 62 labels, exports thm:vlasov. Non-vacuity proved with a separable family on
+  Tangherlini (Jacobian ≥ 1, b = 0.36, δ = 0.265); the source's family (grid-checked only) is a Numerical observation
+  remark. Choices: injectivity in the label; amplitude F with q = F²; n dusts (N the stage count); labels α ∈ S¹.
+  Open: (V3) uses chapter 7's symmetrizer derived for small γ_rA. Pending keys: 9 to chapter 80 (labels mapped in
+  W-82), 2 to chapter 81 (class-augmented-system, class-adapted-domain). Independent reader running.
