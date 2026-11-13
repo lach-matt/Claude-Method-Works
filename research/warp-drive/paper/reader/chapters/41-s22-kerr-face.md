@@ -109,12 +109,12 @@ operator P_4, its linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(
 
 ℰ^ι_ind is the index set of [[thm:iii-g2-4-2]] ([[eq:iii-g2-4-4]]). The two gaps of indicial roots ε_ind and ε_Υ, and
 ε_g = min(ε_Υ, ε_ind), are those of [[def:s21-eps-g]]: ε_ind, fixed by the indicial roots of L̂_b(0), is the constant
-with which the hypotheses of [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]] are stated; ε_Υ is fixed by the indicial roots
-of (□^Υ_b)^(0), and the index sets ℰ_ind of the corrections of the states have least real part at least ε_Υ. The
-remainders of [[prop:iii-g4-4-4]] ([[eq:iii-g4-4-3]]) and [[prop:iii-g4-5-1]] ([[eq:iii-g4-5-1]]) gain over the forcing
-through the corrections of the states ([[lem:iii-g4-4-3]]); of this gain we use only the lower bound ε_g of
-[[def:s21-eps-g]]. [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), (e) extend verbatim to every triple (τ, λ, k) with
-τ ∈ 𝒯, Re λ ≥ λ_♯ and k ∈ ℕ₀; m_ν and r_ν denote these also for ν ∉ 𝒩. Two further hypotheses are made:
+with which the hypotheses of [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]] are stated ([[sec:iii-g4-1]]); ε_Υ is fixed
+by the indicial roots of (□^Υ_b)^(0), and the index sets ℰ_ind of the corrections of the states have least real part
+at least ε_Υ. The remainders of [[prop:iii-g4-4-4]] ([[eq:iii-g4-4-3]]) and [[prop:iii-g4-5-1]] ([[eq:iii-g4-5-1]])
+gain over the forcing through the corrections of the states ([[lem:iii-g4-4-3]]); of this gain we use only the lower
+bound ε_g of [[def:s21-eps-g]]. [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), (e) extend verbatim to every triple
+(τ, λ, k) with τ ∈ 𝒯, Re λ ≥ λ_♯ and k ∈ ℕ₀; m_ν and r_ν denote these also for ν ∉ 𝒩. Two further hypotheses are made:
 
 (C5) γ_C v_C ≥ 1/2 ([[sec:iii-g2-1]]), so that ℓ^max_K = min(3, 2 + 2γ_C v_C) = 3 ([[eq:iii-g2-1-1]]).
 
@@ -236,7 +236,8 @@ Re λ − 1 (s1), Re λ (s0, s2) or Re λ + d_τ (c0, c1), and by (G) no such ra
 
 ### Towers, row expansions and forward tails {#sec:iii-i10-2}
 
-**Lemma {#lem:iii-i10-2-1}** (Towers.) Let τ ∈ 𝒯, W ∈ 𝒲_(τ,ℂ), and put
+**Lemma {#lem:iii-i10-2-1}** (Towers.) Let τ ∈ 𝒯 and W ∈ 𝒲_(τ,ℂ), or, for τ = v1, W ∈ 𝒱_(1,ℂ), on which the 1-forms
+ω̆^i_v1 of [[sec:iii-i9-2]] are defined by the same formulas ([[def:iii-i14-1-3]]), and put
 
     h̆^i_τ(W) := δ̂*_(g_b)(0) ω̆^i_τ(W) + dt_* ⊗_s ω̆^(i−1)_τ(W),     i ≥ 0,
 

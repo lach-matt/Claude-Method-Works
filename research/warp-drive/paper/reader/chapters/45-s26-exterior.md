@@ -710,12 +710,11 @@ weights, and extend f and g from Ω to M_♯ by the operator of that proof, whic
 be the partition of unity and ψ_i the cut-offs of that proof, ψ_i = 1 near supp φ_i. The product
 Π := (V₁⋯V_qã)(V′₁⋯V′_rW′u) is Σ_i φ_iΠ, and on supp φ_i it equals (V₂⋯V_q(ψ_if))(V′₁⋯V′_r(ψ_ig)). In the chart of
 index i each V_l and each V′_l is a combination of the fields of 𝒱 (the two coordinate fields of ℝ² and the rotation
-fields of 𝕊³) with coefficients bounded with all their derivatives; expanding the compositions by Leibniz's rule, φ_iΠ is a finite sum of terms c(Z^γ(ψ_if))(Z^δ(ψ_ig))
-with c bounded and Z^γ, Z^δ compositions of |γ| ≤ q − 1 and |δ| ≤ r fields of 𝒱, so |γ| + |δ| ≤ m. In the chart,
-[[thm:std-gn-moser]] (2) bounds each term in L² by C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) + ‖ψ_if‖_(H^m)‖ψ_ig‖_(L^∞)), and the
-chart comparison and the boundedness of multiplication by ψ_i in the proof of [[lem:iv1-2-3]] bound these norms by
-those of f and g. Summing over i gives
-
+fields of 𝕊³) with coefficients bounded with all their derivatives; expanding the compositions by Leibniz's rule, φ_iΠ is
+a finite sum of terms c(Z^γ(ψ_if))(Z^δ(ψ_ig)) with c bounded and Z^γ, Z^δ compositions of |γ| ≤ q − 1 and |δ| ≤ r fields
+of 𝒱, so |γ| + |δ| ≤ m. In the chart, [[thm:std-gn-moser]] (2) bounds each term in L² by C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) +
+‖ψ_if‖_(H^m)‖ψ_ig‖_(L^∞)), and the chart comparison and the boundedness of multiplication by ψ_i in the proof of
+[[lem:iv1-2-3]] bound these norms by those of f and g. Summing over i gives
     ‖(V₁⋯V_qã)(V′₁⋯V′_rW′u)‖ ≤ C(‖V₁ã‖_(L^∞)‖W′u‖_(H^m_b) + ‖V₁ã‖_(H^m_b)‖W′u‖_(L^∞))
                               ≤ C(‖ã‖_(H⁴)‖u‖_(H^((1;m))) + ‖ã‖_(H^(m+1))‖u‖_(H^((1;3)))),
 
@@ -1422,10 +1421,11 @@ I₀, with α₀ + 1 ≥ α₁, and it has the weight at least 3/2 + 2 > ℓ^♭
 H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. The data of Rh lie in H^(∞,α₁)_b(Σ_(IVP,r₀)). Near I₀, X₀ = ρ∂_ρ + 2ρ∂_τ in the coordinates
 (τ, ρ), so X₀τ′ = (2 − C″)ρ for τ′ = τ − C″ρ: X₀ is tangent to Σ_IVP = {τ′ = 0} only when C″ = 2, and in general these
 data involve the normal derivatives ∂^j_(τ′)h on Σ_IVP. These are determined by h₀, h₁ and the equation, which is
-non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b (jℰ₀ ⊂ ℰ₀ for the nonlinear terms); so the jet of h on Σ_IVP has its expansion at ∂Σ_IVP in ℰ₀ up to ℓ₀ ≥ α₁, and R
-removes its terms with real part at most α₁ (the converse part of [[lem:iii-a-1-3]]). [[eq:iii-c1-2-2]] with h = 0 and α₀
-replaced by α₁ > ℓ^♭_I gives Rh ∈ H^(∞,α₁,(−,ℓ^♭_I))_b, and [[lem:iii-a-1-3]] gives h ∈ H^(∞,(ℰ₀,α₁),(−,ℓ^♭_I))_b. After
-finitely many steps, h ∈ H^(∞,(ℰ₀,ℓ₀),(−,ℓ^♭_I))_b.
+non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b (jℰ₀ ⊂ ℰ₀ for the nonlinear terms); so the jet of
+h on Σ_IVP has its expansion at ∂Σ_IVP in ℰ₀ up to ℓ₀ ≥ α₁, and R removes its terms with real part at most α₁ (the
+converse part of [[lem:iii-a-1-3]]). [[eq:iii-c1-2-2]] with h = 0 and α₀ replaced by α₁ > ℓ^♭_I gives Rh ∈
+H^(∞,α₁,(−,ℓ^♭_I))_b, and [[lem:iii-a-1-3]] gives h ∈ H^(∞,(ℰ₀,α₁),(−,ℓ^♭_I))_b. After finitely many steps, h ∈
+H^(∞,(ℰ₀,ℓ₀),(−,ℓ^♭_I))_b.
 
 *Step 2 (the expansion at ℐ⁺).* Suppose h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,α_I)_b for some α_I ∈ [ℓ^♭_I, ℓ_I) and some ℰ_I^C of
 [[def:iii-c-3-1]] with ℰ₀ ⊂ ℰ_I^C; Step 1 gives this for α_I = ℓ^♭_I, with any such ℰ_I^C (one exists:
