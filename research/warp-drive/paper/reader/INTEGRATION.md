@@ -194,3 +194,13 @@ Items found while chapters were written in parallel; each is settled once, editi
   adjudicates. NP 10.34 (iv) carried as prop:np-10-34-iv, its numeral replaced by ε_ind ≤ δ₅₀ via prop:np-10-52.
 - S20: lem:s20-rows shrinks ℬ_* to radius ≤ 1/(2C_B); the S20 reader lists the chapters whose statements must carry the
   smaller ball. F-S20 lists citation changes S25 and S19 need.
+
+## From S26, S22 and Ch 8-9 (2026-11-13)
+
+- S26 carries NP 10.57 (d) as prop:np-10-57-d; it writes ε^(2j) where IV(1) Lemma 2.1 has ε^(−2j) (the reader
+  rules). Black-hole mass letter: S26, S11 and OUTLINE use m₀; S17 writes μ₀ (μ0 is the seed mass): change S17.
+  The S26 Part heading was shortened to fit 121 characters.
+- S22 (R-S22): ℰ_col = ({(0,0),(1,0)} ∪ ℰ_ind ∪ (1+ℰ_ind)) + ℕ₀ is right; the source's 2 + ℰ_col is wrong. Chapter 44
+  (S25) line 475 prints the wrong set: correct it in the S25 fix.
+- Ch 8-9 fix: Ch 3 item 3 must read "on P, |g_λ − g_app| ≤ C λ^(K−3) t^(−2) and |∂(g_λ − g_app)| ≤ C λ^(K−4) t^(−2), with
+  t = 1 + τ0 − τ ..." (sent to the front-matter fix round); Ch 10 must write h_P(τ) (sent to the Ch 10 fix round).

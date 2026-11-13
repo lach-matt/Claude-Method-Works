@@ -24,9 +24,9 @@ linearised diffeomorphism. The argument is the standard one: put the difference 
 solving a linear wave equation for X, show that the result has vanishing Cauchy data, and conclude by uniqueness for a
 linear wave equation. Its only inputs beyond [[sec:viii-0]]–[[sec:viii-2]] are the Cauchy problem for normally
 hyperbolic operators on globally hyperbolic manifolds ([BGP]; [[sec:std-linear-wave]]) and the pointwise identities of
-[[lem:ix-2-1]]. Nothing is asserted here about the size or decay of X ([[rem:ix-2-4]]). The linear solution in a
-Regge–Wheeler-type gauge, the gauge of the master equations of [KI03] whose decay [HKW18] proves, and in the harmonic
-gauge is treated in [[ch:rw-gauge]]–[[ch:harmonic-rate]], from the results of this chapter.
+[[lem:ix-2-1]]. Nothing is asserted here about the size or decay of X ([[rem:ix-2-4]]). Linear solutions in the
+Regge–Wheeler-type gauge of [KI03], whose gauge-invariant master quantities decay by [HKW18], and in the harmonic gauge
+are treated in [[ch:rw-gauge]]–[[ch:harmonic-rate]], from the results of this chapter.
 
 *The inner radius.* The inner radius r_♭ ∈ (0, ½R₁] of [[ch:s11]], R₁ = m₀^(1/2), is a parameter, with the radii of
 [[def:s12-radii]]; so r₀ = r_♭ and r^♮ = ½(r_♭ + r₂). Every result of the chapter holds for every such r_♭, with
@@ -375,16 +375,16 @@ partition of unity subordinate to a cover of Σ_U by such charts and to U ∩ {t
 with the convention of [[sec:viii-0]] that this sublevel set contains the points where t^♭_* is not defined. So
 Ω_* ∪ 𝒟 = N, and ġ is smooth on the interior of N with DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
 
-Where ν > 0, Σ° lies in the interior of N, where ġ is smooth. Where ν = 0, Σ° is part of the boundary of N. Such points
-have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]], [[sec:s27-cover]]), as ψ′_IVP =
-ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the proof of [[lem:iii-b-3-7]] (b)). So of the cover of 𝒟 used in
-[[prop:viii-1-2]] only the compact part 𝒦 reaches them: Ω_(ext,r_1) ⊂ {r ≥ r_1}, and the slab 𝒮 lies in {|x| > R_9}, R_9
-≥ R₃ > 5R₁ > R_ν, and does not meet Σ^IVP, as t_IVP ≥ r/4 > 0 on 𝒮 ([[lem:s27-cover]] (a), (d)). So a half-ball {t_IVP ≥
-0} about each such point lies in 𝒦. There ġ = ḣ + ġ_(S′) ([[thm:viii-2-2]] (2)); ġ_(S′) = −ℒ_(V(S′))g is smooth across
-Σ^IVP, and ḣ lies in every H^k of the interior of 𝒦, bounded up to Σ^IVP, where the proof of [[prop:viii-1-2]] solves it
-by energy estimates. In a chart {t_IVP ≥ 0} near such a point, H^k for every k gives every derivative continuous up to
-Σ°: after a cut-off, extend by the operator of [[thm:std-ly-extension]], bounded on every W^(k,2) of a half-space, and
-apply Sobolev embedding on ℝ⁵. ∎
+Where ν > 0, Σ° lies in the interior of N, where ġ is smooth. Where ν = 0, Σ° is part of the boundary of N. Such
+points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]],
+[[sec:s27-cover]]), as ψ′_IVP = ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the proof of [[lem:iii-b-3-7]] (b)). So of
+the cover of 𝒟 used in [[prop:viii-1-2]] only the compact part 𝒦 reaches them: Ω_(ext,r_1) ⊂ {r ≥ r_1}, and the slab
+𝒮 lies in {|x| > R_9}, R_9 ≥ R₃ > 5R₁ > R_ν, and does not meet Σ^IVP, as t_IVP ≥ r/4 > 0 on 𝒮 ([[lem:s27-cover]] (a),
+(d)). So a half-ball {t_IVP ≥ 0} about each such point lies in 𝒦. There ġ = ḣ + ġ_(S′) ([[thm:viii-2-2]] (2));
+ġ_(S′) = −ℒ_(V(S′))g is smooth across Σ^IVP, and ḣ lies in every H^k of the interior of 𝒦, bounded up to Σ^IVP,
+where the proof of [[prop:viii-1-2]] solves it by energy estimates. In a chart {t_IVP ≥ 0} near such a point, H^k for
+every k gives every derivative continuous up to Σ°: after a cut-off, extend by the operator of [[thm:std-ly-extension]],
+bounded on every W^(k,2) of a half-space, and apply Sobolev embedding on ℝ⁵. ∎
 
 *Time orientation.* As in [[lem:ii-b-1-1]], dt_* is past timelike. dt_IVP is timelike for g on M_♭
 ([[lem:iii-b-3-7]] (b)) and past timelike: both dt_* and dt_IVP are dt − φ′(|x|) d|x| with β := φ′ − T′_(m₀) in
@@ -571,8 +571,8 @@ has g(Y, e_j) = k(n, e_j) and 2g(Y, n) = k(n, n), as g(n, n) = −1; so ℒ_X g 
 (e_i, e_j). Since a covector ω equals Σ_j ω(e_j)e_j^♭ − ω(n)n^♭, Y^♭ = k(n, ·) + ½k(n, n)n^♭.
 
 (f) Let φ_s be the flow of X, defined near any compact piece of Σ^IVP for |s| small. It fixes Σ^IVP pointwise, so φ_s
-is an isometry from (M, φ*_sg) to (M, g) that is the identity on Σ^IVP, and it preserves the future normal for |s|
-small, by continuity from s = 0. So φ*_sg induces exactly the data (γ, K) of g on Σ^IVP, for every small s. The
+is an isometry from a neighbourhood of that piece with the metric φ*_sg to its image with the metric g, the identity
+on Σ^IVP, and it preserves the future normal for |s| small, by continuity from s = 0. So φ*_sg induces exactly the data (γ, K) of g on Σ^IVP, for every small s. The
 induced data are smooth functions of the 1-jet of the metric at Σ^IVP, whose s-derivative at 0 is that of ℒ_X g. So
 the derivative of the data, which is the data induced by ℒ_X g, vanishes. ∎
 
@@ -679,3 +679,4 @@ G-stable, the data (γ̇, k̇) are in the class of [[cor:viii-2-3]], and ġ′ i
 G-invariant; Z's invariance is not needed, only k's is used. G is compact and acts by isometries of g (the proof of
 [[cor:viii-2-3]]); ġ is G-invariant by [[cor:viii-2-3]], so k = ġ′ − ġ is; and the Haar average
 X_G := ∫_G σ_*X dσ has ℒ_(X_G)g = ∫_G σ_*(ℒ_X g) dσ = k.
+

@@ -1,4 +1,4 @@
-# Part. The stability theory, V: the exterior, the nonlinear theorem, gluing and linear stability {#part:stability-nonlinear}
+# Part. The stability theory, V: exterior, nonlinear theorem, gluing, linear stability {#part:stability-nonlinear}
 
 ## The exterior region: estimates at infinity, the exterior solution, polyhomogeneity and boosts {#ch:s26}
 

@@ -1,6 +1,7 @@
-This part makes the multiplier bounds of [[ch:resolvent-bounds]] explicit on five-dimensional Schwarzschild–Tangherlini
-with mass parameter m = 1, so that f = 1 − 1/r² and the horizon is r = 1. Every multiplier is algebraic in r, every weight
-is (1 − r⁻²)r⁻³ times a rational function of r⁻², and every constant is obtained from exact rational inequalities.
+This part makes the multiplier bounds of [[ch:resolvent-bounds]] explicit on five-dimensional
+Schwarzschild–Tangherlini with mass parameter m = 1, so that f = 1 − 1/r² and the horizon is r = 1. Every multiplier
+is algebraic in r, every weight is (1 − r⁻²)r⁻³ times a rational function of r⁻², and every constant is obtained from
+exact rational inequalities.
 
 ### The multiplier identity {#sec:morawetz-identity}
 
@@ -69,7 +70,7 @@ For a multiplier φ = F(y) and a Lagrangian term q = ηg(y), [[eq:pb-tortoise]] 
 −½φ‴ = 4η(η(ηF_y)_y)_y, −φV′ = 2ηFV_y and, with h := (3/2 − 5y/2)g + y(1 − y)g_y, q′ = −2(1 − y)y²h and
 q″ = 4ηy((2 − 3y)h + y(1 − y)h_y). So W = ηG with
 
-    G = 2FV_y + 4(η(ηF_y)_y)_y + 4y((2 − 3y)h + y(1 − y)h_y) − 2gV.                                    {#eq:pb-weight-general}
+    G = 2FV_y + 4(η(ηF_y)_y)_y + 4y((2 − 3y)h + y(1 − y)h_y) − 2gV.                              {#eq:pb-weight-general}
 
 Every φ and q below is a rational function of y (with g a polynomial), so φ′, φ″, φ‴, q, q′, q″ are η or (1 − y)y²
 times bounded functions; they are O(r⁻³) as r → ∞ and O(e^(2r_*)) as r_* → −∞, hence integrable and vanishing at ±∞.
@@ -85,14 +86,14 @@ W = ηP_(a,b)(z) with
 P_(a,b) is affine in b and nondecreasing in a, with ∂_aP_(a,b) = 2z², and ψ := −φU′ = 2ηz² ≥ 0. For the scalar wave at
 harmonic l (a = κ + 3/4, b = 9/4) the weight is w_l := ηP_l with
 
-    P_l(z) = P_0(z) + c_l z²,     P_0(z) := 2 − (39/8)z + (53/8)z³,     c_l := 2κ − 9/4,                {#eq:pb-weight-scalar}
+    P_l(z) = P_0(z) + c_l z²,     P_0(z) := 2 − (39/8)z + (53/8)z³,     c_l := 2κ − 9/4,          {#eq:pb-weight-scalar}
 
 so that w_l = w_1 + (κ − 3)ψ. In the variable y, P_1 = ½p with
 
-    p(y) := 15 − 90y + 189y² − 106y³ = 15(1 − y)(1 − 3y)² + y(29y² − 36y + 15).                         {#eq:pb-p-certificate}
+    p(y) := 15 − 90y + 189y² − 106y³ = 15(1 − y)(1 − 3y)² + y(29y² − 36y + 15).                   {#eq:pb-p-certificate}
 
-Hence w_l ≥ w_1 > 0 on ℝ for every l ≥ 1, and φ satisfies the hypotheses of [[lem:morawetz-identity]] with q = 0 for every
-V_(κ+3/4,9/4), l ≥ 1.
+Hence w_l ≥ w_1 > 0 on ℝ for every l ≥ 1, and φ satisfies the hypotheses of [[lem:morawetz-identity]] with q = 0
+for every V_(κ+3/4,9/4), l ≥ 1.
 
 *Proof.* With F = 1 − 2y, F_y = −2 and ηF_y = −2η, so 4(η(ηF_y)_y)_y = −8(η_y² + ηη_yy). From η_y = (y^(1/2)/2)(3 − 5y)
 and η_yy = (3/4)y^(−1/2)(1 − 5y), η_y² + ηη_yy = (y/4)((3 − 5y)² + 3(1 − y)(1 − 5y)) = y(10y² − 12y + 3). So by
@@ -148,18 +149,19 @@ P_0 ≥ P_0(89/289) = 66831535/96550276, so A > 0.09213; K ≥ K(8/5) = (4875/32
 
 (iv) We show that A and K increase with y on [1/16, 1/9], so that w_l, an increasing combination, does too. There
 z ∈ [7/9, 7/8] ⊂ [z_0, 1], so P_0 decreases with y, and |dP_0/dy| = 2P_0′(z) = (159/4)z² − 39/4. Now
-d log K/dy = 3/(2y) − 1/(1 − y) − 4/(1 − 2y) ≥ 27/2 − 9/8 − 36/7 > 0, and d log A/dy = 3/(2y) − 1/(1 − y) + (dP_0/dy)/P_0.
+d log K/dy = 3/(2y) − 1/(1 − y) − 4/(1 − 2y) ≥ 27/2 − 9/8 − 36/7 > 0, and
+d log A/dy = 3/(2y) − 1/(1 − y) + (dP_0/dy)/P_0.
 On y ∈ [1/16, 1/12] the last expression is at least 18 − 12/11 − (5295/256)/(3061/1728) > 5.2, using P_0(5/6) = 3061/1728
 and (159/4)(7/8)² − 39/4 = 5295/256; on [1/12, 1/10] it is at least 15 − 10/9 − (857/48)/(373/250) > 1.9, using
 P_0(4/5) = 373/250; on [1/10, 1/9] it is at least 27/2 − 9/8 − 15.69/P_0(7/9) > 0.53, using P_0(7/9) > 1.3254. Finally
 η(1/16) = 15/1024, P_0(7/8) = 8899/4096 and (7/8)² = 49/64.
 
-Evaluating (i)–(iv), w_l(4) is 309885/4194304 > 0.07388 at l = 1 and 780285/4194304 > 0.1860 at l = 2, and these are the
-least of the four bounds there: (ii) gives more than 0.147 and 0.216, the three bounds of (iii) more than 0.0839 and 0.190,
-and (i) gives 0.3535. For l = 3, 4, 5, 6 and 20, d ≥ 94/7 and the vertex value in (ii) is less than 0.2848, 0.3123,
-0.3258, 0.3336 and 0.3515, while the bounds of (iii) and (iv) are at least 0.2896, 0.4178, 0.5744, 0.7595, 6.33 and
-0.3430, 0.5449, 0.7916, 1.083, 9.87; and the vertex value exceeds ω_3, ω_4, ω_5, 0.3335 and 0.3514. As w_l is
-nondecreasing in l ([[prop:morawetz-weight]]), the bounds at l = 6 and l = 20 hold for every larger l. ∎
+Evaluating (i)–(iv): at l = 1 and l = 2, (iv) gives 309885/4194304 > 0.07388 and 780285/4194304 > 0.1860, (ii) more
+than 0.147 and 0.216, the three bounds of (iii) more than 0.0839 and 0.190, and (i) more than 0.3535. For
+l = 3, 4, 5, 6 and 20, d ≥ 94/7, and the vertex value in (ii) exceeds 0.2847, 0.3122, 0.3257, 0.3335 and 0.3514; the
+bounds of (iii) are at least 0.2896, 0.4178, 0.5744, 0.7595 and 6.33, and those of (iv) at least 0.3430, 0.5449, 0.7916,
+1.083 and 9.87. As w_l is nondecreasing in l ([[prop:morawetz-weight]]), the bounds at l = 6 and l = 20 hold for every
+larger l. ∎
 
 **Proposition {#prop:morawetz-resolvent-l-ge-1}** (Morawetz bounds for every harmonic l ≥ 1.) For every l ≥ 1 and every
 real σ ≠ 0,
@@ -191,7 +193,7 @@ w_I and increases in M′. The table evaluates the formula, rounding up. ∎
 0 ≤ q ≤ (5/16)φ′, and for V = V_0 at l = 0 (a = 3/4, b = 9/4) the weight of [[lem:morawetz-identity]] is
 
     W = (3/8)ηQ_4,     Q_4(y) := 149y⁴ − 280y³ + 177y² − 42y + 4
-                               = (2 − (21/2)y + 11y²)² + y²(28(y − 7/8)² + 21/16) > 0.                {#eq:pb-lzero-weight}
+                               = (2 − (21/2)y + 11y²)² + y²(28(y − 7/8)² + 21/16) > 0.          {#eq:pb-lzero-weight}
 
 On I, m′ = min_I(φ′ − q) = 3315/65536, M′ = max_I|φ′ − 2q| < 0.3999 and w_I = W(4) = 5899185/536870912 > 0.010988. So
 for every real σ ≠ 0, ‖χ_I R_0(σ) χ_I‖ ≤ B_0(σ) := ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2), which is at most 70.17,
@@ -216,7 +218,7 @@ For w_I, Q_4 has the Taylor expansion at 1/5, with s := y − 1/5,
     Q_4 = 424/625 − (4/125)s + s²(149s² − (804/5)s + 1119/25),
 
 and the last bracket is positive, its discriminant (804/5)² − 4 · 149 · 1119/25 being negative. So Q_4 ≥ 0.6784 −
-0.032s, which is at least 0.6768 on [3/20, 1/4] and 0.6626 on [1/4, 25/36]. Also Q_4″ = 1788y² − 1680y + 354 > 0 on
+0.032s, which is at least 0.6768 on [3/20, 1/4] and 0.6625 on [1/4, 25/36]. Also Q_4″ = 1788y² − 1680y + 354 > 0 on
 [0, 1/5] (it decreases there to 89.52), so Q_4′ increases there to Q_4′(1/5) = −0.032, and Q_4 decreases on [0, 1/5].
 Then:
 
@@ -225,7 +227,7 @@ Then:
   [1/16, 3/32];
 - on [3/32, 7/64], [7/64, 1/8] and [1/8, 3/20], W ≥ (3/8)η(left end)Q_4(right end), that is at least
   (3/8)(0.026013)(1.1786), (3/8)(0.032216)(1.0051) and (3/8)(0.038669)(0.81293), all above 0.0114;
-- on [3/20, 1/4], W ≥ (3/8)(0.049380)(0.6768) > 0.0125, and on [1/4, 25/36], W ≥ (3/8)(3/32)(0.6626) > 0.023.
+- on [3/20, 1/4], W ≥ (3/8)(0.049380)(0.6768) > 0.0125, and on [1/4, 25/36], W ≥ (3/8)(3/32)(0.6625) > 0.023.
 
 Here Q_4(1/16) = 131093/65536, so W(4) = (3/8)(15/1024)(131093/65536). [[lem:morawetz-identity]] applies, and the bounds
 follow from [[eq:pb-bound]]. For max q: d/dy(η(2 + 3y)) = y^(1/2)(3 + (5/2)y − (21/2)y²), which vanishes on (0, 1) only
@@ -272,7 +274,7 @@ l ≥ 1 by the table. The values at |σ| = 1/2, 1, 2 evaluate the same formulas.
 [[ch:resolvent-bounds]], ‖χ_I R_l(σ) χ_I‖ ≤ 1/((15/256)(κ + 3/4) − σ²), valid when its three conditions hold. At
 l = 50 (κ + 3/4 = 2600.75) and σ = 3 they read 152.38 > 9 and 373.0 > 9; 0.32727(313.45 − 9)^(1/2) > 5.71 >
 (2 + 3.3744)/√2; and, with c := (15/16)(2600.75) > 2438.2, c^(1/2) > 49.37 > 24 and
-(√3/2)(49.37)log(49.37/24) > 30.8 > (2 + 0.79217 · 51)/√2 = 29.99. Each condition becomes easier as l grows or |σ|
+(√3/2)(49.37)log(49.37/24) > 30.8 > 29.99 > (2 + 0.79217 · 51)/√2. Each condition becomes easier as l grows or |σ|
 decreases, so the bound holds for l ≥ 50 and 0 < |σ| ≤ 3; there B_l ≤ 0.006975, X_l² + κB_l² < 17.1², and both terms
 decrease in κ. For 1 ≤ l ≤ 49 we use B_l(3) of [[prop:morawetz-resolvent-l-ge-1]]: (X_l² + κB_l²)^(1/2) is at most
 182.2, 123.2, 112.0, 126.5, 144.2 for l = 1, …, 5, at most 454.0 for 6 ≤ l ≤ 19 (using ω_6 and κ ≤ 399) and at most
@@ -304,7 +306,7 @@ rows, every real σ ≠ 0 and every harmonic of the row, ‖χ_I R(σ) χ_I‖ �
 | A | V_0, V_1, every l ≥ 1 | z | 0.064 | 25.86 | 48.70 | 107.88 | 324.95 |
 | B | V_0, V_1, V_2, V_T, every l ≥ 2 | z | 0.1393 | 16.54 | 25.16 | 50.88 | 149.74 |
 | C | V_V, every l ≥ 3 | z | 0.1413 | 16.41 | 24.88 | 50.20 | 147.63 |
-| S4 | V_S, every l ≥ 4 | z | 0.1875 | 14.07 | 19.91 | 38.42 | 111.46 |
+| S4 | V_S, every l ≥ 4 | z | 0.1874 | 14.07 | 19.92 | 38.44 | 111.52 |
 | S3 | V_S, l = 3 | z | 0.106 | 19.27 | 31.50 | 66.11 | 196.52 |
 | T1 | V_2, l = 1 | z, q = (5/3)ηy | 0.0455 | 29.22 | 59.91 | 143.71 | 449.56 |
 | T2 | V_V, l = 2 | z, q = 2ηy² | 0.0687 | 23.62 | 43.09 | 97.67 | 299.71 |
@@ -348,9 +350,9 @@ The Bernstein coefficients of c_0 on [0, 1/2], [1/2, 1] are at least 53568 and 4
 [0, 1/4], [1/4, 1/2], [1/2, 1] at least 282590, 25776, 55296; 20754, 750, 2304; and 669, 3, 32. So c_0, …, c_3 > 0 and
 c_4 ≥ 0 on [0, 1], and G > 0 on (0, 1) for every l ≥ 4. Moreover (H_0 + t)³ = Σ_(j≤3) C(3, j)H_0^(3−j)t^j, so
 G ≥ λ(y) := min_(j≤3) c_j/(16C(3, j)H_0^(3−j)) for every t ≥ 0, uniformly in l. On pieces, with λ bounded below by
-the least Bernstein coefficients of the c_j and the largest H_0: 4–23/10: 0.01464 · 13.72 ≥ 0.2010; 23/10–9/5:
-0.06665 · 4.095 ≥ 0.2729; 9/5–8/5: 0.1185 · 1.581 ≥ 0.1875; 8/5–3/2: 0.1487 · 1.265 ≥ 0.1882; 3/2–7/5: 0.1646 · 1.262 ≥
-0.2078; 7/5–6/5: 0.1768 · 1.933 ≥ 0.3419.
+the least Bernstein coefficients of the c_j and the largest H_0: 4–23/10: 0.014648 · 13.722 ≥ 0.2009; 23/10–9/5:
+0.066652 · 4.0959 ≥ 0.2729; 9/5–8/5: 0.11854 · 1.5817 ≥ 0.1874; 8/5–3/2: 0.14877 · 1.2656 ≥ 0.1882; 3/2–7/5:
+0.1646 · 1.2626 ≥ 0.2078; 7/5–6/5: 0.17682 · 1.9338 ≥ 0.3419.
 
 Row S3. At l = 3, p = 12 and H = 6(2 + y): N = 504 − 2652y + 3786y² − 161y³ − 420y⁴ − 447y⁵ − 106y⁶, D = 2(2 + y)³;
 Bernstein on [0, 1/4], [1/4, 1/2], [1/2, 1]: at least 73, 12.1, 62.5. Pieces: 4–12/5: 0.01464 · 7.614 ≥ 0.1114;
@@ -371,7 +373,7 @@ four subintervals: at least 1.39, 0.316, 1.06, 0.0906. Pieces: 4–13/5: 0.01464
 0.04847 · 1.908 ≥ 0.0924; 21/10–19/10: 0.08349 · 0.9747 ≥ 0.0813; 19/10–9/5: 0.1054 · 0.6879 ≥ 0.0725; 9/5–17/10:
 0.1185 · 0.5801 ≥ 0.0687; 17/10–6/5: 0.1331 · 0.5729 ≥ 0.0762. Also φ′ − q = 2η(2 − y²) > 0, increasing in y on
 [1/16, 1/2] (log-derivative at least 3 − 2 − 2/3.5) and above 0.5 on [1/2, 25/36], so m′ = (15/1024)(511/128) =
-7665/131072; φ′ − 2q = 4η(1 − y²) has its maximum on (0, 1) at the root of 9y³ − 7y² − 5y + 3 in (0.4768, 0.4769),
+7665/131072; φ′ − 2q = 4η(1 − y²) has its maximum on (0, 1) at y = (2√7 − 1)/9, the root of 9y² + 2y − 3 there,
 where it is less than 0.5324.
 
 Row T3 (V_S at l = 2, p = 5, H = 5 + 6y). Here F = (1 − 4y)/(1 + 2y) decreases from 1 to −1 on [0, 1], so |φ| ≤ 1,
@@ -395,15 +397,18 @@ In every row q ≥ 0, and φ′ − q > 0 on ℝ. ∎
 
 ### Large frequencies with a fixed multiplier {#sec:morawetz-large-frequency}
 
-**Proposition {#prop:morawetz-large-frequency}** (Every harmonic at a given frequency.) For every real σ with |σ| ≥ 3 and
-every l ≥ 0, ‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 6.521), B_5(σ)) when |σ| < 3.05, and
-‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 9.271), B_6(σ)) when |σ| ≥ 3.05, with B_l of
-[[prop:morawetz-resolvent-l-ge-1]]. In particular, for every l ≥ 0, the norm is at most 23.10, 39.53, 74.89, 146.51,
-290.27 and 578.04 at σ = 3, 6, 12, 24, 48 and 96.
+**Proposition {#prop:morawetz-large-frequency}** (Every harmonic at a given frequency.) Let B_l be as in
+[[prop:morawetz-resolvent-l-ge-1]]. For every real σ with |σ| ≥ 3 and every l ≥ 0,
+
+    ‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 6.521), B_5(σ)),
+
+and for |σ| ≥ 6 also ‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 9.271), B_6(σ)). In particular, for every l ≥ 0, the norm is at
+most 23.10, 39.53, 74.89, 146.51, 290.27 and 578.04 at σ = 3, 6, 12, 24, 48 and 96.
 
 *Proof.* max V_(a,b) ≤ a max U + b max Q = a/4 + 4b/27 for a, b ≥ 0, since U = (1 − y)y ≤ 1/4 and Q = (1 − y)y² ≤ 4/27.
-With b = 9/4 this is a/4 + 1/3: at most 6.521 for l ≤ 4 and 9.271 for l ≤ 5. When σ² exceeds it, the bound above the
-barrier of [[ch:resolvent-bounds]] gives ‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V_l) ≤ Λ|σ|/(σ² − 6.521) for l ≤ 4, and the
-same with 9.271 for l ≤ 5 once σ² > 9.271, which holds for |σ| ≥ 3.05. The remaining harmonics are l ≥ 5 or l ≥ 6, where
-[[prop:morawetz-resolvent-l-ge-1]] applies. At σ = 3 the first term is at most 3.7436 · 3/2.479 < 4.54 and the second
-is 23.10; at σ ≥ 6 the first is at most 0.85 and the second is B_6(σ). ∎
+With b = 9/4 this is a/4 + 1/3: at most 6.521 for l ≤ 4 and 9.271 for l ≤ 5. When σ² exceeds max V_l, the bound above
+the barrier of [[ch:resolvent-bounds]] gives ‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V_l). So for |σ| ≥ 3 the harmonics
+l ≤ 4 are bounded by Λ|σ|/(σ² − 6.521), and for |σ| ≥ 6 the harmonics l ≤ 5 by Λ|σ|/(σ² − 9.271); the others are
+bounded by B_5(σ), respectively B_6(σ), as ω_l ≥ ω_5 for l ≥ 5 and ω_l ≥ ω_6 for l ≥ 6. At σ = 3 the first term is
+at most 3.7436 · 3/2.479 < 4.54 and B_5(3) < 23.10; for σ ≥ 6 the first term is at most 3.7436 · 6/26.729 < 0.85, as
+Λσ/(σ² − c) decreases for σ² > c, and the values given are B_6(σ), rounded up. ∎

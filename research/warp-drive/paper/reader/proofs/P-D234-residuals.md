@@ -39,8 +39,9 @@ With P := (2(1 + x)m − (1 − x)n)/3 and Q := (2(1 − x)n − (1 + x)m)/3 the
 The first table defines the first approximant g^(1), the second table the second approximant g^(2). (The first is
 a least-squares fit of the discrete solution of the characteristic problem of [[ch:ten-l5]] on one null grid; the
 second fits the Richardson combination of the solutions on two nested grids. Only the printed coefficients enter
-the proofs.) On every box used below the field R is positive, by [[lem:tl5-jet-enclosure]] applied to the jet of R,
-so [[eq:tl5-metric]] is a Lorentzian metric of the class [[eq:class-metric]] on Π.
+the proofs.) At every point and on every box used below, the field R is positive (on a box, the enclosure of the
+constant term of its jet in [[lem:tl5-jet-enclosure]] is a positive interval), and there [[eq:tl5-metric]] is a
+Lorentzian metric of the class [[eq:class-metric]].
 
 **Definition {#def:tl5-residual}** (the residual). Let Ω² := e^(2W), b := (1 − x²) s and
 

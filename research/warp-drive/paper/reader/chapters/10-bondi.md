@@ -109,9 +109,9 @@ that of ∂(λ[χ dv dv]) is dv [∂_θ χ] dv dv, in E_2; with ϕ_1 the phase o
 is an angle), that of the term ∂(λ[W_TT(· + ϕ_1)] − λ[W_TT]) of the phase shift is
 dv ([∂_θ W_TT(· + ϕ_1)] − [∂_θ W_TT]), at most |ϕ_1| sup |∂_θ² W_TT| and so in E_1 E_(3/2) = E_(5/2), because ϕ_1 is in
 L_1 ([[eq:past-classes]]); and every other term of ∂u is O(λ): the mean m1 does not oscillate, each later stage
-λ^j[g_j], j ≥ 2, costs at most λ^(j−1), and ∂w is O(λ² t^(−2)) by item 3 of [[thm:past-construction]], since
-λ^(K−4) ≤ λ² for K ≥ 6. The second derivative is c := ∂F_1/∂u_1. In the direction U, the derivative of g^{ab} is
-−(g⁻¹ U g⁻¹)^{ab}, so
+λ^j[g_j], j ≥ 2, costs at most λ^(j−1), and ∂w is O(λ² t^(−2)) by item 3 of [[thm:past-construction]], proved as
+(P-iii) in [[sec:past-proof]], since λ^(K−4) ≤ λ² for K ≥ 6. The second derivative is c := ∂F_1/∂u_1. In the direction U,
+the derivative of g^{ab} is −(g⁻¹ U g⁻¹)^{ab}, so
 
     c U = −½ (g⁻¹ U g⁻¹)^{ab} ∂_a ∂_b (g0 + r^(−3/2) G_3) − (∂_g Q)(X; g)[U](∂g, ∂g).
 
@@ -401,14 +401,14 @@ is lost). The solution depends smoothly on
 (v0, x̂0), with derivatives of the same decay (the variational equations have the same structure), it is invariant, and
 it is y0 for v0 ≤ v_start (there g_λ = g0 along the whole generator).
 
-Each generator stays in P outward, so the system is posed where g_λ is defined. With h(τ) = κ t^(−1/4) the function
-of [[eq:past-domain]], along y, d/dr (v + h(τ)) = ζ'(1 + h') − h', with τ = v − r (so dτ/dr = ζ' − 1) and
-h' = dh/dτ = h/(4t) = (κ/4) t^(−5/4) > 0. Moreover |ζ'| ≤ C r^(−2) < h'/2 and h' < 1 once T_M is large, t and r being
-comparable on P⁺. So v + h(τ) decreases outward along each generator while t increases, and the ray of a generator from a
-point of P ∩ {t ≥ T_M} out to past null infinity lies in P ∩ {t ≥ T_M} and never meets the outer boundary
-{v + h(τ) = V_P}. (To solve for every (v0, x̂0) at once, continue g_λ − g0 across that boundary by a Seeley extension in
-v + h(τ), which keeps every class E_p; by this monotonicity neither the generator through a point of P ∩ {t ≥ T_M} nor
-Φ⁻¹ there depends on the continuation, so Φ⁻¹, below, is defined on all of P ∩ {t ≥ T_M}.)
+Each generator stays in P outward, so the system is posed where g_λ is defined. With h_P(τ) = κ_P t^(−1/4) the
+function of [[eq:past-domain]], along y, d/dr (v + h_P(τ)) = ζ'(1 + h_P′) − h_P′, with τ = v − r (so dτ/dr = ζ' − 1)
+and h_P′ = dh_P/dτ = h_P/(4t) = (κ_P/4) t^(−5/4) > 0. Moreover |ζ'| ≤ C r^(−2) < h_P′/2 and h_P′ < 1 once T_M is
+large, t and r being comparable on P⁺. So v + h_P(τ) decreases outward along each generator while t increases, and the
+ray of a generator from a point of P ∩ {t ≥ T_M} out to past null infinity lies in P ∩ {t ≥ T_M} and never meets the
+outer boundary {v + h_P(τ) = V_P}. (To solve for every (v0, x̂0) at once, continue g_λ − g0 across that boundary by a
+Seeley extension in v + h_P(τ), which keeps every class E_p; by this monotonicity neither the generator through a point
+of P ∩ {t ≥ T_M} nor Φ⁻¹ there depends on the continuation, so Φ⁻¹, below, is defined on all of P ∩ {t ≥ T_M}.)
 
 The map Φ: (v0, r, x̂0) ↦ y(r) is then a C¹-small perturbation of the identity for r ≥ T_M, a diffeomorphism onto a
 neighbourhood of past null infinity, and N_(v0) := Φ({v0} × [T_M, ∞) × S³) is a null hypersurface. Indeed, along each y,
@@ -589,7 +589,7 @@ tensor of g0 ([[prop:vaidya]] (a)).
 single component U^ϑ = U and U_A := γ_AB U^B. The Christoffel symbols linear in U are
 
     δΓ^v_vA = δΓ^r_vA = ½ ∂_r (r² U_A),   δΓ^r_rA = −½ r² ∂_r U_A,   δΓ^r_AB = −½ r² (D_A U_B + D_B U_A),
-    δΓ^A_vv = −∂_v U^A,   δΓ^A_vr = −(1/(2r²)) ∂_r (r² U^A),   δΓ^C_AB = −r U^C γ_AB,                 {#eq:bondi-gamma-U}
+    δΓ^A_vv = −∂_v U^A,   δΓ^A_vr = −(1/(2r²)) ∂_r (r² U^A),   δΓ^C_AB = −r U^C γ_AB,                 {#eq:bondi-gamma-u}
 
 and the others vanish; U does not change det g. By Palatini's identity δR_ab = ∇̄_c δΓ^c_ab − ∇̄_b δΓ^c_ac, with ∇̄ the
 connection of η_B and δΓ^c_ac = 0, the parts of R_ab linear in U at η_B are
@@ -762,8 +762,8 @@ W − 1 have expansions f = Σ_{k=1}^{6} ς^k f_k(v_B, ϑ_B) + o(ς⁶) whose co
 derivatives, invariant under T² × Z2 × Z2 and equal to those of g0 for v_B ≤ v_start (zero there, but for
 W − 1 = −μ0 ς⁴), and whose remainders have every (v_B, ϑ_B)-derivative o(ς⁶) and gain an order, one power of r_B and
 two of ς, under each r_B-derivative; the remainders of [[prop:bondi-chart]] lie in classes E_p with all their
-derivatives. This is the chart and the form of the metric that the theorem asserts. By [[prop:bondi-chart]], P_i and β
-start at ς³ and ς² ([[eq:bondi-first-metric]]), W − 1 at ς² and U at ς⁴; so β, U and W − 1 are O(ς), and
+derivatives. This is the chart and the form of the metric that the theorem asserts. By [[prop:bondi-chart]],
+P_i = O(ς³) and β = O(ς²) ([[eq:bondi-first-metric]]), W − 1 = O(ς²) and U = O(ς⁴); so β, U and W − 1 are O(ς), and
 [[prop:hierarchy-scri]] applies to g_λ, which is vacuum.
 
 *Item 1, the angular metric.* The ς³ coefficient of P_i is p_i, by the last part of [[prop:bondi-chart]]; it is the

@@ -9,7 +9,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | NOT CONFIRMED 0M 2m 5n; second fix running |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | NOT CONFIRMED 0M 2m 3n; third fix done; third reading running |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED (6 nits, being applied with the Ch 7 pointer cut) |
-| 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | running | - |
+| 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | running |
 | 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | running | - |
 | 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |
 | 21 S2 | NOT CONFIRMED 1M 6m 17n | done | CONFIRMED (4 optional nits) |
@@ -32,11 +32,11 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | running |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | running | - |
-| 41 S22 | running | - | - |
+| 41 S22 | NOT CONFIRMED 1M 3m 6n | running | - |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | running | - |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | running | - |
 | 44 S25 | running | - | - |
-| 45 S26 | being written | - | - |
+| 45 S26 | running | - | - |
 | 46 S27 | running (three writer issues to adjudicate) | - | - |
 | 47 S28 | running | - | - |
 | 48 S29 | being written | - | - |

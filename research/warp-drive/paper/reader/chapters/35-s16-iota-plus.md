@@ -9,10 +9,12 @@ spaces of distributions supported in {v ≥ −1}, invertible for Re ϰ < 2 and 
 plane {Re ϰ ≤ C}, with a finite-meromorphic inverse, and its solutions gain b-regularity at the light cone {v = 0}
 with their right sides ([[thm:iii-g-5-1]]). Second, the inverse of N_ι⁺(ϰ), built from that of N_sf(ϰ), has an
 expansion of radiation-field type at 𝓘⁺ ∩ ι⁺, with exponents 3/2 plus the small eigenvalues of the endomorphism S̄,
-and is polyhomogeneous at K⁺ ∩ ι⁺ ([[thm:iii-g1-3-1]]); the poles of N_sf(ϰ)⁻¹ that are invisible on ι⁺ are located
-([[lem:iii-g1-4-2]], [[lem:iii-g1-4-3]]). Third, the expansion at K⁺ ∩ ι⁺ consists, term by term, of formal solutions
-built from zero energy states ([[thm:iii-g2-3-1]]), and a solution of the ι⁺-normal operator can be grafted into
-spacetime as an approximate solution of L_b on the Myers–Perry family ([[thm:iii-g2-4-2]], [[cor:iii-g2-4-3]]).
+and is polyhomogeneous at K⁺ ∩ ι⁺ ([[thm:iii-g1-3-1]]); the poles of N_sf(ϰ)⁻¹ that are invisible on ι⁺ and whose
+principal parts do not vanish on the extensions by 0 of Ċ^∞(ι⁺), the smooth sections on ι⁺ vanishing to infinite order
+at its boundary, are located ([[lem:iii-g1-4-2]] (c), [[lem:iii-g1-4-3]]). Third, the expansion at K⁺ ∩ ι⁺ consists,
+term by term, of formal solutions built from zero energy states ([[thm:iii-g2-3-1]]), and a solution of the ι⁺-normal
+operator can be grafted into spacetime as an approximate solution of L_b on the Myers–Perry family
+([[thm:iii-g2-4-2]], [[cor:iii-g2-4-3]]).
 
 These results are [Hin26, Section 9.1] in dimension 4 + 1: Proposition 9.2, Definition 9.3, Proposition 9.4,
 Definition 9.6 and Remark 9.7, Definitions 9.8 and 9.10, Propositions 9.9 and 9.11 and Corollary 9.12 (pp. 164–179).
@@ -21,8 +23,8 @@ the indicial roots of [[prop:iii-f1-2-3]]. Its consequences are these. The regul
 s < 2 − Re ϰ (against 3/2 − Re ϰ in dimension 3 + 1). The spectral family is invertible for Re ϰ < 2 (against
 1 + ε_ind): at n = 4 the indicial gap of L̃(0) contains (0, 1], and L̂_b is tf-admissible with every weight in (0, 1]
 ([[prop:iii-f1-3-3]]). The exponents at 𝓘⁺ ∩ ι⁺ are 3/2 + s, s a small eigenvalue of S̄. The poles of N_sf(ϰ)⁻¹ that
-are invisible on ι⁺ lie in 5/2 + spec S̄ + ℕ_0. And the expansion at K⁺ is needed only below R³, which requires no zero
-energy state at −3.
+are invisible on ι⁺, and at which the principal part of N_sf(ϰ)⁻¹ does not vanish on the extensions by 0 of Ċ^∞(ι⁺),
+lie in 5/2 + spec S̄ + ℕ_0. And the expansion at K⁺ is needed only below R³, which requires no zero energy state at −3.
 
 The method is that of [Hin26], with these changes. For fixed ϰ, the estimates of [Vas13], [Hin25a] and [HV15] used there
 are replaced by those of [[ch:s01]] and [[ch:s03]], whose proofs use only properties that are verified for N_sf(ϰ)
@@ -33,16 +35,19 @@ on {−2 < v < 0} ([[lem:iii-g-2-3]]); and v = ∞ is a b-elliptic end. The b-re
 Theorem 6.3] in [Hin26]) is proved by commuting with the dilation and with the Lie derivatives along the rotations
 ([[prop:iii-g-2-7]]). Injectivity is the argument of [[lem:ii-f-5-8]], which contains the Fourier transform and the
 tf-normal operator of [Hin26], with the tf-admissibility of [[prop:iii-f1-3-3]]. The index is 0 because the family is
-invertible for |Im ϰ| large in every vertical strip, by a
-semiclassical estimate; across the light cone that estimate is written out with an escape function
-([[lem:iii-g-4-1]] (b)), which also serves as the variable semiclassical order ([[lem:iii-g-4-2]]).
+invertible for |Im ϰ| large in every vertical strip, by a semiclassical estimate; across the light cone that estimate is
+written out with an escape function ([[lem:iii-g-4-1]] (b)), which also serves as the variable semiclassical order
+([[lem:iii-g-4-2]]).
 
-*Notation.* Throughout the chapter ϰ ∈ ℂ is the spectral parameter at ι⁺, dual to the scaling, and is related to the
-parameter σ of [[ch:s08]] by σ = −iϰ; it is not the wavelength of the approximant. The indicial roots of the operators
-of [[ch:s13]] and [[ch:s15]] keep their names ι^Υ_(…) and ι^C_(…) ([[lem:iii-d-4-1]], [[sec:iii-f1-1]]). As an index
-(^(*𝔥), Re_𝔥, Im_𝔥) the letter h denotes a fibre inner product; in [[sec:iii-g-4]] the letter h alone is the
-semiclassical parameter, and from [[sec:iii-g1-3]] on it denotes sections (solutions of N_ι⁺(ϰ)h = f, and metric
-perturbations). The faces 𝓘⁺, ι⁺ and K⁺ of the compactified spacetime are those of [[ch:s04]]. The inner radius of the
+*Notation.* Throughout the chapter ϰ ∈ ℂ is the spectral parameter at ι⁺, dual to the scaling; it is related to the
+parameter σ of [[ch:s08]] by σ = −iϰ. The indicial roots of the operators of [[ch:s13]] and [[ch:s15]] are written
+ι^Υ_(…) and ι^C_(…), as in [[lem:iii-d-4-1]] and in (C1) of [[sec:iii-f1-1]], and z_Υ := 4e_Υγ_Υ² is the parameter z
+of [[lem:iii-d-4-1]] and [[prop:iii-f1-2-3]], since z has other uses here. The fibre inner product, written h in
+[[ch:s01]] and [[ch:s02]], is written 𝔥 here (^(*𝔥), Re_𝔥, Im_𝔥): in [[sec:iii-g-4]] the letter h is the semiclassical
+parameter, and from [[sec:iii-g1-3]] on it denotes sections (solutions of N_ι⁺(ϰ)h = f, and metric perturbations).
+σ_S, σ_Υ and σ_C are sets of eigenvalues of S̄ ([[eq:iii-g1-1-4]]), not values of σ. Large integers that bound the
+orders of error terms are written M, as in [[ch:s01]] and [[ch:s02]]; in [[sec:iii-g2-4]] M is the compactified
+spacetime and Ω a domain in it, while elsewhere Ω and Ω_a are rotation fields of 𝕊³ and Ω_(a,b) is a slab. The faces 𝓘⁺, ι⁺ and K⁺ of the compactified spacetime are those of [[ch:s04]]. The inner radius of the
 artificial boundary plays no role in this chapter: the spectral family lives on Minkowski space, and the grafting of
 [[sec:iii-g2-4]] takes place near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which
 [[thm:iii-e-1-1]] (3) provides, and γ_Υ is small as in [[prop:iii-f1-3-3]].
@@ -937,8 +942,8 @@ independent of the admissible pair.
 
 (2) (*Invertibility.*) It is invertible for Re ϰ < 2. For every C it is invertible for all but finitely many ϰ with
 Re ϰ ≤ C, and the inverse is finite-meromorphic: in every vertical strip on which one admissible pair serves,
-ϰ ↦ N_sf(ϰ)⁻¹ ∈ ℒ(𝒴, 𝒳) is meromorphic with finite-rank principal parts, and for f in the targets of two admissible
-pairs the two inverses agree.
+ϰ ↦ N_sf(ϰ)⁻¹ ∈ ℒ(𝒴, 𝒳) is meromorphic with finite-rank principal parts (every Laurent coefficient of negative order
+has finite rank), and for f in the targets of two admissible pairs the two inverses agree.
 
 (3) (*b-regularity at the light cone.*) If u ∈ Ḣ^(s,μ)_b and N_sf(ϰ)u ∈ Ḣ^((s−1;k),μ)_(b;b), k ∈ ℕ_0, then
 u ∈ Ḣ^((s;k),μ)_(b;b).
@@ -957,13 +962,18 @@ admissible pair (s′ < 2 − δ − C_ϰ ≤ 2 − Re ϰ and γ_cf + Re ϰ ∈ 
 *Meromorphy.* Let S be a vertical strip on which one admissible pair serves (its width is less than 1, by
 [[eq:iii-g-2-6]]). On S the spaces 𝒳 and 𝒴 are fixed, and ϰ ↦ N_sf(ϰ) ∈ ℒ(𝒳, 𝒴) is a holomorphic family of Fredholm
 operators of index 0. Near ϰ_1 ∈ S choose a finite-rank K_1: 𝒳 → 𝒴 with N_sf(ϰ_1) + K_1 invertible (the index is 0);
-then N_sf(ϰ) + K_1 is invertible on a disc D_1 around ϰ_1, and there
-N_sf(ϰ) = (N_sf(ϰ) + K_1)(Id − (N_sf(ϰ) + K_1)⁻¹K_1), the second factor being the identity minus a holomorphic family of
-finite-rank operators. By (K5) of [[sec:i-c-2-1]]
-(the analytic Fredholm theorem, [RS1, Theorem VI.14]), on D_1 either N_sf(ϰ) is invertible at no point, or it is
-invertible off a discrete set, with an inverse that is meromorphic with finite-rank principal parts. The set of ϰ_1 ∈ S
-at which the second alternative holds is open, and so is its complement; S is connected and contains points of
-invertibility (those with |Im ϰ| large, by [[prop:iii-g-4-6]]), so the second alternative holds on all of S.
+then N_sf(ϰ) + K_1 is invertible on a disc D_1 around ϰ_1, and there N_sf(ϰ) = (N_sf(ϰ) + K_1)(Id − F(ϰ)) with
+F(ϰ) := (N_sf(ϰ) + K_1)⁻¹K_1, a holomorphic family of finite-rank operators on 𝒳. By (K5) of [[sec:i-c-2-1]] (the
+analytic Fredholm theorem, [RS1, Theorem VI.14]), on D_1 either Id − F(ϰ), and with it N_sf(ϰ), is invertible at no
+point, or it is invertible off a discrete set, with a meromorphic inverse. In the second case every Laurent coefficient
+of negative order of N_sf(ϰ)⁻¹ has finite rank: since (Id − F)⁻¹ = Id + F(Id − F)⁻¹,
+
+    N_sf(ϰ)⁻¹ = (N_sf(ϰ) + K_1)⁻¹ + (N_sf(ϰ) + K_1)⁻¹K_1(Id − F(ϰ))⁻¹(N_sf(ϰ) + K_1)⁻¹,
+
+the first term is holomorphic on D_1, and each Laurent coefficient of negative order of the second is a finite sum of
+operators AK_1B, A a Taylor coefficient of (N_sf(ϰ) + K_1)⁻¹, whose ranges lie in the finite-dimensional spaces A(K_1𝒳).
+The set of ϰ_1 ∈ S at which the second alternative holds is open, and so is its complement; S is connected and contains
+points of invertibility (those with |Im ϰ| large, by [[prop:iii-g-4-6]]), so the second alternative holds on all of S.
 
 *Finiteness.* For 2 ≤ Re ϰ ≤ C, [[prop:iii-g-4-6]] with C_ϰ := C gives invertibility for |Im ϰ| ≥ Y_0; the set where
 N_sf(ϰ) is not invertible is discrete, so it meets the compact set {2 ≤ Re ϰ ≤ C, |Im ϰ| ≤ Y_0} in finitely many points.

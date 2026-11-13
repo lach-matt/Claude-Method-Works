@@ -20,9 +20,9 @@ unique choice of all modification parameters for which the forward solution has 
 These are [Hin26, Definitions 11.47–11.48, Lemma 11.49, Proposition 11.51] in dimension 4 + 1;
 
 (3) the correction terms that undo the pure gauge terms of the K⁺-expansion which decay no faster than t_*⁻², the
-gauge-fixed Einstein operator with all modification parameters, and its linearisation in the new parameters, which is
-exact up to a remainder of high order ([[lem:iii-i9-2-6]]). These are [Hin26, Definitions 11.55–11.56, Lemma 11.57] in
-dimension 4 + 1; the theorem that uses them is proved in [[ch:s22]].
+gauge-fixed Einstein operator with all modification parameters, and its linearisation in the new parameters, which at
+b₀ is exact up to a remainder of high order ([[lem:iii-i9-2-6]]). These are [Hin26, Definitions 11.55–11.56, Lemma
+11.57] in dimension 4 + 1; the theorem that uses them is proved in [[ch:s22]].
 
 The dimensional changes are these. In dimension 4 + 1 the exponents at future timelike infinity ι⁺ of the effective
 forcings begin at the radiative exponent λ_♯ = 3/2 + (1 − e_Υ)γ_Υ > 3/2 ([[eq:iii-i1-3-2]]), where those of Kerr begin
@@ -30,7 +30,7 @@ at 1. So there is no logarithmic centre-of-mass term ([[prop:iii-i6-2-1]]), and 
 three, not four: the boost S, the black hole parameter b and the centre of mass S⁽⁰⁾_1; [Hin26, (11.136)–(11.138b),
 Remark 11.39] and the correction h^((0,1))_s1 have no counterpart. The corrections carry no logarithm, so the
 cancellation of a (3, 1)-coefficient behind [Hin26, (11.140)] is not needed. The centre-of-mass shift cannot be undone
-by a correction alone: Hintz's metric term −dχ_K ⊗_s ω⁽⁰⁾_(b_0,s1) has ι⁺-order 1, outside the class 𝒳 in dimension
+by a correction alone: Hintz's metric term −dχ_K ⊗_s ω⁽⁰⁾_(b₀,s1) has ι⁺-order 1, outside the class 𝒳 in dimension
 4 + 1 (min Re ℰ_+ > 1, [[eq:iii-i-1-3]]), and it cannot be moved into the solution either, which must vanish at early
 times. The exterior background is translated instead, as it is boosted in [[ch:s19]] ([[def:iii-i7-1-2]]), and the
 correction becomes −dχ_K ⊗_s (ω_s1 − Θw⁰), of ι⁺-order 3 ([[lem:iii-i7-2-2]]).
@@ -53,38 +53,46 @@ For the pure gauge terms, the exponent 1 does not occur at ι⁺, so the logarit
 [[sec:iii-g2-1]] that reach K⁺-rate at most 2 are six: the boosts s1 (rate λ − 1), the rotations v1, the time
 translation s0 and the s2 row at the root 0 (rate λ), and the class roots of types s0 and s1 in (−1, 0) (rate λ + d,
 0 < d < 1); the rows at the root −1 of types s3 and v2, which [Hin26] keeps at the exponent 1, have rate above 5/2.
-At the non-rotating b_0 every rotation is Killing, and the rotation rows carry no parameter ([[sec:iii-i9-1]]). And
-the linearisation in the new parameters is exact up to a remainder r^ν that vanishes at the reference point and has
-ι⁺-weight above 5 + ε_+ with no index set to track ([[lem:iii-i9-2-6]] (c)); this replaces [Hin26, (11.194)] and
-makes the elimination of [[ch:s22]] a perturbation of the identity. Every dimensional change is mathematics and is
-carried below.
+At the non-rotating b₀ every rotation is Killing, and the rotation rows carry no parameter ([[sec:iii-i9-1]]). And
+the linearisation in the new parameters is exact up to a remainder r^ν that has ι⁺-weight above 5 + ε_+, with no
+index set to track, and that at b = b₀ vanishes at the reference point ([[lem:iii-i9-2-6]] (c)); at a general b the
+remainder is joined by the difference E^ν, of size O(|b − b₀|), of the corrections built at b₀ and at b
+([[lem:iii-i9-2-6]] (e)). This replaces [Hin26, (11.194)] and makes the elimination of [[ch:s22]] a perturbation of
+the identity. Every dimensional change is mathematics and is carried below.
 
 *The base point.* The base points of the linearisation have black hole parameter b in the closed ball ℬ̄_* around
-b_0 of [[lem:iii-i15-1-1]], on which the model objects are uniform in b: the forward problem of [[thm:iii-i-5-3]] at b,
+b₀ of [[lem:iii-i15-1-1]], on which the model objects are uniform in b: the forward problem of [[thm:iii-i-5-3]] at b,
 with continuity in (b, S, h) (property (P1) there); the ι⁺- and tf-normal operators and the indicial roots, which do
 not depend on b (P2); the zero energy states and the 1-form towers at b, real and smooth in b, with index sets
 independent of b (P3); the augmented low energy theory at b (P4); and the time translation, Killing for every g_b
 (P5). Following (P6) there, the rows (the cut-off pure gauge tensors m_ν, among them the motions of [[sec:iii-i8-2]])
-are built at the base point's b, while the correction terms and their counterterms are the tensors built from b_0, as
-in [Hin26, p. 275, Definitions 11.55–11.56]. At the reference point (0, p⃗_b), p⃗_b := (0, b − b_0, 0), the background
-in 𝒞 interpolates between g_(b_0) and g_b, so the parameter identities, exact at b_0, acquire an error of size
-O(|b − b_0|) supported in 𝒞 ([[lem:iii-i15-2-11]]). The finite-dimensional maps of the elimination are therefore
+are built at the base point's b, while the correction terms and their counterterms are the tensors built from b₀, as
+in [Hin26, p. 275, Definitions 11.55–11.56]. At the reference point (0, p⃗_b), p⃗_b := (0, b − b₀, 0), the background
+in 𝒞 interpolates between g_(b₀) and g_b, so the parameter identities, exact at b₀, acquire an error of size
+O(|b − b₀|) supported in 𝒞 ([[lem:iii-i15-2-11]]). The finite-dimensional maps of the elimination are therefore
 inverted by direct bounds, uniform in b ([[prop:iii-i15-2-12]], and the step of [[prop:iii-i8-4-1]]); continuity
 statements at the reference point are used at fixed b only, with L_(0,p⃗_b) := D_hP_2(0, p⃗_b) as the reference
-operator. Every result below holds at every b ∈ ℬ̄_*, uniformly in b, in the form in which it is stated, and at
-b = b_0 the errors vanish and p⃗_(b_0) = 0.
+operator. Every result below holds at every b ∈ ℬ̄_*, uniformly in b, in the form in which it is stated, except the
+exact identities [[lem:iii-i7-2-4]], [[lem:iii-i8-2-4]], [[lem:iii-i9-2-4]] and [[lem:iii-i9-2-6]] (c), which are
+stated at b₀; their forms at b are [[lem:iii-i15-2-11]], [[lem:s21-motions-at-b]] and [[lem:iii-i9-2-6]] (e), the
+last being the identity [[eq:iii-i15-1-1]]. At b = b₀ the errors vanish and p⃗_(b₀) = 0. The results of [[ch:s19]]
+used at b are their statements at b, [[prop:iii-i2-5-1-b]] (the first item of [[thm:iii-i15-3-1]]); [[ch:s20]] is
+written at b. The results of [[sec:iii-i15-1]] cited here rest on this chapter's statements at b₀, on
+[[lem:iii-i7-1-3]] (a), and on [[lem:iii-i9-2-2]] and [[lem:iii-i9-2-6]] (e) at b, whose proofs use only (P3), (P5)
+and the choice of (P6); so these citations are not circular.
 
 *The inner radius.* The chapter works on Ω_* = cl_M{t^♭_* ≥ 1} with the b-Sobolev spaces of [[ch:s09]] and the
-forward solutions of [[ch:s19]] and [[ch:s20]], which hold with the inner radius r_0 as a parameter. Its own radii are
-scale-free or far out ({|x| ≥ 4R_1} in [[lem:iii-i7-1-1]] (c), {|x| ≤ 5R_1} for the cut-offs), and its weights are
-fixed at infinity and at K⁺. So every result of this chapter holds with the inner radius r_0 as a parameter.
+forward solutions of [[ch:s19]] and [[ch:s20]], which hold with the inner radius r₀ = r_♭ of [[def:s12-radii]] as a
+parameter. Its own radii are scale-free or far out ({|x| ≥ 4R_1} in [[lem:iii-i7-1-1]] (c), {|x| ≤ 5R_1} for the
+cut-offs), and its weights are fixed at infinity and at K⁺. So every result of this chapter holds with the inner
+radius r₀ as a parameter.
 
 *Notation.* In this chapter λ denotes an exponent at ι⁺ (an element of the projection π_1 of an index set), as in
 [Hin26]; the wavelength of the main argument does not occur. A pair (λ, k) ∈ ℂ × ℕ₀ is an element of an index set, and
 λ_♯ := 3/2 + (1 − e_Υ)γ_Υ is the least real part of the radiative index set ℰ^♯_+ of [[eq:iii-i1-3-2]]. A root of the
 indicial family 𝒲(ℓ_K) of [[sec:iii-g2-1]] is written μ, and the indicial roots of the gauge potential operator □^Υ are
-ι^Υ_(s0,2), ι^Υ_(s1,2) as in [[eq:iii-d-4-1]]. The black hole parameters are b = (m, A), b_0 = (m_0, 0). Weights are
-listed at (𝓘⁺, ι⁺, K⁺), with the defining functions ρ_I, ρ_+, ρ_K, and ρ_0 at spatial infinity I_0; Ω_*, t^♭_*, the
+ι^Υ_(s0,2), ι^Υ_(s1,2) as in [[eq:iii-d-4-1]]. The black hole parameters are b = (m, A), b₀ = (m₀, 0). Weights are
+listed at (ℐ⁺, ι⁺, K⁺), with the defining functions ρ_I, ρ_+, ρ_K, and ρ_0 at spatial infinity I_0; Ω_*, t^♭_*, the
 density μ_b and the spaces H^(k,(…),(…),…)_b(Ω_*)^(•,−) of tensors vanishing near {t^♭_* = 1} are those of
 [[sec:iii-i-1]], and the class of perturbations is 𝒳^k := H^(k,(⟨ℰ^C_I⟩,a_I),(ℰ_+,a_+),a_K)_b(Ω_*; S²T*)
 ([[eq:iii-i-1-4]]), with a_I > 3/2, a_+ > 1, a_K > 2 and the index set ℰ_+ of [[eq:iii-i-1-3]]. We write m_+ := min(a_+,
@@ -105,29 +113,29 @@ which is [[eq:iii-i4-1-2]], and three identities of [[sec:iii-i4-1]] are used th
 every g, so (D_1 + D_2)Υ^(E_Υ)(g, g) = 0 and P(g, g) = Ric(g); (ii) D_1Υ^(E_Υ)(g, g) = −δ_(g,E_Υ)G_g; (iii) if
 Ric(g) = 0 then D_gRic(ℒ_Y g) = 0 for every smooth vector field Y, so D_gRic ∘ δ*_g = 0. Here P(g, g_0),
 Υ^(E_Υ)(g, g_0), δ*_(g_0,E_C) and δ_(g_0,E_Υ) are those of [[def:iii-b-6-1]], L^(g,g_0) := D_1P(·, g_0) at g, and
-L_b := L^(g_b,g_b) = D_(g_b)Ric + δ*_(g_b,E_C) δ_(g_b,E_Υ) G_(g_b). The states ω_s1(S) := ω⁽⁰⁾_(b_0,s1)(S),
-h(S) := δ*_(g_(b_0)) ω_s1(S), the re-centred generalised state h^(≤1)_♮(S) of [[def:iii-i4-1-1]], and the corrections
+L_b := L^(g_b,g_b) = D_(g_b)Ric + δ*_(g_b,E_C) δ_(g_b,E_Υ) G_(g_b). The states ω_s1(S) := ω⁽⁰⁾_(b₀,s1)(S),
+h(S) := δ*_(g_(b₀)) ω_s1(S), the re-centred generalised state h^(≤1)_♮(S) of [[def:iii-i4-1-1]], and the corrections
 h^(−1)(S), ϑ^(−1)(S), ϑ_♯(S) of [[def:iii-i4-2-1]] are those of [[ch:s20]]; at b, h_b(S) := δ*_(g_b) ω_(b,s1)(S) and
 h^(≤1)_(b,♮)(S) is the re-centred s1 state at b of [[lem:iii-i15-2-7]].
 
-𝔟 = ℝ × 𝔰𝔬(4) is the parameter space of [[prop:iii-f3-2-2]]. For ḃ ∈ 𝔟 put ġ_(b_0)(ḃ) := ∂_b g_b|_(b=b_0)(ḃ),
-ω̇(ḃ) := ω̇_(b_0)(ḃ) and
+𝔟 = ℝ × 𝔰𝔬(4) is the parameter space of [[prop:iii-f3-2-2]]. For ḃ ∈ 𝔟 put ġ_(b₀)(ḃ) := ∂_b g_b|_(b=b₀)(ḃ),
+ω̇(ḃ) := ω̇_(b₀)(ḃ) and
 
-    ġ(ḃ) := ġ^Υ_(b_0)(ḃ) = ġ_(b_0)(ḃ) + δ*_(g_(b_0)) ω̇(ḃ)
+    ġ(ḃ) := ġ^Υ_(b₀)(ḃ) = ġ_(b₀)(ḃ) + δ*_(g_(b₀)) ω̇(ḃ)
 
-([[eq:iii-f3-2-1]]), which is the state ṁ ġ^Υ_(b_0)(1, 0) + ġ^Υ_(b_0)(0, Ȧ) of [[sec:iii-h-1]] for ḃ = (ṁ, Ȧ), by
+([[eq:iii-f3-2-1]]), which is the state ṁ ġ^Υ_(b₀)(1, 0) + ġ^Υ_(b₀)(0, Ȧ) of [[sec:iii-h-1]] for ḃ = (ṁ, Ȧ), by
 linearity ([[prop:iii-f3-2-2]] (3)). At b, ġ_b(ḃ) := ġ^Υ_b(ḃ) = ∂_b g_b(ḃ) + δ*_(g_b) ω̇_b(ḃ) is the gauge-corrected
 state at b ([[lem:iii-i15-1-1]] (P3)). In this chapter ℰ_ind is the union of the index sets of [[prop:iii-d2-3-1]] and
-[[prop:iii-f3-2-2]] at b_0; by (P3) these serve at every b. By [[prop:iii-f3-2-2]] (1)–(2) and [[prop:iii-d2-3-1]],
+[[prop:iii-f3-2-2]] at b₀; by (P3) these serve at every b. By [[prop:iii-f3-2-2]] (1)–(2) and [[prop:iii-d2-3-1]],
 on X̄ near infinity
 
     ω̇(ḃ) ∈ 𝒜^((1,0)∪(1+ℰ_ind)),   ġ(ḃ) ∈ 𝒜^𝒢,   ω_s1(S) − ω̄_s1(S) ∈ 𝒜^𝒢,   h(S) ∈ 𝒜^(𝒢+1),
         𝒢 := (2, 0) ∪ (2 + ℰ_ind),                                                                     {#eq:iii-i7-1-1}
 
 with ω̄_s1(S_w) = d(|x|S_w) = w·dx for S_w(ω) = w·ω, w ∈ ℝ⁴. The tensors ġ(ḃ) and h(S) lie in
-ker D_(g_(b_0))Ric ∩ ker δ_(g_(b_0),E_Υ)G_(g_(b_0)) ([[prop:iii-f3-2-2]] (2), [[sec:iii-i4-1]]), and
+ker D_(g_(b₀))Ric ∩ ker δ_(g_(b₀),E_Υ)G_(g_(b₀)) ([[prop:iii-f3-2-2]] (2), [[sec:iii-i4-1]]), and
 (ḃ, S) ↦ ġ(ḃ) + h(S) is injective, by the rows of [[eq:iii-h-3-1]]. At b the same holds for ġ_b and h_b: they span
-the nullspace of L̂_b(0) in the space of [[prop:iii-h-3-2]], which near b_0 has the dimension it has at b_0, with the
+the nullspace of L̂_b(0) in the space of [[prop:iii-h-3-2]], which near b₀ has the dimension it has at b₀, with the
 continuous basis ġ_b(ḃ), h_b(S) (the proof of [[prop:iii-h-3-2]] at b, [[lem:iii-i15-1-1]] (P4), and
 [[lem:iii-i15-1-2]]). We assume
 
@@ -143,9 +151,9 @@ real sections, is the class of forcings ([Hin26, (11.116)] in dimension 4 + 1). 
 "h small" means h ∈ 𝒳^∞ vanishing near {t^♭_* = 1} with small 𝒳^d-norm.
 
 *Translations.* For S = S_w ∈ 𝒮_1 put Y_S := w·∂_x = η⁻¹ω̄_s1(S), V⁰(S) := ½ΘY_S, ψ_S := exp V⁰(S) and
-w⁰(S) := g_(b_0)(Y_S, ·), so that g_(b_0)(V⁰(S), ·) = ½Θw⁰(S) and, by ℒ_X g = 2δ*_g(g(X, ·)),
+w⁰(S) := g_(b₀)(Y_S, ·), so that g_(b₀)(V⁰(S), ·) = ½Θw⁰(S) and, by ℒ_X g = 2δ*_g(g(X, ·)),
 
-    ∂_S ψ*_(−S) g_(b_0)|_(S=0)(Ṡ) = −δ*_(g_(b_0))(Θw⁰(Ṡ)).
+    ∂_S ψ*_(−S) g_(b₀)|_(S=0)(Ṡ) = −δ*_(g_(b₀))(Θw⁰(Ṡ)).
 
 **Lemma {#lem:iii-i7-1-1}** (Translations; [[lem:iii-b-5-1]] and [[lem:iii-b-5-2]] for translations.) (a) V⁰(S) lifts
 to a b-vector field on M, vanishing near Σ^past ∪ K⁺ ∪ Σ^int and on {|x| ≤ 5R_1} and tangent to every boundary
@@ -154,16 +162,16 @@ smoothly on S.
 
 (b) There are w_0 > 0 and a neighbourhood 𝒩_0 of supp(χ_IVP(1 − χ_K)) such that for |w| < w_0 every integral curve of
 V⁰(S_w) starting in 𝒩_0 stays, for times in [0, 1], either in {Θ = 1}, where ψ_(S_w) is the translation
-τ_(w/2) : (t, x) ↦ (t, x + w/2), or in a fixed compact subset of M disjoint from I_0 ∪ 𝓘⁺ ∪ ι⁺ ∪ K⁺.
+τ_(w/2) : (t, x) ↦ (t, x + w/2), or in a fixed compact subset of M disjoint from I_0 ∪ ℐ⁺ ∪ ι⁺ ∪ K⁺.
 
-(c) For b near b_0 and a ∈ ℝ⁴ small, τ_a*g_b − g_b has Cartesian components in |x|⁻³C^∞(X̄) on {|x| ≥ 4R_1}; it is
+(c) For b near b₀ and a ∈ ℝ⁴ small, τ_a*g_b − g_b has Cartesian components in |x|⁻³C^∞(X̄) on {|x| ≥ 4R_1}; it is
 stationary, smooth in a and O(|a|).
 
 *Proof.* (a) Y_S has constant Cartesian coefficients, so on the radial compactification of ℝ^(1+4) it is a boundary
 defining function times a b-vector field; it is tangent to every submanifold of the boundary, Y_+ included, and lifts
 to a b-vector field on M tangent to every boundary hypersurface. The factor Θ is the one of [[lem:iii-b-5-1]], with its
 vanishing properties, and the rest is that lemma's proof. (b) As in [[lem:iii-b-5-2]]: the strict nesting of the
-cut-offs gives {Θ = 1} a neighbourhood margin around supp(χ_IVP(1 − χ_K)) near I_0 ∪ 𝓘⁺ ∪ ι⁺, so a slightly larger
+cut-offs gives {Θ = 1} a neighbourhood margin around supp(χ_IVP(1 − χ_K)) near I_0 ∪ ℐ⁺ ∪ ι⁺, so a slightly larger
 neighbourhood 𝒩_0 still has one; M is compact and the time-[0, 1] flow of V⁰(S_w), linear in w, tends to the identity
 uniformly as w → 0; on {Θ = 1}, V⁰(S_w) = ½w·∂_x, whose time-1 flow is τ_(w/2). (c) g_b is stationary with
 g_b − η ∈ |x|⁻²C^∞(X̄) on {|x| ≥ 3R_1} ([[eq:iii-b-3-5]], [[prop:iii-b-3-6]]), and τ_a* acts on Cartesian components
@@ -174,24 +182,24 @@ by x ↦ x + a. For F ∈ |x|⁻²C^∞(X̄),
 with ∇F ∈ |x|⁻³C^∞(X̄); x ↦ x + sa extends to a diffeomorphism of X̄ near infinity that is the identity on ∂X̄, so
 composition with it preserves |x|⁻³C^∞(X̄), uniformly in s and smoothly in a. ∎
 
-**Definition {#def:iii-i7-1-2}** (The translated background.) For p⃗ = (S, b − b_0, S⁽⁰⁾_1) with S, S⁽⁰⁾_1 ∈ 𝒮_1
-small and b near b_0,
+**Definition {#def:iii-i7-1-2}** (The translated background.) For p⃗ = (S, b − b₀, S⁽⁰⁾_1) with S, S⁽⁰⁾_1 ∈ 𝒮_1
+small and b near b₀,
 
-    g_p⃗ := (1 − χ_K)(ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b_0) + χ_K g_b,                                      {#eq:iii-i7-1-3}
+    g_p⃗ := (1 − χ_K)(ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) + χ_K g_b,                                      {#eq:iii-i7-1-3}
 
-so that g_((S,b−b_0,0)) = g_(b_0,b,−S) ([[eq:iii-i-1-1]]).
+so that g_((S,b−b₀,0)) = g_(b₀,b,−S) ([[eq:iii-i-1-1]]).
 
-**Lemma {#lem:iii-i7-1-3}** (Properties of the translated background.) For |S|, |S⁽⁰⁾_1| and |b − b_0| small:
+**Lemma {#lem:iii-i7-1-3}** (Properties of the translated background.) For |S|, |S⁽⁰⁾_1| and |b − b₀| small:
 
 (a) [[eq:iii-b-5-3]] holds with (ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_b in place of φ*_(S_w)g_b (S_w = −S), with the same leading
 term; hence [[lem:iii-i-3-6]] holds for g_p⃗ (in particular [[eq:iii-i-3-5]] and g_p⃗ ∈ 𝒢⁺ there), with seminorms
-O(|b − b_0| + |S| + |S⁽⁰⁾_1|), p⃗ ↦ g_p⃗ − g_b smooth into that class, and ∂_(S⁽⁰⁾_1) g_p⃗, ∂_S g_p⃗ in the class of
+O(|b − b₀| + |S| + |S⁽⁰⁾_1|), p⃗ ↦ g_p⃗ − g_b smooth into that class, and ∂_(S⁽⁰⁾_1) g_p⃗, ∂_S g_p⃗ in the class of
 the background differences of [[sec:iii-i4-3]] (the class of [[lem:iii-i-3-6]], vanishing near K⁺); and
 [[lem:iii-i-4-3]] holds for g_p⃗.
 
 (b) [[prop:iii-i-3-3]], [[prop:iii-i-3-4]], [[prop:iii-i-4-1]], [[cor:iii-i-4-2]], [[cor:iii-i-5-2]] and
 [[thm:iii-i-5-3]] hold for g_0 := g_p⃗, with |S| replaced by |S| + |S⁽⁰⁾_1|, and the continuity of
-[[thm:iii-i-5-3]] holds in (S, S⁽⁰⁾_1, h). At b ≠ b_0 the forward problem is that of [[lem:iii-i15-1-1]] (P1), which
+[[thm:iii-i-5-3]] holds in (S, S⁽⁰⁾_1, h). At b ≠ b₀ the forward problem is that of [[lem:iii-i15-1-1]] (P1), which
 covers the backgrounds g_p⃗ by (a).
 
 (c) On {Θ = 1} ∩ supp(1 − χ_K) near (ι⁺)°, ψ_(−S⁽⁰⁾_1) ∘ φ_(−S) is a Poincaré motion (a Lorentz boost followed by a
@@ -212,7 +220,7 @@ By [[lem:iii-i7-1-1]] (c), τ*g_b − g_b ∈ |x|⁻³C^∞(X̄) there, and on t
 [[eq:iii-b-5-3]] on the first alternative, smoothness on the second and [[prop:iii-b-3-6]], so it applies verbatim; the
 dependence on (S, S⁽⁰⁾_1) is smooth as the flows and the remainders h_(S_w) of [[eq:iii-b-5-3]] are, and the parameter
 derivatives vanish near K⁺ (where g_p⃗ = g_b), so they lie in the class of [[sec:iii-i4-3]], as stated there for S. The
-proof of [[lem:iii-i-4-3]] uses that the exterior metric is Ricci flat (it is a pullback of g_(b_0)), [[lem:iii-i-3-6]],
+proof of [[lem:iii-i-4-3]] uses that the exterior metric is Ricci flat (it is a pullback of g_(b₀)), [[lem:iii-i-3-6]],
 and that the exterior metric minus η lies in ρ_+²C^∞ near (ι⁺)°, which is (c).
 
 (b) [[prop:iii-i-3-3]], [[prop:iii-i-3-4]], [[prop:iii-i-4-1]] and [[cor:iii-i-5-2]] are stated for g_0 ∈ 𝒢⁺ with
@@ -223,11 +231,11 @@ g_p⃗ depends smoothly on p⃗. At b, [[lem:iii-i15-1-1]] (P1) gives [[thm:iii-
 continuity in (b, S, h), its proof covering g_p⃗ through (a).
 
 (c) On {Θ = 1} both flows are exact ([[lem:iii-b-5-2]], [[lem:iii-i7-1-1]] (b)), so the composite is a Lorentz boost
-followed by a translation, which preserves η; with g_(b_0) − η ∈ |x|⁻²C^∞ and |x| ≥ t/20 there,
-g_p⃗ − η ∈ ρ_+²C^∞ near (ι⁺)°, the part χ_K g_b included, as g_b − η ∈ |x|⁻²C^∞ for every b near b_0
-([[eq:iii-b-3-5]], [[prop:iii-b-3-6]]). ∂_S and ∂_(S⁽⁰⁾_1) of (ψ ∘ φ)*g_(b_0) are Lie derivatives of the pulled-back
+followed by a translation, which preserves η; with g_(b₀) − η ∈ |x|⁻²C^∞ and |x| ≥ t/20 there,
+g_p⃗ − η ∈ ρ_+²C^∞ near (ι⁺)°, the part χ_K g_b included, as g_b − η ∈ |x|⁻²C^∞ for every b near b₀
+([[eq:iii-b-3-5]], [[prop:iii-b-3-6]]). ∂_S and ∂_(S⁽⁰⁾_1) of (ψ ∘ φ)*g_(b₀) are Lie derivatives of the pulled-back
 metric along a generator of the Poincaré group (a linear or a constant vector field, which is a b-vector field and
-Killing for η), so they map η + ρ_+²C^∞ into ρ_+²C^∞. On int χ_K⁻¹(0), g_p⃗ is a pullback of g_(b_0) by a
+Killing for η), so they map η + ρ_+²C^∞ into ρ_+²C^∞. On int χ_K⁻¹(0), g_p⃗ is a pullback of g_(b₀) by a
 diffeomorphism. ∎
 
 ### The correction terms and the operator {#sec:iii-i7-2}
@@ -235,18 +243,18 @@ diffeomorphism. ∎
 **Definition {#def:iii-i7-2-1}** (Corrections of the second kind; [Hin26, Definition 11.37] in dimension 4 + 1.) For
 ḃ ∈ 𝔟 and S ∈ 𝒮_1,
 
-    h⁽⁰⁾(ḃ) := −[δ*_(g_(b_0)), χ_K] ω̇(ḃ) = −dχ_K ⊗_s ω̇(ḃ),     ϑ⁽⁰⁾(ḃ) := [δ_(g_(b_0),E_Υ)G_(g_(b_0)), χ_K] ġ(ḃ),
-    h⁽⁰⁾_s1(S) := −dχ_K ⊗_s (ω_s1(S) − Θw⁰(S)),     ϑ⁽⁰⁾_s1(S) := [δ_(g_(b_0),E_Υ)G_(g_(b_0)), χ_K] h(S),
+    h⁽⁰⁾(ḃ) := −[δ*_(g_(b₀)), χ_K] ω̇(ḃ) = −dχ_K ⊗_s ω̇(ḃ),     ϑ⁽⁰⁾(ḃ) := [δ_(g_(b₀),E_Υ)G_(g_(b₀)), χ_K] ġ(ḃ),
+    h⁽⁰⁾_s1(S) := −dχ_K ⊗_s (ω_s1(S) − Θw⁰(S)),     ϑ⁽⁰⁾_s1(S) := [δ_(g_(b₀),E_Υ)G_(g_(b₀)), χ_K] h(S),
 
 and, with the counterterms of [Hin26, Remark 11.27] as in [[def:iii-i4-2-1]],
-ϑ⁽⁰⁾_♯ := ϑ⁽⁰⁾ − δ_(g_(b_0),E_Υ)G_(g_(b_0)) h⁽⁰⁾ and ϑ⁽⁰⁾_(s1,♯) := ϑ⁽⁰⁾_s1 − δ_(g_(b_0),E_Υ)G_(g_(b_0)) h⁽⁰⁾_s1. All
-are linear. By [[eq:s21-conv]], [δ_(g_(b_0),E_Υ)G_(g_(b_0)), χ_K]k = −ι_(g_(b_0)⁻¹dχ_K) G_(g_(b_0)) k.
+ϑ⁽⁰⁾_♯ := ϑ⁽⁰⁾ − δ_(g_(b₀),E_Υ)G_(g_(b₀)) h⁽⁰⁾ and ϑ⁽⁰⁾_(s1,♯) := ϑ⁽⁰⁾_s1 − δ_(g_(b₀),E_Υ)G_(g_(b₀)) h⁽⁰⁾_s1. All
+are linear. By [[eq:s21-conv]], [δ_(g_(b₀),E_Υ)G_(g_(b₀)), χ_K]k = −ι_(g_(b₀)⁻¹dχ_K) G_(g_(b₀)) k.
 
-[Hin26]'s h⁽⁰⁾_s1 has ω⁽⁰⁾_(b_0,s1) alone; Θw⁰(S) is the translation of [[eq:iii-i7-1-3]], as Θw(S) is the boost's in
-[[def:iii-i4-2-1]]. These tensors are built at b_0 and serve at every base point ([[lem:iii-i15-1-1]] (P6)).
+[Hin26]'s h⁽⁰⁾_s1 has ω⁽⁰⁾_(b₀,s1) alone; Θw⁰(S) is the translation of [[eq:iii-i7-1-3]], as Θw(S) is the boost's in
+[[def:iii-i4-2-1]]. These tensors are built at b₀ and serve at every base point ([[lem:iii-i15-1-1]] (P6)).
 
 **Lemma {#lem:iii-i7-2-2}** ([Hin26, Lemma 11.38] in dimension 4 + 1.) The tensors of [[def:iii-i7-2-1]] are smooth,
-supported in 𝒞 (so disjoint from 𝓘⁺ and K⁺ and from {t^♭_* < 10}), with seminorms O(|ḃ|), resp. O(|S|), and near
+supported in 𝒞 (so disjoint from ℐ⁺ and K⁺ and from {t^♭_* < 10}), with seminorms O(|ḃ|), resp. O(|S|), and near
 (ι⁺)°
 
     h⁽⁰⁾(ḃ) ∈ 𝒜^𝒢,    h⁽⁰⁾_s1(S) ∈ 𝒜^(𝒢+1),    D_(g_0)Ric(h⁽⁰⁾(ḃ)) ∈ 𝒜^(𝒢+2),    D_(g_0)Ric(h⁽⁰⁾_s1(S)) ∈ 𝒜^(𝒢+3),
@@ -258,27 +266,27 @@ for every metric g_0 smooth on M near (ι⁺)° with g_0 − η ∈ ρ_+C^∞ th
 w⁰, Θ and h are. Near (ι⁺)°, on 𝒞 ∩ {t ≥ T_1}, Θ = 1 and |x| ≥ t/10, so 𝒜^ℰ(X̄) lies in 𝒜^ℰ at ι⁺ (the proof of
 [[lem:iii-i4-1-2]] (b)). There, by [[eq:iii-i7-1-1]], ω̇ ∈ 𝒜^((1,0)∪(1+ℰ_ind)), ġ ∈ 𝒜^𝒢, h(S) ∈ 𝒜^(𝒢+1), and
 
-    ω_s1(S) − w⁰(S) = (ω_s1(S) − ω̄_s1(S)) + (η − g_(b_0))η⁻¹ω̄_s1(S) ∈ 𝒜^𝒢,
+    ω_s1(S) − w⁰(S) = (ω_s1(S) − ω̄_s1(S)) + (η − g_(b₀))η⁻¹ω̄_s1(S) ∈ 𝒜^𝒢,
 
-the second term because ω̄_s1(S) has constant Cartesian components and g_(b_0) − η ∈ |x|⁻²C^∞. With
-dχ_K ∈ ρ_+C^∞, ι_(g_(b_0)⁻¹dχ_K) with coefficients in ρ_+C^∞, D_(g_0)Ric ∈ ρ_+²Diff²_b and
-δ_(g_(b_0),E_Υ)G_(g_(b_0)) ∈ ρ_+Diff¹_b there (the proof of [[lem:iii-i4-2-2]]), [[eq:iii-i7-2-1]] follows. ∎
+the second term because ω̄_s1(S) has constant Cartesian components and g_(b₀) − η ∈ |x|⁻²C^∞. With
+dχ_K ∈ ρ_+C^∞, ι_(g_(b₀)⁻¹dχ_K) with coefficients in ρ_+C^∞, D_(g_0)Ric ∈ ρ_+²Diff²_b and
+δ_(g_(b₀),E_Υ)G_(g_(b₀)) ∈ ρ_+Diff¹_b there (the proof of [[lem:iii-i4-2-2]]), [[eq:iii-i7-2-1]] follows. ∎
 
 [Hin26, Lemma 11.38] has the index sets (1, 1) ∪ (1 + ℰ_ind) and (1, 0) ∪ (1 + ℰ_ind) for the metric terms, and its
 (11.140) needs the vanishing of a (3, 1)-coefficient; in dimension 4 + 1 there is no logarithm, and the translation
 raises h⁽⁰⁾_s1 from ι⁺-order 1 to order 3.
 
 **Definition {#def:iii-i7-2-3}** (The operator with the parameters; [Hin26, Definition 11.40] in dimension 4 + 1, in
-the form of its Remark 11.27.) For p⃗ = (S, b − b_0, S⁽⁰⁾_1) small and h ∈ 𝒳^∞ with small 𝒳^d-norm, with g_0 := g_p⃗,
+the form of its Remark 11.27.) For p⃗ = (S, b − b₀, S⁽⁰⁾_1) small and h ∈ 𝒳^∞ with small 𝒳^d-norm, with g_0 := g_p⃗,
 
-    h_tot(p⃗) := h^(−1)(S) + h⁽⁰⁾(b − b_0) + h⁽⁰⁾_s1(S⁽⁰⁾_1),
-    ϑ_tot(p⃗) := ϑ_♯(S) + ϑ⁽⁰⁾_♯(b − b_0) + ϑ⁽⁰⁾_(s1,♯)(S⁽⁰⁾_1),
+    h_tot(p⃗) := h^(−1)(S) + h⁽⁰⁾(b − b₀) + h⁽⁰⁾_s1(S⁽⁰⁾_1),
+    ϑ_tot(p⃗) := ϑ_♯(S) + ϑ⁽⁰⁾_♯(b − b₀) + ϑ⁽⁰⁾_(s1,♯)(S⁽⁰⁾_1),
 
 g′ := g_0 + h_tot(p⃗) + h, and
 
     P_2(h, p⃗) := Ric(g′) − δ*_(g_0,E_C)(Υ^(E_Υ)(g′, g_0) − ϑ_tot(p⃗)),                                  {#eq:iii-i7-2-2}
 
-and L_(h,p⃗) := D_hP_2(·, p⃗) at h. P_2(h, (S, 0, 0)) = P_1(h, S, b_0) ([[eq:iii-i4-2-2]]) and P_2(0, 0) = 0.
+and L_(h,p⃗) := D_hP_2(·, p⃗) at h. P_2(h, (S, 0, 0)) = P_1(h, S, b₀) ([[eq:iii-i4-2-2]]) and P_2(0, 0) = 0.
 
 *Sizes.* [Hin26, Remark 11.36] accepts metric terms of size O(ρ_+) and gauge terms of size O(ρ_+²). In dimension 4 + 1
 the metric terms lie in 𝒜^𝒢 ⊂ 𝒳 (by [[eq:iii-i7-1-2]]) and the gauge terms in 𝒜^(𝒢+1), which
@@ -287,25 +295,25 @@ the metric terms lie in 𝒜^𝒢 ⊂ 𝒳 (by [[eq:iii-i7-1-2]]) and the gauge 
 **Lemma {#lem:iii-i7-2-4}** (The parameter identities; [Hin26, (11.78b), (11.134b), (11.135b)] in dimension 4 + 1.)
 For Ṡ, Ṡ⁽⁰⁾ ∈ 𝒮_1 and ḃ ∈ 𝔟,
 
-    D_p⃗P_2(0, 0)(Ṡ, 0, 0) = L_(b_0)(χ_K h^(≤1)_♮(Ṡ)),    D_p⃗P_2(0, 0)(0, ḃ, 0) = L_(b_0)(χ_K ġ(ḃ)),
-    D_p⃗P_2(0, 0)(0, 0, Ṡ⁽⁰⁾) = L_(b_0)(χ_K h(Ṡ⁽⁰⁾)).                                                    {#eq:iii-i7-2-3}
+    D_p⃗P_2(0, 0)(Ṡ, 0, 0) = L_(b₀)(χ_K h^(≤1)_♮(Ṡ)),    D_p⃗P_2(0, 0)(0, ḃ, 0) = L_(b₀)(χ_K ġ(ḃ)),
+    D_p⃗P_2(0, 0)(0, 0, Ṡ⁽⁰⁾) = L_(b₀)(χ_K h(Ṡ⁽⁰⁾)).                                                    {#eq:iii-i7-2-3}
 
 All three are supported in 𝒞, and χ_K h^(≤1)_♮(Ṡ), χ_K ġ(ḃ) and χ_K h(Ṡ⁽⁰⁾), which vanish for t^♭_* < 10, are their
 forward solutions ([[prop:ii-e-3-4]]).
 
-*Proof.* The first is [[lem:iii-i4-2-4]], with its support statement in [[lem:iii-i4-3-2]], as P_2 = P_1(·, ·, b_0)
-where b = b_0 and S⁽⁰⁾_1 = 0. For the others: at p⃗ = 0, g′ = g_0 = g_(b_0) and
-Υ^(E_Υ)(g_(b_0), g_(b_0)) − ϑ_tot(0) = 0, so for a parameter direction with ġ_0 := ∂g_0, ġ′ := ∂g′ and
+*Proof.* The first is [[lem:iii-i4-2-4]], with its support statement in [[lem:iii-i4-3-2]], as P_2 = P_1(·, ·, b₀)
+where b = b₀ and S⁽⁰⁾_1 = 0. For the others: at p⃗ = 0, g′ = g_0 = g_(b₀) and
+Υ^(E_Υ)(g_(b₀), g_(b₀)) − ϑ_tot(0) = 0, so for a parameter direction with ġ_0 := ∂g_0, ġ′ := ∂g′ and
 ϑ̇ := ∂ϑ_tot, the derivative of δ*_(g_0,E_C) multiplies zero and, by (i),
 
-    DP_2 = D_(g_(b_0))Ric(ġ′) − δ*_(g_(b_0),E_C)(D_1Υ (ġ′ − ġ_0) − ϑ̇),
-    D_1Υ := D_1Υ^(E_Υ)(g_(b_0), g_(b_0)) = −δ_(g_(b_0),E_Υ)G_(g_(b_0))
+    DP_2 = D_(g_(b₀))Ric(ġ′) − δ*_(g_(b₀),E_C)(D_1Υ (ġ′ − ġ_0) − ϑ̇),
+    D_1Υ := D_1Υ^(E_Υ)(g_(b₀), g_(b₀)) = −δ_(g_(b₀),E_Υ)G_(g_(b₀))
 
-(the last by (ii)). We write δ*, δ_(E_Υ)G, δ*_(E_C) and DRic at g_(b_0). *The parameter b.* ġ_0 = χ_K ġ_(b_0)(ḃ), as
+(the last by (ii)). We write δ*, δ_(E_Υ)G, δ*_(E_C) and DRic at g_(b₀). *The parameter b.* ġ_0 = χ_K ġ_(b₀)(ḃ), as
 only χ_K g_b depends on b; ġ′ − ġ_0 = h⁽⁰⁾(ḃ) and ϑ̇ = ϑ⁽⁰⁾_♯(ḃ). By [[eq:s21-conv]],
 h⁽⁰⁾(ḃ) = χ_K δ*ω̇ − δ*(χ_K ω̇), so ġ′ = χ_K ġ(ḃ) − δ*(χ_K ω̇(ḃ)) and DRic(ġ′) = DRic(χ_K ġ(ḃ)) by (iii). And
 D_1Υ h⁽⁰⁾ − ϑ⁽⁰⁾_♯ = −δ_(E_Υ)Gh⁽⁰⁾ − ϑ⁽⁰⁾ + δ_(E_Υ)Gh⁽⁰⁾ = −ϑ⁽⁰⁾(ḃ). So DP_2 = DRic(χ_K ġ) + δ*_(E_C)ϑ⁽⁰⁾(ḃ); and
-as δ_(E_Υ)Gġ = 0, L_(b_0)(χ_K ġ) = DRic(χ_K ġ) + δ*_(E_C)[δ_(E_Υ)G, χ_K]ġ, the same. *The parameter S⁽⁰⁾_1.*
+as δ_(E_Υ)Gġ = 0, L_(b₀)(χ_K ġ) = DRic(χ_K ġ) + δ*_(E_C)[δ_(E_Υ)G, χ_K]ġ, the same. *The parameter S⁽⁰⁾_1.*
 ġ_0 = −(1 − χ_K)δ*(Θw⁰(Ṡ⁽⁰⁾)) (Translations, above), ġ′ − ġ_0 = h⁽⁰⁾_s1(Ṡ⁽⁰⁾) and ϑ̇ = ϑ⁽⁰⁾_(s1,♯)(Ṡ⁽⁰⁾). With
 [[eq:s21-conv]], −(1 − χ_K)δ*(Θw⁰) = −δ*((1 − χ_K)Θw⁰) − dχ_K ⊗_s Θw⁰ and
 −dχ_K ⊗_s ω_s1 = χ_K h(Ṡ⁽⁰⁾) − δ*(χ_K ω_s1), so
@@ -313,15 +321,15 @@ as δ_(E_Υ)Gġ = 0, L_(b_0)(χ_K ġ) = DRic(χ_K ġ) + δ*_(E_C)[δ_(E_Υ)G, χ
     ġ′ = χ_K h(Ṡ⁽⁰⁾) − δ*((1 − χ_K)Θw⁰(Ṡ⁽⁰⁾) + χ_K ω_s1(Ṡ⁽⁰⁾)),
 
 and DRic(ġ′) = DRic(χ_K h(Ṡ⁽⁰⁾)) by (iii). The gauge term is δ*_(E_C)ϑ⁽⁰⁾_s1(Ṡ⁽⁰⁾) as before, and
-δ_(E_Υ)Gh = 0 gives L_(b_0)(χ_K h). *Supports.* For k ∈ ker D_(g_(b_0))Ric, DRic(χ_K k) = [DRic, χ_K]k is supported in
+δ_(E_Υ)Gh = 0 gives L_(b₀)(χ_K h). *Supports.* For k ∈ ker D_(g_(b₀))Ric, DRic(χ_K k) = [DRic, χ_K]k is supported in
 𝒞, as are the ϑ's. ∎
 
 As in [Hin26], [[eq:iii-i7-2-3]] reads the late-time terms of [[eq:iii-i6-2-1]] as generated by changes of the
 parameters of the final black hole and of its centre, with no change of the initial state. At a base point with
-parameter b ≠ b_0 the identities acquire an error; this is [[lem:iii-i15-2-11]].
+parameter b ≠ b₀ the identities acquire an error; this is [[lem:iii-i15-2-11]].
 
 **Lemma {#lem:iii-i7-2-5}** (The linearisation in h; [Hin26, Definition 11.40, last paragraph] in dimension 4 + 1.)
-Let p⃗ = (S, b − b_0, S⁽⁰⁾_1), b ∈ ℬ̄_*, and h be small.
+Let p⃗ = (S, b − b₀, S⁽⁰⁾_1), b ∈ ℬ̄_*, and h be small.
 
 (a) h_tot(p⃗) ∈ 𝒳^∞, ‖h_tot(p⃗)‖_(𝒳^k) ≤ C_k|p⃗|, and L_(h,p⃗) = L^(g′,g_0) with g_0 = g_p⃗, g′ = g_0 + h′,
 h′ := h_tot(p⃗) + h.
@@ -352,7 +360,7 @@ argument for Ṡ. The constants are uniform in b by [[lem:iii-i15-1-1]] (P1) and
 
 ### The linearisation in the parameters {#sec:iii-i7-3}
 
-**Lemma {#lem:iii-i7-3-1}** ([Hin26, Lemma 11.41] in dimension 4 + 1.) Let p⃗ = (S, b − b_0, S⁽⁰⁾_1) be small,
+**Lemma {#lem:iii-i7-3-1}** ([Hin26, Lemma 11.41] in dimension 4 + 1.) Let p⃗ = (S, b − b₀, S⁽⁰⁾_1) be small,
 b ∈ ℬ̄_*, h ∈ 𝒳^k, k ≥ 5, with small 𝒳⁵-norm, ℰ̃_+ := 𝒢 ∪ (ℰ_+ + 𝒢) ([[eq:iii-i4-3-2]] with this 𝒢), and
 
     f^S_(h,p⃗)(S′) := D_p⃗P_2(h, p⃗)(S′, 0, 0),   f^b_(h,p⃗)(b′) := D_p⃗P_2(h, p⃗)(0, b′, 0),
@@ -361,7 +369,7 @@ b ∈ ℬ̄_*, h ∈ 𝒳^k, k ≥ 5, with small 𝒳⁵-norm, ℰ̃_+ := 𝒢 �
 (a) f^S_(h,p⃗)(S′) and f^s1_(h,p⃗)(S″) satisfy [[eq:iii-i4-3-3]] and the other statements of [[lem:iii-i4-3-2]]: they
 vanish on int χ_K⁻¹(1), and for t^♭_* < c, c ≤ 10, if h does.
 
-(b) f^b_(h,p⃗)(b′) is supported in supp χ_K (so it vanishes near 𝓘⁺ and for t^♭_* < 10), and for every ε > 0
+(b) f^b_(h,p⃗)(b′) is supported in supp χ_K (so it vanishes near ℐ⁺ and for t^♭_* < 10), and for every ε > 0
 
     f^b_(h,p⃗)(b′) ∈ H^(k−2,∞,(ℰ̃_++2,a_++4−ε),a_K)_b(Ω_*);                                              {#eq:iii-i7-3-1}
 
@@ -381,7 +389,7 @@ h_tot ∈ 𝒜^𝒢, ϑ_tot ∈ 𝒜^(𝒢+1) ([[lem:iii-i7-2-2]], [[lem:iii-i4-
 ([[lem:iii-i7-1-3]]), h⁽⁰⁾_s1(S″) ∈ 𝒜^(𝒢+1) ⊂ 𝒜^𝒢 in place of h^(−1)(S′), ϑ⁽⁰⁾_(s1,♯)(S″) ∈ 𝒜^(𝒢+2) ⊂ 𝒜^(𝒢+1) in
 place of ϑ_♯(S′), and, in the third count, the definition of ϑ⁽⁰⁾_(s1,♯) in place of that of ϑ_♯:
 
-    D_1Υ(g′, g_0)h⁽⁰⁾_s1(S″) − ϑ⁽⁰⁾_(s1,♯)(S″) = [D_1Υ(g′, g_0) − D_1Υ(g_(b_0), g_(b_0))]h⁽⁰⁾_s1(S″) − ϑ⁽⁰⁾_s1(S″).
+    D_1Υ(g′, g_0)h⁽⁰⁾_s1(S″) − ϑ⁽⁰⁾_(s1,♯)(S″) = [D_1Υ(g′, g_0) − D_1Υ(g_(b₀), g_(b₀))]h⁽⁰⁾_s1(S″) − ϑ⁽⁰⁾_s1(S″).
 
 On U_K, P_2 does not depend on S⁽⁰⁾_1, and on U_I, L̇_s := ∂_(S⁽⁰⁾_1)[L^(g_p⃗+sh,g_p⃗)](S″) with
 [[lem:iii-i4-3-1]].
@@ -413,26 +421,26 @@ the K⁺-order 5 of ϑ^((0,1))_s1; in dimension 4 + 1 no splitting is made, the 
 
 ### The parameter identities at a general base point {#sec:iii-i15-2-8}
 
-[[lem:iii-i7-2-4]] is exact at the reference point (0, 0) only. At (0, p⃗_b), p⃗_b := (0, b − b_0, 0), the background
-is G := g_(b_0,b,0) = (1 − χ_K)g_(b_0) + χ_K g_b ([[eq:iii-i7-1-3]]), while the corrections of the first and second
-kind and their counterterms, among them h⁽⁰⁾(ḃ) = −dχ_K ⊗_s ω̇_(b_0)(ḃ), are built at b_0 ([[lem:iii-i15-1-1]] (P6)).
+[[lem:iii-i7-2-4]] is exact at the reference point (0, 0) only. At (0, p⃗_b), p⃗_b := (0, b − b₀, 0), the background
+is G := g_(b₀,b,0) = (1 − χ_K)g_(b₀) + χ_K g_b ([[eq:iii-i7-1-3]]), while the corrections of the first and second
+kind and their counterterms, among them h⁽⁰⁾(ḃ) = −dχ_K ⊗_s ω̇_(b₀)(ḃ), are built at b₀ ([[lem:iii-i15-1-1]] (P6)).
 So each parameter identity acquires an error, as the boost identity does in [[lem:iii-i15-2-7]]. The maps of the
 elimination in [[sec:iii-i7-4]], and the base step of [[prop:iii-i8-4-1]], are then inverted at b by a direct bound
 ([[prop:iii-i15-2-12]]) rather than by continuity from (0, 0).
 
-**Lemma {#lem:iii-i15-2-11}** (The parameter identities at b.) Let b ∈ ℬ̄_*, p⃗_b := (0, b − b_0, 0), and
+**Lemma {#lem:iii-i15-2-11}** (The parameter identities at b.) Let b ∈ ℬ̄_*, p⃗_b := (0, b − b₀, 0), and
 L_(0,p⃗_b) := D_hP_2(0, p⃗_b). For Ṡ, Ṡ⁽⁰⁾ ∈ 𝒮_1 and ḃ ∈ 𝔟,
 
     D_p⃗P_2(0, p⃗_b)(Ṡ, ḃ, Ṡ⁽⁰⁾) = L_(0,p⃗_b)(χ_K(h^(≤1)_(b,♮)(Ṡ) + ġ_b(ḃ) + h_b(Ṡ⁽⁰⁾)))
                                   + E^mot_b(Ṡ, ḃ, Ṡ⁽⁰⁾),                                             {#eq:iii-i15-2-7}
 
-where E^mot_b is linear, supported in 𝒞, vanishes at b = b_0, and, near (ι⁺)°, lies in 𝒜^(𝒢+2−δ) for every δ > 0
-(𝒢 = (2, 0) ∪ (2 + ℰ_ind)), with seminorms O(|b − b_0||(Ṡ, ḃ, Ṡ⁽⁰⁾)|) uniformly on ℬ̄_*. So E^mot_b lies in the class
-𝒴 of [[sec:iii-i7-1]] with norm O(|b − b_0|). The tensors χ_K h^(≤1)_(b,♮)(Ṡ), χ_K ġ_b(ḃ) and χ_K h_b(Ṡ⁽⁰⁾) vanish
+where E^mot_b is linear, supported in 𝒞, vanishes at b = b₀, and, near (ι⁺)°, lies in 𝒜^(𝒢+2−δ) for every δ > 0
+(𝒢 = (2, 0) ∪ (2 + ℰ_ind)), with seminorms O(|b − b₀||(Ṡ, ḃ, Ṡ⁽⁰⁾)|) uniformly on ℬ̄_*. So E^mot_b lies in the class
+𝒴 of [[sec:iii-i7-1]] with norm O(|b − b₀|). The tensors χ_K h^(≤1)_(b,♮)(Ṡ), χ_K ġ_b(ḃ) and χ_K h_b(Ṡ⁽⁰⁾) vanish
 for t^♭_* < 10; the first has the form [[eq:iii-i4-4-1]] with boost parameter Ṡ and ũ = 0, and the sum of the other
 two the form [[eq:iii-i6-2-1]] at b with parameters (ḃ, Ṡ⁽⁰⁾) and ũ = 0 ([[lem:iii-i15-1-1]] (P3)).
 
-*Proof.* *Support.* By [[eq:iii-i7-1-3]], in the interior of χ_K⁻¹(0) the background g_0 is a translate of g_(b_0) and
+*Proof.* *Support.* By [[eq:iii-i7-1-3]], in the interior of χ_K⁻¹(0) the background g_0 is a translate of g_(b₀) and
 does not depend on b, and in the interior of χ_K⁻¹(1) it is g_b and does not depend on S or S⁽⁰⁾_1. The corrections of
 the first and second kind and their counterterms are supported in 𝒞 ([[lem:iii-i4-2-2]], [[lem:iii-i7-2-2]]). So on
 the first set g′ = g_0 is Ricci flat and Υ^(E_Υ)(g_0, g_0) = 0 for every p⃗ near p⃗_b, and on the second g′ = g_0 =
@@ -440,16 +448,16 @@ g_(b′), with b′ the parameter of p⃗, again Ricci flat with Υ^(E_Υ)(g_0, 
 every p⃗ near p⃗_b, and D_p⃗P_2(0, p⃗_b) = 0 there. The first term on the right of [[eq:iii-i15-2-7]] vanishes on both
 sets too: trivially on the first, and on the second it is L_b of h^(≤1)_(b,♮), ġ_b and h_b, which lie in ker L_b (the
 proof of [[lem:iii-i15-2-7]] for the first; the others span the nullspace of L̂_b(0) and are stationary). So E^mot_b is
-supported in 𝒞. *At b_0.* p⃗_(b_0) = 0, L_(0,0) = L_(b_0), and the states at b_0 are those of [[lem:iii-i7-2-4]], so
-E^mot_(b_0) = 0 is [[eq:iii-i7-2-3]]. *Size.* Every term of E^mot_b is linear in the direction and a smooth function of
-b on 𝒞. Its ingredients are: G − g_(b_0) = χ_K(g_b − g_(b_0)) ∈ |b − b_0|ρ_+²C^∞ near (ι⁺)° (on 𝒞, |x| ≥ t/10, and
-g_b − g_(b_0) = O(|b − b_0||x|⁻²) with all Cartesian derivatives, [[sec:iii-b-3]]); the states h^(≤1)_(b,♮), ġ_b and
+supported in 𝒞. *At b₀.* p⃗_(b₀) = 0, L_(0,0) = L_(b₀), and the states at b₀ are those of [[lem:iii-i7-2-4]], so
+E^mot_(b₀) = 0 is [[eq:iii-i7-2-3]]. *Size.* Every term of E^mot_b is linear in the direction and a smooth function of
+b on 𝒞. Its ingredients are: G − g_(b₀) = χ_K(g_b − g_(b₀)) ∈ |b − b₀|ρ_+²C^∞ near (ι⁺)° (on 𝒞, |x| ≥ t/10, and
+g_b − g_(b₀) = O(|b − b₀||x|⁻²) with all Cartesian derivatives, [[sec:iii-b-3]]); the states h^(≤1)_(b,♮), ġ_b and
 h_b, smooth in b in 𝒜^(𝒢−δ) there ([[lem:iii-i15-1-1]] (P3), with the loss of [[rem:iii-h-2-6]], (P4); on 𝒞,
 |x| ≥ t/10, and the stationary states are O(|x|⁻²) with all Cartesian derivatives); the corrections and counterterms
-built at b_0; and the values at p⃗_b of g′ − g_0 and of Υ^(E_Υ)(g′, g_0) − ϑ_tot, which are O(|b − b_0|) and supported
-in 𝒞, the corrections of the second kind being linear in b − b_0. The count of the proof of [[lem:iii-i4-2-2]], that
+built at b₀; and the values at p⃗_b of g′ − g_0 and of Υ^(E_Υ)(g′, g_0) − ϑ_tot, which are O(|b − b₀|) and supported
+in 𝒞, the corrections of the second kind being linear in b − b₀. The count of the proof of [[lem:iii-i4-2-2]], that
 D_(g_0)Ric and δ*δG lie in ρ_+²Diff²_b near (ι⁺)°, takes 𝒜^(𝒢−δ) into 𝒜^(𝒢+2−δ), uniformly for b ∈ ℬ̄_*. So ∂_bE^mot_b
-is bounded there by C times the size of the direction, and the mean value theorem along the segment from b_0 to b,
+is bounded there by C times the size of the direction, and the mean value theorem along the segment from b₀ to b,
 which lies in the ball ℬ̄_*, gives the bound. ∎
 
 The Ṡ-part of E^mot_b is the analogue for P_2 of the error E^S_b of [[lem:iii-i15-2-7]]; it differs from it by the
@@ -458,7 +466,7 @@ S-derivative of the corrections of the second kind at p⃗_b, which has the same
 ### Elimination of the parameters {#sec:iii-i7-4}
 
 This section is [Hin26, Definitions 11.42, 11.44, Lemmas 11.43, 11.45, Corollary 11.46] in dimension 4 + 1, at every
-base point near b_0. Let (h, p⃗) be as in [[lem:iii-i7-2-5]], with parameter b ∈ ℬ̄_*, and f ∈ 𝒴. Write Ṡ_(h,p⃗)(f) for
+base point near b₀. Let (h, p⃗) be as in [[lem:iii-i7-2-5]], with parameter b ∈ ℬ̄_*, and f ∈ 𝒴. Write Ṡ_(h,p⃗)(f) for
 the boost parameter of [[prop:iii-i4-4-1]] (1) for L_(h,p⃗), read at b with the leading term built at b
 ([[prop:iii-i15-2-8]]): 𝒴 lies in its space of forcings for every α ∈ (1, min(a_K − 1, 3/2)) and α_+ ∈ (α, 2), and
 Ṡ is determined by the forward solution, as the coefficient of t_* at K⁺ (S ↦ h_b(S) being injective,
@@ -482,18 +490,18 @@ Then u_j − u is the forward solution of
 
 (a) Fix α ∈ (1, min(a_K − 1, 3/2)), α_+ ∈ (α, 2) and β_+ ∈ (1, min(α_+, 3/2, min Re ℰ_+)). By [[prop:iii-i4-4-1]] (1)
 for L_j ([[lem:iii-i7-2-5]] (b)), u_j = χ_K h^(≤1)_(b,♮)(Ṡ_j) + ũ_j, bounded uniformly in j ([[lem:iii-i7-2-5]] (c));
-χ_K h^(≤1)_(b,♮)(Ṡ_j) vanishes near 𝓘⁺, has K⁺-weight −1 − ε and is of ι⁺-order 2 (h^(≤1)_(b,♮) ∈ 𝒜^𝒢 near (ι⁺)°,
+χ_K h^(≤1)_(b,♮)(Ṡ_j) vanishes near ℐ⁺, has K⁺-weight −1 − ε and is of ι⁺-order 2 (h^(≤1)_(b,♮) ∈ 𝒜^𝒢 near (ι⁺)°,
 up to the loss of [[rem:iii-h-2-6]], as in the proof of [[lem:iii-i4-1-2]]), and
 ũ_j ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2)_b. L_j − L_0 has coefficients of the class [[eq:iii-i-3-6]] with norms
 O(‖h_j‖ + |p⃗_j − p⃗_b|) ([[lem:iii-i7-2-5]] (a), [[lem:iii-i7-1-3]] (b)), so by [[eq:iii-i-4-2]]
 (3/2 < ℓ_I < a_I + 1/2) (L_j − L_0)u_j → 0 in the space of forcings of [[prop:iii-i4-4-1]] (1) for (α, α_+): the
 K⁺-weights −1 − ε + a_K and α − 2 + a_K exceed α (α < a_K − 1); the ι⁺-weights ℓ_+ + 2 + m_+ − ε and
 β_+ + 2 + m_+ − ε exceed α_+ + 2, the order-2 term being counted at ℓ_+ := min(2 − ε, max(a_+, min Re ℰ_+)) > 1 to
-meet the hypothesis ℓ_+ ≤ max(a_+, min Re ℰ_+) of [[eq:iii-i-4-2]] (m_+ > 1, β_+ > 1, α_+ < 2); and the 𝓘⁺-data are
+meet the hypothesis ℓ_+ ≤ max(a_+, min Re ℰ_+) of [[eq:iii-i-4-2]] (m_+ > 1, β_+ > 1, α_+ < 2); and the ℐ⁺-data are
 (⟨ℰ^C_I+1⟩′, ℓ_I + 1). So R_j → 0 there. By [[prop:iii-i4-4-1]] (1) for L_0,
 u_j − u = χ_K h^(≤1)_(b,♮)(Ṡ_(0,p⃗_b)(R_j)) + ũ_(R_j) with ũ_(R_j) of K⁺-weight α − 2 > −1; also
 u_j − u = χ_K h^(≤1)_(b,♮)(Ṡ_j − Ṡ_(0,p⃗_b)(F)) + (ũ_j − ũ). A K⁺-weight above −1 forces the coefficient of t_* to
-vanish, and S ↦ h_b(S) is injective ([[prop:iii-f3-4-1]] (1) at b_0, [[lem:iii-i15-1-2]] at b), so
+vanish, and S ↦ h_b(S) is injective ([[prop:iii-f3-4-1]] (1) at b₀, [[lem:iii-i15-1-2]] at b), so
 Ṡ_j − Ṡ_(0,p⃗_b)(F) = Ṡ_(0,p⃗_b)(R_j) → 0.
 
 (b) Now [[prop:iii-i6-2-1]] for L_j gives u_j = χ_K ġ_b(ḃ_j) + χ_K h_b(Ṡ⁽⁰⁾_j) + ũ_j, bounded uniformly
@@ -533,11 +541,11 @@ choice of the boost and M_(h,p⃗) = ṗ^(=0)_(h,p⃗)(0, ·).)
 
 **Proposition {#prop:iii-i15-2-12}** (The elimination maps at b; [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and
 [[cor:iii-i7-4-6]] at b.) Let (h, p⃗) be as in [[lem:iii-i7-2-5]], with parameter b ∈ ℬ̄_*. There are C and a
-smallness of (h, p⃗ − p⃗_b), uniform on ℬ̄_*, with |S^(−1)_(h,p⃗) − id| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|); after
+smallness of (h, p⃗ − p⃗_b), uniform on ℬ̄_*, with |S^(−1)_(h,p⃗) − id| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|); after
 shrinking ℬ_* and that smallness, S^(−1)_(h,p⃗) is invertible with inverse of norm at most 2, the map
-A_(h,p⃗) := p⃗′^(<0)_(h,p⃗)(0, ·) satisfies |A_(h,p⃗)| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|), and
+A_(h,p⃗) := p⃗′^(<0)_(h,p⃗)(0, ·) satisfies |A_(h,p⃗)| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|), and
 
-    |S^(−1)_(h,p⃗) − id| + |M_(h,p⃗) + id| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|).                          {#eq:iii-i15-2-8}
+    |S^(−1)_(h,p⃗) − id| + |M_(h,p⃗) + id| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|).                          {#eq:iii-i15-2-8}
 
 So, after shrinking ℬ_* and the smallness of (h, p⃗ − p⃗_b) once more, both maps are invertible with inverses of norm
 at most 2, and [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and [[cor:iii-i7-4-6]] hold at b, with constants uniform in b.
@@ -575,17 +583,17 @@ Hence
     S^(−1)_(h,p⃗)(S′) − S′ = Ṡ_(h,p⃗)(f^S_(h,p⃗)(S′) − f^S_(0,p⃗_b)(S′)) + (Ṡ_(h,p⃗) − Ṡ_(0,p⃗_b))(f^S_(0,p⃗_b)(S′))
                             + Ṡ_(0,p⃗_b)(E^mot_b(S′, 0, 0)),
 
-and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|)|S′|.
+and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S′|.
 
 *The reduced map.* At (0, p⃗_b), [[eq:s21-boost-choice]] gives
 S′_0 := A_(0,p⃗_b)p⃗′^(=0) = −(S^(−1)_(0,p⃗_b))⁻¹Ṡ_(0,p⃗_b)(f^(=0)_(0,p⃗_b)(b′, S″)). By [[eq:iii-i15-2-7]],
 χ_K(ġ_b(b′) + h_b(S″)) is the forward solution of L_(0,p⃗_b)u = f^(=0)_(0,p⃗_b)(b′, S″) − E^mot_b(0, b′, S″); it has
 K⁺-weight −ε > −1, so no boost term, and Q_(0,p⃗_b) of that forcing is (b′, S″). So
-Ṡ_(0,p⃗_b)(f^(=0)_(0,p⃗_b)(b′, S″)) = Ṡ_(0,p⃗_b)(E^mot_b(0, b′, S″)), |S′_0| ≤ C|b − b_0||p⃗′^(=0)|, and
+Ṡ_(0,p⃗_b)(f^(=0)_(0,p⃗_b)(b′, S″)) = Ṡ_(0,p⃗_b)(E^mot_b(0, b′, S″)), |S′_0| ≤ C|b − b₀||p⃗′^(=0)|, and
 
     M_(0,p⃗_b)(p⃗′^(=0)) = −p⃗′^(=0) − Q_(0,p⃗_b)(E^mot_b(0, b′, S″) + f^S_(0,p⃗_b)(S′_0)),
 
-whence |M_(0,p⃗_b) + id| ≤ C|b − b_0|. For (h, p⃗) near (0, p⃗_b), M_(h,p⃗)(p⃗′^(=0)) = Q_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) with
+whence |M_(0,p⃗_b) + id| ≤ C|b − b₀|. For (h, p⃗) near (0, p⃗_b), M_(h,p⃗)(p⃗′^(=0)) = Q_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) with
 Ṡ_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) = 0, and likewise at (0, p⃗_b). So (2), for the pair (F_(h,p⃗), F_(0,p⃗_b)), bounds
 M_(h,p⃗) − M_(0,p⃗_b) by C‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0); and (1) bounds
 ‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through [[eq:s21-boost-choice]], (1), (2)
@@ -601,18 +609,18 @@ S′ =: p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0)) ∈ 𝒮_1 such that the forward 
 
 has vanishing boost parameter. It is linear in (f, p⃗′^(=0)), the forcing of [[eq:iii-i7-4-2]] lies in 𝒴, and
 p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0)) = p⃗′^(<0)_(h,p⃗)(f, 0) + A_(h,p⃗)p⃗′^(=0), with
-|A_(h,p⃗)| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|) in ℒ(𝔟 ⊕ 𝒮_1, 𝒮_1); at b = b_0, A_(h,p⃗) → 0 as (h, p⃗) → 0.
+|A_(h,p⃗)| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) in ℒ(𝔟 ⊕ 𝒮_1, 𝒮_1); at b = b₀, A_(h,p⃗) → 0 as (h, p⃗) → 0.
 
-*Proof.* By [[lem:iii-i7-3-1]] and ℓ_I ≤ a_I, f^S_(h,p⃗)(S′) and f^s1_(h,p⃗)(S″) lie in 𝒴 (𝓘⁺-data
+*Proof.* By [[lem:iii-i7-3-1]] and ℓ_I ≤ a_I, f^S_(h,p⃗)(S′) and f^s1_(h,p⃗)(S″) lie in 𝒴 (ℐ⁺-data
 (⟨ℰ^C_I+1⟩′, a_I + 1), ι⁺-weight a_+ + 2 + min(2, m_+) − ε > 4 − ε, zero near K⁺), and so does f^b_(h,p⃗)(b′) (zero
-near 𝓘⁺, ι⁺-weight a_+ + 4 − ε, K⁺-weight a_K > α_K); all are real. By linearity the boost parameter of the forward
+near ℐ⁺, ι⁺-weight a_+ + 4 − ε, K⁺-weight a_K > α_K); all are real. By linearity the boost parameter of the forward
 solution of [[eq:iii-i7-4-2]] is Ṡ_(h,p⃗)(f) − S^(−1)_(h,p⃗)(S′) − Ṡ_(h,p⃗)(f^(=0)_(h,p⃗)(p⃗′^(=0))). By
 [[prop:iii-i15-2-12]], S^(−1)_(h,p⃗) is invertible, so it vanishes exactly for S′ given by [[eq:s21-boost-choice]],
 which is linear in (f, p⃗′^(=0)); the last claim is the bound on A_(h,p⃗) of [[prop:iii-i15-2-12]]. ∎
 
 At (0, 0) the boost map is the identity, S^(−1)_(0,0)(S′) = S′: the forward solution χ_K h^(≤1)_♮(S′) of
-L_(b_0)u = f^S_(0,0)(S′) ([[lem:iii-i7-2-4]]) has the form [[eq:iii-i4-4-1]] with ũ = 0. And A_(0,0) = 0: the forward
-solution of L_(b_0)u = f^(=0)_(0,0)(b′, S″) is χ_K(ġ(b′) + h(S″)), of K⁺-weight −ε > −1, so it has no boost term.
+L_(b₀)u = f^S_(0,0)(S′) ([[lem:iii-i7-2-4]]) has the form [[eq:iii-i4-4-1]] with ũ = 0. And A_(0,0) = 0: the forward
+solution of L_(b₀)u = f^(=0)_(0,0)(b′, S″) is χ_K(ġ(b′) + h(S″)), of K⁺-weight −ε > −1, so it has no boost term.
 
 **Definition {#def:iii-i7-4-4}** ([Hin26, Definition 11.44] in dimension 4 + 1.) For f ∈ 𝒴 and p⃗′^(=0), let
 ṗ^(=0)_(h,p⃗)(f, p⃗′^(=0)) := Q_(h,p⃗)(F), F the forcing of [[eq:iii-i7-4-2]] with S′ = p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0)): the
@@ -620,11 +628,11 @@ parameters (ḃ, Ṡ⁽⁰⁾_1) of [[eq:iii-i6-2-1]] for the forward solution o
 ṗ^(=0)_(h,p⃗) are linear in (f, p⃗′^(=0)), and ṗ^(=0)_(h,p⃗)(0, ·) = M_(h,p⃗).
 
 **Lemma {#lem:iii-i7-4-5}** ([Hin26, Lemma 11.45] in dimension 4 + 1.) For (h, p⃗) small as in [[prop:iii-i15-2-12]],
-with parameter b ∈ ℬ̄_*, the map p⃗′^(=0) ↦ ṗ^(=0)_(h,p⃗)(0, p⃗′^(=0)) is within C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|) of
+with parameter b ∈ ℬ̄_*, the map p⃗′^(=0) ↦ ṗ^(=0)_(h,p⃗)(0, p⃗′^(=0)) is within C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) of
 −id on 𝔟 ⊕ 𝒮_1, hence invertible, with inverse of norm at most 2. At (h, p⃗) = (0, 0) it is −id.
 
 *Proof.* The map is M_(h,p⃗), and the bound is [[eq:iii-i15-2-8]]. At (0, 0), A_(0,0) = 0, and the forward solution of
-L_(b_0)u = −f^(=0)_(0,0)(b′, S″) is −χ_K(ġ(b′) + h(S″)) ([[lem:iii-i7-2-4]]), which has the form [[eq:iii-i6-2-1]] with
+L_(b₀)u = −f^(=0)_(0,0)(b′, S″) is −χ_K(ġ(b′) + h(S″)) ([[lem:iii-i7-2-4]]), which has the form [[eq:iii-i6-2-1]] with
 ũ = 0; so ṗ^(=0)_(0,0)(0, p⃗′^(=0)) = −p⃗′^(=0). ∎
 
 [Hin26, Lemma 11.45] says "close to the identity": its proof solves with +D_((h,p⃗))P(0, 0, p⃗′^(=0)), while its
@@ -665,7 +673,7 @@ on the K⁺-rate α: at each level the forward solution is expanded into finitel
 
 Everything of [[sec:iii-i7-1]] is kept: 𝔟, ℰ_ind with [[eq:iii-i7-1-1]]–[[eq:iii-i7-1-2]], 𝒢, ℓ_I with ℓ_I ≤ a_I, the
 translated background [[eq:iii-i7-1-3]], the cut-offs, 𝒞, Θ, the conventions [[eq:s21-conv]] and the identities
-(i)–(iii). ℰ_ind is enlarged to contain also the index sets of [[prop:iii-d3-3-1]] (2) at b_0 (those of the 1-forms ω̆^i
+(i)–(iii). ℰ_ind is enlarged to contain also the index sets of [[prop:iii-d3-3-1]] (2) at b₀ (those of the 1-forms ω̆^i
 of [[sec:iii-i8-2]]); everything of [[sec:iii-i7-1]]–[[sec:iii-i7-4]] holds with the enlarged set, which only
 strengthens the conditions on ℰ_+ there. ℰ^ι_ind is the index set of [[eq:iii-g2-4-4]], and ℰ^♯_+ is the set of
 [[eq:iii-i1-3-2]] with Ĕ_+ = ∅, as in [[prop:iii-i5-2-1]]; min Re ℰ^♯_+ = λ_♯ = 3/2 + (1 − e_Υ)γ_Υ. Fix an index set
@@ -693,28 +701,28 @@ being real and discrete. ℳ_(α_0) = ∅ for α_0 < λ_♯ + 1.
 
 *Forcings.* For α ∈ (2, 3) let 𝒴_1(α) := ⋂_ε H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),4−ε,α)_b(Ω_*; S²T*)^(•,−) (the class 𝒴 of
 [[sec:iii-i7-1]] with α for α_K), let 𝒴_2(α) be the sections supported in supp χ^♯_K ([[eq:iii-i-1-2]]; so
-vanishing near 𝓘⁺ and for t^♭_* < 10) lying in ⋂_ε H^(∞,∞,(ℰ_+++2,4−ε),α)_b, and 𝒴(α) := 𝒴_1(α) + 𝒴_2(α), real
+vanishing near ℐ⁺ and for t^♭_* < 10) lying in ⋂_ε H^(∞,∞,(ℰ_+++2,4−ε),α)_b, and 𝒴(α) := 𝒴_1(α) + 𝒴_2(α), real
 sections ([Hin26, (11.155)] in dimension 4 + 1). "h small" means as in [[sec:iii-i7-1]]. The base points have
 parameter b ∈ ℬ̄_*, as throughout.
 
 ### Corrections of the third kind and the operator {#sec:iii-i8-2}
 
-*Generalised gauge 1-forms.* By [[prop:iii-d3-3-1]] (2) at b_0, for S ∈ 𝒮_1 there are stationary 1-forms
-ω̆^i(S) := ω̆^((0),i)_(b_0,s1)(S), i = 0, …, 4, linear in S, with ω̆⁰ = ω_s1, ω̆¹ = ω̆ ([[sec:iii-i4-1]]),
+*Generalised gauge 1-forms.* By [[prop:iii-d3-3-1]] (2) at b₀, for S ∈ 𝒮_1 there are stationary 1-forms
+ω̆^i(S) := ω̆^((0),i)_(b₀,s1)(S), i = 0, …, 4, linear in S, with ω̆⁰ = ω_s1, ω̆¹ = ω̆ ([[sec:iii-i4-1]]),
 ω̆^i ∈ 𝒜^((−i,0)∪(−i+ℰ_ind)) for i = 2, 3, 4, and
 
-    ω^(≤k) = Σ_(i≤k) (k!/(k − i)!) t_*^(k−i) ω̆^i ∈ ker □^Υ_(b_0)   for k ≤ 4,
+    ω^(≤k) = Σ_(i≤k) (k!/(k − i)!) t_*^(k−i) ω̆^i ∈ ker □^Υ_(b₀)   for k ≤ 4,
 
-with □^Υ_(b_0) = 2δ_(g_(b_0),E_Υ)G_(g_(b_0))δ*_(g_(b_0)) ([[eq:iii-d3-1-3]]). For a function a of t_* put
+with □^Υ_(b₀) = 2δ_(g_(b₀),E_Υ)G_(g_(b₀))δ*_(g_(b₀)) ([[eq:iii-d3-1-3]]). For a function a of t_* put
 ω^(≤4)(aS) := Σ_(i=0)^4 a^((i))(t_*)ω̆^i(S), so that ω^(≤4)(t_*^k S) = ω^(≤k)(S) for k ≤ 4.
 
 **Definition {#def:iii-i8-2-1}** (Corrections of the third kind; [Hin26, Definition 11.47] in dimension 4 + 1.) For
 (λ, k) ∈ ℳ let a_(λ,k)(t_*) := t_*^(−λ+1)(log t_*)^k (on Ω_*, where t_* ≥ 1), and for S ∈ 𝒮_(1,ℂ)
 
-    m_(λ,k)(S) := χ_K δ*_(g_(b_0)) ω^(≤4)(a_(λ,k)S),
-    h^((λ−1,k))_s1(S) := −[δ*_(g_(b_0)), χ_K] ω^(≤4)(a_(λ,k)S) = −dχ_K ⊗_s ω^(≤4)(a_(λ,k)S),
-    ϑ^((λ−1,k))_s1(S) := δ_(g_(b_0),E_Υ)G_(g_(b_0)) m_(λ,k)(S),
-    ϑ^((λ−1,k))_(s1,♯) := ϑ^((λ−1,k))_s1 − δ_(g_(b_0),E_Υ)G_(g_(b_0)) h^((λ−1,k))_s1,
+    m_(λ,k)(S) := χ_K δ*_(g_(b₀)) ω^(≤4)(a_(λ,k)S),
+    h^((λ−1,k))_s1(S) := −[δ*_(g_(b₀)), χ_K] ω^(≤4)(a_(λ,k)S) = −dχ_K ⊗_s ω^(≤4)(a_(λ,k)S),
+    ϑ^((λ−1,k))_s1(S) := δ_(g_(b₀),E_Υ)G_(g_(b₀)) m_(λ,k)(S),
+    ϑ^((λ−1,k))_(s1,♯) := ϑ^((λ−1,k))_s1 − δ_(g_(b₀),E_Υ)G_(g_(b₀)) h^((λ−1,k))_s1,
 
 the last the counterterm of [Hin26, Remark 11.27], as in [[def:iii-i4-2-1]] and [[def:iii-i7-2-1]]. m_(λ,k)(S) is the
 cut-off centre-of-mass motion, the tensor of [Hin26, (11.181)].
@@ -722,7 +730,7 @@ cut-off centre-of-mass motion, the tensor of [Hin26, (11.181)].
 **Lemma {#lem:iii-i8-2-2}** ([Hin26, (11.152a)–(11.152b)] in dimension 4 + 1.) Let (λ, k) ∈ ℳ and a := a_(λ,k).
 There are stationary operators A_1, A_2 with
 
-    □^Υ_(b_0) ω^(≤4)(aS) = a^((5))(A_1ω̆⁴ + A_2ω̆³) + a^((6))A_2ω̆⁴.                                     {#eq:iii-i8-2-1}
+    □^Υ_(b₀) ω^(≤4)(aS) = a^((5))(A_1ω̆⁴ + A_2ω̆³) + a^((6))A_2ω̆⁴.                                     {#eq:iii-i8-2-1}
 
 Near (ι⁺)°, with ℱ := (0, 0) ∪ ℰ_ind: ω^(≤4)(aS) ∈ 𝒜^((λ−1,k)+ℱ), m_(λ,k)(S) ∈ 𝒜^((λ,k)+ℱ),
 h^((λ−1,k))_s1(S) ∈ 𝒜^((λ,k)+ℱ), ϑ^((λ−1,k))_s1(S), ϑ^((λ−1,k))_(s1,♯)(S) ∈ 𝒜^((λ+1,k)+ℱ) and
@@ -734,25 +742,25 @@ Finally
 
 All seminorms are O(|S|).
 
-*Proof.* [[eq:iii-i8-2-1]]: □ := □^Υ_(b_0) is stationary and of second order in ∂_(t_*), so
+*Proof.* [[eq:iii-i8-2-1]]: □ := □^Υ_(b₀) is stationary and of second order in ∂_(t_*), so
 □(φ(t_*)v) = Σ_(m=0)^2 φ^((m))A_mv for stationary v, with stationary A_m. Hence □ω^(≤4)(aS) = Σ_(j≤6) a^((j))B_j,
 B_j := Σ_m A_mω̆^(j−m) (ω̆^i := 0 for i < 0 or i > 4). With a = t_*^k, k ≤ 4, this is □ω^(≤k) = 0, whose
 t_*⁰-coefficient is k!B_k; so B_j = 0 for j ≤ 4, and B_5 = A_1ω̆⁴ + A_2ω̆³, B_6 = A_2ω̆⁴. *Orders.* Near (ι⁺)°,
 |x| ∼ t_* ∼ ρ_+⁻¹, so ω̆^i ∈ 𝒜^((−i,0)+ℱ) there (for i = 0, 1 by [[sec:iii-i4-1]]: ω_s1 − ω̄_s1 ∈ 𝒜^𝒢 with ω̄_s1 of
 constant Cartesian components, and ω̆ − ω̆̄_s1 ∈ 𝒜^((1,0)+ℰ_ind) with ω̆̄_s1 homogeneous of degree 1), and
-a^((i)) ∈ 𝒜^((λ−1+i,k)); so each term of ω^(≤4)(aS) lies in 𝒜^((λ−1,k)+ℱ). δ*_(g_(b_0)), D_(g_0)Ric and
-δ_(g_(b_0),E_Υ)G_(g_(b_0)) lie in ρ_+Diff¹_b, ρ_+²Diff²_b and ρ_+Diff¹_b there, and dχ_K ∈ ρ_+C^∞ (the proof of
+a^((i)) ∈ 𝒜^((λ−1+i,k)); so each term of ω^(≤4)(aS) lies in 𝒜^((λ−1,k)+ℱ). δ*_(g_(b₀)), D_(g_0)Ric and
+δ_(g_(b₀),E_Υ)G_(g_(b₀)) lie in ρ_+Diff¹_b, ρ_+²Diff²_b and ρ_+Diff¹_b there, and dχ_K ∈ ρ_+C^∞ (the proof of
 [[lem:iii-i4-2-2]]), which gives the ι⁺-orders. *Supports* are clear. *K⁺.* Near K⁺, χ_K = 1 and
 ϑ^((λ−1,k))_s1 = ½□ω^(≤4)(aS), which by [[eq:iii-i8-2-1]] is a^((5)) and a^((6)) times stationary tensors smooth on
-compact spatial sets, of K⁺-weight Re λ + 4 − ε. [[eq:iii-i8-2-2]]: δ*_(g_(b_0))(a^((i))ω̆^i) =
+compact spatial sets, of K⁺-weight Re λ + 4 − ε. [[eq:iii-i8-2-2]]: δ*_(g_(b₀))(a^((i))ω̆^i) =
 a^((i)) δ̂*(0)ω̆^i + a^((i+1)) dt_* ⊗_s ω̆^i, and δ̂*(0)ω̆⁰ = h(S); every other term carries a^((j)), j ≥ 1, of
 K⁺-weight Re λ − ε. ∎
 
-Here δ̂*(0) is the zero energy operator of δ*_(g_(b_0)): δ*_(g_(b_0)) = δ̂*(0) + dt_* ⊗_s (·) on stationary 1-forms
+Here δ̂*(0) is the zero energy operator of δ*_(g_(b₀)): δ*_(g_(b₀)) = δ̂*(0) + dt_* ⊗_s (·) on stationary 1-forms
 ([[eq:iii-d3-1-2]]).
 
 **Definition {#def:iii-i8-2-3}** (The operator with the motions; [Hin26, Definition 11.48] in dimension 4 + 1.) For
-p⃗ = (p⃗_(≤0), (S^((λ−1,k))_1)_((λ,k)∈ℳ)), p⃗_(≤0) := (S, b − b_0, S⁽⁰⁾_1), small and h small, with g_0 := g_(p⃗_(≤0))
+p⃗ = (p⃗_(≤0), (S^((λ−1,k))_1)_((λ,k)∈ℳ)), p⃗_(≤0) := (S, b − b₀, S⁽⁰⁾_1), small and h small, with g_0 := g_(p⃗_(≤0))
 ([[eq:iii-i7-1-3]]), let h_(tot,2)(p⃗_(≤0)) and ϑ_(tot,2)(p⃗_(≤0)) be the h_tot and ϑ_tot of [[def:iii-i7-2-3]],
 
     h_tot(p⃗) := h_(tot,2)(p⃗_(≤0)) + Σ_((λ,k)∈ℳ) h^((λ−1,k))_s1(S^((λ−1,k))_1),
@@ -765,17 +773,17 @@ and, with g′ := g_0 + h_tot(p⃗) + h,
 and L_(h,p⃗) := D_hP_3(·, p⃗) at h. P_3 = P_2 where the motion parameters vanish.
 
 **Lemma {#lem:iii-i8-2-4}** (The motion identity; [Hin26, (11.137), (11.154)] in dimension 4 + 1.) For (λ, k) ∈ ℳ and
-S ∈ 𝒮_(1,ℂ), D_p⃗P_3(0, 0)(S^((λ−1,k))_1 = S) = L_(b_0)(m_(λ,k)(S)), and m_(λ,k)(S), vanishing for t^♭_* < 10, is its
+S ∈ 𝒮_(1,ℂ), D_p⃗P_3(0, 0)(S^((λ−1,k))_1 = S) = L_(b₀)(m_(λ,k)(S)), and m_(λ,k)(S), vanishing for t^♭_* < 10, is its
 forward solution ([[prop:ii-e-3-4]]). The identities [[eq:iii-i7-2-3]] hold for P_3.
 
-*Proof.* At p⃗ = 0, g′ = g_0 = g_(b_0) and Υ^(E_Υ)(g_(b_0), g_(b_0)) − ϑ_tot(0) = 0; g_0 does not depend on
+*Proof.* At p⃗ = 0, g′ = g_0 = g_(b₀) and Υ^(E_Υ)(g_(b₀), g_(b₀)) − ϑ_tot(0) = 0; g_0 does not depend on
 S^((λ−1,k))_1, and, by [[eq:s21-conv]],
 
     ġ′ = h^((λ−1,k))_s1(S) = χ_K δ*ω^(≤4)(aS) − δ*(χ_K ω^(≤4)(aS)) = m_(λ,k)(S) − δ*(χ_K ω^(≤4)(aS)).
 
 As in [[lem:iii-i7-2-4]], DP_3 = DRic(ġ′) − δ*_(E_C)(D_1Υ ġ′ − ϑ^((λ−1,k))_(s1,♯)(S)) with D_1Υ = −δ_(E_Υ)G by (ii),
 so DP_3 = DRic(m_(λ,k)(S)) + δ*_(E_C)ϑ^((λ−1,k))_s1(S) by (iii) and the counterterm, which is
-L_(b_0)m_(λ,k)(S) = DRic(m) + δ*_(E_C)δ_(E_Υ)Gm by [[def:iii-i8-2-1]]. The rest is [[lem:iii-i7-2-4]], as P_3 = P_2 on
+L_(b₀)m_(λ,k)(S) = DRic(m) + δ*_(E_C)δ_(E_Υ)Gm by [[def:iii-i8-2-1]]. The rest is [[lem:iii-i7-2-4]], as P_3 = P_2 on
 the other directions at p⃗ = 0. ∎
 
 As in [Hin26], the identity is exact because the gauge term is the full δ_(E_Υ)G of the cut-off motion, not a
@@ -811,10 +819,10 @@ in (h, p⃗); so it lies in 𝒴_1(α) for every α ∈ (2, 3). (b) P_3 depends 
 (in 𝒞) and ϑ^((λ−1,k))_(s1,♯) (in supp χ_K), linearly; so, with h′ := h^((λ−1,k))_s1(S) and the definition of the
 counterterm,
 
-    f^((λ,k)) = D_(g′)Ric(h′) − δ*_(g_0,E_C)([D_1Υ(g′, g_0) − D_1Υ(g_(b_0), g_(b_0))]h′ − ϑ^((λ−1,k))_s1(S)).
+    f^((λ,k)) = D_(g′)Ric(h′) − δ*_(g_0,E_C)([D_1Υ(g′, g_0) − D_1Υ(g_(b₀), g_(b₀))]h′ − ϑ^((λ−1,k))_s1(S)).
 
 With D_(g′)Ric ∈ ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, δ*_(g_0,E_C) ∈ ρ_+Diff¹_b, the bracket linear in
-(g′ − g_(b_0), g_0 − g_(b_0)) ∈ H^((ℰ_+,a_+))_b and their first derivatives, and [[lem:iii-i8-2-2]], the ι⁺-data are
+(g′ − g_(b₀), g_0 − g_(b₀)) ∈ H^((ℰ_+,a_+))_b and their first derivatives, and [[lem:iii-i8-2-2]], the ι⁺-data are
 ((λ + 2, k) + ℱ + ((0, 0) ∪ ℰ_+), a_+ + Re λ + 2), and a_+ + Re λ + 2 > 4; near K⁺ only
 δ*_(g_0,E_C)ϑ^((λ−1,k))_s1 remains, of weight Re λ + 4 − ε. (λ + 2, k) + ℱ + ((0, 0) ∪ ℰ_+) ⊂ ℰ_++ + 2 by
 [[eq:iii-i8-1-1]]. (c) As in [[lem:iii-i7-3-1]] (c). ∎
@@ -824,7 +832,7 @@ With D_(g′)Ric ∈ ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, δ*_(g_0,E_C) �
 
 *At a base point with parameter b.* The rows are built at b ([[lem:iii-i15-1-1]] (P6)): there m_(λ,k)(S) denotes
 χ_K δ*_(g_b) ω^(≤4)_b(a_(λ,k)S), built as in [[def:iii-i8-2-1]] from the 1-forms ω̆^i_b(S) := ω̆^((0),i)_(b,s1)(S) of
-[[prop:iii-d3-3-1]] (2) at b, while the corrections h^((λ−1,k))_s1 and their counterterms stay those built at b_0.
+[[prop:iii-d3-3-1]] (2) at b, while the corrections h^((λ−1,k))_s1 and their counterterms stay those built at b₀.
 [[lem:iii-i8-2-2]] holds for these rows at b with the same proof, h_b(S) in place of h(S) in [[eq:iii-i8-2-2]]: the
 1-forms at b satisfy the tower relations [[eq:iii-d3-1-3]] at b and have the same index sets ((P3)). [[lem:iii-i8-2-5]]
 and [[lem:iii-i8-2-6]] hold at b as stated. The pairs (s1, λ, k), (λ, k) ∈ ℳ, are rows of the set 𝒩 of
@@ -837,12 +845,12 @@ and [[lem:iii-i8-2-6]] hold at b as stated. The pairs (s1, λ, k), (λ, k) ∈ �
 
 where e^ν_(h,p⃗) := r^ν_(h,p⃗) + E^ν_(h,p⃗), with r^ν of [[eq:iii-i9-2-4]], every object built at b, and E^ν of
 [[eq:iii-i15-1-1]]; and for every α ∈ (2, 3),
-‖e^ν_(h,p⃗)(S)‖_(𝒴(α)) ≤ C|S|(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|), uniformly on ℬ̄_*. At b = b_0, E^ν = 0, and at
+‖e^ν_(h,p⃗)(S)‖_(𝒴(α)) ≤ C|S|(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|), uniformly on ℬ̄_*. At b = b₀, E^ν = 0, and at
 (h, p⃗) = (0, 0), e^ν = 0, which is [[lem:iii-i8-2-4]].
 
 *Proof.* The identity is [[eq:iii-i15-1-1]] for the row ν: f^ν_b := L_(h,p⃗)m_ν + r^ν_(h,p⃗) is the calculation of
-[[lem:iii-i9-2-6]] (c) at b, with the reference operator L_b in place of L_(b_0), and E^ν is the difference between
-the corrections and counterterms built at b_0 and at b ([[lem:iii-i15-1-1]] (P6)). *The bound on r^ν.* r^ν =
+[[lem:iii-i9-2-6]] (c) at b, with the reference operator L_b in place of L_(b₀), and E^ν is the difference between
+the corrections and counterterms built at b₀ and at b ([[lem:iii-i15-1-1]] (P6)). *The bound on r^ν.* r^ν =
 −(L_(h,p⃗) − L_b)ζ^b_ν + (δ*_(g_0,E_C) − δ*_(g_b,E_C))ϑ^b_(ν,♯), with ζ^b_ν := δ*_(g_b)(χ_K ω^(≤4)_b(a_(λ,k)S)) and
 ϑ^b_(ν,♯) the counterterm built at b. It is supported in supp χ_K. Near (ι⁺)°, L_(h,p⃗) − L_b lies in ρ_+²Diff²_b with
 coefficients linear in g′ − g_b, g_0 − g_b and their b-derivatives of order at most 2 ([[eq:iii-i-4-2]]); there
@@ -850,15 +858,15 @@ g_0 − g_b ∈ ρ_+²C^∞ and g′ − g_0 ∈ H^(k,(ℰ_+,a_+))_b, of sizes O
 [[lem:iii-i8-2-5]]), both in ρ_+^(m_+−ε)H^k_b, and ζ^b_ν ∈ 𝒜^((λ,k)+ℱ). So the first term has plain ι⁺-weight
 Re λ + 2 + m_+ − 2ε > 4 (m_+ > 1); near K⁺, g_0 = g_b and h_tot(p⃗) = 0, so L_(h,p⃗) − L_b = L^(g_b+h,g_b) − L_b has
 coefficients of K⁺-weight a_K with norm O(‖h‖), and the first term has K⁺-weight Re λ − 1 + a_K − ε > a_K > α. The
-second term is supported in 𝒞, as g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b_0) − g_b) is supported in
+second term is supported in 𝒞, as g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_b) is supported in
 supp(1 − χ_K); δ*_(g_0,E_C) − δ*_(g_b,E_C) ∈ ρ_+³Diff¹_b near (ι⁺)° with seminorms O(|p⃗|), so the term has ι⁺-order
-Re λ + 4. Hence r^ν ∈ 𝒴_2(α) with norm at most C|S|(‖h‖ + |p⃗|), and |p⃗| ≤ |p⃗ − p⃗_b| + |b − b_0|. *The bound on E^ν.*
-By (P6), E^ν is supported in supp χ_K, of size O(|b − b_0||S|), and of K⁺-weight Re λ + 4 − ε > 3, the K⁺-order of the
+Re λ + 4. Hence r^ν ∈ 𝒴_2(α) with norm at most C|S|(‖h‖ + |p⃗|), and |p⃗| ≤ |p⃗ − p⃗_b| + |b − b₀|. *The bound on E^ν.*
+By (P6), E^ν is supported in supp χ_K, of size O(|b − b₀||S|), and of K⁺-weight Re λ + 4 − ε > 3, the K⁺-order of the
 tops of the towers ([[eq:iii-i8-2-1]]). At ι⁺ the b-differences of the corrections and of the counterterms lie in
 𝒜^((λ,k)+ℱ) and 𝒜^((λ+1,k)+ℱ) ((P3), [[lem:iii-i8-2-2]]); L_b and δ*_(g_0,E_C) add 2 and 1, and the parts of
 L_(h,p⃗) − L_b from h, h_tot and g_0 − g_b gain ρ_+^(m_+−ε). So below the weight 4 its exponents lie in
 (λ + 2, k) + ℱ ⊂ ℰ_++ + 2 ([[eq:iii-i8-1-1]]), and beyond them its plain weight exceeds 4. So E^ν ∈ 𝒴_2(α) with norm
-O(|b − b_0||S|). ∎
+O(|b − b₀||S|). ∎
 
 ### The expansion at one level {#sec:iii-i8-3}
 
@@ -868,9 +876,9 @@ O(|b − b_0||S|). ∎
 [[lem:iii-i8-2-5]], with the conclusions at K⁺-weight α_0 − 2 − ε for every ε > 0.
 
 *Proof.* Steps 0–2 of the proof of [[prop:iii-i6-2-1]] change. Let the forcing be F = F_1 + F_2, F_j ∈ 𝒴_j(α_0), and
-L := L_(h,p⃗). *Step 0.* Step 2 below, applied to F_2 alone (with L_b; F_2 vanishes near 𝓘⁺), gives
+L := L_(h,p⃗). *Step 0.* Step 2 below, applied to F_2 alone (with L_b; F_2 vanishes near ℐ⁺), gives
 u_F := Σ_(λ_0)(u_(λ_0) + u′_(λ_0)), over the finitely many λ_0 ∈ π_1ℰ_++ with Re λ_0 < 2, with F_2 − L_bu_F of plain
-ι⁺-weight 4 − ε, of K⁺-weight α_0 − ε and with the 𝓘⁺-data of 𝒴_1, for every ε > 0. u_F vanishes near {t^♭_* = 1}
+ι⁺-weight 4 − ε, of K⁺-weight α_0 − ε and with the ℐ⁺-data of 𝒴_1, for every ε > 0. u_F vanishes near {t^♭_* = 1}
 (the pieces of Step 2 are cut off near ι⁺) and has ι⁺-weight λ_♯ − ε and K⁺-weight α_0 − 2 − ε (as there:
 ℓ_K(λ_0) > α_0 − 2 and Re λ_0 − 1 > 1/2 > α_0 − 2), so (L − L_b)u_F has ι⁺-weight above 4 and K⁺-weight above α_0
 ([[eq:iii-i-4-2]], a_K > 2). So u − u_F is the forward solution of L(u − u_F) = F_1 + (F_2 − L_bu_F) − (L − L_b)u_F, a
@@ -881,7 +889,7 @@ forcing of plain ι⁺-weight 4 − ε whose boost parameter is that of F (Ṡ(L
 [[prop:iii-i6-2-1]]. Write f′_1 := F_1 − (L − L_b)u ∈ 𝒴_1(α_0), so that L_bu = f′_1 + F_2. *Step 1* applies
 [[prop:iii-i1-3-1]] to f′_1 alone (Ĕ_+ = ∅), and f^♭_0 := f′_1 − L_bu_I + F_2; its ι⁺-terms below α^♯_+ + 2 have
 exponents in (ℰ^♯_+ ∪ ℰ_++) + 2, with coefficients from L_bu_I (vanishing near K⁺) or from F_2 (supported in
-supp χ^♯_K, away from 𝓘⁺), and [[eq:iii-i5-2-3]] is taken with ℰ_++ added to the excluded exponents (still finitely
+supp χ^♯_K, away from ℐ⁺), and [[eq:iii-i5-2-3]] is taken with ℰ_++ added to the excluded exponents (still finitely
 many below 2). *Step 2* takes c_K := α_0, so ℓ_K(λ_0) = α_0 − Re λ_0; its exclusions hold by admissibility, and
 ℓ_K(λ_0) ∈ (α_0 − 2, 1) ⊂ (0, 1), as Re λ_0 ∈ [λ_♯, 2) and α_0 < 5/2 < λ_♯ + 1. The coefficients at λ_0 of F_2 and of
 later errors (of K⁺-weight α_0 − ε for every ε) have R-weight at least ℓ_K(λ_0) − 2 − ε for every ε, which is the
@@ -906,7 +914,7 @@ for every β_+ < min(3/2, min Re ℰ_+), with S_(λ,k) =: S^(h,p⃗)_(λ,k)(F) �
 linear and continuous in F, with bounds uniform for (h, p⃗) small and b ∈ ℬ̄_*.
 
 *Proof.* Write L := L_(h,p⃗) and F = F_1 + F_2, F_j ∈ 𝒴_j(α). *Step 0.* f′ := F − (L − L_b)u = f′_1 + F_2 with
-f′_1 := F_1 − (L − L_b)u ∈ 𝒴_1(α): [[eq:iii-i-4-2]] (for L, [[lem:iii-i8-2-5]]) gives the 𝓘⁺-data
+f′_1 := F_1 − (L − L_b)u ∈ 𝒴_1(α): [[eq:iii-i-4-2]] (for L, [[lem:iii-i8-2-5]]) gives the ℐ⁺-data
 (⟨ℰ^C_I+1⟩′, ℓ_I + 1), the ι⁺-weight β′_+ + 2 + m_+ − ε > 4 − ε and the K⁺-weight α′ − 2 − ε + a_K ≥ α for ε small.
 
 *Steps 1–2 (null infinity and ι⁺).* As in [[lem:iii-i8-3-1]], with α for α_0 and α^♯_+ := 2 − ε: Step 1 gives u_I;
@@ -983,14 +991,14 @@ near K⁺), so the stationary tensor ġ_b(ḃ_0) + h_b(iŜ_4) times χ_K has pos
 Ŝ_4 = 0 (injectivity, [[sec:iii-i7-1]]). *Step 7.* So u = u_ι + (u_I + u^♭) is [[eq:iii-i8-3-1]] with the sum over
 ℳ_α; the terms with (λ, k) ∈ ℳ_(α′) vanish, as u has K⁺-weight α′ − 2 − ε for every ε and Re λ − 1 < α′ − 2 (α′
 admissible): a finite sum of such polyhomogeneous terms in that space is zero, the functions t_*^(−λ+1)(log t_*)^j
-being independent and h_b injective. *Step 8.* The 𝓘⁺-data of ũ follow from [[prop:iii-i1-2-1]] as in Step 6 of the
-proof of [[prop:iii-i6-2-1]] (χ_K = 0 near 𝓘⁺). *Determination, linearity, bounds.* The S_(λ,k) are the coefficients
+being independent and h_b injective. *Step 8.* The ℐ⁺-data of ũ follow from [[prop:iii-i1-2-1]] as in Step 6 of the
+proof of [[prop:iii-i6-2-1]] (χ_K = 0 near ℐ⁺). *Determination, linearity, bounds.* The S_(λ,k) are the coefficients
 of the K⁺-expansion of u below α − 2; every map used is linear, and fixed by L_b, given by L − L_b, or
 [[prop:iii-i1-2-1]] applied to L (Step 8), with coefficient bounds uniform for small (h, p⃗) and b ∈ ℬ̄_*
 ([[lem:iii-i8-2-5]], [[lem:iii-i7-2-5]] (c), [[lem:iii-i15-1-1]] (P1)–(P4)). ∎
 
 At a base point with parameter b no rotation row has rate below α − 2 for α < 3 (its K⁺-weight is Re λ − ε > 1); so
-[[lem:iii-i8-3-2]] holds at b as at b_0, with the states at b.
+[[lem:iii-i8-3-2]] holds at b as at b₀, with the states at b.
 
 **Lemma {#lem:iii-i8-3-3}** (The coefficients near the reference point.) Fix b ∈ ℬ̄_*. Let α′ < α be as in
 [[lem:iii-i8-3-2]], (h_j, p⃗_j) → (0, p⃗_b) with parameter b, F_j → F in 𝒴(α), and suppose that the forward solutions
@@ -1030,7 +1038,7 @@ Write p⃗′_(h,p⃗,α_i) for the map at the level α_i.
 *Base.* ℳ_(α_0) = ∅, as Re λ − 1 ≥ λ_♯ − 1 > 1/2 > α_0 − 2. By [[lem:iii-i8-3-1]], [[cor:iii-i7-4-6]] gives existence,
 uniqueness and linearity. The bounds are uniform by [[lem:iii-i7-2-5]] (c) and [[prop:iii-i15-2-12]], the
 finite-dimensional maps inverted in [[lem:iii-i7-4-3]] and [[lem:iii-i7-4-5]] lying within
-C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|) of ±id; and (ii) holds as those maps converge at fixed b (by their construction and
+C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) of ±id; and (ii) holds as those maps converge at fixed b (by their construction and
 [[lem:iii-i7-4-1]], which allows forcings varying with j).
 
 *Step.* Let the statement hold at α′ := α_i, and let α″ := α_(i+1), ℳ′ := ℳ_(α″) ∖ ℳ_(α′) and
@@ -1048,19 +1056,19 @@ T_(h,p⃗)S⃗ := S^(h,p⃗)(G_1(S⃗)) with
 
 *The level map.* By [[lem:s21-motions-at-b]], f^ν_(h,p⃗)(S_ν) = L_(h,p⃗)m_ν(S_ν) + e^ν_(h,p⃗)(S_ν). For ν = (λ, k) ∈ ℳ′,
 m_ν(S_ν) vanishes for t^♭_* < 10, has K⁺-weight Re λ − 1 − ε > α′ − 2 − ε and the other properties of
-[[eq:iii-i8-4-2]] at α′ ([[lem:iii-i8-2-2]]; it vanishes near 𝓘⁺); so it is the forward solution of
+[[eq:iii-i8-4-2]] at α′ ([[lem:iii-i8-2-2]]; it vanishes near ℐ⁺); so it is the forward solution of
 L_(h,p⃗)u = L_(h,p⃗)m_ν(S_ν), and by uniqueness at α′, p⃗′_(h,p⃗,α′)(L_(h,p⃗)m_ν(S_ν)) = 0. By linearity, the forward
 solution of L_(h,p⃗)u = G_1(S⃗) is Σ_ν m_ν(S_ν) + v(S⃗), where v(S⃗) is the forward solution of
 
     L_(h,p⃗)v(S⃗) = R(S⃗) := Σ_ν e^ν_(h,p⃗)(S_ν) − D_p⃗P_3(h, p⃗)(p⃗′_(h,p⃗,α′)(Σ_ν e^ν_(h,p⃗)(S_ν))).
 
-By [[lem:s21-motions-at-b]] and (i) at α′, ‖R(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|)|S⃗|. The forward solution
+By [[lem:s21-motions-at-b]] and (i) at α′, ‖R(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S⃗|. The forward solution
 of G_1(S⃗) = G(0) − G(S⃗) is u(0) − u(S⃗), which lies in [[eq:iii-i8-4-2]] at α′, and so does Σ_ν m_ν(S_ν); hence v(S⃗)
 satisfies the hypothesis of [[lem:iii-i8-3-2]]. Its coefficients S^(h,p⃗)(R(S⃗)) are at most C‖R(S⃗)‖_(𝒴(α″)), by the
 uniform bounds of [[lem:iii-i8-3-2]], and the coefficients of Σ_ν m_ν(S_ν) are S⃗, by [[eq:iii-i8-2-2]] at b
 (Re λ − ε > α″ − 2). So
 
-    |T_(h,p⃗) − id| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|),
+    |T_(h,p⃗) − id| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|),
 
 with C uniform on ℬ̄_*. At (0, 0), e^ν = 0 and T_(0,0) = id. On the finite-dimensional space of the conjugation-symmetric
 tuples, T_(h,p⃗) is therefore invertible for (h, p⃗ − p⃗_b) and ℬ_* small, with inverse of norm at most 2. Put
@@ -1088,13 +1096,13 @@ t_*^(−1/2−(1−e_Υ)γ_Υ).
 This section and the next are the opening of [Hin26, Section 11.8] and its Section 11.8.1 (pp. 273–277) in dimension
 4 + 1: for each pure gauge term of the K⁺-expansion that decays no faster than t_*⁻², a cut-off pure gauge tensor m_ν
 built from the generalised gauge 1-forms of [[prop:iii-d3-3-1]], with a correction h_ν at the cut-off and a gauge
-counterterm ϑ_ν, so that the linearisation of the operator in the new parameter is L_(b_0)m_ν exactly.
+counterterm ϑ_ν, so that the linearisation of the operator in the new parameter is L_(b₀)m_ν exactly.
 
 Everything of [[sec:iii-i8-1]] is kept: 𝔟, the enlarged ℰ_ind, ℰ^ι_ind, ℰ^♯_+ and λ_♯ = 3/2 + (1 − e_Υ)γ_Υ =
 min Re ℰ^♯_+, the index set ℰ_++ with [[eq:iii-i8-1-1]] and ℳ = {(λ, k) ∈ ℰ_++ : Re λ < 2} of [[eq:iii-i8-1-2]],
 𝒢 = (2, 0) ∪ (2 + ℰ_ind), ℓ_I ≤ a_I, the translated background [[eq:iii-i7-1-3]], and the cut-offs, 𝒞, Θ, the
 conventions [[eq:s21-conv]] and the identities (i)–(iii). ℰ_ind is enlarged once more, to contain also the index
-sets of [[prop:iii-d3-3-1]] (1), (3) and (4)–(7) at b_0 (those of the towers of [[sec:iii-i9-2]]; there ℰ_ind changes
+sets of [[prop:iii-d3-3-1]] (1), (3) and (4)–(7) at b₀ (those of the towers of [[sec:iii-i9-2]]; there ℰ_ind changes
 from line to line) and (2, 0) ([[eq:iii-d2-3-2]]); [[eq:iii-i8-1-1]], ℰ_++ and the conditions on ℰ_+ there are taken
 with the enlarged set, which only strengthens them. Put ℱ := (0, 0) ∪ ℰ_ind, ℰ̃_+ := 𝒢 ∪ (ℰ_+ + 𝒢)
 ([[eq:iii-i4-3-2]]), 2ℰ_+ := ℰ_+ + ℰ_+ (the product index set of [[eq:iii-i-4-2]]), and
@@ -1129,7 +1137,7 @@ corrections; and (H1) gives the gain m_+ = λ_♯ at ι⁺ behind [[eq:iii-i9-2-
 [[ch:s22]] fixes it (it is [Hin26]'s ℰ̃′_++ of Definition 11.56, built after Theorem 11.59); here it is any such set.
 
 *Rows.* The types are 𝒯 := {s1, v1, s0, s2, c0, c1}: the rows of the table of [[sec:iii-g2-1]] at the roots −1 (s1,
-v1) and 0 (s0, s2) of L̂_(b_0)(0), and its class roots μ_c0 := 2 − ι^Υ_(s0,2) (type s0) and μ_c1 := 2 − ι^Υ_(s1,2)
+v1) and 0 (s0, s2) of L̂_(b₀)(0), and its class roots μ_c0 := 2 − ι^Υ_(s0,2) (type s0) and μ_c1 := 2 − ι^Υ_(s1,2)
 (type s1). These are μ_s0 + 1 and μ_(1,0) + 1 for the class roots μ_s0, μ_(1,0) ∈ (−2, −1) of □^Υ of
 [[sec:iii-d3-1]], so μ_c0, μ_c1 ∈ (−1, 0); the table places them in [−4e_Υγ_Υ²/3, 0) and (−1/4, 0), by
 [[eq:iii-d-4-2]].
@@ -1159,16 +1167,16 @@ Re(λ − μ) ≥ λ_♯ + 1 > 5/2, and they need no correction. The s1 rows wit
 *Coefficient spaces.* 𝒲_s1 = 𝒲_c1 := 𝒮_1, 𝒲_s0 = 𝒲_c0 := 𝒮_0, 𝒲_s2 := 𝒮_2, and 𝒲_v1 := 𝒱′, a fixed complement in
 𝒱_1 of
 
-    𝒱_K := {V ∈ 𝒱_1 : δ*_(g_(b_0)) ω^((−1))_(b_0,v1)(V) = 0},
+    𝒱_K := {V ∈ 𝒱_1 : δ*_(g_(b₀)) ω^((−1))_(b₀,v1)(V) = 0},
 
-the kernel of the state h_(b_0,v1) of [[eq:iii-d2-3-4]], which contains every V whose rotation R_V is Killing for
-g_(b_0) ([[prop:iii-d2-3-1]] (3)). For V ∈ 𝒱_K the v1 term of [[eq:iii-g2-4-3]] has no t_*^(−λ)-part at K⁺: as
+the kernel of the state h_(b₀,v1) of [[eq:iii-d2-3-4]], which contains every V whose rotation R_V is Killing for
+g_(b₀) ([[prop:iii-d2-3-1]] (3)). For V ∈ 𝒱_K the v1 term of [[eq:iii-g2-4-3]] has no t_*^(−λ)-part at K⁺: as
 δ*ω̆⁰_v1(V) = 0, its leading term carries a′_v1, of rate λ + 1 > 5/2. A parameter in 𝒱_K would correct nothing that
 needs correcting and would make the finite-dimensional map of the elimination singular; hence the complement. At
-b_0 = (m_0, 0), the non-rotating member ([[prop:iii-b-3-4]]), every rotation is Killing, so 𝒱_K = 𝒱_1 and 𝒱′ = 0: the
+b₀ = (m₀, 0), the non-rotating member ([[prop:iii-b-3-4]]), every rotation is Killing, so 𝒱_K = 𝒱_1 and 𝒱′ = 0: the
 v1 rows are kept in the notation and carry no parameter. This choice is kept at every base point b ∈ ℬ̄_*; at a
 rotating b the v1 terms are carried by the rotation rows of [[ch:s23]] and [[ch:s25]]. 𝒲_(τ,ℂ) is the
-complexification. The parameters are p⃗ = (p⃗_(≤0), (W_ν)_(ν∈𝒩)), with p⃗_(≤0) = (S, b − b_0, S⁽⁰⁾_1) as in
+complexification. The parameters are p⃗ = (p⃗_(≤0), (W_ν)_(ν∈𝒩)), with p⃗_(≤0) = (S, b − b₀, S⁽⁰⁾_1) as in
 [[sec:iii-i7-2]] and W_ν ∈ 𝒲_(τ,ℂ), conjugation-symmetric: W_(ν̄) is the complex conjugate of W_ν for
 ν̄ := (τ, λ̄, k), which lies in 𝒩 (ℰ_par is closed under conjugation, and d_τ is real); so W_ν ∈ 𝒲_τ for real λ. 𝒫 is
 the real vector space of these tuples. For ν = (s1, λ, k) with (λ, k) ∈ ℳ, W_ν is the motion parameter S^((λ−1,k))_1
@@ -1197,42 +1205,42 @@ of [[lem:iii-i9-2-6]] lie in 𝒴_2(α) + i𝒴_2(α); the conjugation-symmetric
 ### Correction terms of the fourth kind and the operator {#sec:iii-i9-2}
 
 *Towers.* Put K_s1 = K_s0 := 4, K_v1 = K_s2 := 3, K_c0 = K_c1 := 2. For τ ∈ 𝒯 and W ∈ 𝒲_τ let ω̆^i_τ(W),
-0 ≤ i ≤ K_τ, be the following stationary 1-forms at b_0, linear in W (extended complex-linearly to 𝒲_(τ,ℂ)):
+0 ≤ i ≤ K_τ, be the following stationary 1-forms at b₀, linear in W (extended complex-linearly to 𝒲_(τ,ℂ)):
 
-(s1) ω̆⁰ := ω⁽⁰⁾_(b_0,s1)(S), ω̆¹ := ω̆^((0),1)_(b_0,s1)(S) ([[prop:iii-d2-3-1]]), ω̆^i := ω̆^((0),i)_(b_0,s1)(S),
+(s1) ω̆⁰ := ω⁽⁰⁾_(b₀,s1)(S), ω̆¹ := ω̆^((0),1)_(b₀,s1)(S) ([[prop:iii-d2-3-1]]), ω̆^i := ω̆^((0),i)_(b₀,s1)(S),
 i = 2, 3, 4 ([[prop:iii-d3-3-1]] (2)): the ω̆^i(S) of [[sec:iii-i8-2]];
 
-(v1) ω̆⁰ := ω^((−1))_(b_0,v1)(V) ([[prop:iii-d2-3-1]]), ω̆^i := ω̆^((−1),i)_(b_0,v1)(V), i = 1, 2, 3
+(v1) ω̆⁰ := ω^((−1))_(b₀,v1)(V) ([[prop:iii-d2-3-1]]), ω̆^i := ω̆^((−1),i)_(b₀,v1)(V), i = 1, 2, 3
 ([[prop:iii-d3-3-1]] (3));
 
-(s0) ω̆⁰ := ω⁽⁰⁾_(b_0,s0)(S), ω̆^i := ω̆^((0),i)_(b_0,s0)(S), i = 1, …, 4 ([[prop:iii-d3-3-1]] (1)), with 𝒮_0 = ℝ
+(s0) ω̆⁰ := ω⁽⁰⁾_(b₀,s0)(S), ω̆^i := ω̆^((0),i)_(b₀,s0)(S), i = 1, …, 4 ([[prop:iii-d3-3-1]] (1)), with 𝒮_0 = ℝ
 acting by multiplication;
 
-(s2) ω̆⁰ := ω^((−1))_(b_0)(S) and ω̆^i := ω̆^((−1),i)_(b_0)(S), i ≤ 3, of [[prop:iii-d3-3-1]] (4)–(7) at the sl root
+(s2) ω̆⁰ := ω^((−1))_(b₀)(S) and ω̆^i := ω̆^((−1),i)_(b₀)(S), i ≤ 3, of [[prop:iii-d3-3-1]] (4)–(7) at the sl root
 −l + 1 = −1, l = 2, of [[sec:iii-d3-1]], whose range is 5 − l = 3;
 
 (c0) the same at the s0 class root μ_s0 = μ_c0 − 1, range 2; (c1) the same at the s1 class root μ_(1,0) = μ_c1 − 1,
 range 2.
 
-In every case ω^(≤k)_τ := Σ_(i≤k) (k!/(k − i)!) t_*^(k−i) ω̆^i_τ ∈ ker □^Υ_(b_0) for k ≤ K_τ ([[prop:iii-d3-3-1]],
-in its convention, as in [[sec:iii-i8-2]]), with □^Υ_(b_0) = 2δ_(g_(b_0),E_Υ)G_(g_(b_0))δ*_(g_(b_0)). Near infinity in
+In every case ω^(≤k)_τ := Σ_(i≤k) (k!/(k − i)!) t_*^(k−i) ω̆^i_τ ∈ ker □^Υ_(b₀) for k ≤ K_τ ([[prop:iii-d3-3-1]],
+in its convention, as in [[sec:iii-i8-2]]), with □^Υ_(b₀) = 2δ_(g_(b₀),E_Υ)G_(g_(b₀))δ*_(g_(b₀)). Near infinity in
 X̄, with the leading exponents ς_τ (ς_τ is an exponent, not a spectral parameter),
 
     ω̆^i_τ ∈ 𝒜^((ς_τ−i,0)+ℱ),     ς_s1 = ς_s0 := 0,     ς_v1 = ς_s2 := −1,
     ς_c0 := μ_c0 − 1,     ς_c1 := μ_c1 − 1:                                                              {#eq:iii-i9-2-1}
 
 for s1 by [[sec:iii-i4-1]] and [[prop:iii-d3-3-1]] (2) (as in the proof of [[lem:iii-i8-2-2]]); for v1 by
-[[eq:iii-d2-3-2]] (ω^((−1))_(b_0,v1)(V) − V ∈ 𝒜^((2,0)+ℱ), the rotation 1-form V homogeneous of degree 1) and
-[[prop:iii-d3-3-1]] (3); for s0 as ω⁽⁰⁾_(b_0,s0) = g_(b_0)(∂_(t_*), ·) differs from a form with constant Cartesian
-components by ρ²C^∞ ([[eq:iii-d2-3-1]]–[[eq:iii-d2-3-2]]), ω̆^((0),1)_(b_0,s0) − χ_∂W̄ ∈ 𝒜^((1,0)+ℰ_ind) with W̄
+[[eq:iii-d2-3-2]] (ω^((−1))_(b₀,v1)(V) − V ∈ 𝒜^((2,0)+ℱ), the rotation 1-form V homogeneous of degree 1) and
+[[prop:iii-d3-3-1]] (3); for s0 as ω⁽⁰⁾_(b₀,s0) = g_(b₀)(∂_(t_*), ·) differs from a form with constant Cartesian
+components by ρ²C^∞ ([[eq:iii-d2-3-1]]–[[eq:iii-d2-3-2]]), ω̆^((0),1)_(b₀,s0) − χ_∂W̄ ∈ 𝒜^((1,0)+ℰ_ind) with W̄
 homogeneous of degree 1, and [[prop:iii-d3-3-1]] (1) for i ≥ 2; for s2, c0, c1 by [[prop:iii-d3-3-1]] (4)–(7). The
 *states* are
 
-    h_τ(W) := δ*_(g_(b_0)) ω̆⁰_τ(W)   (τ ≠ s0),        h_s0(S) := h⁽⁰⁾_(b_0,s0)(S) = δ*_(g_(b_0)) ω^((0),≤1)_(b_0,s0)(S)
+    h_τ(W) := δ*_(g_(b₀)) ω̆⁰_τ(W)   (τ ≠ s0),        h_s0(S) := h⁽⁰⁾_(b₀,s0)(S) = δ*_(g_(b₀)) ω^((0),≤1)_(b₀,s0)(S)
 
-([[eq:iii-d3-3-1]]); so h_s1(S) = h(S), h_v1 = h_(b_0,v1) of [[eq:iii-d2-3-4]], which vanishes on 𝒱_K, and for s2,
-c0, c1, h_τ = h^((μ+1))_(b_0) of [[prop:iii-d3-3-1]] (4)–(7). ω⁽⁰⁾_(b_0,s0) is Killing:
-δ*_(g_(b_0))ω⁽⁰⁾_(b_0,s0) = 0 ([[prop:iii-d2-3-1]] (2)).
+([[eq:iii-d3-3-1]]); so h_s1(S) = h(S), h_v1 = h_(b₀,v1) of [[eq:iii-d2-3-4]], which vanishes on 𝒱_K, and for s2,
+c0, c1, h_τ = h^((μ+1))_(b₀) of [[prop:iii-d3-3-1]] (4)–(7). ω⁽⁰⁾_(b₀,s0) is Killing:
+δ*_(g_(b₀))ω⁽⁰⁾_(b₀,s0) = 0 ([[prop:iii-d2-3-1]] (2)).
 
 **Definition {#def:iii-i9-2-1}** (Corrections of the fourth kind; [Hin26, Definition 11.55] in dimension 4 + 1.) For
 ν = (τ, λ, k) ∈ 𝒩 let r_ν(t_*) := t_*^(−e_ν)(log t_*)^k (on Ω_*, where t_* ≥ 1) and a_ν := r_ν for τ ≠ s0, while for
@@ -1242,9 +1250,9 @@ c0, c1, h_τ = h^((μ+1))_(b_0) of [[prop:iii-d3-3-1]] (4)–(7). ω⁽⁰⁾_(b
 
 ([Hin26, (11.190)]; λ ≠ 1, as Re λ ≥ λ_♯). For W ∈ 𝒲_(τ,ℂ) put
 
-    ω_ν(W) := Σ_(i=0)^(K_τ) a_ν^((i))(t_*) ω̆^i_τ(W),     m_ν(W) := χ_K δ*_(g_(b_0)) ω_ν(W),
-    h_ν(W) := −[δ*_(g_(b_0)), χ_K]ω_ν(W) = −dχ_K ⊗_s ω_ν(W),
-    ϑ_ν(W) := δ_(g_(b_0),E_Υ)G_(g_(b_0)) m_ν(W),     ϑ_(ν,♯)(W) := ϑ_ν(W) − δ_(g_(b_0),E_Υ)G_(g_(b_0)) h_ν(W),
+    ω_ν(W) := Σ_(i=0)^(K_τ) a_ν^((i))(t_*) ω̆^i_τ(W),     m_ν(W) := χ_K δ*_(g_(b₀)) ω_ν(W),
+    h_ν(W) := −[δ*_(g_(b₀)), χ_K]ω_ν(W) = −dχ_K ⊗_s ω_ν(W),
+    ϑ_ν(W) := δ_(g_(b₀),E_Υ)G_(g_(b₀)) m_ν(W),     ϑ_(ν,♯)(W) := ϑ_ν(W) − δ_(g_(b₀),E_Υ)G_(g_(b₀)) h_ν(W),
 
 the last the counterterm of [Hin26, Remark 11.27], as in [[def:iii-i4-2-1]], [[def:iii-i7-2-1]] and
 [[def:iii-i8-2-1]]. For ν = (s1, λ, k) with (λ, k) ∈ ℳ these are the m_(λ,k), h^((λ−1,k))_s1, ϑ^((λ−1,k))_s1 and
@@ -1258,14 +1266,14 @@ m_(ν̄)(W̄) is the complex conjugate of m_ν(W), and likewise for h_ν, ϑ_ν 
 
 (a) There are stationary operators A_1, A_2 with
 
-    □^Υ_(b_0) ω_ν(W) = a^((K_τ+1))(A_1ω̆^(K_τ)_τ + A_2ω̆^(K_τ−1)_τ) + a^((K_τ+2))A_2ω̆^(K_τ)_τ.          {#eq:iii-i9-2-2}
+    □^Υ_(b₀) ω_ν(W) = a^((K_τ+1))(A_1ω̆^(K_τ)_τ + A_2ω̆^(K_τ−1)_τ) + a^((K_τ+2))A_2ω̆^(K_τ)_τ.          {#eq:iii-i9-2-2}
 
 (b) Near (ι⁺)°: ω_ν(W) ∈ 𝒜^((λ−1,k)+ℱ); m_ν(W), h_ν(W) ∈ 𝒜^((λ,k)+ℱ); ϑ_ν(W), ϑ_(ν,♯)(W) ∈ 𝒜^((λ+1,k)+ℱ); and
 D_(g_0)Ric(h_ν(W)) ∈ 𝒜^((λ+2,k)+ℱ) (g_0 as in [[lem:iii-i4-2-2]]).
 
 (c) h_ν(W) is supported in 𝒞; m_ν(W), ϑ_ν(W), ϑ_(ν,♯)(W) in supp χ_K; all vanish for t^♭_* < 10.
 
-(d) Near K⁺, ϑ_(ν,♯)(W) = ϑ_ν(W) = ½□^Υ_(b_0)ω_ν(W), of K⁺-weight κ_ν − ε for every ε > 0, where
+(d) Near K⁺, ϑ_(ν,♯)(W) = ϑ_ν(W) = ½□^Υ_(b₀)ω_ν(W), of K⁺-weight κ_ν − ε for every ε > 0, where
 
     κ_ν := Re λ + 4   (τ ∈ {s1, v1, s0, s2}),        κ_ν := Re λ + d_τ + 3   (τ ∈ {c0, c1});
 
@@ -1277,7 +1285,7 @@ in every case κ_ν > λ_♯ + 3 = 9/2 + δ_♯.
 
 All seminorms are O(|W|).
 
-*Proof.* (a) As [[eq:iii-i8-2-1]]: □ := □^Υ_(b_0) is stationary and of second order in ∂_(t_*), so
+*Proof.* (a) As [[eq:iii-i8-2-1]]: □ := □^Υ_(b₀) is stationary and of second order in ∂_(t_*), so
 □(φ(t_*)v) = Σ_(m=0)^2 φ^((m))A_mv for stationary v, and □ω_ν = Σ_(j≤K_τ+2) a^((j))B_j,
 B_j := Σ_m A_mω̆^(j−m)_τ (ω̆^i_τ := 0 for i < 0 and for i > K_τ). With t_*^k, k ≤ K_τ, in place of a this is
 □ω^(≤k)_τ = 0, whose t_*⁰-coefficient is k!B_k; so B_j = 0 for j ≤ K_τ, and B_(K_τ+1), B_(K_τ+2) are as stated.
@@ -1285,7 +1293,7 @@ B_j := Σ_m A_mω̆^(j−m)_τ (ω̆^i_τ := 0 for i < 0 and for i > K_τ). With
 (b) Near (ι⁺)°, |x| ∼ t_* ∼ ρ_+⁻¹, so ω̆^i_τ ∈ 𝒜^((ς_τ−i,0)+ℱ) there by [[eq:iii-i9-2-1]], and
 a^((i)) ∈ 𝒜^((λ−1−ς_τ+i,k)): for τ ≠ s0, a^((i)) is a combination of t_*^(−e_ν−i)(log t_*)^j, j ≤ k, and
 e_ν = λ − 1 − ς_τ (s1: λ − 1; v1, s2: λ; c0, c1: λ − μ_τ); for s0, A_ν^((i)) is a combination of
-t_*^(1−λ−i)(log t_*)^j, j ≤ k. So each term of ω_ν lies in 𝒜^((λ−1,k)+ℱ). δ*_(g_(b_0)), δ_(g_(b_0),E_Υ)G_(g_(b_0)) and
+t_*^(1−λ−i)(log t_*)^j, j ≤ k. So each term of ω_ν lies in 𝒜^((λ−1,k)+ℱ). δ*_(g_(b₀)), δ_(g_(b₀),E_Υ)G_(g_(b₀)) and
 D_(g_0)Ric lie in ρ_+Diff¹_b, ρ_+Diff¹_b and ρ_+²Diff²_b there, and dχ_K ∈ ρ_+C^∞ ([[sec:iii-i4-1]]), which gives
 the orders, as in [[lem:iii-i8-2-2]].
 
@@ -1297,18 +1305,18 @@ a^((K_τ+2)) times stationary tensors smooth on compact spatial sets. For τ ≠
 Re e_ν + K_τ + 1 − ε: Re λ − 1 + 5 (s1), Re λ + 4 (v1, s2), Re λ + d_τ + 3 (c0, c1); for s0, A_ν^((5)) = r_ν^((4)) has
 weight Re λ + 4 − ε. Since Re λ ≥ λ_♯ by [[eq:iii-i9-1-2]] and d_τ > 0, κ_ν > λ_♯ + 3.
 
-(e) For stationary v, δ*_(g_(b_0))(φ(t_*)v) = φ δ̂*(0)v + φ′ dt_* ⊗_s v ([[eq:s21-conv]]). For τ ≠ s0 the term of
+(e) For stationary v, δ*_(g_(b₀))(φ(t_*)v) = φ δ̂*(0)v + φ′ dt_* ⊗_s v ([[eq:s21-conv]]). For τ ≠ s0 the term of
 δ*ω_ν without a derivative of a is a δ̂*(0)ω̆⁰_τ = r_νh_τ, and every other term carries a^((j)), j ≥ 1, of K⁺-weight
 Re e_ν + 1 − ε. For s0, δ̂*(0)ω̆⁰ = 0 (Killing); the terms carrying A′_ν = r_ν are
-r_ν(dt_* ⊗_s ω̆⁰ + δ̂*(0)ω̆¹) = r_νh⁽⁰⁾_(b_0,s0) (as h⁽⁰⁾_(b_0,s0) = δ*(t_*ω̆⁰ + ω̆¹)), and the others carry
+r_ν(dt_* ⊗_s ω̆⁰ + δ̂*(0)ω̆¹) = r_νh⁽⁰⁾_(b₀,s0) (as h⁽⁰⁾_(b₀,s0) = δ*(t_*ω̆⁰ + ω̆¹)), and the others carry
 A_ν^((j)) = r_ν^((j−1)), j ≥ 2, of weight Re λ + 1 − ε. h_τ is stationary, which gives the weight of m_ν.
 
 (f) s1: h is injective by the rows of [[eq:iii-h-3-1]] ([[sec:iii-i7-1]]). v1: by the choice of 𝒱′. s0: 𝒮_0 = ℝ, and
-h⁽⁰⁾_(b_0,s0) has the nonzero leading term h̄⁽⁰⁾_s0 ([[prop:iii-d3-3-1]] (1)). s2, c0, c1: h_τ(S) has the leading term
+h⁽⁰⁾_(b₀,s0) has the nonzero leading term h̄⁽⁰⁾_s0 ([[prop:iii-d3-3-1]] (1)). s2, c0, c1: h_τ(S) has the leading term
 δ̄̂*(0)ω̄, nonzero for the nonzero indicial solution ω̄ that S ≠ 0 gives ([[prop:iii-d3-3-1]] (4)–(7)). The
 complex-linear extension keeps injectivity. ∎
 
-Here δ̂*(0) is the zero energy operator of δ*_(g_(b_0)) of [[eq:iii-d3-1-2]], and δ̄̂*(0) that of the Minkowski model.
+Here δ̂*(0) is the zero energy operator of δ*_(g_(b₀)) of [[eq:iii-d3-1-2]], and δ̄̂*(0) that of the Minkowski model.
 The gauge towers of [[prop:iii-d3-3-1]] have exactly the lengths needed: every counterterm ϑ_ν has K⁺-order
 κ_ν > 9/2 + δ_♯, above the 4 + ε_K that the forcings of [[ch:s22]] carry; the shortest towers (length 2, the class
 roots) are compensated by their larger rate λ + d_τ.
@@ -1329,18 +1337,18 @@ S^((λ−1,k))_1 = W_((s1,λ,k))) where W_ν = 0 for the rows outside {(s1, λ, 
 ([[eq:iii-i7-2-2]]) where every W_ν = 0.
 
 **Lemma {#lem:iii-i9-2-4}** (The row identity; [Hin26, (11.187)–(11.189)] in dimension 4 + 1.) For ν ∈ 𝒩 and
-W ∈ 𝒲_(τ,ℂ), D_p⃗P_4(0, 0)(W_ν = W) = L_(b_0)(m_ν(W)), and m_ν(W), vanishing for t^♭_* < 10, is its forward solution
+W ∈ 𝒲_(τ,ℂ), D_p⃗P_4(0, 0)(W_ν = W) = L_(b₀)(m_ν(W)), and m_ν(W), vanishing for t^♭_* < 10, is its forward solution
 ([[prop:ii-e-3-4]]). The identities [[eq:iii-i7-2-3]] hold for P_4.
 
-*Proof.* At p⃗ = 0, g′ = g_0 = g_(b_0); g_0 does not depend on W_ν, and, by [[eq:s21-conv]],
-ġ′ = h_ν(W) = χ_Kδ*ω_ν − δ*(χ_Kω_ν) = m_ν(W) − ζ_ν(W), ζ_ν(W) := δ*_(g_(b_0))(χ_Kω_ν(W)). By (ii),
-D_1Υ^(E_Υ)(g_(b_0), g_(b_0)) = −δ_(E_Υ)G, so DP_4 = DRic(ġ′) + δ*_(E_C)(δ_(E_Υ)Gġ′ + ϑ_(ν,♯)(W)); by (iii)
-DRic(ζ_ν) = 0, and δ_(E_Υ)Gh_ν + ϑ_(ν,♯) = ϑ_ν = δ_(E_Υ)Gm_ν, so DP_4 = DRic(m_ν) + δ*_(E_C)δ_(E_Υ)Gm_ν = L_(b_0)m_ν. On
+*Proof.* At p⃗ = 0, g′ = g_0 = g_(b₀); g_0 does not depend on W_ν, and, by [[eq:s21-conv]],
+ġ′ = h_ν(W) = χ_Kδ*ω_ν − δ*(χ_Kω_ν) = m_ν(W) − ζ_ν(W), ζ_ν(W) := δ*_(g_(b₀))(χ_Kω_ν(W)). By (ii),
+D_1Υ^(E_Υ)(g_(b₀), g_(b₀)) = −δ_(E_Υ)G, so DP_4 = DRic(ġ′) + δ*_(E_C)(δ_(E_Υ)Gġ′ + ϑ_(ν,♯)(W)); by (iii)
+DRic(ζ_ν) = 0, and δ_(E_Υ)Gh_ν + ϑ_(ν,♯) = ϑ_ν = δ_(E_Υ)Gm_ν, so DP_4 = DRic(m_ν) + δ*_(E_C)δ_(E_Υ)Gm_ν = L_(b₀)m_ν. On
 the directions of p⃗_(≤0), P_4 = P_2 at W = 0, which gives [[eq:iii-i7-2-3]]. ∎
 
 The identity is exact because the gauge term is the full δ_(E_Υ)G of the cut-off pure gauge tensor, not a commutator;
 [[eq:iii-i9-2-2]] makes it decay to K⁺-order κ_ν, which is why the towers have length K_τ. [Hin26, (11.187)–(11.189)]
-are the same calculation written as L_(b_0)(χ_Kδ*ω) = −DRic([δ*, χ_K]ω) + δ*_(E_C)δ_(E_Υ)G(χ_Kδ*ω).
+are the same calculation written as L_(b₀)(χ_Kδ*ω) = −DRic([δ*, χ_K]ω) + δ*_(E_C)δ_(E_Υ)G(χ_Kδ*ω).
 
 **Lemma {#lem:iii-i9-2-5}** (The linearisation in h.) Let p⃗ ∈ 𝒫 (with parameter b ∈ ℬ̄_*) and h be small. Then
 h_tot(p⃗) ∈ 𝒳^∞ with ‖h_tot(p⃗)‖_(𝒳^k) ≤ C_k|p⃗|, L_(h,p⃗) = L^(g′,g_0), and [[lem:iii-i7-2-5]] (b)–(c) hold for
@@ -1364,9 +1372,9 @@ every ε > 0,
 with norm O(|W|); for h ∈ 𝒳^∞ it lies in 𝒴_2(α), and in the class 𝒴_2(α′) of [[sec:iii-i8-1]] for every
 α′ ∈ (2, 3).
 
-(c) f^ν_(h,p⃗)(W) = L_(h,p⃗)m_ν(W) + r^ν_(h,p⃗)(W), where, with ζ_ν(W) := δ*_(g_(b_0))(χ_Kω_ν(W)) = m_ν(W) − h_ν(W),
+(c) f^ν_(h,p⃗)(W) = L_(h,p⃗)m_ν(W) + r^ν_(h,p⃗)(W), where, with ζ_ν(W) := δ*_(g_(b₀))(χ_Kω_ν(W)) = m_ν(W) − h_ν(W),
 
-    r^ν_(h,p⃗)(W) = −(L_(h,p⃗) − L_(b_0))ζ_ν(W) + (δ*_(g_0,E_C) − δ*_(g_(b_0),E_C))ϑ_(ν,♯)(W).           {#eq:iii-i9-2-4}
+    r^ν_(h,p⃗)(W) = −(L_(h,p⃗) − L_(b₀))ζ_ν(W) + (δ*_(g_0,E_C) − δ*_(g_(b₀),E_C))ϑ_(ν,♯)(W).           {#eq:iii-i9-2-4}
 
 r^ν_(0,0) = 0; r^ν_(h,p⃗)(W) is supported in supp χ_K, and for every ε > 0
 
@@ -1382,10 +1390,10 @@ g′ − η ∈ H^(k,(ℰ_+,a_+))_b near (ι⁺)°, which still holds ([[lem:iii
 falls on the row terms only through δ*_(g_0,E_C), which depends on these parameters through g_0, applied to ϑ_rows.
 That term is linear in the W_ν and supported in supp χ_K; for S and S⁽⁰⁾_1 in 𝒞, as ∂g_0 is supported in
 supp(1 − χ_K) there ([[eq:iii-i7-1-3]]). Near (ι⁺)° its order is at least Re λ + 4 ≥ λ_♯ + 4 > w_+: the derivative of
-g_0 has ι⁺-order 2 ([[lem:iii-i7-1-3]] (c) for S, S⁽⁰⁾_1; ∂_bg_0 = χ_K ġ_(b_0) ∈ 𝒜^𝒢 for b, [[eq:iii-i7-1-1]]),
+g_0 has ι⁺-order 2 ([[lem:iii-i7-1-3]] (c) for S, S⁽⁰⁾_1; ∂_bg_0 = χ_K ġ_(b₀) ∈ 𝒜^𝒢 for b, [[eq:iii-i7-1-1]]),
 δ*_(g,E_C) ∈ ρ_+Diff¹_b, and ϑ has order λ + 1 ([[lem:iii-i9-2-2]] (b)). Its K⁺-weight is
 κ_ν − ε > 9/2 + δ_♯ − ε > 4 + ε_K ≥ α for ε small ([[lem:iii-i9-2-2]] (d), [[eq:iii-i9-1-1]]). So it lies in 𝒴_2(α).
-Next, f^S and f^s1 satisfy [[eq:iii-i4-3-3]] ([[lem:iii-i7-3-1]] (a)): 𝓘⁺-data (⟨ℰ^C_I+1⟩′, a_I + 1), contained in
+Next, f^S and f^s1 satisfy [[eq:iii-i4-3-3]] ([[lem:iii-i7-3-1]] (a)): ℐ⁺-data (⟨ℰ^C_I+1⟩′, a_I + 1), contained in
 those of 𝒴_1 as ℓ_I ≤ a_I; ι⁺-index set (ℰ̃_+ ∪ 2ℰ_+) + 2 ⊂ (ℰ_src)_(≥2) + 2 by [[eq:iii-i9-1-3]] and
 min Re(ℰ̃_+ ∪ 2ℰ_+) ≥ 2; remainder a_+ + 2 + min(2, m_+) − ε = a_+ + 2 + λ_♯ − ε by (H1), and
 a_+ + 2 + λ_♯ > 2λ_♯ + 2 = 5 + 2δ_♯ > w_+ by [[eq:iii-i9-1-1]]; K⁺-weight ∞. So they lie in 𝒴_1(α) + 𝒴_2(α). f^b
@@ -1396,13 +1404,13 @@ K⁺-weight a_K ≥ 4 + ε_K ≥ α by (H2); so it lies in 𝒴_2(α).
 with h′ := h_ν(W),
 
     f^ν = D_(g′)Ric(h′) − δ*_(g_0,E_C)(D_1Υ^(E_Υ)(g′, g_0)h′ − ϑ_(ν,♯)(W))
-        = D_(g′)Ric(h′) − δ*_(g_0,E_C)([D_1Υ(g′, g_0) − D_1Υ(g_(b_0), g_(b_0))]h′ − ϑ_ν(W))              {#eq:iii-i9-2-6}
+        = D_(g′)Ric(h′) − δ*_(g_0,E_C)([D_1Υ(g′, g_0) − D_1Υ(g_(b₀), g_(b₀))]h′ − ϑ_ν(W))              {#eq:iii-i9-2-6}
 
 by the definition of the counterterm and (ii). The counts are those of [[lem:iii-i8-2-6]] (b):
 D_(g′)Ric ∈ ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, δ*_(g_0,E_C) ∈ ρ_+Diff¹_b, the bracket linear in
-(g′ − g_(b_0), g_0 − g_(b_0)) ∈ H^((ℰ_+,a_+))_b and their first derivatives, and [[lem:iii-i9-2-2]] (b) give the
-ι⁺-data; near K⁺ only δ*_(g_0,E_C)ϑ_ν = δ*_(g_(b_0),E_C)ϑ_ν remains (h′ = 0 and g_0 = g_(b_0) there, [[eq:iii-i7-1-3]]
-at b = b_0), of weight κ_ν − ε. For 𝒴_2(α): the index set lies in ℰ_rows + 2 ⊂ ℰ_src + 2 by [[eq:iii-i9-1-3]]; the
+(g′ − g_(b₀), g_0 − g_(b₀)) ∈ H^((ℰ_+,a_+))_b and their first derivatives, and [[lem:iii-i9-2-2]] (b) give the
+ι⁺-data; near K⁺ only δ*_(g_0,E_C)ϑ_ν = δ*_(g_(b₀),E_C)ϑ_ν remains (h′ = 0 and g_0 = g_(b₀) there, [[eq:iii-i7-1-3]]
+at b = b₀), of weight κ_ν − ε. For 𝒴_2(α): the index set lies in ℰ_rows + 2 ⊂ ℰ_src + 2 by [[eq:iii-i9-1-3]]; the
 remainder a_+ + Re λ + 2 > 2λ_♯ + 2 > w_+; and κ_ν − ε ≥ α as in (a). For the class 𝒴_2(α′) of [[sec:iii-i8-1]]
 (index set ℰ_++ + 2, remainder 4 − ε): if Re λ < 2, then (λ, k) ∈ ℳ and
 (λ, k) + ℱ + ((0, 0) ∪ ℰ_+) ⊂ ℰ_++ by [[eq:iii-i8-1-1]]; if Re λ ≥ 2, every exponent has real part at least 4; and
@@ -1411,24 +1419,24 @@ remainder a_+ + Re λ + 2 > 2λ_♯ + 2 > w_+; and κ_ν − ε ≥ α as in (a)
 (c) L_(h,p⃗) = L^(g′,g_0) = D_(g′)Ric − δ*_(g_0,E_C)D_1Υ^(E_Υ)(g′, g_0) ([[lem:iii-i9-2-5]]), so [[eq:iii-i9-2-6]]
 reads f^ν = L_(h,p⃗)h_ν + δ*_(g_0,E_C)ϑ_(ν,♯) = L_(h,p⃗)m_ν − L_(h,p⃗)ζ_ν + δ*_(g_0,E_C)ϑ_(ν,♯). At (0, 0),
 
-    L_(b_0)ζ_ν = D_(g_(b_0))Ric(ζ_ν) + δ*_(g_(b_0),E_C)δ_(E_Υ)Gζ_ν = δ*_(g_(b_0),E_C)(ϑ_ν − δ_(E_Υ)Gh_ν)
-               = δ*_(g_(b_0),E_C)ϑ_(ν,♯),
+    L_(b₀)ζ_ν = D_(g_(b₀))Ric(ζ_ν) + δ*_(g_(b₀),E_C)δ_(E_Υ)Gζ_ν = δ*_(g_(b₀),E_C)(ϑ_ν − δ_(E_Υ)Gh_ν)
+               = δ*_(g_(b₀),E_C)ϑ_(ν,♯),
 
-by (iii) and ζ_ν = m_ν − h_ν. Subtracting gives [[eq:iii-i9-2-4]], and r^ν_(0,0) = 0 as g′ = g_0 = g_(b_0) there.
+by (iii) and ζ_ν = m_ν − h_ν. Subtracting gives [[eq:iii-i9-2-4]], and r^ν_(0,0) = 0 as g′ = g_0 = g_(b₀) there.
 ζ_ν is supported in supp χ_K, equals m_ν near K⁺ (weight Re e_ν − ε, [[lem:iii-i9-2-2]] (e)), and lies in
 𝒜^((λ,k)+ℱ) near (ι⁺)° ([[lem:iii-i9-2-2]] (b)), with seminorms O(|W|). *The first term of [[eq:iii-i9-2-4]].* Near
-(ι⁺)°, L^(g′,g_0) − L^(g_(b_0),g_(b_0)) lies in ρ_+²Diff²_b with coefficients linear, with smooth bounded factors, in
-g′ − g_(b_0), g_0 − g_(b_0) and their b-derivatives of order at most 2: the count of [[eq:iii-i-4-2]]. There
-g_0 − g_(b_0) ∈ ρ_+²C^∞ with seminorms O(|p⃗|) ([[lem:iii-i7-1-3]] (c)), and h_tot(p⃗) + h ∈ H^(k,(ℰ_+,a_+))_b with norm
+(ι⁺)°, L^(g′,g_0) − L^(g_(b₀),g_(b₀)) lies in ρ_+²Diff²_b with coefficients linear, with smooth bounded factors, in
+g′ − g_(b₀), g_0 − g_(b₀) and their b-derivatives of order at most 2: the count of [[eq:iii-i-4-2]]. There
+g_0 − g_(b₀) ∈ ρ_+²C^∞ with seminorms O(|p⃗|) ([[lem:iii-i7-1-3]] (c)), and h_tot(p⃗) + h ∈ H^(k,(ℰ_+,a_+))_b with norm
 O(|p⃗| + ‖h‖_(𝒳^k)) ([[lem:iii-i9-2-5]]); as (2, 0) ∈ ℰ_+ and m_+ = λ_♯ (H1), both lie in ρ_+^(λ_♯−ε)H^k_b. So the
-first term lies in ρ_+^(Re λ+2+λ_♯−2ε)H^(k−2)_b near (ι⁺)°. Near K⁺, g_0 = g_(b_0) and h_tot(p⃗) = 0 (every correction
-is supported in 𝒞: [[lem:iii-i4-2-2]], [[def:iii-i7-2-3]] at b = b_0, [[lem:iii-i9-2-2]] (c)), so
-L_(h,p⃗) − L_(b_0) = L^(g_(b_0)+h,g_(b_0)) − L_(b_0) has coefficients of K⁺-weight a_K with norm O(‖h‖_(𝒳^k))
-([[eq:iii-i-4-2]]), and the first term has K⁺-weight Re e_ν + a_K − ε. ζ_ν vanishes near 𝓘⁺; the weights combine at
-the corner of ι⁺ and K⁺ as in [[prop:iii-i-4-1]]. *The second term.* At b = b_0,
-g_0 − g_(b_0) = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b_0) − g_(b_0)) is supported in supp(1 − χ_K) and ϑ_(ν,♯) in
-supp χ_K, so the term is supported in 𝒞, away from K⁺ and 𝓘⁺. δ*_(g,E_C) ∈ ρ_+Diff¹_b near (ι⁺)° with coefficients
-depending smoothly on g and its first derivatives ([[def:iii-b-6-1]]), so δ*_(g_0,E_C) − δ*_(g_(b_0),E_C) ∈
+first term lies in ρ_+^(Re λ+2+λ_♯−2ε)H^(k−2)_b near (ι⁺)°. Near K⁺, g_0 = g_(b₀) and h_tot(p⃗) = 0 (every correction
+is supported in 𝒞: [[lem:iii-i4-2-2]], [[def:iii-i7-2-3]] at b = b₀, [[lem:iii-i9-2-2]] (c)), so
+L_(h,p⃗) − L_(b₀) = L^(g_(b₀)+h,g_(b₀)) − L_(b₀) has coefficients of K⁺-weight a_K with norm O(‖h‖_(𝒳^k))
+([[eq:iii-i-4-2]]), and the first term has K⁺-weight Re e_ν + a_K − ε. ζ_ν vanishes near ℐ⁺; the weights combine at
+the corner of ι⁺ and K⁺ as in [[prop:iii-i-4-1]]. *The second term.* At b = b₀,
+g_0 − g_(b₀) = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_(b₀)) is supported in supp(1 − χ_K) and ϑ_(ν,♯) in
+supp χ_K, so the term is supported in 𝒞, away from K⁺ and ℐ⁺. δ*_(g,E_C) ∈ ρ_+Diff¹_b near (ι⁺)° with coefficients
+depending smoothly on g and its first derivatives ([[def:iii-b-6-1]]), so δ*_(g_0,E_C) − δ*_(g_(b₀),E_C) ∈
 ρ_+³Diff¹_b there with seminorms O(|p⃗|), as in (a); the term has ι⁺-order Re λ + 4 ≥ Re λ + 2 + λ_♯. This gives
 [[eq:iii-i9-2-5]]. Finally Re λ + 2 + λ_♯ ≥ 2λ_♯ + 2 = 5 + 2δ_♯ > w_+ by [[eq:iii-i9-1-1]], and
 Re e_ν + a_K ≥ λ_♯ − 1 + 4 + ε_K > α by (H2) (e_ν ≥ λ − 1); so r^ν ∈ 𝒴_2(α) when h ∈ 𝒳^∞, with the stated bounds
@@ -1438,7 +1446,7 @@ Re e_ν + a_K ≥ λ_♯ − 1 + 4 + ε_K > α by (H2) (e_ν ≥ λ − 1); so r
 on (h, p⃗) ([[lem:iii-i7-1-3]] (a), [[lem:iii-i9-2-5]]); the values at (0, 0) are [[lem:iii-i9-2-4]]. ∎
 
 *The exact linearisation.* By (c), f^ν = L_(h,p⃗)m_ν + r^ν holds exactly, and r^ν carries a factor of ι⁺-order at
-least λ_♯ (from h, h_tot or g_0 − g_(b_0)), which lifts it from Re λ + 2 ≥ λ_♯ + 2 to at least 2λ_♯ + 2 = 5 + 2δ_♯ >
+least λ_♯ (from h, h_tot or g_0 − g_(b₀)), which lifts it from Re λ + 2 ≥ λ_♯ + 2 to at least 2λ_♯ + 2 = 5 + 2δ_♯ >
 w_+, past every exponent that could create a row: no ι⁺-index set of r^ν needs to be tracked. (In dimension 3 + 1 the
 same count gives 2 + 2 = 4 < 5, and [Hin26] tracks an index set ℰ̃′_++ instead.) So the forward solution of
 L_(h,p⃗)u = F − Σ_ν f^ν_(h,p⃗)(W_ν) is u = v − Σ_ν m_ν(W_ν), where v is the forward solution of
@@ -1448,17 +1456,17 @@ L_(h,p⃗)v = F − Σ_ν r^ν_(h,p⃗)(W_ν), and [[ch:s22]] eliminates the row
 K_τ terms below the leading one, except K_s0 − 1 = 3 for s0, whose leading term is the A′_ν-term) and, in its
 (11.194), that the leading ι⁺-part of f^ν is a cut-off of the model operator applied to the model of m_ν. Parts (b)
 and (c) give the classes and the exact form f^ν = L_(h,p⃗)m_ν + r^ν, from which the analogue of [Hin26, (11.194)] in its
-L_b form follows, at a plain ι⁺-weight: f^ν − L_(b_0)m_ν = (L_(h,p⃗) − L_(b_0))m_ν + r^ν has ι⁺-weight
+L_b form follows, at a plain ι⁺-weight: f^ν − L_(b₀)m_ν = (L_(h,p⃗) − L_(b₀))m_ν + r^ν has ι⁺-weight
 Re λ + 2 + λ_♯ − ε. [Hin26]'s index set (λ + 2, k) + ((0, 0) ∪ ℰ_ind ∪ ℰ_+ ∪ ℰ̃′_++) has here no ℰ̃′_++-term, the new
 corrections lying in 𝒳 by (H3) ([Hin26, Remark 11.62]). [Hin26, (11.191)], for the logarithmic s0 correction at the
 exponent 1, has no analogue.
 
 *At a base point with parameter b.* The rows and towers are built at b, from the 1-forms of [[prop:iii-d3-3-1]] at b,
-and the corrections h_ν and the counterterms ϑ_(ν,♯) are those built at b_0 ([[lem:iii-i15-1-1]] (P6)).
+and the corrections h_ν and the counterterms ϑ_(ν,♯) are those built at b₀ ([[lem:iii-i15-1-1]] (P6)).
 [[lem:iii-i9-2-2]] holds at b with the same proof ((P3); (P5) for the s0 rows, whose gauge 1-form is Killing for every
 g_b; (f) by [[lem:iii-i15-1-2]]), as do [[lem:iii-i9-2-5]] and [[lem:iii-i9-2-6]] (a), (b) and (d). [[lem:iii-i9-2-4]]
 and [[lem:iii-i9-2-6]] (c) take the form [[eq:iii-i15-1-1]]:
 D_p⃗P_4(h, p⃗)(W_ν = W) = L_(h,p⃗)m_ν(W) + r^ν_(h,p⃗)(W) + E^ν_(h,p⃗)(W), where L_(h,p⃗)m_ν + r^ν is the calculation of
-(c) at b, with L_b in place of L_(b_0) and every object built at b, in the classes of [[eq:iii-i9-2-5]] uniformly in b,
-and E^ν, the difference between the corrections and counterterms built at b_0 and at b, has size O(|b − b_0||W|),
-K⁺-weight κ_ν − ε > α and support in supp χ_K. At b_0, E^ν = 0.
+(c) at b, with L_b in place of L_(b₀) and every object built at b, in the classes of [[eq:iii-i9-2-5]] uniformly in b,
+and E^ν, the difference between the corrections and counterterms built at b₀ and at b, has size O(|b − b₀||W|),
+K⁺-weight κ_ν − ε > α and support in supp χ_K. At b₀, E^ν = 0.

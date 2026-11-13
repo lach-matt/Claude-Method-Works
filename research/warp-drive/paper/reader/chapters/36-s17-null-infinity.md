@@ -25,17 +25,18 @@ inverse of the tf-normal operator (Lemma 9.26, Remarks 9.27–9.28), the graftin
 space (Definition 9.29, (9.72), Proposition 9.30, Remarks 9.31–9.34) and its conormal version (Proposition 9.35).
 [Hin26] uses these results from its Section 11.5 on.
 
-Two further sections are used in [[ch:s26]]. [[sec:s17-radiative]], after the second step, collects in
+Two further sections complete the chapter. [[sec:s17-radiative]], after the second step, collects in
 [[prop:np-10-38]] the operator at null infinity in dimension 4 + 1, entry by entry, and what it gives for the order at
 which a radiative term at null infinity reaches future timelike infinity. [[sec:s17-exterior]], at the end, gives in
 [[prop:np-10-64]] the quantities through which the spatial dimension enters [Hin23a, Section 3], the energy estimates
-near null and spatial infinity that [[ch:s26]] carries to dimension 4 + 1.
+near null and spatial infinity that [[ch:s26]] carries to dimension 4 + 1; [[ch:s26]] uses them.
 
 The notation is that of [[ch:s11]]–[[ch:s16]]. In particular n = 4, D = 5; the family g_b, b = (μ, A) ∈ ℬ, of
 [[sec:iii-b-3]], with μ₀, R₁ = μ₀^(1/2), the compactification M and its faces I₀, ℐ⁺, ι⁺, K⁺ ([[def:iii-b-2-1]]); the
 gauge-fixed operator of [[sec:iii-b-6]]; the linearised operator L_b and its Minkowski model L̄ of [[ch:s15]], with the
 endomorphism S̄ of [[lem:iii-f-2-1]] and its spectrum [[eq:iii-f-3-1]]; and the index sets and partially polyhomogeneous
-spaces of [[sec:iii-a-1]]. No step of this chapter involves the inner radius r₀ of the spaces of [[ch:s01]]: the
+spaces of [[sec:iii-a-1]]. We write the spectral families of [[ch:s15]] with a hat: L̂_b(σ) := L_b^(σ) and
+L̄̂(σ) := L̄^(σ), so that 2L̄̂(0) = (2L̄)^(0) and L̂_b(0) is the zero energy operator. No step of this chapter involves the inner radius r₀ of the spaces of [[ch:s01]]: the
 exterior region below is a neighbourhood of I₀ ∪ ℐ⁺ of radius at least 4R₁, and the results at ι⁺ and at the transition
 face concern faces at infinity and meet the inner radius only through the results of [[ch:s15]] and [[ch:s16]] that
 they use.
@@ -59,9 +60,8 @@ radiation field of π̸₀h into π₁₁h through the (7, 6) entry of [Hin26, (
 so π₁₁h carries no radiation field ([[rem:s17-no-radiation]]). The last index condition of [Hin26, Definition 5.3] is
 strengthened to ℰ_I^tot + (ℰ_I^tot − 1) ⊂ ℰ_I^C ([[def:iii-c-3-1]]), which needs γ_Υ < 1/4.
 
-Throughout this part: n = 4, D = 5; the family g_b, b = (μ, A) ∈ ℬ, of [[sec:iii-b-3]], with μ₀, R₁ = μ₀^(1/2), the
-compactification M and its faces I₀, ℐ⁺, ι⁺, K⁺ ([[def:iii-b-2-1]]); the time functions t_* = t − ψ(|x|) and t_IVP
-([[eq:iii-b-3-6]], [[lem:iii-b-3-7]]), with t_* = t − |x| + C′ − 8μ₀|x|⁻¹ on {|x| ≥ 3R₁}; and the gauge parameters of
+Throughout this chapter we use, besides the notation fixed above, the time functions t_* = t − ψ(|x|) and t_IVP
+([[eq:iii-b-3-6]], [[lem:iii-b-3-7]]), with t_* = t − |x| + C′ − 8μ₀|x|⁻¹ on {|x| ≥ 3R₁}, and the gauge parameters of
 [[sec:iii-f-1]], with, in addition,
 
     0 < γ_Υ < 1/4,     0 < e_Υ < 1.                                                                     {#eq:iii-c-1-1}

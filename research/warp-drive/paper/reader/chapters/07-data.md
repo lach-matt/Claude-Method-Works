@@ -1,11 +1,12 @@
 ## The data {#ch:data}
 
-This chapter constructs the Cauchy data of the main theorem and completes the proof of its items 1–5. The data are posed
-on the slice Σ := Σ_τ0, before the shell reaches the hole, and no smallness of the background is used. The approximate
-solution of [[thm:approximant]], with suitable stage data, has data that satisfy the constraints and the gauge condition
-D = 0 to high order ([[sec:data-approximant]]). The remaining error is removed exactly by solving the constraints
-outward in r, as a parabolic–hyperbolic system, from a sphere inside the shell where the approximant's data are the
-seed's exactly ([[sec:data-evolution]]). The data then coincide with the seed's on Σ ∩ {r < v_start − τ0}.
+This chapter constructs the Cauchy data of the main theorem, which the proof of its items 1–5 in [[sec:main-proof]]
+uses. The data are posed on the slice Σ := Σ_τ0, before the shell reaches the hole, and no smallness of the background
+is used. The approximate solution of [[thm:approximant]], with suitable stage data, has data that satisfy the
+constraints and the gauge condition D = 0 to high order ([[sec:data-approximant]]). The remaining error is removed
+exactly by solving the constraints outward in r, as a parabolic–hyperbolic system, from a sphere inside the shell where
+the approximant's data are the seed's exactly ([[sec:data-evolution]]). The data then coincide with the seed's on Σ ∩ {r
+< v_start − τ0}.
 
 Notation is that of [[ch:uniform-existence]]. In addition, the ansatz [[eq:ansatz]], G = ḡ + λ W + Σ_(j=2)^(N+1) λ^j ĝ_j
 with the mean metric ḡ = g0 + Σ_(j=1)^(N) λ^j m_j, the phase u = v + Σ_(j=1)^(N) λ^j φ_j and the approximant g_app = G(X,
@@ -72,17 +73,18 @@ and Gt(S(D))(n, ·) = −(1/2)(n♭(n) Z♭ + g(Z, n) n♭) + (1/2) g(n, Z) n♭
 
 and for a solution of Ric^H(g) = 0 with D = 0 on the slice the constraints hold there exactly when ∂_n D = 0 there.
 
-*What the theorem asks.* Let (γ, κ) on Σ satisfy the constraints, and give g on Σ the lapse and shift of g_app, the
+*What the theorem asks.* Let (γ, κ) on Σ satisfy the constraints, and give g on Σ the lapse and shift of G(X, u/λ), the
 spatial part γ, ∂_τ of the spatial part fixed by κ, and ∂_τ of the lapse and shift fixed by D(g) = 0 on Σ. The last
 choice is possible because D is linear in ∂_τ g_(τ ·), with an invertible coefficient on a spacelike slice. Indeed, with
 D_σ := g_(σρ) D^ρ = g^(ab) (∂_a g_(σb) − (1/2) ∂_σ g_(ab)) − g_(σρ) g^(ab) Γ[g0]^ρ_ab, the terms containing y_σ := ∂_τ
 g_(στ) are g^(ττ) y_σ + δ^τ_σ g^(τj) y_j − (1/2) δ^τ_σ (g^(ττ) y_τ + 2 g^(τj) y_j): that is, (1/2) g^(ττ) y_τ in D_τ and
 g^(ττ) y_j in D_j. The coefficient matrix is diag((1/2) g^(ττ), g^(ττ), …, g^(ττ)), of determinant (1/2) (g^(ττ))⁵ ≠ 0,
 since g^(ττ) < 0 on a spacelike slice; at g0, g0^(ττ) = −(r² + μ)/r² and the determinant is −(r² + μ)⁵/(2 r¹⁰). Then (g,
-∂_τ g) is a Cauchy datum for Ric^H = 0 with D = 0 on Σ and, by [[eq:data-constraint-gauge]], ∂_τ D = 0 on Σ, which is
-what the proof of the main theorem uses ([[sec:data-assembly]]). (E4) asks that w := g − g_app be O(λ^K) in the scaled
-norm Data. So there are two steps: the approximant's data must satisfy the constraints and D = 0 to high order
-([[sec:data-approximant]]), and the error must be removed exactly with λ-uniform bounds ([[sec:data-evolution]]).
+∂_τ g) is a Cauchy datum for Ric^H = 0 with D = 0 on Σ and, by [[eq:data-constraint-gauge]], ∂_τ D = 0 on Σ; D = 0 and
+the constraints on Σ are the hypotheses of [[lem:gauge-propagation]], which the proof of the main theorem uses. (E4)
+asks that w := g − g_app be O(λ^K) in the scaled norm Data. So there are two steps: the approximant's data must satisfy
+the constraints and D = 0 to high order ([[sec:data-approximant]]), and the error must be removed exactly with λ-uniform
+bounds ([[sec:data-evolution]]).
 
 **Remark {#rem:data-conformal}** (The conformal method.) Touati constructs high-frequency data by the conformal method,
 inverting the flat operators Δ_e and div_e L_e and closing each fixed point by the smallness of the background: the
@@ -337,7 +339,7 @@ multiple of δ_A^C, W_TT being traceless, so it does not cancel. The remaining c
 **Lemma {#lem:linear-evolution}** (The linear evolution.) Consider on [a, b1] × S³, b1 > a, the linear system, with
 coefficients measurable in r for which M_s below is finite,
 
-    p ∂_r α − Δ_p α + b·∂_S α + c α + e·(ϖ, q) = F_ρ,
+    p ∂_r α − Δ_p α + b′·∂_S α + c α + e·(ϖ, q) = F_ρ,
     A0 ∂_r (ϖ, q) + A^B ∂_B (ϖ, q) + c′ (ϖ, q) + f ∂_r α + f′·∂_S α + c″ α = F_J,                      {#eq:data-linear}
 
 with ∂_S the first-order angular derivatives, Δ_p a second-order angular operator, elliptic on each sphere with
@@ -348,7 +350,7 @@ symmetric, with zero data at r = a. For s > 3/2 + 2 there is a unique solution, 
 
 norms on the spheres S³, with C depending only on s, b1 − a, p0, δ_e, A00 and an upper bound for
 
-    M_s := sup_r ‖(p, Δ_p, 𝒮, 𝒮 A0, 𝒮 A^B)‖_(H^(s+1)(S³)) + sup_r ‖(b, c, e, c′, f, f′, c″)‖_(H^s(S³))
+    M_s := sup_r ‖(p, Δ_p, 𝒮, 𝒮 A0, 𝒮 A^B)‖_(H^(s+1)(S³)) + sup_r ‖(b′, c, e, c′, f, f′, c″)‖_(H^s(S³))
            + ∫_a^(b1) ‖∂_r (𝒮 A0)‖_(L^∞) dr,
 
 and increasing in M_s; no other r-derivative of a coefficient enters. Write ‖U‖_(X_s) for the left side of the bound plus
@@ -393,9 +395,9 @@ integrable in r) give the bound.
 
 At an index s″ > s the same pairings, with the Moser and Kato–Ponce inequalities applied to the top norms of the
 coefficients, give the differential inequality of the statement. Its last term comes from the parabolic equation. The
-coefficients b, c and e lie in H^(s″) only, so pairing the first equation at index s″ + 1 must move one derivative onto
+coefficients b′, c and e lie in H^(s″) only, so pairing the first equation at index s″ + 1 must move one derivative onto
 α: |⟨α, c α⟩_(H^(s″+1))| ≤ ‖α‖_(H^(s″+2)) ‖c α‖_(H^(s″)), with ‖c α‖_(H^(s″)) ≤ C (‖c‖_(H^(s″)) ‖α‖_(L^∞) + ‖c‖_(L^∞)
-‖α‖_(H^(s″))), and Young's inequality against the gain c0 ‖α‖²_(H^(s″+2)) leaves C m_(s″)² ‖α‖²_(L^∞); likewise b·∂_S α,
+‖α‖_(H^(s″))), and Young's inequality against the gain c0 ‖α‖²_(H^(s″+2)) leaves C m_(s″)² ‖α‖²_(L^∞); likewise b′·∂_S α,
 with ‖α‖_(W^(1,∞)), and e·(ϖ, q), with ‖(ϖ, q)‖_(L^∞), which must be paired so in any case, (ϖ, q) lying in H^(s″) only.
 The hyperbolic part needs no such term: it is paired at index s″, where C m_(s″) ω_s 𝒴^(1/2) suffices.
 
@@ -474,7 +476,7 @@ the weight built from ‖∂_r α_(i+1)‖_∞ and ‖∂_r (ϖ, q)_(i+1)‖_∞
 inequality, ‖∂_r (𝒮 A0)‖_∞ entering Gronwall's exponent; a forcing term carrying ∂_r α_i would put ℰ_i(r) itself on the
 right, which is why the coefficient of ∂_r α is frozen. The term ‖m_(s″) ω_∞‖_(L²(a, r)) of the tame bound changes
 neither the rate of Ξ_0 nor the uniformity of Ξ_1: ω_∞ ≤ C ‖U_(i+1)‖_(X_(s_1)) ≤ C λ^(N−2) in the ball; the lower-order
-coefficients b, c, e, c′, f′, c″ are those of [[lem:constraints-evolution]] at U = 0, independent of U and smooth in the
+coefficients b′, c, e, c′, f′, c″ are those of [[lem:constraints-evolution]] at U = 0, independent of U and smooth in the
 angles uniformly in λ; and the others are functions of U_i entering linearly and changing by C λ⁻¹ ‖U_i‖, so that m_(s″)
 ≤ C (1 + λ⁻¹ ℰ_i), and the term is at most C λ^(N−2) (b1 − a)^(1/2) + C λ^(N−3) (∫_a^r ℰ_i²)^(1/2): a part of Ξ_0
 proportional to λ^(N−2) and a part of Ξ_1 at most C λ^(N−3) ≤ C, as N ≥ 4.
@@ -501,8 +503,8 @@ are floating-point observations, and no proof uses them.
 ### Proof of the theorem {#sec:data-proof}
 
 *Proof of [[thm:data]].* Take the stage data of [[lem:stage-data]] with N := K + 3 and U of [[prop:exact-correction]].
-Put g on Σ: the spatial part γ + α dr dr, the lapse and shift of g_app, ∂_τ of the spatial part fixed by κ + ϖ Π + q ⊗
-dr + dr ⊗ q, and ∂_τ of the lapse and shift fixed by D(g) = 0 (as in [[sec:data-identities]], "What the theorem asks").
+Put g on Σ: the spatial part γ + α dr dr, the lapse and shift of G(X, u/λ), ∂_τ of the spatial part fixed by κ + ϖ Π + q
+⊗ dr + dr ⊗ q, and ∂_τ of the lapse and shift fixed by D(g) = 0 (as in [[sec:data-identities]], "What the theorem asks").
 Then the constraints hold exactly ([[prop:exact-correction]]), D = 0, and, by [[eq:data-constraint-gauge]], ∂_τ D = 0 on
 Σ for the solution of Ric^H = 0 with these data.
 
@@ -517,47 +519,7 @@ invertible coefficient. So, each derivative costing at most λ⁻¹, Data(w′) 
 commutes with the symmetries, by the uniqueness in [[lem:linear-evolution]], [[prop:exact-correction]] and the stage
 equations, Pol⁺ being equivariant. They equal the seed's data on Σ ∩ {r < v_start − τ0}. ∎
 
-### The proof of the main theorem, items 1–5 {#sec:data-assembly}
+### The main theorem, items 1–5 {#sec:data-assembly}
 
-*Proof of items 1–5 of [[thm:main]].* Let N := K + 3. [[thm:approximant]], with the stage data of [[lem:stage-data]],
-gives profiles g1, …, g_N with (E1)–(E3), the residual of order N − 1 = K + 2 ≥ K; its g1 is the mean m1 plus the waves
-with the second harmonic χ dv dv and a phase shift. [[thm:data]] gives a vacuum datum on Σ with (E4) for this
-approximant. [[thm:uniform-existence]] then gives, for 0 < λ ≤ λ0, the solution g_λ of Ric^H(g) = 0 on Ω with these data,
-smooth, with [[eq:ue-remainder]]; λ0 and the constants depend on (l5, μ0, A, env, T, τ0, K) and a, through Ω, the
-profiles and C_R, C_D, and not on λ. Taking λ0 so small that C λ0 ≤ ε1, g_λ is Lorentzian on Ω by [[lem:lorentz-margin]],
-since |g_λ − g0| ≤ C λ ≤ ε1 < s0 there ([[thm:uniform-existence]]).
-
-*Item 5, the gauge and uniqueness.* D := D(g_λ) satisfies B_g[D] = −div_g Gt(Ric^H(g_λ)) = 0 by [[eq:data-bianchi]], a
-homogeneous linear wave system: −(1/2) g^(ab) ∂_a ∂_b D = f with f linear in (D, ∂D) with bounded coefficients. On Σ, D
-= 0 by the choice of the gauge's data and ∂_τ D = 0 by [[eq:data-constraint-gauge]], since the constraints hold. The
-energy inequality of [[lem:energy]] for g̃ = g_λ (|g_λ − g0| ≤ C λ ≤ ε1, |∂g_λ| ≤ C) gives ‖∂D(τ)‖ + ‖D(τ)‖ ≤ C
-∫_(τ0)^(τ) (‖D‖ + ‖∂D‖), and Gronwall's lemma gives D = 0 on Ω. The uniqueness of g_λ among C² solutions of Ric^H(g) = 0
-on Ω with these data and |g − g0| ≤ ε1 is that of [[thm:uniform-existence]].
-
-*Item 1, vacuum and symmetry.* Ric(g_λ) = Ric^H(g_λ) + S(D(g_λ)) = 0, since D(g_λ) = 0. Let ι be one of the isometries
-of g0 generated by the T² action and the two reflections; it fixes g0, preserves Ω (defined by τ, |x| and v), and acts
-on Cartesian arrays by an orthogonal matrix. Ric^H and D are built from g and g0 alone, so ι*g_λ solves Ric^H = 0 on Ω;
-its data are those of g_λ, which are invariant ([[thm:data]]); and |ι*g_λ − g0| = |g_λ − g0| ∘ ι ≤ ε1, the norm being
-invariant under orthogonal matrices. By the uniqueness of item 5, ι*g_λ = g_λ.
-
-*Item 2, the data.* The Cauchy data of g_λ on Σ are those of [[thm:data]]: they satisfy the vacuum constraints exactly,
-equal the seed's data on r < v_start − τ0, and differ from those of g_app by at most C λ^K in the norm Data of (E4); the
-leading oscillation of g_app is the waves.
-
-*Item 3, the remainder.* g_λ = g_app + w with |w| ≤ C λ^(K−3) and |∂w| ≤ C λ^(K−4) on Ω, by [[thm:uniform-existence]],
-with g_app = g0 + λ [g1] + Σ_(j=2)^(N) λ^j [g_j] as in [[eq:approximant]].
-
-*Item 4, convergence.* By [[thm:uniform-existence]], |g_λ − g0| ≤ C λ and |∂g_λ| ≤ C on Ω, and ∂g_λ − ∂g0 = ∂(λ [g1]) +
-O(λ) = dv ⊗ [∂_θ g1] + O(λ). For a smooth profile f with ⟨f⟩ = 0, [f] → 0 weakly in L²(Ω): with Φ_f the zero-mean
-θ-antiderivative of f, ∂_τ [Φ_f] = λ⁻¹ [f] + [∂_τ Φ_f] since ∂_τ v = 1, so for a test function ψ, ∫ ψ [f] = −λ ∫ (∂_τ ψ)
-[Φ_f] − λ ∫ ψ [∂_τ Φ_f] → 0, and the bound ‖[f]‖_(L²) ≤ C extends this to every ψ ∈ L²(Ω). As ⟨∂_θ g1⟩ = 0, ∂g_λ → ∂g0
-weakly in L²(Ω). The convergence is not strong wherever env ≠ 0. Applying the same fact to f² − ⟨f²⟩ with ψ the indicator
-of a set B gives ‖dv ⊗ [∂_θ g1]‖²_(L²(B)) → ∫_B ⟨|dv ⊗ ∂_θ g1|²⟩, which is positive when ∂_θ g1 ≠ 0 on a subset of B of
-positive measure. The oscillating part of g1 is W(X, θ + φ1) with W = W_TT + χ dv dv ([[thm:approximant]]), so by
-[[prop:limit]] the phase mean of the g0-norm squared of ∂_θ g1 is ⟨|∂_θ g1|²_(g0)⟩ = (4/3) A² env² r⁻³
-([[eq:wave-energy]]); where env ≠ 0 this is positive, so ∂_θ g1 ≠ 0 there. The limit g0 satisfies Ric(g0) = (3 μ′/(2 r³))
-dv ⊗ dv ([[prop:vaidya]] (a)): it is not vacuum but Einstein–null dust with one family.
-
-Finally, D_T ∩ {τ ≥ τ0} lies in Ω ([[lem:domain]] (f)). No derivative is lost: the bootstrap of
-[[thm:uniform-existence]] closes at the fixed order k. The formulation is regular across the axes, the unknowns being
-Cartesian arrays on R⁴, and the background is the large metric g0 itself. ∎
+Items 1–5 of [[thm:main]] follow from [[thm:approximant]], [[thm:data]] and [[thm:uniform-existence]] with
+[[lem:gauge-propagation]]; the proof is in [[sec:main-proof]].
