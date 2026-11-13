@@ -1221,3 +1221,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   facts, symmetry extension to the development, the double-null gauge and MGHD uniqueness, which the cited literature
   ([CCTW16] p. 55, [CP12] §4.3 p. 16) calls open; the edition states them as hypotheses of that lemma, which no proof
   uses. The source's Theorem 7.L (linear estimates) is not carried; the sentence is reworded. F-87 merges and fixes.
+- P-K85 done (reports/P-K85.md). FOR THE FINAL REPORT: the 10^(−6613.6) bound on λ_25 (from the source's coarser
+  B_44) is false as stated; λ_25 ≤ 10^(−6282) is proved; and a gap in the source's localisation (case P needs the
+  remainder bound with weight t^(3/2)) is closed. F-85 merges and fixes R-85 (3M 12m 5n), R2-84's X1.
+- F-82 done (reports/F-82.md): Major 1 proved in full (λ-scaled theory); Major 2 the two-dust corollary removed
+  behind [[pending:issue-82-radial]]; P-K82 attempts it. Integration: F-82's suggestions for chapter 7 line 230 and
+  chapter 81 lines 976-980 (in its report).

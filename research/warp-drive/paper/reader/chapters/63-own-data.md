@@ -16,10 +16,11 @@ where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The t
 (Section [[sec:own-half-class]]). (4) The constants of the construction from past null infinity are polynomial in
 λ^(−1) at every order, which makes the data of g_λ on ℋ small at every weight that the estimate below uses
 (Sections [[sec:own-orders]] and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted,
-g_λ continues to W by one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence;
-the continuation is vacuum, unique in a class of weight below ½, and its data on S lie in the half-integer class with
-small norm (Sections [[sec:cutoff-expansion]], [[sec:own-continuation]] and [[sec:own-vacuum]]). The theorem is
-assembled in Section [[sec:own-proof]].
+g_λ continues to W by one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence,
+whose exponents follow from homogeneity under a dilation; the continuation is vacuum, unique in a class of weight
+below ½, and its data on S lie in the half-integer class with small norm (Sections [[sec:far-homogeneity]],
+[[sec:cutoff-expansion]], [[sec:own-continuation]] and [[sec:own-vacuum]]). The theorem is assembled in Section
+[[sec:own-proof]].
 
 *Notation.* We use the chart (τ, x) of [[sec:background]], v = τ + r, the background g0 of [[eq:background]] and the
 gauge of [[sec:gauge]]. Ω′ is the domain of the form [[eq:omega]], with constants (T′, δ′0) and inner radius a′ = q0 −
@@ -921,11 +922,11 @@ g_λ − g_b0, truncated as polynomials in s. Their sizes in λ are not controll
 ### The continuation to the far part's past domain of dependence {#sec:own-continuation}
 
 *Setting.* Fix ℓ0 ∈ (3, 4) ∖ {7/2}, a ∈ (ℓ0 − 1, 3) and k1 := max(8, d_1 + 4). On W we use the Kerr–Schild Cartesian
-coordinates (t, x), t = τ, and P(h) := Ric^H(g_b0 + h; g_b0), which is the operator [[eq:gauge]] relative to g0 there
-(g0 = g_b0 on v ≥ v_end). Put u := t − r, u* := τ_max + 1 and w := (u* − u)^(2a); on W, t ≤ f(r) ≤ τ_max and t − v1 ≥ −r,
-so r + 1 ≤ u* − u ≤ 2r + |u* − v1|. The commutators are Γ ∈ {∂_t, L_Ω_ab, Z}, Z := (t − v1)∂_t + x·∂_x, acting on
-Cartesian components; for a multi-index α, Γ^α is the product. For a metric g = g_b0 + H on W, |·| denotes the Euclidean
-operator norm of a component matrix, and for a function φ and σ ≤ 0,
+coordinates (t, x), t = τ, the operator P of [[eq:far-operator]], which is the operator [[eq:gauge]] relative to g0 there
+(g0 = g_b0 on v ≥ v_end), and the commutators Γ ∈ {∂_t, L_Ω_ab, Z} of Section [[sec:far-homogeneity]], acting on
+Cartesian components, Γ^α being the product for a multi-index α. Put u := t − r, u* := τ_max + 1 and w := (u* − u)^(2a);
+on W, t ≤ f(r) ≤ τ_max and t − v1 ≥ −r, so r + 1 ≤ u* − u ≤ 2r + |u* − v1|. For a metric g = g_b0 + H on W, |·| denotes
+the Euclidean operator norm of a component matrix, and for a function φ and σ ≤ 0,
 
     E_σ[φ] := ∫_(Σ̃_σ) √|g| T_g[φ](X, −∇t̃) d⁴x,     X := w ∂_t,
     𝔈_k(σ) := Σ_(|α|≤k) Σ_(i≤j) E_σ[(Γ^α h_R)_ij],     h_R := g − g_b0 − Σ,
