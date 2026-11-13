@@ -187,22 +187,22 @@ harmonics of degree l span the irreducible representation of highest weights (l/
 tensor harmonics of degree l the sum of those of highest weights ((l ± 2)/2, (l ∓ 2)/2) ([[sec:iii-f1-1]]); for different
 types or degrees these representations are pairwise inequivalent. A scalar mode of degree l is the image of the scalar
 harmonics of degree l under the equivariant linear map u ↦ a u dR² + 2R b du dR + R²(c uγ̂ + e(D̂D̂u + (k²/3)γ̂u)), and
-likewise for k, so it lies in the isotypic component of (l/2, l/2); a tensor mode of degree l lies in that of ((l ± 2)/2,
-(l ∓ 2)/2), and the l = 0 part in that of the trivial representation. An invariant bilinear form pairs isotypic
-components of inequivalent representations to zero, and an equivariant linear map takes each isotypic component into the
-isotypic component of the same representation (Schur's lemma). So the polarisations of 𝔈_V and 𝔈_K vanish between
-different modes, and the constraints of a seed hold exactly when those of each mode hold. The mode expansions of smooth
-data converge with all their derivatives, so 𝔈_V and 𝔈_K of a seed are the sums of those of its modes.
+likewise for k, so it lies in the isotypic component of (l/2, l/2); a tensor mode of degree l lies in that of
+((l ± 2)/2, (l ∓ 2)/2), and the l = 0 part in that of the trivial representation. An invariant bilinear form pairs
+isotypic components of inequivalent representations to zero, and an equivariant linear map takes each isotypic component
+into the isotypic component of the same representation (Schur's lemma). So the polarisations of 𝔈_V and 𝔈_K vanish
+between different modes, and the constraints of a seed hold exactly when those of each mode hold. The mode expansions of
+smooth data converge with all their derivatives, so 𝔈_V and 𝔈_K of a seed are the sums of those of its modes.
 
 *(a) The gauges.* The vector field X has X^R = α̃S and X^ϑ = β̃∂_ϑS, so X_R = α̃S/f and X_A = R²β̃∂_AS. Then (L_Xγ)_RR =
-(α̃(1/f)′ + 2α̃′/f)S, (L_Xγ)_RA = (α̃/f + R²β̃′)∂_AS and (L_Xγ)_AB = 2Rα̃Sγ̂_AB + 2R²β̃D̂_AD̂_BS = R²((2α̃/R − (2k²/3)β̃)Sγ̂ +
-2β̃Ŝ)_AB, which are the stated shifts. The shifts are linear in (α̃, β̃), and b = e = 0 is reached by exactly one (α̃, β̃),
-the stated one; A and F are the a and c/2 of the representative so reached. Adding to the data the shifts of another
-vector field X′ of this form changes the (α̃, β̃) that reaches b = e = 0 by −X′ and leaves that representative unchanged,
-so A and F are gauge invariant. For ψ_g = ψ(R)S, the spherical part of D²ψ_g is ψD̂D̂S + Rfψ′Sγ̂, since Γ^R_AB =
-−Rfγ̂_AB, and Ric(γ) is round; so the trace-free spherical part of k_ψ = D²ψ_g − ψ_g Ric(γ) is ψ(D̂D̂S + (k²/3)γ̂S) = ψŜ,
-which shifts z by ψ/R². The gauge functions α̃, β̃ and ψ are built pointwise from the data and their R-derivatives, so
-they have compact support with the data.
+(α̃(1/f)′ + 2α̃′/f)S, (L_Xγ)_RA = (α̃/f + R²β̃′)∂_AS and (L_Xγ)_AB = 2Rα̃Sγ̂_AB + 2R²β̃D̂_AD̂_BS = R²((2α̃/R −
+(2k²/3)β̃)Sγ̂ + 2β̃Ŝ)_AB, which are the stated shifts. The shifts are linear in (α̃, β̃), and b = e = 0 is reached by
+exactly one (α̃, β̃), the stated one; A and F are the a and c/2 of the representative so reached. Adding to the data the
+shifts of another vector field X′ of this form changes the (α̃, β̃) that reaches b = e = 0 by −X′ and leaves that
+representative unchanged, so A and F are gauge invariant. For ψ_g = ψ(R)S, the spherical part of D²ψ_g is ψD̂D̂S +
+Rfψ′Sγ̂, since Γ^R_AB = −Rfγ̂_AB, and Ric(γ) is round; so the trace-free spherical part of k_ψ = D²ψ_g − ψ_g Ric(γ) is
+ψ(D̂D̂S + (k²/3)γ̂S) = ψŜ, which shifts z by ψ/R². The gauge functions α̃, β̃ and ψ are built pointwise from the data and
+their R-derivatives, so they have compact support with the data.
 
 *(b) The momentum constraint.* For z = 0, k_RR = pS, k_RA = Rq_k ∂_AS and k_AB = R²wSγ̂_AB, and tr k = (fp + 3w)S. With
 the Christoffel symbols above, (div k)_R = (fp′ + f′p + (3fp − 3w − k²q_k)/R)S and (div k)_A = (Rf q_k′ + (4 − 3x)q_k +

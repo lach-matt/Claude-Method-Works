@@ -947,7 +947,58 @@ isotypic component lies within one type and one degree. ∎
 
 The function spaces 𝒳_σ, 𝒴_σ of the stability theory are invariant under SO(4) only up to equivalence: averaging over
 SO(4) gives invariant norms, equivalent to the given ones with constant sup_g ‖g‖_(𝒳_σ→𝒳_σ) ‖g‖_(𝒴_σ→𝒴_σ), a
-constant of the calculus.
+constant of the calculus. [[lem:rb-schur]] (b) applies in these averaged norms.
+
+**Lemma {#lem:rb-tensor-ricci}** (The linearised Ricci tensor on tensor type.) On {r > r_h} write
+g_(b_0) = g_ab dx^a dx^b + r²γ with x^a = (t, r), the orbit metric g_ab dx^a dx^b = −f dt² + f⁻¹dr² and D, □_2 as in
+[[thm:s15-ki]], and let z^i be coordinates on 𝕊³. Let T = T_ij dz^i dz^j ∈ 𝒯_l, l ≥ 2, be trace-free and
+divergence-free with (Δ̂ + k_T²)T = 0, k_T² = κ − 2, as in [[thm:s15-ki]] (T), and let H be a smooth function of
+(t, r). Then h := 2r²H T_ij dz^i dz^j has tr h = 0 and δh = 0, its components D Ric(h)_ab and D Ric(h)_ai vanish, and
+
+    D Ric(h)_ij = −r²ℬ[H]T_ij,     ℬ[H] := □_2H + (3/r)Dr · DH − ((k_T² + 2)/r²)H.                {#eq:rb-tensor-ricci}
+
+For H = e^(−iσt)H_0(r), ℬ[H] = e^(−iσt)(σ²H_0/f + r⁻³(r³fH_0′)′ − κr⁻²H_0), and with H_0 = r^(−3/2)u,
+fr^(3/2)e^(iσt)ℬ[H] = u″ + σ²u − V_lu, u″ := d²u/dr_*²; in particular V_T of [[thm:s15-ki]] (T) equals V_l.
+
+*Proof.* Write r_a := D_ar, r^a := g^(ab)r_b and K := 2H, so h_ij = r²KT_ij and h_ab = h_ai = 0; indices of T are
+raised by γ, and D̂ is the covariant derivative of γ. The Christoffel symbols of g_(b_0) are those of the orbit metric,
+Γ^a_ij = −rr^aγ_ij, Γ^i_aj = (r_a/r)δ^i_j and the Γ̂^i_jk of γ, all others vanishing (the list before [[lem:s15-low]]).
+
+*Trace and divergence.* tr h = r⁻²γ^(ij)h_ij = 2H T^i_i = 0. In (δh)_a = −g^(μν)∇_μh_νa only the term
+g^(ij)Γ^k_(ia)h_jk = (r_a/r) tr h = 0 survives, and (δh)_i = −g^(jk)∇_jh_ki = −r⁻²γ^(jk)D̂_j(r²KT_ki) = −KD̂^kT_ki = 0,
+as ∇_ah_bi = −Γ^k_(ai)h_bk = 0 and the terms of ∇_jh_ki with an orbit index on Γ multiply h_ai = 0.
+
+*The variation of the connection.* For every metric, D Ric(h)_μν = ∇_αδΓ^α_μν − ∇_νδΓ^α_αμ, with
+δΓ^α_μν := ½g^(αβ)(∂_μh_νβ + ∂_νh_μβ − ∂_βh_μν) − h^α_λΓ^λ_μν the first variation of Γ^α_μν (as δg^(αβ) = −h^(αβ))
+and δΓ^α_αμ = ½∂_μ tr h: in normal coordinates at a point, where Γ = 0, these are the variations of
+Ric_μν = ∂_αΓ^α_μν − ∂_νΓ^α_αμ + (terms quadratic in Γ) and of Γ^α_αμ = ½∂_μ log|det g|, and δΓ is a tensor. Here
+δΓ^α_αμ = 0, and with C^k_ij := γ^(kl)(D̂_iT_jl + D̂_jT_il − D̂_lT_ij) the components of Q := δΓ that do not vanish are
+
+    Q^a_ij = −½D^a(r²K)T_ij,     Q^k_ai = Q^k_ia = ½(D_aK)T^k_i,     Q^k_ij = ½KC^k_ij;
+
+for instance Q^k_ai = ½r⁻²D_a(r²K)T^k_i − KT^k_l(r_a/r)δ^l_i = ½(D_aK)T^k_i, and Q^k_ij is ½K times the first
+variation of Γ̂ in the direction T, which is tensorial on 𝕊³. Also C^k_ki = D̂_iT^k_k = 0.
+
+*The divergence.* D Ric(h)_μν = ∂_αQ^α_μν + Γ^α_αβQ^β_μν − Γ^β_αμQ^α_βν − Γ^β_ανQ^α_μβ, with
+Γ^α_αb = Γ^c_cb + 3r_b/r and Γ^α_αj = Γ̂^k_kj. At (b, c) every term vanishes: Q^α_bc = 0, and the only products are
+Γ^i_kbQ^k_ic = (r_b/r)Q^k_kc = ½(r_b/r)(D_cK)T^k_k = 0. At (b, i) the terms give
+½(D_bK)(∂_kT^k_i + Γ̂^l_lkT^k_i − Γ̂^j_kiT^k_j) − Γ^j_kbQ^k_ji = ½(D_bK)D̂_kT^k_i − ½(r_b/r)KC^k_ki = 0. At (i, j):
+∂_aQ^a_ij + Γ^α_αaQ^a_ij = −½(□_2(r²K) + (3/r)r^aD_a(r²K))T_ij; the two terms −Γ^k_aiQ^a_kj and −Γ^k_ajQ^a_ik give
+(1/r)r^aD_a(r²K)T_ij; the two terms −Γ^c_kiQ^k_cj and −Γ^c_kjQ^k_ic give rr^cD_cK T_ij; and the terms with angular
+indices only give ½KD̂_kC^k_ij. With □_2(r²K) = r²□_2K + 4rr^aD_aK + 2K(r□_2r + r^ar_a) and
+r^aD_a(r²K) = r²r^aD_aK + 2rr^ar_aK,
+
+    D Ric(h)_ij = −½r²(□_2K + (3/r)r^aD_aK)T_ij − K(r□_2r + 2r^ar_a)T_ij + ½KD̂_kC^k_ij.
+
+On the unit 𝕊³ (sectional curvature 1, Ricci tensor 2γ) the Ricci identity gives D̂^lD̂_iT_jl = D̂_iD̂^lT_jl + 3T_ij =
+3T_ij, T being trace-free and divergence-free; so D̂_kC^k_ij = 6T_ij − Δ̂T_ij = (6 + k_T²)T_ij. On the orbit metric,
+whose determinant is −1, r^ar_a = f and □_2r = f′ = 2m_0/r³, so r□_2r + 2r^ar_a = 2. Hence
+D Ric(h)_ij = −½r²(□_2K + (3/r)Dr · DK − ((k_T² + 2)/r²)K)T_ij, which at K = 2H is [[eq:rb-tensor-ricci]].
+
+*The radial form.* For H = e^(−iσt)H_0, □_2 = −f⁻¹∂_t² + ∂_rf∂_r and Dr · DH = f∂_rH give the formula for ℬ[H], and
+k_T² + 2 = κ. In the proof of [[prop:np-10-16]] (ii), e^(iσt)δd(H_0Se^(−iσt))/S = −σ²f⁻¹H_0 − r⁻³(r³fH_0′)′ + κr⁻²H_0,
+which is −e^(iσt)ℬ[H]; so [[prop:np-10-16]] (ii) ([[eq:rb-potential]]) gives fr^(3/2)e^(iσt)ℬ[H] = u″ + σ²u − V_lu.
+Finally V_T = (f/r²)(k_T² + 2 + 3/4 + 9m_0/(4r²)) = V_l. ∎
 
 **Lemma {#lem:rb-transfer}** (The exact transfers.) Let m_0 = 1 and σ real and nonzero. Let B(σ) bound the cut-off
 outgoing resolvent ‖χ_I R(σ) χ_I‖ on L²(ℝ, dr_*) of the master operator −∂²_(r_*) + V − σ² named below, for the degree
