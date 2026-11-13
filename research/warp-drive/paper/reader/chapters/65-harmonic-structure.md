@@ -1055,8 +1055,8 @@ stationary model, it has one zero-energy state W* ∈ 𝒜² with no generalised
 b-density |dt_*/⟨t_*⟩|μ_b, μ_b = |dx|/⟨x⟩⁴, which on Ω_* are those of [[cor:ii-f1-1-2]], and X^±_(sc-b) with its faces
 scf, tf, zf, are those of [[sec:iii-i2-1]]. P̂ and P̃ are those of [[sec:hg-augmented]].
 
-*The dictionary.* Near ι⁺ ∩ K⁺, with ρ_+ = 1/r and ρ_K = r/t_*, one has t_* = 1/(ρ_+ρ_K) and r = 1/ρ_+, so
-|dt_* dx| = ρ_+^(−5)ρ_K^(−1)|(dρ_+/ρ_+)(dρ_K/ρ_K)dω| and L²(|dt_* dx|) = ρ_+^(5/2)ρ_K^(1/2)L²_b. So a 3b-weight
+*The dictionary.* Near ι⁺ ∩ K⁺, with ρ_+ = 1/r and ρ_K = r/t_*, one has t_* = 1/(ρ_+ρ_K) and r = 1/ρ_+, so the
+density |dt_* dx| = ρ_+^(−5)ρ_K^(−1)|(dρ_+/ρ_+)(dρ_K/ρ_K)dω| and L²(|dt_* dx|) = ρ_+^(5/2)ρ_K^(1/2)L²_b. So a 3b-weight
 (β_sf, β_K) of [[sec:iii-h1-1]] is the b-weight (β_sf + 5/2, β_K + ½), as [[cor:ii-f1-1-2]] records. The forcing class
 H^((𝗌;k),(α_sf+2,0))_(3b;b) of [[thm:gd-r2-5]] is the b-class (γ_+ + 2, ½) with γ_+ := α_sf + 5/2, its window
 α_sf + 2 ∈ (0, 1) is γ_+ − ½ ∈ (0, 1), and the K⁺-weight −1 of its solution is the b-weight −½. A conormal function
