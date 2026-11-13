@@ -82,10 +82,11 @@ replace Ric(g0) by −½ g0^{ab} ∂_a ∂_b g0 + Q(X; g0)(∂g0, ∂g0). The te
         = −Ric^H(g) − ½ g^{ab} ∂_a ∂_b u_1,                                                         {#eq:bondi-f1-form}
 
 an identity in u_1: it holds for every symmetric u_1 that keeps g Lorentzian, not only for the solution. So F_1 contains
-no second derivative of u_1. It is a smooth function F_1(X, u_1, ∂u_1), and F_1(X, 0, 0) = −Ric^H(g0 + r^(−3/2) G_3)
-is in E_3 with all its derivatives: at u_1 = 0 the terms of S are those of [[lem:bondi-equation-u]] in G_3 and g0, all
-in E_3, and the third term of [[eq:bondi-f1]] is in E_(7/2), because by the decay calculus of Chapter 9
-[[pending:ch9-decay-calculus]] □̃(r^(−p) F) = (3 − 2p) r^(−p−1) ∂_v F + E_(p+2), whose first term vanishes at p = 3/2.
+no second derivative of u_1. It is a smooth function F_1(X, u_1, ∂u_1), and F_1(X, 0, 0) = −Ric^H(g0 + r^(−3/2) G_3) is
+in E_3 with all its derivatives: at u_1 = 0 the terms of S are those of [[lem:bondi-equation-u]] in G_3 and g0, all in
+E_3, and the third term of [[eq:bondi-f1]] is in E_(7/2), because by the decay calculus of Chapter 9
+[[pending:ch9-decay-calculus]] □̃(r^(−p) Z) = (3 − 2p) r^(−p−1) ∂_v Z + E_(p+2) for Z(v, x̂) smooth, bounded and
+vanishing for v ≤ v_start, whose first term vanishes at p = 3/2.
 
 Along g the partial derivatives of F_1 are as follows. The first is b := ∂F_1/∂(∂u_1). Only Q depends on ∂u_1, so b is
 minus the derivative of Q(X; g)(∂g, ∂g) in ∂g. It is linear in ∂g = ∂g0 + ∂u, with coefficients rational in g and smooth
@@ -95,7 +96,7 @@ two-scale chain rule ∂_a [f] = λ⁻¹ (∂_a v)[∂_θ f] + [∂_a f], the λ
 that of ∂(λ[χ dv dv]) is dv [∂_θ χ] dv dv, in E_2; that of the phase shift's term ∂(λ[W_TT(· + φ1)] − λ[W_TT]) is
 dv ([∂_θ W_TT(· + φ1)] − [∂_θ W_TT]), at most |φ1| sup |∂_θ² W_TT| and so in E_1 E_(3/2) = E_(5/2), because φ1 is in L_1
 [[thm:past-approximant]]; and every other term of ∂u is O(λ): the mean m1 does not oscillate, each later stage λ^j[g_j],
-j ≥ 2, costs at most λ^(j−1), and ∂w is O(λ^(K−4) t^(−2)) by [[thm:past-construction]]. The second derivative is
+j ≥ 2, costs at most λ^(j−1), and ∂w is O(λ² t^(−2)) [[pending:ch9-proof-of-past-construction]]. The second derivative is
 c := ∂F_1/∂u_1. In the direction U, the derivative of g^{ab} is −(g⁻¹ U g⁻¹)^{ab}, so
 
     c U = −½ (g⁻¹ U g⁻¹)^{ab} ∂_a ∂_b (g0 + r^(−3/2) G_3) − (∂_g Q)(X; g)[U](∂g, ∂g).

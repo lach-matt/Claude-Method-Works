@@ -263,8 +263,8 @@ with G(ζ) = g⁻¹(ζ, ζ). For u with values in the fibre, K_X(du) and T(V,W)(
 du (sums over the real and imaginary parts of the components in a unitary frame). In coordinates
 K_X(ζ) = (∇_μ X_ν) ζ^μ ζ^ν − (1/2)(div_g X) G(ζ), as
 
-    H_G(X^ν ζ_ν) = 2 g^(μλ) ζ_λ (∂_μ X^ν) ζ_ν − (∂_κ g^(μν)) X^κ ζ_μ ζ_ν,
-    2 ζ^μ ζ_ν Γ^ν_(μκ) = ζ^μ ζ^λ ∂_κ g_(λμ) = −(∂_κ g^(μν)) ζ_μ ζ_ν.
+    H_G(X^ν ζ_ν) = 2 g^(μγ) ζ_γ (∂_μ X^ν) ζ_ν − (∂_κ g^(μν)) X^κ ζ_μ ζ_ν,
+    2 ζ^μ ζ_ν Γ^ν_(μκ) = ζ^μ ζ^γ ∂_κ g_(γμ) = −(∂_κ g^(μν)) ζ_μ ζ_ν.
 
 P_□ := −□_g acts componentwise; σ_2(P_□) = G.
 

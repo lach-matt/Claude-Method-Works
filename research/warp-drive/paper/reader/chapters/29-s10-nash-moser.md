@@ -1263,7 +1263,7 @@ Jacobian of (log ρ_I, log ρ_+) ↦ (log t_*, log r) has determinant (1 − ρ_
 
 which commutes with ρ_I∂_(ρ_I), ρ_+∂_(ρ_+) and the fields on 𝕊³. On {t_*, r > 0}, with ρ := r⁻¹,
 
-    t_*∂_(t_*)|_r = (1 − ρ_I) 𝖶,        ρ∂_ρ|_(t_*) = ρ_I∂_(ρ_I) − ρ_I 𝖶,        ρ t_*⁻¹ = ρ_I ρ_+² (1 − ρ_I).   {#eq:ii-g1-5-1}
+    t_*∂_(t_*)|_r = (1 − ρ_I) 𝖶,    ρ∂_ρ|_(t_*) = ρ_I∂_(ρ_I) − ρ_I 𝖶,    ρ t_*⁻¹ = ρ_I ρ_+² (1 − ρ_I).  {#eq:ii-g1-5-1}
 
 Indeed t_*∂_(t_*) ρ_I = ρ_I(1 − ρ_I), t_*∂_(t_*) ρ_+ = −ρ_+(1 − ρ_I), ρ∂_ρ ρ_I = ρ_I(1 − ρ_I) and ρ∂_ρ ρ_+ = ρ_I ρ_+,
 so t_*∂_(t_*) = (1 − ρ_I)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) and ρ∂_ρ = ρ_I(1 − ρ_I)∂_(ρ_I) + ρ_I ρ_+∂_(ρ_+) = ρ_I∂_(ρ_I) −
@@ -1272,7 +1272,7 @@ so t_*∂_(t_*) = (1 − ρ_I)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) and ρ∂_ρ =
 **Lemma {#lem:ii-g1-5-1}** (The normal form in dimension 4 + 1; [Hin26c, (13.32)].) Let P_0 be a stationary wave-type
 operator ([[def:ii-c-1-1]]) with S ∈ ρ C^∞(X̄) in [[eq:ii-c-1-1]], that is S|_(∂X) = 0. If c_0 is small, then on 𝒞
 
-    (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) − 3/2) 𝖶 + P̃,        P̃ ∈ ρ_I Diff²_b(𝒞),                     {#eq:ii-g1-5-2}
+    (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) − 3/2) 𝖶 + P̃,        P̃ ∈ ρ_I Diff²_b(𝒞),                {#eq:ii-g1-5-2}
 
 with coefficients smooth on 𝒞̄. If S|_(∂X) ≠ 0, the left side differs from −(ρ_I∂_(ρ_I) − 3/2)𝖶 by S|_(∂X) 𝖶 modulo
 ρ_I Diff²_b, and [[eq:ii-g1-5-2]] fails.

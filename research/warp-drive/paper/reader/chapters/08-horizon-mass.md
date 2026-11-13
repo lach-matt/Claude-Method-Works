@@ -364,21 +364,19 @@ coordinates (v, r, ϑ, ξ1, ξ2) of [[eq:vr-form]],
 
 In particular ⟨R^(1)⟩ does not depend on χ.
 
-*Proof.* Write v_a := ∂_a v, Ẇ := ∂_θ W and h := λ[W], with indices raised by g0. Four facts are used.
-(W1) W(ℓ, ·) = 0 and tr W = 0 ([[lem:stage-zero]] (a)).
-(W2) As mixed tensors W and Ẇ commute, and ⟨W Ẇ⟩ = 0. The term χ dv ⊗ dv contributes nothing to W^ρ_c Ẇ^c_σ or
-Ẇ^ρ_c W^c_σ, since ℓ^c Ẇ_cσ = 0 and W_TT^(ρc) v_c = 0. W_TT and Ẇ_TT are diagonal in the coordinates (ϑ, ξ1, ξ2), on
-which g0 is diagonal, so W Ẇ = ½ ∂_θ (W_TT W_TT).
-(W3) ⟨W⟩ = 0, since W_TT is a first harmonic in θ and χ has zero mean.
-(W4) In the coordinates of [[eq:vr-form]], with f = 1 − μ/r² and ℓ = ∂_r, the Christoffel symbols of g0 give
-∇̂_v ℓ^r = −μ/r³, ∇̂_A ℓ^B = r⁻¹ δ^B_A for angular A, B, and ∇̂_a ℓ^c = 0 otherwise; so ∇̂_ℓ ℓ = 0. Since g0^(vc) = δ^c_r,
-the Hessian of v is ∇̂_a v_b = −Γ^v_ab = ½ ∂_r g0_ab, that is −(μ/r³) dv² + r γ, with γ the round metric; so
-∇̂_ℓ v = 0.
+*Proof.* Write v_a := ∂_a v, Ẇ := ∂_θ W and h := λ[W], with indices raised by g0. Four facts are used. (W1) W(ℓ, ·) = 0
+and tr W = 0 ([[lem:stage-zero]] (a)). (W2) As mixed tensors W and Ẇ commute, and ⟨W Ẇ⟩ = 0. The term χ dv ⊗ dv
+contributes nothing to W^ρ_c Ẇ^c_σ or Ẇ^ρ_c W^c_σ, since ℓ^c Ẇ_cσ = 0 and W_TT^(ρc) v_c = 0. W_TT and Ẇ_TT are diagonal
+in the coordinates (ϑ, ξ1, ξ2), on which g0 is diagonal, so W Ẇ = ½ ∂_θ (W_TT W_TT). (W3) ⟨W⟩ = 0, since W_TT is a first
+harmonic in θ and χ has zero mean. (W4) In the coordinates of [[eq:vr-form]], with f = 1 − μ/r² and ℓ = ∂_r, the
+Christoffel symbols of g0 give ∇̂_v ℓ^r = −μ/r³, ∇̂_A ℓ^B = r⁻¹ δ^B_A for angular A, B, and ∇̂_a ℓ^c = 0 otherwise; so
+∇̂_ℓ ℓ = 0. Since g0^(vc) = δ^c_r, the Hessian of v is ∇̂_a v_b = −Γ^v_ab = ½ ∂_r g0_ab, that is −(μ/r³) dv² + r γ, with
+γ the round metric; so ∇̂_ℓ v = 0.
 
-*The expansion.* As in the proof of [[lem:mean-leading]], with C := Γ[g] − Γ[g0], Ric(g) = Ric(g0) + ∇̂_ρ C^ρ_ab −
-∇̂_b C^ρ_aρ + C^ρ_ρσ C^σ_ab − C^ρ_bσ C^σ_aρ, C^ρ_ab = ½ g^(ρσ)(∇̂_a h_bσ + ∇̂_b h_aσ − ∇̂_σ h_ab) and D^ρ = g^(ab) C^ρ_ab.
-With ∇̂_a [u] = λ⁻¹ v_a [∂_θ u] + [∇̂_a u] and g⁻¹ = g0⁻¹ − λ W^♯ + O(λ²), C = [C⁽⁰⁾] + λ [C⁽¹⁾] + O(λ²), where
-C⁽⁰⁾ρ_ab = ½(v_a Ẇ_b^ρ + v_b Ẇ_a^ρ − ℓ^ρ Ẇ_ab) and
+*The expansion.* As in the proof of [[lem:mean-leading]], with C := Γ[g] − Γ[g0], Ric(g) = Ric(g0) + ∇̂_ρ C^ρ_ab − ∇̂_b
+C^ρ_aρ + C^ρ_ρσ C^σ_ab − C^ρ_bσ C^σ_aρ, C^ρ_ab = ½ g^(ρσ)(∇̂_a h_bσ + ∇̂_b h_aσ − ∇̂_σ h_ab) and D^ρ = g^(ab) C^ρ_ab.
+With ∇̂_a [u] = λ⁻¹ v_a [∂_θ u] + [∇̂_a u] and g⁻¹ = g0⁻¹ − λ W^♯ + O(λ²), C = [C⁽⁰⁾] + λ [C⁽¹⁾] + O(λ²), where C⁽⁰⁾ρ_ab
+= ½(v_a Ẇ_b^ρ + v_b Ẇ_a^ρ − ℓ^ρ Ẇ_ab) and
 
     C⁽¹⁾ρ_ab = G^ρ_ab − ½ (v_a (WẆ)^ρ_b + v_b (WẆ)^ρ_a),      G^ρ_ab := ½ (∇̂_a W_b^ρ + ∇̂_b W_a^ρ − ∇̂^ρ W_ab);
 
@@ -394,9 +392,9 @@ of ⟨T⟩, T_ab := C⁽⁰⁾ρ_bσ C⁽¹⁾σ_aρ. By (W1), Ẇ^ρ_σ v_ρ = 
     v_σ C⁽¹⁾σ_aρ = −½ (W_ρσ ∇̂_a ℓ^σ + W_aσ ∇̂_ρ ℓ^σ + (∇̂_ℓ W)_aρ),
     ℓ^ρ C⁽¹⁾σ_aρ = ½ (−W_ρ^σ ∇̂_a ℓ^ρ + (∇̂_ℓ W)_a^σ + W_aρ ∇̂^σ ℓ^ρ).
 
-In the first line the terms of G with ∇̂_ρ and ∇̂^σ cancel by the symmetry of Ẇ^(ρσ); the others use W(ℓ, ·) = 0. Inserting
-these into T_ab = ½ v_b Ẇ^ρ_σ C⁽¹⁾σ_aρ + ½ Ẇ^ρ_b v_σ C⁽¹⁾σ_aρ − ½ Ẇ_bσ ℓ^ρ C⁽¹⁾σ_aρ, the two terms with ∇̂_a ℓ cancel
-(both are (ẆW)_bσ ∇̂_a ℓ^σ), and
+In the first line the terms of G with ∇̂_ρ and ∇̂^σ cancel by the symmetry of Ẇ^(ρσ); the others use W(ℓ, ·) = 0.
+Inserting these into T_ab = ½ v_b Ẇ^ρ_σ C⁽¹⁾σ_aρ + ½ Ẇ^ρ_b v_σ C⁽¹⁾σ_aρ − ½ Ẇ_bσ ℓ^ρ C⁽¹⁾σ_aρ, the two terms with ∇̂_a ℓ
+cancel (both are (ẆW)_bσ ∇̂_a ℓ^σ), and
 
     T_ab = ¼ v_b Ẇ^(ρσ) ∇̂_a W_ρσ − ¼ v_a v_b tr(ẆWẆ) − ½ Ẇ^ρ_b (∇̂_ℓ W)_aρ − ½ Ẇ^ρ_b W_aσ ∇̂_ρ ℓ^σ.
 
@@ -408,12 +406,12 @@ of (ẆW)_ba, of θ-mean zero by (W2). The term tr(ẆWẆ) involves W_TT only a
 is zero. Hence the Ricci part has mean −¼ (v_a X_b + v_b X_a), with X_a := ⟨Ẇ^(ρσ) ∇̂_a W_ρσ⟩.
 
 *The gauge part.* D⁽⁰⁾ = g0^(ab) C⁽⁰⁾ = 0, and D⁽¹⁾ = g0^(ab) C⁽¹⁾ρ_ab − W^(ab) C⁽⁰⁾ρ_ab = (div W)^ρ + ½ ℓ^ρ W^(ab) Ẇ_ab,
-with (div W)^ρ := g0^(ab) ∇̂_a W_b^ρ, by tr W = 0 and W^(ab) v_a = 0. The coefficient of λ in −½(g_aρ ∇̂_b D^ρ +
-g_bρ ∇̂_a D^ρ) is −½ times the symmetrization of g0_aρ (v_b ∂_θ D⁽²⁾ρ + ∇̂_b D⁽¹⁾ρ) + W_aρ v_b ∂_θ D⁽¹⁾ρ. The first two
-terms have mean zero, as ⟨D⁽¹⁾⟩ = 0 by (W2) and (W3). In the third, W_aρ ℓ^ρ = 0 removes the ℓ-part of D⁽¹⁾. For
-W = χ v ⊗ v, v_ρ (div Ẇ)^ρ = −Ẇ^(ab) ∇̂_a v_b = −r Ẇ_TT^(AB) γ_AB = −r⁻¹ tr_S Ẇ_TT = 0 by (W4), the χ̇-part dropping
-since (∇̂ v)(ℓ, ℓ) = 0; and the χ̇-part of div Ẇ is (ℓχ̇ + χ̇ □̃v) ℓ, which W_TT annihilates. So the gauge part has mean
-−½ (v_a V_b + v_b V_a), with V_a := ⟨(W_TT)_aρ (div Ẇ_TT)^ρ⟩. Altogether
+with (div W)^ρ := g0^(ab) ∇̂_a W_b^ρ, by tr W = 0 and W^(ab) v_a = 0. The coefficient of λ in −½(g_aρ ∇̂_b D^ρ + g_bρ
+∇̂_a D^ρ) is −½ times the symmetrization of g0_aρ (v_b ∂_θ D⁽²⁾ρ + ∇̂_b D⁽¹⁾ρ) + W_aρ v_b ∂_θ D⁽¹⁾ρ. The first two terms
+have mean zero, as ⟨D⁽¹⁾⟩ = 0 by (W2) and (W3). In the third, W_aρ ℓ^ρ = 0 removes the ℓ-part of D⁽¹⁾. For W = χ v ⊗ v,
+v_ρ (div Ẇ)^ρ = −Ẇ^(ab) ∇̂_a v_b = −r Ẇ_TT^(AB) γ_AB = −r⁻¹ tr_S Ẇ_TT = 0 by (W4), the χ̇-part dropping since (∇̂ v)(ℓ,
+ℓ) = 0; and the χ̇-part of div Ẇ is (ℓχ̇ + χ̇ □_(g0) v) ℓ, which W_TT annihilates. So the gauge part has mean −½ (v_a V_b
++ v_b V_a), with V_a := ⟨(W_TT)_aρ (div Ẇ_TT)^ρ⟩. Altogether
 
     ⟨R^(1)⟩_ab = −¼ (v_a X_b + v_b X_a) − ½ (v_a V_b + v_b V_a).
 
@@ -427,9 +425,9 @@ div_γ the divergence on the unit S³; and V_a = r⁻³ ⟨ω_a^c (div_γ ω̇)_
 on ξ1, ξ2 and is diagonal, so (div_γ ω̇)_ξ1 = (div_γ ω̇)_ξ2 = 0. Every component therefore vanishes except
 ⟨R^(1)⟩_vϑ = −¼ X_ϑ − ½ V_ϑ.
 
-Write c := cos ϑ, s := sin ϑ and K := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form K h (α cos θ + β sin θ),
-with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q, Q′, the terms with ∂_ϑ h cancel
-and
+Write c := cos ϑ, s := sin ϑ and K := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form K h (α cos θ + β sin
+θ), with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q and Q′, the second with
+coefficients (α′, β′), the terms with ∂_ϑ h cancel and
 
     ⟨∂_θ Q ∂_ϑ Q⟩ = ½ K² h² (β ∂_ϑ α − α ∂_ϑ β),      ⟨Q ∂_θ Q′⟩ = ½ K² h² (α β′ − β α′).
 
