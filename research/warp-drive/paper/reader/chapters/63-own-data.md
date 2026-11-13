@@ -940,7 +940,7 @@ the slices, so ∂_i = ∂̃_i − f′ x̂_i ∂_y with f′ x̂_i tame of orde
 defined with ∂_y and ∂̃_i in place of ∂_t and ∂_i. Put δ_[ν] := ∂_y^ν δ|_(y=0), functions on Σ̃_T. The Cauchy data of g_T
 and 𝔤_T agree, so δ_[0] = δ_[1] = 0 and every ∂̃^γ δ_[0], ∂̃^γ δ_[1] vanishes. We show by induction on ν ≥ 2 that
 
-    |∂̃^γ δ_[ν]| ≤ C (r^(−4−ν−|γ|) + 1_(𝒮^♭_T) r^(−(J+3)/2))   for ν + |γ| ≤ N_∂,                    {#eq:cutoff-induction}
+    |∂̃^γ δ_[ν]| ≤ C (r^(−4−ν−|γ|) + 1_(𝒮^♭_T) r^(−(J+3)/2))   for ν + |γ| ≤ N_∂,                 {#eq:cutoff-induction}
 
 which gives [[eq:cutoff-jets]], a Cartesian ∂^β at y = 0 being a combination of the ∂̃^γ δ_[ν], ν + |γ| ≤ |β|, with
 coefficients in 𝒪 that gain r⁻¹ for each order they lack.
@@ -1050,7 +1050,7 @@ X_(ϱ,V_*) to their past, as r − 2t̃ decreases and r + 2t̃ increases along f
 future timelike for g_T on 𝒲 ∩ {r ≥ ϱ_0} with margins depending on c only. As in the proof of [[lem:own-margins]] (d),
 (g_T, f′, x̂) ranges there over a compact set on which these margins hold, so there are c_1, c_2 > 0 depending on c with
 
-    c_1 w |∂φ|² ≤ √|g_T| T_(g_T)[φ](w ∂_t, −∇t̃) ≤ c_2 w |∂φ|²                                         {#eq:own-ext-density}
+    c_1 w |∂φ|² ≤ √|g_T| T_(g_T)[φ](w ∂_t, −∇t̃) ≤ c_2 w |∂φ|²                                   {#eq:own-ext-density}
 
 for every function φ and every function w > 0 on 𝒲 ∩ {r ≥ ϱ_0}. The identity [[eq:own-energy-identity]] holds, with
 the same proof, for X = w ∂_t and any smooth w > 0. Integrate it, for w := r^(2p), p ≥ 0, over X_(ϱ,V_*) ∩ {t̃ ≤ σ},
@@ -1060,12 +1060,12 @@ pieces, which are nonnegative (T_(g_T)[φ](w ∂_t, n) ≥ 0 for n future causal
 C |∂g_T| |∂φ|², C depending on c. With A_σ := A_σ(ϱ, V_*) this gives
 
     c_1 ∫_(A_σ) r^(2p) |∂φ|² d⁴x ≤ c_2 ∫_(A_T) r^(2p) |∂φ|² d⁴x
-                                  + C ∫_T^σ ∫_(A_σ″) r^(2p) (|□_(g_T) φ| |∂φ| + (p + |∂g_T|) |∂φ|²) d⁴x dσ″.     {#eq:own-ext-energy}
+          + C ∫_T^σ ∫_(A_σ″) r^(2p) (|□_(g_T) φ| |∂φ| + (p + |∂g_T|) |∂φ|²) d⁴x dσ″.                 {#eq:own-ext-energy}
 
 For a smooth ψ on X_(ϱ,V_*) and T ≤ σ_a ≤ σ_b ≤ σ′,
 
-    ∫_(A_(σ_b)) r^(2p−2) |ψ|² d⁴x ≤ ∫_(A_(σ_a)) r^(2p−2) |ψ|² d⁴x + ∫_(σ_a)^(σ_b) ∫_(A_σ″) r^(2p−2) (|ψ|² + |∂_t ψ|²) d⁴x dσ″:
-                                                                                                       {#eq:own-ext-l2}
+    ∫_(A_(σ_b)) r^(2p−2) |ψ|² d⁴x ≤ ∫_(A_(σ_a)) r^(2p−2) |ψ|² d⁴x
+          + ∫_(σ_a)^(σ_b) ∫_(A_σ″) r^(2p−2) (|ψ|² + |∂_t ψ|²) d⁴x dσ″:                                 {#eq:own-ext-l2}
 
 for x in the r-range of A_(σ_b), the segment {(f(|x|) + σ″, x) : σ_a ≤ σ″ ≤ σ_b} lies in X_(ϱ,V_*), as
 r − 2(σ″ − T) ≥ r − 2(σ_b − T) and r + 2(σ″ − T) ≤ V_*; along it ∂_(σ″) |ψ|² = 2ψ·∂_t ψ ≤ |ψ|² + |∂_t ψ|²; and the
@@ -1079,8 +1079,8 @@ and [[lem:own-margins]] (b); so |δ| ≤ C. At fixed λ, |∂^i 𝔤_T| ≤ C r^
 F := P(H_0) satisfies |∂^β F| ≤ C r^(−6−|β|) ([[lem:cutoff-extension]] (c)). Since P(g_T − g_b0) = 0, subtracting
 P(H_0) = F in the form [[eq:own-p-split]] gives, in Cartesian components,
 
-    g_T^(ab) ∂_a ∂_b δ = 2F + 𝒩,     𝒩 := −(g_T^(ab) − 𝔤_T^(ab)) ∂_a ∂_b 𝔤_T + 2 (Q(g_T)(∂g_T, ∂g_T) − Q(𝔤_T)(∂𝔤_T, ∂𝔤_T)).
-                                                                                                       {#eq:own-ext-delta}
+    g_T^(ab) ∂_a ∂_b δ = 2F + 𝒩,
+    𝒩 := −(g_T^(ab) − 𝔤_T^(ab)) ∂_a ∂_b 𝔤_T + 2 (Q(g_T)(∂g_T, ∂g_T) − Q(𝔤_T)(∂𝔤_T, ∂𝔤_T)).                  {#eq:own-ext-delta}
 
 Here g_T⁻¹ − 𝔤_T⁻¹ = −g_T⁻¹ δ 𝔤_T⁻¹; a polynomial in (g_T, g_T⁻¹) minus the same polynomial in (𝔤_T, 𝔤_T⁻¹) is, by
 telescoping, a sum of products each containing one factor δ or g_T⁻¹ δ 𝔤_T⁻¹; and ∂g_T − ∂𝔤_T = ∂δ. So 𝒩 is a finite
