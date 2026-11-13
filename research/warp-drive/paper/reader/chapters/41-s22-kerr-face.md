@@ -24,8 +24,9 @@ The dimension changes the scheme of [Hin26] in these places. (1) Under the hypot
 of its proof). The rows this produces are all the rows of [[sec:iii-i9-1]] with Re λ < 2, and they are identified
 through the towers ([[lem:iii-i10-2-1]]). (2) The parameter exponents, which [Hin26] builds after the proof by the
 procedure of its (11.186), are fixed in advance ([[def:iii-i10-1-1]]), with logarithmic orders that grow with the real
-part. The rows' own sources never enter the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]]);
-this is how the self-consistency of [Hin26, Remark 11.62] enters. (3) Two further conditions are needed: (H4),
+part. The rows' own sources never enter the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]] (c);
+at a general b, (e) adds a source E^ν of K⁺-weight above α); this is how the self-consistency of [Hin26, Remark 11.62]
+enters. (3) Two further conditions are needed: (H4),
 ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero frequency Taylor expansion of the transformed forcing has
 four terms (orders σ⁰ to σ³, as α − 1 > 3); the four zero energy solves are written out, with the polyhomogeneous
 transition face model [[prop:iii-g4-4-4]] at the levels 1 and 2 and its conormal form [[prop:iii-g4-5-1]] at the level
@@ -35,7 +36,7 @@ injective on 𝒳′_σ ([[lem:iii-i6-1-2]]), so the rows of the augmented opera
 spectral side only from the pieces of [[prop:iii-g4-4-4]] at the levels 1 and 2, which are homogeneous functions of σ
 times spectral towers ([[lem:iii-i11-2-3]]); a lemma on forward tails ([[lem:iii-i10-2-4]]) turns them into rows,
 among them the boost rows at the exponent 3 that the zero energy mass state produces. (7) The elimination is a
-perturbation of the identity ([[lem:iii-i9-2-6]] (c), [[cor:iii-i10-2-3]]), where [Hin26, Step 2.B] has ± the identity
+perturbation of the identity ([[lem:iii-i9-2-6]] (c), and (e) at a general b; [[cor:iii-i10-2-3]]), where [Hin26, Step 2.B] has ± the identity
 plus o(1); rows of different types at one rate are told apart by the degree of their spherical type and, within a
 degree, by the order of their states at ∂X. (8) The expansion modulo the order α uses the equation itself: below that
 order every coefficient section is a stationary solution of moderate growth ([[lem:iii-i12-2-3]]), so the
@@ -65,8 +66,8 @@ On the spectral side, X̄, M′, X^±_(sc-b) with the faces scf, tf, zf and the 
 parameter b lies in the closed ball ℬ̄_* about b_0 of [[sec:iii-h2-0]], shrunk as in [[ch:s20]] (to a radius at most
 1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]) and in [[lem:iii-i15-1-2]]; every result below holds on this
 ball. On ℬ̄_* the model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem at b with continuity in
-(b, S, h) (property (P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots of L̂_b(0) at ∂X, which
-do not depend on b (P2); the zero energy states of the table of roots of [[sec:iii-g2-1]] for L_b, their companions,
+(b, S, h) (property (P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots
+of L̂_b(0) at ∂X, which do not depend on b (P2); the zero energy states of the table of roots of [[sec:iii-g2-1]] for L_b, their companions,
 the 1-form towers of [[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b, which are real and smooth
 in b, with index sets in (μ − j) + ℰ_ind, ℰ_ind independent of b (P3); the augmented low energy theory of [[ch:s18]]
 at b (P4); and the time translation, Killing for every g_b (P5). The rows are built at the base point's b, and the
@@ -928,7 +929,7 @@ the base and induction steps of [[prop:iii-i8-4-1]] stay within O(|W⃗|) of ± 
     L_(h,p⃗)u(W⃗) = F(W⃗) − D_(p⃗)P_4(h, p⃗)(q⃗(W⃗))
 
 lies in [[eq:iii-i8-4-2]] at α′. Write D_(p⃗)P_4(q⃗) = f^S(q_S) + f^b(q_b) + f^s1(q_s1) + Σ_(ν∈ℳ_(α′)) f^ν(q_ν), and use
-[[lem:iii-i9-2-6]] (c), f^ν = L_(h,p⃗)m_ν + r^ν, for every row. Then
+[[lem:iii-i9-2-6]] (c) (the base point has black hole parameter b_0), f^ν = L_(h,p⃗)m_ν + r^ν, for every row. Then
 
     u(W⃗) = u_0(W⃗) − Σ_(ν∈𝒩′) m_ν(W_ν) − Σ_(ν∈ℳ_(α′)) m_ν(q_ν(W⃗)),
 

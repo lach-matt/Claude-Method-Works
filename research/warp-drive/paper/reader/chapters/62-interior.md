@@ -89,7 +89,7 @@ facts at the inner radius, each of which holds at r_♭: the Kerr–Schild famil
 ([[lem:s11-ks-domain]]); ψ ≥ 0, and dt_* and dt_IVP are timelike on {|x| ≥ r_♭} ([[lem:iii-b-3-7]]); dr is future
 timelike inside the horizon for g_(b₀), as shown above, and for b near b₀ uniformly on the compact
 {½r_♭ ≤ r ≤ ¾R₁}, by continuity in b; and the damping 1-form has the signs of [[prop:np-10-14]] (i)–(ii) on all of
-(0, r_h/2], which contains the collar down to ½r_♭ ([[lem:interior-damping]]). In [[lem:vii-1-2]], δ′_0 is taken in
+(0, r_h/2], which contains the collar down to ½r_♭ ([[lem:interior-damping]]). [[lem:vii-1-2]] takes δ′_0 in
 (max(0, q0 − ½r_♭), q0), which is not empty, so that a′ = q0 − δ′_0 < ½r_♭; [[thm:main]] holds on such an Ω′.
 
 *The domain.* g is defined on Ω_* ∪ 𝒟_0 ([[thm:settling-precise]] (i)). This set is M ∩ {t_IVP ≥ 0}. Indeed,

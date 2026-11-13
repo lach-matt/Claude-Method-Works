@@ -18,10 +18,11 @@ states under x ↦ −x.
 
 *Notation.* The notation is that of [[ch:s11]]–[[ch:s19]]. The black hole parameters are b = (m, A), with tangent
 space 𝔟 = ℝ ⊕ 𝔰𝔬(4), b₀ = (m₀, 0) and R₁ = m₀^(1/2), and |b − b₀| is the norm of [[def:s12-radii]]. We write ℬ_1 and
-ℬ_* for the neighbourhoods B_1 and B_* of b₀ fixed in [[sec:iii-h2-0]], ℬ̄_* ⊂ ℬ_1. ℬ_* is shrunk finitely many times,
-here and in the chapters that follow, and every statement holds on the final ℬ_*; here it is shrunk so that the matrix
-B(b) of the rows [[eq:iii-h-3-1]] on the states is invertible for b ∈ ℬ̄_* ([[sec:iii-h-3]]). The letter ε > 0 is
-small. For the zero energy operator of the gauge potential operator we write P_b := (□^Υ_b)^(0) ([[sec:iii-d2-1]]), as
+ℬ_* for the neighbourhoods B_1 and B_* of b₀ fixed in [[sec:iii-h2-0]], ℬ̄_* ⊂ ℬ_1. Shrinking ℬ_*, we take it to be an
+open ball about b₀. It is shrunk finitely many times, here and in the chapters that follow, each time to a smaller ball
+about b₀, and every statement holds on the final ℬ_*. Here it is shrunk once, in [[lem:s25a-ball]], to radius at most
+1/(2C_B), so that the matrix B(b) of the rows [[eq:iii-h-3-1]] on the states satisfies |B(b)⁻¹| ≤ 2 on ℬ̄_*. The
+letter ε > 0 is small. For the zero energy operator of the gauge potential operator we write P_b := (□^Υ_b)^(0) ([[sec:iii-d2-1]]), as
 in [[ch:s13]]; L̂_b(0) is the zero energy operator of L_b, L̃_b(0) its augmentation ([[prop:iii-h-3-2]]), and the
 states ġ_b(ḃ), h_b(S) = h_(b,s1)(S), h̆_b(S) and h_(b,v1)(V) are those of [[sec:iii-h-1]], [[prop:iii-d2-3-1]] and
 [[prop:iii-f3-2-2]]; ġ_b(ḃ) is the gauge-corrected state ġ^Υ_b(ḃ) of [[eq:iii-f3-2-1]].
@@ -118,6 +119,26 @@ and so is ġ_b(ḃ) = ġ^Υ_b(ḃ) = ∂_b g_b(ḃ) + δ*_(g_b)ω̇_b(ḃ), the 
 ([[prop:iii-f3-2-2]]), which is what ġ_b means here, as in the basis of [[sec:iii-h-1]]. The reparametrisation by the
 leading coefficients in the choice above is linear in the parameter and keeps each family's parity. ∎
 
+**Lemma {#lem:s25a-ball}** (The ball ℬ_*.) Fix the bases of 𝔟 and 𝒮_1 in which [[eq:iii-h-3-1]] is written, with the
+Euclidean norms in these bases and the operator norm on matrices, and for b ∈ ℬ̄_* let
+
+    B(b)(ḃ, S) := (⟨ġ_b(ḃ) + h_b(S), f*_1⟩, ⟨ġ_b(ḃ) + h_b(S), f*_2⟩),
+
+with the rows f*_1, f*_2 of [[eq:iii-h-3-1]] and the pairing of [[sec:iii-h-1]] at b. Then B(b₀) = I and B is of class
+C¹ in b, so C_B := sup_(ℬ̄_*)|∂_bB| is finite. After shrinking ℬ_* to a ball about b₀ of radius at most 1/(2C_B),
+
+    |B(b) − I| ≤ ½,     |B(b)⁻¹| ≤ 2     for every b ∈ ℬ̄_*.
+
+In particular (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective for every b ∈ ℬ̄_*.
+
+*Proof.* B(b₀) = I is [[eq:iii-h-3-1]]. The pairing ⟨u, f*_j⟩ = ∫_X ⟨u, f*_j⟩_(g_b)|dx| is an integral over the
+compact set supp f*_1 ∪ supp f*_2 ⊂ X°, and g_b is smooth in b. The states are of class C¹ in b with values in
+continuous sections over that set ((P3); [[prop:iii-d2-3-1]] and [[prop:iii-f3-2-2]] (3) construct them smooth in b).
+So B is of class C¹, and C_B is finite, ℬ̄_* being compact. Shrinking ℬ_* does not increase C_B. The mean value theorem
+along the segment from b₀ to b, which lies in the ball ℬ̄_*, gives |B(b) − I| ≤ C_B|b − b₀| ≤ ½, and the Neumann series
+B(b)⁻¹ = Σ_(n≥0)(I − B(b))^n gives |B(b)⁻¹| ≤ Σ_(n≥0) 2^(−n) = 2. If ġ_b(ḃ) + h_b(S) = 0, then B(b)(ḃ, S) = 0, so
+(ḃ, S) = 0. ∎
+
 **Lemma {#rem:iii-i15-1-2}** (The rotation state at b.) For b ∈ ℬ̄_* and V ∈ 𝒱_1 there is ḃ_V ∈ 𝔟, linear in V,
 with |ḃ_V| = O(|b − b₀||V|) and
 
@@ -125,12 +146,11 @@ with |ḃ_V| = O(|b − b₀||V|) and
 
 *Proof.* At b, h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in ker L̂_b(0) in the
 space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀, with
-the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of [[prop:iii-h-3-2]]:
-the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is invertible and continuous in b, so its inverse is bounded
-on the compact ℬ̄_*). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the
-pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0, the h_b(S)
-being part of the basis. So h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, the ġ_b(ḃ) being part of the basis.
-∎
+the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of [[prop:iii-h-3-2]],
+with [[lem:s25a-ball]]). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V), and, as (ḃ_V, S_V) = B(b)⁻¹B(b)(ḃ_V, S_V) with
+|B(b)⁻¹| ≤ 2, |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and
+reverses h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by [[lem:s25a-ball]]. So h_(b,v1)(V) = ġ_b(ḃ_V), and
+ker h_(b,v1) = {V : ḃ_V = 0} by the injectivity in [[lem:s25a-ball]]. ∎
 
 ### Null infinity and the almost linear bounds at b {#sec:s25a-s19-at-b}
 
