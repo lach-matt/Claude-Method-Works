@@ -274,14 +274,15 @@ first and second x-derivatives of h. Differentiating m times in s makes ∂_s^(m
 ∂_s^m h agree at s = 0 for every m, with all their x-derivatives. So H := h^λ on s ≤ 0 and h on s ≥ 0 has one-sided
 partial derivatives of every order which agree at s = 0. By induction on the order, every partial derivative of H exists,
 the one-sided difference quotients in s having the same limit at s = 0, and it is continuous; so H is C^∞. The metric
-−ds² + H is then smooth on (−ε, ε) × U, Ricci-flat on s ≠ 0, and so on s = 0 as well, Ric depending continuously on two
-derivatives. As the transition maps between the Φ_U are the identity near Σ, these metrics, g_λ on A ∖ Σ and g on B ∖ Σ,
-form one smooth Ricci-flat Lorentzian metric g_gl on M_gl. On Σ = {s = 0} it induces H_0 = γ and the second fundamental
-form ½∂_s H_0 = k.
+−ds² + H is then smooth on (−s_0, s_0) × Π, Ricci-flat on s ≠ 0, and so on s = 0 as well, Ric depending continuously
+on two derivatives. As the transition maps between the Φ_Π are the identity near Σ, these metrics, g_λ on A ∖ Σ and g
+on B ∖ Σ, form one smooth Ricci-flat Lorentzian metric g_gl on M_gl. On Σ = {s = 0} it induces the metric H_0 = γ, and
+its form (X, Y) ↦ g_gl(∇_X ∂_s, Y) there is ½∂_s H_0 = ½∂_s h_0, the form of g; so it induces the second fundamental
+form k, as g does.
 
-*(i), time orientation and connectedness.* Along each geodesic s ↦ Φ_U(s, x) the tangent ∂_s is timelike and
+*(i), time orientation and connectedness.* Along each geodesic s ↦ Φ_Π(s, x) the tangent ∂_s is timelike and
 continuous, so it stays in the cone of its value n_λ, resp. n, at s = 0: ∂_s is future directed for g_λ on s < 0 and
-for g on s > 0. The future cones of g_λ on A ∖ Σ, of g on B ∖ Σ and the cones of ∂_s on the sets W_U therefore agree
+for g on s > 0. The future cones of g_λ on A ∖ Σ, of g on B ∖ Σ and the cones of ∂_s on the sets W_Π therefore agree
 where these sets overlap, and define a time orientation of g_gl, in which the unit normal ∂_s of Σ is future.
 B ∖ Σ = {|x| > r_♭, t > ψ_IVP(|x|)} is connected, the region above the graph of a continuous function over the
 connected set {|x| > r_♭} ⊂ ℝ⁴, and B lies in its closure; so B is connected. For A, and for later use: let S be an
@@ -295,7 +296,7 @@ lies in D_V(Σ) and has t_IVP ≤ 0, so it lies in A. So every point of A is joi
 connected; M_gl = A ∪ B, with A ∩ B = Σ ≠ ∅, is connected. Every point of D_(M_gl)(Σ) and of D_V(Σ) is joined to Σ
 within it in the same way, so these two sets are connected too.
 
-*(ii).* In V, Σ is acausal (above). In M_gl, let c be a future causal curve with c(0) ∈ Σ. In each chart Φ_U, ds is
+*(ii).* In V, Σ is acausal (above). In M_gl, let c be a future causal curve with c(0) ∈ Σ. In each chart Φ_Π, ds is
 timelike, as g_gl⁻¹(ds, ds) = −1, and past, as its metric dual is −∂_s; so s increases strictly along future causal
 curves. So c lies in {s > 0} ⊂ B ∖ Σ just after the parameter 0, and if c meets Σ at a parameter σ₁ it lies in
 {s < 0} ⊂ A ∖ Σ just before σ₁. Σ is closed in M_gl. If c met Σ again, let σ₁ be the first parameter after 0 at which
@@ -313,7 +314,7 @@ developments, with the inclusion of Σ, are globally hyperbolic developments of 
 they have a common globally hyperbolic development, and by [Sbi15, Theorem 3.4] a maximal one ([[thm:std-sbierski]]
 (3), (4)), U ⊂ D_(M_gl)(Σ), with an isometric embedding j into D_V(Σ) that preserves the time orientation and the
 embedding of Σ [Sbi15, Definitions 2.2 and 2.4] ([[thm:std-sbierski]] (2)), so that j is the identity on Σ. U is open
-(the proof of [Sbi15, Theorem 3.4]) and contains Σ, a Cauchy surface of U. By [Sbi15, Theorem 3.13] U has no
+(the proof of [Sbi15, Theorem 3.4]; [[thm:std-sbierski]] (4)) and contains Σ, a Cauchy surface of U. By [Sbi15, Theorem 3.13] U has no
 corresponding boundary points ([[thm:std-sbierski]] (5)), and gluing the two developments along U by j gives a
 Hausdorff globally hyperbolic development that extends both [Sbi15, Theorem 2.7 and its proof] ([[thm:std-sbierski]]
 (3), (6)). ∎

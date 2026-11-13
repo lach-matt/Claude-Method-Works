@@ -342,10 +342,9 @@ disjoint from a neighbourhood of K⁺ ([[lem:iii-i14-2-2]] (c)). h′ has K⁺-o
 t₀ = t − |x| ([[eq:iii-b-2-2]], [[eq:iii-b-4-1]]), comparable to t_* on {r ≤ R′}, and the b-vector fields there are
 spanned by t_*∂_(t_*) and ∂_x. By b-Sobolev embedding for the b-density μ_b of [[sec:iii-i-1]], as in the proof of
 [[lem:iii-i-2-2]] (a weight is then the pointwise order), (t_*∂_(t_*))^i ∂^β_x of a function of K⁺-order w− is
-O(t_*^(−w+ε′)), bounded by a seminorm of it.
-With w = α − 2, (6) and the tame bound for D_UΦ at U = 0 ([[prop:iii-j3-5-4]]), ‖D_0Φ(U′)‖_k ≤ C_k‖U′‖_(𝒟^(k+d)_ex),
-this is [[eq:viii-2-3]]. The bound on α is the choice of α in step (4) of [[thm:vi-c-2-1]] (row w2 of
-[[sec:vi-c-1]]), made with α > 4 + ε_t. ∎
+O(t_*^(−w+ε′)), bounded by a seminorm of it. With w = α − 2, (6) and the tame bound for D_UΦ at U = 0
+([[prop:iii-j3-5-4]]), ‖D_0Φ(U′)‖_k ≤ C_k‖U′‖_(𝒟^(k+d)_ex), this is [[eq:viii-2-3]]. The bound on α is the choice of
+α in step (4) of [[thm:vi-c-2-1]] (row w2 of [[sec:vi-c-1]]), made with α > 4 + ε_t. ∎
 
 **Corollary {#cor:viii-2-3}** (In the class.) Let G act as in [[sec:s27-class]], and make the choices of [[lem:vii-3-1]]
 equivariant. If (γ̇, k̇) are G-invariant, [[thm:viii-2-2]] holds with U′ fixed by G, ḃ = (ṁ, 0), S′ = S⁰′ = 0 and ġ
