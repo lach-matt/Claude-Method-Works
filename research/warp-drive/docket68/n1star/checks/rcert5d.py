@@ -53,7 +53,9 @@ restricted to t (mB2) -- passed C1 and --collect while under-bounding sig^4 and 
 now also runs kids_fields2 (t^4, sig^4 and the field x^4) with products across directions (kids_frame2), and C1(b),
 contain_control, checks containment on the pinned tensors and the frame: every enclosure box_coeffs returns during
 kids must contain point_coeffs at its box's corners, and every Taylor coefficient of each child's box-path frame output
-must contain the point path's at the corners.  C1(b) catches mA5, mB1, mB1s and mB2.  A third kids test (R = t, the
+must contain the point path's at the corners.  C1(b) catches mA5, mB1, mB1s and mB2.  [Round 8, the verifier of round
+7, minor 2: a halved l1 term in box_coeffs (mB5) passed C1(b), whose pinned tensors give that term too little weight;
+C1(b) now also runs on degree-7 test fields (contain_fields), where mB5 fails.]  A third kids test (R = t, the
 frame input R_u = phi1(t), the coordinate map's factor) shows the verifier's mB3 -- t taken at the centre in the box
 inputs -- unsound, true/bound 1.0016, and catches it.]
 [Round 5, the verifier of round 4, M-A: C1 exercised its own copy of the bound assembly, so a mutant with the
@@ -403,6 +405,19 @@ def contain_control(eng, parents):
 CONTAIN_PARENTS = [(-0.375, 0.125, -0.375, 0.125, 0.0625, 0.0625), (-0.37, 0.0156, -0.21, 0.0156, 0.1, 0.0078)]
 
 
+def contain_fields():
+    """round 8 (the verifier of round 7, minor 2): test fields of degree 7, R = T_7(t), m = T_7(sig), n = T_7(x), so
+    that box_coeffs' quadratic term (from the l1 bounds of the order-5 coefficients) carries weight; on the pinned
+    tensors it is too small for C1(b) to see a halved l1 term (mB5)"""
+    Ct = {f: np.zeros((8, 8, 8)) for f in R5.RS.NAMES}
+    Ct['R'][7, 0, 0], Ct['m'][0, 7, 0], Ct['n'][0, 0, 7] = 1.0, 1.0, 1.0
+    return Ct
+
+
+CONTAIN_TEST_PARENTS = [(0.0, 0.2, 0.0, 0.2, 0.0, 0.2), (0.3, 0.1, 0.1, 0.1, 0.2, 0.1),
+                        (-0.62, 0.05, 0.0, 0.05, 0.0, 0.05)]
+
+
 def collect(W, tau):
     t0 = time.time()
     C3, g, md5s = load_pinned()
@@ -459,12 +474,16 @@ def collect(W, tau):
               'BAD'))
     t1 = time.time()
     (n1, f1), (n2, f2) = contain_control(Engine(C3, g, frame, names), CONTAIN_PARENTS)
-    c1b = n1 > 0 and n2 > 0 and f1 == 0 and f2 == 0
-    print('C1(b) (control, round 7: containment, on the pinned tensors and the frame, %d parents) box_coeffs\' '
-          'enclosures against point_coeffs at their boxes\' corners: %d checks, %d not contained; the box-path frame '
-          'output\'s Taylor coefficients against the point path\'s at the corners: %d checks, %d not contained -> %s '
-          '(%.0f s)' % (len(CONTAIN_PARENTS), n1, f1, n2, f2, 'every enclosure contains its corners (good)' if c1b
-                        else 'BAD', time.time() - t1))
+    (n3, f3), (n4, f4) = contain_control(Engine(contain_fields(), g, kids_frame2, ['R', 'm', 'n']),
+                                         CONTAIN_TEST_PARENTS)
+    c1b = min(n1, n2, n3, n4) > 0 and f1 == f2 == f3 == f4 == 0
+    print('C1(b) (control, rounds 7-8: containment) box_coeffs\' enclosures against point_coeffs at their boxes\' '
+          'corners, and the box-path frame output\'s Taylor coefficients against the point path\'s at the corners: '
+          'on the pinned tensors and the frame (%d parents) %d checks, %d not contained, and %d checks, %d not '
+          'contained; on the degree-7 test fields T_7(t), T_7(sig), T_7(x) (round 8; %d parents) %d checks, %d not '
+          'contained, and %d checks, %d not contained -> %s (%.0f s)' % (
+              len(CONTAIN_PARENTS), n1, f1, n2, f2, len(CONTAIN_TEST_PARENTS), n3, f3, n4, f4,
+              'every enclosure contains its corners (good)' if c1b else 'BAD', time.time() - t1))
     c1 = c1 and c1b
     t4 = time.time()
     worst, viol, npts = box_gate(C3, g, frame, names, acc)

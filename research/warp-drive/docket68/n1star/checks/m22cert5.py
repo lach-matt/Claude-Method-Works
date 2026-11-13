@@ -22,10 +22,17 @@ READ (cited values). It imports m22evol5.py (the system, the solver, the data) a
      40 x 12, 48 x 16, 64 x 20; the route's bound int e^(Lambda(s)) ||rho(s)|| ds against what m_lo > 0 needs, and the
      resolution at which it would fall below (extrapolated).
   X5 (computed) What m_lo buys (m22evol5's chain): the bounds at m_lo = 1 and 1/2.
+  X6 (certified, Arb) The residual's tau-tau component at a slice of the 48 x 16 run (tau = -0.8): the interpolant
+     (2D Chebyshev series through the nodal values) and the vv equation's coefficients evaluated in Arb balls, mu by
+     certified quadrature of env^2 (python-flint's Petras integrator, the tails bounded) and c from its defining
+     integral; at collocation nodes it reproduces the solver (|rho| < 1e-12), at midpoints it is certified nonzero;
+     on boxes of half-width delta its enclosure grows as (slope) delta: the sharpness a certificate reaches, the
+     boxes and time it would need.
   Controls (each mutates the computed path and must fail): C1 P_eta without its factor 1/2: X1's cancellation of the
   principal parts fails; C2 the envelope with each slope taken at the piece's end: X2's supersolution test fails; C3
   X3's bound evaluated at the outer boundary r = 3 - tau (a point of the slice, but where the coefficients are small):
-  X3's threshold (a factor above 10^12) fails.
+  X3's threshold (a factor above 10^12) fails; C4 the interpolated d_tau^2 m_vv raised by 1e-6 of its maximum: X6's
+  nodal test fails.
 
     python3 checks/m22cert5.py [--selftest]       (every check; about 20 minutes)
 """
@@ -54,6 +61,7 @@ MU_END = Fr(227, 192)
 C_HI = Fr(13241035, 10 ** 7)           # c <= 1.3241035 (envelope5.out E1, READ)
 A_HI = Fr(26985880, 10 ** 8)           # a < 0.26985880, checked below from a^8 = 9/1250/2^8
 NPIECE = 2000
+KEEP = -0.8                            # the time of X6's slice (in X4's 48 x 16 run)
 
 
 def print(*a, **k):  # noqa: A001
@@ -251,7 +259,204 @@ def residual_norm(Sv, Sf, tau, st):
     return float(np.sqrt(np.pi ** 2 * np.einsum('i,j,ij->', wr, wx, rho ** 2 * rr ** 3)))
 
 
-def run_with_samples(funcs, env, fode, Nr, Nx, cfl, targets):
+# ------------------------------------------------------------------------------------------------------------------
+# X6: the residual in Arb balls, at points and on boxes (the sharpness a certificate would reach)
+RAT = sp.Function('RAT')
+
+
+def exact_rationals(e):
+    return e.replace(lambda q: q.is_Rational and not q.is_Integer, lambda q: RAT(q.p, q.q))
+
+
+ACB_NS = {'sin': lambda z: z.sin(), 'cos': lambda z: z.cos(), 'sqrt': lambda z: z.sqrt(), 'exp': lambda z: z.exp(),
+          'tan': lambda z: z.tan(), 'I': flint.acb(0, 1), 'pi': flint.acb.pi(),
+          'RAT': lambda p, q: flint.acb(p) / q}
+
+
+def acb_fn(exprs, syms):
+    ACB_NS['pi'] = flint.acb.pi()                         # at the working precision
+    return sp.lambdify(syms, [exact_rationals(sp.sympify(e)) for e in exprs], modules=[ACB_NS])
+
+
+class ArbEnv:
+    """the envelope, mu and H in Arb balls: c from int beta^2 by certified quadrature (Petras, python-flint) with the
+    tails beyond |y| = 1 - eta bounded by exp(-2 (1 - eta)^2/(eta (2 - eta))); mu(v) = 1 + (2/9) int_(1/2)^v env^2"""
+
+    def __init__(self, eta=Fr(1, 10 ** 4)):
+        y, t = sp.Symbol('y'), sp.Symbol('t')
+        beta = sp.cos(sp.pi * y / 2) ** 12 * sp.exp(-y ** 2 / (1 - y ** 2))
+        self.bk = acb_fn([sp.diff(beta, y, k) for k in range(3)], [y])
+        hs = (sp.cos(t) ** 4 + sp.sin(t) ** 4) ** sp.Rational(-1, 2)
+        self.hk = acb_fn([sp.diff(hs, t, k) for k in range(3)], [t])
+        self.eta = flint.arb(eta.numerator) / eta.denominator
+        e_ = self.eta
+        self.tail = 2 * e_ * (-2 * (1 - e_) ** 2 / (e_ * (2 - e_))).exp()      # >= int of beta^2 over both tails
+        ib = self.beta2_int(-1 + e_, 1 - e_)
+        ib = flint.arb(ib.mid(), ib.rad() + self.tail)
+        self.c = ((flint.arb(105) / 128) / (flint.arb(3) / 2 * ib)).sqrt()
+
+    @staticmethod
+    def b2(z, analytic):
+        return (flint.acb.pi() * z / 2).cos() ** 24 * (-2 * z * z / (1 - z * z)).exp()
+
+    def beta2_int(self, a_, b_):
+        val = flint.acb.integral(self.b2, flint.acb(a_), flint.acb(b_), rel_tol=flint.arb(2) ** -90)
+        return val.real
+
+    def E(self, v):
+        """[E, E', E''](v) for a real ball v inside (1/2, 7/2)"""
+        y = (2 * v - 4) / 3
+        b = self.bk(flint.acb(y))
+        return [self.c * b[k].real * (flint.arb(2) / 3) ** k for k in range(3)]
+
+    def mu(self, v):
+        """mu over the ball v: it is increasing, so mu([lo, hi]) lies in [mu(lo), mu(hi)]"""
+        out = []
+        for end in (v.lower(), v.upper()):
+            y = (2 * end - 4) / 3
+            it = self.beta2_int(-1 + self.eta, y)
+            it = flint.arb(it.mid(), it.rad() + self.tail)
+            out.append(1 + flint.arb(2) / 9 * self.c ** 2 * flint.arb(3) / 2 * it)
+        lo, hi = out[0].lower(), out[1].upper()
+        return flint.arb((lo + hi) / 2, (hi - lo) / 2)
+
+    def H(self, th):
+        h = self.hk(flint.acb(th))
+        return [q.real for q in h]
+
+
+def cheb2(U, Sv):
+    """the 2D Chebyshev coefficients of the interpolant through the nodal values (y = 1 - 2 xi Lobatto, x Gauss)"""
+    yg = np.cos(np.pi * np.arange(Sv.Nr) / (Sv.Nr - 1))
+    Vr = np.polynomial.chebyshev.chebvander(yg, Sv.Nr - 1)
+    Vx = np.polynomial.chebyshev.chebvander(Sv.x, Sv.Nx - 1)
+    return np.linalg.solve(Vr, np.linalg.solve(Vx, U.T).T)
+
+
+def tvec(z, n):
+    """T_k(z), T_k'(z), T_k''(z), k < n, by the differentiated three-term recurrence (exact in Arb)"""
+    T, T1, T2 = [flint.arb(1), z], [flint.arb(0), flint.arb(1)], [flint.arb(0), flint.arb(0)]
+    for k in range(1, n - 1):
+        T.append(2 * z * T[k] - T[k - 1])
+        T1.append(2 * T[k] + 2 * z * T1[k] - T1[k - 1])
+        T2.append(4 * T1[k] + 2 * z * T2[k] - T2[k - 1])
+    return T[:n], T1[:n], T2[:n]
+
+
+def ev2(C, ty, tx):
+    """sum_kl C_kl A_k B_l for A in ty, B in tx (floats exact as binary numbers)"""
+    tot = flint.arb(0)
+    for k in range(C.shape[0]):
+        row = flint.arb(0)
+        for l_ in range(C.shape[1]):
+            if C[k, l_] != 0.0:
+                row += float(C[k, l_]) * tx[l_]
+        tot += ty[k] * row
+    return tot
+
+
+def arb_residual(Sv, tau, st, X0, coef, aenv, y0, x0, dy=0.0, dx=0.0):
+    """the tau-tau (vv) residual alpha X_interp + beta of the interpolant, in Arb, at the ball (y0 +- dy, x0 +- dx)"""
+    m, pi, psi, phi, G = st
+    yb, xb = flint.arb(y0, dy), flint.arb(x0, dx)
+    rho_in = float(Sv.raysol.sol(tau)[0])
+    L = Sv.vout - tau - rho_in
+    xi = (1 - yb) / 2
+    r = rho_in + L * xi
+    v = tau + r
+    dr_ = -2 / flint.arb(L)                                       # d/dr = (-2/L) d/dy
+    Ty, Ty1, _ = tvec(yb, Sv.Nr)
+    Tx, Tx1, Tx2 = tvec(xb, Sv.Nx)
+    s2 = (1 - xb * xb).sqrt()
+    S2, C2 = (1 - xb) / 2, (1 + xb) / 2
+    one = (flint.arb(1), flint.arb(0), flint.arb(0))
+    fs = (s2, 2 * xb, -4 * s2)
+    fS2, fS4 = (S2, s2, 2 * xb), (S2 ** 2, 2 * S2 * s2, 2 * s2 ** 2 + 4 * xb * S2)
+    fC2, fC4 = (C2, -s2, -2 * xb), (C2 ** 2, -2 * C2 * s2, 2 * s2 ** 2 - 4 * xb * C2)
+    neg = lambda f: tuple(-q for q in f)                         # noqa: E731
+    FT = {'vv': [(0, one)], 'vr': [(1, one)], 'rr': [(2, one)], 'vt': [(3, fs)], 'rt': [(4, fs)], 'tt': [(5, one)],
+          'p1': [(5, fC2), (7, neg(fC4))], 'p2': [(5, fS2), (6, neg(fS4))]}
+
+    def jets(U, want):
+        Cf = cheb2(U, Sv)
+        out = {}
+        if 'v' in want:
+            out['v'] = ev2(Cf, Ty, Tx)
+        if 'x' in want:
+            out['x'] = ev2(Cf, Ty, Tx1)
+        if 'xx' in want:
+            out['xx'] = ev2(Cf, Ty, Tx2)
+        if 'r' in want:
+            out['r'] = dr_ * ev2(Cf, Ty1, Tx)
+        if 'rx' in want:
+            out['rx'] = dr_ * ev2(Cf, Ty1, Tx1)
+        return out
+    Mj = [jets(u, ('v', 'x', 'xx')) for u in m]
+    Pj = [jets(u, ('v', 'x', 'r', 'rx')) for u in pi]
+    Qj = [jets(u, ('v', 'x', 'r', 'rx')) for u in psi]
+    Fj = jets(phi, ('v', 'r'))
+    Gj = [(jets(np.real(u), ('v',))['v'], jets(np.imag(u), ('v',))['v']) for u in G]
+    X = jets(X0, ('v',))['v']
+
+    def pj(flist, W, d='v', dx_='x', dxx='xx'):
+        val, d1, d2 = flint.arb(0), flint.arb(0), flint.arb(0)
+        for idx, (F, Fp, Fpp) in flist:
+            w = W[idx][d]
+            wx = W[idx][dx_] if dx_ in W[idx] else flint.arb(0)
+            wxx = W[idx][dxx] if dxx in W[idx] else flint.arb(0)
+            wt = -2 * s2 * wx
+            wtt = -4 * xb * wx + 4 * (1 - xb * xb) * wxx
+            val, d1, d2 = val + F * w, d1 + Fp * w + F * wt, d2 + Fpp * w + 2 * Fp * wt + F * wtt
+        return val, d1, d2
+    J = {}
+    for nm in ME.NM:
+        fl = FT[nm]
+        val, ut, utt = pj(fl, Mj)
+        ur, urt, _ = pj(fl, Qj)
+        urr, _, _ = pj(fl, Qj, d='r', dx_='rx', dxx='-')
+        pv, pt, _ = pj(fl, Pj)
+        pr, _, _ = pj(fl, Pj, d='r', dx_='rx', dxx='-')
+        J[nm] = dict(val=val, ur=ur, ut=ut, urr=urr, urt=urt, utt=utt, pv=pv, pr=pr, pt=pt)
+    PH = {(1, 0, 0): Fj['r'] - J['rr']['val'] / 2}
+    Greg = {4: Gj[0], 5: Gj[1], 7: Gj[2], 6: Gj[3]}
+    Gv = {}
+    for nm in ME.GC:
+        re_ = sum((F[0] * Greg[i][0] for i, F in FT[nm]), flint.arb(0))
+        im_ = sum((F[0] * Greg[i][1] for i, F in FT[nm]), flint.arb(0))
+        Gv[nm] = flint.acb(re_, im_)
+    E = aenv.E(v)
+    th = xb.acos() / 2
+    Hv = aenv.H(th)
+    mu = aenv.mu(v)
+    args = [flint.acb(q) for q in (v, r, th, E[0], E[1], E[2], mu, flint.arb(2) / 9 * E[0] ** 2,
+                                   flint.arb(4) / 9 * E[0] * E[1], Hv[0], Hv[1], Hv[2])]
+    ks, f = coef
+    vals = f(*args)
+    KN = {(0, 0, 0): 'val', (1, 0, 0): 'pv', (0, 0, 1): 'ut', (1, 0, 1): 'pt', (0, 0, 2): 'utt'}
+
+    def known(nm, jet):
+        j = J[nm]
+        if jet in KN:
+            return j[KN[jet]]
+        return {(0, 1, 0): j['ur'] - j['pv'], (0, 1, 1): j['urt'] - j['pt'], (1, 1, 0): j['pr'],
+                (0, 2, 0): j['urr'] - 2 * j['pr'], (2, 0, 0): flint.arb(0)}[jet]
+    alpha, beta = flint.acb(0), vals[-1]
+    for (fname, jet), cval in zip(ks, vals[:-1]):
+        if fname.startswith('m_'):
+            nm = fname[2:]
+            beta += cval * flint.acb(known(nm, jet))
+            if nm == 'vv' and jet in ((2, 0, 0), (0, 2, 0), (1, 1, 0)):
+                alpha += cval if jet != (1, 1, 0) else -cval
+        elif fname == 'phi':
+            beta += cval * flint.acb(PH[jet])
+        elif fname[:4] in ('Gp1_', 'Gm1_'):
+            nm = fname[4:]
+            if nm != 'rr':
+                beta += cval * (Gv[nm] if fname[:4] == 'Gp1_' else Gv[nm].conjugate())
+    return alpha * flint.acb(X) + beta
+
+
+def run_with_samples(funcs, env, fode, Nr, Nx, cfl, targets, keep_at=None):
     Sv = ME.Solver(Nr, Nx, funcs, env)
     st = ME.cauchy_data(Sv, fode)
     steps, t = [], ME.TAU0
@@ -260,7 +465,7 @@ def run_with_samples(funcs, env, fode, Nr, Nx, cfl, targets):
         h = min(cfl * Lt / Nr ** 2, ME.TAU_STAR - t)
         steps.append(h)
         t += h
-    tau, out, ti = ME.TAU0, [], 0
+    tau, out, ti, kept = ME.TAU0, [], 0, None
     Sf = ME.Solver(2 * Nr, 2 * Nx, funcs, env)
     out.append((tau, residual_norm(Sv, Sf, tau, st)))
     with np.errstate(all='ignore'):
@@ -275,8 +480,10 @@ def run_with_samples(funcs, env, fode, Nr, Nx, cfl, targets):
             tau += h
             while ti < len(targets) and tau >= targets[ti] - 1e-12:
                 out.append((tau, residual_norm(Sv, Sf, tau, st)))
+                if keep_at is not None and kept is None and tau >= keep_at - 1e-12:
+                    kept = (Sv, tau, st)
                 ti += 1
-    return out, ME.m22(Sv, st)
+    return out, ME.m22(Sv, st), kept
 
 
 def check_x4(funcs, env, fode, prof, s_tot):
@@ -285,7 +492,10 @@ def check_x4(funcs, env, fode, prof, s_tot):
     rows = {}
     for cfg in ((32, 12, 1.0), (40, 12, 1.0), (48, 16, 1.0), (64, 20, 1.0)):
         t1 = time.time()
-        smp, m22v = run_with_samples(funcs, env, fode, *cfg, targets)
+        smp, m22v, kept = run_with_samples(funcs, env, fode, *cfg, targets, keep_at=KEEP if cfg == (48, 16, 1.0)
+                                           else None)
+        if kept is not None:
+            rows['kept'] = kept
         taus = np.array([q[0] for q in smp])
         rn = np.array([q[1] for q in smp])
         # Lambda(tau) = int_tau^tau* k_lo: prof is cumulative from tau* backwards in s = tau* - tau
@@ -300,6 +510,60 @@ def check_x4(funcs, env, fode, prof, s_tot):
 
 
 # ------------------------------------------------------------------------------------------------------------------
+def check_x6(res, kept, need_pt):
+    Sv, tau, st = kept
+    aenv = ArbEnv()
+    d = res[('vv', 0)]
+    ks = list(d['coef'].keys())
+    coef = (ks, acb_fn([d['coef'][k].subs(ME.A, 1) for k in ks] + [d['src'].subs(ME.A, 1)], ME.SYMS))
+    X0 = xreg(Sv, tau, st)
+    yg = np.cos(np.pi * np.arange(Sv.Nr) / (Sv.Nr - 1))
+    i0 = int(np.argmin(np.abs(yg + 0.3)))                     # v near 2 at this tau, where the solution is large
+    pts = [(i0, j) for j in (1, 3, 5)]
+    nodes, mids = [], []
+    t1 = time.time()
+    for i, j in pts:
+        nodes.append(abs(arb_residual(Sv, tau, st, X0, coef, aenv, yg[i], Sv.x[j]).real.mid()))
+        rm = arb_residual(Sv, tau, st, X0, coef, aenv, (yg[i] + yg[i + 1]) / 2, (Sv.x[j] + Sv.x[j + 1]) / 2)
+        mids.append(rm.real)
+    per = (time.time() - t1) / (2 * len(pts))
+    ok_nodes = max(float(q) for q in nodes) < 1e-12
+    real = sum(1 for q in mids if abs(float(q.mid())) > 1e3 * max(float(n) for n in nodes)
+               and abs(float(q.mid())) > 1e6 * float(q.rad()))
+    OK['X6'] = ok_nodes and real >= 2
+    print('  X6 (certified, Arb): the tau-tau residual of the 48 x 16 interpolant at tau = %.3f, in Arb balls with mu '
+          'by certified quadrature and c from its defining integral (%s): at three collocation nodes it is at most %.1e '
+          '(the evaluator reproduces the solver there), at the three midpoints next to them %s; certified nonzero '
+          'values where the solution is large: %s %s'
+          % (tau, '%.15f +/- %.1e' % (float(aenv.c.mid()), float(aenv.c.rad())), max(float(n) for n in nodes),
+             ', '.join('%.4e +/- %.1e' % (float(q.mid()), float(q.rad())) for q in mids), OK['X6'], el()))
+    X0p = X0 + 1e-6 * np.max(np.abs(X0))
+    bad = abs(arb_residual(Sv, tau, st, X0p, coef, aenv, yg[i0], Sv.x[1]).real.mid())
+    OK['C4'] = not float(bad) < 1e-12
+    print('  C4 (control): the interpolated d_tau^2 m_vv raised by 1e-6 of its maximum: the nodal residual is %.1e, so '
+          'X6\'s nodal test fails: %s' % (float(bad), OK['C4']))
+    i, j = pts[0]
+    ym, xm = (yg[i] + yg[i + 1]) / 2, (Sv.x[j] + Sv.x[j + 1]) / 2
+    rads = []
+    for dl in (1e-4, 1e-6, 1e-8, 1e-10):
+        rads.append((dl, float(arb_residual(Sv, tau, st, X0, coef, aenv, ym, xm, dl, dl).real.rad())))
+    slope = rads[-1][1] / rads[-1][0]
+    print('  X6 (sharpness): on a box of half-width delta in (y, x) around the first midpoint the enclosure\'s radius '
+          'is %s: it grows as %.2f delta (first-order wrapping of the Chebyshev recurrences and coefficient functions), '
+          'while the residual there is %.1e. One evaluation takes %.3f s.' % (
+              ', '.join('%.1e at %.0e' % (r_, d_) for d_, r_ in rads), slope, abs(float(mids[0].mid())), per))
+    nstep, t = 0, ME.TAU0
+    while t < ME.TAU_STAR - 1e-14:
+        t += min(Sv.grid(t)[1] / Sv.Nr ** 2, ME.TAU_STAR - t)
+        nstep += 1
+    for target in (need_pt, 1e-6):
+        dl = target / slope
+        boxes = (1 / dl) ** 2
+        print('    radius <= %.0e needs delta <= %.1e: about %.1e boxes per slice, %.1e over the run\'s ~%d slices, '
+              'about %.1e s at this rate' % (target, dl, boxes, boxes * nstep, nstep, boxes * nstep * per))
+    return slope, per
+
+
 def main():
     print('m22cert5: the attempt at a certified lower bound m_lo on |M_22| (M22CERT5.md)')
     flint.ctx.prec = 120
@@ -338,8 +602,10 @@ def main():
     with contextlib.redirect_stdout(io.StringIO()):
         fode = ME.mode_setup()
     rows = check_x4(funcs, env, fode, prof, s_tot)
+    lam_keep = float(np.interp(ME.TAU_STAR - KEEP, [p[0] for p in prof], [p[1] for p in prof]))
+    check_x6(res, rows['kept'], need / (ME.TAU_STAR - ME.TAU0) / math.exp(lam_keep))
     b48, b64 = rows[(48, 16, 1.0)][3], rows[(64, 20, 1.0)][3]
-    OK['X4'] = all(np.isfinite(r_[3]) for r_ in rows.values()) and b64 < b48 and b64 > need
+    OK['X4'] = all(np.isfinite(rows[c][3]) for c in rows if c != 'kept') and b64 < b48 and b64 > need
     print('  X4 (computed, floating point): the route\'s bound for the solver\'s solution, int e^Lambda ||rho_tautau|| '
           'ds (rho_tautau alone, a lower bound on the residual the route needs), is %.2e at 32 x 12, %.2e at 40 x 12, '
           '%.2e at 48 x 16 and %.2e at 64 x 20, against the %.2f it must stay below: still a factor %.1e above it at '

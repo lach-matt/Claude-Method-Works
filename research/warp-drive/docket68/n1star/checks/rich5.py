@@ -36,6 +36,7 @@ tensor's float64 bytes, and every statement below is about those coefficients an
         [Round 7, the verifier of round 6, M6-A: the test fields now vary in t, sig and x (rcert5d.kids_fields2), and
         C1(b), rcert5d.contain_control on the Richardson tensors and the frame, checks that every box enclosure the
         engine forms contains its corners' point values -- box_coeffs' and the box-path frame output's.]
+        [Round 8, the verifier of round 7, minor 2: C1(b) also on degree-7 test fields, rcert5d.contain_fields.]
      C2 (rcert5.py's): the Richardson approximant with W + 0.01 v: its certified point values exceed tau (refused).
      C3 the census code: on the round-3 tensors it must find points above tau (the regression of R2) -- a census that
         under-reports would pass the Richardson approximant vacuously.
@@ -311,11 +312,15 @@ def main():
                                                             'caught (good)' if c1 else 'BAD'))
     t1 = time.time()
     (n1, f1), (n2, f2) = RD.contain_control(RD.Engine(CR, g, frame, names), RD.CONTAIN_PARENTS)
-    c1b = n1 > 0 and n2 > 0 and f1 == 0 and f2 == 0
-    print('C1(b) (control, round 7: rcert5d.contain_control on the Richardson tensors and the frame) box_coeffs\' '
-          'enclosures against point_coeffs at their corners: %d checks, %d not contained; the box-path frame output '
-          'against the point path at the corners: %d checks, %d not contained -> %s (%.0f s)' % (
-              n1, f1, n2, f2, 'every enclosure contains its corners (good)' if c1b else 'BAD', time.time() - t1))
+    (n3, f3), (n4, f4) = RD.contain_control(RD.Engine(RD.contain_fields(), g, RD.kids_frame2, ['R', 'm', 'n']),
+                                            RD.CONTAIN_TEST_PARENTS)
+    c1b = min(n1, n2, n3, n4) > 0 and f1 == f2 == f3 == f4 == 0
+    print('C1(b) (control, rounds 7-8: rcert5d.contain_control) box_coeffs\' enclosures against point_coeffs at their '
+          'corners, and the box-path frame output against the point path at the corners: on the Richardson tensors and '
+          'the frame %d checks, %d not contained, and %d checks, %d not contained; on the degree-7 test fields (round '
+          '8) %d checks, %d not contained, and %d checks, %d not contained -> %s (%.0f s)' % (
+              n1, f1, n2, f2, n3, f3, n4, f4, 'every enclosure contains its corners (good)' if c1b else 'BAD',
+              time.time() - t1))
     ok &= c1 and c1b
     old_after = fmd5(OLD)
     print('   data/rcert5_C3.npz md5 after: %s (%s)' % (old_after,

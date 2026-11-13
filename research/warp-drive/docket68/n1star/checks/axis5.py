@@ -3,8 +3,10 @@
 dimensional axisymmetric Einstein-scalar; its double-null frame is regular there; the curvature-level pairs close
 their angular terms with the axisymmetric measure, the axis contributing no boundary term; the axis's 1/s terms are
 tamed by Hardy inequalities with explicit constants; and the frame quantities of the record's solution are bounded up
-to the axis, where Theorem 7.L's grow like the inverse distance.  Labels: deduced (exact, sympy) for X1-X3 and X6's
-counterexample; deduced with a computed check for X4; computed (floating point, on the record's run) for X5.
+to the axis, where Theorem 7.L's grow like the inverse distance.  Labels: deduced, verified at random rational jets
+with a fixed seed (a probabilistic identity test, not a symbolic proof; the verifier of round 4, m11) for X1-X3, X6
+and X7, whose printed '(exact)' is to be read so; deduced with a computed check for X4; computed (floating point, on
+the record's run) for X5.
 
 The chart at x = +1 (the phi2-circle degenerates there; reduce on phi1 alone).  g5 = g4 + e^{2A} dphi1^2 with
 g4 = h + e^{2B} dphi2^2 (reduce5.py's A, B, h).  In dimension four the Einstein frame is ghat = e^A g4, and
@@ -54,12 +56,13 @@ The chart at x = -1 is the same with (A, phi1) and (B, phi2) exchanged.
      chih, eta, zeta, e1 Phi vanish toward the axis at the rates regularity requires (chih/(1 - x), eta/sqrt(1 - x)
      bounded); the same at x = -1 in the other chart.  Against them: Theorem 7.L's three-dimensional coefficient sums,
      which grow from 122 (|x| <= 1/2) to 1.8e5 at the outermost node (linest5.out E4).
-  X6 (deduced; exact counterexample) why the axis needs the curvature level.  In the axis chart the section has the
-     connection k = e1 log Y ~ 1/s.  A level-0 frame-difference estimate (7.L's unknowns) would carry dk; but for the
-     regular perturbation gh -> (1 + eps) gh, Y -> (1 + eps)^(1/2) Y (elementary flatness kept), dk = -(eps/2) k exactly,
-     and int_0^S (dk)^2 Y ds diverges logarithmically.  So no estimate whose unknowns include dk in L^2(dmu) exists, and
-     the angular derivatives of the metric differences must be carried as tensors (Codazzi, H2), i.e. at the curvature
-     level: nothing weaker than [Wu26]'s level suffices at the axis.
+  X6 (deduced; verified at random jets) dk is not an admissible L^2(dmu) unknown at the axis in the polar frame.  In
+     the axis chart the section has the connection k = e1 log Y ~ 1/s.  For the regular perturbation gh -> (1 + eps) gh,
+     Y -> (1 + eps)^(1/2) Y (elementary flatness kept), dk = -(eps/2) k to first order, and int_0^S (dk)^2 Y ds diverges
+     logarithmically.  That excludes Theorem 7.L's unknowns, which include dk, and nothing else: not a level-0 estimate
+     in a regular frame, in weighted norms or in another gauge, and it is no counterexample to an estimate whose data
+     norm contains dk.  [Round 8, the verifier of round 7, M7-A: this paragraph read "exact counterexample ... nothing
+     weaker than [Wu26]'s level suffices at the axis", the reading the verifier of round 4 withdrew (M-C).]
 
   X7 (exact; computed constant) the glue.  For a cut-off psi(x) (psi = 1 near the axis, 0 away from it):
         psi [K div(Omh beta) + Omh beta e1 K] = (Y sqrt gh)^-1 d_x(psi Y Omh K beta) - (e1 psi) Omh K beta,
