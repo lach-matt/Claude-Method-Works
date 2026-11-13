@@ -3973,8 +3973,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/flux5.py` | `9ab6b48f425633ab7806c3bab1576238` |
 | `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
 | `docket68/n1star/checks/gluedecay5.py` | `469988f9e95cac106a6c07c8611b2bf4` |
-| `docket68/n1star/checks/gluedecay5.out` | `7e941de58e5bca8de5677257884e0b2d` |
-| `docket68/n1star/GLUEDECAY5.md` | `130e7371a549072dc5b0e0035c99b26c` |
+| `docket68/n1star/checks/gluedecay5.out` | `16e887c977068441634f7ac49a8c7ece` |
+| `docket68/n1star/GLUEDECAY5.md` | `d854fef337229f68900056882f734cf9` |
 | `docket68/n1star/proof5/PART-V-GLUING.md` | `df25f8231e6af8cc1cfd08069d2700aa` |
 | `docket68/n1star/checks/vii5census.py` | `9f3252397844bcba05defabdc55c960b` |
 | `docket68/n1star/checks/vii5census.out` | `6778acf85fe7b097e8ea8b457a3ccbf7` |
@@ -4267,7 +4267,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/edgeP5.py` | `0b4787f2c27c3a7c6a08a51c842b3439` |
 | `docket68/n1star/checks/edgeP5.out` | `62c824d860afcdb1379669672938ffd5` |
 | `docket68/n1star/checks/stagefree5.py` | `05f3737e27f1448838ed3e106d613448` |
-| `docket68/n1star/checks/stagefree5.out` | `b9cc93ce7df7b4b445e0512666429229` |
+| `docket68/n1star/checks/stagefree5.out` | `52ab4030da6b699739275880215eae67` |
 | `docket68/n1star/checks/bandL4p5.py` | `70650afded413e425907488241405c23` |
 | `docket68/n1star/checks/bandL4p5.out` | `8ef875a7eb48f4056198f4d681b98f4b` |
 | `docket68/n1star/checks/lamL5b.py` | `8633d245a37cbbb57757eb3b64825c81` |
