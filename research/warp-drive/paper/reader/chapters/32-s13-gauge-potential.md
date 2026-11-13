@@ -1368,15 +1368,18 @@ zero rotation, that this section and [[ch:s15]] use.
 
 **Proposition {#prop:np-10-28}** (Symmetries and linearised metrics on Tangherlini.) Let g = g_m.
 
-(i) In Cartesian coordinates g − ḡ ∈ ρ²C^∞ and Γ(g) ∈ ρ³C^∞; hence (δ*_g)^(0) − (δ̄*)^(0) ∈ ρ³ Diff_b⁰ and
+(i) In the coordinates (t, x), t the static time, where the Christoffel symbols of η := −dt² + dx² vanish,
+g − η ∈ ρ²C^∞ and Γ(g) ∈ ρ³C^∞ in Cartesian components. In the coordinates (t_*, x) of [[sec:iii-d2-1]], where
+Γ(ḡ) ∈ ρC^∞ does not vanish, g − ḡ ∈ ρ²C^∞ and Γ(g) − Γ(ḡ) ∈ ρ³C^∞. Hence (δ*_g)^(0) − (δ̄*)^(0) ∈ ρ³ Diff_b⁰ and
 (□^Υ_g)^(0) − (□̄^Υ)^(0) ∈ ρ⁴ Diff_b². The tortoise coordinate satisfies r_* − r → 0, with no logarithm.
 
 (ii) δ*_g dx¹ ∈ ρ³C^∞ and □dx¹ = 2δGδ*dx¹ ∈ ρ⁴C^∞. The number 2 is an s1 root of (□^Υ_b)^(0) at z = 0 and not for
 z > 0, where the s1 root near 2 is ι^Υ_(s1,2) = ½(1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2)) > 2.
 
 (iii) For the boost B̄ = t̄ dx¹ − x¹dt̄, which is Killing for ḡ, δ*_gB̄ − t_*δ*_g dx¹ is stationary and lies in
-ρ²C^∞, and the stationary residual □^Υ_gB̄ − t_*□^Υ_g dx¹ lies in ρ³C^∞. The number 1 is not an s1 root for z ≥ 0:
-the s1 determinant at ι = 1 is 3(12 + 3z).
+ρ²C^∞, and the stationary residual □^Υ_gB̄ − t_*□^Υ_g dx¹ lies in ρ³C^∞. In the static time t,
+δ*_g(t dx¹ − x¹dt) = t δ*_g dx¹ + K with K stationary and in ρ²C^∞. The number 1 is not an s1 root for z ≥ 0: the s1
+determinant at ι = 1 is 3(12 + 3z).
 
 (iv) Each of the six 1-forms x^i dx^j − x^j dx^i equals g(R, ·) for the rotation field R = ḡ⁻¹(x^i dx^j − x^j dx^i)
 and is Killing for g; they are linearly independent, as are the four functions x^i/r on 𝕊³.
@@ -1387,22 +1390,29 @@ trace-free with δ_g h_A = 0, so η_A := δ_(g,E)G_g h_A = E^Υ h_A = (2γ_Υ m/
 vector type 1. The number 1 is not an s0 root and 2 is not a v1 root: the s0 determinant at ι = 1 is 2(2 + z), and the
 v1 determinant at ι = 2 is 3.
 
-(vi) The single-spin Myers–Perry metric [ER08, Section 4.1, (32)–(33)] in five dimensions,
+(vi) The single-spin Myers–Perry metric in five dimensions [ER08, (32)–(33), p. 14],
 
     −dt² + (m/Σ)(dt − a sin²ϑ dφ)² + (Σ/Δ)dr² + Σdϑ² + (r² + a²)sin²ϑ dφ² + r²cos²ϑ dψ²,
 
-Σ := r² + a²cos²ϑ, Δ := r² + a² − m, is Ricci-flat [ER08, Section 4.1]; at a = 0 it is g_m, in the coordinates
+Σ := r² + a²cos²ϑ, Δ := r² + a² − m, is Ricci-flat: it is the odd-dimensional Myers–Perry metric
+[ER08, (42), (44), p. 16] in dimension 5 with the rotation parameters (a, 0), a vacuum solution by
+[[thm:std-myers-perry]] [MP86]. At a = 0 it is g_m, in the coordinates
 x¹ + ix² = r sin ϑ e^(iφ), x³ + ix⁴ = r cos ϑ e^(iψ) on the round 𝕊³; and ∂_a of it at a = 0 is −h_A, with
 w = r²sin²ϑ dφ.
 
-*Proof.* (i) is [[eq:iii-d2-2-3]] and the proof of [[lem:iii-d2-2-1]] (the static time and the time of
-[[eq:iii-b-3-6]] differ by a function of r with derivative in ρ²C^∞), and r_* − r = −m/r + O(r⁻³) by
-[[prop:np-10-16]] (v). (ii) δ̄*dx¹ = 0, so δ*_g dx¹ = ((δ*_g)^(0) − (δ̄*)^(0))dx¹ ∈ ρ³C^∞, and 2δ_gG_g ∈ ρ Diff_b¹. The
+*Proof.* (i) In the static chart g − η = mρ²dt² + mρ²f⁻¹dr², f := 1 − mρ², with dr = x̂ · dx, which lies in ρ²C^∞
+in Cartesian components; as Γ(η) = 0 there, and g_1 − g_2 ∈ ρ^kC^∞ implies Γ(g_1) − Γ(g_2) ∈ ρ^(k+1)C^∞ (proof of
+[[lem:iii-d2-2-1]]), Γ(g) ∈ ρ³C^∞. In (t_*, x) the statements are [[eq:iii-d2-2-3]] and the same implication, and the
+two consequences are [[lem:iii-d2-2-1]] at b = (m, 0). r_* − r = −m/r + O(r⁻³) by [[prop:np-10-16]] (v) with m in
+place of m_0. (ii) δ̄*dx¹ = 0, so δ*_g dx¹ = ((δ*_g)^(0) − (δ̄*)^(0))dx¹ ∈ ρ³C^∞, and 2δ_gG_g ∈ ρ Diff_b¹. The
 s1 root is [[eq:iii-d-4-1]] at l = 1, since ½ + (¼ + s)^(1/2) = ½(1 + (1 + 4s)^(1/2)) and
 1 + 4s_(1,1) = 17 + 2z − 2(z² + 4z + 16)^(1/2); at z = 0 it is 2, and for z > 0 it exceeds 2 by [[lem:iii-d-4-1]].
 (iii) δ̄*B̄ = 0 gives dt_* ⊗_s dx¹ + (δ̄*)^(0)B̆ = 0 with B̆ := B̄ − t_*dx¹ stationary in ρ⁻¹C^∞, so
 δ*_gB̄ − t_*δ*_g dx¹ = ((δ*_g)^(0) − (δ̄*)^(0))B̆ ∈ ρ²C^∞; the residual is the sum of the first two terms of
-[[eq:iii-d2-3-5]], in ρ³C^∞. At l = 1, ι = 1, [[eq:s13-dets]] gives (3)(1)Q_1(0) = 3(κ(κ + 1) + zκ) with κ = 3.
+[[eq:iii-d2-3-5]], in ρ³C^∞. In the static time, δ*_g(φω) = φδ*_gω + dφ ⊗_s ω gives
+δ*_g(t dx¹ − x¹dt) = t δ*_g dx¹ − x¹δ*_g dt; in the static chart (δ*_g dt)_μν = −Γ^t_μν, whose only nonzero Cartesian
+components are Γ^t_(ti) = Γ^t_(it) = x̂_i f′/(2f) ∈ ρ³C^∞ (f′ = 2mr⁻³), so K := −x¹δ*_g dt ∈ ρ²C^∞, and K is
+stationary. At l = 1, ι = 1, [[eq:s13-dets]] gives (3)(1)Q_1(0) = 3(κ(κ + 1) + zκ) with κ = 3.
 (iv) g_m = η + (m/r²)(dt − dr)² ([[eq:iii-b-3-4]]) and R annihilates t and r, so g(R, ·) = η(R, ·), which is the
 given form; R is Killing for every spherically symmetric metric. Independence: 𝔰𝔬(4) has dimension 6, and the
 coordinate functions are independent. (v) g_m is Ricci-flat for every m, so D Ric(∂_m g) = 0; by (vi), h_A is minus
@@ -1412,11 +1422,19 @@ as in [[lem:iii-d2-2-1]]: δ_(g,E)G_g maps ρ²C^∞ into ρ³C^∞. For h_A: g^
 the divergence of a symmetric tensor, ∇_μh^μ_ν = |g|^(−1/2)∂_μ(|g|^(1/2)h^μ_ν) − ½(∂_ν g_αβ)h^(αβ), where the last
 term vanishes as h^(αβ) has only tφ components and g_tφ = 0 identically; h^φ_t = m/r⁴ and h^t_φ = −(m/(fr²))sin²ϑ do
 not depend on t or φ, so δ_g h_A = 0. Then G_g h_A = h_A and
-E^Υ h_A = −2γ_Υ ι_(g⁻¹c)h_A with g⁻¹c = −(fr)⁻¹∂_t, which gives (2γ_Υ m/(fr⁵))w. The determinants are [[eq:s13-dets]]:
+E^Υ h_A = −2γ_Υ ι_(g⁻¹c)h_A, as tr_g h_A = 0; for c = r⁻¹dt, g⁻¹c = −(fr)⁻¹∂_t, which gives (2γ_Υ m/(fr⁵))w. The
+c_Υ = |x|⁻¹dt of [[def:iii-b-6-1]] is built with the time of [[eq:iii-b-3-6]], which differs from the static time by a
+function of r; so c_Υ − r⁻¹dt is a multiple of dr, and as ι_(g⁻¹dr)h_A = f h_A(∂_r, ·) = 0 the result is the same for
+c_Υ. The determinants are [[eq:s13-dets]]:
 1 · (−2)(−2 − z) and (2 + 1)(3 − 2). (vi) At a = 0, Σ = r², Δ = r² − m = r²f, and the metric is
 −f dt² + f⁻¹dr² + r²(dϑ² + sin²ϑ dφ² + cos²ϑ dψ²), the last bracket being the round metric of 𝕊³ in these
 coordinates. ∂_a of (m/Σ)(dt − a sin²ϑ dφ)² at a = 0 is −(m/r²)sin²ϑ(dt ⊗ dφ + dφ ⊗ dt), and the other coefficients
-have vanishing a-derivative at a = 0; with w = x¹dx² − x²dx¹ = r²sin²ϑ dφ this is −h_A. ∎
+have vanishing a-derivative at a = 0; with w = x¹dx² − x²dx¹ = r²sin²ϑ dφ this is −h_A. The metric [ER08, (42)] in
+dimension 5, with rotation parameters (a, 0), direction cosines μ_1 = sin ϑ, μ_2 = cos ϑ, angles φ, ψ and mass parameter
+m, has F = Σ/(r² + a²) and Π = r²(r² + a²) by [ER08, (44)], so mr²/(ΠF) = m/Σ and ΠF/(Π − mr²) = Σ/Δ; and, as
+dμ_1 = cos ϑ dϑ and dμ_2 = −sin ϑ dϑ, (r² + a²)(dμ_1² + μ_1²dφ²) + r²(dμ_2² + μ_2²dψ²) is
+Σdϑ² + (r² + a²)sin²ϑ dφ² + r²cos²ϑ dψ². So [ER08, (42)] is the displayed metric, which is Ricci-flat by
+[[thm:std-myers-perry]]. ∎
 
 ### Generalised zero energy states: the setting {#sec:iii-d3-1}
 

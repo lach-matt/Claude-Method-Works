@@ -107,13 +107,12 @@ operator P_4, its linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(
 
 ℰ^ι_ind is the index set of [[thm:iii-g2-4-2]] ([[eq:iii-g2-4-4]]). Two gaps of indicial roots enter, and they are
 different numbers: ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the indicial roots of L̂_b(0), with which the
-hypotheses of [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]] are stated; ε_Υ is the constant of [[sec:iii-d2-1]], fixed
-by the indicial roots of (□^Υ_b)^(0), and the index sets ℰ_ind of the corrections of the states have least real part
-at least ε_Υ. The remainders of [[prop:iii-g4-4-4]] ([[eq:iii-g4-4-3]]) and [[prop:iii-g4-5-1]] ([[eq:iii-g4-5-1]])
-gain over the forcing through the corrections of the states ([[lem:iii-g4-4-3]]); of this gain we use only the lower
-bound ε_g := min(ε_Υ, ε_ind).
-[[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), (e) extend verbatim to every triple (τ, λ, k) with τ ∈ 𝒯,
-Re λ ≥ λ_♯ and k ∈ ℕ₀; m_ν and r_ν denote these also for ν ∉ 𝒩. Two further hypotheses are made:
+hypotheses of [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]] are stated; ε_Υ is the constant of [[sec:iii-d2-1]], fixed by
+the indicial roots of (□^Υ_b)^(0), and the index sets ℰ_ind of the corrections of the states have least real part at
+least ε_Υ. The remainders of [[prop:iii-g4-4-4]] ([[eq:iii-g4-4-3]]) and [[prop:iii-g4-5-1]] ([[eq:iii-g4-5-1]]) gain
+over the forcing through the corrections of the states ([[lem:iii-g4-4-3]]); of this gain we use only the lower bound
+ε_g := min(ε_Υ, ε_ind). [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), (e) extend verbatim to every triple (τ, λ, k) with
+τ ∈ 𝒯, Re λ ≥ λ_♯ and k ∈ ℕ₀; m_ν and r_ν denote these also for ν ∉ 𝒩. Two further hypotheses are made:
 
 (C5) γ_C v_C ≥ 1/2 ([[sec:iii-g2-1]]), so that ℓ^max_K = min(3, 2 + 2γ_C v_C) = 3 ([[eq:iii-g2-1-1]]).
 
@@ -222,8 +221,8 @@ Re λ′ < Re λ, k′ ≤ k̄(λ′) and l ≤ l_*, plus at most J_*(l_* + 1) f
 **Definition {#def:iii-i10-1-3}** (The gap and admissible orders.) (G) ε_K is so small that no λ ∈ Λ has real part in
 (2, 2 + ε_K] ∪ (3, 3 + ε_K], and no λ + d_c0 or λ + d_c1, λ ∈ Λ, has real part in (2, 2 + ε_K]. This is possible by
 [[lem:iii-i10-1-2]] (a), as Λ does not depend on ε_K; it implies d_c0, d_c1 > ε_K, since 2 ∈ Λ. The constants
-[[eq:iii-i9-1-1]] may be kept, decreasing ε_K; we also take ε_K < ε_Υ, so that ε_K < ε_g. A number α ∈ (2, 4 + ε_K] is *admissible* if: for α < 3, it is
-admissible in the sense of [[sec:iii-i8-1]]; for α ≥ 3, α > 4 + ε_K − ε′_0, with
+[[eq:iii-i9-1-1]] may be kept, decreasing ε_K; we also take ε_K < ε_Υ, so that ε_K < ε_g. A number α ∈ (2, 4 + ε_K] is
+*admissible* if: for α < 3, it is admissible in the sense of [[sec:iii-i8-1]]; for α ≥ 3, α > 4 + ε_K − ε′_0, with
 
     ε′_0 := ½ min(ε_K, ε_+ − ε_K),
 
@@ -509,14 +508,14 @@ At the Taylor level j (after j divisions by σ), a tf-exponent ζ of the current
 u-exponent λ has the K⁺-rate λ − 1 (s1), λ (s0, s2) or λ + d_τ (c0, c1).
 
 *Constants.* Let α = 4 + ε_K − ε′ be admissible ([[def:iii-i10-1-3]]; 0 < ε′ < ε′_0 < ε_K, so α > 4). Fix
-η_1, η_2 ∈ (ε_K, ε_+) with η_1 < η_2 and η_1 < ε_g such that no λ ∈ Λ has real part 2 + η_1 or 3 + η_2; they lie below ε_+, so that
-every exponent treated has u-exponent below 3 + ε_+, where the forcing is polyhomogeneous and [[lem:iii-i10-1-2]] (c)
-counts the logarithms. *The exclusion set of [[def:iii-i10-1-3]]* is the finite set of ε′ for which one of the
-conditions [[eq:iii-g4-4-2]] of [[prop:iii-g4-4-4]] fails at the levels 1 and 2 below (for the finitely many α_0 treated
-there, with ℓ_zf = α − 1 − j − ε), one of the conditions of [[prop:iii-g4-5-1]] fails at level 3 (finitely many rounds),
-or α − 4 − ε is a real part excluded in [[lem:iii-i2-4-2]] or in [[eq:iii-h-1-1]]. Then ε > 0 is taken small, with
-2ε < ε_+ − η_2, and off a finite set as well. The orders q_j ∈ (2, 3) of the zero energy solves are chosen off the real
-parts of the exponents at hand.
+η_1, η_2 ∈ (ε_K, ε_+) with η_1 < η_2 and η_1 < ε_g such that no λ ∈ Λ has real part 2 + η_1 or 3 + η_2; they lie below
+ε_+, so that every exponent treated has u-exponent below 3 + ε_+, where the forcing is polyhomogeneous and
+[[lem:iii-i10-1-2]] (c) counts the logarithms. *The exclusion set of [[def:iii-i10-1-3]]* is the finite set of ε′ for
+which one of the conditions [[eq:iii-g4-4-2]] of [[prop:iii-g4-4-4]] fails at the levels 1 and 2 below (for the finitely
+many α_0 treated there, with ℓ_zf = α − 1 − j − ε), one of the conditions of [[prop:iii-g4-5-1]] fails at level 3
+(finitely many rounds), or α − 4 − ε is a real part excluded in [[lem:iii-i2-4-2]] or in [[eq:iii-h-1-1]]. Then ε > 0 is
+taken small, with 2ε < ε_+ − η_2, and off a finite set as well. The orders q_j ∈ (2, 3) of the zero energy solves are
+chosen off the real parts of the exponents at hand.
 
 *The a priori facts.* f^♭ is the forcing of [[prop:iii-i10-3-1]] (c) for f ∈ 𝒴⁰(α), and v is the forward solution of
 L_b v = f^♭. In [[sec:iii-i11-3]], v = u − u_I − u_ι with u as in the hypothesis of [[lem:iii-i11-3-2]], so v has a
@@ -739,19 +738,19 @@ pieces σ²(χ_zf û_2 + ĝ^aug(ḃ_2) + ĥ^aug(S_2)), and [[lem:iii-i11-2-2]] g
 (conormal; its expansion is not needed) and zf-data ((0, 0), ℓ_3), ℓ_3 := α − 4 − ε ∈ (0, ε_K).
 
 *Step 4 (level 3; [Hin26, Step 2.A.8 and Part 3]).* Fix δ > 0 with δ + ℓ_3 + 2ε < ε_g. While the tf-weight κ of the
-current level-3 forcing is at most 2 + ℓ_3 + ε, apply [[prop:iii-g4-5-1]] with α_κ := min(κ, 2 − δ) ∈ (1, 2) (the
-forcing has the tf-weight α_κ), ℓ_zf := ℓ_3, the order 0 of the zf-index set there, and
-w = ℓ_3 − α_κ + 2 ∈ [−ε, 1) ⊂ (−ε_ind, ℓ^max_K) (α_κ ≤ κ ≤ 2 + ℓ_3 + ε, and α_κ ≥ κ_3 > 1 + ℓ_3, as η_2 > ε_K > ℓ_3).
-Its conditions w ≠ −μ and 2 − α_κ + j ≠ −μ hold for ε off a finite set (admissibility) and, when α_κ = 2 − δ, for δ
-off the finite set {−μ − j}, which we impose on δ. It gives
+current level-3 forcing is at most 2 + ℓ_3 + ε, apply [[prop:iii-g4-5-1]] with α_κ := min(κ, 2 − δ) ∈ (1, 2) (the forcing
+has the tf-weight α_κ), ℓ_zf := ℓ_3, the order 0 of the zf-index set there, and
+w = ℓ_3 − α_κ + 2 ∈ [−ε, 1) ⊂ (−ε_ind, ℓ^max_K) (α_κ ≤ κ ≤ 2 + ℓ_3 + ε, and α_κ ≥ κ_3 > 1 + ℓ_3, as η_2 > ε_K > ℓ_3). Its
+conditions w ≠ −μ and 2 − α_κ + j ≠ −μ hold for ε off a finite set (admissibility) and, when α_κ = 2 − δ, for δ off the
+finite set {−μ − j}, which we impose on δ. It gives
 
     u = χ_zf u_b + χ^♯_tf ũ ∈ H^(∞,(3/2−2ε,α_κ−2,α_κ−3))_b
 
-with a remainder of tf-weight at least α_κ + ε_g − ε, which exceeds κ by ε_g − ε when α_κ = κ, and, when
-α_κ = 2 − δ < κ, exceeds 2 + ℓ_3 + ε (as δ + ℓ_3 + 2ε < ε_g), after which the loop ends; the pieces are σ³u. After finitely many
-rounds κ > 2 + ℓ_3 + ε; lowering κ if necessary (a forcing of tf-weight κ has every smaller tf-weight),
-κ ∈ (2 + ℓ_3 + ε, 3). [[lem:iii-i11-2-1]] with q_3 := κ − ε, q′ := κ and E = ∅ gives (û_3, ḃ_3, S_3)^± and the pieces
-σ³(χ_zf û_3 + ĝ^aug(ḃ_3) + ĥ^aug(S_3)). The rest,
+with a remainder of tf-weight at least α_κ + ε_g − ε, which exceeds κ by ε_g − ε when α_κ = κ, and, when α_κ = 2 − δ < κ,
+exceeds 2 + ℓ_3 + ε (as δ + ℓ_3 + 2ε < ε_g), after which the loop ends; the pieces are σ³u. After finitely many rounds
+κ > 2 + ℓ_3 + ε; lowering κ if necessary (a forcing of tf-weight κ has every smaller tf-weight), κ ∈ (2 + ℓ_3 + ε, 3).
+[[lem:iii-i11-2-1]] with q_3 := κ − ε, q′ := κ and E = ∅ gives (û_3, ḃ_3, S_3)^± and the pieces σ³(χ_zf
+û_3 + ĝ^aug(ḃ_3) + ĥ^aug(S_3)). The rest,
 
     g_J := (the level-3 source) − L̂_b(σ)(χ_zf û_3) − f̂_(ḃ_3) − f̂_(S_3) ∈ H^(∞,(5/2−ε,κ−ε,ℓ_3))_b
 

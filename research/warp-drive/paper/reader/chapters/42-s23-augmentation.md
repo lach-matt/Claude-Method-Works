@@ -403,10 +403,9 @@ hypotheses of [[prop:iii-i8-4-1]] on the background ask for K⁺-order only abov
 [[prop:iii-i8-4-1]] for P_4), [[prop:iii-i8-4-1]] holds for P_5 at (h, p⃗, q). Indeed P_5 is P_3 at (h + h_rem(q) + Σ_ν
 h_ν(W_ν), p⃗_3), the sum over the rows other than the motions (the rotation rows included), up to the term
 (∂δ*_(g_0,E_C))ϑ_rows, and in the direction b also up to L(∂_b h_(b,rem)(q)b′). This last term has K⁺-order > α_1:
-S_rem and b_rem have the rates (α − 2)− and (α − 1)−, above α_1 < α − 2, every other coefficient of q has the rate
-2 + ε_K or more, with 2 + ε_K ≥ α − 2, at b₀, by (G) and [[def:iii-i14-1-1]], and L̂_(b₀)(0)∂_b h_(b,v1) = 0 as
-h_(b₀,v1) = 0, so the v1 part has rate ≥ 3. All these terms lie in the class 𝒴(α_1) of [[sec:iii-i8-1]] and are
-O(|W⃗| + ‖q‖); so do D_(W⃗)P_5 = D_(W⃗)P_4 + Δ_q ([[lem:iii-i14-2-4]] (a); [[lem:iii-i9-2-6]] (b)) and F (the last sentence of
+S_rem and b_rem have the rates (α − 2)− and (α − 1)−, above α_1 < α − 2, every other coefficient of q has
+rate > 2 + ε_K ≥ α − 2 at b₀, by (G) and [[def:iii-i14-1-1]], and L̂_(b₀)(0)∂_b h_(b,v1) = 0 as h_(b₀,v1) = 0, so
+the v1 part has rate ≥ 3. All these terms lie in the class 𝒴(α_1) of [[sec:iii-i8-1]] and are O(|W⃗| + ‖q‖); so do D_(W⃗)P_5 = D_(W⃗)P_4 + Δ_q ([[lem:iii-i14-2-4]] (a); [[lem:iii-i9-2-6]] (b)) and F (the last sentence of
 [[lem:iii-i13-2-2]]). So for every W⃗ there is a unique p⃗′_<(W⃗) ∈ 𝒫_(α_1), affine in W⃗, with u(p⃗′_<(W⃗) ⊕ W⃗) ∈
 𝒵_(α_1). Let 𝒫_0 be the set of these p⃗′: the graph of W⃗ ↦ p⃗′_<(W⃗).
 

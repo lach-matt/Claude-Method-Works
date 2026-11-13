@@ -421,8 +421,9 @@ E_(7/2), and ℓ + 3/(2r) annihilates W_TT and maps ĝ_2 into L_3. In the equati
 and in [[lem:ue-decomposition]] the terms in φ therefore have these coefficients: E_(3/2) on ℓφ = ½ 𝒫 s and on Ψ;
 E_(5/2) on ∂_v φ (in [[eq:wave-operator-vr]], g^vv = 0, so ∂_v φ pairs only with ℓ∂_θ g1, in E_(5/2), and ∂_v∂_θ g1
 pairs with ℓφ) and on the angular derivatives r⁻¹ Ω φ (the angular block r⁻² ⟨∂̊φ, ∂̊∂_θ g1⟩ of
-[[eq:wave-operator-vr]] is (r⁻¹ Ω φ) · (r⁻¹ Ω ∂_θ g1)); and E_3 on φ and on λ ∂_x² φ. The same holds for the ℓℓ contraction of [[lem:ell-ell]], in
-which the dφ terms of B1 vanish, since the oscillating part of g1 is transverse to ℓ and ℓ depends on x̂ alone.
+[[eq:wave-operator-vr]] is (r⁻¹ Ω φ) · (r⁻¹ Ω ∂_θ g1)); and E_3 on φ and on λ ∂_x² φ. The same holds for the ℓℓ
+contraction of [[lem:ell-ell]], in which the dφ terms of B1 vanish, since the oscillating part of g1 is transverse to ℓ
+and ℓ depends on x̂ alone.
 
 **Proposition {#prop:far-region}** (The far region.) There are λ_F > 0 and M_F, independent of τ_n, such that for
 0 < λ ≤ λ_F and every τ_n < τ_λ, the solution g_n of Ric^H(g_n) = 0 on P ∩ {τ ≥ τ_n} with g_n = g_app and ∂_τ g_n =
