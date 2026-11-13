@@ -422,11 +422,13 @@ the h_0 of [[cor:viii-2-3]] makes ζ decay faster is not determined here.
 ### The master fields {#sec:rw-master}
 
 The scalar and tensor modes of the class are carried by Kodama and Ishibashi's master fields. We use the following
-results of [KI03], stated at n = 3, K = 1, Λ = 0 and 2M = m₀, so that their f is ours and their x is ς; page numbers
+results of [KI03], stated at n = 3, Λ = 0, 2M = m₀ and with their curvature constant K = 1 (spherical orbits), so that
+their f is ours and their x is ς; page numbers
 are those of the arXiv version. Their frequency-domain form is [[thm:s15-ki]]; here the time-domain form is needed.
 
 **Theorem {#thm:rw-ki}** ([KI03, (2.4)–(2.8), pp. 4–5; (2.13), p. 5; (3.11)–(3.14), pp. 9–10; (5.1)–(5.6), p. 13].)
-Let k² = l(l + 2), 𝔭 := k² − 3 (the m of [KI03, (3.3)]), H := 𝔭 + 6ς, Q the polynomial [[eq:s15-ki-q]] with 𝔭 in
+Let k² = l(l + 2), 𝔭 := k² − 3 (the m of [KI03, (3.3)], and the number written p in [[thm:s15-ki]]; here p is the
+exponent of [HKW18]'s r^p hierarchy, [[thm:rw-hkw]] (P)), H := 𝔭 + 6ς, Q the polynomial [[eq:s15-ki-q]] with 𝔭 in
 place of p, and V_S := fQ/(16r²H²).
 
 (S) For a scalar mode of degree l ≥ 2, with the variables of [KI03, (2.4)] and the gauge invariants F, F_ab of
@@ -474,7 +476,7 @@ no vector-type part and no l = 1 part. (Whether only even l occur for the class 
 shown.)
 
 (ii) (The gauge.) For every scalar mode l ≥ 2 the gauge f_a = 0 = H_T is reached by the gauge vector ξ[h] of
-[[eq:gd-1-1]], with orbit part X_aS, X_a = (r/k)(f_a + (r/k)D_aH_T), and angular part −(1/2)D̂τ, τ = 2r²H_TS/k²; it
+[[eq:gd-1-1]], with orbit part X_aS, X_a = (r/k)(f_a + (r/k)D_aH_T), and angular part −(1/2)D̂𝓉, 𝓉 = 2r²H_TS/k²; it
 is smooth wherever h is. In it the mode is h_S = F_abS dy^ady^b + 2r²FS γ, with F, F_ab its gauge invariants. The
 tensor part needs no gauge: h_T = 2r²H_T T, H_T being gauge invariant.
 
@@ -482,12 +484,14 @@ tensor part needs no gauge: h_T = 2r²H_T T, H_T being gauge invariant.
 for the tensor type. With ψ := r^(3/2)Φ, so that Φ̃ = Hψ, every component of h_S and h_T in a chart regular at the
 horizon (the ingoing chart (v, r)) and the orthonormal frame of the spheres is a combination of ∂_v²ψ, ∂_v∂_rψ,
 ∂_r²ψ, ∂_vψ, ∂_rψ, ψ and 𝔭ψ, with coefficients bounded on {r ≥ r_h} uniformly in l ([[lem:rw-coefficients]]): two
-orbit-space derivatives, and the factor 𝔭 (two angular derivatives) through F and the trace of F_ab. In Φ itself
-the coefficients of F̃ and F̃_ab are O(r^(3/2)), and in r^(−3/2)Φ they are O(r³), uniformly in l, those powers being
-attained.
+orbit-space derivatives, and the factor 𝔭 (two angular derivatives) through F and the trace of F_ab. In Φ itself, with
+𝔭Φ counted as a jet as 𝔭ψ is, the coefficients of F̃ and F̃_ab are O(r^(3/2)), and in r^(−3/2)Φ, with 𝔭r^(−3/2)Φ
+counted likewise, they are O(r³), uniformly in l, those powers being attained. Without that convention the bound is not
+uniform in l: the coefficient of Φ in F̃, the 𝔭-term included, is r^(−1/2)(𝔭/6 + ς/2 − 6fς/H + 3f/4), of size k²r^(−1/2)
+for large l.
 
 (iv) (Decay.) In the gauge of (ii) for every l ≥ 2, fix the l = 0 part to h_0 = cK̄, K̄ = r⁻²dv² the change of mass
-regular at the horizon (the static chart's ∂_m g = r⁻²dt² + r²(r² − m₀)⁻²dr² equals K̄ + ℒ_(ζ∂_v)g with ζ′ = (r²f²)⁻¹,
+regular at the horizon (the static chart's ∂_m g = r⁻²dt_s² + r²(r² − m₀)⁻²dr² equals K̄ + ℒ_(ζ∂_v)g with ζ′ = (r²f²)⁻¹,
 singular at r_h; the gauge h_0 = cK̄ is reached by the gauge vector Y[h_0] of [[eq:gd-1-2]], smooth wherever h_0 is).
 Then h settles to cK̄ on each region {r ≤ R}, the horizon included, uniformly in l, in two data classes:
 
@@ -514,9 +518,10 @@ summed, Φ_l the master field of the mode l, ∂_r at fixed v (transversal to th
 the mode in h's components (S for the scalar type and T for the tensor type, as in (ii)), and R_H the radius of
 [HKW18] below which Σ_0 is spacelike. Then for τ ≥ 0 and R ≥ R_H,
 
-    ∫_(Σ_τ ∩ {r ≤ R}) Σ_c |(h − cK̄)_c|² dr dω ≤ C R⁵ (𝒟 + Q_0)(1 + τ)⁻²,                               {#eq:np-10-1-iv-b}
+    ∫_(Σ_τ ∩ {r ≤ R}) Σ_j |(h − cK̄)_j|² dr dω ≤ C R⁵ (𝒟 + Q_0)(1 + τ)⁻²,                               {#eq:np-10-1-iv-b}
 
-dω the measure of the unit sphere, the components c taken in the chart (v, r) and the orthonormal frame of the spheres,
+dω the measure of the unit sphere, the components (h − cK̄)_j taken in the chart (v, r) and the orthonormal frame of the
+spheres,
 C depending on m₀ and Σ_0 only, uniformly in l: the squared L² norm of the components, which are second derivatives of
 the master fields, decays at [HKW18]'s energy rate for data with two more commutations. The scalar-type part of Q_0
 cannot be dropped: with 𝒟 it is bounded by the left side at any one time, and it is not bounded by any sum of
@@ -527,8 +532,9 @@ So in the Regge–Wheeler-type gauge for l ≥ 2, with h_0 = cK̄, every metric 
 cK̄ on each region {r ≤ R}, the horizon included: pointwise with all derivatives at the rate of [[thm:viii-2-2]] for
 its data (iv-a), and at [HKW18]'s rate τ⁻² in energy against dr dω, uniformly in l with a constant growing as R⁵ and
 the loss of two derivatives counted as in (iii), for [HKW18]'s data with the red-shift datum (iv-b). Uniformly in r
-the energy statement fails, and on the outgoing part of the leaves the components settle with the weights r^(−1/2) on
-the orbit block and r^(1/2) on the angular block, weights that are attained ([[thm:rwg-1]], [[thm:rwg-2]]).
+the energy statement fails; on the outgoing part of the leaves, {r ≥ R_H}, the components settle in the L² norm on the
+spheres at fixed (τ, r), and pointwise with the data of [[thm:rwg-2-prime]], with the weights r^(−1/2) on the orbit block
+and r^(1/2) on the angular block, weights that are attained ([[thm:rwg-1]], [[thm:rwg-2]], [[thm:rwg-2-prime]]).
 
 **Lemma {#lem:rw-coefficients}** (The coefficients of the reconstruction.) In the ingoing chart (v, r), with
 ψ = r^(3/2)Φ,
@@ -540,9 +546,12 @@ the orbit block and r^(1/2) on the angular block, weights that are attained ([[t
 
 with D_vD_vu = ∂_v²u − (f′/2)∂_vu − (ff′/2)∂_ru, D_vD_ru = ∂_v∂_ru + (f′/2)∂_ru, D_rD_ru = ∂_r²u,
 □u = 2∂_v∂_ru + f′∂_ru + f∂_r²u, and H′ = −12ς/r, H″ = 36ς/r². Every coefficient, but the 𝔭/(6r²) of rF, is a sum of
-terms m₀^c H^a r^b with a ≤ 0 and b ≤ 0, so bounded on {r ≥ r_h} uniformly in l; the 𝔭/(6r²) enters rF_ab only
-through the trace, rFg_ab, and not rF_rr (g_rr = 0). In rF_rr the coefficient of ∂_r²ψ is 1. In terms of Φ, every
-coefficient is O(r^(3/2)) uniformly in l, attained by ∂_r²Φ in rF_rr; in terms of r^(−3/2)Φ, O(r³), attained likewise.
+terms (number)·m₀^j H^a r^b with a ≤ 0 and b ≤ 0, the numbers independent of l, so bounded on {r ≥ r_h} uniformly in
+l; the 𝔭/(6r²) enters rF_ab only through the trace, rFg_ab, and not rF_rr (g_rr = 0). In rF_rr the coefficient of ∂_r²ψ
+is 1. In terms of Φ, with the jet 𝔭Φ taken apart (the term (𝔭/(6r²))ψ = (𝔭/6)r^(−1/2)Φ of rF), every coefficient is
+O(r^(3/2)) uniformly in l, attained by ∂_r²Φ in rF_rr; in terms of r^(−3/2)Φ, with 𝔭r^(−3/2)Φ taken apart likewise,
+O(r³), attained likewise. The coefficient of Φ in rF with the 𝔭-term included, r^(−1/2)(𝔭/6 + ς/2 − 6fς/H + 3f/4), is
+not bounded uniformly in l.
 
 *Proof.* In the chart (v, r), g_vv = −f, g_vr = 1, g_rr = 0 and g^(vv) = 0, g^(vr) = 1, g^(rr) = f; the only lowered
 Christoffel symbols that do not vanish are Γ_(r,vv) = f′/2 and Γ_(v,vr) = −f′/2, which give the Hessian above. By
@@ -550,8 +559,8 @@ Christoffel symbols that do not vanish are Γ_(r,vv) = f′/2 and Γ_(v,vr) = �
 rF, as 6rfH′/H = −72fς/H. For the second, D_aD_b(Hψ) = HD_aD_bψ + H′(δ^r_a∂_bψ + δ^r_b∂_aψ) + ψD_aD_bH and
 □(Hψ) = H□ψ + 2H′(∂_vψ + f∂_rψ) + ψ□H; divide by H. The monomial structure is read off: f = 1 − m₀r⁻²,
 f′ = 2m₀r⁻³, ς = m₀r⁻², H′/H, H″/H and D_aD_bH/H carry r⁻¹ or r⁻² and 1/H, and H ≥ 5. In ψ = r^(3/2)Φ, a derivative of
-order j ≤ 2 of ψ is r^(3/2) times one of Φ plus lower-order terms with smaller powers of r; so the coefficients in Φ
-are O(r^(3/2)), and the coefficient r^(3/2) of ∂_r²Φ in rF_rr = ∂_r²ψ + 2(H′/H)∂_rψ + (H″/H)ψ is attained; with
+order j ≤ 2 of ψ is r^(3/2) times one of Φ plus lower-order terms with smaller powers of r, and 𝔭ψ = r^(3/2)(𝔭Φ); so
+the coefficients in the jets of Φ, 𝔭Φ among them, are O(r^(3/2)), and the coefficient r^(3/2) of ∂_r²Φ in rF_rr = ∂_r²ψ + 2(H′/H)∂_rψ + (H″/H)ψ is attained; with
 ψ = r³(r^(−3/2)Φ) the same argument gives r³. Finally h_ab = F_abS = ((rF_ab + rFg_ab) − rFg_ab)S/r, and the angular
 block of h_S in the orthonormal frame of the spheres is 2FSδ_ij = (2/r)(rF)Sδ_ij: each component is r⁻¹ times a
 combination with the stated coefficients. For the tensor type the frame components of 2r²H_TT are 2H_T|T| with

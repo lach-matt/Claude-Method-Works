@@ -139,8 +139,10 @@ larger set, and the proof of (a) there extends to it, its formula holding at eve
 (a) the Tangherlini metric g^KS_(μ_end,0) = η + (μ_end/r²)(dτ + dr)² of [[lem:vii-1-1]] is g_(b₀) on
 ℝ_t × {|x| ≥ ½r_♭}, and g0 = g_(b₀) on {v ≥ v_end, |x| ≥ ½r_♭};
 
-(b) with C_J and λ_1 those of [[lem:vii-1-1]], the components of g_λ − g_(b₀) in the chart are at most 25C_Jλ on
-Ω′_+ ∩ {|x| ≥ ½r_♭} for 0 < λ ≤ λ_1; and for every compact set Q ⊂ Ω′_+ ∩ {|x| ≥ ½r_♭} there are C_Q and λ_Q > 0 such
+(b) let J := d_1 + 10, d_1 the order of [[thm:iii-k-4-3]], so that K = J + 4 = d_1 + 14 is the order of
+[[thm:settling-precise]], and let C_J and the threshold of [[lem:vii-1-1]] at this J be as there, the threshold written
+λ_J here to keep it apart from λ1. Then the components of g_λ − g_(b₀) in the chart are at most 25C_Jλ on
+Ω′_+ ∩ {|x| ≥ ½r_♭} for 0 < λ ≤ λ_J; and for every compact set Q ⊂ Ω′_+ ∩ {|x| ≥ ½r_♭} there are C_Q and λ_Q > 0 such
 that the components of g_λ⁻¹ − g_(b₀)⁻¹ in the chart are at most C_Qλ on Q for 0 < λ ≤ λ_Q.
 
 *Proof.* (a) The map (t, x) ↦ (τ, x) is the map Φ_(μ_end)(t, x) = (t − T_(μ_end)(|x|), x) of [[eq:iii-b-3-3]]
@@ -151,12 +153,12 @@ and in the chart g^KS_(μ_end,0) is Φ_(μ_end)*g^KS_(μ_end,0), which [[eq:iii-
 which is g^KS_(μ_end,0) at every r > 0.
 
 (b) By [[lem:vii-1-1]] with j = 0, the components of g_λ − g^KS_(μ_end,0) in the coordinates (τ, x) are at most C_Jλ
-on Ω′_+ for 0 < λ ≤ λ_1. In the chart, dτ = dt − T′_(μ_end)(|x|) x̂ · dx and the dxⁱ are unchanged, and
+on Ω′_+ for 0 < λ ≤ λ_J. In the chart, dτ = dt − T′_(μ_end)(|x|) x̂ · dx and the dxⁱ are unchanged, and
 |T′_(μ_end)(ϱ)| = 2χ_∞(ϱ)μ_end/(ϱ² − μ_end) ≤ 2/3, as ϱ² ≥ 4μ_end on the support of χ_∞; so every entry of this change of
 basis has absolute value at most 1, and a component in the chart is a sum of at most 25 components in (τ, x), each
 multiplied by two such entries. With (a) this gives the first bound. On Q, g_(b₀)⁻¹ is continuous, so the operator norm
 of its matrix is at most some B_Q. Let E be the matrix of g_λ − g_(b₀); its operator norm is at most 125C_Jλ, five
-times its largest entry. For λ ≤ λ_Q := min(λ_1, (250C_JB_Q)⁻¹), g_(b₀)⁻¹E has operator norm at most ½, so
+times its largest entry. For λ ≤ λ_Q := min(λ_J, (250C_JB_Q)⁻¹), g_(b₀)⁻¹E has operator norm at most ½, so
 g_λ = g_(b₀)(I + g_(b₀)⁻¹E) is invertible, with g_λ⁻¹ of operator norm at most 2B_Q by the Neumann series, and
 g_λ⁻¹ − g_(b₀)⁻¹ = −g_λ⁻¹Eg_(b₀)⁻¹ has operator norm, and so components, at most C_Qλ with C_Q := 250C_JB_Q². ∎
 

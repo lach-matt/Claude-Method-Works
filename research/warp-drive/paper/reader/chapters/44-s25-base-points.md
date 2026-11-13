@@ -360,12 +360,12 @@ the S^(h,p⃗,β_(k+1))_ν(G′) and A_(b,ν)(G′). By [[lem:iii-i15-2-4]] it i
 (below 3, by [[lem:iii-i8-3-2]], with ‖·‖_(α″) in place of ‖·‖_(w)), and by the induction bound at k this is at most
 C(‖F‖ + |W⃗_free|): G′ is G̃ = F − Δ_q(p⃗′) − R_q u less the terms of the list and of f^S, f^b, f^(s1), and
 u_0 = u + Σ_(𝒩⊔𝒩_rot) m_ν(W′_ν). As (−id + A_k)⁻¹ is bounded, the new coordinates on 𝒫_(k+1), and so all the
-coordinates, are at most C(‖F‖ + |W⃗_free|), W⃗_free the coordinates of higher rate. On 𝒫_(k+1) every coefficient in [[eq:iii-i15-2-3]]
-vanishes, so u(p⃗′) = ũ. Like the coefficients, ũ is obtained from f′ := G′ − (L_(h,p⃗) − L_b)u_0 and the W′_ν by maps
-linear and bounded uniformly in b, each level losing finitely many derivatives (the proofs of [[prop:iii-i10-3-1]],
-[[prop:iii-i11-3-1]] and [[lem:iii-i11-3-2]], at the level β_(k+1) as in [[lem:iii-i13-2-2]]; below 3 the bound on ũ of
-[[lem:iii-i8-3-2]]); and ‖f′‖_(k+1) ≤ ‖G′‖_(k+1) + C(‖h‖ + |p⃗|)‖u_0‖_(w) by the count of Step 0 of the proof of
-[[lem:iii-i11-3-2]]. So the induction bound holds at k + 1.
+coordinates, are at most C(‖F‖ + |W⃗_free|), W⃗_free the coordinates of higher rate. On 𝒫_(k+1) every coefficient in
+[[eq:iii-i15-2-3]] vanishes, so u(p⃗′) = ũ. Like the coefficients, ũ is obtained from f′ := G′ − (L_(h,p⃗) − L_b)u_0 and
+the W′_ν by maps linear and bounded uniformly in b, each level losing finitely many derivatives (the proofs of
+[[prop:iii-i10-3-1]], [[prop:iii-i11-3-1]] and [[lem:iii-i11-3-2]], at the level β_(k+1) as in [[lem:iii-i13-2-2]]; below
+3 the bound on ũ of [[lem:iii-i8-3-2]]); and ‖f′‖_(k+1) ≤ ‖G′‖_(k+1) + C(‖h‖ + |p⃗|)‖u_0‖_(w) by the count of Step 0 of
+the proof of [[lem:iii-i11-3-2]]. So the induction bound holds at k + 1.
 
 At k = K every row has rate below α − 2 (the rotation rows at b: Re λ ≤ 2 < α − 2), so 𝒫_K is one point p⃗′. It
 satisfies [[eq:iii-i15-2-2]], and u(p⃗′) ∈ 𝒵_α with no rotation-row content; by the induction bound, |p⃗′| ≤ C‖F‖ and

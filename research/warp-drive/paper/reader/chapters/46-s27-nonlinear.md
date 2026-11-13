@@ -569,16 +569,17 @@ be spacelike near ℐ⁺, as (g_(b₀)⁻¹ − η⁻¹)(dt, dt) = O(r⁻²) the
 two lemmas give the bounds for every metric of the classes used.
 
 **Lemma {#lem:s27-below}** (The time function below Ω_*.) Let ℓ = ½, and let ε_G, C_♭, r′_0, r^♮ and t^♭_* be those of
-[[lem:ii-c-3-2]] for g_0 = g_(b₀), with t^♭_* given on {t_* > 0} by the formulae of its proof ([[lem:ii-e-1-2]] (iv)).
+[[lem:ii-c-3-2]] for g_0 = g_(b₀), built with the gluing constant C_g ≥ max(4(r′_0 + 1), 32, 16R₁) fixed at the start
+of the chapter, with t^♭_* given on {t_* > 0} by the formulae of its proof ([[lem:ii-e-1-2]] (iv)).
 Let Ω_(1/2) := cl_M{t_* ≥ ½}, with interior Ω°_(1/2), and let 𝒢̃_(1/2) be the class 𝒢̃^(0,(2ℓ,0,0))_(e3b) of
 [[def:ii-c-3-1]] with Ω_(1/2) in place of Ω, with its norm. There are ε′_G ∈ (0, ε_G], C₁ and R_V such that for every
 g = g_(b₀) + h with ‖h‖_(𝒢̃_(1/2)) < ε′_G:
 
-(i) near ℐ⁺ on Ω_(1/2), with ρ := ρ_I = t_*/r, the coefficients of g⁻¹ − ḡ⁻¹ in the basis
+(i) near ℐ⁺ on Ω_(1/2), with ρ := ρ_I = t_*/r, the coefficients of g⁻¹ − g_(b₀)⁻¹ in the basis
 
     ρ∂²_(t_*),   ∂_(t_*) ⊗_s ∂_r,   x_I∂_(t_*) ⊗_s r⁻¹∂_ω,   ρ⁻¹∂²_r,   x_I⁻¹∂_r ⊗_s r⁻¹∂_ω,   r⁻¹∂_ω ⊗_s r⁻¹∂_ω
 
-of the proof of [[lem:ii-c-3-2]] are at most C₁(ε′_G + ρ^(1−ℓ))ρ^ℓ;
+of the proof of [[lem:ii-c-3-2]] are at most C₁ε′_Gρ^ℓ, and those of g⁻¹ − ḡ⁻¹ at most C₁(ε′_G + ρ^(1−ℓ))ρ^ℓ;
 
 (ii) V := t∂_t + r∂_r is future timelike for g on Ω_(1/2) ∩ {r ≥ R_V};
 
@@ -596,7 +597,8 @@ on Ω_(1/2) ∩ {t_* ≤ 1} as follows.
 
 (i) The proof of [[lem:ii-c-3-2]] bounds the coefficients of g⁻¹ − g_(b₀)⁻¹ by C‖h‖ρ^ℓ and those of g_(b₀)⁻¹ − ḡ⁻¹
 by Cρ, times powers of ρ_+, and uses ρ_+ ≤ 1 on Ω only to bound these powers. On Ω_(1/2), ρ_+ ≤ 2, as in the proof of
-[[lem:ii-e-1-2]] (iv) (near ℐ⁺ ∩ ι⁺, ρ_+ = 1/t_*); so the bound holds with a larger C₁.
+[[lem:ii-e-1-2]] (iv) (near ℐ⁺ ∩ ι⁺, ρ_+ = 1/t_*); so both bounds hold with a larger C₁. That proof uses them on
+{ρ_I ≤ ρ_a}, ρ_a its constant, with 2/C_g ≤ ρ_a; they hold on the same set here.
 
 (ii) As in the proof of [[lem:ii-c-3-2]] and in [[sec:ii-b-7]]: ḡ(V, V) = −t_*² − 2t_*r, and by (K1)
 |g_(b₀)(V, V) − ḡ(V, V)| ≤ C₂r⁻²(t_* + r)². For t_* ≥ ½ this is at most ½(t_*² + 2t_*r) once r ≥ 8C₂ and
@@ -606,17 +608,46 @@ at most 4C₂t_*²r⁻² and the right side at least ½t_*². Take R_V ≥ R₂ 
 h in its frames, both valid on Ω_(1/2); so V is timelike for g on Ω_(1/2) ∩ {r ≥ R_V} once ε′_G is small. It is future
 directed for g_(b₀), as there, and so for g, the orientation being continuous along g_(b₀) + sh, s ∈ [0, 1].
 
-(iii) Near ℐ⁺, where ρ ≤ ρ_−, t^♭_* = t_*F₁(ρ) and dt^♭_* = A dt_* + B dr with A = 1 − (1 + ℓ)ρ^ℓ and B = ℓρ^(ℓ+1);
-the estimate of that proof, with (i), gives g⁻¹(dt^♭_*, dt^♭_*) ≤ −ℓρ^(ℓ+1) for ρ ≤ ρ_a and ε′_G small, and
-dt^♭_*(V) = At_* + Br > 0; so dt^♭_* is past timelike there, by (ii). The rest of Ω_(1/2) ∩ {t_* ≤ 1}, the set
-{½ ≤ t_* ≤ 1, ρ_I ≥ ρ_−}, is compact (r ≤ t_*/ρ_− there). On it dt^♭_* is past timelike for g_(b₀): by the formulae
-of the proof of [[lem:ii-c-3-2]], it is C_♭dt_* on {r ≤ r′_0 − 1}, a positive combination of dt_* and dt on
-{r ≤ Ct_*/2}, and a positive combination of d(t_*F₁) and dt on {r ≥ r′_0 + 1}; and dt_* is past timelike for
-g_(b₀) on {r ≤ r′_0 + 1} ((H6)), dt on {r ≥ r′_0 − 1} (g_(b₀)⁻¹(dt, dt) ≤ −1 + C₂r⁻² < 0 there, and
-g_(b₀)⁻¹(dt, dt_*) = −1 + O(r⁻²) < 0 with dt_* past timelike, [[lem:ii-b-1-1]]), and d(t_*F₁) on {ρ_I ≤ 2/C}, each a
-statement at a point that does not involve t_*. By compactness the margin is uniform, and it persists for g once
-ε′_G is small, the norm bounding h in C⁰ on this set. Where both are past timelike and V is future timelike,
-dt^♭_*(V) > 0.
+(iii) Where t^♭_* = t_*F₁(ρ), dt^♭_* = d(t_*F₁) = A dt_* + B dr with A = 1 − (1 + ℓ)ρ^ℓ and B = ℓρ^(ℓ+1), as in the
+proof of [[lem:ii-c-3-2]].
+
+*The background near ℐ⁺.* Let Y := Ω_(1/2) ∩ {ρ_I ≤ 2/C_g}. On Y, ρ ≤ 2/C_g ≤ 1/16, so ρ^ℓ ≤ ¼, A ∈ [5/8, 1] and
+0 < B ≤ ½ρ^(3/2) ≤ 1/128; and r = t_*/ρ ≥ C_g/4 ≥ max(r′_0 + 1, 4R₁), as t_* ≥ ½. So t^♭_* = t_*F(ρ) on Y, and the
+exact forms of g_(b₀) and t_* on {r ≥ 3R₁} apply: in the coordinates (t, x) of [[sec:iii-b-2]] (t is not the t_* + r
+of [[lem:ii-c-3-2]]), g_(b₀)⁻¹ = η⁻¹ − u(∂_t + ∂_r)^(⊗2) with u := m₀r⁻² ([[prop:iii-b-3-6]]), and
+dt_* = dt − (1 − 8u)dr ([[eq:iii-b-3-6]]), so (∂_t + ∂_r)t_* = 8u and
+
+    g_(b₀)⁻¹(dt_*, dt_*) = −16u(1 − 2u)²,     g_(b₀)⁻¹(dt_*, dr) = −1 + 8u(1 − u),     g_(b₀)⁻¹(dr, dr) = 1 − u.
+
+On Y, u ≤ 1/16, so the first is ≤ 0, the second ≤ −½ and the third ≤ 1. As A, B > 0,
+
+    g_(b₀)⁻¹(d(t_*F₁), d(t_*F₁)) ≤ 2AB(−½) + B² = −B(A − B) ≤ −½B = −½ℓρ^(ℓ+1)     on Y,
+
+at every t_* ≥ ½: the correction to ḡ⁻¹ that carries no factor B, the A²-term, has the sign of the main term. Also
+g_(b₀)⁻¹(d(t_*F₁), dt_*) = A g_(b₀)⁻¹(dt_*, dt_*) + B g_(b₀)⁻¹(dt_*, dr) < 0, and dt_* is past timelike for g_(b₀)
+([[lem:ii-b-1-1]]); two timelike covectors with negative product lie in the same cone, so d(t_*F₁) is past timelike
+for g_(b₀) on Y.
+
+*The perturbation near ℐ⁺.* On Y ∩ {ρ_I ≤ ρ_−}, where dt^♭_* = d(t_*F₁) (ρ_− < 1/C_g, and r ≥ r′_0 + 1 there), the
+coefficients of g⁻¹ − g_(b₀)⁻¹ in the basis of (i) are at most C₁ε′_Gρ^ℓ, and the six basis elements take on
+α ⊗ α, α := dt^♭_*, the values ρA², at most 2AB in modulus, 0, ρ⁻¹B², 0 and 0, each at most ρ (2AB ≤ ρ^(3/2) and
+ρ⁻¹B² = ¼ρ²). So |(g⁻¹ − g_(b₀)⁻¹)(α, α)| ≤ 3C₁ε′_Gρ^(ℓ+1) = 6C₁ε′_G B, and g⁻¹(α, α) ≤ −¼ℓρ^(ℓ+1) once
+ε′_G ≤ 1/(24C₁). The same holds for g_(b₀) + sh, s ∈ [0, 1], so α is timelike for each of these metrics; it is past
+timelike for g_(b₀), so it stays in the past cone along the path, which is the time orientation of g (as in (ii)).
+So dt^♭_* is past timelike for g on Ω°_(1/2) ∩ {ρ_I ≤ ρ_−}.
+
+*The rest.* The rest of Ω_(1/2) ∩ {t_* ≤ 1} is K := {½ ≤ t_* ≤ 1, ρ_I ≥ ρ_−} ∩ Ω_(1/2), which is compact (r ≤ t_*/ρ_−
+there). On K, dt^♭_* is past timelike for g_(b₀). Indeed, by the formulae of the proof of [[lem:ii-c-3-2]], which cover
+{t_* ≥ ½} as C_g ≥ 4(r′_0 + 1) ([[lem:ii-e-1-2]] (iv)), and with t := t_* + r there, dt^♭_* is C_♭dt_* on
+{r ≤ r′_0 − 1}, a positive combination of dt_* and dt on {r ≤ C_gt_*/2}, and, on {r ≥ r′_0 + 1}, d(t_*F₁) where
+ρ_I ≤ ρ_−, C_♭dt where ρ_I ≥ ρ⁺, and a positive combination of d(t_*F₁) and dt on [ρ_−, ρ⁺]. dt_* is past timelike for
+g_(b₀) everywhere ([[lem:ii-b-1-1]]), and dt on {r ≥ r′_0 − 1} (g_(b₀)⁻¹(dt, dt) ≤ −1 + C₂r⁻² < 0 there, and
+g_(b₀)⁻¹(dt, dt_*) = −1 + O(r⁻²) < 0 with dt_* past timelike, [[lem:ii-b-1-1]]); these two are statements at a point
+that do not involve t_*, dt_*, dt and g_(b₀) being stationary. d(t_*F₁) is past timelike for g_(b₀) on
+Ω_(1/2) ∩ {ρ_I ≤ ρ⁺} ⊂ Y, by the first step, as ρ⁺ < 2/C_g. The past cone being convex, dt^♭_* is past timelike for
+g_(b₀) at every point of K. By compactness, g_(b₀)⁻¹(dt^♭_*, dt^♭_*) ≤ −c_K < 0 on K, and, the norm bounding h in C⁰ on
+K, g_s⁻¹(dt^♭_*, dt^♭_*) ≤ −½c_K for g_s := g_(b₀) + sh, s ∈ [0, 1], once ε′_G is small; as before dt^♭_* is past
+timelike for g on K. Where dt^♭_* is past timelike and V is future timelike, dt^♭_*(V) > 0.
 
 (iv) g_(b₀)⁻¹(dr, dr) ≤ −c_r < 0 on {r_♭ ≤ r ≤ r^♮} by (H4) and compactness of this range of r, at every t_*, as g_(b₀)
 is stationary; dr is future timelike for g_(b₀) there, as in the proof of [[lem:ii-c-3-2]] (1), and on
