@@ -847,3 +847,221 @@ ztf: ∫_0 r̂^(2(q−2−ℓ)) dr̂/r̂ < ∞ would need q > 2 + ℓ, which is 
 The proof is that of [Hin26c], run for (iii) on the spaces of [[thm:i-c-4-3]]; the condition (iii) of [Hin26c], on
 e^(−2i/ρ_sctf)𝒜^(a,−2+β), is settled by the same argument. The interval (0, 2) is the whole indicial gap containing
 it, since 0 and 2 are the roots for ℓ = 0.
+
+### Low energies {#sec:i-c-6}
+
+For σ ≠ 0 with Im σ ≥ 0 write ς := |σ|, θ := arg σ ∈ [0, π] and σ̂ := σ/ς = e^(iθ). S_ς is the dilation of
+[[sec:i-c-4-1]], (S_ς w)(x̂) = w(x̂/ς), applied to functions supported in {ρ < ρ_1}, so that ρ̂ = ρ/ς and r̂ = ςr.
+The spaces on tf are those of [[def:i-c-4-1]], and φ_∞ is the cut-off of [[sec:i-c-4-2]], which vanishes on
+{ρ̂ ≥ 1}. ρ = 1/r is a function on all of X̄, and χ_∂ is that of [[sec:i-c-2-6]].
+
+#### The spaces {#sec:i-c-6-1}
+
+**Definition {#def:i-c-6-1}** (The low-energy spaces.) Let s ∈ ℝ, k ∈ ℕ_0, 𝗋 a decay order as in [[def:i-c-4-1]],
+l, q ∈ ℝ and ς ∈ (0, 1]. For u on X̄, extendible at ∂_♯X, put
+
+    ‖u‖²_((s;k),(𝗋,l,q),ς) := ς^(−2q) ‖(1 − χ_∂)u‖²_(H̄^(s+k))
+                               + ς^(−2(l+2)) ‖S_ς(χ_∂ u)‖²_(H_(sc,b;b)^((s;k),(𝗋,q−l))),                    {#eq:i-c-6-1}
+
+and let ℋ_ς^((s;k),(𝗋,l,q)) be the space of those u for which it is finite; ℋ̇_ς^((s;k),(𝗋,l,q)) is defined with
+Ḣ^(s+k) in the first term. k = 0 is omitted from the notation.
+
+The three orders sit at the three faces of the low-energy picture: 𝗋 at sctf, as a function of the frequencies of tf;
+l at tf; q at zf. Near zf the norm is a b-norm on X̄ with weight l − q, near tf it is the norm of tf with weight q − l
+at ztf, and the powers of ς make the two agree where they overlap ([[lem:i-c-6-2]] (a)). This is the form that
+[Hin26c, (3.46)] gives the norm of H_((sc-b,ς);b)^((s;k),(𝗋,l,q)) near zf and near tf, at n = 4, with the power of ς
+explained in [[sec:s03-remarks]]; below, only [[def:i-c-6-1]] is used, and no other description of these spaces is
+claimed.
+
+The dilation acts on frequencies by (ξ, η) ↦ (ξ/ς, η/ς): a scattering covector ξ dr + r η at x is ξ̂ dr̂ + r̂ η̂ at
+x̂ = ςx, with ξ̂ = ξ/ς and η̂ = η/ς. For a decay order 𝗋 on the boundary face over sctf put
+
+    𝗋_ς(ω, ξ, η) := 𝗋(ω, ξ/ς, η/ς),
+
+an order on the boundary face over ∂X (the dilation of the fibres extends to their radial compactification).
+
+**Lemma {#lem:i-c-6-2}** Let s, k, 𝗋, l, q be as in [[def:i-c-6-1]]. There is ς_1 > 0 such that the following hold
+for ς ∈ (0, ς_1], with constants independent of ς, and likewise for the dotted spaces.
+
+(a) (*Near zf.*) If u is supported in {ρ ≥ ς}, then ‖u‖_((s;k),(𝗋,l,q),ς) is equivalent to ς^(−q)‖u‖_(H̄_b^(s+k,l−q)).
+If u is supported in {ρ ≥ ρ_*} for a fixed ρ_* > 0, it is equivalent to ς^(−q)‖u‖_(H̄^(s+k)), with constants
+depending on ρ_* (and ς ≤ ρ_*).
+
+(b) (*Multipliers.*) Let φ ∈ C^∞([0, ∞)) be constant on [0, a] and on [A, ∞), 0 < a < A, and let
+ρ_c ∈ (0, 1/(2R_1)]. Multiplication by φ(ρ/ς) and by φ(ρ/ρ_c) is bounded on ℋ_ς^((s;k),(𝗋,l,q)), for
+ς ≤ ς_1(a, A, ρ_c).
+
+(c) (*Fixed ς.*) ℋ_ς^((s;k),(𝗋,l,q)) = H̄^((s;k),𝗋_ς) ([[sec:i-a-4-6]]), with equivalent norms (the constants
+depending on ς); the weights l, q do not enter. If 𝗋 is admissible with weight α_+ for every σ_0 in a set
+J ⊂ ℝ ∖ 0, then 𝗋_ς is admissible with weight α_+ for every σ_0 ∈ ςJ; and if 𝗋 is constant near R_out with
+𝗋 + α_+ < −½ + S̄ there, so is 𝗋_ς.
+
+(d) (*Orders.*) The norm increases with s, k and 𝗋. For η ∈ [0, 1]:
+(d1) ‖u‖_((s;k),(𝗋,l,q−η),ς) ≤ ‖u‖_((s;k),(𝗋,l,q),ς);
+(d2) if u is supported in {ρ ≥ ρ_*}, ‖u‖_((s;k),(𝗋,l,q−η),ς) ≤ C_(ρ_*) ς^η ‖u‖_((s;k),(𝗋,l,q),ς);
+(d3) if u is supported in {ρ ≤ Aς}, ‖u‖_((s;k),(𝗋,l,q),ς) ≤ C_A ‖u‖_((s;k),(𝗋,l,q−η),ς).
+
+(e) (*Trading b-regularity.*) For m ∈ ℕ_0, ‖u‖_((s+m;k),(𝗋,l,q),ς) ≤ C‖u‖_((s;k+m),(𝗋,l,q),ς).
+
+*Proof.* Take ς_1 ≤ 1/(4R_1), so that {ρ ≥ ς} contains supp(1 − χ_∂).
+
+(a) S_ς(χ_∂u) is supported in {ρ̂ ≥ 1}, where φ_∞ = 0, so the second term of [[eq:i-c-6-1]] is
+ς^(−(l+2))‖S_ς(χ_∂u)‖_(H_(b,q−l−2)^(s+k)), with the b-space of [[def:i-c-2-1]] at the end at 0 of tf, ϱ = r̂
+([[def:i-c-4-1]]; b-regularity is regularity there). Both this space and the b-space at the end at ∞ of X̄ (ϱ = ρ) are
+spaces of functions on the cylinder (0, ∞)_r × 𝕊³, and S_ς is r ↦ ςr. In t := log r the two ends use
+−log r̂ = −log ς − t and −log ρ = t: both families of charts Φ_k are dilations of ℝ⁴ ([[sec:i-c-2-2]]), so with
+κ_ς := −log ς the k-th piece of S_ς(χ_∂u) at the end at 0 and the (⌊κ_ς⌋ − k)-th piece of χ_∂u at the end at ∞ are
+the same function on A, up to the cut-off ψ(−log|y|) in place of ψ(log|y|) and a translate by the fractional part of
+κ_ς (no inversion of charts occurs). By [[lem:i-c-2-2]] (a), whose proof allows such reflected and translated
+cut-offs and whose constants depend only on finitely many derivatives of the cut-offs and on their overlap, the two
+norms agree up to constants independent of ς once the weights match. At order 0 they do:
+‖r̂^(−(q−l−2)) S_ς w‖_(L²(μ_b)) = ς^(−(q−l−2)) ‖ρ^(q−l−2) w‖_(L²(μ_b)), as μ_b is dilation invariant. So the second
+term is equivalent to ς^(−(l+2)) ς^(−(q−l−2)) ‖χ_∂u‖_(H_(b,l−q+2)^(s+k)) = ς^(−q) ‖χ_∂u‖_(H_(b,l−q+2)^(s+k)), and with
+the first term this is ς^(−q) times the norm of [[def:i-c-2-8]] with a = l − q. On {ρ ≥ ρ_*} the b-weights are bounded
+above and below and H̄_b^(s+k,a) is H̄^(s+k) there.
+
+(b) Both functions commute with χ_∂. On supp(1 − χ_∂) ⊂ {ρ ≥ 1/(2R_1)}, φ(ρ/ς) = φ(A) once ς ≤ 1/(2R_1A), and
+φ(ρ/ρ_c) is a fixed smooth function. On tf, φ(ρ/ς) = φ(ρ̂), which is smooth on tf = [0, ∞]_ρ̂ × 𝕊³ and constant near
+both ends, hence a multiplier of the sc-b;b spaces; and φ(ρ/ρ_c) = φ(ςρ̂/ρ_c) is constant on {ρ̂ ≤ 1} once ς ≤ aρ_c,
+while (ρ̂∂_ρ̂)^j φ(ςρ̂/ρ_c) = ((t∂_t)^j φ)(ςρ̂/ρ_c) is bounded, so [[lem:i-c-2-2]] (b) applies near ztf, uniformly in
+ς.
+
+(c) Away from ∂X both norms are that of H̄^(s+k). For fixed ς, S_ς(χ_∂u) is supported in {ρ̂ ≤ ρ_1/ς}, on which ρ_ztf
+is bounded below, so near ztf the norm is that of H^(s+k) on a compact set and l, q only change constants. Near sctf,
+for A = Op(a),
+
+    S_ς Op(a) S_ς⁻¹ = Op(a_ς),     a_ς(x̂, ζ̂) := a(x̂/ς, ςζ̂),
+
+exactly (substitute y = ŷ/ς and ζ = ςζ̂ in the oscillatory integral). If a is an elliptic symbol of order (s, 𝗋_ς),
+then a_ς is one of order (s, 𝗋), as (x̂, ζ̂) ↦ (x̂/ς, ςζ̂) extends to a diffeomorphism of the compactified phase space.
+So S_ς maps H_sc^(s,𝗋_ς) isomorphically onto H_sc^(s,𝗋) ([HJS, Definition 10.2]), and the same holds with k
+b-derivatives, since S_ς ⟨x⟩D_x S_ς⁻¹ = ⟨x̂/ς⟩ ς D_x̂ lies in the span of the fields ⟨x̂⟩D_x̂ over C^∞(ℝ̄⁴). For
+admissibility, let D_ς(ω, ξ, η) := (ω, ςξ, ςη) on the boundary face, so 𝗋_ς = 𝗋 ∘ D_ς⁻¹. With
+G_(σ_0) = 2σ_0ξ + ξ² + |η|² ([[lem:i-a-4-4]]), G_(ςσ_0) ∘ D_ς = ς²G_(σ_0), so D_ς maps Σ^∂_(σ_0),
+R_(σ_0,in) = {ξ = −2σ_0, η = 0} and R_out onto Σ^∂_(ςσ_0), R_(ςσ_0,in) and R_out; and in [[eq:i-a-4-4]] each of
+∂_ξp (ρ∂_ρ + η·∂_η), (η·∂_η p)∂_ξ and H_p^(𝕊³) scales so that (D_ς)_* 𝖵_(G_(σ_0)) = ς⁻¹ 𝖵_(G_(ςσ_0)). Hence (O2) of
+[[sec:i-a-1-4]] for 𝗋 at σ_0 is (O2) for 𝗋_ς at ςσ_0 (sgn ςσ_0 = sgn σ_0), and (O1), (O3) involve only the values at
+the radial sets and quantities on ∂X.
+
+(d) Monotonicity in s, k, 𝗋 holds for each term. (d1): ς^(η−q) ≤ ς^(−q), and the order q − η − l at ztf is weaker
+than q − l. (d2) is (a). (d3): for ς < 1/(2R_1A) the first term vanishes, and on {ρ̂ ≤ A}, ρ_ztf ≥ (1 + A)⁻¹.
+
+(e) The first term and the part near ztf are norms of H^(s+k+m) on both sides. Near sctf it suffices, by induction, to
+take m = 1 and show H^((s;k+1),𝗋) ⊂ H^((s+1;k),𝗋) ([[sec:i-a-4-6]]) on ℝ⁴_x̂, which does not involve ς. Let
+V_j := ⟨x⟩D_(x_j) and w := V^β u, |β| ≤ k. Then w and every V_j w lie in H^(s,𝗋), since V_jV^β is a combination of
+the V^γ, |γ| ≤ k + 1, with coefficients in C^∞(ℝ̄⁴). Off the zero section of the boundary face the system (V_j) is
+elliptic in Ψ^(1,1) (proof of [[lem:i-a-4-10]]), so w ∈ H^(s+1,𝗋+1) ⊂ H^(s+1,𝗋) microlocally there ([HJS,
+Propositions 2.3, 4.9 and 4.10]); near the zero section, at finite frequencies, B ∈ Ψ^(−∞,0) maps H^(s,𝗋) to
+H^(s+1,𝗋). With the norms, this is the claim. ∎
+
+#### The model at tf {#sec:i-c-6-2}
+
+On {ρ < ρ_1} let
+
+    P̂_mod(σ) := 2iσρ(ρ∂_ρ − 3/2 − S_0) + ρ²N(P⁽⁰⁾),
+    E_σ := P̂(σ) − P̂_mod(σ) = ρ²(P⁽⁰⁾ − N(P⁽⁰⁾)) − 2iσρ(S − S_0) − iσQ + σ²g_00,                          {#eq:i-c-6-2}
+
+by [[eq:i-c-1-1]]. By [[eq:i-c-4-2]], S_ς P̂_mod(σ) S_ς⁻¹ = ς²N_tf(σ̂). Let H_0 also denote the matrix H(0, ω),
+extended to {ρ < ρ_1} independently of ρ, and P̂_mod(σ)^(*h_0) the adjoint for |dx| and H_0. Since
+‖S_ς w‖_(L²(|dx̂|)) = ς²‖w‖_(L²(|dx|)) and H_0 does not depend on ρ, S_ς P̂_mod(σ)^(*h_0) S_ς⁻¹ = ς²N_tf(σ̂)^(*h),
+the adjoint of [[thm:i-c-4-3]]. Put E_σ^* := P̂(σ)^(*h) − P̂_mod(σ)^(*h_0).
+
+**Lemma {#lem:i-c-6-3}** (The model error.) Let s, k, 𝗋, q be given. There is C such that for ρ_c ∈ (0, ρ_1/2],
+ς ∈ (0, 1], θ ∈ [0, π] and u supported in {ρ ≤ ρ_c},
+
+    ς⁻² ‖S_ς E_σ u‖_(H_(sc,b;b)^((s−2;k),(𝗋+1,q−2))) ≤ C(ρ_c + ς) ‖S_ς u‖_(H_(sc,b;b)^((s;k),(𝗋,q))),       {#eq:i-c-6-3}
+
+and [[eq:i-c-6-3]] holds for E_σ^* with the orders (s, 𝗋, q) and (s − 2, 𝗋 + 1, q − 2) replaced by
+(−s + 2, −𝗋 − 1, −q + 2) and (−s, −𝗋, −q).
+
+*Proof.* Write P⁽⁰⁾ − N(P⁽⁰⁾) = ρB_1, S − S_0 = ρS_1, Q = ρ³Q̃ and g_00 = ρ²g̃, with B_1 ∈ Diff_b^2,
+Q̃ ∈ Diff_b^1 and S_1, g̃ smooth ([[sec:i-c-1-1]] and (H2)). Since ρ = ςρ̂, σ = ςσ̂ and ρ∂_ρ = ρ̂∂_ρ̂,
+
+    ς⁻² S_ς E_σ S_ς⁻¹ = ρ̂²ρB_1 − 2iσ̂ρ̂ ρS_1 − iσ̂ρ̂ ρ²Q̃ + ς²σ̂²ρ̂²g̃,
+
+where ρ stands for ςρ̂ and every coefficient is a smooth function of (ςρ̂, ω). Indeed, divided by ς², the four terms of
+E_σ are ρ²·ρB_1/ς² = ρ̂²ρB_1, −2iσρ·ρS_1/ς² = −2iσ̂ρ̂ ρS_1, −iσρ³Q̃/ς² = −iσ̂ρ̂ ρ²Q̃ and σ²ρ²g̃/ς² = ς²σ̂²ρ̂²g̃.
+A smooth function f has (ρ̂∂_ρ̂)^j ∂_ω^γ f(ςρ̂, ω) = ((ρ∂_ρ)^j ∂_ω^γ f)(ςρ̂, ω), bounded independently of ς, and on
+{ρ̂ ≤ 2} its ρ̂-derivatives carry powers of ς; so the operators B_1, Q̃, S_1, g̃ lie in bounded sets of their classes,
+both near ztf (b-operators) and near sctf (smooth up to ρ̂ = 0). Split S_ς u = φ_∞S_ς u + (1 − φ_∞)S_ς u, and note
+that the operator is differential.
+
+*Near sctf*, on {ρ̂ ≤ 2}, write ρ = ςρ̂: the four terms are ςρ̂ · ρ̂²B_1, ςρ̂ · (−2iσ̂ρ̂S_1), ς²ρ̂² · (−iσ̂ρ̂Q̃) and
+ς²ρ̂² · σ̂²g̃. Near sctf ρ̂² Diff_b^2 ⊂ Diff_sc^2 and ρ̂ Diff_b^1 ⊂ Diff_sc^1, these classes map H_sc^((s;k),𝗋) to
+H_sc^((s−2;k),𝗋) ([[sec:i-a-4-6]]: the commutators of ⟨x̂⟩D_x̂ with Diff_sc^(m,0) lie in Diff_sc^(m,0)), and each
+factor ρ̂ raises the decay order by one. So this part is bounded by Cς.
+
+*Near ztf*, on {ρ̂ ≥ ½}, the operator is ρ̂² times ρB_1 − 2iσ̂(ρ/ρ̂)S_1 − iσ̂(ρ²/ρ̂)Q̃ + ς²σ̂²g̃. On the support of u,
+ρ ≤ ρ_c; replacing ρ by ρχ̃(ρ/ρ_c), with χ̃ = 1 on [0, 1] and 0 on [2, ∞), does not change the operator there, and
+ρχ̃(ρ/ρ_c) has all b-derivatives bounded by Cρ_c. Also ρ/ρ̂ = ς. So the bracket is a b-operator of order 2 with
+coefficients bounded by C(ρ_c + ς) in C_b^∞, which maps H_(b,q−2)^(s+k) to H_(b,q−2)^(s+k−2) with that norm
+([[lem:i-c-2-2]] (c)), and ρ̂² maps the ztf order q to q − 2 ([[lem:i-c-2-2]] (b)).
+
+*The adjoint.* E_σ^* = E_σ^(*h) + (P̂_mod(σ)^(*h) − P̂_mod(σ)^(*h_0)). The adjoint of each term of [[eq:i-c-6-2]] for
+|dx| = ρ⁻⁵dρ dω and H is of the same form (ρ^a Diff_b^m is preserved, and σ becomes σ̄; Remark (a) of
+[[sec:i-a-1-3]]). Writing H = H_0(I + ρK) with K smooth, and A := P̂_mod(σ),
+
+    A^(*h) − A^(*h_0) = (I + ρK)⁻¹ A^(*h_0) (I + ρK) − A^(*h_0) = (I + ρK)⁻¹ [A^(*h_0), ρK],
+
+and [ρ²N(P⁽⁰⁾)^(*h_0), ρK] ∈ ρ³ Diff_b^1, [σρ(ρ∂_ρ)^(*h_0), ρK] ∈ σρ²C^∞: these have the forms of the first two terms
+of [[eq:i-c-6-2]]. The two estimates above then hold with the dual orders. ∎
+
+#### The theorem {#sec:i-c-6-3}
+
+For σ ≠ 0 with Im σ ≥ 0 let Σ be a sector of [[cor:i-c-5-2]] (b) containing arg σ (Σ_+ = [0, π/4], Σ_m, Σ_−;
+either one at π/4 and 3π/4), and 𝗋 := 𝗋_Σ, with the weight α_+ of [[cor:i-c-5-2]]. Put
+
+    𝒳_σ := {u ∈ ℋ_ς^(s,(𝗋+α_+,α,0)) : P̂(σ)u ∈ 𝒴_σ},     𝒴_σ := ℋ_ς^(s−1,(𝗋+α_++1,α+2,0)),
+    𝒳_σ^* := {v ∈ ℋ̇_ς^(1−s,(−𝗋−α_+−1,−α−2,0)) : P̂(σ)^(*h)v ∈ ℋ̇_ς^(−s,(−𝗋−α_+,−α,0))}.                   {#eq:i-c-6-4}
+
+By [[lem:i-c-6-2]] (c) these are, at each σ, the spaces 𝒳_σ, 𝒴_σ, 𝒳_σ^* of [[thm:i-a-7-2]] with the decay order 𝗋_ς,
+and [[thm:i-a-7-2]] applies to them: for θ ∈ Θ_±, 𝗋_(±,ς) is admissible for Re σ = ς cos θ ∈ ςJ_± ([[sec:i-c-4-3]]),
+and (1) of [[thm:i-a-7-2]] applies; for θ ∈ (0, π), 𝗋_ς is constant near R_out with the threshold, Im σ > 0, and (2)
+applies.
+
+*Augmentations* ([Hin26c, Remark 9.42]). Let m_1, m_2 ∈ ℕ_0, ψ_1, …, ψ_(m_1), φ_1, …, φ_(m_2) ∈ C_c^∞(X°; E), with
+X° := {r > r_0}, and
+
+    𝒫(σ)(u, c) := (P̂(σ)u + Σ_i c_i ψ_i, (⟨u, φ_j⟩_h)_j),
+    𝒫(σ)^*(v, d) := (P̂(σ)^(*h)v + Σ_j d_j φ_j, (⟨v, ψ_i⟩_h)_i),                                            {#eq:i-c-6-5}
+
+with ⟨·, ·⟩_h the h-weighted L²(|dx|) pairing, on 𝒳_σ ⊕ ℂ^(m_1) → 𝒴_σ ⊕ ℂ^(m_2) and
+𝒳_σ^* ⊕ ℂ^(m_2) → ℋ̇_ς^(−s,(−𝗋−α_+,−α,0)) ⊕ ℂ^(m_1). Norms on the sums add |c| and |d|. The case m_1 = m_2 = 0 is P̂(σ)
+itself. In place of (Z) we then assume
+
+(Z_𝒫) 𝒫(0): 𝒳_0 ⊕ ℂ^(m_1) → 𝒴_0 ⊕ ℂ^(m_2) is invertible,
+
+with 𝒳_0, 𝒴_0 of [[eq:i-c-3-1]]; for m_1 = m_2 = 0 this is (Z).
+
+**Theorem {#thm:i-c-6-4}** (Uniform low-energy estimates.) Assume (H1)–(H4), (G), (Z_𝒫) and (TF), with
+s > ½ + ϑ_ℋ constant, and let α_+ ∈ ℝ.
+
+(1) (*Uniform estimates.*) For every k ∈ ℕ_0 there are c_k > 0, non-increasing in k, and C_k such that for
+0 < |σ| ≤ c_k with Im σ ≥ 0, and (u, c) ∈ 𝒳_σ ⊕ ℂ^(m_1) with 𝒫(σ)(u, c) = (f, e),
+
+    ‖u‖_((s;k),(𝗋+α_+,α,0),ς) + |c| ≤ C_k(‖f‖_((s−1;k),(𝗋+α_++1,α+2,0),ς) + |e|),                         {#eq:i-c-6-6}
+
+in the strong sense: if the right side is finite, so is the left.
+
+(2) (*The adjoint.*) There is C such that for 0 < |σ| ≤ c_0 with Im σ ≥ 0, and (v, d) ∈ 𝒳_σ^* ⊕ ℂ^(m_2) with
+𝒫(σ)^*(v, d) = (g, b),
+
+    ‖v‖_((1−s),(−𝗋−α_+−1,−α−2,0),ς) + |d| ≤ C(‖g‖_((−s),(−𝗋−α_+,−α,0),ς) + |b|).                          {#eq:i-c-6-7}
+
+(3) (*Invertibility.*) For 0 < |σ| ≤ c_0 with Im σ ≥ 0, 𝒫(σ): 𝒳_σ ⊕ ℂ^(m_1) → 𝒴_σ ⊕ ℂ^(m_2) is invertible.
+
+(4) (*Derivatives in σ; m_1 = m_2 = 0.*) For j, k ∈ ℕ_0 there are c_(j,k) ∈ (0, c_0] and C such that for
+0 < |σ| ≤ c_(j,k) with Im σ ≥ 0,
+
+    ‖(σ∂_σ)^j P̂(σ)⁻¹ f‖_((s+j;k),(𝗋+α_+,α,0),ς) ≤ C‖f‖_((s−1;k+j),(𝗋+α_++1,α+2,0),ς).                     {#eq:i-c-6-8}
+
+Here (σ∂_σ)^j P̂(σ)⁻¹ is the derivative of [[thm:i-a-7-2]] (6), defined on H̄^((s+ϵ−1;j),𝗋_ς+ϵ+α_++1) and extended to
+the space on the right by [[eq:i-c-6-8]].
+
+(5) (*Other weights.*) (1)–(4) hold for every α with α + 2 ∈ (β_−, β_+), the gap of (G): there (Z) holds by
+[[thm:i-c-3-1]] (4), and (TF) with weight α + 2 by [[cor:i-c-5-2]] (c).
+
+This is [Hin26c, Theorem 9.41] in dimension 4 + 1, on E, with the augmentations of [Hin26c, Remark 9.42] and with the
+adjoint estimate (2). (G) is the gap hypothesis of [[sec:i-c-1-2]]. [[eq:i-c-6-6]] is [Hin26c, (9.119)] and
+[[eq:i-c-6-8]] is [Hin26c, (9.120)], on the spaces of [[def:i-c-6-1]]. [[rem:i-c-6-7]] lists what differs from
+[Hin26c].

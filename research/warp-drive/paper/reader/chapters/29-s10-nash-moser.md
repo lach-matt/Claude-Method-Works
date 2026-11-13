@@ -697,3 +697,261 @@ H^(1,((0,0),1/2))_b([0, ∞)) and not in H̄¹((0, ∞)), so [Hin26c, Corollary 
 inverse transform of the same example, extended by 0, shows that [Hin26c, Lemma 13.6] fails at σ = ∞. The proof of
 [Hin26c, Lemma 13.2] draws on [Tay11a, Chapter 4, Proposition 5.3] and that of [Hin26c, Lemma 13.4] on complex
 interpolation; [[sec:ii-g1-2-2]]–[[sec:ii-g1-2-4]] use neither.
+
+### The Fourier transform on the resolved product spaces {#sec:ii-g1-3}
+
+#### The spaces {#sec:ii-g1-3-1}
+
+X := ℝ⁴, X̄ its radial compactification, ρ := ⟨x⟩⁻¹ and μ_X := |dx|/⟨x⟩⁴, a b-density. H^(k,γ)_b(X; ℋ) is the space of
+u with ρ^(−γ) (⟨x⟩∂_x)^α u ∈ L²(μ_X) for |α| ≤ k; the fields ⟨x⟩∂_(x^i) span 𝒱_b(X̄) ([[sec:i-a-4-6]]).
+
+M := [ℝ̄_(t_*) × X̄; ∂ℝ̄ × ∂X̄] ([Hin26c, (13.9)]), with the defining functions of its faces ℐ, ι and K ([Hin26c,
+(13.10)])
+
+    ρ_I := ⟨t_*⟩/(⟨t_*⟩ + ⟨x⟩),     ρ_ι := (⟨t_*⟩ + ⟨x⟩)/(⟨t_*⟩⟨x⟩),     ρ_K := ⟨x⟩/(⟨t_*⟩ + ⟨x⟩),
+    ρ_I ρ_ι = ⟨x⟩⁻¹,     ρ_ι ρ_K = ⟨t_*⟩⁻¹,                                                       {#eq:ii-g1-3-1}
+
+and the b-density μ_M := |dt_*/⟨t_*⟩| μ_X. For weights β = (β_I, β_ι, β_K) and w_β := ρ_I^(β_I) ρ_ι^(β_ι) ρ_K^(β_K),
+H^(k,β)_b(M; ℋ) is the space of u with w_β⁻¹ (⟨t_*⟩∂_(t_*))^j (⟨x⟩∂_x)^α u ∈ L²(μ_M; ℋ) for j + |α| ≤ k. These fields
+are b-vector fields on M and span 𝒱_b(M), the blow-up of a codimension-two corner being a b-blow-up, and the derivatives
+of log ρ_I, log ρ_ι, log ρ_K along them are bounded with all their derivatives (for instance ⟨t_*⟩∂_(t_*) log(⟨t_*⟩ +
+⟨x⟩) = t_*/(⟨t_*⟩ + ⟨x⟩)), so weights and derivatives may be taken in either order, with equivalent norms; this is
+[Hin26c, (13.11)].
+
+For c ∈ (0, 1], X^±_(sc-b) := [±[0, c]_σ × X̄; {0} × ∂X̄] ([Hin26c, (13.12)], with c = 1 there), with the defining
+functions of the faces scf, tf, zf ([Hin26c, (13.13)])
+
+    ρ_scf := ρ/(ρ + |σ|),     ρ_tf := |σ| + ρ,     ρ_zf := |σ|/(ρ + |σ|),     ρ_scf ρ_tf = ρ,     ρ_tf ρ_zf = |σ|,
+                                                                                                  {#eq:ii-g1-3-2}
+
+and the b-density |dσ/σ| μ_X. For γ = (γ_scf, γ_tf, γ_zf), H^(k,γ)_b(X^±_(sc-b); ℋ) is the space of u on ±(0, c] × X
+with w_γ⁻¹ (σ∂_σ)^j (⟨x⟩∂_x)^α u ∈ L²(|dσ/σ| μ_X) for j + |α| ≤ k ([Hin26c, (13.14)]; the face at |σ| = c is an
+extendible end, at which nothing is asked). Let r̂ := |σ|⟨x⟩, a defining function of zf near zf, and χ_zf := χ_1(r̂)
+with χ_1 ∈ C^∞([0, ∞)) equal to 1 on [0, 1/8] and to 0 on [1/4, ∞); χ_zf and its derivatives along σ∂_σ, ⟨x⟩∂_x are
+bounded (σ∂_σ r̂ = r̂, ⟨x⟩∂_x r̂ = r̂ x/⟨x⟩). For γ_zf ∈ (−1, ∞) ∖ ℕ₀ let ([Hin26c, (13.15)] with ζ = 0)
+
+    H^(k,(γ_scf,γ_tf,((0,0),γ_zf)))_b(X^±_(sc-b))
+        := {χ_zf Σ_(ℓ∈ℕ₀, ℓ<γ_zf) r̂^ℓ v_ℓ + ũ : v_ℓ ∈ H^(k,γ_tf)_b(X), ũ ∈ H^(k,γ)_b(X^±_(sc-b))},          {#eq:s10-zf}
+
+normed by Σ ‖v_ℓ‖ + ‖ũ‖; the decomposition is unique ([[lem:ii-g1-3-1]] (c) below and the uniqueness after
+[[def:ii-g1-2-7]]). As r̂^ℓ v_ℓ = (±σ)^ℓ ⟨x⟩^ℓ v_ℓ(x) on the side ±, we call c^±_ℓ := (±1)^ℓ ⟨x⟩^ℓ v^±_ℓ the
+*σ-Taylor coefficients*. [Hin26c] writes ρ_zf^ℓ u_ℓ(x) with ρ_zf = r̂/(1 + r̂); Taylor expansion of (1 + r̂)^(−ℓ) at
+r̂ = 0 turns one form into the other, the remainders lying in ũ's space.
+
+At high frequencies ([Hin26c, (13.16)]): for c > 0, H^(k,β,γ)_(b+)(±[c, ∞) × X; ℋ) is the space of v with
+|σ|^γ σ^j (σ∂_σ)^l v ∈ L²(±[c, ∞), |dσ/σ|; H^(k−j−l,β)_b(X; ℋ)) for j + l ≤ k; the powers of σ stand on the same footing
+as the b-derivatives, and H^(k+p,β,γ)_(b+) ⊂ H^(k,β,γ+p)_(b+) for p ∈ ℕ₀.
+
+**Lemma {#lem:ii-g1-3-1}** (Product structure; [Hin26c, Lemma 13.8].) For k ∈ ℕ₀ and β, γ ∈ ℝ, with equivalent norms,
+
+(a) H^(k,(γ,β+γ,β))_b(M; ℋ) = ⋂_(j=0)^k H^(j,β)_b(ℝ; H^(k−j,γ)_b(X; ℋ));
+
+(b) H^(k,(γ,β+γ,β))_b(X^±_(sc-b); ℋ) = ⋂_(j=0)^k H^(j,β)_b(±(0, c]; H^(k−j,γ)_b(X; ℋ)), where H^(j,β)_b(±(0, c]; ℋ)
+is the space of v with |σ|^(−β) (σ∂_σ)^i v ∈ L²(|dσ/σ|; ℋ), i ≤ j;
+
+(c) for u supported in {r̂ ≤ 1/2}, in the coordinates (r̂, x) ∈ (0, 1/2] × X, ‖u‖_(H^(k,γ)_b(X^±_(sc-b))) is
+equivalent to the norm of ⋂_(j≤k) H^(j,γ_zf)_b((0, 1/2]_(r̂); H^(k−j,γ_tf)_b(X)), the order γ_scf playing no role.
+
+*Proof.* (a) By [[eq:ii-g1-3-1]], ρ_I^γ ρ_ι^(β+γ) ρ_K^β = ⟨t_*⟩^(−β) ⟨x⟩^(−γ), a product. The norm on the left is
+equivalent to Σ_(j+|α|≤k) ‖⟨t_*⟩^β ⟨x⟩^γ (⟨t_*⟩∂_(t_*))^j (⟨x⟩∂_x)^α u‖_(L²(μ_M)), the two families of fields acting on
+different variables, and by Fubini this is the norm on the right (with ⟨t⟩^β L²(dt/⟨t⟩) = ⟨t⟩^(β−1/2) L²(dt) and the
+equivalence after [[def:ii-g1-2-1]]). (b) Likewise, with ρ_scf^γ ρ_tf^(β+γ) ρ_zf^β = ρ^γ |σ|^β by [[eq:ii-g1-3-2]].
+(c) On {r̂ ≤ 1/2}, ρ_scf = (1 + r̂)⁻¹ ∈ [2/3, 1], ρ_tf = ρ(1 + r̂) and ρ_zf = r̂/(1 + r̂); at fixed x, σ∂_σ = r̂∂_(r̂)
+and |dσ/σ| = |dr̂/r̂|; and ⟨x⟩∂_x at fixed σ is ⟨x⟩∂_x at fixed r̂ plus (x/⟨x⟩) r̂∂_(r̂). ∎
+
+#### A b-ordinary differential equation {#sec:ii-g1-3-2}
+
+**Lemma {#lem:ii-g1-3-2}** (A b-ordinary differential equation.) Let ℋ be a Hilbert space, d, c ∈ ℝ, c ≠ d, and let W ∈
+L²_loc((0, 1); ℋ) satisfy (s∂_s − d)W = h on (0, 1) with h ∈ s^c L²((0, 1), |ds/s|; ℋ). Let χ ∈ C^∞([0, 1)) equal 1 on
+[0, 1/4] and 0 on [1/2, 1). Write ‖·‖ for the norm of L²((0, 1), |ds/s|; ℋ) and ‖·‖′ for that over (1/4, 1/2).
+
+(a) If c > d, then L := lim_(s→0) s^(−d) W(s) exists in ℋ, |L| ≤ C(‖W‖′ + ‖s^(−c) h‖), and W_1 := χ(W − s^d L)
+satisfies ‖s^(−c) W_1‖ ≤ C(‖W‖′ + ‖s^(−c) h‖).
+
+(b) If c < d, then W_1 := χW satisfies ‖s^(−c) W_1‖ ≤ C(‖W‖′ + ‖s^(−c) h‖).
+
+(c) If moreover (s∂_s)^i h ∈ s^c L² for i ≤ k, then ‖s^(−c) (s∂_s)^i W_1‖ ≤ C Σ_(i′≤i) (‖(s∂_s)^(i′) W‖′ +
+‖s^(−c) (s∂_s)^(i′) h‖) in both cases.
+
+*Proof.* In τ := log s ∈ (−∞, 0), |ds/s| = dτ, and s∂_s(s^(−d) W) = s^(−d) h says ∂_τ(e^(−dτ) W) = e^(−dτ) h in
+distributions, so e^(−dτ) W is absolutely continuous. (a) e^(−dτ) h = e^((c−d)τ) e^(−cτ) h is integrable on (−∞, τ_0)
+by Cauchy–Schwarz, as c > d, so L exists and e^(−dτ) W(τ) = L + ∫_(−∞)^τ e^(−dτ′) h(τ′) dτ′. Averaging this over τ ∈
+(log(1/4), log(1/2)) bounds |L|. And e^(−cτ)(W − e^(dτ) L) = ∫_(−∞)^τ e^(−(c−d)(τ−τ′)) e^(−cτ′) h(τ′) dτ′, a
+convolution with e^(−(c−d)τ) 1_(τ>0), whose L¹ norm is (c − d)⁻¹; Young's inequality bounds it in L²(dτ), and
+multiplying by χ costs nothing. (b) (s∂_s − d)(χW) = χh + (s∂_s χ)W =: h̃, with ‖s^(−c) h̃‖ ≤ ‖s^(−c) h‖ + C‖W‖′. χW
+vanishes near τ = log(1/2), so e^(−dτ) χW(τ) = −∫_τ^(log(1/2)) e^(−dτ′) h̃(τ′) dτ′, and e^(−cτ) χW is the convolution
+of e^(−cτ′) h̃ with −e^((d−c)τ) 1_(τ<0), of L¹ norm (d − c)⁻¹. (c) W_1 satisfies (s∂_s − d)W_1 = χh + (s∂_s χ)(W −
+s^d L) in case (a) (as (s∂_s − d)s^d = 0), resp. h̃ in case (b), so s∂_s W_1 = dW_1 + (…), and induction on i; the
+derivatives of W on (1/4, 1/2) enter through the terms with s∂_s χ. ∎
+
+#### The Fourier transform of b-Sobolev functions {#sec:ii-g1-3-3}
+
+**Proposition {#prop:ii-g1-3-3}** (The Fourier transform of b-Sobolev functions; [Hin26c, Proposition 13.9].) Let β =
+(β_I, β_ι, β_K) and u ∈ H^(k+ℓ,β)_b(M; ℋ), with ℓ as below.
+
+(1) (*Low energies.*) Let β_K ∈ (0, ∞) ∖ ℕ, ε ∈ (0, 1) and β_I ≥ β_ι − min(β_K, 1 − ε), and ℓ = 1. Then
+
+    (ℱu)|_(σ∈±(0,1]) ∈ H^(k,(min(β_I,β_ι)−ε, β_ι−1, ((0,0),β_K−1)))_b(X^±_(sc-b); ℋ),
+
+with norm ≤ C ‖u‖, and the σ-Taylor coefficients c^±_ℓ, ℓ < β_K − 1, of the two signs agree.
+
+(2) (*High energies.*) Let ℓ := ⌈(1/2 − min(β_K, β_ι − β_I))_+⌉. Then (ℱu)|_(σ∈±[1/2,∞)) ∈ H^(k,β_I,0)_(b+)(±[1/2,
+∞) × X; ℋ), with norm ≤ C ‖u‖.
+
+Here ℱ acts in t_*; by [[lem:ii-g1-3-1]] (a) and [[lem:ii-g1-2-2]], u is a tempered distribution in t_* with values in
+H^(k,γ)_b(X) for suitable γ. In (2), ⌈·⌉ makes ℓ an integer, as integer b-regularity requires; [Hin26c, Proposition
+13.9 (2)] takes ℓ = (1/2 − min(β_K, β_ι − β_I))_+.
+
+*Proof.* Lowering a weight is a bounded inclusion, as ρ_I, ρ_K ≤ 1 and ρ_ι ≤ 2; and two memberships with the same
+tf-weight combine: if v lies in H^(k,(a,b,c))_b and in H^(k,(a′,b,c′))_b on X^±_(sc-b), then v ∈ H^(k,(a,b,c′))_b, by
+the partition 1 = χ_1(2r̂) + (1 − χ_1(2r̂)), whose first term is supported away from scf and the second away from zf
+(and likewise on M, with a partition into neighbourhoods of ℐ and of K). This is used twice below and in
+[[prop:ii-g1-3-5]].
+
+(1), *the case β_K ∈ (0, 1).* For η ≥ 0 with β_K − η > 0 and β_I ≥ β_ι − β_K + η, u ∈
+H^(k+1,(β_ι−β_K+η,β_ι,β_K−η))_b(M), so by [[lem:ii-g1-3-1]] (a) u ∈ ⋂_(j≤k) H^(j+1,β_K−η)_b(ℝ; ℋ_j) with ℋ_j :=
+H^(k−j,β_ι−β_K+η)_b(X). As β_K − η ∈ (0, 1), ℓ_−(β_K − η) ≤ 1, and [[prop:ii-g1-2-8]] (1) (with ℋ_j-values; no Taylor
+terms, as β_K − η − 1 < 0) gives (σ∂_σ)^i ℱu ∈ |σ|^(β_K−η−1) L²(|dσ/σ|; ℋ_j) on each side, i ≤ j. Restricted to
+|σ| ≤ 1 this is, by [[lem:ii-g1-3-1]] (b),
+
+    ℱu ∈ H^(k,(β_ι−β_K+η, β_ι−1, β_K−η−1))_b(X^±_(sc-b)).
+
+With η = 0 the zf-weight is β_K − 1; with η := max(0, min(β_K, β_I − β_ι + β_K) − ε) the scf-weight is ≥ min(β_I,
+β_ι) − ε (if the maximum is 0 then min(β_K, β_I − β_ι + β_K) ≤ ε, and β_ι − β_K ≥ min(β_I, β_ι) − ε). Combining the two
+gives the claim; the matching statement is empty.
+
+(1), *the case β_K ∈ (b, b + 1), b ∈ ℕ.* (i) Applying the first case to u ∈ H^(k+1,(β_I,β_ι,1−ε))_b(M) (its hypothesis
+β_I ≥ β_ι − (1 − ε) is ours, as min(β_K, 1 − ε) = 1 − ε) gives V := ℱu ∈ H^(k,(min(β_I,β_ι)−ε,β_ι−1,−ε))_b(X^±_(sc-b)).
+(ii) t_*^b u ∈ H^(k+1,(β_I,β_ι−b,β_K−b))_b(M), as t_*^b = (t_*/⟨t_*⟩)^b (ρ_ι ρ_K)^(−b), and β_K − b ∈ (0, 1) with β_I ≥
+β_ι − 1 + ε ≥ (β_ι − b) − min(β_K − b, 1 − ε); so by the first case ℱ(t_*^b u) ∈ H^(k,(a,β_ι−b−1,β_K−b−1))_b for some
+a. As ∂_σ ℱu = iℱ(t_* u) and |σ|^b = ρ_tf^b ρ_zf^b,
+
+    h := σ^b ∂_σ^b V = (iσ)^b ℱ(t_*^b u) ∈ H^(k,(a,β_ι−1,β_K−1))_b(X^±_(sc-b)).                     {#eq:ii-g1-3-3}
+
+(iii) On Z := {r̂ < 1/2} use the coordinates (r̂, x) of [[lem:ii-g1-3-1]] (c), in which σ = ±r̂/⟨x⟩, so σ^b ∂_σ^b =
+r̂^b ∂_(r̂)^b at fixed x. By (i), [[eq:ii-g1-3-3]] and [[lem:ii-g1-3-1]] (c), with ℋ_j := H^(k−j,β_ι−1)_b(X), V ∈
+⋂_j H^(j,−ε)_b((0, 1/2)_(r̂); ℋ_j) and h ∈ ⋂_j H^(j,β_K−1)_b((0, 1/2); ℋ_j). As β_K − 1 − b > −1, r̂^(−b) h ∈
+r̂^(β_K−1−b) L²(|dr̂/r̂|; ℋ_0) is integrable near r̂ = 0. Let
+
+    R(r̂) := ((b − 1)!)⁻¹ ∫_0^(r̂) τ^(−b) h(τ) (r̂ − τ)^(b−1) dτ = ((b − 1)!)⁻¹ ∫_0^1 s^(−b) h(sr̂) (1 − s)^(b−1) ds,
+
+the b-fold iterated integral of r̂^(−b) h from 0, so that ∂^b_(r̂) R = r̂^(−b) h = ∂^b_(r̂) V on (0, 1/2). Dilations r̂ ↦
+sr̂ commute with r̂∂_(r̂) and with ⟨x⟩∂_x at fixed r̂, and preserve |dr̂/r̂|, so by Minkowski's inequality
+
+    ‖r̂^(1−β_K) (r̂∂_(r̂))^j R‖_(L²(ℋ_j))
+        ≤ ((b − 1)!)⁻¹ ∫_0^1 s^(β_K−1−b) (1 − s)^(b−1) ds · ‖r̂^(1−β_K) (r̂∂_(r̂))^j h‖_(L²(ℋ_j)),
+
+finite as β_K − 1 − b > −1. V − R is an ℋ_0-valued distribution on (0, 1/2) with ∂^b_(r̂)(V − R) = 0, hence a
+polynomial Σ_(d<b) r̂^d v_d; each v_d is a fixed linear combination of the averages ∫ (V − R) r̂^(d′) φ(r̂) dr̂, d′ < b,
+with φ ∈ C^∞_c((1/4, 1/2)) (the monomials being linearly independent there), so v_d ∈ ℋ_0 = H^(k,β_ι−1)_b(X) with norm
+≤ C(‖V‖ + ‖h‖). So on Z, V = Σ_(d<b) r̂^d v_d + R with R ∈ r̂^(β_K−1) and the full b-regularity k, and the d < b are
+exactly the ℓ < β_K − 1. With χ_zf (supported in {r̂ ≤ 1/4}), V = χ_zf Σ_d r̂^d v_d + Ṽ, where Ṽ = χ_zf R + (1 −
+χ_zf)V; the first term has tf-weight β_ι − 1 and zf-weight β_K − 1 and is supported away from scf, and the second is
+supported away from zf, where (i) gives the scf-weight min(β_I, β_ι) − ε and the tf-weight β_ι − 1. This proves the
+first claim.
+
+*Matching.* On {|x| < R}, ρ_K ∼ ⟨t_*⟩⁻¹ and the weights at ℐ, ι are irrelevant, so u ∈ H^(k+1,β_K)_b(ℝ; L²({|x| <
+R})), and ℱu ∈ H^(β_K−1/2)(ℝ; L²({|x| < R})) by [[lem:ii-g1-2-2]]. As β_K − 1/2 > 1/2, [[lem:ii-g1-2-4]] makes ℱu of
+class C^ℓ in σ across σ = 0 for ℓ < β_K − 1, with ℱu − P_(ℱu) ∈ |σ|^(β_K−1/2) L² near 0. On the other hand, on {|x| <
+R} the expansion gives ℱu = Σ_(ℓ<β_K−1) c^±_ℓ σ^ℓ + O_(L²)(|σ|^(β_K−1/2)) on each side, as r̂^(β_K−1) L²(|dr̂/r̂|) =
+|σ|^(β_K−1/2) L²(dσ) locally in x. A polynomial of degree < β_K − 1 in |σ|^(β_K−1/2) L² near 0 vanishes, so c^±_ℓ =
+∂^ℓ_σ ℱu(0)/ℓ! on {|x| < R} for both signs; R is arbitrary.
+
+(2) Let β′_K := min(β_K, β_ι − β_I). Then u ∈ H^(k+ℓ,(β_I,β_I+β′_K,β′_K))_b(M) = ⋂_j H^(j,β′_K)_b(ℝ;
+H^(k+ℓ−j,β_I)_b(X)), so by [[lem:ii-g1-2-2]] F_(pq) := σ^p (σ∂_σ)^q ℱu ∈ H^(β′_K−1/2)(ℝ; H^(k+ℓ−p−q,β_I)_b(X)) for p
++ q ≤ k + ℓ. Let ψ ∈ C^∞(ℝ) vanish on [−1/4, 1/4] and equal 1 outside (−1/2, 1/2). For p + q ≤ k and i ≤ ℓ,
+∂^i_σ(ψF_(pq)) is a combination of ψ_(i′)(σ) σ^(−i′) (σ∂_σ)^(i′) F_(pq), i′ ≤ i, with ψ_(i′) smooth, supported in |σ| ≥
+1/4 and bounded with all derivatives, multiplication by which is bounded on H^(β′_K−1/2) (by Peetre's inequality, as
+in (K1) (i) of [[sec:i-c-2-1]]); σ^(−i′) is such a multiplier on |σ| ≥ 1/4. So ψF_(pq) ∈ H^(β′_K−1/2+ℓ) ⊂ L², as ℓ ≥
+1/2 − β′_K, with values in H^(k−p−q,β_I)_b(X) (the b-derivatives (σ∂_σ)^(i′) used, i′ ≤ ℓ, cost ℓ of the
+X-regularity). On ±[1/2, ∞), L²(dσ) ⊂ L²(|dσ/σ|), which is the claim. ∎
+
+**Lemma {#lem:ii-g1-3-4}** (Stationary functions; [Hin26c, Lemma 13.10].) Let γ ∈ ℝ and v_0 ∈ H^(k,γ)_b(X; ℋ). Then
+v(t_*, x) := v_0(x) lies in H^(k,(γ−ε,γ,−ε))_b(M; ℋ) for every ε > 0.
+
+*Proof.* ⟨t_*⟩∂_(t_*) v = 0, and the ⟨x⟩∂_x-derivatives fall on v_0, so it suffices to show ‖w_β⁻¹ f‖_(L²(μ_M)) ≤
+C_ε ‖ρ^(−γ) f‖_(L²(μ_X)) for t_*-independent f, β = (γ − ε, γ, −ε). By [[eq:ii-g1-3-1]], w_β = ⟨x⟩^(−γ) (ρ_I
+ρ_K)^(−ε), and ρ_I ρ_K = T⟨x⟩/(T + ⟨x⟩)² with T := ⟨t_*⟩. As
+
+    ∫ (T⟨x⟩/(T + ⟨x⟩)²)^(2ε) dt_*/⟨t_*⟩ ≤ 2√3 + (4/√3) ∫_0^∞ (ς/(1 + ς)²)^(2ε) dς/ς =: C_ε < ∞
+
+(the integrand is at most 1, and {T ≤ 2} has t_*-length 2√3; on {T ≥ 2}, T dT = |t_*| dt_* gives dt_*/⟨t_*⟩ =
+dT/(T² − 1)^(1/2) ≤ (2/√3) dT/T on each half-line, and T = ⟨x⟩ς), uniformly in x, the claim follows by Fubini. ∎
+
+**Proposition {#prop:ii-g1-3-5}** (The inverse Fourier transform; [Hin26c, Proposition 13.11].) Let β_K ∈ (0, ∞) ∖ ℕ,
+β_ι, β_scf, β_I, δ ∈ ℝ, ε ∈ (0, 1), and χ ∈ C^∞_c((−1, 1)) equal to 1 near [−1/2, 1/2].
+
+(1) (*Low energies.*) Let ℓ := ⌈(max(β_ι − β_scf, β_K) + ε − 1/2)_+⌉. If v_± ∈
+H^(k+ℓ,(β_scf,β_ι−1,((0,0),β_K−1)))_b(X^±_(sc-b); ℋ) (c = 1) have the same σ-Taylor coefficients, then for v :=
+χ(σ) Σ_± 1_(±σ>0) v_±,
+
+    ℱ⁻¹v ∈ H^(k,(min(β_scf,β_ι)−ε, β_ι, β_K))_b(M; ℋ),
+
+with norm ≤ C Σ_± ‖v_±‖.
+
+(2) (*High energies.*) Let β′ := max(β_K, β_ι − β_I) and ℓ := ⌈(3/2 − δ)_+⌉ + ⌈(β′ − 1/2)_+⌉. If v_± ∈
+H^(k+ℓ,β_I,δ−1)_(b+)(±[1/2, ∞) × X; ℋ), then ℱ⁻¹((1 − χ)v_±) ∈ H^(k,(β_I,β_ι,β_K))_b(M; ℋ), with norm ≤ C ‖v_±‖.
+
+*Proof.* (1) *The expansion.* For each ℓ < β_K − 1 (here ℓ indexes the expansion, not the loss), by the matching, the
+terms of index ℓ of the two signs add up to χ(σ) χ_1(|σ|⟨x⟩) σ^ℓ c_ℓ(x) = φ_ℓ(σ⟨x⟩) v_ℓ(x), where c_ℓ = ⟨x⟩^ℓ v_ℓ is
+the common coefficient, v_ℓ ∈ H^(k,β_ι−1)_b(X), and φ_ℓ(s) := χ_1(|s|) s^ℓ ∈ C^∞_c((−1/4, 1/4)); χ(σ) = 1 where
+χ_1(|σ|⟨x⟩) ≠ 0, as |σ| ≤ 1/4 there. Substituting s = σ⟨x⟩,
+
+    ℱ⁻¹(φ_ℓ(σ⟨x⟩))(t_*) = ρ φ̌_ℓ(ρ t_*),        φ̌_ℓ(τ) := (2π)⁻¹ ∫ e^(−isτ) φ_ℓ(s) ds ∈ 𝒮(ℝ).
+
+⟨ρ t_*⟩ is comparable to ρ_K⁻¹ = (⟨t_*⟩ + ⟨x⟩)/⟨x⟩, and ⟨t_*⟩∂_(t_*), ⟨x⟩∂_x map φ̌_ℓ(ρ t_*) to (⟨t_*⟩/⟨x⟩)
+φ̌′_ℓ(ρ t_*) and −(x/⟨x⟩)(ρ t_*) φ̌′_ℓ(ρ t_*), with ⟨t_*⟩/⟨x⟩ ≤ C⟨ρ t_*⟩; so ρ_K^(−p) φ̌_ℓ(ρ t_*) is bounded with all its
+b-derivatives, for every p ≥ 0. With ρ = ρ_I ρ_ι and [[lem:ii-g1-3-4]] for v_ℓ, the inverse transform of the expansion
+lies in H^(k,(β_ι−ε,β_ι,p))_b(M) for every p.
+
+*The remainder.* Let ṽ_± ∈ H^(k+ℓ,(γ,β_ι−1,β_K−1))_b(X^±_(sc-b)), γ := β_scf, and split ṽ_± = w_1 + w_2 with w_2 :=
+χ_1(r̂/4) ṽ_±, supported in {r̂ ≤ 1}, away from scf, and w_1 supported in {r̂ ≥ 1/2}, away from zf. We treat the side
++; the function χw_i on (0, 1), extended by 0 to σ < 0, has the pair (0, χw_i) with zero Taylor polynomial.
+
+For w_1: for η ≥ 0, w_1 ∈ H^(k+ℓ,(γ−η,β_ι−1,β_ι−1−γ+η))_b (lowering scf; the zf-weight is free away from zf), so by
+[[lem:ii-g1-3-1]] (b) χw_1 ∈ ⋂_j H^(j+ℓ,a)_b((0, 1); H^(k−j,γ−η)_b(X)), a := β_ι − 1 − γ + η; the powers σ^j, |σ| ≤ 1,
+are harmless, so (0, χw_1) ∈ X^(j+ℓ,a) with values in H^(k−j,γ−η)_b(X). If β := a + 1 = β_ι − γ + η ∈ (0, ∞) ∖ ℕ and ℓ ≥
+ℓ_+(β), [[prop:ii-g1-2-8]] (2) and [[lem:ii-g1-3-1]] (a) give
+
+    ℱ⁻¹(χw_1) ∈ ⋂_j H^(j,β_ι−γ+η)_b(ℝ; H^(k−j,γ−η)_b(X)) = H^(k,(γ−η, β_ι, β_ι−γ+η))_b(M).
+
+Take η_0 := max(0, γ − β_ι) + ε′ and η_1 := max(0, β_K − β_ι + γ) + ε′, ε′ ∈ (0, ε] chosen so that neither β_ι − γ +
+η_i is an integer. With η_0, β > 0 and the ℐ-weight is min(γ, β_ι) − ε′; with η_1 ≥ η_0 the K-weight is ≥ β_K. The
+larger loss is ℓ_+(β_ι − γ + η_1) = ⌈(max(β_ι − γ, β_K) + ε′ − 1/2)_+⌉ ≤ ℓ ([Hin26c, (13.22)]). Combining the two
+memberships (same ι-weight) gives ℱ⁻¹(χw_1) ∈ H^(k,(min(γ,β_ι)−ε,β_ι,β_K))_b(M). ([Hin26c] applies [Hin26c, (13.22)]
+with η = max(η_0, η_1) and states the ℐ-weight obtained with η_0. One η gives the ℐ-weight γ − η and the K-weight β_ι −
+γ + η, and with η_1 the first may be smaller than min(γ, β_ι) − ε; so the two memberships must be combined.)
+
+For w_2: for η ≥ 0 with β_K − η ∈ (0, ∞) ∖ ℕ, w_2 ∈ H^(k+ℓ,(β_ι−β_K+η,β_ι−1,β_K−1−η))_b (the scf-weight is free away
+from scf), so as before ℱ⁻¹(χw_2) ∈ H^(k,(β_ι−β_K+η,β_ι,β_K−η))_b(M), with loss ℓ_+(β_K − η) ≤ ⌈(β_K − 1/2)_+⌉ ≤ ℓ.
+With η = 0 the K-weight is β_K; with η := β_K − ε the ℐ-weight is β_ι − ε. Combining gives
+H^(k,(β_ι−ε,β_ι,β_K))_b(M). The three pieces give (1).
+
+(2) w := (1 − χ)v_±, extended by 0, vanishes on (−1/2, 1/2). By [[lem:ii-g1-3-1]] (a),
+H^(k,(β_I,β_I+β′,β′))_b(M) ⊂ H^(k,(β_I,β_ι,β_K))_b(M), and by [[lem:ii-g1-2-2]] it suffices to show W :=
+σ^p (σ∂_σ)^q w ∈ H^(β′−1/2)(ℝ; H^(k−j,β_I)_b(X)) for p + q ≤ j ≤ k. Let m := ⌈(β′ − 1/2)_+⌉ and m′ := ⌈(3/2 − δ)_+⌉,
+so ℓ = m′ + m. The hypothesis says σ^a (σ∂_σ)^b v_± ∈ |σ|^(1−δ) L²(|dσ/σ|) = |σ|^(3/2−δ) L²(dσ), with values in
+H^(k+ℓ−a−b,β_I)_b(X), for a + b ≤ k + ℓ. For i ≤ m, ∂^i_σ W = σ^(−i) Σ_(i′≤i) a_(ii′) (σ∂_σ)^(i′) W on |σ| ≥ 1/2, and
+(σ∂_σ)^(i′) W is a combination of σ^p (σ∂_σ)^(q+i″) w, i″ ≤ i′; writing σ^p = σ^(−m′) σ^(p+m′), each lies in
+|σ|^(3/2−δ−m′) L² ⊂ L²(dσ) on |σ| ≥ 1/2, with values in H^(k+ℓ−p−m′−q−i″,β_I)_b(X) ⊂ H^(k−j,β_I)_b(X), as p + m′ + q +
+i″ ≤ j + m′ + m = j + ℓ. The derivatives of 1 − χ are smooth and compactly supported in 1/2 ≤ |σ| ≤ 1. So W ∈ H^m ⊂
+H^(β′−1/2) (if β′ ≤ 1/2, m = 0 and W ∈ L² ⊂ H^(β′−1/2)). ∎
+
+**Remark {#rem:ii-g1-3-6}** ([Hin26c, Remark 13.12].) The losses of b-regularity in [[prop:ii-g1-3-3]] and
+[[prop:ii-g1-3-5]] depend only on the weights, not on k. [[prop:ii-g1-3-5]] (2) is proved directly from
+[[lem:ii-g1-2-2]], with the loss ⌈(3/2 − δ)_+⌉ + ⌈(β′ − 1/2)_+⌉, which is not sharp. It differs from the loss
+⌈2ℓ′ + δ⌉ of [Hin26c, Proposition 13.11 (2)], whose ℓ′ is printed with an unbalanced bracket. The first step there
+trades ℓ′ orders of b+-regularity for decay, from the space with weight δ − 1, which means σ^j (σ∂_σ)^l v ∈
+|σ|^(1−δ) L²(|dσ/σ|), into the space of [Hin26c, (13.8)] with weight δ + ℓ′ − 1, which means |σ|^(δ+ℓ′−1)
+L²(|dσ/σ|). The trade gives |σ|^(1−δ−ℓ′) L² near ∞, which is contained in |σ|^(δ+ℓ′−1) L² there only if ℓ′ ≥ 1 − δ.
+For δ = −1/2, β_ι − β_I ≤ 1/2 and β_K ≤ 1/2 the printed ℓ′ is 1, less than 1 − δ = 3/2, and the step fails. The final
+loss of [Hin26c] is not shown to be insufficient; only its intermediate step is.
+
+**Remark {#rem:ii-g1-3-7}** (The exterior X̄.) [[sec:ii-g1-4]] and [[sec:ii-g1-5]] use X̄ := {|x| ≥ r_0} ∪ ∂X̄ of
+[[sec:i-a-1-1]], with spaces extendible at {|x| = r_0}. Every statement of this section holds with X replaced by X̄ and
+the b-spaces in x by their extendible versions (quotient norms of restrictions): apply it to ℰu and restrict, where ℰ is
+Seeley's extension in |x| across |x| = r_0 (the operator with infinitely many reflections written out in the proof of
+[[lem:ii-e-1-3]] (b), as in [[lem:ii-f1-2-5]]). ℰ acts in x alone, near |x| = r_0 where the weights are bounded above
+and below; it commutes with t_*, with ℱ in t_* and with σ∂_σ, and is bounded on the extendible b-spaces of every order
+at once, so the norms of ⋂_j H^(j,β)_b(ℝ; H̄^(k−j,γ)_b(X̄)) and of the restrictions of H^(k,(γ,β+γ,β))_b(M) are
+equivalent, as in [[lem:ii-g1-3-1]].

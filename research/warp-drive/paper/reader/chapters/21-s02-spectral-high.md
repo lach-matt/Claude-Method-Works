@@ -26,8 +26,8 @@ bound orders of Sobolev spaces are written M.
 
 The space X̄ ⊂ ℝ̄⁴, the radii r_0, δ_0, r_2, r_h, the bundle E = X̃ × ℂ^(N_E), fibre inner products h = ⟨H·,·⟩ and
 h-adjoints A^(*h) = H⁻¹A*H, and the family P̂(σ) = P̂(0) + σT + σ²P_2 are those of [[sec:i-a-1]], and (H1)–(H5) of
-[[sec:i-a-1-3]] are assumed. The radii enter only through 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h; no result below depends on
-their values. We write ρ = |x|⁻¹ near ∂X, scattering covectors as ξ dr + r η, and use [[lem:i-a-4-4]]: at the boundary
+[[sec:i-a-1-3]] are assumed. The radii enter only through the ordering 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h, the domains
+of the hypotheses and the slabs of [[sec:i-b-7]]; constants depend on them, but no particular value of them is used. We write ρ = |x|⁻¹ near ∂X, scattering covectors as ξ dr + r η, and use [[lem:i-a-4-4]]: at the boundary
 face T has principal symbol 2ξ Id, and Im_h T = −ρ(S + S^(*h)) + T_2 with T_2 ∈ Ψ^(1,−2).
 
 #### The Lorentzian structure {#sec:i-b-1-2}
@@ -1293,7 +1293,7 @@ Compute [[eq:i-b-6-2]] with a = ǎ². First, with χ_0χ_0′ ≤ 0,
 
 On supp χ_0′(M_1(φ_u^♮)²) ∩ supp ψ_Σ we have (φ_u^♮)² ≥ M_1⁻¹ and G_(z_0)² ≤ 2M_Σ⁻¹, so
 |j_u^♮G_(z_0)| ≤ ¼ν_min|φ_u^♮| once M_Σ ≥ CM_1; then Vψ_u² = e_u² ≥ 0 with
-e_u := 2M_1^(1/2) θ_u |φ_u^♮| (ν_u^♮ − j_u^♮G_(z_0)/φ_u^♮)^(1/2), θ_u := √(−χ_0χ_0′)(M_1(φ_u^♮)²), smooth, and
+e_u := 2M_1^(1/2) χ_u |φ_u^♮| (ν_u^♮ − j_u^♮G_(z_0)/φ_u^♮)^(1/2), χ_u := √(−χ_0χ_0′)(M_1(φ_u^♮)²), smooth, and
 likewise Vψ_s² = −f_s². The O((Im z)²) term of [[eq:i-b-6-2]] changes these by at most
 C(Im z)²M_1|φ| · |χ_0χ_0′|, which keeps the signs and smoothness for Im z ≤ ν′, ν′ small depending on M_1. The
 derivative of ψ_Σ is supported where G_(z_0)² ≥ M_Σ⁻¹, where G_z is elliptic for ν′ small; it gives a term J𝐏′ as in
@@ -1713,7 +1713,7 @@ concludes. (ii) is the same with the ends exchanged. ∎
     ‖χu‖_(H̄_h^s) ≤ C(h⁻¹‖P_(h,z) u‖_(H̄_h^(s−1)({r_0<r<b″})) + ‖χ_1 u‖_(H_h^s)),     u ∈ H̄_h^s,           {#eq:i-b-7-2}
 
     ‖v|_(Ω_(r_0,b″))‖_(H_h^(1−s)(Ω_(r_0,b″))^(−,•))
-        ≤ C h⁻¹ ‖(P_(h,z)^(*h) v)|_(Ω_(r_0,b″))‖_(H_h^(−s)(Ω_(r_0,b″))^(−,•)),     v ∈ Ḣ_h^(1−s).            {#eq:i-b-7-3}
+        ≤ C h⁻¹ ‖(P_(h,z)^(*h) v)|_(Ω_(r_0,b″))‖_(H_h^(−s)(Ω_(r_0,b″))^(−,•)),     v ∈ Ḣ_h^(1−s).   {#eq:i-b-7-3}
 
 *Proof.* P_(h,z)(χu) = χP_(h,z)u + [P_(h,z), χ]u and [P_(h,z), χ] = h · Diff¹_h is supported in supp dχ, so
 h⁻¹‖[P_(h,z), χ]u‖_(H_h^(s−1)) ≤ C‖χ_1 u‖_(H_h^s). Apply [[prop:i-b-7-2]] (i) on Ω_(r_0,b″); [[eq:i-b-7-3]] is
