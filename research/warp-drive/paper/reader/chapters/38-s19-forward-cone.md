@@ -269,13 +269,13 @@ x_I⁻³δ is a sum of expansion terms ρ_I^(z−3/2)(log ρ_I)^j a_(z,j), with 
 ρ_I^(a_I−3/2)H^k_b ⊂ H^k_b (a_I > 3/2); b-derivatives keep this form. Multiplied by x_I^(1−2ℓ_I) = ρ_I^(½−ℓ_I), an
 expansion term becomes ρ_I^(z−1−ℓ_I)(log ρ_I)^j a_(z,j), with σ := Re(z − 1 − ℓ_I) ≥ ½ − ℓ_I > 0; such a term and its
 b-derivatives, which are of the same form, lie in L²(μ_b) near 𝓘⁺, as ∫_0^1 ρ_I^(2σ)|log ρ_I|^(2j) dρ_I/ρ_I < ∞
-(μ_b is a b-density at 𝓘⁺). The other factors of c are bounded with
-their b-derivatives or are further factors of the same kind, so by [[lem:s19-products]] (a) and (c),
-x_I^(1−2ℓ_I)c′ ∈ H^(k−2)_b near 𝓘⁺, with norm at most C, depending on ℓ_I, times the norms of the factors. Here
-ℓ_I < ½ is needed: the coefficient a_(3/2,0) of the radiation term of π̸₀h need not vanish on 𝓘⁺, and it enters c
-without further decay (for instance through the second derivatives of π̸₀h along ∂_1 in the curvature term); at
-ℓ_I = ½ the corresponding term of x_I^(1−2ℓ_I)c′ is a function of (t_*, ω) that is not zero in general, and such a
-function is not in L²(μ_b) near 𝓘⁺, as μ_b is a b-density there. At ι⁺ the factor has order > 1 ≥ ℓ_+, and at K⁺
+(μ_b is a b-density at 𝓘⁺). The other factors of c lie in C^∞_b or in H^(k−2)_b ∩ L^∞ (further factors of δ and
+their b-derivatives, and components of g⁻¹ − g_b⁻¹, by [[lem:s19-inverse]] as applied after it), so by
+[[lem:s19-products]] (a) and (c), x_I^(1−2ℓ_I)c′ ∈ H^(k−2)_b near 𝓘⁺, with norm at most C, depending on ℓ_I, times
+the norms of the factors. Here ℓ_I < ½ is needed: the coefficient a_(3/2,0) of the radiation term of π̸₀h need not
+vanish on 𝓘⁺, and it enters c without further decay (for instance through the second derivatives of π̸₀h along ∂_1
+in the curvature term); at ℓ_I = ½ the corresponding term of x_I^(1−2ℓ_I)c′ is a function of (t_*, ω) that is not
+zero in general, and such a function is not in L²(μ_b) near 𝓘⁺. At ι⁺ the factor has order > 1 ≥ ℓ_+, and at K⁺
 order a_K ≥ ℓ_K. The b-regularity of the coefficients is k − 2, and the e3b-vector fields are b-vector fields on
 M_(1/2). The norm bound is linear in the factors δ, whose norms add up to at most C(|b − b₀| + |S|) + ‖h‖; the other
 factors are bounded in terms of an upper bound for ‖h‖_(𝒳^k). ∎

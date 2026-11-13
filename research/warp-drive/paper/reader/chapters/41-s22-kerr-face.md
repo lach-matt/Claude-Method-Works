@@ -928,8 +928,9 @@ lies in ℬ̄_*. R_j lies in 𝒴⁰(α) ⊂ 𝒴(α′), the class of [[sec:iii
 in [[eq:iii-i8-4-2]] at α′, so the parameter 0 has, for (0, p⃗_b) and the forcing R_j, the property of the statement at
 α′; by uniqueness at α′, p⃗′_(0,p⃗_b,α′)(R_j) = 0, and u_j − u is the solution of [[eq:iii-i8-4-1]] at α′ for the
 forcing R_j. By (i) at α′ the map from the forcing to this solution is linear and continuous from 𝒴(α′) into the space
-of [[eq:iii-i8-4-2]] at α′, with bounds uniform at the base point (0, p⃗_b); so u_j − u → 0 in that space. As w < α′ − 2 and β′_+ < min(3/2, min Re ℰ_+), the seminorm ‖·‖_(w) is bounded by a
-seminorm of that space, and ‖u_j − u‖_(w) → 0. Hence S^(0,p⃗_b)_ν(R_j) → 0. ∎
+of [[eq:iii-i8-4-2]] at α′, with bounds uniform at the base point (0, p⃗_b); so u_j − u → 0 in that space. As
+w < α′ − 2 and β′_+ < min(3/2, min Re ℰ_+), the seminorm ‖·‖_(w) is bounded by a seminorm of that space, and
+‖u_j − u‖_(w) → 0. Hence S^(0,p⃗_b)_ν(R_j) → 0. ∎
 
 ### Elimination {#sec:iii-i11-4}
 

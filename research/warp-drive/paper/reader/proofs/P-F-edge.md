@@ -1,12 +1,12 @@
 ### The hypotheses for the envelope of the constants {#sec:edge-envelope}
 
 [[thm:very-edge]] and [[prop:l-26]] (the crossover windows) place a list of hypotheses on the envelope near its left
-edge v_s := inf supp env. This section proves every one of them, for every K ≥ 6, for the envelope of the explicit
-constants ([[ch:explicit-constants]]),
+edge v_s := inf supp env. This section proves every one of them, for every K ≥ 6, for the envelope of the numerical
+point ([[eq:envelope]], [[lem:envelope-constant]]),
 
     env(v) = c_e cos¹²(πξ/2) exp(−ξ²/(1 − ξ²)),   ξ := (2v − 4)/3,   for 1/2 < v < 7/2,              {#eq:edge-envelope}
 
-env = 0 elsewhere, with c_e > 0 the constant fixed there (its value is not used below) and v_s = 1/2, and for the model
+env = 0 elsewhere, with c_e := c of [[eq:envelope]] (its value is not used below) and v_s = 1/2, and for the model
 edge env(v) = exp(−1/(v − v_s)) for v > v_s. We write x := v − v_s and κ := (log env)′ (a prime is d/dv = d/dx), and
 where env^(k) > 0, κ_k := (log env^(k))′ = env^(k+1)/env^(k), so κ_0 = κ. With α ∈ (0, 1), positive constants c_R,
 c_j, c_t, c_* and an interval (v_s, v_s + x0], the hypotheses are:

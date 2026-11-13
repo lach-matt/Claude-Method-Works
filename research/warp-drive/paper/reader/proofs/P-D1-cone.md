@@ -67,6 +67,12 @@ r_s = 10.2475603901…, r_e = 11.7350863591…. The data on the cone are W = (1/
 where env(v) = sin⁴(π(v − 1/2)/3) for 1/2 < v < 7/2 and env(v) = 0 otherwise. The function env is C³, so φ is C³ in
 r, and φ = φ′ = 0 for r ∉ (r_s, r_e): there the data are those of Tangherlini. R is the unknown.
 
+This envelope, the one of the two seeds of [[ch:ten-l5]], is C³ and not C⁴ at v = 1/2 and v = 7/2, so it is not an
+envelope of [[thm:main]], and nothing in this section uses [[thm:main]]. The constraint on a generator needs only
+φ ∈ C¹ with φ = φ′ = 0 outside (r_s, r_e). [[lem:cone-ellipse]] uses that on [r_s, r_e] env is the restriction of
+an entire function; the smooth envelope of [[lem:envelope-constant]] is not, since it has essential singularities at
+v = 1/2 and v = 7/2.
+
 **Lemma {#lem:cone-generator}** (The constraint on a generator.) Let A := (φ cos θ)′ and B := (φ sin θ)′, the prime
 denoting d/dr, and
 
