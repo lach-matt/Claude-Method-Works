@@ -1196,3 +1196,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R2-84 CONFIRMED 0M 0m 1n (reviews/R2-84.md); nit applied. Chapter 84 CONFIRMED (λ_L ≤ 10^(−430) in place of the
   source's 2.71·10⁻¹²). X1 for chapter 85: lines 26 and 1285-1286 still describe chapter 84's old definitions; the exact
   text is in R2-84 (and F-84's report has two sentences for the same lines): to chapter 85's fix round after R-85.
+- R-85 NOT CONFIRMED 3M 12m 5n (reviews/R-85.md). The writer's decisions are upheld (L.19, L.20, R4.2 (b) and the
+  exp(−a/x^q) claim rightly dropped: no chapter uses them). Its marker judgements are sent to P-K85. F-85 follows P-K85:
+  R-85's findings, P-K85's merge, R2-84's X1 (lines 26, 1285-1286) and F-84's two sentences, the env_C name, five "="
+  line starts.

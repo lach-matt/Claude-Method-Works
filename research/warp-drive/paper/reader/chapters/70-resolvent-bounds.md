@@ -2557,9 +2557,10 @@ r_h these are, for l ≥ 2,
 
     2 − 2x,   1 − x,   −(1 − e_C)x,   0,   0,   −1,   −2,
 
-at l = 1 the same without one of the two zeros, and at l = 0 the values 2 − 2x, −(1 − e_C)x, 0 and −2. If instead
-c_Υ = ζr⁻¹dt with ζ(r_h) = ζ_h near r_h, the values 0, −1 and −2 are replaced by −ζ_hγ_Υ(1 − e_Υ), −1 − ζ_hγ_Υ and
-−2 − 2ζ_hγ_Υ, the others being unchanged. None of these depends on l.
+the two zeros belonging to dv dr and to the trace-free angular tensors; at l = 1 the same without the second zero, and
+at l = 0 the values 2 − 2x, −(1 − e_C)x, 0 (on dv dr) and −2. If instead c_Υ = ζr⁻¹dt with ζ(r_h) = ζ_h near r_h, the
+value 0 on dv dr and the values −1 and −2 are replaced by −ζ_hγ_Υ(1 − e_Υ), −1 − ζ_hγ_Υ and −2 − 2ζ_hγ_Υ, the others,
+the zero on the trace-free angular tensors included, being unchanged. None of these depends on l.
 
 *Proof.* Work in the ingoing chart (v, r), in which stationary fields are those independent of v, and use the frame (dv,
 dr, r dω), which differs from (dt, dr, r dω) by the constant change dt = dv − dr; this changes neither the order of the
@@ -2570,21 +2571,44 @@ A_0(r)U on the vector U of radial coefficients, with A_1, A_0 smooth across r_h;
     (r − r_h)Y′ = 𝔐(r)Y,     𝔐(r_h) = ⎛ 0    1                    ⎞ ,
                                        ⎝ 0    1 + A_1(r_h)/f′(r_h) ⎠
 
-as (r − r_h)A_0/f is smooth; so the exponents are 0 (n_l times) and the eigenvalues of 1 + A_1(r_h)/f′(r_h). We compute
-A_1(r_h), the coefficient of ∂_r at r_h of the stationary operator 2L. In □ = ∇*∇ the first-order terms in ∂_r
-are −(1/√|g|)∂_μ(√|g|g^(μr))∂_r = −r⁻³(r³f)′∂_r, which is −f′(r_h)∂_r at r_h, and −2g^(μr)𝔄_μ∂_r = −2𝔄_v∂_r at r_h,
-where ∇_(∂_v) acts on the frame by the matrix 𝔄_v; the proof of [[lem:iii-f2-1-1]] gives 𝔄_v = −(f′(r_h)/2)K_0. The
-first-order operators 2E^CδG and 2δ*E^ΥG have, at r_h, ∂_r-coefficients equal to their principal symbols at ζ = ξdr
-divided by iξ, which are f′(r_h)K_C and f′(r_h)K_Υ in the notation of that proof (where E^Υ is its horizon part); all
-other terms are of order zero in r on stationary fields of one degree. So the coefficient of ∂_r of 2L at r_h is
-−f′(r_h)(1 − K), K = K_0 + K_C + K_Υ, and 1 + A_1(r_h)/f′(r_h) = K on the block.
+as (r − r_h)A_0/f is smooth; so the exponents are 0 (n_l times) and the eigenvalues of 1 + A_1(r_h)/f′(r_h).
 
-K is a fibre endomorphism commuting with the rotations that fix the point. It therefore maps the span of dv², dv dr,
-dr², T := Σ_a e_a² (four copies of the trivial representation of the stabiliser) into itself, the span of dv ⊗_s e and
-dr ⊗_s e with e angular into itself, and acts as a scalar on the trace-free angular tensors; on the block it acts on
-the coefficients of S, of dS and of δ̸*₀dS by these three restrictions. The proof of [[lem:iii-f2-1-1]] computes them
-at y = 0 (c_(Υ,H) has no dv-component): on the first, eigenvalues 2 − 2x (dv²), 0 (dv dr), −(1 − e_C)x (T) and −2 (dr²);
-on the second, 1 − x and −1; on the third, 0. This is the list. If c_Υ = ζr⁻¹dt near r_h, then at r_h,
+*The coefficient of ∂_r at r_h.* At r_h the Christoffel symbols with a lower index v are Γ^v_vv = f′/2 and
+Γ^r_vr = −f′/2, all others vanishing ([[eq:s13-chris]] and the formula after it; Γ^r_vv = ff′/2 vanishes at r_h). So at
+r_h, ∇_(∂_v)dv = −(f′/2)dv, ∇_(∂_v)dr = (f′/2)dr and ∇_(∂_v)e = 0 for e = r ê, ê an angular covector of unit length
+for γ (∂_vr = 0): ∇_(∂_v) acts on the frame by 𝔄_v = −(f′(r_h)/2)K_0, where K_0 is 1 on dv, −1 on dr and 0 on the
+angular covectors, extended to symmetric 2-tensors by the Leibniz rule. In □ = ∇*∇ = −g^(μν)∇_μ∇_ν the first-order
+terms in ∂_r are −(1/√|g|)∂_μ(√|g|g^(μr))∂_r = −r⁻³(r³f)′∂_r, which is −f′(r_h)∂_r at r_h, and −2g^(μr)𝔄_μ∂_r =
+−2𝔄_v∂_r at r_h; together −f′(r_h)(1 − K_0)∂_r. The first-order operators 2E^CδG and 2δ*E^ΥG have, at r_h,
+∂_r-coefficients equal to their principal symbols at ζ = ξdr divided by iξ. With σ_1(δ)(ζ)h = −iι_(g⁻¹ζ)h,
+σ_1(δ*)(ζ)w = iζ ⊗_s w, g⁻¹dr = ∂_v at r_h, f′(r_h) = 2/r_h and E^Υ equal to its horizon part near r_h, these
+coefficients are f′(r_h)K_C and f′(r_h)K_Υ, where by [[eq:iii-b-6-2]] and [[eq:iii-b-6-5]]
+
+    K_Ch := −r_hγ_C(2c_C ⊗_s ι_(∂_v)Gh − (2/3)(1 − e_C)g⟨c_C, ι_(∂_v)Gh⟩),     K_Υh := 2r_hγ_(Υ,H) dr ⊗_s ι_(g⁻¹c_(Υ,H))h,
+
+⟨·, ·⟩ the pairing by g⁻¹. All other terms are of order zero in r on stationary fields of one degree. So the
+coefficient of ∂_r of 2L at r_h is −f′(r_h)(1 − K) with K := K_0 + K_C + K_Υ, and 1 + A_1(r_h)/f′(r_h) = K on the
+block. This K is the endomorphism of [[lem:iii-f2-1-1]]: on half-densities by |dg| = 𝔪|dv dr dy|, an operator
+−g^(μν)∂_μ∂_ν + b^μ∂_μ + c has subprincipal symbol iξ(b^r + 𝔪⁻¹∂_μ(𝔪g^(μr))) at ζ = ξdr, and
+𝔪⁻¹∂_μ(𝔪g^(μr)) = r⁻³(r³f)′ = f′(r_h) at r_h, so the subprincipal symbol of 2L there is iξf′(r_h)K.
+
+*The values.* Give dv, dr and the angular covectors the weights 1, −1 and 0, and a symmetric product the sum of the
+weights of its factors. At r_h, g = 2dv dr + T with T := Σ_a e_a² (e_1, e_2, e_3 an orthonormal angular coframe),
+g⁻¹dv = ∂_r and g⁻¹dr = ∂_v; ι_(∂_v) removes a factor dv and ι_(∂_r) a factor dr, and G and tr preserve the weight. So
+K_0 multiplies a monomial by its weight; with c_C = a_vdv + a_rdr, the a_v-part of K_C preserves the weight and its
+a_r-part lowers it by 2; and as c_(Υ,H) = −½χdr has no dv-component, g⁻¹c_(Υ,H) = −½∂_v there and K_Υ lowers the
+weight by 2. So K is block triangular for the grading, and its eigenvalues are those of its weight-preserving part D_0
+on the weight spaces. On dv² (tr dv² = 0, ι_(∂_v)dv² = dv, ⟨dv, dv⟩ = 0), D_0 = 2 − 2x. On dv ⊗_s e_a (trace-free,
+ι_(∂_v) = ½e_a, ⟨dv, e_a⟩ = 0), D_0 = 1 − x. On the weight-zero span of dv dr, T and the trace-free angular tensors,
+K_0 = 0; G(dv dr) = −½T and ι_(∂_v)T = 0, so D_0(dv dr) = 0; GT = −½T − 3dv dr, ι_(∂_v)GT = −(3/2)dr and
+⟨dv, dr⟩ = 1, so D_0T = −x(−3dv dr + (1 − e_C)g) = x(1 + 2e_C)dv dr − x(1 − e_C)T; and D_0 vanishes on the trace-free
+angular tensors. On dr ⊗_s e_a and on dr², ι_(∂_v) gives 0, so D_0 = −1 and −2.
+
+K commutes with the rotations that fix the point. So it maps the span of dv², dv dr, dr², T (four copies of the trivial
+representation of the stabiliser) into itself, the span of dv ⊗_s e and dr ⊗_s e with e angular into itself, and acts
+as a scalar on the trace-free angular tensors; on the block it acts on the coefficients of S, of dS and of δ̸*₀dS by
+these three restrictions, which by the above are triangular with diagonal entries 2 − 2x (dv²), 0 (dv dr),
+−(1 − e_C)x (T) and −2 (dr²); 1 − x and −1; and 0. This is the list. If c_Υ = ζr⁻¹dt near r_h, then at r_h,
 c_Υ = ζ_h(dv − dr) and g⁻¹c_Υ = ζ_h(∂_r − ∂_v), and the principal symbol of 2δ*E^Υ_∞G at ξdr adds to K the term
 K_∞h = −ζ_hγ_Υ r_h dr ⊗_s (2ι_(∂_r−∂_v)h − e_Υ(dv − dr) tr h) ([[eq:iii-b-6-5]]). For the grading of the proof of
 [[lem:iii-f2-1-1]] (weights 1, −1, 0 for dv, dr and the angular covectors), its part with ι_(∂_r) and its part with

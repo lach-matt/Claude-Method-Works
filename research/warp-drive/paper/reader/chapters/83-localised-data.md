@@ -731,19 +731,20 @@ so η = O(sc²); and ∂_ϑη = sc Kt/E = O(sc), Kt being bounded. For R ≥ R2,
 there, and η = 0 on the axis; so η is compactly supported in R.
 
 *The quadratic form.* Since δγ = 0 and ℳ is linear in K at fixed γ, D²ℳ[δ, δ] = 0 and D²ℋ[δ, δ] = 2((tr δK)² −
-|δK|²). From [[eq:loc-dk]] and κ = cKt, (tr δK)² − |δK|² = (2β − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)², and dvol =
-√G R³ sc dR dϑ dφ1 dφ2. So Q_N(δ) = (2π)² ∫∫ 𝔮 dϑ dR with 𝔮 := ν sc [(2β − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)²],
+|δK|²). From [[eq:loc-dk]] and δκ = cKt, (tr δK)² − |δK|² = (2β_K − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)², and
+dvol = √G R³ sc dR dϑ dφ1 dφ2. So Q_N(δ) = (2π)² ∫∫ 𝔮 dϑ dR with
+𝔮 := ν sc [(2β_K − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)²],
 and Q_(N_s) = Q by [[eq:loc-charge]].
 
 *The identity.* Substitute Kt and p̂ from [[eq:charge-stream]] and s2 from [[eq:loc-s2]] into 𝔮 and into the integrand
 𝔡 of [[eq:charge-identity]] (with its sign). Then, pointwise,
 
     𝔮 = 𝔡 + ∂_ϑ 𝔄 + ∂_R 𝔅,
-    𝔄 := 2νβE² η ∂_ϑη/sc − 2νE η s1 − νE² (cos 2ϑ/sc²) η²,
+    𝔄 := 2νβ_KE² η ∂_ϑη/sc − 2νE η s1 − νE² (cos 2ϑ/sc²) η²,
     𝔅 := −(P/2) η²/sc − 2νE² (R²/G) η ∂_Rη/sc.                                                      {#eq:charge-flux}
 
 This is an identity between polynomials in η, s1 and their derivatives, with coefficients in R and ϑ, and it is
-checked by expanding both sides, using E′ = aE, a = −3(1 − β)/R and the definitions of P and Γ, with ν, G and β
+checked by expanding both sides, using E′ = 𝔞E, 𝔞 = −3(1 − β_K)/R and the definitions of P and Γ, with ν, G and β_K
 arbitrary functions of R. It is found by writing s2 = Z − s1/2, integrating by parts the cross terms of η with s2 (in
 R) and with s1 and ∂_ϑη (in ϑ), and completing the squares in Z and in s1; 𝔄 and 𝔅 record the integrations by parts.
 
@@ -756,12 +757,14 @@ boundedness of s1, each term of 𝔄 is O(sc²), so 𝔄 → 0; the integrand of
 momentum seed δ on U; precisely, Q(δ) ≤ −(2π)²∫∫ Γη²/sin 2ϑ if η ≠ 0, and Q(δ) = −(2π)²∫∫ ν sc (s1² + s2² + (s1 +
 s2)²) < 0 if η = 0.
 
-*Proof.* ν = N_s√G R³ > 0. If η ≠ 0 the first two terms of [[eq:charge-identity]] are nonnegative. If η = 0, then Kt
-= p̂ = κ = 0, and 𝔮 = −ν sc (s1² + s2² + (s1 + s2)²); this vanishes identically only if s1 = s2 = 0, that is δ = 0. ∎
+*Proof.* ν = N_s√G R³ > 0. If η ≠ 0 the first two terms of [[eq:charge-identity]] are nonnegative. If η = 0, then
+Kt = p̂ = δκ = 0, and 𝔮 = −ν sc (s1² + s2² + (s1 + s2)²); this vanishes identically only if s1 = s2 = 0, that is
+δ = 0. ∎
 
-The positivity of Γ does not depend on the normalisation of E, since Γ scales with E². On a vacuum region of the
-background, N_s√G = 1 ([[eq:racz-kid]]), so ν = R³, and [[lem:margins-gamma-form]] gives Γ/E² in closed form; where
-ψ = 0 it gives Γ = 4μ/R for the normalisation E = √G/R.
+The positivity of Γ does not depend on the normalisation of E, since Γ scales with E². On every round slice of the
+chart, N_s√G = 1 ([[eq:racz-kid]]), so ν = R³ for N = N_s; on a vacuum region of the background
+[[lem:margins-gamma-form]] gives Γ/E² in closed form, and where ψ = 0 it gives Γ = 4μ/R for the normalisation
+E = √G/R.
 
 **Corollary {#cor:loc-charge-seed}** (Momentum seeds on Σ_τ0.) Let U be a band of Σ_τ0 on which the background is
 vacuum, contained in the seed region {0.70 ≤ R ≤ 1.861} or in {R ≥ R_*}. Then Γ > 0 on U, so Q(δ) < 0 for every
@@ -803,13 +806,31 @@ satisfies the dominant energy condition. Since ℓ_out^♭ = −(q²f/2) dv̂ + 
 
     T(ξ, n) = ϖ qf (2 − qf)/(4√(2/q − f)),
 
-which has the sign of f. Fix a nonzero dust density ϖ_1 ≥ 0 supported in U ∩ {f < 0}, with stress T_1; then ∫T_1(ξ, n)
-dvol < 0. Put s* := Q(δ)/(2∫T_1(ξ, n) dvol) > 0. Solve, as in [[prop:loc-projection]] (b), for data bg + εδ + c whose
-constraints equal ε²s times those of the dust of density ϖ_1 (the matter term computed with the unit normal of the
-unknown data, which depends smoothly on them and is O(ε²)) up to the static Killing initial data, for s ∈ [0, 2s*]
-[[pending:issue-1]]. Pairing as in (a), the coefficient of the Killing data has the sign of m(ε, s) = ε²(Q(δ) − 2s∫T_1(ξ,
-n)) + O(ε³), uniformly in s and continuous in s. Then m(ε, 0) < 0 < m(ε, 2s*) for ε small, and m(ε, s(ε)) = 0 for some
-s(ε): exact Einstein–null-dust data, equal to the background's outside U, with dust density ε²s(ε)ϖ_1 ≥ 0. ∎
+which has the sign of f. On Σ_τ0, where dv̂ = dR, ℓ_out^♭ restricts to (q − q²f/2) dR = (G/2) dR. With N(2 − qf) = √G
+and |dR|_γ = G^(−1/2), the data of T on Σ_τ0 are ρ_T := T(n, n) = ϖG/4 and J_T := T(n, ·) = −ρ_T dR/|dR|_γ, and
+T(ξ, n) = N_sρ_T + Y_s·J_T. Fix a nonzero invariant dust density ϖ_1 ≥ 0, smooth with compact support in U ∩ {f < 0},
+with stress T_1 and data (ρ_1, J_1) := (ρ_(T_1), J_(T_1)); then ∫T_1(ξ, n) dvol < 0. Put s* := Q(δ)/(2∫T_1(ξ, n) dvol)
+> 0. Let Ω_c := supp δ ∪ supp ϖ_1 and U′ ⋐ U a band containing Ω_c; its closure lies in the interior of the vacuum
+region, as in the proof of [[cor:loc-charge-seed]]. By [[lem:loc-continuity]] on U′, with δ_s := δ for s ∈ [0, 2s*],
+this ρ_1 and k = 3, there are, for ε small, invariant data D_(ε,s) = bg + εδ + c_(ε,s) of class C², with
+‖c_(ε,s)‖_(C²) ≤ Cε², equal to the background's outside a compact subset of U′ independent of ε and s, and a
+continuous function m(ε, ·) on [0, 2s*] with
+
+    m(ε, s) 𝔫(ε, s) = ε² (Q(δ) − 2s ∫T_1(ξ, n) dvol) + O(ε³),      𝔫(ε, s) > 0,
+
+uniformly in s, such that, with γ_D the metric of D_(ε,s), [[eq:loc-continuity-res]] holds on U′; as δγ = 0, it reads
+
+    ℋ(D_(ε,s)) = 2ε²s |J_1|_(γ_D) + m(ε, s) 𝔴 N_s,      ℳ(D_(ε,s)) = ε²s J_1 + ½ m(ε, s) 𝔴 γ(Y_s, ·).
+
+Since Q(δ) < 0 and Q(δ) − 4s*∫T_1(ξ, n) dvol = −Q(δ) > 0, we have m(ε, 0) < 0 < m(ε, 2s*) for ε small, and by the
+intermediate value theorem m(ε, s(ε)) = 0 for some s(ε) ∈ (0, 2s*). The data D := D_(ε,s(ε)) then satisfy, on U,
+ℋ(D) = 2ρ and ℳ(D) = J, with ρ := ε²s(ε)|J_1|_(γ_D) ≥ 0 and J := ε²s(ε)J_1 = −ρ dR/|dR|_(γ_D). These are the data of
+outgoing radial null dust. Indeed, for a null dust T = ϖ ℓ^♭ ⊗ ℓ^♭ and the future unit normal n̂ of a slice, writing
+ℓ = a_ℓ(n̂ + ν) with a_ℓ > 0 and ν a unit vector tangent to the slice gives (T(n̂, n̂), T(n̂, ·)) = (ϖa_ℓ², −ϖa_ℓ²ν^♭);
+so the data (ρ, −ρν^♭) with ρ ≥ 0 are those of null dust moving along ν, here with ν^♭ = dR/|dR|_(γ_D), the outward
+unit conormal of the spheres R = const for γ_D. So D are exact Einstein–null-dust data, equal to the background's
+outside U, with outgoing radial null dust of energy density ε²s(ε)|J_1|_(γ_D) = ε²s(ε)ρ_1(1 + O(ε)) ≥ 0, supported in
+the support of ϖ_1. ∎
 
 Where f > 0 the vector ξ is future timelike and its charge is an energy, which the dominant energy condition makes
 nonnegative; where f < 0 it is spacelike, its charge is a momentum, and outgoing dust carries it with the sign

@@ -1218,9 +1218,11 @@ g^(n)_λ on Ω, λ ≤ λ0(n), invariant under T² and both reflections (by uniq
     |g^(n)_λ − g^(n)| ≤ C(n) λ,      ∂g^(n)_λ − ∂g^(n) = Σ_A ν_A du_A ⊗ [∂_(θ_A) W_A] + O(C(n) λ),
 
 W_A the wave of family A at its phase θ_A = ν_A u_A/λ, of zero mean in θ_A, with |ν_A ∂_(θ_A) W_A| ≤ C(F_A + F_A²),
-C independent of n and A (the torus part is linear in the amplitude F_A/ν_A, and the gauge part ν_A χ_A k_A ⊗ k_A
-has ν_A ∂_(θ_A) χ_A ν_A² of size (F_A/ν_A)² ν_A² = F_A², the transport of c in [[def:vlasov-wave]] being linear with
-source ξ_A²/ν_A).
+C independent of n and A. Indeed the torus part of ν_A ∂_(θ_A) W_A is −2 F_A sin θ_A T0, and its gauge part is
+ν_A³ c_A cos 2θ_A du_A ⊗ du_A, where, by [[def:vlasov-wave]], ℓ_A(ν_A³ c_A) + ½ (□5 u_A) ν_A³ c_A = F_A² with zero data;
+since F_A² is transported along the same generator, F_A²(s′) = F_A²(s) exp(∫_(s′)^s □5 u_A), the solution is at most
+C F_A² at each point, C depending only on bounds for □5 u_A and for the length of the generators in Ω, which are uniform
+in n and A.
 
 *The diagonal.* Fix a sequence (η_j) of smooth tensor fields with compact support in the interior of Ω, dense in L²(Ω).
 For each odd n ≥ n0 choose λ_n ≤ λ0(n) such that:
@@ -1249,19 +1251,6 @@ smooth and invariant under T² and both reflections. ∎
 The high-frequency step is not uniform in n: λ0(n), M(n) and C(n) depend on n, as the constants c^n n^n of
 [HL25, p. 5, footnote 5] do. Only the background step is uniform ([[prop:vlasov-uniform-n]]), which is what the diagonal
 needs. No smallness threshold enters: the theorem is a large-data statement, its smallness at each n being λ alone.
-
-**Corollary {#cor:vlasov-two-dust}** (The two-dust background with a restricted Vlasov field.) Let g0 be the two-dust
-background of [[thm:two-dusts]] on its domain, with lateral boundaries adapted where they meet an axis as in
-[[pending:class-adapted-domain]]. Let (F, u) be a restricted field in label form on Σ_τ0 whose labels satisfy (V1), (V2)
-and the angle clause of (V2′) for g0, with margins, on a compact set S ⊂ (Σ_τ0 ∩ Ω) × S¹ with supp q ⊂ int S. Then for
-amplitudes ε small the class Einstein–restricted massless Vlasov solution with the two radial dusts of g0 and the field
-of amplitude ε F, with data corrected by the radial solve, exists on the domain and is a weak limit of class vacuum
-metrics in the sense of [[thm:vlasov]].
-
-*Proof.* The solution exists on the domain for ε small by [[prop:vlasov-cauchy]] around g0, the radial pair being
-governed by [[thm:class-stability]], and it is C²-close to g0 with C¹-close eikonals. By [[lem:vlasov-open]] it satisfies
-(V1), (V2) and (V2′); (Ω) and (V3) hold for g0 with margins, by the domain and slice lemmas of the proof of
-[[thm:two-dusts]], and they are open. [[thm:vlasov]] applies. ∎
 
 ### Openness, stability and an explicit family {#sec:vlasov-open}
 
