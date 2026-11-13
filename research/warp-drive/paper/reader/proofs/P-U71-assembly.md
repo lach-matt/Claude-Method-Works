@@ -97,8 +97,8 @@ The same bound holds at every h ∈ 𝖧, with the same (γ_Υ, e_Υ).
 [[lem:iii-i8-3-2]] takes ε < ½ε_g, so ε < δ̂. The loss ε′ of [[lem:iii-i8-3-2]] satisfies ε′ ≤ ε: Steps 4–5 of its
 proof give ũ the K⁺-weight α − 2 − ε′, while its conclusion at the output loss ε, at which the tame accounting takes it
 ([[sec:iii-j2-1]]), is the K⁺-weight α − 2 − ε, so a run of the proof that gives it has ε′ ≤ ε. So ε′ < δ̂. Each
-round raises the tf-weight by ε_g − ε < δ̂, and the level spacing is below α − 4 ≤ ε_K. The bound below uses only that
-each round raises the weight by less than δ̂, so it holds also for a construction that raises it by less than ε_g − ε,
+round raises the tf-weight by ε_g − ε < δ̂, and the level spacing is below α − 4 ≤ ε_K. The count below uses the
+increments only through their upper bound δ̂, so it holds as well if a round raises the weight by less than ε_g − ε,
 which a construction may do, a forcing of tf-weight κ having every smaller tf-weight.
 
 *Below 3.* At a level β ∈ (2, 3), τ_0 = 2 + ε_g − 2ε < 2 + δ̂ and τ_i < 2 + (i + 1)δ̂, and the rounds run for every i
@@ -184,15 +184,15 @@ d_NM with which [[thm:iii-k-3-2]] applies [[thm:ii-g-2-1]] (d ≥ d_acc, [[thm:l
 threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]. Let ε be the data threshold
 of [[cor:s27-rate]], chosen, as in the proof of [[thm:iii-k-3-2]], with ε ≤ s_(2d) and C_(2d)ω_(2d)(ε) ≤ ε_NM, where
 s_(2d), C_(2d) and the modulus ω_(2d) are those of [[lem:iii-k-2-2]] (d) at the order 2d ([[prop:iii-k-1-2]] (3)),
-enlarged if necessary so that C_(2d) ≥ 1 and ω_(2d)(s) ≥ s on [0, s_(2d)]; and let C_R ≥ 1 be the constant of
+enlarged if necessary so that C_(2d) ≥ 1 and ω_(2d)(t) ≥ t on [0, s_(2d)]; and let C_R ≥ 1 be the constant of
 [[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
 
     λ1 < δ,     ω_(2d)(2δ) ≤ 2^(−(32d+8)),     δ ≤ 2^(−(32d+9)),     log₁₀ δ < −(59/196)(32d + 9).
 
 As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives log₁₀ δ < −1.351 × 10²¹.
 
-*Proof.* Replacing C_(2d) by max(C_(2d), 1) and ω_(2d)(s) by max(ω_(2d)(s), s) keeps [[lem:iii-k-2-2]] (d) true,
-and the modulus still tends to 0 with s, which is all that the proof of [[thm:iii-k-3-2]] uses of it; so these are
+*Proof.* Replacing C_(2d) by max(C_(2d), 1) and ω_(2d)(t) by max(ω_(2d)(t), t) keeps [[lem:iii-k-2-2]] (d) true,
+and the modulus still tends to 0 with t, which is all that the proof of [[thm:iii-k-3-2]] uses of it; so these are
 choices that proof allows. The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
 ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So ω_(2d)(2δ) = ω_(2d)(ε) ≤ ε_NM/C_(2d) ≤ 2^(−(32d+8)), and as ε ≤ s_(2d),
 ε ≤ ω_(2d)(ε) ≤ 2^(−(32d+8)), that is, δ = ½ε ≤ 2^(−(32d+9)). The proof of [[thm:settling]] ([[sec:vii-4]]) takes λ1
@@ -317,11 +317,12 @@ on Ang, ζ and dt̄, that is, p_C(T^C) = 0; in the same way p_Υ(T^Υ) = 0.
 
 In the splitting T* ⊕ T*, VU has the blocks V_1U_1 = T^C, V_1U_2 = 0 (first row) and V_2U_1, V_2U_2 = T^Υ (second
 row). Lower block-triangular maps form an algebra, and the diagonal blocks of f(VU) are f(T^C) and f(T^Υ) for every
-polynomial f. So p_C(VU) has the first row 0 and p_Υ(VU) the second column 0, and the product p_Υ(VU)p_C(VU) is 0:
-its first row is the first row of p_Υ(VU) times the columns of p_C(VU), whose first entries are 0, and its second
-row pairs the second entries 0 of the rows of p_Υ(VU) with the zero first row of p_C(VU). As (UV)^(n+1) = U(VU)^nV,
-UVf(UV) = Uf(VU)V for every polynomial f, so m(UV) = 0 for m(ν) := ν p_Υ(ν)p_C(ν). By the hypotheses the seven roots
-of m are distinct, real and non-negative. Let P_μ := Π_(μ′≠μ)(UV − μ′)/(μ − μ′) for each root μ, the product over the
+polynomial f. So p_C(VU) has the blocks 0, 0 (first row) and c, d (second row), and p_Υ(VU) the blocks a, 0 (first
+row) and b, 0 (second row), for some a, b, c, d; and the product p_Υ(VU)p_C(VU) has the blocks a·0 + 0·c, a·0 + 0·d
+and b·0 + 0·c, b·0 + 0·d, that is, it is 0. As (UV)^(n+1) = U(VU)^nV, UVf(UV) = Uf(VU)V for every polynomial f, so
+m(UV) = 0 for m(ν) := ν p_Υ(ν)p_C(ν). The seven roots of m are distinct, real and non-negative: the six other than 0
+are positive, those of each of the two sets of the statement are distinct as 0 < e_Υ, e_C < 1, and the two sets are
+disjoint. Let P_μ := Π_(μ′≠μ)(UV − μ′)/(μ − μ′) for each root μ, the product over the
 other roots. Then Σ_μ P_μ = Id (the polynomial Σ_μ Π_(μ′≠μ)(ν − μ′)/(μ − μ′) has degree at most 6 and equals 1 at the
 seven roots), (UV − μ)P_μ and P_μP_μ′ (μ ≠ μ′) are multiples of m(UV) = 0, and so P_μ² = P_μ and A + S = UV = Σ_μ μP_μ:
 A + S is diagonalisable with eigenvalues among the roots of m. By [[lem:ec-theta-in]] (b) its kernel is non-zero.
@@ -594,8 +595,8 @@ with ε_K = 1.46·10⁻¹⁰. As the admissible values are dense, one may take �
     1/Δβ_0 < 6.863035·10⁹,     1/Δτ_0 < 6.847262·10⁹,     1/(2Δβ_0Δτ_0) < 2.349650·10¹⁹,
     (1 + ε_K + Δβ_0/2)² < 1 + 5·10⁻¹⁰,     (1 + 2·10⁻⁸)/ε_Υ + 2 < 6.840416·10⁹,     0.4901/ε_Υ < 3.352487·10⁹,
 
-each checked by multiplying out (for instance 1.45708146 · 6.863035 > 10), [[eq:ec-upper-counts]] and [[lem:ec-counts]]
-(e), with 2 − λ_♯ = 0.4901 and η_2 − η_1 < 2·10⁻⁸, give
+each checked by multiplying out (for instance 1.45708146 · 6.863035 > 10), and (1 + Δβ_0/2)² < 1 + 5·10⁻¹⁰ too,
+[[eq:ec-upper-counts]] and [[lem:ec-counts]] (e), with 2 − λ_♯ = 0.4901 and η_2 − η_1 < 2·10⁻⁸, give
 
     N_< < 6.863035·10⁹,     N_>, N_b < 6.863036·10⁹,     T_<, T_> < 2.34966·10¹⁹,
     T_2 < 6.863036·10⁹ · 6.840416·10⁹ < 4.69461·10¹⁹,     W < 3.352488·10⁹.
@@ -611,7 +612,7 @@ constant 2(T_< + T_> + T_2) + 4(1/Δτ_0 + 2) + r_ιW(N_< + N_> + N_b + 3) is le
 with ℓ⁺_tf as in [[lem:ec-round-charges]], equal to max(1, s − 1) at the choices of [[lem:ec-tf-loss]]. The coefficient
 of ℓ⁺_tf, 9.394·10¹⁹, and the constant 1.2923·10²¹ (of which 1.10·10²¹ comes from the window loops at ι⁺, through the
 bound ε^ι_ind ≥ ε_Υ) are the explicit part. Against the lower bound 3R > 1.403·10²⁰ of [[thm:loss-d]] (ii), the
-explicit part at ℓ⁺_tf = 1 is less than 1.3863·10²¹, less than 9.9 times larger. The losses c(β_k), c_b and c′_b are
+explicit part at ℓ⁺_tf = 1 is less than 1.3863·10²¹, less than 9.9 times the lower bound. The losses c(β_k), c_b and c′_b are
 losses of single steps, multiplied by at most 1.38·10¹⁰; c_0 enters once and contains the iterations of Steps 4′ and 4,
 each bounded as in [[lem:ec-counts]].
 

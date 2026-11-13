@@ -880,7 +880,8 @@ and the others in sup norm, with ‖Y‖_(⌊k/2⌋+1),∞ ≤ C λ⁻² ‖V‖
 
     ‖G(·, Y)‖_(k) ≤ C_2 λ⁻² ‖V‖²_(𝒴_k).
 
-By (R1) of the proof of [[lem:vlasov-scaled-evolution]], ‖(𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0))‖_(k) ≤ C_3 ε. So sup_r ‖N(V)‖_(k) ≤ C_3 ε + C_2 λ⁻² ‖V‖²_(𝒴_k).
+By (R1) of the proof of [[lem:vlasov-scaled-evolution]], ‖(𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0))‖_(k) ≤ C_3 ε. So sup_r ‖N(V)‖_(k) ≤
+C_3 ε + C_2 λ⁻² ‖V‖²_(𝒴_k).
 
 *Boundedness.* Let C be the constant of [[eq:vlasov-scaled-bound]] at the index k and C_1 := C (b1 − a)^(1/2) C_3. If
 ‖U_i‖_(𝒴_k) ≤ 2 C_1 ε ≤ η1 λ³, then [[lem:vlasov-scaled-evolution]] applies with V := U_i and gives ‖U_(i+1)‖_(𝒴_k) ≤
@@ -1162,19 +1163,18 @@ Solving 𝔉(U) = 0 for ∂_r α and ∂_r w, and substituting the first into th
 with G_α = Q ∇²α − p⁻¹ g_ρ and G_w = −B^C ∇_C w − A0⁻¹ (f G_α + g_J), Q := P/p and B^C := A0⁻¹A^C taken at α; here g =
 𝔉(0) + g̃, with 𝔉(0) = λ^(N−2)[h]. Give the factor ∇^m α the weight (m − 2)₊ := max(m − 2, 0) and ∇^m w the weight m. By
 induction on i, ∂_r^i U is a finite sum of terms λ^(−β) c(x, α, ∇α, w) Π_(s=1)^l ∇^(m_s) Y_s, Y_s ∈ {α, w}, with c of
-class 𝔏 or a derivative of 𝔉(0), β plus the sum of the weights at most 2i, and l ≥ 1 unless c is a derivative of 𝔉(0)
-(a class-𝔏 term without factors vanishes at U = 0, as g̃ does, and Taylor's formula writes it as a sum of terms with one
+class 𝔏 or a derivative of 𝔉(0), β plus the sum of the weights at most 2i, and l ≥ 1 unless c is a derivative of 𝔉(0) (a
+class-𝔏 term without factors vanishes at U = 0, as g̃ does, and Taylor's formula writes it as a sum of terms with one
 factor α, ∇α or w): for i = 1 this is the form of G_α and G_w (weights 0 and 1); applying ∂_r to a term, ∂_r of the
-x-dependence of c costs λ⁻¹ by (C0); ∂_r of an argument α, ∇α or w
-of c gives a factor G_α, ∇G_α or G_w, of weight at most 1; and ∂_r ∇^m α = ∇^m G_α and ∂_r ∇^m w = ∇^m G_w raise the
-weight of the factor by at most 2. Apply λ^(2i+|I|) 𝓛^I to such a term and expand by (K4) and the chain rule. Since λ ≤
-1, λ^(2i−β) is at most λ to the sum of the weights, so every factor appears as λ^(|J|+(m−2)₊) 𝓛^J ∇^m α, of L²(S³) norm
-at most C ‖α‖_(|J|+(m−2)₊;2), square integrable in r, or as λ^(|J|+m) 𝓛^J ∇^m w, of norm at most C ‖w‖_(|J|+m) at each
-r, by (K2), (N3) and (N4); the derivatives of c contribute at most C λ^(N−2) for c a derivative of 𝔉(0) and at most C
-otherwise. The orders |J| + (m − 2)₊, respectively |J| + m, add up to at most 2i + |I| ≤ 14, so at most one factor has
-order greater than 7: it is taken in L², at order at most 14 ≤ 18, and the others in sup norm, where by (N1), (N2) and
-(K2) (which bounds ∇²𝓛^J α by first derivatives of 𝓛_i 𝓛^J α) they are at most C λ⁻³ ‖U‖_(𝒴_18) ≤ C λ^(N−5) ≤ 1 at each
-r. This gives [[eq:vlasov-data-dr]].
+x-dependence of c costs λ⁻¹ by (C0); ∂_r of an argument α, ∇α or w of c gives a factor G_α, ∇G_α or G_w, of weight at
+most 1; and ∂_r ∇^m α = ∇^m G_α and ∂_r ∇^m w = ∇^m G_w raise the weight of the factor by at most 2. Apply λ^(2i+|I|)
+𝓛^I to such a term and expand by (K4) and the chain rule. Since λ ≤ 1, λ^(2i−β) is at most λ to the sum of the weights,
+so every factor appears as λ^(|J|+(m−2)₊) 𝓛^J ∇^m α, of L²(S³) norm at most C ‖α‖_(|J|+(m−2)₊;2), square integrable in
+r, or as λ^(|J|+m) 𝓛^J ∇^m w, of norm at most C ‖w‖_(|J|+m) at each r, by (K2), (N3) and (N4); the derivatives of c
+contribute at most C λ^(N−2) for c a derivative of 𝔉(0) and at most C otherwise. The orders |J| + (m − 2)₊,
+respectively |J| + m, add up to at most 2i + |I| ≤ 14, so at most one factor has order greater than 7: it is taken in
+L², at order at most 14 ≤ 18, and the others in sup norm, where by (N1), (N2) and (K2) (which bounds ∇²𝓛^J α by first
+derivatives of 𝓛_i 𝓛^J α) they are at most C λ⁻³ ‖U‖_(𝒴_18) ≤ C λ^(N−5) ≤ 1 at each r. This gives [[eq:vlasov-data-dr]].
 
 *The datum.* Put g on Σ as in [[sec:data-proof]]: the spatial part γ + α dr dr, the lapse and shift of g_app's
 two-scale form, ∂_τ of the spatial part fixed by κ + ϖ Π + q ⊗ dr + dr ⊗ q, and ∂_τ of the lapse and shift fixed by
