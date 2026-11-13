@@ -16,8 +16,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | CONFIRMED (4 nits) |
 | 23 S4 | NOT CONFIRMED 3M 8m 7n | done (d₀ fixed before k by the orders alone) | fourth fix done; fifth reading CONFIRMED 0M 0m 1n (n1 "of the same orders as A" applied by the coordinator); the (S15) entry of Appendix A in chapter 95 is left for the integration pass |
 | 24 S5 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (2 optional nits) |
-| 25 S6 | NOT CONFIRMED 0M 5m 8n | done | fifth reading NOT CONFIRMED 1M 1m 3n; fifth fix done (uniqueness at a priori order 𝗌 − 1, d_0 independent of k; s′ in (i) and (iii); (S15) defines ad; rewraps; crosswalk signs); sixth reading R6-S06 running |
-| 26 S7 | NOT CONFIRMED 2M 4m 3n | done | fifth reading NOT CONFIRMED 1M 1m 3n; fifth fix done (uniqueness at a priori order 𝗌 − 1, d_0 independent of k; s′ in (i) and (iii); (S15) defines ad; rewraps; crosswalk signs); sixth reading R6-S06 running |
+| 25 S6 | NOT CONFIRMED 0M 5m 8n | done | fifth fix done; sixth reading R6-S06 CONFIRMED 0M 0m 3n (uniqueness at inf 𝗌 − 1, d_0 independent of k, every use in chapters 26, 28, 38, 71 holds; (S15) verbatim p. 75); nits with the eight left open applied by N-S06 — CONFIRMED |
+| 26 S7 | NOT CONFIRMED 2M 4m 3n | done | fifth fix done; sixth reading R6-S06 CONFIRMED 0M 0m 3n (uniqueness at inf 𝗌 − 1, d_0 independent of k, every use in chapters 26, 28, 38, 71 holds; (S15) verbatim p. 75); nits with the eight left open applied by N-S06 — CONFIRMED |
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done | CONFIRMED; citation resolved and confirmed |
 | 28 S9 | NOT CONFIRMED 2M 4m 8n | done | fifth fix done; sixth reading CONFIRMED 0M 0m 3n (optional: Ω_2 and τ_1 renames in 28; narrow M° to Ω_* in the continuity statements of 38 near 1071, 1123, 1173; three older "=" line starts in 28) |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |

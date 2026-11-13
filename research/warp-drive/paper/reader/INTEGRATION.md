@@ -1240,3 +1240,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   absorbed by every use). The d-bound integration round for chapters 71 and 3 waits for F-P-U71-forward,
   F-P-U71-close, R2-P-U71-assembly, P-U71-IS and P-U71-SP.
 - R5-S27 CONFIRMED (0M 0m 1n; the nit applied: chapter 46 lines 416-417 'linear' to 'affine').
+- R6-S06 CONFIRMED (chapters 25, 26 with (S15) of 95). Observation for P-U71-forward: its order list omits -10 and -8,
+  both within its bound (passed to the d-bound integration round).
