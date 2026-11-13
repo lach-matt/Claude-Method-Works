@@ -1008,31 +1008,47 @@ l in question. Then, on fields of the block named,
 
 in each of the following cases: P̂ = □ on functions of degree l, V = V_l; P̂ = □ on 1-forms of vector type l, V = V^v
 (the potential V_1 of [[prop:np-10-16]] (iii)); P̂ = 2L_(b_0) on symmetric 2-tensors of tensor type l ≥ 2, V = V_T of
-[[thm:s15-ki]] (T).
+[[thm:s15-ki]] (T), which equals V_l ([[lem:rb-tensor-ricci]]).
 
-*Proof.* P̂(σ) is invertible on the spaces of the stability theory ([[prop:iii-d-6-2]] for □, [[prop:iii-f2-3-1]] for
-2L_(b_0)). Let F be smooth, supported in I × 𝕊³ and in the block; then ω := P̂(σ)⁻¹F lies in the block
-([[lem:rb-schur]]) and is smooth across the future horizon and outgoing at infinity. Write c := ‖Y‖²_(L²(𝕊³)) for the
-angular field Y of the block, and recall dr = f dr_*.
+*Proof.* P̂(σ) is invertible on the spaces of the stability theory ([[lem:rb-scalar]] for □ on functions,
+[[prop:iii-d-6-2]] for □ on 1-forms, [[prop:iii-f2-3-1]] for 2L_(b_0)). Let F be smooth, supported in I × 𝕊³ and in
+the block, and ω := P̂(σ)⁻¹F. Then ω lies in the block, as P̂(σ)⁻¹ commutes with the isotypic projections (proof of
+[[lem:rb-schur]]). Kernels and ranges do not depend on the admissible orders ([[thm:i-a-7-2]] (3)), so ω lies in 𝒳_σ
+for orders of every regularity, and is smooth on X°; and it is conormal at infinity, with polynomial bounds, by
+[[thm:i-a-7-2]] (4). Since t_* − t is a function of r ([[eq:iii-b-3-6]]) and σ is real, e^(−iσt_*)ω = e^(−iσt)ω̃ and
+e^(−iσt_*)F = e^(−iσt)F̃ with ω̃ := e^(−iσ(t_*−t))ω and F̃ := e^(−iσ(t_*−t))F, which have the pointwise norms of ω and F;
+in the static chart on {r > r_h} the equation is P(e^(−iσt)ω̃) = e^(−iσt)F̃, P the stationary operator. Let (Y_k) be
+an orthonormal basis in L²(𝕊³) of the angular fields of the block (of 𝒮_l, 𝒱_l or 𝒯_l), and ω_k, F_k the components
+of ω̃, F̃ along Y_k; for each r these components are orthogonal on 𝕊³, so by Parseval's identity
+‖χ_Iω‖²_𝔏 = Σ_k‖χ_Iω_k‖²_𝔏 and ‖F‖²_𝔏 = Σ_k‖F_k‖²_𝔏, as in [[cor:morawetz-one-derivative]] (c). Each ω_k solves the
+equation with right side F_k, and we bound it. Recall dr = f dr_*.
 
-- *Functions.* ω = r^(−3/2)uS and F = gS. By [[eq:rb-radial]], −u″ + (V_l − σ²)u = G with G := fr^(3/2)g. Then
-  |ω|²r³dr = f|u|²|S|²dr_* and |G|² dr_* = fr³|g|² dr, so ‖ω‖²_𝔏 ≤ c(max_I f)‖u‖²_I and
-  ‖G‖² ≤ (max_I f)‖F‖²_𝔏/c.
-- *Vector type.* ω = r^(−1/2)uY with Y ∈ 𝒱_l, δω = 0 and □ω = δdω. By [[prop:np-10-16]] (iii) the t- and r-components
-  of δdω vanish and its angular part is gY with −fr^(1/2)g = u″ + σ²u − V^vu, so −u″ + (V^v − σ²)u = G := fr^(1/2)g. In
-  the static frame |ω|² = r⁻³|u|²|Y|² and |F|² = r⁻²|g|²|Y|², so |ω|²r³dr = f|u|²|Y|²dr_*, while the integral of
-  |F|²r³dr over 𝕊³ is cr|g|²dr and |G|²dr_* = fr|g|²dr; the two inequalities of the first case follow verbatim.
-- *Tensor type.* ω = 2r²HT with T ∈ 𝒯_l. Then tr ω = 0, δω = 0, and ι_(g⁻¹c)ω = 0 for every c in the span of dt and
-  dr, so the gauge terms of L_(b_0) vanish on ω and L_(b_0)ω = D Ric(ω) = −r²ℬ[H]T, where
-  ℬ[H] := □_2H + (3/r)Dr · DH − ((k_T² + 2)/r²)H and all other components vanish ([KI03, (5.3), p. 13], in the
-  notation of [[thm:s15-ki]]). With u := r^(3/2)H, fr^(3/2)ℬ[r^(−3/2)u] = u″ + σ²u − V_Tu, so F = 2L_(b_0)ω = −2r²ℬT
-  and −u″ + (V_T − σ²)u = G := −fr^(3/2)ℬ. In the static frame |ω|² = 4|H|²|T|² and |F|² = 4|ℬ|²|T|², so
-  |ω|²r³dr = 4f|u|²|T|²dr_* and |F|²r³dr = 4fr³|ℬ|²|T|²dr_*, while |G|² = f²r³|ℬ|²; so ‖ω‖²_𝔏 ≤ 4c(max_I f)‖u‖²_I and
-  ‖G‖² ≤ (max_I f)‖F‖²_𝔏/(4c).
+- *Functions.* ω_k = r^(−3/2)uS and F_k = gS, S = Y_k. By [[eq:rb-radial]], −u″ + (V_l − σ²)u = G with G := fr^(3/2)g.
+  Then |ω_k|²r³dr = f|u|²|S|²dr_* and |G|² dr_* = fr³|g|² dr, so ‖χ_Iω_k‖²_𝔏 ≤ (max_I f)‖u‖²_I and
+  ‖G‖² ≤ (max_I f)‖F_k‖²_𝔏.
+- *Vector type.* ω_k = r^(−1/2)uY with Y = Y_k ∈ 𝒱_l, δω_k = 0 and □ω_k = δdω_k. By [[prop:np-10-16]] (iii) the t- and
+  r-components of δdω_k vanish and its angular part is gY with −fr^(1/2)g = u″ + σ²u − V^vu, so
+  −u″ + (V^v − σ²)u = G := fr^(1/2)g. In the static frame |ω_k|² = r⁻³|u|²|Y|² and |F_k|² = r⁻²|g|²|Y|², so
+  |ω_k|²r³dr = f|u|²|Y|²dr_*, while the integral of |F_k|²r³dr over 𝕊³ is r|g|²dr and |G|²dr_* = fr|g|²dr; the two
+  inequalities of the first case follow verbatim.
+- *Tensor type.* ω_k = 2r²HT with T = Y_k ∈ 𝒯_l. By [[lem:rb-tensor-ricci]], tr ω_k = 0 and δω_k = 0, and
+  ι_(g⁻¹c)ω_k = 0 for every c in the span of dt and dr; so the gauge terms of L_(b_0) vanish on ω_k, and
+  L_(b_0)ω_k = D Ric(ω_k) = −r²ℬ[H]T with all other components zero, by [[eq:rb-tensor-ricci]]. With u := r^(3/2)H, on
+  the factor e^(−iσt), fr^(3/2)ℬ = u″ + σ²u − V_Tu with V_T = V_l, so F_k = 2L_(b_0)ω_k = −2r²ℬT and
+  −u″ + (V_T − σ²)u = G := −fr^(3/2)ℬ. In the static frame |ω_k|² = 4|H|²|T|² and |F_k|² = 4|ℬ|²|T|², so
+  |ω_k|²r³dr = 4f|u|²|T|²dr_* and |F_k|²r³dr = 4fr³|ℬ|²|T|²dr_*, while |G|² = f²r³|ℬ|²; so
+  ‖χ_Iω_k‖²_𝔏 ≤ 4(max_I f)‖u‖²_I and ‖G‖² ≤ (max_I f)‖F_k‖²_𝔏/4.
 
-In each case u is outgoing and regular at the horizon, so u = R(σ)G by [[prop:resolvent-outgoing]] (a), and G vanishes
-off I. Hence ‖ω‖_𝔏 ≤ (c′ max_I f)^(1/2)‖u‖_I ≤ (c′ max_I f)^(1/2)B(σ)‖G‖ ≤ (max_I f)B(σ)‖F‖_𝔏, with c′ = c, resp. 4c.
-f increases, so max_I f = f(4) = 15/16. ∎
+In each case G vanishes off I, and u = R(σ)G. Indeed, by *The class* in the proof of [[prop:iii-d-6-2]], which uses of
+ω only that it is smooth across the future horizon and conormal at infinity, u = e^(−iσr_*)a near r_* = −∞ with a
+smooth across r_h, and u = e^(iσr_*)b near r_* = ∞ with b conormal and polynomially bounded. Near −∞,
+u′ + iσu = e^(−iσr_*)f ∂_ra → 0, so u is a multiple of u_h left of I (*Solutions at the ends* in [[sec:rb-radial]]).
+Near +∞, as in the fact stated in the proof of [[prop:iii-d-6-2]], the second solution e^(−iσr_*)(1 + o(1)) is not of
+the form e^(iσr_*)b with b conormal, e^(−2iσr_*) not being conormal, so u is a multiple of u_∞ right of I. So
+u = R(σ)G by the uniqueness in [[prop:resolvent-outgoing]] (a), which holds verbatim for V (the paragraph before
+[[lem:morawetz-identity]]). Hence ‖χ_Iω_k‖_𝔏 ≤ (c′ max_I f)^(1/2)‖u‖_I ≤ (c′ max_I f)^(1/2)B(σ)‖G‖ ≤
+(max_I f)B(σ)‖F_k‖_𝔏, with c′ = 1, resp. 4. Summing over k gives the bound for ω. f increases, so
+max_I f = f(4) = 15/16. ∎
 
 By [[lem:rb-schur]], the bounds of [[lem:rb-transfer]], taken uniformly in l, bound the cut-off inverse on all fields of
 the type.

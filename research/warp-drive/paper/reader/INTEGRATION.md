@@ -1182,3 +1182,12 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R3-66 CONFIRMED 0M 0m 3n (reviews/R3-66.md); the three nits applied by the coordinator. Chapter 66 CONFIRMED.
   FOR THE FINAL REPORT: chapter 66's cor:gd-r7-7 (b) had a gap also present in the source (a corollary applied to data
   vanishing only outside a ball); the edition proves the extension by the domain of influence inside the horizon.
+- P-U71-forward complete (reports/P-U71-forward.md, Completion section texts 7-12): d_FWD ≤ 20,180 (D_0 ≤ 20,104 at
+  T = 100). R-P-U71-forward reading. The chapter-26 finding (uniqueness at order 𝗌 − j in prop:ii-e-4-3 and
+  prop:ii-e-5-6 (a)) is sent to R5-S06 to judge.
+- P-U71-close written (reports/P-U71-close.md). FOR THE FINAL REPORT (pending its reader): the upper bound on d is
+  not reached; the paper's statements give no upper bound at all, because the index sets entering (G) are specified only
+  by their least real parts (prop:uc-no-eps). The missing statement (IS) is the explicit exponents of those index sets,
+  which needs chapters 32-36 with the exponents tracked. Per the author's directive (evaluate and prove), P-IS scopes
+  and begins (IS) while R-P-U71-close reads the non-reachability argument. The report also lists a loss-free bound in
+  lem:iii-j2-2-4 that its own proof does not support: to the chapter's fix list.

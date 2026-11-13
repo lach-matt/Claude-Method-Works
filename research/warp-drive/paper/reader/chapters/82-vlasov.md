@@ -914,61 +914,87 @@ so by the uniqueness in [[lem:vlasov-scaled-evolution]] each U_i is ι-invariant
 
 ### The n-dust approximants are uniform in n {#sec:vlasov-uniform}
 
-**Lemma {#lem:vlasov-trapezoid}** (The label quadrature.) Let F be smooth on K × S¹, K compact, and
+**Lemma {#lem:vlasov-trapezoid}** (The label quadrature.) Let h be smooth on Y × S¹, Y compact, and
 
-    E_n(x) := ∫_(S¹) F(x, α) dα − (2π/n) Σ_(A=1)^n F(x, 2πA/n).
+    E_n(x) := ∫_(S¹) h(x, α) dα − (2π/n) Σ_(A=1)^n h(x, 2πA/n).
 
-Then for every j and every k ≥ 2, sup_K |∂_x^j E_n| ≤ 2 ζ(k) n^(−k) sup_(x∈K) ∫_(S¹) |∂_x^j ∂_α^k F(x, α)| dα, ζ the
+Then for every j and every k ≥ 2, sup_Y |∂_x^j E_n| ≤ 2 ζ(k) n^(−k) sup_(x∈Y) ∫_(S¹) |∂_x^j ∂_α^k h(x, α)| dα, ζ the
 Riemann zeta function.
 
-*Proof.* The x-derivatives commute with both terms, so take j = 0. Expand F(x, α) = Σ_(m∈ℤ) F̂_m(x) e^(imα), absolutely
-convergent. Since (2π/n) Σ_A e^(2πimA/n) is 2π if n divides m and 0 otherwise, E_n = −2π Σ_(l≠0) F̂_(ln). Integrating
-by parts k times, |F̂_m(x)| ≤ (2π)⁻¹ |m|^(−k) ∫ |∂_α^k F(x, α)| dα, so |E_n| ≤ Σ_(l≠0) (|l| n)^(−k) ∫ |∂_α^k F| dα. ∎
+*Proof.* The x-derivatives commute with both terms, so take j = 0. Expand h(x, α) = Σ_(m∈ℤ) ĥ_m(x) e^(imα), absolutely
+convergent. Since (2π/n) Σ_A e^(2πimA/n) is 2π if n divides m and 0 otherwise, E_n = −2π Σ_(l≠0) ĥ_(ln). Integrating
+by parts k times, |ĥ_m(x)| ≤ (2π)⁻¹ |m|^(−k) ∫ |∂_α^k h(x, α)| dα, so |E_n| ≤ Σ_(l≠0) (|l| n)^(−k) ∫ |∂_α^k h| dα. ∎
 
 For an integrand with a kink in α the error is only of order n⁻²: the smoothness of the field in its label is what is
 used.
 
-Let (g, F, u) satisfy (Ω), (V1), (V2), (V2′) and (V3). For n ≥ 1 put α_A := 2πA/n. The *n-dust approximant* of the
-field is the class Einstein–n-null-dust solution g^(n), with the radial dusts of g, whose data on Σ_τ0 are: the
-densities q_A := (2π/n) q(·, α_A); eikonals u_A with the data of u_(α_A) on Σ_τ0 (on the same branch of the eikonal
-equation); the radial dusts' data of g; and the metric data of g corrected, by the radial solve of [[sec:data-evolution]]
-under (V3), to satisfy the constraints with the stress T^(n) + T_rad, T^(n) := Σ_A q_A du_A ⊗ du_A. The class
-Einstein–n-null-dust system and its augmented form, in the unknowns (w, du_A, Θ_A, q_A) with the expansions Θ_A :=
-□5 u_A transported by the Raychaudhuri equation, are those of [[pending:class-augmented-system]], and their Cauchy
-stability on Ω without smallness is [[thm:class-stability]].
+The class Einstein–n-null-dust system and its augmented form, in the unknowns (g, p_A, Θ_A, q_A) with the expansions
+Θ_A := □5 u_A transported by the Raychaudhuri equation, are those of [[sec:class-augmented]] ([[eq:class-aug1]]–
+[[eq:class-aug4]], [[prop:class-augmented]]) with N_f = n families, and their Cauchy stability on Ω without smallness,
+the families off the axes, is [[thm:class-stability-off-axes]].
 
-**Proposition {#prop:vlasov-uniform-n}** (The n-dust approximants are uniform in n.) Fix m ≥ 6. There are n0 and, for
-every k, a constant C_k independent of n, such that for n ≥ n0 the n-dust approximant g^(n) exists on Ω and, on every
-Σ_τ,
+Let (g, F, u) satisfy (Ω), (V1), (V2) and (V3), with the compact set S of (V1). A *datum in label form* near it is
+D = (γ_D, κ_D, F_D, u_D): metric data (γ_D, κ_D) on Σ_τ0 ∩ Ω, completed to Cauchy data with the lapse and shift of g and
+with ∂_τ of these fixed by the gauge condition D = 0 as in [[sec:data-identities]], and smooth invariant functions
+F_D ≥ 0 and u_D on (Σ_τ0 ∩ Ω) × S¹ with supp F_D ⊂ int S and d(u_D(·, α)) ≠ 0, such that the constraints hold with the
+stress of the field, the τ-derivatives of the u_D(·, α) being the roots of the eikonal equation fixed by the branch of
+[[def:vlasov-label]]. Its distance to the data of (g, F, u) is d(D), the C^(m+3) norm of (γ_D − γ, κ_D − κ) on Σ_τ0 ∩ Ω
+plus that of (F_D − F, u_D − u) on (Σ_τ0 ∩ Ω) × S¹. For n ≥ 1 put α_A := 2πA/n. The *n-dust datum* D_n of D has the
+densities q_A := (2π/n) F_D(·, α_A)², the eikonal data u_D(·, α_A), and the metric data (γ_D, κ_D) corrected by
+[[prop:vlasov-scaled-correction]], with λ = 1 and no phases, to satisfy the constraints with the stress T^(n) :=
+Σ_A q_A du_A ⊗ du_A (the τ-components of the du_A being the roots for the corrected metric). The *n-dust approximant*
+g^(n) of the field is the development of the n-dust datum of the data of (g, F, u) itself.
+
+**Proposition {#prop:vlasov-uniform-n}** (The n-dust approximants are uniform in n.) Fix m ≥ 6. There are ε0 > 0 and
+C, and for every k ≥ 2 constants n0 and C_k, depending also on bounds for the derivatives of D of order at most
+k + m + 4, such that for every datum D in label form with d(D) ≤ ε0 and every n ≥ n0 the n-dust datum D_n has a smooth
+invariant development g^(n) on Ω, a class Einstein–n-null-dust solution with families (u_A, q_A), and on every Σ_τ
 
     ‖g^(n) − g‖_(H^(m+1)) + ((2π/n) Σ_A ‖(du_A, Θ_A, q_A/(2π/n)) − (du_(α_A), Θ(·, α_A), q(·, α_A))‖²_(H^m))^(1/2)
-        ≤ C_k n^(−k),                                                                          {#eq:vlasov-uniform-n}
+        ≤ C d(D) + C_k n^(−k),                                                                     {#eq:vlasov-uniform-n}
 
-with Θ(·, α) := □5 u_α, the family norms taken on the tubes. In particular |g^(n) − g|_(C¹(Ω)) ≤ C_k n^(−k).
+with Θ(·, α) := □5 u_α, the family norms taken on the tubes. The same holds with any m′ ≥ m in place of m, with ε0
+unchanged and C, n0, C_k depending on m′. For the data of (g, F, u), d = 0 and |g^(n) − g|_(C¹(Ω)) ≤ C_k n^(−k).
 
 *Proof.* Let E_n := T_V − Σ_A (2π/n) q(·, α_A) du_(α_A) ⊗ du_(α_A), evaluated with g. It is the error of
-[[lem:vlasov-trapezoid]] for the integrand q(x, α) du_α ⊗ du_α, smooth on Ω × S¹ by (V1), so |∂^j E_n| ≤ C_(j,k) n^(−k)
-for all j, k.
+[[lem:vlasov-trapezoid]] for the integrand q(x, α) du_α ⊗ du_α, smooth on a neighbourhood of the tubes times S¹ by
+(V1), so |∂^j E_n| ≤ C_(j,k) n^(−k) for all j, k.
 
-*Data.* The data of g on Σ_τ0 satisfy the constraints with the stress T_V + T_rad; those of g^(n) are corrected to the
-stress T^(n) + T_rad by the radial solve, whose hypotheses on Σ_τ0 ∩ Ω are (V3), and whose linear evolution
-([[lem:linear-evolution]]) is stable under a change of the matter term. That change is E_n on Σ_τ0, up to the
-difference of the eikonals, which have the same data. So the corrected data differ from those of g by at most C_k n^(−k)
-in H^(m+1) × H^m, and the families' data from the sampled continuum's by the same amount, with the weight 2π/n.
+*Data.* The constraints of D_n are 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯_n(·, α) = 0, with (γ_U, κ_U) built on (γ_D, κ_D) and 𝒯_n the
+constraint stress of T^(n), algebraic in α through γ_U⁻¹ (the unit normal and the roots of the eikonal equation involve
+γ_U). By [[lem:vlasov-structure]] 𝔉 has the structure [[eq:vlasov-structure]], with λ = 1, no phases, and class bounds
+independent of n, 𝒯_n being a quadrature of a smooth integrand. The signs hold: p > 0 by (V3) for γ and so for γ_D and
+|α| ≤ η0, for ε0 and η0 small; P = γ_U^(rr) Π^(AB) is positive definite; and 𝒮 has the properties of
+[[lem:vlasov-symmetrizer]]. 𝔉(0) is the difference of the constraint stresses of the field of D and of T^(n), a quadrature
+error of [[lem:vlasov-trapezoid]] for the integrand F_D² du_D ⊗ du_D, so sup_r ‖𝔉(0)‖_(k) ≤ C_k n^(−k) at λ = 1.
+[[prop:vlasov-scaled-correction]] applies for n ≥ n0 and gives a smooth invariant correction U with ‖U‖_(𝒴_k) ≤ C_k
+n^(−k); at λ = 1 the 𝒴_k norm bounds the H^(k+1) × H^k norm of (α, w) on the slice, and the equations bound their
+r-derivatives. So the metric data of D_n differ from those of g by at most C d(D) + C_k n^(−k) in H^(m+1) × H^m, and the
+families' data from the sampled continuum's by C d(D), with the weight 2π/n.
 
-*Evolution.* The sampled continuum, the metric g with (du_(α_A), Θ(·, α_A), (2π/n) q(·, α_A)), solves the eikonal and
-density transports of the n-dust system exactly, since each involves only g and its own family. It solves the Einstein
-equation and the Raychaudhuri transports up to the residual E_n, which enters the first as a matter term and the second
-through E_n(ℓ_A, ℓ_A), the Ricci term of the Raychaudhuri equation being Ric(ℓ_A, ℓ_A). Take the energy of the proof of
-[[thm:class-stability]] for the difference, with the family norms weighted by 2π/n, an ℓ² sum over A. It closes with
-constants independent of n: the matter term of the metric equation for the difference is Σ_A (2π/n)(ς_A p_A ⊗ p_A + q̂_A
-(π_A ⊗ p_A + p_A ⊗ π_A)), with (π_A, ς_A) the differences of (du_A, q_A/(2π/n)) and q̂_A := q(·, α_A), bounded by
-Cauchy–Schwarz by C times the weighted family norm, as Σ_A 2π/n = 2π; each family's transport depends on the others only
-through the metric and through Ric(ℓ_A, ℓ_A) = Σ_B (2π/n) q̂_B g⁻¹(du_A, du_B)², a quadrature bounded in the same way;
-every other term is that of the n-dust energy, family by family, with constants uniform in A because the sampled
-families are uniformly smooth in α. Gronwall's lemma and the bootstrap give [[eq:vlasov-uniform-n]] for n ≥ n0, n0
-chosen so that C_k n0^(−k) lies below the bootstrap's threshold; the tubes of g^(n) stay within C_k n^(−k) of those of
-g, so (V2) keeps the families off the axes. The last statement is Sobolev's inequality for m ≥ 6. ∎
+*Evolution.* Take as reference the sampled continuum ů: the metric g, in the gauge relative to g itself, with the
+families (ů_A, q̊_A) := (u_(α_A), (2π/n) q(·, α_A)), the sets S_A := S_(α_A), whose tubes lie at distance at least 2δ from
+the axes by (V2), and Ω, admissible for g by (Ω). It solves (Aug2) and (Aug4) exactly, since each involves only g and its
+own family, and (Aug1) and (Aug3) up to the residual E_n, which enters the first as a matter term and the second through
+E_n(P̊_A, P̊_A), the Ricci term of the Raychaudhuri equation being Ric(P_A, P_A). Steps 1–8 of the proof of
+[[thm:class-stability-off-axes]] apply to the difference between the solution of the augmented system with the datum
+D_n and ů, with these changes. (1) The family norms of [[eq:class-energy]] are weighted: Σ_A is replaced by the ℓ² sum
+((2π/n) Σ_A ‖·‖²)^(1/2) of the norms of (δp_A, δΘ_A, ς_A), ς_A := q_A/(2π/n) − q̄_A, q̄_A := q(·, α_A). (2) The matter
+term of the metric equation for the difference is exactly
+
+    T − T̊ = Σ_A (2π/n) (ς_A p_A ⊗ p_A + q̄_A (π_A ⊗ p_A + p̊_A ⊗ π_A)) − E_n,      π_A := p_A − p̊_A, p̊_A := du_(α_A),
+
+and by the Cauchy–Schwarz inequality and Σ_A 2π/n = 2π its first part is bounded in H^k by C times the weighted family
+norm; so is the difference of the terms Ric(P_A, P_A) = Σ_B (2π/n) (q_B/(2π/n)) g⁻¹(p_A, p_B)² of Step 6, uniformly in
+A. (3) Every other term is estimated family by family, with constants uniform in A because the sampled families are
+smooth in α uniformly. (4) The residuals add C_k n^(−k) to the right side. So Step 8 gives 𝒩(τ) ≤ C2 (𝒩(τ0) +
+C_k n^(−k) + ∫_(τ0)^τ (𝒩 + 𝒩²)) with C2 independent of n, 𝒩(τ0) ≤ C d(D) + C_k n^(−k) by the data step, and the
+bootstrap closes for d(D) ≤ ε0 and n ≥ n0. Step 9 of that proof (for N_f = n, a fixed n) gives the solution of the
+augmented system on Ω, smooth and invariant, and Step 10 shows that it solves the class Einstein–n-null-dust system,
+D_n satisfying the constraints and the gauge condition. The integral curves of the P_A from the S_A stay within
+C (d(D) + C_k n^(−k)) of the tubes of ů, so (V2) keeps the families off the axes. At the order m′ ≥ m the inequality of
+Step 8 is linear in the order-m′ norm, with coefficients bounded by the order-m norm (Step 9 of that proof) and uniform
+in n by (1)–(4), which gives the clause on m′. The last statement is Sobolev's inequality for m ≥ 6. ∎
 
 **Remark {#rem:vlasov-uniform-model}** (Numerical observation.) In a mean-field wave–transport model of the quadrature
 step, w_tt − w_xx = Σ_A (2π/n) q_A with q_A transported at speed tanh(2w + cos α_A), with no derivative-loss coupling,
@@ -978,15 +1004,16 @@ below 0.02 for n = 4, 8, 16. No proof uses these values.
 
 ### The high-frequency step with n families {#sec:vlasov-n}
 
-In this section g0 is a smooth class Einstein–n-null-dust solution on Ω, n families u_A with densities F_A² (A = 1, …,
-n), possibly with two radial dusts, such that:
+In this section g0 is a smooth class Einstein–n-null-dust solution on Ω, n families u_A with ℓ_A := g0⁻¹du_A future
+directed and densities F_A² (A = 1, …, n), F_A smooth and transported by [[eq:vlasov-amplitude]], such that:
 
-- (i) (Ω) holds for g0;
-- (ii′) on the overlap of the supports of any two families, the radial ones included, |g0⁻¹(du_A, du_B)| ≥ c > 0, and
-  the frequencies are ν_A := Λ^(A−1) over all the phases, with Λ > (m* + m*²/2) Ē²/c, where m* := N + 2, N is the number
-  of stages, and Ē bounds |du_A| in orthonormal frames on the supports;
-- (iii) the waves of the non-radial families are torus-polarised ([[def:vlasov-torus-wave]]), those of the radial dusts
-  are those of [[thm:two-dusts]].
+- (i) (Ω) holds for g0, for the generators of every family;
+- (ii′) on the overlap of the supports of any two families |g0⁻¹(du_A, du_B)| ≥ c > 0, and the frequencies are ν_A :=
+  Λ^(A−1), with Λ > (m* + m*²/2) Ē²/c, where m* := N + 2, N is the number of stages, and Ē bounds |du_A| in orthonormal
+  frames on the supports;
+- (iii) the wave of family A is the wave W_A of the dust (u_A, F_A) at frequency ν_A ([[def:vlasov-wave]]), at the phase
+  θ_A = ν_A u_A/λ: torus-polarised, with its gauge part;
+- (iv) the supports of the families lie at distance at least δ > 0 from the axes.
 
 By [[lem:vlasov-hierarchy]] with m = m*, every symbol [[eq:vlasov-symbol]] with at least two nonzero entries and |j|₁ ≤
 m* satisfies |Q_j| ≥ 2 ν_B1 ν_B2 c* on the overlaps, c* := c − m* Ē²/Λ − m*² Ē²/(2Λ) > 0. These conditions are those of

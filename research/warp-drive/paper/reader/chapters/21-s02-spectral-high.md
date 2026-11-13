@@ -1582,7 +1582,7 @@ propagates the elliptic bound along it. Near Γ, [[prop:i-b-6-4]] applies, with 
 Γ(ε_Γ/3), where 𝐏′ = 𝐏 modulo O(h^∞) ([[lem:i-b-6-5]] (b)), its term ‖Eu‖ being bounded by the propagation just
 described. Altogether, for z ∈ z_0 + i[hβ, hβ′],
 
-    ‖u‖_(L²) ≤ C h⁻² ‖𝐏′u‖_(L²) + C h^M ‖u‖_(−M𝟏),
+    ‖u‖_(L²) ≤ C h⁻² ‖𝐏′u‖_(L²) + C h^M ‖u‖_(−M𝟏),                                                     {#eq:i-b-6-apriori}
 
 and with h⁻¹ in place of h⁻² at Im z = hβ′, using [[prop:i-b-6-1]] there; the last term is absorbed for h < h_0.
 
@@ -1826,15 +1826,21 @@ and h^(−δ) · h⁻¹ ≤ h^(−1−δ),
 
 *The artificial boundary.* By [[eq:i-b-7-2]], ‖χu‖_(H̄_h^𝐨) ≤ C(h⁻¹‖Pu‖_(H̄_h^(𝐨′)) + ‖χ_1 u‖_(H_h^𝐨)), the orders
 being constant there apart from s; the last term is the previous display with φ = χ_1, and
-‖u‖ ≤ ‖χu‖ + ‖(1 − χ)u‖, the second by the previous display with φ = 1 − χ.
+‖u‖ ≤ ‖χu‖ + ‖(1 − χ)u‖, the second by the previous display with φ = 1 − χ. Together, as h⁻¹ ≤ h^(−1−δ),
 
-*Absorption.* ‖u‖_(H̄_h^(−M𝟏)) ≤ Ch‖u‖_(H̄_h^𝐨) for M ≥ max(1, −s, −min(𝗋 + α_+), 1 − min 𝖻), since
-w_(−M𝟏)/w_𝐨 ≤ Ch, and h^M ≤ h; so for h < h_0 the last two terms are absorbed, which is [[eq:i-b-8-1]].
+    ‖u‖_(H̄_h^𝐨) ≤ C(h^(−1−δ)‖Pu‖_(H̄_h^(𝐨′)) + h^M‖u‖_(H̄_h^𝐨) + ‖u‖_(H̄_h^(−M𝟏))).                     {#eq:i-b-8-chain}
+
+*Absorption.* For M ≥ max(1, −s, −min(𝗋 + α_+), 1 − min 𝖻), since w_(−M𝟏)/w_𝐨 ≤ Ch,
+
+    ‖u‖_(H̄_h^(−M𝟏)) ≤ C_K h‖u‖_(H̄_h^𝐨),                                                              {#eq:i-b-8-absorb}
+
+and h^M ≤ h; so for h < h_0 the last two terms of [[eq:i-b-8-chain]] are absorbed, which is [[eq:i-b-8-1]].
 
 (b) For Im z ≥ ν_1, P_(h,z) is elliptic at finite frequencies over X̃° ([[lem:i-b-1-1]] (d)) and over ∂X except at
 R_out ([[sec:i-b-4-1]]), uniformly for Im z ∈ [ν_1, ν] by compactness. The characteristic set over {r ≥ b′_2} is
 ∂Σ_0 ∪ R_out. On ∂Σ_0 the kinds are (R) at ∂ℛ_± and (A) along the curves of (H4); at R_out, kind (O), whose a priori
-set K_E is now elliptic. No trapping estimate enters, so δ = 0.
+set K_E is now elliptic. No trapping estimate enters, so the chain gives [[eq:i-b-8-chain]] with δ = 0, and the
+absorption step of (a) gives [[eq:i-b-8-1]] with δ = 0.
 
 (c) The same as (b), with Re z varying in [−2, 2]: at fibre infinity 𝖧_z does not depend on z, 𝖻 is constant, and only
 the constancy of 𝗋 near R_out and the threshold there are used. ∎

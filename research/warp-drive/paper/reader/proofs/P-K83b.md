@@ -348,11 +348,10 @@ meets Σ_τ0, which starts at R = 0.70, in the points with 0.70 ≤ R ≤ R_u2.
 background is vacuum lies in region III, {0.70 ≤ R ≤ R_u2}, or in {R ≥ R_*}.
 
 *Proof.* (a) By the proof of [[prop:bg-seed]] (a), g is decreasing on [2.32, 3.44] with the single zero ρ_u2. By direct
-evaluation of the polynomial Φ̃ of [[sec:tab-bg-ray]] and of
-[[eq:bg-tangherlini]], Φ̃(2.773631) − v̂(2.773631) − 0.68 ≥ 1.3949 × 10⁻⁶ and Φ̃(2.7736325) − v̂(2.7736325) − 0.68 ≤
-−1.1149 × 10⁻⁶. Since |Φ − Φ̃| ≤ ε₀ = 8.69 × 10⁻⁷ at u = u2 ([[prop:bg-rays]]), g(2.773631) > 0 > g(2.7736325), so
-2.773631 < ρ_u2 < 2.7736325. As v̂ is increasing, R_u2 lies between v̂(2.773631) + 0.68 ≥ 1.86143720 and v̂(2.7736325) +
-0.68 ≤ 1.86144094.
+evaluation of the polynomial Φ̃ of [[sec:tab-bg-ray]] and of [[eq:bg-tangherlini]], Φ̃(2.773631) − v̂(2.773631) − 0.68 ≥
+1.3949 × 10⁻⁶ and Φ̃(2.7736325) − v̂(2.7736325) − 0.68 ≤ −1.1149 × 10⁻⁶. Since |Φ − Φ̃| ≤ ε₀ = 8.69 × 10⁻⁷ at u = u2
+([[prop:bg-rays]]), g(2.773631) > 0 > g(2.7736325), so 2.773631 < ρ_u2 < 2.7736325. As v̂ is increasing, R_u2 lies
+between v̂(2.773631) + 0.68 ≥ 1.86143720 and v̂(2.7736325) + 0.68 ≤ 1.86144094.
 
 (b) Let P be a point of Σ_τ0 with 1.861 ≤ R ≤ R_u2. It lies in region III, on the ray ρ with v̂(ρ) + 0.68 = R
 ([[lem:bg-reduction]] (f), [[prop:bg-seed]] (a)), and there ψ_III^(k)(v̂(ρ)) = Ψ_k(ρ, Φ(ρ), …, Φ‴(ρ), μ3) for k ≤ 2
@@ -374,9 +373,10 @@ the enclosure rule of [[lem:bg-tools]] (d), applied to f1 = 1 − 3/(2ρ²), a =
     ψ_III = ln Φ′ + ln f1 − ln f3(Φ),        ψ_III′ = aΦ″/Φ′ + a′ − 2μ3aΦ′h3(Φ),
     ψ_III″ = a(a′Φ″/Φ′ + a(Φ‴/Φ′ − (Φ″/Φ′)²) + a″ − 2μ3(a′Φ′h3(Φ) + aΦ″h3(Φ) + aΦ′²h3′(Φ)))
 
-(the derivatives in v̂, Ψ_0, Ψ_1 and Ψ_2 = a𝒟Ψ_1 of [[eq:bg-psi3]] written out), q = e^(ψ_III), u = 1 − q (the variable of [[eq:margins-gamma-form]], not the null coordinate), m = μ3/R², w =
-q(1 − m), and n0, A0, A1, A2, A3 and Γ/E² = A0 + A1ψ_III′ + A2ψ_III′² + A3ψ_III″ in the form written in
-[[eq:margins-gamma-form]]. Every entry is rounded outward, and later rows use the printed entries.
+(the derivatives in v̂, Ψ_0, Ψ_1 and Ψ_2 = a𝒟Ψ_1 of [[eq:bg-psi3]] written out), q = e^(ψ_III), u = 1 − q (the variable
+of [[eq:margins-gamma-form]], not the null coordinate), m = μ3/R², w = q(1 − m), and n0, A0, A1, A2, A3 and Γ/E² = A0 +
+A1ψ_III′ + A2ψ_III′² + A3ψ_III″ in the form written in [[eq:margins-gamma-form]]. Every entry is rounded outward, and
+later rows use the printed entries.
 
 | quantity | enclosure | quantity | enclosure |
 |---|---|---|---|
