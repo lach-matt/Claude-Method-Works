@@ -813,8 +813,8 @@ as in the uniqueness of [[thm:iv2-3-1]], and on the compact part it is an operat
 [[sec:s27-local]]; so [[thm:iv3-2-1]] holds for L̄ with the same proof, and h = h′. On Ω_(ext,r_1) ∩ {t_IVP ≥ 0}, which
 is closed under past causal curves within 𝒟⁺ with past boundary Σ^IVP_(r_1), h and the solution of [[thm:iv2-3-1]] with
 the data restricted to Σ^IVP_(r_1) both solve the forward problem and are small in H⁸; their difference vanishes by the
-forward parts of [[lem:iv2-2-2]] and [[lem:iv2-2-3]] for the averaged operator, as in the uniqueness of [[thm:iv2-3-1]].
-∎
+forward parts of [[lem:iv2-2-2]] and [[lem:iv2-2-3]] for the averaged operator, as in the uniqueness of
+[[thm:iv2-3-1]]. ∎
 
 So the solution of [[prop:iii-k-1-2]] on 𝒟⁺ is that of [[thm:iv3-2-2]]; on 𝒟⁻ it is the backward solution on 𝒦⁻ and,
 near infinity, the exterior solution on the past slab of Ω_(ext,r_1) (the proof of [[prop:iii-k-1-2]]).

@@ -1146,7 +1146,7 @@ in the r-range of A_σ″(ϱ, V_*) containing r_p ≥ 2. Parametrise each sphere
 G(r) := ‖ψ(r, ·)‖_(L²(S³)) and G̃(r) := ‖(d/dr) ψ(r, ·)‖_(L²(S³)), d/dr = x̂·∂_x + f′ ∂_t along the rays. For s ∈ I,
 G(r_p)² = G(s)² + ∫_s^(r_p) (G²)′ with |(G²)′| ≤ 2 G G̃; averaging over s ∈ I, G(r_p)² ≤ ∫_I (G² + 2G G̃) dr ≤
 2 ∫_I (G² + G̃²) dr. The fields Ω_ab are tangent to the spheres and span their tangent spaces, so they bound the norm of
-W^(2,2)(S³), and [[thm:std-bh-manifold]] (with s = p = 2 > 3/2) gives
+W^(2,2)(S³), and [[thm:std-bh-manifold]] (with s = p = 2, sp = 4 > 3) gives
 sup_(S³) |ψ(r_p, ·)|² ≤ C Σ_(|γ|≤2) ‖Ω^γ ψ(r_p, ·)‖²_(L²(S³)). On I, r ≥ r_p − 1 ≥ r_p/2, so dr dω = r⁻³ d⁴x ≤ 8 r_p⁻³ d⁴x,
 and
 
@@ -1186,8 +1186,8 @@ A_σ(ϱ) := Σ̃_σ ∩ {r ≥ ϱ + 2(σ − T)}:
 
     𝒥(σ; ϱ) ≤ C ϱ^(2a−6)  (σ ∈ [T, σ′], ϱ ≥ ϱ_1),     |∂^q δ| ≤ C r^(−q−7/2)  on X_(ϱ_1)  (q ≤ m − 2).
 
-*Step 6 (the conclusions).* (a) On X_(ϱ_1), h_R = Σ′_J + δ, and by [[eq:own-gamma-cartesian]]
-∂^j Γ^γ δ = Σ_(|β|≤|γ|) Σ_(i≤j) (j choose i) (∂^i c_(γ,β)) ∂^(j−i) ∂^β δ (multi-index binomials), each term at most
+*Step 6 (the conclusions).* (a) On X_(ϱ_1), h_R = Σ′_J + δ. By [[eq:own-gamma-cartesian]] and Leibniz's rule,
+∂^j Γ^γ δ is a finite sum of terms (∂^i c_(γ,β)) ∂^(j−i) ∂^β δ with i ≤ j and |β| ≤ |γ|, each at most
 C r^(|β|−i) r^(−(j−i+|β|)−7/2) = C r^(−j−7/2), as j + |β| ≤ k ≤ m − 2. With [[lem:cutoff-extension]] (a) for Σ′_J this is
 (a) on X_(ϱ_1). The points of 𝒲 with r ≥ ϱ_1 + 2(σ′ − T) lie in X_(ϱ_1), and on the compact set
 𝒲 ∩ {r ≤ ϱ_1 + 2(σ′ − T)} the derivatives of h_R are bounded.
@@ -1213,30 +1213,34 @@ the integral over {x : r_σ ≤ |x| ≤ ϱ} of a function continuous in (σ, x),
 σ, and of the tails, at most C ϱ^(2a−6) uniformly in σ ∈ [T, σ′]. So 𝔈_k is finite and, as ϱ → ∞, a uniform limit of
 continuous functions on [T, σ′]. ∎
 
-**Theorem {#thm:own-continuation}** (the continuation). Under the hypotheses of [[thm:own-data]] there are λ_2 > 0,
-ε_2 > 0 and T_1(λ) such that for 0 < λ ≤ λ_2 the following holds. For T ≤ T_1(λ), g_T exists on all of W_T, and as
-T → −∞ the g_T converge in C^k on compact subsets of W, for every k, to a smooth G-invariant metric g on W with
-Ric^H(g; g_b0) = 0, which joins g_λ smoothly across N. Its remainder h_R = g − g_b0 − Σ satisfies 𝔈_(k1)(σ) ≤ ε_B² for
-σ ≤ 0, with ε_B = ε_B(λ) → 0 as λ → 0, 𝔈_k(σ) ≤ C_k(λ) for every k, and E_σ[Γ^α h_R] → 0 as σ → −∞ for |α| ≤ k1; the
-pointwise bounds [[eq:own-pointwise]] hold with ε_B. On S, h_R|_S ∈ ρ^(a+1) H_b^k and ∂h_R|_S ∈ ρ^(a+2) H_b^k
-(dρ/ρ dω) for every k, and the data (γ, k) of g on S satisfy γ − γ_b0 ∈ H^(∞,(ℰ_0^½,ℓ0))_b, k − k_b0 ∈
-H^(∞,(ℰ_0^½+1,ℓ0+1))_b on S, with ‖·‖_(d_1) ≤ C(λ + ε_B) there.
+**Theorem {#thm:own-continuation}** (the continuation). Under the hypotheses of [[thm:own-data]] there are λ_2 > 0
+and ε_2 > 0 such that for 0 < λ ≤ λ_2 the following holds. For every integer J ≥ 2k1 + 7 there is T_1(λ, J) such that
+for T ≤ T_1(λ, J) the solution g_T^(J) of the truncated problem of [[def:cutoff-truncation]] exists on all of W_T, and as
+T → −∞ the g_T^(J) converge in C^(k_J−3) on compact subsets of W, k_J := ⌊(J − 7)/2⌋, to a metric g on W that does not
+depend on J. g is smooth and G-invariant, Ric^H(g; g_b0) = 0, and g joins g_λ smoothly across N. Its remainder
+h_R = g − g_b0 − Σ satisfies 𝔈_(k1)(σ) ≤ ε_B² for σ ≤ 0, with ε_B = ε_B(λ) → 0 as λ → 0, 𝔈_k(σ) ≤ C_k(λ) for every
+k, and E_σ[Γ^α h_R] → 0 as σ → −∞ for |α| ≤ k1; the pointwise bounds [[eq:own-pointwise]] hold with ε_B. On S,
+h_R|_S ∈ ρ^(a+1) H_b^k and ∂h_R|_S ∈ ρ^(a+2) H_b^k (dρ/ρ dω) for every k, and the data (γ, k) of g on S satisfy
+γ − γ_b0 ∈ H^(∞,(ℰ_0^½,ℓ0))_b, k − k_b0 ∈ H^(∞,(ℰ_0^½+1,ℓ0+1))_b on S, with ‖·‖_(d_1) ≤ C(λ + ε_B) there.
 
-*Proof.* *Step 1 (the bootstrap and the pointwise bounds).* Let T ≤ T_1(λ) (chosen in Step 3), and assume (BA):
-𝔈_(k1)(σ) ≤ 4ε_B² on [T, σ*], σ* < σ_1(T), with ε_B ≤ ε_2 to be fixed. Under (BA), for σ ∈ [T, σ*] and r ≥ r_σ,
+*Proof.* Steps 1–5 fix J ≥ 2k1 + 7 and write g_T for g_T^(J); λ_2, ε_2 and ε_B will not depend on J.
+
+*Step 1 (the bootstrap and the pointwise bounds).* Let T ≤ T_1(λ, J) (chosen in Step 3, with T_1(λ, J) ≤ T_0), and
+assume (BA): 𝔈_(k1)(σ) ≤ 4ε_B² on [T, σ*] and |g_T⁻¹ − g_b0⁻¹| ≤ 0.0474 on W_T ∩ {t̃ ≤ σ*} ∩ {r ≥ ϱ_0}, where
+σ* < σ_1(T), ϱ_0 is that of [[lem:own-exterior]], and ε_B ≤ ε_2 is to be fixed. Under (BA), for σ ∈ [T, σ*] and
+r ≥ r_σ,
 
     |∂ Γ^β h_R| ≤ C_S ε_B r^(−3/2−a)  (|β| ≤ k1 − 3),     |∂∂ Γ^β h_R| ≤ C_S ε_B r^(−3/2−a)  (|β| ≤ k1 − 4),
     |Γ^β h_R| ≤ C_S ε_B r^(−1/2−a)  (|β| ≤ k1 − 3).
                                                                                                       {#eq:own-pointwise}
 
-Indeed, by [[lem:own-exterior]] 𝔈_(k1)(σ) is finite; by [[lem:own-margins]] (d), E_σ[φ] ≥ c_1 ∫ r^(2a) |∂φ|² r³ dr dω,
-w ≥ r^(2a); and by [[eq:own-ray-derivative]] the ray derivative of F := Ω^γ ∂Γ^β h_R, |γ| ≤ 2, is a combination of
-first derivatives of commuted fields of one more order, with no undifferentiated term. So [[eq:own-s1]] with the Sobolev
-embedding H²(S³) ⊂ L^∞(S³) gives the first bound with 𝔈_(|β|+3); the second is the first with one more commutation, by
-[[lem:own-rays]] (a). Every Γ^β h_R(σ, ·) tends to 0 along Σ̃_σ: at fixed x beyond the band,
-|Γ^β h_R(σ, x)| ≤ |Γ^β h_R(T, x)| + (σ − T) sup_[T,σ] |∂_t Γ^β h_R(·, x)|, the first term O(λ r⁻⁶) or 0 and the second
-O(r^(−3/2−a)) by the first bound at all times in [T, σ] (with a constant depending on sup 𝔈), the time segment lying in
-W_T. So [[eq:own-hardy]] applies, and its second inequality gives the third bound. With [[lem:own-sigma-data]] (b),
+Indeed, by [[lem:own-exterior]] (c), with σ′ := σ* and c := 0.0474, 𝔈_(k1)(σ) is finite; by [[lem:own-margins]] (d),
+E_σ[φ] ≥ c_1 ∫ r^(2a) |∂φ|² r³ dr dω, w ≥ r^(2a); and by [[eq:own-ray-derivative]] the ray derivative of
+F := Ω^γ ∂Γ^β h_R, |γ| ≤ 2, is a combination of first derivatives of commuted fields of one more order, with no
+undifferentiated term. So [[eq:own-s1]] with the Sobolev embedding H²(S³) ⊂ L^∞(S³) gives the first bound with
+𝔈_(|β|+3); the second is the first with one more commutation, by [[lem:own-rays]] (a). Every Γ^β h_R(σ, ·) tends to 0
+at spatial infinity along Σ̃_σ, by [[lem:own-exterior]] (a). So [[eq:own-hardy]] applies, and its second inequality
+gives the third bound. With [[lem:own-sigma-data]] (b),
 |H| ≤ C λ r⁻² + C_S ε_B r^(−1/2−a) ≤ min(1/50, 𝔪/2, r⁻²/4) on W ∩ {t̃ ≤ σ*} for λ ≤ λ_2 and ε_B ≤ ε_2, since a ≥ 3/2;
 so [[lem:own-margins]] (a)–(e) apply, with |g_T⁻¹ − g_b0⁻¹| ≤ 0.0232 and ≤ 0.2845 r⁻².
 
