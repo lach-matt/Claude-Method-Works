@@ -769,3 +769,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   648-653, 660-663, 682-688, 738, 784-786, 800-809, 852-857 and drops the issue-2 marker; proof G changes
   prop:far-window's initial-slice hypothesis. Separate defect reported: lem:own-exterior's tail bound (L² part ~ϱ⁻⁴)
   fails for a > 2 (the reader checks it). Independent reader running before the chapter 63 fix round.
+- S4 second fix (F2-S04): all 5 minors and 8 nits; the cut-offs section rewritten (auxiliary operators truncated near
+  the diagonal by [Hin26d, Lemma 3.42, p. 51] and placed in the carriers with explicit room; χ_* needs no margin; nested
+  inner cut-offs h(χ), h = 0 near 0, h(1) = 1, need no room). Lemma 4.1 changed only in (iii): "for every w ∈ H^(K′)".
+  Chapter 25's analogues (lines ~168, 211, 231) must drop "carried by χ" (the S6 two-sided update, after the S4 reading).

@@ -236,12 +236,11 @@ every w ∈ (0, w_0], w_0 that of the hypothesis,
     |S^(h,p⃗,β)_ν(G)| + |A_b(G)| ≤ C‖G‖_(𝒴^♮(β)) + C(‖h‖ + |p⃗|)‖u‖_(w),
 
 with the seminorms of [[lem:iii-i13-2-2]] and C depending on w and uniform for (h, p⃗) small and b ∈ ℬ̄_*. This is not a
-bound by G alone ([[def:iii-i15-2-3]]). At a fixed b: if
-(h_j, p⃗_j) → (0, p⃗_b), with p⃗_b the parameter whose only nonzero component is b − b₀, and G_j → G in 𝒴^♮(β), with
-the hypothesis of [[lem:iii-i13-2-3]], then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G). At b₀ the second sum in
-[[eq:iii-i15-2-1]] is absent (the rotation rows' rates there are Re λ + 1 > α − 2 ≥ β − 2), and [[eq:iii-i15-2-1]] is
-[[eq:iii-i13-2-2]]. For β < 3 no rotation row has rate below β − 2 (Re λ − ε > 1, [[lem:iii-i15-2-1]]), and
-[[lem:iii-i8-3-2]] holds at b as at b₀.
+bound by G alone ([[def:iii-i15-2-3]]). At a fixed b: if (h_j, p⃗_j) → (0, p⃗_b), with p⃗_b the parameter whose only
+nonzero component is b − b₀, and G_j → G in 𝒴^♮(β), with the hypothesis of [[lem:iii-i13-2-3]], then
+S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G). At b₀ the second sum in [[eq:iii-i15-2-1]] is absent (the rotation rows' rates
+there are Re λ + 1 > α − 2 ≥ β − 2), and [[eq:iii-i15-2-1]] is [[eq:iii-i13-2-2]]. For β < 3 no rotation row has rate
+below β − 2 (Re λ − ε > 1, [[lem:iii-i15-2-1]]), and [[lem:iii-i8-3-2]] holds at b as at b₀.
 
 *Proof.* By [[lem:iii-i13-2-2]], which is stated at b, u = Σ_(ν∈𝒩_β) m_ν(S_ν) + u^rot_β + ũ with ũ in the class of
 [[eq:iii-i13-2-2]], and the S_ν are determined by u − u^rot_β. There u^rot_β is the sum of the terms of u^rot_ι
@@ -254,10 +253,9 @@ the hypothesis of [[lem:iii-i13-2-3]], then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p
 which goes into ũ. Indeed, for (λ, k) ∈ ℳ_rot, λ lies in Λ (π_1ℳ_rot ⊂ π_1ℰ_♯ ⊂ Λ), so λ + 1 ∈ Λ has real part at least
 λ_♯ + 1 > 2 ([[lem:iii-i10-1-2]] (a)), hence above 2 + ε_K by (G), while β − 2 ≤ 2 + ε_K. As u^rot_β − Σ_(𝒩^(<β)_rot)
 m_ν(A_(b,ν)(G)) has K⁺-weight above β − 2, the S_ν, read by [[cor:iii-i10-2-3]] at b ([[lem:iii-i15-1-2]]) from the rows
-of rate below β − 2, are also determined by u − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)). They are the S_ν of
-[[lem:iii-i13-2-2]], whose conjugation symmetry, linearity and bound they have; A_b has the same bound
-([[def:iii-i15-2-3]]). The continuity at
-fixed b is [[lem:iii-i13-2-3]]. Continuity across b is not claimed: the proofs perturb from a reference operator, and
+of rate below β − 2, are also determined by u − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)). They are the S_ν of [[lem:iii-i13-2-2]],
+whose conjugation symmetry, linearity and bound they have; A_b has the same bound ([[def:iii-i15-2-3]]). The continuity
+at fixed b is [[lem:iii-i13-2-3]]. Continuity across b is not claimed: the proofs perturb from a reference operator, and
 L_b − L_(b₀) gains only 2 at K⁺. ∎
 
 **Proposition {#prop:iii-i15-2-5}** ([[thm:iii-i14-3-1]] at b.) Let h ∈ 𝒳^∞, p⃗ ∈ 𝒫 with parameter b ∈ ℬ̄_*, and

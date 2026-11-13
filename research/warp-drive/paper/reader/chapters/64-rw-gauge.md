@@ -690,18 +690,24 @@ pointwise norm: |Y_αβ|_g = r⁻²|Y_αβ|_γ. The norm of Y_αβ is [[lem:gd-1
 
     ∫_(R_H)^∞ ((∂_rΦ)² + k²Φ²/r²) dr ≤ C_1 Ě^N_Ψ(Σ_τ)/‖𝒴‖²,        C_1 = 9/(2f_1) + 8,
 
-and the same for XΨ with XΦ in place of Φ, X a product of T and the rotations. Moreover Σ_i Ě^N_(Ω_iΨ) = k²Ě^N_Ψ for
-the scalar type and (k² + 4)Ě^N_Ψ for the tensor type, mode by mode. On the spacelike part Σ_τ ∩ {r ≤ R_H},
+and the same for T^aΨ = r^(1/2)(T^aΦ)𝒴, a ≥ 1, with T^aΦ in place of Φ, as T^aΦ solves the same master equation, T
+being Killing. A rotation acts on the harmonic and not on Φ: Ω_iΨ = r^(1/2)Φ L_i𝒴, L_i the Lie derivative along Ω_i
+on S³; it enters only through the identity Σ_i Ě^N_(Ω_iΨ) = λĚ^N_Ψ, mode by mode, with λ := k² for the scalar type and
+λ := k² + 4 for the tensor type, which holds as well with T^aΨ or Ω_jΨ in place of Ψ, so that
+Σ_i Ě^N_(Ω_iT^aΨ) = λĚ^N_(T^aΨ) and Σ_(i,j) Ě^N_(Ω_iΩ_jΨ) = λ²Ě^N_Ψ. On the spacelike part Σ_τ ∩ {r ≤ R_H},
 Ě^N_Ψ(Σ_τ) ≥ c∫((∂_vΦ)² + (∂_rΦ)² + k²Φ²) dr ‖𝒴‖², with c > 0 depending on m₀ and Σ_0 only.
 
-*Proof.* On C_τ, n_(Σ_τ) = L, and at fixed u_H, L = f∂_r (v_H − u_H = r_*) and dv_H = dr/f; N = T there, as Y = 0 for
-r ≥ R_H > r_1. From (89), with g(L, T) = −f and g̃⁻¹ = f⁻¹(−∂_t² + ∂_(r_*)²) on the orbit space,
-Ť(L, T) = (1/2)|∇_LΨ|² + (f/(2r²))|∇̊Ψ|². For Ψ = r^(1/2)Φ𝒴, ∇_LΨ = r²L(r⁻²Ψ) = r²L(r^(−3/2)Φ)𝒴,
-so r³|∇_LΨ|² = f²(∂_rΦ − 3Φ/(2r))²|𝒴|², and ∫_(S³) r³(f/(2r²))|∇̊Ψ|² = (f/2)r⁻²Φ²∫|∇̊𝒴|² = (f/2)(k² − 6)Φ²‖𝒴‖²/r²
-for the scalar type by (36), and (f/2)(k² − 2)Φ²‖𝒴‖²/r² for the tensor type by [KI03, (5.2)]. Integrating against
-r³dv_H dω = r³f⁻¹dr dω,
+*Proof.* On C_τ, n_(Σ_τ) = L, and at fixed u_H, L = f∂_r (v_H − u_H = r_*) and dv_H = dr/f; N = T there, as Y_H = 0
+for r ≥ R_H > r_1. From (89), with g(L, T) = −f and g̃⁻¹ = f⁻¹(−∂_(t_s)² + ∂_(r_*)²) on the orbit space,
+Ť(L, T) = (1/2)|∇_LΨ|² + (f/(2r²))|∇̊Ψ|². For Ψ = r^(1/2)Φ𝒴, ∇_LΨ = r²L(r⁻²Ψ) = r²L(r^(−3/2)Φ)𝒴
+= r^(1/2)f(∂_rΦ − 3Φ/(2r))𝒴, so |∇_LΨ|² = r⁻³f²(∂_rΦ − 3Φ/(2r))²|𝒴|² and r⁻²|∇̊Ψ|² = r⁻⁵Φ²|∇̊𝒴|², with |𝒴| and
+|∇̊𝒴| taken in the metric of the unit sphere; and ∫_(S³) |∇̊𝒴|² dω = (k² − 6)‖𝒴‖² for the scalar type by (36),
+(k² − 2)‖𝒴‖² for the tensor type by [KI03, (5.2)]. Integrating Ť(L, T) against r³dv_H dω = r³f⁻¹dr dω,
 
-    Ě^N_Ψ(Σ_τ ∩ {r ≥ R_H}) ≥ (1/2)∫_(R_H)^∞ (f(∂_rΦ − 3Φ/(2r))² + (k² − 6)Φ²/r²) dr ‖𝒴‖².
+    Ě^N_Ψ(Σ_τ ∩ {r ≥ R_H}) = (1/2)∫_(R_H)^∞ (f(∂_rΦ − 3Φ/(2r))² + (k² − 6)Φ²/r²) dr ‖𝒴‖²
+
+for the scalar type; for the tensor type the same holds with k² − 2 in place of k² − 6, so the right side is a lower
+bound for both types.
 
 With a := ∂_rΦ − 3Φ/(2r), (∂_rΦ)² ≤ 2a² + (9/2)Φ²/r², so the left side of the claim is at most
 ∫(2a² + (k² + 9/2)Φ²/r²)dr ≤ max(4/f_1, 2(k² + 9/2)/(k² − 6)) Ě/‖𝒴‖², and for k² ≥ 8,
@@ -710,12 +716,15 @@ equations and with the energy densities. On functions Σ_iΩ_i² = Δ̂ ([[lem:r
 so −Σ_iL_(Ω_i)² Y_αβ = k²Y_αβ. On symmetric 2-tensors on S³, −Σ_iL_(Ω_i)² = ∇̊*∇̊ + 𝒜 with 𝒜 algebraic: writing
 L_(Ω_i) = ∇̊_(Ω_i) + (∇̊Ω_i)·, the second-order part is −Σ_i∇̊²_(Ω_i,Ω_i) = ∇̊*∇̊, as Σ_iΩ_i ⊗ Ω_i = γ (Lagrange's
 identity) and Σ_i∇̊_(Ω_i)Ω_i = −(1/2)∇̊Σ_i|Ω_i|² = 0; and the first-order part vanishes, as for Ω = Ax (A antisymmetric)
-the endomorphism ∇̊Ω is Y ↦ P(AY), P the tangential projection, and Σ_(a<b)(A_ab)_ij(A_ab)_kl = δ_ikδ_jl − δ_ilδ_jk
-gives Σ_i (PA_iY) ⊗ (A_ix) = (Y · x)P − (Px) ⊗ Y = 0 for Y tangent. 𝒜 is O(4)-equivariant, and the isotropy group O(3)
+the endomorphism ∇̊Ω is e ↦ P(Ae), P the tangential projection, and Σ_(a<b)(A_ab)_ij(A_ab)_kl = δ_ikδ_jl − δ_ilδ_jk
+gives Σ_i (PA_ie) ⊗ (A_ix) = (e · x)P − (Px) ⊗ e = 0 for e tangent. 𝒜 is O(4)-equivariant, and the isotropy group O(3)
 acts irreducibly on trace-free symmetric 2-tensors at a point, so 𝒜 is a constant on them; by (36), ∇̊*∇̊Y_αβ =
 (k² − 6)Y_αβ, so 𝒜 = 6. On the tensor harmonics, ∇̊*∇̊T = k_T²T = (k² − 2)T ([KI03, (5.1)–(5.2)]), so
-−Σ_iL_(Ω_i)²T = (k² + 4)T. As the L_(Ω_i) are skew on L²(S³), Σ_iĚ^N_(Ω_iΨ) is the eigenvalue of −Σ_iL_(Ω_i)² times
-Ě^N_Ψ. On the spacelike part, N and n_(Σ_τ) are timelike, uniformly on the compact set
+−Σ_iL_(Ω_i)²T = (k² + 4)T. As the L_(Ω_i) are skew on L²(S³) and commute with the operators in the energy density,
+Σ_iĚ^N_(Ω_iΨ) is the eigenvalue λ of −Σ_iL_(Ω_i)² times Ě^N_Ψ. The same holds for T^aΨ, which carries the same 𝒴, and
+for Ω_jΨ = r^(1/2)ΦL_j𝒴: L_j commutes with Σ_iL_(Ω_i)² (the sum is invariant under the adjoint action of SO(4)) and
+maps the harmonics of degree l of each type to harmonics of degree l of that type, so L_j𝒴 lies in the same
+eigenspace; summing over j gives Σ_(i,j)Ě^N_(Ω_iΩ_jΨ) = λΣ_jĚ^N_(Ω_jΨ) = λ²Ě^N_Ψ. On the spacelike part, N and n_(Σ_τ) are timelike, uniformly on the compact set
 {r_h ≤ r ≤ R_H} of the leaf modulo the flow of T, so Ť(n, N) bounds c(|∇_vΨ|² + |∇_rΨ|² + r⁻²|∇̊Ψ|²); there
 ∇_AΨ = r²∂_A(r^(−3/2)Φ)𝒴, the angular term carries (k² − 6) ≥ k²/4, and the term in Φ/r of ∂_r(r^(−3/2)Φ) is absorbed
 by it. ∎

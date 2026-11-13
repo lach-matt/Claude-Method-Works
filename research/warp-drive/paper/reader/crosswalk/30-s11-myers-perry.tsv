@@ -50,10 +50,11 @@ eq:iii-b-3-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:98	III.B (3.1)	P(r) ren
 lem:iii-b-3-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:100-119	III.B Lemma 3.1	(a): chk3b check replaced by the Cayley-Hamilton theorem for antisymmetric 4x4 matrices
 def:iii-b-3-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:121-125	III.B Definition 3.2	supplement 10.36 attribution dropped
 eq:iii-b-3-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:125	III.B (3.2)	
-lem:iii-b-3-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:127-143	III.B Lemma 3.3	(a),(b): chk3b check replaced by a hand derivation with N := (r^2 - A^2)^-1; covector theta renamed Theta
+lem:iii-b-3-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:127-143	III.B Lemma 3.3	(a),(b): chk3b check replaced by a hand derivation with sans-serif N := (r^2 - A^2)^-1 (script N is an energy); covector theta renamed Theta
 prop:iii-b-3-4	docket68/n1star/proof5/PART-III-B-FAMILY.md:145-154; docket68/n1star/N1STAR-PROOF.md:5837-5850	III.B Proposition 3.4 (READ) with NP Proposition 10.33 (i)	Ricci-flatness: [ER08] (42), (44), (45) p. 16 as black box; identification of (3.2) at A = aJ12 + bJ34 with ER08 (42) (computed at points in NP 10.33 (i)) written out by hand; all A by O(4) covariance; A = 0 check (chkric) written out; checked privately
 eq:s11-er08	[ER08] (42), (44), p. 16	the black box	
 lem:s11-ks-domain	docket68/n1star/proof5/PART-IV6-SOLV.md:24-30; docket68/n1star/BEYOND5-R0-PROOF.md:48-56; docket68/n1star/proof5/PART-VI-DYN.md:79-87	IV(5) section 0 extension of III.B section 3.1 estimate; R0P F1	added by the entry; stated at r_flat (at r_flat = R_1/2 the domain is |x| >= R_1/4); parameter set: eps_param in (0, 1/10) with eps_param <= r_flat/(4R_1), containing III.B set at r_flat = R_1/2 and R0P set B_flat
+def:s11-parameters	docket68/n1star/BEYOND5-R0-PROOF.md:19-20	R0P section 0 choices (eps_flat, B_flat)	the one parameter set of the stability theory; mass written m
 sec:iii-b-3-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:163-219	III.B section 3.2	T_mu argument rho renamed varrho (rho = 1/|x|)
 eq:iii-b-3-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:168	III.B (3.3)	
 lem:iii-b-3-5	docket68/n1star/proof5/PART-III-B-FAMILY.md:172-196; docket68/n1star/BEYOND5-R0-PROOF.md:159-160	III.B Lemma 3.5 at r_flat	(b): chk3b symbolic check replaced by the substitution written out, including g_|x||x|
@@ -103,9 +104,9 @@ eq:iii-a-1-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:82	III.A (1.1)
 eq:iii-a-1-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:106	III.A (1.2)	
 lem:iii-a-1-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:109-138	III.A Lemma 1.3 as amended (D226, D229)	counting letter N renamed p; tags dropped
 eq:iii-a-1-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:113	III.A (1.3)	
-sec:iii-a-1-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:140-256	III.A section 1.1	Mellin variable lambda written iota; Sobolev index N renamed J
-lem:iii-a-1-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:176-229	III.A Lemma 1.4	case of exponents on Re = beta kept as mathematics
-lem:iii-a-1-5	docket68/n1star/proof5/PART-III-A-PREREQ.md:231-256	III.A Lemma 1.5	Cauchy constant l!/(2 pi i)
+sec:iii-a-1-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:140-256	III.A section 1.1	Mellin variable lambda written iota; Sobolev index N renamed J; operators on C^(N_E)-valued functions (componentwise norms, matrix symbols, ellipticity = invertible principal symbol; bundles through the frame of sec:i-a-1-2); (EE) from [Shu92, Appendix 1, Lemma 1.4, pp. 69-70] in place of [Hin26d, Prop. 3.55 (3)]; (E2) widened: every Laurent coefficient gains m derivatives, uniform H^s -> H^(s+m) bounds off the poles; Theorem 3.21 on p. 38; function w renamed v
+lem:iii-a-1-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:176-229	III.A Lemma 1.4	case of exponents on Re = beta kept as mathematics; stated for A in Diff^m_b(M; C^(N_E)); residues in C^infty by the widened (E2)
+lem:iii-a-1-5	docket68/n1star/proof5/PART-III-A-PREREQ.md:231-256	III.A Lemma 1.5	Cauchy constant l!/(2 pi i); stated for A in Diff^m_b(M; C^(N_E)); u_j written as Laurent coefficients, (E2) for all
 eq:iii-a-1-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:244	III.A (1.4)	
 sec:iii-a-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:258-368	III.A section 2	
 def:iii-a-2-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:260-269	III.A Definition 2.1	

@@ -14,7 +14,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |
 | 21 S2 | NOT CONFIRMED 1M 6m 17n | done | CONFIRMED (4 optional nits) |
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | CONFIRMED (4 nits) |
-| 23 S4 | NOT CONFIRMED 3M 8m 7n | done (d₀ fixed before k by the orders alone) | NOT CONFIRMED 0M 5m 8n (tameness holds); second fix running |
+| 23 S4 | NOT CONFIRMED 3M 8m 7n | done (d₀ fixed before k by the orders alone) | second fix done (cut-offs section rewritten: [Hin26d, Lemma 3.42] truncation, χ_* without margin, h(χ) nesting; Lemma 4.1 (iii) for every w ∈ H^(K′)); third reading running |
 | 24 S5 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (2 optional nits) |
 | 25 S6 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (4 new nits); depends on S4 |
 | 26 S7 | NOT CONFIRMED 2M 4m 3n | done | CONFIRMED (4 nits) |
