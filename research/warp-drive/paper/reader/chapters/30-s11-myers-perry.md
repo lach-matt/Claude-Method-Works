@@ -1504,19 +1504,20 @@ u_(z,j) = ρ^z Σ_(i≤j)(log ρ)^i u_i, u_i ∈ C^∞(∂M), with N(A)u_(z,j) =
 up to (A − N(A))(χu_(z,j)), whose exponents lie in z + 1 + ℕ₀, above β, and up to terms supported in ρ ≥ ¼ρ₀.
 Replacing u by u − Σ χu_(z,j) keeps the hypotheses (Re z = β > α) and the conclusion ((z, j) ∈ F ⊂ E) and removes these
 terms, so we may assume β ∉ Re π₁F. Write v := χ̃u and N(A) = Σ_j A_j(0)(ρ∂_ρ)^j in the collar. Then N(A)v = f′ with
-f′ := χAu + (χ̃ − χ)Au + [A, χ̃]u − (A − N(A))v. The sum of the second and third terms is A(χ̃u) − χAu. It vanishes on
-ρ < ¼ρ₀, where χ̃ − χ = 0 and [A, χ̃] = 0, as χ̃ = χ = 1 there; it is supported in supp χ̃, a compact subset of
-[0, ρ₀); and on {ρ ≥ ¼ρ₀} all its derivatives are square integrable, since A(χ̃u) ∈ H^(∞,α)_b(M) (A maps
-H^(∞,α)_b(M) into itself on functions supported in supp χ̃, where its coefficients are smooth up to ρ = 0) and
-χAu ∈ H^(∞,(F,β))_b(M), and away from ρ = 0 membership in either space means exactly that all derivatives are square
-integrable on compact sets (b-derivatives are combinations of ordinary ones with smooth coefficients there, the weights
-are bounded above and below, and the expansion terms of [[eq:s11-partial]] are smooth). So the sum is smooth with
-compact support in (0, ρ₀) × ∂M, and its Mellin transform is entire, with |ι|^k‖ℳ(·)(ι)‖_(H^J(∂M)) bounded on every
-strip {c₁ ≤ Re ι ≤ c₂} for all k and J, as ℳ(ρ∂_ρ g) = ιℳg. And A − N(A) ∈ ρ Diff^m_b near ρ = 0, so
-f′ ∈ H^(∞,(F,β))_b + H^(∞,α+1)_b after cutting off. Let γ := min(β, α + 1), decreased slightly if necessary so that no
-Re ι, ι ∈ spec_b(A) ∪ π₁F, equals γ (possible as spec_b(A) ∪ π₁F has finitely many points in every strip, by (E3)
-and [[def:s11-b-analysis]] (4); β itself is excluded, by the hypothesis and the reduction above, when γ = β). By (M1), ℳv is holomorphic in Re ι < α and N(A, ι)ℳv = ℳf′ there; by
-(M2) and (E2), N(A, ι)⁻¹ℳf′ is meromorphic in Re ι < γ and continues ℳv. Its poles with Re ι < α cancel (as ℳv is
+f′ := χAu + (χ̃ − χ)Au + [A, χ̃]u − (A − N(A))v. The sum of the second and third terms is w := A(χ̃u) − χAu. It
+vanishes on ρ < ¼ρ₀, where χ̃ − χ = 0 and [A, χ̃] = 0, as χ̃ = χ = 1 there, and it is supported in supp χ̃, a compact
+subset of [0, ρ₀); so its support is a compact subset of (0, ρ₀) × ∂M. There all derivatives of w are square
+integrable. Indeed A(χ̃u) ∈ H^(∞,α)_b(M), as A maps H^(∞,α)_b(M) into itself on functions supported in supp χ̃, where
+its coefficients are bounded with all their derivatives, and χAu ∈ H^(∞,(F,β))_b(M); and on a compact subset of
+(0, ρ₀) × ∂M membership in either space implies that all derivatives are square integrable, since there b-derivatives
+are combinations of ordinary ones with smooth coefficients, the weights are bounded above and below, and the expansion
+terms of [[eq:s11-partial]] are smooth. So w is smooth with compact support in (0, ρ₀) × ∂M, and ℳw is entire, with
+|ι|^n‖ℳw(ι)‖_(H^J(∂M)) bounded on every strip {c₁ ≤ Re ι ≤ c₂} for all n and J, as ℳ((ρ∂_ρ)^n w) = ι^nℳw. And
+A − N(A) ∈ ρ Diff^m_b near ρ = 0, so f′ ∈ H^(∞,(F,β))_b + H^(∞,α+1)_b after cutting off. Let γ := min(β, α + 1),
+decreased slightly if necessary so that no Re ι, ι ∈ spec_b(A) ∪ π₁F, equals γ (possible as spec_b(A) ∪ π₁F has
+finitely many points in every strip, by (E3) and [[def:s11-b-analysis]] (4); β itself is excluded, by the hypothesis
+and the reduction above, when γ = β). By (M1), ℳv is holomorphic in Re ι < α and N(A, ι)ℳv = ℳf′ there; by (M2) and
+(E2), N(A, ι)⁻¹ℳf′ is meromorphic in Re ι < γ and continues ℳv. Its poles with Re ι < α cancel (as ℳv is
 holomorphic there), and there are none on Re ι = α: a pole ι₀ there would make ∫|ℳv(c + iη)|² dη grow at least like
 (α − c)⁻¹ as c ↑ α, against the uniform bound of (M1); at ι with α < Re ι < γ the pole order is at most the order of
 N(A, ·)⁻¹ plus that of ℳf′. Now v = (2πi)⁻¹ ∫_(Re ι=c) ρ^ι ℳv dι for c < α, and we move the contour to Re ι = γ. This
@@ -1529,9 +1530,9 @@ segments, not a pointwise one, and it is what the contour shift uses. The residu
 coefficients of N(A, ·)⁻¹ that enter, of negative and of non-negative powers, map C^∞(∂M) to itself by (E2)): by the
 order count these lie in H^(∞,(E(α)∪̄F,γ′)) for every γ′ < γ (the extended union E ∪̄ F of [[def:s11-b-analysis]] (4)
 is precisely the addition of pole orders, (z, k + l + 1) from orders k + 1 and l + 1). The integral on Re ι = γ lies in
-H^(∞,γ)_b by (M1), for all |ι|-weighted norms: N(A, ·)⁻¹ is bounded from H^s to H^(s+m) on that line by (E1) where
-|Im ι| ≥ R, and by (E2) on the compact rest, which contains no pole by (E3). So v ∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done.
-Otherwise γ < β (and γ ≤ α + 1); repeat with α replaced by γ − δ′ for small δ′ > 0 and the expansion found so far moved
+H^(∞,γ)_b by (M1), for all |ι|-weighted norms, as N(A, ·)⁻¹ is bounded from H^s to H^(s+m) uniformly on that line: by
+(E1) where |Im ι| ≥ R, and by (E2) on the compact rest, which contains no pole by (E3). So v ∈ H^(∞,(E_0,γ)) near
+ρ = 0. If γ = β we are done. Otherwise γ < β (and γ ≤ α + 1); repeat with α replaced by γ − δ′ for small δ′ > 0 and the expansion found so far moved
 into the right side: (A − N(A)) applied to ρ^ι(log ρ)^j a is, by Taylor expansion of the coefficients A_j(ρ) at
 ρ = 0, an expansion with exponents in ι + 1 + ℕ₀ and the same log powers, which is E_0 + 1; so
 f′ ∈ H^(∞,(F∪̄(E_0+1),β)) + H^(∞,γ+1−δ′), and the same argument gives E_1 up to the weight min(β, γ + 1 − δ′). Each

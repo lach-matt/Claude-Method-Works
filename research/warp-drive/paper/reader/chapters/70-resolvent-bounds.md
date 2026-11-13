@@ -11,8 +11,9 @@ cut off to an interval about the photon sphere, is bounded with explicit constan
 ([[prop:resolvent-outgoing]]), then uniformly in the degree where the potential barrier covers the interval
 ([[prop:rb-coercive]], [[cor:rb-closed-form]]) and where the frequency lies above the barrier
 ([[prop:resolvent-above-barrier]]); and then for every harmonic and every real frequency by multiplier identities of
-Morawetz type ([[lem:morawetz-identity]]), with algebraic multipliers whose weights are positive by exact polynomial
-inequalities ([[prop:morawetz-resolvent-l-ge-1]], [[prop:morawetz-l-zero]]). The same identities give one derivative
+Morawetz type ([[lem:morawetz-identity]]), with multipliers polynomial or rational in r⁻² whose weights are positive by
+exact polynomial inequalities ([[prop:morawetz-resolvent-l-ge-1]], [[prop:morawetz-l-zero]],
+[[prop:morawetz-polynomial]], [[prop:morawetz-harmonics]]). The same identities give one derivative
 ([[cor:morawetz-one-derivative]]), extend off the real axis ([[lem:morawetz-complex]]), apply to every master operator of
 the 1-form wave operator and of the linearised Einstein operator ([[prop:morawetz-master-potentials]]), and, with
 multipliers adapted to the frequency, give a bound uniform in the degree on the band 3 ≤ |σ| ≤ 384 ([[thm:band]],
@@ -1341,7 +1342,7 @@ at |σ| = 384 bounds the band: for l ≥ 1,
 X < (1 + 32.171)/(15/128) < 283.06; at l = 0, 2m′(M′ + 768)B̃ = (3315/32768)(768.3999)(11.477) < 892.18, whose
 increment by 1 has square root less than 29.8862, so X_0 < (1 + 29.8862)(32768/3315) < 305.31.
 
-For the sum, [[cor:morawetz-one-derivative]] (a) with B_l replaced by B̃ gives, for l ≥ 2,
+For the sum, [[cor:morawetz-one-derivative]] (a) with B*_l replaced by B̃ gives, for l ≥ 2,
 κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))J‖F_l‖², J := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.88 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
 κ ≥ 8. So for l ≥ 2 the harmonic contributes at most (283.06² + (8/5)(9389.0))‖F_l‖² < 308.46²‖F_l‖²; for l = 1 at
 most (283.06² + 3B̃²)‖F_1‖² < 283.76²‖F_1‖²; and for l = 0 at most 305.31²‖F_0‖². Summing over l, with

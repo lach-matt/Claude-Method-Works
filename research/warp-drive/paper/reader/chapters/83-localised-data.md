@@ -334,7 +334,8 @@ let N > 0 be a function of R, and for a momentum seed δ supported in U put
 
 and, with Z := s2 + s1/2 and X := ∂_ϑη − (3/2)(cos 2ϑ/sc) η,
 
-    Q_N(δ) = −(2π)² ∫∫ [ 2ν sc (Z − Eη/(2sc²))² + (3/2) ν sc (s1 − 2EX/(3sc))² + Γ η²/sin 2ϑ ] dϑ dR.  {#eq:charge-identity}
+    Q_N(δ) = −(2π)² ∫∫ [ 2ν sc (Z − Eη/(2sc²))² + (3/2) ν sc (s1 − 2EX/(3sc))²
+                         + Γ η²/sin 2ϑ ] dϑ dR.                                                  {#eq:charge-identity}
 
 For N = N_s, Q_N(δ) = Q(δ).
 
@@ -356,7 +357,8 @@ and Q_(N_s) = Q by [[eq:loc-charge]].
 𝔡 of [[eq:charge-identity]] (with its sign). Then, pointwise,
 
     𝔮 = 𝔡 + ∂_ϑ 𝔄 + ∂_R 𝔅,
-    𝔄 := 2νβE² η ∂_ϑη/sc − 2νE η s1 − νE² (cos 2ϑ/sc²) η²,      𝔅 := −(P/2) η²/sc − 2νE² (R²/G) η ∂_Rη/sc.  {#eq:charge-flux}
+    𝔄 := 2νβE² η ∂_ϑη/sc − 2νE η s1 − νE² (cos 2ϑ/sc²) η²,
+    𝔅 := −(P/2) η²/sc − 2νE² (R²/G) η ∂_Rη/sc.                                                      {#eq:charge-flux}
 
 This is an identity between polynomials in η, s1 and their derivatives, with coefficients in R and ϑ, and it is
 checked by expanding both sides, using E′ = aE, a = −3(1 − β)/R and the definitions of P and Γ, with ν, G and β

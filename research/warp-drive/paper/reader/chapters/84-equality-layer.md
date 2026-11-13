@@ -315,8 +315,8 @@ variation of Ricci is ∇_ρ δΓ^ρ_mn − ∇_n δΓ^ρ_(ρm). Commuting the d
 using Ric(g0°) = 0, it equals (1/2)(∇_m dD_n + ∇_n dD_m) − (1/2) □h_mn − R_m^a_n^b h_ab. The variation of the gauge term
 of [[eq:gauge]] at D = 0 is (1/2)(∇_m dD_n + ∇_n dD_m), since ∇̂ = ∇ at g0°. The difference is (a).
 
-(b) For h = H e^(ikv/λ), ∇_a h = (∇_a H + i k λ⁻¹ (∂_a v) H) e^(ikv/λ), and g0°⁻¹(dv, dv) = 0 ([[prop:vaidya]] (c)) and □v = 3/r
-([[sec:stage-zero]]). Hence
+(b) For h = H e^(ikv/λ), ∇_a h = (∇_a H + i k λ⁻¹ (∂_a v) H) e^(ikv/λ), and g0°⁻¹(dv, dv) = 0 ([[prop:vaidya]] (c)) and
+□v = 3/r ([[sec:stage-zero]]). Hence
 
     □(H e^(ikv/λ)) = e^(ikv/λ) (□H + i k λ⁻¹ (2 ∇_ℓ H + (3/r) H)),
 
@@ -1242,4 +1242,5 @@ Taylor's formula gives M_m ≥ m! c (2/3)^m, and with m! ≥ (m/e)^m, M_m^(1/m) 
 C(m − 1, ⌊(m − 1)/2⌋)/m ≥ 2^(m−1)/m² ≥ 10^430; and for κ ≥ 1 the second term of [[eq:layer-interpolation]] is at least
 (m − 1)^(m−1)/(m − 1)! ≥ e^(m−2)/(m − 1) ≥ 10^600, using n! ≤ n^(n+1) e^(1−n). So C_(1,m) ≥ 10^430, the base of Λ_4
 exceeds 10^430, and since m/(m − p) ≥ 1, Λ_4 ≤ 10^(−430).
+
 

@@ -316,7 +316,7 @@ at |σ| = 384 bounds the band: for l ≥ 1,
 X < (1 + 32.171)/(15/128) < 283.06; at l = 0, 2m′(M′ + 768)B̃ = (3315/32768)(768.3999)(11.477) < 892.18, whose
 increment by 1 has square root less than 29.8862, so X_0 < (1 + 29.8862)(32768/3315) < 305.31.
 
-For the sum, [[cor:morawetz-one-derivative]] (a) with B_l replaced by B̃ gives, for l ≥ 2,
+For the sum, [[cor:morawetz-one-derivative]] (a) with B*_l replaced by B̃ gives, for l ≥ 2,
 κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))J‖f_l‖², J := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.88 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
 κ ≥ 8. So for l ≥ 2 the harmonic contributes at most (283.06² + (8/5)(9389.0))‖f_l‖² < 308.46²‖f_l‖²; for l = 1 at
 most (283.06² + 3B̃²)‖f_1‖² < 283.76²‖f_1‖²; and for l = 0 at most 305.31²‖f_0‖². Summing over l, with
