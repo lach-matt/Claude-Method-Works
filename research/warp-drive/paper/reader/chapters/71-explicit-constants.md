@@ -201,9 +201,9 @@ Adding [[eq:iii-f-2-2]], ρS̄ = −Ē^C ι_(ḡ⁻¹dt_*) Ḡ + (dt_* ⊗_s ·)
 [[eq:ec-theta-in-l]]. Its first term is ι_(ḡ⁻¹ℓ)Ḡ : S²T* → T* followed by −Ē^C, and its second is Ē^ΥḠ : S²T* → T*
 followed by ℓ ⊗_s ·. So A + S vanishes on the common kernel of two linear maps from the fibre of S²T*, of dimension 15,
 to that of T*, of dimension 5, and that kernel has dimension at least 15 − 10 = 5. By (a) with μ = 0, ϑ_in ≥ 0 in
-every fibre inner product. On {r̂ > 1}, N_tf((2L_b)^(·), σ̂) has the form (H2), with S_0 = S|_(ρ=0) in place of S and
-N(P⁽⁰⁾) in place of P⁽⁰⁾ ([[sec:i-c-4-1]] (a)), and the coefficient of ρ̂∂_ρ̂ in N(P⁽⁰⁾) is a ([[eq:i-c-1-3]]); so
-its A + S is the same endomorphism, and (a) applies to it with ρ̂ for ρ. ∎
+every fibre inner product. On {r̂ > 1}, N_tf((2L_b)^(·), σ̂) satisfies (H1)–(H2), with S_0 = S(0, ·) in place of S
+and N(P⁽⁰⁾) in place of P⁽⁰⁾ ([[sec:i-c-4-1]] (a)), and the coefficient of ρ̂∂_ρ̂ in N(P⁽⁰⁾) is a ([[eq:i-c-1-3]]);
+so its A + S is the same endomorphism, and (a) applies to it with ρ̂ for ρ. ∎
 
 The losses of the following model inverses and transforms are given by their proofs in closed form. For a weight β
 and an index set E, n(E, β) denotes the number of pairs (z, m′) ∈ E with Re z ≤ β. ϑ_in and ϑ_ℋ are the thresholds of
@@ -222,8 +222,7 @@ for ∂^j_σ.
     ℓ = max(⌈(ϑ_in/2 + 5/2 + ε/2 − β_scf)_+⌉, ⌈(s_c − 1)_+⌉).                                           {#eq:ec-low-loss}
 
 (d) [[cor:iii-f1-3-4]]: ℓ_tf := max(⌈sup 𝗋 − 𝗋_out⌉, ⌈(s − 1)_+⌉) + max(⌈𝗋_out − inf 𝗋⌉, ⌈(−s)_+⌉), for the orders
-(s, 𝗋) of its proof, with 𝗋_out = β_sctf − 2 − ϵ/2. If the incoming threshold ϑ_in of N_tf(L_b, ±1) is non-negative,
-then ℓ_tf ≥ 1.
+(s, 𝗋) of its proof, with 𝗋_out = β_sctf − 2 − ϵ/2; and ℓ_tf ≥ 1.
 
 (e) [[thm:iii-g1-3-1]] (2), at a spectral parameter ϰ with Re ϰ < ℓ_I: with δ > 0 the small number of Step 5 of its
 proof,
@@ -256,8 +255,9 @@ as in [[cor:ii-g1-4-2]], decay orders with values in [𝗋_out, 𝗋_in], and �
 (d) The proof of [[cor:iii-f1-3-4]] obtains the bound near sctf from [[eq:ii-g1-4-1a]] and [[eq:ii-g1-4-1b]] with the
 losses ℓ, ℓ̃ of (a), replaces k by k + ℓ̃ and enlarges ℓ; so its loss is at least ℓ + ℓ̃ as displayed. Its orders are
 those of [[lem:i-a-7-1]] at σ_* = ±1, with 𝗋 = 𝗋_in at the incoming radial sets, where 𝗋_in > (−1 + ϑ_in)/2 (the
-weight α₊ being 0); and 𝗋_out = β_sctf − 2 − ϵ/2 < −½, as β_sctf < 3/2. If ϑ_in ≥ 0, then
-sup 𝗋 ≥ 𝗋_in > −½ > 𝗋_out, so ⌈sup 𝗋 − 𝗋_out⌉ ≥ 1 and ℓ_tf ≥ 1.
+weight α₊ being 0); and 𝗋_out = β_sctf − 2 − ϵ/2 < −½, as β_sctf < 3/2. By [[lem:ec-theta-in]] (b), ϑ_in ≥ 0 in
+the fibre inner product in which the orders are chosen; so sup 𝗋 ≥ 𝗋_in > −½ > 𝗋_out, ⌈sup 𝗋 − 𝗋_out⌉ ≥ 1 and
+ℓ_tf ≥ 1.
 
 (e) Step 5 of the proof of [[thm:iii-g1-3-1]] extends v^(−2−ϰ)f by 0 to F, which lies in Ḣ^((s−1;k+d),μ)_(b;b) at the
 same order k + d, with s := min(½, 2 − Re ϰ) − δ, s − ½ ∉ ℤ, and inverts N_sf(ϰ) at that order. It then applies

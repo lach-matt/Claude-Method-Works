@@ -114,10 +114,10 @@ where 𝖧 := (0, h_*) ∖ 𝖹. Here h_* := min(10⁻⁶, h_0, h_tf), with h_0 
 and at C_0 − 1, and h_tf the threshold of [[thm:iv6-3-1]]; and 𝖹 := 𝖹₁ ∪ 𝖹₂ ∪ 𝖹₃ ⊂ (0, 10⁻⁶] is the countable set
 made of the set 𝖹₁ of [[lem:iv4-1-3]] (b) and the sets 𝖹₂, 𝖹₃ of [[prop:np-10-52]] (ii), (iii). The nonlinear theorem
 of [[ch:s27]] takes C_0 = 100.
-The 1-form c_C is that of [[prop:np-10-14]] at m = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 outside
-[r_0/2, 2r_0], within [r_0/4, r_0/2] and [2r_0, 3r_0] ([[prop:np-10-14]] (b)), so that it is unchanged on
-[r_0/2, 2r_0] and equals r⁻¹(dt − v_C dr) for r ≥ 3r_0, and rescaled to m₀ (every condition on it depends on m r_0⁻²
-and r/r_0 only, by scaling). It is stationary and equals
+The 1-form c_C is that of [[prop:np-10-14]] at m = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 as in
+[[prop:np-10-14]] (b), only on [r_0/4, r_0/2] and [2r_0, 3r_0], so that it is unchanged on [r_0/2, 2r_0] and equals
+r⁻¹(dt − v_C dr) for r ≥ 3r_0, and rescaled to m₀ (every condition on it depends on m r_0⁻² and r/r_0 only, by
+scaling). It is stationary and equals
 |x|⁻¹(dt − v_C d|x|) for large |x| up to O(m₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the static time, and the
 time t of [[sec:iii-b-3-1]] is the outgoing Kerr–Schild time, whose differential differs from the static one by
 O(m₀|x|⁻²) d|x|, which changes |x|⁻¹(dt − v_C d|x|) by O(m₀|x|⁻³) d|x|.
