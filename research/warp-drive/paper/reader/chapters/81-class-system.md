@@ -485,12 +485,12 @@ solution is unique.
     ‖∂_t w(t)‖_(H^(s−1)) ≤ C_1 (‖f(t)‖_(H^(s−1)) + ‖w(t)‖_(H^s)),
     E_s(t; w)^(1/2) ≤ e^(C t) (E_s(0; w)^(1/2) + C ∫_0^t ‖f‖_(H^s)),
 
-with C_1 depending on d, s, c0, 𝔐 and the bounds on the A^μ, and C on these and 𝔐′.
+with C_1 depending on d, s, c0, 𝔐 and bounds of order s for the A^μ, and C on these and 𝔐′.
 (c) The solution of (b) satisfies, with K_w := sup_t (‖∂_x w(t)‖_(L^∞) + ‖∂_t w(t)‖_(L^∞)),
 
     E_s(t; w)^(1/2) ≤ e^(C_* t) (E_s(0; w)^(1/2) + C_* ∫_0^t (‖f‖_(H^s) + K_w ‖v‖_(H^s))),
 
-with C_* depending only on d, s, c0, K and bounds for the A^μ and their derivatives at |u| ≤ K.
+with C_* depending only on d, s, c0, K and bounds of order s for the A^μ, at R = K.
 
 *Proof.* (1) *Coefficients.* For every t, ‖v(t)‖_(W^(1,∞)) ≤ C_S 𝔐, and |v(t, x) − v(t′, x)| ≤ C_S 𝔐′ |t − t′|; so the
 pointwise bounds |𝐀^0(t, x) − 𝐀^0(t′, x)| ≤ L_0 |t − t′| and |∂_j 𝐀^j| ≤ L_1 hold, with L_0, L_1 depending on K and the
@@ -681,7 +681,7 @@ where R ∈ C([0, T]; L²), R(t) ∈ H^s and ‖R(t)‖_(H^s) ≤ 1 for every t.
     sup_t ‖u − ū‖_(H^(s′)) ≤ C (‖u0 − ū(0)‖ + sup_t ‖R(t)‖)^(1−s′/s)      for d/2 + 1 < s′ < s.
 
 ε0 and C depend only on d, s, s′, c0, T, sup_t ‖ū(t)‖_(H^s), K_ū := sup_t (‖ū(t)‖_(W^(1,∞)) + ‖∂_t ū(t)‖_(L^∞)),
-the functions C_F, L and C′, and the bounds on the A^μ and their derivatives on bounded sets of u.
+the functions C_F, L and C′, and bounds of order s for the A^μ.
 (b) (Domain version.) Let Ω be as in the domain version, and let ū, defined on Ω ∩ {t ≤ T}, satisfy the equation of
 [[eq:class-kato-system]] there, with ū ∘ Ψ ∈ C([0, T]; H^(s+1)(Σ_⋆)) ∩ C¹([0, T]; H^s(Σ_⋆)), Ψ(t, y) := (t,
 ψ_t(y)). Let (F4) and (F5) hold with u_* := ū_e, the extension defined in the proof. Then for data u0 on Σ_0 with ‖u0
@@ -849,6 +849,17 @@ fixed compact set, satisfies (F1)–(F3) with ρ = ∞, (F1′), and (F4) for ev
 C |u − v| pointwise for |u|, |v| ≤ C_S 𝔐, which gives
 (F2) and the bound of (F4); F(t, x, u) − F(t′, x, u) = (t − t′) ∫_0^1 ∂_t F(t′ + η (t − t′), x, u) dη, bounded in L² by
 C |t − t′| (1 + ‖u‖), which with (F2) gives (F3); and locality is (F4).
+
+*Which derivatives the constants use.* At the order σ, [[lem:class-composition]] uses Φ only through a bound of order
+σ (the end of its proof). In [[lem:class-kato-linear]] the coefficients enter through step (1) of the proof, the later
+steps using its bounds: through [[lem:class-composition]] (c) and (d) at the orders s − 1 and s for A^μ and (A^0)⁻¹,
+through [[lem:class-composition]] (c) at the order s − 1 for Ψ_1 and Ψ_2, which hold ∂_t A^μ and ∂_u A^μ under at
+most s − 1 further derivatives in x and in u, and through L_0 and L_1, which hold first derivatives. The constants of
+[[thm:class-kato]] and [[thm:class-kato-stability]] are made from those of [[lem:class-kato-linear]], from C_S and the
+other Sobolev constants of this section, which depend only on d and the orders used, from sup |A^0|, sup |(A^0)⁻¹|, sup |A^j| and sup |∂_u A^μ| on sets {|u| ≤ R},
+and from C_F, L and C′; for a local forcing term the proof above obtains these from [[lem:class-composition]] (b) at the
+order s, from sup |∂_u F| on such sets and from sup_t ‖F(t, ·, 0)‖_(H^s). So at the order s these constants depend on
+the coefficients and on a local forcing term only through bounds of order s and through sup_t ‖F(t, ·, 0)‖_(H^s).
 
 **Remark {#rem:class-kato-model}** (Numerical observation.) For the scalar model u_t + (1 + u) u_x = −(1 − ∂_x²)⁻¹(u²)
 on the line, whose right side is non-local, the iteration of [[thm:class-kato]] was run in floating point: the successive

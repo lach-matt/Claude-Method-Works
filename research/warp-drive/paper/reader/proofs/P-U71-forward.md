@@ -247,10 +247,11 @@ derivatives of c at y = x. ∎
 The reduction serves three purposes below: the adjoint, the change of chart, and the parts of a kernel away from the
 diagonal. In each, the derivatives of c that it consumes are counted as derivatives of the symbol from which c is built.
 
-**Lemma {#lem:fwd-far}** (Away from the diagonal.) Let b vanish for x ∉ Q_4, with |∂_x^j ∂_ξ^γ b| ≤ A⟨ξ⟩^(μ−|γ|) for
-j ≤ B and |γ| ≤ 2K, μ a constant, and let w ∈ C_c^∞(ℝⁿ) vanish near 0. The operator with the kernel
-(2π)^(−n) ∫ e^(i(x−y)·ξ) w(x − y) b(x, ξ) dξ is Op(b_w) with |∂_x^j b_w| ≤ CA⟨ξ⟩^(μ−2K) for j ≤ B. It consumes 2K
-ξ-derivatives and B x-derivatives of b, and none in the other directions. Also Op_ψ(b) = Op(b_ψ) with
+**Lemma {#lem:fwd-far}** (Away from the diagonal.) Let μ be a constant, let b vanish for x ∉ Q_4 and satisfy the
+bounds |∂_x^β ∂_ξ^γ b| ≤ A⟨ξ⟩^(μ−|γ|) for |β| ≤ B and |γ| ≤ 2K, and let w ∈ C_c^∞(ℝⁿ) vanish near 0. The operator
+with the kernel (2π)^(−n) ∫ e^(i(x−y)·ξ) w(x − y) b(x, ξ) dξ is Op(b_w) with |∂_x^β b_w| ≤ CA⟨ξ⟩^(μ−2K) for
+every |β| ≤ B. It consumes 2K ξ-derivatives and B x-derivatives of b, and none in the other directions. Also
+Op_ψ(b) = Op(b_ψ) with
 b_ψ(x, ξ) := (2π)^(−n) ∫ ψ̂(ζ) b(x, ξ − ζ) dζ, and |b_ψ|^𝗆_K ≤ C|b|^𝗆_K for every K and every order function 𝗆 with
 values in [−3T, 3T]: the cut-off ψ consumes no derivative.
 
@@ -261,8 +262,9 @@ convolution of the symbol in ξ with its Fourier transform: the operator is Op(b
 inequality gives the bound. The same identity with ψ in place of w_K gives b_ψ. For the variable weight: if
 the length of ζ is at most ⟨ξ⟩/2, then 𝗆(x, ξ − ζ) − 𝗆(x, ξ) is at most C|ζ|/⟨ξ⟩ in modulus, so
 ⟨ξ − ζ⟩^(𝗆(x,ξ−ζ)) ≤ C⟨ξ⟩^(𝗆(x,ξ)) when moreover |ζ| ≤ ⟨ξ⟩^(1/2), and ≤ C⟨ξ⟩^(𝗆(x,ξ))⟨ζ⟩^(C′) otherwise; for
-larger ζ, both ⟨ξ⟩ and ⟨ξ − ζ⟩ are at most 3⟨ζ⟩, and the quotient is at most C⟨ζ⟩^(6T). These polynomial factors
-are integrable against ψ̂. ∎
+larger ζ, both ⟨ξ⟩ and ⟨ξ − ζ⟩ are at most 3⟨ζ⟩, and the quotient of the weights ⟨·⟩^(𝗆+ϰk−|γ|) of
+[[eq:fwd-seminorm]] at ξ − ζ and at ξ, k ≤ K and |γ| ≤ K, is at most C⟨ζ⟩^(6T+K+1). These polynomial factors are
+integrable against ψ̂. ∎
 
 *Near and far parts.* Fix ε ∈ (0, 1/8], depending only on the constants of (S1) and (S15), as below, and
 η_0 ∈ C_c^∞((−ε, ε)ⁿ) equal to 1 near 0. Split O_β(g) = O^ε_β(g) + O^far_β(g), the near part having the kernel of
