@@ -339,16 +339,17 @@ most R̄ ([[lem:cone-ellipse]] (iv)), |r + D_k(x_l)| ≤ R̄ + 1 for real r with
 
 at both seeds, so the error in r_k changes F by less than 3 × 10⁻¹⁷.
 
-*The precision each bound needs.* If G₁ and F are known to within e at a node, G is known to within 2e, and |G| ≤ ε
-follows as soon as the approximate value has modulus at most ε − 2e; this is the case whenever |G| + 4e ≤ ε. The
-largest |G| at the nodes is attained at the end nodes: it is below 1.4439 × 10⁻⁸ at the first seed (k = 0) and below 7.3612 ×
-10⁻⁸ at the second (k = 64), so its margins to ε_* exceed 5.6 × 10⁻¹⁰ and 3.8 × 10⁻¹⁰. At the interior nodes |G| ≤ 4.3 ×
-10⁻⁹ (first seed) and |G| ≤ 2.7 × 10⁻⁸ (second). So ε_* is confirmed at every node with e = 5 × 10⁻¹¹, and at the
-interior nodes already with e = 10⁻⁹. The entries ε_k are the row maxima of |G| rounded up to two significant digits.
-The smallest margin ε_k − max_l |G(r_k, x_l)| exceeds 1.3 × 10⁻¹⁴ at the first seed (k = 19) and 1.6 × 10⁻¹⁴ at the
-second (k = 32), so every ε_k is confirmed with e = 3 × 10⁻¹⁵, that is, with G₁ and F to about fourteen significant
-digits. The data allow this, by the previous paragraph. Two node values of each seed, one at an end node and one where
-G₁ and F are largest, are printed with the tables as checkpoints. ∎
+*The precision each bound needs.* If G₁ and F are known to within e at a node, G is known to within 2e, and |G|
+≤ ε follows as soon as the approximate value has modulus at most ε − 2e; this is the case whenever |G| + 4e ≤ ε.
+The largest |G| at the nodes is attained at the end nodes: it is below 1.4439 × 10⁻⁸ at the first seed (k = 0)
+and below 7.3612 × 10⁻⁸ at the second (k = 64), so its margins to ε_* exceed 5.6 × 10⁻¹⁰ and 3.8 × 10⁻¹⁰. At the
+interior nodes |G| ≤ 4.3 × 10⁻⁹ (first seed) and |G| ≤ 2.7 × 10⁻⁸ (second). So ε_* is confirmed at every node
+with e = 5 × 10⁻¹¹, and at the interior nodes already with e = 10⁻⁹. The entries ε_k are the row maxima of |G|
+rounded up to two significant digits. The smallest margin ε_k − max_l |G(r_k, x_l)| exceeds 1.3 × 10⁻¹⁴ at the
+first seed (k = 19) and 1.6 × 10⁻¹⁴ at the second (k = 32), so every ε_k is confirmed with e = 3 × 10⁻¹⁵, that
+is, with G₁ and F to about fourteen significant digits. The data allow this, by the previous paragraph. Two node
+values of each seed, one at an end node and one where G₁ and F are largest, are printed with the tables as
+checkpoints. ∎
 
 We use two results on polynomial interpolation in the Chebyshev points ξ_k := cos(kπ/n), 0 ≤ k ≤ n. For a
 continuous g on [−1, 1], I_n g denotes the polynomial of degree at most n that equals g at these n + 1 points;
@@ -597,10 +598,10 @@ seed, a scheme that imposes the outgoing constraint along every generator, with 
 regularised, converges at second order in the null step to v ≈ 1.8 at areal radius at least 0.9 and to v ≈ 2.0 at
 areal radius at least 1.2 (observed orders 2.00–2.03), and is resolved in angle there (the runs with 40 and 48 modes
 change the metric by at most 3.0 × 10⁻⁹ and 3.3 × 10⁻⁹); the scheme that does not impose it is consistent with
-second-order convergence to v ≈ 1.8 at areal radius at least 1. Beyond, with 32 modes the metric still converges in the null step while the
-unimposed constraint does not fall, so that limit is not vacuum; from v ≈ 1.9 at areal radius 0.9–1.0 and from
-v ≈ 2.0 at 1.0–1.2 the violation grows with the angular resolution, and at 1.0–1.2 on [1.8, 1.9) the comparison in
-angular resolution does not decide. The linear scattering of the shell off the seed at 10 l5 was also solved
+second-order convergence to v ≈ 1.8 at areal radius at least 1. Beyond, with 32 modes the metric still converges in
+the null step while the unimposed constraint does not fall, so that limit is not vacuum; from v ≈ 1.9 at areal radius
+0.9–1.0 and from v ≈ 2.0 at 1.0–1.2 the violation grows with the angular resolution, and at 1.0–1.2 on [1.8, 1.9) the
+comparison in angular resolution does not decide. The linear scattering of the shell off the seed at 10 l5 was also solved
 numerically; no conclusion is drawn from it. No proof uses these observations.
 
 ### The second zero {#sec:tl5-second-zero}

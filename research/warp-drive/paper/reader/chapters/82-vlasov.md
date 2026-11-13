@@ -448,6 +448,49 @@ multiples of |du|². For the consequences: with u null and Ξ = 0, (a) and (b) v
 −ξ² du ⊗ du, and the vacuum equation at order λ⁰, averaged, gives Ric of the mean metric equal to ξ² du ⊗ du. The other
 terms of order λ⁰ are linear in an oscillating profile or are θ-derivatives, so they have mean zero. ∎
 
+The quadratic term of (d) has, besides its mean, a second harmonic in θ, which no term of order λ² can remove (its
+symbol vanishes on harmonics of the null phase u alone, [[lem:two-dust-nonresonance]]); as for the waves of
+[[thm:two-dusts]] ([[eq:two-dust-waves]]), it is removed by a gauge term of order λ along du ⊗ du, transported along the
+generator. In the two-scale scheme the wave is the linear part of the torus-polarised wave plus that term.
+
+**Definition {#def:vlasov-wave}** (The wave of a dust.) Let g0 be a class metric, u an invariant eikonal of g0 with ℓ :=
+g0⁻¹du future directed, F ≥ 0 an invariant amplitude transported by [[eq:vlasov-amplitude]] (with u in place of u_α),
+and ν > 0 a frequency; put ξ := F/ν and k := ν du. The *wave* of the dust (u, F) at frequency ν is the profile in
+(X, θ)
+
+    W := 2 ξ cos θ (e^(2ψ1) dφ1² − e^(2ψ2) dφ2²) + χ k ⊗ k,      χ := ½ c sin 2θ,                     {#eq:vlasov-wave}
+
+where c solves ν (ℓ(c) + ½ (□5 u) c) = ξ² along the generators, with c = 0 on Σ_τ0. Its first term is the part of
+order λ of the torus-polarised wave of amplitude ξ at the phase θ = ν u/λ; its second, χ k ⊗ k, is its *gauge part*,
+which vanishes on Σ_τ0 with all its θ-derivatives.
+
+**Lemma {#lem:vlasov-wave}** (The wave of a dust at order λ⁰.) In the setting of [[def:vlasov-wave]], W(ℓ, ·) = 0 and
+tr_(g0) W = 0, and in the two-scale expansion of R[g0 + λ W] at the phase θ = ν u/λ (the reduced Ricci tensor relative to
+g0, computed with ∂_a + λ⁻¹ ν ∂_a u ∂_θ), R^(−1) = 0 and
+
+    R^(0) = Ric(g0) − F² du ⊗ du.                                                                    {#eq:vlasov-wave-r0}
+
+*Proof.* The first term of W has torus components only and ℓ is an orbit vector, and (k ⊗ k)(ℓ, ·) = ν² g0⁻¹(du, du) du
+= 0; tr_(g0) W = 2 ξ cos θ (e^(−2ψ1) e^(2ψ1) − e^(−2ψ2) e^(2ψ2)) + χ g0⁻¹(k, k) = 0. The proof of
+[[lem:leading-coefficient]] uses of the background only that the phase is null and has gradient ℓ, and of the wave only
+W(ℓ, ·) = 0 and tr W = 0 (as in the proof of [[lem:two-dust-stage-zero]] (b)); applied with v replaced by ν u, dv by k
+and ℓ by ν ℓ, it gives R^(−1) = 0 and
+
+    R^(0) = Ric(g0) − ν ∇_ℓ ∂_θ W − ½ ν (□5 u) ∂_θ W − ¼ |∂_θ W|² k ⊗ k.
+
+For the Killing field K_i := ∂_(φi), the Christoffel symbols of [[lem:warped-ricci]] give ∇_ℓ K_i = ∇_(K_i) ℓ = ℓ(ψi)
+K_i (ℓ is invariant, so it commutes with K_i), hence ∇_ℓ K_i♭ = ℓ(ψi) K_i♭, and e^(2ψi) dφi² = e^(−2ψi) K_i♭ ⊗ K_i♭ has
+∇_ℓ (e^(2ψi) dφi²) = (−2 ℓ(ψi) + 2 ℓ(ψi)) e^(−2ψi) K_i♭ ⊗ K_i♭ = 0. Also ∇_ℓ du = ½ d(g0⁻¹(du, du)) = 0. With T0 :=
+e^(2ψ1) dφ1² − e^(2ψ2) dφ2², ∂_θ W = −2 ξ sin θ T0 + c cos 2θ k ⊗ k, so
+
+    ν ∇_ℓ ∂_θ W + ½ ν (□5 u) ∂_θ W = −2 ν sin θ (ℓ(ξ) + ½ (□5 u) ξ) T0 + ν (ℓ(c) + ½ (□5 u) c) cos 2θ k ⊗ k
+                                   = ξ² cos 2θ k ⊗ k,
+
+the first term vanishing because ξ = F/ν is transported by [[eq:vlasov-amplitude]], and the second by the choice of c.
+Further |∂_θ W|² = 4 ξ² sin²θ |T0|² = 8 ξ² sin²θ, since |T0|² = e^(−4ψ1) e^(4ψ1) + e^(−4ψ2) e^(4ψ2) = 2, T0 and k ⊗ k
+are orthogonal (T0(ν ℓ, ν ℓ) = 0) and |k ⊗ k|² = g0⁻¹(k, k)² = 0. So R^(0) = Ric(g0) − ξ² (cos 2θ + 2 sin²θ) k ⊗ k =
+Ric(g0) − ξ² ν² du ⊗ du = Ric(g0) − F² du ⊗ du. ∎
+
 The constraints on Σ_τ0 need the same cancellation, now for a phase that is not radial on a slice that is not round. On
 Σ_τ0 write the data of a class metric as (γ, κ), the induced metric and the second fundamental form, and let Φ(γ, κ) :=
 (ρ, J), ρ := R(γ) − |κ|² + (tr κ)², J := 2(−div κ + d tr κ), be the constraint map ([[eq:data-constraint-map]]). Let the

@@ -181,7 +181,7 @@ by [[lem:two-dust-domain]] (a); for R ≥ R_* it lies in region I ([[lem:margins
 timelike (proof of [[cor:margins-lens]]). The margin for R_* ≤ R is [[thm:margins-hyperbolic]] (a), and for R ≤ R_*,
 where Σ′ = Σ_τ0, it is [[thm:bg-margins]] (c).
 
-(b) The background's data solve the system on [a, R2] and the system is symmetrizable hyperbolic there, by (a) and
+(b) The background's data solve the system on [0.70, R2] and the system is symmetrizable hyperbolic there, by (a) and
 [[thm:std-racz-hyperbolic]]. A perturbation of the data of a symmetrizable hyperbolic system that is small in C^∞
 has a solution on the whole compact interval of the background's solution, by the Cauchy stability theorem for such
 systems [[pending:thm-class-kato-stability]]; by uniqueness the solution is invariant. The leaves are three-spheres, so

@@ -798,17 +798,17 @@ give X_0 ≤ (1 + (1 + (3315/32768)(6.3999)(7.8128))^(1/2))(32768/3315) < 34.22.
 X_0 < 23.36.
 
 (c) *The harmonic components.* Let (S_(l,k))_k be an orthonormal basis of 𝒮_l ⊗ ℂ in L²(𝕊³), finite for each l, and
-f_(l,k)(r_*) := ∫_(𝕊³) F(r_*, ω) conj(S_(l,k)(ω)) dω. By the Cauchy–Schwarz inequality and Fubini's theorem f_(l,k) lies
-in L²(ℝ) and vanishes outside I, and F_l = Σ_k f_(l,k)S_(l,k). The S_(l,k), over all l and k, form an orthonormal basis
+F_(l,k)(r_*) := ∫_(𝕊³) F(r_*, ω) conj(S_(l,k)(ω)) dω. By the Cauchy–Schwarz inequality and Fubini's theorem F_(l,k) lies
+in L²(ℝ) and vanishes outside I, and F_l = Σ_k F_(l,k)S_(l,k). The S_(l,k), over all l and k, form an orthonormal basis
 of L²(𝕊³), so by Parseval's identity for almost every r_* and integration in r_* (monotone convergence),
-‖F‖² = Σ_l ‖F_l‖² and ‖F_l‖² = Σ_k ‖f_(l,k)‖². By definition u_l = Σ_k (R_l(σ)f_(l,k))S_(l,k), each R_l(σ)f_(l,k) a
-solution as in [[lem:morawetz-identity]], so u_l and ∂_(r_*)u_l = Σ_k (R_l(σ)f_(l,k))′S_(l,k) are defined on ℝ × 𝕊³,
+‖F‖² = Σ_l ‖F_l‖² and ‖F_l‖² = Σ_k ‖F_(l,k)‖². By definition u_l = Σ_k (R_l(σ)F_(l,k))S_(l,k), each R_l(σ)F_(l,k) a
+solution as in [[lem:morawetz-identity]], so u_l and ∂_(r_*)u_l = Σ_k (R_l(σ)F_(l,k))′S_(l,k) are defined on ℝ × 𝕊³,
 and since the S_(l,k) are orthonormal for each fixed r_*,
 
-    ‖u_l‖_I² = Σ_k ‖R_l(σ)f_(l,k)‖_I²,     ‖∂_(r_*)u_l‖_I² = Σ_k ‖(R_l(σ)f_(l,k))′‖_I²,
-    ∫_I ψ|u_l|² = Σ_k ∫_I ψ|R_l(σ)f_(l,k)|².
+    ‖u_l‖_I² = Σ_k ‖R_l(σ)F_(l,k)‖_I²,     ‖∂_(r_*)u_l‖_I² = Σ_k ‖(R_l(σ)F_(l,k))′‖_I²,
+    ∫_I ψ|u_l|² = Σ_k ∫_I ψ|R_l(σ)F_(l,k)|².
 
-*The bound for each harmonic.* Applying [[prop:morawetz-harmonics]], (a) and (b) to each f_(l,k) and summing over k,
+*The bound for each harmonic.* Applying [[prop:morawetz-harmonics]], (a) and (b) to each F_(l,k) and summing over k,
 ‖u_l‖_I ≤ B*_l‖F_l‖ and ‖∂_(r_*)u_l‖_I ≤ X_l‖F_l‖ for every l ≥ 0; for l ≥ 2, ‖∂_(r_*)u_l‖_I² + κ∫_Iψ|u_l|² ≤
 (X_l² + A_l)‖F_l‖² = C_l²‖F_l‖²; at l = 1, ‖∂_(r_*)u_1‖_I² + 3‖u_1‖_I² ≤ (X_1² + 3(B*_1)²)‖F_1‖² = C_1²‖F_1‖²; and at
 l = 0, where κ = 0, ‖∂_(r_*)u_0‖_I² ≤ X_0²‖F_0‖².
@@ -817,7 +817,8 @@ l = 0, where κ = 0, ‖∂_(r_*)u_0‖_I² ≤ X_0²‖F_0‖².
 increase with |σ| and with B*_l; so for 0 < |σ| ≤ 3 each is at most its value at |σ| = 3, and C_l(σ) ≤ C_l(3) ≤ 179.26
 for every l ≥ 1, by the table (for l ≥ 6, C_l ≤ C_6). Also X_0 ≤ 83.85 by (b). Moreover B*_l ≤ B_l(σ) ≤ B_1(σ) for
 l ≥ 1, as ω_l ≥ ω_1 in [[prop:morawetz-resolvent-l-ge-1]], so b := max(B*_0(σ), B_1(σ)) and
-x := max(X_0, X(B_1(σ))), with X(B̃) of (a), bound B*_l and X_l for every l ≥ 0.
+x := max(X_0, X(B_1(σ))), with X(B̃) := (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′), the bound of
+[[lem:morawetz-identity]] with the constants of (a), bound B*_l and X_l for every l ≥ 0.
 
 *Convergence.* For l ≠ l′ and almost every r_*, u_l(r_*, ·) ∈ 𝒮_l ⊗ ℂ and u_(l′)(r_*, ·) ∈ 𝒮_(l′) ⊗ ℂ are orthogonal
 in L²(𝕊³), and so are ∂_(r_*)u_l(r_*, ·) and ∂_(r_*)u_(l′)(r_*, ·); integrating over I, the u_l are mutually orthogonal
@@ -825,7 +826,7 @@ in L²(I × 𝕊³), and so are the ∂_(r_*)u_l. Hence for every finite set L o
 ‖Σ_(l∈L) u_l‖_I² = Σ_(l∈L) ‖u_l‖_I² ≤ b² Σ_(l∈L) ‖F_l‖² and ‖Σ_(l∈L) ∂_(r_*)u_l‖_I² ≤ x² Σ_(l∈L) ‖F_l‖². As
 Σ_l ‖F_l‖² = ‖F‖² < ∞, the partial sums of both series are Cauchy sequences in L²(I × 𝕊³), so both series converge
 there; let v be the sum of the second. For a smooth function χ with compact support in the interior of I × 𝕊³, each
-R_l(σ)f_(l,k) is absolutely continuous in r_*, so ∫u_l ∂_(r_*)χ = −∫(∂_(r_*)u_l)χ; summing over l and passing to the
+R_l(σ)F_(l,k) is absolutely continuous in r_*, so ∫u_l ∂_(r_*)χ = −∫(∂_(r_*)u_l)χ; summing over l and passing to the
 limit in L² gives ∫u ∂_(r_*)χ = −∫vχ, that is ∂_(r_*)u = v weakly. By orthogonality and the continuity of the norm,
 ‖∂_(r_*)u‖_I² = Σ_l ‖∂_(r_*)u_l‖_I².
 
@@ -840,8 +841,7 @@ B*_2(1) < 18.61, B*_2(2) < 27.88, B*_0(1/2) < 140.82, B*_0(1) < 7.8128 and B*_0(
 coarse to reproduce C_1 at |σ| = 1/2 and 2 and X_0 at |σ| = 1 and 2.
 
 (d) As in (c), for each l ≥ 1 and every B̃_l with ‖χ_I R_l(σ) χ_I‖ ≤ B̃_l,
-‖∂_(r_*)u_l‖_I² + κ‖u_l‖_I² ≤ (X(B̃_l)² + κB̃_l²)‖F_l‖², with X(B̃) := (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′) the
-bound of [[lem:morawetz-identity]] with the constants of (a); and ‖∂_(r_*)u_0‖_I² ≤ X_0²‖F_0‖² ≤ 83.85²‖F_0‖². By the
+‖∂_(r_*)u_l‖_I² + κ‖u_l‖_I² ≤ (X(B̃_l)² + κB̃_l²)‖F_l‖², with X(B̃) as in (c); and ‖∂_(r_*)u_0‖_I² ≤ X_0²‖F_0‖² ≤ 83.85²‖F_0‖². By the
 orthogonality of (c), the left side is at most the largest of these factors times ‖F‖². X(B̃) increases with |σ| and
 with B̃.
 
@@ -854,7 +854,8 @@ c^(1/2) > 49.37 > 24 and (√3/2)(49.37) log(49.37/24) > 30.8 > 29.99 > (2 + 0.7
 easier as l grows or |σ| decreases, so the bound holds for l ≥ 50 and 0 < |σ| ≤ 3, and there
 B̃_l ≤ 1/((15/256)(κ + 3/4) − 9) ≤ 0.006975. At l = 50 and |σ| = 3, X(B̃_l)² < 292.1 and κB̃_l² < 0.127, so
 X(B̃_l)² + κB̃_l² < 17.1²; both terms decrease as κ increases beyond 2600 and as |σ| decreases (for κB̃_l², the
-derivative of κ/(aκ + b)² in κ is (b − aκ)/(aκ + b)³ < 0, with a = 15/256, b = (15/256)(3/4) − σ² < 0 and aκ + b > 0).
+derivative of κ/(aκ + b)² in κ is (b − aκ)/(aκ + b)³ < 0, with a = 15/256, b = (15/256)(3/4) − σ² < aκ and
+aκ + b > 0).
 
 For 1 ≤ l ≤ 49 we take B̃_l = B*_l, which increases with |σ|, so that the values at |σ| = 3 bound 0 < |σ| ≤ 3:
 (X_l² + κ(B*_l)²)^(1/2) is at most 179.26, 121.33, 96.78, 83.97 and 76.86 for l = 1, …, 5 (with the table's entries),
