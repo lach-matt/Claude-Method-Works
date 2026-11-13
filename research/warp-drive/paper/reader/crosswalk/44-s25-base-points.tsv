@@ -14,6 +14,7 @@ def:iii-i15-2-3	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:237	III.I(15) 
 lem:iii-i15-2-4	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:249	III.I(15) Lemma 2.4	
 eq:iii-i15-2-1	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:254	III.I(15) (2.1)	
 prop:iii-i15-2-5	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:276	III.I(15) Proposition 2.5	sign attribution of Step 4' dropped
+eq:s25-motions-small	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:325	III.I(15) Proposition 2.5, Step 3: 'the lower coordinates are ... affine functions of the free ones with coefficients of the same smallness'	private key: the sentence is proved in the edition (uniqueness at alpha_1 of prop:iii-i8-4-1 for the row terms, as in its level step; bound by its (i)); fourth reading of S22/S25, M1
 eq:iii-i15-2-2	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:284	III.I(15) (2.2)	
 eq:iii-i15-2-3	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:299	III.I(15) (2.3)	
 rem:iii-i15-2-6	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:360	III.I(15) Remark 2.6	

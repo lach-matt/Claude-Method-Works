@@ -601,8 +601,10 @@ calculation there, which uses only that g0 is R² times the round metric on the 
 
     ∇_(ℓ_in) F1 W_TT^in + ½ (□_(g0) v) F1 W_TT^in = 0.
 
-Since ∇_(ℓ_in) dv = 0, the χ_in term of [[eq:leading-coefficient]] is −(ℓ_in + ½ □_(g0) v)(F1χ_in) dv ⊗ dv, and the
-quadratic term is a second harmonic in θ1, as in [[lem:stage-zero]] (d).
+Since ∇_(ℓ_in) dv = 0, the χ_in term of [[eq:leading-coefficient]] is −(ℓ_in + ½ □_(g0) v)(F1χ_in) dv ⊗ dv. The
+quadratic term is −¼ |F1 W_TT^in|² dv ⊗ dv, the χ_in part dropping out of |F1 W_in|² as in the proof of
+[[lem:stage-zero]] (b), and its oscillating part is a second harmonic in θ1, as in [[lem:stage-zero]] (d). This holds
+for every χ_in of zero mean.
 
 (e) e^(−2σ) F1F2 multiplies the harmonic (n1, n2) by e^(−2σ)(i n1)(i n2).
 
