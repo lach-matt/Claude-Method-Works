@@ -1191,29 +1191,36 @@ takes n odd at no cost.
 
 *Proof of [[thm:vlasov]].* By [[prop:vlasov-uniform-n]], for n ≥ n0 the n-dust approximant g^(n) exists on Ω, with labels
 α_A = 2πA/n and |g^(n) − g|_(C¹(Ω)) ≤ C_k n^(−k) for every k; its families' covectors are within C_k n^(−k) of the
-continuum's du_(α_A) on the tubes. Fix an odd n ≥ n0, enlarged if necessary, and check (i)–(iii) for g^(n).
+continuum's du_(α_A) on the tubes. Fix compact sets S′ and S″ with supp q ∩ (Σ_τ0 × S¹) ⊂ int S″, S″ ⊂ int S′ and
+S′ ⊂ int S. Fix an odd n ≥ n0, enlarged if necessary, and check (i)–(iv) for g^(n), whose families have densities
+supported in the tubes of the S″_(α_A) for g^(n), within C_k n^(−k) of those for g.
 
 (i) (Ω) is a finite set of strict inequalities on the compact Ω̄, continuous in g in C¹, so it holds for g^(n) for n
 large, the generators of its families being C⁰-close to those of g.
 
-(ii′) By [[lem:vlasov-separation]], |g⁻¹(du_(α_A), du_(α_B))| ≥ c0 (2π/n)² on the overlaps, so for g^(n),
-|g^(n)⁻¹(du_A, du_B)| ≥ c0 (2π/n)² − C_k n^(−k) ≥ ½ c0 (2π/n)² for n large (k = 3). By (V2′) and
-[[rem:vlasov-radial-pair]], the label–radial symbols are at least ½ c(η), and the radial pair, one ingoing and one
-outgoing, is separated with some c_rad > 0, its two null directions being distinct at every point of its compact
-overlap. So c := min(½ c0 (2π/n)², ½ c(η), c_rad) > 0, and Λ = Λ(n) is chosen as in (ii′).
+(ii′) Let y be a point where the supports of the families A and B of g^(n) overlap. The ray of u_(α_A) for g through y,
+followed to the past, meets Σ_τ0 within C_k n^(−k) of S″_(α_A), by continuous dependence of the rays, so for n large y ∈
+D_(α_A)(S′), and likewise y ∈ D_(α_B)(S′). By [[lem:vlasov-separation]] with S′, |g⁻¹(du_(α_A), du_(α_B))(y)| ≥
+c0 (2π/n)², so |g^(n)⁻¹(du_A, du_B)(y)| ≥ c0 (2π/n)² − C_k n^(−k) ≥ ½ c0 (2π/n)² for n large (k = 3). So c :=
+½ c0 (2π/n)², and Λ = Λ(n) is chosen as in (ii′).
 
-(iii) The wave of each label is the torus-polarised wave of the eikonal ν_A u_A with amplitude F_A/ν_A, F_A² = q_A the
-density of g^(n) (smooth, F_A being transported by [[eq:vlasov-amplitude]] from the smooth data (2π/n)^(1/2) F(·, α_A)),
-and the radial dusts carry the waves of [[thm:two-dusts]].
+(iii) The wave of each label is the wave W_A of [[def:vlasov-wave]] of the dust (u_A, F_A) of g^(n) at frequency ν_A,
+F_A² = q_A the density (F_A smooth, being transported by [[eq:vlasov-amplitude]] from the smooth data (2π/n)^(1/2)
+F(·, α_A)).
 
-So [[thm:vlasov-n-approximant]], [[thm:vlasov-n-uniform]] and [[thm:vlasov-n-data]] give vacuum metrics g^(n)_λ on Ω,
-λ ≤ λ0(n), invariant under T² and both reflections (by uniqueness, the data being invariant), with
+(iv) The supports lie within C_k n^(−k) of the tubes D_(α_A)(S), at distance at least 2δ from the axes by (V2), hence at
+distance at least δ for n large.
+
+(V3) holds for g^(n), being an open condition on the slice data ([[lem:vlasov-open]]), which are within C_k n^(−k) of
+those of g. So [[thm:vlasov-n-approximant]], [[thm:vlasov-n-uniform]] and [[thm:vlasov-n-data]] give vacuum metrics
+g^(n)_λ on Ω, λ ≤ λ0(n), invariant under T² and both reflections (by uniqueness, the data being invariant), with
 
     |g^(n)_λ − g^(n)| ≤ C(n) λ,      ∂g^(n)_λ − ∂g^(n) = Σ_A ν_A du_A ⊗ [∂_(θ_A) W_A] + O(C(n) λ),
 
 W_A the wave of family A at its phase θ_A = ν_A u_A/λ, of zero mean in θ_A, with |ν_A ∂_(θ_A) W_A| ≤ C(F_A + F_A²),
-C independent of n and A (the wave is linear in its amplitude and its gauge part quadratic), and the radial dusts'
-terms of the same form.
+C independent of n and A (the torus part is linear in the amplitude F_A/ν_A, and the gauge part ν_A χ_A k_A ⊗ k_A
+has ν_A ∂_(θ_A) χ_A ν_A² of size (F_A/ν_A)² ν_A² = F_A², the transport of c in [[def:vlasov-wave]] being linear with
+source ξ_A²/ν_A).
 
 *The diagonal.* Fix a sequence (η_j) of smooth tensor fields with compact support in the interior of Ω, dense in L²(Ω).
 For each odd n ≥ n0 choose λ_n ≤ λ0(n) such that:

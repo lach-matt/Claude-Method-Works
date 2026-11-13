@@ -1778,16 +1778,15 @@ other than q, φ(R) ≤ τ − τ0 < 0, which forces R ∈ (3.5, 5.75).
 
     R²|Ω̇|² ≤ f τ̇² − 2(1 − f) τ̇ Ṙ − (2 − f) Ṙ² ≤ τ̇²/(2 − f),
 
-the right-hand bound being the maximum over Ṙ. At the points of γ other than q, μ ≥ 3/2 and 3.5 < R < 5.75, so 2 − f
-= 1 + μ/R² ≥ 1 + 1.5/5.75² ≥ 1.045368 and √(2 − f) ≥ 1.02243. Hence |Ω̇| ≤ τ̇/(3.5 × 1.02243) ≤ τ̇/3.5785, and the
+the right-hand bound being the maximum over Ṙ. At the points of γ other than q, μ ≥ 3/2 and 3.5 < R < 5.75, so
+2 − f = 1 + μ/R² ≥ 1 + 1.5/5.75² ≥ 1.045368 and √(2 − f) ≥ 1.02243. Hence |Ω̇| ≤ τ̇/(3.5 × 1.02243) ≤ τ̇/3.5785, and the
 angular displacement is at most (τ0 − τ(p))/3.5785 = −φ(R_p)/3.5785 ≤ 0.0011596/3.5785 ≤ 3.25 × 10⁻⁴.
 
 *Σ_τ0 is acausal.* In the chart [[eq:bg-chart]], g = −e^(2ψ) f dv̂² + 2e^ψ dv̂ dR + R² dΩ₃², so the induced metric of
-Σ_τ0 = {v̂ = τ0 + R} is e^ψ(2 − e^ψ f) dR² + R² dΩ₃²; on the domain v̂ ≥ 0, so R ≥ 0.68 on Σ_τ0. Here e^ψ f < 1 at
-every point of Σ_τ0: for R ≥ R_* the point lies in region I by [[lem:margins-region-one]] (c), where ψ = 0 and f = 1 −
-μ/R² < 1; for 0.68 ≤ R ≤ R_*, e^ψ f < 1 by [[prop:bg-slice]]. Parametrise
-the quotient curve of Σ_τ0 by R. Along it v̂ = τ0 + R increases, so v increases strictly, and −2e^(2σ)(du/dR)(dv/dR)
-= e^ψ(2 − e^ψ f) > 0, so u decreases strictly. Let a future causal curve run from p1 ∈ Σ_τ0 to p2 ∈ Σ_τ0. Then
+Σ_τ0 = {v̂ = τ0 + R, 0.70 ≤ R ≤ b(τ0)} is e^ψ(2 − e^ψ f) dR² + R² dΩ₃². Here e^ψ f < 1 at every point of Σ_τ0: for
+R ≥ R_* the point lies in region I by [[lem:margins-region-one]] (c), where ψ = 0 and f = 1 − μ/R² < 1; for R ≤ R_*,
+e^ψ f < 1 by [[prop:bg-slice]]. Parametrise the quotient curve of Σ_τ0 by R. Along it v̂ = τ0 + R increases, so v
+increases strictly, and −2e^(2σ)(du/dR)(dv/dR) = e^ψ(2 − e^ψ f) > 0, so u decreases strictly. Let a future causal curve run from p1 ∈ Σ_τ0 to p2 ∈ Σ_τ0. Then
 v(p2) ≥ v(p1) and u(p2) ≥ u(p1), which give R(p2) ≥ R(p1) and R(p2) ≤ R(p1); so u and v take the same values at both
 ends, and as they do not decrease along the curve they are constant on it. Its tangent then has u̇ = v̇ = 0 and
 R²|Ω̇|² ≤ 2e^(2σ) u̇ v̇ = 0, so the curve is constant. Finally, a point p of Σ′ with R_p < R_* has φ(R_p) = 0 and lies
@@ -2019,8 +2018,8 @@ on [4.295486, 4.525813] ⊃ [4.2955, 4.5258]. On Σ_τ0, K^l_l < 0 and κ = −N
 where N_κ < 0 and not hyperbolic where N_κ > 0. By continuity N_κ vanishes in each of the two intervals left over. ∎
 
 The rows give more than the statement: κ′K′^l_l ≤ −3.04 × 10⁻⁴ on Σ′ ∩ {R_* ≤ R ≤ 5.75}. The largest cell bounds occur
-on the cells around R = 4.66, where the bend's central lobe is on its falling side. For 0.68 ≤ R ≤ R_*, where Σ′ =
-Σ_τ0, the margin is that of [[thm:bg-margins]] (c).
+on the cells around R = 4.66, where the bend's central lobe is on its falling side. For R ≤ R_*, where Σ′ = Σ_τ0, the
+margin is that of [[thm:bg-margins]] (c).
 
 #### Γ on the seed region {#sec:margins-seed}
 

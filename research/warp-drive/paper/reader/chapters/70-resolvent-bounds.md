@@ -2430,13 +2430,15 @@ these blocks.
     g_(b_0) = −f dt² + 2(1 − f) dt dr + (2 − f) dr² + r²g̸,     f = 1 − 1/r²,
 
 regular across the horizon; with v := t + r it is −f dv² + 2dv dr + r²g̸. Its 1-forms are c_C of [[sec:iv4-0]] (that of
-[[prop:np-10-14]] at r_0 = 100, with v_C = 1/2, e_C = 1/102400 and γ_C = h⁻¹), c_Υ = ζ(r)r⁻¹dt with ζ = 1 for large r,
-and c_(Υ,H) = −½χ(r)dr with χ ∈ C_c^∞ equal to 1 near r_h ([[sec:iii-d1-1]]); γ_(Υ,H) ∈ (0, ϵ_0] and e_Υ, γ_Υ below the
+[[prop:np-10-14]] at r_0 = 100, with v_C = 1/2, e_C = 1/102400 and γ_C = h⁻¹), c_Υ = ζ(r)r⁻¹dt with ζ = 1 for large r
+(our choice, as at the start of [[sec:rb-transfer]]; [[def:iii-b-6-1]] fixes c_Υ only for large r), and
+c_(Υ,H) = −½χ(r)dr with χ ∈ C_c^∞ equal to 1 near r_h ([[sec:iii-d1-1]]); γ_(Υ,H) ∈ (0, ϵ_0] and e_Υ, γ_Υ below the
 thresholds of [[prop:iii-d1-4-1]]. The tensor-type blocks do not depend on ζ, χ, the smoothing of c_C or the
 parameters; the scalar-type blocks do, and every statement below is made for all admissible choices at once unless a
 choice is named. Where numbers are given at (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), they are numbers of the operator with
-those parameters; these values are not shown to lie below the thresholds just cited, which are proved to exist without
-a value.
+those parameters. This point lies outside the set on which the theorems are proved: γ_C = 10⁶ is not of the form h⁻¹
+with h as in [[eq:iv4-0-1]], where h < 10⁻⁶, and (γ_Υ, e_Υ) = (1/100, 1/100) are not shown to lie below the thresholds
+of [[prop:iii-d1-4-1]], which are proved to exist without a value.
 
 *Scalar type.* For l ≥ 0 and S ∈ 𝒮_l real, a stationary symmetric 2-tensor of scalar type l is
 
@@ -2494,7 +2496,7 @@ components, with model(r^(−ι)w) = r^(−ι−2)N^n_l(ι)w for w ∈ ℂ^(n_l)
     det N^n_l(ι) = 2^(−n_l)(−1)^(n_l)(ι + l)(ι − l − 2) det N_Υ(ι − 1) det N_C(ι + 1)/D(ι).
 
 So the roots of det N^n_l are −l, l + 2, the indicial roots of □^Υ plus 1 and those of □^C less 1, with D removing a
-double root 1 at l = 0.
+double root 1 at l = 0 and at l = 1 (D = (ι − 1)² at s0 and s1, [[eq:iii-f1-2-1]]).
 
 **Lemma {#lem:rb-roots-point}** (The roots nearest the weight line.) Let (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), and let
 C and P_l be the polynomials of [[prop:np-10-12]] (iii) at (v, e, h) = (1/2, 1/102400, 10⁻⁶), h = γ_C⁻¹. At l = 0, 2
