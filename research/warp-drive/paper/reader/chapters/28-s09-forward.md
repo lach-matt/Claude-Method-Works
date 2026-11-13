@@ -1533,15 +1533,42 @@ converges in H^(k−1,w″)_b(M̃). The closure of {t^♭ ≥ 1} meets ∂M̃ on
 a cut-off in C^∞_b equal to 1 near {t^♭ ≥ 1, r ≥ r_0} and supported where w″ = w′, the restrictions converge in
 H^(k−1,w′)_b(Ω_*)^(•,−). ∎
 
-*Proof of the continuity in [[thm:ii-f1-1-1]].* Let P^((j)) → P and f^((j)) → f in the stated norms, with ‖P^((j)) −
-P_0‖_((0;d)) < ε_0, and let u^((j)), u be the forward solutions. By [[eq:ii-f1-1-5]], uniformly in j as its constant
-does not depend on the operator and ‖P^((j)) − P_0‖_((0;k+d)) is bounded, the u^((j)) are bounded in the Hilbert space
-H^(k,(α_I,α_+−δ,−ℵ))_b(Ω_*)^(•,−). Let ũ be the weak limit of a subsequence. For φ ∈ C_c^∞(M° ∩ {r > r_0}),
-P^((j))* φ → P* φ in L², as the coefficients converge in C² on supp φ (k + d ≥ 2), and the u^((j)) are bounded in L²
-there; so ⟨ũ, P*φ⟩ = lim ⟨u^((j)), P^((j))* φ⟩ = lim ⟨f^((j)), φ⟩ = ⟨f, φ⟩, and Pũ = f. As ũ ∈ H^k_b ⊂
-H^(0,(2α_I,·,·))_e3b, [[lem:ii-f1-2-2]] gives ũ = u. Every subsequence having a further subsequence converging weakly to
-u, u^((j)) ⇀ u; by [[lem:ii-f1-6-1]], a weakly convergent sequence converges in norm in
-H^(k−1,(α_I−ς,α_+−δ−ς,−ℵ−ς))_b (each subsequence has a norm-convergent subsequence, whose limit is the weak limit u). ∎
+*Proof of the continuity in [[thm:ii-f1-1-1]].* Let k ≥ 1, let P^((j)) → P and f^((j)) → f in the stated norms, with
+‖P^((j)) − P_0‖_((0;d)) < ε_0 and ‖P − P_0‖_((0;d)) < ε_0, and let u^((j)), u be the forward solutions. Write
+X := X(𝗌;k+d′) and H := H^(k,(α_I,α_+−δ,−ℵ))_b(Ω_*; E)^(•,−).
+
+*Bounds.* By the proof of [[thm:ii-f1-1-1]] ([[prop:ii-f1-4-2]] at the level k + d′, with [[eq:ii-f1-5-1]] and
+[[eq:ii-f1-3-1]]), u^((j)) ∈ X and
+
+    ‖u^((j))‖_X ≤ C_k (‖f^((j))‖_(H^(k+d)_b) + ‖P^((j)) − P_0‖_((0;k+d)) ‖f^((j))‖_(H^d_b)),
+
+the b-norms with the weights of [[eq:ii-f1-1-5]], with C_k independent of j, as the constants depend on the operator
+only through ε_0 ([[sec:ii-f1-3-1]]). The right side is bounded in j, as f^((j)) converges in the space [[eq:ii-f1-1-4]]
+and ‖P^((j)) − P_0‖_((0;k+d)) ≤ ‖P^((j)) − P‖_((0;k+d)) + ‖P − P_0‖_((0;k+d)) is bounded. So the u^((j)) are bounded in
+the Hilbert space X ([[sec:ii-f1-2]]).
+
+*The limit equation.* Let a subsequence u^((j_m)) converge weakly in X to some ũ ∈ X. The inclusion X ⊂ H of
+[[eq:ii-f1-5-1]] is continuous, so u^((j_m)) ⇀ ũ also in H. Let φ ∈ C_c^∞(M° ∩ {r > r_0}). For ψ ∈ L² supported in
+supp φ, w ↦ ⟨w, ψ⟩ is continuous on H (pair any extension with ψ; the weights are bounded above and below on supp φ,
+which is compact in M°), and the u^((j)) are bounded in L² on supp φ. P^((j))* φ → P* φ in L², as the coefficients
+converge in C² on supp φ (k + d ≥ 2). So
+
+    ⟨ũ, P*φ⟩ = lim_m ⟨u^((j_m)), P^((j_m))* φ⟩ = lim_m ⟨f^((j_m)), φ⟩ = ⟨f, φ⟩,
+
+and Pũ = f on {r > r_0}.
+
+*Identification.* As 𝗌 ≥ inf 𝗌 > s_u = inf 𝗌 − 2,
+
+    ũ ∈ X ⊂ H^(𝗌,(2α_I,α_+−δ,−ℵ))_e3b(Ω_*; E)^(•,−) ⊂ H^(s_u,(2α_I,α_+−δ,−ℵ))_e3b(Ω_*; E)^(•,−),
+
+so ũ lies in the class in which [[thm:ii-f1-1-1]] asserts uniqueness, and so does u. Both solve Pv = f, so ũ = u by that
+uniqueness, which is [[lem:ii-f1-2-2]] at s′ = s_u for P, whose smallness holds as ‖P − P_0‖_((0;d)) < ε_0 (the proof
+of [[thm:ii-f1-1-1]]).
+
+*Convergence.* Every subsequence of (u^((j))) is bounded in X, so it has a further subsequence converging weakly in X,
+and by what was just shown its limit is u. Hence u^((j)) ⇀ u in X, and so in H. By [[lem:ii-f1-6-1]], the inclusion of
+H in H^(k−1,(α_I−ς,α_+−δ−ς,−ℵ−ς))_b(Ω_*; E)^(•,−) is compact, so u^((j)) → u in norm there (each subsequence has a
+norm-convergent subsequence, whose limit is the weak limit u). ∎
 
 ### Three remarks {#sec:ii-f1-7}
 

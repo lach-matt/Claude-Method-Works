@@ -338,7 +338,7 @@ and of 2r∂_(t_*) − r∂_r over ι⁺.
 This is [Hin26c, Lemma 4.6] in dimension 4 + 1.
 
 *Proof.* (1) Over K⁺ (ρ_K = 0), 𝖧ρ₊ = −2(1 − ξ̂)ρ₊ + ρ₊³a with a smooth, by [[sec:ii-b-3-1]]. So 𝖧ρ₊ = 0 with
-ρ₊ > 0 gives 1 − ξ̂ = ½ρ₊²a, and on ∂Σ⁺, ξ̂² − 2ξ̂ + |η̂|² = O(ρ₊²), so ξ̂ = 1 + O(ρ₊²). Then
+ρ₊ > 0 gives 1 − ξ̂ = ½ρ₊²a, so ξ̂ = 1 + O(ρ₊²). Then
 
     𝖧²ρ₊ = 2ρ₊𝖧ξ̂ − 2(1 − ξ̂)𝖧ρ₊ + 𝖧(ρ₊³a) = 2ρ₊(−2(2 − ξ̂)ξ̂ + O(ρ₊²)) + O(ρ₊³) = −4ρ₊ + O(ρ₊³),
 
@@ -474,9 +474,10 @@ a positive factor ([[lem:ii-b-2-3]]). By (H4) it tends backward to ∂ℛ₊ ∪
 disjoint, compact and invariant; and it reaches {r < r₀ − δ₀} forward at a finite parameter.
 
 *σ < 0.* γ = Φ₋₁ ∘ γ̃ with γ̃ a maximal integral curve of the future field in Σ⁺₋₁, which lies over {r < R₁}
-([[lem:ii-b-2-3]] (d)), so its limit points are not over ∂X. Γ₋₁ ⊂ Σ^♭₋₁ = Σ⁻₋₁, and q₋₁ ≤ −2β₀ < 0 near Γ₋₁ by
-(Γ.4), while q₋₁ > 0 on γ̃; so γ̃ lies in neither Γ̄_u nor Γ̄_s. By (H8) (a), γ̃ tends backward to ∂ℛ₊ (not to ∂ℛ₋,
-as before, nor to R_(−1,in), which lies over ∂X), and reaches {r < r₀ − δ₀} forward (not R_out, over ∂X). ∎
+([[lem:ii-b-2-3]] (d)), so its limit points are not over ∂X. Γ₋₁ ⊂ Σ^♭₋₁ = Σ⁻₋₁, and q₋₁ ≤ −2β₀ on Γ₋₁, with β₀ the
+constant of (Γ.4) (q^Γ = −q₋₁ ≥ 2β₀ there), hence q₋₁ < 0 near Γ₋₁, while q₋₁ > 0 on γ̃; so γ̃ lies in neither Γ̄_u nor
+Γ̄_s. By (H8) (a), γ̃ tends backward to ∂ℛ₊ (not to ∂ℛ₋, as before, nor to R_(−1,in), which lies over ∂X), and reaches
+{r < r₀ − δ₀} forward (not R_out, over ∂X). ∎
 
 ### The eb-dynamics near ℐ⁺ {#sec:ii-b-7}
 
@@ -910,11 +911,11 @@ H^((𝗌;k),(α_sf−δ,−ℵ))_(3b;b)(Ω; E)^(•,−), with
 The relaxed version with margin d_ℵ ≥ 0 ([Hin26c, Remark 5.14]) asks (1)–(2) for orders with margin d_ℵ and (3) with
 𝗌 − d_ℵ in place of 𝗌 on the left.
 
-The weight in (2) is the weight α_sf + 3/2 of [Hin26c] at n = 4. Since |dx| = ρ⁻⁵dρ dω = ρ⁻⁴μ_b, with μ_b := ρ⁻¹dρ dω
-the b-density, ρ^α L²(|dx|) = ρ^(α+2)L²(μ_b): the spatial weight α of an L²(|dx|)-based space is the b-weight α + 2 at
-n = 4 (that is, α + n/2; see [[sec:i-c-1-2]]). In particular α_sf + 2 lies in an indicial gap of P̂₀(0). For the scalar
-wave operator the gap is (0, 2), the indicial roots of [[eq:ii-c-1-3]] at ℓ = 0 being 0 and 2, so α_sf ∈ (−2, 0), where
-[Hin26c] has (−3/2, −1/2).
+The weight in (2) is the weight α_sf + 3/2 of [Hin26c] at n = 4. Near ∂X, |dx| = ρ⁻⁵dρ dω = ρ⁻⁴μ_b, with μ_b := ρ⁻¹dρ dω
+the b-density, so ρ^α L²(|dx|) = ρ^(α+2)L²(μ_b) near ∂X: the spatial weight α of an L²(|dx|)-based space is the b-weight
+α + 2 at n = 4 (that is, α + n/2; see [[sec:i-c-1-2]]). In particular α_sf + 2 lies in an indicial gap of P̂₀(0). For
+the scalar wave operator the gap is (0, 2), the indicial roots of [[eq:ii-c-1-3]] at ℓ = 0 being 0 and 2, so α_sf ∈ (−2,
+0), where [Hin26c] has (−3/2, −1/2).
 
 ### Asymptotically stationary metrics and wave-type operators {#sec:ii-c-3}
 
@@ -1395,10 +1396,10 @@ In the coordinates (y, a, b) := Ψ₀ on O₂, by (ii),
 
 with Y₀ tangent to Γ (the y-component) and Y₀(·, 0, 0) = V₀|_Γ, and Ṽ = (Ỹ, Ã, B̃) with C^k-norms bounded by Cϵρ(t).
 Fix a finite atlas of Γ, charts κ_i : U_i → ℝ^m, compact sets 𝒬_i ⊂ U_i whose interiors cover Γ and a Lebesgue number
-d_L > 0 of the cover of Γ by these interiors (every ball of radius d_L in Γ lies in some 𝒬_i), and let C_at ≥ 1 bound the factor by which the norm of a linear map
-between tangent spaces of Γ × ℝ² can change when its domain and its codomain are read in two of the charts. For
-functions on Γ × I, I an interval, ‖D^j f‖_∞ is the supremum over i and over 𝒬_i × I of the j-th derivatives in the
-chart κ_i × id.
+d_L > 0 of the cover of Γ by these interiors (every ball of radius d_L in Γ lies in some 𝒬_i), and let C_at ≥ 1 bound
+the factor by which the norm of a linear map between tangent spaces of Γ × ℝ² can change when its domain and its
+codomain are read in two of the charts. For functions on Γ × I, I an interval, ‖D^j f‖_∞ is the supremum over i and
+over 𝒬_i × I of the j-th derivatives in the chart κ_i × id.
 
 #### Time-T maps {#sec:ii-c1-2-2}
 
@@ -1449,14 +1450,14 @@ against δ and C_T.
 
 #### One step of the graph transform {#sec:ii-c1-2-3}
 
-For t ≥ T₀ and τ ∈ [0, 2T] let Φ := Φ_(t,τ), and 𝒬_a := Γ × [−δ, δ]_a. For β : 𝒬_a → ℝ with |β| ≤ ¼δ and
-Lip β ≤ θ₀ := δ (in the chart norms) define 𝒮_Φβ : 𝒬_a → ℝ by
+For t ≥ T₀ and τ ∈ [0, 2T] let Φ := Φ_(t,τ), and B_a := Γ × [−δ, δ]_a. For β : B_a → ℝ with |β| ≤ ¼δ and
+Lip β ≤ θ₀ := δ (in the chart norms) define 𝒮_Φβ : B_a → ℝ by
 
     Φ_b(y, a, 𝒮_Φβ(y, a)) = β(Φ_y(y, a, 𝒮_Φβ(y, a)), Φ_a(y, a, 𝒮_Φβ(y, a))):                              {#eq:ii-c1-2-4}
 
 graph(𝒮_Φβ) is the set of points of B that Φ maps into graph(β).
 
-**Lemma {#lem:ii-c1-2-1}** (One step.) For (y, a) ∈ 𝒬_a, [[eq:ii-c1-2-4]] has exactly one solution b ∈ [−δ, δ], and:
+**Lemma {#lem:ii-c1-2-1}** (One step.) For (y, a) ∈ B_a, [[eq:ii-c1-2-4]] has exactly one solution b ∈ [−δ, δ], and:
 
 (G1) |𝒮_Φβ| ≤ e^(−ντ)(|β|_∞ + C_Tϵρ(t));
 
@@ -1467,7 +1468,7 @@ graph(𝒮_Φβ) is the set of points of B that Φ maps into graph(β).
 
     ‖D^i𝒮_Φβ‖_∞ ≤ e^(−ντ)(1 − 3C_Tδ)⁻¹(2Λ_τ)^i‖D^iβ‖_∞ + C(T, M₀, …, M_(i−1)) ϵρ(t).                     {#eq:ii-c1-2-5}
 
-*Proof.* Fix (y, a) and put h(b) := Φ_b(y, a, b) − β(Φ_y, Φ_a)(y, a, b). By (T1) the point (Φ_y, Φ_a) lies in 𝒬_a, so
+*Proof.* Fix (y, a) and put h(b) := Φ_b(y, a, b) − β(Φ_y, Φ_a)(y, a, b). By (T1) the point (Φ_y, Φ_a) lies in B_a, so
 h is defined on [−δ, δ]. By [[eq:ii-c1-2-2]], (T2) and (T5),
 ∂_bΦ_b = m^s_τ + b ∂_bm^s_τ + O(C_Tϵρ) ≥ e^(ντ)(1 − C_Tδ) − C_Tϵ₀, and |∂_b(Φ_y, Φ_a)| ≤ C_T with
 Lip β ≤ θ₀ = δ, so h′(b) ≥ e^(ντ)(1 − C_Tδ) − C_Tϵ₀ − C_Tδ ≥ e^(ντ)(1 − 3C_Tδ) > 0, as e^(ντ) ≥ 1 and ϵ₀ ≤ δ. At
@@ -1476,9 +1477,9 @@ b m^s_τ(y, a, b) = β(⋯) − (Φ_b − Φ⁰_(τ,b)), and m^s_τ ≥ e^(ντ)
 h(b̃) = h(b̃) − h̃(b̃) = −(β − β̃)(⋯), so |b − b̃| ≤ |β − β̃|_∞/inf h′. (G3): 𝒮_Φβ ∈ C^k by the implicit function
 theorem, H(w, b) := Φ_b(w, b) − β((Φ_y, Φ_a)(w, b)), w = (y, a), being C^k with ∂_bH ≥ e^(ντ)(1 − 3C_Tδ). Fix
 p ∈ 𝒬_i × [−δ, δ]; as (Φ_y, Φ_a) has Lipschitz constant at most 2Λ_τ, it maps the ball of radius d_L/(2Λ_(2T)) about p
-into a ball of radius d_L, whose projection to Γ lies in some 𝒬_l, so (by (T1)) into 𝒬_l × [−δ, δ], where the
-derivatives of β in the chart κ_l × id are bounded by the norms ‖D^jβ‖_∞; differentiate H(w, 𝒮_Φβ(w)) = 0 i times at p in the charts i
-and l. For i = 1 the result is ∂_bH · D𝒮_Φβ = Dβ · D_w(Φ_y, Φ_a) − D_wΦ_b, and for i ≥ 2 it is
+into a ball of radius d_L, whose projection to Γ lies in some 𝒬_l, hence, by (T1), into 𝒬_l × [−δ, δ], where the
+derivatives of β in the chart κ_l × id are bounded by the norms ‖D^jβ‖_∞. Differentiate H(w, 𝒮_Φβ(w)) = 0 i times at
+p in the charts i and l. For i = 1 the result is ∂_bH · D𝒮_Φβ = Dβ · D_w(Φ_y, Φ_a) − D_wΦ_b, and for i ≥ 2 it is
 
     ∂_bH · D^i𝒮_Φβ = D^iβ[(D_w(Φ_y, Φ_a) + ∂_b(Φ_y, Φ_a)D𝒮_Φβ)^(⊗i)] + R_i,
 
@@ -1490,7 +1491,7 @@ inductively; or a pure w-derivative of Φ_b, which is b D^j_w m^s_τ + D^j_w(Φ_
 |∂_b(Φ_y, Φ_a)D𝒮_Φβ| ≤ C_T · Cϵ₀, together at most 2Λ_τ. Dividing by ∂_bH gives [[eq:ii-c1-2-5]]. ∎
 
 *The backward step.* For τ ∈ [0, 2T] and t ≥ T₀ + τ let Φ⁻ := Φ_(t,−τ), the map back to the slice t − τ, and
-𝒬_b := Γ × [−δ, δ]_b. For α : 𝒬_b → ℝ with |α| ≤ ¼δ and Lip α ≤ θ₀, define 𝒰_(Φ⁻)α by
+B_b := Γ × [−δ, δ]_b. For α : B_b → ℝ with |α| ≤ ¼δ and Lip α ≤ θ₀, define 𝒰_(Φ⁻)α by
 Φ⁻_a(y, 𝒰α(y, b), b) = α(Φ⁻_y, Φ⁻_b)(y, 𝒰α(y, b), b): graph(𝒰α) is the set of points of B that the backward map sends
 into graph(α), which is the image of graph(α) under the forward map, within B. [[lem:ii-c1-2-1]] holds verbatim for
 𝒰, with (a, b) exchanged, Φ replaced by Φ⁻, and with ρ(t) as it stands in (G1) and [[eq:ii-c1-2-5]], the factor
@@ -1501,7 +1502,7 @@ is invariant by (T1), and the block D_((y,b))(Φ⁻_y, Φ⁻_b) is bounded by Λ
 
 Let t_j := T₀ + jT, j ≥ 0, and 𝒮_j := 𝒮_(Φ_(t_j,T)). Choose M₀ := 2C_T and then, inductively,
 M_i ≥ 2C(T, M₀, …, M_(i−1)), 1 ≤ i ≤ k, and let ϵ₀ be so small that M₀ϵ₀ ≤ ¼δ and M₁ϵ₀ ≤ θ₀. Let 𝔅 be the set of
-sequences β = (β_j)_(j≥0) of C^k functions on 𝒬_a with ‖D^iβ_j‖_∞ ≤ M_iϵρ(t_j) for 0 ≤ i ≤ k, and put
+sequences β = (β_j)_(j≥0) of C^k functions on B_a with ‖D^iβ_j‖_∞ ≤ M_iϵρ(t_j) for 0 ≤ i ≤ k, and put
 (ℱβ)_j := 𝒮_jβ_(j+1).
 
 *ℱ maps 𝔅 into itself.* As ρ(t_(j+1)) ≤ ρ(t_j), (G1) gives
@@ -1511,7 +1512,7 @@ sequences β = (β_j)_(j≥0) of C^k functions on 𝒬_a with ‖D^iβ_j‖_∞ 
 *ℱ is a contraction* for d(β, β̃) := sup_j ρ(t_j)⁻¹|β_j − β̃_j|_∞, by (G2) and ρ(t_j)⁻¹ ≤ ρ(t_(j+1))⁻¹, with factor
 e^(−νT)(1 − 3C_Tδ)⁻¹ ≤ ½.
 
-So β^(n) := ℱ^n(0) ∈ 𝔅 is Cauchy for d, and β^(n)_j → β_j uniformly. Bounded in C^k on the compact set 𝒬_a, the
+So β^(n) := ℱ^n(0) ∈ 𝔅 is Cauchy for d, and β^(n)_j → β_j uniformly. Bounded in C^k on the compact set B_a, the
 D^(k−1)β^(n)_j are equicontinuous, so (Arzelà–Ascoli) every subsequence has a further subsequence converging in C^(k−1),
 necessarily to β_j: β^(n)_j → β_j in C^(k−1), ‖D^iβ_j‖_∞ ≤ M_iϵρ(t_j) for i ≤ k − 1, and D^(k−1)β_j is Lipschitz with
 constant ≤ CM_kϵρ(t_j). By (G2), ℱ is continuous for d on sequences with |β_j| ≤ ¼δ and Lip β_j ≤ θ₀, so ℱβ = β:
@@ -1526,9 +1527,9 @@ it is mapped into graph(β_(j+1)) at time t_(j+1). So on [t_(j−1), t_(j+1)], �
     H(t, w, b) := Φ_(t,t_(j+1)−t,b)(w, b) − β_(j+1)(Φ_(t,t_(j+1)−t,ya)(w, b)) = 0,
 
 with H ∈ C^(k−1) in (t, w, b) (the flow map from time t to t_(j+1) is C^k in (t, w, b), and β_(j+1) ∈ C^(k−1)) and
-∂_bH ≥ ½. By the implicit function theorem, β ∈ C^(k−1)([t_(j−1), t_(j+1)] × 𝒬_a), and differentiating the equation as
+∂_bH ≥ ½. By the implicit function theorem, β ∈ C^(k−1)([t_(j−1), t_(j+1)] × B_a), and differentiating the equation as
 in (G3) bounds its derivatives of order ≤ k − 1 by Cϵρ(t_(j−1)) ≤ C(1 + 2T)^ℓϵρ(t). Hence
-β ∈ C^(k−1)([T₀, ∞) × 𝒬_a) with |∂^αβ| ≤ Cϵρ(t) for |α| ≤ k − 1.
+β ∈ C^(k−1)([T₀, ∞) × B_a) with |∂^αβ| ≤ Cϵρ(t) for |α| ≤ k − 1.
 
 *Tangency.* Let W^s := {(t, y, a, b) : b = β(t, y, a)} ⊂ [T₀, ∞) × B, a C^(k−1) hypersurface. If (t, x) ∈ W^s with
 t ∈ [t_(j−1), t_(j+1)), then for small σ > 0, Φ_(t+σ,t_(j+1)−t−σ)(Φ_(t,σ)(x)) = Φ_(t,t_(j+1)−t)(x) ∈ graph(β_(j+1)),
@@ -1537,7 +1538,7 @@ and Φ_(t,σ)(x) ∈ B by (T1) and |b| ≤ Cϵ₀ < δ along W^s; so Φ_(t,σ)(x
 
 #### The unstable hypersurface {#sec:ii-c1-2-5}
 
-Put α₀ := 0 on 𝒬_b and α_(j+1) := 𝒰_(Φ_(t_(j+1),−T))α_j: graph(α_(j+1)) is the image of graph(α_j) under Φ_(t_j,T),
+Put α₀ := 0 on B_b and α_(j+1) := 𝒰_(Φ_(t_(j+1),−T))α_j: graph(α_(j+1)) is the image of graph(α_j) under Φ_(t_j,T),
 within B. With M′₀ := 2C_T(1 + 2T)^ℓ and M′_i ≥ 2C(T, M′₀, …, M′_(i−1))(1 + 2T)^ℓ, and ϵ₀ so small that also
 M′₀ϵ₀ ≤ ¼δ and M′₁ϵ₀ ≤ θ₀, so that [[lem:ii-c1-2-1]] applies to each α_j, induction on j gives
 ‖D^iα_j‖_∞ ≤ M′_iϵρ(t_j) for i ≤ k: by the backward form of (G1) and [[eq:ii-c1-2-5]], with
@@ -1547,7 +1548,7 @@ M′₀ϵ₀ ≤ ¼δ and M′₁ϵ₀ ≤ θ₀, so that [[lem:ii-c1-2-1]] appl
 
 No limit is taken, and α_j ∈ C^k. For t ∈ [t_j, t_(j+1)] put α(t, ·) := 𝒰_(Φ_(t,−(t−t_j)))α_j, whose graph is the
 image of graph(α_j) under Φ_(t_j,t−t_j); on [t_j, t_(j+2)] the same formula with α_j holds by the cocycle property, so
-α ∈ C^k([T₀, ∞) × 𝒬_b) by the implicit function theorem (now with C^k data), with |∂^αα| ≤ Cϵρ(t) for |α| ≤ k. The
+α ∈ C^k([T₀, ∞) × B_b) by the implicit function theorem (now with C^k data), with |∂^αα| ≤ Cϵρ(t) for |α| ≤ k. The
 set W^u := {a = α(t, y, b)} is a union of forward orbit segments of V starting on {t = T₀, a = 0}, within B; so V is
 tangent to it, as in [[sec:ii-c1-2-4]].
 
@@ -1655,15 +1656,15 @@ tangent to the characteristic set; Vt_* = 1, as Ψ̂ preserves t_*. As Ψ̂₀^*
 **Proposition {#prop:ii-c1-3-4}** (The stable and unstable hypersurfaces; [Hin26c, Proposition 6.3] at n = 4.) Let
 d₀ ≥ 3, ℓ_K > 0 and g = g₀ + h with h ∈ 𝒢̃^(d₀,(0,0,ℓ_K))_(e3b) of sufficiently small norm ϵ. With T_♭ of
 [[sec:ii-c1-3-2]], let ∂Γ₀ := {t_* > T_♭} × Γ in the slice coordinates (the stationary extension of ∂Γ_(K⁺),
-[[def:ii-b-5-1]]), and U a small conic neighbourhood of it in ᵉ³ᵇS*_D M. There are functions φ₀^(u/s) ∈ C^∞(U),
+[[def:ii-b-5-1]]), and U a small neighbourhood of it in ᵉ³ᵇS*_D M. There are functions φ₀^(u/s) ∈ C^∞(U),
 independent of t_*, with φ₀^(u/s) = φ_(u/s)(x, z) on the stationary characteristic set, and φ̃^u ∈ C^(d₀−1)(U),
 φ̃^s ∈ C^(d₀−2)(U), with
 
     |∂^αφ̃^u| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 1),        |∂^αφ̃^s| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 2),
 
 derivatives along ∂_(t_*), ∂_x and the fibres, such that, with φ^(u/s) := φ₀^(u/s) + φ̃^(u/s), the field 𝖧_G is tangent
-to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). For ϵ ≤ ϵ₁ the norms are at most 1. The same holds, with uniform constants, for
-the stationary models of parameters b near b₀ ((K4)).
+to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). For ϵ ≤ ϵ₁, sup t_*^(ℓ_K)|∂^αφ̃^(u/s)| ≤ 1 over the stated ranges of α. The same
+holds, with uniform constants, for the stationary models of parameters b near b₀ ((K4)).
 
 *Proof.* By [[lem:ii-c1-3-1]] and [[eq:ii-c1-3-3]], [[thm:ii-c1-1-1]] applies on Y with V₀ = 𝖵, k := d₀ − 1 ≥ 2,
 ℓ := ℓ_K and T₀ := T_♭ (the metric is defined on Ω_* by [[eq:ii-c-4-1]], and Ω_* ⊃ {t_* ≥ T_♭} because t^♭_* ≥ C′t_*
@@ -1681,9 +1682,10 @@ dependence of the constants in [[thm:ii-c1-1-1]]. ∎
 
 **Remark {#rem:s05-trapped-hypersurfaces}** (a) φ₀^(u/s) agrees with φ_(u/s) of (H7) on the stationary characteristic
 set; off it the two may differ, which is immaterial for Γ^(u/s). (b) The intersections of Γ^(u/s) with the stationary
-face {t_* = ∞} are the sets Γ^(u/s)_(K⁺) of [[def:ii-b-5-1]] (within U), as φ̃^(u/s) → 0. (c) W^u at t_* = T_♭ is the
-stationary unstable hypersurface; [Hin26c, p. 113] makes the same choice at its slice {ρ_K = 1} ("Γ^u = ⋃_(s≥0)
-e^(sV)(Γ^u₀ ∩ {ρ_K = 1})"). The slice is immaterial in the sequel: [[ch:s06]] uses Γ^(u/s) only where ρ_K is small.
+face {t_* = ∞} are the sets Γ^(u/s)_(K⁺) of [[def:ii-b-5-1]] (within U), as φ̃^(u/s) → 0; for U small, they coincide
+with ∂Γ̄^(u/s)_(K⁺) within U, by [[lem:ii-b-5-2]] (b). (c) W^u at t_* = T_♭ is the stationary unstable hypersurface;
+[Hin26c, p. 113] makes the same choice at its slice {ρ_K = 1} ("Γ^u = ⋃_(s≥0) e^(sV)(Γ^u₀ ∩ {ρ_K = 1})"). The slice is
+immaterial in the sequel: [[ch:s06]] uses Γ^(u/s) only where ρ_K is small.
 
 ### Remarks on [Hin26c] and [Hin21] {#sec:s05-literature}
 

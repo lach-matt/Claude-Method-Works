@@ -909,9 +909,9 @@ for ς ∈ (0, ς_1], with constants independent of ς, and likewise for the dot
 If u is supported in {ρ ≥ ρ_*} for a fixed ρ_* > 0, it is equivalent to ς^(−q)‖u‖_(H̄^(s+k)), with constants
 depending on ρ_* (and ς ≤ ρ_*).
 
-(b) (*Multipliers.*) Let φ ∈ C^∞([0, ∞)) be constant on [0, a] and on [A, ∞), 0 < a < A, and let
+(b) (*Multipliers.*) Let φ ∈ C^∞([0, ∞)) be constant on [0, a] and on [Λ, ∞), 0 < a < Λ, and let
 ρ_c ∈ (0, 1/(2R_∂)]. Multiplication by φ(ρ/ς) and by φ(ρ/ρ_c) is bounded on ℋ_ς^((s;k),(𝗋,l,q)), for
-ς ≤ ς_1(a, A, ρ_c).
+ς ≤ ς_1(a, Λ, ρ_c).
 
 (c) (*Fixed ς.*) ℋ_ς^((s;k),(𝗋,l,q)) = H̄^((s;k),𝗋_ς) ([[sec:i-a-4-6]]), with equivalent norms (the constants
 depending on ς); the weights l, q do not enter. If 𝗋 is admissible with weight α_+ for every σ_0 in a set
@@ -921,7 +921,7 @@ J ⊂ ℝ ∖ 0, then 𝗋_ς is admissible with weight α_+ for every σ_0 ∈ 
 (d) (*Orders.*) The norm increases with s, k and 𝗋. For η ∈ [0, 1]:
 (d1) ‖u‖_((s;k),(𝗋,l,q−η),ς) ≤ ‖u‖_((s;k),(𝗋,l,q),ς);
 (d2) if u is supported in {ρ ≥ ρ_*}, ‖u‖_((s;k),(𝗋,l,q−η),ς) ≤ C_(ρ_*) ς^η ‖u‖_((s;k),(𝗋,l,q),ς);
-(d3) if u is supported in {ρ ≤ Aς}, ‖u‖_((s;k),(𝗋,l,q),ς) ≤ C_A ‖u‖_((s;k),(𝗋,l,q−η),ς).
+(d3) if u is supported in {ρ ≤ Λς}, ‖u‖_((s;k),(𝗋,l,q),ς) ≤ C_Λ ‖u‖_((s;k),(𝗋,l,q−η),ς).
 
 (e) (*Trading b-regularity.*) For m ∈ ℕ_0, ‖u‖_((s+m;k),(𝗋,l,q),ς) ≤ C‖u‖_((s;k+m),(𝗋,l,q),ς).
 
@@ -942,7 +942,7 @@ term is equivalent to ς^(−(l+2)) ς^(−(q−l−2)) ‖χ_∂u‖_(H_(b,l−
 the first term this is ς^(−q) times the norm of [[def:i-c-2-8]] with a = l − q. On {ρ ≥ ρ_*} the b-weights are bounded
 above and below and H̄_b^(s+k,a) is H̄^(s+k) there.
 
-(b) Both functions commute with χ_∂. On supp(1 − χ_∂) ⊂ {ρ ≥ 1/(2R_∂)}, φ(ρ/ς) = φ(A) once ς ≤ 1/(2R_∂A), and
+(b) Both functions commute with χ_∂. On supp(1 − χ_∂) ⊂ {ρ ≥ 1/(2R_∂)}, φ(ρ/ς) = φ(Λ) once ς ≤ 1/(2R_∂Λ), and
 φ(ρ/ρ_c) is a fixed smooth function. On tf, φ(ρ/ς) = φ(ρ̂), which is smooth on tf = [0, ∞]_ρ̂ × 𝕊³ and constant near
 both ends, hence a multiplier of the sc-b;b spaces; and φ(ρ/ρ_c) = φ(ςρ̂/ρ_c) is constant on {ρ̂ ≤ 1} once ς ≤ aρ_c,
 while (ρ̂∂_ρ̂)^j φ(ςρ̂/ρ_c) = ((t∂_t)^j φ)(ςρ̂/ρ_c) is bounded, so [[lem:i-c-2-2]] (b) applies near ztf, uniformly in
@@ -950,7 +950,7 @@ while (ρ̂∂_ρ̂)^j φ(ςρ̂/ρ_c) = ((t∂_t)^j φ)(ςρ̂/ρ_c) is bounded
 
 (c) Away from ∂X both norms are that of H̄^(s+k). For fixed ς, S_ς(χ_∂u) is supported in {ρ̂ ≤ ρ_1/ς}, on which ρ_ztf
 is bounded below, so near ztf the norm is that of H^(s+k) on a compact set and l, q only change constants. Near sctf,
-for A = Op(a),
+for a scattering symbol a,
 
     S_ς Op(a) S_ς⁻¹ = Op(a_ς),     a_ς(x̂, ζ̂) := a(x̂/ς, ςζ̂),
 
@@ -966,7 +966,7 @@ R_(σ_0,in) = {ξ = −2σ_0, η = 0} and R_out onto Σ^∂_(ςσ_0), R_(ςσ_0,
 the radial sets and quantities on ∂X.
 
 (d) Monotonicity in s, k, 𝗋 holds for each term. (d1): ς^(η−q) ≤ ς^(−q), and the order q − η − l at ztf is weaker
-than q − l. (d2) is (a). (d3): for ς < 1/(2R_∂A) the first term vanishes, and on {ρ̂ ≤ A}, ρ_ztf ≥ (1 + A)⁻¹.
+than q − l. (d2) is (a). (d3): for ς < 1/(2R_∂Λ) the first term vanishes, and on {ρ̂ ≤ Λ}, ρ_ztf ≥ (1 + Λ)⁻¹.
 
 (e) The first term and the part near ztf are norms of H^(s+k+m) on both sides. Near sctf it suffices, by induction, to
 take m = 1 and show H^((s;k+1),𝗋) ⊂ H^((s+1;k),𝗋) ([[sec:i-a-4-6]]) on ℝ⁴_x̂, which does not involve ς. Let
@@ -1025,8 +1025,10 @@ coefficients bounded by C(ρ_c + ς) in C_b^∞, which maps H_(b,q−2)^(s+k) to
 
     A^(*h) − A^(*h_0) = (I + ρK)⁻¹ A^(*h_0) (I + ρK) − A^(*h_0) = (I + ρK)⁻¹ [A^(*h_0), ρK],
 
-and [ρ²N(P⁽⁰⁾)^(*h_0), ρK] ∈ ρ³ Diff_b^1, [σρ(ρ∂_ρ)^(*h_0), ρK] ∈ σρ²C^∞: these have the forms of the first two terms
-of [[eq:i-c-6-2]]. The two estimates above then hold with the dual orders. ∎
+where A^(*h_0) = −2iσ̄(ρ(ρ∂_ρ − 3/2 − S_0))^(*h_0) + (ρ²N(P⁽⁰⁾))^(*h_0). Here
+[(ρ²N(P⁽⁰⁾))^(*h_0), ρK] ∈ ρ³ Diff_b^1 and [σ̄(ρ(ρ∂_ρ − 3/2 − S_0))^(*h_0), ρK] ∈ σ̄ρ²C^∞, the latter a
+multiplication operator (ρ∂_ρ differentiates ρK, and S_0^(*h_0) and K need not commute). These have the forms of the
+first two terms of [[eq:i-c-6-2]], with σ̄ for σ. The two estimates above then hold with the dual orders. ∎
 
 #### The theorem {#sec:i-c-6-3}
 
@@ -1056,10 +1058,10 @@ itself. In place of (Z) we then assume
 with 𝒳_0, 𝒴_0 of [[eq:i-c-3-1]]; for m_1 = m_2 = 0 this is (Z).
 
 **Theorem {#thm:i-c-6-4}** (Uniform low-energy estimates.) Assume (H1)–(H4), (G), (Z_𝒫) and (TF), with
-s > ½ + ϑ_ℋ constant, and let α_+ ∈ ℝ.
+s > ½ + ϑ_ℋ constant, and let α_+ ∈ ℝ. There are c_k > 0, k ∈ ℕ_0, non-increasing in k, such that the following hold.
 
-(1) (*Uniform estimates.*) For every k ∈ ℕ_0 there are c_k > 0, non-increasing in k, and C_k such that for
-0 < |σ| ≤ c_k with Im σ ≥ 0, and (u, c) ∈ 𝒳_σ ⊕ ℂ^(m_1) with 𝒫(σ)(u, c) = (f, e),
+(1) (*Uniform estimates.*) For every k ∈ ℕ_0 there is C_k such that for 0 < |σ| ≤ c_k with Im σ ≥ 0, and
+(u, c) ∈ 𝒳_σ ⊕ ℂ^(m_1) with 𝒫(σ)(u, c) = (f, e),
 
     ‖u‖_((s;k),(𝗋+α_+,α,0),ς) + |c| ≤ C_k(‖f‖_((s−1;k),(𝗋+α_++1,α+2,0),ς) + |e|),                         {#eq:i-c-6-6}
 

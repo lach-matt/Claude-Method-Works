@@ -200,12 +200,12 @@ a v1 coefficient beside the b- and S-coefficients would invert a map that degene
 coefficients are assigned in [[sec:iii-i15-2]], not read from the K⁺-expansion.
 
 *Proof.* At b, h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in ker L̂_b(0) in the
-space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀,
-with the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of
+space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀, with
+the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of
 [[prop:iii-h-3-2]]: the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is invertible). So
-h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses
-h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by the injectivity of S ↦ h_b(S) ([[lem:iii-i15-1-2]]). So
-h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, the ġ_b(ḃ) being part of a basis. ∎
+h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes
+h_(b,v1)(V) and ġ_b(ḃ_V) and reverses h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by the injectivity of S ↦ h_b(S)
+([[lem:iii-i15-1-2]]). So h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, the ġ_b(ḃ) being part of a basis. ∎
 
 ### The rotation rows at b {#sec:iii-i15-2}
 
@@ -589,8 +589,8 @@ where ϵ_0 and d are those of [[cor:iii-h2-5-1]], independent of b. Then [[lem:i
 and [[prop:iii-i2-5-1]] hold with these L_b, g_0, g and L, and with the states ġ_b(ḃ), h_b(S), h̆_b(S) at b in place of
 those at b₀, with constants and smallness conditions uniform in b ∈ ℬ̄_*. In particular, for ℓ_I with [[eq:iii-i2-5-1]],
 α_K ∈ [½, 1), α_+ > α_K, β_+ < min(α_+, 3/2, min Re ℰ_+) and f as in [[prop:iii-i2-5-1]], the forward solution u of
-Lu = f lies in the space [[eq:iii-i2-5-2]]; and, at fixed b, u depends continuously on (S, h) in that space with every weight
-lowered by ς, for every ς > 0.
+Lu = f lies in the space [[eq:iii-i2-5-2]]; and, at fixed b, u depends continuously on (S, h) in that space with every
+weight lowered by ς, for every ς > 0.
 
 *Proof.* The results on null infinity are stated for L = L^(g,g_0) with g_0 = g_(b₀,b,−S) ([[sec:iii-i1-1]]), with
 [[prop:iii-i-3-3]] and [[prop:iii-i-3-4]] for general b ((P1)). The structure of L_b at 𝓘⁺ is [[lem:iii-i-3-2]], which
