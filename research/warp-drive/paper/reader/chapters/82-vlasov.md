@@ -364,38 +364,36 @@ harmonics e^(i j·θ) with |j|₁ ≤ m + 2, and a harmonic with two or more non
 
 **Lemma {#lem:vlasov-resonance}** (An exact resonance.) In 2+1-dimensional Minkowski space let k_a, k_b be future null
 covectors of equal energy with antipodal spatial directions, and k_c any future null covector of that energy. Then
-K := k_a + k_b − k_c is null. So with equal frequencies the mixed harmonic e^(i(θ_a + θ_b − θ_c)) is exactly resonant,
+𝔎 := k_a + k_b − k_c is null. So with equal frequencies the mixed harmonic e^(i(θ_a + θ_b − θ_c)) is exactly resonant,
 whatever the pairwise separations.
 
-*Proof.* In an orthonormal frame, k_a = E(−1, e), k_b = E(−1, −e), k_c = E(−1, f), with e, f unit vectors. Then K =
-E(−1, −f), and g⁻¹(K, K) = E²(−1 + 1) = 0. ∎
+*Proof.* In an orthonormal frame, k_a = E(−1, e), k_b = E(−1, −e), k_c = E(−1, f), with e, f unit vectors. Then 𝔎 =
+E(−1, −f), and g⁻¹(𝔎, 𝔎) = E²(−1 + 1) = 0. ∎
 
 **Lemma {#lem:vlasov-hierarchy}** (Coherence under a hierarchy of frequencies.) Let k_1, …, k_n be covectors at a point
 of a 2+1-dimensional Lorentzian space with g⁻¹(k_A, k_A) = 0, |g⁻¹(k_A, k_B)| ≥ c > 0 for A ≠ B, and |k_A| ≤ Ē in an
 orthonormal frame. Let Λ > 1 and ν_A := Λ^(A−1). For every j ∈ ℤⁿ with at least two nonzero entries and |j|₁ ≤ m, let B1
 and B2, B1 > B2, be its two largest indices with nonzero entries. Then
 
-    |g⁻¹(K_j, K_j)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ − m² Ē²/(2Λ)).                                    {#eq:vlasov-hierarchy}
+    |g⁻¹(𝔎_j, 𝔎_j)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ − m² Ē²/(2Λ)),      𝔎_j := Σ_A j_A ν_A k_A.            {#eq:vlasov-hierarchy}
 
 In particular every such combination is non-null, with this margin, once Λ > (m + m²/2) Ē²/c.
 
-*Proof.* In the orthonormal frame |g⁻¹(k, k′)| ≤ |k| |k′|. Put K := K_j = j_B1 ν_B1 k_B1 + V, V := Σ_(A ≠ B1) j_A ν_A
-k_A. Since k_B1 is null, g⁻¹(K, K) = 2 j_B1 ν_B1 g⁻¹(k_B1, V) + g⁻¹(V, V). Here g⁻¹(k_B1, V) = j_B2 ν_B2 g⁻¹(k_B1,
+*Proof.* In the orthonormal frame |g⁻¹(k, k′)| ≤ |k| |k′|. Put 𝔎 := 𝔎_j = j_B1 ν_B1 k_B1 + V, V := Σ_(A ≠ B1) j_A ν_A
+k_A. Since k_B1 is null, g⁻¹(𝔎, 𝔎) = 2 j_B1 ν_B1 g⁻¹(k_B1, V) + g⁻¹(V, V). Here g⁻¹(k_B1, V) = j_B2 ν_B2 g⁻¹(k_B1,
 k_B2) + Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m Ē²/Λ), using
 |j_B2| ≥ 1 and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A Ē ≤ m ν_B2 Ē, so |g⁻¹(V, V)| ≤ m² Ē² ν_B2² ≤ m² Ē² ν_B1
-ν_B2/Λ. With |j_B1| ≥ 1, |g⁻¹(K, K)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ) − m² Ē² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
+ν_B2/Λ. With |j_B1| ≥ 1, |g⁻¹(𝔎, 𝔎)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ) − m² Ē² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
 
 With c = c0 (2π/n)², Λ is of order n², as in the choice a_A = c n² a_(A−1) of [HL25, Lemma 4.16, p. 18]. The phases ν_A
 u_A are eikonals, so the two-scale scheme is unchanged; the wave of family A carries the amplitude λ F_A/ν_A, so that its
-derivatives are of the size of F_A.
+derivatives are of the size of F_A ([[eq:vlasov-wave]]).
 
 **Remark {#rem:vlasov-coherence-values}** (Numerical observation.) On the orbit space of Tangherlini with μ = 1 and
 labels in [−0.6, 0.6], the Schur formula of [[lem:vlasov-separation]] agreed with shooting to 1.1 × 10⁻⁹, ∂_α β was at
 least 0.798, and the least mixed symbol of adjacent labels divided by (Δα)² was 0.2923, 0.2926, 0.2927, 0.2927 at n = 8,
 16, 32, 64. For the four labels 2πA/4 on flat 2+1 with the hierarchy, every Q_j with |j|₁ ≤ 5 satisfied exactly
-|Q_j|/(ν_B1 ν_B2) ≥ 359/216; with two radial covectors added and labels at angle at least η from them (label–radial
-symbols at least 1/5), every combination with |j|₁ ≤ 4 had |Q_j|/(ν_B1 ν_B2) ≥ 35612/609961, above the bound 4/50765 of
-[[eq:vlasov-hierarchy]]. No proof uses these values.
+|Q_j|/(ν_B1 ν_B2) ≥ 359/216. No proof uses these values.
 
 ### Torus-polarised waves and the orbit space {#sec:vlasov-polarisation}
 

@@ -16,8 +16,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | CONFIRMED (4 nits) |
 | 23 S4 | NOT CONFIRMED 3M 8m 7n | done (d₀ fixed before k by the orders alone) | fourth fix done; fifth reading CONFIRMED 0M 0m 1n (n1 "of the same orders as A" applied by the coordinator); the (S15) entry of Appendix A in chapter 95 is left for the integration pass |
 | 24 S5 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (2 optional nits) |
-| 25 S6 | NOT CONFIRMED 0M 5m 8n | done | S4 follow-up done (global error terms, Lemma 4.1 localisers, φ_E at every use, prop:ii-d-3-6 (1)-(2) at t_(*,−) − ½); trapped-set Steps 1, 2, 4 and chapter 26 prop:ii-e-3-2 in a proof-and-fix round (Step 1b(ii) needs a 1.5-order gain to be proved) |
-| 26 S7 | NOT CONFIRMED 2M 4m 3n | done | CONFIRMED (4 nits) |
+| 25 S6 | NOT CONFIRMED 0M 5m 8n | done | fourth fix done (Step 1b(ii) needs one order, not 1.5, proved in the existing calculus with r^♭ explicit; Steps 1-4 after one localisation w := Φ^♯u; prop:ii-e-3-2 with Γ, time cut-offs and φ_E named; the (S15) entry of Appendix A made); fifth reading running |
+| 26 S7 | NOT CONFIRMED 2M 4m 3n | done | fourth fix done (Step 1b(ii) needs one order, not 1.5, proved in the existing calculus with r^♭ explicit; Steps 1-4 after one localisation w := Φ^♯u; prop:ii-e-3-2 with Γ, time cut-offs and φ_E named; the (S15) entry of Appendix A made); fifth reading running |
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done | CONFIRMED; citation resolved and confirmed |
 | 28 S9 | NOT CONFIRMED 2M 4m 8n | done | fifth fix done; sixth reading CONFIRMED 0M 0m 3n (optional: Ω_2 and τ_1 renames in 28; narrow M° to Ω_* in the continuity statements of 38 near 1071, 1123, 1173; three older "=" line starts in 28) |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |

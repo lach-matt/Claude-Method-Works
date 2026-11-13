@@ -175,8 +175,8 @@ n(x_1)^(1/2) ≤ D_−(x). As V_l(x_1) = σ², |u′(x_1)|² = ℰ(x_1) ≤ 2σ�
 claim. ∎
 
 **Proposition {#prop:rb-coercive}** (Where the barrier covers the interval.) Suppose c_I := min_I V_σ > 0,
-½n′(u_h)(α) ≥ 0 and ½n′(u_∞)(β) ≤ 0; by [[lem:rb-end-signs]] the last two hold when A_− ≥ D_−(x)/√2 and
-A_+ ≥ D_+(x′)/√2 for some x, x′. Then ‖χ_I R_l(σ) χ_I‖ ≤ 1/c_I.
+½n′(u_h)(α) ≥ 0 and ½n′(u_∞)(β) ≤ 0; for x_1, x_2 as in [[lem:rb-end-signs]], the last two hold when
+A_− ≥ D_−(x)/√2 and A_+ ≥ D_+(x′)/√2 for some x, x′ as there. Then ‖χ_I R_l(σ) χ_I‖ ≤ 1/c_I.
 
 *Proof.* For F ∈ L² vanishing off I, u := R_l(σ)F equals c_h u_h on (−∞, α] and c_∞u_∞ on [β, ∞)
 ([[prop:resolvent-outgoing]]). Pairing −u″ + V_σ u = F with ū over I and taking real parts,
@@ -187,7 +187,7 @@ and the left side is at least c_I‖u‖_I². ∎
 
 **Corollary {#cor:rb-closed-form}** (Closed form; m = 1, I = {6/5 ≤ r ≤ 4}.) Let a := κ + 3/4 and c := (15/16)a. If
 
-(i) (15/256)a > σ² and (0.21/1.4641)a > σ²,
+(i) (15/256)a > σ² and (0.21/1.4641)a > σ² (the second follows from the first, as 0.21/1.4641 > 0.1434 > 15/256),
 
 (ii) 0.32727(0.120523a − σ²)^(1/2) > (2 + 1.1248σ)/√2, and
 
@@ -229,8 +229,8 @@ At σ = 3, (i)–(iii) hold at l = 50 (the proof of [[cor:morawetz-one-derivativ
 l = 3, 7 and 18. Against the cut-off norms of the resolvent computed from numerical solutions of the radial equation
 (on I, with a discretised kernel of 161 points), the bound 1/c_I lies within a factor 2 of the computed norm (ratios 1.3
 to 1.9): at σ = 0.3 and l = 8, 16, 32 the computed norms are 0.121, 0.0399, 0.0120 against 0.215, 0.0594, 0.0157; at
-σ = 1, 0.139, 0.0415, 0.0122 against 0.267, 0.0628, 0.0159; at σ = 3 and l = 32, 0.0135 against 0.0182. A quarter of
-the bound falls below the computed norm somewhere. No proof uses these values.
+σ = 1, 0.139, 0.0415, 0.0122 against 0.267, 0.0628, 0.0159; at σ = 3 and l = 32, 0.0135 against 0.0182. No proof uses
+these values.
 
 ### Above the barrier {#sec:rb-above}
 
@@ -262,7 +262,7 @@ lies above σ² without covering I.
 **Remark {#rem:rb-band-observed}** (Numerical observation.) On I (Λ = 3.74), the cut-off norm computed from numerical
 solutions of the radial equation (a discretised kernel of 161 points) lies below the bound of
 [[prop:resolvent-above-barrier]]: 1.89 ≤ 7.57 at σ = 1, l = 0, and 0.41, 0.42, 0.45, 0.51, 0.67 ≤ 1.32, 1.45, 1.72,
-2.35, 4.44 at σ = 3, l = 0, …, 4; a tenth of the bound falls below the computed norm. Between the two bounds, at σ = 3,
+2.35, 4.44 at σ = 3, l = 0, …, 4. Between the two bounds, at σ = 3,
 the computed norm is 0.672, 1.132, 0.983, 0.725, 0.287, 0.193, 0.0551 and 0.0225 at l = 4, 5, 6, 8, 11, 12, 17 and 25
 (max V_l = 6.47, 9.22, 12.47, 20.47, 36.22, 42.47, 81.22, 169.22). It peaks at l = 5, the harmonic whose barrier top
 lies nearest σ² = 9, is at most 1.132 for l ≤ 25, and falls like about 1/(l(l + 2)) beyond; where min_I V_σ > 0
@@ -275,10 +275,11 @@ the constant of [[prop:resolvent-outgoing]] (b) is about 10⁶⁰ at (σ, l) = (
 ### The multiplier identity {#sec:morawetz-identity}
 
 From here on m = 1, so that f = 1 − 1/r², r_h = 1 and the photon sphere is r = √2. The bounds of the previous
-sections fail exactly where the barrier top of a harmonic lies near σ² and the barrier does not cover I. A
-multiplier identity of Morawetz type covers every harmonic and every real σ ≠ 0. Every multiplier below is a
-polynomial or a rational function of r⁻², every weight is (1 − r⁻²)r⁻³ times a rational function of r⁻², and every
-constant is obtained from exact rational inequalities. The coefficient lists that the Bernstein bounds below use are in
+sections are not uniform in the harmonic exactly where the barrier top of a harmonic lies near σ² and the barrier does
+not cover I. A multiplier identity of Morawetz type covers every harmonic and every real σ ≠ 0. Every multiplier of
+[[sec:morawetz-identity]]–[[sec:morawetz-large-frequency]] is a polynomial or a rational function of r⁻², every
+weight there is (1 − r⁻²)r⁻³ times a rational function of r⁻², and every constant is obtained from exact rational
+inequalities; the band ([[sec:band]]) also uses the algebraic multipliers Φ(νz). The coefficient lists that the Bernstein bounds below use are in
 [[sec:tb-morawetz]].
 
 Throughout, y := 1/r² ∈ (0, 1), z := 1 − 2y ∈ (−1, 1) and η(y) := (1 − y)y^(3/2) = (r² − 1)/r⁵. The tortoise coordinate
@@ -549,15 +550,16 @@ y^(1/2)(3 + (5/2)y − (21/2)y²), which vanishes on (0, 1) only at y = 2/3, whe
 
 ### Off the real axis with a multiplier {#sec:morawetz-complex}
 
-**Lemma {#lem:morawetz-complex}** (Off the real axis.) Let V ≥ 0 be real and bounded, with V and V′ integrable and
-tending to 0 at ±∞, and let φ and q satisfy the hypotheses of [[lem:morawetz-identity]] on φ and q, its sign conditions
-φ′ − q ≥ 0, q ≥ 0 and W ≥ 0 on ℝ included, and |φ| ≤ 1 on ℝ; let m′, M′ and w_I be constants as there. Let Im σ > 0,
+**Lemma {#lem:morawetz-complex}** (Off the real axis.) Let V ≥ 0 be real, smooth and bounded, with V and V′ integrable
+and tending to 0 at ±∞, and let φ and q satisfy the hypotheses of [[lem:morawetz-identity]] on φ and q, its sign
+conditions φ′ − q ≥ 0, q ≥ 0 and W ≥ 0 on ℝ included, and |φ| ≤ 1 on ℝ; put max q := sup_ℝ q, and let m′, M′ and w_I
+be constants as there. Let Im σ > 0,
 F ∈ L²(ℝ) vanish outside I, and let u := (−∂²_(r_*) + V − σ²)⁻¹F be the solution in L²(ℝ). Then
 
     ‖u‖_I ≤ B⁺(σ)‖F‖,     B⁺(σ) := ((2/m′ + (M′ + 4|σ| + 2 max q)²/w_I)/w_I)^(1/2),
 
 and the bounds of [[lem:morawetz-identity]] for ‖u′‖_I and for ∫_I W_1|u|², with p_I = p_∞ = 1, hold with 2|σ|
-replaced by 4|σ| + 2 max q, where max q := sup_ℝ q. When q = 0, or when Re σ² ≥ 0, the term 2 max q may be dropped.
+replaced by 4|σ| + 2 max q. When q = 0, or when Re σ² ≥ 0, the term 2 max q may be dropped.
 If instead |φ| ≤ p_φ on ℝ for a constant p_φ > 0, and the other hypotheses hold, then
 ‖u‖_I ≤ ((2p_φ²/m′ + (M′ + 4p_φ|σ| + 2 max q)²/w_I)/w_I)^(1/2)‖F‖.
 
@@ -772,7 +774,7 @@ X_0 := (1 + (1 + 2m′_0(M′_0 + 2|σ|)B*_0)^(1/2))/(2m′_0). X_0 ≤ 83.85 fo
 
 (c) Summed over the harmonics. Let F ∈ L²(I × 𝕊³), extended by zero to ℝ × 𝕊³, where here and in (d) every norm on
 I × 𝕊³ or ℝ × 𝕊³ is taken with the measure dr_* dω, dω the round measure of 𝕊³. Let F_l(r_*, ·) be the orthogonal
-projection of F(r_*, ·) onto 𝒮_l ⊗ ℂ, the eigenspace of the Laplacian of 𝕊³ with eigenvalue κ = l(l + 2), let
+projection of F(r_*, ·) onto 𝒮_l ⊗ ℂ, the eigenspace of −Δ_(𝕊³) with eigenvalue κ = l(l + 2), let
 u_l := R_l(σ)F_l, R_l(σ) acting in r_*, and u := Σ_l u_l. For every real 0 < |σ| ≤ 3 the series Σ_l u_l and
 Σ_l ∂_(r_*)u_l converge in L²(I × 𝕊³), the second to the weak derivative ∂_(r_*)u on the interior of I × 𝕊³, and
 

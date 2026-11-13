@@ -1170,3 +1170,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   fixer), lem:own-two-continuations; P-I-cutoff.md deleted. The fixer notes that with the matched data Σ_4 is not needed
   for the far window: FOR THE FINAL REPORT (the author may want to see it). F2-63 now does R-63's minors and nits, the
   issue-1 proof, and P-G-far's fixes and merge; then one reading of the whole of chapter 63.
+- F4-S06 done (reports/F4-S06.md): chapters 25, 26 and Appendix A's (S15) entry (the R5-S04 integration item is
+  therefore done). R5-S06 reads all three.

@@ -146,26 +146,35 @@ of [[sec:margins]], which uses only κ′K′^l_l > 0 and the three-dimensionali
 symmetrizer and is not hyperbolic. ∎
 
 **Theorem {#thm:loc-bent-slice}** (Data localised in angle, on a bent slice.) Let φ be the bend of
-[[prop:margins-bend]] and Σ′ := {v̂ − R − φ(R) = τ0} ∩ Ω₂.
+[[prop:margins-bend]] and Σ′ := {v̂ − R − φ(R) = τ0, 0.70 ≤ R ≤ b(τ0)}.
 
 (a) Σ′ equals Σ_τ0 outside 3.5 ≤ R ≤ 5.75, lies to the past of Σ_τ0 where they differ, at τ-distance at most
 0.0011596, and is spacelike. Rácz's split for its round spheres is hyperbolic at every point of Σ′: κ′K′^l_l < 0, with
 κ′K′^l_l ≤ −2.96 × 10⁻⁴ for R_* ≤ R ≤ 5.75 and κ′K′^l_l ≤ −4.76 × 10⁻³ for R ≤ R_*.
 
-(b) Let 0 < ϑ1 < π/4 and a < R1 < R2 ≤ b(τ0). Take invariant free data ([Rac16, (4.28)], quoted in
-[[thm:std-racz-hyperbolic]]) on Σ′ equal to the background's outside a compact subset of {R1 < R < R2, ϑ1 < ϑ < π/2 −
-ϑ1} and ε-close to them in C^∞; the free data e, p_i may carry any number of further dust families supported there.
-Take (k_i, K^l_l) at R = R2 equal to the background's. For ε small the system (4.16), (3.2) of [Rac16] has a unique
-solution on a ≤ R ≤ R2. The data it determines, extended by the background's data for R ≥ R2, satisfy the constraints
-on Σ′, and equal the background's outside the domain of influence, for that system, of the support of the
-perturbation.
+(b) Let 0 < ϑ1 < π/4 and 0.70 < R1 < R2 ≤ b(τ0), and let 𝒫 be a compact subset of {R1 < R < R2, ϑ1 < ϑ <
+π/2 − ϑ1}. Take invariant free data ([Rac16, (4.28)], quoted in [[thm:std-racz-hyperbolic]]) on Σ′ equal to the
+background's outside 𝒫 and ε-close to them in C^∞, whose matter part e, p_i is that of null dust: of the background's
+two families, with their phases and with densities ≥ 0, and of any number of further families, each with an invariant
+phase that is an eikonal of the background, smooth with nonzero differential on a neighbourhood of the part of
+Σ′ ∪ Σ_τ0 with R ≤ 6, and with a density ≥ 0 supported in 𝒫. Take (k_i, K^l_l) at R = R2 equal to the background's.
+For ε small the system (4.16), (3.2) of [Rac16] has a unique solution on 0.70 ≤ R ≤ R2. The data it determines,
+extended by the background's data for R ≥ R2, satisfy the constraints on Σ′, and equal the background's outside the
+domain of influence, for that system, of 𝒫.
 
-(c) The development of these data across the lens between Σ′ and Σ_τ0 induces on Σ_τ0 constraint data equal to the
-background's outside the domain of influence of the support; on Σ_τ0 the angular support is wider than on Σ′ by at
+(c) The development of these data across the lens between Σ′ and Σ_τ0 exists and induces on Σ_τ0 constraint data
+equal to the background's outside the domain of influence of 𝒫; on Σ_τ0 the angular support is wider than on Σ′ by at
 most 3.3 × 10⁻⁴ rad.
 
 So data localised in an angle exist near the background's data on all of Σ_τ0, the band of [[prop:loc-band]]
-included; for perturbations whose radial support avoids [4.2882, 4.5310] the same construction works on Σ_τ0 itself.
+included. For perturbations whose radial support avoids [4.2882, 4.5310] the construction of (b) works on Σ_τ0 itself.
+If R2 < 4.2882, integrate from R2 inward as in (b): the split is hyperbolic on Σ_τ0 ∩ {R ≤ 4.2882}
+([[prop:loc-band]]). If R1 > 4.5310, take (k_i, K^l_l) equal to the background's at a radius R_0 ∈ (4.5310, R1) and
+integrate outward, on R_0 ≤ R ≤ b(τ0), where the split is hyperbolic; with the parameter −R in place of R the system
+keeps the form (4.19) of [Rac16] ([[rem:std-racz-characteristic]]), with −B^(K) and −C in place of B^(K) and C and the
+same symmetrizer, and the leaves are again closed, so the proof of (b) applies, the constraints holding in the domain of
+dependence of the sphere R = R_0, which is all of {R_0 ≤ R ≤ b(τ0)}; the data are extended by the background's for
+R ≤ R_0.
 
 *Proof.* (a) The first two statements are [[cor:margins-lens]]. Σ′ is spacelike: below R = 3.5 it is Σ_τ0, spacelike
 by [[lem:two-dust-domain]] (a); for R ≥ R_* it lies in region I ([[lem:margins-region-one]] (c)), where d(τ − φ) is
