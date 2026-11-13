@@ -1241,8 +1241,8 @@ periods of the second kind exist and follow all others. So the sequence (M_k) ch
 switch every carrier period has points where the boundary is timelike at x̂, and after it the boundary is spacelike
 throughout every period at x̂.
 
-The proof is given at the end of this section, after the margin and the first-degree amplitude are compared in
-[[sec:l-24-margin]]. It also uses a bound for the remainder at degree two.
+The proof is given at the end of [[sec:l-24-margin]], where the margin and the first-degree amplitude are compared. It
+also uses a bound for the remainder beyond the first degree.
 
 **Lemma {#lem:edge-w-minus-e}** (The remainder beyond the first degree.) Let v1 ≤ v_♯ with ε_4(v1) ≤ λ, and let R be the
 region of [[lem:layer-remainder]]. At every boundary point X ∈ R, with a fixed cost c,
