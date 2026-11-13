@@ -363,7 +363,8 @@ solutions.** ∎
   O(N³) terms and the constants depend on N [R8: computed term by term (nledger5, FAMILIES5-R8.md R8.4): every term
   passes for N = 2..8, the term types are exactly the two-family ledger's, and with coefficient sources the count is a
   polynomial of degree 4 in N, not O(N³) [R10: degree M + 4 with stages 0..M, since stage m's mixed harmonics carry up
-  to m + 2 families; nledger5 L2, FAMILIES5-R10.md]]. So the bootstrap closes at N₂ ≤ M(N) λ^K for λ ≤ λ0(N).
+  to m + 2 families; nledger5 L2, FAMILIES5-R10.md; R11: at least M + 4, single-harmonic sources being counted]]. So the
+  bootstrap closes at N₂ ≤ M(N) λ^K for λ ≤ λ0(N).
 - **D₂_N (the data):** section 4.2.
 
 ### 4.2 Theorem D₂_N: the data with overlapping families (deduced; computed nfamily5 N1-N3)

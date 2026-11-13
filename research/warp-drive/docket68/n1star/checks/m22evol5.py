@@ -950,7 +950,9 @@ def mutate(funcs, key, jet, fac):
         vals = list(f(*a))
         vals[i] = vals[i] * fac
         return vals
-    return dict(funcs, **{key: (ks, g)})
+    out = dict(funcs)
+    out[key] = (ks, g)
+    return out
 
 
 def solve(funcs, gfun, mfun, env, fode, Nr, Nx, cfl, g_data=True, **kw):

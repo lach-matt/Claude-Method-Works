@@ -11,7 +11,13 @@ inside the apparent horizon R² = μ; Theorem P needs a band in {f > 0}. The bla
 also contains bands with √μ3 < R < R_EH, where f > 0 and Theorem P gives E > 0: there no such data exist at second
 order. Read every "meets the black-hole region" as "meets {f < 0}", every "outside the horizon" as "where f > 0", and
 "every perturbation" as "every invariant (class) perturbation", the class of Theorem P. The event horizon's location is
-not computed in the record and nothing uses it. FAMILIES5-R10.md.]
+not computed in the record and nothing uses it. FAMILIES5-R10.md.] [R11 (nit 4): that bands with √μ3 < R < R_EH exist is
+deduced -- on Σ_τ0 the point R = √μ3 = 0.9067 lies in region III, its outgoing ray is marginal (R_v = 0) until the
+ingoing shell arrives, where A > 0 makes e^(−2s)R_v strictly decrease, so the ray ends trapped and, A ≥ 0, stays
+trapped; trappedness after the shell is open in the starting radius, so nearby rays with f > 0 at the start are trapped
+too -- and computed on the computed background, `checks/ehband5.py` H1: every row crossing Σ_τ0 between √μ3 and R_x =
+1.000 (n = 80 and 160) ends trapped, every row above 1.005 does not; control, no ingoing shell: none is trapped.
+FAMILIES5-R11.md.]
 
 **The quantity whose sign is decided.** With the record's constraint map (H = R + (tr K)² − |K|², M_i = D_jK^j_i −
 D_i tr K, K = ½ L_n γ, n the future unit normal; bandconst5) and its KID (N_s, 2Y_s), ξ = N_s n + Y_s the static
@@ -365,17 +371,25 @@ data.
 
 ## 6. Status
 
-| item | status | support | |---|---|---| | Lemma H (class TT harmonics) | computed (n ≤ 3), deduced (all n) | E1 | |
-Theorem T (tensor sector, every slice) | computed | E2 | | Lemma X1, the exact Q > 0 seed on Part I's seed region |
-computed | E3 | | Theorem X (exact localisation inside the horizon) | deduced | E3; Proposition L′ (READ in the record)
-| | [R10] Theorem T, Lemma X1 on every slice (l = 2, 4, 6, 8; every l deduced) | computed, exact | mbslice5 S1, S2 | |
-Lemma TR (passage to a static slice) | deduced | Theorem T, E9 (support) | | Lemma G (gauge invariance on the static
-slice) | deduced, identities computed | E4 (c); [R10] every (R, θ, μ): mbslice5 S4 | | modes, gauges, invariants, radial
-densities | computed | E4 (a), (b); [R10] every (R, θ, μ): mbslice5 S4 | | Lemmas K, V (kinetic, potential reductions;
-the constraint solved) | computed | E5, E6 | | positivity of the potentials on the class spectrum | computed | E7 | | l
-= 0 | computed | E8 | | the static-slice E is the master energy | computed | E9 | | Theorem P (M_b outside the horizon)
-| deduced, every identity computed | E2, E4-E9; [R10] mbslice5 S1, S4 | | Hollands–Wald identification | not used, not
-claimed | -- |
+| item | status | support |
+|---|---|---|
+| Lemma H (class TT harmonics) | computed (n ≤ 3), deduced (all n) | E1 |
+| Theorem T (tensor sector, every slice) | computed | E2 [R10: three points; every slice mbslice5 S1] |
+| Lemma X1, the exact Q > 0 seed on Part I's seed region | computed | E3 [R10: every slice mbslice5 S2] |
+| Theorem X (exact localisation inside the horizon) | deduced | E3; Proposition L′ (READ in the record) |
+| [R10] Theorem T, Lemma X1 on every slice (l = 2, 4, 6, 8; every l deduced) | computed, exact | mbslice5 S1, S2 |
+| Lemma TR (passage to a static slice) | deduced | Theorem T, E9 (support) |
+| Lemma G (gauge invariance on the static slice) | deduced, identities computed | E4 (c); [R10] mbslice5 S4 |
+| modes, gauges, invariants, radial densities | computed | E4 (a), (b); [R10, R11] mbslice5 S4 (a), (b) |
+| Lemmas K, V (kinetic, potential reductions; the constraint solved) | computed | E5, E6 |
+| positivity of the potentials on the class spectrum | computed | E7 |
+| l = 0 | computed | E8 |
+| the static-slice E is the master energy | computed | E9 |
+| Theorem P (M_b outside the horizon) | deduced, every identity computed | E2, E4-E9; [R10] mbslice5 S1, S4 |
+| Hollands–Wald identification | not used, not claimed | -- |
+
+[R11 (nit 1): the table was reflowed into a paragraph by the round-10 edit and is restored here as a table; the
+[R10]/[R11] entries name mbslice5's exact checks, which are for every (R, θ, μ) (S4) and every slice (S1, S2).]
 
 Not independently read: this note. [R8: read by an independent verifier in round 8 -- M_b settled both ways, no
 mathematical error in Theorem X or Theorem P, every identity re-derived symbolically; its findings are seated here as

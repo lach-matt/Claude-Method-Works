@@ -19,8 +19,10 @@ is taken from the two-family list by analogy. The N-family terms (FAMILIES5-R6.m
      enumerated over the background, one family or a pair (stage 1's quadratic terms). [R9] But stage m of the
      approximant has mixed harmonics with up to m + 2 families (FAMILIES5-R6.md section 4.1 (d)), so with stages 0..M a
      source is any set of at most M + 2 families; L2 counts that list for M = 0, 1, 2. A Step 6 cross term carries its
-     target, its unknown and one source set, so the count has degree M + 4 in N -- not N^3 as R6 section 4 (vi) said,
-     nor N^4 as R8 said (that was M = 0). The count enters only the constants.
+     target, its unknown and one source set, so with single-harmonic sources the count has degree M + 4 in N -- not
+     N^3 as R6 section 4 (vi) said, nor N^4 as R8 said (that was M = 0). [R11] Coefficients nonlinear in g_app carry
+     products of harmonics, which only add terms: under this bookkeeping the degree is at least M + 4. The count
+     enters only the constants.
 
   L1 every N-family term (level 1: family structure; level 2: with coefficient sources of at most two families)
      passes at k = K = 6, for N = 2..8, evaluated one by one; and the set of term types (U, p, kappa, m, ops, extra,
@@ -247,9 +249,10 @@ def main():
         l2 &= ex and sp.degree(poly, n) == d
         print("   with sources of at most %d families (stages 0..%d): %s, degree %d (exact on N = 2..%d: %s)" %
               (smax, smax - 2, sp.expand(poly), sp.degree(poly, n), xs[-1], ex))
-    print("   so with stages 0..M the count is a polynomial of degree M + 4 in N: each term carries its target, its "
-          "unknown and one source set of at most M + 2 families; the count enters only the constants:",
-          "PASS" if l2 else "FAIL")
+    print("   so with stages 0..M and single-harmonic sources the count is a polynomial of degree M + 4 in N: each term "
+          "carries its target, its unknown and one source set of at most M + 2 families; [R11] coefficients nonlinear "
+          "in g_app carry products of harmonics, which only add terms, so under this bookkeeping the degree is at least "
+          "M + 4; the count enters only the constants:", "PASS" if l2 else "FAIL")
     ok &= l2
     pw, pwc = l3()
     l3ok = all(pw[k_] == list(range(5)) for k_ in (1, 2, 3))

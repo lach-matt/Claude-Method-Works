@@ -13,6 +13,9 @@ FAMILIES5-R6.md. Nothing in the paper or in N1STAR-PROOF.md is edited.
 
 - **Major 1 (the false sentence).** The block said data exist "on every vacuum band of the slice that meets the
   black-hole region". Bands with √μ3 < R < R_EH meet the black-hole region where f > 0, and there Theorem P gives E > 0.
+  [R11 (nit 4): that such bands exist is deduced (the outgoing ray at R = √μ3 is marginal until the ingoing shell makes
+  it trapped, and trappedness is open in the starting radius) and computed on the computed background,
+  `checks/ehband5.py`: R_EH ≈ 1.00 at n = 80 and 160; FAMILIES5-R11.md.]
   - The block now says "every vacuum band of the slice that meets {f < 0}" and "Where f < 0, inside the apparent
     horizon R² = μ", for the existence result.
   - It says "Where f > 0, E is positive on every invariant perturbation that is not a gauge one", which is Theorem P's
@@ -48,7 +51,9 @@ FAMILIES5-R6.md. Nothing in the paper or in N1STAR-PROOF.md is edited.
   - Recount: stage m has mixed harmonics with up to m + 2 families (R6 §4.1 (d)). So a coefficient's source is any set
     of at most M + 2 families, for stages 0..M.
   - nledger5 L2 counts the term list for sources of at most 2, 3 and 4 families. The degrees are 4, 5 and 6, exact by
-    interpolation and checked on further N. So the count has degree M + 4.
+    interpolation and checked on further N. So the count has degree M + 4. [R11 (nit 2): with single-harmonic sources;
+    coefficients nonlinear in g_app carry products of harmonics, which only add terms, so under this bookkeeping the
+    degree is at least M + 4.]
   - "Same types for every N" is computed for N = 2..8, and follows for every N because the generator never reads a
     family label into a row's numbers.
   - L4 is now labelled a definition check: it holds by λ0's definition, so it has no control.

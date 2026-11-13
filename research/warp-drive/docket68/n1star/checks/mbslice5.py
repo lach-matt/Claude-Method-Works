@@ -32,20 +32,23 @@ derivative in it is replaced by the exact quantity above, symbol by symbol.
      plus |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H; with H = 0 it equals -|T|^2 R^3 P^2
      pointwise.
   S3 the slice identities N_s sqrt(gamma_RR) = 1 and N_s^2 - gamma_RR (Y_s^R)^2 = f, exactly in this representation.
-  S4 [R10] mbsign5 E4 (a) and (c) on the static slice for every (R, theta, mu), not at three points: mu = R^2 (1 -
-     nu^2) (so sqrt f = nu, R and nu free), theta by t = tan(theta/2), and every quantity a polynomial over a product
-     of powers of the atoms R, t, 1 - t, 1 + t, 1 + t^2, nu (the same route with more atoms; an inverse is taken only
-     of a constant times a product of atoms). (a) after Delta S = -k^2 S the constraints and energies have the stated
-     (S, S') structure and every coefficient has t-derivative zero, and they equal exactly the radial coefficients
-     mbsign5 E5-E9 use; (c) D R[L_X gamma] = 0, (D R)^* N = 0 in all five class components, M[k_psi] = 0 and the
-     Euler identity for B, for class fields of (R, theta) with every jet free.
+  S4 [R10, R11] mbsign5 E4 (a), (b) and (c) on the static slice for every (R, theta, mu), not at three points: mu = R^2
+     (1 - nu^2) (so sqrt f = nu, R and nu free), theta by t = tan(theta/2), and every quantity a polynomial over a
+     product of powers of the atoms R, t, 1 - t, 1 + t, 1 + t^2, nu (the same route with more atoms; an inverse is taken
+     only of a constant times a product of atoms). (a) after Delta S = -k^2 S the constraints and energies have the
+     stated (S, S') structure and every coefficient has t-derivative zero, and they equal exactly the radial
+     coefficients mbsign5 E5-E9 use; [R11] (b) the shifts of (a, b, c, e) under L_X gamma and the lapse direction's
+     trace-free angular part, every component; (c) D R[L_X gamma] = 0, (D R)^* N = 0 in all five class components,
+     M[k_psi] = 0 and the Euler identity for B, for class fields of (R, theta) with every jet free.
   S5 [R10] qsign5 Q1 for every background and every (R, theta), not at three points: G = g^2 with g, kappa0, Y0, nu
      arbitrary positive functions and E = e^(Ia) a free symbol (its derivatives through Ia' = (3c - 1)/R); the seed
      solves the linearised H, M_R, M_th identically and the Euler operator of (Q-density - decomposition) in psi and
      s1 is the zero rational function, atoms R, t, 1 - t, 1 + t, 1 + t^2, E, g, Y0.
   Controls (each must fail, i.e. give a nonzero polynomial): S1 with |T|^2 halved (l = 2..8); S1 with K_RR's w' term
   dropped (a wrong slice); S2 with k_T^2 + 2 replaced by k_T^2 + 3, and with R^3 P^2 doubled (every l); S4 the lapse
-  direction without its curvature term; S5 with 4 nu E^2 -> 3 nu E^2 in Gamma.
+  direction without its curvature term, [R11] the c-shift's 2 k^2/3 -> k^2/3, the lapse claim doubled, and the
+  eigen-relation's cot th - tan th -> cot th (which the theta-freeness test must reject); S5 with 4 nu E^2 -> 3 nu E^2
+  in Gamma.
 
 Labels: computed, exact (polynomial identities over the rationals). Run: python3 checks/mbslice5.py   (a few minutes)
 """
@@ -455,16 +458,21 @@ def s4():
                   'E_V': {(2, 0), (0, 2)}, 'E_K': {(2, 0), (0, 2)}}
     # the eigen-relation, as mbsign5's eig_point imposes it, with theta kept symbolic
     c_, s_ = MB.c_, MB.s_
-    ct = c_ / s_ - s_ / c_
-    S2 = -k2 * SF - ct * sp.diff(SF, th)
-    S3 = sp.diff(S2, th).subs(sp.Derivative(SF, (th, 2)), S2)
-    S4_ = sp.diff(S3, th).subs(sp.Derivative(SF, (th, 2)), S2)
 
-    def eig(e):
+    def eig_rel(ct):
+        S2 = -k2 * SF - ct * sp.diff(SF, th)
+        S3 = sp.diff(S2, th).subs(sp.Derivative(SF, (th, 2)), S2)
+        return S2, S3, sp.diff(S3, th).subs(sp.Derivative(SF, (th, 2)), S2)
+    REL = eig_rel(c_ / s_ - s_ / c_)
+
+    def eig(e, rel=REL, fs_=None):
+        S2, S3, S4_ = rel
         e = e.subs(sp.Derivative(SF, (th, 4)), S4_).subs(sp.Derivative(SF, (th, 3)), S3)
         e = e.subs(sp.Derivative(SF, (th, 2)), S2).subs(sp.Derivative(SF, th), MB.s1).subs(SF, MB.s0)
-        return pre(MB.JR.from_funcs(e, fns))
-    jets = [x for nm in names for x in MB.JR.J[nm]]
+        return pre(MB.JR.from_funcs(e, fs_ or fns))
+    names_b = ['al', 'be', 'ps']
+    fns_b = [sp.Function(nm)(r) for nm in names_b]
+    jets = [x for nm in names + names_b for x in MB.JR.J[nm]]
     gnames = ['r', 't', 'nu', 'k2', 's0', 's1'] + [str(x) for x in jets]
     F = GField(gnames, [lambda g: g['r']] + TRIG_ATOMS + [lambda g: g['nu']])
     table = {r: F.el(F.g['r']), nu: F.el(F.g['nu']), k2: F.el(F.g['k2']), MB.s0: F.el(F.g['s0']),
@@ -507,6 +515,62 @@ def s4():
     print("   (a) C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2: %s; every coefficient free of theta "
           "(its t-derivative the zero rational function): %s; the radial coefficients mbsign5 E5-E9 use are these "
           "exactly: %s (%.0f s)" % (shape_ok, free_ok, rad_ok, time.time() - t0), flush=True)
+    # [R11] control on the theta-freeness test itself: the eigen-relation with cot th - tan th -> cot th (not the
+    # class Laplacian) leaves theta-dependent coefficients, which the test must find
+    REL_bad = eig_rel(c_ / s_)
+    free_bad = True
+    for nm in ('C', 'E_V'):                                       # the ones in which S'' enters
+        Gb = convert(eig(exprs[nm], REL_bad), F, table, th)
+        pb = {}
+        for mon, cf in Gb.n.terms():
+            key = (mon[i0], mon[i1])
+            m2 = list(mon)
+            m2[i0] = m2[i1] = 0
+            pb[key] = pb.get(key, F.ring(0)) + F.ring({tuple(m2): cf})
+        free_bad &= all(GE(F, v, Gb.e).diff(F.g['t']).iszero() for v in pb.values()
+                        if v != 0)
+    print("   control on the theta-freeness test: with cot th - tan th -> cot th in the eigen-relation, the "
+          "coefficients of C and E_V depend on theta (rejected): %s" % (not free_bad), flush=True)
+    # [R11] (b) exactly: the gauge maps L_X gamma (X = alpha S d_R + beta S' d_th) and the lapse direction's trace-free
+    # angular part, every (R, theta, mu) (mbsign5 E4 (b) checks them at three rational angles)
+    al, be, ps_ = fns_b
+    gi, Gm = MB.christoffel(G0, X4)
+    Ric = MB.ricci(X4, Gm)
+    Xv = [al * SF, be * sp.diff(SF, th), 0, 0]
+    LX = sp.Matrix(4, 4, lambda i, j: sum(Xv[k] * sp.diff(G0[i, j], X4[k]) + G0[k, j] * sp.diff(Xv[k], X4[i])
+                                          + G0[i, k] * sp.diff(Xv[k], X4[j]) for k in range(4)))
+    f_ = MB.f_
+
+    def claim_of(c_coef):
+        da = sp.diff(1 / f_, r) * al + 2 * sp.diff(al, r) / f_
+        db = al / (r * f_) + r * sp.diff(be, r)
+        dc = 2 * al / r - c_coef * k2 * be
+        de = 2 * be
+        SH = MB.shat()
+        cl = sp.diag(1, 0, 0, 0) * da * SF + r**2 * (dc * SF * GHAT + de * SH)
+        cl[0, 1] = cl[1, 0] = r * db * sp.diff(SF, th)
+        return cl
+
+    def zero_b(M_, fs_):
+        return all(convert(eig(M_[i, j], fs_=fs_), F, table, th).iszero() for i in range(4) for j in range(i, 4))
+    gok = zero_b(LX - claim_of(sp.Rational(2, 3)), fns_b)
+    gctl = not zero_b(LX - claim_of(sp.Rational(1, 3)), fns_b)
+    kps = MB.hess(ps_ * SF, X4, Gm) - ps_ * SF * Ric
+    ang = sp.Matrix(3, 3, lambda i, j: kps[i + 1, j + 1])
+    SHa = sp.Matrix(3, 3, lambda i, j: MB.shat()[i + 1, j + 1])
+    gh3 = sp.diag(1, s_**2, c_**2)
+    tf = ang - (sum(ang[i, i] / gh3[i, i] for i in range(3)) / 3) * gh3
+
+    def tf_claim(cf):
+        return cf * ps_ * (SHa - (sum(SHa[i, i] / gh3[i, i] for i in range(3)) / 3) * gh3)
+    zok = all(convert(eig((tf - tf_claim(1))[i, j], fs_=fns_b), F, table, th).iszero() for i in range(3)
+              for j in range(i, 3))
+    zctl = not all(convert(eig((tf - tf_claim(2))[i, j], fs_=fns_b), F, table, th).iszero() for i in range(3)
+                   for j in range(i, 3))
+    print("   (b) L_X gamma, X = alpha S d_R + beta S' d_th, shifts (a, b, c, e) by ((1/f)' alpha + 2 alpha'/f, "
+          "alpha/(R f) + R beta', 2 alpha/R - (2 k^2/3) beta, 2 beta), every component: %s; the lapse direction's "
+          "trace-free angular part is psi (S_hat)^TF: %s; controls: (2 k^2/3) -> (k^2/3) in the c-shift (rejected): %s; "
+          "the lapse claim doubled (rejected): %s (%.0f s)" % (gok, zok, gctl, zctl, time.time() - t0), flush=True)
     # (c) the mode-free identities, every (R, theta, mu)
     gi, Gm = MB.christoffel(G0, X4)
     Ric = MB.ricci(X4, Gm)
@@ -568,9 +632,9 @@ def s4():
           "M[k_psi] = 0: %s; Euler_psi of N(<k, k_psi> - tr k tr k_psi) sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div "
           "M[k]): %s; control: k = D^2 psi without - psi Ric does not solve M (rejected): %s (%.0f s)"
           % (i_ok, ii_ok, iii_ok, iv_ok, ctl, time.time() - t0), flush=True)
-    ok = shape_ok and free_ok and rad_ok and i_ok and ii_ok and iii_ok and iv_ok
+    ok = shape_ok and free_ok and rad_ok and gok and zok and i_ok and ii_ok and iii_ok and iv_ok
     print('S4', 'PASS' if ok else 'FAIL', flush=True)
-    return ok, ctl
+    return ok, ctl and gctl and zctl and not free_bad
 
 
 # ------------------------------------------------------------------ S5: qsign5 Q1 exactly

@@ -1,0 +1,8 @@
+ehband5: the band sqrt(mu3) < R < R_EH of Part I's slice, on the computed background
+   n = 80: sqrt(mu3) = 0.9067; 28 rows cross Sigma_tau0 at R in (sqrt(mu3), 1.2), all untrapped there (R_v > 0): True; 10 of them end trapped (R_v < 0 at their last computed point, v >= 4.03), every one crossing below R_x = 1.0000, the rest from 1.0102 up (ordered: True)
+   n = 160: sqrt(mu3) = 0.9067; 56 rows cross Sigma_tau0 at R in (sqrt(mu3), 1.2), all untrapped there (R_v > 0): True; 20 of them end trapped (R_v < 0 at their last computed point, v >= 3.87), every one crossing below R_x = 1.0000, the rest from 1.0051 up (ordered: True)
+   the band (sqrt(mu3), R_x) is non-empty at both n, R_x = 1.000 and 1.000 (converged to 0.02: True)
+   control: without the ingoing shell (A = 0), 0 of 56 rows crossing above sqrt(mu3) end trapped (none, rejected): True
+H1 PASS
+control rejected: PASS
+exit 0

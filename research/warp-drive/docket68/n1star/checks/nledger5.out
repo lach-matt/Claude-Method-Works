@@ -13,7 +13,7 @@ L2 term counts: family level 16*N**2 + 23*N + 4 (degree 2, exact on N = 2..8: Tr
    with sources of at most 2 families (stages 0..0): 3*N**4 + 21*N**3/2 + 25*N**2 + 49*N/2 + 4, degree 4 (exact on N = 2..9: True)
    with sources of at most 3 families (stages 0..1): N**5 + 5*N**4/2 + 11*N**3/2 + 57*N**2/2 + 51*N/2 + 4, degree 5 (exact on N = 2..10: True)
    with sources of at most 4 families (stages 0..2): N**6/4 + N**5/8 + 13*N**4/8 + 81*N**3/8 + 209*N**2/8 + 99*N/4 + 4, degree 6 (exact on N = 2..11: True)
-   so with stages 0..M the count is a polynomial of degree M + 4 in N: each term carries its target, its unknown and one source set of at most M + 2 families; the count enters only the constants: PASS
+   so with stages 0..M and single-harmonic sources the count is a polynomial of degree M + 4 in N: each term carries its target, its unknown and one source set of at most M + 2 families; [R11] coefficients nonlinear in g_app carry products of harmonics, which only add terms, so under this bookkeeping the degree is at least M + 4; the count enters only the constants: PASS
 L3 the leading lam-power of d^m (product of 1, 2, 3 profiles)/(product), m = 0..4, non-resonant phases: [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4] (= m: kappa = 1 for every source; a resonant product costs less): PASS
 L4 (a definition check; it holds by lam0's definition, so no control can fail) the closing rows: twoledger5 T2's powers (non-linear 2K - 5 - (K + 1) = kappa >= 0: True), N-independent; Step 7 with M(N), lam0(N) := 1/(C3 C(N) M(N)^2) for any positive C(N), C_D(N), C_R(N) closes (exact): PASS
    control (a): exponent -1, order 6: rejected True

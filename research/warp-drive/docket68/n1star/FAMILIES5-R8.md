@@ -33,7 +33,7 @@ Nothing in the paper or in N1STAR-PROOF.md is edited.
    2..8 and evaluated with twoledger5's rules, one by one. All pass. The term types are exactly the two-family ledger's.
    The count is 16N² + 23N + 4 at the family level and a polynomial of degree 4 once coefficient sources are counted.
    R6's "O(N³)" is corrected; the count enters only the constants. [R10: with stages 0..M the degree is M + 4; nledger5
-   L2, FAMILIES5-R10.md.]
+   L2, FAMILIES5-R10.md. R11: at least M + 4, single-harmonic sources being counted.]
 5. **Lemma O″** (R8.5) states the tubes' dependence on u′, the condition supp q′ ⊂ int S, and the radial dusts'
    supports.
 6. **The axis computation is repaired** (R8.6, qsign5 Q7).
