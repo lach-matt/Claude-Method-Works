@@ -1,14 +1,14 @@
 label	source	source_name	note
 ch:s06	docket68/n1star/proof5/PART-II-D-REGULARITY.md:17-35; docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:17-30	II.D and II.D1 method paragraphs	chapter heading, introduction and Method paragraph; status paragraphs dropped
 sec:ii-d-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:37	II.D section 1	heading
-sec:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:39-68; docket68/n1star/BEYOND5-R0-PROOF.md:96-133	II.D section 1.1; R0P section 2	radii stated as parameters per R0P section 2 (Parts I-II hold for abstract radii)
+sec:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:39-68; docket68/n1star/BEYOND5-R0-PROOF.md:96-133	II.D section 1.1; R0P section 2	radii stated as parameters per R0P section 2; II.C Def 3.3 (3) stated as not assumed (proofs use only (1)-(2), cf. II.F1 L2.1 (b), docket68/n1star/proof5/PART-II-F2-TAME.md:174-183)
 sec:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:70-77	II.D section 1.2	
 lem:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:79-101	II.D Lemma 1.1	
 eq:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:86	II.D (1.1)	
 sec:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:107-127	II.D section 1.3	
 eq:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:120-121	II.D (1.2)	
 eq:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:123	II.D (1.3)	
-thm:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:129-140	II.D Theorem 1.2 = [Hin26c] Proposition 7.1 at n = 4	
+thm:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:129-140	II.D Theorem 1.2 = [Hin26c] Proposition 7.1 at n = 4	perturbations stated under II.C Def 3.3 (1)-(2) only
 eq:ii-d-1-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:130-132	II.D (1.4)	
 rem:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:142-146	II.D Remark 1.3 = [Hin26c] Remark 7.2	
 sec:ii-d-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:148-156	II.D section 2	II.A1 constant delta_0 written delta_c

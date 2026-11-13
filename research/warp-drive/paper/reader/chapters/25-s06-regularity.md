@@ -41,7 +41,12 @@ hypotheses: nothing below uses their values, and the radii chosen from them belo
 with them. Fix ℓ_I ∈ (0, ½], ℓ_+ ∈ (0, 1] and ℓ_K > 0. P is a weakly admissible wave-type operator relative to P_0 of
 class ((d_0; 0), (2ℓ_I, ℓ_+, ℓ_K)) ([[def:ii-c-3-3]]), and ε_P := ‖P − P_0‖_((d_0;0),(2ℓ_I,ℓ_+,ℓ_K))
 ([[def:ii-c-3-6]]). Only ℓ_I ∈ (0, ½], ℓ_+ > 0, ℓ_K > 0 are used: the conditions [Hin26c, (5.23)] play no part in
-microlocal regularity ([Hin26c, p. 115]). The metric g = g_0 + h of P has ‖h‖ ≤ Cε_P ([[lem:ii-c-3-7]]). So, for ε_P
+microlocal regularity ([Hin26c, p. 115]). Of [[def:ii-c-3-3]], only conditions (1) and (2) are used, together with
+[[def:ii-c-3-5]] and [[def:ii-c-3-6]]; condition (3), the triangular structure of p_1 and p_0, is not assumed anywhere in
+this chapter. Indeed p_1 and p_0 enter only through [[eq:ii-c-3-1]]–[[eq:ii-c-3-2]] and [[lem:ii-c-3-4]], which follows
+from (2); through p̄_1; and through fibre inner products built by Jordan scalings at points, continuity and a partition
+of unity, as in [[lem:ii-c-2-5]], which need no triangular structure. Below, "weakly admissible" and "of class" are
+meant in this sense. The metric g = g_0 + h of P has ‖h‖ ≤ Cε_P ([[lem:ii-c-3-7]]). So, for ε_P
 small, the time function t_*^♭ of [[lem:ii-c-3-2]] and the domain Ω_* := cl_M{t_*^♭ ≥ 1} ([[sec:ii-c-3]]), the global
 dynamics of [[sec:ii-c-4]] and the hypersurfaces of [[prop:ii-c1-3-4]] are available (the norm of h in
 𝒢̃^(d_0,(0,0,ℓ_K))_e3b is at most a constant times ε_P). Over ℐ⁺, t_*^♭ = t_* ([[lem:ii-c-3-2]] (a)). d_0 is taken large
@@ -123,9 +128,10 @@ the trapped set ([[def:ii-c-2-4]] (3)–(6) and [[prop:ii-c-5-1]] (5)), and they
         ≤ C (‖Pu‖_(H^(𝗌,(2α_I+2,α_++2,α_K))_e3b(Ω_*;E)^(•,−))
               + ‖u‖_(H^(𝗌_0,(2α_I,α_+,α_K))_e3b(Ω_*;E)^(•,−)))                                             {#eq:ii-d-1-4}
 
-for P = P_0, in the strong sense: if the right side is finite, so is the left, and [[eq:ii-d-1-4]] holds. There is
-d_0, depending only on 𝗌_0 and 𝗌, such that [[eq:ii-d-1-4]] holds also for every weakly admissible wave-type operator P
-relative to P_0 with ε_P small, with C uniform.
+for P = P_0, in the strong sense: if the right side is finite, so is the left, and [[eq:ii-d-1-4]] holds. There is d_0,
+depending only on 𝗌_0 and 𝗌, such that [[eq:ii-d-1-4]] holds also for every operator P relative to P_0 satisfying
+conditions (1)–(2) of [[def:ii-c-3-3]] with ℓ_I ∈ (0, ½], ℓ_+ > 0, ℓ_K > 0 (condition (3) not assumed) and with ε_P
+small, with C uniform.
 
 This is [Hin26c, Proposition 7.1] in dimension 4 + 1. The estimate loses one derivative: Pu is measured in H^𝗌, where
 real principal type propagation would need only H^(𝗌−1). The loss comes from the trapped set ([[prop:ii-d-4-2]]). The
@@ -957,7 +963,9 @@ estimate. This is [Hin26c, Section 7.2] in dimension 4 + 1.
 The setting is that of [[sec:ii-d-1]], now with k degrees of b-regularity. P is a weakly admissible wave-type operator
 relative to P_0 of class ((d_0; k), (2ℓ_I, ℓ_+, ℓ_K)) ([[def:ii-c-3-3]]), with ℓ_I ∈ (0, ½], ℓ_+, ℓ_K > 0, and ε_(P,k)
 := ‖P − P_0‖_((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) ([[def:ii-c-3-6]]). The bundle E is the trivial bundle ℂ^(N_E)
-([[sec:ii-c-1-1]]), and b-vector fields act on its sections componentwise, so no connection is needed.
+([[sec:ii-c-1-1]]), and b-vector fields act on its sections componentwise, so no connection is needed. As in
+[[sec:ii-d-1-1]], "of class" means conditions (1)–(2) of [[def:ii-c-3-3]]; condition (3) is not used here either: the
+proofs below use p_1 and p_0 only through [[lem:ii-c-3-4]] and the thresholds of [[sec:ii-d-3]].
 H^((𝗌;k),(2α_I,α_+,α_K))_(e3b;b) are the mixed spaces of [[eq:ii-a-8-1]], with their supported and extendible versions
 as in [[sec:ii-a-7]], and ‖·‖_(𝗌;k) their norms, weights suppressed where they are fixed. D^j_b is the schematic
 notation of [[sec:ii-a-9-3]]. Weights do not interfere with commutators: for a b-vector field V and a weight w (a
@@ -978,7 +986,8 @@ S of the positions, ad_(X_S) the iterated commutator and the remaining factors i
         ≤ C_k (‖Pu‖_(H^((𝗌;k),(2α_I+2,α_++2,α_K))_(e3b;b)(Ω_*;E)^(•,−))
                 + ‖u‖_(H^((𝗌_0;k),(2α_I,α_+,α_K))_(e3b;b)(Ω_*;E)^(•,−)))                                  {#eq:ii-d1-1-1}
 
-for P = P_0, in the strong sense, and for every P of class ((d_0; k), (2ℓ_I, ℓ_+, ℓ_K)) with ε_(P,k) small, with C_k
+for P = P_0, in the strong sense, and for every P satisfying conditions (1)–(2) of [[def:ii-c-3-3]] at the class
+((d_0; k), (2ℓ_I, ℓ_+, ℓ_K)) (condition (3) not assumed) with ε_(P,k) small, with C_k
 uniform; d_0 depends only on 𝗌_0 and 𝗌. Moreover there is d ∈ ℕ such that for every k and every P of class ((d_0; k),
 (2ℓ_I, ℓ_+, ℓ_K)) with ε_(P,d) small,
 

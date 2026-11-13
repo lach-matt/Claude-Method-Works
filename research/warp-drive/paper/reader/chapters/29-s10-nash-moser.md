@@ -78,8 +78,9 @@ whenever u ∈ U ∩ B^∞_η, Φ′(u)Ψ(u)f = f for f ∈ F^∞, and (with the
 Let N_NM := 21d + 6. There is ε > 0, depending only on d, δ, η_0, C_1, C_2 and the constants C_k, C_(s,t) with k, s,
 t ≤ N_NM, such that if ‖Φ(0)‖_(2d) < ε, then there is u ∈ B^∞_(η_0/2) with |u|_(3d) < δ and Φ(u) = 0.
 
-This is [Hin26c, Theorem 12.4], which quotes the theorem from [SR89] in the form of [Hin24a, Theorem 6.11] with the
-regularity 16d² + 43d + 24, made precise where it is stated loosely. [Hin26c, Theorem 12.4] states (ii) for all η ∈ [0,
+This is [Hin26c, Theorem 12.4], with its hypotheses made precise where they are stated loosely; [Hin26c] quotes the
+theorem from [SR89] in the form of [Hin24a, Theorem 6.11], with the regularity 16d² + 43d + 24 in place of N_NM. The
+proof below needs the constants up to the order N_NM. [Hin26c, Theorem 12.4] states (ii) for all η ∈ [0,
 1], together with Φ(0) ∈ F^∞_(η_0); as 0 ∈ B^∞_η for every η, the hypothesis for all η ∈ [0, 1] would force Φ(0) ∈
 F^∞_1. The form above asks (ii) only for η ≤ η_0; in the applications of [Hin26c] both forms hold, with η_0 = 1, the
 right side being supported in {t_* ≥ 2}. The conclusion of [Hin26c, Theorem 12.4] is u ∈ B^∞; as its B^k_0 is the whole
@@ -235,19 +236,19 @@ for η ∈ [θ^(−1/2), 1], and constants C_(s,t), independent of θ, such that
 
 In particular the B^k_η satisfy hypothesis (i) of [[thm:ii-g-2-1]], and are closed subspaces of B^k.
 
-**Remark {#rem:ii-g-3-2}** (The domain Ω_* in dimension 4 + 1; [Hin26c, Example 12.7].) Let M be the closure of
-{t_* ≥ 1/2, r ≥ r_0} in the compactified spacetime M̃ of [[sec:ii-a-1]], a compact manifold with corners with boundary
-hypersurfaces ℐ⁺, ι⁺, K⁺ (forming ℋ_b) and {r = r_0}, {t_* = 1/2} (forming ℋ̄), and M′ the closure of {t_* > 1/4,
-r > r^♯} less its faces at t_* = 1/4 and r = r^♯; μ := |dt_* dx|/(t_* ⟨x⟩⁴), a smooth positive b-density
-([[cor:ii-f1-1-2]], [[lem:ii-a-8-8]]); w := ρ_I^(a_I) ρ_+^(a_+) ρ_K^(a_K) with the defining functions [[eq:ii-f1-1-1]];
-t := t^♭ − 1, with t^♭ the time function of [[lem:ii-c-3-2]], defined on M′ ∩ {t_* ≥ 1/2} by [[lem:ii-e-1-2]] (iv),
-and t := −1 on M′ ∩ {t_* < 1/2}. As t^♭ ≤ t_* ([[lem:ii-c-3-2]] (b)), t < −c_1 on {t_* < 7/8}, so every function ψ(t)
-of (T3) is constant there, and t is smooth wherever (T1) asks. The spaces B^k_0 of [[prop:ii-g-3-1]] are then the
-spaces H^(k,(α_I,α_+,α_K))_b(Ω_*; E)^(•,−) of [[eq:ii-f1-1-2]], componentwise and with w adjusted by the factor
-relating |dt dx| to μ, which is a product of powers of ρ_I, ρ_+, ρ_K ([[cor:ii-f1-1-2]]), with equivalent norms: there
-the quotient is over extensions supported in {t^♭ ≥ 1}, here over all extensions to M′, and the extension of
-[[lem:ii-f1-2-5]] preserves that support and is bounded at every order. B^k_η consists of their elements supported in
-{t^♭ ≥ 1 + c_0 η}. The hypotheses hold with c_1 := 1/8:
+**Remark {#rem:ii-g-3-2}** (The domain Ω_* in dimension 4 + 1; [Hin26c, Example 12.7].) Let M be the closure of {t_* ≥
+1/2, r ≥ r_0} in the compactified spacetime M̃ of [[sec:ii-a-1]], a compact manifold with corners with boundary
+hypersurfaces ℐ⁺, ι⁺, K⁺ (forming ℋ_b) and {r = r_0}, {t_* = 1/2} (forming ℋ̄), and M′ the closure of {t_* > 1/4, r >
+r^♯} less its faces at t_* = 1/4 and r = r^♯, where r^♯ ∈ (r_0 − δ_0, r_0) is the radius of [[lem:ii-e-1-2]];
+μ := |dt_* dx|/(t_* ⟨x⟩⁴), a smooth positive b-density ([[cor:ii-f1-1-2]], [[lem:ii-a-8-8]]); w := ρ_I^(a_I) ρ_+^(a_+)
+ρ_K^(a_K) with the defining functions [[eq:ii-f1-1-1]]; t := t^♭ − 1, with t^♭ the time function of [[lem:ii-c-3-2]],
+defined on M′ ∩ {t_* ≥ 1/2} by [[lem:ii-e-1-2]] (iv), and t := −1 on M′ ∩ {t_* < 1/2}. As t^♭ ≤ t_* ([[lem:ii-c-3-2]]
+(b)), t < −c_1 on {t_* < 7/8}, so every function ψ(t) of (T3) is constant there, and t is smooth wherever (T1) asks. The
+spaces B^k_0 of [[prop:ii-g-3-1]] are then the spaces H^(k,(α_I,α_+,α_K))_b(Ω_*; E)^(•,−) of [[eq:ii-f1-1-2]],
+componentwise and with w adjusted by the factor relating |dt dx| to μ, which is a product of powers of ρ_I, ρ_+, ρ_K
+([[cor:ii-f1-1-2]]), with equivalent norms: there the quotient is over extensions supported in {t^♭ ≥ 1}, here over all
+extensions to M′, and the extension of [[lem:ii-f1-2-5]] preserves that support and is bounded at every order. B^k_η
+consists of their elements supported in {t^♭ ≥ 1 + c_0 η}. The hypotheses hold with c_1 := 1/8:
 
 (T1): dt^♭ is past timelike, so non-zero. On {|t^♭ − 1| < 1/4}, t_* ≤ (5/4)/C′ ([[lem:ii-c-3-2]] (b)), so this set
 stays away from ι⁺ and K⁺, and t_* ≥ t^♭ > 3/4, so it does not meet {t_* = 1/2}; it meets {r = r_0} only away from the

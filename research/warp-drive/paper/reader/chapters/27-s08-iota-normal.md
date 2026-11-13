@@ -1,14 +1,14 @@
 ## The normal operator at future timelike infinity {#ch:s08}
 
 This chapter studies the normal operator of a stationary wave-type operator P_0 at future timelike infinity ι⁺, and its
-Mellin-transformed family N⁰(σ), in dimension 4 + 1. It writes out [Hin26c, Section 10.1, up to the forward problem]:
-the ι⁺-normal operator and its family ([Hin26c, Definition 10.3 and Lemma 10.5]); the estimates and invertibility of
-N⁰(σ) at high frequencies, without and with b-regularity ([Hin26c, Proposition 10.6 (2) and Lemma 10.7]); and at bounded
-frequencies ([Hin26c, Proposition 10.6 (1) and Lemmas 10.9–10.10]). The forward problems for N_(ι⁺)(P_0), for the
-modified operator P_+ and for P_0 on e3b-spaces, which rest on these results, are solved in [[ch:s09]]. [[sec:ii-f-1-4]]
-proves in addition a uniqueness lemma for hyperbolic equations with smooth coefficients ([[lem:ii-f-1-3]]), and the
-functions monotone along causal curves that supply the compact sets it asks for ([[lem:ii-f-1-4]]); later chapters use
-both.
+Mellin-transformed family N⁰(σ), in dimension 4 + 1. It writes out the part of [Hin26c, Section 10.1] that precedes the
+forward problem: the ι⁺-normal operator and its family ([Hin26c, Definition 10.3 and Lemma 10.5]); the estimates and
+invertibility of N⁰(σ) at high frequencies, without and with b-regularity ([Hin26c, Proposition 10.6 (2) and Lemma
+10.7]); and at bounded frequencies ([Hin26c, Proposition 10.6 (1) and Lemmas 10.9–10.10]). The forward problems for
+N_(ι⁺)(P_0), for the modified operator P_+ and for P_0 on e3b-spaces, which rest on these results, are solved in
+[[ch:s09]]. [[sec:ii-f-1-4]] proves in addition a uniqueness lemma for hyperbolic equations with smooth coefficients
+([[lem:ii-f-1-3]]), and the functions monotone along causal curves that supply the compact sets it asks for
+([[lem:ii-f-1-4]]); later chapters use both.
 
 *What changes in dimension 4 + 1.* The dimension enters through the constant c := (n − 1)/2 of the normal form
 [[eq:ii-c-1-1]], which is 3/2 here ([[rem:ii-f-minkowski]]), and through the volume densities, which shift weights by

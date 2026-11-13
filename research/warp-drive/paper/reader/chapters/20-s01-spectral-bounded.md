@@ -26,8 +26,8 @@ uniformity in the operator.
 #### The space {#sec:i-a-1-1}
 
 Let ℝ̄⁴ be the radial compactification of ℝ⁴, with boundary ∂ℝ̄⁴ ≅ 𝕊³. Near it we use ρ = |x|⁻¹ and ω = x/|x| ∈ 𝕊³,
-so that a neighbourhood of the boundary is [0, ρ₁)_ρ × 𝕊³_ω. Fix radii 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h
-[[pending:issue-1]] and set
+so that a neighbourhood of the boundary is [0, ρ₁)_ρ × 𝕊³_ω. Fix radii 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h and
+set
 
     X̄ := {x : |x| ≥ r₀} ∪ ∂ℝ̄⁴,     ∂X := ∂ℝ̄⁴,     ∂_♯X := {|x| = r₀},     X̃ := {|x| > r₀ − 2δ₀} ∪ ∂X.
 
@@ -909,3 +909,271 @@ o_(∂X) = R_out be the zero section over ∂X. If B ∈ Ψ^(0,0) is microsuppor
 *Proof.* ⟨x⟩D_(x_j) ∈ Ψ^(1,1), and Σ_j (⟨x⟩D_(x_j))*(⟨x⟩D_(x_j)) has principal symbol ⟨x⟩²|ζ|² in terms of the
 Euclidean frequency ζ. This is elliptic in Ψ^(2,2) off the zero section of the boundary face, including at fibre
 infinity. Ellipticity (C5) gives both inequalities, inductively in k. ∎
+
+### Elliptic and propagation estimates {#sec:i-a-5}
+
+**Proposition {#prop:i-a-5-1}** (Elliptic estimate.) Let 𝒟 ⊂ ℂ be compact and B ∈ Ψ^(0,0) microsupported in a closed
+set K of the boundary of phase space on which P̂(σ) is elliptic in Ψ^(2,0) for every σ ∈ 𝒟, with a uniform lower bound
+on its principal symbol. Then for G elliptic on K, all orders 𝐬 and all N, uniformly in σ ∈ 𝒟, in the strong sense,
+
+    ‖Bu‖_𝐬 ≤ C(‖GP̂(σ)u‖_(𝐬−(2,0)) + ‖u‖_(−𝐍)).
+
+*Proof.* By [[lem:i-a-2-1]] (d) and (C5) there is a microlocal parametrix Q_σ ∈ Ψ^(−2,0) with
+Q_σP̂(σ) = Id + R_σ, where WF′(R_σ) ∩ K = ∅. Then
+
+    Bu = BQ_σΦP̂(σ)u − BR_σu + BQ_σ(Id − Φ)P̂(σ)u,
+
+with Φ microlocally the identity near K and microsupported in Ell(G). The construction is continuous in the symbol, so
+its seminorms are uniform on 𝒟; the last two terms are residual. ∎
+
+**Proposition {#prop:i-a-5-2}** (Propagation.) Let P ∈ Ψ^𝐦 and let h be a fibre inner product. Let F be one of the
+two boundary faces of phase space, with defining function ϱ (ρ_∞ at fibre infinity, ρ at the boundary face over ∂X).
+Suppose the following.
+
+(a) Near a compact set Λ ⊂ F, P_R = Re_h P has principal symbol p Id with p real. Then H_p = μ𝖵 near Λ, where μ > 0
+is a weight of order 𝐦 − 𝟏 and 𝖵 is a smooth vector field tangent to F ([HJS, (7.34)]; at fibre infinity 𝖵 = ρ_∞H_p
+for 𝐦 = 2, and over ∂X it is given by [[eq:i-a-4-4]]). Fix a sign ε_f and set 𝖧_f := ε_f𝖵, the *forward* field.
+
+(b) P_I = P_I^sub + P_I^abs, where P_I^sub ∈ Ψ^(𝐦−𝟏) is h-self-adjoint and ε_fP_I^abs = −c L^(∗h)L + K′ with c ≥ 0
+a constant, L of order ½𝐦 and WF′(K′) ∩ W̄ = ∅ for a neighbourhood W of Λ.
+
+(c) γ : [0, t₁] → F ∩ {p = 0} is an integral curve of 𝖧_f, injective, with 𝖧_f ≠ 0 on it, and γ([0, t₁]) ⊂ Λ.
+
+(d) 𝐬 is an order whose component 𝗄_F on F satisfies 𝖧_f𝗄_F ≤ 0 near γ.
+
+Let E ∈ Ψ^(0,0) be elliptic at γ(0). Then there are B, elliptic on γ([0, t₁]), and G, both microsupported in any given
+neighbourhood of γ([0, t₁]), such that in the strong sense
+
+    ‖Bu‖_𝐬 ≤ C(‖GPu‖_(𝐬−𝐦+𝟏) + ‖Eu‖_𝐬 + ‖u‖_(−𝐍)).                                                          {#eq:i-a-5-1}
+
+*Proof.* *Coordinates.* Since γ is injective and 𝖧_f ≠ 0 on it, there are coordinates
+(z, y) ∈ (−2δ, t₁ + 2δ) × {|y| < 2δ₁} on a neighbourhood O of γ([0, t₁]) in F, in which 𝖧_f = ∂_z and γ(t) = (t, 0)
+(flow out a small transversal disc through γ(−δ), the integral curve continued backward). Extend z and y off F
+independently of ϱ. Choose δ and δ₁ so small that O ⊂ W and {z ∈ [−δ, 0], |y| ≤ δ₁} ⊂ Ell(E).
+
+*Cut-offs.* Let χ_s(z) := ψ(−z/δ) for z ≤ 0 and χ_s(z) := 1 for z ≥ 0, smooth as ψ = 1 on [−½, ½]. So χ_s = 1 for
+z ≥ 0 and χ_s = 0 for z ≤ −δ, and ∂_z(χ_s²) = (2/δ)(−ψψ′)(−z/δ) ≥ 0, supported in [−δ, −δ/2]. Let
+χ_e(z) := ψ((z − t₁)/δ) for z ≥ t₁ and χ_e(z) := 1 for z ≤ t₁. So χ_e = 1 for z ≤ t₁, and
+−∂_z(χ_e²) = (2/δ)(−ψψ′)((z − t₁)/δ) ≥ 0, supported in [t₁ + δ/2, t₁ + δ]. (Since ψ is even, ψ(−z/δ) alone would
+vanish for z ≥ δ, and ∂_z(χ_s²) would be negative on [δ/2, δ].) Since −ψψ′ = (νψ)² on [0, ∞) ([[def:i-a-cutoff]]),
+both derivatives are squares of smooth functions. Let ψ_y := ψ(|y|²/δ₁²).
+
+*Commutant.* With 𝐤 = 𝐬 − ½(𝐦 − 𝟏), its component 𝗄 := 𝗄_F, a regulariser φ_ε(ϱ) of exponent κ and a large
+constant M, let
+
+    ǎ_ε := ϱ^(−𝗄) φ_ε e^(−Mz) χ_s(z) χ_e(z) ψ_y,
+
+multiplied by a cut-off to a neighbourhood of F whose derivatives are residual. As in [[sec:i-a-4]], the operator is
+Ǎ_ε := ½(Op(ǎ_ε)Id + (Op(ǎ_ε)Id)^(∗h)), h-self-adjoint as [[lem:i-a-3-1]] (i) requires, so that the identity
+[[eq:i-a-3-4]] holds. At F, by [[eq:i-a-3-6]] and since 𝖧_fψ_y = 0 there,
+
+    𝖧_f(ǎ_ε²) = ϱ^(−2𝗄)φ_ε²ψ_y²e^(−2Mz)[χ_s²χ_e²(−2M − 2𝗄_ε(ϱ⁻¹𝖧_fϱ) − 2(𝖧_f𝗄) log ϱ)
+                  + χ_e²∂_z(χ_s²) + χ_s²∂_z(χ_e²)],
+
+with 𝗄_ε := 𝗄 − κθ_ε. Here 𝖧_f(ϱ^(−2𝗄)) = ϱ^(−2𝗄)(−2𝗄ϱ⁻¹𝖧_fϱ − 2(𝖧_f𝗄) log ϱ); the logarithmic term
+−2(𝖧_f𝗄) log ϱ is ≤ 0, since 𝖧_f𝗄 ≤ 0 and log ϱ < 0 near F. Let p′ := μ⁻¹ε_f σ(P_I^sub), an h-self-adjoint symbol
+bounded on O (it has order 0 relative to μ), and
+
+    Q_ε := (2M + 2𝗄_ε(ϱ⁻¹𝖧_fϱ)) Id − 2p′ + 2(𝖧_f𝗄) log ϱ Id.
+
+Choose M ≥ 1 + sup_O (2|𝗄_εϱ⁻¹𝖧_fϱ| + 2‖p′‖), uniformly in ε since 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ M Id. It is a
+symbol of the logarithmic class of (C6), and so is Q_ε^(1/2). To see this, write Q_ε = Q₀ + Λ_ϱ Id with
+Q₀ := (2M + 2𝗄_εϱ⁻¹𝖧_fϱ) Id − 2p′ ≥ M Id, bounded, and Λ_ϱ := 2(𝖧_f𝗄) log ϱ ≥ 0, scalar. By Cauchy's formula as in
+[[lem:i-a-2-2]], ∂_Λ^j(Q₀ + Λ)^(1/2) = O((M + Λ)^(½−j)), and the derivatives of Q₀ and of Λ_ϱ along the vector fields
+⟨x⟩^(−δ)𝒱_b of (C6) are bounded; by the chain rule Q_ε^(1/2) lies in the class for every δ > 0. ([[lem:i-a-2-2]] does
+not apply to Q_ε/(1 + |log ϱ|), which is not bounded below where 𝖧_f𝗄 = 0; [HJS, p. 81] notes the point.)
+
+*Decomposition.* As in [[sec:i-a-4]], σ(ε_fC_ε) = μ[𝖧_f(ǎ_ε²) Id + 2ǎ_ε²p′] + ε_fσ(Ǎ²P_I^abs + P_I^absǍ²), and
+
+    μ[𝖧_f(ǎ_ε²) + 2ǎ_ε²p′] = −b_ε² − b_(e,ε)² + e_ε²,
+
+with
+
+    b_ε := μ^(1/2)ϱ^(−𝗄)φ_εψ_ye^(−Mz)χ_sχ_eQ̃_ε^(1/2),
+    b_(e,ε) := μ^(1/2)ϱ^(−𝗄)φ_εψ_ye^(−Mz)χ_s(−∂_z(χ_e²))^(1/2),
+    e_ε := μ^(1/2)ϱ^(−𝗄)φ_εψ_ye^(−Mz)χ_e(∂_z(χ_s²))^(1/2).
+
+Here Q̃_ε is Q_ε cut off as in [[prop:i-a-4-2]]. The symbol e_ε is supported in {z ∈ [−δ, 0]}, inside Ell(E). As U
+shrinks in [[lem:i-a-3-2]], δ and δ₁ shrink with it, and the E-set of every step lies in
+{z ∈ [−δ, −δ/2], |y| ≤ δ₁} ⊂ Ell(E), which misses γ([0, t₁]); so the given E is elliptic on K_E^∗. By (b) and
+[[lem:i-a-2-3]], ε_f(Ǎ²P_I^abs + P_I^absǍ²) = −2c(LǍ)^(∗h)(LǍ) plus a double commutator in Ψ^(2𝐬−𝟏) plus a residual
+term. So ε_fC_ε = −B_ε^(∗h)B_ε − F_ε + E_ε^(∗h)E_ε + R_ε, with F_ε := B_(e,ε)^(∗h)B_(e,ε) + 2c(LǍ_ε)^(∗h)(LǍ_ε) and
+R_ε bounded in Ψ^(2𝐬−𝟏). The orders are right: μϱ^(−2𝗄) is the weight of order 2𝐬 on F. Also ǎ_ε = z_εb_ε with
+z_ε := μ^(−1/2)Q̃_ε^(−1/2), of order −½(𝐦 − 𝟏). B₀ is elliptic on γ([0, t₁]), where χ_s = χ_e = ψ_y = 1. The factor
+(𝖧_f𝗄) log ϱ makes b_ε bounded only in Ψ^(𝐬+δ𝟏) for every δ > 0, while z_ε stays bounded since Q_ε ≥ M; this is the
+case of [[rem:i-a-3-3]]. There is no threshold, so [[lem:i-a-3-2]] runs from 𝐬₀ = 𝐬 − τ𝟏 with τ large, giving
+[[eq:i-a-5-1]] with ‖Gu‖_(𝐬₀) ≤ ‖u‖_(−𝐍). ∎
+
+**Remark {#rem:i-a-5-2-uses}** (The two uses of [[prop:i-a-5-2]].) (i) At fibre infinity over X̃°: P = P̂(σ), p = G₀,
+𝖵 = ρ_∞H_(G₀), ε_f = ± on ∂Σ₀^±, P_I = P_I^sub ∈ Ψ¹, and c = 0; the order is s_c, constant (O1).
+
+(ii) At the boundary face, for σ = σ₀ + iσ₁ with σ₁ ≥ 0: p = g_(σ₀), 𝖵 = 𝖧_(σ₀), ε_f = ε₀,
+P_I^sub = P_I^(0) ∈ Ψ^(1,−1) and P_I^abs = σ₁Re_h T. Then ε₀P_I^abs = −σ₁K with K := −ε₀Re_h T, whose principal
+symbol −2ε₀ξ is positive on Σ^∂_(σ₀) ∖ R_out (there ε₀ξ < 0 by [[lem:i-a-4-5]]). So (b) holds on any neighbourhood W
+of a compact subset of Σ^∂_(σ₀) ∖ R_out on which −2ε₀ξ > 0, by [[lem:i-a-2-3]]. For the adjoint P̂(σ)^(∗h), use the
+backward field −𝖧_f: then P_I^abs becomes −σ₁Re_h T, and (−ε₀)(−σ₁Re_h T) = −σ₁K again. Condition (d) for the adjoint
+asks for monotonicity along −𝖧_f of the dual order, which is minus the order: the same condition.
+
+### The artificial boundary {#sec:i-a-6}
+
+#### Extendible and supported spaces {#sec:i-a-6-1}
+
+Let Ω := {|x| > r₀}. For an order pair whose regularity component is constant near ∂_♯X (true by (O1)) define
+
+    H̄^(s,𝗋) := {u|_Ω : u ∈ H^(s,𝗋)(ℝ⁴; ℂ^N)} (quotient norm),     Ḣ^(s,𝗋) := {u ∈ H^(s,𝗋) : supp u ⊂ Ω̄}.
+
+On a slab Ω_(a,b) := {a < r < b}, with r₀ − 2δ₀ < a < b < r₂, let H^s(Ω_(a,b))^(•,−) be the space of restrictions to
+{r > a} of elements of H^s(ℝ⁴) supported in {r ≤ b}: supported at b, extendible at a. H^s(Ω_(a,b))^(−,•) is the space
+with the roles of a and b exchanged, and H^s(Ω_(a,b))^(•,•) the space supported at both ends. On compact sets the
+decay order is immaterial.
+
+**Lemma {#lem:i-a-6-1}** (Extendible and supported spaces.) (a) Ḣ^(s,𝗋) is the closure of C_c^∞(Ω).
+
+(b) The L² pairing identifies (H̄^(s,𝗋))^∗ with Ḣ^(−s,−𝗋).
+
+(c) The same holds on slabs: (H^s(Ω_(a,b))^(•,−))^∗ = H^(−s)(Ω_(a,b))^(−,•), and C_c^∞(Ω_(a,b)) is dense in
+H^s(Ω_(a,b))^(•,•).
+
+(d) A differential operator L of order m maps each of these spaces to the corresponding space of order s − m. For L of
+orders (m, ℓ), u ∈ H̄^(s,𝗋) and v ∈ Ḣ^(−s+m,−𝗋+ℓ), the pairing ⟨Lu, v⟩ is well defined, and it equals ⟨u, L^∗v⟩ for
+u ∈ C_c^∞(ℝ⁴)|_Ω.
+
+*Proof.* (a) Let u ∈ Ḣ^(s,𝗋), and write u = χu + (1 − χ)u, with χ ∈ C_c^∞({|x| < 2r₀}) equal to 1 on
+{|x| ≤ (3/2)r₀}. Then (1 − χ)u is supported in {|x| ≥ (3/2)r₀}. Let χ̃ ∈ C_c^∞({|x| < (5/4)r₀}) equal 1 on
+{|x| ≤ (9/8)r₀}. Then (1 − χ̃)(1 − χ) = 1 − χ, multiplication by 1 − χ̃ is bounded on H^(s,𝗋), and T_t → Id strongly
+(C8). So the Schwartz functions (1 − χ̃)T_t(1 − χ)u, which are supported in Ω, tend to (1 − χ)u. A Schwartz function
+supported in Ω is approximated by its products with χ₀(t|x|), χ₀ ∈ C_c^∞ equal to 1 near 0, as t → 0. The function χu
+has compact support, so only the constant regularity order s matters. For μ > 1 let (D_μw)(x) := w(x/μ). Then
+supp D_μ(χu) ⊂ {|x| ≥ μr₀} ⊂ Ω. The dilation D_μ is bounded on H^s uniformly for μ ∈ [1, 2]: ‖D_μw‖_(L²) = μ²‖w‖_(L²),
+and D_μ f(D) D_μ⁻¹ = f(μD), so ⟨D⟩^s D_μ ⟨D⟩^(−s) D_μ⁻¹ is the Fourier multiplier ⟨ζ⟩^s⟨μζ⟩^(−s), bounded uniformly.
+Also D_μ → Id strongly as μ → 1: this holds on C_c^∞, which is dense, and D_μ is uniformly bounded. Finally mollify
+with a mollifier of radius less than (μ − 1)r₀.
+
+(b) H̄^(s,𝗋) = H^(s,𝗋)/Z with Z := {u : supp u ⊂ ℝ⁴ ∖ Ω}, so (H̄^(s,𝗋))^∗ = Z^⊥ ⊂ H^(−s,−𝗋) (C4). If f ∈ Z^⊥, then f
+annihilates C_c^∞({|x| < r₀}) ⊂ Z, so supp f ⊂ Ω̄. Conversely, if supp f ⊂ Ω̄ and z ∈ Z, approximate z in H^(s,𝗋) by
+elements of C_c^∞({|x| < r₀}), which is (a) for the ball, with μ < 1; each pairs to 0 with f, so ⟨f, z⟩ = 0.
+
+(c) Separate the two boundary spheres by a partition of unity and apply (a) and (b) at each.
+
+(d) Locality of L, and (b). ∎
+
+#### The energy estimate {#sec:i-a-6-2}
+
+On {r₀ − 2δ₀ < r < r₂} let 𝔤 be the Lorentzian metric on X̃ whose inverse is the bilinear form of G₀. Its signature
+is (1, 3) there, by (H4). Let X := 𝔤⁻¹(dr, ·) = ∇r, a 𝔤-timelike vector field, and time-orient 𝔤 so that X is future
+directed. Then dr(V) = 𝔤(X, V) < 0 for V future timelike: r decreases to the future, as in (H4). Let
+□ := −|𝔤|^(−1/2)∂_i|𝔤|^(1/2)𝔤^(ij)∂_j act componentwise, with principal symbol G₀ Id, and for u valued in ℂ^N (standard
+inner product) let
+
+    T[u](Y, Z) := Re(⟨Yu, Zu⟩ − ½𝔤(Y, Z)𝔤^(ij)⟨∂_iu, ∂_ju⟩),     ^((Y))K[u] := ½T[u]^(ij)(ℒ_Y𝔤)_ij.
+
+**Lemma {#lem:i-a-6-2}** (Energy identity.) For smooth u and a smooth vector field W,
+div_𝔤(T[u](W, ·)^♯) = −Re⟨□u, Wu⟩ + ^((W))K[u], and for w > 0, ^((wX))K[u] = w ^((X))K[u] + T[u](∇w, X).
+
+*Proof.* Componentwise, with T_ij = Re(∂_iu ∂_jū − ½𝔤_ij ∂^ku ∂_kū) summed over components,
+
+    ∇^iT_ij = Re(∇^i∂_iu ∂_jū + ∂^iu ∇_i∂_jū − ∂^ku ∇_j∂_kū) = −Re(□u ∂_jū),
+
+since the Hessian of a function is symmetric and □ = −∇^i∂_i. Then ∇^i(T_ijW^j) = −Re(□u Wū) + T_ij∇^iW^j and
+T_ij∇^iW^j = ½T^(ij)(ℒ_W𝔤)_ij by symmetry of T. For W = wX, T_ij∇^i(wX^j) = wT_ij∇^iX^j + T(∇w, X). ∎
+
+**Proposition {#prop:i-a-6-3}** (The H¹ estimate.) Let L be a differential operator of order 2 on {r₀ − 2δ₀ < r < r₂}
+with principal symbol G₀ Id, and let r₀ − 2δ₀ < a < b < r₂. There is C, depending on bounds for the coefficients of L
+and on inf(−G₀(dr)) over the slab, such that
+
+    ‖u‖_(H¹(Ω_(a,b))) ≤ C‖Lu‖_(L²(Ω_(a,b)))
+
+for u ∈ H²(Ω_(a,b))^(•,−) (forward), and likewise for u ∈ H²(Ω_(a,b))^(−,•) (backward).
+
+*Proof.* By density ([[lem:i-a-6-1]] (c), and smooth approximation up to the extendible side) take u smooth on
+Ω̄_(a,b), vanishing near r = b (forward case). Write L = □ + L₁ with L₁ ∈ Diff¹. Fix a Riemannian metric R and a
+density, and use coordinates (r, ω) on the slab (r = |x|). On the compact slab there are constants with
+T[u](X, X) ≥ c₀|du|²_R (in a 𝔤-orthonormal frame with e₀ = X/|X|, T(e₀, e₀) = ½Σ_α |e_αu|²), |^((X))K[u]| ≤ C₀|du|²_R
+and |L₁u| ≤ C₁(|du|_R + |u|).
+
+Let w := e^(γr), so that ∇w = γwX, and J := T[u](wX, ·)^♯. By Stokes' formula (d(ι_J|d𝔤|) = div J |d𝔤|; the outward
+conormal at r = a is −dr) and since u = 0 near b,
+
+    ∫_(Ω_(a,b)) (−Re⟨□u, wXu⟩ + ^((wX))K[u]) |d𝔤| = −∫_({r = a}) dr(J) μ_a = −∫_({r = a}) w T[u](X, X) μ_a ≤ 0,
+
+where μ_a is the induced density, and dr(J) = T(wX, ∇r). So, by [[lem:i-a-6-2]],
+
+    ∫ w(γc₀ − C₀)|du|²_R ≤ ∫ w|□u||Xu| ≤ ∫ w|Lu||Xu| + C∫ w(|du|²_R + |u||du|_R).
+
+*Weighted Poincaré inequality.* Since u(r, ω) = −∫_r^b ∂_su(s, ω) ds, with ℓ := b − a,
+
+    ∫_a^b e^(γr)|u(r)|² dr ≤ ℓ∫_a^b |∂_su(s)|² ∫_a^s e^(γr) dr ds ≤ (ℓ/γ)∫_a^b e^(γs)|∂_su(s)|² ds.
+
+Integrating over ω with bounded Jacobians, ∫ w|u|² ≤ (C_P/γ)∫ w|du|²_R. Hence C∫ w|u||du| ≤ C(C_P/γ)^(1/2)∫ w|du|².
+For γ large (depending on c₀, C₀, C₁ and C_P) we get
+
+    (γc₀/2)∫ w|du|² ≤ ∫ w|Lu||Xu| ≤ (γc₀/4)∫ w|du|² + (C/γ)∫ w|Lu|².
+
+So ∫ w|du|² ≤ Cγ⁻²∫ w|Lu|², and with e^(γa) ≤ w ≤ e^(γb) and the Poincaré inequality once more, ‖u‖_(H¹) ≤ C‖Lu‖_(L²).
+
+In the backward case u = 0 near a; take w := e^(−γr). The flux is now at r = b, with sign +, and
+^((wX))K = w(^((X))K − γT(X, X)). So ∫ w(γT(X, X) − ^((X))K) ≤ ∫ w|□u||Xu|, and the Poincaré inequality runs from
+r = a, where w is largest. ∎
+
+Thus the forward estimate uses the weight e^(γr) and the backward one e^(−γr), and the zeroth-order terms are
+controlled by the Poincaré inequality.
+
+**Proposition {#prop:i-a-6-4}** (All orders.) Let L be as in [[prop:i-a-6-3]] on {r₀ − 2δ₀ < r < r₂}, with L^∗ also of
+that form (true for P̂(σ) and its adjoints). For every s ∈ ℝ and every slab Ω_(a,b) with
+r₀ − δ₀ < a < b < r₂ − δ₀, the following hold.
+
+(i) For every u ∈ H^s(Ω_(a,b))^(•,−), ‖u‖_(H^s(Ω_(a,b))^(•,−)) ≤ C‖Lu‖_(H^(s−1)(Ω_(a,b))^(•,−)).
+
+(ii) For every u ∈ H^s(Ω_(a,b))^(−,•), ‖u‖_(H^s(Ω_(a,b))^(−,•)) ≤ C‖Lu‖_(H^(s−1)(Ω_(a,b))^(−,•)).
+
+(iii) L : H^s(Ω_(a,b))^(•,−) → H^(s−1)(Ω_(a,b))^(•,−) is invertible, and so is the backward map.
+
+C depends only on bounds for the coefficients and on inf(−G₀(dr)).
+
+*Proof.* Fix a′ < a with a′ > r₀ − δ₀, and let Ω′ := Ω_(a′,b). We prove (i); (ii) is the same with the roles of the
+ends exchanged.
+
+*Uniqueness.* Let d ∈ H^t(Ω_(a,b))^(•,−) for some t, with Ld = 0. Let D ∈ H^t(ℝ⁴) be supported in {r ≤ b} with
+D|_({r>a}) = d. Then LD = 0 on {r > a} and D = 0 on {r > b}. By (H4) and [[sec:i-a-6-2]], every null bicharacteristic
+of G₀ over {a < r < b + δ₀} moves monotonically in r, and its backward direction (increasing r) reaches {r > b}, where
+D vanishes. [[prop:i-a-5-2]], in the use (i) of [[rem:i-a-5-2-uses]], at every order gives D ∈ C^∞({r > a}), as D is
+smooth off the characteristic set by [[prop:i-a-5-1]]. So d|_([a+ε,b]) is smooth up to r = b and vanishes to infinite
+order there; extended by 0 it lies in H²(Ω_(a+ε,b))^(•,−), and [[prop:i-a-6-3]] on Ω_(a+ε,b) gives d = 0 there, for
+every ε > 0.
+
+*Existence for s ≥ 0.* Let f ∈ H^(s−1)(Ω′)^(•,−) ⊂ H^(−1)(Ω′)^(•,−) = (H¹(Ω′)^(−,•))^∗. On
+{L^∗φ : φ ∈ H²(Ω′)^(−,•)} ⊂ L²(Ω′), the functional L^∗φ ↦ ⟨f, φ⟩ is well defined. It is bounded, by
+C‖f‖_(H^(−1))‖L^∗φ‖_(L²), by [[prop:i-a-6-3]] (backward) for L^∗. By the Hahn–Banach and Riesz theorems there is
+w ∈ L²(Ω′), with ‖w‖ ≤ C‖f‖_(H^(−1)), such that ⟨w, L^∗φ⟩ = ⟨f, φ⟩ for all such φ. Taking
+φ ∈ C_c^∞({a′ < r < b + δ₀}), restricted, shows that the extension W of w by 0 beyond b satisfies LW = F on {r > a′},
+where F is the supported extension of f. So w ∈ L²(Ω′)^(•,−) = L²(Ω′) solves Lw = f.
+
+*Regularity.* W ∈ L², W = 0 on {r > b}, and LW ∈ H^(s−1) on {r > a′}. [[prop:i-a-5-2]] at order s, propagating from
+{r > b} along the monotone bicharacteristics, together with [[prop:i-a-5-1]], gives W ∈ H^s on {r > a}, with
+
+    ‖w‖_(H^s(Ω_(a,b))) ≤ C(‖f‖_(H^(s−1)(Ω′)) + ‖w‖_(L²(Ω′))) ≤ C‖f‖_(H^(s−1)(Ω′)).
+
+Here the error term ‖W‖_(−N) of [[eq:i-a-5-1]] is bounded by ‖w‖_(L²) for N ≥ 0.
+
+*The case s ≥ 0 of (i) and (iii).* Given u ∈ H^s(Ω_(a,b))^(•,−), extend f := Lu to f′ ∈ H^(s−1)(Ω′)^(•,−) with
+‖f′‖ ≤ 2‖f‖, and let w solve Lw = f′ on Ω′. By uniqueness on Ω_(a,b), w|_(Ω_(a,b)) = u. So ‖u‖_(H^s) ≤ C‖f‖_(H^(s−1)),
+and L is onto with this bound. It is injective by uniqueness.
+
+*The case s < 0.* By the case 1 − s > 0 of (ii) for L^∗, ‖φ‖_(H^(1−s)) ≤ C‖L^∗φ‖_(H^(−s)) for
+φ ∈ H^(1−s)(Ω′)^(−,•). The Hahn–Banach argument with these spaces produces, for
+f ∈ H^(s−1)(Ω′)^(•,−) = (H^(1−s)(Ω′)^(−,•))^∗, a solution w ∈ (H^(−s)(Ω′)^(−,•))^∗ = H^s(Ω′)^(•,−) with ‖w‖ ≤ C‖f‖,
+using [[lem:i-a-6-1]] (c). Uniqueness and the extension step finish (i) and (iii). ∎
+
+**Corollary {#cor:i-a-6-5}** (The estimates used near ∂_♯X.) Let r₀ < b′ < b″ < r₂ − δ₀ [[pending:issue-1]], and let
+χ₁ ∈ C_c^∞({b′ < r < b″}) equal 1 on a neighbourhood of supp dχ, where χ = 1 on {r ≤ b′} and χ = 0 near {r ≥ b″}.
+Let 𝒟 ⊂ ℂ be compact. Then for σ ∈ 𝒟,
+
+    ‖χu‖_(H̄^s) ≤ C(‖P̂(σ)u‖_(H̄^(s−1)({r₀ < r < b″})) + ‖χ₁u‖_(H^s)),     u ∈ H̄^s,                        {#eq:i-a-6-1}
+
+    ‖u|_(Ω_(r₀,b″))‖_(H^(1−s)(Ω_(r₀,b″))^(−,•)) ≤ C‖(P̂(σ)^(∗h)u)|_(Ω_(r₀,b″))‖_(H^(−s)(Ω_(r₀,b″))^(−,•)),
+                                                                                      u ∈ Ḣ^(1−s).     {#eq:i-a-6-2}
+
+*Proof.* For [[eq:i-a-6-1]]: χu ∈ H^s(Ω_(r₀,b″))^(•,−), and P̂(χu) = χP̂u + [P̂, χ]u, with [P̂, χ] ∈ Diff¹ supported in
+supp dχ. Apply [[prop:i-a-6-4]] (i). For [[eq:i-a-6-2]]: the restriction of u to Ω_(r₀,b″) lies in
+H^(1−s)(Ω_(r₀,b″))^(−,•) (supported at r₀, extendible at b″); apply [[prop:i-a-6-4]] (ii) to L = P̂(σ)^(∗h). The
+constants are uniform in σ ∈ 𝒟 since the coefficients are polynomial in σ. ∎

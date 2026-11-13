@@ -11,14 +11,14 @@ has exactly one zero on each column, close to √μ ([[prop:one-zero]]), and the
 
 Throughout, K ≥ 6, 0 < λ ≤ λ0, g_λ is the solution of [[thm:main]] on Ω, g_app = g0 + λ[g1] + Σ_(j=2)^N λ^j [g_j] is
 its approximant ([[thm:approximant]]) and w := g_λ − g_app. The profiles and the bracket [f](X) := f(X, v(X)/λ) are
-those of [[pending:def-profiles]]. Step 1 of the proof of [[thm:uniform-existence]] gives, with M the constant of that
+those of [[sec:profiles]]. Step 1 of the proof of [[thm:uniform-existence]] gives, with M the constant of that
 theorem,
 
     ‖∂^i w‖_∞ ≤ C M λ^(K−3−i),   i ≤ 4,   on Ω.                                                 {#eq:remainder-pointwise}
 
 The first profile is g1 = m1 + W(X, θ + φ1(X)), where the mean m1 and the phase φ1 do not depend on θ, and
-W = W_TT + χ dv², with W_TT the wave of [[pending:eq-waves]] and χ its second harmonic ([[pending:stage-zero]]). We use
-two properties of W from there: W(ℓ, ·) = 0, and W_TT has no dτ, dr or dv component.
+W = W_TT + χ dv², with W_TT the wave of [[eq:waves]] and χ its second harmonic ([[eq:chi-transport]]). We use two
+properties of W: W(ℓ, ·) = 0 ([[lem:stage-zero]] (a)), and W_TT has no dτ, dr or dv component ([[lem:waves]] (b)).
 
 On R⁴ we use r = |x|, and on S³ the angles (ϑ, ξ1, ξ2) given by x1 + i x2 = r cos ϑ e^(iξ1), x3 + i x4 = r sin ϑ e^(iξ2),
 0 ≤ ϑ ≤ π/2. The round metric of S³ is dϑ² + cos²ϑ dξ1² + sin²ϑ dξ2², and ζ := cos 2ϑ. We write ξ1, ξ2 for the two
@@ -26,7 +26,7 @@ azimuths because φ1 is the first phase. In this chart
 
     g0 = −dτ² + dr² + r² (dϑ² + cos²ϑ dξ1² + sin²ϑ dξ2²) + (μ(v)/r²)(dτ + dr)²,
 
-which is block diagonal between the (τ, r) plane and the sphere, and the wave of [[pending:eq-waves]] reads
+which is block diagonal between the (τ, r) plane and the sphere, and the wave of [[eq:waves]] reads
 
     λ W_TT = 2 r^(1/2) (cos²ϑ p1 dξ1² + sin²ϑ p2 dξ2² − (p1 + p2) dϑ²),
     p1 := (2 cos²ϑ G − sin²ϑ F)/3,   p2 := (2 sin²ϑ F − cos²ϑ G)/3,                                   {#eq:waves-hopf}
@@ -52,7 +52,7 @@ with ℓ acting on X only: no factor λ⁻¹ appears. A column lies in {r_q(v) �
 
 ### The boundary {#sec:boundary}
 
-*Proof of [[prop:boundary-spacelike]].* Write m := μ/r². By [[pending:prop-vaidya-contractions]],
+*Proof of [[prop:boundary-spacelike]].* Write m := μ/r². By [[prop:vaidya]] (d),
 g0⁻¹(dr, dr) = 1 − m, g0⁻¹(dr, dτ) = m and g0⁻¹(dτ, dτ) = −1 − m; since dv = dτ + dr, also g0⁻¹(dv, dv) = 0,
 g0⁻¹(dv, dr) = 1 and g0⁻¹(dv, dτ) = −1. On x_K = 1 put Φ := r − r_q(v), r_q = (√72 μ l5²)^(1/4). Then
 dΦ = dr − r_q′ dv with r_q′ = r_q μ′/(4μ), and
@@ -67,7 +67,7 @@ most 0. Where μ > √72 l5² the second term is below −1; where μ′ > 0 the
 timelike for g0, which is to say that the hypersurface {Φ = 0} is spacelike.
 
 *Time orientation.* g0⁻¹(dΦ, dτ) = g0⁻¹(dr, dτ) − r_q′ g0⁻¹(dv, dτ) = m + r_q′ > 0. The covector dτ is timelike and
-positive on future causal vectors ([[pending:lem-domain]], (a)). Where dΦ is timelike too, the two have positive
+positive on future causal vectors ([[lem:domain]], (a)). Where dΦ is timelike too, the two have positive
 g0⁻¹-product and so lie in opposite halves of the cone of timelike covectors: dΦ(Z) < 0 for every future causal vector
 Z there. In particular dΦ(Y) = −g0⁻¹(dΦ, dτ) < 0 for the future timelike Y := −g0⁻¹ dτ. By continuity of the cone, every
 point of {Φ = 0} at which dΦ is timelike has a neighbourhood U and a c > 0 with dΦ(Z) ≤ −c dτ(Z) for every future causal
@@ -89,13 +89,13 @@ the compact Ω and inversion is smooth, |g_λ⁻¹ − g0⁻¹| ≤ C1 λ. The c
     g_λ⁻¹(dΦ, dΦ) ≤ g0⁻¹(dΦ, dΦ) + C λ ≤ −δ + C λ ≤ −δ/2      once C λ ≤ δ/2.
 
 Moreover g_λ⁻¹(dΦ, dτ) ≥ m + r_q′ − C λ, and m ≥ μ0/r² is bounded below on Ω, so g_λ⁻¹(dΦ, dτ) > 0 for λ small;
-since dτ is timelike for g_λ and positive on its future causal vectors ([[pending:lem-domain]], (e)), the argument of
+since dτ is timelike for g_λ and positive on its future causal vectors ([[lem:domain]], (e)), the argument of
 the time orientation and of the no return applies to g_λ verbatim.
 
 *Equality.* If μ0 = √72 l5², then on {v ≤ inf supp env} μ = μ0 and μ′ = 0, so the formula gives g0⁻¹(dΦ, dΦ) = 0,
 and r_q = (√72 μ0 l5²)^(1/4) = (μ0²)^(1/4) = √μ0: the boundary is the seed's horizon r = √μ0, null for g0. That g_λ
 equals g0 on that region, so that the boundary is null for g_λ there, and that after the shell starts the boundary is
-spacelike for g_λ outside a layer whose width tends to 0 with λ, are proved in [[pending:equality-seed-and-boundary]];
+spacelike for g_λ outside a layer whose width tends to 0 with λ, are proved in [[ch:equality-layer]];
 that for λ small every column of the layer has points where the boundary is timelike for g_λ, so that the no-return
 property fails at equality, is [[thm:layer]], [[cor:layer]] and [[thm:very-edge]]. ∎
 
@@ -175,7 +175,7 @@ along n^± is −k^±_c Γ[G]^c_(ab) on tangent vectors, so
 in Cartesian coordinates: a smooth function of (X, G) times ∂G, affine in ∂G.
 
 Let ĝ(X, θ; λ) := g0 + λ g1 + Σ_(j≥2) λ^j g_j be the profile of G, so G = [ĝ]. By the chain rule of
-[[pending:def-profiles]], ∂_a G = λ⁻¹ (∂_a v) [∂_θ ĝ] + [∂_a ĝ]. In Γ_(dab) the fast parts of ∂_a G_db and ∂_b G_da
+[[sec:profiles]], ∂_a G = λ⁻¹ (∂_a v) [∂_θ ĝ] + [∂_a ĝ]. In Γ_(dab) the fast parts of ∂_a G_db and ∂_b G_da
 carry the factor ∂_a v or ∂_b v, and Π_G^(ab) ∂_a v = 0 because dv lies in the normal plane. Only the fast part of
 −½ ∂_d G_ab survives, and it contributes ½ λ⁻¹ k^±_c G^(cd) ∂_d v Π_G^(ab) [∂_θ ĝ_ab] = ½ λ⁻¹ k^±(ℓ_G) Π_G^(ab)
 [∂_θ ĝ_ab], with ℓ_G := G⁻¹ dv. Hence θ^±(G) = f^±(X, v/λ, λ) with
@@ -277,13 +277,13 @@ order: it preserves (E1), (E2) and the vanishing of each coefficient R^(m).
 (b) The stage-0 wave is S-invariant: (J* W_TT)(X, 3π/2 − θ) = −W_TT(X, θ); so is χ, and so is W = W_TT + χ dv² at
 weight 1.
 
-(c) The profiles of the approximant of [[thm:approximant]], with the stage data of [[pending:lem-stage-data]], satisfy
+(c) The profiles of the approximant of [[thm:approximant]], with the stage data of [[lem:stage-data]], satisfy
 S g = g:
 
     (J* g_j)(·, 3π/2 − ·) = (−1)^j g_j,   and for the means,   J* ⟨g_j⟩ = (−1)^j ⟨g_j⟩;   in particular J* m1 = −m1.
 
-*Proof.* (a) The operator R[G] is Ric^H of [[pending:eq-reduced]] with every ∂_a replaced by D^λ_a := ∂_a + λ⁻¹
-(∂_a v) ∂_θ ([[pending:eq-two-scale]]), and it contains no explicit θ. Let ρ(θ) := 3π/2 − θ. Since ∂_θ (f ∘ ρ) =
+*Proof.* (a) The operator R[G] is Ric^H of [[eq:gauge]] with every ∂_a replaced by D^λ_a := ∂_a + λ⁻¹
+(∂_a v) ∂_θ ([[def:two-scale]]), and it contains no explicit θ. Let ρ(θ) := 3π/2 − θ. Since ∂_θ (f ∘ ρ) =
 −(∂_θ f) ∘ ρ, we have D^λ_a (f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, hence R[G ∘ ρ](·; λ) = R[G](·; −λ) ∘ ρ. Since J is linear in
 x and fixes v, D^λ commutes with J*, and Ric^H(J* g) = J* Ric^H(g) because Ric^H is built from g and g0 alone and J is
 an isometry of g0. So R[J* G] = J* R[G]. Now G̃ = J* G(·, ρ(·); −λ), because λ^j (S g)_j = (−λ)^j J* g_j ∘ ρ and J* g0 =
@@ -302,27 +302,27 @@ this work: with one quadrature alone (G = 0), F(JX, 3π/2 − θ) = −λ A env 
 fails.
 
 χ is the solution with zero data of the transport (ℓ + 3/(2r)) ∂_θ χ = f along ℓ, f the dv² second harmonic of
-R^(0)[g0 + λ W_TT] ([[pending:stage-zero]]). By (a) at order 0 and the S-invariance of W_TT, f(JX, 3π/2 − θ) = f(X,
+R^(0)[g0 + λ W_TT] ([[eq:chi-transport]]). By (a) at order 0 and the S-invariance of W_TT, f(JX, 3π/2 − θ) = f(X,
 θ), as J* (dv ⊗ dv) = dv ⊗ dv. Put χ̃(X, θ) := −χ(JX, 3π/2 − θ). Then ∂_θ χ̃ = (∂_θ χ)(JX, 3π/2 − θ), the operator ℓ +
 3/(2r) commutes with J, so χ̃ solves the same transport with the same zero data, and by uniqueness χ̃ = χ. Hence χ dv²
 is S-invariant at weight 1, and so is W. By (a) applied to the S-invariant family g0 + λ W, its residual is S-odd at
 order one: J* R^(1)[g0 + λ W](·, 3π/2 − ·) = −R^(1)[g0 + λ W], the mean part and the oscillating part alike.
 
-(c) The unknowns of the ansatz ([[pending:ansatz]]) are the means m_j, the phases φ_j and the oscillating profiles ĝ_j,
+(c) The unknowns of the ansatz [[eq:ansatz]] are the means m_j, the phases φ_j and the oscillating profiles ĝ_j,
 with G(X, θ; λ) = g0 + Σ λ^j m_j + λ W + Σ λ^j ĝ_j(X, θ) and phase u = v + Σ λ^j φ_j. Let S act by
 
     m_j ↦ (−1)^j J* m_j,    φ_j ↦ (−1)^j J* φ_j,    ĝ_j ↦ (−1)^j J* ĝ_j(·, 3π/2 − ·).
 
 The transformed phase is ũ(X; λ) = J* u(X; −λ), so λ⁻¹ dũ = −J*((−λ)⁻¹ du(−λ)), and the calculation of (a) with u in
 place of v shows that the transformed unknowns solve the transformed stage equations. Every stage of
-[[pending:lem-stage-system]] and every choice of [[pending:lem-stage-data]] (φ_m = 0 and (m_m)_(τ·) = 0 on Σ_τ0,
+[[lem:stage-system]] and every choice of [[lem:stage-data]] (φ_m = 0 and (m_m)_(τ·) = 0 on Σ_τ0,
 ∂_θ ĝ_(m+1) given by an O(4)-equivariant right inverse, and the unique solutions of the linear problems there) is the
 unique solution of a problem that S maps to itself. So each unknown is S-invariant, given that the earlier ones are:
 the transformed unknowns solve the same problem and coincide with the originals by uniqueness. At j = 1 this is the
 uniqueness of stage 1, whose unknowns (m1, φ1, ĝ2) solve a system that S maps to itself; it gives J* m1 = −m1 and,
 through L0 φ1 = −½ m1(ℓ, ℓ) with zero data, J* φ1 = −φ1.
 
-The rewriting with the fixed phase ([[pending:sec-fixed-phase]]) commutes with S. There the profiles g_j are the
+The rewriting with the fixed phase (in the proof of [[thm:approximant]]) commutes with S. There the profiles g_j are the
 coefficients of Ĝ(X, θ; λ) := G(X, θ + φ1 + λΨ; λ), Ψ := Σ_(j≥2) λ^(j−2) φ_j. For the transformed unknowns φ̃1 = −J*
 φ1 and λ Ψ̃(λ) = −J*((−λ) Ψ(−λ)), and G̃(X, θ′; λ) = J* G(X, 3π/2 − θ′; −λ), so
 
@@ -333,7 +333,7 @@ reflection θ ↦ 3π/2 − θ preserves, gives J* ⟨g_j⟩ = (−1)^j ⟨g_j�
 
 *Proof of [[prop:mean-mass]].* *Outside the shell.* The oscillating profiles (W, χ, the ĝ_m and the phase terms of the
 fixed-phase rewriting) vanish outside v_start < v < v_end: each solves a transport along ℓ, at fixed v, whose forcing
-and data are supported there ([[pending:lem-stage-system]], [[pending:lem-stage-data]] (i)), the wave being
+and data are supported there ([[lem:stage-system]], and step (i) of the proof of [[lem:stage-data]]), the wave being
 proportional to env. So for v outside that interval g_app = g0 + λ m1 + λ² E, with E bounded with its derivatives, and
 
     M[S_(v,r)](g_λ) = M[S_(v,r)](g0) + λ DM[m1] + O(λ²) + O(|w| + |∂w|),
