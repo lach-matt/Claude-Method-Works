@@ -1,0 +1,33 @@
+label	source	source_name	note
+ch:setting	paper/RESPONSE-HL-5D.md:150-259; docket68/n1star/N1STAR-PROOF.md:70-141, 196-228	P section 2; NP 0.1-0.3, section 1	
+sec:class	paper/RESPONSE-HL-5D.md:152-176	P 2.1	G = O(2)xO(2) defined here (from P 8.4)
+eq:class-metric	paper/RESPONSE-HL-5D.md:158	P (2.1)	
+lem:warped-ricci	-	new	hand derivation replacing the computed identity behind P Prop 2.1 (response5 R1)
+lem:conformal	-	new	standard conformal-change formula, derived
+prop:reduction	paper/RESPONSE-HL-5D.md:161-176	P Proposition 2.1	proof written out; "replacing 3/2 by 1 fails" and the second check (kn_gauge) dropped
+eq:reduced	paper/RESPONSE-HL-5D.md:170	P (2.2)	
+sec:background	paper/RESPONSE-HL-5D.md:178-200; docket68/n1star/N1STAR-PROOF.md:72-91	P 2.2; NP 0.1	polar angle renamed ϑ
+eq:background	paper/RESPONSE-HL-5D.md:184	P (2.3)	inverse and determinant justified
+eq:vr-form	-	new	(v, r) form of g0
+lem:vr-curvature	-	new	Christoffel, Riemann, Ricci and Kretschmann of -f dv^2 + 2 dv dr + r^2 γ, derived (replaces response5 R2-R4, ks5 K1)
+eq:kretschmann-f	-	new	Kretschmann scalar written 𝒦 per the edition notation
+prop:vaidya	paper/RESPONSE-HL-5D.md:187-200; docket68/n1star/N1STAR-PROOF.md:84-91	P Proposition 2.2 with NP 0.1 (H0)	(a)-(e) as P, (f) is NP 0.1 H0 (ks5 K5); every item proved by hand
+eq:commutator	paper/RESPONSE-HL-5D.md:195	P (2.4) = NP (0.1)	derived by hand (replaces ks5 K3)
+sec:domain	paper/RESPONSE-HL-5D.md:202-215; docket68/n1star/N1STAR-PROOF.md:196-228	P 2.3; NP section 1	
+eq:dt	paper/RESPONSE-HL-5D.md:207	P (2.5)	
+eq:omega	docket68/n1star/N1STAR-PROOF.md:204	NP (1.1)	
+lem:domain	docket68/n1star/N1STAR-PROOF.md:209-228	NP Lemma 1.1	amended bracket in (e) folded in place
+sec:gauge	paper/RESPONSE-HL-5D.md:243-259; docket68/n1star/N1STAR-PROOF.md:93-108	P 2.5; NP 0.2	[CBCM10] (2.7)-(2.9) p.8 quoted, black box
+eq:gauge	paper/RESPONSE-HL-5D.md:247-250	P (2.7) = NP (0.2)	
+sec:profiles	docket68/n1star/N1STAR-PROOF.md:110-141	NP 0.3	brackets D623/D625/D627 folded
+eq:scaled-norm	docket68/n1star/N1STAR-PROOF.md:114	NP (0.3)	
+lem:eigen	docket68/n1star/N1STAR-PROOF.md:120-126	NP 0.3 (eigenvalues, Lemma 1.1 (e) margin)	eigenvalues derived (replaces eps1hyp5 H1-H4, lzerotrace5 T6); numerical-point values pending computational-1
+lem:lorentz-margin	docket68/n1star/N1STAR-PROOF.md:127-136	NP 0.3 (Weyl bound) as corrected D625/D627	second claim given a proof (replaces eps1hyp5 H5-H6)
+sec:waves	paper/RESPONSE-HL-5D.md:217-241	P 2.4	remark on the programs' name for ζ dropped
+eq:waves	paper/RESPONSE-HL-5D.md:228-230	P (2.5′)	
+lem:waves	paper/RESPONSE-HL-5D.md:221-230	P 2.4 (traceless, transverse, amplitude r^(-3/2), smooth at both axes)	Cartesian form and proofs new (replaces ansatz5 A3)
+lem:mean-leading	-	new	θ-mean of the λ^0 coefficient of Ric^H (replaces lead5 L2)
+eq:mean-leading	-	new	
+prop:limit	paper/RESPONSE-HL-5D.md:232-241	P Proposition 2.3	proved by hand; Bondi-variable remark (hf_theorem5 F3) kept with pending computational-2
+eq:wave-energy	paper/RESPONSE-HL-5D.md:283-284	P Theorem 1 item 4 phase mean (support3 D2)	derived
+eq:mu-rate	paper/RESPONSE-HL-5D.md:236	P (2.6)	

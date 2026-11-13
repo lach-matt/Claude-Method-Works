@@ -584,7 +584,7 @@ future causal curves), so this is (√(−ψ_+ψ′_+))² · 2(−𝖧τ̃) ≥ 
 Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b) lies in Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b) and
 
     ‖u‖_((𝗌′;k),(2γ_I,γ_+,γ_cf))
-        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf))).               {#eq:ii-f-7-2}
+        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf))).       {#eq:ii-f-7-2}
 
 Here P^ε_+ := χ_0(τ/ε) N_ι + (1 − χ_0(τ/ε)) P_+, with χ_0 ∈ C_c^∞([0, 2)) equal to 1 on [0, 1]. This is [Hin26c,
 (10.54)–(10.55)] in dimension 4 + 1.
@@ -649,7 +649,8 @@ C^∞_b-seminorms O(δ_1). Fix δ_1 with C·Cδ_1 ≤ 1/2 in [[eq:ii-f-7-3]]. Fo
 δ_1⁻¹], with constants independent of ε: the support of 1 − χ_0(τ/δ_1) lies in {t_* ≤ δ_1⁻¹}, where ψ_T = 1 and u is the
 finite-time solution by uniqueness. Hence, for u in the space of [[lem:ii-f-7-7]] and ε < δ_1/2,
 
-    ‖u‖_(Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b)) ≤ C ‖P^ε_+ u‖_(Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b)),            {#eq:ii-f-7-4}
+    ‖u‖_(Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b))
+        ≤ C ‖P^ε_+ u‖_(Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b)),                                   {#eq:ii-f-7-4}
 
 C independent of ε ([Hin26c, (10.58)]); the absorbed term is finite because [[lem:ii-f-7-7]] places u in the space of
 order 𝗌′.

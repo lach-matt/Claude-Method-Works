@@ -460,7 +460,7 @@ of phase space, let φ_ε(ϱ) := (1 + εϱ⁻¹)^(−κ), ε ∈ (0, 1], and θ_
 
 For any vector field V,
 
-    V(φ_ε²) = 2κ θ_ε (ϱ⁻¹Vϱ) φ_ε²,     V(ϱ^(−a)φ_ε²) = −(a − 2κθ_ε)(ϱ⁻¹Vϱ) ϱ^(−a)φ_ε².                       {#eq:i-a-3-6}
+    V(φ_ε²) = 2κ θ_ε (ϱ⁻¹Vϱ) φ_ε²,     V(ϱ^(−a)φ_ε²) = −(a − 2κθ_ε)(ϱ⁻¹Vϱ) ϱ^(−a)φ_ε².                    {#eq:i-a-3-6}
 
 Indeed φ_ε² = ϱ^(2κ)(ϱ + ε)^(−2κ), so V log φ_ε² = 2κ(1 − ϱ(ϱ + ε)⁻¹)ϱ⁻¹Vϱ = 2κθ_εϱ⁻¹Vϱ. The same formula shows that
 φ_ε is bounded in S⁰ (in ϱ), lies in S^(−κ) for each ε > 0, and tends to 1 in S^δ for every δ > 0, and that θ_ε is

@@ -7,14 +7,16 @@ D = 0 to high order ([[sec:data-approximant]]). The remaining error is removed e
 outward in r, as a parabolic–hyperbolic system, from a sphere inside the shell where the approximant's data are the
 seed's exactly ([[sec:data-evolution]]). The data then coincide with the seed's on Σ ∩ {r < v_start − τ0}.
 
-Notation is that of [[ch:uniform-existence]]. In addition, the ansatz G = ḡ + λ W + Σ_(j=2)^(N+1) λ^j ĝ_j with the mean
-metric ḡ = g0 + Σ_(j=1)^(N) λ^j m_j, the phase u = v + Σ_(j=1)^(N) λ^j φ_j, the approximant g_app = G(X, u/λ), the
-two-scale operator R_u with its orders ℛ^(m), and the coefficients e_j = 2 ℓ·∂φ_j − m_j(ℓ, ℓ) − q_j of ḡ⁻¹(du, du) =
-Σ_(j≥1) λ^j e_j are those of [[pending:ansatz]]; stage 0, the wave W = W_TT + χ dv dv with W(ℓ, ·) = 0 and tr_g0 W = 0,
-is that of [[pending:stage-zero]]; where each unknown first enters the expansion is [[pending:orders]]; the stage
-equations (a)–(c), each a linear hyperbolic system solved without loss, are [[pending:stages]]; and the passage from
-G(X, u/λ) to the fixed-phase form [[eq:ue-gapp]], with ℛ^(m) = 0 for m ≤ N − 1, is [[pending:fixed-phase]]. The leading
-wave W_TT has no dv and no dr component and is traceless on the spheres {τ, r = const} [[pending:waves]].
+Notation is that of [[ch:uniform-existence]]. In addition, the ansatz [[eq:ansatz]], G = ḡ + λ W + Σ_(j=2)^(N+1) λ^j ĝ_j
+with the mean metric ḡ = g0 + Σ_(j=1)^(N) λ^j m_j, the phase u = v + Σ_(j=1)^(N) λ^j φ_j and the approximant g_app =
+G(X, u/λ), the two-scale operator R_u of [[def:two-scale]] with the orders ℛ^(m) of the expansion R_u[G] = Σ_m λ^m
+ℛ^(m), and the coefficients e_j = 2 ℓ·dφ_j − m_j(ℓ, ℓ) − q_j of ḡ⁻¹(du, du) = Σ_(j≥1) λ^j e_j
+([[eq:eikonal-coefficients]]) are those of [[ch:approximant]]. Stage 0 is [[lem:stage-zero]]: the wave W = W_TT + χ dv
+dv has W(ℓ, ·) = 0 and tr_g0 W = 0, and χ vanishes on Σ_τ0 ([[eq:chi-transport]]). Where each unknown first enters the
+expansion is [[lem:first-entry]]; the stage equations (a)–(c), each a linear hyperbolic system solved without loss, are
+[[lem:stage-system]]; and the passage from G(X, u/λ) to the fixed-phase form [[eq:approximant]], with ℛ^(m) = 0 for m ≤
+N − 1, is the proof of [[thm:approximant]] ([[sec:approximant]]). The leading wave W_TT of [[eq:waves]] has no dv and no
+dr component and is traceless on the spheres {τ, r = const} ([[lem:waves]] (b)).
 
 ### The theorem {#sec:data-theorem}
 
@@ -31,8 +33,8 @@ For a Lorentzian g put E := Ric^H(g) and
 
     S(D)_mn := (1/2)(g_(mρ) ∇̂_n D^ρ + g_(nρ) ∇̂_m D^ρ),
 
-∇̂ the connection of g0, so that Ric(g) = E + S(D) by the definition of Ric^H [[pending:gauge]], and Gt(T) := T −
-(1/2)(tr_g T) g.
+∇̂ the connection of g0, so that Ric(g) = E + S(D) by the definition [[eq:gauge]] of Ric^H, and Gt(T) := T − (1/2)(tr_g
+T) g.
 
 (I1) The contracted Bianchi identity div_g Gt(Ric) = 0 reads
 
@@ -119,19 +121,19 @@ part of [[eq:data-bianchi]] is the transport
 ⟨D^(m)⟩ + ⟨M Z⟩ = 0 (M depends on θ, so M Z has a mean part, which the wave equation carries; the order-m equation does
 not depend on λ, so its wave operator is g0's). Every other term vanishes by the hypothesis or because it contains
 ℛ^(i), i ≤ m + 1 ≤ N − 1. The data are zero: ⟨D^(m)⟩ by (F1), ∂_τ ⟨D^(m)⟩ by (F2), Z by (F1) at order m + 1. This linear
-system for (⟨D^(m)⟩, Z) closes without loss exactly as the stage equations do ([[pending:stages]]: the mean in H^(s+1),
-Z in H^s; the energy inequality [[pending:energy-inequality]] and the transport estimate [[pending:transport-estimate]];
-the transport curves reach Σ inside Ω by property (d) of [[pending:domain]]), so ⟨D^(m)⟩ = 0 and Z = 0: the hypothesis
-at m + 1. Then D(g_app) = λ^(N−1) [D^(N−1)] + O(λ^N) with bounded profiles, and 2 G(g_app)(n, ·) = 2 Gt(E)(n, ·) + 2
-Gt(S(D))(n, ·) with S(D) of first order in D: the scaled norm of the second term is at most C λ⁻¹ λ^(N−1), and of the
-first at most C λ^(N−1), by (E3). ∎
+system for (⟨D^(m)⟩, Z) closes without loss exactly as the stage equations do ([[lem:stage-system]]: the mean in
+H^(s+1), Z in H^s; the energy inequality of [[lem:energy]] and the transport estimate of [[lem:transport]]; the
+transport curves reach Σ inside Ω by [[lem:domain]] (d)), so ⟨D^(m)⟩ = 0 and Z = 0: the hypothesis at m + 1. Then
+D(g_app) = λ^(N−1) [D^(N−1)] + O(λ^N) with bounded profiles, and 2 G(g_app)(n, ·) = 2 Gt(E)(n, ·) + 2 Gt(S(D))(n, ·)
+with S(D) of first order in D: the scaled norm of the second term is at most C λ⁻¹ λ^(N−1), and of the first at most C
+λ^(N−1), by (E3). ∎
 
 **Lemma {#lem:stage-data}** (The stage data.) For every N there are stage data for [[thm:approximant]] satisfying (F1)
 and (F2), all vanishing on Σ ∩ {r < v_start − τ0}. The stage data constructed in the proof are fixed by the seed, by N
 and by the slice Σ (on which they are posed: τ0 enters through the data on Σ, the phase (τ0 + r)/λ there and the region
 r < v_start − τ0); "the stage data of [[lem:stage-data]]" means these, and not any others with the stated properties.
 
-*Proof.* Stage 0: χ = 0 on Σ, as chosen in [[pending:stage-zero]]. Stage m = 1, …, N, everything of the earlier stages
+*Proof.* Stage 0: χ = 0 on Σ, as chosen in [[eq:chi-transport]]. Stage m = 1, …, N, everything of the earlier stages
 given: put φ_m = 0 and (m_m)_(τ ·) = 0 on Σ. Stage N's data are not needed for (F1) and (F2), but they are fixed here,
 so that every stage's data are smooth, invariant under T² and both reflections, and vanish on Σ ∩ {r < v_start − τ0}; at
 m = N step (iii) below runs inside [[thm:approximant]] of order N, since after stage N ℛ^(N) = −(1/2) e_(N+1) ∂_θ² W
@@ -145,9 +147,9 @@ part), ∂_τ (m_m)_(τ ·), and ĝ_(m+1).
 
 for symmetric 2-tensors Y, and Λ_m is algebraic: it collects the terms of the order-m oscillating part of D that are
 linear in m_m or in ∂φ_m (bilinear with ∂_θ W, such as m_m(ℓ, ·) contracted with ∂_θ W, ⟨m_m, ∂_θ W⟩ ℓ and ∂_θ W(grad
-φ_m, ·)), in which ∂_τ φ_m = −(1/2)(m_m(ℓ, ℓ) + q_m) by the stage equation (b) of [[pending:stages]] and the tangential
-derivatives of φ_m vanish. Pol is onto at every point. Indeed, fix a null vector k with dv(k) = g0(ℓ, k) = 1, put k♭ :=
-g0(k, ·), and fix a covector ξ with ξ(ℓ) = 0 and g0⁻¹(ξ, ξ) = 1. For a covector β put
+φ_m, ·)), in which ∂_τ φ_m = −(1/2)(m_m(ℓ, ℓ) + q_m) by the stage equation (b) of [[lem:stage-system]] and the
+tangential derivatives of φ_m vanish. Pol is onto at every point. Indeed, fix a null vector k with dv(k) = g0(ℓ, k) = 1,
+put k♭ := g0(k, ·), and fix a covector ξ with ξ(ℓ) = 0 and g0⁻¹(ξ, ξ) = 1. For a covector β put
 
     Y_β := β ⊗ k♭ + k♭ ⊗ β − β(ℓ) k♭ ⊗ k♭ − 2 β(k) ξ ⊗ ξ.
 
@@ -163,8 +165,8 @@ linearly in γ_m.
 
 (iii) First, every first derivative of D^(j), j < m, vanishes on Σ. Solve stage m with any data: D^(j), j ≤ m − 1, does
 not depend on the data of stage m, and ℛ^(i) = 0 for i ≤ m − 1 once stage m is solved (before it, ℛ^(m−1) = −(1/2) e_m
-∂_θ² W, and stage m imposes e_m = 0; [[pending:orders]], [[pending:stages]]). For m ≥ 3, [[lem:gauge-hierarchy]] with N
-:= m applies (its hypotheses, (F1) at orders 1, …, m − 1 and (F2) at orders 1, …, m − 2, were arranged at the earlier
+∂_θ² W, and stage m imposes e_m = 0; [[lem:first-entry]], [[lem:stage-system]]). For m ≥ 3, [[lem:gauge-hierarchy]] with
+N := m applies (its hypotheses, (F1) at orders 1, …, m − 1 and (F2) at orders 1, …, m − 2, were arranged at the earlier
 stages) and gives D^(j) = 0 on Ω for j ≤ m − 2 and ∂_θ D^(m−1) = 0; then the first derivatives of D^(m−1) on Σ vanish
 too: the tangential ones by (F1), the normal one of the mean by (F2) at order m − 1, and the oscillating part is zero.
 For m = 1, 2 the same holds directly: D^(0) = 0, and for m = 2 the order-0 transport, with ∂_θ D^(1) = 0 on Σ by (F1),
@@ -303,12 +305,12 @@ on the spheres, ρ would have the coefficient λ⁻¹ (1/(2 ν²)) [∂_θ² tr_
 W_AB] = 0, the rest being γ0's value plus O(λ). The coefficient of α in ρ contains, from −|A|² with A = (1/(2 ν_U))(∂_r
 Π − 𝓛_σ Π), the term ∂_α(−(ν²/ν_U²)|A|²) = |A|²/ν² at α = 0, and the oscillating part of A is (1/(2 ν)) [∂_θ W_AB], so
 that |A|²/ν² has the oscillating part (1/(4 ν⁴)) |[∂_θ W]|²_(Π0) − (its θ-mean), and the θ-mean (1/(4 ν⁴)) ⟨|∂_θ
-W|²_(Π0)⟩, positive where the waves do not vanish. (|∂_θ W|² is not constant in θ: by the form of W_TT [[pending:waves]]
-it is a positive multiple of c⁴ sin²θ + s⁴ cos²θ + c²s² sin θ cos θ, with c = cos ϑ and s = sin ϑ, a quadratic form in
-(sin θ, cos θ) that is not a multiple of sin²θ + cos²θ.) The other terms of the coefficient quadratic in the oscillation
-come from ∂_r H̃ in ∂_(e_r) H, whose quadratic part (1/2) ∂_r Π^(AB) ∂_r Π_AB + (1/2) Π^(AB) ∂_r² Π_AB ⊃ −(1/2) |[∂_θ
-W]|² − (1/2) [W^(AB) ∂_θ² W_AB] has θ-mean zero, and from H², which has no oscillating part of order one; the κ-terms
-carry κ̃(γ⁻¹dr, ·) and tr κ̃, and κ̃_rA = 0, while tr_(Π0) κ̃_AB = 0 and κ̃_rr vanishes with χ on Σ. In J_A = 2(…), the
+W|²_(Π0)⟩, positive where the waves do not vanish. (|∂_θ W|² is not constant in θ: by the form [[eq:waves]] of W_TT it
+is a positive multiple of c⁴ sin²θ + s⁴ cos²θ + c²s² sin θ cos θ, with c = cos ϑ and s = sin ϑ, a quadratic form in (sin
+θ, cos θ) that is not a multiple of sin²θ + cos²θ.) The other terms of the coefficient quadratic in the oscillation come
+from ∂_r H̃ in ∂_(e_r) H, whose quadratic part (1/2) ∂_r Π^(AB) ∂_r Π_AB + (1/2) Π^(AB) ∂_r² Π_AB ⊃ −(1/2) |[∂_θ W]|² −
+(1/2) [W^(AB) ∂_θ² W_AB] has θ-mean zero, and from H², which has no oscillating part of order one; the κ-terms carry
+κ̃(γ⁻¹dr, ·) and tr κ̃, and κ̃_rA = 0, while tr_(Π0) κ̃_AB = 0 and κ̃_rr vanishes with χ on Σ. In J_A = 2(…), the
 connection of γ_U gives −γ^(jk) Γ(γ_U)^B_(jk) κ_AB ⊃ (1/2) γ^(rr) Π^(BC) κ_AB ∂_C α, from γ^(jk) Γ(γ_U)^B_(jk) ⊃ −(1/2)
 γ^(rr) Π^(BC) ∂_C α, while the other terms with ∂_C α carry κ(γ⁻¹dr, γ⁻¹dr) δ_A^C or κ_Ar, whose oscillating parts are
 multiples of δ_A^C or zero; the oscillating part γ^(rr) Π^(BC) κ̃_AB is not a multiple of δ_A^C, W_TT being traceless,
@@ -474,8 +476,8 @@ dr + dr ⊗ q, and ∂_τ of the lapse and shift fixed by D(g) = 0 (as in [[sec:
 Then the constraints hold exactly ([[prop:exact-correction]]), D = 0, and, by [[eq:data-constraint-gauge]], ∂_τ D = 0 on
 Σ for the solution of Ric^H = 0 with these data.
 
-For w := g − g_app on Σ: here g_app is G(X, u/λ), while (E4) is stated for its fixed-phase form [[eq:ue-gapp]]; the two
-differ by O(λ^(N+1)) in scaled norms ([[pending:fixed-phase]]), within C λ^K since N + 1 > K. The spatial part of w and
+For w := g − g_app on Σ: here g_app is G(X, u/λ), while (E4) is stated for its fixed-phase form [[eq:approximant]]; the
+two differ by O(λ^(N+1)) in scaled norms ([[sec:approximant]]), within C λ^K since N + 1 > K. The spatial part of w and
 ∂_τ of it are U and combinations of U and its tangential derivatives, and ∂_τ w_(τ ·) solves the linear relation D(g) −
 D(g_app) = −D(g_app) = O(λ^(N−1)) with invertible coefficient. So, each derivative costing at most λ⁻¹, Data(w) ≤ C λ⁻¹
 λ^(N−2) = C λ^K: (E4). The data are smooth ([[prop:exact-correction]]) and invariant under T² and both reflections: the
@@ -494,9 +496,9 @@ profiles and C_R, C_D, and not on λ.
 *Item 5, the gauge and uniqueness.* D := D(g_λ) satisfies B_g[D] = −div_g Gt(Ric^H(g_λ)) = 0 by [[eq:data-bianchi]], a
 homogeneous linear wave system: −(1/2) g^(ab) ∂_a ∂_b D = f with f linear in (D, ∂D) with bounded coefficients. On Σ, D
 = 0 by the choice of the gauge's data and ∂_τ D = 0 by [[eq:data-constraint-gauge]], since the constraints hold. The
-energy inequality [[pending:energy-inequality]] for g̃ = g_λ (|g_λ − g0| ≤ C λ ≤ ε1, |∂g_λ| ≤ C) gives ‖∂D(τ)‖ + ‖D(τ)‖
-≤ C ∫_(τ0)^(τ) (‖D‖ + ‖∂D‖), and Gronwall's lemma gives D = 0 on Ω. The uniqueness of g_λ among C² solutions of Ric^H(g)
-= 0 on Ω with these data and |g − g0| ≤ ε1 is that of [[thm:uniform-existence]].
+energy inequality of [[lem:energy]] for g̃ = g_λ (|g_λ − g0| ≤ C λ ≤ ε1, |∂g_λ| ≤ C) gives ‖∂D(τ)‖ + ‖D(τ)‖ ≤ C
+∫_(τ0)^(τ) (‖D‖ + ‖∂D‖), and Gronwall's lemma gives D = 0 on Ω. The uniqueness of g_λ among C² solutions of Ric^H(g) = 0
+on Ω with these data and |g − g0| ≤ ε1 is that of [[thm:uniform-existence]].
 
 *Item 1, vacuum and symmetry.* Ric(g_λ) = Ric^H(g_λ) + S(D(g_λ)) = 0, since D(g_λ) = 0. Let ι be one of the isometries
 of g0 generated by the T² action and the two reflections; it fixes g0, preserves Ω (defined by τ, |x| and v), and acts
@@ -509,29 +511,19 @@ equal the seed's data on r < v_start − τ0, and differ from those of g_app by 
 leading oscillation of g_app is the waves.
 
 *Item 3, the remainder.* g_λ = g_app + w with |w| ≤ C λ^(K−3) and |∂w| ≤ C λ^(K−4) on Ω, by [[thm:uniform-existence]],
-with g_app = g0 + λ [g1] + Σ_(j=2)^(N) λ^j [g_j] as in [[eq:ue-gapp]].
+with g_app = g0 + λ [g1] + Σ_(j=2)^(N) λ^j [g_j] as in [[eq:approximant]].
 
 *Item 4, convergence.* By [[thm:uniform-existence]], |g_λ − g0| ≤ C λ and |∂g_λ| ≤ C on Ω, and ∂g_λ − ∂g0 = ∂(λ [g1]) +
 O(λ) = dv ⊗ [∂_θ g1] + O(λ). For a smooth profile f with ⟨f⟩ = 0, [f] → 0 weakly in L²(Ω): with Φ_f the zero-mean
 θ-antiderivative of f, ∂_τ [Φ_f] = λ⁻¹ [f] + [∂_τ Φ_f] since ∂_τ v = 1, so for a test function ψ, ∫ ψ [f] = −λ ∫ (∂_τ ψ)
 [Φ_f] − λ ∫ ψ [∂_τ Φ_f] → 0, and the bound ‖[f]‖_(L²) ≤ C extends this to every ψ ∈ L²(Ω). As ⟨∂_θ g1⟩ = 0, ∂g_λ → ∂g0
 weakly in L²(Ω). The convergence is not strong wherever env ≠ 0. Applying the same fact to f² − ⟨f²⟩ with ψ the
-indicator of a set B gives ‖dv ⊗ [∂_θ g1]‖²_(L²(B)) → ∫_B ⟨|dv ⊗ ∂_θ g1|²⟩, which is positive when ∂_θ g1 ≠ 0 on B; and
-the phase mean of the g0-norm squared of ∂_θ g1 is (4/3) A² env² r⁻³. To see this, write the oscillating part of g1 as
-W(X, θ + φ1) with W = W_TT + χ dv dv. The g0-norm squared of χ dv dv is χ² (g0⁻¹(dv, dv))² = 0, and its g0-product with
-W_TT is χ W_TT(ℓ, ℓ) = 0; so |∂_θ g1|²_(g0) = |∂_θ W_TT|²_(g0). W_TT has angular components only, and g0 restricted to
-the spheres is r² dΩ², so in the orthonormal coframe (dϑ, cos ϑ dφ1, sin ϑ dφ2) of dΩ², with c = cos ϑ and s = sin ϑ,
-the components of λ W_TT are 2 r^(1/2) (−(p1 + p2), p1, p2) on the diagonal [[pending:waves]], and
+indicator of a set B gives ‖dv ⊗ [∂_θ g1]‖²_(L²(B)) → ∫_B ⟨|dv ⊗ ∂_θ g1|²⟩, which is positive when ∂_θ g1 ≠ 0 on B. The
+oscillating part of g1 is W(X, θ + φ1) with W = W_TT + χ dv dv ([[thm:approximant]]), so by [[prop:limit]] the phase
+mean of the g0-norm squared of ∂_θ g1 is ⟨|∂_θ g1|²_(g0)⟩ = (4/3) A² env² r⁻³ ([[eq:wave-energy]]); where env ≠ 0 this
+is positive, so ∂_θ g1 ≠ 0 there. The limit g0 satisfies Ric(g0) = (3 μ′/(2 r³)) dv ⊗ dv ([[prop:vaidya]] (a)): it is
+not vacuum but Einstein–null dust with one family.
 
-    |∂_θ W_TT|²_(g0) = r⁻⁴ (4 r/λ²) ((∂_θ p1)² + (∂_θ p2)² + (∂_θ p1 + ∂_θ p2)²).
-
-With F = λ A env h sin θ and G = λ A env h cos θ at the phase θ, p1 = (2c² G − s² F)/3 and p2 = (2s² F − c² G)/3, so ∂_θ
-p1 = −(λ A env h/3)(2c² sin θ + s² cos θ), ∂_θ p2 = (λ A env h/3)(2s² cos θ + c² sin θ) and ∂_θ p1 + ∂_θ p2 = (λ A env
-h/3)(s² cos θ − c² sin θ). The θ-means of their squares are (λ A env h/3)²/2 times 4c⁴ + s⁴, 4s⁴ + c⁴ and c⁴ + s⁴, whose
-sum is 6(c⁴ + s⁴). So the mean of |∂_θ W_TT|²_(g0) is r⁻⁴ (4 r/λ²)(λ A env h)² (c⁴ + s⁴)/3 = (4/3) A² env² r⁻³, by h²
-(c⁴ + s⁴) = 1 [[pending:waves]]. Where env ≠ 0 this is positive, so ∂_θ g1 ≠ 0 there. The limit g0 satisfies Ric(g0) =
-(3 μ′/(2 r³)) dv ⊗ dv [[pending:background]]: it is not vacuum but Einstein–null dust with one family.
-
-Finally, D_T ∩ {τ ≥ τ0} lies in Ω (property (f) of [[pending:domain]]). No derivative is lost: the bootstrap of
+Finally, D_T ∩ {τ ≥ τ0} lies in Ω ([[lem:domain]] (f)). No derivative is lost: the bootstrap of
 [[thm:uniform-existence]] closes at the fixed order k. The formulation is regular across the axes, the unknowns being
 Cartesian arrays on R⁴, and the background is the large metric g0 itself. ∎
