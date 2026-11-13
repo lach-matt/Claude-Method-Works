@@ -201,24 +201,24 @@ definitions,
 as A′ = −r_h/(2r³) − 1/(2r(r + r_h)) and, for the first, r³A = rr_h/4 + (r³/(2r_h))(log(r + r_h) − log r) and
 r³fB = r(r² − r_h²)B = 𝔑(r)/(4r_h). The derivative of the first identity is (r − r_h)/2 + r_h²/(2(r + r_h)) =
 r²/(2(r + r_h)). So U has φ = −1/(2r(r + r_h)) and q = r_h/2 + r²/(2(r + r_h)), and W** has φ = 0, q = v + r_h/2.
-[[eq:gd-r2-9]] gives (□W**)_v = r⁻³ and (□W**)_r = 0. Next, tr_g K = g^(vv)r⁻² = 0, so Θ(K)_ν = −∇^μ(r⁻²ℓ_μℓ_ν)
-with ℓ := dv, ℓ^♯ = ∂_r. ∇^μ(r⁻²ℓ_μ) = r⁻³∂_r(r³r⁻²) = r⁻³, and ∇_(∂_r)dv = 0, as Γ^v_(rν) = g^(vσ)Γ_(σ,rν) =
-Γ_(r,rν) = 0 (in the chart the only nonzero lowered symbols of the orbit metric are Γ_(r,vv) = f′/2 and
-Γ_(v,vr) = −f′/2, and those mixing the factors have an angular index). So Θ(K) = −r⁻³dv. By [[eq:gd-0-1]] and
-[[eq:hg-box]], Θ(K_V) = Θ(K) + □V^♭, so □W**_H = −Θ(K) − □V^♭ = −Θ(K_V).
+[[eq:gd-r2-9]] gives (□W**)_v = r⁻³ and (□W**)_r = 0. Next, tr_g K̄ = g^(vv)r⁻² = 0, so
+Υ̇⁰(K̄)_ν = ∇^μ(r⁻²(dv)_μ(dv)_ν), where (dv)^♯ = ∂_r. ∇^μ(r⁻²(dv)_μ) = r⁻³∂_r(r³r⁻²) = r⁻³, and ∇_(∂_r)dv = 0, as
+Γ^v_(rν) = g^(vσ)Γ_(σ,rν) = Γ_(r,rν) = 0 (in the chart the only nonzero lowered symbols of the orbit metric are
+Γ_(r,vv) = f′/2 and Γ_(v,vr) = −f′/2, and those mixing the factors have an angular index). So Υ̇⁰(K̄) = r⁻³dv. By
+[[eq:gd-0-1]] and [[eq:hg-box]], Υ̇⁰(K_V) = Υ̇⁰(K̄) − □V^♭, so □W**_H = Υ̇⁰(K̄) − □V^♭ = Υ̇⁰(K_V).
 
-(c) ℒ_Vg = ℒ_(V^♭)g, so K* = K + ℒ_Vg + ℒ_(W**)g − ℒ_(V^♭)g = K + ℒ_(W**)g. K and W** are smooth across the horizon
-(by (a)), so K* is. Θ(K*) = Θ(K) + □W** = 0 by (b). W** is spherically symmetric, so δm[ℒ_(W**)g] = 0 and δm[K*] =
-δm[K] = 1 ([[lem:gd-1-4]] (a)). With ℒ_(cX)g = cℒ_Xg + 2dc ⊗_s X, ℒ_((v/2)W*)g = (v/2)ℒ_(W*)g + dv ⊗_s W*, which
+(c) ℒ_Vg = ℒ_(V^♭)g, so K* = K̄ + ℒ_Vg + ℒ_(W**)g − ℒ_(V^♭)g = K̄ + ℒ_(W**)g. K̄ and W** are smooth across the
+horizon (by (a)), so K* is. Υ̇⁰(K*) = Υ̇⁰(K̄) − □W** = 0 by (b). W** is spherically symmetric, so δm[ℒ_(W**)g] = 0 and
+δm[K*] = δm[K̄] = 1 ([[lem:gd-1-4]] (a)). With ℒ_(cX)g = cℒ_Xg + 2dc ⊗_s X, ℒ_((v/2)W*)g = (v/2)ℒ_(W*)g + dv ⊗_s W*, which
 gives [[eq:np-10-2-k]]; its right side has stationary coefficients, smooth across the horizon. W* is not a multiple of
 (∂_v)^♭, so by [[lem:gd-1-4]] (c) it is not Killing, and ℒ_(W*)g ≠ 0.
 
 (d) □(cvW* + U) = c[□, v]W* + cv□W* + □U = c[□, v]W* + □U, a stationary 1-form. By [[lem:iii-d1-2-1]] (1),
-ℓ(□U) = 0, and by the proof of [[lem:iii-d1-3-1]] (1), ℓ([□, v]W*) = 4π². ℓ(−Θ(K)) = ℓ(r⁻³dv) = r_h³ · r_h⁻³ · 2π² =
+ℓ(□U) = 0, and by the proof of [[lem:iii-d1-3-1]] (1), ℓ([□, v]W*) = 4π². ℓ(Υ̇⁰(K̄)) = ℓ(r⁻³dv) = r_h³ · r_h⁻³ · 2π² =
 2π². So 4π²c = 2π². ∎
 
 By (d), among the gauge vectors cvW* + U with U stationary and smooth at the horizon, only c = ½ solves
-□W = −Θ(K): the coefficient ½ of W** is the one that regularity at the horizon allows.
+□W = Υ̇⁰(K̄): the coefficient ½ of W** is the one that regularity at the horizon allows.
 
 ### The horizon charge {#sec:hg-charge}
 

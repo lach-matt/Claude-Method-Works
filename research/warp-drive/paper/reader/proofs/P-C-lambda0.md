@@ -15,10 +15,13 @@ V = v_end + T = 9/2, and μ' = (2/9) A² env² ([[eq:mu-rate]]).
 
 (b) μ_end = 227/192 and 1.042752 < μ_end^(1/4) < 1.042753;
 
-(c) v − r_q(v) increases in v, so τ_end = V − q_end with q_end := q0 μ_end^(1/4) ∈ (0.5627915, 0.5627922);
+(c) q_end := q0 μ_end^(1/4), the value of r_q at v = V, lies in (0.5627915, 0.5627922), and
+V − q_end ≤ τ_end ≤ V − q0;
 
 (d) m* := sup_Ω μ/r² equals μ_end/a² = (227/48) q0⁻², lies in (16.23497014, 16.23497021), and is attained at the
-corner τ = τ_end, r = a of Ω.
+corner τ = τ_end, r = a of Ω;
+
+(e) v − r_q(v) increases in v, so τ_end = V − q_end.
 
 *Proof.* (a) q0 = (√72 μ0 l5²)^(1/4) gives q0⁸ = 72/10⁴ = 9/1250 = 0.0072. Three squarings give
 0.539717577⁸ < 0.0072 < 0.539717578⁸, and a = q0/2. Then μ0/a² = 4/q0² > 4/0.539717578² > 13.73.
@@ -26,13 +29,17 @@ corner τ = τ_end, r = a of Ω.
 (b) μ_end = μ0 + (2/9) A² ∫ env² = 1 + (2/9)(105/128) = 227/192 by [[lem:envelope-constant]] (a), and
 1.042752⁴ < 227/192 < 1.042753⁴.
 
-(c) r_q(v) = q0 μ(v)^(1/4), so r_q' = (q0/4) μ^(−3/4) μ' ≤ (q0/4)(2/9) c_e² < 0.06, using μ ≥ 1 and
-env ≤ c_e < 1.33 ([[lem:envelope-constant]]). So v − r_q(v) increases, its maximum over v ≤ V is at v = V, where
-μ = μ_end, and τ_end = V − q_end. The bounds on q_end are the products of those in (a) and (b).
+(c) r_q(v) = q0 μ(v)^(1/4), as μ0 = 1, and μ(V) = μ_end since V > 7/2, so r_q(V) = q_end; the bounds on q_end are
+the products of those in (a) and (b). As τ_end is the maximum of v − r_q(v) over v ≤ V, τ_end ≥ V − q_end. As
+μ ≥ μ0 = 1, r_q ≥ q0, so v − r_q(v) ≤ V − q0 for v ≤ V, and τ_end ≤ V − q0.
 
-(d) On Ω, μ ≤ μ_end and r ≥ a, so μ/r² ≤ μ_end/a² = (227/192)(4/q0²). The corner τ = τ_end, r = a lies in Ω, since
-v + τ − τ_end = τ_end + a < V + 1; there v = τ_end + a = 9/2 − q_end + a > 4.2 > v_end, so μ = μ_end. The bounds
-follow from (a): (227/48)/0.539717578² > 16.23497014 and (227/48)/0.539717577² < 16.23497021. ∎
+(d) On Ω, μ ≤ μ_end and r ≥ a, so μ/r² ≤ μ_end/a² = (227/192)(4/q0²). The corner τ = τ_end, r = a lies in Ω: by (c),
+τ0 = −2 < V − q_end ≤ τ_end, and there v + τ − τ_end = v = τ_end + a ≤ V − q0 + a < V + 1. At the corner, by (c) and
+(a), v = τ_end + a ≥ 9/2 − q_end + a > 4.2 > v_end, so μ = μ_end. The bounds follow from (a):
+(227/48)/0.539717578² > 16.23497014 and (227/48)/0.539717577² < 16.23497021.
+
+(e) r_q' = (q0/4) μ^(−3/4) μ' ≤ (q0/4)(2/9) c_e² < 0.06, using μ ≥ 1 and env ≤ c_e < 1.33
+([[lem:envelope-constant]]). So v − r_q(v) increases, its maximum over v ≤ V is at v = V, and τ_end = V − q_end. ∎
 
 ### The envelope and its constant {#sec:envelope-constant}
 
