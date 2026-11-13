@@ -41,7 +41,7 @@ e_s := (R sin ϑ)⁻¹∂_(φ2), e_c := (R cos ϑ)⁻¹∂_(φ1).
 
 *The constraints.* For data (γ, K) on a four-dimensional slice put
 
-    Φ(γ, K) := (ℋ, ℳ),      ℋ := Scal(γ) + (tr K)² − |K|²,      ℳ_i := D_j K^j_i − D_i tr K,            {#eq:loc-constraints}
+    Φ(γ, K) := (ℋ, ℳ),      ℋ := Scal(γ) + (tr K)² − |K|²,      ℳ_i := D_j K^j_i − D_i tr K,  {#eq:loc-constraints}
 
 D the connection of γ. For data induced on a spacelike hypersurface by a Lorentzian metric g, with future unit normal n
 and K(X, Y) = g(∇_X n, Y), the Gauss and Codazzi equations give ℋ = 2Ein(n, n) and ℳ_i = Ein(n, e_i), Ein the
@@ -61,7 +61,7 @@ future unit normal is n = (N/q)(∂_v̂ + (qf − 1)∂_R), with n_♭ = −N(dv
 trace on the spheres K^l_l := 3Y0 are
 
     κ = −N_κ/(q (2 − qf) √(2/q − f)),      K^l_l = 3(qf − 1)/(qR √(2/q − f)),
-    N_κ := q²f²ψ_R + ½ q²f f_R − 3qfψ_R − ½ q f_v̂ − (3/2) q f_R − ψ_v̂ + ψ_R.                               {#eq:racz-kappa}
+    N_κ := q²f²ψ_R + ½ q²f f_R − 3qfψ_R − ½ q f_v̂ − (3/2) q f_R − ψ_v̂ + ψ_R.  {#eq:racz-kappa}
 
 So K^l_l < 0 where qf < 1, and there κK^l_l < 0 exactly where N_κ < 0.
 
@@ -168,7 +168,7 @@ Einstein–null-dust system ([[thm:class-stability]]), and the angular widening 
 
 In the double-null gauge of the class,
 
-    g = −2Ω² (du ⊗ dv + dv ⊗ du) + γ_ϑ (dϑ − b du)² + e^(2A_c) dφ1² + e^(2A_s) dφ2²,                    {#eq:loc-double-null}
+    g = −2Ω² (du ⊗ dv + dv ⊗ du) + γ_ϑ (dϑ − b du)² + e^(2A_c) dφ1² + e^(2A_s) dφ2²,  {#eq:loc-double-null}
 
 with Ω, γ_ϑ, b, A_c, A_s functions of (u, v, ϑ), the cone 𝒞 := {u = u_c} is ruled by the null generators ∂_v. Put
 λ_1 := ½ ln γ_ϑ, λ_2 := A_c, λ_3 := A_s.
@@ -176,7 +176,7 @@ with Ω, γ_ϑ, b, A_c, A_s functions of (u, v, ϑ), the cone 𝒞 := {u = u_c} 
 **Lemma {#lem:loc-cone-equations}** (The constraints on a cone.) On 𝒞,
 
     Ric(∂_v, ∂_v) = Σ_(i=1)^3 (−∂_v²λ_i − (∂_vλ_i)² + 2 ∂_v ln Ω ∂_vλ_i),
-    Ric(∂_v, ∂_ϑ) = (γ_ϑ/(4Ω²)) (∂_v²b + ∂_v ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) ∂_v b) + r,                     {#eq:loc-cone}
+    Ric(∂_v, ∂_ϑ) = (γ_ϑ/(4Ω²)) (∂_v²b + ∂_v ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) ∂_v b) + r,  {#eq:loc-cone}
 
 where r is a polynomial in the first and mixed derivatives ∂_v, ∂_ϑ, ∂_v∂_ϑ of ln Ω, λ_1, λ_2, λ_3. Neither contains a
 u-derivative, and b enters only through ∂_v b and ∂_v² b.
@@ -204,10 +204,10 @@ smallness is used for the localisation; for small perturbations e^ϕ stays posit
 
     y″ − 2(ln Ω)′ y′ + (1/3)(Σ_i (ℓ_i′)² + T(∂_v, ∂_v)) y = 0,
 
-a linear ordinary differential equation along each generator whose coefficients at the angle ϑ are the free data at
-ϑ. With the background's corner values it has a unique solution, positive near v = 0. The second line of
-[[eq:loc-cone]] is then a linear first-order equation for ∂_v b along each generator, with the nonzero leading
-coefficient γ_ϑ/(4Ω²) and coefficients and source built from the data and their ϑ-derivatives at ϑ. On a generator
+a linear ordinary differential equation along each generator whose coefficients at the angle ϑ are the free data at ϑ.
+With the background's corner values it has a unique solution, positive near v = 0. The second line of [[eq:loc-cone]] is
+then a linear first-order equation for ∂_v b along each generator, with the nonzero leading coefficient γ_ϑ/(4Ω²) and
+with the other coefficients and the inhomogeneous term built from the data and their ϑ-derivatives at ϑ. On a generator
 with ϑ ∉ [ϑ_a, ϑ_b] all free data agree with the background's on a neighbourhood of ϑ, so the coefficients of both
 equations are the background's there, and with the same initial values at the corner sphere both solutions are the
 background's by uniqueness. ∎
@@ -230,17 +230,16 @@ as in [[eq:racz-kid]]. For every smooth variation δ = (δγ, δK) of the data w
 
 *Proof.* (a) By the Gauss and Codazzi equations ([[eq:loc-constraints]]), Nℋ + 2Y^iℳ_i = 2N Ein(ñ, ñ) + 2Ein(Y, ñ).
 
-(b) Let (t, x) be Gaussian normal coordinates of g0 near supp δ, g0 = −dt² + γ_t, defined on (−t_0, t_0) × U′ with
-supp δ ⊂ U′ and U′ in the vacuum region. Put h := χ(t)(δγ + 2t δK) in these coordinates (h_tt = h_ti = 0), with χ
-smooth, compactly supported in (−t_0, t_0), χ = 1 near 0. Then g0 + εh has, on Σ_τ0, the lapse 1, the normal ∂_t
-and the data (γ + εδγ, K + εδK), so the data's first variation is δ. Since Ein(g0) = 0 near supp h, the
-first variation of the constraints is DΦ[δ] = (2Ein¹[h](n, n), Ein¹[h](n, ·)), Ein¹[h] the linearised Einstein tensor,
-because the variation of the normal enters multiplied by Ein(g0). By (a), N_sDℋ[δ] + 2Y_s·Dℳ[δ] = 2Ein¹[h](ξ, n). The
-vector field J^a := Ein¹[h]^(ab) ξ_b is compactly supported, and ∇_aJ^a = (∇_a Ein¹[h]^(ab)) ξ_b + Ein¹[h]^(ab)∇_(a ξ_b)
-= 0: the first term vanishes by the linearised contracted Bianchi identity at a vacuum metric, obtained by
-differentiating ∇^(g0+εh)_a Ein(g0 + εh)^(ab) = 0 at ε = 0, and the second because ξ is Killing. By the divergence
-theorem on [0, t_1] × U′, supp χ ⊂ (−t_1, t_1), t_1 < t_0, the flux of J through Σ_τ0 equals that through {t = t_1}, which
-is 0.
+(b) Let (t, x) be Gaussian normal coordinates of g0 near supp δ, g0 = −dt² + γ_t, defined on (−t_0, t_0) × U′ with supp δ
+⊂ U′ and U′ in the vacuum region. Put h := χ(t)(δγ + 2t δK) in these coordinates (h_tt = h_ti = 0), with χ smooth,
+compactly supported in (−t_0, t_0), χ = 1 near 0. Then g0 + εh has, on Σ_τ0, the lapse 1, the normal ∂_t and the data (γ
++ εδγ, K + εδK), so the data's first variation is δ. Since Ein(g0) = 0 near supp h, the first variation of the
+constraints is DΦ[δ] = (2Ein¹[h](n, n), Ein¹[h](n, ·)), Ein¹[h] the linearised Einstein tensor, because the variation of
+the normal enters multiplied by Ein(g0). By (a), N_sDℋ[δ] + 2Y_s·Dℳ[δ] = 2Ein¹[h](ξ, n). The vector field J^a :=
+Ein¹[h]^(ab) ξ_b is compactly supported, and ∇_aJ^a = (∇_a Ein¹[h]^(ab)) ξ_b + Ein¹[h]^(ab)∇_(a ξ_b) = 0: the first term
+vanishes by the linearised contracted Bianchi identity at a vacuum metric, obtained by differentiating ∇^(g0+εh)_a Ein(g0
++ εh)^(ab) = 0 at ε = 0, and the second because ξ is Killing. By the divergence theorem on [0, t_1] × U′, supp χ ⊂ (−t_1,
+t_1), t_1 < t_0, the flux of J through Σ_τ0 equals that through {t = t_1}, which is 0.
 
 (c) In the Tangherlini chart of [[lem:racz-split-formulas]] (d), let X = X^v∂_v + X^R∂_R + X^ϑ∂_ϑ + X^1∂_(φ1) +
 X^2∂_(φ2) be an invariant Killing field; its components do not depend on φ1, φ2. The reflection φ_i ↦ −φ_i changes
@@ -283,8 +282,8 @@ c_ε satisfies the vacuum constraints exactly and equals the background's data o
 Vacuum data have Φ(D_ε) = 0.
 
 (b) Apply [[thm:std-cd-compact]] on the closure M of a band U′ ⋐ U containing supp δ, with x a defining function of
-∂M, at the data bg + εδ, which are close to the background's, with the source (δJ, δρ) := −(J, ρ)(bg + εδ). This
-source is O(ε²), since DΦ[δ] = 0, and supported in U′. The theorem gives a correction c_ε of the form
+∂M, at the data bg + εδ, which are close to the background's, with the right side (δJ, δρ) := −(J, ρ)(bg + εδ). This
+right side is O(ε²), since DΦ[δ] = 0, and supported in U′. The theorem gives a correction c_ε of the form
 x^(2s−n)Φ²P*(Y, N), close to zero and extending smoothly by zero across ∂M, such that the projection of
 x^(−2s+n)(J, ρ)(bg + εδ + c_ε) onto the orthogonal complement of the space 𝒦0 of Killing initial data of the
 background on M vanishes. The problem is invariant under the isometries T² × Z2 × Z2 and the solution near zero is
@@ -308,7 +307,7 @@ the other components vanishing. Put c := −(κ0 + 2Y0)/(3Y0), β := −κ0/(3Y0
 
     Dℋ[δ] = 2(3Y0 κ + (κ0 + 2Y0) Kt),
     √G Dℳ[δ](e_R) = −∂_R Kt + (3κ − Kt)/R + (√G/R)(1/sc) ∂_ϑ(sc p̂),
-    R Dℳ[δ](e_ϑ) = (1/(√G R³)) ∂_R(R⁴ p̂) − (2/3)∂_ϑ Kt − ∂_ϑκ + ∂_ϑ s1 + (cot ϑ − 2 tan ϑ) s1 − s2/sc,       {#eq:loc-dm}
+    R Dℳ[δ](e_ϑ) = (1/(√G R³)) ∂_R(R⁴ p̂) − (2/3)∂_ϑ Kt − ∂_ϑκ + ∂_ϑ s1 + (cot ϑ − 2 tan ϑ) s1 − s2/sc,  {#eq:loc-dm}
 
 and the other components of Dℳ[δ] vanish. So δ is a momentum seed exactly when κ = c Kt,
 ∂_R Kt = a Kt + (√G/R)(1/sc)∂_ϑ(sc p̂), and
@@ -327,15 +326,15 @@ the combination −(2/3)∂_ϑKt − ∂_ϑκ is −β∂_ϑKt. ∎
 let N > 0 be a function of R, and for a momentum seed δ supported in U put
 
     Q_N(δ) := ∫_U N((tr δK)² − |δK|²) dvol,      ν := N √G R³,      E := e^(∫a dR),
-    P := 8νE²R/G − (2νER/√G)′ RE/√G,      Γ := 4νE² − P′,                                                {#eq:charge-identity-defs}
+    P := 8νE²R/G − (2νER/√G)′ RE/√G,      Γ := 4νE² − P′,  {#eq:charge-identity-defs}
 
 ′ = d/dR. Then there is a function η(R, ϑ), compactly supported in R, with
 
-    Kt = E ∂_ϑη/sc,      p̂ = (R/√G) E ∂_Rη/sc,      η = O(sc²),   ∂_ϑη = O(sc),                           {#eq:charge-stream}
+    Kt = E ∂_ϑη/sc,      p̂ = (R/√G) E ∂_Rη/sc,      η = O(sc²),   ∂_ϑη = O(sc),  {#eq:charge-stream}
 
 and, with Z := s2 + s1/2 and X := ∂_ϑη − (3/2)(cos 2ϑ/sc) η,
 
-    Q_N(δ) = −(2π)² ∫∫ [ 2ν sc (Z − Eη/(2sc²))² + (3/2) ν sc (s1 − 2EX/(3sc))² + Γ η²/sin 2ϑ ] dϑ dR.     {#eq:charge-identity}
+    Q_N(δ) = −(2π)² ∫∫ [ 2ν sc (Z − Eη/(2sc²))² + (3/2) ν sc (s1 − 2EX/(3sc))² + Γ η²/sin 2ϑ ] dϑ dR.  {#eq:charge-identity}
 
 For N = N_s, Q_N(δ) = Q(δ).
 
@@ -357,7 +356,7 @@ and Q_(N_s) = Q by [[eq:loc-charge]].
 𝔡 of [[eq:charge-identity]] (with its sign). Then, pointwise,
 
     𝔮 = 𝔡 + ∂_ϑ 𝔄 + ∂_R 𝔅,
-    𝔄 := 2νβE² η ∂_ϑη/sc − 2νE η s1 − νE² (cos 2ϑ/sc²) η²,      𝔅 := −(P/2) η²/sc − 2νE² (R²/G) η ∂_Rη/sc.     {#eq:charge-flux}
+    𝔄 := 2νβE² η ∂_ϑη/sc − 2νE η s1 − νE² (cos 2ϑ/sc²) η²,      𝔅 := −(P/2) η²/sc − 2νE² (R²/G) η ∂_Rη/sc.  {#eq:charge-flux}
 
 This is an identity between polynomials in η, s1 and their derivatives, with coefficients in R and ϑ, and it is
 checked by expanding both sides, using E′ = aE, a = −3(1 − β)/R and the definitions of P and Γ, with ν, G and β
@@ -422,7 +421,7 @@ satisfies the dominant energy condition. Since ℓ_out^♭ = −(q²f/2) dv̂ + 
 
 which has the sign of f. Fix a dust density d1 ≥ 0 supported in U ∩ {f < 0} with ∫T1(ξ, n) dvol < 0 and put s* :=
 Q(δ)/(2∫T1(ξ, n) dvol) > 0. Solve, as in [[prop:loc-projection]] (b), for data bg + εδ + c whose constraints equal
-ε²s times those of the dust of density d1 (the matter source computed with the unit normal of the unknown data, which
+ε²s times those of the dust of density d1 (the matter term computed with the unit normal of the unknown data, which
 depends smoothly on them and is O(ε²)) up to the static Killing initial data, for s ∈ [0, 2s*] [[pending:issue-1]].
 Pairing as in (a), the coefficient of the Killing data has the sign of m(ε, s) = ε²(Q(δ) − 2s∫T1(ξ, n)) + O(ε³),
 uniformly in s and continuous in s. Then m(ε, 0) < 0 < m(ε, 2s*) for ε small, and m(ε, s(ε)) = 0 for some s(ε): exact
@@ -469,7 +468,7 @@ component of its normal, T a transverse trace-free class eigentensor, Δ̂T = �
 (iii) with ξ(H) := N_sΠ + Y_s^R ∂_RH, |dH|² := −Π² + (∂_RH)²/G and g(ξ, n) = −N_s,
 
     Q(δ) = −2(2π)²|T|² ∫ T_m(ξ, n) √G dR,
-    T_m(ξ, n) := R³ (ξ(H) Π − ½ g(ξ, n) |dH|²) − ½ g(ξ, n)(k_T² + 2) R H²;                              {#eq:loc-tensor-charge}
+    T_m(ξ, n) := R³ (ξ(H) Π − ½ g(ξ, n) |dH|²) − ½ g(ξ, n)(k_T² + 2) R H²;  {#eq:loc-tensor-charge}
 
 (iv) T_m's quadratic form in (Π, ∂_RH) is R³ [[N_s/2, Y_s^R/2], [Y_s^R/2, N_s/(2G)]], of determinant R⁶ f/(4G):
 positive definite exactly where f > 0.
@@ -514,12 +513,12 @@ and which meets {f < 0}. Then:
 (b) for every small ε > 0 there are exact invariant vacuum data on Σ_τ0, equal to the background's outside a compact
 subset of U, of the form bg + εδ_ε + O(ε²) with δ_ε a non-gauge seed; δ_ε tends to a nonzero tensor seed as ε → 0.
 
-*Proof.* Let T := T_0 of [[lem:loc-harmonics]] (c) and I ⊂ U ∩ {f < 0} an interval. (a) [[lem:loc-tensor-sign]] (c)
-gives Q > 0 and (b) gives Q < 0. A gauge seed has a vanishing transverse trace-free part: its data are the variation
-of (γ, K0) along a vector field Z = N_Z n + X_Z, (2N_Z K0 + L_(X_Z)γ, L_(X_Z)K0 + D²N_Z + N_Z 𝔯) with 𝔯 a round
-tensor built from Ric(γ) and K0, and for invariant Z the angular trace-free parts of these are (D̂D̂ − (1/3)γ̂Δ̂) of scalars, the class
-1-forms being exact ([[lem:loc-harmonics]] (a)), and so orthogonal to T. A seed of [[thm:loc-tensor]] with (H, Π) ≠ 0
-has a nonzero transverse trace-free part, so it is non-gauge.
+*Proof.* Let T := T_0 of [[lem:loc-harmonics]] (c) and I ⊂ U ∩ {f < 0} an interval. (a) [[lem:loc-tensor-sign]] (c) gives
+Q > 0 and (b) gives Q < 0. A gauge seed has a vanishing transverse trace-free part: its data are the variation of (γ, K0)
+along a vector field Z = N_Z n + X_Z, (2N_Z K0 + L_(X_Z)γ, L_(X_Z)K0 + D²N_Z + N_Z 𝔯) with 𝔯 a round tensor built from
+Ric(γ) and K0, and for invariant Z the angular trace-free parts of these are (D̂D̂ − (1/3)γ̂Δ̂) of scalars, the class
+1-forms being exact ([[lem:loc-harmonics]] (a)), and so orthogonal to T. A seed of [[thm:loc-tensor]] with (H, Π) ≠ 0 has
+a nonzero transverse trace-free part, so it is non-gauge.
 
 (b) Let H := H_ω of [[lem:loc-tensor-sign]] (c) with ω so large that the seed δ_1 with Π = −(Y_s^R/N_s)∂_RH has Q(δ_1)
 > 0, let Π_0 ≠ 0 be a bump in I, δ_0 the seed with (0, Π_0), and δ_s := (sH, −s(Y_s^R/N_s)∂_RH + (1 − s)Π_0) for s ∈
@@ -570,7 +569,7 @@ On a static slice, γ = dR²/f + R² dΩ₃², N_s = √f, K0 = 0 and Y_s = 0, D
 |k|²), the mixed terms carrying K0, and the linearised constraints decouple into DScal[h] = 0 and D^i(k_ij − tr k γ_ij)
 = 0. So Q = −𝔈_V(h) − 𝔈_K(k), with
 
-    𝔈_V(h) := −½ ∫ N_s D²Scal[h, h] dvol,      𝔈_K(k) := ∫ N_s (|k|² − (tr k)²) dvol.                       {#eq:loc-static-energies}
+    𝔈_V(h) := −½ ∫ N_s D²Scal[h, h] dvol,      𝔈_K(k) := ∫ N_s (|k|² − (tr k)²) dvol.  {#eq:loc-static-energies}
 
 **Lemma {#lem:loc-gauge-invariance}** (Gauge invariance.) For a vector field X and a function ψ_g of compact support,
 𝔈_V(h + L_Xγ) = 𝔈_V(h) when DScal[h] = 0, and 𝔈_K(k + k_ψ) = 𝔈_K(k) when D^i(k_ij − tr k γ_ij) = 0, where k_ψ :=
@@ -866,9 +865,9 @@ which are graded towards the ends of the packet. Put
 so that Ŝ and μ̃ are polynomials and λ̃ is a rational function on each segment, and μ̃3 := R̂(u2)² + 4R̂′(u2)Ŝ(u2) =
 0.82211255682735… (an explicit rational).
 
-**Proposition {#prop:bg-nprime}** (The data on 𝒞_in.) On each segment [a, b] of [[sec:tab-bg-nprime-chain]], |R − R̂| ≤ E₀
-and |R′ − R̂′| ≤ E₁ with E₀, E₁ of that row, and |S − Ŝ| ≤ I/2. In particular |R − R̂| ≤ 4.53 × 10⁻⁸, |R′ − R̂′| ≤ 9.20
-× 10⁻⁸ and |S − Ŝ| ≤ 1.82 × 10⁻⁸ on [u1, u2], and
+**Proposition {#prop:bg-nprime}** (The data on 𝒞_in.) On each segment [a, b] of [[sec:tab-bg-nprime-chain]], |R − R̂| ≤
+E₀ and |R′ − R̂′| ≤ E₁ with E₀, E₁ of that row, and |S − Ŝ| ≤ I/2. In particular |R − R̂| ≤ 4.53 × 10⁻⁸, |R′ − R̂′| ≤
+9.20 × 10⁻⁸ and |S − Ŝ| ≤ 1.82 × 10⁻⁸ on [u1, u2], and
 
 (i) R(u2) ∈ [1.5193579, 1.5193581] ⊂ [1.519357, 1.519359];
 
@@ -1149,8 +1148,8 @@ By [Rac16, (4.23)] a root ξ_n gives the root ξ_ρ = N̂^K ξ_K + N̂ ξ_n of t
 eigenvalue of B(ξ_S); and since N̂ ≠ 0 (n̂_i = N̂(dρ)_i is a unit covector) and N̂^K ξ_K are real, ξ_ρ is real exactly
 when ξ_n is. The leaves are three-dimensional, so we may choose ξ_S with k·ξ_S = 0. Then the discriminant is
 −4κK^l_l|ξ_S|² < 0, and the roots ξ_n = ±i|ξ_S|√(κK^l_l)/K^l_l are not real, so B(ξ_S) has an eigenvalue that is not
-real. If H were a common symmetrizer, symmetric positive definite with H B^(K) symmetric for every K, then H B(ξ_S) would be
-symmetric, so B(ξ_S) would be self-adjoint for the inner product (x, y) ↦ xᵀHy and its eigenvalues would be real. So
+real. If H were a common symmetrizer, symmetric positive definite with H B^(K) symmetric for every K, then H B(ξ_S) would
+be symmetric, so B(ξ_S) would be self-adjoint for the inner product (x, y) ↦ xᵀHy and its eigenvalues would be real. So
 the split has no common symmetrizer, and is not hyperbolic, where κK^l_l > 0.
 
 #### Enclosures and quadrature {#sec:margins-tools}
@@ -1335,13 +1334,13 @@ of [[lem:bg-rstar]], which encloses it in [3.43718006, 3.43718007].
 with R ≥ R_* between Σ′ and Σ_τ0 do.
 
 *Proof.* (a) In region I, ℬ = 0, so μ_u = 0 by (S1) and ψ_u = 0 by (S4). Thus μ is constant along ingoing rays, equal to
-its value on 𝒞_out, and ψ = 0, its value on 𝒞_out. With dv̂ = −(e^(2σ)/R_u) dv (which is ψ = 0) and du = (dR − R_v dv)/R_u, the
-quotient metric is −2e^(2σ) du dv = 2 dv̂ dR + 2e^(−2σ) R_u R_v dv̂², and 2e^(−2σ) R_u R_v = μ/R² − 1 by the definition
-of μ. On 𝒞_out, μ_v = −(2/3)𝒜 e^(−2σ) R_u ≥ 0 with 𝒜 = 0 outside (3, 4.5); the bound μ ≤ 3.6059 is
+its value on 𝒞_out, and ψ = 0, its value on 𝒞_out. With dv̂ = −(e^(2σ)/R_u) dv (which is ψ = 0) and du = (dR − R_v
+dv)/R_u, the quotient metric is −2e^(2σ) du dv = 2 dv̂ dR + 2e^(−2σ) R_u R_v dv̂², and 2e^(−2σ) R_u R_v = μ/R² − 1 by the
+definition of μ. On 𝒞_out, μ_v = −(2/3)𝒜 e^(−2σ) R_u ≥ 0 with 𝒜 = 0 outside (3, 4.5); the bound μ ≤ 3.6059 is
 [[lem:margins-shell-data]] (c) at v = 4.5.
 
-(b) For v̂ ≤ v̂(v = 3), μ = 3/2. The ray u = 5.7 starts on 𝒞_in, where v̂ = 0 and, by (S3) with ℬ = 0 for u ≤ 5.7, R = 5 −
-0.47 u, so R = 2.321. Outgoing null rays of [[eq:margins-vaidya]] satisfy dv̂/dR = 2/f, and F′(r) = 2r²/(r² − 3/2) is
+(b) For v̂ ≤ v̂(v = 3), μ = 3/2. The ray u = 5.7 starts on 𝒞_in, where v̂ = 0 and, by (S3) with ℬ = 0 for u ≤ 5.7, R = 5
+− 0.47 u, so R = 2.321. Outgoing null rays of [[eq:margins-vaidya]] satisfy dv̂/dR = 2/f, and F′(r) = 2r²/(r² − 3/2) is
 2/f for μ = 3/2; so v̂ = F(R) − F(2.321) on the ray. The values of τ_ray are direct evaluations, and τ_ray is increasing
 by (c) below. Finally v̂(v = 3) is v̂_0 of [[sec:table-shell]].
 
@@ -2188,8 +2187,8 @@ Along the cone 𝒞_out = {u = 0}, at v_k := 3 + k/80 (k = 0, …, 120), the tab
 b(v_k; 3, 4.5) with its first two derivatives (rounded to nine, eight and six decimals), and the numbers R_k, P_k, μ_k,
 v̂_k (rounded to eight decimals) that satisfy the scheme [[eq:margins-scheme]] of [[lem:margins-shell-data]] to within
 10⁻⁸ in each component, the residuals summing to at most 5 × 10⁻⁷ in each component. By that lemma the true radius, its
-v-derivative, the mass and the time v̂ on 𝒞_out at v_k are within 4 × 10⁻⁶, 6 × 10⁻⁷, 10⁻⁵ and 4 × 10⁻⁶ of R_k, P_k, μ_k and
-v̂_k. For k = 0 the values are exact: R_0 = 13/2, P_0 = 1/2, μ_0 = 3/2 and v̂_0 = 3 + √(3/2) ln[(13/2 − √(3/2))(5 +
+v-derivative, the mass and the time v̂ on 𝒞_out at v_k are within 4 × 10⁻⁶, 6 × 10⁻⁷, 10⁻⁵ and 4 × 10⁻⁶ of R_k, P_k, μ_k
+and v̂_k. For k = 0 the values are exact: R_0 = 13/2, P_0 = 1/2, μ_0 = 3/2 and v̂_0 = 3 + √(3/2) ln[(13/2 − √(3/2))(5 +
 √(3/2))/((13/2 + √(3/2))(5 − √(3/2)))].
 
 | k | v_k | 𝒜_k | 𝒜′_k | 𝒜″_k | R_k | P_k | μ_k | v̂_k |

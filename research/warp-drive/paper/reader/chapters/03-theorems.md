@@ -61,7 +61,7 @@ derivatives of env enter its bounds. The numerical point at which [[prop:lambda0
     env_C(v) := c β((2v − 4)/3),     β(y) := cos¹²(πy/2) exp(−y²/(1 − y²)) for |y| < 1,  β(y) := 0 for |y| ≥ 1,
 
 with c > 0 fixed by ∫ env_C² = 105/128, which is also ∫ sin⁸(π(v − 1/2)/3) dv over [1/2, 7/2]; then
-1.3240867 < c < 1.3240879.
+1.3240867 < c < 1.3240879 ([[lem:envelope-constant]] (b)).
 
 **Proposition {#prop:boundary-spacelike}** (the boundary). On x_K = 1, with Φ := r − r_q(v),
 

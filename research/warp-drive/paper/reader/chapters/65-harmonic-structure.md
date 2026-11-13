@@ -681,7 +681,7 @@ E^ΥG of it has ι⁺-order ϰ_♯ + 1 − η; Dϑ_tot(p⃗′) has min(3, ϰ_�
 two orders near (ι⁺)°, as ∂χ_K ∈ ρ_+C^∞ there ([[sec:iii-i4-1]]) and Cartesian derivatives map ρ_+^aC^∞ into
 ρ_+^(a+1)C^∞, and W**_H has order 1 on (ι⁺)°, as |rA|, |rB| and |r∂_mT_m| are bounded and r(v/2)|W*| ≤ C t_*r⁻¹ is
 bounded there; so [□, χ_K]W**_H has order 3. Every one of these exceeds b_+ + 2 = β + 5/2. *K⁺.* On {χ_K = 1}, w − η > ½;
- supp dχ_K and {χ_K < 1} stay away from K⁺. *Support.* χ(t^♭_*)F_Y vanishes on {t^♭_* < 2}. ∎
+supp dχ_K and {χ_K < 1} stay away from K⁺. *Support.* χ(t^♭_*)F_Y vanishes on {t^♭_* < 2}. ∎
 
 Without the term ṁ□(χ_KW**_H) the forcing term near K⁺ would be J_h + ṁΥ̇⁰(K_V), and Υ̇⁰(K_V) = r⁻³dv near the
 horizon is stationary and nonzero, of K⁺-order 0, below the ½ of the space. That is why the mass change is carried
@@ -710,22 +710,23 @@ a horizon charge, χ′ the cone cut-off of [[sec:hg-source]].
 G-invariant, and □ commutes with the action of G; so σ_*Y is again a forward solution of □Y = χ(t^♭_*)F_Y, and
 σ_*Y = Y by the uniqueness of forward solutions ([[thm:ii-f1-1-1]]). Hence Z and ġ_H are G-invariant.
 
-(ii) By the definition of F_Y, Θ(ġ_H) = Θ(ġ) + ṁ□(χ_KW**_H) + χ(t^♭_*)F_Y = (1 − χ(t^♭_*))(Θ(ġ) + ṁ□(χ_KW**_H)),
-and χ_K = 0 where χ(t^♭_*) < 1. There N⁺ ∩ {t^♭_* < 3} lies in 𝒟′ ([[sec:viii-0]]: T̂ + 7/4 ≥ 15/4 and Ω_* ∪ 𝒟 = N,
-[[lem:s29-g-on-n]]), where Υ̇^♮(ġ) = 0 ([[thm:viii-2-2]] (5), with S′ = 0); and the argument of [[lem:gd-r2-10]]
-with χ^♮_0E_Υ in place of E_Υ gives Υ̇^♮ = −Θ − χ^♮_0E^ΥG. So Θ(ġ) = −χ^♮_0E^ΥGġ there. χ^♮_0 = 0 near Σ°
-([[lem:iii-k-1-1]] (d)).
+(ii) By [[eq:hg-box]] and the definition of F_Y, Υ̇⁰(ġ_H) = Υ̇⁰(ġ) − ṁ□(χ_KW**_H) − χ(t^♭_*)F_Y =
+(1 − χ(t^♭_*))(Υ̇⁰(ġ) − ṁ□(χ_KW**_H)), and χ_K = 0 where χ(t^♭_*) < 1. There N⁺ ∩ {t^♭_* < 3} lies in 𝒟′
+([[sec:viii-0]]: T̂ + 7/4 ≥ 15/4, and N⁺ ⊂ N_ν = Ω_* ∪ 𝒟, [[lem:s29-g-on-n]]). On 𝒟′, Υ̇^♮(ġ) = 0 by
+[[thm:viii-2-2]] (5), as S′ = S⁰′ = 0 in the class ([[cor:viii-2-3]]), so that ġ_(S′) = ġ⁰_(S⁰′) = 0; and the
+argument of [[lem:gd-r2-10]] with χ^♮_0E_Υ in place of E_Υ gives Υ̇^♮ = Υ̇⁰ − χ^♮_0E^ΥG. So Υ̇⁰(ġ) = χ^♮_0E^ΥGġ
+there. χ^♮_0 = 0 near Σ° ([[lem:iii-k-1-1]] (d)).
 
 (iii) *Cone localisation.* supp χ′ ⊂ {t^♭_* ≥ T_K} ∩ {χ_K = 1}, so χ(t^♭_*) = 1 and F_Y = J_h there, and χ′Y is the
 forward solution of □(χ′Y) = χ′J_h + [□, χ′]Y. The first term lies in the class of [[thm:gd-r2-5]] with
 α_sf + 2 = β, by [[prop:gd-r3-2]] and [[lem:gd-r2-11]] (ι⁺-order ϰ_♯ + 1 − η > β + 5/2, K⁺-order above ½). The second
 is supported in supp dχ′, a compact set together with the cone {T_1 ≤ t_*, t_*/40 ≤ r ≤ t_*/20} in (ι⁺)°; there
-Y ∈ H^(k,(α_I,α_+,−1))_b by [[thm:ii-f1-1-1]] (ℵ = 1, sf-loss 0), and [□, χ′] = (□_0χ′) − 2∇_(∇χ′) ∈ ρ_+²Diff¹_b
-on the cone, χ′ being homogeneous of degree 0 for t_* ≥ 2T_1; so the second term has sf-weight α_+ + 2 = β, the class
+Y ∈ H^(k,(b_I−2,α_+,−1))_b by [[thm:ii-f1-1-1]] (ℵ = 1, sf-loss 0; its ℐ⁺-weight is b_I − 2 by [[eq:ii-f1-1-6]]),
+and [□, χ′] = (□_0χ′) − 2∇_(∇χ′) ∈ ρ_+²Diff¹_b on the cone, χ′ being homogeneous of degree 0 for t_* ≥ 2T_1; so the second term has sf-weight α_+ + 2 = β, the class
 of [[thm:gd-r2-5]] (b-regularity gives every 3b-order on the cone, as in the proof of [[lem:gd-r2-11]]).
 [[thm:gd-r2-7]] gives |χ′Y − c(t_*)W*| ≤ Ct_*^(−1/2) with one more derivative, c(t_*) := (4π²)⁻¹∫^(v_h(t_*))ℓ of the
 forcing term. For t_* ≥ max(2T_1, 40r_h), χ′ = 1 on compact r-sets near the horizon and dχ′ = 0 there, so the
-integrand is ℓ(J_h) = −ℓ(Θ(h)), which is O(v^(−w+ε′)) ([[thm:gd-2-3]]); so c(t_*) → c_∞, with c − c_∞ and dc/dt_*
+integrand is ℓ(J_h) = ℓ(Υ̇⁰(h)), which is O(v^(−w+ε′)) ([[thm:gd-2-3]]); so c(t_*) → c_∞, with c − c_∞ and dc/dt_*
 of order t_*^(−(w−1)+ε′) and t_*^(−w+ε′). *The conclusion.* On compact r-sets at late times, Y = χ′Y and χ_K = 1, so
 ġ_H = ṁK_V + h + ṁℒ_(W**_H)g + ℒ_Yg = ṁK* + h + ℒ_Yg, and with ℒ_(cW*)g = cℒ_(W*)g + 2dc ⊗_s W*,
 
@@ -745,15 +746,15 @@ F_Y extended across Σ° as in the proof of [[prop:gd-2-1]] (a); unique by [[lem
 N⁺ ∩ {2 ≤ t^♭_* ≤ 3}. Then with Z := ṁχ_KW**_H + Z_1, ġ_H := ġ + ℒ_Zg is in harmonic gauge on all of N⁺, induces
 (γ̇, k̇) exactly, and satisfies [[thm:gd-r3-4]] (iii) with Z_1 in place of Y.
 
-*Proof.* □Z = ṁ□(χ_KW**_H) + F_Y = −Θ(ġ) on N⁺, so Θ(ġ_H) = 0. Z_1 = 0 and ∇_nZ_1 = 0 on Σ°, so ℒ_(Z_1)g induces
+*Proof.* □Z = ṁ□(χ_KW**_H) + F_Y = Υ̇⁰(ġ) on N⁺, so Υ̇⁰(ġ_H) = Υ̇⁰(ġ) − □Z = 0. Z_1 = 0 and ∇_nZ_1 = 0 on Σ°, so ℒ_(Z_1)g induces
 zero data ([[lem:ix-2-1]] (f)), and χ_K = 0 near Σ°; so ġ_H induces the data of ġ. χ(t^♭_*)Z_1 and the forward
 solution of □u = χ(t^♭_*)F_Y + [□, χ(t^♭_*)]Z_1 on Ω_* are smooth, vanish on {t^♭_* < 2} and solve the same
 equation; each {t^♭_* ≤ T} is closed under past causal curves (dt^♭_* is past timelike, [[sec:iii-k-0]]), so they
 agree there for every T ([[lem:ii-f-1-3]]). The first term is that of [[lem:gd-r3-5]]. The second is supported in
 {2 ≤ t^♭_* ≤ 3}, bounded in t_*, and meets ∂M only at ℐ⁺. Near ℐ⁺, t^♭_* = t_*(1 − (t_*/r)^(1/2)) ([[lem:ii-c-3-2]]
-(a) with ℓ = ½), smooth in x_I and equal to t_* at ℐ⁺, and [□, χ(t^♭_*)] = (□_0χ(t^♭_*)) − 2χ′(t^♭_*)∇_(∇t^♭_*)
-gains one order at ℐ⁺: in the coordinates (t_*, r, ω) on a bounded t_*-range, g⁻¹ = ḡ⁻¹ + O(r⁻²) with
-ḡ⁻¹(dt_*, ·) = −∂_r ([[lem:iii-d-2-1]] (3) and its proof), dt^♭_* = (1 − (3/2)(t_*/r)^(1/2))dt_* + O(r^(−3/2))dr, the
+(a), with the exponent ½), smooth in x_I and equal to t_* at ℐ⁺, and, with dχ/ds the derivative of χ,
+[□, χ(t^♭_*)] = (□_0χ(t^♭_*)) − 2(dχ/ds)(t^♭_*)∇_(∇t^♭_*) gains one order at ℐ⁺: in the coordinates (t_*, r, ω) on a
+bounded t_*-range, g⁻¹ = ḡ⁻¹ + O(r⁻²) with ḡ⁻¹(dt_*, ·) = −∂_r ([[lem:iii-d-2-1]] (3) and its proof), dt^♭_* = (1 − (3/2)(t_*/r)^(1/2))dt_* + O(r^(−3/2))dr, the
 connection coefficients in the Cartesian frame are O(r⁻¹), and □_0t^♭_* = O(r⁻¹); so for Z_1 = O(ρ_I^p), whose
 r∂_r- and ∂_(t_*)-derivatives are O(ρ_I^p), the commutator term is O(ρ_I^(p+1)) with its b-derivatives. Choosing
 b_I ∈ (b_+, min(p, 3/2)) in [[lem:gd-r3-5]], it lies in the space there. So χ(t^♭_*)Z_1 is the forward solution of a
