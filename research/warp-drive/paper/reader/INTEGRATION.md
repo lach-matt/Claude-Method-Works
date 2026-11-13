@@ -997,3 +997,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   Open: lem:rb-horizon-exponents cites content inside the proof of lem:iii-f2-1-1 (chapter 34) — reader A to settle.
   INTEGRATION CHECK: label keys must be lowercase — sec:tb-morawetz-mM in the proofs files, eq:bondi-calS at
   02-setting.md:568; lint.py should reject uppercase keys. Two readers running on chapter 70.
+- Ch 65 fix (F-65): all 8 minors and 15 nits; Θ → −Υ̇⁰ of sec:ix-0 at 64 sites with signs redone; ġ_(p⃗′), S′ = S⁰′ =
+  0 at three sites; heuristic paragraph a labelled remark (rem:gd-r4-bounds); thm:gd-r5-1 step 5 proved; ι, ϰ declared;
+  chapter 64 renames applied. Outside: 66:32 needs K̄ (chapter 66's fix round); chapters 36, 40, 42 print λ_♯ and the
+  row λ (rename to ϰ at integration); the compact part 𝒦 of chapters 46/48 clashes with the Kretschmann 𝒦 (integration
+  rename). Confirming reader running.
