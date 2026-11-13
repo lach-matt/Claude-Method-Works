@@ -865,3 +865,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   TO THE USER: the source's singular-value bounds were rounded the wrong way. Citation of formulas inside chapter 30
   proofs: allowed as "the formula [[eq:...]] in the proof of [[lem:...]]" when labelled; unlabelled ones restated in
   chapter 70. Re-merge of proof B running (also crosswalk rows for the seven new labels).
+- Proof D2-D4 reading (R-P-D234): NOT CONFIRMED 1M 3m 8n, mathematics right. Every row of both tables and the 1,160
+  field constants recomputed exactly; the closed-form residual matches a direct 5D Ricci computation; 2.4143e-3 ≤
+  2.42e-3, 3.728e-5 ≤ 3.73e-5, B* 2.978e-4 ≤ 2.99e-4, B2 ≤ 4.912e-4 hold. Major: the 1.3e-7 widths and five named
+  intervals (and the lower bounds 2.414 / 2.387 / 2.347 / 1.095e-3) are printed nowhere. Minors: headers say "smallest
+  integer" (tables used a larger centre radius; 1,231 point and 30,853 box rows would be smaller by the text's rule);
+  enclosure order leaves cosh/tanh, ϑ, R⁴, 1/Ω² open; R > 0 cited to a lemma that assumes it. Fix running.

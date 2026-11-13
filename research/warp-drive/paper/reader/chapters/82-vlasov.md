@@ -355,3 +355,171 @@ in [−0.6, 0.6], the Schur formula of [[lem:vlasov-separation]] agreed with sho
 |Q_j|/(ν_B1 ν_B2) ≥ 359/216; with two radial covectors added and labels at angle at least η from them (label–radial
 symbols at least 1/5), every combination with |j|₁ ≤ 4 had |Q_j|/(ν_B1 ν_B2) ≥ 35612/609961, above the bound 4/50765
 of [[eq:vlasov-hierarchy]]. No proof uses these values.
+
+### Torus-polarised waves and the orbit space {#sec:vlasov-polarisation}
+
+A wave of a non-radial family cannot be the wave W_TT of [[sec:waves]], which is adapted to radial phases. We take
+it on the torus.
+
+**Definition {#def:vlasov-torus-wave}** (Torus-polarised waves.) Let u be an invariant phase and ξ1, ξ2 invariant
+functions. The *torus wave* of amplitudes (ξ1, ξ2) changes a class metric [[eq:vlasov-class]] by
+
+    ψ_i ↦ ψ_i0 + λ ξ_i cos θ,      θ := u/λ,      g3 unchanged,
+
+so that (g5)_(φiφi) = e^(2ψ_i0) e^(2λ ξ_i cos θ). It is *torus-polarised* if ξ2 = −ξ1 =: −ξ: it oscillates only in
+ψ2 − ψ1, so that ψ is unchanged and ω ↦ ω − λ ξ cos θ.
+
+**Lemma {#lem:vlasov-torus-ricci}** (Torus waves in the field equations.) In the setting of [[def:vlasov-torus-wave]] put
+Ξ := ξ1 + ξ2, ψ0 := ψ10 + ψ20 and E_i := −R_(ii)/(g5)_(φiφi). In the two-scale expansion in λ:
+
+(a) the coefficient of λ⁻¹ in Ric(g5)_(ab) is Ξ cos θ ∂_a u ∂_b u, and Ric(g5)_(aφi) = Ric(g5)_(φ1φ2) = 0;
+
+(b) the coefficient of λ⁻¹ in E_i is −ξ_i |du|² cos θ;
+
+(c) the coefficient of sin θ in the part of order λ⁰ of E_i is −(2⟨dξ_i, du⟩ + ξ_i(□3 u + ⟨du, dψ0⟩) + Ξ ⟨dψ_i0, du⟩);
+
+(d) the terms of order λ⁰ quadratic in the oscillation have mean −½(ξ1² + ξ2²) du ⊗ du in Ric(g5)_(ab), and, for u
+null, mean zero in E_i.
+
+Hence, for u null and ξ2 = −ξ1, the whole part of order λ⁻¹ of Ric(g5) vanishes with g3 unperturbed. If the
+coefficients (c) vanish for i = 1, 2, as the vacuum equations at order λ⁰ require, their sum is the homogeneous
+transport
+
+    2 ℓ(Ξ) + Ξ (□5 u + ℓ(ψ0)) = 0,      ℓ := g3⁻¹du,                                            {#eq:vlasov-xi-transport}
+
+so Ξ = 0 on Σ_τ0 gives Ξ = 0 along every generator that reaches Σ_τ0: the torus polarisation is kept. The torus-polarised
+wave of amplitude ξ contributes the mean ξ² du ⊗ du to the mean metric's Ricci tensor, so it realises every density
+F² = ξ².
+
+*Proof.* By [[lem:warped-ricci]], with A = ψ1 and B = ψ2,
+
+    Ric(g5)_(ab) = Ric[g3]_(ab) − Σ_i (∇_a∇_b ψ_i + ∂_a ψ_i ∂_b ψ_i),      E_1 = □3 ψ1 + |dψ1|² + ⟨dψ1, dψ2⟩,
+
+E_2 likewise, and the mixed components vanish. With the two-scale derivative, ∂_a ψ_i = ∂_a ψ_i0 + λ ∂_a ξ_i cos θ −
+ξ_i sin θ ∂_a u. (a) Only ∇_a∇_b ψ_i has a term of order λ⁻¹, the fast derivative of −ξ_i sin θ ∂_a u, which is
+−λ⁻¹ ξ_i cos θ ∂_a u ∂_b u; so the coefficient is (ξ1 + ξ2) cos θ ∂_a u ∂_b u. (b) In □3 ψ_i the same term traced is
+−λ⁻¹ ξ_i cos θ |du|², and |dψ_i|², ⟨dψ1, dψ2⟩ are of order one. (c) In □3 ψ1 the terms of order λ⁰ in sin θ are
+∇^a(λ ∂_a ξ1 cos θ) ⊃ −sin θ ⟨dξ1, du⟩ and ∇^a(−ξ1 sin θ ∂_a u) ⊃ −sin θ (⟨dξ1, du⟩ + ξ1 □3 u). In |dψ1|² they are
+−2 ξ1 sin θ ⟨dψ10, du⟩, and in ⟨dψ1, dψ2⟩ they are −sin θ (ξ2 ⟨dψ10, du⟩ + ξ1 ⟨dψ20, du⟩). The sum is
+−sin θ (2⟨dξ1, du⟩ + ξ1(□3 u + ⟨du, dψ0⟩) + Ξ ⟨dψ10, du⟩); E_2 is the same with the indices exchanged. (d) The fast
+parts of ∂_a ψ_i ∂_b ψ_i are ξ_i² sin²θ ∂_a u ∂_b u, of mean ½ ξ_i² ∂_a u ∂_b u; in E_i the quadratic fast terms are
+multiples of |du|². For the consequences: with u null and Ξ = 0, (a) and (b) vanish. Summing (c) over i gives
+−(2 ℓ(Ξ) + Ξ(□3 u + 2 ℓ(ψ0))), and □3 u + ℓ(ψ0) = □5 u up to O(λ) by [[eq:vlasov-box]], which is
+[[eq:vlasov-xi-transport]]; a linear homogeneous transport along ℓ keeps zero data. For ξ1 = −ξ2 = ξ the mean in (d) is
+−ξ² du ⊗ du, and the vacuum equation at order λ⁰, averaged, gives Ric of the mean metric equal to ξ² du ⊗ du. The other
+terms of order λ⁰ are linear in an oscillating profile or are θ-derivatives, so they have mean zero. ∎
+
+The constraints on Σ_τ0 need the same cancellation, now for a phase that is not radial on a slice that is not round.
+On Σ_τ0 write the data of a class metric as (γ, κ), the induced metric and the second fundamental form, and let
+Φ(γ, κ) := (ρ, J), ρ := R(γ) − |κ|² + (tr κ)², J := 2(−div κ + d tr κ), be the constraint map ([[eq:data-constraint-map]]).
+Let the data oscillate as
+
+    γ = γ0 + λ W(x, θ) + O(λ²),      κ = κ0 + κ1(x, θ) + O(λ),      θ = u/λ,      p := d(u|Σ_τ0) ≠ 0,
+
+with profiles 2π-periodic in θ, where O(λ²) and O(λ) stand for λ² and λ times profiles. Write W″ := ∂_θ² W and κ1′ :=
+∂_θ κ1, raise indices and take contractions with γ0, and put ⟨h, p ⊗ W″p⟩ := h^(ij) p_i W″_(jk) p^k.
+
+**Lemma {#lem:vlasov-constraint-coefficient}** (The constraints' coefficient of order λ⁻¹.) (a) For slow h and k, the
+coefficient of λ⁻¹ in the linearisation DΦ(γ, κ)[h, k] is
+
+    dρ⁽⁻¹⁾ = −2 ⟨h, p ⊗ W″p⟩ + h(p, p) tr W″ + |p|² ⟨h, W″⟩,
+    dJ_i⁽⁻¹⁾ = 2 (h^(jl) p_l κ1′_(ji) − p_i h^(jl) κ1′_(jl)).                                       {#eq:vlasov-constraint-coefficient}
+
+It is linear in (W, κ1) and does not involve k. With n families present at once, γ = γ0 + λ Σ_A W_A(x, θ_A) + λ²(…)
+and κ = κ0 + Σ_A κ1_A(x, θ_A) + λ(…), the coefficient of λ⁻¹ is the sum over A of [[eq:vlasov-constraint-coefficient]]
+for (W_A, κ1_A, p_A), and the second and mixed harmonics of order λ² in γ, of order λ in κ, enter at order λ⁰.
+
+(b) For torus-polarised waves, W_A = 2 ξ_A cos θ_A (e^(2ψ10) dφ1² − e^(2ψ20) dφ2²) and κ1_A = b_A sin θ_A (e^(2ψ10)
+dφ1² − e^(2ψ20) dφ2²), the part of order λ⁻¹ of Φ(γ + h, κ + k) vanishes for every slow h without torus components and
+every slow k. In particular the corrections of [[lem:constraints-evolution]], which change γ by multiples of dr ⊗ dr,
+meet no coefficient of order λ⁻¹.
+
+(c) For the other polarisation, W = ζ cos θ (q̂ ⊗ q̂ − ½ (e^(2ψ10) dφ1² + e^(2ψ20) dφ2²)) with q̂ the γ0-unit covector
+of the orbit slice orthogonal to p and ζ ≠ 0, and h = c dr ⊗ dr, dρ⁽⁻¹⁾ = −c ζ |p|² cos θ ⟨dr, q̂⟩², which is not zero
+where c ≠ 0 and the phase is not radial (p not parallel to dr).
+
+*Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In
+R(γ) = γ^(ab)(∂_c Γ^c_ab − ∂_b Γ^c_ac) + ΓΓ the second derivatives of γ enter as γ^(ab) γ^(cd)(∂_a∂_c γ_bd − ∂_a∂_b
+γ_cd), and ∂_a∂_c(λ W) = λ⁻¹ p_a p_c W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is
+W″(p^♯, p^♯) − |p|² tr W″, with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ab) ↦ γ^(ab)
+− ε h^(ab), gives the first line of [[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry
+derivatives of h or first derivatives of γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃
+∂_i(γ^(jl) κ_(jl)), whose parts of order λ⁻¹ are −γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the
+second line; the Christoffel terms are of order one. −|κ|² + (tr κ)² has no term of order λ⁻¹, and no term of order
+λ⁻¹ depends on k. With several phases the fast derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms
+vanish, each W_A depending on one phase; ∂²(λ² M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
+
+(b) The parts of order λ⁻¹ of R(γ + h) and J(γ + h, κ + k) are, by the proof of (a), W″(p^♯, p^♯) − |p|² tr W″ and
+2(−γ_h^(jl) p_l κ1′_(ji) + p_i γ_h^(jl) κ1′_(jl)) with the inverse γ_h⁻¹ of γ + h. Since γ0 and h have no mixed orbit–torus
+components, γ_h⁻¹ is block-diagonal and p^♯ is an orbit vector, while W″ and κ1′ have torus components only. So
+W″(p^♯, ·) = 0, γ_h^(jl) p_l κ1′_(ji) = 0, and the torus traces vanish: tr W″ = −2ξ cos θ (e^(−2ψ10) e^(2ψ10) −
+e^(−2ψ20) e^(2ψ20)) + O(λ) = O(λ) and likewise tr κ1′ = O(λ). The corrections of [[lem:constraints-evolution]] change
+γ by a multiple of dr ⊗ dr only.
+
+(c) Here W″ = −W, W″p = 0 because q̂ ⊥ p and the torus block annihilates p, and tr W″ = −ζ cos θ (|q̂|² − ½ − ½) = 0.
+So dρ⁽⁻¹⁾ = |p|² ⟨h, W″⟩ = −c ζ |p|² cos θ ⟨dr, q̂⟩². In the two-dimensional orbit slice ⟨dr, q̂⟩ = 0 exactly when dr is
+parallel to p. ∎
+
+**Lemma {#lem:vlasov-leaf-curvature}** (The principal coefficients do not oscillate.) At data of the form of
+[[lem:vlasov-constraint-coefficient]] with torus-polarised waves W_A and with second and mixed harmonics of order λ² in
+γ, the principal coefficients of the constraint map in the unknowns of [[lem:constraints-evolution]] have no oscillating
+part of order λ⁰: the coefficient (γ^(rr))^(3/2) H of the radial derivative of the metric unknown in ρ ([[eq:data-rho]]),
+those of its angular second derivatives, and those of the first derivatives of the momentum unknowns in J. For a wave with a trace on the spheres, ξ2 = ξ1, the mean
+curvature H oscillates at order λ⁰.
+
+*Proof.* The coefficients of the angular second derivatives of the metric unknown in ρ and of the first derivatives of the momentum
+unknowns in J involve γ, its inverse and Π, undifferentiated ([[lem:constraints-evolution]] (a)), and γ = γ0 + O(λ). In
+(γ^(rr))^(3/2) H, γ^(rr) is undifferentiated, and H = H̃/ν with H̃ = ½ Π^(AB)(∂_r Π_(AB) − (𝓛_σ Π)_(AB)). The
+torus directions are tangent to the spheres, so the oscillating part of order λ⁰ of ∂_r Π_(AB) is Σ_A ∂_r u_A
+∂_(θ_A) W_A, and its Π-trace is Σ_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless. The harmonics
+of order λ² contribute O(λ) to first derivatives, and so does the shift of the foliation, whose oscillating part is of order λ². If
+ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r u_A sin θ_A at order λ⁰. ∎
+
+Next the commutator of the wave operator with a generator, which the uniform estimate needs for each family. For a
+radial family on a round background it is [[pending:two-dust-commutator]], whose proof uses that the generator is
+shear-free. A non-radial family on a non-round background is not shear-free in five dimensions, but its shear lives
+in the torus directions, where the Hessian of an invariant function is of first order, and in the orbit space it has
+no shear.
+
+**Lemma {#lem:vlasov-no-shear}** (No shear in the orbit space.) Let u be a function on a 2+1-dimensional Lorentzian
+manifold (Q, g3) with |du|² = 0 to first order at a point, du ≠ 0 there, and ℓ := g3⁻¹du. Then for every symmetric
+bilinear form S with S(ℓ, ·) = 0 at that point,
+
+    ⟨Hess u, S⟩ = (□3 u) tr S.                                                                  {#eq:vlasov-no-shear}
+
+So F(S) := ⟨Hess u, S⟩ − (□3 u) tr S depends only on S(ℓ, ·). In a null frame (ℓ, ℓ̄, e), g3(ℓ, ℓ̄) = −1, e a unit
+vector orthogonal to both, with H := Hess u (not the mean curvature),
+
+    F(S) = H(ℓ̄, ℓ̄) S(ℓ, ℓ) − 2 H(ℓ̄, e) S(ℓ, e) + 2 H(e, e) S(ℓ, ℓ̄).                                  {#eq:vlasov-shear-form}
+
+*Proof.* H(ℓ, X) = ½ X(|du|²) = 0 for every X at the point, since |du|² vanishes to first order. In the frame,
+g3⁻¹ = −ℓ ⊗ ℓ̄ − ℓ̄ ⊗ ℓ + e ⊗ e. In ⟨H, S⟩ = g3^(ik) g3^(jl) H_(ij) S_(kl) only the components of H on ℓ̄ and e enter, and
+the inverse metric pairs ℓ̄ with ℓ (with the sign −1) and e with e, so ⟨H, S⟩ = H(ℓ̄, ℓ̄) S(ℓ, ℓ) − 2 H(ℓ̄, e) S(ℓ, e) +
+H(e, e) S(e, e). Further tr S = −2 S(ℓ, ℓ̄) + S(e, e) and □3 u = −2 H(ℓ, ℓ̄) + H(e, e) = H(e, e). Subtracting (□3 u) tr S gives [[eq:vlasov-shear-form]], which
+vanishes when S(ℓ, ·) = 0. ∎
+
+In 3+1 dimensions the transverse space of ℓ is two-dimensional, and ⟨H, S⟩ on it is not a multiple of the trace: the
+shear of the generator enters. This is why the orbit space of the class, of dimension 2+1, is what makes the next
+corollary hold.
+
+**Corollary {#cor:vlasov-commutator}** (The commutator with a non-radial generator.) Let u be an invariant eikonal of a
+class metric g5, ℓ := g5⁻¹du = g3⁻¹du and L := ℓ·∂. For every invariant function φ,
+
+    [□5, L] φ = a □5 φ + M(L φ) + N φ,      a := 2 □3 u,                                          {#eq:vlasov-commutator}
+
+with M a first-order operator and N a first-order operator, with coefficients smooth where u is; the same holds for
+□̃ := g5^(ab) ∂_a∂_b in the chart X, with another N. On a round background with u = v, a = 2 L(R)/R, the coefficient of
+[[pending:two-dust-commutator]].
+
+*Proof.* For any metric, [□, ℓ^μ ∇_μ] φ = 2 ⟨∇ℓ, Hess φ⟩ + (□ℓ^μ + Ric^μ_ν ℓ^ν) ∂_μ φ, and ∇ℓ = Hess_(g5) u. For
+invariant functions the Christoffel symbols of [[lem:warped-ricci]] give Hess_(g5) f(∂_a, ∂_b) = Hess_(g3) f(∂_a, ∂_b),
+Hess_(g5) f(∂_a, ∂_(φi)) = 0 and Hess_(g5) f(∂_(φi), ∂_(φi)) = e^(2ψi) ⟨dψ_i, df⟩, of first order in f. So
+⟨Hess_(g5) u, Hess_(g5) φ⟩ = ⟨Hess_(g3) u, Hess_(g3) φ⟩ + Σ_i ⟨dψ_i, du⟩ ⟨dψ_i, dφ⟩. Apply [[eq:vlasov-shear-form]] with
+S := Hess_(g3) φ: S(ℓ, X) = X(Lφ) − Hess_(g3) u(X, ∇φ), so ⟨Hess_(g3) u, Hess_(g3) φ⟩ = (□3 u) □3 φ + M′(Lφ) + (first
+order in φ), with M′ := H(ℓ̄, ℓ̄) ℓ − 2 H(ℓ̄, e) e + 2 H(e, e) ℓ̄ for any smooth null frame. Finally □3 φ = □5 φ −
+⟨dψ, dφ⟩ by [[eq:vlasov-box]]. This gives [[eq:vlasov-commutator]] with M := 2M′. For □̃, □̃φ = □5 φ + H0·∂φ with
+H0^ρ := g5^(ab) Γ^ρ_ab smooth, and [L, H0·∂] is of first order. On a round background g3 = −2 e^(2σ) du dv + R² dϑ² in
+double-null coordinates, √|g3| = e^(2σ) R and g3^(uv) = −e^(−2σ), so □3 v = −e^(−2σ) R_u/R = L(R)/R. ∎
+
+So if ℓ_A·dφ = F along the generator of family A, then Ψ := □̃φ satisfies L_A Ψ + a_A Ψ = □̃F − M_A(F) − N_A φ, the
+form [[eq:ue-psi]] that the uniform estimate uses, with a_A = 2 □3 u_A.
