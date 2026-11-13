@@ -1041,38 +1041,39 @@ N_s div ℳ[k]) dvol with ℳ[k] := D^jk_ji − D_i tr k, which vanishes when �
 **Lemma {#lem:loc-scalar-reduction}** (The scalar modes.) On the static slice, a class seed is a sum of scalar modes,
 tensor modes and an l = 0 part, and 𝔈_V, 𝔈_K and the constraints split mode by mode. Write a scalar mode of degree l =
 2j ≥ 2 as h_RR = aS, h_Rϑ = R b ∂_ϑS, h|_(S³) = R²(cSγ̂ + eŜ), with S := P_j(cos 2ϑ), k² := l(l + 2), Ŝ := D̂D̂S +
-(k²/3)γ̂S, and k likewise with (p, q_k, w, z) in place of (a, b, c, e); put x := μ/R², m := k² − 3 and H_KI := m + 6x.
+(k²/3)γ̂S, and k likewise with (p, q_k, w, z) in place of (a, b, c, e); put ς := μ/R², m := k² − 3 and H_KI := m + 6ς.
 
 (a) The vector field X = αS∂_R + β̃ ∂_ϑS ∂_ϑ shifts (a, b, c, e) by ((1/f)′α + 2α′/f, α/(Rf) + Rβ̃′, 2α/R −
 (2k²/3)β̃, 2β̃), so that b = e = 0 is reached by β̃ = −e/2 and α = −Rf(b − Re′/2); the quantities A := a + (1/f)′α +
 2α′/f and F := c/2 − fb + k²e/6 + fRe′/2 are gauge invariant. The direction k_ψ with ψ_g = ψS has trace-free angular
-part ψŜ^TF, so z = 0 is reached by ψ = −R²z. Both gauges are local in R.
+part ψŜ, so z = 0 is reached by ψ = −R²z. Both gauges are local in R.
 
 (b) On the momentum constraint, with Z := R³(w − fq_k), the map Z ↦ (q_k, w, p) = (−3Z′/(R²H_KI), Z/R³ + fq_k, ((4 −
-3x)q_k + Rf q_k′ − 2w)/f) solves the constraint and is onto, and per ∫S² sc dϑ,
+3ς)q_k + Rf q_k′ − 2w)/f) solves the constraint and is onto, and per (2π)²∫S² sc dϑ,
 
     𝔈_K = ∫ 6k²m Z²/(R³H_KI²) dR.                                                                       {#eq:loc-ek}
 
 (c) On the Hamiltonian constraint, with the variable ℓ := A − (2R/f)F′ + (2H_KI/(3f²))F, the map ℓ ↦ (A, F), F =
-9Rf³(ℓ′ + κ_Mℓ)/(2k²H_KI), A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F, κ_M := (k² + 6 + 6x)/(3Rf), solves the constraint and is
-onto; with Φ_M := R^(3/2)f²ℓ/H_KI, per ∫S² sc dϑ,
+9Rf³(ℓ′ + κ_Mℓ)/(2k²H_KI), A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F, κ_M := (k² + 6 + 6ς)/(3Rf), solves the constraint and is
+onto; with Φ_M := R^(3/2)f²ℓ/H_KI, per (2π)²∫S² sc dϑ,
 
     𝔈_V = (27m/(2k²)) ∫ (f Φ_M′² + Qp Φ_M²/(16R²H_KI²)) dR,
-    Qp := 1296x³ + (624m − 144)x² + 36m(m − 12)x + 16m³ + 60m².                                          {#eq:loc-ev}
+    Qp := 1296ς³ + (624m − 144)ς² + 36m(m − 12)ς + 16m³ + 60m².                                          {#eq:loc-ev}
 
-(d) The l = 0 part of a seed is a gauge seed: on the constraint, h_(l=0) = L_(RF∂_R)γ for a compactly supported F, and
-k_(l=0) = k_ψ with ψ_g = N_s(c_0 + ∫Rw/(fN_s) dR), a constant multiple of N_s on the inner side of the support.
+(d) The l = 0 part of a seed is a gauge seed: on the constraint, h_(l=0) = L_(R𝔤∂_R)γ for a compactly supported function
+𝔤 of R, and k_(l=0) = k_ψ with ψ_g = N_s(c_0 + ∫Rw/(fN_s) dR), a constant multiple of N_s on the inner side of the
+support.
 
 *Proof.* [[pending:computational-2]] ∎
 
 The potential in [[eq:loc-ev]] is Kodama and Ishibashi's scalar potential: fQp/(16R²H_KI²) = V_S, with V_S/f the
-function W_S of [[lem:rw-potentials]] at ς = x.
+function W_S of [[lem:rw-potentials]], whose variable ς is the ς := μ/R² above.
 
-**Lemma {#lem:loc-positivity}** (Positivity.) For class modes, m ∈ {5, 21, 45, …}, and for every x ∈ [0, 1], Qp > 0.
+**Lemma {#lem:loc-positivity}** (Positivity.) For class modes, m ∈ {5, 21, 45, …}, and for every ς ∈ [0, 1], Qp > 0.
 
-*Proof.* Class modes have l = 2j, so m = 4j(j + 1) − 3. At m = 5, Qp = 1296x³ + 2976x² − 1260x + 3500, and the
-quadratic 2976x² − 1260x + 3500 has discriminant 1260² − 4 · 2976 · 3500 = −40076400 < 0, so Qp > 0 for x ≥ 0. For
-m = 12 + t with t ≥ 0, every coefficient of Qp as a polynomial in (x, t) is nonnegative (624m − 144 = 7344 + 624t,
+*Proof.* Class modes have l = 2j, so m = 4j(j + 1) − 3. At m = 5, Qp = 1296ς³ + 2976ς² − 1260ς + 3500, and the
+quadratic 2976ς² − 1260ς + 3500 has discriminant 1260² − 4 · 2976 · 3500 = −40076400 < 0, so Qp > 0 for ς ≥ 0. For
+m = 12 + t with t ≥ 0, every coefficient of Qp as a polynomial in (ς, t) is nonnegative (624m − 144 = 7344 + 624t,
 36m(m − 12) = 36(12 + t)t) and Qp(0, 0) = 16 · 12³ + 60 · 12² > 0. ∎
 
 **Theorem {#thm:loc-outside}** (Outside the apparent horizon.) Let U ⊂ {f > 0} be a band of Σ_τ0 on which the
@@ -1085,8 +1086,8 @@ harmonics of different type and degree, [[lem:loc-harmonics]], the mode sums con
 mode, H_KI > 0, f > 0, 27m/(2k²) > 0 and 6k²m/(R³H_KI²) > 0, and Qp > 0 ([[lem:loc-positivity]]), so by
 [[eq:loc-ek]] and [[eq:loc-ev]] 𝔈_K ≥ 0 with equality exactly when Z = 0, that is (q_k, w, p) = 0, and 𝔈_V ≥ 0 with
 equality exactly when Φ_M = 0, that is ℓ = 0 and (A, F) = 0: the mode is gauge. A tensor mode on the static slice is
-[[thm:loc-tensor]] with G = 1/f and Y_s = 0, where −Q = (2π)²|T|²∫(R³Π² + R³f(∂_RH)² + (k_T² + 2)RH²) dR > 0 unless H
-= Π = 0. The l = 0 part is gauge and contributes 0 ([[lem:loc-scalar-reduction]] (d)). So Q ≤ 0, and Q = 0 exactly
+[[thm:loc-tensor]] with G = 1/f and Y_s = 0, where −Q = (2π)²|T|²∫(R³Π² + R³f(∂_RH)² + (k_T² + 2)RH²) dR > 0 unless
+H = Π = 0. The l = 0 part is gauge and contributes 0 ([[lem:loc-scalar-reduction]] (d)). So Q ≤ 0, and Q = 0 exactly
 when every mode is gauge, that is when δ is gauge. ∎
 
 ### The sign of the charge {#sec:loc-sign}
@@ -1114,7 +1115,7 @@ in the stated interval by [[thm:bg-margins]] (a). ∎
 The sets {f < 0} and {f > 0} are where the round spheres are trapped and where they are not; nothing above uses the
 event horizon. In the class, −Q on a static slice is the sum over the even harmonics of the energies of Kodama and
 Ishibashi's master equations, scalar and tensor, whose potentials are positive in five dimensions for every l ≥ 2:
-for the scalar potential, Qp > 0 on x ∈ [0, 1] holds for m = 5 and for every m ≥ 12 by the proof of
+for the scalar potential, Qp > 0 on ς ∈ [0, 1] holds for m = 5 and for every m ≥ 12 by the proof of
 [[lem:loc-positivity]], which covers m = l(l + 2) − 3 for every l ≥ 2.
 
 **Remark {#rem:loc-trapped-rays}** (Numerical observation.) On the same discretisation at 80 and 160 steps per unit,

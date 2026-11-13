@@ -4,10 +4,10 @@
 class. This chapter treats a continuum of null dusts, that is, massless Vlasov matter. In four dimensions, under a U(1)
 symmetry and in an elliptic gauge, Huneau and Luk prove that high-frequency limits of vacuum metrics are solutions of the
 Einstein–massless Vlasov system whose measure is restricted to the cotangent bundle of the quotient [HL19, p. 1; p. 13],
-and that suitable small, localised, U(1)-symmetric solutions of that system are such limits [HL25, Theorem 1.1, p. 2]. Their
-construction approximates the Vlasov field by n null dusts, approximates each Einstein–n-dust solution by vacuum metrics
-of frequency 1/λ large compared with n, and joins the two steps along a diagonal [HL25, pp. 3, 19]. Without symmetry,
-the construction for finitely many dusts is not uniform in their number [Tou24, p. 4].
+and that suitable small, localised, U(1)-symmetric solutions of that system are such limits [HL25, Theorem 1.1, p. 2].
+Their construction approximates the Vlasov field by n null dusts, approximates each Einstein–n-dust solution by vacuum
+metrics of frequency 1/λ large compared with n, and joins the two steps along a diagonal [HL25, pp. 3, 19]. Without
+symmetry, the construction for finitely many dusts is not uniform in their number [Tou24, p. 4].
 
 We prove the five-dimensional counterpart in the class, without smallness, for fields that stay off the axes. In
 [[sec:vlasov-limits]] we show that a
@@ -222,11 +222,12 @@ geodesic flow of g3 (the Vlasov equation of (Q, g3), [[lem:vlasov-flow]] (b) and
 generator X of that flow, with κ a continuous function of g3 and its first derivatives. Then f vanishes on every null
 direction whose g3-geodesic reaches x0 transversally to the axis.
 
-*Proof.* Suppose that f > 0 at a null direction whose geodesic reaches x0 transversally. Let P be the fixed set {x2 = x4
-= 0} of the two reflections, a three-dimensional submanifold with coordinates (τ, x1, x3). It meets every orbit near x0,
-at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2, ∂_4 at the points of P and orthogonal to P
-by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P is g3 in the coordinates (τ, ρ1, ρ2) =
-(τ, x1, x3). As g5 is C², g_P is a C² Lorentzian metric on P, even in x3: g3 extends across the edge {ρ2 = 0} to g_P, and
+*Proof.* Suppose that f > 0 at a null direction whose geodesic reaches x0 transversally. Let P be the fixed set
+{x2 = x4 = 0} of the two reflections, a three-dimensional submanifold with coordinates (τ, x1, x3). It meets every orbit
+near x0, at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2, ∂_4 at the points of P and
+orthogonal to P by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P is g3 in the coordinates
+(τ, ρ1, ρ2) = (τ, x1, x3). As g5 is C², g_P is a C² Lorentzian metric on P, even in x3: g3 extends across the edge
+{ρ2 = 0} to g_P, and
 the null geodesic flow of g3 extends to the flow of g_P, which is C¹, under which the geodesic reaching x0 transversally
 crosses {x3 = 0}. In the coordinates of P, κ is the same function of g_P and its first derivatives, so it is continuous
 on the bundle of null directions of g_P over a neighbourhood of x0. Hence f, which equals its initial value times
