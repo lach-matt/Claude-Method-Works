@@ -159,7 +159,7 @@ F_(k/2−n,n) + (G_(k,n) − F_(k/2−n,n)) = G_(k,n). Hence, by [[eq:cutoff-hj]
 
 u_J is of strip order (J + 1)/2. On 𝒰_1, v − v1 ≤ V′_P − v1 =: d_V, so s ≤ d_V/r. With ∂_v = r⁻¹ ∂_s and
 ℓ(r^(−p) φ(s, x̂)) = −r^(−p−1) (p φ + s ∂_s φ), every ∂_v^i Ω^β ℓ^j of r^(−p) s^(M+1) ρ is r^(−p−j) times a sum of terms
-r^(−i′) ∂_s^(i′)(s^(M+1) ρ′) with ρ′ smooth, each at most C r^(−(M+1)) d_V^(M+1); and p + M_p + 1 ≥ (J + 1)/2, as
+r^(−i′) ∂_s^(i′)(s^(M+1) ρ′) with ρ′ smooth, each at most C r^(−(M+1)) (1 + d_V)^(M+1); and p + M_p + 1 ≥ (J + 1)/2, as
 J/2 − p ∈ ½ℤ. ∎
 
 **Remark {#rem:cutoff-weights}** (what is new in Σ′_J). The weight −4 terms of Σ′_J are r⁻⁴ s^n (G_(8+2n,n) − F_(4,n)),
@@ -348,35 +348,37 @@ D(g_b0 + Σ) = O(λ r⁻³) with ∂D(g_b0 + Σ) = O(λ r⁻⁴) (homogeneity, a
 Σ′_J add O(r⁻⁵) and O(r⁻⁶), and |∂²δ| ≤ C r⁻⁶. With w = (u* − u)² ≤ C r² and d⁴x = r³ dr dω, the energy is at most
 C ∫_(r_T)^∞ r² (λ² r⁻⁸ + r⁻¹⁰) r³ dr + C r_T^(2+3) r_T^(−10) d_V ≤ C λ² |T|⁻² + C |T|⁻⁴. ∎
 
-**Lemma {#lem:cutoff-independence}** (the limit does not depend on J). Suppose the conclusions of
-[[thm:own-continuation]] hold for the truncated problems of [[def:cutoff-truncation]] with two values J, J′ ≥ 2k1 + 7,
-with limits g^(J) and g^(J′). Then g^(J) = g^(J′).
+**Lemma {#lem:cutoff-independence}** (the limit does not depend on J). Let J′ ≥ J ≥ 2k1 + 7. For the truncated
+problems of [[def:cutoff-truncation]] with J, Steps 1–3 and 5 of the proof of [[thm:own-continuation]], with Step 4 at
+the orders k ≤ (J − 7)/2 ([[prop:cutoff-cap]]), give a limit g^(J) on W of class C^(m_J), m_J := ⌊(J − 7)/2⌋ − 3 ≥ 5,
+with the conclusions of [[thm:own-continuation]] at the order k1; and likewise g^(J′). Then g^(J) = g^(J′).
 
 *Proof.* g′ := g^(J′) satisfies the hypotheses of [[prop:own-uniqueness]] relative to g := g^(J): Ric^H(g′; g_b0) = 0,
-g′ = g_λ on N with its first derivatives (it joins g_λ smoothly across N), |g′ − g_b0| ≤ 1/50 (Step 1 of the proof of
+g′ = g_λ on N with its first derivatives (it joins g_λ across N), |g′ − g_b0| ≤ 1/50 (Step 1 of the proof of
 [[thm:own-continuation]]), and for a_0 ∈ (0, ½) its energies of weight a_0 of Γ^α h′, |α| ≤ 3, are bounded uniformly in
 σ and tend to 0 as σ → −∞: those of h_R are dominated by those of weight a, as u* − u ≥ 1 on W, and those of Σ are
-at most C λ² r_σ^(2a_0−2), as in the proof of [[prop:own-uniqueness]]. The proof of [[prop:own-uniqueness]] uses of g
-only [[eq:own-pointwise]] and its energies, which g^(J) has. So g^(J′) = g^(J). ∎
+at most C λ² r_σ^(2a_0−2), as in the proof of [[prop:own-uniqueness]]. That proof uses of g′ its C² regularity and these
+bounds, and of g only [[eq:own-pointwise]] and its energies, which g^(J) has. So g^(J′) = g^(J). ∎
 
-**Proposition {#prop:cutoff-continuation}** (the continuation). With the truncated problems of [[def:cutoff-truncation]],
-[[thm:own-continuation]] holds as stated, with T_1 depending on λ and J; λ_2, ε_2 and ε_B do not depend on J, and the
-limit g does not depend on J. The proof of [[thm:own-continuation]] applies with the following changes, all of which
-concern the initial slice Σ̃_T.
+**Proposition {#prop:cutoff-continuation}** (the continuation). With the truncated problems of [[def:cutoff-truncation]]
+the proof of [[thm:own-continuation]] applies with the following changes, all of which concern the initial slice Σ̃_T;
+T_1 depends on λ and J, while λ_2, ε_2 and ε_B do not, and the limit g does not depend on J.
 (1) In Step 1, beyond the band Γ^β h_R(T, x) = O(r⁻⁴) for |β| ≤ k1 − 3 ([[prop:cutoff-cap]]), which tends to 0 along
 Σ̃_σ as before.
 (2) In Step 3, by [[prop:cutoff-cap]] with k = k1 and J ≥ 2k1 + 7, 𝔈_(k1)(T) ≤ C(λ, J) |T|^(2a−6), which is at most λ²
 for T ≤ T_1(λ, J), as a < 3. Put ε_B² := C_* (C(λ² + ν(λ)) + 2λ²). Then 𝔈_(k1) ≤ ε_B² on [T, σ*], the rest of Step 3
 being unchanged.
 (3) In Step 4, at order k > k1 the cap 𝔈_k(T) ≤ C(λ, J) |T|^(2a−6) is uniform in T when J ≥ 2k + 7. For every k take
-J ≥ 2k + 7; by [[lem:cutoff-independence]] the limit is the same g, which therefore has 𝔈_k ≤ C_k(λ) for every k.
+J ≥ 2k + 7; by [[lem:cutoff-independence]] the limit is the same g, which therefore has 𝔈_k ≤ C_k(λ) for every k and
+is of class C^(m_J) for every J, hence smooth.
 (4) In Step 5, the cap of the problem at T′ is at most C(λ, J) |T′|^(2a−6) and ϑ(T) → 0 as before.
 (5) In the proof of [[lem:own-exterior]], the data on Σ̃_T ∩ {r ≥ ϱ_0}, which lies beyond the band, satisfy
 |Γ^α h_R| ≤ C r⁻⁴ and |∂Γ^α h_R| ≤ C r⁻⁵ for |α| ≤ k when J ≥ 2k + 7, and are finite at every order for every J by
 [[eq:cutoff-cap-general]], the strip having bounded width.
 (6) In the proof of [[prop:own-vacuum]] (ii), the values of D_T on Σ̃_T are those of [[lem:cutoff-gauge]], and
 E_σ[D_T] ≤ C(λ² |T|⁻² + C(λ, J) |T|⁻⁴) for σ ∈ [T, 0], which tends to 0 as T → −∞.
-With these, [[prop:own-vacuum]], [[prop:own-uniqueness]], [[prop:own-transfer]] and [[thm:own-data]] hold as stated.
+The conclusions of [[thm:own-continuation]], and with them those of [[prop:own-vacuum]], [[prop:own-uniqueness]],
+[[prop:own-transfer]] and [[thm:own-data]], then follow as there.
 
 *Proof.* (1)–(6) are [[prop:cutoff-cap]], [[lem:cutoff-gauge]] and [[lem:cutoff-independence]] inserted at the places
 named. The choice of ε_B in (2) does not involve the cap, so neither ε_B nor the thresholds λ_2, ε_2 of Step 3 depend on

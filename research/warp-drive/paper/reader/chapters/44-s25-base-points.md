@@ -320,8 +320,8 @@ are used below are at most C(‖F‖ + |W⃗_free|), C uniform in b and in (h, p
 [[prop:iii-i8-4-1]] (i) at b (Step 1); the step from k to k + 1 is shown below.
 
 *The bound on A_k.* Let δW′ be a change of the new coordinates, those of higher rate being fixed, and let δp⃗′, δG′
-and δu be the changes it causes along 𝒫_k; every row coordinate changes by at most C|δW′|. By the list above, with
-the induction bound for R_q δu,
+and δu be the changes it causes along 𝒫_k; by the induction bound every coordinate changes by at most C|δW′|. By the
+list above, with the induction bound for R_q δu,
 
     ‖δG′‖_(k+1) ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|δW′|.
 

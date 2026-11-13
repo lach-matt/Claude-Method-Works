@@ -790,22 +790,22 @@ A = 0, where Π = u², Δ_b = u² − mu, Ẽ = E, 𝒯 = 0 and 𝔎 = Λ, 𝒫 
 ℛ(r) = r⁸𝒬(r⁻²)/Π(r), so ℛ and 𝒬(r⁻²) have the same sign and the same zeros, with multiplicity, as Π > 0. ℛ and 𝒬 are
 homogeneous of degree 2 in (E, Φ, Ψ, Λ^(1/2)), so their signs and zeros depend only on the normalised values in
 
-    𝒩 := {(E, Φ, Ψ, Λ) : E² + Λ/m₀ = 1, (|Φ| + |Ψ|)² ≤ Λ},
+    𝔑 := {(E, Φ, Ψ, Λ) : E² + Λ/m₀ = 1, (|Φ| + |Ψ|)² ≤ Λ},
 
-a compact set. Every covector with E ≠ 0 (as in every use below, where E = z₀) has its normalised values in 𝒩:
+a compact set. Every covector with E ≠ 0 (as in every use below, where E = z₀) has its normalised values in 𝔑:
 by the Cauchy–Schwarz inequality, |η|²_(𝕊³) ≥ Φ²/sin²ϑ + Ψ²/cos²ϑ ≥ (|Φ| + |Ψ|)², and Λ ≥ |η|²_(𝕊³).
 
 **Lemma {#lem:vi-b1-1-1}** (Convexity.) There is ε_R > 0 such that for |b − b₀| ≤ ε_R, in any frame, and every point
-of 𝒩, on [0, 2/m₀]: if Λ ≥ m₀/6, then 𝒬″ ≥ m₀²/12; if Λ < m₀/6, then 𝒬 ≥ ½.
+of 𝔑, on [0, 2/m₀]: if Λ ≥ m₀/6, then 𝒬″ ≥ m₀²/12; if Λ < m₀/6, then 𝒬 ≥ ½.
 
 *Proof.* At A = 0 and |m − m₀| ≤ ½m₀, [[eq:vi-b1-1-2]] gives 𝒬″ = 2mΛ ≥ m₀²/6 when Λ ≥ m₀/6, and
 𝒬 ≥ E² − Λ/(4m) ≥ 5/6 − 1/12 = 3/4 when Λ < m₀/6. The coefficients of 𝒬 at (m, A) minus those at (m, 0) are
 polynomials in (m, a, b, E, Φ, Ψ, Λ) vanishing at a = b = 0, hence bounded by C‖A‖ on the compact set
-𝒩 × {|m − m₀| ≤ ½m₀}, with C independent of the frame, as |a|, |b| ≤ ‖A‖. So the difference is at most C′‖A‖ in
+𝔑 × {|m − m₀| ≤ ½m₀}, with C independent of the frame, as |a|, |b| ≤ ‖A‖. So the difference is at most C′‖A‖ in
 C²([0, 2/m₀]), which is below min(m₀²/12, ¼) for ‖A‖ small. ∎
 
-**Remark {#rem:s12-convexity-sample}** (Numerical observation.) Sampled at ‖A‖ ≤ 0.02 m₀^(1/2) on the face
-(|Φ| + |Ψ|)² = Λ of 𝒩, the two bounds of [[lem:vi-b1-1-1]] were observed with minima of about 0.30 m₀² (for 𝒬″,
+**Remark {#rem:s12-convexity-sample}** (Numerical observation.) Sampled at m = m₀ and ‖A‖ ≤ 0.02 m₀^(1/2) on the
+face (|Φ| + |Ψ|)² = Λ of 𝔑, the two bounds of [[lem:vi-b1-1-1]] were observed with minima of about 0.30 m₀² (for 𝒬″,
 where Λ ≥ m₀/6) and 0.80 (for 𝒬, where Λ < m₀/6). No proof uses this; [[lem:vi-b1-1-1]] rests on the perturbation
 argument above.
 
@@ -823,7 +823,7 @@ argument above.
 there ([[lem:vi-b1-1-1]], after normalising). A strictly convex function is negative on an interval and has a double
 zero only at its minimum, with 𝒬″ > 0; it is then positive elsewhere. As ℛ = r⁸𝒬(r⁻²)/Π and dw/dr ≠ 0, this gives
 (a) and (b), with ∂_r²ℛ(r_c) = (r_c⁸/Π) 𝒬″(w_c)(dw/dr)² > 0, the other terms vanishing with 𝒬(w_c) and 𝒬′(w_c).
-(c) Suppose b_n → b₀ and normalised double zeros (π_n, w_n) ∈ 𝒩 × [0, 2/m₀] have a limit (π, w). By continuity it is a
+(c) Suppose b_n → b₀ and normalised double zeros (π_n, w_n) ∈ 𝔑 × [0, 2/m₀] have a limit (π, w). By continuity it is a
 double zero of [[eq:vi-b1-1-2]] at m = m₀: E² − Λw(1 − m₀w) = 0 = −Λ(1 − 2m₀w). Λ = 0 would give E² = 1 and
 𝒬(w) = 1, so w = 1/(2m₀) and Λ = 4m₀E². Compactness gives (c). ∎
 
@@ -1010,7 +1010,7 @@ D_p e^(sV₂) = D_p e^(τV₁) + V₁ ⊗ D_pτ, and ∂_s D_pτ = da(D_p e^(τV
 V₁a = ∂_s log a(e^(sV₂)p), so ∂_s(D_pτ/a) = da(D_p e^(τV₁))/a and
 |D_pτ(s)| ≤ c_a³ ∫₀^(|s|) c(1 + c_as′)^k ds′. As V₁ is bounded on the compact set, the bound follows. ∎
 
-**Proposition {#prop:vi-b1-3-4}** ((K3) and (K4) near b₀.) There is ε_K ∈ (0, ε_Γ] such that for |b − b₀| ≤ ε_K, (K3)
+**Proposition {#prop:vi-b1-3-4}** ((K3) and (K4) near b₀.) There is ε_K ∈ (0, ε_Γ) such that for |b − b₀| ≤ ε_K, (K3)
 holds for g̃_b with Ψ_b^* t_*, and the splitting [[eq:ii-b-1-1]] and the constants μ, C, C_ϵ can be chosen continuous in
 b and uniform, as (K4) asks.
 
