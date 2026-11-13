@@ -1023,10 +1023,10 @@ small ([[lem:iii-i9-2-6]] (a), (c), (d)). For the second, u_0(W⃗) − u_0(0) =
 F(W⃗) − F(0) = −D_(p⃗)P_4(h, p⃗)(W⃗), of size O(|W⃗|) in 𝒴(α′) ([[lem:iii-i9-2-6]] (b)). So [[prop:iii-i8-4-1]] (i) at α′
 bounds q⃗(W⃗) − q⃗(0) by C|W⃗|, and u(W⃗) − u(0) by C|W⃗| in the seminorm ‖·‖_(α′) of [[sec:iii-i8-1]], taken as in the
 proof of [[lem:iii-i11-3-3]] with w_0 for w, which bounds ‖·‖_(w_0) as w_0 ≤ α′ − 2; and ‖m_ν(W)‖_(w_0) ≤ C|W| for
-every row, m_ν(W) having K⁺-weight at least λ_♯ − 1 − ε ≥ w_0 − ε and ι⁺-weight λ_♯ − ε ([[lem:iii-i9-2-2]]). So the second term is O((‖h‖ + |p⃗|)|W⃗|), T_(h,p⃗)W⃗ → W⃗ for every
-W⃗, and on the finite-dimensional space of the W⃗, T_(h,p⃗) → id; so T_(h,p⃗) is invertible for (h, p⃗) small, with
-|T⁻¹_(h,p⃗)| ≤ 2. Put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and F are
-real and T commutes with the conjugation of [[sec:iii-i9-1]].
+every row, m_ν(W) having K⁺-weight at least λ_♯ − 1 − ε ≥ w_0 − ε and ι⁺-weight λ_♯ − ε ([[lem:iii-i9-2-2]]). So the
+second term is O((‖h‖ + |p⃗|)|W⃗|), T_(h,p⃗)W⃗ → W⃗ for every W⃗, and on the finite-dimensional space of the W⃗, T_(h,p⃗)
+→ id; so T_(h,p⃗) is invertible for (h, p⃗) small, with |T⁻¹_(h,p⃗)| ≤ 2. Put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕
+W⃗. The conjugation symmetry is preserved, as L and F are real and T commutes with the conjugation of [[sec:iii-i9-1]].
 
 *Uniqueness.* If p⃗″ also gives [[eq:iii-i11-4-2]] at α, its solution lies in [[eq:iii-i8-4-2]] at α′, so its
 𝒫_(α′)-part is q⃗(W⃗″) by the uniqueness at α′ ([[prop:iii-i8-4-1]]), where W⃗″ is its 𝒩′-part; then C(W⃗″) = 0, so
@@ -1745,15 +1745,15 @@ this uses of the base point only the indicial roots and the transition face prop
 [[lem:iii-i15-1-1]] (P2), (P4). Step 0 at b: [[lem:iii-i13-2-2]] at β = α (whose hypothesis u_0 = u + Σ_(𝒩″) m_ν(W_ν)
 meets with the w_0 of the statement, as in the proof of [[thm:iii-i11-4-1]]: u has K⁺-weight α − 2 − ε and the ι⁺-
 and ℐ⁺-data of [[eq:iii-i11-4-2]], and the m_ν have K⁺-rates at least λ_♯ − 1 > 0, ι⁺-weight λ_♯ − ε > 3/2 and vanish
-near ℐ⁺) gives u_0 = u_I + u_ι + v as there, for the forcing f′ := G − (L_(h,p⃗) − L_b)u_0, the spacetime and spectral v1 terms u^rot_ι and v^rot being polyhomogeneous
-towers of the types (ii) and (vi) of Step 1; and L_b u has K⁺-order α − ε by the tower relations, L_b m_ν involving
-only the top of the tower for the rotation rows as for the other rows (of K⁺-order Re λ + 4 > α). Step 1 is unchanged
-at b: its pieces are those of (P2)–(P4). Step 2, the assembly, is unchanged, with the conormal rotation tower of the
-second change in C. Step 3 applies [[lem:iii-i15-2-9]] (c) in place of [[lem:iii-i12-2-4]] to w := u − χ_K C
-(L_b(χ_K C) has K⁺-order α − ε, the rotation tower included), and Step 4 reads its exponents, which are those of
-[[lem:iii-i12-2-4]]. Step 5 is unchanged. Step 6 applies its maps, which are uniform in b by (P1)–(P4) and
-[[lem:iii-i15-2-9]] (c), to f′ and, through Step 1 (iii), to the W_ν, as the remark after the proof of
-[[thm:iii-i12-3-1]] records. The count of Step 0 of the proof of [[lem:iii-i11-3-2]], as in [[lem:iii-i13-2-2]]
-(w − ε + a_K ≥ α), gives ‖(L_(h,p⃗) − L_b)u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w), with C uniform in b, and 𝒴⁰(α) lies in
-𝒴^♮(α − ε) with a bound on the seminorms; so ‖f′‖_(α−ε) ≤ ‖G‖_(α−ε) + C(‖h‖ + |p⃗|)‖u_0‖_(w), and Step 6 gives the
-bound of the statement. Its reality argument holds at b, the towers T_(ψ,b) being real ((P3)). ∎
+near ℐ⁺) gives u_0 = u_I + u_ι + v as there, for the forcing f′ := G − (L_(h,p⃗) − L_b)u_0, the spacetime and spectral v1
+terms u^rot_ι and v^rot being polyhomogeneous towers of the types (ii) and (vi) of Step 1; and L_b u has K⁺-order α − ε
+by the tower relations, L_b m_ν involving only the top of the tower for the rotation rows as for the other rows (of
+K⁺-order Re λ + 4 > α). Step 1 is unchanged at b: its pieces are those of (P2)–(P4). Step 2, the assembly, is unchanged,
+with the conormal rotation tower of the second change in C. Step 3 applies [[lem:iii-i15-2-9]] (c) in place of
+[[lem:iii-i12-2-4]] to w := u − χ_K C (L_b(χ_K C) has K⁺-order α − ε, the rotation tower included), and Step 4 reads its
+exponents, which are those of [[lem:iii-i12-2-4]]. Step 5 is unchanged. Step 6 applies its maps, which are uniform in b
+by (P1)–(P4) and [[lem:iii-i15-2-9]] (c), to f′ and, through Step 1 (iii), to the W_ν, as the remark after the proof of
+[[thm:iii-i12-3-1]] records. The count of Step 0 of the proof of [[lem:iii-i11-3-2]], as in [[lem:iii-i13-2-2]] (w − ε +
+a_K ≥ α), gives ‖(L_(h,p⃗) − L_b)u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w), with C uniform in b, and 𝒴⁰(α) lies in 𝒴^♮(α − ε)
+with a bound on the seminorms; so ‖f′‖_(α−ε) ≤ ‖G‖_(α−ε) + C(‖h‖ + |p⃗|)‖u_0‖_(w), and Step 6 gives the bound of the
+statement. Its reality argument holds at b, the towers T_(ψ,b) being real ((P3)). ∎

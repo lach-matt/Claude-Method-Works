@@ -47,7 +47,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | running | - |
 | 65 M Ch 15 | written (1,132 lines, 58 crosswalk rows, no markers); independent reader running | - | - |
 | 70 M Ch 17 | written (1,624 lines, 102 labels; B2 merged with 4.683; P-B merged pre-fix, to re-merge; 3 computational markers, proof project running) | - | - |
-| 66, 71, 80-90 | being written: 66, 71, 80, 81, 82, 84 (writers running); 83, 85, 86, 87, 90 not yet written | - | - |
+| 80 M Ch 19 | written (1,240 lines, 70 crosswalk rows, no markers); independent reader running | - | - |
+| 66, 71, 81-90 | being written: 66, 71, 81, 82, 84 (writers running); 83, 85, 86, 87, 90 not yet written | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | CONFIRMED (5 nits); CD03 block and Sbierski entry to be read after their edits |
 
 ## Proof files (merged into their chapters after an independent reading)
@@ -64,5 +65,5 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | second fix done (Σ_τ0 acausal proved; rem:std-racz-characteristic in Appendix A with the complex roots); third reading running |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | CONFIRMED (second reading 0M 1m 1n; order 9 and the "rest" wording applied by the coordinator in the reviewer's words; rows unaffected) |
 | P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | tables written (rounded to 10⁻¹⁸, rounding lemma proved; D4b dropped); independent reader running |
-| P-C-lambda0 + T-C + T-C261 (λ0 constants, for 86) | C2a and C2b done: e_k larger than printed (5 rounded down); C261 proved, S closed form, 242 entries | first reading NOT CONFIRMED 1M 7m 6n (cubic term of C_0·C_1 dropped at 487, zero mean so S stands); fix running |
+| P-C-lambda0 (λ0 constants, for 86; T-C and T-C261 dropped) | C2a and C2b done: e_k larger than printed (5 rounded down); C261 proved, S closed form, 242 entries | fixed (C261 chain, e_k, the energy constant dropped as cited by nothing; Poisson summation proved; no value changed); confirming reader running |
 | P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | - |

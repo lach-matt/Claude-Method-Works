@@ -293,7 +293,7 @@ It vanishes on ℒ_Y g for every spherically symmetric vector field Y; δm[K̄] 
     ∂_v δm = (2/3)r³(Ṙ_vv + fṘ_vr),        ∂_r δm = (1/3)r³fṘ_rr + rṘ_ϑϑ.
 
 (b) If DRic(h_0) = 0 on U, then δm[h_0] =: c is constant; with Y_1 := −rH_L∂_r and h′ := h_0 − cK̄ + ℒ_(Y_1)g =
-A′dv² + 2B′dvdr + C′dr², the 1-form ω := (B′ + (f/2)C′)dv + (1/2)C′dr is closed, and for dζ = ω, ℒ_(ζ∂_v)g = h′. So
+A′dv² + 2B′dvdr + C′dr², the 1-form 𝔷 := (B′ + (f/2)C′)dv + (1/2)C′dr is closed, and for dζ = 𝔷, ℒ_(ζ∂_v)g = h′. So
 
     h_0 = cK̄ + ℒ_(Y[h_0]) g,        Y[h_0] := ζ∂_v + rH_L∂_r.                                               {#eq:gd-1-2}
 
@@ -323,7 +323,7 @@ as the lowered symbols Γ_(d,rr) of g vanish. So
 
     0 = Ṙ_rr[h′] = −(f″/2)C′ + (3/(2r))(2∂_rB′ − ∂_vC′ + f∂_rC′) = (3/r)(∂_r(B′ + (f/2)C′) − ∂_v(C′/2)),
 
-using −rf″/6 = m₀/r³ = f′/2. So dω = 0, and ω = dζ on the simply connected U. For Y = ζ∂_v, ∂_v being Killing,
+using −rf″/6 = m₀/r³ = f′/2. So d𝔷 = 0, and 𝔷 = dζ on the simply connected U. For Y = ζ∂_v, ∂_v being Killing,
 ℒ_Yg = dζ ⊗ (∂_v)^♭ + (∂_v)^♭ ⊗ dζ with (∂_v)^♭ = −f dv + dr, that is
 
     ℒ_(ζ∂_v)g = −2f∂_vζ dv² + 2(∂_vζ − f∂_rζ) dv dr + 2∂_rζ dr².
@@ -347,8 +347,9 @@ as in [[sec:rw-setting]], h_0 the l = 0 part of h, and N⁺ = M°_♭ ∩ {t_IVP
     X_RW := ξ[h] − Y[h_0]^♭,        ġ_RW := ġ + ℒ_(X_RW) g = ṁK_V + (h − h_0) + ℒ_(ξ[h]) g
 
 is a smooth G-invariant linearised vacuum solution on N⁺, smooth up to Σ°, in the Regge–Wheeler-type gauge with l = 0
-part exactly ṁK_V, inducing (γ̇, k̇) plus the data of the linearised diffeomorphism ℒ_(X_RW)g. Except for the data,
-the same holds on the open set int N ∩ M°_♭.
+part exactly ṁK_V, inducing (γ̇, k̇) plus the data of the linearised diffeomorphism ℒ_(X_RW)g. The same formulas define
+a smooth G-invariant linearised vacuum solution ġ_RW = ġ + ℒ_(X_RW)g on the open set int N ∩ M°_♭, which contains the
+interior of N⁺, in the Regge–Wheeler-type gauge with l = 0 part exactly ṁK_V.
 
 (b) (Decay.) For every k, R′ and ε′ > 0 there are C and T′ with
 
@@ -360,42 +361,57 @@ sum over harmonics is formed). The constant depends on R′; nothing is claimed 
 (c) (The gauge vector.) On the same set, |ξ[h]|_k ≤ C‖(γ̇, k̇)‖_(H^(k₁(k+1))) t_*^(−w+ε′); the radial component rH_L
 of Y[h_0] = ζ∂_v + rH_L∂_r, and every derivative of ξ[h] and of the components ζ and rH_L, are O(t_*^(−w+ε′)); and
 |ζ| ≤ Ct_*^(−w+1+ε′). As a 1-form, X_(RW,0) := −Y[h_0]^♭ = (fζ − rH_L) dv − ζ dr; its dr component, and the term f′ζ
-in the r-derivative of its dv component, are only O(t_*^(−(w−1)+ε′)). So X_RW = O(t_*^(−(w−1)+ε′)). X_RW is unique up
-to c′(∂_t)^♭, and these are the only G-invariant Killing fields.
+in the r-derivative of its dv component, are only O(t_*^(−(w−1)+ε′)). So X_RW = O(t_*^(−(w−1)+ε′)). Among the
+G-invariant 1-forms X on N⁺ for which ġ + ℒ_Xg is in the Regge–Wheeler-type gauge with l = 0 part ṁK_V, X_RW is unique
+up to c′(∂_v)^♭, c′ a constant, and the c′∂_v are the only G-invariant Killing fields.
 
 (d) (Uniqueness of the representative.) Let U ⊂ U^♯ be open and SO(4)-invariant, Ω′_+ := D_U(Σ_U) ∩ {t_IVP ≥ 0}, and
 let ġ′ be a G-invariant linearised vacuum solution on Ω′_+, smooth up to Σ_U, in the Regge–Wheeler-type gauge,
 inducing (γ̇, k̇) plus the data of ℒ_Z g for a vector field Z near Σ_U, smooth up to Σ_U. Then ġ′ = ġ_RW on Ω′_+.
 
-*Proof.* (a) β and τ depend smoothly on (v, r, ϑ) (elliptic inverses on S³ with smooth parameters, commuting with
-ℒ_(∂_v), ℒ_(∂_r)), so ξ[h] is smooth up to Σ°, and its β and τ are those of ġ, K_V being spherically symmetric. DRic
+*Proof.* (a) β and 𝓉 depend smoothly on (v, r, ϑ) (elliptic inverses on S³ with smooth parameters, commuting with
+ℒ_(∂_v), ℒ_(∂_r)), so ξ[h] is smooth up to Σ°, and its β and 𝓉 are those of ġ, K_V being spherically symmetric. DRic
 commutes with the SO(4)-average, so DRic(h_0) = (DRic ġ)_0 − ṁ DRic(K_V) = 0. The orbit space of the interior of N⁺,
 {t > ψ_IVP(r), r > r_♭}, lies above a graph, so it is simply connected, and the upward rays {(v′, r) : v′ ≥ v} stay in
 it, t_IVP increasing with v at fixed r. [[lem:gd-1-4]] (b) applies there: δm[h_0] is a constant, and being an
 expression in h_0 and its first derivatives it tends to 0 along {r = r′}, for any r′ ∈ (r_♭, R′], by [[eq:gd-0-2]];
-so it vanishes, and h_0 = ℒ_(Y[h_0])g. The 1-form ω of [[lem:gd-1-4]] (b) is algebraic in h_0 and the first
-derivatives of H_L, so |ω|_k ≤ C|h|_(k+1), integrable in v by [[eq:gd-0-2]] as w − ε′ > 1. Put
-ζ(v, r) := −∫_v^∞ ω_v(v′, r) dv′. Then ∂_vζ = ω_v, and as dω = 0, ∂_rζ = −∫_v^∞ ∂_(v′)ω_r dv′ = ω_r; so dζ = ω, ζ → 0
-as v → ∞, and ζ is smooth up to Σ°, its derivatives being those of ω. Hence ġ_0 − ℒ_(Y[h_0])g = ṁK_V, and with
+so it vanishes, and h_0 = ℒ_(Y[h_0])g. The 1-form 𝔷 of [[lem:gd-1-4]] (b) is algebraic in h_0 and the first
+derivatives of H_L, so |𝔷|_k ≤ C|h|_(k+1), integrable in v by [[eq:gd-0-2]] as w − ε′ > 1. Put
+ζ(v, r) := −∫_v^∞ 𝔷_v(v′, r) dv′. Then ∂_vζ = 𝔷_v, and as d𝔷 = 0, ∂_rζ = −∫_v^∞ ∂_(v′)𝔷_r dv′ = 𝔷_r; so dζ = 𝔷, ζ → 0
+as v → ∞, and ζ is smooth up to Σ°, its derivatives being those of 𝔷. Hence ġ_0 − ℒ_(Y[h_0])g = ṁK_V, and with
 [[lem:gd-1-3]] (a), ġ_RW is in the Regge–Wheeler-type gauge with l = 0 part ṁK_V. DRic(ℒ_Xg) = 0
 ([[lem:ix-2-1]] (b)), and ℒ_Xg changes the induced data by those of a linearised diffeomorphism, read from one side
 up to Σ° ([[lem:viii-1-1]]). Every step is O(4)-equivariant and ġ is G-invariant, so ġ_RW is G-invariant.
 
-(b) ġ_RW − ṁK_V = (h − h_0) + ℒ_(ξ[h])g. Averaging does not increase |·|_k. ℒ_ξg is first order in ξ, and by
-[[lem:gd-1-2]] (d) and [[eq:gd-1-1]] each component of ξ costs one derivative of h (β_a one angular derivative, ∂_aτ one
-orbit derivative, D̂τ one angular derivative), so |ℒ_(ξ[h])g|_k ≤ C|ξ[h]|_(k+1) ≤ C|h|_(k+2). Apply [[eq:gd-0-2]].
+*The open set int N ∩ M°_♭.* At fixed x, t_IVP + ν(r) = t − ψ_IVP(r) + ν(r) increases strictly with t, so the interior
+of N = {t_IVP ≥ −ν(r)} is {t > ψ_IVP(r) − ν(r)}. With v = t − T_(m₀)(r) + r, the orbit space of int N ∩ M°_♭ is
 
-(c) The bounds on ξ[h] and rH_L are [[lem:gd-1-2]] (d) and [[eq:gd-0-2]]; those on the derivatives of ζ are those on ω,
+    {(v, r) : r > r_♭, v > b(r)},        b(r) := ψ_IVP(r) − ν(r) − T_(m₀)(r) + r,
+
+with b continuous; (v, r) ↦ (v − b(r), r) maps it homeomorphically onto (0, ∞) × (r_♭, ∞), so it is simply connected,
+and it contains the upward ray from each of its points. ġ is smooth there with DRic(ġ) = 0 ([[lem:s29-g-on-n]]), and
+int N ∩ M°_♭ contains the interior of N⁺, as ν ≥ 0. The steps above use, besides these properties, only
+[[eq:gd-0-2]] on the rays {r = r′}, r′ ∈ (r_♭, R′], for v so large that t_* ≥ T′. So they apply verbatim on
+int N ∩ M°_♭, with "smooth" in place of "smooth up to Σ°": the same formulas define ζ, X_RW and ġ_RW there, agreeing
+with the above on the interior of N⁺, and ġ_RW is a smooth G-invariant linearised vacuum solution on int N ∩ M°_♭ in
+the Regge–Wheeler-type gauge with l = 0 part ṁK_V. Nothing is said there about induced data, int N ∩ M°_♭ being open.
+
+(b) ġ_RW − ṁK_V = (h − h_0) + ℒ_(ξ[h])g. Averaging does not increase |·|_k. ℒ_ξg is first order in ξ, and by
+[[lem:gd-1-2]] (d) and [[eq:gd-1-1]] each component of ξ costs one derivative of h (β_a one angular derivative, ∂_a𝓉 one
+orbit derivative, D̂𝓉 one angular derivative), so |ℒ_(ξ[h])g|_k ≤ C|ξ[h]|_(k+1) ≤ C|h|_(k+2). Apply [[eq:gd-0-2]].
+
+(c) The bounds on ξ[h] and rH_L are [[lem:gd-1-2]] (d) and [[eq:gd-0-2]]; those on the derivatives of ζ are those on 𝔷,
 and |ζ| ≤ C∫_v^∞ v′^(−w+ε′)dv′ ≤ C′v^(−w+1+ε′), with |t_* − v| ≤ C_(R′). The form of X_(RW,0) follows from
 (∂_v)^♭ = −f dv + dr and (∂_r)^♭ = dv. A G-invariant Killing field Z has ξ[ℒ_Zg] = −Z_(≥2) = 0 by [[lem:gd-1-3]] (c),
-where Z_(≥2) := Z − Z_0 has only harmonics of degree l ≥ 2 ([[lem:gd-1-2]]), and Z_0 = c′∂_v by [[lem:gd-1-4]] (c).
-For two gauge vectors X_RW and X′ as in (a), Z := X′ − X_RW has ℒ_Zg in the Regge–Wheeler-type gauge with l = 0
-part 0, so ℒ_Zg = 0 by the argument of (d), and Z = c′(∂_v)^♭.
+where Z_(≥2) := Z − Z_0 has only harmonics of degree l ≥ 2 ([[lem:gd-1-2]]), and Z_0 = c′(∂_v)^♭ by
+[[lem:gd-1-4]] (c). If X′ is another G-invariant 1-form for which ġ + ℒ_(X′)g is in the Regge–Wheeler-type gauge with
+l = 0 part ṁK_V, then Z := X′ − X_RW is G-invariant and ℒ_Zg = (ġ + ℒ_(X′)g) − ġ_RW is in the Regge–Wheeler-type gauge
+with l = 0 part 0; so ℒ_Zg = 0 by the argument of (d), and Z = c′(∂_v)^♭.
 
 (d) By [[cor:ix-2-3]] and [[rem:ix-2-4]] (c), ġ′ = ġ + ℒ_(X′)g on Ω′_+ with X′ G-invariant: an SO(4)-invariant U is a
 union of sets {(t, x) : (t, |x|) ∈ A}, hence O(4)- and G-invariant. So ġ′ − ġ_RW = ℒ_Zg, Z := X′ − X_RW, is in the
 Regge–Wheeler-type gauge, with l = 0 part c″K_V for a constant c″. By [[lem:gd-1-3]] (c), Z_(≥2) = 0, as the β and
-τ of ℒ_Zg are those of ℒ_(Z_(≥2))g. Its l = 0 part ℒ_(Z_0)g is c″K_V, and c″ = δm[ℒ_(Z_0)g] = 0 by
+𝓉 of ℒ_Zg are those of ℒ_(Z_(≥2))g. Its l = 0 part ℒ_(Z_0)g is c″K_V, and c″ = δm[ℒ_(Z_0)g] = 0 by
 [[lem:gd-1-4]] (a). So ℒ_Zg = 0. ∎
 
 **Remark {#rem:rw-zeta}** (The loss of one power in ζ.) It comes from the time integral and is attained by the

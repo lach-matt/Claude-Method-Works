@@ -663,10 +663,10 @@ and Π, 𝖬 evaluated at r,
 H_(m,A) > 0; (d) (g^KS_(m,A))⁻¹ = η⁻¹ − H_(m,A) k_A^♯ ⊗ k_A^♯, k_A^♯ := η⁻¹(k_A, ·); (e) for β ∈ (−1, 1], wherever (c)'s
 condition holds, (g^KS_(m,A))⁻¹(dt − β d|x|, dt − β d|x|) < 0.
 
-*Proof.* Put 𝒩 := (r²I − A²)⁻¹, which is 𝖬/Π by [[lem:iii-b-3-1]] (a); 𝒩 is symmetric and commutes with A, so 𝒩A is
-antisymmetric. The coefficient vector of ℓ_A is 𝒩(r + A)x, and Q = Π(1 − xᵀ𝒩x). (a), (b): xᵀ𝒩Ax = 0, so
-ℓ_A(x · ∂_x) = xᵀ𝒩(r + A)x = r xᵀ𝒩x = r(1 − Q/Π); and, as (r − A)𝒩²(r + A) = 𝒩²(r² − A²) = 𝒩,
-|𝒩(r + A)x|² = xᵀ(r − A)𝒩²(r + A)x = xᵀ𝒩x = 1 − Q/Π. Both identities hold for every r > 0, and at r = r_A(x), where
+*Proof.* Put 𝖭 := (r²I − A²)⁻¹, which is 𝖬/Π by [[lem:iii-b-3-1]] (a); 𝖭 is symmetric and commutes with A, so 𝖭A is
+antisymmetric. The coefficient vector of ℓ_A is 𝖭(r + A)x, and Q = Π(1 − xᵀ𝖭x). (a), (b): xᵀ𝖭Ax = 0, so
+ℓ_A(x · ∂_x) = xᵀ𝖭(r + A)x = r xᵀ𝖭x = r(1 − Q/Π); and, as (r − A)𝖭²(r + A) = 𝖭²(r² − A²) = 𝖭,
+|𝖭(r + A)x|² = xᵀ(r − A)𝖭²(r + A)x = xᵀ𝖭x = 1 − Q/Π. Both identities hold for every r > 0, and at r = r_A(x), where
 Q = 0, they give (a) and (b); r_A/|x| ∈ (0, 1] by [[lem:iii-b-3-1]] (b). (c) 𝖬 commutes with A, so A𝖬 is antisymmetric
 and xᵀA²𝖬²x = −|A𝖬x|²; so F_A ≤ 1. By [[lem:iii-b-3-1]] (a), 𝖬/Π = (r²I − A²)⁻¹ has norm at most r⁻², so
 |A𝖬x|/Π ≤ ‖A‖|x|r⁻² ≤ ‖A‖(r² + ‖A‖²)^(1/2)r⁻² < 1 under (c)'s condition ([[lem:iii-b-3-1]] (b)); so F_A > 0, and

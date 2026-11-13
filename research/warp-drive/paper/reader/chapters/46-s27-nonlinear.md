@@ -534,8 +534,8 @@ of [[thm:iv2-3-1]] on Ω_(ext,r_1); and for every k and ε > 0 there is ε_1 ∈
 
 *Proof.* The proof of [[thm:iv2-3-1]] on Ω^♮, with the spaces F^k of right sides enlarged by H^k(Σ_c)² and the map by
 the traces on Σ_c minus (k_0, k_1); the right inverses are those of [[thm:iv3-2-1]], and the smoothing and the map are
-as there (P^♮ = P^(χ_0) on Ω^♮, and [[cor:iii-c-5-3]] holds for it by [[lem:iii-c2-2-1]], near 𝒮 in the translated
-chart). The data enter the map: ‖Φ(h)‖_k ≤ C′_k(1 + |h|_(k+d)) + Σ_j(‖h_j‖_(H^(k,ℓ^♭_0)_b) + ‖k_j‖_(H^k(Σ_c))),
+as there (the smoothing of the radiation field built on ℐ⁺_♮; P^♮ = P^(χ_0) on Ω^♮, and [[cor:iii-c-5-3]] holds for it
+by [[lem:iii-c2-2-1]], near 𝒮 in the translated chart). The data enter the map: ‖Φ(h)‖_k ≤ C′_k(1 + |h|_(k+d)) + Σ_j(‖h_j‖_(H^(k,ℓ^♭_0)_b) + ‖k_j‖_(H^k(Σ_c))),
 with C′_k independent of the data, so for k ≤ N_ex the constants C_k of [[eq:ii-g-2-3]] are bounded independently of
 the data once these norms are at most 1 in H^(N_ex). The threshold of [[thm:ii-g-2-1]] depends on the constants up to
 the order N_ex only, so it is then uniform, and ‖Φ(0)‖_(2d) is below it for data small in H^(N_ex); the shifted scales
@@ -549,8 +549,9 @@ compact part (whose data on Σ^fut_(r_1) ∩ {ρ′_I ≥ c} come from the exter
 [[lem:ii-f-1-3]] with the compact sets of [[lem:iii-k-6-2]].
 
 **Corollary {#cor:iv3-2-3}** (The orders on the slab.) Under the hypotheses of [[thm:iii-c1-3-1]] on the data, the
-solution of [[thm:iv3-2-2]] lies in H^(∞,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b(Ω^♮), with the bound [[eq:iii-c1-3-2]]; in
-particular h_(S,S⁰) has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ on 𝒮, as [[prop:iii-k-1-2]] (3) states.
+solution of [[thm:iv3-2-2]] lies in H^(∞,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b(Ω^♮), with the bound [[eq:iii-c1-3-2]], the
+coefficients of its expansion at ℐ⁺ being functions on ℐ⁺_♮ ([[sec:iv3-1]]); in particular h_(S,S⁰) has the orders
+(⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ on 𝒮, as [[prop:iii-k-1-2]] (3) states.
 
 *Proof.* The proof of [[thm:iii-c1-3-1]] on Ω^♮, with [[thm:iv3-2-1]] in place of the linear estimate
 [[eq:iii-c1-2-2]]. Its Step 1 works at I₀, which Ω^♮ meets only within Ω_(ext,r_1); its Step 2 integrates, slot by

@@ -344,13 +344,14 @@ S^(h,p⃗)_(λ,k)(G′) of u_0 := u + Σ_(𝒩⊔𝒩_rot) m_ν(W′_ν) given b
 and applied from an admissible level α″ ∈ (2, 2 + w], whose hypothesis u_0 meets, minus W′_ν; and G′ depends on the new
 W′ only through the small terms listed above, the rows there being rows of [[eq:iii-i15-1-1]]. The bound of
 [[lem:iii-i8-3-2]], C‖G′‖_(𝒴(β_(k+1))) + C(‖h‖ + |p⃗|)‖u_0‖_(α″), uniform in b by (P1)–(P4), has the same form, and
-the estimate above holds with ‖·‖_(α″) in place of ‖·‖_(w). At the base level the new coordinates are the motion parameters (S′, b′, S^(0)′_1), which enter G′ through f^S, f^b,
-f^(s1) in full. There the level map is that of [[cor:iii-i7-4-6]], the composite of the maps of [[lem:iii-i7-4-3]] and
-[[lem:iii-i7-4-5]], and [[prop:iii-i15-2-12]] bounds those directly, within C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) of ±id,
-with ‖q‖ entering through Δ_q and R_q as above. Their composite is block-triangular, not of the form −id + A_k; what
-the elimination uses is that its inverse is bounded uniformly, which this gives. So
-|A_k| ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|) at every level above the base, the base level's map has a uniformly
-bounded inverse, and the continuity statements that Step 3 of the proof of [[thm:iii-i14-3-1]] cites are not needed.
+the estimate above holds with ‖·‖_(α″) in place of ‖·‖_(w). At the base level the new coordinates are the motion
+parameters (S′, b′, S^(0)′_1), which enter G′ through f^S, f^b, f^(s1) in full. There the level map is that of
+[[cor:iii-i7-4-6]], the composite of the maps of [[lem:iii-i7-4-3]] and [[lem:iii-i7-4-5]], and [[prop:iii-i15-2-12]]
+bounds those directly, within C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) of ±id, with ‖q‖ entering through Δ_q and R_q as above.
+Their composite is block-triangular, not of the form −id + A_k; what the elimination uses is that its inverse is bounded
+uniformly, which this gives. So |A_k| ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|) at every level above the base, the base
+level's map has a uniformly bounded inverse, and the continuity statements that Step 3 of the proof of
+[[thm:iii-i14-3-1]] cites are not needed.
 
 So −id + A_k is invertible for (h, p⃗, q) small, and 𝒫_(k+1) is a graph.
 
@@ -591,9 +592,10 @@ K⁺-exponents at hand, among which at a rotating b are those of the v1 terms; (
 paragraph *(Ex3) at b* below. The solution maps of [[ch:s19]]–[[ch:s23]] in [[thm:iii-j2-4-1]] are read at b as in
 [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]; in particular, at a rotating b the map of [[thm:iii-i14-3-1]] there is
 the constructed map F ↦ (p⃗′, q′, h′) of [[prop:iii-i15-2-5]] ([[rem:iii-i15-2-6]]). The new objects enter the inventory
-of [[lem:iii-j2-2-1]] (c): A_b is bounded by a fixed low seminorm of G, as it reads the ι⁺-data u_+ and the tf-data
-([[prop:iii-i15-2-2]]); E^ν is bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id + A_k as
-the other rows do; and d_* includes their orders.
+of [[lem:iii-j2-2-1]] (c): A_b is bounded by a fixed low seminorm of the right side f′ = G − (L_(h,p⃗) − L_b)u, from
+which it reads the ι⁺-data u_+ and the tf-data ([[prop:iii-i15-2-2]]), so by fixed low seminorms of G and of the
+solution u ([[def:iii-i15-2-3]]); E^ν is bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id
++ A_k as the other rows do; and d_* includes their orders.
 
 *(Ex3) at b.* At a rotating b the K⁺-exponents at hand are those at b₀ together with: the exponents λ + j, λ ∈ π_1ℳ_rot,
 j ∈ ℕ₀, of the bottoms a_ν h_(b,v1)(W) of the rotation rows and their shifts ([[lem:iii-i15-2-1]], [[prop:iii-i15-2-2]]);

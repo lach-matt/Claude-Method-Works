@@ -739,3 +739,17 @@ Items found while chapters were written in parallel; each is settled once, editi
   lem:interior-one-spacetime (glues along Σ, maximal common development U); m := μ_end r⁻² used where v < v_end
   (use μ(v)r⁻²; bounds need only 0 ≤ m ≤ 1/400). Nits: [BGP] for "connected"; λ_1 (lem:vii-1-1) vs λ1; J unnamed; ε
   doubled. Third fix running.
+- Proof C fixed (F-P-C): the C261 chain, the e_k, the energy constant, prop:stage-zero-bounds and part of
+  lem:lambda0-point dropped (cited by nothing; chapter 86 needs only the λ0 norms; the energy constant served only the
+  M_22 a posteriori estimate, class (c)); T-C261.md and T-C.md deleted (recoverable at 85478dd^); P-C 854 → 238 lines;
+  no value changed. Envelope constant renamed c_e (tied to chapter 03's c); Poisson summation stated and proved from
+  Fejér's theorem; lem:epsilon-one replaced by chapter 02's items (i)-(iii). S is now only chapter 08's
+  lem:first-mean-forcing (any zero-mean χ; the report offers an optional sentence for chapter 08). Follow-ups:
+  proofs/P-F-edge.md line 9. The earlier report to the author that the source's e_k are rounded down stays true of the
+  source but no longer concerns the edition, which states no e_k.
+- Ch 80 written (W-80): 1,240 lines, 70 crosswalk rows, no markers; exports part:further, ch:two-dusts, thm:two-dusts;
+  defines sec:two-dust-background and lem:two-dust-identities (for proofs E). thm:two-dusts carries the full theorem
+  (E₂ is thm:two-dust-uniform; OUTLINE to be updated); item 6's conditions on μ0 restored with the equality case; the
+  source's mixed gauge symbol sign corrected (+e^(−2σ)n1n2 for B_g); twelve programs replaced by derivations, twobg5
+  and twodomainx5 kept as Numerical observation remarks. Notation: σ, 𝒜, ℬ, 𝒞_in, 𝒞_out, 𝒩₂, θ1, θ2; proof E's s, α
+  and 𝒩 must follow on merge into chapter 83.

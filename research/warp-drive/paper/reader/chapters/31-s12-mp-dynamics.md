@@ -511,14 +511,15 @@ root of
     Δ_b(r) := Π(r) − m r² = 0.                                                                             {#eq:vi-b-1-1}
 
 With u := r², Δ_b = u² + (s − m)u + p², whose discriminant is
-(m − s)² − 4p² = (m − (|a| + |b|)²)(m − (|a| − |b|)²) ≥ (m − (|a| + |b|)²)² > 0 for every b ∈ ℬ, as
+(m − s)² − 4p² = (m − (|a| + |b|)²)(m − (|a| − |b|)²) ≥ (m − (|a| + |b|)²)² > 0 for every (m, A) ∈ ℬ, as
 (|a| + |b|)² ≤ 4‖A‖² < m₀/100 < m there. So Δ_b has, as a polynomial in u, two simple real roots u₋ < u₊, with
 u₊ + u₋ = m − s > 0 and u₊u₋ = p² ≥ 0. Hence r₊ = u₊^(1/2) is a simple zero of Δ_b; with r₋ := u₋^(1/2),
 
-    Δ_b > 0 on (r₊, ∞),     Δ_b < 0 on (r₋, r₊),     r₋ < ‖A‖ < r_♭/4,
+    Δ_b > 0 on (r₊, ∞),     Δ_b < 0 on (r₋, r₊),     r₋ ≤ ‖A‖ < r_♭/4, strictly for A ≠ 0,
 
-the last because u₊ ≥ ½(m − s) and m − s > ½m₀ − m₀/200 > 2‖A‖² (as s ≤ 2‖A‖² < m₀/200), so that
-u₋ = p²/u₊ ≤ 2‖A‖⁴/(m − s) < ‖A‖² (if A ≠ 0; u₋ = 0 if p = 0). r₊ is smooth in b ∈ ℬ, as u₊ is a smooth
+the last because ‖A‖ < ε_♭R₁ ≤ r_♭/4 on ℬ ([[def:s11-parameters]]), and because u₊ ≥ ½(m − s) and
+m − s > ½m₀ − m₀/200 > 2‖A‖² (as s ≤ 2‖A‖² < m₀/200), so that u₋ = p²/u₊ ≤ 2‖A‖⁴/(m − s) (as p² = a²b² ≤ ‖A‖⁴),
+which is less than ‖A‖² if A ≠ 0, while u₋ = 0 = ‖A‖² if A = 0. r₊ is smooth in (m, A) ∈ ℬ, as u₊ is a smooth
 function of (m, s, p²) where the discriminant is positive, and s and p² are polynomials in A. At b₀,
 Δ_(b₀) = r²(r² − m₀), r₊(b₀) = m₀^(1/2) = r_h and r₋(b₀) = 0.
 
@@ -573,7 +574,7 @@ Euclidean dual of ℓ_A. As r_A does not depend on t, dr_A(k_A^♯) = ℓ_A(∇r
 dr_A ≠ 0 everywhere by [[lem:s12-spheroidal]] (c), so ℋ_b is a smooth hypersurface; its conormal dr_A is null there, as
 Δ_b(r₊) = 0, so ℋ_b is null. It is invariant under ∂_t, as g^KS_(m,A) has t-independent components and r_A does not
 depend on t. The signs of Δ_b on (r₊, ∞) and on (r₋, r₊) are those found after [[eq:vi-b-1-1]], and ϱ² > 0. On
-{|x| ≥ ½r_♭}, r_A² > 3‖A‖² > r₋² by [[lem:s11-ks-domain]]. ∎
+{|x| ≥ ½r_♭}, r_A² > 3‖A‖² ≥ r₋², by [[lem:s11-ks-domain]] and r₋ ≤ ‖A‖. ∎
 
 [[eq:vi-b-1-2]] is the component g^(rr) of the Myers–Perry metric [MP86] in Boyer–Lindquist coordinates ([ER08]),
 written in the Kerr–Schild coordinates of [[ch:s11]]; the radius r_A of the Kerr–Schild form is the Boyer–Lindquist
@@ -780,7 +781,7 @@ Put Λ := 𝔎 + sE² = |η|²_(𝕊³) + E²|Aω|² ≥ |η|²_(𝕊³), using 
 a polynomial of degree 5 in u whose coefficients are polynomials in (m, a, b, E, Φ, Ψ, Λ). Indeed, with α = Δ_b/u,
 β = −mẼ and m + Δ_b/u = Π/u, ℛ = m²Ẽ² + (Δ_b/u)(uE² + 𝒯 + mẼ² − 𝔎) = mẼ²Π/u + (Δ_b/u)(uE² + 𝒯 − 𝔎); and
 Π = (u + a²)(u + b²), so ΠẼ = ΠE + aΦ(u + b²) + bΨ(u + a²) and Π𝒯 = (a² − b²)(Φ²(u + b²) − Ψ²(u + a²)), by
-[[eq:vi-b1-0-3]]. Multiplying by uP gives [[eq:vi-b1-1-1]]; its terms have degrees at most 4, 5, 3 and 4 in u, the
+[[eq:vi-b1-0-3]]. Multiplying by uΠ gives [[eq:vi-b1-1-1]]; its terms have degrees at most 4, 5, 3 and 4 in u, the
 coefficient of u⁵ is E², and 𝔎 = Λ − (a² + b²)E². Then 𝒬(w) := w⁵𝒫(w⁻¹) is a polynomial in w with 𝒬(0) = E², and at
 A = 0, where Π = u², Δ_b = u² − mu, Ẽ = E, 𝒯 = 0 and 𝔎 = Λ, 𝒫 = u⁵E² − Λu⁴ + mΛu³, so
 

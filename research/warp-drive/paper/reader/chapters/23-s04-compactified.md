@@ -2027,8 +2027,9 @@ constant along the flow, and in Ell(G). As the neighbourhood in (B) is open, t�
 neighbourhood of γ_α([0, t′_α]). [[prop:ii-a1-5-3]] with ς = 1 gives B_α ∈ C^∞_b Ψ⁰_e3b elliptic on γ_α([0, t′_α]), in
 particular near α, and G_α microsupported in a neighbourhood inside Ell(G). It also gives
 ‖B_αu‖_𝗌 ≤ C(‖G_αLu‖_(𝗌−m+1) + ‖Eu‖_𝗌 + ‖χu‖_(−N)), and ‖G_αLu‖ ≤ C(‖GLu‖ + ‖χ_*Lu‖_(−N−m)) ≤ C(‖GLu‖ + ‖χu‖_(−N)),
-with χ_* as in the proof of [[thm:ii-a1-3-1]], by [[lem:ii-a-8-4]] (c) and
-[[lem:ii-a-8-6]] (a). For α ∈ WF′(B) ∖ Char(L), [[thm:ii-a1-3-1]] gives any B_α ∈ C^∞_b Ψ⁰_e3b elliptic near α and
+with χ_* of (R2) of [[sec:ii-a-8-3]] for B, E and G, by [[lem:ii-a-8-4]] (c) and [[lem:ii-a-8-6]] (a); here G_α and
+the operators G_j of the proof of [[lem:ii-a1-4-2]] are taken as auxiliary operators of (R1) for B, E and G, so that
+G_αχ_* = G_α. For α ∈ WF′(B) ∖ Char(L), [[thm:ii-a1-3-1]] gives any B_α ∈ C^∞_b Ψ⁰_e3b elliptic near α and
 microsupported in Ell(G) ∩ Ell(L) with ‖B_αu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)). By compactness of WF′(B), finitely many
 B_(α_i) are jointly elliptic on it: Σ_i B_(α_i)^* B_(α_i) ∈ C^∞_b Ψ⁰_e3b is elliptic of order 0 there, the B_(α_i)
 being smooth, as [[lem:ii-a-8-4]] (c) requires. The elliptic estimate ([[lem:ii-a-8-4]] (c), or [[thm:ii-a1-3-1]])
