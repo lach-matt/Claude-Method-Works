@@ -890,18 +890,21 @@ and proved in [[prop:iv5-5-2]] and [[prop:iv5-5-3]]. We follow [Hin26a, pp. 12�
 
 #### The setting {#sec:iv5-0}
 
-Throughout n = 4. The mass m₀, R₁ = m₀^(1/2), ℬ and b₀ = (m₀, 0) are those of [[sec:iii-b-3-1]]. Let r_♯ := ½R₁ be the
-inner radius (the radius m of [Hin26a]) and r_c := 100R₁ the radius of the saddle point of c_C (the radius r_0 of
-[Hin26a]; the r_0 = 100 of [[prop:np-10-14]] at m = 1, rescaled). Let v := v_C = 1/2 and e := e_C = 1/102400.
+Throughout n = 4. The mass m₀, R₁ = m₀^(1/2), the parameter set ℬ and b₀ = (m₀, 0) are those of [[sec:iii-b-3-1]].
+Let r_♯ := r_♭ ∈ (0, ½R₁] be the inner radius of [[ch:s11]] (the inner radius of [Hin26a, Section 5]), r̂ := ¾R₁,
+and r_c := 100R₁ the radius of the saddle point of c_C (the radius r_0 of [Hin26a]; the r_0 = 100 of
+[[prop:np-10-14]] at m = 1, rescaled). Let v := v_C = 1/2 and e := e_C = 1/102400. Every radius used below near the
+inner boundary is placed relative to r_♯ and r̂: ε_X ≤ T_0r_♯/2 and ε_r := (r̂ − r_♯)/10 in [[prop:iv5-5-3]],
+r_1 := r_♯ + (2/10)(r̂ − r_♯) and r_2 := r_♯ + (2.75/10)(r̂ − r_♯) in [[prop:iv5-7-1]], the transitions of the
+cut-offs χ_(r,j) in [r_♯, r̂], and t_1 < ¼T_0r_♯ in [[prop:iv5-7-2]]. Nothing below is uniform in r_♯.
 
 *Coordinates.* We work in the Kerr–Schild coordinates (t, x) of [[sec:iii-b-3-1]], with r := |x|. For b ∈ ℬ,
-g := g^KS_b = η + H_b k_b ⊗ k_b is defined and smooth with H_b > 0 on ℝ_t × {r ≥ ½r_♯}, smoothly in b. Indeed the
-estimate of [[sec:iii-b-3-1]], run at r = ¼R₁ with ‖A‖² < R₁²/100, gives |x|² > 2‖A‖² ≥ s and
-r_A² ≥ (1/16 − 1/100)R₁², under which the condition ‖A‖²(r_A² + ‖A‖²) < r_A⁴ of [[lem:iii-b-3-3]] (c) holds. The metric
-g_b of [[sec:iii-b-3-1]] is Φ_m*g with Φ_m(t, x) = (t − T_m(|x|), x), and [[rem:iv5-7-4]] transfers the results to it.
-The 1-form c := c_C of [[sec:iv4-0]] is defined in these coordinates on {r ≥ r_♯}. We extend it to {r ≥ ½r_♯} as a
-stationary smooth past timelike 1-form; such an extension exists, the past timelike covectors at a point forming an open
-convex cone.
+g := g^KS_b = η + H_b k_b ⊗ k_b is defined, smooth and Lorentzian with H_b > 0 on ℝ_t × {r ≥ ½r_♯}, smoothly in b,
+and the condition of [[lem:iii-b-3-3]] (c) holds there ([[lem:s11-ks-domain]]). The metric g_b of [[sec:iii-b-3-1]]
+is Φ_m*g with Φ_m(t, x) = (t − T_m(|x|), x), and [[rem:iv5-7-4]] transfers the results to it. The 1-form c := c_C of
+[[sec:iv4-0]] is given by its formula on {r ≥ ½r_♯}: for r ≤ ½r_c it is a positive multiple of dt + (v/2) dr, which is
+past timelike for g_(b₀) at every r > 0 ([[prop:np-10-14]] (i)), and so for g_b, b near b₀, on the compact set
+{½r_♯ ≤ r ≤ ½r_c}, by continuity.
 
 **Definition {#def:iv5-0-1}** (The compactification and the spaces; [Hin26a, Definitions 2.1, 2.2, 2.5, (2.2)–(2.3),
 (2.10), (2.11), (5.19)] in dimension 4 + 1.) Let M₀ := [ℝ̄^(1+4); k₊, k₋], where k_± are the poles of the radial

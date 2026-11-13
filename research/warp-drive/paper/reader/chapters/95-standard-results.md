@@ -672,8 +672,8 @@ and ‖g_ℓ‖_(L^∞) ≤ ‖g‖_(L^∞), and f_ℓ → f, g_ℓ → g in H^s
 ∂^α(θ(·/ℓ)v) − θ(·/ℓ)∂^α v is a sum of terms ℓ^(−|β|)(∂^β θ)(·/ℓ) ∂^(α−β) v with β ≠ 0; so multiplication by
 θ(·/ℓ), ℓ ≥ 1, is bounded on H^s uniformly in ℓ, and θ(·/ℓ)v → v in H^s for each fixed v ∈ H^s, as
 θ(·/ℓ)∂^α v → ∂^α v in L² by dominated convergence. Writing f_ℓ − f = θ(·/ℓ)(ρ_(1/ℓ) ∗ f − f) + (θ(·/ℓ)f − f), the
-first term tends to 0 in H^s because ρ_(1/ℓ) ∗ f → f in H^s, and the second by the fixed-v case. So the right side of [[eq:std-moser]] for (f_ℓ, g_ℓ) is at most ‖f‖_(L^∞)‖g_ℓ‖_(H^s) +
-‖f_ℓ‖_(H^s)‖g‖_(L^∞), which converges to the right side for (f, g). Further ‖f_ℓ g_ℓ − fg‖_(L²) ≤ ‖f_ℓ − f‖_(L²)
+first term tends to 0 in H^s because ρ_(1/ℓ) ∗ f → f in H^s, and the second by the fixed-v case. So the right side
+of [[eq:std-moser]] for (f_ℓ, g_ℓ) is at most ‖f‖_(L^∞)‖g_ℓ‖_(H^s) + ‖f_ℓ‖_(H^s)‖g‖_(L^∞), which converges to the right side for (f, g). Further ‖f_ℓ g_ℓ − fg‖_(L²) ≤ ‖f_ℓ − f‖_(L²)
 ‖g‖_(L^∞) + ‖f(g_ℓ − g)‖_(L²), and along a subsequence g_ℓ → g almost everywhere with |f(g_ℓ − g)| ≤ 2‖g‖_(L^∞)|f|,
 so f_ℓ g_ℓ → fg in L² and J^s(f_ℓ g_ℓ) → J^s(fg) as tempered distributions. The J^s(f_ℓ g_ℓ) are bounded in L²; a
 subsequence converges weakly in L², its limit is J^s(fg), and its norm is at most the limit inferior of the norms.
