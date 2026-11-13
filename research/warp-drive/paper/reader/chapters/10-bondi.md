@@ -732,3 +732,114 @@ dM/du = −(4/3)(p_u² + p_u q_u + q_u²). The time reversal u = −v leaves the
 the rate, which gives [[eq:bondi-law]]: an incoming flux raises the mass. [[prop:hierarchy-scri]] derives all of this in
 [[eq:bondi-metric]] itself, with every coefficient general from s¹ on, and takes nothing from [TTS09].
 
+### Proof of the mass law {#sec:bondi-proof}
+
+Proof of [[thm:bondi-law]]. *The chart.* [[prop:bondi-chart]] with J = 8 gives, on the far region P ∩ {t ≥ T_M},
+T_M = T_M(λ), Bondi coordinates (v_B, r_B, ϑ_B, φ1, φ2): v_B is null for g_λ, with v_B − v → 0 at past null infinity
+along every generator of g0; ϑ_B is constant along the generators of {v_B = const}; r_B is the areal radius of the
+spheres {v_B, r_B = const}; and g_λ has the form [[eq:bondi-metric]]. In s := r_B^(−1/2), the functions P1, P2, b, U and
+W − 1 have expansions f = Σ_{k=1}^{6} s^k f_k(v_B, ϑ_B) + o(s⁶) whose coefficients are smooth, bounded with all their
+derivatives, invariant under T² × Z2 × Z2 and equal to those of g0 for v_B ≤ v_start (zero there, but for
+W − 1 = −μ0 s⁴), and whose remainders have every (v_B, ϑ_B)-derivative o(s⁶) and gain an order, one power of r_B and
+two of s, under each r_B-derivative; the remainders of [[prop:bondi-chart]] lie in classes E_p with all their
+derivatives. This is the chart and the form of the metric that the theorem asserts. By [[eq:bondi-first-metric]],
+P_i = O(s³), and b, U and W − 1 are O(s), so [[prop:hierarchy-scri]] applies to g_λ, which is vacuum.
+
+*Item 1, the angular metric.* The s³ coefficient of P_i is p_i, by the last part of [[prop:bondi-chart]]:
+
+    p1 = (2 cos²ϑ_B G − sin²ϑ_B F)/3,    p2 = (2 sin²ϑ_B F − cos²ϑ_B G)/3,
+    F = λ A env(v_B) h sin(v_B/λ),    G = λ A env(v_B) h cos(v_B/λ),                                  {#eq:bondi-p}
+
+the free data at the phase v_B/λ, with h the angular profile, h² = 2/(1 + z²), z := cos 2ϑ_B. The radiation field of
+[[thm:past-construction]] is this statement in the wave-map gauge, and the change of chart preserves it. For the s⁴
+coefficients a_i: by [[prop:hierarchy-scri]] (iv), ∂_v a_i = 0, and a_i = 0 for v_B ≤ v_start, where the metric is
+g0 ([[prop:bondi-chart]] (iv)); so a_i = 0. This is the argument of [TTS09] from spatial infinity, with the seed in its
+place.
+
+*Item 2, the mass aspect.* By [[prop:hierarchy-scri]] (iii), W = 1 + s³ V1 − s⁴ M + O(s⁵) with V1 := w_3 =
+−(2/3) div(u_5), a divergence on S³, and by (v) with a_i = 0 the mass aspect obeys [[eq:bondi-law]] pointwise. M = μ0
+for v_B ≤ v_start, since g_λ = g0 there: the Vaidya metric with μ = μ0, whose W is 1 − μ0 s⁴.
+
+*Item 3, the Bondi mass.* Let μ_B(v) := ⟨M(v, ·)⟩, the mean over S³. By [[eq:bondi-p]], ∂_v F = A h D_s and
+∂_v G = A h D_c, where
+
+    D_c := ∂_v (λ env cos(v/λ)) = λ env' cos(v/λ) − env sin(v/λ),
+    D_s := ∂_v (λ env sin(v/λ)) = λ env' sin(v/λ) + env cos(v/λ).
+
+With x := cos²ϑ D_c and y := sin²ϑ D_s, ∂_v p1 = A h (2x − y)/3 and ∂_v p2 = A h (2y − x)/3. Since
+(2x − y)² + (2x − y)(2y − x) + (2y − x)² = 3 (x² − xy + y²),
+
+    (4/3)(p1_v² + p1_v p2_v + p2_v²) = (4/9) A² h² (cos⁴ϑ D_c² + sin⁴ϑ D_s² − cos²ϑ sin²ϑ D_c D_s),   {#eq:bondi-density}
+
+the flux density at past null infinity of Chapter 9 [[pending:ch9-flux]]. The mean over S³ of a function of ϑ is
+⟨f⟩ = 2 ∫_0^(π/2) f cos ϑ sin ϑ dϑ = ½ ∫_{−1}^{1} f dz. With cos²ϑ = (1 + z)/2, sin²ϑ = (1 − z)/2 and h² = 2/(1 + z²),
+
+    ⟨h² cos⁴ϑ⟩ = ¼ ∫_{−1}^{1} (1 + 2z/(1 + z²)) dz = ½,     ⟨h² sin⁴ϑ⟩ = ½,
+    ⟨h² cos²ϑ sin²ϑ⟩ = ¼ ∫_{−1}^{1} (2/(1 + z²) − 1) dz = π/4 − ½.
+
+Since D_c² + D_s² = env² + λ² env'² and D_c D_s = −½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ), the sphere
+mean of [[eq:bondi-density]] is
+
+    μ_B' = (2/9) A² [ env² + λ² env'² + (1 − π/2)(−½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ)) ], {#eq:bondi-flux}
+
+exactly. We integrate from v_start, where μ_B = μ0 and env vanishes to all orders. The first term gives μ(v) − μ0, since
+μ' = (2/9) A² env² [[pending:ch2-null-dust]]. For the oscillating term, a differentiation shows
+
+    −½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ)
+        = d/dv [ (λ/4) env² cos(2v/λ) + (λ²/4) env env' sin(2v/λ) ] + (λ²/4)(env'² − env env'') sin(2v/λ),
+
+and ∫_{v_start}^{v} f sin(2v'/λ) dv' = O(λ) for every smooth f vanishing at v_start, by one integration by parts; so
+the last term contributes O(λ³). Hence
+
+    μ_B(v) = μ(v) + (2/9) λ² A² ∫_{−∞}^{v} env'²
+             + (1 − π/2) (2/9) A² ((λ/4) env² cos(2v/λ) + (λ²/4) env env' sin(2v/λ)) + O(λ³).              {#eq:bondi-mu}
+
+Both boundary terms carry the factor 1 − π/2, because the integrated flux is linear in the oscillating coefficient. So
+μ_B is μ(v) + O(λ) while the shell passes, with the oscillation that [[eq:bondi-flux]] gives, and after the shell, where
+the boundary terms vanish with env and env', μ_B = μ(v_end) + (2/9) λ² A² ∫ env'² + O(λ³). In particular μ_B' is the
+flux [[eq:bondi-flux]] exactly.
+
+*Item 4, the Hawking mass.* By [[prop:mean-mass]], M[S] = R²(1 + (R²/9)⟨Θ⟩) with Θ := 2 θ⁺ θ⁻/(−g(n⁺, n⁻)) and
+R := (Area(S)/(2π²))^(1/3). Write (v, r, ϑ) for the Bondi coordinates and let S = {v, r = const}. Since r is areal,
+Area(S) = 2π² r³ and R = r. The future null normals of S are n⁻ = −∂_r and n⁺ = ∂_v + (W/2) ∂_r + U ∂_ϑ: by
+[[eq:bondi-metric]], g(∂_r, ∂_r) = g(∂_r, ∂_ϑ) = 0, g(n⁺, ∂_ϑ) = g_(vϑ) + U g_(ϑϑ) = 0, and
+g(n⁺, n⁺) = (−e^(2b) W + r² S U²) + W e^(2b) − 2 r² S U² + r² S U² = 0, while g(n⁺, n⁻) = −e^(2b). The area form of S is
+r³ cos ϑ sin ϑ dϑ dφ1 dφ2, independent of v, so θ⁻ = −3/r exactly and θ⁺ = 3W/(2r) + div U. So
+Θ = −(9/r²) e^(−2b) (W + (2r/3) div U) and
+
+    M[S] = r² (1 − ⟨e^(−2b) (W + (2r/3) div U)⟩).
+
+With b = O(s⁶), W = 1 + w_3 s³ + w_4 s⁴ + O(s⁵), U = u_5 s⁵ + u_6 s⁶ + o(s⁶) and r = s^(−2),
+e^(−2b)(W + (2r/3) div U) = 1 + (w_3 + (2/3) div u_5) s³ + (w_4 + (2/3) div u_6) s⁴ + o(s⁴), and
+
+    M[S] = −s⁻¹ ⟨w_3 + (2/3) div u_5⟩ − ⟨w_4 + (2/3) div u_6⟩ + o(1).
+
+The divergences have zero mean, so M[S] → ⟨−w_4⟩ = ⟨M⟩ = μ_B(v_B) as r_B → ∞. ∎
+
+**Remark {#rem:bondi-solver}** (An independent evolution of the same data.) The vacuum equations can be integrated in the
+form [[eq:bondi-metric]] from the free data [[eq:bondi-p]] at past null infinity, the rate of the mass aspect being
+fixed by the coefficient of s⁶ in R_vv, that is, by [[eq:bondi-law-div]]. Two facts make such an integration comparable
+with [[thm:bondi-law]]. First, after the shell the aspect is independent of ϑ_B to O(λ³). Indeed, writing
+cos⁴ϑ D_c² + sin⁴ϑ D_s² as ½ (cos⁴ϑ + sin⁴ϑ)(env² + λ² env'²) + (sin⁴ϑ − cos⁴ϑ) O_1 with
+O_1 := ½ (env² − λ² env'²) cos(2v/λ) + λ env env' sin(2v/λ), and using h² (cos⁴ϑ + sin⁴ϑ) = 1, the density
+[[eq:bondi-density]] is (2/9) A² (env² + λ² env'²) plus ϑ-dependent multiples of O_1 and of D_c D_s. Both oscillate at
+twice the frequency of the wave, and, as above, each is a v-derivative of terms that vanish with env and env' plus
+λ² times a smooth function times cos(2v/λ) or sin(2v/λ), whose integral is O(λ³). So for v ≥ v_end,
+M(v, ϑ_B) = μ(v_end) + (2/9) λ² A² ∫ env'² + O(λ³) uniformly in ϑ_B, and any average of M over ϑ_B, for instance over a
+set of nodes in cos 2ϑ_B, equals μ_B to O(λ³) there; while the shell passes, M depends on ϑ_B at O(λ), and such an
+average need not equal μ_B. Second, for the envelope env(v) = sin⁴(π(v − ½)/3) on [½, 7/2] and A = 1, the substitution
+ξ = π(v − ½)/3 gives ∫ env'² = (16π/3) ∫_0^π sin⁶ξ cos²ξ dξ = (16π/3)(5π/16 − 35π/128) = 5π²/24, so the coefficient of
+λ² after the shell is (2/9)(5π²/24) = 5π²/108 = 0.45693… . [[pending:computational-1]] An evolution of this kind, on
+Chebyshev–Lobatto nodes in cos 2ϑ, gives for the offset of its node-averaged aspect from μ after the shell, divided by
+λ², the values 0.4589, 0.4577, 0.4568 at λ = 0.05, 0.025, 0.0125 (μ0 = 100 l5²) and 0.4578, 0.4569 at λ = 0.025, 0.0125
+(μ0 = 1000 l5²), each the mean over the samples after the shell; at λ = 0.0125 the agreement with 5π²/108 is within
+0.05 %, and one finer run, λ = 0.00625 at μ0 = 100 l5², gives 0.4535, 0.74 % below, on the grid of the previous run,
+a grid too coarse for that wavelength. The rows at 1000 l5²
+reproduce those at 100 l5² to about 10⁻⁴, the far region not depending on the inner cut, so they are not an
+independent check. Such a comparison tests the law against an integration of the same law; it is not a premise of
+[[thm:bondi-law]], which proves that g_λ obeys the law.
+
+**Remark {#rem:bondi-scope}** (What is not claimed.) [[prop:bondi-hierarchy]] claims no uniformity in λ of the expansion
+beyond its leading term, which the mass law does not need. Nothing is claimed about future null infinity or the Bondi
+mass there, which the domain does not reach.
+

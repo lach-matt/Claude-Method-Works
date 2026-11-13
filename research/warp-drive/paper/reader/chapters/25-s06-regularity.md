@@ -159,13 +159,13 @@ C^(M)_ν S̃^(2𝗌−m−2κ), supported in K_1, such that for every w ∈ H^(K
 
 Then the conclusion [[eq:ii-a1-4-3]] of [[lem:ii-a1-4-1]] holds.
 
-*Proof.* As for [[lem:ii-a1-4-1]], with two additions to the steps of that proof. In Step 1, for fixed ε, ⟨J_ε L w_t, w_t⟩ → ⟨J_ε L v, v⟩ as t →
-0: w_t → v in H^(𝗌−κ), so L w_t → L v in H^(𝗌−κ−m), and J_ε* w_t → J_ε* v in H^(−𝗌+m+κ), J_ε* having order 2𝗌 − m − 2κ
-for this ε without loss ([[prop:ii-a1-2-4]] (a), (c)). In Step 2 the new term is bounded at v = Φu: Lv = ΦLu + [L, Φ]u,
-and J_ε[L, Φ] has every order uniformly, by [[prop:ii-a1-2-4]] (e), as in Step 0; and |⟨ΦLu, J_ε* v⟩| ≤ ‖ΦLu‖_(𝗌−m+1)
-‖J_ε* v‖_(−𝗌+m−1). J_ε* is uniformly of order 2𝗌 − m + δ for every δ > 0 and microsupported in K_1, so ‖J_ε* v‖_(−𝗌+m−1)
-≤ C(‖Gu‖_(𝗌−1+δ) + ‖χu‖_(−N′)). With δ ≤ ½ and Step 0, 2|⟨J_ε L v, v⟩| ≤ C(‖GLu‖²_(𝗌−m+1) + ‖Gu‖²_(𝗌−½+δ_c) +
-‖χu‖²_(−N′)), which is of the form of the right side of [[eq:ii-a1-4-3]]. ∎
+*Proof.* As for [[lem:ii-a1-4-1]], with two additions to the steps of that proof. In Step 1, for fixed ε, ⟨J_ε L w_t,
+w_t⟩ → ⟨J_ε L v, v⟩ as t → 0: w_t → v in H^(𝗌−κ), so L w_t → L v in H^(𝗌−κ−m), and J_ε* w_t → J_ε* v in H^(−𝗌+m+κ), J_ε*
+having order 2𝗌 − m − 2κ for this ε without loss ([[prop:ii-a1-2-4]] (a), (c)). In Step 2 the new term is bounded at v =
+Φu: Lv = ΦLu + [L, Φ]u, and J_ε[L, Φ] has every order uniformly, by [[prop:ii-a1-2-4]] (e), as in Step 0; and |⟨ΦLu,
+J_ε* v⟩| ≤ ‖ΦLu‖_(𝗌−m+1) ‖J_ε* v‖_(−𝗌+m−1). J_ε* is uniformly of order 2𝗌 − m + δ for every δ > 0 and microsupported in
+K_1, so ‖J_ε* v‖_(−𝗌+m−1) ≤ C(‖Gu‖_(𝗌−1+δ) + ‖χu‖_(−N′)). With δ ≤ ½ and Step 0, 2|⟨J_ε L v, v⟩| ≤ C(‖GLu‖²_(𝗌−m+1) +
+‖Gu‖²_(𝗌−½+δ_c) + ‖χu‖²_(−N′)), which is of the form of the right side of [[eq:ii-a1-4-3]]. ∎
 
 **Lemma {#lem:ii-d-2-2}** (Iteration.) [[lem:ii-a1-4-2]] holds with [[lem:ii-d-2-1]] in place of [[lem:ii-a1-4-1]].
 
@@ -259,8 +259,8 @@ the iteration, by the threshold; so Q_ε ≥ c on supp Ψ once the cut-offs are 
 φ_ε² = −b_ε* b_ε with b_ε := ρ^(−s) φ_ε Ψ Q_ε^(1/2) ([[lem:ii-a1-2-5]] (i)), and ǎ_ε = z_ε b_ε, z_ε := ρ^(1/2)
 Q_ε^(−1/2) (with Q_ε replaced by c, smoothly, off a neighbourhood of supp Ψ). (5) 𝖧(Ψ²) is a sum of terms 2𝔐 ψψ′(𝔐f)
 𝖧f · (other factors)², one for each factor ψ(𝔐f) of Ψ, where ψ is the cut-off of [[sec:ii-a1-5-2]]: even, supported in
-(−1, 1), equal to 1 on [−½, ½], non-increasing on [0, ∞), with −ψψ′ the square of a smooth function on [0, ∞). Where 𝖧f
-> 0 on the support of ψ′(𝔐f) the term is −b′*b′; where 𝖧f < 0 it is +e*e, and its support determines E. A factor
+(−1, 1), equal to 1 on [−½, ½], non-increasing on [0, ∞), with −ψψ′ the square of a smooth function on [0, ∞). Where
+𝖧f > 0 on the support of ψ′(𝔐f) the term is −b′*b′; where 𝖧f < 0 it is +e*e, and its support determines E. A factor
 ψ(𝔐_Σ ρ²ℓ), a cut-off to the characteristic set, contributes j_ε ℓ, since 𝖧(ρ²ℓ) = 2(ρ⁻¹𝖧ρ) ρ²ℓ, 𝖧ℓ being 0. (6)
 [[lem:ii-d-2-3]] gives [[eq:ii-d-2-1]] for L″, [[lem:ii-d-2-1]] and [[lem:ii-d-2-2]] give the estimate for ũ with Γ :=
 R and τ := s − s_0, and [[sec:ii-d-1-2]] returns it to u.
@@ -317,8 +317,8 @@ full neighbourhood of ∂R_(𝓗⁺) ([[lem:ii-b-4-2]]); so [[eq:ii-d-2-2]] hold
 
 **Proposition {#prop:ii-d-3-2}** (The incoming radial set over ∂K⁺.) There are B, E, G with (1) operator wave front
 sets in any fixed neighbourhood of ∂R_(∂K⁺,in); (2) Schwartz kernels in K × K for any fixed compact neighbourhood K of
-∂K⁺; (3) B elliptic at ∂R_(∂K⁺,in); (4) the Schwartz kernel of E supported in (K ∖ K⁺)²; such that for all constants s
-> s_0, α_+, α_K with
+∂K⁺; (3) B elliptic at ∂R_(∂K⁺,in); (4) the Schwartz kernel of E supported in (K ∖ K⁺)²; such that for all constants
+s > s_0, α_+, α_K with
 
     s_0 + α_+ > ½(−1 + ϑ^3b_in) + α_K                                                                    {#eq:ii-d-3-3}
 
@@ -351,8 +351,8 @@ preserving it). Hence ([Hin26c, p. 120])
 on the full phase space over ι⁺, not only on the characteristic set. 𝖧 − 𝖧̄ ∈ ρ_+² 𝒱_b plus O(ε_P ρ_+^(ℓ_+)
 ρ_K^(ℓ_K)) ([[sec:ii-b-3-1]], [[lem:ii-c-4-1]]), so 𝖧q ≥ (2𝔐_R)⁻¹ on supp ψ′(𝔐_R q) ∩ supp ψ(𝔐ρ_+)ψ(𝔐ρ_K) for 𝔐
 large given 𝔐_R. Near R, ρ_+⁻¹𝖧ρ_+ ≥ 1 and ρ_K⁻¹𝖧ρ_K ≤ −1. So in (5) of the pattern, the factors ψ(𝔐_R q) and
-ψ(𝔐ρ_+) give −b′*b′ terms, and ψ(𝔐ρ_K) gives +e*e, supported in {ρ_K ≥ (2𝔐)⁻¹}, away from K⁺, as (4) requires; j_ε =
-0. The pattern gives [[eq:ii-d-3-4]]. ∎
+ψ(𝔐ρ_+) give −b′*b′ terms, and ψ(𝔐ρ_K) gives +e*e, supported in {ρ_K ≥ (2𝔐)⁻¹}, away from K⁺, as (4) requires; j_ε
+= 0. The pattern gives [[eq:ii-d-3-4]]. ∎
 
 **Proposition {#prop:ii-d-3-3}** (The outgoing radial set over ∂K⁺.) There are B, E, G with (1)–(3) as in
 [[prop:ii-d-3-2]] with ∂R_(∂K⁺,out) in place of ∂R_(∂K⁺,in), and (4) the operator wave front set of E disjoint from
@@ -736,8 +736,8 @@ is at most C𝒦² by [[eq:ii-d-4-6]]. Absorbing ½‖B_εv‖², which is finit
 
 *Step 2: concentration at {ϕ^s = 0}.* Let δ_4 := δ_2/4 and δ ∈ (0, δ_4/16], fixed in Step 4. Let Θ ∈ C^∞(ℝ) be
 non-decreasing, with Θ = 0 on (−∞, −8], Θ = 1 on [8, ∞), Θ′ > 0 on (−8, 8), Θ(y) = c_1 e^(−1/(y+8)) near −8 and 1 −
-Θ(y) = c_2 e^(−1/(8−y)) near 8. Such Θ exist for c_1 + c_2 < e: with T_∓ the two prescribed tails, put Θ′ := ϰ_− T_−′
-+ m ϰ_0 + ϰ_+ T_+′ on (−8, 8), for a partition of unity ϰ_− + ϰ_0 + ϰ_+ = 1 there with ϰ_∓ = 1 near ∓8 and supported
+Θ(y) = c_2 e^(−1/(8−y)) near 8. Such Θ exist for c_1 + c_2 < e: with T_∓ the two prescribed tails, put Θ′ := ϰ_−
+T_−′ + m ϰ_0 + ϰ_+ T_+′ on (−8, 8), for a partition of unity ϰ_− + ϰ_0 + ϰ_+ = 1 there with ϰ_∓ = 1 near ∓8 and supported
 within distance 1 of ∓8, and m > 0 fixed by ∫Θ′ = 1, possible as the two tail terms contribute at most (c_1 + c_2)e⁻¹
 < 1; and Θ̌ := Θ^(1/2) and θ_Θ := Θ′^(1/2) are smooth. Let c_Θ := min_[−4,4] Θ′ > 0. Put
 
@@ -895,8 +895,8 @@ bounds ‖Eu‖_(𝗌+1), and u is controlled at order 𝗌 + 1 on neighbourhood
 *Step 3: ∂R_(∂K⁺,in).* [[prop:ii-d-3-2]] with the orders (𝗌 + 1, 𝗌_0), where [[eq:ii-d-3-3]] holds as 𝗌_0 is
 admissible ([[def:ii-c-2-4]] (6)). Its E has kernel supported away from K⁺, near ∂K⁺, and is microsupported in a small
 neighbourhood of ∂R_(∂K⁺,in) where ρ_K⁻¹𝖧ρ_K ≤ −1. Let ϖ ∈ WF′(E) ∩ ∂Σ⁺. Over M°, its backward curve reaches {t_*^♭ <
-1} (P3). Over (ι⁺)°, ρ_K increases backward from ϖ, and it keeps increasing: a backward critical point of ρ_K with ρ_K
-> 0 would be a local maximum along the curve, against 𝖧²ρ_K > 0 there ([[lem:ii-b-3-3]] (3)). So the curve does not
+1} (P3). Over (ι⁺)°, ρ_K increases backward from ϖ, and it keeps increasing: a backward critical point of ρ_K with
+ρ_K > 0 would be a local maximum along the curve, against 𝖧²ρ_K > 0 there ([[lem:ii-b-3-3]] (3)). So the curve does not
 tend to R^K_out backward, where ρ_K = 0, and by the table over (ι⁺)° it tends to R^I_in, entering V_I. Points over ℐ⁺
 do not occur, ∂K⁺ being away from ℐ⁺. (P1) at order 𝗌 + 1 from V_I and (P2) bound ‖Eu‖_(𝗌+1), and u is controlled at
 order 𝗌 + 1 on a neighbourhood V_K of ∂R_(∂K⁺,in).
@@ -1082,16 +1082,16 @@ them by C‖B̃u‖_(𝗍;k) + C‖χ̃u‖_(𝗍_0;k), using an elliptic parame
 C(‖B̃u‖_(𝗍;k) + ‖χ̃u‖_(𝗍_0;k)) in the same way. [[eq:ii-d1-2-3]]: by (M) and the notation of [[sec:ii-a-9-3]],
 ‖Bu‖_(𝗍;k) is equivalent to the sum of ‖AX^β Bu‖_𝗍 over A ∈ Diff^(k−|β|)_e3b from a fixed finite set and words β in
 the X_i with |β| ≤ k. If the X_i span 𝒱_b, only A = I, |β| = k is needed (words with the letter J give the lower
-orders). Otherwise, let Q_q ∈ C_b^∞Ψ^(−q)_e3b be a microlocal parametrix of (wX_(i_0))^q on Ū_0, I = Q_q (wX_(i_0))^q
-+ R′_q with WF′(R′_q) ∩ Ū_0 = ∅ (with (wX_(i_0))^q = w^q X_(i_0)^q + Σ_(q′<q) w_(q′) X_(i_0)^(q′), w_(q′) bounded, as
-X_(i_0) w ∈ wC^∞). Then for A of order q := k − |β|,
+orders). Otherwise, let Q_q ∈ C_b^∞Ψ^(−q)_e3b be a microlocal parametrix of (wX_(i_0))^q on Ū_0, I =
+Q_q (wX_(i_0))^q + R′_q with WF′(R′_q) ∩ Ū_0 = ∅ (with (wX_(i_0))^q = w^q X_(i_0)^q + Σ_(q′<q) w_(q′) X_(i_0)^(q′),
+w_(q′) bounded, as X_(i_0) w ∈ wC^∞). Then for A of order q := k − |β|,
 
     AX^β Bu = AQ_q w^q X_(i_0)^q X^β Bu + Σ_(q′<q) AQ_q w_(q′) X_(i_0)^(q′) X^β Bu + AR′_q X^β Bu.
 
 AQ_q w^q and AQ_q w_(q′) lie in C_b^∞Ψ^0_e3b (as w^q, w_(q′) are bounded and A has order q), so the first term is
 bounded by ‖X^(i_0^q β) Bu‖_𝗍, a word of length k, and the second by words of length < k with letters J added. The
-third is microsupported off Ū_0 after commuting X^β through B, and is at most C‖χ̃u‖_(𝗍_0;k). Finally X^γ Bu = BX^γ u
-+ [X^γ, B]u, and the commutator terms carry at most k − 1 factors and are at most C‖B̃u‖_(𝗍;k−1) + C‖χ̃u‖_(𝗍_0;k), as
+third is microsupported off Ū_0 after commuting X^β through B, and is at most C‖χ̃u‖_(𝗍_0;k). Finally X^γ Bu = BX^γ
+u + [X^γ, B]u, and the commutator terms carry at most k − 1 factors and are at most C‖B̃u‖_(𝗍;k−1) + C‖χ̃u‖_(𝗍_0;k), as
 in [[eq:ii-d1-2-4]]. ∎
 
 In the estimates below, the operators B, E, G of an estimate of [[sec:ii-d-3]]–[[sec:ii-d-4]] come with properties
@@ -1152,8 +1152,8 @@ b-vector field preserves Diff²_e3b up to the coefficients ([[lem:ii-a-4-1]], an
     ‖G_k (ad_(X_S) L) X^(α∖S) u‖_(𝗍−1+𝔩) ≤ C (‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) + ‖χ̃u‖_(𝗍_0;k)).
 
 As q − 1 ≥ 1 + 𝔩, q − 1 applications of (F1) bound ‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) by C(‖G^♯_3 u‖_(𝗍;k−1) + ‖χ̃u‖_(−N′;k)),
-with G^♯_3 slightly larger than G^♯_2 and still microsupported in U_(k−1); this is bounded by [[eq:ii-d1-2-6]] at k −
-1. This is where 𝔩 = 1 needs (C2): a term with q = 2 would need ‖G^♯_2 u‖_(𝗍+2;k−2), which (F1) bounds only by the
+with G^♯_3 slightly larger than G^♯_2 and still microsupported in U_(k−1); this is bounded by [[eq:ii-d1-2-6]] at k
+− 1. This is where 𝔩 = 1 needs (C2): a term with q = 2 would need ‖G^♯_2 u‖_(𝗍+2;k−2), which (F1) bounds only by the
 norm at (𝗍 + 1; k − 1), one order above what the induction controls.
 
 Collecting the terms gives [[eq:ii-d1-2-6]] at k, with E elliptic on the union of WF′(E_k) and the E-sets of the step k
@@ -1254,15 +1254,15 @@ with p_0, p_1 = S|_(∂X) + p̃_1 functions on ℐ⁺ extended independently of 
 [2L, X] for X ∈ 𝒳_I, X ≠ I, using [AB, X] = A[B, X] + [A, X]B and (a).
 
 [−(V_2 − 3 − 2p_1)V_1, X] = 2[p_1, X]V_1 = −2(Xp_1)V_1: an operator of order 0 times V_1; it vanishes for X = V_2.
-[±2x_I² Σ Ω_ab², X] = ∓2(X x_I²) Σ Ω_ab², which is ∓4x_I² Σ Ω_ab² for X = V_1, V_2 (as V_1 x_I² = V_2 x_I² = 2x_I²)
-and 0 for X = Ω_cd. Now x_I² Ω_ab² = x_I (x_I Ω_ab) ∘ Ω_ab with x_I Ω_ab ∈ 𝒱_eb: a first-order eb-operator with coefficient in x_I
-C^∞, times Ω_ab. [p_0, X] = −(Xp_0), of order 0 (a term Q_(iJ) X_J). Finally [R̃, X] ∈ C^((d_0;k−1),(2ℓ_I,0))_(eb;b)
-Diff²_eb, as X is an eb-commutator field and differentiates the coefficients once ([[lem:ii-a-2-6]] and
-[[lem:ii-a-8-2]] (b)). 𝒱_eb is spanned over C^∞ by V_1, V_2 and x_I Ω_ab, so every element of x_I^(2ℓ_I)
-C^((d_0;k−1))_(eb;b) Diff²_eb is a sum Σ_j A_j X_j with A_j ∈ x_I^(2ℓ_I) C^((d_0;k−1))_(eb;b) Diff¹_eb (for j a
-rotation, the factor x_I of x_I Ω_ab joins A_j; the first-order part of the operator is A_J X_J). Collecting, [L, X_i]
-= Σ_j Q_(ij) X_j with Q_(ij) as stated. (c) Near ℐ⁺, 𝒱_b is spanned by ρ_+ ∂_(ρ_+), x_I ∂_(x_I) and the vector fields
-on 𝕊³, which V_1, V_2 and the Ω_ab span. (d) The principal symbol of a first-order eb-operator with coefficients in x_I
+[±2x_I² Σ Ω_ab², X] = ∓2(X x_I²) Σ Ω_ab², which is ∓4x_I² Σ Ω_ab² for X = V_1, V_2 (as V_1 x_I² = V_2 x_I² = 2x_I²) and
+0 for X = Ω_cd. Now x_I² Ω_ab² = x_I (x_I Ω_ab) ∘ Ω_ab with x_I Ω_ab ∈ 𝒱_eb: a first-order eb-operator with coefficient
+in x_I C^∞, times Ω_ab. [p_0, X] = −(Xp_0), of order 0 (a term Q_(iJ) X_J). Finally [R̃, X] ∈
+C^((d_0;k−1),(2ℓ_I,0))_(eb;b) Diff²_eb, as X is an eb-commutator field and differentiates the coefficients once
+([[lem:ii-a-2-6]] and [[lem:ii-a-8-2]] (b)). 𝒱_eb is spanned over C^∞ by V_1, V_2 and x_I Ω_ab, so every element of
+x_I^(2ℓ_I) C^((d_0;k−1))_(eb;b) Diff²_eb is a sum Σ_j A_j X_j with A_j ∈ x_I^(2ℓ_I) C^((d_0;k−1))_(eb;b) Diff¹_eb (for j
+a rotation, the factor x_I of x_I Ω_ab joins A_j; the first-order part of the operator is A_J X_J). Collecting, [L, X_i]
+= Σ_j Q_(ij) X_j with Q_(ij) as stated. (c) Near ℐ⁺, 𝒱_b is spanned by ρ_+ ∂_(ρ_+), x_I ∂_(x_I) and the vector fields on
+𝕊³, which V_1, V_2 and the Ω_ab span. (d) The principal symbol of a first-order eb-operator with coefficients in x_I
 C^∞ + x_I^(2ℓ_I) C^0 vanishes over x_I = 0. ∎
 
 **Proposition {#prop:ii-d1-3-2}** (The radial sets at ℐ⁺ with b-regularity.) [[prop:ii-d-3-5]] and [[prop:ii-d-3-6]]
