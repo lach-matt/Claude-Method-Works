@@ -284,7 +284,7 @@ then A_0 := Σ a_(jkα)(r⁻¹, 0, ω)(r∂_(t_*))^j (r∂_r)^k ∂_ω^α is the
 near K⁺ vanishes, its coefficients being independent of t_* and vanishing as t_* → ∞.)
 
 **Lemma {#lem:ii-a-2-11}** (Slicing by ι⁺; [Hin26c, Lemma 2.20].) ι⁺ = ([0, 2)_(√v) ∪ (1, ∞]_v) × 𝕊³. Let
-M′_+ := [[0, ∞)_τ × ι⁺; {0} × v⁻¹(∞)]. The map (t, r, ω) ↦ (τ, v, ω), τ = 1/t_*, v = t_*/r, induces a diffeomorphism
+M′_+ := [ [0, ∞)_τ × ι⁺; {0} × v⁻¹(∞) ]. The map (t, r, ω) ↦ (τ, v, ω), τ = 1/t_*, v = t_*/r, induces a diffeomorphism
 M ∩ cl{t_* ≥ 1, r ≥ 1} → M′_+ ∩ cl{τ ≤ 1, τv ≤ 1} identifying ι⁺, K⁺ ∩ {r ≥ 1} and ℐ⁺ ∩ {t_* ≥ 1} with the lift of
 {0} × ι⁺, the front face of M′_+ intersected with {τv ≤ 1}, and [0, 1] × v⁻¹(0).
 
@@ -500,7 +500,7 @@ algebra C^∞_b 𝒱_b(X̃) for all σ, and the following operator Lie algebras 
 (2) At fixed σ ≠ 0: C^∞_b 𝒱_sc(X̃).
 
 (3) For ±σ ∈ [0, 1]: the scattering-b-transition algebra C^∞_b 𝒱_(sc-b)(X̃) on
-X̃_(sc-b) := [[0, 1]_ς × X̃; {0} × ∂X̃], ς = ±σ, with faces scf, tf and zf, where
+X̃_(sc-b) := [ [0, 1]_ς × X̃; {0} × ∂X̃ ], ς = ±σ, with faces scf, tf and zf, where
 𝒱_(sc-b) = {V ∈ ρ_scf 𝒱_b(X̃_(sc-b)) tangent to the level sets of ς}, ρ_scf = (1 + ς⟨x⟩)⁻¹, spanned by ρ_scf⟨x⟩∂_x;
 and the spaces H^(𝗌,(𝗋,l,q))_(sc-b,σ) := ρ_scf^𝗋 ρ_tf^l ρ_zf^q H^𝗌_(sc-b,σ) [Hin26c, (3.32)].
 
@@ -612,7 +612,7 @@ The spectral side is the parameterised structure on (ι⁺)° with scalings (1 +
 near ℐ⁺ [Hin26c, Section 3.2.4]. For fixed σ it is the 0,b-structure C^∞_b 𝒱_(0,b)(ι⁺) (0-vector fields x_I∂_(x_I),
 x_I∂_ω at ι⁺ ∩ ℐ⁺, b-vector fields at ι⁺ ∩ K⁺), with the spaces H^(𝗌,(2α_I,γ))_(0,b)(ι⁺) = x_I^(2α_I) ρ_K^γ H^𝗌_(0,b).
 For ±σ ∈ [1, ∞) and h = |σ|⁻¹ it is the semiclassical 0- and cone structure on
-ι⁺_(0ℏ,cℏ) := [[0, 1)_h × ι⁺; {0} × (ι⁺ ∩ K⁺)], with faces cf, tf, sf and 0f, and the spaces
+ι⁺_(0ℏ,cℏ) := [ [0, 1)_h × ι⁺; {0} × (ι⁺ ∩ K⁺) ], with faces cf, tf, sf and 0f, and the spaces
 
     H^(𝗌,(2α_I,α_cf,l,𝖻))_(0ℏ,cℏ) = ρ_0f^(2α_I) ρ_cf^(α_cf) ρ_tf^l ρ_sf^𝖻 H^𝗌_(0ℏ,cℏ)
 
@@ -1217,7 +1217,7 @@ difference of operators with the same principal symbol is one order lower, and a
 product. Then for symbols of finite regularity the operator given by the same expression has order μ + δ, or μ when all
 orders are constant and ν = 0. Its norm is at most C ∏_i ‖a_i‖_((M);ν,𝗆_i). In particular, for a of constant order m
 with ν = 0 and a real symbol ǎ of order 𝗄 and any index: D_a := Op(a)* − Op(a*) has order m − 1, and [D_a, Op(ǎ)] and
-[[D_a, Op(ǎ)], Op(ǎ)] have orders m + 𝗄 − 2 + δ and m + 2𝗄 − 3 + δ.
+[ [D_a, Op(ǎ)], Op(ǎ) ] have orders m + 𝗄 − 2 + δ and m + 2𝗄 − 3 + δ.
 
 The constants are uniform for symbols bounded in the stated norms. For (e) the supports are fixed, or vary within fixed
 disjoint closed sets.

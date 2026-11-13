@@ -1,0 +1,94 @@
+label	source	source_name	note
+ch:s06	docket68/n1star/proof5/PART-II-D-REGULARITY.md:17-35; docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:17-30	II.D and II.D1 method paragraphs	chapter heading, introduction and Method paragraph; status paragraphs dropped
+sec:ii-d-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:37	II.D section 1	heading
+sec:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:39-68; docket68/n1star/BEYOND5-R0-PROOF.md:96-133	II.D section 1.1; R0P section 2	radii stated as parameters per R0P section 2 (Parts I-II hold for abstract radii)
+sec:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:70-77	II.D section 1.2	
+lem:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:79-101	II.D Lemma 1.1	
+eq:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:86	II.D (1.1)	
+sec:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:107-127	II.D section 1.3	
+eq:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:120-121	II.D (1.2)	
+eq:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:123	II.D (1.3)	
+thm:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:129-140	II.D Theorem 1.2 = [Hin26c] Proposition 7.1 at n = 4	
+eq:ii-d-1-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:130-132	II.D (1.4)	
+rem:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:142-146	II.D Remark 1.3 = [Hin26c] Remark 7.2	
+sec:ii-d-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:148-156	II.D section 2	II.A1 constant delta_0 written delta_c
+lem:ii-d-2-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:158-177	II.D Lemma 2.1	
+eq:ii-d-2-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:162-164	II.D (2.1)	
+lem:ii-d-2-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:179-180	II.D Lemma 2.2	source says "with the same proof"; one-sentence proof written
+lem:ii-d-2-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:182-205	II.D Lemma 2.3	
+eq:ii-d-2-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:185-187	II.D (2.2)	
+lem:ii-d-2-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:207-218	II.D Lemma 2.4	
+eq:ii-d-2-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:210	II.D (2.3)	
+lem:ii-d-2-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:225-256	II.D Lemma 2.5 and the two remarks after it	
+eq:ii-d-2-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:231-233	II.D (2.4)	
+sec:ii-d-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:258-298	II.D section 3, the pattern	
+eq:ii-d-3-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:269-271	II.D (3.1)	
+prop:ii-d-3-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:300-345	II.D Proposition 3.1 = [Hin26c] Proposition 7.4 at n = 4	tag at 332-333 dropped; constant K of II.B Lemma 4.2 not displayed
+eq:ii-d-3-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:306-307	II.D (3.2)	
+prop:ii-d-3-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:347-381	II.D Proposition 3.2 = [Hin26c] Proposition 7.6 at n = 4	
+eq:ii-d-3-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:352	II.D (3.3)	
+eq:ii-d-3-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:354-355	II.D (3.4)	
+prop:ii-d-3-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:383-406	II.D Proposition 3.3 = [Hin26c] Proposition 7.7 at n = 4	
+eq:ii-d-3-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:388	II.D (3.5)	
+lem:ii-d-3-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:408-448	II.D Lemma 3.4 = [Hin26c] (7.22) at n = 4, with the n = 3 comparison	
+eq:ii-d-3-6	docket68/n1star/proof5/PART-II-D-REGULARITY.md:412-413	II.D (3.6)	
+prop:ii-d-3-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:450-486	II.D Proposition 3.5 = [Hin26c] Proposition 7.8 at n = 4	
+eq:ii-d-3-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:455	II.D (3.7)	
+eq:ii-d-3-8	docket68/n1star/proof5/PART-II-D-REGULARITY.md:457-458	II.D (3.8)	
+prop:ii-d-3-6	docket68/n1star/proof5/PART-II-D-REGULARITY.md:488-539	II.D Proposition 3.6 = [Hin26c] Proposition 7.9 at n = 4, and the paragraph after it	parentheticals 519-520, 528 and 539 moved to sec:s06-remarks or kept as mathematics
+eq:ii-d-3-9	docket68/n1star/proof5/PART-II-D-REGULARITY.md:495	II.D (3.9)	
+rem:ii-d-3-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:541-546	II.D Remark 3.7 = [Hin26c] Remark 7.5	
+sec:ii-d-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:548-571	II.D section 4, setting and (T1)-(T3)	D-tag at 551 dropped
+lem:ii-d-4-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:573-633	II.D Lemma 4.1	projection w renamed pi_Y, field N renamed N_Y; D-tag at 579 dropped
+eq:ii-d-4-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:588	II.D (4.1)	
+prop:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:635-932	II.D Proposition 4.2 = [Hin26c] Proposition 7.10 at n = 4, Steps 0-4	tags at 887-888, 892 dropped
+eq:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:641-642	II.D (4.2)	
+eq:ii-d-4-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:675-676	II.D (4.3)	
+eq:ii-d-4-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:724	II.D (4.4)	
+eq:ii-d-4-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:727	II.D (4.5)	
+eq:ii-d-4-6	docket68/n1star/proof5/PART-II-D-REGULARITY.md:760	II.D (4.6)	
+eq:ii-d-4-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:785	II.D (4.7)	
+eq:ii-d-4-8	docket68/n1star/proof5/PART-II-D-REGULARITY.md:803	II.D (4.8)	
+eq:ii-d-4-9	docket68/n1star/proof5/PART-II-D-REGULARITY.md:811-814	II.D (4.9)	
+eq:ii-d-4-10	docket68/n1star/proof5/PART-II-D-REGULARITY.md:826-828	II.D (4.10)	
+eq:ii-d-4-11	docket68/n1star/proof5/PART-II-D-REGULARITY.md:844-845	II.D (4.11)	
+eq:ii-d-4-12	docket68/n1star/proof5/PART-II-D-REGULARITY.md:882	II.D (4.12)	
+eq:ii-d-4-13	docket68/n1star/proof5/PART-II-D-REGULARITY.md:912	II.D (4.13)	
+sec:ii-d-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:934-1041	II.D section 5, proof of Theorem 1.2	
+sec:ii-d1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:18-50	II.D1 method paragraph and section 1	
+thm:ii-d1-1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:52-65	II.D1 Theorem 1.1 = [Hin26c] Proposition 7.11 at n = 4	weights of (1.2) as corrected in II.D1 (D'2), stated in sec:s06-remarks
+eq:ii-d1-1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:54-56	II.D1 (1.1)	
+eq:ii-d1-1-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:60-61	II.D1 (1.2)	
+sec:ii-d1-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:67-103	II.D1 section 2 setting, (C), (C2), (M)	loss index lambda renamed 𝔩; tag at 90 dropped
+lem:ii-d1-2-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:105-122	II.D1 Lemma 2.1	
+eq:ii-d1-2-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:107	II.D1 (2.1)	
+eq:ii-d1-2-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:109-110	II.D1 (2.2)	
+eq:ii-d1-2-2p	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:124-132	II.D1 (2.2') (commuting letters)	displayed here; the source defines (2.2') in prose; tag at 132 dropped
+lem:ii-d1-2-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:137-166	II.D1 Lemma 2.2	
+eq:ii-d1-2-3	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:141-142	II.D1 (2.3)	
+eq:ii-d1-2-4	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:143-144	II.D1 (2.4)	
+eq:ii-d1-2-5	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:178-179	II.D1 (2.5), property (E_lambda)	
+lem:ii-d1-2-3	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:184-238	II.D1 Lemma 2.3	
+eq:ii-d1-2-6	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:189-190	II.D1 (2.6)	
+lem:ii-d1-2-4	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:240-273	II.D1 Lemma 2.4	
+eq:ii-d1-2-7	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:243-244	II.D1 (2.7)	
+lem:ii-d1-2-5	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:275-300	II.D1 Lemma 2.5	
+eq:ii-d1-2-8	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:279	II.D1 (2.8)	
+sec:ii-d1-3	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:302-310	II.D1 section 3	
+lem:ii-d1-3-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:312-346	II.D1 Lemma 3.1 = [Hin26c] Lemma 7.12 at n = 4	the n = 4 changes of (D'4) stated after the lemma
+prop:ii-d1-3-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:348-359	II.D1 Proposition 3.2	
+eq:ii-d1-3-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:350-351	II.D1 (3.1)	
+sec:ii-d1-4	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:361-367	II.D1 section 4	
+lem:ii-d1-4-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:369-417	II.D1 Lemma 4.1 = [Hin26c] Lemmas 7.15-7.16 at n = 4	tag at 410 dropped
+eq:ii-d1-4-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:374-375	II.D1 (4.1)	
+prop:ii-d1-4-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:419-428	II.D1 Proposition 4.2 = [Hin26c] Proposition 7.17 at n = 4	
+eq:ii-d1-4-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:422-423	II.D1 (4.2)	
+sec:ii-d1-5	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:430-434	II.D1 section 5	
+lem:ii-d1-5-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:436-452	II.D1 Lemma 5.1 = [Hin26c] Lemmas 7.19-7.20 at n = 4	
+prop:ii-d1-5-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:454-460	II.D1 Proposition 5.2	
+sec:ii-d1-6	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:462-466	II.D1 section 6	
+lem:ii-d1-6-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:468-488	II.D1 Lemma 6.1 = [Hin26c] Lemma 7.21 at n = 4	
+prop:ii-d1-6-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:490-499	II.D1 Proposition 6.2 = [Hin26c] Proposition 7.22 at n = 4	
+eq:ii-d1-6-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:492-493	II.D1 (6.1)	
+sec:ii-d1-7	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:501-610	II.D1 section 7, proof of Theorem 1.1	tag at 605 dropped
+sec:s06-remarks	docket68/n1star/proof5/PART-II-D-REGULARITY.md:1052-1072; docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:614-659	II.D (D2), (D3), (D7); II.D1 (D'1)-(D'3), (D'5)-(D'6)	condensed remarks on [Hin26c] in neutral words, without labels

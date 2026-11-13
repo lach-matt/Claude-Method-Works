@@ -24,10 +24,11 @@ estimate in full in the present calculus, from the hypersurfaces of [[prop:ii-c1
 the unstable defining function, two quantitative propagation estimates, and their combination, all with one regulariser
 and by induction on the order in half steps.
 
-*Notation.* Orders that may vary on phase space are written in sans-serif (𝗌, 𝗍), constant orders in italic (s, t).
-For a matrix 𝔞 that is self-adjoint for some fibre inner product, max spec 𝔞 is its largest eigenvalue. N′ is a fixed
-large integer; every a priori term ‖χu‖_(−N′) below is with respect to it, and N_E is the rank of the bundle E = ℂ^(N_E)
-of [[sec:ii-c-1-1]].
+*Notation.* Orders that may vary on phase space are written in sans-serif (𝗌, 𝗍); an order written s, s_0 or s′ is a
+constant. For a matrix 𝔞 that is self-adjoint for some fibre inner product, max spec 𝔞 is its largest eigenvalue. N′
+is a fixed large integer; every a priori term ‖χu‖_(−N′) below is with respect to it, and N_E is the rank of the bundle
+E = ℂ^(N_E) of [[sec:ii-c-1-1]]. ϕ^u, ϕ^s and ϕ_u, ϕ_s denote defining functions of hypersurfaces at the trapped set;
+φ_ε is the regulariser of [[sec:ii-d-2]].
 
 ### The setting and the global estimate {#sec:ii-d-1}
 

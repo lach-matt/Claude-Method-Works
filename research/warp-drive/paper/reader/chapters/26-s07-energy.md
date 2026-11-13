@@ -831,8 +831,8 @@ on the extension w̃ supported in {t^♭ ≥ T_0}, as all such extensions agree 
 norm of order (𝗌;i), ‖z‖_((𝗌;i)) ≤ C_i ‖w‖_(H^((𝗌;i))(Ω″)^(•,−)) for every i, with the same z ([[lem:ii-a-8-4]] (a) for
 multiplication by χ_3). z extends w|_(Ω′). Let ℓ^♯ be the Seeley extension of ℓ, and χ_1, χ_2 cut-offs equal to 1 near
 Ω′ with χ_2 = 1 near supp χ_1 and χ_3 = 1 near supp χ_2. Then χ_1 (D^j_([b]) ℓ^♯)(D^(k−j)_([b]) z) extends
-(D^j_([b]) ℓ)(D^(k−j)_([b]) w), and [[prop:ii-a-9-6]] with B = χ_1 and B^♯ = χ_2 bounds its H^𝗌-norm by the right side, the
-terms with ‖χz‖_((𝗌_0;·)) being bounded by those with 𝗌.
+(D^j_([b]) ℓ)(D^(k−j)_([b]) w), and [[prop:ii-a-9-6]] with B = χ_1 and B^♯ = χ_2 bounds its H^𝗌-norm by the right
+side, the terms with ‖χz‖_((𝗌_0;·)) being bounded by those with 𝗌.
 
 (c) The first bound holds as X^γ w̃ extends X^γ w. For the second, with z as in (b), ‖z‖_((𝗌;k)) is equivalent to
 Σ_(|γ|≤k) ‖X^γ z‖_𝗌 ([[eq:ii-a-8-1]] and [[def:ii-a-9-4]]: two spanning sets give equivalent norms), and by the Leibniz

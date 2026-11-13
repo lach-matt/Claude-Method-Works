@@ -12,10 +12,10 @@ These are [Hin26c, Theorem 9.36, Theorem 9.38, Corollary 9.39, Proposition 9.40,
 Corollary 9.43] in dimension 4 + 1, for operators on a trivial bundle of any rank. The dimensional changes are these.
 The shift of [Hin26c, Lemma 3.11] is n/2 = 2, so α + 3/2 becomes α + 2 in Theorems 9.36 and 9.41 and in Corollary 9.43
 of [Hin26c], and H_b^(∞,β−3/2) becomes H_b^(∞,β−2). In [Hin26c, Section 9.5], which is stated for every n,
-(n − 1)/2 = 3/2, n/2 = 2 and −n + 2 + β = −2 + β. The Bessel order in Proposition 9.40 is ℓ + 1 and its weights are (0, 2).
-[[thm:i-c-6-4]] carries an estimate for the adjoint that [Hin26c] does not state; the proof of [[cor:i-c-6-6]] needs it,
-because the augmented operator used there has an index that is not known in advance ([[sec:s03-remarks]]). The smallness
-of |σ| in [[thm:i-c-6-4]] may depend on the b-regularity order ([[rem:i-c-6-7]]).
+(n − 1)/2 = 3/2, n/2 = 2 and −n + 2 + β = −2 + β. The Bessel order in Proposition 9.40 is ℓ + 1 and its weights are (0,
+2). [[thm:i-c-6-4]] carries an estimate for the adjoint that [Hin26c] does not state; the proof of [[cor:i-c-6-6]] needs
+it, because the augmented operator used there has an index that is not known in advance ([[sec:s03-remarks]]). The
+smallness of |σ| in [[thm:i-c-6-4]] may depend on the b-regularity order ([[rem:i-c-6-7]]).
 
 Every input is proved here or in [[ch:s01]]–[[ch:s02]], from the classical facts of [[sec:i-c-2-1]], the scattering
 calculus of [HJS] as used in [[ch:s01]], and the facts about Hankel functions from [DLMF] stated in [[sec:i-c-5-2]].
@@ -1349,23 +1349,23 @@ both sides of the tf step of the proof of [Hin26c, Theorem 9.41] and cancels the
 Ḣ_b^(−s_0,−α−2). The adjoint lies in ρ² Diff_b^2 and raises the weight by 2, and the space of its values is dual to
 that of the domain, H̄_b^(s_0,α); the weight there is −α, as in [[eq:i-c-3-3]].
 
-(4) The proof of [Hin26c, (9.117), p. 196] expands −ρ̂²(ρ̂∂_ρ̂ − n + 2 + 2iρ̂⁻¹)² with the middle term −2iρ̂(ρ̂∂_ρ̂ − n
-+ 1). Of the two cross products, (ρ̂∂_ρ̂ − n + 2)·2iρ̂⁻¹ = 2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 1) and 2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 2), only the
-first is kept; with both, the middle term is −2iρ̂(2ρ̂∂_ρ̂ − 2n + 3). [Hin26c, (9.117)] serves only [Hin26c, (9.115)],
-which is not used here ([[sec:i-c-4-3]]).
+(4) The proof of [Hin26c, (9.117), p. 196] expands −ρ̂²(ρ̂∂_ρ̂ − n + 2 + 2iρ̂⁻¹)² with the middle term
+−2iρ̂(ρ̂∂_ρ̂ − n + 1). Of the two cross products, (ρ̂∂_ρ̂ − n + 2)·2iρ̂⁻¹ = 2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 1) and
+2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 2), only the first is kept; with both, the middle term is −2iρ̂(2ρ̂∂_ρ̂ − 2n + 3). [Hin26c, (9.117)]
+serves only [Hin26c, (9.115)], which is not used here ([[sec:i-c-4-3]]).
 
 (5) [Hin26c, Theorem 9.38 (1), p. 195] takes θ with |e^(iθ) ± 1| ≤ ½ and 𝗋 = 𝗋_±. The orders 𝗋_± are those for
 frequencies near ±1 ([Hin26c, Theorem 9.41] uses 𝗋_+ for arg σ ∈ [0, π/4]), so the condition is |e^(iθ) ∓ 1| ≤ ½, as
 in Θ_± of [[sec:i-c-4-3]].
 
-(6) The proof of [Hin26c, Corollary 9.43, p. 200] augments P̂(0) by maps E_01: ℂ^(d_1) → C_c^∞(X°) and E_10: 𝒳_0 →
-ℂ^(d_0), applies [Hin26c, Theorem 9.41] to the augmented operator to obtain its invertibility at σ = iϵ, and concludes
-d_0 = d_1 from the index 0 of [Hin26c, (9.18)]. The estimate [Hin26c, (9.119)] gives injectivity; for P̂(σ) itself
-invertibility then follows from the index 0 of [Hin26c, (9.18)]. The augmented operator has index d_1 − d_0, which is
-the quantity the corollary asserts to vanish, and injectivity gives only d_1 ≤ d_0; surjectivity needs an estimate for
-the adjoint of the augmented operator, uniform as σ → 0, which [Hin26c] does not state. [[thm:i-c-6-4]] (2) is that
-estimate and (3) the invertibility, proved for augmented operators; with them [[cor:i-c-6-6]] follows by the argument of
-[Hin26c], and the statement of [Hin26c, Corollary 9.43] stands.
+(6) The proof of [Hin26c, Corollary 9.43, p. 200] augments P̂(0) by maps E_01: ℂ^(d_1) → C_c^∞(X°) and E_10:
+𝒳_0 → ℂ^(d_0), applies [Hin26c, Theorem 9.41] to the augmented operator to obtain its invertibility at σ = iϵ, and
+concludes d_0 = d_1 from the index 0 of [Hin26c, (9.18)]. The estimate [Hin26c, (9.119)] gives injectivity; for P̂(σ)
+itself invertibility then follows from the index 0 of [Hin26c, (9.18)]. The augmented operator has index d_1 − d_0,
+which is the quantity the corollary asserts to vanish, and injectivity gives only d_1 ≤ d_0; surjectivity needs an
+estimate for the adjoint of the augmented operator, uniform as σ → 0, which [Hin26c] does not state. [[thm:i-c-6-4]] (2)
+is that estimate and (3) the invertibility, proved for augmented operators; with them [[cor:i-c-6-6]] follows by the
+argument of [Hin26c], and the statement of [Hin26c, Corollary 9.43] stands.
 
 (7) In the proof of [Hin26c, Theorem 9.41, p. 198] the zero energy step writes the error and target norms with tf orders
 α_+ and α_+ + 2 where the orders are α and α + 2, as in [Hin26c, (9.121)] a few lines later. In [Hin26c, Theorem 9.38

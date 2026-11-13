@@ -910,11 +910,11 @@ H^((𝗌;k),(α_sf−δ,−ℵ))_(3b;b)(Ω; E)^(•,−), with
 The relaxed version with margin d_ℵ ≥ 0 ([Hin26c, Remark 5.14]) asks (1)–(2) for orders with margin d_ℵ and (3) with
 𝗌 − d_ℵ in place of 𝗌 on the left.
 
-The weight in (2) is the weight α_sf + 3/2 of [Hin26c] at n = 4: by [[lem:i-c-2-2]], ρ^α L²(|dx|) = ρ^(α+2)L²(μ_b), so
-the spatial weight α of an L²(|dx|)-based space is the b-weight α + 2 at n = 4 (that is, α + n/2; see
-[[sec:i-c-1-2]]). In particular α_sf + 2 lies in
-an indicial gap of P̂₀(0). For the scalar wave operator the gap is (0, 2), the indicial roots of [[eq:ii-c-1-3]] at
-ℓ = 0 being 0 and 2, so α_sf ∈ (−2, 0), where [Hin26c] has (−3/2, −1/2).
+The weight in (2) is the weight α_sf + 3/2 of [Hin26c] at n = 4. Since |dx| = ρ⁻⁵dρ dω = ρ⁻⁴μ_b, with μ_b := ρ⁻¹dρ dω
+the b-density, ρ^α L²(|dx|) = ρ^(α+2)L²(μ_b): the spatial weight α of an L²(|dx|)-based space is the b-weight α + 2 at
+n = 4 (that is, α + n/2; see [[sec:i-c-1-2]]). In particular α_sf + 2 lies in an indicial gap of P̂₀(0). For the scalar
+wave operator the gap is (0, 2), the indicial roots of [[eq:ii-c-1-3]] at ℓ = 0 being 0 and 2, so α_sf ∈ (−2, 0), where
+[Hin26c] has (−3/2, −1/2).
 
 ### Asymptotically stationary metrics and wave-type operators {#sec:ii-c-3}
 
