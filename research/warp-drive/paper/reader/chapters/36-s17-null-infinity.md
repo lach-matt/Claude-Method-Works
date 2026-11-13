@@ -31,8 +31,8 @@ which a radiative term at null infinity reaches future timelike infinity. [[sec:
 [[prop:np-10-64]] the quantities through which the spatial dimension enters [Hin23a, Section 3], the energy estimates
 near null and spatial infinity that [[ch:s26]] carries to dimension 4 + 1; [[ch:s26]] uses them.
 
-The notation is that of [[ch:s11]]–[[ch:s16]]. In particular n = 4, D = 5; the family g_b, b = (μ, A) ∈ ℬ, of
-[[sec:iii-b-3]], with μ₀, R₁ = μ₀^(1/2), the compactification M and its faces I₀, ℐ⁺, ι⁺, K⁺ ([[def:iii-b-2-1]]); the
+The notation is that of [[ch:s11]]–[[ch:s16]]. In particular n = 4, D = 5; the family g_b, b = (m, A) ∈ ℬ, of
+[[sec:iii-b-3]], with m₀, R₁ = m₀^(1/2), the compactification M and its faces I₀, ℐ⁺, ι⁺, K⁺ ([[def:iii-b-2-1]]); the
 gauge-fixed operator of [[sec:iii-b-6]]; the linearised operator L_b and its Minkowski model L̄ of [[ch:s15]], with the
 endomorphism S̄ of [[lem:iii-f-2-1]] and its spectrum [[eq:iii-f-3-1]]; and the index sets and partially polyhomogeneous
 spaces of [[sec:iii-a-1]]. We write the spectral families of [[ch:s15]] with a hat: L̂_b(σ) := L_b^(σ) and
@@ -61,7 +61,7 @@ so π₁₁h carries no radiation field ([[rem:s17-no-radiation]]). The last ind
 strengthened to ℰ_I^tot + (ℰ_I^tot − 1) ⊂ ℰ_I^C ([[def:iii-c-3-1]]), which needs γ_Υ < 1/4.
 
 Throughout this chapter we use, besides the notation fixed above, the time functions t_* = t − ψ(|x|) and t_IVP
-([[eq:iii-b-3-6]], [[lem:iii-b-3-7]]), with t_* = t − |x| + C′ − 8μ₀|x|⁻¹ on {|x| ≥ 3R₁}, and the gauge parameters of
+([[eq:iii-b-3-6]], [[lem:iii-b-3-7]]), with t_* = t − |x| + C′ − 8m₀|x|⁻¹ on {|x| ≥ 3R₁}, and the gauge parameters of
 [[sec:iii-f-1]], with, in addition,
 
     0 < γ_Υ < 1/4,     0 < e_Υ < 1.                                                                     {#eq:iii-c-1-1}
@@ -72,19 +72,19 @@ Throughout this chapter we use, besides the notation fixed above, the time funct
     x⁰ := t + |x|,     x¹ := t − |x|,     ρ₀ := 1/(2 − x¹),     ρ_I := (2 − x¹)/|x|,                      {#eq:iii-c-1-2}
 
 the last two being the coordinates [[eq:iii-b-2-2]] near I₀ ∩ ℐ⁺. (Here x⁰ is that of Minkowski space; the x⁰ of
-[[eq:iii-b-4-1]] for g_μ is t + |x| − T_μ(|x|), and the two null frames differ by I + ρ²C^∞, [[lem:iii-c-1-3]].) Fix
+[[eq:iii-b-4-1]] for g_m is t + |x| − T_m(|x|), and the two null frames differ by I + ρ²C^∞, [[lem:iii-c-1-3]].) Fix
 T₀ := C′ + 1 − 2R₁ and set
 
     Ω_ext := cl_M{t_* ≤ T₀},     U := Ω_ext ∩ {|x| ≥ 4R₁}.                                               {#eq:iii-c-1-3}
 
 ([Hin26, (5.1)] fixes T and shifts it to 1; the choice of T₀ only makes [[eq:iii-c-1-2]] global on U.) On U,
-x¹ = t_* − C′ + 8μ₀|x|⁻¹ ≤ T₀ − C′ + 2R₁ = 1, since μ₀ = R₁².
+x¹ = t_* − C′ + 8m₀|x|⁻¹ ≤ T₀ − C′ + 2R₁ = 1, since m₀ = R₁².
 
 **Lemma {#lem:iii-c-1-1}** (The corner coordinates.) (1) (ρ₀, ρ_I, ω), ω = x/|x|, are coordinates on all of U, smooth
 up to I₀ and ℐ⁺: ρ₀ ∈ [0, 1], ρ₀ = 0 exactly at I₀, ρ_I = 0 exactly at ℐ⁺, and ρ₀ρ_I = |x|⁻¹. (2) With
 X₀ := ρ₀∂_(ρ₀), X_I := ρ_I∂_(ρ_I) (at fixed ω and the other coordinate), exactly on U,
 
-    ∂_(t_*)|_(ρ,ω) = ρ₀(X₀ − X_I),     ρ∂_ρ|_(t_*,ω) = X_I + 8μ₀ρ₀²ρ_I(X₀ − X_I),     ρ := |x|⁻¹,         {#eq:iii-c-1-4}
+    ∂_(t_*)|_(ρ,ω) = ρ₀(X₀ − X_I),     ρ∂_ρ|_(t_*,ω) = X_I + 8m₀ρ₀²ρ_I(X₀ − X_I),     ρ := |x|⁻¹,         {#eq:iii-c-1-4}
 
     ∂₀ = −½ρ₀ρ_I X_I,     ∂₁ = ρ₀(X₀ − X_I + ½ρ_I X_I),                                                 {#eq:iii-c-1-5}
 
@@ -100,14 +100,14 @@ with ∂₀, ∂₁ the coordinate fields of (x⁰, x¹, ω). In particular ∂_
 extendible).
 
 (2) A vector field aX₀ + bX_I is determined by its action on two functions of (ρ₀, ρ_I). With
-t_* = 2 − ρ₀⁻¹ + C′ − 8μ₀ρ₀ρ_I and ρ = ρ₀ρ_I: X₀t_* = ρ₀⁻¹ − 8μ₀ρ, X_I t_* = −8μ₀ρ, X₀ρ = X_Iρ = ρ. So ρ₀(X₀ − X_I) maps
-t_* ↦ 1, ρ ↦ 0; and X_I + α(X₀ − X_I) with α := 8μ₀ρ₀²ρ_I maps ρ ↦ ρ and t_* ↦ −8μ₀ρ + αρ₀⁻¹ = 0. For
+t_* = 2 − ρ₀⁻¹ + C′ − 8m₀ρ₀ρ_I and ρ = ρ₀ρ_I: X₀t_* = ρ₀⁻¹ − 8m₀ρ, X_I t_* = −8m₀ρ, X₀ρ = X_Iρ = ρ. So ρ₀(X₀ − X_I) maps
+t_* ↦ 1, ρ ↦ 0; and X_I + α(X₀ − X_I) with α := 8m₀ρ₀²ρ_I maps ρ ↦ ρ and t_* ↦ −8m₀ρ + αρ₀⁻¹ = 0. For
 [[eq:iii-c-1-5]]: ∂₀|x| = ½, ∂₁|x| = −½, ∂₀x¹ = 0, ∂₁x¹ = 1; so ∂₀ρ₀ = 0, ∂₀ρ_I = −½ρ₀ρ_I², ∂₁ρ₀ = ρ₀²,
 ∂₁ρ_I = −ρ₀ρ_I + ½ρ₀ρ_I², which is [[eq:iii-c-1-5]]. The memberships: ∂_t = ∂₀ + ∂₁, ∂_(|x|) = ∂₀ − ∂₁,
 ∂_(x^i) = ω^i∂_(|x|) + |x|⁻¹(…)∂_ω, and |x|⁻¹∂_ω = ρ₀ρ_I∂_ω with ∂_ω (at fixed ρ₀, ρ_I) a b-vector field. ∎
 
-For the null coordinates of the Tangherlini metric of mass μ ([[eq:iii-b-4-1]]–[[eq:iii-b-4-2]]), with ρ₀, ρ_I defined by
-[[eq:iii-c-1-2]] from their x¹ and |x|, the same calculation with ∂₀|x| = f/2, ∂₁|x| = −f/2, f := 1 − μ|x|⁻², gives
+For the null coordinates of the Tangherlini metric of mass m ([[eq:iii-b-4-1]]–[[eq:iii-b-4-2]]), with ρ₀, ρ_I defined by
+[[eq:iii-c-1-2]] from their x¹ and |x|, the same calculation with ∂₀|x| = f/2, ∂₁|x| = −f/2, f := 1 − m|x|⁻², gives
 ∂₀ = −(f/2)ρ₀ρ_I X_I and ∂₁ = ρ₀(X₀ − X_I + (f/2)ρ_I X_I); [[eq:iii-c-1-5]] is the case f = 1.
 
 *The splitting.* On U, in the rescaled frame (dx⁰, dx¹, |x|e^a), e^a a local orthonormal coframe of 𝕊³, the splitting
@@ -136,12 +136,12 @@ dx⁰(∂₁) = dx¹(∂₀) = 0.
 those of dt_*, dx^i ([[ch:s15]]); and the rescaled null frame of [[eq:iii-c-1-6]]. Each is related to the next by a
 smooth bundle map with smooth inverse, of the form F₀(ω)(I + ρ²C^∞(U)) with F₀ depending on ω alone.
 
-*Proof.* dt_* = dt − ψ′(|x|)d|x| with ψ′ = 1 − 8μ₀|x|⁻² on U, so dt_* = dx¹ + 8μ₀|x|⁻²d|x|. Further d|x| = ω_i dx^i,
+*Proof.* dt_* = dt − ψ′(|x|)d|x| with ψ′ = 1 − 8m₀|x|⁻² on U, so dt_* = dx¹ + 8m₀|x|⁻²d|x|. Further d|x| = ω_i dx^i,
 and |x|e^a is the orthonormal tangential projection of dx; both depend on ω alone. Finally dx⁰ = dt + d|x| and
 dx¹ = dt − d|x|. ∎
 
 So the spaces below, which are defined slot by slot in [[eq:iii-c-1-6]], do not depend on which of the null frames of
-η, of g_μ ([[eq:iii-b-4-2]]) or of ḡ ([[ch:s15]]) is used: these differ by I + ρ²C^∞, and ρ² = ρ₀²ρ_I² moves the index
+η, of g_m ([[eq:iii-b-4-2]]) or of ḡ ([[ch:s15]]) is used: these differ by I + ρ²C^∞, and ρ² = ρ₀²ρ_I² moves the index
 sets of a component by 2 at both faces, into ℰ_I^C ([[lem:iii-c-3-2]] (c)).
 
 ### Function spaces, products {#sec:iii-c-2}
@@ -286,8 +286,8 @@ g_m). [[prop:iii-c-4-4]] uses only the first condition; the second matters for p
 small as in [[lem:iii-b-5-2]], φ_S^*g_b − g_b ∈ H^(∞,(2,0),⟨(3,0)⟩₀,∞)_b on U ∩ {χ_IVP(1 − χ_K) = 1}, so φ_S^*g_b
 agrees there with an element of 𝒢.
 
-*Proof.* (1) By [[prop:iii-b-3-6]], g_b − g_μ ∈ |x|⁻³C^∞ = ρ₀³ρ_I³C^∞, and on {|x| ≥ 3R₁},
-g_μ − η = μ|x|⁻²(dt − d|x|)² = μρ₀²ρ_I²(dx¹)², which has only the slot π₁₁. (2) By [[lem:iii-b-5-2]], there
+*Proof.* (1) By [[prop:iii-b-3-6]], g_b − g_m ∈ |x|⁻³C^∞ = ρ₀³ρ_I³C^∞, and on {|x| ≥ 3R₁},
+g_m − η = m|x|⁻²(dt − d|x|)² = mρ₀²ρ_I²(dx¹)², which has only the slot π₁₁. (2) By [[lem:iii-b-5-2]], there
 φ_S^*g_b − g_b = |x|⁻²h_S(ω)(dx¹)² + ρ₀²ρ_I³C^∞, with h_S ∈ C^∞(𝕊³). ∎
 
 Outside {χ_IVP(1 − χ_K) = 1} near I₀, φ_S is the flow of a cut-off boost, and φ_S^*η − η is of size O(1) there:

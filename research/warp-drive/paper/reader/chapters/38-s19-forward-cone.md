@@ -1054,8 +1054,8 @@ hypotheses of the continuity statement of [[thm:iii-h2-4-1]]. By (iii) above, P_
 the class that theorem asks, with ‖P_j − 2L_(b_j)‖_((0;d)) < ε′_0 by (B5); and ‖P_j − 2L_(b_j)‖_((0;k+d)) is bounded in j
 by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], as ‖h_j‖_(𝒳^(k+d+5)) is. The same holds for P relative to 2L_b; in particular
 ‖P − 2L_b‖_((0;d)) < ε′_0 by (B5), which is the smallness that the identification in the proof of [[thm:iii-h2-4-1]]
-uses at the limit. The coefficients of P_j converge to those of P in C² on compact subsets of M° ∩ {r > r_0}. On such a set
-g_(b₀,b,−S) depends smoothly on (b, S), as g_b is smooth in b ([[prop:iii-b-3-6]]) and φ_(−S) = exp(V(−S)) is the
+uses at the limit. The coefficients of P_j converge to those of P in C² on compact subsets of M° ∩ {r > r_0}. On such
+a set g_(b₀,b,−S) depends smoothly on (b, S), as g_b is smooth in b ([[prop:iii-b-3-6]]) and φ_(−S) = exp(V(−S)) is the
 time-one flow of a vector field linear in S ([[lem:iii-b-5-1]]); its difference from g_b lies in the class of
 [[lem:iii-i-3-6]]. And 2L^(g,g_0) depends continuously on h in the norm of [[eq:iii-i-3-7]] (its coefficients being the
 sums of products of the tame form above, [[lem:s19-products]], [[lem:s19-inverse]]), which controls the coefficients in

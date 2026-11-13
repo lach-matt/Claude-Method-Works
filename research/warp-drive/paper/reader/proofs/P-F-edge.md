@@ -33,10 +33,10 @@ Suppose R_0, …, R_m are positive on I. Then on I:
 (d) κ′ = −(2R_0 − xR_0′)/x³, so |κ′|/κ^(3/2) = |2R_0 − xR_0′|/R_0^(3/2), and κ′ < 0 where 2R_0 − xR_0′ > 0;
 (e) if 1 ≤ n ≤ m − 1 and env^(k) is strictly log-concave for every k ≤ n − 1, then κ − κ_n ≥ κ − κ_1 = |κ′|/κ.
 
-*Proof.* (a) By induction on k; k = 0 is trivial. Suppose env^(k) = env E_k with E_k := x^(−2k) Π_(i<k) R_i and k ≤ m.
-Then env^(k+1) = env E_k (κ + E_k′/E_k) and κ + E_k′/E_k = R_0/x² − 2k/x + Σ_(i<k) R_i′/R_i. By [[eq:edge-recursion]],
-R_i′/R_i − 2/x = (R_(i+1) − R_i)/x², and the sum telescopes: κ + E_k′/E_k = R_k/x². Hence env^(k+1) = env E_k R_k/x² =
-env E_(k+1) > 0 and κ_k = env^(k+1)/env^(k) = R_k/x². (b) follows from (a), since κ^j env = R_0^j x^(−2j) env.
+*Proof.* (a) By induction on k; k = 0 is trivial. Suppose env^(k) = env 𝒫_k with 𝒫_k := x^(−2k) Π_(i<k) R_i and k ≤ m.
+Then env^(k+1) = env 𝒫_k (κ + 𝒫_k′/𝒫_k) and κ + 𝒫_k′/𝒫_k = R_0/x² − 2k/x + Σ_(i<k) R_i′/R_i. By [[eq:edge-recursion]],
+R_i′/R_i − 2/x = (R_(i+1) − R_i)/x², and the sum telescopes: κ + 𝒫_k′/𝒫_k = R_k/x². Hence env^(k+1) = env 𝒫_k R_k/x² =
+env 𝒫_(k+1) > 0 and κ_k = env^(k+1)/env^(k) = R_k/x². (b) follows from (a), since κ^j env = R_0^j x^(−2j) env.
 (c) Differentiating env^(k+1) = κ_k env^(k) gives env^(k+2) = (κ_k′ + κ_k²) env^(k), so κ_k′ = κ_k κ_(k+1) − κ_k² =
 κ_k (κ_(k+1) − κ_k), which is R_k (R_(k+1) − R_k)/x⁴ by (a). As κ_k > 0, (log env^(k))″ = κ_k′ < 0 exactly where
 R_(k+1) < R_k, and then |κ_k′| = R_k (R_k − R_(k+1))/x⁴ ≤ c R_k^(3/2)/x³ = c κ_k^(3/2) exactly where R_k − R_(k+1) ≤
@@ -84,7 +84,7 @@ r ≤ 1/100. There (3 − r)² ≥ 8.94, (3 − r)³ ≥ 26.7, 1 − r²/9 ≥ 0
 𝔻 := {|z| ≤ ϱ}, with |R_0| ≥ 7a/8 and |R_0′| ≤ c_d on 𝔻, and define R_(k+1) by [[eq:edge-recursion]] with z in place
 of x. Then for 0 ≤ k ≤ n + 1, R_k is holomorphic on an open set containing 𝔻_k := {|z| ≤ ϱ_k}, and on 𝔻_k
 
-    R_k = R_0 − 2kz + z² 𝒯_k,   𝒯_k holomorphic,   |𝒯_k| ≤ b_k := 2k(c_d + k)/a,   |R_k| ≥ 3a/4.      {#eq:edge-disc}
+    R_k = R_0 − 2kz + z² 𝒯_k,   𝒯_k holomorphic,   |𝒯_k| ≤ ℬ_k := 2k(c_d + k)/a,   |R_k| ≥ 3a/4.      {#eq:edge-disc}
 
 *Proof.* Induction on k. For k = 0, 𝒯_0 = 0 and |R_0| ≥ 7a/8. Suppose [[eq:edge-disc]] holds for some k ≤ n.
 As R_k has no zero on 𝔻_k, R_(k+1) is holomorphic there, and since R_(k+1) − R_0 + 2(k + 1)z = z²𝒯_k + z² R_k′/R_k,
@@ -92,16 +92,16 @@ As R_k has no zero on 𝔻_k, R_(k+1) is holomorphic there, and since R_(k+1) �
     𝒯_(k+1) = 𝒯_k + R_k′/R_k.
 
 Let |z| ≤ ϱ_(k+1). The closed disc of radius ϱ_k − ϱ_(k+1) = ϱ/(2(n + 2)) about z lies in 𝔻_k, on which the function
-z²𝒯_k is bounded by b_k ϱ², so Cauchy's estimate gives |(z²𝒯_k)′(z)| ≤ 2(n + 2)ϱ b_k, and |R_k′(z)| ≤ c_d + 2k +
-2(n + 2)ϱ b_k. With |R_k| ≥ 3a/4,
+z²𝒯_k is bounded by ℬ_k ϱ², so Cauchy's estimate gives |(z²𝒯_k)′(z)| ≤ 2(n + 2)ϱ ℬ_k, and |R_k′(z)| ≤ c_d + 2k +
+2(n + 2)ϱ ℬ_k. With |R_k| ≥ 3a/4,
 
-    |𝒯_(k+1)(z)| ≤ b_k + (4/(3a))(c_d + 2k) + (8(n + 2)ϱ/(3a)) b_k.
+    |𝒯_(k+1)(z)| ≤ ℬ_k + (4/(3a))(c_d + 2k) + (8(n + 2)ϱ/(3a)) ℬ_k.
 
-Here 8(n + 2)ϱ b_k/(3a) = b_k/(9a(n + 2)) = 2k(c_d + k)/(9a²(n + 2)) ≤ (8/27)(c_d + k)/a, since k < n + 2 and
-1/a ≤ 4/3. So |𝒯_(k+1)| ≤ b_k + (44/27)(c_d + 2k)/a ≤ b_k + 2(c_d + 2k + 1)/a = b_(k+1). Finally, on 𝔻_(k+1),
-|R_(k+1)| ≥ |R_0| − 2(k + 1)ϱ − b_(k+1) ϱ², and since k + 1 ≤ n + 1, a ≥ 3/4 and c_d ≤ 13,
+Here 8(n + 2)ϱ ℬ_k/(3a) = ℬ_k/(9a(n + 2)) = 2k(c_d + k)/(9a²(n + 2)) ≤ (8/27)(c_d + k)/a, since k < n + 2 and
+1/a ≤ 4/3. So |𝒯_(k+1)| ≤ ℬ_k + (44/27)(c_d + 2k)/a ≤ ℬ_k + 2(c_d + 2k + 1)/a = ℬ_(k+1). Finally, on 𝔻_(k+1),
+|R_(k+1)| ≥ |R_0| − 2(k + 1)ϱ − ℬ_(k+1) ϱ², and since k + 1 ≤ n + 1, a ≥ 3/4 and c_d ≤ 13,
 
-    2(k + 1)ϱ ≤ (n + 1)/(12(n + 2)²) ≤ 1/36,      b_(k+1) ϱ² ≤ (n + 1)(n + 14)/(216(n + 2)⁴) ≤ 15/(216 · 27) < 1/388,
+    2(k + 1)ϱ ≤ (n + 1)/(12(n + 2)²) ≤ 1/36,      ℬ_(k+1) ϱ² ≤ (n + 1)(n + 14)/(216(n + 2)⁴) ≤ 15/(216 · 27) < 1/388,
 
 so |R_(k+1)| ≥ 7a/8 − 1/36 − 1/388 > 7a/8 − 0.031 ≥ 7a/8 − a/8 = 3a/4, as a/8 ≥ 3/32 > 0.031. ∎
 
@@ -120,12 +120,12 @@ so |R_(k+1)| ≥ 7a/8 − 1/36 − 1/388 > 7a/8 − 0.031 ≥ 7a/8 − a/8 = 3a/
 For [[eq:edge-envelope]], on 𝔻, where ϱ = 1/(24(n + 2)²) ≤ 1/216, [[eq:edge-a-disc]] gives |R_0 − 3/4| ≤ 12ϱ + ϱ²/7 ≤
 0.056 < 3/32, so |R_0| ≥ 21/32 = 7a/8, and |R_0′| ≤ 12 + ϱ/2 ≤ 13. So [[lem:edge-disc]] applies, with c_d := 13, resp.
 c_d := 0. Fix 0 < x ≤ x_n = ϱ/4 and k ≤ n + 1. 𝒯_k is holomorphic on the disc of radius ϱ_(n+1) ≥ ϱ/2 about 0, which
-contains the disc of radius ϱ/4 about x, so |𝒯_k(x)| ≤ b_k and, by Cauchy's estimate, |𝒯_k′(x)| ≤ 4b_k/ϱ ≤ b_k/x.
+contains the disc of radius ϱ/4 about x, so |𝒯_k(x)| ≤ ℬ_k and, by Cauchy's estimate, |𝒯_k′(x)| ≤ 4ℬ_k/ϱ ≤ ℬ_k/x.
 Hence, R_k being real on the real axis,
 
-    |R_k(x) − R_0(x) + 2kx| ≤ b_k x²,      |x R_k′(x) − x R_0′(x) + 2kx| ≤ |x(2x𝒯_k + x²𝒯_k′)| ≤ 3b_k x².
+    |R_k(x) − R_0(x) + 2kx| ≤ ℬ_k x²,      |x R_k′(x) − x R_0′(x) + 2kx| ≤ |x(2x𝒯_k + x²𝒯_k′)| ≤ 3ℬ_k x².
 
-For both envelopes b_k x ≤ 2(n + 1)(n + 14)/((3/4) · 96 (n + 2)²) ≤ (n + 14)/(36(n + 2)) ≤ 15/108 < 1/7 and 2kx ≤
+For both envelopes ℬ_k x ≤ 2(n + 1)(n + 14)/((3/4) · 96 (n + 2)²) ≤ (n + 14)/(36(n + 2)) ≤ 15/108 < 1/7 and 2kx ≤
 2(n + 1)/(96(n + 2)²) ≤ 1/144; and R_0(x) ≥ a by [[eq:edge-a-real]]. Therefore
 
     R_k(x) − R_0(x) ≥ −1/144 − x/7 ≥ −1/140,      R_k(x) − R_0(x) ≤ x(1/7 − 2k) < 0   for k ≥ 1,
@@ -136,7 +136,7 @@ the first because x ≤ x_1 = 1/864 and 1/144 + 1/6048 < 1/140; so R_k(x) ≥ a 
 env^(j)/(κ^j env) = Π_(i<j) R_i/R_0 ∈ (0, 1] for j ≤ n + 2. This is (a) and the bounds of κ_k/κ in (b). For the rest
 of (b), |R_0′(x)| ≤ 12 by [[eq:edge-a-real]] (R_0′ = 0 for exp(−1/x)), so
 
-    |x R_k′(x)| ≤ 12x + 2kx + 3b_k x² ≤ 12/864 + 1/144 + 3/(7 · 864) < 0.0214,   resp.  1/144 + 3/(7 · 864) < 0.0075,
+    |x R_k′(x)| ≤ 12x + 2kx + 3ℬ_k x² ≤ 12/864 + 1/144 + 3/(7 · 864) < 0.0214,   resp.  1/144 + 3/(7 · 864) < 0.0075,
 
 while R_k ≥ 0.74, resp. R_k ≥ 0.99; in both cases |x R_k′/R_k| ≤ 1/30. By [[eq:edge-recursion]], R_k − R_(k+1) =
 x(2 − x R_k′/R_k) ∈ [59x/30, 61x/30] for k ≤ n. By [[lem:edge-logderivatives]] (c), env^(k) is strictly log-concave

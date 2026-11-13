@@ -1631,15 +1631,16 @@ components. h̄^(0)_s0 = δ̄*(t_*ω̄ + W̄) because δ̄*(t_*u) = t_*δ̄*u + 
 fact (F2) of the proof of [[prop:iii-d2-3-1]] for ḡ.
 
 *The right side on Tangherlini.* We calculate for a static metric g = −f dt² + f⁻¹dr² + r²g_(𝕊^ν), at the trace
-weight 2/ν, so that [[lem:iii-b-6-2]] gives E G h = −γ(2ι_(g⁻¹c)h − e c tr_g h) (its proof uses only (2/ν)(1 − (ν + 2)/2) = −1).
-As ω_s0 is Killing, δ*(t_*ω_s0) = dt_* ⊗_s ω_s0 =: k, and dt_* = dt − f⁻¹dr gives k = −f dt² + dt ⊗_s dr, so
-k_tt = −f, k_tr = ½, k_rr = 0 and tr_g k = 1. Then G k = k − ½g, and δ_g(Gk) = δ_gk, as δ_g g = 0. With
-(δk)_ν = −|g|^(−1/2)∂_μ(|g|^(1/2)k^μ_ν) + ½(∂_νg_αβ)k^(αβ), |g|^(1/2) = r^ν|g_𝕊|^(1/2), k^r_t = f/2, k^t_t = 1,
-k^t_r = −(2f)⁻¹, k^r_r = 0, k^(tt) = −f⁻¹ and k^(tr) = −½, one finds (δk)_t = −r^(−ν)(r^νf/2)′ = −½(f′ + νf/r) and
-(δk)_r = ½(∂_rg_tt)k^(tt) = f′/(2f); the angular components vanish. Next g⁻¹c = −(rf)⁻¹∂_t, so
-ι_(g⁻¹c)k = r⁻¹dt − (2rf)⁻¹dr and E G k = −γ((2 − e)r⁻¹dt − (rf)⁻¹dr). So
+weight 2/ν, so that [[lem:iii-b-6-2]] gives E G h = −γ(2ι_(g⁻¹c)h − e c tr_g h) (its proof uses only
+(2/ν)(1 − (ν + 2)/2) = −1). As ω_s0 is Killing, δ*(t_*ω_s0) = dt_* ⊗_s ω_s0 =: 𝔨, and dt_* = dt − f⁻¹dr gives
+𝔨 = −f dt² + dt ⊗_s dr, so 𝔨_tt = −f, 𝔨_tr = ½, 𝔨_rr = 0 and tr_g 𝔨 = 1. Then G𝔨 = 𝔨 − ½g, and δ_g(G𝔨) = δ_g𝔨, as
+δ_g g = 0. With
+(δ𝔨)_ν = −|g|^(−1/2)∂_μ(|g|^(1/2)𝔨^μ_ν) + ½(∂_νg_αβ)𝔨^(αβ), |g|^(1/2) = r^ν|g_𝕊|^(1/2), 𝔨^r_t = f/2, 𝔨^t_t = 1,
+𝔨^t_r = −(2f)⁻¹, 𝔨^r_r = 0, 𝔨^(tt) = −f⁻¹ and 𝔨^(tr) = −½, one finds (δ𝔨)_t = −r^(−ν)(r^νf/2)′ = −½(f′ + νf/r) and
+(δ𝔨)_r = ½(∂_rg_tt)𝔨^(tt) = f′/(2f); the angular components vanish. Next g⁻¹c = −(rf)⁻¹∂_t, so
+ι_(g⁻¹c)𝔨 = r⁻¹dt − (2rf)⁻¹dr and E G 𝔨 = −γ((2 − e)r⁻¹dt − (rf)⁻¹dr). So
 
-    □^Υ(t_*ω_s0) = 2(δk + EGk) = −(f′ + νf/r + 2(2 − e)γ/r)dt + f⁻¹(f′ + 2γ/r)dr.
+    □^Υ(t_*ω_s0) = 2(δ𝔨 + EG𝔨) = −(f′ + νf/r + 2(2 − e)γ/r)dt + f⁻¹(f′ + 2γ/r)dr.
 
 At ν = 3, f = 1 − m_0ρ² and f′ = 2m_0ρ³, the dt component is (2eγ − 4γ − 3)ρ + m_0ρ³ exactly, and the dr component is
 (2γρ + 2m_0ρ³)(1 − m_0ρ²)⁻¹ = 2γρ + 2m_0(γ + 1)ρ³ + O(ρ⁵).

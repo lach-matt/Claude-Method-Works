@@ -1,6 +1,6 @@
 ## Constraint propagation and constraint damping {#ch:s14}
 
-This chapter proves, in spatial dimension n = 4 and for the Myers–Perry metrics g_b with b near b₀ = (μ₀, 0), the
+This chapter proves, in spatial dimension n = 4 and for the Myers–Perry metrics g_b with b near b₀ = (m₀, 0), the
 properties of the constraint propagation operator □^C_b that the linear and nonlinear theory of the later chapters
 uses: mode stability at nonzero frequencies, invertibility of the zero energy operator on weighted spaces, the
 location, multiplicity and counting of its indicial roots, and its admissibility at the transition face. It then
@@ -22,7 +22,7 @@ of [[sec:iii-e-3]] carry subscripts and are not to be confused with it.
 
 ### The constraint propagation operator {#sec:iii-e-1}
 
-The parameter space 𝓑, the metrics g_b, b = (μ, A), the time function t_*, the boundary defining function ρ = |x|⁻¹
+The parameter space ℬ, the metrics g_b, b = (m, A), the time function t_*, the boundary defining function ρ = |x|⁻¹
 near ∂X, the bundle E (trivialised by dt_*, dx¹, …, dx⁴) and the Minkowski metric ḡ are those of [[sec:iii-d2-1]].
 With the 1-form modification of [[eq:iii-b-6-2]], for v_C ∈ (0, 1), e_C, γ_C and a stationary c_C ∈ |x|⁻¹C^∞ equal to
 |x|⁻¹(dt − v_C d|x|) for large |x|, put
@@ -43,7 +43,7 @@ We write (P^C_b)* for it.
 
 **Theorem {#thm:iii-e-1-1}** (The constraint propagation operator; [Hin26, Theorem 7.1] in dimension 4 + 1.) Let
 (v_C, e_C) = (1/2, 1/102400) and C_0 ∈ [3/2, 100]. Let c_C be the stationary past timelike 1-form of [[sec:iv4-0]],
-which lies in ρC^∞(X̄; T*X) and equals |x|⁻¹(dt − v_C d|x|) for large |x| up to O(μ₀|x|⁻³) d|x|, and let γ_C = h⁻¹ with
+which lies in ρC^∞(X̄; T*X) and equals |x|⁻¹(dt − v_C d|x|) for large |x| up to O(m₀|x|⁻³) d|x|, and let γ_C = h⁻¹ with
 h ∈ 𝖧, the set of [[eq:iv4-0-1]]: every h ∈ (0, h_*) outside a countable set. Then for all b near b₀:
 
 (1) (*Mode stability, σ ≠ 0.*) For σ ≠ 0, Im σ ≥ 0, (□^C_b)^(σ) has trivial nullspace on 𝒜^γ(X̄; E) for every γ ∈ ℝ.
@@ -101,11 +101,11 @@ where 𝖧 := (0, h_*) ∖ 𝖹. Here h_* := min(10⁻⁶, h_0, h_tf), with h_0 
 [[thm:iv5-7-3]] at these (v_C, e_C) for the weights [[eq:iv4-2-1]] at C_0 and at C_0 − 1, h_tf the threshold of
 [[thm:iv6-3-1]], and 𝖹 the union of the countable sets of [[lem:iv4-1-3]] (b) and of
 [[prop:np-10-52]] (ii)–(iii). The nonlinear theorem of [[ch:s27]] takes C_0 = 100.
-The 1-form c_C is that of [[prop:np-10-14]] at μ = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 and rescaled to μ₀
-(every condition on it depends on μ r_0⁻² and r/r_0 only, by scaling). It is stationary and equals
-|x|⁻¹(dt − v_C d|x|) for large |x| up to O(μ₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the static time, and the
+The 1-form c_C is that of [[prop:np-10-14]] at m = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 and rescaled to m₀
+(every condition on it depends on m r_0⁻² and r/r_0 only, by scaling). It is stationary and equals
+|x|⁻¹(dt − v_C d|x|) for large |x| up to O(m₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the static time, and the
 time t of [[sec:iii-b-3-1]] is the outgoing Kerr–Schild time, whose differential differs from the static one by
-O(μ₀|x|⁻²) d|x|, which changes |x|⁻¹(dt − v_C d|x|) by O(μ₀|x|⁻³) d|x|.
+O(m₀|x|⁻²) d|x|, which changes |x|⁻¹(dt − v_C d|x|) by O(m₀|x|⁻³) d|x|.
 
 Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters. The
 statements of [Hin26, Theorem 7.1] "for v_C ∈ (0, 1), C_0 > 0 and all sufficiently large γ_C" are proved here at this
@@ -363,12 +363,12 @@ block, B-self-adjoint with positive trace and determinant, is positive definite.
 − r_0)²/r_0² < 1 (c timelike), the second condition of (i) reads 2(1 − e)w > e(1 − w), and for w ≥ e, 2(1 − e)w/(e(1 −
 w)) ≥ 2 > 1. The first condition is ±(r − r_0) > 0. ∎
 
-**Proposition {#prop:np-10-14}** (A damping 1-form on Tangherlini space.) Let μ = 1, so that r_h = 1, and let
+**Proposition {#prop:np-10-14}** (A damping 1-form on Tangherlini space.) Let m = 1, so that r_h = 1, and let
 
-    g = −f dt² + 2(1 − f) dt dr + (2 − f) dr² + r² 𝑔̸,     f = 1 − μr⁻²,                                   {#eq:s14-tang}
+    g = −f dt² + 2(1 − f) dt dr + (2 − f) dr² + r² 𝑔̸,     f = 1 − mr⁻²,                                   {#eq:s14-tang}
 
 the Tangherlini metric in Kerr–Schild time, regular across the horizon; its t differs from the static time by
-∫(f⁻¹ − 1) dr, and g⁻¹ has (t, r) block g^(tt) = −1 − μr⁻², g^(tr) = μr⁻², g^(rr) = f. Let r_0 := 100 and
+∫(f⁻¹ − 1) dr, and g⁻¹ has (t, r) block g^(tt) = −1 − mr⁻², g^(tr) = mr⁻², g^(rr) = f. Let r_0 := 100 and
 
     c := (2r_0)⁻¹(dt + (v/2) dr)  (r ≤ r_0/2),   ½ r_0⁻²(r_0 dt − v(r − r_0) dr)  (r_0/2 ≤ r ≤ 2r_0),
     c := r⁻¹(dt − v dr)  (r ≥ 2r_0).                                                                      {#eq:s14-cform}
@@ -381,7 +381,7 @@ Then c is continuous, and:
 f eG(c) + 2(1 − e)⟨c, dr⟩² > 0; so ℓ(−dr), resp. ℓ(dr), is negative definite there ([[prop:np-10-13]] (i));
 
 (iii) S, defined by [[eq:s14-s]] for the metric [[eq:s14-tang]] and the 1-form [[eq:s14-cform]], is a bundle map, free
-of the angles and block diagonal in the splitting by dt, dr and r dω, equal at μ = 0 to the S of
+of the angles and block diagonal in the splitting by dt, dr and r dω, equal at m = 0 to the S of
 [[prop:np-10-13]] (iii), and positive definite on |r − r_0| ≤ (6/5)r_0e^(1/2)/v;
 
 (iv) for c = r⁻¹(dt − v dr) on Minkowski space, T = r²(−ℓ(dw/w) + S) of [[prop:np-10-13]] (ii) is B-self-adjoint and
@@ -399,7 +399,7 @@ if and only if b_sf < b*, where b* = 0.99340731… is the smaller root of 204795
 Moreover: (a) conditions (4)–(5) of [Hin26a, Proposition 5.1] off 𝗌𝖿, for 0 < ρ_sf ≤ 2δ_r with some δ_r > 0, follow
 from (iv) by continuity, since Tangherlini space differs from its Minkowski model by terms in ρ_sf C^∞ ([Hin26a, p. 39]);
 (b) a smoothing of c near r_0/2 and 2r_0 preserves (i) and (ii), which there involve only c and not its derivatives
-([Hin26a, p. 41]); (c) in the static time t_s the outer piece is r⁻¹(dt_s − v dr) + O(μr⁻³) dr.
+([Hin26a, p. 41]); (c) in the static time t_s the outer piece is r⁻¹(dt_s − v dr) + O(mr⁻³) dr.
 
 *Proof.* All three pieces have the form α(dt + b dr) with α > 0; at r_0/2 and 2r_0 adjacent pieces agree, so c is
 continuous. With g^(tr) = 1 − f,
@@ -432,7 +432,7 @@ depend on ρ_K, so d = b_sf.
 
 (a)–(c) are the stated arguments: (a) the positivity in (iv) is strict and stable under perturbations of the metric
 and the 1-form by ρ_sf C^∞ terms near 𝗌𝖿; (b) the conditions in (i)–(ii) are open conditions on the value of c at each
-point; (c) the static time t_s satisfies dt = dt_s + (f⁻¹ − 1) dr with f⁻¹ − 1 = O(μr⁻²). ∎
+point; (c) the static time t_s satisfies dt = dt_s + (f⁻¹ − 1) dr with f⁻¹ − 1 = O(mr⁻²). ∎
 
 **Proposition {#prop:np-10-21}** (The structure at infinity.) On 4 + 1 Minkowski space with c = r⁻¹(dt − v dr), in the
 coordinates t_* = t − r, ρ = r⁻¹ and the Cartesian frame:
@@ -473,24 +473,24 @@ sign with c, which is the operator with (c_(−v), −h⁻¹). The spectrum of M
 (iii) ρ^k ∈ ρ^a L²(r³ dr) near infinity iff ∫^∞ r^(2a−2k) r³ dr < ∞, that is 2k − 2a > 4. The rest is arithmetic. ∎
 
 **Proposition {#prop:np-10-22}** (Tangherlini space as a 3sc-metric.) On Tangherlini space in Kerr–Schild time,
-g = η + μr⁻² k ⊗ k with k = dt + dr:
+g = η + mr⁻² k ⊗ k with k = dt + dr:
 
-(i) in Cartesian coordinates g⁻¹ = η⁻¹ − μr⁻² k♯ ⊗ k♯ exactly, with k♯ = η⁻¹k; the Christoffel symbols are polynomials
-of degree at most 2 in μ with no constant term and satisfy Γ(λx; μ) = λ⁻¹Γ(x; μλ⁻²); and c = r⁻¹(dt − v dr) has
+(i) in Cartesian coordinates g⁻¹ = η⁻¹ − mr⁻² k♯ ⊗ k♯ exactly, with k♯ = η⁻¹k; the Christoffel symbols are polynomials
+of degree at most 2 in m with no constant term and satisfy Γ(λx; m) = λ⁻¹Γ(x; mλ⁻²); and c = r⁻¹(dt − v dr) has
 components homogeneous of degree −1;
 
-(ii) r²g⁻¹(dτ, dτ) = −(1 − τ²) − μr⁻²(1 + τ)² and r g⁻¹(dτ, dt) = −1 − μr⁻²(1 + τ), τ = t/r;
+(ii) r²g⁻¹(dτ, dτ) = −(1 − τ²) − mr⁻²(1 + τ)² and r g⁻¹(dτ, dt) = −1 − mr⁻²(1 + τ), τ = t/r;
 
-(iii) g⁻¹(dr, dr) = f = 1 − μr⁻², increasing with f(r_h) = 0; g⁻¹(dr, dt) = μr⁻² > 0 and g⁻¹(dt, dt) = −1 − μr⁻² < 0
+(iii) g⁻¹(dr, dr) = f = 1 − mr⁻², increasing with f(r_h) = 0; g⁻¹(dr, dt) = mr⁻² > 0 and g⁻¹(dt, dt) = −1 − mr⁻² < 0
 for every r > 0;
 
 (iv) at (v, e) = (1/2, 1/102400) and the weights (α_K, α_sf) = (1, −C_0 − 5/2), that is b_K = 1 and
 b_sf = −C_0 − 3/2: the characteristic polynomials of T at ∂K⁺ and at R_v have positive roots for every C_0 ≥ 0, and at
 C_0 = 100, T is positive definite for every ρ_K ∈ [0, 10].
 
-*Proof.* (i) k is η-null, so (η + Hk ⊗ k)(η⁻¹ − Hk♯ ⊗ k♯) = Id. With H = μr⁻², the components of g are those of η plus
-μ times functions homogeneous of degree −2 in x, and those of g⁻¹ likewise; the Christoffel symbols are
-½g⁻¹∂g, of degree at most 2 in μ and vanishing at μ = 0. Under x ↦ λx, H(λx; μ) = H(x; μλ⁻²) and k is invariant, and
+*Proof.* (i) k is η-null, so (η + Hk ⊗ k)(η⁻¹ − Hk♯ ⊗ k♯) = Id. With H = mr⁻², the components of g are those of η plus
+m times functions homogeneous of degree −2 in x, and those of g⁻¹ likewise; the Christoffel symbols are
+½g⁻¹∂g, of degree at most 2 in m and vanishing at m = 0. Under x ↦ λx, H(λx; m) = H(x; mλ⁻²) and k is invariant, and
 the derivative contributes λ⁻¹. (ii)–(iii) are the (t, r) block of g⁻¹ (in [[prop:np-10-14]]) applied to
 dτ = r⁻¹(dt − τ dr). (iv) At ∂K⁺, d = b_sf − b_K = −C_0 − 5/2 < b*, and at R_v, d = b_sf = −C_0 − 3/2 < b*, so
 [[prop:np-10-14]] (iv) applies. At C_0 = 100 the angular entry of T is 2v(2 − d) − 2ρ_K = (209 − 4ρ_K)/2 > 0 for
@@ -499,7 +499,7 @@ dτ = r⁻¹(dt − τ dr). (iv) At ∂K⁺, d = b_sf − b_K = −C_0 − 5/2 <
 is decreasing on [0, 10] (its vertex is at ρ_K > 51) and positive at ρ_K = 10. ∎
 
 **Proposition {#prop:np-10-79}** (The horizon threshold.) Let g be Tangherlini space [[eq:s14-tang]], c the 1-form of
-[[prop:np-10-14]] rescaled to μ (so that c = (2r_0)⁻¹(dt + (v/2)dr) near the horizon, r_0 = 100r_h), B as in
+[[prop:np-10-14]] rescaled to m (so that c = (2r_0)⁻¹(dt + (v/2)dr) near the horizon, r_0 = 100r_h), B as in
 [[eq:s14-ell]], P_0 := 2δ_gG_gδ*_g, and let the threshold ϑ_ℋ be defined as in [[sec:i-a-1]] ([Hin26c, (5.17)]) with
 the fibre inner product B. At ζ = ξ dr over r = r_h, ξ > 0:
 
@@ -520,10 +520,10 @@ of
 of 31744512005000h² + 3077109850h − 102399; in particular for every h ∈ (0, 10⁻⁶]. At h = 10⁻⁶, ϑ_ℋ = −4995.83…; and
 ϑ_ℋ ≤ ϑ_0 − c₁h⁻¹ with ϑ_0 = (r_h/2)(e^(1/2) + e^(−1/2))/r_h = 102401/640 and c₁ = (1 − e)ar_h = 102399/20480000.
 
-*Proof.* (i) At r = r_h, g^(rr) = f = 0 and g^(tr) = μr_h⁻² = 1, so (dr)♯ = ∂_t and dr is null. As dt is past
+*Proof.* (i) At r = r_h, g^(rr) = f = 0 and g^(tr) = mr_h⁻² = 1, so (dr)♯ = ∂_t and dr is null. As dt is past
 timelike and dt(∂_t) = 1 > 0, ∂_t is future directed, so dr is future null. H_G = 2g^(ab)ζ_a∂_(x^b) − (∂_xG)∂_ζ; at
 ζ = ξ dr its base component is 2ξ∂_t, which annihilates every stationary function, and H_Gξ = −ξ²∂_r g^(rr) =
-−f′(r_h)ξ². For the rescaled field ρ_∞H_G, ρ_∞ = ξ⁻¹, this gives ρ_∞⁻¹(ρ_∞H_G)ρ_∞ = H_Gρ_∞ = f′(r_h) = 2μr_h⁻³ = 2/r_h.
+−f′(r_h)ξ². For the rescaled field ρ_∞H_G, ρ_∞ = ξ⁻¹, this gives ρ_∞⁻¹(ρ_∞H_G)ρ_∞ = H_Gρ_∞ = f′(r_h) = 2mr_h⁻³ = 2/r_h.
 
 (ii) On 1-forms, −∇^a∇_aω_k = −g^(ab)∂_a∂_bω_k + 2g^(ab)Γ^c_(ak)∂_bω_c + g^(ab)Γ^d_(ab)∂_dω_k + (order 0). The scalar
 part −g^(ab)∂_a∂_b + g^(ab)Γ^d_(ab)∂_d is the scalar wave operator, formally self-adjoint for |dg|; its B-adjoint
@@ -675,15 +675,15 @@ and proved in [[prop:iv5-5-2]] and [[prop:iv5-5-3]]. We follow [Hin26a, pp. 12�
 
 #### The setting {#sec:iv5-0}
 
-Throughout n = 4. The mass μ₀, R₁ = μ₀^(1/2), 𝓑 and b₀ = (μ₀, 0) are those of [[sec:iii-b-3-1]]. Let r_♯ := ½R₁ be the
+Throughout n = 4. The mass m₀, R₁ = m₀^(1/2), ℬ and b₀ = (m₀, 0) are those of [[sec:iii-b-3-1]]. Let r_♯ := ½R₁ be the
 inner radius (the radius m of [Hin26a]) and r_c := 100R₁ the radius of the saddle point of c_C (the radius r_0 of
-[Hin26a]; the r_0 = 100 of [[prop:np-10-14]] at μ = 1, rescaled). Let v := v_C = 1/2 and e := e_C = 1/102400.
+[Hin26a]; the r_0 = 100 of [[prop:np-10-14]] at m = 1, rescaled). Let v := v_C = 1/2 and e := e_C = 1/102400.
 
-*Coordinates.* We work in the Kerr–Schild coordinates (t, x) of [[sec:iii-b-3-1]], with r := |x|. For b ∈ 𝓑,
+*Coordinates.* We work in the Kerr–Schild coordinates (t, x) of [[sec:iii-b-3-1]], with r := |x|. For b ∈ ℬ,
 g := g^KS_b = η + H_b k_b ⊗ k_b is defined and smooth with H_b > 0 on ℝ_t × {r ≥ ½r_♯}, smoothly in b. Indeed the
 estimate of [[sec:iii-b-3-1]], run at r = ¼R₁ with ‖A‖² < R₁²/100, gives |x|² > 2‖A‖² ≥ s and
 r_A² ≥ (1/16 − 1/100)R₁², under which the condition ‖A‖²(r_A² + ‖A‖²) < r_A⁴ of [[lem:iii-b-3-3]] (c) holds. The metric
-g_b of [[sec:iii-b-3-1]] is Φ_μ*g with Φ_μ(t, x) = (t − T_μ(|x|), x), and [[rem:iv5-7-4]] transfers the results to it.
+g_b of [[sec:iii-b-3-1]] is Φ_m*g with Φ_m(t, x) = (t − T_m(|x|), x), and [[rem:iv5-7-4]] transfers the results to it.
 The 1-form c := c_C of [[sec:iv4-0]] is defined in these coordinates on {r ≥ r_♯}. We extend it to {r ≥ ½r_♯} as a
 stationary smooth past timelike 1-form; such an extension exists, the past timelike covectors at a point forming an open
 convex cone.
@@ -732,7 +732,7 @@ At N = 5 it is the calculus of the compactification M^♭ of [[def:iv5-0-1]], wi
 *Proof.* These are the cited results, stated there for every dimension. ∎
 
 **Lemma {#lem:iv5-0-2}** (The metric and the 1-form as 3sc-objects; [Hin26a, Lemmas 2.3–2.4, (2.12)–(2.14), Lemma 5.3]
-in dimension 4 + 1.) For b ∈ 𝓑:
+in dimension 4 + 1.) For b ∈ ℬ:
 
 (a) g ∈ C^∞(M^♭; S²𝒯*) is a stationary nondegenerate Lorentzian 3sc-metric, g⁻¹ ∈ C^∞(M^♭; S²𝒯), and g − η,
 g⁻¹ − η⁻¹ lie in ρ_sf²C^∞, smoothly in b;
@@ -759,7 +759,7 @@ gives |dt dr| = r|dτ dr|.
 
 (c) Γ^κ_(μν) = ½g^(κλ)(∂_μg_(νλ) + ∂_νg_(μλ) − ∂_λg_(μν)), with g^(κλ) ∈ C^∞(M^♭) and ∂_μg_(νλ) ∈ ρ_sf C^∞(M^♭)
 because ∂_(z^μ) ∈ ρ_sf 𝒱_3b. The rest is [Hin26a, (2.13)–(2.14)], with the same proof. (On Tangherlini space,
-Γ ∈ μρ³C^∞ by [[prop:np-10-22]] (i).)
+Γ ∈ mρ³C^∞ by [[prop:np-10-22]] (i).)
 
 (d) c is stationary and smooth on {r ≥ ½r_♯}, and equals r⁻¹(dt − v dr) for r ≥ 3r_c ([[prop:np-10-14]] (b)). Its
 components (r⁻¹, −vr⁻¹x̂) lie in |x|⁻¹C^∞(X̄), so c ∈ ρ_sf C^∞(M^♭; 𝒯*). By [[sec:iv4-0]], the trace weight 2/3 gives
@@ -768,7 +768,7 @@ hG_gE^C the form of [Hin26a], so L_h = 4ih δ_g(c ⊗_s ·) + 2ihe dι_(c♯) is
 symbols are [Hin26a, Lemma 3.2], a pointwise identity free of the dimension ([[prop:np-10-13]] (i)). ∎
 
 **Lemma {#lem:iv5-0-3}** (The causal facts; [Hin26a, p. 15] and the uses in [Hin26a, Propositions 5.6, 5.16] in
-dimension 4 + 1.) Let r̂ := ¾R₁ and T_0 := ½. There is a neighbourhood U ⊂ 𝓑 of b₀ such that for b ∈ U:
+dimension 4 + 1.) Let r̂ := ¾R₁ and T_0 := ½. There is a neighbourhood U ⊂ ℬ of b₀ such that for b ∈ U:
 
 (a) for every β ∈ (−1, 1], d(t − βr) is past timelike on {r ≥ ½r_♯}, with
 g⁻¹(dt − β dr, dt − β dr) ≤ −(1 − β²); in particular dt and d(t ± κr), κ ∈ (0, 1), are past timelike, X_0 is
@@ -789,7 +789,7 @@ and starts at dt, so it stays in the past cone. A future timelike V has dt(V) > 
 (b) dτ = r⁻¹(dt − τ dr), so r²g⁻¹(dτ, dτ) is the quantity of (a) at β = τ ∈ [0, ½], at most −(1 − ¼). As
 g_3b⁻¹ = r²g⁻¹, this is the claim; on Tangherlini space it is [[prop:np-10-22]] (ii).
 
-(c) At b₀, g⁻¹(dr, dr) = 1 − μ₀r⁻² ≤ 1 − 16/9 on [½r_♯, r̂] and g⁻¹(dr, dt) = μ₀r⁻² > 0 ([[prop:np-10-22]] (iii)). The
+(c) At b₀, g⁻¹(dr, dr) = 1 − m₀r⁻² ≤ 1 − 16/9 on [½r_♯, r̂] and g⁻¹(dr, dt) = m₀r⁻² > 0 ([[prop:np-10-22]] (iii)). The
 second says that the timelike covectors dr and dt lie in opposite cones, so dr is future timelike. Both strict
 inequalities hold on a compact set, and g⁻¹ is continuous in b there, so they persist on a neighbourhood U of b₀. A
 future timelike V has dr(V) < 0, so V points out of {r ≥ r_♯}.
@@ -1325,11 +1325,11 @@ side of [[eq:iv5-6-1]]. So the limit takes the data and solves [[eq:iv5-5-16]]. 
 is a distribution supported in {t ≥ 0} with P_hω = 0, the vanishing data leaving no layer on X_0; so ω = 0 by the
 uniqueness in (a). ∎
 
-**Remark {#rem:iv5-7-4}** (In the coordinates of [[sec:iii-b-3-1]].) There g_b = Φ_μ*g, with
-Φ_μ(t, x) = (t − T_μ(|x|), x) and T_μ ∈ |x|⁻¹C^∞(X̄) near infinity ([[lem:iii-b-3-5]] (a)). Φ_μ commutes with ∂_t and
-acts on 1-forms by dt ↦ dt − T_μ′ dr, where T_μ′ ∈ |x|⁻²C^∞. Hence Φ_μ intertwines □^C for (g, c_C) with □^C for
-(g_b, Φ_μ*c_C), and it preserves stationarity, 𝒜^γ(X̄; E), the weighted b-spaces on X̄, and integrals over
-[0, ∞)_t × A for an annulus A, up to the shift by the bounded T_μ. [[thm:iv4-2-1]] uses [[thm:iv5-7-3]] through this
+**Remark {#rem:iv5-7-4}** (In the coordinates of [[sec:iii-b-3-1]].) There g_b = Φ_m*g, with
+Φ_m(t, x) = (t − T_m(|x|), x) and T_m ∈ |x|⁻¹C^∞(X̄) near infinity ([[lem:iii-b-3-5]] (a)). Φ_m commutes with ∂_t and
+acts on 1-forms by dt ↦ dt − T_m′ dr, where T_m′ ∈ |x|⁻²C^∞. Hence Φ_m intertwines □^C for (g, c_C) with □^C for
+(g_b, Φ_m*c_C), and it preserves stationarity, 𝒜^γ(X̄; E), the weighted b-spaces on X̄, and integrals over
+[0, ∞)_t × A for an annulus A, up to the shift by the bounded T_m. [[thm:iv4-2-1]] uses [[thm:iv5-7-3]] through this
 intertwining, with its initial data at {t_KS = 0}.
 
 #### Uniformity in b {#sec:iv5-8}
@@ -1340,7 +1340,7 @@ intertwining, with its initial data at {t_KS = 0}.
 *Proof.* Every estimate above is proved from three kinds of input, each uniform on U: finitely many seminorms of the
 coefficients of P_h as an element of h²ρ_sf²Diff²_3b + hρ_sf²Diff¹_3b in the frames r∂_(z^μ), which are continuous in b
 ([[lem:iv5-0-2]] (a), (d), and the smooth dependence of [[sec:iii-b-3-1]]); the lower bounds in the positivity
-statements, from [[lem:iv5-0-3]] (exact in (a)–(b) for all b ∈ 𝓑, by continuity in (c)), [[lem:iv5-0-4]] (the
+statements, from [[lem:iv5-0-3]] (exact in (a)–(b) for all b ∈ ℬ, by continuity in (c)), [[lem:iv5-0-4]] (the
 constant C and the margin of [Hin26a, Lemma 3.5] on compact sets) and [[lem:iv5-0-5]] (uniform by its statement); and
 the cut-offs, commutants and the parameters 𝔛, δ, δ′, t_j, r_j, κ, chosen from these bounds alone, hence independently
 of b. The calculus estimates used (composition, elliptic parametrices, the sharp Gårding inequality, L²-boundedness)
@@ -1693,8 +1693,8 @@ used with the weights [[eq:iv4-2-1]], which its hypothesis in dimension 4 + 1, �
 [Hin26a, p. 67].
 
 *(1).* Let ω′ ∈ 𝒜^γ(X̄; E) with (□^C_b)^(σ)ω′ = 0, and ω := e^(−iσt_*)ω′, a solution of □^C_bω = 0. It is outgoing in
-the sense of [Hin26a, Definition 6.1]: t_* = t − ψ(|x|) with ψ(r) = r − C_ψ + 8μ₀r⁻¹ for large r ([[eq:iii-b-3-6]]), and
-the tortoise coordinate of g_(b₀) is r_* = r − μ₀r⁻¹ + O(r⁻³) (dr_*/dr = (1 − μ₀r⁻²)⁻¹), so
+the sense of [Hin26a, Definition 6.1]: t_* = t − ψ(|x|) with ψ(r) = r − C_ψ + 8m₀r⁻¹ for large r ([[eq:iii-b-3-6]]), and
+the tortoise coordinate of g_(b₀) is r_* = r − m₀r⁻¹ + O(r⁻³) (dr_*/dr = (1 − m₀r⁻²)⁻¹), so
 ω = e^(−iσt)e^(iσr_*)ω₁ with ω₁ = e^(iσ(ψ−r_*))ω′ ∈ 𝒜^γ, ψ − r_* being bounded and conormal. By [[eq:iv4-1-1]],
 
     2iσρ(ρ∂_ρ − 3/2 − S̄^C)ω′ ∈ (ρ²Diff²_b + σρ³Diff¹_b + σ²ρ²Diff⁰_b)ω′ ⊂ 𝒜^(γ+2),
@@ -1702,10 +1702,10 @@ the tortoise coordinate of g_(b₀) is r_* = r − μ₀r⁻¹ + O(r⁻³) (dr_*
 the term ρS̃ of [[eq:iv4-1-1]] included in the first class. Dividing by 2iσρ and solving the regular-singular equation
 in ρ gives ω′ ∈ 𝒜^(γ+1) as long as γ + 1 < 3/2 + min spec S̄^C; iterating, ω′ ∈ 𝒜¹, as S̄^C > 0 ([[lem:iv4-1-2]]).
 [[thm:iv5-7-3]] is applied in the Kerr–Schild coordinates of [[sec:iv5-0]] ([[rem:iv5-7-4]]), in which
-t = t_KS + T_μ(|x|) ([[sec:iii-b-3-1]]). The data
-(ω, r𝓛_(∂_t)ω)|_(t_KS=0) = (e^(iσ(ψ−T_μ))ω′, −iσre^(iσ(ψ−T_μ))ω′) satisfy |ω^(0)| ≤ Cr⁻¹,
+t = t_KS + T_m(|x|) ([[sec:iii-b-3-1]]). The data
+(ω, r𝓛_(∂_t)ω)|_(t_KS=0) = (e^(iσ(ψ−T_m))ω′, −iσre^(iσ(ψ−T_m))ω′) satisfy |ω^(0)| ≤ Cr⁻¹,
 |(r∂_r, ∂_ω)ω^(0)| ≤ C (the phase contributes σr, and ω′ ∈ 𝒜¹ is conormal) and |ω^(1)| ≤ C. Indeed
-|e^(iσ(ψ−T_μ))| = e^(−(Im σ)(ψ−T_μ)) is bounded, ψ − T_μ being continuous on [r_♯, ∞) and tending to +∞. So the data
+|e^(iσ(ψ−T_m))| = e^(−(Im σ)(ψ−T_m)) is bounded, ψ − T_m being continuous on [r_♯, ∞) and tending to +∞. So the data
 lie in ρ^(−2−ε)H̄^(1−j)_b(X, r³|dr d𝑔̸|) for every ε > 0 ([[prop:np-10-21]] (iii): ρ^k ∈ ρ^aL²(r³dr) near ∂X iff
 a < k − 2), which lies in ρ^(α_sf+½)H̄^(1−j)_b, as α_sf + ½ = −C_0 − 2 < −2 − ε. The initial value problem of
 [[thm:iv5-7-3]] (b) has a solution with these data in its class, and it is ω: both are H¹_loc solutions with the same
@@ -1835,7 +1835,7 @@ being no root of the adjoint at scalar type 1.
 2 − (−1 − 2v/h) = 3 + 2vγ_C, and N_(v,1)(2 − 2) = h⁻¹p_(v)(0) = 3 + 6v/h.
 
 (ii) dS is parallel for η, so δ*_η dS = 0 and (□^C_η)*(dS) = 0; on Tangherlini space δ*_g dS = −(Γ_g − Γ_η)·dS has
-coefficients in μρ³C^∞ by [[prop:np-10-22]] (i), and (δ*_(g,E_C))*G_g ∈ ρDiff¹_b near ∂X, so (□^C)*(dS) ∈ ρ⁴C^∞. The
+coefficients in mρ³C^∞ by [[prop:np-10-22]] (i), and (δ*_(g,E_C))*G_g ∈ ρDiff¹_b near ∂X, so (□^C)*(dS) ∈ ρ⁴C^∞. The
 correction is unique because N(ρ⁻²(P^C)*, 2) is invertible at scalar type 1, 2 not being a root of the adjoint there by
 (i) and [[lem:iii-e-2-1]] (2). ∎
 
@@ -1881,11 +1881,11 @@ of ρ² being −N(ρ⁻²(P^C_b)*, 2)⁻¹ of that of ρ⁻²f_b (2 is no root 
     h*_(b,s1)(S) = G_(g_b)(dχ ⊗_s ω̄_s1 + χ((δ*_(g_b))^(0) − (δ̄*)^(0))ω̄_s1 + (δ*_(g_b))^(0)ω′_b)
                  ∈ C_c^∞ + ρ³C^∞ + Ḣ_b^(0,((3,0),C_0+3)).
 
-*Rotations.* g_μ(R_V, ·) = V and δ*_(g_μ)V = 0 (the proof of [[prop:iii-d2-3-1]]), so
-δ*_(g_b)(χV) = dχ ⊗_s V + χ((δ*_(g_b))^(0) − (δ*_(g_μ))^(0))V ∈ C_c^∞ + ρ⁴Diff⁰_b(ρ⁻¹C^∞) ⊂ C_c^∞ + ρ³C^∞, and
+*Rotations.* g_m(R_V, ·) = V and δ*_(g_m)V = 0 (the proof of [[prop:iii-d2-3-1]]), so
+δ*_(g_b)(χV) = dχ ⊗_s V + χ((δ*_(g_b))^(0) − (δ*_(g_m))^(0))V ∈ C_c^∞ + ρ⁴Diff⁰_b(ρ⁻¹C^∞) ⊂ C_c^∞ + ρ³C^∞, and
 f_b := (□^C_b)*(χV) ∈ C_c^∞ + ρ⁴C^∞. As for the translations, ω′_b := −((P^C_b)*)⁻¹f_b ∈ Ḣ_b^(1,((2,0),C_0+2)),
 ω*^((−1))_(b,v1)(V) := χV + ω′_b, and
-h*_(b,v1)(V) = G_(g_b)(dχ ⊗_s V + χ((δ*_(g_b))^(0) − (δ*_(g_μ))^(0))V + (δ*_(g_b))^(0)ω′_b) ∈ Ḣ_b^(0,((3,0),C_0+3)).
+h*_(b,v1)(V) = G_(g_b)(dχ ⊗_s V + χ((δ*_(g_b))^(0) − (δ*_(g_m))^(0))V + (δ*_(g_b))^(0)ω′_b) ∈ Ḣ_b^(0,((3,0),C_0+3)).
 *Killing rotations.* If R_V is Killing for g_b, K := g_b(R_V, ·) has δ*_(g_b)(χK) = dχ ⊗_s K, so
 (□^C_b)*(χK) ∈ C_c^∞ and ω″ := −((P^C_b)*)⁻¹(□^C_b)*(χK) ∈ Ḣ_b^(1,C_0+2). The difference (χV + ω′_b) − (χK + ω″) lies in
 ker(P^C_b)*, and in Ḣ_b^(1,α) for α < 1, as K − V = (g_b − ḡ)(R_V, ·) ∈ ρC^∞ ([[eq:iii-d2-2-3]]) and ω′_b begins at ρ²;
@@ -1922,8 +1922,8 @@ self-adjointness of G D Ric; the argument of [Hin26] uses G² = Id, which fails 
 
 #### Setting {#sec:iii-e1-1}
 
-𝓑, b = (μ, A), g_b, t_*, ρ = |x|⁻¹ near ∂X, ḡ, t̄ = t_* + |x|, χ, and the constants v_C, e_C, γ_C, C_0 are as in
-[[sec:iii-e-1]]; g_b = Φ_μ*g^KS_(μ,A) as in [[sec:iii-b-3-1]]. C^∞ means smooth on X̄ in the trivialisation by dt_*,
+ℬ, b = (m, A), g_b, t_*, ρ = |x|⁻¹ near ∂X, ḡ, t̄ = t_* + |x|, χ, and the constants v_C, e_C, γ_C, C_0 are as in
+[[sec:iii-e-1]]; g_b = Φ_m*g^KS_(m,A) as in [[sec:iii-b-3-1]]. C^∞ means smooth on X̄ in the trivialisation by dt_*,
 dx^i. For W ∈ 𝔰𝔬(4) put
 
     R_W := (Wx)·∂_x,     V(W) := ḡ(R_W, ·) = (Wx)·dx,                                                    {#eq:iii-e1-1-1}
@@ -1935,52 +1935,52 @@ adjoint of [[sec:iii-e-1]]; on stationary sections (□^C_b)* = 2(δ*_(g_b,E_C))
 
 #### The rotations {#sec:iii-e1-2}
 
-**Lemma {#lem:iii-e1-2-1}** (Equivariance.) For O ∈ O(4) let φ_O(t, x) := (t, Ox). Then φ_O*g_((μ,OAOᵀ)) = g_((μ,A)), and
+**Lemma {#lem:iii-e1-2-1}** (Equivariance.) For O ∈ O(4) let φ_O(t, x) := (t, Ox). Then φ_O*g_((m,OAOᵀ)) = g_((m,A)), and
 t_*, |x| and χ are φ_O-invariant.
 
 *Proof.* In [[eq:iii-b-3-1]], s = −½tr(A²) and p² = Pf(A)² do not change under A ↦ OAOᵀ (Pf(OAOᵀ) = det O Pf(A)), so
 neither does P, while 𝖬 ↦ O𝖬Oᵀ; hence Q(r, Ox) for OAOᵀ equals Q(r, x) for A, and by the uniqueness of the root
 ([[lem:iii-b-3-1]] (b)), r_(OAOᵀ)(Ox) = r_A(x). The vector 𝖬(rI + A)x/P becomes O times itself, so the 1-form ℓ of
 [[eq:iii-b-3-2]] satisfies φ_O*ℓ_(OAOᵀ) = ℓ_A (v(Ox)·d(Ox) = (Ov(x))·O dx = v(x)·dx); xᵀA²𝖬²x, and so F and H, are
-invariant; and η and dt are φ_O-invariant. So φ_O*g^KS_(μ,OAOᵀ) = g^KS_(μ,A). Φ_μ and t_* = t − ψ(|x|) depend on x
+invariant; and η and dt are φ_O-invariant. So φ_O*g^KS_(m,OAOᵀ) = g^KS_(m,A). Φ_m and t_* = t − ψ(|x|) depend on x
 through |x| only, and so commute with, resp. are invariant under, φ_O; χ is a function of |x|. ∎
 
-**Lemma {#lem:iii-e1-2-2}** ([Hin26, Lemma 7.5] in dimension 4 + 1.) Let b = (μ, A), A_V ∈ 𝔰𝔬(4), V := V(A_V),
+**Lemma {#lem:iii-e1-2-2}** ([Hin26, Lemma 7.5] in dimension 4 + 1.) Let b = (m, A), A_V ∈ 𝔰𝔬(4), V := V(A_V),
 R := R_(A_V) and W := [A, A_V]. Then exactly
 
-    δ*_(g_b)V_b = ½D_Ag_((μ,A))(W),     D_Ag_((μ,A))(W) := (d/ds)g_((μ,A+sW))|_(s=0),                    {#eq:iii-e1-2-1}
+    δ*_(g_b)V_b = ½D_Ag_((m,A))(W),     D_Ag_((m,A))(W) := (d/ds)g_((m,A+sW))|_(s=0),                    {#eq:iii-e1-2-1}
 
 and near ∂X
 
-    δ*_(g_b)V_b = μρ³(dt_* + 2 d|x|) ⊗_s ρV(W) + h̃_b(W),                                                {#eq:iii-e1-2-2}
+    δ*_(g_b)V_b = mρ³(dt_* + 2 d|x|) ⊗_s ρV(W) + h̃_b(W),                                                {#eq:iii-e1-2-2}
 
 with h̃_b : 𝔰𝔬(4) → ρ⁴C^∞(X̄; S²T*X) linear and smooth in b. So δ*_(g_b)V_b depends on V only through W, and the right
 side of [[eq:iii-e1-2-1]] is defined for every W ∈ 𝔰𝔬(4).
 
 *Proof.* [[eq:iii-e1-2-1]]: R generates φ_(O_s), O_s := e^(sA_V), so 𝓛_Rg_b = (d/ds)φ_(O_s)*g_b|_(s=0). By
-[[lem:iii-e1-2-1]] with A replaced by O_sᵀAO_s, φ_(O_s)*g_((μ,A)) = g_((μ,O_sᵀAO_s)), and
-(d/ds)O_sᵀAO_s|_(s=0) = AA_V − A_VA = W; so 𝓛_Rg_b = D_Ag_((μ,A))(W). And δ*_g(g(R, ·)) = ½𝓛_Rg for every metric.
+[[lem:iii-e1-2-1]] with A replaced by O_sᵀAO_s, φ_(O_s)*g_((m,A)) = g_((m,O_sᵀAO_s)), and
+(d/ds)O_sᵀAO_s|_(s=0) = AA_V − A_VA = W; so 𝓛_Rg_b = D_Ag_((m,A))(W). And δ*_g(g(R, ·)) = ½𝓛_Rg for every metric.
 
 [[eq:iii-e1-2-2]]: write x = |x|ω. In [[eq:iii-b-3-1]], r = |x|u turns Q = 0 into
 u⁴ − u² + ρ²(su² − s − ωᵀA²ω) + ρ⁴p² = 0, whose root u = 1 at ρ = 0 is simple; by the implicit function theorem
-u = U(ρ², ω, A) is smooth with U = 1 + O(ρ²), the O(ρ²) even in A (the equation is). Then H = μρ²(1 + ρ²C^∞),
+u = U(ρ², ω, A) is smooth with U = 1 + O(ρ²), the O(ρ²) even in A (the equation is). Then H = mρ²(1 + ρ²C^∞),
 F = 1 + ρ²C^∞, and
 
     ℓ_A = ((U²I + ρ²(s + A²))(Uω + ρAω))/(U⁴ + sρ²U² + p²ρ⁴) · dx = d|x| + ρ ρV(A) + ρ²C^∞,
 
-as ω·dx = d|x| and (Aω)·dx = ρV(A), with every coefficient smooth in (ρ, ω, A, μ). Hence D_AH(W) ∈ ρ⁴C^∞ (it
+as ω·dx = d|x| and (Aω)·dx = ρV(A), with every coefficient smooth in (ρ, ω, A, m). Hence D_AH(W) ∈ ρ⁴C^∞ (it
 differentiates the ρ²-corrections, even in A), D_Aℓ(W) = ρ ρV(W) + ρ²C^∞, and with k = dt + ℓ_A,
 
-    D_Ag^KS(W) = D_AH(W) k ⊗ k + 2H k ⊗_s D_Aℓ(W) = 2μρ³(dt + d|x|) ⊗_s ρV(W) + ρ⁴C^∞,
+    D_Ag^KS(W) = D_AH(W) k ⊗ k + 2H k ⊗_s D_Aℓ(W) = 2mρ³(dt + d|x|) ⊗_s ρV(W) + ρ⁴C^∞,
 
-linear in W, the ρ⁴ part smooth in (μ, A). Φ_μ does not depend on A, so D_Ag_b(W) = Φ_μ*D_Ag^KS(W);
-Φ_μ*dt = dt − T_μ′(|x|) d|x| with T_μ′ ∈ ρ²C^∞, and the coefficients do not depend on t, so the expansion holds for g_b
-in the coordinates (t, x) of [[sec:iii-b-3-1]]. Finally t = t_* + ψ(|x|) with ψ′(|x|) = 1 − 8μ₀ρ² for large |x|
+linear in W, the ρ⁴ part smooth in (m, A). Φ_m does not depend on A, so D_Ag_b(W) = Φ_m*D_Ag^KS(W);
+Φ_m*dt = dt − T_m′(|x|) d|x| with T_m′ ∈ ρ²C^∞, and the coefficients do not depend on t, so the expansion holds for g_b
+in the coordinates (t, x) of [[sec:iii-b-3-1]]. Finally t = t_* + ψ(|x|) with ψ′(|x|) = 1 − 8m₀ρ² for large |x|
 ([[eq:iii-b-3-6]]), so dt + d|x| = dt_* + 2 d|x| + ρ²C^∞. With [[eq:iii-e1-2-1]] this is [[eq:iii-e1-2-2]]. ∎
 
 In dimension 3 + 1, [Hin26, (7.20)] has in addition the term −δ*_(g_b)(ρS(a)S′dr + ½d̸(S(a)S′)) at leading order. That
 term comes from coordinates built on the Boyer–Lindquist radius, in which the flat part of the Kerr family is not
-Cartesian. Here the coordinates are those of [[sec:iii-b-3-1]], Kerr–Schild up to Φ_μ, and there is no such term. In
+Cartesian. Here the coordinates are those of [[sec:iii-b-3-1]], Kerr–Schild up to Φ_m, and there is no such term. In
 three space dimensions the same argument, with the bracket of 𝔰𝔬(3) the cross product, gives the structure of
 [Hin26, Lemma 7.5].
 
@@ -1989,7 +1989,7 @@ A = O(aJ₁₂ + bJ₃₄)Oᵀ with O ∈ SO(4) and J_ij the elementary generato
 a = ±b ≠ 0, and 2 otherwise.
 
 *Proof.* R is Killing iff δ*_(g_b)V_b = 0, which holds if W = 0 by [[eq:iii-e1-2-1]]. Conversely, if δ*_(g_b)V_b = 0,
-the ρ³ term of [[eq:iii-e1-2-2]] vanishes; as μ > 0 and ρV(W) is angular, (dt_* + 2 d|x|) ⊗_s ρV(W) = 0 forces V(W) = 0,
+the ρ³ term of [[eq:iii-e1-2-2]] vanishes; as m > 0 and ρV(W) is angular, (dt_* + 2 d|x|) ⊗_s ρV(W) = 0 forces V(W) = 0,
 so Wx = 0 for all x and W = 0. For the dimension, ad_(OA′Oᵀ) = Ad_O ad_(A′) Ad_O⁻¹, so let O = I.
 𝔰𝔬(4) = Λ²₊ ⊕ Λ²₋, the self-dual and anti-self-dual 2-forms, two commuting ideals each isomorphic to 𝔰𝔬(3), and
 A = ((a + b)/2)(J₁₂ + J₃₄) + ((a − b)/2)(J₁₂ − J₃₄) with J₁₂ ± J₃₄ ∈ Λ²_±. The centraliser of A is the sum of the
@@ -2004,10 +2004,10 @@ dimension 3 + 1 the dimensions are 3 and 1.
 
 Let
 
-    c_0 := μ(1 + 2(1 + v_C)γ_C)/(3(1 + 2v_Cγ_C)),     κ_C := (1 + 2(v_C − 1)γ_C)/(1 + 2v_Cγ_C).          {#eq:iii-e1-3-1}
+    c_0 := m(1 + 2(1 + v_C)γ_C)/(3(1 + 2v_Cγ_C)),     κ_C := (1 + 2(v_C − 1)γ_C)/(1 + 2v_Cγ_C).          {#eq:iii-e1-3-1}
 
 **Proposition {#prop:iii-e1-3-1}** ([Hin26, Proposition 7.4] in dimension 4 + 1.) Assume (Dyn). Write A(b) := A for
-b = (μ, A). The dual states of [[prop:iii-e-3-1]] can be written
+b = (m, A). The dual states of [[prop:iii-e-3-1]] can be written
 
     h*_(b,v1)(V) = h♯_(b,v1)([A(b), A_V]) + h♭_(b,v1)(V),     V = V(A_V) ∈ 𝒱₁,                           {#eq:iii-e1-3-2}
 
@@ -2016,7 +2016,7 @@ where:
 (1) h♯_(b,v1)(W) ∈ ρ³C^∞(X̄; S²T*X) is linear in W ∈ 𝔰𝔬(4), smooth in b, vanishes where χ = 0, and has the ρ³ leading
 term
 
-    h̄♯(W) = μρ³(dt_* + κ_C d|x|) ⊗_s ρV(W);                                                             {#eq:iii-e1-3-3}
+    h̄♯(W) = mρ³(dt_* + κ_C d|x|) ⊗_s ρV(W);                                                             {#eq:iii-e1-3-3}
 
 moreover, for every W ∈ 𝔰𝔬(4),
 
@@ -2036,7 +2036,7 @@ linear in W and smooth in b. If W = [A, A_V], then k_b(W) = G_(g_b)δ*_(g_b)ω�
 [[eq:iii-e1-2-1]]. Near ∂X: g_b − ḡ ∈ ρ²C^∞, so G_(g_b) − Ḡ ∈ ρ²C^∞ and δ*_(g_b) − δ̄* ∈ ρ³C^∞ (the Christoffel symbols);
 with [[eq:iii-e1-2-2]] and dt_* + 2 d|x| = dt̄ + d|x|,
 
-    k_b(W) = Ḡ(h_0 + c_0δ̄*(|x|⁻³V)) + ρ⁴C^∞,     h_0 := μ|x|⁻⁴(dt̄ + d|x|) ⊗_s V,     V := V(W).
+    k_b(W) = Ḡ(h_0 + c_0δ̄*(|x|⁻³V)) + ρ⁴C^∞,     h_0 := m|x|⁻⁴(dt̄ + d|x|) ⊗_s V,     V := V(W).
 
 On Minkowski space (Cartesian (t̄, x), r := |x|, f = f(r)): δ̄*V = 0, V being Killing, so δ̄*(fV) = f′dr ⊗_s V; every
 α ⊗_s V with α ∈ span{dt̄, dr} is trace-free, as V is angular, so Ḡ acts as the identity and e_C drops out;
@@ -2045,7 +2045,7 @@ div V = 0 (here δ̄ = −div); and with c̄_C = r⁻¹(dt̄ − v_C dr), ḡ⁻
 (Ē_C)*h = γ_C(2ι_(ḡ⁻¹c̄_C)h − (2/3)(1 − e_C)c̄_C tr h) gives (Ē_C)*(f dt̄ ⊗_s V) = −γ_Cr⁻¹fV and
 (Ē_C)*(f dr ⊗_s V) = −γ_Cv_Cr⁻¹fV. So
 
-    2(δ̄ + Ē_C*)Ḡh_0 = −μ(1 + 2γ_C(1 + v_C))r⁻⁵V,     2(δ̄ + Ē_C*)Ḡδ̄*(c_0r⁻³V) = 3c_0(1 + 2γ_Cv_C)r⁻⁵V,
+    2(δ̄ + Ē_C*)Ḡh_0 = −m(1 + 2γ_C(1 + v_C))r⁻⁵V,     2(δ̄ + Ē_C*)Ḡδ̄*(c_0r⁻³V) = 3c_0(1 + 2γ_Cv_C)r⁻⁵V,
 
 which cancel by [[eq:iii-e1-3-1]]; 3(1 + 2v_Cγ_C) is the vector type 1 indicial value N(ρ⁻²P*, 2)
 ([[prop:np-10-31]] (i)). And (δ*_(g_b,E_C))* − (δ̄ + Ē_C*) ∈ ρ³Diff¹_b near ∂X (g_b − ḡ ∈ ρ²C^∞,
@@ -2054,7 +2054,7 @@ c_C − c̄_C ∈ ρ³C^∞, [[sec:iii-e-1]]), while δ̄ + Ē_C* ∈ ρDiff¹_b
     f₁(W) := 2(δ*_(g_b,E_C))*(χk_b(W)) ∈ C_c^∞(X°) + ρ⁵C^∞,                                              {#eq:iii-e1-3-6}
 
 the commutator with χ being supported where dχ ≠ 0. The leading term of k_b(W) is
-h_0 − 3c_0r⁻⁴dr ⊗_s V = ρ³(μ dt_* + (2μ − 3c_0) d|x|) ⊗_s ρV, and 2μ − 3c_0 = μκ_C: this is [[eq:iii-e1-3-3]].
+h_0 − 3c_0r⁻⁴dr ⊗_s V = ρ³(m dt_* + (2m − 3c_0) d|x|) ⊗_s ρV, and 2m − 3c_0 = mκ_C: this is [[eq:iii-e1-3-3]].
 
 *Step 2, the formal solution.* Let J := ⌊C_0⌋ + 2. Near ∂X, ρ⁻²P* is a b-differential operator with coefficients smooth
 on X̄ and b-independent normal operator (as P^C_b − P̄^C ∈ ρ⁴Diff²_b), so P*(ρ^jc) = ρ^(j+2)N(ρ⁻²P*, j)c + ρ^(j+3)C^∞
@@ -2091,7 +2091,7 @@ stationary sections, 2(δ*_(g_b,E_C))*h♯(W) = f₁(W) + P*(χω′♯₁(W)) =
 the second, two facts hold at a Ricci-flat g in every dimension: D_gRic(δ*_gω) = ½D_gRic(𝓛_(ω♯)g), which is
 ½𝓛_(ω♯)Ric(g) = 0; and G_gD_gRic, the linearised Einstein tensor there, is formally self-adjoint (it is, up to sign,
 the second variation of the Einstein–Hilbert action), so with G_g symmetric and invertible, D_gRic*G_g = G_gD_gRic. As
-every g_((μ,A)) is Ricci-flat, D_(g_b)Ric(D_Ag_b(W)) = 0. Hence, writing χδ*y = δ*(χy) − dχ ⊗_s y,
+every g_((m,A)) is Ricci-flat, D_(g_b)Ric(D_Ag_b(W)) = 0. Hence, writing χδ*y = δ*(χy) − dχ ⊗_s y,
 
     D_(g_b)Ric*h♯(W) = G_(g_b)D_(g_b)Ric(½χD_Ag_b(W) − c_0 dχ ⊗_s |x|⁻³V(W)),
 
@@ -2099,11 +2099,11 @@ and D_(g_b)Ric(½χD_Ag_b(W)) = ½[D_(g_b)Ric, χ]D_Ag_b(W) is supported where d
 (D_(g_b)Ric)^(0)*h♯(W) ∈ C_c^∞(X°) (the stationary adjoint being that of the zero energy operator, [[sec:iii-e-1]]).
 (2): G_(g_b)(dχ ⊗_s ω♯) ∈ C_c^∞, and δ*_(g_b) ∈ ρDiff¹_b maps Ḣ_b^(1,C_0+2) to Ḣ_b^(0,C_0+3); linearity in V is clear,
 and the regularity in b follows as in [[prop:iii-e-3-1]], the sources r_b(W) and f₂(V) being smooth in b in
-C_c^∞ + ρ^(J+3)C^∞, resp. C_c^∞. (3): if W = [A, A_V] ≠ 0, then h̄♯(W) ≠ 0 (μ > 0, V(W) ≠ 0), a ρ³ term not in
+C_c^∞ + ρ^(J+3)C^∞, resp. C_c^∞. (3): if W = [A, A_V] ≠ 0, then h̄♯(W) ≠ 0 (m > 0, V(W) ≠ 0), a ρ³ term not in
 Ḣ_b^(0,C_0+3), while h♭ is in it; if W = 0, h♯(0) = 0. ∎
 
 *Remark.* [Hin26, (7.31) and (7.18)] are the counterparts in dimension 3 + 1 of c_0|x|⁻³V(W) and
-[[eq:iii-e1-3-3]]: with μ ↔ 2m (the mass enters as μ|x|⁻² where that of Kerr enters as 2m|x|⁻¹), ρ³ ↔ ρ² and the
+[[eq:iii-e1-3-3]]: with m ↔ 2m_K (the mass enters as m|x|⁻² where the Kerr mass m_K of [Hin26] enters as 2m_K|x|⁻¹), ρ³ ↔ ρ² and the
 bracket for the cross product, the same coefficients 1 + 2(v_C ∓ 1)γ_C over 1 + 2v_Cγ_C appear, up to the orientation
 convention of the spin, and the indicial value 3(1 + 2v_Cγ_C) replaces 2 + 4γ_Cv_C. In [Hin26] the term
 ρS(a)S′dr + ½d̸(S(a)S′) of the ansatz cancels the pure gauge term of [Hin26, (7.20)]; here there is none to cancel.

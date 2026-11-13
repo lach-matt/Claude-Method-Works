@@ -395,3 +395,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   (the source and [Hin23a, (3.25)] share a slip). The Moser lemma needs cor:std-moser-product (2)-(3) at integer orders
   and a Gagliardo-Nirenberg-Moser product-of-derivatives estimate in Appendix A (sent to the Appendix A fix). NP 10.57
   (c) is superseded by thm:iv2-2-4 (crosswalk note). ε^(2j) confirmed. Mass letter: S14 as well as S17 must write m₀.
+- Proof D1 fix: the Raychaudhuri identity is proved in the edition (lem:cone-raychaudhuri), so chapter 87 carries
+  nothing. Decision on sup s: the edition states the proved enclosures (1.00-1.46 × 10⁻³ at seed 1, 5.0-6.3 × 10⁻⁴ at
+  seed 2), not the source's sampled 1.20 × 10⁻³, 5.28 × 10⁻⁴ or "4.1-4.3 %".
+- Proof A (R-P-A): A1 and A2 proved; computational-2 (33:2179) discharged. h = 10⁻⁶ may not lie in 𝖧 = (0, h_*)∖𝖹,
+  the set the theorems use (the A fix and A3 resolve it). Remaining gap of computational-1 sent to A3.
