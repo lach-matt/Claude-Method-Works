@@ -901,9 +901,9 @@ so that Q_ε + 2βw_s ≥ c_0 on supp ζ, and q_1 := ζ |ϕ^s|^β (Q_ε + 2βw_s
 sup|q_1| ≤ (2R_3)^β c_0^(−1/2), independently of δ and ε. So [[lem:ii-d-2-5]] in its general form, with Φ_z = Φ_1 =
 Φ_0 and at w = Φ′u, Φ′ an auxiliary operator with φ′ = 1 near supp φ_0 and WF′(Φ′) ⊂ Ell(G′), gives ‖M^ε u‖ ≤
 CR_3^β ‖B_3^ε u‖ + C_δ𝒦, as Φ_0(I − Φ′) ∈ Ψ̃^(−∞) and ‖Φ′u‖_(s′−½) ≤ C𝒦 ([[lem:ii-a-8-4]] (c)); δ enters through the
-derivatives of |ϕ^s|^β near |ϕ^s| = δ/4. Its particular case does not
-apply, as x_1 vanishes where z does. The symbol of E_3^ε is supported in {δ/2 ≤ |ϕ^s| ≤ δ} ∩ supp χ̄_3, where
-|ϕ^s|^(−β) e_3 ≤ Cδ^(−β): the propagation runs from the shell |ϕ^s| ∼ δ outward, along which |ϕ^s| grows, and the
+derivatives of |ϕ^s|^β near |ϕ^s| = δ/4. Its particular case does not apply, as x_1 vanishes where z does. The
+symbol of E_3^ε is supported in {δ/2 ≤ |ϕ^s| ≤ δ} ∩ supp χ̄_3, where the factor |ϕ^s|^(−β) e_3 is at most Cδ^(−β): the
+propagation runs from the shell |ϕ^s| ∼ δ outward, along which |ϕ^s| grows, and the
 weight |ϕ^s|^(−β) costs δ^(−β).
 
 *Step 4: conclusion.* Put 𝒩_ε := ‖B_δ^ε u‖ + ‖M^ε u‖, finite for each ε > 0, as for fixed ε these operators have
@@ -1087,8 +1087,8 @@ front. The order of factors matters, as the X_i need not commute; words take car
 *Operators of limited regularity.* "Q is of class 𝒬^m_q" means that Q is a finite sum Σ a_l A_l, as in
 [[sec:ii-a-8-2]], with A_l ∈ C_b^∞Ψ^m_e3b fixed and carried by the cut-off χ of the estimate ([[sec:ii-a-8-3]]), and
 a_l ∈ C^∞ + C^((d_0;k−q))_(e3b;b): q b-derivatives of the coefficients of P have been spent. Its *decaying part* is
-the sum of the terms whose coefficients vanish at the face carrying Γ, at a rate ρ_Γ^ℓ for a defining function ρ_Γ of that face and some ℓ > 0. The hypotheses
-on a family are:
+the sum of the terms whose coefficients vanish at the face carrying Γ, at a rate ρ_Γ^ℓ for a defining function ρ_Γ of
+that face and some ℓ > 0. The hypotheses on a family are:
 
 (C) For each i < J, [L, X_i] = Σ_(j=1)^J Q_(ij) X_j + R_i, with Q_(ij) of class 𝒬^1_1 and R_i of class 𝒬^2_1 with
 WF′(A_l) ∩ Ū_0 = ∅ for all its terms. For i = J put Q_(Jj) := 0 and R_J := 0, as [L, X_J] = [L, I] = 0.
@@ -1214,8 +1214,8 @@ be a neighbourhood of Γ on which the conclusion at k − 1 holds for operators 
 operators E′, G′ (the union of the sets of two applications, for B′ and a slightly larger one). Apply (E_𝔩) with
 U_(k−1) in place of U, to w := u^(k), giving B_k, E_k, G_k microsupported in U_(k−1); choose auxiliary operators
 G^♯_1, G^♯_2 ((R1) of [[sec:ii-a-8-3]]) with WF′(G_k) ⊂ Ell(G^♯_1), WF′(G^♯_1) ⊂ Ell(G^♯_2) and
-WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at Γ. By [[lem:ii-d1-2-1]], ‖G_k L^(k) u^(k)‖ ≤ ‖G_k f^(k)‖ + ‖G_k f̃^(k)‖ + ‖G_k f̃^(k)_♭‖, all norms of order 𝗍 − 1 + 𝔩.
-We bound each term of [[eq:ii-d1-2-5]] at w = u^(k).
+WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at Γ. By [[lem:ii-d1-2-1]],
+‖G_k L^(k) u^(k)‖ ≤ ‖G_k f^(k)‖ + ‖G_k f̃^(k)‖ + ‖G_k f̃^(k)_♭‖, all norms of order 𝗍 − 1 + 𝔩. We bound each term of [[eq:ii-d1-2-5]] at w = u^(k).
 
 *The left side.* By [[eq:ii-d1-2-3]] with B̃ := G^♯_1, ‖Bu‖_(𝗍;k) ≤ C(‖G^♯_1 u‖_(𝗍;k−1) + Σ_α ‖BX^α u‖_𝗍 +
 ‖χ̃u‖_(𝗍_0;k)), and ‖BX^α u‖_𝗍 ≤ C(‖B_k u^(k)‖_𝗍 + ‖χ̃u‖_(𝗍_0;k)), as B_k is elliptic on WF′(B) and ‖χ̃X^α u‖_(𝗍_0) ≤
@@ -1243,11 +1243,11 @@ b-vector field preserves Diff²_e3b up to the coefficients ([[lem:ii-a-4-1]], an
 
 As q − 1 ≥ 1 + 𝔩, q − 1 applications of (F1) bound ‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) by C(‖G^♯_3 u‖_(𝗍;k−1) + ‖χ̃u‖_(−N′;k)),
 with an auxiliary operator G^♯_3 slightly larger than G^♯_2 and still microsupported in U_(k−1); this is bounded by
-[[eq:ii-d1-2-6]] at k − 1. This is where 𝔩 = 1 needs (C2): a term with q = 2 would need ‖G^♯_2 u‖_(𝗍+2;k−2), which (F1) bounds only by the
-norm at (𝗍 + 1; k − 1), one order above what the induction controls.
+[[eq:ii-d1-2-6]] at k − 1. This is where 𝔩 = 1 needs (C2): a term with q = 2 would need ‖G^♯_2 u‖_(𝗍+2;k−2), which
+(F1) bounds only by the norm at (𝗍 + 1; k − 1), one order above what the induction controls.
 
-Collecting the terms gives [[eq:ii-d1-2-6]] at k, with E elliptic on the union of WF′(E_k) and the E-sets of the step k
-− 1. Each quantity bounded is finite when the right side of [[eq:ii-d1-2-6]] is, by [[eq:ii-d1-2-5]] in the strong
+Collecting the terms gives [[eq:ii-d1-2-6]] at k, with E elliptic on the union of WF′(E_k) and the E-sets of the step
+k − 1. Each quantity bounded is finite when the right side of [[eq:ii-d1-2-6]] is, by [[eq:ii-d1-2-5]] in the strong
 sense and the inductive hypothesis, so the estimate holds in the strong sense. ∎
 
 **Lemma {#lem:ii-d1-2-4}** (Tame version.) Under the hypotheses of [[lem:ii-d1-2-3]] there is d ∈ ℕ, depending only on

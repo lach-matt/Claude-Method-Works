@@ -324,17 +324,17 @@ are used below are at most C(‖F‖ + |W⃗_free|), C uniform in b and in (h, p
 [[prop:iii-i8-4-1]] (i) at b (Step 1); the step from k to k + 1 is shown below.
 
 *The motion coordinates.* Put h″ := h + h_(b,rem)(q), and write D_(W⃗)P_5(W⃗) for D_(p⃗)P_5(h, p⃗, q) in the direction
-with motion components 0 and row components W⃗, as in Step 1. For Ψ ∈ 𝒴(α_1) let p⃗′_(α_1)(Ψ) ∈ 𝒫_(α_1) be the
-parameter that [[prop:iii-i8-4-1]], for P_5 at (h, p⃗, q) (Step 1), assigns to the forcing Ψ: the unique one for which
-the forward solution u_Ψ of L_(h″,p⃗)u_Ψ = Ψ − D_(p⃗)P_5(h, p⃗, q)(p⃗′_(α_1)(Ψ)) lies in 𝒵_(α_1). By (i) of that
-proposition, Ψ ↦ p⃗′_(α_1)(Ψ) is linear and |p⃗′_(α_1)(Ψ)| ≤ C‖Ψ‖_(𝒴(α_1)), with C uniform in b and in (h, p⃗, q) small.
-A point of 𝒫 is p⃗′_< ⊕ W⃗, with p⃗′_< ∈ 𝒫_(α_1) (the motion coordinates and the motions of ℳ_(α_1)) and
-W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot) the other row coordinates (Step 1). By [[eq:iii-i14-3-1]] and the linearity of
+with p⃗′_<-component 0 and row components W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot) (the split below), as in Step 1. For Ψ ∈ 𝒴(α_1) let
+p⃗′_(α_1)(Ψ) ∈ 𝒫_(α_1) be the parameter that [[prop:iii-i8-4-1]], for P_5 at (h, p⃗, q) (Step 1), assigns to the forcing
+Ψ: the unique one for which the forward solution u_Ψ of L_(h″,p⃗)u_Ψ = Ψ − D_(p⃗)P_5(h, p⃗, q)(p⃗′_(α_1)(Ψ)) lies in
+𝒵_(α_1). By (i) of that proposition, Ψ ↦ p⃗′_(α_1)(Ψ) is linear and |p⃗′_(α_1)(Ψ)| ≤ C‖Ψ‖_(𝒴(α_1)), with C uniform in b
+and in (h, p⃗, q) small. A point of 𝒫 is p⃗′_< ⊕ W⃗, with p⃗′_< ∈ 𝒫_(α_1) (the motion coordinates and the motions of
+ℳ_(α_1)) and W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot) the other row coordinates (Step 1). By [[eq:iii-i14-3-1]] and the linearity of
 D_(p⃗)P_5(h, p⃗, q) in the direction, u(p⃗′_< ⊕ W⃗) is the forward solution of
 
     L_(h″,p⃗)u = (F − D_(W⃗)P_5(W⃗)) − D_(p⃗)P_5(h, p⃗, q)(p⃗′_<),
 
-so the point of 𝒫_0 over W⃗ (Step 1) has the motion part
+so the point of 𝒫_0 over W⃗ (Step 1) has the p⃗′_<-component
 
     p⃗′_<(W⃗) = p⃗′_(α_1)(F − D_(W⃗)P_5(W⃗)) = p⃗′_(α_1)(F) − p⃗′_(α_1)(D_(W⃗)P_5(W⃗)).
 
@@ -389,8 +389,9 @@ p⃗′_(α_1)(L_(h″,p⃗)m_rows(W⃗)) = 0. This is the argument of the parag
 (4) *The bound.* By (1), (3) and the linearity of p⃗′_(α_1), p⃗′_(α_1)(D_(W⃗)P_5(W⃗)) = p⃗′_(α_1)(e_rows(W⃗)), and
 the bound of (i) of [[prop:iii-i8-4-1]] with (2) gives [[eq:s25-motions-small]].
 
-Along 𝒫_k ⊂ 𝒫_0, with F fixed, a change δW⃗ of the row coordinates therefore changes the motion coordinates by
-δp⃗′_< = −p⃗′_(α_1)(D_(W⃗)P_5(δW⃗)), of size at most C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|δW⃗|.
+Along 𝒫_k ⊂ 𝒫_0, with F fixed, a change δW⃗ of the row coordinates therefore changes p⃗′_< (the motion coordinates and
+the motions of ℳ_(α_1)) by δp⃗′_< = −p⃗′_(α_1)(D_(W⃗)P_5(δW⃗)), of size at most C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b −
+b₀|)|δW⃗|.
 
 *The bound on A_k.* Let δW′ be a change of the new coordinates, those of higher rate being fixed, and let δp⃗′, δG′
 and δu be the changes it causes along 𝒫_k. By the induction bound every coordinate changes by at most C|δW′|; in
