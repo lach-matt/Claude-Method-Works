@@ -1,10 +1,7 @@
 label	source	source_name	note
 ch:uniform-existence	docket68/n1star/N1STAR-PROOF.md:321-532	NP sections 3-4	chapter opening from NP header 64-68 and P 505-510; P 505-602 used for exposition only
-eq:ue-commutator	docket68/n1star/N1STAR-PROOF.md:84	NP (0.1) = P (2.4)	restated from Ch 2 for reference; exported by Ch 2 as pending:background
-thm:uniform-existence	docket68/n1star/N1STAR-PROOF.md:143-166	NP Theorem E (0.4)	uniqueness class "C² solutions with |g − g0| ≤ ε1" taken from P Theorem 1 item 5 (paper/RESPONSE-HL-5D.md:280) and Step 8 (NP 520-528, D625 fold)
-eq:ue-gapp	docket68/n1star/N1STAR-PROOF.md:147	NP (0.4)	
+thm:uniform-existence	docket68/n1star/N1STAR-PROOF.md:143-166	NP Theorem E (0.4)	hypotheses (0.4), (E1)-(E3) cited from Ch 4 def:approximant/eq:approximant; uniqueness class "C² solutions with |g − g0| ≤ ε1" taken from P Theorem 1 item 5 (paper/RESPONSE-HL-5D.md:280) and Step 8 (NP 520-528, D625 fold)
 eq:ue-remainder	docket68/n1star/N1STAR-PROOF.md:163	NP (0.5)	N(τ) renamed 𝒩(τ) (N is the stage count)
-eq:ue-translation	docket68/n1star/N1STAR-PROOF.md:316	NP (3.1)	restated from Ch 4 (section 3.1 of NP) with pending:two-scale
 eq:ue-linearisation	docket68/n1star/N1STAR-PROOF.md:325	NP (3.2) = P (5.1)	derivation text NP 327-332
 lem:phase-shift	docket68/n1star/N1STAR-PROOF.md:341	NP Lemma 3.1 = P Lemma 5.1	
 lem:ue-decomposition	docket68/n1star/N1STAR-PROOF.md:358	NP Lemma 3.2	N_phi renamed 𝒬_φ; one clarifying clause on how ∂²φ enters

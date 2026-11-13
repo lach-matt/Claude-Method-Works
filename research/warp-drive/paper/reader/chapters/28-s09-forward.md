@@ -686,7 +686,8 @@ f ∈ H^((𝗌;k),(2α_I+2,α_++2,0))_(e3b;b)(Ω_*; E)^(•,−), the space of r
 restrictions of f lie in the slab spaces, the weights at ι⁺ and K⁺ being bounded above and below at bounded times, and
 the solutions on two slabs agree on the smaller by [[prop:ii-e-3-4]] (i). Then there is C_k, independent of f, with
 
-    ‖u‖_(H^((𝗌;k),(2α_I,α_+−δ,−ℵ))_(e3b;b)(Ω_*;E)^(•,−)) ≤ C_k ‖f‖_(H^((𝗌;k),(2α_I+2,α_++2,0))_(e3b;b)(Ω_*;E)^(•,−)).  {#eq:ii-f-8-2}
+    ‖u‖_(H^((𝗌;k),(2α_I,α_+−δ,−ℵ))_(e3b;b)(Ω_*;E)^(•,−))
+        ≤ C_k ‖f‖_(H^((𝗌;k),(2α_I+2,α_++2,0))_(e3b;b)(Ω_*;E)^(•,−)).                                      {#eq:ii-f-8-2}
 
 This is [Hin26c, Theorem 10.1] in dimension 4 + 1. [Hin26c] states it on Ω = {t_* ≥ 1}; it is stated and proved here
 on Ω_*, where the slab theory of [[ch:s07]] lives and where [[thm:ii-f1-1-1]] uses it.
