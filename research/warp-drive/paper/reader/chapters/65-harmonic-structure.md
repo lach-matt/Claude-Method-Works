@@ -5,13 +5,12 @@ Regge–Wheeler-type gauge. This chapter and the next do the same for the harmon
 linearised vacuum equation is the Lichnerowicz wave equation; in four dimensions the passage is Hung's [Hun19]. In
 the class the harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is a forcing
 term with no spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The
-structure of the
-passage is explicit ([[prop:np-10-2]]): the tensor part is in harmonic gauge already, each scalar mode of the gauge
-vector solves three coupled 1 + 1 wave equations with the master field as source, and the spherically symmetric sector
-has two solutions that do not decay, the stationary 1-form W* and a gauge-fixed mass change K* that grows linearly in
-the ingoing time v, with a coefficient ½ that regularity at the horizon forces. A conserved horizon charge
-([[lem:gd-2-2]]) shows that the growth cannot be avoided: when the mass changes, no harmonic-gauge solution settles
-to a change of mass near the horizon at an integrable rate ([[thm:gd-2-3]]).
+structure of the passage is explicit ([[prop:np-10-2]]): the tensor part is in harmonic gauge already, each scalar
+mode of the gauge vector solves three coupled 1 + 1 wave equations with the master field as source, and the
+spherically symmetric sector has two solutions that do not decay, the stationary 1-form W* and a gauge-fixed mass
+change K* that grows linearly in the ingoing time v, with a coefficient ½ that regularity at the horizon forces. A
+conserved horizon charge ([[lem:gd-2-2]]) shows that the growth cannot be avoided: when the mass changes, no
+harmonic-gauge solution settles to a change of mass near the horizon at an integrable rate ([[thm:gd-2-3]]).
 
 The decay of the gauge vector modulo W* rests on the 1-form wave operator □ at zero energy, where its kernel is
 spanned by W* and the annihilator of its range by the horizon functional ℓ ([[lem:iii-d1-2-1]]). Augmenting the
@@ -216,8 +215,8 @@ gives [[eq:np-10-2-k]]; its right side has stationary coefficients, smooth acros
 ℓ(□U) = 0, and by the proof of [[lem:iii-d1-3-1]] (1), ℓ([□, v]W*) = 4π². ℓ(−Θ(K)) = ℓ(r⁻³dv) = r_h³ · r_h⁻³ · 2π² =
 2π². So 4π²c = 2π². ∎
 
-By (d), the gauge-fixed mass change built from the static time with the coefficient 1, or from any gauge vector
-vW* + U with U stationary, is not smooth across the horizon. The coefficient ½ of W** is the one regularity allows.
+By (d), among the gauge vectors cvW* + U with U stationary and smooth at the horizon, only c = ½ solves
+□W = −Θ(K): the coefficient ½ of W** is the one that regularity at the horizon allows.
 
 ### The horizon charge {#sec:hg-charge}
 
@@ -363,7 +362,7 @@ stationary 1-forms, L_2 = −g^(00) with g^(00) := g⁻¹(dt_*, dt_*), and near 
 L_2 ∈ ρ²C^∞, the form [[sec:iii-h-1]] uses for L_b; and S̄ = 0, as the spectrum of S̄ is γ_Υ(1 − e_Υ), 2γ_Υ, γ_Υ
 ([[lem:iii-d-3-1]]) and γ_Υ = 0 for □. Fix a weight α with α + 2 ∈ (0, 1) ([[eq:iii-h-1-1]]), a constant regularity
 s > 5/2 (the threshold of the density argument in [[lem:iii-d1-2-1]] (3)), an SO(4)-invariant fibre inner product h,
-and an SO(4)-invariant φ ∈ C_c^∞(X°; E) with ⟨W*, φ⟩_h = 1 (average any choice over SO(4); W* is SO(4)-invariant).
+and an SO(4)-invariant φ_* ∈ C_c^∞(X°; E) with ⟨W*, φ_*⟩_h = 1 (average any choice over SO(4); W* is SO(4)-invariant).
 The spaces 𝒳_σ, 𝒴_σ, 𝒳_0 = {u ∈ H̄_b^(s,α) : P̂(0)u ∈ 𝒴_0} and 𝒴_0 = H̄_b^(s−1,α+2) are those of [[sec:iii-h-1]] and
 [[prop:iii-h-3-2]] for P̂. The state is W*: smooth on X, W* ∈ 𝒜², and □W* = 0.
 
@@ -373,7 +372,7 @@ The spaces 𝒳_σ, 𝒴_σ, 𝒳_0 = {u ∈ H̄_b^(s,α) : P̂(0)u ∈ 𝒴_0} 
 
 with Ψ of [[lem:iii-h-2-5]], and, for (u, c) with u a section over X and c ∈ ℂ,
 
-    P̃(σ)(u, c) := (P̂(σ)u + cf̂_*(σ), ⟨u, φ⟩_h).
+    P̃(σ)(u, c) := (P̂(σ)u + cf̂_*(σ), ⟨u, φ_*⟩_h).
 
 **Lemma {#lem:gd-r2-2}** ([[lem:iii-h-2-2]]–[[lem:iii-h-2-5]] at □.)
 (a) f_* vanishes outside {1 ≤ t_* ≤ 2, |x| ≤ t_*/2} ∪ {t_* ≥ 2, t_*/4 ≤ |x| ≤ t_*/2}, and its part f_∞ at r ≥ 1
@@ -397,7 +396,7 @@ invertible.
 P̃(0)(u, c) = 0. By [[lem:gd-r2-2]] (b), P̂(0)(u + cw) + cL_1W* = 0, and u + cw ∈ 𝒳_0, as 𝒜¹ ⊂ H̄_b^(∞,α) for α < −1.
 Apply ℓ. ℓ ∘ P̂(0) = 0 on 𝒳_0 ([[lem:iii-d1-2-1]] (1), with the density argument of its (3)); and
 ℓ(L_1W*) = ℓ([□, t_*]W*) = 4π² ([[lem:iii-d1-3-1]] (1)). So 4π²c = 0, c = 0, u ∈ span{W*} ([[lem:iii-d1-2-1]] (2)),
-and ⟨u, φ⟩_h = 0 gives u = 0. ∎
+and ⟨u, φ_*⟩_h = 0 gives u = 0. ∎
 
 The block-triangular 11 × 11 pairing matrix of [[prop:iii-h-3-2]] is here the 1 × 1 matrix (4π²). The time cut-off is
 what makes it nonzero: ℓ annihilates the stationary column P̂(0)(κW*) for every stationary κ smooth at the horizon
