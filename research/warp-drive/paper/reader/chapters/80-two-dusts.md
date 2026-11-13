@@ -437,11 +437,12 @@ showed the structure of (a), the departures from a Vaidya metric off the diamond
 discretisation deficit falling at second order, −4.0 × 10⁻², −9.9 × 10⁻³ and −2.3 × 10⁻³ (with ℬ replaced by −ℬ the
 deficit was −0.648 at both resolutions tried); the inner sphere trapped with μ − a² ≥ 0.332; and the diamond at R ≥
 2.59, untrapped. On Σ_τ0, τ0 = −a + 0.02, the packet lay at R ∈ [1.861, 3.431], between the seed's horizon 0.907 and
-the shell's inner edge 3.825. The outgoing ray of {u ≤ u1} from R = 7.505 at v = 0 kept R − b ≥ 0.9951 on [τ0, τ_end],
-the least value at τ0, while the cone through R = 5 at v = 0 met Σ_τ0 at R − b = −4.09. Along the inner edge of the
-packet, R(u2, v) − √μ(u2, v) ≥ 0.6127 at the three resolutions; with the amplitude of the shell raised to 16 the edge
-was trapped, the gap −0.617. A discretisation for one other choice of the outgoing family's characteristic data
-converged on a rectangle reaching Σ_τ0. No proof uses these observations.
+the shell's inner edge 3.825. With T = 1 and δ0 = 0.05, the outgoing ray of {u ≤ u1} from R = 7.505 at v = 0 kept
+R − b ≥ 0.9951 on [τ0, τ_end], the least value at τ0, while the cone through R = 5 at v = 0 met Σ_τ0 at R − b = −4.09.
+Along the inner edge of the packet, R(u2, v) − √μ(u2, v) ≥ 0.6127 at the three resolutions; with the amplitude of the
+shell raised to 16 the edge was trapped, the gap −0.617. For one other choice of the outgoing family's characteristic
+data, a discretisation on a rectangle reaching its initial slice showed the constraint residuals converging at second
+order away from the steep inner boundary, and the inner boundary trapped. No proof uses these observations.
 
 ### The phases and the transports {#sec:two-dust-phases}
 
