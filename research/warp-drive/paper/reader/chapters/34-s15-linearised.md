@@ -1336,9 +1336,9 @@ A^ω_r = f^(−1/2)(c + ∫_(r_1)^r f^(1/2)f_rr) = O(r^(1−β)); and B^ω = (6/
 
 *Step 7: across the horizon.* By [[lem:iii-a1-1-6]] the sectors of Steps 1–6 are all the types and degrees of
 symmetric 2-tensors on 𝕊³. In each, h = ġ_(b_0)(ḃ) + δ*ω on {r > r_h} with ω smooth there and in 𝒜^(β−1).
-[[lem:iii-f2-2-1]] holds at σ = 0 with the same proof (its formulas are those of δ* with ∂_τ ↦ 0). Let ω̃ be the
-solution on (r_0, ∞), in the chart (t_*, r, z), of the r-row system of δ*ω̃ = h − ġ_(b_0)(ḃ), whose coefficients and
-right side are smooth on (r_0, ∞), with ω̃ = ω at one point r_1 > r_h. By [[lem:iii-f2-2-1]] (a) there, ω̃ = ω on
+Let ω̃ be the solution on (r_0, ∞), in the
+chart (t_*, r, z), of the r-row system of [[lem:iii-f2-2-1]] at σ = 0 for δ*ω̃ = h − ġ_(b_0)(ḃ), whose coefficients
+and right side are smooth on (r_0, ∞), with ω̃ = ω at one point r_1 > r_h. By [[lem:iii-f2-2-1]] (a) there, ω̃ = ω on
 (r_h, ∞); so ω̃ is smooth on (r_0, ∞) and in 𝒜^(β−1) near infinity. ∎
 
 **Corollary {#cor:iii-f3-3-2}** (Stationary gauge invariants at b_0.) On {r > r_h}, for stationary 1-forms ω: (a) if
@@ -1388,9 +1388,9 @@ that of [[ch:s03]] identifies the adjoints' kernels by an invertible bundle map,
 [[eq:iii-f3-4-2]] lie in ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G_(g_b) ⊂ ker L_b^(0), and, being smooth on X̄ and O(ρ²), in
 H̄_b^(s,α) for α < 2. For the adjoint: G := G_(g_b) = Id − ½g_b tr_(g_b) is self-adjoint and invertible,
 G⁻¹ = Id − ⅓g_b tr_(g_b) in five dimensions ([[lem:iii-b-6-2]]), and G ∘ D_(g_b)Ric is formally self-adjoint. Indeed,
-for symmetric 2-tensors h, k compactly supported in M°, put F(s, t) := ∫_M R(g_(s,t)) |dg_(s,t)|, g_(s,t) := g_b + sh + tk,
-for small s, t; the integrand vanishes outside supp h ∪ supp k, where g_(s,t) = g_b and R(g_b) = 0, so F is finite and
-smooth. The first variation formula, whose divergence term integrates to 0, gives
+for symmetric 2-tensors h, k compactly supported in the interior of M and small s, t, put g_(s,t) := g_b + sh + tk and
+F(s, t) := ∫_M R(g_(s,t)) |dg_(s,t)|; the integrand vanishes outside supp h ∪ supp k, where g_(s,t) = g_b and
+R(g_b) = 0, so F is finite and smooth. The first variation formula, whose divergence term integrates to 0, gives
 ∂_tF(s, 0) = −∫_M ⟨G_(g_(s,0))Ric(g_(s,0)), k⟩_(g_(s,0)) |dg_(s,0)|; differentiating in s at s = 0, every term in which
 the derivative falls elsewhere than on Ric contains Ric(g_b) = 0, so ∂_s∂_tF(0, 0) = −∫_M ⟨G D_(g_b)Ric(h), k⟩ |dg_b|.
 This is symmetric in h and k, as ∂_s∂_tF = ∂_t∂_sF. So (D_(g_b)Ric)* = G D_(g_b)Ric G⁻¹ and
@@ -1426,8 +1426,7 @@ component u_π of a type and degree π ([[lem:iii-a1-1-6]]) lies in both kernels
 ω′_π := ω_π − ω̇_(b_0)(ḃ_π), of type π ([[prop:iii-f3-2-2]] (4)) and in 𝒜^(β−1) ([[prop:iii-f3-2-2]] (1)). Then
 u_π = ġ^Υ_(b_0)(ḃ_π) + δ*ω′_π on {r > r_h}, and applying 2δ_(E_Υ)G, □^Υ_(b_0)ω′_π = 0 there.
 
-(iii) *Inside the horizon.* [[lem:iii-f2-2-3]] holds at σ = 0 with the same proof (the radial equation
-−fU″ + AU′ + BU = 0 in the ingoing chart does not use σ ≠ 0). With Q = □^Υ_(b_0) it gives ω̃_π, smooth on
+(iii) *Inside the horizon.* [[lem:iii-f2-2-3]] at σ = 0, with Q = □^Υ_(b_0), gives ω̃_π, smooth on
 {r > r_0 − δ_0}, so up to {r = r_0}, equal to ω′_π on {r ≥ r_h}, with (□^Υ_(b_0))^(0)ω̃_π = 0 on all of X̄.
 
 (iv) *The expansion at infinity.* Near ∂X, (□^Υ_(b_0))^(0) = ρ²A with A elliptic, and ω̃_π ∈ H_b^(∞,a) for every

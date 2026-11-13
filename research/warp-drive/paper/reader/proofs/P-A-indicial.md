@@ -380,17 +380,22 @@ and the real part is more than δ_C from every integer.
 The cases show that a root within δ_C of an integer, with |ι − 1| ≤ 50, is ι = 2 at l = 0 or l = 1 or the root of
 P_2 near 2. ∎
 
-**Corollary {#cor:s14-eps-ind-point}** (ε_ind at γ_C = 10⁶.) ε_ind(10⁻⁶) = δ_50, attained by the entry −49 − δ_50 of
-ℛ^sc_50, with 1.941370568463·10⁻⁸ < δ_50 < 1.941370568464·10⁻⁸. Every entry of the lists of [[prop:np-10-52]] (iii)
-at h = 10⁻⁶ that comes from a root of P_l, P_0 or p_(v), is not an integer and has modulus at most 50 lies at distance
-more than 2.93·10⁻⁶ from ℤ.
+**Corollary {#cor:s14-eps-ind-point}** (ε_ind at γ_C = 10⁶.) ε_ind(10⁻⁶) = δ_50, where the infimum of
+[[prop:np-10-52]] (iii) is taken over all the lists ℛ^sc_l (l ≥ 0), ℛ^v_l (l ≥ 1) and ℛ^t_l (l ≥ 2), the scalar types
+0 and 1 included. It is attained by the entry −49 − δ_50 of ℛ^sc_50, and
+1.941370568463·10⁻⁸ < δ_50 < 1.941370568464·10⁻⁸. Every entry of these lists at h = 10⁻⁶ that comes from a root of
+P_l, of C or of p_(v), is not an integer and has modulus at most 50 lies at distance more than 2.93·10⁻⁶ from ℤ.
 
-*Proof.* By [[prop:np-10-52]] (iii) and its proof, among the entries that do not depend on h the least distance of a
-non-integer entry with |ι| ≤ 50 from ℤ is δ_50, attained by 1 − l − d₂ at l = 50, which is −49 − δ_50; the entries
-−l, l + 2, 2 − l, l + 4, 1 − l and l + 3 are integers. The remaining entries are ι − 1 for roots ι of P_l and p_(v),
-l ≥ 2, and of P_0, P_1 and p_(v) at l = 1, and dist(Re(ι − 1), ℤ) = dist(Re ι, ℤ) > 2.93·10⁻⁶ > δ_50 by
-[[prop:s14-damping-distance]] when ι − 1 ∉ ℤ and |ι − 1| ≤ 50. So the infimum is a minimum, equal to δ_50, and
-[[lem:s14-delta50]] gives its value. ∎
+*Proof.* The entries that do not depend on h are the integers −l, l + 2, 2 − l, l + 4, 1 − l and l + 3, the four
+roots of Q_l(ι − 1) for each l ≥ 1 (at l = 1 these are 2 − ι^Υ_(s1,j) and 1 + ι^Υ_(s1,j), j = 2, 3), and at scalar
+type 0 the numbers 2 − ι^Υ_(s0,2) and 1 + ι^Υ_(s0,2). By [[prop:np-10-52]] (iii) and its proof, the least distance
+from ℤ of such an entry that is not an integer and has |ι| ≤ 50 is δ_50, attained by 1 − l − d₂ at l = 50, which is
+−49 − δ_50. At the scalar types 0 and 1 these distances are ι^Υ_(s0,2) − 2 = z/(3/2 + (9/4 + z)^(1/2)) >
+z/(3 + z/3) > 1.33·10⁻⁶, and, at u = 2, d₂ = z(1 + θ₂)/12 > 3.3·10⁻⁷ and d₁ = 3z(1 + θ₁)/20 > 5.9·10⁻⁷ by
+[[eq:s14-theta]]; all exceed δ_50. The remaining entries are ι − 1 for the roots ι of P_l and of p_(v), l ≥ 1, and of
+C at scalar type 0, those that [[ch:s15]] removes left out. The roots of C are roots of P_0 = −(ι − 2)C, so
+dist(Re(ι − 1), ℤ) = dist(Re ι, ℤ) > 2.93·10⁻⁶ > δ_50 by [[prop:s14-damping-distance]] whenever ι − 1 ∉ ℤ and
+|ι − 1| ≤ 50. So the infimum is a minimum, equal to δ_50, and [[lem:s14-delta50]] gives its value. ∎
 
 **Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) The theorems of this paper take h in
 𝖧 = (0, h_*) ∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧, and
@@ -401,23 +406,12 @@ the location of the roots of P_l, P_0 and p_(v): the arguments of this section u
 this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50. The corollary shows that this upper
 bound is attained at the end h = 10⁻⁶ of the interval on which ε_ind is defined.
 
-**Remark {#rem:s14-pa-low-types}** (The scalar types 0 and 1 of the gauge potential operator.) The lists of
-[[ch:s15]] at scalar types 0 and 1 also contain the entries 2 − ι^Υ_(s0,2), 1 + ι^Υ_(s0,2) and 2 − ι^Υ_(s1,j),
-1 + ι^Υ_(s1,j) (j = 2, 3) of [[lem:iii-d-4-1]]. By the proof of that lemma, ι^Υ_(s0,2) = (1 + (9 + 4z)^(1/2))/2, the
-larger root of ι² − ι − 2 − z, and for l ≥ 1 the numbers ι^Υ_(sl,l+1) ∈ (l + 1, l + 2) and ι^Υ_(sl,l+2) ∈ (l + 2, l + 3)
-are roots of the polynomial Q_l of [[sec:s14-simple]]. The roots of Q_l are those of Q_l(ι − 1) less 1, that is, by
-[[prop:np-10-52]] (i) at u = l + 1, whose proof applies for every u ≥ 2, the numbers l + 2 + d₁, −l − 1 − d₁,
-l + 1 + d₂ and −l − d₂, with 0 < d₂ < d₁ < 1; so ι^Υ_(sl,l+1) = l + 1 + d₂ and ι^Υ_(sl,l+2) = l + 2 + d₁. The
-distances of the entries from ℤ are therefore 𝔡₀ := ι^Υ_(s0,2) − 2 = z/(3/2 + (9/4 + z)^(1/2)) > z/(3 + z/3) >
-1.33·10⁻⁶ at type 0, and d₂ = z(1 + θ₂)/12 > 3.3·10⁻⁷ and d₁ = 3z(1 + θ₁)/20 > 5.9·10⁻⁷ at type 1 (u = 2). All exceed
-δ_50, so with these entries the infimum at h = 10⁻⁶ is still δ_50.
-
 #### Sums of the gauge potential offsets {#sec:pa-gap-sums}
 
 Let z = 4e_Υγ_Υ² = 4·10⁻⁶ and λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = 15099/10000 ([[ch:s20]]) at (e_Υ, γ_Υ) = (1/100, 1/100).
-For l ≥ 1 let d₁(l) and d₂(l) be the numbers d₁ and d₂ of [[prop:np-10-52]] (i) at u = l + 1 (the proof of (i)
-applies at u = 2), so that ι^Υ_(sl,l+1) = l + 1 + d₂(l) and ι^Υ_(sl,l+2) = l + 2 + d₁(l)
-([[rem:s14-pa-low-types]]). Put
+For l ≥ 1 let d₁(l) and d₂(l) be the numbers d₁ and d₂ of [[prop:np-10-52]] (i) at u = l + 1, so that
+ι^Υ_(sl,l+1) = l + 1 + d₂(l) and ι^Υ_(sl,l+2) = l + 2 + d₁(l), and recall ι^Υ_(s0,2) = ½ + (9/4 + z)^(1/2)
+([[sec:s14-simple]]). Put
 
     𝔡₀ := ι^Υ_(s0,2) − 2 = (9/4 + z)^(1/2) − 3/2,     𝔡₁ := ι^Υ_(s1,2) − 2 = d₂(1),
     δ₂ := d₂(2),     δ′₁ := d₁(1).
@@ -435,7 +429,7 @@ when ε < 5.019·10⁻⁸, a bound more than 2.5 times δ_50.
 
 *Proof.* *The offsets.* By [[eq:s14-pa-sqrt]], 𝔡₀ = z/(3/2 + (9/4 + z)^(1/2)) lies between z/(3 + z/3) and z/3, so
 1.3333327·10⁻⁶ < 𝔡₀ < 1.3333334·10⁻⁶. By [[prop:np-10-52]] (i), δ₂ = z(1 + θ₂)/15 and δ′₁ = 3z(1 + θ₁)/20 with
-|θ₁|, |θ₂| ≤ z, so 2.666655·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999975·10⁻⁷ < δ′₁ < 6.000025·10⁻⁷. For 𝔡₁, at u = 2,
+|θ₁|, |θ₂| ≤ z by [[eq:s14-theta]], so 2.666655·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999975·10⁻⁷ < δ′₁ < 6.000025·10⁻⁷. For 𝔡₁, at u = 2,
 𝔡₁ = ½((9 + B₂)^(1/2) − 3) = B₂/(2(3 + (9 + B₂)^(1/2))) with B₂ := 2z − 4w₂ and w₂ := (4 + A)^(1/2) − 2 =
 A/(2 + (4 + A)^(1/2)), A = 4.000004·10⁻⁶. By [[eq:s14-pa-sqrt]], 4 + A/4 − A²/64 ≤ 2 + (4 + A)^(1/2) ≤ 4 + A/4, with
 A/4 = 1.000001·10⁻⁶ and A²/64 < 2.6·10⁻¹³; so

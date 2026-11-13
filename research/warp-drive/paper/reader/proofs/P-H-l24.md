@@ -186,7 +186,7 @@ are small against R m0 and κ R m0.
 properties stated after it, and let 0 < δ ≤ 1/2. There is λ_S ∈ (0, 1), independent of v and ω, such that for
 0 < λ < λ_S, at every point (v, ω) of the band with R(v, ω) ≥ 1/2,
 
-    0.999 κ |S| ≤ |S′| ≤ 1.001 κ |S|,      0.999 R m0 ≤ |S| ≤ 1.001 R m0.                           {#eq:l-24-s-two-sided}
+    0.999 κ |S| ≤ |S′| ≤ 1.001 κ |S|,      0.999 R m0 ≤ |S| ≤ 1.001 R m0.                          {#eq:l-24-s-two-sided}
 
 In particular [[eq:l-24-s-bounds]] holds at these points, and Λ ≤ λ and λκ ≤ λ^(δ′) (any fixed δ′ < 1) hold at every
 point of the band once λ is small.
@@ -219,7 +219,8 @@ and, |ν| and |d| being at most C, both |ν(r0)| and |d(ϑ)| are at least λ^δ/
 
     |S_U| ≤ C Λ λ³ A |d| env = C (Λ/|ν|) R m0 ≤ C θ R m0.
 
-Dividing the bound on E_S in [[eq:l-24-s-split]] by R m0 = λ³ A env |ν| |d| and using the lower bounds on |d| and |ν| |d|,
+Dividing the bound on E_S in [[eq:l-24-s-split]] by R m0 = λ³ A env |ν| |d| and using the lower bounds on |d| and
+|ν| |d|,
 
     |E_S| ≤ C [(λκ)²/|d| + λ/(|ν| |d|)] R m0 + C |S_U| ≤ C [λ^(2−δ) K_λ² + λ^(1−δ) + θ] R m0 ≤ C θ R m0.
 
@@ -253,9 +254,10 @@ the band with 1/2 ≤ R ≤ 1.1.
 env be positive and log-concave on (v_s, v_s + x0] with env(v) → 0 as v ↓ v_s. Then κ is nonincreasing there and
 κ(v) → ∞ as v ↓ v_s, since a finite limit K would give log env(v) ≥ log env(v_s + x0) − K x0 for every v in
 (v_s, v_s + x0]; so ς → 0, and both bounds of [[eq:l-24-margin-bounds]] tend to 2. So the constant 2 in
-[[eq:l-24-transition]] cannot be raised; nor can the coefficient of R be lowered, as follows. If at (v, ω) also |S′| ≥ 0.999 κ |S| (as for any constant multiple of env, for which |S′| = κ|S|) and
-|S| ≥ 0.999 R m0, with ς ≤ 10⁻³ and √μ0 κ ≥ 10³, then (1 + ς/8)/(√μ0 κ) ≤ 1.001 · 10⁻³, 0.999² ≥ 0.998, and the
-upper bound of [[eq:l-24-margin-bounds]] gives
+[[eq:l-24-transition]] cannot be raised; nor can the coefficient of R be lowered, as follows. If at (v, ω) also
+|S′| ≥ 0.999 κ |S| (as for any constant multiple of env, for which |S′| = κ|S|) and |S| ≥ 0.999 R m0, with ς ≤ 10⁻³
+and √μ0 κ ≥ 10³, then (1 + ς/8)/(√μ0 κ) ≤ 1.001 · 10⁻³, 0.999² ≥ 0.998, and the upper bound of
+[[eq:l-24-margin-bounds]] gives
 
     m0′ − |S′| ≤ (2.001001 − 0.998 R) κ m0,
 

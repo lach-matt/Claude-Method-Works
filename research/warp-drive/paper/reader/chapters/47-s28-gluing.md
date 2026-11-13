@@ -591,17 +591,21 @@ R → ∞.
 proof has five steps.
 
 *Step 1: the solvability statement on the annulus.* Apply [[sec:s28-solvability]] with 𝒜 := Γ̄(1, 4), a compact
-manifold with boundary, n = 4, x ∈ C^∞(𝒜) a defining function of ∂𝒜 with 0 < x ≤ 1 in the interior that equals the
-Euclidean distance to ∂𝒜 near it, u₀ := (0, δ), s := 1 and k = 3. Hypothesis (Fin) holds: 𝒦₀ is the restriction of 𝔎 to
-𝒜, with the basis [[eq:v-0-4]]. Indeed, the fifteen elements of 𝔎 are bounded on 𝒜, so they lie in
-H̊¹_(x²,ψ) × H̊²_(x²,ψ), and P*_((0,δ)) annihilates them ([[lem:v-1-1]]); and an element of the kernel of ΦP*_((0,δ)) is
+manifold with boundary, n = 4, x ∈ C^∞(𝒜) a radial defining function of ∂𝒜 (a function of r) with 0 < x ≤ 1 in the
+interior that equals the Euclidean distance to ∂𝒜 near it, u₀ := (0, δ), s := 1 and k = 3. Such an x exists, the
+distance min(r − 1, 4 − r) being radial: take x := h(r) with h smooth, 0 < h ≤ 1 on (1, 4), h(r) = r − 1 near 1 and
+h(r) = 4 − r near 4. Hypothesis (Fin) holds: 𝒦₀ is the restriction of 𝔎 to 𝒜, with the basis [[eq:v-0-4]]. Indeed, the
+fifteen elements of 𝔎 are polynomials, bounded with all derivatives on 𝒜, and ψ² is integrable, so they lie in
+H̊¹_(x²,ψ) × H̊²_(x²,ψ) (*The spaces* in [[sec:s28-solvability]]), and P*_((0,δ)) annihilates them ([[lem:v-1-1]]); and
+an element of the kernel of ΦP*_((0,δ)) is
 annihilated by P*_((0,δ)), Φ being multiplication by positive functions, so it is smooth in 𝒜° by interior regularity
 and is one of them by [[lem:v-1-1]], 𝒜° being connected. The elements of 𝔎 are polynomials, linearly independent on
-every open set. A pair (K′, g′) with ‖K′‖_(C^(k+3)(𝒜)) + ‖g′ − δ‖_(C^(k+4)(𝒜)) < ε lies in 𝒩_ε, as x ≤ 1. So
-[[lem:s28-setting]] and [[lem:v-3-2]] apply: for such (K′, g′) and (δJ, δρ) ∈ 𝒮 of small norm, [[eq:v-3-1]] has a
-solution (δK, δg) with z ∈ B, unique there, continuous in ((K′, g′), (δJ, δρ)), with
-‖(δK, δg)‖_(C²(𝒜)) ≤ C‖(δJ, δρ)‖_𝒮; and when (K′, g′) ∈ C^∞(𝒜) and (δJ, δρ) ∈ C^∞_c(𝒜°), (δK, δg) ∈ C^∞(𝒜) and
-extends smoothly by zero across ∂𝒜.
+every open set. A pair (K′, g′) with ‖K′‖_(C^(k+3)(𝒜)) + ‖g′ − δ‖_(C^(k+4)(𝒜)) < ε lies in 𝒩_(Cε), as x ≤ 1, C
+depending only on x. So [[lem:s28-setting]] and [[lem:v-3-2]] apply: for such (K′, g′), ε small, and (δJ, δρ) ∈ 𝒮 of
+small norm, [[eq:v-3-1]] has a solution (δK, δg) = T_(u′)z, u′ := (K′, g′), with z ∈ B, unique there, continuous in
+(u′, (δJ, δρ)), with ‖(δK, δg)‖_(C²(𝒜)) ≤ C‖(δJ, δρ)‖_𝒮 ([[lem:v-3-2]] (c), [[lem:s28-setting]] (c)); and when
+(K′, g′) ∈ C^∞(𝒜) and (δJ, δρ) ∈ C^∞_c(𝒜°) is supported in Γ̄(2, 3) with C^(k+2)(𝒜)-norm small enough, (δK, δg) ∈ C^∞(𝒜)
+and extends smoothly by zero across ∂𝒜 ([[lem:v-3-2]] (c), and [[lem:s28-setting]] (b) with Ω_c := Γ̄(2, 3)).
 
 *Step 2: the approximate data.* Fix a radial χ ∈ C^∞(ℝ⁴) with 0 ≤ χ ≤ 1, χ = 1 for r ≤ 2 and χ = 0 for r ≥ 3. Let
 B̄ ⊂ V be a closed ball about 𝔔⁰. For R ≥ max(2R₀, R_P) and Q ∈ B̄ put
@@ -620,25 +624,28 @@ rescaled vacuum data, hence vacuum by [[lem:v-1-4]]. The constraint map is a smo
 at (0, δ).
 
 By (b), (δJ, δρ) := −(J, ρ)(u_(Q,R)) is smooth and supported in Γ̄(2, 3) ⊂ 𝒜°, where x is bounded below, so its
-weighted norms are at most C‖·‖_(C^(k+1)) ≤ CR^(−α). Let R_ε be such that these bounds are below the thresholds of
-Step 1 for R ≥ R_ε. For R ≥ R_ε, Step 1 gives a smooth δu_(Q,R) on 𝒜 that extends by zero, with
-‖δu_(Q,R)‖_(C²(𝒜)) ≤ CR^(−α), continuous in Q. Put û_(Q,R) := u_(Q,R) + δu_(Q,R); by [[eq:v-3-1]],
-π_(g_(Q,R)) e^(2s/x)(J, ρ)(û_(Q,R)) = 0.
+weighted norms are at most C‖·‖_(C^(k+1)) ≤ CR^(−α); and its C^(k+2)-norm, which bounds the norm of
+[CD03, Proposition 5.10] ([[lem:s28-setting]] (b) with Ω_c := Γ̄(2, 3)), is at most CR^(−α) by (b). Let R_ε be such
+that these bounds, and the bound of (a), are below the thresholds of Step 1 for R ≥ R_ε. For R ≥ R_ε, Step 1 gives a
+smooth δu_(Q,R) on 𝒜 that extends by zero, with ‖δu_(Q,R)‖_(C²(𝒜)) ≤ CR^(−α), continuous in Q. Put
+û_(Q,R) := u_(Q,R) + δu_(Q,R); by [[eq:v-3-1]], with g′ := g_(Q,R), π_(g′)♯_(g′)e^(2s/x)(J, ρ)(û_(Q,R)) = 0.
 
-*Step 3: the obstruction is a pairing.* By [[lem:s28-setting]] (e), π_(g′)v = 0 if and only if v ∈ 𝒞_(g′)⁻¹𝒦₀,
-g′ := g_(Q,R). So, on 𝒜°,
+*Step 3: the obstruction is a pairing.* By [[lem:s28-setting]] (e), the kernel of π_(g′), g′ := g_(Q,R), is 𝒦₀. So
+♯_(g′)e^(2s/x)(J, ρ)(û_(Q,R)) ∈ 𝒦₀, that is, on 𝒜°,
 
-    (J, ρ)(û_(Q,R)) = e^(−2s/x) Σ_i κ_i 𝒞_(g′)⁻¹e_i     for some κ ∈ ℝ¹⁵,
+    (J, ρ)(û_(Q,R)) = e^(−2s/x) ♭_(g′) Σ_i κ_i e_i     for some κ ∈ ℝ¹⁵,
 
-the e_i being the basis [[eq:v-0-4]]; vectors and covectors are identified by δ. Let
+the e_i = (Y_i, N_i) being the basis [[eq:v-0-4]]: in Cartesian components J_a = e^(−2s/x) Σ_i κ_i g′_(ab)Y_iᵇ and
+ρ = e^(−2s/x) Σ_i κ_iN_i. Let
 
-    F_R(Q)_j := ∫_𝒜 (Y_jⁱJ_i + N_jρ)(û_(Q,R)) dμ_(ĝ_(Q,R)),     e_j = (Y_j, N_j),
+    F_R(Q)_j := ∫_𝒜 (Y_jᵃJ_a + N_jρ)(û_(Q,R)) dμ_(ĝ_(Q,R)),
 
-ĝ_(Q,R) the metric of û_(Q,R). Then F_R(Q) = 𝒢′κ with 𝒢′_(ji) := ∫_𝒜 e_j · 𝒞_(g′)⁻¹e_i e^(−2s/x) dμ_(ĝ). As g′,
-ĝ → δ in C⁰(𝒜) uniformly on B̄, 𝒢′ → 𝒢, 𝒢_(ji) := ∫_𝒜 e_j · e_i e^(−2s/x) dx, the Gram matrix, for a positive measure,
-of functions that are linearly independent on every open set. So 𝒢 is positive definite, 𝒢′ is invertible for R
-large, and (J, ρ)(û_(Q,R)) = 0 if and only if F_R(Q) = 0. F_R is continuous on B̄, its integrand depending continuously
-on û_(Q,R) in C²(𝒜).
+ĝ_(Q,R) the metric of û_(Q,R). Then F_R(Q) = 𝒢′κ with 𝒢′_(ji) := ∫_𝒜 (g′(Y_j, Y_i) + N_jN_i) e^(−2s/x) dμ_(ĝ). As in
+[CD03, (8.6)], F_R pairs the residual with the Killing initial data themselves. As g′, ĝ → δ in C⁰(𝒜) uniformly on B̄,
+𝒢′ → 𝒢, 𝒢_(ji) := ∫_𝒜 (Y_j · Y_i + N_jN_i) e^(−2s/x) dx, the Gram matrix, for a positive measure, of functions that are
+linearly independent on every open set. So 𝒢 is positive definite, and there is R_𝒢 such that 𝒢′ is invertible for
+R ≥ R_𝒢 and Q ∈ B̄. Then (J, ρ)(û_(Q,R)) = 0 if and only if κ = 0, if and only if F_R(Q) = 0. F_R is continuous on B̄,
+its integrand depending continuously on û_(Q,R) in C²(𝒜).
 
 *Step 4: the pairing's asymptotics.* Let 𝔵 = (K̂, ĝ) := 𝒮_R⁻¹û_(Q,R) on Γ(R, 4R). By [[lem:v-1-4]] and then
 [[eq:v-1-1]],
@@ -651,14 +658,14 @@ Near S_R, 𝔵 = (g, K), so ∮_(S_R) 𝔟_(e_j) = 𝔔⁰_j + O(R^(2+d_j−2α)
 |∂^γ(ĝ − δ)| ≤ CR^(−α−|γ|) (|γ| ≤ 2) and |∂^γK̂| ≤ CR^(−α−1−|γ|) (|γ| ≤ 1). With [[eq:v-1-2]] and |e_j| ≤ CR^(d_j),
 ∫|q_(e_j)| ≤ CR^(d_j)R^(−2α−2)R⁴. As α ≤ 2, d_j − 2 ≤ 2 + d_j − 2α, so
 
-    G_R(Q) := (R^(2+d_j)F_R(Q)_j)_j = Q − 𝔔⁰ + O(R^(3−2α))     uniformly on B̄,                              {#eq:v-3-2}
+    F̂_R(Q) := (R^(2+d_j)F_R(Q)_j)_j = Q − 𝔔⁰ + O(R^(3−2α))     uniformly on B̄,                              {#eq:v-3-2}
 
 and 3 − 2α < 0. (The power R^(−2−d_j) is R^(−(n−2)−d_j) at n = 4; [CD03, (8.7)] prints R⁻¹ for every charge at n = 3.)
 
-*Step 5: conclusion.* Apply [[lem:v-3-3]] with U′ the interior of B̄, f(Q) := Q − 𝔔⁰, f_R := G_R for
-R ≥ max(2R₀, R_P, R_ε), and y = 0. For every r′ > 0 below the radius of B̄ there is R(r′) such that for R ≥ R(r′)
-some Q_R with |Q_R − 𝔔⁰| ≤ r′ has G_R(Q_R) = 0; put R_gl := R(r′₀) for one such r′₀. Then F_R(Q_R) = 0 and, by
-Step 3, (J, ρ)(û_(Q_R,R)) = 0. Put p_R := p(Q_R), and let (ĝ_R, K̂_R) be (g, K) on {R₀ < r ≤ R}, 𝒮_R⁻¹û_(Q_R,R) on
+*Step 5: conclusion.* Apply [[lem:v-3-3]] with U′ the interior of B̄, f(Q) := Q − 𝔔⁰, f_R := F̂_R for
+R ≥ R′ := max(2R₀, R_P, R_ε, R_𝒢), and y = 0. For every r′ > 0 below the radius of B̄ there is R(r′) ≥ R′ such that for
+R ≥ R(r′) some Q_R with |Q_R − 𝔔⁰| ≤ r′ has F̂_R(Q_R) = 0; put R_gl := R(r′₀) for one such r′₀. Then F_R(Q_R) = 0 and,
+by Step 3, as R ≥ R_𝒢, (J, ρ)(û_(Q_R,R)) = 0. Put p_R := p(Q_R), and let (ĝ_R, K̂_R) be (g, K) on {R₀ < r ≤ R}, 𝒮_R⁻¹û_(Q_R,R) on
 Γ(R, 4R) and (g_(p_R), K_(p_R)) on {r ≥ 4R}. These are smooth, as χ is constant near ∂𝒜 and δu extends smoothly by
 zero. They are vacuum everywhere, and ĝ_R is Riemannian, being C⁰-close to δ on Γ(R, 4R). Finally 𝔮(p_R) = Q_R.
 Choose Q_R for an admissible r′ = r′(R) ≤ 2 inf{r′ : R ≥ R(r′)} + R⁻¹, which exists as R ≥ R(r′₀), and tends to 0 as
