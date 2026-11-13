@@ -1030,8 +1030,8 @@ coordinates on Ω, in which Ω_* = {t^♭ ≥ 1} and Ω ∖ Ω_* = {τ_1(x) ≤ 
 Ω_2 := Ω ∩ {t_* ≤ 2/C′}, which contains Ω ∩ {t^♭ ≤ 2}. On Ω_2 the functions ∂_(t_*)t^♭, 1/∂_(t_*)t^♭ and V t^♭, for V a
 b-vector field, lie in C^∞_b: near 𝓘⁺, t^♭ = t_*(1 − (t_*/r)^ℓ) with (t_*/r)^ℓ conormal and ∂_(t_*)t^♭ ≥ ½ (as in the
 proof of [[lem:ii-f1-2-6]] (a)), and the rest of Ω_2 is compact. As ∂_(t_*) = (∂_(t_*)t^♭)∂_(t^♭), and a vector field
-taken at fixed t_* is the same field taken at fixed t^♭ plus a multiple of ∂_(t^♭) by its derivative of t^♭, the
-b-vector fields over Ω_2 are spanned over C^∞_b by ∂_(t^♭) and the r∂_(x^i), and the e3b-vector fields by ∂_(t^♭) and
+V in x taken at fixed t_* is the same field taken at fixed t^♭ plus (V t^♭)∂_(t^♭), the b-vector fields over Ω_2 are
+spanned over C^∞_b by ∂_(t^♭) and the r∂_(x^i), and the e3b-vector fields by ∂_(t^♭) and
 fields whose coefficients in (t^♭, x) depend on x only: near 𝓘⁺ the fields r∂_r = −½x_I∂_(x_I) and r^(−1/2)Z_(ij),
 which span the x_I∂_ω (with x_I = r^(−1/2) as in [[sec:ii-e-1-1]], and the rotation fields Z_(ij) of
 [[sec:ii-f-6-1]]), and the ∂_(x^i) elsewhere; here and below, fields in x are taken at fixed t^♭. On Ω_2, x_I²(1 + r),

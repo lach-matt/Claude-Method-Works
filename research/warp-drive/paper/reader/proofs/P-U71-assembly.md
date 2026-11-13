@@ -244,9 +244,9 @@ forcing at one exponent with all its logarithmic powers, maps that term to u and
 with a loss at most ℓ_tf + 2;
 
 (c) one window of Step 2 of the proofs of [[prop:iii-i5-2-1]], [[lem:iii-i8-3-1]], [[lem:iii-i8-3-2]] and
-[[prop:iii-i10-3-1]] maps the current forcing to the next one with a loss at most d^max_ι + 4, where d^max_ι is the
-largest value of d_ι(ϰ) of [[eq:ec-iota-loss]] on λ_♯ ≤ Re ϰ < 2. If 3 < ℓ_I < 3.5 and δ < 3.5 − ℓ_I, then
-d^max_ι ≤ 12, and the loss is at most 16.
+[[prop:iii-i10-3-1]] maps the current forcing to the next one with a loss at most d^max_ι + 2 + 2⌈ℓ_I − 5/2⌉, where
+d^max_ι is the largest value of d_ι(ϰ) of [[eq:ec-iota-loss]] on λ_♯ ≤ Re ϰ < 2. If 3 < ℓ_I < 3.5 and
+δ < 3.5 − ℓ_I, then d^max_ι ≤ 12, and the loss is at most d^max_ι + 4 ≤ 16.
 
 *Proof.* We read the proofs at a finite b-regularity k and charge each map with its loss. Multiplication by smooth
 functions, by powers of σ and by the cut-offs, the coefficients of a partial expansion, the stationary states and the
@@ -280,13 +280,14 @@ remainder at most ℓ_tf + 2.
 expansion at 𝓘⁺ of that error is removed by [[prop:iii-i1-3-1]]: its 𝓘⁺-exponents are those of ℰ^tot_(ι⁺,𝓘) + 2 to
 the order ℓ_I + 1, with no ρ_I^(z+1)-term for Re z < 5/2 (Step 2 of the proof of [[prop:iii-i5-2-1]]); as
 ℰ^tot_(ι⁺,𝓘) = ⋃_(s∈σ_Υ)(3/2 + s, 0) has no logarithms, the terms to be removed sit at z ∈ 5/2 + σ_Υ + ℕ₀ with
-Re z ≤ ℓ_I, all of logarithmic order 0, and as ℓ_I < 5/2 + 1 when ℓ_I < 3.5 they lie in the first window [5/2, 7/2) of
-the proof of [[prop:iii-i1-3-1]], which treats them in parallel; its solution u′_(λ_0) is obtained from the
-coefficients of the error by [[lem:iii-a-1-2]] and by the fixed inverse (z − 3/2 − Ā)⁻¹, at no cost. The next forcing
-is F − Σ_(λ_0) L_b(u_(λ_0) + u′_(λ_0)), that is, the terms of F outside the window, unchanged, plus the errors minus
-L_bu′_(λ_0), which costs 2 more. So a window costs at most d_ι(λ_0) + 4 ≤ d^max_ι + 4. The bound d^max_ι ≤ 12 is
-[[lem:ec-closed-forms]] (e) on λ_♯ ≤ Re ϰ < 2 < ℓ_I. For ℓ_I ≥ 3.5 the same argument applies with one window of
-[[prop:iii-i1-3-1]] for each unit of ℓ_I − 5/2, each costing 2. ∎
+Re z ≤ ℓ_I, all of logarithmic order 0, and they lie in the ⌈ℓ_I − 5/2⌉ windows [5/2 + j, 7/2 + j) of the proof of
+[[prop:iii-i1-3-1]]. That proof treats the terms of one window in parallel, each by [[lem:iii-a-1-2]] and the fixed
+inverse (z − 3/2 − Ā)⁻¹, at no cost, and passes to the next window the remainder f − L_b(χρ_I^z u^((z,0))), which
+costs 2 and creates only terms of logarithmic order 0 at z + j, j ≥ 1. So u′_(λ_0) costs at most
+2(⌈ℓ_I − 5/2⌉ − 1) beyond the error. The next forcing is F − Σ_(λ_0) L_b(u_(λ_0) + u′_(λ_0)), that is, the terms of F
+outside the window, unchanged, plus the errors minus L_bu′_(λ_0), which costs 2 more. So a window costs at most
+d_ι(λ_0) + 2 + 2⌈ℓ_I − 5/2⌉. The bound d^max_ι ≤ 12 is [[lem:ec-closed-forms]] (e) on λ_♯ ≤ Re ϰ < 2 < ℓ_I, and
+⌈ℓ_I − 5/2⌉ = 1 for 3 < ℓ_I < 3.5. ∎
 
 **Lemma {#lem:ec-counts}** (The lengths of the long iterations, from above.) Make admissible choices of the weights of
 [[thm:iii-i14-3-1]] and of the results it uses, and put
