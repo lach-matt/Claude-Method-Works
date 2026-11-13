@@ -383,6 +383,7 @@ rates and the point evaluation's Sobolev constant are added. The data on Sigma, 
 constant are no longer missing. [Section 12: the coefficient arrays and an approximate solution now exist
 (`checks/m22evol5.py`, 13/13); the residual bound is what does not close (12.5), and the route ends at the floating
 value.]
+[Section 14: 19/19 now (17/17 after Section 13).]
 
 ## 12. The stage-1 evolution solved, and M_22 (`checks/m22evol5.py`)
 
@@ -392,6 +393,7 @@ floating-point value. It is not enclosed: the validated solve does not close at 
 so lambda0's certified bounds stand unchanged, and the sharpened bounds M_22 gives are stated as computed, not
 certified. Program: `checks/m22evol5.py` (`--selftest`; output `checks/m22evol5.out`, **13/13**), the companion of
 lam0data5.py whose data on Sigma it evolves and whose functions it imports.
+[Section 14: 19/19 now (17/17 after Section 13).]
 
 ### 12.1 The system (computed, exact; S1-S4)
 
@@ -531,6 +533,8 @@ certifies M_22's sign" reads "... a lower bound on |M_22|"; three cheaper routes
 criterion, a dual-weighted residual, s > 3/2 on the axis), none of which removes the unbounded k (13.3). The
 interval evaluation itself is affordable (R2: about 910 s over all cells), so "not a cost this machine can meet"
 is overstated: what is missing is the certified rate, not machine time.]
+[Section 14, minor 2: that withdrawal is withdrawn. R2 counts evaluations, not sharpness; "not a cost this machine
+can meet" stands, for the certified residual as well as for the rate (14.2; M22CERT5.md X6).]
 
 ### 12.6 The replacement texts
 
@@ -703,6 +707,9 @@ at mid-solve for Nr = 24, 32, 40, 48 (Nx = 12), falling with Nr until Nx = 12's 
 mid-solve, Nr = 32's radial truncation). C1 now fails twice: M_22 leaves the band and N3b is 0.40 at mid-solve; C2
 likewise (0.46). So the mean equations, their source S and their coupling to gh_2 are checked end to end by the
 contracted Bianchi identity, not only through S1-S2.
+[Section 14, minor 1: not end to end. At mid-solve N3b is blind to the mean equations' phi_1 couplings, and its
+test against 1e-4 passed two mutants of them; it is now tested at tau* against 1e-6, where they fail (C7, C8;
+14.1). The output's "the floating data's floor" was mislabelled; the rerun prints the corrected label (14.3).]
 
 ### 13.2 m2: what Section 12.5's tolerance argument shows
 
@@ -717,6 +724,9 @@ have to absorb: at th = pi/4, clear of the axis's coordinate factors, the mean e
 sums, normalised by the d_tau^2 coefficient) run over X*'s past from 7.8 at tau0 to 31.9 at tau*, the zero-order ones
 from 15.4 to 3.6e4 at X*, the couplings to gh_2 from 0.10 to 40.4; the first-order ones alone, used as a rate, give
 e^(int/2) = 2.5e7 and would take the tolerance from 3.0e-5 to 1.2e-12.
+[Section 14, nit: R1 is measured at th = pi/4, not at X* (on the axis), and its domain runs to v = 3, beyond X*'s
+past: "3.6e4 at X*" reads "3.6e4 on the tau* slice at th = pi/4", and "over X*'s past" reads "over its
+domain" (14.3).]
 
 ### 13.3 m3: what the bounds need, the cheaper routes, and the attempt at m_lo
 
@@ -754,6 +764,9 @@ ingredients, each tried here:
   Writing it is a proof, not a computation, and its constant is what decides: R1's first-order sizes alone, used as a
   rate, give a factor of order 2.5e7, and the zero-order terms near X* add to it.
 - (c) Route (ii) also needs the adjoint solve and its residual, certified as in (a); bounded, but of use only with (b).
+[Section 14: (c) was not tried, so "each tried here" reads "(a) and (b) tried here"; (a) is overstated (14.2);
+for (b), M22CERT5.md writes the estimate out and certifies lower bounds on its constants (14.4); "3.6e4 at X*"
+as in 13.2's note.]
 
 *Precisely why it stops.* Step (b) is not a bounded computation: it is a new energy estimate, for a system whose
 lower-order coefficients R1 measures in the tens and, at X*, in the tens of thousands, with a constant that nothing in
@@ -824,3 +837,68 @@ The threshold λ0 that the proof of Theorem 1 delivers is traced term by term (s
 copied: lam0data5.py; python-flint for R2's Arb balls. READ as in 12.7. md5: program 8216d298edd3ef9cce8a7d91903c37a6,
 output 28fc40c1ce8ffd0726afc899983f4544. The rows that R15.7's pair 5 gives for this file, the program and its output
 are superseded by these.
+[Section 14: amended (C7, C8, N3b at tau*, the label) and rerun, 19/19; md5s in 14.5.]
+
+## 14. The reader's confirmation of Section 13, and what it changed
+
+*Status (2026-11-13).* The independent reader confirmed Section 13: no Major, two minor points, three nits. Each is
+seated here; the amended sites in Sections 11, 12 and 13 carry a bracketed note [Section 14, ...], the old text kept.
+`checks/m22evol5.py` is amended (N3b's test moved to tau*, two controls added, the N3b, R1 and R2 lines corrected) and
+rerun: **19/19**. M_22 = 2.207738, its band [2.2077367, 2.2077395], lambda0's certified bounds and pair P (13.5) are
+unchanged. The attempt at a certified m_lo is in its own file, M22CERT5.md (14.4).
+
+### 14.1 minor 1: N3b's test, and what it sees
+
+Section 13 tested N3b at mid-solve and at tau* against 1e-4 and said the mean equations were "checked end to end". The
+reader multiplied two phi_1-coupling coefficients of the mean equations by 1.2 -- MA, the vt equation's d_th phi_1; MB,
+the p1 equation's d_r phi_1 -- and found N3b at mid-solve unmoved (1.5e-5 and 2.2e-5 against 1.6e-5 at 32 x 12), at tau*
+raised to 7.9e-6 and 7.9e-5 against 1.0e-7, both under 1e-4: both mutants passed 17/17, while MB moves M_22 by 2.3e-3,
+about 1600 band half-widths. Now (computed, floating point): N3b's test is at tau* on 48 x 12, 48 x 16 and 32 x 20
+against 1e-6, where the unmutated solve gives at most 1.1e-7; its mid-solve values remain a convergence check (falling
+with Nr until Nx = 12's angular truncation); and MA and MB are controls that must fail. **C7** (MA): M_22 = 2.207770,
+outside the band, N3b 7.9e-6 at tau* (1.5e-5 at mid-solve); **C8** (MB): M_22 = 2.205495, N3b 7.9e-5 at tau* (2.2e-5 at
+mid-solve); both fail N3b's test. C1 and C2 now fail it at tau* too (9.4e-3, 6.9e-3). So, read at tau*, N3b sees the
+mean equations' source S, their coupling to gh_2 and these two phi_1 couplings; at mid-solve it is blind to the phi_1
+couplings. It is a check against these mutations, not a proof that every coefficient is right: "end to end" is narrowed
+to that.
+
+### 14.2 minor 2: what R2 measures
+
+R2 (13.3 (a)) times the evaluation of every coefficient function on a box 0.005-0.01 wide; it counts evaluations, not
+sharpness. On those boxes the balls are about 10 % wide (the reader: p1's m_p2 coefficient is 18.8 +/- 1.65), and a
+residual certificate needs about 1e-12, or 1e-6 with a dual-weighted residual. M22CERT5.md (X6) measures the
+sharpness directly: the residual's enclosure on a box of half-width delta has radius about (slope) x delta, so a
+radius of 3e-13 needs ~10^27 boxes per slice and 1e-6 needs ~10^14 (its numbers in the output). That needs high-order
+Taylor or Chebyshev models with certified tails, whose cost is not a multiple of R2's. So Section 12.5's "not a cost
+this machine can meet" stands, for the certified residual as well as for the rate, and its withdrawal in 12.5's
+Section-13 bracket and in 13.3 (a) is withdrawn. The program's R2 line now says that it counts evaluations, not
+sharpness, and its closing line names the certified residual among what is not decided.
+
+### 14.3 The nits
+
+- The label. Section 13.1 said that the output's "the floating data's floor" means the Nx = 12 truncation; the output
+  was mislabelled. The rerun prints: zero on Sigma to 1.7e-16 at Nx >= 16 and to 1.3e-8 at Nx = 12, "where the data's
+  Legendre modes P_k(cos 2th), k up to 13, are not resolved".
+- 13.3: "each tried here" reads "(a) and (b) tried here": (c), the adjoint solve, was not tried. "3.6e4 at X*" (13.2,
+  13.3 (b), "Precisely why it stops"): R1 is measured at th = pi/4, not at X* (which is on the axis), and its domain
+  runs to v = 3, beyond X*'s past; read "3.6e4 on the tau* slice at th = pi/4" and "over its domain". The program's
+  R1 line now says so.
+- Sections 11 and 12 say 13/13, Section 13 says 17/17: the program now passes 19/19 (14.5).
+
+### 14.4 The attempt at m_lo (M22CERT5.md)
+
+M22CERT5.md, with its own program `checks/m22cert5.py`, takes up 13.3 (b). It writes the estimate out (its Lemma 1
+and Corollaries 2-3: Lemma 9.1 with the lower-order operator L = E - P_eta as forcing, the zero-order current, the
+transports, the commuted energies, the point evaluation) and certifies lower bounds on its own constants: from one
+coefficient of one row of L alone, the Gronwall factor is at least 1.83 x 10^14 (certified), so the estimate certifies
+m_lo > 0 only if int e^(Lambda) ||rho|| < 17.32, while the solver's residual (measured, one component) gives 7.2 x
+10^5 at 64 x 20, 4.2 x 10^4 too large, and the residual is certified pointwise only (X6). m_lo is not reached; the
+certified bounds 0.0024433 / 0.0019079 / 0.0012228 stand. 13.3 (b)'s "Neither the record nor this file contains that
+estimate" is superseded in part: the estimate is now written; its upper constant is not computed (M22CERT5.md 4).
+
+### 14.5 Program and pass count
+
+`checks/m22evol5.py --selftest` (output `checks/m22evol5.out`, **19/19**, 23 minutes on this machine): S1-S4 and S4b
+(exact); N1-N3, N3b, N4 and CH (floating point); controls C1-C8; R1 and R2 printed. md5: program
+28e9d06bc5641a42182788a58dc74e00, output d4b7a6df077015c233072e2405a88902. Pair P (13.5) rechecked against the paper as
+it stands (md5 805be200b746b7cf480e88639da5508f): its old text occurs exactly once and it seats within 121 characters.
