@@ -611,14 +611,14 @@ vacuum.
 [[eq:after-shell-params]] is (1), and [[eq:after-shell-annulus]] is (2) with [[eq:after-shell-theta]]. ∎
 
 **Remark {#rem:after-shell-box}** (Why the box does not shrink.) For a ≤ 2 + d(X) the charge difference Δ𝔔_X is
-O(Ξ) and need not vanish, so the radius r_X cannot tend to 0 with R. For instance, with d = 1, pull the data of (i) back
-by x ↦ x + χ_1(|x|) c for a small constant c ∈ ℝ⁴, χ_1 as in [[prop:after-shell-outside]]. This is a vacuum perturbation,
-pure gauge, of order 3 = 2 + d: by [[eq:after-shell-gain]], γ^(m_λ)(x + c) − γ^(m_λ)(x) ∈ ρ³C^∞. Its centre-of-mass
+O(Ξ) and need not vanish, so the radius r_X cannot tend to 0 with R. For instance, with d(X) = 1, pull the data of (i)
+back by x ↦ x + χ_1(|x|) c for a small constant c ∈ ℝ⁴, χ_1 as in [[prop:after-shell-outside]]. This is a vacuum
+perturbation, pure gauge, of order 3 = 2 + d(X): by [[eq:after-shell-gain]], γ^(m_λ)(x + c) − γ^(m_λ)(x) ∈ ρ³C^∞. Its centre-of-mass
 charges are Δ𝔔_(e′_l) = −6π² m_λ c_l + O(|c|²): they involve the metric only, the metric on Σ differs from that on the
 Kerr–Schild slice by ρ⁴C^∞ ([[lem:after-shell-mp-data]] (d) at w = 0), whose translation derivative contributes no
-degree-1 flux, and the derivative of the slice charges is a22 = −6π² m_λ ([[prop:v-2-3]]). This does not depend on R, so
-a box of radius tending to 0 would exclude it. The same example lies in the class: its difference from (γ_λ, k_λ) lies in
-ρ³C^∞ × ρ⁴C^∞ far out, so in ℋ^∞ by [[lem:vii-0-1]].
+degree-1 flux, and the derivative of the slice charges at p_λ is a22 = −6π² m_λ ([[prop:v-2-3]]). This does not
+depend on R, so a box of radius tending to 0 would exclude it. The same example lies in the class: its difference from
+(γ_λ, k_λ) lies in ρ³C^∞ × ρ⁴C^∞ far out, so in ℋ^∞ by [[lem:vii-0-1]], whose proof applies at every order.
 
 **Corollary {#cor:after-shell-glued-norm}** (The norm of the glued data.) In [[prop:after-shell-gluing]],
 (γ̂_R − γ_λ, k̂_R − k_λ) ∈ ℋ^∞ and
@@ -651,7 +651,7 @@ The same holds for k̂_R − k_λ, with the weight ℓ0 + 1, the order a + 1 and
 
 **Remark {#rem:after-shell-bump}** (The cost of a bump.) The annulus term of [[cor:after-shell-glued-norm]] at a = 3 is
 the cost of a bump of relative size R⁻¹ at radius R, read against the deviation of Tangherlini's data there
-(μ r⁻² in the metric, r⁻³ in the second fundamental form): f_R := R⁻³ ψ(r/R) and k_R := R⁻⁴ ψ(r/R), ψ ∈ C_c^∞((0, ∞)).
+(μ r⁻² in the metric, μ r⁻³ in the second fundamental form): f_R := R⁻³ ψ(r/R) and k_R := R⁻⁴ ψ(r/R), ψ ∈ C_c^∞((0, ∞)).
 With r = Rs,
 
     ‖r^(ℓ0) f_R‖²_(L²(dr/r dω)) = 2π² R^(2ℓ0−6) ∫_0^∞ s^(2ℓ0) ψ(s)² ds/s,

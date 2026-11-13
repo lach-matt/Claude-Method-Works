@@ -1162,7 +1162,8 @@ with C depending on k, α₀, ℓ^♭_I and h; and the tame form of [[eq:iii-c1-
 Here (−′, ℓ^♭_I + 1) is the class of [[def:iii-c-5-1]] (2) with the index sets left out, as in [Hin26].
 
 *Proof.* [[thm:iv2-3-1]] with g₀ = g_(b₀) gives the solution, its uniqueness and the smallness, with k₀ := N_NM = 153
-and k₁ := N_NM + k, as ‖h‖_(H^(k,ℓ^♭₀,(−,ℓ^♭_I))_b) ≤ ‖h‖_(H^(3d+k,ℓ^♭₀,(−,ℓ^♭_I))_b). [[thm:iv2-2-4]] gives [[eq:iii-c1-2-2]] and its tame form [[eq:iv2-2-3]]. ∎
+and k₁ := N_NM + k, as ‖h‖_(H^(k,ℓ^♭₀,(−,ℓ^♭_I))_b) ≤ ‖h‖_(H^(21+k,ℓ^♭₀,(−,ℓ^♭_I))_b) (21 = 3d for the d = 7 of
+[[thm:iv2-3-1]]). [[thm:iv2-2-4]] gives [[eq:iii-c1-2-2]] and its tame form [[eq:iv2-2-3]]. ∎
 
 [Hin26] derives its Theorem 5.17 from [Hin23a, Theorem 3.35 and Corollary 3.36] by a change of notation: the tame
 estimate (5.52), a Nash–Moser scheme (by [SR89] there; here [[thm:ii-g-2-1]], which is [Hin26c, Theorem 12.4]), and the

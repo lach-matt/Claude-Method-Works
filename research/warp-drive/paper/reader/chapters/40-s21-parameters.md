@@ -869,11 +869,12 @@ With D_(g′)Ric ∈ ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, δ*_(g_0,E_C) �
 [[prop:iii-d3-3-1]] (2) at b, while the corrections h^((λ−1,k))_s1 and their counterterms stay those built at b₀.
 With ν := (s1, λ, k) we write m^(b₀)_ν(S) := χ_K δ*_(g_(b₀)) ω^(≤4)(a_(λ,k)S), h^(b₀)_ν := h^((λ−1,k))_s1 and
 ϑ^(b₀)_(ν,♯) := ϑ^((λ−1,k))_(s1,♯) for the tensors of [[def:iii-i8-2-1]] built at b₀; so
-ϑ^(b₀)_(ν,♯) = δ_(g_(b₀),E_Υ)G_(g_(b₀))(m^(b₀)_ν − h^(b₀)_ν) involves the row built at b₀, not m_(λ,k), and these are the tensors in
-P_3 at every base point. [[lem:iii-i8-2-2]] holds for these rows at b with the same proof, h_b(S) in place of h(S) in
-[[eq:iii-i8-2-2]]: the 1-forms at b satisfy the tower relations [[eq:iii-d3-1-3]] at b and have the same index sets
-((P3)). [[lem:iii-i8-2-5]] and [[lem:iii-i8-2-6]] hold at b as stated. The pairs (s1, λ, k), (λ, k) ∈ ℳ, are rows of the
-set 𝒩 of [[sec:iii-i9-1]] ([[def:iii-i9-2-1]] gives the same tensors), and [[lem:iii-i8-2-4]] takes the following form.
+ϑ^(b₀)_(ν,♯) = δ_(g_(b₀),E_Υ)G_(g_(b₀))(m^(b₀)_ν − h^(b₀)_ν) involves the row built at b₀, not m_(λ,k), and these
+are the tensors in P_3 at every base point. [[lem:iii-i8-2-2]] holds for these rows at b with the same proof, h_b(S) in
+place of h(S) in [[eq:iii-i8-2-2]]: the 1-forms at b satisfy the tower relations [[eq:iii-d3-1-3]] at b and have the
+same index sets ((P3)). [[lem:iii-i8-2-5]] and [[lem:iii-i8-2-6]] hold at b as stated. The pairs (s1, λ, k),
+(λ, k) ∈ ℳ, are rows of the set 𝒩 of [[sec:iii-i9-1]] ([[def:iii-i9-2-1]] gives the same tensors), and
+[[lem:iii-i8-2-4]] takes the following form.
 
 **Lemma {#lem:s21-motions-at-b}** (The motion identity at b.) Let (h, p⃗) be small, with parameter b ∈ ℬ̄_*,
 (λ, k) ∈ ℳ and ν := (s1, λ, k). Write ω^b_ν(S) := ω^(≤4)_b(a_(λ,k)S), so that m_(λ,k)(S) = χ_K δ*_(g_b)ω^b_ν(S), and
@@ -1621,14 +1622,15 @@ on (h, p⃗) ([[lem:iii-i7-1-3]] (a), [[lem:iii-i9-2-5]]); the values at (0, 0) 
 of P_4 being those built at b₀), uses only [[eq:iii-i9-2-6]] and L_(h,p⃗) = L^(g′,g_0), and holds at every base point;
 adding and subtracting the tensors built at b, f^ν = L_(h,p⃗)h^b_ν + δ*_(g_0,E_C)ϑ^b_(ν,♯) + E^ν. By [[eq:s21-conv]] at
 g_b, h^b_ν = m_ν − ζ^b_ν, and the display of the proof of (c), at g_b, which is Ricci flat, gives
-L_bζ^b_ν = δ*_(g_b,E_C)ϑ^b_(ν,♯). Writing L_(h,p⃗)ζ^b_ν = L_bζ^b_ν + (L_(h,p⃗) − L_b)ζ^b_ν gives [[eq:s21-rows-at-b]], as in the
-proof of [[lem:s21-motions-at-b]]. *The class of r^ν.* The counts of (c) apply with L_b, g_b, ζ^b_ν and ϑ^b_(ν,♯) in
-place of L_(b₀), g_(b₀), ζ_ν and ϑ_(ν,♯). ζ^b_ν has the memberships of ζ_ν, by [[lem:iii-i9-2-2]] at b. Near (ι⁺)°,
-g_0 − g_b ∈ ρ_+²C^∞ with seminorms O(|p⃗|) ([[lem:iii-i7-1-3]] (a), (c)). Near K⁺, g_0 = g_b and h_tot(p⃗) = 0
-([[eq:iii-i7-1-3]]; every correction is supported in 𝒞), so L_(h,p⃗) − L_b = L^(g_b+h,g_b) − L_b has coefficients of
-K⁺-weight a_K with norm O(‖h‖_(𝒳^k)). And g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_b) is supported in
-supp(1 − χ_K), so the second term is supported in 𝒞. The constants are uniform in b by (P3), and the case h = 0,
-p⃗ = p⃗_b, |p⃗_b| = |b − b₀|, gives the bound at (0, p⃗_b).
+L_bζ^b_ν = δ*_(g_b,E_C)ϑ^b_(ν,♯). Writing L_(h,p⃗)ζ^b_ν = L_bζ^b_ν + (L_(h,p⃗) − L_b)ζ^b_ν gives
+[[eq:s21-rows-at-b]], as in the proof of [[lem:s21-motions-at-b]]. *The class of r^ν.* The counts of (c) apply with L_b,
+g_b, ζ^b_ν and ϑ^b_(ν,♯) in place of L_(b₀), g_(b₀), ζ_ν and ϑ_(ν,♯). ζ^b_ν has the memberships of ζ_ν, by
+[[lem:iii-i9-2-2]] at b. Near (ι⁺)°, g_0 − g_b ∈ ρ_+²C^∞ with seminorms O(|p⃗|) ([[lem:iii-i7-1-3]] (a), (c)). Near K⁺,
+g_0 = g_b and h_tot(p⃗) = 0 ([[eq:iii-i7-1-3]]; every correction is supported in 𝒞), so
+L_(h,p⃗) − L_b = L^(g_b+h,g_b) − L_b has coefficients of K⁺-weight a_K with norm O(‖h‖_(𝒳^k)). And
+g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_b) is supported in supp(1 − χ_K), so the second term is
+supported in 𝒞. The constants are uniform in b by (P3), and the case h = 0, p⃗ = p⃗_b, |p⃗_b| = |b − b₀|, gives the bound
+at (0, p⃗_b).
 
 *E^ν: support and size.* Put Δh := h^(b₀)_ν − h^b_ν and Δϑ := ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯), so that
 E^ν = L_(h,p⃗)Δh + δ*_(g_0,E_C)Δϑ. Δh = −dχ_K ⊗_s (ω^(b₀)_ν − ω^b_ν) is supported in 𝒞, and Δϑ in supp χ_K
