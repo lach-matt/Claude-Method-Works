@@ -24,9 +24,9 @@ modulo a linearised diffeomorphism. The argument is the standard one: put the di
 gauge by solving a linear wave equation for X, show that the result has vanishing Cauchy data, and conclude by
 uniqueness for a linear wave equation. Its inputs beyond [[sec:viii-0]]–[[sec:viii-2]] are chiefly the Cauchy problem
 for normally hyperbolic operators on globally hyperbolic manifolds ([BGP]; [[sec:std-linear-wave]]) and the pointwise
-identities of [[lem:ix-2-1]]. Nothing is asserted here about the size or decay of X ([[rem:ix-2-4]]). Linear solutions in the
-Regge–Wheeler-type gauge of [KI03], whose gauge-invariant master quantities decay by [HKW18], and in the harmonic gauge
-are treated in [[ch:rw-gauge]]–[[ch:harmonic-rate]], from the results of this chapter.
+identities of [[lem:ix-2-1]]. Nothing is asserted here about the size or decay of X ([[rem:ix-2-4]]). Linear
+solutions in the Regge–Wheeler-type gauge of [KI03], whose gauge-invariant master quantities decay by [HKW18], and in
+the harmonic gauge are treated in [[ch:rw-gauge]]–[[ch:harmonic-rate]], from the results of this chapter.
 
 *The inner radius.* The inner radius r_♭ ∈ (0, ½R₁] of [[ch:s11]], R₁ = m₀^(1/2), is a parameter, with the radii of
 [[def:s12-radii]]; so r₀ = r_♭ and r^♮ = ½(r_♭ + r₂) < r₂ < R₁. Every result of the chapter holds for every such r_♭,
@@ -83,7 +83,7 @@ and the translations are ψ_(S⁰) = exp V⁰(S⁰), with V⁰(S_w) = ½Θ w·�
 is φ_(S,S⁰) = ψ_(S⁰) ∘ φ_S ([[eq:s27-motion]]). For S′, S⁰′ ∈ 𝒮_1 put
 
     ġ_(S′) := (d/ds) φ*_(−sS′) g |_(s=0) = −ℒ_(V(S′)) g,
-    ġ⁰_(S⁰′) := (d/ds) ψ*_(−sS⁰′) g |_(s=0) = −ℒ_(V⁰(S⁰′)) g,                                                {#eq:viii-0-2}
+    ġ⁰_(S⁰′) := (d/ds) ψ*_(−sS⁰′) g |_(s=0) = −ℒ_(V⁰(S⁰′)) g,                                           {#eq:viii-0-2}
 
 linearised diffeomorphisms: φ_(−sS′) = exp(−sV(S′)) is the time-s flow of −V(S′), and likewise for ψ_(−sS⁰′). The
 second is the derivative −δ*_g(Θw⁰(S⁰′)) of [[ch:s21]], as g(V⁰(S⁰′), ·) = ½Θw⁰(S⁰′) and ℒ_Xg = 2δ*_g(g(X, ·)). As
@@ -121,15 +121,15 @@ that every symmetric 2-tensor ḣ, smooth near Σ^IVP or on one side of it up to
 (3) if (γ̇, k̇) satisfy the linearised constraint equations, then (G_g DRic(ḣ))(n, ·) = 0 at Σ^IVP.
 
 *Proof.* For |ε| small, [[prop:iii-c2-4-1]] applies to (γ̃, k̃) := ε(γ̇, k̇) ((γ̃, κ̃) there; γ̃ is small in H³_b, and
-the constraints are not assumed there). It gives h_0(ε) = εγ̇, extended by h_0(n, ·) := 0, and h_1(ε) = r h̃_1(ε).
-Its proof determines h̃_1(ε) at each point by linear algebraic equations, solved in the order (ij), (0j), (00), each
-step dividing by a multiple of e_0 t_IVP, which is bounded away from 0. Their other coefficients (the frame, the normal
-n_0 of g + h_0, written ν₀ there, the Christoffel symbols of g + h_0) are smooth functions of h_0 and its first
-derivatives. Their right sides are smooth in these and affine in k̃ (κ̃ there; the proof of [[prop:iii-c2-4-1]]). So ε ↦ h_1(ε) is smooth at each point, with h_1(0) = 0.
-Put ḣ_0 := γ̇, extended in the same way, and ḣ_1 := ∂_ε h_1(0). This is the same construction with the two equations
-of that proof, for the second fundamental form and for Υ⁰, linearised at g. Their right sides are linear in γ̇, its
-b-derivatives and k̇, with the coefficients of that proof. So they lie in H^(∞,(ℰ_0+1,ℓ_0+1))_b by its count, and
-ḣ_1 ∈ H^(∞,(ℰ_0,ℓ_0))_b, linearly and with the stated bounds.
+the constraints are not assumed there). It gives h_0(ε) = εγ̇, extended by h_0(n, ·) := 0, and h_1(ε) = r h̃_1(ε). Its
+proof determines h̃_1(ε) at each point by linear algebraic equations, solved in the order (ij), (0j), (00), each step
+dividing by a multiple of e_0 t_IVP, which is bounded away from 0. Their other coefficients (the frame, the normal n_0
+of g + h_0, written ν₀ there, the Christoffel symbols of g + h_0) are smooth functions of h_0 and its first derivatives.
+Their right sides are smooth in these and affine in k̃ (κ̃ there; the proof of [[prop:iii-c2-4-1]]). So ε ↦ h_1(ε) is
+smooth at each point, with h_1(0) = 0. Put ḣ_0 := γ̇, extended in the same way, and ḣ_1 := ∂_ε h_1(0). This is the same
+construction with the two equations of that proof, for the second fundamental form and for Υ⁰, linearised at g. Their
+right sides are linear in γ̇, its b-derivatives and k̇, with the coefficients of that proof. So they lie in
+H^(∞,(ℰ_0+1,ℓ_0+1))_b by its count, and ḣ_1 ∈ H^(∞,(ℰ_0,ℓ_0))_b, linearly and with the stated bounds.
 
 Given ḣ, extend it smoothly across Σ^IVP if it is given on one side only; (1)–(3) involve only its derivatives at
 Σ^IVP. Fix χ ∈ C^∞_c(ℝ) equal to 1 near 0, and in the coordinates (t_IVP, x) put
@@ -268,12 +268,11 @@ gauge 1-form κ of [[prop:iii-k-4-2]]: of Υ^(E_Υ)(𝔤(U) + k, g_(p⃗)) − �
 (6) |ḃ| + |S′| + |S⁰′| + ‖U′‖_(𝒟^k_ex) ≤ C_k‖(γ̇, k̇)‖_(H^(k+k′)).
 
 *Proof.* *Step 1 (the right inverse at Tangherlini).* At zero data, h_(S,S⁰) = 0 for every (S, S⁰)
-([[prop:iii-k-1-2]] (3)), so Ψ = Φ ([[eq:iii-k-2-1]]). [[lem:iii-k-2-3]] at zero data and U = 0 gives a linear ℛ : ℱ^∞_ex → 𝒟^∞_ex with
-D_0(P_5 ∘ Φ)(ℛf) = f, bounded by the tame estimate of [[thm:iii-j2-4-2]] on the exact scales ([[cor:iii-j3-6-6]]),
-which at U = 0 reads ‖ℛf‖_(𝒟^k_ex) ≤ C_k‖f‖_(ℱ^(k+d)_ex), d its loss. The tail of U = 0 vanishes everywhere, so the
-support clause of [[lem:iii-k-2-3]] applies with c := T̂ + 7/4: if f vanishes on {t^♭_* < T̂ + 7/4}, so does the tail
-of ℛf. Put U′ := ℛf with f of [[lem:viii-2-1]]. Its tail h̃′ vanishes on {t^♭_* < T̂ + 7/4}, and (6) follows from
-[[lem:viii-2-1]].
+([[prop:iii-k-1-2]] (3)), so Ψ = Φ ([[eq:iii-k-2-1]]). [[lem:iii-k-2-3]] at zero data and U = 0 gives a linear
+ℛ : ℱ^∞_ex → 𝒟^∞_ex with D_0(P_5 ∘ Φ)(ℛf) = f, bounded by the tame estimate of [[thm:iii-j2-4-2]] on the exact scales
+([[cor:iii-j3-6-6]]), which at U = 0 reads ‖ℛf‖_(𝒟^k_ex) ≤ C_k‖f‖_(ℱ^(k+d)_ex), d its loss. The tail of U = 0 vanishes everywhere, so the support
+clause of [[lem:iii-k-2-3]] applies with c := T̂ + 7/4: if f vanishes on {t^♭_* < T̂ + 7/4}, so does the tail of ℛf. Put
+U′ := ℛf with f of [[lem:viii-2-1]]. Its tail h̃′ vanishes on {t^♭_* < T̂ + 7/4}, and (6) follows from [[lem:viii-2-1]].
 
 *Step 2 (the equation in the cone).* For U small and a symmetric 2-tensor k on Ω_*, the equation of the proof of
 [[prop:iii-k-4-2]] gives, with zero data,
@@ -281,11 +280,12 @@ of ℛf. Put U′ := ℛf with f of [[lem:viii-2-1]]. Its tail h̃′ vanishes o
     P_5(Φ(U) + (k, 0, 0)) = Ric(𝔤(U) + k) − δ*_(𝔤_0(U),E_C)(Υ^(E_Υ)(𝔤(U) + k, 𝔤_0(U)) − ϑ_tot(p⃗)),
                                                                                        𝔤_0(U) := g_(p⃗),
 
-which is P_5(Ψ(U)) of [[ch:s27]] for k = χ_−h_(−S,−S⁰), S and S⁰ := S^(0)_1 the boost and translation components
-of U. The right side is smooth in (U, k). Φ is smooth ([[thm:iii-j-2-4]]; on the exact classes [[prop:iii-j3-5-4]]),
-g_(p⃗) is smooth in p⃗ ([[sec:viii-0]]; [[lem:iii-i7-1-3]] (a)), and h_tot, ϑ_tot and h_(b,rem) are smooth in (p⃗, q)
-([[def:iii-i7-2-3]], [[def:iii-i8-2-1]], [[def:iii-i9-2-1]], [[def:iii-i9-2-3]], [[def:iii-i14-1-2]]). At (U, k) = (0, 0) the metric is g and the gauge 1-form vanishes, so the
-variation of δ*_(𝔤_0(U),E_C) drops out. Differentiating at (0, 0) in the direction (U′, χ_−ḣ) gives
+which is P_5(Ψ(U)) of [[ch:s27]] for k = χ_−h_(−S,−S⁰), S and S⁰ := S^(0)_1 the boost and translation components of U.
+The right side is smooth in (U, k). Φ is smooth ([[thm:iii-j-2-4]]; on the exact classes [[prop:iii-j3-5-4]]), g_(p⃗) is
+smooth in p⃗ ([[sec:viii-0]]; [[lem:iii-i7-1-3]] (a)), and h_tot, ϑ_tot and h_(b,rem) are smooth in (p⃗, q)
+([[def:iii-i7-2-3]], [[def:iii-i8-2-1]], [[def:iii-i9-2-1]], [[def:iii-i9-2-3]], [[def:iii-i14-1-2]]). At
+(U, k) = (0, 0) the metric is g and the gauge 1-form vanishes, so the variation of δ*_(𝔤_0(U),E_C) drops out.
+Differentiating at (0, 0) in the direction (U′, χ_−ḣ) gives
 
     DRic(ġ) − δ*_(g,E_C)η̇ = D_0(P_5 ∘ Φ)(U′) + L(χ_−ḣ) = f − f = 0     on Ω_*,                            {#eq:viii-2-4}
 
@@ -316,16 +316,16 @@ with t^♭_*(p) > c, J⁻_(Ω_*°)(p) ∩ {t^♭_* ≥ c} lies in
     L′_p := {c ≤ t^♭_* ≤ t^♭_*(p),  B ≤ B(p),  r ≥ min(r(p), r^♮)},
 
 t^♭_* being a time function: this is the set L′_p of [[eq:ii-f-lp-prime]] ([[lem:ii-f-1-4]] (a)) with X := Ω_*°,
-τ′ := t^♭_* (≤ t_*) and C′ := C_♭, which drops the condition t_* ≤ t_*(p) of [[eq:ii-f-lp]] as C_♭t_* ≤ t^♭_*.
-L′_p is compact, as B bounds r there (c ≤ t_* ≤ t^♭_*(p)/C_♭, R̃(r) ≤ B(p) − c, and R̃(r) = r for r ≥ r′_0 + 1), and
-it lies in Ω_*°, as t^♭_* ≥ c > 1 and r ≥ min(r(p), r^♮) > r_♭ on it. ([[lem:iii-k-6-1]] (c) at h = 0 gives such sets as well.) So DRic(ġ) = 0 on Ω_*
-by [[eq:viii-2-4]].
+τ′ := t^♭_* (≤ t_*) and C′ := C_♭, which drops the condition t_* ≤ t_*(p) of [[eq:ii-f-lp]] as C_♭t_* ≤ t^♭_*. L′_p is
+compact, as B bounds r there (c ≤ t_* ≤ t^♭_*(p)/C_♭, R̃(r) ≤ B(p) − c, and R̃(r) = r for r ≥ r′_0 + 1), and it lies in
+Ω_*°, as t^♭_* ≥ c > 1 and r ≥ min(r(p), r^♮) > r_♭ on it. ([[lem:iii-k-6-1]] (c) at h = 0 gives such sets as well.) So
+DRic(ġ) = 0 on Ω_* by [[eq:viii-2-4]].
 
 *Step 5 (the initial region).* On 𝒟′ put ġ := ḣ + ġ_(S′) + ġ⁰_(S⁰′). DRic(ḣ) = 0 ([[prop:viii-1-2]] (1)) and
 DRic(ġ_(S′)) = DRic(ġ⁰_(S⁰′)) = 0 ([[sec:viii-0]]). The gauge 1-form of (5) on 𝒟′ is
 Υ̇^♮(ḣ) + (D_1 + D_2)Υ^(χ^♮_0E_Υ)(g, g)(ġ_(S′) + ġ⁰_(S⁰′)) = 0 + 0, as in Step 3, Υ^(χ^♮_0E_Υ)(g_0, g_0) vanishing for
-every metric g_0. On Ω_* ∩ 𝒟′ = Ω_* ∩ {t^♭_* < T̂ + 7/4} the two definitions of ġ agree (Step 3), and so do those of the gauge
-1-form, χ^♮_0 being 1 there. As Ω_* ∪ 𝒟′ = Ω_* ∪ 𝒟, this gives (1), (2) and (5).
+every metric g_0. On Ω_* ∩ 𝒟′ = Ω_* ∩ {t^♭_* < T̂ + 7/4} the two definitions of ġ agree (Step 3), and so do those of the gauge 1-form,
+χ^♮_0 being 1 there. As Ω_* ∪ 𝒟′ = Ω_* ∪ 𝒟, this gives (1), (2) and (5).
 
 *Step 6 ((3) and (4)).* On {t^♭_* ≥ T̂ + 2}, χ_− = 0, so ġ = D_0𝔤(U′); this is (3), with D_0Φ(U′) in the exact
 classes by [[prop:iii-j3-5-4]]. Where χ_K = 1: g_(p⃗) = g_b for every p⃗ ([[eq:iii-i7-1-3]]), so
@@ -412,19 +412,19 @@ partition of unity subordinate to a cover of Σ_U by such charts and to U ∩ {t
 t^♭_* is not defined. So Ω_* ∪ 𝒟 = N_ν, and DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
 
 *ḣ is smooth on the interior of 𝒟.* It suffices that ḣ lie in H^k near each interior point, for every k: Sobolev
-embedding then makes every derivative continuous. On the interiors of Ω_(ext,r_1), with its past slab, and of Ω^♮,
-the classes of the proof of [[prop:viii-1-2]] are b-Sobolev spaces of every order k, which near interior points of M
-are the spaces H^k; and ḣ ∈ H^k(𝒦) for every k ((L) of [[sec:s27-local]]). Where 𝒦 meets one of the other two
-pieces, it does so along a spacelike hypersurface (Σ^fut_(r_1) ∩ ∂𝒦 and {ρ′_I = c} ∩ ∂𝒦, [[lem:s27-cover]] (c);
-the boundary hypersurfaces of Ω_(ext,r_1) are spacelike by [[lem:iii-c1-1-1]]), and across it the solutions on the two
-sides have the same restriction and the same first transversal derivative, the one giving the other its data in the
-proof of [[prop:viii-1-2]]. The hypersurface is noncharacteristic for L^♮, whose principal part is ½□_g ⊗ id. So, applying a transversal derivative
-of order j − 2 to L^♮ḣ = 0 on either side, the j-th transversal derivative of ḣ at the hypersurface is expressed,
-by the same formula on both sides, through derivatives with at most j − 1 transversal ones (as in Step 3 of the proof
-of [[thm:ix-2-2]]); by induction on j, the traces of all derivatives of ḣ of order below k agree from the two sides,
-each side being in H^k up to the hypersurface. A tensor that is H^k on each side of a smooth hypersurface, with these
-traces agreeing, is H^k across it: integrating by parts on each side, its distributional derivatives of order at
-most k carry no part on the hypersurface. So ḣ is H^k near every interior point of 𝒟.
+embedding then makes every derivative continuous. On the interiors of Ω_(ext,r_1), with its past slab, and of Ω^♮, the
+classes of the proof of [[prop:viii-1-2]] are b-Sobolev spaces of every order k, which near interior points of M are the
+spaces H^k; and ḣ ∈ H^k(𝒦) for every k ((L) of [[sec:s27-local]]). Where 𝒦 meets one of the other two pieces, it does so
+along a spacelike hypersurface (Σ^fut_(r_1) ∩ ∂𝒦 and {ρ′_I = c} ∩ ∂𝒦, [[lem:s27-cover]] (c); the boundary hypersurfaces
+of Ω_(ext,r_1) are spacelike by [[lem:iii-c1-1-1]]), and across it the solutions on the two sides have the same
+restriction and the same first transversal derivative, the one giving the other its data in the proof of
+[[prop:viii-1-2]]. The hypersurface is noncharacteristic for L^♮, whose principal part is ½□_g ⊗ id. So, applying a
+transversal derivative of order j − 2 to L^♮ḣ = 0 on either side, the j-th transversal derivative of ḣ at the
+hypersurface is expressed, by the same formula on both sides, through derivatives with at most j − 1 transversal ones
+(as in Step 3 of the proof of [[thm:ix-2-2]]); by induction on j, the traces of all derivatives of ḣ of order below k
+agree from the two sides, each side being in H^k up to the hypersurface. A tensor that is H^k on each side of a smooth
+hypersurface, with these traces agreeing, is H^k across it: integrating by parts on each side, its distributional
+derivatives of order at most k carry no part on the hypersurface. So ḣ is H^k near every interior point of 𝒟.
 
 *ġ is smooth on the interior of N_ν.* The interior of N_ν is covered by two open sets: its points with t^♭_* > 1,
 which lie in the interior of Ω_*, and its points outside the closed set {t^♭_* ≥ T̂ + 7/4}, which lie in 𝒟′
@@ -591,7 +591,7 @@ field X := w^♯, which live on all of Ω′, and the extension by zero in its S
 
 **Lemma {#lem:ix-2-1}** (Pointwise identities.) At the Ricci-flat g:
 
-(a) 2L⁰ and 2δ_gG_gδ*_g have principal part −g^(αβ)∂_α∂_β ⊗ id, so principal symbol g⁻¹(ζ, ζ) Id. In fact
+(a) 2L⁰ and 2δ_gG_gδ*_g have principal part −g^(αβ)∂_α∂_β ⊗ id, so principal symbol g⁻¹(ζ, ζ) Id (∂ → iζ). In fact
 
     2L⁰k = −∇^α∇_α k + ([∇^λ, ∇_μ]k_λν + [∇^λ, ∇_ν]k_λμ)_(μν),        2δ_gG_gδ*_g w = −∇^α∇_α w,
 
@@ -678,11 +678,11 @@ Uniqueness up to Killing fields is
 k_0 := k − ℒ_(ψZ)g has DRic(k_0) = 0 ([[lem:ix-2-1]] (b)), and it induces zero data: those of ℒ_(ψZ)g and ℒ_Zg agree,
 as ψZ = Z near Σ_U. If k_0 = ℒ_(X_0)g, then k = ℒ_(X_0+ψZ)g. So we may assume Z = 0.
 
-*Step 1 (the gauge vector field).* Zero data means k(e_i, e_j) = 0 on Σ_U (γ̇ = 0) and K̇ = 0. Let Y be the vector
-field of [[lem:ix-2-1]] (e) on Σ_U, smooth, as Y^♭ = k(n, ·) + ½k(n, n)n^♭. Υ̇⁰(k) = −δ_gG_gk is a 1-form on Ω′_+,
-smooth up to Σ_U. Let F be a smooth 1-form on Ω′ with F = −Υ̇⁰(k) on Ω′_+: [[sec:ix-0]] extends Υ̇⁰(k) to an open
-neighbourhood V of Ω′_+ in Ω′, and a smooth function equal to 1 on the closed set Ω′_+ with support in V (smooth
-Urysohn) extends it by 0 beyond. By [[lem:ix-1-1]] on Ω′, with P := 2δ_gG_gδ*_g ([[lem:ix-2-1]] (a)), there is a smooth 1-form w on Ω′ with
+*Step 1 (the gauge vector field).* Zero data means k(e_i, e_j) = 0 on Σ_U (γ̇ = 0) and K̇ = 0. Let Y be the vector field
+of [[lem:ix-2-1]] (e) on Σ_U, smooth, as Y^♭ = k(n, ·) + ½k(n, n)n^♭. Υ̇⁰(k) = −δ_gG_gk is a 1-form on Ω′_+, smooth up
+to Σ_U. Let F be a smooth 1-form on Ω′ with F = −Υ̇⁰(k) on Ω′_+: [[sec:ix-0]] extends Υ̇⁰(k) to an open neighbourhood V
+of Ω′_+ in Ω′, and a smooth function equal to 1 on the closed set Ω′_+ with support in V (smooth Urysohn) extends it by
+0 beyond. By [[lem:ix-1-1]] on Ω′, with P := 2δ_gG_gδ*_g ([[lem:ix-2-1]] (a)), there is a smooth 1-form w on Ω′ with
 
     2δ_gG_gδ*_g w = F,        w|_(Σ_U) = 0,        ∇_n w|_(Σ_U) = Y^♭.
 
@@ -724,9 +724,8 @@ so h = 0 on Ω′_+. ∎
 
 **Corollary {#cor:ix-2-3}** (The solution of [[thm:viii-2-2]] in any gauge.) Let (γ̇, k̇), ġ, S′, S⁰′, ḃ and U′ be as
 in [[thm:viii-2-2]], U ⊂ U^♯ open, Ω′ := D_U(Σ_U) and Ω′_+ := Ω′ ∩ {t_IVP ≥ 0} ⊂ N⁺ ⊂ N_ν. Let ġ′ be a symmetric
-2-tensor
-on Ω′_+, smooth up to Σ_U, with DRic(ġ′) = 0, that induces on Σ_U the data (γ̇, k̇) plus those of ℒ_Z g, for a vector
-field Z near Σ_U in Ω′_+, smooth up to Σ_U. Then
+2-tensor on Ω′_+, smooth up to Σ_U, with DRic(ġ′) = 0, that induces on Σ_U the data (γ̇, k̇) plus those of ℒ_Z g, for
+a vector field Z near Σ_U in Ω′_+, smooth up to Σ_U. Then
 
     ġ′ = ġ + ℒ_X g     on Ω′_+
 
@@ -741,22 +740,24 @@ N⁺, and there the remainder has the rate [[eq:viii-2-3]]: every linearised vac
 to the linearised diffeomorphism ℒ_X g, to a linearised Myers–Perry metric, with X itself not controlled
 ([[rem:ix-2-4]] (b)). For a general open U this holds only on the part of that region which Ω′_+ contains.
 
-*Proof.* ġ is smooth on the interior of N with DRic(ġ) = 0, and its restriction to N⁺ ⊃ Ω′_+ is smooth up to Σ°
-([[lem:s29-g-on-n]]). Near Σ^IVP in N, ġ = ḣ + ġ_(S′) with ġ_(S′) = −ℒ_(V(S′))g: the set
-𝒟′ = 𝒟 ∖ {t^♭_* ≥ T̂ + 7/4} of [[thm:viii-2-2]] (2) contains N ∩ {t_IVP < T̂ + 7/4}, as t^♭_* ≤ t_* ≤ t_IVP where
-t^♭_* is defined. ḣ induces (γ̇, k̇) ([[lem:viii-1-1]] (1), which allows a tensor given on one side up to Σ^IVP, with
-the data of [[prop:viii-1-2]]). So k := ġ′ − ġ is smooth up to Σ_U on Ω′_+, has DRic(k) = 0 there, and induces the
-data of ℒ_(Z+V(S′))g. [[thm:ix-2-2]] gives k = ℒ_X g. The second display is [[eq:viii-2-2]] with ġ = ġ′ − ℒ_X g. ∎
+*Proof.* ġ is smooth on the interior of N_ν with DRic(ġ) = 0, and its restriction to N⁺ ⊃ Ω′_+ is smooth up to Σ°
+([[lem:s29-g-on-n]]). Near Σ^IVP in N_ν, ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′) with ġ_(S′) + ġ⁰_(S⁰′) = −ℒ_(V(S′)+V⁰(S⁰′))g
+([[eq:viii-0-2]]): the set 𝒟′ = 𝒟 ∖ {t^♭_* ≥ T̂ + 7/4} of [[thm:viii-2-2]] (2) contains N_ν ∩ {t_IVP < T̂ + 7/4}, as
+t^♭_* ≤ t_* ≤ t_IVP where t^♭_* is defined. ḣ induces (γ̇, k̇) ([[lem:viii-1-1]] (1), which allows a tensor given on
+one side up to Σ^IVP, with the data of [[prop:viii-1-2]]). The induced data being linear in the tensor and ℒ_Xg linear
+in X, k := ġ′ − ġ is smooth up to Σ_U on Ω′_+, has DRic(k) = 0 there, and induces the data of
+ℒ_(Z+V(S′)+V⁰(S⁰′))g, where Z + V(S′) + V⁰(S⁰′) is a vector field near Σ_U in Ω′_+, smooth up to Σ_U.
+[[thm:ix-2-2]] gives k = ℒ_X g. The second display is [[eq:viii-2-2]] with ġ = ġ′ − ℒ_X g. ∎
 
-**Remark {#rem:ix-2-4}** (What is and is not asserted.) (a) The statement is the linear counterpart of the gauge
-comparison that [[rem:vii-4-1]] leaves to the nonlinear theory; it is proved here for the linearisation only.
+**Remark {#rem:ix-2-4}** (What is and is not asserted.) (a) The statement is the linear counterpart of the nonlinear
+comparison of [[rem:vii-4-1]] ([[lem:interior-one-spacetime]]); it is proved here for the linearisation only.
 
-(b) Nothing is asserted here about the size or decay of X. X solves a linear wave equation with right side Θ(k) and
-its own Cauchy data, and its behaviour at ℐ⁺ and K⁺ depends on the gauge of ġ′. A solution in the Regge–Wheeler-type
-gauge or in the harmonic gauge with the same data, given on N⁺, the future of Σ^IVP in {r > r_♭}, and smooth up to
-Σ°, is ġ + ℒ_X g there ([[cor:ix-2-3]] with U = U^♯), and so settles modulo ℒ_X g; the decay in those gauges is the
-decay of ℒ_X g there. It is proved in the Regge–Wheeler-type gauge in [[thm:rw-settling]], and for the harmonic-gauge
-representative in [[thm:harmonic-rate]].
+(b) Nothing is asserted here about the size or decay of X. X solves a linear wave equation with right side
+−Υ̇⁰(k) = δ_gG_gk and its own Cauchy data, and its behaviour at ℐ⁺ and K⁺ depends on the gauge of ġ′. A solution in the
+Regge–Wheeler-type gauge or in the harmonic gauge with the same data, given on N⁺, the future of Σ^IVP in {r > r_♭}, and
+smooth up to Σ°, is ġ + ℒ_X g there ([[cor:ix-2-3]] with U = U^♯), and so settles modulo ℒ_X g; the decay in those
+gauges is the decay of ℒ_X g there. It is proved in the Regge–Wheeler-type gauge in [[thm:rw-settling]], and for the
+harmonic-gauge representative in [[thm:harmonic-rate]].
 
 (c) In the class, if U is G-invariant (for instance U = U^♯: G preserves t_IVP and |x|), so that Ω′ and Ω′_+ are
 G-stable, the data (γ̇, k̇) are in the class of [[cor:viii-2-3]], and ġ′ is G-invariant, then X may be taken

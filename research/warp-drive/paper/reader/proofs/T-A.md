@@ -155,7 +155,7 @@ In every row hM₀/𝒬_min ≤ ϱ, resp. hM₀/V_min ≤ ϱ, and L_Ξ < 1; in t
 (Im ζ)² = (1715x/8 − x² − 4)/16 and |ζ|² = (8x² + 2195x/8 + 96)/16, each increasing on the intervals used, and, on
 [0.018, 0.5], from the bound 0.40 of [[lem:s14-sextic-split]] (iv).
 
-*Used in* [[lem:s14-sextic-large]].
+*Used in* [[lem:s14-sextic-large]] and [[lem:s14-crossings]].
 
 #### The crossings {#sec:tab-a-crossings}
 
@@ -224,7 +224,7 @@ Every entry of the two difference columns is within 0.005 of the exact differenc
 −392.128…. So every value l(l + 2) differs from K_n by more than 14.39 for n ≤ 17 and by more than 321.67 for
 n ≥ 18, and from K′_n by more than 141.07 for n ≤ 28 and by more than 392.12 for n ≥ 29.
 
-*Used in* [[prop:s14-damping-distance]].
+*Used in* [[prop:s14-damping-distance]] and [[lem:s14-crossings]].
 
 #### The vector type {#sec:tab-a-vector}
 

@@ -21,8 +21,9 @@ spacetime M of [[eq:iii-b-2-1]], its coordinates (t, x), the functions T_m, ψ a
 t_IVP, the initial surface Σ^IVP := t_IVP⁻¹(0) and the radius R₃ beyond which t_IVP = t − C″ are those of [[ch:s11]]
 ([[eq:iii-b-3-3]], [[eq:iii-b-3-6]], [[lem:iii-b-3-7]]). Since ψ_IVP = ψ on [r_♭, 5R₁] and ψ′ > 0 on [3R₁, ∞), R₃ ≥ 5R₁.
 Ω_*, t^♭_* and T̂ are those of [[sec:iii-k-0]] and [[prop:iii-k-1-2]], and 𝒟_0 := 𝒟_(0,0) is the region 𝒟_(S,S⁰) of
-[[prop:iii-k-1-2]] at (S, S⁰) = (0, 0), φ_(0,0) being the identity ([[eq:s27-motion]]). The domain Ω′ of the form
-[[eq:omega]] with constants (T′, δ′_0), a′ := q0 − δ′_0, V′ := v_end + T′ and τ′_end := max_(v ≤ V′)(v − r_q(v)), the
+[[prop:iii-k-1-2]] at (S, S⁰) = (0, 0); φ_(0,0) = ψ_0 ∘ φ_0 ([[eq:s27-motion]]) is the identity, its factors being the
+time-1 flows of the vector fields V(0) and V⁰(0) of [[lem:iii-b-5-1]] and [[lem:iii-i7-1-1]] (a), which are zero, these
+fields being linear in S. The domain Ω′ of the form [[eq:omega]] with constants (T′, δ′_0), a′ := q0 − δ′_0, V′ := v_end + T′ and τ′_end := max_(v ≤ V′)(v − r_q(v)), the
 constant c₀ of the chart (t, x) = (τ + T_(μ_end)(|x|) + c₀, x), which places Σ^IVP in the coordinates (τ, x) of
 [[sec:background]], and the gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and [[thm:settling-precise]]; Ω′_+ := Ω′ ∩
 {v ≥ v_end + 1}. G = O(2) × O(2) is the group of [[sec:s27-class]].
@@ -46,11 +47,13 @@ so the inner boundary {r = r_♭} of M is spacelike, for every final mass.
 
 The stability theory is written for every inner radius r_♭ ∈ (0, ½R₁] ([[ch:s11]], [[def:s12-radii]], [[ch:s14]],
 [[ch:s27]]); in [[ch:s14]] the inner radius r_♯ of the analysis near the black hole is r_♭ ([[sec:iv5-0]]). One
-explicit fact at small radii is the sign of the damping 1-form, which (i) and (ii) of [[prop:np-10-14]] give at every
-r > 0 up to the saddle. The next lemma writes out the inequalities on the inner piece of the 1-form, all of them strict.
+explicit fact at small radii is the sign of the damping 1-form, which [[prop:np-10-14]] gives at mass 1: (i) at every
+r > 0, and (ii) on (0, 99.375], which ends just inside the saddle point r_0 = 100 of the 1-form. The next lemma writes
+out the inequalities on the inner piece of the 1-form, all of them strict.
 
-**Lemma {#lem:interior-damping}** (The damping 1-form inside half the horizon radius.) Let μ = 1, g and c be as in
-[[prop:np-10-14]], and e its constant. On the piece 0 < r ≤ 50 of [[eq:s14-cform]], c = α(dt + ¼ dr) with α = 1/200,
+**Lemma {#lem:interior-damping}** (The damping 1-form inside half the horizon radius.) Let m = 1, so that r_h = 1 (the
+case μ_end = 1), let g and c be as in [[prop:np-10-14]], and e its constant. On the piece 0 < r ≤ 50 of
+[[eq:s14-cform]], c = α(dt + ¼ dr) with α = 1/200,
 and for every r in (0, 50]
 
     g⁻¹(c, c) = α²(−3/2 + (9/16) f) < 0,    g⁻¹(c, dt) = α(−7/4 + (3/4) f) < −α,    g⁻¹(c, dr) = α(¼ + (3/4) r⁻²) > 0;
@@ -85,14 +88,15 @@ r_♭, hence on μ_end. The part {r_♭ ≤ r < q_end} of the domain lies beyond
 *Proof.* *The inner radius.* r_♭ ∈ (0, ½R₁] since q_end ≤ R₁, and [[thm:settling-precise]] holds at every such
 inner radius, its choices depending on r_♭ ([[sec:vii-4]]); its g is the development of [[thm:settling]] (i). The
 stability theory it rests on is written at every r_♭ ∈ (0, ½R₁] ([[ch:s11]], [[def:s12-radii]], [[ch:s14]],
-[[ch:s27]]), the inner radius r_♯ of [[sec:iv5-0]] being r_♭. The radius enters it through choices of small constants
-that a smaller inner radius does not make harder, and through four facts at the inner radius, each of which holds at
-r_♭: the Kerr–Schild family is defined on {|x| ≥ ½r_♭} ([[lem:s11-ks-domain]]); ψ ≥ 0, and dt_* and dt_IVP are
-timelike on {|x| ≥ r_♭} ([[lem:iii-b-3-7]]); dr is future timelike inside the horizon for g_(b₀), as shown above, and
-for b near b₀ uniformly on the compact {½r_♭ ≤ r ≤ ¾R₁}, by continuity in b ([[lem:iv5-0-3]] (c)); and the damping
-1-form has the signs of [[prop:np-10-14]] (i)–(ii) on all of (0, r_h/2], which contains the collar down to ½r_♭
-([[prop:np-10-14]], [[lem:interior-damping]]), and for b near b₀ on the compact {r_♭ ≤ r ≤ ½r_h}, by continuity in b,
-the inequalities being strict there ([[lem:iv5-0-5]]). [[lem:vii-1-2]] takes δ′_0 in
+[[ch:s27]]), the inner radius r_♯ of [[sec:iv5-0]] being r_♭. The radius enters it through choices of small
+constants, which exist at every r_♭ > 0 and depend on it, and through four facts at the inner radius, each of which
+holds at r_♭: the Kerr–Schild family is defined on {|x| ≥ ½r_♭} ([[lem:s11-ks-domain]]); ψ ≥ 0, and dt_* and dt_IVP
+are timelike on {|x| ≥ r_♭} ([[lem:iii-b-3-7]]); dr is future timelike inside the horizon for g_(b₀), as shown above,
+and for b near b₀ uniformly on the compact {½r_♭ ≤ r ≤ ¾R₁}, by continuity in b ([[lem:iv5-0-3]] (c)); and the damping
+1-form has the signs of [[prop:np-10-14]] (i)–(ii) for g_(b₀) on all of (0, r_h/2], which contains the collar down to
+½r_♭ ([[prop:np-10-14]], [[lem:interior-damping]]), and, the inequalities being strict there, for b near b₀ by
+continuity in b: (i) on the compact {½r_♭ ≤ r ≤ ½r_h} ([[sec:iv5-0]]) and (ii) on {r_♭ ≤ r ≤ ½r_h}
+([[lem:iv5-0-5]]). [[lem:vii-1-2]] takes δ′_0 in
 (max(0, q0 − ½r_♭), q0), which is not empty, so that a′ = q0 − δ′_0 < ½r_♭; [[thm:main]] holds on such an Ω′.
 
 *The domain.* g is defined on Ω_* ∪ 𝒟_0 ([[thm:settling-precise]] (i)). This set is M ∩ {t_IVP ≥ 0}. Indeed,
@@ -121,8 +125,38 @@ while 256 · 72 l5⁴ = 1.8432. For a seed μ0 = 1000 l5², μ_end ≥ μ0 > 16�
 g is the development of the glued data (γ_λ, k_λ) of [[thm:settling]] (i), which equal the data of g_λ on
 Σ^IVP ∩ {r ≤ R} and the data of the Tangherlini metric g^KS_(m_λ,0) on Σ^IVP ∩ {r ≥ 4R} ([[cor:vii-2-3]],
 [[ch:after-shell]]). On the domain of dependence of Σ^IVP ∩ {r < R}, g and g_λ are vacuum developments of the same
-data, so they agree up to a diffeomorphism. The following lemma states this precisely; it makes g_λ, near the hole
-just before Σ^IVP, and g, after Σ^IVP, one vacuum spacetime.
+data, so they agree up to a diffeomorphism. [[lem:interior-one-spacetime]] states this precisely; it makes g_λ, near
+the hole just before Σ^IVP, and g, after Σ^IVP, one vacuum spacetime. Its proof compares g_λ with g_(b₀) on a
+neighbourhood of Σ^IVP ∩ {r_♭ ≤ r ≤ R}, which reaches below r_♭, where [[lem:vii-1-2]] (a) is not stated. The next
+lemma gives that comparison; its part (a) is [[lem:vii-1-2]] (a) on a larger set, and the proof of (a) there extends to
+it, its formula holding at every r > 0.
+
+**Lemma {#lem:interior-chart}** (g_λ and g_(b₀) in the chart of [[lem:vii-1-2]].) In the chart
+(t, x) = (τ + T_(μ_end)(|x|) + c₀, x) of [[lem:vii-1-2]]:
+
+(a) the Tangherlini metric g^KS_(μ_end,0) = η + (μ_end/r²)(dτ + dr)² of [[lem:vii-1-1]] is g_(b₀) on
+ℝ_t × {|x| ≥ ½r_♭}, and g0 = g_(b₀) on {v ≥ v_end, |x| ≥ ½r_♭};
+
+(b) with C_J and λ_1 those of [[lem:vii-1-1]], the components of g_λ − g_(b₀) in the chart are at most 25C_Jλ on
+Ω′_+ ∩ {|x| ≥ ½r_♭} for 0 < λ ≤ λ_1; and for every compact set Q ⊂ Ω′_+ ∩ {|x| ≥ ½r_♭} there are C_Q and λ_Q > 0 such
+that the components of g_λ⁻¹ − g_(b₀)⁻¹ in the chart are at most C_Qλ on Q for 0 < λ ≤ λ_Q.
+
+*Proof.* (a) The map (t, x) ↦ (τ, x) is the map Φ_(μ_end)(t, x) = (t − T_(μ_end)(|x|), x) of [[eq:iii-b-3-3]]
+followed by the translation τ ↦ τ − c₀. T_(μ_end) is smooth on [0, ∞) and constant on [0, 2R₁], so this is a
+diffeomorphism of ℝ × (ℝ⁴ ∖ 0). The coefficients of g^KS_(μ_end,0) do not depend on τ, so the translation preserves it,
+and in the chart g^KS_(μ_end,0) is Φ_(μ_end)*g^KS_(μ_end,0), which [[eq:iii-b-3-3]] defines as g_(b₀) on
+ℝ_t × {|x| ≥ ½r_♭}. On {v ≥ v_end}, μ = μ_end, and g0 = η + (μ_end/r²) dv ⊗ dv with dv = dτ + dr ([[eq:background]]),
+which is g^KS_(μ_end,0) at every r > 0.
+
+(b) By [[lem:vii-1-1]] with j = 0, the components of g_λ − g^KS_(μ_end,0) in the coordinates (τ, x) are at most C_Jλ
+on Ω′_+ for 0 < λ ≤ λ_1. In the chart, dτ = dt − T′_(μ_end)(|x|) x̂ · dx and the dxⁱ are unchanged, and
+|T′_(μ_end)(ϱ)| = 2χ_∞(ϱ)μ_end/(ϱ² − μ_end) ≤ 2/3, as ϱ² ≥ 4μ_end on the support of χ_∞; so every entry of this change of
+basis has absolute value at most 1, and a component in the chart is a sum of at most 25 components in (τ, x), each
+multiplied by two such entries. With (a) this gives the first bound. On Q, g_(b₀)⁻¹ is continuous, so the operator norm
+of its matrix is at most some B_Q. Let E be the matrix of g_λ − g_(b₀); its operator norm is at most 125C_Jλ, five
+times its largest entry. For λ ≤ λ_Q := min(λ_1, (250C_JB_Q)⁻¹), g_(b₀)⁻¹E has operator norm at most ½, so
+g_λ = g_(b₀)(I + g_(b₀)⁻¹E) is invertible, with g_λ⁻¹ of operator norm at most 2B_Q by the Neumann series, and
+g_λ⁻¹ − g_(b₀)⁻¹ = −g_λ⁻¹Eg_(b₀)⁻¹ has operator norm, and so components, at most C_Qλ with C_Q := 250C_JB_Q². ∎
 
 **Lemma {#lem:interior-one-spacetime}** (One vacuum spacetime.) Let Σ := Σ^IVP ∩ {r_♭ < r < R}, with the data (γ, k)
 that g_λ and g both induce on it; in the chart of [[lem:vii-1-2]] Σ is one set for both metrics, and the sets A and B

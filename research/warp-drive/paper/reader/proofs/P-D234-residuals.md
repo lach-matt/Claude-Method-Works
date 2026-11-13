@@ -4,7 +4,8 @@ This section proves the residual bounds of [[ch:ten-l5]] for two explicit metric
 first seed where the solution is resolved. The metrics are polynomials in a chart whose coefficients are printed in
 [[sec:tab-d-coefficients]]; the bounds are proved from those coefficients by Taylor's theorem and explicit
 enclosures, and the resulting numbers are listed in [[sec:tab-d-points]] and [[sec:tab-d-boxes]]. No theorem of this
-paper uses these bounds.
+paper uses these bounds, and no bound for the residual over the whole region Π of [[eq:tl5-region]] is stated: no
+argument of the paper uses one.
 
 #### The chart and the approximants {#sec:tl5-objects}
 
@@ -26,22 +27,25 @@ in the coordinates (t, σ, x). Since u + 1 = a sinh ξ, we have dξ/du = 1/(a co
 Here φ₁ = dt/du and φ₂ = d²t/du², since dφ₁/du = −sinh ξ/(a² h_ξ cosh³ ξ) = −φ₁² h_ξ tanh ξ.
 
 **Definition {#def:tl5-approximants}** (the approximants). Let T_k be the Chebyshev polynomial of degree k,
-T_k(cos θ) = cos kθ. Each of the two tables of [[sec:tab-d-coefficients]] gives, for every F ∈ {R, m, n, W, s}, real
-numbers C^F_ijk (0 ≤ i ≤ 24, 0 ≤ j ≤ 30, 0 ≤ k ≤ 15), printed as exact decimals; put
-
-    F(t, σ, x) := Σ_i Σ_j Σ_k C^F_ijk T_i(t) T_j(σ) T_k(x).                                            {#eq:tl5-fields}
-
-With P := (2(1 + x)m − (1 − x)n)/3 and Q := (2(1 − x)n − (1 + x)m)/3 the approximant is the metric
+T_k(cos θ) = cos kθ. Each of the two tables of [[sec:tab-d-coefficients]] gives, for every F ∈ {R, m, n, W, s},
+integers N^F_ijk (0 ≤ i ≤ 24, 0 ≤ j ≤ 30, 0 ≤ k ≤ 15); put C̃^F_ijk := N^F_ijk × 10⁻¹⁸ and ε₀ := 5 × 10⁻¹⁹. An
+approximant of the first (second) kind is the metric
 
     g := −4 e^(2W) du dv + R² e^(−2(P+Q)) (dx − (1 − x²) s du)² / (4(1 − x²))
-         + (1/2) R² (1 + x) e^(2P) dφ1² + (1/2) R² (1 − x) e^(2Q) dφ2².                               {#eq:tl5-metric}
+         + (1/2) R² (1 + x) e^(2P) dφ1² + (1/2) R² (1 − x) e^(2Q) dφ2²,                               {#eq:tl5-metric}
 
-The first table defines the first approximant g^(1), the second table the second approximant g^(2). (The first is
-a least-squares fit of the discrete solution of the characteristic problem of [[ch:ten-l5]] on one null grid; the
-second fits the Richardson combination of the solutions on two nested grids. Only the printed coefficients enter
-the proofs.) At every point and on every box used below, the field R is positive (on a box, the enclosure of the
-constant term of its jet in [[lem:tl5-jet-enclosure]] is a positive interval), and there [[eq:tl5-metric]] is a
-Lorentzian metric of the class [[eq:class-metric]].
+with P := (2(1 + x)m − (1 − x)n)/3 and Q := (2(1 − x)n − (1 + x)m)/3, whose fields are
+
+    F(t, σ, x) := Σ_i Σ_j Σ_k C^F_ijk T_i(t) T_j(σ) T_k(x)                                             {#eq:tl5-fields}
+
+for real numbers C^F_ijk with |C^F_ijk − C̃^F_ijk| ≤ ε₀ for all F, i, j, k, the C̃ taken from the first (second)
+table. The printed approximants, C = C̃, are of these kinds. So are the two fitted approximants: the first is a
+least-squares fit of the discrete solution of the characteristic problem of [[ch:ten-l5]] on one null grid, the
+second a fit of the Richardson combination of the solutions on two nested grids, and each printed C̃ is the
+corresponding fitted coefficient rounded to the nearest multiple of 10⁻¹⁸. Every result below holds for every
+approximant of the kind named; f^(1)_ab and f^(2)_ab denote the residuals of approximants of the first and second
+kind. At every point and on every box used below, R is positive (its enclosure, by [[lem:tl5-jet-enclosure]], is a
+positive interval), and there [[eq:tl5-metric]] is a Lorentzian metric of the class [[eq:class-metric]].
 
 **Definition {#def:tl5-residual}** (the residual). Let Ω² := e^(2W), b := (1 − x²) s and
 
@@ -174,7 +178,7 @@ chain rules; for instance ∂_x(−(1/2) log(1 − x²)) = x/w and ∂_x(x/w) = 
 
 [[eq:tl5-components]], [[eq:tl5-derivatives]] and [[eq:tl5-frame-derivatives]] are the formula used below. Its
 operations are carried out in the order written, a product of several factors from left to right; this fixes the
-enclosures of [[lem:tl5-jet-enclosure]] (on single points the order is immaterial).
+enclosures of [[lem:tl5-jet-enclosure]].
 
 #### Bounds at points and on boxes {#sec:tl5-enclosures}
 
@@ -195,22 +199,53 @@ f(p) = Σ_(|α|≤2) f_α(c) y^α + Σ_(|α|=3) f_α(c + θy) y^α, and |y^α| �
 
     c′_i := (2/(1 + δ_i0)) Σ_(i′ > i, i′ − i odd) i′ c_i′.                          {#eq:tl5-cheb-derivative}
 
-Consequently |F_γ| ≤ L^F_γ := Σ_ijk |C^(F,γ)_ijk|/γ! on [−1, 1]³.
+Consequently |F_γ| ≤ Σ_ijk |C^(F,γ)_ijk|/γ! on [−1, 1]³.
 
 *Proof.* The identity T′_k = 2k(T_(k−1) + T_(k−3) + …), with the last term T_0 halved when k is odd, follows from
 T′_k(cos θ) = k sin kθ/sin θ and 2 sin θ (cos (k−1)θ + cos (k−3)θ + …) = sin kθ. Summing over k gives
 [[eq:tl5-cheb-derivative]]; |T_k| ≤ 1 on [−1, 1] gives the bound. ∎
 
-**Lemma {#lem:tl5-field-box}** (Taylor coefficients of a field on a box). Let b be a box with centre c and
-half-widths h, F a field and γ a multi-index. For every p ∈ b,
+**Lemma {#lem:tl5-rounding}** (the rounding). For n, a ≥ 0, T_n^(a)(1) = Π_(r<a) (n² − r²)/(2r + 1) and
+|T_n^(a)| ≤ T_n^(a)(1) on [−1, 1]. Hence, if two fields F and F̃ of the form [[eq:tl5-fields]] have coefficients
+that differ by at most ε₀, then for every multi-index γ
 
-    |F_γ(p) − F_γ(c)| ≤ Σ_d (γ_d + 1) |F_(γ+e_d)(c)| h_d
-                         + (1/2) Σ_(d,d′) (γ_d + 1)(γ_d′ + δ_dd′ + 1) L^F_(γ+e_d+e_d′) h_d h_d′,
+    sup_([−1,1]³) |∂^γ F − ∂^γ F̃| ≤ ε₀ M_γ,      M_γ := S₂₄^(γ₁) S₃₀^(γ₂) S₁₅^(γ₃),   S_n^(a) := Σ_(i=0..n) T_i^(a)(1).
+                                                                                       {#eq:tl5-rounding}
+
+In particular S₂₄^(a) = 25, 4,900, 586,040, S₃₀^(a) = 31, 9,455, 1,754,848 and S₁₅^(a) = 16, 1,240, 59,024 for
+a = 0, 1, 2, so that the values of the fields move by at most ε₀M₀ = 6.2 × 10⁻¹⁵, their first derivatives in t, σ and
+x by at most 1.3 × 10⁻¹², 1.9 × 10⁻¹² and 4.9 × 10⁻¹³, and their second derivatives in tt, tσ, tx, σσ, σx and xx by
+at most 1.5 × 10⁻¹⁰, 3.8 × 10⁻¹⁰, 9.5 × 10⁻¹¹, 3.6 × 10⁻¹⁰, 1.5 × 10⁻¹⁰ and 2.3 × 10⁻¹¹.
+
+*Proof.* T_n solves (1 − x²)y″ − xy′ + n²y = 0. Differentiating a times gives (1 − x²)y^(a+2) − (2a + 1)x y^(a+1)
++ (n² − a²)y^(a) = 0, and at x = 1 this reads (2a + 1) T_n^(a+1)(1) = (n² − a²) T_n^(a)(1); with T_n(1) = 1 the
+product formula follows. The map [[eq:tl5-cheb-derivative]] has nonnegative entries, so T_n^(a) = Σ_l β_l T_l with
+β_l ≥ 0, and |T_n^(a)(x)| ≤ Σ_l β_l = T_n^(a)(1) because |T_l| ≤ 1 = T_l(1). Then
+|∂^γ(F − F̃)| ≤ Σ_ijk |C_ijk − C̃_ijk| |T_i^(γ₁)| |T_j^(γ₂)| |T_k^(γ₃)| ≤ ε₀ M_γ. Finally S_n^(1) = Σ i² and
+S_n^(2) = Σ i²(i² − 1)/3, whose values are the stated ones. ∎
+
+**The enclosures at a point.** For an approximant of either kind, its coefficients are known only to lie within ε₀ of
+the printed ones. At a point c we therefore use, for every field and multi-index γ, the interval
+
+    J^F_γ(c) := [F̃_γ(c) − r^F_γ(c), F̃_γ(c) + r^F_γ(c)],      r^F_γ(c) := ε₀ Σ_ijk |∂^γ(T_i T_j T_k)(c)|/γ!,
+
+with F̃ the printed field; F_γ(c) ∈ J^F_γ(c) for every approximant of the kind. Put also
+
+    L^F_γ := Σ_ijk |C̃^(F,γ)_ijk|/γ! + ε₀ M_γ/γ!;
+
+by [[lem:tl5-chebyshev]] and [[lem:tl5-rounding]], |F_γ| ≤ L^F_γ on [−1, 1]³ for every approximant of the kind.
+
+**Lemma {#lem:tl5-field-box}** (Taylor coefficients of a field on a box). Let b be a box with centre c and
+half-widths h, F a field of an approximant and γ a multi-index. For every p ∈ b, F_γ(p) lies in J^F_γ(c) enlarged on
+each side by
+
+    Σ_d (γ_d + 1) max|J^F_(γ+e_d)(c)| h_d + (1/2) Σ_(d,d′) (γ_d + 1)(γ_d′ + δ_dd′ + 1) L^F_(γ+e_d+e_d′) h_d h_d′,
 
 where e_d is the d-th unit multi-index.
 
 *Proof.* ∂_d F_γ = (γ_d + 1) F_(γ+e_d) and ∂_d′ ∂_d F_γ = (γ_d + 1)(γ_d′ + δ_dd′ + 1) F_(γ+e_d+e_d′). Taylor's formula
-for F_γ at c to first order, with the Lagrange remainder bounded by [[lem:tl5-chebyshev]], gives the claim. ∎
+for F_γ at c to first order, with the Lagrange remainder bounded by |F_(γ+e_d+e_d′)| ≤ L^F_(γ+e_d+e_d′), gives the
+claim. ∎
 
 **Definition {#def:tl5-jets}** (jets and enclosures). The jet of f at p is J_p f := (f_α(p))_(|α|≤3), twenty numbers.
 For jets a, a′ put (a + a′)_α := a_α + a′_α and (aa′)_α := Σ_(β+β′=α) a_β a′_β′; for a jet a write a₀ for its
@@ -221,89 +256,89 @@ coefficient at α = 0 and N := a − a₀ (the jet a with a₀ replaced by 0), a
 
 Then J_p(fg) = (J_p f)(J_p g), J_p(1/f) = 1/J_p f, J_p √f = √(J_p f) and J_p e^f = e^(J_p f), because the Taylor
 coefficients of order at most 3 of a product or of a composition depend only on those of the factors, and
-N^4 = 0 in this product. An enclosure of a jet on b is a family of closed intervals (I_α)_(|α|≤3) with
-(J_p f)_α ∈ I_α for every p ∈ b. Intervals are added and multiplied by the endpoint rules
-[p₁, p₂] + [q₁, q₂] = [p₁ + q₁, p₂ + q₂] and [p₁, p₂][q₁, q₂] = [min, max] of the four products p_i q_j; for a jet
-whose constant term lies in an interval [p₁, p₂] with p₁ > 0, the coefficients a₀^(−j−1), a₀^(1/2−j) and e^(a₀) are
-monotone in a₀ and are enclosed by their values at p₁ and p₂.
+N^4 = 0 in this product. An enclosure of a jet on a set is a family of closed intervals (I_α)_(|α|≤3) containing the
+jet at every point of the set and for every approximant of the kind considered. Intervals are added and multiplied by
+the endpoint rules [p₁, p₂] + [q₁, q₂] = [p₁ + q₁, p₂ + q₂] and [p₁, p₂][q₁, q₂] = [min, max] of the four products
+p_i q_j; for a jet whose constant term lies in an interval [p₁, p₂] with p₁ > 0, the coefficients a₀^(−j−1),
+a₀^(1/2−j) and e^(a₀) are monotone in a₀ and are enclosed by their values at p₁ and p₂.
 
-**Lemma {#lem:tl5-jet-enclosure}** (the components on a box). Let b be a box in Π. Enclose, for every field and
-|γ| ≤ 5, the coefficient F_γ on b by [[lem:tl5-field-box]]; enclose the jets of x and of ξ = ξ_a + (t + 1)h_ξ on b
-(constant terms ranging over the box, first coefficients 1 and h_ξ); and evaluate [[eq:tl5-chain]],
-[[eq:tl5-derivatives]], [[eq:tl5-frame-derivatives]] and [[eq:tl5-components]] in the order written, with jets,
-by the rules of [[def:tl5-jets]], the jet of ∂_t F having coefficients (α₁ + 1)F_(α+e₁) and that of ∂_t²F
-(α₁ + 1)(α₁ + 2)F_(α+2e₁) (similarly in σ and x). Wherever a reciprocal, a square root or a logarithmic derivative
-is formed, suppose the enclosure of the constant term is a positive interval. Then the result encloses J_p f_ab on b
-for each ab.
+**Lemma {#lem:tl5-jet-enclosure}** (the components on a box and at a point). Let b be a box in Π with centre c.
+Enclose, for every field and |γ| ≤ 5, the coefficient F_γ on b by [[lem:tl5-field-box]]; enclose the jets of x and
+of ξ = ξ_a + (t + 1)h_ξ on b (constant terms ranging over the box, first coefficients 1 and h_ξ); and evaluate
+[[eq:tl5-chain]], [[eq:tl5-derivatives]], [[eq:tl5-frame-derivatives]] and [[eq:tl5-components]] in the order
+written, with jets, by the rules of [[def:tl5-jets]], the jet of ∂_t F having coefficients (α₁ + 1)F_(α+e₁) and that
+of ∂_t²F (α₁ + 1)(α₁ + 2)F_(α+2e₁) (similarly in σ and x). Wherever a reciprocal, a square root or a logarithmic
+derivative is formed, suppose the enclosure of the constant term is a positive interval. Then the result encloses
+J_p f_ab on b for each ab, for every approximant of the kind. The same evaluation with the intervals J^F_γ(c) at the
+single point c gives enclosures J^ab_α(c) of (f_ab)_α(c); with jets of order 0, it gives an interval containing
+f_ab(c) for every approximant of the kind.
 
-*Proof.* Each step is a sum, a product, a reciprocal, a square root or an exponential of jets that, at every p ∈ b,
-contain the jets at p of the functions the formula names; by [[def:tl5-jets]] the exact results are the jets at p of
-the corresponding functions, and the endpoint rules return intervals containing every value the operation takes on
-the given intervals. Induction over the steps gives the claim. ∎
+*Proof.* Each step is a sum, a product, a reciprocal, a square root or an exponential of jets that, at every p ∈ b
+and for every approximant, contain the jets at p of the functions the formula names; by [[def:tl5-jets]] the exact
+results are the jets at p of the corresponding functions, and the endpoint rules return intervals containing every
+value the operation takes on the given intervals. Induction over the steps gives the claim. ∎
 
 **Definition {#def:tl5-certificate}** (the number of a box). For a box b with centre c and half-widths h, let
 
-    κ_ab(b) := Σ_(|α|≤2) |(f_ab)_α(c)| h^α + Σ_(|α|=3) max|I^ab_α| h^α,      κ(b) := max_ab κ_ab(b),
+    κ_ab(b) := Σ_(|α|≤2) max|J^ab_α(c)| h^α + Σ_(|α|=3) max|I^ab_α| h^α,      κ(b) := max_ab κ_ab(b),
                                                                                        {#eq:tl5-certificate}
 
-with (f_ab)_α(c) the exact Taylor coefficients at the centre and I^ab_α the enclosures of [[lem:tl5-jet-enclosure]].
-By [[lem:tl5-taylor]], sup_b max_ab |f_ab| ≤ κ(b). The tables give, for every box, a number at least κ(b), rounded
-upward; since the endpoint rules are exact for each single operation, an evaluation by them never exceeds the
-printed number. At a point p the tables give a number at least max_ab |f_ab(p)|, rounded upward.
+with J^ab_α(c) and I^ab_α the enclosures of [[lem:tl5-jet-enclosure]] at c and on b. By [[lem:tl5-taylor]],
+sup_b max_ab |f_ab| ≤ κ(b) for every approximant of the kind. The tables give, for every box, a number at least κ(b),
+rounded upward; since the endpoint rules are exact for each single operation, an evaluation by them never exceeds
+the printed number. At a point p the tables give a number at least the largest of max|·| over the intervals of
+[[lem:tl5-jet-enclosure]] containing f_ab(p), rounded upward.
 
 #### The bounds {#sec:tl5-bounds}
 
-Let d_k := (1 − cos(π/32))(3/2)^k for 0 ≤ k ≤ 9 and d_10 := 1/4. The x-intervals are the twenty intervals
-[−1 + d_k, −1 + d_(k+1)] and [1 − d_(k+1), 1 − d_k] (0 ≤ k ≤ 9) and the six intervals [−3/4 + r/4, −1/2 + r/4]
-(0 ≤ r ≤ 5); they tile [−x₁, x₁]. The grid G consists of the 24 × 24 × 28 = 16,128 points (t_p, t_q, x_r) with
-t_p := (2p − 23)/24 (0 ≤ p, q ≤ 23) and x_r running over the midpoints of the twenty outer x-intervals and the eight
-numbers −3/4 + (2r + 1)·3/32 (0 ≤ r ≤ 7).
+Let d_k := (1 − cos(π/32))(3/2)^k for 0 ≤ k ≤ 9 and d_10 := 1/4. The grid G consists of the 24 × 24 × 28 = 16,128
+points (t_p, t_q, x_r) with t_p := (2p − 23)/24 (0 ≤ p, q ≤ 23) and x_r running over the midpoints of the twenty
+intervals [−1 + d_k, −1 + d_(k+1)] and [1 − d_(k+1), 1 − d_k] (0 ≤ k ≤ 9) and the eight numbers
+−3/4 + (2r + 1)·3/32 (0 ≤ r ≤ 7).
 
-**Proposition {#prop:tl5-points}** (the residuals at the points of G). At every point of G and for every ab,
+**Proposition {#prop:tl5-points}** (the residuals at the points of G). At every point of G and for every ab, every
+approximant of the first kind satisfies |f^(1)_ab| ≤ 2.42 × 10⁻³ and every approximant of the second kind
+|f^(2)_ab| ≤ 3.73 × 10⁻⁵. Two approximants of the same kind have residuals that differ by at most 1.3 × 10⁻⁷ at
+every point of G. The largest values are taken by f_ll at (−23/24, 23/24, −21/32), where |f^(1)_ll| lies in
+[2.4141, 2.4143] × 10⁻³, and at (−23/24, 23/24, x₆), x₆ := −1 + (d₆ + d₇)/2, where |f^(2)_ll| lies in
+[3.715, 3.728] × 10⁻⁵. In particular 2.41 × 10⁻³ is not an upper bound for |f^(1)_ll| on G; the bound to three
+significant figures is 2.42 × 10⁻³.
 
-    |f^(1)_ab| ≤ 2.42 × 10⁻³   and   |f^(2)_ab| ≤ 3.73 × 10⁻⁵.
+*Proof.* [[sec:tab-d-points]] lists, for each kind and each point of G, an upper bound for max_ab |f_ab| at that
+point over all approximants of the kind, obtained from the intervals of [[lem:tl5-jet-enclosure]] (jets of order 0,
+coefficients in J^F_γ by [[lem:tl5-rounding]]); the largest entries are 242 × 10⁻⁵ and 373 × 10⁻⁷. The same
+intervals have widths at most 1.3 × 10⁻⁷, which bounds the difference of the residuals of two approximants of one
+kind, and at the two points named they are the stated ones. Every claimed bound therefore holds with this allowance
+included: 2.4143 × 10⁻³ ≤ 2.42 × 10⁻³ and 3.728 × 10⁻⁵ ≤ 3.73 × 10⁻⁵. ∎
 
-The largest values are |f^(1)_ll(−23/24, 23/24, −21/32)| = 2.41417… × 10⁻³ and |f^(2)_ll(−23/24, 23/24, x₆)|
-= 3.72165… × 10⁻⁵, where x₆ := −1 + (d₆ + d₇)/2.
-
-*Proof.* [[sec:tab-d-points]] lists, for each approximant and each point of G, an upper bound for max_ab |f_ab| at
-that point, each obtained by evaluating [[eq:tl5-components]] at the point; the largest entries are 242 × 10⁻⁵ and
-373 × 10⁻⁷. ∎
-
-**Proposition {#prop:tl5-box-first}** (the first approximant on one box). On B* := [−1/2, 0] × [−1/2, 0] × [0, 1/4],
+**Proposition {#prop:tl5-box-first}** (the first kind on one box). On B* := [−1/2, 0] × [−1/2, 0] × [0, 1/4], every
+approximant of the first kind satisfies
 
     sup_(B*) max_ab |f^(1)_ab| ≤ 3.01 × 10⁻⁴.
 
 *Proof.* Divide B* into the 32³ = 32,768 boxes of half-widths (1/128, 1/128, 1/256). [[sec:tab-d-boxes]] gives an
-upper bound for κ(b) for each of them ([[def:tl5-certificate]]); the largest is at most 3.01 × 10⁻⁴. ∎
+upper bound for κ(b) for each of them ([[def:tl5-certificate]]); the largest is 2.99 × 10⁻⁴ ≤ 3.01 × 10⁻⁴. Since
+κ(b) is formed with the intervals of [[lem:tl5-rounding]], the allowance for the rounding is included. ∎
 
-**Proposition {#prop:tl5-boxes-second}** (the second approximant on four boxes). Let B1 := I × J × [−21/32, −41/64],
+**Proposition {#prop:tl5-boxes-second}** (the second kind on four boxes). Let B1 := I × J × [−21/32, −41/64],
 B2 := I × J × X₉, B3 := I × J × X₈ and B4 := [−1/2, −3/8] × [3/8, 1/2] × [5/8, 11/16], where I := [−31/32, −15/16],
 J := [15/16, 31/32] and X_k is the eighth of the sixteen equal subintervals of [−1 + d_k, −1 + d_(k+1)] counted from
-the left. Then
+the left. Every approximant of the second kind satisfies
 
     sup_(Bi) max_ab |f^(2)_ab| ≤ 5.0 × 10⁻⁴   (i = 1, 2, 3, 4);
 
-the bounds proved are 6.1 × 10⁻⁵, 4.92 × 10⁻⁴, 4.88 × 10⁻⁴ and 1.74 × 10⁻⁴. Each Bi contains a point of G at which
-|f^(1)_ll| ≥ 1.09 × 10⁻³: (−23/24, 23/24, −21/32), (−23/24, 23/24, −1 + (d₉ + d_10)/2),
-(−23/24, 23/24, −1 + (d₈ + d₉)/2) and (−11/24, 11/24, 21/32), where it is 2.414…, 2.387…, 2.347… and
-1.095… × 10⁻³.
+the bounds proved are 6.1 × 10⁻⁵, 4.92 × 10⁻⁴, 4.89 × 10⁻⁴ and 1.74 × 10⁻⁴. Each Bi contains a point of G at which every
+approximant of the first kind has |f^(1)_ll| ≥ 1.09 × 10⁻³: (−23/24, 23/24, −21/32), (−23/24, 23/24,
+−1 + (d₉ + d_10)/2), (−23/24, 23/24, −1 + (d₈ + d₉)/2) and (−11/24, 11/24, 21/32), where it is at least
+2.414, 2.387, 2.347 and 1.095 × 10⁻³.
 
 *Proof.* Divide B1 into 8³ equal boxes, B2 and B3 into 4³ and B4 into 16³. [[sec:tab-d-boxes]] gives an upper bound
-for κ(b) for each of the 4,736 boxes, and the largest for each Bi are the four numbers stated. The point values are
-entries of [[sec:tab-d-points]]. ∎
-
-**Proposition {#prop:tl5-coarse}** (the first approximant on Π). The field R of the first approximant is positive on
-Π, and
-
-    sup_Π |f^(1)_ll| ≤ 6.8 × 10⁴,   sup_Π |f^(1)_nn| ≤ 1.7 × 10⁸,   sup_Π |f^(1)_ab| ≤ 6.2 × 10⁷ (ab = xx, 11, 22).
-
-*Proof.* Π is the union of the 416 boxes [−1 + i/2, −1/2 + i/2] × [−1 + j/2, −1/2 + j/2] × X (0 ≤ i, j ≤ 3, X one of
-the 26 x-intervals). On each of them the enclosure of the constant term of the jet of R is a positive interval, and
-[[sec:tab-d-boxes]] lists κ_ab(b) for the five components; the largest are below the stated numbers. ∎
+for κ(b) for each of the 4,736 boxes, and the largest for each Bi are the four numbers stated; the allowance for the
+rounding is included as in [[prop:tl5-box-first]]. The lower bounds at the points are the lower ends of the intervals
+of [[prop:tl5-points]]. ∎
 
 **Remark {#rem:tl5-how-checked}** (checking a row). Each entry of the tables is a finite calculation with the printed
-coefficients and the rules of [[def:tl5-jets]]. [[sec:tab-d-worked]] carries one box of [[prop:tl5-box-first]]
-through it completely: its centre jets, the enclosures of [[lem:tl5-field-box]], the jets of the quantities of
-[[eq:tl5-components]] for the component that attains κ(b), the coefficients of all eight components and the sum
-[[eq:tl5-certificate]]. [[pending:tables-d234-size]]
+coefficients, the number ε₀ and the rules of [[def:tl5-jets]]. [[sec:tab-d-worked]] carries one box of
+[[prop:tl5-box-first]] through it completely: its intervals at the centre, the constants L^F_γ, the enclosures of
+[[lem:tl5-field-box]], the jets of the quantities of [[eq:tl5-components]] for the component that attains κ(b), the
+coefficients of all eight components and the sum [[eq:tl5-certificate]].

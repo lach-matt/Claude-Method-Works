@@ -1,12 +1,11 @@
 ### The indicial roots at the damping point γ_C = 10⁶ {#sec:s14-pa}
 
-This section determines the number ε_ind(h) of [[prop:np-10-52]] (iii) at h = 10⁻⁶, that is at γ_C = 10⁶, and shows
-that there the roots of the constraint damping polynomials P_l, P_0 and p_(v) keep a distance of more than
-2.93·10⁻⁶ from the integers. The point h = 10⁻⁶ is the right end of the interval (0, 10⁻⁶] on which
-[[prop:np-10-52]] (iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which the theorems of this
-paper are stated, and [[rem:s14-eps-ind-scope]] says what this section gives for h ∈ 𝖧. As in [[sec:s14-model]],
-(v, e) = (1/2, 1/102400), κ = l(l + 2), and P_l, P_0, p_(v) and C are the polynomials of [[prop:np-10-12]] at this
-point. Throughout this section
+This section determines the number ε_ind(h) of [[prop:np-10-52]] (iii) at h = 10⁻⁶, that is at γ_C = 10⁶, and shows that
+there the real parts of the non-integer roots ι with |ι − 1| ≤ 50 of P_l, P_0 and p_(v) keep a distance of more than
+2.93·10⁻⁶ from the integers. The point h = 10⁻⁶ is the right end of the interval (0, 10⁻⁶] on which [[prop:np-10-52]]
+(iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which the theorems of this paper are stated, and
+[[rem:s14-eps-ind-scope]] says what this section gives for h ∈ 𝖧. As in [[sec:s14-model]], (v, e) = (1/2, 1/102400), κ =
+l(l + 2), and P_l, P_0, p_(v) and C are the polynomials of [[prop:np-10-12]] at this point. Throughout this section
 
     h := 10⁻⁶,     ε₀ := e/h = 625/64,     x := hκ,     δ_C := 2.94·10⁻⁶,
 
@@ -198,9 +197,10 @@ centre), and f(ι, x) := g(ι − p(x), x). Put ḡ(S, T) := Σ_(j,k) |g_jk| S^j
 *Proof.* The triangle inequality, term by term. ∎
 
 We write N̄ := R̄₂ + hR̄₃ and N̄′ := R̄₂′ + hR̄₃′, which bound R₂ + hR₃ and its ι-derivative on |ι| ≤ S, 0 ≤ x ≤ T
-(centre p = 0), and M̄_B, M̄_a (with M̄_B′, M̄_a′ for the s-derivatives) for the majorants of the re-expansions
-R₁(2 + x + s, x) and R₁(a(x) + s, x), polynomials in (s, x) with the centres p = 2 + x and p = a(x); all are listed
-in [[sec:tab-a-split]]. By the lemma, on |ι − p| ≤ ϱ with p = 2 + x, resp. p = ζ (so that |ι − a| ≤ b + ϱ and
+(centre p = 0), and M̄_B, M̄_a (with M̄_B′, M̄_a′ for the s-derivatives) for the majorants of the re-expansions R₁(2 +
+x + s, x) and R₁(a(x) + s, x), polynomials in (s, x) with the centres p = 2 + x and p = a(x); R̄_j, R̄_j′ and the two
+re-expansions are printed in [[sec:tab-a-split]], and M̄_B, M̄_a, M̄_B′, M̄_a′ are their majorants. By the lemma, on |ι
+− p| ≤ ϱ with p = 2 + x, resp. p = ζ (so that |ι − a| ≤ b + ϱ and
 |ι| ≤ |ζ| + ϱ), and x_a ≤ x ≤ x_b for an interval [x_a, x_b] of [[sec:tab-a-pieces]],
 
     |W| ≤ M̄_B(ϱ, x_b) + hN̄(2 + x_b + ϱ, x_b),   resp.   |W| ≤ M̄_a(b + ϱ, x_b) + hN̄(|ζ| + ϱ, x_b),
@@ -380,11 +380,11 @@ and the real part is more than δ_C from every integer.
 The cases show that a root within δ_C of an integer, with |ι − 1| ≤ 50, is ι = 2 at l = 0 or l = 1 or the root of
 P_2 near 2. ∎
 
-**Corollary {#cor:s14-eps-ind-point}** (ε_ind at γ_C = 10⁶.) ε_ind(10⁻⁶) = δ_50, where the infimum of
-[[prop:np-10-52]] (iii) is taken over all the lists ℛ^sc_l (l ≥ 0), ℛ^v_l (l ≥ 1) and ℛ^t_l (l ≥ 2), the scalar types
-0 and 1 included. It is attained by the entry −49 − δ_50 of ℛ^sc_50, and
-1.941370568463·10⁻⁸ < δ_50 < 1.941370568464·10⁻⁸. Every entry of these lists at h = 10⁻⁶ that comes from a root of
-P_l, of C or of p_(v), is not an integer and has modulus at most 50 lies at distance more than 2.93·10⁻⁶ from ℤ.
+**Corollary {#cor:s14-eps-ind-point}** (ε_ind at γ_C = 10⁶.) ε_ind(10⁻⁶) = δ_50, where the infimum of [[prop:np-10-52]]
+(iii) is taken over all the lists ℛ^sc_l (l ≥ 0), ℛ^v_l (l ≥ 1) and ℛ^t_l (l ≥ 2), the scalar types 0 and 1 included. It
+is attained by the entry −49 − δ_50 of ℛ^sc_50, and 1.941370568463·10⁻⁸ < δ_50 < 1.941370568464·10⁻⁸. Every entry of
+these lists at h = 10⁻⁶ that comes from a root of P_l, of C or of p_(v), is not an integer and has modulus at most 50
+has real part at distance more than 2.93·10⁻⁶ from ℤ.
 
 *Proof.* The entries that do not depend on h are the integers −l, l + 2, 2 − l, l + 4, 1 − l and l + 3, the four
 roots of Q_l(ι − 1) for each l ≥ 1 (at l = 1 these are 2 − ι^Υ_(s1,j) and 1 + ι^Υ_(s1,j), j = 2, 3), and at scalar
@@ -397,13 +397,13 @@ C at scalar type 0, those that [[ch:s15]] removes left out. The roots of C are r
 dist(Re(ι − 1), ℤ) = dist(Re ι, ℤ) > 2.93·10⁻⁶ > δ_50 by [[prop:s14-damping-distance]] whenever ι − 1 ∉ ℤ and
 |ι − 1| ≤ 50. So the infimum is a minimum, equal to δ_50, and [[lem:s14-delta50]] gives its value. ∎
 
-**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) The theorems of this paper take h in
-𝖧 = (0, h_*) ∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧, and
-[[prop:s14-damping-distance]] and [[cor:s14-eps-ind-point]] are used by none of them. For h ∈ 𝖧 the theorems use only
-0 < ε_ind(h) ≤ δ_50, which [[prop:np-10-52]] (iii) gives for every such h. [[lem:s14-delta50]] and
-[[prop:gap-sums]] concern numbers that depend on z only, so they hold whatever h is. What changes for h ∈ 𝖧 is
-the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in every constant, and
-this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50. The corollary shows that this upper
+**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) The theorems of this paper take h in 𝖧 = (0,
+h_*) ∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧, and
+[[prop:s14-damping-distance]] and [[cor:s14-eps-ind-point]] are used by none of them. For h ∈ 𝖧 the theorems use only 0
+< ε_ind(h) ≤ δ_50, which [[prop:np-10-52]] (iii) gives for every such h. [[lem:s14-delta50]] and [[prop:gap-sums]]
+concern numbers fixed by the gauge parameters (e_Υ, γ_Υ) alone, not by h, so they hold whatever h is. What changes for h
+∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in every constant,
+and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50. The corollary shows that this upper
 bound is attained at the end h = 10⁻⁶ of the interval on which ε_ind is defined.
 
 #### Sums of the gauge potential offsets {#sec:pa-gap-sums}

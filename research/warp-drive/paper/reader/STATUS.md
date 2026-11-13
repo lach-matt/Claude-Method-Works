@@ -23,7 +23,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
 | 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | NOT CONFIRMED 0M 2m 4n (bundles; every Laurent coefficient); second fix running |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | CONFIRMED (0M 0m 6n; nits applied with the S11 second fix) |
-| 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | CONFIRMED (third reading 0M 0m 2n) |Re ι| ≤ 10); third reading running |Re ι| ≤ 10); second fix running |
+| 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | CONFIRMED (third reading 0M 0m 2n; ℳ restricted to roots with Re ι at most 10 in modulus) |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | running |
 | 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | done (sign by own computation; δ_50 cited; ε_Υ for S13's constant) | running |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
@@ -36,7 +36,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | NOT CONFIRMED 0M 2m 8n; third fix done (cor:s25-tame); third reading running; step 2 re-key pending |
-| 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | running |
+| 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | NOT CONFIRMED 1M 1m 4n (thm:iv2-2-4 Step 4 at k ≤ 2; h_S smallness); second fix running |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | NOT CONFIRMED 1M 6m 8n (lem:s27-below (iii) on ½ ≤ t_* ≤ 1); second fix running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | running |
 | 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | running | - |
@@ -59,10 +59,10 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | second reading NOT CONFIRMED 1M 6m 4n (off-band commuted terms; tied to ch 63 issue-2); waits on the cut-off proof project |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | NOT CONFIRMED 1M 9m 9n (constants weaker than source); fix running |
 | P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | CONFIRMED (second reading 0M 1m 5n; 4.682 → 4.683 applied; markers resolved to chapter 70) |
-| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | fixed (scope remark; corollary covers all lists); confirming reader running; P-A3 CONFIRMED (second reading 0M 1m 2n; the clause applied) |
+| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | CONFIRMED (second reading 0M 1m 4n; N1 to N5 applied by the coordinator, N1 the reviewer's exact wording); P-A3 CONFIRMED (second reading 0M 1m 2n; the clause applied) |
 | P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | CONFIRMED (second reading 0M 1m 6n; the reader's slow-variation paragraph seated, checked) |
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n; fixed (bend −0.0011595971; lens for R_p ≥ R_*; C2 deleted); confirming reader running |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | NOT CONFIRMED 1M 6m 8n; fixed (λ ≥ 0.529533; ε entries 2.681e-5, 5.681e-6); confirming reader running |
-| P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | - |
+| P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | tables written (rounded to 10⁻¹⁸, rounding lemma proved; D4b dropped); independent reader running |
 | P-C-lambda0 + T-C + T-C261 (λ0 constants, for 86) | C2a and C2b done: e_k larger than printed (5 rounded down); C261 proved, S closed form, 242 entries | independent reader running |
 | P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | - |

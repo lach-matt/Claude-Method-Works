@@ -615,3 +615,17 @@ Items found while chapters were written in parallel; each is settled once, editi
   use of ε_Υ (chapters 32, 34, 36, 40, 41, 46) needs only those roots; NP 10.30 (ii) for every z > 0. Nits for
   integration: line 1197 justify the upper bound z/2 and ι + l > 0; remark (d) 1993-1996 add that in 3 + 1 dimensions
   μ_s0 + 1 = 0 is a root at z = 0.
+- Proof A confirmed (R2-P-A): all 17 first-reading findings fixed, every changed number exact. N1 (rem:s14-eps-ind-scope:
+  prop:gap-sums depends on the gauge parameters (e_Υ, γ_Υ), not on z alone) applied in the reviewer's words; N2-N5
+  applied (real part at distance; the opening sentence's scope; R̄_j and the re-expansions printed, M̄ their majorants;
+  lem:s14-crossings in T-A's two "Used in" lines). For other chapters: 33:2557 and 34:453 cite lem:s14-delta50 for the
+  value of δ_50 (h-free); chapter 34 must NOT cite cor:s14-eps-ind-point for ε_ind ≤ δ_50 at h ∈ 𝖧 (keep
+  prop:np-10-52 (iii)); 46:1110 gets the value from lem:s14-delta50; 33:2541 d_s0 clash.
+- S26 second reading (R2-S26): the first reading's 3M 9m 6n resolved; M1 checked at source ([Hin23a, Cor. 3.36] and its
+  footnote 17, which Appendix A does not quote: add it). New Major N1: thm:iv2-2-4 Step 4 needs P_iu₂ ∈ L^∞, true only
+  for k ≥ 3. Minor m1: thm:iii-c2-3-1 must state the high-norm smallness h_S needs. Second fix running.
+- Proof D2-D4 (P-D234): coefficients rounded to 10⁻¹⁸ with a closed-form lemma |∂^γ(F − F̃)| ≤ ε₀M_γ; every row
+  recomputed with interval coefficients: points 2.4143e-3 ≤ 2.42e-3 and 3.728e-5 ≤ 3.73e-5, D3 2.980e-4,
+  D2b ≤ 4.914e-4; the proved movement of a point value is 1.3·10⁻⁷ (2·10⁻¹¹ was a measurement). D4b cited nowhere,
+  dropped. The figure 2.41·10⁻³ (false; the proved value is 2.42·10⁻³) appears in no chapter; chapter 87, when written,
+  must print 2.42·10⁻³.
