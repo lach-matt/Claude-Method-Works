@@ -36,9 +36,10 @@ lemma, step by step, and checks:
      is detected.
   C3 (computed) Theorem 2's: C_P, C_rhoP, C_L3P, C_L4P and lambda_P as a DAG in Theorem P's leaves, transcribed from
      L.3_P, L.4_P and the proofs of Propositions 9.8, 9.9 and Theorem P (N1STAR-PROOF.md, sections 9.1-9.4):
-       beta0 := max(2, 4 C_9 + 1), N_P := K + 4 + ceil(4 beta0), K' := N_P - 1,
+       betaP := max(2, 4 C_9 + 1) (the supplement's beta0, renamed: beta0 is Phi0#'s d_r coefficient in C1),
+       N_P := K + 4 + ceil(4 betaP), K' := N_P - 1,
        M_F := 4 C_F e^(6 C_F) C_R + 1,  M_N := 8 C_9 C' (M_F + C_R + 1),  C_Piii := C_93 max(2 M_F, M_N (1 + C_kP)),
-       M_EP := C3 (M_N + 1 + C_RO) + 1  (Theorem E's M at the trace data, N_P(tau0) <= M_N lam^(K' - 2 beta0)),
+       M_EP := C3 (M_N + 1 + C_RO) + 1  (Theorem E's M at the trace data, N_P(tau0) <= M_N lam^(K' - 2 betaP)),
        C_P := iota (C_kP + max(C_Piii, 2 C_inf M_EP)),  C_rhoP := 2 C_P (2 + tau_end - tau0),
        C_dP := C_E5 K_P^(N_P+1) (1 + S_aP + S_bP)^(N_P+1)/(N_P - 2)!,  C_E5 := pi sqrt(2 d1) (E5: an E_3 profile has
                L^2 norm <= C_E5 t^(-3/2) on A_P(tau), r >= t + a1, thickness <= d1 := V_P - v_s),
@@ -48,16 +49,16 @@ lemma, step by step, and checks:
        lambda_P := min{lam1, d0/20, 1, lam_F, lam_mF, lam_N, lam_abs, lam_mN, lam_EP} with
          lam_F = (8 C_F^2 e^(6 C_F) M_F)^(-1/(K'-5)) (9.8's bootstrap closes), lam_mF = min(eps_P/(2 iota C_kP),
          (eps_P/(4 iota C_93 M_F))^(1/(K'-3))) (Lemma 9.1 (f)'s margin), lam_N = (4 C_9 M_N)^(-1/(K' - 8
-         - 4 beta0)) (9.9's nonlinear terms), lam_abs = 1/(8 C_abs) (9.9's absorbed g_j, j >= 3), lam_mN = (eps_P/(2
-         iota C_93 M_N (1 + C_kP)))^(1/(K' - 3 - 2 beta0)) (the margin on the near region), lam_EP = min(eps1/(2
+         - 4 betaP)) (9.9's nonlinear terms), lam_abs = 1/(8 C_abs) (9.9's absorbed g_j, j >= 3), lam_mN = (eps_P/(2
+         iota C_93 M_N (1 + C_kP)))^(1/(K' - 3 - 2 betaP)) (the margin on the near region), lam_EP = min(eps1/(2
          C_kP), (min(eps1, eps2)/(4 C_inf M_EP))^(1/(K-3)), (2 C_dw M_EP)^(-1/(K-4)), 1/(C3 C_nl M_EP^2)) (Theorem E on
          Omega, (P-iv): lambda0's Steps 3 and 7 with M_EP; Proposition 6.5 has no part there); and lam_kP := eps1/(C_kP
          + C_Piii), below which |k| <= eps1 on P, as C_P's derivation uses (a term of lam_rec := min(lambda0, 1/(2 C1),
          lambda_P, 1/(2 C_P), lam_kP)).
      Checks: every leaf is Theorem P's (listed with its source), lambda0's, certified or the seed's (control: a planted
      leaf detected); C_P, C_rhoP, C_L3P, C_L4P increasing and every term of lambda_P positive and decreasing in every
-     leaf at fixed beta0 except eps_P; an independent transcription agrees at 20 random points (controls: the kernel
-     integral 2 dropped from C_L4P, and lam_N's exponent with 4 beta0 -> 2 beta0, are each detected).  None of Theorem
+     leaf at fixed betaP except eps_P; an independent transcription agrees at 20 random points (controls: the kernel
+     integral 2 dropped from C_L4P, and lam_N's exponent with 4 betaP -> 2 betaP, are each detected).  None of Theorem
      P's leaves is certified in the record (CONSTANTS5 treats Theorem 1 only; no program computes Theorem A_P's profiles).
   C4 (computed) the census of sections 9.1-9.4 of N1STAR-PROOF.md (located by content, from "## 9. Theorem P" to
      "### 9.5"): every line with a threshold phrase (lam_X, "small", "absorb", eps_P, eps_U, lam1, d0/20, "lam <= 1",
@@ -66,10 +67,10 @@ lemma, step by step, and checks:
      compactness" line is left unclassified (detected).
   C5 (certified) lambda_25's status.  The conditions of R8.3 whose gamma involves no uncertified leaf -- (H1), (H2),
      (Lh), (Tl), and (J) with gamma_J = log10(4 pi + C_rho) >= log10(4 pi) -- give E_cf(delta) <= E_25(delta) whatever
-     the leaves are, so lambda_25(delta) <= 10^(-E_cf(delta)), certified; (H2) and (Tl) are evaluated at beta0 = 2, the
-     least beta0 allows, and E_H2 increases with beta0 (computed at beta0 = 2, 9/4, 3, 5).  Direct evaluation at 200
+     the leaves are, so lambda_25(delta) <= 10^(-E_cf(delta)), certified; (H2) and (Tl) are evaluated at betaP = 2, the
+     least betaP allows, and E_H2 increases with betaP (computed at betaP = 2, 9/4, 3, 5).  Direct evaluation at 200
      points beyond E_cf (actual n, h_n): those conditions hold.  The illustration (every uncertified leaf 1, lambda0 =
-     0.00244; beta0 = 5 then, N_P = 30) prints E_25 and lam_rec: a value of the formula, not a bound.  Control: (W1)
+     0.00244; betaP = 5 then, N_P = 30) prints E_25 and lam_rec: a value of the formula, not a bound.  Control: (W1)
      admitted to the constant-free set is rejected (its gamma depends on C_L4's leaves).
 
 Labels: C1, C5 certified (interval arithmetic, mpmath.iv), C1's samples computed (mpmath); C2-C4 computed (exact
@@ -327,16 +328,16 @@ def trace_leaves(NP):
     return [sp.Symbol('Tr%d' % m, positive=True) for m in range(1, NP + 1)]
 
 
-def beta0_of(c9):
+def betaP_of(c9):
     return max(2, 4*c9 + 1)
 
 
 def NP_of(c9):
-    return K_EX + 4 + int(mp.ceil(4*mp.mpf(beta0_of(c9))))
+    return K_EX + 4 + int(mp.ceil(4*mp.mpf(betaP_of(c9))))
 
 
-def build_P(NP, beta0, mutate=None):
-    """Theorem 2's constants at a fixed N_P and beta0 (the consistency N_P = K + 4 + ceil(4 beta0) is checked by the
+def build_P(NP, betaP, mutate=None):
+    """Theorem 2's constants at a fixed N_P and betaP (the consistency N_P = K + 4 + ceil(4 betaP) is checked by the
     caller); the DAG of constL5's class"""
     d = CL.Dag()
     S = PS
@@ -376,13 +377,13 @@ def build_P(NP, beta0, mutate=None):
     C_onP = d("C_L4P_P", kern*S['C_95']*sp.exp(2*S['C_95']*S['C_k4'])*C_dP)      # L.4_P (2)-(4): E_2(tau0) on P
     C_L4P = d("C_L4P", CL.C_S*sp.exp(CL.C2*(1 + M_EP + K)*T)*(C_onP + T*C_dOP))  # Lemma 2.3 on Omega, L.4 step 7
     nn = iota_s
-    ex_N = Kp - 8 - (2 if mutate == "expo" else 4)*beta0
+    ex_N = Kp - 8 - (2 if mutate == "expo" else 4)*betaP
     terms = {
         'lam_F': (8*S['C_F']**2*sp.exp(6*S['C_F'])*M_F)**sp.Rational(-1, Kp - 5),
         'lam_mF': sp.Min(S['eps_P']/(2*nn*S['C_kP']), (S['eps_P']/(4*nn*S['C_93']*M_F))**sp.Rational(1, Kp - 3)),
         'lam_N': (4*S['C_9']*M_N)**(-sp.Integer(1)/ex_N),
         'lam_abs': 1/(8*S['C_abs']),
-        'lam_mN': (S['eps_P']/(2*nn*S['C_93']*M_N*(1 + S['C_kP'])))**(sp.Integer(1)/(Kp - 3 - 2*beta0)),
+        'lam_mN': (S['eps_P']/(2*nn*S['C_93']*M_N*(1 + S['C_kP'])))**(sp.Integer(1)/(Kp - 3 - 2*betaP)),
         'lam_EP': sp.Min(e1_s/(2*S['C_kP']), (sp.Min(e1_s, eps2)/(4*C_inf*M_EP))**sp.Rational(1, K_EX - 3),
                          (2*C_dw*M_EP)**sp.Rational(-1, K_EX - 4), 1/(C3s*C_nl*M_EP**2)),
     }
@@ -402,7 +403,7 @@ def certP():
     return c
 
 
-def tableP(leaf, NP, beta0):
+def tableP(leaf, NP, betaP):
     """an independent transcription (mpmath, written from R9.1's display line by line)"""
     mp.mp.dps = 40
     g = lambda nm: mp.mpf(sp.N(leaf[sp.Symbol(nm, positive=True)], 40))           # noqa: E731
@@ -437,9 +438,9 @@ def tableP(leaf, NP, beta0):
     CL4P = Cs*mp.exp(C2*(1 + MEP + K)*Tn)*(onP + Tn*CdO)
     lamF = (8*P['C_F']**2*mp.exp(6*P['C_F'])*MF)**(-mp.mpf(1)/(Kp - 5))
     lamMF = min(P['eps_P']/(2*nn*P['C_kP']), (P['eps_P']/(4*nn*P['C_93']*MF))**(mp.mpf(1)/(Kp - 3)))
-    lamN = (4*P['C_9']*MN)**(-1/(Kp - 8 - 4*mp.mpf(beta0)))
+    lamN = (4*P['C_9']*MN)**(-1/(Kp - 8 - 4*mp.mpf(betaP)))
     lamAbs = 1/(8*P['C_abs'])
-    lamMN = (P['eps_P']/(2*nn*P['C_93']*MN*(1 + P['C_kP'])))**(1/(Kp - 3 - 2*mp.mpf(beta0)))
+    lamMN = (P['eps_P']/(2*nn*P['C_93']*MN*(1 + P['C_kP'])))**(1/(Kp - 3 - 2*mp.mpf(betaP)))
     lamEP = min(e1/(2*P['C_kP']), (min(e1, e2)/(4*Ci*MEP))**(mp.mpf(1)/3), (2*Cdw*MEP)**(-mp.mpf(1)/2),
                 1/(C3v*Cnl*MEP**2))
     lamP = min(lam1, d0/20, 1, lamF, lamMF, lamN, lamAbs, lamMN, lamEP)
@@ -449,7 +450,7 @@ def tableP(leaf, NP, beta0):
 
 
 def c3(control=False):
-    NP0, b00 = 18, 2                                         # beta0 = 2 (C_9 <= 1/4): N_P = K + 12, as R8.3 takes it
+    NP0, b00 = 18, 2                                         # betaP = 2 (C_9 <= 1/4): N_P = K + 12, as R8.3 takes it
     if control:
         d, nodes = build_P(NP0, b00, mutate="leaf")
         allowed = LAMBDA0 | set(certP()) | CL.SEED | set(PS.values()) | set(trace_leaves(NP0))
@@ -482,7 +483,7 @@ def c3(control=False):
     for _ in range(30):
         pt = dict(cp)
         pt.update({s_: sp.Rational(rng.randint(20, 150), 100) for s_ in leaves})
-        pt[PS['C_9']] = sp.Rational(rng.randint(5, 25), 100)                       # C_9 <= 1/4: beta0 = 2
+        pt[PS['C_9']] = sp.Rational(rng.randint(5, 25), 100)                       # C_9 <= 1/4: betaP = 2
         k = rng.choice(leaves)
         pt2 = dict(pt)
         pt2[k] = pt[k]*sp.Rational(101, 100)
@@ -506,8 +507,8 @@ def c3(control=False):
         for k in vals:
             worst = max(worst, abs(mp.mpf(sp.N(v[vals[k]], 40)) - t[k])/abs(t[k]))
     trans = worst < mp.mpf(10)**-25
-    # the illustration: every uncertified leaf 1 (then beta0 = 5, N_P = 30)
-    NPi, b0i = NP_of(1), beta0_of(1)
+    # the illustration: every uncertified leaf 1 (then betaP = 5, N_P = 30)
+    NPi, b0i = NP_of(1), betaP_of(1)
     di, nodi = build_P(NPi, b0i)
     ill = dict(cp)
     ill.update({s_: 1 for s_ in di.leaves() - set(cp)})
@@ -519,9 +520,9 @@ def c3(control=False):
     out("  C3 Theorem 2's constants as a DAG (%d named constants at N_P = 18): its uncertified leaves are Theorem P's %s,"
         " the traces Tr1..Tr18, lambda0's leaves and nodes %s and the seed's %s; outside these and the certified numbers (C_E5 = pi"
         " sqrt(2 d1) <= %s, lam1 >= %s, d0 >= %s): %s; C_P, C_rhoP, C_L3P, C_L4P increasing and every term of lambda_P"
-        " decreasing (eps_P: increasing) in every leaf at beta0 = 2, structurally %s, %s, by finite differences %s; an"
+        " decreasing (eps_P: increasing) in every leaf at betaP = 2, structurally %s, %s, by finite differences %s; an"
         " independent transcription at 20 random points: largest relative difference %s: %s.  Illustration (every"
-        " uncertified leaf 1, eps1 = 5.2617e-4, iota = 1074.6; so beta0 = 5, N_P = 30): log10 C_P = %s, log10 C_rhoP = %s, log10 C_L3P = %s, log10"
+        " uncertified leaf 1, eps1 = 5.2617e-4, iota = 1074.6; so betaP = 5, N_P = 30): log10 C_P = %s, log10 C_rhoP = %s, log10 C_L3P = %s, log10"
         " C_L4P = %s, lambda_P = %s (binding %s)"
         % (len(d.defs), sorted(PLEAVES), sorted(map(str, (set(leaves) & LAMBDA0))), sorted(map(str, set(leaves) &
                                                                                             CL.SEED)),
@@ -533,7 +534,7 @@ def c3(control=False):
 
 # ------------------------------------------------------------------------------------------------------------ C4
 CENSUS = [  # (a distinctive substring of the line, class, the term of lambda_P or the reason it sets none)
-    ("There is beta0 > 0, depending on the seed", "X", "beta0's existence; its value is (9.9)'s, in N_P"),
+    ("There is beta0 > 0, depending on the seed", "X", "beta0's existence (betaP here); its value is (9.9)'s, in N_P"),
     ("there are lam_P > 0 and C with the following", "T", "lambda_P itself: the minimum of the terms below"),
     ("eps_U > 0 so small that the class lies", "X", "the uniqueness class's constant, not a condition on lam"),
     ("eps_P, the margin's letter]", "X", "an amendment note"),
@@ -559,7 +560,7 @@ CENSUS = [  # (a distinctive substring of the line, class, the term of lambda_P 
     ("terms are small, which they are: every bootstrap", "T", "lam_N"),
     ("small against B because K' = K + 3 + ceil(4 beta0)", "T", "lam_N"),
     ("The margin of Lemma 9.1(f) holds, by Lemma 9.3", "T", "lam_mN"),
-    ("(T/t)^beta0 <= lam^(-2 beta0) being absorbed by", "X", "an exponent count (K' - 2 beta0 >= K), no threshold"),
+    ("(T/t)^beta0 <= lam^(-2 beta0) being absorbed by", "X", "an exponent count (K' - 2 betaP >= K), no threshold"),
     ("Theorem E with this K continues g_n to Omega", "T", "lam_EP"),
     ("- (P-iv) on Omega, the conclusions of Theorem E with this K", "T", "lam_EP"),
     ("Let gt be a Lorentzian metric on P with the margin of Lemma 9.1(f)", "X",
@@ -602,11 +603,11 @@ def c4(control=False):
 
 
 # ------------------------------------------------------------------------------------------------------------ C5
-def e_cf(delta, beta0=2, admit_w1=False):
-    """E_cf(delta): the conditions of R8.3 whose gamma involves no uncertified leaf, at N_P = K + 4 + ceil(4 beta0)"""
+def e_cf(delta, betaP=2, admit_w1=False):
+    """E_cf(delta): the conditions of R8.3 whose gamma involves no uncertified leaf, at N_P = K + 4 + ceil(4 betaP)"""
     lB, Ib = L25.inputs()
     K = K_EX
-    NP = K + 4 + int(mp.ceil(4*mp.mpf(beta0)))
+    NP = K + 4 + int(mp.ceil(4*mp.mpf(betaP)))
     MP = 2*NP + 8
     while len(lB) <= MP:
         lB = L25.bump_bounds(MP)
@@ -665,13 +666,13 @@ def c5(control=False):
         dok = all(direct_cf(E0*(1 + mp.mpf(i)/50), float(delta.a), MP, lB) for i in range(200))
         mono = []
         for b0 in (sp.Rational(9, 4), 3, 5):
-            (nm2, E2), rows2, _, _ = e_cf(delta, beta0=b0)
+            (nm2, E2), rows2, _, _ = e_cf(delta, betaP=b0)
             mono.append(dict(rows2)["H2"].a)
         h2 = dict(rows)["H2"]
         incr = h2.b <= mono[0] and all(mono[i] <= mono[i + 1] for i in range(len(mono) - 1))
         ok &= dep_ok and dok and incr
         lines.append("delta = %s: E_cf = %s (binding %s; %s), so lambda_25 <= 10^(-%s) whatever the leaves are; direct"
-                     " evaluation at 200 points beyond: %s; E_H2 at beta0 = 2, 9/4, 3, 5: %s, %s, %s, %s (increasing: %s)"
+                     " evaluation at 200 points beyond: %s; E_H2 at betaP = 2, 9/4, 3, 5: %s, %s, %s, %s (increasing: %s)"
                      % (lab, dn(E, 1), nm, ", ".join("%s %s" % (r_[0], up(r_[1], 1)) for r_ in rows), dn(E, 1), dok,
                         dn(h2, 1), *[mp.nstr(mp.mpf(x), 7) for x in mono], incr))
     # E_H2 decreasing in delta on (0, 1/2]: at E = E_H2(delta) and delta' < delta, f_delta'(E) - f_delta(E) = (delta -
@@ -699,7 +700,7 @@ def c5(control=False):
     ill1[CL.lam0] = sp.Rational(244, 100000)
     ill1[iota_s] = ILL_IOTA
     v1 = d1.value(ill1)
-    NPi, b0i = NP_of(1), beta0_of(1)
+    NPi, b0i = NP_of(1), betaP_of(1)
     dP, nodP = build_P(NPi, b0i)
     illP = certP()
     illP.update({s_: 1 for s_ in dP.leaves() - set(certP())})
@@ -740,10 +741,10 @@ def c5(control=False):
         rows.append(("Tl", nmin*nmin/((3 + delta)*L25.LN10)))
         worst = max(rows, key=lambda x: x[1].b)
         illrows.append("delta = %s: E_25 = %s (binding %s)" % (lab, up(worst[1], 0), worst[0]))
-    out("  C5 lambda_25's status: the constant-free conditions (H1, H2 and Tl at beta0 = 2, Lh, J with gamma_J >= log10"
+    out("  C5 lambda_25's status: the constant-free conditions (H1, H2 and Tl at betaP = 2, Lh, J with gamma_J >= log10"
         " 4 pi) give, certified, " + "; ".join(lines) + ".  Every other condition's gamma involves C_L3, C_L4, C_L3P or"
         " C_L4P, uncertified.  Illustration (every uncertified leaf 1, lambda0 = 0.00244, eps1 = 5.2617e-4, iota ="
-        " 1074.6; beta0 = 5, N_P = 30; C_L1"
+        " 1074.6; betaP = 5, N_P = 30; C_L1"
         " certified, log10 C_L1 = %s): gamma_w = %s, gamma_m = %s, gamma_wP = %s, gamma_mP = %s, C_rho = %s, lam_rec ="
         " %s; %s (a value of the formula, not a bound)"
         % (mp.nstr(mp.log10(CL1), 5), mp.nstr(mp.mpf(g["W1"].a), 7), mp.nstr(mp.mpf(g["M1"].a), 7),
