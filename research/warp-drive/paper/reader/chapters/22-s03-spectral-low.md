@@ -12,9 +12,9 @@ These are [Hin26c, Theorem 9.36, Theorem 9.38, Corollary 9.39, Proposition 9.40,
 Corollary 9.43] in dimension 4 + 1, for operators on a trivial bundle of any rank. The dimensional changes are these.
 The shift of [Hin26c, Lemma 3.11] is n/2 = 2, so α + 3/2 becomes α + 2 in Theorems 9.36 and 9.41 and in Corollary 9.43
 of [Hin26c], and H_b^(∞,β−3/2) becomes H_b^(∞,β−2). In [Hin26c, Section 9.5], which is stated for every n,
-(n − 1)/2 = 3/2, n/2 = 2 and −n + 2 + β = −2 + β. The Bessel order in Proposition 9.40 is ℓ + 1 and its weights are (0,
-2). [[thm:i-c-6-4]] carries an estimate for the adjoint that [Hin26c] does not state; the proof of [[cor:i-c-6-6]] needs
-it, because the augmented operator used there has an index that is not known in advance ([[sec:s03-remarks]]). The
+(n − 1)/2 = 3/2, n/2 = 2 and −n + 2 + β = −2 + β. The Bessel order in Proposition 9.40 is ℓ + 1 and its weights are
+(0, 2). [[thm:i-c-6-4]] carries an estimate for the adjoint that [Hin26c] does not state; the proof of [[cor:i-c-6-6]]
+needs it, because the augmented operator used there has an index that is not known in advance ([[sec:s03-remarks]]). The
 smallness of |σ| in [[thm:i-c-6-4]] may depend on the b-regularity order ([[rem:i-c-6-7]]).
 
 Every input is proved here or in [[ch:s01]]–[[ch:s02]], from the classical facts of [[sec:i-c-2-1]], the scattering
@@ -756,8 +756,9 @@ uniformly in closed subsectors; e^(∓iz) z^(1/2) H_ν^(j)(z) is holomorphic on 
 of radius x/2 about x lies in {|ph z| ≤ π/6}, so Cauchy's estimates give |x^k ∂_x^k(·)| ≤ C_k times the bound on the
 disc, for the remainder of the expansion as well as for each term. As (r̂∂_r̂)^k is a combination of the r̂^i∂^i, i ≤ k,
 this gives (b); the constant is that of the first term, r̂⁻¹(2/π)^(1/2) r̂^(−1/2) e^(∓i(½νπ+¼π)). (c) On the ray
-z = e^(iθ)r̂, θ ∈ (0, π) fixed, [DLMF, (10.17.5)–(10.17.6)] apply, |e^(iz)| = e^(−r̂ sin θ) and |e^(−iz)| = e^(r̂ sin θ).
-(d) [DLMF, (10.7.7)] with |z| = r̂ and Γ(ν) ≠ 0 gives |f_j(r̂)| = r̂⁻¹|H_ν^(j)(σ̂r̂)| ≥ c r̂^(−1−ν) = c r̂^(−2−ℓ). ∎
+z = e^(iθ)r̂, θ ∈ (0, π) fixed, [DLMF, (10.17.5)–(10.17.6)] apply, |e^(iz)| = e^(−r̂ sin θ) and
+|e^(−iz)| = e^(r̂ sin θ). (d) [DLMF, (10.7.7)] with |z| = r̂ and Γ(ν) ≠ 0 gives |f_j(r̂)| = r̂⁻¹|H_ν^(j)(σ̂r̂)| ≥ c
+r̂^(−1−ν) = c r̂^(−2−ℓ). ∎
 
 **Lemma {#lem:i-c-5-5}** (Spherical waves.) Let κ ∈ ℝ, g ∈ C^∞([1, ∞)) with |∂^k g| ≤ C_k r̂^(−γ−k),
 Y ∈ C^∞(𝕊³; ℂ^(N_E)), χ_∞ a cut-off to {r̂ ≥ 2}, and v := χ_∞ e^(iκr̂) g(r̂) Y(ω). Then v ∈ H_sc^(m,l) for all m and

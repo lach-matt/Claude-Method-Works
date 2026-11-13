@@ -147,8 +147,8 @@ real scalar principal symbol ℓ of order m. L_R, L_I and C_ǎ are those of [[eq
 of L_I (an Hermitian matrix of order m − 1), norms are those of H^𝗍_e3b, and B, E, G, J are carried by χ
 ([[sec:ii-a-8-3]]). For a positive symbol ρ, homogeneous of degree −1 near fibre infinity, and κ > 0, the regulariser is
 φ_ε := (1 + ερ⁻¹)^(−κ), ε ∈ (0, 1], and θ_ε := ερ⁻¹(1 + ερ⁻¹)⁻¹; [[eq:ii-a1-2-1]] holds with ρ in place of ρ_∞, and
-φ_ε has the properties stated after it. δ_c ∈ (0, ¼] is the constant of [[lem:ii-a1-4-1]] (the gain in its a priori
-term), and ς ∈ {1, −1} the sign there.
+φ_ε has the properties stated after it. δ_c ∈ [0, ¼] is the constant in the a priori term of [[lem:ii-a1-4-1]] (an
+inequality with δ_c = 0 implies the same inequality with every δ_c > 0), and ς ∈ {1, −1} the sign there.
 
 **Lemma {#lem:ii-d-2-1}** (One step with a characteristic cut-off.) Let (i)–(ii) of [[lem:ii-a1-4-1]] hold, and in place
 of its (iii) the following: there are real scalar symbols j_ε, bounded in C^(M)_ν S̃^(2𝗌−m) and, for each ε, in
@@ -159,7 +159,7 @@ C^(M)_ν S̃^(2𝗌−m−2κ), supported in K_1, such that for every w ∈ H^(K
 
 Then the conclusion [[eq:ii-a1-4-3]] of [[lem:ii-a1-4-1]] holds.
 
-*Proof.* As for [[lem:ii-a1-4-1]], with two additions. In Step 1, for fixed ε, ⟨J_ε L w_t, w_t⟩ → ⟨J_ε L v, v⟩ as t →
+*Proof.* As for [[lem:ii-a1-4-1]], with two additions to the steps of that proof. In Step 1, for fixed ε, ⟨J_ε L w_t, w_t⟩ → ⟨J_ε L v, v⟩ as t →
 0: w_t → v in H^(𝗌−κ), so L w_t → L v in H^(𝗌−κ−m), and J_ε* w_t → J_ε* v in H^(−𝗌+m+κ), J_ε* having order 2𝗌 − m − 2κ
 for this ε without loss ([[prop:ii-a1-2-4]] (a), (c)). In Step 2 the new term is bounded at v = Φu: Lv = ΦLu + [L, Φ]u,
 and J_ε[L, Φ] has every order uniformly, by [[prop:ii-a1-2-4]] (e), as in Step 0; and |⟨ΦLu, J_ε* v⟩| ≤ ‖ΦLu‖_(𝗌−m+1)
