@@ -395,17 +395,18 @@ injective there. So it suffices to show Pol Y = V and that Y lies in the range o
 [[eq:layer-components]] (which hold at g0 as well, with F in place of F°): Pol(Y)_r = Y_rr = V_r, Pol(Y)_ϑ = Y_rϑ = V_ϑ,
 and Pol(Y)_v = Y_rv − (1/2) tr Y = −V_r/2 + (V_r + 2 V_v)/2 = V_v, with tr Y = 2 Y_vr + F Y_rr + r⁻² γ^(AB) Y_AB = −V_r +
 F V_r − F V_r − 2 V_v. Second, rotate the Cartesian coordinates so that at the point x̂ = e1 and ∂_ϑ = r ∂_(x2); then ℓ =
-−∂_τ + ∂_1, dv = dτ + dx1, and g0⁻¹ = η⁻¹ − m L0 ⊗ L0, m := μ/r², L0 = ∂_τ − ∂_1. The Frobenius pairing of Pol(Y) with β
-is Σ_(a,b) Y_ab ((1/2)(ℓ^a β_b + ℓ^b β_a) − (1/2)(β_0 + β_1) g0^(ab)), so the range of Pol^T consists of the arrays
+−∂_τ + ∂_1, dv = dτ + dx1, and g0⁻¹ = η⁻¹ − m L0 ⊗ L0, m := μ/r², L0 = ∂_τ − ∂_1. The Frobenius pairing of Pol(Y) with a
+covector ξ is Σ_(a,b) Y_ab ((1/2)(ℓ^a ξ_b + ℓ^b ξ_a) − (1/2)(ξ_0 + ξ_1) g0^(ab)), so the range of Pol^T consists of the
+arrays
 
-    Z_00 = −β_0 + s(1 + m)/2,   Z_01 = (β_0 − β_1)/2 − s m/2,   Z_11 = β_1 − s(1 − m)/2,
-    Z_02 = −β_2/2,   Z_12 = β_2/2,   Z_22 = Z_33 = Z_44 = −s/2,   Z_0j = −β_j/2,  Z_1j = β_j/2  (j = 3, 4),
+    Z_00 = −ξ_0 + s(1 + m)/2,   Z_01 = (ξ_0 − ξ_1)/2 − s m/2,   Z_11 = ξ_1 − s(1 − m)/2,
+    Z_02 = −ξ_2/2,   Z_12 = ξ_2/2,   Z_22 = Z_33 = Z_44 = −s/2,   Z_0j = −ξ_j/2,  Z_1j = ξ_j/2  (j = 3, 4),
 
-s := β_0 + β_1, all other entries zero. The Cartesian components of Y follow from ∂_v = ∂_τ, ∂_r = −∂_τ + ∂_1,
+s := ξ_0 + ξ_1, all other entries zero. The Cartesian components of Y follow from ∂_v = ∂_τ, ∂_r = −∂_τ + ∂_1,
 ∂_ϑ = r ∂_2: Y_00 = V_r/4, Y_01 = −V_r/4, Y_11 = V_r/4, Y_02 = −V_ϑ/(2r), Y_12 = V_ϑ/(2r), Y_22 = Y_33 = Y_44 =
-((m − 1) V_r − 2 V_v)/3, and no other entries. This is of the form above with β_2 = V_ϑ/r, β_3 = β_4 = 0, s :=
-−2((m − 1) V_r − 2 V_v)/3, β_0 := s(1 + m)/2 − V_r/4 and β_1 := V_r/4 + s(1 − m)/2, whose sum is s as required; the
-entries Z_00, Z_11, Z_22 then hold by construction, and Z_01 = (β_0 − β_1)/2 − s m/2 = −V_r/4. ∎
+((m − 1) V_r − 2 V_v)/3, and no other entries. This is of the form above with ξ_2 = V_ϑ/r, ξ_3 = ξ_4 = 0, s :=
+−2((m − 1) V_r − 2 V_v)/3, ξ_0 := s(1 + m)/2 − V_r/4 and ξ_1 := V_r/4 + s(1 − m)/2, whose sum is s as required; the
+entries Z_00, Z_11, Z_22 then hold by construction, and Z_01 = (ξ_0 − ξ_1)/2 − s m/2 = −V_r/4. ∎
 
 ### The part of first degree {#sec:layer-linear}
 

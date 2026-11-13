@@ -1268,7 +1268,8 @@ dropped), gives
 with □_g φ = −2(DP(H)[Γ^α h_R])_ij + 2(B(H)·∂Γ^α h_R)_ij + 2(C(H)Γ^α h_R)_ij − g^(ab)Γ[g]^c_ab ∂_c φ, the bulk term
 T_g[φ](∇w, ∂_t) ≥ 0 dropped, the integrals over D_*(σ) and the energies restricted to {Φ_W ≤ V_*}; as V_* → ∞, the left
 side increases to E_σ[φ] and the right side converges to its value on the full slices, every integrand being integrable
-by [[lem:own-exterior]]. The error terms are bounded by [[cor:far-kernels]], with [[lem:own-rays]] and
+over W_T ∩ {t̃ ≤ σ} by [[lem:own-exterior]] (b), as |□_g φ| ≤ C(|∂∂φ| + |∂φ|), |∂_t g| ≤ C and w ≤ C r^(2a) there.
+The error terms are bounded by [[cor:far-kernels]], with [[lem:own-rays]] and
 [[eq:own-pointwise]] as its tools; in (B), a term of total order at most k1 with at least two slots has its slot of
 highest order in L² (an undifferentiated slot through [[eq:own-hardy]], a twice differentiated one through
 [[lem:own-rays]] (a)) and the others pointwise by [[eq:own-pointwise]], which is possible since the second-largest order
