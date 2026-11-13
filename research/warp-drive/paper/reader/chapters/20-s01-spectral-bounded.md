@@ -299,3 +299,171 @@ resulting inner product smoothly to ℝ̄⁴. Since ½ min spec(S + S^(*h)) = mi
 
 Different estimates below use different fibre inner products. All L²_h norms are equivalent, so each estimate proved in
 one inner product holds in any other with a changed constant. No single inner product needs to serve two radial sets.
+
+### The positive commutator lemma {#sec:i-a-3}
+
+Orders are pairs 𝐬 = (s, 𝗋), the decay order possibly variable (C6), with 𝟏 := (1, 1) and 𝐍 := (N, N). Inequalities
+between orders hold componentwise and pointwise. For an operator family, *microsupported in K uniformly* means that the
+full symbols are supported in the closed set K, modulo a family bounded in Ψ^(−∞,−∞). For a fibre inner product h and
+P ∈ Ψ^𝐦, write
+
+    P_R := Re_h P = ½(P + P^(*h)),     P_I := Im_h P = (P − P^(*h))/2i.
+
+**Lemma {#lem:i-a-3-1}** (One step.) Let P ∈ Ψ^𝐦, let 𝐬 be an order, 𝐤 := 𝐬 − ½(𝐦 − 𝟏), and κ ∈ (0, ½]. Let K₁ ⊂ U
+with K₁ closed and U open in the boundary of phase space, and let G ∈ Ψ^(0,0) be elliptic on Ū. Suppose that for
+ε ∈ (0, 1] there are the following.
+
+(i) Ǎ_ε = Ǎ_ε^(*h), bounded in Ψ^𝐤, in Ψ^(𝐤−κ𝟏) for each ε, and microsupported in K₁ uniformly.
+
+(ii) For a sign ς ∈ {1, −1}, the operator C_ε := i[P_R, Ǎ_ε²] + Ǎ_ε²P_I + P_IǍ_ε² satisfies
+
+    ςC_ε = −B_ε^(*h)B_ε − F_ε + E_ε^(*h)E_ε + J_εP + R_ε.                                              {#eq:i-a-3-1}
+
+The operators in [[eq:i-a-3-1]] are as follows. B_ε is bounded in Ψ^𝐬, lies in Ψ^(𝐬−κ𝟏) for each ε, and converges to
+B₀ in Ψ^(𝐬+δ𝟏) for every δ > 0. Ǎ_ε = Z_εB_ε + Y_ε, with Z_ε bounded in Ψ^(−½(𝐦−𝟏)) and Y_ε bounded in Ψ^(𝐤−𝟏).
+⟨F_εw, w⟩_h ≥ −C_F‖w‖²_(−𝐍) for every Schwartz w (F_ε is never paired with u itself, so it may have any order). E_ε
+is bounded in Ψ^𝐬 and lies in Ψ^(𝐬−κ𝟏) for each ε, J_ε lies in Ψ^(2𝐬−𝐦), and R_ε in Ψ^(2𝐬−𝟏). All of these are
+microsupported in K₁ uniformly, E_ε in a closed set K_E, and J_ε in a closed set K_J ⊂ Ell(P).
+
+Let E ∈ Ψ^(0,0) be elliptic on K_E. Then there is C such that for every u ∈ H^(−𝐍) with Gu ∈ H^(𝐬−κ𝟏),
+GPu ∈ H^(𝐬−𝐦+𝟏) and Eu ∈ H^𝐬, we have B₀u ∈ L² and
+
+    ‖B₀u‖² ≤ C(‖GPu‖²_(𝐬−𝐦+𝟏) + ‖Eu‖²_𝐬 + ‖Gu‖²_(𝐬−½𝟏) + ‖u‖²_(−𝐍)).                                   {#eq:i-a-3-2}
+
+C depends only on C_F, on bounds for the families in their classes, and on finitely many seminorms of P, G and E.
+
+*Proof.* Norms are those of L²_h and of H^𝐭 (any fixed choice, (C6)); C changes from line to line.
+
+*Step 0: microlocalisation.* By (C5) there is Φ ∈ Ψ^(0,0) with WF′(Φ) ⊂ Ell(G) and
+WF′(Id − Φ) ∩ (K₁ ∪ K_E ∪ K_J) = ∅. Let v := Φu. The microlocal parametrix of G gives
+
+    ‖v‖_𝐭 ≤ C(‖Gu‖_𝐭 + ‖u‖_(−𝐍))  (𝐭 ≤ 𝐬 − κ𝟏),     ‖ΦPu‖_(𝐬−𝐦+𝟏) ≤ C(‖GPu‖_(𝐬−𝐦+𝟏) + ‖u‖_(−𝐍)),
+
+and Pv = ΦPu + [P, Φ]u. Here WF′([P, Φ]) ⊂ WF′(Id − Φ), which is disjoint from K₁. So if W_ε is any family bounded in
+some Ψ^𝐭 and microsupported in K₁ uniformly, then W_ε[P, Φ] and W_ε(Id − Φ) are bounded in Ψ^(−∞,−∞) (by the
+composition formula (C1): the product of the symbols vanishes, and the remainders are bounded by seminorms). In
+particular
+
+    ‖Ǎ_εPv‖_(½(𝟏−𝐦)+κ𝟏) ≤ C(‖GPu‖_(𝐬−𝐦+𝟏) + ‖u‖_(−𝐍)),                                                {#eq:i-a-3-3}
+
+because Ǎ_ε ∈ Ψ^(𝐤−κ𝟏) maps H^(𝐬−𝐦+𝟏) to H^(𝐬−𝐦+𝟏−𝐤+κ𝟏) = H^(½(𝟏−𝐦)+κ𝟏). The bound [[eq:i-a-3-3]] holds for
+each ε > 0, with a constant that may depend on ε. Likewise Ǎ_εv ∈ H^(½(𝐦−𝟏)) for each ε > 0, as v ∈ H^(𝐬−κ𝟏). Both
+pairings below are therefore of H^𝐭 with H^(𝐭′), 𝐭 + 𝐭′ ≥ 0, and are defined by (C4).
+
+*Step 1: the pairing.* For ε > 0 and Schwartz w,
+
+    ⟨C_εw, w⟩ = 2 Im⟨Ǎ_εPw, Ǎ_εw⟩.                                                                    {#eq:i-a-3-4}
+
+This is algebra: 2 Im⟨Ǎ_εPw, Ǎ_εw⟩ = (1/i)⟨(Ǎ_ε²P − P^(*h)Ǎ_ε²)w, w⟩, and
+Ǎ²P − P^(*h)Ǎ² = [Ǎ², P_R] + i(Ǎ²P_I + P_IǍ²). Let w_t := T_tv with T_t from (C8). We show that the right side of
+[[eq:i-a-3-4]] at w = w_t tends to its value at v; C_ε itself is never applied to v, since with an absorbing term of
+top order it need not act on H^(𝐬−κ𝟏). As t → 0, w_t → v in H^(𝐬−κ𝟏), and Ǎ_εw_t → Ǎ_εv in H^(½(𝐦−𝟏)).
+
+Write Pv = ΦPu + [P, Φ]u (Step 0), so that Ǎ_εPw_t = Ǎ_εT_tΦPu + Ǎ_εT_t[P, Φ]u + Ǎ_ε[P, T_t]v. (This avoids
+[Ǎ_ε, T_t], which for a variable decay order is bounded only in ⋂_δ Ψ^(𝐤−κ𝟏−𝟏+(0,δ)) [HJS, p. 79].) The first term
+tends to Ǎ_εΦPu in H^(½(𝟏−𝐦)+κ𝟏), since T_t → Id strongly on H^(𝐬−𝐦+𝟏) and Ǎ_ε ∈ Ψ^(𝐤−κ𝟏) for the fixed ε. The
+second is bounded in Ψ^(−∞,−∞) uniformly in t, as Ǎ_ε and [P, Φ] have disjoint microsupports and T_t is bounded in
+Ψ^(0,0), and it tends to Ǎ_ε[P, Φ]u. In the third, [P, T_t] is bounded in Ψ^(𝐦−𝟏) and tends to 0 in Ψ^(𝐦−𝟏+δ𝟏)
+([[lem:i-a-2-1]] (c); P has constant orders), so the term is bounded in H^(½(𝟏−𝐦)), since v ∈ H^(𝐬−κ𝟏), and tends to
+0 as distributions, hence weakly in H^(½(𝟏−𝐦)). A weakly null sequence paired with a strongly convergent one tends to
+0. So ⟨Ǎ_εPw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εPv, Ǎ_εv⟩.
+
+*Step 2: the estimate.* By [[eq:i-a-3-1]] and [[eq:i-a-3-4]], for Schwartz w,
+
+    ‖B_εw‖² ≤ −ς · 2 Im⟨Ǎ_εPw, Ǎ_εw⟩ + C_F‖w‖²_(−𝐍) + ‖E_εw‖² + ⟨J_εPw, w⟩ + ⟨R_εw, w⟩.
+
+Take w = w_t := T_tv and let t → 0, with ε > 0 fixed. The left side tends to ‖B_εv‖², and ‖E_εw_t‖² to ‖E_εv‖², as
+B_ε, E_ε ∈ Ψ^(𝐬−κ𝟏); ⟨R_εw_t, w_t⟩ → ⟨R_εv, v⟩, as R_ε ∈ Ψ^(2𝐬−𝟏) and 2κ ≤ 1; the first term converges by Step 1,
+and the J-term by the splitting in (d) below. So the inequality holds with v in place of w, and F_ε has dropped out. We
+bound each term uniformly in ε ∈ (0, 1].
+
+(a) |⟨Ǎ_εPv, Ǎ_εv⟩| ≤ ‖Ǎ_εPv‖_(−½(𝐦−𝟏)) ‖Ǎ_εv‖_(½(𝐦−𝟏)). Since Ǎ_ε is bounded in Ψ^𝐤, Step 0 gives
+‖Ǎ_εPv‖_(−½(𝐦−𝟏)) ≤ C(‖GPu‖_(𝐬−𝐦+𝟏) + ‖u‖_(−𝐍)). Next,
+
+    ‖Ǎ_εv‖_(½(𝐦−𝟏)) ≤ ‖Z_εB_εv‖_(½(𝐦−𝟏)) + ‖Y_εv‖_(½(𝐦−𝟏)) ≤ C‖B_εv‖ + C‖v‖_(𝐬−𝟏).
+
+So twice the term is at most ½‖B_εv‖² + C(‖GPu‖²_(𝐬−𝐦+𝟏) + ‖v‖²_(𝐬−½𝟏) + ‖u‖²_(−𝐍)).
+
+(b) C_F‖v‖²_(−𝐍) ≤ C‖u‖²_(−𝐍).
+
+(c) E_εv = E_εu − E_ε(Id − Φ)u, and E_ε(Id − Φ) is bounded in Ψ^(−∞,−∞) (Step 0), so
+‖E_εv‖ ≤ C(‖E_εu‖ + ‖u‖_(−𝐍)) ≤ C(‖Eu‖_𝐬 + ‖u‖_(−𝐍)), the last by the microlocal parametrix of E on K_E (the
+commutator [E, Φ] is not residual, and is not used).
+
+(d) Choose Φ_J ∈ Ψ^(0,0) microlocally the identity near K_J, with WF′(Φ_J) ⊂ Ell(P) and
+WF′(Φ_J) ∩ WF′(Id − Φ) = ∅; this is possible as K_J is closed, lies in the open set Ell(P) and misses WF′(Id − Φ).
+Then ⟨J_εPv, v⟩ = ⟨J_εPv, Φ_Jv⟩ plus a term bounded by C‖u‖²_(−𝐍), since (Id − Φ_J)^(*h)J_ε is residual. The same
+splitting at w_t gives the convergence used above, as Φ_JT_tv → Φ_Jv in H^(𝐬+κ𝟏) (the bound below puts Φ_Jv in
+H^(𝐬+𝟏), and [Φ_J, T_t] is bounded in Ψ^(−1,−1) and tends to 0 strongly). Then
+|⟨J_εPv, Φ_Jv⟩| ≤ ‖J_εPv‖_(−𝐬)‖Φ_Jv‖_𝐬, and the microlocal parametrix of P on WF′(Φ_J) gives
+‖Φ_Jv‖_𝐬 ≤ C(‖ΦPu‖_(𝐬−𝐦) + ‖u‖_(−𝐍)).
+
+(e) |⟨R_εv, v⟩| ≤ C‖v‖²_(𝐬−½𝟏), and ‖v‖_(𝐬−½𝟏) ≤ C(‖Gu‖_(𝐬−½𝟏) + ‖u‖_(−𝐍)).
+
+Absorbing ½‖B_εv‖² and using Step 0,
+
+    ‖B_εv‖² ≤ C(‖GPu‖²_(𝐬−𝐦+𝟏) + ‖Eu‖²_𝐬 + ‖Gu‖²_(𝐬−½𝟏) + ‖u‖²_(−𝐍))     for all ε ∈ (0, 1].
+
+The left side is finite for each ε > 0 (as B_ε ∈ Ψ^(𝐬−κ𝟏)), so nothing is assumed about B₀v. The qualitative
+hypothesis Gu ∈ H^(𝐬−κ𝟏) is used only for the limits t → 0 in Steps 1 and 2; the bound uses ‖Gu‖_(𝐬−½𝟏).
+
+*Step 3: the limit.* B_εv is bounded in L² and tends to B₀v as distributions, since B_ε → B₀ in Ψ^(𝐬+δ𝟏). A weak
+limit point in L² is therefore B₀v, with ‖B₀v‖ ≤ lim inf ‖B_εv‖. Finally B₀u = B₀v + B₀(Id − Φ)u, where
+B₀(Id − Φ) ∈ Ψ^(−∞,−∞). ∎
+
+**Lemma {#lem:i-a-3-2}** (Iteration.) Let Γ be a closed subset of the boundary of phase space, U₀ an open
+neighbourhood of it, and 𝐬₀ = 𝐬 − τ𝟏 with τ > 0 a constant. Suppose that for every κ ∈ (0, ½], every order
+𝐬′ = 𝐬₀ + τ′𝟏 with κ ≤ τ′ ≤ τ, and every open U with Γ ⊂ U ⊂ U₀, the hypotheses of [[lem:i-a-3-1]] hold with
+(𝐬′, κ, U) for some closed K₁ ⊂ U. Suppose this holds with the E-terms microsupported in a closed set
+K_E(U) ⊂ Ū₀ ∖ Γ (or with no E-term), and with B₀ elliptic on the closure of an open neighbourhood U′ of Γ. Let G be
+elliptic on Ū₀. Then there are a neighbourhood U_* of Γ and a closed set K_E^* ⊂ Ū₀ ∖ Γ such that for every
+E ∈ Ψ^(0,0) elliptic on K_E^*, every B ∈ Ψ^(0,0) microsupported in U_* and every 𝐍,
+
+    ‖Bu‖_𝐬 ≤ C(‖GPu‖_(𝐬−𝐦+𝟏) + ‖Eu‖_𝐬 + ‖Gu‖_(𝐬₀) + ‖u‖_(−𝐍)),                                           {#eq:i-a-3-5}
+
+in the strong sense: if the right side is finite, so is the left.
+
+*Proof.* Let J be an integer with J ≥ 4τ, let κ := τ/J ≤ ¼, and let 𝐬_j := 𝐬₀ + jκ𝟏, so that 𝐬_j − κ𝟏 = 𝐬_(j−1).
+Construct U₀ ⊃ U₁ ⊃ … ⊃ U_J ⊃ Γ inductively, U_j being the U′ of the hypothesis for (𝐬_j, κ, U_(j−1)), with B₀^(j)
+elliptic on Ū_j, and let K_E^* := ⋃_(j=1)^J K_E(U_(j−1)), a finite union of closed sets missing Γ (the sets move with
+U, so one K_E need not serve every step). Let 𝒢₀ := G and, for j ≥ 1, let 𝒢_j ∈ Ψ^(0,0) be elliptic on Ū_j with
+WF′(𝒢_j) ⊂ Ell(B₀^(j)), so that ‖𝒢_ju‖_(𝐬_j) ≤ C(‖B₀^(j)u‖ + ‖u‖_(−𝐍)) by (C5). [[lem:i-a-3-1]] with
+(𝐬_j, κ, U_(j−1), 𝒢_(j−1)) needs 𝒢_(j−1)u ∈ H^(𝐬_j−κ𝟏) = H^(𝐬_(j−1)) and gives
+
+    ‖B₀^(j)u‖ ≤ C(‖𝒢_(j−1)Pu‖_(𝐬_j−𝐦+𝟏) + ‖Eu‖_(𝐬_j) + ‖𝒢_(j−1)u‖_(𝐬_(j−1)) + ‖u‖_(−𝐍)).
+
+Here ‖𝒢_(j−1)Pu‖ ≤ C(‖GPu‖ + ‖u‖_(−𝐍)), since U_(j−1) ⊂ U₀, and ‖Eu‖_(𝐬_j) ≤ ‖Eu‖_𝐬. Inducting on j gives
+[[eq:i-a-3-5]] with U_* := U_J, using ‖Bu‖_𝐬 ≤ C(‖B₀^(J)u‖ + ‖u‖_(−𝐍)). The strong sense holds because the
+qualitative hypothesis of each step, 𝒢_(j−1)u ∈ H^(𝐬_(j−1)), is the conclusion of the previous step. ∎
+
+**Remark {#rem:i-a-3-3}** (Logarithmic losses.) With variable orders, symbols of the commutants carry factors log ϱ
+(C6). Suppose, in [[lem:i-a-3-1]], that B_ε is only bounded in Ψ^(𝐬+δ𝟏) for every δ > 0, and R_ε only in
+Ψ^(2𝐬−𝟏+δ𝟏), while the other hypotheses hold as stated, κ < ½, and B₀ has principal symbol bounded below by c > 0
+times an elliptic weight of order 𝐬. Then the conclusion holds with the a priori term ‖Gu‖_(𝐬−κ𝟏). The proof is
+unchanged, except that (e) is bounded by C‖v‖²_(𝐬−½𝟏+δ𝟏) ≤ C‖v‖²_(𝐬−κ𝟏) for δ ≤ ½ − κ, and
+‖Bu‖_𝐬 ≤ C(‖B₀u‖ + ‖u‖_(−𝐍)) for B microsupported in Ell(B₀): b₀⁻¹ is bounded by the inverse weight, so it is a
+symbol of order −𝐬 in the class of (C6). [[lem:i-a-3-2]] holds with this variant, since its steps have κ ≤ ¼. For
+fixed ε, B_ε lies only in Ψ^(𝐬−κ𝟏+δ𝟏), so in Step 2 the left side is not known to converge. Instead,
+B_εw_t → B_εv in H^(−δ𝟏), and ‖B_εw_t‖² is bounded by the right side at w_t, which converges to the right side at v;
+so B_εv ∈ L² and, by weak lower semicontinuity, ‖B_εv‖² ≤ lim inf ‖B_εw_t‖² is bounded by the right side at v.
+Likewise Y_ε is bounded only in Ψ^(𝐤−𝟏+2δ𝟏), which is harmless in (a).
+
+**Definition {#def:i-a-cutoff}** (The cut-off.) Fix once and for all ψ ∈ C_c^∞((−1, 1)), even, with ψ = 1 on
+[−½, ½], ψ′ ≤ 0 on [0, ∞) and √(−xψ(x)ψ′(x)) ∈ C^∞([0, ∞)) [Hin26c, (9.25)].
+
+Such a ψ exists. Let ν ∈ C^∞([0, 1)) vanish on [0, ½], be positive on (½, 1) and equal (1 − x)⁻¹ near 1, and set
+ψ(x) := exp(−∫_0^(|x|) ν²) for |x| < 1 and ψ := 0 otherwise. Then ψ is smooth, since ∫_0^x ν² → ∞ like (1 − x)⁻¹;
+−ψ′ = ν²ψ for x ≥ 0; and √(−xψψ′) = √x νψ, which is smooth because ν = 0 on [0, ½] and νψ is smooth (flat at 1).
+
+**Definition {#def:i-a-regulariser}** (The regulariser.) For κ ∈ (0, ½] and a defining function ϱ of a boundary face
+of phase space, let φ_ε(ϱ) := (1 + εϱ⁻¹)^(−κ), ε ∈ (0, 1], and θ_ε := εϱ⁻¹(1 + εϱ⁻¹)⁻¹ ∈ [0, 1).
+
+For any vector field V,
+
+    V(φ_ε²) = 2κ θ_ε (ϱ⁻¹Vϱ) φ_ε²,     V(ϱ^(−a)φ_ε²) = −(a − 2κθ_ε)(ϱ⁻¹Vϱ) ϱ^(−a)φ_ε².                       {#eq:i-a-3-6}
+
+Indeed φ_ε² = ϱ^(2κ)(ϱ + ε)^(−2κ), so V log φ_ε² = 2κ(1 − ϱ(ϱ + ε)⁻¹)ϱ⁻¹Vϱ = 2κθ_εϱ⁻¹Vϱ. The same formula shows that
+φ_ε is bounded in S⁰ (in ϱ), lies in S^(−κ) for each ε > 0, and tends to 1 in S^δ for every δ > 0, and that θ_ε is
+bounded in S⁰. So regularising a commutant of weight ϱ^(−a), a = 2𝗌′ − 1, replaces 𝗌′ by an effective order
+𝗌′_ε := 𝗌′ − κθ_ε ∈ (𝗌′ − κ, 𝗌′] in the component the regulariser acts on. In [[lem:i-a-3-2]] that interval is
+(𝗌_(j−1), 𝗌_j] ⊂ [𝗌₀, 𝗌].

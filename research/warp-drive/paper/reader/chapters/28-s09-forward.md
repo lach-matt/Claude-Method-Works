@@ -333,3 +333,338 @@ L_p := J⁻(p) ∩ {t ≥ 1/2} gives ū = 0, so ũ = 0 on {t_* < 2}. ∎
 space of part (1), with the variable admissible order 𝗌 near 𝓘⁺, where the extension u_ext is controlled only at a
 constant order; [[lem:ii-f-6-4]] avoids this, using only [[prop:ii-f-5-1]] at a constant order and the high-energy
 estimate [[eq:ii-f-3-4]].
+
+### The modified operator P_+ {#sec:ii-f-7}
+
+This section is [Hin26c, Section 10.2] in dimension 4 + 1.
+
+#### Definition and structure {#sec:ii-f-7-1}
+
+**Definition {#def:ii-f-7-1}** (The modified operator.) Let χ ∈ C_c^∞([0, 2)), 0 ≤ χ ≤ 1, equal 1 near [0, 1], and
+write χ = χ(R). Let T_+ := max(2, 2r_0). On {t_* > T_+} × ι⁺, that is on (0, T_+⁻¹)_τ × ι⁺,
+
+    P_+ := χ N_ι⁺(P_0) + (1 − χ) P_0.
+
+On supp(1 − χ), R ≥ 1, so r = R t_* > T_+ ≥ 2r_0 lies in the domain of P_0 ([[def:ii-c-1-1]]); N_ι⁺(P_0) is defined on
+{r > 0} by [[eq:ii-f-1-7]]. This is [Hin26c, Definition 10.13] in dimension 4 + 1; [Hin26c] takes {t_* > 1}, and T_+
+only keeps the domain of P_0 in view.
+
+**Lemma {#lem:ii-f-7-2}** (Structure of P_+.) (a) P_+ ∈ x_I² τ² ρ_cf⁻² Diff²_ebe([0, T_+⁻¹) × ι⁺).
+(b) P_+ − N_ι⁺(P_0) ∈ x_I² τ³ ρ_cf⁻² Diff²_ebe: N_ι⁺(P_0) is the normal operator of P_+ at τ = 0 ([Hin26c, (10.51)]).
+(c) P_+ is principally scalar with principal symbol G_χ := χḠ + (1 − χ)G_0, the dual metric function of g_χ⁻¹ := χḡ⁻¹ +
+(1 − χ)g_0⁻¹, which is Lorentzian on {τ < τ_1} for some τ_1 > 0; dt_* is past causal for g_χ; and g_χ = ḡ on {R ≤ 1}.
+
+*Proof.* (a) On {R < 1}, P_+ = N_ι⁺(P_0) and [[eq:ii-f-6-2]] applies. On {R > 1/2}, (τ, R, ω) ↦ (t_* = τ⁻¹, r = Rτ⁻¹,
+ω) identifies [0, T_+⁻¹) × ι⁺ with a neighbourhood of ι⁺ ∩ {R > 1/2} in M, away from K⁺. There the ebe-fields
+[[eq:ii-f-6-1]] are the e3b-fields ([[sec:ii-a-2-4]]: b-fields over (ι⁺)°, eb-fields near ι⁺ ∩ 𝓘⁺), ρ_+ ∼ τ, and P_0 ∈
+x_I² ρ_+² Diff²_e3b ([[lem:ii-c-1-4]] (b)), as is N_ι⁺(P_0) by [[lem:ii-f-1-2]]. (b) P_+ − N_ι⁺(P_0) = (1 − χ)(P_0 −
+N_ι⁺(P_0)) is supported in {R ≥ 1}, and [[eq:ii-f-1-9]] applies. (c) The principal symbols are Ḡ Id for N_ι⁺(P_0)
+([[eq:ii-f-1-7]]–[[eq:ii-f-1-8]]) and G_0 Id for P_0 ([[def:ii-c-1-1]]). By [[eq:ii-b-1-2]] of [[lem:ii-b-1-1]], for the
+inverses, ρ_0⁻² x_I⁻² ρ_+⁻² (g_0⁻¹ − ḡ⁻¹) ∈ ρ_0² x_I² ρ_+² C^∞(M; S² ᵉ³ᵇTM), and ρ_0, x_I are bounded below on
+{1 ≤ R ≤ 2} near ι⁺. So on supp χ ∩ supp(1 − χ) ⊂ {1 ≤ R ≤ 2} the normalised difference x_I⁻² ρ_+⁻² (g_χ⁻¹ − g_0⁻¹) =
+χ x_I⁻² ρ_+⁻² (ḡ⁻¹ − g_0⁻¹) is O(ρ_+²), and the convex combination is Lorentzian for τ small, as in [[def:ii-c-3-1]],
+remark (b). In dimension 4 + 1 the relative decay of g_0 − ḡ at (ι⁺)° is ρ_+², the mass term being O(r⁻²). Finally
+Ḡ(dt_*) = 0 (dt_* is null for ḡ, [[sec:ii-f-1-2]]) and G_0(dt_*) < 0 with dt_* past directed on {r ≥ T_+}
+([[lem:ii-b-1-1]], [Hin26c, Lemma 4.4]), so G_χ(dt_*) ≤ 0, past directed. ∎
+
+#### Orders {#sec:ii-f-7-2}
+
+Let 𝗌 be admissible for P_0 with weights α_+, 0 and margin 0 ([[def:ii-c-5-2]]), and let it meet the lower thresholds
+(4) and (6) of [[def:ii-c-2-4]] with margin 1. An order admissible with margin 1 does, and so does its sum with 1, which
+has margin 0 at the upper threshold (5); [[sec:ii-f-8]] uses both. Let 𝗌_I be the τ-dilation-invariant extension of
+𝗌|_(ᵉ³ᵇS*_ι⁺M) ([[sec:ii-f-6-1]]), and
+
+    𝗌′ := χ(R) 𝗌_I + (1 − χ(R)) 𝗌      on ᵉᵇᵉS*([0, T_+⁻¹) × ι⁺).                                         {#eq:ii-f-7-1}
+
+Fix η_1 > 0 so small that 𝗌_♭ := 𝗌 − 1 − η_1 is admissible with weights α_+, 0 and margin 0. This is possible: the
+threshold conditions (4)–(6) of [[def:ii-c-2-4]] are strict inequalities for the constant values of 𝗌 near finitely
+many radial sets, 𝗌 meets the lower ones (4), (6) with margin 1, and lowering 𝗌 only helps at the upper one (5); and
+(1)–(3) of [[def:ii-c-2-4]] and (2)–(5) of [[prop:ii-c-5-1]] are unaffected by subtracting a constant. Let 𝗌_(♭,I) be
+its τ-dilation-invariant extension.
+
+**Lemma {#lem:ii-f-7-3}** (The orders near ι⁺.) There is τ_1 ∈ (0, T_+⁻¹), not larger than that of [[lem:ii-f-7-2]] (c)
+and with τ_1⁻¹ at least the t_1 of [[lem:ii-f-1-4]] (b), such that on {τ ≤ τ_1}:
+
+(a) 𝗌′ = 𝗌_I on {R ≤ 10}, 𝗌′ = 𝗌 on {R ≥ 1}, and 𝗌_(♭,I) + 1 ≤ 𝗌′.
+
+(b) 𝗌′ is non-increasing along the future null-bicharacteristic flow of every principally scalar operator whose dual
+metric is g⁻¹ = g_χ⁻¹ + k with k supported in {τ ≤ τ_1} ∩ {R ≥ 1} and small in the norm of [[prop:ii-c-5-1]] (2), or
+with k = 0.
+
+(c) 𝗌′ is constant near the radial sets R_(𝓘⁺,in,+), R_(𝓘⁺,out) (over ι⁺ ∩ 𝓘⁺; [[def:ii-b-7-1]]) and near R_(cf,in),
+R_(cf,out), the τ-invariant extensions over cf of ∂R_(∂K⁺,in), ∂R_(∂K⁺,out) under the identification ᵉᵇᵉT*_(ι⁺∩cf) =
+³ᵇT*_(ι⁺∩K⁺)M_0 of [Hin26c, (10.44)], and satisfies there the thresholds (5)–(6) of [[def:ii-c-2-4]] with α_sf = α_+,
+α_K = 0, margin 0. The same holds for 𝗌_(♭,I) in place of 𝗌′ near R_(cf,in/out) and R_(𝓘⁺,in,+).
+
+*Proof.* (a) By [[prop:ii-c-5-1]] (3), 𝗌 is invariant under (t_*, r, ω) ↦ (Λt_*, Λr, ω) on a neighbourhood of
+ι⁺ ∩ {R ∈ [1, 10]}, which contains {τ ≤ τ_1, R ∈ [1, 10]} for τ_1 small; there 𝗌 = 𝗌_I, which gives the first two
+claims (on {1 ≤ R ≤ 2}, 𝗌′ = χ𝗌 + (1 − χ)𝗌). For the third: on {R ≤ 10}, 𝗌_(♭,I) + 1 = 𝗌_I − η_1 < 𝗌_I = 𝗌′; on
+{R ≥ 1}, 𝗌′ = 𝗌, and 𝗌 is uniformly continuous on the compact set ᵉᵇᵉS*_({τ ≤ T_+⁻¹/2, R ≥ 1}) (where it is a smooth
+function on ᵉ³ᵇS*M) and equals 𝗌_I at τ = 0, so |𝗌 − 𝗌_I| ≤ η_1 there for τ_1 small, and 𝗌_(♭,I) + 1 = 𝗌_I − η_1 ≤ 𝗌.
+
+(b) On {R ≤ 1} the metric is ḡ (also for g, as k vanishes there) and 𝗌′ = 𝗌_I. Ḡ and 𝗌_I are invariant under
+τ-dilations, so the rescaled Hamilton derivative 𝖧_Ḡ 𝗌_I is dilation-invariant; at τ = 0 it equals 𝖧_(G_0) 𝗌 over ι⁺,
+since N_ι⁺(P_0) is the normal operator of P_0 at ι⁺ and their principal symbols agree there ([[lem:ii-f-1-2]],
+[[eq:ii-f-1-9]]), and ±𝖧_(G_0) 𝗌 ≤ 0 on ∂Σ^± ([[def:ii-c-2-4]] (1), [[prop:ii-c-5-1]] (2) with h = 0). Every point is a
+limit of its dilates towards τ = 0, so ±𝖧_Ḡ 𝗌_I ≤ 0 everywhere. On {R ≥ 1}, 𝗌′ = 𝗌 by (a), and g⁻¹ − g_0⁻¹ = χ(ḡ⁻¹ −
+g_0⁻¹) + k. Let ψ(τ/τ_1) be a cut-off in time (ψ = 1 on [0, 1], supported in [0, 2)) and φ ∈ C^∞(ℝ) equal to 0 on
+(−∞, 1/2] and 1 on [3/4, ∞). The dual metric g_0⁻¹ + ψ(τ/τ_1) φ(R) (χ(ḡ⁻¹ − g_0⁻¹) + k) on Ω equals g⁻¹ on {τ ≤ τ_1,
+R ≥ 3/4}, and its difference from g_0⁻¹ has norm in 𝒢̃^(1,(2ℓ_I,ℓ_+,ℓ_K)) (ℓ_+ ≤ 1) at most C τ_1^(2−ℓ_+) plus that of k:
+on its support R ≥ 1/2, so that ρ_+ ≤ 3τ and ρ_K ≥ 1/3, and on supp χ, where ρ_0 and x_I are bounded below, ḡ − g_0 has
+relative decay ρ_0² x_I² ρ_+² ([[eq:ii-b-1-2]]). Without φ the modified metric would be ḡ near ι⁺ ∩ K⁺, where it is not
+close to g_0. For τ_1 and k small, [[prop:ii-c-5-1]] (2) gives ±𝖧_G 𝗌 ≤ 0 on ∂Σ^±.
+
+(c) Near ι⁺ ∩ 𝓘⁺, 𝗌′ = 𝗌, constant near those radial sets by [[prop:ii-c-5-1]] (5). Near cf, 𝗌′ = 𝗌_I, the
+dilation-invariant extension of 𝗌 restricted to the phase space over ι⁺ ∩ K⁺ identified by [Hin26c, (10.44)]; 𝗌 is
+constant near ∂R_(∂K⁺,in/out) with the thresholds (5)–(6) of [[def:ii-c-2-4]] ([[prop:ii-c-5-1]] (1)), and so is 𝗌_I
+near their τ-invariant extensions, with the same values. For 𝗌_(♭,I) the same holds, by the choice of η_1. ∎
+
+#### The statement {#sec:ii-f-7-3}
+
+Fix τ_0 ∈ (0, C′τ_1/2), with C′ < 1 of [[lem:ii-c-3-2]] (b), to be decreased in [[sec:ii-f-7-6]]; then τ_0 < 1/4 and
+τ_0 < C′/(1 + C′). Spaces are those of [[eq:ii-f-6-3]] on [0, τ_0] × ι⁺.
+
+**Proposition {#prop:ii-f-7-4}** (Forward solutions of P_+.) Let 𝗌, 𝗌′ be as in [[sec:ii-f-7-2]]. There is τ_0 ∈
+(0, C′τ_1/2) such that, for all γ_I < 3/2 + S̄, γ_+ < min(γ_I, 1 + β_+), γ_cf := −(α_+ + 2) and k ∈ ℕ₀:
+
+(1) (*Existence.*) For every f ∈ Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b)([0, τ_0] × ι⁺) there is a forward solution
+u ∈ Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b)([0, τ_0] × ι⁺) of P_+ u = f, with ‖u‖ ≤ C‖f‖ in these norms.
+
+(2) (*Strong uniqueness.*) If ũ ∈ 𝒟′((0, ∞) × (ι⁺)°) is supported in {τ ≤ τ_0}, P_+ ũ = 0, and ũ ∈
+H^(𝗌′,γ_cf)_(e,loc)((0, ∞)_τ × {R < R_0}) for some R_0 > 0, then ũ = 0.
+
+τ_0 depends on 𝗌 and P_0 only through [[sec:ii-f-7-6]]; the dependence on the weights is only through the constants.
+The hypotheses on (γ_I, γ_+) are those of [[prop:ii-f-6-2]]. This is [Hin26c, Proposition 10.14] in dimension 4 + 1.
+
+#### Strong uniqueness {#sec:ii-f-7-4}
+
+*Proof of [[prop:ii-f-7-4]] (2).* As for [[prop:ii-f-6-2]] (2), only the region near r = 0 is non-standard. Let
+s″ := ⌊inf 𝗌′⌋ and μ := min(1, R_0τ_0⁻¹/3), and work in (t_*, r, ω). As τ_0 < 1/3, for t_* ≥ τ_0⁻¹ we have {r ≤ 3μ} ⊂
+{R < 1}, where P_+ = N_ι := N_ι⁺(P_0), and {r < 3μ} ⊂ {r < R_0 t_*}, where the hypothesis gives ũ edge order s″ with
+weight γ_cf at r = 0; no rescaling of P_+ is needed. N_ι is t_*-translation invariant and homogeneous, so
+[[lem:ii-f-6-3]] holds with its lengths multiplied by μ (apply it to D_(1/μ) g and rescale, Ñ becoming Ñ_μ, equal to N_ι
+on {r > μ/2}): for g ∈ H^(s′−1)_c supported in {T ≤ t_* ≤ T + 2μ, 2μ ≤ r ≤ 3μ} there is a unique u on {t_* < T + 2μ},
+vanishing for t_* < T and where t_* + 2r < T + 4μ, with N_ι u = g and χ(t_*) u ∈ H^(s′,2γ)_e near 𝓘⁺ for χ ∈
+C_c^∞((−∞, T + 2μ)). Let t_(*,0) ≥ τ_0⁻¹ be such that ũ = 0 on {t_* < t_(*,0)}; t_(*,0) = τ_0⁻¹ is one, by the support
+condition. We show ũ = 0 on {t_* < t_(*,0) + μ/2}; iterating in steps of μ/2 gives ũ = 0.
+
+Let χ_r ∈ C_c^∞([0, 3μ)) equal 1 near [0, 2μ]. Then N_ι(χ_r ũ) = P_+(χ_r ũ) = [P_+, χ_r] ũ =: g on {t_* ≥ t_(*,0)},
+with g supported in {2μ ≤ r ≤ 3μ} and in H^(s″−1)_loc. Let χ_g ∈ C^∞(ℝ) equal 1 on (−∞, t_(*,0) + μ] and 0 on
+[t_(*,0) + 3μ/2, ∞), and let u_mid solve N_ι u_mid = −χ_g g on {t_* < t_(*,0) + 2μ} as above (T = t_(*,0), s′ = s″): it
+vanishes for t_* < t_(*,0) and where t_* + 2r < t_(*,0) + 4μ, and is in H^(s″,2γ_I)_e near 𝓘⁺ for t_* < t_(*,0) + 2μ.
+Then N_ι(χ_r ũ + u_mid) = 0 on {t_* ≤ t_(*,0) + μ}. Let χ_(t_*) ∈ C^∞(ℝ) equal 1 on (−∞, t_(*,0) + μ/2] and 0 on
+[t_(*,0) + μ, ∞), and w := χ_(t_*)(χ_r ũ + u_mid). w has compact τ-support, lies in H^(s″,(2γ_I,γ_+,γ_cf))_ebe (near
+r = 0 by hypothesis, near 𝓘⁺ by [[lem:ii-f-6-3]], in between H^(s″)_loc), and N_ι w = [N_ι, χ_(t_*)](χ_r ũ + u_mid) is
+supported in {t_* ≥ t_(*,0) + μ/2}. By [[lem:ii-f-6-4]], w is supported in {t_* ≥ t_(*,0) + μ/2}. So on {t_* < t_(*,0) +
+μ/2}, χ_r ũ = −u_mid, which vanishes where t_* + 2r < t_(*,0) + 4μ, in particular on {t_* < t_(*,0) + μ/2, r < 7μ/4};
+hence ũ = 0 there.
+
+On the rest of {t_* < t_(*,0) + μ/2} we use [[lem:ii-f-1-3]]. Let X := {τ_1⁻¹ < t_* < t_(*,0) + μ/2}, in the
+coordinates (t, x) of ℝ^(1+4), t = t_* + r; let ū be the distribution on X equal to ũ on {r > 0} and to 0 on
+{r < 7μ/4}, which is consistent; and let P̃ be the operator equal to P_+ on {r > μ/2} and to Ñ_μ on {r < μ}, both being
+N_ι on X ∩ {μ/2 < r < μ} ⊂ {R < 1}. P̃ has smooth coefficients and principal symbol G_χ ([[lem:ii-f-7-2]] (c); G_χ = Ḡ
+on {R ≤ 1}), and P̃ū = 0 on X. By [[lem:ii-f-1-4]] (b) (τ_1⁻¹ ≥ t_1, [[lem:ii-f-7-3]]), t_* is non-decreasing along
+future causal curves of g_χ in X, and t and t^♭_+ are time functions, with C′t_* ≤ t^♭_+ ≤ t_*. supp ū ⊂ {t_* ≥
+t_(*,0)} ⊂ {t^♭_+ ≥ C′t_(*,0)}. Take the time function t^♭_+ and c := C′t_(*,0)/2, which exceeds τ_1⁻¹, as t_(*,0) ≥
+τ_0⁻¹ and τ_0 < C′τ_1/2. For p ∈ X with t^♭_+(p) > c, J⁻_X(p) ∩ {t^♭_+ ≥ c} lies in L_p := {c ≤ t^♭_+ ≤ t^♭_+(p),
+t_* ≤ t_*(p), t ≤ t(p)}, which is compact (r ≤ t(p) − c there) and contained in X (t_* ≥ t^♭_+ ≥ c > τ_1⁻¹).
+[[lem:ii-f-1-3]] gives ū = 0, so ũ = 0 on {t_* < t_(*,0) + μ/2}. ∎
+
+#### Finite-time solvability {#sec:ii-f-7-5}
+
+**Lemma {#lem:ii-f-7-5}** (Forward solutions on finite intervals.) Let f be as in [[prop:ii-f-7-4]] (1) and T ≥ τ_0⁻¹.
+There is a unique u on {τ_0⁻¹ ≤ t_* < T}, vanishing near t_* = τ_0⁻¹, with P_+ u = f there and ψ_T u ∈
+Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b) for every ψ_T ∈ C_c^∞((−∞, T)) (a function of t_*), with ‖ψ_T u‖ ≤ C_(T,ψ_T) ‖f‖.
+The same holds for the operators P^ε_+ of [[sec:ii-f-7-6]], ε ∈ (0, τ_0], in place of P_+, with constants independent
+of ε.
+
+*Proof.* *Uniqueness* follows from [[prop:ii-f-7-4]] (2), proved above: the difference of two solutions, cut off by ψ_T
+near t_* = T, solves P_+ v = 0 on {t_* < T′} for T′ < T, and the argument of [[sec:ii-f-7-4]] is local in time.
+
+*Existence, one step.* Let t_(*,0) ≥ τ_0⁻¹ and f_0 ∈ Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b), supported in {t_* ≥
+t_(*,0)}. By [[lem:ii-f-7-3]] (a), 𝗌′ = 𝗌_I on {R ≤ 10}, so χf_0 ∈ Ḣ^((𝗌_I−1;k),(∞,γ_++2,γ_cf−2)), and
+[[prop:ii-f-6-2]] (1) gives the forward solution u_cf of N_ι u_cf = χf_0, with χu_cf ∈ Ḣ^((𝗌_I;k),(∞,γ_+,γ_cf)). Let
+χ^♭ = χ^♭(R) equal 1 near [0, 1], supported in χ⁻¹(1). As P_+ = N_ι on {χ = 1}°,
+
+    f_1 := f_0 − P_+(χ^♭ u_cf) = (1 − χ^♭) f_0 − [N_ι, χ^♭](χ u_cf) ∈ Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,∞)),
+
+supported in {R ≥ 1} ∩ {t_* ≥ t_(*,0)}, with norm ≤ C‖f_0‖. Next we solve P_+ u_mid = f_1 on {t_* ≤ 2t_(*,0)}. Let ψ,
+ψ̃ ∈ C^∞(ℝ), ψ = 0 on (−∞, 1/2], ψ = 1 on [1, ∞), ψ̃ = 1 on (−∞, 2], ψ̃ = 0 on [3, ∞), and on Ω
+
+    P_aux := P_0 + ψ(8r/t_(*,0)) ψ̃(t_*/t_(*,0)) (P_+ − P_0).
+
+P_+ − P_0 = χ(N_ι − P_0) is supported in {R ≤ 2}. On the support of the cut-offs, r ≥ t_(*,0)/16 and t_* ≤ 3t_(*,0),
+and as χ(R) = 0 for R ≥ 2, also t_* ≥ t_(*,0)/32; so the second term lives where ρ_+ ∼ t_(*,0)⁻¹ and R ∈ [1/48, 2],
+near (ι⁺)°. There N_ι − P_0 ∈ x_I² ρ_+³ Diff²_e3b ([[lem:ii-f-1-2]]) and the principal symbols differ by O(ρ_+²)
+relative to G_0 ([[eq:ii-b-1-2]]); the cut-offs, functions of r/t_(*,0) and t_*/t_(*,0) with r ∼ t_* ∼ t_(*,0) on
+their supports, have e3b-derivatives bounded uniformly in t_(*,0). Hence P_aux is weakly admissible relative to P_0
+([[def:ii-c-3-3]], p_0 = p̃_1 = 0) with ε_P ≤ C t_(*,0)^(−(1−ℓ_+)) (ℓ_+ < 1), and its metric is close to g_0; for
+t_(*,0) large (that is, τ_0 small), the hypotheses of [[sec:ii-e-1-1]] and of [[prop:ii-c-5-1]] (2) hold for P_aux, so 𝗌
+is a slab order for it. Let Ω′ = Ω_(T_0,T_1) be a slab containing {t_(*,0) ≤ t_* ≤ 2t_(*,0), r ≥ t_(*,0)/4} and with
+f_1 supported in {t^♭ ≥ T_0} there. Then f_1 ∈ H^((𝗌−1;k),2α+2)(Ω′)^(•,−), α := γ_I − 2 < −1/2 + S̄ (𝗌′ = 𝗌 on
+{R ≥ 1}, and the weight shift is [[lem:ii-a-6-1]], as in [[sec:ii-f-6-3]]), and [[prop:ii-e-4-3]] gives the forward
+solution u_aux ∈ H^((𝗌;k),2α)(Ω′)^(•,−) of P_aux u_aux = f_1, with norm ≤ C‖f_1‖.
+
+*Support and order of u_aux.* u_aux vanishes on {t_* < 2t_(*,0), r < t_(*,0)/4}. To see this, note that the dual metric
+of P_aux is G_0 + a(Ḡ − G_0) with a := ψ(8r/t_(*,0)) ψ̃(t_*/t_(*,0)) χ(R) ∈ [0, 1], supported in {r ≥ t_(*,0)/16}, so
+[[lem:ii-f-1-4]] (a) applies to it for t_(*,0) ≥ 16(r′_0 + 1), and t^♭ is a time function for it ([[lem:ii-c-3-2]]
+(2)). Let ψ_q ∈ C^∞(ℝ), 0 ≤ ψ_q ≤ 1, vanish on (−∞, 1/32] and equal 1 on [1/16, ∞), and
+
+    Θ := t_* + q(r),      q(r) := (19/10) ∫_0^r ψ_q(r′/t_(*,0)) dr′.
+
+Θ is non-decreasing along future causal curves of g_aux for t_(*,0) large. Where ψ_q = 0, dΘ = dt_* ([[lem:ii-f-1-4]]
+(a)). Where r ≥ t_(*,0)/32, dΘ = dt_* + q′ dr with q′ ∈ [0, 19/10], so Ḡ(dΘ) = −q′(2 − q′) ≤ −q′/10, while G_0(dΘ) ≤
+G_0(dt_*) − q′(2 − q′) + C r⁻² q′(2 + q′) < 0 for r large, by [[lem:ii-b-1-1]] (dt_* is past timelike, and g_0⁻¹ −
+ḡ⁻¹ ∈ r⁻² C^∞(M; S²𝒯)); dΘ, which deforms continuously to dt_* through such covectors, is past causal for G_0 and Ḡ,
+hence for G_0 + a(Ḡ − G_0) (the cone argument of [[lem:ii-f-1-4]]). For r ≥ t_(*,0)/16, q(r) = (19/10) r − κ t_(*,0)
+with κ := (19/10) ∫_0^(1/16) (1 − ψ_q) ∈ [0, 19/160]. On supp f_1 ⊂ {R ≥ 1, t_* ≥ t_(*,0)}, r ≥ t_* ≥ t_(*,0), so
+Θ ≥ (29/10 − κ) t_(*,0) =: a_Θ; on {t_* < 2t_(*,0), r < t_(*,0)/4}, Θ < (2 + 19/40 − κ) t_(*,0) < a_Θ. Let U′ be the
+interior of the slab Ω′ ([[sec:ii-e-1-1]]), on which u_aux is defined, and X := U′ ∩ {Θ < a_Θ}. Then P_aux u_aux = f_1 =
+0 on X, and supp u_aux ⊂ {t^♭ ≥ T_0}, with T_0 > 2 (enlarging t_(*,0)). For p ∈ X with t^♭(p) > c := T_0/2, J⁻_X(p) ∩
+{t^♭ ≥ c} lies in
+
+    L_p := {c ≤ t^♭ ≤ t^♭(p),  Θ ≤ Θ(p),  B ≤ B(p),  r ≥ min(r(p), r^♮)},
+
+which is compact (B bounds t_* and r) and contained in X (t_* ≥ t^♭ ≥ c > 1). By [[lem:ii-f-1-3]], u_aux = 0 on X,
+which contains U′ ∩ {t_* < 2t_(*,0), r < t_(*,0)/4}. So on {t_* < 2t_(*,0)}, u_aux solves P_+ u_aux = f_1, as P_aux =
+P_+ on {t_* ≤ 2t_(*,0), r ≥ t_(*,0)/8}. Its order is 𝗌; on {R ≥ 1} that is 𝗌′. On {t_(*,0)/4 ≤ r, R ≤ 1, t_* ≤
+2t_(*,0)}, an interior region where P_+ = N_ι has smooth coefficients, we upgrade to the order 𝗌′ by real principal
+type propagation ([[thm:ii-a1-5-4]]; in the interior b-regularity is regularity, and the k b-derivatives are handled by
+the commuted systems of [[lem:ii-d1-2-1]] and [[lem:ii-d1-2-5]]): 𝗌′ is non-increasing along the future flow
+([[lem:ii-f-7-3]] (b)), P_+ u_aux = f_1 ∈ H^((𝗌′−1;k)), there are no radial points over the interior, and every backward
+null bicharacteristic from a point of this region reaches, within {t_* ≤ 2t_(*,0)}, either {r < t_(*,0)/4} (where
+u_aux = 0) or {R ≥ 1} (where it is of order 𝗌 = 𝗌′): radially outgoing ones keep t_* and decrease r backward, the
+others leave every compact subset of {t_* ≥ t_(*,0)} backward. With χ_(t_*) equal to 1 for t_* ≤ 3t_(*,0)/2 and 0 for
+t_* ≥ 2t_(*,0), u_mid := χ_(t_*) u_aux ∈ Ḣ^((𝗌′;k),(2γ_I,∞,∞))_(ebe;b) with norm ≤ C_(t_(*,0)) ‖f_0‖ (near 𝓘⁺ by
+[[lem:ii-a-6-1]] and the identification of e3b- and ebe-spaces there), and
+
+    f_2 := f_1 − P_+ u_mid = −[P_+, χ_(t_*)] u_aux
+
+is supported in {t_* ≥ 3t_(*,0)/2}, with norm ≤ C_(t_(*,0)) ‖f_0‖ in the space of f_0. Thus χ^♭ u_cf + u_mid solves
+P_+ u = f_0 on {t_* < 3t_(*,0)/2}, with an error f_2 supported in {t_* ≥ 3t_(*,0)/2}.
+
+*Iteration.* Apply the step to f_2 with 3t_(*,0)/2 in place of t_(*,0), and so on; after j steps the sum of the partial
+solutions solves P_+ u = f on {t_* < (3/2)^j τ_0⁻¹}, and (3/2)^j → ∞. The bounds follow step by step. The same argument
+applies to P^ε_+ of [[sec:ii-f-7-6]], which equals N_ι on {R ≤ 1} and differs from P_+ only on {τ ≤ 2ε} by a term of
+the class [[eq:ii-f-7-6]], so that P_aux built from it satisfies the same smallness uniformly in ε. ∎
+
+#### The a priori estimate, and the proof of existence {#sec:ii-f-7-6}
+
+*Radial estimates at cf.* Near cf, by [Hin26c, (10.44)], the ebe-phase space over {τ = 0, R = 0} is the 3b-phase space
+over ∂K⁺ = ι⁺ ∩ K⁺, and P_+ = N_ι is τ-dilation-invariant on {R < 1}. Its rescaled Hamilton field is the
+dilation-invariant extension of 𝖧̄ over ∂K⁺ ([[sec:ii-b-3]]), with radial sets R_(cf,in), R_(cf,out) over all of cf:
+R_(cf,in) is a saddle whose stable manifold lies over {R > 0} (radially infalling null geodesics) and whose unstable
+manifold lies over {R = 0}, which is the stable manifold of R_(cf,out), whose unstable manifold lies over {R > 0}
+(radially outgoing null geodesics) ([Hin26c, p. 223]; [[lem:ii-b-3-3]] over ι⁺, extended by invariance). With τ̃ :=
+(t_* + r)⁻¹ = τ/(1 + R), whose differential is timelike for ḡ, let ψ_+ ∈ C^∞([0, ∞)) equal 1 near [0, τ_2], vanish on
+[2τ_2, ∞), be non-increasing, and have √(−ψ_+ψ′_+) smooth.
+
+**Lemma {#lem:ii-f-7-6}** (Radial estimates at cf.) Let 𝗍 be an order on ᵉᵇᵉS*, τ-dilation-invariant and constant near
+R_(cf,in) (resp. R_(cf,out)), with the threshold [[eq:ii-d-3-3]] of [[prop:ii-d-3-2]] (resp. [[eq:ii-d-3-5]] of
+[[prop:ii-d-3-3]]) there for α_K = 0. Then [[prop:ii-d-3-2]] and [[prop:ii-d-3-3]], and their b-regular versions
+[[prop:ii-d1-5-2]], hold for L = N_ι, P_+ or P^ε_+ near R_(cf,in) (resp. R_(cf,out)) over cf ∩ {τ ≤ τ_2}, with the
+ebe-weights (γ_+, γ_cf) for (α_+, α_K) (via α_+ − α_K = −γ_cf − 2, [[lem:ii-a-6-2]]), for u vanishing on {τ̃ ≥ τ_2}. In
+place of condition (4) of [[prop:ii-d-3-2]]: at R_(cf,in) the Schwartz kernel of E is supported away from cf; at
+R_(cf,out), WF′(E) is disjoint from the unstable manifold of R_(cf,out) (the τ-invariant extension of ∂W_out =
+{ξ̂ = 0, η̂ = 0}, over {R > 0}); in both cases there is an additional term microsupported over supp ψ′_+(τ̃), which
+vanishes for such u. This is the estimate of [Hin26c, p. 223].
+
+*Proof.* These are the proofs of [[prop:ii-d-3-2]] and [[prop:ii-d-3-3]] with Ψ := ψ(𝔐_R q) ψ_+(τ̃) ψ(𝔐ρ_cf) in place of
+ψ(𝔐_R q) ψ(𝔐ρ_+) ψ(𝔐ρ_K). The quantities at the radial set are unchanged: 𝖧 is the dilation-invariant extension of 𝖧̄,
+so ρ⁻¹𝖧ρ, 𝖧q and the imaginary part 𝔭′ (that of N_ι, which at R = 0 is that of P_0 at ∂K⁺, its coefficients being those
+of P_0 frozen) take the values used there at every τ. The weight w = τ^(γ_+) ρ_cf^(γ_cf) = ρ_+^(α_+) ρ_K^(α_K)·(smooth
+positive) under [Hin26c, (10.44)] gives the same contribution, τ being dilation-invariant (τ⁻¹𝖧τ = 0 at the radial set,
+as ρ_+⁻¹𝖧ρ_+ + ρ_K⁻¹𝖧ρ_K = 2 − 2 there). The factor ψ(𝔐ρ_cf) plays the role of ψ(𝔐ρ_K), with the same signs. The factor
+ψ_+(τ̃) replaces ψ(𝔐ρ_+): 𝖧(ψ_+²) = 2ψ_+ψ′_+ 𝖧τ̃, and on the future characteristic set 𝖧τ̃ ≤ 0 (τ̃ decreases along
+future causal curves), so this is (√(−ψ_+ψ′_+))² · 2(−𝖧τ̃) ≥ 0, a term +e*e microsupported over supp ψ′_+(τ̃) ⊂ {τ̃ ≥
+τ_2}, where u = 0. For P_+ and P^ε_+ on {R < 1} the operator is N_ι. ∎
+
+**Lemma {#lem:ii-f-7-7}** (The symbolic estimate.) For τ_0 ≤ τ_2/2 small and every ε ∈ (0, τ_0], with C independent of
+ε, every u ∈ Ḣ^((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf))_(ebe;b)([0, τ_0] × ι⁺) with P^ε_+ u ∈
+Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b) lies in Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b) and
+
+    ‖u‖_((𝗌′;k),(2γ_I,γ_+,γ_cf))
+        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf))).               {#eq:ii-f-7-2}
+
+Here P^ε_+ := χ_0(τ/ε) N_ι + (1 − χ_0(τ/ε)) P_+, with χ_0 ∈ C_c^∞([0, 2)) equal to 1 on [0, 1]. This is [Hin26c,
+(10.54)–(10.55)] in dimension 4 + 1.
+
+*Proof.* P^ε_+ − P_+ = −χ_0(τ/ε)(P_+ − N_ι), and by [[lem:ii-f-7-2]] (b)
+
+    {P^ε_+ − N_ι : ε ∈ (0, 1]} is bounded in x_I² τ³ ρ_cf⁻² C^∞_b Diff²_ebe,
+    P^ε_+ → P_+ in x_I² τ² ρ_cf⁻² C^∞_b Diff²_ebe,                                                       {#eq:ii-f-7-6}
+
+as χ_0(τ/ε) is bounded in C^∞_b([0, ∞)_τ) and τχ_0(τ/ε) = O(ε) there ([Hin26c, (10.56)]). The dual metric of P^ε_+ is
+g_χ⁻¹ + k_ε, k_ε = χ_0(τ/ε)(1 − χ)(ḡ⁻¹ − g_0⁻¹), supported in {τ ≤ 2ε, R ≥ 1} and small; so [[lem:ii-f-7-3]] (b)
+applies to it. Now combine, in the ebe-phase space over [0, τ_0] × ι⁺, the following estimates, each valid for P^ε_+
+uniformly in ε, in the strong sense, with the orders 𝗌′ (target) and 𝗌_(♭,I) (a priori), and with k b-derivatives:
+
+(i) elliptic estimates off the characteristic set of G_χ ([[thm:ii-a1-3-1]]);
+
+(ii) real principal type propagation along the future flow ([[thm:ii-a1-5-4]]; with k b-derivatives through the
+commuted systems of [[lem:ii-d1-2-1]] and [[lem:ii-d1-2-5]]), using [[lem:ii-f-7-3]] (b);
+
+(iii) at R_(𝓘⁺,in,+), the radial saddle estimate [[prop:ii-d-3-5]] ([[prop:ii-d1-3-2]]), where P^ε_+ = P_0 (on
+{R ≥ 2}) up to a term vanishing at ι⁺ in the class allowed there, with control on its stable manifold from (ii) along
+𝓘⁺ ([[lem:ii-b-7-2]] (3));
+
+(iv) at R_(cf,in), [[lem:ii-f-7-6]] (in), with control on its stable manifold (over {R > 0}: radially infalling null
+bicharacteristics, which come backward from {t_* < τ_0⁻¹} or, over ι⁺, from the unstable manifold of R_(𝓘⁺,in,+))
+from (ii) and (iii);
+
+(v) at R_(cf,out), [[lem:ii-f-7-6]] (out);
+
+(vi) at R_(𝓘⁺,out), the radial sink estimate [[prop:ii-d-3-6]] ([[prop:ii-d1-3-2]]).
+
+The thresholds hold for 𝗌′ and 𝗌_(♭,I) by [[lem:ii-f-7-3]] (c) (at the incoming sets the a priori order 𝗌_(♭,I) is
+above threshold, at the outgoing sets the target order 𝗌′ is below it), and with γ_I < 3/2 + S̄ at 𝓘⁺ ([[prop:ii-d-3-5]]
+and [[prop:ii-d-3-6]] at the weight α_I = γ_I − 2). The flow over ι⁺ is that of [[prop:ii-b-8-1]] (pulled back by
+τ-invariance near cf), and t_* is non-decreasing along the future flow ([[lem:ii-f-7-2]] (c)). So every point of the
+characteristic set over [0, τ_0] × ι⁺ is reached, backward along the flow, either from {t_* < τ_0⁻¹}, where u = 0, or
+from one of the radial sets, in the order (iii)–(vi) ([Hin26c, Figure 10.3]). The constants depend on finitely many
+seminorms of P^ε_+ in the class of [[eq:ii-f-7-6]] and on the margins, so they are uniform in ε; τ_0 ≤ τ_2/2 makes the
+ψ_+-terms of [[lem:ii-f-7-6]] vanish for u supported in {τ ≤ τ_0} (there τ̃ ≤ τ < τ_2). ∎
+
+*Inversion of the normal operator.* For u as in [[lem:ii-f-7-7]], u ∈ Ḣ^((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf)) and
+
+    N_ι u = P^ε_+ u − (P^ε_+ − N_ι) u,
+    ‖(P^ε_+ − N_ι) u‖_((𝗌_(♭,I)−1;k),(2γ_I+2,γ_++2,γ_cf−2)) ≤ C ‖u‖_((𝗌_(♭,I)+1;k),(2γ_I,γ_+−1,γ_cf))
+
+by [[eq:ii-f-7-6]] (the factor τ³ against τ² shifts the τ-weight by one). As 𝗌_(♭,I) is the dilation-invariant
+extension of an order admissible with weights α_+, 0 and margin 0, the uniqueness and the estimate of
+[[prop:ii-f-6-2]] (1) at the order 𝗌_(♭,I) give
+
+    ‖u‖_((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf)) ≤ C ‖N_ι u‖_((𝗌_(♭,I)−1;k),(2γ_I+2,γ_++2,γ_cf−2))
+        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌′;k),(2γ_I,γ_+−1,γ_cf))),
+
+using 𝗌_(♭,I) + 1 ≤ 𝗌′ ([[lem:ii-f-7-3]] (a)). With [[eq:ii-f-7-2]],
+
+    ‖u‖_((𝗌′;k),(2γ_I,γ_+,γ_cf))
+        ≤ C (‖P^ε_+ u‖_((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2)) + ‖u‖_((𝗌′;k),(2γ_I,γ_+−1,γ_cf))).                 {#eq:ii-f-7-3}
+
+*Absorption.* Multiplication by χ_0(τ/δ_1) maps H^((𝗌′;k),(2γ_I,γ_+,γ_cf)) to H^((𝗌′;k),(2γ_I,γ_+−1,γ_cf)) with norm ≤
+Cδ_1, as it equals τχ_0(τ/δ_1) times the identity of weights, and τχ_0(τ/δ_1) = δ_1·(τ/δ_1)χ_0(τ/δ_1) has
+C^∞_b-seminorms O(δ_1). Fix δ_1 with C·Cδ_1 ≤ 1/2 in [[eq:ii-f-7-3]]. For ε < δ_1/2, P^ε_+ = P_+ on {τ ≥ δ_1}, and (1 −
+χ_0(τ/δ_1))u is controlled by [[lem:ii-f-7-5]] for P^ε_+, with T := 2δ_1⁻¹ and ψ_T ∈ C_c^∞((−∞, T)) equal to 1 on (−∞,
+δ_1⁻¹], with constants independent of ε: the support of 1 − χ_0(τ/δ_1) lies in {t_* ≤ δ_1⁻¹}, where ψ_T = 1 and u is the
+finite-time solution by uniqueness. Hence, for u in the space of [[lem:ii-f-7-7]] and ε < δ_1/2,
+
+    ‖u‖_(Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b)) ≤ C ‖P^ε_+ u‖_(Ḣ^((𝗌′−1;k),(2γ_I+2,γ_++2,γ_cf−2))_(ebe;b)),            {#eq:ii-f-7-4}
+
+C independent of ε ([Hin26c, (10.58)]); the absorbed term is finite because [[lem:ii-f-7-7]] places u in the space of
+order 𝗌′.
+
+*Proof of [[prop:ii-f-7-4]] (1).* Let f be as in [[prop:ii-f-7-4]] (1) and ε < δ_1/2. Let u^ε_ini be the finite-time
+solution of P^ε_+ u = f on {t_* < 2ε⁻¹} ([[lem:ii-f-7-5]] for P^ε_+), and χ_(ε/2) := χ_0(2τ/ε). As P^ε_+ = N_ι on
+supp χ_(ε/2) ⊂ {τ ≤ ε},
+
+    u^ε := (1 − χ_(ε/2)) u^ε_ini + N_ι⁻¹(χ_(ε/2) f + [N_ι, χ_(ε/2)] u^ε_ini),
+
+with N_ι⁻¹ the forward solution operator of [[prop:ii-f-6-2]] (1), solves P^ε_+ u^ε = f ([Hin26c, (10.59)]): on
+{τ ≤ ε}, P^ε_+ u^ε = N_ι((1 − χ_(ε/2)) u^ε_ini) + χ_(ε/2) f + [N_ι, χ_(ε/2)] u^ε_ini = (1 − χ_(ε/2)) f + χ_(ε/2) f, and
+on {τ ≥ ε}, u^ε = u^ε_ini. [[prop:ii-f-6-2]] (1) is applied at the order 𝗌_I − η_1, the dilation-invariant extension of
+𝗌 − η_1, which is admissible with margin 0: on {τ ≤ τ_1}, 𝗌′ ≥ 𝗌_I − η_1 by the proof of [[lem:ii-f-7-3]] (a), so the
+right-hand side lies in its space. So u^ε ∈ Ḣ^((𝗌_I−η_1;k),(2γ_I,γ_+,γ_cf)) ⊂ Ḣ^((𝗌_(♭,I);k),(2γ_I,γ_+,γ_cf)), and
+[[lem:ii-f-7-7]] places u^ε in the space of order 𝗌′. By [[eq:ii-f-7-4]], ‖u^ε‖ ≤ C‖f‖ uniformly in ε. A subsequence
+u^(ε_j), ε_j → 0, converges weakly to some u ∈ Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b)([0, τ_0] × ι⁺) with ‖u‖ ≤ C‖f‖.
+Since P^ε_+ = P_+ on {τ ≥ 2ε}, P_+ u = f on {τ > 2ε_j} for every j, hence on {τ > 0}. ∎

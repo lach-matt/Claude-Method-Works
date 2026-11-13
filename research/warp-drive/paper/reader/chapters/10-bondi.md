@@ -277,7 +277,7 @@ are of the same kind. So the transport gives ℓ^m ǔ in E_(q−1/2+m), and deri
 k = 3, …, J, bounded with all derivatives, vanishing for v ≤ v_start and invariant under T² × Z2 × Z2, with G_3 as in
 (eq:bondi-u-split), such that on the far region
 
-    u = Σ_{k=3}^{J} r^(−k/2) G_k + u_J,       ∂_X^α Ω^β ℓ^m u_J ∈ E_((J+1)/2 + m)   for all α, β, m.       {#eq:bondi-expansion}
+    u = Σ_{k=3}^{J} r^(−k/2) G_k + u_J,     ∂_X^α Ω^β ℓ^m u_J ∈ E_((J+1)/2 + m) for all α, β, m.  {#eq:bondi-expansion}
 
 The G_k are determined inductively: G_k = (2/(k − 3)) ∫_{v_start}^{v} S_(k/2+1) dv' for k ≥ 4 (so G_4 = 2 ∫ S_3), where
 r^(−q) S_q is the leading term of the forcing once the terms below it are known.

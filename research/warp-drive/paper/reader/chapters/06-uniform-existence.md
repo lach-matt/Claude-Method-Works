@@ -19,10 +19,10 @@ entering only through the first term. The domain Ω of [[eq:omega]], its slices 
 (∂_a v) [∂_θ f] + [∂_a f] are those of [[sec:profiles]]. The number ε1, with 0 < ε1 < min(s0, μ0/a² − 1), is the one
 fixed after [[lem:eigen]]: every g̃ with |g̃ − g0| ≤ ε1 on Ω is Lorentzian, satisfies the conclusions of [[lem:domain]]
 (e), and has |g̃⁻¹| ≤ (s0 − ε1)⁻¹ ([[lem:lorentz-margin]]). All constants below depend on Ω and not on λ, and 0 < λ ≤ λ1
-:= min(1, δ0)/10. The inequalities on the slices used below are the Sobolev and product bounds of [[lem:sobolev]], the
-compactly supported mollifier 𝒫 adapted to the annuli with its properties (M1)–(M6) ([[lem:mollifier]]), the energy
-inequality [[eq:energy]] of [[lem:energy]] for −(1/2) g̃^(ab) ∂_a ∂_b u = f with |g̃ − g0| ≤ ε1, and the transport
-estimate [[eq:transport]] of [[lem:transport]] along L0.
+:= min(1, δ0)/10 ([[eq:lambda-one]]). The inequalities on the slices used below are the Sobolev and product bounds of
+[[lem:sobolev]], the compactly supported mollifier 𝒫 adapted to the annuli with its properties (M1)–(M6)
+([[lem:mollifier]]), the energy inequality [[eq:energy]] of [[lem:energy]] for −(1/2) g̃^(ab) ∂_a ∂_b u = f with |g̃ −
+g0| ≤ ε1, and the transport estimate [[eq:transport]] of [[lem:transport]] along L0.
 
 ### The theorem {#sec:ue-theorem}
 
