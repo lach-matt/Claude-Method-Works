@@ -327,12 +327,14 @@ order m only when m = 1, in the phase contraction, through the q_2 terms, which 
 e_2. The second harmonic of W hit twice by λ⁻¹ (∂v) ∂_θ is contracted with ḡ⁻¹(dv, dv), of weight at least 1, since
 g0⁻¹(dv, dv) = 0.
 
-The stage-m unknowns appear linearly at order m, with coefficients of weight 0, that is built from g0 and v. The mean
-m_m (weight m) enters through −(1/2) g0^(ab) ∂_a ∂_b m_m = −(1/2) □̃ m_m and through terms with at most one derivative of
-m_m. The phase φ_m enters through the derivative λ^(m−1) (∂φ_m) ∂_θ, of weight m − 1, so at order m only with one more
-unit of weight: through dφ_m times a first-order expression, or with the second derivative falling on ∂φ_m, which
-gives −(1/2) g0^(ab) (∂_a ∂_b φ_m) ∂_θ W = −(1/2)(□̃φ_m) ∂_θ W; no other term of Ric^H contains a second derivative. At
-order m − 1 the stage-m unknowns appear only in −(1/2) e_m ∂_θ² W, and at order m − 2 or lower not at all. This gives
+Apart from the q_2 terms, which [[eq:eikonal-coefficients]] places in e_2, the stage-m unknowns m_m and φ_m therefore
+appear linearly at order m. The mean m_m, of weight m, reaches order m undifferentiated in θ; its second derivatives
+enter only through the principal term, as −(1/2) g0^(ab) ∂_a ∂_b m_m = −(1/2) □̃ m_m, the corrections to g⁻¹ having
+positive weight, and its other terms carry at most one derivative of m_m. The phase φ_m enters only through the
+derivative λ^(m−1) (∂φ_m) ∂_θ, of weight m − 1, which must act on an oscillating factor; at order m it appears through
+dφ_m, or, when the second derivative of the principal term falls on ∂φ_m, as −(1/2) g0^(ab) (∂_a ∂_b φ_m) ∂_θ W =
+−(1/2)(□̃φ_m) ∂_θ W; no other term of Ric^H contains a second derivative. At order m − 1 the stage-m unknowns appear only
+in −(1/2) e_m ∂_θ² W and in −(1/2) g0⁻¹(dv, dv) ∂_θ² ĝ_(m+1) = 0, and at order m − 2 or lower not at all. This gives
 the form of ℛ^(m) for m ≥ 1 and ℛ^(−1) = 0. At order 0, the terms containing m1 or φ1 are those of −(1/2) e_1 ∂_θ² W;
 ĝ_2 enters order 0 only through −(1/2) g0⁻¹(dv, dv) ∂_θ² ĝ_2 = 0; the rest is the coefficient of λ⁰ of R[g0 + λ W].
 At order −1 the only term is −(1/2) g0⁻¹(dv, dv) ∂_θ² W = 0. ∎
@@ -368,8 +370,8 @@ be given and smooth. Write the θ-mean of 𝒲(m_m, 0) as −(1/2) □̃ m_m + B
 [[eq:stage-m]], and its oscillating part without the e_(m+1) term:
 
     (a) −(1/2) □̃ m_m + B̄·∂m_m + C̄ m_m = 𝒮_m − ⟨𝒲_φ(dφ_m)⟩ − ⟨T̂ ĝ_(m+1)⟩,
-    (b) L0 φ_m = −(1/2) m_m(ℓ, ℓ) − (1/2) q_m,                                                         {#eq:stage-system}
-    (c) Π_osc T̂ ĝ_(m+1) = −Π_osc (𝒲(m_m, φ_m) + 𝒦_m),
+    (b) L0 φ_m = −(1/2) m_m(ℓ, ℓ) − (1/2) q_m,
+    (c) Π_osc T̂ ĝ_(m+1) = −Π_osc (𝒲(m_m, φ_m) + 𝒦_m),                                                {#eq:stage-system}
 
 with data (m_m, ∂_τ m_m), φ_m and ĝ_(m+1) on Σ_τ0. This system has a unique smooth solution on Ω.
 
@@ -418,8 +420,9 @@ norms, so this remainder changes Ric^H by O(λ^(N−1)) in |·|_k.
 
 (E1) holds because W is transverse ([[lem:stage-zero]] (a)) and ⟨g1⟩ = m1. (E2) holds: by [[lem:phase-shift-symmetry]]
 (b) with Φ = φ1 + λΨ, the two-scale operator with the fixed phase satisfies R[G(·, · + Φ)](X, θ) = R_u[G](X, θ + Φ),
-whose coefficient of λ⁰ is ℛ^(0)(X, θ + φ1) = 0, since ℛ^(−1) = 0; the truncation changes only orders above N, and
-R^(0) involves g1 alone, because the coefficient of ∂_θ² g2 at that order is −(1/2) g0⁻¹(dv, dv) = 0. (E3) holds with K
+whose coefficient of λ⁰ is ℛ^(0)(X, θ + φ1) = 0, since ℛ^(−1) = 0. The coefficient R^(0) depends on the profiles only
+through g1, because the coefficient of ∂_θ² g2 at that order is −(1/2) g0⁻¹(dv, dv) = 0, and the coefficient of λ in the
+expansion of G(·, · + Φ) is g1; so R^(0) of g_app vanishes identically. (E3) holds with K
 = N − 1. ∎
 
 So the uniform existence theorem [[thm:uniform-existence]] applies to the approximant of any order, built from any smooth
