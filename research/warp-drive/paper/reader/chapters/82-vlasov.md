@@ -313,7 +313,7 @@ slices off the axes fix a smooth frame (e1, e2) orthonormal for the slice metric
 angle β with which a covector k on it, with g3⁻¹k future directed, is written k(n) = −E, k(e1) = E cos β, k(e2) =
 E sin β, E > 0. For two such covectors at y,
 
-    g⁻¹(k, k′) = −E E′ + E E′ cos(β − β′) = −2 E E′ sin²((β − β′)/2).                                 {#eq:vlasov-mixed-angle}
+    g⁻¹(k, k′) = −E E′ + E E′ cos(β − β′) = −2 E E′ sin²((β − β′)/2).                    {#eq:vlasov-mixed-angle}
 
 Let 𝔰(x0, α) := (x0, β0(x0, α)) on S, with values in ℬ over the orbit slice of Σ_τ0. It is injective, by (V1), and its
 differential is triangular with determinant ∂_α β0 ≥ b_* > 0, so on int S it is an injective local diffeomorphism, hence
@@ -376,7 +376,7 @@ of a 2+1-dimensional Lorentzian space with g⁻¹(k_A, k_A) = 0, |g⁻¹(k_A, k_
 orthonormal frame. Let Λ > 1 and ν_A := Λ^(A−1). For every j ∈ ℤⁿ with at least two nonzero entries and |j|₁ ≤ m, let B1
 and B2, B1 > B2, be its two largest indices with nonzero entries. Then
 
-    |g⁻¹(𝔎_j, 𝔎_j)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ − m² Ē²/(2Λ)),      𝔎_j := Σ_A j_A ν_A k_A.            {#eq:vlasov-hierarchy}
+    |g⁻¹(𝔎_j, 𝔎_j)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ − m² Ē²/(2Λ)),      𝔎_j := Σ_A j_A ν_A k_A.  {#eq:vlasov-hierarchy}
 
 In particular every such combination is non-null, with this margin, once Λ > (m + m²/2) Ē²/c.
 
@@ -659,7 +659,8 @@ the order of I.
 and, for the function α, ‖α‖_(j;1) and ‖α‖_(j;2) are defined in the same way with ‖𝓛^I α‖² replaced by ‖𝓛^I α‖² +
 ‖∇𝓛^I α‖², respectively by ‖𝓛^I α‖² + ‖∇𝓛^I α‖² + ‖∇²𝓛^I α‖². On [a, r] ⊂ [a, b1] put
 
-    ‖U‖_(𝒴_j(a,r)) := sup_([a,r]) (‖α‖_(j;1) + ‖w‖_(j)) + (∫_a^r (‖α‖²_(j;2) + ‖∂_r α‖²_(j)) dr′)^(1/2),     {#eq:vlasov-scaled-norm}
+    ‖U‖_(𝒴_j(a,r)) := sup_([a,r]) (‖α‖_(j;1) + ‖w‖_(j))
+                       + (∫_a^r (‖α‖²_(j;2) + ‖∂_r α‖²_(j)) dr′)^(1/2),                          {#eq:vlasov-scaled-norm}
 
 and ‖U‖_(𝒴_j) := ‖U‖_(𝒴_j(a,b1)). With constants depending on j only, (K1)–(K3) give
 
@@ -688,7 +689,7 @@ consist of the smooth functions on Σ × Y.
 *Structure.* We consider maps 𝔉 = (𝔉_ρ, 𝔉_J) of the form, the dependence on x not written,
 
     𝔉_ρ(U) = p(α) ∂_r α − P(α)^(AB) ∇_A ∇_B α + g_ρ(α, ∇α, w),
-    𝔉_J(U) = A0(α) ∂_r w + A^B(α) ∇_B w + f(α, w) ∂_r α + g_J(α, ∇α, w),                             {#eq:vlasov-structure}
+    𝔉_J(U) = A0(α) ∂_r w + A^B(α) ∇_B w + f(α, w) ∂_r α + g_J(α, ∇α, w),                {#eq:vlasov-structure}
 
 where the coefficients p (a function), P (a symmetric (2,0)-tensor on S³), A0 and A^B (linear maps from E to the space
 of the values of 𝔉_J) are of class 𝔓 in (x, α), f is of class 𝔏 in (x, α, w), and g := (g_ρ, g_J) = 𝔉(0) + g̃ with g̃ of
@@ -744,18 +745,18 @@ So (V3), positive mean curvature of the spheres, is the only sign the radial sol
 the linear system for U = (α, w), with zero data at r = a,
 
     p(α_V) ∂_r α − P(α_V)^(AB) ∇_A ∇_B α + b·∇α + c α + e·w = F_ρ,
-    ∂_r w + B^C(α_V) ∇_C w + f̂(α_V, w_V) ∂_r α + f′·∇α + c″ α + c′ w = F_J,                     {#eq:vlasov-scaled-linear}
+    ∂_r w + B^C(α_V) ∇_C w + f̂(α_V, w_V) ∂_r α + f′·∇α + c″ α + c′ w = F_J,           {#eq:vlasov-scaled-linear}
 
 with B^C := A0⁻¹ A^C, f̂ := A0⁻¹ f, coefficients b, c, e, f′, c″, c′ of class 𝔏 in x, and F = (F_ρ, F_J) smooth on Σ.
 There are η1 > 0 and C, depending on k, b1 − a, η0, p0, δ_e, A00 and the class bounds, and not on λ, V or F, such that
 the solution exists, is unique and smooth, and
 
-    ‖U‖_(𝒴_k(a,r)) ≤ C (∫_a^r ‖F‖²_(k) dr′)^(1/2),      a ≤ r ≤ b1.                                   {#eq:vlasov-scaled-bound}
+    ‖U‖_(𝒴_k(a,r)) ≤ C (∫_a^r ‖F‖²_(k) dr′)^(1/2),      a ≤ r ≤ b1.                     {#eq:vlasov-scaled-bound}
 
 Moreover, for every k′ > k there is K′, depending on k′, λ, the class bounds and upper bounds for ‖V‖_(𝒴_(k′−1)),
 ∫_a^(b1) ‖F‖²_(k) dr and sup_([a,b1]) ‖F‖_(4), such that
 
-    ‖U‖²_(𝒴_(k′)(a,r)) ≤ K′ (∫_a^r ‖F‖²_(k′) dr′ + ∫_a^r ‖V‖²_(𝒴_(k′)(a,r′)) dr′).                          {#eq:vlasov-scaled-tame}
+    ‖U‖²_(𝒴_(k′)(a,r)) ≤ K′ (∫_a^r ‖F‖²_(k′) dr′ + ∫_a^r ‖V‖²_(𝒴_(k′)(a,r′)) dr′).   {#eq:vlasov-scaled-tame}
 
 *Proof.* *Existence.* Put S0 := 𝒮(α_V) A0(α_V) and S^C := S0 B^C = 𝒮(α_V) A^C(α_V). With A0 replaced by the identity,
 A^B by B^B and the symmetrizer 𝒮 by S0, [[eq:vlasov-scaled-linear]] is a system of the form [[eq:data-linear]] (the
@@ -779,15 +780,15 @@ such would have total order 2k − 2 > k), taken in L², the others being bounde
 ∇[c̃(x, α_V)] = (∇_x c̃) + (∂_y c̃) ∇α_V with |∇_x c̃| ≤ C by (C0) and (K2) and |∇α_V| ≤ C η1 λ; and |∂_r S0| ≤ C_0 (1 +
 μ), μ := C_S λ⁻² ‖∂_r α_V‖_(2), with ∫_a^(b1) μ² ≤ C η1² λ² ≤ 1, as ∂_r c̃ is of class 𝔏.
 
-*Step 2: products and commutators.* For c as in Step 1, Z a function or section and 3 ≤ j ≤ k, by (K4):
+*Step 2: products and commutators.* For c as in Step 1 and Z a function or section, by (K4):
 
-    (R1) ‖c Z‖_(j) ≤ C ‖Z‖_(j);      (R2) ‖Σ_(I′≠∅) (λ^|I′| 𝓛^(I′) c)(λ^|I″| 𝓛^(I″) Z)‖ ≤ C λ ‖Z‖_(|I|−1) for c principal,
-                                         4 ≤ |I| ≤ k, and ≤ C λ ‖Z‖_(|I|−1) also for 1 ≤ |I| ≤ 3.
+    (R1) ‖c Z‖_(j) ≤ C ‖Z‖_(j),      3 ≤ j ≤ k;
+    (R2) ‖Σ_(I′≠∅) (λ^|I′| 𝓛^(I′) c)(λ^|I″| 𝓛^(I″) Z)‖ ≤ C λ ‖Z‖_(|I|−1),      1 ≤ |I| ≤ k, c principal,
 
-For (R1), the terms with c^♭ are at most C_0 times a term of ‖Z‖_(j); a term with c^♯ has |I″| ≤ 1 and is at most
-‖c^♯‖ sup |λ^|I″| 𝓛^(I″) Z| ≤ C_0 η1 λ³ · C λ⁻² ‖Z‖_(3) by (N1). For (R2), the terms with c^♭ and I′ ≠ ∅ are at most
-C_0 λ ‖λ^|I″| 𝓛^(I″) Z‖ with |I″| ≤ |I| − 1, and the terms with c^♯ occur only for |I| ≥ k − 1 ≥ 4 and are at most
-C η1 λ ‖Z‖_(3) ≤ C λ ‖Z‖_(|I|−1).
+the sum in (R2) running over the splittings of I with I′ ≠ ∅. For (R1), the terms with c^♭ are at most C_0 times a term
+of ‖Z‖_(j); a term with c^♯ has |I″| ≤ 1 and is at most ‖c^♯‖ sup |λ^|I″| 𝓛^(I″) Z| ≤ C_0 η1 λ³ · C λ⁻² ‖Z‖_(3) by
+(N1). For (R2), the terms with c^♭ and I′ ≠ ∅ are at most C_0 λ ‖λ^|I″| 𝓛^(I″) Z‖ with |I″| ≤ |I| − 1, and the terms
+with c^♯ occur only for |I| ≥ k − 1 ≥ 5 and are at most C η1 λ ‖Z‖_(3) ≤ C λ ‖Z‖_(|I|−1).
 
 *Step 3: the parabolic energy.* Dividing the first equation by p(α_V), ∂_r α = Q^(AB) ∇_A ∇_B α + R_ρ with R_ρ :=
 p(α_V)⁻¹ (F_ρ − b·∇α − c α − e·w). For |I| ≤ k, by (K1),
@@ -822,7 +823,7 @@ and since S^C is symmetric, ∇_C (S^C(w̃, w̃)) = (∇_C S^C)(w̃, w̃) + 2 S^
 C λ ‖∇w‖_(|I|−1) ≤ C ‖w‖_(k); by (R1), λ^|I| ‖𝓛^I R_J‖ ≤ C (‖F_J‖_(k) + ‖∂_r α‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)); and by the
 first equation, (R1) and (N4),
 
-    ‖∂_r α‖_(k) ≤ ‖Q·∇²α‖_(k) + ‖R_ρ‖_(k) ≤ C (‖α‖_(k;2) + ‖F_ρ‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)).                {#eq:vlasov-scaled-dr}
+    ‖∂_r α‖_(k) ≤ ‖Q·∇²α‖_(k) + ‖R_ρ‖_(k) ≤ C (‖α‖_(k;2) + ‖F_ρ‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)).  {#eq:vlasov-scaled-dr}
 
 So ½ d/dr h_I ≤ C (1 + μ) λ^(2|I|) ‖𝓛^I w‖² + C λ^|I| ‖𝓛^I w‖ (‖w‖_(k) + ‖α‖_(k;1) + ‖α‖_(k;2) + ‖F‖_(k)).
 
@@ -855,7 +856,7 @@ Gronwall's lemma gives [[eq:vlasov-scaled-tame]]. ∎
 sup_([a,b1]) ‖𝔉(0)‖_(k). There are η > 0 and C, depending on k, b1 − a, η0, p0, δ_e, A00 and the class bounds, and not
 on λ, such that if ε ≤ η λ⁴, there is a smooth U on Σ with zero data at r = a,
 
-    𝔉(U) = 0 on Σ,      ‖U‖_(𝒴_k) ≤ C ε;                                                            {#eq:vlasov-scaled-solution}
+    𝔉(U) = 0 on Σ,      ‖U‖_(𝒴_k) ≤ C ε;                                              {#eq:vlasov-scaled-solution}
 
 it is the only solution with zero data at r = a and ‖U‖_(𝒴_k) ≤ C ε. If 𝔉 commutes with a group of isometries of the
 round S³ acting on U by pull-back, U is invariant under that group.
@@ -1150,7 +1151,8 @@ isometries commuting with 𝔉.
 
 *The derivatives in r.* We show that for i ≥ 0 and words I with 2i + |I| ≤ 14,
 
-    ‖λ^(2i+|I|) ∂_r^i 𝓛^I α‖_(L²((a,b1);L²(S³))) + ‖λ^(2i+|I|) ∂_r^i 𝓛^I w‖_(L²((a,b1);L²(S³))) ≤ C λ^(N−2).     {#eq:vlasov-data-dr}
+    ‖λ^(2i+|I|) ∂_r^i 𝓛^I α‖_(L²((a,b1);L²(S³))) + ‖λ^(2i+|I|) ∂_r^i 𝓛^I w‖_(L²((a,b1);L²(S³)))
+        ≤ C λ^(N−2).                                                                               {#eq:vlasov-data-dr}
 
 Solving 𝔉(U) = 0 for ∂_r α and ∂_r w, and substituting the first into the second,
 

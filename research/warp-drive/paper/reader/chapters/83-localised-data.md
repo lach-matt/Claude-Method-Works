@@ -25,8 +25,9 @@ The inequalities on the background that these results use are proved at the end 
 *The background.* The background g0 is the solution of the two-null-dust equations [[eq:two-dust-limit]] with the
 characteristic data of [[sec:bg-data]]: e^(2σ) = 1/2 on the cones 𝒞_out = {u = 0} and 𝒞_in = {v = 0}, the ingoing
 shell 𝒜(v) = 3.6 b(v; 3, 4.5) on 𝒞_out, the outgoing packet ℬ(u) = 1.7 b(u; 5.7, 7.2) on 𝒞_in, and at the corner
-R = 5, R_u = −0.47, R_v = 1/2 and mass 3/2. In the chart (v̂, R) of [[eq:bg-chart]] it reads g0 = −q² f dv̂² + 2q dv̂ dR
-+ R² dΩ₃², q := e^ψ, f = 1 − μ/R². Region I is {u ≤ u1}, u1 = 5.7, where ψ = 0 and g0 is ingoing Vaidya
+R = 5, R_u = −0.47, R_v = 1/2 and mass 3/2. In the chart (v̂, R) of [[eq:bg-chart]] it reads
+g0 = −q² f dv̂² + 2q dv̂ dR + R² dΩ₃², q := e^ψ, f = 1 − μ/R². Region I is {u ≤ u1}, u1 = 5.7, where ψ = 0 and g0 is
+ingoing Vaidya
 ([[lem:margins-region-one]]); region III is {u ≥ u2}, u2 = 7.2, past the outgoing packet, where ψ = ψ_III(v̂) and
 μ = μ3 ∈ [0.8220998, 0.8221253] ([[lem:bg-reduction]] (e), [[thm:bg-margins]] (a)).
 
@@ -281,8 +282,8 @@ Neither line contains a u-derivative, and b enters only through ∂_v b and ∂_
 g^(φ2φ2) = e^(−2A_s), and g^(uu) = g^(vv) = g^(uϑ) = 0. Hence ∇_(∂_v)∂_v = Γ^v_(vv)∂_v = k ∂_v with k := 2∂_v ln Ω,
 since g_vv = g_vϑ = 0. The sections {u, v constant} carry the metric γ_ϑ dϑ² + e^(2A_c)dφ1² + e^(2A_s)dφ2², b not
 entering because du = 0 on them; ∂_v is orthogonal to them and commutes with ∂_ϑ and ∂_(φi), so their null second
-fundamental form χ along ∂_v is half the v-derivative of that metric, with eigenvalues ∂_vϰ_i, trace tr χ = Σ∂_vϰ_i and
-|χ|² = Σ(∂_vϰ_i)². The Raychaudhuri equation ∂_v tr χ = k tr χ − |χ|² − Ric(∂_v, ∂_v) is the first line.
+fundamental form χ along ∂_v is half the v-derivative of that metric, with eigenvalues ∂_vϰ_i, trace tr χ = Σ∂_vϰ_i
+and |χ|² = Σ(∂_vϰ_i)². The Raychaudhuri equation ∂_v tr χ = k tr χ − |χ|² − Ric(∂_v, ∂_v) is the first line.
 
 For the second line we use Ric(∂_v, ∂_ϑ) = ∂_aΓ^a_(vϑ) − ∂_v∂_ϑ ln √|det g| + Γ^a_(ad)Γ^d_(vϑ) − Γ^a_(ϑd)Γ^d_(av),
 with indices over (u, v, ϑ, φ1, φ2) and Γ^a_(ad) = ∂_d ln √|det g|, where det g = −4Ω⁴γ_ϑe^(2A_c + 2A_s). From the
@@ -680,8 +681,8 @@ invariant δK by its components in the frame of [[sec:loc-setting]]:
     δK(e_R, e_R) = δκ,   δK(e_R, e_ϑ) = p̂,   δK(e_ϑ, e_ϑ) = Kt/3 + s1,   δK(e_s, e_s) = Kt/3 + s2,
     δK(e_c, e_c) = Kt/3 − s1 − s2,                                                                    {#eq:loc-dk}
 
-the other components vanishing. Put c := −(κ0 + 2Y0)/(3Y0), β_K := −κ0/(3Y0), 𝔞 := −3(1 − β_K)/R, so that 3c − 1 =
-R𝔞.
+the other components vanishing. Put c := −(κ0 + 2Y0)/(3Y0), β_K := −κ0/(3Y0) and 𝔞 := −3(1 − β_K)/R, so that
+3c − 1 = R𝔞.
 
 **Lemma {#lem:loc-momentum-constraints}** (The linearised constraints at δγ = 0.) Let Y0 ≠ 0. For δ = (0, δK),
 
@@ -694,9 +695,8 @@ and the other components of Dℳ[δ] vanish. So δ is a momentum seed exactly wh
 
     s2 = sc ((1/(√G R³)) ∂_R(R⁴ p̂) − β_K ∂_ϑ Kt + ∂_ϑ s1 + (cot ϑ − 2 tan ϑ) s1).                        {#eq:loc-s2}
 
-*Proof.* At δγ = 0, Dℋ[δ] = 2 tr K0 tr δK − 2⟨K0, δK⟩ with tr K0 = κ0 + 3Y0, tr δK = δκ + Kt and ⟨K0, δK⟩ = κ0δκ +
-Y0Kt.
-Dℳ[δ] = div δK − d tr δK, with the Christoffel symbols of γ in (R, ϑ, φ1, φ2): Γ^R_RR = G′/(2G), Γ^R_ϑϑ = −R/G,
+*Proof.* At δγ = 0, Dℋ[δ] = 2 tr K0 tr δK − 2⟨K0, δK⟩ with tr K0 = κ0 + 3Y0, tr δK = δκ + Kt and
+⟨K0, δK⟩ = κ0δκ + Y0Kt. Dℳ[δ] = div δK − d tr δK, with the Christoffel symbols of γ in (R, ϑ, φ1, φ2): Γ^R_RR = G′/(2G), Γ^R_ϑϑ = −R/G,
 Γ^R_(φ1φ1) = −R cos²ϑ/G, Γ^R_(φ2φ2) = −R sin²ϑ/G, Γ^ϑ_(Rϑ) = Γ^(φi)_(Rφi) = 1/R, Γ^ϑ_(φ1φ1) = sc, Γ^ϑ_(φ2φ2) = −sc,
 Γ^(φ1)_(ϑφ1) = −tan ϑ, Γ^(φ2)_(ϑφ2) = cot ϑ. Inserting the coordinate components of [[eq:loc-dk]] (δK_RR = Gδκ,
 δK_Rϑ = √G R p̂, δK_ϑϑ = R²(Kt/3 + s1), δK_(φ2φ2) = R² sin²ϑ (Kt/3 + s2), δK_(φ1φ1) = R² cos²ϑ (Kt/3 − s1 − s2)) gives
@@ -726,12 +726,12 @@ For N = N_s, Q_N(δ) = Q(δ).
 component p̂ = δK(e_R, e_ϑ) is O(sin ϑ). Indeed, in the plane (x3, x4) of [[sec:background]], with polar radius
 ϱ = R sin ϑ, e_ϑ is the unit radial direction; along a line through the axis in that plane, the rotation by π in that
 plane, an isometry preserving δK, maps the point at ϱ to the point at −ϱ and e_ϑ to −e_ϑ, so ϱ ↦ p̂ is an odd smooth
-function on that line, and p̂ = O(ϱ). Likewise p̂ = O(cos ϑ) at ϑ = π/2. Hence ∂_Rη = O(sc²),
-so η = O(sc²); and ∂_ϑη = sc Kt/E = O(sc), Kt being bounded. For R ≥ R2, ∂_ϑη = 0, so η is constant on each sphere
+function on that line, and p̂ = O(ϱ). Likewise p̂ = O(cos ϑ) at ϑ = π/2. Hence ∂_Rη = O(sc²), so η = O(sc²); and
+∂_ϑη = sc Kt/E = O(sc), Kt being bounded. For R ≥ R2, ∂_ϑη = 0, so η is constant on each sphere
 there, and η = 0 on the axis; so η is compactly supported in R.
 
-*The quadratic form.* Since δγ = 0 and ℳ is linear in K at fixed γ, D²ℳ[δ, δ] = 0 and D²ℋ[δ, δ] = 2((tr δK)² −
-|δK|²). From [[eq:loc-dk]] and δκ = cKt, (tr δK)² − |δK|² = (2β_K − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)², and
+*The quadratic form.* Since δγ = 0 and ℳ is linear in K at fixed γ, D²ℳ[δ, δ] = 0 and
+D²ℋ[δ, δ] = 2((tr δK)² − |δK|²). From [[eq:loc-dk]] and δκ = cKt, (tr δK)² − |δK|² = (2β_K − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)², and
 dvol = √G R³ sc dR dϑ dφ1 dφ2. So Q_N(δ) = (2π)² ∫∫ 𝔮 dϑ dR with
 𝔮 := ν sc [(2β_K − 2/3)Kt² − 2p̂² − s1² − s2² − (s1 + s2)²],
 and Q_(N_s) = Q by [[eq:loc-charge]].
@@ -1007,21 +1007,22 @@ equal to c_s ξ near the inner sphere of ∂U_s″ and to 0 near the outer one. 
 near Σ_s*, to Z_s near Ū_s″, to c_s ξ on the part of Σ_s* inside U_s″, and to 0 outside it; ξ is a Killing field of all
 of M_μ. Then L_Ẑ g induces h's data on Σ_s*: on U_s″ by hypothesis, the data being smooth functions of the 1-jet of the
 metric, and elsewhere both vanish, Ẑ being zero or Killing there. By [[lem:loc-gauge-unique]], h − L_Ẑ g = L_X g for
-a smooth vector field X, so h = L_W g with W := Ẑ + X. As h = 0 on S_in × S³ and on S_out × S³, W is a Killing field
-there. Its average W̄ over T² × Z2 × Z2 satisfies L_W̄ g = h too, the group acting by isometries that fix h, and it is an
-invariant Killing field on these two sets. They are connected and lie in the chart of [[lem:racz-split-formulas]] (d),
-where the computation of the proof of [[lem:loc-kid]] (c), which is local, gives W̄ = c_in ξ on S_in × S³ and
-W̄ = c_out ξ on S_out × S³ for constants c_in and c_out. So Z := W̄ − c_out ξ satisfies L_Z g = h and generates δ on
-Σ̂; it vanishes on S_out × S³ and equals (c_in − c_out)ξ on S_in × S³. For η > 0 small, U″ := {R1′ − η < R < R2′ + η}
-has supp δ ⊂ U″ and Ū″ ⊂ U, its outer boundary sphere lies in S_out × S³ and its inner one in S_in × S³, as U ⊂ {f > 0};
-so δ is a gauge seed. The converse is the same argument with Σ̂ and Σ_s* exchanged: from a generator of δ, extended by
-c ξ on the inner part of Σ̂ and by 0 on the outer part, [[lem:loc-gauge-unique]] and the averaging give an invariant W̄
-with h = L_W̄ g, equal to c_in ξ on S_in × S³ and to c_out ξ on S_out × S³; and W̄ − c_out ξ generates h's data on a
-band of the static slice whose boundary spheres lie in S_in × S³ and in S_out × S³. ∎
+a smooth vector field X, so h = L_(Z_h) g with Z_h := Ẑ + X. As h = 0 on S_in × S³ and on S_out × S³, Z_h is a Killing
+field there. Its average Z̄_h over T² × Z2 × Z2 satisfies L_(Z̄_h) g = h too, the group acting by isometries that fix h,
+and it is an invariant Killing field on these two sets. They are connected and lie in the chart of
+[[lem:racz-split-formulas]] (d), where the argument of the proof of [[lem:loc-kid]] (c), which is local, gives
+Z̄_h = c_in ξ on S_in × S³ and Z̄_h = c_out ξ on S_out × S³ for constants c_in and c_out. So Z := Z̄_h − c_out ξ satisfies
+L_Z g = h and generates δ on Σ̂; it vanishes on S_out × S³ and equals (c_in − c_out)ξ on S_in × S³. For η > 0 small,
+U″ := {R1′ − η < R < R2′ + η} has supp δ ⊂ U″ and Ū″ ⊂ U, its outer boundary sphere lies in S_out × S³ and its inner
+one in S_in × S³, as U ⊂ {f > 0}; so δ is a gauge seed. The converse is the same argument with Σ̂ and Σ_s* exchanged:
+from a generator of δ, extended by c ξ on the inner part of Σ̂ and by 0 on the outer part, [[lem:loc-gauge-unique]] and
+the averaging give an invariant Z̄_h with h = L_(Z̄_h) g, equal to c_in ξ on S_in × S³ and to c_out ξ on S_out × S³; and
+Z̄_h − c_out ξ generates h's data on a band of the static slice whose boundary spheres lie in S_in × S³ and in
+S_out × S³. ∎
 
-On a static slice, γ = dR²/f + R² dΩ₃², N_s = √f, K0 = 0 and Y_s = 0, D²ℋ[(h, k), (h, k)] = D²Scal[h, h] + 2((tr k)² −
-|k|²), the mixed terms carrying K0, and the linearised constraints decouple into DScal[h] = 0 and D^i(k_ij − tr k γ_ij)
-= 0. So Q = −𝔈_V(h) − 𝔈_K(k), with
+On a static slice, γ = dR²/f + R² dΩ₃², N_s = √f, K0 = 0 and Y_s = 0,
+D²ℋ[(h, k), (h, k)] = D²Scal[h, h] + 2((tr k)² − |k|²), the mixed terms carrying K0, and the linearised constraints
+decouple into DScal[h] = 0 and D^i(k_ij − tr k γ_ij) = 0. So Q = −𝔈_V(h) − 𝔈_K(k), with
 
     𝔈_V(h) := −½ ∫ N_s D²Scal[h, h] dvol,      𝔈_K(k) := ∫ N_s (|k|² − (tr k)²) dvol.  {#eq:loc-static-energies}
 

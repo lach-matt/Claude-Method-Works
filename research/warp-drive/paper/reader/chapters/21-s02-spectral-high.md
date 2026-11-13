@@ -1582,7 +1582,7 @@ propagates the elliptic bound along it. Near Γ, [[prop:i-b-6-4]] applies, with 
 Γ(ε_Γ/3), where 𝐏′ = 𝐏 modulo O(h^∞) ([[lem:i-b-6-5]] (b)), its term ‖Eu‖ being bounded by the propagation just
 described. Altogether, for z ∈ z_0 + i[hβ, hβ′],
 
-    ‖u‖_(L²) ≤ C h⁻² ‖𝐏′u‖_(L²) + C h^M ‖u‖_(−M𝟏),                                                     {#eq:i-b-6-apriori}
+    ‖u‖_(L²) ≤ C h⁻² ‖𝐏′u‖_(L²) + C h^M ‖u‖_(−M𝟏),                                                    {#eq:i-b-6-apriori}
 
 and with h⁻¹ in place of h⁻² at Im z = hβ′, using [[prop:i-b-6-1]] there; the last term is absorbed for h < h_0.
 
@@ -1828,7 +1828,7 @@ and h^(−δ) · h⁻¹ ≤ h^(−1−δ),
 being constant there apart from s; the last term is the previous display with φ = χ_1, and
 ‖u‖ ≤ ‖χu‖ + ‖(1 − χ)u‖, the second by the previous display with φ = 1 − χ. Together, as h⁻¹ ≤ h^(−1−δ),
 
-    ‖u‖_(H̄_h^𝐨) ≤ C(h^(−1−δ)‖Pu‖_(H̄_h^(𝐨′)) + h^M‖u‖_(H̄_h^𝐨) + ‖u‖_(H̄_h^(−M𝟏))).                     {#eq:i-b-8-chain}
+    ‖u‖_(H̄_h^𝐨) ≤ C(h^(−1−δ)‖Pu‖_(H̄_h^(𝐨′)) + h^M‖u‖_(H̄_h^𝐨) + ‖u‖_(H̄_h^(−M𝟏))).                    {#eq:i-b-8-chain}
 
 *Absorption.* For M ≥ max(1, −s, −min(𝗋 + α_+), 1 − min 𝖻), since w_(−M𝟏)/w_𝐨 ≤ Ch,
 
