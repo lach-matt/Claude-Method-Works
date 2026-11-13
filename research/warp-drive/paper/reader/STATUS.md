@@ -6,7 +6,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 
 | file | first reading | fix round | second reading |
 |---|---|---|---|
-| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | fourth reading NOT CONFIRMED 0M 1m 4n (thm:settling quantifier order); fifth fix running, with chapter 60's S⁰ |
+| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | fifth fix done (quantifier order as in ch 60; N1-N4) with chapter 60's S⁰ (11 sites); fifth reading running (03 and 60) |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | third reading CONFIRMED (6 notation nits) |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED; new text read (Step 8 correct, 7 nits); the cut's minor moves to Ch 3 (sentence in INTEGRATION) |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | CONFIRMED (third reading; 2 nits) |

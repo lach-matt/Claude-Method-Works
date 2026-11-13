@@ -212,7 +212,7 @@ below), N_ν = {t_IVP ≥ 0} near {r = r_♭}, and {r = r_♭} is an inflow boun
 
     𝒟 := N_ν ∩ {t^♭_* ≤ T̂ + 3},     𝒟_(S,S⁰) := φ_(S,S⁰)⁻¹({t_IVP ≥ 0}) ∩ {t^♭_* ≤ T̂ + 2}.
 
-For |S| + |S⁰| small, 𝒟_(S,S⁰) ⊂ 𝒟, and φ_(S,S⁰) maps a neighbourhood of Σ^IVP ∪ φ_(S,S⁰)⁻¹(Σ^IVP) into N_ν. There
+For |S| + |S⁰| small, 𝒟_(S,S⁰) ⊂ 𝒟, and φ_(S,S⁰) maps a neighbourhood of Σ^IVP ∪ φ_(S,S⁰)⁻¹(Σ^IVP) in N_ν into N_ν. There
 is a unique h_(S,S⁰) on 𝒟 with
 
     P^♮(φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰), φ_(S,S⁰)^*g_(b₀)) = 0,
@@ -246,13 +246,13 @@ on [5R₁, ∞), and on [r_♭, 5R₁], where β_IVP = 1 − χ_∞(8m₀/ϱ² �
 is spacelike. Near {r = r_♭}, ν = 0, and {r = r_♭} is spacelike with dr future timelike ([[lem:ii-c-3-2]] (1)), N_ν
 lying to its past; past directed causal curves from points with r > r_♭ stay in {r ≥ min(r(p), r^♮)}, so a backward
 problem needs no data there. For the inclusions: φ := φ_(S,S⁰) and φ⁻¹ are the identity on {r ≤ 5R₁} and map
-{r > 5R₁} into itself; there they move t_IVP by at most C(|S| + |S⁰|)r and r by at most C(|S| + |S⁰|)r
-([[lem:s27-boost-move]]), while ν(r) ≥ c_ν r on [5R₁, ∞) with c_ν := min(ν(5R₁)/(16R_8), 1/64) > 0. Let
-C(|S| + |S⁰|) ≤ ⅓c_ν and C(|S| + |S⁰|) ≤ ⅓. If r(q) > 5R₁ and t_IVP(q) > −⅓c_ν r(q), then
-t_IVP(φ(q)) > −⅔c_ν r(q) ≥ −c_ν r(φ(q)) ≥ −ν(r(φ(q))), as r(φ(q)) ≥ ⅔r(q); so φ maps the neighbourhood
-{t_IVP > −⅓c_ν r} ∪ {r < 5R₁ + 1} ∩ N_ν of Σ^IVP ∪ φ⁻¹(Σ^IVP) into N_ν (φ⁻¹(Σ^IVP) lies in {|t_IVP| ≤ ⅓c_ν r}), and
-likewise φ⁻¹({t_IVP ≥ 0}) ⊂ {t_IVP ≥ −⅓c_ν r} ∪ {r ≤ 5R₁} ⊂ N_ν, which with t_* < t^♭_*/C_♭ gives 𝒟_(S,S⁰) ⊂ 𝒟.
-(φ_(S,S⁰)⁻¹, not φ_(S,S⁰), appears in 𝒟_(S,S⁰): φ_(S,S⁰)^*h_0 at p needs h_0 at φ_(S,S⁰)(p).)
+{r > 5R₁} into itself, where they move t_IVP and r by at most C(|S| + |S⁰|)r ([[lem:s27-boost-move]]); and
+ν(r) ≥ c_ν r on [5R₁, ∞), with c_ν := min(ν(5R₁)/(16R_8), 1/64) > 0. Let C(|S| + |S⁰|) ≤ min(¼c_ν, ⅓). Then
+φ⁻¹({t_IVP ≥ 0}) ⊂ N_ν: a point p of it with r(p) > 5R₁ has t_IVP(p) ≥ −¼c_ν r(p) > −ν(r(p)). In particular
+𝒟_(S,S⁰) ⊂ 𝒟, and φ⁻¹(Σ^IVP) lies in W := N_ν ∩ {t_IVP > −⅓c_ν r}, a neighbourhood of Σ^IVP ∪ φ⁻¹(Σ^IVP) in N_ν. And
+φ(W) ⊂ N_ν: for p ∈ W with r(p) > 5R₁, t_IVP(φ(p)) > −(⅓ + ¼)c_ν r(p) and r(φ(p)) ≥ ⅔r(p), so
+t_IVP(φ(p)) > −c_ν r(φ(p)) ≥ −ν(r(φ(p))). (φ_(S,S⁰)⁻¹, not φ_(S,S⁰), appears in 𝒟_(S,S⁰): φ_(S,S⁰)^*h_0 at p needs
+h_0 at φ_(S,S⁰)(p).)
 
 #### The cover of 𝒟 {#sec:s27-cover}
 

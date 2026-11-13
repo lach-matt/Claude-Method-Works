@@ -720,3 +720,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   bounded φ, and proves R(σ)f is one: B2 must use exactly this wording. Chapter 70 must be re-merged with the fixed
   proof B (its corollary, master-operator and large-frequency results changed) and lem:morawetz-complex must add the
   hypothesis |φ| ≤ 1. The figures 202.6 and B_0(3) 585.53 recorded earlier in this file are superseded by these.
+- Ch 3 fifth fix with chapter 60 (F5-00-03): thm:settling now fixes l5, μ0, A, env, τ0, then the theory at b₀ = (μ_end, 0),
+  r_♭ ∈ (0, ½√μ_end], ℓ0, ε_K; R and Ω′ depend only on ε and r_♭, λ1 and δ moreover on ε_m; thm:settling-precise in
+  the same order; its (Ex1)-(Ex2) argument shortened to "step (4) imposes them" (the reader checks it). N1-N4 applied
+  (χ dv ⊗ dv ∝ env²; thm:data's threshold and items 6-7; α for ε; r_0 → r_♭). Chapter 60 carries S⁰ at 11 sites:
+  slice φ_S(ψ_(S⁰)(Σ^IVP)), φ_(−S,−S⁰)⁻¹ = φ_S ∘ ψ_(S⁰); 𝒟_0 := 𝒟_(0,0) kept (chapter 62 cites it). R4 §3 notes 3-5
+  concern other chapters (integration).

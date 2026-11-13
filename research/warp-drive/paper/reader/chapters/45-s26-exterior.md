@@ -1421,8 +1421,8 @@ X_I − 3/2 − Ā acts as X_I − 3/2, which commutes past X₀ − X_I), and �
 I₀, with α₀ + 1 ≥ α₁, and it has the weight at least 3/2 + 2 > ℓ^♭_I + 1 at ℐ⁺. So ρ₀²[A, R]h ∈
 H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. The data of Rh lie in H^(∞,α₁)_b(Σ_(IVP,r₀)). Near I₀, X₀ = ρ∂_ρ + 2ρ∂_τ in the coordinates
 (τ, ρ), so X₀τ′ = (2 − C″)ρ for τ′ = τ − C″ρ: X₀ is tangent to Σ_IVP = {τ′ = 0} only when C″ = 2, and in general these
-data involve the normal derivatives ∂^j_(τ′)h on Σ_IVP. These are determined by h₀, h₁ and the equation, which is non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b
-(jℰ₀ ⊂ ℰ₀ for the nonlinear terms); so the jet of h on Σ_IVP has its expansion at ∂Σ_IVP in ℰ₀ up to ℓ₀ ≥ α₁, and R
+data involve the normal derivatives ∂^j_(τ′)h on Σ_IVP. These are determined by h₀, h₁ and the equation, which is
+non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b (jℰ₀ ⊂ ℰ₀ for the nonlinear terms); so the jet of h on Σ_IVP has its expansion at ∂Σ_IVP in ℰ₀ up to ℓ₀ ≥ α₁, and R
 removes its terms with real part at most α₁ (the converse part of [[lem:iii-a-1-3]]). [[eq:iii-c1-2-2]] with h = 0 and α₀
 replaced by α₁ > ℓ^♭_I gives Rh ∈ H^(∞,α₁,(−,ℓ^♭_I))_b, and [[lem:iii-a-1-3]] gives h ∈ H^(∞,(ℰ₀,α₁),(−,ℓ^♭_I))_b. After
 finitely many steps, h ∈ H^(∞,(ℰ₀,ℓ₀),(−,ℓ^♭_I))_b.
@@ -1595,8 +1595,8 @@ compact subsets of the interior of I₀ (φ_S is the flow of a b-vector field; [
 
 (1) For S = 0, φ_0 = id and [[eq:iii-c2-3-3]] is [[eq:iii-c2-3-2]] on Ω_(ext,r₁) ⊂ Ω_(ext,r₀). The restriction of h to
 Ω_(ext,r₁) solves it and, like h_0, is small in H^(3d) of its class for the d = 7 of [[thm:iv2-3-1]], hence in H⁸; so
-h_0 = h there by the uniqueness. Now assume the hypotheses of (3), and let 𝒰 be a neighbourhood of Σ_(IVP,r₁) that φ_S maps into {|t_IVP| < r/8} ∩ Ω_(ext,r₀)
-(after [[eq:iii-c2-3-1]]), where χ₀ = 0. [[rem:iii-c1-2-2]] (1) applies to h in the cut-off gauge ([[prop:np-10-57-d]]
+h_0 = h there by the uniqueness. Now assume the hypotheses of (3), and let 𝒰 be as above, so that φ_S maps 𝒰 into
+{|t_IVP| < r/8} ∩ Ω_(ext,r₀), where χ₀ = 0. [[rem:iii-c1-2-2]] (1) applies to h in the cut-off gauge ([[prop:np-10-57-d]]
 with Υ = Υ^(χ₀E_Υ), whatever the term of order zero in the gauge; and Υ^(χ₀E_Υ) = Υ⁰ near Σ_(IVP,r₀), where χ₀ = 0):
 Ric(g_(b₀) + h) = 0 and Υ^(χ₀E_Υ)(g_(b₀) + h, g_(b₀)) = 0 on Ω_(ext,r₀), and on φ_S(𝒰), where χ₀ = 0,
 Υ⁰(g_(b₀) + h, g_(b₀)) = 0. Pulling back by φ_S, Ric(φ_S*g_(b₀) + φ_S*h) = φ_S*Ric(g_(b₀) + h) = 0 and, by

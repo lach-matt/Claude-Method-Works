@@ -279,19 +279,19 @@ differentiating it in v, R_v(u, v) = ∂_v R(u0, v) + ∫ ∂_v P du′ = Q̄(u0
 *A priori bounds.* Let S ⊂ Q be a past set on which a solution exists with R ≥ a′ > 0. With R_max := max_v R(u0, v)
 and the identities of [[lem:two-dust-identities]], at every point of S: (i) R³ = D[R³] − 3 ∫∫ R e^(2σ), and D[R³] ≤
 R(u0, v)³ because R decreases along 𝒞_in, so R ≤ R_max and 3 ∫∫ R e^(2σ) ≤ R_max³ over every rectangle J⁻(p);
-(ii) μ ≥ μ0 by (b); (iii) σ_uv ≥ 0, so σ ≥ D[σ] ≥ −S0, S0 := −min D[σ]; and on the part of S where u ≤ U, for a
-number U: (iv) μ_uv ≤ (2/9) max(𝒜ℬ) e^(2S0)/a′², so μ ≤ M⁺ := max D[μ] + (2/9) max(𝒜ℬ) e^(2S0) (U − u0)(V1 − v0)/a′²;
+(ii) μ ≥ μ0 by (b); (iii) σ_uv ≥ 0, so σ ≥ D[σ] ≥ −S0, S0 := −min D[σ]; and on the part of S where u ≤ u_*, for a
+number u_*: (iv) μ_uv ≤ (2/9) max(𝒜ℬ) e^(2S0)/a′², so μ ≤ M⁺ := max D[μ] + (2/9) max(𝒜ℬ) e^(2S0) (u_* − u0)(V1 − v0)/a′²;
 (v) σ_uv = (3/2) e^(2σ) μ/R⁴ ≤ (3/2)(M⁺/a′⁵) R e^(2σ), so σ ≤ max D[σ] + (M⁺/(2a′⁵)) R_max³; (vi) |R_uv| = e^(2σ) μ/R³
 is then bounded, and so are P and Q̄, by integrating R_uv from the cones. So |U| ≤ K_0 there, with K_0 depending on the
-data, a′ and U only; each bound comes from the data, a′ and the bounds before it.
+data, a′ and u_* only; each bound comes from the data, a′ and the bounds before it.
 
 *Boundedness of the domain.* On 𝒞_in ∩ {u ≥ u2 + 1}, ℬ = 0 and u is affine, so σ_u = 0 there and C_u = 0 gives R_uu =
 0: R_u(·, v0) is constant there, and R_u(·, v0) < 0 on the compact [u2, u2 + 1]; so R_u(·, v0) ≤ c0 < 0 on {u ≥ u2}.
 R_uv = −e^(2σ) μ/R³ < 0 gives R_u ≤ c0 on {u ≥ u2} wherever the solution exists, so R ≤ R_max + c0 (u − u2) there, and
-the set where R ≥ a′ lies in {u ≤ U(a′)}, U(a′) := u2 + (R_max − a′)/|c0|, for every a′ > 0.
+the set where R ≥ a′ lies in {u ≤ u_*(a′)}, u_*(a′) := u2 + (R_max − a′)/|c0|, for every a′ > 0.
 
-*Existence.* Fix a′ ∈ (0, a), let K_0 be the bound above for this a′ and U = U(a′), K > K_0, and let F_K, H_K be smooth,
-globally Lipschitz in U, and equal to F, H on {|U| ≤ K, R ≥ a′}. The map defined by the right sides of
+*Existence.* Fix a′ ∈ (0, a), let K_0 be the bound above for this a′ and u_* = u_*(a′), K > K_0, and let F_K, H_K be
+smooth, globally Lipschitz in U, and equal to F, H on {|U| ≤ K, R ≥ a′}. The map defined by the right sides of
 [[eq:two-dust-volterra]] with F_K, H_K is a contraction in the norm sup_Q e^(−γ (u − u0 + v − v0)) |U| for γ large: each
 single integral divides the Lipschitz constant by γ and the double one by γ², on the unbounded u-interval as well. So
 it has one continuous fixed point Ũ on Q. Let Q_(a′) := {p ∈ Q : R̃ > a′ on J⁻(p)}, R̃ the first component of Ũ.
