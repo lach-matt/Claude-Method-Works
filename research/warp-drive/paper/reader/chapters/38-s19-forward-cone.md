@@ -305,18 +305,22 @@ equivalent norm.
 (c) Multiplication by an element of C^∞_b is bounded on H^k_b(Ω_*), and ‖u‖_(C^j_b) ≤ C‖u‖_(H^(j+3)_b) for j ∈ ℕ₀.
 
 *Proof.* *Charts.* Near {t^♭ = 1} take the charts of Step 3 of the proof of [[prop:ii-g-3-1]] (for Ω_*,
-[[rem:ii-g-3-2]]), in which t^♭ − 1 is the last coordinate and, at {r = r_0}, a defining function of {r = r_0} the first;
-away from {t^♭ = 1} take those of its Step 4: b-cells in logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto
-orthants at {r = r_0}. Restricted to Ω_*, each chart φ_α maps onto an open subset of an orthant
-ℝ⁵_q := [0, ∞)^q × ℝ^(5−q), q ≤ 2, whose faces are the images of {r = r_0} and {t^♭ = 1}. As there, the family has
+[[rem:ii-g-3-2]], with c_1 = 1/8), which cover {|t^♭ − 1| ≤ c_1} and in which t^♭ − 1 is the last coordinate and, at
+{r = r_0}, a defining function of {r = r_0} the first. Away from {t^♭ = 1} take those of its Step 4 (b-cells in
+logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto orthants at {r = r_0}) that are contained in
+{t^♭ ≥ 1 + c_1/2}, refining its cells if necessary, which keeps the uniform bounds; as t^♭ has bounded b-derivatives
+near 𝓘⁺ at bounded t_* and {t^♭ ≥ 1 + c_1} contains a neighbourhood of ι⁺ ∪ K⁺ ((T3) of [[rem:ii-g-3-2]]), these
+cover {t^♭ ≥ 1 + c_1}, and with the Step 3 charts they cover Ω_*. Restricted to Ω_*, each chart φ_α maps onto a
+relatively open subset of an orthant ℝ⁵_q := [0, ∞)^q × ℝ^(5−q), q ≤ 2 (up to the order of the coordinates), whose
+faces are the images of {r = r_0} and {t^♭ = 1}. As there, the family has
 finite multiplicity, in each chart the b-vector fields and the coordinate fields span the same module over the functions
 uniformly bounded in C^∞, and μ_b is the Lebesgue density times a function bounded above and below, uniformly in α. Let
 χ_α be a partition of unity of Ω_* subordinate to the charts, and χ̃_α equal to 1 near supp χ_α, both uniformly bounded
 in C^∞ in the chart coordinates. Let H̄^k(ℝ⁵_q) be the space of restrictions of H^k(ℝ⁵) to the interior of ℝ⁵_q, with
 the quotient norm, and E the composition of Seeley's extension operators across the faces of ℝ⁵_q (Step 2 of that
 proof), bounded from H̄^k(ℝ⁵_q) to H^k(ℝ⁵) for every k. E is also bounded on L^∞: on {x_i < 0} each of its factors is
-the sum Σ_l c_l f(…, −x_i/ε_l, …) of the proof of [[lem:ii-e-1-3]] (b), times a cut-off with values in [0, 1], and
-Σ_l |c_l| < ∞. As in the paragraph *Estimates* of the proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of
+Σ_l c_l (χf)(…, −x_i/ε_l, …), with the cut-off χ evaluated at the reflected point (the proof of [[lem:ii-e-1-3]] (b)),
+so it multiplies sup norms by at most sup|χ| Σ_l |c_l| < ∞, as in the proof of [[lem:ii-f1-2-1]]. As in the paragraph *Estimates* of the proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of
 extension, ‖u‖_(H^k_b(Ω_*)) is equivalent to
 
     N_k(u) := (Σ_α ‖(φ_α)_*(χ_α u)‖²_(H̄^k(ℝ⁵_q)))^(1/2),
@@ -376,7 +380,9 @@ the bound at k. ∎
 
 Smallness enters only through g⁻¹. In [[prop:iii-i-3-4]] apply [[lem:s19-inverse]] with g_1 := g_b, whose components and
 inverse lie in C^∞(M) ⊂ C^∞_b ([[prop:iii-b-3-6]]), and δ := g − g_b; in [[prop:iii-i-3-3]] apply it with the g_1 there,
-smooth on M and Lorentzian on the compact set Ω_*, so that its components and inverse lie in C^∞_b, and δ := h. By
+smooth on M and Lorentzian up to the boundary of the compact set Ω_* (its component matrix in the frame dt_*, dx^i
+non-degenerate there, as in [[def:iii-c-3-4]] and the proof of [[prop:iii-c-4-4]]), so that its components and inverse
+lie in C^∞_b, and δ := h. By
 [[lem:s19-products]] (c), sup|δ| is at most C(|b − b₀| + |S| + ‖h‖_(H^(3,(1,0,0))_b)) ([[lem:iii-i-3-6]]; in
 [[prop:iii-i-3-3]], C‖h‖_(H^(3,(1,0,0))_b)), which is at most ϵ when these are small, and ‖δ‖_(C¹_b) ≤ C‖δ‖_(H⁴_b). So
 (g_1 + δ)⁻¹ − g_1⁻¹ lies in H^k_b with weights 0, with norm at most C_k‖δ‖_(H^k_b), C_k depending on an upper bound for
@@ -530,19 +536,20 @@ it too. On Σ⁻ the same holds by the evenness of the construction of [[sec:ii-
 **Corollary {#cor:iii-i-5-2}** (Admissibility relative to 2L_b; [Hin26, Corollary 11.10] in dimension 4 + 1.) Let
 g_0 = g_(b₀,b,−S) (or g_0 with [[eq:iii-i-3-5]]) and g := g_0 + h, h ∈ 𝒳^k, k ≥ 5, with small 𝒳⁵-norm. Then
 P := 2L^(g,g_0) is admissible relative to P_0 := 2L_b of class ((0;k−5),(2ℓ_I,ℓ_+,ℓ_K)) ([[def:ii-c-3-3]]) for every
-ℓ_I ∈ (0, ½], ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], with p_0 = p̃_1 = 0, whenever P_0 is 2-admissible with sf-loss 0 and
+ℓ_I ∈ (0, ½), ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], with p_0 = p̃_1 = 0, whenever P_0 is 2-admissible with sf-loss 0 and
 margin 1 for the orders of 𝒪_c ([[def:iii-h1-1-1]]). By [[thm:iii-h1-1-3]] this holds at b = b₀, and by
 [[thm:iii-h2-2-1]] at every b of the neighbourhood B̄_1 of [[sec:iii-h2-0]], for every k.
 
 *Proof.* (1) σ_2(P) = G_g, with g − g_b = (g_0 − g_b) + h ∈ 𝒢̃^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K)) by [[lem:iii-i-2-2]] and
-[[lem:iii-i-3-6]]. (2) With p_0 = p̃_1 = 0, P̃ = P − P_0, which by [[eq:iii-i-3-7]] and Sobolev embedding
-(H^(k−2)_b ⊂ C^(k−5)_b, three derivatives for dim M = 5) lies in x_I²ρ_+² C^(k−5,(2ℓ_I,ℓ_+,ℓ_K))_b Diff²_(e3b).
+[[lem:iii-i-3-6]]. (2) With p_0 = p̃_1 = 0, P̃ = P − P_0, which by [[eq:iii-i-3-7]] (ℓ_I < ½) and Sobolev embedding
+(H^(k−2)_b ⊂ C^(k−5)_b, three derivatives for dim M = 5, [[lem:s19-products]] (c), the weight passing through) lies
+in x_I²ρ_+² C^(k−5,(2ℓ_I,ℓ_+,ℓ_K))_b Diff²_(e3b).
 (3) p_1 = S|_(∂X), which in the splitting [[eq:iii-c-1-6]] is Ā, lower triangular with real diagonal
 ([[lem:iii-c-4-2]]), and p_0 = 0 is strictly lower triangular. The conditions ℓ_+ > δ = 0 and ℓ_K > ℵ = 2 of
 [[def:ii-c-3-3]] hold. ∎
 
 [Hin26] has p̃_1 = (A^h − A_0)|_(𝓘⁺) and p_0 = 4ρ_+⁻¹B^h|_(𝓘⁺), of class ρ_+^(ℓ_+)C^(k−4)_b, and needs ℓ_+ ∈ (δ, 1)
-and ℓ_I < min(2γ_Υ, ½).
+and ℓ_I < min(2γ_Υ, ½). Here only ℓ_I < ½ remains, from [[eq:iii-i-3-7]].
 
 #### Forward solutions at b₀ {#sec:iii-i-5-3}
 
@@ -579,7 +586,8 @@ the admissibility enters ([[rem:ii-f-8-2]]), uses these orders over K⁺ with th
 (ii) [[eq:ii-f1-1-3]]: α_I < −½ + S̄ = −½ (S̄ = 0, the least eigenvalue of Ā, [[eq:iii-c-4-3]]) is β_I < 3/2, and
 α_+ < α_I − ½ is β_+ < β_I.
 
-(iii) P = 2L^(g,g_0) is admissible relative to P_0 of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) for fixed ℓ_I ∈ (0, ½],
+(iii) P = 2L^(g,g_0) is admissible relative to P_0 of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with the ℓ_I ∈ (0, ½) of
+[[sec:iii-i-1]], which is the ℓ of the time function t^♭ of [[thm:ii-f1-1-1]] ([[lem:ii-c-3-2]]), and fixed
 ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], by [[cor:iii-i-5-2]] with h ∈ 𝒳^(k+d+5) (d raised by 5), and
 ‖P − P_0‖_((0;d)) ≤ C(|S| + ‖h‖_(𝒳^(d+5))) < ε′_0 for ε_0 small ([[prop:iii-i-3-4]], [[eq:iii-i-3-7]]).
 
@@ -594,10 +602,23 @@ H^(k+d+3)_b-norm of one factor times the L^∞-norms of the others. [[lem:s19-in
 g⁻¹ − g_(b₀)⁻¹ and g_0⁻¹ − g_(b₀)⁻¹ pointwise, and in H^(k+d+3)_b by C‖δ‖_(H^(k+d+3)_b) and C‖δ_0‖_(H^(k+d+3)_b). The
 L^∞-norms of the derivatives of δ and δ_0, with the weight on the factor that carries it, are at most
 C(|S| + ‖h‖_(𝒳^(d+5))) by [[lem:s19-products]] (c), and their weighted H^(k+d+3)_b-norms at most
-C(|S| + ‖h‖_(𝒳^(k+d+5))) ([[lem:iii-i-3-6]]). With [[eq:ii-f1-1-5]] and C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is
-[[eq:iii-i-5-2]]. The weights: [[cor:ii-f1-1-2]] with b_I = α_I + 2 = β_I, b_+ = α_+ + 5/2 = β_+, sf-loss 0, and the
-K⁺-weights ½ for f and −ℵ + ½ = −3/2 for u. Continuity: the last statement of [[thm:ii-f1-1-1]], P depending
-continuously on (S, h) in the norm of [[eq:iii-i-3-7]]. ∎
+C(|S| + ‖h‖_(𝒳^(k+d+5))) ([[lem:iii-i-3-6]]). These weighted norms are finite because ℓ_I < ½: at 𝓘⁺ the factor
+carrying the weight has x_I-order at least 3 and must carry x_I^(2+2ℓ_I), the factor x_I² of [[eq:iii-i-3-7]] times
+x_I^(2ℓ_I), and the bound is that of the proof of [[eq:iii-i-3-7]], with C depending on ℓ_I. With [[eq:ii-f1-1-5]] and
+C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is [[eq:iii-i-5-2]]. The weights: [[cor:ii-f1-1-2]] with
+b_I = α_I + 2 = β_I, b_+ = α_+ + 5/2 = β_+, sf-loss 0, and the K⁺-weights ½ for f and −ℵ + ½ = −3/2 for u.
+
+Continuity: the last statement of [[thm:ii-f1-1-1]], P depending continuously on (S, h) in the norm of
+[[eq:iii-i-3-7]]. Its coefficients are the sums of products above, multilinear in their factors, so a difference of
+two of them is a sum of products in which one factor is replaced by a difference. For the inverses,
+
+    (g_1 + δ)⁻¹ − (g_1 + δ′)⁻¹ = −(g_1 + δ)⁻¹(δ − δ′)(g_1 + δ′)⁻¹,
+
+and with g_1 := g_(b₀), (g_1 + δ)⁻¹ = g_1⁻¹ + Ĝ, (g_1 + δ′)⁻¹ = g_1⁻¹ + Ĝ′, the right side is a sum of products of
+C^∞_b-functions with δ − δ′ and at most two factors among Ĝ, Ĝ′. By [[lem:s19-products]] (a), (c) and
+[[lem:s19-inverse]] (for Ĝ, Ĝ′ in H^j_b ∩ L^∞), it is bounded in H^j_b by C‖δ − δ′‖_(H^j_b) for j ≥ 4 and δ, δ′ as in
+[[lem:s19-inverse]], with C depending on upper bounds for ‖δ‖_(H^j_b) and ‖δ′‖_(H^j_b) (the L^∞-norm of δ − δ′ is
+at most C‖δ − δ′‖_(H^j_b) by [[lem:s19-products]] (c)). ∎
 
 **Remark {#rem:iii-i-5-5}** ([Hin26, Remark 11.13] in dimension 4 + 1.) As in [Hin26], rewriting
 L_b u = f − (L^(g,g_0) − L_b)u and using [[eq:iii-i-4-2]], the tameness of [[eq:iii-i-5-2]] propagates through a fixed
@@ -623,8 +644,8 @@ compactness, as in [[sec:i-a-8]], [[sec:i-b-9]] and [[rem:iii-h-2-6]].
 
 *The parameters.* They are those of [[sec:iii-h-1]]: the gauge modification E_Υ of [[sec:iii-d-1]] and the constraint
 damping (c_C, e_C, γ_C) of [[sec:iii-f-1]], with e_C ∈ (0, 1) and γ_C > 0, and the dynamical hypotheses (Dyn) of
-[[ch:s12]]. ℬ is the neighbourhood of b₀ of [[cor:iii-h-4-4]], on which [[cor:iii-h-4-2]]–[[cor:iii-h-4-3]] hold
-uniformly. U_Γ is the fixed neighbourhood of the projections of the trapped sets of [[sec:iii-d-1]], over which
+[[ch:s12]]. ℬ is the neighbourhood of b₀ of [[cor:iii-h-4-4]], taken inside the parameter set of [[def:s11-parameters]],
+on which [[cor:iii-h-4-2]]–[[cor:iii-h-4-3]] hold uniformly. U_Γ is the fixed neighbourhood of the projections of the trapped sets of [[sec:iii-d-1]], over which
 E^Υ = 0 for every b ∈ ℬ. As in [[sec:iii-f-4]] we take z_0 = 1 (the operator has real coefficients, and z_0 = −1 is
 the conjugate case); then σ = 1 on Γ_b in the normalisation of [[ch:s02]], and Γ_b lies in the future characteristic
 set over {|x| > r_h}.
@@ -647,7 +668,7 @@ collar {r₀ − 2δ₀ ≤ r ≤ r₀} and up to r₂ = 7R₁/8, with a margin 
 each b (cf. (H4), and [[lem:ii-c-3-2]] (1), whose region {r₀ ≤ r ≤ r^♮} the annulus contains).
 
 *The time orientation in (B2).* On {½r_♭ ≤ |x| ≤ 2R₁}, g_b is g^KS_b in a time coordinate translated by a constant
-([[lem:iii-b-3-5]] (c)), so by [[lem:iii-b-3-3]] (e), whose hypothesis holds there by [[lem:s12-ks-domain]], dt − β dr
+([[lem:iii-b-3-5]] (c)), so by [[lem:iii-b-3-3]] (e), whose hypothesis holds there by [[lem:s11-ks-domain]], dt − β dr
 is g_b-timelike for every β ∈ [0, 1]. On {r₀ − 2δ₀ ≤ |x| ≤ 2R₁}, where ψ′ = 1 ([[def:s12-radii]]),
 dt_* = dt − dr; so the path β ↦ dt − β dr, β ∈ [0, 1], joins dt to dt_* through timelike covectors, and dt lies in
 the cone of dt_*, which is the past cone of the time orientation of (H6) ([[sec:i-b-1-2]], [[lem:vi-a-1-1]]). As dt is
@@ -662,7 +683,7 @@ dt = dv − dr with v = t_KS + r, and g_(b₀)⁻¹(dv, dv) = 0, g_(b₀)⁻¹(d
     g_(b₀)⁻¹(dr, dr) = 1 − m₀r⁻² ≤ −31/225,      g_(b₀)⁻¹(dt, dr) = 1 − f = m₀r⁻² > 0      (½r_♭ ≤ r ≤ 15R₁/16),
 
 as m₀r⁻² ≥ (16/15)² = 256/225 for r ≤ 15R₁/16. The components of g_b⁻¹ in the frame dt, dx^i do not depend on t and
-are continuous in (x, b) on {|x| ≥ ½r_♭} ([[lem:s12-ks-domain]], with the inverse of [[lem:iii-b-3-3]] (d)), and the
+are continuous in (x, b) on {|x| ≥ ½r_♭} ([[lem:s11-ks-domain]], with the inverse of [[lem:iii-b-3-3]] (d)), and the
 annulus {½r_♭ ≤ |x| ≤ 15R₁/16} is compact; so for b near b₀ the second inequality persists and the first holds with
 −31/225 replaced by −c = −31/450.
 

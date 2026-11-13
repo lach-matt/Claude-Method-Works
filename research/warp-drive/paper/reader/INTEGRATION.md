@@ -565,3 +565,12 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S25 third fix (F3-S25): new cor:s25-tame holds the S24 material (the cycle repaired); (P6) is lem:s25-p6 (44:73).
   Step 2 re-key, after the S21 reading: "lem:iii-i15-1-1 (P6)" → [[lem:s25-p6]] at S21 lines 72, 86, 269, 444, 870,
   1503 and S24 lines 181, 248, 368, 420 (S22:75 already done).
+- Proof A3 confirmed (R2-P-A3): the exact-e clause now names cor:s14-remote-point's dependence on
+  lem:s14-sextic-count (a) (applied by the coordinator); μ = 34133/13653; INTEGRATION's earlier A3 placement line is
+  superseded (the section goes at the end of sec:s14-model, before sec:iv4-1).
+- Envelope texts applied and checked by the coordinator: chapter 10's sin⁴ material is now inside rem:bondi-solver
+  (the fourth derivative jumps by 8π⁴/27; (2/9)∫p′² = 5π²/108); proof D1 says it uses no thm:main and that env_C is not
+  entire (essential singularities at v = 1/2, 7/2); proof F's envelope is eq:envelope (lem:envelope-constant).
+- S28 fixed (F-S28): n9 (forward reference to chapter 60) kept by decision — logically acyclic; n10 (Appendix A's
+  [CD03] Theorem 3.6 gloss) and the crosswalk row for rem:v-3-4 (cite chapter 61) at the next Appendix A round.
+  Chapter 61's step (2) should bound C^(k_g+2) (the S28 reader checks).

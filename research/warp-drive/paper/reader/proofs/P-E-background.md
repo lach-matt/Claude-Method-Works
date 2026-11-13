@@ -10,8 +10,8 @@ null rays ([[lem:bg-reduction]]). Their solutions are enclosed by explicit appro
 
 #### The data and the reduction {#sec:bg-data}
 
-Put u1 := 5.7, u2 := 7.2, τ0 := −0.68, β(w) := exp(1 − 1/(1 − w²)) for |w| < 1 and β(w) := 0 otherwise, b(x; a, c) :=
-β((2x − a − c)/(c − a)), and
+Put u1 := 5.7, u2 := 7.2 and τ0 := −0.68. With the bump β(w) = exp(1 − 1/(1 − w²)) for |w| < 1, β(w) = 0 otherwise,
+and b(x; a, c) = β((2x − a − c)/(c − a)), both as in [[sec:table-bump]], put
 
     B(u) := 1.7 b(u; 5.7, 7.2),        α(v) := 3.6 b(v; 3, 4.5).                                       {#eq:bg-profiles}
 
@@ -109,25 +109,28 @@ zero of τ(R) := F(R) − F(2.321) − R + 0.68 on R > 2.321. Then R_* is unique
 Proof. τ′(R) = 2/f1(R) − 1 > 0, τ(3.43718006) ≤ −8.4 × 10⁻⁹ and τ(3.43718007) ≥ 4.4 × 10⁻⁹, by direct evaluation of
 [[eq:bg-tangherlini]] at these two decimals. ∎
 
-**Lemma {#lem:bg-slice-forms}** (The margin on Σ_τ0.) At a point of Σ_τ0 in ℛ with inputs [[eq:bg-inputs]] and 0 < Ef
-< 2, the radial extrinsic curvature κ and the sphere trace K^l_l of [[pending:lem-racz-split-formulas]] satisfy
+**Lemma {#lem:bg-slice-forms}** (The margin on Σ_τ0.) At a point of Σ_τ0 in ℛ, in the chart [[eq:bg-chart]] with E :=
+e^ψ > 0 and Ef < 2 (f of either sign), the radial extrinsic curvature κ and the sphere trace K^l_l of
+[[pending:lem-racz-split-formulas]] satisfy
 
     κ K^l_l = 3 N_κ (1 − Ef)/(E R (2 − Ef)²),
     N_κ := E²f²ψ_R + E²f f_R/2 − 3Efψ_R − Ef_v̂/2 − 3Ef_R/2 − ψ_v̂ + ψ_R,                                 {#eq:bg-kk}
 
-and κ > 0, K^l_l < 0 exactly when N_κ < 0 and Ef < 1. In the packet (u1 ≤ u ≤ u2),
+and κ > 0, K^l_l < 0 exactly when N_κ < 0 and Ef < 1. In the packet (u1 ≤ u ≤ u2, f > 0, inputs [[eq:bg-inputs]]),
 
     N_κ = −(μE/R³)(2 − Ef) − aK/J − a′ + B λ² (2 − Ef)²/(3R²f²),        E f = 2aJ,  {#eq:bg-nk-packet}
 
 and in region III, N_κ = (μ3E/R³)(Ef − 3) − ψ_III′(v̂).
 
-Proof. By [[pending:lem-racz-split-formulas]], κ = −N_κ/(E√(2/E − f)(2 − Ef)) and K^l_l = 3(Ef − 1)/(ER√(2/E −
-f)), and E²(2/E − f) = E(2 − Ef). In the packet substitute [[eq:bg-inputs]] with Ef = 2aJ and μ′ = −(2/3)Bλ: the
+Proof. Since E > 0 and Ef < 2, 2/E − f = (2 − Ef)/E > 0. By [[pending:lem-racz-split-formulas]], κ = −N_κ/(E√(2/E −
+f)(2 − Ef)) and K^l_l = 3(Ef − 1)/(ER√(2/E − f)), and E²(2/E − f) = E(2 − Ef); this gives the product, and since E,
+R, √(2/E − f) and 2 − Ef are positive, κ > 0 exactly when N_κ < 0 and K^l_l < 0 exactly when Ef < 1. In the packet
+substitute [[eq:bg-inputs]] with Ef = 2aJ and μ′ = −(2/3)Bλ: the
 terms without B give (μE/R³)(Ef − 3) − (aK/J + a′ − μE/R³), using 2μJa/(R³f) = μE/R³; the terms in B are B times
 (4λ²/(3R²f²))[(Ef)² − (5/2)Ef + 1 − Ef((3/4)Ef − 3/2)] = Bλ²(2 − Ef)²/(3R²f²). In region III, ψ_R = f_v̂ = 0 and
 f_R = 2μ3/R³. ∎
 
-#### Four elementary bounds {#sec:bg-tools}
+#### Elementary bounds {#sec:bg-tools}
 
 **Lemma {#lem:bg-tools}** (Elementary bounds.)
 
@@ -146,19 +149,28 @@ coefficients at c, then for real x with |x − c| ≤ h < r and every N, |g(x)| 
 intervals spanned by the corresponding combinations of the endpoints, and φ(x) ∈ φ(X) for φ = exp, ln, √ (monotone).
 Replacing each operation of an explicit expression by this rule encloses the expression's range on a box.
 
-(e) *The bump.* β is increasing on (−1, 0] and decreasing on [0, 1). For complex w with |w − w0| ≤ ϱ < 1 − |w0|,
+(e) *The bump.* β is increasing on (−1, 0] and decreasing on [0, 1). For real w0 and complex w with |w − w0| ≤ ϱ <
+1 − |w0|,
 
     |β(w)| ≤ exp(1 − (1/2)(1/(1 − w0 + ϱ) + 1/(1 + w0 + ϱ))),  {#eq:bg-bump-disc}
 
 and β(w0 + t) = exp(Σ_n g_n tⁿ) with g_0 = 1 − 1/(1 − w0²) and g_n = −(1/2)((1 − w0)^(−n−1) + (−1)ⁿ(1 + w0)^(−n−1))
 for n ≥ 1; its Taylor coefficients are e_0 = e^(g_0), n e_n = Σ_(k=1)^n k g_k e_(n−k).
 
+(f) *Power series.* Let p = Σ p_n tⁿ and q = Σ q_n tⁿ be the Taylor series at a point of two smooth functions. The
+Taylor coefficients there of p + q, pq, r := p/q (q_0 ≠ 0), e := exp p, ℓ := ln p (p_0 > 0) and the derivative p′ are
+p_n + q_n, Σ_(k≤n) p_k q_(n−k), and, with e_0 = exp p_0 and ℓ_0 = ln p_0,
+
+    q_0 r_n = p_n − Σ_(k=1)^n q_k r_(n−k),     (p′)_n = (n + 1) p_(n+1),
+    n e_n = Σ_(k=1)^n k p_k e_(n−k),     n p_0 ℓ_n = n p_n − Σ_(k=1)^(n−1) k ℓ_k p_(n−k)   (n ≥ 1).  {#eq:bg-series}
+
 Proof. (a) |T_i| ≤ 1 on [−1, 1], and the expansion of xⁿ is the binomial expansion of ((e^(iθ) + e^(−iθ))/2)ⁿ. (b)
 Cauchy's estimate |g_n| ≤ M/rⁿ bounds the terms n ≥ N. (c) Taylor's formula with Lagrange's remainder. (d) is
 elementary. (e) 1/(1 − w²) = (1/2)(1/(1 − w) + 1/(1 + w)). The disc 1 − w ∈ {|ζ − (1 − w0)| ≤ ϱ} does not contain 0,
 and ζ ↦ 1/ζ maps it onto the disc with real diameter [1/(1 − w0 + ϱ), 1/(1 − w0 − ϱ)], so Re 1/(1 − w) ≥ 1/(1 − w0 +
 ϱ); likewise for 1 + w; and |e^(1−Z)| = e^(1−Re Z). The series of ln β = 1 − 1/(1 − w²) follows from the two
-geometric series, and n e_n = Σ k g_k e_(n−k) from (exp g)′ = g′ exp g. ∎
+geometric series, and n e_n = Σ k g_k e_(n−k) from (exp g)′ = g′ exp g. (f) Compare the coefficients of tⁿ in
+rq = p, and of tⁿ⁻¹ in e′ = p′e and in pℓ′ = p′. ∎
 
 **Lemma {#lem:bg-comparison}** (Comparison.)
 
@@ -185,7 +197,7 @@ which are graded towards the ends of the packet. Put
 
     Ŝ(u) := 2.067575 − (1/2)∫_(u1)^u R̂,     μ̃ := R̂² + 4R̂′Ŝ,     λ̃ := 2Ŝ/R̂²,  {#eq:bg-nprime-approx}
 
-polynomials on each segment, and μ̃3 := R̂(u2)² + 4R̂′(u2)Ŝ(u2) = 0.82211255682735… (an explicit rational).
+so that Ŝ and μ̃ are polynomials and λ̃ is a rational function on each segment, and μ̃3 := R̂(u2)² + 4R̂′(u2)Ŝ(u2) = 0.82211255682735… (an explicit rational).
 
 **Proposition {#prop:bg-nprime}** (The data on 𝒩′.) On each segment [a, b] of [[sec:tab-bg-nprime-chain]], |R − R̂| ≤ E₀
 and |R′ − R̂′| ≤ E₁ with E₀, E₁ of that row, and |S − Ŝ| ≤ I/2. In particular |R − R̂| ≤ 4.53 × 10⁻⁸, |R′ − R̂′| ≤ 9.20
@@ -195,7 +207,13 @@ and |R′ − R̂′| ≤ E₁ with E₀, E₁ of that row, and |S − Ŝ| ≤ I
 
 (ii) |μ3 − μ̃3| ≤ 4.07 × 10⁻⁷, so μ3 ∈ [0.82211214, 0.82211297] ⊂ [0.8220998, 0.8221253], and R(u2)² > μ3;
 
-(iii) μ is nonincreasing, 3/2 ≥ μ ≥ μ3, and λ is decreasing with λ ≥ λ(u2) ≥ 0.529533 > 0.529 on [u1, u2].
+(iii) μ is nonincreasing, 3/2 ≥ μ ≥ μ3, and λ is decreasing with λ ≥ λ(u2) ≥ 0.529533 > 0.529 on [u1, u2];
+
+(iv) at every u ∈ [u1, u2], with E₀, E₁, I of a segment containing u and R̂, R̂′, Ŝ at u,
+
+    |μ − μ̃| ≤ (2R̂ + E₀)E₀ + 4(|R̂′| I/2 + ŜE₁ + E₁I/2),      |λ − λ̃| ≤ (I + 2Ŝ(2R̂ + E₀)E₀/R̂²)/(R̂ − E₀)²;
+
+in particular |μ − μ̃| ≤ 4.2 × 10⁻⁷ and |λ − λ̃| ≤ 5 × 10⁻⁸ on [u1, u2].
 
 Proof. Let δ(u) := R̂″ + B/(3R̂²) on a segment. On the ten middle segments δ is holomorphic on the disc |u − c| ≤ r, r =
 (4/5)min(c − u1, u2 − c), since B is holomorphic off u1 and u2 ([[lem:bg-tools]] (e)) and |R̂| > 0 there; on the

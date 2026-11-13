@@ -1423,10 +1423,9 @@ have the order at least 3 + η_2 − 2ε at ι⁺ (α_κ + 2 for (viii); at leas
 [[thm:iii-i11-4-1]], [[lem:iii-i12-2-1]]–[[lem:iii-i12-2-4]]), and is applied to the forcing f′ of Step 0, whose size
 is at most C‖F‖_(𝒴⁰(α)): ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0‖_(w_0) are at most C‖F‖_(𝒴⁰(α)) by the bounds in the proof of
 [[thm:iii-i11-4-1]], and ‖(L_(h,p⃗) − L_(b_0))u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w_0) by the count of Step 0 of the proof
-of [[lem:iii-i11-3-2]]. Reality: u is real and the towers are real (the
-conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing every coefficient and ũ by their real parts keeps
-[[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]], ℰ_♯ being closed under conjugation. L_(b_0)(χ_K u_exp) has K⁺-order α − ε by the
-tower relations, as in Step 3. ∎
+of [[lem:iii-i11-3-2]]. Reality: u is real and the towers are real (the conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing
+every coefficient and ũ by their real parts keeps [[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]], ℰ_♯ being closed under
+conjugation. L_(b_0)(χ_K u_exp) has K⁺-order α − ε by the tower relations, as in Step 3. ∎
 
 The proof uses its setting only through the following: u has the K⁺-weight α − 2 − ε and the ι⁺- and ℐ⁺-data of
 [[eq:iii-i11-4-2]]; and u = u_0 − Σ_(ν∈𝒩″) m_ν(W_ν) for a finite set 𝒩″ of rows, with u_0 the forward solution of
@@ -1565,9 +1564,8 @@ into ũ. For β ∈ (2, 3), [[lem:iii-i8-3-2]] holds for G ∈ 𝒴^♮(β).
 *Proof.* The proof of [[lem:iii-i11-3-2]], with [[prop:iii-i10-3-1]] at β (as in the proof of [[prop:iii-i13-2-1]])
 and [[prop:iii-i13-2-1]] in place of [[prop:iii-i11-3-1]]. Step 0 gives f′ ∈ 𝒴^♮(β) (the 𝒴^♮_2-part of G is
 untouched, and (L − L_b)u lies in 𝒴⁰(β) as there, with ‖(L − L_b)u‖_(𝒴⁰(β)) ≤ C(‖h‖ + |p⃗|)‖u‖_(w) by the same count,
-w − ε + a_K ≥ β). The rows of 𝒩_ι of rate at least β − 2 have rate above β − 2
-([[def:iii-i13-1-1]] (a)), so their m_ν(S_ν) have K⁺-weight at least β − 2 − ε ([[lem:iii-i9-2-2]] (e)) and join ũ; so
-do the terms χ_K t_*^(−λ_0)(log t_*)^j h_(b,v1)(V) of u^rot_ι with Re λ_0 > β − 2, whose rate Re λ_0 is that of the
+w − ε + a_K ≥ β). The rows of 𝒩_ι of rate at least β − 2 have rate above β − 2 ([[def:iii-i13-1-1]] (a)), so their
+m_ν(S_ν) have K⁺-weight at least β − 2 − ε ([[lem:iii-i9-2-2]] (e)) and join ũ; so do the terms χ_K t_*^(−λ_0)(log t_*)^j h_(b,v1)(V) of u^rot_ι with Re λ_0 > β − 2, whose rate Re λ_0 is that of the
 triple (v1, λ_0, j). *Determination:* by [[cor:iii-i10-2-3]] on 𝒩_β, all rates there being below β − 2. For β ∈ (2, 3):
 the space 𝒴(β) of [[sec:iii-i8-1]] records the ι⁺-exponents below 4 in ℰ_++ + 2 and has the plain weight 4 − ε above,
 and 𝒴^♮_2(β) lies in it by [[lem:iii-i13-1-3]] (a). ∎

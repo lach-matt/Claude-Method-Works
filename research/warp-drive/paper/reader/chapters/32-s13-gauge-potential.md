@@ -1736,7 +1736,7 @@ N_1(ι) = −2(ι − 1 − γ_Υ) at v1.
 (ii) (*The classes.*) For every l ≥ 1, Q_l(l(l + 1)) = lz, Q_l((l + 1)(l + 2)) = −(l + 2)z and
 Q_l((l + 2)(l + 3)) = (l + 2)(8l + 12 − 3z). So for every z > 0 the negative sl roots other than 1 − l,
 μ_(l,0) := 1 − ι^Υ_(sl,l+1) and μ_(l,1) := 1 − ι^Υ_(sl,l+2), satisfy −l − 1 < μ_(l,0) < −l and μ_(l,1) < −l − 1
-([[prop:np-10-15]] (i)), and for 0 < z < 20/3 also μ_(l,1) > −l − 2. As z → 0,
+(as in the proof of [[prop:np-10-15]] (i)), and for 0 < z < 20/3 also μ_(l,1) > −l − 2. As z → 0,
 μ_(l,0) = −l − lz/(2(l + 1)(2l + 1)) + O(z²) and μ_(l,1) = −l − 1 − (l + 2)z/(2(l + 1)(2l + 3)) + O(z²).
 μ_s0 := 1 − ι^Υ_(s0,2) = ½(1 − (9 + 4z)^(1/2)) = −1 − z/3 + O(z²) lies in (−2, −1) for 0 < z < 4. The sl roots
 1 − l and the vl roots −l are roots at every z. For 0 < z < 4 the roots ≤ 0 of each type are these, together with 0 at

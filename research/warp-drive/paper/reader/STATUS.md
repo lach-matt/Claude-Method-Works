@@ -25,7 +25,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | running |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | NOT CONFIRMED 1M 1m 4n (ε_Υ needs |Re ι| ≤ 10); second fix running |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | running |
-| 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | running | - |
+| 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | done (sign by own computation; δ_50 cited; ε_Υ for S13's constant) | running |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | CONFIRMED (third reading; 4 nits) |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
@@ -38,7 +38,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | NOT CONFIRMED 0M 2m 8n; third fix done (cor:s25-tame); third reading running; step 2 re-key pending |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | running |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | running |
-| 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | running | - |
+| 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | running |
 | 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | running | - |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | running |
@@ -59,7 +59,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | NOT CONFIRMED 1M 7m 16n; fixed (transverse term, κ_Σ, R′); confirming reader running |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | NOT CONFIRMED 1M 9m 9n (constants weaker than source); fix running |
 | P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | NOT CONFIRMED 0M 6m 4n; fixed (503 coefficients printed, rem:band-observed); confirming reader running |
-| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | fixed (scope remark; corollary covers all lists); confirming reader running; A3 confirming reader running |
+| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | fixed (scope remark; corollary covers all lists); confirming reader running; P-A3 CONFIRMED (second reading 0M 1m 2n; the clause applied) |
 | P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | NOT CONFIRMED 0M 3m 3n; fixed (lem:l-24-kappa, prop:l-24-s-bounds for R ≥ 1/2); confirming reader running |
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n (arithmetic digits, lens corollary); fix running; C2 deleted |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | NOT CONFIRMED 1M 6m 8n (circular λ > 0; outward rounding); fix running |

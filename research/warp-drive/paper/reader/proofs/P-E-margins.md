@@ -226,22 +226,48 @@ decreases as R increases (R_u < 0), so u(p) ≤ 5.7. Points of Σ′ have τ = �
 and points between the two slices have τ0 + φ(R) ≤ τ ≤ τ0. ∎
 
 **Corollary {#cor:margins-lens}** (The lens.) Let Σ′ := {v̂ − R − φ(R) = τ0}. Then Σ′ = Σ_τ0 outside R ∈ [3.5, 5.75],
-and Σ′ lies to the past of Σ_τ0 where they differ, at τ-distance at most max|φ| ≤ 0.0011596. A causal curve from a point
-of Σ′ to a point of Σ_τ0, or from Σ_τ0 to Σ′, lies in region I and, except for its last point, in R ∈ (3.5, 5.75); its
-angular displacement on the unit sphere S³ is at most 3.25 × 10⁻⁴. So carrying a domain of influence from one slice to
-the other widens its angular support by at most 3.3 × 10⁻⁴ rad.
+and Σ′ lies to the past of Σ_τ0 where they differ, at τ-distance at most max|φ| ≤ 0.0011596. Let γ be a causal curve
+joining a point p of Σ′ with R_p ≥ R_* to a point q of Σ_τ0. Then γ lies in region I. If γ is not constant, it runs to
+the future from p to q, every point of γ other than q has R ∈ (3.5, 5.75), and the angular displacement of γ on the
+unit sphere S³ is at most 3.25 × 10⁻⁴. A causal curve joining a point of Σ′ with R < R_* to a point q of Σ_τ0 has R_q <
+R_*, and there Σ′ = Σ_τ0. So carrying a domain of influence from one slice to the other widens its angular support by
+at most 3.3 × 10⁻⁴ rad.
 
-*Proof.* In region I with τ = v̂ − R, [[eq:margins-vaidya]] reads g = −f dτ² + 2(1 − f) dτ dR + (2 − f) dR² + R² dΩ₃²,
-whose inverse on the (τ, R) plane has g^(ττ) = −(2 − f), g^(τR) = 1 − f and g^(RR) = f. So g⁻¹(dτ, dτ) = −(2 − f) < 0,
-and g⁻¹(d(τ − φ), d(τ − φ)) = −(2 − f) − 2(1 − f)φ′ + fφ′² < 0 because |φ′| ≤ 0.0022 and 0 < f < 1. Both τ and τ − φ(R)
-are time functions. Let γ be a future causal curve from p ∈ Σ′ to q ∈ Σ_τ0 (for the other direction reverse time). Along
-γ, τ − φ(R) ≥ τ0 and τ ≤ τ0; so at every point of γ other than q, φ(R) ≤ τ − τ0 < 0, which forces R ∈ (3.5, 5.75), and γ
-lies in region I by [[lem:margins-region-one]] (c). A causal vector (τ̇, Ṙ, Ω̇) satisfies
+*Proof.* On Σ′, τ = τ0 + φ(R). By [[prop:margins-bend]], φ = 0 outside [3.5, 5.75], and φ < 0 on (3.5, 5.75), since φ
+decreases from φ(3.5) = 0 on [3.5, x*] and increases to φ(5.75) = 0 on [x*, 5.75]. This gives the first two statements.
+
+*Time functions in region I.* With τ = v̂ − R, [[eq:margins-vaidya]] reads g = −f dτ² + 2(1 − f) dτ dR + (2 − f) dR² +
+R² dΩ₃², whose inverse on the (τ, R) plane has g^(ττ) = −(2 − f), g^(τR) = 1 − f and g^(RR) = f. So g⁻¹(dτ, dτ) = −(2 −
+f) < 0, since f < 1. Where φ′ ≠ 0, R ∈ (3.5, 5.75) and 0 < f < 1 (μ ≤ 3.6059 < 3.5²), so with |φ′| ≤ 0.0022,
+g⁻¹(d(τ − φ), d(τ − φ)) = −(2 − f) − 2(1 − f)φ′ + fφ′² ≤ −1 + 2 × 0.0022 + 0.0022² < 0; where φ′ = 0 it is −(2 − f).
+So dτ and d(τ − φ) are timelike on region I. The vector −∂_R of the chart (v̂, R) is null and future directed: it is
+tangent to an ingoing ray, along which u increases as R decreases, because R_u < 0. On it dτ and d(τ − φ) take the
+values 1 and 1 + φ′, both positive. A timelike covector does not vanish on a nonzero causal vector, so it has one sign
+on the future causal vectors; hence τ and τ − φ(R) increase strictly along every future causal curve in region I that
+is not constant.
+
+*Where γ lies.* Along a future causal curve u and v do not decrease, and v̂ is an increasing function of v (dv̂/dv =
+−e^(2s)/R_u > 0); so v̂ does not decrease. Let γ join p ∈ Σ′, R_p ≥ R_*, to q ∈ Σ_τ0. The point p lies in region I by
+[[lem:margins-region-one]] (c), which settles a constant γ; suppose γ is not constant. If γ runs to the future from q to
+p, then u ≤ u(p) ≤ 5.7 along γ, so γ lies in region I; there τ increases strictly from τ(q) = τ0 to τ(p) = τ0 +
+φ(R_p) ≤ τ0, which is impossible. So γ runs to the future from p to q. Then τ0 + R_q = v̂(q) ≥ v̂(p) = τ0 + R_p +
+φ(R_p). If R_p ≥ 3.5, this gives R_q ≥ 3.5 − 0.0011596 > R_*; if R_* ≤ R_p < 3.5, then φ(R_p) = 0 and R_q ≥ R_p ≥ R_*.
+In either case q lies in region I by [[lem:margins-region-one]] (c), so u(q) ≤ 5.7, and u ≤ u(q) along γ: γ lies in
+region I. There τ − φ(R) increases strictly from τ0 at p, and τ increases strictly to τ0 at q. So at every point of γ
+other than q, φ(R) ≤ τ − τ0 < 0, which forces R ∈ (3.5, 5.75).
+
+*The angular displacement.* A causal vector (τ̇, Ṙ, Ω̇) satisfies
 
     R²|Ω̇|² ≤ f τ̇² − 2(1 − f) τ̇ Ṙ − (2 − f) Ṙ² ≤ τ̇²/(2 − f),
 
-the right-hand bound being the maximum over Ṙ. Since μ ≥ 3/2 and R ≤ 5.75, 2 − f ≥ 1 + 1.5/5.75² ≥ 1.04536, so |Ω̇| ≤
-τ̇/(3.5 × 1.02243), and the angular displacement is at most (τ0 − τ(p))/3.5785 ≤ 0.0011596/3.5785 ≤ 3.25 × 10⁻⁴. ∎
+the right-hand bound being the maximum over Ṙ. At the points of γ other than q, μ ≥ 3/2 and 3.5 < R < 5.75, so 2 − f
+= 1 + μ/R² ≥ 1 + 1.5/5.75² ≥ 1.045368 and √(2 − f) ≥ 1.02243. Hence |Ω̇| ≤ τ̇/(3.5 × 1.02243) ≤ τ̇/3.5785, and the
+angular displacement is at most (τ0 − τ(p))/3.5785 = −φ(R_p)/3.5785 ≤ 0.0011596/3.5785 ≤ 3.25 × 10⁻⁴.
+
+*Below R_*.* Let a causal curve join p ∈ Σ′ with R_p < R_* to q ∈ Σ_τ0; then φ(R_p) = 0, so p ∈ Σ_τ0. Suppose R_q ≥
+R_*, so that q lies in region I. If the curve runs to the future from p to q, then u ≤ u(q) ≤ 5.7 along it, it lies in
+region I, and τ(p) = τ0 = τ(q) forces it to be constant, against R_p ≠ R_q. If it runs to the future from q to p, then
+v̂(p) ≥ v̂(q) gives R_p ≥ R_q ≥ R_*, again a contradiction. So R_q < R_*. ∎
 
 **Lemma {#lem:margins-shell-data}** (The data on the shell.) On 𝒩 put P := R_v, write ′ for d/dv, and let f_N := 1 −
 μ/R², w := f_N/(3P) and g := 2P/f_N along 𝒩. For 3 ≤ v ≤ 4.5,
@@ -252,7 +278,7 @@ with R = 13/2, P = 1/2, μ = 3/2 and v̂ = v̂_0 at v = 3 (v̂_0 as in [[sec:tab
 
     w′ = 2μ/(3R³),    g′ = −4μP²/(f_N² R³),    dμ/dv̂ = (3/2) α w².   {#eq:margins-rates}
 
-(a) For 3 ≤ v ≤ 4.5: 0.47428 ≤ P ≤ 1/2, 13/2 ≤ R ≤ 29/4, 3/2 ≤ μ ≤ 3.79033, 0.91028 ≤ f_N ≤ 0.97147 and 0.60685 ≤ w ≤
+(a) For 3 ≤ v ≤ 4.5: 0.47428 ≤ P ≤ 1/2, 13/2 ≤ R ≤ 29/4, 3/2 ≤ μ ≤ 3.79034, 0.91028 ≤ f_N ≤ 0.97147 and 0.60685 ≤ w ≤
 0.70282.
 
 (b) Let h := 1/80, v_k := 3 + kh, α_k := α(v_k), α′_k := α′(v_k), and
@@ -282,7 +308,7 @@ because f_N/(3P) = w. Likewise g′ = 2P′/f_N − 2P f_N′/f_N² = −2α/(3R
 
 (a) P′ ≤ 0, so P ≤ 1/2, and while P > 0, R ≥ 13/2. Then P ≥ 1/2 − (1/3) ∫α/R² ≥ 1/2 − 2.7K/126.75 ≥ 0.47428, because
 ∫α = 3.6 × 0.75 K and K ≤ 1.2069549 by [[lem:margins-bump-table]] (a). So R ≤ 13/2 + (3/2)(1/2) = 29/4. While f_N > 0,
-μ′ ≥ 0 and w ≤ 1/(3 × 0.47428) ≤ 0.70282, so μ ≤ 3/2 + 0.70282 × 3.25878 ≤ 3.79033 and f_N ≥ 1 − 3.79033/42.25 ≥
+μ′ ≥ 0 and w ≤ 1/(3 × 0.47428) ≤ 0.70282, so μ ≤ 3/2 + 0.70282 × 3.25878 ≤ 3.79034 and f_N ≥ 1 − 3.79034/42.25 ≥
 0.91028 > 0; this closes the argument. The remaining bounds follow from f_N ≤ 1 − 1.5/R² ≤ 1 − 1.5/(29/4)².
 
 (b) is a row-by-row check of [[sec:table-shell]], with α_k and α′_k from [[lem:margins-bump]] (a).
@@ -299,10 +325,10 @@ On the box (a), P″ = −α′/(3R²) + 2αP/(3R³) gives |P″| ≤ 10.4178/12
 with [[eq:margins-ode]] gives |g″| ≤ 4(0.6326 + 0.1077 + 0.1535 + 0.2187)/(0.9102² × 274.625) ≤ 0.0196, the four terms
 bounding μ′P², 2μP|P′|, 2μP²|f_N′|/f_N and 3μP³/R. By [[eq:margins-hermite]] applied to α and to (v − v_k)α, |A0_k −
 Ã0_k| ≤ (h⁴/384) ∫|α⁗| and |A1_k − Ã1_k| ≤ (h⁴/384)(4 ∫|α‴| + h ∫|α⁗|), integrals over the cell; summed over k, with
-∫|α⁗| = 3.6 (4/3)³ ∫|β⁗| ≤ 25050 and ∫|α‴| = 3.6 (4/3)² ∫|β‴| ≤ 622, these are at most 1.6 × 10⁻⁶ and 1.8 × 10⁻⁷. Let
+∫|α⁗| = 3.6 (4/3)³ ∫|β⁗| ≤ 25054 and ∫|α‴| = 3.6 (4/3)² ∫|β‴| ≤ 622, these are at most 1.6 × 10⁻⁶ and 1.8 × 10⁻⁷. Let
 e^X_k be the true value minus the row value, for X = R, P, μ, v̂, so e_0 = 0. On the box (a), which contains the rows,
 the Lipschitz bounds are |Δ(R⁻²)| ≤ 0.0072827|ΔR|, |Δw| ≤ 0.016635|Δμ| + 0.019401|ΔR| + 1.43959|ΔP| and |Δg| ≤
-2.19713|ΔP| + 0.028564|Δμ| + 0.033313|ΔR|; also R⁻² ≤ 1/42.25, |(R⁻²)′| ≤ 0.0036414 and |w′| ≤ 0.0092. Subtracting the
+2.19713|ΔP| + 0.028565|Δμ| + 0.033314|ΔR|; also R⁻² ≤ 1/42.25, |(R⁻²)′| ≤ 0.0036414 and |w′| ≤ 0.00921. Subtracting the
 row relations from the true ones,
 
     |e^R_(k+1)| ≤ |e^R_k| + (h/2)(|e^P_k| + |e^P_(k+1)|) + |τ^R_k| + |r^R_k|,
@@ -310,16 +336,16 @@ row relations from the true ones,
     |e^μ_(k+1)| ≤ |e^μ_k| + (|Ã0_k| + |Ã1_k|/h)|Δw_k| + (|Ã1_k|/h)|Δw_(k+1)| + m^μ_k + |τ^μ_k| + |r^μ_k|,
     |e^v_(k+1)| ≤ |e^v_k| + (h/2)(|Δg_k| + |Δg_(k+1)|) + |τ^v_k| + |r^v_k|,
 
-where m^P_k := (1/3)(|A0_k − Ã0_k|/42.25 + 0.0036414 |A1_k − Ã1_k|) and m^μ_k := 0.70282 |A0_k − Ã0_k| + 0.0092 |A1_k −
+where m^P_k := (1/3)(|A0_k − Ã0_k|/42.25 + 0.0036414 |A1_k − Ã1_k|) and m^μ_k := 0.70282 |A0_k − Ã0_k| + 0.00921 |A1_k −
 Ã1_k|. Let E^X be the largest |e^X_k|. Summing from 0 and using Σ_k (|Ã0_k| + 2|Ã1_k|/h) ≤ 6.52 (from the table) and Σ_k
 h = 3/2, the sources are S^R ≤ 1.70 × 10⁻⁶ + 5 × 10⁻⁷, S^P ≤ 3.6 × 10⁻⁸ + 5 × 10⁻⁷, S^μ ≤ 1.66 × 10⁻⁶ + 5 × 10⁻⁷ and
 S^v ≤ 3.9 × 10⁻⁷ + 5 × 10⁻⁷, and
 
     E^R ≤ S^R + 1.5 E^P,   E^P ≤ S^P + 0.015828 E^R,   E^μ ≤ S^μ + 6.52 (0.016635 E^μ + 0.019401 E^R + 1.43959 E^P),
-    E^v ≤ S^v + 1.5 (2.19713 E^P + 0.028564 E^μ + 0.033313 E^R).
+    E^v ≤ S^v + 1.5 (2.19713 E^P + 0.028565 E^μ + 0.033314 E^R).
 
 The first two give E^P ≤ (S^P + 0.015828 S^R)/(1 − 0.023742) ≤ 5.9 × 10⁻⁷ and E^R ≤ 3.1 × 10⁻⁶; then E^μ ≤ (S^μ +
-6.52(0.019401 E^R + 1.43959 E^P))/(1 − 0.10846) ≤ 9.1 × 10⁻⁶ and E^v ≤ 3.4 × 10⁻⁶. ∎
+6.52(0.019401 E^R + 1.43959 E^P))/(1 − 0.108461) ≤ 9.1 × 10⁻⁶ and E^v ≤ 3.4 × 10⁻⁶. ∎
 
 ### Rácz's quantities in region I {#sec:margins-racz}
 
@@ -345,8 +371,9 @@ fV′))^(1/2), κ′ := −g(∇_T T, n)/g(T, T) has numerator V″ + f_v̂ V′
 [[pending:lem-racz-split-formulas]] with ψ = 0, which fixes the signs. ∎
 
 On Σ′ the slice is V(R) = τ0 + R + φ(R), so V′ = 1 + φ′ ∈ [0.99786, 1.00149] and V″ = φ″ by [[prop:margins-bend]], and
-Ξ = φ″ + (μ/R³)V′²(3 − fV′) − μ̇V′³/(2R²). Since f ≤ 1 − 3/(2R²), V′ ≤ 1.00149, and V′ = 1 for R ≥ 5.75, fV′ < 1 on all
-of Σ′, so K′^l_l < 0, and κ′ > 0 exactly where Ξ > 0.
+Ξ = φ″ + (μ/R³)V′²(3 − fV′) − μ̇V′³/(2R²). On Σ′ ∩ {R ≥ R_*}, which lies in region I by [[lem:margins-region-one]]
+(c), μ ≥ 3/2, so f ≤ 1 − 3/(2R²); with V′ ≤ 1.00149, and V′ = 1 for R ≥ 5.75, this gives fV′ < 1 on Σ′ ∩ {R ≥ R_*}, so
+K′^l_l < 0 there, and κ′ > 0 exactly where Ξ > 0.
 
 ### Hyperbolicity on R ≥ R_* {#sec:margins-hyperbolic}
 
@@ -361,17 +388,17 @@ supremum of |α^(i)| (i = 0, 1, 2) and Φ4 the supremum of |φ⁗| over [R′(v_
     (b)  |d²Ξ/dv²| ≤ M′ := 1.21 Φ4 + 0.024 S_2 + 0.061 S_1 + 0.075 S_0 + 0.0013 S_0² + 0.23.
 
 *Proof.* By [[lem:margins-shell-data]] (c) and the monotonicity of R, P and μ in v, along 𝒩 the true values satisfy
-0.4769 ≤ P ≤ 1/2, 13/2 ≤ R ≤ 7.2325 and 3/2 ≤ μ ≤ 3.6059; hence 0.91465 ≤ f_N ≤ 0.97133, 0.60976 ≤ w ≤ 0.67891, μ/R³ ≤
-0.013130 and 0 ≤ μ̇ ≤ (3/2)(0.67891)² S_0 = 0.69138 S_0 ≤ 2.489. By [[eq:margins-ode]] and [[eq:margins-rates]],
+0.4769 ≤ P ≤ 1/2, 13/2 ≤ R ≤ 7.2325 and 3/2 ≤ μ ≤ 3.6059; hence 0.91465 ≤ f_N ≤ 0.97133, 0.60976 ≤ w ≤ 0.67892, μ/R³ ≤
+0.013131 and 0 ≤ μ̇ ≤ (3/2)(0.67892)² S_0 ≤ 0.6914 S_0 ≤ 2.49. By [[eq:margins-ode]] and [[eq:margins-rates]],
 
     μ′ = αw,   μ″ = α′w + 2αμ/(3R³),   μ̇′ = (3/2)α′w² + 2αwμ/R³,
     μ̇″ = (3/2)α″w² + 4α′wμ/R³ + (4/3)αμ²/R⁶ + 2α²w²/R³ − 6αwμP/R⁴,
 
-with R the radius on 𝒩, so |μ′| ≤ 0.67891 S_0, |μ″| ≤ 0.67891 S_1 + 0.0087535 S_0, |μ̇′| ≤ 0.69138 S_1 + 0.017828 S_0
-and |μ̇″| ≤ 0.69138 S_2 + 0.035656 S_1 + 0.0043444 S_0 + 0.0033567 S_0². Also R0′ = g ≤ 1.09332 and |R0″| = |g′| ≤
-0.015695.
+with R the radius on 𝒩, so |μ′| ≤ 0.67892 S_0, |μ″| ≤ 0.67892 S_1 + 0.008754 S_0, |μ̇′| ≤ 0.6914 S_1 + 0.01783 S_0
+and |μ̇″| ≤ 0.6914 S_2 + 0.03566 S_1 + 0.004345 S_0 + 0.003357 S_0². Also R0′ = g ≤ 1.09332 and |R0″| = |g′| ≤
+0.015696.
 
-(a) N_κ = H(μ, μ̇, R0) with H := −2μR⁻³ − μ²R⁻⁵ + (1/2)μ̇R⁻², linear in μ̇. For R ≥ 3.825, μ ≤ 3.6059 and μ̇ ≤ 2.489,
+(a) N_κ = H(μ, μ̇, R0) with H := −2μR⁻³ − μ²R⁻⁵ + (1/2)μ̇R⁻², linear in μ̇. For R ≥ 3.825, μ ≤ 3.6059 and μ̇ ≤ 2.49,
 the partial derivatives obey |H_μ| ≤ 0.044547, H_μ̇ ≤ 0.034175, |H_R| ≤ 0.12184 + 0.01787μ̇, |H_μμ| ≤
 0.0024428, |H_μR| ≤ 0.039545, |H_μ̇R| ≤ 0.01787 and |H_RR| ≤ 0.13827 + 0.014016μ̇, each a sum of the moduli of its terms
 at R = 3.825 and the largest μ. The chain rule,
@@ -382,8 +409,8 @@ and the bounds above give |N_κ″| ≤ 0.02363 S_2 + 0.05848 S_1 + 0.07172 S_0 
 
 (b) Ξ = φ″(R′) + Y(μ, μ̇, R′, V) with Y := μR⁻³V²(3 − V) + μ²R⁻⁵V³ − (1/2)μ̇R⁻²V³ and V := 1 + φ′(R′). Differentiating
 R′ + φ(R′) = R0 gives R′_v = g/V, R′_vv = g′/V − g²φ″/V³, V_v = φ″R′_v and V_vv = φ‴R′_v² + φ″R′_vv, so with
-[[prop:margins-bend]] (c), R′_v ≤ 1.09566, R′_v² ≤ 1.20047, |R′_vv| ≤ 0.02776, |V_v| ≤ 0.010957 and |V_vv| ≤ 0.08713;
-and (φ″(R′))_vv = φ⁗R′_v² + φ‴R′_vv. For 3.825 ≤ R ≤ 5.373, μ ≤ 3.6059, μ̇ ≤ 2.489 and V ∈ [0.99786, 1.00149],
+[[prop:margins-bend]] (c), R′_v ≤ 1.09567, R′_v² ≤ 1.20049, |R′_vv| ≤ 0.027761, |V_v| ≤ 0.010957 and |V_vv| ≤ 0.08713;
+and (φ″(R′))_vv = φ⁗R′_v² + φ‴R′_vv. For 3.825 ≤ R ≤ 5.373, μ ≤ 3.6059, μ̇ ≤ 2.49 and V ∈ [0.99786, 1.00149],
 
     |Y_μ| ≤ 0.044666,  Y_μ̇ ≤ 0.034328,  |Y_R| ≤ 0.12216 + 0.01795μ̇,  |Y_V| ≤ 0.24109 + 0.10284μ̇,  |Y_μμ| ≤ 0.0024537,
     |Y_μR| ≤ 0.039659,  |Y_μV| ≤ 0.080112,  |Y_μ̇R| ≤ 0.01795,  |Y_μ̇V| ≤ 0.10284,  |Y_RR| ≤ 0.13865 + 0.014078μ̇,
@@ -391,7 +418,7 @@ and (φ″(R′))_vv = φ⁗R′_v² + φ‴R′_vv. For 3.825 ≤ R ≤ 5.373, 
 
 each again a sum of the moduli of its terms (using V²(3 − V) ≤ 2.00447, V³ ≤ 1.00448 and 3V(2 − V) ≤ 3). The chain rule
 for Y in the four variables (Y is linear in μ̇) and the bounds above give |Ξ_vv| ≤ 1.2005 Φ4 + 0.02374 S_2 + 0.06031
-S_1 + 0.08061 S_0 + 0.00125 S_0² + 0.1980, and 0.08061 S_0 + 0.1980 ≤ 0.075 S_0 + 0.23 because S_0 ≤ 3.6. ∎
+S_1 + 0.08062 S_0 + 0.00125 S_0² + 0.19801, and 0.08062 S_0 + 0.19801 ≤ 0.075 S_0 + 0.23 because S_0 ≤ 3.6. ∎
 
 **Theorem {#thm:margins-hyperbolic}** (Hyperbolicity margins on R ≥ R_*.) Let R_* ∈ (3.43718, 3.43719) be as in
 [[lem:margins-region-one]] (b). For the background:
@@ -408,28 +435,35 @@ contains a point where N_κ = 0.
 and μ̇ those of 𝒩 at the point's time v̂.
 
 *Σ′ before the shell.* The points of Σ′ with R ≤ R′(3) = 3.8254920 have v̂ ≤ v̂(3), so μ = 3/2 and μ̇ = 0. On [R_*,
-3.5], φ = 0 and Ξ = (1.5/R³)(2 + 1.5/R²) ≥ 0.074254, while c ≥ 3(1.5/3.5²)/(3.5 (1 + 1.5/R_*²)²) ≥ 0.08264, so
+3.5], φ = 0 and Ξ = (1.5/R³)(2 + 1.5/R²) ≥ 0.074254, while c ≥ 3(1.5/3.5²)/(3.5 (1 + 1.5/R_*²)²) ≥ 0.082639, so
 κ′K′^l_l ≤ −6.1 × 10⁻³. On [3.5, 3.82550], φ″ ≥ −0.01 l1 ≥ −0.0064382, V′ ∈ [0.99786, 1] (φ′ ≤ 0 there) and f ∈
 [0.877551, 0.897504], so Ξ ≥ −0.0064382 + 0.026793 × 0.995724 × 2.102496 ≥ 0.049653 and c ≥ 0.307488/(3.8255 ×
 1.124327²) ≥ 0.063585, so κ′K′^l_l ≤ −3.1 × 10⁻³.
 
-*Σ′ over the shell.* For v ∈ [3, 4.5] use [[sec:table-sigma-bent]]. By [[lem:margins-shell-data]] (c),
-[[lem:margins-bump-table]] (b) and the bounds of the proof of [[lem:margins-curvature]], the true value Ξ(v_k) differs
-from Ξ_k by at most 0.0447 × 10⁻⁵ + 0.0344 × 8.4 × 10⁻⁶ + 0.24 × 5.3 × 10⁻⁶ + 0.50 × 3 × 10⁻⁶ + 5 × 10⁻⁸ ≤ 5 × 10⁻⁶. The
-terms come from μ, from μ̇ (|Δμ̇| ≤ 3αw|Δw| ≤ 7.34 (0.016635 × 10⁻⁵ + 0.019401 × 4 × 10⁻⁶ + 1.43959 × 6 × 10⁻⁷) ≤ 8.4 ×
-10⁻⁶), from the radius R′ ((4 × 10⁻⁶ + 10⁻⁶ + 2.5 × 10⁻⁷)/0.9978 ≤ 5.3 × 10⁻⁶, by [[lem:margins-bump-table]] (c) and the
-printed accuracy of R′_k), from V′ (1.7 × 10⁻⁶ + 5 × 10⁻⁷ + 0.01 × 5.3 × 10⁻⁶ ≤ 3 × 10⁻⁶) and from the rounding of Ξ_k;
-the coefficients bound the partial derivatives of Ξ as in the proof of [[lem:margins-curvature]]. By
-[[lem:margins-enclosure]] (b) and [[lem:margins-curvature]] (b), on the cell [v_k, v_(k+1)], Ξ ≥ L_k := min(Ξ_k,
-Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200, where h²/8 = 1/51200. On the cell R ∈ [R′_k, R′_(k+1)], μ ∈ [μ_k, μ_(k+1)] and V′ ∈
-[min(V_k, V_(k+1)) − 2 × 10⁻⁴, max(V_k, V_(k+1)) + 2 × 10⁻⁴], with V_k := 1 + φ′_k; so f lies between 1 − μ_(k+1)/R′_k²
-and 1 − μ_k/R′_(k+1)², and c ≥ c_k, the value of c with the largest f and V′ in the numerator and the largest R, V′ and
-smallest fV′ in the denominator. Every row has L_k > 0, and the bound column gives κ′K′^l_l ≤ −c_k L_k ≤ −3.041 × 10⁻⁴
-on every cell.
+*Σ′ over the shell.* For v ∈ [3, 4.5] use [[sec:table-sigma-bent]]. The map R ↦ R + φ(R) has derivative 1 + φ′ ≥
+0.9978; it sends R′(v_k) to v̂(v_k) + 0.68, which is within 4 × 10⁻⁶ of v̂_k + 0.68 by [[lem:margins-shell-data]] (c),
+and it sends R′_k to within 2 × 10⁻⁷ of v̂_k + 0.68 (the residual 10⁻⁷ of the table and the roundings of R0_k and φ_k).
+So |R′(v_k) − R′_k| ≤ (4 × 10⁻⁶ + 2 × 10⁻⁷)/0.9978 ≤ 5.3 × 10⁻⁶. The true value Ξ(v_k) then differs from Ξ_k by at most
 
-*Σ′ after the shell.* For R ∈ [R′(4.5), 5.75], R′(4.5) = 5.3725246, μ = μ(4.5) ∈ [3.60579, 3.60582] and μ̇ = 0; φ″ ≥
-−0.01 l2 ≥ −0.0027323 and V′ ∈ [1, 1.0014840] (φ′ ≥ 0 there), and f ∈ [0.875076, 0.890940]. So Ξ ≥ −0.0027323 +
-(3.60579/5.75³)(3 − 0.890940 × 1.0014840) ≥ 0.037245 and c ≥ 0.323214/(5.75 × 1.0014840² × 1.124924²) ≥ 0.044288, so
+    0.0447 × 10⁻⁵ + 0.0344 × 8.4 × 10⁻⁶ + 0.24 × 5.3 × 10⁻⁶ + 0.50 × 0.01 × 5.3 × 10⁻⁶ + 5 × 10⁻⁸ ≤ 5 × 10⁻⁶.
+
+The terms come from μ (|Δμ| ≤ 10⁻⁵), from μ̇ (|Δμ̇| ≤ 3αw|Δw| ≤ 7.34 (0.016635 × 10⁻⁵ + 0.019401 × 4 × 10⁻⁶ + 1.43959
+× 6 × 10⁻⁷) ≤ 8.4 × 10⁻⁶, by [[lem:margins-shell-data]] (c)), from the radius R′, from V′ = 1 + φ′(R′) (|φ″| ≤ 0.01
+times the change of radius) and from the rounding of Ξ_k. The coefficients bound the partial derivatives of Ξ by the
+bounds of the proof of [[lem:margins-curvature]]: |Y_μ| ≤ 0.0447, Y_μ̇ ≤ 0.0344, |Y_R| + |φ‴| ≤ 0.12216 + 0.01795 ×
+2.49 + 0.072346 ≤ 0.24 and |Y_V| ≤ 0.24109 + 0.10284 × 2.49 ≤ 0.50. By [[lem:margins-enclosure]] (b) and
+[[lem:margins-curvature]] (b), on the cell [v_k, v_(k+1)], Ξ ≥ L_k := min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200, where
+h²/8 = 1/51200; here Φ4_k bounds |φ⁗| on the cell, because R′ increases with v and so the cell's radii lie in [R′_k −
+5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶]. On the cell, R lies in that interval, μ in [μ_k − 10⁻⁵, μ_(k+1) + 10⁻⁵] (μ
+increases with v), and V′ in [min(V_k, V_(k+1)) − 2 × 10⁻⁴, max(V_k, V_(k+1)) + 2 × 10⁻⁴] with V_k := 1 + φ′_k, since
+φ′_k is within 5 × 10⁻⁷ of φ′(R′_k), |φ″| ≤ 0.01 and R′_(k+1) − R′_k ≤ 0.013. So f lies between 1 − (μ_(k+1) +
+10⁻⁵)/(R′_k − 5.3 × 10⁻⁶)² and 1 − (μ_k − 10⁻⁵)/(R′_(k+1) + 5.3 × 10⁻⁶)², and c ≥ c_k, the value of c with the largest
+f and V′ in the numerator and the largest R, V′ and smallest fV′ in the denominator. Every row has L_k > 0, and the
+bound column gives κ′K′^l_l ≤ −c_k L_k ≤ −3.041 × 10⁻⁴ on every cell.
+
+*Σ′ after the shell.* For R ∈ [R′(4.5), 5.75], R′(4.5) ≥ 5.372519, μ = μ(4.5) ∈ [3.60579, 3.60582] and μ̇ = 0; φ″ ≥
+−0.01 l2 ≥ −0.0027323 and V′ ∈ [1, 1.0014840] (φ′ ≥ 0 there), and f ∈ [0.875075, 0.890941]. So Ξ ≥ −0.0027323 +
+(3.60579/5.75³)(3 − 0.890941 × 1.0014840) ≥ 0.037244 and c ≥ 0.32321/(5.75 × 1.0014840² × 1.124925²) ≥ 0.044287, so
 κ′K′^l_l ≤ −1.6 × 10⁻³. For R ≥ 5.75, Σ′ = Σ_τ0, μ is constant and μ̇ = 0, so N_κ = −2μ/R³ − μ²/R⁵ < 0; hence κ > 0,
 K^l_l < 0 and κK^l_l < 0. This proves (a).
 
