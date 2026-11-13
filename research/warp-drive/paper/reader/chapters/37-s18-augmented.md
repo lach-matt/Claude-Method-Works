@@ -764,11 +764,10 @@ L_b, and an order of 𝒪_c at one b need not lie in 𝒪_c at another.
 ### The representation of the forward solution {#sec:iii-h1-2}
 
 By density ([Hin26, p. 212]) it suffices to take for f the restriction to {r ≥ r_0} of a smooth section of S²T* with
-compact support in {t_* > 1}, so that f is smooth up to {r = r_0} and t_* ≥ t_1 > 1 on supp f. Such restrictions are
-dense: an element of the space is the restriction of a distribution F supported in {t_* ≥ 1}; the translates of F by
-τ > 0 in t_*, supported in {t_* ≥ 1 + τ}, converge to F as τ ↓ 0, and each is a limit of smooth sections with compact
-support in {t_* > 1}, by the density of C_c^∞ ([[lem:ii-a1-2-3]] (a) and its proof) and a cut-off in t_* equal to 1 on
-{t_* ≥ 1 + τ}. (Sections that vanish near {r = r_0} are not dense, the spaces being extendible there.) Then
+compact support in {t_* > 1}, so that f is smooth up to {r = r_0} and t_* ≥ t_1 > 1 on supp f. (An element of the
+space is the restriction of a distribution F supported in {t_* ≥ 1}; the translates of F by τ > 0 in t_*, supported in
+{t_* ≥ 1 + τ}, converge to F as τ ↓ 0, and each is approximated by smooth sections with compact support in {t_* > 1}.
+Sections that vanish near {r = r_0} would not do: they are not dense, the spaces being extendible there.) Then
 f̂(σ) := ∫ e^(iσt_*) f dt_* is entire with values in the smooth sections on X supported in a fixed compact subset
 of X̄ ∖ ∂X, and ‖f̂(σ)‖ ≤ C_M⟨σ⟩^(−M)e^(−t_1 Im σ) in every norm, for Im σ ≥ 0. Fix k, b ∈ ℬ_k and 𝗌 ∈ 𝒪_c. Let
 c ∈ (0, ς_1], with ς_1 of [[eq:ii-g1-4-5a]], be at most the constants c_(j,k′) of [[thm:iii-h-4-1]] (3) for L̃_b on

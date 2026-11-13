@@ -349,14 +349,17 @@ as in [[lem:iii-i4-2-5]]. (b) The proofs of those results use the background g_S
 ([[lem:iii-i4-3-1]]), and, in [[lem:iii-i4-3-2]], through the two properties of [[lem:iii-i7-1-3]] (c); and they use
 h′ only through h′ ∈ 𝒳 with small norm. [[lem:iii-i7-1-3]] and (a) provide these for g_p⃗ and h′, and
 [[lem:iii-i7-3-1]] (a) below is [[lem:iii-i4-3-2]] for P_2. At b they hold by [[lem:iii-i15-1-1]] (P1)–(P4), with the
-boost column of [[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]]. (c) In the proofs of these propositions every map is
+boost column of [[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]], and with the results of [[ch:s19]] in their statements at
+b, [[prop:iii-i2-5-1-b]]. (c) In the proofs of these propositions every map is
 fixed by the reference operator, or is the difference of L and the reference operator, bounded by [[eq:iii-i-4-2]]
 with the coefficient bounds of [[prop:iii-i-3-4]], uniform for small (h′, p⃗) ([[lem:iii-i7-1-3]] (b)), or is the
 solution map of [[prop:iii-i2-5-1]], or [[prop:iii-i1-2-1]] applied to L itself (Step 4 of the proof of
 [[prop:iii-i3-2-1]], Step 6 of that of [[prop:iii-i6-2-1]]), whose bounds are locally uniform: the continuity
 paragraph of [[prop:iii-i2-5-1]] shows this for both, the proof of [[prop:iii-i1-2-1]] being constructive with bounds
 depending on L only through coefficient norms, locally uniform by [[prop:iii-i-3-4]]; [[lem:iii-i4-4-2]] (a) is this
-argument for Ṡ. The constants are uniform in b by [[lem:iii-i15-1-1]] (P1) and (P4). ∎
+argument for Ṡ. At b, [[prop:iii-i2-5-1]] and [[prop:iii-i1-2-1]] are their statements at b, [[prop:iii-i2-5-1-b]],
+with constants and smallness conditions uniform in b; with [[lem:iii-i15-1-1]] (P1) and (P4) the constants are uniform
+in b. ∎
 
 ### The linearisation in the parameters {#sec:iii-i7-3}
 
@@ -474,7 +477,10 @@ the boost parameter of [[prop:iii-i4-4-1]] (1) for L_(h,p⃗), read at b with th
 [[eq:iii-i6-2-1]] at b, which are determined by the forward solution: a stationary tensor of positive K⁺-weight
 vanishes, and (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective ([[sec:iii-i7-1]]). Forcings converge in the finite-regularity
 spaces on which the bounds of [[lem:iii-i7-2-5]] (c) hold, which, d being large, is what [[lem:iii-i7-3-1]] (c) gives
-for h → 0 in 𝒳^d.
+for h → 0 in 𝒳^d; ‖·‖_𝒴 is the norm of one such space, fixed once and for all. For α and α_+ as above let
+𝒴^S_(α,α_+) := H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α_++2,α)_b(Ω_*; S²T*)^(•,−) be the space of forcings of [[prop:iii-i4-4-1]] (1)
+at the K⁺-weight α, normed in the same way; it contains 𝒴 with ‖·‖_(𝒴^S_(α,α_+)) ≤ C‖·‖_𝒴, and Ṡ_(h,p⃗) is bounded on
+it uniformly for (h, p⃗) small and b ∈ ℬ̄_* ([[lem:iii-i7-2-5]] (c)).
 
 **Lemma {#lem:iii-i7-4-1}** (The parameters near the reference point.) Fix b ∈ ℬ̄_*. Let (h_j, p⃗_j) → (0, p⃗_b), with
 (h_j, p⃗_j) as in [[lem:iii-i7-2-5]] with parameter b, and F_j → F in 𝒴.

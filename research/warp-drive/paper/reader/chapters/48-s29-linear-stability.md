@@ -573,9 +573,9 @@ has g(Y, e_j) = k(n, e_j) and 2g(Y, n) = k(n, n), as g(n, n) = −1; so ℒ_X g 
 (f) Let φ_s be the flow of X, defined near any compact piece of Σ^IVP for |s| small. It fixes Σ^IVP pointwise, so φ_s
 is an isometry from a neighbourhood of that piece with the metric φ*_sg to its image with the metric g, the identity
 on Σ^IVP, and it preserves the future normal for |s| small, by continuity from s = 0. So φ*_sg induces exactly the
-data (γ, K) of g on Σ^IVP, for every small s. The
-induced data are smooth functions of the 1-jet of the metric at Σ^IVP, whose s-derivative at 0 is that of ℒ_X g. So
-the derivative of the data, which is the data induced by ℒ_X g, vanishes. ∎
+data (γ, K) of g on Σ^IVP, for every small s. The induced data are smooth functions of the 1-jet of the metric at
+Σ^IVP, whose s-derivative at 0 is that of ℒ_X g. So the derivative of the data, which is the data induced by ℒ_X g,
+vanishes. ∎
 
 **Theorem {#thm:ix-2-2}** (Linearised vacuum solutions with gauge-equivalent data are gauge-equivalent.) Let U ⊂ U^♯
 be open, Ω′ := D_U(Σ_U) and Ω′_+ := Ω′ ∩ {t_IVP ≥ 0}, a manifold with boundary Σ_U. Let k be a symmetric 2-tensor on

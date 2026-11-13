@@ -333,19 +333,20 @@ is time-oriented by dτ. Where μ = μ0 on {r = a}, the Lorentzian metric g := g
 |g − g0| = μ0/a² − 1 and makes {r = a} null.
 
 *Proof.* On ker dτ, vectors (0, X), g0 = |X|² + (μ/r²)(x̂·X)², with eigenvalues 1 (three times) and 1 + μ/r². On
-ker dr at r = a, vectors (T, X) with x̂·X = 0, g0 = −T² + |X|² + (μ/a²) T² = (μ/a² − 1) T² + |X|². On
-ker d(v + τ) = ker(2dτ + dr), write X = X⊥ + s x̂ with x̂·X⊥ = 0; then T = −s/2 and
+ker dr at r = a, vectors (Y⁰, X) with x̂·X = 0, g0 = −(Y⁰)² + |X|² + (μ/a²)(Y⁰)² = (μ/a² − 1)(Y⁰)² + |X|². On
+ker d(v + τ) = ker(2dτ + dr), write X = X⊥ + s x̂ with x̂·X⊥ = 0; then Y⁰ = −s/2 and
 
     g0 = −s²/4 + |X⊥|² + s² + (μ/r²)(s/2)² = |X⊥|² + s² (3 + μ/r²)/4,
 
-while the Euclidean norm squared of (T, X) is |X⊥|² + (5/4) s²; the ratio on the s-direction is (3 + μ/r²)/5 ≥ 3/5.
+while the Euclidean norm squared of (Y⁰, X) is |X⊥|² + (5/4) s²; the ratio on the s-direction is (3 + μ/r²)/5 ≥ 3/5.
 
 Let g be Lorentzian with |g − g0| ≤ ε on Ω, where ε ≤ 3/5 and ε < μ0/a² − 1, and put g₋ := g0 − ε I, I the
 Euclidean identity. Then g ≥ g₋ as quadratic forms. The eigenvalues of g₋ are 1 − ε (three times),
 m + (m² + 1)^(1/2) − ε > 0 and m − (m² + 1)^(1/2) − ε < 0, so g₋ is Lorentzian, and its nonzero causal vectors form
 two convex cones, each the negative of the other. Subtracting ε I lowers each restricted eigenvalue by exactly ε, so
 g₋ restricted to ker dτ, to ker dr at r = a and to ker d(v + τ) has least eigenvalues 1 − ε, min(1, μ/a² − 1) − ε and
-min(1, (3 + μ/r²)/5) − ε, all positive, the last because μ/r² > 0 and ε ≤ 3/5. So dτ, dr (at r = a) and d(v + τ)
+min(1, (3 + μ/r²)/5) − ε, all positive: the first because ε ≤ 3/5 < 1; the second because moreover μ ≥ μ0, μ being
+nondecreasing, and ε < μ0/a² − 1; the last because (3 + μ/r²)/5 > 3/5 ≥ ε. So dτ, dr (at r = a) and d(v + τ)
 vanish on no nonzero g₋-causal vector, and each has one sign on each of the two cones. Every g0-causal vector is
 g₋-causal, since g₋ ≤ g0; so the cone that contains the future causal vectors of g0 has dτ > 0, dr < 0 at r = a and
 d(v + τ) > 0, by [[lem:domain]] (a)–(c). Every g-causal vector is g₋-causal, since g ≥ g₋. Hence dτ vanishes on no

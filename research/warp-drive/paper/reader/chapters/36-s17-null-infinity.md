@@ -475,9 +475,9 @@ Riem(g) − Riem(g₁) ∈ ρ₀²H^(k−2,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ([Hin2
 ℱ = ℰ_I^tot for every component discards the component structure (for instance the ∂₁² coefficient g^(11) is tied to
 h₀₀, of index ℰ_I^C); the b-form does not need it, but (5.26b) and the energy estimates of [[ch:s26]] do. At the level
 of tensors the drop by half an order is the counting of [[lem:iii-c-4-3]]. For comparison, item (7) of
-[[prop:np-10-64]] gives three of the h-dependent entries (A(7, 1), A(4, 7), B(4, 1)) of the closely related operator
-of [Hin23a] in dimensions 3 + 1 and 4 + 1, and those of dimension 4 + 1 are r^(−1/2) times those of dimension 3 + 1;
-that operator omits the γ_Υ term, which carries one c and obeys the same counting.
+[[prop:np-10-64]] gives four of the h-dependent entries (A(7, 1), B(7, 1), A(4, 7), B(4, 1)) of the closely related
+operator of [Hin23a] in dimensions 3 + 1 and 4 + 1, and those of dimension 4 + 1 are r^(−1/2) times those of dimension
+3 + 1; that operator omits the γ_Υ term, which carries one c and obeys the same counting.
 
 ### Forward mapping {#sec:iii-c-5}
 
@@ -786,8 +786,9 @@ exceptional term v^(1+λ_♯)e₇ at ℐ⁺ ∩ ι⁺. For f = N_(ι⁺)(λ)h wi
 when Π_(2γ_Υ)h carries a v^(λ_♯)-term, that is, when the v^(λ_♯)-coefficients c₄, c₇ of slots 4 and 7 of h are not in
 the ratio of the eigenvector of Ā for (1 − e_Υ)γ_Υ ([[lem:iii-g3-1-2]] (1)): by the calculation of the leading part in
 the proof of [[prop:iii-c-5-2]], slot 7 of (v∂_v − 3/2 − Ā)h at v^(λ_♯) is −(1 + e_Υ)γ_Υc₇ − Ā₇₄c₄, which vanishes
-along that eigenvector. The set ℰ_(I,11) allows such a term, and the space of [[def:iii-g1-1-2]] does not. The index
-sets at ι⁺ of [[ch:s23]] contain (λ_♯, 0) accordingly. The identification of [[prop:iii-g3-2-4]] with the inverse of
+along that eigenvector. The set ℰ_(I,11) allows such a term, and the space of [[def:iii-g1-1-2]] does not. In
+[[ch:s23]] the right-hand sides of the steps have no expansion at ℐ⁺, so the pole at λ_♯ enters only through a datum
+at that frequency, and the index sets at ι⁺ contain (λ_♯, 0). The identification of [[prop:iii-g3-2-4]] with the inverse of
 [[thm:iii-g1-3-1]] below λ_♯ holds by uniqueness in the admissible spaces of [[thm:iii-g-5-1]]: the extension by zero
 of v₊^(w−λ), Re(w − λ) > 0, lies in them and creates no term at the light cone ([[lem:iii-g3-2-3]]); at the incoming
 exponent itself the extension by zero creates δ(v), which is why λ_♯ is a pole.

@@ -83,8 +83,8 @@ C_h = −3h/4 + 35h²/8 + 35eh/4 < 0. C has exactly one root in (2, ∞), with C
 
 (i) P_l(ι) = U(ι, x) + hW(ι, x), where
 
-    U := (2 + x − ι)Q(ι, x),     Q(ι, x) := 2ι² − (3x + 10)ι + x² + (5 + 3ε₀)x + 12,     W := R₁ + hR₂ + h²R₃,
-                                                                                                          {#eq:s14-pa-split}
+    U := (2 + x − ι)Q(ι, x),   Q(ι, x) := 2ι² − (3x + 10)ι + x² + (5 + 3ε₀)x + 12,   W := R₁ + hR₂ + h²R₃,
+                                                                                                   {#eq:s14-pa-split}
 
 with R₁, R₂, R₃ the polynomials of [[sec:tab-a-split]]; the coefficients of 64·10¹⁸P_l in ι are those of
 [[sec:tab-a-sextic]].
@@ -153,7 +153,9 @@ summing the absolute values of the terms at x = 35 and x = 70; those on the quad
 
 **Lemma {#lem:s14-majorant}** (Majorants.) For a polynomial f(ι, x) = Σ_(j,k) f_jk (ι − p)^j x^k about a centre p,
 put f̄(S, T) := Σ_(j,k) |f_jk| S^j T^k. Then |f(ι, x)| ≤ f̄(S, T) whenever |ι − p| ≤ S and 0 ≤ x ≤ T, and f̄ increases
-in S and in T. ∎
+in S and in T.
+
+*Proof.* The triangle inequality, term by term. ∎
 
 We write N̄ := R̄₂ + hR̄₃ and N̄′ := R̄₂′ + hR̄₃′ for the majorants about p = 0 of R₂ + hR₃ and of its ι-derivative, and
 M̄_B, M̄_a (with M̄_B′, M̄_a′ for the s-derivatives) for the majorants of the re-expansions R₁(2 + x + s, x) and

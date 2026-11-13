@@ -922,9 +922,8 @@ conditions of [[lem:iii-g-4-2]]. With Step 1, [[eq:iii-g-4-6]] follows for h sma
 
 *Step 3: the adjoint.* The same steps apply to P^(*𝔥) on the dual spaces, with the directions of propagation reversed
 and sources and sinks interchanged: [[eq:iii-g-4-4]] at ∂ℛ_±, this time without the control term; propagation backwards
-along
-the curves (ii)–(iii) to the cone point and through it ([[sec:ii-f-3-6]], the adjoint, for (R3)–(R4) and F_K); on Σ_+
-and at fibre infinity, propagation from ∂ℛ_± to {v < −¼}; and near v = −1 the second estimate of [[eq:iii-g-4-5]],
+along the curves (ii)–(iii) to the cone point and through it ([[sec:ii-f-3-6]], the adjoint, for (R3)–(R4) and F_K); on
+Σ_+ and at fibre infinity, propagation from ∂ℛ_± to {v < −¼}; and near v = −1 the second estimate of [[eq:iii-g-4-5]],
 whose term ‖χ_1v‖ lies over {−½ < v < −¼} and is controlled by the propagation just described. The dual semiclassical
 order −𝖻 − 1 is non-increasing in these reversed directions, and is the constant −b_in − 1 over {v ≤ −¼}, where the
 second estimate of [[eq:iii-g-4-5]] is used. Step 2 uses the second estimate of [[eq:ii-f-3-15]].
@@ -997,7 +996,7 @@ We use the notation of [[sec:iii-g-1]]: v ∈ ℝ, ω ∈ 𝕊³, R := v⁻¹ ne
 [[def:iii-g-1-3]], and the admissible pairs of [[eq:iii-g-2-6]]. Let ι⁺ := [0, ∞]_v × 𝕊³, a compact manifold with two
 boundary hypersurfaces, 𝓘⁺ ∩ ι⁺ = {v = 0} and K⁺ ∩ ι⁺ = {R = 0}, which do not meet; their defining functions are
 ρ_I := v/(1 + v) and ρ_K := R/(1 + R). On ι⁺ we use the unweighted b-density |dv/v dg̸| = |dR/R dg̸| and
-H^(k,α_I,α_K)_b(ι⁺) := ρ_I^(α_I)ρ_K^(α_K)H^k_b(ι⁺) ([Hin26, Definition 2.6], as in [[sec:iii-a-1]]). Ċ^∞(ι⁺) is the
+H^(k,α_I,α_K)_b(ι⁺) := ρ_I^(α_I)ρ_K^(α_K)H^k_b(ι⁺) ([[def:s11-b-analysis]] (3)). Ċ^∞(ι⁺) is the
 space of smooth sections vanishing to infinite order at ∂ι⁺. The *ι⁺-normal operator* ([Hin26, (9.10)–(9.11)] at
 n = 4) is
 
@@ -1058,7 +1057,7 @@ carries one, and the counterpart of that splitting at n = 4 is not needed here.
 
 #### Index sets {#sec:iii-g1-1-3}
 
-As in [Hin26, Definition 2.7] ([[sec:iii-a-1]]), (z, k) denotes the smallest index set containing (z, k), that is
+As in [[def:s11-b-analysis]] (4), (z, k) denotes the smallest index set containing (z, k), that is
 {(z + j, l) : j ∈ ℕ_0, 0 ≤ l ≤ k}, π_1 denotes the projection of an index set to its exponents, and ∪̄ is the extended
 union.
 
@@ -1070,8 +1069,8 @@ union.
 for s ∈ σ_Υ.
 
 (2) (*Function spaces.*) For an index set ℰ_K at K⁺ ∩ ι⁺ and ℓ_I ∈ ℝ, 𝒜^((⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),ℰ_K)(ι⁺) is the space of
-sections h with Π_Ch ∈ 𝒜^((ℰ^C_(ι⁺,𝓘),ℓ_I),ℰ_K) and Π_sh ∈ 𝒜^((ℰ_s,ℓ_I),ℰ_K) for s ∈ σ_Υ. Here [Hin26, Definition 2.8
-and Notation 2.9] are used, with the index sets referring to {v = 0} and {R = 0}, in this order.
+sections h with Π_Ch ∈ 𝒜^((ℰ^C_(ι⁺,𝓘),ℓ_I),ℰ_K) and Π_sh ∈ 𝒜^((ℰ_s,ℓ_I),ℰ_K) for s ∈ σ_Υ. Here [[def:s11-b-analysis]] (5)
+and (6) are used, with the index sets referring to {v = 0} and {R = 0}, in this order.
 H^(k,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) is defined in the same way. The sets ℰ_(ι⁺,𝓘,01), ℰ_(ι⁺,𝓘,1/) and
 ℰ_(ι⁺,𝓘,0/) of [Hin26] are the ℰ_s for s = (1 − e_Υ)γ_Υ, γ_Υ and 0, its ℰ_(ι⁺,𝓘,11) is the union of those for 2γ_Υ
 and (1 − e_Υ)γ_Υ, and 3/2 replaces its 1 throughout.
@@ -1155,7 +1154,7 @@ For an index set G and γ ∈ ℝ, 𝒜^((G,γ))([0, 1)_v × 𝕊³) consists of
     Σ_((z,k)∈G, Re z<γ) v^z(log v)^k g_(z,k)(ω) + r,
 
 with g_(z,k) smooth and |W^αr| ≤ C_αv^γ for all α. The statements below hold for all orders in open ranges, so this
-L^∞-based version and the L²-based one of [Hin26, Definition 2.8] can be used interchangeably
+L^∞-based version and the L²-based one of [[def:s11-b-analysis]] (5) can be used interchangeably
 (H^(∞,γ)_b ⊂ 𝒜^γ ⊂ H^(∞,γ−δ)_b near {v = 0}).
 
 **Lemma {#lem:iii-g1-2-2}** (Integration at the light cone.) Let a ∈ ℂ, γ_0 < γ with γ ≠ Re a, G an index set with no
