@@ -511,8 +511,8 @@ solution of [[lem:own-self-similar]] with F_p(0, ·) = G_(2p)(v1, ·), the coeff
 
     Σ_p := r^(−p) F_p(s, x̂),     Σ := Σ_(p∈Π) Σ_p,     h_R := g − g_b0 − Σ,                              {#eq:own-sigma}
 
-for a metric g on W. All five Σ_p solve □_η Σ_p = 0, Σ_4 included; [[prop:far-residual]] gives
-|Π_i (Γ_i + c_i) P(Σ)| ≤ C λ r⁻⁶ and [[cor:far-kernels]] the kernel κ_Σ(σ) = C λ (1 + |σ|)^(a−4), and
+for a metric g on W. All five Σ_p solve □_η Σ_p = 0, Σ_4 included; for this Σ, [[prop:far-residual]] gives the
+bound |Π_i (Γ_i + c_i) P(Σ)| ≤ C λ r⁻⁶ and [[cor:far-kernels]] the kernel κ_Σ(σ) = C λ (1 + |σ|)^(a−4), and
 [[rem:far-window-sigma4]] compares other choices of Σ_4.
 
 **Lemma {#lem:own-sigma-data}** (the size of Σ). Under the hypotheses of [[thm:own-data]], for λ small:
@@ -639,8 +639,8 @@ symmetric tensor with |H| ≤ 1/50, g := g_b0 + H, and write
 
 There are constants C and C_j, depending only on μ and j, such that:
 (a) |B(H)| ≤ C(μ r⁻³ + |∂H|) and |C(H)| ≤ C(μ r⁻⁴ + |∂∂H| + |∂H|²);
-(b) |g⁻¹ − g_b0⁻¹| ≤ C|H|, |B(H) − B(0)| ≤ C(|∂H| + μ r⁻³ |H|) and
-|C(H) − C(0)| ≤ C(|∂∂H| + |∂H|² + μ r⁻³ |∂H| + μ r⁻⁴ |H|);
+(b) |g⁻¹ − g_b0⁻¹| ≤ C|H| and |B(H) − B(0)| ≤ C(|∂H| + μ r⁻³ |H|), and the coefficient of order zero satisfies
+the bound |C(H) − C(0)| ≤ C(|∂∂H| + |∂H|² + μ r⁻³ |∂H| + μ r⁻⁴ |H|);
 (c) for every j ≥ 1, the coefficients of (μ ∂_μ)^j DP(H) are bounded by C_j μ r⁻² (second order),
 C_j μ (r⁻³ + r⁻²|∂H|) (first order) and C_j μ (r⁻⁴ + r⁻² |∂∂H| + r⁻² |∂H|² + r⁻³ |∂H|) (zero order).
 In particular B(0) = O(μ r⁻³) and C(0) = O(μ r⁻⁴); and for λ small and H = Σ on W, by [[eq:far-sigma-bounds]],

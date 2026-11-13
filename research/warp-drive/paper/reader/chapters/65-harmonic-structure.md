@@ -880,9 +880,11 @@ u := ρ^(−3/2)Z satisfies
 5. *The slab: [[thm:iv3-2-1]] at □.* Of its three changes, the gauge cut-off is absent for □; the background is g
    itself (S = 0), for which [[lem:iv3-0-1]] is the form of g − η of [[lem:iii-c-3-5]], and [[lem:gd-r4-1]] holds in the
    translated chart, g being stationary; and the regions, whose curves ([[lem:iv3-1-1]]) are statements about g, t^♭_*,
-   t_IVP and ρ′_I alone, are unchanged. The compact parts (𝒦, and 𝒮 ∩ {ρ′_I ≥ c_1/4}) use the energy estimates for a
-   linear wave equation with principal symbol g⁻¹(ζ, ζ) Id ([[lem:ix-2-1]] (a)) on compact domains of dependence; on
-   Ω^♮_(c_1), 2 applies with Σ_in = {ρ′_I = c_1} and Σ_fin = {t^♭_* = T̂ + 3}, spacelike for g. Uniqueness on each
+   t_IVP and ρ′_I alone, are unchanged, with c_1 in place of c_♮, every condition on c_♮ in [[sec:iv3-1]] being an
+   upper bound. The compact part, the set Q of that proof (a compact set of the first kind of [[sec:s27-local]] for g,
+   containing 𝒦⁺, 𝒮 ∩ {ρ′_I ≥ c_1/4} and 𝒟⁺ ∩ {r ≤ R_K + 2}, whose only data surface is Σ^IVP ∩ Q), uses the energy
+   estimates for a linear wave equation with principal symbol g⁻¹(ζ, ζ) Id ([[lem:ix-2-1]] (a)) on that compact domain
+   of dependence; on Ω^♮_(c_1), 2 applies with Σ_in = {ρ′_I = c_1} and Σ_fin = {t^♭_* = T̂ + 3}, spacelike for g. Uniqueness on each
    region is [[lem:ii-f-1-3]].
 6. *What is not used.* The recovery of the sharp weight at ℐ⁺, Steps 4–6 of the proof of [[thm:iv2-2-4]], integrates
    each slot along X_I and X₀ − X_I; with Ā = 0 every Cartesian component would be integrated as slot 6 is there. Only
