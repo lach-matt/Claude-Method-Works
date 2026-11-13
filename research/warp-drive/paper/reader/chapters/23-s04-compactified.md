@@ -409,19 +409,22 @@ chapter and the following ones.
 
 (S12) [Hin26d, Proposition 3.2, p. 28.] Two scaled b.g. structures on M have the same operator Lie algebra if and only
 if they are compatible, and then they also have the same coefficient and large operator Lie algebras. Since the
-calculus and the spaces depend only on these algebras ([Hin26d, p. 52]), they do not change when the cells are
-replaced by a compatible family (for instance, when a cover of 𝕊³ by charts is replaced by another finite one).
+calculus and the spaces depend only on these algebras ([Hin26d, pp. 32, 36 and 52]), they do not change when the cells
+are replaced by a compatible family (for instance, when a cover of 𝕊³ by charts is replaced by another finite one).
 
-(S13) [Hin26d, Proposition 3.3, p. 29; Remark 3.48, p. 52.] Subdividing each cell of ℬ^× into cuboids of side lengths
-comparable to the scalings gives, for a large enough subdivision constant, a b.g. structure ρℬ, the *secondary
-structure*, whose coordinate vector fields span the large operator Lie algebra: 𝒱′ = C^∞_(uni,ρℬ)(M; TM) = 𝒱
-⊗_(C^∞_(uni,ℬ)) C^∞_(uni,ρℬ). With all scalings equal to 1, ρℬ defines a calculus Ψ_(𝒱′), and wΨ^m_𝒱(M) ⊂ wΨ^m_(𝒱′)(M);
-the residual operators of Ψ_(𝒱′) are not required to be localised near the diagonal.
+(S13) [Hin26d, p. 28; Proposition 3.3, p. 29; p. 36; Remark 3.48, p. 52.] Subdividing each cell of ℬ^× into cuboids of
+side lengths comparable to the scalings (p. 28) gives, for a large enough subdivision constant, a b.g. structure ρℬ, the
+*secondary structure*, whose coordinate vector fields span the large operator Lie algebra: 𝒱′ = C^∞_(uni,ρℬ)(M; TM) = 𝒱
+⊗_(C^∞_(uni,ℬ)) C^∞_(uni,ρℬ). The Sobolev spaces of the two structures coincide, H^s_(𝒱′) = H^s_𝒱 (p. 36). With all
+scalings equal to 1, ρℬ defines a calculus Ψ_(𝒱′), and wΨ^m_𝒱(M) ⊂ wΨ^m_(𝒱′)(M); the residual operators of Ψ_(𝒱′) are
+not required to be localised near the diagonal.
 
-(S14) [Hin26d, Remark 3.13, p. 34.] On vector bundles of bounded geometry (trivialisations over the U_α with transition
-functions uniformly bounded in C^∞), 𝒱-differential operators are those which, in the charts and trivialisations, are
-matrices of scalar 𝒱-differential operators with uniformly bounded coefficients; their principal symbols are the
-matrices of the principal symbols.
+(S14) [Hin26d, Remark 3.13, p. 34; (3.8), p. 32; Remark 3.46, p. 52.] On vector bundles of bounded geometry
+(trivialisations over the U_α with transition functions uniformly bounded in C^∞), 𝒱-differential operators are those
+which, in the charts and trivialisations, are matrices of scalar 𝒱-differential operators of the form (3.8) with
+uniformly bounded coefficients; their principal symbols are the matrices of the principal symbols. 𝒱-pseudodifferential
+operators on such bundles are the sums of matrices of quantizations of symbols in the local charts and of residual
+operators (Remark 3.46).
 
 The sharp Gårding inequality is not among these statements and is not used: the real principal type estimate
 ([[thm:ii-a1-5-4]]) is proved without it.
@@ -488,7 +491,8 @@ applied to the localised operator.)
 
 **Lemma {#lem:ii-a-4-1}** ([Hin26c, Lemma 3.6].) Let V_1, …, V_N ∈ 𝒱_b(M̃) and let w_j ∈ C^∞(M̃) be bounded, with
 V_(0,j) := w_jV_j ∈ 𝒱_e3b spanning 𝒱_e3b over C^∞, and put V_0 := I. Then every A ∈ C^∞_b Ψ^𝗌_e3b is Σ_(j=0)^N A_jV_j
-with A_j ∈ C^∞_b Ψ^(𝗌−1)_e3b.
+with A_j ∈ C^∞_b Ψ^(𝗌−1)_e3b. If A is localized near the diagonal ([[sec:ii-a-8-3]]) and ϵ > 0, the A_j may be taken
+with kernel ranges at most that of A plus ϵ.
 
 *Proof.* B := Σ_j V_(0,j)^* V_(0,j) ∈ Diff²_e3b is elliptic, so I = QB + R with Q ∈ C^∞_b Ψ^(−2)_e3b and
 R ∈ C^∞_b Ψ^(−1)_e3b: take Q := Op(q) with q ∈ S^(−2) equal to σ(B)⁻¹ outside a compact subset of each fibre,
@@ -505,7 +509,7 @@ spaces.
 
 Operators on the trivial bundle ℂ^N (the bundles of [[sec:i-a-1-2]]) are N × N matrices of scalar operators; all
 statements above and below hold for them with matrix-valued symbols, the principal symbols multiplying as matrices
-((S14) for differential operators; for pseudodifferential operators, matrices of scalar ones). Where a
+((S14), for differential and for pseudodifferential operators). Where a
 scalar principal symbol is needed (commutators lowering the order), it is assumed and said.
 
 ### The Fourier transform near K⁺ {#sec:ii-a-5}
