@@ -733,3 +733,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   (and the older Rácz keys) to OUTLINE.md; [Rac16] in the references gives only the journal version while Appendix A
   cites arXiv pages (add the arXiv identifier and version). P now also cites eq:bg-chart. 8 pending-marker lines remain
   in P (forward references; the reader checks each).
+- Ch 62 third reading (R3-62): earlier findings fixed (V in the cone of dτ; lem:interior-chart with the 25C_Jλ bound and
+  the inverse by Neumann series; R2 nits 3-10); every computation incl. the Ricci formula checked; citations from
+  chapters 1, 3, 48, 60, 63 and P-G-far satisfied. Minors: "the (common) domain of dependence" overclaims
+  lem:interior-one-spacetime (glues along Σ, maximal common development U); m := μ_end r⁻² used where v < v_end
+  (use μ(v)r⁻²; bounds need only 0 ≤ m ≤ 1/400). Nits: [BGP] for "connected"; λ_1 (lem:vii-1-1) vs λ1; J unnamed; ε
+  doubled. Third fix running.

@@ -1698,9 +1698,9 @@ and L maps H^(−N) to H^(−N−m) ([[lem:ii-a-8-6]] (a)). Hence
 
 *Step 1: the pairing at v.* Let w_t := T_tv, with T_t from [[lem:ii-a1-2-3]] (b) and K ≥ K′ + sup |𝗌| + 1, so that
 w_t ∈ H^(𝗌−κ+K) ⊂ H^(K′) for t > 0. We show ⟨Ǎ_εLw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εLv, Ǎ_εv⟩ as t → 0, for fixed ε > 0.
-Symbols of C^((M))_ν S̃^𝗄 act with exact orders ([[prop:ii-a1-2-4]] (a)), and only remainders lose δ. So Ǎ_ε has order 𝗄
-− κ for this ε, and as v ∈ H^(𝗌−κ), Ǎ_εw_t → Ǎ_εv strongly in H^((m−1)/2). Next, Ǎ_εLw_t = Ǎ_εT_tLv + Ǎ_ε[L, T_t]v. The
-first term tends to Ǎ_εLv in H^((1−m)/2): T_t → I strongly on H^(𝗌−m+1), applied to ΦLu; the part with [L, Φ]u is handled
+Symbols of C^((M))_ν S̃^𝗄 act with exact orders ([[prop:ii-a1-2-4]] (a)), and only remainders lose δ. So Ǎ_ε has
+order 𝗄 − κ for this ε, and as v ∈ H^(𝗌−κ), Ǎ_εw_t → Ǎ_εv strongly in H^((m−1)/2). Next, Ǎ_εLw_t = Ǎ_εT_tLv +
+Ǎ_ε[L, T_t]v. The first term tends to Ǎ_εLv in H^((1−m)/2): T_t → I strongly on H^(𝗌−m+1), applied to ΦLu; the part with [L, Φ]u is handled
 as in Step 0, uniformly in t, with Φ_0T_t(I − Φ) and Φ_0T_tL(I − Φ) in place of Φ_0(I − Φ) and Φ_0L(I − Φ)
 ([[prop:ii-a1-2-4]] (e) with the expressions T_t and T_tL, τ_t being bounded in S̃⁰). For the second, L and T_t have the
 constant orders m and 0. So [[prop:ii-a1-2-4]] (d), with a_1 = ℓ_f and a_2 = τ_t bounded in S̃⁰, shows that [L, T_t] is
@@ -2249,16 +2249,16 @@ Here ‖G_1V_jf‖_((𝗌−m+1;k−1)) ≤ ‖G_1f‖_((𝗌−m+1;k)) + ‖[G_
 C(‖GLu‖_((𝗌−m+1;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c) and [[lem:ii-a-8-6]] (a) for the error term, as in
 [[prop:ii-a-9-1]]. Similarly ‖E_1V_ju‖_((𝗌;k−1)) ≤ C(‖Eu‖_((𝗌;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c), and
 ‖χ_1u^((1))‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)), by (R3). On the left,
-‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))), and both are bounded by C(‖B_1u^((1))‖_((𝗌;k−1)) +
-‖χu‖_((−N;k))). For the first, [[lem:ii-a-8-4]] (c) applies with WF′(B) ⊂ Ell(B_1). For the second, the wave front set
-lies in that of B, and the j = 0 component of u^((1)) is u. The finiteness statements follow as in [[prop:ii-a-9-1]]. At
-each k the step applies the statement at k − 1, and through it (L4), to a new system L^((1)), of rank N′(N + 1), with
-finite sets enlarged by the A_(j,l), and to new operators B_1, E_1, G_1 and a new cut-off χ_1; it applies
-[[lem:ii-a-8-6]] (a) with a new cut-off χ_*. The kernel ranges do not accumulate over the k levels. The statement at k −
-1 holds for all admissible data, whatever bound D their kernel ranges have, and its proof finds its room anew in the
-carriers of B_1, E_1 and G_1 ((R1)); each level adds one truncated parametrix, of range at most the room of that level.
-The truncations change operators by residual ones and so change only constants. Neither index depends on these choices
-([[thm:ii-a1-5-4]], [[lem:ii-a-8-6]]), so d_0 does not depend on k. ∎
+‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))), and both are bounded by
+C(‖B_1u^((1))‖_((𝗌;k−1)) + ‖χu‖_((−N;k))). For the first, [[lem:ii-a-8-4]] (c) applies with WF′(B) ⊂ Ell(B_1). For the
+second, the wave front set lies in that of B, and the j = 0 component of u^((1)) is u. The finiteness statements follow
+as in [[prop:ii-a-9-1]]. At each k the step applies the statement at k − 1, and through it (L4), to a new system
+L^((1)), of rank N′(N + 1), with finite sets enlarged by the A_(j,l), and to new operators B_1, E_1, G_1 and a new
+cut-off χ_1; it applies [[lem:ii-a-8-6]] (a) with a new cut-off χ_*. The kernel ranges do not accumulate over the k
+levels. The statement at k − 1 holds for all admissible data, whatever bound D their kernel ranges have, and its proof
+finds its room anew in the carriers of B_1, E_1 and G_1 ((R1)); each level adds one truncated parametrix, of range at
+most the room of that level. The truncations change operators by residual ones and so change only constants. Neither
+index depends on these choices ([[thm:ii-a1-5-4]], [[lem:ii-a-8-6]]), so d_0 does not depend on k. ∎
 
 #### Tame estimates {#sec:ii-a-9-3}
 
@@ -2454,10 +2454,10 @@ and χ_*A′ = χ_*A′χ ((R2)): ‖χ_*A′u‖_((−N−m;q)) = ‖χ_*A′χ
 ‖G_2A′u‖_((𝗌−m;q)) ≤ C(‖G_3u‖_((𝗌;q)) + ‖χu‖_((−N;q))) by [[lem:ii-a-8-4]] (c). By [[eq:ii-a-9-10]] at the order
 k − 1, with G_3 in place of B, ‖G_3u‖_((𝗌;k−1)) is bounded by the right side of [[eq:ii-a-9-10]] at k. Its constant
 depends only on ‖𝐋‖_((d_0;d)), and its high norm ‖𝐋‖_((d_0;k−1)) multiplies low norms only. By [[prop:ii-a-9-1]] at the
-order d̃ < d, ‖G_3u‖_((𝗌;d̃)) ≤ C(‖GLu‖_((𝗌−m;d)) + ‖χu‖_((−N;d))). If j′ = 0, the coefficient is ℓ_q itself and |J′| ≤ k
-− 1, and [[eq:ii-a-9-7]] with ℓ := ℓ_q and (0, |J′|) gives the same bounds, with ‖ℓ_q‖_((d_0;d̃)) and ‖ℓ_q‖_((d_0;k−1)).
-Collecting the terms gives [[eq:ii-a-9-10]]. ([Hin26c] treats only the term with the most derivatives on the coefficient;
-the others are bounded in the same way.) ∎
+order d̃ < d, ‖G_3u‖_((𝗌;d̃)) ≤ C(‖GLu‖_((𝗌−m;d)) + ‖χu‖_((−N;d))). If j′ = 0, the coefficient is ℓ_q itself and
+|J′| ≤ k − 1, and [[eq:ii-a-9-7]] with ℓ := ℓ_q and (0, |J′|) gives the same bounds, with ‖ℓ_q‖_((d_0;d̃)) and
+‖ℓ_q‖_((d_0;k−1)). Collecting the terms gives [[eq:ii-a-9-10]]. ([Hin26c] treats only the term with the most
+derivatives on the coefficient; the others are bounded in the same way.) ∎
 
 **Proposition {#prop:ii-a-9-9}** ([Hin26c, Proposition 3.30], with 𝗌 − m + 1.) There are d_0, d ∈ ℕ, depending only on
 𝗌, m and N, such that the following holds for all δ > 0, all k, finite sets 𝒫_(m−j), j = 0, 1, and
@@ -2529,7 +2529,7 @@ u-norms are bounded by
 [[prop:ii-a-9-8]]. If j′ ≤ 1, the coefficient carries at most one derivative, and [[eq:ii-a-9-7]] with ℓ replaced by
 V_(S′)ℓ and (0, ·) gives the same bounds, with ‖V_(S′)ℓ‖_((d_0;d̃)) ≤ C‖𝐋‖_((d_0;d)). Here ‖G_3u‖_((𝗌;k−1)), and
 ‖G_2u‖_((𝗌;k−1)) in [[eq:ii-a-9-13]], are bounded by [[eq:ii-a-9-12]] at k − 1 with G_3, resp. G_2, in place of B, for
-which the hypotheses hold by the choice above. And ‖G_3u‖_((𝗌;d̃+1)) is bounded by [[prop:ii-a-9-2]] at the order d̃ + 1
-< d, with constant depending on ‖𝐋‖_((d_0;d)). This gives [[eq:ii-a-9-12]]. The local uniformity follows from that of
-(L4) and [[prop:ii-a-9-2]]. ∎
+which the hypotheses hold by the choice above. And ‖G_3u‖_((𝗌;d̃+1)) is bounded by [[prop:ii-a-9-2]] at the order
+d̃ + 1 < d, with constant depending on ‖𝐋‖_((d_0;d)). This gives [[eq:ii-a-9-12]]. The local uniformity follows from
+that of (L4) and [[prop:ii-a-9-2]]. ∎
 

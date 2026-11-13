@@ -1436,6 +1436,26 @@ The proof uses its setting only through the following: u has the K⁺-weight α 
 L_(h,p⃗)u_0 = G for a forcing G ∈ 𝒴⁰(α) and with L_b m_ν of K⁺-order above α for ν ∈ 𝒩″. Step 1 (iii) treats the
 m_ν(W_ν) as it treats the m_ν(S_ν).
 
+In this generality the bounds of Step 6 read as follows. Put w_0 := min(α − 2, λ_♯ − 1). Every m_ν(W) has K⁺-weight
+at least λ_♯ − 1 − ε and ι⁺-weight λ_♯ − ε, and vanishes near ℐ⁺, so u_0 = u + Σ_(ν∈𝒩″) m_ν(W_ν) satisfies the
+hypothesis of [[lem:iii-i11-3-2]] with this w_0. Step 0 puts f′ := G − (L_(h,p⃗) − L_(b_0))u_0, and the maps of Step 6
+are applied to f′ and, through Step 1 (iii), to the W_ν. For every w ∈ (0, w_0] the count of Step 0 of the proof of
+[[lem:iii-i11-3-2]] gives
+
+    ‖f′‖_(𝒴⁰(α)) ≤ ‖G‖_(𝒴⁰(α)) + C(‖h‖ + |p⃗|)‖u_0‖_(w).
+
+So every seminorm of the coefficients in [[eq:iii-i12-3-2]] and of ũ in [[eq:iii-i12-3-3]] is at most
+
+    C‖G‖_(𝒴⁰(α)) + C(‖h‖ + |p⃗|)‖u_0‖_(w) + C Σ_(ν∈𝒩″) |W_ν|,
+
+where ‖·‖_(𝒴⁰(α)) is a seminorm of 𝒴⁰(α) and ‖·‖_(w) one of the space of the hypothesis of [[lem:iii-i11-3-2]] with w
+in place of w_0, both depending on the seminorm bounded (of large enough regularity, as in [[sec:iii-i8-1]]), and C
+depends on w and these seminorms and is uniform for (h, p⃗) small. This is not a bound by G alone. In the setting of
+this section, 𝒩″ = 𝒩 and the W_ν are the S_ν of Step 0, which are the row components of p⃗′ (the C_ν vanish). With w
+the w_0 = min(α′ − 2, λ_♯ − 1) of the proof of [[thm:iii-i11-4-1]], the bounds at the end of that proof, which hold
+for every choice of the seminorms of large enough regularity, give |p⃗′_(h,p⃗)(F)|, ‖G(W⃗)‖_(𝒴⁰(α)) and
+‖u_0(W⃗)‖_(w) at most C‖F‖_(𝒴⁰(α)); so the three terms are at most C‖F‖_(𝒴⁰(α)), which is the bound of Step 6.
+
 ### Admissible levels and enlarged sources {#sec:iii-i13-1}
 
 [[lem:iii-i11-3-2]] reaches the order α > 4 in one step from an admissible level α′ ∈ (2, 3), which needs the K⁺-order
@@ -1685,8 +1705,18 @@ m_ν(W) of [[def:iii-i14-1-3]], built at b, a_ν = t_*^(−λ)(log t_*)^k, (λ, 
 χ_K T_(v1,b)(a_ν W) up to terms of K⁺-order Re λ + 3 − ε > α (by [[lem:iii-i10-2-1]] (a), the difference consists of
 the terms with a_ν^((3)) and a_ν^((4)), the tower length K_v1 of [[sec:iii-i9-2]] being 3). Suppose that u has the
 K⁺-weight α − 2 − ε and the ι⁺- and ℐ⁺-data of [[eq:iii-i11-4-2]]. Then [[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]] hold at
-b, uniformly in b, with h^(≤1)_(b,s1), ġ_b and the towers T_(ψ,b) at b in place of those at b_0, the v1 tower being
-T_(v1,b). Two changes are needed:
+b, with h^(≤1)_(b,s1), ġ_b and the towers T_(ψ,b) at b in place of those at b_0, the v1 tower being T_(v1,b). The
+coefficients and ũ are linear in (G, (W_ν)_(ν∈𝒩″)), conjugation-symmetric when u is real, and bounded at b as follows.
+Put w_0 := min(α − 2, λ_♯ − 1). For every small ε > 0, every w ∈ (0, w_0] and every seminorm of the classes
+[[eq:iii-i12-3-2]] and [[eq:iii-i12-3-3]], that seminorm of the coefficients and of ũ is at most
+
+    C‖G‖_(α−ε) + C(‖h‖ + |p⃗|)‖u_0‖_(w) + C Σ_(ν∈𝒩″) |W_ν|,
+
+where ‖·‖_(α−ε) is a seminorm of 𝒴^♮(α − ε) and ‖·‖_(w) one of the space of the hypothesis of [[lem:iii-i13-2-2]]
+with w in place of w_0, both depending on the seminorm bounded (of large enough regularity, as in [[sec:iii-i8-1]]),
+and C depends on ε, w and these seminorms and is uniform in b ∈ ℬ̄_* and in (h, p⃗) small. This is not a bound by G
+alone: the second term does not vanish at the reference point (0, p⃗_b) of [[lem:iii-i11-3-3]] when b ≠ b_0, and the
+W_ν enter as data. Two changes are needed:
 
 - Steps 3 and 4 of the proof use [[lem:iii-i15-2-9]] (c) in place of [[lem:iii-i12-2-4]], so that the v1 coefficients
   and the early ġ terms enter through the rotation towers T_(v1,b).
@@ -1699,7 +1729,9 @@ T_(v1,b). Two changes are needed:
 The solution of [[thm:iii-i11-4-1]] at b_0 and the solution of [[prop:iii-i15-2-5]] at b are of this form: the first by
 [[lem:iii-i9-2-6]] (c), its forcing lying in 𝒴⁰(α) ⊂ 𝒴^♮(α−); the second by [[lem:iii-i9-2-6]] (e), the identity
 [[eq:iii-i15-1-1]], whose added term E^ν lies in 𝒴^♮_2(α−), its forcing lying in 𝒴^♮(α−) by Step 2 of the proof of
-[[prop:iii-i15-2-5]].
+[[prop:iii-i15-2-5]]. In both, the three terms of the bound are at most C times a seminorm of the forcing F of that
+result: for the first by the remark after the proof of [[thm:iii-i12-3-1]], and for the second by the bounds at the
+end of Step 3 of the proof of [[prop:iii-i15-2-5]].
 
 *Proof.* The proof of [[thm:iii-i12-3-1]] uses its setting only through the hypothesis stated here (the remark after
 that proof). It uses G through the decomposition of its Step 0 and, in its Steps 2 and 5, through the statement that

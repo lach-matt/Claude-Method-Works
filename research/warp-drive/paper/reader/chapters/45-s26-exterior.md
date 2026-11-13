@@ -990,8 +990,8 @@ interior boundary consists of {τ′ = 1/16}, initial, and the piecewise smooth 
 spacelike ([[lem:iv2-1-1]] (a), [[lem:iii-c1-1-1]]) with Ω′ to its past. [[prop:iv-4-1]], for the system and with
 τ′, as in the proof of [[lem:iv2-2-2]], gives u₁ on Ω′ with ‖u₁‖_(H^(m+1,a₀)_b) ≤ C(‖f_♭‖_(H^(m,a₀)_b) plus the tame
 term), and for m = 3 without the tame term, by the part *Low orders* of that proof; on Ω′, ρ_I > c/4, so the weight at
-ℐ⁺ does not matter. As the boundary to its future is spacelike, Ω′ is closed
-under the past within Ω⁺₁, and u₁ = u on Ω′ ([[lem:ii-f-1-3]]).
+ℐ⁺ does not matter. As the boundary to its future is spacelike, Ω′ is closed under the past within Ω⁺₁, and u₁ = u on
+Ω′ ([[lem:ii-f-1-3]]).
 
 *Near ℐ⁺.* Let χ_c := χ̂_c(ρ_I) with χ̂_c = 1 on [c/2, ∞) and 0 on [0, c/4], and u₂ := u − χ_cu₁ on Ω_c. Then
 u₂ = 0 on {ρ_I > c/2}, and
@@ -1002,8 +1002,9 @@ which vanishes on {ρ_I > c/2}, hence near Σ_in = {ρ_I = c}. The commutator is
 {c/4 ≤ ρ_I ≤ c/2}, so ‖[L_g, χ_c]u₁‖_(H^(m,(a₀,2α_I))_b) ≤ C‖u₁‖_(H^(m+1,a₀)_b(Ω′)). u₂ is the forward solution on Ω_c
 from Σ_in (uniqueness by [[lem:ii-f-1-3]]), and [[prop:iv1-2-2]] on Ω_c ([[lem:iv2-2-1]]) gives the second term of
 [[eq:iv2-2-2]]. For m = 3: the last term of [[eq:iv1-2-1]] is ‖h‖_(H⁶)‖f₃‖_(H^(3,(a₀,2α_I))_b), at most
-C‖f₃‖_(H^(3,(a₀,2α_I))_b) as h is bounded in H⁸; and ‖f₃‖_(H^(3,(a₀,2α_I))_b) ≤ C(‖f_♭‖_(H^(3,(a₀,2α_I))_b)
-+ ‖u₁‖_(H^(4,a₀)_b(Ω′))), where u₁ is bounded without a tame term. So at m = 3 no tame term arises. ∎
+C‖f₃‖_(H^(3,(a₀,2α_I))_b) as h is bounded in H⁸; and the norm of f₃ in H^(3,(a₀,2α_I))_b is at most
+C(‖f_♭‖_(H^(3,(a₀,2α_I))_b) + ‖u₁‖_(H^(4,a₀)_b(Ω′))), where u₁ is bounded without a tame term. So at m = 3 no tame
+term arises. ∎
 
 **Theorem {#thm:iv2-2-4}** (The linear exterior estimate; [Hin23a, Theorem 3.35] in dimension 4 + 1, with [Hin26,
 (5.52)–(5.53)].) Let α₀ > ℓ^♭_I, a₀ := α₀ − 3/2, k ∈ ℕ₀, d := 4, and let h be small in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b. For
