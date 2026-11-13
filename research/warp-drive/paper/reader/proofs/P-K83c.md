@@ -116,8 +116,8 @@ In (iii), by [[eq:class-identity]], |∇²u_in|² = S_loc := (Θ − κ1 − κ2
 where σ is the planar shear of the level sets of u_in in the slices {t = s}. Fix δ := 1/2 and the points p_i of axis 2
 in a slice with ρ1(p_i) = 3.4, 3.8, …, 5.8; then δ ≤ ρ1(p_i)/4, and [[lem:class-leaf-differences]], for the background
 and the ingoing family, holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
-0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then
-|∇²u_in|² = χ_Z S_ax + (1 − χ_Z) S_loc on 𝒟. Where χ_Z ≠ 1, S_loc is a smooth function of (g, ∂g, p, Θ), since there
+0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then on 𝒟,
+the square |∇²u_in|² is χ_Z S_ax + (1 − χ_Z) S_loc. Where χ_Z ≠ 1, S_loc is a smooth function of (g, ∂g, p, Θ), since there
 g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of [[prop:class-augmented]] (a)); where χ_Z ≠ 0,
 S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near axis 2.
 
@@ -254,13 +254,14 @@ At these points of Σ_τ0 the induced data are therefore the background's. ∎
 <!-- Block 4. Item m4 of the first reading of chapter 83: the cone development for data with null dust. Neither route
 closes it.
 
-(a) No published theorem covers it. Each candidate was read at its source. [Ren90] (Rendall, Proc. R. Soc. Lond. A 427
-(1990), 221–239) proves well-posedness of the characteristic problem "for the Einstein equations in vacuum or with
-perfect fluid source" (abstract); null dust is not a perfect fluid, its stress q du ⊗ du having a null eigenvector.
-Luk's theorem (Int. Math. Res. Not. 2012, 4625–4678) is the neighbourhood theorem "for the vacuum Einstein equations
-in four space-time dimensions" ([CCTW16, p. 5]). [CCTW16], Section 5.2, pp. 56–57, treats sources whose matter
-fields satisfy wave equations, its (5.24)–(5.25), in four space-time dimensions; the density of a null dust obeys a transport
-equation that loses a derivative (chapter 81, the discussion after def:class-system). The closest result, Luk and
+(a) No published theorem covers it. The candidates were checked at their sources (for Rendall, the published
+abstract). Rendall (Proc. R. Soc. Lond. A 427 (1990), 221–239) proves well-posedness of the characteristic problem
+"for the Einstein equations in vacuum or with perfect fluid source"; null dust is not a perfect fluid, its stress
+q du ⊗ du having a null eigenvector. Luk's theorem (Int. Math. Res. Not. 2012, 4625–4678) is the neighbourhood theorem
+"for the vacuum Einstein equations in four space-time dimensions" ([CCTW16, p. 5]). [CCTW16], Section 5.2,
+pp. 56–57, treats sources whose matter fields satisfy wave equations, its (5.24)–(5.25), in four space-time
+dimensions; the density of a null dust obeys a transport equation that loses a derivative (chapter 81, the
+discussion after def:class-system). The closest result, Luk and
 Rodnianski, "High-frequency limits and null dust shell solutions in general relativity", arXiv 2009.08968, Theorem 4.6,
 p. 28, gives local existence and uniqueness for the Einstein-null-dust system with two families of null dust moving
 along a double null foliation, which is the structure of the background's two dusts, but on M = [0, u_*] × [0, u̲_*] ×
@@ -307,8 +308,9 @@ which is [[eq:class-kato-sphere]] with n =
 <!-- Block 6. Item 3, the Appendix A entry (chapter 95). Source: I. Rácz, Constraints as evolutionary systems, arXiv
 1508.01810v3, page 12 (printed page number 12), equations (4.20) and (4.21), the sentence after (4.21), and footnote
 6; read from the arXiv text of that version, and every symbol of (4.20) and (4.21) checked against the author's
-typeset formulas. The consequence drawn at the end (the block form and its Schur complement) was checked for n = 3, 4, 5 with
-generic entries; the leaves of chapter 83 have n = 4. Two changes to thm:std-racz-hyperbolic.
+typeset formulas. The symmetry of H B^(K) and the consequence drawn at the end (the block form and its Schur
+complement) were checked for n = 3, 4, 5 with generic entries; the slices of chapter 83 have n = 4. Two changes to
+thm:std-racz-hyperbolic.
 
 First, its opening. Old text, exactly:
 
