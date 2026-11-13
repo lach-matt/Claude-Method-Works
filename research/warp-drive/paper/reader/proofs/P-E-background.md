@@ -10,7 +10,8 @@ null rays ([[lem:bg-reduction]]). Their solutions are enclosed by explicit appro
 
 #### The data and the reduction {#sec:bg-data}
 
-Put u1 := 5.7, u2 := 7.2, τ0 := −0.68, β(w) := exp(1 − 1/(1 − w²)) for |w| < 1 and β(w) := 0 otherwise, b(x; a, c) := β((2x − a − c)/(c − a)), and
+Put u1 := 5.7, u2 := 7.2, τ0 := −0.68, β(w) := exp(1 − 1/(1 − w²)) for |w| < 1 and β(w) := 0 otherwise, b(x; a, c) :=
+β((2x − a − c)/(c − a)), and
 
     B(u) := 1.7 b(u; 5.7, 7.2),        α(v) := 3.6 b(v; 3, 4.5).                                       {#eq:bg-profiles}
 
@@ -27,7 +28,7 @@ the ingoing coordinate with v̂(0) = 0 and ψ = 0 on 𝒩, where
 
 the second identity following from du = (dR − R_v dv)/R_u. The slice is Σ_τ0 := {v̂ − R = τ0}. Put
 
-    F(R) := 2R + √(3/2) ln((R − √(3/2))/(R + √(3/2))),      F′(R) = 2/(1 − 3/(2R²)),                   {#eq:bg-tangherlini}
+    F(R) := 2R + √(3/2) ln((R − √(3/2))/(R + √(3/2))),      F′(R) = 2/(1 − 3/(2R²)),  {#eq:bg-tangherlini}
 
 the null function of Tangherlini's metric of mass 3/2, and for ρ > √(3/2)
 
@@ -40,7 +41,7 @@ the null function of Tangherlini's metric of mass 3/2, and for ρ > √(3/2)
 
 Proof. Differentiating, μ_u = 2RR_u + 4Re^(−2s)R_u²R_v + 2R²e^(−2s)R_v(R_uu − 2s_uR_u) + 2R²e^(−2s)R_uR_uv. By the
 third equation of [[eq:bg-field]] the last term is −2RR_u − 4Re^(−2s)R_u²R_v, and by the first the third term is
-−(2/3)Be^(−2s)R_v. The identity for μ_v is the same computation with u and v exchanged. The two others are e^(−2s)
+−(2/3)Be^(−2s)R_v. The identity for μ_v follows in the same way with u and v exchanged. The two others are e^(−2s)
 times the first two equations of [[eq:bg-field]], and ψ_u = 2s_u − R_uu/R_u = B/(3R²R_u) by the first. ∎
 
 **Lemma {#lem:bg-reduction}** (Reduction to rays.) Let ℛ := {v < 3}.
@@ -70,7 +71,7 @@ with R = Ψ(u, ρ), G = G(u, R), a = a(ρ), μ = μ(u), μ′ = μ′(u), B = B(
 (e) *Region III.* On {u ≥ u2} ∩ ℛ, μ = μ3 := μ(u2) and ψ = ψ_III(v̂), where for the ray ρ, with Φ(ρ) := Ψ(u2, ρ)
 and f3(X) := 1 − μ3/X²,
 
-    ψ_III(v̂(ρ)) = ln Φ′(ρ) + ln f1(ρ) − ln f3(Φ(ρ)),                                                    {#eq:bg-psi3-def}
+    ψ_III(v̂(ρ)) = ln Φ′(ρ) + ln f1(ρ) − ln f3(Φ(ρ)),  {#eq:bg-psi3-def}
 
 provided f3(Φ(ρ)) > 0. There g0 = −e^(2ψ_III) f3 dv̂² + 2e^(ψ_III) dv̂ dR + R² dΩ₃².
 
@@ -116,7 +117,7 @@ Proof. τ′(R) = 2/f1(R) − 1 > 0, τ(3.43718006) ≤ −8.4 × 10⁻⁹ and �
 
 and κ > 0, K^l_l < 0 exactly when N_κ < 0 and Ef < 1. In the packet (u1 ≤ u ≤ u2),
 
-    N_κ = −(μE/R³)(2 − Ef) − aK/J − a′ + B λ² (2 − Ef)²/(3R²f²),        E f = 2aJ,                        {#eq:bg-nk-packet}
+    N_κ = −(μE/R³)(2 − Ef) − aK/J − a′ + B λ² (2 − Ef)²/(3R²f²),        E f = 2aJ,  {#eq:bg-nk-packet}
 
 and in region III, N_κ = (μ3E/R³)(Ef − 3) − ψ_III′(v̂).
 
@@ -147,7 +148,7 @@ Replacing each operation of an explicit expression by this rule encloses the exp
 
 (e) *The bump.* β is increasing on (−1, 0] and decreasing on [0, 1). For complex w with |w − w0| ≤ ϱ < 1 − |w0|,
 
-    |β(w)| ≤ exp(1 − (1/2)(1/(1 − w0 + ϱ) + 1/(1 + w0 + ϱ))),                                           {#eq:bg-bump-disc}
+    |β(w)| ≤ exp(1 − (1/2)(1/(1 − w0 + ϱ) + 1/(1 + w0 + ϱ))),  {#eq:bg-bump-disc}
 
 and β(w0 + t) = exp(Σ_n g_n tⁿ) with g_0 = 1 − 1/(1 − w0²) and g_n = −(1/2)((1 − w0)^(−n−1) + (−1)ⁿ(1 + w0)^(−n−1))
 for n ≥ 1; its Taylor coefficients are e_0 = e^(g_0), n e_n = Σ_(k=1)^n k g_k e_(n−k).
@@ -165,7 +166,7 @@ geometric series, and n e_n = Σ k g_k e_(n−k) from (exp g)′ = g′ exp g. �
 a,
 
     |e(u)| ≤ E₀ cosh kt + E₁ (sinh kt)/k + δ (cosh kt − 1)/Λ,
-    |e′(u)| ≤ E₀ k sinh kt + E₁ cosh kt + δ (sinh kt)/k.                                                {#eq:bg-comparison-2}
+    |e′(u)| ≤ E₀ k sinh kt + E₁ cosh kt + δ (sinh kt)/k.  {#eq:bg-comparison-2}
 
 (b) If e is absolutely continuous on [a, b] and e′ = −p e + r with p ≥ 0 continuous and r integrable, then |e(u)| ≤
 |e(a)| + ∫_a^u |r|.
@@ -182,7 +183,7 @@ The approximant R̂ is the piecewise polynomial of [[sec:tab-bg-nprime]] on twel
 [5.7, 5.73] (the data line) and on [7.17, 7.2], and a polynomial of degree 12 to 17 on each of the ten middle segments,
 which are graded towards the ends of the packet. Put
 
-    Ŝ(u) := 2.067575 − (1/2)∫_(u1)^u R̂,     μ̃ := R̂² + 4R̂′Ŝ,     λ̃ := 2Ŝ/R̂²,                       {#eq:bg-nprime-approx}
+    Ŝ(u) := 2.067575 − (1/2)∫_(u1)^u R̂,     μ̃ := R̂² + 4R̂′Ŝ,     λ̃ := 2Ŝ/R̂²,  {#eq:bg-nprime-approx}
 
 polynomials on each segment, and μ̃3 := R̂(u2)² + 4R̂′(u2)Ŝ(u2) = 0.82211255682735… (an explicit rational).
 
@@ -223,18 +224,18 @@ nonincreasing from μ(u1) = 3/2 to μ3. ∎
 The ray approximant Ψ̃ is the polynomial of [[sec:tab-bg-ray]] on [u1, u2] × [2.32, 3.44], of degree 24 in u and 12 in
 ρ; put J̃ := ∂_ρΨ̃, K̃ := ∂_ρ²Ψ̃, L̃ := ∂_ρ³Ψ̃. On each segment of R̂ let
 
-    G̃(u, X) := R̂²(μ̃ − X²)/(4ŜX²),     D := ∂_uΨ̃ − G̃(u, Ψ̃),     D_m := ∂_ρ^m D  (m ≤ 3),              {#eq:bg-ray-approx}
+    G̃(u, X) := R̂²(μ̃ − X²)/(4ŜX²),     D := ∂_uΨ̃ − G̃(u, Ψ̃),     D_m := ∂_ρ^m D  (m ≤ 3),  {#eq:bg-ray-approx}
 
 so that G̃ is [[eq:bg-ray]] with μ, λ replaced by μ̃, λ̃, and D_1, D_2, D_3 are the defects of J̃, K̃, L̃ in the
 variational equations of [[eq:bg-ray]] (for G̃). The polynomial
 
-    P := 4ŜΨ̃² ∂_uΨ̃ − R̂²(μ̃ − Ψ̃²) = 4ŜΨ̃² D                                                           {#eq:bg-ray-numerator}
+    P := 4ŜΨ̃² ∂_uΨ̃ − R̂²(μ̃ − Ψ̃²) = 4ŜΨ̃² D  {#eq:bg-ray-numerator}
 
 has Chebyshev sums σ_m of ∂_ρ^m P on each box [a, b] × [2.32, 3.44]. Since Ŝ does not depend on ρ, D = (P/(4Ŝ)) Ψ̃^(−2)
 and Leibniz's rule give
 
     |D_m| ≤ Σ_(j≤m) C(m, j) (σ_(m−j)/(4Ŝ_min)) g_j,    g_0 = Ψ̃_min^(−2),  g_1 = 2J̄Ψ̃_min^(−3),
-    g_2 = 6J̄²Ψ̃_min^(−4) + 2K̄Ψ̃_min^(−3),  g_3 = 24J̄³Ψ̃_min^(−5) + 18J̄K̄Ψ̃_min^(−4) + 2L̄Ψ̃_min^(−3),    {#eq:bg-ray-defects}
+    g_2 = 6J̄²Ψ̃_min^(−4) + 2K̄Ψ̃_min^(−3),  g_3 = 24J̄³Ψ̃_min^(−5) + 18J̄K̄Ψ̃_min^(−4) + 2L̄Ψ̃_min^(−3),  {#eq:bg-ray-defects}
 
 J̄, K̄, L̄ the bounds of |J̃|, |K̃|, |L̃| on the box ([[sec:tab-bg-ray-defects]]).
 
@@ -243,7 +244,7 @@ R²/(2S), and Q̃, Ṽ likewise from R̂, Ŝ. On a segment, with R̄ := R̂_max 
 I/2 and X̲ := Ψ̃_min − 10⁻⁵, the mean value theorem in (R, R′, S) gives |Q − Q̃| ≤ Δ₁, |V − Ṽ| ≤ Δ₂ with
 
     Δ₁ := (2R̄³/S̲ + 4P̄R̄) E₀ + 2R̄² E₁ + (R̄⁴/(2S̲²)) I/2,      Δ₂ := (R̄/S̲) E₀ + (R̄²/(2S̲²)) I/2,
-    γ_0 := Δ₁/(2X̲²) + Δ₂/2,   γ_1 := Δ₁/X̲³,   γ_2 := 3Δ₁/X̲⁴,   γ_3 := 12Δ₁/X̲⁵,                          {#eq:bg-gamma}
+    γ_0 := Δ₁/(2X̲²) + Δ₂/2,   γ_1 := Δ₁/X̲³,   γ_2 := 3Δ₁/X̲⁴,   γ_3 := 12Δ₁/X̲⁵,  {#eq:bg-gamma}
 
 and |∂_X^m(G − G̃)| ≤ γ_m (m ≤ 3) on the tube
 
@@ -271,13 +272,13 @@ way
     ε₁(b) = ε₁(a) + (b − a)(Γ_2ε₀J̄ + γ_1J̄ + D₁),
     ε₂(b) = ε₂(a) + (b − a)((Γ_2ε₀ + γ_1)K̄ + Γ_2ε₁(2J̄ + ε₁) + (Γ_3ε₀ + γ_2)J̄² + D₂),
     ε₃(b) = ε₃(a) + (b − a)((Γ_2ε₀ + γ_1)L̄ + 3(Γ_2(ε₁K̄ + J̄ε₂ + ε₁ε₂) + (Γ_3ε₀ + γ_2)J̄K̄)
-                   + Γ_3ε₁(3J̄² + 3J̄ε₁ + ε₁²) + (Γ_4ε₀ + γ_3)J̄³ + D₃),                                  {#eq:bg-ray-chain}
+                   + Γ_3ε₁(3J̄² + 3J̄ε₁ + ε₁²) + (Γ_4ε₀ + γ_3)J̄³ + D₃),  {#eq:bg-ray-chain}
 
 the ε on the right without argument being those at b, computed in the order m = 0, 1, 2, 3. The bounds |J² − J̃²| ≤
-ε₁(2J̄ + ε₁), |JK − J̃K̃| ≤ ε₁K̄ + J̄ε₂ + ε₁ε₂ and |J³ − J̃³| ≤ ε₁(3J̄² + 3J̄ε₁ + ε₁²) enter here. The initial values at u1
-are the sums of [[sec:tab-bg-ray-chain]] ([[lem:bg-tools]] (a)), the defects are bounded by [[eq:bg-ray-defects]] and
-the rows of [[sec:tab-bg-ray-defects]], and the γ, Γ by [[eq:bg-gamma]]. Since ε₀ ≤ 8.69 × 10⁻⁷ < 10⁻⁵ everywhere, the
-hypothesis |e₀| ≤ 10⁻⁵ holds throughout by continuity.
+ε₁(2J̄ + ε₁), |JK − J̃K̃| ≤ ε₁K̄ + J̄ε₂ + ε₁ε₂ and |J³ − J̃³| ≤ ε₁(3J̄² + 3J̄ε₁ + ε₁²) enter here. The initial values
+at u1 are the sums of [[sec:tab-bg-ray-chain]] ([[lem:bg-tools]] (a)), the defects are bounded by [[eq:bg-ray-defects]]
+and the rows of [[sec:tab-bg-ray-defects]], and the γ, Γ by [[eq:bg-gamma]]. Since ε₀ ≤ 8.69 × 10⁻⁷ < 10⁻⁵ everywhere,
+the hypothesis |e₀| ≤ 10⁻⁵ holds throughout by continuity.
 
 J = exp(∫_(u1)^u ∂_XG(σ, Ψ) dσ) ∈ (0, 1]. Finally Ψ ≥ Ψ̃ − ε₀ ≥ 1.483 on the last segment and Ψ is decreasing where f >
 0, while μ ≤ 3/2 < 1.483²: so f > 0 along every ray of the box. ∎
@@ -323,7 +324,7 @@ has R = v̂(ρ) + 0.68; since R decreases along the ray ([[lem:bg-reduction]] (c
 (b) Since v̂(2.3282) ≤ 0.0199332 < 0.02 and v̂(2.7735) ≥ 1.18111 > 1.181, it suffices to bound, for ρ ∈ [2.3282,
 2.7735] and k = 0, 1, 2, the function e_k(ρ) := ψ_s^(k)(v̂(ρ)) − Ψ_k(ρ, Φ, …, μ3). Split
 
-    e_k = ẽ_k + (Ψ_k(ρ, Φ̃, …, μ̃3) − Ψ_k(ρ, Φ, …, μ3)),    ẽ_k(ρ) := ψ_s^(k)(v̂(ρ)) − Ψ_k(ρ, Φ̃, …, μ̃3).      {#eq:bg-seed-split}
+    e_k = ẽ_k + (Ψ_k(ρ, Φ̃, …, μ̃3) − Ψ_k(ρ, Φ, …, μ3)),   ẽ_k(ρ) := ψ_s^(k)(v̂(ρ)) − Ψ_k(ρ, Φ̃, …, μ̃3).  {#eq:bg-seed-split}
 
 On each interval of [[sec:tab-bg-seed]], consider the box
 
@@ -333,7 +334,7 @@ It contains (Φ, …, μ3) and (Φ̃, …, μ̃3) ([[prop:bg-rays]] at u2, [[pro
 of Ψ_k are bounded there as in [[sec:tab-bg-seed]] ([[lem:bg-tools]] (d)). By the mean value theorem the second term
 of [[eq:bg-seed-split]] is at most
 
-    Δ_k := Σ_(j≤3) sup|∂Ψ_k/∂Φ^(j)| ε_j + sup|∂Ψ_k/∂μ3| · 4.07 × 10⁻⁷,                                     {#eq:bg-seed-delta}
+    Δ_k := Σ_(j≤3) sup|∂Ψ_k/∂Φ^(j)| ε_j + sup|∂Ψ_k/∂μ3| · 4.07 × 10⁻⁷,  {#eq:bg-seed-delta}
 
 that is Δ_0 = 3.34 × 10⁻⁶, Δ_1 = 5.20 × 10⁻⁶, Δ_2 = 1.50 × 10⁻⁵. The function ẽ_k is explicit, and
 [[lem:bg-tools]] (c) with N = 5 at the midpoint of each interval, the sixth derivative being enclosed by
@@ -387,9 +388,9 @@ background lies in the tube of [[prop:margins-seed]] (b) and Γ > 0 on the seed 
 
 Proof. (a) is [[prop:bg-nprime]], (b) is [[prop:bg-seed]], (c) is [[prop:bg-slice]]. ∎
 
-**Remark {#rem:bg-grid}** (Numerical observation.) The quintic ψ_s is the first piece of a smoothing spline fitted to the values of ψ_III
-on a second-order finite-difference solution of the characteristic problem on a double-null grid with 160 steps per
-unit, and μ_s is that solution's mass in region III; only the printed coefficients of ψ_s and the number μ_s enter
-[[prop:bg-seed]]. The same grid solution reproduces the six inputs [[eq:bg-inputs]] at 40 points of the packet on Σ_τ0
-to within 2.0 × 10⁻³ (E), 1.1 × 10⁻³ (f), 2.7 × 10⁻³ (ψ_R, of size 0.20), 2.0 × 10⁻³ (ψ_v̂, of size 0.06), 2.8 × 10⁻³
-(f_R) and 7.7 × 10⁻⁴ (f_v̂), up to 3 % of the smaller inputs. No proof uses this comparison.
+**Remark {#rem:bg-grid}** (Numerical observation.) The quintic ψ_s is the first piece of a smoothing spline fitted to
+the values of ψ_III on a second-order finite-difference solution of the characteristic problem on a double-null grid
+with 160 steps per unit, and μ_s is that solution's mass in region III; only the printed coefficients of ψ_s and the
+number μ_s enter [[prop:bg-seed]]. The same grid solution reproduces the six inputs [[eq:bg-inputs]] at 40 points of
+the packet on Σ_τ0 to within 2.0 × 10⁻³ (E), 1.1 × 10⁻³ (f), 2.7 × 10⁻³ (ψ_R, of size 0.20), 2.0 × 10⁻³ (ψ_v̂, of size
+0.06), 2.8 × 10⁻³ (f_R) and 7.7 × 10⁻⁴ (f_v̂), up to 3 % of the smaller inputs. No proof uses this comparison.

@@ -332,13 +332,13 @@ Hence [[lem:domain]] (e) holds for every ε1 ≤ 3/5 with ε1 < μ0/a² − 1, a
 is time-oriented by dτ. Where μ = μ0 on {r = a}, the Lorentzian metric g := g0 − (μ0/a² − 1) dτ ⊗ dτ has
 |g − g0| = μ0/a² − 1 and makes {r = a} null.
 
-*Proof.* On ker dτ, vectors (0, X), g0 = |X|² + (μ/r²)(x̂·X)², with eigenvalues 1 (three times) and 1 + μ/r². On
-ker dr at r = a, vectors (Y⁰, X) with x̂·X = 0, g0 = −(Y⁰)² + |X|² + (μ/a²)(Y⁰)² = (μ/a² − 1)(Y⁰)² + |X|². On
-ker d(v + τ) = ker(2dτ + dr), write X = X⊥ + s x̂ with x̂·X⊥ = 0; then Y⁰ = −s/2 and
+*Proof.* On ker dτ, vectors (0, Y′), g0 = |Y′|² + (μ/r²)(x̂·Y′)², with eigenvalues 1 (three times) and 1 + μ/r². On
+ker dr at r = a, vectors (Y⁰, Y′) with x̂·Y′ = 0, g0 = −(Y⁰)² + |Y′|² + (μ/a²)(Y⁰)² = (μ/a² − 1)(Y⁰)² + |Y′|². On
+ker d(v + τ) = ker(2dτ + dr), write Y′ = Y′⊥ + s x̂ with x̂·Y′⊥ = 0; then Y⁰ = −s/2 and
 
-    g0 = −s²/4 + |X⊥|² + s² + (μ/r²)(s/2)² = |X⊥|² + s² (3 + μ/r²)/4,
+    g0 = −s²/4 + |Y′⊥|² + s² + (μ/r²)(s/2)² = |Y′⊥|² + s² (3 + μ/r²)/4,
 
-while the Euclidean norm squared of (Y⁰, X) is |X⊥|² + (5/4) s²; the ratio on the s-direction is (3 + μ/r²)/5 ≥ 3/5.
+while the Euclidean norm squared of (Y⁰, Y′) is |Y′⊥|² + (5/4) s²; the ratio on the s-direction is (3 + μ/r²)/5 ≥ 3/5.
 
 Let g be Lorentzian with |g − g0| ≤ ε on Ω, where ε ≤ 3/5 and ε < μ0/a² − 1, and put g₋ := g0 − ε I, I the
 Euclidean identity. Then g ≥ g₋ as quadratic forms. The eigenvalues of g₋ are 1 − ε (three times),
@@ -357,7 +357,7 @@ r = a, r decreases. These are the properties (a)–(c) that the proof of [[lem:d
 
 For the last claim, g0 − α dτ ⊗ dτ, α > 0, agrees with g0 on the four-dimensional subspace ker dτ, where g0 is
 positive definite, and is ≤ g0, so it has exactly one negative eigenvalue and no zero one, and |α dτ ⊗ dτ| = α; on
-ker dr at r = a it is ((μ0/a² − 1) − α)(Y⁰)² + |X|² where μ = μ0, degenerate at α = μ0/a² − 1. Such points exist: on
+ker dr at r = a it is ((μ0/a² − 1) − α)(Y⁰)² + |Y′|² where μ = μ0, degenerate at α = μ0/a² − 1. Such points exist: on
 Σ_τ0, v = τ0 + a < v_start at r = a. ∎
 
 [[lem:domain]] (e) is not the only requirement on ε1. The energy inequality of [[ch:inequalities]] needs ε1 < s0, where
@@ -399,13 +399,13 @@ q_end := (√72 μ_end l5²)^(1/4), the value of r_q at v = V, one has τ_end �
 q_end < 0.5628, b(τ0) > 13.4372 and ε_out < (3 + (227/192)/13.4372²)/5 = 0.60130959… < 0.6013096. Now let
 ν := (1, −2x̂)/√5, a Euclidean unit vector field, ν ⊗ ν the tensor of Cartesian components ν_a ν_b, and
 g := g0 − ε_out ν ⊗ ν, so that |g − g0| = ε_out. The vector ν lies in ker d(v + τ), being the case s = −2/√5 of the
-proof of [[lem:eigen]], so g0(ν, ν) = (3 + m)/5, and g0(ν, (0, X⊥)) = 0 when x̂·X⊥ = 0. In the Euclidean orthonormal
-basis of ker d(v + τ) formed by ν and three vectors (0, X⊥), g0 is diag((3 + m)/5, 1, 1, 1) and g is
+proof of [[lem:eigen]], so g0(ν, ν) = (3 + m)/5, and g0(ν, (0, Y′⊥)) = 0 when x̂·Y′⊥ = 0. In the Euclidean orthonormal
+basis of ker d(v + τ) formed by ν and three vectors (0, Y′⊥), g0 is diag((3 + m)/5, 1, 1, 1) and g is
 diag((3 + m)/5 − ε_out, 1, 1, 1), which at the corner is diag(0, 1, 1, 1): the outer boundary is null for g there. And
 g is Lorentzian on Ω. In the plane of the τ- and x̂-directions the Cartesian block of g0 is [[−1 + m, m], [m, 1 + m]],
 with inverse [[−1 − m, m], [m, 1 − m]], so νᵀ g0⁻¹ ν = (3 − 9m)/5, and the rank-one determinant formula with
 det g0 = −1 gives det g = det g0 (1 − ε_out νᵀ g0⁻¹ ν) = −(1 − ε_out (3 − 9m)/5) < 0, since ε_out < 1 and m > 0.
-Since g is the identity on the three directions (0, X⊥), it has at least three positive eigenvalues, and, its
+Since g is the identity on the three directions (0, Y′⊥), it has at least three positive eigenvalues, and, its
 determinant being negative, exactly one negative one. So (e) fails for every ε1 ≥ ε_out, in particular for every
 ε1 ≥ 0.6013096.
 
@@ -514,21 +514,21 @@ The averaged stress of the waves is round, and it is a multiple of dv ⊗ dv: th
 *Proof.* (dv ⊗ dv)(ℓ, ·) = dv(ℓ) dv = 0 and its g0-trace is g0⁻¹(dv, dv) = 0, so by [[lem:waves]] (b) the
 oscillating part is transverse to ℓ and [[lem:mean-leading]] applies. Moreover ⟨W_TT, dv ⊗ dv⟩_(g0) = W_TT(ℓ, ℓ) = 0
 and |dv ⊗ dv|²_(g0) = g0⁻¹(dv, dv)² = 0, so χ does not contribute to |∂_θ g1|², and a phase shift does not change a
-θ-mean. Since ∂_θ F = G and ∂_θ G = −F, [[lem:waves]] (c) gives |∂_θ W_TT|² = 8 r⁻³ (q1² + q1 q2 + q2²) with
+θ-mean. Since ∂_θ F = G and ∂_θ G = −F, [[lem:waves]] (c) gives |∂_θ W_TT|² = 8 r⁻³ (ϖ1² + ϖ1 ϖ2 + ϖ2²) with
 
-    q1 := λ⁻¹ ∂_θ p1 = −(2c² F̂ + s² Ĝ)/3,      q2 := λ⁻¹ ∂_θ p2 = (c² F̂ + 2s² Ĝ)/3,
+    ϖ1 := λ⁻¹ ∂_θ p1 = −(2c² F̂ + s² Ĝ)/3,      ϖ2 := λ⁻¹ ∂_θ p2 = (c² F̂ + 2s² Ĝ)/3,
 
 F̂ := â sin θ, Ĝ := â cos θ, â := A env h. With ⟨F̂²⟩ = ⟨Ĝ²⟩ = â²/2 and ⟨F̂ Ĝ⟩ = 0,
 
-    ⟨q1²⟩ = (4c⁴ + s⁴) â²/18,   ⟨q2²⟩ = (c⁴ + 4s⁴) â²/18,   ⟨q1 q2⟩ = −(2c⁴ + 2s⁴) â²/18,
+    ⟨ϖ1²⟩ = (4c⁴ + s⁴) â²/18,   ⟨ϖ2²⟩ = (c⁴ + 4s⁴) â²/18,   ⟨ϖ1 ϖ2⟩ = −(2c⁴ + 2s⁴) â²/18,
 
-so ⟨q1² + q1 q2 + q2²⟩ = (c⁴ + s⁴) â²/6 and ⟨|∂_θ W_TT|²⟩ = (4/3) â² (c⁴ + s⁴) r⁻³. Next,
+so ⟨ϖ1² + ϖ1 ϖ2 + ϖ2²⟩ = (c⁴ + s⁴) â²/6 and ⟨|∂_θ W_TT|²⟩ = (4/3) â² (c⁴ + s⁴) r⁻³. Next,
 c⁴ + s⁴ = ((1 + ζ)² + (1 − ζ)²)/4 = (1 + ζ²)/2, so h² (c⁴ + s⁴) = 1. By [[eq:mean-leading]] the mean of the leading
 equation is (3μ'/(2r³) − (1/3) A² env² h² (c⁴ + s⁴) r⁻³) dv ⊗ dv, which vanishes exactly when
 μ' = (2/9) A² env² h² (c⁴ + s⁴), that is [[eq:mu-rate]]. ∎
 
 This is Isaacson's effective stress as a five-dimensional null dust along dv ([Isa68a], [Isa68b]). The quadratic form
-q1² + q1 q2 + q2² of the proof is positive definite: 4(q1² + q1 q2 + q2²) = (2q1 + q2)² + 3q2².
+ϖ1² + ϖ1 ϖ2 + ϖ2² of the proof is positive definite: 4(ϖ1² + ϖ1 ϖ2 + ϖ2²) = (2ϖ1 + ϖ2)² + 3ϖ2².
 
 The same structure holds exactly, with no expansion in λ, in the Bondi-type variables of [[thm:bondi-law]]. Let
 β, W, U, P1, P2 be smooth functions of (v, r, ϑ), put y = (y¹, y², y³) := (ϑ, φ1, φ2), U^k := (U, 0, 0),

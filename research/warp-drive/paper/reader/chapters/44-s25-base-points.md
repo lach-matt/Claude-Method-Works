@@ -232,12 +232,12 @@ the rotation rows with the coefficients A_(b,ν)(G) of [[def:iii-i15-2-3]]:
 
     u^rot_β = Σ_(ν∈𝒩^(<β)_rot) m_ν(A_(b,ν)(G))     up to K⁺-weight Re λ + 1 − ε > β − 2,
 
-which goes into ũ. Indeed λ + 1 ∈ Λ has real part at least λ_♯ + 1 > 2 ([[lem:iii-i10-1-2]] (a)), hence above
-2 + ε_K by (G), and β − 2 ≤ 2 + ε_K. As u^rot_β − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)) has K⁺-weight above β − 2, the S_ν,
-read by [[cor:iii-i10-2-3]] at b ([[lem:iii-i15-1-2]]) from the rows of rate below β − 2, are also determined by
-u − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)). Their conjugation symmetry, linearity and uniform bounds are those of
-[[lem:iii-i13-2-2]]; A_b has the same properties ([[def:iii-i15-2-3]]). The continuity at fixed b is
-[[lem:iii-i13-2-3]]. Continuity across b is not claimed: the proofs perturb from a reference operator, and
+which goes into ũ. Indeed, for (λ, k) ∈ ℳ_rot, λ lies in Λ (π_1ℳ_rot ⊂ π_1ℰ_♯ ⊂ Λ), so λ + 1 ∈ Λ has real part at least
+λ_♯ + 1 > 2 ([[lem:iii-i10-1-2]] (a)), hence above 2 + ε_K by (G), while β − 2 ≤ 2 + ε_K. As u^rot_β − Σ_(𝒩^(<β)_rot)
+m_ν(A_(b,ν)(G)) has K⁺-weight above β − 2, the S_ν, read by [[cor:iii-i10-2-3]] at b ([[lem:iii-i15-1-2]]) from the rows
+of rate below β − 2, are also determined by u − Σ_(𝒩^(<β)_rot) m_ν(A_(b,ν)(G)). Their conjugation symmetry, linearity and
+uniform bounds are those of [[lem:iii-i13-2-2]]; A_b has the same properties ([[def:iii-i15-2-3]]). The continuity at
+fixed b is [[lem:iii-i13-2-3]]. Continuity across b is not claimed: the proofs perturb from a reference operator, and
 L_b − L_(b₀) gains only 2 at K⁺. ∎
 
 **Proposition {#prop:iii-i15-2-5}** ([[thm:iii-i14-3-1]] at b.) Let h ∈ 𝒳^∞, p⃗ ∈ 𝒫 with parameter b ∈ ℬ̄_*, and
@@ -405,10 +405,10 @@ index set of the column terms ℰ_col ([[def:iii-i10-1-1]], [[lem:iii-i11-1-1]])
 
     ℰ_col = ({(0, 0), (1, 0)} ∪ ℰ_ind ∪ (1 + ℰ_ind)) + ℕ₀
 
-of [[lem:iii-i11-1-1]]. There F = r⁴f with f = [L_b, χ_K]w, and at every b the states w have the index sets
-(2, 0) ∪ (2 + ℰ_ind) (ġ_b(1, 0) and h̆_b(S), and t_*h_b(S), as t_* = sr) and (3, 0) ∪ (3 + ℰ_ind) (ġ_b(0, Ȧ))
-((P3)); the commutator gains 2, the factor r⁴ loses 4, and the smooth coefficients of the L_k ([[lem:iii-i3-1-1]] at b)
-add ℕ₀.
+of [[lem:iii-i11-1-1]]. There F = r⁴f with f = [L_b, χ_K]w, and at every b the states w have the index sets (2, 0) ∪
+(2 + ℰ_ind) (ġ_b(1, 0) and h̆_b(S), and t_*h_b(S), as t_* = sr) and (3, 0) ∪ (3 + ℰ_ind) (ġ_b(0, Ȧ)) ((P3);
+[[eq:iii-f3-2-2]], [[eq:iii-d2-3-4]]); the commutator gains 2, the factor r⁴ loses 4, and the smooth coefficients of the
+L_k ([[lem:iii-i3-1-1]] at b) add ℕ₀.
 
 (iv) *The derivatives in b* ([[cor:iii-i7-4-6]], [[lem:iii-i14-2-4]] (c)) are taken at b: the b-column is ġ_b
 ((P3)). So is ġ = ∂_b g_b in [[ch:s19]] and [[ch:s20]], which enters through the columns and the singular part of
@@ -439,23 +439,23 @@ point, by (i)–(vii). The tame calculus of [[ch:s24]] ([[def:iii-j2-1-1]]–[[l
 the base point through finitely many seminorms, continuous in b; the exact classes and the conditions (Ex1)–(Ex4) and
 (A_K) of [[def:iii-j3-1-3]] do not involve b ((P2)–(P3): the exponents, roots and index sets are those at b₀), except
 that (Ex3), used also in (A_K), concerns the K⁺-exponents at hand, among which at a rotating b are those of the v1 terms;
-(Ex3) at b is (Ex3) at b₀, as follows. The solution maps of [[ch:s19]]–[[ch:s23]] in [[thm:iii-j2-4-1]] are read at b as
-in [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]. The new objects enter the inventory of [[lem:iii-j2-2-1]] (c): A_b is
-bounded by a fixed low seminorm of G, as it reads the ι⁺-data u_+ and the tf-data ([[prop:iii-i15-2-2]]); E^ν is bounded
-by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id + A_k as the other rows do; and d_* includes
-their orders.
+(Ex3) at b is (Ex3) at b₀, by the paragraph *(Ex3) at b* below. The solution maps of [[ch:s19]]–[[ch:s23]] in
+[[thm:iii-j2-4-1]] are read at b as in [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]. The new objects enter the inventory
+of [[lem:iii-j2-2-1]] (c): A_b is bounded by a fixed low seminorm of G, as it reads the ι⁺-data u_+ and the tf-data
+([[prop:iii-i15-2-2]]); E^ν is bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id + A_k as
+the other rows do; and d_* includes their orders.
 
 *(Ex3) at b.* At a rotating b the K⁺-exponents at hand are those at b₀ together with: the exponents λ + j, λ ∈ π_1ℳ_rot,
-j ∈ ℕ₀, of the bottoms a_ν h_(b,v1)(W) of the rotation rows and their shifts ([[lem:iii-i15-2-1]],
-[[prop:iii-i15-2-2]]); and the exponents z + j, j ∈ ℕ₀, of the v1 coefficients t_*^(−z) of q, whose rate is Re z at b
-and Re z + 1 at b₀ ([[def:iii-i14-1-1]]), with z ∈ π_1ℰ_♯ and 2 < Re z < 3 + ε_+ < 4. All of these lie in Λ
-(π_1ℰ_♯ ⊂ Λ, [[sec:iii-i12-1]], and Λ + 1 ⊂ Λ), so their real parts are at least λ_♯ ([[lem:iii-i10-1-2]] (a)). Since
-λ_♯ ∈ Λ, also λ_♯ + 1 ∈ Λ, with real part above 2, so (G) gives λ_♯ + 1 > 2 + ε_K. For i ∈ {0, 1, 2},
-α − 2 + i ∈ (2 + i, 2 + i + ε_K], as α ∈ (4, 4 + ε_K]. Let λ ∈ π_1ℳ_rot, so Re λ ≤ 2, and j ∈ ℕ₀. If j ≤ i, then
-Re(λ + j) ≤ 2 + i < α − 2 + i; if j ≥ i + 1, then Re(λ + j) ≥ λ_♯ + i + 1 > 2 + i + ε_K ≥ α − 2 + i. So no λ + j has
-real part α − 2, α − 1 or α. For the v1 coefficients of q: by (G) no element of Λ has real part in
-(2, 2 + ε_K] ∪ (3, 3 + ε_K], which contain α − 2 and α − 1; and Re(z + j) = α forces j ≥ 1, as Re z < 4 < α, so
-z + j = (z + 1) + (j − 1) is an exponent at hand at b₀, where (Ex3) holds. So (Ex3) at b is (Ex3) at b₀.
+j ∈ ℕ₀, of the bottoms a_ν h_(b,v1)(W) of the rotation rows and their shifts ([[lem:iii-i15-2-1]], [[prop:iii-i15-2-2]]);
+and the exponents z + j, j ∈ ℕ₀, of the v1 coefficients t_*^(−z) of q, whose rate is Re z at b and Re z + 1 at b₀
+([[def:iii-i14-1-1]]), with z ∈ π_1ℰ_♯ and 2 < Re z < 3 + ε_+ < 4. All of these lie in Λ (π_1ℰ_♯ ⊂ Λ, [[sec:iii-i12-1]],
+and Λ + 1 ⊂ Λ), so their real parts are at least λ_♯ ([[lem:iii-i10-1-2]] (a)). Since λ_♯ ∈ Λ ([[def:iii-i10-1-1]]), also
+λ_♯ + 1 ∈ Λ, with real part above 2, so (G) gives λ_♯ + 1 > 2 + ε_K. For i ∈ {0, 1, 2}, α − 2 + i ∈ (2 + i, 2 + i + ε_K],
+as α ∈ (4, 4 + ε_K]. Let λ ∈ π_1ℳ_rot, so Re λ ≤ 2, and j ∈ ℕ₀. If j ≤ i, then Re(λ + j) ≤ 2 + i < α − 2 + i; if
+j ≥ i + 1, then Re(λ + j) ≥ λ_♯ + i + 1 > 2 + i + ε_K ≥ α − 2 + i. So no λ + j has real part α − 2, α − 1 or α. For the
+v1 coefficients of q: by (G) no element of Λ has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K], which contain α − 2 and α − 1;
+and Re(z + j) = α forces j ≥ 1, as Re z < 4 < α, so z + j = (z + 1) + (j − 1) is an exponent at hand at b₀, where (Ex3)
+holds. So (Ex3) at b is (Ex3) at b₀.
 
 In [[lem:iii-j2-2-1]] (f), the loss at every order holds at b by [[prop:iii-h2-1-1]], uniformly on ℬ̄_1, so the
 neighbourhood of b₀ does not shrink with the order. The continuity of [[lem:iii-j2-2-3]] is read at b through
@@ -527,16 +527,16 @@ continuity statements ([[prop:iii-i8-4-1]] (ii) and [[lem:iii-i8-3-3]], [[lem:ii
 [[lem:iii-i15-2-4]] at fixed b only and are not used for the bounds of the elimination. [[lem:iii-i4-4-2]] (b) and
 [[lem:iii-i7-4-1]] are not used across b; the direct bounds of [[prop:iii-i15-2-8]] and [[prop:iii-i15-2-12]] replace
 them. The smallness of the elimination, across b, comes from the direct bound of Step 3 of the proof of
-[[prop:iii-i15-2-5]], through (P6) and [[def:iii-i15-2-3]]. ℬ_* is shrunk, beyond condition (B5) of [[sec:iii-h2-0]] and
-beyond the ball of radius 1/(2C_B) of [[lem:s25a-ball]] and [[lem:s20-rows]], so that the bound of [[lem:iii-i15-1-2]]
-holds and the maps −id + A_k of [[prop:iii-i15-2-5]] are invertible on it. ∎
+[[prop:iii-i15-2-5]], through (P6) and [[def:iii-i15-2-3]]. ℬ_* is the ball of radius at most 1/(2C_B) of
+[[lem:s25a-ball]] and [[lem:s20-rows]], inside condition (B5) of [[sec:iii-h2-0]], shrunk further so that the bound of
+[[lem:iii-i15-1-2]] holds and the maps −id + A_k of [[prop:iii-i15-2-5]] are invertible on it. ∎
 
 **Corollary {#cor:iii-i15-3-2}** (Right inverses at every base point.) [[thm:iii-j1-2-1]] and its tame and exact forms
 ([[thm:iii-j2-4-2]], [[cor:iii-j3-6-6]]) hold at every base point U ∈ 𝒟^∞ small in 𝒟^d, a point of the data space of
 [[def:iii-j-1-1]] whose black hole parameter, that of Φ(U) ([[thm:iii-j-2-4]]), lies in ℬ_*, which the smallness of U in
-𝒟^d ensures, with constants uniform in U; at a rotating b the right inverse is the
-one constructed by [[prop:iii-i15-2-5]]. These are the right inverses that [[thm:ii-g-2-1]] (iii) asks for at every
-point of its neighbourhood.
+𝒟^d ensures, with constants uniform in U; at a rotating b the right inverse is the one constructed by
+[[prop:iii-i15-2-5]]. These are the right inverses that [[thm:ii-g-2-1]] (iii) asks for at every point of its
+neighbourhood.
 
 *Proof.* The black hole parameter of U is one of its components ([[def:iii-j-1-1]]) and is that of Φ(U)
 ([[thm:iii-j-2-4]]), so b ∈ ℬ_* for U small in 𝒟^d. At such U, [[thm:iii-j1-2-1]], [[thm:iii-j2-4-2]] and
