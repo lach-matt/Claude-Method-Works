@@ -53,9 +53,10 @@ envelope of finite smoothness is not covered. The profile sin⁴(π(v − 1/2)/3
 the numerical observations of [[rem:bondi-solver]] and [[rem:own-tail-bump]] use, is C³ and not C⁴, its fourth
 derivative jumping by 8π⁴/27 at both ends; the proof applies to it for no K ≥ 6, since already Step 4 of the
 proof of [[thm:uniform-existence]] takes six derivatives of the coefficient C of [[eq:ue-linearisation]], which
-contains second derivatives of g1, and the oscillating part of g1 is proportional to env ([[thm:approximant]],
-[[eq:waves]]), so that eight derivatives of env enter its bounds. The numerical point at which [[prop:lambda0]] bounds
-λ0 has [v_start, v_end] = [1/2, 7/2] and the smooth envelope
+contains second derivatives of g1, and the oscillating part of g1 contains the wave W_TT, which is proportional to env,
+and a term χ dv ⊗ dv proportional to env² ([[thm:approximant]], [[eq:waves]], [[eq:chi-transport]]), so that eight
+derivatives of env enter its bounds. The numerical point at which [[prop:lambda0]] bounds λ0 has
+[v_start, v_end] = [1/2, 7/2] and the smooth envelope
 
     env_C(v) := c β((2v − 4)/3),     β(y) := cos¹²(πy/2) exp(−y²/(1 − y²)) for |y| < 1,  β(y) := 0 for |y| ≥ 1,
 
@@ -147,9 +148,10 @@ the solution g_λ of Ric^H(g) = 0 on Ω with these data, unique among C² soluti
 Ω, together with the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. Taking λ0 so small
 that C λ0 ≤ ε1, g_λ is within ε1 of g0, hence Lorentzian by [[lem:lorentz-margin]] (ε1 < s0), and it is smooth by
 [[thm:uniform-existence]], the data of [[thm:data]] being smooth; so [[lem:gauge-propagation]] gives D(g_λ) = 0 and
-Ric(g_λ) = 0. λ0 and C depend only on (l5, μ0, A, env, T, τ0, K) and a, through Ω, the profiles, C_R and C_D, the
-constants of (E3) ([[def:approximant]]) and of (E4) ([[thm:uniform-existence]]). By [[lem:domain]] (f),
-D_T ∩ {τ ≥ τ0} lies in Ω.
+Ric(g_λ) = 0. λ0 and C depend only on (l5, μ0, A, env, T, τ0, K) and a, through Ω, the profiles, the smallness
+threshold of [[thm:data]], C_R and C_D, the constants of (E3) ([[def:approximant]]) and of (E4)
+([[thm:uniform-existence]]), and, for items 6 and 7, the constants of [[prop:one-zero]] and [[prop:mean-mass]]. By
+[[lem:domain]] (f), D_T ∩ {τ ≥ τ0} lies in Ω.
 
 Symmetry. Let ι be an element of G = O(2) × O(2), acting on x by an orthogonal matrix and fixing τ. It preserves r,
 v, η and dv, hence g0, Ω and Σ_τ0. Ric^H and D are built from g and g0 alone, so ι*g_λ solves Ric^H(ι*g_λ) = 0; its
@@ -271,8 +273,10 @@ the black hole, the nonlinear stability theory of five-dimensional Schwarzschild
 the exterior and its spatially compact subsets, the slowly rotating Myers–Perry black holes [MP86], and the parameters
 named below are defined there.
 
-**Theorem {#thm:settling}** (settling). Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter chosen in the stability theory
-([[thm:vi-c-2-1]], step (4), with the data class [[eq:vii-0-1]] of this ℓ0 at step (3)). It satisfies
+**Theorem {#thm:settling}** (settling). Fix l5, μ0, A, env and τ0 as in [[thm:main]], set the stability theory up
+about the Tangherlini metric of mass μ_end, that is at b₀ = (μ_end, 0), and fix its inner radius r_♭ ∈ (0, √μ_end/2]
+and ℓ0 ∈ (3, 4); let ε_K be the decay parameter chosen in that theory ([[thm:vi-c-2-1]], step (4), with the data class
+[[eq:vii-0-1]] of this ℓ0 at step (3)). It satisfies
 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ε_+ and some ℓ_I ∈ (3, ℓ0) admissible in row d2 of
 [[sec:vi-c-1]], δ_♯ = (1 − e_Υ) γ_Υ and ε_ind the index distance ([[eq:iii-i9-1-1]], [[eq:iii-f1-2-2]]), such that no
 parameter exponent z at timelike infinity (an element of the set Λ of [[def:iii-i10-1-1]], discrete and fixed before
@@ -281,11 +285,10 @@ these constants) has real part in (3, 3 + ε_+] (the condition (G⁺), [[def:iii
 [[def:iii-i10-1-3]]), d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots of [[def:iii-i9-gap]] and ε_Υ the
 constant fixed by the indicial roots of the gauge operator □^Υ ([[sec:iii-d2-1]]). [[ch:s27]] collects these
 conditions with the other choices of parameters. Fix ε ∈ (0, ε_K). There are a choice of the order α of row w2 and of
-steps (5)–(6) of [[thm:vi-c-2-1]], a radius R and the enlarged domain Ω′ of [[lem:vii-1-2]], depending only on ε (the
-data of [[thm:main]] and the inner radius of the stability theory being fixed), such that the following holds for the
-solutions g_λ of [[thm:main]] on Ω′, with A and the envelope fixed and with K = d_1 + 14, d_1 the regularity of
-[[thm:iii-k-4-3]] at that choice: for every ε_m > 0 there are λ1 > 0 and δ > 0, depending on ε_m and ε, such that for
-λ ≤ λ1:
+steps (5)–(6) of [[thm:vi-c-2-1]], a radius R and the enlarged domain Ω′ of [[lem:vii-1-2]], depending only on ε and
+r_♭, such that the following holds for the solutions g_λ of [[thm:main]] on Ω′, with K = d_1 + 14, d_1 the regularity
+of [[thm:iii-k-4-3]] at that choice: for every ε_m > 0 there are λ1 > 0 and δ > 0, depending moreover on ε_m, such
+that for λ ≤ λ1:
 
 (i) (in the class) the data of g_λ on Hintz's initial surface Σ^IVP within {r ≤ R}, continued G-equivariantly to
 exact Tangherlini data on {r ≥ 4R} ([[prop:vii-2-2]], [[cor:vii-2-3]]), have a G-invariant vacuum development, with
@@ -312,11 +315,11 @@ The linear statement is proved with it, as the nonlinear theorem's linearisation
 a linearised vacuum development in his generalised wave gauge. Up to the data of a linearised boost and a linearised
 translation, Lie derivatives of the Tangherlini metric along their generators, it takes those data, and where the
 late-time cut-off is 1 it differs from a linearised Myers–Perry metric by O(t*^(−2−ε)) in spatially compact subsets of
-the exterior, for each ε < ε_K. In the class the boost and the translation vanish and the Myers–Perry change is a
-change of mass alone. A linearised vacuum solution given in another gauge, with the same data up to those of a
-linearised diffeomorphism and given on the whole future of the initial surface outside r = r_0, smooth up to that
-surface, differs from this one there by a linearised diffeomorphism L_X g, X unique up to Killing fields
-([[thm:ix-2-2]], [[cor:ix-2-3]]).
+the exterior, for each ε < ε_K, the order α of row w2 being chosen for ε. In the class the boost and the translation
+vanish and the Myers–Perry change is a change of mass alone. A linearised vacuum solution given in another gauge, with
+the same data up to those of a linearised diffeomorphism and given on the whole future of the initial surface outside
+r = r_♭, smooth up to that surface, differs from this one there by a linearised diffeomorphism L_X g, X unique up to
+Killing fields ([[thm:ix-2-2]], [[cor:ix-2-3]]).
 
 ### Further results {#sec:further-results}
 
