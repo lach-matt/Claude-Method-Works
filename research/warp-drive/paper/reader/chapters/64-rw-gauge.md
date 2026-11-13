@@ -607,8 +607,8 @@ this chapter written with those letters.
 (127)–(128), p. 46; (129)–(131), p. 47; (134), p. 49; (159)–(162), p. 58; (163)–(169), pp. 58–59; (173), p. 60; p. 61;
 p. 67; Theorem 22, (183)–(184), pp. 68–69; (186), p. 69].)
 
-(F) (The decay foliation.) With their null coordinates u = (1/2)(t − r_*) and v = (1/2)(t + r_*) (13), in their t and
-r_*, which we write u_H and v_H, and L := ∂/∂v_H = ∂/∂t + ∂/∂r_* (92),
+(F) (The decay foliation.) With their null coordinates u = (1/2)(t − r_*) and v = (1/2)(t + r_*) (13) (their t and
+r_*), which we write u_H and v_H, and L := ∂/∂v_H = ∂/∂t + ∂/∂r_* (92),
 "Fixing radii r_1 and R_1 satisfying r_h < r_1 < r_P < R_1, we choose a Lipschitz hypersurface Σ_0 with the following
 properties: Σ_0 intersects the future horizon H⁺ transversely and Σ_0 is spacelike in r_h ≤ r ≤ R_1, Σ_0 ∩ {r_1 ≤ r ≤
 R_1} = {t = 0} ∩ {r_1 ≤ r ≤ R_1}, Σ_0 ∩ {R_1 ≤ r} = {u = −(1/2)(R_1)_*} ∩ {R_1 ≤ r} … Flowing along the static Killing
@@ -628,9 +628,9 @@ Y_H, has "Y|_(r=r_h) = −∂/∂R" (p. 38) and is extended "such that Y is caus
 they are stated without further hypothesis in [HKW18, Theorem 2, (6)–(7), p. 4] ([[thm:std-hkw-decay]]) and Theorem 22,
 (183)–(184), pp. 68–69, and it is in this form that they are used below. Here
 "I_Ψ(Σ_0) := E²_(Ψ,L_KΨ)(Σ_0) + E^N_(Ψ,L_KΨ,L²_KΨ)(Σ_0)" (131), "with K := {T, Ω_i} ranging over the background Killing
-fields" (129) (their K a set of Killing fields), the constants depending only on n and M. In the proof of (130), with τ_k
-= 2^k, "there exist τ̃_k ∈ [τ_(k−1), τ_k] such that E¹_Ψ(Σ_(τ̃_k)) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_(k−1))) + Ě^N_Ψ(Σ_(τ_(k−1)))) ≤
-(C/τ_k)(E²_Ψ(Σ_(τ_0)) + Ě^N_Ψ(Σ_(τ_0)))" (p. 47).
+fields" (129) (their K a set of Killing fields), the constants depending only on n and M. In the proof of (130),
+with τ_k = 2^k, "there exist τ̃_k ∈ [τ_(k−1), τ_k] such that E¹_Ψ(Σ_(τ̃_k)) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_(k−1))) +
+Ě^N_Ψ(Σ_(τ_(k−1)))) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_0)) + Ě^N_Ψ(Σ_(τ_0)))" (p. 47).
 
 (P) (The r^p hierarchy.) "Φ := r^(n/2)Ψ" (124), and "E^p_Ψ(Σ_τ) := ∫_(Σ_τ∩{r≥R_1}) (r^(p−n)/(1 − μ)^k)
 (|∇_LΦ|²/(1 − μ)) r^n dv dVol_(S^n)" (127), with an exponent k ≥ 0 fixed in their Proposition 15, which we write k_H.

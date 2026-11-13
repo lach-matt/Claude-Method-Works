@@ -168,9 +168,9 @@ proof,
 
     d_ι(ϰ) = 6 + ⌈max(0, Re ϰ − 2 + δ)⌉ + ⌈max(0, Re ϰ − 3/2) + δ⌉ + 2⌈ℓ_I − Re ϰ⌉.                    {#eq:ec-iota-loss}
 
-That is 7 + 2⌈ℓ_I − Re ϰ⌉ for Re ϰ < 2 − δ, and, when 3 < ℓ_I < 3.5 and δ < 3.5 − ℓ_I, at most 12 for
-2 ≤ Re ϰ < ℓ_I. Over a strip λ₋ ≤ Re ϰ ≤ ℓ_I − ε with λ₋ < 3/2, sup d_ι ≤ max(7 + 2⌈ℓ_I − λ₋⌉, 12); if moreover
-λ₋ > ℓ_I − 2, sup d_ι = 12.
+That is 7 + 2⌈ℓ_I − Re ϰ⌉ for Re ϰ < 2 − δ. Let 3 < ℓ_I < 3.5 and δ < 3.5 − ℓ_I. Then d_ι ≤ 12 for
+2 − δ ≤ Re ϰ < ℓ_I; over a strip λ₋ ≤ Re ϰ ≤ ℓ_I − ε with λ₋ < 3/2 and ε small, sup d_ι ≤ max(7 + 2⌈ℓ_I − λ₋⌉, 12);
+and if moreover λ₋ > ℓ_I − 2, sup d_ι = 12.
 
 (f) [[prop:iii-g3-2-4]] at finite regularity, and so [[prop:iii-g3-3-7]] and [[cor:iii-g3-3-1]] (1): l′ = 2⌈ℓ_I⌉ + 10
 + sup d_ι over the strip; l′ = 30 when 3 < ℓ_I < 3.5, λ₋ ∈ (ℓ_I − 2, 3/2) and δ < 3.5 − ℓ_I.
@@ -194,8 +194,8 @@ as in [[cor:ii-g1-4-2]], decay orders with values in [𝗋_out, 𝗋_in], and �
 (d) The proof of [[cor:iii-f1-3-4]] obtains the bound near sctf from [[eq:ii-g1-4-1a]] and [[eq:ii-g1-4-1b]] with the
 losses ℓ, ℓ̃ of (a), replaces k by k + ℓ̃ and enlarges ℓ; so its loss is at least ℓ + ℓ̃ as displayed. Its orders are
 those of [[lem:i-a-7-1]] at σ_* = ±1, with 𝗋 = 𝗋_in at the incoming radial sets, where 𝗋_in > (−1 + ϑ_in)/2 (the
-weight α₊ being 0); and 𝗋_out = β_sctf − 2 − ϵ/2 < −½ − δ with δ = ¼(3/2 − β_sctf) > 0, as β_sctf < 3/2. If ϑ_in ≥ 0,
-then sup 𝗋 ≥ 𝗋_in > −½ > 𝗋_out, so ⌈sup 𝗋 − 𝗋_out⌉ ≥ 1 and ℓ_tf ≥ 1.
+weight α₊ being 0); and 𝗋_out = β_sctf − 2 − ϵ/2 < −½, as β_sctf < 3/2. If ϑ_in ≥ 0, then
+sup 𝗋 ≥ 𝗋_in > −½ > 𝗋_out, so ⌈sup 𝗋 − 𝗋_out⌉ ≥ 1 and ℓ_tf ≥ 1.
 
 (e) Step 5 of the proof of [[thm:iii-g1-3-1]] extends v^(−2−ϰ)f by 0 to F, which lies in Ḣ^((s−1;k+d),μ)_(b;b) at the
 same order k + d, with s := min(½, 2 − Re ϰ) − δ, s − ½ ∉ ℤ, and inverts N_sf(ϰ) at that order. It then applies
@@ -216,10 +216,12 @@ d_ι is at most 7 + 2⌈ℓ_I − λ₋⌉ where Re ϰ < 2 − δ, as ⌈ℓ_I �
 
 (f) The proof of [[prop:iii-g3-2-4]] at finite regularity applies [[lem:iii-g3-2-2]], with the loss
 l = 2⌈ℓ_I⌉ + 10 of its statement, and then [[thm:iii-g1-3-1]] (2) on the strip, and takes l′ := l + sup d_ι.
-[[prop:iii-g3-3-7]] and [[cor:iii-g3-3-1]] (1) use [[prop:iii-g3-2-4]] on a strip containing their exponent, and the
-rest of their constructions is a finite-rank assembly with continuous functionals, which adds nothing by
-[[lem:iii-j2-1-2]] (c) (the functionals are counted where their values are used). For 3 < ℓ_I < 3.5, ⌈ℓ_I⌉ = 4 and
-sup d_ι = 12 by (e), so l′ = 8 + 10 + 12 = 30.
+The map of [[prop:iii-g3-3-7]] is continuous by [[prop:iii-g3-2-4]] on a strip containing λ, with the loss l′, and its
+range and right inverse use besides only a map u ↦ f that applies the second-order operator N_(ι⁺), of loss 2 ≤ l′; a
+sum keeps the larger loss, so its loss is l′. [[cor:iii-g3-3-1]] (1) comes from [[prop:iii-g3-2-4]] on a strip
+containing its exponent, with the loss l′; its expansion (2) costs nothing beyond, and its continuous functionals are
+counted where a construction that uses them adds its losses. For 3 < ℓ_I < 3.5, ⌈ℓ_I⌉ = 4 and sup d_ι = 12 by (e),
+so l′ = 8 + 10 + 12 = 30.
 
 (g) In the proof of [[prop:iii-a-4-2]], the transform bounds (T1) and (T3) lose 1 ([[prop:ii-g1-3-3]] (1)) and ℓ_F
 ([[prop:ii-g1-3-5]] (1)). Each factor of the products R_ι, R_K, R_I, R_tf and R_zf, applied through the converse of
@@ -236,7 +238,8 @@ costs nothing more; for general E_K, R_zf costs n_K and [[lem:iii-a-1-3]] at K n
 [[eq:ec-fourier-loss]] (2). ∎
 
 **Remark {#rem:ec-other-losses}** (The other elementary losses.) The remaining elementary losses of
-[[lem:iii-j2-2-1]] are fixed in its statement: 0 for finite-dimensional maps and for the integrations (d) there, 1 for
+[[lem:iii-j2-2-1]] are fixed in its statement: 0 for finite-dimensional maps and for the integrations along faces of
+[[lem:iii-a-1-2]] and [[lem:iii-a-3-2]], 1 for
 [[prop:ii-g1-3-3]] (1) and [[prop:iii-h-3-2]], 2 for second-order operators (L_b, L̃_b, and the background terms
 applied to a solution), ℓ + 1 for [[cor:ii-g1-4-5]] at every order, where ℓ = 2ℓ_3 + ℓ_4 + ℓ_5 is assembled from the
 losses of [[prop:ii-g1-3-5]] (2), [[prop:ii-g1-4-4]] and [[prop:ii-g1-3-3]] (2), each a closed form in the weights, and
