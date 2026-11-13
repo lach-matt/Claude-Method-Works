@@ -403,22 +403,53 @@ continuously to Σ_U. Such a tensor is the restriction to U_+ of a smooth tensor
 apply Seeley's extension operator ([[thm:std-seeley]]) in each chart {t_IVP ≥ 0}, after a cut-off, and patch with a
 partition of unity subordinate to a cover of Σ_U by such charts and to U ∩ {t_IVP > 0}.
 
-**Lemma {#lem:s29-g-on-n}** (The domain of ġ.) Ω_* ∪ 𝒟 = N. The tensor ġ of [[thm:viii-2-2]] is a smooth symmetric
-2-tensor on the interior of N, with DRic(ġ) = 0 there, and its restriction to N⁺ is smooth up to Σ°.
+**Lemma {#lem:s29-g-on-n}** (The domain of ġ.) Ω_* ∪ 𝒟 = N_ν. The tensor ġ of [[thm:viii-2-2]] is a smooth symmetric
+2-tensor on the interior of N_ν, with DRic(ġ) = 0 there, and its restriction to N⁺ is smooth up to Σ°.
 
-*Proof.* Ω_* = cl_M{t^♭_* ≥ 1} lies in N, as t_IVP ≥ t_* ≥ t^♭_* there ([[sec:viii-0]]; [[lem:iii-b-3-7]],
-[[lem:ii-c-3-2]] (b)). A point of N has either t^♭_* > T̂ + 3 ≥ 1, so lies in Ω_*, or lies in 𝒟 = N ∩ {t^♭_* ≤ T̂ + 3},
-with the convention of [[sec:viii-0]] that this sublevel set contains the points where t^♭_* is not defined. So
-Ω_* ∪ 𝒟 = N, and ġ is smooth on the interior of N with DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
+*Proof.* *The domain.* Ω_* = cl_M{t^♭_* ≥ 1} lies in N_ν, as t_IVP ≥ t_* ≥ t^♭_* there ([[sec:viii-0]];
+[[lem:iii-b-3-7]], [[lem:ii-c-3-2]] (b)). A point of N_ν has either t^♭_* > T̂ + 3 ≥ 1, so lies in Ω_*, or lies in
+𝒟 = N_ν ∩ {t^♭_* ≤ T̂ + 3}, with the convention of [[sec:viii-0]] that this sublevel set contains the points where
+t^♭_* is not defined. So Ω_* ∪ 𝒟 = N_ν, and DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
 
-Where ν > 0, Σ° lies in the interior of N, where ġ is smooth. Where ν = 0, Σ° is part of the boundary of N. Such
-points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]],
+*ḣ is smooth on the interior of 𝒟.* It suffices that ḣ lie in H^k near each interior point, for every k: Sobolev
+embedding then makes every derivative continuous. On the interiors of Ω_(ext,r_1), with its past slab, and of Ω^♮,
+the classes of the proof of [[prop:viii-1-2]] are b-Sobolev spaces of every order k, which near interior points of M
+are the spaces H^k; and ḣ ∈ H^k(𝒦) for every k ((L) of [[sec:s27-local]]). Where 𝒦 meets one of the other two
+pieces, it does so along a spacelike hypersurface (Σ^fut_(r_1) ∩ ∂𝒦 and {ρ′_I = c} ∩ ∂𝒦, [[lem:s27-cover]] (c);
+the boundary hypersurfaces of Ω_(ext,r_1) are spacelike by [[lem:iii-c1-1-1]]), and across it the solutions on the two
+sides have the same restriction and the same first transversal derivative, the one giving the other its data in the
+proof of [[prop:viii-1-2]]. The hypersurface is noncharacteristic for L^♮, whose principal part is ½□_g ⊗ id. So, applying a transversal derivative
+of order j − 2 to L^♮ḣ = 0 on either side, the j-th transversal derivative of ḣ at the hypersurface is expressed,
+by the same formula on both sides, through derivatives with at most j − 1 transversal ones (as in Step 3 of the proof
+of [[thm:ix-2-2]]); by induction on j, the traces of all derivatives of ḣ of order below k agree from the two sides,
+each side being in H^k up to the hypersurface. A tensor that is H^k on each side of a smooth hypersurface, with these
+traces agreeing, is H^k across it: integrating by parts on each side, its distributional derivatives of order at
+most k carry no part on the hypersurface. So ḣ is H^k near every interior point of 𝒟.
+
+*ġ is smooth on the interior of N_ν.* The interior of N_ν is covered by two open sets: its points with t^♭_* > 1,
+which lie in the interior of Ω_*, and its points outside the closed set {t^♭_* ≥ T̂ + 7/4}, which lie in 𝒟′
+([[sec:viii-0]]). On the second, ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′) ([[thm:viii-2-2]] (2)); ġ_(S′) and ġ⁰_(S⁰′) are smooth
+([[eq:viii-0-2]]), and ḣ is smooth, as just shown. On the first, ġ = D_0𝔤(U′) + χ_−(t^♭_*)ḣ (Step 2 of the proof of
+[[thm:viii-2-2]]), and χ_−(t^♭_*)ḣ is smooth, χ_−(t^♭_*) vanishing on {t^♭_* ≥ T̂ + 2} and ḣ being smooth on the
+interior of 𝒟. The derivative of 𝔤 is
+
+    D_0𝔤(U′) = ġ_(p⃗′) + D_(p⃗)h_tot(0)(p⃗′) + h_(b₀,rem)(q′) + h′,
+
+h_(b,rem)(q) being linear in q and vanishing at q = 0 for every b ([[eq:iii-i14-1-2]]). The first two terms are
+smooth, g_(p⃗) and h_tot(p⃗) being smooth tensors depending smoothly on p⃗ ([[sec:viii-0]]; the definitions cited in
+Step 2 of that proof). As
+U′ ∈ 𝒟^∞_ex, h′ ∈ 𝒳^∞_(J,ex) and q′ ∈ 𝒬_ex ([[prop:iii-j3-5-4]]): h′ lies in a b-Sobolev class of infinite order, and
+h_(b₀,rem)(q′) is χ_K times smooth tensors applied to the components of q′, functions of t_* of infinite b-regularity
+([[eq:iii-i14-1-1]], [[eq:iii-i14-1-2]]); both are smooth on the interior of M. So ġ is smooth on the interior of N_ν.
+
+*Up to Σ°.* Where ν > 0, Σ° lies in the interior of N_ν, where ġ is smooth. Where ν = 0, Σ° is part of the boundary
+of N_ν. Such points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]],
 [[sec:s27-cover]]), as ψ′_IVP = ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the proof of [[lem:iii-b-3-7]] (b)). So of
 the cover of 𝒟 used in [[prop:viii-1-2]] only the compact part 𝒦 reaches them: Ω_(ext,r_1) ⊂ {r ≥ r_1}, and the slab
 𝒮 lies in {|x| > R_9}, R_9 ≥ R₃ > 5R₁ > R_ν, and does not meet Σ^IVP, as t_IVP ≥ r/4 > 0 on 𝒮 ([[lem:s27-cover]] (a),
-(d)). So a half-ball {t_IVP ≥ 0} about each such point lies in 𝒦. There ġ = ḣ + ġ_(S′) ([[thm:viii-2-2]] (2));
-ġ_(S′) = −ℒ_(V(S′))g is smooth across Σ^IVP, and ḣ lies in every H^k of the interior of 𝒦, bounded up to Σ^IVP,
-where the proof of [[prop:viii-1-2]] solves it by energy estimates. In a chart {t_IVP ≥ 0} near such a point, H^k for
+(d)). So a half-ball {t_IVP ≥ 0} about each such point lies in 𝒦. There ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′)
+([[thm:viii-2-2]] (2)); ġ_(S′) and ġ⁰_(S⁰′) vanish on {|x| < 5R₁}, which contains these points ([[sec:viii-0]]), and
+ḣ ∈ H^k(𝒦) for every k, up to Σ^IVP ((L) of [[sec:s27-local]]). In a chart {t_IVP ≥ 0} near such a point, H^k for
 every k gives every derivative continuous up to Σ°: after a cut-off, extend by the operator of [[thm:std-ly-extension]],
 bounded on every W^(k,2) of a half-space, and apply Sobolev embedding on ℝ⁵. ∎
 
@@ -431,20 +462,32 @@ strictly increasing along future directed causal curves (the property [BGP, p. 2
 acausal in every open subset of M°_♭.
 
 *Operators.* For a 1-form w and a symmetric 2-tensor k: (δ_g k)_μ := −∇^α k_αμ, G_g k := k − ½g tr_g k,
-δ*_g w := ½(∇w + (∇w)^T), so that ℒ_X g = 2δ*_g X^♭, and Θ(k) := δ_g G_g k, the linearised harmonic gauge 1-form
-(the letter Θ has this meaning in [[sec:ix-0]]–[[sec:ix-2]] only). DRic is as in [[sec:viii-0]]. Put
+δ*_g w := ½(∇w + (∇w)^T), so that ℒ_X g = 2δ*_g X^♭, as in [[sec:iii-b-6]]. DRic and Υ̇⁰, the derivative at (g, g)
+in the first argument of Υ⁰, are as in [[sec:viii-0]], now on M_♭, Υ⁰ being defined pointwise by [[eq:iii-b-6-3]]. By
+[[lem:iii-b-6-3]] ([[eq:iii-b-6-6]] at g₀ = g, where C_(g,g) = 0 and Y_(g,g) = 0, as Υ⁰(g, g) = 0),
 
-    L⁰ := DRic + δ*_g Θ.                                                                                     {#eq:ix-0-1}
+    Υ̇⁰(k) = −δ_g G_g k,
+
+so −Υ̇⁰(k) is the linearised harmonic gauge 1-form. Put
+
+    L⁰ := DRic − δ*_g Υ̇⁰ = DRic + δ*_g δ_g G_g,                                                             {#eq:ix-0-1}
+
+the operator L of [[eq:viii-0-1]] with E_C = E_Υ = 0.
 
 *Linearised data.* As in [[lem:viii-1-1]] (1): a symmetric 2-tensor k, defined near a piece of Σ^IVP or on one side of
 it up to Σ^IVP, *induces* the linearised data (γ̇, K̇), the s-derivatives at s = 0 of the first and second fundamental
 forms of Σ^IVP for g + sk, with K(X, Y) := g(∇_X n, Y). They are linear in k and depend only on its 1-jet at Σ^IVP;
-γ̇ is the restriction of k to TΣ^IVP.
+γ̇ is the restriction of k to TΣ^IVP. The definition uses only the 1-jet of k at Σ^IVP from the side where k is given,
+so it applies to a tensor given on one side of Σ^IVP up to it. K is the second fundamental form, written k_(b₀) for g
+in [[sec:viii-0]]–[[sec:viii-2]], where k̇ denotes its variation; so the linearised data (γ̇, k̇) of [[thm:viii-2-2]]
+are a pair (γ̇, K̇) in the present notation, and the tensor ḣ of [[prop:viii-1-2]] induces them ([[lem:viii-1-1]] (1)).
 
 *The Cauchy problem.* We use [[thm:std-bgp-causal]], [[thm:std-bgp-development]], [[def:std-normally-hyperbolic]] and
-[[thm:std-bgp-cauchy]]. An operator P with principal symbol g⁻¹(ζ, ζ) Id has P or −P normally hyperbolic, its
-principal part being ∓ the d'Alembertian of g (as in the proof of [[lem:ii-f-1-3]]); replacing P by −P and f by −f
-changes nothing below. [BGP]'s globally hyperbolic manifolds are connected ([[thm:std-bgp-causal]] (1)). A Cauchy
+[[thm:std-bgp-cauchy]]. The two operators to which they are applied below, 2L⁰ and 2δ_gG_gδ*_g, have in local
+coordinates the principal part −g^(αβ)∂_α∂_β ⊗ id ([[lem:ix-2-1]] (a)), which is the local form that
+[[def:std-normally-hyperbolic]] gives: they are normally hyperbolic as they stand. (With ∂ → iζ their principal symbol
+is g⁻¹(ζ, ζ) Id; [BGP] writes the same symbol −⟨ξ, ξ⟩ with ∂ → ξ.) [BGP]'s globally hyperbolic manifolds are connected
+([[thm:std-bgp-causal]] (1)). A Cauchy
 development below may have several connected components, and every statement taken from [BGP] is applied on each
 component C, with Cauchy hypersurface S ∩ C: components of an open set are open and closed in it, so an inextendible
 causal curve of C is one of D(S) and meets S, and it does so in C.

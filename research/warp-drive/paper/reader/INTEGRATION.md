@@ -601,3 +601,8 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Ch 3 fourth fix (F4-00-03): settling theorem now K = d_1 + 14, the ε_K clause, ε_K < ε_Υ, chapter 60's quantifier
   order, the translation S⁰ in (ii) and lines 312-316; rem:envelope-regularity; nit 18. Chapter 60 still lacks S⁰
   (follow-up after the S27 reading).
+- S27 second reading (R2-S27): translation, ΠU′ and the ε split confirmed; def:s21-eps-g exists; N_ex = 153 matches
+  chapter 45; [DS23, Thm 2.5] verbatim. Major: lem:s27-below (iii) on {½ ≤ t_* ≤ 1} (short fix with
+  g_(b₀)⁻¹(dt_*, dt_*) ≤ 0). Minors: Prop. 1.2 (1) on all of 𝒟 (chapter 45's new argument); the projection on the slab;
+  (L) for forcing in H^k and k < 4; Prop. 1.2 (3) only a modulus of continuity; (C3) needs the companions' leading terms
+  (lem:iii-i14-2-1); lem:s27-boost-move two-sided radius.

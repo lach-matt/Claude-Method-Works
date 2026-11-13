@@ -37,7 +37,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | NOT CONFIRMED 0M 2m 8n; third fix done (cor:s25-tame); third reading running; step 2 re-key pending |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | running |
-| 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | running |
+| 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | NOT CONFIRMED 1M 6m 8n (lem:s27-below (iii) on ½ ≤ t_* ≤ 1); second fix running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | running |
 | 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | running | - |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
