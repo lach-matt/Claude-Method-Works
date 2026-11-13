@@ -939,7 +939,7 @@ most 5, l ≥ 6.)
 ### The operator at null infinity and the radiative order at ι⁺ {#sec:s17-radiative}
 
 This section collects what the preceding sections give for the gauge-fixed operator at null infinity, entry by entry,
-and for the order at which a radiative term reaches future timelike infinity; [[ch:s26]] uses it.
+and for the order at which a radiative term reaches future timelike infinity.
 
 **Proposition {#prop:np-10-38}** (The operator at null infinity, and the radiative order at ι⁺.) Let the parameters be
 as in [[sec:iii-c-1]] and [[sec:iii-g3-1]].
@@ -956,11 +956,22 @@ all other entries being 0. In spatial dimension 3 the same construction, with th
 (5, 2) and (7, 4), and Ā₃₁ = 2(1 − e_C)(1 + v_C)γ_C, Ā₄₁ = e_C(1 + v_C)γ_C + γ_Υ,
 Ā₄₃ = (e_C(1 − v_C)γ_C + e_Υγ_Υ)/2, Ā₇₃ = (1 + v_C)γ_C + e_Υγ_Υ.
 
-(2) (*The exponents at null infinity.*) The coordinate subspaces spanned by the slots {1, 3, 4, 7}, {2, 5},
-{2, 5, 6} and {6} are invariant under Ā, and on each of them det(x − 3/2 − Ā) is the product of x − 3/2 − Ā_(jj) over
-its slots j. The roots are the constraint exponents 3/2 + σ_C (slots 1–3, σ_C := γ_C{2(1 − v_C), 1 − v_C,
-(1 − e_C)(1 − v_C)}) and the radiative exponents 3/2 + σ_Υ (slots 4–7): 3/2 + (1 − e_Υ)γ_Υ, 3/2 + γ_Υ, 3/2 and
-3/2 + 2γ_Υ, the exponents of the index sets [[eq:iii-c-3-2]].
+(2) (*The exponents at null infinity, type by type.*) Let τ be one of the types s0, v1, v2, t2 ([[sec:iii-a1-1]]) and
+Y a harmonic of that type (Y ∈ 𝒮_0, 𝒱_1, 𝒱_2, 𝒯_2 respectively). The symmetric 2-tensors of type τ given by Y have, in
+the splitting [[eq:iii-c-1-6]], components only in the slots
+
+    J_s0 := {1, 3, 4, 7},     J_v1 := {2, 5},     J_v2 := {2, 5, 6},     J_t2 := {6},
+
+with one dimension for each slot of J_τ, and Ā maps their span to itself, acting by its submatrix (Ā_ij)_(i,j∈J_τ).
+Near v = 0 on ι⁺, S̄ has the matrix Ā in the slots ([[sec:iii-g3-1]]), and for a section φ over 𝕊³
+
+    N_(ι⁺)(λ)(v^xφ) = −2v^(x+1)(x − λ)(x − 3/2 − Ā)φ + v^(x+2)L̃(0)(ω, x, ∂_ω)φ,                       {#eq:s17-indicial}
+
+so the indicial family of v⁻¹N_(ι⁺)(λ) at ℐ⁺ ∩ ι⁺ is −2(x − λ)(x − 3/2 − Ā). On the type-τ tensors given by Y its
+determinant is the product of −2(x − λ)(x − 3/2 − Ā_jj) over j ∈ J_τ. Over the four types its roots other than λ are
+the constraint exponents 3/2 + σ_C (slots 1–3, σ_C := γ_C{2(1 − v_C), 1 − v_C, (1 − e_C)(1 − v_C)}) and the radiative
+exponents 3/2 + σ_Υ (slots 4–7): 3/2 + (1 − e_Υ)γ_Υ, 3/2 + γ_Υ, 3/2 and 3/2 + 2γ_Υ, the exponents of the index sets
+[[eq:iii-c-3-2]].
 
 (3) (*Couplings through the perturbation.*) For g = g₁ + h as in [[prop:iii-c-4-4]], every coupling through h lies in
 the error term of [[eq:iii-c-4-4]], a factor ρ_I^(1/2) below Ā at ℐ⁺ when ℱ = ℰ_I^tot. The entry Ā₇₄ couples the
@@ -969,7 +980,9 @@ the 11-component only at the order 2, which lies in ℰ_I^C: ℱ_(I,11) = 1 + (�
 
 (4) (*The radiative order at ι⁺.*) spec_(ι⁺)(L̄) ⊂ {Re λ ≥ 2}. In particular no radiative exponent 3/2 + s, s ∈ σ_Υ,
 lies in spec_(ι⁺)(L̄): there is no pure resonant state at a radiative exponent (Res_(ι⁺)(L̄, 3/2 + s) = {0} whenever
-3/2 + s < ℓ_I). On the spaces of [[def:iii-g3-1-1]], the only pole of [[eq:iii-g3-2-2]] with real part at most
+3/2 + s < ℓ_I). Nor is there an outgoing solution there: if Re λ < min(ℓ_I, 2), h lies in the space
+H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) of [[def:iii-g1-1-2]] (2), the target of [[thm:iii-g1-3-1]] (2), and
+N_(ι⁺)(λ)h = 0, then h = 0. On the spaces of [[def:iii-g3-1-1]], the only pole of [[eq:iii-g3-2-2]] with real part at most
 3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f only if f has the exceptional term
 f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇ ≠ 0 of [[eq:iii-g3-3-5]]. The radiative exponents 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ are not
 poles.

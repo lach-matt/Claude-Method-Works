@@ -1405,19 +1405,23 @@ approximate solution of L_b on the Myers–Perry family, accurate at ι⁺ and a
 for sources with logarithms in t_* and at ι⁺-resonances.
 
 *The window.* [Hin26] expands at R = 0 up to R^(ℓ_K) with ℓ_K < 3 + ε_ind, which keeps the indicial roots in [−3, 0],
-each with generalised companions to the orders of [Hin26, (9.32)], because the smallest ι⁺-order it grafts is ϰ = 1
-and the remainder must have K⁺-order ϰ + ℓ_K > 4. What the uses of grafting require is ϰ + ℓ_K ≥ 4 + ε, with ε the
-ε_K or ε_ind of [Hin26, (12.21), p. 308]. In dimension 4 + 1 the expansion is carried to ℓ_K < ℓ_K^max ≤ 3
-([[eq:iii-g2-1-1]]); [[thm:iii-g2-3-1]] and [[thm:iii-g2-4-2]] hold for every ℓ_K < ℓ_K^max, so a graft at ι⁺-order ϰ
-meets the requirement whenever Re ϰ > 1 + ε and ℓ_K^max = 3. The pure ι⁺-resonances have real part at least 2
-([[thm:iii-g-5-1]] (2)), and [[cor:iii-g2-4-3]] grafts at orders Re ϰ_0 > 1. The window (−3, 0] needs no zero energy
-state at −3, and every state it needs is constructed in [[ch:s13]] and [[ch:s15]], with at least the companions
-required ([[def:iii-g2-table-1-1]]).
+each with generalised companions to the orders of [Hin26, (9.32)]: it grafts at ι⁺-order ϰ = 1 ([Hin26, (10.15) and
+(11.119a)]), and the remainder must then have K⁺-order ϰ + ℓ_K > 4. In dimension 4 + 1 the expansion is carried to
+ℓ_K < ℓ_K^max ≤ 3 ([[eq:iii-g2-1-1]]), and [[thm:iii-g2-3-1]], [[thm:iii-g2-4-2]] and [[cor:iii-g2-4-3]] hold for every
+ℓ_K < ℓ_K^max. No graft is made at ϰ = 1: the pure ι⁺-resonances have real part at least 2 ([[thm:iii-g-5-1]] (2)), and
+for sources with expansions at 𝓘⁺ ∩ ι⁺ no ι⁺-pole has real part below ϰ_♯ = 3/2 + (1 − e_Υ)γ_Υ of [[eq:iii-g3-0-1]]
+([[cor:iii-g3-2-6]]). Every application of [[cor:iii-g2-4-3]] is made at Re ϰ_0 ≥ ϰ_♯ > 3/2, with the order
+ℓ_K := ℓ_K(ϰ_0) chosen there, and checks ℓ_K(ϰ_0) < ℓ_K^max where it is made: ℓ_K(ϰ_0) ∈ (0, 1) in the proofs of
+[[prop:iii-i5-2-1]] and [[prop:iii-i6-2-1]], ℓ_K(ϰ_0) < 3/2 in that of [[lem:iii-i8-3-2]], and
+ℓ_K(ϰ_0) ≤ 4 + ε_K − ϰ_♯ < 3 in that of [[prop:iii-i10-3-1]], since ε_K < (1 − e_Υ)γ_Υ = ϰ_♯ − 3/2 by
+[[eq:iii-i9-1-1]], and ℓ_K^max = 3 under (C5) below. The window (−3, 0] needs no zero energy state at −3, and every
+state it needs is constructed in [[ch:s13]] and [[ch:s15]], with at least the companions required
+([[def:iii-g2-table-1-1]]).
 
 Throughout this section and the next three we assume (Dyn), the dynamical hypotheses of [[ch:s13]], which hold for
 g_b, b near b_0, by [[thm:vi-a-6-1]] and [[thm:vi-b1-5-1]]; the parameters of [[prop:iii-f1-3-3]] with
 γ_Υ < min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); (C1) of [[sec:iii-f1-1]]; and (C2)–(C3) of [[sec:iii-f1-1]] with
-z_Υ := 4e_Υγ_Υ² outside the exceptional set Z_exc of [[prop:iii-f1-2-3]] (e), so that every indicial root of L̂_b(0) is
+z_Υ = 4e_Υγ_Υ² outside the exceptional set Z_exc of [[prop:iii-f1-2-3]] (e), so that every indicial root of L̂_b(0) is
 simple. We fix
 
     ℓ_K^max := min(3, 2 + 2γ_Cv_C),                                                                     {#eq:iii-g2-1-1}
@@ -1428,8 +1432,8 @@ real part ≤ 0 lie below −101 ([[prop:iii-f1-2-3]] (d)). Under the condition
 (C5) γ_Cv_C ≥ ½,
 
 ℓ_K^max = 3. The choice of parameters in [[thm:vi-c-2-1]] satisfies (C5), as there v_C = ½ and γ_C > 10⁶. Without
-(C5) every statement below holds with ℓ_K^max = 2 + 2γ_Cv_C, which still serves every graft with
-Re ϰ > 2 − 2γ_Cv_C + ε.
+(C5) every statement below holds with ℓ_K^max = 2 + 2γ_Cv_C, which still serves every graft at
+Re ϰ_0 > 2 − 2γ_Cv_C + ε_K used at a K⁺-weight at most 4 + ε_K.
 
 For ℓ_K < ℓ_K^max let 𝒲(ℓ_K) be the set of indicial roots μ of L̂_b(0) ([[prop:iii-f1-2-3]]) with
 −ℓ_K < Re μ ≤ 0. All are real ([[lem:iii-g1-1-3]] (c)). For a root μ of type τ and degree l, let 𝒴_τ be the space of

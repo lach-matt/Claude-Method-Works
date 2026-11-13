@@ -1,51 +1,45 @@
 label	source	source_name	note
 ch:bondi	docket68/n1star/N1STAR-PROOF.md:10961-11401; paper/RESPONSE-HL-5D.md:413-466; paper/RESPONSE-HL-5D.md:687-703	NP section 11 (Theorem M); P Theorem 3 and its sketch; P section 6 last paragraph	opening from P 443-466 without program references; NP 10938-10960 (status) dropped
-sec:bondi-setting	docket68/n1star/N1STAR-PROOF.md:11004-11013	NP 11.1 opening	notation recalled from Ch 9 (pending keys); smoothness of G_3 derived from (2.5')
+sec:bondi-setting	docket68/n1star/N1STAR-PROOF.md:11004-11013	NP 11.1 opening	notation recalled from Ch 9 (pending keys); smoothness of G_3 derived from (2.5'); F-10: notation of Ch 9 cited by key (sec:past-domain, sec:past-approximant, lem:past-domain (d), sec:far-near, eq:past-classes, eq:far-energy, lem:past-sobolev); the wave cited as Ch 2 eq:waves, lem:waves (a) (local display eq:bondi-wave removed); P+ written P-superscript-plus, T written T_lambda as in Ch 9
 eq:bondi-u-split	docket68/n1star/N1STAR-PROOF.md:11005-11010	NP 11.1, u = lam[W_TT] + u_1	D632 bracket at 11008 folded
-eq:bondi-wave	paper/RESPONSE-HL-5D.md:226-228	P (2.5')	restated locally; Ch 2 holds the definition (eq:waves)
-sec:bondi-every-order	docket68/n1star/N1STAR-PROOF.md:11014-11098	NP Lemmas 11.0-11.1
-lem:every-order-fixed	docket68/n1star/N1STAR-PROOF.md:11014-11087	NP Lemma 11.0 (text = SETTLE-GLAM5 R6-D, folded D630; D632 clauses at 11075, 11083)	exported; f1lemma5 F1a, F1b, F1d, F1e, cclass5 C1-C3 and r5edits5 E2-E3 replaced by hand derivations
-eq:bondi-f1	docket68/n1star/N1STAR-PROOF.md:11017-11019	NP Lemma 11.0, definition of F_1
+sec:bondi-every-order	docket68/n1star/N1STAR-PROOF.md:11014-11098	NP Lemmas 11.0-11.1	F-10: lem:bondi-equation-u placed first (identity independent of lem:every-order-fixed)
+lem:every-order-fixed	docket68/n1star/N1STAR-PROOF.md:11014-11087	NP Lemma 11.0 (text = SETTLE-GLAM5 R6-D, folded D630; D632 clauses at 11075, 11083)	exported; f1lemma5 F1a, F1b, F1d, F1e, cclass5 C1-C3 and r5edits5 E2-E3 replaced by hand derivations; F-10: chain-rule display corrected (term (d_a d_b v)[d_theta W_TT], in E_(5/2) U); phase of the first stage written phi-variant_1 locally; derivative bound cited as item 3 of thm:past-construction, (P-iii) of sec:past-proof; Ch 9 energy, Sobolev, far-region, decay-calculus citations by key
+eq:bondi-f1	docket68/n1star/N1STAR-PROOF.md:11017-11019	NP Lemma 11.0, definition of F_1	
 eq:bondi-f1-form	docket68/n1star/N1STAR-PROOF.md:11019-11021	NP Lemma 11.0, F_1 = -Ric^H(g) - (1/2) g^ab d_a d_b u_1	identity derived from (0.2) (was f1lemma5 F1a)
-eq:bondi-c	docket68/n1star/N1STAR-PROOF.md:11027-11031	NP Lemma 11.0, coefficient c	derived (was f1lemma5 F1b, cclass5 C1-C2)
-lem:bondi-equation-u	docket68/n1star/N1STAR-PROOF.md:11088-11098	NP Lemma 11.1
-eq:bondi-s-def	docket68/n1star/N1STAR-PROOF.md:11089-11091	NP (11.4)
-sec:bondi-expansion	docket68/n1star/N1STAR-PROOF.md:11100-11189	NP Lemma 11.2, Proposition 11.1
-lem:bondi-half-order	docket68/n1star/N1STAR-PROOF.md:11100-11157	NP Lemma 11.2 with D632 fold at 11121	F renamed Y_q (clash with the free data F); u~~ written u-caron; n written L_+
-eq:bondi-half	docket68/n1star/N1STAR-PROOF.md:11103	NP (11.5)
-eq:bondi-box-vr	docket68/n1star/N1STAR-PROOF.md:1415-1418	NP (9.5)	restated from Ch 9 for the transport
+eq:bondi-c	docket68/n1star/N1STAR-PROOF.md:11027-11031	NP Lemma 11.0, coefficient c	derived (was f1lemma5 F1b, cclass5 C1-C2); F-10: the E_(5/2) terms of the corrected chain rule join the E_(3/2) part
+lem:bondi-equation-u	docket68/n1star/N1STAR-PROOF.md:11088-11098	NP Lemma 11.1	F-10: moved before lem:every-order-fixed; class claim stated at the orders where d u is in E_(3/2); Ric(g0) cited as prop:vaidya (a), Ric^H(g0) = Ric(g0) as sec:gauge, form as eq:gauge
+eq:bondi-s-def	docket68/n1star/N1STAR-PROOF.md:11089-11091	NP (11.4)	
+sec:bondi-expansion	docket68/n1star/N1STAR-PROOF.md:11100-11189	NP Lemma 11.2, Proposition 11.1	
+lem:bondi-half-order	docket68/n1star/N1STAR-PROOF.md:11100-11157	NP Lemma 11.2 with D632 fold at 11121	F renamed Y_q (clash with the free data F); u~~ written u-caron; n written L_+; F-10: Omega-commutator with (g_lambda - g0)^ab d_a d_b added (forcing in E_(q+1/2)); g0(L+, L+) from covariant components (eq:vr-form); box-tilde cited as Ch 9 eq:wave-operator-vr (local display eq:bondi-box-vr removed)
+eq:bondi-half	docket68/n1star/N1STAR-PROOF.md:11103	NP (11.5)	
 eq:bondi-transport	docket68/n1star/N1STAR-PROOF.md:11128-11129	NP (11.6)	null check of L_+ written out
 prop:bondi-hierarchy	docket68/n1star/N1STAR-PROOF.md:11158-11185	NP Proposition 11.1 (the expansion)	exported key placed on NP Prop 11.1 as OUTLINE assigns; the hierarchy itself is prop:hierarchy-scri
-eq:bondi-expansion	docket68/n1star/N1STAR-PROOF.md:11161	NP (11.7)
-rem:bondi-lambda	docket68/n1star/N1STAR-PROOF.md:11187-11189	NP remark after Proposition 11.1
-sec:bondi-chart	docket68/n1star/N1STAR-PROOF.md:11190-11316	NP 11.2
-lem:bondi-ell	docket68/n1star/N1STAR-PROOF.md:11192-11197	NP Lemma 11.3	A3 citation replaced by (2.5')
-eq:bondi-coeffs	docket68/n1star/N1STAR-PROOF.md:11198-11204	NP 11.2 coefficients A_k..H_k	letters kept, with the source's disclaimer
-prop:bondi-chart	docket68/n1star/N1STAR-PROOF.md:11205-11308	NP Proposition 11.2	B2 coefficients derived by hand; inverse check written out; th -> vartheta, shift vartheta -> nu, geodesic gamma -> y, kappa -> kappa_y, b -> beta
-eq:bondi-shifts	docket68/n1star/N1STAR-PROOF.md:11218-11220	NP (11.8)
+eq:bondi-expansion	docket68/n1star/N1STAR-PROOF.md:11161	NP (11.7)	
+rem:bondi-lambda	docket68/n1star/N1STAR-PROOF.md:11187-11189	NP remark after Proposition 11.1	
+sec:bondi-chart	docket68/n1star/N1STAR-PROOF.md:11190-11316	NP 11.2	
+lem:bondi-ell	docket68/n1star/N1STAR-PROOF.md:11192-11197	NP Lemma 11.3	A3 citation replaced by (2.5'); F-10: transversality and tracelessness cited as lem:waves (b)
+eq:bondi-coeffs	docket68/n1star/N1STAR-PROOF.md:11198-11204	NP 11.2 coefficients A_k..H_k	letters kept, with the source's disclaimer; F-10: r^(-1/2) written varsigma (s is sin theta in Ch 2-3)
+prop:bondi-chart	docket68/n1star/N1STAR-PROOF.md:11205-11308	NP Proposition 11.2	B2 coefficients derived by hand; inverse check written out; th -> vartheta, shift vartheta -> nu, geodesic gamma -> y, kappa -> kappa_y, b -> beta; F-10: W - 1 = O(varsigma_B^2), U = O(varsigma_B^4) added to the statement and proved in (iv); remainders stay o(.) under (v_B, theta_B)-derivatives, stated and proved; Jacobian of (v, r, theta), not (v, s, theta); metric form cited as Ch 3 eq:bondi-form (local display eq:bondi-metric removed); g^(v theta) in the Volterra forcing written out; Ch 9 h(tau), kappa written h_P(tau), kappa_P
+eq:bondi-shifts	docket68/n1star/N1STAR-PROOF.md:11218-11220	NP (11.8)	
 eq:bondi-first	docket68/n1star/N1STAR-PROOF.md:11220-11223	NP Proposition 11.2 first coefficients (B2)	derived in the proof
-eq:bondi-metric	docket68/n1star/N1STAR-PROOF.md:10965-10968	NP (11.1); P (3.2)	same display as Ch 3 eq:bondi-form
 eq:bondi-first-metric	docket68/n1star/N1STAR-PROOF.md:11230-11233	NP Proposition 11.2 last sentence (B2)	derived in the proof
-eq:bondi-eikonal	docket68/n1star/N1STAR-PROOF.md:11238-11240	NP (11.9)
-eq:bondi-areal	docket68/n1star/N1STAR-PROOF.md:11282-11285	NP (11.10)
-rem:bondi-j8	docket68/n1star/N1STAR-PROOF.md:11309-11314	NP paragraph after Proposition 11.2
-sec:bondi-hierarchy	docket68/n1star/N1STAR-PROOF.md:11318-11379	NP 11.3
+eq:bondi-eikonal	docket68/n1star/N1STAR-PROOF.md:11238-11240	NP (11.9)	
+eq:bondi-areal	docket68/n1star/N1STAR-PROOF.md:11282-11285	NP (11.10)	
+rem:bondi-j8	docket68/n1star/N1STAR-PROOF.md:11309-11314	NP paragraph after Proposition 11.2	F-10: C_4 = C_5 = 0 because G_4, G_5 vanish for v <= v_start (prop:bondi-hierarchy), not by (iv)
+sec:bondi-hierarchy	docket68/n1star/N1STAR-PROOF.md:11318-11379	NP 11.3	F-10: sphere metric h renamed gamma_P (Ch 2 eq:bondi-type), Laplacian Delta_P
 eq:bondi-gamma-r	new	hand derivation replacing bondi5 B1	Christoffel symbols with a lower index r
 eq:bondi-ric-rr	new	hand derivation replacing bondi5 B1	R_rr exact
 eq:bondi-ric-rth	new	hand derivation replacing bondi5 B1	R_(r vartheta) exact
 eq:bondi-gamma-0	new	hand derivation replacing bondi5 B1	Christoffel symbols at beta = U = 0
 eq:bondi-ric-0	new	hand derivation replacing bondi5 B1	R_vr, R_vv, R_AB at beta = U = 0
-eq:bondi-gamma-U	new	hand derivation replacing bondi5 B1	Christoffel symbols linear in U at the flat Bondi metric
+eq:bondi-gamma-u	new	hand derivation replacing bondi5 B1	Christoffel symbols linear in U at the flat Bondi metric; F-10: key lowercased (was eq:bondi-gamma-U, which the label syntax does not accept)
 eq:bondi-ric-u	new	hand derivation replacing bondi5 B1	Ricci terms linear in U (Palatini)
 lem:bondi-orders	new	hand derivation replacing bondi5 B1 (NP 11336-11339: r-derivative raises the s-order by two)	frame weights and the plane-wave part
-prop:hierarchy-scri	docket68/n1star/N1STAR-PROOF.md:11343-11365	NP Proposition 11.3	proved by hand (was bondi5 B1); (0) given through R_rr and R_(r vartheta) coefficients instead of R_ss, R_(s theta); u_6 written out
-eq:bondi-law-div	docket68/n1star/N1STAR-PROOF.md:11357-11358	NP (11.2')
-eq:bondi-law-scri	docket68/n1star/N1STAR-PROOF.md:10984; paper/RESPONSE-HL-5D.md:431-433	NP (11.2); P (3.3)	same display as Ch 3 eq:bondi-law
-rem:bondi-tts	docket68/n1star/N1STAR-PROOF.md:11320-11341	NP 11.3 [TTS09] quotation and comparison	(28) quoted with p. 4; routes5 Q2 identification replaced by reading [TTS09] (4), (5)
-sec:bondi-proof	docket68/n1star/N1STAR-PROOF.md:11366-11379	NP Proof of Theorem M
-eq:bondi-p	docket68/n1star/N1STAR-PROOF.md:10976-10981; paper/RESPONSE-HL-5D.md:425-428	NP Theorem M (b); P Theorem 3 item 1	D632 bracket at 10980 folded
-eq:bondi-density	docket68/n1star/N1STAR-PROOF.md:1662-1667	NP 9.5 flux density	algebra (4/3)(...) = density written out
-eq:bondi-flux	docket68/n1star/N1STAR-PROOF.md:1669-1671; paper/RESPONSE-HL-5D.md:678	NP (9.10); P (6.1)	moments derived by hand (was past5 P7); same as Ch 3 eq:flux-mean
-eq:bondi-mu	docket68/n1star/N1STAR-PROOF.md:10988-10990	NP (11.3), D618 bracket folded	integration by parts written out (was past5 P7)
-rem:bondi-solver	docket68/n1star/N1STAR-PROOF.md:11380-11396; paper/RESPONSE-HL-5D.md:687-703	NP 11.4; P section 6 last paragraph	vartheta-independence after the shell (P7 (f)) and 5 pi^2/108 (response5 R8) derived; run values marked pending:computational-1 (bondi5 B4, hf_core5, hf_anchor5, hf_theorem5 F4); D632 bracket at 11393 folded
-rem:bondi-scope	docket68/n1star/N1STAR-PROOF.md:11398-11401	NP 11.4 last paragraph
+prop:hierarchy-scri	docket68/n1star/N1STAR-PROOF.md:11343-11365	NP Proposition 11.3	proved by hand (was bondi5 B1); (0) given through R_rr and R_(r vartheta) coefficients instead of R_ss, R_(s theta); u_6 written out; F-10: p_v written d_v p; local display eq:bondi-law-scri removed, the law cited as Ch 3 eq:bondi-law with (p1, p2) = (p, q)
+eq:bondi-law-div	docket68/n1star/N1STAR-PROOF.md:11357-11358	NP (11.2')	F-10: d_v p notation
+rem:bondi-tts	docket68/n1star/N1STAR-PROOF.md:11320-11341	NP 11.3 [TTS09] quotation and comparison	(28) quoted with p. 4; routes5 Q2 identification replaced by reading [TTS09] (4), (5); F-10: (28) quoted as printed, dM/du -> partial M/partial u (arXiv:0909.0426v2 p. 4)
+sec:bondi-proof	docket68/n1star/N1STAR-PROOF.md:11366-11379	NP Proof of Theorem M	F-10: item 3 cites lem:flux-density (a)-(c) and eq:flux-mean (local displays eq:bondi-density, eq:bondi-flux, eq:bondi-mu removed); item 4 cites eq:hawking-mass, not prop:mean-mass
+eq:bondi-p	docket68/n1star/N1STAR-PROOF.md:10976-10981; paper/RESPONSE-HL-5D.md:425-428	NP Theorem M (b); P Theorem 3 item 1	D632 bracket at 10980 folded; F-10: stated as eq:waves at (v_B, theta_B); profile written h(cos 2 theta_B)
+rem:bondi-after-shell	docket68/n1star/N1STAR-PROOF.md:11380-11396; paper/RESPONSE-HL-5D.md:687-703	NP 11.4 (first part); P section 6 last paragraph	theta_B-independence after the shell (P7 (f)) and 5 pi^2/108 (response5 R8) derived by hand; O_1 primitive written out; F-10: split from rem:bondi-solver, retitled
+rem:bondi-solver	docket68/n1star/N1STAR-PROOF.md:11380-11396; paper/RESPONSE-HL-5D.md:687-703	NP 11.4 (run values); P section 6 last paragraph	F-10: class (b) numerical experiment, kept as one paragraph "(Numerical observation.)" under the ruling of 2026-11-13; pending:computational-1 removed; values from bondi5 B4, hf_core5, hf_anchor5, hf_theorem5 F4; no program named; first sentence on the integration method dropped
+rem:bondi-scope	docket68/n1star/N1STAR-PROOF.md:11398-11401	NP 11.4 last paragraph	

@@ -1,0 +1,30 @@
+label	source	source_name	note
+ch:s29	docket68/n1star/proof5/PART-VIII-LINEAR.md:6-22; docket68/n1star/proof5/PART-IX-GAUGE.md:10-21; docket68/n1star/BEYOND5-R0-PROOF.md:441-482	VIII and IX intros; R0P sections 10-11	intro composed from both; inner radius r_♭ as a parameter (R0P:17-45, 441-460); decay pointer of IX Remark 2.4 (b) per paper/RESPONSE-HL-5D.md:779-797 (GAUGEDECAY5 Theorem 1.5, harmonic gauge)
+sec:viii-0	docket68/n1star/proof5/PART-VIII-LINEAR.md:24	VIII section 0	tagged lines 29 (file name) and 57 (file:line) replaced by def:iii-k-2-1, lem:iii-b-5-1; unit normal written n (nu kept for III.K's function nu(r))
+eq:viii-0-1	docket68/n1star/proof5/PART-VIII-LINEAR.md:40-41	VIII (0.1)
+eq:viii-0-2	docket68/n1star/proof5/PART-VIII-LINEAR.md:58	VIII (0.2)
+sec:viii-1	docket68/n1star/proof5/PART-VIII-LINEAR.md:64	VIII section 1
+lem:viii-1-1	docket68/n1star/proof5/PART-VIII-LINEAR.md:66	VIII Lemma 1.1 (III.C2 Proposition 4.1 linearised)	tagged lines 90 (file:line), 98 and 116 (verifier attributions) edited; [Hin26] (5.80)-(5.81) named in words
+prop:viii-1-2	docket68/n1star/proof5/PART-VIII-LINEAR.md:125	VIII Proposition 1.2 (III.K Proposition 1.2 linearised)	cover cited as lem:s27-cover; tagged lines 164-168, 172 edited; uniqueness classes kept
+eq:viii-1-1	docket68/n1star/proof5/PART-VIII-LINEAR.md:128-129	VIII (1.1)
+sec:viii-2	docket68/n1star/proof5/PART-VIII-LINEAR.md:192	VIII section 2
+lem:viii-2-1	docket68/n1star/proof5/PART-VIII-LINEAR.md:194	VIII Lemma 2.1	D-tag at 199 dropped
+eq:viii-2-1	docket68/n1star/proof5/PART-VIII-LINEAR.md:196	VIII (2.1)
+thm:viii-2-2	docket68/n1star/proof5/PART-VIII-LINEAR.md:211; docket68/n1star/proof5/PART-VIII-LINEAR.md:286-292; docket68/n1star/BEYOND5-R0-PROOF.md:451-458	VIII Theorem 2.2 with the Step 4 fold (D378, D621)	Step 4 compact sets from II.F Lemma 1.4 (a) at theta = 0 (lem:ii-f-1-4, eq:ii-f-lp), III.K Lemma 6.1 (c) as alternative; (2.3) on {r_♭ <= r <= R′} per R0P:455; G(U) renamed 𝔤(U) (G is the group), N renamed k₁; the four dchi_K sites cited by their definition keys; rate argument cites cor:s27-rate (c); tagged lines 259, 261-262, 303, 306, 311, 313 edited
+eq:viii-2-2	docket68/n1star/proof5/PART-VIII-LINEAR.md:230	VIII (2.2)
+eq:viii-2-3	docket68/n1star/proof5/PART-VIII-LINEAR.md:232-233	VIII (2.3)	r_0 replaced by r_♭
+eq:viii-2-4	docket68/n1star/proof5/PART-VIII-LINEAR.md:265-266	VIII (2.4)
+cor:viii-2-3	docket68/n1star/proof5/PART-VIII-LINEAR.md:321	VIII Corollary 2.3 (VII Proposition 3.2 linearised)	fixed spaces cited from sec:s27-class; mu-dot written m-dot
+rem:viii-2-4	docket68/n1star/proof5/PART-VIII-LINEAR.md:346	VIII Remark 2.4	(a): the comparison is cited as proved in sec:ix-2 (Part VIII says it is not written there); (b): pointer to finding (VII4) at line 352 dropped
+sec:ix-0	docket68/n1star/proof5/PART-IX-GAUGE.md:23	IX section 0 as repaired (D610, D617; folds at IX 52 and 348)	M renamed M_♭ = R_t x {abs(x) >= r_♭}; [BGP] readings (88-112) replaced by citations of the standard-results appendix (thm:std-bgp-*, def:std-normally-hyperbolic); tagged lines 51-52, 57, 88 edited
+lem:s29-g-on-n	docket68/n1star/proof5/PART-IX-GAUGE.md:38-66	IX section 0, bullets "Smooth up to Sigma_U" (second half) and "g-dot lives on N" (finding IX1)	private lemma; R_nu = (r_♭ + 5R_1)/2 as chapter 46 fixes it; half-space Sobolev step cites thm:std-ly-extension
+eq:ix-0-1	docket68/n1star/proof5/PART-IX-GAUGE.md:80	IX (0.1)
+sec:ix-1	docket68/n1star/proof5/PART-IX-GAUGE.md:114	IX section 1
+lem:s29-slabs	docket68/n1star/proof5/PART-IX-GAUGE.md:98-102	facts from the proof of [BGP] Theorem 3.2.11 (pp. 85-86) used by IX Lemma 1.1	private lemma, proved from thm:std-bgp-causal (2)-(4) and thm:std-bgp-development
+lem:ix-1-1	docket68/n1star/proof5/PART-IX-GAUGE.md:116	IX Lemma 1.1	verifier attribution at 131 dropped
+lem:ix-1-2	docket68/n1star/proof5/PART-IX-GAUGE.md:144	IX Lemma 1.2	III.B (3.5) cited as prop:iii-b-3-6
+sec:ix-2	docket68/n1star/proof5/PART-IX-GAUGE.md:188	IX section 2
+lem:ix-2-1	docket68/n1star/proof5/PART-IX-GAUGE.md:190	IX Lemma 2.1	program checks X1-X7 (lines 193, 198, 204, 208, 214, 221) replaced by written derivations: (a) the linearised Ricci formula and 2 delta G delta* w = -box w - Ric w; (c)-(f) written out
+thm:ix-2-2	docket68/n1star/proof5/PART-IX-GAUGE.md:223	IX Theorem 2.2	X8 (line 281) replaced by the written noncharacteristic induction of Step 3; the zero extension shown directly
+cor:ix-2-3	docket68/n1star/proof5/PART-IX-GAUGE.md:297	IX Corollary 2.3	verifier attribution at 311 dropped
+rem:ix-2-4	docket68/n1star/proof5/PART-IX-GAUGE.md:323	IX Remark 2.4	(b): "the section 8.2 routes keep their status" replaced by the decay results proved later, cited as thm:rw-settling and thm:harmonic-rate; verifier attribution at 336 dropped

@@ -717,7 +717,13 @@ being real and discrete. ℳ_(α_0) = ∅ for α_0 < λ_♯ + 1.
 [[sec:iii-i7-1]] with α for α_K), let 𝒴_2(α) be the sections supported in supp χ^♯_K ([[eq:iii-i-1-2]]; so
 vanishing near ℐ⁺ and for t^♭_* < 10) lying in ⋂_ε H^(∞,∞,(ℰ_+++2,4−ε),α)_b, and 𝒴(α) := 𝒴_1(α) + 𝒴_2(α), real
 sections ([Hin26, (11.155)] in dimension 4 + 1). "h small" means as in [[sec:iii-i7-1]]. The base points have
-parameter b ∈ ℬ̄_*, as throughout.
+parameter b ∈ ℬ̄_*, as throughout. 𝒴(α) is a Fréchet space, and bounds in it are taken in one fixed seminorm
+‖·‖_(𝒴(α)): the quotient norm on 𝒴_1(α) + 𝒴_2(α) of the two defining spaces at one finite regularity and one ε > 0.
+The regularity is taken so large, and ε so small, that the linear maps used below, which are continuous on 𝒴(α)
+uniformly for (h, p⃗) small and b ∈ ℬ̄_* ([[lem:iii-i8-3-2]], [[prop:iii-i8-4-1]] (i)), are bounded in this seminorm;
+and d is taken so large that the bounds of [[lem:iii-i8-2-6]] (b) and [[lem:s21-motions-at-b]] in it are bounds by
+‖h‖. In the same way ‖·‖_(α′) is one fixed seminorm of the space of the hypothesis of [[lem:iii-i8-3-2]] at the level
+α′.
 
 ### Corrections of the third kind and the operator {#sec:iii-i8-2}
 
@@ -901,7 +907,7 @@ forcing of plain ι⁺-weight 4 − ε whose boost parameter is that of F (Ṡ(L
 α_+ < 2: u − u_F has K⁺-weight α′_K − 2 for every α′_K < 2. With α′_K > α_0 + 2 − a_K (possible, as a_K > α_0),
 (L − L_b)u has K⁺-weight above α_0 and ι⁺-weight above 4 − ε, which is the conclusion of Step 0 of the proof of
 [[prop:iii-i6-2-1]]. Write f′_1 := F_1 − (L − L_b)u ∈ 𝒴_1(α_0), so that L_bu = f′_1 + F_2. *Step 1* applies
-[[prop:iii-i1-3-1]] to f′_1 alone (Ĕ_+ = ∅), and f^♭_0 := f′_1 − L_bu_I + F_2; its ι⁺-terms below α^♯_+ + 2 have
+[[prop:iii-i1-3-1]] (at b, [[prop:iii-i2-5-1-b]]) to f′_1 alone (Ĕ_+ = ∅), and f^♭_0 := f′_1 − L_bu_I + F_2; its ι⁺-terms below α^♯_+ + 2 have
 exponents in (ℰ^♯_+ ∪ ℰ_++) + 2, with coefficients from L_bu_I (vanishing near K⁺) or from F_2 (supported in
 supp χ^♯_K, away from ℐ⁺), and [[eq:iii-i5-2-3]] is taken with ℰ_++ added to the excluded exponents (still finitely
 many below 2). *Step 2* takes c_K := α_0, so ℓ_K(λ_0) = α_0 − Re λ_0; its exclusions hold by admissibility, and
@@ -913,8 +919,9 @@ min(Re λ_0 − 1, ℓ_K(λ_0)) − ε > α_0 − 2 for ε small. The iteration 
 f^♭ ∈ ⋂_ε H^(∞,ℓ_I+1,4−ε,α_0−ε)_b, and Steps 3–6 apply with α_0 − ε′ for α_K, for every small ε′ (their hypotheses on
 α_K are open conditions). [[sec:iii-i7-4]] uses [[prop:iii-i4-4-1]] (1), whose space of forcings contains 𝒴(α_0)
 (F_2 has ι⁺-weight above α_+ + 2 for α_+ < min Re ℰ_++), [[prop:iii-i6-2-1]], and, in [[lem:iii-i7-4-1]] and in the
-proof of [[prop:iii-i15-2-12]], the bound of the difference of L and the reference operator applied to the solution in
-𝒴_1(α_0), unchanged. ∎
+proof of [[prop:iii-i15-2-12]], the bound of the difference of L and the reference operator applied to the solution,
+in the space 𝒴^S_(α,α_+) of [[sec:iii-i7-4]] for the boost parameter and in 𝒴_1(α_0) for the parameters
+(ḃ, Ṡ⁽⁰⁾_1), unchanged. ∎
 
 **Lemma {#lem:iii-i8-3-2}** (The expansion; [Hin26, Proposition 11.51, Part 1] in dimension 4 + 1.) Let α′ < α be
 admissible, α − α′ < a_K − 2, let p⃗ (with parameter b ∈ ℬ̄_*) and h be small, and F ∈ 𝒴(α). Suppose that the forward

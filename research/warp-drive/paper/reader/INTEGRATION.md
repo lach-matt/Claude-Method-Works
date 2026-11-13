@@ -206,3 +206,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   t = 1 + τ0 − τ ..." (sent to the front-matter fix round); Ch 10 must write h_P(τ) (sent to the Ch 10 fix round).
 - S23 fix: S24 and S25 still use ρ for the rows (S22/S23 use ψ) and S24 still writes N_* (N_E rule). S23's inequality
   uses ε_ind as one constant across S13 (ϵ_ind) and S15 (ε_ind); the S23 confirming reader rules on it.
+
+## S25 arrangement (decided 2026-11-13, from R-S25)
+
+- No genuine circularity, but S25 cannot sit wholly before or after S20-S24. The reader's arrangement is adopted:
+  new chapter 38a (ch:s25a, before S20): def:s25-at-b, (P1)-(P5), the s20 injectivity lemmas, rem:iii-i15-1-2,
+  prop:iii-i2-5-1-b; S21 receives (P6); S22 receives Lemma 1.2 and E^ν's ♮-class; S23 receives Lemma 2.1, §2.7 (moved
+  from S22) and §2.2-2.5 before III.J; chapter 44 keeps Theorem 3.1 and Corollary 3.2.
+- Step 1 (running): 38a created, Majors 2-3 and the minors fixed in 44/38a. Step 2 (after the S21, S22 and S23 fix
+  rounds and readings settle): move the listed parts into S21-S23 and re-read the four chapters' joins.

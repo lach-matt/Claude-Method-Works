@@ -371,11 +371,11 @@ is used in its form at b, named in the entry where it differs from the form at b
 
 ### The tame theorems {#sec:iii-j2-4}
 
-**Theorem {#thm:iii-j2-4-1}** (The tame form of the forward problem with parameters.) Let ε ∈ (0, ε_1], and let ε′(ε,
-j) ∈ (0, ε], j ∈ ℕ₀, non-increasing in j, be the input losses that [[thm:iii-i14-3-1]] assigns to the output loss ε
-([[sec:iii-j2-1]]; independent of j for the statements listed there). There are d, d_0 ∈ ℕ and δ_𝔹 > 0 such that for (h,
-p⃗, q) with ‖h‖_(𝒳^(d_0)) + |p⃗| + ‖q‖_(𝒬^(d_0)) < δ_𝔹 the maps F ↦ (h′, p⃗′, q′) of [[thm:iii-i14-3-1]] (at a rotating
-black hole parameter, of [[prop:iii-i15-2-5]]) satisfy, for every k ∈ ℕ₀,
+**Theorem {#thm:iii-j2-4-1}** (The tame form of the forward problem with parameters.) Let ε ∈ (0, ε_1], and let
+ε′(ε, j) ∈ (0, ε], j ∈ ℕ₀, non-increasing in j, be the input losses that [[thm:iii-i14-3-1]] assigns to the output loss
+ε ([[sec:iii-j2-1]]; independent of j for the statements listed there). There are d, d_0 ∈ ℕ and δ_𝔹 > 0 such that for
+(h, p⃗, q) with ‖h‖_(𝒳^(d_0)) + |p⃗| + ‖q‖_(𝒬^(d_0)) < δ_𝔹 the maps F ↦ (h′, p⃗′, q′) of [[thm:iii-i14-3-1]] (at a
+rotating black hole parameter, of [[prop:iii-i15-2-5]]) satisfy, for every k ∈ ℕ₀,
 
     ‖h′‖_k + |p⃗′| + ‖q′‖_k ≤ C_k (‖F‖_(k+d) + (‖h‖_(k+d) + |p⃗| + ‖q‖_(k+d)) ‖F‖_d),                  {#eq:iii-j2-4-1}
 

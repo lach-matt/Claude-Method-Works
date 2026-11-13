@@ -392,21 +392,22 @@ At the numerical point of [[ch:lambda0]] (μ0 = 1, l5 = 1/10, a = δ0 = q0/2, A 
 μ0/a² = 4/q0² = 4 (1250/9)^(1/4), and 1250/9 > 28561/256 = (13/4)⁴ gives μ0/a² > 13.
 
 (ii) No ε1 ≥ 0.6013096 serves for [[lem:domain]] (e) there. On the outer boundary v = V + 1 + τ_end − τ ≥ V + 1 > v_end,
-so μ = μ_end there, and r ≤ b(τ0), with equality at its corner with Σ_τ0; so the least value of (3 + μ/r²)/5 on it is λ*
-:= (3 + μ_end/b(τ0)²)/5, attained at the corner. Here μ_end = 1 + (2/9)(105/128) = 227/192 and V = 9/2. With q_end :=
-(√72 μ_end l5²)^(1/4), the value of r_q at v = V, one has τ_end ≥ V − q_end, so b(τ0) = V + 1 + τ_end − 2τ0 ≥ 14 −
-q_end. Since q_end⁸ = 72 μ_end² l5⁴ = 51529/5120000 = 0.0100642… is less than 0.5628⁸ = 0.0100654…, q_end < 0.5628,
-b(τ0) > 13.4372 and λ* < (3 + (227/192)/13.4372²)/5 = 0.60130959… < 0.6013096. Now let n := (1, −2x̂)/√5, a Euclidean
-unit vector field, n ⊗ n the tensor of Cartesian components n_a n_b, and g := g0 − λ* n ⊗ n, so that |g − g0| = λ*. The
-vector n lies in ker d(v + τ), being the case s = −2/√5 of the proof of [[lem:eigen]], so g0(n, n) = (3 + m)/5, and
-g0(n, (0, X⊥)) = 0 when x̂·X⊥ = 0. In the Euclidean orthonormal basis of ker d(v + τ) formed by n and three vectors (0,
-X⊥), g0 is diag((3 + m)/5, 1, 1, 1) and g is diag((3 + m)/5 − λ*, 1, 1, 1), which at the corner is diag(0, 1, 1, 1): the
-outer boundary is null for g there. And g is Lorentzian on Ω. In the plane of the τ- and x̂-directions the Cartesian
-block of g0 is [[−1 + m, m], [m, 1 + m]], with inverse [[−1 − m, m], [m, 1 − m]], so nᵀ g0⁻¹ n = (3 − 9m)/5, and by the
-rank-one formula det(M − c n nᵀ) = det M (1 − c nᵀ M⁻¹ n), det g = −(1 − λ* (3 − 9m)/5) < 0, since λ* < 1 and m > 0.
+so μ = μ_end there, and r ≤ b(τ0), with equality at its corner with Σ_τ0; so the least value of (3 + μ/r²)/5 on it is
+ε_out := (3 + μ_end/b(τ0)²)/5, attained at the corner. Here μ_end = 1 + (2/9)(105/128) = 227/192 and V = 9/2. With
+q_end := (√72 μ_end l5²)^(1/4), the value of r_q at v = V, one has τ_end ≥ V − q_end, so b(τ0) = V + 1 + τ_end − 2τ0 ≥
+14 − q_end. Since q_end⁸ = 72 μ_end² l5⁴ = 51529/5120000 = 0.0100642… is less than 0.5628⁸ = 0.0100654…,
+q_end < 0.5628, b(τ0) > 13.4372 and ε_out < (3 + (227/192)/13.4372²)/5 = 0.60130959… < 0.6013096. Now let
+ν := (1, −2x̂)/√5, a Euclidean unit vector field, ν ⊗ ν the tensor of Cartesian components ν_a ν_b, and
+g := g0 − ε_out ν ⊗ ν, so that |g − g0| = ε_out. The vector ν lies in ker d(v + τ), being the case s = −2/√5 of the
+proof of [[lem:eigen]], so g0(ν, ν) = (3 + m)/5, and g0(ν, (0, X⊥)) = 0 when x̂·X⊥ = 0. In the Euclidean orthonormal
+basis of ker d(v + τ) formed by ν and three vectors (0, X⊥), g0 is diag((3 + m)/5, 1, 1, 1) and g is
+diag((3 + m)/5 − ε_out, 1, 1, 1), which at the corner is diag(0, 1, 1, 1): the outer boundary is null for g there. And
+g is Lorentzian on Ω. In the plane of the τ- and x̂-directions the Cartesian block of g0 is [[−1 + m, m], [m, 1 + m]],
+with inverse [[−1 − m, m], [m, 1 − m]], so νᵀ g0⁻¹ ν = (3 − 9m)/5, and the rank-one determinant formula with
+det g0 = −1 gives det g = det g0 (1 − ε_out νᵀ g0⁻¹ ν) = −(1 − ε_out (3 − 9m)/5) < 0, since ε_out < 1 and m > 0.
 Since g is the identity on the three directions (0, X⊥), it has at least three positive eigenvalues, and, its
-determinant being negative, exactly one negative one. So (e) fails for every ε1 ≥ λ*, in particular for every ε1 ≥
-0.6013096.
+determinant being negative, exactly one negative one. So (e) fails for every ε1 ≥ ε_out, in particular for every
+ε1 ≥ 0.6013096.
 
 (iii) s0 lies between 0.030768559 and 0.030768560, so there ε1 < 0.0308. On the inner sphere of Σ_τ_end,
 v = τ_end + a ≥ V − q_end + a > v_end, as V − v_end = 1 > q_end, so μ = μ_end there and m* = μ_end/a² =
@@ -527,7 +528,7 @@ equation is (3μ'/(2r³) − (1/3) A² env² h² (c⁴ + s⁴) r⁻³) dv ⊗ dv
 μ' = (2/9) A² env² h² (c⁴ + s⁴), that is [[eq:mu-rate]]. ∎
 
 This is Isaacson's effective stress as a five-dimensional null dust along dv ([Isa68a], [Isa68b]). The quadratic form
-q1² + q1 q2 + q2² of the proof is positive definite: 4(x² + xy + y²) = (2x + y)² + 3y².
+q1² + q1 q2 + q2² of the proof is positive definite: 4(q1² + q1 q2 + q2²) = (2q1 + q2)² + 3q2².
 
 The same structure holds exactly, with no expansion in λ, in the Bondi-type variables of [[thm:bondi-law]]. Let
 β, W, U, P1, P2 be smooth functions of (v, r, ϑ), put y = (y¹, y², y³) := (ϑ, φ1, φ2), U^k := (U, 0, 0),
