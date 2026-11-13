@@ -47,7 +47,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | running | - |
 | 65 M Ch 15 | written (1,132 lines, 58 crosswalk rows, no markers); independent reader running | - | - |
 | 70 M Ch 17 | written (1,624 lines, 102 labels; B2 merged with 4.683; P-B merged pre-fix, to re-merge; 3 computational markers, proof project running) | - | - |
-| being written: 66, 71 (writers running); 80 being written; 81-87, 90 not yet written | not yet written | - | - |
+| 66, 71, 80-90 | being written: 66, 71, 80 (writers running); 81-87, 90 not yet written | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | CONFIRMED (5 nits); CD03 block and Sbierski entry to be read after their edits |
 
 ## Proof files (merged into their chapters after an independent reading)
