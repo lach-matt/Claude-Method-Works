@@ -88,7 +88,9 @@ derivatives, and ∂_t = t_*⁻¹ (t_*∂_(t_*)) at fixed x. So [[eq:viii-2-3]] 
 
     |h|_k ≤ C ‖(γ̇, k̇)‖_(H^(k₁)) t_*^(−w+ε′)     on {r_♭ ≤ r ≤ R′, t_* ≥ T′}.                              {#eq:gd-0-2}
 
-We take T′ ≥ 0; then this set lies in N⁺, as t_IVP ≥ t_* there ([[cor:ix-2-3]]).
+Enlarging T′, we take T′ ≥ 0. The set in [[eq:gd-0-2]] contains points with r = r_♭, which do not lie in
+N⁺ = M°_♭ ∩ {t_IVP ≥ 0}, M°_♭ = ℝ_t × {|x| > r_♭}. Its part in {r > r_♭} lies in N⁺, as t_IVP ≥ t_* ≥ T′ ≥ 0 there
+([[cor:ix-2-3]]); [[eq:gd-0-2]] is used below only on that part.
 
 ### The decomposition on the spheres {#sec:rw-spheres}
 
@@ -100,8 +102,8 @@ operator 𝒢 := [(2/3)Δ̂(Δ̂ + 3)]⁻¹ is defined on class functions of mea
 
 - the *l = 0 part* h_0 := ⟨h_ab⟩ dy^a dy^b + 2r²⟨H_L⟩ γ, where H_L := γ^(ij)h_ij/(6r²);
 - the *1-form potentials* β_a := Δ̂⁻¹ D̂^i h_ai, with ⟨β_a⟩ = 0;
-- the *scalar potential* τ := 𝒢 D̂^iD̂^j h^TF_ij;
-- the *tensor part* h^TT := h^TF − (D̂D̂ − (1/3)γΔ̂)τ.
+- the *scalar potential* 𝓉 := 𝒢 D̂^iD̂^j h^TF_ij;
+- the *tensor part* h^TT := h^TF − (D̂D̂ − (1/3)γΔ̂)𝓉.
 
 h_0 is the average of h over SO(4): the orbit components average to ⟨h_ab⟩, the mixed ones to 0 (S³ carries no
 SO(4)-invariant 1-form), and the angular block to an invariant symmetric tensor on S³, a multiple of γ, fixed by its
@@ -120,7 +122,7 @@ and for a symmetric 2-tensor T on S³, with L_i the Lie derivative along Ω_i an
 Moreover Σ_i Ω_i² = Δ̂ on functions, and Σ_i (Ω_i w)² = |D̂w|².
 
 *Proof.* The harmonics of degree l on S³, the restrictions of the harmonic polynomials of degree l on R⁴, form a space
-of dimension (l + 1)², on which −Δ̂ = l(l + 2). For an L²-orthonormal basis Y_1, …, Y_((l+1)²) of it, Σ_m |Y_m(ω)|² does
+of dimension (l + 1)², on which −Δ̂ = l(l + 2). For an L²-orthonormal basis S_1, …, S_((l+1)²) of it, Σ_m |S_m(ω)|² does
 not depend on the basis and is carried to itself by the rotations, so it is constant, equal to
 (l + 1)²/|S³| = (l + 1)²/(2π²). By Cauchy–Schwarz in the coefficients, |w_l(ω)| ≤ (l + 1)‖w_l‖/(2π²)^(1/2) for w_l of
 degree l. So, by Cauchy–Schwarz in l,
@@ -136,11 +138,12 @@ u = w(x/|x|) and polarised, Σ_i ∫ (Ω_iw)(Ω_iw′) dω = ∫ ⟨D̂w, D̂w�
 inequality.
 
 For T: extend T to R⁴ ∖ 0 by T(PX, PY), P = 1 − xxᵀ/|x|² the projection onto the tangent spaces of the spheres; its
-Cartesian components T_AB (A, B = 1, …, 4) restrict to functions on S³ with Σ_(A,B) T_AB² = |T|². The rotations
+Cartesian components T_IJ (I, J = 1, …, 4) restrict to functions on S³ with Σ_(I,J) T_IJ² = |T|². The rotations
 preserve P, so the Lie derivative of the extension along Ω_i is the extension of L_iT, and in Cartesian components
-Ω_i(T_AB) = (L_iT)_AB − (ωᵀT + Tω)_AB, ω the constant antisymmetric generator of Ω_i, of operator norm 1. So, with
+Ω_i(T_IJ) = (L_iT)_IJ − (A_iᵀT + TA_i)_IJ, A_i the constant antisymmetric matrix with Ω_i = A_ix · ∂_x, of operator
+norm 1. So, with
 |·|_F the Frobenius norm, |Ω_iT|_F ≤ |L_iT| + 2|T| and |Ω_iΩ_jT|_F ≤ |L_iL_jT| + 2|L_jT| + 2|L_iT| + 4|T|. Sum the
-inequality for functions over (A, B), use (a + b + c + d)² ≤ 4(a² + b² + c² + d²) and count the six rotations: the
+inequality for functions over (I, J), use (a + b + c + d)² ≤ 4(a² + b² + c² + d²) and count the six rotations: the
 coefficient of ‖T‖² is 1 + 4 · 16 · 36 = 2305, that of Σ_i ‖L_iT‖² is 4 · 4 · 6 + 4 · 4 · 6 = 192, and that of
 Σ_(i,j) ‖L_iL_jT‖² is 4. ∎
 

@@ -711,11 +711,10 @@ be the partition of unity and ψ_i the cut-offs of that proof, ψ_i = 1 near sup
 Π := (V₁⋯V_qã)(V′₁⋯V′_rW′u) is Σ_i φ_iΠ, and on supp φ_i it equals (V₂⋯V_q(ψ_if))(V′₁⋯V′_r(ψ_ig)). In the chart of
 index i each V_l and each V′_l is a combination of the fields of 𝒱 (the two coordinate fields of ℝ² and the rotation
 fields of 𝕊³) with coefficients bounded with all their derivatives; expanding the compositions by Leibniz's rule, φ_iΠ is
-a finite sum of terms c(Q′(ψ_if))(Q″(ψ_ig)) with c bounded and Q′, Q″ compositions of at most q − 1 and at most r
-fields of 𝒱, so of at most m fields in all. In the chart, [[thm:std-gn-moser]] (2) bounds each term in L² by C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) +
-‖ψ_if‖_(H^m)‖ψ_ig‖_(L^∞)), and the chart comparison and the boundedness of multiplication by ψ_i in the proof of
-[[lem:iv1-2-3]] bound these norms by those of f and g. Summing over i gives
-
+a finite sum of terms c(Q′(ψ_if))(Q″(ψ_ig)) with c bounded and Q′, Q″ compositions of at most q − 1 and at most r fields
+of 𝒱, so of at most m fields in all. In the chart, [[thm:std-gn-moser]] (2) bounds each term in L² by
+C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) + ‖ψ_if‖_(H^m)‖ψ_ig‖_(L^∞)), and the chart comparison and the boundedness of multiplication by
+ψ_i in the proof of [[lem:iv1-2-3]] bound these norms by those of f and g. Summing over i gives
     ‖(V₁⋯V_qã)(V′₁⋯V′_rW′u)‖ ≤ C(‖V₁ã‖_(L^∞)‖W′u‖_(H^m_b) + ‖V₁ã‖_(H^m_b)‖W′u‖_(L^∞))
                               ≤ C(‖ã‖_(H⁴)‖u‖_(H^((1;m))) + ‖ã‖_(H^(m+1))‖u‖_(H^((1;3)))),
 

@@ -145,12 +145,15 @@ and homogeneous of degree −p on 𝒞_1 = {r ≥ 1, 0 ≤ s ≤ 3/2} ⊃ W. The
 dilation (Section [[sec:far-homogeneity]]). G-invariance: G_(k,n) and F_(p,n) are Taylor coefficients at v = v1 of the
 G-invariant G_k ([[lem:cutoff-polynomial]]) and Σ_p ([[lem:own-sigma-data]] (c)).
 
-(b) For p ∈ Π let M_p := ⌊J/2 − p⌋ ≥ 0 and split Σ_p = Σ_(n≤M_p) r^(−p−n) (v − v1)^n F_(p,n) + r^(−p) s^(M_p+1) ρ_p(s,
-x̂), with ρ_p smooth on [0, 3/2] × S³ (Taylor's formula with integral remainder; F_p is smooth there by
-[[lem:own-self-similar]]). The polynomial part of Σ consists of the monomials r^(−k/2)(v − v1)^n F_(k/2−n, n) with k ≤
-J. By [[lem:cutoff-polynomial]], H_J is the sum of the monomials r^(−k/2)(v − v1)^n G_(k,n), k ≤ J, and G_(k,n) =
-F_(k/2−n, n) at the weights above −4; at the weights −4 and below, the coefficient of Σ plus that of Σ′_J is F_(k/2−n,n)
-+ (G_(k,n) − F_(k/2−n,n)) = G_(k,n). Hence, by [[eq:cutoff-hj]],
+(b) For p ∈ Π let M_p := ⌊J/2 − p⌋ ≥ 0 and split
+
+    Σ_p = Σ_(n≤M_p) r^(−p−n) (v − v1)^n F_(p,n) + r^(−p) s^(M_p+1) ρ_p(s, x̂),
+
+with ρ_p smooth on [0, 3/2] × S³ (Taylor's formula with integral remainder; F_p is smooth there by
+[[lem:own-self-similar]]). The polynomial part of Σ consists of the monomials r^(−k/2)(v − v1)^n F_(k/2−n, n) with
+k ≤ J. By [[lem:cutoff-polynomial]], H_J is the sum of the monomials r^(−k/2)(v − v1)^n G_(k,n), k ≤ J, and
+G_(k,n) = F_(k/2−n, n) at the weights above −4; at the weights −4 and below, the coefficient of Σ plus that of Σ′_J is
+F_(k/2−n,n) + (G_(k,n) − F_(k/2−n,n)) = G_(k,n). Hence, by [[eq:cutoff-hj]],
 
     m_J = u_J − Σ_(p∈Π) r^(−p) s^(M_p+1) ρ_p(s, x̂).
 
@@ -160,9 +163,10 @@ r^(−i′) ∂_s^(i′)(s^(M+1) ρ′) with ρ′ smooth, each at most C r^(−
 J/2 − p ∈ ½ℤ. ∎
 
 **Remark {#rem:cutoff-weights}** (what is new in Σ′_J). The weight −4 terms of Σ′_J are r⁻⁴ s^n (G_(8+2n,n) − F_(4,n)),
-n ≥ 1: the component of degree −4 of g_λ − g_b0 solves −½ □_η = −Q_6 (the term of degree −6 of [[prop:far-residual]])
-where Σ_4 solves □_η Σ_4 = 0, and the two agree at s = 0. The terms of weight −9/2 and below are the higher homogeneous
-components of g_λ − g_b0, truncated as polynomials in s. Their sizes in λ are not controlled here and are not needed.
+n ≥ 1. They are nonzero in general: at weight −4 the terms R_q of [[eq:cutoff-recursion]] are the products of two
+factors of weight −2, or of μ with one, the terms of which Q_6 of [[prop:far-residual]] is made, whereas Σ_4 solves
+□_η Σ_4 = 0; the two agree at s = 0. The terms of weight −9/2 and below are the higher homogeneous components of
+g_λ − g_b0, truncated as polynomials in s. Their sizes in λ are not controlled here and are not needed.
 
 ### The truncated problems and the initial slice {#sec:cutoff-cap}
 

@@ -1434,10 +1434,10 @@ meromorphic in Re ι < β with poles only at ι ∈ π₁F, of order at most k(F
 away from the poles |ι|^J ‖ℳg(ι)‖_(H^J(∂M)) is square-integrable for every J, uniformly on compact sets of real parts.
 
 **Lemma {#lem:iii-a-1-4}** ([Hin26, Lemma 2.13], boundary spectrum and polyhomogeneity.) Let
-χ ∈ C_c^∞([0, ½ρ₀)) equal 1 on [0, ¼ρ₀] and χ̃ ∈ C_c^∞([0, ρ₀)) equal 1 on [0, ½ρ₀]. Suppose χ̃u ∈ H^(∞,α)_b(M) and
-χAu ∈ H^(∞,(F,β))_b(M) with β ≠ Re ι for all ι ∈ spec_b(A). Let E(α) be the smallest index set containing the
-(ι, k) ∈ Spec_b(A) with Re ι > α, E_0 := E(α) ∪̄ F, E_(k+1) := E(α) ∪̄ (F ∪̄ (E_k + 1)), E := ⋃_k E_k. Then
-χ̃u ∈ H^(∞,(E,β))_b(M).
+A ∈ Diff^m_b(M; ℂ^(N_E)) be elliptic near ρ = 0, χ ∈ C_c^∞([0, ½ρ₀)) equal 1 on [0, ¼ρ₀] and χ̃ ∈ C_c^∞([0, ρ₀))
+equal 1 on [0, ½ρ₀]. Suppose χ̃u ∈ H^(∞,α)_b(M) and χAu ∈ H^(∞,(F,β))_b(M) with β ≠ Re ι for all ι ∈ spec_b(A). Let
+E(α) be the smallest index set containing the (ι, k) ∈ Spec_b(A) with Re ι > α, E_0 := E(α) ∪̄ F,
+E_(k+1) := E(α) ∪̄ (F ∪̄ (E_k + 1)), E := ⋃_k E_k. Then χ̃u ∈ H^(∞,(E,β))_b(M).
 
 *Proof.* If β ≤ α there is nothing to prove (H^(∞,α)_b ⊂ H^(∞,(E,β))_b), so let β > α. If some exponent of F has real
 part β, remove those finitely many terms χρ^z(log ρ)^j f_(z,j) of χAu first: N(A, ·)⁻¹ is holomorphic on Re ι = β, so
