@@ -1091,9 +1091,9 @@ B̄_1 (all distances in the norm of 𝒢̃^(0,(1,0,0))_(e3b), over the set named
 b₀. By (B2) and [[eq:s19-time-hyp-b]], ‖g_b − g_(b₀)‖ < η_♭/2 over {t_* ≥ ½, r ≥ r₀ − δ₀}, and ‖g − g_(b₀)‖ < η_♭
 and ‖g − g_b‖ < 3η_♭/2 over Ω_*; so g_b and g lie within η_♭ of g_(b₀), the metrics of the third kind within
 (3K_♭ + 1)η_♭/2 < ϵ_G of g_(b₀), as η_♭ ≤ ϵ_G/(4K_♭ + 2), and those of the fourth kind within ϵ_G/2 + η_♭/2 < ϵ_G. So
-(A) of [[rem:ii-f1-7-4]], for t^♭ and g_(b₀), holds for all of them: the properties of [[lem:ii-c-3-2]] (1)–(2) on Ω,
-and those that [[lem:ii-e-1-2]] (iv) asks below Ω. The other uses of t^♭ in that proof, (B) of [[rem:ii-f1-7-4]],
-concern the function alone.
+(A) of [[rem:ii-f1-7-4]], for t^♭ and g_(b₀), holds for all of them, with the r^♯, δ_♮ and η_0 of that remark for
+g_(b₀): the properties of [[lem:ii-c-3-2]] (1)–(2) on Ω, and those that [[lem:ii-e-1-2]] (iv) asks below Ω. The other
+uses of t^♭ in that proof, (B) of [[rem:ii-f1-7-4]], concern the function alone.
 
 (iii) The orders ([[sec:ii-f1-2-3]]), fixed by (B4).
 

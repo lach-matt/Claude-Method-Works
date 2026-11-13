@@ -266,9 +266,9 @@ on the constraint. First,
 
 Second, [[eq:loc-moncrief]]; it gives the statement about the map ℓ ↦ (A, F): for (A, F) with C = 0 and compact support,
 F = 9Rf³(ℓ′ + κ_Mℓ)/(2k²H_KI) by [[eq:loc-moncrief]] and A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F by the definition of ℓ;
-conversely, for (A, F) built from a given ℓ, the variable ℓ of (A, F) is the given one, and [[eq:loc-moncrief]] gives C =
-0. Third, substituting A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F into E_red, the terms in F′² cancel (24R³f − 2R³(k² + 12f) +
-2k²R³ = 0), and
+conversely, for (A, F) built from a given ℓ, the variable ℓ of (A, F) is the given one, and [[eq:loc-moncrief]] gives
+C(A, F) = 0. Third, substituting A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F into E_red, the terms in F′² cancel (24R³f − 2R³(k² +
+12f) + 2k²R³ = 0), and
 
     E_red = (k²/2)Rf²ℓ² + c_1ℓF + c_2ℓF′ + c_3F² + c_4FF′,
     c_1 := −(k²R/3)(2m − 9 + 21x),        c_2 := R²f(m − 9 + 12x),
@@ -281,7 +281,7 @@ Fourth, with c_2ℓF′ = (c_2ℓF)′ − c_2′ℓF − c_2ℓ′F and c_4FF�
     e_1 := c_1 − c_2′ = −(R/3)(2m² + 3m − 81 + 21mx + 63x + 72x²),
     e_0 := c_3 − ½c_4′ = (2k²R/(9f²))(m² − 6m + 15mx − 54x + 72x²).
 
-Fifth, on the constraint F = λ(ℓ′ + κ_Mℓ) with λ := 9Rf³/(2k²H_KI), and E_red = P_2ℓ′² + P_1ℓℓ′ + P_0ℓ² + (c_2ℓF +
+Fifth, on the constraint F = λ(ℓ′ + κ_Mℓ) with λ := 9Rf³/(2k²H_KI), so that E_red = P_2ℓ′² + P_1ℓℓ′ + P_0ℓ² + (c_2ℓF +
 ½c_4F²)′ with
 
     P_2 := −λc_2 + λ²e_0 = 27mR³f⁵/(2k²H_KI²),

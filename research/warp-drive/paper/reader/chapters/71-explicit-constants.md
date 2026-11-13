@@ -299,19 +299,19 @@ strip, d_ι is at most 7 + 2⌈ℓ_I − λ₋⌉ where Re ϰ < 2 − δ_ι, as 
 Re ϰ ≥ 2 − δ_ι (between 2 − δ_ι and 2 the value is 6 + 1 + 1 + 2⌈ℓ_I − Re ϰ⌉ ≤ 12); and the value 12 is attained at
 Re ϰ = 2, as ℓ_I − 1 > 2. If λ₋ > ℓ_I − 2, then 7 + 2⌈ℓ_I − λ₋⌉ ≤ 7 + 4 = 11, so sup d_ι = 12.
 
-(f) The proof of [[prop:iii-g3-2-4]] at finite regularity applies [[lem:iii-g3-2-2]], with the loss
-l = 2⌈ℓ_I⌉ + 10 of its statement, and then [[thm:iii-g1-3-1]] (2) on the strip, and takes l′ := l + sup d_ι. Here,
-as in [[ch:s17]], λ ∈ ℂ is an exponent at ι⁺ with Re λ < ℓ_I (not the wavelength), and z is the variable of the
-ι⁺-normal operator N_(ι⁺)(z). The map of [[prop:iii-g3-3-7]] is continuous by [[prop:iii-g3-2-4]] on a strip
-containing λ, with the loss l′, and the l of its statement is this l′ (that of [[lem:iii-g3-3-5]]). Its right inverse applies the map u ↦ f of the proof of
-[[lem:iii-g3-3-5]], which applies the second-order operator N_(ι⁺) (loss 2), splits f = f₁ + f₂, keeps f₂, and maps
-f₁ to res_(z=λ)(t_*^(−z)N_(ι⁺)(z)⁻¹f₁(z)): a map of finite rank into the finite-dimensional space Res_(ι⁺)(L̄, λ) of
-[[def:iii-g3-3-6]], whose coefficients are integrals of the inverse of [[thm:iii-g1-3-1]] (2) over a small circle
-about λ in the strip, so bounded by the norm of order sup d_ι of f₁. So the right inverse costs at most
-2 + sup d_ι < l′ ([[lem:iii-j2-1-2]] (b), (c)), and the loss of [[prop:iii-g3-3-7]] is l′. [[cor:iii-g3-3-1]] (1)
-comes from [[prop:iii-g3-2-4]] on a strip containing its exponent, with the loss l′; its expansion (2) costs nothing
-beyond, and its continuous functionals are counted where a construction that uses them adds its losses. For 3 < ℓ_I < 3.5, ⌈ℓ_I⌉ = 4 and sup d_ι = 12 by (e),
-so l′ = 8 + 10 + 12 = 30.
+(f) The proof of [[prop:iii-g3-2-4]] at finite regularity applies [[lem:iii-g3-2-2]], with the loss l = 2⌈ℓ_I⌉ + 10 of
+its statement, and then [[thm:iii-g1-3-1]] (2) on the strip, and takes l′ := l + sup d_ι. Here, as in [[ch:s17]], λ ∈ ℂ
+is an exponent at ι⁺ with Re λ < ℓ_I (not the wavelength), and z is the variable of the ι⁺-normal operator N_(ι⁺)(z). The
+map of [[prop:iii-g3-3-7]] is continuous by [[prop:iii-g3-2-4]] on a strip containing λ, with the loss l′, and the l of
+its statement is this l′ (that of [[lem:iii-g3-3-5]]). Its right inverse applies the map u ↦ f of the proof of
+[[lem:iii-g3-3-5]], which applies the second-order operator N_(ι⁺) (loss 2), splits f = f₁ + f₂, keeps f₂, and maps f₁ to
+res_(z=λ)(t_*^(−z)N_(ι⁺)(z)⁻¹f₁(z)): a map of finite rank into the finite-dimensional space Res_(ι⁺)(L̄, λ) of
+[[def:iii-g3-3-6]], whose coefficients are integrals of the inverse of [[thm:iii-g1-3-1]] (2) over a small circle about λ
+in the strip, so bounded by the norm of order sup d_ι of f₁. So the right inverse costs at most 2 + sup d_ι < l′
+([[lem:iii-j2-1-2]] (b), (c)), and the loss of [[prop:iii-g3-3-7]] is l′. [[cor:iii-g3-3-1]] (1) comes from
+[[prop:iii-g3-2-4]] on a strip containing its exponent, with the loss l′; its expansion (2) costs nothing beyond, and its
+continuous functionals are counted where a construction that uses them adds its losses. For 3 < ℓ_I < 3.5, ⌈ℓ_I⌉ = 4 and
+sup d_ι = 12 by (e), so l′ = 8 + 10 + 12 = 30.
 
 (g) In the proof of [[prop:iii-a-4-2]], the transform bounds (T1) and (T3) lose 1 ([[prop:ii-g1-3-3]] (1)) and ℓ_F
 ([[prop:ii-g1-3-5]] (1)). Each factor of the products R_ι, R_K, R_I, R_tf and R_zf, applied through the converse of
@@ -569,31 +569,30 @@ the class data adding 23 chains, none coming nearer than 3 + 5.019·10⁻⁸. Th
 arithmetic and by certified enclosures of the irrational roots, at the scale of 10⁸ levels; they are not proved in
 this paper.
 
-**Remark {#rem:ec-integer-bound}** (Numerical observation.) At the weights of [[rem:ec-weights-observed]], with the
-least index sets E^C_I and E_+ that the proof admits, the base level's starting values a_K − 2, s_0, τ, t and
-α_0 := α_1, the order 14 for the error terms of the calculus (any order at least 10 serves), the class window taken
-wide and the window loop at its ceiling, every step of the construction was charged: the elementary losses by
-[[lem:ec-closed-forms]] and [[rem:ec-other-losses]], with the loss of [[cor:iii-f1-3-4]] charged ℓ_tf = 1, the value of
-the expression of [[lem:ec-closed-forms]] (d) there (the transition face model's incoming threshold being 0 there),
-and the background terms charged 2, the forward solution operators D_0 + D_1 + d′ + d″ + 6 ≤ 766 + 88 + 8 + 9 + 6 =
-877 ([[rem:ec-other-losses]]), with D_0 and D_1 bounded over the orders at which the calculus of [[ch:s04]] is used,
-the round of the iteration at ι⁺ charged 15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I
-(19 on (3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows
-[k + 1/2, k + 0.5099] where a step is added before d_ι rises), the steps of each level taken from the families that
-the inventory of [[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic
-orders of the index sets by induction over the construction's steps, and the index set at ι⁺ left unlisted by the
-construction computed from the constructions that define it (it adds no exponent). The applications of the level-2 step at one exponent act
-on separate terms of one forcing and none on another's output, so their losses do not add, and the count is the same
-whether that step is read once per exponent or once per exponent and power of the logarithm. With these charges the
-result is d_acc ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ (of which the base level's loops contribute 5.75 × 10¹⁴;
-with the calculus at order 10, d_acc = 46,236,501,332,809,678), against the lower bound 8.41 × 10¹⁵ at the same
-weights, and 21d_acc + 6 ≤ 970,966,868,316,550,587 ≈ 9.710 × 10¹⁷, which is a bound for N_NM when d_NM = d_acc; the
-bound of [[prop:ec-delta-cap]], evaluated at d = 46,236,517,538,883,361, reads log₁₀ ω_(2d)(2δ) < −4.45 × 10¹⁷. The
-count depends on the point: the windows of one construction step, ⌈(2 − ε − λ_♯)/𝔡₁⌉ = 1,470,302 at the
-computational point, become about a hundred times as many at e_Υ = 1/10000, where 𝔡₁ ≈ 3.33·10⁻⁹, so the
-bookkeeping gives no bound uniform over the admissible parameters. The integer was
-obtained by exact rational arithmetic over the 1.065 × 10⁸ levels and the 8.0 × 10⁷ steps of the base level; it is
-not proved in this paper, and no proof uses it.
+**Remark {#rem:ec-integer-bound}** (Numerical observation.) At the weights of [[rem:ec-weights-observed]], with the least
+index sets E^C_I and E_+ that the proof admits, the base level's starting values a_K − 2, s_0, τ, t and α_0 := α_1, the
+order 14 for the error terms of the calculus (any order at least 10 serves), the class window taken wide and the window
+loop at its ceiling, every step of the construction was charged: the elementary losses by [[lem:ec-closed-forms]] and
+[[rem:ec-other-losses]], with the loss of [[cor:iii-f1-3-4]] charged ℓ_tf = 1, the value of the expression of
+[[lem:ec-closed-forms]] (d) there (the transition face model's incoming threshold being 0 there), and the background
+terms charged 2, the forward solution operators D_0 + D_1 + d′ + d″ + 6 ≤ 766 + 88 + 8 + 9 + 6 = 877
+([[rem:ec-other-losses]]), with D_0 and D_1 bounded over the orders at which the calculus of [[ch:s04]] is used, the
+round of the iteration at ι⁺ charged 15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on
+(3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows [k + 1/2, k + 0.5099]
+where a step is added before d_ι rises), the steps of each level taken from the families that the inventory of
+[[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic orders of the index
+sets by induction over the construction's steps, and the index set at ι⁺ left unlisted by the construction computed from
+the constructions that define it (it adds no exponent). The applications of the level-2 step at one exponent act on
+separate terms of one forcing and none on another's output, so their losses do not add, and the count is the same whether
+that step is read once per exponent or once per exponent and power of the logarithm. With these charges the result is
+d_acc ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ (of which the base level's loops contribute 5.75 × 10¹⁴; with the calculus
+at order 10, d_acc = 46,236,501,332,809,678), against the lower bound 8.41 × 10¹⁵ at the same weights, and 21d_acc + 6 ≤
+970,966,868,316,550,587 ≈ 9.710 × 10¹⁷, which is a bound for N_NM when d_NM = d_acc; the bound of [[prop:ec-delta-cap]],
+evaluated at d = 46,236,517,538,883,361, reads log₁₀ ω_(2d)(2δ) < −4.45 × 10¹⁷. The count depends on the point: the
+windows of one construction step, ⌈(2 − ε − λ_♯)/𝔡₁⌉ = 1,470,302 at the computational point, become about a hundred times
+as many at e_Υ = 1/10000, where 𝔡₁ ≈ 3.33·10⁻⁹, so the bookkeeping gives no bound uniform over the admissible parameters.
+The integer was obtained by exact rational arithmetic over the 1.065 × 10⁸ levels and the 8.0 × 10⁷ steps of the base
+level; it is not proved in this paper, and no proof uses it.
 
 ### The first constants of the linear theory {#sec:ec-linear}
 
@@ -648,19 +647,19 @@ them.
 
 **Remark {#rem:ec-not-evaluated}** (Where explicit evaluation stops.) The values of λ1 and δ are not determined in this
 paper; [[prop:ec-delta-cap]] bounds λ1 by δ and the modulus at 2δ, and they are positive by the proof of
-[[thm:settling]]. Explicit values stop first upstream of every constant: the proof fixes the gauge and damping parameters only below thresholds
-whose existence it proves ([[thm:vi-c-2-1]]), and the cut-offs and orders of its function spaces only up to
-admissibility, so explicit constants need those choices made with numbers, which [[def:ec-point]] does only at a point
-outside the proved set. Among the inputs that depend on those choices are the gauge reconstruction, the inverse of the
-absorbed problem in the norms of [[ch:s01]] (invertible by a Fredholm argument, [[lem:rb-absorbed]], which gives no
-bound), and a lower bound, uniform in the harmonic, for the least singular value of the scalar-type blocks at zero
+[[thm:settling]]. Explicit values stop first upstream of every constant: the proof fixes the gauge and damping parameters
+only below thresholds whose existence it proves ([[thm:vi-c-2-1]]), and the cut-offs and orders of its function spaces
+only up to admissibility, so explicit constants need those choices made with numbers, which [[def:ec-point]] does only at
+a point outside the proved set. Among the inputs that depend on those choices are the gauge reconstruction, the inverse
+of the absorbed problem in the norms of [[ch:s01]] (invertible by a Fredholm argument, [[lem:rb-absorbed]], which gives
+no bound), and a lower bound, uniform in the harmonic, for the least singular value of the scalar-type blocks at zero
 energy ([[lem:rb-quasimode]] bounds it from above). Four kinds of argument give a constant without a value: a compact
-error removed by injectivity, by contradiction (the low-energy and Fredholm estimates of [[ch:s01]]–[[ch:s03]] and
-their analogues later); uniformity in the spectral parameter and in the black hole parameters near the final one, by
-sequences and compactness; the trapping estimate, by a defect-measure argument by contradiction ([[ch:s02]]), with the
-a priori constants built on it; and finite covers of compact parameter sets. Bounds obtained from the closed graph,
-open mapping and uniform boundedness theorems, among them the tame constants C_k of the membership statements
-([[lem:iii-j2-1-2]] (f)), also give no value until each is read off from the explicit estimates behind the statement.
-The parametrix norms at ι⁺ are not given by the construction of the parametrix, and the tame constants to the order
-N_NM, the Nash–Moser thresholds of the exterior and slab problems and the constants of the gluing are not evaluated.
-This is a limit of the explicit evaluation, not of [[thm:settling]].
+error removed by injectivity, by contradiction (the low-energy and Fredholm estimates of [[ch:s01]]–[[ch:s03]] and their
+analogues later); uniformity in the spectral parameter and in the black hole parameters near the final one, by sequences
+and compactness; the trapping estimate, by a defect-measure argument by contradiction ([[ch:s02]]), with the a priori
+constants built on it; and finite covers of compact parameter sets. Bounds obtained from the closed graph, open mapping
+and uniform boundedness theorems, among them the tame constants C_k of the membership statements ([[lem:iii-j2-1-2]]
+(f)), also give no value until each is read off from the explicit estimates behind the statement. The parametrix norms at
+ι⁺ are not given by the construction of the parametrix, and the tame constants to the order N_NM, the Nash–Moser
+thresholds of the exterior and slab problems and the constants of the gluing are not evaluated. This is a limit of the
+explicit evaluation, not of [[thm:settling]].
