@@ -4,60 +4,77 @@ eq:vlasov-class	docket68/n1star/FAMILIES5-AXIS.md:387-388; docket68/n1star/FAMIL
 eq:vlasov-box	docket68/n1star/FAMILIES5-VLASOV.md:228-229	VLASOV Prop Ax proof: sqrt|g5| = sqrt|h| e^(psi1+psi2)	written as an identity
 sec:vlasov-limits	docket68/n1star/FAMILIES5-FULL.md:401-500	FULL Part III	
 def:vlasov-field	docket68/n1star/FAMILIES5-FULL.md:417-421, 456-467	FULL III.1 ([HL19] 'restricted'), Prop V setting	definitions of restricted field and high-frequency limit made explicit
-prop:vlasov-limits	docket68/n1star/FAMILIES5-FULL.md:456-486 with the [R5] note 483-485	FULL Proposition V (a)-(c) and Consequence	weak-limit proof written; (b) by support of a positive measure; (c) Schur argument written; torusstress5 V2-V4 replaced by the written argument
+prop:vlasov-limits	docket68/n1star/FAMILIES5-FULL.md:456-486 with the [R5] note 483-485	FULL Proposition V (a)-(c) and Consequence	weak-limit proof written; (b) by support of a positive measure; (c) Schur argument written; torusstress5 V2-V4 replaced by the written argument; each dust separately conserved (Bianchi) added; K_in, K_out renamed
 rem:vlasov-divergence-form	docket68/n1star/FAMILIES5-FULL.md:461-464	FULL Prop V (a), 'Computed (V1)'	two-scale identity derived by hand; control (non-divergence operator) stated with its mean
 sec:vlasov-restricted	docket68/n1star/FAMILIES5-AXIS.md:385-433; docket68/n1star/FAMILIES5-VLASOV.md:223-241	AXIS section 4; VLASOV section 2.6	
 lem:vlasov-flow	docket68/n1star/FAMILIES5-AXIS.md:387-393; docket68/n1star/FAMILIES5-VLASOV.md:110-113, 228-229	AXIS V1; VLASOV setting; Prop Ax proof (H7 (a))	(c) the divergence identity derived by hand
 eq:vlasov-dust	docket68/n1star/FAMILIES5-VLASOV.md:113	VLASOV setting, the dust transport	
-def:vlasov-label	docket68/n1star/FAMILIES5-VLASOV.md:110-113, 119-120; docket68/n1star/FAMILIES5-R6.md:295-296	VLASOV setting; (V1) of VLASOV and of R6 section 3	field given by amplitude F with q = F^2 (the source transports sqrt q); 'labelled by initial direction' made explicit as injectivity (VLASOV (V1): nowhere-parallel initial gradients)
+def:vlasov-label	docket68/n1star/FAMILIES5-VLASOV.md:110-113, 119-120; docket68/n1star/FAMILIES5-R6.md:295-296	VLASOV setting; (V1) of VLASOV and of R6 section 3	field given by amplitude F with q = F^2 (the source transports sqrt q); 'labelled by initial direction' made explicit as injectivity (VLASOV (V1): nowhere-parallel initial gradients); branch fixed (g^-1 du_alpha future directed)
 eq:vlasov-stress	docket68/n1star/FAMILIES5-VLASOV.md:112	VLASOV setting, T_V	
 eq:vlasov-amplitude	docket68/n1star/FAMILIES5-VLASOV.md:113	VLASOV setting, 2 l(sqrt q) + (box u) sqrt q = 0	q = F^2
 lem:vlasov-axis-stress	docket68/n1star/FAMILIES5-AXIS.md:394-396, 402-403	AXIS V2	polynomial (degree <= 4) solve replaced by an invariance argument (reflection, evenness)
 rem:vlasov-axis-density	docket68/n1star/FAMILIES5-AXIS.md:397-403	AXIS V3	mpmath values replaced by the Laplace asymptotics 1/(2 sqrt pi)
 lem:vlasov-axis-phases	docket68/n1star/FAMILIES5-FULL.md:348-351, 356-357; docket68/n1star/FAMILIES5-VLASOV.md:236-238	FULL Part II (axisphase5 A1); VLASOV obstruction (O1)	proved from reflection and rotation invariance
-prop:vlasov-axis-focus	docket68/n1star/FAMILIES5-VLASOV.md:225-234; docket68/n1star/FAMILIES5-AXIS.md:425-431	VLASOV Proposition Ax (H7); AXIS [R5] note	meridional fixed set P written; e^(2 psi2) = rho2^2 g_44 on P; planar model H7 (b) derived
+prop:vlasov-axis-focus	docket68/n1star/FAMILIES5-VLASOV.md:225-234; docket68/n1star/FAMILIES5-AXIS.md:425-431	VLASOV Proposition Ax (H7); AXIS [R5] note	meridional fixed set P written; e^(2 psi2) = rho2^2 g_44 on P; planar model H7 (b) derived; stated as a non-existence result for a C2 metric (contradiction with continuity of Ric)
 sec:vlasov-theorem	docket68/n1star/FAMILIES5-R6.md:286-306	R6 section 3	
-thm:vlasov	docket68/n1star/FAMILIES5-R6.md:288-306 with [R7 m3] 308-309; docket68/n1star/FAMILIES5-VLASOV.md:115-127; paper/RESPONSE-HL-5D.md:1799-1806	Theorem V as restated in R6 section 3 (final), paper text	hypotheses (Omega), (V1)-(V3) as R6; injectivity in (V1) from VLASOV (V1); n for the number of dusts (N is the stage count)
-rem:vlasov-v2	docket68/n1star/FAMILIES5-R6.md:124-126	R6.0 'Proposition Ax's automatic'	the tangential case (ray lying in the axis) added to the argument; axial labels excluded explicitly
-rem:vlasov-obstructions	docket68/n1star/FAMILIES5-VLASOV.md:236-241	VLASOV obstructions (O1)-(O4)	
+thm:vlasov	docket68/n1star/FAMILIES5-R6.md:288-306 with [R7 m3] 308-309; docket68/n1star/FAMILIES5-VLASOV.md:115-127; paper/RESPONSE-HL-5D.md:1799-1806	Theorem V as restated in R6 section 3 (final), paper text	hypotheses (Omega), (V1)-(V3) as R6; injectivity in (V1) from VLASOV (V1); n for the number of dusts (N is the stage count); stated for Ric(g) = T_V (radial dusts: pending issue-82-radial); (V1)-(V2) on a compact set S; (V3) = H > 0
+rem:vlasov-v2	docket68/n1star/FAMILIES5-R6.md:124-126	R6.0 'Proposition Ax's automatic'	the tangential case (ray lying in the axis) added to the argument; axial labels excluded explicitly; simpler proof: rays are integral curves of a field tangent to the axes
+rem:vlasov-obstructions	docket68/n1star/FAMILIES5-VLASOV.md:236-241	VLASOV obstructions (O1)-(O4)	(V2-prime) sentence removed with the radial case
 sec:vlasov-coherence	docket68/n1star/FAMILIES5-VLASOV.md:169-197	VLASOV sections 2.2-2.3	
-lem:vlasov-separation	docket68/n1star/FAMILIES5-VLASOV.md:169-179	VLASOV Lemma S	Schur complement kept; compactness argument away from the diagonal written (uses injectivity)
+lem:vlasov-separation	docket68/n1star/FAMILIES5-VLASOV.md:169-179	VLASOV Lemma S	Schur complement kept; compactness argument away from the diagonal written (uses injectivity); proved on tubes of S-prime inside int S by a local inverse in the angle (near-diagonal step written)
 eq:vlasov-separation	docket68/n1star/FAMILIES5-VLASOV.md:171-172	Lemma S inequality	
-eq:vlasov-symbol	docket68/n1star/FAMILIES5-VLASOV.md:183-184	VLASOV section 2.3, Q_n	multi-index written j
+eq:vlasov-mixed-angle	-	new	the mixed symbol of two null covectors in an orthonormal frame, used by lem:vlasov-separation
+eq:vlasov-symbol	docket68/n1star/FAMILIES5-VLASOV.md:183-184	VLASOV section 2.3, Q_n	multi-index written j; K_j renamed (fraktur)
 lem:vlasov-resonance	docket68/n1star/FAMILIES5-VLASOV.md:184-186	VLASOV section 2.3 (H4 control)	written
 lem:vlasov-hierarchy	docket68/n1star/FAMILIES5-VLASOV.md:186-194; docket68/n1star/FAMILIES5-R6.md:123, 342-343	VLASOV Lemma C with the R6.0 nit (2m -> m)	sharpened constant proved (as R6 section 4.1 uses); frame bound written E-bar
 eq:vlasov-hierarchy	docket68/n1star/FAMILIES5-R6.md:342	Lemma C bound, sharpened	
-rem:vlasov-coherence-values	docket68/n1star/FAMILIES5-VLASOV.md:176-179, 196-197; docket68/n1star/FAMILIES5-R6.md:393-395, 400-402	H5, H4, nfamily5 N3-N4 values	numerical observation
+rem:vlasov-coherence-values	docket68/n1star/FAMILIES5-VLASOV.md:176-179, 196-197; docket68/n1star/FAMILIES5-R6.md:393-395, 400-402	H5, H4, nfamily5 N3-N4 values	numerical observation; radial-covector values dropped with the radial case
 sec:vlasov-polarisation	docket68/n1star/FAMILIES5-VLASOV.md:199-221	VLASOV sections 2.4-2.5	
 def:vlasov-torus-wave	docket68/n1star/FAMILIES5-VLASOV.md:201	Lemma P definition	amplitudes xi_i
 lem:vlasov-torus-ricci	docket68/n1star/FAMILIES5-VLASOV.md:202-206, 210-211	VLASOV Lemma P (a), (b), (d) (H1)	derived from lem:warped-ricci
 eq:vlasov-xi-transport	docket68/n1star/FAMILIES5-VLASOV.md:205-206	Lemma P (b), transport of A = a1 + a2	
-lem:vlasov-constraint-coefficient	docket68/n1star/FAMILIES5-VLASOV.md:206-212; docket68/n1star/FAMILIES5-R6.md:379-383	Lemma P (c) (H2); D2_N (b) (nfamily5 N1); control (O4)	general formula derived; (b) proved for the full map, not only its linearisation; (c) the second polarisation
+def:vlasov-wave	docket68/n1star/FAMILIES5-VLASOV.md:201	Lemma P wave, with the gauge part added	torus part plus gauge part chi k (x) k with the transport of its second harmonic; zero on the initial slice
+eq:vlasov-wave	-	new	the wave of a dust: torus part plus gauge part
+lem:vlasov-wave	-	new	stage 0 of one family through lem:leading-coefficient: R^(0) = Ric(g0) - F^2 du (x) du, no oscillating part
+eq:vlasov-wave-r0	-	new	the coefficient of order 0 of one wave
+lem:vlasov-constraint-coefficient	docket68/n1star/FAMILIES5-VLASOV.md:206-212; docket68/n1star/FAMILIES5-R6.md:379-383	Lemma P (c) (H2); D2_N (b) (nfamily5 N1); control (O4)	general formula derived; (b) proved for the full map, not only its linearisation; (c) the second polarisation; (b) pointwise for every U; (c) for every wave with an orbit part
 eq:vlasov-constraint-coefficient	docket68/n1star/FAMILIES5-VLASOV.md:208	the record's formula d rho^(-1), dJ^(-1)	
-lem:vlasov-leaf-curvature	docket68/n1star/FAMILIES5-R6.md:384-385	D2_N (c) (nfamily5 N2)	derived from lem:constraints-evolution's coefficients
+lem:vlasov-leaf-curvature	docket68/n1star/FAMILIES5-R6.md:384-385	D2_N (c) (nfamily5 N2)	derived from lem:constraints-evolution's coefficients; order-0 parts are the background's (class P)
 lem:vlasov-no-shear	docket68/n1star/FAMILIES5-VLASOV.md:214-221	VLASOV Lemma Psi (H3)	null-frame proof
 eq:vlasov-no-shear	docket68/n1star/FAMILIES5-VLASOV.md:216	Lemma Psi identity	
 eq:vlasov-shear-form	docket68/n1star/FAMILIES5-VLASOV.md:217	Lemma Psi factorisation	explicit form written
-cor:vlasov-commutator	docket68/n1star/FAMILIES5-VLASOV.md:217-220; docket68/n1star/FAMILIES5-R6.md:356	(F6) with a_K = 2 theta_h; Lemma 3.4_N	derived; round check a = 2 L(R)/R against chapter 80
+cor:vlasov-commutator	docket68/n1star/FAMILIES5-VLASOV.md:217-220; docket68/n1star/FAMILIES5-R6.md:356	(F6) with a_K = 2 theta_h; Lemma 3.4_N	derived; round check a = 2 L(R)/R against chapter 80; operators renamed (fraktur M, N)
 eq:vlasov-commutator	docket68/n1star/FAMILIES5-VLASOV.md:219	commutator identity	
+sec:vlasov-scaled	-	new	the constraints solved with bounds uniform in lambda for phases with angular gradients (non-radial labels)
+eq:vlasov-scaled-norm	-	new	mixed norms: alpha with an unscaled H1/H2 base, every Lie derivative of a Killing field of S3 weighted by lambda
+eq:vlasov-structure	-	new	quasilinear structure of the constraint map in U, with coefficient classes P (principal) and L (lower)
+lem:vlasov-structure	docket68/n1star/FAMILIES5-R6.md:376-385	D2_N (a)-(d)	structure read from the proof of lem:constraints-evolution (a)
+lem:vlasov-symmetrizer	-	new	the symmetrizer identities hold for every slice metric (gamma_rA not small); smallness only gives uniqueness
+lem:vlasov-scaled-evolution	-	new	lambda-scaled form of lem:linear-evolution, with a tame clause; proved by weighted energies
+eq:vlasov-scaled-linear	-	new	the linear system with principal coefficients frozen at V
+eq:vlasov-scaled-bound	-	new	the bound uniform in lambda
+eq:vlasov-scaled-tame	-	new	the tame bound used for smoothness at fixed lambda
+eq:vlasov-elliptic	-	new	Garding-type inequality on the round S3
+eq:vlasov-scaled-dr	-	new	the r-derivative of alpha from the parabolic equation
+prop:vlasov-scaled-correction	docket68/n1star/FAMILIES5-R6.md:376-395	D2_N correction step (the gap shared with the source)	Kato-Majda iteration in the scaled norms; covers also lambda = 1 without phases (n-dust and witness data)
+eq:vlasov-scaled-solution	-	new	the correction and its bound
 sec:vlasov-uniform	docket68/n1star/FAMILIES5-VLASOV.md:148-167	VLASOV section 2.1	
 lem:vlasov-trapezoid	docket68/n1star/FAMILIES5-VLASOV.md:158-159	Proposition U proof, H6 (a)	aliasing proof with constant 2 zeta(k)
-prop:vlasov-uniform-n	docket68/n1star/FAMILIES5-VLASOV.md:148-167 with the [R6 nit] at 152; docket68/n1star/FAMILIES5-R6.md:120	VLASOV Proposition U	one weight 2 pi/n; the residual enters (A1) and (A3) through E_n
+prop:vlasov-uniform-n	docket68/n1star/FAMILIES5-VLASOV.md:148-167 with the [R6 nit] at 152; docket68/n1star/FAMILIES5-R6.md:120	VLASOV Proposition U	one weight 2 pi/n; the residual enters (A1) and (A3) through E_n; perturbed data allowed (used by prop:vlasov-cauchy); data step by prop:vlasov-scaled-correction at lambda = 1; matter term exact
 eq:vlasov-uniform-n	docket68/n1star/FAMILIES5-VLASOV.md:154-155	Proposition U bound	
 rem:vlasov-uniform-model	docket68/n1star/FAMILIES5-VLASOV.md:165-167; docket68/n1star/FAMILIES5-R6.md:109-111	H6 (b) and its R6 repair	numerical observation
 sec:vlasov-n	docket68/n1star/FAMILIES5-R6.md:335-403	R6 section 4	
-thm:vlasov-n-approximant	docket68/n1star/FAMILIES5-R6.md:339-347	A2_N	
-thm:vlasov-n-uniform	docket68/n1star/FAMILIES5-R6.md:348-367 with [R7 n8, m4]; docket68/n1star/FAMILIES5-R8.md:243-280 with [R10]/[R11]	E2_N; N-family power counting R8.4	term-type argument written; term counts (degree M + 4) not stated, only finiteness at each n
+thm:vlasov-n-approximant	docket68/n1star/FAMILIES5-R6.md:339-347	A2_N	stage 0 by lem:vlasov-wave with the gauge part; harmonic bound 2m + 4
+thm:vlasov-n-uniform	docket68/n1star/FAMILIES5-R6.md:348-367 with [R7 n8, m4]; docket68/n1star/FAMILIES5-R8.md:243-280 with [R10]/[R11]	E2_N; N-family power counting R8.4	term-type argument written; term counts (degree M + 4) not stated, only finiteness at each n; G1, G2, Y with the phase derivative; (F1) -> (L1); radial clauses removed
 eq:vlasov-n-remainder	docket68/n1star/FAMILIES5-R6.md:367	E2_N closing bound	M(n), lambda0(n) as R8.4 L4
 rem:vlasov-boundary-instance	docket68/n1star/FAMILIES5-R6.md:357-359	Lemma 2.4_N signs (nfamily5 N5)	root computation written
-thm:vlasov-n-data	docket68/n1star/FAMILIES5-R6.md:370-395	Theorem D2_N	
+thm:vlasov-n-data	docket68/n1star/FAMILIES5-R6.md:370-395	Theorem D2_N	stage data of lem:stage-data family by family; N := K + 10; correction by prop:vlasov-scaled-correction; r-derivatives
+eq:vlasov-data-dr	-	new	r-derivatives of the correction in the scaled norms, for (E4)
 rem:vlasov-n-odd	docket68/n1star/FAMILIES5-R6.md:65-74, 389-395	R6.0 Major 1 disposition	no process words; [HL25] pages cited
-rem:vlasov-radial-pair	docket68/n1star/FAMILIES5-R6.md:397-403, 75-77	R6 section 4.3 (V2') necessity	resonance on the pair written
 sec:vlasov-proof	docket68/n1star/FAMILIES5-VLASOV.md:129-141	Theorem V proof	
-cor:vlasov-two-dust	docket68/n1star/FAMILIES5-VLASOV.md:143-146; docket68/n1star/FAMILIES5-R6.md:402-403	Corollary V1 restated with (V2')	
 sec:vlasov-open	docket68/n1star/FAMILIES5-R6.md:308-333; docket68/n1star/FAMILIES5-R7.md:176-192; docket68/n1star/FAMILIES5-R8.md:282-317	openness and non-vacuity	
-lem:vlasov-open	docket68/n1star/FAMILIES5-R8.md:282-312	Lemma O'' (final; O at R6 308-317, O' at R7 176-187)	injectivity clause added with its proof
-prop:vlasov-cauchy	docket68/n1star/FAMILIES5-AXIS.md:408-417, 425-431	AXIS 'Where well-posedness stands' (restricted) with the [R5] note	stated as a proposition at the source's level of argument
-eq:vlasov-witness	-	new	separable outgoing eikonals on Tangherlini's orbit space
-prop:vlasov-nonempty	docket68/n1star/FAMILIES5-R6.md:319-333; docket68/n1star/FAMILIES5-R8.md:314-317	Proposition NE (vlasovex5 X1-X3)	X1 written; X2 grid check replaced by a written proof for a separable family (different witness); same conclusion
+lem:vlasov-open	docket68/n1star/FAMILIES5-R8.md:282-312	Lemma O'' (final; O at R6 308-317, O' at R7 176-187)	injectivity clause added with its proof; radial clauses removed; margins J0/2, b_*/2 and (V2) with delta/2
+prop:vlasov-cauchy	docket68/n1star/FAMILIES5-AXIS.md:408-417, 425-431	AXIS 'Where well-posedness stands' (restricted) with the [R5] note	stated as a proposition at the source's level of argument; existence as a limit of n-dust developments (prop:vlasov-uniform-n), uniqueness by the label-integrated energy
+eq:vlasov-witness	-	new	separable outgoing eikonals on Tangherlini's orbit space; sign reversed (future-directed rays); extended to all of Omega x S1
+prop:vlasov-nonempty	docket68/n1star/FAMILIES5-R6.md:319-333; docket68/n1star/FAMILIES5-R8.md:314-317	Proposition NE (vlasovex5 X1-X3)	X1 written; X2 grid check replaced by a written proof for a separable family (different witness); same conclusion; data corrected by prop:vlasov-scaled-correction; margin 0.2078; b renamed b_*
 rem:vlasov-test-family	docket68/n1star/FAMILIES5-R6.md:322-329	vlasovex5 X2-X3 values for the source's family	numerical observation

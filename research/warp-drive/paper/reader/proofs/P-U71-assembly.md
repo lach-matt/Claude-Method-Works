@@ -92,8 +92,8 @@ number together
 The same bound holds at every h ∈ 𝖧, with the same (γ_Υ, e_Υ).
 
 *Proof.* The weights satisfy 0 < ε_K < ε_Υ < δ̂ and ε_g ≤ ε_Υ: ε_K < ε_Υ is asked with the gap condition of
-[[thm:settling]] ([[def:iii-i10-1-3]]), ε_g = min(ε_Υ, ε_ind) ([[def:s21-eps-g]]), and ε_Υ < ½𝔡_ℳ < ½ · 2.92428·10⁻¹⁰
-= δ̂ ([[lem:ec-gauge-gap]]). Also η_2 < ε_+ < ε_ind ≤ δ_50 < δ̄ ([[prop:np-10-52]] (iii)). The proof of
+[[thm:settling]] ([[def:iii-i10-1-3]]), ε_g = min(ε_Υ, ε_ind) ([[def:s21-eps-g]]), and ε_Υ < ½𝔡_ℳ <
+½ · 2.92428·10⁻¹⁰ = δ̂ ([[lem:ec-gauge-gap]]). Also η_2 < ε_+ < ε_ind ≤ δ_50 < δ̄ ([[prop:np-10-52]] (iii)). The proof of
 [[lem:iii-i8-3-2]] takes ε < ½ε_g, so ε < δ̂. The loss ε′ of [[lem:iii-i8-3-2]] satisfies ε′ ≤ ε: Steps 4–5 of its
 proof give ũ the K⁺-weight α − 2 − ε′, while its conclusion at the output loss ε, at which the tame accounting takes it
 ([[sec:iii-j2-1]]), is the K⁺-weight α − 2 − ε, so a run of the proof that gives it has ε′ ≤ ε. So ε′ < δ̂. Each
@@ -317,13 +317,13 @@ on Ang, ζ and dt̄, that is, p_C(T^C) = 0; in the same way p_Υ(T^Υ) = 0.
 
 In the splitting T* ⊕ T*, VU has the blocks V_1U_1 = T^C, V_1U_2 = 0 (first row) and V_2U_1, V_2U_2 = T^Υ (second
 row). Lower block-triangular maps form an algebra, and the diagonal blocks of f(VU) are f(T^C) and f(T^Υ) for every
-polynomial f. So p_C(VU) has the blocks 0, 0 (first row) and c, d (second row), and p_Υ(VU) the blocks a, 0 (first
-row) and b, 0 (second row), for some a, b, c, d; and the product p_Υ(VU)p_C(VU) has the blocks a·0 + 0·c, a·0 + 0·d
-and b·0 + 0·c, b·0 + 0·d, that is, it is 0. As (UV)^(n+1) = U(VU)^nV, UVf(UV) = Uf(VU)V for every polynomial f, so
-m(UV) = 0 for m(ν) := ν p_Υ(ν)p_C(ν). The seven roots of m are distinct, real and non-negative: the six other than 0
-are positive, those of each of the two sets of the statement are distinct as 0 < e_Υ, e_C < 1, and the two sets are
-disjoint. Let P_μ := Π_(μ′≠μ)(UV − μ′)/(μ − μ′) for each root μ, the product over the
-other roots. Then Σ_μ P_μ = Id (the polynomial Σ_μ Π_(μ′≠μ)(ν − μ′)/(μ − μ′) has degree at most 6 and equals 1 at the
+polynomial f. So p_C(VU) has the blocks 0, 0 (first row) and Q_1, Q_2 (second row), and p_Υ(VU) the blocks Q_3, 0
+(first row) and Q_4, 0 (second row), for some maps Q_1, …, Q_4; and the product p_Υ(VU)p_C(VU) has the blocks
+Q_3·0 + 0·Q_1, Q_3·0 + 0·Q_2 and Q_4·0 + 0·Q_1, Q_4·0 + 0·Q_2, that is, it is 0. As (UV)^(n+1) = U(VU)^nV,
+UVf(UV) = Uf(VU)V for every polynomial f, so m(UV) = 0 for m(ν) := ν p_Υ(ν)p_C(ν). The seven roots of m are
+distinct, real and non-negative: the six other than 0 are positive, those of each of the two sets of the statement
+are distinct as 0 < e_Υ, e_C < 1, and the two sets are disjoint. Let P_μ := Π_(μ′≠μ)(UV − μ′)/(μ − μ′) for each root
+μ, the product over the other roots. Then Σ_μ P_μ = Id (the polynomial Σ_μ Π_(μ′≠μ)(ν − μ′)/(μ − μ′) has degree at most 6 and equals 1 at the
 seven roots), (UV − μ)P_μ and P_μP_μ′ (μ ≠ μ′) are multiples of m(UV) = 0, and so P_μ² = P_μ and A + S = UV = Σ_μ μP_μ:
 A + S is diagonalisable with eigenvalues among the roots of m. By [[lem:ec-theta-in]] (b) its kernel is non-zero.
 
@@ -612,9 +612,9 @@ constant 2(T_< + T_> + T_2) + 4(1/Δτ_0 + 2) + r_ιW(N_< + N_> + N_b + 3) is le
 with ℓ⁺_tf as in [[lem:ec-round-charges]], equal to max(1, s − 1) at the choices of [[lem:ec-tf-loss]]. The coefficient
 of ℓ⁺_tf, 9.394·10¹⁹, and the constant 1.2923·10²¹ (of which 1.10·10²¹ comes from the window loops at ι⁺, through the
 bound ε^ι_ind ≥ ε_Υ) are the explicit part. Against the lower bound 3R > 1.403·10²⁰ of [[thm:loss-d]] (ii), the
-explicit part at ℓ⁺_tf = 1 is less than 1.3863·10²¹, less than 9.9 times the lower bound. The losses c(β_k), c_b and c′_b are
-losses of single steps, multiplied by at most 1.38·10¹⁰; c_0 enters once and contains the iterations of Steps 4′ and 4,
-each bounded as in [[lem:ec-counts]].
+explicit part at ℓ⁺_tf = 1 is less than 1.3863·10²¹, less than 9.9 times the lower bound. The losses c(β_k), c_b and
+c′_b are losses of single steps, multiplied by at most 1.38·10¹⁰; c_0 enters once and contains the iterations of
+Steps 4′ and 4, each bounded as in [[lem:ec-counts]].
 
 **Remark {#rem:ec-upper-open}** (What the upper bound leaves open.) Four inputs separate [[prop:ec-upper]] from an
 integer. (1) ε_K: (G) asks that no element of the set Λ of [[def:iii-i10-1-1]] have real part in (2, 2 + ε_K] or in
