@@ -967,22 +967,23 @@ C_m0 := (A²/(9μ0))(1 + (μ0 μ(v_end))^(1/4)): by [[eq:eq-margin]], concavity 
 √(μ/μ0) − 1 ≤ (μ − μ0)/(2μ0) = (A²/(9μ0)) ∫_(v_s)^v env² ≤ (A²/(9μ0)) E(v)², and
 r_q μ′/(2μ) = (A²/9) (μ0 μ)^(1/4) env²/μ ≤ (A²/(9μ0)) (μ0 μ(v_end))^(1/4) E(v)².
 
-*Domination.* On W_λ, |env| ≥ 3y/4 and |d| ≥ d_* := 8/3 ([[lem:layer-angular]]). In the generic case |ν(v − τ0)| ≥ ν_*,
-since W_λ ⊂ [v_s, v_s + η1]; at ρ*, |ν(v − τ0)| ≥ ν_2 (v − v_s)² ≥ ν_2 (v* − v_s)² ≥ ν_2 (y/C_κ)^(2/κ), by
-[[lem:layer-levels]]. So in both cases
+*Domination.* On W_λ, |env| ≥ 3y/4 and |d| ≥ d_* := 8/3 ([[lem:layer-angular]]). In the generic case
+|ν(v − τ0)| ≥ ν_* on W_λ, since W_λ ⊂ [v_s, v_s + η1]. At ρ*, by [[lem:layer-levels]], the absolute value of
+ν(v − τ0) is at least ν_2 (v − v_s)² ≥ ν_2 (v* − v_s)² ≥ ν_2 (y/C_κ)^(2/κ). So in both cases
 
     λ³ A |env| |ν(v − τ0)| |d(ϑ)| ≥ 10 G λ^(3+z)   on W_λ × S³,      G := 3 A ν_♭ d_*/40,           {#eq:layer-signal}
 
-with z := p and ν_♭ := ν_* in the generic case, and z := p(1 + 2/κ) and ν_♭ := ν_2 C_κ^(−2/κ) at ρ*. When λ ≤ min(Λ_8a,
-Λ_8b, Λ_8c, Λ_8d), each of m0, C_L11 λ⁴ ε, C_L11 λ ε² and C_L11 C_L4 λ^(N−5) ε is at most G λ^(3+z), by the bounds on m0
-and ε above. Then, by [[eq:layer-expansion]] and |w| ≤ C_L4 λ^(N−5) ε, C_L11 (λ² ε + λ ε² + |w|) ≤ G (λ^(1+z) + 2
-λ^(3+z)) ≤ 3 G λ^(1+z) bounds |k(Φ0♯, ·)|, and C_L11 (λ ε + |w|) ≤ 2 G λ^z bounds |k|; so |q| ≤ C_q (9 G² λ^(2+2z) + 12
-G³ λ^(1+3z)) ≤ C_q G² (9 + 12 G) λ^(2+2z), as z ≥ 1, and this is at most G λ^(3+z) when λ ≤ Λ_8e. Hence |ρ_λ| ≤ 5 G
-λ^(3+z), and by [[eq:layer-signal]] the bound of [[eq:layer-main]] holds with δ(λ) ≤ 1/2. As λ → 0, each of the five
-terms divided by λ^(3+z) tends to zero: with ε ≤ C_ε λ^(p(1−M/m)) and M/m = 1/56, the quotients are at most constant
-multiples of λ to the powers 2p − 3 − z, 1 + p(1 − M/m) − z, 2p(1 − M/m) − 2 − z, N − 8 + p(1 − M/m) − z and z − 1, which
-are 11, 0.75, 11.5, N − 8.25 and 13 in the generic case and 10.5625, 0.3125, 11.0625, N − 8.6875 and 13.4375 at ρ*, all
-positive since N ≥ 9. So δ(λ) → 0.
+with z := p and ν_♭ := ν_* in the generic case, and z := p(1 + 2/κ) and ν_♭ := ν_2 C_κ^(−2/κ) at ρ*. When
+λ ≤ min(Λ_8a, Λ_8b, Λ_8c, Λ_8d), each of m0, C_L11 λ⁴ ε, C_L11 λ ε² and C_L11 C_L4 λ^(N−5) ε is at most G λ^(3+z), by
+the bounds on m0 and ε above. Then, by [[eq:layer-expansion]] and |w| ≤ C_L4 λ^(N−5) ε, the norm of k(Φ0♯, ·) is at
+most C_L11 (λ² ε + λ ε² + |w|) ≤ G (λ^(1+z) + 2 λ^(3+z)) ≤ 3 G λ^(1+z), and that of k at most
+C_L11 (λ ε + |w|) ≤ 2 G λ^z; so |q| ≤ C_q (9 G² λ^(2+2z) + 12 G³ λ^(1+3z)) ≤ C_q G² (9 + 12 G) λ^(2+2z), as z ≥ 1,
+and this is at most G λ^(3+z) when λ ≤ Λ_8e. Hence |ρ_λ| ≤ 5 G λ^(3+z), and by [[eq:layer-signal]] the bound of
+[[eq:layer-main]] holds with δ(λ) ≤ 1/2. As λ → 0, each of the five terms divided by λ^(3+z) tends to zero: with
+ε ≤ C_ε λ^(p(1−M/m)) and M/m = 1/56, the quotients are at most constant multiples of λ to the powers 2p − 3 − z,
+1 + p(1 − M/m) − z, 2p(1 − M/m) − 2 − z, N − 8 + p(1 − M/m) − z and z − 1, which are 11, 0.75, 11.5, N − 8.25 and 13 in
+the generic case and 10.5625, 0.3125, 11.0625, N − 8.6875 and 13.4375 at ρ*, all positive since N ≥ 9. So
+δ(λ) → 0.
 
 *Sign change.* ν ≤ 0, so −ν = |ν|, and env = σ |env| on W_λ; so the first term of [[eq:layer-main]] is
 λ³ A |env| |ν| Re[σ d(ϑ) e^(iv/λ)]: an envelope of the other sign shifts the phase by π. The phase v/λ turns twice on
