@@ -76,13 +76,34 @@ forms (γ, k), the Gauss and Codazzi equations write (G_g̃ Ric(g̃))(n_g̃, ·)
 constraint map; it depends on g̃ only through (γ, k). Its vanishing is the constraint equations, as [[prop:iii-k-1-2]]
 uses them. Data (γ̇, k̇) satisfy the *linearised constraint equations* if D𝒞_((γ_(b₀),k_(b₀)))(γ̇, k̇) = 0.
 
-*The boost generator.* φ_S = exp V(S), with V(S) linear in S ∈ 𝒮_1 and supported where χ^♭_K ≠ 1
-([[lem:iii-b-5-1]]). Put
+*The boost and translation generators.* Let Θ := χ_r(|x|)χ^♯_IVP(1 − χ^♭_K) ∈ [0, 1] be the cut-off factor of
+[[lem:iii-b-5-1]]. The boosts are φ_S = exp V(S), with V(S_w) = ½ΘX_w linear in S = S_w ∈ 𝒮_1 ([[lem:iii-b-5-1]]),
+and the translations are ψ_(S⁰) = exp V⁰(S⁰), with V⁰(S_w) = ½Θ w·∂_x linear in S⁰ = S_w ∈ 𝒮_1
+([[lem:iii-i7-1-1]]). Both vector fields vanish where Θ = 0, so on {|x| ≤ 5R₁} and where χ^♭_K = 1. Their composite
+is φ_(S,S⁰) = ψ_(S⁰) ∘ φ_S ([[eq:s27-motion]]). For S′, S⁰′ ∈ 𝒮_1 put
 
-    ġ_(S′) := (d/ds) φ*_(−sS′) g |_(s=0) = −ℒ_(V(S′)) g,                                                   {#eq:viii-0-2}
+    ġ_(S′) := (d/ds) φ*_(−sS′) g |_(s=0) = −ℒ_(V(S′)) g,
+    ġ⁰_(S⁰′) := (d/ds) ψ*_(−sS⁰′) g |_(s=0) = −ℒ_(V⁰(S⁰′)) g,                                                {#eq:viii-0-2}
 
-a linearised diffeomorphism. DRic(ġ_(S′)) = (d/ds) Ric(φ*_(−sS′)g)|_(s=0) = 0, and ġ_(S′) = 0 on the interior of
-{χ^♭_K = 1}, where V(S′) = 0. Put 𝒟′ := 𝒟 ∖ {t^♭_* ≥ T̂ + 7/4}. Then Ω_* ∪ 𝒟 = Ω_* ∪ 𝒟′, as the points of 𝒟 with
+linearised diffeomorphisms: φ_(−sS′) = exp(−sV(S′)) is the time-s flow of −V(S′), and likewise for ψ_(−sS⁰′). The
+second is the derivative −δ*_g(Θw⁰(S⁰′)) of [[ch:s21]], as g(V⁰(S⁰′), ·) = ½Θw⁰(S⁰′) and ℒ_Xg = 2δ*_g(g(X, ·)). As
+φ_(−sS′,−sS⁰′)*g = φ*_(−sS′)(ψ*_(−sS⁰′)g) is smooth in s and both flows are the identity at s = 0,
+
+    (d/ds) φ*_(−sS′,−sS⁰′) g |_(s=0) = ġ_(S′) + ġ⁰_(S⁰′).
+
+DRic(ġ_(S′)) = (d/ds) Ric(φ*_(−sS′)g)|_(s=0) = 0, Ric(φ*_(−sS′)g) = φ*_(−sS′)Ric(g) vanishing for every s, and
+DRic(ġ⁰_(S⁰′)) = 0 likewise. Both tensors vanish on the interior of {Θ = 0}, which contains {|x| < 5R₁} and the
+interior of {χ^♭_K = 1}, as V(S′) and V⁰(S⁰′) vanish there.
+
+*The background.* The background of P_5 at p⃗_(≤0) = (S, b − b₀, S⁰) is the translated background of
+[[eq:iii-i7-1-3]] ([[sec:iii-k-0]]),
+
+    g_(p⃗) = (1 − χ_K) φ*_(−S,−S⁰) g + χ_K g_b,
+
+which is φ*_(−S,−S⁰)g where χ_K = 0 and g_b where χ_K = 1, and is smooth in p⃗ ([[lem:iii-i7-1-3]] (a),
+[[lem:s27-translated-exterior]] (a)).
+
+Put 𝒟′ := 𝒟 ∖ {t^♭_* ≥ T̂ + 7/4}. Then Ω_* ∪ 𝒟 = Ω_* ∪ 𝒟′, as the points of 𝒟 with
 t^♭_* ≥ T̂ + 7/4 lie in Ω_*; and Ω_* ∩ 𝒟′ = Ω_* ∩ {t^♭_* < T̂ + 7/4}, as 𝒟 contains Ω_* ∩ {t^♭_* ≤ T̂ + 3}.
 
 ### The linear initial-value problem {#sec:viii-1}

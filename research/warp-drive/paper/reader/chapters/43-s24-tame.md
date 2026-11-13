@@ -250,10 +250,10 @@ statements, each of which is stated at every order with the loss independent of 
 ([[lem:iii-i15-1-1]] (P1), (P4)). (f) That ℓ depends only on the orders and the weights is read off from the proof of
 [[cor:ii-g1-4-5]]: ℓ_4 = ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉ is the loss of [[prop:ii-g1-4-4]], with ℓ_1, ℓ_2 and ν from
 [[lem:ii-g1-4-3]], and ℓ_3, ℓ_5 are the losses of [[prop:ii-g1-3-5]] (2) and [[prop:ii-g1-3-3]] (2). For δ:
-[[cor:iii-h2-1-2]] gives, for every k, an inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every b
-∈ ℬ̄_1; its proof bounds γ_+ by the bound [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by ν_min/(2
-sup_Γ q^Γ), where β_0, ν_min and q^Γ do not depend on the inner product and are continuous and positive on ℬ̄_1. So (k +
-1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The constants of [[cor:ii-g1-4-5]] at the order k, with the inner product h_(η_k,b) of
+[[cor:iii-h2-1-2]] gives, for every k, an inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every
+b ∈ ℬ̄_1; its proof bounds γ_+ by the bound [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by
+ν_min/(2 sup_Γ q^Γ), where β_0, ν_min and q^Γ do not depend on the inner product and are continuous and positive on ℬ̄_1.
+So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The constants of [[cor:ii-g1-4-5]] at the order k, with the inner product h_(η_k,b) of
 [[cor:iii-h2-1-2]], are uniform in b ∈ ℬ̄_1. Indeed [[lem:ii-g1-4-3]], [[prop:ii-g1-3-3]] and [[prop:ii-g1-3-5]] do not
 involve the operator, and [[prop:ii-g1-4-4]] takes its constants and C_0 from [[thm:i-b-1-3]] (3) and (5), whose
 constants are uniform in b by [[sec:i-b-9]]: (H5)–(H8) hold continuously in b ((B1) in [[sec:iii-h2-0]]), and h_(η_k,b)

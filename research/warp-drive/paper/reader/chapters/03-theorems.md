@@ -302,17 +302,19 @@ black hole of mass m′ with |m′ − μ_end| < ε_m and spin below ε_m.
 
 [[thm:settling]] is proved in [[ch:settling-proof]], from the stability theory of [[part:stability]] to
 [[part:stability-nonlinear]], which is Hintz's proof of the nonlinear stability of Kerr [Hin26] carried into spacetime
-dimension n + 1 = 5 and written out in full. Gluing a perturbation far out to a boosted Myers–Perry metric replaces its
-data near infinity, on which the solution near the hole at late times depends; so (ii) is stated for perturbations in
+dimension n + 1 = 5 and written out in full. Gluing a perturbation far out to a translated, rotated and boosted
+Myers–Perry metric replaces its data near infinity, on which the solution near the hole at late times depends; so (ii)
+is stated for perturbations in
 Hintz's own data class, where his theorem applies without gluing, and [[ch:after-shell]] determines which decaying
 perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
 
 The linear statement is proved with it, as the nonlinear theorem's linearisation at the Tangherlini data
 ([[thm:viii-2-2]], [[cor:viii-2-3]]). Every solution of the linearised constraint equations in Hintz's data class has
-a linearised vacuum development in his generalised wave gauge. Up to a linearised boost it takes those data, and where
-the late-time cut-off is 1 it differs from a linearised Myers–Perry metric by O(t*^(−2−ε)) in spatially compact
-subsets of the exterior, for each ε < ε_K. In the class the boost vanishes and the Myers–Perry change is a change of
-mass alone. A linearised vacuum solution given in another gauge, with the same data up to those of a linearised
+a linearised vacuum development in his generalised wave gauge. Up to the data of a linearised boost and a linearised
+translation, Lie derivatives of the Tangherlini metric along their generators, it takes those data, and where the
+late-time cut-off is 1 it differs from a linearised Myers–Perry metric by O(t*^(−2−ε)) in spatially compact subsets of
+the exterior, for each ε < ε_K. In the class the boost and the translation vanish and the Myers–Perry change is a
+change of mass alone. A linearised vacuum solution given in another gauge, with the same data up to those of a linearised
 diffeomorphism and given on the whole future of the initial surface outside r = r_0, smooth up to that surface,
 differs from this one there by a linearised diffeomorphism L_X g, X unique up to Killing fields ([[thm:ix-2-2]],
 [[cor:ix-2-3]]).
