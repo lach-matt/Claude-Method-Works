@@ -2,10 +2,10 @@
 
 The threshold λ0 of [[thm:main]] is not evaluated. This chapter bounds it from above at one choice of the parameters,
 the numerical point of [[def:lambda0-point]]. The proof of [[thm:main]] takes λ0 so small that C λ0 ≤ ε1, where the
-solution satisfies |g_λ − g0| ≤ C λ on Ω. The constant C is at least the size of the first-order profile g1 at every
-point, and ε1 is limited by the eigenvalues of g0. Both depend on how |·| is read on symmetric 2-tensors, and the
-bound is proved in three readings: the operator norm, the Frobenius norm and the largest absolute entry
-([[prop:lambda0]]).
+solution satisfies |g_λ − g0| ≤ C λ on Ω. The constant C is at least the size of the first-order profile g1 at the
+point where the wave is largest, and ε1 is limited by the distance from g0 to degenerate forms. Both depend on how |·|
+is read on symmetric 2-tensors, and the bound is proved in three readings: the operator norm, the Frobenius norm and
+the largest absolute entry ([[prop:lambda0]]).
 
 On the way we prove the constants on which these bounds rest: those of the domain at the point
 ([[lem:lambda0-point]]), the envelope constant c_e ([[lem:envelope-constant]]), whose lower end c_e > 1 is also what
