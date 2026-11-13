@@ -734,15 +734,15 @@ the proof of [[lem:stage-system]]: the mean by [[lem:linear-wave]] on Ω₂, the
 mixed harmonics of ĝ_(m+1) through 𝒦_m: one derivative per stage, harmless for smooth data and finitely many stages.
 
 [[lem:linear-wave]] holds on Ω₂ with the same proof. Besides the shape of Ω and [[lem:domain]] (e), that proof uses g0
-on an open region containing Ω on which τ is a time function, {r > a/2} there. Here fix a′ ∈ (0, a), and let M be the
-connected component containing Ω₂ of the set of points of Q_(a′) with u > u0 and v0 < v < V1 at which g0⁻¹(dτ, dτ) <
-0; S := {τ = τ0} ∩ M takes the place of {τ = τ0, r > a/2}. M is open and contains Ω₂. Indeed Q_(a′) is open in Q and
-carries the smooth g0, with R > a′, so that the chart X is defined there, and G ⊂ Q_(a′) (proof of
-[[prop:two-dust-background]] (d)), so Ω₂ ⊂ Q_(a′); on Ω₂, u > u0, as 𝒞_out ∩ {τ ≥ τ0} ⊂ {R > b(τ)}, and v0 < τ0 + a ≤
-v = τ + R ≤ V + 1 + τ_end − τ0 < V1 (proof of [[lem:two-dust-domain]]); and g0⁻¹(dτ, dτ) ≤ −1 − μ/R² on Ω₂
-([[lem:two-dust-domain]] (a)). On M, τ increases along future causal curves, since dτ is timelike on the connected set
-M and positive on future causal vectors at the points of Ω₂ (proof of [[lem:two-dust-domain]]). So S is acausal, and
-the argument of that proof, with [[lem:two-dust-domain]] (d) and (e) in place of [[lem:domain]] (e), gives Ω₂ ⊂ D. ∎
+on an open region containing Ω on which τ is a time function, {r > a/2} there. Here fix a′ ∈ (0, a), and let 𝒪 be the
+connected component containing Ω₂ of the set of points of Q_(a′) with u > u0 and v0 < v < V1 at which g0⁻¹(dτ, dτ) < 0; 𝒪
+takes the place of {r > a/2}, and S := {τ = τ0} ∩ 𝒪 that of {τ = τ0, r > a/2}. 𝒪 is open and contains Ω₂. Indeed Q_(a′)
+is open in Q and carries the smooth g0, with R > a′, so that the chart X is defined there, and G ⊂ Q_(a′) (proof of
+[[prop:two-dust-background]] (d)), so Ω₂ ⊂ Q_(a′); on Ω₂, u > u0, as 𝒞_out ∩ {τ ≥ τ0} ⊂ {R > b(τ)}, and v0 < τ0 + a ≤ v =
+τ + R ≤ V + 1 + τ_end − τ0 < V1 (proof of [[lem:two-dust-domain]]); and g0⁻¹(dτ, dτ) ≤ −1 − μ/R² on Ω₂
+([[lem:two-dust-domain]] (a)). On 𝒪, τ increases along future causal curves, since dτ is timelike on the connected set 𝒪
+and positive on future causal vectors at the points of Ω₂ (proof of [[lem:two-dust-domain]]). So S is acausal, and the
+argument of that proof, with [[lem:two-dust-domain]] (d) and (e) in place of [[lem:domain]] (e), gives Ω₂ ⊂ D. ∎
 
 **Theorem {#thm:two-dust-approximant}** (The approximant to every order, two phases.) For every N ≥ 1 and every smooth
 choice of stage data there are two-phase profiles g1, …, g_N, independent of λ, such that g_app = g0 + λ [g1] +

@@ -186,6 +186,9 @@ C(‖Gu‖_(𝗌−1+δ) + ‖χu‖_(−N′)), the last by (c) of Step 2 of th
 [[eq:ii-a1-4-3]]. The global error term C_0‖v‖²_(𝗌−½+δ_c) is that of [[eq:ii-a1-4-2]], bounded by (c) of Step 2. ∎
 
 **Lemma {#lem:ii-d-2-2}** (Iteration.) [[lem:ii-a1-4-2]] holds with [[lem:ii-d-2-1]] in place of [[lem:ii-a1-4-1]].
+Its hypotheses include the localisers: for each U as there, φ_0 = 1 near K_1 and φ_E = 1 near the support of e_ε, both
+supported in U near fibre infinity, and supp φ_E lies in the closed set K_E(U), whose intersection with fibre infinity
+lies in U ∖ Γ; the E of the conclusion is elliptic on the union K_E^* of these sets.
 
 *Proof.* The proof of [[lem:ii-a1-4-2]] uses [[lem:ii-a1-4-1]] only through its conclusion [[eq:ii-a1-4-3]] at each
 step, which [[lem:ii-d-2-1]] supplies under its hypotheses; the proof therefore applies without change. ∎
