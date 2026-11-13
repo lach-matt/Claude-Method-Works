@@ -485,17 +485,18 @@ holds with M + 2 = 𝔐(T) = 200T + 100 in the following form.
 
 (a)–(d) as stated there, with at most 10T + 15, 34T + 24, 18T + 23 and 34T + 32 derivatives of each symbol.
 
-(e) For every N ≤ T and every expression S_1B_1TB_2S_2 with at most six quantizations in each of its products (the
+(e) For every N ≤ T and every expression S_1B_1𝒯B_2S_2 with at most six quantizations in each of its products (the
 localisers and B_1, B_2 included), each quantized symbol of order with values in [−T, T]: at most 95T + 7 derivatives.
 
-(f) For every expression T with at most six quantizations in each product, each quantized symbol (a product of the a_i
+(f) For every expression 𝒯 with at most six quantizations in each product, each quantized symbol (a product of the a_i
 included) of order with values in [−T, T], and every order function μ with values in [−6T − 3, 6T + 3] such that, in
-every chart α, the symbol t_α of T ([[lem:fwd-expansion]], the signed sum over the products of T) is a sum of products
-of derivatives of pointwise order at most μ (up to the loss ϰ times the number of derivatives): T has order μ + δ, with
-at most 158T + 52 derivatives.
+every chart α, the symbol t_α of 𝒯 ([[lem:fwd-expansion]], the signed sum over the products of 𝒯) is a sum of products
+of derivatives of pointwise order at most μ (up to the loss ϰ times the number of derivatives): 𝒯 has order μ + δ,
+with at most 158T + 52 derivatives.
 
-[[lem:ii-a-8-5]] (a) holds with d_0 = 𝔐(T) when 𝗌 has values in [−T, T] (10T + 15 derivatives), and (b) when 𝗌_0 has
-values in [−T, T] and sup 𝗌 − inf 𝗌_0 ≤ T (34T + 16 derivatives). For T = 100 the largest count is 15,852 ≤ 𝔐(100) − 2.
+Here 𝒯 denotes an expression, and T the integer bounding the orders. [[lem:ii-a-8-5]] (a) holds with d_0 = 𝔐(T) when
+𝗌 has values in [−T, T] (10T + 15 derivatives), and (b) when 𝗌_0 has values in [−T, T] and sup 𝗌 − inf 𝗌_0 ≤ T
+(34T + 15 derivatives). For T = 100 the largest count is 15,852 ≤ 𝔐(100) − 2.
 
 In this form the hypothesis of (f) is an identity of symbols, and it is checked at each use in [[lem:fwd-box]]: there
 the terms above the order μ cancel because the leading terms of an adjoint and of the conjugate symbol agree, because
@@ -505,11 +506,11 @@ scalar symbols commute with all others, and by exact identities such as φ_0ǎ =
 section); the constants C depend on ϰ, ν, the orders, the bounds of (S1) for the transition maps (differentiated at
 most 𝔐(T) + 1 times, by [[lem:fwd-transport]] and the counts below), and on the smooth symbols involved, never on
 their supports beyond the identities used. The global estimate is assembled in the same way in every item: if
-T = Σ_α φ_α^* Op(t_α)(φ_α)_*θ̃_α + E with t_α vanishing for x ∉ [−5/4, 5/4]ⁿ, |t_α|^(μ+δ)_(K(T,B_G)) ≤ C uniformly in
+𝒯 = Σ_α φ_α^* Op(t_α)(φ_α)_*θ̃_α + E with t_α vanishing for x ∉ [−5/4, 5/4]ⁿ, |t_α|^(μ+δ)_(K(T,B_G)) ≤ C uniformly in
 α, μ with values in [−B_G, B_G], and E bounded from H^𝗍 to H^S with S ≥ sup(𝗍 − μ), then by [[lem:fwd-local]] (with
 A := T, B := B_G) and [[lem:fwd-norms]] (twice)
 
-    ‖Tu‖_(𝗍−μ−δ) ≤ C(Σ_α ‖Op(t_α)(φ_α)_*(θ̃_αu)‖²_(H^((𝗍−μ−δ)_α)))^(1/2) + ‖Eu‖_S ≤ C‖u‖_𝗍.        {#eq:fwd-assembly}
+    ‖𝒯u‖_(𝗍−μ−δ) ≤ C(Σ_α ‖Op(t_α)(φ_α)_*(θ̃_αu)‖²_(H^((𝗍−μ−δ)_α)))^(1/2) + ‖Eu‖_S ≤ C‖u‖_𝗍.        {#eq:fwd-assembly}
 
 So each item reduces to: the parameters (S, B_G) of [[lem:fwd-expansion]] and [[lem:fwd-local]], the check that t_α has
 the stated order, and the counts. The integers in brackets are those for T = 100.
@@ -529,7 +530,7 @@ resp. θ^(j)V^*_α(g), with V_α(g) the sum over β of the terms of index 1 of t
 coefficients, so that V_α(g) is scalar when g is, and commutes with every matrix when g is scalar. Every term of
 s^α_j(g) vanishes where all derivatives of g vanish, that is, outside the support of g read in the chart α.
 
-*(b).* Here T := Op(a_1)Op(a_2) − Op(a_1a_2). [[lem:fwd-expansion]] applies to Op(a_1)Op(a_2) with r = 2, and to
+*(b).* Here 𝒯 := Op(a_1)Op(a_2) − Op(a_1a_2). [[lem:fwd-expansion]] applies to Op(a_1)Op(a_2) with r = 2, and to
 Op(a_1a_2) with r = 1 and T replaced by 2T (its symbol has order 𝗆_1 + 𝗆_2 with values in [−2T, 2T], and the
 order 𝗍 has values in [−2T, 2T]), both with S := 3T + 1 [301] ≥ sup(𝗍 − 𝗆_1 − 𝗆_2 + 1). Then
 t_α = s^α_1(a_1) ♯ s^α_2(a_2) − s^α_1(a_1a_2), and its terms of grade 0 are χ_αa_1 · θ̂a_2 − χ_αa_1a_2 = 0, as θ̂ = 1
@@ -544,14 +545,14 @@ J_R = 7T + 2, the remainders cost at most 27T + 20 [2,720], 11T + 9 and 18T + 8,
 K(T, 2T + 1) + 2(J_R − 1) ≤ 29T + 23 [2,923]; derivatives of a_1a_2 are derivatives of a_1 and a_2 in equal number.
 So (b) holds with 34T + 24 [3,424] derivatives, by [[eq:fwd-assembly]].
 
-*(c).* Here T := Op(a)^* − Op(a^*), a^* the conjugate transpose (the conjugate for scalar a). [[lem:fwd-expansion]]
+*(c).* Here 𝒯 := Op(a)^* − Op(a^*), a^* the conjugate transpose (the conjugate for scalar a). [[lem:fwd-expansion]]
 with r = 1 for both, S := 2T + 1 [201]. The terms of grade 0 of t_α = s^α_1(a^*) − s^α_1(a^*) (the first for the
 adjoint, the second for the quantization of a^*) are χ_αa^* − χ_αa^* = 0 by [[lem:fwd-transport]]. μ := 𝗆 − 1,
 B_G := T + 1. Counts: R = 3T + 1 [301], B = 2T + 7 [207], J_R = 4T + 2 [402]; the remainders cost at most
 2J_R + B + 𝔢(5T + 8) ≤ 15T + 21 [1,521], 6T + 10 [609] and 10T + 9 [1,009]; the main symbol
 K(T, T + 1) + 2(J_R − 1) = (10T + 21) + (8T + 2) = 18T + 23 [1,823], K(T, T + 1) = (4T + 3) + 6 + (6T + 12).
 
-*(d).* Here T := i[Op(a_1), Op(a_2)] − Op(H_(a_1)a_2), one of a_1, a_2 scalar. [[lem:fwd-expansion]] with r = 2 for
+*(d).* Here 𝒯 := i[Op(a_1), Op(a_2)] − Op(H_(a_1)a_2), one of a_1, a_2 scalar. [[lem:fwd-expansion]] with r = 2 for
 the two products and r = 1, T replaced by 2T + 1, for Op(H_(a_1)a_2), whose symbol consumes one derivative of each a_i;
 S := 3T + 2 [302]. In t_α the terms of grade 0 are iχ_α(a_1a_2 − a_2a_1) = 0. The terms of grade 1 are, as θ̂ = 1 and
 D_xθ̂ = 0 on supp χ_α and ∂_ξχ_α = 0,
