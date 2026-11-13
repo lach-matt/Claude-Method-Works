@@ -106,3 +106,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   marker until the literature agent supplies the right source (Mazzeo 1991 or another), or a proof.
 - Ch 6 uses [BH17, Theorem 7.27, p. 56] (H¹ ⊂ L⁴): Appendix A entry requested.
 - Ch 10: the letter for r_B^(-1/2) is chosen by the Ch 10 fix round (not ϖ, which Ch 7 and the S chapters use).
+- S6 overloads for the integration pass: ϕ/φ, J, p_1, θ_ε; S6's four new nits (ρ_+ ≤ 1 -> bounded; q_1 twice;
+  two citations needing their proofs). Ch 3's Theorem 4 should cite def:iii-j-g-plus (S23).

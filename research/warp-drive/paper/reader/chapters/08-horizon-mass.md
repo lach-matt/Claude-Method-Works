@@ -149,54 +149,76 @@ metric of the two-scale form of g_app, so that it applies to the solutions of [[
 
 **Lemma {#lem:sphere-two-scale}** (The sphere quantities of a two-scale metric.) Let
 
-    G = g0 + λ [g1] + Σ_(j=2)^N λ^j [g_j]
+    g = g0 + λ [g1] + Σ_(j=2)^N λ^j [g_j]
 
 with profiles g_j bounded on Ω × S¹ with all their (X, θ)-derivatives, independently of λ, and with g1 = m1 + W(X, θ +
 φ1(X)), where m1 and φ1 do not depend on θ, W(ℓ, ·) = 0, and tr_S W = 0 on every S_(v,r) at every phase. There are
 λ* > 0 and C such that for 0 < λ ≤ λ* the following holds on every sphere S_(v,r) in Ω.
 
-(a) The future null expansions of S_(v,r) for G, with normals normalized by n(τ) = 1, are
+(a) The future null expansions of S_(v,r) for g, with normals normalized by n(τ) = 1, are
 
-    θ^±(G) = θ^±(g0) + λ [Θ^±_1] + λ² E^±,                                                         {#eq:theta-two-scale}
+    θ^±(g) = θ^±(g0) + λ [Θ^±_1] + λ² E^±,                                                         {#eq:theta-two-scale}
 
 with profiles Θ^±_1 and functions E^± = e^±(X, v/λ, λ), where e^± is smooth in (X, θ, λ) and bounded with all its
 X-derivatives, uniformly in λ ≤ λ*. No term of order λ⁻² or λ⁻¹ occurs, and none of order λ⁰ beyond g0's.
 
-(b) The area element of S_(v,r), the inner product G(n⁺, n⁻) and the normals have expansions of the same form.
+(b) The area element of S_(v,r), the inner product g(n⁺, n⁻) and the normals have expansions of the same form.
 
-(c) Along a column, (d/dr)(θ^±(G) − θ^±(g0)) = O(λ), and the same holds for the quantities of (b).
+(c) Along a column, (d/dr)(θ^±(g) − θ^±(g0)) = O(λ), and the same holds for the quantities of (b).
 
-*Proof.* The normal plane of S_(v,r) is spanned by dτ and dr at every point with r > 0, the axes included. For G near
-g0 let k^± := c^±(G)(dr + α^±(G) dτ) be its two null covectors in that plane, with n^± := G⁻¹ k^± normalized by
-n^±(τ) = 1; for G near g0 the two null directions stay distinct, so c^±, α^± are smooth functions of (X, G). Let
-Π_G^(ab) be the inverse of the metric G induces on the sphere, pushed forward:
+*Proof.* The conormal plane of S_(v,r), the covectors that vanish on its tangent spaces, is spanned by dτ and dr at
+every point with r > 0, the axes included. For a metric g near g0 let k^± := c^±(X, g)(dr + α^±(X, g) dτ) be its two
+null covectors in that plane, with n^± := g⁻¹ k^± normalized by n^±(τ) = 1; for g near g0 the two null directions stay
+distinct, so c^±, α^± are smooth functions of (X, g). Let Π_g^(ab) be the inverse of the metric g induces on the sphere,
+pushed forward:
 
-    Π_G = G⁻¹ + (n⁺ ⊗ n⁻ + n⁻ ⊗ n⁺)/(−G(n⁺, n⁻)),
+    Π_g = g⁻¹ + (n⁺ ⊗ n⁻ + n⁻ ⊗ n⁺)/(−g(n⁺, n⁻)),
 
-smooth in (X, G); it annihilates k⁺ and k⁻, hence every covector of the normal plane. The second fundamental form
-along n^± is −k^±_c Γ[G]^c_(ab) on tangent vectors, so
+smooth in (X, g); it annihilates k⁺ and k⁻, hence every covector of the conormal plane. The covector field k^± is, at
+each point, the null conormal of the sphere S_(v,r) through that point, and the second fundamental form of S_(v,r)
+along n^± is (∇k^±)(Y, Z) = Y^a Z^b (∂_a k^±_b − Γ[g]^c_(ab) k^±_c) on tangent vectors Y, Z. So, in Cartesian
+coordinates,
 
-    θ^±(G) = −Π_G^(ab) Γ[G]^c_(ab) k^±_c,     Γ[G]^c_(ab) = ½ G^(cd) (∂_a G_db + ∂_b G_da − ∂_d G_ab),
+    θ^±(g) = Π_g^(ab) (∂_a k^±_b − Γ[g]^c_(ab) k^±_c),     Γ[g]^c_(ab) = ½ g^(cd) (∂_a g_db + ∂_b g_da − ∂_d g_ab).
+                                                                                                    {#eq:theta-cartesian}
 
-in Cartesian coordinates: a smooth function of (X, G) times ∂G, affine in ∂G.
+The first term contains no derivative of g. The Cartesian components of dτ are constant and those of dr are ∂_b r, so
 
-Let ĝ(X, θ; λ) := g0 + λ g1 + Σ_(j≥2) λ^j g_j be the profile of G, so G = [ĝ]. By the chain rule of
-[[sec:profiles]], ∂_a G = λ⁻¹ (∂_a v) [∂_θ ĝ] + [∂_a ĝ]. In Γ_(dab) the fast parts of ∂_a G_db and ∂_b G_da
-carry the factor ∂_a v or ∂_b v, and Π_G^(ab) ∂_a v = 0 because dv lies in the normal plane. Only the fast part of
-−½ ∂_d G_ab survives, and it contributes ½ λ⁻¹ k^±_c G^(cd) ∂_d v Π_G^(ab) [∂_θ ĝ_ab] = ½ λ⁻¹ k^±(ℓ_G) Π_G^(ab)
-[∂_θ ĝ_ab], with ℓ_G := G⁻¹ dv. Hence θ^±(G) = f^±(X, v/λ, λ) with
+    ∂_a k^±_b = (∂_a c^±) (dr + α^± dτ)_b + c^± ∂_a ∂_b r + c^± (∂_a α^±) dτ_b.
+
+The derivatives of c^± and α^± are where ∂g enters, and they multiply dr + α^± dτ and dτ, which Π_g annihilates. Hence
+
+    Π_g^(ab) ∂_a k^±_b = c^±(X, g) Π_g^(ab) ∂_a ∂_b r,
+
+a smooth function of (X, g) on r > 0. So θ^±(g) is a smooth function of (X, g) plus a smooth function of (X, g) times
+∂g: it is affine in ∂g. (In the polar chart of [[sec:horizon-notation]] the components of k^± along the sphere vanish
+identically and the first term is absent; in Cartesian components it is not, and for the flat metric η, where Γ = 0,
+it is the whole expansion ±3/r.)
+
+Let ĝ(X, θ; λ) := g0 + λ g1 + Σ_(j≥2) λ^j g_j be the profile of g, so g = [ĝ]. By the chain rule of
+[[sec:profiles]], ∂_a g = λ⁻¹ (∂_a v) [∂_θ ĝ] + [∂_a ĝ]. The first term of [[eq:theta-cartesian]] depends on g only
+through its value, so it is c^±(X, [ĝ]) Π_[ĝ]^(ab) ∂_a ∂_b r, with no fast part. In Γ_(dab) the fast parts of ∂_a g_db
+and ∂_b g_da carry the factor ∂_a v or ∂_b v, and Π_g^(ab) ∂_a v = 0 because dv lies in the conormal plane. Only the
+fast part of −½ ∂_d g_ab survives, and it contributes ½ λ⁻¹ k^±_c g^(cd) ∂_d v Π_g^(ab) [∂_θ ĝ_ab] = ½ λ⁻¹ k^±(ℓ_g)
+Π_g^(ab) [∂_θ ĝ_ab], with ℓ_g := g⁻¹ dv. Hence θ^±(g) = f^±(X, v/λ, λ) with
 
     f^±(X, θ, λ) := Θ^±_slow(X, ĝ, ∂_X ĝ) + ½ k^±(ℓ_ĝ) Π_ĝ^(ab) (∂_θ g1 + λ ∂_θ g2 + λ² ∂_θ g3 + …)_ab,
 
-where Θ^±_slow is the formula above with ∂G replaced by ∂_X ĝ, and we used ∂_θ ĝ = λ ∂_θ g1 + λ² ∂_θ g2 + …, which
-cancels the factor λ⁻¹. The function f^± is smooth in (X, θ, λ) for λ ≤ λ*, λ* small enough that ĝ stays near g0, and
-it is bounded with all its X- and θ-derivatives. At λ = 0, ĝ = g0 and ∂_X ĝ = ∂g0, so the first term is θ^±(g0) and the
-second is ½ k^±_0(ℓ) γ0^(AB) ∂_θ (g1)_AB = ½ k^±_0(ℓ) ∂_θ tr_S g1. Now tr_S g1 = tr_S m1 + tr_S W(X, θ + φ1), the first
-independent of θ and the second zero by hypothesis, so this term vanishes and f^±(X, θ, 0) = θ^±(g0). Taylor's formula
-in λ with integral remainder gives f^± = θ^±(g0) + λ Θ^±_1 + λ² e^± with Θ^±_1 := ∂_λ f^±(·, ·, 0) and e^± of the stated
-kind. This is (a).
+where Θ^±_slow(X, ĝ, ∂_X ĝ) := c^±(X, ĝ) Π_ĝ^(ab) ∂_a ∂_b r − Π_ĝ^(ab) Γ^c_(ab) k^±_c, with Γ formed from ĝ and ∂_X ĝ
+in place of g and ∂g, and we used ∂_θ ĝ = λ ∂_θ g1 + λ² ∂_θ g2 + …, which cancels the factor λ⁻¹. The function f^± is
+smooth in (X, θ, λ) for λ ≤ λ*, λ* small enough that ĝ stays near g0, and it is bounded with all its X- and
+θ-derivatives. At λ = 0, ĝ = g0 and ∂_X ĝ = ∂g0, so the first term is the right side of [[eq:theta-cartesian]] for g0,
+which is θ^±(g0), and the second is ½ k^±_0(ℓ) γ0^(AB) ∂_θ (g1)_AB = ½ k^±_0(ℓ) ∂_θ tr_S g1. Now tr_S g1 = tr_S m1 +
+tr_S W(X, θ + φ1), the first independent of θ and the second zero by hypothesis, so this term vanishes and
+f^±(X, θ, 0) = θ^±(g0). Taylor's formula in λ with integral remainder gives f^± = θ^±(g0) + λ Θ^±_1 + λ² e^± with
+Θ^±_1 := ∂_λ f^±(·, ·, 0) and e^± of the stated kind. This is (a).
 
-The area element, G(n⁺, n⁻) and n^± are smooth functions of (X, G) alone, with no derivative of G, so the same Taylor
+The term c^± Π_g^(ab) ∂_a ∂_b r is what distinguishes [[eq:theta-cartesian]] from the polar formula, and it changes
+none of these conclusions, because it contains no derivative of g: it produces no factor λ⁻¹, so it lies in Θ^±_slow
+and leaves the fast term ½ λ⁻¹ k^±(ℓ_g) Π_g^(ab) [∂_θ ĝ_ab] as it is; at λ = 0 it is the corresponding term of
+θ^±(g0); and it is part of the smooth function f^±, to which the argument of (c) below applies as to the rest.
+
+The area element, g(n⁺, n⁻) and n^± are smooth functions of (X, g) alone, with no derivative of g, so the same Taylor
 argument applies with no fast term at all: (b). For (c), along a column v is constant, so by [[eq:column-derivative]]
 the derivative of f(X, v/λ, λ) along it is (ℓ_X f)(X, v/λ, λ), bounded with no factor λ⁻¹; applied to λ Θ^±_1 + λ² e^±
 it is O(λ). ∎
@@ -206,28 +228,33 @@ The first profile of g_app satisfies the hypotheses of [[lem:sphere-two-scale]]:
 
 *Proof of [[prop:one-zero]].* Let λ ≤ λ0 and write θ⁺_λ := θ⁺(g_λ).
 
-(i) The expansion as a function of the metric. As in the proof of [[lem:sphere-two-scale]], θ⁺(G) is a smooth function
-of (X, G) times ∂G, affine in ∂G, and it is estimated in the Cartesian arrays, in which the axes are regular points.
+(i) The expansion as a function of the metric. By [[eq:theta-cartesian]] and the identity after it, θ⁺(g) =
+c⁺(X, g) Π_g^(ab) ∂_a ∂_b r − Π_g^(ab) Γ[g]^c_(ab) k⁺_c: a smooth function of (X, g) plus a smooth function of (X, g)
+times ∂g, so affine in ∂g. It is estimated in the Cartesian arrays, in which the axes are regular points.
 
 (ii) The background. By [[lem:round-spheres]], θ⁺(g0) = 3(r² − μ)/(r(r² + μ)). Since S_(v,r) lies in {v = const}, μ =
 μ(v) enters only algebraically. Its one zero on (0, ∞) is r = √μ, simple, with ∂_r θ⁺(g0) = 3/μ there. The ingoing
 expansion is −3/r < 0.
 
-(iii) The approximant. By [[lem:sphere-two-scale]] applied to G = g_app, θ⁺(g_app) = θ⁺(g0) + λ [Θ⁺_1] + λ² E⁺, and
+(iii) The approximant. By [[lem:sphere-two-scale]] applied to g = g_app, θ⁺(g_app) = θ⁺(g0) + λ [Θ⁺_1] + λ² E⁺, and
 along every column
 
     |θ⁺(g_app) − θ⁺(g0)| + |(d/dr)(θ⁺(g_app) − θ⁺(g0))| ≤ C λ.
 
-(iv) The remainder. Since θ⁺ is smooth in G and affine in ∂G, |θ⁺(g_λ) − θ⁺(g_app)| ≤ C (|w| + |∂w|). Its derivative
-along a column is at most C (|w| + |∂w| + |∂²w|): the derivative falls on w, on ∂w, or on the coefficients through
-g_app and ∂g_app, and ℓ ∂g_app = dv ⊗ [ℓ ∂_θ g1] + O(1) is bounded because ℓ(v) = 0. By [[eq:remainder-pointwise]]
-both are at most C M λ^(K−5) ≤ C λ, as K ≥ 6. With (iii), along every column
+(iv) The remainder. Since θ⁺ is smooth in g and affine in ∂g, and ∂g_app and ∂g_λ are bounded,
+|θ⁺(g_λ) − θ⁺(g_app)| ≤ C (|w| + |∂w|). Its derivative along a column is at most C (|w| + |∂w| + |∂²w|): the derivative
+falls on w, on ∂w, or on the coefficients, which are smooth functions of (X, g) evaluated at g_app or g_λ and multiply
+g_app, ∂g_app or w, ∂w; and ℓ g_app is bounded and ℓ ∂g_app = dv ⊗ [ℓ ∂_θ g1] + O(1) is bounded, because ℓ(v) = 0. By
+[[eq:remainder-pointwise]] both are at most C M λ^(K−5) ≤ C λ, as K ≥ 6. With (iii), along every column
 
     |θ⁺_λ − θ⁺(g0)| + |(d/dr)(θ⁺_λ − θ⁺(g0))| ≤ C3 λ.                                              {#eq:theta-plus-close}
 
+The same two steps, with [[lem:sphere-two-scale]] (a) for θ⁻ and θ⁻(g0) = −3/r, give |θ⁻(g_λ) + 3/r| ≤ C3 λ on the
+columns, C3 enlarged if necessary.
+
 (v) The zero. The columns lie in the compact Ω, and r ≥ r_q(v) ≥ q0 > 0 on them. The difference
-√μ − r_q = μ^(1/2) − c μ^(1/4), c := (√72 l5²)^(1/4), equals μ^(1/4)(μ^(1/4) − c) and has derivative
-¼ μ^(−3/4)(2 μ^(1/4) − c) in μ, which is positive for μ > c⁴/16 = √72 l5²/16, in particular for μ ≥ μ0 ≥ √72 l5².
+√μ − r_q = μ^(1/2) − b μ^(1/4), b := (√72 l5²)^(1/4), equals μ^(1/4)(μ^(1/4) − b) and has derivative
+¼ μ^(−3/4)(2 μ^(1/4) − b) in μ, which is positive for μ > b⁴/16 = √72 l5²/16, in particular for μ ≥ μ0 ≥ √72 l5².
 So √μ(v) − r_q(v) is at least its value at μ0, which is positive when μ0 > √72 l5². Put μ_max := μ(v_end). Fix δ in
 (0, that value) such that ∂_r θ⁺(g0) ≥ 3/(2 μ_max) on |r − √μ(v)| ≤ δ (possible by continuity, since ∂_r θ⁺(g0) = 3/μ ≥
 3/μ_max at r = √μ), and let m_δ > 0 be the minimum of |θ⁺(g0)| on the compact rest of the columns. Let λ_H ≤ λ0 be

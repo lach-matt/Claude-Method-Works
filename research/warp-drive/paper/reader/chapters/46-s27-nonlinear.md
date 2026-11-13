@@ -226,3 +226,141 @@ x¹ ≤ T″ − 1. ρ′_I < c ≤ ½ gives t > (1 − c)|x| + T″ ≥ ½|x| +
 
 The slab 𝒮 is bounded by {ρ′_I = c} ∪ Σ^fut_(r_1) to the past and by {t^♭_* = T̂ + 3} to the future. Its points near
 ℐ⁺ depend on all of Σ^IVP, so it is solved after 𝒦, together with the exterior: [[sec:iv3-0]]–[[sec:iv3-2]].
+
+#### The slab near null infinity: setting {#sec:iv3-0}
+
+This subsection and the next two solve the gauge-fixed equation on the slab 𝒮 of [[lem:s27-cover]], near the interior
+of ℐ⁺ up to {t^♭_* = T̂ + 3}, with its orders at ℐ⁺. The past boundary of 𝒮 contains the part of Σ^fut_(r_1) near ℐ⁺,
+which reaches ℐ⁺ and is asymptotically null there; Cauchy data on it are avoided. The solution is instead posed on
+
+    Ω^♮ := Ω_(ext,r_1) ∪ 𝒮,
+
+from Σ^IVP_(r_1) and from the compact surface Σ_c where 𝒮 meets 𝒦, neither of which reaches ℐ⁺. The argument of
+[[thm:iv2-2-4]] and [[thm:iv2-3-1]] then applies on Ω^♮, in the chart of [[ch:s17]] translated in t, and the solution
+restricts to the exterior solution on Ω_(ext,r_1). [Hin26, p. 321] covers this region in one sentence ("for globally
+small initial data, h_S thus exists … on φ_S({t_IVP ≥ 0}) ∩ {t_* ≤ 2}").
+
+Let T₀ := C′ + 1 − 2R₁ be the constant of [[eq:iii-c-1-3]], and put
+
+    ρ′_0 := (T″ − x¹)⁻¹,     x′_I := (ρ′_I)^(1/2),     U″ := cl_M{t_* ≤ T₀ + T″ − 2} ∩ {|x| ≥ 4R₁},
+
+[[eq:iii-c-1-2]]–[[eq:iii-c-1-3]] with 2 replaced by T″. On U″, x¹ = t_* − C′ + 8m₀|x|⁻¹ ≤ T₀ + T″ − 2 − C′ + 2R₁ =
+T″ − 1, so ρ′_0 ≤ 1, and (ρ′_0, ρ′_I, ω) are coordinates near I₀ ∪ ℐ⁺. On U the ratios ρ′_0/ρ_0 = (2 − x¹)/(T″ − x¹)
+and ρ′_I/ρ_I are smooth and positive up to I₀ and ℐ⁺, tending to 1 at I₀; so the weighted b- and edge-b spaces of the
+two charts coincide on U, with equivalent norms (the fibration of ℐ⁺ by ω is the same). Let
+
+    Σ_c := {ρ′_I = c} ∩ ∂𝒮.
+
+Σ_c is compact: on it x¹ ≥ C″ − r_1 − 2 (the proof of [[lem:s27-cover]] (c)), so |x| ≤ (T″ + r_1 + 2 − C″)/c. 𝒢″
+denotes the class of [[def:iii-c-3-4]] on U″ in the coordinates (ρ′_0, ρ′_I).
+
+*Translation.* t ↦ t − (T″ − 2) is an isometry of g_(b₀) (stationary in the coordinates of [[sec:iii-b-2]]) and of η,
+and it maps the coordinates [[eq:iii-c-1-2]] and the frame [[eq:iii-c-1-6]] to those above. [[sec:iii-c-1]] and
+[[sec:iii-c-4]] ([[lem:iii-c-1-1]], [[lem:iii-c-1-3]], [[lem:iii-c-4-1]]–[[lem:iii-c-4-3]], [[prop:iii-c-4-4]]) and
+the results of [[ch:s26]] on the exterior region use the chart only through the form of η in it and through the bounds
+of [[lem:iii-c-1-3]] for g_(b₀) − η, which are invariant under this map; so they hold on U″ in the translated chart, for
+backgrounds in 𝒢″, with the same proofs.
+
+**Lemma {#lem:iv3-0-1}** (The background on the slab.) Let S ∈ 𝒮_1 be small as in [[lem:iii-b-5-2]]. On a
+neighbourhood of 𝒮̄ in U″, φ_S^*g_(b₀) agrees with an element of 𝒢″; on Ω_(ext,r_1) it is the background of
+[[lem:iii-c2-1-1]].
+
+*Proof.* On 𝒮, χ_IVP = 1, as t_IVP ≥ 0 > −|x|/10 ([[sec:iii-b-5]]). And χ_K = 0 on 𝒮: supp χ_K lies in the interior
+of {χ^♯_K = 1} ⊂ supp χ^♯_K ⊂ {|x| < t/2}, while on 𝒮, t^♭_* ≤ T̂ + 3 gives t_* ≤ (T̂ + 3)/C_♭ and so x¹ ≤ T″ − 1,
+so t ≤ |x| + T″ < 2|x| near infinity, where 𝒮 lies. So [[eq:iii-b-5-3]] holds near 𝒮̄:
+
+    φ_S^*g_(b₀) − g_(b₀) − |x|⁻² 𝔥_S(ω)(dx¹)² ∈ ρ₀²ρ_I³ρ_+² C^∞(M; S²T*),
+
+with 𝔥_S the function h_(S_w) of [[eq:iii-b-5-2]]; and g_(b₀) − η = m₀|x|⁻²(dx¹)² + |x|⁻³C^∞ on {|x| ≥ 3R₁}
+([[lem:iii-c-3-5]] (1) and its proof). On 𝒮, ρ₀, ρ′_0 and ρ_+ are bounded below and ρ_I/ρ′_I is smooth and positive,
+so φ_S^*g_(b₀) − η ∈ (ρ′_0)²(ρ′_I)²C^∞ with only the slot π₁₁ at that order, (dx¹)² being of type π₁₁, and the other
+slots in (ρ′_0)²(ρ′_I)³C^∞: this is [[eq:iii-c-3-4]] in the translated chart, and φ_S^*g_(b₀) is smooth on M. On
+Ω_(ext,r_1) the statement is [[lem:iii-c2-1-1]]. ∎
+
+#### The curves on Ω^♮ {#sec:iv3-1}
+
+**Lemma {#lem:iv3-1-1}** Let c_1 ∈ (0, c/4] and r_ext large. (a) {ρ′_I = c_1} = {t = (1 − c_1)|x| + T″} is spacelike
+near infinity, with {ρ′_I < c_1} to its future. (b) For p ∈ Ω^♮ with ρ′_I(p) < c_1, the integral curves of
+X′_I := ρ′_I∂_(ρ′_I) and of X′_0 − X′_I through p (the outgoing ray at fixed x¹, and the curve of fixed |x|), followed
+in the direction of increasing ρ′_I, stay in Ω^♮ until they reach {ρ′_I = c_1}, which they do. (c)
+Ω^♮ ∩ {ρ′_I < c_1} does not meet 𝒦, and Σ_c lies in {ρ′_I = c}.
+
+*Proof.* (a) is [[lem:iv2-1-1]] (a) in the translated chart. (b) Near infinity, Ω^♮ ∩ {ρ′_I < c} is the set
+{ρ′_I < c, t_IVP ≥ 0, t^♭_* ≤ T̂ + 3}: below Σ^fut_(r_1) it is Ω_(ext,r_1), above it 𝒮. So it suffices that along the
+segment ρ′_I stays below c and t_IVP ≥ 0 and t^♭_* ≤ T̂ + 3 persist. *The ray.* Along it x¹ = x¹_p, and |x| decreases
+to r_c := (T″ − x¹_p)/c_1, where ρ′_I = c_1 < c. t_* = x¹ + C′ − 8m₀|x|⁻¹ decreases along it. So does t^♭_*, along
+this curve and the next: both are past directed causal for g_(b₀) (the ray is g_(b₀)-null, as
+g_(b₀) = η + m₀|x|⁻²(dx¹)² there, [[lem:iii-b-3-5]] (b)), and dt^♭_* is past timelike for g_(b₀) ([[lem:ii-c-3-2]]
+(2)). t_IVP = x¹ + |x| − C″ decreases too, and at r_c it is x¹_p(1 − c_1⁻¹) + T″c_1⁻¹ − C″, which is
+≥ |x¹_p|(c_1⁻¹ − 1) + T″c_1⁻¹ − C″ > 0 if x¹_p < 0, and ≥ T″ − 1 + c_1⁻¹ − C″ > 0 if x¹_p ∈ [0, T″ − 1], for c_1 small;
+and r_c = (T″ − x¹_p)/c_1 ≥ 1/c_1 ≥ 4/c ≥ 4R_9, as T″ − x¹ ≥ 1 on 𝒟 and c ≤ 1/R_9, so the ray stays in {r ≥ R_9}.
+*The curve of fixed |x|.* t decreases to t_c := (1 − c_1)|x| + T″; t_* decreases; the curve may cross Σ^fut_(r_1) into
+Ω_(ext,r_1); t_IVP(t_c) ≥ ½|x| + T″ − C″ > 0; and ρ′_I < c_1 along it, so it avoids 𝒦. (c) is the definition of 𝒮
+and 𝒦 ⊂ 𝒟 ∖ 𝒮. ∎
+
+So [[lem:iv2-1-2]] holds on Ω^♮_(c_1) := Ω^♮ ∩ {ρ′_I < c_1}, in the translated chart, with the same proof.
+
+#### The solution on Ω^♮ {#sec:iv3-2}
+
+**Theorem {#thm:iv3-2-1}** (The linear estimate on Ω^♮.) Let g_0 := φ_S^*g_(b₀) with |S| small, or g_0 := g_(b₀); h
+small in H^(8,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮) (weights at ℐ⁺ in ρ′_I); L := L^(χ^♮_0)_(g_0+h,g_0); α_0 > ℓ^♭_I, k ∈ ℕ₀ and
+d := 4. For f ∈ H^(k+d,α_0+2,(−′,ℓ^♭_I+1))_b(Ω^♮), data ġ_0, ġ_1 ∈ H^(k+d,α_0)_b(Σ^IVP_(r_1)) and data
+k̇_0, k̇_1 ∈ H^(k+d)(Σ_c), there is a unique ġ ∈ H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) with Lġ = f, ġ = ġ_0 and
+r ℒ_(∂_(t_IVP))ġ = ġ_1 on Σ^IVP_(r_1), and the Cauchy data (k̇_0, k̇_1) on Σ_c; and [[eq:iv2-2-3]] holds with
+‖k̇_0‖_(H^(k+d)) + ‖k̇_1‖_(H^(k+d)) added to N(f, ġ_0, ġ_1; k + d) and their H⁸-norms added to N(f, ġ_0, ġ_1; 8).
+
+*Proof.* As [[thm:iv2-2-4]], with three changes. *The gauge.* On Ω_(ext,r_1), χ^♮_0 = χ_0 ([[lem:iii-k-1-1]] (c));
+on 𝒮, χ^♮_0 = 1 = χ_0, as t_IVP ≥ r/4 there ([[lem:s27-cover]] (d)); so L = L^(χ_0) on Ω^♮, and [[cor:iv2-4-1]]
+applies, χ_0 = 1 on Ω^♮_(c_1) (ρ′_I < c_1 gives t_IVP ≥ r/4). *The background.* g_0 ∈ 𝒢″ near 𝒮̄ by
+[[lem:iv3-0-1]], and in the class of [[lem:iii-c2-1-1]] on Ω_(ext,r_1); it is Ricci flat. *The regions.* Fix
+c_1 ≤ c/4 so small that [[prop:iv1-2-2]] holds on Ω^♮_(c_1) with Σ_in := {ρ′_I = c_1} ∩ Ω^♮ and
+Σ_fin := {t^♭_* = T̂ + 3} ∩ Ω^♮_(c_1), which is spacelike for g_0 + h, dt^♭_* being past timelike for every g_(b₀) + h′
+with h′ small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:ii-c-3-2]] (2)); every X′_I-curve there begins on Σ_in
+([[lem:iv3-1-1]] (b)). Then:
+
+(i) On Ω_N (near the interior of I₀, with the past slab), [[lem:iv2-2-2]] with the data on Σ^IVP_(r_1), unchanged.
+
+(ii) On Ω^♮ ∩ {ρ′_I ≥ c_1/4} ∩ {τ′ ≥ 1/16}, away from ℐ⁺ (τ′ = t_IVP/|x| as in [[sec:iv2-0]]): its part in
+Ω_(ext,r_1) by the first step of [[lem:iv2-2-3]] ([[prop:iv-4-1]] for the system near the interior of I₀, and standard
+energy estimates on the compact part); then its part in 𝒮, which is compact (|x| ≤ 4(T″ − x¹)/c_1, x¹ bounded), by the
+standard energy estimate for the Cauchy problem of a linear wave equation on a compact domain of dependence, with data
+on Σ_c (given) and on Σ^fut_(r_1) ∩ {c_1/4 ≤ ρ′_I < c} (from the part in Ω_(ext,r_1)), both spacelike and compact. Its
+boundary to the future, {ρ′_I = c_1/4}, {t^♭_* = T̂ + 3} and Σ^fut_(r_1) ∩ {ρ′_I ≥ c} (where Ω^♮ borders 𝒦), is
+spacelike, so the region is closed under past causal curves within Ω^♮, and [[lem:ii-f-1-3]] gives uniqueness.
+
+(iii) On Ω^♮_(c_1), the second step of [[lem:iv2-2-3]] and the steps of the proof of [[thm:iv2-2-4]] near ℐ⁺, with
+c_1 in place of c: the cut-off χ̂_(c_1)(ρ′_I), [[prop:iv1-2-2]], and the two integrations of [[lem:iv2-1-2]] along the
+curves of [[lem:iv3-1-1]]. Nothing in these steps uses ρ′_0 beyond its role as a coordinate; on 𝒮 it is bounded
+below, where the weight at I₀ is immaterial.
+
+The forcing of each step vanishes near its initial surface after the cut-offs of the proof of [[thm:iv2-2-4]] and of
+[[lem:iv2-2-3]], and the estimates compose as there; the data on Σ_c enter through (ii) only, at the order of
+H^(k+4). Uniqueness: [[lem:ii-f-1-3]] on each region. ∎
+
+**Theorem {#thm:iv3-2-2}** (The nonlinear solution on Ω^♮; [Hin26, p. 321].) Let g_0 be as in [[thm:iv3-2-1]],
+(h_0, h_1) data on Σ^IVP_(r_1) as in [[thm:iv2-3-1]], and (k_0, k_1) the Cauchy data on Σ_c of a solution of
+P^♮(g_0 + h, g_0) = 0 on a neighbourhood of Σ_c in 𝒦 ∪ Ω_(ext,r_1) that agrees on Ω_(ext,r_1) with the solution of
+[[thm:iv2-3-1]]. If ‖h_j‖_(H^(2d,ℓ^♭_0)_b) + ‖k_j‖_(H^(2d)(Σ_c)) < ε_0 (d = 7), there is a unique
+h ∈ H^(∞,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮), small in H^(3d), with P^♮(g_0 + h, g_0) = 0 and these data; it equals the solution of
+[[thm:iv2-3-1]] on Ω_(ext,r_1), and the higher norms are bounded as there.
+
+*Proof.* The proof of [[thm:iv2-3-1]] on Ω^♮, with the spaces F^k of right sides enlarged by H^k(Σ_c)² and the map by
+the traces on Σ_c minus (k_0, k_1); the right inverses are those of [[thm:iv3-2-1]], and the smoothing and the map are
+as there (P^♮ = P^(χ_0) on Ω^♮, and [[cor:iii-c-5-3]] holds for it by [[lem:iii-c2-2-1]], near 𝒮 in the translated
+chart). Ω_(ext,r_1) is closed under past causal curves within Ω^♮, and its past boundary is
+Σ^IVP_(r_1) ∪ Σ^past_(r_1); so on it the solution depends on (h_0, h_1) only, and it is the solution of
+[[thm:iv2-3-1]] by uniqueness there. ∎
+
+So the solution of [[prop:iii-k-1-2]] on 𝒮 is the restriction of that of [[thm:iv3-2-2]], with (k_0, k_1) from the
+compact part (whose data on Σ^fut_(r_1) ∩ {ρ′_I ≥ c} come from the exterior); the three solutions agree on overlaps by
+[[lem:ii-f-1-3]] with the compact sets of [[lem:iii-k-6-2]].
+
+**Corollary {#cor:iv3-2-3}** (The orders on the slab.) Under the hypotheses of [[thm:iii-c1-3-1]] on the data, the
+solution of [[thm:iv3-2-2]] lies in H^(∞,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b(Ω^♮), with the bound [[eq:iii-c1-3-2]]; in
+particular h_S has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ on 𝒮, as [[prop:iii-k-1-2]] (3) states.
+
+*Proof.* The proof of [[thm:iii-c1-3-1]] on Ω^♮, with [[thm:iv3-2-1]] in place of the linear estimate
+[[eq:iii-c1-2-2]]. Its Step 1 works at I₀, which Ω^♮ meets only within Ω_(ext,r_1); its Step 2 integrates, slot by
+slot, along X_I and X_0 − X_I near ℐ⁺ ([[lem:iii-a-1-2]], [[lem:iii-a-3-2]]), and on Ω^♮_(c_1) the curves followed
+backward reach {ρ′_I = c_1}, where the solution is smooth ([[lem:iv3-1-1]] (b)); away from ℐ⁺ there is nothing to show.
+The structure [[eq:iii-c-4-4]] used there holds near 𝒮 by [[lem:iv3-0-1]] and the translation. ∎
