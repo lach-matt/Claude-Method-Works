@@ -304,9 +304,8 @@ black hole of mass m′ with |m′ − μ_end| < ε_m and spin below ε_m.
 [[part:stability-nonlinear]], which is Hintz's proof of the nonlinear stability of Kerr [Hin26] carried into spacetime
 dimension n + 1 = 5 and written out in full. Gluing a perturbation far out to a translated, rotated and boosted
 Myers–Perry metric replaces its data near infinity, on which the solution near the hole at late times depends; so (ii)
-is stated for perturbations in
-Hintz's own data class, where his theorem applies without gluing, and [[ch:after-shell]] determines which decaying
-perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
+is stated for perturbations in Hintz's own data class, where his theorem applies without gluing, and [[ch:after-shell]]
+determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
 
 The linear statement is proved with it, as the nonlinear theorem's linearisation at the Tangherlini data
 ([[thm:viii-2-2]], [[cor:viii-2-3]]). Every solution of the linearised constraint equations in Hintz's data class has
@@ -314,10 +313,10 @@ a linearised vacuum development in his generalised wave gauge. Up to the data of
 translation, Lie derivatives of the Tangherlini metric along their generators, it takes those data, and where the
 late-time cut-off is 1 it differs from a linearised Myers–Perry metric by O(t*^(−2−ε)) in spatially compact subsets of
 the exterior, for each ε < ε_K. In the class the boost and the translation vanish and the Myers–Perry change is a
-change of mass alone. A linearised vacuum solution given in another gauge, with the same data up to those of a linearised
-diffeomorphism and given on the whole future of the initial surface outside r = r_0, smooth up to that surface,
-differs from this one there by a linearised diffeomorphism L_X g, X unique up to Killing fields ([[thm:ix-2-2]],
-[[cor:ix-2-3]]).
+change of mass alone. A linearised vacuum solution given in another gauge, with the same data up to those of a
+linearised diffeomorphism and given on the whole future of the initial surface outside r = r_0, smooth up to that
+surface, differs from this one there by a linearised diffeomorphism L_X g, X unique up to Killing fields
+([[thm:ix-2-2]], [[cor:ix-2-3]]).
 
 ### Further results {#sec:further-results}
 
@@ -329,9 +328,13 @@ The remaining chapters prove the following; each is stated in full where it is p
   applies, directly or through gluing uniformly in the gluing radius, are exactly those small in Hintz's class
   ([[ch:after-shell]]).
 - *Beyond the boundary.* The development of [[thm:settling]] (i) also reaches inside the black hole after the shell,
-  up to the curvature boundary, and on the common domain of dependence it and g_λ are one spacetime
-  ([[prop:interior]]). The development of g_λ's own data settles, with no gluing, in a data class wider than (ii)'s by
-  half-integer orders, for every λ below a threshold and with no exceptional set ([[thm:own-data]]).
+  up to the curvature boundary ([[prop:interior]]). Glued to g_λ, taken just before Σ^IVP, along the part of Σ^IVP
+  between the inner radius of the stability theory and R, where the two induce the same data, it forms one smooth
+  vacuum spacetime, for λ small; and the two
+  developments of those data have a maximal common globally hyperbolic development that contains a neighbourhood of
+  that part, how far it reaches being left open ([[lem:interior-one-spacetime]]). The development of g_λ's own data
+  settles, with no gluing, in a data class wider than (ii)'s by half-integer orders, for every λ below a threshold and
+  with no exceptional set ([[thm:own-data]]).
 - *The linear solution in two gauges.* In a Regge–Wheeler-type gauge the gauge vector is explicit, and the
   perturbation settles to the change of mass on each region r ≤ R, the horizon included, at the linear rate with two
   derivatives lost ([[thm:rw-settling]]). In the harmonic gauge a representative exists on the whole domain, induces

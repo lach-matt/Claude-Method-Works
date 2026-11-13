@@ -580,3 +580,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   ‖u_j − u‖ → 0 from uniqueness; chapters 42-44 need no change (reader checks).
 - Chapter 61 confirmed (R2-61). Nits: the distance claim "for the members" needs one clause (496-498);
   cor:after-shell-every-rate should say δ depends on ε (251-254).
+- Proof E margins fixed (F-P-E-margins): the Rácz converse cites [Rác…] (4.22), which Appendix A lacks (next Appendix
+  A round, if the reader rules it needed). The interpolant clause is only in maps/registry-notes.md:244 (no chapter).

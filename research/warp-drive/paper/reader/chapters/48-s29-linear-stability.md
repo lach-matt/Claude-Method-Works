@@ -120,12 +120,12 @@ that every symmetric 2-tensor ḣ, smooth near Σ^IVP or on one side of it up to
 
 (3) if (γ̇, k̇) satisfy the linearised constraint equations, then (G_g DRic(ḣ))(n, ·) = 0 at Σ^IVP.
 
-*Proof.* For |ε| small, [[prop:iii-c2-4-1]] applies to (γ̃, k̃) := ε(γ̇, k̇) (γ̃ is small in H³_b; the constraints are
-not assumed there). It gives h_0(ε) = εγ̇, extended by h_0(n, ·) := 0, and h_1(ε) = r h̃_1(ε). Its proof determines
-h̃_1(ε) at each point by linear algebraic equations, solved in the order (ij), (0j), (00), each step dividing by a
-multiple of e_0 t_IVP, which is bounded away from 0. Their other coefficients (the frame, the normal n_0, the
-Christoffel symbols of g + h_0) are smooth functions of h_0 and its first derivatives. Their right sides are smooth in
-these and affine in k̃ (the proof of [[prop:iii-c2-4-1]]). So ε ↦ h_1(ε) is smooth at each point, with h_1(0) = 0.
+*Proof.* For |ε| small, [[prop:iii-c2-4-1]] applies to (γ̃, k̃) := ε(γ̇, k̇) ((γ̃, κ̃) there; γ̃ is small in H³_b, and
+the constraints are not assumed there). It gives h_0(ε) = εγ̇, extended by h_0(n, ·) := 0, and h_1(ε) = r h̃_1(ε).
+Its proof determines h̃_1(ε) at each point by linear algebraic equations, solved in the order (ij), (0j), (00), each
+step dividing by a multiple of e_0 t_IVP, which is bounded away from 0. Their other coefficients (the frame, the normal
+n_0 of g + h_0, written ν₀ there, the Christoffel symbols of g + h_0) are smooth functions of h_0 and its first
+derivatives. Their right sides are smooth in these and affine in k̃ (κ̃ there; the proof of [[prop:iii-c2-4-1]]). So ε ↦ h_1(ε) is smooth at each point, with h_1(0) = 0.
 Put ḣ_0 := γ̇, extended in the same way, and ḣ_1 := ∂_ε h_1(0). This is the same construction with the two equations
 of that proof, for the second fundamental form and for Υ⁰, linearised at g. Their right sides are linear in γ̇, its
 b-derivatives and k̇, with the coefficients of that proof. So they lie in H^(∞,(ℰ_0+1,ℓ_0+1))_b by its count, and
@@ -175,18 +175,20 @@ H^(∞,ℓ^♭_0)_b, as ℓ^♭_0 < min Re ℰ_0 and ℓ^♭_0 < ℓ_0 (the firs
   h = 0. [[lem:iv2-2-2]], which it uses, covers the past slab.
 
 - *Compact part.* 𝒦 is compact, and it is the domain of dependence of the past part of its boundary
-  ([[lem:s27-cover]] (c), which holds for g). L^♮ is a linear operator with smooth coefficients and principal symbol
-  −½g⁻¹(ζ, ζ) (the normal form of the gauge, as in the proof of [[prop:iii-k-1-2]]). Its data on Σ^IVP ∩ 𝒦 are given,
-  and on Σ^fut_(r_1) ∩ ∂𝒦 the exterior solution gives them. The energy estimates for linear wave equations on a compact
-  domain of dependence then give ḣ on 𝒦, forward from Σ^IVP and backward to {t_IVP = −ν}. It is bounded in every H^k
-  by finitely many norms of the data, and unique by [[lem:ii-f-1-3]].
+  ([[lem:s27-cover]] (c), which holds for g). L^♮ is a linear operator with smooth coefficients and principal part
+  ½□_g ⊗ id = −½g^(αβ)∂_α∂_β ⊗ id, □_g as in [[eq:iii-b-6-7]], that is with principal symbol ½g⁻¹(ζ, ζ) Id (∂ → iζ):
+  this is the normal form of the gauge of [[sec:s27-local]], at h = 0. Its data on Σ^IVP ∩ 𝒦 are given, and on
+  Σ^fut_(r_1) ∩ ∂𝒦 the exterior solution gives them. The linear local theory (L) of [[sec:s27-local]], with 𝒦′ := 𝒦,
+  then gives ḣ on 𝒦, forward from Σ^IVP and backward to {t_IVP = −ν}, unique, and bounded in H^k(𝒦) for every k by
+  finitely many norms of the data; uniqueness also follows from [[lem:ii-f-1-3]].
 
 - *Slab.* [[thm:iv3-2-1]] with g_0 := g and h = 0, with the data on Σ^IVP_(r_1) and the data that 𝒦 gives on Σ_c,
   gives ḣ on Ω^♮ = Ω_(ext,r_1) ∪ 𝒮. It equals the exterior solution on Ω_(ext,r_1), by uniqueness there.
 
 The three solutions agree on overlaps by [[lem:ii-f-1-3]] with τ := t_IVP, as in the proof of [[prop:iii-k-1-2]].
 *The uniqueness classes:* H^(max(k,1),ℓ^♭_0,(−,ℓ^♭_I))_b of [[thm:iv2-2-4]] on Ω_(ext,r_1), that of [[thm:iv3-2-1]] on
-Ω^♮, with max(k, 1) as in [[thm:iv2-2-4]], and H¹ on 𝒦 (the energy estimate). Each is preserved by every isometry of
+Ω^♮, with max(k, 1) as in [[thm:iv2-2-4]], and H¹ on 𝒦 (the energy estimate behind (L) of [[sec:s27-local]]). Each
+is preserved by every isometry of
 g that fixes t and |x|, the weights being functions of (t, |x|) ([[eq:iii-b-2-2]]) and ρ′_I a function of (t, |x|)
 ([[sec:s27-cover]]).
 
