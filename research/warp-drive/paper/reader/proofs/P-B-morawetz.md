@@ -15,7 +15,7 @@ As r_* → −∞, y → 1 and 1 − y decays like e^(2r_*); as r_* → ∞, r_*
 {1/16 ≤ y ≤ 25/36} = {−7/18 ≤ z ≤ 7/8}. With r_* = r + ½ log((r − 1)/(r + 1)), its length is
 Λ := 14/5 + ½ log(33/5) < 3.7436. We write ‖·‖ for the norm of L²(ℝ, dr_*), ‖·‖_I for that of L²(I, dr_*), and χ_I
 for multiplication by the indicator function of I. For a potential V as below, a real σ ≠ 0 and f ∈ L²(ℝ) vanishing
-outside I, R(σ)f is the outgoing solution of −u″ + (V − σ²)u = f ([[pending:resolvent-outgoing]]), whose form is
+outside I, R(σ)f is the outgoing solution of −u″ + (V − σ²)u = f, constructed as in [[prop:resolvent-outgoing]] and
 recalled in [[lem:morawetz-identity]]; R_l(σ) is R(σ) for the potential of the harmonic l, and ‖χ_I R(σ) χ_I‖ is the
 norm of f ↦ χ_I R(σ)f on L²(I).
 
@@ -55,7 +55,7 @@ X(B̃) = (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′).
 
 *Proof.* First, R(σ)f is a solution of this kind. Let u_h and u_∞ be the solutions of the homogeneous equation with
 u_h − e^(−iσr_*) → 0 and u_h′ + iσu_h → 0 as r_* → −∞, and u_∞ − e^(iσr_*) → 0 and u_∞′ − iσu_∞ → 0 as r_* → ∞, and
-let 𝒲 := u_hu_∞′ − u_h′u_∞ be their Wronskian, a nonzero constant ([[pending:resolvent-outgoing]]). Then
+let 𝒲 := u_hu_∞′ − u_h′u_∞ be their Wronskian, a nonzero constant (as in [[prop:resolvent-outgoing]]). Then
 
     R(σ)f(x) = −𝒲⁻¹(u_∞(x)∫_(−∞)^x u_hf + u_h(x)∫_x^∞ u_∞f).
 
@@ -231,8 +231,8 @@ greatest value 4η(3/5) = 24√15/125 < 0.74362, since 3.873² > 15. So w_I ≥ 
 
 On I, m′ = min_I(φ′ − q) = 3315/65536, M′ = max_I|φ′ − 2q| < 0.3999 and w_I = W(4) = 5899185/536870912 > 0.010988. So
 for every real σ ≠ 0, ‖χ_I R_0(σ) χ_I‖ ≤ B_0(σ) := ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2), which is at most 70.17,
-226.50, 585.53 and 1857.54 at σ → 0, σ = 1, 3 and 10. For the bound off the real axis
-([[pending:resolvent-off-axis]]), which replaces 2|σ| by 4|σ| + 2 max q, max q = 2√6/27 < 0.18145, attained at y = 2/3.
+226.50, 585.53 and 1857.54 at σ → 0, σ = 1, 3 and 10. For the bound off the real axis of [[lem:morawetz-complex]],
+which replaces 2|σ| by 4|σ| + 2 max q, max q = 2√6/27 < 0.18145, attained at y = 2/3.
 
 *Proof.* q = ηg with g = (2 + 3y)/4 ≥ 0, and φ′ = 4η, so q/φ′ = (2 + 3y)/16 ≤ 5/16. In [[eq:pb-weight-general]],
 h = (6 + 5y − 21y²)/8 and (2 − 3y)h + y(1 − y)h_y = (12 − 3y − 104y² + 105y³)/8, so the q″-term is
@@ -415,7 +415,7 @@ row C3 otherwise; and from rows C4, C5 and C6 at l = 4, 5 and every l ≥ 6. At 
 [[eq:pb-bound]] with the constants of those rows, rounding up.
 
 (ii) max V_(a,b) ≤ a max U + b max Q = a/4 + 4b/27 for a, b ≥ 0, since U = (1 − y)y ≤ 1/4 and Q = (1 − y)y² ≤ 4/27; at
-l = 0 this is 3/16 + 1/3 = 25/48 < 1. For σ² > max V_0 the bound above the barrier ([[pending:resolvent-above-barrier]])
+l = 0 this is 3/16 + 1/3 = 25/48 < 1. For σ² > max V_0 the bound above the barrier, [[prop:resolvent-above-barrier]],
 gives ‖χ_I R_0(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V_0) ≤ Λ|σ|/(σ² − 25/48). As Λt/(t² − 25/48) decreases for t² > 25/48, its value
 for |σ| ≥ 1 is at most Λ/(23/48) < 3.7436 · 48/23 < 7.8128. The entries at l = 0 are B_0(0+) and B_0(1/2) of
 [[prop:morawetz-l-zero]] and 3.7436|σ|/(σ² − 25/48) at |σ| = 1, 2, 3, 10, rounded up. ∎
@@ -472,7 +472,7 @@ times ‖f‖², and C_l ≤ C_1 for every l ≥ 1 by the table. At |σ| = 1/2, 
 listed.
 
 (d) The left side is at most max_l (X_l² + κB_l²)‖f‖², with any valid bound B_l. For l ≥ 50 we use the closed-form
-bound for large harmonics ([[pending:resolvent-closed-form]]): with c := (15/16)(κ + 3/4),
+bound for large harmonics, [[cor:rb-closed-form]]: with c := (15/16)(κ + 3/4),
 ‖χ_I R_l(σ) χ_I‖ ≤ 1/((15/256)(κ + 3/4) − σ²) whenever (15/256)(κ + 3/4) > σ² and (0.21/1.4641)(κ + 3/4) > σ²;
 0.32727(0.120523(κ + 3/4) − σ²)^(1/2) > (2 + 1.1248|σ|)/√2; and c^(1/2) > 8|σ| and
 (√3/2)c^(1/2) log(c^(1/2)/(8|σ|)) > (2 + 0.79217(κ + 1)^(1/2))/√2. At l = 50 (κ + 3/4 = 2600.75) and |σ| = 3 these
@@ -511,11 +511,12 @@ written "r_1–r_2: e · g ≥ v" with e and g such lower bounds; the Bernstein 
 Rows A, B, C, S4, S3 and T2 are those of [[prop:morawetz-polynomial]]. In rows T1 and T3, p_I = p_∞ = 1, w_I ≥ 0.0455
 and 0.0413, and (m′, M′) = (935/16384, 0.4157) and (0.1384, 0.563). The largest values over all rows are 29.22, 64.82,
 160.01 and 498.25. With V_0 at l = 0 ([[prop:morawetz-harmonics]] (ii)), the largest values over every master operator
-and every harmonic are 70.17, 64.82, 160.01 and 498.25. Multiplied by 15/16, the transfer of
-[[pending:resolvent-transfer]], rows A and B bound the vector-type 1-form blocks at l = 1 (21.25, 40.20, 89.57, 270.73)
-and at l ≥ 2 (12.05, 18.30, 37.76, 112.73), and row B the tensor-type blocks, every l ≥ 2 (the same). For the bound off
-the real axis ([[pending:resolvent-off-axis]]), which adds 2 max q, max q is 0 in rows A to S3 and less than 0.20534,
-0.06161 and 0.10659 in rows T1, T2 and T3.
+and every harmonic are 70.17, 64.82, 160.01 and 498.25. Multiplied by 15/16, the transfer of [[lem:rb-transfer]],
+rows A and B bound the vector-type 1-form blocks at l = 1 (21.25, 40.20, 89.57, 270.73) and at l ≥ 2 (12.05, 18.30,
+37.76, 112.73), and row B the tensor-type blocks, every l ≥ 2 (the same). Off the real axis, [[lem:morawetz-complex]]
+applies to φ/p and q/p with p := sup_ℝ|φ|, which satisfy |φ/p| ≤ 1: p = 1 in rows T1 and T3, and p = p_∞ in the others,
+whose multipliers increase from F(−1) to F(1). There max q is 0 in rows A to S3 and less than 0.20534, 0.06161 and
+0.10659 in rows T1, T2 and T3.
 
 *Proof.* Rows A, B, C, S4, S3 and T2: V_0 = V_(κ+3/4,9/4) and V_1 = V_(κ+3/4,5/4), and at l ≥ 1, κ + 3/4 ≥ 15/4, which is
 row A of [[prop:morawetz-polynomial]]. At l ≥ 2, κ + 3/4 ≥ 35/4 and V_2 = V_(κ+3/4,−7/4), V_T = V_0 lie in its row B. At
@@ -566,7 +567,7 @@ and for |σ| ≥ 6 also ‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 9.271),
 at most 11.51, 16.98, 30.01, 57.44, 113.10 and 224.86 at |σ| = 3, 6, 12, 24, 48 and 96.
 
 *Proof.* As in the proof of [[prop:morawetz-harmonics]] (ii), max V_(κ+3/4,9/4) ≤ (κ + 3/4)/4 + 1/3: at most 6.521 for
-l ≤ 4 and 9.271 for l ≤ 5. When σ² exceeds it, the bound above the barrier ([[pending:resolvent-above-barrier]]) gives
+l ≤ 4 and 9.271 for l ≤ 5. When σ² exceeds it, the bound above the barrier, [[prop:resolvent-above-barrier]], gives
 ‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V). So for |σ| ≥ 3 the harmonics l ≤ 4 are bounded by Λ|σ|/(σ² − 6.521), and for
 |σ| ≥ 6 the harmonics l ≤ 5 by Λ|σ|/(σ² − 9.271); the others are bounded by B_(C5)(σ), respectively B_(C6)(σ), as
 row C5 serves every l ≥ 5 and row C6 every l ≥ 6. At |σ| = 3 the first term is at most 3.7436 · 3/2.479 < 4.54 and

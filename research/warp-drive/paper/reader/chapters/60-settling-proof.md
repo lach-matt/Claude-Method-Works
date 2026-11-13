@@ -81,7 +81,7 @@ There are also m′ with |m′ − μ_end| < ε_m and a G-invariant metric g on 
 
     g − g_(m′,0) = h_tot(p⃗) + h_(b,rem)(q) + h,     h ∈ 𝒳^∞_(J,ex),  q ∈ 𝒬_ex,
 
-the conclusions (3)–(4) of [[thm:iii-k-4-3]] with b = (m′, 0) and S = 0, where h_tot(p⃗) = 0 on the interior of
+the conclusions (3)–(4) of [[thm:iii-k-4-3]] with b = (m′, 0) and S = S⁰ = 0, where h_tot(p⃗) = 0 on the interior of
 {χ_K = 1}. In particular, for every R′, ε′ > 0 and i, β there are C and T′ with
 
     |(t_*∂_(t_*))^i ∂^β_x (g − g_(m′,0))| ≤ C t_*^(−(α−2)+ε′)     on {r_♭ ≤ r ≤ R′, t_* ≥ T′},           {#eq:vii-0-2}
@@ -94,13 +94,13 @@ the same data.
 
     (γ − γ_λ, k − k_λ) ∈ H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b,     ‖(γ − γ_λ, k − k_λ)‖_(d_1) < δ.
 
-Then there are b ∈ ℬ_* with |b − b₀| < ε_m, S ∈ 𝒮_1 with |S| < ε_m, and a metric g on Ω_* ∪ 𝒟_(−S) with Ric(g) = 0
-inducing (φ_(−S)|)^*(γ, k) on φ_(−S)⁻¹(Σ^IVP), such that, where χ_K = 1, g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h with
-the classes of (i), h_tot(p⃗) = 0 on the interior of {χ_K = 1}, and [[eq:vii-0-2]] holds with g_b in place of
+Then there are b ∈ ℬ_* with |b − b₀| < ε_m, S, S⁰ ∈ 𝒮_1 with |S|, |S⁰| < ε_m, and a metric g on
+Ω_* ∪ 𝒟_(−S,−S⁰) with Ric(g) = 0 inducing (φ|)^*(γ, k) on φ⁻¹(Σ^IVP) = φ_S(ψ_(S⁰)(Σ^IVP)), φ := φ_(−S,−S⁰), such
+that, where χ_K = 1, g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h with the classes of (i), h_tot(p⃗) = 0 on the interior of {χ_K = 1}, and [[eq:vii-0-2]] holds with g_b in place of
 g_(m′,0). So g settles to the Myers–Perry metric g_b at the rates [[eq:vii-0-2]].
 
-Here 𝒟_0 ⊂ 𝒟 is the region 𝒟_S of [[prop:iii-k-1-2]] at S = 0, and |b − b₀| = |m − μ_end| + |A| for b = (m, A), the
-norm of step (5) of [[thm:vi-c-2-1]]. On the finite-dimensional space 𝔟 it is equivalent to the norm ‖·‖_𝔟 of 𝔟 as a
+Here 𝒟_0 := 𝒟_(0,0) ⊂ 𝒟 is the region 𝒟_(S,S⁰) of [[prop:iii-k-1-2]] at S = S⁰ = 0, and |b − b₀| = |m − μ_end| + |A|
+for b = (m, A), the norm of step (5) of [[thm:vi-c-2-1]]. On the finite-dimensional space 𝔟 it is equivalent to the norm ‖·‖_𝔟 of 𝔟 as a
 component of 𝒟_ex, in which [[cor:s27-rate]] (a) bounds b − b₀; we fix C_𝔟 ≥ 1 with |b − b₀| ≤ C_𝔟‖b − b₀‖_𝔟, so
 that [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m, gives |b − b₀| < ε_m. C depends on R and on the data of
 [[thm:main]], not on λ.
@@ -258,12 +258,13 @@ G-invariant smooth vacuum data (γ_λ, k_λ) := (ĝ, K̂) and m_λ := m, equal t
 The differences lie in H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, by [[lem:vii-0-1]] with R′ = 4R: beyond 4R they are
 (γ^(m_λ) − γ_(b₀), k^(m_λ) − k_(b₀)), whose Cartesian components lie in ρ²C^∞ and ρ³C^∞ of the radial
 compactification ([[lem:vii-2-1]] (a), with γ_(b₀) = γ^(μ_end) and k_(b₀) = k^(μ_end)). So [[cor:s27-rate]] (b)
-applies: [[prop:vii-3-2]] gives U fixed by G, b = (m′, 0) with |m′ − μ_end| < ε_m/C_𝔟 ≤ ε_m, S = 0, and a
-G-invariant metric g with the conclusions (1)–(5) of [[thm:iii-k-4-3]]. By (2) with S = 0, φ_0 being the identity, g is
-defined on Ω_* ∪ 𝒟_0 and induces (γ_λ, k_λ) on Σ^IVP; on Σ^IVP ∩ {r < R} these are the data of g_λ.
+applies: [[prop:vii-3-2]] gives U fixed by G, b = (m′, 0) with |m′ − μ_end| < ε_m/C_𝔟 ≤ ε_m, S = S⁰ = 0, and a
+G-invariant metric g with the conclusions (1)–(5) of [[thm:iii-k-4-3]]. By (2) with S = S⁰ = 0, φ_(0,0) = ψ_0 ∘ φ_0
+being the identity ([[eq:s27-motion]]), g is defined on Ω_* ∪ 𝒟_0 and induces (γ_λ, k_λ) on Σ^IVP; on
+Σ^IVP ∩ {r < R} these are the data of g_λ.
 
 *The rate.* Where χ_K = 1, g − g_(m′,0) = h_tot(p⃗) + h_(b,rem)(q) + h, by (3)–(4) of [[thm:iii-k-4-3]] with
-b = (m′, 0) and S = 0. Every term of h_tot(p⃗) carries a factor dχ_K: the terms are those of [[def:iii-i4-2-1]],
+b = (m′, 0) and S = S⁰ = 0. Every term of h_tot(p⃗) carries a factor dχ_K: the terms are those of [[def:iii-i4-2-1]],
 [[def:iii-i7-2-1]], [[def:iii-i8-2-1]] and [[def:iii-i9-2-1]], summed in [[def:iii-i7-2-3]] and [[def:iii-i9-2-3]] over
 the rows and the rotation rows of [[def:iii-i14-1-3]] (a rotation row has the terms that [[def:iii-i9-2-1]] assigns to
 the type v1), and each is −dχ_K ⊗_s ω for a 1-form ω. So h_tot(p⃗) vanishes on the interior of {χ_K = 1}.
@@ -277,8 +278,10 @@ close to 4 + ε_K as desired. With ε′ := α − 4 − ε_t > 0, [[eq:vii-0-2]
     (γ − γ_(b₀), k − k_(b₀)) = (γ − γ_λ, k − k_λ) + (γ_λ − γ_(b₀), k_λ − k_(b₀))
 
 lies in the class, with norm below δ + ½ε = ε. So [[cor:s27-rate]] (a) applies: [[thm:iii-k-4-3]] holds with
-‖b − b₀‖_𝔟 < ε_m/C_𝔟 and |S| < ε_m/C_𝔟, hence |b − b₀| < ε_m and |S| < ε_m. The vanishing of h_tot(p⃗) on the
-interior of {χ_K = 1} holds as in (i), and [[cor:s27-rate]] (c) gives [[eq:vii-0-2]] with g_b in place of g_(m′,0). ∎
+‖b − b₀‖_𝔟 < ε_m/C_𝔟 and |S|, |S⁰| < ε_m/C_𝔟, hence |b − b₀| < ε_m and |S|, |S⁰| < ε_m, as C_𝔟 ≥ 1; by its (2),
+g induces (φ|)^*(γ, k) on φ⁻¹(Σ^IVP), φ = φ_(−S,−S⁰), and φ⁻¹ = φ_S ∘ ψ_(S⁰) ([[eq:s27-motion]]). The vanishing of
+h_tot(p⃗) on the interior of {χ_K = 1} holds as in (i), and [[cor:s27-rate]] (c) gives [[eq:vii-0-2]] with g_b in place
+of g_(m′,0). ∎
 
 *Proof of [[thm:settling]].* *The parameters.* The number ℓ0 ∈ (3, 4) of [[thm:settling]] is the ℓ_0 of the data
 class [[eq:vii-0-1]], and its ε_K is the one chosen at step (4) of [[thm:vi-c-2-1]], with [[eq:vii-0-1]] at step (3).

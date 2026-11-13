@@ -1908,9 +1908,10 @@ fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(Mz) Q̃_0^(−1/2) lies in C^((d_0−2
 *Localisers.* The symbols ǎ_ε, b_ε and b_(e,ε) are supported in the closed set
 K_1 := {z ∈ [−δ, T + δ], |y| ≤ δ_1} ∩ supp χ_∞, and e_ε in K_E := {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ∩ supp χ_∞. Choose
 localisers Φ_0 = Op(φ_0) and Φ_E = Op(φ_E) as in [[lem:ii-a1-4-1]], carried by χ, with φ_0 = 1 near the box
-{z ∈ [−2δ, T + 2δ], |y| ≤ 2δ_1} ∩ supp χ_∞ and φ_E = 1 near {z ∈ [−2δ, 0], |y| ≤ 2δ_1} ∩ supp χ_∞, supported, near
-fibre infinity, in the given neighbourhood of γ([0, T]) and in Ell(G), resp. Ell(E) ∩ Ell(G) (the margins serve the
-uniformity below). Put
+{z ∈ [−2δ, T + 2δ], |y| ≤ 2δ_1} ∩ supp χ_∞, and φ_E = 1 near {z ∈ [−3δ/2, −δ/4], |y| ≤ 3δ_1/2} ∩ supp χ_∞ and
+supported, near fibre infinity, in {z ∈ [−7δ/4, −δ/8], |y| ≤ 7δ_1/4}. Both are supported, near fibre infinity, in the
+given neighbourhood of γ([0, T]) and in Ell(G), and φ_E also in Ell(E), as {z ∈ [−2δ, 0], |y| ≤ 2δ_1} ⊂ Ell(E); and
+supp φ_E misses γ([0, T]) ⊂ {z ≥ 0} (the margins serve the uniformity below). Put
 
     Ǎ := Ǎ_ε := Op(ǎ_ε)Φ_0,     B_ε := Op(b_ε)Φ_0,     B_(e,ε) := Op(b_(e,ε))Φ_0,     E_ε := Op(e_ε)Φ_E.
 
@@ -1969,8 +1970,9 @@ hold by the construction, with d_0 large enough that the norms used are among th
 M of [[prop:ii-a1-2-4]] at the orders involved and index 1, called M′ here.
 
 *Conclusion.* The hypotheses of [[lem:ii-a1-4-2]] hold with Γ := γ([0, T]). For each U ⊃ Γ shrink δ and δ_1, and the
-supports of the localisers, so that the supports lie in U. The E-sets lie in {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ⊂ Ell(E), which
-misses Γ. There is no threshold, so τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and
+supports of the localisers, so that the supports lie in U. Take K_E(U) := supp e_ε ∪ supp φ_E, the E-sets: its
+intersection with fibre infinity lies in {z ∈ [−2δ, −δ/8], |y| ≤ 2δ_1} ⊂ Ell(E) ∩ U, which misses Γ. There is no
+threshold, so τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and
 [[eq:ii-a1-4-5]] is [[eq:ii-a1-5-1]], with any B ∈ C^∞_b Ψ⁰_e3b carried by χ, microsupported in U_* and elliptic on Γ. On
 ℂ^(N′) the commutant is scalar and L_I is matrix-valued; nothing above used a scalar L_I.
 
@@ -1984,8 +1986,10 @@ close to 𝖧, (z′, y′) is defined and injective on a fixed neighbourhood of
 of [[lem:ii-a1-5-2]] uniform, and (z′, y′) → (z, y) uniformly there. The box {z′ ∈ [−δ, T + δ], |y′| ≤ δ_1} then lies in
 the box of 𝖧 with 2δ and 2δ_1, which has the properties required above by the choice of the margin, given that
 𝖧′_f𝗌 ≤ 0 on the same neighbourhood. With M chosen with a margin too, as the bounds it must exceed depend continuously on
-the coefficients, the same δ, δ_1 and M serve, and so do the same localisers, φ_0 and φ_E being 1 near the boxes of 𝖧
-with 2δ and 2δ_1. ∎
+the coefficients, the same δ, δ_1 and M serve, and so do the same ζ and the same localisers once (z′, y′) is within
+min(δ/16, δ_1/2) of (z, y). Indeed φ_0 and ζ are 1 near the box of 𝖧 with 2δ and 2δ_1. φ_E is 1 near
+{z ∈ [−3δ/2, −δ/4], |y| ≤ 3δ_1/2}, which contains the E-set {z′ ∈ [−δ, −δ/2], |y′| ≤ δ_1} of 𝖧′, as there
+z ∈ (−17δ/16, −7δ/16) and |y| < 3δ_1/2. And supp φ_E ⊂ {z ≤ −δ/8} misses γ′([0, T]) ⊂ {z > −δ/16}. ∎
 
 #### The global estimate {#sec:ii-a1-5-3}
 
