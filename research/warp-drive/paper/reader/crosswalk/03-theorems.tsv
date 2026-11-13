@@ -2,7 +2,7 @@ label	source	source_name	note
 ch:theorems	paper/RESPONSE-HL-5D.md:261-466; paper/RESPONSE-HL-5D.md:1239-1269; paper/RESPONSE-HL-5D.md:777-796; docket68/n1star/N1STAR-PROOF.md:143-194	P section 3, 8.2, 8.8; NP 0.4-0.7	
 sec:main-statement	paper/RESPONSE-HL-5D.md:263-357	P section 3	
 thm:main	paper/RESPONSE-HL-5D.md:263-295; docket68/n1star/N1STAR-PROOF.md:483-532	P Theorem 1	item 5 uniqueness class as NP Step 8 (|g - g0| <= eps1 on Ω, D625); item 2 data norm written out from NP (E4)
-prop:boundary-spacelike	paper/RESPONSE-HL-5D.md:297-309	P Proposition 3.2	statement only; proof in ch:horizon-mass
+prop:boundary-spacelike	paper/RESPONSE-HL-5D.md:297-309	P Proposition 3.2	statement only; proof in ch:horizon-mass; the margin written delta_b (delta is the threshold of thm:settling)
 eq:boundary-margin	paper/RESPONSE-HL-5D.md:299	P (3.1)	
 prop:one-zero	paper/RESPONSE-HL-5D.md:311-319	P Proposition 3.3 = NP Proposition 8.1	angle ω renamed x̂; proof in ch:horizon-mass
 eq:hawking-mass	paper/RESPONSE-HL-5D.md:334-337	P Proposition 3.4 (definition)	M[S](g0) = μ derived by hand (replaces mass5 M1)
@@ -10,12 +10,12 @@ prop:mean-mass	paper/RESPONSE-HL-5D.md:334-339	P Proposition 3.4 = NP Propositio
 sec:main-proof	paper/RESPONSE-HL-5D.md:359-369; docket68/n1star/N1STAR-PROOF.md:181-194	P How Theorem 1 follows; NP 0.7	
 lem:gauge-propagation	paper/RESPONSE-HL-5D.md:362-366; docket68/n1star/N1STAR-PROOF.md:183-187	NP 0.7 gauge argument	Bianchi propagation and ∂_τD = 0 from the constraints derived (replaces response5 R14); symmetry argument replaces support3 D3
 sec:past-statement	paper/RESPONSE-HL-5D.md:371-411	P Theorem 2 and sketch	P 409-411 (verifier history) dropped
-thm:past-construction	paper/RESPONSE-HL-5D.md:371-394; docket68/n1star/N1STAR-PROOF.md:1238-1256	P Theorem 2 = NP Theorem P	item 5 class as NP (P-v) (D622)
+thm:past-construction	paper/RESPONSE-HL-5D.md:371-394; docket68/n1star/N1STAR-PROOF.md:1238-1256	P Theorem 2 = NP Theorem P	item 5 class as NP (P-v) (D622); V_P written out as in ch:past-construction; item 3 carries the derivative bound of NP (P-iii) (N1STAR-PROOF.md:1245), as ch:past-construction states it
 sec:bondi-statement	paper/RESPONSE-HL-5D.md:413-466	P Theorem 3 and sketch	solver remark at P 439-441 dropped (belongs to ch:bondi)
 thm:bondi-law	paper/RESPONSE-HL-5D.md:413-441; paper/RESPONSE-HL-5D.md:676-680	P Theorem 3 = NP Theorem M; flux (6.1)	item 3 states the flux (6.1) as eq:flux-mean; θ_B renamed ϑ_B
 eq:bondi-form	paper/RESPONSE-HL-5D.md:418-419	P (3.2)	θ_B renamed ϑ_B
-eq:bondi-law	paper/RESPONSE-HL-5D.md:430	P (3.3)	
+eq:bondi-law	paper/RESPONSE-HL-5D.md:430	P (3.3)	squares written (d_v p_i)^2
 eq:flux-mean	paper/RESPONSE-HL-5D.md:679	P (6.1) = NP (9.10) with the factor 1 - π/2	
 sec:settling-statement	paper/RESPONSE-HL-5D.md:1180-1269; paper/RESPONSE-HL-5D.md:777-796	P 8.7-8.8, 8.2	
-thm:settling	paper/RESPONSE-HL-5D.md:1239-1259	P Theorem 4 = proof5 Part VII Theorem 0.2	parameters referred to stability chapters; pending stability-parameters
-sec:further-results	paper/RESPONSE-HL-5D.md:1486-1863 (first sentences)	P section 9	
+thm:settling	paper/RESPONSE-HL-5D.md:1239-1259; docket68/n1star/proof5/PART-VII-ASSEMBLY.md:94-96	P Theorem 4 = proof5 Part VII Theorem 0.2	parameters cited by the stability keys eq:iii-i9-1-1, eq:iii-f1-2-2, def:iii-j-g-plus, def:iii-i9-gap, def:iii-i10-1-3 and ch:s27 (row w1); former pending stability-parameters resolved; (ii) states the norm < delta of Part VII Theorem 0.2 (ii)
+sec:further-results	paper/RESPONSE-HL-5D.md:1486-1863 (first sentences)	P section 9	qualifiers restored from P 1499-1501 (harmonic gauge), 1792-1795 (class stability), 1798-1803 (Vlasov), 1820-1837 (localised data), 1609-1620 (the mean correction is not a proved value)

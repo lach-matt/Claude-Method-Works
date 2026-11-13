@@ -999,13 +999,13 @@ b-vector fields by t_*∂_(t_*), ∂_x ([[sec:ii-e-5-1]]); in M° both structure
 above and below on 𝒰, ∂_x and the fields ∂_r, Ω_12, …, Ω_34 (the rotation fields of [[sec:ii-e-4-2]]) span the same
 module over functions of x with bounded derivatives; and
 
-    ∂_(t_*) = C′∂_(t^♭),     ∂_r|_(t_*) = ∂_r|_(t^♭) + C′R̃′ ∂_(t^♭),     t_*∂_(t_*) = q t^♭∂_(t^♭),
+    ∂_(t_*) = C′∂_(t^♭),     ∂_r|_(t_*) = ∂_r|_(t^♭) + C′R̃′ ∂_(t^♭),     t_*∂_(t_*) = 𝔮 t^♭∂_(t^♭),
 
-with q := C′t_*/t^♭ = t_*/(t_* + R̃). The functions q, q⁻¹ = 1 + R̃ t_*⁻¹ and C′R̃′/t^♭ have bounded b-derivatives. So on
+with 𝔮 := C′t_*/t^♭ = t_*/(t_* + R̃). The functions 𝔮, 𝔮⁻¹ = 1 + R̃ t_*⁻¹ and C′R̃′/t^♭ have bounded b-derivatives. So on
 𝒰 the e3b-vector fields are spanned by ∂_(t^♭), ∂_r and the Ω_ab, and the b-vector fields by t^♭∂_(t^♭), ∂_r and the
 Ω_ab, with coefficients in C^∞_b. The weight function of the spaces, x_I^(2β) in case (S) and ρ_K^β in case (K), is
 (t^♭)^(−e) times a function bounded above and below with bounded b-derivatives, where e := 0 in case (S) (t^♭ being
-bounded on 𝒰) and e := β in case (K) (as ρ_K = t_*⁻¹ = C′q⁻¹(t^♭)⁻¹). The density |dg| is a smooth positive multiple
+bounded on 𝒰) and e := β in case (K) (as ρ_K = t_*⁻¹ = C′𝔮⁻¹(t^♭)⁻¹). The density |dg| is a smooth positive multiple
 of |dt_* dx| = r³ |dt_* dr dω| = (r³/C′) |dt^♭ dr dω| ([[sec:ii-e-5-1]] near K⁺).
 
 *Differential norms.* Let 𝒦 := {T_0 ≤ t^♭ ≤ T_+, c − 2κ ≤ r ≤ c + 2κ}. For v supported in 𝒦 and j ∈ ℕ_0 put
@@ -1048,10 +1048,10 @@ the space ({t^♭ ≥ T_0}, in case (K) {t^♭ ≥ T_0, r ≤ b}), and put
     ℰu := χ_+ (1 − ψ) ũ + ℰ_c(χ_+ ψ u).
 
 Two such extensions differ by a distribution supported in {t^♭ ≥ T_+} ∪ {r ≤ c}, near which χ_+(1 − ψ) vanishes, so
-the first term does not depend on ũ. In the second, χ_+ψu, extended by zero to {t^♭ ≥ T_+}, is a distribution on
-{r > c} supported in {T_0 ≤ t^♭ ≤ T_+ − 1/4, r ≤ c + 2κ} ⊂ 𝒦. So ℰ is well defined and linear. (i): the first term is
-supported in supp ũ, the second in 𝒦 ∩ {t^♭ ≥ T_0}, which lies in {r ≤ c + 2κ} ⊂ {r ≤ b} in case (K). (ii): on
-{t^♭ < T_+ − 1/2, r > c}, χ_+ = 1 and ℰu = (1 − ψ)u + ψu = u.
+the first term does not depend on ũ. In the second, χ_+ψu, extended by zero, is a distribution on {r > c} supported in
+{T_0 ≤ t^♭ ≤ T_+ − 1/4, r ≤ c + 2κ} ⊂ 𝒦. So ℰ is well defined and linear. (i): the first term is supported in supp ũ,
+the second in 𝒦 ∩ {t^♭ ≥ T_0}, which lies in {r ≤ c + 2κ} ⊂ {r ≤ b} in case (K). (ii): on {t^♭ < T_+ − 1/2, r > c},
+χ_+ = 1 and ℰu = (1 − ψ)u + ψu = u.
 
 (iii) For every j and every extension ũ as above with finite norm of order (𝗍;j),
 ‖χ_+(1 − ψ)ũ‖_((𝗍;j)) ≤ C_j ‖ũ‖_((𝗍;j)) ([[lem:ii-a-8-4]] (a)); the left side does not depend on ũ, so it is at most

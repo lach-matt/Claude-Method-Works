@@ -245,10 +245,10 @@ and r_q ≤ √μ, so that it lies inside or on the horizon, exactly when r_q⁴
 
     D_T := { v ≤ v_end + T,  r ≥ r_q(v) },                                                          {#eq:dt}
 
-the region from past null infinity to the curvature boundary, up to the time T after the shell has passed. Put V :=
-v_end + T and q0 := (√72 μ0 l5²)^(1/4), the value of r_q for v ≤ v_start, so q0 ≤ √μ0. Fix 0 < δ0 < q0, a := q0 − δ0, τ0
-with v_start − τ0 > √μ0 + 1 (on Σ_τ0 := {τ = τ0} the shell lies outside the seed's horizon: the slice is before the
-shell reaches the hole), and τ_end := max_(v ≤ V) (v − r_q(v)). Let
+the region from past null infinity to the curvature boundary, up to the time T after the shell has passed. Put
+V := v_end + T and q0 := (√72 μ0 l5²)^(1/4), the value of r_q for v ≤ v_start, so q0 ≤ √μ0. Fix 0 < δ0 < q0,
+a := q0 − δ0, τ0 with v_start − τ0 > √μ0 + 1 (on Σ_τ0 := {τ = τ0} the shell lies outside the seed's horizon: the
+slice is before the shell reaches the hole), and τ_end := max_(v ≤ V) (v − r_q(v)). Let
 
     Ω := { τ0 ≤ τ ≤ τ_end,  |x| ≥ a,  v + (τ − τ_end) ≤ V + 1 },                                   {#eq:omega}
 

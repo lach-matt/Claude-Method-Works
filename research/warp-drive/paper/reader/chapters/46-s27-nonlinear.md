@@ -147,7 +147,8 @@ for a backward problem. Put
 
 For |S| small, 𝒟_S ⊂ 𝒟, and φ_S maps a neighbourhood of Σ^IVP ∪ φ_S⁻¹(Σ^IVP) into N. There is a unique h_S on 𝒟 with
 
-    P^♮(φ_S^*g_(b₀) + h_S, φ_S^*g_(b₀)) = 0,     h_S = h_(S,0),  r ℒ_(∂_(t_IVP)) h_S = h_(S,1)  on Σ^IVP,       {#eq:iii-k-1-2}
+    P^♮(φ_S^*g_(b₀) + h_S, φ_S^*g_(b₀)) = 0,     h_S = h_(S,0),  r ℒ_(∂_(t_IVP)) h_S = h_(S,1)  on Σ^IVP,
+                                                                                                  {#eq:iii-k-1-2}
 
 and:
 

@@ -53,11 +53,10 @@ D_T once λ < l5/10: on D_T, x_K = l5² √𝒦 ≤ 1, so the curvature length �
 so, μ being at least μ0 ≥ √72 l5² throughout, the boundary is spacelike for g0 wherever μ > √72 l5² or μ' > 0, and
 every future causal curve that meets it leaves D_T there and does not return. If μ0 > √72 l5² the margin is uniform,
 g0⁻¹(dΦ, dΦ) ≤ −δ_b with δ_b := √(μ0/(√72 l5²)) − 1 > 0, and for g_λ the margin is −δ_b + C λ ≤ −δ_b/2 once
-C λ ≤ δ_b/2. If
-μ0 = √72 l5² exactly, the boundary is the seed's horizon, and null for g_λ, on {v ≤ inf supp env}; after the shell
-starts it is spacelike for g_λ outside a layer whose width tends to 0 with λ ([[ch:equality-layer]]), and inside that
-layer, for λ small, every column has points where it is timelike for g_λ, so the no-return property stated above for
-μ0 > √72 l5² fails at equality ([[thm:layer]], [[cor:layer]], [[thm:very-edge]]).
+C λ ≤ δ_b/2. If μ0 = √72 l5² exactly, the boundary is the seed's horizon, and null for g_λ, on {v ≤ inf supp env};
+after the shell starts it is spacelike for g_λ outside a layer whose width tends to 0 with λ ([[ch:equality-layer]]),
+and inside that layer, for λ small, every column has points where it is timelike for g_λ, so the no-return property
+stated above for μ0 > √72 l5² fails at equality ([[thm:layer]], [[cor:layer]], [[thm:very-edge]]).
 
 The proof is in [[ch:horizon-mass]].
 
@@ -126,11 +125,12 @@ on Ω; then Ric(g) = 0. ∎
 
 *Proof of [[thm:main]].* Let g_app be the approximant of [[thm:approximant]] with N = K + 3 stages and the stage data of
 [[lem:stage-data]], which make its Cauchy data satisfy the constraints and D = 0 to order N − 2, and let the data on
-Σ_τ0 be those of [[thm:data]], which satisfy the constraints exactly, carry D = 0, equal the seed's data on r <
-v_start − τ0 and are within C λ^K of g_app's in the norm of item 2. [[thm:uniform-existence]] gives, for λ ≤ λ0, the
-solution g_λ of Ric^H(g) = 0 on Ω with these data, unique among C² solutions with these data and |g − g0| ≤ ε1 on Ω,
-together with the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. Taking λ0 so small that C
-λ0 ≤ ε1, [[lem:gauge-propagation]] gives D(g_λ) = 0 and Ric(g_λ) = 0. By [[lem:domain]] (f), D_T ∩ {τ ≥ τ0} lies in Ω.
+Σ_τ0 be those of [[thm:data]], which satisfy the constraints exactly, carry D = 0, equal the seed's data on
+r < v_start − τ0 and are within C λ^K of g_app's in the norm of item 2. [[thm:uniform-existence]] gives, for λ ≤ λ0,
+the solution g_λ of Ric^H(g) = 0 on Ω with these data, unique among C² solutions with these data and |g − g0| ≤ ε1 on
+Ω, together with the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. Taking λ0 so small
+that C λ0 ≤ ε1, [[lem:gauge-propagation]] gives D(g_λ) = 0 and Ric(g_λ) = 0. By [[lem:domain]] (f), D_T ∩ {τ ≥ τ0}
+lies in Ω.
 
 Symmetry. Let ι be an element of G = O(2) × O(2), acting on x by an orthogonal matrix and fixing τ. It preserves r,
 v, η and dv, hence g0, Ω and Σ_τ0. Ric^H and D are built from g and g0 alone, so ι*g_λ solves Ric^H(ι*g_λ) = 0; its
@@ -166,8 +166,8 @@ that P and Ω share the slice Σ_τ0 ([[ch:past-construction]]). It satisfies:
 1. g_λ = g0 for v ≤ v_start: before the shell, the black hole exactly;
 2. its radiation field at past null infinity is the prescribed one: at every fixed v < V_P and x̂,
    r^(3/2)(g_λ − g0 − λ[W_TT]) → 0 as r → ∞, at every λ;
-3. on P, |g_λ − g_app| ≤ C λ^(K−3) t^(−2), with t = 1 + τ0 − τ and g_app the approximant built from past null
-   infinity ([[thm:past-approximant]]);
+3. on P, |g_λ − g_app| ≤ C λ^(K−3) t^(−2) and |∂(g_λ − g_app)| ≤ C λ^(K−4) t^(−2), with t = 1 + τ0 − τ and g_app
+   the approximant built from past null infinity ([[thm:past-approximant]]);
 4. on Ω, the conclusions of [[thm:uniform-existence]] hold (items 1 and 3–5 of [[thm:main]]), with the data on Σ_τ0
    now the trace of g_λ itself; and items 6–7 of [[thm:main]] hold for these solutions too ([[prop:past-items]]);
 5. g_λ is T² × Z2 × Z2-invariant, and unique among solutions of Ric^H(g) = 0 on P with item 1 whose difference from

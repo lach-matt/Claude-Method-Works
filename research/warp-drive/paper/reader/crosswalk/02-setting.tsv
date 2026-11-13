@@ -19,10 +19,10 @@ eq:omega	docket68/n1star/N1STAR-PROOF.md:203	NP (1.1)
 lem:domain	docket68/n1star/N1STAR-PROOF.md:209-228	NP Lemma 1.1	amended bracket in (e) folded in place
 sec:gauge	paper/RESPONSE-HL-5D.md:243-259; docket68/n1star/N1STAR-PROOF.md:93-108	P 2.5; NP 0.2	[CBCM10] (2.7)-(2.9) p.8 quoted, black box
 eq:gauge	paper/RESPONSE-HL-5D.md:247-250	P (2.7) = NP (0.2)	
-sec:profiles	docket68/n1star/N1STAR-PROOF.md:110-141	NP 0.3	brackets D623/D625/D627 folded
+sec:profiles	docket68/n1star/N1STAR-PROOF.md:110-141	NP 0.3	brackets D623/D625/D627 folded; chain rule moved after (0.3); eigenvalues of g0 stated before lem:eigen; the numerical-point values (former pending computational-1, C222, class (a)) proved in writing: closed forms, the corner witness and rational enclosures (docket68/n1star/checks/eps1hyp5.py:30-35 H3, docket68/n1star/checks/lzerotrace5.py T7, docket68/n1star/CONSTANTS5.md:449-471)
 eq:scaled-norm	docket68/n1star/N1STAR-PROOF.md:114	NP (0.3)	
-lem:eigen	docket68/n1star/N1STAR-PROOF.md:120-126	NP 0.3 (eigenvalues, Lemma 1.1 (e) margin)	eigenvalues derived (replaces eps1hyp5 H1-H4, lzerotrace5 T6); numerical-point values pending computational-1
-lem:lorentz-margin	docket68/n1star/N1STAR-PROOF.md:127-136	NP 0.3 (Weyl bound) as corrected D625/D627	second claim given a proof (replaces eps1hyp5 H5-H6)
+lem:eigen	docket68/n1star/N1STAR-PROOF.md:117-126; docket68/n1star/checks/eps1hyp5.py:21-29; docket68/n1star/CONSTANTS5.md:459-471	NP 0.3 (eigenvalues, Lemma 1.1 (e) margin); eps1hyp5 H2 (the direct cone argument)	eigenvalues derived (replaces eps1hyp5 H1-H4, lzerotrace5 T6); cone argument of H2 written into the proof (time orientation of g, signs of dtau, dr, d(v+tau) on the causal cones of g0 - eps I)
+lem:lorentz-margin	docket68/n1star/N1STAR-PROOF.md:127-136	NP 0.3 (Weyl bound) as corrected D625/D627	second claim given a proof (replaces eps1hyp5 H5-H6), stated at a point where mu/r^2 = m*
 sec:waves	paper/RESPONSE-HL-5D.md:217-241	P 2.4	remark on the programs' name for ζ dropped
 eq:waves	paper/RESPONSE-HL-5D.md:225-227	P (2.5′)	
 lem:waves	paper/RESPONSE-HL-5D.md:221-230	P 2.4 (traceless, transverse, amplitude r^(-3/2), smooth at both axes)	Cartesian form and proofs new (replaces ansatz5 A3)
@@ -31,7 +31,7 @@ eq:mean-leading	-	new
 prop:limit	paper/RESPONSE-HL-5D.md:232-241	P Proposition 2.3	proved by hand; the Bondi-variable claim is lem:bondi-rates
 eq:wave-energy	paper/RESPONSE-HL-5D.md:276-280	P Theorem 1 item 4 phase mean (support3 D2)	derived
 eq:mu-rate	paper/RESPONSE-HL-5D.md:236	P (2.6)	
-eq:bondi-type	paper/RESPONSE-HL-5D.md:238-241; paper/RESPONSE-HL-5D.md:417-419	P Proposition 2.3 (Bondi-type variables), metric (3.2)	metric written with the coframe θ^k
+eq:bondi-type	paper/RESPONSE-HL-5D.md:238-241; paper/RESPONSE-HL-5D.md:417-419	P Proposition 2.3 (Bondi-type variables), metric (3.2)	metric written with the coframe xi^k and the angular matrix gamma_P (theta reserved for the phase, h for the angular profile)
 lem:bondi-rates	paper/RESPONSE-HL-5D.md:238-241	P Proposition 2.3, R_vv quadratic part (hf_theorem5 F3)	exact derivation replaces hf_theorem5 F3; former pending computational-2
 eq:bondi-rates	-	new	
 eq:bondi-inverse	-	new	inverse metric of the Bondi-type form

@@ -66,8 +66,9 @@ At r = r_q, m = μ/r_q² = μ/(√72 μ l5²)^(1/2) = √(μ/(√72 l5²)), and 
 most 0. Where μ > √72 l5² the second term is below −1; where μ′ > 0 the third is negative. At such points dΦ is
 timelike for g0, which is to say that the hypersurface {Φ = 0} is spacelike.
 
-*Time orientation.* g0⁻¹(dΦ, dτ) = g0⁻¹(dr, dτ) − r_q′ g0⁻¹(dv, dτ) = m + r_q′ > 0. The covector dτ is timelike and
-positive on future causal vectors ([[lem:domain]], (a)). Where dΦ is timelike too, the two have positive
+*Time orientation.* g0⁻¹(dΦ, dτ) = g0⁻¹(dr, dτ) − r_q′ g0⁻¹(dv, dτ) = m + r_q′ > 0. The covector dτ is timelike
+([[lem:domain]] (a)), and it is positive on future causal vectors because τ is a time function for the time orientation
+of g0, in which L0, with L0(τ) = 1, is future directed. Where dΦ is timelike too, the two have positive
 g0⁻¹-product and so lie in opposite halves of the cone of timelike covectors: dΦ(Z) < 0 for every future causal vector
 Z there. In particular dΦ(Y) = −g0⁻¹(dΦ, dτ) < 0 for the future timelike Y := −g0⁻¹ dτ. By continuity of the cone, every
 point of {Φ = 0} at which dΦ is timelike has a neighbourhood U and a c > 0 with dΦ(Z) ≤ −c dτ(Z) for every future causal
@@ -88,9 +89,14 @@ the compact Ω and inversion is smooth, |g_λ⁻¹ − g0⁻¹| ≤ C1 λ. The c
 
     g_λ⁻¹(dΦ, dΦ) ≤ g0⁻¹(dΦ, dΦ) + C λ ≤ −δ + C λ ≤ −δ/2      once C λ ≤ δ/2.
 
-Moreover g_λ⁻¹(dΦ, dτ) ≥ m + r_q′ − C λ, and m ≥ μ0/r² is bounded below on Ω, so g_λ⁻¹(dΦ, dτ) > 0 for λ small;
-since dτ is timelike for g_λ and positive on its future causal vectors ([[lem:domain]], (e)), the argument of
-the time orientation and of the no return applies to g_λ verbatim.
+Moreover g_λ⁻¹(dΦ, dτ) ≥ m + r_q′ − C λ, and m ≥ μ0/r² is bounded below on Ω, so g_λ⁻¹(dΦ, dτ) > 0 for λ small.
+The covector dτ is timelike for g_λ ([[lem:domain]] (e)), and g_λ is time oriented, as g0 is, so that dτ is positive
+on its future causal vectors. The argument of the time orientation, with g_λ in place of g0, then gives at every point
+of {Φ = 0} a neighbourhood U and a c > 0 with dΦ(Z) ≤ −c dτ(Z) for every future causal vector Z of g_λ at points of U.
+The no-return argument for g0 used that v does not decrease along causal curves of g0, and only to carry the condition
+μ > √72 l5² or μ′ > 0 from γ(τ1) to the later points of γ on {Φ = 0}. For g_λ no such step is needed: the margin
+g_λ⁻¹(dΦ, dΦ) ≤ −δ/2 holds at every point of the boundary, so the inequality dΦ(Z) ≤ −c dτ(Z) holds near every point
+of {Φ = 0}, and the first-return argument applies to every future causal curve of g_λ as it stands.
 
 *Equality.* If μ0 = √72 l5², then on {v ≤ inf supp env} μ = μ0 and μ′ = 0, so the formula gives g0⁻¹(dΦ, dΦ) = 0,
 and r_q = (√72 μ0 l5²)^(1/4) = (μ0²)^(1/4) = √μ0: the boundary is the seed's horizon r = √μ0, null for g0. That g_λ
