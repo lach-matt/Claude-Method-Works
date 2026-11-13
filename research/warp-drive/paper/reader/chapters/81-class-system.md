@@ -799,11 +799,11 @@ c_a ‖ζ ∇w‖² ≤ C (‖ζ ∇w‖ + ‖w‖) ‖w‖ + C ‖ζ ∇w‖ �
 unlabelled). (ii) For a unit vector e and small h ≠ 0 let ∂^e_h w(x) := (w(x + h e) − w(x))/h, and take φ := −∂^(−e)_h
 (ζ² ∂^e_h w). Summation by parts moves the difference quotient onto a^(ij) ∂_j w, and ∂^e_h(a^(ij) ∂_j w) =
 a^(ij)(· + he) ∂_j ∂^e_h w + (∂^e_h a^(ij)) ∂_j w. Ellipticity, ‖∂^(−e)_h ψ‖ ≤ ‖∇ψ‖ and ‖∂^e_h w‖_(L²(𝔻″)) ≤ ‖∇w‖ give
-c_a ‖ζ ∇∂^e_h w‖² ≤ C (‖ζ ∇∂^e_h w‖ + ‖∇w‖)(‖∇w‖ + ‖G‖), so ‖ζ ∇∂^e_h w‖ ≤ C (‖f‖ + ‖w‖_(H¹)) uniformly in h. A weak limit h → 0 gives
-∂_e ∇w ∈ L² with the same bound, and with (i) on a larger disc, ‖w‖_(H²(𝔻′)) ≤ C (‖f‖ + ‖w‖). (iii) For j ≥ 1, the case
-j − 1 on a larger disc gives w ∈ H^(j+1), so ∂_e w ∈ H¹ there and L(∂_e w) = ∂_e f − (∂_e a^(ij)) ∂_i ∂_j w − (∂_e b^i)
-∂_i w − (∂_e c) w ∈ H^(j−1); the case j − 1 applied to ∂_e w gives ∂_e w ∈ H^(j+1) on a smaller disc. Finitely many
-nested discs between 𝔻_δ and 𝔻_(2δ) conclude. ∎
+c_a ‖ζ ∇∂^e_h w‖² ≤ C (‖ζ ∇∂^e_h w‖ + ‖∇w‖)(‖∇w‖ + ‖G‖), so ‖ζ ∇∂^e_h w‖ ≤ C (‖f‖ + ‖w‖_(H¹)) uniformly in h. A weak
+limit h → 0 gives ∂_e ∇w ∈ L² with the same bound, and with (i) on a larger disc, ‖w‖_(H²(𝔻′)) ≤ C (‖f‖ + ‖w‖). (iii) For
+j ≥ 1, the case j − 1 on a larger disc gives w ∈ H^(j+1), so ∂_e w ∈ H¹ there and L(∂_e w) = ∂_e f − (∂_e a^(ij)) ∂_i ∂_j
+w − (∂_e b^i) ∂_i w − (∂_e c) w ∈ H^(j−1); the case j − 1 applied to ∂_e w gives ∂_e w ∈ H^(j+1) on a smaller disc.
+Finitely many nested discs between 𝔻_δ and 𝔻_(2δ) conclude. ∎
 
 On the slice, near a point of axis 2 where ρ1 ≥ c0 > 0, let 𝒰_δ := {ρ2 < δ}.
 
