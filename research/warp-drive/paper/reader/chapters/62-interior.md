@@ -221,7 +221,7 @@ carry the smooth structures of V and of ℝ × ℝ⁴ and the metrics g_λ and g
 constructed next, not that of the coordinates (t, x): g_λ and g need not agree as matrices on Σ.
 
 *(i), the charts at Σ.* Let n_λ and n be the future unit normals of Σ for g_λ and g. Then dt_IVP(n_λ) > 0, as dt_IVP
-is past timelike for g_λ on V, and dt_IVP(n) > 0, as n points into B. In the chart, Σ is the graph of ψ_IVP(|x|) over
+is past timelike for g_λ on V, and dt_IVP(n) > 0, as n points into B. In the chart, Σ is the graph t = ψ_IVP(|x|) over
 the open shell {r_♭ < |x| < R}, so the coordinates x = (x¹, …, x⁴) of the chart, restricted to Σ, are coordinates on all
 of Σ; every chart below uses them. Let p ∈ Σ, and let Π_0 be a neighbourhood of p in Σ. Near p, g is the restriction to
 B of a smooth Lorentzian metric g̃ on an open set of ℝ × ℝ⁴, g being smooth up to Σ. The maps
@@ -261,9 +261,8 @@ At s = 0, h^λ_0 = h_0 = γ, and ∂_s h^λ_0 = ∂_s h_0: ∂_s g(∂_i, ∂_j)
 s = 0 twice the form (X, Y) ↦ g(∇_X ν, Y) on the tangent spaces of Σ, ν being the future unit normal, n_λ resp. n,
 which ∂_s is at s = 0. The form is symmetric: for vector fields X, Y tangent to Σ, g(∇_X ν, Y) = −g(ν, ∇_X Y), and
 ∇_X Y − ∇_Y X = [X, Y] is tangent to Σ. It is the second fundamental form up to the sign of its convention, so it is
-the same for both metrics, both inducing k. The metric
-−ds² + h_s has the Christoffel symbols Γ^s_ij = ½∂_s h_ij, Γ^i_sj = ½h^ik ∂_s h_kj and Γ^i_jk those of h_s, the others
-vanishing; so the spatial components of its Ricci tensor are
+the same for both metrics, both inducing k. The metric −ds² + h_s has the Christoffel symbols Γ^s_ij = ½∂_s h_ij,
+Γ^i_sj = ½h^ik ∂_s h_kj and Γ^i_jk those of h_s, the others vanishing; so the spatial components of its Ricci tensor are
 
     R_ij = ½∂_s²h_ij + Ric(h_s)_ij + ¼(h^kl ∂_s h_kl) ∂_s h_ij − ½h^kl ∂_s h_ik ∂_s h_jl.
 

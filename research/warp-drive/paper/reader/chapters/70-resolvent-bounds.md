@@ -53,8 +53,8 @@ u(x) = e^(iσx) − ∫_x^∞ σ⁻¹ sin(σ(x − x′))V_l(x′)u(x′) dx′ 
 
 the second limit in each case from the differentiated Volterra equation, whose remainder is bounded by the tail of
 ∫|V_l|. A solution with u′ + iσu → 0 at −∞ is a multiple of u_h, and one with u′ − iσu → 0 at ∞ a multiple of u_∞: the
-other solution at each end behaves like e^(±iσr_*), for which this quantity tends to a nonzero multiple of e^(±iσr_*)
-when σ is real. In the spacetime, e^(−iσt)u_h = e^(−iσ(t + r_*))(1 + o(1)) is the behaviour of a field smooth across
+other solution at each end behaves like e^(±iσr_*), for which this quantity is 2iσe^(±iσr_*)(1 + o(1)) and does not
+tend to 0. In the spacetime, e^(−iσt)u_h = e^(−iσ(t + r_*))(1 + o(1)) is the behaviour of a field smooth across
 the future horizon, and e^(−iσt)u_∞ = e^(−iσ(t − r_*))(1 + o(1)) that of an outgoing one: these are the classes of the
 proof of [[prop:iii-d-6-2]].
 

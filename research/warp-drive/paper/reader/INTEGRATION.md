@@ -639,3 +639,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   clause unproved; XΦ for a rotation X; the ∂_u² formula only on the cone; "uniformly in l" fails for the 𝔪Φ
   coefficient; lem:np-10-1b (b) needs a density step. Nits: ṁ vs chapter 3's μ̇, 𝔪 vs chapter 34's p, K, τ, ω, c, s,
   t, Y. Fix round running (with Θ(k) → −Υ̇⁰(k)).
+- S22 third reading (R3-S22): N1-N5 and the ball sentence fixed; lem:s25-p6 states what S22 uses; def:s21-eps-g ties
+  ε_ind, ε_Υ to prop:iii-g4-5-1 only; the "→ 0" repair correct. Minor: Step 6 now bounds by ‖F‖ through
+  thm:iii-i11-4-1, so cor:iii-i15-2-10 "uniformly in b" / "Steps 5-6 unchanged" and the remark at 1430 give no valid
+  bound at b; the same in chapter 44 (lem:iii-i15-2-4, def:iii-i15-2-3, prop:iii-i15-2-5 Step 3 claim bounds by G
+  alone). Nits: 1035 leftover phrase; seminorm for (i); sec:iii-g4-1 pointer; v1 in lem:iii-i10-2-1 (b). Third fix
+  running on 41 and 44 together; S25 reopened for that minor only.

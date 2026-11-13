@@ -32,10 +32,10 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | third fix done (ℓ_I ∈ (0, ½)); fourth reading running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-keyed to lem:s25-p6 |
-| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | NOT CONFIRMED 0M 1m 4n; third fix done; third reading running |
+| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | third reading NOT CONFIRMED 0M 1m 4n (cor:iii-i15-2-10 bound at b after Step 6 via ‖F‖; also ch 44 G-alone bounds); third fix running |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
-| 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | CONFIRMED (third reading 0M 0m 4n, with 38a) |
+| 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | CONFIRMED (third reading 0M 0m 4n, with 38a); reopened for one minor from S22's Step 6 (lem:iii-i15-2-4, def:iii-i15-2-3, prop:iii-i15-2-5 Step 3), in the S22 third fix |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | NOT CONFIRMED 1M 1m 4n (thm:iv2-2-4 Step 4 at k ≤ 2; h_S smallness); second fix running |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | NOT CONFIRMED 1M 6m 8n (lem:s27-below (iii) on ½ ≤ t_* ≤ 1); second fix running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | running |
