@@ -3,27 +3,30 @@
 [[thm:two-dusts]] realises two crossing radial null dusts as high-frequency limits of vacuum metrics of the T²-mirror
 class. This chapter treats a continuum of null dusts, that is, massless Vlasov matter. In four dimensions, under a U(1)
 symmetry and in an elliptic gauge, Huneau and Luk prove that high-frequency limits of vacuum metrics are solutions of the
-Einstein–massless Vlasov system whose measure is restricted to the cotangent bundle of the quotient [HL19, p. 13], and
-that suitable small, localised, U(1)-symmetric solutions of that system are such limits [HL25, Theorem 1.1, p. 2]. Their
+Einstein–massless Vlasov system whose measure is restricted to the cotangent bundle of the quotient [HL19, p. 1; p. 13],
+and that suitable small, localised, U(1)-symmetric solutions of that system are such limits [HL25, Theorem 1.1, p. 2]. Their
 construction approximates the Vlasov field by n null dusts, approximates each Einstein–n-dust solution by vacuum metrics
 of frequency 1/λ large compared with n, and joins the two steps along a diagonal [HL25, pp. 3, 19]. Without symmetry,
 the construction for finitely many dusts is not uniform in their number [Tou24, p. 4].
 
-We prove the five-dimensional counterpart in the class, without smallness. In [[sec:vlasov-limits]] we show that a
+We prove the five-dimensional counterpart in the class, without smallness, for fields that stay off the axes. In
+[[sec:vlasov-limits]] we show that a
 high-frequency limit inside the class has no stress along the torus, so that a massless Vlasov limit in the class is
 restricted: its momenta are tangent to the orbit space; if the limit is moreover round, it is a two-dust solution of the
 kind of [[thm:two-dusts]]. In [[sec:vlasov-restricted]] we show that restricted particles move on the null geodesics of
 the orbit space, and that those reaching an axis off the axial directions focus there, so that the field of a smooth
 solution stays off the axes. [[thm:vlasov]] then states: every smooth class Einstein–restricted massless Vlasov solution
-whose field is a caustic-free family of dusts labelled by initial direction, off the axes and at an angle from any radial
-dust, on a domain of the type [[eq:omega]] whose initial spheres have positive mean curvature, is a weak limit of class
-vacuum metrics. The proof has the two steps of [HL25]. The n-dust approximants of the field are uniform in n
-([[prop:vlasov-uniform-n]]); the high-frequency step is not, and the steps are joined along a diagonal. Three facts make
-the high-frequency step work for every n in the class: frequencies 1, Λ, …, Λ^(n−1) remove every resonance among three or
-more phases ([[lem:vlasov-hierarchy]]); waves polarised along the torus leave no term of order λ⁻¹, in the field
-equations or in the constraints ([[lem:vlasov-torus-ricci]], [[lem:vlasov-constraint-coefficient]]); and the orbit space
-has no shear ([[lem:vlasov-no-shear]]). The last section shows that the hypotheses are open and that an explicit family
-on Tangherlini meets them ([[lem:vlasov-open]], [[prop:vlasov-nonempty]]).
+whose field is a caustic-free family of dusts labelled by initial direction and off the axes, on a domain of the type
+[[eq:omega]] whose initial spheres have positive mean curvature, is a weak limit of class vacuum metrics. The proof has
+the two steps of [HL25]. The n-dust approximants of the field are uniform in n ([[prop:vlasov-uniform-n]]); the
+high-frequency step is not, and the steps are joined along a diagonal. Four facts make the high-frequency step work for
+every n in the class: frequencies 1, Λ, …, Λ^(n−1) remove every resonance among three or more phases up to the order the
+scheme uses ([[lem:vlasov-hierarchy]]); waves polarised along the torus leave no term of order λ⁻¹, in the field
+equations or in the constraints ([[lem:vlasov-torus-ricci]], [[lem:vlasov-constraint-coefficient]]); the orbit space has
+no shear ([[lem:vlasov-no-shear]]); and the constraints, whose coefficients oscillate in every direction of the initial
+slice, are solved with bounds uniform in λ in norms in which each angular derivative carries the factor λ that the
+oscillation costs ([[prop:vlasov-scaled-correction]]). The last section shows that the hypotheses are open and that an
+explicit family on Tangherlini meets them ([[lem:vlasov-open]], [[prop:vlasov-nonempty]]).
 
 *Notation.* g5 is a metric of the T²-mirror class of [[sec:class]]. We write ψ1 := A and ψ2 := B for the functions of
 [[eq:class-metric]], so that

@@ -201,7 +201,7 @@ terms is Leibniz's rule. ∎
 Let R_c be the operator with the kernel (2π)^(−n) ∫ e^(i(x−y)·η) c(x, y, η) dη. For J ≥ 0 and B ≥ 0,
 
     R_c = Op(σ_J) + Op(ρ_J),     σ_J(x, η) := Σ_(|γ|<J) (γ!)⁻¹ ∂_η^γ D_y^γ c(x, y, η)|_(y=x),
-    |∂_x^β ρ_J(x, η)| ≤ CA⟨η⟩^(μ−J+½),   |β| ≤ B,                                                      {#eq:fwd-reduction}
+    |∂_x^β ρ_J(x, η)| ≤ CA⟨η⟩^(μ−J+½),   |β| ≤ B,                                                 {#eq:fwd-reduction}
 
 provided K_c ≥ 2J + B + 2L′ with 2L′ := 𝔢(n + 1 + X), X ≥ |μ − J| an integer. The term of σ_J of index γ is a sum of
 products of derivatives of c of total order 2|γ|, evaluated at y = x; its derivatives of order K involve derivatives of
@@ -250,7 +250,8 @@ both are), θ ∈ C_c^∞((−13/8, 13/8)ⁿ), and g a symbol of order 𝗆 with
 θ O^ε_β(g) and θ O^ε_β(g)^* (the factor θ read in the chart α) are R_c for the amplitudes
 
     c(x, y, η) = θ(x) η̃(x, y) g_β(κ(x), Φ(x, y)^(−T) η) |det Φ(x, y)|⁻¹ |det Dκ(y)|,
-    c^*(x, y, η) = θ(x) η̃^*(x, y) (μ_α(y)/μ_α(x)) g_β(κ(y), Φ(x, y)^(−T) η)^* |det Φ(x, y)|⁻¹ |det Dκ(x)|,  {#eq:fwd-transport}
+    c^*(x, y, η) = θ(x) η̃^*(x, y) (μ_α(y)/μ_α(x)) g_β(κ(y), Φ(x, y)^(−T) η)^* |det Φ(x, y)|⁻¹
+                   × |det Dκ(x)|,                                                                       {#eq:fwd-transport}
 
 where Φ(x, y) := ∫_0^1 Dκ(y + t(x − y)) dt, so that κ(x) − κ(y) = Φ(x, y)(x − y), the star on g is the conjugate
 transpose, and η̃(x, y) := (ψη_0)(Φ(x, y)(x − y)), η̃^*(x, y) := \overline{(ψη_0)(Φ(x, y)(y − x))}. Each derivative of
@@ -306,7 +307,7 @@ Step 4. ‖Op(b)w‖_(H^(−A−B)) ≤ C‖w‖_(H^(−A)) and ‖Op(λ)Op(b)R_
 [[lem:fwd-crude]], at most n + 1 + A + B x-derivatives of b.
 The largest count is that of Step 1. For A = B = T: J_1 = 4T + 1, 2L′ = 𝔢(6T + 7) = 6T + 8, K = 10T + 15. ∎
 
-**Lemma {#lem:fwd-norms}** (Localisation of the norms.) For an order function 𝗋 with values in [−8T, 8T], cut-offs
+**Lemma {#lem:fwd-norms}** (Localisation of the norms.) For every order function 𝗋 there is C such that, for cut-offs
 θ̃_α := φ_α^*θ̃ (θ̃ ∈ C_c^∞((−15/8, 15/8)ⁿ) equal to 1 on [−7/4, 7/4]ⁿ) and functions v_α supported in [−15/8, 15/8]ⁿ,
 
     ‖Σ_α φ_α^* v_α‖²_𝗋 ≤ C Σ_α ‖v_α‖²_(H^(𝗋_α)(ℝⁿ)),       Σ_α ‖(φ_α)_*(θ̃_α u)‖²_(H^(𝗋_α)(ℝⁿ)) ≤ C ‖u‖²_𝗋.
@@ -330,8 +331,8 @@ equal to 1 on [−3/2, 3/2]ⁿ, and let t_α := s_1 ♯_(J_C) s_2 ♯_(J_C) ⋯ 
 where E maps H^𝗍 to H^S, for every order 𝗍 with values in [−T, T], with norm at most C ∏_j |g_j|^(𝗆_j)_(K_j), and the
 derivatives of each g_j consumed in E are at most
 
-    max( 2J_R + B + 𝔢(n + 1 + J_R + T),  2K + B,  B + 2(J_R − 1),
-         (J_C + B) + (r − 2)(J_C − 1) + 2(J_R − 1),  J_C + B + 𝔢(n + 1 + J_C + (r − 1)T) + 2(J_R − 1) ),      {#eq:fwd-ecount}
+    max( 2J_R + B + 𝔢(n + 1 + J_R + T),  2K + B,  B + 2(J_R − 1),  (J_C + B) + (r − 2)(J_C − 1) + 2(J_R − 1),
+         J_C + B + 𝔢(n + 1 + J_C + (r − 1)T) + 2(J_R − 1) ),                                         {#eq:fwd-ecount}
 
 the last two only if r ≥ 2. A derivative of order K′ of t_α consumes at most K′ + (r − 1)(J_C − 1) + 2(J_R − 1)
 derivatives of each g_j. Each term of t_α is a product of derivatives of the terms of the s_j at one point (x, η); its
