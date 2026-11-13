@@ -550,16 +550,21 @@ vanishes. In the two-dimensional orbit slice ⟨dr, q̂⟩ = 0 exactly when dr i
 [[lem:vlasov-constraint-coefficient]] with torus-polarised waves W_A and with second and mixed harmonics of order λ² in
 γ, the principal coefficients of the constraint map in the unknowns of [[lem:constraints-evolution]] have no oscillating
 part of order λ⁰: the coefficient (γ^(rr))^(3/2) H of the radial derivative of the metric unknown in ρ ([[eq:data-rho]]),
-those of its angular second derivatives, and those of the first derivatives of the momentum unknowns in J. For a wave
-with a trace on the spheres, ξ2 = ξ1, the mean curvature H oscillates at order λ⁰.
+those of its angular second derivatives, and those of the first derivatives of the momentum unknowns in J, and the
+symmetrizer 𝒮 of [[eq:data-symmetrizer]]. Their parts of order λ⁰ are those of γ0's data, so each of them is its value at
+the data (γ0, κ0) plus λ times a smooth function of x, of the phases θ_A and of λ, also as functions of the metric
+unknown α. For a wave with a trace on the spheres, ξ2 = ξ1, the mean curvature H oscillates at order λ⁰.
 
 *Proof.* The coefficients of the angular second derivatives of the metric unknown in ρ and of the first derivatives of
-the momentum unknowns in J involve γ, its inverse and Π, undifferentiated ([[lem:constraints-evolution]] (a)), and γ =
-γ0 + O(λ). In (γ^(rr))^(3/2) H, γ^(rr) is undifferentiated, and H = H̃/ν with H̃ = ½ tr_Π(∂_r Π − 𝓛_σ Π). The torus
-directions are tangent to the spheres, so the oscillating part of order λ⁰ of ∂_r Π is Σ_A ν_A ∂_r u_A ∂_(θ_A) W_A, and
-its Π-trace is Σ_A ν_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless. The harmonics of order λ²
-contribute O(λ) to first derivatives, and so does the shift of the foliation, whose oscillating part is of order λ². If
-ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r u_A sin θ_A at order λ⁰. ∎
+the momentum unknowns in J, and 𝒮, involve γ, its inverse, Π and α, undifferentiated ([[lem:constraints-evolution]] (a)),
+and γ = γ0 + λ (…), the dots a polynomial in λ with profile coefficients. In (γ^(rr))^(3/2) H, γ^(rr) is
+undifferentiated, and H = H̃/ν with H̃ = ½ tr_Π(∂_r Π − 𝓛_σ Π). The torus directions are tangent to the spheres, so the
+part of order λ⁰ of ∂_r Π is ∂_r Π0 plus the oscillating part Σ_A ν_A ∂_r u_A ∂_(θ_A) W_A, and Π^(AB) = Π0^(AB) + O(λ),
+so the part of order λ⁰ of H̃ is H̃0 plus Σ_A ν_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless. The
+harmonics of order λ² contribute O(λ) to first derivatives, and so does the shift of the foliation, whose oscillating
+part is of order λ². The metric unknown enters these coefficients only through ν_U² = ν² + α and γ_U⁻¹, algebraically,
+so the same holds as functions of α. If ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r u_A sin θ_A at
+order λ⁰. ∎
 
 Next the commutator of the wave operator with a generator, which the uniform estimate needs for each family. For a
 radial family on a round background it is [[pending:two-dust-commutator]], whose proof uses that the generator is

@@ -601,8 +601,8 @@ change the metric by at most 3.0 × 10⁻⁹ and 3.3 × 10⁻⁹); the scheme th
 second-order convergence to v ≈ 1.8 at areal radius at least 1. Beyond, with 32 modes the metric still converges in
 the null step while the unimposed constraint does not fall, so that limit is not vacuum; from v ≈ 1.9 at areal radius
 0.9–1.0 and from v ≈ 2.0 at 1.0–1.2 the violation grows with the angular resolution, and at 1.0–1.2 on [1.8, 1.9) the
-comparison in angular resolution does not decide. The linear scattering of the shell off the seed at 10 l5 was also solved
-numerically; no conclusion is drawn from it. No proof uses these observations.
+comparison in angular resolution does not decide. The linear scattering of the shell off the seed at 10 l5 was also
+solved numerically; no conclusion is drawn from it. No proof uses these observations.
 
 ### The second zero {#sec:tl5-second-zero}
 

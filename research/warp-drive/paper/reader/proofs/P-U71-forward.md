@@ -485,29 +485,147 @@ H^(inf 𝗌_0 + N) ⊂ H^𝗌. With S = 2T: R = 5T, B = 4T + 6, J_R = 6T + 1, J_
 In every item the number of derivatives of any symbol is at most 158T + 52 ≤ 𝔐(T) − 2, and every product estimated
 has at most eight factors, which justifies the choice of ϰ. ∎
 
-#### The orders that occur, and the increments {#sec:fwd-box}
+#### The sites, the orders that occur, and the increments {#sec:fwd-box}
 
-**Lemma {#lem:fwd-box}** (The order box.) In the proofs of the results that fix D_0 for the operator of
-[[thm:iii-i-5-3]], namely [[thm:ii-e-6-1]] at (𝗌_0, 𝗌), [[prop:ii-e-3-4]], [[prop:ii-e-4-3]] and [[prop:ii-e-4-4]] at
-the slab orders 𝗌, 𝗌 + 1, 𝗌 + 2, 𝗌 + 3, [[prop:ii-e-3-4]] (i) at s′ = s_u, and [[lem:ii-f1-2-8]], together with the
-results of [[ch:s04]] and [[ch:s06]] they invoke, every Sobolev order and every symbol order at which
-[[prop:ii-a1-2-4]], [[lem:ii-a-8-5]] or [[lem:ii-a-8-6]] is applied lies in [−100, 100], every index is at most 2,
-and every expression has at most six factors.
+By [[eq:ii-f1-3-2]] and [[rem:ii-f1-7-1]] with d̄_ℵ = 1, D_0 = max(d^E_0, d^S_0, d^T_0, d^U_0) with: d^E_0 the d_0 of
+[[thm:ii-e-6-1]] at (𝗌_0, 𝗌) = (𝗌 − 3, 𝗌); d^S_0 the largest d_0 of [[prop:ii-e-3-4]], [[prop:ii-e-4-3]] and
+[[prop:ii-e-4-4]] at the slab orders 𝗌 and 𝗌 + 2; d^T_0 that of [[lem:ii-f1-2-8]] at 𝗍 = 𝗌; d^U_0 that of
+[[prop:ii-e-3-4]] (i) at s′ = s_u = −12. By [[lem:fwd-orders]], 𝗌 has values in [−10, 11], equals 11 near the
+horizon, the trapped set, ∂R_(∂K⁺,in) and ∂R_(ℐ⁺,in,+), and −10 near ∂R_(∂K⁺,out) and ∂R_(ℐ⁺,out); 𝗌_0 has values in
+[−13, 8]. The a priori order of [[ch:s06]] is N′ := 13 = −inf 𝗌_0, which is all that its a priori terms
+‖χu‖_(−N′) ≤ ‖u‖_(𝗌_0) require. A *site* is a result of chapters 23 and 25–28 whose proof applies a closed-graph index
+(an index of [[prop:ii-a1-2-4]] or of [[lem:ii-a-8-5]], directly or through another site), or raises one. For s an order
+function write s⁺ := sup s and s⁻ := inf s. [[prop:fwd-calculus]] with T = 100 applies at a site when (B1) every
+quantized symbol has order with values in [−100, 100], (B2) every Sobolev order on which an item is applied has values
+in [−100, 100], (B3) every N in (e) and in [[lem:ii-a-8-5]] (b) is at most 100, (B4) every product in (e), (f) has at
+most six quantizations, and (B5) each use of (f) has the form required there.
 
-*Proof.* The orders of the estimates themselves lie in [−15, 15]: 𝗌 ∈ [−10, 11], shifts by at most 3 above and the
-order 𝗌_0 = 𝗌 − 3 and s_u − 3 = −15 below ([[lem:fwd-orders]]); the error orders are −N with N ≤ 15 (N = 13 in the
-global estimates, s_u − 3 ≥ −15 in the uniqueness and duality steps of [[prop:ii-e-3-4]]). In [[thm:ii-a1-3-1]] at
-(m, 𝗌, N) the Sobolev orders are 𝗌 − j/2 ≥ −N − 1 and the symbol orders lie in [−(sup 𝗌 + N) − m − 1, m]. In
-[[thm:ii-a1-5-4]], [[lem:ii-a1-4-2]] runs over 𝗌_j ∈ [𝗌 − τ, 𝗌] with τ = max(1, sup 𝗌 + N) ≤ 30, so |𝗌_j| ≤ 45; the
-commutant of [[prop:ii-a1-5-3]] has order 𝗄 = 𝗌_j − (m − 1)/2, and the symbols that occur (ǎ², H_ℓ(ǎ²), b_ε², the
-operators C_ǎ, with factors of order m or m − 1) have orders in [2𝗄 − 1, 2𝗄 + m] ⊂ [−94, 94]; the Sobolev orders are
-𝗌_j − ½ + δ, ±(m − 1)/2 and K′ ≤ sup |𝗌_j| + m + 2 ≤ 49, the regularisers T_t being smooth. The radial and
-trapped-set estimates of [[ch:s06]] and [[prop:ii-e-3-2]] use constant orders in [s_0 − 3, s + 3] with s, s_0 among
-the orders above, commutants of order k = s − (m − 1)/2 lowered by κ ≤ 2, and the iteration of [[lem:ii-d-2-2]],
-which is that of [[lem:ii-a1-4-2]]; their orders lie in the same ranges. The indices are 0 or 1, raised by one at most
-by [[lem:ii-a1-2-5]] (ii). The longest expressions are those of the commutator paragraph of [[prop:ii-a1-5-3]] and of
-[[lem:ii-d-2-3]], such as i[L_R, D_ǎǍ] and Ǎ^*[Ǎ, L_I], with at most six quantizations after the localisers are
-counted. ∎
+**Lemma {#lem:fwd-derived}** (The sites of chapter 23.) Each site of [[ch:s04]] uses the items of
+[[prop:fwd-calculus]] as follows, and satisfies (B1)–(B5) under the stated condition.
+
+(D1) [[lem:ii-a-8-5]] (a) at 𝗌: item (a), 𝗆 = 0, 𝗍 = 𝗌. Condition |s^±| ≤ 100.
+
+(D2) [[lem:ii-a-8-5]] (b) at (𝗌, 𝗌_0): (e), three factors, 𝗍 = s_0⁻, N = max(0, ⌈s⁺ − s_0⁻⌉). Condition |s_0⁻| ≤ 100,
+s⁺ − s_0⁻ ≤ 100.
+
+(D3) [[lem:ii-a-8-6]] at (𝗌, m, N): (D1) at 𝗌 − m and (D2) at (𝗌 − m, −N − m). Condition |𝗌 − m|, |N + m|,
+s⁺ + N ≤ 100.
+
+(D4) [[thm:ii-a1-3-1]] at (m, 𝗌, N), with J′ = ⌈2(s⁺ + N)⌉ steps of ½: (a) for Op(q) (order −m) and for the symbol of
+order −1 in E_A; (b) for Op(q)Op(ℓ_f) − Op(qℓ_f) (orders −m, m); (e) for G_(i+1)Op(q)(I − G_(i+2))L and
+G_(i+1)E_A(I − G_(i+2)), at most four factors, N ≤ s⁺ + N + |m| + 1, at 𝗍 = −N − |m|; (D1) for the a_j; (D3) (a) at
+(−N, m, N). Symbol orders in [−|m| − 1, |m|]; Sobolev orders 𝗌 − j/2 − ½, 𝗌 − j/2 − m, j ≤ J′, in
+[s⁻ − s⁺ − N − |m| − 2, s⁺ + |m|]. Condition s⁺ + N + |m| + 2 ≤ 100 and s⁺ − s⁻ + N + |m| + 2 ≤ 100.
+
+(D5) [[thm:ii-a1-5-4]] at (m, 𝗌, N), with [[prop:ii-a1-5-3]], [[lem:ii-a1-4-1]], [[lem:ii-a1-4-2]], [[lem:ii-a1-2-6]]:
+τ := max(1, s⁺ + N), 𝗌_j ∈ [s⁻ − τ, s⁺], σ_* := max(|s⁻ − τ|, |s⁺|), K′ := ⌈σ_*⌉ + m + 2. Symbols ǎ (order
+𝗌_j − (m − 1)/2), b_ε, e_ε (𝗌_j + δ), b_ε², H_ℓ(ǎ²), φ_0b_ε²φ_0 (2𝗌_j + 2δ), ℓ_f (m), z_ε, λ_+, λ_+z_ε, τ_t,
+localisers, and in the parametrix step q = χ̃ab⁻¹ (−𝗌_j): orders in [−2σ_* − m − 1, 2σ_* + m + 1]. Sobolev orders
+𝗌_j − κ, 𝗌_j − ½ + δ_0, 𝗌_j − m + 1, ±(m − 1)/2, −N, −N − m, −δ, K′, and those of the parametrix iteration from 𝗌_j
+down to −N − σ_* − 1: all in [−σ_* − N − m − 2, K′]. (e): Φ_0L(I − Φ), Φ_0T_t(I − Φ), Φ_0T_tL(I − Φ) and those of the
+parametrix step, at most four factors, N ≤ s⁺ + N + σ_* + m + 2. (f): the expressions (F1)–(F4) of [[lem:fwd-box]],
+at most five factors. With (D4) at (m, 𝗌, N) and (D3) (a) at (−N, m, N). Condition 2σ_* + m + 1 ≤ 100,
+σ_* + N + m + 2 ≤ 100, K′ ≤ 100, s⁺ + N + σ_* + m + 2 ≤ 100.
+
+(D6) [[prop:ii-a-9-1]] at (m, 𝗌, N): (D4) at (m, 𝗌, N), (D3) at (𝗌, m, N) and (−N, m, N). (D7) [[prop:ii-a-9-2]]:
+(D5) at (m, 𝗌, N), (D3) (a) at (−N, m, N), and 2. (D8) [[prop:ii-a-9-6]] at (𝗌, 𝗌_0): (D1) at 𝗌, (D2) at (𝗌, 𝗌_0).
+(D9) [[cor:ii-a-9-7]] at (𝗍, m): (D8) at (𝗍 − m, 𝗍 − m). (D10) [[prop:ii-a-9-8]] at (𝗌, m, N): (D8) at
+(𝗌 − m, −N − m), (D6), (D9) at (−N, m). (D11) [[prop:ii-a-9-9]] at (𝗌, m, N): (D8) at (𝗌 − m + 1, −N − m), (D7),
+(D9) at (−N, m). Conditions: those of the sites invoked.
+
+[[lem:ii-a-8-4]], [[lem:ii-a1-1-1]], [[lem:ii-a1-1-2]], [[lem:ii-a1-2-3]], [[lem:ii-a1-2-5]], [[lem:ii-a-8-7]] and
+[[lem:ii-a-9-5]] concern smooth operators or functions, or have explicit regularity, and are not sites. No index of
+these results depends on k, on the auxiliary operators, on the cut-offs or on the finite sets of operators.
+
+*Proof.* The lists are read from the proofs cited: for (D4) the steps *One step*, *Localisation* and *Iteration* of
+[[thm:ii-a1-3-1]] with 𝗋 = 0, 𝗋′ = 𝗌 − j/2, δ = ½; for (D5) the steps 0–3 of [[lem:ii-a1-4-1]], the iteration of
+[[lem:ii-a1-4-2]] over 𝗌_j = 𝗌 − τ + jκ with its parametrix step (q := χ̃ab⁻¹, B_0^((j)) of order 𝗌_j + δ in place
+of L), the commutant, commutator and positivity paragraphs of [[prop:ii-a1-5-3]], and *The index* of
+[[thm:ii-a1-5-4]], whose τ is max(1, s⁺ + N); for (D6)–(D11) the first sentences of their proofs, which take maxima.
+The ranges follow from the orders listed, as 𝗌_j and 𝗌 − j/2 have values in [s⁻ − τ, s⁺], resp.
+[s⁻ − s⁺ − N − 1, s⁺]. In (D2) the case (e) applies by [[sec:ii-a1-1-2]] (proof of [[prop:fwd-calculus]]). ∎
+
+**Lemma {#lem:fwd-box}** (The sites of chapters 25–28, and the orders that occur.) The sites of chapters 25–28 that
+enter D_0, the sites of chapter 23 they invoke with their parameters, and their increments (the number added to the
+index of the sites invoked) are the following. Chapter 27 contains no site: its operators (the ι⁺-normal operator and
+its Mellin family) have smooth coefficients, and no class C^((d_0;k)) occurs in it. In chapter 28, [[sec:ii-f-6]]–
+[[sec:ii-f-8]] apply [[thm:ii-a1-3-1]] and [[thm:ii-a1-5-4]] to the smooth operators P_+, P^ε_+ and P_0 only, and
+[[lem:s09-off-star]], [[lem:ii-f1-2-5]] are explicit (Seeley's extension); they are not sites.
+
+(R) The radial estimates [[prop:ii-d-3-1]], [[prop:ii-d-3-2]], [[prop:ii-d-3-3]], [[prop:ii-d-3-5]], [[prop:ii-d-3-6]]
+at constant (s, s_0), with [[lem:ii-d-2-1]]–[[lem:ii-d-2-5]] and the localised form of [[sec:ii-d-2]]: the pattern is
+(D5) at (2, s, N′) with τ := s − s_0 ≤ s + N′ and constant orders; increment 1, as the symbols b_ε, e, j_ε, f_ε of the
+pattern lie in C^(d_0−1) (they contain ρ⁻¹𝖧ρ and σ_1(Im_h P), with one derivative of the coefficients). (F3), (F4).
+
+(Γ) The trapped set [[prop:ii-d-4-2]] at (s, s_0): commutants of orders in [s_0 − 3, s + 3] (as stated there), the
+symbol ã of order 2s′ + 1 ≤ 2s + 1, products of order at most 2s + 7: symbol orders in [2s_0 − 7, 2s + 7]; Sobolev
+orders in [−N′ − 3, |s| + 6]; (e) for G_1R_2^♭, G″R_2^♭, Φ_0(I − Φ′), Φ_0L(I − Φ′), (I − Φ′)^*Op(j_ε)Φ_0, at most four
+factors, N ≤ s + N′ + 3; (f) as (F3), (F4) and [Φ_u, A_ε] (four factors). Increment 4: the symbols lie in C^(d_0−4)
+([[lem:ii-d-4-1]], from ϕ^u ∈ C^(d_0−1), ϕ^s ∈ C^(d_0−2) of [[prop:ii-c1-3-4]]), and [[lem:ii-d-4-1]] asks d_0 ≥ 5.
+
+(G) [[thm:ii-d-1-2]] at (𝗌_0, 𝗌): (D4) and (D5) at (2, 𝗍, N′), 𝗍 ∈ {𝗌, 𝗌 + 1}; (R) at (12, 8) (horizon,
+∂R_(ℐ⁺,in,+), ∂R_(∂K⁺,in)) and (−10, −13) (∂R_(∂K⁺,out), ∂R_(ℐ⁺,out)); (Γ) at (11, 8). Increment 0.
+
+(I) [[lem:ii-d1-2-3]] at (𝗍, 𝗍_0, 𝔩) and [[lem:ii-d1-2-5]]: (R), resp. (Γ), at (𝗍, 𝗍_0) for the systems L^(k), whose
+coefficients keep d_0 e3b-derivatives ([[lem:ii-d1-2-1]]); (D1) at 𝗍_0 − 2; (D2) at (𝗍 − 1 + 𝔩, 𝗍_0 − 2); (D3) (b) at
+(𝗍 + 1 + 𝔩, 2, −𝗍_0). Increment 0. (Tm) [[lem:ii-d1-2-4]]: (D8) at (𝗍 + 1 + 𝔩, 𝗍_0) and (𝗍_0 − 2, 𝗍_0 − 2), (D9) at
+(𝗍_0, 2); increment 2 (d_0 ≥ d_1 + 2). Used at (12, 8, 0), (11, 8, 1), (−10, −13, 0) by [[prop:ii-d1-3-2]],
+[[prop:ii-d1-4-2]], [[prop:ii-d1-5-2]], [[prop:ii-d1-6-2]].
+
+(B) [[thm:ii-d1-1-1]] at (𝗌_0, 𝗌): (G); (D6) and (D7) at (2, 𝗍, N′), 𝗍 ∈ {𝗌, 𝗌 + 1}; (I), (Tm) at the three triples
+above; (D10) and (D11) at (𝗍, 2, N′), 𝗍 ∈ {𝗌, 𝗌 + 1}. Increment 0.
+
+(Sl) [[lem:ii-e-3-3]] (a) at slab orders (𝗌_0, 𝗌), (b) at constants (s_0, s): (D4), (D5) at (2, 𝗌, −s_0⁻) and
+[[prop:ii-e-3-2]] at the values near R, which is (R) with increment 2 (h̃_F ∈ C^(d_0−2), [[lem:ii-e-3-1]]).
+
+(Sv) [[prop:ii-e-3-4]] at a slab order 𝗌 and s′: (i) is (Sl) (a) at the constants (s′, 2); (ii) is (Sl) (a) at
+(min(0, s⁻) − 1, 𝗌) (Step 2) and at (−m, 𝗌), m the least integer with m > 1 − s⁻ (Step 4), and (Sl) (b) at (0, m + 1)
+(Step 3). The energy estimates need d_0 = 2 ([[lem:ii-e-2-5]], [[prop:ii-e-2-7]]). Increment 0.
+
+(W) [[lem:ii-e-4-1]] (a) at (𝗌, m): (D1) at 𝗌 − m; (b) at 𝗌: (D8) at (𝗌, 𝗌). (Sb) [[prop:ii-e-4-3]] at 𝗌: (Sv) at 𝗌 for
+the systems P^(j), with (i) at s′ = s⁻ − 1 (the corrected a priori order, part (b) of the report below), and (W) (a) at
+(𝗌, 1). (St) [[prop:ii-e-4-4]] at 𝗌: (Sb), and (W) (b) at 𝗌 + 1 and 𝗌 − 1; increment 2 (d_0 ≥ d_1 + 2).
+
+(K) [[lem:ii-e-5-3]], [[prop:ii-e-5-4]] and [[prop:ii-e-5-6]] at 𝗌 and s′: as (Sl), (Sv), (Sb), (St), with no radial
+set; [[prop:ii-e-5-6]] (b) has increment 2.
+
+(E) [[thm:ii-e-6-1]] at (𝗌_0, 𝗌): (Sv) (i) and (K) (i) at s′ = s_0⁻ = −13, (Sb) and (St) at 𝗌, (B) at (𝗌_0, 𝗌), (K) at
+𝗌 with s′ = −13. Increment 0.
+
+(T) [[lem:ii-f1-2-8]] at 𝗍: (D9) at (𝗍, 2), (D1) at 𝗍 − 2. (U) [[lem:ii-f1-2-2]]: (Sv) (i) at s′. (F) [[lem:ii-f1-2-9]]:
+(St) at 𝗌 + 2, and [[thm:ii-f-8-1]] for the smooth P_0. Increment 0.
+
+The expressions to which (f) is applied, each with at most five quantizations in a product, and the reason why its
+symbol t_α in every chart has no term above the order stated: (F1) [D_a, Op(ǎ)] and [[D_a, Op(ǎ)], Op(ǎ)],
+D_a = Op(a)^* − Op(a^*), orders m + 𝗄 − 2 and m + 2𝗄 − 3: the terms of index 0 of D_a cancel ((c)), and ǎ is scalar, so
+the terms of the commutators that are not of positive grade in each commutator vanish. (F2) [D_R, Ǎ], [D_I, Ǎ],
+Ǎ = Op(ǎ)Φ_0, i[L_R, D_ǎǍ] and Ǎ^*[Ǎ, D_I] in [[prop:ii-a1-5-3]], order m + 𝗄 − 2, resp. 2𝗌 − 1: as (F1), with
+φ_0ǎ = ǎ, and the terms of positive index of the symbol of Φ_0 vanish near supp ǎ, as there φ_0 = 1 and its amplitude
+does not depend on η. (F3) L_IǍ_ε^*Ǎ_ε + Ǎ_ε^*Ǎ_εL_I − Op(2ǎ_ε²ℓ_I) and i[L_R, Ǎ_ε^*Ǎ_ε] − Op(H_ℓ(ǎ_ε²)) in
+[[lem:ii-d-2-3]], order 2s − 1: ǎ_ε is scalar, φ_0ǎ_ε = ǎ_ε, and ℓ_I, the principal symbol of L_I, is in every chart
+the part of order m − 1 of the symbol of L_I: for smooth coefficients this is (S5), and both sides are the same
+polynomial in finitely many derivatives of the coefficients and of the transition maps, so the identity persists in
+finite regularity ([[lem:ii-a1-2-2]]); likewise H_ℓ(ǎ_ε²) is the principal symbol of i[L_R, Ǎ_ε^*Ǎ_ε] ((d)).
+(F4) Op(ρ^(−𝗍)φ_εz)Φ_z − Op(ρ^(−𝗍)φ_εzφ_z) and the products of [[lem:ii-d-2-5]], [[lem:ii-a1-2-6]], [[lem:ii-d-2-4]],
+order one below the sum: φ_zz = z and the terms of index 0 agree ((b)). [Φ_u, A_ε] in [[prop:ii-d-4-2]] is (b), (d)
+for scalar symbols.
+
+At the parameters of the operator of [[thm:iii-i-5-3]], (B1)–(B5) hold at every site, and the indices satisfy:
+every symbol order lies in [−71, 71], every Sobolev order in [−51, 38], every N of (e) is at most 63.
+
+*Proof.* The lists are read from the proofs cited; for (Sb) and (K) with the a priori order of part (b) of the report
+(the induction hypothesis puts the words of length j in H^(𝗌−1)). The parameters at which (D4), (D5) are used:
+(G), (B): (2, 𝗌 + 1, 13) with s⁺ = 12, s⁻ = −9, τ = 25, σ_* = 34; (2, 𝗌, 13) with τ = 24, σ_* = 34. (Sv) at 𝗌:
+Step 2 at (2, 𝗌, 11), τ = 22, σ_* = 32; Step 4, m = 12, at (2, 𝗌, 12), τ = 23, σ_* = 33; Step 3 at (2, 13, 0), σ_* = 13;
+(i) at (2, 2, −s′) with s′ ∈ {−9, −11, −12, −13}, σ_* ≤ 13. (Sv) at 𝗌 + 2 (s⁺ = 13, s⁻ = −8): Step 2 at (2, 𝗌 + 2, 9),
+τ = 22, σ_* = 30; Step 4, m = 10, τ = 23, σ_* = 31; Step 3 at (2, 11, 0). (K): as (Sv) at 𝗌. (R) at constant s ∈ {12,
+−10, 13, 2, ≤ 13}: σ_* ≤ 13. So σ_* ≤ 34, and (D5) gives symbol orders in [−2·34 − 3, 2·34 + 3] = [−71, 71], Sobolev
+orders in [−34 − 13 − 4, 34 + 4] = [−51, 38], and N ≤ 12 + 13 + 34 + 4 = 63; (D4) gives N ≤ 12 + 13 + 3 = 28 and
+Sobolev orders down to −9 − 12 − 13 − 4 = −38. (Γ) at (11, 8): symbol orders in [9, 29], Sobolev orders in [−16, 17],
+N ≤ 27. The (D2)-instances: (D8) at (13, 8), (−9, −13), (6, 6), (−15, −15) and (𝗋, 𝗋) for 𝗋 ∈ {𝗌 − 2, 𝗌 − 1, 𝗌 + 1,
+𝗌 + 3} (N ≤ 21, s_0⁻ ≥ −15); (D10), (D11) at (𝗍, 2, 13): (D8) at (𝗌 − 1, −15), (𝗌, −15), (𝗌 + 1, −15) with N ≤ 26;
+(I): (D2) at (11, 6) and (−11, −15), N ≤ 5; (D3) at (𝗍, 2, 13), 𝗍 ∈ {𝗌, 𝗌 + 1}: N ≤ 25. All lie in the box, and the
+expressions have at most five quantizations. ∎
 
 **Lemma {#lem:fwd-increments}** (The increments.) Every coefficient index entering D_0 is at most 𝔐(100) + 4.
 

@@ -264,8 +264,8 @@ and at ε_Υ = 1.4619·10⁻¹⁰, J_* ≤ 34,202,065,807. The single-step loss 
 least 1 + n_ι.
 
 *Proof.* The data of Step 0 are those printed there. By the case E_I = ∅ of [[lem:ec-closed-forms]] (g),
-l = 1 + n_ι + 2(n_K + ⌊β_K⌋) with n_K = n(∅, β_K) = 0. In [[eq:iii-a-4-2]]'s counting, n(E_ι, β_ι) counts the pairs
-(z, m′) ∈ ℰ^♭ + 2 with Re z ≤ w_+ − ε = 5 + ε_+ − ε. At an exponent λ of ℰ^♭ of logarithmic order m there are m + 1
+l = 1 + n_ι + 2(n_K + ⌊β_K⌋) with n_K = n(∅, β_K) = 0. By the definition of n(E, β) before [[lem:ec-closed-forms]],
+n(E_ι, β_ι) counts the pairs (z, m′) ∈ ℰ^♭ + 2 with Re z ≤ w_+ − ε = 5 + ε_+ − ε. At an exponent λ of ℰ^♭ of logarithmic order m there are m + 1
 pairs, and m ≤ k̄(λ) = k̄_0 + (J_* + 1)(l_* + 1)(n(λ) + 1) with n(λ) ≤ N_Λ − 1; at most N_Λ exponents occur. This gives
 the bound for n_ι. By [[lem:ec-iota-gap]], η_0 ≥ ε_Υ, so J_* = ⌈5/η_0⌉ + 2 ≤ ⌈5/ε_Υ⌉ + 2, and
 5/(1.4619·10⁻¹⁰) = 500000000000000/14619 = 34202065804.77…, whose ceiling is 34,202,065,805. The level step composes
@@ -280,8 +280,8 @@ the loss l of [[prop:iii-g3-3-7]], plus 2; so it is
     d_Φ = 62N_Λ + 2.                                                                                  {#eq:uc-phi-loss}
 
 The losses d_FM of [[prop:iii-j2-4-3]] and d_Ψ of [[lem:iii-k-2-2]], as their proofs fix them from d_Φ and
-[[lem:ii-g-4-1]], are at most d_Φ + 8, and d_NM = max(d_acc, d_FM, d_Ψ) ≤ max(d_acc, 62N_Λ + 10), with
-N_NM = 21d_NM + 6.
+[[lem:ii-g-4-1]], are at most d_Φ + 8 = 62N_Λ + 10, and d_NM = max(d_R, d_FM, d_Ψ), with d_R ≥ d_acc the accounted loss
+of [[lem:iii-k-2-3]], and N_NM = 21d_NM + 6.
 
 *Proof.* By [[lem:ec-closed-forms]] (f), l′ = 30 under these conditions, and l = l′ ((f) and its proof), so each step
 contributes 30 + 2 + 30 = 62, and the steps are indexed by Λ_*, which has N_Λ elements; this is [[eq:uc-phi-loss]]. The
@@ -289,7 +289,7 @@ proof of [[prop:iii-j2-4-3]] bounds P_5(Φ(U)) by [[lem:ii-g-4-1]]: P_5(h, p⃗,
 of w = (h″, D_b h″, D²_b h″), h″ := h + h_(b,rem)(q), with coefficients smooth in p⃗. As in the proof of
 [[prop:uc-dbg]], its order-k norm is at most C_k‖w‖_(k+3) ≤ C_k‖h″‖_(k+5) ≤ C_k‖Φ(U)‖_(k+8), and
 ‖Φ(U)‖_(k+8) ≤ C_k‖U‖_(𝒟^(k+8+d_Φ)); its first two derivatives are bounded in the same way, being polynomial in the
-derivatives of Φ, which is affine in U_1. So d_FM ≤ d_Φ + 8. [[lem:iii-k-2-2]] (c) is the same bound for Ψ(U), which
+derivatives of Φ by the chain rule. So d_FM ≤ d_Φ + 8. [[lem:iii-k-2-2]] (c) is the same bound for Ψ(U), which
 differs from Φ(U) by fixed tensors smooth in the finite-dimensional components of U, on the exact scales, where
 [[prop:iii-j3-5-4]] follows the proof of [[thm:iii-j-2-4]] step by step; so d_Ψ ≤ d_Φ + 8 as well. d_NM is the largest
 of the three losses ([[def:ec-accounted-loss]] and the paragraph after it), and N_NM = 21d_NM + 6 is the regularity of
@@ -318,10 +318,11 @@ N_NM.
 *Proof.* (i) is [[prop:uc-ltf]] and [[prop:uc-dbg]] substituted into [[prop:ec-upper]] and [[rem:ec-upper-point]]:
 9.394·10¹⁹ · 1 + 1.2923·10²¹ = 1.38624·10²¹. (ii) is [[lem:uc-phi-loss]], the counts of [[lem:ec-counts]] and
 [[prop:ec-upper]], and [[lem:uc-fourier-count]]. (iii) [[def:iii-i10-1-1]] and [[def:iii-i10-1-3]] define N_Λ, l_*,
-k̄_0 and (G) from these index sets and from ε_+, so they are fixed by them. Let M ≥ 10¹⁰ and t := 1/M. By
+k̄_0 and (G) from these index sets and from ε_+, so they are fixed by them. Let M > 0 and t := min(1/M, 10⁻¹⁰). By
 [[prop:uc-no-eps]], with E_t in place of ℰ_ind, (G) fails for every ε_K ≥ t, so every admissible ε_K is below t. By
-[[prop:ec-rounds]], R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂) > (1 − 3·10⁻¹⁰ − 2δ̂ − δ̄)/(tδ̂) > 0.99999997 M/(1.46214·10⁻¹⁰),
-which exceeds 6.8·10⁹ M; and d_NM ≥ d_acc ≥ 3R > 2·10¹⁰ M by [[thm:loss-d]] (ii). For M < 10¹⁰ take M = 10¹⁰. ∎
+[[prop:ec-rounds]], R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂) > (1 − 3·10⁻¹⁰ − 2δ̂ − δ̄)/(tδ̂), and the numerator exceeds
+0.99999997, so R > 0.99999997/(1.46214·10⁻¹⁰ t) > 6.8·10⁹ M, as 1/t ≥ M. By [[thm:loss-d]] (ii),
+d_NM ≥ d_acc ≥ 3R > 2·10¹⁰ M. ∎
 
 **Remark {#rem:uc-missing}** (The statement an integer upper bound needs.) An integer D with d ≤ D follows from
 [[prop:ec-upper]], [[thm:uc-reduction]] and the closed forms of [[lem:ec-closed-forms]] once the following is proved:

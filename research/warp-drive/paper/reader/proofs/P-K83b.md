@@ -77,9 +77,11 @@ Along the family, g = R²(γ̂ + 2εHT), g⁻¹g′ = 2/R + 2εH′T^♯ − 4ε
 coefficients of the three terms are −2κ0HH′|T|²_γ̂, −½(−4HΠ/R + 2H′Π − 4Y0HH′)|T|²_γ̂ and 2(HΠ)′|T|²_γ̂, whose sum is the
 second identity.
 
-For the third, consider a metric G dR² + R²ĝ with ĝ = ĝ(R) a family of metrics on S³. The lapse G^(1/2) of its foliation
-by the spheres {R = const} is constant on each sphere, so the Gauss equation and the Riccati equation of the foliation
-give
+For the third, consider a metric G dR² + R²ĝ with ĝ = ĝ(R) a family of metrics on S³. For a foliation by hypersurfaces
+S with unit normal ν, lapse N and second fundamental form L, the Gauss equation Scal = Scal_S + 2Ric(ν, ν) − (tr L)² +
+|L|² and the Riccati equation Ric(ν, ν) = −ν(tr L) − |L|² − N⁻¹Δ_S N hold (as in the proof of
+[[lem:constraints-evolution]] (a)). The lapse G^(1/2) of the foliation by the spheres {R = const} is constant on each
+sphere, so the last term vanishes and
 
     Scal = R⁻² Scal(ĝ) − (tr L)² − |L|² − 2G^(−1/2)(tr L)′,      L := ½G^(−1/2) ∂_R(R²ĝ),
 
@@ -180,13 +182,13 @@ dR² + x γ̂ and Scal(γ) = 0; and N_s dvol = R³ dR dvol_γ̂. Integrals over 
 of degree l, Δ̂S = −k²S, ∫S² = (2π)²‖S‖² and ∫|D̂S|² = k²∫S², and ∫Δ̂φ = 0 for every function φ on S³.
 
 *The splitting.* The isometries SO(4) of the round S³ act on the static slice by isometries fixing N_s, so the constraint
-maps are SO(4)-equivariant and 𝔈_V and 𝔈_K are invariant quadratic forms. The scalar harmonics of degree l span an
-irreducible representation of SO(4) with highest weight (l, 0), and the transverse trace-free tensor harmonics of degree
-l span the sum of the two irreducible representations with highest weights (l, ±2) [Hig87]; for different types or
-degrees these representations are pairwise inequivalent. A scalar mode of degree l is the image of the scalar harmonics
-of degree l under the equivariant linear map u ↦ a u dR² + 2R b du dR + R²(c uγ̂ + e(D̂D̂u + (k²/3)γ̂u)), and likewise
-for k, so it lies in the isotypic component of (l, 0); a tensor mode of degree l lies in that of (l, ±2), and the l = 0
-part in that of the trivial representation. An invariant bilinear form pairs isotypic components of inequivalent
+maps are SO(4)-equivariant and 𝔈_V and 𝔈_K are invariant quadratic forms. Under SO(4) ≅ (SU(2) × SU(2))/{±1} the
+scalar harmonics of degree l span the irreducible representation of highest weights (l/2, l/2), and the transverse
+trace-free tensor harmonics of degree l the sum of those of highest weights ((l ± 2)/2, (l ∓ 2)/2) ([[sec:iii-f1-1]]);
+for different types or degrees these representations are pairwise inequivalent. A scalar mode of degree l is the image
+of the scalar harmonics of degree l under the equivariant linear map u ↦ a u dR² + 2R b du dR + R²(c uγ̂ + e(D̂D̂u +
+(k²/3)γ̂u)), and likewise for k, so it lies in the isotypic component of (l/2, l/2); a tensor mode of degree l lies in
+that of ((l ± 2)/2, (l ∓ 2)/2), and the l = 0 part in that of the trivial representation. An invariant bilinear form pairs isotypic components of inequivalent
 representations to zero, and an equivariant linear map takes each isotypic component into the isotypic component of the
 same representation (Schur's lemma). So the polarisations of 𝔈_V and 𝔈_K vanish between different modes, and the
 constraints of a seed hold exactly when those of each mode hold. The mode expansions of smooth data converge with all
