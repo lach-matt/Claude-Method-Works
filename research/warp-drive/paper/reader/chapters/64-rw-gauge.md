@@ -660,12 +660,12 @@ r³dv_H dω = r³f⁻¹dr dω,
 With a := ∂_rΦ − 3Φ/(2r), (∂_rΦ)² ≤ 2a² + (9/2)Φ²/r², so the left side of the claim is at most
 ∫(2a² + (k² + 9/2)Φ²/r²)dr ≤ max(4/f_1, 2(k² + 9/2)/(k² − 6)) Ě/‖Y‖², and for k² ≥ 8,
 2(k² + 9/2)/(k² − 6) ≤ 25/2 ≤ 9/(2f_1) + 8 and 4/f_1 ≤ 9/(2f_1) + 8, as f_1 ≤ 1. The rotations commute with the
-equations and with the energy densities. On functions Σ_iΩ_i² = Δ̂ ([[lem:rwg-a]]), and the L_(Ω_i) commute with D̂, so
-−Σ_iL_(Ω_i)² Y_αβ = k²Y_αβ. On symmetric 2-tensors on S³, −Σ_iL_(Ω_i)² = ∇̊*∇̊ + A with A algebraic: writing
-L_(Ω_i) = ∇̊_(Ω_i) + (∇̊Ω_i)·, the second-order part is −Σ_i∇̊²_(Ω_i,Ω_i) = ∇̊*∇̊, as Σ_iΩ_i ⊗ Ω_i = γ (Lagrange's identity)
-and Σ_i∇̊_(Ω_i)Ω_i = −(1/2)∇̊Σ_i|Ω_i|² = 0, and the first-order part vanishes, as for Ω = Ax (A antisymmetric) the
-endomorphism ∇̊Ω is Y ↦ P(AY), P the tangential projection, and Σ_(a<b)(A_ab)_ij(A_ab)_kl = δ_ikδ_jl − δ_ilδ_jk gives
-Σ_i P(A_iY) ⊗ A_ix = P(Y)(x · ·) − (Px)(Y · ·) = 0 for Y tangent. A is O(4)-equivariant, and the isotropy group O(3)
+equations and with the energy densities. On functions Σ_iΩ_i² = Δ̂ ([[lem:rwg-a]]), and the L_(Ω_i) commute with D̂,
+so −Σ_iL_(Ω_i)² Y_αβ = k²Y_αβ. On symmetric 2-tensors on S³, −Σ_iL_(Ω_i)² = ∇̊*∇̊ + A with A algebraic: writing
+L_(Ω_i) = ∇̊_(Ω_i) + (∇̊Ω_i)·, the second-order part is −Σ_i∇̊²_(Ω_i,Ω_i) = ∇̊*∇̊, as Σ_iΩ_i ⊗ Ω_i = γ (Lagrange's
+identity) and Σ_i∇̊_(Ω_i)Ω_i = −(1/2)∇̊Σ_i|Ω_i|² = 0; and the first-order part vanishes, as for Ω = Ax (A antisymmetric)
+the endomorphism ∇̊Ω is Y ↦ P(AY), P the tangential projection, and Σ_(a<b)(A_ab)_ij(A_ab)_kl = δ_ikδ_jl − δ_ilδ_jk
+gives Σ_i (PA_iY) ⊗ (A_ix) = (Y · x)P − (Px) ⊗ Y = 0 for Y tangent. A is O(4)-equivariant, and the isotropy group O(3)
 acts irreducibly on trace-free symmetric 2-tensors at a point, so A is a constant on them; by (36), ∇̊*∇̊Y_αβ =
 (k² − 6)Y_αβ, so A = 6. On the tensor harmonics, ∇̊*∇̊T = k_T²T = (k² − 2)T ([KI03, (5.1)–(5.2)]), so
 −Σ_iL_(Ω_i)²T = (k² + 4)T. As the L_(Ω_i) are skew on L²(S³), Σ_iĚ^N_(Ω_iΨ) is the eigenvalue of −Σ_iL_(Ω_i)² times
@@ -705,7 +705,8 @@ Integrate over {τ_1 ≤ v − s(r) ≤ τ_2, r_h ≤ r ≤ R_1} in the (v, r)-p
 (f/2)u² ≥ 0. With j = 1, b := 3m₀/R_1³ ≤ 3f′/2 on [r_h, R_1], Q(w) ≤ ∫u_2² dr on Σ_w, and
 2|uF_1| ≤ (b/2)u² + (2/b)F_1²,
 
-    Q(τ_2) + (b/2)∫_(τ_1)^(τ_2) Q(w) dw ≤ Q(τ_1) + (2/b)∫_(τ_1)^(τ_2) G(w) dw,     G(w) := ∫_(r_h)^(R_1) F_1²(w + s(r), r) dr.
+    Q(τ_2) + (b/2)∫_(τ_1)^(τ_2) Q(w) dw ≤ Q(τ_1) + (2/b)∫_(τ_1)^(τ_2) G(w) dw,
+    G(w) := ∫_(r_h)^(R_1) F_1²(w + s(r), r) dr.
 
 (3) The forcing. |W′| + |W − f″| ≤ C(1 + k²) on [r_h, R_1] ([[lem:rw-potentials]]), and u_0, u_1 are bounded in L² on
 the spacelike part by Ě^N_Ψ ([[lem:rwg-cone]]). So G(w) ≤ C(1 + k²)²Ě^N_Ψ(Σ_w)/‖Y‖² ≤ C(Ě^N_Ψ + Σ_(i,j)

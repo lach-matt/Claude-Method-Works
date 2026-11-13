@@ -266,8 +266,8 @@ linear in the factors δ, whose norms add up to at most C(|b − b₀| + |S|) + 
 of an upper bound for ‖h‖_(𝒳^k). ∎
 
 *Products on Ω_*.* For k ∈ ℕ₀, H^k_b(Ω_*) is the space of restrictions to the interior of Ω_* of elements of H^k_b(M̃)
-for the density μ_b, with the quotient norm, and wH^k_b(Ω_*) := {u : w⁻¹u ∈ H^k_b(Ω_*)} for a weight w =
-ρ_I^(w_I)ρ_+^(w_+)ρ_K^(w_K), w_I, w_+, w_K ∈ ℝ; likewise wL^∞. 𝒱_0 is a finite set of b-vector fields spanning the
+for the density μ_b, with the quotient norm, and wH^k_b(Ω_*) := {u : w⁻¹u ∈ H^k_b(Ω_*)} for a weight
+w = ρ_I^(w_I)ρ_+^(w_+)ρ_K^(w_K), w_I, w_+, w_K ∈ ℝ; likewise wL^∞. 𝒱_0 is a finite set of b-vector fields spanning the
 b-vector fields over C^∞_b on Ω_* (t_*∂_(t_*) and the r∂_(x^i), [[sec:ii-f1-1-1]]). [[cor:std-moser-product]] is stated
 on ℝⁿ and on products ℝ^k × N with N closed; the next lemma carries its part (1) to these spaces, which have the faces
 𝓘⁺, ι⁺, K⁺ at infinity in logarithmic coordinates and the boundary hypersurfaces {r = r_0} and {t^♭ = 1} across which
@@ -292,17 +292,17 @@ equivalent norm.
 *Proof.* *Charts.* Near {t^♭ = 1} take the charts of Step 3 of the proof of [[prop:ii-g-3-1]] (for Ω_*,
 [[rem:ii-g-3-2]]), in which t^♭ − 1 is the last coordinate and, at {r = r_0}, a defining function of {r = r_0} the first;
 away from {t^♭ = 1} take those of its Step 4: b-cells in logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto
-orthants at {r = r_0}. Restricted to Ω_*, each chart φ_α maps onto an open subset of an orthant ℝ⁵_q := [0, ∞)^q ×
-ℝ^(5−q), q ≤ 2, whose faces are the images of {r = r_0} and {t^♭ = 1}. As there, the family has finite multiplicity, in
-each chart the b-vector fields and the coordinate fields span the same module over the functions uniformly bounded in
-C^∞, and μ_b is the Lebesgue density times a function bounded above and below, uniformly in α. Let χ_α be a partition of
-unity of Ω_* subordinate to the charts, and χ̃_α equal to 1 near supp χ_α, both uniformly bounded in C^∞ in the chart
-coordinates. Let H̄^k(ℝ⁵_q) be the space of restrictions of H^k(ℝ⁵) to the interior of ℝ⁵_q, with the quotient norm, and
-E the composition of Seeley's extension operators across the faces of ℝ⁵_q (Step 2 of that proof), bounded from
-H̄^k(ℝ⁵_q) to H^k(ℝ⁵) for every k. E is also bounded on L^∞: on {x_i < 0} each of its factors is the sum Σ_l c_l f(…,
-−x_i/ε_l, …) of the proof of [[lem:ii-e-1-3]] (b), times a cut-off with values in [0, 1], and Σ_l |c_l| < ∞. As in the
-paragraph *Estimates* of the proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of extension, ‖u‖_(H^k_b(Ω_*))
-is equivalent to
+orthants at {r = r_0}. Restricted to Ω_*, each chart φ_α maps onto an open subset of an orthant
+ℝ⁵_q := [0, ∞)^q × ℝ^(5−q), q ≤ 2, whose faces are the images of {r = r_0} and {t^♭ = 1}. As there, the family has
+finite multiplicity, in each chart the b-vector fields and the coordinate fields span the same module over the functions
+uniformly bounded in C^∞, and μ_b is the Lebesgue density times a function bounded above and below, uniformly in α. Let
+χ_α be a partition of unity of Ω_* subordinate to the charts, and χ̃_α equal to 1 near supp χ_α, both uniformly bounded
+in C^∞ in the chart coordinates. Let H̄^k(ℝ⁵_q) be the space of restrictions of H^k(ℝ⁵) to the interior of ℝ⁵_q, with
+the quotient norm, and E the composition of Seeley's extension operators across the faces of ℝ⁵_q (Step 2 of that
+proof), bounded from H̄^k(ℝ⁵_q) to H^k(ℝ⁵) for every k. E is also bounded on L^∞: on {x_i < 0} each of its factors is
+the sum Σ_l c_l f(…, −x_i/ε_l, …) of the proof of [[lem:ii-e-1-3]] (b), times a cut-off with values in [0, 1], and
+Σ_l |c_l| < ∞. As in the paragraph *Estimates* of the proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of
+extension, ‖u‖_(H^k_b(Ω_*)) is equivalent to
 
     N_k(u) := (Σ_α ‖(φ_α)_*(χ_α u)‖²_(H̄^k(ℝ⁵_q)))^(1/2),
 
