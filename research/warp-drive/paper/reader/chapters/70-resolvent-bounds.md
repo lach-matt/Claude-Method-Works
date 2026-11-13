@@ -1565,7 +1565,7 @@ type l, near infinity, the norms
     ‖h‖_X² := Σ_j ∫ r^(2α+3)(|u_j|² + r²|∂_ru_j|² + κ|u_j|²) dr,     ‖F‖_Y² := Σ_j ∫ r^(2α+7)|F_j|² dr
                                                                                                   {#eq:rb-block-norms}
 
-in the orthonormal components (F_j those of a tensor F of the form [[eq:rb-scalar-type]]): these are the norms of
+in the orthonormal components (F_j those of a tensor F of the form [[eq:rb-scalar-type]]): these are norms of
 H̄_b^(1,α) and H̄_b^(0,α+2) of [[sec:i-c-1-2]] near infinity, with the b-vector field r∂_r and the rotation fields as
 generators (the squares of the rotation fields sum to κ on scalar type l). In x := log r, u = r^(−β)φ(x) gives
 r^(2α+3)(|u|² + r²|∂_ru|²)dr = (|φ|² + |φ′ − βφ|²)dx, and F = r^(−β−2)φ(x) gives r^(2α+7)|F|²dr = |φ|²dx.
@@ -1595,14 +1595,14 @@ This is the elementary half of the b-calculus fact that the norm of an inverse o
 the inverse of the indicial family on the weight line. For the scalar model ½A_l, whose indicial family is
 ½(ι(2 − ι) + κ), it gives at β = 1 an upper bound (κ + 1)/(2(κ + 2)^(1/2)) for its least singular value in these norms.
 
-At α = −1 (β = 1), where the indicial family of the degree-2 block has the root 1.0000029324, at distance about
-2.93 · 10⁻⁶ from the weight line, [[lem:rb-quasimode]] with v the least right singular vector of N^n_l(1) gives, at
-(γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100): the least singular value of L_l from H̄_b^(1,−1) to H̄_b^(0,1) is at most
-3.1412 · 10⁻⁶ at l = 0 (on the complement of the zero-energy state), 2.6180 · 10⁻⁷ at l = 2 and 1.4955 · 10⁻⁶ at l = 4;
-so the inverse bound of the scalar-type blocks at (s, α) = (1, −1) is at least 3.81 · 10⁶. At α + 2 = 1/2, in the
-middle of the gap, the same upper bounds are 0.020, 0.015 and 0.012 [[pending:computational-1]]. An explicit constant
-for these blocks is therefore to be sought at a weight in the middle of the gap; α + 2 ∈ (0, 1) is what
-[[sec:iii-d1-1]] uses.
+At α = −1 (β = 1), where the indicial family of the degree-2 block has the root 1.0000029324, at distance about 2.93 ·
+10⁻⁶ from the weight line, [[lem:rb-quasimode]] with v the least right singular vector of N^n_l(1) gives, at (γ_C, γ_Υ,
+e_Υ) = (10⁶, 1/100, 1/100): the least singular value of L_l from H̄_b^(1,−1) to H̄_b^(0,1), in the norms
+[[eq:rb-block-norms]], is at most 3.1412 · 10⁻⁶ at l = 0 (on the complement of the zero-energy state), 2.6180 · 10⁻⁷ at
+l = 2 and 1.4955 · 10⁻⁶ at l = 4; so the inverse bound of the scalar-type blocks at (s, α) = (1, −1) is at least 3.81 ·
+10⁶. At α + 2 = 1/2, in the middle of the gap, the same upper bounds are 0.020, 0.015 and 0.012
+[[pending:computational-1]]. An explicit constant for these blocks is therefore to be sought at a weight in the middle
+of the gap; α + 2 ∈ (0, 1) is what [[sec:iii-d1-1]] uses.
 
 **Remark {#rem:rb-quasimode-observed}** (Numerical observation.) On the full degree-2 block at the parameters above,
 the quasi-mode of the proof of [[lem:rb-quasimode]] with x_0 = log 400 and widths W = 100, 1000 and 10000, evaluated in
@@ -1611,14 +1611,14 @@ dilation-invariant model gives the same to 10⁻³. At these widths the term N^n
 so the quotient falls like 1/W and reaches the bound of [[lem:rb-quasimode]] only for W of order 5 · 10¹². No proof uses
 these values.
 
-*The perturbative route at large degree.* Write L_l = ½A_l · Id + ℛ_l in the orthonormal components, ℛ_l of first
-order. A lower bound σ_min(L_l) ≥ σ_min(½A_l) − ‖ℛ_l‖_(X→Y) needs ‖ℛ_l‖ below σ_min(½A_l) ≤ (κ + 1)/(2(κ + 2)^(1/2)).
-At the inner gauge data (c_C = (1/200)dt + (1/800)dr, c_(Υ,H) = −½dr, γ_C = 10⁶), the coefficient of u_3′ in the u_3
-component of ℛ_l is M_33(r) = −(5000r − 1)/r³, free of κ [[pending:computational-2]]. Fields H with only u_3 nonzero,
-of high frequency in r and concentrated near r_0, have ‖ℛ_lH‖_Y/‖H‖_X → r_0|M_33(r_0)| by [[eq:rb-block-norms]] (at
-α = −1 the weights are r and r⁵, and the derivative term dominates both norms); on the domain {r ≥ r_h/2} of the
-zero-energy problem this gives ‖ℛ_l‖ ≥ ½|M_33(½)| = 9996 for every l. And (κ + 1)/(2(κ + 2)^(1/2)) < 9996 exactly when
-(κ + 1)² < 4 · 9996²(κ + 2), which for even l holds up to l = 19,990 (κ = 399,640,080: (κ + 1)² < 1.59713 · 10¹⁷ <
-1.59728 · 10¹⁷ < 4 · 9996²(κ + 2)) and fails from l = 19,992 on. So this route gives no lower bound at any even
-l ≤ 19,990; if a perturbative regime exists at all, it begins above that degree, and the horizon part of the block
-does not become perturbative at any degree ([[lem:rb-horizon-exponents]]).
+*The perturbative route at large degree.* Write L_l = ½A_l · Id + ℛ_l in the orthonormal components, ℛ_l of first order.
+A lower bound σ_min(L_l) ≥ σ_min(½A_l) − ‖ℛ_l‖_(X→Y) needs ‖ℛ_l‖ below σ_min(½A_l) ≤ (κ + 1)/(2(κ + 2)^(1/2)). At the
+inner gauge data (c_C = (1/200)dt + (1/800)dr, c_(Υ,H) = −½dr, γ_C = 10⁶), the coefficient of u_3′ in the u_3 component
+of ℛ_l is M_33(r) = −(5000r − 1)/r³, free of κ [[pending:computational-2]]. Fields H with only u_3 nonzero, of high
+frequency in r and concentrated near r_0, have lim inf ‖ℛ_lH‖_Y/‖H‖_X ≥ r_0|M_33(r_0)| by [[eq:rb-block-norms]] (at α =
+−1 the weights are r and r⁵, and the derivative term dominates both norms); on the domain {r ≥ r_h/2} of the zero-energy
+problem this gives ‖ℛ_l‖ ≥ ½|M_33(½)| = 9996 for every l. And (κ + 1)/(2(κ + 2)^(1/2)) < 9996 exactly when (κ + 1)² < 4
+· 9996²(κ + 2), which holds for every l ≤ 19,991, in particular at l = 19,990 (κ = 399,640,080: (κ + 1)² < 1.59713 ·
+10¹⁷ < 1.59728 · 10¹⁷ < 4 · 9996²(κ + 2)) and fails from l = 19,992 on. So this route gives no lower bound at any degree
+l ≤ 19,991; if a perturbative regime exists at all, it begins above that degree, and the horizon part of the block does
+not become perturbative at any degree ([[lem:rb-horizon-exponents]]).

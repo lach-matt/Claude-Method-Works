@@ -431,15 +431,15 @@ derivatives of order at most k carry no part on the hypersurface. So ḣ is H^k 
 which lie in the interior of Ω_*, and its points outside the closed set {t^♭_* ≥ T̂ + 7/4}, which lie in 𝒟′
 ([[sec:viii-0]]). On the second, ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′) ([[thm:viii-2-2]] (2)); ġ_(S′) and ġ⁰_(S⁰′) are smooth
 ([[eq:viii-0-2]]), and ḣ is smooth, as just shown. On the first, ġ = D_0𝔤(U′) + χ_−(t^♭_*)ḣ (Step 2 of the proof of
-[[thm:viii-2-2]]), and χ_−(t^♭_*)ḣ is smooth, χ_−(t^♭_*) vanishing on {t^♭_* ≥ T̂ + 2} and ḣ being smooth on the
-interior of 𝒟. The derivative of 𝔤 is
+[[thm:viii-2-2]]). χ_−(t^♭_*)ḣ is smooth there: its points with t^♭_* < T̂ + 3 are interior points of 𝒟, where ḣ is
+smooth, and it vanishes on {t^♭_* > T̂ + 2}. The derivative of 𝔤 is
 
     D_0𝔤(U′) = ġ_(p⃗′) + D_(p⃗)h_tot(0)(p⃗′) + h_(b₀,rem)(q′) + h′,
 
 h_(b,rem)(q) being linear in q and vanishing at q = 0 for every b ([[eq:iii-i14-1-2]]). The first two terms are
 smooth, g_(p⃗) and h_tot(p⃗) being smooth tensors depending smoothly on p⃗ ([[sec:viii-0]]; the definitions cited in
-Step 2 of that proof). As
-U′ ∈ 𝒟^∞_ex, h′ ∈ 𝒳^∞_(J,ex) and q′ ∈ 𝒬_ex ([[prop:iii-j3-5-4]]): h′ lies in a b-Sobolev class of infinite order, and
+Step 2 of that proof). As U′ ∈ 𝒟^∞_ex, h′ ∈ 𝒳^∞_(J,ex) and q′ ∈ 𝒬_ex ([[prop:iii-j3-5-4]]): h′ lies in a b-Sobolev
+class of infinite order, and
 h_(b₀,rem)(q′) is χ_K times smooth tensors applied to the components of q′, functions of t_* of infinite b-regularity
 ([[eq:iii-i14-1-1]], [[eq:iii-i14-1-2]]); both are smooth on the interior of M. So ġ is smooth on the interior of N_ν.
 
