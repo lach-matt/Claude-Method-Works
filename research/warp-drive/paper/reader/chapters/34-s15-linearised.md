@@ -18,9 +18,11 @@ factorisation of S̄ through 1-forms and needs no explicit matrix. At the trappe
 null frame is a plane, rotated along the flow; a grading of the symmetric 2-tensors that the rotation preserves gives
 the bound for every constraint damping 1-form. The indicial roots of L_b at zero energy are, type by type, the roots of
 the gauge potential operator shifted by 1, those of the constraint propagation operator shifted by −1, and the two
-gauge-invariant roots −l and l + 2 (−l and l + 1 in dimension 3 + 1), with the roots of the Killing forms removed; the
-proof ([[lem:iii-f1-2-1]]) compares L_b with the flat wave operator through the two identities that relate the three
-operators, and computes nothing beyond the degrees of the Cartesian components of each type. The gap at zero energy
+gauge-invariant roots −l and l + 2 (−l and l + 1 in dimension 3 + 1), with these removed, after the shifts: the roots
+of the Killing forms of the gauge potential operator (the translations at scalar types 0 and 1, the rotations at
+vector type 1) and the roots 2 (scalar types 0 and 1) and 3 (vector type 1) of the constraint propagation operator.
+The proof ([[lem:iii-f1-2-1]]) compares L_b with the flat wave operator through the two identities that relate the
+three operators, and computes nothing beyond the degrees of the Cartesian components of each type. The gap at zero energy
 contains (0, 1]. The input [Hin26] takes from [AHW24, Theorem 6.1] on Kerr, mode stability and the classification of
 stationary solutions of the linearised Einstein equation, has no five-dimensional counterpart; at b_0 it is proved here
 from the Kodama–Ishibashi decomposition ([[thm:iii-f2-2-2]], [[thm:iii-f3-3-1]]), and near b_0 the kernel is counted

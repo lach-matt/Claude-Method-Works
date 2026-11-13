@@ -812,10 +812,10 @@ H^(k,α₀,ℓ^♭_I)_b except π̸₀ġ ∈ H^(k,α₀,((3/2,0),ℓ^♭_I))_b. 
                          u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c),  ũ₆ ∈ H^(k,(a₀,2β))_b},                             {#eq:iv2-0-3}
 
 with χ_I := χ̂(ρ_I), χ̂ ∈ C_c^∞([0, c/2)) equal to 1 on [0, c/4], c the constant of [[lem:iv2-2-1]] (so u^((0)) is used
-only over Ω_c := Ω⁺ ∩ {ρ_I < c}, Ω⁺ as below; another such χ̂ gives an equivalent norm), u^((0)) a function of (ρ₀, ω) extended to be
-constant in ρ_I, and the norm the sum of the norms. Here ℐ⁺_c is the image of Ω_c under (ρ₀, ρ_I, ω) ↦ (ρ₀, ω), a
-domain in ℐ⁺ containing ℐ⁺ ∩ Ω̄_c and in general larger: an integral curve of X_I near Σ_(fut,r₀) leaves Ω⁺ through
-Σ_(fut,r₀) before it reaches ℐ⁺. The radiation field of π̸₀ġ is ρ₀^(3/2)u^((0)), the coefficient of ρ_I^(3/2).
+only over Ω_c := Ω⁺ ∩ {ρ_I < c}, Ω⁺ as below; another such χ̂ gives an equivalent norm), u^((0)) a function of (ρ₀, ω)
+extended to be constant in ρ_I, and the norm the sum of the norms. Here ℐ⁺_c is the image of Ω_c under (ρ₀, ρ_I, ω) ↦
+(ρ₀, ω), a domain in ℐ⁺ containing ℐ⁺ ∩ Ω̄_c and in general larger: an integral curve of X_I near Σ_(fut,r₀) leaves Ω⁺
+through Σ_(fut,r₀) before it reaches ℐ⁺. The radiation field of π̸₀ġ is ρ₀^(3/2)u^((0)), the coefficient of ρ_I^(3/2).
 Away from U the classes impose only H^k.
 
 *The operator.* Let g₀ ∈ 𝒢 ([[def:iii-c-3-4]]) with Ric(g₀) = 0 and g₀ − g_(b₀) small in the sense of the pointwise

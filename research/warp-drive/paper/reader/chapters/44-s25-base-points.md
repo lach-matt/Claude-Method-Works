@@ -433,49 +433,16 @@ used there survives.
 
 (vii) *The time translation as a Killing field:* (P5).
 
-(viii) *The data and the tame and exact forms* ([[ch:s23]], [[ch:s24]]). Their base points U map by Φ to (h, p⃗, q) with
-parameter b ([[thm:iii-j-2-4]]), and their proofs use [[thm:iii-i14-3-1]] and the maps of [[sec:iii-j-2]] at that base
-point, by (i)–(vii). The tame calculus of [[ch:s24]] ([[def:iii-j2-1-1]]–[[lem:iii-j2-2-4]]) has constants that depend on
-the base point through finitely many seminorms, continuous in b; the exact classes and the conditions (Ex1)–(Ex4) and
-(A_K) of [[def:iii-j3-1-3]] do not involve b ((P2)–(P3): the exponents, roots and index sets are those at b₀), except
-that (Ex3), used also in (A_K), concerns the K⁺-exponents at hand, among which at a rotating b are those of the v1 terms;
-(Ex3) at b is (Ex3) at b₀, by the paragraph *(Ex3) at b* below. The solution maps of [[ch:s19]]–[[ch:s23]] in
-[[thm:iii-j2-4-1]] are read at b as in [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]. The new objects enter the inventory
-of [[lem:iii-j2-2-1]] (c): A_b is bounded by a fixed low seminorm of G, as it reads the ι⁺-data u_+ and the tf-data
-([[prop:iii-i15-2-2]]); E^ν is bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id + A_k as
-the other rows do; and d_* includes their orders.
-
-*(Ex3) at b.* At a rotating b the K⁺-exponents at hand are those at b₀ together with: the exponents λ + j, λ ∈ π_1ℳ_rot,
-j ∈ ℕ₀, of the bottoms a_ν h_(b,v1)(W) of the rotation rows and their shifts ([[lem:iii-i15-2-1]], [[prop:iii-i15-2-2]]);
-and the exponents z + j, j ∈ ℕ₀, of the v1 coefficients t_*^(−z) of q, whose rate is Re z at b and Re z + 1 at b₀
-([[def:iii-i14-1-1]]), with z ∈ π_1ℰ_♯ and 2 < Re z < 3 + ε_+ < 4. All of these lie in Λ (π_1ℰ_♯ ⊂ Λ, [[sec:iii-i12-1]],
-and Λ + 1 ⊂ Λ), so their real parts are at least λ_♯ ([[lem:iii-i10-1-2]] (a)). Since λ_♯ ∈ Λ ([[def:iii-i10-1-1]]), also
-λ_♯ + 1 ∈ Λ, with real part above 2, so (G) gives λ_♯ + 1 > 2 + ε_K. For i ∈ {0, 1, 2}, α − 2 + i ∈ (2 + i, 2 + i + ε_K],
-as α ∈ (4, 4 + ε_K]. Let λ ∈ π_1ℳ_rot, so Re λ ≤ 2, and j ∈ ℕ₀. If j ≤ i, then Re(λ + j) ≤ 2 + i < α − 2 + i; if
-j ≥ i + 1, then Re(λ + j) ≥ λ_♯ + i + 1 > 2 + i + ε_K ≥ α − 2 + i. So no λ + j has real part α − 2, α − 1 or α. For the
-v1 coefficients of q: by (G) no element of Λ has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K], which contain α − 2 and α − 1;
-and Re(z + j) = α forces j ≥ 1, as Re z < 4 < α, so z + j = (z + 1) + (j − 1) is an exponent at hand at b₀, where (Ex3)
-holds. So (Ex3) at b is (Ex3) at b₀.
-
-In [[lem:iii-j2-2-1]] (f), the loss at every order holds at b by [[prop:iii-h2-1-1]], uniformly on ℬ̄_1, so the
-neighbourhood of b₀ does not shrink with the order. The continuity of [[lem:iii-j2-2-3]] is read at b through
-[[lem:iii-i15-2-4]] at (0, p⃗_b) and the direct bound of [[prop:iii-i15-2-5]], both in fixed seminorms, so d_* is
-unchanged; and [[thm:iii-j2-4-1]] at b takes its smallness δ_𝔹 at most the radius of ℬ_* as shrunk below.
-[[thm:iii-j3-5-3]] at b is [[prop:iii-i15-2-5]] at the exact weights, as its proof shows: E^ν is exact there, A_b does
-not depend on the loss ([[rem:iii-i15-2-6]]), and the errors of the identification of the rotation rows have room.
-In the proof of [[prop:iii-j3-4-6]] at b, the profiles of the level-3 towers are homogeneous of degree d_ψ − j only in
-their leading parts, which do not depend on b ((P3)); the other terms are smaller by min Re ℰ_ind ([[sec:iii-i12-1]]),
-so the profiles satisfy the bound |(r∂_r)^a ∂_ω^β p_j| ≲ r^(j−d_ψ) that [[lem:iii-j3-4-7]] (a) asks.
-[[prop:iii-j3-3-4]] and [[prop:iii-j3-4-3]] carry the rotation rows of [[prop:iii-i15-2-2]].
-
-[[sec:iii-j-2]] builds its rows at b₀, and [[lem:iii-j-2-1]], [[lem:iii-j-2-2]], [[lem:iii-j-2-3]], [[thm:iii-j-2-4]]
-and [[rem:iii-j-2-5]] hold as written at b ([[lem:iii-j-2-3]], the log count, has b-independent exponents, log orders
-and index sets by (iii)), with the rows m^(b₀)_ν, the towers T_(ψ,b) and the corrections at b₀: the rule
-of (P6), rows at b, is not applied there, and the pure gauge of [[rem:iii-j-2-6]] refers to g_(b₀). P_5 and the
-coordinates W_ν do not depend on the convention ([[sec:s23-base-points]] (3)). [[lem:iii-j1-1-1]], whose proof applies
-L̃_(b₀)(0)⁻¹, holds for the output of [[prop:iii-i15-2-5]]: at b its roots are those of (P2), [[prop:iii-h-3-2]] holds
-by (P4), and neither A_b, which reads only ι⁺-data and level-1 tf-data ([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor
-((P6)), depends on η_2.
+(viii) *The data* ([[ch:s23]]). The base points U of [[ch:s23]] map by Φ to (h, p⃗, q) with parameter b
+([[thm:iii-j-2-4]]), and the proofs there use [[thm:iii-i14-3-1]] and the maps of [[sec:iii-j-2]] at that base point,
+by (i)–(vii). [[sec:iii-j-2]] builds its rows at b₀, and [[lem:iii-j-2-1]], [[lem:iii-j-2-2]], [[lem:iii-j-2-3]],
+[[thm:iii-j-2-4]] and [[rem:iii-j-2-5]] hold as written at b ([[lem:iii-j-2-3]], the log count, has b-independent
+exponents, log orders and index sets by (iii)), with the rows m^(b₀)_ν, the towers T_(ψ,b) and the corrections at b₀:
+the rule of (P6), rows at b, is not applied there, and the pure gauge of [[rem:iii-j-2-6]] refers to g_(b₀). P_5 and
+the coordinates W_ν do not depend on the convention ([[sec:s23-base-points]] (3)). [[lem:iii-j1-1-1]], whose proof
+applies L̃_(b₀)(0)⁻¹, holds for the output of [[prop:iii-i15-2-5]]: at b its roots are those of (P2),
+[[prop:iii-h-3-2]] holds by (P4), and neither A_b, which reads only ι⁺-data and level-1 tf-data ([[def:iii-i15-2-3]]),
+nor E^ν, a fixed tensor ((P6)), depends on η_2.
 
 (ix) *The boost column:* [[lem:iii-i4-2-4]], [[prop:iii-i4-4-1]] (2), [[cor:iii-i4-4-3]] and [[cor:iii-i5-2-2]] at b are
 [[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]].
@@ -530,6 +497,75 @@ them. The smallness of the elimination, across b, comes from the direct bound of
 [[prop:iii-i15-2-5]], through (P6) and [[def:iii-i15-2-3]]. ℬ_* is the ball of radius at most 1/(2C_B) of
 [[lem:s25a-ball]] and [[lem:s20-rows]], inside condition (B5) of [[sec:iii-h2-0]], shrunk further so that the bound of
 [[lem:iii-i15-1-2]] holds and the maps −id + A_k of [[prop:iii-i15-2-5]] are invertible on it. ∎
+
+**Corollary {#cor:s25-tame}** (The tame and exact forms at b.) For base points with black hole parameter b ∈ ℬ̄_*, the
+statements at b ([[def:s25-at-b]]) of the following hold, with constants, losses and smallness conditions uniform in
+b:
+
+- [[thm:iii-j2-4-1]], [[thm:iii-j2-4-2]] and [[prop:iii-j2-4-3]], the solution maps that [[thm:iii-j2-4-1]] estimates
+  being, at a rotating b, those of [[prop:iii-i15-2-5]] and [[lem:iii-i15-2-4]];
+- [[prop:iii-j3-3-4]], [[prop:iii-j3-4-3]], [[prop:iii-j3-4-6]], [[prop:iii-j3-5-2]], [[prop:iii-j3-5-4]],
+  [[thm:iii-j3-5-3]], [[thm:iii-j3-5-5]] and [[cor:iii-j3-6-6]], [[thm:iii-j3-5-3]] in the form of
+  [[prop:iii-i15-2-5]] at exact weights.
+
+*Proof.* [[ch:s24]] states and proves these results at a base point with parameter b ∈ ℬ̄_*. Its proofs use, at b,
+the model objects (P1)–(P6) ([[lem:iii-i15-1-1]], [[lem:s25-p6]]), [[lem:iii-i15-1-2]], [[sec:iii-i15-2]],
+[[prop:iii-i2-5-1-b]], [[cor:iii-h2-5-1]], [[thm:iii-h2-2-1]], [[prop:iii-h2-1-1]] and [[cor:iii-h2-1-2]], the
+results of [[ch:s20]]–[[ch:s22]] at b (among them [[prop:iii-i15-2-8]], [[prop:iii-i15-2-12]], [[lem:iii-i15-2-9]] and
+[[cor:iii-i15-2-10]]), and the results of [[ch:s23]] at b, [[sec:s23-base-points]] (1)–(3). All of these hold on ℬ̄_*
+with constants uniform in b: they are [[thm:iii-i15-3-1]] and the statements its proof rests on, and
+[[thm:iii-h2-2-1]], [[prop:iii-h2-1-1]] and [[cor:iii-h2-1-2]] hold on ℬ̄_1 ⊃ ℬ̄_*, uniformly ((P4)). The following
+records where a step of [[ch:s24]] uses a property of b₀ that a general b need not have, or an object built at b₀, and
+what replaces it at b. The map that [[thm:iii-j2-4-1]] estimates at a rotating b is the constructed map
+F ↦ (p⃗′, q′, h′) of [[prop:iii-i15-2-5]] ([[rem:iii-i15-2-6]]).
+
+The tame calculus of [[ch:s24]] ([[def:iii-j2-1-1]]–[[lem:iii-j2-2-4]]) has constants that depend on
+the base point through finitely many seminorms, continuous in b; the exact classes and the conditions (Ex1)–(Ex4) and
+(A_K) of [[def:iii-j3-1-3]] do not involve b ((P2)–(P3): the exponents, roots and index sets are those at b₀), except
+that (Ex3), used also in (A_K), concerns the K⁺-exponents at hand, among which at a rotating b are those of the v1 terms;
+(Ex3) at b is (Ex3) at b₀, by the paragraph *(Ex3) at b* below. The solution maps of [[ch:s19]]–[[ch:s23]] in
+[[thm:iii-j2-4-1]] are read at b as in [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]. The new objects enter the inventory
+of [[lem:iii-j2-2-1]] (c): A_b is bounded by a fixed low seminorm of G, as it reads the ι⁺-data u_+ and the tf-data
+([[prop:iii-i15-2-2]]); E^ν is bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id + A_k as
+the other rows do; and d_* includes their orders.
+
+*(Ex3) at b.* At a rotating b the K⁺-exponents at hand are those at b₀ together with: the exponents λ + j, λ ∈ π_1ℳ_rot,
+j ∈ ℕ₀, of the bottoms a_ν h_(b,v1)(W) of the rotation rows and their shifts ([[lem:iii-i15-2-1]], [[prop:iii-i15-2-2]]);
+and the exponents z + j, j ∈ ℕ₀, of the v1 coefficients t_*^(−z) of q, whose rate is Re z at b and Re z + 1 at b₀
+([[def:iii-i14-1-1]]), with z ∈ π_1ℰ_♯ and 2 < Re z < 3 + ε_+ < 4. All of these lie in Λ (π_1ℰ_♯ ⊂ Λ, [[sec:iii-i12-1]],
+and Λ + 1 ⊂ Λ), so their real parts are at least λ_♯ ([[lem:iii-i10-1-2]] (a)). Since λ_♯ ∈ Λ ([[def:iii-i10-1-1]]), also
+λ_♯ + 1 ∈ Λ, with real part above 2, so (G) gives λ_♯ + 1 > 2 + ε_K. For i ∈ {0, 1, 2}, α − 2 + i ∈ (2 + i, 2 + i + ε_K],
+as α ∈ (4, 4 + ε_K]. Let λ ∈ π_1ℳ_rot, so Re λ ≤ 2, and j ∈ ℕ₀. If j ≤ i, then Re(λ + j) ≤ 2 + i < α − 2 + i; if
+j ≥ i + 1, then Re(λ + j) ≥ λ_♯ + i + 1 > 2 + i + ε_K ≥ α − 2 + i. So no λ + j has real part α − 2, α − 1 or α. For the
+v1 coefficients of q: by (G) no element of Λ has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K], which contain α − 2 and α − 1;
+and Re(z + j) = α forces j ≥ 1, as Re z < 4 < α, so z + j = (z + 1) + (j − 1) is an exponent at hand at b₀, where (Ex3)
+holds. So (Ex3) at b is (Ex3) at b₀.
+
+In [[lem:iii-j2-2-1]] (f), the loss at every order holds at b by [[prop:iii-h2-1-1]], uniformly on ℬ̄_1, so the
+neighbourhood of b₀ does not shrink with the order. The continuity of [[lem:iii-j2-2-3]] is read at b through
+[[lem:iii-i15-2-4]] at (0, p⃗_b) and the direct bound of [[prop:iii-i15-2-5]], both in fixed seminorms, so d_* is
+unchanged; and [[thm:iii-j2-4-1]] at b takes its smallness δ_𝔹 at most the radius of the final ℬ_* (*The constants*
+in the proof of [[thm:iii-i15-3-1]]).
+[[thm:iii-j3-5-3]] at b is [[prop:iii-i15-2-5]] at the exact weights, as its proof shows: E^ν is exact there, A_b does
+not depend on the loss ([[rem:iii-i15-2-6]]), and the errors of the identification of the rotation rows have room.
+That proof cites Step 3 of the proof of [[thm:iii-i14-3-1]] and its uniqueness, to identify the exact and the lossy
+solutions; at b, the uniqueness of [[prop:iii-i15-2-5]] together with [[eq:iii-i15-2-2]] serves there
+([[rem:iii-i15-2-6]]), A_b being the same on both classes.
+In the proof of [[prop:iii-j3-4-6]] at b, the profiles of the level-3 towers are homogeneous of degree d_ψ − j only in
+their leading parts, which do not depend on b ((P3)); the other terms are smaller by min Re ℰ_ind ([[sec:iii-i12-1]]),
+so the profiles satisfy the bound |(r∂_r)^a ∂_ω^β p_j| ≲ r^(j−d_ψ) that [[lem:iii-j3-4-7]] (a) asks.
+[[prop:iii-j3-3-4]] and [[prop:iii-j3-4-3]] carry the rotation rows of [[prop:iii-i15-2-2]].
+
+*The remaining results.* [[thm:iii-j2-4-2]] and [[thm:iii-j3-5-5]] apply [[thm:iii-j2-4-1]], respectively
+[[thm:iii-j3-5-3]], at Φ(U), and then Steps 1–3 of the proof of [[thm:iii-j1-2-1]], which hold at b with the rows built
+at b₀ and with [[lem:iii-j1-1-1]] for the output of [[prop:iii-i15-2-5]] (item (viii) of the proof of
+[[thm:iii-i15-3-1]]); the black hole parameter of U is that of Φ(U) ([[def:iii-j-1-1]], [[thm:iii-j-2-4]]), so it lies
+in ℬ_* for U small. [[prop:iii-j2-4-3]] and [[prop:iii-j3-5-4]] bound P_5 ∘ Φ through [[thm:iii-j-2-4]] and
+[[eq:iii-j-2-5]], which hold at b by the same item, and through P_5(h, p⃗, q) = P_4(h + h_(b,rem)(q), p⃗), with
+h_(b,rem) real and smooth in b ((P3)). [[prop:iii-j3-5-2]] uses h_(b,rem)(q) at b, the stationarity of L_b ((P5)), the
+tower relations at b ((P3)) and the rates of the coefficients of q, which exceed 2 + ε_K at every b
+([[def:iii-i14-1-1]] and (G)). [[cor:iii-j3-6-6]] composes the families of [[lem:iii-j2-2-1]] and the results above at
+fixed weights; so it holds at b, with constants uniform in b, as the exact classes do not involve b. ∎
 
 **Corollary {#cor:iii-i15-3-2}** (Right inverses at every base point.) [[thm:iii-j1-2-1]] and its tame and exact forms
 ([[thm:iii-j2-4-2]], [[cor:iii-j3-6-6]]) hold at every base point U ∈ 𝒟^∞ small in 𝒟^d, a point of the data space of
