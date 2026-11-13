@@ -259,17 +259,16 @@ v̂_k. For k = 0 the values are exact: R_0 = 13/2, P_0 = 1/2, μ_0 = 3/2 and v̂
 Row k is the point of Σ_τ0 on the ingoing ray v = v_k: R0_k := v̂_k + 0.68 (seven decimals), a_k := (3/2) α_k w_k² with
 w_k := (1 − μ_k/R_k²)/(3P_k) (six decimals), and N_k := −2μ_k ρ⁻³ − μ_k² ρ⁻⁵ + (1/2) a ρ⁻² (eight decimals), from the
 shell table, where ρ := v̂_k + 0.68 and a := (3/2) α_k w_k² are taken before rounding. By the proof of
-[[thm:margins-hyperbolic]] the true value of N_κ at the point is within 5 × 10⁻⁶ of N_k. On the cell v ∈ [v_k,
-v_(k+1)], M_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for the second v-derivative of
-N_κ along Σ_τ0, built from S_0, S_1 and S_2 := sup|α″|, for which the printed column S2_k (rounded up to one decimal)
-is used. By the monotone pieces of [[lem:margins-bump]], S_0 and S_1 are the larger end values of α and |α′| on the
-cell, taken from the shell table with 5 × 10⁻¹⁰ and 5 × 10⁻⁹ added for its rounding, except that S_1 = 4.8 × 2.17036 on
-the cells k = 14 and 105, which contain v = 3.75 ∓ 0.75 × 3^(−1/4); and S_2 is the larger end value of |α″|, except on
-the cells k = 6, 23, 96 and 113, which contain a zero of β‴ in the variable y = (4v − 15)/3, where the extremal value
-of [[lem:margins-bump]] (c) times 6.4 is used. The sign column is − when max(N_k,
-N_(k+1)) + 5 × 10⁻⁶ + M_k/51200 < 0, + when min(N_k, N_(k+1)) − 5 × 10⁻⁶ − M_k/51200 > 0, and 0 otherwise. The bound
-column prints that maximum (rounded up) or minimum (rounded down). The three cells marked 0 are treated in the proof of
-[[thm:margins-hyperbolic]].
+[[thm:margins-hyperbolic]] the true value of N_κ at the point is within 5 × 10⁻⁶ of N_k. On the cell v ∈ [v_k, v_(k+1)],
+M_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for the second v-derivative of N_κ along
+Σ_τ0, built from S_0, S_1 and S_2 := sup|α″|, for which the printed column S2_k (rounded up to one decimal) is used. By
+the monotone pieces of [[lem:margins-bump]], S_0 and S_1 are the larger end values of α and |α′| on the cell, taken from
+the shell table with 5 × 10⁻¹⁰ and 5 × 10⁻⁹ added for its rounding, except that S_1 = 4.8 × 2.17036 on the cells k = 14
+and 105, which contain v = 3.75 ∓ 0.75 × 3^(−1/4); and S_2 is the larger end value of |α″|, except on the cells k = 6,
+23, 96 and 113, which contain a zero of β‴ in the variable y = (4v − 15)/3, where the extremal value of
+[[lem:margins-bump]] (c) times 6.4 is used. The sign column is − when max(N_k, N_(k+1)) + 5 × 10⁻⁶ + M_k/51200 < 0, +
+when min(N_k, N_(k+1)) − 5 × 10⁻⁶ − M_k/51200 > 0, and 0 otherwise. The bound column prints that maximum (rounded up) or
+minimum (rounded down). The three cells marked 0 are treated in the proof of [[thm:margins-hyperbolic]].
 
 | k | R0_k | a_k | N_k | S2_k | M_k | sign | bound |
 |---|---|---|---|---|---|---|---|
