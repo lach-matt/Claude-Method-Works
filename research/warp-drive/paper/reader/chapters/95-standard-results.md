@@ -197,9 +197,7 @@ K_1 in place of K and (T0, T1) in place of (t0, t1),
     ‖u_k − u_l‖_(s,S(T0,T1)) ≤ C ‖g_k − g_l‖_(s−1,S(T0,T1)) ≤ C ‖g_k − g_l‖_(H^(s−1)(ℝ^(1+n))),
 
 the last norm being equivalent, for the integer s − 1 ≥ 0, to the sum of the L²-norms of the derivatives of order at
-most s − 1, by Plancherel's theorem.
-
-As T1 is arbitrary and u_k = 0 for t < T0, (u_k) converges in H^(s)_loc(M) to some u with Pu = g, and
+most s − 1, by Plancherel's theorem. As T1 is arbitrary and u_k = 0 for t < T0, (u_k) converges in H^(s)_loc(M) to some u with Pu = g, and
 supp u ⊂ ⋂_k (K_k + J_+(0)) = K + J_+(0) = J_+(K).
 
 *The case s ≤ 0.* Put m := 1 − s ≥ 1, so g ∈ H^(−m). Let χ ∈ C_c^∞(M) equal 1 near K. For φ ∈ 𝒟(M; ℂ^N) put
@@ -674,9 +672,10 @@ and ‖g_ℓ‖_(L^∞) ≤ ‖g‖_(L^∞), and f_ℓ → f, g_ℓ → g in H^s
 θ(·/ℓ)∂^α v → ∂^α v in L² by dominated convergence. Writing f_ℓ − f = θ(·/ℓ)(ρ_(1/ℓ) ∗ f − f) + (θ(·/ℓ)f − f), the
 first term tends to 0 in H^s because ρ_(1/ℓ) ∗ f → f in H^s, and the second by the fixed-v case. So the right side
 of [[eq:std-moser]] for (f_ℓ, g_ℓ) is at most ‖f‖_(L^∞)‖g_ℓ‖_(H^s) + ‖f_ℓ‖_(H^s)‖g‖_(L^∞), which converges to the
-right side for (f, g). Further ‖f_ℓ g_ℓ − fg‖_(L²) ≤ ‖f_ℓ − f‖_(L²) ‖g‖_(L^∞) + ‖f(g_ℓ − g)‖_(L²), and along a subsequence g_ℓ → g almost everywhere with |f(g_ℓ − g)| ≤ 2‖g‖_(L^∞)|f|,
-so f_ℓ g_ℓ → fg in L² and J^s(f_ℓ g_ℓ) → J^s(fg) as tempered distributions. The J^s(f_ℓ g_ℓ) are bounded in L²; a
-subsequence converges weakly in L², its limit is J^s(fg), and its norm is at most the limit inferior of the norms.
+right side for (f, g). Further ‖f_ℓ g_ℓ − fg‖_(L²) ≤ ‖f_ℓ − f‖_(L²) ‖g‖_(L^∞) + ‖f(g_ℓ − g)‖_(L²), and along a
+subsequence g_ℓ → g almost everywhere with |f(g_ℓ − g)| ≤ 2‖g‖_(L^∞)|f|, so f_ℓ g_ℓ → fg in L² and
+J^s(f_ℓ g_ℓ) → J^s(fg) as tempered distributions. The J^s(f_ℓ g_ℓ) are bounded in L²; a subsequence converges weakly
+in L², its limit is J^s(fg), and its norm is at most the limit inferior of the norms.
 
 (2) Choose charts κ_i : U_i → ℝ^d, i = 1, …, I, of N, functions φ_i ∈ C_c^∞(U_i) with Σ_i φ_i² = 1 and ψ_i ∈
 C_c^∞(U_i) equal to 1 near supp φ_i. For v on X supported in ℝ^k × supp ψ_i let v^(i) := v ∘ (id × κ_i⁻¹), extended

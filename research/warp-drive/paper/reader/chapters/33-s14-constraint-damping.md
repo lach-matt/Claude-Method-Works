@@ -1073,8 +1073,20 @@ and the same for P_h*.
 the calculus of [[def:iv5-0-1]] gives the estimate; the weights only add terms of lower order, since
 w⁻¹[P_h, w] ∈ hρ_sf²Diff¹_3b for w = ρ_sf^β ρ_K^(β′). ∎
 
-**Proposition {#prop:iv5-1-3}** ([Hin26a, Proposition 5.6].) The estimates [Hin26a, (5.21) and (5.22)] hold on
-(M^♭, g, c) with the cut-offs above, in the strong sense stated there.
+**Proposition {#prop:iv5-1-3}** ([Hin26a, Proposition 5.6].) Let B_0, B_1 ∈ Ψ⁰_(3b,ħ)(M^♭) be elliptic at ∂Σ over
+supp(χ_(τ,0)χ_(r,0)), with WF′_(3b,ħ)(B_0) ∩ o = ∅ and WF′_(3b,ħ)(B_0) ⊂ Ell_(3b,ħ)(B_1). Then for all s, N there are
+h_0 > 0 and C such that for h ∈ (0, h_0)
+
+    ‖B_0χ_(τ,2)χ_(r,2)ω‖_(H^(s,(α_sf,α_K))_(3b,h)) ≤ C(‖B_1χ_(τ,1)χ_(r,1)P_hω‖_(H^(s−1,(α_sf+2,α_K))_(3b,h))
+        + h^(1/2)‖B_1χ_(τ,0)(1 − χ_(τ,2))χ_(r,0)ω‖_(H^(s,(α_sf,α_K))_(3b,h))
+        + h^N‖χ_(τ,0)χ_(r,0)ω‖_(H^(−N,(α_sf,α_K))_(3b,h))),                                              {#eq:iv5-fib}
+
+    ‖B_0χ_(τ,2)χ_(r,2)ω‖_(H^(−s+1,(−α_sf−2,−α_K))_(3b,h)) ≤ C(‖B_1χ_(τ,1)χ_(r,1)P_h*ω‖_(H^(−s,(−α_sf,−α_K))_(3b,h))
+        + h^(1/2)‖B_1χ_(τ,0)χ_(r,0)(1 − χ_(r,2))ω‖_(H^(−s+1,(−α_sf−2,−α_K))_(3b,h))
+        + h^N‖χ_(τ,0)χ_(r,0)ω‖_(H^(−N,(−α_sf−2,−α_K))_(3b,h))),                                        {#eq:iv5-fib-adj}
+
+each in the strong sense: if the right side is finite, so is the left side, and the estimate holds. These are
+[Hin26a, (5.21) and (5.22)]; the first is a forward, the second a backward propagation estimate.
 
 *Proof.* We prove [Hin26a, (5.21)] for ω ∈ H^(s,(α_sf,α_K))_(3b,h); the strong sense follows by the standard
 regularisation ([Hin26a, p. 45]). By [[prop:iv5-1-2]] it suffices to work in an h-independent neighbourhood of ∂Σ_±;
@@ -1123,8 +1135,23 @@ J_1 ∈ ρ²Diff³_3b, Q_0 ∈ ρ²Diff²_3b and Q_1 ∈ ρ²Diff²_3b follow fr
 self-adjoint). The symbol j of J is homogeneous of degree 3 and vanishes cubically at o. Near (K⁺)°, ρ_K := t⁻¹, and the
 weight at 𝗌𝖿 and the differential order are dropped.
 
-**Proposition {#prop:iv5-2-1}** ([Hin26a, Proposition 5.8].) The estimates [Hin26a, (5.33) and (5.34)] hold with r_c
-for r_0.
+**Proposition {#prop:iv5-2-1}** ([Hin26a, Proposition 5.8].) Near K⁺ let ρ_K := t⁻¹; the weight at 𝗌𝖿 and the
+differential order play no role here and are dropped. Put ε_c := r_ce^(1/2)/v. There is δ > 0 such that, with
+K := {|r − r_c| ≤ (3/2)ε_c, ρ_K ≤ 4δ}, the following holds for every χ ∈ C^∞(M^♭) equal to 1 on K and supported in a
+small neighbourhood of K, all B_0, B_1, E ∈ Ψ_(3b,ħ)(M^♭) with compact operator wave front sets and Schwartz kernels
+supported in K × K, and all sufficiently small h > 0.
+
+(1) If WF′(B_0) ⊂ {|r − r_c| ≤ (55/50)ε_c, ρ_K ≤ 2δ, |ζ| < 1}, Ell(E) ⊃ {|r − r_c| ≤ (60/50)ε_c, δ ≤ ρ_K ≤ 3δ,
+|ζ| < 1} and Ell(B_1) ⊃ {|r − r_c| ≤ (60/50)ε_c, ρ_K ≤ 3δ, |ζ| < 2}, then for every N there is C with
+
+    ‖B_0ω‖_(ρ_K^(α_K)L²) ≤ C(h⁻¹‖B_1P_hω‖_(ρ_K^(α_K)L²) + ‖Eω‖_(ρ_K^(α_K)L²) + h^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h))).
+
+(2) If B_0, B_1 are as in (1) and Ell(E) ⊃ {|r − r_c| ∈ [(55/50)ε_c, (60/50)ε_c], ρ_K ≤ 2δ, |ζ| < 1}, then
+
+    ‖B_0ω‖_(ρ_K^(−α_K)L²) ≤ C(h⁻¹‖B_1P_h*ω‖_(ρ_K^(−α_K)L²) + ‖Eω‖_(ρ_K^(−α_K)L²) + h^N‖χω‖_(ρ_K^(−α_K)H^(−N)_(3b,h))).
+
+These are [Hin26a, (5.33) and (5.34)] with r_c for r_0; (1) propagates control forward into the saddle, (2) backward
+out of it.
 
 *Proof.* (1) By [[prop:iv5-1-2]] and the ellipticity of 1 + iCL_h*ρ_sf⁻² it suffices to prove [Hin26a, (5.33)] with 𝓛_h
 for P_h, near o. With χ_0, χ_K and ψ as in [Hin26a, (5.35)] (r_c for r_0), take the commutant [Hin26a, (5.36)],
@@ -1162,8 +1189,22 @@ e, f of [Hin26a]. The same three facts give the square roots, now with b_K from 
 
 From here on, ρ_K = r/t and ρ_sf = 1/r.
 
-**Proposition {#prop:iv5-3-1}** ([Hin26a, Proposition 5.9].) The estimates [Hin26a, (5.51) and (5.52)] hold with the
-weights of [[lem:iv5-0-5]].
+**Proposition {#prop:iv5-3-1}** ([Hin26a, Proposition 5.9].) Let (α_sf, α_K) and δ_r be those of [[lem:iv5-0-5]].
+There is δ ∈ (0, δ_r] such that, with K := {ρ_K ≤ 3δ_r, ρ_sf ≤ 3δ}, the following holds for χ, B_0, B_1 and E as in
+[[prop:iv5-2-1]] with this K, and all sufficiently small h > 0.
+
+(1) If WF′(B_0) ⊂ {ρ_K ≤ (3/2)δ_r, ρ_sf ≤ (3/2)δ, |ζ| < 1}, Ell(E) ⊃ {ρ_K ≤ 2δ_r, (5/4)δ ≤ ρ_sf ≤ 2δ, |ζ| < 1} and
+Ell(B_1) ⊃ {ρ_K ≤ 2δ_r, ρ_sf ≤ 2δ, |ζ| < 2}, then for every N there is C with
+
+    ‖B_0ω‖_(ρ_sf^(α_sf)ρ_K^(α_K)L²) ≤ C(h⁻¹‖B_1P_hω‖_(ρ_sf^(α_sf+2)ρ_K^(α_K)L²) + ‖Eω‖_(ρ_sf^(α_sf)ρ_K^(α_K)L²)
+        + h^N‖χω‖_(H^(−N,(α_sf,α_K))_(3b,h))).
+
+(2) If B_0, B_1 are as in (1) and Ell(E) ⊃ {(5/4)δ_r ≤ ρ_K ≤ 2δ_r, ρ_sf ≤ 2δ, |ζ| < 1}, then
+
+    ‖B_0ω‖_(ρ_sf^(−α_sf−2)ρ_K^(−α_K)L²) ≤ C(h⁻¹‖B_1P_h*ω‖_(ρ_sf^(−α_sf)ρ_K^(−α_K)L²)
+        + ‖Eω‖_(ρ_sf^(−α_sf−2)ρ_K^(−α_K)L²) + h^N‖χω‖_(H^(−N,(−α_sf−2,−α_K))_(3b,h))).
+
+These are [Hin26a, (5.51) and (5.52)].
 
 *Proof.* (1) Replace P_h by 𝓛_h. With χ_sf, χ_K and χ_0 as in [Hin26a], take the commutant [Hin26a, (5.53)],
 a = w⁻¹χ_sf(𝔛ρ_sf)χ_K(ρ_K)χ_0(𝔛|ζ|). Then 𝒞 ∈ ρ_sf^(−2α_sf)ρ_K^(−2α_K)Ψ_3b, and [Hin26a, (5.54)] holds:
@@ -1189,8 +1230,22 @@ aH_(−ℓ+j)a + Sa² = c_0ρ_sf²a² + b_0² + b_K² − e² + f, with the symb
 
 #### The sink in 𝗌𝖿° {#sec:iv5-4}
 
-**Proposition {#prop:iv5-4-1}** ([Hin26a, Proposition 5.11].) The estimates [Hin26a, (5.55) and (5.56)] hold with
-w′ = ρ_sf^(α_sf+1) and δ_sf of [[lem:iv5-0-5]].
+**Proposition {#prop:iv5-4-1}** ([Hin26a, Proposition 5.11].) Let α_sf, δ_r and δ_sf be those of [[lem:iv5-0-5]];
+the weight at K⁺ and the differential order are dropped, and s := r/t. There is δ ∈ (0, δ_r] such that, with
+K := {|s/v − 1| ≤ 3δ_sf, ρ_sf ≤ 3δ}, the following holds for χ, B_0, B_1 and E as in [[prop:iv5-2-1]] with this K,
+and all sufficiently small h > 0.
+
+(1) If WF′(B_0) ⊂ {|s/v − 1| ≤ (3/2)δ_sf, ρ_sf ≤ (3/2)δ, |ζ| < 1}, Ell(B_1) ⊃ {|s/v − 1| ≤ 2δ_sf, ρ_sf ≤ 2δ,
+|ζ| < 2} and Ell(E) ⊃ {|s/v − 1| ≤ 2δ_sf, ρ_sf ≤ 2δ, |ζ| < 1} ∖ {|s/v − 1| ≤ (5/4)δ_sf, ρ_sf ≤ (5/4)δ}, then for
+every N there is C with
+
+    ‖B_0ω‖_(ρ_sf^(α_sf)L²) ≤ C(h⁻¹‖B_1P_hω‖_(ρ_sf^(α_sf+2)L²) + ‖Eω‖_(ρ_sf^(α_sf)L²) + h^N‖χω‖_(ρ_sf^(α_sf)H^(−N)_(3b,h))).
+
+(2) If B_0, B_1 are as in (1), then
+
+    ‖B_0ω‖_(ρ_sf^(−α_sf−2)L²) ≤ C(h⁻¹‖B_1P_h*ω‖_(ρ_sf^(−α_sf)L²) + h^N‖χω‖_(ρ_sf^(−α_sf−2)H^(−N)_(3b,h))).
+
+These are [Hin26a, (5.55) and (5.56)], with the weight w′ = ρ_sf^(α_sf+1) in the commutant.
 
 *Proof.* (1) The commutant is a = (w′)⁻¹χ_sf(𝔛ρ_sf)χ_R((r/t)/v − 1)χ_0(𝔛|ζ|), with χ_R supported in
 (−2δ_sf, 2δ_sf) and equal to 1 on [−(5/4)δ_sf, (5/4)δ_sf]. Then [Hin26a, (5.57)] holds:
@@ -1212,9 +1267,24 @@ a priori term. ∎
 
 #### Propagation between the critical sets {#sec:iv5-5}
 
-**Proposition {#prop:iv5-5-1}** ([Hin26a, Proposition 5.12].) The estimates [Hin26a, (5.58) and (5.59)] hold with
-r_3 := r_c − (52/50)r_c e^(1/2)/v, r_4 := r_c − (51/50)r_c e^(1/2)/v and r_♯ < r_1 < r_2 < r_3, near K⁺ with
-ρ_K = t⁻¹.
+**Proposition {#prop:iv5-5-1}** ([Hin26a, Proposition 5.12].) Near K⁺ let ρ_K := t⁻¹; the weight at 𝗌𝖿 and the
+differential order are dropped. Let r_3 := r_c − (52/50)r_c e^(1/2)/v and r_4 := r_c − (51/50)r_c e^(1/2)/v, and fix
+0 < t_1 < t_2 < t_3 and r_♯ < r_1 < r_2 < r_3. Let B_0, B_1, E ∈ Ψ_(3b,ħ)(M^♭) have compact operator wave front sets
+and Schwartz kernels supported in K × K, K a compact subset of {r_♯ < r < r_c, ρ_K < ∞}, and let χ ∈ C^∞(M^♭) equal 1
+on K.
+
+(1) If WF′(B_0) ⊂ {ρ_K ≤ t_2⁻¹, r_1 < r < r_4, |ζ| < 1}, Ell(B_1) ⊃ {ρ_K ≤ t_1⁻¹, r_1 ≤ r ≤ r_4, |ζ| < 2} and
+Ell(E) ⊃ {t_3⁻¹ ≤ ρ_K ≤ t_1⁻¹, r_1 ≤ r ≤ r_4, |ζ| < 1} ∪ {ρ_K ≤ t_1⁻¹, r_3 ≤ r ≤ r_4, |ζ| < 1}, then for every N
+there is C with, for all sufficiently small h > 0,
+
+    ‖B_0ω‖_(ρ_K^(α_K)L²) ≤ C(h⁻¹‖B_1P_hω‖_(ρ_K^(α_K)L²) + ‖Eω‖_(ρ_K^(α_K)L²) + h^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h))).
+
+(2) If B_0, B_1 are as in (1) and Ell(E) ⊃ {ρ_K ≤ t_1⁻¹, r_1 ≤ r ≤ r_2, |ζ| < 1}, then
+
+    ‖B_0ω‖_(ρ_K^(−α_K)L²) ≤ C(h⁻¹‖B_1P_h*ω‖_(ρ_K^(−α_K)L²) + ‖Eω‖_(ρ_K^(−α_K)L²) + h^N‖χω‖_(ρ_K^(−α_K)H^(−N)_(3b,h))).
+
+These are [Hin26a, (5.58) and (5.59)]: (1) propagates control from the saddle towards the inner boundary, (2) from
+the inner boundary towards the saddle.
 
 *Proof.* (1) The commutant is a = ρ_K^(−α_K)χ₁(r − r_1)χ₂(r)χ_K(ρ_K)χ_0(𝔛|ζ|), where χ₁(x) = e^(−𝔛/x) for x > 0, so
 χ₁′(x) = 𝔛x⁻²χ₁(x). Then [Hin26a, (5.60)] holds: aH_(−ℓ+j)a − Sa² = −a² − b_0² + e_R² + e_T² + f, with the b_0, e_R,

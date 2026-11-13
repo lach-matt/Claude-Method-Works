@@ -455,3 +455,19 @@ Items found while chapters were written in parallel; each is settled once, editi
   min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ε_+ and some ℓ_I ∈ (3, ℓ0) admissible in row d2 of [[sec:vi-c-1]], …"
   ("chosen" is needed: the list omits ε_K < ε_Υ of def:iii-i10-1-3). If S27's translation parameter enters
   thm:iii-k-4-3 (4) or eq:s27-rate, chapter 60 item (ii) must carry it.
+- Proof D1 confirmed (R2-P-D1). [Tre19] still missing from the bibliography and Appendix A. Nits: "bounded on E_ϱ"
+  (260, 307); the 1.6e−14 margin truncated; ρ beside ϱ.
+- Proof A3 (R-P-A3): correct and complete; covers every h ∈ (0, 10⁻⁶], so all of 𝖧. Minor: which facts use the exact
+  e. The reader suggests moving cor:s14-remote-point into P-A at merge.
+- Proof E margins (R-P-E-margins): every result true; two printed sums miss by a digit; the lens corollary was
+  circular. C2 ruled unused: deleted, and the paper's clause "and for its computed approximation in a stated
+  interpolant" goes at integration. Pending-marker names must be unique (computational-1 was used three times).
+- Proof B2 (R-P-B2): C256's point values, C287 and the σ^(−1/2) decay are used by no proof (class b, a numerical
+  remark); only 11.477, 963.4 and 1516 are used. Proof B keeps its present l = 0 multiplier (the source's would make
+  305.31 about 1515). Chapter 71 recomputes its ratio sentences from prop:band-points.
+- Proofs D2-D4 written: the source's D4a bound 2.41 × 10⁻³ is false (largest point value 2.414 × 10⁻³); the edition
+  states 2.42 × 10⁻³. Decision: tables rounded to 10⁻¹⁸ (about 12,000 lines) with the rounding carried into the proof.
+  D4b ("unbounded" describes one bounding method) is dropped unless cited.
+- Chapter 64 written. Notation to reconcile: ṁ (Ch 3 μ̇), K := r⁻²dv² with K_V, R_H for [HKW18]'s R_1, 𝔪 for
+  Kodama–Ishibashi's m (Ch 34 p). [KI03] and [HKW18] statements (thm:rw-ki, thm:rw-hkw) to fold into Appendix A.
+  support8 K8 and [Hol08] belong with chapter 61's source.

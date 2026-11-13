@@ -867,7 +867,10 @@ With D_(g′)Ric ∈ ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, δ*_(g_0,E_C) �
 *At a base point with parameter b.* The rows are built at b ([[lem:iii-i15-1-1]] (P6)): there m_(λ,k)(S) denotes
 χ_K δ*_(g_b) ω^(≤4)_b(a_(λ,k)S), built as in [[def:iii-i8-2-1]] from the 1-forms ω̆^i_b(S) := ω̆^((0),i)_(b,s1)(S) of
 [[prop:iii-d3-3-1]] (2) at b, while the corrections h^((λ−1,k))_s1 and their counterterms stay those built at b₀.
-[[lem:iii-i8-2-2]] holds for these rows at b with the same proof, h_b(S) in place of h(S) in [[eq:iii-i8-2-2]]: the
+With ν := (s1, λ, k) we write m^(b₀)_ν(S) := χ_K δ*_(g_(b₀)) ω^(≤4)(a_(λ,k)S), h^(b₀)_ν := h^((λ−1,k))_s1 and
+ϑ^(b₀)_(ν,♯) := ϑ^((λ−1,k))_(s1,♯) for the tensors of [[def:iii-i8-2-1]] built at b₀; so
+ϑ^(b₀)_(ν,♯) = δ_(g_(b₀),E_Υ)G_(g_(b₀))(m^(b₀)_ν − h^(b₀)_ν) involves the row built at b₀, not m_(λ,k), and these are
+the tensors in P_3 at every base point. [[lem:iii-i8-2-2]] holds for these rows at b with the same proof, h_b(S) in place of h(S) in [[eq:iii-i8-2-2]]: the
 1-forms at b satisfy the tower relations [[eq:iii-d3-1-3]] at b and have the same index sets ((P3)). [[lem:iii-i8-2-5]]
 and [[lem:iii-i8-2-6]] hold at b as stated. The pairs (s1, λ, k), (λ, k) ∈ ℳ, are rows of the set 𝒩 of
 [[sec:iii-i9-1]] ([[def:iii-i9-2-1]] gives the same tensors), and [[lem:iii-i8-2-4]] takes the following form.
@@ -883,7 +886,7 @@ be the tensors of [[def:iii-i8-2-1]] built at b. Then
 
     f^((λ,k))_(h,p⃗)(S) = L_(h,p⃗) m_(λ,k)(S) + e^ν_(h,p⃗)(S),     e^ν_(h,p⃗) := r^ν_(h,p⃗) + E^ν_(h,p⃗),
     r^ν_(h,p⃗)(S) := −(L_(h,p⃗) − L_b)ζ^b_ν(S) + (δ*_(g_0,E_C) − δ*_(g_b,E_C))ϑ^b_(ν,♯)(S),
-    E^ν_(h,p⃗)(S) := L_(h,p⃗)(h^((λ−1,k))_s1 − h^b_ν)(S) + δ*_(g_0,E_C)(ϑ^((λ−1,k))_(s1,♯) − ϑ^b_(ν,♯))(S),
+    E^ν_(h,p⃗)(S) := L_(h,p⃗)(h^(b₀)_ν − h^b_ν)(S) + δ*_(g_0,E_C)(ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯))(S),
                                                                                                    {#eq:s21-motions-at-b}
 
 E^ν being the difference between the corrections and counterterms built at b₀ and at b; this is the identity
@@ -893,12 +896,12 @@ E^ν being the difference between the corrections and counterterms built at b₀
 
 uniformly on ℬ̄_*. At b = b₀, E^ν = 0, and at (h, p⃗) = (0, 0), e^ν = 0, which is [[lem:iii-i8-2-4]].
 
-*Proof.* *The identity.* P_3 depends on S^((λ−1,k))_1 only through h′ := h^((λ−1,k))_s1(S) in g′ and
-ϑ^((λ−1,k))_(s1,♯)(S) in ϑ_tot, linearly, and g_0 does not depend on it. Differentiating [[eq:iii-i8-2-3]], with
+*Proof.* *The identity.* P_3 depends on S^((λ−1,k))_1 only through h′ := h^(b₀)_ν(S) in g′ and ϑ^(b₀)_(ν,♯)(S) in
+ϑ_tot, linearly, and g_0 does not depend on it. Differentiating [[eq:iii-i8-2-3]], with
 L_(h,p⃗) = L^(g′,g_0) = D_(g′)Ric − δ*_(g_0,E_C)D_1Υ^(E_Υ)(g′, g_0) ([[lem:iii-i8-2-5]]),
 
-    f^((λ,k)) = D_(g′)Ric(h′) − δ*_(g_0,E_C)(D_1Υ^(E_Υ)(g′, g_0)h′ − ϑ^((λ−1,k))_(s1,♯)(S))
-              = L_(h,p⃗)h′ + δ*_(g_0,E_C)ϑ^((λ−1,k))_(s1,♯)(S) = L_(h,p⃗)h^b_ν + δ*_(g_0,E_C)ϑ^b_(ν,♯) + E^ν.
+    f^((λ,k)) = D_(g′)Ric(h′) − δ*_(g_0,E_C)(D_1Υ^(E_Υ)(g′, g_0)h′ − ϑ^(b₀)_(ν,♯)(S))
+              = L_(h,p⃗)h′ + δ*_(g_0,E_C)ϑ^(b₀)_(ν,♯)(S) = L_(h,p⃗)h^b_ν + δ*_(g_0,E_C)ϑ^b_(ν,♯) + E^ν.
 
 By [[eq:s21-conv]] at g_b, h^b_ν = m_(λ,k)(S) − ζ^b_ν. As g_b is Ricci flat, (iii) gives D_(g_b)Ric(ζ^b_ν) = 0, so
 
@@ -919,7 +922,7 @@ g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_b
 δ*_(g_0,E_C) − δ*_(g_b,E_C) ∈ ρ_+³Diff¹_b near (ι⁺)° with seminorms O(|p⃗|), so the term has ι⁺-order Re λ + 4. Hence
 r^ν ∈ 𝒴_2(α) with norm at most C|S|(‖h‖ + |p⃗|), and |p⃗| ≤ |p⃗ − p⃗_b| + |b − b₀|.
 
-*The bound on E^ν.* The b-differences h^((λ−1,k))_s1 − h^b_ν and ϑ^((λ−1,k))_(s1,♯) − ϑ^b_(ν,♯) are supported in 𝒞
+*The bound on E^ν.* The b-differences h^(b₀)_ν − h^b_ν and ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯) are supported in 𝒞
 and in supp χ_K, and have every seminorm O(|b − b₀||S|), the towers being smooth in b ((P3)). Near K⁺ the corrections
 vanish, and the counterterms are ½□^Υ_(b₀)ω^(≤4)(a_(λ,k)S) and ½□^Υ_bω^b_ν(S), of K⁺-weight Re λ + 4 − ε by
 [[eq:iii-i8-2-1]] at b₀ and at b, the K⁺-order of the tops of the towers; δ*_(g_0,E_C) = δ*_(g_b,E_C) there is

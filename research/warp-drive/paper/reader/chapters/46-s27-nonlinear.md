@@ -961,45 +961,47 @@ P_5(Ψ(U)) = 0. ∎
 ### Constraint propagation and the theorem {#sec:iii-k-4}
 
 **Lemma {#lem:iii-k-4-1}** (The normal derivative; in any dimension.) Let g be a Lorentzian metric, Σ a spacelike
-hypersurface with unit normal ν, η a 1-form with η|_Σ = 0, and δ*_(g_0,E_C) as in [[def:iii-b-6-1]]. If
-(G_g δ*_(g_0,E_C)η)(ν, ·) = 0 on Σ, then ∂_νη = 0 on Σ.
+hypersurface with unit normal ν, κ a 1-form with κ|_Σ = 0, and δ*_(g_0,E_C) as in [[def:iii-b-6-1]]. If
+(G_g δ*_(g_0,E_C)κ)(ν, ·) = 0 on Σ, then ∂_νκ = 0 on Σ.
 
-*Proof.* On Σ the tangential derivatives of η vanish, and the zeroth-order part of δ*_(g_0,E_C) vanishes as η = 0
-(δ*_(g_0,E_C) − δ*_(g_0) and δ*_(g_0) − δ*_g are of order 0). So k := δ*_(g_0,E_C)η = ½(ν^♭ ⊗ w + w ⊗ ν^♭) with
-w := ∂_νη, ν^♭ := g(ν, ·), g(ν, ν) = −1. Then tr_g k = g^(ab)ν_a w_b = w(ν), and
-(G_gk)(ν, X) = k(ν, X) − ½g(ν, X)w(ν). For X tangent to Σ: k(ν, X) = ½(g(ν, ν)w(X) + w(ν)g(ν, X)) = −½w(X) and
-g(ν, X) = 0, so w(X) = 0. For X = ν: k(ν, ν) = −w(ν), so (G_gk)(ν, ν) = −w(ν) + ½w(ν) = −½w(ν), and w(ν) = 0. So
-w = 0. ∎
+*Proof.* On Σ the tangential derivatives of κ vanish, and the zeroth-order part of δ*_(g_0,E_C) vanishes as κ = 0
+(δ*_(g_0,E_C) − δ*_(g_0) and δ*_(g_0) − δ*_g are of order 0). So, as ∇_Y κ = −g(ν, Y)∂_νκ on Σ,
+k := δ*_(g_0,E_C)κ = ½(ν^♭ ⊗ w + w ⊗ ν^♭) with w := −∂_νκ, ν^♭ := g(ν, ·), g(ν, ν) = −1. Then
+tr_g k = g^(ab)ν_a w_b = w(ν), and (G_gk)(ν, X) = k(ν, X) − ½g(ν, X)w(ν). For X tangent to Σ:
+k(ν, X) = ½(g(ν, ν)w(X) + w(ν)g(ν, X)) = −½w(X) and g(ν, X) = 0, so w(X) = 0. For X = ν: k(ν, ν) = −w(ν), so
+(G_gk)(ν, ν) = −w(ν) + ½w(ν) = −½w(ν), and w(ν) = 0. So w = 0. ∎
 
 **Proposition {#prop:iii-k-4-2}** (The metric and the constraints.) Let U be given by [[thm:iii-k-3-2]],
-(h, p⃗, q) := Φ(U), S its boost and b its black hole parameter. Define
+(h, p⃗, q) := Φ(U), S its boost, S⁰ := S^(0)_1 its translation and b its black hole parameter. Define
 
-    g := g_(b₀,b,−S) + h_tot(p⃗) + h_(b,rem)(q) + χ_−(t^♭_*)h_(−S) + h     on Ω_*,
-    g := φ_(−S)^*g_(b₀) + h_(−S)                                            on 𝒟_(−S) ∩ {t^♭_* ≤ T̂ + ¼c_0},
+    g := g_(p⃗) + h_tot(p⃗) + h_(b,rem)(q) + χ_−(t^♭_*)h_(−S,−S⁰) + h     on Ω_*,
+    g := ĝ_(S,S⁰) + h_(−S,−S⁰)                                            on 𝒟_(−S,−S⁰) ∩ {t^♭_* ≤ T̂ + ¼c_0},
 
-    η := Υ^(E_Υ)(g, g_(b₀,b,−S)) − ϑ_tot(p⃗)          on Ω_*,
-    η := Υ^(χ^♮_0E_Υ)(g, φ_(−S)^*g_(b₀))              on 𝒟_(−S) ∩ {t^♭_* ≤ T̂ + ¼c_0}.
+    κ := Υ^(E_Υ)(g, g_(p⃗)) − ϑ_tot(p⃗)          on Ω_*,
+    κ := Υ^(χ^♮_0E_Υ)(g, ĝ_(S,S⁰))              on 𝒟_(−S,−S⁰) ∩ {t^♭_* ≤ T̂ + ¼c_0},
 
-The two definitions agree on the overlap Ω_* ∩ {t^♭_* ≤ T̂ + ¼c_0}, and Ric(g) = 0, η = 0 on the union.
+with ĝ_(S,S⁰) = φ_(−S,−S⁰)^*g_(b₀) of [[def:iii-k-2-1]]. The two definitions agree on the overlap
+Ω_* ∩ {t^♭_* ≤ T̂ + ¼c_0}, and Ric(g) = 0, κ = 0 on the union.
 
-*Proof.* *Overlap.* There χ_K = 0, so g_(b₀,b,−S) = φ_(−S)^*g_(b₀); h_tot, h_(b,rem) and ϑ_tot vanish; h = h̃ = 0 (the
-proof of [[lem:iii-k-2-2]], and supp h̃ ⊂ {t^♭_* ≥ T̂ + ½c_0}); χ_− = 1; and χ^♮_0 = 1 ([[lem:iii-k-1-1]] (b)). So the
-two lines of each definition coincide.
+*Proof.* *Overlap.* There χ_K = 0, so g_(p⃗) = ĝ_(S,S⁰); h_tot, h_(b,rem) and ϑ_tot vanish; h = h̃ = 0 (the proof of
+[[lem:iii-k-2-2]], and supp h̃ ⊂ {t^♭_* ≥ T̂ + ½c_0}); χ_− = 1; and χ^♮_0 = 1 ([[lem:iii-k-1-1]] (b)). So the two
+lines of each definition coincide.
 
-*The equation.* On Ω_*, P_5(Ψ(U)) = 0 reads Ric(g) − δ*_(g_0,E_C)η = 0 with g_0 := g_(b₀,b,−S): this is
-[[eq:iii-i9-2-3]] with g′ = g, and [[eq:iii-i14-1-3]], P_5(h′, p⃗, q) = P_4(h′ + h_(b,rem)(q), p⃗), with
-h′ := h + χ_−h_(−S). On the second region, Ric(g) = 0 and η = 0 by [[prop:iii-k-1-2]] (2) with −S.
+*The equation.* On Ω_*, P_5(Ψ(U)) = 0 reads Ric(g) − δ*_(g_0,E_C)κ = 0 with g_0 := g_(p⃗): this is [[eq:iii-i9-2-3]]
+with g′ = g, and [[eq:iii-i14-1-3]], P_5(h′, p⃗, q) = P_4(h′ + h_(b,rem)(q), p⃗), with h′ := h + χ_−h_(−S,−S⁰). On the
+second region, Ric(g) = 0 and κ = 0 by [[prop:iii-k-1-2]] (2) with (−S, −S⁰).
 
-*Propagation.* On Ω_* the second Bianchi identity δ_gG_gRic(g) = 0 gives δ_gG_gδ*_(g_0,E_C)η = 0. The operator
+*Propagation.* On Ω_* the second Bianchi identity δ_gG_gRic(g) = 0 gives δ_gG_gδ*_(g_0,E_C)κ = 0. The operator
 δ_gG_gδ*_(g_0,E_C) has the principal symbol of δ_gG_gδ*_g, which is ½g⁻¹(ζ, ζ) times the identity, as
-δ*_(g_0,E_C) − δ*_g is of order 0. η vanishes on Ω_* ∩ {t^♭_* ≤ T̂ + ¼c_0}, which contains Ω_* ∩ {t^♭_* ≤ 2}
-(T̂ ≥ 2). [[lem:ii-f-1-3]] on Ω°_*, with τ := t^♭_* and c := 3/2, gives η = 0. Its compact sets are those of
-[[lem:iii-k-6-1]] (c), with X := Ω°_*, c := 3/2 and T := t^♭_*(p): L_p ⊂ X, as t^♭_* ≥ c > 1 on it. The lemma applies,
-g being a metric whose difference from g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b), by (B2) of [[sec:iii-h2-0]] and the
-smallness of U and h_(−S); near the inner boundary, past causal curves stay in {r ≥ min(r(p), r^♮)} by
-[[lem:ii-c-3-2]] (1), as in [[lem:ii-f-1-4]] (a). So Ric(g) = δ*_(g_0,E_C)0 = 0. ∎
+δ*_(g_0,E_C) − δ*_g is of order 0. κ vanishes on Ω_* ∩ {t^♭_* ≤ T̂ + ¼c_0}, which contains Ω_* ∩ {t^♭_* ≤ 2}
+(T̂ ≥ 2). [[lem:ii-f-1-3]] on Ω°_*, with τ := t^♭_* and c := 3/2, gives κ = 0. Its compact sets are those of
+[[lem:iii-k-6-1]] (c), with Y := X := Ω°_*, c := 3/2 and T := t^♭_*(p): L_p ⊂ X, as t^♭_* ≥ c > 1 on it. The lemma
+applies, g being a metric on Ω_* whose difference from g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b), by (B2) of
+[[sec:iii-h2-0]], [[lem:iii-i7-1-3]] (a) for g_(p⃗), and the smallness of U and h_(−S,−S⁰); near the inner boundary,
+past causal curves stay in {r ≥ min(r(p), r^♮)} by [[lem:ii-c-3-2]] (1), as in [[lem:ii-f-1-4]] (a). So
+Ric(g) = δ*_(g_0,E_C)0 = 0. ∎
 
-[Hin26] propagates the constraints from φ_S(Σ^IVP), using [[lem:iii-k-4-1]] there. Here η already
+[Hin26] propagates the constraints from φ_S(Σ^IVP), using [[lem:iii-k-4-1]] there. Here κ already
 vanishes on an open slab of Ω_* ([[prop:iii-k-1-2]] (2)), and [[lem:iii-k-4-1]] enters only through the proof of
 [[prop:iii-k-1-2]].
 
@@ -1010,33 +1012,37 @@ equations, with
 
     γ − γ_(b₀) ∈ H^(∞,(ℰ_0,ℓ_0))_b(Σ^IVP),     k − k_(b₀) ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b(Σ^IVP),
 
-of norm < ε in H^(d_1) of these classes. Then there are a Myers–Perry parameter b ∈ ℬ_* and S ∈ 𝒮_1, with |b − b₀|
-and |S| small, and a Lorentzian metric g on Ω_* ∪ 𝒟_(−S) with:
+of norm < ε in H^(d_1) of these classes. Then there are a Myers–Perry parameter b ∈ ℬ_*, a boost parameter S ∈ 𝒮_1
+and a translation parameter S⁰ ∈ 𝒮_1, with |b − b₀|, |S| and |S⁰| small, and a Lorentzian metric g on
+Ω_* ∪ 𝒟_(−S,−S⁰) with, for φ := φ_(−S,−S⁰) = ψ_(−S⁰) ∘ φ_(−S):
 
 (1) Ric(g) = 0;
 
-(2) g = φ_(−S)^*(g_(b₀) + h_0) near φ_(−S)⁻¹(Σ^IVP), so g induces on φ_(−S)⁻¹(Σ^IVP) the data (φ_(−S)|)^*(γ, k);
+(2) g = φ^*(g_(b₀) + h_0) near φ⁻¹(Σ^IVP), so g induces on φ⁻¹(Σ^IVP) the data (φ|)^*(γ, k);
 
 (3) on Ω_* ∩ {t^♭_* ≥ T̂ + 2},
 
-    g = g_(b₀,b,−S) + h_tot(p⃗) + h_(b,rem)(q) + h,     (h, p⃗, q) = Φ(U),  U ∈ 𝒟^∞_ex,
+    g = g_(p⃗) + h_tot(p⃗) + h_(b,rem)(q) + h,     (h, p⃗, q) = Φ(U),  U ∈ 𝒟^∞_ex,
 
-with h ∈ 𝒳^∞_(J,ex) (orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺, (ℰ_+, 3 + ε_+) at ι⁺, α at K⁺), q ∈ 𝒬_ex, and p⃗ with the
-components b − b₀, S, S^(0)_1 of U ([[thm:iii-j-2-4]] (1)–(2));
+with g_(p⃗) the translated background of [[eq:iii-i7-1-3]], h ∈ 𝒳^∞_(J,ex) (orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺,
+(ℰ_+, 3 + ε_+) at ι⁺, α at K⁺), q ∈ 𝒬_ex, and p⃗ with the components b − b₀, S, S⁰ of U ([[thm:iii-j-2-4]] (1)–(2));
 
-(4) where χ_K = 1, g_(b₀,b,−S) = g_b, so g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h there: g settles to the Myers–Perry
-metric g_b at ι⁺ and K⁺ at the orders of these classes;
+(4) where χ_K = 1, g_(p⃗) = g_b, so g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h there: g settles to the Myers–Perry metric
+g_b at ι⁺ and K⁺ at the orders of these classes;
 
-(5) the gauge condition η = 0 of [[prop:iii-k-4-2]] holds on Ω_* ∪ 𝒟_(−S).
+(5) the gauge condition κ = 0 of [[prop:iii-k-4-2]] holds on Ω_* ∪ 𝒟_(−S,−S⁰).
 
-*Proof.* [[thm:iii-k-3-2]] and [[prop:iii-k-4-2]]. (2) is [[prop:iii-k-1-2]] (1) with −S: there
-g = φ_(−S)^*g_(b₀) + h_(−S) = φ_(−S)^*(g_(b₀) + h_0). (3) holds as χ_− = 0 on {t^♭_* ≥ T̂ + 2}, with
-[[cor:iii-j3-6-6]] for the exact classes. (4) is [[eq:iii-i-1-1]]. ∎
+*Proof.* [[thm:iii-k-3-2]] and [[prop:iii-k-4-2]]. (2) is [[prop:iii-k-1-2]] (1) with (−S, −S⁰): there
+g = φ^*g_(b₀) + h_(−S,−S⁰) = φ^*(g_(b₀) + h_0). (3) holds as χ_− = 0 on {t^♭_* ≥ T̂ + 2}, with [[cor:iii-j3-6-6]] for
+the exact classes. (4) is [[eq:iii-i7-1-3]]. ∎
 
-**Remark {#rem:iii-k-4-4}** ([Hin26, Remark 13.4 and Theorem 1.1].) (3) is [Hin26, Remark 13.4 (1)]. As in [Hin26],
-the slowest terms at ι⁺ come from h_tot(p⃗), which is supported in 𝒞 ([[lem:iii-i7-2-2]]); in dimension 4 + 1 their
-orders are those of [[ch:s21]]. [Hin26] deduces its Theorem 1.1 by pulling back along a diffeomorphism of M that is the
-identity near ℐ⁺ ∪ ι⁺ ∪ K⁺, which changes nothing above.
+**Remark {#rem:iii-k-4-4}** ([Hin26, Remark 13.4 and Theorem 1.1].) (3) is [Hin26, Remark 13.4 (1)], with the
+background translated as well as boosted: in dimension 4 + 1 the shift of the centre of mass is undone by translating
+the exterior background ([[def:iii-i7-1-2]]), where [Hin26] uses a correction term ([[ch:s21]]); so the data surface
+of (2) is φ_(−S,−S⁰)⁻¹(Σ^IVP), translated as well as boosted. As in [Hin26], the slowest terms at ι⁺ come from
+h_tot(p⃗), which is supported in 𝒞 ([[lem:iii-i7-2-2]]); in dimension 4 + 1 their orders are those of [[ch:s21]].
+[Hin26] deduces its Theorem 1.1 by pulling back along a diffeomorphism of M that is the identity near
+ℐ⁺ ∪ ι⁺ ∪ K⁺, which changes nothing above.
 
 ### The parameters: the conditions {#sec:vi-c-1}
 
@@ -1079,7 +1085,8 @@ C′|γ_Υ| ≤ ½ of the proof of [[lem:iii-d-7-1]] ([[prop:iii-d1-4-1]], [[sec
 
 **b1.** b in the ball ℬ_VI of [[thm:vi-b1-5-1]], on which (Dyn) holds. Threshold: none.
 
-**b2.** b ∈ ℬ(γ_(Υ,H)) ([[prop:iii-d1-4-1]]); with c_0 of [[cor:iii-h-4-3]], b ∈ ℬ(c_0) ([[prop:iii-f2-4-1]]) and in
+**b2.** b ∈ ℬ(γ_(Υ,H)) ([[prop:iii-d1-4-1]]); with the low-frequency radius c_0 of [[cor:iii-h-4-3]], written c_σ in
+this section and the next to distinguish it from the constant c_0 of [[sec:iii-k-3]], b ∈ ℬ(c_σ) ([[prop:iii-f2-4-1]]) and in
 the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as [[thm:iii-e-1-1]], [[prop:iii-f1-3-3]] and
 [[sec:iii-j-1]] ask. Threshold: c1–c2, u1–u5.
 
@@ -1092,13 +1099,16 @@ to α. Threshold: b3, w1–w2, d1–d2.
 
 **w1.** ε_+, ε_K: 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3) and ε_+ < ¼ ([[eq:iii-i9-1-1]], (H4) of
 [[sec:iii-i10-1]]); (G⁺) ([[def:iii-j-g-plus]]) after decreasing ε_+, Λ containing π_1ℰ^C_I ([[sec:iii-i10-1]]), so
-that it is fixed after rows d1–d2; the gap (G) of [[def:iii-i10-1-3]] for ε_K; and the exactness conditions (E1)–(E2)
-of [[def:iii-j3-1-3]] [[pending:issue-3]]. Here δ_♯ = (1 − e_Υ)γ_Υ, and ε_ind is the constant of [[eq:iii-f1-2-2]],
-with which [[prop:iii-g4-5-1]] is stated; at the gauge parameters of [[prop:np-10-52]], ε_ind ≤ δ_50 =
-1.94137 × 10⁻⁸, the least distance from ℤ of the non-integer roots of modulus at most 50 of L̂_(b₀)(0), those of □^Υ
-plus 1 ([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f)). Threshold: u1–u5, d1–d2.
+that it is fixed after rows d1–d2; the gap (G) of [[def:iii-i10-1-3]] for ε_K, which includes ε_K < ε_Υ, so that
+ε_K < ε_g := min(ε_Υ, ε_ind) ([[ch:s22]]); and the exactness conditions (Ex1) (which is (G⁺) with its closed endpoint)
+and (Ex2) of [[def:iii-j3-1-3]]. Here δ_♯ = (1 − e_Υ)γ_Υ; ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the
+indicial roots of L̂_b(0), with which the hypotheses of [[prop:iii-g4-5-1]] are stated; and ε_Υ is the constant of
+[[sec:iii-d2-1]], fixed by the indicial roots of (□^Υ_b)^(0), with which the gain in the conclusion of
+[[prop:iii-g4-5-1]] is stated. At the gauge parameters of [[prop:np-10-52]], ε_ind ≤ δ_50 = 1.94137… × 10⁻⁸
+([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f)), and δ_50 is the least distance from ℤ among the non-integer
+entries of modulus at most 50 that do not depend on h; no proof uses its value. Threshold: u1–u5, d1–d2.
 
-**w2.** α: admissible ([[def:iii-i10-1-3]]), with (A_J) ([[def:iii-j-a-j]]) and the exactness conditions (E3)–(E4) of
+**w2.** α: admissible ([[def:iii-i10-1-3]]), with (A_J) ([[def:iii-j-a-j]]) and the exactness conditions (Ex3)–(Ex4) of
 [[def:iii-j3-1-3]], in (4 + ε_K − ε′_0, 4 + ε_K], where such α are dense ([[def:iii-j-a-j]], [[lem:iii-j3-1-4]]).
 Threshold: w1, d1–d2 ((A_J) involves Λ).
 
@@ -1129,20 +1139,21 @@ Choose e_Υ ∈ (0, min(ε_1, ε_L)); this fixes γ_1 of [[prop:iii-f1-3-3]], wh
 depends on the orders, hence on γ_C. 𝖹_exc is fixed by step (1). Choose γ_Υ in the interval of row u4 with
 4e_Υγ_Υ² ∉ 𝖹_exc. This is possible because the interval is nonempty and open, while {γ > 0 : 4e_Υγ² ∈ 𝖹_exc} is
 countable. Then z_Υ ∈ (0, ½], as γ_Υ < ¼ and e_Υ < 1. [[prop:iii-d-6-3]] (the invertibility of the spectral family
-of □^Υ_b at |σ| ≥ c_0) is then implied, for every c_0 and b ∈ ℬ(γ_(Υ,H)), by [[prop:iii-d1-4-1]], which gives it for
+of □^Υ_b at |σ| ≥ c_σ) is then implied, for every c_σ and b ∈ ℬ(γ_(Υ,H)), by [[prop:iii-d1-4-1]], which gives it for
 every σ with Im σ ≥ 0; so it imposes no further condition.
 
 (3) The data classes: ℰ_0 and ℓ_0 > 3 as in row d1, then ℓ_I in the interval (3, min(ℓ_0, 3/2 + s_C)) of row d2,
 minus the four points 3/2 + σ_Υ and the exclusion sets of (H4). This fixes ℰ^C_I ([[thm:iii-c1-3-1]]) and Λ. In the
 symmetry class, [[sec:s27-class]] takes ℰ_0 = {(j, 0) : j ≥ 2}, ℓ_0 ∈ (3, 4) and ℓ_I ∈ (3, ℓ_0) ([[eq:vii-0-1]]).
 
-(4) The weights. δ_♯ > 0 and ε_ind > 0 are fixed by step (2). Choose ε_+ < min(δ_♯, ε_ind, ¼, ℓ_I − 3), decreased for
-(G⁺) and (E1)–(E2) (possible: no λ ∈ Λ has real part in (3, 3 + ε_+] for ε_+ small, [[def:iii-j-g-plus]], and (E2)
-excludes finitely many values in a bounded range, [[lem:iii-j3-1-4]]); then ε_K, decreased for (G)
-([[def:iii-i10-1-3]]); then α as in row w2. (H4) holds as ε_+ < ℓ_I − 3, and decreasing ε_+ keeps rows d1–d2.
+(4) The weights. δ_♯, ε_ind and ε_Υ, all positive, are fixed by step (2). Choose ε_+ < min(δ_♯, ε_ind, ¼, ℓ_I − 3),
+decreased for (G⁺) and (Ex1)–(Ex2) (possible: no λ ∈ Λ has real part in (3, 3 + ε_+] for ε_+ small,
+[[def:iii-j-g-plus]], and (Ex2) excludes finitely many values in a bounded range, [[lem:iii-j3-1-4]]; (Ex2) involves
+ℰ^tot_I and λ_♯, fixed by steps (2)–(3)); then ε_K, decreased for (G) ([[def:iii-i10-1-3]]), which includes
+ε_K < ε_Υ; then α as in row w2. (H4) holds as ε_+ < ℓ_I − 3, and decreasing ε_+ keeps rows d1–d2.
 
-(5) The parameter set. The gauge being fixed, take c_0 of [[cor:iii-h-4-3]] (uniform near b₀), then ℬ(c_0) of
-[[prop:iii-f2-4-1]], which fixes the modification parameters first and then allows every c_0 > 0. Let ℬ_* be an open
+(5) The parameter set. The gauge being fixed, take c_σ of [[cor:iii-h-4-3]] (uniform near b₀), then ℬ(c_σ) of
+[[prop:iii-f2-4-1]], which fixes the modification parameters first and then allows every c_σ > 0. Let ℬ_* be an open
 ball about b₀ whose closure lies in ℬ_VI, in every neighbourhood of row b2, and in ℬ_1, with (B5). These are finitely
 many neighbourhoods of b₀, fixed by steps (0)–(4). Balls are taken in the norm |m − m₀| + |A|, |A| the Frobenius norm,
 which is invariant under conjugation by O(4), so every parameter ball is O(4)-invariant ([[lem:vii-3-1]] uses this).
@@ -1155,14 +1166,14 @@ theory is then taken over ℬ̄_*, a compact set on which (Dyn) holds (step (0))
 *Proof.* Each step's existence claim is the cited statement, read with the quantifiers it has; the last entry of each
 row of [[sec:vi-c-1]] records that no threshold depends on a later choice. In step (2), the ε_0 of [[prop:iii-d1-4-1]]
 is uniform, while its ε_1 and ℬ(γ_(Υ,H)) come after γ_(Υ,H), so the order γ_(Υ,H), e_Υ, γ_Υ meets it. The only
-low-frequency radius that depends on the gauge is the c_0 of [[cor:iii-h-4-3]], and it is used only after the gauge is
+low-frequency radius that depends on the gauge is the c_σ of [[cor:iii-h-4-3]], and it is used only after the gauge is
 fixed, through [[prop:iii-f2-4-1]], whose neighbourhood is then chosen. In step (5), each neighbourhood of rows b2 and
 b4 is open and contains b₀, so their intersection with ℬ_VI contains a ball. The ball of [[thm:vi-b1-5-1]] depends on
 no gauge parameter, as the dynamical hypotheses concern the metric alone ([[sec:vi-a-0]]). (K3) holds for every ε
 ([[prop:vi-b1-3-4]]), so ε_VI depends neither on the regularity d_0 of [[thm:ii-c1-1-1]] nor on its order k. ∎
 
-The invertibility of L̂_b(σ) for b ≠ b₀ and 0 < |σ| < c_0, which [[sec:iii-f2-5]] leaves open, holds for b near b₀ and
-σ ∈ Σ_0, |σ| ≤ c_0, by [[cor:iii-h-4-3]]; its neighbourhood is one of row b2, so it holds on ℬ̄_*.
+The invertibility of L̂_b(σ) for b ≠ b₀ and 0 < |σ| < c_σ, which [[sec:iii-f2-5]] leaves open, holds for b near b₀ and
+σ ∈ Σ_0, |σ| ≤ c_σ, by [[cor:iii-h-4-3]]; its neighbourhood is one of row b2, so it holds on ℬ̄_*.
 
 ### The symmetry class {#sec:s27-class}
 
@@ -1186,7 +1197,7 @@ off the discrete exclusion sets of row d2 and of (H4). Step (4) then takes ε_+ 
 [[sec:iii-i10-1]] holds. ε and d_1 are those of [[thm:iii-k-4-3]] (step (6)). For a pair (γ̃, k̃) of symmetric
 2-tensors on Σ^IVP, ‖(γ̃, k̃)‖_(d_1) denotes the norm in which [[thm:iii-k-4-3]] measures (γ − γ_(b₀), k − k_(b₀)):
 the H^(d_1)-norm of H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, and ∞ outside these spaces. The weights are those of the
-b-density, so that a weight is the pointwise order ([[sec:iii-c1-0]]).
+b-density, so that a weight is the pointwise order (the notation of [[ch:s26]]).
 
 **Lemma {#lem:vii-0-1}** (What lies in the class.) Let ρ := |x|⁻¹, and let γ̃, k̃ be smooth symmetric 2-tensors on
 Σ^IVP whose Cartesian components lie, on {r ≥ R′}, in ρ²C^∞ and ρ³C^∞ of the radial compactification. Then
@@ -1270,10 +1281,12 @@ construction is that of an equivariant map (Schur's lemma).
 
 - g_b = Φ_m^*g^KS_(m,A): [[def:iii-b-3-2]] builds r_A, ℓ_A and H_(m,A) from (m, A, x) by matrix operations, which are
   equivariant under x ↦ σx, A ↦ σAσ⁻¹; so σ_*g_((m,A)) = g_((m,σAσ⁻¹)). Φ_m and T_m are radial. So
-  g_(b₀,σ·b,−σ·S) = σ_*g_(b₀,b,−S) ([[eq:iii-i-1-1]]), given the next item.
+  g_(b₀,σ·b,−σ·S) = σ_*g_(b₀,b,−S) ([[eq:iii-i-1-1]]) and g_(σ·p⃗) = σ_*g_(p⃗) ([[eq:iii-i7-1-3]]), given the next
+  item.
 
 - φ_S = exp V(S_w), V(S_w) = ½ΘX_w, X_w = t w·∂_x + (w·x)∂_t ([[lem:iii-b-5-1]]). So σ_*X_w = X_(σw) and
-  σφ_(S_w)σ⁻¹ = φ_(S_(σw)); likewise for the translations ψ_(S_w) of [[eq:iii-i7-1-3]], generated by ½Θ w·∂_x.
+  σφ_(S_w)σ⁻¹ = φ_(S_(σw)); likewise for the translations ψ_(S_w) of [[eq:iii-i7-1-3]], generated by ½Θ w·∂_x, so
+  σφ_(S,S⁰)σ⁻¹ = φ_(σ·S,σ·S⁰) ([[eq:s27-motion]]).
 
 - t_* and t_IVP are functions of (t, |x|), and t^♭_* is a function of (t_*, r): C_♭(t_* + R̃(r)) and t_*F(t_*/r)
   ([[lem:ii-c-3-2]]), given (C1).
@@ -1293,12 +1306,14 @@ construction is that of an equivariant map (Schur's lemma).
   operator of a natural operator, h̃, and the corrections h_(λ₀), given by the solution operators 𝒮_(λ₀) and the
   t_*^(−λ₀)-terms of rows and towers ([[sec:iii-j-2]]).
 
-- h_(−S) ([[prop:iii-k-1-2]]) is the unique solution of [[eq:iii-k-1-2]] with data h_(S,0), h_(S,1), the pull-backs by
-  φ_S of the data h̊_0, h̊_1 of [[prop:iii-c2-4-1]]. The proof of [[prop:iii-c2-4-1]] builds these from (γ̃, k̃) and
-  g_(b₀) by setting h̊_0 := γ̃ with h̊_0(ν_(b₀), ·) := 0, and by solving tensorial linear equations for the second datum,
-  uniquely. So for G′-invariant data and σ ∈ G′, h_(σS,j) = σ_*h_(S,j), and h_(σS) = σ_*h_S by uniqueness.
+- h_(S,S⁰) ([[prop:iii-k-1-2]]) is the unique solution of [[eq:iii-k-1-2]] with data h⁰_(S,S⁰), h¹_(S,S⁰), the
+  restrictions to Σ^IVP of the pull-backs by φ_(S,S⁰) of h_0, the solution with the data h̊_0, h̊_1 of
+  [[prop:iii-c2-4-1]]. The proof of [[prop:iii-c2-4-1]] builds these from (γ̃, k̃) and g_(b₀) by setting h̊_0 := γ̃ with
+  h̊_0(ν_(b₀), ·) := 0, and by solving tensorial linear equations for the second datum, uniquely. So for G′-invariant
+  data and σ ∈ G′, h̊_0, h̊_1 and h_0 are G′-invariant by uniqueness, h^j_(σ·S,σ·S⁰) = σ_*h^j_(S,S⁰), and
+  h_(σ·S,σ·S⁰) = σ_*h_(S,S⁰) by uniqueness.
 
-So Ψ(U) = (χ_−h_(−S), 0, 0) + Φ(U) ([[eq:iii-k-2-1]]) and P_5 ∘ Ψ are equivariant. ∎
+So Ψ(U) = (χ_−h_(−S,−S^(0)_1), 0, 0) + Φ(U) ([[eq:iii-k-2-1]]) and P_5 ∘ Ψ are equivariant. ∎
 
 **Proposition {#prop:vii-3-2}** ([[thm:iii-k-4-3]] in the symmetry class; [Hin26, Theorem 13.1] in the class.) Make
 the choices of [[lem:vii-3-1]] equivariant. If the data (γ, k) of [[thm:iii-k-4-3]] are G-invariant, and small for the
@@ -1360,6 +1375,7 @@ closure is disjoint from K⁺ ([[lem:iii-i7-2-2]]); so it vanishes on {r ≤ R�
 h ∈ 𝒳^∞_(J,ex) has K⁺-order α, and h_(b,rem)(q) has K⁺-order (α − 2)− ([[lem:iii-i14-2-2]] (a) at b₀; at b near b₀,
 the rates of [[eq:iii-i14-1-1]], which exceed α − 2, with [[lem:iii-i14-2-1]]). Near the interior of K⁺,
 ρ_K = t₀⁻¹ with t₀ = t − |x| ([[eq:iii-b-2-2]]), comparable to t_* on {r ≤ R′}, and the b-vector fields there are
-spanned by t_*∂_(t_*) and ∂_x. By b-Sobolev embedding (a weight is the pointwise order, [[sec:iii-c1-0]]),
+spanned by t_*∂_(t_*) and ∂_x. By b-Sobolev embedding for the b-density μ_b of [[sec:iii-i-1]], as in the proof of
+[[lem:iii-i-2-2]] (a weight is then the pointwise order),
 (t_*∂_(t_*))^i∂^β_x of a function of K⁺-order w− is O(t_*^(−w+ε′)) for every ε′ > 0. With w = α − 2 this is
 [[eq:s27-rate]]. ∎

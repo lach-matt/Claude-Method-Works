@@ -332,8 +332,11 @@ This is possible. For η, dρ_I = |x|⁻¹(−½ρ_I dx⁰ − (1 − ½ρ_I)dx�
 
     η⁻¹(dρ_I, dρ_I) = −2|x|⁻²ρ_I(1 − ½ρ_I) < 0     (ρ_I < 2)                                          {#eq:iv-3-1}
 
-([Hin23a, (3.8)], with η⁻¹(dx⁰, dx¹) = −2, η⁻¹(dx⁰, dx⁰) = η⁻¹(dx¹, dx¹) = 0). The correction from g_(b₀) − η is O(ρ²)
-relative to ρ_I|x|⁻² by [[cor:iv-1-2]], so [[eq:iv-3-1]] persists for ρ₀x_I² small; this is the role of the bound
+([Hin23a, (3.8)], with η⁻¹(dx⁰, dx¹) = −2, η⁻¹(dx⁰, dx⁰) = η⁻¹(dx¹, dx¹) = 0). The correction from δ := g_(b₀) − η is O(ρ²)
+relative to ρ_I|x|⁻²: η⁻¹dρ_I = |x|⁻¹((2 − ρ_I)∂₀ + ρ_I∂₁), and with δ_(ab) := δ(∂_a, ∂_b) as in the proof of
+[[lem:iii-c1-1-1]], δ₀₀, δ₀₁ ∈ ρ₀²ρ_I³C^∞ and δ₁₁ ∈ ρ₀²ρ_I²C^∞ ([[def:iii-c-3-4]], [[lem:iii-c-3-5]] (1)), so
+δ(η⁻¹dρ_I, η⁻¹dρ_I) = |x|⁻²((2 − ρ_I)²δ₀₀ + 2ρ_I(2 − ρ_I)δ₀₁ + ρ_I²δ₁₁) ∈ ρ_I|x|⁻² · ρ²C^∞, and the terms quadratic
+in δ are smaller. So [[eq:iv-3-1]] persists for ρ = ρ₀x_I² small; this is the role of the bound
 x̄_I ≤ 1/√(8m) of [Hin23a]. Here c_♯ is fixed by the three conditions above in the Minkowski coordinates of
 [[sec:iii-c-1]]; the bound of [Hin23a], stated in its tortoise coordinates ([[prop:np-10-64]] (8)), is not used.
 

@@ -35,10 +35,13 @@ manifolds with corners of any dimension or for ℝⁿ with any n; their proofs a
 transform statements rest on [[prop:ii-g1-3-3]] and [[prop:ii-g1-3-5]], which hold in dimension 4 + 1.
 
 *Notation.* In [[sec:iii-a1-1]] and [[sec:iii-a1-2]] the letter ν ≥ 2 is the dimension of the sphere 𝕊^ν, and
-D := ρ∂_ρ. The variable of an indicial family, written λ in [Hin26], is written ι; in [[sec:iii-a-4]] the letter ι
-also names a boundary face, as in [[sec:ii-g1-3-1]], and no indicial variable occurs there. In [[sec:iii-b-1]] to
-[[sec:iii-b-6]] the letter m is the mass parameter of the family; in [[sec:iii-a-1]] to [[sec:iii-a-4]] it is the order
-of a differential operator. The spacetime dimension is written 5.
+D := ρ∂_ρ. The variable of an indicial family, written λ in [Hin26], is written ι, and the Mellin variable of the
+normal operator at sf in [[sec:iii-a-2]], also written λ in [Hin26], is written ϰ, as in [[ch:s16]]. The letter ι also
+names two boundary faces, future timelike infinity ι⁺ from [[sec:iii-b-2]] on, and the face ι of [[sec:iii-a-4]], as in
+[[sec:ii-g1-3-1]], where no indicial variable occurs; in [[sec:iii-b-6]], ι_V h := h(V, ·) is the interior product. In
+[[sec:iii-b-1]] to [[sec:iii-b-6]] the letter m is the mass parameter of the family; in [[sec:iii-a-1]] to
+[[sec:iii-a-4]] it is the order of a differential operator. The spacetime dimension is written 5. The letter σ is the
+spectral parameter of [[sec:iii-a-2]] and [[sec:iii-a-4]] only.
 
 ### Harmonics on the sphere {#sec:iii-a1-1}
 
@@ -366,7 +369,7 @@ components of [[eq:iii-a1-2-2]]: a = ∂₀ω₀, b = ½(∂₀ω₁ + ∂₁ω�
 f = ½∂₁ω̸ + (ρ/2)(dω₁ + ½ω̸), q = ρ(δ̸*ω̸ + g̸(ω₀ − ω₁)); with ∂₀ = −½ρD, ∂₁ = ∂_(t_*) + ½ρD this is the stated δ̄*.
 No trace over the sphere occurs, so ν does not enter.
 
-*The divergence.* (δ̄h)_κ = −ḡ^μσ ∇̄_μ h_σκ = 2(∇̄₀h_1κ + ∇̄₁h_0κ) − r⁻²g̸^ab ∇̄_a h_bκ, with h_00 = a, h_01 = b,
+*The divergence.* (δ̄h)_κ = −ḡ^μπ ∇̄_μ h_πκ = 2(∇̄₀h_1κ + ∇̄₁h_0κ) − r⁻²g̸^ab ∇̄_a h_bκ, with h_00 = a, h_01 = b,
 h_0b = rc_b, h_11 = e, h_1b = rf_b, h_ab = r²q_ab. From [[eq:iii-a1-2-5]]: ∇̄₀h_10 = ∂₀b, ∇̄₁h_00 = ∂₁a,
 g̸^ab ∇̄_a h_b0 = −rδ̸c + rν(a − b) − (r/2) tr q; ∇̄₀h_11 = ∂₀e, ∇̄₁h_01 = ∂₁b,
 g̸^ab ∇̄_a h_b1 = −rδ̸f + rν(b − e) + (r/2) tr q; ∇̄₀h_1c = r∂₀f_c, ∇̄₁h_0c = r∂₁c_c,
@@ -544,8 +547,8 @@ S = x̂_i), and by the rotations V ∈ 𝒱_1.
 *Proof.* By [[lem:iii-a1-2-1]] (1), ᵇδ̄*(0) is ρ times an operator with coefficients polynomial in D and independent of
 ρ, so for u of one type ᵇδ̄*(0)(ρ^ι u) = ρ^(ι+1) N_•(ᵇδ̄*(0), ι)u, and ρ^ι u does not depend on t_*. So if
 N_•(ι)u = 0 then ω := ρ^ι u satisfies δ̄*ω = 0 on ℝ_t × (ℝ⁴ ∖ 0), and so do its real and imaginary parts, as δ̄* is
-real. In Cartesian coordinates a 1-form with ∂_μω_κ + ∂_κω_μ = 0 satisfies ∂_σ∂_μω_κ = 0 (the identity
-∂_σ∂_μω_κ = ∂_σ s_μκ + ∂_μ s_σκ − ∂_κ s_σμ, s := δ̄*ω), so on the connected set ℝ_t × (ℝ⁴ ∖ 0) it is affine,
+real. In Cartesian coordinates a 1-form with ∂_μω_κ + ∂_κω_μ = 0 satisfies ∂_π∂_μω_κ = 0 (the identity
+∂_π∂_μω_κ = ∂_π s_μκ + ∂_μ s_πκ − ∂_κ s_πμ, s := δ̄*ω), so on the connected set ℝ_t × (ℝ⁴ ∖ 0) it is affine,
 ω_μ = a_μ + B_μκ x^κ with B antisymmetric. The splitting [[eq:iii-a1-2-2]] does not depend on t, so ω is independent of
 t, which forces B_μ0 = 0: ω is a combination of dt, the dxⁱ and the rotation forms B_ij xʲ dxⁱ. These are homogeneous
 of degree 0, 0 and 1 in x and, in [[eq:iii-a1-2-2]], of the types s0 (dt = ½(dx̄⁰ + dx̄¹)), s1
@@ -631,7 +634,7 @@ A² = −diag(a², a², b², b²), s = a² + b², p² = a²b² and ‖A‖ = max
 |x|² > s (note s ≥ ‖A‖²), Q(·, x) has exactly one zero r = r_A(x) in (0, ∞), and it is simple; r_A is smooth in
 (x, A), r₀(x) = |x|, r_A(x)² ≤ |x|² ≤ r_A(x)² + ‖A‖², and r_A ∈ |x|(1 + |x|⁻²C^∞(X̄)) near infinity, smoothly in A.
 
-*Proof.* (a) For real antisymmetric 4 × 4 matrices, det(λI − A) = λ⁴ + (Σ_(i<j) A_ij²)λ² + Pf(A)², and
+*Proof.* (a) For real antisymmetric 4 × 4 matrices, det(ζI − A) = ζ⁴ + (Σ_(i<j) A_ij²)ζ² + Pf(A)², and
 Σ_(i<j) A_ij² = −½ tr(A²) = s; so the first identity is the Cayley–Hamilton theorem. (In the rotated frame it reads
 a⁴ − (a² + b²)a² + a²b² = 0 and the same with a, b exchanged.) Then
 (r²I − A²)𝖬(r) = r⁴ + sr² + r²A² − (r² + s)A² − A⁴ = r⁴ + sr² − sA² − A⁴ = Π(r)I. (b) With y := r²,
@@ -678,7 +681,7 @@ H_(m,A) > 0. At A = 0 it is the five-dimensional Schwarzschild–Tangherlini met
 event horizon is {|x| = m^(1/2)}.
 
 This is the Myers–Perry family [MP86] in Kerr–Schild form ([ER08, (31), p. 14]). We use the following result as a black
-box.
+box; it is part of [[thm:std-myers-perry]], restated here because the proof below uses its formulas.
 
 [ER08, Section 4.2, (42) and (44), p. 16] (the general Myers–Perry solution of [MP86] in odd spacetime dimension; here
 dimension 5, i = 1, 2, summation over i). For a mass parameter m > 0 and spins a₁, a₂ ∈ ℝ, the metric
@@ -696,7 +699,9 @@ coordinates (r, μ₁, ψ₁, ψ₂), with μ_i > 0, μ₁² + μ₂² = 1 and r
 
     x_(2i−1) + ix_(2i) = (r² + a_i²)^(1/2) μ_i e^(iψ_i),     i = 1, 2.
 
-In the i-th plane, with R_i := (r² + a_i²)^(1/2)μ_i, x dx + y dy = R_i dR_i = rμ_i² dr + (r² + a_i²)μ_i dμ_i and
+These are coordinates: the inverse map is r = r_A(x), μ_i = |(x_(2i−1), x_(2i))|(r_A(x)² + a_i²)^(−1/2),
+ψ_i = arg(x_(2i−1) + ix_(2i)), smooth on that set by [[lem:iii-b-3-1]] (b), and μ₁² + μ₂² = 1 is Q(r_A(x), x) = 0. In
+the i-th plane, with R_i := (r² + a_i²)^(1/2)μ_i, x dx + y dy = R_i dR_i = rμ_i² dr + (r² + a_i²)μ_i dμ_i and
 x dy − y dx = R_i² dψ_i, (x, y) := (x_(2i−1), x_(2i)). Since Σ_i μ_i dμ_i = 0,
 
     dx² = Σ_i (r² + a_i²)(dμ_i² + μ_i² dψ_i²) + F dr²,     F := Σ_i r²μ_i²/(r² + a_i²) = 1 − Σ_i a_i²μ_i²/(r² + a_i²),
@@ -739,28 +744,31 @@ symbols are Γ^(t_s)_(t_s r) = f′/(2f), Γ^r_(t_s t_s) = ff′/2, Γ^r_rr = �
 and those of g̸, and the Ricci tensor is R_(t_s t_s) = f(r³f′)′/(2r³), R_rr = −(r³f′)′/(2fr³),
 R_ab = (2(1 − f) − rf′)g̸_ab, the others zero. For f = 1 − mr⁻², r³f′ = 2m is constant and 2(1 − f) − rf′ = 0. ∎
 
-*The parameter set.* Fix ε_param ∈ (0, 1/10) with ε_param ≤ r_♭/(4R₁), and let
+**Definition {#def:s11-parameters}** (The parameter set.) Let ε_♭ := min(1/20, r_♭/(4R₁)) and
 
-    ℬ := {b = (m, A) : |m − m₀| < ½m₀, ‖A‖ < ε_param R₁},     b₀ := (m₀, 0).
+    ℬ := {b = (m, A) : |m − m₀| < ½m₀, ‖A‖ < ε_♭R₁},     b₀ := (m₀, 0).
 
-At r_♭ = ½R₁ the second condition on ε_param follows from the first. Only b near b₀ is used below.
+For b = (m, A) write g^KS_b := g^KS_(m,A). On ℬ, ‖A‖ < r_♭/4 and ‖A‖ < R₁/20; at r_♭ = ½R₁, ε_♭ = 1/20. This one set
+serves the whole stability theory: every neighbourhood of b₀ used in [[ch:s12]] lies in ℬ. Only b near b₀ is used
+below.
 
 **Lemma {#lem:s11-ks-domain}** (The Kerr–Schild domain.) Let b = (m, A) ∈ ℬ and |x| ≥ ½r_♭. Then
-|x|² > 2‖A‖² ≥ s, r_A(x)² > 3‖A‖², and the condition of [[lem:iii-b-3-3]] (c) holds. Hence g^KS_b is defined and
-smooth on ℝ_t × {|x| ≥ ½r_♭}, smoothly in b, with H_b > 0; det g^KS_b = −1 in the coordinates (t, x); g^KS_b is
-Lorentzian of signature (1, 4), with inverse η⁻¹ − H_b k^♯ ⊗ k^♯; and g^KS_b is Ricci-flat there. The horizon
-{|x| = m^(1/2)} of g^KS_(m,0) lies in {|x| > r_♭}. At r_♭ = ½R₁ the domain is {|x| ≥ ¼R₁}.
+|x|² > 2‖A‖² ≥ s, r_A(x)² > 3‖A‖², and the condition of [[lem:iii-b-3-3]] (c) holds, so that F_A ∈ (0, 1]. Hence
+g^KS_b is defined and smooth on ℝ_t × {|x| ≥ ½r_♭}, smoothly in b, with H_(m,A) > 0; det g^KS_b = −1 in the
+coordinates (t, x); g^KS_b is Lorentzian of signature (1, 4), with inverse η⁻¹ − H_(m,A) k_A^♯ ⊗ k_A^♯; and g^KS_b is
+Ricci-flat there. The horizon {|x| = m^(1/2)} of g^KS_(m,0) lies in {|x| > r_♭}. At r_♭ = ½R₁ the domain is
+{|x| ≥ ¼R₁}.
 
-*Proof.* ‖A‖ < ε_param R₁ ≤ r_♭/4, so ‖A‖² < r_♭²/16 and |x|² ≥ r_♭²/4 > r_♭²/8 > 2‖A‖² ≥ s. By [[lem:iii-b-3-1]] (b),
+*Proof.* ‖A‖ < ε_♭R₁ ≤ r_♭/4, so ‖A‖² < r_♭²/16 and |x|² ≥ r_♭²/4 > r_♭²/8 > 2‖A‖² ≥ s. By [[lem:iii-b-3-1]] (b),
 r_A² ≥ |x|² − ‖A‖² > r_♭²/4 − r_♭²/16 = 3r_♭²/16 > 3‖A‖². Hence ‖A‖²(r_A² + ‖A‖²) < (r_A²/3)(4r_A²/3) = (4/9)r_A⁴ < r_A⁴,
-which is (c)'s condition, so H_b > 0 by [[lem:iii-b-3-3]] (c); smoothness in (x, b) is that of r_A
-([[lem:iii-b-3-1]] (b)). As k_b is η-null ([[lem:iii-b-3-3]] (a)), det(η + H_b k_b ⊗ k_b) = det η (1 + H_b η⁻¹(k_b, k_b))
-= −1. For σ ∈ [0, 1] the metrics η + σH_b k_b ⊗ k_b likewise have determinant −1, so their signature is that of η,
-(1, 4). The inverse is [[lem:iii-b-3-3]] (d), and Ricci-flatness is [[prop:iii-b-3-4]]. Finally
-m^(1/2) > (½m₀)^(1/2) = R₁/√2 > ½R₁ ≥ r_♭. ∎
+which is (c)'s condition, so F_A ∈ (0, 1] and H_(m,A) > 0 by [[lem:iii-b-3-3]] (c); smoothness in (x, b) is that of
+r_A ([[lem:iii-b-3-1]] (b)). As k_A is η-null ([[lem:iii-b-3-3]] (a)), the determinant of a rank-one perturbation gives
+det(η + H_(m,A) k_A ⊗ k_A) = det η (1 + H_(m,A) η⁻¹(k_A, k_A)) = −1. For c ∈ [0, 1] the metrics
+η + cH_(m,A) k_A ⊗ k_A likewise have determinant −1, so their signature is that of η, (1, 4). The inverse is
+[[lem:iii-b-3-3]] (d), and Ricci-flatness is [[prop:iii-b-3-4]]. Finally m^(1/2) > (½m₀)^(1/2) = R₁/√2 > ½R₁ ≥ r_♭. ∎
 
-In particular, for b ∈ ℬ and |x| ≥ r_♭, g^KS_b is defined, smooth, with H_b > 0, on ℝ_t × {|x| ≥ r_♭}, smoothly in b;
-and the horizon of g^KS_(m,0) is at |x| = m^(1/2) ∈ (R₁/√2, (3/2)^(1/2)R₁).
+In particular, for b ∈ ℬ and |x| ≥ r_♭, g^KS_b is defined, smooth, with H_(m,A) > 0, on ℝ_t × {|x| ≥ r_♭}, smoothly
+in b; and the horizon of g^KS_(m,0) is at |x| = m^(1/2) ∈ (R₁/√2, (3/2)^(1/2)R₁).
 
 #### The outgoing form near infinity {#sec:iii-b-3-2}
 
@@ -879,9 +887,9 @@ the future unit normal). Then
 η|_(dt=0) + m|x|⁻²d|x|², which is the first formula of [[eq:iii-b-3-8]]; the second follows from [[eq:iii-b-3-5]]
 restricted to {t = C″} (restriction maps |x|^(−j)C^∞(M; S²T*) near I₀ into |x|^(−j)C^∞(X; S²T*X), as {t = C″} meets
 the boundary of M only in I₀, transversally). Near infinity Σ^IVP = {t = C″}, and as g_b(ν_b, ∂_j) = 0,
-k_b(∂_i, ∂_j) = g_b(∇_(∂_i)ν_b, ∂_j) = −g_b(ν_b, ∇_(∂_i)∂_j) = −ν_b^σ Γ(g_b)_(σij),
-Γ_(σij) := ½(∂_i g_(σj) + ∂_j g_(σi) − ∂_σ g_ij), with ν_b the future unit normal. Since g_b − η ∈ |x|⁻²C^∞, the
-Christoffel symbols Γ(g_b)_(σij) in the coordinates (t, x) are first derivatives ∂_x of |x|⁻²C^∞(X̄) (the coefficients
+k_b(∂_i, ∂_j) = g_b(∇_(∂_i)ν_b, ∂_j) = −g_b(ν_b, ∇_(∂_i)∂_j) = −ν_b^α Γ(g_b)_(αij),
+Γ_(αij) := ½(∂_i g_(αj) + ∂_j g_(αi) − ∂_α g_ij), with ν_b the future unit normal. Since g_b − η ∈ |x|⁻²C^∞, the
+Christoffel symbols Γ(g_b)_(αij) in the coordinates (t, x) are first derivatives ∂_x of |x|⁻²C^∞(X̄) (the coefficients
 are t-independent), hence in |x|⁻³C^∞(X̄), and ν_b ∈ ∂_t + |x|⁻²C^∞; so k_b ∈ |x|⁻³C^∞, and the same with
 g_b − g_m ∈ |x|⁻³C^∞ gives k_b − k_m ∈ |x|⁻⁴C^∞, and smoothness in b gives the derivative. ∎
 
@@ -1031,7 +1039,7 @@ E^Υ_(g₀) := E^Υ_(g₀,∞) + E^Υ_(g₀,H), δ_(g₀,E_Υ) := δ_(g₀) + E^
     E^C_(g₀)ω := γ_C(2c_C ⊗_s ω − (2/3)(1 − e_C) g₀ ι_(g₀⁻¹c_C)ω),     δ*_(g₀,E_C) := δ*_(g₀) + E^C_(g₀);
                                                                                                           {#eq:iii-b-6-2}
 
-    Υ⁰(g, g₀)_μ := g_μκ g^σλ (Γ(g)^κ_σλ − Γ(g₀)^κ_σλ),     Υ^(E_Υ)(g, g₀) := Υ⁰(g, g₀) − E^Υ_(g₀)G_(g₀)(g − g₀),
+    Υ⁰(g, g₀)_μ := g_μκ g^ατ (Γ(g)^κ_ατ − Γ(g₀)^κ_ατ),     Υ^(E_Υ)(g, g₀) := Υ⁰(g, g₀) − E^Υ_(g₀)G_(g₀)(g − g₀),
                                                                                                           {#eq:iii-b-6-3}
 
     P(g, g₀) := Ric(g) − δ*_(g₀,E_C)Υ^(E_Υ)(g, g₀),     □^Υ_(g,E_Υ) := 2δ_(g,E_Υ)G_g δ*_g,
@@ -1039,9 +1047,9 @@ E^Υ_(g₀) := E^Υ_(g₀,∞) + E^Υ_(g₀,H), δ_(g₀,E_Υ) := δ_(g₀) + E^
 
 and L_(g,g₀) := D_((g,g₀))P(·, 0), L_g := L_(g,g).
 
-Υ⁰(g, g₀) = g g₀⁻¹ δ_g G_g g₀ ([Hin26, (4.3)–(4.4)]): (δ_g G_g g₀)^κ = −∇^σ(g₀)_σ^κ + ½∇^κ tr_g g₀, and in g-normal
-coordinates at a point, where ∇ = ∂, both g^σλ(Γ(g)^κ_σλ − Γ(g₀)^κ_σλ) and (g₀⁻¹δ_g G_g g₀)^κ equal
-(g₀⁻¹)^κπ(−g^σλ ∂_σ(g₀)_λπ + ½g^σλ ∂_π(g₀)_σλ). This is the wave map gauge identity, valid in every dimension.
+Υ⁰(g, g₀) = g g₀⁻¹ δ_g G_g g₀ ([Hin26, (4.3)–(4.4)]): (δ_g G_g g₀)^κ = −∇^α(g₀)_α^κ + ½∇^κ tr_g g₀, and in g-normal
+coordinates at a point, where ∇ = ∂, both g^ατ(Γ(g)^κ_ατ − Γ(g₀)^κ_ατ) and (g₀⁻¹δ_g G_g g₀)^κ equal
+(g₀⁻¹)^κπ(−g^ατ ∂_α(g₀)_τπ + ½g^ατ ∂_π(g₀)_ατ). This is the wave map gauge identity, valid in every dimension.
 
 **Lemma {#lem:iii-b-6-2}** (The trace weight.) In spacetime dimension 5: tr_g G_g h = −(3/2) tr_g h; G_g is
 invertible, G_g⁻¹h = h − (1/3)g tr_g h; and
@@ -1063,16 +1071,16 @@ The operators that enter the following chapters, □^Υ = 2δ_g G_g δ*_g + 2E^�
 □^C = 2δ_g G_g δ*_g + 2δ_g G_g E^C, contain E^Υ and E^C only through E^Υ G and G E^C; so [[eq:iii-b-6-5]] is why the
 weight is 2/(5 − 2): the modifications act as in spacetime dimension 4, and their parameters e, γ keep their roles.
 
-**Lemma {#lem:iii-b-6-3}** ([Hin26, Lemma 4.4] in spacetime dimension 5.) With C(g, g₀)^λ_μκ := Γ(g)^λ_μκ −
-Γ(g₀)^λ_μκ, C_(g,g₀)(ġ)^κ := g^κλ C(g, g₀)_λμσ ġ^μσ and Y_(g,g₀)(ġ)^κ := Υ⁰(g, g₀)^λ ġ^κ_λ (indices moved with g):
+**Lemma {#lem:iii-b-6-3}** ([Hin26, Lemma 4.4] in spacetime dimension 5.) With C(g, g₀)^τ_μκ := Γ(g)^τ_μκ −
+Γ(g₀)^τ_μκ, C_(g,g₀)(ġ)^κ := g^κτ C(g, g₀)_τμα ġ^μα and Y_(g,g₀)(ġ)^κ := Υ⁰(g, g₀)^τ ġ^κ_τ (indices moved with g):
 
     D¹|_((g,g₀))Υ⁰ = −δ_g G_g − C_(g,g₀) + Y_(g,g₀),
     D¹|_((g,g₀))Υ^(E_Υ) = −δ_g G_g − C_(g,g₀) + Y_(g,g₀) − E^Υ_(g₀)G_(g₀);                                {#eq:iii-b-6-6}
 
-    D_g Ric = ½□_g − δ*_g δ_g G_g + R_g,     (□_g ġ)_μκ := −g^σλ ġ_(μκ;σλ),                               {#eq:iii-b-6-7}
+    D_g Ric = ½□_g − δ*_g δ_g G_g + R_g,     (□_g ġ)_μκ := −g^ατ ġ_(μκ;ατ),                               {#eq:iii-b-6-7}
 
-with R_g the zeroth order term of [Hin26, (4.12)], (R_g ġ)_λκ = Riem(g)^ρ_λκ^σ ġ_ρσ + ½(Ric(g)^ρ_κ ġ_λρ +
-Ric(g)^ρ_λ ġ_κρ) in the curvature convention of [Hin26]; and
+with R_g the zeroth order term of [Hin26, (4.12)], (R_g ġ)_τκ = Riem(g)^ρ_τκ^α ġ_ρα + ½(Ric(g)^ρ_κ ġ_τρ +
+Ric(g)^ρ_τ ġ_κρ) in the curvature convention of [Hin26]; and
 
     L_(g,g₀) = ½□_g + E^C_(g₀)δ_g G_g + (δ*_(g₀) − δ*_g)δ_g G_g + R_g
                + δ*_(g₀,E_C)(C_(g,g₀) − Y_(g,g₀) + E^Υ_(g₀)G_(g₀)),
@@ -1080,13 +1088,13 @@ Ric(g)^ρ_λ ġ_κρ) in the curvature convention of [Hin26]; and
 
 *Proof.* The proof of [Hin26, p. 83] is an index calculation in which the dimension does not appear; we give it.
 [[eq:iii-b-6-6]]: from [[eq:iii-b-6-3]],
-D¹Υ⁰(ġ)^μ = ġ^μκ Υ⁰_κ − g^μκ ġ^σλ C_κσλ + ½g^μκ g^σλ(ġ_σκ;λ + ġ_λκ;σ − ġ_σλ;κ), using
-DΓ(ġ)^κ_σλ = ½(ġ^κ_σ;λ + ġ^κ_λ;σ − ġ_σλ^;κ) and Dg^σλ = −ġ^σλ; the first term is Y, the second −C, and the third is
+D¹Υ⁰(ġ)^μ = ġ^μκ Υ⁰_κ − g^μκ ġ^ατ C_κατ + ½g^μκ g^ατ(ġ_ακ;τ + ġ_τκ;α − ġ_ατ;κ), using
+DΓ(ġ)^κ_ατ = ½(ġ^κ_α;τ + ġ^κ_τ;α − ġ_ατ^;κ) and Dg^ατ = −ġ^ατ; the first term is Y, the second −C, and the third is
 ġ^μκ_;κ − ½∇^μ tr ġ = −(δ_g G_g ġ)^μ, the coefficient ½ being that of G_g, the same in every dimension. The last term of
 [[eq:iii-b-6-3]] is linear in g − g₀ with g₀ fixed, with linearisation −E^Υ_(g₀)G_(g₀). [[eq:iii-b-6-7]]:
-DRiem(ġ)^κ_λμσ = (DΓ(ġ)^κ_λσ)_;μ − (DΓ(ġ)^κ_λμ)_;σ; contracting,
-2DRic(ġ)_λσ = (ġ_λ^κ_;σκ − ġ_λ^κ_;κσ) − ġ_λσ;κ^κ + ġ_σ^κ_;λκ − ġ^κ_κ;λσ + ġ_λκ^;κ_σ. The commutator term is a curvature
-term ([Hin26, (4.14)]); the second term is (□_g ġ)_λσ; and −2δ*_g δ_g G_g ġ differs from the remaining terms by another
+DRiem(ġ)^κ_τμα = (DΓ(ġ)^κ_τα)_;μ − (DΓ(ġ)^κ_τμ)_;α; contracting,
+2DRic(ġ)_τα = (ġ_τ^κ_;ακ − ġ_τ^κ_;κα) − ġ_τα;κ^κ + ġ_α^κ_;τκ − ġ^κ_κ;τα + ġ_τκ^;κ_α. The commutator term is a curvature
+term ([Hin26, (4.14)]); the second term is (□_g ġ)_τα; and −2δ*_g δ_g G_g ġ differs from the remaining terms by another
 commutator, a curvature term; the two curvature terms sum to 2R_g ġ. Each step is the Ricci identity, valid in every
 dimension. [[eq:iii-b-6-8]]: L_(g,g₀) = D_g Ric − δ*_(g₀,E_C)D¹Υ^(E_Υ), and substituting
 [[eq:iii-b-6-6]]–[[eq:iii-b-6-7]] and δ*_(g₀,E_C) − δ*_g = (δ*_(g₀) − δ*_g) + E^C_(g₀) gives the first formula; at g₀ =

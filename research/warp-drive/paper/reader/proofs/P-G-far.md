@@ -17,8 +17,8 @@ Ric^H(g0 + h) of [[eq:gauge]]. Pointwise norms |·| are those of [[sec:profiles]
 symmetric 2-tensors and the Frobenius norm on arrays of higher rank.
 
 *The wedge.* On r ≥ R₃, Σ^IVP = {t = f(r)}, f being the function F of [[lem:interior-where]] (ii). On r ≥ 4R,
-0 < f′ ≤ ¼, 0 ≤ f(r) − f(4R) < R₁/9 and μ r⁻² ≤ 1/400, and 4R ≥ 20R₁ ([[sec:interior-own-data]]). Put
-t̃ := t − f(r), v1 := 4R + f(4R) and
+0 < f′ ≤ ¼, 0 ≤ f(r) − f(4R) < R₁/9 and μ r⁻² ≤ 1/400, and 4R ≥ 20R₁ ([[sec:interior-own-data]]); enlarging R if
+necessary, we also take 4R ≥ 1. Put t̃ := t − f(r), v1 := 4R + f(4R) and
 
     W := {v ≥ v1, t̃ ≤ 0, r ≥ 4R},     N := W ∩ {v = v1},     S := Σ^IVP ∩ {r ≥ 4R},     Σ̃_σ := W ∩ {t̃ = σ},
 
@@ -165,11 +165,13 @@ where Rem = Σ_p d_p ϱ_p with ϱ_p smooth and vanishing to second order at (e, 
 acting on components. So ∂_(d_p)Ψ(X; 0, 0) = −(1/2) □_η Σ̂_p(X), ∂_e ∂_(d_p)Ψ(X; 0, 0) = M_1[Σ̂_p](X) and
 ∂_(d_p) ∂_(d_p′) Ψ(X; 0, 0) = M_2[Σ̂_p, Σ̂_p′](X); this holds at every point at which the Σ̂_p are defined. Third,
 [[eq:far-psi]] holds for every mass in place of μ and for independent amplitudes λ_p in place of λ, both sides being
-smooth in them near 0. By the second fact, the coefficients of μ^i Π_p λ_p^(n_p) in their Taylor expansions are, on
-the left, the functions −(1/2) □_η Σ̂_p, M_1[Σ̂_p] and (1/2) M_2[Σ̂_p, Σ̂_p′] at D_ς X, and on the right
-ς^(−2−2i−Σ n_p p) times the same functions at X. Hence (□_η Σ̂_p)(D_ς X) = ς^(−p−2) (□_η Σ̂_p)(X),
-M_1[Σ̂_p](D_ς X) = ς^(−p−4) M_1[Σ̂_p](X) and M_2[Σ̂_p, Σ̂_p′](D_ς X) = ς^(−p−p′−2) M_2[Σ̂_p, Σ̂_p′](X). So the term of
-P(Σ) with e^i Π d_p^(n_p) is homogeneous of degree −2 − 2i − Σ n_p p; in particular Q_6 is homogeneous of degree −6.
+smooth in them near 0. By the second fact, the coefficients of μ^i Π_p λ_p^(n_p) in their Taylor expansions at 0
+are, on the left, constant multiples of −(1/2) □_η Σ̂_p, M_1[Σ̂_p] and M_2[Σ̂_p, Σ̂_p′] at D_ς X, and on the right
+ς^(−2−2i−Σ n_p p) times the same multiples at X. Hence (□_η Σ̂_p)(D_ς X) = ς^(−p−2) (□_η Σ̂_p)(X),
+M_1[Σ̂_p](D_ς X) = ς^(−p−4) M_1[Σ̂_p](X) and M_2[Σ̂_p, Σ̂_p′](D_ς X) = ς^(−p−p′−2) M_2[Σ̂_p, Σ̂_p′](X). So, by
+[[eq:far-psi]], the term of [[eq:far-taylor]] with e^i Π d_p^(n_p), at e = μ ς⁻² and d_p = λ ς^(−p) and multiplied
+by ς⁻², is a term of P(Σ) at D_ς X homogeneous of degree −2 − 2i − Σ n_p p; in particular Q_6 is homogeneous of
+degree −6.
 
 Now count degrees, with Σ n_p ≥ 1 and ς = r. The terms of degree greater than −13/2, that is 2 + 2i + Σ n_p p < 13/2,
 are: i = 0 and one factor d_p, every p ∈ Π (degree −p − 2); i = 1 and the factor d_2 (degree −6); i = 0 and d_2²
@@ -180,8 +182,9 @@ and carries a factor λ. Since |d| ≤ C λ ς⁻², Rem contributes ς⁻² |Re
 The terms of degree −13/2 are μ M_1[Σ_(5/2)] and M_2[Σ_2, Σ_(5/2)].
 
 The commutators. A homogeneous term of degree −q is mapped by Z to −q times itself, by L_Ω_ij to a homogeneous term of
-degree −q and by ∂_t to one of degree −q − 1, so it keeps its bound. The terms of degree greater than −13/2 sum to 0
-(to Q_6 if □_η Σ_4 = 0), and so do their images under Π_i (Γ_i + c_i). For the remainder put Rem′(D_ς X) :=
+degree −q and by ∂_t to one of degree −q − 1, so it keeps its bound. The terms of degree greater than −13/2 sum to 0,
+so their images under Π_i (Γ_i + c_i) sum to 0; if □_η Σ_4 = 0 they sum to Q_6, homogeneous of degree −6 and
+O(λ r⁻⁶). For the remainder put Rem′(D_ς X) :=
 ς⁻² Rem(X; μ ς⁻², (λ ς^(−p))_p); it does not depend on the choice of (X, ς) with D_ς X given, since P(Σ) and the
 homogeneous terms do not. Differentiation in ς gives Z Rem′ = −ς⁻² (2 + 2e ∂_e + Σ_p p d_p ∂_(d_p)) Rem. Here
 e ∂_e Rem and d_p′ ∂_(d_p′) Rem are again of the form Σ_p d_p ϱ′_p, with ϱ′_p vanishing to second order at
@@ -206,11 +209,12 @@ of Õ^* h are Λᵀ h(Λ ·) Λ. ∎
 
 The error terms of the weighted energy identity for φ := (Γ^α h_R)_ij, |α| ≤ k1, are bounded on Σ̃_σ by three tools.
 Norms ‖·‖ are those of L²(Σ̃_σ, d⁴x), with d⁴x = r³ dr dω along the rays of Σ̃_σ, and 𝔈 := 𝔈_k1(σ).
-(1) For |H| ≤ 1/50 the energy density of a component ψ on Σ̃_σ lies between c_1 w |∂ψ|² and c_2 w |∂ψ|², for constants
-c_2 ≥ c_1 > 0; so 𝔈 bounds c_1 ∫_(Σ̃_σ) w |∂Γ^β h_R|² d⁴x for |β| ≤ k1 [[pending:far-energy-tools]]. Hence a first-order
-coefficient c with |c| ≤ c_0 r^(−q) gives ‖w^(1/2) c ∂φ‖ ≤ C c_0 r_σ^(−q) 𝔈^(1/2).
+(1) For |H| ≤ 1/50 the energy density √|g| T_g[ψ](w ∂_t, −∇t̃) of a component ψ on Σ̃_σ lies between c_1 w |∂ψ|² and
+c_2 w |∂ψ|², for constants c_2 ≥ c_1 > 0; so 𝔈 bounds c_1 ∫_(Σ̃_σ) w |∂Γ^β h_R|² d⁴x for |β| ≤ k1. Moreover, along every
+ray of Σ̃_σ, liminf_(R′→∞) R′^(2a+2) |Γ^β h_R(R′)|² = 0 for |β| ≤ k1 [[pending:far-energy-tools]]. Hence a
+first-order coefficient c with |c| ≤ c_0 r^(−q) gives ‖w^(1/2) c ∂φ‖ ≤ C c_0 r_σ^(−q) 𝔈^(1/2).
 (2) A zero-order coefficient with |c| ≤ c_0 r^(−q), q ≥ 1, gives ‖w^(1/2) c φ‖ ≤ C c_0 r_σ^(−q+1) 𝔈^(1/2). This
-follows from (1), w ≤ C r^(2a) and r^(2−2q) ≤ r_σ^(2−2q), by the Hardy inequality on each ray,
+follows from (1), r^(2a) ≤ w ≤ C r^(2a) and r^(2−2q) ≤ r_σ^(2−2q), by the Hardy inequality on each ray,
 
     ∫_(r_σ)^∞ r^(2a+1) ψ² dr ≤ (a + 1)⁻² ∫_(r_σ)^∞ r^(2a+3) (∂_r ψ)² dr,                              {#eq:far-hardy}
 
@@ -219,13 +223,13 @@ along the ray. To prove it, integrate ∂_r(r^(2a+2) ψ²) = (2a + 2) r^(2a+1) �
 Drop the boundary term at r_σ, which has the good sign, and apply Cauchy–Schwarz to the last term. Then let R′ → ∞
 along a sequence on which R′^(2a+2) ψ(R′)² → 0.
 (3) A second-order coefficient with |c| ≤ c_0 r^(−q) on ∂∂ψ, ψ := Γ^β h_R, |β| < |α|, gives C c_0 r_σ^(−q) 𝔈^(1/2).
-Indeed x_j Ω_ij = x_i x·∂_x − r² ∂_i, so
+Indeed x_j Ω_ij = x_i (x·∂_x) − r² ∂_i, so
 
     ∂_i = r⁻¹ x̂_i (Z − (t − v1) ∂_t) − r⁻² x_j Ω_ij,
 
-and with |t − v1| ≤ r on W this gives |∂∂ψ| ≤ C Σ_Γ (|∂Γψ| + r⁻¹ |Γψ|) + C r⁻¹ |∂ψ|. Here Ω_ij acting componentwise
-differs from L_Ω_ij by a constant linear map of the components, and the fields Γψ have order |β| + 1 ≤ |α|. The
-zero-order part goes through (2).
+and with |t − v1| ≤ r on W this gives |∂∂ψ| ≤ C Σ_Γ (|∂Γψ| + r⁻¹ |Γψ|) + C (|∂ψ| + r⁻¹ |ψ|), the sum over
+Γ ∈ {∂_t, Z, L_Ω_ij}. Here Ω_ij acting componentwise differs from L_Ω_ij by a constant linear map of the components,
+and the fields Γψ have order |β| + 1 ≤ |α|. The zero-order part goes through (2).
 Under the bootstrap assumption of the estimate, on Σ̃_σ and for r ≥ r_σ,
 
     |Γ^β h_R| ≤ C_S ε r^(−1/2−a),   |∂Γ^β h_R| ≤ C_S ε r^(−3/2−a)   (|β| ≤ k1 − 3),
@@ -234,7 +238,8 @@ Under the bootstrap assumption of the estimate, on Σ̃_σ and for r ≥ r_σ,
 [[pending:far-pointwise]]. Since r_σ ≥ c(1 + |σ|), a term of the energy identity bounded by C r_σ^(−q) 𝔈^(1/2) in the
 norm ‖w^(1/2) ·‖, or by C r_σ^(−q) 𝔈 as an integral over Σ̃_σ, has the *kernel* (1 + |σ|)^(−q).
 
-**Corollary {#cor:far-kernels}** (the kernels). Let a < 9/2 (a < 4 if □_η Σ_4 = 0). In the weighted energy inequality
+**Corollary {#cor:far-kernels}** (the kernels). Let 0 < a < 9/2 (0 < a < 4 if □_η Σ_4 = 0). In the weighted energy
+inequality
 
     𝔈_k1(σ) ≤ C_E [ 𝔈_k1(T) + 𝔉_k1 + ∫_T^σ κ 𝔈_k1 + ∫_T^σ κ_Σ 𝔈_k1^(1/2) ]
 
@@ -254,8 +259,9 @@ with factors of the same sizes or smaller, as in the proof of [[prop:far-coeffic
 terms of D^m P(H) below.
 
 The terms linear in Γ^β h_R with every other slot a field Γ^γ Σ have coefficients O(λ r^(−4+j)) on ∂^j Γ^β h_R, since
-Γ^γ Σ is O(λ r⁻²) with each derivative gaining r⁻¹ ([[eq:far-sigma-bounds]]). This gives λ r⁻² (second order,
-kernel 2 by (3)), λ r⁻³ (first order, kernel 3 by (1)) and λ r⁻⁴ (zero order, kernel 3 by (2)). By
+Γ^γ Σ is O(λ r⁻²) with each derivative gaining r⁻¹ ([[eq:far-sigma-bounds]]). This gives λ r⁻² (second order, on
+∂∂Γ^β h_R with |β| < |α|, kernel 2 by (3)), λ r⁻³ (first order, kernel 3 by (1)) and λ r⁻⁴ (zero order, kernel 3 by
+(2)). By
 [[prop:far-coefficients]] with H = Σ + h_R, [[eq:far-sigma-bounds]] and [[eq:far-pointwise]], the other linear terms
 are as follows. The terms (μ ∂_μ)^j DP(H)[Γ^β h_R], j ≥ 1, |β| < |α|, give μ r⁻² (second order, kernel 2) and
 smaller. B(H)·∂φ and the first-order part of □_g give (μ + λ) r⁻³ + C ε r^(−3/2−a) (kernels 3 and 3/2 + a). C(H) φ

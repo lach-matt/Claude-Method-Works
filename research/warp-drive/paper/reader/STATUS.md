@@ -43,7 +43,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | running |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | running | - |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | running | - |
-| 63-64 M Ch 13-14 | being written | - | - |
+| 63 M Ch 13 | being written | - | - |
+| 64 M Ch 14 | written (1,031 lines, no markers); running | - | - |
 | 65-90 | not yet written | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | NOT CONFIRMED 0M 7m 9n; second fix running |
 
@@ -51,12 +52,13 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 
 | file | written | reading |
 |---|---|---|
-| P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | NOT CONFIRMED 2M 4m 9n; fixed; confirming reader running |
+| P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | NOT CONFIRMED 2M 4m 9n; fixed; CONFIRMED (second reading, 4 nits) |
 | P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | second reading 0M 1m 4n (a rename); fixed; CONFIRMED (diff read) |
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | NOT CONFIRMED 1M 7m 16n; fix running |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | NOT CONFIRMED 1M 9m 9n (constants weaker than source); fix running |
-| P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | running |
-| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | NOT CONFIRMED 0M 9m 8n; fix running; every h: P-A3 written, reader running |
+| P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | NOT CONFIRMED 0M 6m 4n; point values and decay unused (class b); fix running |
+| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | NOT CONFIRMED 0M 9m 8n; fix running; every h: P-A3 read (0M 1m 7n), fix running |
 | P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | running |
-| P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | running |
+| P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n (arithmetic digits, lens corollary); fix running; C2 deleted |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | running |
+| P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | - |
