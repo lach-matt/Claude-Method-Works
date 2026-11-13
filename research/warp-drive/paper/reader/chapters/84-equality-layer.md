@@ -12,7 +12,7 @@ the part of g_λ⁻¹(dΦ0, dΦ0) of first degree in the waves: its terms of ord
 term of order λ³ is a first harmonic of the phase that exceeds the margin near the edge of the envelope. The same
 holds for the solutions of [[thm:past-construction]] ([[thm:layer-past]]). The last sections decide the boundary's
 character in the rest of the layer, down to the level where the expansion in λ stops being ordered
-([[prop:layer-regions]]), record the structure of that expansion ([[prop:layer-structure]]), and give the threshold
+([[prop:layer-regions]]), give the structure of that expansion ([[prop:layer-structure]]), and write the threshold
 λ_L of [[thm:layer]] as an explicit formula. The very edge of the layer is the subject of [[ch:equality-edge]].
 
 Throughout, μ0 = √72 l5², and the notation is that of [[ch:setting]], [[ch:approximant]], [[ch:inequalities]],
@@ -58,7 +58,7 @@ since dv = dτ + x̂·dx and dr = x̂·dx, so |α|_e² = β² + (1 − β)² ≤
 **Lemma {#lem:eq-seed}** (g0 at equality.) (a) For Φ = r − ρ(v), on {r = ρ}, g0⁻¹(dΦ, dΦ) = F(ρ) − 2ρ′. For ρ = r_q
 this is [[eq:boundary-margin]], and
 
-    m0(v) := −g0⁻¹(dΦ0, dΦ0) = √(μ/μ0) − 1 + r_q μ′/(2μ),      2 r_q′ = r_q μ′/(2μ).                       {#eq:eq-margin}
+    m0(v) := −g0⁻¹(dΦ0, dΦ0) = √(μ/μ0) − 1 + r_q μ′/(2μ),      2 r_q′ = r_q μ′/(2μ).                      {#eq:eq-margin}
 
 (b) m0 = 0 on {v ≤ v_s}, m0 > 0 on {v > v_s}, and m0 ≥ δ_η := √(μ(v_s + η)/μ0) − 1 > 0 on {v ≥ v_s + η}, for η > 0.
 
@@ -106,7 +106,7 @@ and in a compact set for λ ≤ λ0 (|u| ≤ C λ), gives |f| ≤ K_λ (|u| + |�
 is bounded on the compact R.
 
 The data vanish: Σ_τ0 ∩ R = {τ = τ0, a ≤ r ≤ v_s − τ0}, where (g_λ, ∂_τ g_λ) = (g0, ∂_τ g0) for r < v_s − τ0
-([[sec:eq-setting]]) and, by continuity, at r = v_s − τ0. Now run the proof of [[lem:energy]] on R in place of Ω, with
+([[sec:eq-setting]]) and, by continuity, at r = v_s − τ0. Run the proof of [[lem:energy]] on R in place of Ω, with
 g̃ := g0 and the multiplier Y = −g0⁻¹ dτ. The boundary of R ∩ {τ0 ≤ τ′ ≤ τ} consists of Σ_τ0 ∩ R, Σ_τ ∩ R, parts of
 ∂Ω other than Σ_τ0, which are spacelike with Ω, hence R, to their past ([[lem:domain]]), and a part of the hypersurface
 {v = v_s}. That part is null for g0 (dv is null, [[prop:vaidya]] (c)), and R lies to its past, since v does not
@@ -276,7 +276,7 @@ In (v, r, ϑ, φ1, φ2), with F° := 1 − μ0/r² and Γ̊ the Christoffel symb
 symbols of g0° that do not vanish are
 
     Γ^v_vv = μ0/r³,   Γ^r_vv = F° μ0/r³,   Γ^r_rv = −μ0/r³,   Γ^v_AB = −r γ_AB,   Γ^r_AB = −r F° γ_AB,
-    Γ^A_rB = δ^A_B/r,   Γ^A_BC = Γ̊^A_BC;                                                              {#eq:layer-christoffel}
+    Γ^A_rB = δ^A_B/r,   Γ^A_BC = Γ̊^A_BC;                                                         {#eq:layer-christoffel}
 
 in particular Γ^A_(av) = 0 for every index a, and Γ^v_(rv) = Γ^v_(rr) = Γ^r_(rr) = 0. Each is read from Γ^σ_ab = (1/2)
 g^(σd)(∂_a g_db + ∂_b g_da − ∂_d g_ab) with g_vv = −F°, g_vr = 1, g_rr = 0, g_AB = r² γ_AB and g^vv = 0, g^vr = 1,
@@ -285,7 +285,7 @@ g^rr = F°; for instance Γ^r_rv = (1/2) ∂_r g_vv = −μ0/r³ and Γ^v_AB = �
 For a symmetric 2-tensor h let
 
     Pol(h) := h(ℓ, ·) − (1/2) dv tr h,      D_X(h) := div h − (1/2) d tr h,      𝒯 h := −i (∇_ℓ h + (3/(2r)) h),
-    R_X(h) := −(1/2) □h + 𝔚(h),      𝔚(h)_mn := −R_m^a_n^b h_ab,                                       {#eq:layer-operators}
+    R_X(h) := −(1/2) □h + 𝔚(h),      𝔚(h)_mn := −R_m^a_n^b h_ab,                                    {#eq:layer-operators}
 
 ∇, □ = ∇^a ∇_a, div, tr and the Riemann tensor R being those of g0°, indices moved by g0°.
 
@@ -303,7 +303,7 @@ is no term of order λ⁻².
     (𝒯H)_vv = −i(∂_r H_vv + Λ H_vv + 2μ0 H_vr/r³),     (𝒯H)_vr = −i(∂_r H_vr + Λ H_vr + μ0 H_rr/r³),
     (𝒯H)_rr = −i(∂_r + Λ) H_rr,      (𝒯H)_vϑ = −i(∂_r H_vϑ + H_vϑ/(2r) + μ0 H_rϑ/r³),
     (𝒯H)_rϑ = −i(∂_r + 1/(2r)) H_rϑ,      (𝒯H)_AB = −i(∂_r − 1/(2r)) H_AB   (A, B angular);
-    Pol(H)_v = −(1/2)(F° H_rr + r⁻² γ^(AB) H_AB),   Pol(H)_r = H_rr,   Pol(H)_ϑ = H_rϑ.               {#eq:layer-components}
+    Pol(H)_v = −(1/2)(F° H_rr + r⁻² γ^(AB) H_AB),   Pol(H)_r = H_rr,   Pol(H)_ϑ = H_rϑ.            {#eq:layer-components}
 
 (d) If h is in 𝔖, then (dRic^H h)_vv = 0 and tr dRic^H h = 0; the same holds for R_X h.
 
@@ -315,8 +315,8 @@ variation of Ricci is ∇_ρ δΓ^ρ_mn − ∇_n δΓ^ρ_(ρm). Commuting the d
 using Ric(g0°) = 0, it equals (1/2)(∇_m dD_n + ∇_n dD_m) − (1/2) □h_mn − R_m^a_n^b h_ab. The variation of the gauge term
 of [[eq:gauge]] at D = 0 is (1/2)(∇_m dD_n + ∇_n dD_m), since ∇̂ = ∇ at g0°. The difference is (a).
 
-(b) For h = H e^(ikv/λ), ∇_a h = (∇_a H + i k λ⁻¹ (∂_a v) H) e^(ikv/λ), and g0°⁻¹(dv, dv) = 0, ∇ dv being symmetric with
-ℓ^a ∇_a ∂_b v = 0 ([[prop:vaidya]] (c)), and □v = 3/r ([[sec:stage-zero]]). Hence
+(b) For h = H e^(ikv/λ), ∇_a h = (∇_a H + i k λ⁻¹ (∂_a v) H) e^(ikv/λ), and g0°⁻¹(dv, dv) = 0 ([[prop:vaidya]] (c)) and □v = 3/r
+([[sec:stage-zero]]). Hence
 
     □(H e^(ikv/λ)) = e^(ikv/λ) (□H + i k λ⁻¹ (2 ∇_ℓ H + (3/r) H)),
 
@@ -358,7 +358,7 @@ as in [[lem:layer-seed-operators]], put H_0 := H_(J+1) := 0 and
 
 (a) For every j ≥ 1, with H_(−1) := 0 and G_(−1) := 0,
 
-    i Pol(Z_j) + div Gt(Z_(j−1)) = −i (∇_ℓ + 3/(2r)) G_(j−1) − (1/2) □G_(j−2),                         {#eq:layer-bianchi}
+    i Pol(Z_j) + div Gt(Z_(j−1)) = −i (∇_ℓ + 3/(2r)) G_(j−1) − (1/2) □G_(j−2),                        {#eq:layer-bianchi}
 
 where Gt(Y) := Y − (1/2)(tr Y) g0° and G_j is a covector.
 
@@ -383,17 +383,17 @@ X_Σ. So G_(j−1) = 0, and induction from j = 1, where G_(−1) = 0 and G_0 = 0
 V = V_v dv + V_r dr + V_ϑ dϑ. Then Y := Pol⁺ V has, in (v, r, ϑ, φ1, φ2),
 
     Y_vv = V_r/4,   Y_vr = −V_r/2,   Y_rr = V_r,   Y_vϑ = −V_ϑ/2,   Y_rϑ = V_ϑ,
-    Y_AB = (1/3)(−F V_r − 2 V_v) r² γ_AB,   tr_(g0) Y = −V_r − 2 V_v,                                 {#eq:layer-pol-plus}
+    Y_AB = (1/3)(−F V_r − 2 V_v) r² γ_AB,   tr_(g0) Y = −V_r − 2 V_v,                                {#eq:layer-pol-plus}
 
 F := 1 − μ/r² at the point; in particular Pol Y = V, and the γ-traceless angular part of Y vanishes.
 
-*Proof.* Pol is onto ([[lem:stage-data]] (i)), so Pol Pol^T is invertible, Pol⁺ maps onto the range of Pol^T, and Pol
-is injective there. So it suffices to show Pol Y = V and that Y lies in the range of Pol^T. First, by
+*Proof.* Pol is onto ([[lem:stage-data]] (i)), so Pol Pol^T is invertible, Pol⁺ maps onto the range of Pol^T, and Pol is
+injective there. So it suffices to show Pol Y = V and that Y lies in the range of Pol^T. First, by
 [[eq:layer-components]] (which hold at g0 as well, with F in place of F°): Pol(Y)_r = Y_rr = V_r, Pol(Y)_ϑ = Y_rϑ = V_ϑ,
-and Pol(Y)_v = Y_rv − (1/2) tr Y = −V_r/2 + (V_r + 2 V_v)/2 = V_v, with tr Y = 2 Y_vr + F Y_rr + r⁻² γ^(AB) Y_AB = −V_r
-+ F V_r − F V_r − 2 V_v. Second, rotate the Cartesian coordinates so that at the point x̂ = e1 and ∂_ϑ = r ∂_(x2); then
-ℓ = −∂_τ + ∂_1, dv = dτ + dx1, and g0⁻¹ = η⁻¹ − m L0 ⊗ L0, m := μ/r², L0 = ∂_τ − ∂_1. The Frobenius pairing of Pol(Y)
-with β is Σ_(a,b) Y_ab ((1/2)(ℓ^a β_b + ℓ^b β_a) − (1/2)(β_0 + β_1) g0^(ab)), so the range of Pol^T consists of the arrays
+and Pol(Y)_v = Y_rv − (1/2) tr Y = −V_r/2 + (V_r + 2 V_v)/2 = V_v, with tr Y = 2 Y_vr + F Y_rr + r⁻² γ^(AB) Y_AB = −V_r +
+F V_r − F V_r − 2 V_v. Second, rotate the Cartesian coordinates so that at the point x̂ = e1 and ∂_ϑ = r ∂_(x2); then ℓ =
+−∂_τ + ∂_1, dv = dτ + dx1, and g0⁻¹ = η⁻¹ − m L0 ⊗ L0, m := μ/r², L0 = ∂_τ − ∂_1. The Frobenius pairing of Pol(Y) with β
+is Σ_(a,b) Y_ab ((1/2)(ℓ^a β_b + ℓ^b β_a) − (1/2)(β_0 + β_1) g0^(ab)), so the range of Pol^T consists of the arrays
 
     Z_00 = −β_0 + s(1 + m)/2,   Z_01 = (β_0 − β_1)/2 − s m/2,   Z_11 = β_1 − s(1 − m)/2,
     Z_02 = −β_2/2,   Z_12 = β_2/2,   Z_22 = Z_33 = Z_44 = −s/2,   Z_0j = −β_j/2,  Z_1j = β_j/2  (j = 3, 4),
@@ -414,7 +414,7 @@ c = cos ϑ, s = sin ϑ, h = h(cos 2ϑ) as in [[eq:waves]]: indeed (2h/3)(2c² co
 (2h/3)(2s² sin θ − c² cos θ) = Re[b e^(iθ)], which with [[eq:waves]] gives the claim. T is γ-traceless. Put
 
     d_1 := (div_γ T)_ϑ = ((a − b) − 3(a + b) cos 2ϑ)/sin 2ϑ − (a + b)′,      d := div_γ div_γ T = (cs)⁻¹ (cs d_1)′,
-                                                                                                     {#eq:layer-divergence}
+                                                                                                   {#eq:layer-divergence}
 
 ′ := d/dϑ; d_1 dϑ is the divergence of T on the round S³ (its φ-components vanish by the symmetries), and d its
 divergence, the volume density of γ being cs.
@@ -422,7 +422,7 @@ divergence, the volume density of γ being cs.
 **Definition {#def:layer-profiles}** (The first-degree profiles.) H_1 := A env(v) r^(1/2) T, and for j ≥ 1, H_(j+1) is
 the solution of
 
-    𝒯 H_(j+1) = −R_X H_j   along ℓ,      H_(j+1) = i Pol⁺(D_X H_j)   on Σ_τ0, at r = r0 := v − τ0,    {#eq:layer-profiles}
+    𝒯 H_(j+1) = −R_X H_j   along ℓ,      H_(j+1) = i Pol⁺(D_X H_j)   on Σ_τ0, at r = r0 := v − τ0,   {#eq:layer-profiles}
 
 with the operators of [[eq:layer-operators]] at the seed and Pol⁺ of [[lem:layer-pol-plus]] at the seed's F°.
 
@@ -444,7 +444,8 @@ and H_1, H_2 lie in 𝔖. Moreover i Pol(H_2) + D_X H_1 = 0 on Ω.
 (c) D_X H_2 = i a_2 (r^(−5/2) β_2(r) dv + r^(−7/2) dr) + (a dϑ term), and the components vv, vr, rr and the trace of
 H_3 are
 
-    tr H_3 = 0,   H_3,rr = −a_2 r^(−7/2),   H_3,vr = −a_2 r^(−5/2) β_2(r),   H_3,vv = −a_2 r^(−3/2) β_2(r)².   {#eq:layer-h3}
+    tr H_3 = 0,   H_3,rr = −a_2 r^(−7/2),   H_3,vr = −a_2 r^(−5/2) β_2(r),   H_3,vv = −a_2 r^(−3/2) β_2(r)².
+                                                                                                           {#eq:layer-h3}
 
 (d) At the horizon r = √μ0, H_3,vv(v, √μ0, ϑ) = A env(v) d(ϑ) ν(r0), where
 
@@ -472,7 +473,7 @@ satisfies; and (∂_r − 1/(2r)) H_2,AB = −i (R_X H_1)_AB with zero data give
 H_1)_AB is (tr R_X H_1 = 0). So H_2 is in 𝔖. By [[lem:layer-bianchi]] (b) with J = 2 (Z_1 = Z_2 = 0, G_0 = 0, and G_1
 = 0 at r0 since Pol Pol⁺ = 1), G_1 = i Pol(H_2) + D_X H_1 = 0 on Ω.
 
-(c) For h in 𝔖 the same computation as in (a) gives (div h)_v = r⁻² div_γ(h_(v·)) and (div h)_r = r⁻² div_γ(h_(r·)),
+(c) For h in 𝔖 the same calculation as in (a) gives (div h)_v = r⁻² div_γ(h_(v·)) and (div h)_r = r⁻² div_γ(h_(r·)),
 the divergences on S³ of the covectors h_(vA) and h_(rA): the terms with Γ^A_(·v) vanish, h_vv = h_vr = h_rr = 0, and
 the term −Γ^E_(Ar) h_(BE) contracted with g0°^(AB) is a trace. With tr H_2 = 0 and div_γ(d_1 dϑ) = d, this is the
 stated form of D_X H_2. By (b) and [[lem:layer-seed-operators]] (d), (R_X H_2)_vv = 0 and tr R_X H_2 = 0. Let H_3 be
@@ -492,9 +493,9 @@ p has its local maximum p(0) = −2 < 0 and its local minimum p(1) = −3 < 0, s
 −μ0^(−7/4) p′(ρ*)²/(18 ρ*⁶) ≠ 0 since p′(ρ*) ≠ 0. Differentiating, dν/dρ = −μ0^(−7/4) p (ρ p′ − 3p)/(18 ρ⁷) and ρ p′ −
 3p = 3(ρ² + 2). Finally p²/ρ⁶ → 4. ∎
 
-The admissible values are r0 = v − τ0 ≥ v_s − τ0 > √μ0 + 1, that is ρ > 1 + μ0^(−1/2). The coefficient ν depends on
-τ0, through r0, and on the Euclidean structure used to define Pol⁺; the one fixed in [[lem:stage-data]] is used
-throughout. A tensor T with d = 0 gives no λ³ term: for instance (a, b) = ((1 + 3 cos 2ϑ)/2, (1 − 3 cos 2ϑ)/2) has d_1 = 0.
+The admissible values are r0 = v − τ0 ≥ v_s − τ0 > √μ0 + 1, that is ρ > 1 + μ0^(−1/2). The coefficient ν depends on τ0,
+through r0, and on the Euclidean structure used to define Pol⁺; the one fixed in [[lem:stage-data]] is used throughout. A
+tensor T with d = 0 gives no λ³ term: for instance (a, b) = ((1 + 3 cos 2ϑ)/2, (1 − 3 cos 2ϑ)/2) has d_1 = 0.
 
 **Lemma {#lem:layer-angular}** (The angular factor of the waves.) With ζ := cos 2ϑ,
 
@@ -520,7 +521,7 @@ so |d|² ≥ (16/9) · 4 = 64/9, with equality only at u = 0. ∎
 
 **Lemma {#lem:layer-inverse}** (The inverse metric on the boundary.) On the boundary,
 
-    g_λ⁻¹(dΦ0, dΦ0) = −m0 − k(Φ0♯, Φ0♯) + q,      |q| ≤ C |k(Φ0♯, ·)| (|k(Φ0♯, ·)| + |k|²),             {#eq:layer-inverse}
+    g_λ⁻¹(dΦ0, dΦ0) = −m0 − k(Φ0♯, Φ0♯) + q,      |q| ≤ C |k(Φ0♯, ·)| (|k(Φ0♯, ·)| + |k|²),           {#eq:layer-inverse}
 
 where C depends on the bounds of g0⁻¹ and g_λ⁻¹ on Ω, and |k| ≤ 1.
 
@@ -555,7 +556,7 @@ The μ-factors carry the weight at every point: 0 ≤ μ − μ0 ≤ (2/9) A² (
 Cartesian array, satisfy −(1/2) g0^(ab) ∂_a ∂_b u = f on Ω_v. Put e(τ) := ‖∂u(τ)‖ + ‖u(τ)‖, the flat L² norms on Σ_τ ∩
 Ω_v, and F_v(u) := ∫_(N_v) T(L0, Y) r³ dr dω, with T the energy tensor of u for g0, Y = −g0⁻¹ dτ and L0 = −ℓ. Then
 
-    sup_(τ0≤τ≤τ_end) e(τ) + F_v(u)^(1/2) ≤ C_E (e(τ0) + ∫_(τ0)^(τ_end) ‖f‖),                              {#eq:layer-energy-null}
+    sup_(τ0≤τ≤τ_end) e(τ) + F_v(u)^(1/2) ≤ C_E (e(τ0) + ∫_(τ0)^(τ_end) ‖f‖),                      {#eq:layer-energy-null}
 
 C_E depending on Ω and μ(v_end) only, not on v; and T(L0, Y) = (1/2)(1 + μ/r²)(ℓu)² + |∇̊u|²/(2r²), ∇̊ the gradient on
 the unit S³.
@@ -593,7 +594,7 @@ so ‖∂_θ⁻¹‖ ≤ π, and ‖Π_osc‖ ≤ 2. Hence ‖𝓜‖ ≤ C by t
 
 **Lemma {#lem:layer-null-pointwise}** (Pointwise bounds from the null face.) For u smooth on Ω_v and Y ∈ N_v,
 
-    |u(Y)| ≤ C_N Σ_(|β|≤2) (sup_(N_v ∩ Σ_τ0) |Ω^β u| + F_v(Ω^β u)^(1/2)),                                  {#eq:layer-null-pointwise}
+    |u(Y)| ≤ C_N Σ_(|β|≤2) (sup_(N_v ∩ Σ_τ0) |Ω^β u| + F_v(Ω^β u)^(1/2)),                      {#eq:layer-null-pointwise}
 
 Ω^β products of the rotations Ω_ab := x_a ∂_b − x_b ∂_a, C_N depending on a and b(τ0) only.
 
@@ -713,7 +714,7 @@ every stage vanishes on Ω ∩ {v ≤ v_s}, and the stage data and U vanish on �
 **Proposition {#prop:layer-identification}** (The part of first degree of the approximant.) For X ∈ Ω with v :=
 v(X) ≤ v_♯ and 1 ≤ j ≤ N, the profiles g_j of [[eq:approximant]] satisfy
 
-    |∂^i_(X,θ) (g_j − Re[H_j e^(iθ)])(X)| ≤ C ε_(i+2j+1)(v)².                                             {#eq:layer-identification}
+    |∂^i_(X,θ) (g_j − Re[H_j e^(iθ)])(X)| ≤ C ε_(i+2j+1)(v)².                                  {#eq:layer-identification}
 
 That is, the part of first degree of Σ_j λ^j [g_j] is Re Σ_j λ^j H_j e^(iv/λ), and the rest is of degree two in the
 sense of [[eq:layer-identification]].
@@ -737,7 +738,7 @@ i + 2j + 1. ∎
 
     −k(Φ0♯, Φ0♯) = −λ³ A env(v) ν(v − τ0) Re[d(ϑ) e^(iθ)] + O(λ⁴ ε + λ ε² + |w(X)|),
     |k(Φ0♯, ·)| ≤ C (λ² ε + λ ε² + |w(X)|),      |k| ≤ C (λ ε + |w(X)|),
-    0 ≤ m0(v) ≤ C (ε_0(v)² + ∫_(v_s)^v env²),                                                         {#eq:layer-expansion}
+    0 ≤ m0(v) ≤ C (ε_0(v)² + ∫_(v_s)^v env²),                                                       {#eq:layer-expansion}
 
 the O(·) with constants as in [[sec:layer-setting]]. Moreover |β_Φ| ≤ (μ − μ0)/(2μ0) + r_q μ′/(4μ0) and 0 ≤ r_q − √μ0
 ≤ (μ − μ0)/(4√μ0).
@@ -753,7 +754,7 @@ on β_Φ, on r_q − √μ0 = √μ0 ((μ/μ0)^(1/4) − 1) and, with μ′ = (2
 1/2, with C1 of [[eq:eq-c1]], and put ε_t := 2 C1 λ. Let v1 ≤ v_♯ with ε_(M*)(v1) ≤ λ³, and R := Ω ∩ {v + ε_t (τ − τ0)
 ≤ v1}. Then for every X ∈ R with r(X) ≥ q0,
 
-    |w(X)| ≤ C λ^(N−5) ε_(M*)(v1),                                                                      {#eq:layer-remainder}
+    |w(X)| ≤ C λ^(N−5) ε_(M*)(v1),                                                                  {#eq:layer-remainder}
 
 C depending on the quantities of [[sec:layer-setting]] and not on λ, v1 or X.
 
@@ -771,7 +772,7 @@ of its face. R does not meet the outer face of Ω, where v ≥ V + 1 > v1. Its s
 **2. The equation.** From [[eq:gauge]] for g_λ and for g_app, with Ric^H(g_λ) = 0 and g_λ = g_app + w,
 
     −(1/2) g_λ^(ab) ∂_a ∂_b w = f := −Ric^H(g_app) + (1/2)(g_λ^(ab) − g_app^(ab)) ∂_a ∂_b g_app
-                                     − [Q(g_λ)(∂g_λ, ∂g_λ) − Q(g_app)(∂g_app, ∂g_app)].                {#eq:layer-w-equation}
+                                     − [Q(g_λ)(∂g_λ, ∂g_λ) − Q(g_app)(∂g_app, ∂g_app)].            {#eq:layer-w-equation}
 
 **3. Coefficients on R.** For X ∈ R and j ≤ 4, by [[eq:two-scale-derivative]], |∂^j (g_app − g0)(X)| ≤ C Σ_(l≤N)
 Σ_(p≤j) λ^(l−p) |∂_θ^p ∂_X^(j−p) g_l|. A θ-derivative removes the means, so for p ≥ 1 the factor is at most C ε_(M*)(v1)
@@ -829,7 +830,7 @@ levels, so the same triangular argument applies there. Step 7 as written. ∎
 m ≥ 2. Put E_f(v) := sup_(v′≤v) |f(v′)| and M_m(v) := sup_(v′≤v) |f^(m)(v′)|. For 0 < i < m and every v,
 
     sup_(v′≤v) |f^(i)(v′)| ≤ C_(i,m) E_f(v)^(1−i/m) M_m(v)^(i/m),
-    C_(i,m) := min_(κ>0) [Λ_(i,m) κ^(−i) + ((m − 1) κ)^(m−i)/(m − i)!],                                {#eq:layer-interpolation}
+    C_(i,m) := min_(κ>0) [Λ_(i,m) κ^(−i) + ((m − 1) κ)^(m−i)/(m − i)!],                         {#eq:layer-interpolation}
 
 where Λ_(i,m) := Σ_k |l_k^(i)(0)| for the Lagrange basis (l_k) on the nodes 0, −1, …, −(m − 1). In particular
 C_(i,m) ≤ Λ_(i,m) + (m − 1)^(m−i).
@@ -847,15 +848,15 @@ M_m(v))^(1/m), |f^(i)(u)| ≤ E_f^(1−i/m) M_m^(i/m) (Λ_(i,m) κ^(−i) + ((m 
 
 **Corollary {#cor:layer-interpolation-band}** (The costs against the level.) Let c ≥ 1 and m ≥ 2c. Wherever E(v) ≤ 1,
 
-    ε_c(v) ≤ C_c E(v)^(1−c/m),      C_c := Σ_(i≤c) C_(i,m) M_m^(i/m),      M_m := sup |env^(m)|            {#eq:layer-cost-level}
+    ε_c(v) ≤ C_c E(v)^(1−c/m),      C_c := Σ_(i≤c) C_(i,m) M_m^(i/m),      M_m := sup |env^(m)|    {#eq:layer-cost-level}
 
 (with C_(0,m) := 1). Let δ ∈ (0, 1/2] and m = 56c. Wherever λ^(3+δ) ≤ E(v) ≤ 1,
 
-    ε_c(v)² ≤ C_c² λ^(−1/8) E(v)².                                                                     {#eq:layer-cost-band}
+    ε_c(v)² ≤ C_c² λ^(−1/8) E(v)².                                                                  {#eq:layer-cost-band}
 
 And for m ≥ 84c and λ ≤ 1, wherever λ^(3+δ) ≤ E(v) ≤ 1,
 
-    ε_c(v)² ≤ C λ^(−1/8) m0(v),                                                                         {#eq:layer-cost-margin}
+    ε_c(v)² ≤ C λ^(−1/8) m0(v),                                                                   {#eq:layer-cost-margin}
 
 with C depending on c, m, A, μ0, μ(v_end) and M_m.
 
@@ -866,7 +867,8 @@ env(v_m) = E(v) =: E and put ε_1 := sup_(v′≤v) |env′| > 0. Then env ≥ E
 [v_s, v] since env(v_s) = 0, so ∫_(v_s)^v env² ≥ E³/(8 ε_1) ≥ E^(2+1/m)/(8 C_(1,m) M_m^(1/m)). With √x − 1 = (x −
 1)/(√x + 1) ≥ (x − 1)/(1 + √(μ(v_end)/μ0)) for 1 ≤ x ≤ μ(v_end)/μ0, and μ − μ0 = (2/9) A² ∫ env²,
 
-    m0(v) ≥ √(μ/μ0) − 1 ≥ c_m E(v)^(2+1/m),      c_m := A²/(36 μ0 (1 + √(μ(v_end)/μ0)) C_(1,m) M_m^(1/m)).   {#eq:layer-margin-lower}
+    m0(v) ≥ √(μ/μ0) − 1 ≥ c_m E(v)^(2+1/m),      c_m := A²/(36 μ0 (1 + √(μ(v_end)/μ0)) C_(1,m) M_m^(1/m)).
+                                                                                                 {#eq:layer-margin-lower}
 
 So ε_c² ≤ C_c² E^(2−2c/m) ≤ (C_c²/c_m) m0 E^(−(2c+1)/m), and E^(−(2c+1)/m) ≤ λ^(−(3+δ)(2c+1)/m) ≤ λ^(−1/8), since
 (2c + 1)/m ≤ 3c/(84c) = 1/28 and (3 + δ)/28 ≤ 1/8. ∎
@@ -997,7 +999,7 @@ it lies in 𝔖, and i Pol(H_2^∞) + D_X H_1 = 0.
 (c) The vv, vr, rr components and the trace of H_3^∞ are tr = 0, rr = −a_2 r^(−7/2), vr = −(μ0/3) a_2 r^(−11/2),
 vv = −(μ0²/9) a_2 r^(−15/2), with a_2 = A env(v) d(ϑ) as in [[prop:layer-linear]]. At the horizon,
 
-    H_3,vv^∞(v, √μ0, ϑ) = A env(v) d(ϑ) ν_∞,      ν_∞ := −μ0^(−7/4)/9.                                  {#eq:layer-nu-infinity}
+    H_3,vv^∞(v, √μ0, ϑ) = A env(v) d(ϑ) ν_∞,      ν_∞ := −μ0^(−7/4)/9.                            {#eq:layer-nu-infinity}
 
 The H_j^∞ do not depend on τ0. On Ω the profiles of [[thm:past-approximant]] continue by the same transports, so these
 formulas hold there.
@@ -1021,10 +1023,10 @@ Pol(H_2^∞) vanish.
 = 0; r^(3/2) |G_2|_cart → 0, since H_3^∞ decays and D_X H_2^∞ = O(r^(−5/2)), while the nonzero solutions of that
 transport have r^(3/2) |G|_cart tending to a nonzero constant; so G_2 = 0. Hence H_3,rr^∞ = i (D_X H_2^∞)_r = −a_2
 r^(−7/2) and H_3,vr^∞ = i (D_X H_2^∞)_v = −a_2 r^(−5/2) β_∞. The vv equation gives ∂_r (r^(3/2) H_3,vv^∞) = 2μ0 a_2 r⁻⁴
-β_∞ = ∂_r(−a_2 β_∞²), and decay fixes r^(3/2) H_3,vv^∞ = −a_2 β_∞² = −(μ0²/9) a_2 r⁻⁶. At r = √μ0 this is −a_2
-μ0^(−3/4) (μ0/3)² μ0⁻³ = a_2 ν_∞. The construction of [[thm:past-approximant]] solves every transport with r^(3/2) Z → 0
-([[lem:decay-calculus]] (d)), so the first-degree parts of its profiles are the H_j^∞ (as in [[prop:layer-identification]]
-(i)), and on Ω they continue along the same generators. ∎
+β_∞ = ∂_r(−a_2 β_∞²), and decay fixes r^(3/2) H_3,vv^∞ = −a_2 β_∞² = −(μ0²/9) a_2 r⁻⁶. At r = √μ0 this is −a_2 μ0^(−3/4)
+(μ0/3)² μ0⁻³ = a_2 ν_∞. The construction of [[thm:past-approximant]] solves every transport with r^(3/2) Z → 0
+([[lem:decay-calculus]] (d)), so the first-degree parts of its profiles are the H_j^∞ (as in
+[[prop:layer-identification]] (i)), and on Ω they continue along the same generators. ∎
 
 ν_∞ is the limit of ν(r0) as r0 → ∞, obtained here without that limit; it does not depend on the choice of Pol⁺,
 which these solutions do not use.
@@ -1036,9 +1038,9 @@ f| ≤ C ε_c(v)^d r^(−p); the classes E_p, L_p, O_p of [[sec:past-approximant
 
 (a) W_TT ∈ E_(3/2)(ε), χ ∈ E_2(ε²), ĝ_j ∈ E_2(ε) for j ≥ 2;
 
-(b) m_j = r⁻² M_j + m̃_j with |M_j| ≤ C ε², |m̃_j| ≤ C ε² r⁻¹ and |m̃_j| ≤ C ε r^(−7/4), with their derivatives; the phases
-and Ψ_j satisfy |∂φ̃_j| ≤ C ε r^(−3/4) and |Ψ̃_j| ≤ C ε r^(−7/4) beyond their leading terms, which are built from M_j and
-are O(ε²);
+(b) m_j = r⁻² M_j + m̃_j with |M_j| ≤ C ε², |m̃_j| ≤ C ε² r⁻¹ and |m̃_j| ≤ C ε r^(−7/4), with their derivatives; the
+phases and Ψ_j satisfy |∂φ̃_j| ≤ C ε r^(−3/4) and |Ψ̃_j| ≤ C ε r^(−7/4) beyond their leading terms, which are built from
+M_j and are O(ε²);
 
 (c) ĝ_j − Re[H_j^∞ e^(iθ)] ∈ E_2(ε²);
 
@@ -1057,16 +1059,17 @@ has an oscillating factor, so the forcing term is in E_3(ε), and the transport 
 the weight being that of the generator's v.
 
 (b) M_j := 2 ∫_(−∞)^v 𝒮_(j,3) with 𝒮_(j,3) of degree two by (F2), so |M_j| ≤ C (v − v_s) ε². The remainders (m̃, φ̃, Ψ̃)
-solve the remainder system of the proof of [[thm:past-approximant]], whose estimates are linear in the forcing terms
-and run on P_v: [[lem:past-energy]] and [[lem:past-transport]] on P_v, with the null face {v′ = v} to the future of P_v
-and its flux kept, as in [[lem:layer-energy-null]]; L0 is tangent to it, so the transport's boundary term vanishes; and
-the Poincaré inequality of [[lem:past-sobolev]] (b) holds on the thinner slices with the same constant. With the
-oscillating remainder taken as a known forcing term by (a), all forcing terms lie in E_(7/2)(ε²), so the energies and
-the flux through {v′ = v} carry ε² with the t-rates of that proof. The flux gives, as in [[lem:layer-null-pointwise]]
-but integrating from infinity along γ_Y, with ∫_r^∞ r′⁻³ dr′ = 1/(2r²), |∂^α Ω^β m̃_j| ≤ C ε² r⁻¹; the proof of
+solve the remainder system of the proof of [[thm:past-approximant]], whose estimates are linear in the forcing terms and
+run on P_v: [[lem:past-energy]] and [[lem:past-transport]] on P_v, with the null face {v′ = v} to the future of P_v and
+its flux kept, as in [[lem:layer-energy-null]]; L0 is tangent to it, so the transport's boundary term vanishes; and the
+Poincaré inequality of [[lem:past-sobolev]] (b) holds on the thinner slices with the same constant. With the oscillating
+remainder taken as a known forcing term by (a), all forcing terms lie in E_(7/2)(ε²), so the energies and the flux
+through {v′ = v} carry ε² with the t-rates of that proof. The flux gives, as in [[lem:layer-null-pointwise]] but
+integrating from infinity along γ_Y, with ∫_r^∞ r′⁻³ dr′ = 1/(2r²), |∂^α Ω^β m̃_j| ≤ C ε² r⁻¹; the proof of
 [[thm:past-approximant]] gives |m̃_j| ≤ C r^(−5/2); and min(x, y) ≤ (xy)^(1/2) gives C ε r^(−7/4). Then σ̃_j := m̃_j(ℓ,
 ℓ) + q_j is at most C ε r^(−7/4) (q_j is quadratic in (m_i, dφ_i), i < j, with no product ∂_v φ_i ∂_v φ_k since g^vv =
-0), φ̃_j = −(1/2) ∫_r^∞ σ̃_j gives |φ̃_j|, |∂_v φ̃_j| ≤ C ε r^(−3/4), and Ψ̃_j, by its transport, is at most C ε r^(−7/4).
+0), φ̃_j = −(1/2) ∫_r^∞ σ̃_j gives |φ̃_j|, |∂_v φ̃_j| ≤ C ε r^(−3/4), and Ψ̃_j, by its transport, is at most C ε
+r^(−7/4).
 
 (c) As in [[lem:layer-flat]] (c), the forcing term of the transport of the difference is a sum of products of two
 oscillating factors (E_3(ε²)), of mean-type factors with coefficients carrying an oscillating factor (by (b) and the
@@ -1086,7 +1089,7 @@ replaced by these traces, which are of the stated sizes at the bounded radii of 
 ψ(τ) := 2 t^(−1/2) for τ ≤ τ0, ψ(τ) := 2 + τ − τ0 for τ ≥ τ0. For v1 ≤ v_♯ with ε_(M_P)(v1) ≤ λ³, M_P := 2 N_P + 8,
 and R_P := (P ∪ Ω) ∩ {v + ε_t ψ(τ) ≤ v1}: for every X ∈ R_P ∩ Ω with r(X) ≥ q0,
 
-    |w(X)| ≤ C λ^(N_P−3) ε_(M_P)(v1).                                                                  {#eq:layer-remainder-past}
+    |w(X)| ≤ C λ^(N_P−3) ε_(M_P)(v1).                                                          {#eq:layer-remainder-past}
 
 *Proof.* As [[lem:layer-remainder]], with four differences. (1) ψ is C¹ and increasing, with ψ′ = t^(−3/2) on P (dt/dτ
 = −1) and ψ′ = 1 on Ω, both sides giving ψ = 2 and ψ′ = 1 at τ0. The face {v + ε_t ψ(τ) = v1} has conormal dv + ε_t ψ′
@@ -1192,19 +1195,20 @@ so the top terms of Σ_j λ^j H_j,vv at the horizon are λ³ A d ν Σ_(k≥0) (
 2 ∂_v (∇_ℓ + 3/(2r)) H = 2i ∂_v 𝒯H. So −(1/2) □H = −i 𝒯(∂_v H) + (terms without ∂_v), and 𝔚 has none. In D_X H = div H −
 (1/2) d tr H, ∂_v occurs in g^vr ∂_v H_(r·) = ∂_v H(ℓ, ·) and in −(1/2) dv ∂_v tr H, which is Pol(∂_v H).
 
-(b) Put K_(j+1) := H_(j+1) − i ∂_v H_j. By (a), 𝒯 K_(j+1) = −Q H_j, and by [[eq:layer-profiles]] K_(j+1) = −i (1 − Π)
-∂_v H_j + i Pol⁺ q H_j at r = r0, Π := Pol⁺ Pol, a projector onto the range of Pol⁺ since Pol Pol⁺ = 1. As 𝒯, Q, q and
-Pol⁺ contain no ∂_v, they act on each c_(j,k) with r0 as a parameter, and ∂_v H_j = Σ_k env^(k) (∂_(r0) c_(j,k) +
-c_(j,k−1)). Writing K_(j+1) = Σ_k env^(k) κ_(j+1,k), we get 𝒯 κ_(j+1,k) = −Q c_(j,k), κ_(j+1,k) = −i(1 − Π)(∂_(r0) c_(j,k) +
+(b) Put K_(j+1) := H_(j+1) − i ∂_v H_j. By (a), 𝒯 K_(j+1) = −Q H_j, and by [[eq:layer-profiles]] K_(j+1) = −i (1 − Π) ∂_v
+H_j + i Pol⁺ q H_j at r = r0, Π := Pol⁺ Pol, a projector onto the range of Pol⁺ since Pol Pol⁺ = 1. As 𝒯, Q, q and Pol⁺
+contain no ∂_v, they act on each c_(j,k) with r0 as a parameter, and ∂_v H_j = Σ_k env^(k) (∂_(r0) c_(j,k) + c_(j,k−1)).
+Writing K_(j+1) = Σ_k env^(k) κ_(j+1,k), we get 𝒯 κ_(j+1,k) = −Q c_(j,k), κ_(j+1,k) = −i(1 − Π)(∂_(r0) c_(j,k) +
 c_(j,k−1)) + i Pol⁺ q c_(j,k) at r = r0, and c_(j+1,k) = κ_(j+1,k) + i(∂_(r0) c_(j,k) + c_(j,k−1)). For j ≥ 1 the data
-give c_(j+1,k)(r0, r0) = i Π (∂_(r0) c_(j,k) + c_(j,k−1))(r0) + i Pol⁺ q c_(j,k)(r0), in the range of Π. H_1 = env c_(1,0) and H_2 = env c_(2,0)
-(the transport of [[eq:layer-profiles]] contains no ∂_v of H_1, as 𝒯H_1 = 0). Induction on j: if c_(j,k) = 0 for k >
-j − 2, then for k = j − 1 the forcing −Q c_(j,j−1) is zero and the data are −i(1 − Π) c_(j,j−2)(r0) = 0, so κ_(j+1,j−1)
-= 0 and c_(j+1,j−1) = i c_(j,j−2); for k > j − 1 everything vanishes. For the next family, c_(j+1,j−2) = κ_(j+1,j−2) +
-i ∂_(r0) c_(j,j−2) + i c_(j,j−3). By the induction hypothesis c_(j,j−2) = i^(j−2) c_(2,0) and c_(j,j−3) = (j − 2) i^(j−3)
-c_(3,0); and c_(3,0) = κ_(3,0) + i ∂_(r0) c_(2,0). Then κ_(j+1,j−2) − i^(j−2) κ_(3,0) solves 𝒯(·) = 0 with data at r0
-equal to −(j − 2) i^(j−2) (1 − Π) c_(3,0)(r0) = 0, so κ_(j+1,j−2) = i^(j−2) κ_(3,0), and c_(j+1,j−2) = i^(j−2)(c_(3,0) −
-i ∂_(r0) c_(2,0)) + i^(j−1) ∂_(r0) c_(2,0) + (j − 2) i^(j−2) c_(3,0) = (j − 1) i^(j−2) c_(3,0). The motion of r0 cancels.
+give c_(j+1,k)(r0, r0) = i Π (∂_(r0) c_(j,k) + c_(j,k−1))(r0) + i Pol⁺ q c_(j,k)(r0), in the range of Π. H_1 = env
+c_(1,0) and H_2 = env c_(2,0) (the transport of [[eq:layer-profiles]] contains no ∂_v of H_1, as 𝒯H_1 = 0). Induction on
+j: if c_(j,k) = 0 for k > j − 2, then for k = j − 1 the forcing −Q c_(j,j−1) is zero and the data are −i(1 − Π)
+c_(j,j−2)(r0) = 0, so κ_(j+1,j−1) = 0 and c_(j+1,j−1) = i c_(j,j−2); for k > j − 1 everything vanishes. For the next
+family, c_(j+1,j−2) = κ_(j+1,j−2) + i ∂_(r0) c_(j,j−2) + i c_(j,j−3). By the induction hypothesis c_(j,j−2) = i^(j−2)
+c_(2,0) and c_(j,j−3) = (j − 2) i^(j−3) c_(3,0); and c_(3,0) = κ_(3,0) + i ∂_(r0) c_(2,0). Then κ_(j+1,j−2) − i^(j−2)
+κ_(3,0) solves 𝒯(·) = 0 with data at r0 equal to −(j − 2) i^(j−2) (1 − Π) c_(3,0)(r0) = 0, so κ_(j+1,j−2) = i^(j−2)
+κ_(3,0), and c_(j+1,j−2) = i^(j−2)(c_(3,0) − i ∂_(r0) c_(2,0)) + i^(j−1) ∂_(r0) c_(2,0) + (j − 2) i^(j−2) c_(3,0) = (j −
+1) i^(j−2) c_(3,0). The motion of r0 cancels.
 
 (c) c_(2,0) has no vv component (H_2 ∈ 𝔖), and c_(3,0),vv(√μ0) = A d ν by [[prop:layer-linear]] (c), (d), where
 H_3,vv = env c_(3,0),vv, c_(3,1) = i c_(2,0) having no vv component. With (b) this is the formula, and
@@ -1220,7 +1224,8 @@ min_(W_λ) |ν|, d_* := 8/3, G := 3 A ν_* d_*/32, C_m0 := (A²/(9μ0))(1 + (μ0
     Λ_4 := [8 · 2^(−1/m) C_(1,m) M_m^(1/m) (4π + 2 C1 Δτ)]^(−m/(m−p)),
     Λ_5′ := min_(i≤4) [5 C_(i,m) (5/4)^(1−i/m) M_m^(i/m)]^(−1/(p(1−i/m)−1)),
     Λ_6 := (288 μ0 C_Φ/(25 A²))^(1/(2p−1)),      Λ_8a := (3 A ν_* d_*/(100 C_m0))^(1/(p−3)),
-    Λ_8b := (G/(C_L11 C_ε))^(4/3),   Λ_8c := (G/(C_L11 C_ε²))^(1/11.5),   Λ_8d := (G/(C_L4 C_ε))^(1/(N−8.25)).   {#eq:layer-threshold}
+    Λ_8b := (G/(C_L11 C_ε))^(4/3),   Λ_8c := (G/(C_L11 C_ε²))^(1/11.5),   Λ_8d := (G/(C_L4 C_ε))^(1/(N−8.25)).
+                                                                                                    {#eq:layer-threshold}
 
 Indeed λ ≤ 1/(2 C1) is the hypothesis s ≤ 1/2 of [[lem:layer-remainder]]; Λ_4 is the hypothesis of
 [[lem:layer-levels]] with L = (4π + 2 C1 Δτ) λ and y = λ^p; Λ_5′ makes each term of ε_4(v1) at most λ/5, the hypothesis

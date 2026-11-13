@@ -143,32 +143,34 @@ is the number of [[lem:lambda0-point]] (d). So every admissible ε1 is below 0.0
 
 ### The second harmonic of stage 0 {#sec:second-harmonic}
 
-The wave W_TT and the second harmonic χ are those of [[lem:stage-zero]] and [[eq:chi-transport]]. Here c² = cos² ϑ and
-s² = sin² ϑ are the angular functions of [[sec:waves]], q := cos 2ϑ = c² − s², and h² = 2/(1 + q²).
+The wave W_TT and the second harmonic χ are those of [[lem:stage-zero]] and [[eq:chi-transport]]. Here c² = cos² ϑ,
+s² = sin² ϑ and ζ = cos 2ϑ = c² − s² are the angular functions of [[sec:waves]], and h² = 2/(1 + ζ²).
 
 **Lemma {#lem:chi-closed-form}** (The second harmonic.) On Ω × S¹,
 
-    χ = −(1/12) A² env(v)² h² (4q sin 2θ + (1 − q²) cos 2θ) (r⁻² − (v − τ0)^(−1/2) r^(−3/2)).
+    χ = −(1/12) A² env(v)² h² (4ζ sin 2θ + (1 − ζ²) cos 2θ) (r⁻² − (v − τ0)^(−1/2) r^(−3/2)).
 
 *Proof.* With ∂_θ y1 = −(α/3) a1, ∂_θ y2 = (α/3) a2, a1 := 2c² sin θ + s² cos θ, a2 := 2s² cos θ + c² sin θ, one has
 a1² − a1 a2 + a2² = 3(c⁴ sin² θ + s⁴ cos² θ + c² s² sin θ cos θ). With sin² θ = (1 − cos 2θ)/2, cos² θ =
-(1 + cos 2θ)/2, c⁴ − s⁴ = q and c² s² = (1 − q²)/4, the definition of F_2 after [[lem:stage-zero]] becomes
+(1 + cos 2θ)/2, c⁴ − s⁴ = ζ and c² s² = (1 − ζ²)/4, the definition of F_2 after [[lem:stage-zero]] becomes
 
-    F_2 = (α²/3)((c⁴ − s⁴) cos 2θ − c² s² sin 2θ) = (α²/12)(4q cos 2θ − (1 − q²) sin 2θ),   α² = A² env² h² r⁻³.
+    F_2 = (α²/3)((c⁴ − s⁴) cos 2θ − c² s² sin 2θ) = (α²/12)(4ζ cos 2θ − (1 − ζ²) sin 2θ),   α² = A² env² h² r⁻³.
 
 Along ℓ = ∂_r at fixed (v, ϑ, φ1, φ2), the transport (∂_r + 3/(2r)) Z = r⁻³ κ, κ independent of r, with Z = 0 at
 r = v − τ0 (that is, on Σ_τ0), has the solution Z = −2κ (r⁻² − (v − τ0)^(−1/2) r^(−3/2)), since (r^(3/2) Z)' =
-r^(−3/2) κ. The θ-primitive of 4q cos 2θ − (1 − q²) sin 2θ with zero mean is (1/2)(4q sin 2θ + (1 − q²) cos 2θ). ∎
+r^(−3/2) κ. The θ-primitive of 4ζ cos 2θ − (1 − ζ²) sin 2θ with zero mean is (1/2)(4ζ sin 2θ + (1 − ζ²) cos 2θ). ∎
 
 ### The threshold in three norms {#sec:lambda0-norms}
 
-The bounds of [[prop:lambda0]] compare ε1 with a constant C_app such that |g_app − g0| ≤ C_app λ. Both depend on how
-|·| is read on symmetric 2-tensors of Cartesian components. This section treats three readings: the operator norm of
-[[sec:profiles]], the Frobenius norm |·|_F, and the largest absolute entry |·|_max. Let X* be the point
-τ = 2 − a, x = (a, 0, 0, 0) (so r = a, v = 2, ϑ = 0, φ1 = 0). It lies in Ω of [[eq:omega]], since τ0 < 2 − a < τ_end
-by [[lem:lambda0-point]] (c) and v + τ − τ_end < 4 < V + 1. Put
+The bounds of [[prop:lambda0]] compare ε1 with a constant C_app such that |g_app − g0| ≤ C_app λ. Both depend on
+how |·| is read on symmetric 2-tensors of Cartesian components. This section treats three readings: the operator
+norm of [[sec:profiles]], the Frobenius norm |·|_F, and the largest absolute entry |·|_max. Let X* be the point
+τ = 2 − a, x = (a, 0, 0, 0) (so r = a, v = 2, ϑ = 0). It lies in Ω of [[eq:omega]]: τ0 < 2 − a < V − q_end ≤ τ_end
+by [[lem:lambda0-point]] (c), and v + τ − τ_end = 4 − a − τ_end < 4 < V + 1. Put
 
-    K := c_e a^(−3/2),      χ* := (c_e²/3)(a⁻² − a^(−3/2)/2),      B := (4/3) K² + 4 χ*².
+    α* := c_e a^(−3/2),      χ* := (c_e²/3)(a⁻² − a^(−3/2)/2),      B := (4/3) α*² + 4 χ*²,
+
+so that α* is the value at X* of α = A env h r^(−3/2).
 
 **Proposition {#prop:lambda0-norms}** (ε1 and C_app in three norms.) At the numerical point let g_app = g0 + λ [g1] +
 Σ_(j≥2) λ^j [g_j] be an approximant of [[thm:approximant]], built from any stage data, and let C_app be a number such
@@ -176,11 +178,11 @@ that |g_app − g0| ≤ C_app λ on Ω for every λ in some interval (0, λ̄], 
 g̃ with |g̃ − g0| ≤ ε1 on Ω is nondegenerate, as [[lem:lorentz-margin]] requires of it, and let M_22 be the (x2, x2)
 Cartesian component of the mean m1(X*) of g1 at X*. Then:
 
-(i) in the operator norm, ε1 < s0 and C_app ≥ (4/3) K + |M_22|;
+(i) in the operator norm, ε1 < s0 and C_app ≥ (4/3) α* + |M_22|;
 
 (ii) in the Frobenius norm, ε1 < s0 and C_app² ≥ B + |m1(X*)|_F²;
 
-(iii) in the largest absolute entry, ε1 < 1/(4m*) and C_app ≥ (4/3) K + |M_22|.
+(iii) in the largest absolute entry, ε1 < 1/(4m*) and C_app ≥ (4/3) α* + |M_22|.
 
 In particular, whatever the stage data, C_app > 12.593309 in (i) and (iii) and C_app > 16.127552 in (ii), and
 
@@ -190,26 +192,26 @@ In particular, whatever the stage data, C_app > 12.593309 in (i) and (iii) and C
 put λ_n := v(X)/(θ + 2πn). Then λ_n → 0 and v(X)/λ_n = θ + 2πn, so at X, (g_app − g0)/λ_n = g1(X, θ) +
 Σ_(j≥2) λ_n^(j−1) g_j(X, θ). The profiles g_j are bounded, so letting n → ∞ gives |g1(X, θ)| ≤ C_app. At X*, v = 2.
 
-*g1 at X*.* By [[thm:approximant]], g1(X*, θ) = m1(X*) + W_TT(X*, s) + χ(X*, s) D with s := θ + φ1(X*) and
-D := dv ⊗ dv; as θ runs over S¹, so does s. At X*, A = 1, env(2) = c_e β(0) = c_e, cos 2ϑ = 1 and h = 1, and
-x1 = a, x2 = x3 = x4 = 0, cos²ϑ = 1, sin²ϑ = 0. The Cartesian formula of [[lem:waves]] (a), at the phase s, gives
-λ W_TT = 2 a^(−3/2) (G dx2² − (G/3)(dx2² + dx3² + dx4²)) with G/λ = A env h cos s = c_e cos s, so in the components
-(τ, x1, x2, x3, x4)
+*g1 at X*.* By [[thm:approximant]], g1(X*, θ) = m1(X*) + W_TT(X*, ψ) + χ(X*, ψ) D with ψ := θ + φ1(X*), where
+φ1(X) is the phase shift in g1 = m1 + W(X, θ + φ1(X)) there, and D := dv ⊗ dv; as θ runs over S¹, so does ψ. At X*,
+A = 1, env(2) = c_e β(0) = c_e, ζ = cos 2ϑ = 1 and h = 1, and x1 = a, x2 = x3 = x4 = 0, cos²ϑ = 1, sin²ϑ = 0. The
+Cartesian formula of [[lem:waves]] (a), at the phase ψ, gives λ W_TT = 2 a^(−3/2) (G dx2² − (G/3)(dx2² + dx3² + dx4²))
+with G/λ = A env h cos ψ = c_e cos ψ, so in the components (τ, x1, x2, x3, x4)
 
-    W_TT(X*, s) = K cos s Λ,      Λ := diag(0, 0, 4/3, −2/3, −2/3).
+    W_TT(X*, ψ) = α* cos ψ Λ,      Λ := diag(0, 0, 4/3, −2/3, −2/3).
 
-By [[lem:chi-closed-form]], with cos 2ϑ = 1, h = 1 and v − τ0 = 4, χ(X*, s) = −(1/3) c_e² sin 2s (a⁻² − a^(−3/2)/2) =
-−χ* sin 2s. And dv = dτ + dx1 at X*, so D = U Uᵀ with U = (1, 1, 0, 0, 0): D_22 = 0 and |D|_F = |U|² = 2.
+By [[lem:chi-closed-form]], with ζ = 1, h = 1 and v − τ0 = 4, χ(X*, ψ) = −(1/3) c_e² sin 2ψ (a⁻² − a^(−3/2)/2) =
+−χ* sin 2ψ. And dv = dτ + dx1 at X*, so D = U Uᵀ with U = (1, 1, 0, 0, 0): D_22 = 0 and |D|_F = |U|² = 2.
 
-*(i) and (iii).* The (x2, x2) entry of g1(X*, θ) is M_22 + (4/3) K cos s. It is e2ᵀ g1 e2 for the unit vector e2, so
-it bounds both the operator norm and the largest absolute entry, and its supremum over s is |M_22| + (4/3) K.
+*(i) and (iii).* The (x2, x2) entry of g1(X*, θ) is M_22 + (4/3) α* cos ψ. It is e2ᵀ g1 e2 for the unit vector e2,
+so it bounds both the operator norm and the largest absolute entry, and its supremum over ψ is |M_22| + (4/3) α*.
 
-*(ii).* Write W(s) := W_TT(X*, s), χ := χ(X*, s) and Y(s) := g1 at the phase s. Since W(s + π) = −W(s),
-χ(X*, s + π) = χ and χ(X*, s ± π/2) = −χ, the parallelogram law gives |Y(s)|_F² + |Y(s + π)|_F² =
-2|m1(X*) + χD|_F² + 2|W(s)|_F² and |Y(s + π/2)|_F² + |Y(s − π/2)|_F² = 2|m1(X*) − χD|_F² + 2|W(s + π/2)|_F². Here
-|W(s)|_F² + |W(s + π/2)|_F² = K² |Λ|_F² = (8/3) K² and |m1(X*) + χD|_F² + |m1(X*) − χD|_F² = 2|m1(X*)|_F² + 8χ², so
-the four squares sum to 4|m1(X*)|_F² + 16χ² + (16/3) K², and the largest of them is at least
-|m1(X*)|_F² + 4χ² + (4/3) K². At s = π/4, χ² = χ*², so C_app² ≥ |m1(X*)|_F² + B.
+*(ii).* Write W(ψ) := W_TT(X*, ψ), χ := χ(X*, ψ) and Y(ψ) := g1 at the phase ψ. Since W(ψ + π) = −W(ψ),
+χ(X*, ψ + π) = χ and χ(X*, ψ ± π/2) = −χ, the parallelogram law gives |Y(ψ)|_F² + |Y(ψ + π)|_F² =
+2|m1(X*) + χD|_F² + 2|W(ψ)|_F² and |Y(ψ + π/2)|_F² + |Y(ψ − π/2)|_F² = 2|m1(X*) − χD|_F² + 2|W(ψ + π/2)|_F².
+Here |W(ψ)|_F² + |W(ψ + π/2)|_F² = α*² |Λ|_F² = (8/3) α*² and |m1(X*) + χD|_F² + |m1(X*) − χD|_F² =
+2|m1(X*)|_F² + 8χ², so the four squares sum to 4|m1(X*)|_F² + 16χ² + (16/3) α*², and the largest of them is at
+least |m1(X*)|_F² + 4χ² + (4/3) α*². At ψ = π/4, χ² = χ*², so C_app² ≥ |m1(X*)|_F² + B.
 
 *The thresholds for ε1.* At a point of Ω where μ/r² = m*, let e be the unit eigenvector of g0 with eigenvalue −s0
 ([[lem:lorentz-margin]]). Then g0 + s0 e eᵀ annihilates e, and |s0 e eᵀ| = s0 in the operator and in the Frobenius
@@ -225,8 +227,8 @@ a^(−3/2) < 7.1333766 and a⁻² > 13.7317809: indeed 0.269858789³ · 7.133376
 0.269858789² · 13.7317809 < 1. Hence a⁻² − a^(−3/2)/2 > 13.7317809 − 3.5666883 = 10.1650926. With c_e > 1.3240711
 ([[eq:envelope-c]]),
 
-    (4/3) K > (4/3)(1.3240711)(7.1333765) > 12.5934635,      χ* > (1.3240711²/3)(10.1650926) > 5.9403588,
-    B > (3/4)(12.5934635)² + 4 (5.9403588)² > 260.097942 > 16.127552² = 260.0979337….
+    (4/3) α* > (4/3)(1.3240711)(7.1333765) > 12.5934635,      χ* > (1.3240711²/3)(10.1650926) > 5.9403588,
+    B > (3/4)(12.5934635)² + 4 (5.9403588)² > 260.097942 > 16.127552² = 260.0979335….
 
 By [[sec:epsilon-one]], s0 < 0.030768560, and by [[lem:lambda0-point]] (d), m* > 16.23497014, so 1/(4m*) <
 0.0153989. Now 0.0024433 · 12.593309 > 0.03076918, 0.0019079 · 16.127552 > 0.03076975 and 0.0012228 · 12.593309 >
@@ -237,9 +239,10 @@ and 0.0012228 in the three readings, whatever the stage data. A nonzero M_22 low
 nonzero m1(X*) that of (ii).
 
 **Remark {#rem:lambda0-norms-c}** (The constant c_e in the three bounds.) [[prop:lambda0-norms]] uses about c_e only
-a lower bound, through K, χ* and B, which increase with c_e; s0 and m* depend on a and μ_end = 227/192 alone, and the
-upper end of c_e enters nowhere. The figure 12.593309 holds for every c_e ≥ 1.3240549 and 16.127552 for every
+a lower bound, through α*, χ* and B, which increase with c_e; s0 and m* depend on a and μ_end = 227/192 alone, and the
+upper end of c_e enters nowhere: the facts on Ω that the proposition rests on are [[lem:lambda0-point]] (c) and (d),
+whose proofs use no bound on c_e. The figure 12.593309 holds for every c_e ≥ 1.3240549 and 16.127552 for every
 c_e ≥ 1.3240711, while the three bounds of [[eq:lambda0-norms]] hold for every c_e ≥ 1.32404: at c_e = 1.32404 the
-arithmetic above gives (4/3) K > 12.593167 and B > 16.12696², and 0.0024433 · 12.593167, 0.0019079 · 16.12696 and
+arithmetic above gives (4/3) α* > 12.593167 and B > 16.12696², and 0.0024433 · 12.593167, 0.0019079 · 16.12696 and
 0.0012228 · 12.593167 exceed 0.030768560, 0.030768560 and 0.0153989. With the sharper lower end c_e > 1.3240867 of
 [[eq:envelope-c]] one gets C_app > 12.593611 in (i) and (iii) and C_app > 16.127845 in (ii).

@@ -932,3 +932,14 @@ Items found while chapters were written in parallel; each is settled once, editi
   four lint hits are labels in proof A not yet merged (prop:s14-scalar-every-h, lem:s14-delta50,
   cor:s14-eps-ind-point); crosswalk notes for np-10-54, np-10-14, np-10-52 say "pending" (update at integration).
   Third reading running.
+- Ch 71 proof project (P-L71): issue-1 proved (lem:ec-theta-in: p_in − (S + S^∗h) = −2Re_h(A + S); for 2L_b a kernel of
+  dimension ≥ 5; ϑ_in ≥ 0 in every fibre inner product, ℓ_tf ≥ 1); thm:loss-d (ii) d_acc ≥ 3R > 7.959×10¹⁵, N_NM >
+  1.671×10¹⁷; prop:ec-delta-cap log₁₀δ < −7.666×10¹⁶. NO explicit upper bound on d is provable as the edition stands
+  (the forward solution operators' loss D_0 + D_1 + d′ + d″ + 6 has no value; the source's FWD ≤ 877 rests on an order
+  count the edition does not carry); rem:ec-integer-bound stays a Numerical observation. FOR THE FINAL REPORT TO THE
+  USER: the source's "explicit upper bound d ≤ 46,236,517,538,883,361" is not proved and is reported as a numerical
+  observation. Chapter 3 (coordinator, exact text from the report): "explicit lower bounds … and, through them, upper
+  bounds for δ and λ1". Crosswalk: lem:ec-theta-in, eq:ec-theta-in, eq:ec-theta-in-l added; thm:loss-d,
+  lem:ec-closed-forms, rem:ec-other-losses notes amended (35 rows, labels in order). Notes outside: chapter 34 line about
+  170 (Y := ḡ⁻¹dt̄ with ρ in one term only — nit); rem:ec-other-losses's "2" for background terms is tame with loss
+  max(2, d) (minor, affects only an upper bound). Independent reader running.

@@ -698,9 +698,9 @@ with the forward solution operator of [[thm:ii-f1-1-1]].
 (e) ran Π_(≥2) lies in the closed span of the scalar and vector types of degrees l ≥ 2. ran Π_cl is the space of class
 1-forms with no l = 0 part, and lies in the closed span of the scalar types of even degrees l ≥ 2.
 
-*Proof.* (a) Each T_g, g ∈ O(4), commutes with the operators listed: g is an isometry of g fixing t_* and r, it
-preserves |dx| and the Laplacian of 𝕊³, and h is invariant; the restrictions to ρ = 0, the Mellin transform in ρ and
-the conjugation by e^(iσ̂r̂) that define N(P⁽⁰⁾), I(ι) and N_tf commute with maps that fix ρ and r̂. The averages
+*Proof.* (a) Each T_g, g ∈ O(4), commutes with the operators listed: x ↦ gx is an isometry of the metric fixing t_* and
+r, it preserves |dx| and the Laplacian of 𝕊³, and h is invariant; the restrictions to ρ = 0, the Mellin transform in ρ
+and the conjugation by e^(iσ̂r̂) that define N(P⁽⁰⁾), I(ι) and N_tf commute with maps that fix ρ and r̂. The averages
 inherit this, a bounded operator commuting with a Bochner integral. P_τP_σ = δ_(τσ)P_τ is the orthogonality of the
 characters of a compact group, for every strongly continuous representation; so Π_(≥2), one minus four mutually
 orthogonal P_τ, is a projection. Conjugation by g ∈ O(4) maps P_τ to P_(τ^g), τ^g(h) := τ(g⁻¹hg); τ_0 and τ_1 are
@@ -725,8 +725,9 @@ and the forward solution is unique with an O(4)-invariant support condition, so 
 orthogonality of characters, and Π_0Π_cl = Π_GΠ_0(1 − Π_0) = 0.
 
 (d) For Π_(≥2): the map u ↦ (∫_(𝕊³) u_μ(cω) dω)_μ, the means of the components in the Cartesian frame, is
-SO(4)-equivariant into ℂ ⊕ ℂ⁴, on which SO(4) acts by τ_0 ⊕ τ_1; by Schur's lemma it commutes the projections P_τ with
-their counterparts on ℂ ⊕ ℂ⁴, and so vanishes on ran Π_(≥2). For Π_cl: G contains each reflection x_i ↦ −x_i, so the
+SO(4)-equivariant into ℂ ⊕ ℂ⁴, on which SO(4) acts by τ_0 ⊕ τ_1. Equivariance gives M ∘ P_τ = P_τ^♭ ∘ M, M that map
+and P_τ^♭ the projections on ℂ ⊕ ℂ⁴, and P_(τ_0)^♭ + P_(τ_1)^♭ = 1 there by the orthogonality of characters; so
+M ∘ Π_(≥2) = 0. For Π_cl: G contains each reflection x_i ↦ −x_i, so the
 spatial Cartesian components of a class 1-form are odd under it and have zero mean, and the mean of its time component
 is the time component of its l = 0 part, which vanishes on ran Π_cl.
 
@@ -804,19 +805,17 @@ with the indicial roots ρ^(l+2) and ρ^(−l) (the proof of [[lem:iii-d1-2-1]] 
 [r³fφ_l′φ̄_l]_(r_1)^R = ∫_(r_1)^R (r³f|φ_l′|² + κr|φ_l|²) dr, and the bracket tends to 0 as r_1 → r_h (f → 0) and as
 R → ∞. So φ_l = 0: δu = 0 on {r > r_h}.
 
-*(b) The field.* F := du ∈ 𝒜^(β+1) has δF = P̂(0)u − dδu = 0 on {r > r_h}. *Vector type.* A component r^(−1/2)Φ(r)Y,
-Y ∈ 𝒱_l, of u has −Φ_** + V_1Φ = 0 with V_1 > 0 ([[prop:np-10-16]] (iii), (v) at σ = 0, Λ = (l + 1)² ≥ 9). Φ is smooth
-in r at r_h, and Φ = O(r^(3/2−β)), as |Y| is r⁻¹ in the Euclidean metric. The equation has a regular singular point at
-r = ∞, where r^(−1/2)Φ grows like r^(l+1) or decays like r^(−l−1), as V_1 = ((l + 1)² − ¼)r⁻² + O(r⁻⁴); as
-l + 1 > 1 − β, the first is excluded, so
-Φ = O(r^(−l−1/2)) and Φ_* = fΦ′ = O(r^(−l−3/2)). The energy identity of the proof of [[lem:iii-d1-2-1]] (2),
-∫(|Φ_*|² + V_1|Φ|²) dr_* = [Φ_*Φ̄], whose end terms vanish, gives Φ = 0. *Scalar type.* With W := r³F_tr,
-R[W] = (r²M_t)′ = 0 (M = δdu = 0), and Φ := r^(−1/2)W solves −Φ_** + V_2Φ = 0 with V_2 > 0 for κ ≥ 3
-([[prop:np-10-16]] (iv)–(v)). F_tr = F_vr is smooth at r_h, and W = O(r^(2−β)). R[W] = 0 has a regular singular
-point at r = ∞, with the indicial roots W ∼ r^(l+2) and W ∼ r^(−l); as l + 2 > 2 − β, W = O(r^(−l)), so
-Φ = O(r^(−l−1/2)), Φ_* = O(r^(−l−3/2)), and the energy identity gives Φ = 0. So F_tr = 0, and with M = 0
-[[prop:np-10-16]] (iv) gives a = b = 0 for the gauge-invariant pair there: each scalar component of u is d(c_lS) on
-{r > r_h}, for a function c_l of r.
+*(b) The field.* F := du ∈ 𝒜^(β+1) has δF = P̂(0)u − dδu = 0 on {r > r_h}. *Vector type.* A component r^(−1/2)Φ(r)Y, Y
+∈ 𝒱_l, of u has −Φ_** + V_1Φ = 0 with V_1 > 0 ([[prop:np-10-16]] (iii), (v) at σ = 0, Λ = (l + 1)² ≥ 9). Φ is smooth in
+r at r_h, and Φ = O(r^(3/2−β)), as |Y| is r⁻¹ in the Euclidean metric. The equation has a regular singular point at r
+= ∞, where r^(−1/2)Φ grows like r^(l+1) or decays like r^(−l−1), as V_1 = ((l + 1)² − ¼)r⁻² + O(r⁻⁴); as l + 1 > 1 − β,
+the first is excluded, so Φ = O(r^(−l−1/2)) and Φ_* = fΦ′ = O(r^(−l−3/2)). The energy identity of the proof of
+[[lem:iii-d1-2-1]] (2), ∫(|Φ_*|² + V_1|Φ|²) dr_* = [Φ_*Φ̄], whose end terms vanish, gives Φ = 0. *Scalar type.* With W
+:= r³F_tr, R[W] = (r²M_t)′ = 0 (M = δdu = 0), and Φ := r^(−1/2)W solves −Φ_** + V_2Φ = 0 with V_2 > 0 for κ ≥ 3
+([[prop:np-10-16]] (iv)–(v)). F_tr = F_vr is smooth at r_h, and W = O(r^(2−β)). R[W] = 0 has a regular singular point at
+r = ∞, with the indicial roots W ∼ r^(l+2) and W ∼ r^(−l); as l + 2 > 2 − β, W = O(r^(−l)), so Φ = O(r^(−l−1/2)), Φ_*
+= O(r^(−l−3/2)), and the energy identity gives Φ = 0. So F_tr = 0, and with M = 0 [[prop:np-10-16]] (iv) gives a = b = 0
+for the gauge-invariant pair there: each scalar component of u is d(c_lS) on {r > r_h}, for a function c_l of r.
 
 *(c) The gauge.* So u = Σ_(l≥2) d(c_lS_l) on {r > r_h}, and δu = 0 gives (r³fc_l′)′ = κrc_l. c_l dS has size |c_l|/r
 in the Cartesian frame, so c_l = O(r^(1−β)). At r = ∞ the indicial roots are r^l and r^(−l−2), and r^l is excluded as
@@ -853,8 +852,8 @@ every α with α + 2 ∈ (−1, 3).
 [[lem:hr-split]] the restriction is Fredholm, with ker = ker P̂(0) ∩ ran Π.
 
 *Kernel.* At α + 2 ∈ (0, 2) the kernel is span{W*} ([[lem:iii-d1-2-1]] (2)), and ΠW* = 0, W* being SO(4)-invariant. At
-α + 2 ∈ (−1, 0), a kernel element is smooth up to ∂_♯X and lies in 𝒜^(α+2) near ∂X ([[thm:i-c-3-1]] (2) at the gap
-(−1, 0), [[lem:i-c-2-9]] (c)), so [[lem:gd-r8-4]] with β = α + 2 applies, by [[lem:gd-r8-2]] (e).
+α + 2 ∈ (−1, 0), a kernel element is smooth up to ∂_♯X and lies in 𝒜^β near ∂X for every β < 0 ([[thm:i-c-3-1]] (2) at
+the gap (−1, 0)), so [[lem:gd-r8-4]] applies with some β ∈ (−1, 0), by [[lem:gd-r8-2]] (e).
 
 *Cokernel.* Let w be a bounded functional on 𝒴_0 ∩ ran Π that annihilates the restricted range, and v := w ∘ Π on
 𝒴_0, so that v ∘ Π = v. v annihilates P̂(0)𝒳_0, as ΠP̂(0) = P̂(0)Π. At α + 2 ∈ (0, 2), v = cℓ ([[lem:iii-d1-2-1]] (3)),

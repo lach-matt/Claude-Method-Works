@@ -1395,7 +1395,11 @@ m − 1 and maps H^m to H^1, and N(A, ι₀)⁻¹ maps H^1 to H^(m+1) by (E1); a
 compact ([Hin26d, Theorem 3.21, p. 38], [[thm:std-sbg-calculus]] (S3), on the compact ∂M with w = w′ = 1, for each
 component). So B is an entire family of compact operators on H^m, and Id + B(ι) = N(A, ι₀)⁻¹N(A, ι) is invertible
 wherever N(A, ι) is, in particular at ι₀. By [[thm:std-analytic-fredholm]], W(ι) := (Id + B(ι))⁻¹ exists off a
-discrete set and is meromorphic on ℂ; so is N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ : L² → H^m. At a pole ι₁ of order p write
+discrete set S and is meromorphic on ℂ; so is N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ : L² → H^m, with the same poles and
+orders, as N(A, ι₀)⁻¹ : L² → H^m is bijective. Every point of S is a pole: if W extended holomorphically to ι₁ ∈ S,
+the identities (Id + B(ι))W(ι) = Id = W(ι)(Id + B(ι)) would extend to ι₁ by continuity, and Id + B(ι₁) would be
+invertible, whereas by the theorem it has a nonzero kernel. So S is the set of poles, and
+N(A, ι) = N(A, ι₀)(Id + B(ι)) : H^m → L² is invertible exactly off S. At a pole ι₁ of order p write
 W(ι) = Σ_(k≥−p) W_k(ι − ι₁)^k and B(ι) = Σ_(k≥0) B_k(ι − ι₁)^k. From (Id + B)W = Id, (Id + B₀)W_(−p) = 0 and
 (Id + B₀)W_(−p+k) = −Σ_(1≤l≤k) B_lW_(−p+k−l) for 1 ≤ k < p. The kernel of Id + B₀ is finite-dimensional, as B₀ acts
 on it as −Id and B₀ is compact; so W_(−p) has finite rank, and inductively each W_(−p+k), k < p, maps into the
@@ -1429,11 +1433,10 @@ coefficient (the Riemann sums are the same, and convergence in H^(s+m) implies c
 maps H^s to H^(s+m), with norm at most r₁^(−k)C′_Ω. As s is arbitrary, it maps C^∞(∂M), the intersection of the
 H^s(∂M), to itself. ∎
 
-*Proof of (E3).* Let S be the set of [[thm:std-analytic-fredholm]] in the proof of (E2). As
-Id + B(ι) = N(A, ι₀)⁻¹N(A, ι) with N(A, ι₀)⁻¹ : L² → H^m bijective, N(A, ι) : H^m → L² is invertible exactly for
-ι ∉ S, and N(A, ·)⁻¹ is holomorphic on ℂ ∖ S, so every pole lies in S. S is discrete, and it is closed: its complement
-is open, as B is continuous in norm and a Neumann series inverts every small perturbation of an invertible operator. So
-S has finitely many points in every compact set. For ι ∉ S, Π commutes with N(A, ι)⁻¹: for g ∈ L² and
+*Proof of (E3).* Let S be the set of poles of N(A, ·)⁻¹. By the proof of (E2), S is the discrete set of
+[[thm:std-analytic-fredholm]] there, and N(A, ι) : H^m → L² is invertible exactly for ι ∉ S. S is also closed: its
+complement is open, as B is continuous in norm and a Neumann series inverts every small perturbation of an invertible
+operator. So S has finitely many points in every compact set. For ι ∉ S, Π commutes with N(A, ι)⁻¹: for g ∈ L² and
 u := N(A, ι)⁻¹g, Πu ∈ H^m and N(A, ι)Πu = ΠN(A, ι)u = Πg, so ΠN(A, ι)⁻¹g = N(A, ι)⁻¹Πg.
 
 Fix ι₁ ∈ ℂ and r₁ > 0 such that the closed disc of radius r₁ about ι₁ contains no point of S other than ι₁. On the
@@ -1463,10 +1466,10 @@ bijectively onto itself.
 
 *The case Π = Id.* By the equivalence, ι₁ is a pole of N(A, ·)⁻¹ if and only if N(A, ι₁)u = 0 for some
 0 ≠ u ∈ C^∞(∂M), that is, if and only if ι₁ ∈ spec_b(A) ([[def:s11-b-analysis]] (2)). Off spec_b(A) the bijectivity
-was just shown, and on spec_b(A), N(A, ι) has a nonzero kernel in C^∞(∂M). In particular S is exactly the set of
-poles. By (E1), for every strip {c₁ ≤ Re ι ≤ c₂} there is R such that N(A, ι) : H^m → L² is invertible, that is
-ι ∉ S, for |Im ι| ≥ R in the strip. So the poles in the strip lie in S ∩ {c₁ ≤ Re ι ≤ c₂, |Im ι| ≤ R}, the
-intersection of S with a compact set, and there are finitely many. ∎
+was just shown, and on spec_b(A), N(A, ι) has a nonzero kernel in C^∞(∂M). By (E1), for every strip
+{c₁ ≤ Re ι ≤ c₂} there is R such that N(A, ι) : H^m → L² is invertible, that is ι ∉ S, for |Im ι| ≥ R in the strip.
+So the indicial roots in the strip lie in S ∩ {c₁ ≤ Re ι ≤ c₂, |Im ι| ≤ R}, the intersection of S with a compact set,
+and there are finitely many. ∎
 
 Define
 
@@ -1495,18 +1498,24 @@ E(α) be the smallest index set containing the (ι, k) ∈ Spec_b(A) with Re ι 
 E_(k+1) := E(α) ∪̄ (F ∪̄ (E_k + 1)), E := ⋃_k E_k. Then χ̃u ∈ H^(∞,(E,β))_b(M).
 
 *Proof.* If β ≤ α there is nothing to prove (H^(∞,α)_b ⊂ H^(∞,(E,β))_b), so let β > α. If some exponent of F has real
-part β, remove those finitely many terms χρ^z(log ρ)^j f_(z,j) of χAu first: N(A, ·)⁻¹ is holomorphic on Re ι = β, so
-the circle integral [[eq:iii-a-1-4]] of [[lem:iii-a-1-5]] (whose proof does not use the present lemma) gives
+part β, remove those finitely many terms χρ^z(log ρ)^j f_(z,j) of χAu first: N(A, ·)⁻¹ is holomorphic on Re ι = β, by
+(E3), so the circle integral [[eq:iii-a-1-4]] of [[lem:iii-a-1-5]] (whose proof does not use the present lemma) gives
 u_(z,j) = ρ^z Σ_(i≤j)(log ρ)^i u_i, u_i ∈ C^∞(∂M), with N(A)u_(z,j) = ρ^z(log ρ)^j f_(z,j); then A(χu_(z,j)) is that term
 up to (A − N(A))(χu_(z,j)), whose exponents lie in z + 1 + ℕ₀, above β, and up to terms supported in ρ ≥ ¼ρ₀.
 Replacing u by u − Σ χu_(z,j) keeps the hypotheses (Re z = β > α) and the conclusion ((z, j) ∈ F ⊂ E) and removes these
 terms, so we may assume β ∉ Re π₁F. Write v := χ̃u and N(A) = Σ_j A_j(0)(ρ∂_ρ)^j in the collar. Then N(A)v = f′ with
-f′ := χAu + (χ̃ − χ)Au + [A, χ̃]u − (A − N(A))v; the second and third terms are supported in ρ ≥ ¼ρ₀ (where χ̃u is all
-of the information: there u is of class H^∞_loc by ellipticity, so these terms are smooth with compact support in
-(0, ρ₀) and have entire Mellin transforms decaying on vertical lines), and A − N(A) ∈ ρ Diff^m_b near ρ = 0, so
+f′ := χAu + (χ̃ − χ)Au + [A, χ̃]u − (A − N(A))v. The sum of the second and third terms is A(χ̃u) − χAu. It vanishes on
+ρ < ¼ρ₀, where χ̃ − χ = 0 and [A, χ̃] = 0, as χ̃ = χ = 1 there; it is supported in supp χ̃, a compact subset of
+[0, ρ₀); and on {ρ ≥ ¼ρ₀} all its derivatives are square integrable, since A(χ̃u) ∈ H^(∞,α)_b(M) (A maps
+H^(∞,α)_b(M) into itself on functions supported in supp χ̃, where its coefficients are smooth up to ρ = 0) and
+χAu ∈ H^(∞,(F,β))_b(M), and away from ρ = 0 membership in either space means exactly that all derivatives are square
+integrable on compact sets (b-derivatives are combinations of ordinary ones with smooth coefficients there, the weights
+are bounded above and below, and the expansion terms of [[eq:s11-partial]] are smooth). So the sum is smooth with
+compact support in (0, ρ₀) × ∂M, and its Mellin transform is entire, with |ι|^k‖ℳ(·)(ι)‖_(H^J(∂M)) bounded on every
+strip {c₁ ≤ Re ι ≤ c₂} for all k and J, as ℳ(ρ∂_ρ g) = ιℳg. And A − N(A) ∈ ρ Diff^m_b near ρ = 0, so
 f′ ∈ H^(∞,(F,β))_b + H^(∞,α+1)_b after cutting off. Let γ := min(β, α + 1), decreased slightly if necessary so that no
-Re ι, ι ∈ spec_b(A) ∪ π₁F, equals γ (possible as these are discrete in every strip; β itself is excluded, by the
-hypothesis and the reduction above, when γ = β). By (M1), ℳv is holomorphic in Re ι < α and N(A, ι)ℳv = ℳf′ there; by
+Re ι, ι ∈ spec_b(A) ∪ π₁F, equals γ (possible as spec_b(A) ∪ π₁F has finitely many points in every strip, by (E3)
+and [[def:s11-b-analysis]] (4); β itself is excluded, by the hypothesis and the reduction above, when γ = β). By (M1), ℳv is holomorphic in Re ι < α and N(A, ι)ℳv = ℳf′ there; by
 (M2) and (E2), N(A, ι)⁻¹ℳf′ is meromorphic in Re ι < γ and continues ℳv. Its poles with Re ι < α cancel (as ℳv is
 holomorphic there), and there are none on Re ι = α: a pole ι₀ there would make ∫|ℳv(c + iη)|² dη grow at least like
 (α − c)⁻¹ as c ↑ α, against the uniform bound of (M1); at ι with α < Re ι < γ the pole order is at most the order of
@@ -1520,7 +1529,8 @@ segments, not a pointwise one, and it is what the contour shift uses. The residu
 coefficients of N(A, ·)⁻¹ that enter, of negative and of non-negative powers, map C^∞(∂M) to itself by (E2)): by the
 order count these lie in H^(∞,(E(α)∪̄F,γ′)) for every γ′ < γ (the extended union E ∪̄ F of [[def:s11-b-analysis]] (4)
 is precisely the addition of pole orders, (z, k + l + 1) from orders k + 1 and l + 1). The integral on Re ι = γ lies in
-H^(∞,γ)_b by (M1), using (E1) for all |ι|-weighted norms. So v ∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done.
+H^(∞,γ)_b by (M1), for all |ι|-weighted norms: N(A, ·)⁻¹ is bounded from H^s to H^(s+m) on that line by (E1) where
+|Im ι| ≥ R, and by (E2) on the compact rest, which contains no pole by (E3). So v ∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done.
 Otherwise γ < β (and γ ≤ α + 1); repeat with α replaced by γ − δ′ for small δ′ > 0 and the expansion found so far moved
 into the right side: (A − N(A)) applied to ρ^ι(log ρ)^j a is, by Taylor expansion of the coefficients A_j(ρ) at
 ρ = 0, an expansion with exponents in ι + 1 + ℕ₀ and the same log powers, which is E_0 + 1; so

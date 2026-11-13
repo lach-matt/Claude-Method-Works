@@ -268,49 +268,77 @@ the constant of [[prop:resolvent-outgoing]] (b) is about 10⁶⁰ at (σ, l) = (
 
 From here on m = 1, so that f = 1 − 1/r², r_h = 1 and the photon sphere is r = √2. The bounds of the previous
 sections fail exactly where the barrier top of a harmonic lies near σ² and the barrier does not cover I. A
-multiplier identity of Morawetz type covers every harmonic and every real σ ≠ 0. The multipliers below are
-algebraic in r, every weight is (1 − r⁻²)r⁻³ times a rational function of r⁻², and every constant follows from
-exact rational inequalities.
+multiplier identity of Morawetz type covers every harmonic and every real σ ≠ 0. Every multiplier below is a
+polynomial or a rational function of r⁻², every weight is (1 − r⁻²)r⁻³ times a rational function of r⁻², and every
+constant is obtained from exact rational inequalities. The coefficient lists that the Bernstein bounds below use are in
+[[sec:tb-morawetz]].
 
 Throughout, y := 1/r² ∈ (0, 1), z := 1 − 2y ∈ (−1, 1) and η(y) := (1 − y)y^(3/2) = (r² − 1)/r⁵. The tortoise coordinate
 r_* has dr_*/dr = 1/f, and g′ := dg/dr_*. Since dy/dr = −2y^(3/2),
 
     d/dr_* = −2η(y) d/dy.                                                                            {#eq:pb-tortoise}
 
-As r_* → −∞, y → 1 and 1 − y decays like e^(2r_*); as r_* → ∞, r_* = r + O(log r). The interval I := {6/5 ≤ r ≤ 4} is
+As r_* → −∞, y → 1 and 1 − y decays like e^(2r_*); as r_* → ∞, r_* = r + O(r⁻¹). The interval I := {6/5 ≤ r ≤ 4} is
 {1/16 ≤ y ≤ 25/36} = {−7/18 ≤ z ≤ 7/8}. With r_* = r + ½ log((r − 1)/(r + 1)), its length is
 Λ := 14/5 + ½ log(33/5) < 3.7436. We write ‖·‖ for the norm of L²(ℝ, dr_*) and ‖·‖_I for that of L²(I, dr_*).
 
+For a potential V as below, a real σ ≠ 0 and F ∈ L²(ℝ) vanishing outside I, R(σ)F is the outgoing solution of
+−u″ + (V − σ²)u = F. Its construction in [[sec:rb-radial]] and [[prop:resolvent-outgoing]] (a) uses of V_l only that it
+is real, smooth and integrable in r_*: the solutions u_h and u_∞ come from the Volterra equations, and their Wronskian
+is not zero by [[lem:rb-flux]], whose proof uses only that V_l is real. So the construction applies verbatim to each V
+below, and the proof of [[lem:morawetz-identity]] recalls it. R_l(σ) is R(σ) for V = V_l, and ‖χ_I R(σ) χ_I‖ is the
+norm of F ↦ χ_I R(σ)F on L²(I).
+
 Since η_y = y^(1/2)(3/2 − 5y/2), η increases on [0, 3/5] and decreases on [3/5, 1]; so on an interval of y its least
 value is attained at an end. We use η(1/16) = 15/1024, η(1/2) = 2^(−5/2), η(25/36) = 1375/7776 > 2^(−5/2) (as
-32 · 1375² > 7776²) and max η = η(3/5) = 6√15/125. At a rational r, η = (r² − 1)/r⁵ is rational.
+32 · 1375² > 7776²) and max η = η(3/5) = 6√15/125 < 0.18591. At a rational r, η = (r² − 1)/r⁵ is rational.
 
 The potentials. Put U := f/r² = (1 − y)y, Q := f/r⁴ = (1 − y)y² and V_(a,b) := aU + bQ = (1 − y)(ay + by²). With
 κ := l(l + 2), the potentials V_0, V_1, V_2 of [[prop:np-10-16]] at degree l, which we write V^□, V^v and V^s (those of
 the scalar wave, of the vector-type and of the scalar-type 1-forms), are V_(κ+3/4,b) with b = 9/4, 5/4 and −7/4; so
-V^□ = V_l. Those of [[thm:s15-ki]] are V_T = V^□ and
-V_V = V_(κ+3/4,−27/4), and V_S = (1 − y)yQ_S/(16H²), with Q_S the polynomial [[eq:s15-ki-q]] at ς = y, p := κ − 3 and
-H := p + 6y.
+V^□ = V_l. Those of [[thm:s15-ki]] are V_T = V^□ and V_V = V_(κ+3/4,−27/4), and V_S = (1 − y)yQ_S/(16H²), with Q_S the
+polynomial [[eq:s15-ki-q]] at ς = y, p := κ − 3 and H := p + 6y, for l ≥ 2. Each of them is (1 − y)y times a rational
+function of y bounded on [0, 1] (for V_S, H ≥ p > 0), so V and V′ = −2ηV_y are O(r⁻²) and O(r⁻³) as r_* → ∞ and
+O(e^(2r_*)) as r_* → −∞: they are integrable and tend to 0 at ±∞.
 
 **Lemma {#lem:morawetz-identity}** (The multiplier identity.) Let V be a real smooth function on ℝ with V, V′ integrable
-and V, V′ → 0 at ±∞. Let φ and q be real smooth functions on ℝ with |φ| ≤ 1, φ → ±1 at ±∞, and φ′, φ″, φ‴, q, q′, q″
-integrable and tending to 0 at ±∞. Let σ ≠ 0 be real, F ∈ L²(ℝ) vanish outside I, and let u be a solution, with u and u′
-locally absolutely continuous, of −u″ + (V − σ²)u = F almost everywhere, with u − c_±e^(±iσr_*) → 0 and
+and V, V′ → 0 at ±∞. Let φ and q be real smooth functions on ℝ, φ bounded with limits φ(±∞) at ±∞, and φ′, φ″, φ‴, q,
+q′, q″ integrable and tending to 0 at ±∞. Let σ ≠ 0 be real, F ∈ L²(ℝ) vanish outside I, and let u be a solution, with
+u and u′ locally absolutely continuous, of −u″ + (V − σ²)u = F (almost everywhere), such that u − c_±e^(±iσr_*) → 0 and
 u′ ∓ iσu → 0 as r_* → ±∞. Then, with integrals over ℝ,
 
-    2∫(φ′ − q)|u′|² + ∫W|u|² + 2σ²∫q|u|² = Re∫F(2φū′ + (φ′ − 2q)ū) + 2σ²(|c_+|² + |c_−|²),
+    2∫(φ′ − q)|u′|² + ∫W|u|² + 2σ²∫q|u|² = Re∫F(2φū′ + (φ′ − 2q)ū) + 2σ²(φ(∞)|c_+|² − φ(−∞)|c_−|²),
     W := −φV′ − ½φ‴ + q″ − 2qV,                                                                      {#eq:pb-identity}
 
-and σ(|c_+|² + |c_−|²) = −Im∫Fū. Suppose moreover that φ′ − q ≥ 0, q ≥ 0 and W ≥ 0 on ℝ, and put
-m′ := min_I (φ′ − q) > 0, M′ := max_I |φ′ − 2q| and w_I := min_I W > 0. Then X := ‖u′‖_I and Y := ‖u‖_I satisfy
+and σ(|c_+|² + |c_−|²) = −Im∫Fū. The outgoing solution R(σ)F is a solution of this kind.
 
-    Y ≤ B‖F‖,     B := ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2);                                       {#eq:pb-bound}
+Suppose moreover that φ′ − q ≥ 0, q ≥ 0 and W ≥ 0 on ℝ, and let m′ > 0, M′, w_I > 0, p_I and p_∞ satisfy
+m′ ≤ φ′ − q, |φ′ − 2q| ≤ M′, w_I ≤ W and |φ| ≤ p_I on I, and p_∞ ≥ max(φ(∞), −φ(−∞), 0). Then X := ‖u′‖_I and
+Y := ‖u‖_I satisfy
 
-for every B̃ with Y ≤ B̃‖F‖, X ≤ X(B̃)‖F‖ with X(B̃) := (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′); and for every
-decomposition W = W_0 + W_1 with W_0, W_1 ≥ 0 on ℝ, ∫_I W_1|u|² ≤ (2X(B̃) + (M′ + 2|σ|)B̃)‖F‖².
+    Y ≤ B‖F‖,     B := ((2p_I²/m′ + (M′ + 2p_∞|σ|)²/w_I)/w_I)^(1/2);                               {#eq:pb-bound}
 
-*Proof.* The hypotheses make u and u′ bounded, and every integral in [[eq:pb-identity]] absolutely convergent. With
-Re(u″ū) = ½(|u|²)″ − |u′|² and Re(u′ū) = ½(|u|²)′, one checks term by term:
+for every B̃ with Y ≤ B̃‖F‖, X ≤ X(B̃)‖F‖ with X(B̃) := (p_I + (p_I² + 2m′(M′ + 2p_∞|σ|)B̃)^(1/2))/(2m′); and for every
+decomposition W = W_0 + W_1 with W_0, W_1 ≥ 0 on ℝ, ∫_I W_1|u|² ≤ (2p_IX(B̃) + (M′ + 2p_∞|σ|)B̃)‖F‖². When |φ| ≤ 1 on
+ℝ one may take p_I = p_∞ = 1; then B = ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2) and
+X(B̃) = (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′).
+
+*Proof.* First, R(σ)F is a solution of this kind. Let u_h and u_∞ be the solutions of the homogeneous equation with
+u_h − e^(−iσr_*) → 0 and u_h′ + iσu_h → 0 as r_* → −∞, and u_∞ − e^(iσr_*) → 0 and u_∞′ − iσu_∞ → 0 as r_* → ∞,
+given by the Volterra equations of [[sec:rb-radial]] with V in place of V_l, and let 𝒲 := u_hu_∞′ − u_h′u_∞ be their
+Wronskian, a nonzero constant by [[lem:rb-flux]], whose proof uses only that V is real. Then
+
+    R(σ)F(x) = −𝒲⁻¹(u_∞(x)∫_(−∞)^x u_hF + u_h(x)∫_x^∞ u_∞F).
+
+As F ∈ L² vanishes outside the bounded interval I and u_h, u_∞ are continuous, u_hF and u_∞F are integrable, and both
+integrals are absolutely continuous in x. Differentiating, the two terms ±𝒲⁻¹u_∞u_hF cancel, so
+u′ = −𝒲⁻¹(u_∞′∫_(−∞)^x u_hF + u_h′∫_x^∞ u_∞F), which is again absolutely continuous; differentiating once more,
+u″ = (V − σ²)u − 𝒲⁻¹(u_hu_∞′ − u_h′u_∞)F = (V − σ²)u − F almost everywhere. To the right of I, u is a multiple of u_∞,
+and to its left a multiple of u_h, which gives the stated behaviour at ±∞.
+
+Now let u be any solution as in the statement. Since u and u′ are locally absolutely continuous and φ, q, V are smooth,
+all the products below are locally absolutely continuous and the product rule holds for them almost everywhere. With
+Re(u″ū) = ½(|u|²)″ − |u′|² and Re(u′ū) = ½(|u|²)′, one checks term by term, almost everywhere:
 
     Re(−u″ · 2φū′) = −(φ|u′|²)′ + φ′|u′|²,
     Re(−u″ · φ′ū) = −(φ′Re(u′ū))′ + φ′|u′|² + (½φ″|u|²)′ − ½φ‴|u|²,
@@ -318,26 +346,27 @@ Re(u″ū) = ½(|u|²)″ − |u′|² and Re(u′ū) = ½(|u|²)′, one checks
     Re((V − σ²)u · φ′ū) = (V − σ²)φ′|u|²,
     Re((−u″ + (V − σ²)u) · (−2qū)) = (q(|u|²)′ − q′|u|²)′ + q″|u|² − 2q|u′|² − 2qV|u|² + 2σ²q|u|².
 
-Adding, almost everywhere, Re(F(2φū′ + (φ′ − 2q)ū)) = 2(φ′ − q)|u′|² + W|u|² + 2σ²q|u|² + E′, where E := −φ|u′|² −
-φ′Re(u′ū) + ½φ″|u|² + (V − σ²)φ|u|² + q(|u|²)′ − q′|u|², which is locally absolutely continuous, as u and u′ are. At ±∞,
-|u′|² → σ²|c_±|², |u|² → |c_±|² and φ′, φ″, q, q′, V → 0, so E → −2σ²φ(±∞)|c_±|² = ∓2σ²|c_±|². Integrating over [−R, R],
-where ∫E′ = E(R) − E(−R), and letting R → ∞ gives [[eq:pb-identity]]. Next, almost everywhere, Im(Fū) = −Im(u″ū) =
-−(Im(u′ū))′, and Im(u′ū) → ±σ|c_±|² at ±∞; integrating gives the flux identity.
+Adding, Re(F(2φū′ + (φ′ − 2q)ū)) = 2(φ′ − q)|u′|² + W|u|² + 2σ²q|u|² + E′ almost everywhere, where the locally
+absolutely continuous function E is −φ|u′|² − φ′Re(u′ū) + ½φ″|u|² + (V − σ²)φ|u|² + q(|u|²)′ − q′|u|². The function u
+is continuous with limits of modulus |c_±| at ±∞, and u′ continuous with limits of modulus |σc_±|; so both are bounded,
+and every integral in [[eq:pb-identity]] converges absolutely, as F vanishes outside I and φ′, φ‴, q, q″, V′ and qV are
+integrable. Integrate over [−R, R] and let R → ∞: at ±∞, |u′|² → σ²|c_±|², |u|² → |c_±|², Re(u′ū) → 0, φ → φ(±∞) and
+φ′, φ″, q, q′, V → 0, so E → −2σ²φ(±∞)|c_±|², and [[eq:pb-identity]] follows. Next, almost everywhere,
+Im(Fū) = −Im(u″ū) = −(Im(u′ū))′, and Im(u′ū) → ±σ|c_±|² at ±∞; integrating gives the flux identity.
 
 Under the sign conditions every integrand on the left of [[eq:pb-identity]] is nonnegative. Dropping the term with q and
-restricting the other two to I, the left side is at least 2m′X² + w_IY². On the right, F vanishes off I and |φ| ≤ 1, so
-the integral is at most ‖F‖(2X + M′Y), and 2σ²(|c_+|² + |c_−|²) = −2σIm∫Fū ≤ 2|σ|‖F‖Y. Hence
+restricting the other two to I, the left side is at least 2m′X² + w_IY². On the right, F vanishes outside I and
+|φ| ≤ p_I on I, so the integral is at most ‖F‖(2p_IX + M′Y); and
+2σ²(φ(∞)|c_+|² − φ(−∞)|c_−|²) ≤ 2σ²p_∞(|c_+|² + |c_−|²) = −2σp_∞Im∫Fū ≤ 2|σ|p_∞‖F‖Y. Hence, with
+M_σ := M′ + 2p_∞|σ|,
 
-    2m′X² + w_IY² ≤ ‖F‖(2X + (M′ + 2|σ|)Y).                                                          {#eq:pb-energy}
+    2m′X² + w_IY² ≤ ‖F‖(2p_IX + M_σY).                                                                {#eq:pb-energy}
 
-By the Cauchy–Schwarz inequality, 2X + (M′ + 2|σ|)Y ≤ (2/m′ + (M′ + 2|σ|)²/w_I)^(1/2)(2m′X² + w_IY²)^(1/2), so
-(2m′X² + w_IY²)^(1/2) ≤ (2/m′ + (M′ + 2|σ|)²/w_I)^(1/2)‖F‖ and w_I^(1/2)Y ≤ (2m′X² + w_IY²)^(1/2), which is
-[[eq:pb-bound]]. Dropping w_IY² in [[eq:pb-energy]] and using Y ≤ B̃‖F‖ gives 2m′X² − 2‖F‖X − (M′ + 2|σ|)B̃‖F‖² ≤ 0, so
-X is at most the positive root, X(B̃)‖F‖. Finally the left side of [[eq:pb-identity]] is at least ∫_I W_1|u|², and the
-right side is at most ‖F‖(2X + (M′ + 2|σ|)Y) ≤ (2X(B̃) + (M′ + 2|σ|)B̃)‖F‖². ∎
-
-For V = V_l and real σ ≠ 0, the outgoing solution u := R_l(σ)F satisfies the hypotheses on u for every F ∈ L²(ℝ)
-vanishing off I, by [[prop:resolvent-outgoing]] (a); this is how the lemma is applied below.
+By the Cauchy–Schwarz inequality, 2p_IX + M_σY ≤ (2p_I²/m′ + M_σ²/w_I)^(1/2)(2m′X² + w_IY²)^(1/2), so
+(2m′X² + w_IY²)^(1/2) ≤ (2p_I²/m′ + M_σ²/w_I)^(1/2)‖F‖ and w_I^(1/2)Y ≤ (2m′X² + w_IY²)^(1/2), which is [[eq:pb-bound]].
+Dropping w_IY² in [[eq:pb-energy]] and using Y ≤ B̃‖F‖ gives 2m′X² − 2p_I‖F‖X − M_σB̃‖F‖² ≤ 0, so X is at most the
+positive root, X(B̃)‖F‖. Finally the left side of [[eq:pb-identity]] is at least ∫_I W_1|u|², and the right side is at
+most ‖F‖(2p_IX + M_σY) ≤ (2p_IX(B̃) + M_σB̃)‖F‖². When |φ| ≤ 1 on ℝ, also |φ(±∞)| ≤ 1, so p_I = p_∞ = 1 serve. ∎
 
 For a multiplier φ = Θ(y) and a Lagrangian term q = ηg(y), [[eq:pb-tortoise]] gives φ′ = −2ηΘ_y,
 −½φ‴ = 4η(η(ηΘ_y)_y)_y, −φV′ = 2ηΘV_y and, with h := (3/2 − 5y/2)g + y(1 − y)g_y, q′ = −2(1 − y)y²h and
@@ -345,8 +374,9 @@ q″ = 4ηy((2 − 3y)h + y(1 − y)h_y). So W = ηG with
 
     G = 2ΘV_y + 4(η(ηΘ_y)_y)_y + 4y((2 − 3y)h + y(1 − y)h_y) − 2gV.                              {#eq:pb-weight-general}
 
-Every φ and q below is a rational function of y (with g a polynomial), so φ′, φ″, φ‴, q, q′, q″ are η or (1 − y)y²
-times bounded functions; they are O(r⁻³) as r → ∞ and O(e^(2r_*)) as r_* → −∞, hence integrable and vanishing at ±∞.
+Every φ below is a polynomial or a rational function of y with no pole on [0, 1], and every q is η times a polynomial g.
+Since ηη_y = (1 − y)y²(3 − 5y)/2 and η² = (1 − y)²y³ are polynomials, φ′, φ″, φ‴, q, q′, q″ are η or (1 − y)y² times
+bounded functions; they are O(r⁻³) as r_* → ∞ and O(e^(2r_*)) as r_* → −∞, hence integrable and vanishing at ±∞.
 
 ### The weight of the multiplier 1 − 2/r² {#sec:morawetz-algebraic-weight}
 
@@ -359,7 +389,7 @@ W = ηP_(a,b)(z) with
 P_(a,b) is affine in b and nondecreasing in a, with ∂_aP_(a,b) = 2z², and ψ := −φU′ = 2ηz² ≥ 0. For the scalar wave at
 harmonic l (a = κ + 3/4, b = 9/4) the weight is w_l := ηP_l with
 
-    P_l(z) = P_0(z) + c_l z²,     P_0(z) := 2 − (39/8)z + (53/8)z³,     c_l := 2κ − 9/4,          {#eq:pb-weight-scalar}
+    P_l(z) = P̄(z) + c_l z²,     P̄(z) := 2 − (39/8)z + (53/8)z³,     c_l := 2κ − 9/4,             {#eq:pb-weight-scalar}
 
 so that w_l = w_1 + (κ − 3)ψ. In the variable y, P_1 = ½p with
 
@@ -396,11 +426,11 @@ d := e_0c − 9/16, w_l ≥ 2^(−5/2)(2 − (47/8)z + dz²); hence w_l is at le
 Consequently min_I w_l ≥ ω_l, where ω_1 := 0.07388, ω_2 := 0.1860, ω_3 := 0.2847, ω_4 := 0.3122, ω_5 := 0.3257,
 ω_l := 0.3335 for 6 ≤ l ≤ 19 and ω_l := 0.3514 for l ≥ 20.
 
-*Proof.* Write A := ηP_0 and K := ηz², so that w_l = A + cK by [[eq:pb-weight-scalar]], with c ≥ 15/4. P_0′(z) =
-−39/8 + (159/8)z² vanishes on [0, 1] only at z_0 := (39/159)^(1/2) < 0.4953, and P_0(z_0) = 2 − (13/4)z_0 > 0.3902;
-P_0 decreases on [0, z_0] and increases on [z_0, 1]. In the variable z, η = (1 + z)(1 − z)^(3/2)2^(−5/2) decreases on
-[0, 7/8] (that is y ∈ [1/16, 1/2] ⊂ [0, 3/5]), and K is unimodal on [0, 1], since
-d log K/dz = 1/(1 + z) − 3/(2(1 − z)) + 2/z is decreasing.
+*Proof.* Write A := ηP̄ and Z := ηz², so that w_l = A + cZ by [[eq:pb-weight-scalar]], with c ≥ 15/4. P̄′(z) =
+−39/8 + (159/8)z² vanishes on [0, 1] only at z_0 := (39/159)^(1/2) < 0.4953, and P̄(z_0) = 2 − (13/4)z_0 > 0.3902;
+P̄ decreases on [0, z_0] and increases on [z_0, 1]. In the variable z, η = (1 + z)(1 − z)^(3/2)2^(−5/2) decreases on
+[0, 7/8] (that is y ∈ [1/16, 1/2] ⊂ [0, 3/5]), and Z is unimodal on [0, 1], since
+d log Z/dz = 1/(1 + z) − 3/(2(1 − z)) + 2/z is decreasing.
 
 (i) Here z ∈ [−7/18, 0], so −(39/8)z = (39/8)|z|, cz² ≥ 0 and (53/8)z³ ≥ −(53/8)(49/324)|z| > −1.002|z|; thus P_l ≥ 2.
 Also y ∈ [1/2, 25/36], where η ≥ min(η(1/2), η(25/36)) = 2^(−5/2). So w_l ≥ 2^(−3/2).
@@ -416,20 +446,20 @@ Multiplying,
 and z/2 + 3z²/2 ≤ 7/64 + 147/2048 = 1 − e_0 on [0, 7/32]. Dropping (117/16)z³ ≥ 0 gives the bound. Its minimum over
 z ∈ [0, 7/32] is at z = 47/(16d) when that lies in [0, 7/32], that is d ≥ 94/7, and at z = 7/32 otherwise.
 
-(iii) On 2 ≤ r ≤ 3, y ∈ [1/9, 1/4] and z ∈ [1/2, 7/9] ⊂ [z_0, 1]: η ≥ η(1/9) = 8/243 and P_0 ≥ P_0(1/2) = 25/64, so
-A ≥ 25/1944; and K ≥ min(K at r = 3, K at r = 2) = min(392/19683, 3/128). On 17/10 ≤ r ≤ 2, y ∈ [1/4, 100/289]:
-η ≥ η(1/4) = 3/32 and P_0 ≥ P_0(z_0) > 0.3902, so A ≥ 0.03658; K ≥ K(17/10) = (189000/1419857)(89/289)² > 0.012624, as
-K(2) = 3/128 is larger. On 8/5 ≤ r ≤ 17/10, z ∈ [7/32, 89/289] ⊂ [0, z_0]: η ≥ η(17/10) = 189000/1419857 and
-P_0 ≥ P_0(89/289) = 66831535/96550276, so A > 0.09213; K ≥ K(8/5) = (4875/32768)(49/1024) = 238875/33554432.
+(iii) On 2 ≤ r ≤ 3, y ∈ [1/9, 1/4] and z ∈ [1/2, 7/9] ⊂ [z_0, 1]: η ≥ η(1/9) = 8/243 and P̄ ≥ P̄(1/2) = 25/64, so
+A ≥ 25/1944; and Z ≥ min(Z at r = 3, Z at r = 2) = min(392/19683, 3/128). On 17/10 ≤ r ≤ 2, y ∈ [1/4, 100/289]:
+η ≥ η(1/4) = 3/32 and P̄ ≥ P̄(z_0) > 0.3902, so A ≥ 0.03658; Z ≥ Z(17/10) = (189000/1419857)(89/289)² > 0.012624, as
+Z(2) = 3/128 is larger. On 8/5 ≤ r ≤ 17/10, z ∈ [7/32, 89/289] ⊂ [0, z_0]: η ≥ η(17/10) = 189000/1419857 and
+P̄ ≥ P̄(89/289) = 66831535/96550276, so A > 0.09213; Z ≥ Z(8/5) = (4875/32768)(49/1024) = 238875/33554432.
 
-(iv) We show that A and K increase with y on [1/16, 1/9], so that w_l, an increasing combination, does too. There
-z ∈ [7/9, 7/8] ⊂ [z_0, 1], so P_0 decreases with y, and |dP_0/dy| = 2P_0′(z) = (159/4)z² − 39/4. Now
-d log K/dy = 3/(2y) − 1/(1 − y) − 4/(1 − 2y) ≥ 27/2 − 9/8 − 36/7 > 0, and
-d log A/dy = 3/(2y) − 1/(1 − y) + (dP_0/dy)/P_0.
-On y ∈ [1/16, 1/12] the last expression is at least 18 − 12/11 − (5295/256)/(3061/1728) > 5.2, using P_0(5/6) = 3061/1728
+(iv) We show that A and Z increase with y on [1/16, 1/9], so that w_l, an increasing combination, does too. There
+z ∈ [7/9, 7/8] ⊂ [z_0, 1], so P̄ decreases with y, and |dP̄/dy| = 2P̄′(z) = (159/4)z² − 39/4. Now
+d log Z/dy = 3/(2y) − 1/(1 − y) − 4/(1 − 2y) ≥ 27/2 − 9/8 − 36/7 > 0, and
+d log A/dy = 3/(2y) − 1/(1 − y) + (dP̄/dy)/P̄.
+On y ∈ [1/16, 1/12] the last expression is at least 18 − 12/11 − (5295/256)/(3061/1728) > 5.2, using P̄(5/6) = 3061/1728
 and (159/4)(7/8)² − 39/4 = 5295/256; on [1/12, 1/10] it is at least 15 − 10/9 − (857/48)/(373/250) > 1.9, using
-P_0(4/5) = 373/250; on [1/10, 1/9] it is at least 27/2 − 9/8 − 15.69/P_0(7/9) > 0.53, using P_0(7/9) > 1.3254. Finally
-η(1/16) = 15/1024, P_0(7/8) = 8899/4096 and (7/8)² = 49/64.
+P̄(4/5) = 373/250; on [1/10, 1/9] it is at least 27/2 − 9/8 − 15.69/P̄(7/9) > 0.53, using P̄(7/9) > 1.3254. Finally
+η(1/16) = 15/1024, P̄(7/8) = 8899/4096 and (7/8)² = 49/64.
 
 Evaluating (i)–(iv): at l = 1 and l = 2, (iv) gives 309885/4194304 > 0.07388 and 780285/4194304 > 0.1860, (ii) more
 than 0.147 and 0.216, the three bounds of (iii) more than 0.0839 and 0.190, and (i) more than 0.3535. For
@@ -455,12 +485,13 @@ with ω_l of [[lem:morawetz-weight-interval]]. At σ → 0, 1, 3 and 10 these ar
 | every l ≥ 6 | 10.36 | 13.04 | 22.62 | 63.02 |
 | every l ≥ 20 | 10.09 | 12.58 | 21.58 | 59.85 |
 
-Each B_l is even in σ, increasing in |σ| and bounded as σ → 0.
+Each B_l is even in σ, increasing in |σ| and bounded as σ → 0. [[prop:morawetz-harmonics]] improves these values for
+l ≥ 1 with the multipliers of [[sec:morawetz-polynomial]].
 
-*Proof.* [[prop:morawetz-weight]] gives the hypotheses of [[lem:morawetz-identity]] with φ = z, q = 0. On I, φ′ = 4η
-has least value 4 min(η(1/16), η(25/36)) = 15/256, so 2/m′ = 512/15, and greatest value 4η(3/5) = 24√15/125 < 0.74362,
-since 3.873² > 15. So w_I ≥ ω_l by [[lem:morawetz-weight-interval]], and [[eq:pb-bound]] gives the bound; it decreases in
-w_I and increases in M′. The table evaluates the formula, rounding up. ∎
+*Proof.* [[prop:morawetz-weight]] gives the hypotheses of [[lem:morawetz-identity]] with φ = z, q = 0, and |φ| ≤ 1, so
+p_I = p_∞ = 1. On I, φ′ = 4η has least value 4 min(η(1/16), η(25/36)) = 15/256, so m′ = 15/256 and 2/m′ = 512/15, and
+greatest value 4η(3/5) = 24√15/125 < 0.74362, since 3.873² > 15. So w_I ≥ ω_l by [[lem:morawetz-weight-interval]], and
+[[eq:pb-bound]] gives the bound; it decreases in w_I and increases in M′. The table evaluates the formula, rounding up. ∎
 
 ### The harmonic l = 0 {#sec:morawetz-l-zero}
 
@@ -472,15 +503,15 @@ w_I and increases in M′. The table evaluates the formula, rounding up. ∎
 
 On I, m′ = min_I(φ′ − q) = 3315/65536, M′ = max_I|φ′ − 2q| < 0.3999 and w_I = W(4) = 5899185/536870912 > 0.010988. So
 for every real σ ≠ 0, ‖χ_I R_0(σ) χ_I‖ ≤ B_0(σ) := ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2), which is at most 70.17,
-226.50, 585.53 and 1857.54 at σ → 0, σ = 1, 3 and 10. In [[lem:morawetz-complex]],
-max q = 2√6/27 < 0.18145, attained at y = 2/3.
+226.50, 585.53 and 1857.54 at σ → 0, σ = 1, 3 and 10. For the bound off the real axis of [[lem:morawetz-complex]],
+which replaces 2|σ| by 4|σ| + 2 max q, max q = 2√6/27 < 0.18145, attained at y = 2/3.
 
-*Proof.* q = ηg with g = (2 + 3y)/4 ≥ 0, and φ′ = 4η, so q/φ′ = (2 + 3y)/16 ≤ 5/16. In [[eq:pb-weight-general]], h = (6
-+ 5y − 21y²)/8 and (2 − 3y)h + y(1 − y)h_y = (12 − 3y − 104y² + 105y³)/8, so the q″-term is ½y(12 − 3y − 104y² + 105y³).
-By [[prop:morawetz-weight]] the φ-terms give P_(3/4,9/4) = 3/2 − 21y + (141/2)y² − 53y³ in the variable y, and
-−2gV_(3/4,9/4) = −(3/8)y(1 − y)(2 + 3y)(1 + 3y) = −(3/4)y − (21/8)y² + (27/8)y⁴. The sum is (3/8)Q_4, and the second
-form of Q_4 is checked by expansion. In it, 28y² − 49y + 22.75 = 28(y − 7/8)² + 21/16 > 0, and the two terms do not
-vanish together, since the second vanishes only at y = 0, where the first is 4.
+*Proof.* q = ηg with g = (2 + 3y)/4 ≥ 0, and φ′ = 4η, so q/φ′ = (2 + 3y)/16 ≤ 5/16. In [[eq:pb-weight-general]],
+h = (6 + 5y − 21y²)/8 and (2 − 3y)h + y(1 − y)h_y = (12 − 3y − 104y² + 105y³)/8, so the q″-term is
+½y(12 − 3y − 104y² + 105y³). By [[prop:morawetz-weight]] the φ-terms give P_(3/4,9/4) = 3/2 − 21y + (141/2)y² − 53y³ in
+the variable y, and −2gV_(3/4,9/4) = −(3/8)y(1 − y)(2 + 3y)(1 + 3y) = −(3/4)y − (21/8)y² + (27/8)y⁴. The sum is
+(3/8)Q_4, and the second form of Q_4 is checked by expansion. In it, 28y² − 49y + 22.75 = 28(y − 7/8)² + 21/16 > 0, and
+the two terms do not vanish together, since the second vanishes only at y = 0, where the first is 4.
 
 The constants. φ′ − q = η(14 − 3y)/4. On [1/16, 1/4], d log(η(14 − 3y))/dy = 3/(2y) − 1/(1 − y) − 3/(14 − 3y) ≥
 6 − 4/3 − 3/13 > 0, so the least value there is at y = 1/16: (15/1024)(221/64) = 3315/65536; on [1/4, 25/36],
@@ -504,21 +535,22 @@ Then:
   (3/8)(0.026013)(1.1786), (3/8)(0.032216)(1.0051) and (3/8)(0.038669)(0.81293), all above 0.0114;
 - on [3/20, 1/4], W ≥ (3/8)(0.049380)(0.6768) > 0.0125, and on [1/4, 25/36], W ≥ (3/8)(3/32)(0.6625) > 0.023.
 
-Here Q_4(1/16) = 131093/65536, so W(4) = (3/8)(15/1024)(131093/65536). [[lem:morawetz-identity]] applies, and the bounds
-follow from [[eq:pb-bound]]. For max q: d/dy(η(2 + 3y)) = y^(1/2)(3 + (5/2)y − (21/2)y²), which vanishes on (0, 1) only
-at y = 2/3, where q = (1/3)(2/3)^(3/2) = 2√6/27. ∎
+Here Q_4(1/16) = 131093/65536, so W(4) = (3/8)(15/1024)(131093/65536). [[lem:morawetz-identity]] applies with
+p_I = p_∞ = 1, as |φ| ≤ 1, and the bounds follow from [[eq:pb-bound]]. For max q: d/dy(η(2 + 3y)) =
+y^(1/2)(3 + (5/2)y − (21/2)y²), which vanishes on (0, 1) only at y = 2/3, where q = (1/3)(2/3)^(3/2) = 2√6/27. ∎
 
 ### Off the real axis with a multiplier {#sec:morawetz-complex}
 
 **Lemma {#lem:morawetz-complex}** (Off the real axis.) Let V ≥ 0 be real and bounded, with V and V′ integrable and
-tending to 0 at ±∞, and let φ and q satisfy the hypotheses of [[lem:morawetz-identity]], its sign conditions
-included, with constants m′, M′ and w_I. Let Im σ > 0, F ∈ L²(ℝ) vanish outside I, and let u := (−∂²_(r_*) + V − σ²)⁻¹F
-be the solution in L²(ℝ). Then
+tending to 0 at ±∞, and let φ and q satisfy the hypotheses of [[lem:morawetz-identity]] on φ and q, its sign conditions
+φ′ − q ≥ 0, q ≥ 0 and W ≥ 0 on ℝ included, and |φ| ≤ 1 on ℝ; let m′, M′ and w_I be constants as there. Let Im σ > 0,
+F ∈ L²(ℝ) vanish outside I, and let u := (−∂²_(r_*) + V − σ²)⁻¹F be the solution in L²(ℝ). Then
 
     ‖u‖_I ≤ B⁺(σ)‖F‖,     B⁺(σ) := ((2/m′ + (M′ + 4|σ| + 2 max q)²/w_I)/w_I)^(1/2),
 
-and the bounds of [[lem:morawetz-identity]] for ‖u′‖_I and for ∫_I W_1|u|² hold with 2|σ| replaced by
-4|σ| + 2 max q. When q = 0, or when Re σ² ≥ 0, the term 2 max q may be dropped.
+and the bounds of [[lem:morawetz-identity]] for ‖u′‖_I and for ∫_I W_1|u|², with p_I = p_∞ = 1, hold with 2|σ|
+replaced by 4|σ| + 2 max q. When q = 0, or when Re σ² ≥ 0, the term 2 max q may be dropped. If instead |φ| ≤ p on ℝ for
+a constant p > 0, and the other hypotheses hold, then ‖u‖_I ≤ ((2p²/m′ + (M′ + 4p|σ| + 2 max q)²/w_I)/w_I)^(1/2)‖F‖.
 
 *Proof.* Write σ² = a_σ + ib_σ. The operator −∂² + V is self-adjoint and nonnegative, so u ∈ H²(ℝ); off I, u solves
 the homogeneous equation and lies in L², so near ±∞ it is a multiple of the solution that behaves like e^(±iσr_*),
@@ -539,70 +571,295 @@ Integration by parts gives the energy identity ∫Fū = ‖u′‖² + ∫V|u|²
 since |b_σ| = 2|Re σ| Im σ ≤ |σ|² and a_+^(1/2) ≤ |Re σ| ≤ |σ|. If a_σ ≥ 0 the term 2a_σ∫q|u|² is nonnegative and is
 dropped; if a_σ < 0, the real part of the energy identity gives |a_σ|‖u‖² ≤ ‖F‖‖u‖_I, so
 −2a_σ∫q|u|² ≤ 2 max q ‖F‖‖u‖_I, and this term is moved to the right. Then the left side is at least 2m′X² + w_IY²,
-X := ‖u′‖_I, Y := ‖u‖_I, and the right side is at most ‖F‖(2X + (M′ + 4|σ| + 2 max q)Y); the rest is the algebra of the
-proof of [[lem:morawetz-identity]], with M′ + 4|σ| + 2 max q in place of M′ + 2|σ|. ∎
+X := ‖u′‖_I, Y := ‖u‖_I, and, as |φ| ≤ 1 on I, the right side is at most ‖F‖(2X + (M′ + 4|σ| + 2 max q)Y); the rest is
+the algebra of the proof of [[lem:morawetz-identity]] with p_I = p_∞ = 1, with M′ + 4|σ| + 2 max q in place of
+M′ + 2|σ|. For the last statement, φ/p and q/p satisfy the hypotheses with |φ/p| ≤ 1; since W, φ′ − q and φ′ − 2q are
+linear in (φ, q), their constants are m′/p, M′/p, w_I/p and max q/p, and the bound just proved for them is the one
+stated. ∎
 
 So the real-axis bounds are stable under Im σ > 0: B⁺ is continuous in σ and bounded on compact subsets of
 {Im σ ≥ 0, σ ≠ 0}, and the degeneration of [[lem:rb-off-axis]] as Im σ → 0 is not met. As Im σ → 0, B⁺ tends to the
-constant with 4|σ|, not to the real-axis one: the factor 2 is the price of bounding the b_σ-term by norms over ℝ. For
-every l ≥ 1 the multiplier of [[prop:morawetz-resolvent-l-ge-1]] has q = 0; for l = 0, max q = 2√6/27
-([[prop:morawetz-l-zero]]).
+constant with 4|σ|, not to the real-axis one: the factor 2 is the price of bounding the b_σ-term by norms over ℝ. Every
+multiplier below satisfies |φ| ≤ 1 or is used in the scaled form: φ = z has |z| < 1, with q = 0 for every l ≥ 1
+([[prop:morawetz-resolvent-l-ge-1]]) and max q = 2√6/27 for l = 0 ([[prop:morawetz-l-zero]]); the multipliers of
+[[prop:morawetz-master-potentials]] are taken with p := sup_ℝ|φ|, as stated there.
+
+### Polynomial multipliers {#sec:morawetz-polynomial}
+
+**Lemma {#lem:bernstein-lower-bound}** (Bernstein lower bound.) Let p be a polynomial of degree at most n and α < β.
+Write p(α + (β − α)t) = Σ_(j≤n) c_j t^j and b_k := Σ_(j≤k) (C(k, j)/C(n, j))c_j for 0 ≤ k ≤ n. Then
+min_k b_k ≤ p ≤ max_k b_k on [α, β]; in particular |p| ≤ max_k |b_k| there.
+
+*Proof.* Expanding t^j = t^j(t + (1 − t))^(n−j) by the binomial theorem gives
+t^j = Σ_(k≥j) (C(k, j)/C(n, j))C(n, k)t^k(1 − t)^(n−k), as C(n − j, k − j)/C(n, k) = C(k, j)/C(n, j). So
+p(α + (β − α)t) = Σ_k b_k C(n, k)t^k(1 − t)^(n−k), a combination of the b_k with nonnegative weights of sum 1 on
+t ∈ [0, 1]. ∎
+
+**Lemma {#lem:morawetz-polynomial-weight}** (The weight of a polynomial multiplier.) Let Θ be a real polynomial in z
+and g a real polynomial in y, with g ≥ 0 and 4Θ_z(1 − 2y) − g(y) ≥ 0 for 0 ≤ y ≤ 1, and put φ := Θ(z) and q := ηg. Then
+φ and q satisfy the hypotheses of [[lem:morawetz-identity]] on φ and q, with φ(±∞) = Θ(±1); and q ≥ 0, φ′ = 4ηΘ_z,
+φ′ − q = η(4Θ_z − g) ≥ 0 and φ′ − 2q = η(4Θ_z − 2g) on ℝ, the derivatives of Θ taken at z = 1 − 2y. For V = V_(a,b) or
+V = V_S the weight of [[lem:morawetz-identity]] is W = ηG with
+
+    G = 2ΘV_y − 8y(10y² − 12y + 3)Θ_z + 24(1 − y)y²(3 − 5y)Θ_zz − 32(1 − y)²y³Θ_zzz
+        + 4y((2 − 3y)h + y(1 − y)h_y) − 2gV,                                                        {#eq:pb-weight-poly}
+
+with h as in [[eq:pb-weight-general]]. If g = 0 and Θ(0) = 0, then zΘ ≥ 0 on [−1, 1], and for V = V_(a,b) the polynomial
+G is affine in b and nondecreasing in a, with ∂_aG = 2zΘ; the a-part of W is a(−φU′), with −φU′ = 2ηzΘ ≥ 0.
+
+*Proof.* φ is smooth and bounded, and z → ±1 as r_* → ±∞, so φ(±∞) = Θ(±1). By the remark after
+[[eq:pb-weight-general]], φ′, φ″, φ‴, q, q′, q″ are integrable and tend to 0 at ±∞. With Θ_y = −2Θ_z,
+[[eq:pb-tortoise]] gives φ′ = 4ηΘ_z, and the identities for φ′ − q and φ′ − 2q follow. Next,
+4(η(ηΘ_y)_y)_y = 4(η_y² + ηη_yy)Θ_y + 12ηη_yΘ_yy + 4η²Θ_yyy, since (η²)_y = 2ηη_y; substituting Θ_y = −2Θ_z,
+Θ_yy = 4Θ_zz, Θ_yyy = −8Θ_zzz, η_y² + ηη_yy = y(10y² − 12y + 3) (proof of [[prop:morawetz-weight]]),
+ηη_y = (1 − y)y²(3 − 5y)/2 and η² = (1 − y)²y³ gives the Θ-terms of [[eq:pb-weight-poly]]; the others are those of
+[[eq:pb-weight-general]]. If Θ(0) = 0 and Θ_z ≥ 0 on [−1, 1] (which holds when g = 0), Θ(z) has the sign of z. With
+g = 0, G is linear in (a, b) up to an a- and b-free term, and the coefficient of a is 2ΘU_y = 2zΘ, since U_y = z;
+−φU′ = 2ηΘU_y = 2ηzΘ. ∎
+
+**Proposition {#prop:morawetz-polynomial}** (Five polynomial multipliers.) Let
+
+    Θ_A := z + (3/16)z² − (7/40)z³,               Θ_B := z + (9/20)z² − (17/120)z³ − (1/12)z⁴,
+    Θ_E := z − z³/3,                               Θ_C := z + (11/24)z² − (9/40)z³ − (17/60)z⁴,
+    Θ_T := z + (7/20)z² − (3/40)z⁴,
+
+with g = 0 for Θ_A, Θ_B, Θ_E and Θ_C, and g = y/2 for Θ_T, so that q = 0, respectively q = ηy/2. Each pair (Θ, g)
+satisfies the hypotheses of [[lem:morawetz-polynomial-weight]], and the constants of [[lem:morawetz-identity]] may be
+taken as follows:
+
+| multiplier | m′ | M′ | p_I | p_∞ | max q |
+|---|---|---|---|---|---|
+| Θ_A | 0.0537 | 0.72 | 18459/20480 | 81/80 | 0 |
+| Θ_B | 0.0718 | 0.735 | 264383/245760 | 49/40 | 0 |
+| Θ_E | 0.0135 | 0.735 | 1001/1536 | 2/3 | 0 |
+| Θ_C | 0.0305 | 0.735 | 74473/81920 | 19/20 | 0 |
+| Θ_T | 0.0814 | 0.65 | 180061/163840 | 51/40 | (1/7)(5/7)^(5/2) < 0.06161 |
+
+For the operators of each row below, W > 0 on ℝ, w_I is at least the value listed, and so, for every real σ ≠ 0 and
+every harmonic of the row, ‖χ_I R(σ) χ_I‖ ≤ B(σ) := ((2p_I²/m′ + (M′ + 2p_∞|σ|)²/w_I)/w_I)^(1/2) with the constants of
+the row's multiplier; B is even in σ and increasing in |σ|, and its values at σ → 0, σ = 1, 3 and 10 are at most:
+
+| row | operators | multiplier | w_I ≥ | B(0+) | B(1) | B(3) | B(10) |
+|---|---|---|---|---|---|---|---|
+| A | V_(a,b), a ≥ 15/4, 5/4 ≤ b ≤ 9/4 | Θ_A | 0.0728 | 22.66 | 42.87 | 95.54 | 288.77 |
+| A′ | V_(a,9/4), a ≥ 15/4 | Θ_A | 0.0756 | 22.16 | 41.46 | 92.09 | 278.11 |
+| B | V_(a,b), a ≥ 35/4, −7/4 ≤ b ≤ 9/4 | Θ_B | 0.211 | 12.85 | 19.51 | 40.27 | 120.24 |
+| B′ | V_(a,9/4), a ≥ 35/4 | Θ_B | 0.224 | 12.44 | 18.61 | 38.04 | 113.30 |
+| E | V_(a,9/4), a ≥ 35/4 | Θ_E | 0.139 | 21.93 | 25.97 | 40.17 | 103.43 |
+| C | V_(a,b), a ≥ 63/4, −27/4 ≤ b ≤ 9/4 | Θ_C | 0.325 | 13.11 | 15.25 | 23.64 | 62.09 |
+| C3 | V_(a,9/4), a ≥ 63/4 | Θ_C | 0.352 | 12.59 | 14.50 | 22.10 | 57.43 |
+| C4 | V_(a,9/4), a ≥ 99/4 | Θ_C | 0.559 | 9.94 | 10.92 | 15.15 | 36.66 |
+| C5 | V_(a,9/4), a ≥ 143/4 | Θ_C | 0.80 | 8.29 | 8.87 | 11.51 | 26.01 |
+| C6 | V_(a,9/4), a ≥ 195/4 | Θ_C | 0.815 | 8.21 | 8.78 | 11.36 | 25.56 |
+| S3 | V_S, l = 3 | Θ_C | 0.302 | 13.62 | 15.99 | 25.17 | 66.71 |
+| S4 | V_S, every l ≥ 4 | Θ_C | 0.515 | 10.36 | 11.47 | 16.17 | 39.67 |
+| T2 | V_V, l = 2 | Θ_T | 0.19 | 12.96 | 20.98 | 45.44 | 138.20 |
+
+At the harmonic l the scalar wave is V_(a,9/4) with a = κ + 3/4, which is 15/4, 35/4, 63/4, 99/4, 143/4 and 195/4 at
+l = 1, …, 6; so rows A′, B′ and E, C3, C4, C5 and C6 serve every l ≥ 1, 2, 3, 4, 5 and 6 respectively.
+
+*Proof.* The hypotheses. Θ_E has Θ_z = 1 − z² ≥ 0. For Θ_A, Θ_B, Θ_C and Θ_T the Bernstein coefficients of Θ_z on [−1, 1]
+(on [−1, 0] and [0, 1] for Θ_C) are positive ([[sec:tb-morawetz-monotone]]), so Θ_z > 0 on [−1, 1] by
+[[lem:bernstein-lower-bound]]. For Θ_T, g = y/2 ≥ 0, and the Bernstein coefficients of 4Θ_z(1 − 2y) − y/2 on [0, 1] are
+positive. So [[lem:morawetz-polynomial-weight]] applies to each pair. Each Θ is increasing on [−1, 1], so on I,
+|Θ| ≤ max(|Θ(7/8)|, |Θ(−7/18)|) = Θ(7/8), and φ(±∞) = Θ(±1); these values are listed in [[sec:tb-morawetz-monotone]] and
+give p_I and p_∞. For Θ_T, q = ½(1 − y)y^(5/2), whose derivative ¼y^(3/2)(5 − 7y) vanishes on (0, 1) only at y = 5/7.
+
+The weights. By [[lem:morawetz-polynomial-weight]], W = ηG with G of [[eq:pb-weight-poly]], a polynomial in y for
+V = V_(a,b). [[sec:tb-morawetz-weights]] lists G at the corners A1 = (15/4, 5/4), A2 = (15/4, 9/4), B1 = (35/4, −7/4),
+B2 = (35/4, 9/4), C1 = (63/4, −27/4), C3 = (63/4, 9/4), C4 = (99/4, 9/4), C5 = (143/4, 9/4) and C6 = (195/4, 9/4) of
+their multipliers, G for Θ_E at (35/4, 9/4) (E2), G for Θ_T and V_V at l = 2, that is (35/4, −27/4) (T2), and, for V_S
+at l = 3, where p = 12 and H = 6(2 + y), the polynomial Π := 120(2 + y)³G (S3). Their Bernstein coefficients on the
+subintervals of [0, 1] listed in [[sec:tb-morawetz-positivity]] are positive, so each is positive on [0, 1] by
+[[lem:bernstein-lower-bound]], and W > 0 on ℝ. For Θ_A, Θ_B, Θ_E and Θ_C, g = 0 and Θ(0) = 0, so G is nondecreasing in a
+and affine in b: in row A, for a ≥ 15/4 and 5/4 ≤ b ≤ 9/4, G is at least the smaller of its values at A1 and A2, on ℝ
+and on I; in the same way rows B and C reduce to the corners B1, B2 and C1, C3, and rows A′, B′, E, C3, C4, C5 and C6
+to the single corners A2, B2, E2, C3, C4, C5 and C6.
+
+Row S4. Here κ ≥ 24, p = κ − 3 = 21 + t with t := κ − 24 ≥ 0, and H = H_0 + t with H_0 := 21 + 6y. Expanding,
+16H³G = Σ_(j≤4) c_j(y)t^j with the polynomials c_0, …, c_4 of [[sec:tb-morawetz-weights]]; c_4 = 32zΘ_C(z) ≥ 0 by
+[[lem:morawetz-polynomial-weight]], and c_0, …, c_3 have positive Bernstein coefficients on [0, 1/2] and [1/2, 1]
+([[sec:tb-morawetz-positivity]]), so they are positive on [0, 1]. Since (H_0 + t)³ = Σ_(j≤3) C(3, j)H_0^(3−j)t^j,
+
+    G ≥ k_S(y) := min_(j≤3) c_j/(16C(3, j)H_0^(3−j)) > 0     for every t ≥ 0,
+
+uniformly in l ≥ 4.
+
+The lower bounds for w_I. In each row the pieces of [[sec:tb-morawetz-pieces]] cover I, and on a piece
+w = ηG ≥ (least value of η)(least Bernstein coefficient of G) by [[lem:bernstein-lower-bound]], since that coefficient
+is positive on every piece listed, the least value of η being attained at an end of the piece
+([[sec:morawetz-identity]]); in rows with two corners this is done for each corner.
+For S3 the least coefficient of Π is divided by 120(2 + y)³ at the right end of the piece, its largest value there; for
+S4, k_S is bounded below by the least Bernstein coefficients of c_0, …, c_3 with H_0 at the right end of the piece. Every
+product listed is at least the w_I of its row.
+
+The constants m′ and M′. On the pieces of [[sec:tb-morawetz-mM]], η(4Θ_z − g) is bounded below by the least value of η
+times the least Bernstein coefficient of 4Θ_z − g, and |η(4Θ_z − 2g)| above by the largest value of η times the largest
+modulus of a Bernstein coefficient of 4Θ_z − 2g. Every product is at least m′, respectively at most M′.
+
+Finally [[eq:pb-bound]] gives the bound for each operator of a row and every harmonic of it, and the table evaluates it
+with the constants above, rounding up. ∎
+
+### Every harmonic of the scalar wave {#sec:morawetz-harmonics}
+
+**Proposition {#prop:morawetz-harmonics}** (The scalar wave at every harmonic.) (i) For l ≥ 1 let B*_l(σ) be the least of
+B_l(σ) of [[prop:morawetz-resolvent-l-ge-1]] and the bounds B(σ) of the rows A′ (l ≥ 1), B′ and E (l ≥ 2), C3 (l ≥ 3),
+C4 (l ≥ 4), C5 (l ≥ 5) and C6 (l ≥ 6) of [[prop:morawetz-polynomial]], each taken when l is in its range. Then for every
+real σ ≠ 0, ‖χ_I R_l(σ) χ_I‖ ≤ B*_l(σ); B*_l is even in σ, increasing in |σ| and bounded as σ → 0; and for l ≥ 6,
+B*_l is at most the least of B_6 and the bound of row C6, which the line "every l ≥ 6" below evaluates.
+
+(ii) For l = 0 put B*_0(σ) := B_0(σ) of [[prop:morawetz-l-zero]] for 0 < |σ| < 1, and
+B*_0(σ) := min(B_0(σ), Λ|σ|/(σ² − 25/48)) for |σ| ≥ 1. Then ‖χ_I R_0(σ) χ_I‖ ≤ B*_0(σ), and B*_0(σ) < 7.8128 for
+|σ| ≥ 1.
+
+At σ → 0 and |σ| = 1/2, 1, 2, 3 and 10, B*_l is at most:
+
+| l | σ → 0 | 1/2 | 1 | 2 | 3 | 10 |
+|---|---|---|---|---|---|---|
+| 0 | 70.17 | 140.82 | 7.82 | 2.16 | 1.33 | 0.38 |
+| 1 | 22.16 | 30.43 | 41.46 | 66.20 | 92.09 | 278.11 |
+| 2 | 12.44 | 14.85 | 18.61 | 27.88 | 38.04 | 103.43 |
+| 3 | 11.26 | 12.55 | 14.50 | 17.89 | 22.10 | 57.43 |
+| 4 | 9.94 | 10.30 | 10.92 | 12.76 | 15.15 | 36.66 |
+| 5 | 8.29 | 8.50 | 8.87 | 10.00 | 11.51 | 26.01 |
+| every l ≥ 6 | 8.21 | 8.42 | 8.78 | 9.88 | 11.36 | 25.56 |
+
+*Proof.* (i) By the last sentence of [[prop:morawetz-polynomial]], each listed row contains V_(κ+3/4,9/4) for the l in
+its range, and each bound is even in σ and increasing in |σ|, hence so is their least. For l ≥ 6, rows C6 and
+[[prop:morawetz-resolvent-l-ge-1]] give bounds independent of l. The entries come from row A′ at l = 1; from row B′ at
+l = 2, except at σ = 10, from row E; from [[prop:morawetz-resolvent-l-ge-1]] at l = 3 for σ → 0 and |σ| = 1/2, and from
+row C3 otherwise; and from rows C4, C5 and C6 at l = 4, 5 and every l ≥ 6. At |σ| = 1/2 and 2 they evaluate
+[[eq:pb-bound]] with the constants of those rows, rounding up.
+
+(ii) max V_(a,b) ≤ a max U + b max Q = a/4 + 4b/27 for a, b ≥ 0, since U = (1 − y)y ≤ 1/4 and Q = (1 − y)y² ≤ 4/27; at
+l = 0 this is 3/16 + 1/3 = 25/48 < 1. For σ² > max V_0 the bound above the barrier, [[prop:resolvent-above-barrier]],
+gives ‖χ_I R_0(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V_0) ≤ Λ|σ|/(σ² − 25/48). As Λt/(t² − 25/48) decreases for t² > 25/48, its value
+for |σ| ≥ 1 is at most Λ/(23/48) < 3.7436 · 48/23 < 7.8128. The entries at l = 0 are B_0(0+) and B_0(1/2) of
+[[prop:morawetz-l-zero]] and 3.7436|σ|/(σ² − 25/48) at |σ| = 1, 2, 3, 10, rounded up. ∎
+
+At |σ| ≥ 3 the bound above the barrier also improves the entries for 1 ≤ l ≤ 4 ([[prop:morawetz-large-frequency]]); the
+estimates below use B*_l for l ≥ 1 because it is increasing in |σ|.
 
 ### One derivative {#sec:morawetz-one-derivative}
 
-**Corollary {#cor:morawetz-one-derivative}** (The H¹ constants.) Let σ ≠ 0 be real, F ∈ L²(I), and u = R_l(σ)F, with
-ψ = 2ηz² the weight of [[prop:morawetz-weight]], which vanishes on ℝ only at the photon sphere r = √2, to second order.
+**Corollary {#cor:morawetz-one-derivative}** (The H¹ constants.) Let σ ≠ 0 be real, F ∈ L²(ℝ) vanish outside I, and
+u = R_l(σ)F, with ψ = 2ηz² the weight of [[prop:morawetz-weight]], which vanishes on ℝ only at the photon sphere
+r = √2, to second order. Let B*_l be as in [[prop:morawetz-harmonics]].
 
-(a) For l ≥ 1, with m′ = 15/256, M′ = 0.74362 and B_l = B_l(σ) of [[prop:morawetz-resolvent-l-ge-1]],
-‖u′‖_I ≤ X_l‖F‖ and (κ − 3)∫_I ψ|u|² ≤ K_l‖F‖², where X_l := (1 + (1 + 2m′(M′ + 2|σ|)B_l)^(1/2))/(2m′) and
-K_l := 2X_l + (M′ + 2|σ|)B_l. With A_l := κK_l/(κ − 3) for l ≥ 2, A_1 := 3B_1² and C_l² := X_l² + A_l, at σ = 3:
+(a) For l ≥ 1, with m′ = 15/256 and M′ = 0.74362, ‖u′‖_I ≤ X_l‖F‖ and (κ − 3)∫_Iψ|u|² ≤ J_l‖F‖², where
+X_l := (1 + (1 + 2m′(M′ + 2|σ|)B*_l)^(1/2))/(2m′) and J_l := 2X_l + (M′ + 2|σ|)B*_l. Put A_l := κJ_l/(κ − 3) for
+l ≥ 2, A_1 := 3(B*_1)² and C_l := (X_l² + A_l)^(1/2). At σ = 3, each line bounding its quantity from the lines above it:
 
 | l | 1 | 2 | 3 | 4 | 5 | ≥ 6 |
 |---|---|---|---|---|---|---|
-| B_l(3) | 93.78 | 38.71 | 26.10 | 24.00 | 23.10 | 22.62 |
-| X_l | 82.49 | 56.50 | 48.22 | 46.67 | 45.98 | 45.61 |
-| A_l | 26,381.1 | 598.4 | 340.6 | 291.7 | 271.0 | 260.0 |
-| C_l | 182.17 | 61.57 | 51.63 | 49.69 | 48.84 | 48.37 |
+| B*_l(3) ≤ | 92.081 | 38.036 | 22.095 | 15.149 | 11.509 | 11.351 |
+| X_l ≤ | 81.826 | 56.090 | 45.198 | 39.268 | 35.647 | 35.479 |
+| J_l ≤ | — | 368.69 | 239.40 | 180.70 | 148.91 | 147.51 |
+| A_l ≤ | 25,436.8 | 590.0 | 299.3 | 206.6 | 162.9 | 157.4 |
+| C_l ≤ | 179.26 | 61.13 | 48.40 | 41.82 | 37.87 | 37.64 |
 
-(b) For l = 0, with the constants of [[prop:morawetz-l-zero]], ‖u′‖_I ≤ X_0‖F‖ with
-X_0 := (1 + (1 + 2m′(M′ + 2|σ|)B_0)^(1/2))/(2m′); X_0(3) < 202.6.
+(b) For l = 0, with m′_0 := 3315/65536 and M′_0 := 0.3999 of [[prop:morawetz-l-zero]], ‖u′‖_I ≤ X_0‖F‖ with
+X_0 := (1 + (1 + 2m′_0(M′_0 + 2|σ|)B*_0)^(1/2))/(2m′_0). X_0 ≤ 83.85 for every real 0 < |σ| ≤ 3, and X_0(3) < 23.36.
 
-(c) Summed over the harmonics, which are orthogonal on 𝕊³: for every real 0 < |σ| ≤ 3,
+(c) Summed over the harmonics. Let F ∈ L²(I × 𝕊³), extended by zero to ℝ × 𝕊³, where here and in (d) every norm on
+I × 𝕊³ or ℝ × 𝕊³ is taken with the measure dr_* dω, dω the round measure of 𝕊³. Let F_l(r_*, ·) be the orthogonal
+projection of F(r_*, ·) onto 𝒮_l ⊗ ℂ, the eigenspace of the Laplacian of 𝕊³ with eigenvalue κ = l(l + 2), let
+u_l := R_l(σ)F_l, R_l(σ) acting in r_*, and u := Σ_l u_l. For every real 0 < |σ| ≤ 3 the series Σ_l u_l and
+Σ_l ∂_(r_*)u_l converge in L²(I × 𝕊³), the second to the weak derivative ∂_(r_*)u on the interior of I × 𝕊³, and
 
-    ‖∂_(r_*)u‖_I² + Σ_l κ∫_I ψ|u_l|² ≤ C²‖F‖²,     C ≤ 182.17 over l ≥ 1 and C ≤ 202.6 over l ≥ 0,
+    ‖∂_(r_*)u‖_I² + Σ_l κ∫_I ψ|u_l|² ≤ C²‖F‖²,     C ≤ 179.26,
 
-the angular part at l = 1 taken unweighted. At |σ| = 1/2, 1, 2 and 3, C_1 is at most 63.86, 85.06, 132.46, 182.17 and
-X_0 at most 55.13, 83.85, 142.96, 202.6.
+over every l ≥ 0, where the term at l = 1 is taken unweighted, as 3‖u_1‖_I². At |σ| = 1/2, 1, 2 and 3 one may take
+C = C_1, that is 61.37, 82.61, 129.87 and 179.26: there max_(l≥2) C_l = C_2 is at most 27.98, 33.88, 47.07 and 61.13,
+and X_0 at most 55.13, 26.71, 23.72 and 23.36.
 
-(d) Without the weight: for every real 0 < |σ| ≤ 3, ‖∂_(r_*)u‖_I² + Σ_l κ‖u_l‖_I² ≤ C_u²‖F‖² with C_u < 1079.4.
+(d) Without the weight: for F as in (c) and every real 0 < |σ| ≤ 3, ‖∂_(r_*)u‖_I² + Σ_l κ‖u_l‖_I² ≤ C_u²‖F‖² with
+C_u < 568.55.
 
-*Proof.* (a) and (b) are [[lem:morawetz-identity]] with B̃ = B_l. In (a), W_1 := (κ − 3)ψ and W_0 := w_1 are
-nonnegative ([[prop:morawetz-weight]]); so (κ − 3)∫_Iψ|u|² ≤ K_l‖F‖², and κ∫_Iψ|u|² ≤ A_l‖F‖² for l ≥ 2. At l = 1,
-3‖u‖_I² ≤ 3B_1²‖F‖². For l ≥ 6, B_l ≤ B_6, X_l ≤ X_6, K_l ≤ K_6, and κ/(κ − 3) decreases, so C_l ≤ C_6. The table
-evaluates the formulas at σ = 3, rounding up.
+*Proof.* (a) and (b) are [[lem:morawetz-identity]] with B̃ = B*_l, applied to φ = z with q = 0 for l ≥ 1 and to the
+multiplier of [[prop:morawetz-l-zero]] for l = 0, both with p_I = p_∞ = 1. In (a), W_1 := (κ − 3)ψ and W_0 := w_1 are
+nonnegative ([[prop:morawetz-weight]]); so (κ − 3)∫_Iψ|u|² ≤ J_l‖F‖², and κ∫_Iψ|u|² ≤ A_l‖F‖² for l ≥ 2. At l = 1,
+3‖u‖_I² ≤ 3(B*_1)²‖F‖². For l ≥ 6, B*_l is at most the line "every l ≥ 6" of [[prop:morawetz-harmonics]], X_l and J_l
+increase with B*_l, and κ/(κ − 3) decreases, so C_l ≤ C_6. In the table each entry is evaluated from the rounded entries
+above it and rounded up. In (b), for 0 < |σ| ≤ 1, X_0 increases with |σ| and with B*_0 ≤ B_0 ≤ B_0(1) < 226.50, so
+X_0 ≤ (1 + (1 + (3315/32768)(2.3999)(226.50))^(1/2))(32768/3315) < 83.85; for 1 ≤ |σ| ≤ 3, B*_0 < 7.8128 and |σ| ≤ 3
+give X_0 ≤ (1 + (1 + (3315/32768)(6.3999)(7.8128))^(1/2))(32768/3315) < 34.22. At |σ| = 3, B*_0 < 1.3246 gives
+X_0 < 23.36.
 
-(c) Every quantity in (a) and (b) is an explicit function increasing in |σ|, so the values at |σ| = 3 bound the band.
-The harmonics are orthogonal, so the sum is at most max_l C_l² (and X_0² at l = 0) times ‖F‖², and C_l ≤ C_1 for every
-l ≥ 1 by the table. The values at |σ| = 1/2, 1, 2 evaluate the same formulas.
+(c) *The harmonic components.* Let (S_(l,k))_k be an orthonormal basis of 𝒮_l ⊗ ℂ in L²(𝕊³), finite for each l, and
+f_(l,k)(r_*) := ∫_(𝕊³) F(r_*, ω) conj(S_(l,k)(ω)) dω. By the Cauchy–Schwarz inequality and Fubini's theorem f_(l,k) lies
+in L²(ℝ) and vanishes outside I, and F_l = Σ_k f_(l,k)S_(l,k). The S_(l,k), over all l and k, form an orthonormal basis
+of L²(𝕊³), so by Parseval's identity for almost every r_* and integration in r_* (monotone convergence),
+‖F‖² = Σ_l ‖F_l‖² and ‖F_l‖² = Σ_k ‖f_(l,k)‖². By definition u_l = Σ_k (R_l(σ)f_(l,k))S_(l,k), each R_l(σ)f_(l,k) a
+solution as in [[lem:morawetz-identity]], so u_l and ∂_(r_*)u_l = Σ_k (R_l(σ)f_(l,k))′S_(l,k) are defined on ℝ × 𝕊³,
+and since the S_(l,k) are orthonormal for each fixed r_*,
 
-(d) The left side is at most max_l (X_l² + κB_l²)‖F‖², with any valid B_l. For l ≥ 50 we use the closed-form bound of
-[[cor:rb-closed-form]], ‖χ_I R_l(σ) χ_I‖ ≤ 1/((15/256)(κ + 3/4) − σ²), valid when its three conditions hold. At
-l = 50 (κ + 3/4 = 2600.75) and σ = 3 they read 152.38 > 9 and 373.0 > 9; 0.32727(313.45 − 9)^(1/2) > 5.71 >
-(2 + 3.3744)/√2; and, with c := (15/16)(2600.75) > 2438.2, c^(1/2) > 49.37 > 24 and
-(√3/2)(49.37)log(49.37/24) > 30.8 > 29.99 > (2 + 0.79217 · 51)/√2. Each condition becomes easier as l grows or |σ|
-decreases, so the bound holds for l ≥ 50 and 0 < |σ| ≤ 3; there B_l ≤ 0.006975, X_l² + κB_l² < 17.1², and both terms
-decrease in κ. For 1 ≤ l ≤ 49 we use B_l(3) of [[prop:morawetz-resolvent-l-ge-1]]: (X_l² + κB_l²)^(1/2) is at most
-182.2, 123.2, 112.0, 126.5, 144.2 for l = 1, …, 5, at most 454.0 for 6 ≤ l ≤ 19 (using ω_6 and κ ≤ 399) and at most
-1079.4 for 20 ≤ l ≤ 49 (using ω_20 and κ ≤ 2499). At l = 0 the term is X_0² < 202.6². ∎
+    ‖u_l‖_I² = Σ_k ‖R_l(σ)f_(l,k)‖_I²,     ‖∂_(r_*)u_l‖_I² = Σ_k ‖(R_l(σ)f_(l,k))′‖_I²,
+    ∫_I ψ|u_l|² = Σ_k ∫_I ψ|R_l(σ)f_(l,k)|².
+
+*The bound for each harmonic.* Applying [[prop:morawetz-harmonics]], (a) and (b) to each f_(l,k) and summing over k,
+‖u_l‖_I ≤ B*_l‖F_l‖ and ‖∂_(r_*)u_l‖_I ≤ X_l‖F_l‖ for every l ≥ 0; for l ≥ 2, ‖∂_(r_*)u_l‖_I² + κ∫_Iψ|u_l|² ≤
+(X_l² + A_l)‖F_l‖² = C_l²‖F_l‖²; at l = 1, ‖∂_(r_*)u_1‖_I² + 3‖u_1‖_I² ≤ (X_1² + 3(B*_1)²)‖F_1‖² = C_1²‖F_1‖²; and at
+l = 0, where κ = 0, ‖∂_(r_*)u_0‖_I² ≤ X_0²‖F_0‖².
+
+*The constants are uniform in l.* B*_l is increasing in |σ| ([[prop:morawetz-harmonics]]), and X_l, J_l, A_l and C_l
+increase with |σ| and with B*_l; so for 0 < |σ| ≤ 3 each is at most its value at |σ| = 3, and C_l(σ) ≤ C_l(3) ≤ 179.26
+for every l ≥ 1, by the table (for l ≥ 6, C_l ≤ C_6). Also X_0 ≤ 83.85 by (b). Moreover B*_l ≤ B_l(σ) ≤ B_1(σ) for
+l ≥ 1, as ω_l ≥ ω_1 in [[prop:morawetz-resolvent-l-ge-1]], so b := max(B*_0(σ), B_1(σ)) and
+x := max(X_0, X(B_1(σ))), with X(B̃) of (a), bound B*_l and X_l for every l ≥ 0.
+
+*Convergence.* For l ≠ l′ and almost every r_*, u_l(r_*, ·) ∈ 𝒮_l ⊗ ℂ and u_(l′)(r_*, ·) ∈ 𝒮_(l′) ⊗ ℂ are orthogonal
+in L²(𝕊³), and so are ∂_(r_*)u_l(r_*, ·) and ∂_(r_*)u_(l′)(r_*, ·); integrating over I, the u_l are mutually orthogonal
+in L²(I × 𝕊³), and so are the ∂_(r_*)u_l. Hence for every finite set L of harmonics
+‖Σ_(l∈L) u_l‖_I² = Σ_(l∈L) ‖u_l‖_I² ≤ b² Σ_(l∈L) ‖F_l‖² and ‖Σ_(l∈L) ∂_(r_*)u_l‖_I² ≤ x² Σ_(l∈L) ‖F_l‖². As
+Σ_l ‖F_l‖² = ‖F‖² < ∞, the partial sums of both series are Cauchy sequences in L²(I × 𝕊³), so both series converge
+there; let v be the sum of the second. For a smooth function χ with compact support in the interior of I × 𝕊³, each
+R_l(σ)f_(l,k) is absolutely continuous in r_*, so ∫u_l ∂_(r_*)χ = −∫(∂_(r_*)u_l)χ; summing over l and passing to the
+limit in L² gives ∫u ∂_(r_*)χ = −∫vχ, that is ∂_(r_*)u = v weakly. By orthogonality and the continuity of the norm,
+‖∂_(r_*)u‖_I² = Σ_l ‖∂_(r_*)u_l‖_I².
+
+*The sum.* Adding the bounds for each harmonic,
+‖∂_(r_*)u‖_I² + Σ_l κ∫_Iψ|u_l|² ≤ Σ_(l≥1) C_l²‖F_l‖² + X_0²‖F_0‖² ≤ max(sup_(l≥1) C_l, X_0)²‖F‖², and the maximum is at
+most 179.26. At |σ| = 1/2, 1 and 2, B*_l ≤ B*_2 for l ≥ 2 (every bound that serves l = 2 in
+[[prop:morawetz-harmonics]] serves every l ≥ 2, and B_l ≤ B_2), so X_l ≤ X_2, J_l ≤ J_2 and, as κ/(κ − 3) decreases,
+C_l ≤ C_2 for l ≥ 2. The same evaluation of (a) and (b) with the bounds of [[prop:morawetz-harmonics]] at that σ gives
+the values listed; they are evaluated from B*_1(1/2) < 30.4202, B*_1(1) < 41.46, B*_1(2) < 66.1908, B*_2(1/2) < 14.85,
+B*_2(1) < 18.61, B*_2(2) < 27.88, B*_0(1/2) < 140.82, B*_0(1) < 7.8128 and B*_0(2) < 2.1521, the values of
+[[prop:morawetz-harmonics]] computed from the rows' constants; its table rounds them up to two decimals, which is too
+coarse to reproduce C_1 at |σ| = 1/2 and 2 and X_0 at |σ| = 1 and 2.
+
+(d) As in (c), for each l ≥ 1 and every B̃_l with ‖χ_I R_l(σ) χ_I‖ ≤ B̃_l,
+‖∂_(r_*)u_l‖_I² + κ‖u_l‖_I² ≤ (X(B̃_l)² + κB̃_l²)‖F_l‖², with X(B̃) := (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′) the
+bound of [[lem:morawetz-identity]] with the constants of (a); and ‖∂_(r_*)u_0‖_I² ≤ X_0²‖F_0‖² ≤ 83.85²‖F_0‖². By the
+orthogonality of (c), the left side is at most the largest of these factors times ‖F‖². X(B̃) increases with |σ| and
+with B̃.
+
+For l ≥ 50 we use the closed-form bound for large harmonics, [[cor:rb-closed-form]]: with c := (15/16)(κ + 3/4),
+‖χ_I R_l(σ) χ_I‖ ≤ B̃_l := 1/((15/256)(κ + 3/4) − σ²) whenever (15/256)(κ + 3/4) > σ² and
+(0.21/1.4641)(κ + 3/4) > σ²; 0.32727(0.120523(κ + 3/4) − σ²)^(1/2) > (2 + 1.1248|σ|)/√2; and c^(1/2) > 8|σ| and
+(√3/2)c^(1/2) log(c^(1/2)/(8|σ|)) > (2 + 0.79217(κ + 1)^(1/2))/√2. At l = 50 (κ + 3/4 = 2600.75) and |σ| = 3 these
+read 152.38 > 9 and 373.0 > 9; 0.32727(313.45 − 9)^(1/2) > 5.71 > (2 + 3.3744)/√2; and c > 2438.2,
+c^(1/2) > 49.37 > 24 and (√3/2)(49.37) log(49.37/24) > 30.8 > 29.99 > (2 + 0.79217 · 51)/√2. Each condition becomes
+easier as l grows or |σ| decreases, so the bound holds for l ≥ 50 and 0 < |σ| ≤ 3, and there
+B̃_l ≤ 1/((15/256)(κ + 3/4) − 9) ≤ 0.006975. At l = 50 and |σ| = 3, X(B̃_l)² < 292.1 and κB̃_l² < 0.127, so
+X(B̃_l)² + κB̃_l² < 17.1²; both terms decrease as κ increases beyond 2600 and as |σ| decreases (for κB̃_l², the
+derivative of κ/(aκ + b)² in κ is (b − aκ)/(aκ + b)³ < 0, with a = 15/256, b = (15/256)(3/4) − σ² < 0 and aκ + b > 0).
+
+For 1 ≤ l ≤ 49 we take B̃_l = B*_l, which increases with |σ|, so that the values at |σ| = 3 bound 0 < |σ| ≤ 3:
+(X_l² + κ(B*_l)²)^(1/2) is at most 179.26, 121.33, 96.78, 83.97 and 76.86 for l = 1, …, 5 (with the table's entries),
+and for 6 ≤ l ≤ 49, with B*_l ≤ 11.351, X_l ≤ 35.479 and κ ≤ 2499, at most (35.479² + 2499 · 11.351²)^(1/2) < 568.55. ∎
 
 **Remark {#rem:rb-multiplier-observed}** (Numerical observation.) Multipliers tanh((r_* − x_p)/s) centred at the peak
 x_p of V_l, checked to give a nonnegative weight on a grid, give w ≥ 0 for 1 ≤ l ≤ 30 at s = 0.98 and for no s in
-[0.2, 0.98] at l = 0; at σ = 3 their bounds are about 253, 53.3, 35.5, 26.6, 21.35, 19.5, 19.3, 19.2 and 19.2 at l = 1,
-2, 3, 4, 5, 6, 10, 17 and 25, against cut-off norms computed from numerical solutions of 0.423, 0.451, 0.508, 0.672,
-1.132, 0.983, 0.421, 0.0551 and 0.0225. Off the axis, at l = 1 and σ = 3 + iη, the cut-off norm computed by finite
-differences is 0.297, 0.224, 0.145 and 0.081 at η = 0.25, 0.5, 1 and 2, below 1/|Im σ²|; at l = 0 it is 0.183, 0.594
-and 0.224 at σ = 1 + 2i, 0.5 + i and 2 + i. Multipliers whose width grows from 49/50 toward the horizon to 2 outside,
-optimised on a grid, give at σ = 3 the values B_1(3) ≈ 95.6 and X_0(3) ≈ 117.3. No proof uses these values.
+[0.2, 0.98] at l = 0; at σ = 3 the bounds they give are about 253, 53.3, 35.5, 26.6, 21.35, 19.5, 19.3, 19.2 and 19.2
+at l = 1, 2, 3, 4, 5, 6, 10, 17 and 25, each above the bound B*_l(3) proved in [[prop:morawetz-harmonics]] (92.09,
+38.04, 22.10, 15.15, 11.51, and 11.36 for every l ≥ 6), while the cut-off norms computed from numerical solutions of the
+radial equation are 0.423, 0.451, 0.508, 0.672, 1.132, 0.983, 0.421, 0.0551 and 0.0225. Off the axis, at l = 1,
+Re σ = 3 and Im σ = 0.25, 0.5, 1 and 2, the cut-off norm computed by finite differences is 0.297, 0.224, 0.145 and
+0.081, below 1/|Im σ²|; at l = 0 it is 0.183, 0.594 and 0.224 at σ = 1 + 2i, 0.5 + i and 2 + i. Multipliers whose width
+grows from 49/50 toward the horizon to 2 outside, optimised on a grid, give at σ = 3 about 95.6 for the cut-off
+resolvent at l = 1 and about 117.3 for the constant of ‖u′‖_I at l = 0, above the bounds 92.09 and 23.36 that
+[[prop:morawetz-harmonics]] and [[cor:morawetz-one-derivative]] (b) prove. No proof uses these values.
 
 ### From the radial problem to the spacetime operators {#sec:rb-transfer}
 
@@ -668,105 +925,61 @@ the type.
 
 ### The master operators {#sec:morawetz-master}
 
-**Lemma {#lem:bernstein-lower-bound}** (Bernstein lower bound.) Let p be a polynomial of degree at most n and α < β.
-Write p(α + (β − α)t) = Σ_(j≤n) c_j t^j and b_k := Σ_(j≤k) (C(k, j)/C(n, j))c_j for 0 ≤ k ≤ n. Then
-min_([α,β]) p ≥ min_k b_k.
+For rows T1 and T3 below the weight is W = ηΠ/D with Π a polynomial and D = 1 (T1) or D = 4(1 + 2y)⁴(5 + 6y)³ (T3),
+positive and increasing in y. A lower bound on a piece r ∈ [r_2, r_1] (y ∈ [1/r_1², 1/r_2²]) is the product of η at
+the end where it is least and of the least Bernstein coefficient of Π on the piece divided by the value of D at its
+right end in y; this is a lower bound because that least coefficient is positive on every piece below. Each piece is
+written "r_1–r_2: e · g ≥ v" with e and g such lower bounds; the Bernstein coefficients are listed in
+[[sec:tb-morawetz-t1t3]].
 
-*Proof.* Expanding t^j = t^j(t + (1 − t))^(n−j) by the binomial theorem gives
-t^j = Σ_(k≥j) (C(k, j)/C(n, j))C(n, k)t^k(1 − t)^(n−k), as C(n − j, k − j)/C(n, k) = C(k, j)/C(n, j). So
-p(α + (β − α)t) = Σ_k b_k C(n, k)t^k(1 − t)^(n−k), a combination of the b_k with nonnegative weights of sum 1 on
-t ∈ [0, 1]. ∎
+**Proposition {#prop:morawetz-master-potentials}** (Every master operator at every harmonic.) For the operator
+−∂²_(r_*) + V − σ² of each of the following rows, every real σ ≠ 0 and every harmonic of the row,
+‖χ_I R(σ) χ_I‖ ≤ B(σ), the bound [[eq:pb-bound]] with the row's constants, whose values at σ → 0, σ = 1, 3 and 10 are:
 
-In the proposition below a weight is W = ηN/D with N a polynomial and D a product of powers of positive increasing linear
-functions of y. A lower bound on a piece r ∈ [r_2, r_1] (y ∈ [1/r_1², 1/r_2²]) is the product of η at the end where it is
-least and of the least Bernstein coefficient of N on the piece divided by the value of D at its right end in y. Each
-piece below is written "r_1–r_2: e · g ≥ v" with e and g such lower bounds. Positivity on (0, 1) is shown by the
-Bernstein coefficients of N on the listed subintervals of [0, 1], whose least values are given.
+| row | operators and harmonics | multiplier | B(0+) | B(1) | B(3) | B(10) |
+|---|---|---|---|---|---|---|
+| A | V^□, V^v, every l ≥ 1 | Θ_A | 22.66 | 42.87 | 95.54 | 288.77 |
+| B | V^□, V^v, V^s, V_T, every l ≥ 2 | Θ_B | 12.85 | 19.51 | 40.27 | 120.24 |
+| C | V^□, V^v, V^s, V_T, V_V, every l ≥ 3 | Θ_C | 13.11 | 15.25 | 23.64 | 62.09 |
+| S4 | V_S, every l ≥ 4 | Θ_C | 10.36 | 11.47 | 16.17 | 39.67 |
+| S3 | V_S, l = 3 | Θ_C | 13.62 | 15.99 | 25.17 | 66.71 |
+| T1 | V^s, l = 1 | z, q = (5/3)ηy | 29.22 | 59.91 | 143.71 | 449.56 |
+| T2 | V_V, l = 2 | Θ_T, q = ηy/2 | 12.96 | 20.98 | 45.44 | 138.20 |
+| T3 | V_S, l = 2 | (1 − 4y)/(1 + 2y), q = ½ηy(1 + y) | 23.15 | 64.82 | 160.01 | 498.25 |
 
-**Proposition {#prop:morawetz-master-potentials}** (Every master operator at every harmonic.) Let m′, M′ and w_I be as
-listed, and B(σ) := ((2/m′ + (M′ + 2|σ|)²/w_I)/w_I)^(1/2). For the operator −∂²_(r_*) + V − σ² of each of the following
-rows, every real σ ≠ 0 and every harmonic of the row, ‖χ_I R(σ) χ_I‖ ≤ B(σ), with the values at σ → 0, σ = 1, 3, 10:
+Rows A, B, C, S4, S3 and T2 are those of [[prop:morawetz-polynomial]]. In rows T1 and T3, p_I = p_∞ = 1, w_I ≥ 0.0455
+and 0.0413, and (m′, M′) = (935/16384, 0.4157) and (0.1384, 0.563). The largest values over all rows are 29.22, 64.82,
+160.01 and 498.25. With V^□ at l = 0 ([[prop:morawetz-harmonics]] (ii)), the largest values over every master operator
+and every harmonic are 70.17, 64.82, 160.01 and 498.25. Multiplied by 15/16, the transfer of [[lem:rb-transfer]],
+rows A and B bound the vector-type 1-form blocks at l = 1 (21.25, 40.20, 89.57, 270.73) and at l ≥ 2 (12.05, 18.30,
+37.76, 112.73), and row B the tensor-type blocks, every l ≥ 2 (the same). Every potential of the rows is real, bounded
+and nonnegative, so off the real axis [[lem:morawetz-complex]] applies in its scaled form, with p := sup_ℝ|φ|: p = 1 in
+rows T1 and T3, and p = p_∞ in the others, whose multipliers increase from Θ(−1) to Θ(1). There max q is 0 in rows A to
+S3 and less than 0.20534, 0.06161 and 0.10659 in rows T1, T2 and T3.
 
-| row | operators and harmonics | multiplier | w_I ≥ | B(0+) | B(1) | B(3) | B(10) |
-|---|---|---|---|---|---|---|---|
-| A | V^□, V^v, every l ≥ 1 | z | 0.064 | 25.86 | 48.70 | 107.88 | 324.95 |
-| B | V^□, V^v, V^s, V_T, every l ≥ 2 | z | 0.1393 | 16.54 | 25.16 | 50.88 | 149.74 |
-| C | V_V, every l ≥ 3 | z | 0.1413 | 16.41 | 24.88 | 50.20 | 147.63 |
-| S4 | V_S, every l ≥ 4 | z | 0.1874 | 14.07 | 19.92 | 38.44 | 111.52 |
-| S3 | V_S, l = 3 | z | 0.106 | 19.27 | 31.50 | 66.11 | 196.52 |
-| T1 | V^s, l = 1 | z, q = (5/3)ηy | 0.0455 | 29.22 | 59.91 | 143.71 | 449.56 |
-| T2 | V_V, l = 2 | z, q = 2ηy² | 0.0687 | 23.62 | 43.09 | 97.67 | 299.71 |
-| T3 | V_S, l = 2 | (1 − 4y)/(1 + 2y), q = ½ηy(1 + y) | 0.0413 | 23.15 | 64.82 | 160.01 | 498.25 |
+*Proof.* Rows A, B, C, S4, S3 and T2: V^□ = V_(κ+3/4,9/4) and V^v = V_(κ+3/4,5/4), and at l ≥ 1, κ + 3/4 ≥ 15/4, which
+is row A of [[prop:morawetz-polynomial]]. At l ≥ 2, κ + 3/4 ≥ 35/4 and V^s = V_(κ+3/4,−7/4), V_T = V^□ lie in its row B.
+At l ≥ 3, κ + 3/4 ≥ 63/4 and b ∈ {9/4, 5/4, −7/4, −27/4} ⊂ [−27/4, 9/4], so V^□, V^v, V^s, V_T and V_V lie in its row
+C.
+V_S at l = 3 and at l ≥ 4 are its rows S3 and S4, and V_V at l = 2 its row T2. The values are those of
+[[prop:morawetz-polynomial]].
 
-with m′ = 15/256, M′ = 0.74362 in rows A–S3, and (m′, M′) = (2805/49152, 0.4157), (7665/131072, 0.5324) and
-(0.1384, 0.563) in rows T1, T2, T3. The largest values over all rows are 29.22, 64.82, 160.01 and 498.25. Multiplied by
-15/16, the transfer of [[lem:rb-transfer]], rows A and B bound the vector-type 1-form blocks at l = 1 (24.24, 45.66,
-101.13, 304.64) and at l ≥ 2 (15.51, 23.59, 47.70, 140.38), and row B the tensor-type blocks, every l ≥ 2 (the same).
-
-*Proof.* In each row we give G = N/D of [[eq:pb-weight-general]], its positivity on (0, 1), which with the conditions on
-φ′ − q, q and |φ| gives the hypotheses of [[lem:morawetz-identity]], and the lower bound for w_I. Then [[eq:pb-bound]]
-gives the bound; the table evaluates it, rounding up.
-
-Families. By [[prop:morawetz-weight]], for φ = z and q = 0 the weight of V_(a,b) is ηP_(a,b), affine in b and
-nondecreasing in a; so for a ≥ a_0 and b_− ≤ b ≤ b_+ it is at least the smaller of the weights at (a_0, b_−) and
-(a_0, b_+), on ℝ and on I. Row A is the family a ≥ 15/4, 5/4 ≤ b ≤ 9/4; row B the family a ≥ 35/4, −7/4 ≤ b ≤ 9/4; row C
-the family a ≥ 63/4, b = −27/4. The corners (15/4, 9/4) and (35/4, 9/4) are the scalar wave at l = 1 and l = 2, with
-w_I ≥ 0.07388 and 0.1860 by [[lem:morawetz-weight-interval]]. For the others, in the variable y, G = N with:
-
-- (15/4, 5/4): N = 15/2 − 49y + (217/2)y² − 65y³; Bernstein on [0, 1/4], [1/4, 1/2], [1/2, 1]: at least 1.01, 0.437, 2.
-  Pieces: 4–37/10: 0.01464 · 4.474 ≥ 0.0654; 37/10–31/10: 0.0183 · 3.502 ≥ 0.064; 31/10–5/2: 0.03007 · 2.171 ≥ 0.0652;
-  5/2–21/10: 0.05376 · 1.209 ≥ 0.0649; 21/10–9/5: 0.08349 · 0.8011 ≥ 0.0668; 9/5–6/5: 0.1185 · 0.7239 ≥ 0.0857.
-- (35/4, −7/4): N = 35/2 − 101y + (381/2)y² − 101y³; Bernstein: at least 2.57, 0.52, 2 on the same subintervals.
-  Pieces: 4–33/10: 0.01464 · 9.753 ≥ 0.1427; 33/10–5/2: 0.02527 · 5.803 ≥ 0.1466; 5/2–21/10: 0.05376 · 3.215 ≥ 0.1728;
-  21/10–19/10: 0.08349 · 1.993 ≥ 0.1663; 19/10–9/5: 0.1054 · 1.504 ≥ 0.1585; 9/5–17/10: 0.1185 · 1.176 ≥ 0.1393;
-  17/10–8/5: 0.1331 · 1.071 ≥ 0.1425; 8/5–6/5: 0.1487 · 1.094 ≥ 0.1626.
-- (63/4, −27/4): N = 63/2 − 177y + (633/2)y² − 161y³; Bernstein: at least 4.51, 0.437, 2. Pieces: 4–49/20:
-  0.01464 · 10.05 ≥ 0.1471; 49/20–37/20: 0.05667 · 2.787 ≥ 0.1579; 37/20–17/10: 0.1117 · 1.478 ≥ 0.165; 17/10–33/20:
-  0.1331 · 1.208 ≥ 0.1607; 33/20–31/20: 0.1408 · 1.004 ≥ 0.1413; 31/20–6/5: 0.1567 · 1.05 ≥ 0.1645.
-
-Row S4. Here κ ≥ 24, p = κ − 3 = 21 + t with t ≥ 0, a = κ + 3/4 and H = H_0 + t, H_0 := 21 + 6y. With
-G = 2zV_(S,y) − 8y(10y² − 12y + 3), expanding gives 16H³G = Σ_(j≤4) c_j(y)t^j with
-
-    c_0 = −216(848y⁶ + 7008y⁵ + 16392y⁴ + 18376y³ − 205275y² + 159348y − 33957),
-    c_1 = −72(1144y⁵ + 5868y⁴ + 10226y³ − 103203y² + 84042y − 18669),
-    c_2 = −24(508y⁴ + 1828y³ − 19269y² + 16608y − 3843),
-    c_3 = −8(106y³ − 1581y² + 1458y − 351),     c_4 = 32(2y − 1)².
-
-The Bernstein coefficients of c_0 on [0, 1/2], [1/2, 1] are at least 53568 and 442368; those of c_1, c_2, c_3 on
-[0, 1/4], [1/4, 1/2], [1/2, 1] at least 282590, 25776, 55296; 20754, 750, 2304; and 669, 3, 32. So c_0, …, c_3 > 0 and
-c_4 ≥ 0 on [0, 1], and G > 0 on (0, 1) for every l ≥ 4. Moreover (H_0 + t)³ = Σ_(j≤3) C(3, j)H_0^(3−j)t^j, so
-G ≥ k_S(y) := min_(j≤3) c_j/(16C(3, j)H_0^(3−j)) for every t ≥ 0, uniformly in l. On pieces, with k_S bounded below by
-the least Bernstein coefficients of the c_j and the largest H_0: 4–23/10: 0.014648 · 13.722 ≥ 0.2009; 23/10–9/5:
-0.066652 · 4.0959 ≥ 0.2729; 9/5–8/5: 0.11854 · 1.5817 ≥ 0.1874; 8/5–3/2: 0.14877 · 1.2656 ≥ 0.1882; 3/2–7/5:
-0.1646 · 1.2626 ≥ 0.2078; 7/5–6/5: 0.17682 · 1.9338 ≥ 0.3419.
-
-Row S3. At l = 3, p = 12 and H = 6(2 + y): N = 504 − 2652y + 3786y² − 161y³ − 420y⁴ − 447y⁵ − 106y⁶, D = 2(2 + y)³;
-Bernstein on [0, 1/4], [1/4, 1/2], [1/2, 1]: at least 73, 12.1, 62.5. Pieces: 4–12/5: 0.01464 · 7.614 ≥ 0.1114;
-12/5–37/20: 0.05977 · 1.837 ≥ 0.1097; 37/20–17/10: 0.1117 · 0.9511 ≥ 0.1062; 17/10–33/20: 0.1331 · 0.8221 ≥ 0.1094;
-33/20–31/20: 0.1408 · 0.7532 ≥ 0.106; 31/20–5/4: 0.1567 · 0.6989 ≥ 0.1095; 5/4–6/5: 0.1768 · 4.844 ≥ 0.8564.
-
-Row T1 (a = 15/4, b = −7/4; here a + b < 4, and q is needed at the horizon). g = (5/3)y gives
-N = 15/2 − 61y + 188y² − (728/3)y³ + (665/6)y⁴; Bernstein on [0, 1/4], [1/4, 1/2], [1/2, 3/4], [3/4, 1]: at least 0.641,
+Row T1 (a = 15/4, b = −7/4). Here a + b = 2 < 4, so P_(a,b)(−1) = 2(a + b − 4) < 0: with q = 0 the weight of
+[[prop:morawetz-weight]] is negative near the horizon, and the term q is needed there. g = (5/3)y gives
+Π = 15/2 − 61y + 188y² − (728/3)y³ + (665/6)y⁴; Bernstein on [0, 1/4], [1/4, 1/2], [1/2, 3/4], [3/4, 1]: at least 0.641,
 0.292, 0.193, 0.101. Pieces: 4–16/5: 0.01464 · 3.119 ≥ 0.0456; 16/5–13/5: 0.02753 · 1.857 ≥ 0.0511; 13/5–11/5:
 0.04847 · 0.9837 ≥ 0.0476; 11/5–2: 0.07451 · 0.6412 ≥ 0.0477; 2–19/10: 0.09375 · 0.5229 ≥ 0.049; 19/10–17/10:
 0.1054 · 0.432 ≥ 0.0455; 17/10–13/10: 0.1331 · 0.4373 ≥ 0.0582; 13/10–6/5: 0.1768 · 0.3101 ≥ 0.0548. Also
 φ′ − q = η(12 − 5y)/3 > 0; d log(η(12 − 5y))/dy ≥ 3 − 2 − 5/9.5 > 0 on [1/16, 1/2] and η(12 − 5y)/3 > 0.5 on
-[1/2, 25/36], so m′ = (15/1024)(187/48) = 2805/49152; φ′ − 2q = (2/3)η(6 − 5y) has its maximum on (0, 1) at the root
-y = (55 − √505)/70 of 35y² − 55y + 18, where it is less than 0.4157.
-
-Row T2 (a = 35/4, b = −27/4). g = 2y² gives N = 35/2 − 121y + (521/2)y² − 84y³ − 258y⁴ + 189y⁵; Bernstein on the same
-four subintervals: at least 1.39, 0.316, 1.06, 0.0906. Pieces: 4–13/5: 0.01464 · 4.919 ≥ 0.072; 13/5–21/10:
-0.04847 · 1.908 ≥ 0.0924; 21/10–19/10: 0.08349 · 0.9747 ≥ 0.0813; 19/10–9/5: 0.1054 · 0.6879 ≥ 0.0725; 9/5–17/10:
-0.1185 · 0.5801 ≥ 0.0687; 17/10–6/5: 0.1331 · 0.5729 ≥ 0.0762. Also φ′ − q = 2η(2 − y²) > 0, increasing in y on
-[1/16, 1/2] (log-derivative at least 3 − 2 − 2/3.5) and above 0.5 on [1/2, 25/36], so m′ = (15/1024)(511/128) =
-7665/131072; φ′ − 2q = 4η(1 − y²) has its maximum on (0, 1) at y = (2√7 − 1)/9, the root of 9y² + 2y − 3 there,
-where it is less than 0.5324.
+[1/2, 25/36], so m′ = (15/1024)(187/48) = 935/16384; φ′ − 2q = (2/3)η(6 − 5y) has its maximum on (0, 1) at the root
+y = (55 − √505)/70 of 35y² − 55y + 18, where it is less than 0.4157. q = (5/3)(1 − y)y^(5/2) has its maximum at y = 5/7,
+(10/21)(5/7)^(5/2) < 0.20534.
 
 Row T3 (V_S at l = 2, p = 5, H = 5 + 6y). Here Θ = (1 − 4y)/(1 + 2y) decreases from 1 to −1 on [0, 1], so |φ| ≤ 1,
-φ → ±1 at ±∞, and φ′ = 12η/(1 + 2y)² > 0. With g = ½y(1 + y), [[eq:pb-weight-general]] gives G = N/D with
+φ → ±1 at ±∞, and φ′ = 12η/(1 + 2y)² > 0. With g = ½y(1 + y), [[eq:pb-weight-general]] gives G = Π/D with
 D = 4(1 + 2y)⁴(5 + 6y)³ and
 
-    N = 8750 − 52800y − 52305y² + 661453y³ + 1153253y⁴ − 668761y⁵ − 2258994y⁶ − 1768052y⁷ − 1623176y⁸
+    Π = 8750 − 52800y − 52305y² + 661453y³ + 1153253y⁴ − 668761y⁵ − 2258994y⁶ − 1768052y⁷ − 1623176y⁸
         + 831312y⁹ + 3571104y¹⁰ + 2896704y¹¹ + 777600y¹²;
 
 Bernstein on [0, 1/2], [1/2, 3/4], [3/4, 1]: at least 228, 27800, 34900. Pieces: 4–33/10: 0.01464 · 3.014 ≥ 0.0441;
@@ -775,29 +988,42 @@ Bernstein on [0, 1/2], [1/2, 3/4], [3/4, 1]: at least 228, 27800, 34900. Pieces:
 23/10–11/5: 0.06665 · 0.6601 ≥ 0.0439; 11/5–2: 0.07451 · 0.5544 ≥ 0.0413; 2–17/10: 0.09375 · 0.4985 ≥ 0.0467;
 17/10–13/10: 0.1331 · 0.3475 ≥ 0.0462; 13/10–6/5: 0.1768 · 0.3621 ≥ 0.064. Also
 φ′ − q = η(24 − y − 5y² − 8y³ − 4y⁴)/(2(1 + 2y)²) > 0; its logarithmic derivative is positive on [1/16, 1/4] (at least
-6 − 4/3 − 0.23 − 3.56) and it exceeds 0.14 on [1/4, 25/36], so m′ is its value at y = 1/16, more than 0.1384. And
-0 < φ′ − 2q = η(12 − y − 5y² − 8y³ − 4y⁴)/(1 + 2y)² ≤ 12η/(1 + 2y)², whose maximum on (0, 1) is at the root
-y = (√73 − 7)/4 of 2y² + 7y − 3, where it is less than 0.563.
+6 − 4/3 − 0.23 − 3.56) and it exceeds 0.14 on [1/4, 25/36], so m′ is its value at y = 1/16, more than 0.1384. On I,
+0 < φ′ − 2q = η(12 − y − 5y² − 8y³ − 4y⁴)/(1 + 2y)² ≤ 12η/(1 + 2y)²: the quartic decreases on [0, 1] and is more than
+5.28 at y = 25/36. The maximum of 12η/(1 + 2y)² on (0, 1) is at the root y = (√73 − 7)/4 of 2y² + 7y − 3, where it is
+less than 0.563. q = ½(1 − y²)y^(5/2) has its maximum at y = √5/3, (2/9)(5/9)^(5/4) < 0.10659.
 
-In every row q ≥ 0, and φ′ − q > 0 on ℝ. ∎
+In rows T1 and T3, q ≥ 0 and φ′ − q > 0 on ℝ, and [[eq:pb-bound]] with p_I = p_∞ = 1 gives the values listed. The
+transfers are 15/16 times the values of rows A and B, rounded up.
+
+Off the real axis. Every V_(a,b) of the rows has a > 0 and a + b ≥ 2, so V_(a,b) = (1 − y)y(a + by) with
+a + by ≥ min(a, a + b) > 0 on [0, 1]. V_S = (1 − y)yQ_S/(16H²) with
+Q_S = 1296y³ + (624p − 144)y² + 36p(p − 12)y + 16p³ + 60p², whose coefficients are nonnegative for p ≥ 12 (l ≥ 3), and
+which is 1296y³ + 2976y² − 1260y + 3500 ≥ 3500 − 1260y > 0 on [0, 1] for p = 5 (l = 2). So every potential of the rows is
+nonnegative, and it is bounded, with V and V′ integrable and tending to 0 at ±∞ ([[sec:morawetz-identity]]). The
+multipliers of rows A, B, C, S4, S3 and T2 increase, so sup_ℝ|φ| = max(Θ(1), −Θ(−1)) = p_∞
+([[sec:tb-morawetz-monotone]]); in rows T1 and T3, |φ| ≤ 1. Since the sign conditions of [[lem:morawetz-identity]]
+hold on ℝ in every row, [[lem:morawetz-complex]] applies, in its scaled form with p := sup_ℝ|φ|. The values of max q:
+in rows A to S3, q = 0; in row T2 it is that of Θ_T in [[prop:morawetz-polynomial]]; in rows T1 and T3 they are computed
+above. ∎
 
 ### Large frequencies with a fixed multiplier {#sec:morawetz-large-frequency}
 
-**Proposition {#prop:morawetz-large-frequency}** (Every harmonic at a given frequency.) Let B_l be as in
-[[prop:morawetz-resolvent-l-ge-1]]. For every real σ with |σ| ≥ 3 and every l ≥ 0,
+**Proposition {#prop:morawetz-large-frequency}** (Every harmonic at a given frequency.) Let B_(C5) and B_(C6) be the
+bounds of rows C5 and C6 of [[prop:morawetz-polynomial]]. For every real σ with |σ| ≥ 3 and every l ≥ 0,
 
-    ‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 6.521), B_5(σ)),
+    ‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 6.521), B_(C5)(σ)),
 
-and for |σ| ≥ 6 also ‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 9.271), B_6(σ)). In particular, for every l ≥ 0, the norm is at
-most 23.10, 39.53, 74.89, 146.51, 290.27 and 578.04 at σ = 3, 6, 12, 24, 48 and 96.
+and for |σ| ≥ 6 also ‖χ_I R_l(σ) χ_I‖ ≤ max(Λ|σ|/(σ² − 9.271), B_(C6)(σ)). In particular, for every l ≥ 0, the norm is
+at most 11.51, 16.98, 30.01, 57.44, 113.10 and 224.86 at |σ| = 3, 6, 12, 24, 48 and 96.
 
-*Proof.* max V_(a,b) ≤ a max U + b max Q = a/4 + 4b/27 for a, b ≥ 0, since U = (1 − y)y ≤ 1/4 and Q = (1 − y)y² ≤ 4/27.
-With b = 9/4 this is a/4 + 1/3: at most 6.521 for l ≤ 4 and 9.271 for l ≤ 5. When σ² exceeds max V_l, the bound above
-the barrier ([[prop:resolvent-above-barrier]]) gives ‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V_l). So for |σ| ≥ 3 the harmonics
-l ≤ 4 are bounded by Λ|σ|/(σ² − 6.521), and for |σ| ≥ 6 the harmonics l ≤ 5 by Λ|σ|/(σ² − 9.271); the others are
-bounded by B_5(σ), respectively B_6(σ), as ω_l ≥ ω_5 for l ≥ 5 and ω_l ≥ ω_6 for l ≥ 6. At σ = 3 the first term is
-at most 3.7436 · 3/2.479 < 4.54 and B_5(3) < 23.10; for σ ≥ 6 the first term is at most 3.7436 · 6/26.729 < 0.85, as
-Λσ/(σ² − c) decreases for σ² > c, and the values given are B_6(σ), rounded up. ∎
+*Proof.* As in the proof of [[prop:morawetz-harmonics]] (ii), max V_(κ+3/4,9/4) ≤ (κ + 3/4)/4 + 1/3: at most 6.521 for
+l ≤ 4 and 9.271 for l ≤ 5. When σ² exceeds it, the bound above the barrier, [[prop:resolvent-above-barrier]], gives
+‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V). So for |σ| ≥ 3 the harmonics l ≤ 4 are bounded by Λ|σ|/(σ² − 6.521), and for
+|σ| ≥ 6 the harmonics l ≤ 5 by Λ|σ|/(σ² − 9.271); the others are bounded by B_(C5)(σ), respectively B_(C6)(σ), as
+row C5 serves every l ≥ 5 and row C6 every l ≥ 6. At |σ| = 3 the first term is at most 3.7436 · 3/2.479 < 4.54 and
+B_(C5)(3) < 11.51; for |σ| ≥ 6 the first term is at most 3.7436 · 6/26.729 < 0.85, as Λt/(t² − c) decreases for
+t² > c, and the values given are B_(C6)(σ), rounded up. ∎
 
 ### The resolvent bound on the band 3 ≤ |σ| ≤ 384 {#sec:band}
 
@@ -1132,6 +1358,621 @@ these values at the sampled frequencies, the ratio growing with σ. With one mul
 frequency, the bound of [[lem:morawetz-identity]] grows instead like |σ|: maximised over l, with the best of forty tanh
 widths at each σ, it is 253, 429, 800, 1554, 3068 and 6099 at σ = 3, 6, 12, 24, 48 and 96, set by l = 1. No proof uses
 these values.
+
+### Tables for the Morawetz multipliers {#sec:tb-morawetz}
+
+These tables carry the numbers used by [[prop:morawetz-polynomial]] and [[prop:morawetz-master-potentials]]. The
+notation is that of [[sec:morawetz-identity]]: y = 1/r², z = 1 − 2y, η = (1 − y)y^(3/2) = (r² − 1)/r⁵ and
+I = {6/5 ≤ r ≤ 4}. For a polynomial p of degree n and an interval [α, β], b_0, …, b_n are the Bernstein coefficients of
+p on [α, β] in the notation of [[lem:bernstein-lower-bound]], so that min_k b_k ≤ p ≤ max_k b_k on [α, β]. A list gives
+b_0, …, b_n in order, each rounded to five significant digits, or to the nearest integer when it exceeds 10⁵; a
+least coefficient in a column of its own is rounded down and a greatest one rounded up. An entry of a column headed
+"product ≥" (respectively "product ≤") is the product of the exact factors, rounded down (respectively up); it may differ
+in its last digit from the product of the printed factors, which also satisfies the bound the table asserts. A piece "r_1–r_2" of I is the interval r_2 ≤ r ≤ r_1, that is
+1/r_1² ≤ y ≤ 1/r_2². Since η increases on [0, 3/5] and decreases on [3/5, 1] in y, its least value on a piece is at an
+end, and "η ≥" is that value rounded down; "η ≤" is its greatest value on the piece, rounded up (6√15/125 < 0.18591 on a
+piece that contains y = 3/5).
+
+#### The weight polynomials {#sec:tb-morawetz-weights}
+
+Each weight G of [[prop:morawetz-polynomial]] is listed by its coefficients of y⁰, y¹, …; for S3 the polynomial
+listed is Π := 120(2 + y)³G.
+
+- A1 (Θ_A, V_(15/4,5/4)): 243/32, −1731/40, −19/160, 9263/20, −6919/8, 4431/10.
+- A2 (Θ_A, V_(15/4,9/4)): 243/32, −1569/40, −2079/160, 9359/20, −34047/40, 4347/10.
+- B1 (Θ_B, V_(35/4,−7/4)): 343/16, −14257/120, 5689/80, 124103/120, −166373/60, 26071/10, −2506/3.
+- B2 (Θ_B, V_(35/4,9/4)): 343/16, −2381/24, 1243/240, 127031/120, −159989/60, 74837/30, −2410/3.
+- E2 (Θ_E, V_(35/4,9/4)): 35/3, −52/3, −319, 4100/3, −5566/3, 828.
+- C1 (Θ_C, V_(63/4,−27/4)): 1197/40, −3797/40, −5065/8, 103499/24, −280579/30, 87209/10, −44642/15.
+- C3 (Θ_C, V_(63/4,9/4)): 1197/40, −2429/40, −27689/40, 485779/120, −256423/30, 79709/10, −8194/3.
+- C4 (Θ_C, V_(99/4,9/4)): 1881/40, −3953/40, −32897/40, 542371/120, −270607/30, 81341/10, −8194/3.
+- C5 (Θ_C, V_(143/4,9/4)): 2717/40, −17447/120, −117787/120, 611539/120, −95981/10, 250007/30, −8194/3.
+- C6 (Θ_C, V_(195/4,9/4)): 741/8, −8017/40, −9357/8, 693283/120, −308431/30, 85693/10, −8194/3.
+- S3 (Θ_C, V_S, l = 3): 28728, −80868, −633378, 3396065, −4298021, −860697, 3158651, 673100, −1036164, −327760.
+- T2 (Θ_T, V_(35/4,−27/4)): 357/16, −3233/20, 26791/80, 2889/10, −7191/4, 10506/5, −3939/5.
+
+For V_S at l ≥ 4 and Θ_C, with t := κ − 24 ≥ 0, 16H³G = c_0 + c_1t + c_2t² + c_3t³ + c_4t⁴, where
+
+- c_0: 34839882/5, −86791446/5, −594687366/5, 3160192878/5, −4938188076/5, 1873269504/5, 1451374272/5, −467276832/5,
+  −360656064/5, −9439488.
+- c_1: 6384798/5, −15290982/5, −96274278/5, 502403094/5, −828060072/5, 454017456/5, 20523552, −97773984/5, −23494272/5.
+- c_2: 438102/5, −1015218/5, −5634066/5, 28203066/5, −47313268/5, 32390216/5, −2867408/5, −3898304/5.
+- c_3: 13338/5, −30154/5, −138498/5, 379822/3, −2990456/15, 746472/5, −131104/3.
+- c_4: 152/5, −1016/15, −3472/15, 4192/5, −12608/15, 4352/15.
+
+#### Positivity on [0, 1] {#sec:tb-morawetz-positivity}
+
+Bernstein coefficients of each weight polynomial on the listed subintervals of [0, 1] in y; every one is positive.
+
+| polynomial | subinterval | Bernstein coefficients |
+|---|---|---|
+| A1 | [0, 1/4] | 7.5938, 5.4300, 3.2655, 1.8239, 1.1533, 1.0586 |
+| A1 | [1/4, 1/2] | 1.0586, 0.96389, 1.4451, 2.3073, 3.1125, 3.6125 |
+| A1 | [1/2, 3/4] | 3.6125, 4.1125, 4.3073, 3.9487, 2.9783, 1.9600 |
+| A1 | [3/4, 7/8] | 1.9600, 1.4508, 0.92970, 0.46712, 0.17249, 0.20763 |
+| A1 | [7/8, 1] | 0.20763, 0.24276, 0.60768, 1.4642, 3.0266, 5.5750 |
+| A2 | [0, 1/4] | 7.5938, 5.6325, 3.5900, 2.1975, 1.5212, 1.3867 |
+| A2 | [1/4, 1/2] | 1.3867, 1.2522, 1.6596, 2.4346, 3.1625, 3.6125 |
+| A2 | [1/2, 3/4] | 3.6125, 4.0625, 4.2346, 3.8982, 3.0066, 2.1217 |
+| A2 | [3/4, 1] | 2.1217, 1.2367, 0.35848, 0.048789, 1.4781, 6.8500 |
+| B1 | [0, 1/2] | 21.438, 11.537, 2.8213, 1.7547, 3.2471, 4.2333, 4.2000 |
+| B1 | [1/2, 3/4] | 4.2000, 4.1833, 3.9118, 3.3211, 2.5067, 1.7397, 1.2797 |
+| B1 | [3/4, 1] | 1.2797, 0.81972, 0.66682, 1.0806, 2.3093, 4.4017, 6.8167 |
+| B2 | [0, 1/2] | 21.438, 13.170, 4.9891, 3.5106, 4.2404, 4.5667, 4.2000 |
+| B2 | [1/2, 3/4] | 4.2000, 4.0167, 3.6601, 3.0941, 2.4278, 1.9290, 1.8422 |
+| B2 | [3/4, 1] | 1.8422, 1.7554, 2.0806, 3.0624, 4.9218, 7.6740, 10.750 |
+| E2 | [0, 1/4] | 11.667, 10.800, 7.9396, 5.2208, 3.3297, 2.3112 |
+| E2 | [1/4, 1/2] | 2.3112, 1.2927, 1.1469, 1.9188, 3.0125, 4.0000 |
+| E2 | [1/2, 3/4] | 4.0000, 4.9875, 5.8688, 6.2156, 5.7677, 5.2409 |
+| E2 | [3/4, 1] | 5.2409, 4.7141, 4.1083, 4.1396, 6.5000, 14.667 |
+| C1 | [0, 1/2] | 29.925, 22.015, 3.5521, 1.4904, 3.8130, 4.9556, 4.7250 |
+| C1 | [1/2, 3/4] | 4.7250, 4.6097, 4.1512, 3.3252, 2.4434, 2.1192, 2.5078 |
+| C1 | [3/4, 1] | 2.5078, 2.8964, 3.9977, 5.9669, 8.5005, 10.076, 6.4667 |
+| C3 | [0, 1/2] | 29.925, 24.865, 8.2671, 5.4335, 6.0505, 5.7056, 4.7250 |
+| C3 | [1/2, 1] | 4.7250, 3.7444, 2.1283, 0.20276, 3.0331, 19.261, 17.267 |
+| C4 | [0, 1/2] | 47.025, 38.790, 16.847, 9.4460, 7.2505, 5.7056, 4.7250 |
+| C4 | [1/2, 1] | 4.7250, 3.7444, 3.3283, 3.3903, 8.3131, 26.636, 28.067 |
+| C5 | [0, 1/2] | 67.925, 55.809, 27.334, 14.350, 8.7172, 5.7056, 4.7250 |
+| C5 | [1/2, 1] | 4.7250, 3.7444, 4.7949, 7.2861, 14.766, 35.650, 41.267 |
+| C6 | [0, 1/2] | 92.625, 75.923, 39.727, 20.146, 10.450, 5.7056, 4.7250 |
+| C6 | [1/2, 1] | 4.7250, 3.7444, 6.5283, 11.890, 22.393, 46.303, 56.867 |
+| S3 | [0, 1/2] | 28728, 24235, 15344, 7108.3, 2449.3, 1943.5, 4195.9, 6947.8, 8614.4, 8859.4 |
+| S3 | [1/2, 3/4] | 8859.4, 8981.8, 8748.9, 8118.4, 7126.4, 5904.7, 4684.0, 3770.9, 3483.4, 4025.5 |
+| S3 | [3/4, 1] | 4025.5, 4567.6, 5939.3, 8344.3, 11872, 16373, 21268, 25281, 26060, 19656 |
+| T2 | [0, 1/2] | 22.312, 8.8417, 0.95229, 0.45000, 1.6498, 2.3198, 2.3156 |
+| T2 | [1/2, 3/4] | 2.3156, 2.3135, 2.1429, 1.7857, 1.3543, 1.0490, 0.92271 |
+| T2 | [3/4, 1] | 0.92271, 0.79642, 0.84918, 1.1340, 1.5566, 1.6406, 0.10000 |
+| c_0 | [0, 1/2] | 6967976, 6003627, 4213323, 2537598, 1427086, 935441, 866253, 953675, 1025178, 1045094 |
+| c_0 | [1/2, 1] | 1045094, 1065011, 1033342, 914422, 809450, 1000035, 1872542, 3621891, 5583751, 4975862 |
+| c_1 | [0, 1/2] | 1276960, 1085822, 722767, 412080, 230181, 156293, 134567, 128563, 130637 |
+| c_1 | [1/2, 1] | 130637, 132710, 142861, 153445, 185610, 298690, 554484, 899014, 905904 |
+| c_2 | [0, 1/2] | 87620, 73117, 45200, 24013, 12804, 7562.8, 5381.7, 5443.2 |
+| c_2 | [1/2, 1] | 5443.2, 5504.7, 7809.0, 11539, 17968, 31450, 53034, 60624 |
+| c_3 | [0, 1/2] | 2667.6, 2165.0, 1200.8, 566.22, 221.87, 75.289, 75.600 |
+| c_3 | [1/2, 1] | 75.600, 75.911, 223.12, 466.36, 796.42, 1340.4, 1773.9 |
+
+#### The weight on I {#sec:tb-morawetz-pieces}
+
+For each row of [[prop:morawetz-polynomial]] the pieces below cover I. A line gives the least value of η on the
+piece, the Bernstein coefficients of the weight polynomial on the piece, their least value, and the product, a lower
+bound for w = ηG on the piece (for S3, the least coefficient is divided by 120(2 + y)³ at the right end of the piece,
+its largest value there).
+Every product is at least the w_I of [[prop:morawetz-polynomial]].
+
+Row A (weights A1, A2), w_I ≥ 0.0728:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–319/80 | A1 | 0.014648 | 4.9889, 4.9859, 4.9828, 4.9798, 4.9768, 4.9737 | 4.9737 | 0.072857 |
+| 4–319/80 | A2 | 0.014648 | 5.1931, 5.1903, 5.1874, 5.1846, 5.1818, 5.1789 | 5.1789 | 0.075863 |
+| 319/80–159/40 | A1 | 0.014780 | 4.9737, 4.9707, 4.9676, 4.9646, 4.9615, 4.9584 | 4.9584 | 0.073287 |
+| 319/80–159/40 | A2 | 0.014780 | 5.1789, 5.1761, 5.1732, 5.1703, 5.1675, 5.1646 | 5.1646 | 0.076335 |
+| 159/40–79/20 | A1 | 0.014914 | 4.9584, 4.9522, 4.9460, 4.9399, 4.9337, 4.9275 | 4.9274 | 0.073488 |
+| 159/40–79/20 | A2 | 0.014914 | 5.1646, 5.1588, 5.1530, 5.1472, 5.1414, 5.1357 | 5.1356 | 0.076593 |
+| 79/20–39/10 | A1 | 0.015185 | 4.9275, 4.9148, 4.9021, 4.8894, 4.8767, 4.8641 | 4.8640 | 0.073865 |
+| 79/20–39/10 | A2 | 0.015185 | 5.1357, 5.1238, 5.1119, 5.1000, 5.0881, 5.0763 | 5.0763 | 0.077088 |
+| 39/10–19/5 | A1 | 0.015749 | 4.8641, 4.8373, 4.8106, 4.7839, 4.7574, 4.7309 | 4.7309 | 0.074510 |
+| 39/10–19/5 | A2 | 0.015749 | 5.0763, 5.0512, 5.0262, 5.0012, 4.9764, 4.9516 | 4.9515 | 0.077985 |
+| 19/5–73/20 | A1 | 0.016962 | 4.7309, 4.6871, 4.6435, 4.6002, 4.5571, 4.5143 | 4.5142 | 0.076572 |
+| 19/5–73/20 | A2 | 0.016962 | 4.9516, 4.9105, 4.8696, 4.8289, 4.7884, 4.7482 | 4.7481 | 0.080539 |
+| 73/20–33/10 | A1 | 0.019021 | 4.5143, 4.3907, 4.2693, 4.1501, 4.0333, 3.9189 | 3.9189 | 0.074542 |
+| 73/20–33/10 | A2 | 0.019021 | 4.7482, 4.6320, 4.5177, 4.4054, 4.2951, 4.1869 | 4.1869 | 0.079639 |
+| 33/10–59/20 | A1 | 0.025271 | 3.9189, 3.7615, 3.6087, 3.4608, 3.3179, 3.1803 | 3.1802 | 0.080369 |
+| 33/10–59/20 | A2 | 0.025271 | 4.1869, 4.0380, 3.8932, 3.7526, 3.6166, 3.4852 | 3.4851 | 0.088074 |
+| 59/20–13/5 | A1 | 0.034476 | 3.1803, 2.9834, 2.7971, 2.6220, 2.4582, 2.3060 | 2.3060 | 0.079503 |
+| 59/20–13/5 | A2 | 0.034476 | 3.4852, 3.2972, 3.1188, 2.9504, 2.7924, 2.6449 | 2.6449 | 0.091186 |
+| 13/5–12/5 | A1 | 0.048479 | 2.3060, 2.1877, 2.0763, 1.9721, 1.8749, 1.7849 | 1.7848 | 0.086529 |
+| 13/5–12/5 | A2 | 0.048479 | 2.6449, 2.5302, 2.4219, 2.3201, 2.2249, 2.1362 | 2.1361 | 0.10356 |
+| 12/5–9/4 | A1 | 0.059779 | 1.7849, 1.7010, 1.6234, 1.5519, 1.4865, 1.4272 | 1.4271 | 0.085314 |
+| 12/5–9/4 | A2 | 0.059779 | 2.1362, 2.0536, 1.9767, 1.9055, 1.8400, 1.7801 | 1.7801 | 0.10641 |
+| 9/4–21/10 | A1 | 0.070449 | 1.4272, 1.3547, 1.2913, 1.2368, 1.1911, 1.1539 | 1.1538 | 0.081290 |
+| 9/4–21/10 | A2 | 0.070449 | 1.7801, 1.7070, 1.6422, 1.5858, 1.5376, 1.4974 | 1.4973 | 0.10548 |
+| 21/10–19/10 | A1 | 0.083494 | 1.1539, 1.0899, 1.0512, 1.0364, 1.0440, 1.0720 | 1.0364 | 0.086534 |
+| 21/10–19/10 | A2 | 0.083494 | 1.4974, 1.4282, 1.3826, 1.3596, 1.3576, 1.3750 | 1.3576 | 0.11335 |
+| 19/10–6/5 | A1 | 0.10540 | 1.0720, 1.3047, 2.9448, 4.8636, 4.4073, 3.0132 | 1.0720 | 0.11300 |
+| 19/10–6/5 | A2 | 0.10540 | 1.3750, 1.5191, 2.9946, 4.7712, 4.3062, 3.0538 | 1.3749 | 0.14493 |
+
+Row A′ (weight A2), w_I ≥ 0.0756:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–159/40 | A2 | 0.014648 | 5.1931, 5.1874, 5.1817, 5.1760, 5.1703, 5.1646 | 5.1646 | 0.075653 |
+| 159/40–79/20 | A2 | 0.014914 | 5.1646, 5.1588, 5.1530, 5.1472, 5.1414, 5.1357 | 5.1356 | 0.076593 |
+| 79/20–39/10 | A2 | 0.015185 | 5.1357, 5.1238, 5.1119, 5.1000, 5.0881, 5.0763 | 5.0763 | 0.077088 |
+| 39/10–19/5 | A2 | 0.015749 | 5.0763, 5.0512, 5.0262, 5.0012, 4.9764, 4.9516 | 4.9515 | 0.077985 |
+| 19/5–73/20 | A2 | 0.016962 | 4.9516, 4.9105, 4.8696, 4.8289, 4.7884, 4.7482 | 4.7481 | 0.080539 |
+| 73/20–33/10 | A2 | 0.019021 | 4.7482, 4.6320, 4.5177, 4.4054, 4.2951, 4.1869 | 4.1869 | 0.079639 |
+| 33/10–59/20 | A2 | 0.025271 | 4.1869, 4.0380, 3.8932, 3.7526, 3.6166, 3.4852 | 3.4851 | 0.088074 |
+| 59/20–13/5 | A2 | 0.034476 | 3.4852, 3.2972, 3.1188, 2.9504, 2.7924, 2.6449 | 2.6449 | 0.091186 |
+| 13/5–9/4 | A2 | 0.048479 | 2.6449, 2.4234, 2.2257, 2.0527, 1.9043, 1.7801 | 1.7801 | 0.086299 |
+| 9/4–19/10 | A2 | 0.070449 | 1.7801, 1.5812, 1.4445, 1.3683, 1.3475, 1.3750 | 1.3475 | 0.094933 |
+| 19/10–6/5 | A2 | 0.10540 | 1.3750, 1.5191, 2.9946, 4.7712, 4.3062, 3.0538 | 1.3749 | 0.14493 |
+
+Row B (weights B1, B2), w_I ≥ 0.211:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–159/40 | B1 | 0.014648 | 14.502, 14.489, 14.476, 14.463, 14.450, 14.437, 14.423 | 14.423 | 0.21128 |
+| 4–159/40 | B2 | 0.014648 | 15.477, 15.466, 15.454, 15.442, 15.431, 15.419, 15.408 | 15.407 | 0.22569 |
+| 159/40–79/20 | B1 | 0.014914 | 14.423, 14.410, 14.397, 14.383, 14.370, 14.357, 14.343 | 14.343 | 0.21391 |
+| 159/40–79/20 | B2 | 0.014914 | 15.408, 15.396, 15.384, 15.372, 15.360, 15.348, 15.337 | 15.336 | 0.22873 |
+| 79/20–39/10 | B1 | 0.015185 | 14.343, 14.316, 14.288, 14.261, 14.234, 14.206, 14.179 | 14.178 | 0.21532 |
+| 79/20–39/10 | B2 | 0.015185 | 15.337, 15.312, 15.288, 15.264, 15.240, 15.215, 15.191 | 15.191 | 0.23069 |
+| 39/10–19/5 | B1 | 0.015749 | 14.179, 14.121, 14.063, 14.006, 13.949, 13.892, 13.835 | 13.834 | 0.21788 |
+| 39/10–19/5 | B2 | 0.015749 | 15.191, 15.140, 15.089, 15.038, 14.987, 14.937, 14.886 | 14.886 | 0.23445 |
+| 19/5–73/20 | B1 | 0.016962 | 13.835, 13.740, 13.646, 13.553, 13.460, 13.368, 13.276 | 13.275 | 0.22518 |
+| 19/5–73/20 | B2 | 0.016962 | 14.886, 14.802, 14.719, 14.636, 14.553, 14.471, 14.389 | 14.388 | 0.24406 |
+| 73/20–33/10 | B1 | 0.019021 | 13.276, 13.010, 12.749, 12.492, 12.240, 11.991, 11.747 | 11.747 | 0.22344 |
+| 73/20–33/10 | B2 | 0.019021 | 14.389, 14.152, 13.919, 13.688, 13.461, 13.237, 13.017 | 13.017 | 0.24759 |
+| 33/10–59/20 | B1 | 0.025271 | 11.747, 11.412, 11.084, 10.765, 10.455, 10.153, 9.8603 | 9.8602 | 0.24918 |
+| 33/10–59/20 | B2 | 0.025271 | 13.017, 12.714, 12.417, 12.126, 11.842, 11.565, 11.295 | 11.295 | 0.28544 |
+| 59/20–13/5 | B1 | 0.034476 | 9.8603, 9.4412, 9.0399, 8.6566, 8.2913, 7.9440, 7.6144 | 7.6143 | 0.26251 |
+| 59/20–13/5 | B2 | 0.034476 | 11.295, 10.909, 10.537, 10.179, 9.8360, 9.5074, 9.1932 | 9.1932 | 0.31694 |
+| 13/5–9/4 | B1 | 0.048479 | 7.6144, 7.1192, 6.6642, 6.2487, 5.8717, 5.5319, 5.2276 | 5.2276 | 0.25343 |
+| 13/5–9/4 | B2 | 0.048479 | 9.1932, 8.7214, 8.2823, 7.8759, 7.5015, 7.1582, 6.8447 | 6.8447 | 0.33182 |
+| 9/4–19/10 | B1 | 0.070449 | 5.2276, 4.7401, 4.3438, 4.0320, 3.7962, 3.6268, 3.5139 | 3.5139 | 0.24755 |
+| 9/4–19/10 | B2 | 0.070449 | 6.8447, 6.3425, 5.9170, 5.5632, 5.2743, 5.0426, 4.8600 | 4.8600 | 0.34239 |
+| 19/10–6/5 | B1 | 0.10540 | 3.5139, 2.9212, 3.8885, 4.9871, 4.5385, 3.1887, 2.0636 | 2.0636 | 0.21751 |
+| 19/10–6/5 | B2 | 0.10540 | 4.8600, 3.9010, 4.2957, 4.8683, 4.1676, 2.9161, 2.2092 | 2.2091 | 0.23286 |
+
+Row B′ (weight B2), w_I ≥ 0.224:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–79/20 | B2 | 0.014648 | 15.477, 15.454, 15.430, 15.407, 15.383, 15.360, 15.337 | 15.336 | 0.22465 |
+| 79/20–39/10 | B2 | 0.015185 | 15.337, 15.312, 15.288, 15.264, 15.240, 15.215, 15.191 | 15.191 | 0.23069 |
+| 39/10–19/5 | B2 | 0.015749 | 15.191, 15.140, 15.089, 15.038, 14.987, 14.937, 14.886 | 14.886 | 0.23445 |
+| 19/5–73/20 | B2 | 0.016962 | 14.886, 14.802, 14.719, 14.636, 14.553, 14.471, 14.389 | 14.388 | 0.24406 |
+| 73/20–33/10 | B2 | 0.019021 | 14.389, 14.152, 13.919, 13.688, 13.461, 13.237, 13.017 | 13.017 | 0.24759 |
+| 33/10–13/5 | B2 | 0.025271 | 13.017, 12.279, 11.580, 10.920, 10.303, 9.7269, 9.1932 | 9.1932 | 0.23232 |
+| 13/5–19/10 | B2 | 0.048479 | 9.1932, 7.9654, 6.9594, 6.1728, 5.5826, 5.1566, 4.8600 | 4.8600 | 0.23561 |
+| 19/10–6/5 | B2 | 0.10540 | 4.8600, 3.9010, 4.2957, 4.8683, 4.1676, 2.9161, 2.2092 | 2.2091 | 0.23286 |
+
+Row E (weight E2), w_I ≥ 0.139:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–39/10 | E2 | 0.014648 | 9.6434, 9.6155, 9.5875, 9.5594, 9.5312, 9.5029 | 9.5029 | 0.13920 |
+| 39/10–19/5 | E2 | 0.015749 | 9.5029, 9.4724, 9.4417, 9.4109, 9.3800, 9.3490 | 9.3489 | 0.14724 |
+| 19/5–73/20 | E2 | 0.016962 | 9.3490, 9.2976, 9.2459, 9.1940, 9.1418, 9.0894 | 9.0893 | 0.15417 |
+| 73/20–33/10 | E2 | 0.019021 | 9.0894, 8.9380, 8.7847, 8.6298, 8.4737, 8.3168 | 8.3168 | 0.15819 |
+| 33/10–13/5 | E2 | 0.025271 | 8.3168, 7.7917, 7.2572, 6.7266, 6.2102, 5.7162 | 5.7161 | 0.14445 |
+| 13/5–9/4 | E2 | 0.048479 | 5.7162, 5.2793, 4.8599, 4.4634, 4.0937, 3.7537 | 3.7536 | 0.18197 |
+| 9/4–21/10 | E2 | 0.070449 | 3.7537, 3.5533, 3.3632, 3.1840, 3.0160, 2.8595 | 2.8594 | 0.20144 |
+| 21/10–19/10 | E2 | 0.083494 | 2.8595, 2.5904, 2.3554, 2.1558, 1.9920, 1.8630 | 1.8630 | 0.15555 |
+| 19/10–31/20 | E2 | 0.10540 | 1.8630, 1.5059, 1.4172, 1.5826, 1.9343, 2.3945 | 1.4172 | 0.14938 |
+| 31/20–6/5 | E2 | 0.15676 | 2.3945, 3.3143, 4.6676, 5.8349, 6.0378, 5.7202 | 2.3945 | 0.37537 |
+
+Row C (weights C1, C3), w_I ≥ 0.325:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–79/20 | C1 | 0.014648 | 22.437, 22.402, 22.367, 22.332, 22.297, 22.262, 22.227 | 22.227 | 0.32559 |
+| 4–79/20 | C3 | 0.014648 | 24.291, 24.262, 24.234, 24.205, 24.177, 24.148, 24.119 | 24.119 | 0.35331 |
+| 79/20–39/10 | C1 | 0.015185 | 22.227, 22.191, 22.154, 22.118, 22.081, 22.045, 22.009 | 22.008 | 0.33422 |
+| 79/20–39/10 | C3 | 0.015185 | 24.119, 24.090, 24.060, 24.030, 24.000, 23.971, 23.941 | 23.940 | 0.36356 |
+| 39/10–19/5 | C1 | 0.015749 | 22.009, 21.931, 21.854, 21.777, 21.700, 21.623, 21.546 | 21.545 | 0.33933 |
+| 39/10–19/5 | C3 | 0.015749 | 23.941, 23.877, 23.814, 23.751, 23.687, 23.624, 23.560 | 23.560 | 0.37106 |
+| 19/5–73/20 | C1 | 0.016962 | 21.546, 21.418, 21.290, 21.162, 21.035, 20.907, 20.780 | 20.779 | 0.35247 |
+| 19/5–73/20 | C3 | 0.016962 | 23.560, 23.455, 23.349, 23.244, 23.138, 23.032, 22.926 | 22.925 | 0.38887 |
+| 73/20–33/10 | C1 | 0.019021 | 20.780, 20.412, 20.046, 19.681, 19.318, 18.957, 18.599 | 18.598 | 0.35377 |
+| 73/20–33/10 | C3 | 0.019021 | 22.926, 22.620, 22.314, 22.007, 21.700, 21.394, 21.089 | 21.088 | 0.40113 |
+| 33/10–59/20 | C1 | 0.025271 | 18.599, 18.106, 17.619, 17.137, 16.663, 16.196, 15.738 | 15.737 | 0.39771 |
+| 33/10–59/20 | C3 | 0.025271 | 21.089, 20.669, 20.251, 19.835, 19.423, 19.015, 18.612 | 18.612 | 0.47035 |
+| 59/20–13/5 | C1 | 0.034476 | 15.738, 15.082, 14.444, 13.825, 13.226, 12.650, 12.096 | 12.096 | 0.41702 |
+| 59/20–13/5 | C3 | 0.034476 | 18.612, 18.036, 17.470, 16.916, 16.376, 15.851, 15.341 | 15.341 | 0.52891 |
+| 13/5–9/4 | C1 | 0.048479 | 12.096, 11.264, 10.484, 9.7580, 9.0880, 8.4741, 7.9155 | 7.9154 | 0.38373 |
+| 13/5–9/4 | C3 | 0.048479 | 15.341, 14.577, 13.848, 13.159, 12.511, 11.906, 11.343 | 11.342 | 0.54989 |
+| 9/4–21/10 | C1 | 0.070449 | 7.9155, 7.5863, 7.2763, 6.9854, 6.7132, 6.4594, 6.2234 | 6.2234 | 0.43843 |
+| 9/4–21/10 | C3 | 0.070449 | 11.343, 11.011, 10.694, 10.392, 10.104, 9.8301, 9.5705 | 9.5705 | 0.67424 |
+| 21/10–19/10 | C1 | 0.083494 | 6.2234, 5.8177, 5.4648, 5.1624, 4.9072, 4.6956, 4.5237 | 4.5237 | 0.37770 |
+| 21/10–19/10 | C3 | 0.083494 | 9.5705, 9.1242, 8.7192, 8.3540, 8.0264, 7.7337, 7.4729 | 7.4728 | 0.62394 |
+| 19/10–31/20 | C1 | 0.10540 | 4.5237, 4.0474, 3.8754, 3.9236, 4.0902, 4.2889, 4.4601 | 3.8753 | 0.40849 |
+| 19/10–31/20 | C3 | 0.10540 | 7.4729, 6.7504, 6.2731, 5.9778, 5.7851, 5.6294, 5.4683 | 5.4683 | 0.57640 |
+| 31/20–6/5 | C1 | 0.15676 | 4.4601, 4.8022, 5.0342, 4.6798, 3.6872, 2.7868, 2.4692 | 2.4692 | 0.38708 |
+| 31/20–6/5 | C3 | 0.15676 | 5.4683, 5.1466, 4.8037, 4.1034, 3.0861, 2.4882, 2.7951 | 2.4881 | 0.39005 |
+
+Row C3 (weight C3), w_I ≥ 0.352:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–79/20 | C3 | 0.014648 | 24.291, 24.262, 24.234, 24.205, 24.177, 24.148, 24.119 | 24.119 | 0.35331 |
+| 79/20–39/10 | C3 | 0.015185 | 24.119, 24.090, 24.060, 24.030, 24.000, 23.971, 23.941 | 23.940 | 0.36356 |
+| 39/10–19/5 | C3 | 0.015749 | 23.941, 23.877, 23.814, 23.751, 23.687, 23.624, 23.560 | 23.560 | 0.37106 |
+| 19/5–73/20 | C3 | 0.016962 | 23.560, 23.455, 23.349, 23.244, 23.138, 23.032, 22.926 | 22.925 | 0.38887 |
+| 73/20–33/10 | C3 | 0.019021 | 22.926, 22.620, 22.314, 22.007, 21.700, 21.394, 21.089 | 21.088 | 0.40113 |
+| 33/10–13/5 | C3 | 0.025271 | 21.089, 20.068, 19.057, 18.071, 17.118, 16.207, 15.341 | 15.341 | 0.38769 |
+| 13/5–19/10 | C3 | 0.048479 | 15.341, 13.351, 11.605, 10.165, 9.0233, 8.1427, 7.4729 | 7.4728 | 0.36228 |
+| 19/10–31/20 | C3 | 0.10540 | 7.4729, 6.7504, 6.2731, 5.9778, 5.7851, 5.6294, 5.4683 | 5.4683 | 0.57640 |
+| 31/20–6/5 | C3 | 0.15676 | 5.4683, 5.1466, 4.8037, 4.1034, 3.0861, 2.4882, 2.7951 | 2.4881 | 0.39005 |
+
+Row C4 (weight C4), w_I ≥ 0.559:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–79/20 | C4 | 0.014648 | 38.609, 38.568, 38.526, 38.484, 38.443, 38.401, 38.359 | 38.359 | 0.56190 |
+| 79/20–39/10 | C4 | 0.015185 | 38.359, 38.316, 38.272, 38.229, 38.185, 38.142, 38.098 | 38.098 | 0.57855 |
+| 39/10–19/5 | C4 | 0.015749 | 38.098, 38.006, 37.914, 37.821, 37.729, 37.636, 37.543 | 37.543 | 0.59129 |
+| 19/5–73/20 | C4 | 0.016962 | 37.543, 37.390, 37.236, 37.081, 36.927, 36.772, 36.617 | 36.617 | 0.62111 |
+| 73/20–33/10 | C4 | 0.019021 | 36.617, 36.171, 35.722, 35.273, 34.824, 34.374, 33.925 | 33.925 | 0.64529 |
+| 33/10–13/5 | C4 | 0.025271 | 33.925, 32.423, 30.926, 29.451, 28.010, 26.614, 25.268 | 25.267 | 0.63855 |
+| 13/5–19/10 | C4 | 0.048479 | 25.268, 22.172, 19.346, 16.873, 14.767, 13.002, 11.535 | 11.534 | 0.55919 |
+| 19/10–31/20 | C4 | 0.10540 | 11.535, 9.9522, 8.7165, 7.7745, 7.0503, 6.4772, 6.0085 | 6.0084 | 0.63334 |
+| 31/20–6/5 | C4 | 0.15676 | 6.0085, 5.0719, 4.5523, 4.0781, 3.6009, 3.7610, 4.9848 | 3.6009 | 0.56449 |
+
+Row C5 (weight C5), w_I ≥ 0.8:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–19/5 | C5 | 0.014648 | 56.109, 55.865, 55.620, 55.374, 55.128, 54.881, 54.634 | 54.633 | 0.80029 |
+| 19/5–73/20 | C5 | 0.016962 | 54.634, 54.421, 54.208, 53.994, 53.780, 53.566, 53.351 | 53.351 | 0.90495 |
+| 73/20–33/10 | C5 | 0.019021 | 53.351, 52.732, 52.111, 51.488, 50.863, 50.239, 49.614 | 49.613 | 0.94370 |
+| 33/10–13/5 | C5 | 0.025271 | 49.614, 47.523, 45.432, 43.360, 41.323, 39.333, 37.400 | 37.400 | 0.94515 |
+| 13/5–9/4 | C5 | 0.048479 | 37.400, 35.691, 34.027, 32.413, 30.854, 29.355, 27.916 | 27.916 | 1.3533 |
+| 9/4–19/10 | C5 | 0.070449 | 27.916, 25.611, 23.462, 21.478, 19.660, 18.003, 16.499 | 16.499 | 1.1623 |
+| 19/10–17/10 | C5 | 0.10540 | 16.499, 15.194, 14.004, 12.925, 11.950, 11.071, 10.281 | 10.280 | 1.0836 |
+| 17/10–31/20 | C5 | 0.13311 | 10.281, 9.4769, 8.7644, 8.1353, 7.5813, 7.0947, 6.6687 | 6.6686 | 0.88767 |
+| 31/20–3/2 | C5 | 0.15676 | 6.6687, 6.4975, 6.3361, 6.1841, 6.0410, 5.9066, 5.7803 | 5.7803 | 0.90614 |
+| 3/2–29/20 | C5 | 0.16460 | 5.7803, 5.6408, 5.5114, 5.3915, 5.2809, 5.1791, 5.0859 | 5.0859 | 0.83719 |
+| 29/20–57/40 | C5 | 0.17200 | 5.0859, 5.0356, 4.9878, 4.9424, 4.8995, 4.8589, 4.8207 | 4.8207 | 0.82918 |
+| 57/40–7/5 | C5 | 0.17539 | 4.8207, 4.7804, 4.7427, 4.7076, 4.6751, 4.6451, 4.6175 | 4.6175 | 0.80990 |
+| 7/5–11/8 | C5 | 0.17849 | 4.6175, 4.5885, 4.5623, 4.5388, 4.5181, 4.5002, 4.4850 | 4.4850 | 0.80056 |
+| 11/8–27/20 | C5 | 0.18120 | 4.4850, 4.4690, 4.4561, 4.4463, 4.4396, 4.4360, 4.4357 | 4.4356 | 0.80378 |
+| 27/20–13/10 | C5 | 0.18342 | 4.4357, 4.4349, 4.4491, 4.4788, 4.5246, 4.5872, 4.6676 | 4.4348 | 0.81348 |
+| 13/10–6/5 | C5 | 0.17682 | 4.6676, 4.8595, 5.1529, 5.5608, 6.1013, 6.7955, 7.6612 | 4.6675 | 0.82535 |
+
+Row C6 (weight C6), w_I ≥ 0.815:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–33/10 | C6 | 0.014648 | 76.791, 75.382, 73.955, 72.515, 71.066, 69.611, 68.155 | 68.154 | 0.99835 |
+| 33/10–13/5 | C6 | 0.025271 | 68.155, 65.368, 62.575, 59.798, 57.056, 54.366, 51.739 | 51.738 | 1.3075 |
+| 13/5–19/10 | C6 | 0.048479 | 51.739, 45.694, 39.986, 34.762, 30.085, 25.960, 22.366 | 22.366 | 1.0843 |
+| 19/10–17/10 | C6 | 0.10540 | 22.366, 20.445, 18.676, 17.055, 15.577, 14.235, 13.022 | 13.021 | 1.3725 |
+| 17/10–31/20 | C6 | 0.13311 | 13.022, 11.787, 10.686, 9.7097, 8.8501, 8.0990, 7.4489 | 7.4488 | 0.99153 |
+| 31/20–3/2 | C6 | 0.15676 | 7.4489, 7.1877, 6.9427, 6.7136, 6.4999, 6.3010, 6.1166 | 6.1166 | 0.95886 |
+| 3/2–29/20 | C6 | 0.16460 | 6.1166, 5.9129, 5.7268, 5.5579, 5.4056, 5.2695, 5.1491 | 5.1490 | 0.84758 |
+| 29/20–57/40 | C6 | 0.17200 | 5.1491, 5.0841, 5.0237, 4.9678, 4.9163, 4.8693, 4.8267 | 4.8266 | 0.83020 |
+| 57/40–113/80 | C6 | 0.17539 | 4.8267, 4.8045, 4.7835, 4.7636, 4.7449, 4.7274, 4.7110 | 4.7110 | 0.82631 |
+| 113/80–7/5 | C6 | 0.17699 | 4.7110, 4.6942, 4.6786, 4.6643, 4.6511, 4.6391, 4.6283 | 4.6282 | 0.81915 |
+| 7/5–11/8 | C6 | 0.17849 | 4.6283, 4.6058, 4.5884, 4.5762, 4.5690, 4.5668, 4.5697 | 4.5668 | 0.81516 |
+| 11/8–27/20 | C6 | 0.18120 | 4.5697, 4.5727, 4.5812, 4.5954, 4.6150, 4.6402, 4.6708 | 4.5696 | 0.82806 |
+| 27/20–13/10 | C6 | 0.18342 | 4.6708, 4.7375, 4.8303, 4.9490, 5.0939, 5.2653, 5.4638 | 4.6708 | 0.85676 |
+| 13/10–6/5 | C6 | 0.17682 | 5.4638, 5.9376, 6.5656, 7.3547, 8.3174, 9.4694, 10.824 | 5.4637 | 0.96613 |
+
+Row S3 (weight S3), w_I ≥ 0.302:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–79/20 | S3 | 0.014648 | 21963, 21940, 21918, 21896, 21874, 21852, 21830, 21808, 21786, |  |  |
+|  |  |  | 21764 | 21764 / 1055.3 | 0.30210 |
+| 79/20–39/10 | S3 | 0.015185 | 21764, 21741, 21718, 21695, 21672, 21649, 21626, 21603, |  |  |
+|  |  |  | 21580, 21557 | 21557 / 1057.9 | 0.30947 |
+| 39/10–19/5 | S3 | 0.015749 | 21557, 21509, 21460, 21411, 21362, 21314, 21265, 21216, |  |  |
+|  |  |  | 21167, 21118 | 21118 / 1063.3 | 0.31282 |
+| 19/5–73/20 | S3 | 0.016962 | 21118, 21037, 20956, 20875, 20794, 20713, 20631, 20550, |  |  |
+|  |  |  | 20469, 20388 | 20387 / 1072.2 | 0.32253 |
+| 73/20–33/10 | S3 | 0.019021 | 20388, 20153, 19918, 19684, 19449, 19215, 18981, 18747, |  |  |
+|  |  |  | 18514, 18282 | 18281 / 1098.4 | 0.31658 |
+| 33/10–59/20 | S3 | 0.025271 | 18282, 17962, 17643, 17325, 17010, 16696, 16385, 16076, |  |  |
+|  |  |  | 15769, 15466 | 15465 / 1135.2 | 0.34430 |
+| 59/20–13/5 | S3 | 0.034476 | 15466, 15032, 14603, 14181, 13766, 13359, 12959, 12568, |  |  |
+|  |  |  | 12186, 11813 | 11813 / 1189.2 | 0.34249 |
+| 13/5–12/5 | S3 | 0.048479 | 11813, 11523, 11239, 10960, 10687, 10421, 10160, 9906.0, |  |  |
+|  |  |  | 9658.3, 9417.2 | 9417.1 / 1232.4 | 0.37046 |
+| 12/5–9/4 | S3 | 0.059779 | 9417.2, 9192.6, 8973.7, 8760.5, 8553.2, 8351.8, 8156.3, |  |  |
+|  |  |  | 7966.8, 7783.4, 7606.0 | 7605.9 / 1273.5 | 0.35704 |
+| 9/4–21/10 | S3 | 0.070449 | 7606.0, 7389.2, 7181.5, 6982.9, 6793.4, 6613.0, 6441.8, |  |  |
+|  |  |  | 6279.7, 6126.7, 5982.6 | 5982.6 / 1325.0 | 0.31810 |
+| 21/10–2 | S3 | 0.083494 | 5982.6, 5868.1, 5759.2, 5656.1, 5558.6, 5466.6, 5380.2, 5299.4, |  |  |
+|  |  |  | 5223.9, 5153.9 | 5153.8 / 1366.9 | 0.31482 |
+| 2–19/10 | S3 | 0.093750 | 5153.9, 5072.5, 4998.4, 4931.4, 4871.5, 4818.5, 4772.3, 4732.8, |  |  |
+|  |  |  | 4699.9, 4673.3 | 4673.2 / 1416.7 | 0.30925 |
+| 19/10–17/10 | S3 | 0.10540 | 4673.3, 4605.3, 4578.9, 4591.6, 4640.5, 4722.4, 4833.8, |  |  |
+|  |  |  | 4971.4, 5131.2, 5309.6 | 4578.9 / 1549.5 | 0.31150 |
+| 17/10–31/20 | S3 | 0.13311 | 5309.6, 5491.1, 5691.8, 5907.7, 6134.8, 6369.1, 6606.5, |  |  |
+|  |  |  | 6843.1, 7075.2, 7299.2 | 5309.5 / 1692.8 | 0.41752 |
+| 31/20–7/5 | S3 | 0.15676 | 7299.2, 7599.0, 7884.3, 8146.8, 8378.6, 8573.0, 8724.1, |  |  |
+|  |  |  | 8827.7, 8881.0, 8882.8 | 7299.1 / 1898.1 | 0.60284 |
+| 7/5–6/5 | S3 | 0.17682 | 8882.8, 8886.3, 8691.8, 8290.1, 7696.4, 6952.9, 6130.1, 5323.2, |  |  |
+|  |  |  | 4643.4, 4201.0 | 4201.0 / 2347.5 | 0.31645 |
+
+Row T2 (weight T2), w_I ≥ 0.19:
+
+| piece | weight | η ≥ | Bernstein coefficients | least | product ≥ |
+|---|---|---|---|---|---|
+| 4–39/10 | T2 | 0.014648 | 13.563, 13.499, 13.435, 13.372, 13.309, 13.246, 13.183 | 13.183 | 0.19311 |
+| 39/10–19/5 | T2 | 0.015749 | 13.183, 13.116, 13.048, 12.981, 12.914, 12.848, 12.782 | 12.781 | 0.20130 |
+| 19/5–73/20 | T2 | 0.016962 | 12.782, 12.672, 12.563, 12.455, 12.348, 12.241, 12.136 | 12.135 | 0.20584 |
+| 73/20–33/10 | T2 | 0.019021 | 12.136, 11.830, 11.532, 11.240, 10.954, 10.675, 10.402 | 10.401 | 0.19784 |
+| 33/10–59/20 | T2 | 0.025271 | 10.402, 10.026, 9.6620, 9.3101, 8.9700, 8.6415, 8.3245 | 8.3244 | 0.21037 |
+| 59/20–13/5 | T2 | 0.034476 | 8.3245, 7.8709, 7.4408, 7.0335, 6.6485, 6.2853, 5.9430 | 5.9430 | 0.20489 |
+| 13/5–12/5 | T2 | 0.048479 | 5.9430, 5.6769, 5.4234, 5.1824, 4.9534, 4.7362, 4.5304 | 4.5304 | 0.21963 |
+| 12/5–9/4 | T2 | 0.059779 | 4.5304, 4.3388, 4.1570, 3.9848, 3.8220, 3.6682, 3.5232 | 3.5232 | 0.21061 |
+| 9/4–11/5 | T2 | 0.070449 | 3.5232, 3.4681, 3.4143, 3.3618, 3.3105, 3.2603, 3.2114 | 3.2114 | 0.22624 |
+| 11/5–21/10 | T2 | 0.074510 | 3.2114, 3.1029, 3.0002, 2.9032, 2.8118, 2.7257, 2.6447 | 2.6447 | 0.19706 |
+| 21/10–41/20 | T2 | 0.083494 | 2.6447, 2.5997, 2.5563, 2.5145, 2.4742, 2.4354, 2.3980 | 2.3980 | 0.20022 |
+| 41/20–2 | T2 | 0.088454 | 2.3980, 2.3579, 2.3194, 2.2826, 2.2474, 2.2138, 2.1817 | 2.1816 | 0.19298 |
+| 2–79/40 | T2 | 0.093750 | 2.1817, 2.1647, 2.1482, 2.1321, 2.1164, 2.1012, 2.0863 | 2.0863 | 0.19559 |
+| 79/40–39/20 | T2 | 0.096528 | 2.0863, 2.0709, 2.0559, 2.0413, 2.0272, 2.0135, 2.0002 | 2.0002 | 0.19307 |
+| 39/20–77/40 | T2 | 0.099396 | 2.0002, 1.9864, 1.9730, 1.9601, 1.9476, 1.9356, 1.9239 | 1.9239 | 0.19123 |
+| 77/40–19/10 | T2 | 0.10235 | 1.9239, 1.9118, 1.9002, 1.8890, 1.8782, 1.8679, 1.8580 | 1.8580 | 0.19017 |
+| 19/10–15/8 | T2 | 0.10540 | 1.8580, 1.8477, 1.8379, 1.8285, 1.8195, 1.8110, 1.8029 | 1.8028 | 0.19003 |
+| 15/8–37/20 | T2 | 0.10855 | 1.8029, 1.7945, 1.7865, 1.7790, 1.7719, 1.7653, 1.7590 | 1.7590 | 0.19094 |
+| 37/20–9/5 | T2 | 0.11179 | 1.7590, 1.7458, 1.7344, 1.7249, 1.7171, 1.7109, 1.7062 | 1.7062 | 0.19074 |
+| 9/5–17/10 | T2 | 0.11854 | 1.7062, 1.6957, 1.6931, 1.6974, 1.7077, 1.7230, 1.7424 | 1.6930 | 0.20070 |
+| 17/10–31/20 | T2 | 0.13311 | 1.7424, 1.7789, 1.8301, 1.8899, 1.9535, 2.0163, 2.0750 | 1.7424 | 0.23193 |
+| 31/20–7/5 | T2 | 0.15676 | 2.0750, 2.1536, 2.2248, 2.2802, 2.3144, 2.3247, 2.3109 | 2.0750 | 0.32528 |
+| 7/5–6/5 | T2 | 0.17682 | 2.3109, 2.2838, 2.1644, 1.9515, 1.6818, 1.4180, 1.2074 | 1.2074 | 0.21350 |
+
+Row S4 (c_0, …, c_3 of [[sec:tb-morawetz-weights]]), w_I ≥ 0.515. On each piece, k_S ≥ the least over
+j ≤ 3 of (least Bernstein coefficient of c_j)/(16 C(3, j)H_0^(3−j)), with H_0 = 21 + 6y at the right end of the piece.
+
+| piece | c_j | Bernstein coefficients | least |
+|---|---|---|---|
+| 4–79/20 | c_0 | 5558094, 5553538, 5548980, 5544421, 5539860, 5535297, 5530733, 5526168, 5521601, 5517032 | 5517032 |
+|  | c_1 | 1032700, 1031816, 1030931, 1030047, 1029161, 1028276, 1027390, 1026503, 1025617 | 1025616 |
+|  | c_2 | 71767, 71702, 71637, 71572, 71506, 71441, 71376, 71310 | 71310 |
+|  | c_3 | 2210.5, 2208.3, 2206.1, 2204.0, 2201.8, 2199.6, 2197.4 | 2197.4 |
+| 79/20–39/10 | c_0 | 5517032, 5512287, 5507540, 5502792, 5498042, 5493290, 5488537, 5483783, 5479027, |  |
+|  |  | 5474270 | 5474269 |
+|  | c_1 | 1025617, 1024696, 1023774, 1022853, 1021931, 1021008, 1020085, 1019162, 1018239 | 1018238 |
+|  | c_2 | 71310, 71243, 71175, 71107, 71039, 70971, 70903, 70834 | 70834 |
+|  | c_3 | 2197.4, 2195.1, 2192.9, 2190.6, 2188.3, 2186.1, 2183.8 | 2183.8 |
+| 39/10–19/5 | c_0 | 5474270, 5464185, 5454095, 5443998, 5433896, 5423787, 5413673, 5403553, 5393429, 5383299 | 5383298 |
+|  | c_1 | 1018239, 1016281, 1014322, 1012362, 1010400, 1008437, 1006472, 1004506, 1002539 | 1002539 |
+|  | c_2 | 70834, 70690, 70546, 70401, 70256, 70111, 69966, 69821 | 69821 |
+|  | c_3 | 2183.8, 2179.0, 2174.2, 2169.3, 2164.5, 2159.7, 2154.8 | 2154.8 |
+| 19/5–73/20 | c_0 | 5383299, 5366515, 5349717, 5332906, 5316083, 5299249, 5282405, 5265551, 5248689, 5231819 | 5231818 |
+|  | c_1 | 1002539, 999280, 996017, 992751, 989482, 986210, 982936, 979659, 976380 | 976379 |
+|  | c_2 | 69821, 69581, 69340, 69099, 68857, 68616, 68374, 68131 | 68131 |
+|  | c_3 | 2154.8, 2146.8, 2138.7, 2130.7, 2122.6, 2114.5, 2106.4 | 2106.4 |
+| 73/20–33/10 | c_0 | 5231819, 5183126, 5134369, 5085567, 5036740, 4987908, 4939088, 4890299, 4841559, |  |
+|  |  | 4792884 | 4792884 |
+|  | c_1 | 976380, 966916, 957433, 947936, 938431, 928920, 919410, 909903, 900403 | 900403 |
+|  | c_2 | 68131, 67432, 66731, 66029, 65325, 64620, 63916, 63211 | 63210 |
+|  | c_3 | 2106.4, 2083.1, 2059.6, 2036.0, 2012.4, 1988.7, 1965.0 | 1965.0 |
+| 33/10–59/20 | c_0 | 4792884, 4725874, 4658989, 4592272, 4525768, 4459516, 4393558, 4327929, 4262667, |  |
+|  |  | 4197807 | 4197806 |
+|  | c_1 | 900403, 887326, 874263, 861225, 848222, 835264, 822359, 809516, 796743 | 796743 |
+|  | c_2 | 63211, 62240, 61269, 60300, 59332, 58367, 57405, 56447 | 56446 |
+|  | c_3 | 1965.0, 1932.4, 1899.7, 1867.0, 1834.3, 1801.7, 1769.1 | 1769.0 |
+| 59/20–13/5 | c_0 | 4197807, 4105022, 4013058, 3922016, 3831989, 3743066, 3655328, 3568849, 3483699, 3399939 | 3399939 |
+|  | c_1 | 796743, 778472, 760344, 742383, 724611, 707048, 689713, 672621, 655789 | 655788 |
+|  | c_2 | 56447, 55077, 53716, 52365, 51027, 49703, 48396, 47106 | 47106 |
+|  | c_3 | 1769.1, 1722.5, 1676.1, 1629.9, 1584.1, 1538.7, 1493.8 | 1493.8 |
+| 13/5–9/4 | c_0 | 3399939, 3274116, 3151432, 3032099, 2916301, 2804192, 2695898, 2591520, 2491133, 2394790 | 2394790 |
+|  | c_1 | 655789, 630503, 605801, 581734, 558345, 535670, 513735, 492562, 472168 | 472167 |
+|  | c_2 | 47106, 45168, 43271, 41417, 39612, 37860, 36161, 34519 | 34519 |
+|  | c_3 | 1493.8, 1426.4, 1360.1, 1295.1, 1231.7, 1170.0, 1110.1 | 1110.1 |
+| 9/4–19/10 | c_0 | 2394790, 2240420, 2096433, 1963048, 1840328, 1728202, 1626477, 1534854, 1452943, 1380280 | 1380280 |
+|  | c_1 | 472168, 439490, 408809, 380189, 353654, 329193, 306768, 286316, 267755 | 267755 |
+|  | c_2 | 34519, 31888, 29402, 27069, 24893, 22875, 21012, 19300 | 19299 |
+|  | c_3 | 1110.1, 1014.2, 922.95, 836.94, 756.45, 681.65, 612.57 | 612.57 |
+| 19/10–17/10 | c_0 | 1380280, 1317185, 1261064, 1211612, 1168484, 1131298, 1099646, 1073101, 1051220, |  |
+|  |  | 1033559 | 1033558 |
+|  | c_1 | 267755, 251638, 236947, 223629, 211619, 200846, 191233, 182696, 175155 | 175154 |
+|  | c_2 | 19300, 17814, 16442, 15181, 14029, 12980, 12029, 11171 | 11170 |
+|  | c_3 | 612.57, 552.59, 496.93, 445.61, 398.61, 355.83, 317.17 | 317.16 |
+| 17/10–31/20 | c_0 | 1033559, 1015590, 1001987, 992282, 985995, 982654, 981791, 982956, 985720, 989681 | 981791 |
+|  | c_1 | 175155, 167482, 160838, 155137, 150289, 146206, 142801, 139994, 137710 | 137710 |
+|  | c_2 | 11171, 10298, 9521.3, 8835.4, 8234.2, 7711.8, 7262.6, 6881.2 | 6881.2 |
+|  | c_3 | 317.17, 277.83, 242.75, 211.82, 184.88, 161.77, 142.32 | 142.31 |
+| 31/20–7/5 | c_0 | 989681, 994982, 1002428, 1011058, 1019999, 1028493, 1035919, 1041808, 1045862, 1047957 | 989680 |
+|  | c_1 | 137710, 134653, 132532, 131167, 130396, 130086, 130134, 130471, 131066 | 130086 |
+|  | c_2 | 6881.2, 6370.7, 5981.7, 5701.5, 5518.5, 5423.4, 5409.1, 5471.4 | 5409.0 |
+|  | c_3 | 142.32, 116.29, 96.813, 83.495, 75.920, 73.711, 76.547 | 73.710 |
+| 7/5–6/5 | c_0 | 1047957, 1052063, 1048638, 1036747, 1018054, 997045, 980942, 979214, 1002550, 1061195 | 979213 |
+|  | c_1 | 131066, 132234, 134396, 137319, 141311, 147270, 156607, 171027, 192110 | 131066 |
+|  | c_2 | 5471.4, 5593.5, 6010.0, 6688.7, 7636.7, 8905.6, 10577, 12723 | 5471.3 |
+|  | c_3 | 76.547, 82.109, 107.07, 149.01, 206.36, 278.92, 366.72 | 76.547 |
+
+| piece | η ≥ | k_S ≥ | product ≥ |
+|---|---|---|---|
+| 4–79/20 | 0.014648 | 35.260 | 0.51650 |
+| 79/20–39/10 | 0.015185 | 34.938 | 0.53057 |
+| 39/10–19/5 | 0.015749 | 34.256 | 0.53952 |
+| 19/5–73/20 | 0.016962 | 33.130 | 0.56196 |
+| 73/20–33/10 | 0.019021 | 29.927 | 0.56926 |
+| 33/10–59/20 | 0.025271 | 25.713 | 0.64980 |
+| 59/20–13/5 | 0.034476 | 20.265 | 0.69868 |
+| 13/5–9/4 | 0.048479 | 13.707 | 0.66452 |
+| 9/4–19/10 | 0.070449 | 7.4122 | 0.52219 |
+| 19/10–17/10 | 0.10540 | 5.2568 | 0.55411 |
+| 17/10–31/20 | 0.13311 | 4.7297 | 0.62958 |
+| 31/20–7/5 | 0.15676 | 4.4403 | 0.69609 |
+| 7/5–6/5 | 0.17682 | 3.8395 | 0.67893 |
+
+#### The constants m′ and M′ {#sec:tb-morawetz-mM}
+
+For each multiplier, φ′ − q = η(4Θ_z − g) and φ′ − 2q = η(4Θ_z − 2g), with Θ_z at z = 1 − 2y. The first table
+bounds η(4Θ_z − g) below on the pieces of I, the second bounds |η(4Θ_z − 2g)| above.
+
+| multiplier | 4Θ_z − g in y: coefficients of y⁰, y¹, … | m′ ≥ | 4Θ_z − 2g | M′ ≤ |
+|---|---|---|---|---|
+| Θ_A | 17/5, 27/5, −42/5 | 0.0537 | 17/5, 27/5, −42/5 | 0.72 |
+| Θ_B | 137/30, 38/5, −114/5, 32/3 | 0.0718 | 137/30, 38/5, −114/5, 32/3 | 0.735 |
+| Θ_E | 0, 16, −16 | 0.0135 | 0, 16, −16 | 0.735 |
+| Θ_C | 13/30, 92/3, −326/5, 544/15 | 0.0305 | 13/30, 92/3, −326/5, 544/15 | 0.735 |
+| Θ_T | 28/5, 11/10, −72/5, 48/5 | 0.0814 | 28/5, 3/5, −72/5, 48/5 | 0.65 |
+
+| multiplier | piece | η ≥ | Bernstein coefficients of 4Θ_z − g | least | product ≥ |
+|---|---|---|---|---|---|
+| Θ_A | 4–13/5 | 0.014648 | 3.7047, 3.8905, 4.0150 | 3.7046 | 0.054267 |
+| Θ_A | 13/5–6/5 | 0.048479 | 4.0150, 4.8115, 3.0991 | 3.0990 | 0.15024 |
+| Θ_B | 4–13/5 | 0.014648 | 4.9552, 5.0940, 5.1823, 5.2265 | 4.9552 | 0.072586 |
+| Θ_B | 13/5–6/5 | 0.048479 | 5.2265, 5.5097, 3.9943, 2.4213 | 2.4213 | 0.11738 |
+| Θ_E | 4–6/5 | 0.014648 | 0.93750, 5.3611, 3.3951 | 0.93750 | 0.013732 |
+| Θ_C | 4–6/5 | 0.014648 | 2.1042, 6.9368, 3.9953, 2.4324 | 2.1041 | 0.030822 |
+| Θ_T | 4–33/10 | 0.014648 | 5.6148, 5.6091, 5.5997, 5.5870 | 5.5870 | 0.081841 |
+| Θ_T | 33/10–13/5 | 0.025271 | 5.5870, 5.5627, 5.5260, 5.4787 | 5.4786 | 0.13845 |
+| Θ_T | 13/5–6/5 | 0.048479 | 5.4787, 5.0178, 3.5473, 2.6345 | 2.6344 | 0.12771 |
+
+| multiplier | piece | η ≤ | Bernstein coefficients of 4Θ_z − 2g | greatest modulus | product ≤ |
+|---|---|---|---|---|---|
+| Θ_A | 4–13/5 | 0.048480 | 3.7047, 3.8905, 4.0150 | 4.0150 | 0.19465 |
+| Θ_A | 13/5–19/10 | 0.10541 | 4.0150, 4.2031, 4.2513 | 4.2513 | 0.44812 |
+| Θ_A | 19/10–31/20 | 0.15677 | 4.2513, 4.3032, 4.1924 | 4.3033 | 0.67459 |
+| Θ_A | 31/20–3/2 | 0.16461 | 4.1924, 4.1699, 4.1407 | 4.1924 | 0.69011 |
+| Θ_A | 3/2–29/20 | 0.17201 | 4.1407, 4.1085, 4.0681 | 4.1408 | 0.71223 |
+| Θ_A | 29/20–57/40 | 0.17540 | 4.0681, 4.0463, 4.0221 | 4.0682 | 0.71355 |
+| Θ_A | 57/40–7/5 | 0.17850 | 4.0221, 3.9967, 3.9685 | 4.0222 | 0.71795 |
+| Θ_A | 7/5–11/8 | 0.18121 | 3.9685, 3.9388, 3.9062 | 3.9686 | 0.71914 |
+| Θ_A | 11/8–27/20 | 0.18343 | 3.9062, 3.8717, 3.8340 | 3.9062 | 0.71651 |
+| Θ_A | 27/20–13/10 | 0.18584 | 3.8340, 3.7519, 3.6542 | 3.8340 | 0.71250 |
+| Θ_A | 13/10–6/5 | 0.18591 | 3.6542, 3.4210, 3.0991 | 3.6542 | 0.67936 |
+| Θ_B | 4–13/5 | 0.048480 | 4.9552, 5.0940, 5.1823, 5.2265 | 5.2266 | 0.25338 |
+| Θ_B | 13/5–19/10 | 0.10541 | 5.2265, 5.2934, 5.2600, 5.1491 | 5.2935 | 0.55797 |
+| Θ_B | 19/10–17/10 | 0.13312 | 5.1491, 5.0899, 5.0085, 4.9085 | 5.1492 | 0.68542 |
+| Θ_B | 17/10–8/5 | 0.14878 | 4.9085, 4.8438, 4.7714, 4.6922 | 4.9085 | 0.73026 |
+| Θ_B | 8/5–63/40 | 0.15278 | 4.6922, 4.6700, 4.6472, 4.6240 | 4.6922 | 0.71684 |
+| Θ_B | 63/40–31/20 | 0.15677 | 4.6240, 4.5996, 4.5746, 4.5491 | 4.6240 | 0.72488 |
+| Θ_B | 31/20–61/40 | 0.16073 | 4.5491, 4.5224, 4.4950, 4.4671 | 4.5492 | 0.73114 |
+| Θ_B | 61/40–121/80 | 0.16268 | 4.4671, 4.4526, 4.4379, 4.4231 | 4.4671 | 0.72669 |
+| Θ_B | 121/80–3/2 | 0.16461 | 4.4231, 4.4080, 4.3927, 4.3772 | 4.4232 | 0.72809 |
+| Θ_B | 3/2–119/80 | 0.16652 | 4.3772, 4.3613, 4.3453, 4.3291 | 4.3772 | 0.72887 |
+| Θ_B | 119/80–59/40 | 0.16839 | 4.3291, 4.3125, 4.2957, 4.2788 | 4.3292 | 0.72897 |
+| Θ_B | 59/40–117/80 | 0.17022 | 4.2788, 4.2615, 4.2439, 4.2263 | 4.2789 | 0.72834 |
+| Θ_B | 117/80–29/20 | 0.17201 | 4.2263, 4.2081, 4.1898, 4.1713 | 4.2263 | 0.72694 |
+| Θ_B | 29/20–57/40 | 0.17540 | 4.1713, 4.1329, 4.0937, 4.0539 | 4.1714 | 0.73165 |
+| Θ_B | 57/40–7/5 | 0.17850 | 4.0539, 4.0119, 3.9692, 3.9258 | 4.0540 | 0.72361 |
+| Θ_B | 7/5–6/5 | 0.18591 | 3.9258, 3.4753, 2.9516, 2.4213 | 3.9259 | 0.72986 |
+| Θ_E | 4–13/5 | 0.048480 | 0.93750, 1.5355, 2.0167 | 2.0168 | 0.097770 |
+| Θ_E | 13/5–19/10 | 0.10541 | 2.0167, 2.7439, 3.2044 | 3.2044 | 0.33777 |
+| Θ_E | 19/10–31/20 | 0.15677 | 3.2044, 3.7011, 3.8877 | 3.8878 | 0.60946 |
+| Θ_E | 31/20–7/5 | 0.17850 | 3.8877, 4.0137, 3.9983 | 4.0137 | 0.71643 |
+| Θ_E | 7/5–27/20 | 0.18343 | 3.9983, 3.9920, 3.9621 | 3.9984 | 0.73341 |
+| Θ_E | 27/20–53/40 | 0.18503 | 3.9621, 3.9458, 3.9225 | 3.9621 | 0.73308 |
+| Θ_E | 53/40–13/10 | 0.18584 | 3.9225, 3.8979, 3.8654 | 3.9225 | 0.72895 |
+| Θ_E | 13/10–6/5 | 0.18591 | 3.8654, 3.7147, 3.3951 | 3.8655 | 0.71862 |
+| Θ_C | 4–13/5 | 0.048480 | 2.1042, 2.7575, 3.2687, 3.6605 | 3.6605 | 0.17746 |
+| Θ_C | 13/5–19/10 | 0.10541 | 3.6605, 4.2524, 4.5716, 4.6961 | 4.6962 | 0.49501 |
+| Θ_C | 19/10–17/10 | 0.13312 | 4.6961, 4.7627, 4.7736, 4.7407 | 4.7736 | 0.63542 |
+| Θ_C | 17/10–8/5 | 0.14878 | 4.7407, 4.7195, 4.6800, 4.6254 | 4.7408 | 0.70530 |
+| Θ_C | 8/5–31/20 | 0.15677 | 4.6254, 4.5941, 4.5578, 4.5172 | 4.6255 | 0.72510 |
+| Θ_C | 31/20–61/40 | 0.16073 | 4.5172, 4.4954, 4.4723, 4.4480 | 4.5172 | 0.72601 |
+| Θ_C | 61/40–3/2 | 0.16461 | 4.4480, 4.4225, 4.3958, 4.3679 | 4.4481 | 0.73219 |
+| Θ_C | 3/2–119/80 | 0.16652 | 4.3679, 4.3534, 4.3385, 4.3234 | 4.3679 | 0.72732 |
+| Θ_C | 119/80–59/40 | 0.16839 | 4.3234, 4.3079, 4.2921, 4.2760 | 4.3235 | 0.72802 |
+| Θ_C | 59/40–117/80 | 0.17022 | 4.2760, 4.2595, 4.2426, 4.2255 | 4.2761 | 0.72786 |
+| Θ_C | 117/80–29/20 | 0.17201 | 4.2255, 4.2079, 4.1900, 4.1718 | 4.2255 | 0.72681 |
+| Θ_C | 29/20–57/40 | 0.17540 | 4.1718, 4.1340, 4.0949, 4.0547 | 4.1719 | 0.73174 |
+| Θ_C | 57/40–7/5 | 0.17850 | 4.0547, 4.0123, 3.9687, 3.9241 | 4.0547 | 0.72375 |
+| Θ_C | 7/5–6/5 | 0.18591 | 3.9241, 3.4609, 2.8880, 2.4324 | 3.9241 | 0.72953 |
+| Θ_T | 4–13/5 | 0.048480 | 5.5836, 5.5526, 5.4910, 5.4047 | 5.5836 | 0.27069 |
+| Θ_T | 13/5–19/10 | 0.10541 | 5.4047, 5.2743, 5.0877, 4.8653 | 5.4048 | 0.56970 |
+| Θ_T | 19/10–17/10 | 0.13312 | 4.8653, 4.7464, 4.6173, 4.4812 | 4.8653 | 0.64763 |
+| Θ_T | 17/10–33/20 | 0.14085 | 4.4812, 4.4392, 4.3966, 4.3533 | 4.4813 | 0.63116 |
+| Θ_T | 33/20–8/5 | 0.14878 | 4.3533, 4.3060, 4.2579, 4.2093 | 4.3534 | 0.64766 |
+| Θ_T | 8/5–63/40 | 0.15278 | 4.2093, 4.1833, 4.1570, 4.1307 | 4.2094 | 0.64307 |
+| Θ_T | 63/40–31/20 | 0.15677 | 4.1307, 4.1030, 4.0752, 4.0472 | 4.1307 | 0.64754 |
+| Θ_T | 31/20–123/80 | 0.15875 | 4.0472, 4.0327, 4.0182, 4.0036 | 4.0473 | 0.64249 |
+| Θ_T | 123/80–61/40 | 0.16073 | 4.0036, 3.9887, 3.9738, 3.9588 | 4.0037 | 0.64347 |
+| Θ_T | 61/40–121/80 | 0.16268 | 3.9588, 3.9434, 3.9280, 3.9126 | 3.9588 | 0.64400 |
+| Θ_T | 121/80–3/2 | 0.16461 | 3.9126, 3.8967, 3.8809, 3.8650 | 3.9126 | 0.64405 |
+| Θ_T | 3/2–119/80 | 0.16652 | 3.8650, 3.8487, 3.8324, 3.8161 | 3.8651 | 0.64359 |
+| Θ_T | 119/80–59/40 | 0.16839 | 3.8161, 3.7993, 3.7826, 3.7658 | 3.8161 | 0.64259 |
+| Θ_T | 59/40–29/20 | 0.17201 | 3.7658, 3.7308, 3.6958, 3.6607 | 3.7658 | 0.64773 |
+| Θ_T | 29/20–57/40 | 0.17540 | 3.6607, 3.6238, 3.5868, 3.5498 | 3.6608 | 0.64209 |
+| Θ_T | 57/40–7/5 | 0.17850 | 3.5498, 3.5107, 3.4717, 3.4327 | 3.5498 | 0.63363 |
+| Θ_T | 7/5–6/5 | 0.18591 | 3.4327, 3.0275, 2.6257, 2.2872 | 3.4327 | 0.63817 |
+
+#### Monotonicity of the multipliers {#sec:tb-morawetz-monotone}
+
+Bernstein coefficients of Θ_z on subintervals of [−1, 1] in z, and, for Θ_T, of 4Θ_z(1 − 2y) − g(y) on [0, 1] in
+y; every one is positive. The end values of the multipliers follow.
+
+| polynomial | subinterval | Bernstein coefficients |
+|---|---|---|
+| Θ_z of Θ_A | [−1, 1] | 0.10000, 1.5250, 0.85000 |
+| Θ_z of Θ_B | [−1, 1] | 0.0083333, 0.50833, 1.7750, 1.1417 |
+| Θ_z of Θ_C | [−1, 0] | 0.54167, 0.16389, 0.69444, 1.0000 |
+| Θ_z of Θ_C | [0, 1] | 1.0000, 1.3056, 1.3861, 0.10833 |
+| Θ_z of Θ_T | [−1, 1] | 0.60000, 0.46667, 1.5333, 1.4000 |
+| 4Θ_z − g of Θ_T | [0, 1] | 5.6000, 5.9667, 1.5333, 1.9000 |
+
+
+| multiplier | Θ(1) | Θ(−1) | Θ(7/8) | Θ(−7/18) |
+|---|---|---|---|---|
+| Θ_A | 81/80 | −51/80 | 18459/20480 | −10213/29160 |
+| Θ_B | 49/40 | −59/120 | 264383/245760 | −990157/3149280 |
+| Θ_E | 2/3 | −2/3 | 1001/1536 | −6461/17496 |
+| Θ_C | 19/20 | −3/5 | 74473/81920 | −985159/3149280 |
+| Θ_T | 51/40 | −29/40 | 180061/163840 | −472633/1399680 |
+
+#### Rows T1 and T3 {#sec:tb-morawetz-t1t3}
+
+The numerators Π of rows T1 and T3 of [[prop:morawetz-master-potentials]]: Bernstein coefficients on the subintervals
+of [0, 1] used there, and on the pieces of I, with the least coefficient divided, for T3, by D = 4(1 + 2y)⁴(5 + 6y)³
+at the right end of the piece.
+
+| row | interval | Bernstein coefficients | least |
+|---|---|---|---|
+| T1 | [0, 1/4] | 7.5000, 3.6875, 1.8333, 0.98958, 0.64128 | 0.64127 |
+| T1 | [1/4, 1/2] | 0.64128, 0.29297, 0.44010, 0.56771, 0.59375 | 0.29296 |
+| T1 | [1/2, 3/4] | 0.59375, 0.61979, 0.54427, 0.28516, 0.19336 | 0.19335 |
+| T1 | [3/4, 1] | 0.19336, 0.10156, 0.17708, 0.77083, 2.6667 | 0.10156 |
+| T3 | [0, 1/2] | 8750.0, 6550.0, 4151.9, 1931.5, 410.17, 228.68, 2082.3, 6600.7, 14142, 24465, 36298, 47113, |  |
+|  |  | 54400 | 228.68 |
+| T3 | [1/2, 3/4] | 54400, 58043, 60804, 62370, 62426, 60701, 57028, 51440, 44316, 36592, 30068, 27839, 34910 | 27838 |
+| T3 | [3/4, 1] | 34910, 41981, 58352, 89029, 140926, 223481, 349445, 535900, 805571, 1188495, 1724163, |  |
+|  |  | 2464250, 3476088 | 34909 |
+
+| row | piece | η ≥ | Bernstein coefficients | least (over D) | product ≥ |
+|---|---|---|---|---|---|
+| T1 | 4–16/5 | 0.014648 | 4.3643, 4.0107, 3.6869, 3.3908, 3.1200 | 3.1199 | 0.045702 |
+| T1 | 16/5–13/5 | 0.027537 | 3.1200, 2.7327, 2.3974, 2.1076, 1.8579 | 1.8578 | 0.051160 |
+| T1 | 13/5–11/5 | 0.048479 | 1.8579, 1.5663, 1.3292, 1.1375, 0.98378 | 0.98377 | 0.047692 |
+| T1 | 11/5–2 | 0.074510 | 0.98378, 0.87009, 0.77710, 0.70173, 0.64128 | 0.64127 | 0.047781 |
+| T1 | 2–19/10 | 0.093750 | 0.64128, 0.60365, 0.57180, 0.54509, 0.52292 | 0.52291 | 0.049023 |
+| T1 | 19/10–17/10 | 0.10540 | 0.52292, 0.46627, 0.43928, 0.43210, 0.43739 | 0.43209 | 0.045546 |
+| T1 | 17/10–13/10 | 0.13311 | 0.43739, 0.45625, 0.63325, 0.63739, 0.54159 | 0.43739 | 0.058222 |
+| T1 | 13/10–6/5 | 0.17682 | 0.54159, 0.50153, 0.44400, 0.37433, 0.31018 | 0.31018 | 0.054848 |
+| T3 | 4–33/10 | 0.014648 | 5424.0, 5300.5, 5178.3, 5057.4, 4938.0, 4820.2, 4704.1, |  |  |
+|  |  |  | 4589.7, 4477.3, 4366.9, 4258.6, 4152.5, 4048.8 | 4048.8 / 1343.0 | 0.044162 |
+| T3 | 33/10–29/10 | 0.025271 | 4048.8, 3953.1, 3859.3, 3767.6, 3678.2, 3591.0, 3506.1, |  |  |
+|  |  |  | 3423.7, 3343.9, 3266.7, 3192.2, 3120.6, 3051.9 | 3051.8 / 1751.4 | 0.044037 |
+| T3 | 29/10–27/10 | 0.036126 | 3051.9, 3005.5, 2960.5, 2916.8, 2874.5, 2833.6, 2794.1, |  |  |
+|  |  |  | 2756.2, 2719.7, 2684.7, 2651.3, 2619.5, 2589.3 | 2589.3 / 2082.9 | 0.044910 |
+| T3 | 27/10–13/5 | 0.043836 | 2589.3, 2571.5, 2554.3, 2537.7, 2521.6, 2506.1, 2491.1, |  |  |
+|  |  |  | 2476.8, 2463.1, 2449.9, 2437.4, 2425.4, 2414.1 | 2414.1 / 2302.0 | 0.045971 |
+| T3 | 13/5–5/2 | 0.048479 | 2414.1, 2401.4, 2389.5, 2378.3, 2368.0, 2358.5, 2349.7, |  |  |
+|  |  |  | 2341.8, 2334.7, 2328.4, 2323.0, 2318.4, 2314.7 | 2314.7 / 2571.0 | 0.043647 |
+| T3 | 5/2–12/5 | 0.053760 | 2314.7, 2310.5, 2307.4, 2305.5, 2304.6, 2304.8, 2306.2, |  |  |
+|  |  |  | 2308.7, 2312.4, 2317.2, 2323.3, 2330.5, 2338.9 | 2304.5 / 2906.0 | 0.042634 |
+| T3 | 12/5–23/10 | 0.059779 | 2338.9, 2348.4, 2359.5, 2372.2, 2386.4, 2402.2, 2419.6, |  |  |
+|  |  |  | 2438.7, 2459.3, 2481.7, 2505.7, 2531.4, 2558.7 | 2338.8 / 3329.9 | 0.041989 |
+| T3 | 23/10–11/5 | 0.066652 | 2558.7, 2589.9, 2623.4, 2659.0, 2696.9, 2737.0, 2779.5, |  |  |
+|  |  |  | 2824.2, 2871.3, 2920.8, 2972.6, 3026.8, 3083.5 | 2558.7 / 3876.1 | 0.044000 |
+| T3 | 11/5–2 | 0.074510 | 3083.5, 3223.3, 3377.8, 3547.3, 3732.2, 3932.6, 4148.8, 4381.1, |  |  |
+|  |  |  | 4629.7, 4894.8, 5176.7, 5475.3, 5791.1 | 3083.4 / 5561.2 | 0.041313 |
+| T3 | 2–17/10 | 0.093750 | 5791.1, 6489.8, 7271.9, 8139.0, 9092.4, 10133, 11260, 12473, |  |  |
+|  |  |  | 13771, 15151, 16610, 18145, 19749 | 5791.0 / 11617 | 0.046734 |
+| T3 | 17/10–13/10 | 0.13311 | 19749, 23855, 28419, 33356, 38537, 43787, 48878, 53529, |  |  |
+|  |  |  | 57423, 60218, 61600, 61349, 59473 | 19749 / 56828 | 0.046259 |
+| T3 | 13/10–6/5 | 0.17682 | 59473, 58689, 57620, 56268, 54640, 52751, 50627, 48307, 45845, |  |  |
+|  |  |  | 43312, 40800, 38428, 36343 | 36342 / 100341 | 0.064044 |
+
 
 ### Tables for the resolvent bound on the band {#sec:tb2}
 

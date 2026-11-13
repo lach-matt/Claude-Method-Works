@@ -346,9 +346,9 @@ The remaining chapters prove the following; each is stated in full where it is p
   is the order of decay of its spherically symmetric gauge data at spatial infinity and γ_Υ a parameter of the gauge
   of the stability theory ([[thm:harmonic-rate]]).
 - *The constants of [[thm:settling]].* The loss d of the tame estimates and the regularity N_NM = 21d + 6 of the
-  Nash–Moser step, with explicit upper bounds at a parameter point that lies outside the proved set ([[thm:loss-d]]),
-  explicit resolvent bounds on five-dimensional Tangherlini ([[ch:resolvent-bounds]]), and where explicit evaluation
-  of λ1 and δ stops ([[ch:explicit-constants]]).
+  Nash–Moser step, with explicit lower bounds at a parameter point that lies outside the proved set ([[thm:loss-d]])
+  and, through them, upper bounds for δ and λ1, explicit resolvent bounds on five-dimensional Tangherlini
+  ([[ch:resolvent-bounds]]), and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
 - *More families.* Two crossing radial null dusts, one ingoing and one outgoing, with the background, the
   approximant, the uniform estimate and the data ([[thm:two-dusts]]); Cauchy stability of the class
   Einstein–null-dust system, without smallness, on compact domains of the type of Ω, for caustic-free dusts, the axes
