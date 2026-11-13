@@ -389,3 +389,150 @@ geometric sequence, while for env = x^40, which is not flat, the descent stalled
 exp(−1/x), the square of the remainder bound with the tilt of order λ exceeded the first-degree term by a factor
 10^3553353, and the localised bound was below it by a factor 10^(−4342893). No proof uses these figures.
 
+
+### The very edge for the solutions from past null infinity {#sec:edge-past}
+
+In this section g_λ is the metric of [[thm:past-construction]] (case P of [[sec:edge-degree-two]]). Let 𝒫 and Q be as
+in [[eq:edge-p-q]]. For a profile f(r, ϑ) let 𝒫_∞⁻¹ f be the solution Z of 𝒫 Z = f along every generator of ℓ with
+r^(3/2) |Z|_cart → 0; by [[lem:layer-profiles-past]] (a) it is unique, and it exists for f in E_q, q > 5/2, by the
+integral formula in the proof of [[lem:decay-calculus]] (d). Put B := 𝒫_∞⁻¹ Q and b_n := B^n b_0, b_0 = r^(1/2) T,
+as long as this is defined. B acts in (r, ϑ) at fixed v and commutes with ∂_v.
+
+**Lemma {#lem:edge-resummation}** (Exact re-summation.) (a) b_n is defined for every n ≥ 0; b_n lies in E_2 for n ≥
+1, and Q b_n in E_3 for every n. The profiles of [[lem:layer-profiles-past]] are H_2^∞ = −i B H_1 and H_(j+1)^∞ =
+i(∂_v − B) H_j^∞ for j ≥ 2, so that, as formal series in λ,
+
+    Σ_(j≥1) λ^j H_j^∞ = λ (s − B)⁻¹ s H_1 = λ Σ_(n≥0) s^(−n) B^n H_1.                              {#eq:edge-resummation}
+
+(b) For M ≥ 1 put h_M := Re[λ e^(iv/λ) A Σ_(n≤M) I_n(v) b_n(r, ϑ)] and e_M := h^(1) − h_M. Then
+
+    dRic^H(e_M) = −Re[λ e^(iv/λ) A I_M(v) (Q b_M)(r, ϑ)],      e_M = 0 on {v ≤ v_s},
+
+e_M has nothing coming in, and at every X ∈ Ω with v(X) ≤ v_♯, |e_M(X)| ≤ C_M λ sup_(v′≤v(X)) |I_M(v′)|.
+
+(c) b_0 and b_1 have no vv, vr or rr component, and b_2,vv(√μ0, ϑ) = −ν_∞ d(ϑ), with ν_∞ of
+[[eq:layer-nu-infinity]].
+
+*Proof.* (a) By [[eq:edge-p-q]] with the derivative in v taken on H, [[lem:layer-profiles-past]]'s transport 𝒯
+H_(j+1)^∞ = −R_X H_j^∞ reads 𝒫 H_(j+1)^∞ = i𝒫 ∂_v H_j^∞ − i Q H_j^∞. The H_j^∞ are linear in env, Σ_k env^(k)(v)
+c_(j,k)(r, ϑ), with coefficients independent of v and of τ0 ([[lem:layer-profiles-past]]), and the transport acts at
+fixed v; in it, i𝒫 ∂_v H_j^∞ contributes only to the coefficients of env^(k), k ≥ 1. So if the coefficient of env in
+H_n^∞ is (−i)^(n−1) A b_(n−1), that of H_(n+1)^∞ is the decaying solution of 𝒫Z = −i Q((−i)^(n−1) A b_(n−1)), which
+exists: b_n = B b_(n−1) is defined and equals i^n/A times it. It lies in E_2 for n ≥ 1, as H_(n+1)^∞ does
+([[lem:layer-flat-past]] (a), (c)), and Q b_n in E_3, as the forcing terms of these transports do (the proof of
+[[lem:layer-flat-past]] (a)); the induction starts from H_1 = A env b_0, where Q b_0 is the coefficient of A env in
+R_X H_1 ([[prop:layer-linear]] (a)). For j ≥ 2, ∂_v H_j^∞ decays like H_j^∞, so
+𝒫_∞⁻¹ 𝒫 ∂_v H_j^∞ = ∂_v H_j^∞ and H_(j+1)^∞ = i(∂_v − B) H_j^∞. For j = 1, 𝒫 ∂_v H_1 = 0, since H_1 is the
+homogeneous transport, and H_2^∞ = −i B H_1. For the series, put G := Σ_(j≥1) λ^j H_j^∞. The recursion gives G =
+λH_1 − iλ²BH_1 + iλ(∂_v − B)(G − λH_1) = λH_1 + iλ(∂_v − B)G − iλ²∂_v H_1, that is (1 − iλ∂_v + iλB) G = λ(1 −
+iλ∂_v) H_1. As 1 − iλ∂_v = −iλ s, this is −iλ(s − B) G = −iλ² s H_1, which is [[eq:edge-resummation]]; the last
+form follows since B commutes with s.
+
+(b) d/dv (e^(iv/λ) X) = e^(iv/λ) s X, and 𝒫, Q contain no derivative in v, so dRic^H(e^(iv/λ) X) = e^(iv/λ)(−𝒫(sX) +
+QX). For X = λA Σ_(n≤M) I_n b_n, 𝒫(s I_n b_n) = (s I_n) 𝒫 b_n, with 𝒫 b_0 = 0, s I_n = I_(n−1) and 𝒫 b_n = Q b_(n−1)
+for n ≥ 1 (the definition of B), so
+
+    −𝒫(sX) + QX = λA [−Σ_(n=1)^M I_(n−1) Q b_(n−1) + Σ_(n=0)^M I_n Q b_n] = λA I_M Q b_M.
+
+So dRic^H(h_M) = Re[λ e^(iv/λ) A I_M Q b_M], and dRic^H(h^(1)) = 0 gives the equation for e_M. h_M carries the wave as
+its term n = 0, its other terms decay, and h^(1) has nothing coming in but the wave, so e_M has nothing coming in; I_n
+and h^(1) vanish on {v ≤ v_s}.
+
+For the bound: (1) *The operator.* In Cartesian components dRic^H(h) = −(1/2) g0°^(ab) ∂_a ∂_b h + 𝔅(∂h) + ℭh, with
+𝔅, ℭ smooth on P ∪ Ω and, on P, O(r⁻³) and O(r⁻⁴) with their derivatives (the Christoffel symbols and the curvature of
+g0° = η + (μ0/r²) L0 ⊗ L0); and dRic^H commutes with the Lie derivatives along the rotations Ω_ab, which are Killing
+for g0°, the operator being natural under the isometries of g0° and the gauge being relative to g0°.
+
+(2) *Energy on S(v) with the null face kept.* For u := Ω^β e_M, |β| ≤ 2, run [[lem:past-energy]] on P and
+[[lem:energy]] on Ω, as in [[lem:layer-energy-null]], on S(v) ∩ {τ ≤ τ′}, with 𝔅∂u + ℭu moved to the right. The face
+N_v has the flux density T(L0, Y) = (1/2)(1 + μ0/r²)(ℓu)² + |∇̊u|²/(2r²) ≥ 0 ([[lem:layer-energy-null]] at μ = μ0),
+kept on the left; {r = a} is spacelike with the region to its past ([[lem:domain]] (b)); nothing comes in, that is, e_M
+is the limit of the solutions with zero data on Σ̂_(τ_n), τ_n → −∞, as in [[prop:far-region]], and the estimate below
+is uniform in n. The first-order terms on the right are absorbed by Gronwall's inequality with the kernel C t^(−3/2) on
+P, which is integrable, and C on Ω. So
+
+    sup_τ ‖∂u(τ)‖ + F_v(u)^(1/2) ≤ C ∫_(−∞)^(τ_end) ‖Ω^β dRic^H(e_M)(τ)‖_(L²(Σ_τ ∩ S(v))) dτ.
+
+(3) *The source.* On Σ_τ ∩ S(v) the L² norm of −Re[λ e^(iv/λ) A I_M Ω^β Q b_M] is at most λ A sup_(v′≤v) |I_M(v′)|
+‖Ω^β Q b_M‖_(L²(Σ_τ ∩ S(v))). As Q b_M lies in E_3, that norm is at most C t^(−3/2) on the slices of P
+([[sec:past-approximant]]) and bounded on Ω, where τ ∈ [τ0, τ_end].
+
+(4) *Pointwise.* Along the generator of N_v from r = ∞, where r^(3/2) |Ω^β e_M| → 0, to r(X),
+‖Ω^β e_M(r, ·)‖_(L²(S³)) ≤ ∫_r^∞ ‖ℓ Ω^β e_M(r′, ·)‖ dr′ ≤ (2 F_v(Ω^β e_M))^(1/2) (∫_r^∞ r′⁻³ dr′)^(1/2), by the
+Cauchy–Schwarz inequality and T(L0, Y) ≥ (1/2)(ℓu)²; and H²(S³) ⊂ L^∞ ([[thm:std-bh-embedding]], as in
+[[lem:layer-null-pointwise]]) gives |e_M(X)| ≤ C Σ_(|β|≤2) F_v(Ω^β e_M)^(1/2) ≤ C_M λ sup_(v′≤v(X)) |I_M(v′)|.
+
+(c) b_0 = r^(1/2) T is angular. By (a), b_1 = i H_2^∞/(A env), which lies in 𝔖 ([[lem:layer-profiles-past]] (b)).
+By (a) again, H_3^∞ = i(∂_v − B)(−iA env b_1) = A env′ b_1 − A env b_2; as b_1 has no vv component,
+H_3,vv^∞(v, √μ0, ϑ) = −A env b_2,vv(√μ0, ϑ), and [[eq:layer-nu-infinity]] gives b_2,vv(√μ0, ϑ) = −ν_∞ d(ϑ). ∎
+
+**Theorem {#thm:edge-past}** (The very edge for the solutions from past null infinity.) Let μ0 = √72 l5², K ≥ 6, and
+let g_λ be the metric of [[thm:past-construction]], with A, τ0 as in [[thm:layer]]. Let env be positive and log-concave
+on (v_s, v_s + x0], with |κ′| ≤ c_R κ^(1+α) for some α ∈ (0, 1), (H_D), and (B_J) with J := max(c, M_P), c the cost
+of [[lem:edge-degree-two]]. There are λ_E > 0, x0′ ∈ (0, x0] and P0, depending on K, these constants and the costs,
+such that for λ ≤ λ_E, every v ∈ (v_s, v_s + x0′] with env(v + 4πλ) ≤ λ^(P0) and every x̂ ∈ S³, the boundary
+{x_K = 1} has, on [v, v + 4πλ] and at x̂, points where it is timelike for g_λ and points where it is spacelike. This
+holds in particular for every v ∈ (v_s, v_s + x0′] with λκ(v + 4πλ) ≥ 1, down to v_s.
+
+*Proof.* Take x0′ ≤ x_j of [[lem:edge-kappa]] (c) for j ≤ J, so that the hypotheses of [[lem:edge-kernel]] (c) and of
+[[lem:edge-localisation]] hold on (v_s, v_s + x0′]. Fix x̂ and a point X = (v′, r_q(v′), x̂) with v′ ∈ J_v := [v, v +
+4πλ]. By [[lem:layer-inverse]], g_λ⁻¹(dΦ0, dΦ0) = −m0 − k(Φ0♯, Φ0♯) + q with k = g_λ − g0 = h^(1) + r2 − (g0 −
+g0°). By [[lem:edge-resummation]] with M = 3,
+
+    −h^(1)(Φ0♯, Φ0♯) = λ A ν_∞ Re[d(ϑ) e^(iv′/λ) I_2(v′)] + ρ′,
+    |ρ′| ≤ C λ (|I_3(v′)| + sup_(v″≤v′) |I_3(v″)| + ε_0(v′)² |I_2(v′)|),
+
+since the terms n = 0, 1 have no vv, vr or rr component, b_2,vv(r_q, ϑ) = −ν_∞ d + O(r_q − √μ0) with r_q − √μ0 ≤ C ε_0²,
+and β_Φ = O(ε_0²) ([[cor:layer-expansion]]). env is increasing and κ nonincreasing, so by [[lem:edge-kernel]] (a),
+(c), |ρ′| ≤ C λ env(v′) min(λ, 1/κ(v′))³ + C λ ε_0² |I_2|. By [[lem:edge-kernel]] (b) and ν_∞ < 0, the main term is λ
+A |ν_∞| |d| env |s̃|^(−2) Re[e^(iΘ)(1 + ρ″)], where Θ := v′/λ + arg(ν_∞ d) − 2 arg s̃ and ρ″ := ρ_2 + ρ′ e^(−iΘ)/(λ
+A |ν_∞| |d| env |s̃|^(−2)). Since |s̃|^(−2) ≥ min(λ, 1/κ)²/2 and |d| ≥ 8/3, |ρ″| ≤ R_2 + C min(λ, 1/κ) + C ε_0², and by
+[[eq:edge-r2-bound]], κ → ∞ ([[lem:edge-kappa]] (a)), and T_2 → 0 (by [[lem:edge-kappa]] (c) with j = 2, |κ′| ≤ c_R κ²,
+and κ U_* → ∞), |ρ″| ≤ 1/4 for x0′ small and λ ≤ λ_E.
+
+The phase Θ increases: arg s̃ = arctan(1/(λκ)), so |d arg s̃/dv′| = λ|κ′|/(1 + λ²κ²) ≤ |κ′|/(λκ²), and dΘ/dv′ ≥
+λ⁻¹(1 − 2|κ′|/κ²) ≥ 1/(2λ), since |κ′|/κ² ≤ c_R κ^(α−1) ≤ 1/4 for x0′ small. So Θ increases by at least 2π on J_v
+and meets 0 and π modulo 2π. As |ρ″| ≤ 1/4, |arg(1 + ρ″)| ≤ arcsin(1/4) < 0.253, and at those points Re[e^(iΘ)(1 + ρ″)]
+is at least (3/4) cos 0.253 > 0.72, resp. at most −0.72: the main term is at least 0.72 λ A |ν_∞| |d| env |s̃|^(−2),
+resp. at most minus that.
+
+The remaining terms are of degree two: m0, r2(Φ0♯, Φ0♯), (g0 − g0°)(Φ0♯, Φ0♯) and q. By [[lem:edge-localisation]], whose
+hypothesis ε_(M_P)(v′ + 1/κ(v′)) ≤ λ⁵ holds since env(v′ + 1/κ(v′)) ≤ e env(v′) ≤ e λ^(P0) and (B_J) holds, |r2| ≤ C
+κ^(2c′) env²; by [[eq:edge-degree-two]], |g0 − g0°| ≤ C ε_0² ≤ C κ^(2c′) env²; m0 ≤ C (env² + ∫_(v_s)^(v′) env²) ≤ C env²
+by [[cor:layer-expansion]] and [[lem:edge-kappa]] (d); and |q| is smaller. Their ratio to λ env min(λ, 1/κ)² is at most C
+λ^(−2c′−3) env on {λκ ≤ 1}, which is at most C λ³ once env ≤ λ^(P0), P0 := 2c′ + 6, and at most C κ^(2c′+3) env on {λκ >
+1}, which tends to 0 as v′ ↓ v_s by [[lem:edge-kappa]] (e). So for x0′ and λ small the degree-two terms are below a tenth
+of the main term's bound, and g_λ⁻¹(dΦ0, dΦ0) takes both signs on J_v.
+
+For the last statement: if λκ(v + 4πλ) ≥ 1, then by [[lem:edge-kappa]] (e) with p := P0 + 1, env(v + 4πλ) ≤ κ(v +
+4πλ)^(−P0−1) ≤ λ^(P0+1) ≤ λ^(P0) once x0′ is small. ∎
+
+**Lemma {#lem:edge-past-levels}** (The levels for the solutions from past null infinity.) The conclusion (ii) of
+[[prop:layer-regions]] holds for the metric g_λ of [[thm:past-construction]], with M_P in place of M*: for δ ∈ (0, 1/2]
+and P > 4 there is λ_UP > 0 such that for λ ≤ λ_UP, at every first-reach point v of the layer with λ^P ≤ env(v) ≤
+λ^(3+δ) and every x̂, the boundary has, on [v, v + 4πλ] and at x̂, points where it is timelike and points where it is
+spacelike.
+
+*Proof.* The proof of [[prop:layer-regions]] (ii) is that of [[thm:layer]] at the level y := env(v) = λ^p, p ∈ [3 + δ,
+P], with v in place of v*; for these solutions [[thm:layer-past]] runs the proof of [[thm:layer]] with ν_∞ in place of
+ν, so that only the generic case occurs, and with the remainder of [[lem:layer-remainder-past]]. Take m := max(56M_P,
+4PM_P, ⌈4M_P/δ⌉) and κ as in [[prop:layer-regions]]. The hypothesis ε_(M_P)(v1) ≤ λ³ of [[lem:layer-remainder-past]]
+holds, since ε_(M_P)(v1) ≤ C y^(1−M_P/m) and p(1 − M_P/m) ≥ (3 + δ)(1 − δ/4) = 3 + δ/4 − δ²/4 > 3. The exponent
+conditions after [[thm:layer]], with N − 5 replaced by N_P − 3 ≥ K + 9 and M by M_P, hold uniformly in p as in the proof
+of [[prop:layer-regions]] (ii). ∎
+
+So, for an envelope increasing on (v_s, v_s + x0] with the hypotheses of [[thm:edge-past]], [[lem:edge-past-levels]]
+at P := P0 + 1 and [[thm:edge-past]] together give both signs on every interval [v, v + 4πλ] near v_s with env(v) ≤
+λ^(3+δ), for λ small: if env(v) ≥ λ^(P0+1), every point being a first-reach point, the lemma applies; if env(v) <
+λ^(P0+1) and λκ(v) ≤ 1, then env(v + 4πλ) ≤ e^(4π) env(v) ≤ λ^(P0) for λ ≤ e^(−4π); and if λκ(v) > 1, then κ ≥
+2^(−1/α) κ(v) on [v, v + 4πλ] by [[lem:edge-kappa]] (b), as 4πλ ≤ 4π κ(v)^(−1) ≤ κ(v)^(−α)/(α c_R) near v_s, so
+env(v + 4πλ) ≤ (2^(−1/α)/λ)^(−P0−1) ≤ λ^(P0) by [[lem:edge-kappa]] (e), for λ small.
+
+**Remark {#rem:edge-past-numbers}** (Numerical observation.) The bounds of [[lem:edge-kernel]] were sampled on
+exp(−1/x), exp(−1/x²) and the envelope of the numerical point at λ = 10⁻³ and 10⁻⁶, with λκ from 10⁻² to 10⁴: the
+ratios |I_n| κ^n/env, |I_n|/(env min(λ, 1/κ)^n) and |ρ_2|/R_2 stayed at most 1.0000, 1.0002 and 0.9999, and R_2
+κ^(1−α) at most 9.33. The frozen local form s̃ := i/λ, the leading term of the expansion in λ, was off by more than 1 at
+the very edge. A model of the proof of [[thm:edge-past]] with unit constants (|ν_∞ d| = 1/9, μ0 = A = 1, a degree-two
+term 10(1 + λκ)² env² of either sign), over three carrier periods at five depths from env = λ⁴ to λκ = 1000, λ = 10⁻⁶,
+and three phases of d, found timelike and spacelike points in every period of all thirty cases; without the
+first-degree term, or with a degree-two term 10⁶ λ⁻³ times larger, it found none. No proof uses these figures.

@@ -2063,7 +2063,8 @@ taken as an auxiliary operator of (R1) for B, E and G, so that G_αχ_* = G_α. 
 ‖B_αu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)). By compactness of WF′(B), finitely many B_(α_i) are jointly elliptic on it:
 Σ_i B_(α_i)^* B_(α_i) ∈ C^∞_b Ψ⁰_e3b is elliptic of order 0 there, the B_(α_i) being smooth, as [[lem:ii-a-8-4]] (c)
 requires. The elliptic estimate ([[lem:ii-a-8-4]] (c), or [[thm:ii-a1-3-1]]) bounds ‖Bu‖_𝗌 by
-C Σ_i ‖B_(α_i)u‖_𝗌 + C‖χu‖_(−N). The strong sense and the uniformity are those of [[prop:ii-a1-5-3]] and [[thm:ii-a1-3-1]].
+C Σ_i ‖B_(α_i)u‖_𝗌 + C‖χu‖_(−N). The strong sense and the uniformity are those of [[prop:ii-a1-5-3]] and
+[[thm:ii-a1-3-1]].
 
 For a small perturbation L′ the same α_i serve. If α_i ∉ Char(L), it lies in Ell(L′) with a comparable bound. If
 α_i ∈ Char(L), [[prop:ii-a1-5-3]], which does not ask its curve to be characteristic, applies to the integral curve of
