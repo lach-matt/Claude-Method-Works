@@ -536,3 +536,229 @@ the very edge. A model of the proof of [[thm:edge-past]] with unit constants (|�
 term 10(1 + λκ)² env² of either sign), over three carrier periods at five depths from env = λ⁴ to λκ = 1000, λ = 10⁻⁶,
 and three phases of d, found timelike and spacelike points in every period of all thirty cases; without the
 first-degree term, or with a degree-two term 10⁶ λ⁻³ times larger, it found none. No proof uses these figures.
+
+### The part of first degree on the horizon, for the metric of the main theorem {#sec:edge-first-degree}
+
+In this section g_λ is the metric of [[thm:main]] (case Ω), N = K + 3, F° := 1 − μ0/r², and L := ∂_v + (F°/2) ∂_r is
+the outgoing null direction of the seed.
+
+**Lemma {#lem:edge-characteristic}** (The seed's operator along the null directions.) (a) For every symmetric
+2-tensor h(v, r, ϑ) of the class of [[lem:layer-seed-operators]], dRic^H(h) = −𝒫(Lh) + Q̃h, where Q̃ contains no
+derivative in v and no second derivative in r: it is of first order in r and of second order in the angles. At the
+horizon r = √μ0, L = ∂_v.
+
+(b) In the coordinates (u, r), u := v − 2r* with dr* = dr/F°, dRic^H(h) = −𝒫′ ∂_u h + Q′ h, with 𝒫′ of first order in r
+and Q′ containing no derivative in u.
+
+(c) If Z solves 𝒯Z = 0 along ℓ with Z = X at r = r0 > √μ0, then
+
+    Z_vv(√μ0) = μ0^(−3/4) r0^(3/2) [X_vv + F°(r0) X_vr + F°(r0)² X_rr/4].                           {#eq:edge-transport}
+
+(d) On Σ_τ0 the null covectors of g0° whose part tangent to Σ_τ0 is s dr are s dv = s(dτ + dr) and s(dr − (F°/(2 −
+F°)) dτ).
+
+*Proof.* (a) By [[eq:edge-p-q]], dRic^H(h) = −𝒫 ∂_v h + Q h with Q free of ∂_v. In □h = g0°^(ab) ∇_a ∇_b h a second
+derivative in r occurs only through g0°^(rr) ∂_r² = F° ∂_r², so the part of Q of second order in r is −(F°/2) ∂_r². As
+𝒫 = ∇_ℓ + 3/(2r) is ∂_r plus a term of order zero, 𝒫(Lh) = 𝒫 ∂_v h + 𝒫((F°/2) ∂_r h), and the second has the part
+(F°/2) ∂_r² h of second order in r. So Q̃ := Q + 𝒫 ∘ ((F°/2) ∂_r) has no ∂_r² and no ∂_v. At r = √μ0, F° = 0.
+
+(b) In (u, r), g0° = −F° du² − 2 du dr + r² γ, its Christoffel symbols do not depend on u and g0°^(uu) = 0; the proof
+of [[prop:layer-structure]] (a), with u in place of v and g0°⁻¹ du = −∂_r in place of ℓ, gives the form stated.
+
+(c) By [[eq:layer-components]], 𝒯Z = 0 gives (∂_r + 3/(2r)) Z_rr = 0, (∂_r + 3/(2r)) Z_vr = −μ0 Z_rr/r³ and (∂_r +
+3/(2r)) Z_vv = −2μ0 Z_vr/r³. So r^(3/2) Z_rr = c := r0^(3/2) X_rr, r^(3/2) Z_vr = r0^(3/2) X_vr + (μ0 c/2)(r⁻² − r0⁻²),
+and ∂_r(r^(3/2) Z_vv) = −2μ0 r⁻³ r^(3/2) Z_vr. Integrating from r0 to √μ0, with μ0(μ0⁻¹ − r0⁻²) = F°(r0) =: F and
+μ0/r0² = 1 − F,
+
+    μ0^(3/4) Z_vv(√μ0) = r0^(3/2) X_vv + F (r0^(3/2) X_vr − μ0 c/(2r0²)) + (μ0² c/4)(μ0⁻² − r0⁻⁴),
+
+and −F(1 − F)/2 + (1 − (1 − F)²)/4 = F²/4 gives [[eq:edge-transport]].
+
+(d) In (τ, r) the inverse of the seed has g^(ττ) = −(1 + m), g^(τr) = m, g^(rr) = 1 − m, m := μ0/r² ([[lem:eq-seed]]).
+For ξ = c dτ + dr, g0°⁻¹(ξ, ξ) = −(1 + m) c² + 2mc + (1 − m) vanishes exactly for c = 1 and c = −(1 − m)/(1 + m) =
+−F°/(2 − F°). ∎
+
+**Lemma {#lem:edge-ingoing}** (The ingoing projection.) Let x0 > 0, and let Ψ solve dRic^H(Ψ) = f on Ω with data (Ψ_Σ,
+∂_τΨ_Σ) on Σ_τ0, all of them zero on {v ≤ v_s}, invariant under T² and both reflections, and of the form e^(iv/λ) times
+amplitudes Â: Ψ_Σ = e^(iv/λ) Â_Ψ and ∂_τ Ψ_Σ = e^(iv/λ) Â_∂Ψ as functions of v = τ0 + r on Σ_τ0, and f = e^(iv/λ) Â_f(v,
+r, ϑ). Let 𝒟 be positive and log-concave on (v_s, v_s + x0], with κ_𝒟 := (log 𝒟)′, |κ_𝒟′| ≤ c_R κ_𝒟^(1+α) for some α < 1,
+and with the hypotheses of [[lem:edge-kernel]] (c) for n = 2 with 𝒟 in place of env; put s̃_𝒟 := κ_𝒟 + i/λ. Assume
+that |Â_Ψ| + |Â_∂Ψ|/|s̃_𝒟(v)| + |Â_f|/|s̃_𝒟(v)|, and the same with Ω^β, |β| ≤ 6, applied to the amplitudes, is at most
+𝒟(v) at the points of Σ_τ0 ∩ {v′ ≤ v} for the data and of Ω ∩ {v′ ≤ v} for f, and that |∂_v Â| ≤ C κ_𝒟 𝒟 for every
+amplitude. Let G(r ← r′) be the propagator of 𝒯Z = 0 along ℓ. Then at P = (v, √μ0, x̂), v_s < v ≤ v_s + x0,
+
+    Ψ(P) = e^(iv/λ) s⁻¹[ G(√μ0 ← r0) y + ∫_(√μ0)^(r0) G(√μ0 ← r′) Â_f(·, r′, ·) dr′ ](v) + O(𝒟(v)/|s̃_𝒟(v)|),
+    y := (1/2)(2 − F°(r0)) Â_∂Ψ + (1/2) F°(r0) s Â_Ψ,      r0 = v′ − τ0 inside s⁻¹.                  {#eq:edge-ingoing}
+
+*Proof.* (1) *Characteristic form.* By [[lem:edge-characteristic]] (a), Y := LΨ obeys 𝒫Y = Q̃Ψ − f along each
+generator of ℓ, and at the horizon Y = ∂_vΨ.
+
+(2) Along ℓ from Σ_τ0, where r = r0, to √μ0, Y(v, √μ0) = G(√μ0 ← r0) Y(v, r0) − ∫_(√μ0)^(r0) G(√μ0 ← r′) (Q̃Ψ −
+f)(v, r′) dr′.
+
+(3) The horizon is a generator of L, and Ψ = 0 there for v ≤ v_s, so Ψ(v, √μ0) = ∫_(v_s)^v Y(v′, √μ0) dv′.
+
+(4) *An a priori bound:* |Ω^β Ψ| ≤ C 𝒟(v′) and |Ω^β (∂_v − i/λ) Ψ| ≤ C κ_𝒟 𝒟(v′) on Ω ∩ {v ≤ v′}, |β| ≤ 2. Take the
+leading two-sided parametrix: h_in := e^(iv/λ) G(r ← r0(v)) X_in(v), and h_out := e^(iψ(u)/λ) H(r ← r_Σ(u))
+X_out(r_Σ(u)), where ψ(u(τ0, r)) = τ0 + r, H is the propagator of the outgoing transport 𝒫′ of
+[[lem:edge-characteristic]] (b), r_Σ(u) is where the outgoing ray meets Σ_τ0, and (X_in, X_out) is the solution, from
+zero at r_b := v_s − τ0, of the matching system on Σ_τ0 (equal values and τ-derivatives). By
+[[lem:edge-characteristic]] (d) the τ-components of the two phases' differentials on Σ_τ0 are 1 and −F°/(2 − F°), so
+the system reads s X_in + ((2 − F°)/2) Ã X_in = ((2 − F°)/2) Â_∂Ψ + (F°/2)(s + A_out) Â_Ψ, X_in + X_out = Â_Ψ, with
+bounded Ã and A_out; and |X_in| + |X_out| ≤ C 𝒟 by [[lem:edge-kernel]] applied to 𝒟. 𝒫 annihilates G(r ← r0(v))
+X_in(v), so the residual of h_in is e^(iv/λ) Q G X_in, free of 1/λ; that of h_out is e^(iψ/λ) Q′(H X_out), by
+[[lem:edge-characteristic]] (b). The source is taken up by the ingoing particular solution h_f := e^(iv/λ) Z_f with zero
+data: Y_f := −∫_(r0(v))^r G(r ← r′) Â_f(v, r′) dr′ along ℓ and Z_f(v, r) := ∫_(τ0+r)^v e^(−i(v−v′)/λ) Y_f(v′, r) dv′,
+so that s Z_f = Y_f, 𝒫(s Z_f) = −Â_f, Z_f = s Z_f = 0 on Σ_τ0 and |Z_f| ≤ C 𝒟; its residual is e^(iv/λ) Q Z_f. The
+difference e := Ψ − h_in − h_out − h_f has zero data and the source minus the three residuals, at most C 𝒟 in the strip
+of v-width x that carries the amplitudes; so [[lem:layer-energy-null]] and [[lem:layer-null-pointwise]] give |Ω^β e| ≤
+C x^(1/2) 𝒟. h_out vanishes for u > u(r_b), a neighbourhood of the horizon's part of the strip. The same holds for (∂_v
+− i/λ)Ψ, the solution with data and source (∂_v − i/λ) of those of Ψ (∂_v is Killing for g0° and commutes with dRic^H),
+whose amplitudes are ∂_v Â.
+
+(5) *The error terms of (2)–(3).* The ∂_rΨ terms of Q̃Ψ are integrated by parts along the ray, leaving boundary terms
+and integrals of Ψ, so |∫ G Q̃Ψ dr′| ≤ C 𝒟(v′) by (4), with angular derivatives up to two. For their integral in v′:
+if λκ_𝒟 ≤ 1, one integration by parts against e^(iv′/λ), with the bound on (∂_v − i/λ)Ψ, gives at most C λ 𝒟(v); if
+λκ_𝒟 ≥ 1, ∫_(v_s)^v 𝒟 ≤ 𝒟(v)/κ_𝒟 by [[lem:edge-kappa]] (d). Either way it is O(𝒟/|s̃_𝒟|).
+
+(6) *The main terms.* On Σ_τ0, ∂_v|_r = ∂_τ and ∂_r|_v = ∂_r|_τ − ∂_τ, and Ψ_Σ = e^(i(τ0+r)/λ) Â_Ψ(τ0 + r), so LΨ =
+(1 − F°/2) ∂_τΨ + (F°/2) ∂_r|_τ Ψ = e^(iv/λ) y exactly. So ∫_(v_s)^v G(√μ0 ← r0(v′)) Y(v′, r0(v′)) dv′ = e^(iv/λ)
+s⁻¹(Gy) by [[eq:edge-sinv]], and the term of f in (2) gives the second term of [[eq:edge-ingoing]] in the same way. ∎
+
+**Lemma {#lem:edge-constraint}** (The constraint correction at first degree.) Write D_X H_(N+1) = Σ_k env^(k) D_k,
+with D_k functions of (r, r0, ϑ) (r0 = v − τ0), and put c_N := N μ0/(r0² + μ0), α(r) := 3r³/(r² + μ0)² and
+
+    Ξ := ((1 − c_N) T − i c_N)/(T + i),      T = λκ_(N−1).                                         {#eq:edge-xi}
+
+(i) dD(h_app^(1)) = λ^(N+1) Re[D_X H_(N+1) e^(iv/λ)] and dRic^H(h_app^(1)) = λ^(N+1) Re[R_X(H_(N+1)) e^(iv/λ)] on Ω.
+
+(ii) On Σ_τ0, D_N = i^N A d_1 r^(−3/2) dϑ, and the components (v, r) of D_(N−1) are N i^N A d (−r^(−7/2)/2,
+r^(−7/2)).
+
+Assume (H_N) on (v_s, v_s + x0]. Then there is x0′ ∈ (0, x0] such that for v_s < v ≤ v_s + x0′:
+
+(iii) the ρ-component of Φ^(1) at the point of Σ_τ0 with r = r0 = v − τ0 is
+
+    F_ρ = λ^(N+1) Re{ e^(iv/λ) i^N A d(ϑ) r0^(−7/2) [env^(N) − c_N s env^(N−1)] } (1 + O(1/κ + λ));
+
+(iv) a^(1)(r0) = −λ^(N+1) Re{ e^(iv/λ) i^N A d(ϑ) α(r0)⁻¹ r0^(−7/2) env^(N−1) Ξ } (1 + O(ϵ′ + 1/κ + λ)), with ϵ′ of
+[[lem:edge-sinv]] (a); and |Ξ|² = ((1 − c_N)² T² + c_N²)/(T² + 1) ≥ min(c_N², (1 − c_N)²), Ξ = −c_N − iT + O(T²);
+
+(v) the vv component on the horizon of the part of [[eq:edge-ingoing]] that the data of a^(1) induce is K_R a^(1) +
+O(λ |a^(1)|), K_R := μ0^(−3/4) r0^(3/2)/4 > 0; (ϖ^(1), q^(1)) and the data of h_app^(1) enter the vv component on the
+horizon at relative order O(1/κ + 1/|s̃|).
+
+The relative errors in (iii) and (iv) are relative to the bracket of (iii) and to Ξ env^(N−1), also where c_N = 1.
+
+*Proof.* (i) Let Z_j := 𝒯H_j + R_X H_(j−1) and G_j := i Pol(H_(j+1)) + D_X H_j as in [[lem:layer-bianchi]], with
+H_(N+2) := 0. By [[def:layer-profiles]], Z_j = 0 for j ≤ N + 1 and, as Pol Pol⁺ = 1, G_j = 0 at Σ_τ0 for j ≤ N; so
+[[lem:layer-bianchi]] (b) with J = N + 1 gives G_j = 0 on Ω for j ≤ N. By [[lem:layer-seed-operators]] (b),
+dD(Σ_(j≤N+1) λ^j H_j e^(iv/λ)) = e^(iv/λ) (Σ_(m≤N) λ^m G_m + λ^(N+1) D_X H_(N+1)) and dRic^H(Σ_j λ^j H_j e^(iv/λ)) =
+e^(iv/λ) (Σ_(j≤N+1) λ^(j−1) Z_j + λ^(N+1) R_X H_(N+1)); take real parts.
+
+(ii) By [[prop:layer-structure]] (a), D_X H = Pol(∂_v H) + qH with q free of ∂_v. Write H_j = Σ_k env^(k) c_(j,k) as
+in [[prop:layer-structure]] (b), so that the family k of D_X H_j is Pol(c_(j,k−1)) + Pol(∂_(r0) c_(j,k)) + q c_(j,k).
+The top family of D_X H_(N+1) is Pol(c_(N+1,N−1)) = i^(N−1) Pol(c_(2,0)), and Pol(H_2) = H_2,rϑ dϑ = i A env d_1
+r^(−3/2) dϑ by [[prop:layer-linear]] (b), so D_N = i^N A d_1 r^(−3/2) dϑ. On Σ_τ0 the data of [[def:layer-profiles]]
+give Pol(H_(j+1)) = i D_X H_j, family by family: Pol(c_(j+1,k)) = i [D_X H_j]_k. Let x_j be the (v, r) part of [D_X
+H_j]_(j−2) on Σ_τ0. By [[prop:layer-structure]] (b), c_(j,j−2) = i^(j−2) c_(2,0), and the (v, r) part of Pol(Y)
+vanishes for Y in 𝔖 ([[eq:layer-components]]), so Pol(∂_(r0) c_(2,0)) contributes nothing, and
+
+    x_j = i x_(j−1) + i^(j−2) (q c_(2,0))_(v,r),      x_2 = (q c_(2,0))_(v,r);
+
+by induction x_j = (j − 1) i^(j−2) (q c_(2,0))_(v,r). By [[prop:layer-linear]] (c), (q H_2)_(v,r) = (D_X H_2)_(v,r) =
+i A env d (r^(−5/2) β_2(r), r^(−7/2)), and β_2(r0) = −1/(2r0); so x_(N+1) = N i^N A d (−r0^(−7/2)/2, r0^(−7/2)).
+
+(iii) By [[eq:data-constraint-map]] and [[sec:data-identities]], ρ = 2G(n, n) with G = Gt(E) + Gt(S(D)), n the future
+unit normal of Σ_τ0, and Gt(Y)(n, n) = Y(n, n) + (1/2) tr Y. Its part of first degree is that of g_app, by (i), with
+E = λ^(N+1) Re[R_X(H_(N+1)) e^(iv/λ)] and D = λ^(N+1) Re[D_X H_(N+1) e^(iv/λ)]. At the seed S(D) is the symmetrised
+derivative of D, and for D = e^(iv/λ) V, V = Σ_k env^(k) D_k, ∇(e^(iv/λ) V) = e^(iv/λ)(dv ⊗ sV + ∇′V), ∇′ the
+covariant derivative with ∂_v not acting on the env^(k). For a covector W, 2Gt(sym(dv ⊗ W))(n, n) = 2 dv(n) W(n) +
+g0°⁻¹(dv, W), and 2Gt(sym ∇′W)(n, n) = 2(∇′_n W)(n) + div′ W. In (v, r), n = (∂_v − m ∂_r)/(1 + m)^(1/2) and dv(n) =
+(1 + m)^(−1/2), m = μ0/r².
+
+The top family W = D_N env^(N) is angular, so W(n) = 0 and g0°⁻¹(dv, W) = 0; and (∇′_n W)(n) = 0, as no Christoffel
+symbol Γ^ϑ_ab with a, b ∈ {v, r} is nonzero ([[eq:layer-christoffel]]); its divergence is r⁻² div_γ(A d_1 dϑ) i^N
+r^(−3/2) env^(N) = i^N A d r^(−7/2) env^(N). The family N − 1 contributes through its (v, r) part (D_v, D_r) =
+N i^N A d (−r^(−7/2)/2, r^(−7/2)) the term s env^(N−1) times
+
+    2 dv(n) W(n) + g0°⁻¹(dv, W) = (2D_v + (1 − m) D_r)/(1 + m) = −m D_r/(1 + m) = −c_N i^N A d r^(−7/2),
+
+as D_v = −D_r/2 and Nμ0/(r² + μ0) = N m/(1 + m). The other terms of S(D) are smaller relative to the bracket: the
+∇′-part of the family N − 1 and the families below by O(1/κ + λ), one derivative of env fewer or no factor 1/λ (the
+bracket has size at least c_N env^(N−1)/λ, and env^(N) ≍ κ env^(N−1) by (H_N)). E contributes at relative order O(λ),
+as it carries λ^(N+1) without a factor s: its top family is −i 𝒯 c_(N+1,N−1) env^(N) = i^N (R_X c_(1,0)) env^(N), with
+R_X c_(1,0) in 𝔖 without vϑ part ([[prop:layer-linear]] (a)), so Y(n, n) = 0 and tr Y = 0 for it.
+
+(iv) By [[lem:constraints-evolution]] at the seed's data, the ρ-equation of the linear system for U^(1) is α ∂_r a −
+Δ_α a + b′·∂_S a + c a + e·(ϖ, q) = −F_ρ, with α = p = 3r³/(r² + μ0)². On Σ_τ0, r ↦ v = τ0 + r, and ∂_r acts on
+e^(iv/λ) times an amplitude as s on the amplitude. The solution from zero at r = a with this oscillating forcing term
+is a = −(α s)⁻¹ F_ρ plus terms of relative order 1/|s̃| (from Δ_α a, b′·∂_S a, c a and e·(ϖ, q), the last through the
+J-equations, where ϖ is of order (F_J,r + 2r⁻² ∂_ϑ q)/(6 s̃)); the remainder after two terms of this expansion has a
+forcing term of relative order |s̃|⁻², and [[lem:linear-evolution]] on [a, r] makes it O(x^(1/2)/|s̃|) relative. The
+smooth coefficients α⁻¹ r^(−7/2) and c_N commute with s⁻¹ up to O(λ) relative, by one integration by parts with
+[[eq:edge-sinv-parts]]. By [[eq:edge-sinv-parts]], s⁻¹(env^(N) − c_N s env^(N−1)) = (1 − c_N) env^(N−1) − (i/λ) s⁻¹
+env^(N−1), and by [[lem:edge-sinv]] (a) for g := env^(N−1), s⁻¹ env^(N−1) = env^(N−1) (κ_(N−1) + i/λ)⁻¹ (1 + ρ_g), |ρ_g|
+≤ C ϵ′. Its hypotheses hold near v_s by (H_N): g is positive and log-concave with κ_g = κ_(N−1) ∈ [κ/2, 2κ] and the c_R
+bound, and |g^(j)| = |env^(N−1+j)| ≤ c_(N−1+j) κ^(N−1+j) env ≤ c 2^(N−1) κ^j g for j ≤ 3, since env = env^(N−1)/Π_(k<N−1)
+κ_k ≤ 2^(N−1) κ^(−(N−1)) env^(N−1). As (i/λ)/(κ_(N−1) + i/λ) = i/(T + i), the bracket becomes env^(N−1)[(1 − c_N) −
+i/(T + i)] (1 + O(ϵ′)) = env^(N−1) Ξ (1 + O(ϵ′)). The formulas for |Ξ|² and its expansion are direct: (T + i) = i(1 −
+iT) gives Ξ = (−c_N − i(1 − c_N)T)(1 + iT + O(T²)).
+
+*At c_N = 1*, Ξ = −i/(T + i) and |Ξ| = (1 + T²)^(−1/2) → 0 for large T, so the errors must be relative to the bracket
+and not to env^(N−1). They are: the two terms of the top family cancel exactly to −(i/λ) s⁻¹ env^(N−1), the
+coefficients 1 and c_N being exact; the next family contributes s⁻¹(φ_1 env^(N−1) + φ_2 s env^(N−2)) with smooth φ_i,
+of size env^(N−1)(λ + 1/κ_(N−2))(1 + O(ϵ′)) against |T + i|⁻¹ env^(N−1) for the bracket, and |T + i|/κ_(N−2) ≤ 2/κ +
+4λ, so it is O(λ + 1/κ) relative for every T; the commutator with c_N′ is O(λ) relative; and the corrections of the
+solve are relative by construction.
+
+(v) At first degree the data that a := a^(1) induce have, in the coordinates (τ, r), the components h_rr = a, h_τr = a b
+and h_ττ = a b², b := dr(β) = m/(1 + m) the seed's shift (g0°_τr = m and γ_rr = 1 + m); the angular components and their
+τ-derivatives are unchanged. As dτ = dv − dr, a tensor with components X_ττ, X_τr, X_rr in (τ, r) has the components
+X_ττ, X_τr − X_ττ and X_ττ − 2X_τr + X_rr in (v, r), in the order vv, vr, rr. In the notation of [[lem:edge-ingoing]] let
+ĥ be the amplitude of these data and k̂ that of their τ-derivative, k̂_rr =: k being any value. The linearised condition
+D = 0 at the leading order in s, with ∂_τ h ↦ k̂ and ∂_r|_τ h ↦ s ĥ, reads g^(aτ) k̂_ab + g^(ar) s ĥ_ab − (1/2) δ^τ_b
+g^(ac) k̂_ac − (1/2) δ^r_b s g^(ac) ĥ_ac = 0 for b = τ, r, with g^(ab) as in [[lem:edge-characteristic]] (d); its
+solution is
+
+    k̂_τr = (a s + 2k m(1 + m))/(2(1 + m)²),      k̂_ττ = 2a m s/(1 + m)³ − k(1 − m)/(1 + m).
+
+With F° = 1 − m, y = (1 − F°/2) k̂ + (F°/2) s ĥ has, in (v, r), the components
+
+    y_vv = (a s m(2 − m) − k(1 − m²))/(2(1 + m)),      y_vr = (a s(1 − 2m) + 2k(1 + m))/(4(1 + m)),      y_rr = 0,
+
+so that y_vv + F° y_vr + F°² y_rr/4 = a s/4, free of k. The terms of y without a factor s (derivatives of the
+coefficients, the Christoffel terms of D) are O(|a|). So y = s(Φa) + Φ_0 a with Φ, Φ_0 smooth in r0, and the horizon
+combination [[eq:edge-transport]] of Φa is r0^(3/2) a/4 times μ0^(−3/4), that is K_R a. Then s⁻¹(G s(Φa)) = GΦa −
+s⁻¹(G′Φa), so s⁻¹(Gy) = GΦa − s⁻¹(G′Φa − GΦ_0 a), and the last term is O(λ|a|): by [[eq:edge-sinv-parts]], |s⁻¹h| ≤
+λ|h| + λ ∫_(v_s)^v |h′| ≤ C λ |h| for h a smooth multiple of a, since ∫_(v_s)^v κ_(N−1) env^(N−1) = env^(N−1)(v).
+(ϖ^(1), q^(1)) change the second fundamental form; their amplitudes after division by s̃ are of relative order 1/|s̃|
+and lie in the vector sector and the γ-trace, which the transport 𝒯Z = 0 does not take to vv. The scalar sector of the
+data of h_app^(1) is a family lower: κ^(N−2) env against κ^(N−1) env. ∎
+
+**Proposition {#prop:edge-horizon-value}** (The first-degree horizon value.) Assume (H_N) on (v_s, v_s + x0]. There
+are x0′ ∈ (0, x0] and C such that for v_s < v ≤ v_s + x0′, with r0 = v − τ0,
+
+    h^(1)_vv(v, √μ0, ϑ) = Re[S(v, ϑ) e^(iv/λ)],      S = S_st + S_U + E_S,
+    S_st := λ³ A ν(r0) d(ϑ) env (1 + 2iλκ) 𝟙_(λκ≤1),      S_U := −λ^(N+1) A Γ_R(r0) i^N d(ϑ) Ξ env^(N−1),
+    Γ_R(r0) := K_R r0^(−7/2)/α(r0) = (r0² + μ0)²/(12 μ0^(3/4) r0⁵) > 0,
+    |E_S| ≤ C [λ³ env (|ν(r0)| (λκ)² + λ) 𝟙_(λκ≤1) + λ^(N+1) κ^(N−2) env 𝟙_(λκ>1) + (ϵ′ + 1/κ + λ) |S_U|],     {#eq:edge-s}
+
+and |∂_v^k E_S| ≤ C κ^k times the same bound, k ≤ 2.
+
+*Proof.* h^(1) = h_app^(1) + e. *The stage part.* By [[prop:layer-structure]] (c), Σ_(j≤N+1) λ^j H_j,vv(v, √μ0) = λ³ A d
+ν Σ_(k≤N−2) (k + 1)(iλ)^k env^(k) + Σ_(j≥4) λ^j Σ_(k≤j−4) c_(j,k),vv env^(k). By (H_N), |env^(k)| = env Π_(i<k) κ_i ≤ 2^k
+κ^k env for k ≤ N + 1. For λκ ≤ 1 the first sum is λ³ A d ν env (1 + 2iλκ) + O(|ν| λ³ (λκ)² env), the sum being finite,
+and the second is O(λ⁴ env); for λκ > 1 every term λ^j κ^k env with k ≤ j − 3 and j ≤ N + 1 is at most λ^(N+1) κ^(N−2)
+env, the vv components having no family above j − 3 (c_(j,j−2) = i^(j−2) c_(2,0) is in 𝔖). *The part e.* By
+[[eq:edge-e-equation]], e solves dRic^H(e) = −λ^(N+1) Re[R_X(H_(N+1)) e^(iv/λ)] with the data induced by U^(1). Apply
+[[lem:edge-ingoing]] to the complex form, with 𝒟 := C λ^(N+1) env^(N−1), which is of the size of the amplitudes of the
+data and of the source divided by |s̃| (the source's top family is env^(N) times a profile, and env^(N) = κ_(N−1)
+env^(N−1)), and whose hypotheses hold near v_s by (H_N), as for g = env^(N−1) in the proof of [[lem:edge-constraint]]
+(iv): by [[lem:edge-constraint]] (iv) and (v) the data of a^(1) give K_R a^(1)(1 + O(λ)) = Re[S_U e^(iv/λ)](1 + O(ϵ′ +
+1/κ + λ)), the rest of the data at relative order O(1/κ + 1/|s̃|); the source's top family lies in 𝔖, so its scalar
+sector is a family below, and its term in [[eq:edge-ingoing]] is at most C λ^(N+1) κ^(N−1) env/|s̃| in the vv component;
+and the remainder O(𝒟/|s̃|) is of the same order, at most C(1/κ + λ)|S_U| (|s̃| ≥ κ, and where |Ξ| is small, T/|s̃| ≤ λ).
+*The derivatives.* ∂_v commutes with dRic^H, and by (H_N) every amplitude's derivative is at most C κ times the
+amplitude; so the derivatives of E_S obey the same bounds with the factor κ^k. ∎
+

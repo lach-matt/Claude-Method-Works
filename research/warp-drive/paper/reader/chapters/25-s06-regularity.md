@@ -1220,9 +1220,9 @@ WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at Γ
 
 *The left side.* By [[eq:ii-d1-2-3]] with B̃ := G^♯_1, ‖Bu‖_(𝗍;k) ≤ C(‖G^♯_1 u‖_(𝗍;k−1) + Σ_α ‖BX^α u‖_𝗍 +
 ‖χ̃u‖_(𝗍_0;k)), and ‖BX^α u‖_𝗍 ≤ C(‖B_k u^(k)‖_𝗍 + ‖χ̃u‖_(𝗍_0;k)), as B_k is elliptic on WF′(B) and ‖χ̃X^α u‖_(𝗍_0) ≤
-C‖χ̃′u‖_(𝗍_0;k), χ̃′ slightly larger: here and below, a cut-off said to be slightly larger than χ̃ equals 1 within
-d_ℬ-distance D of supp χ̃, D bounding the kernel ranges of the operators at hand ([[sec:ii-a-8-3]]). The first term is
-bounded by [[eq:ii-d1-2-6]] at k − 1.
+C‖χ̃′u‖_(𝗍_0;k), χ̃′ slightly larger: here and below, a cut-off said to be slightly larger than χ̃ equals 1 near
+supp χ̃. As L is a differential operator, χ̃L = χ̃Lχ̃′ for such χ̃′ ([[sec:ii-a-8-3]]), so the nested choices of the
+induction need no fixed margin. The first term is bounded by [[eq:ii-d1-2-6]] at k − 1.
 
 *The a priori terms.* By [[eq:ii-d1-2-4]], ‖E_k X^α u‖_(𝗍+𝔩) ≤ C(‖Eu‖_(𝗍+𝔩;k) + ‖χ̃u‖_(𝗍_0;k)) for E elliptic on
 WF′(E_k), and ‖χ̃u^(k)‖_(𝗍_0) ≤ C‖χ̃′u‖_(𝗍_0;k).
