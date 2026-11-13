@@ -266,13 +266,13 @@ k ≥ 5, ℓ₀ > 0, ℓ_I > 3/2, H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b(�
 π_C h, π₀₁h, π_(1/)h, π̸₀h ∈ H^(k,(ℰ₀,ℓ₀),((3,0),ℓ_I))_b and π₁₁h ∈ H^(k,(ℰ₀,ℓ₀),((2,0),ℓ_I))_b on U. By
 [[lem:iii-c-3-2]] (a) it lies in H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b for every ℰ_I^C of [[def:iii-c-3-1]].
 
-The class ⟨(2, 0)⟩₀ of [Hin26] has (1, 0) for π̸₀ and π₁₁. For π₁₁ that is the mass order, (2, 0) here. For π̸₀ it is
-the radiation order; the class above contains no radiation field of π̸₀, and with (3/2, 0) in slot 6 the mapping
-property [[eq:iii-c-5-3]] below would fail as soon as ℓ_I > 5/2: the error term ρ₀²ρ_I²C^∞Diff²_b of [[eq:iii-c-4-4]]
-maps ρ_I^(3/2) to ρ_I^(7/2), a term that (4, 0) does not contain and that has weight below ℓ_I + 1. (For
-ℓ_I ≤ 5/2 that term lies in the remainder; the backgrounds of [[def:iii-c-3-4]] and [[lem:iii-c-3-5]] lie in the class
-with ℓ_I = ∞.) [Hin26] uses ⟨(2, 0)⟩₀ to subtract the radiation fields in [Hin26, Theorem 5.21, Step 2]
-((5.64), p. 104). In dimension 4 + 1 that subtraction is not needed ([[rem:iii-c1-3-2]]).
+The class ⟨(2, 0)⟩₀ of [Hin26] has (1, 0) for π̸₀ and π₁₁. For π₁₁ that is the mass order, (2, 0) here. For π̸₀ it is the
+radiation order; the class above contains no radiation field of π̸₀, and with (3/2, 0) in slot 6 the mapping property
+[[eq:iii-c-5-3]] below would fail as soon as ℓ_I ≥ 5/2: the error term ρ₀²ρ_I²C^∞Diff²_b of [[eq:iii-c-4-4]] maps
+ρ_I^(3/2) to ρ_I^(7/2), a term that (4, 0) does not contain and that does not lie in ρ_I^(ℓ_I+1)H^(k−2)_b, as 7/2 ≤ ℓ_I +
+1. (For ℓ_I < 5/2 that term lies in the remainder; the backgrounds of [[def:iii-c-3-4]] and [[lem:iii-c-3-5]] lie in the
+class with ℓ_I = ∞.) [Hin26] uses ⟨(2, 0)⟩₀ to subtract the radiation fields in [Hin26, Theorem 5.21, Step 2] ((5.64), p.
+104). In dimension 4 + 1 that subtraction is not needed ([[rem:iii-c1-3-2]]).
 
 **Definition {#def:iii-c-3-4}** (The background class.) 𝒢 is the set of Lorentzian metrics g₀ on Ω_ext, smooth on M,
 with
@@ -321,7 +321,7 @@ these vector fields are b-vector fields on U (∂_ω at fixed t_*, ρ is ∂_ω 
 g_b^(00)∂²_(t_*) ∈ ρ₀⁴ρ_I²Diff²_b. For the first, (X₀ − X_I)ρ = 0, so
 
     −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄)
-        = −2ρ₀²ρ_I(X₀ − X_I)(X_I − 3/2 − S̄) − 2ρ₀²ρ_I(X₀ − X_I) 8μ₀ρ₀²ρ_I(X₀ − X_I),
+        = −2ρ₀²ρ_I(X₀ − X_I)(X_I − 3/2 − S̄) − 2ρ₀²ρ_I(X₀ − X_I) 8m₀ρ₀²ρ_I(X₀ − X_I),
 
 and the second term lies in ρ₀⁴ρ_I²Diff²_b. S̄ is homogeneous of degree 0, a function of ω in this frame, so it
 commutes with X₀ − X_I. Halving gives [[eq:iii-c-4-2]]. ∎
@@ -566,7 +566,7 @@ measured from g_b with g₀ ≠ g_b the conclusion needs (2, 0) ⊂ ℰ₀ in di
 ℱ_(I,11) contain (1, 0), from the coupling of the radiation field of π̸₀h into the 11-component by the h-dependent
 (7, 6) entry of A^h ([Hin26, p. 98], and [Hin26, p. 169]: "this coupling is absent when h = 0"), and from the mass
 term. In dimension 4 + 1, Ā₇₆ = 0 ([[lem:iii-c-4-2]]), the h-dependent coupling is part of the error of
-[[eq:iii-c-4-4]] and lands at 3/2 + ½ = 2 ∈ ℰ_I^C ([[lem:iii-c-3-2]] (a)), and the mass term μ|x|⁻²(dx¹)² has index
+[[eq:iii-c-4-4]] and lands at 3/2 + ½ = 2 ∈ ℰ_I^C ([[lem:iii-c-3-2]] (a)), and the mass term m|x|⁻²(dx¹)² has index
 (2, 0) ([[lem:iii-c-3-5]]). So in the exterior region the radiation field of π̸₀h reaches the 11-component of the
 operator only at the order 2, in ℰ_I^C. At ι⁺ this matches [[def:iii-g1-1-2]], where the index set at ι⁺ ∩ ℐ⁺ that
 [Hin26] calls ℰ_(ι⁺,ℐ,11) is the union of those for 2γ_Υ and (1 − e_Υ)γ_Υ.
@@ -613,7 +613,7 @@ the form of [Hin26, (9.44)] in dimension 4 + 1; it includes ℓ_I ∉ Re π₁�
 
 *Slots on ι⁺.* Near v = 0, ι⁺ lies in {|x| ≥ 3R₁}, where the rescaled null frame of [[eq:iii-c-1-6]] is a smooth frame
 of S²T*. Its slots, with the slot coordinates [[eq:iii-c-1-7]] and the projections π_C, π₀₁, π_(1/), π̸₀, π₁₁ of
-[[def:iii-c-1-2]], are used on ι⁺ near v = 0. The null frames of η, g_μ and ḡ agree on ι⁺: [[lem:iii-c-1-3]] is stated
+[[def:iii-c-1-2]], are used on ι⁺ near v = 0. The null frames of η, g_m and ḡ agree on ι⁺: [[lem:iii-c-1-3]] is stated
 on the region U, which ι⁺ does not meet, but its proof uses only |x| ≥ 4R₁ and shows that the frames differ by
 F₀(ω)(I + E) with E ∈ |x|⁻²C^∞; near ι⁺ ∩ ℐ⁺, |x|⁻¹ = v/t_* vanishes at ι⁺. So the frames restrict to ι⁺ identically,
 and there S̄ has the constant matrix Ā of [[lem:iii-c-4-2]] (constant in the frame of ḡ). Let e₇ be the basis section
@@ -969,7 +969,7 @@ Near v = 0 on ι⁺, S̄ has the matrix Ā in the slots ([[sec:iii-g3-1]]), and 
 
 so the indicial family of v⁻¹N_(ι⁺)(λ) at ℐ⁺ ∩ ι⁺ is −2(x − λ)(x − 3/2 − Ā). On the type-τ tensors given by Y its
 determinant is the product of −2(x − λ)(x − 3/2 − Ā_jj) over j ∈ J_τ. Over the four types its roots are λ, the
-constraint exponents 3/2 + σ_C (slots 1–3, σ_C := γ_C{2(1 − v_C), 1 − v_C, (1 − e_C)(1 − v_C)}) and the radiative
+constraint exponents 3/2 + σ_C (slots 1–3, σ_C of [[eq:iii-g1-1-4]]) and the radiative
 exponents 3/2 + σ_Υ (slots 4–7): 3/2 + (1 − e_Υ)γ_Υ, 3/2 + γ_Υ, 3/2 and 3/2 + 2γ_Υ, the exponents of the index sets
 [[eq:iii-c-3-2]].
 
@@ -982,10 +982,10 @@ the 11-component only at the order 2, which lies in ℰ_I^C: ℱ_(I,11) = 1 + (�
 lies in spec_(ι⁺)(L̄): there is no pure resonant state at a radiative exponent (Res_(ι⁺)(L̄, 3/2 + s) = {0} whenever
 3/2 + s < ℓ_I). Nor is there an outgoing solution there, or at any other λ with Re λ < min(ℓ_I, 2): if h lies in the
 space H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) of [[def:iii-g1-1-2]] (2), the target of [[thm:iii-g1-3-1]] (2), and
-N_(ι⁺)(λ)h = 0 with Re λ < min(ℓ_I, 2), then h = 0. On the spaces of [[def:iii-g3-1-1]], the only pole of
-[[eq:iii-g3-2-2]] with real part at most 3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f only if f
-has the exceptional term f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇ ≠ 0 of [[eq:iii-g3-3-5]]. The radiative exponents 3/2, 3/2 + γ_Υ
-and 3/2 + 2γ_Υ are not poles.
+N_(ι⁺)(λ)h = 0 with Re λ < min(ℓ_I, 2), then h = 0. On the spaces of [[def:iii-g3-1-1]], if λ_♯ < ℓ_I, the only
+pole of [[eq:iii-g3-2-2]] with real part at most 3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f
+only if f has the exceptional term f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇ ≠ 0 of [[eq:iii-g3-3-5]]. If ℓ_I ≤ λ_♯, there is no
+such pole. The radiative exponents 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ are not poles.
 
 *Proof.* (1) The proof of [[lem:iii-c-4-2]] gives the slots of S̄h in terms of those of h; their coefficients are
 [[eq:s17-abar]]. In spatial dimension n the same calculation applies with ⅔ replaced by 2/(n − 1) in Ē^C, with the
@@ -1001,16 +1001,17 @@ At n = 4 these are [[eq:s17-abar]]; at n = 3, where 2/(n − 1) = 1 and s = ½tr
 those printed in [Hin26, (5.28)] at h = 0.
 
 (2) A symmetric 2-tensor of scalar type given by S ∈ 𝒮_l has its slots 1, 3, 4, 7 multiples of S, its slots 2, 5
-multiples of dS and its slot 6 a multiple of δ̸*₀dS; one of vector type given by V ∈ 𝒱_l has its slots 2, 5 multiples
-of V and its slot 6 a multiple of δ̸*V; one of tensor type given by T ∈ 𝒯_l has only its slot 6, a multiple of T
-([[def:iii-a1-1-3]]). For S ∈ 𝒮_0, dS = 0; for V ∈ 𝒱_1, δ̸*V = 0 ([[eq:iii-a1-1-3]]); and for 0 ≠ V ∈ 𝒱_2,
-δ̸*V ≠ 0, as δ̸δ̸*V = (5/2)V ([[eq:iii-a1-1-2]] with ν = 3, k² = 8). This gives the sets J_τ, with one dimension per
-slot. By the proof of [[lem:iii-c-4-2]] the entries of Ā act between scalar slots and between vector slots as scalars,
-and the off-diagonal entries of [[eq:s17-abar]] connect slots within {1, 3, 4, 7} or within {2, 5}; row and column 6
-of Ā vanish off the diagonal. So Ā maps the type-τ tensors given by Y to themselves, by its submatrix on J_τ, which is
-lower triangular, and the determinant of −2(x − λ)(x − 3/2 − Ā) there is the product of its diagonal entries; the
-diagonal is [[eq:iii-c-4-3]]. The display in (2) is [[eq:iii-g3-1-1]] applied to v^xφ: (v∂_v − λ)v^x = (x − λ)v^x,
-S̄ does not depend on v, and L̃(0)(ω, v∂_v, ∂_ω)v^xφ = v^xL̃(0)(ω, x, ∂_ω)φ.
+multiples of dS and its slot 6 a multiple of δ̸*₀dS; one of vector type given by V ∈ 𝒱_l has its slots 2, 5 multiples of
+V and its slot 6 a multiple of δ̸*V; one of tensor type given by T ∈ 𝒯_l has only its slot 6, a multiple of T
+([[def:iii-a1-1-3]], and the list [[eq:iii-a1-2-10]], whose splitting differs from [[eq:iii-c-1-6]] only by changes of
+frame within the scalar and within the vector components). For S ∈ 𝒮_0, dS = 0; for V ∈ 𝒱_1, δ̸*V = 0
+([[eq:iii-a1-1-3]]); and for 0 ≠ V ∈ 𝒱_2, δ̸*V ≠ 0, as δ̸δ̸*V = (5/2)V ([[eq:iii-a1-1-2]] with ν = 3, k² = 8). This gives
+the sets J_τ, with one dimension per slot. By the proof of [[lem:iii-c-4-2]] the entries of Ā act between scalar slots
+and between vector slots as scalars, and the off-diagonal entries of [[eq:s17-abar]] connect slots within {1, 3, 4, 7} or
+within {2, 5}; row and column 6 of Ā vanish off the diagonal. So Ā maps the type-τ tensors given by Y to themselves, by
+its submatrix on J_τ, which is lower triangular, and the determinant of −2(x − λ)(x − 3/2 − Ā) there is the product of
+its diagonal entries; the diagonal is [[eq:iii-c-4-3]]. The display in (2) is [[eq:iii-g3-1-1]] applied to v^xφ: (v∂_v −
+λ)v^x = (x − λ)v^x, S̄ does not depend on v, and L̃(0)(ω, v∂_v, ∂_ω)v^xφ = v^xL̃(0)(ω, x, ∂_ω)φ.
 
 (3) This is [[prop:iii-c-4-4]] with [[lem:iii-c-3-2]] (b)–(c), [[rem:iii-c-4-5]], the calculation of the leading part in
 the proof of [[prop:iii-c-5-2]], [[def:iii-c-5-1]] and [[rem:s17-no-radiation]].
@@ -1031,7 +1032,7 @@ has near v = 0 only exponents in ℰ^C_(ι⁺,ℐ) + 1, of real part at least 7/
 R = 0, h ∈ H^(∞,β)_b for every β < min(0, ℓ_K), as ℰ_K ⊂ {Re ≥ 0} ([[lem:iii-g1-1-3]] (b)); fix
 β ∈ (−1, min(0, ℓ_K)). As 2v(v∂_v − 3/2 − S̄) ∈ R⁻¹Diff¹_b there, f ∈ H^(∞,β−2)_b near R = 0. Fix
 ℓ′ ∈ (Re λ, min(ℓ_I, 2)) with ℓ′ ∉ Re π₁ℰ^tot_(ι⁺,ℐ). Then f ∈ H^(∞,ℓ′+1,β−2)_b(ι⁺), and by [[thm:iii-g1-3-1]] (2),
-with ℓ′ and β in place of ℓ_I and ℓ_K, and [[lem:iii-g1-4-2]], F(z) := N_(ι⁺)(z)⁻¹f, with the inverse
+with ℓ′ and β in place of ℓ_I and ℓ_K, and [[lem:iii-g1-4-2]] (a)–(b), F(z) := N_(ι⁺)(z)⁻¹f, with the inverse
 [[eq:iii-g1-3-3]], is holomorphic on the half plane {Re z < ℓ′}, which contains λ. As N_(ι⁺) is linear in its parameter,
 with ∂_λN_(ι⁺) = 2v(v∂_v − 3/2 − S̄),
 
@@ -1046,22 +1047,34 @@ there, and at z = λ it gives h = 0.
 
 *The poles.* By [[prop:iii-g3-2-4]] the poles of [[eq:iii-g3-2-2]] lie in spec_(ι⁺)(L̄) ∪ π₁ℰ^C_(I,♯), and
 π₁ℰ^C_(I,♯) = {λ_♯} ∪ π₁ℰ_I^C with min Re ℰ_I^C > 3/2 + 2γ_Υ ([[def:iii-c-3-1]] (2)). So the only possible pole with
-real part at most 3/2 + 2γ_Υ is λ_♯, which is a simple pole by [[cor:iii-g3-2-6]], excited only by the exceptional
-term by [[rem:iii-g3-3-8]]. As 0 < e_Υ < 1, λ_♯ differs from 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ. ∎
+real part at most 3/2 + 2γ_Υ is λ_♯. When λ_♯ < ℓ_I it is a simple pole by [[cor:iii-g3-2-6]], excited only by the
+exceptional term by [[rem:iii-g3-3-8]]. When ℓ_I ≤ λ_♯ it does not lie in {Re λ < ℓ_I}, where [[eq:iii-g3-2-2]] is
+defined, and there is no pole with real part at most 3/2 + 2γ_Υ. As 0 < e_Υ < 1, λ_♯ differs from 3/2, 3/2 + γ_Υ and
+3/2 + 2γ_Υ. ∎
 
 In dimension 3 + 1 the radiative order and the Coulombic order of the mass coincide, both at 1, and the incoming pole
 of [Hin26, (9.49)] at 1 records both. In dimension 4 + 1 the radiation fields sit at 3/2 + σ_Υ and the mass at 2, and
-the only incoming pole below 3/2 + 2γ_Υ is λ_♯, which requires the exceptional term of [[rem:s17-exceptional]].
+the only incoming pole below 3/2 + 2γ_Υ is λ_♯ (when λ_♯ < ℓ_I), which requires the exceptional term of
+[[rem:s17-exceptional]].
 
 ### Setting at the transition face {#sec:iii-g4-1}
 
 The remaining sections are [Hin26, Section 9.2] in dimension 4 + 1. As there, only infinite b-regularity is stated;
-finite b-regularity loses fixed amounts. Against [Hin26], dimension 4 + 1 changes the following. (a) The tf-normal
-operator carries −r̂∂_r̂ − 3/2 − S̄ in its first-order part, and its inverse is [[cor:iii-f1-3-4]], with the sctf weight
-below 3/2 (1 in [Hin26]) and the ztf weight in [−1, 0) ((−ϵ_ind, 0) in [Hin26]). (b) The expansion at r̂ = 0 runs over
+finite b-regularity loses fixed amounts.
+
+*Two constants.* ε_ind ∈ (0, 1] is the constant of [[eq:iii-f1-2-2]], the counterpart of [Hin26, (8.13)]:
+d(Re μ, ℤ) ≥ ε_ind for every non-integer root μ of L̂_b(0) with |μ| ≤ 50. It enters the windows [[eq:iii-g4-3-1]] and
+[[eq:iii-g4-4-2]] and that of [[prop:iii-g4-5-1]], and the separation of roots and poles in the proof of
+[[lem:iii-g4-3-4]]. ε_Υ ∈ (0, ½) is the constant of [[sec:iii-d2-1]], fixed by the indicial roots of □^Υ_b alone, and
+ℰ_ind denotes, as there, an index set with min Re ℰ_ind ≥ ε_Υ. It bounds the corrections of the states, and so the
+gains at tf in [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]]. The two constants are different.
+
+Against [Hin26], dimension 4 + 1 changes the following. (a) The tf-normal operator carries −r̂∂_r̂ − 3/2 − S̄ in its
+first-order part, and its inverse is [[cor:iii-f1-3-4]], with the sctf weight below 3/2 (1 in [Hin26]) and the ztf
+weight in [−1, 0) ((−ε_ind, 0) in [Hin26]). (b) The expansion at r̂ = 0 runs over
 the window (−3, 0] of the table of [[sec:iii-g2-1]], with its states and their companions: the class roots are
 2 − λ^Υ_(sl,l+j) with l + j ≤ 4, the physical roots at −2 include the tensor type t2, and no root at −3 enters. (c) So
-the window w₀ < ℓ_K^max ≤ 3 ([[sec:iii-g4-3]]) replaces 3 + ϵ_ind of [Hin26]. (d) The spectral family differs from the
+the window w₀ < ℓ_K^max ≤ 3 ([[sec:iii-g4-3]]) replaces 3 + ε_ind of [Hin26]. (d) The spectral family differs from the
 tf model by ρ_scf²ρ_tf⁴Diff²_b ([[lem:iii-g4-1-2]]), where [Hin26] has ρ_tf³, as the mass enters at ρ². (e) Three
 points of [Hin26] are corrected: [Hin26, (9.59)] prints ρ^(−λ−j) for ρ^(−λ+j) ([[def:iii-g4-2-1]]); the operator of
 [Hin26, (9.58)] is the one of 2L̄, not of L̄ ([[lem:iii-g4-1-1]] (3)); and the first step of the proof of [Hin26,
@@ -1140,7 +1153,7 @@ So c_μ = 2 + μ at the integer roots, and c_μ = 2, 1, 0 at the class roots in 
 are the numbers k_μ of the table of [[sec:iii-g2-1]] (for s1 and v1, c₋₁ + 2 = 3 and c₋₁ + 1 = 2), so c_μ ≤ K_μ,
 resp. c₋₁ + 2 ≤ 4 and c₋₁ + 1 ≤ 3. And ⌊−μ⌋ + c_μ + 1 = 3. The fractional part {−μ} is 0 at the integer roots. At a
 class root μ = 2 − λ^Υ_(sl,l+j), −μ ∈ (l + j − 2, l + j − 7/4) (the ranges of [[lem:iii-d-4-1]], as [[sec:iii-g2-1]]
-uses them; (0, z_Υ/3] for (l, l + j) = (0, 2)), so {−μ} ∈ (0, ¼), and {−μ} ≥ ϵ_ind by [[eq:iii-f1-2-2]].
+uses them; (0, z_Υ/3] for (l, l + j) = (0, 2)), so {−μ} ∈ (0, ¼), and {−μ} ≥ ε_ind by [[eq:iii-f1-2-2]].
 
 ### Formal solutions at ztf {#sec:iii-g4-2}
 
@@ -1208,10 +1221,10 @@ This section is [Hin26, Lemma 9.26 and Remarks 9.27–9.28] in dimension 4 + 1.
 
 *Hypotheses.* Let α₀ ∈ ℂ and ℓ_scf, ℓ_zf ∈ ℝ with
 
-    Re α₀ ∈ (1, 2 + ϵ_ind),     ℓ_scf < 3/2,     w₀ := ℓ_zf − Re α₀ + 2 ∈ (−ϵ_ind, ℓ_K^max),
+    Re α₀ ∈ (1, 2 + ε_ind),     ℓ_scf < 3/2,     w₀ := ℓ_zf − Re α₀ + 2 ∈ (−ε_ind, ℓ_K^max),
     ℓ_zf ∉ ℕ₀,     w₀ ≠ −μ                                                                              {#eq:iii-g4-3-1}
 
-for every root μ of L̂_b(0), with ϵ_ind of [[prop:iii-f1-2-3]] (f). No upper bound on ℓ_zf is needed
+for every root μ of L̂_b(0), with ε_ind of [[eq:iii-f1-2-2]]. No upper bound on ℓ_zf is needed
 ([[lem:iii-g4-3-3]]). The condition ℓ_zf ∉ ℕ₀ keeps a Taylor term r̂^(2−α+ℓ_zf) of the smooth remainders below off the
 last contour of [[lem:iii-g4-3-4]]. A use at an integer ℓ_zf takes ℓ_zf − δ in its place, or first removes the term with
 j = ℓ_zf as a term of type (ii) of the proof of [[lem:iii-g4-3-4]]. For α near α₀ put w(α) := ℓ_zf − Re α + 2 and
@@ -1313,10 +1326,10 @@ boundary lines. Moving the contour from {Re λ = b − δ} to {Re λ = b̃},
 
 holomorphic in α, as the integrand is and the bounds are locally uniform.
 
-*The pairing.* If z_j(α₀) = −μ for a root, then 2 − α₀ = −μ − j ∈ (−ϵ_ind, 1); as {−μ} is 0 or in
-[ϵ_ind, 1 − ϵ_ind] ([[eq:iii-f1-2-2]]), this forces j = ⌊−μ⌋ and β_μ(α₀) = 0. Indeed, with x := Re(2 − α), for
-j ≥ ⌊−μ⌋ + 1 one has Re(z_j(α) + μ) = x + j − ⌊−μ⌋ − {−μ} ≥ x + 1 − {−μ} ≥ x + ϵ_ind, and for j ≤ ⌊−μ⌋ − 1 one has
-Re(z_j(α) + μ) ≤ x − 1, so |z_j(α) + μ| ≥ min(1 − x, x + ϵ_ind) > 0 for j ≠ ⌊−μ⌋ when x ∈ (−ϵ_ind, 1). So at most one
+*The pairing.* If z_j(α₀) = −μ for a root, then 2 − α₀ = −μ − j ∈ (−ε_ind, 1); as {−μ} is 0 or in
+[ε_ind, 1 − ε_ind] ([[eq:iii-f1-2-2]]), this forces j = ⌊−μ⌋ and β_μ(α₀) = 0. Indeed, with x := Re(2 − α), for
+j ≥ ⌊−μ⌋ + 1 one has Re(z_j(α) + μ) = x + j − ⌊−μ⌋ − {−μ} ≥ x + 1 − {−μ} ≥ x + ε_ind, and for j ≤ ⌊−μ⌋ − 1 one has
+Re(z_j(α) + μ) ≤ x − 1, so |z_j(α) + μ| ≥ min(1 − x, x + ε_ind) > 0 for j ≠ ⌊−μ⌋ when x ∈ (−ε_ind, 1). So at most one
 root of the strip, −μ_*, can meet the pole z := z_(⌊−μ_*⌋) as α varies, and the other roots and z_j stay apart on D
 small.
 
@@ -1413,7 +1426,7 @@ h^(≤k)_(b,s1)(e^(−iσt_*)S) = e^(−iσt_*)(h_(b,s1)(S) − iσh̆^(≤k)_(b
 **Lemma {#lem:iii-g4-4-3}** (Restrictions to tf.) For a generic row let G_(μ,τ)(σ, Y) := |σ|^(−μ)h^((μ),≤c_μ)_(b,τ)(σ,
 Y); for v1, G_(v1)(σ, V) := |σ|iσ⁻¹h^(≤2)_(b,v1)(σ, V); for s1, G_(s1)(σ, S) := |σ|iσ⁻¹h̆^(≤3)_(b,s1)(σ, S) and
 G^exc_(s1)(σ, S) := −|σ|σ⁻²h_(b,s1)(S). Near tf each is polyhomogeneous, with tf-index set (0, 0) ∪ ℰ_ind, where ℰ_ind
-collects the index sets of the corrections of the states (min Re ℰ_ind ≥ ϵ_ind, with the convention of [[ch:s13]] for
+collects the index sets of the corrections of the states (min Re ℰ_ind ≥ ε_Υ, with the convention of [[sec:iii-d2-1]] for
 ℰ_ind) and (2, 0), and G|_tf = H_(μ,τ)(Y), h̄^(≤2)_(v1)(±r̂, V), h̄^(≤3)_(s1)(±r̂, S) respectively; G^exc_(s1) vanishes
 at tf to order 2.
 
@@ -1426,9 +1439,9 @@ For s1, h̆¹_(b,s1) ∈ 𝒜^((2,0)∪…) gives |σ|σ⁻¹ρ², of tf-order 2
 |σ|iσ⁻¹(−iσ)^(j−1)ρ^(1−j)φ^((−1,s1))_(j−2) = (∓ir̂)^(j−2) r̂ φ^((−1,s1))_(j−2), that is h̄^(≤3)_(s1); and
 |σ|σ⁻²h_(b,s1) ∈ |σ|⁻¹ρ³𝒜⁰ = ρ_tf²ρ_zf⁻¹ρ_scf³𝒜⁰. ∎
 
-*Hypotheses.* Let α₀ ∈ ℂ with Re α₀ ∈ (1, 2 + ϵ_ind), k ∈ ℕ₀, ℓ_scf < 3/2, and
+*Hypotheses.* Let α₀ ∈ ℂ with Re α₀ ∈ (1, 2 + ε_ind), k ∈ ℕ₀, ℓ_scf < 3/2, and
 
-    −ϵ_ind < ℓ_zf − Re α₀ + 2,     ℓ_zf − min(Re α₀ − 2, 0) < ℓ_K^max,     ℓ_zf ∉ ℕ₀,
+    −ε_ind < ℓ_zf − Re α₀ + 2,     ℓ_zf − min(Re α₀ − 2, 0) < ℓ_K^max,     ℓ_zf ∉ ℕ₀,
     ℓ_zf − Re α₀ + 2 ≠ −μ                                                                               {#eq:iii-g4-4-2}
 
 for every root μ. These imply [[eq:iii-g4-3-1]], as w₀ ≤ ℓ_zf − min(Re α₀ − 2, 0). They also give ℓ_zf < 3 (if
@@ -1445,9 +1458,9 @@ parameters b near b₀, with
     f − L̂_b(σ)u ∈ H^(∞,ℓ_scf+1,ℰ_(α₀,k),((0,0),ℓ_zf))_b(X^±_(sc-b)),
     ℰ_(α₀,k) := ((α₀, k) + ℰ_ind) ∪ ((4, k + 1) + ((0, 0) ∪ ℰ_ind)),                                     {#eq:iii-g4-4-3}
 
-where ℰ_ind, an index set with min Re ℰ_ind ≥ ϵ_ind not depending on b, α₀, k, is that of [[lem:iii-g4-4-3]] together
+where ℰ_ind, an index set with min Re ℰ_ind ≥ ε_Υ not depending on b, α₀, k, is that of [[lem:iii-g4-4-3]] together
 with (1, 0). The exponents at 4 come from the term l_(2−α₀)(|σ|)G^exc_(s1) (Step 1.1); their real part exceeds
-Re α₀ + ϵ_ind. [Hin26, (9.74), (9.81)] state the index set (α₀, k) + ℰ_ind without them.
+Re α₀ + ε_Υ. [Hin26, (9.74), (9.81)] state the index set (α₀, k) + ℰ_ind without them.
 
 (2) For k = 0 one can take u = χ_zf|σ|^(α₀−2)u_b + χ_tf ρ_tf^(α₀−2)u_tf with
 u_tf ∈ H^(∞,ℓ_scf−ε,((0,0),ℓ_zf))_b(tf) and
@@ -1495,7 +1508,7 @@ the tf-exponents 2 and 4 − α (with 2 + ℰ_ind, 4 − α + ℰ_ind), merging 
 *Step 1.2: the error.* Let F_α := χ_tf ρ_tf^α f₀ − L̂_b(σ)u_α. We show
 F_α ∈ H^(∞,ℓ_scf+1,ℰ_α,((0,0),ℓ_zf))_b with ℰ_α := (α + ℰ_ind) ∪ (4 + ((0, 0) ∪ ℰ_ind)) for α ≠ 2 (the exponents 4
 and α + 2 merging into a logarithm at α = 2), holomorphically in α as an element of
-H^(∞,ℓ_scf+1,Re α₀+ϵ_ind−ε,((0,0),ℓ_zf))_b.
+H^(∞,ℓ_scf+1,Re α₀+ε_Υ−ε,((0,0),ℓ_zf))_b.
 
 (i) *tf.* As L̂_b(σ) has no σ-derivatives, L̂_b(σ)u_α = |σ|^(α−2)L̂_b(σ)W_α. View u_(tf,α) as a function of (r̂, ω) near
 tf. By [[lem:iii-g4-1-1]] (1), |σ|^(α−2)L̄̂(σ)u_(tf,α) = |σ|^αN_tf u_(tf,α) = |σ|^α ρ_ztf^(−α)f₀ = ρ_tf^α f₀, since
@@ -1541,7 +1554,7 @@ the cut-offs: χ_zf = 1 near zf°; [L̂_b(σ), χ_tf] acts only on the term of (
 [[eq:iii-g4-4-5]]), with the same conclusion. So F_α has zf-class ((0, 0), ℓ_zf). Holomorphy in α holds term by term.
 
 *Step 2: logarithms.* The term is ∂_α^k(χ_tf ρ_tf^α f₀)|_(α₀). Let u := ∂^k_α u_α|_(α₀). By the holomorphy in Step 1.2,
-χ_tf ρ_tf^(α₀)(log ρ_tf)^k f₀ − L̂_b(σ)u = ∂^k_αF_α|_(α₀) lies in H^(∞,ℓ_scf+1,Re α₀+ϵ_ind−ε,((0,0),ℓ_zf))_b, and
+χ_tf ρ_tf^(α₀)(log ρ_tf)^k f₀ − L̂_b(σ)u = ∂^k_αF_α|_(α₀) lies in H^(∞,ℓ_scf+1,Re α₀+ε_Υ−ε,((0,0),ℓ_zf))_b, and
 differentiating [[eq:iii-g4-4-5]] term by term shows that it is polyhomogeneous at tf with index set ℰ_(α₀,k) of
 [[eq:iii-g4-4-3]] (the k-th α-derivative of the exponents 4 and α + 2 of the term of G^exc_(s1), which merge at
 α₀ = 2, carries at most k + 1 logarithms at 4). The membership of u is that of u_α, with logarithmic factors absorbed by
@@ -1570,18 +1583,18 @@ The exceptional term G^exc_(s1) = −|σ|σ⁻²h_(b,s1) vanishes at tf to order
 dimension 4 + 1 ([[eq:iii-d2-3-4]]); its zf-order, which sets min(−1, Re α₀ − 3) in [[prop:iii-g4-4-4]] (1), is
 unchanged. The factor l_(2−α)(|σ|) of the term l_(2−α)(|σ|)G^exc_(s1) carries the tf-exponent 2 − α, so the grafting
 error has tf-exponents at 4 (and 6) besides α₀ + ℰ_ind, which is the index set ℰ_(α₀,k) of [[eq:iii-g4-4-3]]; the
-weights are unaffected, as 4 > Re α₀ + ϵ_ind.
+weights are unaffected, as 4 > Re α₀ + ε_Υ.
 
 ### Conormal sources at tf {#sec:iii-g4-5}
 
 This section is [Hin26, Proposition 9.35] in dimension 4 + 1.
 
 **Proposition {#prop:iii-g4-5-1}** ([Hin26, Proposition 9.35] in dimension 4 + 1.) Let α ∈ (1, 2), ℓ_scf < 3/2, and
-−ϵ_ind < w := ℓ_zf − α + 2 < ℓ_K^max, ℓ_zf ∉ ℕ₀, with 2 − α + j ≠ −μ and w ≠ −μ for all j ∈ ℕ₀ and all roots μ of
+−ε_ind < w := ℓ_zf − α + 2 < ℓ_K^max, ℓ_zf ∉ ℕ₀, with 2 − α + j ≠ −μ and w ≠ −μ for all j ∈ ℕ₀ and all roots μ of
 L̂_b(0). Let k₀ ∈ ℕ₀ and f ∈ H^(∞,ℓ_scf+1,α,((k₀,0),ℓ_zf))_b(X^±_(sc-b); S²T*X). Then there is
 u ∈ ⋂_(ε>0) H^(∞,ℓ_scf−ε,α−2,α−3)_b(X^±_(sc-b)) with
 
-    f − L̂_b(σ)u ∈ ⋂_(ε>0) H^(∞,ℓ_scf+1,α+ϵ_ind−ε,((k₀,0),ℓ_zf))_b(X^±_(sc-b)).                          {#eq:iii-g4-5-1}
+    f − L̂_b(σ)u ∈ ⋂_(ε>0) H^(∞,ℓ_scf+1,α+ε_Υ−ε,((k₀,0),ℓ_zf))_b(X^±_(sc-b)).                          {#eq:iii-g4-5-1}
 
 One can take u = χ_zf u_b + χ^♯_tf ũ, with χ^♯_tf a cut-off of the kind of χ_tf (fixed in the proof),
 ũ ∈ H^(∞,ℓ_scf−ε,α−2,((k₀,0),ℓ_zf))_b and
@@ -1625,9 +1638,9 @@ with f₂ the sum of an element of H^(∞,ℓ_scf+1,α+2,((k₀,0),ℓ_zf))_b an
 
 The proof of [Hin26, Proposition 9.35] takes instead u⁽⁰⁾₀(ρ, ·) := L̃(0)(ω, α − 2, ∂_ω)⁻¹f⁽⁰⁾₀(ρ, ·) pointwise in ρ
 and asserts that the terms in which r̂∂_r̂ falls on u⁽⁰⁾₀(|σ|/r̂, ω) carry a factor ρ. They carry ρ∂_ρu⁽⁰⁾₀, which for a
-conormal f⁽⁰⁾₀ is of the size of u⁽⁰⁾₀. For f⁽⁰⁾₀ = ρ^(iη)φ, η ∈ ℝ, the pointwise choice u = 𝒩(α − 2)⁻¹ρ^(iη)φ gives
-ρ^(−α)ρ²𝒩(ρ∂_ρ)(ρ^(α−2)u) = 𝒩(α − 2 + iη)𝒩(α − 2)⁻¹ρ^(iη)φ, so the error is
-(𝒩(α − 2 + iη)𝒩(α − 2)⁻¹ − 1)ρ^(iη)φ, with no factor ρ, while [[eq:iii-g4-5-3]], which inverts 𝒩(α − 2 + iη) on each
+conormal f⁽⁰⁾₀ is of the size of u⁽⁰⁾₀. For f⁽⁰⁾₀ = ρ^(iξ)φ, ξ ∈ ℝ, the pointwise choice u = 𝒩(α − 2)⁻¹ρ^(iξ)φ gives
+ρ^(−α)ρ²𝒩(ρ∂_ρ)(ρ^(α−2)u) = 𝒩(α − 2 + iξ)𝒩(α − 2)⁻¹ρ^(iξ)φ, so the error is
+(𝒩(α − 2 + iξ)𝒩(α − 2)⁻¹ − 1)ρ^(iξ)φ, with no factor ρ, while [[eq:iii-g4-5-3]], which inverts 𝒩(α − 2 + iξ) on each
 Mellin frequency, leaves no error. The pointwise choice is correct for f⁽⁰⁾₀ smooth in ρ: for f⁽⁰⁾₀ = φ₀ + ρφ₁ the same
 calculation gives the error ρ(𝒩(α − 1)𝒩(α − 2)⁻¹ − 1)φ₁, which carries the factor ρ.
 
@@ -1651,9 +1664,9 @@ in H^(∞,0)_b in σ. Put
           + |σ|^(α−2)χ^♯_tf ũ₁(σ, |σ|/ρ, ω),                                                            {#eq:iii-g4-5-6}
 
 which is [Hin26, (9.92)] in dimension 4 + 1, with no functions l_β (no exponent of the right-hand side meets a root).
-*tf.* By [[lem:iii-g4-4-3]], |σ|^(2−α)u₂ = u₁ + e near tf, with e of tf-weight ϵ_ind (the coefficients Y(σ) are
+*tf.* By [[lem:iii-g4-4-3]], |σ|^(2−α)u₂ = u₁ + e near tf, with e of tf-weight ε_Υ (the coefficients Y(σ) are
 conormal of weight 0), so by [[lem:iii-g4-1-1]]–[[lem:iii-g4-1-2]],
-L̂_b(σ)u₂ = |σ|^αN_tf u₁ + |σ|^(α−2)(L̂_b − L̄̂)u₁ + |σ|^(α−2)L̂_b(σ)e = f₁ + O(ρ_tf^(α+2)) + O(ρ_tf^(α+ϵ_ind−ε)) there.
+L̂_b(σ)u₂ = |σ|^αN_tf u₁ + |σ|^(α−2)(L̂_b − L̄̂)u₁ + |σ|^(α−2)L̂_b(σ)e = f₁ + O(ρ_tf^(α+2)) + O(ρ_tf^(α+ε_Υ−ε)) there.
 *scf.* As in Step 1.2 (ii) of the proof of [[prop:iii-g4-4-4]]: scf-order ℓ_scf + 2 − ε. *zf.* |σ|^(α−2)ũ₁ has zf-weight
 α − 2 + w = ℓ_zf,
 preserved by L̂_b(σ); at zf°, by [[lem:iii-g4-4-2]], the generic terms give |σ|^(α−2−μ)|σ|^(c_μ+1)Y(σ), of zf-weight
@@ -1687,8 +1700,8 @@ c := dt,
 
     A_(E_C,E_Υ)U := γ_C(2c ⊗_s w − η⟨c, w⟩) + δ₁^*(γ_Υ(2ι_(η⁻¹c)GU − c tr GU)),     w := δ₁GU.         {#eq:s17-hin23a-a}
 
-The b-structure is that of [Hin23a, Section 3]: with the Tangherlini metric g_m of mass μ in dimension 4 + 1 (the
-Schwarzschild metric in dimension 3 + 1) and its tortoise coordinate r*, x⁰ := t + r*, x¹ := t − r*,
+The b-structure is that of [Hin23a, Section 3]: with the Tangherlini metric g_m of mass m in dimension 4 + 1 (the
+Schwarzschild metric of mass m in dimension 3 + 1) and its tortoise coordinate r*, x⁰ := t + r*, x¹ := t − r*,
 ρ₀ := 1/(r* − t), ρ_I := (r* − t)/r and x_I := ρ_I^(1/2); on Minkowski space r* = r. The conjugated operator of
 [Hin23a, Proposition 3.17] is L := 2ρ_Iρ^(−(2+k))P′ρ^k, ρ := r⁻¹, with P′ the linearisation of the gauge-fixed
 Einstein operator P.
@@ -1696,10 +1709,10 @@ Einstein operator P.
 **Proposition {#prop:np-10-64}** (The dimension in [Hin23a, Section 3].) For n = 3 and n = 4:
 
 (1) On functions of (x⁰, x¹), for η, r^k□r^(−k) = 4∂₀∂₁ + ((n − 1)(n − 3)/4)r⁻², with no first-order term: the added
-term is 0 at n = 3 ([Hin23a, (3.34)]) and ¾r⁻² at n = 4. For the Tangherlini metric of mass μ in dimension 4 + 1, with
-f := 1 − μ/r², the tortoise coordinate r* := r + (√μ/2)log((r − √μ)/(r + √μ)) satisfies dr*/dr = 1/f and
+term is 0 at n = 3 ([Hin23a, (3.34)]) and ¾r⁻² at n = 4. For the Tangherlini metric of mass m in dimension 4 + 1, with
+f := 1 − m/r², the tortoise coordinate r* := r + (√m/2)log((r − √m)/(r + √m)) satisfies dr*/dr = 1/f and
 
-    r* − r = −Σ_(j≥0) μ^(j+1)r^(−(2j+1))/(2j + 1) = −μ/r − μ²/(3r³) − μ³/(5r⁵) − …,                       {#eq:s17-rstar}
+    r* − r = −Σ_(j≥0) m^(j+1)r^(−(2j+1))/(2j + 1) = −m/r − m²/(3r³) − m³/(5r⁵) − …,                       {#eq:s17-rstar}
 
 a series in 1/r without the logarithm of the Schwarzschild coordinate r* = r + 2m log(r − 2m) of [Hin23a, (1.1)].
 
@@ -1749,7 +1762,7 @@ r⁻³ at n = 4. The first-order terms r⁻¹A∂₁ of P′ applied to r^(−k)
 −½|∂₁π̸₀h|² enters the leading term of h₁₁ ([Hin23a, (3.47), Remark 3.38]), and r^(−1/2) at n = 4.
 
 (6) The least integer above ½ dim M = (n + 1)/2 is 3 at n = 3 and at n = 4 (the Sobolev order 3 of [Hin23a,
-Notation 3.22], above which H^m_b ⊂ L^∞); the least integer above (dim M − 1)/2, the number d_(dim M−1) of [Hin23a,
+Notation 3.22]: H^l_b ⊂ L^∞ for l ≥ 3); the least integer above (dim M − 1)/2, the number d_(dim M−1) of [Hin23a,
 Lemma 3.33], is 2 at n = 3 and 3 at n = 4.
 
 (7) Let P(g) := Ric(g) − δ^*_(η,E_C)Υ(g; η), Υ(g; η)_m := g_(mq)g^(ab)(Γ(g)^q_(ab) − Γ(η)^q_(ab)), the operator of
@@ -1769,17 +1782,17 @@ B(7, 1) = 2ρ₀⁻¹∂₁²h_(ab), A(4, 7) = −½∂₁h_(ab) and B(4, 1) = 2
 block to the 11-block, being read as acting by contraction, −½∂₁h_(ab)u^(ab) with |T|² = 2. At n = 4 they are the same
 numbers times r^(1−k) = r^(−1/2). Each is linear in h.
 
-(8) ([Hin23a, Lemma 3.6] at n = 4.) Let f := 1 − μ/r², r* as in (1), and x⁰ = t + r*, x¹ = t − r*,
+(8) ([Hin23a, Lemma 3.6] at n = 4.) Let f := 1 − m/r², r* as in (1), and x⁰ = t + r*, x¹ = t − r*,
 ρ₀ = 1/(r* − t), ρ_I = (r* − t)/r (the tortoise coordinates of [Hin23a], which differ from those of
 [[eq:iii-c-1-2]]) for the Tangherlini metric g_m = −(f/2)(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + r²g̸. Then dρ₀ = ρ₀²dx¹ is null,
 and
 
     g_m⁻¹(r dρ_I, r dρ_I) = (2x¹/r)(1 + x¹f/(2r)),                                                    {#eq:s17-hin23a-38}
 
-[Hin23a, (3.8)] with f in place of 1 − 2m/r. With x̄_I := min(√3/2, 1/(2μ^(1/4))) in place of min(√3/2, 1/√(8m)), on
-{ρ₀ < 2, 0 < x_I < x̄_I} one has r = ρ₀⁻¹x_I⁻² > ½x̄_I⁻² ≥ 2√μ, twice the horizon radius, as 4m is twice the
-Schwarzschild one: there r* is defined, f > ¾ (½ in [Hin23a]), x¹/r = −x_I² < 0 and |x¹f/(2r)| < 3/8, so
-[[eq:s17-hin23a-38]] is negative.
+[Hin23a, (3.8)] with f in place of 1 − 2m/r. With x̄_I := min(√3/2, 1/(2m^(1/4))) in place of the min(√3/2, 1/√(8m)) of
+[Hin23a], on {ρ₀ < 2, 0 < x_I < x̄_I} one has r = ρ₀⁻¹x_I⁻² > ½x̄_I⁻² ≥ 2√m, twice the horizon radius √m, as 4m is twice
+the Schwarzschild horizon radius 2m: there r* is defined, f > ¾ (½ in [Hin23a]), x¹/r = −x_I² < 0 and |x¹f/(2r)| < 3/8,
+so [[eq:s17-hin23a-38]] is negative.
 
 *Proof.* (1) For η, √|η| = ½r^(n−1)√|g̸| and η⁻¹ has the entries η^(01) = η^(10) = −2 and r⁻²g̸⁻¹. For u = u(x⁰, x¹),
 □u = −|η|^(−1/2)∂_i(|η|^(1/2)η^(ij)∂_ju) = 2r^(1−n)(∂₀(r^(n−1)∂₁u) + ∂₁(r^(n−1)∂₀u)), and with ∂₀r = ½, ∂₁r = −½,
@@ -1792,8 +1805,8 @@ For u = r^(−k)v: ∂₀u = r^(−k)(∂₀v − (k/2)r⁻¹v), ∂₁u = r^(�
     r^k□r^(−k)v = 4∂₀∂₁v + (2k − (n − 1))r⁻¹(∂₀v − ∂₁v) + (k(n − 1) − k² − k)r⁻²v.
 
 As 2k = n − 1 the first-order term vanishes, and k(n − 1) − k² − k = k(k − 1) = (n − 1)(n − 3)/4. For r*:
-d/dr (√μ/2)(log(r − √μ) − log(r + √μ)) = (√μ/2)·2√μ/(r² − μ) = μ/(r² − μ), and 1 + μ/(r² − μ) = 1/f. For r > √μ,
-log((r − √μ)/(r + √μ)) = log((1 − s)/(1 + s)) = −2Σ_(j≥0) s^(2j+1)/(2j + 1) with s := √μ/r < 1, which gives
+d/dr (√m/2)(log(r − √m) − log(r + √m)) = (√m/2)·2√m/(r² − m) = m/(r² − m), and 1 + m/(r² − m) = 1/f. For r > √m,
+log((r − √m)/(r + √m)) = log((1 − s)/(1 + s)) = −2Σ_(j≥0) s^(2j+1)/(2j + 1) with s := √m/r < 1, which gives
 [[eq:s17-rstar]].
 
 (2) With r = (ρ₀ρ_I)⁻¹ and t = r − ρ₀⁻¹: ∂r/∂ρ₀ = −ρ₀⁻²ρ_I⁻¹, ∂r/∂ρ_I = −ρ₀⁻¹ρ_I⁻², ∂t/∂ρ₀ = ∂r/∂ρ₀ + ρ₀⁻² and
@@ -1893,6 +1906,6 @@ r; at n = 4 they carry r^(1−k) = r^(−1/2).
 g_m⁻¹(dx⁰, dx⁰) = g_m⁻¹(dx¹, dx¹) = 0. As r* − t = −x¹, ρ₀ = −1/x¹ and dρ₀ = ρ₀²dx¹, which is null. With
 ρ_I = −x¹/r and dr = f dr* = (f/2)(dx⁰ − dx¹), r dρ_I = −dx¹ + (x¹/r)dr = (x¹f/(2r))dx⁰ − (1 + x¹f/(2r))dx¹, so
 g_m⁻¹(r dρ_I, r dρ_I) = 2(x¹f/(2r))(−(1 + x¹f/(2r)))(−2/f) = (2x¹/r)(1 + x¹f/(2r)). Since r = (ρ₀ρ_I)⁻¹ = ρ₀⁻¹x_I⁻²,
-on {ρ₀ < 2, x_I < x̄_I} we have r > ½x̄_I⁻² ≥ ½(2μ^(1/4))² = 2√μ, so r* is defined and f = 1 − μ/r² > 1 − ¼ = ¾. And
+on {ρ₀ < 2, x_I < x̄_I} we have r > ½x̄_I⁻² ≥ ½(2m^(1/4))² = 2√m, so r* is defined and f = 1 − m/r² > 1 − ¼ = ¾. And
 x¹/r = −ρ_I = −x_I² < 0, |x¹f/(2r)| = ½x_I²f < ½x̄_I² ≤ 3/8, so 1 + x¹f/(2r) > 5/8 > 0 and [[eq:s17-hin23a-38]] is
 negative. ∎

@@ -359,12 +359,13 @@ H^(k−1)_b-norm of one of the factors among Ĝ, Vδ times the L^∞-norms of th
 Hence ‖VĜ‖_(H^(k−1)_b) ≤ C(1 + B)²(1 + C_(k−1))‖δ‖_(H^k_b), and [[lem:s19-products]] (b) gives Ĝ ∈ H^k_b(Ω_*) with
 the bound at k. ∎
 
-Smallness enters only through g⁻¹. In [[prop:iii-i-3-4]] apply [[lem:s19-inverse]] with g_1 := g_b, whose components
-and inverse lie in C^∞(M) ⊂ C^∞_b ([[prop:iii-b-3-6]]), and δ := g − g_b; in [[prop:iii-i-3-3]] apply it with the g_1
-there, smooth on M and Lorentzian on the compact set Ω_*, and δ := h. By [[lem:s19-products]] (c), sup|δ| is at most
-C(|b − b₀| + |S| + ‖h‖_(H^(3,(1,0,0))_b)) ([[lem:iii-i-3-6]]; in [[prop:iii-i-3-3]], C‖h‖_(H^(3,(1,0,0))_b)), which is
-small, and ‖δ‖_(C¹_b) ≤ C‖δ‖_(H⁴_b). So (g_1 + δ)⁻¹ − g_1⁻¹ lies in H^k_b with weights 0, with norm at most
-C_k‖δ‖_(H^k_b), C_k depending on an upper bound for ‖δ‖_(H⁴_b). Write
+Smallness enters only through g⁻¹. In [[prop:iii-i-3-4]] apply [[lem:s19-inverse]] with g_1 := g_b, whose components and
+inverse lie in C^∞(M) ⊂ C^∞_b ([[prop:iii-b-3-6]]), and δ := g − g_b; in [[prop:iii-i-3-3]] apply it with the g_1 there,
+smooth on M and Lorentzian on the compact set Ω_*, so that its components and inverse lie in C^∞_b, and δ := h. By
+[[lem:s19-products]] (c), sup|δ| is at most C(|b − b₀| + |S| + ‖h‖_(H^(3,(1,0,0))_b)) ([[lem:iii-i-3-6]]; in
+[[prop:iii-i-3-3]], C‖h‖_(H^(3,(1,0,0))_b)), which is at most ϵ when these are small, and ‖δ‖_(C¹_b) ≤ C‖δ‖_(H⁴_b). So
+(g_1 + δ)⁻¹ − g_1⁻¹ lies in H^k_b with weights 0, with norm at most C_k‖δ‖_(H^k_b), C_k depending on an upper bound for
+‖δ‖_(H⁴_b). Write
 
     (g_1 + δ)⁻¹ = Σ_(j≤N) (−g_1⁻¹δ)^j g_1⁻¹ + R_N,        R_N := (−g_1⁻¹δ)^(N+1)(g_1 + δ)⁻¹.
 
@@ -575,10 +576,10 @@ components of g⁻¹ − g_(b₀)⁻¹ and g_0⁻¹ − g_(b₀)⁻¹, and of b-
 δ_0 := g_0 − g_(b₀), each product containing a factor of the last kind, which carries the weight. By
 [[lem:s19-products]] (a), with weights, and (c), each product is bounded in that space by C times the
 H^(k+d+3)_b-norm of one factor times the L^∞-norms of the others. [[lem:s19-inverse]], with g_1 := g_(b₀), bounds
-the H^m_b-norms of g⁻¹ − g_(b₀)⁻¹ and g_0⁻¹ − g_(b₀)⁻¹ by C‖δ‖_(H^m_b) and C‖δ_0‖_(H^m_b); the L^∞-norms, with the
-weight on the factor that carries it, are at most C(|S| + ‖h‖_(𝒳^(d+5))) by [[lem:s19-products]] (c); and the
-weighted norms of δ and δ_0 of order k + d + 5 are at most C(|S| + ‖h‖_(𝒳^(k+d+5))) ([[lem:iii-i-3-6]]). With
-[[eq:ii-f1-1-5]] and C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is
+g⁻¹ − g_(b₀)⁻¹ and g_0⁻¹ − g_(b₀)⁻¹ pointwise, and in H^(k+d+3)_b by C‖δ‖_(H^(k+d+3)_b) and C‖δ_0‖_(H^(k+d+3)_b). The
+L^∞-norms of the derivatives of δ and δ_0, with the weight on the factor that carries it, are at most
+C(|S| + ‖h‖_(𝒳^(d+5))) by [[lem:s19-products]] (c), and their weighted H^(k+d+3)_b-norms at most
+C(|S| + ‖h‖_(𝒳^(k+d+5))) ([[lem:iii-i-3-6]]). With [[eq:ii-f1-1-5]] and C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is
 [[eq:iii-i-5-2]]. The weights: [[cor:ii-f1-1-2]] with b_I = α_I + 2 = β_I, b_+ = α_+ + 5/2 = β_+, sf-loss 0, and the
 K⁺-weights ½ for f and −ℵ + ½ = −3/2 for u. Continuity: the last statement of [[thm:ii-f1-1-1]], P depending
 continuously on (S, h) in the norm of [[eq:iii-i-3-7]]. ∎
@@ -684,14 +685,14 @@ in the sense of [Hin17, Definition 3.8] for operators acting on bundle-valued ha
 
     S_sub(Δ_k) = −i∇^(π*T^kM)_(H_G) ∈ Diff¹(T*M ∖ o; π*T^kM).
 
-We apply it on a subbundle E ⊂ T^kM preserved by ∇, here S²T*M ⊂ T²M. Then Δ_k maps sections of E to sections of E,
-and ∇^(π*T^kM) preserves π*E, on which it is the pullback connection ∇^(π*E). In a local frame of T^kM whose first
-members span E, the matrix of Δ_k is block upper triangular. In a frame, [Hin17, Definition 3.8] gives
-S_sub(P) = σ_sub(P) − iH_p for P with principal symbol p Id, σ_sub(P) being the matrix of the subprincipal symbols of
-the entries of P (cf. [[sec:iii-d-5-2]]); this matrix is block upper triangular too, so the subprincipal operator of
-Δ_k on E is the restriction of S_sub(Δ_k) to π*E; [Hin17, p. 26] restricts its results to such subbundles in the same
-way. So the tensor wave operator □_g := Δ_k on E, taken on half-densities by |dg| as in [[eq:iii-f-4-1]], satisfies
-iS_sub(□_g) = ∇^(π*E)_(H_G), in every dimension and for every metric.
+We apply it on a subbundle E ⊂ T^kM preserved by ∇, here S²T*M ⊂ T²M. Then Δ_k maps sections of E to sections of E, and
+∇^(π*T^kM) preserves π*E, on which it is the pullback connection ∇^(π*E). In a local frame of T^kM whose first members
+span E, the matrix of Δ_k is block upper triangular. In a frame, [Hin17, Definition 3.8] defines
+S_sub(Q) := σ_sub(Q) − iH_q for an operator Q with principal symbol q Id, σ_sub(Q) being the matrix of the subprincipal
+symbols of the entries of Q (cf. [[sec:iii-d-5-2]]). For Q = Δ_k that matrix is block upper triangular too, so the
+subprincipal operator of Δ_k on E is the restriction of S_sub(Δ_k) to π*E; [Hin17, p. 26] restricts its results to such
+subbundles in the same way. So the tensor wave operator □_g := Δ_k on E, taken on half-densities by |dg| as in
+[[eq:iii-f-4-1]], satisfies iS_sub(□_g) = ∇^(π*E)_(H_G), in every dimension and for every metric.
 
 **Proposition {#prop:iii-h2-1-1}** (Strong trapping admissibility near b₀.) For η ∈ (0, 1] and b ∈ B̄_1 there is a
 stationary fibre inner product h_(η,b) on π*S²T* over O, homogeneous of degree 0 and smooth in b, such that, with p_1^Γ

@@ -116,7 +116,7 @@ so |R_(k+1)| ≥ 7a/8 − 1/36 − 1/388 > 7a/8 − 0.031 ≥ 7a/8 − a/8 = 3a/
     κx² = 1;
 (d) (H_D) holds for every c > 0.
 
-*Proof.* Here R_0 = x²κ is 1 for exp(−1/x) and [[eq:edge-a]] for [[eq:edge-envelope]]; put a := 1, resp. a := 3/4.
+*Proof.* Here R_0 = x²κ is [[eq:edge-a]] for [[eq:edge-envelope]] and 1 for exp(−1/x); put a := 3/4, resp. a := 1.
 For [[eq:edge-envelope]], on 𝔻, where ϱ = 1/(24(n + 2)²) ≤ 1/216, [[eq:edge-a-disc]] gives |R_0 − 3/4| ≤ 12ϱ + ϱ²/7 ≤
 0.056 < 3/32, so |R_0| ≥ 21/32 = 7a/8, and |R_0′| ≤ 12 + ϱ/2 ≤ 13. So [[lem:edge-disc]] applies, with c_d := 13, resp.
 c_d := 0. Fix 0 < x ≤ x_n = ϱ/4 and k ≤ n + 1. 𝒯_k is holomorphic on the disc of radius ϱ_(n+1) ≥ ϱ/2 about 0, which
@@ -170,12 +170,12 @@ N ≥ 2, and x0 := x_(N+2) = 1/(96(N + 4)²). On (v_s, v_s + x0], (H_N) and (H_N
 
 *Proof.* [[prop:edge-envelope]] with n = N + 2: (a) and (b) give, for k ≤ N + 2, env^(k) > 0, strictly log-concave,
 κ_k/κ ∈ [99/100, 1] ⊂ [1/2, 2] and |κ_k′| ≤ c_R κ_k^(1+1/2), and for j ≤ N + 4, |env^(j)| ≤ κ^j env; this is (H_N+2),
-which contains (H_N). For [[eq:edge-decay]]: on (v_s, v_s + x0], κ′ < 0 since env is strictly log-concave, and
-κ = R_0/x² ≥ 3/(4x²), so κ^(−1/2) ≤ 2x0/√3 and, as c_R ≤ 12/5, j c_R κ^(−1/2) ≤ (N + 4)(12/5)(2/√3) x0 = √3/(60(N + 4))
-< 1/2. Hence (log(κ^j env))′ = κ + jκ′/κ ≥ κ − j c_R κ^(1/2) ≥ κ/2 ≥ κ(v)/2 on [v′, v], and integrating over [v′, v]
-gives [[eq:edge-decay]]. As x0 ≤ 1/200, (c) gives c_t and c_*. By [[lem:edge-logderivatives]] (e) with n = N − 1,
-which uses the strict log-concavity of env^(k) for k ≤ N − 2, κ − κ_(N−1) ≥ |κ′|/κ ≥ c_t κ^(1/2): this is (H_t) with
-α = 1/2. (H_D) is (d). ∎
+which contains (H_N). For [[eq:edge-decay]]: as x0 ≤ 1/200, (c) gives κx² ≥ 3/4, resp. κx² = 1, on (v_s, v_s + x0],
+so κ^(−1/2) ≤ 2x0/√3 there; κ′ < 0 there since env is strictly log-concave; and, as c_R ≤ 12/5, j c_R κ^(−1/2) ≤
+(N + 4)(12/5)(2/√3) x0 = √3/(60(N + 4)) < 1/2. Hence (log(κ^j env))′ = κ + jκ′/κ ≥ κ − j c_R κ^(1/2) ≥ κ/2 ≥ κ(v)/2
+on [v′, v], and integrating over [v′, v] gives [[eq:edge-decay]]. (c) also gives c_t and c_*. By
+[[lem:edge-logderivatives]] (e) with n = N − 1, which uses the strict log-concavity of env^(k) for k ≤ N − 2,
+κ − κ_(N−1) ≥ |κ′|/κ ≥ c_t κ^(1/2): this is (H_t) with α = 1/2. (H_D) is (d). ∎
 
 The hypotheses are thus proved on (v_s, v_s + 1/(96(N + 4)²)], an interval that shrinks as N grows; [[thm:very-edge]]
 and [[prop:l-26]] take their interval (v_s, v_s + x0] as given and use the hypotheses only on subintervals
@@ -186,8 +186,9 @@ x R_k′ → 0 and (R_k − R_(k+1))/(x R_k^(1/2)) → 2R_0(0)^(−1/2); so κ_k
 x0 ↓ 0, the best constants c on (v_s, v_s + x0] in |κ_k′| ≤ c κ_k^(3/2) and in |κ′| ≥ c κ^(3/2) tend to
 2R_0(0)^(−1/2), which is 4/√3 = 2.309… for [[eq:edge-envelope]] and 2 for exp(−1/x); in (H_t) with α = 1/2 the best
 constant tends to 2(N − 1)R_0(0)^(−1/2), since κ − κ_(N−1) = Σ_(k<N−1) (R_k − R_(k+1))/x² with each term ~ 2/x and
-κ^(1/2) = R_0^(1/2)/x. The values 12/5 and 21/10 of c_R, and 2.13951 of the constant in |κ′| ≥ c κ^(3/2) on
-(v_s, v_s + 1/200], are close to these limits.
+κ^(1/2) = R_0^(1/2)/x. The values 12/5 and 21/10 of c_R exceed these limits by 3.9 % and 5 %. The value 2.13951 of
+the constant in |κ′| ≥ c κ^(3/2) is 7.4 % below its limit 4/√3, because it holds on all of (v_s, v_s + 1/200]: the
+lower bound h in the proof of [[prop:edge-envelope]] (c) decreases from h(0) = 4/√3 to h(1/200) = 2.13990….
 
 **Remark {#rem:edge-scaled}** (the edges exp(−a/x)). Let a > 0 and env(v) = exp(−a/(v − v_s)) for v > v_s. As a
 function of x̃ := x/a, env is exp(−1/x̃), and d/dx = a⁻¹ d/dx̃; so κ_k = a⁻¹ κ̃_k, where κ̃_k are the logarithmic

@@ -18,7 +18,17 @@ of decay: the corrections of the translations and rotations begin at ρ², their
 
 Throughout, an *indicial root* is written ι, and ν is the variable of a characteristic polynomial. The letter h denotes
 the semiclassical parameter h = γ_C⁻¹ of the damping; the symmetric 2-tensors h*_(b,s0), h*_(b,s1)(S), h*_(b,v1)(V)
-of [[sec:iii-e-3]] carry subscripts and are not to be confused with it.
+of [[sec:iii-e-3]] carry subscripts and are not to be confused with it. The black-hole parameters are b = (m, A), with
+m the mass parameter and b₀ = (m₀, 0), as in [[ch:s11]].
+
+*The inner radius.* The inner radius r_♭ ∈ (0, ½R₁] of [[ch:s11]], R₁ = m₀^(1/2), is a parameter, and every result of
+this chapter holds for every such r_♭. The radius r₀ of the artificial boundary of [[sec:i-a-1-1]] is put at r_♭
+([[ch:s12]]), so the spaces on X̄ have their inner boundary at {|x| = r_♭}. Only three steps touch the region near
+it: the 1-form c_C is past timelike there, at every radius ([[prop:np-10-14]] (i)); the analysis of [[sec:iv5]] has
+its inner boundary at r_♭ and is placed relative to it ([[sec:iv5-0]]); and the vanishing of the dual states inside
+the horizon ([[sec:iii-e-2]], (b)) runs from {|x| = r_♭}. Every other step reaches the inner boundary only through the
+theorems of [[ch:s01]]–[[ch:s03]] and [[ch:s11]]–[[ch:s13]], which hold with r_♭ as a parameter. Nothing is claimed
+uniform in r_♭; the neighbourhood of b₀ and the thresholds in h may depend on it.
 
 ### The constraint propagation operator {#sec:iii-e-1}
 
@@ -87,20 +97,22 @@ The bundle E, the operators □^C_b, P^C_b and (P^C_b)* are those of [[sec:iii-e
 is the modification C_(g,c,e,h) of [Hin26a, (3.1)] with the trace weight 2/3 in place of 1, and □^C_b = □^(C_h)_g of
 [Hin26a, (3.2)], with
 
-    h² □^C_b = 2h² δ_g G_g δ*_g − i L_(g,c,e,h),     L_(g,c,e,h) = 4ih δ_g(c ⊗_s ·) + 2ihe d ι_(c♯).        {#eq:iv4-0-2}
+    h² □^C_b = 2h² δ_g G_g δ*_g − i L_(g,c,e,h),     L_(g,c,e,h) = 4ih δ_g(c ⊗_s ·) + 2ihe d ι_(c♯).        {#eq:s14-lh}
 
 The weight 2/3 = 2/(D − 2) is the one for which h G_g E^C ω has the form 2c ⊗_s ω − e g⟨c, ω⟩ for every e
 ([[prop:np-10-12]] (i)). With the weight 1, the literal transcription of the four-dimensional operator, the conclusions
-below fail ([[prop:np-10-12]] (iv), [[prop:np-10-13]] (i)).
+below fail: the scalar type 0 then has an indicial root in (−1, 1) for all small h > 0 ([[prop:np-10-12]] (iv)), and
+the fibre inner product B of [[prop:np-10-13]] (i) is indefinite.
 
 *The constants.* We fix, once for the whole stability theory,
 
     v_C := 1/2,     e_C := 1/102400,     C_0 ∈ [3/2, 100],     γ_C := h⁻¹,  h ∈ 𝖧,                          {#eq:iv4-0-1}
 
 where 𝖧 := (0, h_*) ∖ 𝖹. Here h_* := min(10⁻⁶, h_0, h_tf), with h_0 the smaller of the thresholds of
-[[thm:iv5-7-3]] at these (v_C, e_C) for the weights [[eq:iv4-2-1]] at C_0 and at C_0 − 1, h_tf the threshold of
-[[thm:iv6-3-1]], and 𝖹 the union of the countable sets of [[lem:iv4-1-3]] (b) and of
-[[prop:np-10-52]] (ii)–(iii). The nonlinear theorem of [[ch:s27]] takes C_0 = 100.
+[[thm:iv5-7-3]] at these (v_C, e_C), with the regularity range C₁ := C_0 + 1, for the weights [[eq:iv4-2-1]] at C_0
+and at C_0 − 1, and h_tf the threshold of [[thm:iv6-3-1]]; and 𝖹 := 𝖹₁ ∪ 𝖹₂ ∪ 𝖹₃ ⊂ (0, 10⁻⁶] is the countable set
+made of the set 𝖹₁ of [[lem:iv4-1-3]] (b) and the sets 𝖹₂, 𝖹₃ of [[prop:np-10-52]] (ii), (iii). The nonlinear theorem
+of [[ch:s27]] takes C_0 = 100.
 The 1-form c_C is that of [[prop:np-10-14]] at m = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 and rescaled to m₀
 (every condition on it depends on m r_0⁻² and r/r_0 only, by scaling). It is stationary and equals
 |x|⁻¹(dt − v_C d|x|) for large |x| up to O(m₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the static time, and the
@@ -111,6 +123,7 @@ Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values,
 statements of [Hin26, Theorem 7.1] "for v_C ∈ (0, 1), C_0 > 0 and all sufficiently large γ_C" are proved here at this
 choice: for every γ_C > 1/h_* outside a countable set, which is what every later use requires, as each takes one
 admissible γ_C.
+
 ### The model at infinity: indicial families and the damping symbols {#sec:s14-model}
 
 This section collects the facts about the constraint propagation operator on 4 + 1 Minkowski space and on
@@ -118,22 +131,22 @@ Tangherlini space that the proofs of [[sec:iv4-1]] use. Throughout it, D = 5 is 
 κ := l(l + 2) is the eigenvalue of the Laplacian of 𝕊³ on spherical harmonics of degree l, v ∈ (0, 1), e ∈ [0, 1) and
 h > 0, and
 
-    E^C ω = h⁻¹ (2c ⊗_s ω − m(1 − e) g ι_(g⁻¹c) ω)
+    E^C ω = h⁻¹ (2c ⊗_s ω − m_tr(1 − e) g ι_(g⁻¹c) ω)
 
-is the modification with trace weight m; □^C := 2δ_g G_g (δ*_g + E^C). We write ⟨·, ·⟩ for the pairing by g⁻¹,
+is the modification with trace weight m_tr; □^C := 2δ_g G_g (δ*_g + E^C). We write ⟨·, ·⟩ for the pairing by g⁻¹,
 G(ζ) := g⁻¹(ζ, ζ), c♯ := g⁻¹c and div ω := ∇^a ω_a = −δω.
 
-**Lemma {#lem:s14-box-c}** (The operator as a wave operator plus a first-order damping.) Let m = 2/(D − 2) = 2/3 and
-let g be Ricci-flat. Then □^C = □_g + h⁻¹ 𝓛_c, where □_g = −∇^a ∇_a on 1-forms and
+**Lemma {#lem:s14-box-c}** (The operator as a wave operator plus a first-order damping.) Let m_tr = 2/(D − 2) = 2/3
+and let g be Ricci-flat. Then □^C = □_g + h⁻¹ 𝓛_c, where □_g = −∇^a ∇_a on 1-forms and
 
     𝓛_c ω = −2 (div ω) c − 2 ∇_(ω♯) c − 2 (div c) ω − 2 ∇_(c♯) ω + 2e d⟨c, ω⟩.                            {#eq:s14-lc}
 
 *Proof.* Since tr_g g = D, G_g(f g) = (1 − D/2) f g, and G_g(2c ⊗_s ω) = 2c ⊗_s ω − g⟨c, ω⟩. Hence
 
-    h G_g E^C ω = 2c ⊗_s ω + (−1 + m(1 − e)(D/2 − 1)) g⟨c, ω⟩,
+    h G_g E^C ω = 2c ⊗_s ω + (−1 + m_tr(1 − e)(D/2 − 1)) g⟨c, ω⟩,
 
-and the coefficient of g⟨c, ω⟩ is −e for every e exactly when m(D/2 − 1) = 1, that is m = 2/(D − 2). With δ(f g) = −df
-and δ(2c ⊗_s ω)_a = −∇^b(c_a ω_b + c_b ω_a) = −(∇_(ω♯)c)_a − c_a div ω − (div c) ω_a − (∇_(c♯)ω)_a, this gives
+and the coefficient of g⟨c, ω⟩ is −e for every e exactly when m_tr(D/2 − 1) = 1, that is m_tr = 2/(D − 2). With
+δ(f g) = −df and δ(2c ⊗_s ω)_a = −∇^b(c_a ω_b + c_b ω_a) = −(∇_(ω♯)c)_a − c_a div ω − (div c) ω_a − (∇_(c♯)ω)_a, this gives
 2δ_g G_g E^C ω = h⁻¹ 𝓛_c ω. Finally 2δ_g G_g δ*_g ω = 2δδ*ω + d(div ω), and
 2(δδ*ω)_a = −∇^b∇_a ω_b − ∇^b∇_b ω_a = −∇_a(div ω) − Ric(g)_a^b ω_b − ∇^b∇_b ω_a; on a Ricci-flat metric the sum is
 −∇^b∇_b ω = □_g ω. ∎
@@ -141,12 +154,12 @@ and δ(2c ⊗_s ω)_a = −∇^b(c_a ω_b + c_b ω_a) = −(∇_(ω♯)c)_a − 
 **Proposition {#prop:np-10-12}** (The indicial families on 4 + 1 Minkowski space.) Let g = η = −dt² + dr² + r² 𝑔̸ on
 ℝ_t × ℝ⁴, c = r⁻¹(dt − v dr), let S be a spherical harmonic of degree l on 𝕊³, and let V be a co-closed eigen-1-form of
 the Laplacian on 𝕊³ of degree l ≥ 1 (vector type), so that r V is a 1-form on ℝ⁴ whose Cartesian components are
-harmonic polynomials of degree l.
+r^(−l) times harmonic polynomials of degree l.
 
-(i) (*The trace weight.*) h G_g E^C ω equals 2c ⊗_s ω − e g⟨c, ω⟩ for every e if and only if m = 2/3. With m = 1 it
-equals 2c ⊗_s ω − e′ g⟨c, ω⟩ with e′ = (3e − 1)/2.
+(i) (*The trace weight.*) h G_g E^C ω equals 2c ⊗_s ω − e g⟨c, ω⟩ for every e if and only if m_tr = 2/3. With m_tr = 1
+it equals 2c ⊗_s ω − e′ g⟨c, ω⟩ with e′ = (3e − 1)/2.
 
-(ii) (*The indicial families.*) Let m = 2/3. For ι ∈ ℂ and constants A, B, C,
+(ii) (*The indicial families.*) Let m_tr = 2/3. For ι ∈ ℂ and constants A, B, C,
 
     □^C (r^(−ι)(A S dt + B S dr + C r dS)) = r^(−ι−2)(A′ S dt + B′ S dr + C′ r dS),   (A′, B′, C′)ᵀ = N_l(ι)(A, B, C)ᵀ,
     □^C (r^(−ι) r V) = N_(v,l)(ι) r^(−ι−2) r V,
@@ -174,11 +187,12 @@ and P_1(2) = 0. At h = 0,
 which at e = 0 is −16v³(ι − 3)(ι − 2)². Giving ι the weight 1 and κ the weight 2, the parts of top weight of P_l and of
 p_(v) are h³(κ − ι²)³ and h(κ − ι²).
 
-(iv) (*The weight 1 fails.*) With m = 1, at h = 0 the scalar type l = 0 has the indicial root
-(7v² − 1 + 3e(1 + v²))/(5v² + 1 − 3e(1 + v²)), which at e = 0 lies in (−1, 1) for every v ∈ (0, 1).
+(iv) (*The weight 1 fails.*) Let m_tr = 1 and e ∈ [0, 1/3). At h = 0 the scalar type l = 0 has the indicial root
+ι_w := (7v² − 1 + 3e(1 + v²))/(5v² + 1 − 3e(1 + v²)), which at e = 0 lies in (−1, 1) for every v ∈ (0, 1); and for
+every sufficiently small h > 0 the scalar type 0 has an indicial root ι_w(h) with ι_w(h) → ι_w as h → 0⁺.
 
-*Proof.* (i) is the first identity in the proof of [[lem:s14-box-c]], which uses only tr_g g = D; with m = 1 and
-D = 5 the coefficient is −1 + (3/2)(1 − e) = −e′.
+*Proof.* (i) is the first identity in the proof of [[lem:s14-box-c]], which uses only tr_g g = D; with m_tr = 1
+and D = 5 the coefficient is −1 + (3/2)(1 − e) = −e′.
 
 (ii) η is flat, so [[lem:s14-box-c]] applies. On stationary 1-forms □_η = −Δ componentwise in the frame dt, dx^i, Δ
 the Euclidean Laplacian of ℝ⁴. In the splitting by dt, dr and r dS, −Δ(r^(−ι)S) = (κ + 2ι − ι²) r^(−ι−2) S, and for
@@ -211,10 +225,13 @@ The terms in e²κ cancel, and what remains is 4v(ι − 2)(2e(1 + v²)(ι + 1)(
 which is [[eq:s14-q5]]. The parts of top weight come from the product of the diagonal terms h(κ − ι² + …), the other
 terms of the expansion having lower weight, and from −hι² + hκ.
 
-(iv) By (i), the operator with m = 1 is the operator with m = 2/3 and e replaced by e′ = (3e − 1)/2. At h = 0,
-[[eq:s14-c0]] is the linear polynomial (4e(1 + v²) − 8v²)ι + 4e(1 + v²) + 16v², whose root is
-(4v² + e(1 + v²))/(2v² − e(1 + v²)); with e′ for e this is the stated value. At e = 0 it is (7v² − 1)/(5v² + 1), which
-increases from −1 to 1 as v runs over (0, 1). ∎
+(iv) By (i), the operator with m_tr = 1 is the operator with m_tr = 2/3 and e replaced by e′ = (3e − 1)/2, and the
+proofs of (ii)–(iii) do not use the sign of e; so its scalar type 0 polynomial is P_0 = −(ι − 2)C with e′ for e. At
+h = 0, [[eq:s14-c0]] is the linear polynomial (4e(1 + v²) − 8v²)ι + 4e(1 + v²) + 16v², whose root is
+(4v² + e(1 + v²))/(2v² − e(1 + v²)); with e′ for e this is ι_w, and the leading coefficient 4e′(1 + v²) − 8v² is
+negative, as e′ < 0 for e < 1/3. At e = 0, ι_w = (7v² − 1)/(5v² + 1), which increases from −1 to 1 as v runs over
+(0, 1). The coefficients of C are polynomials in h, so by Hurwitz's theorem, as in [[lem:s14-small-h]] (b), C has a
+root ι_w(h) → ι_w as h → 0⁺; it differs from 2, so it is a root of P_0. ∎
 
 From now on in this section (v, e) = (1/2, 1/102400), and we write P_l, p_(v), C and Q_5 for the polynomials of
 [[prop:np-10-12]] at this point. Then 4Q_5(ι) = e(5(ι − 3)(ι + 1) − 3κ) − 2(ι − 2)(ι − 3).
@@ -265,8 +282,9 @@ with real part > 19/10 and one with real part < −100, P_0 has two and two, and
 
 (ii) the only roots with real part in [−100, 2] are ι = 2 at l = 0 and at l = 1, each simple;
 
-(iii) for every R > 0 only finitely many l have a root of P_l or of p_(v) in {|ι| ≤ R}; the real parts of the roots
-accumulate only at ±∞.
+(iii) (*no accumulation in a strip*) for every R > 0 only finitely many l have a root of P_l or of p_(v) in the strip
+{|Re ι| ≤ R}; so, over all types and degrees, only finitely many roots lie in each such strip, and the real parts of
+the roots accumulate only at ±∞. In particular for every R > 0 only finitely many roots satisfy |ι| ≤ R.
 
 *Proof.* *The vector type.* p_(v)(ι) = −(hι² − (2h − 1)ι − hκ − 3). At ι = 2, hι² − (2h − 1)ι − hκ − 3 = −hκ − 1 < 0,
 so 2 lies strictly between the two real roots of [[lem:s14-small-h]] (c), and the larger root exceeds 2. At ι = −100
@@ -282,17 +300,31 @@ C is (2h² + eh − 3h)/h² = 2 − (3 − e)/h < −2.9·10⁶; so C has exactl
 < −2.9·10⁶ − ι₁: if they are not real, their common real part is below −100; if they are real, neither lies in
 [−100, 2] nor in (2, ∞), so both are below −100.
 
-*Scalar type l ≥ 1.* [[pending:computational-1]]
+*Scalar type l ≥ 1.* The claim is: for every h ∈ (0, 10⁻⁶] and every l ≥ 1, P_l has no root with real part in
+[−100, 19/10], and, with multiplicity, exactly three roots with real part > 19/10 and three with real part < −100;
+for every l ≥ 2 no root of P_l has real part in (19/10, 2]; and at l = 1 the only root with real part in (19/10, 2] is
+ι = 2, a simple root. [[pending:computational-1]]
 
-(iii) The coefficients of P_l are polynomials in κ of degree at most 3, and the coefficient of κ³ is h³, from the part
-of top weight h³(κ − ι²)³. So for |ι| ≤ R, |P_l(ι)| ≥ h³κ³ − C_Rκ² > 0 once κ > C_R h⁻³; likewise for p_(v). ∎
+(iii) Fix h. By [[prop:np-10-12]] (iii), P_l(ι) = h³(κ − ι²)³ + Σ_(j+2k≤5) a_(jk)ι^jκ^k, with coefficients a_(jk)
+depending on (v, e, h) and not on l: the part of top weight is h³(κ − ι²)³, and every other term has weight at most
+5. Put ι = κ^(1/2)w. Then
+
+    κ⁻³P_l(κ^(1/2)w) = h³(1 − w²)³ + Σ_(j+2k≤5) a_(jk)κ^(j/2+k−3)w^j,
+
+a polynomial in w of degree 6 with leading coefficient −h³ and the other coefficients bounded for κ ≥ 1, since
+j/2 + k − 3 ≤ −1/2. So its roots lie in a disc |w| ≤ W independent of l, and on that disc it converges uniformly to
+h³(1 − w²)³ as κ → ∞. By Hurwitz's theorem, for κ large its six roots lie within ½ of ±1, three near each; so every
+root of P_l satisfies |Re ι| ≥ ½κ^(1/2) once κ ≥ κ_h, for some κ_h depending on h. Likewise
+κ⁻¹p_(v)(κ^(1/2)w) = h(1 − w²) + (2h − 2v)κ^(−1/2)w + 6vκ⁻¹, whose two roots tend to ±1. Hence a root with
+|Re ι| ≤ R occurs only where κ < κ_h or κ ≤ 4R², that is for finitely many l, each contributing at most six
+roots. ∎
 
 **Proposition {#prop:np-10-13}** (The fibre algebra and the damping symbols.) Let g be a Lorentzian metric on a vector
 space of dimension D, c a past timelike covector, e ∈ [0, 1), and
 
     ℓ(ζ)ω := 2(⟨c, ζ⟩ω + ⟨ζ, ω⟩c − e⟨ω, c⟩ζ),     B := g⁻¹ − (1 + e)G(c)⁻¹ c♯ ⊗ c♯,                      {#eq:s14-ell}
 
-the semiclassical principal symbol of L_(g,c,e,h) in [[eq:iv4-0-2]] ([Hin26a, Lemma 3.2]).
+the semiclassical principal symbol of L_(g,c,e,h) in [[eq:s14-lh]] ([Hin26a, Lemma 3.2]).
 
 (i) B is positive definite for e > 0; ℓ(ζ) is B-self-adjoint for every ζ; and the characteristic polynomial of ½ℓ(ζ) is
 (ν − ⟨c, ζ⟩)^(D−2) times ν² − (3 − e)⟨c, ζ⟩ν + 2(1 − e)⟨c, ζ⟩² + eG(c)G(ζ). Hence ℓ(ζ) is negative definite if and only
@@ -538,7 +570,7 @@ for every b. So its eigenvalues are ±(1 + e)/(e^(1/2)r_h).
 (iii) is [[prop:np-10-13]] (i) with ζ = dr, G(dr) = 0, ⟨c, dr⟩ = a.
 
 (iv) By the definition, ϑ_ℋ = (r_h/2) × the largest eigenvalue of ρ_∞σ₁((P_0 − P_0^*)/(2i)) − h⁻¹ℓ(dr), the
-damping L contributing −h⁻¹ℓ(ζ)ρ_∞ ([[eq:iv4-0-2]]). On the angular components the matrix is −2a h⁻¹. On the (t, r)
+damping L contributing −h⁻¹ℓ(ζ)ρ_∞ ([[eq:s14-lh]]). On the angular components the matrix is −2a h⁻¹. On the (t, r)
 block, a direct evaluation of the 2 × 2 matrices of (ii) and (iii) gives the characteristic polynomial χ, for every b.
 
 (v) At e = 1/102400, (1 + e)²/(4e) = 10485964801/409600 and s ≥ 5000 for h ≤ 10⁻⁶. The vertex of χ is at
@@ -814,7 +846,7 @@ of the unit sphere bundle over Ω give one C ([Hin26a, p. 47]), and continuity i
 **Lemma {#lem:iv5-0-5}** (The 1-form; [Hin26a, Proposition 5.1] in dimension 4 + 1.) Let (α_sf, α_K) = (−C_0 − 5/2, 1)
 with C_0 ∈ [0, 100], the weights [[eq:iv4-2-1]]. Put w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1). Shrinking U,
 there are δ_r ∈ (0, (4r_c)⁻¹) and δ_sf = 1/100 such that for b ∈ U, c satisfies [Hin26a, Proposition 5.1] (1)–(6)
-with r_c for r_0 and r_♯ for m. The positivity statements (3)–(6) hold with lower bounds uniform in b ∈ U.
+with r_c for r_0 and r_♯ for the inner radius of [Hin26a, Proposition 5.1]. The positivity statements (3)–(6) hold with lower bounds uniform in b ∈ U.
 
 *Proof.* [[lem:iv4-1-4]]. Each positivity is a strict inequality for a continuous function of (b, point) on a compact
 set, or holds at 𝗌𝖿, where every g, b ∈ U, has the 3sc model η ([[lem:iv5-0-2]] (a)); so the lower bounds are uniform
@@ -1125,7 +1157,7 @@ data required to lie in a compact subset of C^∞(I × B_3) are g, B, a 3b-conne
 is [[lem:iv5-0-4]] ([Hin26a, Lemma 3.5]).
 
 **Proposition {#prop:iv5-6-1}** ([Hin26a, Proposition 5.16] in dimension 4 + 1.) The estimates [Hin26a, (5.66)–(5.69)]
-hold with T := T_0, with m ≤ r_1 < r_2 < r_3 < r₊ read as r_♯ ≤ r_1 < r_2 < r_3 ≤ r̂, and with the level-set density
+hold with T := T_0, with the radii of [Hin26a] read as r_♯ ≤ r_1 < r_2 < r_3 ≤ r̂, and with the level-set density
 r⁴|dr d𝑔̸| for the density r³|dr d𝑔̸| of [Hin26a] in the norms on τ⁻¹(T). Moreover, at fixed h, for
 ω ∈ ρ_sf^(α_sf)H̄²_3b without support condition,
 
@@ -1427,8 +1459,8 @@ G_σ(ξ, η) = −2σξ + ξ² + |η|².
 
 *Proof.* (a) is [[lem:s14-tf-inputs]] (i). (b) The form [[eq:iv6-0-2]] is [[eq:iv4-1-1]] on the model, where S̃, Q and R
 vanish (g = η and c exactly r⁻¹(dt − v dr); [[prop:np-10-21]] (i)). The 3/2 = (n − 1)/2 is the shift that makes
-i(ρ²∂_ρ − kρ) symmetric on L²(ρ⁻⁴dρ/ρ): integrating by parts, i(ρ²∂_ρ − kρ) has adjoint i(ρ²∂_ρ + (1 − m + k)ρ) on
-L²(ρ^(−m)dρ/ρ), symmetric iff k = (m − 1)/2, and here m = 4. Diagonalisability: the 2 × 2 block has the distinct
+i(ρ²∂_ρ − kρ) symmetric on L²(ρ⁻⁴dρ/ρ): integrating by parts, i(ρ²∂_ρ − kρ) has adjoint i(ρ²∂_ρ + (1 − a + k)ρ) on
+L²(ρ^(−a)dρ/ρ), symmetric iff k = (a − 1)/2, and here a = 4. Diagonalisability: the 2 × 2 block has the distinct
 eigenvalues 2(1 − v) ≠ (1 − e)(1 − v), and the angular block is scalar. (c) The memberships follow from
 [[eq:iv6-0-2]] and (a). The symbols are computed from ρ²(ρ∂_ρ)², ρ²Δ_(𝕊³) and 2iσρ²∂_ρ; the Diff¹_b-terms of (□^C)^(0)
 are subprincipal at both ends. (d) [[eq:i-c-4-1]] defines N_tf from the data of P̂ at ρ = 0, namely S_0 and N(P^(0)).
@@ -1523,12 +1555,12 @@ polynomial, whose coefficients are polynomial in h⁻¹ with leading coefficient
 all such h⁻¹. Moving the weight from β to β₁ raises the index by the number of roots, with multiplicity, whose real
 part lies in [β₁ − 2, β − 2). This is Melrose's relative index theorem [Mel93, Theorem 6.5], a theorem on b-operators
 in every dimension ([Hin26a, p. 91]). These are the roots −μ with Re μ ≥ 2: two in the scalar sector l = 0, three in
-each scalar sector l ≥ 1, one in each vector sector ([[lem:iv4-1-3]] (a)). The index becomes I + m, with m = 2, 3, 1.
+each scalar sector l ≥ 1, one in each vector sector ([[lem:iv4-1-3]] (a)). The index becomes I + j, with j = 2, 3, 1.
 
 (ii) *Removing the damping.* Deform h⁻¹ to 0 at the weight β₁. The family is continuous in operator norm between the
 fixed spaces, as the h⁻¹-terms (2iσρh⁻¹S̄, and the first-order part h⁻¹ρ²Q̃ of (□^C)^(0) from L_h) map H^(s,(ℓ,β₁))
 boundedly to H^(s−2,(ℓ+1,β₁−2)). It stays Fredholm, by the estimates above, whose thresholds hold for every h⁻¹ ≥ 0
-with this ℓ and whose weight β₁ stays root-free. So the index I + m is kept at h⁻¹ = 0. There the operator is
+with this ℓ and whose weight β₁ stays root-free. So the index I + j is kept at h⁻¹ = 0. There the operator is
 2δ_ηG_ηδ*_η = □_η on 1-forms (Ric(η) = 0, [[lem:s14-box-c]]), acting componentwise in the frame dt, dx^i.
 
 (iii) *Raising β for the free operator.* Its roots at r = 0 are those of [[lem:s14-tf-inputs]] (v), and the window

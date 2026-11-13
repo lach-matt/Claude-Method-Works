@@ -13,12 +13,14 @@ data invariant under G = O(2) × O(2): the development is then G-invariant and s
 boost or rotation ([[prop:vii-3-2]]). [[cor:s27-rate]] chooses the constants so that the final parameters lie within a
 prescribed distance of b₀, and states the rate of settling on compact sets.
 
-In dimension 4 + 1 the argument of [Hin26] needs three changes. (1) The initial family solves a gauge-fixed equation
+In dimension 4 + 1 the argument of [Hin26] needs four changes. (1) The initial family solves a gauge-fixed equation
 whose gauge is cut off near the initial surface ([[thm:iii-c2-3-1]]), while the map Ψ uses the gauge of the forward
 cone; the cut-off of [[lem:iii-k-1-1]] equals 1 on Ω_* and agrees with that of [[thm:iii-c2-3-1]] on the exterior
-domain. (2) The Nash–Moser theorem with support classes asks for support conditions on every component of supported
-character ([[sec:iii-k-3]]). (3) The right inverses of [[thm:iii-j1-2-1]] are formed for Ψ, in which the boost
-direction carries the initial family ([[lem:iii-k-2-3]]). The region near null infinity that the initial family must
+domain. (2) The background of [[ch:s21]] is translated as well as boosted ([[def:iii-i7-1-2]]), so the initial family
+is posed for a translation composed with a boost ([[prop:iii-k-1-2]]). (3) The Nash–Moser theorem with support classes
+asks for support conditions on every component of supported character ([[sec:iii-k-3]]). (4) The right inverses of
+[[thm:iii-j1-2-1]] are formed for Ψ, in which the boost and translation directions carry the initial family
+([[lem:iii-k-2-3]]). The region near null infinity that the initial family must
 reach, a slab bounded in t_*, is solved together with the exterior problem ([[sec:iv3-0]]–[[sec:iv3-2]]), and the
 compact sets that the uniqueness lemma [[lem:ii-f-1-3]] asks for are supplied near ℐ⁺ and near spatial infinity by
 [[lem:iii-k-6-1]] and [[lem:iii-k-6-2]].
@@ -31,7 +33,13 @@ depend on it. C′ is the constant of [[eq:iii-b-3-6]], so that t_* = t − |x| 
 the constant value of ψ_IVP on [R₃, ∞) ([[lem:iii-b-3-7]] (b)), so that t_IVP = t − C″ on {|x| ≥ R₃}. The time function
 t^♭_* is that of [[lem:ii-c-3-2]] with ℓ = ½; its constant C′ of [[lem:ii-c-3-2]] (b) is written C_♭ ∈ (0, 1) here, to
 distinguish it from the constant of [[eq:iii-b-3-6]]. M_(1/2) is the space of [[def:iii-b-2-1]] on which ρ_I^(1/2) is
-smooth. For S = S_w ∈ 𝒮_1 we write |S| := |w|.
+smooth. For S = S_w ∈ 𝒮_1 we write |S| := |w|. The boosts φ_S, S ∈ 𝒮_1, are those of [[sec:iii-b-5]] and the
+translations ψ_(S⁰), S⁰ ∈ 𝒮_1, those of [[lem:iii-i7-1-1]]; for S, S⁰ ∈ 𝒮_1 put
+
+    φ_(S,S⁰) := ψ_(S⁰) ∘ φ_S,     so that φ_(S,0) = φ_S.                                                {#eq:s27-motion}
+
+Both factors are time-1 flows of b-vector fields, φ_(−S) = φ_S⁻¹ and ψ_(−S⁰) = ψ_(S⁰)⁻¹ ([[lem:iii-b-5-1]],
+[[lem:iii-i7-1-1]] (a)), so φ_(S,S⁰)⁻¹ = φ_(−S) ∘ ψ_(−S⁰).
 
 ### Setting {#sec:iii-k-0}
 
@@ -43,9 +51,10 @@ C_♭ t_* ≤ t^♭_* ≤ t_* there ([[lem:ii-c-3-2]] (b)); a sublevel set {t^�
 
 so that {t^♭_* ≥ T̂} ⊂ Ω_*. Every level used below, the top of the region 𝒟 of [[prop:iii-k-1-2]] and the levels of
 the support classes of [[sec:iii-k-3]], lies at t^♭_* ≥ T̂ ≥ 2. The cut-off χ_−, the region 𝒟 and the support classes
-are defined by t^♭_*. Its differential is past timelike for every g_(b₀) + h with h small in 𝒢̃^(0,(1,0,0))_(e3b)
-([[lem:ii-c-3-2]] (2)), a margin that survives the perturbations used below; the timelike margin of dt_* near ℐ⁺ is
-only of order m₀r⁻², as g_(b₀)⁻¹(dt_*, dt_*) = −18m₀r⁻² + O(r⁻⁴) there, and a perturbation h₀₀ of order ρ_I^z,
+are defined by t^♭_*. Its differential is past timelike for every g_(b₀) + h with h small in 𝒢̃^(0,(1,0,0))_(e3b),
+on {t_* > 1} by [[lem:ii-c-3-2]] (2) and on {t_* > ½} by [[lem:s27-below]], a margin that survives the perturbations
+used below; the timelike margin of dt_* near ℐ⁺ is
+only of order m₀r⁻², as g_(b₀)⁻¹(dt_*, dt_*) = −16m₀r⁻² + O(r⁻⁴) there, and a perturbation h₀₀ of order ρ_I^z,
 Re z < 2, can overturn it. t^♭_* is smooth on M_(1/2) near ℐ⁺ ([[lem:ii-c-3-2]] (a)) and equals t_* on ℐ⁺.
 
 *The cut-off χ_K and the background.* We take the cut-offs χ^♭_K, χ_K, χ^♯_K of [[sec:iii-b-5]] with the condition
@@ -54,11 +63,17 @@ Re z < 2, can overturn it. t^♭_* is smooth on M_(1/2) near ℐ⁺ ([[lem:ii-c-
     supp χ_K ⊂ {t^♭_* ≥ T_K};
 
 so χ_K = 0 on {t_* < T_K}, as t^♭_* ≤ t_*. Every statement of [[ch:s19]]–[[ch:s25]] holds with this threshold, the
-supports only shrinking. 𝒮_1 and the boosts φ_S are those of [[sec:iii-b-5]], g_(b₀,b,−S) is [[eq:iii-i-1-1]], and P_5
-is the augmented operator [[eq:iii-i14-1-3]]; its background at p⃗_(≤0) = (S, b − b₀, S^(0)_1) is the translated
-background g_(p⃗_(≤0)) of [[eq:iii-i7-1-3]], which is g_(b₀,b,−S) when S^(0)_1 = 0, and we write g_(b₀,b,−S) for it
-below [[pending:issue-1]]. Φ, the data space 𝒟, the class ℱ and 𝒳_J are those of [[def:iii-j-1-1]],
+supports only shrinking. The cut-offs being chosen consistently, the threshold 60R₁ of [[sec:iii-b-5]] at which
+χ^♭_K = 1 on {|x| < t/10} is raised with T_K, as [[eq:iii-i-1-2]] presumes: there is T′ ≥ 60R₁ with χ^♭_K = 1 on
+{|x| < t/10, t > T′}. g_(b₀,b,−S) is [[eq:iii-i-1-1]], and P_5 is the augmented operator [[eq:iii-i14-1-3]]; its
+background at p⃗_(≤0) = (S, b − b₀, S^(0)_1) is the translated background of [[eq:iii-i7-1-3]],
+
+    g_(p⃗) = (1 − χ_K) φ_(−S,−S^(0)_1)^* g_(b₀) + χ_K g_b,
+
+which is g_(b₀,b,−S) when S^(0)_1 = 0. Φ, the data space 𝒟, the class ℱ and 𝒳_J are those of [[def:iii-j-1-1]],
 [[def:iii-j-classes]] and [[thm:iii-j-2-4]], and 𝒟_ex, ℱ_ex, 𝒳_(J,ex), 𝒬_ex are the exact classes of [[def:iii-j3-1-1]].
+The data space is always written with a sub- or superscript (𝒟_ex, 𝒟^k_ex, 𝒟^∞_ex) below, so that 𝒟 alone denotes the
+region of [[prop:iii-k-1-2]].
 
 *The two time functions.* Put F(r) := t_IVP − t_* = ψ(r) − ψ_IVP(r). By [[lem:iii-b-3-7]] (b), ψ_IVP = ψ on [r_♭, 5R₁]
 and 0 ≤ ψ_IVP′ ≤ ψ′ beyond, so F ≥ 0, F′ ≥ 0 and F = 0 on [r_♭, 5R₁]; so t_* ≤ t_IVP. For r ≥ R_5 := max(R₃, 3R₁),
@@ -84,9 +99,11 @@ the conditions can be met together.
 
 *The cut-off χ_ι.* We take the cut-off χ_ι = χ(t_*) of [[sec:iii-g2-4]] with χ = 0 on (−∞, T_ι] and χ = 1 on
 [T_ι + 1, ∞). Then χ_ι = 0 on {t_* ≤ T_ι} ⊃ {t^♭_* ≤ T̂ + 2} (as C_♭t_* ≤ t^♭_*), and supp dχ_ι ⊂
-{T_ι ≤ t_* ≤ T_ι + 1} is disjoint from supp χ_K, as T_K > T_ι + 1. [[sec:iii-g2-4]] and [[ch:s23]] use of χ_ι only that
-it is a function of t_*, equal to 1 near ι⁺, supported in Ω_*, with derivatives supported in a compact t_*-interval;
-so this choice is admissible, and the ι⁺-terms of Φ do not reach the region of the initial family.
+{T_ι ≤ t_* ≤ T_ι + 1} is disjoint from supp χ_K, as T_K > T_ι + 1. [[sec:iii-g2-4]] uses χ_ι in the proof of
+[[thm:iii-g2-4-2]] only through χ_ι = 1 near ι⁺ and through the commutator [L_b, χ_ι] = χ′(t_*)[L_b, t_*] +
+½χ″(t_*)[[L_b, t_*], t_*], supported where χ′(t_*) ≠ 0, a compact t_*-interval; [[ch:s23]] uses it in
+[[eq:iii-j-2-1]] and the results built on it only as a real function of t_*, equal to 1 near ι⁺ and supported in Ω_*.
+Both hold for this choice, so it is admissible, and the ι⁺-terms of Φ do not reach the region of the initial family.
 
 ### The initial family {#sec:iii-k-1}
 

@@ -400,3 +400,28 @@ Items found while chapters were written in parallel; each is settled once, editi
   seed 2), not the source's sampled 1.20 × 10⁻³, 5.28 × 10⁻⁴ or "4.1-4.3 %".
 - Proof A (R-P-A): A1 and A2 proved; computational-2 (33:2179) discharged. h = 10⁻⁶ may not lie in 𝖧 = (0, h_*)∖𝖹,
   the set the theorems use (the A fix and A3 resolve it). Remaining gap of computational-1 sent to A3.
+- Chapters 8-9 confirmed (R3-08-09). Nits: l.46 "(a) is [[lem:domain]] (a)" holds for Ω's slices only, so give the
+  contraction itself; l.58 should read "Σ̂_τ1 ∩ P ∩ {v ≤ v_start}".
+- Proof F closed: ℬ_k for the bound (no b_ left), 𝒫_k for Lemma (a)'s local quantity, the Remark's percentages
+  (12/5 and 21/10 are 3.9 % and 5 % above their limits; 2.13951 is 7.4 % below 4/√3). Chapter 85 renames to match.
+- Proof A3 written (proofs/P-A3-every-h.md): every h ∈ (0, 10⁻⁶] and l ≥ 1, three roots with Re < −1/(2h), three with
+  Re ≥ 2, so 𝖧 is covered. On confirmation, chapter 33's marker (~285) becomes the sentence citing
+  prop:s14-scalar-every-h, and the section goes before prop:np-10-54.
+- S13 fixed (F-S13): ε_Υ defined once (sec:iii-d2-1); the reflection is Ξ (D means ρ∂_ρ); new keys prop:np-10-19-i,
+  lem:s13-dim-four, rem:s13-kerr-frame. Renames to follow in ch. 34 (1113-1117, 1155-1158, 1517, 1830-1832), ch. 36
+  (1416) and ch. 42 (114, which mixes ℰ_ind with S15's ε_ind). S12 writes the static time t_s, S13 writes t.
+- S21 second reading (R2-S21): E^ν's ι⁺-class unproved in (e); the parameter ball should point to S20's
+  (lem:s20-rows); lem:iii-i8-3-2's "continuous in F" overclaims, so lem:iii-i8-3-3's "→ 0" at b ≠ b₀ needs (i) at α′.
+  S22 line ~885 copies the same pattern (for the S22 round). S21 cites (P6) six times, and 38a has no (P6) yet: S25
+  step 2 must carry (P6) into S21 or 38a.
+- S19 second fix (F2-S19): new lem:s19-products and lem:s19-inverse; prop:iii-i-3-3 now expands around its own g_1
+  (δ = h). Crosswalk two rows short (108 labels, 106 rows).
+- Chapters 6-7 (R3-06-07): Step 8 correct; 0 Major. The minor is in Ch 3 (03:131-132), for the Ch 3 round: replace
+  "Taking λ0 so small that C λ0 ≤ ε1, [[lem:gauge-propagation]] gives D(g_λ) = 0 and Ric(g_λ) = 0." by "Taking λ0 so
+  small that C λ0 ≤ ε1, g_λ is within ε1 of g0, hence Lorentzian by [[lem:lorentz-margin]] (ε1 < s0), and it is smooth
+  by [[thm:uniform-existence]], the data of [[thm:data]] being smooth; so [[lem:gauge-propagation]] gives D(g_λ) = 0
+  and Ric(g_λ) = 0. λ0 and C depend only on (l5, μ0, A, env, T, τ0, K) and a, through Ω, the profiles, C_R and C_D."
+  Nits for the integration pass: L also names the torus period at 06:336 and L⁴ the Lebesgue space at 06:431-436
+  (rename, e.g. Θ); name the C in λ_ext; state |β| ≤ 2L; state Hadamard's inequality; (iii) uses C M λ0^(K−3) ≤ ε2/2
+  with ε2 independent of λ, unstated; N3 paraphrase "continuous, with continuous first derivatives in t and u"
+  (optional); 07:83 "hypotheses … on Σ_τ0".

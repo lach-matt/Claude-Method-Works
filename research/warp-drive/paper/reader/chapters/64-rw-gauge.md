@@ -778,4 +778,251 @@ components 2r^(−3/2)Φ, which carry no derivative. h_0 − cK = 0 by the gauge
 orthogonality of the harmonics and ‖S‖² ≤ (3/80)‖Y_αβ‖² gives [[eq:np-10-1-iv-b]]. That the scalar-type part of Q_0
 cannot be dropped is [[lem:np-10-1b]]. ∎
 
-[[pending:issue-rw-continue]]
+### Uniformly in r {#sec:rw-uniform}
+
+The statements on the regions {r ≤ R} have constants growing with R. This section decides what holds uniformly in r,
+on the outgoing part of [HKW18]'s leaves.
+
+*Notation.* r_* := r + (r_h/2) log((r − r_h)/(r + r_h)), so that dr_*/dr = 1/f; u := t − r_* and v := t + r_* (twice
+the u and v_H of [HKW18], (13)); the static t is related to that of [[sec:rw-setting]] by v = t + r_* up to a
+constant. In the outgoing chart (u, r), g = −f du² − 2 du dr + r²γ and T = ∂_t = ∂_u. A scalar mode of the class has
+harmonic S = P_j(cos 2ϑ), l = 2j ≥ 2, master field Φ(u, r), and in the gauge of [[prop:np-10-1]] (ii) it is
+h = F_abS dy^ady^b + 2r²FSγ with [[eq:np-10-1]]. The orthonormal frame of the static observers on {r > r_h} is
+e_0 = f^(−1/2)∂_t = f^(−1/2)∂_u, e_1 = f^(1/2)∂_r|_t = f^(1/2)∂_r − f^(−1/2)∂_u, and the unit frame e_i of the sphere of
+radius r, in which h(e_i, e_j) = 2FSδ_ij. The master equation □Φ = W_SΦ, with □ = −2∂_u∂_r + ∂_r(f∂_r) in this chart,
+reads
+
+    2f∂_rTΦ = f∂_r(f∂_rΦ) − VΦ,        V = V_S.                                                         {#eq:rwg-master}
+
+Its jets are Φ, TΦ, T²Φ, ∂_rΦ, ∂_rTΦ, ∂_r²Φ, ∂_r at fixed u. The leaves of [[thm:rw-hkw]] (F) meet {r ≥ R_1} in the
+outgoing cones C_τ := {u = u_τ, r ≥ R_1}, u_τ = u_0 + τ.
+
+**Lemma {#lem:rwg-1}** (The components on the outgoing chart.) With ∂_r²Φ eliminated by [[eq:rwg-master]],
+
+    r^(1/2)·2F = −TΦ + f∂_rΦ + ((2𝔪 + 6ς + 9f − 72fς/H)/(6r))Φ,
+    h(e_0, e_1) = r^(1/2)S (−f⁻¹T²Φ + ∂_rTΦ − r⁻¹(ς/f − 3/2 + 12ς/H)TΦ),
+    h(e_0, e_0) = r^(1/2)S (f⁻¹T²Φ + r⁻¹(ς/f − 2 + 12ς/H)TΦ + r⁻¹(2f − ς − 12fς/H)∂_rΦ + r⁻²a_00Φ),
+    h(e_1, e_1) = r^(1/2)S (f⁻¹T²Φ + r⁻¹(ς/f − 1 + 12ς/H)TΦ + r⁻¹(f − ς − 12fς/H)∂_rΦ + r⁻²a_11Φ),
+
+with a_00 := (2/3)H + 3 − (19/2)ς − (42ς − 66ς²)/H + 144ς²f/H² and a_11 := H/3 + 3/2 − 7ς − (30ς − 54ς²)/H + 144ς²f/H².
+In particular: (i) the coefficient of T²Φ in h(e_0, e_0), h(e_0, e_1), h(e_1, e_1) is r^(1/2)/f, −r^(1/2)/f, r^(1/2)/f,
+and T²Φ does not occur in h(e_i, e_j); the coefficient of TΦ in 2F is −r^(−1/2); ∂_rTΦ occurs only in h(e_0, e_1).
+(ii) Every coefficient of r^(−1/2)h(e_a, e_b) (a, b ∈ {0, 1}) and of r^(1/2)·2F is f^(−1) times a finite sum of terms
+H^α r^β (times powers of m₀) with α ≤ 0, except that the coefficient of Φ carries α ≤ 1 (the factor 𝔪, two angular
+derivatives), and the largest β are
+
+    jet                T²Φ      ∂_rTΦ    TΦ      ∂_rΦ     Φ
+    orbit block         0         0      −1      −1      −2
+    angular block     absent    absent    0       0      −1
+
+the 0's being attained by T²Φ in h(e_0, e_0) and by TΦ in 2F. On {r ≥ R_1}, f⁻¹ ≤ (1 − m₀/R_1²)⁻¹, so r^(−1/2)h(e_a, e_b)
+and r^(1/2)h(e_i, e_j) are bounded by the jets with the weights r^β, uniformly in r ≥ R_1 and in l (5 ≤ H ≤ (11/8)k²).
+
+*Proof.* In the chart (u, r), g_uu = −f, g_ur = −1, g_rr = 0, and the Christoffel symbols that do not vanish are
+Γ^u_uu = −f′/2, Γ^r_uu = ff′/2 and Γ^r_ur = f′/2; so D_uD_u = ∂_u² + (f′/2)∂_u − (ff′/2)∂_r,
+D_uD_r = ∂_u∂_r − (f′/2)∂_r, D_rD_r = ∂_r², □ = −2D_uD_r + fD_rD_r and Dr · DΦ̃ = −∂_uΦ̃ + f∂_rΦ̃. A symmetric
+B has B(e_0, e_0) = f⁻¹B_uu, B(e_0, e_1) = B_ur − f⁻¹B_uu, B(e_1, e_1) = fB_rr − 2B_ur + f⁻¹B_uu. Write Φ̃ = ρΦ,
+ρ := r^(3/2)H; with H′ = −12ς/r, ρ′/ρ = 3/(2r) − 12ς/(rH) and ρ″/ρ = 3/(4r²) (ρ = 𝔪r^(3/2) + 6m₀r^(−1/2)). The
+first line is [[eq:np-10-1]], with rF = (r^(−1/2)/12)((2H − 6ς + 9f − 72fς/H)Φ − 6rTΦ + 6rf∂_rΦ). Put
+A_ab := H⁻¹(D_aD_bΦ̃ − (1/2)(□Φ̃)g_ab), trace-free, so A(e_1, e_1) = A(e_0, e_0); by [[eq:np-10-1]],
+h(e_a, e_b) = r⁻¹S(A(e_a, e_b) − rF g(e_a, e_b)), with g(e_0, e_0) = −1, g(e_1, e_1) = 1 and g(e_0, e_1) = 0. In
+f⁻¹D_uD_uΦ̃ − D_uD_rΦ̃ the terms in ∂_rΦ and Φ cancel:
+
+    f⁻¹D_uD_uΦ̃ − D_uD_rΦ̃ = ρ(f⁻¹T²Φ − ∂_rTΦ + (f′/(2f) − ρ′/ρ)TΦ).
+
+So A(e_0, e_1) = −(ρ/H)(f⁻¹T²Φ − ∂_rTΦ + (f′/(2f) − ρ′/ρ)TΦ), which gives h(e_0, e_1) with f′/(2f) = ς/(rf). And
+A(e_0, e_0) = H⁻¹(f⁻¹D_uD_uΦ̃ − D_uD_rΦ̃ + (f/2)D_rD_rΦ̃), where (f/2)ρ∂_r²Φ = ρ∂_rTΦ − (f′/2)ρ∂_rΦ + (ρW/2)Φ by
+[[eq:rwg-master]]; the ∂_rTΦ terms cancel and
+
+    A(e_0, e_0) = r^(3/2)(f⁻¹T²Φ + (f′/(2f) − ρ′/ρ)TΦ + (fρ′/ρ − f′/2)∂_rΦ + (W/2 + fρ″/(2ρ))Φ).
+
+Adding and subtracting rF and inserting r²W from [[eq:rw-potentials]] gives h(e_0, e_0) and h(e_1, e_1); for instance
+the coefficient of Φ in r^(3/2)h(e_0, e_0)/S is r²W/2 + 3f/8 + (2H − 6ς + 9f − 72fς/H)/12 = a_00, using
+k² = H + 3 − 6ς and f = 1 − ς. (i) and (ii) are read off: the coefficients of TΦ and ∂_rΦ in the orbit block carry
+r^(−1/2) = r^(1/2)r⁻¹, those of Φ carry r^(−3/2) and a factor H, and those of the angular block r⁰ and r⁻¹. Finally
+H = k² − 3 + 6ς ≤ k² + 3 ≤ (11/8)k² for k² ≥ 8. ∎
+
+**Theorem {#thm:rwg-1}** (Uniformly in r the statement fails.) For every τ_1 ≥ 0, every even l ≥ 2 and every
+(A, B) ∈ ℝ² there is a smooth linearised vacuum solution h about g, on the future of Σ_0 in the exterior and up to the
+future horizon, in the class, consisting of the single scalar mode l in the gauge f_a = 0 = H_T (no l = 0 part, no
+tensor part), such that
+
+(i) its master quantity has I_(XΨ)(Σ_0) < ∞ for every X a product of T and the rotations (all orders);
+
+(ii) on C_(τ_1), with Φ_uu(r) := T²Φ(u_(τ_1), r) = B + (A/2)∫_r^∞ (V/f) dr′,
+
+    h(e_i, e_j) = −Ar^(−1/2)Sδ_ij,        h(e_0, e_0) = r^(1/2)f⁻¹Φ_uu(r)S + c_A(r)AS,
+
+with c_A = −(2𝔪r⁴ − 3𝔪m₀r² − 6m₀²)/(r^(1/2)(r² − m₀)(𝔪r² + 6m₀)) = O(r^(−1/2)), and for A = 0:
+
+    h(e_0, e_0) = Br^(1/2)f⁻¹S,   h(e_0, e_1) = −Br^(1/2)f⁻¹S,   h(e_1, e_1) = Br^(1/2)f⁻¹S,   h(e_i, e_j) = 0.
+
+In particular, for B ≠ 0, sup_(Σ_(τ_1)) |h(e_0, e_0)| = ∞ and ∫_(R_1)^∞ r⁻²‖h(e_0, e_0)‖² dr = ∞ on that leaf, while
+I_Ψ(Σ_0) < ∞: no estimate sup_(Σ_τ) |h(e_a, e_b)| ≤ C(τ)𝒟^(1/2), and no estimate of ∫r⁻²‖h(e_a, e_b)‖² dr along the
+leaf, holds at any τ, whatever the data norm 𝒟 built from the energies of [[thm:rw-hkw]]. For A ≠ 0,
+r^(1/2)|h(e_i, e_j)| = |A||S| on C_(τ_1), so the weight r^(1/2) of [[thm:rwg-2]] (c) on the angular block is attained.
+
+*Proof.* Step 1 (the Kruskal form of the master equation). Put 𝒰 := −e^(−u/r_h) and 𝒱 := e^(v/r_h). Then
+−𝒰𝒱 = e^(2r_*/r_h) = F(r) := e^(2r/r_h)(r − r_h)/(r + r_h), and F′(r) = 2r²e^(2r/r_h)/(r_h(r + r_h)²) > 0 on (0, ∞),
+F(0) = −1, F → ∞; so r is a smooth function of 𝒰𝒱 on {𝒰𝒱 < 1}. With ∂_u = −(𝒰/r_h)∂_𝒰 and ∂_v = (𝒱/r_h)∂_𝒱, the
+orbit metric is −f du dv and the master equation 4∂_u∂_vΦ + VΦ = 0 becomes ∂_𝒰∂_𝒱Φ = cΦ with
+
+    c := −(r_h²/4)(V/f)(f/(−𝒰𝒱)) = −(r_h²/4) W_S (r + r_h)² e^(−2r/r_h)/r²,
+
+smooth wherever r > 0. The past horizon is {𝒱 = 0}, the future horizon {𝒰 = 0}, and C_(τ_1) lies on {𝒰 = 𝒰_1},
+𝒰_1 := −e^(−u_(τ_1)/r_h).
+
+Step 2 (the Goursat problem). Let g(𝒰) := α(𝒰 − 𝒰_1) + (β/2)(𝒰 − 𝒰_1)², and on each rectangle
+Q = [𝒰_−, 𝒰_+] × [0, 𝒱_+] with 𝒰_− ≤ 𝒰_1 ≤ 𝒰_+ and 𝒰_+𝒱_+ < 1 consider
+
+    Φ(𝒰, 𝒱) = g(𝒰) + ∫_(𝒰_1)^𝒰 ∫_0^𝒱 c(𝒰′, 𝒱′)Φ(𝒰′, 𝒱′) d𝒱′ d𝒰′                                         {#eq:rwg-goursat}
+
+(signed integrals). Its n-th Picard iterate differs from the previous one by at most
+sup_Q|g| (M|𝒰 − 𝒰_1|𝒱)^n/(n!)², M := sup_Q|c|, by induction; so [[eq:rwg-goursat]] has a unique continuous
+solution on Q, which is smooth (differentiate [[eq:rwg-goursat]] repeatedly), and the solutions on nested rectangles
+agree. The union of these rectangles contains the exterior {𝒰 < 0, 𝒱 > 0}, the future horizon and a neighbourhood of
+it inside. This gives a smooth Φ with ∂_𝒰∂_𝒱Φ = cΦ, Φ(𝒰, 0) = g(𝒰) and Φ(𝒰_1, 𝒱) = 0.
+
+Step 3 (the jets on C_(τ_1)). On 𝒰 = 𝒰_1, Φ = 0, so ∂_𝒱^kΦ = 0; ∂_𝒱∂_𝒰Φ = cΦ = 0 gives ∂_𝒰Φ = g′(𝒰_1) = α, and
+∂_𝒱∂_𝒰²Φ = ∂_𝒰(cΦ) = cα. In the outgoing chart, where ∂_u² = (𝒰²∂_𝒰² + 𝒰∂_𝒰)/r_h², this says: along C_(τ_1),
+Φ = ∂_rΦ = ∂_r²Φ = 0 and TΦ = A := −𝒰_1α/r_h; then ∂_rTΦ = 0 by [[eq:rwg-master]], and its u-derivative gives
+2f∂_rT²Φ = −VA, so T²Φ = B + (A/2)∫_r^∞ (V/f)dr′, the integral finite as V/f = O(r⁻²), B being its limit at null
+infinity. Along C_(τ_1), d𝒱 = (𝒱/r_h)dv and dv = 2dr/f, so ∫_0^∞|c(𝒰_1, 𝒱)|d𝒱 = (r_h/(2|𝒰_1|))∫(V/f)dr < ∞, and
+
+    B = (𝒰_1²(β + α∫_0^∞ c(𝒰_1, 𝒱)d𝒱) + 𝒰_1α)/r_h²,
+
+affine in β with slope 𝒰_1²/r_h² ≠ 0; every (A, B) is reached by choosing α and then β.
+
+Step 4 (the metric). With S = P_(l/2)(cos 2ϑ), [[eq:np-10-1]] applied to ΦS gives h in the gauge f_a = 0 = H_T; it is
+a linearised vacuum solution by [[thm:rw-ki]] (S). It is smooth up to the future horizon, because Φ is smooth in
+(𝒰, 𝒱) and 𝒰 = −e^(−v/r_h)F(r), 𝒱 = e^(v/r_h) are smooth functions of the ingoing chart (v, r) there; it is in the
+class because S depends on ϑ alone. [[lem:rwg-1]] and the jets of Step 3 give (ii): the coefficient of TΦ in
+h(e_0, e_0) is r^(−1/2)(ς/f − 2 + 12ς/H) = c_A, and the angular block is r^(−1/2)(−TΦ)Sδ_ij.
+
+Step 5 (the data). On Σ_0 ∩ {r ≤ R_1} the solution is smooth on a compact set, so every energy there is finite. On
+C_0 = Σ_0 ∩ {r ≥ R_1} (u_0 ≤ u_(τ_1)): the rotations act within the mode, so it suffices to take X = T^a. Each T^aΦ
+solves the master equation (T = (𝒱∂_𝒱 − 𝒰∂_𝒰)/r_h is Killing), with data on {𝒱 = 0} and on {𝒰 = 𝒰_1} that are bounded
+(on 𝒰 = 𝒰_1 they are the T^aΦ found below, bounded along the cone). On the strip u_0 ≤ u ≤ u_(τ_1),
+∫∫|c| d𝒰 d𝒱 = (1/4)∫∫V du dv = (1/2)(u_(τ_1) − u_0)∫_(r_h)^∞ (V/f)dr < ∞, so the Picard bound of Step 2 gives
+sup|T^aΦ| < ∞ on the strip. Along u = u_0, integrating 4∂_u∂_vΦ = −VΦ in u,
+
+    ∂_vT^aΦ(u_0, v) = ∂_vT^aΦ(u_(τ_1), v) + (1/4)∫_(u_0)^(u_(τ_1)) VT^aΦ du′;
+
+the first term is (f/2)∂_rT^aΦ on C_(τ_1), and the second is O(r⁻²), V being O(r⁻²) uniformly for u in a compact
+interval at fixed v. On C_(τ_1) the T^aΦ =: Φ_a are determined by Φ_0 = 0, Φ_1 = A through the u-derivatives of
+[[eq:rwg-master]], ∂_rΦ_(a+1) = (1/2)∂_r(f∂_rΦ_a) − (1/2)r⁻²qΦ_a, q := r²V/f = r²W_S, which is analytic in 1/r at
+null infinity ([[eq:rw-potentials]], H → 𝔪 ≥ 5); if Φ_a = c_a + O(1/r) and ∂_rΦ_a = O(r⁻²) as convergent power series
+in 1/r, then ∂_rΦ_(a+1) = O(r⁻²) and Φ_(a+1) = c_(a+1) + O(1/r). So for every a, ∂_rT^aΦ = O(r⁻²) and T^aΦ = O(1) on
+C_0, and every energy in I_(XΨ)(Σ_0), which on C_0 is bounded by ∫r^p(∂_rT^aΦ)² dr with p ≤ 2 and by
+∫((∂_rT^aΦ)² + k²(T^aΦ)²/r²) dr ([[lem:rwg-cone]], [[thm:rw-hkw]] (P)), is finite. For τ_1 = 0 the strip is empty. ∎
+
+In words: on [HKW18]'s leaves, which run out to null infinity, the gauge f_a = 0 = H_T puts T²Φ, the radiation of the
+master field, into the orbit-space components with the weight r^(1/2) ([[lem:rwg-1]] (i)).
+
+**Lemma {#lem:rwg-s}** (A weighted Hardy-type bound.) If w is a C¹ function on [R, ∞) with
+∫_R^∞ (w²/s² + w′²) ds < ∞, then
+
+    sup_(r≥R) w(r)²/r ≤ 2(∫_R^∞ w²/s² ds)^(1/2)(∫_R^∞ w′² ds)^(1/2) + ∫_R^∞ w²/s² ds;
+
+and if ∫_R^∞ (w² + w′²) ds < ∞, then sup w² ≤ 2(∫w²)^(1/2)(∫w′²)^(1/2).
+
+*Proof.* d(w²/s)/ds = 2ww′/s − w²/s², and liminf_(s→∞) w²/s = 0, for otherwise w²/s² ≥ c/s would not be integrable.
+Integrate from r to a sequence s_n → ∞ along which w²/s_n → 0 and apply Cauchy–Schwarz. For the second, d(w²)/ds = 2ww′
+and liminf |w| = 0. ∎
+
+**Theorem {#thm:rwg-2}** (What holds uniformly in r.) Let h be a perturbation of the class in the gauge of
+[[prop:np-10-1]] (ii) for every l ≥ 2, with h_0 = cK, and Ψ_l the master quantities of its modes. On {r ≥ R_1} write
+h_(ab) := (h − cK)(e_a, e_b) and h_(ij) := (h − cK)(e_i, e_j), the frame components of h − cK, ‖·‖ the L²(S³) norm at
+fixed (τ, r), the argument (τ, r) meaning the point of C_τ at radius r, and
+
+    D := Σ_l Σ_X I_(XΨ_l)(Σ_0),        X ∈ {1, T, T², Ω, TΩ, Ω²}.
+
+Then, with C depending on m₀ and R_1 only, for τ ≥ 1 and every 0 < δ ≤ 1/2:
+
+    (a) ∫_(R_1)^∞ (r⁻³‖h_(ab)‖² + r⁻¹‖h_(ij)‖²)(τ, r) dr ≤ C D τ⁻²,
+    (b) sup_(r≥R_1) (r⁻¹‖h_(ab)‖ + ‖h_(ij)‖)(τ, r) ≤ C D^(1/2) τ⁻¹,
+    (c) sup_(r≥R_1) (r^(−1/2)‖h_(ab)‖ + r^(1/2)‖h_(ij)‖)(τ, r) ≤ C δ^(−1/2) D^(1/2) τ^(δ−1/2).
+
+The integral in (a) is against dr dσ, dσ the measure of the unit sphere; against the leaf's own volume form
+r³f⁻¹dr dσ it is false (for the family of [[thm:rwg-1]], ∫r⁻³|h(e_0, e_0)|²r³f⁻¹ dr = B²‖S‖²∫rf⁻³ dr = ∞). The
+weights in (c) are the exact growth and decay of [[thm:rwg-1]] and cannot be raised; in (a), r⁻³ cannot be replaced by
+r⁻². The subtraction of cK is needed: K(e_a, e_b) = 1/(r² − m₀) for a, b ∈ {0, 1} and K(e_i, e_j) = 0, and as the class
+harmonics of degree l ≥ 2 have mean zero, ‖h(e_a, e_a)‖² = ‖h_(aa)‖² + 2π²c²/(r² − m₀)², which does not decay for c ≠ 0.
+
+*Proof.* Step 1 is [[lem:rwg-cone]]: on C_τ, ∫((∂_rXΦ)² + k²(XΦ)²/r²) dr ≤ C_1Ě^N_(XΨ)(Σ_τ)/‖Y‖², and by
+[[thm:rw-hkw]] (B) applied to XΨ, Ě^N_(XΨ)(Σ_τ) ≤ CI_(XΨ)(Σ_0)τ⁻².
+
+Step 2, (a). By [[lem:rwg-1]] and [[eq:rwg-master]], r^(−3/2)h_(ab) and r^(−1/2)h_(ij) are, mode by mode, combinations
+of T²Φ, TΦ and Φ with coefficients O(r⁻¹) (times H ≤ (11/8)k² for Φ), and of ∂_rTΦ and ∂_rΦ with coefficients O(1),
+uniformly in l. So, with ‖S‖² ≤ (3/80)‖Y_αβ‖², the left side of (a) is bounded by the sum over X ∈ {1, T, T², Ω} of
+the left sides of Step 1, the factor H² on Φ² being bounded by the Ω-commuted energy, which carries k⁴Φ²/r²; hence by
+CDτ⁻².
+
+Step 3, (b). Apply [[lem:rwg-s]] with Step 1, mode by mode. For w = T^aΦ (a ≤ 2), ∫w²/s² ≤ (1/8)∫k²w²/s², so
+sup r^(−1/2)|T^aΦ| ≤ C(Ě^N_(T^aΨ)/‖Y‖²)^(1/2). For w = k²Φ, sup r^(−1/2)k²|Φ| ≤ C((Ě^N_(ΩΨ) + Ě^N_(Ω²Ψ))/‖Y‖²)^(1/2).
+For w = ∂_rT^aΦ (a ≤ 1), w′ = ∂_r²T^aΦ = (2/f)∂_rT^(a+1)Φ − (f′/f)∂_rT^aΦ + (V/f²)T^aΦ by [[eq:rwg-master]], and
+|V| ≤ Ck²r⁻² ([[lem:rw-potentials]]), so sup|∂_rT^aΦ| ≤ C((Ě^N_(T^aΨ) + Ě^N_(T^(a+1)Ψ) + Ě^N_(T^aΩΨ))/‖Y‖²)^(1/2). Each
+is at most CD^(1/2)τ⁻¹ by Step 1. [[lem:rwg-1]] (ii), with the weight r⁻¹ on the orbit block and r⁰ on the angular
+block, puts every term under one of these suprema with a bounded coefficient.
+
+Step 4, (c). The new input is sup|T²Φ| and sup|TΦ|, the terms of weight r⁰ in [[lem:rwg-1]] (ii); the others are
+handled by Step 3. For w = T^aΦ (a = 1, 2) on C_τ and p := 1 + 2δ,
+
+    |w(r)| ≤ |w(R_1)| + ∫_(R_1)^∞|w′| ≤ R_1^(1/2) sup r^(−1/2)|w| + (∫s^pw′²)^(1/2)(R_1^(1−p)/(p − 1))^(1/2).
+
+The first term is at most CD^(1/2)τ⁻¹ by Step 3. For the second: on the cone, by [[thm:rw-hkw]] (P) and
+[[lem:rw-hkw-field]], the field r^(3/2)Ψ has norm |Φ||Y|, L = f∂_r and dv_H = dr/f, so
+E^p_(T^aΨ) = ∫r^pf^(−k_H)(∂_rT^aΦ)² dr ‖Y‖², and ∫s^pw′² ≤ E^p_(T^aΨ)/‖Y‖². By Hölder's inequality with
+s^p = s^(2−p)(s²)^(p−1), E^p ≤ (E¹)^(2−p)(E²)^(p−1). By (128) at p = 2 and Lemma 11,
+E²_(T^aΨ)(Σ_τ) ≤ E²_(T^aΨ)(Σ_0) + CĚ^N_(T^aΨ)(Σ_0) ≤ CI_(T^aΨ)(Σ_0). For τ ∈ [τ̃_k, τ̃_(k+1)], (128) at p = 1 from τ̃_k,
+the bound on E¹(Σ_(τ̃_k)) in (B) and (130) give E¹_(T^aΨ)(Σ_τ) ≤ C(τ_k⁻¹ + τ̃_k⁻²)D ≤ CD/τ, as τ ≤ τ_(k+1) = 2τ_k and
+τ̃_k ≥ τ_k/2. So the second term is at most Cδ^(−1/2)D^(1/2)τ^(−(2−p)/2) = Cδ^(−1/2)D^(1/2)τ^(−1/2+δ).
+
+The tensor type. Its frame components are 2H_TT = 2r^(−3/2)Φ_TT, two powers of r^(1/2) better than the angular block
+of the scalar type; Step 1 and [[lem:rwg-s]] give (a)–(c) for it directly, and it is included in h_(ij). The l = 0
+part: h_0 − cK = 0 by the gauge condition. The mode sum: every constant above is uniform in l, and
+‖h_(ab)‖² = Σ_l‖h_(ab),l‖², with the supremum over r of a sum at most the sum of the suprema; so (a)–(c) for the modes
+add up to (a)–(c) for h. The frame components of K follow from dv(e_0) = dv(e_1) = f^(−1/2). ∎
+
+The proof uses the class only through three properties: there is no vector-type part, no l = 1 part, and h_0 = cK.
+[[lem:rwg-1]] holds for every scalar harmonic, its formulas seeing S only through k², and the estimates of
+[[thm:rw-hkw]] hold for every perturbation. So [[thm:rwg-2]] holds for every perturbation of scalar and tensor type with
+l ≥ 2 in the gauge, class or not.
+
+**Theorem {#thm:rwg-2-prime}** (The pointwise form.) With h as in [[thm:rwg-2]], put
+D′ := Σ_(Y ∈ {1, Ω_i, Ω_iΩ_j}) D[ℒ_Yh], which is at most C Σ I_(XΨ)(Σ_0) over X = T^aΩ^b with a ≤ 2, b ≤ 4, a + b ≤ 4.
+Then for τ ≥ 1 and 0 < δ ≤ 1/2, with C depending on m₀ and R_1 only, |h_(ab)| the components as functions on S³ and
+|h_(ij)| the norm of the angular block in the unit sphere's metric:
+
+    (b′) sup_(r≥R_1, ω) (r⁻¹|h_(ab)| + |h_(ij)|)(τ, r, ω) ≤ C D′^(1/2) τ⁻¹,
+    (c′) sup_(r≥R_1, ω) (r^(−1/2)|h_(ab)| + r^(1/2)|h_(ij)|)(τ, r, ω) ≤ C δ^(−1/2) D′^(1/2) τ^(δ−1/2).
+
+*Proof.* At fixed (τ, r), h_(ab) is a function on S³ and h_(ij) is the symmetric tensor r⁻²(h − cK) restricted to the
+sphere, in the unit metric. The rotations commute with e_0, e_1 and with the restriction to the sphere, so
+Ω_iΩ_j(h_(ab)) = (L_iL_jh)_(ab) and L_iL_j(h_(ij)) = (L_iL_jh)_(ij). ℒ_Yh is a linearised vacuum solution in the same
+gauge (the gauge and the decomposition into types are SO(4)-equivariant), of scalar and tensor type only, with modes
+l ≥ 2 only and no l = 0 part (ℒ_Y(cK) = 0). By the remark after [[thm:rwg-2]], (b)–(c) hold for ℒ_Yh with the data
+D[ℒ_Yh], and [[lem:rwg-a]] gives (b′)–(c′). ∎
+
+The weights are sharp in the strongest sense available: the family of [[thm:rwg-1]] realises
+r^(−1/2)h(e_0, e_0) = Bf⁻¹S and r^(1/2)h(e_i, e_j) = −ASδ_ij on a whole cone. The rates in (b)–(c) are what the energy
+decay of [[thm:rw-hkw]] gives through [[lem:rwg-s]] and (128); they are not claimed sharp. A bounded change of frame
+(any frame uniformly comparable to the static one on {r ≥ R_1}) leaves the conclusions unchanged; on {r ≤ R_1} the
+statement for the regions {r ≤ R} is [[prop:np-10-1]] (iv). Nothing here concerns the harmonic gauge.
+
+**Remark {#rem:rw-numerics}** (Numerical observation.) Evolving the master equations in time, no growing mode appears
+in either type for l = 2, …, 10 up to τ = 275 r_h: on the region r_* ∈ [−20, 50] r_h, covered by the computed slices up
+to that time, the field falls by at least five orders of magnitude within 150 r_h of the launch of the pulse and keeps
+falling to 275 r_h. This is a finite-time observation; it excludes growth rates above ln(10⁵)/(150 r_h) ≈ 0.08/r_h and
+not slower ones, and with the sign of the potential reversed the field grows. The late-time tail of the l = 2 master
+fields, measured from the launch, is a power law with local exponent 7.05 for the tensor type (7.03 at half the step)
+and 7.06 for the scalar type on τ ∈ [550, 700] r_h, approaching 7 from above (7.41, 7.22, 7.12, 7.07 on the four
+earlier windows); shifting the time origin by the launch radius, 15 r_h, either way moves the exponent on
+[550, 700] r_h to 6.89 and 7.23, so the limit 7 is resolved and the direction of approach is not. The l = 4 tensor
+field gives 11.5 on [150, 250] r_h. This is the law Ψ ∼ t^(−(2l+D−2)) of [CYDL03, (14), p. 4] for odd D, 7 and 11 at
+D = 5 (their own five-dimensional values are 7.1 and 11.4, [CYDL03, Fig. 2, p. 4]), the tail of the flat
+five-dimensional Green's function rather than of the hole ([CYDL03, p. 4]). The least-damped of the modes tabulated in
+[CLY03b, Table 1, p. 8] (l ≤ 4) is the scalar-type one with l = 2, σr_h = 0.9477 − 0.2561i in the convention e^(−iσt)
+(the table prints 0.9477 + 0.2561i in the convention e^(iωt)), which the time evolution on the scalar-type barrier
+reproduces to 1%: an e-folding time of 3.905 r_h. No proof in this paper uses these observations; the rate proved for
+the class is that of [[thm:viii-2-2]] and [[thm:settling]].

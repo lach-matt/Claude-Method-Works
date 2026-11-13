@@ -7,7 +7,7 @@ time T after the shell. Settling concerns all later times, and it is proved with
 five-dimensional Schwarzschild–Tangherlini of [[part:stability]] to [[part:stability-nonlinear]], which is posed on
 Hintz's initial surface Σ^IVP ([[sec:iii-b-3-3]]). The proof has three steps. First, after the shell the approximant
 carries no oscillation ([[lem:np-10-50-a]]), so there g_λ lies within O(λ) of the Tangherlini metric of the final mass
-μ_end in every C^J norm ([[lem:vii-1-1]]); and Ω can be enlarged so that it contains the part of Σ^IVP that is needed,
+μ_end in C^J, J = K − 4 ([[lem:vii-1-1]]); and Ω can be enlarged so that it contains the part of Σ^IVP that is needed,
 in coordinates in which the background is the Tangherlini metric g_(b₀), b₀ = (μ_end, 0), of the stability theory
 ([[lem:vii-1-2]]). The data of g_λ are read on Σ^IVP itself, so no Cauchy stability argument is used. Second, these
 data are continued G-equivariantly to exact Tangherlini data far out, with only the mass to match ([[cor:vii-2-3]]),
@@ -19,11 +19,12 @@ of [[sec:vii-4]].
 
 *The inner radius.* The inner radius r_♭ ∈ (0, ½R₁] of [[sec:iii-b-2]], R₁ = μ_end^(1/2), is a parameter: the
 spacetime M of [[eq:iii-b-2-1]] has the inner boundary {|x| = r_♭}, and every result of this chapter holds for each
-such r_♭, with constants that may depend on it. The domain of [[thm:main]] is enlarged so that it reaches r ≥ a′ with
-a′ < ½r_♭, through the choice of its inner constant alone ([[lem:vii-1-2]]). r_♭ may be chosen depending on μ_end, as
-in [[ch:interior]]; every choice made in [[sec:vii-4]] comes after it.
+such r_♭, with constants that may depend on it. The domain of [[thm:main]] is enlarged inward, through its inner
+constant alone, so that it reaches r ≥ a′ with a′ < ½r_♭, and forward through T′ ([[lem:vii-1-2]]). r_♭ may be chosen
+depending on μ_end, as in [[ch:interior]]; every choice made in [[sec:vii-4]] comes after it.
 
-*Notation.* The parameters l5, μ0 ≥ √72 l5², A, env, T and τ0 of [[thm:main]] are fixed. As in [[ch:s27]], ε denotes
+*Notation.* The parameters l5, μ0 ≥ √72 l5², A, env and τ0 of [[thm:main]] are fixed; its domain is a domain Ω′ of the
+form [[eq:omega]], with constants T′, δ′_0 in place of T, δ0, which [[lem:vii-1-2]] chooses. As in [[ch:s27]], ε denotes
 the smallness threshold of [[cor:s27-rate]]; the exponent of the rate, written ε in [[thm:settling]], is written ε_t
 here. The integer J of [[lem:vii-1-1]] is unrelated to the index J of the class 𝒳^∞_(J,ex) of [[thm:iii-k-4-3]], and
 the constant c₀ of [[lem:vii-1-2]] is a time shift.
@@ -55,17 +56,18 @@ parameter set ℬ_*, and the terms h_tot(p⃗) and h_(b,rem)(q) are those of [[s
 
     ℰ_0 = {(j, 0) : j ∈ ℕ, j ≥ 2},     ℓ_0 ∈ (3, 4),     ℓ_I ∈ (3, ℓ_0);
 
-its steps (0)–(4) are made once, and fix ε_K, the number of row w1 of [[sec:vi-c-1]]. The order α of row w2 and steps
-(5)–(6) are chosen in the proof ([[sec:vii-4]]), depending on the exponent of the rate; with them the order d_1 and the
-norm ‖·‖_(d_1) of [[sec:s27-class]] are fixed. The group G = O(2) × O(2) acts as in [[sec:s27-class]], and the choices
-of [[lem:vii-3-1]] are made O(4)-equivariant; they are admissible choices of the stability theory, so
-[[thm:iii-k-4-3]] holds with them.
+its steps (0)–(4), up to the choice of α with which step (4) ends, are made once, and fix ε_K, the number of row w1 of
+[[sec:vi-c-1]]. The order α of row w2 and steps (5)–(6) are chosen in the proof ([[sec:vii-4]]), depending on the
+exponent of the rate; with them the order d_1 and the norm ‖·‖_(d_1) of [[sec:s27-class]] are fixed. The group
+G = O(2) × O(2) acts as in [[sec:s27-class]], and the choices of [[lem:vii-3-1]] are made O(4)-equivariant; they are
+admissible choices of the stability theory, so [[thm:iii-k-4-3]] holds with them.
 
 **Theorem {#thm:settling-precise}** (Settling, precise form.) Let r_♭ ∈ (0, ½R₁], let steps (0)–(4) of
-[[thm:vi-c-2-1]] be made as above, and let A and the envelope be fixed. For every ε_m > 0 and ε_t ∈ (0, ε_K) there are
-choices of steps (5)–(6), R ≥ R₃, a domain Ω′ of the form [[eq:omega]], λ_1 > 0 and δ > 0 such that the following
-holds for 0 < λ ≤ λ_1. Here g_λ is the solution of [[thm:main]] on Ω′, built with K = d_1 + 14 and N = K + 3 stages,
-and Σ^IVP is placed in the coordinates (τ, x) by [[lem:vii-1-2]].
+[[thm:vi-c-2-1]], up to the choice of α, be made as above, and let A and the envelope be fixed. For every
+ε_t ∈ (0, ε_K) there are a choice of α in row w2 and of steps (5)–(6), R ≥ R₃ and a domain Ω′ of the form
+[[eq:omega]], depending on ε_t and r_♭ only, such that for every ε_m > 0 there are λ_1 > 0 and δ > 0 for which the
+following holds for 0 < λ ≤ λ_1. Here g_λ is the solution of [[thm:main]] on Ω′, built with K = d_1 + 14 and
+N = K + 3 stages, and Σ^IVP is placed in the coordinates (τ, x) by [[lem:vii-1-2]].
 
 (i) *In the class.* There are G-invariant smooth vacuum data (γ_λ, k_λ) on Σ^IVP that equal the data of g_λ on
 Σ^IVP ∩ {r ≤ R}, and on Σ^IVP ∩ {r ≥ 4R} the data (γ^(m_λ), k^(m_λ)) that the Tangherlini metric g^KS_(m_λ,0) induces
@@ -97,7 +99,10 @@ the classes of (i), h_tot(p⃗) = 0 on the interior of {χ_K = 1}, and [[eq:vii-
 g_(m′,0). So g settles to the Myers–Perry metric g_b at the rates [[eq:vii-0-2]].
 
 Here 𝒟_0 ⊂ 𝒟 is the region 𝒟_S of [[prop:iii-k-1-2]] at S = 0, and |b − b₀| = |m − μ_end| + |A| for b = (m, A), the
-norm of step (5) of [[thm:vi-c-2-1]]. C depends on R and on the data of [[thm:main]], not on λ.
+norm of step (5) of [[thm:vi-c-2-1]]. On the finite-dimensional space 𝔟 it is equivalent to the norm ‖·‖_𝔟 of 𝔟 as a
+component of 𝒟_ex, in which [[cor:s27-rate]] (a) bounds b − b₀; we fix C_𝔟 ≥ 1 with |b − b₀| ≤ C_𝔟‖b − b₀‖_𝔟, so
+that [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m, gives |b − b₀| < ε_m. C depends on R and on the data of
+[[thm:main]], not on λ.
 
 ### The solution after the shell {#sec:vii-1}
 
@@ -172,9 +177,10 @@ the τ0 of [[thm:main]], and let J ≥ 2 be an integer. Put K := J + 4 and N := 
 with ∂^j any j derivatives in (τ, x), and g^KS_(μ_end,0) = η + (μ_end/r²)(dτ + dr)².
 
 *Proof.* *The order.* [[thm:main]] builds g_λ by [[thm:uniform-existence]] from the approximant of [[thm:approximant]]
-with N = K + 3 stages and the data of [[thm:data]]. By [[rem:ue-every-order]] at the order K ≥ 6, whose inputs (E3) and
-(E4) hold at every order for this approximant and these data, there are M and λ_1 > 0 such that 𝒩_K(τ) ≤ Mλ^K on
-[τ0, τ′_end] for 0 < λ ≤ λ_1, 𝒩_K being the quantity [[eq:ue-energy]] at order K. Since 𝒩_K contains ‖h‖ and
+with N = K + 3 stages and the data of [[thm:data]]. By [[rem:ue-every-order]] with its energy order k taken equal to
+K ≥ 6, whose inputs (E3) and (E4) hold at every order for this approximant and these data, there are M and λ_1 > 0
+such that 𝒩_K(τ) ≤ Mλ^K on [τ0, τ′_end] for 0 < λ ≤ λ_1, 𝒩_K being the quantity [[eq:ue-energy]] at order k = K.
+Since 𝒩_K contains ‖h‖ and
 λ^i‖∂^i∂h‖ for i ≤ K, the L²(Σ_τ) norms satisfy
 
     ‖h(τ)‖ ≤ Mλ^K,     ‖∂^i∂h(τ)‖ ≤ Mλ^(K−i)     (i ≤ K).
