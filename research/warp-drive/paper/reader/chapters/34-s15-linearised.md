@@ -161,18 +161,18 @@ indeed ι_X(dt_* ⊗_s ω) = ½(dt_*(X)ω + ω(X)dt_*) = ½ω(X)dt_*, as dt_* is
 ι_X ḡ = dt_*, so ι_X Ḡ(dt_* ⊗_s ω) = ½ω(X)dt_* − ½ω(X)dt_* = 0. So det(ν − VU) = det(ν − V_1U_1) det(ν − V_2U_2).
 Reading off the ∂_(t_*)-coefficients in the same way for □̄^C = 2δ̄Ḡδ̄* + 2δ̄ḠĒ^C and □̄^Υ = 2δ̄Ḡδ̄* + 2Ē^ΥḠδ̄*
 gives ρS̄^C = −ι_X Ḡ Ē^C = V_1U_1 and ρS̄^Υ = Ē^Υ Ḡ(dt_* ⊗_s ·) = V_2U_2. Their spectra: use the null covectors dt_*
-and k := dt̄ + d|x| (with X = −∂_(t̄) − ∂_r, dt_*(X) = 0, k(X) = −2, ḡ⁻¹(k, dt_*) = −2), and, by
-[[eq:iii-b-6-5]], ḠĒ^C ω = γ_C(2c̄_C ⊗_s ω − e_C ḡ⟨c̄_C, ω⟩) with c̄_C/ρ = ½(1 − v_C)k + ½(1 + v_C)dt_*. Then
+and ℓ := dt̄ + d|x| (with X = −∂_(t̄) − ∂_r, dt_*(X) = 0, ℓ(X) = −2, ḡ⁻¹(ℓ, dt_*) = −2), and, by
+[[eq:iii-b-6-5]], ḠĒ^C ω = γ_C(2c̄_C ⊗_s ω − e_C ḡ⟨c̄_C, ω⟩) with c̄_C/ρ = ½(1 − v_C)ℓ + ½(1 + v_C)dt_*. Then
 
     γ_C⁻¹ S̄^C ω = (1 − v_C)ω − ω(X) c̄_C/ρ + e_C⟨c̄_C/ρ, ω⟩ dt_*,
 
-which is (1 − v_C)ω on angular ω, (1 − e_C)(1 − v_C)dt_* on dt_*, and 2(1 − v_C)k + (1 + v_C)(1 − e_C)dt_* on k.
+which is (1 − v_C)ω on angular ω, (1 − e_C)(1 − v_C)dt_* on dt_*, and 2(1 − v_C)ℓ + (1 + v_C)(1 − e_C)dt_* on ℓ.
 With Ē^Υ Ḡ h = −γ_Υ(2ι_Y h − e_Υ c̄_Υ tr h), Y := ḡ⁻¹dt̄, c̄_Υ = ρ dt̄ ([[eq:iii-b-6-5]]),
 
     γ_Υ⁻¹ S̄^Υ ω = ω − ω(Y) dt_* + e_Υ ω(X) dt̄,
 
-which is ω on angular ω, 2dt_* on dt_* (dt_*(Y) = −1), and (1 − e_Υ)(k + dt_*) on k. Both are triangular in the bases
-(angular, dt_*, k), with the diagonals of [[eq:iii-f-3-1]]. ∎
+which is ω on angular ω, 2dt_* on dt_* (dt_*(Y) = −1), and (1 − e_Υ)(ℓ + dt_*) on ℓ. Both are triangular in the bases
+(angular, dt_*, ℓ), with the diagonals of [[eq:iii-f-3-1]]. ∎
 
 The explicit form of (2L̄)^(0), [Hin26, (8.6)], is not needed: the indicial roots are found in [[sec:iii-f1-2]]
 without it. The triangular structure of S̄ in the splitting of [Hin26, (5.27)], [Hin26, (8.8)], enters only through

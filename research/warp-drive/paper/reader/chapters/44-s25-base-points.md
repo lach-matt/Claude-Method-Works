@@ -516,15 +516,16 @@ results of [[ch:s20]]–[[ch:s22]] at b (among them [[prop:iii-i15-2-8]], [[prop
 with constants uniform in b: they are [[thm:iii-i15-3-1]] and the statements its proof rests on, and
 [[thm:iii-h2-2-1]], [[prop:iii-h2-1-1]] and [[cor:iii-h2-1-2]] hold on ℬ̄_1 ⊃ ℬ̄_*, uniformly ((P4)). The following
 records where a step of [[ch:s24]] uses a property of b₀ that a general b need not have, or an object built at b₀, and
-what replaces it at b. The map that [[thm:iii-j2-4-1]] estimates at a rotating b is the constructed map
-F ↦ (p⃗′, q′, h′) of [[prop:iii-i15-2-5]] ([[rem:iii-i15-2-6]]).
+what replaces it at b.
 
-The tame calculus of [[ch:s24]] ([[def:iii-j2-1-1]]–[[lem:iii-j2-2-4]]) has constants that depend on
-the base point through finitely many seminorms, continuous in b; the exact classes and the conditions (Ex1)–(Ex4) and
-(A_K) of [[def:iii-j3-1-3]] do not involve b ((P2)–(P3): the exponents, roots and index sets are those at b₀), except
-that (Ex3), used also in (A_K), concerns the K⁺-exponents at hand, among which at a rotating b are those of the v1 terms;
-(Ex3) at b is (Ex3) at b₀, by the paragraph *(Ex3) at b* below. The solution maps of [[ch:s19]]–[[ch:s23]] in
-[[thm:iii-j2-4-1]] are read at b as in [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]. The new objects enter the inventory
+*The calculus, the classes and the inventory.* The tame calculus of [[ch:s24]] ([[def:iii-j2-1-1]]–[[lem:iii-j2-2-4]])
+has constants that depend on the base point through finitely many seminorms, continuous in b, so bounded on the
+compact ℬ̄_*; the exact classes and the conditions (Ex1)–(Ex4) and (A_K) of [[def:iii-j3-1-3]] do not involve b
+((P2)–(P3): the exponents, roots and index sets are those at b₀), except that (Ex3), used also in (A_K), concerns the
+K⁺-exponents at hand, among which at a rotating b are those of the v1 terms; (Ex3) at b is (Ex3) at b₀, by the
+paragraph *(Ex3) at b* below. The solution maps of [[ch:s19]]–[[ch:s23]] in [[thm:iii-j2-4-1]] are read at b as in
+[[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]; in particular, at a rotating b the map of [[thm:iii-i14-3-1]] there is
+the constructed map F ↦ (p⃗′, q′, h′) of [[prop:iii-i15-2-5]] ([[rem:iii-i15-2-6]]). The new objects enter the inventory
 of [[lem:iii-j2-2-1]] (c): A_b is bounded by a fixed low seminorm of G, as it reads the ι⁺-data u_+ and the tf-data
 ([[prop:iii-i15-2-2]]); E^ν is bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id + A_k as
 the other rows do; and d_* includes their orders.
@@ -541,20 +542,20 @@ v1 coefficients of q: by (G) no element of Λ has real part in (2, 2 + ε_K] ∪
 and Re(z + j) = α forces j ≥ 1, as Re z < 4 < α, so z + j = (z + 1) + (j − 1) is an exponent at hand at b₀, where (Ex3)
 holds. So (Ex3) at b is (Ex3) at b₀.
 
-In [[lem:iii-j2-2-1]] (f), the loss at every order holds at b by [[prop:iii-h2-1-1]], uniformly on ℬ̄_1, so the
-neighbourhood of b₀ does not shrink with the order. The continuity of [[lem:iii-j2-2-3]] is read at b through
-[[lem:iii-i15-2-4]] at (0, p⃗_b) and the direct bound of [[prop:iii-i15-2-5]], both in fixed seminorms, so d_* is
-unchanged; and [[thm:iii-j2-4-1]] at b takes its smallness δ_𝔹 at most the radius of the final ℬ_* (*The constants*
-in the proof of [[thm:iii-i15-3-1]]).
-[[thm:iii-j3-5-3]] at b is [[prop:iii-i15-2-5]] at the exact weights, as its proof shows: E^ν is exact there, A_b does
-not depend on the loss ([[rem:iii-i15-2-6]]), and the errors of the identification of the rotation rows have room.
-That proof cites Step 3 of the proof of [[thm:iii-i14-3-1]] and its uniqueness, to identify the exact and the lossy
-solutions; at b, the uniqueness of [[prop:iii-i15-2-5]] together with [[eq:iii-i15-2-2]] serves there
-([[rem:iii-i15-2-6]]), A_b being the same on both classes.
-In the proof of [[prop:iii-j3-4-6]] at b, the profiles of the level-3 towers are homogeneous of degree d_ψ − j only in
-their leading parts, which do not depend on b ((P3)); the other terms are smaller by min Re ℰ_ind ([[sec:iii-i12-1]]),
-so the profiles satisfy the bound |(r∂_r)^a ∂_ω^β p_j| ≲ r^(j−d_ψ) that [[lem:iii-j3-4-7]] (a) asks.
-[[prop:iii-j3-3-4]] and [[prop:iii-j3-4-3]] carry the rotation rows of [[prop:iii-i15-2-2]].
+*The losses, the smallness and the exact weights.* In [[lem:iii-j2-2-1]] (f), the loss at every order holds at b by
+[[prop:iii-h2-1-1]], uniformly on ℬ̄_1, so the neighbourhood of b₀ does not shrink with the order. The continuity of
+[[lem:iii-j2-2-3]] is read at b through [[lem:iii-i15-2-4]] at (0, p⃗_b) and the direct bound of [[prop:iii-i15-2-5]],
+both in fixed seminorms, so d_* is unchanged; and [[thm:iii-j2-4-1]] at b takes its smallness δ_𝔹 at most the radius
+of the final ℬ_* (*The constants* in the proof of [[thm:iii-i15-3-1]]). [[thm:iii-j3-5-3]] at b is
+[[prop:iii-i15-2-5]] at the exact weights, as its proof shows: E^ν is exact there, A_b does not depend on the loss
+([[rem:iii-i15-2-6]]), and the errors of the identification of the rotation rows have room. That proof cites Step 3 of
+the proof of [[thm:iii-i14-3-1]] and its uniqueness, to identify the exact and the lossy solutions; at b, the
+uniqueness of [[prop:iii-i15-2-5]] together with [[eq:iii-i15-2-2]] serves there ([[rem:iii-i15-2-6]]), A_b being the
+same on both classes. In the proof of [[prop:iii-j3-4-6]] at b, the profiles of the level-3 towers are homogeneous of
+degree d_ψ − j only in their leading parts, which do not depend on b ((P3)); the other terms are smaller by
+min Re ℰ_ind ([[sec:iii-i12-1]]), so the profiles satisfy the bound |(r∂_r)^a ∂_ω^β p_j| ≲ r^(j−d_ψ) that
+[[lem:iii-j3-4-7]] (a) asks. [[prop:iii-j3-3-4]] and [[prop:iii-j3-4-3]] carry the rotation rows of
+[[prop:iii-i15-2-2]].
 
 *The remaining results.* [[thm:iii-j2-4-2]] and [[thm:iii-j3-5-5]] apply [[thm:iii-j2-4-1]], respectively
 [[thm:iii-j3-5-3]], at Φ(U), and then Steps 1–3 of the proof of [[thm:iii-j1-2-1]], which hold at b with the rows built

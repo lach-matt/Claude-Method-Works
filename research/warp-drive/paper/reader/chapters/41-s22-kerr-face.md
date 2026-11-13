@@ -63,8 +63,10 @@ On the spectral side, X̄, M′, X^±_(sc-b) with the faces scf, tf, zf and the 
 
 *The base point.* The base points of the linearisation are pairs (h, p⃗) as in [[sec:iii-i9-2]], whose black hole
 parameter b lies in the closed ball ℬ̄_* about b_0 of [[sec:iii-h2-0]], shrunk as in [[ch:s20]] (to a radius at most
-1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]) and in [[lem:iii-i15-1-2]]; every result below holds on this
-ball. On ℬ̄_* the model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem at b with continuity in
+1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]), in [[prop:iii-i15-2-12]] and the step of
+[[prop:iii-i8-4-1]], in [[lem:iii-i15-1-2]] and in [[prop:iii-i15-2-5]], each time to a smaller ball about b_0; every
+result below holds on this ball. On ℬ̄_* the model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem
+at b with continuity in
 (b, S, h) (property (P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots of
 L̂_b(0) at ∂X, which do not depend on b (P2); the zero energy states of the table of roots of [[sec:iii-g2-1]] for L_b,
 their companions, the 1-form towers of [[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b, which are

@@ -123,14 +123,14 @@ and if moreover v ≤ v_s + x0/2,
 Let 0 < δ ≤ 1/2 and 0 < λ < 1 with λ^(5/2) < env(v_s + x0/2) and env(v_s + x0) ≤ λ^(−1/2), and let x_λ ∈ (0, x0/2) be
 defined by env(v_s + x_λ) = λ^(5/2). Then every point v of the band satisfies v_s < v ≤ v_s + x_λ and
 
-    (α c_R x_λ)^(−1/α) ≤ κ(v) ≤ K_λ := max{(2/(α c_R x0))^(1/α), (2^(2+1/α) α c_R log(1/λ))^(1/(1−α))},
+    (α c_R x_λ)^(−1/α) ≤ κ(v) ≤ κ̄_λ := max{(2/(α c_R x0))^(1/α), (2^(2+1/α) α c_R log(1/λ))^(1/(1−α))},
     κ(v) (v − v_s) ≥ (α c_R)^(−1/α) x_λ^(1−1/α).                                                   {#eq:l-24-kappa-band}
 
-As λ → 0, x_λ → 0 and λ K_λ^j → 0 for every j ≥ 1. So κ and κ(v − v_s) tend to ∞ uniformly on the band, and for every
+As λ → 0, x_λ → 0 and λ κ̄_λ^j → 0 for every j ≥ 1. So κ and κ(v − v_s) tend to ∞ uniformly on the band, and for every
 δ′ ∈ (0, 1) there is a threshold on λ below which λκ ≤ λ^(δ′) at every point of the band.
 
 *Proof.* As log env is concave and differentiable, κ is nonincreasing and κ′ ≤ 0; and κ > 0 since env′ > 0. If κ were
-bounded by some K on (v_s, v_s + x0], then log env(v) ≥ log env(v_s + x0) − K x0 for every v there, against env(v) → 0;
+bounded by a number B on (v_s, v_s + x0], then log env(v) ≥ log env(v_s + x0) − B x0 for every v there, against env(v) → 0;
 so κ(t) → ∞ as t ↓ v_s. Now (κ^(−α))′ = −α κ^(−α−1) κ′ = α κ^(−α−1) |κ′| lies in [0, α c_R]. For v_s < t < v,
 κ(v)^(−α) ≤ κ(t)^(−α) + α c_R (v − t), and letting t ↓ v_s gives [[eq:l-24-kappa-low]].
 For [[eq:l-24-kappa-up]] put h := κ(v)^(−α)/(α c_R). If h > x0/2, then κ(v) < (2/(α c_R x0))^(1/α). Otherwise
@@ -143,10 +143,10 @@ which is [[eq:l-24-kappa-up]] in this case.
 Let v be a point of the band. Then E(v) ≥ λ^(3+δ) > 0, so v > v_s. If v_s + x_λ < v ≤ v_s + x0, then E(v) ≥ env(v) >
 env(v_s + x_λ) = λ^(5/2); if v > v_s + x0, then E(v) ≥ env(v_s + x0) > λ^(5/2). Both contradict E(v) ≤ λ^(3−δ) ≤ λ^(5/2),
 so v ≤ v_s + x_λ, and env(v) = E(v) ≥ λ^(3+δ), as env is increasing on (v_s, v]. Hence log(env(v_s + x0)/env(v)) ≤
-(1/2 + 3 + δ) log(1/λ) ≤ 4 log(1/λ), and [[eq:l-24-kappa-up]] gives κ(v) ≤ K_λ. The lower bounds of
+(1/2 + 3 + δ) log(1/λ) ≤ 4 log(1/λ), and [[eq:l-24-kappa-up]] gives κ(v) ≤ κ̄_λ. The lower bounds of
 [[eq:l-24-kappa-band]] follow from [[eq:l-24-kappa-low]] with x ≤ x_λ, since −1/α < 0 and 1 − 1/α < 0. Finally, env is
 continuous and positive on (v_s, v_s + x0], so for every y in (0, x0/2) we have x_λ < y once λ^(5/2) < env(v_s + y);
-and K_λ grows like a power of log(1/λ), so λ K_λ^j → 0 and λ^(1−δ′) K_λ → 0. ∎
+and κ̄_λ grows like a power of log(1/λ), so λ κ̄_λ^j → 0 and λ^(1−δ′) κ̄_λ → 0. ∎
 
 **Proposition {#prop:l-24-transition}** (The first-degree term against the margin.) Let (v, ω) be a point at which
 [[lem:l-24-margin]] applies with ς ≤ 10⁻³ (by [[prop:l-24-band]], every point of the band once λ is below the thresholds
@@ -197,10 +197,10 @@ decreasing x_1, |ν′(r0)| ≤ C (1 + 1/x) |ν(r0)| for 0 < x ≤ x_1: if ν(v_
 |ν(r0)| ≥ |ν(v_s − τ0)|/2; otherwise r0 − (v_s − τ0) = x, and Taylor's formula gives ν(r0) = (ν″(v_s − τ0)/2) x²
 (1 + O(x)) and ν′(r0) = ν″(v_s − τ0) x (1 + O(x)), so x ν′/ν → 2 and |ν′/ν| ≤ 3/x for x small.
 Take λ below the thresholds of [[prop:l-24-band]] and [[lem:l-24-kappa]], with x_λ ≤ min(x_1, 1), α c_R x_λ ≤ 1 and
-λ K_λ ≤ 1. Let (v, ω) be a point of the band with R ≥ 1/2. By [[lem:l-24-kappa]], 0 < x ≤ x_λ, env(v) = E(v) lies in
-[λ^(3+δ), λ^(3−δ)] and 1 ≤ κ ≤ K_λ, so λκ ≤ 1 and [[eq:l-24-s-split]] applies; by [[prop:l-24-band]], ς ≤ 10⁻³. Put
+λ κ̄_λ ≤ 1. Let (v, ω) be a point of the band with R ≥ 1/2. By [[lem:l-24-kappa]], 0 < x ≤ x_λ, env(v) = E(v) lies in
+[λ^(3+δ), λ^(3−δ)] and 1 ≤ κ ≤ κ̄_λ, so λκ ≤ 1 and [[eq:l-24-s-split]] applies; by [[prop:l-24-band]], ς ≤ 10⁻³. Put
 
-    θ := λ^(1−δ) (1 + λ K_λ² + λ^(N−3) K_λ^(N−1)) + λ K_λ + x_λ^(1/α − 1),
+    θ := λ^(1−δ) (1 + λ κ̄_λ² + λ^(N−3) κ̄_λ^(N−1)) + λ κ̄_λ + x_λ^(1/α − 1),
 
 which depends on λ alone and tends to 0 with λ, by [[lem:l-24-kappa]]. By [[eq:l-24-kappa-low]] and x ≤ x_λ ≤ 1,
 1/κ and 1/(κx) are at most (α c_R)^(1/α) x_λ^(1/α − 1); so 1/κ, 1/(κx) and λκ are at most Cθ. Below, C is independent of
@@ -214,7 +214,7 @@ by the proof of [[lem:l-24-margin]]; so m0 ≥ A² env²/(10 √μ0). As R m0 = 
 and, |ν| and |d| being at most C, both |ν(r0)| and |d(ϑ)| are at least λ^δ/C. In particular ν(r0) ≠ 0.
 
 *The size of S − S_st.* By (H_N), env^(N−1) = κ_0 κ_1 ⋯ κ_(N−2) env with 0 < κ_k ≤ 2κ, so Λ ≤ 2^(N−1) λ^(N−2) κ^(N−1)
-≤ 2^(N−1) λ^(N−2) K_λ^(N−1) ≤ C θ λ^δ, which is also at most λ for λ small. As |T + i| ≥ max(T, 1), |Ξ| ≤ |1 − c_N| + c_N
+≤ 2^(N−1) λ^(N−2) κ̄_λ^(N−1) ≤ C θ λ^δ, which is also at most λ for λ small. As |T + i| ≥ max(T, 1), |Ξ| ≤ |1 − c_N| + c_N
 ≤ C, and Γ_R ≤ C; hence, with |ν| ≥ λ^δ/C,
 
     |S_U| ≤ C Λ λ³ A |d| env = C (Λ/|ν|) R m0 ≤ C θ R m0.
@@ -222,7 +222,7 @@ and, |ν| and |d| being at most C, both |ν(r0)| and |d(ϑ)| are at least λ^δ/
 Dividing the bound on E_S in [[eq:l-24-s-split]] by R m0 = λ³ A env |ν| |d| and using the lower bounds on |d| and
 |ν| |d|,
 
-    |E_S| ≤ C [(λκ)²/|d| + λ/(|ν| |d|)] R m0 + C |S_U| ≤ C [λ^(2−δ) K_λ² + λ^(1−δ) + θ] R m0 ≤ C θ R m0.
+    |E_S| ≤ C [(λκ)²/|d| + λ/(|ν| |d|)] R m0 + C |S_U| ≤ C [λ^(2−δ) κ̄_λ² + λ^(1−δ) + θ] R m0 ≤ C θ R m0.
 
 So |S − S_st| ≤ C θ R m0. As R m0 ≤ |S_st| = R m0 (1 + 4λ²κ²)^(1/2) ≤ (1 + 2θ²) R m0,
 
@@ -252,7 +252,7 @@ the band with 1/2 ≤ R ≤ 1.1.
 
 **Remark {#rem:l-24-sharp}** (The factor 2 − R.) The constant 2 of [[lem:l-24-margin]] is approached as v ↓ v_s. Let
 env be positive and log-concave on (v_s, v_s + x0] with env(v) → 0 as v ↓ v_s. Then κ is nonincreasing there and
-κ(v) → ∞ as v ↓ v_s, since a finite limit K would give log env(v) ≥ log env(v_s + x0) − K x0 for every v in
+κ(v) → ∞ as v ↓ v_s, since a finite limit B would give log env(v) ≥ log env(v_s + x0) − B x0 for every v in
 (v_s, v_s + x0]; so ς → 0, and both bounds of [[eq:l-24-margin-bounds]] tend to 2. So the constant 2 in
 [[eq:l-24-transition]] cannot be raised; nor can the coefficient of R be lowered, as follows. If at (v, ω) also
 |S′| ≥ 0.999 κ |S| (as for any constant multiple of env, for which |S′| = κ|S|) and |S| ≥ 0.999 R m0, with ς ≤ 10⁻³
@@ -279,8 +279,8 @@ Then
 Under (H_N) on I with κ ≥ 1 there, |κ′|/κ ≤ c_R κ^α ≤ c_R κ, so [[eq:l-24-period-cond]] holds once
 2π (c_R + 3) λ sup_I κ ≤ 1/26. For a carrier period I contained in the band on which 1/2 ≤ R ≤ 1.1, every hypothesis
 holds once λ is small: [[prop:l-24-transition]] applies at each point of I by [[prop:l-24-band]] and
-[[prop:l-24-s-bounds]]; and by [[lem:l-24-kappa]], (α c_R x_λ)^(−1/α) ≤ κ ≤ K_λ on I, so √μ0 κ ≥ 2 and κ ≥ 1 once
-x_λ is small, and 2π (c_R + 3) λ K_λ ≤ 1/26 once λ is small.
+[[prop:l-24-s-bounds]]; and by [[lem:l-24-kappa]], (α c_R x_λ)^(−1/α) ≤ κ ≤ κ̄_λ on I, so √μ0 κ ≥ 2 and κ ≥ 1 once
+x_λ is small, and 2π (c_R + 3) λ κ̄_λ ≤ 1/26 once λ is small.
 
 *Proof.* By [[lem:l-24-margin]] with ς ≤ 10⁻³ and √μ0 κ ≥ 2,
 0 < m0′/m0 ≤ (2 + 1.000125/2) κ ≤ 3κ. So |(log(κ m0))′| = |κ′/κ + m0′/m0| ≤ |κ′|/κ + 3κ, and by [[eq:l-24-period-cond]]
