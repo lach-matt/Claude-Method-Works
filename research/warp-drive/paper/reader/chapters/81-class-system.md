@@ -262,9 +262,8 @@ with S_A := −(Θ_A − κ_A1 − κ_A2)² − κ_A1² − κ_A2² − Σ_B q_B
 **Proposition {#prop:class-augmented}** (The augmented system.) Let (g, p_A, Θ_A, q_A) solve (Aug1)–(Aug4) on an open
 set, and put ν_A := g⁻¹(p_A, p_A), Δ_A := Θ_A − div_g P_A and T := Σ_A q_A p_A ⊗ p_A.
 
-(a) (Orders.) The right sides of (Aug2)–(Aug4) are smooth functions of (g, dg, p_B, Θ_B, q_B), and the lower-order part
-of
-(Aug1) is a smooth function of (g, dg, p_B, q_B). So if an energy controls ∂^j of (dg, p_A, Θ_A, q_A) for j ≤ k, every
+(a) (Orders.) The right sides of (Aug2)–(Aug4) are smooth functions of (g, dg, p_B, Θ_B, q_B), and the lower-order
+part of (Aug1) is a smooth function of (g, dg, p_B, q_B). So if an energy controls ∂^j of (dg, p_A, Θ_A, q_A) for j ≤ k, every
 right side is controlled at order k, and the loop closes. Each of three variants loses one derivative: the transport
 P_A(q_A) = −(div_g P_A) q_A in place of (Aug4), whose right side holds ∂p_A; the general Raychaudhuri right side
 −|∇²u_A|², which holds ∂p_A; and S_A at an axis point, where κ_A2 is of the order of ∂p_A ([[prop:class-axis]] (b)).

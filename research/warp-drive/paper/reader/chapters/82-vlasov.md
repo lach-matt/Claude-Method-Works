@@ -67,17 +67,18 @@ background of [[thm:two-dusts]] is), then at every point with r > 0 the field is
 directions, and in double-null coordinates (u, v) of the round metric, Ric(g0) = K_in dv ⊗ dv + K_out du ⊗ du with
 K_in, K_out ≥ 0: g0 is an Einstein–two-null-dust solution, with one ingoing and one outgoing radial dust.
 
-*Proof.* (a) The mixed components vanish identically for every metric of the class ([[lem:warped-ricci]]). Let K be a
+*Proof.* (a) The mixed components vanish identically for every metric of the class ([[lem:warped-ricci]]). Let U be a
 compact set off the axes and put h := e^(2ψ) g3, as in [[prop:reduction]]. The functions ψi = ½ log g(∂_(φi), ∂_(φi))
-and the components of h and of √|h| h⁻¹ are smooth functions of the components of g on K. Hence for the sequence g_i
-they converge uniformly on K to those of g0, and their first derivatives, being smooth functions of the components times
-first derivatives of the components, converge weakly in L²(K). Each g_i is vacuum, so by [[prop:reduction]]
+and the components of h and of √|h| h⁻¹ are smooth functions of the components of g on U. Hence for the sequence g_i
+they converge uniformly on U to those of g0, and their first derivatives, being smooth functions of the components times
+first derivatives of the components, converge weakly in L²(U). Each g_i is vacuum, so by [[prop:reduction]]
 
-    ∂_a(√|h_i| h_i^(ab) ∂_b ψ_i) = 0,      ∂_a(√|h_i| h_i^(ab) ∂_b ω_i) = 0
+    ∂_a(√|h[g_i]| h[g_i]^(ab) ∂_b ψ[g_i]) = 0,      ∂_a(√|h[g_i]| h[g_i]^(ab) ∂_b ω[g_i]) = 0
 
-in the sense of distributions on K. The products √|h_i| h_i^(ab) ∂_b ψ_i converge weakly in L²(K), a uniformly
+in the sense of distributions on U, where h[g_i], ψ[g_i], ω[g_i] are h, ψ, ω of g_i. The products √|h[g_i]| h[g_i]^(ab)
+∂_b ψ[g_i] converge weakly in L²(U), a uniformly
 convergent factor times a weakly convergent one, so the identities pass to the limit: ∂_a(√|h0| h0^(ab) ∂_b ψ0) =
-∂_a(√|h0| h0^(ab) ∂_b ω0) = 0 in distributions, and classically since g0 is C². That is □_(h0) ψ0 = □_(h0) ω0 = 0 on K,
+∂_a(√|h0| h0^(ab) ∂_b ω0) = 0 in distributions, and classically since g0 is C². That is □_(h0) ψ0 = □_(h0) ω0 = 0 on U,
 and by [[prop:reduction]], e^(−2ψ1) R11 + e^(−2ψ2) R22 = −e^(2ψ) □_h ψ = 0 and e^(−2ψ1) R11 − e^(−2ψ2) R22 = 2 e^(2ψ)
 □_h ω = 0 for g0, so R11 = R22 = 0 off the axes, and on the axes by continuity.
 
@@ -185,8 +186,8 @@ an orthonormal frame (e_axis, e_ρ) of the orbit slice, so that T(e_ρ, e_ρ) = 
 f(0, ·) does not vanish off {sin β = 0}, then T(e_ρ, e_ρ) has a positive limit at the axis, not O(ρ2²), and by
 [[lem:vlasov-axis-stress]] the stress is not smooth. A density concentrating on the axial directions keeps the stress
 of size ρ2²: for f = ρ2⁻¹(e^(−β²/ρ2²) + e^(−(|β|−π)²/ρ2²)) on (−π, π], the total density (2π)⁻¹ ∫ f dβ tends to π^(−1/2)
-and T(e_ρ, e_ρ)/ρ2² tends to 1/(2√π), while ∂_β f is unbounded. Indeed, up to terms O(e^(−c/ρ2²)), each Gaussian
-contributes ∫ e^(−t²/ρ2²)(t² + O(t⁴)) dt = (√π/2) ρ2³ + O(ρ2⁵) to ∫ f sin²β dβ times ρ2, since sin²β = sin²(|β| − π);
+and T(e_ρ, e_ρ)/ρ2² tends to 1/(2√π), while ∂_β f is unbounded. Indeed, since sin²β = sin²(|β| − π), ρ2 ∫ f sin²β dβ is,
+up to terms O(e^(−c/ρ2²)), the sum of two Gaussian integrals ∫ e^(−t²/ρ2²)(t² + O(t⁴)) dt = (√π/2) ρ2³ + O(ρ2⁵);
 so T(e_ρ, e_ρ) = (2π)⁻¹ ρ2⁻¹ (√π ρ2³ + O(ρ2⁵)). So at an axis a restricted field with smooth stress is zero, or, in the
 limit, two radial dusts along the axis.
 
@@ -204,9 +205,9 @@ lines. Two covectors on one null line are proportional and null, so their produc
 
 **Proposition {#prop:vlasov-axis-focus}** (Restricted particles focus at an axis.) Let g5 be a smooth metric of the class
 near a point x0 of the axis {ρ2 = 0} with r(x0) > 0. Let a restricted massless Vlasov field be given off the axes by an
-orbit density: T = e^(−ψ) T3, where T3 is the stress of a density F ≥ 0 on the bundle of null directions of (Q, g3),
+orbit density: T = e^(−ψ) T3, where T3 is the stress of a density f ≥ 0 on the bundle of null directions of (Q, g3),
 continuous, and transported by the null geodesic flow of g3 (the Vlasov equation of (Q, g3), [[lem:vlasov-flow]] (b) and
-(c)). If F > 0 at a null direction whose g3-geodesic reaches x0 transversally to the axis, then there are c > 0 and a
+(c)). If f > 0 at a null direction whose g3-geodesic reaches x0 transversally to the axis, then there are c > 0 and a
 timelike vector field n near x0 with T(n, n) ≥ c/ρ2 at the points of that geodesic near x0. So T and Ric(g5) = T are
 unbounded near x0, and g5 is not C² there.
 
@@ -216,9 +217,9 @@ unbounded near x0, and g5 is not C² there.
 is g3 in the coordinates (τ, ρ1, ρ2) = (τ, x1, x3). As g5 is smooth, g_P is a smooth Lorentzian metric on P, even in x3:
 g3 extends across the edge {ρ2 = 0} to the smooth metric g_P, and the null geodesic flow of g3 extends to the smooth flow
 of g_P, under which the geodesic reaching x0 transversally crosses {x3 = 0}. On the bundle of null directions the
-transport of F is X(F) + κ F = 0 along the generator X of this flow, with κ smooth, so F stays positive along the flow
-line of the given direction and, by continuity, F ≥ c1 > 0 on a neighbourhood U of the arriving direction at the points
-of the geodesic near x0. Hence T3(n, n) ≥ ∫_U F (p(n))² ≥ c2 > 0 there, for n timelike. The Killing field ∂_(φ2) = x3 ∂_4
+transport of f is X(f) + κ f = 0 along the generator X of this flow, with κ smooth, so f stays positive along the flow
+line of the given direction and, by continuity, f ≥ c1 > 0 on a neighbourhood U of the arriving direction at the points
+of the geodesic near x0. Hence T3(n, n) ≥ ∫_U f (p(n))² ≥ c2 > 0 there, for n timelike. The Killing field ∂_(φ2) = x3 ∂_4
 − x4 ∂_3 has, at points of P, e^(2ψ2) = g5(∂_(φ2), ∂_(φ2)) = x3² (g5)_(44) = ρ2² (g5)_(44), with (g5)_(44) > 0, and
 e^(ψ1) is bounded near x0 since ρ1(x0) = r(x0) > 0. So T(n, n) = e^(−ψ1−ψ2) T3(n, n) ≥ c/ρ2. ∎
 
@@ -229,7 +230,7 @@ a density n(ρ, t) solving ∂_t n − v ρ⁻¹ ∂_ρ(ρ n) = 0, so ρ n(ρ, t
 ### The theorem {#sec:vlasov-theorem}
 
 Let Ω be a domain of the type [[eq:omega]], Ω = {τ0 ≤ τ ≤ τ_end, r ≥ a, v + (τ − τ_end) ≤ V + 1}, with Σ_τ := Ω ∩ {τ}
-and its outer radius b(τ) := V + 1 − τ + (τ_end − τ). Let (g, q, u) be a smooth class solution on Ω of the
+and its outer radius b(τ) := V + 1 − τ + (τ_end − τ). Let (g, F, u) be a smooth class solution on Ω of the
 Einstein–restricted massless Vlasov system in label form, Ric(g) = T_V + T_rad, where T_rad is zero or a pair of null
 dusts q_in du_in ⊗ du_in + q_out du_out ⊗ du_out, one ingoing and one outgoing, that may reach the axes as in
 [[thm:class-stability]] (the *radial dusts*; on the round backgrounds of [[thm:two-dusts]] they are the two radial
@@ -251,7 +252,7 @@ families). We assume:
   [[eq:data-symmetrizer]] makes the r-coefficient 𝒮 A0 of the momentum system positive definite: the two signs of
   [[lem:constraints-evolution]] (a).
 
-**Theorem {#thm:vlasov}** (Restricted massless Vlasov limits.) Let (g, q, u) satisfy (Ω), (V1), (V2), (V2′) and (V3).
+**Theorem {#thm:vlasov}** (Restricted massless Vlasov limits.) Let (g, F, u) satisfy (Ω), (V1), (V2), (V2′) and (V3).
 Then there are smooth metrics g_i on Ω, invariant under T² and under both reflections, with Ric(g_i) = 0,
 
     g_i → g uniformly on Ω,      ∂g_i ⇀ ∂g weakly in L²(Ω).
@@ -264,7 +265,7 @@ in [[thm:vlasov-n-data]] for torus-polarised waves and are not hypotheses. The h
 ([[lem:vlasov-open]]), and an explicit family on Tangherlini meets them ([[prop:vlasov-nonempty]]), so the theorem
 covers a nonempty open set of solutions.
 
-**Remark {#rem:vlasov-v2}** ((V2) for smooth solutions.) Let (g, q, u) be smooth on Ω̄, with no label having an axial
+**Remark {#rem:vlasov-v2}** ((V2) for smooth solutions.) Let (g, F, u) be smooth on Ω̄, with no label having an axial
 momentum at an axis point of supp q. Then (V2) holds for some δ > 0. Indeed, the set D := {(x, α) : x ∈ D_α} is the
 image of the compact set supp q ∩ (Σ_τ0 × S¹) under the continuous flow of the rays, intersected with Ω̄ × S¹, so it is
 compact. A ray of g3 that meets an axis either crosses it transversally or lies in it: in the meridional picture of
@@ -335,20 +336,20 @@ E(−1, −f), and g⁻¹(K, K) = E²(−1 + 1) = 0. ∎
 **Lemma {#lem:vlasov-hierarchy}** (Coherence under a hierarchy of frequencies.) Let k_1, …, k_n be covectors at a point
 of a 2+1-dimensional Lorentzian space with g⁻¹(k_A, k_A) = 0, |g⁻¹(k_A, k_B)| ≥ c > 0 for A ≠ B, and |k_A| ≤ M in an
 orthonormal frame. Let Λ > 1 and ν_A := Λ^(A−1). For every j ∈ ℤⁿ with at least two nonzero entries and |j|₁ ≤ m, let B1
-> B2 be its two largest indices with nonzero entries. Then
+and B2, B1 > B2, be its two largest indices with nonzero entries. Then
 
     |g⁻¹(K_j, K_j)| ≥ 2 ν_B1 ν_B2 (c − m M²/Λ − m² M²/(2Λ)).                                    {#eq:vlasov-hierarchy}
 
 In particular every such combination is non-null, with this margin, once Λ > (m + m²/2) M²/c.
 
 *Proof.* In the orthonormal frame |g⁻¹(k, k′)| ≤ |k| |k′|. Put K := K_j = j_B1 ν_B1 k_B1 + V, V := Σ_(A ≠ B1) j_A ν_A
-k_A. Since k_B1 is null, g⁻¹(K, K) = 2 j_B1 ν_B1 g⁻¹(k_B1, V) + g⁻¹(V, V). Here g⁻¹(k_B1, V) = j_B2 ν_B2 g⁻¹(k_B1, k_B2)
-+ Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m M²/Λ), using |j_B2| ≥ 1
-and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A M ≤ m ν_B2 M, so |g⁻¹(V, V)| ≤ m² M² ν_B2² ≤ m² M² ν_B1 ν_B2/Λ. With
-|j_B1| ≥ 1, |g⁻¹(K, K)| ≥ 2 ν_B1 ν_B2 (c − m M²/Λ) − m² M² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
+k_A. Since k_B1 is null, g⁻¹(K, K) = 2 j_B1 ν_B1 g⁻¹(k_B1, V) + g⁻¹(V, V). Here g⁻¹(k_B1, V) = j_B2 ν_B2 g⁻¹(k_B1,
+k_B2) + Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m M²/Λ), using
+|j_B2| ≥ 1 and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A M ≤ m ν_B2 M, so |g⁻¹(V, V)| ≤ m² M² ν_B2² ≤ m² M² ν_B1
+ν_B2/Λ. With |j_B1| ≥ 1, |g⁻¹(K, K)| ≥ 2 ν_B1 ν_B2 (c − m M²/Λ) − m² M² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
 
-With c = c0 (2π/n)² this is the choice ν_A = c n² ν_(A−1) of [HL25, Lemma 4.16, p. 18]. The phases ν_A u_A are
-eikonals, so the two-scale scheme is unchanged; the wave of family A carries the amplitude λ F_A/ν_A, so that its
+With c = c0 (2π/n)², Λ is of order n², as in the choice a_A = c n² a_(A−1) of [HL25, Lemma 4.16, p. 18]. The phases ν_A
+u_A are eikonals, so the two-scale scheme is unchanged; the wave of family A carries the amplitude λ F_A/ν_A, so that its
 derivatives are of the size of F_A.
 
 **Remark {#rem:vlasov-coherence-values}** (Numerical observation.) On the orbit space of Tangherlini with μ = 1 and
@@ -471,9 +472,9 @@ those of its angular second derivatives, and those of the first derivatives of t
 with a trace on the spheres, ξ2 = ξ1, the mean curvature H oscillates at order λ⁰.
 
 *Proof.* The coefficients of the angular second derivatives of the metric unknown in ρ and of the first derivatives of
-the momentum unknowns in J involve γ, its inverse and Π, undifferentiated ([[lem:constraints-evolution]] (a)), and γ = γ0
-+ O(λ). In (γ^(rr))^(3/2) H, γ^(rr) is undifferentiated, and H = H̃/ν with H̃ = ½ Π^(AB)(∂_r Π_(AB) − (𝓛_σ Π)_(AB)). The
-torus directions are tangent to the spheres, so the oscillating part of order λ⁰ of ∂_r Π_(AB) is Σ_A ∂_r u_A ∂_(θ_A)
+the momentum unknowns in J involve γ, its inverse and Π, undifferentiated ([[lem:constraints-evolution]] (a)), and γ =
+γ0 + O(λ). In (γ^(rr))^(3/2) H, γ^(rr) is undifferentiated, and H = H̃/ν with H̃ = ½ Π^(AB)(∂_r Π_(AB) − (𝓛_σ Π)_(AB)).
+The torus directions are tangent to the spheres, so the oscillating part of order λ⁰ of ∂_r Π_(AB) is Σ_A ∂_r u_A ∂_(θ_A)
 W_A, and its Π-trace is Σ_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless. The harmonics of order
 λ² contribute O(λ) to first derivatives, and so does the shift of the foliation, whose oscillating part is of order λ².
 If ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r u_A sin θ_A at order λ⁰. ∎
@@ -543,7 +544,7 @@ by parts k times, |F̂_m(x)| ≤ (2π)⁻¹ |m|^(−k) ∫ |∂_α^k F(x, α)| d
 For an integrand with a kink in α the error is only of order n⁻²: the smoothness of the field in its label is what is
 used.
 
-Let (g, q, u) satisfy (Ω), (V1), (V2), (V2′) and (V3). For n ≥ 1 put α_A := 2πA/n. The *n-dust approximant* of the
+Let (g, F, u) satisfy (Ω), (V1), (V2), (V2′) and (V3). For n ≥ 1 put α_A := 2πA/n. The *n-dust approximant* of the
 field is the class Einstein–n-null-dust solution g^(n), with the radial dusts of g, whose data on Σ_τ0 are: the
 densities q_A := (2π/n) q(·, α_A); eikonals u_A with the data of u_(α_A) on Σ_τ0 (on the same branch of the eikonal
 equation); the radial dusts' data of g; and the metric data of g corrected, by the radial solve of [[sec:data-evolution]]
@@ -883,9 +884,9 @@ k f (1 + m)^(1/2)/(r (m + w)). Since ∂_k w = −f k/(r² w),
 
     ∂_k T = (f (1 + m)^(1/2)/r) ((m + w) + f k²/(r² w))/(m + w)² ≥ f/(r (1 + m)) = (r² − 1)/(r (r² + 1)),
 
-which decreases on r² > 2 + √5 and is > 0.249 on [2.64, 3.36]. There |T| ≤ 1.7 · 1.0694/(2.64 · 0.8485) < 0.82, since m
-> 0.0885 there, so cos²β0 = (1 + T²)⁻¹ > 0.59; and dk/dα = 3 cos α ≥ 3 cos 0.6 > 2.47. Hence ∂_α β0 = cos²β0 ∂_k T dk/dα
-> 0.59 · 0.249 · 2.47 > 0.36 =: b on S, and β0(x, ·) is increasing, so injective: the field is labelled by initial
+which decreases on r² > 2 + √5 and is > 0.249 on [2.64, 3.36]. There |T| ≤ 1.7 · 1.0694/(2.64 · 0.8485) < 0.82, since m >
+0.0885 there, so cos²β0 = (1 + T²)⁻¹ > 0.59; and dk/dα = 3 cos α ≥ 3 cos 0.6 > 2.47. Hence ∂_α β0 = cos²β0 ∂_k T dk/dα >
+0.59 · 0.249 · 2.47 > 0.36 =: b on S, and β0(x, ·) is increasing, so injective: the field is labelled by initial
 direction.
 
 *(V2).* A ray from S̃ is in Ω only while r ≤ b(τ) = 9 − 2τ, and r ≥ 2.64 + 0.56 τ on it, so only for τ ≤ 6.36/2.56 <
