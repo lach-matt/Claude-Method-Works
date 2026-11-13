@@ -45,7 +45,7 @@ FORBIDDEN = [
 ]
 RX = [(re.compile(p), why) for p, why in FORBIDDEN]
 
-RESULT_KINDS = ("thm", "lem", "prop", "cor", "def", "rem", "eq", "ch", "sec", "app")
+RESULT_KINDS = ("thm", "lem", "prop", "cor", "def", "rem", "eq", "ch", "sec", "app", "part")
 DEF_RX = re.compile(r"\{#(" + "|".join(RESULT_KINDS) + r"):([a-z0-9][a-z0-9\-]*)\}")
 REF_RX = re.compile(r"\[\[(" + "|".join(RESULT_KINDS) + r"|C):([a-z0-9][a-z0-9_\-]*)\]\]")
 
