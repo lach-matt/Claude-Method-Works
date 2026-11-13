@@ -32,7 +32,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | fourth reading NOT CONFIRMED 1M 0m 1n (46, 48 build Ω_* with ℓ = ½); fourth fix running (decouple the time-function ℓ = ½ from the class ℓ_I) |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-keyed to lem:s25-p6 |
-| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | third reading NOT CONFIRMED 0M 1m 4n (cor:iii-i15-2-10 bound at b after Step 6 via ‖F‖; also ch 44 G-alone bounds); third fix running |
+| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | third fix done (cor:iii-i15-2-10 bound C‖G‖ + C(‖h‖+|p⃗|)‖u_0‖ + CΣ|W_ν|, uniform C; ch 44 bounds by G plus the solution term; nits); fourth reading running (41 and 44) |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | CONFIRMED (third reading 0M 0m 4n, with 38a); reopened for one minor from S22's Step 6 (lem:iii-i15-2-4, def:iii-i15-2-3, prop:iii-i15-2-5 Step 3), in the S22 third fix |

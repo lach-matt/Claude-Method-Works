@@ -801,3 +801,8 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Ch 62 third fix (F3-62): the lemma's wording; m := μ(v)r⁻² with 0 < m ≤ μ_end r⁻² ≤ 1/400 on r ≥ 4R; nits. Not
   edited, for chapter 63's fix round: 63:670-672 writes μ_end (as 𝔪) where g0's coefficient is μ(v), on sets reaching
   v < v_end (inequalities still hold; notation only).
+- S22 third fix (F3-S22): cor:iii-i15-2-10 states and proves C‖G‖_(𝒴^♮(α−ε)) + C(‖h‖ + |p⃗|)‖u_0‖_(w) + CΣ|W_ν| with C
+  uniform in b (the Σ|W_ν| term beyond R3's proposal, bounded by C‖F‖ at both application sites); the remark after
+  thm:iii-i12-3-1 reduces it to C‖F‖ at b_0; chapter 44's def:iii-i15-2-3, lem:iii-i15-2-4, prop:iii-i15-2-5 Step 3
+  and cor:s25-tame's proof (592-594) bound by G plus the solution term, the A_k bound unchanged so chapter 46's citations
+  keep their strength; four nits. Fourth reading running.
