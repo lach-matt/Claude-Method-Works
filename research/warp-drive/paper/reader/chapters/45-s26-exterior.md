@@ -1065,7 +1065,7 @@ H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b and every α₀ > ℓ^♭_I, d := 4, the solu
 satisfies
 
     ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b) ≤ C(‖f‖_(H^(k+d,α₀+2,(−′,ℓ^♭_I+1))_b) + ‖ġ₀‖_(H^(k+d,α₀)_b) + ‖ġ₁‖_(H^(k+d,α₀)_b)),
-                                                                                                          {#eq:iii-c1-2-2}
+                                                                                                         {#eq:iii-c1-2-2}
 
 with C depending on k, α₀, ℓ^♭_I and h; and the tame form of [[eq:iii-c1-2-2]] at α₀ = ℓ^♭₀, [Hin26, (5.52)], is
 [[eq:iv2-2-3]].
@@ -1107,7 +1107,7 @@ hyperbolic Lorentzian manifold with metric g and a smooth spacelike Cauchy hyper
 Let g₀ be a smooth Lorentzian metric on X, δ*_(g₀,E_C) = δ*_(g₀) + E^C_(g₀) the operator of [[eq:iii-b-6-2]] (with any
 smooth 1-form c_C), and Υ a smooth 1-form on X with
 
-    Ric(g) = δ*_(g₀,E_C)Υ     on X.                                                                     {#eq:s26-gauge-eq}
+    Ric(g) = δ*_(g₀,E_C)Υ     on X.                                                                    {#eq:s26-gauge-eq}
 
 If Υ = 0 along S and the first and second fundamental forms of S satisfy the vacuum constraint equations, then Υ = 0
 and Ric(g) = 0 on X. The dimension does not enter. In particular [[eq:s26-gauge-eq]] holds with
@@ -1187,8 +1187,8 @@ Ric(g₀) = 0 and G_(g₀)(g₀ − g₀) = 0. ∎
 ### The exterior estimates in the cut-off gauge {#sec:iv2-4}
 
 **Corollary {#cor:iv2-4-1}** (The cut-off gauge.) [[thm:iv2-2-4]], [[thm:iv2-3-1]], [[lem:iv2-2-2]] and
-[[lem:iv2-2-3]] hold with
-L^(χ₀)_(g,g₀) and P^(χ₀) of [[eq:iii-c2-2-1]] in place of L^(g,g₀) and P, for every g₀ of [[sec:iv2-0]].
+[[lem:iv2-2-3]] hold with L^(χ₀)_(g,g₀) and P^(χ₀) of [[eq:iii-c2-2-1]] in place of L^(g,g₀) and P, for every g₀ of
+[[sec:iv2-0]].
 
 *Proof.* χ₀ = 1 − χ̌₀(t_IVP/r) equals 1 on {t_IVP ≥ r/4} ([[sec:iii-c2-2]]). On Ω_c, ρ_I < c ≤ ½ gives
 t > (1 − c)|x| + 2, so t_IVP ≥ ¼|x| for |x| ≥ r₀ large, which suffices; so L^(χ₀) = L on Ω_c, and the edge-b

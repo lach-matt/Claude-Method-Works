@@ -131,7 +131,7 @@ Now count degrees, with Σ n_p ≥ 1 and ς = r. The terms of degree greater tha
 are: i = 0 and one factor d_p, every p ∈ Π (degree −p − 2); i = 1 and the factor d_2 (degree −6); i = 0 and d_2²
 (degree −6). The first vanish for p ≤ 7/2, since □_η Σ_p = 0. The remaining three, at degree −6, sum to
 −(1/2) □_η Σ_4 + Q_6, which is 0 by [[eq:far-sigma4]]. Every other term of [[eq:far-taylor]] has degree at most −13/2
-and carries λ (or λ² ≤ λ), and Rem contributes ς⁻² |Rem| ≤ C λ ς⁻² ς⁻² (μ ς⁻² + λ ς⁻²)² ≤ C λ r⁻⁸, |d| ≤ C λ ς⁻².
+and carries λ (or λ² ≤ λ), and since |d| ≤ C λ ς⁻², Rem contributes ς⁻² |Rem| ≤ C λ ς⁻⁴ (μ ς⁻² + λ ς⁻²)² ≤ C λ r⁻⁸.
 So |P(Σ)| ≤ C λ r^(−13/2). If instead □_η Σ_4 = 0, the degree −6 terms sum to Q_6 = O(λ r⁻⁶), and |P(Σ)| ≤ C λ r⁻⁶.
 The terms of degree −13/2 are μ M_1[Σ_(5/2)] and M_2[Σ_2, Σ_(5/2)].
 

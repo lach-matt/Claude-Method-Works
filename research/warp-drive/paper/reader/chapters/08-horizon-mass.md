@@ -253,15 +253,14 @@ bounded derivatives along a column, since ℓ g_app and ℓ ∂g_app = dv ⊗ [�
 The same two steps, with [[lem:sphere-two-scale]] (a) for θ⁻ and θ⁻(g0) = −3/r, give |θ⁻(g_λ) + 3/r| ≤ C3 λ on the
 columns, C3 enlarged if necessary.
 
-(v) The zero. The columns lie in the compact Ω, and r ≥ r_q(v) ≥ q0 > 0 on them. The difference
-√μ − r_q = μ^(1/2) − b μ^(1/4), b := (√72 l5²)^(1/4), equals μ^(1/4)(μ^(1/4) − b) and has derivative
-¼ μ^(−3/4)(2 μ^(1/4) − b) in μ, which is positive for μ > b⁴/16 = √72 l5²/16, in particular for μ ≥ μ0 ≥ √72 l5².
-So √μ(v) − r_q(v) is at least its value at μ0, which is positive when μ0 > √72 l5². Put μ_max := μ(v_end). Fix δ in
-(0, that value) such that ∂_r θ⁺(g0) ≥ 3/(2 μ_max) on |r − √μ(v)| ≤ δ (possible by continuity, since ∂_r θ⁺(g0) = 3/μ ≥
-3/μ_max at r = √μ), and let m_δ > 0 be the minimum of |θ⁺(g0)| on the compact rest of the columns. Let r_max be the
-largest value of r on Ω, and let λ_H ≤ λ0 be such that C3 λ_H < min(m_δ, 3/(4 μ_max), 3/r_max) and λ_H ≤ λ*. For
-λ ≤ λ_H, by [[eq:theta-plus-close]], θ⁺_λ has no zero
-where |r − √μ| > δ, and on |r − √μ| ≤ δ its r-derivative is at least 3/(2 μ_max) − C3 λ > 3/(4 μ_max), so it is strictly
+(v) The zero. The columns lie in the compact Ω, and r ≥ r_q(v) ≥ q0 > 0 on them. The difference √μ − r_q = μ^(1/2) − b
+μ^(1/4), b := (√72 l5²)^(1/4), equals μ^(1/4)(μ^(1/4) − b) and has derivative ¼ μ^(−3/4)(2 μ^(1/4) − b) in μ, which is
+positive for μ > b⁴/16 = √72 l5²/16, in particular for μ ≥ μ0 ≥ √72 l5². So √μ(v) − r_q(v) is at least its value at μ0,
+which is positive when μ0 > √72 l5². Put μ_max := μ(v_end). Fix δ in (0, that value) such that ∂_r θ⁺(g0) ≥ 3/(2 μ_max)
+on |r − √μ(v)| ≤ δ (possible by continuity, since ∂_r θ⁺(g0) = 3/μ ≥ 3/μ_max at r = √μ), and let m_δ > 0 be the minimum
+of |θ⁺(g0)| on the compact rest of the columns. Let r_max be the largest value of r on Ω, and let λ_H ≤ λ0 be such that
+C3 λ_H < min(m_δ, 3/(4 μ_max), 3/r_max) and λ_H ≤ λ*. For λ ≤ λ_H, by [[eq:theta-plus-close]], θ⁺_λ has no zero where |r
+− √μ| > δ, and on |r − √μ| ≤ δ its r-derivative is at least 3/(2 μ_max) − C3 λ > 3/(4 μ_max), so it is strictly
 increasing there. Hence it has at most one zero on each column, positive above it and negative below it.
 
 If the column contains [√μ − δ, √μ + δ], which holds when √μ(v) ≤ v − τ0 − δ1 with δ1 := δ, then θ⁺_λ changes sign on
@@ -396,9 +395,11 @@ Taylor expansion about g0 applies. For λ* < λ ≤ λ0 the bounds hold with a l
 |∂g_λ| ≤ C on Ω ([[thm:uniform-existence]], λ0 being so small that C λ0 ≤ ε1), and ε1 < 3/5. Each S_(v,r) lies in a
 slice Σ_τ, on whose tangent space ker dτ the form g0 has least eigenvalue 1 relative to the Euclidean inner product
 ([[lem:eigen]]); so g_λ restricted to ker dτ has least eigenvalue at least 2/5, and the spheres are spacelike for g_λ.
-The quantities R, θ^±, g(n⁺, n⁻) and Θ that make up M are continuous functions of (X, g, ∂g) on the compact set where
-X ∈ Ω, |g − g0(X)| ≤ ε1 and |∂g| ≤ C, on which −g(n⁺, n⁻) > 0; so |M[S_(v,r)](g_λ)| ≤ C_M there, and for λ > λ*,
-|M[S_(v,r)](g_λ) − μ(v)| ≤ C_M + μ(v_end) ≤ (C_M + μ(v_end)) λ*⁻² λ². ∎
+The area element of the spheres and Θ = 2 θ⁺ θ⁻/(−g(n⁺, n⁻)), which M integrates, are continuous functions of
+(X, g, ∂g) on the compact set where X ∈ Ω, |g − g0(X)| ≤ ε1 and |∂g| ≤ C; on it the sphere through X is spacelike, its
+two null directions are distinct and −g(n⁺, n⁻) > 0. The radii r are bounded on Ω, so |M[S_(v,r)](g_λ)| ≤ C_M, and for
+λ > λ*, |M[S_(v,r)](g_λ) − μ(v)| ≤ C_M + μ(v_end) ≤ (C_M + μ(v_end)) λ*⁻² λ², which is at most C λ² and so at most
+C λ, as λ ≤ 1. ∎
 
 The first mean m1 is driven by the following forcing. By [[lem:first-entry]], the coefficient of λ is ℛ^(1) =
 T̂ ĝ2 − ½ e_2 ∂_θ² W + 𝒲(m1, φ1) + 𝒦_1. The term 𝒦_1 contains none of the unknowns of the stages, so it is the value of

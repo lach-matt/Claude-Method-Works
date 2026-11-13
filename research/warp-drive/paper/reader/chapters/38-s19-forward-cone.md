@@ -880,10 +880,42 @@ coefficients.
 (v) The 2-admissibility estimate [[eq:ii-c-2-2]], uniform by [[thm:iii-h2-2-1]].
 
 Every other constant depends on P only through ε_0 (the last sentence of [[sec:ii-f1-3-1]]). So ε_0, d and C_k can be
-chosen independent of b ∈ B̄_1. *Continuity.* Run the proof of [[sec:ii-f1-6]] with P^(j) := P_j relative to 2L_(b_j).
-By the first part the u_j are bounded in H^(k,(α_I,α_+,−2))_b uniformly in j. A weak limit point ũ satisfies Pũ = f,
-by the C² convergence of the coefficients on compact sets; the uniqueness of [[lem:ii-f1-2-2]], which is qualitative,
-gives ũ = u, and [[lem:ii-f1-6-1]] gives convergence in norm. ∎
+chosen independent of b ∈ B̄_1.
+
+*Continuity.* We run the proof of [[sec:ii-f1-6]] with P^((j)) := P_j relative to 2L_(b_j). Let u_j and u be the
+forward solutions of P_j u_j = f_j and Pu = f, and write X := X(𝗌;k+d′) ([[eq:ii-f1-2-2]] with δ = 0, ℵ = 2) and
+H := H^(k,(α_I,α_+,−2))_b(Ω_*; E)^(•,−), with 𝗌 the order of (B4) and d′ := max(0, ⌈−inf 𝗌⌉). Neither depends on b.
+
+*Bounds.* By the first part, the proof of [[thm:ii-f1-1-1]] runs at every b ∈ B̄_1 with constants uniform there. So
+[[prop:ii-f1-4-2]] at the level k + d′, with [[eq:ii-f1-5-1]] and [[eq:ii-f1-3-1]], gives u_j ∈ X and
+
+    ‖u_j‖_X ≤ C_k (‖f_j‖_(H^(k+d)_b) + ‖P_j − 2L_(b_j)‖_((0;k+d)) ‖f_j‖_(H^d_b)),
+
+the b-norms with the weights of [[eq:ii-f1-1-5]], with C_k independent of j: it depends on the operator only through
+ε_0 ([[sec:ii-f1-3-1]]), and on 2L_(b_j) only through the inputs (i)–(v), which are uniform on B̄_1. The right side is
+bounded in j, as f_j converges in [[eq:ii-f1-1-4]] and ‖P_j − 2L_(b_j)‖_((0;k+d)) is bounded by hypothesis. So the u_j
+are bounded in the Hilbert space X.
+
+*The limit equation.* Let a subsequence u_(j_m) converge weakly in X to some ũ ∈ X. The inclusion X ⊂ H of
+[[eq:ii-f1-5-1]] is continuous, so u_(j_m) ⇀ ũ in H as well. For φ ∈ C_c^∞(M° ∩ {r > r_0}), the u_j are bounded in L²
+on supp φ, and P_j^*φ → P^*φ in L², as the coefficients of P_j converge to those of P in C² on supp φ; so, as in
+[[sec:ii-f1-6]], ⟨ũ, P^*φ⟩ = lim_m ⟨u_(j_m), P_(j_m)^*φ⟩ = lim_m ⟨f_(j_m), φ⟩ = ⟨f, φ⟩, and Pũ = f on {r > r_0}.
+
+*Identification.* As 𝗌 ≥ inf 𝗌 > s_u := inf 𝗌 − 2,
+
+    ũ ∈ X ⊂ H^(𝗌,(2α_I,α_+,−2))_e3b(Ω_*; E)^(•,−) ⊂ H^(s_u,(2α_I,α_+,−2))_e3b(Ω_*; E)^(•,−),
+
+so ũ lies in the class in which [[thm:ii-f1-1-1]] asserts uniqueness for P relative to 2L_b, and so does u. That
+uniqueness is [[lem:ii-f1-2-2]] at s′ = s_u for P relative to 2L_b. It needs the smallness of [[prop:ii-e-3-4]] (i) at
+s′ = s_u, relative to 2L_b, in the norm with the d_0 of that proposition at s_u; this d_0 is at most the D_0 ≤ d of
+[[sec:ii-f1-3-1]], so that norm is at most C‖P − 2L_b‖_((0;d)) ([[eq:ii-f1-3-1]]), and the smallness is among those
+fixing ε_0. By (i), the d_0 and the smallness of [[prop:ii-e-3-4]] (i) at s_u relative to 2L_b are uniform on B̄_1, so
+‖P − 2L_b‖_((0;d)) < ε_0 gives it at the limit parameter b. Both ũ and u solve Pv = f, so ũ = u.
+
+*Convergence.* Every subsequence of (u_j) is bounded in X, so it has a further subsequence converging weakly in X, and
+by what was just shown its limit is u. Hence u_j ⇀ u in X, and so in H. By [[lem:ii-f1-6-1]] (k ≥ 1), the inclusion of
+H in H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b(Ω_*; E)^(•,−) is compact, so u_j → u in norm there (each subsequence has a
+norm-convergent subsequence, whose limit is the weak limit u). ∎
 
 [Hin26c, Theorem 11.1] also allows P_0 near an admissible P_1 among all small stationary perturbations. That wider
 statement is not proved here and is not used: the later chapters use only the family 2L_b, b ∈ B̄_*.
@@ -899,8 +931,18 @@ u depends continuously on (b, S, h) in H^(k−1,(β_I−ς,β_+−ς,−3/2−ς
 hypothesis (i) is [[thm:iii-h2-2-1]]. (ii) is unchanged, as S̄ and Ā do not depend on b. (iii) is [[cor:iii-i-5-2]],
 which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis holds by [[thm:iii-h2-2-1]], with
 ‖P − 2L_b‖_((0;d)) ≤ C(|b − b₀| + |S| + ‖h‖_(𝒳^(d+5))) by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], small by (B5).
-*Continuity.* [[thm:iii-h2-4-1]], as 2L^(g,g_0) depends smoothly on (b, S) and continuously on h in the norm of
-[[eq:iii-i-3-7]] ([[lem:iii-i-3-6]]). ∎
+*Continuity.* Let k ≥ 1. In the notation of the proof of [[thm:iii-i-5-3]], in which h ∈ 𝒳^(k+d+5), let
+(b_j, S_j, h_j) → (b, S, h), with b_j, b ∈ B_*, S_j, S, h_j, h as in the statement and h_j → h in 𝒳^(k+d+5). Put
+g_(0,j) := g_(b₀,b_j,−S_j), g_j := g_(0,j) + h_j, P_j := 2L^(g_j,g_(0,j)) and P := 2L^(g,g_0), and let f_j := f. These
+satisfy the hypotheses of the continuity statement of [[thm:iii-h2-4-1]]. By (iii) above, P_j is admissible relative to
+2L_(b_j) of the class that theorem asks, with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0 by (B5), and ‖P_j − 2L_(b_j)‖_((0;k+d)) ≤ C_k(|b_j − b₀| + |S_j| +
+‖h_j‖_(𝒳^(k+d+5))) is bounded in j (the tame form in that proof, by [[eq:iii-i-3-7]]). The same holds for P relative to
+2L_b; in particular ‖P − 2L_b‖_((0;d)) < ε_0 by (B5), which is the smallness that the identification in the proof of
+[[thm:iii-h2-4-1]] uses at the limit. The coefficients of P_j converge to those of P in C² on compact subsets of
+M° ∩ {r > r_0}, as 2L^(g,g_0) depends smoothly on (b, S) and continuously on h in the norm of [[eq:iii-i-3-7]]
+([[lem:iii-i-3-6]]), which controls the coefficients in C² on compact sets by Sobolev embedding (three derivatives,
+dim M = 5). So the forward solutions converge in H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b, with α_I = β_I − 2 and
+α_+ = β_+ − 5/2, which with the density μ_b is H^(k−1,(β_I−ς,β_+−ς,−3/2−ς))_b ([[cor:ii-f1-1-2]]). ∎
 
 [Hin26, Theorem 11.12] states continuity in (b₀, b, S, h); here b₀ is fixed.
 

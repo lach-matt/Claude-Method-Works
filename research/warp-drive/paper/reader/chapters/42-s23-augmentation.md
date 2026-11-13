@@ -241,7 +241,8 @@ and a K⁺-order above α − 2. supp χ_K ⊂ {t^♭_* ≥ 10} by [[eq:iii-i-1-
 
 (b) By the tower relations for L_b ([[lem:iii-g2-2-6]]), L_b T_(ψ,b)(Y) consists, near K⁺, of the terms with Y^(k_μ+1)
 and Y^(k_μ+2), of K⁺-order at least the rate plus k_μ + 1. This is ≥ λ_♯ + 3 > α for the polyhomogeneous parts and > α
-for the conormal ones, as in the proof of [[lem:iii-i12-2-4]]. Next
+for the conormal ones, as in the proof of [[lem:iii-i12-2-4]]. Next, with L_1 = [L_b, t_*] and
+L_2 = ½[[L_b, t_*], t_*] ([[sec:iii-i6-1]]),
 
     L_b h^(≤1)_(b,s1)(S) = S″(L_2 h_(b,s1) + L_1 h̆^1_(b,s1)) + S‴ L_2 h̆^1_(b,s1),
 
@@ -285,7 +286,7 @@ in b has the full K⁺-order, which is [Hin26, Lemma 11.65].
 
 *Proof.* (a) P_4 depends on W_ν through h_ν(W_ν) in g′ and through ϑ_(ν,♯)(W_ν) in ϑ_tot ([[eq:iii-i9-2-3]]), so
 
-    D_(W_ν)P_5(h, p⃗, q)(W) = L_(h′,p⃗) h_ν(W) + δ*_(g_0,E_C) ϑ_(ν,♯)(W),
+    D_(W_ν)P_5(h, p⃗, q)(W) = L_(h″,p⃗) h_ν(W) + δ*_(g_0,E_C) ϑ_(ν,♯)(W),
 
 and Δ_q = R_q(h_ν(W)). h_ν(W) is supported in 𝒞, whose closure meets ∂M only in a compact subset of (ι⁺)°, and lies in
 𝒜^((λ,k)+ℱ) there ([[lem:iii-i9-2-5]]); the argument of [[lem:iii-i14-2-3]] gives the ι⁺-weight ≥ λ_♯ + Re λ + 2 − ε >
@@ -310,14 +311,20 @@ near K⁺
 L_b being the linearisation at g_b. The second term has coefficients of K⁺-order (α − 2)− (h has a_K ≥ 4 + ε_K, h_rem
 has (α − 2)−, and the 𝒞-terms vanish near K⁺), applied to a tensor of K⁺-order (α − 2)−, so it has K⁺-order (2α − 4)−,
 above α as α > 4. The first has K⁺-order α− by [[lem:iii-i14-2-2]] (b), uniformly and smoothly in b, so its b-derivative
-has K⁺-order α−. The b-derivative of the second at b₀ is a sum of products of a factor of K⁺-order (α − 2)− (from
-h_(b₀,rem)(q), or from h, of order α−) with ∂_b h_(b,rem)(q)b′ or with ∂_b g_b(b′); and ∂_b h_(b,rem)(q)b′ has K⁺-order
-≥ 2 − ε. Indeed every coefficient of q has rate > 2 at every b near b₀ ([[def:iii-i14-1-1]]: Re z > 2 for ψ ≠ v1 and for
-v1, whose state h_(b,v1) gives the rate Re z once b rotates; the conormal parts have rate > 3; S_rem and b_rem the rates
-(α − 2)− and (α − 1)−), and the states are smooth in b ([[lem:iii-i14-2-1]]). So these products have K⁺-order ≥ (α −
-2)− + 2 = α−. This is the argument of [Hin26], with one change: a v1 coefficient of exponent z ∈ ℳ would give only (α −
-2 + Re z)− < α, which is why those terms are carried by the rotation rows ([[def:iii-i14-1-3]]). The v1 terms of real
-part 2 are carried there too, for [[eq:iii-j-2-5]], where their square at a rotating b would have the K⁺-order 4 only.
+has K⁺-order α−. Near K⁺, L_(h+s h_(b,rem)(q),p⃗) = L^(g_b+h+s h_(b,rem)(q),g_b), so, as in the proof of
+[[lem:iii-i14-2-3]], the coefficients of L_(h+s h_(b,rem)(q),p⃗) − L_b are linear in h + s h_(b,rem)(q) and its first two
+derivatives, times smooth functions of g_b and of h + s h_(b,rem)(q). So the b-derivative of the second term at b₀ is a
+sum of two kinds of products. The first kind are products of a factor of K⁺-order (α − 2)− (from h_(b₀,rem)(q), or from
+h, of order α−) with ∂_b h_(b,rem)(q)b′. The second kind, from the dependence of the coefficients on g_b, are products
+of ∂_b g_b(b′) with two such factors: one from the coefficients, which keep their factor h + s h_(b₀,rem)(q), and the
+argument h_(b₀,rem)(q). Now ∂_b h_(b,rem)(q)b′ has K⁺-order ≥ 2 − ε. Indeed every coefficient of q has rate > 2 at
+every b near b₀ ([[def:iii-i14-1-1]]: Re z > 2 for ψ ≠ v1 and for v1, whose state h_(b,v1) gives the rate Re z once b
+rotates; the conormal parts have rate > 3; S_rem and b_rem the rates (α − 2)− and (α − 1)−), and the states are smooth
+in b ([[lem:iii-i14-2-1]]). So the products of the first kind have K⁺-order ≥ (α − 2)− + 2 = α−; and those of the
+second kind, ∂_b g_b(b′) being stationary, have K⁺-order (2α − 4)− > α. This is the argument of [Hin26], with one
+change: a v1 coefficient of exponent z ∈ ℳ would give only (α − 2 + Re z)− < α, which is why those terms are carried by
+the rotation rows ([[def:iii-i14-1-3]]). The v1 terms of real part 2 are carried there too, for [[eq:iii-j-2-5]], where
+their square at a rotating b would have the K⁺-order 4 only.
 
 Away from K⁺, Δ_q(b′) is supported in supp χ_K, away from ℐ⁺, and is
 
@@ -344,20 +351,20 @@ constructions only through [[lem:iii-i2-4-1]] and [[prop:iii-a-4-2]] (1) with β
 [[prop:iii-i11-3-1]]), through Step 0 of the expansion lemmas (f′ of K⁺-weight α − ε), and through the zf-weights α − 1
 − j − ε of the Taylor levels. A right-hand side of K⁺-weight α − ε′ for every ε′ > 0 meets each of these for every ε.
 
-For the independence, fix ε_0 > 0 such that no exponent at hand (of the coefficients of the pieces and of the rows) has
-real part in [α − 2 − 3ε_0, α − 2) ∪ [α − ε_0, α); there are finitely many below every bound, and none at α − 2 or α by
-admissibility. For ε < ε_0 the constructions do not depend on ε. The zero-energy solves, [[prop:iii-g4-4-4]] and
+For the independence, fix ε̄ > 0 such that no exponent at hand (of the coefficients of the pieces and of the rows) has
+real part in [α − 2 − 3ε̄, α − 2) ∪ [α − ε̄, α); there are finitely many below every bound, and none at α − 2 or α by
+admissibility. For ε < ε̄ the constructions do not depend on ε. The zero-energy solves, [[prop:iii-g4-4-4]] and
 [[prop:iii-g4-5-1]] and the inversion at the last level are applied to the same sources: the thresholds 2 + η_1, 2 + η_2
 and δ are fixed; the rounds of the loop at level 3 stop when τ > α − 2; and ε enters only the weights in which their
-outputs are estimated. The pairs removed in [[lem:iii-i12-2-4]] with β = α − ε are those of real part below α − ε_0, and
+outputs are estimated. The pairs removed in [[lem:iii-i12-2-4]] with β = α − ε are those of real part below α − ε̄, and
 the exponents dropped in its Step 2 have zero coefficients. The construction at level 3 depends on ε also through the
 weights τ_i(ε) = 1 + η_2 + iε_ind − (2 + i)ε, the switch α_τ = min(τ, 2 − δ) (δ fixed independent of ε), the order μ_3 =
 τ − ε of the expansions recorded in the zero-energy solve, and the lowering of τ in Step 4 of the proof of
-[[prop:iii-i11-3-1]]. We take ε_0 so small that, for ε < ε_0, none of these crosses an exponent at hand, a root, or a
+[[prop:iii-i11-3-1]]. We take ε̄ so small that, for ε < ε̄, none of these crosses an exponent at hand, a root, or a
 value excluded in [[prop:iii-g4-5-1]]: each is affine in ε with nonzero slope, so it crosses each of the finitely many
 thresholds at most once. [[prop:iii-g4-5-1]] solves [[eq:iii-g4-5-3]] by Mellin inversion on Re λ = α_τ − 2 − j, and
 moving that line without crossing a root does not change the solution; the recorded expansions and the switch are then
-the same for every ε < ε_0. So the pieces, the coefficients of [[eq:iii-i12-3-1]] and ũ are the same for every ε < ε_0,
+the same for every ε < ε̄. So the pieces, the coefficients of [[eq:iii-i12-3-1]] and ũ are the same for every ε < ε̄,
 and the estimates hold for each. ∎
 
 ### The decay of forward solutions {#sec:iii-i14-3}

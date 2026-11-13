@@ -1500,3 +1500,366 @@ C^k. Finally 𝒜^(α+2) ⊂ ⋂_s H̄_b^(s−1,α′+2) near ∂X (with smoothn
 invertible at b_0 by the choice of f♯_j, and depends continuously on b ([[prop:iii-e-3-1]] and [[prop:iii-e1-3-1]]:
 the dual states are continuous in b in Ḣ_b^(0,C_0+3), resp. Ḣ_b^(0,((3,0),C_0+3))), so it is invertible near b_0 and
 c = 0. Smoothness follows from (1). ∎
+
+### The setting of the pairings {#sec:iii-f4-1}
+
+This section and the next four carry the pairings of [Hin26, Lemma 8.12] (p. 157) and [Hin26, Lemma 8.15]
+(pp. 158–159) and the physical large zero energy states of [Hin26, Proposition 8.14] (pp. 158–163) that the expansion
+at low energies needs. [Hin26] proves Lemma 8.12 by reducing each pairing to a pairing at infinity of leading terms,
+through [Hin24b, Lemma 3.17] and [Hin23b, Theorem 9.6]; here the reduction is written out ([[lem:iii-f4-2-2]]) and the
+pairings at infinity are computed ([[lem:iii-f4-3-1]]). The vector type pairing of Lemma 8.15 is obtained on all of
+𝔰𝔬(4) from [[rem:iii-f3-2-3]] and the spin independence of its leading terms. [Hin26, Proposition 8.14] is proved at
+the root −2 for scalar, vector and tensor type 2, the last absent in dimension 3 + 1; its Step 2 is modified, because
+in dimension 4 + 1 the vanishing of the centre-of-mass pairings against the rotations' dual states, which [Hin26]'s Step
+2 uses, is not available away from b_0.
+
+The parameters, the unweighted b-density μ_b, ε_ind, ℰ_ind, |dg_b| = |dt_*| |dx| and the pairing
+⟨u, v⟩ := ∫_X ⟨u, v⟩_(g_b) |dx| (real, bilinear) are those of [[sec:iii-f3-1]]; adjoints and transposes on X are taken
+with respect to it. χ_R(x) := χ_1(|x|/R) with χ_1 ∈ C_c^∞([0, 2)) equal to 1 on [0, 1]; it is 1 near the black hole and
+0 near infinity, and |dχ_R| ≤ CR⁻¹ is supported in {R ≤ |x| ≤ 2R}.
+
+*Spins.* For A ∈ 𝔰𝔬(4) let V(A) := (Ax) · dx, the Euclidean dual of the rotation field R_A = (Ax) · ∂_x, and for
+V ∈ 𝒱_1 let A_V be the element with V(A_V) = V ([[sec:iii-f3-1]]). ⟨A, B⟩_F := ½tr(AᵀB), so that the
+E_ij := e_ie_jᵀ − e_je_iᵀ, i < j, are orthonormal; ad_A is skew for it, ⟨[A, X], Y⟩_F = −⟨X, [A, Y]⟩_F
+([[prop:np-10-34-iv]] (b)). For S ∈ 𝒮_1, ξ_S ∈ ℝ⁴ is given by |x|S = ξ_S · x. The dual states are
+h*_(b,•) = G_(g_b)δ*_(g_b)ω*_(b,•) ([[prop:iii-e-3-1]]), with leading terms ω̄_s0 = −dt̄, ω̄_s1(S) = ξ_S · dx and V;
+and h*_(b,v1)(V) = h♯_(b,v1)([A(b), A_V]) + h♭_(b,v1)(V) ([[prop:iii-e1-3-1]]).
+
+*Weights.* Each 1-form and tensor below is stationary, smooth on X (or, for the dual states, in Ḣ¹_b, resp. Ḣ⁰_b, and
+zero on {r_0 < |x| < r_h}), and conormal near ∂X; its *weight* is the largest a with the object in 𝒜^a up to the
+leading terms named. The weights used are: ġ^Υ_b(1, 0) 2, ġ^Υ_b(0, Ȧ) 3, h_(b,s1)(S) and h_(b,v1)(V) 3,
+h̆¹_(b,s1)(S) 2, h̆¹_(b,v1)(V) and h̆²_(b,s1)(S) −1 ([[eq:iii-f3-4-2]], [[eq:iii-d2-3-4]], [[prop:iii-d3-3-1]]);
+ω*_(b,s0), ω*_(b,s1)(S) 0 and ω*_(b,v1)(V) −1; h*_(b,s1), h*_(b,v1) and h♯_(b,v1) 3, and h*_(b,s0), h♭_(b,v1) in
+Ḣ_b^(0,C_0+3) ([[eq:iii-e-3-2]], [[eq:iii-e1-3-3]]).
+
+### The pairings at infinity {#sec:iii-f4-2}
+
+A stationary operator on M is P = P_0 + P_1∂_(t_*) + P_2∂²_(t_*) with P_j operators on X; on stationary sections
+P^(0) = P_0, [P, t_*] = P_1 and ½[[P, t_*], t_*] = P_2, and
+P(½t_*²v + t_*v̆) = ½t_*²P_0v + t_*(P_1v + P_0v̆) + (P_2v + P_1v̆) for stationary v, v̆.
+
+**Lemma {#lem:iii-f4-2-1}** Let P := D_(g_b)Ric, G := G_(g_b), and k(ω) := dt_* ⊗_s ω.
+
+(1) GP_0 and GP_2 are symmetric and GP_1 is antisymmetric on X (as differential operators).
+
+(2) For every stationary 1-form ω: P_0δ*ω = 0, P_1δ*ω = −P_0k(ω) and P_2δ*ω = −P_1k(ω).
+
+*Proof.* (1) G ∘ P is formally self-adjoint on M ([[eq:iii-f3-4-4]]), and |dg_b| = |dt_*| |dx|, so
+GP = Σ_j GP_j ∂^j_(t_*) has adjoint Σ_j (−∂_(t_*))^j (GP_j)ᵀ; comparing coefficients, (GP_j)ᵀ = (−1)^j GP_j. (2)
+P ∘ δ* = 0 ([[prop:iii-f3-2-2]] (2)), and δ*(fω) = fδ*ω + df ⊗_s ω. Apply P to δ*(t_*ω) = t_*δ*ω + k(ω) and to
+δ*(½t_*²ω) = ½t_*²δ*ω + t_*k(ω), expand by the formula above, and read off the coefficients of t_*⁰. ∎
+
+**Lemma {#lem:iii-f4-2-2}** (Reduction to infinity.) Let L := L_b, L_j its coefficients as above, ω* one of the dual
+1-forms of [[sec:iii-f4-1]], of weight c, and h* := Gδ*ω*, of weight c* ≥ 3. Write k := k(ω*).
+
+(1) (*First order.*) If u ∈ ker (D_(g_b)Ric)^(0) ∩ ker δ_(g_b,E_Υ)G has weight a ≥ 2, then
+
+    ⟨L_1u, h*⟩ = lim_(R→∞) ⟨[P_0, χ_R]u, Gk⟩.                                                            {#eq:iii-f4-2-1}
+
+(2) (*Second order.*) If h, h̆ have weights a ≥ 3, ă ≥ 2, and h, t_*h + h̆ lie in ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G,
+then L_2h + L_1h̆ = L(½t_*²h + t_*h̆) is stationary and
+
+    ⟨L_2h + L_1h̆, h*⟩ = lim_(R→∞) ⟨[P_1, χ_R]h + [P_0, χ_R]h̆, Gk⟩.                                     {#eq:iii-f4-2-2}
+
+(3) (*What the limits see.*) Let R_1(u), R_2(h, h̆) denote the right sides of [[eq:iii-f4-2-1]], [[eq:iii-f4-2-2]],
+for u with P_0u = 0 of weight a ≥ 2, resp. pairs with P_0h = 0 = P_1h + P_0h̆ of weights a ≥ 3, ă ≥ 2, and put
+e_1 := a + c − 2, e_2 := min(a − 3, ă − 2) + c. The limits exist and equal ⟨P_1u, h*⟩, resp. ⟨P_2h + P_1h̆, h*⟩. If
+e_i > 0 they vanish; if e_i = 0 they are the same integrals computed with the leading terms of the arguments, of ω*, of
+P_j, G and t_* alone, which do not depend on R; if e_i < 0 the leading terms do not determine them. R_1 vanishes on δ*ζ
+and R_2 on (δ*ζ, δ*ζ̆ + k(ζ)), for stationary ζ ∈ 𝒜^(a−1), ζ̆ ∈ 𝒜^(ă−1) smooth on X; and R_1(u), R_2(h, h̆) do not change
+when t_* is replaced by t_* + φ, φ smooth on X and in |x|C^∞(X̄) near ∂X, the pair being rewritten as (h, h̆ − φh).
+
+*Proof.* In every pairing below one factor is smooth and supported in {|x| ≤ 2R} and the other vanishes on
+{r_0 < |x| < r_h}, so integrations by parts on X produce no boundary terms; the dual states have finite regularity, and
+the pairings are distributional. Near ∂X, χ_R is a function of ρR, so [P_0, χ_R] ∈ ρ²Diff¹_b, [P_1, χ_R] ∈ ρDiff⁰_b and
+[P_0ᵀ, χ_R] ∈ ρ²Diff¹_b, with coefficients bounded uniformly in R and supported in {R ≤ |x| ≤ 2R}
+(P_1 ∈ ρDiff¹_b, [[lem:iii-f-2-1]]); and |dx| = ρ⁻⁴μ_b. So a pairing over that annulus of [P_0, χ_R] or [P_0ᵀ, χ_R]
+applied to weight w against weight w′ is O(R^(2−w−w′)), and of [P_1, χ_R] is O(R^(3−w−w′)). Also
+P_0ᵀh* = GP_0G⁻¹h* = GP_0δ*ω* = 0 and (δ*_(E_C))*h* = ½(□^C_b)*ω* = 0 (Step 1 of the proof of [[prop:iii-f3-4-1]]).
+
+(1) L = P + δ*_(E_C)δ_(E_Υ)G, and [δ*_(E_C)δ_(E_Υ)G, t_*]u = δ*_(E_C)ϑ with ϑ := [δ_(E_Υ)G, t_*]u of weight a, since
+δ_(E_Υ)Gu = 0; and ⟨δ*_(E_C)ϑ, h*⟩ = lim_R ⟨ϑ, [(δ*_(E_C))*, χ_R]h*⟩ = O(R^(3−a−c*)) → 0. The pairing ⟨P_1u, h*⟩
+converges absolutely and equals lim_R ⟨P_1(χ_Ru), h*⟩ (the commutator term is O(R^(3−a−c*))), and by
+[[lem:iii-f4-2-1]],
+
+    ⟨P_1(χ_Ru), Gδ*ω*⟩ = −⟨χ_Ru, GP_1δ*ω*⟩ = ⟨χ_Ru, GP_0k⟩ = ⟨GP_0(χ_Ru), k⟩ = ⟨[P_0, χ_R]u, Gk⟩,
+
+the last as P_0u = 0.
+
+(2) The expansion formula and Lh = 0, L(t_*h + h̆) = 0 give L(½t_*²h + t_*h̆) = L_2h + L_1h̆. As δ_(E_Υ)G is of first
+order, δ_(E_Υ)G(½t_*²h + t_*h̆) = t_*δ_(E_Υ)G(t_*h + h̆) + [δ_(E_Υ)G, t_*]h̆ = [δ_(E_Υ)G, t_*]h̆ =: ϑ, of weight ă; so
+L(½t_*²h + t_*h̆) = P_2h + P_1h̆ + δ*_(E_C)ϑ, and the last term pairs to O(R^(3−ă−c*)) → 0 with h* as in (1). By
+[[lem:iii-f4-2-1]], with commutator terms O(R^(3−ă−c*)),
+
+    ⟨P_2(χ_Rh) + P_1(χ_Rh̆), Gδ*ω*⟩ = ⟨χ_Rh, GP_2δ*ω*⟩ − ⟨χ_Rh̆, GP_1δ*ω*⟩ = −⟨χ_Rh, GP_1k⟩ + ⟨χ_Rh̆, GP_0k⟩
+        = ⟨G(P_1(χ_Rh) + P_0(χ_Rh̆)), k⟩ = ⟨[P_1, χ_R]h + [P_0, χ_R]h̆, Gk⟩,
+
+using P_1h + P_0h̆ = 0, the t_*⁰ coefficient of P(t_*h + h̆) = 0.
+
+(3) The identity chains of (1)–(2) used only P_0u = 0, resp. P_0h = 0 = P_1h + P_0h̆, so R_1(u) = ⟨P_1u, h*⟩ and
+R_2(h, h̆) = ⟨P_2h + P_1h̆, h*⟩, absolutely convergent. The leading terms: by the counting above the terms of R_1 are
+O(R^(−e_1)) and those of R_2 are O(R^(−(a+c−3))) and O(R^(−(ă+c−2))); every correction to a leading term (of the
+arguments, of ω*, of P_j and G by ρ²; dt_* is exact) raises a weight, and the model operators are homogeneous under
+dilations, so at e_i = 0 the leading integral does not depend on R. *Gauge.* P_1δ*ζ = −P_0k(ζ) ([[lem:iii-f4-2-1]]),
+and ⟨P_0k(ζ), h*⟩ = lim_R ⟨k(ζ), [P_0ᵀ, χ_R]h*⟩ = O(R^(3−a−c*)) → 0. For the pair,
+P_2δ*ζ + P_1(δ*ζ̆ + k(ζ)) = −P_1k(ζ) − P_0k(ζ̆) + P_1k(ζ) = −P_0k(ζ̆), which pairs to O(R^(3−ă−c*)) → 0. *Time
+function.* |dg_b| = |d(t_* + φ)| |dx| and [[lem:iii-f4-2-1]] holds for t_* + φ. With t̃ := t_* + φ, t̃u = t_*u + φu, so
+the first-order coefficient changes by [P_0, φ]u = P_0(φu), and ⟨P_0(φu), h*⟩ = lim_R ⟨φu, [P_0ᵀ, χ_R]h*⟩
+= O(R^(3−a−c*)) → 0. And ½t̃²h + t̃(h̆ − φh) = ½t_*²h + t_*h̆ + (φh̆ − ½φ²h), so the second-order quantity changes by
+P_0(φh̆ − ½φ²h), of weight ≥ min(ă − 1, a − 2) ≥ 1 before P_0, which pairs to O(R^(1−c*)) → 0. ∎
+
+*The leading-term integrals as fluxes.* At excess 0 we compute R_1 and R_2 with the time function t̄ = t_* + |x| of
+Minkowski space (allowed by [[lem:iii-f4-2-2]] (3)), in which stationary means independent of t̄ at fixed x, and with
+leading terms that solve the Minkowski equations on ℝ⁴ ∖ 0. On Minkowski space,
+D Ric(W)_μν = ½(∂^ρ∂_μW_νρ + ∂^ρ∂_νW_μρ − ∂^ρ∂_ρW_μν − ∂_μ∂_ν tr W). For a stationary w (indices i, j, k spatial,
+Cartesian, summed; tr w = −w_t̄t̄ + w_kk), P_0w = D Ric(w) and P_1w = D Ric(t̄w) − t̄ D Ric(w), where one derivative
+falls on t̄; so
+
+    (P_0w)_t̄t̄ = −½Δw_t̄t̄,   (P_0w)_t̄i = ½(∂_i∂_jw_t̄j − Δw_t̄i),   tr P_0w = ∂_i∂_jw_ij − Δ tr w,
+    (P_1w)_t̄t̄ = ∂_jw_t̄j,   (P_1w)_t̄i = ½(∂_jw_ij − ∂_iw_kk),   tr P_1w = −2∂_jw_t̄j.                   {#eq:s15-p0p1}
+
+For leading terms with P_0u = 0 on ℝ⁴ ∖ 0, [P_0, χ_R]u = P_0(χ_Ru), supported in {R ≤ |x| ≤ 2R}; likewise
+[P_1, χ_R]h + [P_0, χ_R]h̆ = P_1(χ_Rh) + P_0(χ_Rh̆) when P_1h + P_0h̆ = 0. If the integrand is a divergence ∂_jY^j(·)
+of an expression Y linear in its argument and first derivatives, then, as χ_R = 1 near {|x| ≤ R} and vanishes near
+{|x| = 2R}, the integral over the annulus is −∮_(|x|=R) Y(u) · n dS, n = x/|x|. Three cases occur.
+
+(a) ω* = −dt̄ (the s0 dual state). k = −dt̄², tr k = 1, Gk = −dt̄² − ½ḡ is constant, and ⟨T, Gk⟩ = −T_t̄t̄ − ½tr T. By
+[[eq:s15-p0p1]], ⟨P_0w, Gk⟩ = ½∂_i(∂_iw_kk − ∂_jw_ij) and ⟨P_1w, Gk⟩ = 0. So
+
+    R_1(u) = −½∮(∂_iu_kk − ∂_ju_ij)n_i dS,     R_2(h, h̆) = −½∮(∂_ih̆_kk − ∂_jh̆_ij)n_i dS.
+
+(b) ω* = q · dx, q ∈ ℝ⁴ (the s1 dual states). k = dt̄ ⊗_s q · dx, tr k = 0, Gk = k is constant, ⟨T, k⟩ = −q_iT_t̄i,
+⟨P_0w, k⟩ = −½q_i∂_j(∂_iw_t̄j − ∂_jw_t̄i) and ⟨P_1w, k⟩ = −½q_i∂_j(w_ij − δ_ijw_kk). So
+
+    R_1(u) = ½∮q_i(∂_iu_t̄j − ∂_ju_t̄i)n_j dS,     R_2(h, h̆) = ½∮q_i(h_ij − δ_ijh_kk + ∂_ih̆_t̄j − ∂_jh̆_t̄i)n_j dS.
+
+(c) ω* = V(A′) = (A′x) · dx (the v1 dual states). k = dt̄ ⊗_s V, tr k = 0, Gk = k, ⟨T, k⟩ = −V_iT_t̄i. With
+F_ij := ∂_iw_t̄j − ∂_jw_t̄i and ∂_jV_i = A′_ij, A′ antisymmetric, V_i∂_jF_ij = ∂_j(V_iF_ij) − 2∂_i(A′_ijw_t̄j), so
+⟨P_0w, k⟩ = ∂_j(−½V_iF_ij + A′_jlw_t̄l) and
+
+    R_1(u) = ∮(½V_iF_ij(u) − A′_jlu_t̄l)n_j dS.
+
+In the evaluations we use ∮_(|x|=R) dS = 2π²R³ and ∮_(|x|=R) x_ix_j dS = (π²/2)R⁵δ_ij.
+
+### [Hin26, Lemma 8.12] in dimension 4 + 1 {#sec:iii-f4-3}
+
+**Lemma {#lem:iii-f4-3-1}** (The zero energy pairings; [Hin26, Lemma 8.12] in dimension 4 + 1.) For b = (m, A) near
+b_0, ṁ ∈ ℝ, Ȧ, A′ ∈ 𝔰𝔬(4), S, S′ ∈ 𝒮_1:
+
+(1) (*Mass.*) ⟨L_1ġ^Υ_b(ṁ, 0), h*_(b,s0)⟩ = 3π²ṁ and ⟨L_1ġ^Υ_b(ṁ, 0), h*_(b,s1)(S′)⟩ = 0.
+
+(2) (*Angular momenta.*) ⟨L_1ġ^Υ_b(0, Ȧ), h*_(b,s0)⟩ = ⟨L_1ġ^Υ_b(0, Ȧ), h*_(b,s1)(S′)⟩ = 0 and
+⟨L_1ġ^Υ_b(0, Ȧ), h*_(b,v1)(V(A′))⟩ = 2π²m⟨Ȧ, A′⟩_F.
+
+(3) (*Centres of mass.*) With h := h_(b,s1)(S), h̆ := h̆¹_(b,s1)(S): ⟨L_2h + L_1h̆, h*_(b,s0)⟩ = 0 and
+⟨L_2h + L_1h̆, h*_(b,s1)(S′)⟩ = (3π²/2)m ξ_S · ξ_(S′).
+
+(4) (*The rest.*) The pairings of L_1ġ^Υ_b(ṁ, 0) and of L_2h + L_1h̆ with h*_(b,v1)(V′) are not determined by the
+leading terms; they are linear in their arguments and continuous in b. With them as unknowns, the 11 × 11 matrix of
+(1)–(4) (rows ṁ, S, Ȧ; columns h*_s0, h*_s1, h*_v1) is block upper triangular with determinant
+3π²((3π²/2)m)⁴(2π²m)⁶ ≠ 0.
+
+*Proof.* [[lem:iii-f4-2-2]] applies: the states lie in ker D Ric ∩ ker δ_(E_Υ)G ([[prop:iii-f3-2-2]] (2),
+[[prop:iii-d2-3-1]] (2)), with the weights of [[sec:iii-f4-1]], and c* ≥ 3 throughout. The excesses
+(e_1 = a + c − 2, e_2 = min(a − 3, ă − 2) + c): mass (a = 2) against s0 and s1 (c = 0), 0; against v1 (c = −1), −1;
+angular momenta (a = 3) against s0 and s1, 1; against v1, 0; centres of mass (a = 3, ă = 2) against s0 and s1, 0;
+against v1, −1. The entries of excess > 0 vanish, those of excess < 0 are (4)'s, and the continuity there is that of
+the states and dual states in b ([[prop:iii-f3-2-2]] (3), [[prop:iii-d2-3-1]], [[prop:iii-e-3-1]],
+[[prop:iii-e1-3-1]]) with the absolute convergence of the pairings on the left of [[eq:iii-f4-2-1]]–[[eq:iii-f4-2-2]],
+uniformly near b_0. The entries of excess 0 are, by [[lem:iii-f4-2-2]] (3), leading-term integrals on Minkowski space,
+which may be computed with any representatives with P_0u = 0 (resp. P_0h = 0 = P_1h + P_0h̆) differing by decaying
+gauge terms, and with the time t̄; we use the fluxes (a)–(c) of [[sec:iii-f4-2]].
+
+*The representatives.* ġ^Υ_b(ṁ, 0) is ṁ|x|⁻²(dt̄ + d|x|)² + δ*ω̇_b with ω̇_b ∈ 𝒜^((1,0)∪(1+ℰ_ind))
+([[lem:iii-f3-1-1]], [[prop:iii-f3-2-2]]), and on Minkowski space |x|⁻²(dt̄ + d|x|)² − |x|⁻²(dt̄² + d|x|²)
+= δ̄*(−2|x|⁻¹dt̄), with −2|x|⁻¹dt̄ ∈ ρC^∞; so u := ṁ r⁻²(dt̄² + dr²) represents it. ġ^Υ_b(0, Ȧ) is
+2m|x|⁻⁴(dt̄ + d|x|) ⊗_s V(Ȧ) plus gauge ([[eq:iii-e1-2-2]]: this leading term does not depend on A), whose
+t̄i-components are u_t̄i = m r⁻⁴(Ȧx)_i. For the centres of mass, h_(b,s1)(S) and the stationary part of the boost
+differ from the pair below by δ* of 1-forms in 𝒜², resp. 𝒜¹ ([[eq:iii-d2-3-2]]) up to a multiple of h_(b,s1)(S) (the
+choice of the time origin), which changes (3) by a first-order pairing of h_(b,s1), of excess ≥ 1 against s0 and s1.
+The pair: with g_b − ḡ = m|x|⁻²(dt̄² + d|x|²) + (gauge) + O(|x|⁻³) at first order in m and the boost field
+X := t̄ c · ∂_x + (c · x)∂_(t̄), c := ξ_S, a Killing field of ḡ, ½ℒ_X(g_b − ḡ) = t̄h + h̆ with h = ½c · ∇(m r⁻²(dt̄² +
+dr²)) and h̆ its t̄-independent part, h̆_t̄i = ½(m_jic_j + m_t̄t̄c_i), h̆_ij = ½(m_t̄jc_i + m_t̄ic_j) = 0, where m_t̄t̄
+= m r⁻², m_t̄i = 0, m_ij = m x_ix_j r⁻⁴ are the components of m r⁻²(dt̄² + dr²). ℒ_X commutes with D Ric of ḡ, so the
+pair solves the Minkowski equations, and the Kerr–Schild and static forms differ by δ̄*ζ with ζ = −2m|x|⁻¹dt̄, whose
+image ℒ_Xδ̄*ζ = δ̄*ℒ_Xζ is a pair of the form (δ̄*ζ_1, δ̄*ζ_2 + k(ζ_1)) on which R_2 vanishes. The dual states' leading
+terms are −dt̄, ξ_(S′) · dx and V(A′), with the remainders of higher weight.
+
+*(1)* With u = ṁr⁻²(dt̄² + dr²): u_kk = ṁr⁻², u_ij = ṁx_ix_jr⁻⁴, ∂_iu_kk = −2ṁx_ir⁻⁴ and
+∂_ju_ij = ṁ(5x_i − 4x_i)r⁻⁴ = ṁx_ir⁻⁴, so by (a), R_1 = −½∮(−3ṁx_ir⁻⁴)(x_i/r) dS = (3/2)ṁR⁻³ · 2π²R³ = 3π²ṁ. Against
+s1, u_t̄i = 0, so (b) gives 0.
+
+*(2)* The entries against s0 and s1 have excess 1. Against V(A′), by (c) with u_t̄j = m r⁻⁴(Ȧx)_j:
+F_ij = 2m r⁻⁴Ȧ_ji − 4m r⁻⁶(x_i(Ȧx)_j − x_j(Ȧx)_i), and since x · Ȧx = 0, F_ijx_j = 2m r⁻⁴(Ȧx)_i; so on |x| = R,
+½V_iF_ijn_j = m R⁻⁵(A′x) · (Ȧx) and −A′_jlu_t̄ln_j = −m R⁻⁵ x · A′Ȧx = m R⁻⁵(A′x) · (Ȧx). Hence
+R_1 = 2m R⁻⁵ ∮(A′x) · (Ȧx) dS = 2m R⁻⁵ A′_ikȦ_il (π²/2)R⁵δ_kl = π²m tr(A′ᵀȦ) = 2π²m⟨Ȧ, A′⟩_F.
+
+*(3)* Against s0, by (a), R_2 involves h̆_ij only, which vanishes. Against q · dx, q := ξ_(S′), by (b): from
+h_ij = (m/2)(c_ix_j + x_ic_j)r⁻⁴ − 2m(c · x)x_ix_jr⁻⁶, h_ijx_j = (m/2)c_ir⁻² − (3m/2)(c · x)x_ir⁻⁴ and
+h_kk = −m(c · x)r⁻⁴; and from h̆_t̄j = (m/2)(x_j(c · x)r⁻⁴ + c_jr⁻²), ∂_ih̆_t̄j − ∂_jh̆_t̄i = (3m/2)(c_ix_j − c_jx_i)r⁻⁴.
+So on |x| = R the integrand q_i(h_ij − δ_ijh_kk + ∂_ih̆_t̄j − ∂_jh̆_t̄i)n_j is R⁻¹(2m(q · c)R⁻² − 2m(c · x)(q · x)R⁻⁴),
+whose integral is 2m(q · c)R⁻³ · 2π²R³ − 2mR⁻⁵(π²/2)R⁵(q · c) = 3π²m(q · c); R_2 = (3π²/2)m ξ_S · ξ_(S′).
+
+*(4)* The matrix with rows (ṁ, S, Ȧ) and columns (s0, s1, v1) has the blocks 3π² and 0 (row ṁ), 0 and
+(3π²/2)m ξ_S · ξ_(S′) (row S), 0, 0 and 2π²m⟨Ȧ, A′⟩_F (row Ȧ), and the unknowns only in the column v1 of the rows ṁ
+and S: it is block upper triangular, with the diagonal blocks 3π², (3π²/2)m Id (in a basis of 𝒮_1 for which the ξ_S are
+orthonormal) and 2π²m Id_(𝔰𝔬(4)) (the E_ij being orthonormal). ∎
+
+The values of [Hin26] ([Hin24b]'s normalisation 2L, and dt for the s0 dual state) are −16πṁ_K, −16πm_K(q · ȧ) and
+8πm_K(q · c), m_K the Kerr mass; in each dimension the three are ∓8π times the mass and angular momentum and 4π times the
+mass times the centre of mass, in the normalisations used.
+
+### [Hin26, Lemma 8.15] in dimension 4 + 1 {#sec:iii-f4-4}
+
+For a stationary v of weight ≥ −2, smooth on X, with L_b^(0)v of weight > 1, and W ∈ 𝔰𝔬(4), put
+
+    λ♯_v(W) := ⟨L_b^(0)v, h♯_(b,v1)(W)⟩ − ⟨v, L_b^(0)*h♯_(b,v1)(W)⟩.                                     {#eq:iii-f4-4-1}
+
+Both pairings converge absolutely: h♯ has weight 3, and L_b^(0)*h♯_(b,v1)(W) ∈ ρ^(⌊C_0⌋+6)C^∞ + C_c^∞ by
+[[eq:iii-e1-3-4]] and [[eq:iii-f3-4-4]]. If moreover L_b^(0)v pairs absolutely with h*_(b,v1)(V′), then
+
+    ⟨L_b^(0)v, h*_(b,v1)(V′)⟩ = λ♯_v([A(b), A_(V′)]),                                                    {#eq:iii-f4-4-2}
+
+since ⟨L_b^(0)v, h♭⟩ = ⟨v, L_b^(0)*h♭⟩ (h♭ ∈ Ḣ_b^(0,C_0+3), C_0 > 1, so the boundary terms vanish) and
+L_b^(0)*h♭ = −L_b^(0)*h♯, the dual state lying in ker L_b^(0)*. λ♯_v is defined on all of 𝔰𝔬(4), while the right side
+of [[eq:iii-f4-4-2]] sees only im ad_(A(b)), which is 0 at b_0; this is the device [Hin26, (8.33)] for smoothness in b.
+
+The algebra of 𝔰𝔬(4) used here and in [[sec:iii-f4-5]] is the following.
+
+**Proposition {#prop:np-10-34-iv}** (Rotations and the bracket form of 𝔰𝔬(4).) On ℝ^(1+4) with coordinates (t, x), for
+A ∈ 𝔰𝔬(4) let w_A := x · A dx = Σ_(i,j) x_iA_ij dx^j and h_A := m|x|⁻⁴(dt ⊗ w_A + w_A ⊗ dt).
+
+(a) For B ∈ 𝔰𝔬(4) and the rotation field R := (Bx) · ∂_x, ℒ_R h_A = h_([A,B]).
+
+(b) ⟨[X, Y], Z⟩_F = −⟨Y, [X, Z]⟩_F for X, Y, Z ∈ 𝔰𝔬(4).
+
+(c) For A_b ∈ 𝔰𝔬(4) the form 𝔅(V, V′) := ⟨[A_V, A_b], A_(V′)⟩_F on 𝒱_1 is antisymmetric, with kernel
+{V : [A_V, A_b] = 0}. At A_b = E_12 it has rank 4 and kernel spanned by V(E_12) and V(E_34), and
+im ad_(E_12) = span{E_13, E_14, E_23, E_24}, while im ad_(E_13) contains E_12 and E_34.
+
+(d) In three dimensions, with the isomorphism a ↦ â of ℝ³ onto 𝔰𝔬(3), âv := a × v, one has ⟨â, b̂⟩_F = a · b and
+⟨[â_V, â_b], â_(V′)⟩_F = (a_V × a_b) · a_(V′), the triple product.
+
+*Proof.* (a) The flow of R is φ_s(t, x) = (t, e^(sB)x), with e^(sB) orthogonal. So φ_s*dt = dt, φ_s*|x| = |x| and
+φ_s*w_A = (e^(sB)x) · A e^(sB)dx = x · (e^(−sB)Ae^(sB))dx = w_(e^(−sB)Ae^(sB)); differentiating at s = 0,
+ℒ_R w_A = w_(AB−BA) = w_([A,B]), and ℒ_R h_A = h_([A,B]). (b) For antisymmetric X, Y, Z, [X, Y] is antisymmetric, so
+⟨[X, Y], Z⟩_F = −½tr([X, Y]Z) = −½tr(XYZ − YXZ), and ⟨Y, [X, Z]⟩_F = −½tr(Y(XZ − ZX)) = −½tr(YXZ − XYZ), using
+tr(YZX) = tr(XYZ). The two sum to 0. (c) By (b), 𝔅(V′, V) = −⟨[A_b, A_(V′)], A_V⟩_F = ⟨A_(V′), [A_b, A_V]⟩_F
+= −𝔅(V, V′). As ⟨·, ·⟩_F is nondegenerate, V lies in the kernel exactly when [A_V, A_b] = 0. With
+[E_ij, E_jk] = E_ik for distinct i, j, k and [E_ij, E_kl] = 0 for disjoint pairs, ad_(E_12) maps E_13, E_14, E_23, E_24
+to −E_23, −E_24, E_13, E_14 and annihilates E_12 and E_34; so its kernel is span{E_12, E_34} and its image
+span{E_13, E_14, E_23, E_24}, of dimension 4. Likewise ad_(E_13)E_23 = −E_12 and ad_(E_13)E_14 = −E_34, so im ad_(E_13)
+contains E_12 and E_34. (d) â_ij = −ε_ijk a_k, so
+⟨â, b̂⟩_F = ½ε_ijkε_ijl a_k b_l = a · b; and [â, b̂] = (a × b)^ by the Jacobi identity for the cross product. ∎
+
+**Lemma {#lem:iii-f4-4-1}** (The pairings of the generalised states; [Hin26, Lemma 8.15] in dimension 4 + 1.) For
+b = (m, A) near b_0:
+
+(1) (*Scalar type 1.*) L_b^(0)h̆²_(b,s1)(S) = −L_2h_(b,s1)(S) − L_1h̆¹_(b,s1)(S); so
+⟨L_b^(0)h̆²_(b,s1)(S), h*_(b,s0)⟩ = 0, and S ↦ ⟨L_b^(0)h̆²_(b,s1)(S), h*_(b,s1)(·)⟩ = −(3π²/2)m ξ_S · ξ_((·)) is an
+isomorphism 𝒮_1 → 𝒮_1*, smooth in b.
+
+(2) (*Vector type 1.*) L_b^(0)h̆¹_(b,v1)(V) = −L_1h_(b,v1)(V), which pairs to 0 with h*_(b,s0) and h*_(b,s1)(S′), and
+
+    ⟨L_b^(0)h̆¹_(b,v1)(V), h*_(b,v1)(V′)⟩ = π²m⟨A_V, [A(b), A_(V′)]⟩_F,
+    λ♯_(h̆¹_(b,v1)(V))(W) = π²m⟨A_V, W⟩_F  for all W ∈ 𝔰𝔬(4).                                           {#eq:iii-f4-4-3}
+
+*Proof.* (1) h^(≤2)_(b,s1)(S) = t_*²h + 2t_*h̆¹ + 2h̆², h := h_(b,s1)(S), lies in ker L_b ([[prop:iii-d3-3-1]] (2), with
+its normalisation: the constant coefficient of h^(≤k) is k! h̆^k); expanding as in [[sec:iii-f4-2]] with Lh = 0 and
+L(t_*h + h̆¹) = 0 gives 2(L_2h + L_1h̆¹) + 2L_b^(0)h̆² = 0. [[lem:iii-f4-3-1]] (3) gives the pairings.
+
+(2) t_*h_(b,v1)(V) + h̆¹_(b,v1)(V) ∈ ker L_b ([[prop:iii-d3-3-1]] (3)), so L_b^(0)h̆¹ = −L_1h_(b,v1)(V), and by
+[[rem:iii-f3-2-3]], h_(b,v1)(V) = ½ġ^Υ_b(0, [A, A_V]). [[lem:iii-f4-3-1]] (2) then gives 0 against h*_s0, h*_s1, and
+−½ · 2π²m⟨[A, A_V], A_(V′)⟩_F = π²m⟨A_V, [A, A_(V′)]⟩_F against h*_v1(V′), by [[prop:np-10-34-iv]] (b). By
+[[eq:iii-f4-4-2]], λ♯_(h̆¹_(b,v1)(V))(W) = π²m⟨A_V, W⟩_F for W ∈ im ad_(A(b)). Now
+λ♯_(h̆¹_(b,v1)(V))(W) = −lim_R ⟨[L_b^(0), χ_R]h̆¹_(b,v1)(V), h♯_(b,v1)(W)⟩ (insert χ_R into [[eq:iii-f4-4-1]]:
+L_b^(0)* of the compactly supported side is exact, and the limit of
+⟨χ_RL_b^(0)v, h♯⟩ − ⟨χ_Rv, L_b^(0)*h♯⟩ is [[eq:iii-f4-4-1]]). Its weights are −1 and 3 with
+[L_b^(0), χ_R] ∈ ρ²Diff¹_b, excess 0, so as in [[lem:iii-f4-2-2]] (3) it is the integral of the leading terms:
+h̄¹_v1(V) of [[eq:iii-d3-3-3]], independent of b; h̄♯(W) = mρ³(dt_* + κ_C d|x|) ⊗_s ρV(W) of [[eq:iii-e1-3-3]], which
+depends on b only through m; and the model operator. So λ♯_(h̆¹_(b,v1)(V))(W) = m c(V, W) with c a bilinear form
+independent of b. For b = (m, A) in the parameter neighbourhood, c(V, W) = π²⟨A_V, W⟩_F on im ad_A ([[lem:iii-f4-3-1]]
+(2) holds at every such b, spinning or not, with the same value, as the leading term
+2mρ³(dt_* + 2d|x|) ⊗_s ρV(Ȧ) of ġ^Υ_b(0, Ȧ), [[eq:iii-e1-2-2]], does not depend on A); and these images, for A small,
+span 𝔰𝔬(4) (im ad_(ϵE_12) = span{E_13, E_14, E_23, E_24} and im ad_(ϵE_13) ∋ E_12, E_34, [[prop:np-10-34-iv]] (c)). So
+c(V, ·) = π²⟨A_V, ·⟩_F on 𝔰𝔬(4). ∎
+
+### The physical large zero energy states {#sec:iii-f4-5}
+
+Let τ be one of the types s2, v2, t2, and Y a harmonic of that type and degree 2 (S ∈ 𝒮_2, V ∈ 𝒱_2, or a trace-free
+divergence-free tensor harmonic of degree 2). By [[prop:iii-f1-2-3]], −2 is a simple indicial root of L_b^(0) at τ (the
+root −l at l = 2), so ker N_τ(L̄^(0), −2) is one-dimensional for each Y; let h̄_τ(Y) = ρ⁻²ū_τ(Y) span it, linearly in Y.
+Since L̄ is homogeneous under dilations, L̄^(0)h̄_τ(Y) = 0 near ∂X.
+
+**Proposition {#prop:iii-f4-5-1}** (The physical states at −2; [Hin26, Proposition 8.14 (1)] in dimension 4 + 1.) There
+is an index set ℰ_ind such that for all b near b_0 there are
+
+    h^(−2)_(b,τ)(Y) ∈ 𝒜^((−2,0)∪(−2+ℰ_ind))(X̄; S²T*X),     τ ∈ {s2, v2, t2},                            {#eq:iii-f4-5-1}
+
+linear in Y and smooth in b, with ρ⁻² leading term h̄_τ(Y), in ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G_(g_b), hence in
+ker L_b^(0). Their leading terms span ker N_τ(L̄^(0), −2) for each τ.
+
+*Proof.* It suffices to treat Y in a basis; we suppress Y and τ.
+
+*Step 1: formal solution.* f_b := L_b^(0)(χh̄) ∈ ρ²C^∞ + C_c^∞, since L_b^(0) − L̄^(0) ∈ ρ⁴Diff²_b
+([[lem:iii-f-2-1]]). Near ∂X, L_b^(0) = ρ²A with A an elliptic b-operator whose normal operator does not depend on b
+([[eq:i-c-1-1]]–[[eq:i-c-1-3]]; [[lem:iii-f-2-1]]). [[lem:iii-a-1-5]] gives h′_(b,1) ∈ 𝒜^ℱ, ℱ built from (0, 0) and
+the roots (with logarithms at the integer roots ≥ 0), smooth in b, with L_b^(0)h^≈_b ∈ 𝒜^N for a fixed large N,
+h^≈_b := χh̄ + h′_(b,1); ℱ ⊂ −2 + ℰ_ind as min Re ℱ ≥ 0.
+
+*Step 2: the obstructions.* By [[prop:iii-f3-4-1]] (2) and [[cor:iii-f3-4-2]] (2), L_b^(0)h = f is solvable, smoothly
+in b, for f ∈ 𝒜^(α+2) orthogonal to the eleven dual states. (a)
+⟨L_b^(0)h^≈_b, h*_(b,s0)⟩ = ⟨h^≈_b, L_b^(0)*h*_(b,s0)⟩ = 0: h*_(b,s0) ∈ Ḣ_b^(0,C_0+3), C_0 > 1, so the boundary terms,
+O(R^(1−C_0)), vanish. (b) λ_s1(S′) := ⟨L_b^(0)h^≈_b, h*_(b,s1)(S′)⟩, a linear form on 𝒮_1, smooth in b. (c) By
+[[eq:iii-f4-4-2]], ⟨L_b^(0)h^≈_b, h*_(b,v1)(V′)⟩ = λ♯_(h^≈_b)([A(b), A_(V′)]), with λ♯_(h^≈_b) a linear form on
+𝔰𝔬(4), smooth in b. Let S_1 ∈ 𝒮_1 solve λ_s1(·) − (3π²/2)m ξ_(S_1) · ξ_((·)) = 0 ([[lem:iii-f4-4-1]] (1)), and
+V_1 ∈ 𝒱_1 solve
+
+    λ♯_(h^≈_b) + λ♯_(h̆²_(b,s1)(S_1)) + π²m⟨A_(V_1), ·⟩_F = 0     on 𝔰𝔬(4)                               {#eq:iii-f4-5-2}
+
+([[lem:iii-f4-4-1]] (2); λ♯_(h̆²_(b,s1)(S_1)) is defined since h̆²_(b,s1) has weight −1 and L_b^(0)h̆²_(b,s1), by
+[[lem:iii-f4-4-1]] (1), weight ≥ 2). Both are smooth in b. Put h^(≈,2)_b := h^≈_b + h̆²_(b,s1)(S_1) + h̆¹_(b,v1)(V_1).
+Then L_b^(0)h^(≈,2)_b pairs to 0 with all eleven dual states: with h*_s0 by (a) and [[lem:iii-f4-4-1]]; with h*_s1 by
+the choice of S_1 and [[lem:iii-f4-4-1]] (2) (h̆¹_v1 pairs to 0); with h*_v1(V′) by [[eq:iii-f4-4-2]] for each summand
+and [[eq:iii-f4-5-2]] at W = [A(b), A_(V′)].
+
+*Step 3: the state.* L_b^(0) maps h̆²_(b,s1)(S_1) and h̆¹_(b,v1)(V_1), of weight −1 with leading terms annihilated by
+N(L̄^(0), −1) ([[prop:iii-d3-3-1]] (2)–(3)), into 𝒜^((2,0)∪(2+ℰ_ind)), so
+L_b^(0)h^(≈,2)_b ∈ 𝒜^((2,0)∪(2+ℰ_ind)), smoothly in b. [[lem:iii-a-1-5]], applied to its ρ² terms, gives
+h_(b,(0)) ∈ 𝒜^((0,k)) for some k, smooth in b, with f_b := −L_b^(0)(h^(≈,2)_b + h_(b,(0))) ∈ 𝒜^(2+ε_ind); and
+⟨L_b^(0)h_(b,(0)), h*⟩ = ⟨h_(b,(0)), L_b^(0)*h*⟩ = 0 for the dual states (weight ≥ 3: boundary terms O(R⁻¹ log^k R)), so
+f_b is orthogonal to all of them. [[cor:iii-f3-4-2]] (2) with α ∈ (0, ε_ind) gives u_b ∈ 𝒜^(α−ϵ), smooth in b, with
+L_b^(0)u_b = f_b. Every term of f_b is polyhomogeneous: h^≈_b by its construction ([[lem:iii-a-1-5]]),
+h̆²_(b,s1)(S_1) and h̆¹_(b,v1)(V_1) in 𝒜^((−1,0)∪(−1+ℰ_ind)) by [[prop:iii-d3-3-1]] (2)–(3), and h_(b,(0)); and L_b^(0)
+has smooth coefficients. So u_b, which solves ρ²Au_b = f_b near ∂X with A b-elliptic, is polyhomogeneous by
+[[lem:iii-a-1-4]], as in [[lem:iii-d1-5-1]] (2), with an index set built from the indicial roots of L_b^(0) with real
+part > α − ϵ and from that of f_b, both independent of b (the roots are the model's, [[lem:iii-f1-2-1]]). This index
+set contains the roots ι^C_(·,+) − 1 just above 1. Then
+
+    h^(−2)_b := h^(≈,2)_b + h_(b,(0)) + u_b ∈ ker L_b^(0),                                               {#eq:iii-f4-5-3}
+
+with leading term h̄ and h^(−2)_b − χh̄ ∈ 𝒜^((−1,0)∪(−1+ℰ_ind)) + 𝒜^ℱ + 𝒜^((0,k)) + 𝒜^(ℰ′) ⊂ 𝒜^(−2+ℰ_ind), ℰ′ the index
+set of u_b just found; its index set is that of [[eq:iii-f4-5-1]], independent of b.
+
+*Step 4: the gauge.* η := δ_(g_b,E_Υ)G_(g_b)h^(−2)_b has weight −1, and the second Bianchi identity gives
+(□^C_b)^(0)η = 2δ_(g_b)G_(g_b)L_b^(0)h^(−2)_b = 0. In the Euclidean weight of [[thm:iii-e-1-1]],
+η ∈ H̄_b^(s,α_C) for every s and every α_C < −3; taking α_C + 2 ∈ [−C_0, −1) (possible as C_0 > 1),
+[[thm:iii-e-1-1]] (2) gives η = 0; then D_(g_b)Ric(h^(−2)_b) = L_b^(0)h^(−2)_b = 0. ∎
+
+**Remark {#rem:s15-window}** (Which states are needed.) In the expansion at future timelike infinity of [[ch:s16]]–
+[[ch:s19]], a term t_*^(−α) at ι⁺ whose coefficient meets an indicial root μ of L_b^(0) contributes a term of order
+α − μ at the Kerr face, and its generalised companions terms of orders α − μ + j, j ≥ 1 ([Hin26, (1.23), p. 17]); a
+state must be accounted for while that order is at most 4, the forward problem needing u = O(t_*^(−2−ϵ)) and sources
+O(t_*^(−4−ϵ)) ([Hin26, p. 273]). For the physical roots μ = −l, l ≥ 2, the order is α + l, which is at most 4 exactly
+when l ≤ 4 − α; for α ∈ (1, 2] this is l = 2, with ⌊4 − α − 2⌋ = ⌊2 − α⌋ = 0 companions. So the physical states
+needed for orders in (1, 2] are those of [[prop:iii-f4-5-1]], at −2 and without companions, and the roots with real
+part ≤ 0 that enter lie in [α − 4, 0], that is in [−2, 0] at α = 2 and in [−5/2, 0] at α = 3/2. The construction of
+companions in [Hin26, Step 4 of the proof of Proposition 8.14] would need −3 not to be a root at s2, v2 and t2; by
+[[prop:iii-f1-2-3]] it is not (the roots there with real part ≤ 0 are −2, 2 − ι^Υ_(s2,4) ∈ (−9/4, −2),
+2 − ι^Υ_(s2,3) ∈ (−5/4, −1), 0 and roots below −101 at s2; −2, −1 and a root below −101 at v2; and −2 at t2).
+
+*Remarks on [Hin26].* (a) [Hin26, (8.25)], L* = G ∘ D Ric ∘ G − …, uses G² = Id, which holds in dimension 3 + 1 only;
+in dimension 4 + 1 it is [[eq:iii-f3-4-4]], with G⁻¹ = Id − ⅓g tr, and the inclusion G δ* ker(□^C)* ⊂ ker L* holds as
+there. (b) The threshold s > 5/2 of [Hin26, footnote 78] is that of the operator without constraint damping;
+[[lem:iii-f2-1-1]] gives the threshold with it. (c) In the proof of [Hin26, Proposition 8.14], the printed
+"−8πm a(V_1) = v_b" has the sign reversed against [Hin26, (8.33)], and [Hin26, (8.35)] prints λ_(b,s1) for λ_(b,v1).

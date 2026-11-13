@@ -21,9 +21,9 @@ The region of this section is
 in the coordinates (t, σ, x). Since u + 1 = a sinh ξ, we have dξ/du = 1/(a cosh ξ), hence
 
     ∂_u = φ₁ ∂_t,   ∂_u² = φ₁² ∂_t² + φ₂ ∂_t,   ∂_v = (40/21) ∂_σ,
-    φ₁ := 1/(a h_ξ cosh ξ),   φ₂ := dφ₁/du / φ₁ · φ₁ = −φ₁² h_ξ tanh ξ.                                  {#eq:tl5-chain}
+    φ₁ := 1/(a h_ξ cosh ξ),   φ₂ := −φ₁² h_ξ tanh ξ.                                                  {#eq:tl5-chain}
 
-Here φ₂ = d²t/du²: differentiating φ₁ gives −sinh ξ/(a² h_ξ cosh³ ξ) = −φ₁² h_ξ tanh ξ.
+Here φ₁ = dt/du and φ₂ = d²t/du², since dφ₁/du = −sinh ξ/(a² h_ξ cosh³ ξ) = −φ₁² h_ξ tanh ξ.
 
 **Definition {#def:tl5-approximants}** (the approximants). Let T_k be the Chebyshev polynomial of degree k,
 T_k(cos θ) = cos kθ. Each of the two tables of [[sec:tab-d-coefficients]] gives, for every F ∈ {R, m, n, W, s}, real
@@ -210,7 +210,7 @@ for F_γ at c to first order, with the Lagrange remainder bounded by [[lem:tl5-c
 
 **Definition {#def:tl5-jets}** (jets and enclosures). The jet of f at p is J_p f := (f_α(p))_(|α|≤3), twenty numbers.
 For jets a, b put (a + b)_α := a_α + b_α and (ab)_α := Σ_(β+β′=α) a_β b_β′; for a jet a write a₀ for its
-coefficient at α = 0 and N := a − a₀, and put
+coefficient at α = 0 and N := a − a₀ (the jet a with a₀ replaced by 0), and put
 
     1/a := Σ_(j=0..3) (−1)^j a₀^(−j−1) N^j,   √a := Σ_(j=0..3) binom(1/2, j) a₀^(1/2−j) N^j,   e^a := e^(a₀) Σ_(j=0..3) N^j/j!.
 
@@ -218,9 +218,9 @@ Then J_p(fg) = (J_p f)(J_p g), J_p(1/f) = 1/J_p f, J_p √f = √(J_p f) and J_p
 coefficients of order at most 3 of a product or of a composition depend only on those of the factors, and
 N^4 = 0 in this product. An enclosure of a jet on b is a family of closed intervals (I_α)_(|α|≤3) with
 (J_p f)_α ∈ I_α for every p ∈ b. Intervals are added and multiplied by the endpoint rules
-[α, β] + [γ, δ] = [α + γ, β + δ] and [α, β][γ, δ] = [min, max] of the four products; for a jet whose constant term
-lies in an interval [α, β] with α > 0, the coefficients a₀^(−j−1), a₀^(1/2−j) and e^(a₀) are monotone in a₀ and are
-enclosed by their values at α and β.
+[p₁, p₂] + [q₁, q₂] = [p₁ + q₁, p₂ + q₂] and [p₁, p₂][q₁, q₂] = [min, max] of the four products p_i q_j; for a jet
+whose constant term lies in an interval [p₁, p₂] with p₁ > 0, the coefficients a₀^(−j−1), a₀^(1/2−j) and e^(a₀) are
+monotone in a₀ and are enclosed by their values at p₁ and p₂.
 
 **Lemma {#lem:tl5-jet-enclosure}** (the components on a box). Let b be a box in Π. Enclose, for every field and
 |γ| ≤ 5, the coefficient F_γ on b by [[lem:tl5-field-box]]; enclose the jets of x and of ξ = ξ_a + (t + 1)h_ξ on b
@@ -238,10 +238,10 @@ the given intervals. Induction over the steps gives the claim. ∎
 
 **Definition {#def:tl5-certificate}** (the number of a box). For a box b with centre c and half-widths h, let
 
-    β_ab(b) := Σ_(|α|≤2) |(f_ab)_α(c)| h^α + Σ_(|α|=3) max|I^ab_α| h^α,      β(b) := max_ab β_ab(b),   {#eq:tl5-certificate}
+    κ_ab(b) := Σ_(|α|≤2) |(f_ab)_α(c)| h^α + Σ_(|α|=3) max|I^ab_α| h^α,      κ(b) := max_ab κ_ab(b),   {#eq:tl5-certificate}
 
 with (f_ab)_α(c) the exact Taylor coefficients at the centre and I^ab_α the enclosures of [[lem:tl5-jet-enclosure]].
-By [[lem:tl5-taylor]], sup_b max_ab |f_ab| ≤ β(b). The tables give, for every box, a number at least β(b), rounded
+By [[lem:tl5-taylor]], sup_b max_ab |f_ab| ≤ κ(b). The tables give, for every box, a number at least κ(b), rounded
 upward; since the endpoint rules are exact for each single operation, an evaluation by them never exceeds the
 printed number. At a point p the tables give a number at least max_ab |f_ab(p)|, rounded upward.
 
@@ -269,7 +269,7 @@ that point, each obtained by evaluating [[eq:tl5-components]] at the point; the 
     sup_(B*) max_ab |f^(1)_ab| ≤ 3.01 × 10⁻⁴.
 
 *Proof.* Divide B* into the 32³ = 32,768 boxes of half-widths (1/128, 1/128, 1/256). [[sec:tab-d-boxes]] gives an
-upper bound for β(b) for each of them ([[def:tl5-certificate]]); the largest is at most 3.01 × 10⁻⁴. ∎
+upper bound for κ(b) for each of them ([[def:tl5-certificate]]); the largest is at most 3.01 × 10⁻⁴. ∎
 
 **Proposition {#prop:tl5-boxes-second}** (the second approximant on four boxes). Let B1 := I × J × [−21/32, −41/64],
 B2 := I × J × X₉, B3 := I × J × X₈ and B4 := [−1/2, −3/8] × [3/8, 1/2] × [5/8, 11/16], where I := [−31/32, −15/16],
@@ -294,10 +294,10 @@ entries of [[sec:tab-d-points]]. ∎
 
 *Proof.* Π is the union of the 416 boxes [−1 + i/2, −1/2 + i/2] × [−1 + j/2, −1/2 + j/2] × X (0 ≤ i, j ≤ 3, X one of
 the 26 x-intervals). On each of them the enclosure of the constant term of the jet of R is a positive interval, and
-[[sec:tab-d-boxes]] lists β_ab(b) for the five components; the largest are below the stated numbers. ∎
+[[sec:tab-d-boxes]] lists κ_ab(b) for the five components; the largest are below the stated numbers. ∎
 
 **Remark {#rem:tl5-how-checked}** (checking a row). Each entry of the tables is a finite calculation with the printed
 coefficients and the rules of [[def:tl5-jets]]. [[sec:tab-d-worked]] carries one box of [[prop:tl5-box-first]]
 through it completely: its centre jets, the enclosures of [[lem:tl5-field-box]], the jets of the quantities of
-[[eq:tl5-components]] for the component that attains β(b), the coefficients of all eight components and the sum
+[[eq:tl5-components]] for the component that attains κ(b), the coefficients of all eight components and the sum
 [[eq:tl5-certificate]]. [[pending:tables-d234-size]]

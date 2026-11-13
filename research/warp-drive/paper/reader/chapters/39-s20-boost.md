@@ -1297,8 +1297,8 @@ near 𝓘⁺) and
     u^♭ := u − u_I − u_ι :     L_b u^♭ = f^♭ ∈ H^(∞,ℓ_I+1,4−ε,α_K)_b(Ω_*)^(•,−),                         {#eq:iii-i6-2-2}
 
 u^♭ being the forward solution ([[prop:ii-e-3-4]]). From here on ε > 0 is fixed, small as above. The parameters ḃ,
-Ṡ^(0)_1 found below are the (0, 0)-coefficient of u at K⁺, its limit as t_* → ∞ in compact spatial sets, as ũ tends
-to 0 there; so they and ũ do not depend on ε, and [[eq:iii-i6-2-1]] holds for every β_+. There is no logarithmic term:
+Ṡ^(0)_1 found below are determined by the (0, 0)-coefficient ġ_b(ḃ) + h_b(Ṡ^(0)_1) of u at K⁺, its limit as t_* → ∞
+in compact spatial sets, as ũ tends to 0 there ([[lem:s20-injective]]); so they and ũ do not depend on ε, and [[eq:iii-i6-2-1]] holds for every β_+. There is no logarithmic term:
 the least ι⁺-exponent is λ_♯, and the coefficient a_s1 = (λ_0(λ_0 − 1))⁻¹t_*^(−λ_0+1) of [[eq:iii-g2-4-2]] is a power
 for Re λ_0 > 1.
 
@@ -1447,7 +1447,8 @@ after Step 6.
 
 *Reality.* u is real, as f and L are and forward solutions are unique. ġ_b and h_b are real on real arguments ((BP3)),
 so χ_K(ġ_b(Im ḃ) + h_b(Im Ṡ^(0)_1)) = −Im ũ has the K⁺-weight α_K − 2 > 0. A stationary tensor of positive K⁺-weight
-vanishes on X°, so ġ_b(Im ḃ) + h_b(Im Ṡ^(0)_1) = 0, and Im ḃ = 0, Im Ṡ^(0)_1 = 0 by the rows [[eq:iii-h-3-1]].
+vanishes on X°, so ġ_b(Im ḃ) + h_b(Im Ṡ^(0)_1) = 0. Applying the rows, B(b)(Im ḃ, Im Ṡ^(0)_1) = 0 by [[eq:s20-rows]],
+and Im ḃ = 0, Im Ṡ^(0)_1 = 0, as B(b) is invertible ([[lem:s20-rows]]).
 
 *Continuity.* Every map above is linear and bounded between the spaces stated ([[prop:iii-h-3-2]], the construction
 of [[prop:iii-g4-5-1]], [[lem:iii-i2-4-2]], [[lem:iii-i6-1-1]]–[[lem:iii-i6-1-4]], [[prop:ii-g1-3-3]] (1),
@@ -1459,8 +1460,8 @@ The step of [Hin26, Proposition 9.30] and the expansion [Hin26, (11.107b)] of th
 translation state with a coefficient singular at σ = 0. The rows of the augmented operator see it; left in the first
 component, it would give a row correction of size |σ|^(−ε) in the 𝒮_1-component, which the integration in t_* would
 turn into growth. [[lem:iii-i6-1-4]] moves it into the 𝒮_1-column with the coefficient −σ²|σ|^(α−3)S^(−1)_1 =
-O(|σ|^(1−ε)), and [[lem:iii-i6-1-3]] shows that the remaining row data are answered by the nullspace, with columns
-O(|σ|^(1−ε)). The identification [[eq:iii-i6-2-8]] needs every piece in 𝒳_σ; the conormal piece of
+O(|σ|^(1−ε)), and [[lem:iii-i6-1-3]] shows that the remaining row data are answered by the nullspace, through the
+inverse of the matrix B(b) of the rows on the states, with columns O(|σ|^(1−ε)). The identification [[eq:iii-i6-2-8]] needs every piece in 𝒳_σ; the conormal piece of
 [[prop:iii-g4-5-1]]'s solution lies in it for an order family lowered near R_out, a radial set where only an upper
 threshold applies, and the inverses on the two spaces agree, as the kernels do not depend on the order
 ([[lem:iii-i6-1-2]]). The range α_K − 2 < ε_ind is that of [Hin26].
