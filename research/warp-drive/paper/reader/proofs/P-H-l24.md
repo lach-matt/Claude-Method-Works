@@ -275,10 +275,29 @@ Then
     m0(t + 2πλ) − m0(t) + Re[(S(t + 2πλ) − S(t)) e^(it/λ)] ≥ 1.7 πλ κ(t) m0(t).                     {#eq:l-24-period}
 
 Under (H_N) on I with κ ≥ 1 there, |κ′|/κ ≤ c_R κ^α ≤ c_R κ, so [[eq:l-24-period-cond]] holds once
-2π (c_R + 3) λ sup_I κ ≤ 1/26.
+2π (c_R + 3) λ sup_I κ ≤ 1/26. For a carrier period I contained in the band on which 1/2 ≤ R ≤ 1.1, every hypothesis
+holds once λ is small: [[prop:l-24-transition]] applies at each point of I by [[prop:l-24-band]] and
+[[prop:l-24-s-bounds]]; and by [[lem:l-24-kappa]], (α c_R x_λ)^(−1/α) ≤ κ ≤ K_λ on I, so √μ0 κ ≥ 2 and κ ≥ 1 once
+x_λ is small, and 2π (c_R + 3) λ K_λ ≤ 1/26 once λ is small.
 
-*Proof.* On I, κ′ ≤ 0 by log-concavity, and by [[lem:l-24-margin]] with ς ≤ 10⁻³ and √μ0 κ ≥ 2,
+*Proof.* By [[lem:l-24-margin]] with ς ≤ 10⁻³ and √μ0 κ ≥ 2,
 0 < m0′/m0 ≤ (2 + 1.000125/2) κ ≤ 3κ. So |(log(κ m0))′| = |κ′/κ + m0′/m0| ≤ |κ′|/κ + 3κ, and by [[eq:l-24-period-cond]]
 log(κ m0) varies by at most 1/26 on I. As e^y < 1/(1 − y) for 0 < y < 1, e^(1/26) < 26/25, so κ m0 ≥ (25/26) κ(t) m0(t)
 on I. The left side of [[eq:l-24-period]] is ∫_I (m0′(s) + Re[S′(s) e^(it/λ)]) ds ≥ ∫_I (m0′ − |S′|) ds, and by
 [[prop:l-24-transition]] this is at least 0.89 · 2πλ · (25/26) κ(t) m0(t) ≥ 1.71 πλ κ(t) m0(t). ∎
+
+**Remark {#rem:l-24-eps}** (The degree-two terms against the margin.) The proof of [[thm:l-24]] bounds the degree-two
+terms at the boundary through the costs ε_c(v) := Σ_(i≤c) sup_(v′≤v) |env^(i)(v′)|, for fixed c ≥ 1, among them
+c = M* := 2N + 8, the cost of the expansion on the boundary in [[ch:equality-layer]]. No bound m0 ≥ c′ ε_c² with c′ > 0
+independent of λ holds in the band: there ε_c ≥ env′ = κ env, while by [[eq:l-24-m0]] and [[eq:l-24-logconcave]]
+m0 = (a_1 + a_2)/κ ≤ (A² env²/(9 √μ0)) (1 + 1/(2 √μ0 κ)), so m0/ε_c² ≤ C/κ², which tends to 0 with λ by
+[[lem:l-24-kappa]]. What holds, and suffices, follows from the interpolation inequality on a half-line
+[[pending:lemma-l5]], sup_(v′≤v) |env^(i)(v′)| ≤ C_(i,m) E(v)^(1−i/m) (sup_(v′≤v) |env^(m)(v′)|)^(i/m) for 0 < i < m.
+Take m := 56c, env^(m) being bounded. At a point of the band, E ≤ λ^(3−δ) ≤ 1 gives ε_c ≤ C E^(1−c/m); and
+E = env ≥ λ^(3+δ), m0 ≥ A² env²/(10 √μ0) (as in the proof of [[prop:l-24-s-bounds]]) and 2(3 + δ)c/m ≤ 1/8 give
+
+    ε_c(v)² ≤ C E(v)^(2−2c/m) ≤ C λ^(−1/8) m0(v),                                                   {#eq:l-24-eps}
+
+with C independent of λ and v. So the degree-two increments over one carrier period, at most C κ λ² ε_c² and
+C λ^(N−6) ε_c², are at most C κ λ^(15/8) m0 and C λ^(N−6−1/8) m0, both below πλκ m0/4 for λ small, as N ≥ 9 and
+κ ≥ κ̂ in the band.

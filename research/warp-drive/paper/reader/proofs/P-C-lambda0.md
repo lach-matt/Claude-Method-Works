@@ -589,19 +589,19 @@ array M write ‖M‖ := (Σ |M_ij|²)^(1/2); on real arrays ‖·‖ is |·|_F.
 
 (b) for either square root r(z) of R²(z), ξ := z/r(z) satisfies ξ·ξ = 1 and ‖ξ‖² ≤ K(σ).
 
-*Proof.* If e_x = 0 then z = x. Otherwise put ω := x/r, ê := e_x/|e_x|, u := ω·ê ∈ [−1, 1] and s := t|e_x|/r, so
-that z = r(ω + s ê) and |s| ≤ σ. (a) R²(z) = r²(1 + 2su + s²) = r²(s − s₊)(s − s₋) with s± := −u ± i(1 − u²)^(1/2),
-|s±| = 1; so (1 − |s|)² ≤ |1 + 2su + s²| ≤ (1 + |s|)². (b) ξ·ξ = R²(z)/r(z)² = 1, and ‖ξ‖² = ‖z‖²/|R²(z)|. If
+*Proof.* If e_x = 0 then z = x. Otherwise put ω := x/r, ê := e_x/|e_x|, u := ω·ê ∈ [−1, 1] and η := t|e_x|/r, so
+that z = r(ω + η ê) and |η| ≤ σ. (a) R²(z) = r²(1 + 2ηu + η²) = r²(η − η₊)(η − η₋) with η± := −u ± i(1 − u²)^(1/2),
+|η±| = 1; so (1 − |η|)² ≤ |1 + 2ηu + η²| ≤ (1 + |η|)². (b) ξ·ξ = R²(z)/r(z)² = 1, and ‖ξ‖² = ‖z‖²/|R²(z)|. If
 u = ±1 then ξ = ±ω is real and ‖ξ‖² = 1. Otherwise ê = uω + (1 − u²)^(1/2) f with f a real unit vector orthogonal to
-ω, and with w := s(1 − u²)^(1/2)/(1 + su) (note |su| < 1) one has ω + s ê = (1 + su)(ω + w f). Hence
-‖z‖² = r²|1 + su|²(1 + |w|²) and R²(z) = r²(1 + su)²(1 + w²), so ‖ξ‖² = (1 + |w|²)/|1 + w²|. With w = w1 + i w2,
+ω, and with w := η(1 − u²)^(1/2)/(1 + ηu) (note |ηu| < 1) one has ω + η ê = (1 + ηu)(ω + w f). Hence
+‖z‖² = r²|1 + ηu|²(1 + |w|²) and R²(z) = r²(1 + ηu)²(1 + w²), so ‖ξ‖² = (1 + |w|²)/|1 + w²|. With w = w1 + i w2,
 both |1 + w²|² and (1 + |w|²)² − 4w2² equal (1 + w1² − w2²)² + 4w1²w2²; therefore
 
     ‖ξ‖² = (1 − (2|w2|/(1 + |w|²))²)^(−1/2) ≤ (1 − (2|w2|/(1 + w2²))²)^(−1/2) = (1 + w2²)/(1 − w2²),
 
-provided |w2| < 1, and it suffices to show |w2| ≤ σ. Now w2 = (1 − u²)^(1/2) Im s/|1 + su|². Write s = ϱ e^(iφ) with
-ϱ ≤ σ; then |1 + su|² = 1 + 2ϱu cos φ + ϱ²u² ≥ 1 + 2ϱu cos φ ≥ 0, and (1 − u²)^(1/2)|sin φ| − 2ϱu cos φ ≤
-(1 − u² + 4ϱ²u²)^(1/2) ≤ 1 because 2ϱ ≤ 1. So (1 − u²)^(1/2)|Im s| ≤ ϱ(1 + 2ϱu cos φ) ≤ σ|1 + su|². ∎
+provided |w2| < 1, and it suffices to show |w2| ≤ σ. Now w2 = (1 − u²)^(1/2) Im η/|1 + ηu|². Write η = ϱ e^(iφ) with
+ϱ ≤ σ; then |1 + ηu|² = 1 + 2ϱu cos φ + ϱ²u² ≥ 1 + 2ϱu cos φ ≥ 0, and (1 − u²)^(1/2)|sin φ| − 2ϱu cos φ ≤
+(1 − u² + 4ϱ²u²)^(1/2) ≤ 1 because 2ϱ ≤ 1. So (1 − u²)^(1/2)|Im η| ≤ ϱ(1 + 2ϱu cos φ) ≤ σ|1 + ηu|². ∎
 
 **Lemma {#lem:complex-unit}** (Unit complex vectors.) Let ξ ∈ ℂ⁴ with ξ·ξ = 1, put K := ‖ξ‖², and assume K² < 2. Let
 ξ' := (ξ1, ξ2), ξ'' := (ξ3, ξ4), c² := ξ'·ξ', s² := ξ''·ξ'', q := c² − s², ν1 := ‖ξ'‖² and ν2 := ‖ξ''‖². Then:

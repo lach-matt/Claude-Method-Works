@@ -1387,9 +1387,13 @@ that of [[ch:s03]] identifies the adjoints' kernels by an invertible bundle map,
 *Step 1: the states and the dual states.* By [[prop:iii-f3-2-2]] (2) and [[prop:iii-d2-3-1]] (2), the tensors
 [[eq:iii-f3-4-2]] lie in ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G_(g_b) ⊂ ker L_b^(0), and, being smooth on X̄ and O(ρ²), in
 H̄_b^(s,α) for α < 2. For the adjoint: G := G_(g_b) = Id − ½g_b tr_(g_b) is self-adjoint and invertible,
-G⁻¹ = Id − ⅓g_b tr_(g_b) in five dimensions ([[lem:iii-b-6-2]]), and G ∘ D_(g_b)Ric is formally self-adjoint (it is
-the linearised Einstein operator, the second variation of the Einstein–Hilbert action); so
-(D_(g_b)Ric)* = G D_(g_b)Ric G⁻¹ and
+G⁻¹ = Id − ⅓g_b tr_(g_b) in five dimensions ([[lem:iii-b-6-2]]), and G ∘ D_(g_b)Ric is formally self-adjoint. Indeed,
+for symmetric 2-tensors h, k compactly supported in M°, put F(s, t) := ∫_M R(g_(s,t)) |dg_(s,t)|, g_(s,t) := g_b + sh + tk,
+for small s, t; the integrand vanishes outside supp h ∪ supp k, where g_(s,t) = g_b and R(g_b) = 0, so F is finite and
+smooth. The first variation formula, whose divergence term integrates to 0, gives
+∂_tF(s, 0) = −∫_M ⟨G_(g_(s,0))Ric(g_(s,0)), k⟩_(g_(s,0)) |dg_(s,0)|; differentiating in s at s = 0, every term in which
+the derivative falls elsewhere than on Ric contains Ric(g_b) = 0, so ∂_s∂_tF(0, 0) = −∫_M ⟨G D_(g_b)Ric(h), k⟩ |dg_b|.
+This is symmetric in h and k, as ∂_s∂_tF = ∂_t∂_sF. So (D_(g_b)Ric)* = G D_(g_b)Ric G⁻¹ and
 
     L_b* = G D_(g_b)Ric G⁻¹ + G(δ_(g_b,E_Υ))*(δ*_(g_b,E_C))*.                                            {#eq:iii-f3-4-4}
 
