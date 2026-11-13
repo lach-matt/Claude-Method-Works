@@ -58,8 +58,8 @@ the second limit in each case from the differentiated Volterra equation, whose r
 end; so at each end every solution is Ae^(−iσr_*) + Be^(iσr_*) + o(1), with derivative
 −iσAe^(−iσr_*) + iσBe^(iσr_*) + o(1). A solution with u′ + iσu → 0 at −∞ is a multiple of u_h, and one with
 u′ − iσu → 0 at ∞ a multiple of u_∞. For real σ this holds because u′ + iσu = 2iσBe^(iσr_*) + o(1) at −∞, so that
-B = 0, and likewise at +∞. For Im σ > 0, let u′ + iσu → 0 at −∞. Then (e^(iσx)u)′ = e^(iσx)(u′ + iσu) and
-|e^(iσx)| = e^(−x Im σ) give |u(x)| ≤ C(e^(x Im σ) + 1/Im σ) near −∞, so u is bounded there; as u_h → 0 and
+B = 0, and likewise at +∞. For Im σ > 0, let u′ + iσu → 0 at −∞. Then (e^(iσx)u)′ = e^(iσx)(u′ + iσu) and the
+modulus e^(−x Im σ) of e^(iσx) give |u(x)| ≤ C(e^(x Im σ) + 1/Im σ) near −∞, so u is bounded there; as u_h → 0 and
 u_h′ + iσu_h → 0 at −∞, the constant Wronskian u_hu′ − u_h′u = u_h(u′ + iσu) − u(u_h′ + iσu_h) tends to 0, hence
 vanishes, and u is a multiple of u_h. The same argument with e^(−iσx) applies at +∞. In the spacetime,
 e^(−iσt)u_h = e^(−iσ(t + r_*))(1 + o(1)) is the behaviour of a field smooth across the future horizon, and
@@ -84,14 +84,15 @@ which is 1/(2|Re σ| Im σ) when |Re σ| ≥ Im σ and 1/|σ|² when |Re σ| < I
 1/dist(σ², [0, ∞)). With σ² = (Re σ)² − (Im σ)² + 2i Re σ Im σ, the distance is |Im σ²| = 2|Re σ| Im σ if
 Re σ² ≥ 0, that is |Re σ| ≥ Im σ, and |σ²| otherwise. ∎
 
-This bound is uniform in l and degenerates as Im σ → 0, where the content of [[prop:iii-d-6-2]] lies.
+This bound is uniform in l and degenerates as Im σ → 0, where the content of [[lem:rb-scalar]] lies.
 
 ### The flux and the outgoing resolvent {#sec:rb-flux}
 
 From here on σ is real and nonzero.
 
 **Lemma {#lem:rb-flux}** (The flux.) Write u_h = A e^(−iσr_*) + B e^(iσr_*) + o(1) as r_* → ∞, with
-u_h′ = −iσAe^(−iσr_*) + iσBe^(iσr_*) + o(1) (*Solutions at the ends* in [[sec:rb-radial]]). Then |A|² = 1 + |B|², and the Wronskian 𝒲 := u_h u_∞′ − u_h′ u_∞ equals 2iσA. In particular |𝒲| ≥ 2|σ|.
+u_h′ = −iσAe^(−iσr_*) + iσBe^(iσr_*) + o(1) (*Solutions at the ends* in [[sec:rb-radial]]). Then |A|² = 1 + |B|²,
+and the Wronskian 𝒲 := u_h u_∞′ − u_h′ u_∞ equals 2iσA. In particular |𝒲| ≥ 2|σ|.
 
 *Proof.* V_l is real, so Im(ūu′) is constant for every solution u. For u_h it is −σ at −∞, and −σ|A|² + σ|B|² at +∞,
 the cross terms being real; so |A|² = 1 + |B|². 𝒲 is constant; at +∞, with u_∞ = e^(iσr_*)(1 + o(1)) and
@@ -134,7 +135,8 @@ multiple of u_h and of u_∞, so it vanishes since 𝒲 ≠ 0.
 most its Hilbert–Schmidt norm, KΛ_J. ∎
 
 This is the injectivity of the scalar spectral family ([[lem:rb-scalar]]) at real σ on {r > r_h}, harmonic by
-harmonic, which step (a) of the proof of [[prop:iii-d-6-2]] proves, here with a constant obtained by inequalities alone. The constant grows like exp(κ/(2|σ|r_h)): the bound |𝒲| ≥ 2|σ| ignores that 𝒲 = 2iσA carries the same
+harmonic, which step (a) of the proof of [[prop:iii-d-6-2]] proves, here with a constant obtained by inequalities
+alone. The constant grows like exp(κ/(2|σ|r_h)): the bound |𝒲| ≥ 2|σ| ignores that 𝒲 = 2iσA carries the same
 tunnelling factor through the barrier as the solutions.
 
 ### Uniformly in the harmonic where the barrier covers the interval {#sec:rb-uniform}
@@ -279,8 +281,8 @@ sections are not uniform in the harmonic exactly where the barrier top of a harm
 not cover I. A multiplier identity of Morawetz type covers every harmonic and every real σ ≠ 0. Every multiplier of
 [[sec:morawetz-identity]]–[[sec:morawetz-large-frequency]] is a polynomial or a rational function of r⁻², every
 weight there is (1 − r⁻²)r⁻³ times a rational function of r⁻², and every constant is obtained from exact rational
-inequalities; the band ([[sec:band]]) also uses the algebraic multipliers Φ(νz). The coefficient lists that the Bernstein bounds below use are in
-[[sec:tb-morawetz]].
+inequalities; the band ([[sec:band]]) also uses the algebraic multipliers Φ(νz). The coefficient lists that the
+Bernstein bounds below use are in [[sec:tb-morawetz]].
 
 Throughout, y := 1/r² ∈ (0, 1), z := 1 − 2y ∈ (−1, 1) and η(y) := (1 − y)y^(3/2) = (r² − 1)/r⁵. The tortoise coordinate
 r_* has dr_*/dr = 1/f, and g′ := dg/dr_*. Since dy/dr = −2y^(3/2),
@@ -841,9 +843,9 @@ B*_2(1) < 18.61, B*_2(2) < 27.88, B*_0(1/2) < 140.82, B*_0(1) < 7.8128 and B*_0(
 coarse to reproduce C_1 at |σ| = 1/2 and 2 and X_0 at |σ| = 1 and 2.
 
 (d) As in (c), for each l ≥ 1 and every B̃_l with ‖χ_I R_l(σ) χ_I‖ ≤ B̃_l,
-‖∂_(r_*)u_l‖_I² + κ‖u_l‖_I² ≤ (X(B̃_l)² + κB̃_l²)‖F_l‖², with X(B̃) as in (c); and ‖∂_(r_*)u_0‖_I² ≤ X_0²‖F_0‖² ≤ 83.85²‖F_0‖². By the
-orthogonality of (c), the left side is at most the largest of these factors times ‖F‖². X(B̃) increases with |σ| and
-with B̃.
+‖∂_(r_*)u_l‖_I² + κ‖u_l‖_I² ≤ (X(B̃_l)² + κB̃_l²)‖F_l‖², with X(B̃) as in (c); and
+‖∂_(r_*)u_0‖_I² ≤ X_0²‖F_0‖² ≤ 83.85²‖F_0‖². By the orthogonality of (c), the left side is at most the largest of these
+factors times ‖F‖². X(B̃) increases with |σ| and with B̃.
 
 For l ≥ 50 we use the closed-form bound for large harmonics, [[cor:rb-closed-form]]: with c := (15/16)(κ + 3/4),
 ‖χ_I R_l(σ) χ_I‖ ≤ B̃_l := 1/((15/256)(κ + 3/4) − σ²) whenever (15/256)(κ + 3/4) > σ² and

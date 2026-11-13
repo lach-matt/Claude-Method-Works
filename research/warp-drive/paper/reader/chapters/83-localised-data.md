@@ -1174,17 +1174,17 @@ the identity for ψ_u in (v). ∎
 **Lemma {#lem:bg-reduction}** (Reduction to rays.) Let ℛ := {v < 3}.
 
 (a) *The data on 𝒞_in.* R(u) := R(u, 0) solves R″ = −ℬ/(3R²) with R(u1) = 2.321, R′(u1) = −0.47, and S(u) := R²R_v(u,
-0) solves S′ = −R/2 with S(u1) = 2.067575. The functions μ(u) := μ(u, 0) and λ(u) := 2R_v(u, 0) are
+0) solves S′ = −R/2 with S(u1) = 2.067575. The functions μ(u) := μ(u, 0) and ℓ_v(u) := 2R_v(u, 0) are
 
-    μ = R² + 4R′S,     λ = 2S/R²,     μ′ = −(2/3) ℬ λ,     λ′ = −μ/R³.                                   {#eq:bg-nprime}
+    μ = R² + 4R′S,     ℓ_v = 2S/R²,     μ′ = −(2/3) ℬ ℓ_v,     ℓ_v′ = −μ/R³.                                   {#eq:bg-nprime}
 
 (b) *Region I.* On {u ≤ u1} ∩ ℛ, μ = 3/2 and ψ = 0, so g0 is Tangherlini's metric of mass 3/2 in ingoing
 coordinates; along the outgoing ray u = u1, v̂ = F(R) − F(2.321). The ingoing ray of label v̂ meets u = u1 at R = ρ,
 where v̂ = v̂(ρ) in the notation [[eq:bg-label]]; we label rays by ρ.
 
-(c) *The rays.* On ℛ, μ(u, v) = μ(u) and e^(−2σ)R_v(u, v) = λ(u), and R_u < 0. Where λ(u) > 0, along every ingoing ray
+(c) *The rays.* On ℛ, μ(u, v) = μ(u) and e^(−2σ)R_v(u, v) = ℓ_v(u), and R_u < 0. Where ℓ_v(u) > 0, along every ingoing ray
 
-    R_u = G(u, R),        G(u, X) := −(1 − μ(u)/X²)/(2λ(u)).                                              {#eq:bg-ray}
+    R_u = G(u, R),        G(u, X) := −(1 − μ(u)/X²)/(2ℓ_v(u)).                                              {#eq:bg-ray}
 
 Write Ψ(u, ρ) for the solution of [[eq:bg-ray]] with Ψ(u1, ρ) = ρ, and J := ∂_ρΨ, K := ∂_ρ²Ψ, L := ∂_ρ³Ψ.
 
@@ -1205,10 +1205,10 @@ provided f3(Φ(ρ)) > 0. There g0 = −e^(2ψ_III) f3 dv̂² + 2e^(ψ_III) dv̂ 
 (f) *The slice.* Every point of Σ_τ0 with R ≤ R_*, R_* as in [[lem:bg-rstar]], lies in ℛ, on the ray ρ with
 v̂(ρ) − R = τ0 and 2.321 ≤ ρ ≤ R_*.
 
-Proof. (a) On 𝒞_in, σ is constant, so [[eq:bg-field]] gives R″ = −ℬ/(3R²) and R R_uv = −1/2 − 2R′R_v; hence S′ =
+*Proof.* (a) On 𝒞_in, σ is constant, so [[eq:bg-field]] gives R″ = −ℬ/(3R²) and R R_uv = −1/2 − 2R′R_v; hence S′ =
 2RR′R_v + R²R_uv = −R/2. Since ℬ = 0 on [0, u1], R = 5 − 0.47u there, so R(u1) = 2.321, and S(u1) = 25/2 − (1/2)∫_0^(u1)
-(5 − 0.47u) du = 2.067575. With e^(−2σ) = 2, μ = R²(1 + 4R′R_v) = R² + 4R′S and λ = 2S/R². Then μ′ = −(2/3)ℬλ by
-[[lem:bg-identities]], and λ′ = 2R_uv = −(1 + 4R′R_v)/R = −μ/R³.
+(5 − 0.47u) du = 2.067575. With e^(−2σ) = 2, μ = R²(1 + 4R′R_v) = R² + 4R′S and ℓ_v = 2S/R². Then μ′ = −(2/3)ℬℓ_v by
+[[lem:bg-identities]], and ℓ_v′ = 2R_uv = −(1 + 4R′R_v)/R = −μ/R³.
 
 (b) On {u ≤ u1}, ℬ = 0, and on ℛ, 𝒜 = 0. By [[lem:bg-identities]] μ_u = μ_v = 0, so μ equals its corner value
 25(1 − 0.94) = 3/2, and ψ_u = 0, so ψ = 0 as on 𝒞_out. In [[eq:bg-chart]] the outgoing null directions satisfy dv̂/dR =
@@ -1216,9 +1216,9 @@ Proof. (a) On 𝒞_in, σ is constant, so [[eq:bg-field]] gives R″ = −ℬ/(3
 
 (c) On ℛ, 𝒜 = 0, so [[lem:bg-identities]] gives μ_v = 0 and (e^(−2σ)R_v)_v = 0; hence μ and e^(−2σ)R_v take their
 values on 𝒞_in. On 𝒞_out, R_u = (3/(2R²) − 1)/2 < 0 for v ≤ 3 (there μ = 3/2, R = 5 + v/2, e^(−2σ) = 2), and
-(e^(−2σ)R_u)_u ≤ 0, so R_u < 0 on ℛ. Finally f = −2e^(−2σ)R_uR_v = −2λR_u.
+(e^(−2σ)R_u)_u ≤ 0, so R_u < 0 on ℛ. Finally f = −2e^(−2σ)R_uR_v = −2ℓ_vR_u.
 
-(d) On ℛ, e^(2σ) = R_v/λ and λR_u = −f/2, so e^ψ = −R_v/(λR_u v̂′) = (2/f) ∂_v̂R|_u, and ∂_v̂R|_u = J dρ/dv̂ = Ja.
+(d) On ℛ, e^(2σ) = R_v/ℓ_v and ℓ_vR_u = −f/2, so e^ψ = −R_v/(ℓ_vR_u v̂′) = (2/f) ∂_v̂R|_u, and ∂_v̂R|_u = J dρ/dv̂ = Ja.
 The derivatives in the chart [[eq:bg-chart]] follow from ∂_R|_v̂ = G⁻¹∂_u and ∂_v̂|_R = ∂_v̂|_u − (Ja/G)∂_u: f_R =
 2μ/R³ − μ′/(R²G), f_v̂ = μ′Ja/(R²G), ψ_R = ψ_u/G = ℬ/(3R²G²) by [[lem:bg-identities]], and ψ_v̂ = ∂_v̂ ln(2Ja/f)|_u −
 (Ja/G)ψ_u, where ∂_v̂ J|_u = Ka, ∂_v̂ a = aa′ and ∂_v̂ f|_u = 2μJa/R³.
@@ -1233,7 +1233,7 @@ R_* − 0.68, so ρ ≤ R_* by the definition of R_*; and v̂ = R + τ0 ≥ 0.02
 **Lemma {#lem:bg-rstar}** (The radius R_*.) Let R_* be the radius at which the ray u = u1 meets Σ_τ0, that is the
 zero of τ(R) := F(R) − F(2.321) − R + 0.68 on R > 2.321. Then R_* is unique and 3.43718006 ≤ R_* ≤ 3.43718007.
 
-Proof. τ′(R) = 2/f1(R) − 1 > 0, τ(3.43718006) ≤ −8.4 × 10⁻⁹ and τ(3.43718007) ≥ 4.4 × 10⁻⁹, by direct evaluation of
+*Proof.* τ′(R) = 2/f1(R) − 1 > 0, τ(3.43718006) ≤ −8.4 × 10⁻⁹ and τ(3.43718007) ≥ 4.4 × 10⁻⁹, by direct evaluation of
 [[eq:bg-tangherlini]] at these two decimals. ∎
 
 **Lemma {#lem:bg-slice-forms}** (The margin on Σ_τ0.) At a point of Σ_τ0 in ℛ, in the chart [[eq:bg-chart]] with q :=
@@ -1245,16 +1245,16 @@ e^ψ > 0 and qf < 2 (f of either sign), the radial extrinsic curvature κ and th
 
 and κ > 0, K^l_l < 0 exactly when N_κ < 0 and qf < 1. In the packet (u1 ≤ u ≤ u2, f > 0, inputs [[eq:bg-inputs]]),
 
-    N_κ = −(μq/R³)(2 − qf) − aK/J − a′ + ℬ λ² (2 − qf)²/(3R²f²),        q f = 2aJ,  {#eq:bg-nk-packet}
+    N_κ = −(μq/R³)(2 − qf) − aK/J − a′ + ℬ ℓ_v² (2 − qf)²/(3R²f²),        q f = 2aJ,  {#eq:bg-nk-packet}
 
 and in region III, N_κ = (μ3q/R³)(qf − 3) − ψ_III′(v̂).
 
-Proof. Since q > 0 and qf < 2, 2/q − f = (2 − qf)/q > 0. By [[lem:racz-split-formulas]],
+*Proof.* Since q > 0 and qf < 2, 2/q − f = (2 − qf)/q > 0. By [[lem:racz-split-formulas]],
 κ = −N_κ/(q√(2/q − f)(2 − qf)) and K^l_l = 3(qf − 1)/(qR√(2/q − f)), and q²(2/q − f) = q(2 − qf); this gives the
 product, and since q, R, √(2/q − f) and 2 − qf are positive, κ > 0 exactly when N_κ < 0 and K^l_l < 0 exactly when
-qf < 1. In the packet substitute [[eq:bg-inputs]] with qf = 2aJ and μ′ = −(2/3)ℬλ: the terms without ℬ give
+qf < 1. In the packet substitute [[eq:bg-inputs]] with qf = 2aJ and μ′ = −(2/3)ℬℓ_v: the terms without ℬ give
 (μq/R³)(qf − 3) − (aK/J + a′ − μq/R³), using 2μJa/(R³f) = μq/R³; the terms in ℬ are ℬ times
-(4λ²/(3R²f²))[(qf)² − (5/2)qf + 1 − qf((3/4)qf − 3/2)] = ℬλ²(2 − qf)²/(3R²f²). In region III, ψ_R = f_v̂ = 0 and
+(4ℓ_v²/(3R²f²))[(qf)² − (5/2)qf + 1 − qf((3/4)qf − 3/2)] = ℬℓ_v²(2 − qf)²/(3R²f²). In region III, ψ_R = f_v̂ = 0 and
 f_R = 2μ3/R³. ∎
 
 #### Elementary bounds {#sec:bg-tools}
@@ -1262,15 +1262,17 @@ f_R = 2μ3/R³. ∎
 **Lemma {#lem:bg-tools}** (Elementary bounds.)
 
 (a) *Chebyshev sums.* If p(x, y) = Σ c_(ij) T_i(x)T_j(y) is a polynomial, T_i the Chebyshev polynomials, then on
-[−1, 1]² it lies in [c_00 − ς′, c_00 + ς′], ς′ := Σ_((i,j)≠(0,0)) |c_(ij)|; in particular |p| ≤ Σ |c_(ij)|. On a box
+[−1, 1]² it lies in [c_00 − 𝔰′, c_00 + 𝔰′], 𝔰′ := Σ_((i,j)≠(0,0)) |c_(ij)|; in particular |p| ≤ Σ |c_(ij)|. On a box
 [a, b] × [c, d] the same holds for the coefficients in the variables x = (u − (a + b)/2)/((b − a)/2), y likewise; a
 polynomial written in powers of x has Chebyshev coefficients given by x^n = 2^(1−n) Σ′_(k ≤ n/2) C(n, k) T_(n−2k)(x),
 the prime halving the term T_0.
 
-(b) *Cauchy.* If g is holomorphic on a neighbourhood of {|z − c| ≤ r}, |g| ≤ M there, and g_n are its Taylor
-coefficients at c, then for real x with |x − c| ≤ h < r and every N, |g(x)| ≤ Σ_(n<N) |g_n|hⁿ + M(h/r)^N/(1 − h/r).
+(b) *Cauchy.* If g is holomorphic on a neighbourhood of {|z − c| ≤ r}, |g| ≤ 𝔐 there, and g_n are its Taylor
+coefficients at c, then for real x with |x − c| ≤ h < r and every integer k ≥ 0, |g(x)| ≤ Σ_(n<k) |g_n|hⁿ +
+𝔐(h/r)^k/(1 − h/r).
 
-(c) *Taylor.* If g ∈ C^(N+1)[c − h, c + h], then |g(x)| ≤ Σ_(n≤N) |g^(n)(c)|hⁿ/n! + h^(N+1) sup |g^(N+1)|/(N + 1)!.
+(c) *Taylor.* If k ≥ 0 is an integer and g ∈ C^(k+1)[c − h, c + h], then for |x − c| ≤ h, |g(x)| ≤
+Σ_(n≤k) |g^(n)(c)|hⁿ/n! + h^(k+1) sup |g^(k+1)|/(k + 1)!.
 
 (d) *Enclosures.* If x ∈ X and y ∈ Y for closed intervals X, Y, then x + y, x − y, xy and (if 0 ∉ Y) x/y lie in the
 intervals spanned by the corresponding combinations of the endpoints, and φ(x) ∈ φ(X) for φ = exp, ln, √ (monotone).
@@ -1291,8 +1293,8 @@ p_n + q_n, Σ_(k≤n) p_k q_(n−k), and, with e_0 = exp p_0 and ℓ_0 = ln p_0,
     q_0 r_n = p_n − Σ_(k=1)^n q_k r_(n−k),     (p′)_n = (n + 1) p_(n+1),
     n e_n = Σ_(k=1)^n k p_k e_(n−k),     n p_0 ℓ_n = n p_n − Σ_(k=1)^(n−1) k ℓ_k p_(n−k)   (n ≥ 1).  {#eq:bg-series}
 
-Proof. (a) |T_i| ≤ 1 on [−1, 1], and the expansion of xⁿ is the binomial expansion of ((e^(iθ) + e^(−iθ))/2)ⁿ. (b)
-Cauchy's estimate |g_n| ≤ M/rⁿ bounds the terms n ≥ N. (c) Taylor's formula with Lagrange's remainder. (d) is
+*Proof.* (a) |T_i| ≤ 1 on [−1, 1], and with x = cos t, xⁿ is the binomial expansion of ((e^(it) + e^(−it))/2)ⁿ. (b)
+Cauchy's estimate |g_n| ≤ 𝔐/rⁿ bounds the terms n ≥ k. (c) Taylor's formula with Lagrange's remainder. (d) is
 elementary. (e) 1/(1 − w²) = (1/2)(1/(1 − w) + 1/(1 + w)). The disc 1 − w ∈ {|ζ − (1 − w0)| ≤ ϱ} does not contain 0,
 and ζ ↦ 1/ζ maps it onto the disc with real diameter [1/(1 − w0 + ϱ), 1/(1 − w0 − ϱ)], so Re 1/(1 − w) ≥ 1/(1 − w0 +
 ϱ); likewise for 1 + w; and |e^(1−Z)| = e^(1−Re Z). The series of ln β = 1 − 1/(1 − w²) follows from the two
@@ -1310,7 +1312,7 @@ a,
 (b) If e is absolutely continuous on [a, b] and e′ = −p e + r with p ≥ 0 continuous and r integrable, then |e(u)| ≤
 |e(a)| + ∫_a^u |r|.
 
-Proof. (a) By Taylor's formula, m(t) := |e(a)| + |e′(a)| t + ∫_0^t (t − s)(Λ|e(a + s)| + δ) ds satisfies |e(a + t)| ≤
+*Proof.* (a) By Taylor's formula, m(t) := |e(a)| + |e′(a)| t + ∫_0^t (t − s)(Λ|e(a + s)| + δ) ds satisfies |e(a + t)| ≤
 m(t), m″ = Λ|e| + δ ≤ Λm + δ, m(0) ≤ E₀, m′(0) ≤ E₁. The right side of the first line of [[eq:bg-comparison-2]], call it
 𝓔(t), solves 𝓔″ = Λ𝓔 + δ with 𝓔(0) = E₀, 𝓔′(0) = E₁. Then z := 𝓔 − m has z″ − Λz = 𝓆 ≥ 0 and z(0), z′(0) ≥ 0, so z(t)
 = z(0) cosh kt + z′(0)(sinh kt)/k + ∫_0^t (sinh k(t − s)/k) 𝓆(s) ds ≥ 0. Then |e′(a + t)| ≤ E₁ + ∫_0^t (Λ𝓔 + δ) =
@@ -1322,9 +1324,9 @@ The approximant R̂ is the piecewise polynomial of [[sec:tab-bg-nprime]] on twel
 [5.7, 5.73] (the data line) and on [7.17, 7.2], and a polynomial of degree 12 to 17 on each of the ten middle segments,
 which are graded towards the ends of the packet. Put
 
-    Ŝ(u) := 2.067575 − (1/2)∫_(u1)^u R̂,     μ̃ := R̂² + 4R̂′Ŝ,     λ̃ := 2Ŝ/R̂²,  {#eq:bg-nprime-approx}
+    Ŝ(u) := 2.067575 − (1/2)∫_(u1)^u R̂,     μ̃ := R̂² + 4R̂′Ŝ,     ℓ̃_v := 2Ŝ/R̂²,  {#eq:bg-nprime-approx}
 
-so that Ŝ and μ̃ are polynomials and λ̃ is a rational function on each segment, and μ̃3 := R̂(u2)² + 4R̂′(u2)Ŝ(u2) =
+so that Ŝ and μ̃ are polynomials and ℓ̃_v is a rational function on each segment, and μ̃3 := R̂(u2)² + 4R̂′(u2)Ŝ(u2) =
 0.82211255682735… (an explicit rational).
 
 **Proposition {#prop:bg-nprime}** (The data on 𝒞_in.) On each segment [a, b] of [[sec:tab-bg-nprime-chain]], |R − R̂| ≤
@@ -1335,19 +1337,19 @@ E₀ and |R′ − R̂′| ≤ E₁ with E₀, E₁ of that row, and |S − Ŝ| 
 
 (ii) |μ3 − μ̃3| ≤ 4.07 × 10⁻⁷, so μ3 ∈ [0.82211214, 0.82211297] ⊂ [0.8220998, 0.8221253], and R(u2)² > μ3;
 
-(iii) μ is nonincreasing, 3/2 ≥ μ ≥ μ3, and λ is decreasing with λ ≥ λ(u2) ≥ 0.529533 > 0.529 on [u1, u2];
+(iii) μ is nonincreasing, 3/2 ≥ μ ≥ μ3, and ℓ_v is decreasing with ℓ_v ≥ ℓ_v(u2) ≥ 0.529533 > 0.529 on [u1, u2];
 
 (iv) at every u ∈ [u1, u2], with E₀, E₁, I of a segment containing u and R̂, R̂′, Ŝ at u,
 
-    |μ − μ̃| ≤ (2R̂ + E₀)E₀ + 4(|R̂′| I/2 + ŜE₁ + E₁I/2),      |λ − λ̃| ≤ (I + 2Ŝ(2R̂ + E₀)E₀/R̂²)/(R̂ − E₀)²;
+    |μ − μ̃| ≤ (2R̂ + E₀)E₀ + 4(|R̂′| I/2 + ŜE₁ + E₁I/2),      |ℓ_v − ℓ̃_v| ≤ (I + 2Ŝ(2R̂ + E₀)E₀/R̂²)/(R̂ − E₀)²;
 
-in particular |μ − μ̃| ≤ 4.2 × 10⁻⁷ and |λ − λ̃| ≤ 5 × 10⁻⁸ on [u1, u2].
+in particular |μ − μ̃| ≤ 4.2 × 10⁻⁷ and |ℓ_v − ℓ̃_v| ≤ 5 × 10⁻⁸ on [u1, u2].
 
-Proof. Let δ(u) := R̂″ + ℬ/(3R̂²) on a segment. On the ten middle segments δ is holomorphic on the disc |u − c| ≤ r, r =
+*Proof.* Let δ(u) := R̂″ + ℬ/(3R̂²) on a segment. On the ten middle segments δ is holomorphic on the disc |u − c| ≤ r, r =
 (4/5)min(c − u1, u2 − c), since ℬ is holomorphic off u1 and u2 ([[lem:bg-tools]] (e)) and |R̂| > 0 there; on the
 disc, |R̂″| ≤ Σ n(n − 1)|q_n|(r/h)^(n−2)/h², |R̂| ≥ q_0 − Σ_(n≥1)|q_n|(r/h)ⁿ and |ℬ| is bounded by [[eq:bg-bump-disc]]
-with w0 = (c − 6.45)/0.75, ϱ = r/0.75. This gives M. The Taylor coefficients δ_n of δ at c follow from those of ℬ
-([[lem:bg-tools]] (e)) by multiplication and division of power series, and [[lem:bg-tools]] (b) with N = 60 gives the
+with w0 = (c − 6.45)/0.75, ϱ = r/0.75. This gives 𝔐. The Taylor coefficients δ_n of δ at c follow from those of ℬ
+([[lem:bg-tools]] (e)) by multiplication and division of power series, and [[lem:bg-tools]] (b) with k = 60 gives the
 bound δ of [[sec:tab-bg-nprime-defects]]. On the outer segments R̂″ = 0 and |δ| = ℬ/(3R̂²) ≤ ℬ_max/(3R̂_min²), ℬ being
 monotone there.
 
@@ -1363,7 +1365,7 @@ Since R̂ ≥ R̂_min > 1.5 on every segment ([[sec:tab-bg-nprime-chain]]), Ŝ�
 to Ŝ(u2) = 0.61120057465952… ([[sec:tab-bg-nprime]]) and is positive on [u1, u2]; and R ≥ R̂ − E₀ > 1.5. The column
 I does not decrease down the rows, so |S − Ŝ| ≤ I/2 ≤ (3.63 × 10⁻⁸)/2 < 1.82 × 10⁻⁸ on [u1, u2], by the last row.
 
-(iv) At u, μ − μ̃ = (R² − R̂²) + 4(R̂′(S − Ŝ) + (R′ − R̂′)Ŝ + (R′ − R̂′)(S − Ŝ)) and λ − λ̃ = 2(S − Ŝ)/R² + 2Ŝ(R̂² −
+(iv) At u, μ − μ̃ = (R² − R̂²) + 4(R̂′(S − Ŝ) + (R′ − R̂′)Ŝ + (R′ − R̂′)(S − Ŝ)) and ℓ_v − ℓ̃_v = 2(S − Ŝ)/R² + 2Ŝ(R̂² −
 R²)/(R²R̂²), where |R² − R̂²| = |e|(R + R̂) ≤ (2R̂ + E₀)E₀, |S − Ŝ| ≤ I/2, Ŝ > 0 and R ≥ R̂ − E₀ > 0; this gives the two
 bounds. On each segment they are at most 4.17 × 10⁻⁷ and 4.89 × 10⁻⁸ when R̂ is replaced by R̂_max in the numerators
 and by R̂_min in the denominators, |R̂′| by R̂′_max of [[sec:tab-bg-ray-chain]] and Ŝ by its value at the left end;
@@ -1372,9 +1374,9 @@ both largest values occur on [7.17, 7.2].
 (i) R̂(u2) = 1.5193579823987569 exactly. (ii) The bound (iv) at u = u2, with the exact values R̂(u2), R̂′(u2) =
 −0.60795759341336… and Ŝ(u2) and the last row's E₀, E₁, I, gives |μ3 − μ̃3| ≤ 4.068 × 10⁻⁷; and R(u2)² ≥ 2.308 > 0.823.
 
-(iii) Since Ŝ ≥ Ŝ(u2) and |S − Ŝ| ≤ 1.82 × 10⁻⁸, S ≥ Ŝ(u2) − 1.82 × 10⁻⁸ > 0.6111 on [u1, u2], so λ = 2S/R² > 0 there.
-Since ℬ ≥ 0, [[eq:bg-nprime]] gives μ′ = −(2/3)ℬλ ≤ 0, so μ is nonincreasing and 3/2 = μ(u1) ≥ μ ≥ μ3 > 0 by (ii), where
-μ(u1) = 2.321² − 4(0.47)(2.067575) = 3/2. Hence λ′ = −μ/R³ < 0, so λ is decreasing on [u1, u2] and λ ≥ λ(u2) =
+(iii) Since Ŝ ≥ Ŝ(u2) and |S − Ŝ| ≤ 1.82 × 10⁻⁸, S ≥ Ŝ(u2) − 1.82 × 10⁻⁸ > 0.6111 on [u1, u2], so ℓ_v = 2S/R² > 0 there.
+Since ℬ ≥ 0, [[eq:bg-nprime]] gives μ′ = −(2/3)ℬℓ_v ≤ 0, so μ is nonincreasing and 3/2 = μ(u1) ≥ μ ≥ μ3 > 0 by (ii), where
+μ(u1) = 2.321² − 4(0.47)(2.067575) = 3/2. Hence ℓ_v′ = −μ/R³ < 0, so ℓ_v is decreasing on [u1, u2] and ℓ_v ≥ ℓ_v(u2) =
 2S(u2)/R(u2)² ≥ 2(Ŝ(u2) − I/2)/(R̂(u2) + E₀)² ≥ 0.529533. ∎
 
 #### The rays {#sec:bg-rays}
@@ -1384,24 +1386,24 @@ The ray approximant Ψ̃ is the polynomial of [[sec:tab-bg-ray]] on [u1, u2] × 
 
     G̃(u, X) := R̂²(μ̃ − X²)/(4ŜX²),     D := ∂_uΨ̃ − G̃(u, Ψ̃),     D_m := ∂_ρ^m D  (m ≤ 3),  {#eq:bg-ray-approx}
 
-so that G̃ is [[eq:bg-ray]] with μ, λ replaced by μ̃, λ̃, and D_1, D_2, D_3 are the defects of J̃, K̃, L̃ in the
+so that G̃ is [[eq:bg-ray]] with μ, ℓ_v replaced by μ̃, ℓ̃_v, and D_1, D_2, D_3 are the defects of J̃, K̃, L̃ in the
 variational equations of [[eq:bg-ray]] (for G̃). The polynomial
 
     P := 4ŜΨ̃² ∂_uΨ̃ − R̂²(μ̃ − Ψ̃²) = 4ŜΨ̃² D  {#eq:bg-ray-numerator}
 
-has Chebyshev sums ς_m of ∂_ρ^m P on each box [a, b] × [2.32, 3.44]. Since Ŝ does not depend on ρ, D = (P/(4Ŝ)) Ψ̃^(−2)
+has Chebyshev sums 𝔰_m of ∂_ρ^m P on each box [a, b] × [2.32, 3.44]. Since Ŝ does not depend on ρ, D = (P/(4Ŝ)) Ψ̃^(−2)
 and Leibniz's rule give
 
-    |D_m| ≤ Σ_(j≤m) C(m, j) (ς_(m−j)/(4Ŝ_min)) g_j,    g_0 = Ψ̃_min^(−2),  g_1 = 2J̄Ψ̃_min^(−3),
+    |D_m| ≤ Σ_(j≤m) C(m, j) (𝔰_(m−j)/(4Ŝ_min)) g_j,    g_0 = Ψ̃_min^(−2),  g_1 = 2J̄Ψ̃_min^(−3),
     g_2 = 6J̄²Ψ̃_min^(−4) + 2K̄Ψ̃_min^(−3),
     g_3 = 24J̄³Ψ̃_min^(−5) + 18J̄K̄Ψ̃_min^(−4) + 2L̄Ψ̃_min^(−3),  {#eq:bg-ray-defects}
 
 J̄, K̄, L̄ the bounds of |J̃|, |K̃|, |L̃| on the box ([[sec:tab-bg-ray-defects]]).
 
-The fields G and G̃ differ through the data. Write G = Q/(2X²) − V/2 with Q := μ/λ = R⁴/(2S) + 2R′R² and V := 1/λ =
-R²/(2S), and Q̃, Ṽ likewise from R̂, Ŝ. On a segment, with R̄ := R̂_max + E₀, R̄′ := R̂′_max + E₁ (R̂′_max ≥ |R̂′|
+The fields G and G̃ differ through the data. Write G = 𝒬/(2X²) − V/2 with 𝒬 := μ/ℓ_v = R⁴/(2S) + 2R′R² and V := 1/ℓ_v =
+R²/(2S), and 𝒬̃, Ṽ likewise from R̂, Ŝ. On a segment, with R̄ := R̂_max + E₀, R̄′ := R̂′_max + E₁ (R̂′_max ≥ |R̂′|
 is the bound of [[sec:tab-bg-ray-chain]]), S̲ := Ŝ_min − I/2 and X̲ := Ψ̃_min − 10⁻⁵, the mean value theorem in (R,
-R′, S) gives |Q − Q̃| ≤ Δ₁, |V − Ṽ| ≤ Δ₂ with
+R′, S) gives |𝒬 − 𝒬̃| ≤ Δ₁, |V − Ṽ| ≤ Δ₂ with
 
     Δ₁ := (2R̄³/S̲ + 4R̄′R̄) E₀ + 2R̄² E₁ + (R̄⁴/(2S̲²)) I/2,      Δ₂ := (R̄/S̲) E₀ + (R̄²/(2S̲²)) I/2,
     γ_0 := Δ₁/(2X̲²) + Δ₂/2,   γ_1 := Δ₁/X̲³,   γ_2 := 3Δ₁/X̲⁴,   γ_3 := 12Δ₁/X̲⁵,  {#eq:bg-gamma}
@@ -1411,7 +1413,7 @@ and |∂_X^m(G − G̃)| ≤ γ_m (m ≤ 3) on the tube
     {(u, X): |X − Ψ̃(u, ρ)| ≤ 10⁻⁵ for some ρ ∈ [2.32, 3.44]},                                             {#eq:bg-tube}
 
 where also |∂_X^m G| ≤ H_m := c_m (3/2)/(0.529533 X̲^(m+2)), (c_2, c_3, c_4) = (3, 12, 60), by
-[[prop:bg-nprime]] (iii) and ∂_X^m G = (−1)^m (m + 1)! μ/(2λX^(m+2)) for m ≥ 1.
+[[prop:bg-nprime]] (iii) and ∂_X^m G = (−1)^m (m + 1)! μ/(2ℓ_vX^(m+2)) for m ≥ 1.
 
 **Proposition {#prop:bg-rays}** (The rays.) For u ∈ [a, b], a segment of [[sec:tab-bg-ray-chain]], and ρ ∈ [2.32, 3.44],
 
@@ -1420,8 +1422,8 @@ where also |∂_X^m G| ≤ H_m := c_m (3/2)/(0.529533 X̲^(m+2)), (c_2, c_3, c_4
 with the ε of that row. At u = u2: ε₀ = 8.69 × 10⁻⁷, ε₁ = 1.68 × 10⁻⁶, ε₂ = 6.10 × 10⁻⁶, ε₃ = 3.65 × 10⁻⁵. Moreover 0
 < J ≤ 1, and the rays satisfy Ψ(u, ρ) > √μ(u) on [u1, u2] × [2.32, 3.44].
 
-Proof. Fix ρ. By [[prop:bg-nprime]] (iii), λ > 0 on [u1, u2], so [[eq:bg-ray]] holds along the ray, and ∂_XG = −μ/(λX³)
-< 0 for X > 0. Let e₀ := Ψ − Ψ̃. Then e₀′ = −p e₀ + r with p := −∫_0^1 ∂_XG(u, Ψ̃ + θe₀) dθ ≥ 0 and r := (G −
+*Proof.* Fix ρ. By [[prop:bg-nprime]] (iii), ℓ_v > 0 on [u1, u2], so [[eq:bg-ray]] holds along the ray, and ∂_XG = −μ/(ℓ_vX³)
+< 0 for X > 0. Let e₀ := Ψ − Ψ̃. Then e₀′ = −p e₀ + r with p := −∫_0^1 ∂_XG(u, Ψ̃ + te₀) dt ≥ 0 and r := (G −
 G̃)(u, Ψ̃) − D. While |e₀| ≤ 10⁻⁵, [[lem:bg-comparison]] (b) gives |e₀(u)| ≤ |e₀(a)| + (u − a)(γ_0 + D₀). For e₁ := J
 − J̃, differentiating [[eq:bg-ray]] in ρ, e₁′ = ∂_XG(u, Ψ)e₁ + (∂_XG(u, Ψ) − ∂_XG(u, Ψ̃))J̃ + (∂_XG − ∂_XG̃)(u, Ψ̃)J̃ −
 D_1, whose last three terms are at most H_2ε₀J̄ + γ_1J̄ + D₁; the same lemma applies with p = −∂_XG(u, Ψ) ≥ 0. For
@@ -1503,7 +1505,7 @@ of [[eq:bg-seed-split]] is at most
 
 that is Δ_0 = 3.34 × 10⁻⁶, Δ_1 = 5.20 × 10⁻⁶, Δ_2 = 1.50 × 10⁻⁵.
 
-The function ẽ_k is bounded by [[lem:bg-tools]] (c) with N = 5 at the midpoint ρ_m of each interval: |ẽ_k| ≤ Σ_(n≤5)
+The function ẽ_k is bounded by [[lem:bg-tools]] (c), of order 5, at the midpoint ρ_m of each interval: |ẽ_k| ≤ Σ_(n≤5)
 |c_n| hⁿ + h⁶ sup |c_6(ξ)|, where c_n is the n-th Taylor coefficient of ẽ_k at ρ_m, c_6(ξ) := ẽ_k^(6)(ξ)/6! for ξ in
 the interval, and h is the half-width. These coefficients are obtained as follows. The function ẽ_k is built from ρ by
 sums, products, quotients, logarithms and 𝒟: Φ̃ = Σ C_j T_j(y) with y = (ρ − 2.88)/0.56 and T_(j+1) = 2yT_j − T_(j−1);
@@ -1540,8 +1542,8 @@ in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decreasing in �
 is decreasing in ρ, and so is the inverse ρ_s(u). For each row [u_a, u_b] of [[sec:tab-bg-slice-packet]], Ψ̃(u_a, ρ_hi) +
 ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at u_a = u1 take ρ_hi ≥ R_* from [[lem:bg-rstar]],
 at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo, ρ_hi].
-On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and λ lie between their values at u_a and u_b (monotone, [[prop:bg-nprime]]
-(iii)), which are μ̃, λ̃ there up to the errors 4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv); ℬ lies between its
+On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and ℓ_v lie between their values at u_a and u_b (monotone, [[prop:bg-nprime]]
+(iii)), which are μ̃, ℓ̃_v there up to the errors 4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv); ℬ lies between its
 end values, or between the smaller one and 17/10 when 6.45 is inside, by [[lem:bg-tools]] (e); J and K lie in the
 Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)]. Then
 [[eq:bg-nk-packet]] and [[lem:bg-tools]] (d) give the enclosures of qf and N_κ in the second table: qf < 1 and N_κ < 0 on
@@ -1554,7 +1556,7 @@ Near R = R_* the packet's slice points approach region I, where q = 1 and N_κ =
 
 **Theorem {#thm:bg-margins}** (The background below R_*.) For the background of [[sec:two-dust-background]]:
 
-(a) On 𝒞_in, λ ≥ 0.529 on [u1, u2]; R(u2) ∈ [1.519357, 1.519359]; the mass of region III satisfies μ3 ∈ [0.8220998,
+(a) On 𝒞_in, ℓ_v ≥ 0.529 on [u1, u2]; R(u2) ∈ [1.519357, 1.519359]; the mass of region III satisfies μ3 ∈ [0.8220998,
 0.8221253] and R(u2)² > μ3.
 
 (b) Region III meets Σ_τ0 ∩ {R ≤ R_*} exactly in 0.70 ≤ R ≤ R_u2, where 1.8614098 ≤ R_u2 ≤ 1.8614596, and contains the
@@ -1894,8 +1896,8 @@ with w_k, g_k evaluated on row k, up to residuals r_k of modulus at most 10⁻�
 (c) For every k, |R(v_k) − R_k| ≤ 4 × 10⁻⁶, |P(v_k) − P_k| ≤ 6 × 10⁻⁷, |μ(v_k) − μ_k| ≤ 10⁻⁵ and |v̂(v_k) − v̂_k| ≤ 4 ×
 10⁻⁶.
 
-*Proof.* Put Q := R_u on 𝒞_out, where e^(2σ) = 1/2. Then (S3) gives P′ = −𝒜/(3R²); the definition of μ gives μ = R²(1 +
-4QP), so Q = −f_N/(4P); (S1) gives μ′ = −(4/3)𝒜Q = 𝒜w; and dv̂/dv = −e^(2σ)/R_u = −1/(2Q) = g. Before the shell 𝒜 = 0,
+*Proof.* On 𝒞_out, e^(2σ) = 1/2. Then (S3) gives P′ = −𝒜/(3R²); the definition of μ gives μ = R²(1 + 4R_uP), so
+R_u = −f_N/(4P); (S1) gives μ′ = −(4/3)𝒜R_u = 𝒜w; and dv̂/dv = −e^(2σ)/R_u = −1/(2R_u) = g. Before the shell 𝒜 = 0,
 so R = 5 + v/2, P = 1/2 and μ = 3/2, and v̂(3) = ∫_5^(13/2) 2/f_N dR = F(13/2) − F(5) = v̂_0. Next, f_N′ = −𝒜w/R² +
 2μP/R³ gives w′ = (f_N′ P − f_N P′)/(3P²) = −𝒜w/(3PR²) + 2μ/(3R³) + f_N 𝒜/(9P²R²), and the first and last terms cancel
 because f_N/(3P) = w. Likewise g′ = 2P′/f_N − 2P f_N′/f_N² = −2𝒜/(3R² f_N) + 2P𝒜w/(R² f_N²) − 4μP²/(R³ f_N²), and
@@ -1979,8 +1981,8 @@ both are increasing in v. Write N_κ(v) and Ξ(v) for N_κ and Ξ at these point
 **Lemma {#lem:margins-curvature}** (Second derivatives along the slices.) On a cell [v_k, v_(k+1)] let S_i be the
 supremum of |𝒜^(i)| (i = 0, 1, 2) and Φ4 the supremum of |φ⁗| over [R′(v_k), R′(v_(k+1))]. Then on the cell
 
-    (a)  |d²N_κ/dv²| ≤ M := 0.024 S_2 + 0.059 S_1 + 0.072 S_0 + 0.0013 S_0² + 0.17,
-    (b)  |d²Ξ/dv²| ≤ M′ := 1.21 Φ4 + 0.024 S_2 + 0.061 S_1 + 0.075 S_0 + 0.0013 S_0² + 0.23.
+    (a)  |d²N_κ/dv²| ≤ 𝔐 := 0.024 S_2 + 0.059 S_1 + 0.072 S_0 + 0.0013 S_0² + 0.17,
+    (b)  |d²Ξ/dv²| ≤ 𝔐′ := 1.21 Φ4 + 0.024 S_2 + 0.061 S_1 + 0.075 S_0 + 0.0013 S_0² + 0.23.
 
 *Proof.* By [[lem:margins-shell-data]] (c) and the monotonicity of R, P and μ in v, along 𝒞_out the true values satisfy
 0.4769 ≤ P ≤ 1/2, 13/2 ≤ R ≤ 7.2325 and 3/2 ≤ μ ≤ 3.6059; hence 0.91465 ≤ f_N ≤ 0.97133, 0.60976 ≤ w ≤ 0.67892, μ/R³ ≤
@@ -2000,7 +2002,7 @@ at R = 3.825 and the largest μ. The chain rule,
 
     N_κ″ = H_μ μ″ + H_μ̇ μ̇″ + H_R R0″ + H_μμ μ′² + 2H_μR μ′ R0′ + 2H_μ̇R μ̇′ R0′ + H_RR R0′²,
 
-and the bounds above give |N_κ″| ≤ 0.02363 S_2 + 0.05848 S_1 + 0.07172 S_0 + 0.00125 S_0² + 0.1672 ≤ M.
+and the bounds above give |N_κ″| ≤ 0.02363 S_2 + 0.05848 S_1 + 0.07172 S_0 + 0.00125 S_0² + 0.1672 ≤ 𝔐.
 
 (b) Ξ = φ″(R′) + Y(μ, μ̇, R′, V) with Y := μR⁻³V²(3 − V) + μ²R⁻⁵V³ − (1/2)μ̇R⁻²V³ and V := 1 + φ′(R′). Differentiating
 R′ + φ(R′) = R0 gives R′_v = g/V, R′_vv = g′/V − g²φ″/V³, V_v = φ″R′_v and V_vv = φ‴R′_v² + φ″R′_vv, so with
@@ -2049,7 +2051,7 @@ The terms come from μ (|Δμ| ≤ 10⁻⁵), from μ̇ (|Δμ̇| ≤ 3𝒜w|Δw
 times the change of radius) and from the rounding of Ξ_k. The coefficients bound the partial derivatives of Ξ by the
 bounds of the proof of [[lem:margins-curvature]]: |Y_μ| ≤ 0.0447, Y_μ̇ ≤ 0.0344, |Y_R| + |φ‴| ≤ 0.12216 + 0.01795 ×
 2.49 + 0.072346 ≤ 0.24 and |Y_V| ≤ 0.24109 + 0.10284 × 2.49 ≤ 0.50. By [[lem:margins-enclosure]] (b) and
-[[lem:margins-curvature]] (b), on the cell [v_k, v_(k+1)], Ξ ≥ L_k := min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200, where
+[[lem:margins-curvature]] (b), on the cell [v_k, v_(k+1)], Ξ ≥ L_k := min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − 𝔐′_k/51200, where
 h²/8 = 1/51200; here Φ4_k bounds |φ⁗| on the cell, because R′ increases with v and so the cell's radii lie in [R′_k −
 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶]. On the cell, R lies in that interval, μ in [μ_k − 10⁻⁵, μ_(k+1) + 10⁻⁵] (μ
 increases with v), and V′ in [min(V_k, V_(k+1)) − 2 × 10⁻⁴, max(V_k, V_(k+1)) + 2 × 10⁻⁴] with V_k := 1 + φ′_k, since
@@ -2074,7 +2076,7 @@ rounding of N_k, with |H_μ| ≤ 0.044547, H_μ̇ ≤ 0.034175 and |H_R| ≤ 0.1
 of [[lem:margins-curvature]]. On each cell [[lem:margins-enclosure]] (b) and [[lem:margins-curvature]] (a) give the
 sign column. Cells 0–34 and 55–119 are negative, cells 37–53 positive. On the remaining cells write v = v_k + s/80. By
 [[lem:margins-enclosure]] (b), with |g′| ≤ 0.0157 and [[lem:margins-shell-data]] (c), R0(v) is within 4.5 × 10⁻⁶ of (1 −
-s)R0_k + sR0_(k+1), and N_κ(v) is within 5 × 10⁻⁶ + M_k/51200 of (1 − s)N_k + sN_(k+1). Hence:
+s)R0_k + sR0_(k+1), and N_κ(v) is within 5 × 10⁻⁶ + 𝔐_k/51200 of (1 − s)N_k + sN_(k+1). Hence:
 
 - cell 35, s ∈ [0, 0.762]: N_κ ≤ max(−0.00049105, 0.238 × (−0.00049105) + 0.762 × 0.00000012) + 5 × 10⁻⁶ + 1.17/51200 ≤
   −8.8 × 10⁻⁵, and at s = 0.762, R0 ≥ 4.2783783 + 0.762 × 0.0129271 − 4.5 × 10⁻⁶ ≥ 4.288224;
@@ -2227,11 +2229,11 @@ segment ends, rounded to 10 digits (only the exact values enter the rows), are:
 #### The data on 𝒞_in: the defects {#sec:tab-bg-nprime-defects}
 
 Used in [[prop:bg-nprime]]. For the ten middle segments, δ bounds |R̂″ + ℬ/(3R̂²)| on [a, b] by [[lem:bg-tools]]
-(b): r = (4/5) min(c − 5.7, 7.2 − c) is the radius of the disc, M bounds |R̂″| + |ℬ|/(3|R̂|²) on it (with
+(b): r = (4/5) min(c − 5.7, 7.2 − c) is the radius of the disc, 𝔐 bounds |R̂″| + |ℬ|/(3|R̂|²) on it (with
 |ℬ| bounded by [[eq:bg-bump-disc]]), "tail" is Σ_(n<60) |δ_n| h^n for the Taylor coefficients δ_n of R̂″ + ℬ/(3R̂²)
-at c, and "rest" is M (h/r)⁶⁰/(1 − h/r). On the two outer segments R̂ is affine and δ := ℬ_max/(3 R̂_min²).
+at c, and "rest" is 𝔐 (h/r)⁶⁰/(1 − h/r). On the two outer segments R̂ is affine and δ := ℬ_max/(3 R̂_min²).
 
-| segment | r | M | tail | rest | δ |
+| segment | r | 𝔐 | tail | rest | δ |
 |---|---|---|---|---|---|
 | [5.7, 5.73] | — | — | — | — | 8.40·10⁻⁷ |
 | [5.73, 5.76] | 0.036 | 5.49·10⁻³ | 6.26·10⁻¹⁰ | 1.5·10⁻²⁵ | 6.27·10⁻¹⁰ |
@@ -2314,7 +2316,7 @@ At u = 7.2 every T_j equals 1, so Φ̃(ρ) := Ψ̃(7.2, ρ) = Σ_k C_k T_k((ρ �
 
 Used in [[prop:bg-rays]]. The box is [a, b] × [2.32, 3.44]. Ŝ_min = Ŝ(b) (rounded down); [Ψ̃_min, Ψ̃_max] and the
 bounds on the absolute values of J̃ = ∂_ρΨ̃, K̃ = ∂_ρ²Ψ̃, L̃ = ∂_ρ³Ψ̃ are given by [[lem:bg-tools]] (a) from the
-Chebyshev coefficients of these polynomials on the box; ς_m is the sum of the absolute values of the Chebyshev
+Chebyshev coefficients of these polynomials on the box; 𝔰_m is the sum of the absolute values of the Chebyshev
 coefficients on the box of
 ∂_ρ^m P, P the polynomial [[eq:bg-ray-numerator]]; D_m bounds the defect of order m by [[eq:bg-ray-defects]].
 
@@ -2333,7 +2335,7 @@ coefficients on the box of
 | [7.14, 7.17] | 0.63412773 | [1.50249, 2.48877] | 0.9460 | 0.336 | 0.373 |
 | [7.17, 7.2] | 0.61120057 | [1.48321, 2.46481] | 0.9442 | 0.344 | 0.376 |
 
-| segment | ς₀ | ς₁ | ς₂ | ς₃ | D₀ | D₁ | D₂ | D₃ |
+| segment | 𝔰₀ | 𝔰₁ | 𝔰₂ | 𝔰₃ | D₀ | D₁ | D₂ | D₃ |
 |---|---|---|---|---|---|---|---|---|
 | [5.7, 5.73] | 2.23·10⁻⁵ | 2.79·10⁻⁶ | 6.36·10⁻⁶ | 1.31·10⁻⁴ | 5.17·10⁻⁷ | 5.15·10⁻⁷ | 8.49·10⁻⁷ | 4.68·10⁻⁶ |
 | [5.73, 5.76] | 6.60·10⁻⁶ | 1.61·10⁻⁶ | 3.58·10⁻⁶ | 7.83·10⁻⁵ | 1.58·10⁻⁷ | 1.77·10⁻⁷ | 3.36·10⁻⁷ | 2.56·10⁻⁶ |
@@ -2453,10 +2455,10 @@ enclosures of qf and N_κ = (μ3 q/R³)(qf − 3) − ψ_III′ and the upper bo
 #### The slice in the packet {#sec:tab-bg-slice-packet}
 
 Used in [[prop:bg-slice]]. For u in [u_a, u_b] the slice point lies on a ray with ρ in [ρ_lo, ρ_hi] (the first
-table); μ, λ, ℬ are enclosed on [u_a, u_b], J = ∂_ρΨ and K = ∂_ρ²Ψ on the box, and R = v̂(ρ) + 0.68; the second
+table); μ, ℓ_v, ℬ are enclosed on [u_a, u_b], J = ∂_ρΨ and K = ∂_ρ²Ψ on the box, and R = v̂(ρ) + 0.68; the second
 table gives the enclosures of qf and of N_κ by [[eq:bg-nk-packet]] and the upper bound of κK^l_l.
 
-| u | ρ | R | μ | λ | ℬ |
+| u | ρ | R | μ | ℓ_v | ℬ |
 |---|---|---|---|---|---|
 | [5.7, 5.75] | [3.41516, 3.43718007] | [3.3866, 3.4372] | [1.4999, 1.5001] | [0.7615, 0.7677] | [0, 1.98·10⁻³] |
 | [5.75, 5.8] | [3.39319, 3.41519] | [3.3362, 3.3868] | [1.4992, 1.5000] | [0.7552, 0.7616] | [1.97·10⁻³, 0.0832] |
@@ -2784,17 +2786,17 @@ Row k is the point of Σ_τ0 on the ingoing ray v = v_k: R0_k := v̂_k + 0.68 (s
 w_k := (1 − μ_k/R_k²)/(3P_k) (six decimals), and N_k := −2μ_k ρ⁻³ − μ_k² ρ⁻⁵ + (1/2) a ρ⁻² (eight decimals), from the
 shell table, where ρ := v̂_k + 0.68 and a := (3/2) 𝒜_k w_k² are taken before rounding. By the proof of
 [[thm:margins-hyperbolic]] the true value of N_κ at the point is within 5 × 10⁻⁶ of N_k. On the cell v ∈ [v_k, v_(k+1)],
-M_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for the second v-derivative of N_κ along
+𝔐_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for the second v-derivative of N_κ along
 Σ_τ0, built from S_0, S_1 and S_2 := sup|𝒜″|, for which the printed column S2_k (rounded up to one decimal) is used. By
 the monotone pieces of [[lem:margins-bump]], S_0 and S_1 are the larger end values of 𝒜 and |𝒜′| on the cell, taken from
 the shell table with 5 × 10⁻¹⁰ and 5 × 10⁻⁹ added for its rounding, except that S_1 = 4.8 × 2.17036 on the cells k = 14
 and 105, which contain v = 3.75 ∓ 0.75 × 3^(−1/4); and S_2 is the larger end value of |𝒜″|, except on the cells k = 6,
 23, 96 and 113, which contain a zero of β‴ in the variable y = (4v − 15)/3, where the extremal value of
-[[lem:margins-bump]] (c) times 6.4 is used. The sign column is − when max(N_k, N_(k+1)) + 5 × 10⁻⁶ + M_k/51200 < 0, +
-when min(N_k, N_(k+1)) − 5 × 10⁻⁶ − M_k/51200 > 0, and 0 otherwise. The bound column prints that maximum (rounded up) or
+[[lem:margins-bump]] (c) times 6.4 is used. The sign column is − when max(N_k, N_(k+1)) + 5 × 10⁻⁶ + 𝔐_k/51200 < 0, +
+when min(N_k, N_(k+1)) − 5 × 10⁻⁶ − 𝔐_k/51200 > 0, and 0 otherwise. The bound column prints that maximum (rounded up) or
 minimum (rounded down). The three cells marked 0 are treated in the proof of [[thm:margins-hyperbolic]].
 
-| k | R0_k | a_k | N_k | S2_k | M_k | sign | bound |
+| k | R0_k | a_k | N_k | S2_k | 𝔐_k | sign | bound |
 |---|---|---|---|---|---|---|---|
 | 0 | 3.8253316 | 0.000000 | −0.05634060 | 0.1 | 0.18 | − | −0.055744 |
 | 1 | 3.8382912 | 0.000000 | −0.05575350 | 0.8 | 0.19 | − | −0.055165 |
@@ -2928,14 +2930,14 @@ printed radius R = R′_k, with μ = μ_k and with μ̇ = (3/2) 𝒜_k w_k², V�
 rounding. On the cell v ∈ [v_k, v_(k+1)], Φ4_k (rounded up to three decimals) is an upper bound for the supremum of |φ⁗|
 over R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], an interval that contains the true radii of the cell's points of
 Σ′; it is found from the monotone pieces of β″ ([[lem:margins-bump]] (c)) in the variable of each lobe that meets the
-interval, with the extremal values of [[lem:margins-bump]] (c) at interior extremal points. M′_k (rounded up to two
+interval, with the extremal values of [[lem:margins-bump]] (c) at interior extremal points. 𝔐′_k (rounded up to two
 decimals) is the bound of [[lem:margins-curvature]] (b), built from the printed Φ4_k and S2_k and from S_0 and S_1 as in
 [[sec:table-sigma0]]. And c_k (rounded down to five decimals) is the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) on
 the cell of the proof of [[thm:margins-hyperbolic]], with R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], μ ∈ [μ_k −
 10⁻⁵, μ_(k+1) + 10⁻⁵] and V in the interval given there. The bound column (rounded up to seven decimals) is −c_k
-(min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200), an upper bound for κ′K′^l_l on the cell.
+(min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − 𝔐′_k/51200), an upper bound for κ′K′^l_l on the cell.
 
-| k | R′_k | φ_k | φ′_k | φ″_k | Ξ_k | Φ4_k | M′_k | c_k | bound |
+| k | R′_k | φ_k | φ′_k | φ″_k | Ξ_k | Φ4_k | 𝔐′_k | c_k | bound |
 |---|---|---|---|---|---|---|---|---|---|
 | 0 | 3.8254920 | −0.0001604 | −0.001390 | −0.0062174 | 0.0499927 | 0.199 | 0.48 | 0.06612 | −0.0032740 |
 | 1 | 3.8384702 | −0.0001789 | −0.001470 | −0.0060859 | 0.0495307 | 0.213 | 0.51 | 0.06559 | −0.0032201 |

@@ -382,9 +382,10 @@ In particular every such combination is non-null, with this margin, once Λ > (m
 
 *Proof.* In the orthonormal frame |g⁻¹(k, k′)| ≤ |k| |k′|. Put 𝔎 := 𝔎_j = j_B1 ν_B1 k_B1 + V, V := Σ_(A ≠ B1) j_A ν_A
 k_A. Since k_B1 is null, g⁻¹(𝔎, 𝔎) = 2 j_B1 ν_B1 g⁻¹(k_B1, V) + g⁻¹(V, V). Here g⁻¹(k_B1, V) = j_B2 ν_B2 g⁻¹(k_B1,
-k_B2) + Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m Ē²/Λ), using |j_B2|
-≥ 1 and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A Ē ≤ m ν_B2 Ē, so |g⁻¹(V, V)| ≤ m² Ē² ν_B2² ≤ m² Ē² ν_B1 ν_B2/Λ.
-With |j_B1| ≥ 1, |g⁻¹(𝔎, 𝔎)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ) − m² Ē² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
+k_B2) + Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m Ē²/Λ),
+using |j_B2| ≥ 1 and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A Ē ≤ m ν_B2 Ē, so |g⁻¹(V, V)| ≤ m² Ē² ν_B2² ≤ m² Ē²
+ν_B1 ν_B2/Λ. With |j_B1| ≥ 1, |g⁻¹(𝔎, 𝔎)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ) − m² Ē² ν_B1 ν_B2/Λ, which is
+[[eq:vlasov-hierarchy]]. ∎
 
 With c = c0 (2π/n)², Λ is of order n², as in the choice a_A = c n² a_(A−1) of [HL25, Lemma 4.16, p. 18]. The phases ν_A
 u_A are eikonals, so the two-scale scheme is unchanged; the wave of family A carries the amplitude λ F_A/ν_A, so that its
@@ -525,9 +526,9 @@ and h = c dr ⊗ dr, dρ⁽⁻¹⁾ = −c ζ |p|² cos θ ⟨dr, q̂⟩², whic
 parallel to dr). So every non-radial wave with a nonzero orbit part leaves a term of order λ⁻¹.
 
 *Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In R(γ) = γ^(ij)(∂_k
-Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and ∂_i∂_k(λ W) =
-λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is W″(p^♯, p^♯) − |p|² tr W″, with p^♯ :=
-γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij), gives the first line of
+Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and ∂_i∂_k(λ
+W) = λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is W″(p^♯, p^♯) − |p|² tr W″,
+with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij), gives the first line of
 [[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry derivatives of h or first derivatives of
 γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃ ∂_i(γ^(jl) κ_(jl)), whose parts of order λ⁻¹ are
 −γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the second line; the Christoffel terms are of order one.
@@ -640,8 +641,8 @@ E and tensor fields on S³. For a word I = (i_1, …, i_j) put 𝓛^I := 𝓛_(i
 (K1) Each 𝓛_i commutes with ∇, with Δ, with contractions by the round metric and with ∂_r (X_i is a Killing field).
 
 (K2) Σ_i ⟨X_i, Y⟩² = |Y|² for every tangent vector Y of S³, by Lagrange's identity Σ_(a<b) (x_a Y_b − x_b
-Y_a)² = |x|² |Y|² − (x·Y)² with |x| = 1 and x·Y = 0; so Y = Σ_i ⟨X_i, Y⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order zero in
-f with coefficients built from ∇X_i, |∇f| ≤ C (Σ_i |𝓛_i f| + |f|), |∇² f| ≤ C Σ_(|J|≤2) |𝓛^J f| and |𝓛_i f| ≤ C (|∇f| + |f|)
+Y_a)² = |x|² |Y|² − (x·Y)² with |x| = 1 and x·Y = 0; so Y = Σ_i ⟨X_i, Y⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order zero
+in f with coefficients built from ∇X_i, |∇f| ≤ C (Σ_i |𝓛_i f| + |f|), |∇² f| ≤ C Σ_(|J|≤2) |𝓛^J f| and |𝓛_i f| ≤ C (|∇f| + |f|)
 for every function, section of E or tensor field f.
 
 (K3) sup |f| ≤ C_S Σ_(|J|≤2) ‖𝓛^J f‖, by (K2) and the embedding of H² in the continuous functions on the compact
@@ -1232,12 +1233,13 @@ in n and A.
 *The diagonal.* Fix a sequence (η_j) of smooth tensor fields with compact support in the interior of Ω, dense in L²(Ω).
 For each odd n ≥ n0 choose λ_n ≤ λ0(n) such that:
 
-1. C(n) λ_n ≤ 1/n; 2. |∫_Ω η_j · (∂g^(n)_(λ_n) − ∂g^(n))| ≤ 1/n for j ≤ n. This is possible since each harmonic's
-integral is O(λ) at fixed n, by non-stationary phase: du_A ≠ 0 on the support, so e^(i k ν_A u_A/λ) = (λ/(i k
-ν_A |du_A|²_E)) du_A·∂ e^(i k ν_A u_A/λ) with the Euclidean norm of the chart, and one integration by parts gains λ; 3.
-‖Σ_A ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) ≤ Σ_A ‖ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) + 1. The cross terms of distinct families have
-the phases ν_A u_A ± ν_B u_B, with d(ν_A u_A ± ν_B u_B) ≠ 0, since du_A, du_B are null and not parallel on the overlaps
-by (ii′); they tend to zero as λ → 0 at fixed n, by non-stationary phase.
+1. C(n) λ_n ≤ 1/n;
+2. |∫_Ω η_j · (∂g^(n)_(λ_n) − ∂g^(n))| ≤ 1/n for j ≤ n. This is possible since each harmonic's integral is O(λ) at fixed
+   n, by non-stationary phase: du_A ≠ 0 on the support, so e^(i k ν_A u_A/λ) = (λ/(i k ν_A |du_A|²_E)) du_A·∂ e^(i k ν_A
+   u_A/λ) with the Euclidean norm of the chart, and one integration by parts gains λ;
+3. ‖Σ_A ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) ≤ Σ_A ‖ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) + 1. The cross terms of distinct families
+   have the phases ν_A u_A ± ν_B u_B, with d(ν_A u_A ± ν_B u_B) ≠ 0, since du_A, du_B are null and not parallel on the
+   overlaps by (ii′); they tend to zero as λ → 0 at fixed n, by non-stationary phase.
 
 The diagonal terms are at most C Σ_A ∫ |du_A|²_E (F_A² + F_A⁴), and F_A² = (2π/n) q(·, α_A) + O(n^(−k)) on the tubes by
 [[prop:vlasov-uniform-n]]; so they are at most C Σ_A (2π/n) ∫ q(·, α_A) |du_(α_A)|²_E + C/n + O(n^(1−k)), and the sum is
