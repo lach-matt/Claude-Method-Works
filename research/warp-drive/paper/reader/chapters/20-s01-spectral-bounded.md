@@ -567,7 +567,7 @@ bounded in Ψ^(s′−3/2). All constants are uniform in σ ∈ 𝒟: every symb
 do not depend on σ. [[lem:i-a-3-2]] gives [[eq:i-a-4-2]].
 
 (2) For P̂(σ)^(*h): Re_h(P̂^(*h)) = P̂_R and Im_h(P̂^(*h)) = −P̂_I. Take the target order s̃ := 1 − s′ (s′ ≥ s) and the
-same commutant with s̃ in place of s′. The same computation of symbols gives
+same commutant with s̃ in place of s′. The same symbol calculus gives
 
     ±ρ_∞σ(C_ε) = ρ_∞^(−2s̃+1)φ_ε²χ_∞²[ψ_R²Q^♭_ε + 2ς_Rψ_Rψ_R′𝖧q̃] + r_ε,
 
@@ -740,7 +740,7 @@ the last term bounded in Ψ^(−∞,−∞), and F_ε := B_(R,ε)^(*h)B_(R,ε) +
 Y_ε, convergence) are verified as in [[prop:i-a-4-2]], with z_ε := ρ^(−1/2)Q̃_ε^(−1/2), bounded in
 S^(−∞,1/2) = S^(−½(𝐦−𝟏)), as 𝐦 − 𝟏 = (1, −1). [[lem:i-a-3-2]] in the decay component gives [[eq:i-a-4-8]].
 
-(2) For P^(*h) the imaginary part is −P_I. With target decay order 𝗋̃ := −𝗋′ − 1, the same commutant and computation
+(2) For P^(*h) the imaginary part is −P_I. With target decay order 𝗋̃ := −𝗋′ − 1, the same commutant and symbol calculus
 give, at R_(σ₀,in),
 
     ε₀ρ^(2𝗋̃)σ(C^♭_ε) = 2|σ₀|φ_ε²(ψ_∂ψ_Σψ_R)²[−(2𝗋̃_ε + 1) Id − (p_in − S − S^(*h))] + (cut-off term).
@@ -780,7 +780,7 @@ h-adjoint preserves both classes. The degrees follow as in [[lem:i-a-4-4]] (b). 
 multi-index α let V^α be the ordered product, α₁ the number of factors V₁, |α| = k and A_k := {|α| = k}. If
 P̂(σ)u = f near ∂X, then u^(k) := (V^αu)_(α∈A_k) satisfies
 
-    P̂(σ)V^αu + Σ_(β∈A_k) P̃_αβ V^βu = V^αf − α₁V^(α′)f + Σ_(|β|≤k−1) R_αβ V^βu,                            {#eq:i-a-4-10}
+    P̂(σ)V^αu + Σ_(β∈A_k) P̃_αβ V^βu = V^αf − α₁V^(α′)f + Σ_(|β|≤k−1) R_αβ V^βu,                           {#eq:i-a-4-10}
 
 where α′ := α − (1, 0, …, 0) (the term is absent if α₁ = 0), P̃_αβ ∈ ρ²Diff¹_b (so ρ⁻¹P̃_αβ ∈ Diff¹_sc has symbol 0
 at R_out), and R_αβ ∈ ρDiff²_sc, all with End ℂ^N-valued coefficients depending polynomially on σ. The diagonal term
@@ -823,7 +823,7 @@ g̃ := 2ξ + κ_σ(ξ² + |η|²), and with 𝖧̃ := 𝖵_(g̃), [[eq:i-a-4-4]]
 and 𝖧̃g̃ = 0. By Im_h(cA) = (Re c) Im_h A + (Im c) Re_h A, [[lem:i-a-4-4]] (b) and [[lem:i-a-4-7]],
 
     Im_h P̃ = P̃_I^(0) − ι_σ Σ_j W_j^(*h)W_j,
-    P̃_I^(0) := Im_h T + κ_σ Im_h P̂(0) − ι_σ(R₁ + R₂) + σ₁g₀₀ ∈ Ψ^(2,−1).                                   {#eq:i-a-4-12}
+    P̃_I^(0) := Im_h T + κ_σ Im_h P̂(0) − ι_σ(R₁ + R₂) + σ₁g₀₀ ∈ Ψ^(2,−1).                                 {#eq:i-a-4-12}
 
 (Here Im_h(σ⁻¹σ²g₀₀) = σ₁g₀₀.) P̃_I^(0) has symbol ρp̃ at ρ = 0, with p̃ := −(S + S^(*h)) + κ_σr₃ − ι_σ(r₁ + r₂) and
 r₃ := σ(ρ⁻¹Im_h P̂(0)). The last three terms vanish at R_out, so p̃ = −(S + S^(*h)) there.
@@ -834,16 +834,16 @@ neighbourhood of R_out, s, N ∈ ℝ, and h a fibre inner product.
 (1) (*Direct.*) Let 𝗋 < −½ + ½ inf_(∂X) min spec(S + S^(*h)). There are B, E, G ∈ Ψ^(0,0) microsupported in U at
 finite frequencies, with B elliptic at R_out and WF′(E) ∩ R_out = ∅, such that for σ ∈ 𝒟, in the strong sense,
 
-    ‖Bu‖_(s,𝗋) ≤ C(‖GP̂(σ)u‖_(s−2,𝗋+1) + ‖Eu‖_(s,𝗋) + ‖u‖_(−N,−N)).                                         {#eq:i-a-4-13}
+    ‖Bu‖_(s,𝗋) ≤ C(‖GP̂(σ)u‖_(s−2,𝗋+1) + ‖Eu‖_(s,𝗋) + ‖u‖_(−N,−N)).                                        {#eq:i-a-4-13}
 
 (2) (*Adjoint.*) Let 𝗋 < 𝗋₀ < −½ + ½ inf_(∂X) min spec(S + S^(*h)). There are B, G as in (1) such that, in the strong
 sense,
 
-    ‖Bu‖_(−s+2,−𝗋−1) ≤ C(‖GP̂(σ)^(*h)u‖_(−s,−𝗋) + ‖Gu‖_(−N,−𝗋₀−1) + ‖u‖_(−N,−N)).                           {#eq:i-a-4-14}
+    ‖Bu‖_(−s+2,−𝗋−1) ≤ C(‖GP̂(σ)^(*h)u‖_(−s,−𝗋) + ‖Gu‖_(−N,−𝗋₀−1) + ‖u‖_(−N,−N)).                          {#eq:i-a-4-14}
 
 (3) (*b-regularity*; [Hin26c, (9.44)].) In the setting of (1), for every k ∈ ℕ₀, with the norms of [[sec:i-a-4-6]],
 
-    ‖Bu‖_((s;k),𝗋) ≤ C(‖GP̂(σ)u‖_((s−2;k),𝗋+1) + ‖Eu‖_((s;k),𝗋) + ‖u‖_(−N,−N)).                             {#eq:i-a-4-15}
+    ‖Bu‖_((s;k),𝗋) ≤ C(‖GP̂(σ)u‖_((s−2;k),𝗋+1) + ‖Eu‖_((s;k),𝗋) + ‖u‖_(−N,−N)).                            {#eq:i-a-4-15}
 
 With [[lem:i-a-2-4]], ½ inf min spec(S + S^(*h)) can be taken within any ε > 0 of S̄. So every 𝗋 < −½ + S̄ is
 admissible in (1) and (3), and every 𝗋₀ < −½ + S̄ in (2), for a suitable h; this is the threshold [Hin26c, (9.16c)].

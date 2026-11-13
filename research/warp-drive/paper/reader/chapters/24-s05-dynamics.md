@@ -1310,3 +1310,237 @@ x_I^(2ℓ_I) by [[eq:ii-c-5-1]] (the rate x_I² of the stationary part, [[sec:ii
 perturbation), so [[lem:ii-c-5-4]] (c) holds at all ρ₊ ≤ 1 and χ_t is not needed. [Hin26c, p. 114] refers to that
 construction and adds that only the dynamics over ι⁺ matter; the construction above confirms this, the trapped set and
 the horizon lying where 𝗌 is constant.
+
+### The persistence theorem {#sec:ii-c1-1}
+
+For a metric that decays in time to the stationary model, the null-bicharacteristic flow is tangent to hypersurfaces
+that are close to the stable and unstable manifolds of the stationary trapped set and converge to them
+([[prop:ii-c1-3-4]]; [Hin26c, Proposition 6.3] in dimension 4 + 1). This section states the theorem on decaying
+perturbations of a flow with normally hyperbolic trapping from which this follows. It is proved quantitatively, from
+the defining functions of (Γ.1)–(Γ.3) with their exact equations (Γ.2) and the tangential growth bound of (K3).
+
+**Theorem {#thm:ii-c1-1-1}** (Persistence of the stable and unstable hypersurfaces.) Let Y be a smooth manifold with a
+Riemannian metric, V₀ a smooth vector field on Y, Γ ⊂ Y a compact smooth submanifold, O ⊂ Y an open neighbourhood of Γ
+with compact closure, and φ_u, φ_s, ν_u, ν_s ∈ C^∞(Ō) real, such that:
+
+(i) Γ = {φ_u = φ_s = 0} ∩ O, and dφ_u, dφ_s are linearly independent at every point of Γ;
+
+(ii) V₀φ_u = −ν_uφ_u and V₀φ_s = ν_sφ_s on O, with ν_u, ν_s ≥ ν > 0 on O;
+
+(iii) Γ is invariant under the flow of V₀, and for every ε > 0 there is C_ε with |De^(sV₀)v| ≤ C_ε e^(ε|s|)|v| for
+v ∈ TΓ, s ∈ ℝ.
+
+Let k ≥ 2, ℓ > 0, T₀ ≥ 1 and ρ(t) := t^(−ℓ). Then there are a neighbourhood O′ ⊂ O of Γ, ϵ₀ > 0 and C such that the
+following holds for every vector field Ṽ on [T₀, ∞) × O, tangent to the slices {t} × O, of class C^k in (t, y) jointly,
+with
+
+    ‖Ṽ‖ := sup_(t≥T₀) ρ(t)⁻¹ ‖Ṽ‖_(C^k([t,t+1]×O)) ≤ ϵ ≤ ϵ₀.                                               {#eq:ii-c1-1-1}
+
+The vector field V := ∂_t + V₀ + Ṽ is tangent to the hypersurfaces
+
+    W^u := {φ_u + ψ_u = 0},        W^s := {φ_s + ψ_s = 0}        of [T₀, ∞) × O′,                         {#eq:ii-c1-1-2}
+
+where ψ_u ∈ C^k, ψ_s ∈ C^(k−1), |∂^αψ_u(t, y)| ≤ Cϵρ(t) for |α| ≤ k and |∂^αψ_s(t, y)| ≤ Cϵρ(t) for |α| ≤ k − 1,
+derivatives in (t, y) in fixed charts. W^u meets {t = T₀} in {φ_u = 0}. The constants O′, ϵ₀ and C depend only on k,
+ℓ, ν, C_ε for ε := ν/(2k), the C^(k+1)-norms of V₀, φ_u, φ_s, ν_u, ν_s on O in a fixed finite atlas, and the choices
+of [[sec:ii-c1-2-1]]; they depend neither on T₀ nor on Ṽ.
+
+C^k-norms on [t, t + 1] × O are taken in the charts of a fixed finite atlas of a neighbourhood of Ō, in which the
+metric is uniformly comparable to the Euclidean one.
+
+**Remark {#rem:s05-persistence}** (a) (iii) is the tangential half of r-normal hyperbolicity for every r
+([HPS77, Definition 4]); the normal half is (ii), in which the normal dynamics is linear in φ_u, φ_s. No invariant
+splitting of T_ΓY is used. (b) W^s is the analogue of the stable manifold and is determined by V; W^u, the analogue of
+the unstable manifold, depends on its initial slice, here {φ_u = 0} at t = T₀ ([Hin21, footnote 1]). In the
+application, with time running forward, W^u is the backward-trapped hypersurface and W^s the forward-trapped one.
+
+### Proof of the persistence theorem {#sec:ii-c1-2}
+
+*Proof of [[thm:ii-c1-1-1]].* The proof is a graph transform. The hypersurfaces have codimension one and (ii) gives the
+normal dynamics in closed form, so each step of the transform solves one scalar equation by monotonicity; the
+tangential dynamics enters only through the norm of a time-T map, which is made small against the normal rates by
+taking T large. The proof occupies [[sec:ii-c1-2-1]]–[[sec:ii-c1-2-6]].
+
+#### Coordinates {#sec:ii-c1-2-1}
+
+Let π : O₁ → Γ be a smooth retraction of a neighbourhood O₁ ⊂ O of Γ (π|_Γ = id; for instance the projection of a
+tubular neighbourhood), and Ψ₀ := (π, φ_u, φ_s) : O₁ → Γ × ℝ².
+
+*Ψ₀ is a local diffeomorphism near Γ.* At p ∈ Γ, ker dφ_u ∩ ker dφ_s has codimension 2 by (i) and contains T_pΓ (as
+φ_(u/s) = 0 on Γ), which has codimension 2; so they are equal. If dΨ₀(v) = 0, then v ∈ T_pΓ and dπ(v) = v = 0.
+*It is injective near Γ.* Otherwise there are p_n ≠ q_n with Ψ₀(p_n) = Ψ₀(q_n) and dist(p_n, Γ), dist(q_n, Γ) → 0;
+for a subsequence p_n → p and q_n → q in Γ, and Ψ₀(p) = Ψ₀(q) gives p = q (Ψ₀(p) = (p, 0, 0) on Γ), contradicting
+injectivity near p (inverse function theorem). So Ψ₀ is a diffeomorphism from a neighbourhood of Γ onto an open set
+containing Γ × {0}, hence, Γ being compact, containing Γ × [−δ₁, δ₁]² for some δ₁ > 0. Put
+O₂ := Ψ₀⁻¹(Γ × (−δ₁, δ₁)²).
+
+In the coordinates (y, a, b) := Ψ₀ on O₂, by (ii),
+
+    V₀ = Y₀(y, a, b) − ν_u(y, a, b) a ∂_a + ν_s(y, a, b) b ∂_b,                                          {#eq:ii-c1-2-1}
+
+with Y₀ tangent to Γ (the y-component) and Y₀(·, 0, 0) = V₀|_Γ, and Ṽ = (Ỹ, Ã, B̃) with C^k-norms bounded by Cϵρ(t).
+Fix a finite atlas of Γ, charts κ_i : U_i → ℝ^m, compact sets 𝒦_i ⊂ U_i covering Γ and a Lebesgue number d_L > 0
+(every ball of radius d_L lies in some U_i), and let C_at ≥ 1 bound the factor by which the norm of a linear map
+between tangent spaces of Γ × ℝ² can change when its domain and its codomain are read in two of the charts. For
+functions on Γ × I, I an interval, ‖D^j f‖_∞ is the supremum over i and over 𝒦_i × I of the j-th derivatives in the
+chart κ_i × id.
+
+#### Time-T maps {#sec:ii-c1-2-2}
+
+Let Φ⁰_τ be the time-τ map of V₀ and, for t ≥ T₀, let Φ_(t,τ) be the spatial part of the time-τ map of V from the
+slice {t} (τ of either sign). By [[eq:ii-c1-2-1]], along an integral curve of V₀ in O₂,
+a(τ) = a(0)exp(−∫₀^τ ν_u) and b(τ) = b(0)exp(∫₀^τ ν_s); so for τ ≥ 0
+
+    Φ⁰_τ(y, a, b) = (f_τ(y, a, b), a m^u_τ(y, a, b), b m^s_τ(y, a, b)),     m^u_τ ≤ e^(−ντ),     m^s_τ ≥ e^(ντ),
+                                                                                                        {#eq:ii-c1-2-2}
+
+with m^(u/s)_τ ∈ [e^(−C_ντ), e^(C_ντ)], C_ν := sup_O(ν_u + ν_s), as long as the curve stays in O₂; and similarly for
+τ ≤ 0 with the roles of a and b exchanged.
+
+Fix T ≥ 1, to be chosen below, and then δ ∈ (0, ¼δ₁] with e^(2C_νT)δ ≤ ¼δ₁, and put B := Γ × [−δ, δ]². For ϵ₀ small
+(depending on T and δ), Φ_(t,τ) is defined on B for |τ| ≤ 2T with t + τ ≥ T₀, with values in
+Γ × (−½δ₁, ½δ₁)², and:
+
+(T1) {|a| ≤ δ} is forward invariant and {|b| ≤ δ} backward invariant for V within O₂: (d/dτ)|a| ≤ −ν|a| + |Ã| < 0 at
+|a| = δ when Cϵ₀ < νδ, and likewise for b backward.
+
+(T2) ‖Φ_(t,τ) − Φ⁰_τ‖_(C^k) ≤ C_Tϵρ(t) on B, derivatives in (t, τ, y, a, b) (for ∂_τ:
+∂_τ(Φ_(t,τ) − Φ⁰_τ) = V₀(Φ_(t,τ)) − V₀(Φ⁰_τ) + Ṽ, which is O(ϵρ)), and ‖Φ_(t,τ)‖_(C^k) ≤ C_T. This is Grönwall's
+inequality for the equation and its variational equations up to order k, whose inhomogeneous terms are Ṽ and its
+derivatives at the times between t and t + τ. By [[eq:ii-c1-1-1]] these are at most ϵρ(s) on each window [s, s + 1]
+with s ≥ min(t, t + τ) ≥ T₀ ≥ 1, and ρ(s) ≤ ρ(min(t, t + τ)) ≤ (1 + 2T)^ℓρ(t), because t/(t + τ) ≤ 1 + 2T when τ < 0
+and t + τ ≥ 1; the factor (1 + 2T)^ℓ and the number 4T + 1 of windows go into C_T.
+
+(T3) (*The tangential rate.*) With ε := ν/(2k), |Df_τ(y, 0, 0)|_(T_yΓ)| ≤ C_ε e^(ε|τ|) by (iii), as f_τ(·, 0, 0) is the
+flow of V₀|_Γ.
+
+(T4) (*The cross terms.*) |∂_a f_τ(y, 0, 0)| ≤ C_*C_ε e^(ετ) for τ ≥ 0, and |∂_b f_τ(y, 0, 0)| ≤ C_*C_ε e^(ε|τ|) for
+τ ≤ 0, with C_* := ν⁻¹ sup|∂_(a,b)Y₀|. Indeed, linearising [[eq:ii-c1-2-1]] at (y, 0, 0) in the direction ∂_a gives
+δb ≡ 0, δa(σ) = m^u_σ(y, 0, 0) ≤ e^(−νσ) and δy′ = D_yY₀ δy + ∂_aY₀ δa, so
+δy(τ) = ∫₀^τ J(τ, σ)∂_aY₀ δa(σ) dσ with J(τ, σ) = De^((τ−σ)V₀)|_(TΓ) at f_σ(y, 0, 0), bounded by C_ε e^(ε(τ−σ)); hence
+|δy(τ)| ≤ C_ε sup|∂_aY₀| ∫₀^τ e^(ε(τ−σ)−νσ) dσ ≤ C_*C_ε e^(ετ). Backward, b contracts and the same estimate applies.
+
+(T5) On B, every first derivative of Φ⁰_τ differs from its value at (y, 0, 0) by at most C_Tδ; and ∂_y(am^u_τ),
+∂_b(am^u_τ), ∂_y(bm^s_τ) and ∂_a(bm^s_τ) are O(C_Tδ) on B, carrying the factor a or b.
+
+Let Λ_τ := C_at(C_* + 2)C_ε e^(ε|τ|). By (T3)–(T5) and (T2), for 0 ≤ τ ≤ 2T the block D_((y,a))(Φ_y, Φ_a) of DΦ_(t,τ)
+has norm at most Λ_τ + C_T(δ + ϵ₀) in the chart norms (|(v, s)| := |v| + |s|), and for −2T ≤ τ ≤ 0 the block
+D_((y,b))(Φ_y, Φ_b) likewise. We use C_T for constants depending on T and the data, and fix T so large that
+
+    e^(−νT)(2Λ_T)^k(1 + 2T)^ℓ ≤ ¼,                                                                       {#eq:ii-c1-2-3}
+
+which is possible as kε = ν/2 < ν; then δ as above, small also against C_T where stated; and finally ϵ₀ small
+against δ and C_T.
+
+#### One step of the graph transform {#sec:ii-c1-2-3}
+
+For t ≥ T₀ and τ ∈ [0, 2T] let Φ := Φ_(t,τ), and 𝒦_a := Γ × [−δ, δ]_a. For β : 𝒦_a → ℝ with |β| ≤ ¼δ and
+Lip β ≤ θ₀ := δ (in the chart norms) define 𝒮_Φβ : 𝒦_a → ℝ by
+
+    Φ_b(y, a, 𝒮_Φβ(y, a)) = β(Φ_y(y, a, 𝒮_Φβ(y, a)), Φ_a(y, a, 𝒮_Φβ(y, a))):                              {#eq:ii-c1-2-4}
+
+graph(𝒮_Φβ) is the set of points of B that Φ maps into graph(β).
+
+**Lemma {#lem:ii-c1-2-1}** (One step.) For (y, a) ∈ 𝒦_a, [[eq:ii-c1-2-4]] has exactly one solution b ∈ [−δ, δ], and:
+
+(G1) |𝒮_Φβ| ≤ e^(−ντ)(|β|_∞ + C_Tϵρ(t));
+
+(G2) |𝒮_Φβ − 𝒮_Φβ̃|_∞ ≤ e^(−ντ)(1 − 3C_Tδ)⁻¹|β − β̃|_∞ for two such β, β̃;
+
+(G3) if β ∈ C^k and ‖D^jβ‖_∞ ≤ M_jϵρ(t) for 0 ≤ j ≤ k (the case j = 0 included), then 𝒮_Φβ ∈ C^k and, for
+1 ≤ i ≤ k,
+
+    ‖D^i𝒮_Φβ‖_∞ ≤ e^(−ντ)(1 − 3C_Tδ)⁻¹(2Λ_τ)^i‖D^iβ‖_∞ + C(T, M₀, …, M_(i−1)) ϵρ(t).                     {#eq:ii-c1-2-5}
+
+*Proof.* Fix (y, a) and put h(b) := Φ_b(y, a, b) − β(Φ_y, Φ_a)(y, a, b). By (T1) the point (Φ_y, Φ_a) lies in 𝒦_a, so
+h is defined on [−δ, δ]. By [[eq:ii-c1-2-2]], (T2) and (T5),
+∂_bΦ_b = m^s_τ + b ∂_bm^s_τ + O(C_Tϵρ) ≥ e^(ντ)(1 − C_Tδ) − C_Tϵ₀, and |∂_b(Φ_y, Φ_a)| ≤ C_T with
+Lip β ≤ θ₀ = δ, so h′(b) ≥ e^(ντ)(1 − C_Tδ) − C_Tϵ₀ − C_Tδ ≥ e^(ντ)(1 − 3C_Tδ) > 0, as e^(ντ) ≥ 1 and ϵ₀ ≤ δ. At
+b = ±δ, ±Φ_b ≥ δm^s_τ(1 − C_Tδ) − C_Tϵρ ≥ ¾δ > |β|, so h changes sign: it has a unique zero. (G1): at the zero,
+b m^s_τ(y, a, b) = β(⋯) − (Φ_b − Φ⁰_(τ,b)), and m^s_τ ≥ e^(ντ). (G2): with b and b̃ the two zeros,
+h(b̃) = h(b̃) − h̃(b̃) = −(β − β̃)(⋯), so |b − b̃| ≤ |β − β̃|_∞/inf h′. (G3): 𝒮_Φβ ∈ C^k by the implicit function
+theorem, H(w, b) := Φ_b(w, b) − β((Φ_y, Φ_a)(w, b)), w = (y, a), being C^k with ∂_bH ≥ e^(ντ)(1 − 3C_Tδ). Fix
+p ∈ 𝒦_i × [−δ, δ]; as (Φ_y, Φ_a) has Lipschitz constant at most 2Λ_τ, it maps the ball of radius d_L/(2Λ_(2T)) about p
+into a ball of radius d_L, which lies in some chart U_l; differentiate H(w, 𝒮_Φβ(w)) = 0 i times at p in the charts i
+and l. For i = 1 the result is ∂_bH · D𝒮_Φβ = Dβ · D_w(Φ_y, Φ_a) − D_wΦ_b, and for i ≥ 2 it is
+
+    ∂_bH · D^i𝒮_Φβ = D^iβ[(D_w(Φ_y, Φ_a) + ∂_b(Φ_y, Φ_a)D𝒮_Φβ)^(⊗i)] + R_i,
+
+the term Dβ · ∂_b(Φ_y, Φ_a)D^i𝒮_Φβ being part of ∂_bH · D^i𝒮_Φβ. Here R_i (and −D_wΦ_b at i = 1) is a sum of products
+of derivatives of order ≤ i of β and of order ≤ i − 1 of 𝒮_Φβ, and of derivatives of order ≤ i of Φ (bounded by
+C_T). Every product in R_i contains a factor O(ϵρ(t)): either D^jβ with j ≥ 1; or D^j𝒮_Φβ with 1 ≤ j ≤ i − 1, bounded
+inductively; or a pure w-derivative of Φ_b, which is b D^j_w m^s_τ + D^j_w(Φ_b − Φ⁰_(τ,b)) at b = 𝒮_Φβ = O(ϵρ) by
+(G1) and (T2). In the leading term, |D_w(Φ_y, Φ_a)| ≤ Λ_τ + C_T(δ + ϵ₀) and
+|∂_b(Φ_y, Φ_a)D𝒮_Φβ| ≤ C_T · Cϵ₀, together at most 2Λ_τ. Dividing by ∂_bH gives [[eq:ii-c1-2-5]]. ∎
+
+*The backward step.* For τ ∈ [0, 2T] and t ≥ T₀ + τ let Φ⁻ := Φ_(t,−τ), the map back to the slice t − τ, and
+𝒦_b := Γ × [−δ, δ]_b. For α : 𝒦_b → ℝ with |α| ≤ ¼δ and Lip α ≤ θ₀, define 𝒰_(Φ⁻)α by
+Φ⁻_a(y, 𝒰α(y, b), b) = α(Φ⁻_y, Φ⁻_b)(y, 𝒰α(y, b), b): graph(𝒰α) is the set of points of B that the backward map sends
+into graph(α), which is the image of graph(α) under the forward map, within B. [[lem:ii-c1-2-1]] holds verbatim for
+𝒰, with (a, b) exchanged, Φ replaced by Φ⁻, and with ρ(t) as it stands in (G1) and [[eq:ii-c1-2-5]], the factor
+(1 + 2T)^ℓ for the backward window being part of C_T in (T2): backward, a is multiplied by (m^u)⁻¹ ≥ e^(ντ), {|b| ≤ δ}
+is invariant by (T1), and the block D_((y,b))(Φ⁻_y, Φ⁻_b) is bounded by Λ_τ + C_T(δ + ϵ₀) by (T3)–(T5).
+
+#### The stable hypersurface {#sec:ii-c1-2-4}
+
+Let t_j := T₀ + jT, j ≥ 0, and 𝒮_j := 𝒮_(Φ_(t_j,T)). Choose M₀ := 2C_T and then, inductively,
+M_i ≥ 2C(T, M₀, …, M_(i−1)), 1 ≤ i ≤ k, and let ϵ₀ be so small that M₀ϵ₀ ≤ ¼δ and M₁ϵ₀ ≤ θ₀. Let 𝔅 be the set of
+sequences β = (β_j)_(j≥0) of C^k functions on 𝒦_a with ‖D^iβ_j‖_∞ ≤ M_iϵρ(t_j) for 0 ≤ i ≤ k, and put
+(ℱβ)_j := 𝒮_jβ_(j+1).
+
+*ℱ maps 𝔅 into itself.* As ρ(t_(j+1)) ≤ ρ(t_j), (G1) gives
+|𝒮_jβ_(j+1)| ≤ e^(−νT)(M₀ + C_T)ϵρ(t_j) ≤ M₀ϵρ(t_j), and [[eq:ii-c1-2-5]] with [[eq:ii-c1-2-3]] gives
+‖D^i𝒮_jβ_(j+1)‖_∞ ≤ ½M_iϵρ(t_j) + C(T, M₀, …, M_(i−1))ϵρ(t_j) ≤ M_iϵρ(t_j).
+
+*ℱ is a contraction* for d(β, β̃) := sup_j ρ(t_j)⁻¹|β_j − β̃_j|_∞, by (G2) and ρ(t_j)⁻¹ ≤ ρ(t_(j+1))⁻¹, with factor
+e^(−νT)(1 − 3C_Tδ)⁻¹ ≤ ½.
+
+So β^(n) := ℱ^n(0) ∈ 𝔅 is Cauchy for d, and β^(n)_j → β_j uniformly. Bounded in C^k on the compact set 𝒦_a, the
+D^(k−1)β^(n)_j are equicontinuous, so (Arzelà–Ascoli) every subsequence has a further subsequence converging in C^(k−1),
+necessarily to β_j: β^(n)_j → β_j in C^(k−1), ‖D^iβ_j‖_∞ ≤ M_iϵρ(t_j) for i ≤ k − 1, and D^(k−1)β_j is Lipschitz with
+constant ≤ CM_kϵρ(t_j). By (G2), ℱ is continuous for d on sequences with |β_j| ≤ ¼δ and Lip β_j ≤ θ₀, so ℱβ = β:
+β_j = 𝒮_jβ_(j+1) for all j.
+
+*All times.* For t ∈ [t_j, t_(j+1)] put β(t, ·) := 𝒮_(Φ_(t,t_(j+1)−t))β_(j+1); at t = t_(j+1) (Φ = id) this is
+β_(j+1), and at t = t_j it is 𝒮_jβ_(j+1) = β_j. For t ∈ [t_(j−1), t_j], by the cocycle property
+Φ_(t,t_(j+1)−t) = Φ_(t_j,T) ∘ Φ_(t,t_j−t) and uniqueness in [[lem:ii-c1-2-1]] (applied with τ = t_(j+1) − t ≤ 2T, and
+with (T1)), 𝒮_(Φ_(t,t_j−t))β_j = 𝒮_(Φ_(t,t_(j+1)−t))β_(j+1): a point is mapped into graph(β_j) at time t_j if and only if
+it is mapped into graph(β_(j+1)) at time t_(j+1). So on [t_(j−1), t_(j+1)], β(t, ·) is given by the single equation
+
+    H(t, w, b) := Φ_(t,t_(j+1)−t,b)(w, b) − β_(j+1)(Φ_(t,t_(j+1)−t,ya)(w, b)) = 0,
+
+with H ∈ C^(k−1) in (t, w, b) (the flow map from time t to t_(j+1) is C^k in (t, w, b), and β_(j+1) ∈ C^(k−1)) and
+∂_bH ≥ ½. By the implicit function theorem, β ∈ C^(k−1)([t_(j−1), t_(j+1)] × 𝒦_a), and differentiating the equation as
+in (G3) bounds its derivatives of order ≤ k − 1 by Cϵρ(t_(j−1)) ≤ C(1 + 2T)^ℓϵρ(t). Hence
+β ∈ C^(k−1)([T₀, ∞) × 𝒦_a) with |∂^αβ| ≤ Cϵρ(t) for |α| ≤ k − 1.
+
+*Tangency.* Let W^s := {(t, y, a, b) : b = β(t, y, a)} ⊂ [T₀, ∞) × B, a C^(k−1) hypersurface. If (t, x) ∈ W^s with
+t ∈ [t_(j−1), t_(j+1)), then for small σ > 0, Φ_(t+σ,t_(j+1)−t−σ)(Φ_(t,σ)(x)) = Φ_(t,t_(j+1)−t)(x) ∈ graph(β_(j+1)),
+and Φ_(t,σ)(x) ∈ B by (T1) and |b| ≤ Cϵ₀ < δ along W^s; so Φ_(t,σ)(x) ∈ W^s(t + σ), and the integral curve of V through
+(t, x) stays in W^s for small forward times. Hence V is tangent to W^s.
+
+#### The unstable hypersurface {#sec:ii-c1-2-5}
+
+Put α₀ := 0 on 𝒦_b and α_(j+1) := 𝒰_(Φ_(t_(j+1),−T))α_j: graph(α_(j+1)) is the image of graph(α_j) under Φ_(t_j,T),
+within B. With M′₀ := 2C_T(1 + 2T)^ℓ and M′_i ≥ 2C(T, M′₀, …, M′_(i−1))(1 + 2T)^ℓ, and ϵ₀ so small that also
+M′₀ϵ₀ ≤ ¼δ and M′₁ϵ₀ ≤ θ₀, so that [[lem:ii-c1-2-1]] applies to each α_j, induction on j gives
+‖D^iα_j‖_∞ ≤ M′_iϵρ(t_j) for i ≤ k: by the backward form of (G1) and [[eq:ii-c1-2-5]], with
+ρ(t_j) ≤ (1 + T)^ℓρ(t_(j+1)) and [[eq:ii-c1-2-3]],
+
+    ‖D^iα_(j+1)‖_∞ ≤ e^(−νT)(2Λ_T)^i(1 − 3C_Tδ)⁻¹M′_iϵρ(t_j) + Cϵρ(t_j) ≤ ½M′_iϵρ(t_(j+1)) + ½M′_iϵρ(t_(j+1)).
+
+No limit is taken, and α_j ∈ C^k. For t ∈ [t_j, t_(j+1)] put α(t, ·) := 𝒰_(Φ_(t,−(t−t_j)))α_j, whose graph is the
+image of graph(α_j) under Φ_(t_j,t−t_j); on [t_j, t_(j+2)] the same formula with α_j holds by the cocycle property, so
+α ∈ C^k([T₀, ∞) × 𝒦_b) by the implicit function theorem (now with C^k data), with |∂^αα| ≤ Cϵρ(t) for |α| ≤ k. The
+set W^u := {a = α(t, y, b)} is a union of forward orbit segments of V starting on {t = T₀, a = 0}, within B; so V is
+tangent to it, as in [[sec:ii-c1-2-4]].
+
+#### The defining functions {#sec:ii-c1-2-6}
+
+Let O′ := Ψ₀⁻¹(Γ × (−δ, δ)²) and, for (t, x) ∈ [T₀, ∞) × O′,
+
+    ψ_s(t, x) := −β(t, π(x), φ_u(x)),        ψ_u(t, x) := −α(t, π(x), φ_s(x)).
+
+Then {φ_s + ψ_s = 0} = W^s and {φ_u + ψ_u = 0} = W^u in [T₀, ∞) × O′, and the bounds follow by the chain rule, π and
+φ_(u/s) being smooth. W^u ∩ {t = T₀} = {φ_u = 0} as α(T₀, ·) = α₀ = 0. The constants depend only on the quantities
+listed in [[thm:ii-c1-1-1]]. ∎

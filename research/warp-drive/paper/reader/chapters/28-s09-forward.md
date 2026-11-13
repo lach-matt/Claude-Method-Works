@@ -1063,3 +1063,254 @@ The margin 2 + δ + max(1, ℵ) taken in the proof of [Hin26c, Theorem 11.1] giv
 Fix 𝗌, s_in and 𝗌_0 as in [[lem:ii-f1-2-3]]. Only 𝗌, 𝗌_0 and 𝗌 + 1 occur below; each equals a nonnegative integer over
 Ω_♮. In particular they are constant and in ℕ₀ near {r ≤ r_0}, which is the hypothesis of the tame estimates
 [[eq:ii-e-6-2]] and [[eq:ii-e-4-4]].
+
+#### Variable orders that agree on a set {#sec:ii-f1-2-4}
+
+**Lemma {#lem:ii-f1-2-4}** (Pseudolocality of the order.) Let 𝗍_1, 𝗍_2 be order functions (property (S8) of
+[[sec:ii-a-3]]) and U ⊂ M̃ open with 𝗍_1 = 𝗍_2 over U, and let 𝒦 ⊂ U be closed and φ ∈ C^∞_b with supp φ ⊂ U and φ = 1
+near 𝒦. For every j ∈ ℕ₀, ν and weight w there is C with
+
+    ‖v‖_(H^((𝗍_2;j),w)_(e3b;b)) ≤ C (‖v‖_(H^((𝗍_1;j),w)_(e3b;b)) + ‖v‖_(H^((−ν;j),w)_(e3b;b)))
+
+for every v supported in 𝒦.
+
+*Proof.* Weights are removed by conjugation ([[eq:ii-a-8-1]] and the remark after it). Let A_i ∈ Ψ^(𝗍_i)_e3b be
+elliptic, so that ‖v‖_((𝗍_i;j)) is equivalent to ‖A_i v‖_((0;j)) + ‖v‖_((−ν;j)) ((S8); for the b-derivatives, (S10)
+and [[lem:ii-a-8-4]] (a)). Let B ∈ Ψ^(−𝗍_1)_e3b with BA_1 = I − R, R ∈ Ψ^(−ν′)_e3b, ν′ large (the finite parametrix of
+the proof of [[lem:ii-a-7-1]], at variable orders by (S8)). As v = φv,
+
+    A_2 v = (A_2 φ B) A_1 v + A_2 φ R v.
+
+Q := A_2 φ B ∈ Ψ^(𝗍_2−𝗍_1)_e3b has WF′(Q) ⊂ WF′(φ), over supp φ ((S5)). Let φ_1 ∈ C^∞_b with supp φ_1 ⊂ U and φ_1 = 1
+near supp φ. Then (1 − φ_1)Q has empty operator wave front set, so it is residual; and φ_1 Q is the left quantization
+multiplied by φ_1, whose symbol is φ_1 q with q the symbol of Q, of order 𝗍_2 − 𝗍_1 = 0 on supp φ_1, so φ_1 q ∈
+⋂_δ S^0_(1−δ,δ) ((S8)), and φ_1 Q is bounded on H^((0;j)) ((S8), (S10)). Hence ‖A_2 v‖_((0;j)) ≤ C‖A_1 v‖_((0;j)) +
+C‖v‖_((−ν;j)), A_2 φ R being of order sup 𝗍_2 − ν′ ≤ −ν. ∎
+
+#### An extension across {r = r_0} at every order of b-regularity {#sec:ii-f1-2-5}
+
+The quotient norm of H^((𝗍;k))(Ω_*)^(•,−) is attained by an extension that depends on k. A tame estimate bounds a low
+and a high norm of one function, and so needs one extension that is nearly minimal for both. Away from {r = r_0} a
+cut-off provides it ([[lem:ii-e-4-1]] (b)); at {r = r_0}, where Ω_* ends and no room is available, the following lemma
+does.
+
+Fix κ ∈ (0, 1/4] with r_0 − 2κ > r^♯ and r_0 + 4κ ≤ r^♮ ([[lem:ii-e-1-2]], [[eq:ii-d-1-2]]). On N_κ := {t_* > 1/2,
+r_0 − 2κ < r < r_0 + 4κ}, t^♭ = C′(t_* + R̃(r)) with R̃ = r′_0 or R̃′ ∈ [0, 1] ([[lem:ii-c-3-2]] (c) and its proof;
+[[lem:ii-e-1-2]] (iv)), so (t^♭, r, ω) are coordinates on N_κ, and C′t_* ≤ t^♭ ≤ t_* there. In them the e3b-vector
+fields over N_κ are spanned by ∂_(t^♭), ∂_r, ∂_ω and the b-vector fields by t^♭∂_(t^♭), ∂_r, ∂_ω, with coefficients in
+C^∞_b. Indeed, near K⁺ the e3b-fields are spanned by ∂_(t_*), ∂_x and the b-fields by t_*∂_(t_*), ∂_x
+([[sec:ii-e-5-1]]), and ∂_(t_*) = C′∂_(t^♭), ∂_r|_(t_*) = ∂_r|_(t^♭) + C′R̃′∂_(t^♭), t_*∂_(t_*) = (C′t_*/t^♭)
+t^♭∂_(t^♭), with C′t_*/t^♭ = t_*/(t_* + R̃) and C′R̃′/t^♭ in C^∞_b (b-derivatives in t^♭∂_(t^♭) of functions of t_*/t^♭
+and of (t^♭)⁻¹ are bounded). On N_κ the weights x_I^(2a) ρ_+^b ρ_K^c are (t^♭)^(−c) times smooth positive functions with
+bounded b-derivatives, and |dt dx| is a smooth positive multiple of |dt^♭ dr dω|.
+
+Let c_l, ε_l = 3^(−l) be the constants of Seeley's operator ([[lem:ii-e-1-3]] (b): Σ_l |c_l| ε_l^(−q) < ∞ and Σ_l
+c_l (−ε_l⁻¹)^q = 1 for all q ∈ ℕ₀). For w on {r > r_0} ∩ N_κ supported in {r < r_0 + 2κ} put ℰ_r w := w on {r > r_0}
+and
+
+    (ℰ_r w)(t^♭, r, ω) := Σ_l c_l w(t^♭, r_0 + (r_0 − r)/ε_l, ω),      r < r_0,                           {#eq:ii-f1-2-6}
+
+which vanishes for r ≤ r_0 − 2κ.
+
+**Lemma {#lem:ii-f1-2-5}** (A simultaneous extension.) Let 𝗍 be an order function equal to a constant m ∈ ℕ₀ over Ω_♮
+(as 𝗌 + j, j ≥ −s_in, is), and w a weight x_I^(2a) ρ_+^b ρ_K^c. There is a linear map ℰ, defined on
+⋃_j H^((𝗍;j),w)(Ω_*; E)^(•,−), with ℰu supported in {t^♭ ≥ 1}, ℰu = u on {r > r_0}, and, for every j ∈ ℕ₀,
+
+    ‖ℰu‖_(H^((𝗍;j),w)_(e3b;b)) ≤ C_j ‖u‖_(H^((𝗍;j),w)(Ω_*;E)^(•,−)).                                      {#eq:ii-f1-2-7}
+
+*Proof.* Let ψ = ψ(r) equal 1 for r ≤ r_0 + κ and 0 for r ≥ r_0 + 2κ, and ψ_− = ψ_−(r) equal 1 for r ≥ r_0 and 0 for
+r ≤ r_0 − κ. For u with an extension ũ supported in {t^♭ ≥ 1} put
+
+    ℰu := (1 − ψ) ũ + ℰ_r(ψu).
+
+The first term does not depend on ũ: two extensions differ by a distribution supported in {r ≤ r_0}, where 1 − ψ = 0.
+The second uses only u on {r > r_0}. So ℰ is well defined and linear, and ℰu = (1 − ψ)u + ψu = u on {r > r_0}.
+Supports: (1 − ψ)ũ is supported in {t^♭ ≥ 1}; ψu is supported in {t^♭ ≥ 1} ∩ N_κ (as t^♭ ≥ 1 implies t_* ≥ 1), and
+ℰ_r acts at fixed t^♭, so ℰ_r(ψu) is supported in {t^♭ ≥ 1, r_0 − 2κ ≤ r ≤ r_0 + 2κ}.
+
+*The first term.* ‖(1 − ψ)ũ‖_((𝗍;j),w) ≤ C_j ‖ũ‖_((𝗍;j),w) for every extension ũ; the left side being independent of
+ũ, it is at most C_j ‖u‖_((𝗍;j),w), at every j at once.
+
+*The second term.* For v supported in the set 𝒦_κ := {t^♭ ≥ 1, r_0 − 2κ ≤ r ≤ r_0 + 2κ}, compact in r,
+[[lem:ii-f1-2-4]] (with U the interior of Ω_♮, which contains 𝒦_κ with a neighbourhood φ as required, and 𝗍 against
+the constant m, both ways) gives ‖v‖_((𝗍;j),w) ∼ ‖v‖_((m;j),w), the terms ‖v‖_((−ν;j)) being bounded by either side as
+m ≥ 0 ≥ −ν. As m ∈ ℕ₀, the norm of (S3) is, on such v, equivalent to the differential norm
+
+    D_(m,j)(v) := Σ_(i+|α|≤j) Σ_(p+|β|≤m) ‖(t^♭)^c (t^♭∂_(t^♭))^i ∂^α_(r,ω) ∂^p_(t^♭) ∂^β_(r,ω) v‖_(L²(|dt^♭ dr dω|)):
+
+the H^m(ℝ⁵)-norm in each scaled chart is the sum of the L²-norms of up to m derivatives, the scaled coordinate fields and
+the frame above span the same module over C^∞_b, the derivatives falling on the partition functions χ_α give
+lower-order terms with bounded coefficients, and the weight and density are as described above (the mixed norm being
+[[eq:ii-a-8-1]]). ℰ_r commutes with ∂_(t^♭), t^♭∂_(t^♭), ∂_ω and with multiplication by functions of t^♭; ∂_r^q ℰ_r w =
+Σ_l c_l (−ε_l⁻¹)^q (∂_r^q w)(t^♭, r_0 + (r_0 − r)/ε_l, ω) on {r < r_0}, whose L²-norm there is at most Σ_l |c_l|
+ε_l^(1/2−q) ‖∂_r^q w‖_(L²({r>r_0})); and for w smooth up to {r = r_0} the derivatives of ℰ_r w of every order match
+across {r = r_0}, since Σ_l c_l (−ε_l⁻¹)^q = 1, so that ℰ_r w has no distributional jump terms there. By density of
+such w in the norm D_(m,j) on {r > r_0},
+
+    D_(m,j)(ℰ_r w) ≤ C_(m,j) D⁺_(m,j)(w),
+
+D⁺_(m,j) denoting D_(m,j) with the integrals over {r > r_0}. For any extension ũ, ψ_−ψũ = ψu on {r > r_0} and ψ_−ψũ is
+supported in 𝒦_κ, so
+
+    D⁺_(m,j)(ψu) ≤ D_(m,j)(ψ_−ψũ) ≤ C ‖ψ_−ψũ‖_((m;j),w) ≤ C ‖ψ_−ψũ‖_((𝗍;j),w) ≤ C_j ‖ũ‖_((𝗍;j),w).
+
+Taking the infimum over ũ at each j separately, and using ‖ℰ_r(ψu)‖_((𝗍;j),w) ≤ C ‖ℰ_r(ψu)‖_((m;j),w) ≤
+C D_(m,j)(ℰ_r(ψu)), gives [[eq:ii-f1-2-7]]. ∎
+
+The same extension serves in the tame estimates [[eq:ii-e-4-4]] and [[eq:ii-e-6-2]] at the final face {r = r_0}, at
+every level of b-regularity at once, for orders constant and in ℕ₀ near {r ≤ r_0}.
+
+#### The family P_ε {#sec:ii-f1-2-6}
+
+Fix χ_0 ∈ C_c^∞([0, 2)) with 0 ≤ χ_0 ≤ 1 and χ_0 = 1 on [0, 3/2]. For ε ∈ (0, 1] put
+
+    χ_ε := χ_0(1/(ε t^♭)),      χ̃_ε := 1 − χ_ε,      P_ε := χ_ε P_0 + χ̃_ε P = P_0 + χ̃_ε (P − P_0),     {#eq:ii-f1-2-8}
+
+on {r ≥ r^♯, t_* ≥ 1/2} (with P^ext of [[lem:ii-e-1-2]] for P there).
+
+**Lemma {#lem:ii-f1-2-6}** (The family.) (a) χ_ε = 0 on {t^♭ ≤ 1/(2ε)} and χ_ε = 1 on {t^♭ ≥ 2/(3ε)}. So P_ε = P on
+{t^♭ < 1/(2ε)} and P_ε = P_0 on {t^♭ > 2/(3ε)}, open sets. Every function φ(1/(ε t^♭)) with φ ∈ C^∞(ℝ), φ′ ∈
+C_c^∞((0, ∞)), lies in C^∞_b with seminorms bounded uniformly in ε ∈ (0, 1]; in particular χ_ε, χ̃_ε do.
+
+(b) P_ε satisfies (1) and (2) of [[def:ii-c-3-3]], and for all d_0, j
+
+    ‖P_ε − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)) ≤ C_j ‖P − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)),
+    sup|p̃^ε_1| ≤ sup|p̃_1|,                                                                              {#eq:ii-f1-2-9}
+
+with C_j independent of ε and P (and depending on d_0). In particular P_ε is admissible in the sense of
+[[sec:ii-f1-2-1]] when P is, with the same bounds.
+
+*Proof.* (a) The first claims are 1/(εt^♭) ≥ 2, resp. ≤ 3/2. Let V be a b-vector field and ς := 1/(εt^♭); then Vς =
+−ς V log t^♭. On {r ≥ r^♯, t_* ≥ 1/2}, log t^♭ = log t_* + log(t^♭/t_*), log t_* = −log ρ_+ − log ρ_K by
+[[eq:ii-f1-1-1]], and t^♭/t_* ∈ [C′, 1] has bounded b-derivatives: near 𝓘⁺ it is 1 − (t_*/r)^(ℓ_I) with (t_*/r)^(ℓ_I) =
+(x_I²/(1 − x_I²))^(ℓ_I) conormal, in the transition region a smooth function of t_*/r on a compact range, and near K⁺ it
+is C′(1 + R̃(r) ρ_+ρ_K) ([[lem:ii-c-3-2]] and its proof). So V log t^♭ ∈ C^∞_b, and by induction V_1 ⋯ V_q ς is ς times
+an element of C^∞_b independent of ε. The b-derivatives of φ(ς) are sums of φ^((i))(ς) ς^i times such elements, i ≥ 1,
+and φ^((i))(ς) ς^i is bounded as φ^((i)) has compact support in (0, ∞).
+
+(b) *The metric.* σ_2(P_ε) = χ_ε G_0 + χ̃_ε G, so g_ε⁻¹ := g_0⁻¹ + χ̃_ε (g⁻¹ − g_0⁻¹), with g⁻¹ − g_0⁻¹ ∈ x_I² ρ_+²
+C^((d_0;j),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b) of norm ≤ C‖P − P_0‖ (proof of [[lem:ii-c-3-7]]). By (a) and [[lem:ii-a-8-2]]
+(c)–(d), χ̃_ε (g⁻¹ − g_0⁻¹) has norm ≤ C_j ‖P − P_0‖_((d_0;j)), and the Neumann series of [[lem:ii-c-3-7]] gives g_ε ∈
+𝒢^((d_0;j),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b) with ‖g_ε − g_0‖ ≤ C_j ‖P − P_0‖_((d_0;j)): this is (1).
+
+*The data at 𝓘⁺.* On 𝓘⁺, t^♭ = t_* ([[lem:ii-c-3-2]] (a)), and χ̃_ε|_(𝓘⁺) is bounded in C^∞_b(𝓘⁺ ∩ Ω) uniformly in
+ε. Put p^ε_0 := χ̃_ε|_(𝓘⁺) p_0 and p̃^ε_1 := χ̃_ε|_(𝓘⁺) p̃_1, in ρ_+^(ℓ_+) C^(j+d_0)_b(𝓘⁺ ∩ Ω) with norms ≤ C_j times
+those of p_0, p̃_1; and |p̃^ε_1| ≤ |p̃_1| as 0 ≤ χ̃_ε ≤ 1. Let π be the projection of the product structure
+[0, ε_π)_(x_I) × 𝓘⁺ in which [[def:ii-c-3-3]] (2) extends the data independently of x_I; near 𝓘⁺ ∩ ι⁺ it is compatible
+with the corner, the coordinates on 𝓘⁺ including ρ_+, so that ρ_+ ∘ π/ρ_+ is smooth and positive. Then
+
+    P_ε − [P_0 + χ_I ½ x_I² ρ_+² (2p̃^ε_1 A + p^ε_0)] = χ̃_ε P̃ + χ_I ½ x_I² ρ_+² δ_ε (2p̃_1 A + p_0),
+    δ_ε := χ̃_ε − χ̃_ε|_(𝓘⁺) ∘ π,                                                                        {#eq:ii-f1-2-10}
+
+with A := x_I∂_(x_I) − 2ρ_+∂_(ρ_+) and P̃ as in [[eq:ii-c-3-2]]. We show δ_ε ∈ x_I^(2ℓ_I) C^∞_b uniformly in ε. Let L :=
+−log t^♭ and L_I := L|_(𝓘⁺) ∘ π. With ς_υ := ε⁻¹ e^(L_I + υ(L − L_I)), υ ∈ [0, 1],
+
+    δ_ε = χ_0(ε⁻¹ e^(L_I)) − χ_0(ε⁻¹ e^L) = −(L − L_I) ∫_0^1 χ_0′(ς_υ) ς_υ dυ,
+
+and the integral lies in C^∞_b uniformly in ε, by the argument of (a). Near 𝓘⁺, −L = log t_* + log(1 − (t_*/r)^(ℓ_I));
+the second term is (t_*/r)^(ℓ_I) times an element of C^∞_b, so it lies in x_I^(2ℓ_I) C^∞_b. The first is −log ρ_+ −
+log(1 − x_I²) near 𝓘⁺ ∩ ι⁺ (by [[eq:ii-f1-1-1]], ρ_K = 1 − x_I²) and a smooth function at finite times; so log t_* −
+(log t_*)|_(𝓘⁺) ∘ π is smooth (as log(ρ_+/ρ_+ ∘ π) is) and vanishes at x_I = 0, hence lies in x_I C^∞_b ⊂ x_I^(2ℓ_I)
+C^∞_b, as 2ℓ_I ≤ 1. So δ_ε ∈ x_I^(2ℓ_I) C^∞_b uniformly. A is an e3b-vector field near 𝓘⁺: it is a b-vector field
+tangent to the fibres of 𝓘⁺, the curves of constant ω ([[def:ii-a-2-8]]). The extended p̃_1, p_0 lie in ρ_+^(ℓ_+)
+C^((d_0;j))_(e3b;b) near 𝓘⁺, b-regularity of order j + d_0 giving e3b-regularity of order d_0 and b-regularity of order
+j ([[lem:ii-a-2-9]]), and χ_I is supported where ρ_K is bounded below. By [[lem:ii-a-8-2]] (c)–(d), the right side of
+[[eq:ii-f1-2-10]] lies in x_I² ρ_+² C^((d_0;j),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b) Diff²_e3b, with a representation of norm ≤ C_j
+‖P − P_0‖_((d_0;j)): this is (2) and [[eq:ii-f1-2-9]]. ∎
+
+Condition (3) of [[def:ii-c-3-3]] may fail for P_ε: the diagonal blocks of S|_(∂X) + χ̃_ε p̃_1 need not have real
+spectrum when those of S|_(∂X) and S|_(∂X) + p̃_1 do. By [[lem:ii-f1-2-1]] (b) it is not needed.
+
+#### Cut-offs, slabs and the weights at late times {#sec:ii-f1-2-7}
+
+**Lemma {#lem:ii-f1-2-7}** (Cut-offs.) (a) Let T ≥ 2, φ ∈ C^∞_b with φ = 0 on {t^♭ ≥ T − 1}, and 𝗍, α, β_+, β_K
+given. For u in the slab space H^((𝗍;k),2α)(Ω_(1,T); E)^(•,−), φu (extended by 0 to {t^♭ ≥ T}) lies in
+H^((𝗍;k),(2α,β_+,β_K))_(e3b;b)(Ω_*; E)^(•,−), with norm at most C ‖u‖_(H^((𝗍;k),2α)(Ω_(1,T))^(•,−)), C depending on T, φ
+and the orders and weights.
+
+(b) For u ∈ H^((𝗍;k),(2α,β_+,β_K))_(e3b;b)(Ω_*; E)^(•,−), ‖u|_(Ω_(1,T))‖_(H^((𝗍;k),2α)(Ω_(1,T))^(•,−)) ≤ C_T
+‖u‖_(H^((𝗍;k),(2α,β_+,β_K))_(e3b;b)(Ω_*)^(•,−)).
+
+(c) For η ∈ (0, 1] let χ_η := χ_0(1/(η t^♭)) as in [[eq:ii-f1-2-8]]. Then ‖χ_η v‖ ≤ C‖v‖ in each of the spaces
+[[eq:ii-f1-2-2]], and
+
+    ‖χ_η u‖_(Z(𝗍;k)) ≤ C_k η^(δ′) ‖u‖_(X(𝗍;k)),                                                          {#eq:ii-f1-2-11}
+
+with C, C_k independent of η.
+
+*Proof.* (a) Let ṽ extend u, supported in {t^♭ ≥ 1}, in H^((𝗍;k))_(e3b;b) with the weight x_I^(2α) only
+([[sec:ii-e-1-1]]). Then φṽ is supported in {1 ≤ t^♭ ≤ T − 1}, where t_* ≤ (T − 1)/C′, so by [[eq:ii-f1-1-1]]
+ρ_+^(−β_+) ρ_K^(−β_K) φ lies in C^∞_b and φṽ lies in the weighted space with norm ≤ C‖ṽ‖. On {r > r_0}, φṽ = φu: the
+difference of ṽ and any extension of u to Ω_* vanishes on {t^♭ < T, r > r_0}, and φ vanishes on a neighbourhood of
+{t^♭ ≥ T}. Take the infimum over ṽ. (b) Multiply an extension by φ(t^♭) equal to 1 on {t^♭ ≤ T + 1} and 0 on {t^♭ ≥
+T + 2}, as in [[lem:ii-f1-2-2]]. (c) The first claim is [[lem:ii-f1-2-6]] (a). For [[eq:ii-f1-2-11]]: with the weights
+[[eq:ii-f1-1-1]], ‖v‖_(Z(𝗍;k)) = ‖m_Z v‖_(X(𝗍;k)) for m_Z := ρ_+^(ℓ_+−δ) ρ_K^(ℓ_K−ℵ), as the weights of Z and X differ by
+these powers. On supp χ_η, t^♭ ≥ 1/(2η), and by [[eq:ii-f1-1-1]], ρ_+ρ_K = t_*⁻¹,
+
+    m_Z χ_η = η^(δ′) · ρ_+^(ℓ_+−δ−δ′) ρ_K^(ℓ_K−ℵ−δ′) · (η t_*)^(−δ′) χ_η.
+
+The exponents are ≥ 0 by [[eq:ii-f1-2-1]], so the middle factor is in C^∞_b; and (η t_*)^(−δ′) χ_η is in C^∞_b
+uniformly in η: η t_* ≥ η t^♭ ≥ 1/2 on its support, V(η t_*)^(−δ′) = −δ′ (η t_*)^(−δ′) V log t_* with V log t_* ∈
+C^∞_b, and χ_η is as in [[lem:ii-f1-2-6]] (a). ∎
+
+#### The tame bound for P_ε − P_0 on Ω_* {#sec:ii-f1-2-8}
+
+By [[def:ii-c-3-6]] and [[sec:ii-a-8-2]], P − P_0 = χ_I ½ x_I² ρ_+² (2p̃_1 A + p_0) + P̃ with P̃ = x_I² ρ_+² Σ_q b_q Q_q,
+Q_q in a fixed finite subset of Diff²_e3b and b_q ∈ C^((d_0;j),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b). Dropping the factor x_I^(2ℓ_I)
+of the b_q (bounded) and dividing by ρ_K^(ℓ_K) on supp χ_I (where ρ_K is bounded below),
+
+    P_ε − P_0 = x_I² ρ_+^(2+ℓ_+) ρ_K^(ℓ_K) Σ_q (χ̃_ε a_q) Q′_q,
+    ‖χ̃_ε a_q‖_(C^((d_0;j))_(e3b;b)) ≤ C_j e_j,      e_j := ‖P − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)),          {#eq:ii-f1-2-12}
+
+with Q′_q in a fixed finite subset of C^∞_b Diff²_e3b (the Q_q, χ_I A and χ_I), C_j independent of ε ([[lem:ii-a-8-2]]
+(c), [[lem:ii-f1-2-6]] (a)).
+
+**Lemma {#lem:ii-f1-2-8}** (The tame bound.) Let 𝗍 be an order function equal to an integer m ≥ 2 over Ω_♮. There are
+d_0 and d̃, depending only on 𝗍, such that for all k, ε and v ∈ Z(𝗍;k),
+
+    ‖(P_ε − P_0)v‖_(Y(𝗍−2;k)) ≤ C_k (e_(d̃) ‖v‖_(Z(𝗍;k)) + e_k ‖v‖_(Z(𝗍;d̃))),
+    ‖(P_ε − P_0)v‖_(Y(𝗍−2;k)) ≤ C_k e_k ‖v‖_(Z(𝗍;k)),                                                    {#eq:ii-f1-2-13}
+
+with e_j of [[eq:ii-f1-2-12]] and C_k independent of ε and P.
+
+*Proof.* Extend each a_q across {r = r_0} by Seeley's operator in r − r_0 (with (t_*, ω) as parameters), which is
+bounded on C^((d_0;j))_(e3b;b) for every d_0, j at once ([[lem:ii-e-1-2]] (ii) and the proof of [[lem:ii-e-4-1]] (a)),
+and multiply by ψ_Ω ∈ C^∞_b equal to 1 near {t^♭ ≥ 1, r ≥ r_0 − 2κ} and supported in {t_* > 1/2, r > r^♯}; call the
+result a^♯_q, and A^♯ := x_I² ρ_+^(2+ℓ_+) ρ_K^(ℓ_K) Σ_q (χ̃_ε a^♯_q) Q′_q, an operator on M̃. With ℰ of
+[[lem:ii-f1-2-5]] for the weights of Z, A^♯ℰv is supported in {t^♭ ≥ 1} and equals (P_ε − P_0)v on {r > r_0}, so it is
+an extension of it. The weight x_I² ρ_+^(2+ℓ_+) ρ_K^(ℓ_K) takes the weights (2α_I, α_+ − ℓ_+, −ℓ_K) of Z to (2α_I + 2,
+α_+ + 2, 0), those of Y. [[cor:ii-a-9-7]], on M̃ with χ′ = χ = 1 and on weighted spaces ([[eq:ii-a-8-1]] and the remark
+after it), with d_0, d̃ of [[prop:ii-a-9-6]] for the orders 𝗍 − 2, gives
+
+    ‖A^♯ℰv‖_((𝗍−2;k)) ≤ C_k (max_q ‖χ̃_ε a^♯_q‖_((d_0;d̃)) ‖ℰv‖_((𝗍;k)) + max_q ‖χ̃_ε a^♯_q‖_((d_0;k)) ‖ℰv‖_((𝗍;d̃))),
+
+the norms of ℰv with the weights of Z. By [[eq:ii-f1-2-7]] at j = k and j = d̃ and by [[eq:ii-f1-2-12]], this is the
+first bound of [[eq:ii-f1-2-13]]. The second is the same with [[lem:ii-a-8-6]] (a) in place of [[cor:ii-a-9-7]] (no tame
+structure being needed, any extension of v may be used). ∎
+
+#### Forward solutions of P_ε {#sec:ii-f1-2-9}
+
+**Lemma {#lem:ii-f1-2-9}** (Forward solutions of the family.) Let k ∈ ℕ₀, ε ∈ (0, 1] and f ∈ Y(𝗌;k), and let P be
+admissible, of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ‖P − P_0‖_((d_0;d)) below the threshold of [[prop:ii-e-4-4]] for the
+slab order 𝗌 + 1 (d_0, d being its constants; by [[eq:ii-f1-2-9]] the same then holds for P_ε). There is u_ε ∈ X(𝗌;k)
+with P_ε u_ε = f; by [[lem:ii-f1-2-2]] it is the forward solution.
+
+*Proof.* Let T := 4/ε and χ′ := χ_(ε/4) = χ_0(4/(ε t^♭)), which is 0 on {t^♭ ≤ 2/ε} and 1 on {t^♭ ≥ 8/(3ε)}. By
+[[lem:ii-f1-2-7]] (b), f|_(Ω_(1,T)) ∈ H^((𝗌;k),2α_I+2)(Ω_(1,T))^(•,−). By [[prop:ii-e-4-4]] for P_ε at the slab order
+𝗌 + 1 ([[lem:ii-f1-2-3]] (c), [[lem:ii-f1-2-6]] (b); its smallness condition is on ‖P_ε − P_0‖_((d_0;d)) only), the
+forward solution u_ini of P_ε u_ini = f on Ω_(1,T) lies in H^((𝗌+1;k),2α_I)(Ω_(1,T))^(•,−). As 1 − χ′ = 0 on
+{t^♭ ≥ T − 1}, [[lem:ii-f1-2-7]] (a) puts (1 − χ′)u_ini in H^((𝗌+1;k),(2α_I,α_+−δ,−ℵ))_(e3b;b)(Ω_*)^(•,−) ⊂ X(𝗌;k). The
+commutator [P_0, χ′] = x_I² ρ_+² [L_0, χ′] (L_0 := x_I⁻² ρ_+⁻² P_0 ∈ Diff²_e3b on Ω, [[lem:ii-c-1-4]] (b)) is a
+first-order e3b-operator whose coefficients are e3b-derivatives of χ′, in C^∞_b and supported in {2/ε ≤ t^♭ ≤
+8/(3ε)}; by [[lem:ii-f1-2-7]] (a) (with φ equal to 1 there and 0 on {t^♭ ≥ T − 1}),
+
+    g := χ′f + [P_0, χ′] u_ini ∈ Y(𝗌;k),      supp g ⊂ {t^♭ ≥ 2/ε}.
+
+By [[thm:ii-f-8-1]] at the order 𝗌 ([[lem:ii-f1-2-3]] (b)), the forward solution v of P_0 v = g on Ω_* lies in X(𝗌;k).
+On the slab Ω_(1,2/ε), P_0 v = g = 0, so v = 0 on {t^♭ < 2/ε} by [[lem:ii-f1-2-2]]. As P_ε − P_0 = χ̃_ε(P − P_0) has
+coefficients vanishing on the open set {t^♭ > 2/(3ε)}, which contains supp v, P_ε v = P_0 v = g. On {t^♭ < T}, P_ε u_ini
+= f, and [P_ε, χ′] = [P_0, χ′] as supp dχ′ ⊂ {t^♭ > 2/(3ε)}; so
+
+    P_ε((1 − χ′)u_ini) = (1 − χ′)f − [P_0, χ′] u_ini,
+
+and u_ε := (1 − χ′)u_ini + v ∈ X(𝗌;k) satisfies P_ε u_ε = f. ∎

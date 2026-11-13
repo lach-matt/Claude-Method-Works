@@ -15,10 +15,10 @@ positive commutator scheme, which here needs no regularisation. [[sec:i-b-4]] to
 real principal type, radial points, the trapped set, and the artificial boundary. [[sec:i-b-8]] proves the theorem and
 [[sec:i-b-9]] its uniformity.
 
-*Notation.* Three letters that the edition reserves elsewhere are replaced in this chapter: the rank of the bundle is
-N_E; the largest eigenvalue of an endomorphism A that is self-adjoint for a fibre inner product is written max spec A;
-and ℓ denotes Im z/h, except in [[prop:i-b-7-1]], where ℓ is the exponent of the weight e^(ℓr). Large integers that
-bound orders of Sobolev spaces are written M.
+*Notation.* The rank of the bundle is N_E. For an endomorphism A that is self-adjoint for a fibre inner product,
+max spec A and min spec A are its largest and smallest eigenvalues. ℓ denotes Im z/h, except in [[prop:i-b-7-1]],
+where it is the exponent of the weight e^(ℓr). M denotes an arbitrary large integer in the residual terms h^M of the
+estimates.
 
 ### Setting, hypotheses and the theorem {#sec:i-b-1}
 
@@ -27,8 +27,9 @@ bound orders of Sobolev spaces are written M.
 The space X̄ ⊂ ℝ̄⁴, the radii r_0, δ_0, r_2, r_h, the bundle E = X̃ × ℂ^(N_E), fibre inner products h = ⟨H·,·⟩ and
 h-adjoints A^(*h) = H⁻¹A*H, and the family P̂(σ) = P̂(0) + σT + σ²P_2 are those of [[sec:i-a-1]], and (H1)–(H5) of
 [[sec:i-a-1-3]] are assumed. The radii enter only through the ordering 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h, the domains
-of the hypotheses and the slabs of [[sec:i-b-7]]; constants depend on them, but no particular value of them is used. We write ρ = |x|⁻¹ near ∂X, scattering covectors as ξ dr + r η, and use [[lem:i-a-4-4]]: at the boundary
-face T has principal symbol 2ξ Id, and Im_h T = −ρ(S + S^(*h)) + T_2 with T_2 ∈ Ψ^(1,−2).
+of the hypotheses and the slabs of [[sec:i-b-7]]; constants depend on them, but no particular value of them is used.
+We write ρ = |x|⁻¹ near ∂X, scattering covectors as ξ dr + r η, and use [[lem:i-a-4-4]]: at the boundary face T has
+principal symbol 2ξ Id, and Im_h T = −ρ(S + S^(*h)) + T_2 with T_2 ∈ Ψ^(1,−2).
 
 #### The Lorentzian structure {#sec:i-b-1-2}
 

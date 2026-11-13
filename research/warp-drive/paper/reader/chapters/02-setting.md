@@ -480,10 +480,74 @@ equation is (3μ'/(2r³) − (1/3) A² env² h² (c⁴ + s⁴) r⁻³) dv ⊗ dv
 μ' = (2/9) A² env² h² (c⁴ + s⁴), that is [[eq:mu-rate]]. ∎
 
 This is Isaacson's effective stress as a five-dimensional null dust along dv ([Isa68a], [Isa68b]). The quadratic form
-q1² + q1 q2 + q2² of the proof is positive definite: 4(a² + ab + b²) = (2a + b)² + 3b². In the Bondi-type variables of
-[[thm:bondi-law]], in which the wave enters the angular metric through e^(−2(P1+P2)) dϑ² + c² e^(2P1) dφ1² + s² e^(2P2)
-dφ2², the part of R_vv quadratic in the rates ∂_vP1, ∂_vP2 is −2(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²), and every other
-component of the Ricci tensor carries no such product [[pending:computational-2]]. At leading order this is
-[[eq:mean-leading]]: the linearised angular perturbation r²(−2(P1 + P2) dϑ² + 2c² P1 dφ1² + 2s² P2 dφ2²) has
-v-derivative of g0-norm squared 4((∂_vP1 + ∂_vP2)² + ∂_vP1² + ∂_vP2²) = 8(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²), and −1/4 of it
-is the quadratic part stated.
+q1² + q1 q2 + q2² of the proof is positive definite: 4(a² + ab + b²) = (2a + b)² + 3b².
+
+The same structure holds exactly, with no expansion in λ, in the Bondi-type variables of [[thm:bondi-law]]. Let
+β, W, U, P1, P2 be smooth functions of (v, r, ϑ), put y = (y¹, y², y³) := (ϑ, φ1, φ2), U^k := (U, 0, 0),
+
+    θ^k := dy^k − U^k dv,      h := diag(e^(−2(P1+P2)), c² e^(2P1), s² e^(2P2)),
+    g := −e^(2β) W dv² + 2 e^(2β) dv dr + r² h_kl θ^k θ^l,                                       {#eq:bondi-type}
+
+which is the form [[eq:bondi-form]]. We regard each component of Ric(g) in the coordinates (v, r, y) as a function of
+the derivatives of β, W, U, P1, P2 at a point, and call ∂_vP1 and ∂_vP2 the rates; the other derivatives, among them
+∂_v²P_i and ∂_r∂_vP_i, are separate variables.
+
+**Lemma {#lem:bondi-rates}** (the rates in Bondi-type variables). With S := diag(−∂_vP1 − ∂_vP2, ∂_vP1, ∂_vP2),
+
+    Ric(g)_ab = R̊_ab + L_ab − δ^v_a δ^v_b tr(S²),      tr(S²) = 2(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²),      {#eq:bondi-rates}
+
+where R̊_ab does not involve the rates and L_ab is linear in them. So the part of R_vv quadratic in the rates is
+−2(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²), and no other component of the Ricci tensor contains a product of two rates.
+
+*Proof.* Step 1 (the inverse metric). In the coframe (dv, dr, θ^k), with dual frame (e_v, ∂_r, ∂_k), e_v := ∂_v +
+U^k ∂_k, the metric is block diagonal: [[−e^(2β) W, e^(2β)], [e^(2β), 0]] on (dv, dr) and r² h on (θ^k). Inverting
+each block,
+
+    g⁻¹ = e^(−2β)(e_v ⊗ ∂_r + ∂_r ⊗ e_v) + e^(−2β) W ∂_r ⊗ ∂_r + r⁻² h^(kl) ∂_k ⊗ ∂_l.
+
+Since dv(e_v) = 1, θ^k(e_v) = U^k − U^k = 0, θ^k(∂_r) = 0 and θ^k(∂_l) = δ^k_l, this gives
+
+    g^(av) = e^(−2β) δ^a_r,      g^(ad) θ^k_d = r⁻² h^(kl) δ^a_l,                                    {#eq:bondi-inverse}
+
+where θ^k_d are the components of θ^k: θ^k_v = −U^k, θ^k_r = 0, θ^k_l = δ^k_l.
+
+Step 2 (where the rates enter). The functions P_i enter g only through h, and h_kl θ^k_a θ^l_b is the only part of
+g_ab that contains them. Since h is diagonal, ∂_v h = 2 h S, and det h = c² s² does not depend on v, so tr S = 0.
+Hence the rates enter the first derivatives of g only through
+
+    ∂_v g_ab ∋ 2 r² 𝒮_ab,      𝒮_ab := (hS)_kl θ^k_a θ^l_b,                                          {#eq:bondi-calS}
+
+and the derivatives ∂_r g, ∂_y g do not contain them. A second derivative of g contains a rate only through
+∂_v∂_v h = 2(∂_v h) S + 2h ∂_v S = 4h S² + 2h ∂_v S and ∂_c∂_v h = 2(∂_c h) S + 2h ∂_c S for c ≠ v, where ∂_v S
+and ∂_c S consist of second derivatives of P_i and contain no rate.
+
+Step 3 (the Christoffel symbols). Since Γ^a_bc = (1/2) g^(ad)(∂_b g_dc + ∂_c g_db − ∂_d g_bc) is linear in the first
+derivatives of g, with coefficients g⁻¹ free of rates, Γ = Γ̊ + Σ with Γ̊ free of rates and Σ the part linear in them:
+
+    Σ^a_bc = r² ( g^(ad)(δ^v_b 𝒮_dc + δ^v_c 𝒮_db) − g^(av) 𝒮_bc ).
+
+By [[eq:bondi-inverse]], g^(ad) 𝒮_dc = δ^a_l r⁻² h^(lk)(hS)_km θ^m_c = δ^a_l S^l_m θ^m_c, so
+
+    Σ^v_bc = 0,      Σ^r_bc = −e^(−2β) r² 𝒮_bc,      Σ^l_bc = S^l_m (δ^v_b θ^m_c + δ^v_c θ^m_b).       {#eq:bondi-sigma}
+
+Since θ^m_r = 0, every Σ with a lower index r vanishes: Σ^d_ar = Σ^d_ra = 0 for all a, d. The traces vanish:
+Σ^c_ac = Σ^r_ar + Σ^l_al = 0 + δ^v_a S^l_l = δ^v_a tr S = 0.
+
+Step 4 (the Ricci tensor). We use R_ab = ∂_cΓ^c_ab − ∂_bΓ^c_ac + Γ^c_cdΓ^d_ab − Γ^c_bdΓ^d_ac. A product of two
+rates can arise in three ways only.
+(i) From ∂_cΓ̊: Γ̊ is a function of rate-free quantities, so a single derivative of it contains each rate at most
+linearly, by Step 2.
+(ii) From ∂_cΣ^c_ab − ∂_bΣ^c_ac: by Step 3, Σ^v_ab = 0 and Σ^c_ac = 0 for every value of the fields, so these terms
+are ∂_rΣ^r_ab + ∂_lΣ^l_ab, in which no derivative is taken in v; by Step 2 they are linear in the rates.
+(iii) From the products: Γ̊Γ̊ is free of rates and Γ̊Σ is linear in them, so the quadratic part is
+Σ^c_cdΣ^d_ab − Σ^c_bdΣ^d_ac. The first term vanishes because Σ^c_cd = 0.
+In the second, Σ^v = 0 and Σ^d_ar = 0 leave only c = l and d = m on S³:
+
+    Σ^c_bdΣ^d_ac = Σ^l_bm Σ^m_al = (δ^v_b S^l_m)(δ^v_a S^m_l) = δ^v_a δ^v_b tr(S²),
+
+by [[eq:bondi-sigma]] with θ^k_m = δ^k_m. Finally tr(S²) = (∂_vP1 + ∂_vP2)² + ∂_vP1² + ∂_vP2² =
+2(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²). ∎
+
+At leading order in λ this is [[eq:mean-leading]]: the linearised angular perturbation
+r²(−2(P1 + P2) dϑ² + 2c² P1 dφ1² + 2s² P2 dφ2²) has v-derivative of g0-norm squared
+4((∂_vP1 + ∂_vP2)² + ∂_vP1² + ∂_vP2²) = 4 tr(S²), and −1/4 of it is −tr(S²).
