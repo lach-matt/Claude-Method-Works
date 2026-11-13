@@ -320,8 +320,9 @@ in C^∞ in the chart coordinates. Let H̄^k(ℝ⁵_q) be the space of restricti
 the quotient norm, and E the composition of Seeley's extension operators across the faces of ℝ⁵_q (Step 2 of that
 proof), bounded from H̄^k(ℝ⁵_q) to H^k(ℝ⁵) for every k. E is also bounded on L^∞: on {x_i < 0} each of its factors is
 Σ_l c_l (χf)(…, −x_i/ε_l, …), with the cut-off χ evaluated at the reflected point (the proof of [[lem:ii-e-1-3]] (b)),
-so it multiplies sup norms by at most sup|χ| Σ_l |c_l| < ∞, as in the proof of [[lem:ii-f1-2-1]]. As in the paragraph *Estimates* of the proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of
-extension, ‖u‖_(H^k_b(Ω_*)) is equivalent to
+so it multiplies sup norms by at most sup|χ| Σ_l |c_l| < ∞, as in the proof of [[lem:ii-f1-2-1]]. As in the paragraph
+*Estimates* of the proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of extension, ‖u‖_(H^k_b(Ω_*)) is
+equivalent to
 
     N_k(u) := (Σ_α ‖(φ_α)_*(χ_α u)‖²_(H̄^k(ℝ⁵_q)))^(1/2),
 
@@ -645,8 +646,8 @@ compactness, as in [[sec:i-a-8]], [[sec:i-b-9]] and [[rem:iii-h-2-6]].
 *The parameters.* They are those of [[sec:iii-h-1]]: the gauge modification E_Υ of [[sec:iii-d-1]] and the constraint
 damping (c_C, e_C, γ_C) of [[sec:iii-f-1]], with e_C ∈ (0, 1) and γ_C > 0, and the dynamical hypotheses (Dyn) of
 [[ch:s12]]. ℬ is the neighbourhood of b₀ of [[cor:iii-h-4-4]], taken inside the parameter set of [[def:s11-parameters]],
-on which [[cor:iii-h-4-2]]–[[cor:iii-h-4-3]] hold uniformly. U_Γ is the fixed neighbourhood of the projections of the trapped sets of [[sec:iii-d-1]], over which
-E^Υ = 0 for every b ∈ ℬ. As in [[sec:iii-f-4]] we take z_0 = 1 (the operator has real coefficients, and z_0 = −1 is
+on which [[cor:iii-h-4-2]]–[[cor:iii-h-4-3]] hold uniformly. U_Γ is the fixed neighbourhood of the projections of the
+trapped sets of [[sec:iii-d-1]], over which E^Υ = 0 for every b ∈ ℬ. As in [[sec:iii-f-4]] we take z_0 = 1 (the operator has real coefficients, and z_0 = −1 is
 the conjugate case); then σ = 1 on Γ_b in the normalisation of [[ch:s02]], and Γ_b lies in the future characteristic
 set over {|x| > r_h}.
 

@@ -271,18 +271,19 @@ and Leibniz's rule give
 J̄, K̄, L̄ the bounds of |J̃|, |K̃|, |L̃| on the box ([[sec:tab-bg-ray-defects]]).
 
 The fields G and G̃ differ through the data. Write G = Q/(2X²) − V/2 with Q := μ/λ = R⁴/(2S) + 2R′R² and V := 1/λ =
-R²/(2S), and Q̃, Ṽ likewise from R̂, Ŝ. On a segment, with R̄ := R̂_max + E₀, P̄ := P′ + E₁ (P′ ≥ |R̂′|), S̲ := Ŝ_min −
-I/2 and X̲ := Ψ̃_min − 10⁻⁵, the mean value theorem in (R, R′, S) gives |Q − Q̃| ≤ Δ₁, |V − Ṽ| ≤ Δ₂ with
+R²/(2S), and Q̃, Ṽ likewise from R̂, Ŝ. On a segment, with R̄ := R̂_max + E₀, R̄′ := R̂′_max + E₁ (R̂′_max ≥ |R̂′|
+is the bound of [[sec:tab-bg-ray-chain]]), S̲ := Ŝ_min − I/2 and X̲ := Ψ̃_min − 10⁻⁵, the mean value theorem in (R,
+R′, S) gives |Q − Q̃| ≤ Δ₁, |V − Ṽ| ≤ Δ₂ with
 
-    Δ₁ := (2R̄³/S̲ + 4P̄R̄) E₀ + 2R̄² E₁ + (R̄⁴/(2S̲²)) I/2,      Δ₂ := (R̄/S̲) E₀ + (R̄²/(2S̲²)) I/2,
+    Δ₁ := (2R̄³/S̲ + 4R̄′R̄) E₀ + 2R̄² E₁ + (R̄⁴/(2S̲²)) I/2,      Δ₂ := (R̄/S̲) E₀ + (R̄²/(2S̲²)) I/2,
     γ_0 := Δ₁/(2X̲²) + Δ₂/2,   γ_1 := Δ₁/X̲³,   γ_2 := 3Δ₁/X̲⁴,   γ_3 := 12Δ₁/X̲⁵,  {#eq:bg-gamma}
 
 and |∂_X^m(G − G̃)| ≤ γ_m (m ≤ 3) on the tube
 
     {(u, X): |X − Ψ̃(u, ρ)| ≤ 10⁻⁵ for some ρ ∈ [2.32, 3.44]},                                             {#eq:bg-tube}
 
-where also |∂_X^m G| ≤ Γ_m := c_m (3/2)/(0.529533 X̲^(m+2)), (c_2, c_3, c_4) = (3, 12, 60), by
-[[prop:bg-nprime]] (iii) and ∂_X^m G = (−1)^(m+1)(m + 1)! μ/(2λX^(m+2)) for m ≥ 1.
+where also |∂_X^m G| ≤ H_m := c_m (3/2)/(0.529533 X̲^(m+2)), (c_2, c_3, c_4) = (3, 12, 60), by
+[[prop:bg-nprime]] (iii) and ∂_X^m G = (−1)^m (m + 1)! μ/(2λX^(m+2)) for m ≥ 1.
 
 **Proposition {#prop:bg-rays}** (The rays.) For u ∈ [a, b], a segment of [[sec:tab-bg-ray-chain]], and ρ ∈ [2.32, 3.44],
 
@@ -295,20 +296,21 @@ Proof. Fix ρ. By [[prop:bg-nprime]] (iii), λ > 0 on [u1, u2], so [[eq:bg-ray]]
 < 0 for X > 0. Let e₀ := Ψ − Ψ̃. Then e₀′ = −p e₀ + r with p := −∫_0^1 ∂_XG(u, Ψ̃ + θe₀) dθ ≥ 0 and r := (G −
 G̃)(u, Ψ̃) − D. While |e₀| ≤ 10⁻⁵, [[lem:bg-comparison]] (b) gives |e₀(u)| ≤ |e₀(a)| + (u − a)(γ_0 + D₀). For e₁ := J
 − J̃, differentiating [[eq:bg-ray]] in ρ, e₁′ = ∂_XG(u, Ψ)e₁ + (∂_XG(u, Ψ) − ∂_XG(u, Ψ̃))J̃ + (∂_XG − ∂_XG̃)(u, Ψ̃)J̃ −
-D_1, whose last three terms are at most Γ_2ε₀J̄ + γ_1J̄ + D₁; the same lemma applies with p = −∂_XG(u, Ψ) ≥ 0. For
+D_1, whose last three terms are at most H_2ε₀J̄ + γ_1J̄ + D₁; the same lemma applies with p = −∂_XG(u, Ψ) ≥ 0. For
 e₂ and e₃ the variational equations K′ = ∂_XG K + ∂_X²G J² and L′ = ∂_XG L + 3∂_X²G JK + ∂_X³G J³ give in the same
 way
 
     ε₀(b) = ε₀(a) + (b − a)(γ_0 + D₀),
-    ε₁(b) = ε₁(a) + (b − a)(Γ_2ε₀J̄ + γ_1J̄ + D₁),
-    ε₂(b) = ε₂(a) + (b − a)((Γ_2ε₀ + γ_1)K̄ + Γ_2ε₁(2J̄ + ε₁) + (Γ_3ε₀ + γ_2)J̄² + D₂),
-    ε₃(b) = ε₃(a) + (b − a)((Γ_2ε₀ + γ_1)L̄ + 3(Γ_2(ε₁K̄ + J̄ε₂ + ε₁ε₂) + (Γ_3ε₀ + γ_2)J̄K̄)
-                   + Γ_3ε₁(3J̄² + 3J̄ε₁ + ε₁²) + (Γ_4ε₀ + γ_3)J̄³ + D₃),  {#eq:bg-ray-chain}
+    ε₁(b) = ε₁(a) + (b − a)(H_2ε₀J̄ + γ_1J̄ + D₁),
+    ε₂(b) = ε₂(a) + (b − a)((H_2ε₀ + γ_1)K̄ + H_2ε₁(2J̄ + ε₁) + (H_3ε₀ + γ_2)J̄² + D₂),
+    ε₃(b) = ε₃(a) + (b − a)((H_2ε₀ + γ_1)L̄ + 3(H_2(ε₁K̄ + J̄ε₂ + ε₁ε₂) + (H_3ε₀ + γ_2)J̄K̄)
+                   + H_3ε₁(3J̄² + 3J̄ε₁ + ε₁²) + (H_4ε₀ + γ_3)J̄³ + D₃),  {#eq:bg-ray-chain}
 
-the ε on the right without argument being those at b, computed in the order m = 0, 1, 2, 3. The bounds |J² − J̃²| ≤
+the ε on the right without argument being those at b, taken in the order m = 0, 1, 2, 3. The bounds |J² − J̃²| ≤
 ε₁(2J̄ + ε₁), |JK − J̃K̃| ≤ ε₁K̄ + J̄ε₂ + ε₁ε₂ and |J³ − J̃³| ≤ ε₁(3J̄² + 3J̄ε₁ + ε₁²) enter here. The initial values
 at u1 are the sums of [[sec:tab-bg-ray-chain]] ([[lem:bg-tools]] (a)), the defects are bounded by [[eq:bg-ray-defects]]
-and the rows of [[sec:tab-bg-ray-defects]], and the γ, Γ by [[eq:bg-gamma]]. Since ε₀ ≤ 8.69 × 10⁻⁷ < 10⁻⁵ everywhere,
+and the rows of [[sec:tab-bg-ray-defects]], the γ_m by [[eq:bg-gamma]] and the H_m by the bound after [[eq:bg-tube]].
+Since ε₀ ≤ 8.69 × 10⁻⁷ < 10⁻⁵ everywhere,
 the hypothesis |e₀| ≤ 10⁻⁵ holds throughout by continuity.
 
 J = exp(∫_(u1)^u ∂_XG(σ, Ψ) dσ) ∈ (0, 1]. Finally Ψ ≥ Ψ̃_min − ε₀ ≥ 1.4832 on every segment

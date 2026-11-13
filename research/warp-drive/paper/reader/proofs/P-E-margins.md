@@ -515,7 +515,7 @@ RE/√G and Γ = 4νE² − P′.
     A1 := 2R⁴ (m(5 − m) − (1 − m)(7 + m)u)/((2 − w)(1 − w)²),
     A2 := 2R⁵ (1 − m)(1 + 2w)/((2 − w)(1 − w)²),     A3 := 2R⁵ (1 − m)/((2 − w)(1 − w)).
 
-Where ψ = 0 this is Γ/E² = 4R³μ/(R² + μ), that is Γ = 4μ/R.
+Where ψ = 0 this is Γ/E² = 4R³μ/(R² + μ), that is Γ = 4μ/R for the normalisation E = √G/R.
 
 *Proof.* Since E′ = aE and ν = R³, (2νER/√G)′ = E((2R⁴/√G)′ + 2aR⁴/√G), so P = E²p with p := 8R⁴/G − R(2R⁴/√G)′/√G −
 2aR⁵/G = (R⁵/G)(G′/G − 2a), and Γ/E² = 4R³ − 2ap − p′. Here G′/G = ψ′ − w′/(2 − w) with w′ = q(ψ′f + f′), and a = −3/R +
