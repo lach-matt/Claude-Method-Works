@@ -1253,7 +1253,7 @@ operator of [[eq:layer-w-equation]] being written around the seed, where f′ is
 degree at least two of Ric^H(g_app), at most C λ^(N−1) ε_c² with each derivative costing λ⁻¹, by (F2) of
 [[sec:layer-flat]] and the argument of [[lem:layer-flat]] (d). (ii) The part of first degree of Ric^H(g_app) minus that
 of [[eq:edge-e-equation]]: as g_app stops at λ^N, the part of first degree of Ric^H(g_app) is λ^N Re[R_X(H_N)
-e^(iv/λ)] by the computation in the proof of [[lem:edge-constraint]] (i), so this part is λ^N Re[(R_X H_N + λ R_X
+e^(iv/λ)] as in the proof of [[lem:edge-constraint]] (i), so this part is λ^N Re[(R_X H_N + λ R_X
 H_(N+1)) e^(iv/λ)], at most C λ^N ε_c. (iii) The differences between the coefficients of [[eq:layer-w-equation]] and
 those of dRic^H, which are of degree at least one, acting on w and on e: at most C λ^(N−6) ε_c², as |∂^j w| ≤ C
 λ^(N−5−j) ε and |∂^j e| ≤ C λ^(N−4−j) ε (the energy estimate for e, whose data are those induced by U^(1), of size
@@ -1417,7 +1417,7 @@ and κ̄_λ grows like a power of log(1/λ), so λ κ̄_λ^j → 0 and λ^(1−�
 [[lem:l-24-margin]] applies with ς ≤ 10⁻³ (by [[prop:l-24-band]], every point of the band once λ is below the thresholds
 there), and suppose that
 
-    |S′| ≤ 1.001 κ |S|,      |S| ≤ 1.001 R m0      at (v, x̂)                                          {#eq:l-24-s-bounds}
+        |S′| ≤ 1.001 κ |S|,      |S| ≤ 1.001 R m0      at (v, x̂)                                                            {#eq:l-24-s-bounds}
 
 (by [[prop:l-24-s-bounds]], at every point of the band with R ≥ 1/2 once λ is small). Then at (v, x̂)
 
@@ -1492,7 +1492,7 @@ and |ν| |d|,
 
 So |S − S_st| ≤ C ε_λ R m0. As R m0 ≤ |S_st| = R m0 (1 + 4λ²κ²)^(1/2) ≤ (1 + 2ε_λ²) R m0,
 
-    (1 − C ε_λ) R m0 ≤ |S| ≤ (1 + 2ε_λ² + C ε_λ) R m0.                                                   {#eq:l-24-s-size}
+        (1 − C ε_λ) R m0 ≤ |S| ≤ (1 + 2ε_λ² + C ε_λ) R m0.                                                                            {#eq:l-24-s-size}
 
 *The derivative.* At fixed x̂, d(ϑ) does not depend on v, and r0′ = 1. So S_st′ = S_st (κ + ν′/ν + 2iλκ′/(1 + 2iλκ)),
 and with |ν′/ν| ≤ C (1 + 1/x) and |κ′| ≤ c_R κ^(1+α) ≤ c_R κ² (κ ≥ 1),
@@ -1599,7 +1599,7 @@ M_(k+1) < M_k.
 The points t, t + 2πλ and t + O(λ) used below lie in the band, R varying by o(1) over O(λ) there, and m0 varies by a
 factor at most 2 over O(λ), since 0 < m0′/m0 ≤ 3κ ([[lem:l-24-margin]], as in the proof of [[cor:l-24-period]]) and
 λκ → 0. By [[eq:l-24-eps]] at those points, ε_c² ≤ C λ^(−1/8) m0(t) for every fixed cost c. Moreover ε_c ≥ E ≥ λ^(3+δ)
-and ε_c ≤ C E^(1−c/m) ≤ C λ^(2) by [[eq:layer-cost-level]].
+and ε_c ≤ C E^(1−c/m) ≤ C λ² by [[eq:layer-cost-level]].
 
 (a) g_app − g0 − h_app^(1) = Σ_(j≤N) λ^j([g_j] − Re[H_j e^(iθ)]) − λ^(N+1) Re[H_(N+1) e^(iθ)] at θ = t/λ is a sum of λ^j
 G_j(X, θ), G_j 2π-periodic in θ. At a fixed phase its increment is G_j(X(t + 2πλ), θ) − G_j(X(t), θ), at most 2πλ

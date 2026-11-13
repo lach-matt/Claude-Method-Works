@@ -51,10 +51,10 @@ at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-1
 ### Sums of the gauge potential offsets {#sec:ec-gap-sums}
 
 The gap condition (G) of [[def:iii-i10-1-3]] excludes exponents in windows just above 2 and 3. This section shows
-that at the gauge parameters of the computational point the numbers of the set 𝒮 of [[prop:gap-sums]], built from 2,
-3, λ_♯ and the gauge potential offsets defined below, stay out of those windows by a margin larger than δ_50, so that, on
-these exponents, (G) imposes nothing beyond ε_K < ε_ind ([[rem:gap-sums]]). The elementary bounds, for a > 0 and
-0 ≤ y ≤ 8a²,
+that at the gauge parameters of the computational point the numbers of the set 𝒮 of [[prop:gap-sums]], built from
+2, 3, λ_♯ and the gauge potential offsets defined below, stay out of those windows by a margin larger than δ_50, so
+that, on these exponents, (G) imposes nothing beyond ε_K < ε_ind ([[rem:gap-sums]]). The elementary bounds, for
+a > 0 and 0 ≤ y ≤ 8a²,
 
     a + y/(2a) − y²/(8a³) ≤ (a² + y)^(1/2) ≤ a + y/(2a),                                                {#eq:ec-sqrt}
 
