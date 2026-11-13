@@ -18,4 +18,11 @@ B1-B5 PASS
       25340)/(90720*r0**9), beta4' = I*(r0 - 1)*(2*r0**3 - 3*r0**2 - 2)**2/(72*r0**7); at rho*: alpha4' = 0.0 +
       0.003731992535128342 i, beta4' = 0.0 + 2.505716915711433e-52 i; differs from B5: True
 controls PASS (control (i) detected; (ii) differs)
+  B6 at mu0 = 16 (horizon r = 4): H2, H3, H4 (families 0, 1) and H5's family 1 with both equations as in B1-B4: True; at
+      the horizon, for every angular profile, c_(3,0),vv/A = 2^-7 K(r0/4) d and c_(4,0),vv/A = 2^-9 (alpha4(r0/4) d +
+      beta4(r0/4) Lap d), alpha4, beta4 of B5, exactly: True (c_(4,0)'s alpha over alpha4(r0/4): 1/512); c_(5,1),vv/(i A)
+      = 3 c_(4,0),vv/A: True.  So b4(4 rho*, th) = 16^(-9/4) b4(rho*, th)|_(mu0 = 1) = -7.459169686690954e-5 i and b5 = 3
+      b4: a positive factor, the phase unchanged
+  control (iii) at mu0 = 16 with the transports' mass couplings left at mu0 = 1: B2's vv equation holds: False
+B6 PASS (control (iii) detected)
 bfam5: all checks pass, every control fails

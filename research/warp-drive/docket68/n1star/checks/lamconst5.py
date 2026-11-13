@@ -10,41 +10,50 @@ lemma, step by step, and checks:
   C1 (certified) C_L1.  Lemma L.1's identity g^-1 = g0^-1 - g0^-1 k g0^-1 + g0^-1 k g0^-1 k g^-1 (N0), contracted with
      dPhi0 twice, gives |g^-1(dPhi0, dPhi0) + m0| <= C_L1 |k|, |k| the operator norm of the Cartesian components (at most
      the Frobenius norm, the norm of L.4's energies), with
-         C_L1 := |Phi0#|^2 + |Phi0#| |dPhi0| n^2 eps1/(1 - n eps1) = |Phi0#|^2 + (3/5) |Phi0#| |dPhi0|,
-     n := 1 + 2 mu_end/a^2 >= sup |g0^-1| and eps1 = (3/5)/(n^2 + (3/5) n) >= |k| for lam <= lambda0 (CONSTANTS5 1.4,
-     Step 3 of lambda0's proof); n^2 eps1/(1 - n eps1) = 3/5 exactly.  |Phi0#|^2 = (1 - beta0)^2 + beta0^2 (Phi0# = d_v +
+         C_L1 := |Phi0#|^2 + |Phi0#| |dPhi0| n_b^2 eps1/(1 - n_b eps1),
+     n_b := 1 + 2 mu_end/mu0 >= |g0^-1| at the boundary (g0^-1 = eta - (mu/r^2) L (x) L, |L|^2 = 2, r = r_q >= sqrt mu0)
+     and |k| <= eps1 on Omega for lam <= lambda0 (Step 3 of lambda0's proof; |g^-1| <= n_b/(1 - n_b |k|)), eps1 the
+     construction's fixed number, 0 < eps1 < s0, s0 in [0.030768559, 0.030768560] g0's least absolute eigenvalue on
+     Omega (CONSTANTS5 Round 4; N1STAR-PROOF.md 0.3); C_L1 increases with eps1, so its value at eps1 = s0 bounds it for
+     every admissible eps1.  |Phi0#|^2 = (1 - beta0)^2 + beta0^2 (Phi0# = d_v +
      beta0 d_r = (1 - beta0) d_tau + beta0 xhat.d_x), |dPhi0|^2 = r_q'^2 + (1 - r_q')^2 <= 1, beta0 in [-(sqrt(mu_end/mu0)
      - 1) - A^2 c^2/(18 sqrt mu0), 0], r_q' in [0, A^2 c^2/(18 sqrt mu0)], c <= 1.3241035 the envelope's peak (R4.5).
      Evaluated at P* in interval arithmetic.  Then 400 boundary points (mu in [mu0, mu_end], mu' in [0, (2/9) A^2 c^2],
-     the Kerr-Schild metric in Cartesian components) with random and adversarial k (|k| = eps1, k = -+eps1 u u^T, u along
+     the Kerr-Schild metric in Cartesian components) with random and adversarial k (|k| = s0, k = -+s0 u u^T, u along
      Phi0#): the exact ratio |g^-1(dPhi0, dPhi0) + m0|/|k| is at most the pointwise C_L1 and the uniform one, and |g0^-1|
-     <= n there.  Control: C_L1 without its quadratic term (pointwise |Phi0#|^2) is exceeded at an adversarial k.
-  C2 (computed) Theorem 1's.  C_L3 := max_(m<=N) Cb_m, R5.5's node for L.3 (b) (`constL5.py`'s DAG; R5.5 lists it and
-     does not name it); C1 := n (n + 3/5) (C_app + 2 C_inf M lambda0^(K-4)) (EQUALITY5 section 0: |g - g0| <= C lam with
-     C from Step 3 of lambda0's proof, and |g^-1 - g0^-1| <= n^2 |k|/(1 - n |k|)); C_rho1 := 2 C1 (tau_end - tau0) (L.4's
+     <= n_b there.  Control: C_L1 without its quadratic term (pointwise |Phi0#|^2) is exceeded at an adversarial k.
+  C2 (computed; C_S3 certified) Theorem 1's.  C_L3 := max_(m<=N) Cb_m, R5.5's node for L.3 (b) (`constL5.py`'s DAG; R5.5 lists it and
+     does not name it); C1 := iota (C_app + 2 C_inf M lambda0^(K-4)), iota := 1/(s0 (s0 - eps1)) (EQUALITY5 section 0:
+     |g - g0| <= C lam, C from Step 3 of lambda0's proof, and |g^-1 - g0^-1| = |g0^-1 k g^-1| <= |k|/(s0 (s0 - |k|)),
+     as Lemma 2.3 carries |g^-1| <= (s0 - eps1)^-1); C_rho1 := 2 C1 (tau_end - tau0) (L.4's
      region {v + 2 C1 lam (tau - tau0) <= v1} contains the boundary point at tau <= tau_end); lam_rec1 := min(lambda0,
      1/(2 C1)) (Theorem 1's g_lam; L.4 step 1 needs s = C1 lam <= 1/2; L.3 (b)'s U-ball condition 4 C_b C0 lam^(N-3)
      eps_(2N+2) <= 1 is lambda0's ninth term, since eps_(2N+2)(v1) <= eps_(M_P)(v1) <= lam^3 <= 1 by (H2)).  Every leaf is
      one of lambda0's leaves or nodes, a certified number or a constant of the seed; increasing (decreasing for
-     lam_rec1) in every leaf.  Control: a node needing a leaf outside the set (Theorem P's C_R) is detected.
+     lam_rec1) in every leaf.  The seed's C_S3 (L.10: |u|_inf <= C_S3 sum_(|beta|<=2) ||Omega^beta u||_(L^2(S^3)))
+     certified by harmonics: C_S3^2 <= sum_k (k+1)^2/(2 pi^2 (1 + k(k+2) + k^2 (k+2)^2/6)), the tail bounded (control:
+     without the ||Lap u||^2 term the sum diverges).  Control: a node needing a leaf outside the set (Theorem P's C_R)
+     is detected.
   C3 (computed) Theorem 2's: C_P, C_rhoP, C_L3P, C_L4P and lambda_P as a DAG in Theorem P's leaves, transcribed from
      L.3_P, L.4_P and the proofs of Propositions 9.8, 9.9 and Theorem P (N1STAR-PROOF.md, sections 9.1-9.4):
        beta0 := max(2, 4 C_9 + 1), N_P := K + 4 + ceil(4 beta0), K' := N_P - 1,
        M_F := 4 C_F e^(6 C_F) C_R + 1,  M_N := 8 C_9 C' (M_F + C_R + 1),  C_Piii := C_93 max(2 M_F, M_N (1 + C_kP)),
        M_EP := C3 (M_N + 1 + C_RO) + 1  (Theorem E's M at the trace data, N_P(tau0) <= M_N lam^(K' - 2 beta0)),
-       C_P := n (n + 3/5) (C_kP + max(C_Piii, 2 C_inf M_EP)),  C_rhoP := 2 C_P (2 + tau_end - tau0),
+       C_P := iota (C_kP + max(C_Piii, 2 C_inf M_EP)),  C_rhoP := 2 C_P (2 + tau_end - tau0),
        C_dP := C_E5 K_P^(N_P+1) (1 + S_aP + S_bP)^(N_P+1)/(N_P - 2)!,  C_E5 := pi sqrt(2 d1) (E5: an E_3 profile has
                L^2 norm <= C_E5 t^(-3/2) on A_P(tau), r >= t + a1, thickness <= d1 := V_P - v_s),
        C_L3P := max_m Cb_m^P, C_dOP := L.3 (d)'s Cd, both from L.3's recursion on Omega with the stage-m slice data
                replaced by L.3_P's traces Tr_m (and P6 by Theorem A_P's P6P),
        C_L4P := C_S e^(C2 (1 + M_EP + K_OP) T) (2 C_95 e^(2 C_95 C_k4) C_dP + T C_dOP),
        lambda_P := min{lam1, d0/20, 1, lam_F, lam_mF, lam_N, lam_abs, lam_mN, lam_EP} with
-         lam_F = (8 C_F^2 e^(6 C_F) M_F)^(-1/(K'-5)) (9.8's bootstrap closes), lam_mF = min(eps_P/(2 n (n + 3/5)
-         C_kP), (eps_P/(4 n (n + 3/5) C_93 M_F))^(1/(K'-3))) (Lemma 9.1 (f)'s margin), lam_N = (4 C_9 M_N)^(-1/(K' - 8
-         - 4 beta0)) (9.9's nonlinear terms), lam_abs = 1/(8 C_abs) (9.9's absorbed g_j, j >= 3), lam_mN = (eps_P/(2 n
-         (n + 3/5) C_93 M_N (1 + C_kP)))^(1/(K' - 3 - 2 beta0)) (the margin on the near region), lam_EP = min(eps1/(2
+         lam_F = (8 C_F^2 e^(6 C_F) M_F)^(-1/(K'-5)) (9.8's bootstrap closes), lam_mF = min(eps_P/(2 iota C_kP),
+         (eps_P/(4 iota C_93 M_F))^(1/(K'-3))) (Lemma 9.1 (f)'s margin), lam_N = (4 C_9 M_N)^(-1/(K' - 8
+         - 4 beta0)) (9.9's nonlinear terms), lam_abs = 1/(8 C_abs) (9.9's absorbed g_j, j >= 3), lam_mN = (eps_P/(2
+         iota C_93 M_N (1 + C_kP)))^(1/(K' - 3 - 2 beta0)) (the margin on the near region), lam_EP = min(eps1/(2
          C_kP), (min(eps1, eps2)/(4 C_inf M_EP))^(1/(K-3)), (2 C_dw M_EP)^(-1/(K-4)), 1/(C3 C_nl M_EP^2)) (Theorem E on
-         Omega, (P-iv): lambda0's Steps 3 and 7 with M_EP; Proposition 6.5 has no part there).
+         Omega, (P-iv): lambda0's Steps 3 and 7 with M_EP; Proposition 6.5 has no part there); and lam_kP := eps1/(C_kP
+         + C_Piii), below which |k| <= eps1 on P, as C_P's derivation uses (a term of lam_rec := min(lambda0, 1/(2 C1),
+         lambda_P, 1/(2 C_P), lam_kP)).
      Checks: every leaf is Theorem P's (listed with its source), lambda0's, certified or the seed's (control: a planted
      leaf detected); C_P, C_rhoP, C_L3P, C_L4P increasing and every term of lambda_P positive and decreasing in every
      leaf at fixed beta0 except eps_P; an independent transcription agrees at 20 random points (controls: the kernel
@@ -112,8 +121,9 @@ MU0, AMP = 1, 1                                          # P*: mu0 = 1, A = 1 (C
 Q0 = (ivq(sp.Rational(9, 1250)))**(iv.mpf(1)/8)          # q0^8 = 9/1250
 A_IN = Q0/2                                              # a = delta0 = q0/2
 MU_END = ivq(sp.Rational(227, 192))
-N_IV = 1 + 2*MU_END/A_IN**2                              # n >= sup |g0^-1|_op (CONSTANTS5 1.4)
-EPS1 = (iv.mpf(3)/5)/(N_IV**2 + iv.mpf(3)/5*N_IV)        # eps1 in the operator norm
+S0 = iv.mpf(['0.030768559', '0.030768560'])             # g0's least |eigenvalue| on Omega (CONSTANTS5 Round 4)
+EPS1 = iv.mpf(S0.b)                                      # every admissible eps1 is below s0: the bound at s0
+EPS1_R1 = iv.mpf('5.2617e-4')                            # CONSTANTS5 1.4's eps1 (round 1), for the illustration
 CPEAK = iv.mpf('1.3241035')                              # the envelope's peak (CONSTANTS5 R2.2 (i) (a), R4.5)
 T_IV = iv.mpf('5.937208254')                             # tau_end - tau0 (CONSTANTS5 1.4)
 V_P = iv.mpf('4.5') + 1 + T_IV + iv.mpf('0.5')           # V_P := V + 1 + (tau_end - tau0) + kappa, V = v_end + T
@@ -123,12 +133,15 @@ LAM1 = A_IN/10                                           # lam1 = min(1, delta0)
 CE5 = iv.pi*iv.sqrt(2*D1)
 
 
+NB_IV = 1 + 2*MU_END/MU0                                 # |g0^-1| <= 1 + 2 mu/r^2 <= n_b at r = r_q >= sqrt(mu0)
+
+
 def cl1_parts():
     rq = iv.mpf(AMP)**2*CPEAK**2/(18*iv.sqrt(MU0))       # sup r_q' = mu0^(1/4) mu^(-3/4) mu'/4 <= A^2 c^2/(18 sqrt mu0)
     beta = (iv.sqrt(MU_END/MU0) - 1) + rq                # sup |beta0|
     phi2 = (1 + beta)**2 + beta**2
     dphi2 = iv.mpf(1)                                    # (1 - r_q')^2 + r_q'^2 <= 1 for 0 <= r_q' <= 1
-    quad = N_IV**2*EPS1/(1 - N_IV*EPS1)
+    quad = NB_IV**2*EPS1/(1 - NB_IV*EPS1)                # |g^-1| <= n_b/(1 - n_b |k|), |k| <= eps1 < s0 on Omega
     return rq, beta, phi2, dphi2, quad
 
 
@@ -154,8 +167,8 @@ def c1(control=False):
     mp.mp.dps = 50
     rq, beta, phi2, dphi2, quad = cl1_parts()
     CL1 = cl1_value()
-    nmax = mp.mpf(N_IV._mpi_[1])
-    eps1 = mp.mpf(EPS1._mpi_[0])
+    nmax = mp.mpf(NB_IV._mpi_[1])
+    eps1 = mp.mpf(EPS1._mpi_[1])
     rng = random.Random(9)
     worst_pt, worst_uni, worst_n, ctl_exceeded = mp.mpf(0), mp.mpf(0), mp.mpf(0), False
     cpk = mp.mpf('1.3241035')
@@ -198,23 +211,40 @@ def c1(control=False):
     if control:
         return not ctl_exceeded                               # the control "passes" if the mutated bound survives
     ok = worst_pt <= 1 and worst_uni <= 1 and worst_n <= 1
-    out("  C1 C_L1 = |Phi0#|^2 + |Phi0#||dPhi0| n^2 eps1/(1 - n eps1) at P*: sup r_q' <= %s, sup |beta0| <= %s, |Phi0#|^2"
-        " <= %s, |dPhi0| <= 1, n <= %s, eps1 >= %s, n^2 eps1/(1 - n eps1) in [%s, %s] (= 3/5); C_L1 in [%s, %s], log10"
-        " C_L1 <= %s (certified).  400 boundary points, 4 k each (adversarial -+eps1 u u^T and random, |k| = eps1): max"
-        " ratio/pointwise C_L1 = %s, max ratio/uniform C_L1 = %s, max |g0^-1|/n = %s: %s"
-        % (up(rq, 7), up(beta, 7), up(phi2, 6), up(N_IV, 4), dn(EPS1, 10), dn(quad, 12), up(quad, 12), dn(CL1, 5),
-           up(CL1, 5), up(iv.log(CL1)/iv.log(10), 5), mp.nstr(worst_pt, 8), mp.nstr(worst_uni, 6),
-           mp.nstr(worst_n, 6), ok))
+    out("  C1 C_L1 = |Phi0#|^2 + |Phi0#||dPhi0| n_b^2 eps1/(1 - n_b eps1) at P*: sup r_q' <= %s, sup |beta0| <= %s,"
+        " |Phi0#|^2 <= %s, |dPhi0| <= 1, n_b = 1 + 2 mu_end/mu0 <= %s (|g0^-1| at the boundary), eps1 < s0 <= %s (Omega,"
+        " the operator norm), n_b^2 eps1/(1 - n_b eps1) <= %s; C_L1 <= %s, log10 C_L1 <= %s (certified, every admissible"
+        " eps1; at CONSTANTS5 1.4's eps1 = 5.2617e-4, C_L1 <= %s).  400 boundary points, 4 k each (adversarial -+s0 u u^T"
+        " and random, |k| = s0): max ratio/pointwise C_L1 = %s, max ratio/uniform C_L1 = %s, max |g0^-1|/n_b = %s: %s"
+        % (up(rq, 7), up(beta, 7), up(phi2, 6), up(NB_IV, 6), up(S0, 9), up(quad, 6), up(CL1, 5),
+           up(iv.log(CL1)/iv.log(10), 5), up(phi2 + iv.sqrt(phi2)*NB_IV**2*EPS1_R1/(1 - NB_IV*EPS1_R1), 5),
+           mp.nstr(worst_pt, 8), mp.nstr(worst_uni, 6), mp.nstr(worst_n, 6), ok))
     return ok
 
 
 # ------------------------------------------------------------------------------------------------------------ C2
+def cs3_bound(K0=4000, drop_lap=False):
+    """L.10's C_S3 (|u|_inf <= C_S3 sum_(|beta|<=2) ||Omega^beta u||_(L^2(S^3))): with the harmonics of degree k
+    (eigenvalue k(k+2) of -Lap = -sum_(a<b) Omega_ab^2, multiplicity (k+1)^2, sup |u_k| <= ((k+1)^2/|S^3|)^(1/2)
+    ||u_k||) and (sum_beta ||Omega^beta u||)^2 >= ||u||^2 + <-Lap u, u> + ||Lap u||^2/6 (the squares Omega_ab^2 alone,
+    Cauchy-Schwarz over the six), C_S3^2 <= sum_k (k+1)^2/(2 pi^2 w_k), w_k := 1 + k(k+2) + k^2 (k+2)^2/6; the tail k
+    >= K0 is at most 6/(K0 - 1).  drop_lap (the control): without the ||Lap u||^2 term every term is about 1 and the
+    partial sums grow linearly in K0"""
+    tot = iv.mpf(0)
+    for k in range(K0):
+        lk = k*(k + 2)
+        w = 1 + lk + (0 if drop_lap else iv.mpf(lk*lk)/6)
+        tot += iv.mpf((k + 1)**2)/w
+    tail = iv.mpf([0, (iv.mpf(6)/(K0 - 1)).b]) if not drop_lap else iv.mpf(0)
+    return iv.sqrt((tot + tail)/(2*iv.pi**2)), tot
+
+
 C_app, C_inf, C_dw, C3s, C_nl, eps2 = sp.symbols('C_app C_inf C_dw C3 C_nl eps2', positive=True)
-n_s, e1_s = sp.symbols('n eps1', positive=True)
-LAMBDA0 = set(CL.LEAVES) | {C_app, C_inf, C_dw, C3s, C_nl, eps2}      # lambda0's leaves and nodes (CONSTANTS5 1.3, 1.5)
+e1_s, iota_s = sp.symbols('eps1 iota', positive=True)    # lambda0's eps1 (< s0) and iota := 1/(s0 (s0 - eps1))
+LAMBDA0 = set(CL.LEAVES) | {C_app, C_inf, C_dw, C3s, C_nl, eps2, e1_s, iota_s}   # lambda0's leaves, nodes (CONSTANTS5)
 CERT2 = dict(CL.CERT)
-CERT2.update({n_s: sp.Rational(str(mp.nstr(mp.mpf(N_IV._mpi_[1]), 20))), e1_s: sp.Rational(str(mp.nstr(mp.mpf(
-    EPS1._mpi_[0]), 20)))})
+ILL_E1 = sp.Rational(52617, 10**8)                        # the illustration's eps1 (CONSTANTS5 1.4)
+ILL_IOTA = 1/(sp.Rational(30768559, 10**9)*(sp.Rational(30768559, 10**9) - ILL_E1))   # iota there (s0's lower end)
 K_EX = 6
 
 
@@ -223,7 +253,7 @@ def build1(mutate=None):
     cbs = [s_ for s_, _ in d.defs if re.fullmatch(r'Cb\d+', str(s_))]
     CL3 = d("C_L3", sp.Max(*cbs))                                                  # L.3 (b): every stage's means
     extra = sp.Symbol('C_R', positive=True) if mutate == "leaf" else 0
-    C1 = d("C1", n_s*(n_s + sp.Rational(3, 5))*(C_app + 2*C_inf*CL.M*CL.lam0**(K_EX - 4) + extra))     # EQUALITY5 0
+    C1 = d("C1", iota_s*(C_app + 2*C_inf*CL.M*CL.lam0**(K_EX - 4) + extra))        # EQUALITY5 section 0
     Crho1 = d("C_rho1", 2*C1*CL.T)                                                 # L.4's region, tau <= tau_end
     inv = d("inv2C1", 1/(2*C1))
     return d, CL3, C1, Crho1, C4, inv
@@ -250,17 +280,25 @@ def c2(control=False):
     ill = dict(CERT2)
     ill.update({s_: 1 for s_ in leaves})
     ill[CL.lam0] = sp.Rational(244, 100000)
+    ill[iota_s] = ILL_IOTA
     vals = d.value(ill)
     lg = lambda x: mp.nstr(mp.log10(mp.mpf(sp.N(vals[x], 30))), 6)                 # noqa: E731
     lrec = min(sp.N(vals[inv], 30), sp.Rational(244, 100000))
-    ok = not extra and structural and fd
-    out("  C2 Theorem 1's: C_L3 := max_m Cb_m (R5.5's node for L.3 (b)), C1 = n (n + 3/5)(C_app + 2 C_inf M lambda0^2),"
+    cs3, _ = cs3_bound()
+    cs3b, _ = cs3_bound(K0=8000)
+    _, grow1 = cs3_bound(K0=1000, drop_lap=True)
+    _, grow2 = cs3_bound(K0=4000, drop_lap=True)
+    cs3ok = cs3b.b <= cs3.b and grow2.a - grow1.a > 1                   # converged; the control's sum diverges
+    ok = not extra and structural and fd and cs3ok
+    out("  C2 Theorem 1's: C_L3 := max_m Cb_m (R5.5's node for L.3 (b)), C1 = iota (C_app + 2 C_inf M lambda0^2),"
         " C_rho1 = 2 C1 (tau_end - tau0), lam_rec1 = min(lambda0, 1/(2 C1)): leaves %s, none outside lambda0's leaves,"
         " the certified numbers and the seed's constants: %s; increasing (1/(2 C1) decreasing) in every remaining leaf,"
-        " structurally %s and by finite differences %s; illustration (leaves 1, lambda0 = 0.00244): log10 C_L3 = %s,"
-        " log10 C1 = %s, log10 C_rho1 = %s, lam_rec1 = %s"
+        " structurally %s and by finite differences %s; illustration (leaves 1, lambda0 = 0.00244, eps1 = 5.2617e-4,"
+        " iota = 1/(s0 (s0 - eps1)) = 1074.6): log10 C_L3 = %s,"
+        " log10 C1 = %s, log10 C_rho1 = %s, lam_rec1 = %s.  The seed's C_S3 (L.10) <= %s (certified; %s with 8000"
+        " terms; without the ||Lap u||^2 term the sum grows by %s from 1000 to 4000 terms, the control): %s"
         % (sorted(map(str, d.leaves() - set(CERT2))), not extra, structural, fd, lg(CL3), lg(C1), lg(Crho1),
-           mp.nstr(mp.mpf(sp.N(lrec, 30)), 5)))
+           mp.nstr(mp.mpf(sp.N(lrec, 30)), 5), up(cs3, 6), up(cs3b, 6), dn(grow2 - grow1, 3), cs3ok))
     return ok
 
 
@@ -310,7 +348,7 @@ def build_P(NP, beta0, mutate=None):
     M_N = d("M_N", 8*S['C_9']*S['C_pr']*(M_F + S['C_R'] + 1))                      # Proposition 9.9: B = M_N lam^K'
     CPiii = d("C_Piii", S['C_93']*sp.Max(2*M_F, M_N*(1 + S['C_kP'])))              # (P-iii) by Lemma 9.3 (a)
     M_EP = d("M_EP", C3s*(M_N + 1 + S['C_RO']) + 1)                                # Theorem E's M at the traces
-    C_P = d("C_P", n_s*(n_s + sp.Rational(3, 5))*(S['C_kP'] + sp.Max(CPiii, 2*C_inf*M_EP)))     # L.4_P's C_P
+    C_P = d("C_P", iota_s*(S['C_kP'] + sp.Max(CPiii, 2*C_inf*M_EP)))              # L.4_P's C_P
     CrhoP = d("C_rhoP", 2*C_P*(2 + CL.T))                                          # L.4_P's region, psi <= 2 + T
     CE5s = sp.Symbol('C_E5', positive=True)
     C_dP = d("C_dP", CE5s*S['K_P']**(NP + 1)*(1 + S['S_aP'] + S['S_bP'])**(NP + 1)/sp.factorial(NP - 2))  # L.3_P (d_P)
@@ -335,9 +373,9 @@ def build_P(NP, beta0, mutate=None):
     C_dOP = d("C_dOP", K**(NP + 1)*(1 + sa + sb)**(NP + 1)/sp.factorial(NP - 2))                    # (d) on Omega
     C_L3P = d("C_L3P", sp.Max(*Cb.values()))
     kern = 1 if mutate == "kern" else 2
-    C_L4P = d("C_L4P", CL.C_S*sp.exp(CL.C2*(1 + M_EP + K)*T)*(kern*S['C_95']*sp.exp(2*S['C_95']*S['C_k4'])*C_dP
-                                                              + T*C_dOP))         # L.4_P (1)-(4) and L.4 step 7
-    nn = n_s*(n_s + sp.Rational(3, 5))
+    C_onP = d("C_L4P_P", kern*S['C_95']*sp.exp(2*S['C_95']*S['C_k4'])*C_dP)      # L.4_P (2)-(4): E_2(tau0) on P
+    C_L4P = d("C_L4P", CL.C_S*sp.exp(CL.C2*(1 + M_EP + K)*T)*(C_onP + T*C_dOP))  # Lemma 2.3 on Omega, L.4 step 7
+    nn = iota_s
     ex_N = Kp - 8 - (2 if mutate == "expo" else 4)*beta0
     terms = {
         'lam_F': (8*S['C_F']**2*sp.exp(6*S['C_F'])*M_F)**sp.Rational(-1, Kp - 5),
@@ -349,10 +387,11 @@ def build_P(NP, beta0, mutate=None):
                          (2*C_dw*M_EP)**sp.Rational(-1, K_EX - 4), 1/(C3s*C_nl*M_EP**2)),
     }
     tnodes = {k: d(k, v_) for k, v_ in terms.items()}
+    lamkP = d("lam_kP", e1_s/(S['C_kP'] + CPiii))        # |k| <= eps1 on P, which C_P's derivation uses (in lam_rec)
     lamP = d("lambda_P", sp.Min(sp.Symbol('lam1', positive=True), sp.Symbol('d0', positive=True)/20, 1,
                                 *tnodes.values()))
-    return d, dict(C_P=C_P, C_rhoP=CrhoP, C_L3P=C_L3P, C_L4P=C_L4P, lambda_P=lamP, C_dP=C_dP, M_EP=M_EP,
-                   M_N=M_N, M_F=M_F, terms=tnodes)
+    return d, dict(C_P=C_P, C_rhoP=CrhoP, C_L3P=C_L3P, C_L4P=C_L4P, C_L4P_P=C_onP, lambda_P=lamP, C_dP=C_dP,
+                   M_EP=M_EP, M_N=M_N, M_F=M_F, lam_kP=lamkP, terms=tnodes)
 
 
 def certP():
@@ -367,8 +406,8 @@ def tableP(leaf, NP, beta0):
     """an independent transcription (mpmath, written from R9.1's display line by line)"""
     mp.mp.dps = 40
     g = lambda nm: mp.mpf(sp.N(leaf[sp.Symbol(nm, positive=True)], 40))           # noqa: E731
-    n, e1, Tn, Cs, C2, Ks, a, b, CS3, A, C3v, Ci, Cdw, Cnl, e2 = [g(x) for x in (
-        'n', 'eps1', 'T', 'C_S', 'C2', 'K_s', 'a', 'b', 'C_S3', 'A', 'C3', 'C_inf', 'C_dw', 'C_nl', 'eps2')]
+    iota, e1, Tn, Cs, C2, Ks, a, b, CS3, A, C3v, Ci, Cdw, Cnl, e2 = [g(x) for x in (
+        'iota', 'eps1', 'T', 'C_S', 'C2', 'K_s', 'a', 'b', 'C_S3', 'A', 'C3', 'C_inf', 'C_dw', 'C_nl', 'eps2')]
     P = {k: g(k) for k in PLEAVES}
     CE5v, lam1, d0 = g('C_E5'), g('lam1'), g('d0')
     Kp = NP - 1
@@ -376,7 +415,7 @@ def tableP(leaf, NP, beta0):
     MN = 8*P['C_9']*P['C_pr']*(MF + P['C_R'] + 1)                                 # 9.9: B := 8 C C' (M_F + C_R + 1)
     Piii = P['C_93']*max(2*MF, MN*(1 + P['C_kP']))                                # (P-iii): Lemma 9.3 (a)
     MEP = C3v*(MN + 1 + P['C_RO']) + 1                                            # Theorem E's M, data M_N
-    nn = n*(n + mp.mpf(3)/5)                                                      # n^2/(1 - n eps1)
+    nn = iota                                                                     # 1/(s0 (s0 - eps1))
     CP = nn*(P['C_kP'] + max(Piii, 2*Ci*MEP))
     CrhoP = 2*CP*(2 + Tn)
     CdP = CE5v*P['K_P']**(NP + 1)*(1 + P['S_aP'] + P['S_bP'])**(NP + 1)/mp.factorial(NP - 2)
@@ -394,7 +433,8 @@ def tableP(leaf, NP, beta0):
     sa, sb = sum(Ca.values()), sum(Cb.values())
     CdO = K**(NP + 1)*(1 + sa + sb)**(NP + 1)/mp.factorial(NP - 2)
     CL3P = max(Cb.values())
-    CL4P = Cs*mp.exp(C2*(1 + MEP + K)*Tn)*(2*P['C_95']*mp.exp(2*P['C_95']*P['C_k4'])*CdP + Tn*CdO)
+    onP = 2*P['C_95']*mp.exp(2*P['C_95']*P['C_k4'])*CdP                          # L.4_P: the energy at tau0 from P
+    CL4P = Cs*mp.exp(C2*(1 + MEP + K)*Tn)*(onP + Tn*CdO)
     lamF = (8*P['C_F']**2*mp.exp(6*P['C_F'])*MF)**(-mp.mpf(1)/(Kp - 5))
     lamMF = min(P['eps_P']/(2*nn*P['C_kP']), (P['eps_P']/(4*nn*P['C_93']*MF))**(mp.mpf(1)/(Kp - 3)))
     lamN = (4*P['C_9']*MN)**(-1/(Kp - 8 - 4*mp.mpf(beta0)))
@@ -403,7 +443,9 @@ def tableP(leaf, NP, beta0):
     lamEP = min(e1/(2*P['C_kP']), (min(e1, e2)/(4*Ci*MEP))**(mp.mpf(1)/3), (2*Cdw*MEP)**(-mp.mpf(1)/2),
                 1/(C3v*Cnl*MEP**2))
     lamP = min(lam1, d0/20, 1, lamF, lamMF, lamN, lamAbs, lamMN, lamEP)
-    return dict(C_P=CP, C_rhoP=CrhoP, C_L3P=CL3P, C_L4P=CL4P, lambda_P=lamP)
+    lamkP = e1/(P['C_kP'] + Piii)
+    return dict(C_P=CP, C_rhoP=CrhoP, C_L3P=CL3P, C_L4P=CL4P, C_L4P_P=onP, lambda_P=lamP, lam_F=lamF, lam_mF=lamMF,
+                lam_N=lamN, lam_abs=lamAbs, lam_mN=lamMN, lam_EP=lamEP, lam_kP=lamkP)
 
 
 def c3(control=False):
@@ -422,14 +464,15 @@ def c3(control=False):
             leaf[PS['C_9']] = sp.Rational(1, 5)
             v = d2.value(leaf)
             t = tableP(leaf, NP0, b00)
-            mism.append(any(abs(mp.mpf(sp.N(v[nodes2[k]], 40)) - t[k]) > mp.mpf(10)**-25*abs(t[k])
-                            for k in ('C_L4P', 'lambda_P')))
+            vals = dict(nodes2['terms'])
+            vals.update({k: nodes2[k] for k in ('C_P', 'C_rhoP', 'C_L3P', 'C_L4P', 'C_L4P_P', 'lambda_P', 'lam_kP')})
+            mism.append(any(abs(mp.mpf(sp.N(v[vals[k]], 40)) - t[k]) > mp.mpf(10)**-25*abs(t[k]) for k in vals))
         return not (planted and all(mism))                   # the control passes only if something is missed
     d, nodes = build_P(NP0, b00)
     allowed = LAMBDA0 | set(certP()) | CL.SEED | set(PS.values()) | set(trace_leaves(NP0))
     extra = d.leaves() - allowed
     cp = certP()
-    mono_nodes = [nodes[k] for k in ('C_P', 'C_rhoP', 'C_L3P', 'C_L4P')]
+    mono_nodes = [nodes[k] for k in ('C_P', 'C_rhoP', 'C_L3P', 'C_L4P', 'C_L4P_P')]
     structural = all(CL.positive_tree(e.subs(cp)) for s_, e in d.defs if s_ in set(mono_nodes) or not str(
         s_).startswith('lam'))
     termpos = True                                        # every term of lambda_P positive (checked at each point)
@@ -458,24 +501,27 @@ def c3(control=False):
         leaf[PS['C_9']] = sp.Rational(rng.randint(5, 25), 100)
         v = d.value(leaf)
         t = tableP(leaf, NP0, b00)
-        for k in ('C_P', 'C_rhoP', 'C_L3P', 'C_L4P', 'lambda_P'):
-            worst = max(worst, abs(mp.mpf(sp.N(v[nodes[k]], 40)) - t[k])/abs(t[k]))
+        vals = dict(nodes['terms'])
+        vals.update({k: nodes[k] for k in ('C_P', 'C_rhoP', 'C_L3P', 'C_L4P', 'C_L4P_P', 'lambda_P', 'lam_kP')})
+        for k in vals:
+            worst = max(worst, abs(mp.mpf(sp.N(v[vals[k]], 40)) - t[k])/abs(t[k]))
     trans = worst < mp.mpf(10)**-25
     # the illustration: every uncertified leaf 1 (then beta0 = 5, N_P = 30)
     NPi, b0i = NP_of(1), beta0_of(1)
     di, nodi = build_P(NPi, b0i)
     ill = dict(cp)
     ill.update({s_: 1 for s_ in di.leaves() - set(cp)})
+    ill.update({iota_s: ILL_IOTA, e1_s: ILL_E1})
     vi = di.value(ill)
     lg = lambda x: mp.nstr(mp.log10(mp.mpf(sp.N(vi[x], 30))), 6)                   # noqa: E731
     which = min(nodi['terms'], key=lambda k: sp.N(vi[nodi['terms'][k]], 30))
     ok = not extra and structural and termpos and fd and trans
     out("  C3 Theorem 2's constants as a DAG (%d named constants at N_P = 18): its uncertified leaves are Theorem P's %s,"
-        " the traces Tr1..Tr18, lambda0's %s and the seed's %s; outside these and the certified numbers (C_E5 = pi"
+        " the traces Tr1..Tr18, lambda0's leaves and nodes %s and the seed's %s; outside these and the certified numbers (C_E5 = pi"
         " sqrt(2 d1) <= %s, lam1 >= %s, d0 >= %s): %s; C_P, C_rhoP, C_L3P, C_L4P increasing and every term of lambda_P"
         " decreasing (eps_P: increasing) in every leaf at beta0 = 2, structurally %s, %s, by finite differences %s; an"
         " independent transcription at 20 random points: largest relative difference %s: %s.  Illustration (every"
-        " uncertified leaf 1, so beta0 = 5, N_P = 30): log10 C_P = %s, log10 C_rhoP = %s, log10 C_L3P = %s, log10"
+        " uncertified leaf 1, eps1 = 5.2617e-4, iota = 1074.6; so beta0 = 5, N_P = 30): log10 C_P = %s, log10 C_rhoP = %s, log10 C_L3P = %s, log10"
         " C_L4P = %s, lambda_P = %s (binding %s)"
         % (len(d.defs), sorted(PLEAVES), sorted(map(str, (set(leaves) & LAMBDA0))), sorted(map(str, set(leaves) &
                                                                                             CL.SEED)),
@@ -628,25 +674,44 @@ def c5(control=False):
                      " evaluation at 200 points beyond: %s; E_H2 at beta0 = 2, 9/4, 3, 5: %s, %s, %s, %s (increasing: %s)"
                      % (lab, dn(E, 1), nm, ", ".join("%s %s" % (r_[0], up(r_[1], 1)) for r_ in rows), dn(E, 1), dok,
                         dn(h2, 1), *[mp.nstr(mp.mpf(x), 7) for x in mono], incr))
+    # E_H2 decreasing in delta on (0, 1/2]: at E = E_H2(delta) and delta' < delta, f_delta'(E) - f_delta(E) = (delta -
+    # delta') E - (b(delta) - b(delta')) sqrt(E) >= (delta - delta') sqrt(E) (sqrt(E) - c_b) > 0, c_b := M_P L2 sqrt(ln
+    # 10)/(2 sqrt 3) (sqrt(3 + delta) - sqrt(3 + delta') <= (delta - delta')/(2 sqrt 3)), since sqrt(E) >= b(0)/delta >=
+    # 2 M_P sqrt(3 ln 10) L2 > c_b; so lambda_25(delta) <= 10^(-E_cf(1/2)) for every delta <= 1/2.  A grid as a check:
+    grid = [sp.Rational(1, 2), sp.Rational(9, 20), sp.Rational(2, 5), sp.Rational(3, 10), sp.Rational(1, 5),
+            sp.Rational(1, 10), sp.Rational(1, 20), sp.Rational(1, 100)]
+    eh = [dict(e_cf(ivq(dl))[1])["H2"] for dl in grid]
+    dec = all(eh[i].b <= eh[i + 1].a for i in range(len(eh) - 1))
+    MP0 = 2*(K_EX + 12) + 8
+    cb = MP0*L25.L2*iv.sqrt(L25.LN10)/(2*iv.sqrt(3))
+    lowroot = 2*MP0*iv.sqrt(3*L25.LN10)*L25.L2
+    dec &= lowroot.a > cb.b
+    ok &= dec
+    lines.append("E_H2 at delta = 1/2, 9/20, 2/5, 3/10, 1/5, 1/10, 1/20, 1/100: %s, decreasing in delta: %s (and"
+                 " deduced on all of (0, 1/2]: sqrt(E_H2) >= %s > c_b = %s), so lambda_25(delta) <= 10^(-%s) for every"
+                 " delta in (0, 1/2]" % (", ".join(dn(x, 1) for x in eh), dec, dn(lowroot, 2), up(cb, 3),
+                                          dn(eh[0], 1)))
     # the illustration of the whole formula: every uncertified leaf 1, lambda0 = 0.00244
     CL1 = mp.mpf(cl1_value()._mpi_[1])
     d1, CL3, C1, Crho1, C4, inv = build1()
     ill1 = dict(CERT2)
     ill1.update({s_: 1 for s_ in d1.leaves() - set(CERT2)})
     ill1[CL.lam0] = sp.Rational(244, 100000)
+    ill1[iota_s] = ILL_IOTA
     v1 = d1.value(ill1)
     NPi, b0i = NP_of(1), beta0_of(1)
     dP, nodP = build_P(NPi, b0i)
     illP = certP()
     illP.update({s_: 1 for s_ in dP.leaves() - set(certP())})
     illP[CL.lam0] = sp.Rational(244, 100000)
+    illP.update({iota_s: ILL_IOTA, e1_s: ILL_E1})
     vP = dP.value(illP)
     f = lambda v_, x: mp.log10(mp.mpf(sp.N(v_[x], 30)))                             # noqa: E731
     g = {"W1": iv.mpf(f(v1, C4) + mp.log10(CL1)), "M1": iv.mpf(f(v1, CL3) + mp.log10(CL1))}
     gw2, gm2 = f(vP, nodP['C_L4P']) + mp.log10(CL1), f(vP, nodP['C_L3P']) + mp.log10(CL1)
     crho = max(mp.mpf(sp.N(v1[Crho1], 30)), mp.mpf(sp.N(vP[nodP['C_rhoP']], 30)))
     lamrec = min(mp.mpf('0.00244'), mp.mpf(sp.N(v1[inv], 30)), mp.mpf(sp.N(vP[nodP['lambda_P']], 30)),
-                 1/(2*mp.mpf(sp.N(vP[nodP['C_P']], 30))))
+                 1/(2*mp.mpf(sp.N(vP[nodP['C_P']], 30))), mp.mpf(sp.N(vP[nodP['lam_kP']], 30)))
     lB, Ib = L25.inputs()
     MPi = 2*NPi + 8
     if len(lB) <= MPi:
@@ -677,7 +742,8 @@ def c5(control=False):
         illrows.append("delta = %s: E_25 = %s (binding %s)" % (lab, up(worst[1], 0), worst[0]))
     out("  C5 lambda_25's status: the constant-free conditions (H1, H2 and Tl at beta0 = 2, Lh, J with gamma_J >= log10"
         " 4 pi) give, certified, " + "; ".join(lines) + ".  Every other condition's gamma involves C_L3, C_L4, C_L3P or"
-        " C_L4P, uncertified.  Illustration (every uncertified leaf 1, lambda0 = 0.00244; beta0 = 5, N_P = 30; C_L1"
+        " C_L4P, uncertified.  Illustration (every uncertified leaf 1, lambda0 = 0.00244, eps1 = 5.2617e-4, iota ="
+        " 1074.6; beta0 = 5, N_P = 30; C_L1"
         " certified, log10 C_L1 = %s): gamma_w = %s, gamma_m = %s, gamma_wP = %s, gamma_mP = %s, C_rho = %s, lam_rec ="
         " %s; %s (a value of the formula, not a bound)"
         % (mp.nstr(mp.log10(CL1), 5), mp.nstr(mp.mpf(g["W1"].a), 7), mp.nstr(mp.mpf(g["M1"].a), 7),

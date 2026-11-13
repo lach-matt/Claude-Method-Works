@@ -44,8 +44,9 @@ m_1(ell, ell) = 0 (Lemma 5.3 (b), ell = d_r).
   CH (computed, floating point) The chain at X*: with m_1(X*) = M_22 e_phi1 e_phi1, sup over the phase of |g_1|_op
      exceeds (4/3) K by |M_22|, and of |g_1|_F^2 by at least B + M_22^2 (classm5 K1-K2, r7fixes5 R1-R2, READ). The
      sharpened bounds are computed from eps1 / C_app unrounded and rounded up.
-  R1, R2 (measured; printed, not checks) The lower-order coefficients' sizes at th = pi/4 over X*'s past, and the
-     cost of evaluating every coefficient function on one space-time box in Arb balls.
+  R1, R2 (measured; printed, not checks) The lower-order coefficients' sizes at th = pi/4 over the solve's domain
+     (to v = 3), and the cost of evaluating every coefficient function on one space-time box in Arb balls (a count of
+     evaluations, not of the sharpness a certificate needs).
   Controls (each mutates the computed path and must fail): C1 the mean source S with its sign flipped: M_22 leaves the
   band and N3b fails; C2 gh_2's coupling into the mean dropped: the same; C3 gh_2's first-harmonic data on Sigma set to
   zero (violating (F1)): N3 fails at tau0; C4 the axis division after removing the numerator's interpolated axis
@@ -1205,8 +1206,9 @@ def main():
     ik = float(np.trapezoid(R[:, 1], R[:, 0]))
     tol0 = abs(best) / 1391.72 / (2 ** 0.5 * 37.8)
     print('  R1 (measured, floating point; the coefficients\' sizes, not a rate in Lemma 9.1\'s energy): at th = pi/4 '
-          'over X*\'s past the mean equations\' first-order coefficients (row sums, normalised by the d_tau^2 '
-          'coefficient) run from %.1f at tau0 to %.1f at tau*, the zero-order ones from %.1f to %.3g, the couplings to '
+          'over the solve\'s domain (to v = 3, beyond X*\'s past) the mean equations\' first-order coefficients (row '
+          'sums, normalised by the d_tau^2 coefficient) run from %.1f on the tau0 slice to %.1f on the tau* slice, the '
+          'zero-order ones from %.1f to %.3g, the couplings to '
           'gh_2 from %.2f to %.1f; int of the first-order size over [tau0, tau*] = %.1f, e^(int/2) = %.2e; the '
           'tolerance '
           '|M_22|/(1391.72 x 2^(1/2) x 37.8) = %.2e would fall to %.2e with that factor alone'
@@ -1215,11 +1217,13 @@ def main():
     per, nex = arb_cost(res)
     cells = BEST[0] * BEST[1] * runs[BEST]['steps']
     print('  R2 (measured, this machine): every coefficient function of the closed system (%d expressions) on one '
-          'space-time box in Arb balls takes %.2e s, so over the %d cells of 48 x 16 about %.0f s: the interval '
-          'evaluation is not the obstacle' % (nex, per, cells, per * cells))
-    print('  Not decided here (LAMBDA0-DATA5.md sections 12.5, 13): a certified enclosure of M_22, or a certified '
-          'm_lo > 0: every route needs a certified rate for the lower-order terms, which no estimate here or in the '
-          'record bounds, and the constants of the point evaluation.')
+          'space-time box (0.005-0.01 wide) in Arb balls takes %.2e s, so over the %d cells of 48 x 16 about %.0f s. '
+          'This counts evaluations, not sharpness: on such boxes the balls are about 10 %% wide, and a certified '
+          'residual needs about 1e-12 (M22CERT5.md X6 measures the sharpness)' % (nex, per, cells, per * cells))
+    print('  Not decided here (LAMBDA0-DATA5.md sections 12.5, 13, 14; M22CERT5.md): a certified enclosure of M_22, or '
+          'a certified m_lo > 0: every route needs a certified rate for the lower-order terms, which no estimate here '
+          'or in the record bounds, a certified residual far sharper than first-order interval evaluation reaches, and '
+          'the constants of the point evaluation.')
     for k, val in OK.items():
         builtins.print(k, 'PASS' if val else 'FAIL')
     builtins.print('m22evol5: %d/%d %s' % (sum(OK.values()), len(OK), el()))
