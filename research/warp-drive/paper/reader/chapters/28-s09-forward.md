@@ -117,10 +117,10 @@ and for the operators below ([[def:ii-c-3-5]]; [Hin26c, Remark 10.2]), is γ < 3
 The existence of solutions below uses one standard result on hyperbolic equations, which the appendix of results from the
 literature states with its page.
 
-*The Cauchy problem* ([Hö85, Section 23.2]). Let Q be a second-order operator with smooth coefficients on a vector
-bundle over a manifold X, with principal symbol G Id, G the dual metric function of a Lorentzian metric on X, and let t
-be a time function whose level sets are Cauchy hypersurfaces. For f ∈ H^(s−1)_loc(X) with supp f ⊂ {t ≥ t_0} there is
-u ∈ H^(s)_loc(X) with Qu = f and supp u ⊂ {t ≥ t_0}.
+*The Cauchy problem* ([Hö85, Chapter 23] [[pending:issue-1]]). Let Q be a second-order operator with smooth coefficients
+on a vector bundle over a manifold X, with principal symbol G Id, G the dual metric function of a Lorentzian metric on
+X, and let t be a time function whose level sets are Cauchy hypersurfaces. For f ∈ H^(s−1)_loc(X) with supp f ⊂ {t ≥
+t_0} there is u ∈ H^(s)_loc(X) with Qu = f and supp u ⊂ {t ≥ t_0}.
 
 **Lemma {#lem:ii-f-6-3}** (Control at 𝓘⁺ of the extension.) Let s′ ∈ ℝ, T ∈ ℝ, and g ∈ H^(s′−1)_c with support in
 {T ≤ t_* ≤ T + 2, 2 ≤ r ≤ 3}. There is a unique u on {t_* < T + 2}, vanishing for t_* < T and for r < 1, with

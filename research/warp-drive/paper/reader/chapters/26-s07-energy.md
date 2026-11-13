@@ -31,7 +31,7 @@ its faces ι⁺, ℐ⁺ and K⁺; the b-, e3b- and eb-structures; the spaces H^(
 [[eq:ii-a-8-1]], with their supported and extendible versions ([[sec:ii-a-7]]); the model operator P_0, the quantity
 p̄_1 of [[def:ii-c-3-5]], the time function t^♭_* and the domains Ω and Ω_* of [[lem:ii-c-3-2]]; and the radial
 estimates of [[sec:ii-d-3]]. An estimate holds *in the strong sense* if, whenever its right side is finite, so is its
-left side, and the estimate holds. The operators act on sections of the trivial bundle of [[sec:i-a-1]]; b-vector
+left side, and the estimate holds. The operators act on sections of the trivial bundle ℂ^(N_E) of [[sec:i-a-1]]; b-vector
 fields act on them componentwise, and a fibre inner product is a smooth family of Hermitian inner products on the fibre.
 The radii r_0 − 2δ_0 < r_0 < r_2 < r_h are those of [[sec:i-a-1]]. They are parameters: every constant chosen below from
 them is chosen by an inequality that a smaller inner radius r_0 does not make harder to satisfy (for instance the bound
@@ -804,10 +804,10 @@ times the coefficient norms; d_0 depends only on 𝗌 and m.
 (b) (*Tame products, with room.*) Let Ω′ ⊂ Ω″ be nested with room δ. There are d_0 and d̃, depending only on 𝗌, such
 that for all k, 0 ≤ j ≤ k, ℓ ∈ C^((d_0;k))_(e;b) near Ω″ and w ∈ H^((𝗌;k))(Ω″)^(•,−),
 
-    ‖(D^j_[b] ℓ)(D^(k−j)_[b] w)‖_(H^𝗌(Ω′)^(•,−))
+    ‖(D^j_([b]) ℓ)(D^(k−j)_([b]) w)‖_(H^𝗌(Ω′)^(•,−))
         ≤ C_k (‖ℓ‖_((d_0;d̃)) ‖w‖_(H^((𝗌;k))(Ω″)^(•,−)) + ‖ℓ‖_((d_0;k)) ‖w‖_(H^((𝗌;d̃))(Ω″)^(•,−))),
 
-with D_[b] the schematic notation of [[sec:ii-a-9]] and C_k depending also on δ.
+with D^j_([b]) as in [[def:ii-a-9-4]] and C_k depending also on δ.
 
 (c) (*Norms through words, with room.*) Let 𝒳 = (X_1, …, X_J), X_J = I, be b-differential operators of order 1
 spanning 𝒱_b over a neighbourhood of Ω″, and for a word γ = (γ_1, …, γ_q) ∈ {1, …, J}^q put X^γ := X_(γ_1) ⋯ X_(γ_q)
@@ -830,12 +830,12 @@ its final faces, with bounded b-derivatives. For w ∈ H^((𝗌;k))(Ω″)^(•,
 on the extension w̃ supported in {t^♭ ≥ T_0}, as all such extensions agree where χ_3 ≠ 0. So, taking w̃ minimal for the
 norm of order (𝗌;i), ‖z‖_((𝗌;i)) ≤ C_i ‖w‖_(H^((𝗌;i))(Ω″)^(•,−)) for every i, with the same z ([[lem:ii-a-8-4]] (a) for
 multiplication by χ_3). z extends w|_(Ω′). Let ℓ^♯ be the Seeley extension of ℓ, and χ_1, χ_2 cut-offs equal to 1 near
-Ω′ with χ_2 = 1 near supp χ_1 and χ_3 = 1 near supp χ_2. Then χ_1 (D^j_[b] ℓ^♯)(D^(k−j)_[b] z) extends
-(D^j_[b] ℓ)(D^(k−j)_[b] w), and [[prop:ii-a-9-6]] with B = χ_1 and B^♯ = χ_2 bounds its H^𝗌-norm by the right side, the
+Ω′ with χ_2 = 1 near supp χ_1 and χ_3 = 1 near supp χ_2. Then χ_1 (D^j_([b]) ℓ^♯)(D^(k−j)_([b]) z) extends
+(D^j_([b]) ℓ)(D^(k−j)_([b]) w), and [[prop:ii-a-9-6]] with B = χ_1 and B^♯ = χ_2 bounds its H^𝗌-norm by the right side, the
 terms with ‖χz‖_((𝗌_0;·)) being bounded by those with 𝗌.
 
 (c) The first bound holds as X^γ w̃ extends X^γ w. For the second, with z as in (b), ‖z‖_((𝗌;k)) is equivalent to
-Σ_(|γ|≤k) ‖X^γ z‖_𝗌 ([[eq:ii-a-8-1]] and [[sec:ii-a-9]]: two spanning sets give equivalent norms), and by the Leibniz
+Σ_(|γ|≤k) ‖X^γ z‖_𝗌 ([[eq:ii-a-8-1]] and [[def:ii-a-9-4]]: two spanning sets give equivalent norms), and by the Leibniz
 rule for words X^γ z is a sum of terms χ′ X^β w̃ with |β| ≤ |γ| and χ′ a b-derivative of χ_3, supported where χ_3 is;
 each such term is independent of the extension, and its H^𝗌-norm is at most C ‖X^β w‖_(H^𝗌(Ω″)^(•,−)). ∎
 
@@ -868,14 +868,14 @@ differentiates the coefficients once; writing each coordinate field as Σ_j c_j 
 Σ_j Q_ij X_j, the first-order part of [L, X_i] going into Q_iJ X_J. Patch the two representations with a partition of
 unity in x_I. ∎
 
-Consequently, by [[lem:ii-d1-2-1]] in its case without loss of derivatives (the case of the radial sets) and with
+Consequently, by [[lem:ii-d1-2-1]] with 𝔩 = 0 (no loss of derivatives, the case of the radial sets) and with
 R_i = 0, for u on a slab and f := Pu the words u^(j) := (X^γ u)_(γ∈𝒲_j) satisfy
 
     P^(j) u^(j) = W (X^γ(W⁻¹ f))_γ + W f̃^(j),        P^(j) := W L^(j) = P ⊗ Id − W Q^(j),                {#eq:ii-e-4-1}
 
 with Q^(j) the coupling of [[eq:ii-d1-2-2]] and f̃^(j)_γ = −Σ_(|S|≥2) (ad_(X_S) L) X^(γ∖S) u, the sum over sets S of
 positions in γ, X^(γ∖S) the word with those letters deleted, and ad_(X_S) the iterated commutator. P^(j) acts on
-𝒲_j-tuples of sections. It has the principal symbol of P; its first-order coupling W Q^(j) has coefficients
+(ℂ^(N_E))^(𝒲_j). It has the principal symbol of P; its first-order coupling W Q^(j) has coefficients
 O(x_I^(2+min(1,2ℓ_I))) near ℐ⁺, so its normal form at ℐ⁺, [[eq:ii-e-1-1]], has the same p_1 as P ⊗ Id (its
 zeroth-order part, of size O(x_I²), changes p_0, which is never used), and its principal symbol of order 1 vanishes at
 R. So P^(j) satisfies everything [[sec:ii-e-2]] and [[sec:ii-e-3]] use, with the same margins, and [[prop:ii-e-3-4]]
@@ -960,9 +960,9 @@ b-derivatives fall on the coefficients, are bounded as in [[prop:ii-e-4-3]] by n
 b-derivatives fall on a coefficient p of P − P_0. As in [[lem:ii-d1-2-4]] (b) and [Hin26c, (7.55)–(7.56)], commute the
 second-order factor to the front; it remains to bound
 
-    ‖(D^(q′)_[b] D^(≤2)_e p)(D^(j−q)_[b] u″)‖_(H^(𝗌+1)(Ω_(2j))),     q′ ≤ q.
+    ‖(D^(q′)_([b]) D^(≤2)_e p)(D^(j−q)_([b]) u″)‖_(H^(𝗌+1)(Ω_(2j))),     q′ ≤ q.
 
-[[lem:ii-e-4-1]] (b) on Ω_(2j) ⊂ Ω_(2j−1), with D²_[b] D^(≤2)_e p in the place of ℓ and (q′ − 2, j − q + q′ − 2) in the
+[[lem:ii-e-4-1]] (b) on Ω_(2j) ⊂ Ω_(2j−1), with D²_([b]) D^(≤2)_e p in the place of ℓ and (q′ − 2, j − q + q′ − 2) in the
 place of (j, k), bounds it by
 
     C_j (‖p‖_((d_1+2;d̃+2)) ‖u″‖_((𝗌+1;j−2)) + ‖p‖_((d_1+2;j)) ‖u″‖_((𝗌+1;d̃)))
@@ -1183,7 +1183,7 @@ differentiated by −∂_(x^j); [P, t_*∂_(t_*)] = [P, t_*]∂_(t_*) − (t_*�
 coefficients in C^((d_0;k−1))_(e3b;b), as V_i is a b-vector field. Write each second-order term ∂_μ ∂_ν as
 ∂_μ ∘ Σ_j c_(νj) V_j with c_(νj) ∈ {0, 1, t_*⁻¹}; this is Σ_j Q_ij V_j with Q_ij of first order. [P, I] = 0. ∎
 
-By [[lem:ii-d1-2-1]] in its case without loss of derivatives and with R_i = 0, as in [[eq:ii-e-4-1]], for u on an
+By [[lem:ii-d1-2-1]] with 𝔩 = 0 and R_i = 0, as in [[eq:ii-e-4-1]], for u on an
 r-slab and f := Pu the words u^(j) := (X^γ u)_(γ∈𝒲_j) satisfy
 
     P^(j) u^(j) = (X^γ f)_γ + f̃^(j),     P^(j) := P ⊗ Id − Q^(j),
