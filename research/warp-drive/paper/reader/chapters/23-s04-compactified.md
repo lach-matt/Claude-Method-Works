@@ -1513,32 +1513,41 @@ Ell(L) is defined by such a bound on a neighbourhood. Fix cut-offs χ̃_i ∈ C^
 supp χ̃_i ⊂ K_i, multiplied by base cut-offs so that the operators are carried by χ. Put G_i := Op(χ̃_i), i ≥ 1. By
 [[sec:ii-a1-1-2]], B is microsupported in K_0: B = Op(b) + R_B with supp b ⊂ K_0.
 
-*One step.* Let A be of order 𝗋, microsupported in K_i, A = Op(a) + R_A with a ∈ S̃^𝗋 supported in K_i, and i ≤ J. Put
+*One step.* Let A ∈ Ψ̃^𝗋 be microsupported in K_i, A = Op(a) + R_A with a ∈ S̃^𝗋 (smooth) supported in K_i, and i ≤ J. Put
 q := χ̃_(i+1) a ℓ⁻¹ ∈ C^((d_0)) S̃^(𝗋−m), which is defined since ℓ is invertible on K_(i+1); writing ℓ = ρ_∞^(−m)ℓ_0, its
 norms are bounded by those of ℓ and by C_ℓ, by ∂(ℓ_0⁻¹) = −ℓ_0⁻¹(∂ℓ_0)ℓ_0⁻¹. By [[eq:ii-a1-1-2]],
 
     Op(q)L = Op(q)Op(ℓ_f) + Op(q) Σ_j a_jR_j = Op(qℓ_f) + D_1 + Op(q) Σ_j a_jR_j,
 
-where D_1 has order 𝗋 − 1 + δ by [[prop:ii-a1-2-4]] (b). Next, qℓ_f = χ̃_(i+1)a + χ̃_(i+1)aℓ⁻¹(ℓ_f − ℓ), and
-ℓ_f − ℓ = Σ_j a_j(p_j − σ(P_j)) ∈ C^((d_0)) S̃^(m−1). Also χ̃_(i+1)a = a. So
+where D_1 := Op(q)Op(ℓ_f) − Op(qℓ_f) has order 𝗋 − 1 + δ by [[prop:ii-a1-2-4]] (b). Next, qℓ_f = χ̃_(i+1)a +
+χ̃_(i+1)aℓ⁻¹(ℓ_f − ℓ), and ℓ_f − ℓ = Σ_j a_j(p_j − σ(P_j)) ∈ C^((d_0)) S̃^(m−1). Also χ̃_(i+1)a = a. These are exact
+identities of symbols, χ̃_(i+1) being 1 on supp a. So
 
     A = Op(q)L − E_A,     E_A := D_1 + Op(χ̃_(i+1)aℓ⁻¹(ℓ_f − ℓ)) + Op(q) Σ_j a_jR_j − R_A.                {#eq:ii-a1-3-1}
 
-E_A has order 𝗋 − 1 + δ, and each of its terms is a composite with a factor whose symbol is supported in K_(i+1). The
-term Op(q) Σ a_jR_j has every order, by [[prop:ii-a1-2-4]] (a) and [[lem:ii-a-8-5]] (a) for the multiplications. Apply
-[[eq:ii-a1-3-1]] to u, with χu ∈ H^(−N). By the support convention, Au = Aχu, and all terms make sense once d_0 is
-large for the finitely many orders involved.
+E_A has order 𝗋 − 1 + δ. The term Op(q) Σ a_jR_j has every order, by [[prop:ii-a1-2-4]] (a) and [[lem:ii-a-8-5]] (a)
+for the multiplications, R_j being residual. Apply [[eq:ii-a1-3-1]] to u, with χu ∈ H^(−N). By the support convention,
+Au = Aχu, and all terms make sense once d_0 is large for the finitely many orders involved. Fix a cut-off χ_* that
+carries the operators of this proof and with χ = 1 near the D-neighbourhood of supp χ_* ([[sec:ii-a-8-3]]); then
+‖χ_*Lu‖_(−N−m) = ‖χ_*Lχu‖_(−N−m) ≤ C‖χu‖_(−N) by [[lem:ii-a-8-6]] (a).
 
-The term Op(q)Lu: write Op(q) = Op(q)G_(i+2) + Op(q)(I − G_(i+2)). By [[prop:ii-a1-2-4]] (e), the second term has every
-order, its symbols being supported in K_(i+1) and in the support of 1 − χ̃_(i+2), which are disjoint. So
+*Localisation.* G_(i+1) = Op(χ̃_(i+1)) is microsupported in K_(i+1), and 1 − χ̃_(i+1) vanishes near K_i ⊃ supp a, so
+(I − G_(i+1))A ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]). I − G_(i+2) = Op(1 − χ̃_(i+2)) is microsupported in the support of
+1 − χ̃_(i+2), which is disjoint from K_(i+1). Hence, writing A = G_(i+1)A + (I − G_(i+1))A and inserting
+I = G_(i+2) + (I − G_(i+2)) after Op(q) and after E_A,
 
-    ‖Op(q)Lu‖_(𝗋′) ≤ C‖G_(i+2)Lu‖_(𝗋′+𝗋−m) + C‖χLu‖_(−N−m)
+    A = G_(i+1)Op(q)G_(i+2)L − G_(i+1)E_AG_(i+2) + G_(i+1)Op(q)(I − G_(i+2))L − G_(i+1)E_A(I − G_(i+2))
+        + (I − G_(i+1))A.
 
-for every order 𝗋′. Further, ‖G_(i+2)Lu‖ ≤ C(‖GLu‖ + ‖χLu‖_(−N−m)) by [[lem:ii-a-8-4]] (c), as
-K_(i+2) ∩ ᵉ³ᵇS*M̃ ⊂ Ell(G). Finally ‖χLu‖_(−N−m) ≤ C‖χu‖_(−N) by [[lem:ii-a-8-6]] (a).
+By [[prop:ii-a1-2-4]] (e), with B_1 = G_(i+1), B_2 = I − G_(i+2) and the expressions Op(q) and E_A (whose terms with a
+residual factor R_j or R_A have every order directly), the third and fourth operators have every order; so has the
+fifth. By the support convention they may be applied to χ_*Lu, χu and χu. Hence, for every order 𝗋′,
 
-The term E_Au: in each of its terms, insert G_(i+2) in the same way after the factor supported in K_(i+1);
-[[prop:ii-a1-2-4]] (e) with three factors bounds the remainder. So ‖E_Au‖_(𝗋′) ≤ C‖G_(i+2)u‖_(𝗋′+𝗋−1+δ) + C‖χu‖_(−N).
+    ‖Au‖_(𝗋′) ≤ C‖G_(i+2)Lu‖_(𝗋′+𝗋−m) + C‖G_(i+2)u‖_(𝗋′+𝗋−1+δ) + C‖χu‖_(−N),
+
+Op(q) having order 𝗋 − m without loss ([[prop:ii-a1-2-4]] (a)) and G_(i+1)E_A order 𝗋 − 1 + δ. Further,
+‖G_(i+2)Lu‖_(𝗋′+𝗋−m) ≤ C(‖GLu‖_(𝗋′+𝗋−m) + ‖χ_*Lu‖_(−N−m)) by [[lem:ii-a-8-4]] (c), as K_(i+2) ∩ ᵉ³ᵇS*M̃ ⊂ Ell(G),
+and the last term is at most C‖χu‖_(−N).
 
 *Iteration.* Take δ = 1/2, 𝗋 = 0 and 𝗋′ = 𝗌 for A = B; then A = G_(i+2) and 𝗋′ = 𝗌 − j/2 at step j, with i = 2j.
 After J′ steps the remaining term is ‖G_(2J′)u‖_(𝗌−J′/2) ≤ C‖χu‖_(−N) once J′/2 ≥ sup 𝗌 + N. Take J := 2J′. Summing,

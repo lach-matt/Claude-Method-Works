@@ -18,13 +18,13 @@ states under x ↦ −x.
 
 *Notation.* The notation is that of [[ch:s11]]–[[ch:s19]]. The black hole parameters are b = (m, A), with tangent
 space 𝔟 = ℝ ⊕ 𝔰𝔬(4), b₀ = (m₀, 0) and R₁ = m₀^(1/2), and |b − b₀| is the norm of [[def:s12-radii]]. We write ℬ_1 and
-ℬ_* for the neighbourhoods B_1 and B_* of b₀ fixed in [[sec:iii-h2-0]], ℬ̄_* ⊂ ℬ_1. Shrinking ℬ_*, we take it to be an
-open ball about b₀. It is shrunk finitely many times, here and in the chapters that follow, each time to a smaller ball
-about b₀, and every statement holds on the final ℬ_*. Here it is shrunk once, in [[lem:s25a-ball]], to radius at most
-1/(2C_B), so that the matrix B(b) of the rows [[eq:iii-h-3-1]] on the states satisfies |B(b)⁻¹| ≤ 2 on ℬ̄_*. The
-letter ε > 0 is small. For the zero energy operator of the gauge potential operator we write P_b := (□^Υ_b)^(0) ([[sec:iii-d2-1]]), as
-in [[ch:s13]]; L̂_b(0) is the zero energy operator of L_b, L̃_b(0) its augmentation ([[prop:iii-h-3-2]]), and the
-states ġ_b(ḃ), h_b(S) = h_(b,s1)(S), h̆_b(S) and h_(b,v1)(V) are those of [[sec:iii-h-1]], [[prop:iii-d2-3-1]] and
+ℬ_* for the neighbourhoods B_1 and B_* of b₀ fixed in [[sec:iii-h2-0]], ℬ̄_* ⊂ ℬ_1. Shrinking ℬ_*, we take it to be an open ball
+about b₀. It is shrunk finitely many times, here and in the chapters that follow, each time to a smaller ball about b₀,
+and every statement holds on the final ℬ_*. Here it is shrunk once, in [[lem:s25a-ball]], to radius at most 1/(2C_B), so
+that the matrix B(b) of the rows [[eq:iii-h-3-1]] on the states satisfies |B(b)⁻¹| ≤ 2 on ℬ̄_*. The letter ε > 0 is
+small. For the zero energy operator of the gauge potential operator we write P_b := (□^Υ_b)^(0) ([[sec:iii-d2-1]]), as in
+[[ch:s13]]; L̂_b(0) is the zero energy operator of L_b, L̃_b(0) its augmentation ([[prop:iii-h-3-2]]), and the states
+ġ_b(ḃ), h_b(S) = h_(b,s1)(S), h̆_b(S) and h_(b,v1)(V) are those of [[sec:iii-h-1]], [[prop:iii-d2-3-1]] and
 [[prop:iii-f3-2-2]]; ġ_b(ḃ) is the gauge-corrected state ġ^Υ_b(ḃ) of [[eq:iii-f3-2-1]].
 
 *The inner radius.* Every result of the chapter holds with the inner radius r₀ = r_♭ ∈ (0, ½R₁] of [[def:s12-radii]]

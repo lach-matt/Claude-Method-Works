@@ -1390,10 +1390,14 @@ The 0-fields of the left factor lift to X̂²_0 as smooth vector fields tangent 
 Lemma (5.10), p. 284], where lb is the top face and rb the bottom face), and those of the right factor, by the symmetry
 of X̂²_0 that exchanges the factors, as smooth vector fields tangent to ff and lb and vanishing at rb; on X̂² the
 0-fields of either factor are tangent to both boundary hypersurfaces. So the same bounds hold after applying them on
-either side, and these parts map x^αH^(m−2)_0 to x^αH^m_0 for every integer m. The part in Ψ^(−2)_0 does so because the
-small 0-calculus is bounded on weighted 0-Sobolev spaces, an operator of Ψ^m_0 mapping x^αH^s_0 to x^αH^(s−m)_0
-[[pending:issue-1]]; the proof of [Hin23e, Corollary 3.3, pp. 31–32] uses this in the same way. By (i) with α_R = α
-and α < α_L < α_1, R′ maps x^αH^m_0 boundedly into x^(α_L)H^(m+1)_0, which embeds compactly in x^αH^m_0
+either side, and these parts map x^αH^(m−2)_0 to x^αH^m_0 for every integer m. The part in Ψ^(−2)_0 maps x^αH^(m−2)_0 to
+x^αH^m_0 as well, for every integer m and every real α, by the boundedness of the small 0-calculus on weighted 0-Sobolev
+spaces. Read on functions through g ↦ gν_0^(1/2), this part is a matrix of operators of Ψ^(−2)_0(X̂) in the sense of
+[Usu26] ([[thm:std-mazzeo-melrose]] (5)); near ∂X̂ the density μ_b is x⁻¹|dx dω|, so L²(μ_b) is the space L²_b of
+[[thm:std-mazzeo-melrose]] (2); and [[cor:std-zero-sobolev]], at the order −2 and with k = m, bounds each entry from
+x^αH^(m−2)_0 to x^αH^m_0 (for m ≥ 2 this is [Usu26, Theorem 5.20 (1), p. 119] itself). The proof of
+[Hin23e, Corollary 3.3, pp. 31–32] uses this in the same way. By (i) with α_R = α and α < α_L < α_1, R′ maps x^αH^m_0
+boundedly into x^(α_L)H^(m+1)_0, which embeds compactly in x^αH^m_0
 ([[lem:ii-f-5-3]]); likewise R (a = ∞, b = 3 − α_0 > 3 − α) is compact on x^αH^(m−2)_0. So Q′P̂ = I − R′ and P̂Q = I − R
 make P̂ Fredholm at the weight α = 2γ_I: finite-dimensional kernel and closed range from the first, finite codimension
 from the second. This is [Hin23e, Corollary 3.6, p. 34] at α = 2γ_I, whose proof [Hin23e]
@@ -1440,7 +1444,7 @@ R²N⁰(σ) = −2R(iσ + R∂_R)(R∂_R + c + S_0) + P⁽⁰⁾(0, ω, −R∂_
 polynomial in R, normal operator P⁽⁰⁾(0, ω, −R∂_R, ∂_ω), Mellin symbol J(ζ) = I(−ζ) and spec_J = −spec_b, as for the
 operator at ztf in [[sec:i-c-4-1]] (c); and it is b-elliptic, its principal symbol in (t, ω) being (1 + 2R)τ_t² + |η|²,
 τ_t the covector dual to t. As −γ_cf ∈ (β_−, β_+), γ_cf ∉ Re spec_J, and [[lem:i-c-2-6]] ([[eq:i-c-2-3]]) with m = −M
-and c = γ_cf gives, with χ̃ ∈ C^∞_c([0, 3)) equal to 1 on [0, 2],
+and the weight γ_cf in the place of its c gives, with χ̃ ∈ C^∞_c([0, 3)) equal to 1 on [0, 2],
 
     ‖χu‖_(H^(−M)_(b,γ_cf)) ≤ C(‖χ̃L_Ku‖_(H^(−M−2)_(b,γ_cf)) + ‖χ̃u‖_(H^(−M)_(b,γ_cf−1)))
                          ≤ C(‖N⁰(σ)u‖_(𝒴^(𝗌−2)) + ‖u‖_(𝒵_M)),
