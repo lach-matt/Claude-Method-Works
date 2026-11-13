@@ -83,7 +83,7 @@ exact ([[prop:reduction]]). Unlike Huneau and Luk's translation, each rotation h
 degenerates; the proof therefore never uses the reduced system and works in five-dimensional Cartesian coordinates, in
 which the axes are regular points. Five-dimensional Vaidya is the simplest large solution of the limiting system: its
 mass grows by exactly the averaged energy of the waves, and it carries a horizon. The domain ends where the curvature
-reaches a fixed scale l5, x_K := l5² √K = 1 with K the Kretschmann scalar; that surface lies inside the horizon, or on
+reaches a fixed scale l5, x_K := l5² √𝒦 = 1 with 𝒦 the Kretschmann scalar; that surface lies inside the horizon, or on
 it at equality, and is spacelike when μ0 > √72 l5² ([[prop:boundary-spacelike]]), so the domain is the domain of
 dependence of its data and nothing inside it is excised. The solution is constructed on a compact set Ω reaching a
 fixed distance inside that surface, and nothing in [[thm:main]], [[thm:past-construction]] and [[thm:bondi-law]] is

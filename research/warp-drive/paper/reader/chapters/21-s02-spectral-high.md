@@ -906,11 +906,11 @@ G ∈ Ψ^0 elliptic on Ū_0, E′ ∈ Ψ^0 elliptic on K_E, all M, K, z ∈ Z′
 
     ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖G𝐏u‖_(𝐨−𝐦+(1,1,0)) + δ_sink ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)),                {#eq:i-b-5-3}
 
-where δ_sink := 0 in the source case and 1 in the sink case.
+where δ_sink := 0 if Λ is a source, and δ_sink := 1 if Λ is a sink.
 
-So at a source the estimate needs no control near Λ, and at a sink it needs control on a punctured neighbourhood; the
-threshold [[eq:i-b-5-2]] decides which orders are allowed. In the source case [[eq:i-b-5-2]] asks κ̃ to be large (a
-high regularity or decay order), in the sink case small.
+So at a source, the estimate needs no control near Λ, and at a sink it needs control on a punctured neighbourhood; the
+threshold [[eq:i-b-5-2]] decides which orders are allowed. At a source, [[eq:i-b-5-2]] asks κ̃ to be large (a high
+regularity or decay order); at a sink, small.
 
 *Proof.* *The cut-offs.* Let χ_0(t) := χ(2 − t) with χ from [[lem:i-b-4-4]]: χ_0 = 1 on (−∞, 1], χ_0 = 0 on [2, ∞),
 χ_0′ ≤ 0, √(−χ_0χ_0′) smooth. For δ = (δ_1, δ_2, δ_3) put
@@ -937,13 +937,13 @@ b := w_𝐨 φ_δ Q_0^(1/2) ∈ S^𝐨.
 
 *The cut-off terms.* 2φ_δ ς𝖧φ_δ = Σ_(i=1)^3 k_i, where, with a_1 := ϱ, a_2 := φ, a_3 := g² and
 φ_i := χ_0(a_i/δ_i), k_i := 2φ_i χ_0′(a_i/δ_i) δ_i⁻¹ (ς𝖧a_i) Π_(j≠i) φ_j². Since χ_0χ_0′ ≤ 0: k_1 has the sign of
-−β_ϱϱ, and k_2 that of ∓1, on their supports; k_3 is supported where 𝐏 is elliptic. In the source case k_1 = −f_1²,
+−β_ϱϱ, and k_2 that of ∓1, on their supports; k_3 is supported where 𝐏 is elliptic. If Λ is a source, k_1 = −f_1²,
 k_2 = −f_2² with
 
     f_1 := √(−2χ_0χ_0′)(ϱ/δ_1) (β_ϱϱ/δ_1)^(1/2) φ_2 φ_3,     f_2 := √(−2χ_0χ_0′)(φ/δ_2) (ς𝖧φ/δ_2)^(1/2) φ_1 φ_3,
 
 smooth, because β_ϱϱ ≥ β_*δ_1 and ς𝖧φ ≥ ½c_1δ_2 on a neighbourhood of the supports (the square roots of positive
-smooth functions there). In the sink case k_1 = e_1², k_2 = e_2² likewise, with −β_ϱ, −ς𝖧φ under the roots. Let
+smooth functions there). If Λ is a sink, k_1 = e_1², k_2 = e_2² likewise, with −β_ϱ, −ς𝖧φ under the roots. Let
 j_3 := w_(2𝐨) k_3 𝐠_z⁻¹ ∈ S^(2𝐨−𝐦) ([[lem:i-b-2-2]] (e)) and J := Op_h(j_3 Id); WF′_h(J) ⊂ supp k_3 ⊂ Ell_h(𝐏), and
 J𝐏 has principal symbol w_(2𝐨) k_3.
 
@@ -988,8 +988,8 @@ proposition asserts neighbourhoods inside the band, and its proof is local at �
 *Proof.* Apply [[lem:i-b-5-1]] with c_z = 1, F fibre infinity, Λ := ∂ℛ_±, and ς := ±ϵ_♭. By (H3) and
 [[lem:i-b-1-1]] (e), ±q̂_z > 0 near ∂ℛ_±, uniformly in z (at fibre infinity q̂_z = −ρ_∞τ_1 up to O(ρ_∞)); so (A) holds
 with 𝒜 = 𝒬. At fibre infinity 𝖧_z = ρ⁻¹ρ_∞ H_(G_0) does not depend on z, and ±𝖧_z is ρ⁻¹ times the future field 𝖧 of
-(H3); so β_ϱ = ϵ_♭ β_0′ with β_0′ := ρ⁻¹β_0 > 0 on ∂ℛ_±, hence on a neighbourhood: a source for P and a sink for
-P^(*h). 𝖧_z vanishes on ∂ℛ_± as a vector field on 𝒫: it is tangent to fibre infinity, vanishes on ∂ℛ_± within it
+(H3); so β_ϱ = ϵ_♭ β_0′ with β_0′ := ρ⁻¹β_0 > 0 on ∂ℛ_±, hence on a neighbourhood: for P it is a source; for
+P^(*h), a sink. 𝖧_z vanishes on ∂ℛ_± as a vector field on 𝒫: it is tangent to fibre infinity, vanishes on ∂ℛ_± within it
 (radial points), and 𝖧_z ρ_∞ = β_ϱ ρ_∞ = 0 there.
 
 For (iii) take g := Ĝ_0, and φ := q_± ∘ π, where q_± is the quadratic defining function of (H3) and π a smooth
@@ -1000,8 +1000,8 @@ is smooth (for a non-negative C² function, |∇f|² ≤ 2f sup|∇²f|). With �
 
     ς𝖧_z φ ≷ ϵ_♭(c ρ⁻¹ φ − C(|g| + ρ_∞)√φ),
 
-and C|g|√φ ≤ (c/4)ρ⁻¹φ + C′g², C ρ_∞ √φ ≤ C′ρ_∞ on U_0; this is [[eq:i-b-5-1]], source for ϵ_♭ = 1, sink for
-ϵ_♭ = −1. (iv) holds by assumption. For (v): μ⁻¹p_1 = ρ⁻¹ρ_∞p_1 and, at fibre infinity,
+and C|g|√φ ≤ (c/4)ρ⁻¹φ + C′g², C ρ_∞ √φ ≤ C′ρ_∞ on U_0; this is [[eq:i-b-5-1]] (for ϵ_♭ = 1 at a source, for
+ϵ_♭ = −1 at a sink). (iv) holds by assumption. For (v): μ⁻¹p_1 = ρ⁻¹ρ_∞p_1 and, at fibre infinity,
 ρ_∞p_1(z) = ρ_∞σ_1(Im_h P̂(0)), the term (Re z) Im_h T being of lower order there. With ςϵ_♭ = ±1 and
 p_(1,±) := ±ρ_∞σ_1(Im_h P̂(0)) ([[eq:i-a-1-5]]),
 
@@ -1023,7 +1023,7 @@ K_E ⊂ Ū_0 ∖ R_(z_0,in) such that [[eq:i-b-5-4]] holds for z ∈ Z_in with �
 on Λ, so (A) holds on a neighbourhood. At the face 𝖧_z = 𝖧_(z_0) ([[lem:i-b-4-1]] (c)) is ⟨ζ⟩⁻¹𝖵_p,
 p = ξ² + 2z_0ξ + |η|², and by [[eq:i-a-4-4]], ρ⁻¹𝖵_p ρ = −∂_ξ p = 2z_0 on Λ, where ⟨ζ⟩ = √5; so
 β_ϱ = ς · 2z_0/√5 = 2ϵ_♭/√5 on Λ, and 𝖧_z vanishes on Λ (there 𝖵_p = 2z_0ρ∂_ρ + H_p^(𝕊³) and both vanish at ρ = 0,
-η = 0). Source for P, sink for P^(*h).
+η = 0). For P it is a source; for P^(*h), a sink.
 
 For (iii) take g := ξ² + 2z_0ξ + |η|² and φ := |η|² (round norm), extended to a neighbourhood of Λ in 𝒫 as functions of
 (ω, ξ, η) in a collar. Λ = Ū_0 ∩ {ρ = 0, φ = 0, g = 0} for U_0 near Λ (the other solution of φ = g = 0 is R_out).
@@ -1090,12 +1090,12 @@ M̃ ≥ ½ Id on {ρ < ρ_2}; then M̃_ext ≥ ½ Id everywhere, and 𝒜_1 := |
 arbitrarily off {ρ < ρ_1}, and the identity [[eq:i-b-5-7]] used only near the base projection of Ū_0).
 𝒜_0 := −g_00 ≥ 0 by (H6). So (ii)(B) holds. By [[eq:i-a-4-4]], at the face 𝖧_z^𝐏 = ⟨ζ⟩⁻¹𝖵_g̃ with
 g̃ := 2ξ + κ(ξ² + |η|²), κ := Re(z⁻¹), and ([[eq:i-a-4-11]]) ρ⁻¹𝖵_g̃ ρ = −2(1 + κξ), 𝖵_g̃(ξ² + |η|²) = −4|η|²,
-𝖵_g̃ g̃ = 0; 𝖵_g̃ vanishes at R_out as a vector field on 𝒫. So β_ϱ = −2ϵ_♭ at R_out, and ϵ_♭β_ϱ ≤ −1 near it: a sink
-for P, a source for P^(*h).
+𝖵_g̃ g̃ = 0; 𝖵_g̃ vanishes at R_out as a vector field on 𝒫. So β_ϱ = −2ϵ_♭ at R_out, and ϵ_♭β_ϱ ≤ −1 near it: for P it
+is a sink; for P^(*h), a source.
 
 For (iii), g := g̃ and φ := ξ² + |η|², extended in a collar. |ρ_∞² z⁻¹G_z| ≥ |Re(z⁻¹Ĝ_z)| ≥ |g̃| − Cρ. On
 {φ ≤ κ^(−2)}, 2ξ = g − κφ gives ξ² ≤ ½(g² + κ²φ²) ≤ ½g² + ½φ, hence |η|² ≥ ½φ − ½g² and
-ς𝖧_z^𝐏 φ = −4ϵ_♭⟨ζ⟩⁻¹|η|² + O(ρ), which is [[eq:i-b-5-1]] with the sink sign for P and the source sign for P^(*h).
+ς𝖧_z^𝐏 φ = −4ϵ_♭⟨ζ⟩⁻¹|η|² + O(ρ), which is [[eq:i-b-5-1]] (for P at a sink; for P^(*h), at a source).
 (iv) holds by assumption. For (v), by [[lem:i-b-5-4]], ςϵ_♭μ⁻¹p_1^𝐏 = −(S + S^(*h)) at R_out, so
 
     𝒯 = −4ϵ_♭κ̃ Id + 2(S + S^(*h)).

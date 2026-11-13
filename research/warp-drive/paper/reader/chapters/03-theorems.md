@@ -2,27 +2,27 @@
 
 This chapter states the four theorems and the three propositions that complete the first, shows how the first follows
 from the approximant, the data and the uniform existence theorem, and lists the further results with the chapters
-that prove them. The notation is that of [[ch:setting]]. The order of the approximant is written K_ord, since K is the
-Kretschmann scalar.
+that prove them. The notation is that of [[ch:setting]]. The order of the approximant is K, and the
+Kretschmann scalar is 𝒦.
 
 ### The construction on the domain {#sec:main-statement}
 
 **Theorem {#thm:main}** (the five-dimensional counterpart). Let l5 > 0, μ0 ≥ √72 l5², A > 0 and
 env ∈ C_c^∞([v_start, v_end]), and let g0 be the Vaidya metric [[eq:background]] with
-μ(v) = μ0 + (2/9) A² ∫_(−∞)^v env². Fix T > 0, τ0 with v_start − τ0 > √μ0 + 1, and K_ord ≥ 6. There are λ0 > 0 and
-C, depending on (l5, μ0, A, env, T, τ0, K_ord) and the inner radius a of Ω, and not on λ, such that for every
+μ(v) = μ0 + (2/9) A² ∫_(−∞)^v env². Fix T > 0, τ0 with v_start − τ0 > √μ0 + 1, and K ≥ 6. There are λ0 > 0 and
+C, depending on (l5, μ0, A, env, T, τ0, K) and the inner radius a of Ω, and not on λ, such that for every
 λ ∈ (0, λ0] there is a smooth Lorentzian metric g_λ on Ω ⊃ D_T ∩ {τ ≥ τ0} with:
 
 1. **Vacuum and symmetry.** Ric(g_λ) = 0 on Ω, and g_λ is invariant under the T² action and both reflections.
 2. **Data.** On Σ_τ0, the Cauchy data of g_λ satisfy the vacuum constraints exactly, equal the data of the seed
    (five-dimensional Schwarzschild–Tangherlini of mass μ0) on r < v_start − τ0, and differ from those of an
-   approximate solution g_app ([[thm:approximant]]) by O(λ^K_ord) in the λ-scaled data norm: with w := g_λ − g_app
+   approximate solution g_app ([[thm:approximant]]) by O(λ^K) in the λ-scaled data norm: with w := g_λ − g_app
    and k = 6,
 
-       Data(w) := ‖w‖ + Σ_(1≤j≤k+1) λ^(j−1) ‖∂_x^j w‖ + Σ_(j≤k) λ^j ‖∂_x^j ∂_τ w‖ ≤ C λ^K_ord   on Σ_τ0;
+       Data(w) := ‖w‖ + Σ_(1≤j≤k+1) λ^(j−1) ‖∂_x^j w‖ + Σ_(j≤k) λ^j ‖∂_x^j ∂_τ w‖ ≤ C λ^K   on Σ_τ0;
 
    the leading oscillation of g_app is the waves of [[sec:waves]].
-3. **The remainder.** g_λ = g_app + w with |w| ≤ C λ^(K_ord−3) and |∂w| ≤ C λ^(K_ord−4) on Ω, where
+3. **The remainder.** g_λ = g_app + w with |w| ≤ C λ^(K−3) and |∂w| ≤ C λ^(K−4) on Ω, where
    g_app = g0 + λ [g1] + Σ_(j=2)^N λ^j [g_j] with smooth profiles g_j(X, θ), 2π-periodic in θ, evaluated at θ = v/λ.
 4. **Convergence.** |g_λ − g0| ≤ C λ and |∂g_λ| ≤ C on Ω; ∂g_λ − ∂g0 = dv ⊗ [∂_θ g1] + O(λ), so ∂g_λ → ∂g0 weakly
    in L²(Ω), and not strongly wherever env ≠ 0: the phase mean of ∂_θ g1 is 0 and that of its g0-norm squared is
@@ -38,12 +38,12 @@ C, depending on (l5, μ0, A, env, T, τ0, K_ord) and the inner radius a of Ω, a
    before and after the shell (v ≤ v_start or v ≥ v_end), and ≤ C λ within it ([[prop:mean-mass]]).
 
 The construction fixes some constants explicitly: the order of the energy is k = 6, the approximant used has
-N = K_ord + 3 stages, λ ≤ λ_Ω := min(1, δ0)/10 where δ0 := r_q(μ0) − a (a condition the construction imposes, not a
+N = K + 3 stages, λ ≤ λ_Ω := min(1, δ0)/10 where δ0 := r_q(μ0) − a (a condition the construction imposes, not a
 bound below which the theorem holds: that is λ0), and the data are solved in H^s(S³) with s > 3/2 + 4
 ([[ch:data]]). λ0 and C are not evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point. Every constant of
 the approximant's own estimates is independent of λ, because its profiles are ([[thm:approximant]]). The waves are
-high-frequency on all of D_T once λ < l5/10: on D_T, x_K = l5² √K ≤ 1, so the curvature length K^(−1/4) is at least
-l5, and λ K^(1/4) ≤ λ/l5 < 1/10.
+high-frequency on all of D_T once λ < l5/10: on D_T, x_K = l5² √𝒦 ≤ 1, so the curvature length 𝒦^(−1/4) is at least
+l5, and λ 𝒦^(1/4) ≤ λ/l5 < 1/10.
 
 **Proposition {#prop:boundary-spacelike}** (the boundary). On x_K = 1, with Φ := r − r_q(v),
 
@@ -60,7 +60,7 @@ layer, for λ small, every column has points where it is timelike for g_λ, so t
 The proof is in [[ch:horizon-mass]].
 
 **Proposition {#prop:one-zero}** (one zero per column of the spheres' outgoing expansion). Let μ0 ≥ √72 l5²,
-K_ord ≥ 6, and let θ⁺_λ(v, r, x̂) be the outgoing null expansion, for g_λ, of the sphere
+K ≥ 6, and let θ⁺_λ(v, r, x̂) be the outgoing null expansion, for g_λ, of the sphere
 S_(v,r) := {τ = v − r, |x| = r} at its point x̂ ∈ S³. There are λ_H ∈ (0, λ0] and C, δ1, δ2 > 0 such that for
 λ ≤ λ_H: on every column (v and x̂ fixed, r varying, within D_T ∩ {τ ≥ τ0}) θ⁺_λ has at most one zero, positive
 above it and negative below; if μ0 > √72 l5², on the columns with √μ(v) ≤ v − τ0 − δ1 it has exactly one,
@@ -80,18 +80,18 @@ For g0 and S = S_(v,r), Area = 2π² r³, so R = r; with n⁺ = ∂_v + (f/2) �
 [[eq:vr-form]], θ⁺ = 3f/(2r), θ⁻ = −3/r and g0(n⁺, n⁻) = −1 ([[prop:vaidya]] (b)), so Θ = −9f/r² and
 M[S_(v,r)](g0) = r² (1 − f) = μ(v).
 
-**Proposition {#prop:mean-mass}** (the mean mass). For K_ord ≥ 6 and λ ≤ λ0, |M[S_(v,r)](g_λ) − μ(v)| ≤ C λ²
+**Proposition {#prop:mean-mass}** (the mean mass). For K ≥ 6 and λ ≤ λ0, |M[S_(v,r)](g_λ) − μ(v)| ≤ C λ²
 wherever v ≤ v_start or v ≥ v_end, and ≤ C λ for v_start < v < v_end.
 
-The proof is in [[ch:horizon-mass]]; it rests on a quarter-turn symmetry of the two polarizations, under which the
-first mean correction of the approximant is odd while a rotation-invariant mass is even. The mean of the mass aspect
-at past null infinity is a different quantity from the Hawking mass of the spheres of the domain;
+The proof is in [[ch:horizon-mass]]; it rests on a quarter-turn symmetry of the two polarizations, under which the first
+mean correction of the approximant is odd while the mass is invariant, so that the mass does not see it. The mean of the
+mass aspect at past null infinity is a different quantity from the Hawking mass of the spheres of the domain;
 [[thm:bondi-law]] treats it.
 
 ### How the first theorem follows {#sec:main-proof}
 
 [[thm:main]] is the conjunction of three theorems: the approximant to every order ([[thm:approximant]], proved in
-[[ch:approximant]]), exact data within O(λ^K_ord) of it ([[thm:data]], proved in [[ch:data]]), and existence on Ω
+[[ch:approximant]]), exact data within O(λ^K) of it ([[thm:data]], proved in [[ch:data]]), and existence on Ω
 with remainder estimates uniform in λ ([[thm:uniform-existence]], proved in [[ch:uniform-existence]]), together with
 [[prop:one-zero]] and [[prop:mean-mass]].
 
@@ -122,10 +122,10 @@ The vacuum constraints are G(N, ·) = 0 on Σ_τ0, and g⁻¹(n, n) < 0 by [[lem
 on Σ_τ0. The energy inequality of [[ch:inequalities]], applied to this system on Ω, with Gronwall's lemma, gives D = 0
 on Ω; then Ric(g) = 0. ∎
 
-*Proof of [[thm:main]].* Let g_app be the approximant of [[thm:approximant]] with N = K_ord + 3 stages and stage data
+*Proof of [[thm:main]].* Let g_app be the approximant of [[thm:approximant]] with N = K + 3 stages and stage data
 making its Cauchy data satisfy the constraints and D = 0 to order N − 2, and let the data on Σ_τ0 be those of
 [[thm:data]], which satisfy the constraints exactly, carry D = 0, equal the seed's data on r < v_start − τ0 and are
-within C λ^K_ord of g_app's in the norm of item 2. [[thm:uniform-existence]] gives, for λ ≤ λ0, the solution g_λ of
+within C λ^K of g_app's in the norm of item 2. [[thm:uniform-existence]] gives, for λ ≤ λ0, the solution g_λ of
 Ric^H(g) = 0 on Ω with these data, unique among C² solutions with these data and |g − g0| ≤ ε1 on Ω, together with
 the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. Taking λ0 so small that C λ0 ≤ ε1,
 [[lem:gauge-propagation]] gives D(g_λ) = 0 and Ric(g_λ) = 0. By [[lem:domain]] (f), D_T ∩ {τ ≥ τ0} lies in Ω.
@@ -155,7 +155,7 @@ Items 2, 3 and 5 are those of [[thm:data]] and [[thm:uniform-existence]]; items 
 ### The construction from past null infinity {#sec:past-statement}
 
 **Theorem {#thm:past-construction}** (the construction from past null infinity). Let the waves at past null infinity
-be the free data [F], [G] of [[sec:waves]], on the background of [[thm:main]]. For every K_ord ≥ 6 there is λ_P > 0
+be the free data [F], [G] of [[sec:waves]], on the background of [[thm:main]]. For every K ≥ 6 there is λ_P > 0
 such that for 0 < λ ≤ λ_P there is a smooth vacuum metric g_λ, in the wave-map gauge relative to g0, on Ω together
 with a past domain P: the region τ ≤ τ0, r ≥ a, below an outer boundary v + (1/2)(1 + τ0 − τ)^(−1/4) = V_P that is
 spacelike, chosen so that P and Ω share the slice Σ_τ0. It satisfies:
@@ -163,7 +163,7 @@ spacelike, chosen so that P and Ω share the slice Σ_τ0. It satisfies:
 1. g_λ = g0 for v ≤ v_start: before the shell, the black hole exactly;
 2. its radiation field at past null infinity is the prescribed one: at every fixed v < V_P and x̂,
    r^(3/2)(g_λ − g0 − λ[W_TT]) → 0 as r → ∞, at every λ;
-3. on P, |g_λ − g_app| ≤ C λ^(K_ord−3) t^(−2), with t = 1 + τ0 − τ and g_app the approximant built from past null
+3. on P, |g_λ − g_app| ≤ C λ^(K−3) t^(−2), with t = 1 + τ0 − τ and g_app the approximant built from past null
    infinity ([[thm:past-approximant]]);
 4. on Ω, the conclusions of [[thm:uniform-existence]] hold (items 1 and 3–5 of [[thm:main]]), with the data on Σ_τ0
    now the trace of g_λ itself; and items 6–7 of [[thm:main]] hold for these solutions too ([[prop:past-items]]);
@@ -254,7 +254,7 @@ distance, such that no parameter exponent z at timelike infinity (a discrete set
 real part in (3, 3 + ε_+] (the condition (G⁺) of [[ch:s23]]), and none has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K],
 nor z + d_c0, z + d_c1 in (2, 2 + ε_K], d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots (the gap (G) of
 [[ch:s21]], with [[def:iii-i10-1-3]] and the parameter conditions of [[ch:s27]]) [[pending:stability-parameters]];
-and fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K_ord large enough
+and fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K large enough
 and on a domain enlarged as in [[ch:after-shell]]. For every ε_m > 0 there are λ1 > 0 and δ > 0, depending on ε_m
 and ε, such that for λ ≤ λ1:
 

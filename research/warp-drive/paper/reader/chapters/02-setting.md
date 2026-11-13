@@ -117,9 +117,9 @@ Consequently
     Ric_vv = (f/2)(f_rr + 3 f_r/r) − 3 f_v/(2r),   Ric_vr = −(1/2)(f_rr + 3 f_r/r),   Ric_rr = 0,
     Ric_ij = (2(1 − f) − r f_r) γ_ij,   Ric_vi = Ric_ri = 0,
 
-and the Kretschmann scalar is
+and the Kretschmann scalar 𝒦 is
 
-    K = R_abcd R^abcd = f_rr² + 6 f_r²/r² + 12 (1 − f)²/r⁴,                                       {#eq:kretschmann-f}
+    𝒦 = R_abcd R^abcd = f_rr² + 6 f_r²/r² + 12 (1 − f)²/r⁴,                                       {#eq:kretschmann-f}
 
 in which f_v does not appear.
 
@@ -157,7 +157,7 @@ are the contractions Ric_bd = g^(ac) R_abcd, with g^(vv) = 0, g^(vr) = 1, g^(rr)
 Ric_vv = f R_rvrv + r⁻² γ^(ij) R_ivjv = (f/2) f_rr + (3/(2r))(f f_r − f_v), and
 Ric_ij = g^(vr)(R_virj + R_rivj) + r⁻² γ^(kl) R_kilj = −r f_r γ_ij + 2(1 − f) γ_ij.
 
-For K, group the components by their index pairs. The pair (vr) contributes 4 R_vrvr R^vrvr; raising the
+For 𝒦, group the components by their index pairs. The pair (vr) contributes 4 R_vrvr R^vrvr; raising the
 antisymmetric pair (vr) with the (v, r) block of g⁻¹, [[0, 1], [1, f]], multiplies by its determinant −1, twice, so
 the contribution is 4 (f_rr/2)² = f_rr². The components R_AiBj, A, B ∈ {v, r}, are r S_AB γ_ij with
 S_vv = (f f_r − f_v)/2, S_vr = S_rv = −f_r/2 and S_rr = 0. Counting the four orderings of each pair, they contribute
@@ -171,7 +171,7 @@ factor 1 − f, and contribute (1 − f)² r⁻⁴ · 2·3·2 = 12 (1 − f)²/r
 
 **Proposition {#prop:vaidya}** (the background).
 (a) g0 is five-dimensional Vaidya: Ric(g0) = (3 μ'(v)/(2 r³)) dv ⊗ dv, and its (τ, r) block has determinant −1.
-(b) The Kretschmann scalar is K = 72 μ(v)²/r⁸, also where μ' ≠ 0; the round spheres {v, r = const} have exactly
+(b) The Kretschmann scalar is 𝒦 = 72 μ(v)²/r⁸, also where μ' ≠ 0; the round spheres {v, r = const} have exactly
 one apparent horizon, r = √μ(v).
 (c) ℓ := g0⁻¹ dv = −L0 is null and geodesic, with L0(v) = 0, L0(τ) = 1, L0(r) = −1; the phase v is an exact eikonal
 of g0 and its level sets are the ingoing null cones.
@@ -189,7 +189,7 @@ f_rr + 3 f_r/r = 0 and 2(1 − f) − r f_r = 0, so by [[lem:vr-curvature]] the 
 Ric_vv = −3 f_v/(2r) = 3μ'/(2r³). In the coordinates (τ, r) the block is [[−1 + m, m], [m, 1 + m]], m := μ/r², of
 determinant (m − 1)(m + 1) − m² = −1.
 
-(b) By [[eq:kretschmann-f]], K = 36 μ²/r⁸ + 6 · 4μ²/r⁸ + 12 μ²/r⁸ = 72 μ²/r⁸, for every μ(v). For the spheres
+(b) By [[eq:kretschmann-f]], 𝒦 = 36 μ²/r⁸ + 6 · 4μ²/r⁸ + 12 μ²/r⁸ = 72 μ²/r⁸, for every μ(v). For the spheres
 S_(v,r) := {v, r = const}, the null normals lie in the span of ∂_v and ∂_r of the (v, r) form; ∂_r is null, and
 ∂_v + (f/2) ∂_r is null. In Cartesian terms ∂_r of the (v, r) form is ℓ = −∂_τ + x̂·∂_x, past directed, and ∂_v is
 ∂_τ, future directed. The expansion of a normal N of S_(v,r) is (3/r) N(r), so the future ingoing normal −∂_r has
@@ -233,7 +233,7 @@ which bounds [L0, □]f by ∂L0 f, □f and ∂f); here it is an exact identity
 
 ### The curvature boundary and the domain {#sec:domain}
 
-Fix a length l5 > 0 and put x_K := l5² √K. By [[prop:vaidya]] (b), the surface x_K = 1 is r = r_q(v),
+Fix a length l5 > 0 and put x_K := l5² √𝒦. By [[prop:vaidya]] (b), the surface x_K = 1 is r = r_q(v),
 
     r_q(v) := (√72 μ(v) l5²)^(1/4),
 

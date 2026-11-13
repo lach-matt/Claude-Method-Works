@@ -343,3 +343,147 @@ H̄_b^(∞,β−2) ⊂ 𝒜^β near ∂X, and 𝒜^β ⊂ H̄_b^(∞,β−2−ϵ
 Ḣ_b^(−s,−a)) onto H_(b,−a−2)^(−s), the dual of H_(b,a+2)^s ([[lem:i-c-2-2]] (b), (d)); in the interior it is
 [[lem:i-a-6-1]] (b); glue with χ_∂. (b) [[lem:i-c-2-2]] (e) and (K3). (c) [[lem:i-c-2-2]] (f) with d + 3 > d + 2.
 (d) Near ∂X, P̂(0) = ρ²P⁽⁰⁾, and [[lem:i-c-2-2]] (b)–(c). ∎
+
+### The zero energy operator {#sec:i-c-3}
+
+With s and α as in [[sec:i-c-1-2]] let
+
+    𝒳_0 := {u ∈ H̄_b^(s,α) : P̂(0)u ∈ H̄_b^(s−1,α+2)},     𝒴_0 := H̄_b^(s−1,α+2),
+    𝒳_0^* := {v ∈ Ḣ_b^(1−s,−α−2) : P̂(0)^(*h)v ∈ Ḣ_b^(−s,−α)},                                           {#eq:i-c-3-1}
+
+Hilbert spaces with the graph norms; 𝒳_0 → 𝒴_0 is [Hin26c, (9.108)], and 𝒴_0^* = Ḣ_b^(1−s,−α−2) by
+[[lem:i-c-2-9]] (a).
+
+**Theorem {#thm:i-c-3-1}** (The zero energy operator.) Assume (H1)–(H4) and (G), with s > ½ + ϑ_ℋ constant.
+
+(1) (*Fredholm estimates.*) For every M there is C with
+
+    ‖u‖_(H̄_b^(s,α)) ≤ C(‖P̂(0)u‖_(H̄_b^(s−1,α+2)) + ‖u‖_(H̄_b^(−M,−M))),     u ∈ 𝒳_0,                      {#eq:i-c-3-2}
+
+    ‖v‖_(Ḣ_b^(1−s,−α−2)) ≤ C(‖P̂(0)^(*h)v‖_(Ḣ_b^(−s,−α)) + ‖v‖_(Ḣ_b^(−M,−M))),     v ∈ 𝒳_0^*.             {#eq:i-c-3-3}
+
+P̂(0): 𝒳_0 → 𝒴_0 is Fredholm, and the annihilator of its range in 𝒴_0^* is ker_(𝒳_0^*) P̂(0)^(*h).
+
+(2) (*Kernel.*) Every u ∈ H̄_b^(s,α) with P̂(0)u = 0 is smooth up to ∂_♯X and lies in 𝒜^β near ∂X for every
+β < β_+.
+
+(3) (*Independence.*) The kernel and the annihilator of the range depend neither on s > ½ + ϑ_ℋ nor on α with
+α + 2 ∈ I; nor, therefore, does the index.
+
+(4) (*Invertibility.*) If (Z) holds for one such pair (s, α), it holds for all, and then [[eq:i-c-3-2]]–[[eq:i-c-3-3]]
+hold without their last terms.
+
+This is [Hin26c, Theorem 9.36] in dimension 4 + 1, on E. The weight on P̂(0)^(*h)v in [[eq:i-c-3-3]] is −α, the dual
+of the weight α of the domain; [Hin26c, (9.107)] prints −α − 2 (see [[sec:s03-remarks]]).
+
+#### Proof of (1) {#sec:i-c-3-1}
+
+*Proof of [[thm:i-c-3-1]] (1).* *The interior.* Let χ, χ_1 and b′ < b″ be as in [[cor:i-a-6-5]], χ_far := 1 − χ,
+and φ_j ∈ C_c^∞({r < jR_1}) equal to 1 on {r ≤ (j − 1)R_1}, j = 3, 4, 5. Run the pieces (A), (B) and (F) of
+[[sec:i-a-7-1]] at σ = 0 for φ_3 χ_far u: [[prop:i-a-4-2]] (1) at the horizon (σ = 0 lies in its compact sets
+𝒟 ⊂ {Im σ ≥ 0}), [[prop:i-a-5-2]] along the curves of (H4), which lie over {r ≤ r_e}, and [[prop:i-a-5-1]] on the
+rest of fibre infinity over {r < 3R_1}; at finite frequencies over a compact set every operator of order −∞ is bounded
+by ‖u‖_(H^(−M)) there. With [[eq:i-a-6-1]] at σ = 0 for χu this gives, with s > s_0 > ½ + ϑ_ℋ,
+
+    ‖(1 − χ_∂)u‖_(H̄^s) ≤ C(‖P̂(0)u‖_(H̄^(s−1)({r<4R_1})) + ‖φ_4 u‖_(H̄^(s_0)) + ‖φ_4 u‖_(H̄^(−M))),
+
+as 1 − χ_∂ = (1 − χ_∂)(χ + φ_3 χ_far). By (K3) and Ehrling's lemma,
+‖φ_4 u‖_(H̄^(s_0)) ≤ δ‖φ_5 u‖_(H̄^s) + C_δ‖φ_5 u‖_(H̄^(−M)), and over {r < 5R_1} the norms of H̄_b^(s,α) and H̄^s are
+equivalent. So
+
+    ‖(1 − χ_∂)u‖_(H̄^s) ≤ C‖P̂(0)u‖_(H̄_b^(s−1,α+2)) + Cδ‖u‖_(H̄_b^(s,α)) + C_δ‖u‖_(H̄_b^(−M,−M)).          {#eq:i-c-3-4}
+
+*Near ∂X.* Let χ̃_∂ be supported in {r > ½R_1} and equal to 1 near supp χ_∂. [[lem:i-c-2-5]] for L = P⁽⁰⁾ at the
+b-weight α + 2, with χ̃_∂P⁽⁰⁾u = χ̃_∂ρ⁻²P̂(0)u, gives
+
+    ‖χ_∂ u‖_(H_(b,α+2)^s) ≤ C(‖P̂(0)u‖_(H̄_b^(s−2,α+2)) + ‖χ̃_∂ u‖_(H_(b,α+2)^(−M))),
+
+the b-weight of H̄_b^(s−2,α+2) being α + 4 and [[lem:i-c-2-2]] (b) moving ρ⁻². Choose M ∈ ℕ. By [[lem:i-c-2-6]] at
+c = α + 2 (not a real part of a root, by (G)), with cut-offs χ̃_∂ and χ̃′, and [[lem:i-c-2-2]] (g),
+
+    ‖χ̃_∂ u‖_(H_(b,α+2)^(−M)) ≤ C‖P̂(0)u‖_(H̄_b^(−M−2,α+2)) + Ce^(−k_0)‖χ̃′u‖_(H_(b,α+2)^(−M))
+                                 + C_(k_0)‖χ̃′u‖_(H_(b,−M)^(−M)).
+
+Here χ̃′ − χ̃_∂ has compact support in {r > ¼R_1}, where all weights are equivalent, so
+‖χ̃′u‖_(H_(b,α+2)^(−M)) ≤ ‖χ̃_∂ u‖_(H_(b,α+2)^(−M)) + C‖u‖_(H̄_b^(−M,−M)), and
+‖χ̃′u‖_(H_(b,−M)^(−M)) ≤ C‖u‖_(H̄_b^(−M,−M)). Take k_0 with Ce^(−k_0) ≤ ½; the left side is finite because
+u ∈ H̄_b^(s,α), so it absorbs the middle term. With [[eq:i-c-3-4]], and δ small, this proves [[eq:i-c-3-2]].
+
+*The adjoint.* Let v ∈ 𝒳_0^*. In the interior run the adjoint chain of [[sec:i-a-7-1]] at σ = 0 over {r < 4R_1}:
+[[eq:i-a-6-2]] at the artificial boundary, which needs nothing but P̂(0)^(*h)v; (B*), [[prop:i-a-5-2]] for
+P̂(0)^(*h) with the backward field from there to the horizon; (A*), [[prop:i-a-4-2]] (2), whose E-term lies in the
+region of (B*); and (F). No a priori term arises. Near ∂X,
+
+    ρ⁻²P̂(0)^(*h) = H⁻¹ ρ² (P⁽⁰⁾)^(†_b) ρ⁻² H,
+
+where †_b denotes the adjoint for μ_b and the standard inner product. It is b-elliptic, with (ρ∂_ρ)^(†_b) = −ρ∂_ρ,
+and its normal operator has the Mellin symbol
+
+    I^♯(ι) := H_0⁻¹ I(2 − ῑ)^† H_0 = −ι² + (4 − a^(*h))ι + Δ + V^(*h) + b^(*h) + 2a^(*h) − 4,               {#eq:i-c-3-5}
+
+which is of the form of [[lem:i-c-2-4]] once Δ in [[eq:i-c-3-5]] is read as H_0⁻¹ΔH_0, which differs from Δ by a
+first-order operator; and spec_(I^♯) = {2 − μ̄ : μ ∈ spec_b}.
+
+These facts are verified as follows. For an operator A, ⟨Au, v⟩_(|dx|) = ⟨Au, ρ⁻⁴v⟩_(μ_b) =
+⟨u, ρ⁴A^(†_b)ρ⁻⁴v⟩_(|dx|), so the adjoint for |dx| = ρ⁻⁴μ_b is A^† = ρ⁴A^(†_b)ρ⁻⁴; for A = ρ²P⁽⁰⁾ this is
+ρ⁴(P⁽⁰⁾)^(†_b)ρ⁻², and as A^(*h) = H⁻¹A^†H with ρ commuting with H, ρ⁻²P̂(0)^(*h) = H⁻¹ρ²(P⁽⁰⁾)^(†_b)ρ⁻²H. Its
+normal operator is H_0⁻¹ρ²N(P⁽⁰⁾)^(†_b)ρ⁻²H_0, and N(P⁽⁰⁾)^(†_b) = Σ_j (−ρ∂_ρ)^j A_j(0)^† = Σ_j A_j(0)^†(−ρ∂_ρ)^j,
+the A_j(0) not depending on ρ. For w ∈ C^∞(𝕊³; ℂ^(N_E)),
+
+    ρ² N(P⁽⁰⁾)^(†_b) ρ⁻² (ρ^ι w) = ρ^ι Σ_j A_j(0)^† (2 − ι)^j w = ρ^ι (Σ_j A_j(0)(2 − ῑ)^j)^† w = ρ^ι I(2 − ῑ)^† w,
+
+which gives the first equality in [[eq:i-c-3-5]]. For the second, I(2 − ῑ) = −(2 − ῑ)² + a(2 − ῑ) + Δ + V + b, and
+taking adjoints, with Δ self-adjoint and scalar factors conjugated,
+
+    I(2 − ῑ)^† = −(2 − ι)² + (2 − ι)a^† + Δ + V^† + b^† = −ι² + (4 − a^†)ι + Δ + V^† + b^† + 2a^† − 4;
+
+conjugation by H_0 turns a^†, V^†, b^† into a^(*h), V^(*h), b^(*h) and Δ into H_0⁻¹ΔH_0. Finally, by the proof of
+[[lem:i-c-2-4]] (b), I(κ): H^m → H^(m−2) is Fredholm of index 0 for every κ ∈ ℂ, so I(κ)^† has a nontrivial kernel
+exactly when I(κ) has, that is, when κ ∈ spec_b (kernel elements being smooth by (K4)); with κ = 2 − ῑ this is
+ι ∈ {2 − μ̄ : μ ∈ spec_b}. Thus conjugation by ρ^(±2) shifts the roots by 2, and the †_b-adjoint reflects them.
+
+v has b-weight −α − 2 + 2 = −α, and −α ∉ Re spec_(I^♯) if and only if α + 2 ∉ Re spec_b, which (G) gives.
+[[lem:i-c-2-5]], [[lem:i-c-2-6]] and [[lem:i-c-2-2]] (g) for this operator, as above, give [[eq:i-c-3-3]], the target
+weight being −α: ρ⁻²P̂(0)^(*h)v ∈ H_(b,−α)^(−1−s) is P̂(0)^(*h)v in the b-weight −α + 2, which is that of
+Ḣ_b^(−s,−α).
+
+*Fredholm.* By [[lem:i-c-2-9]] (b) the inclusion 𝒳_0 ↪ H̄_b^(−M,−M) is compact for M > max(−s, −α), so
+[[eq:i-c-3-2]] gives a finite-dimensional kernel and closed range (Peetre's lemma), and [[eq:i-c-3-3]] does the same
+for P̂(0)^(*h) on 𝒳_0^*. *Green's formula*: ⟨P̂(0)u, v⟩ = ⟨u, P̂(0)^(*h)v⟩ for u ∈ 𝒳_0, v ∈ 𝒳_0^*, with the
+h-weighted L²(|dx|) pairings of [[sec:i-a-7-3]]. Split with χ_∂. For (1 − χ_∂)u it is the proof in [[sec:i-a-7-3]].
+Near ∂X, [[lem:i-c-2-5]] gives χ_∂u ∈ H_(b,α+2)^(s+1) and χ̃_∂v ∈ H_(b,−α)^(2−s); both sides of the formula are
+continuous in χ_∂u ∈ H_(b,α+2)^(s+1) for fixed v ([[lem:i-c-2-9]] (a), (d)), and for χ_∂u ∈ C_c^∞ the formula is the
+definition of P̂(0)^(*h)v as a distribution; [[lem:i-c-2-2]] (d) gives the density. *Cokernel*: an element of 𝒴_0^*
+annihilating the range annihilates P̂(0)C_c^∞(X̄°), so it solves P̂(0)^(*h)v = 0 and lies in 𝒳_0^*; conversely use
+Green's formula. ∎
+
+#### Proof of (2) {#sec:i-c-3-2}
+
+*Proof of [[thm:i-c-3-1]] (2).* Let u ∈ H̄_b^(s,α) with P̂(0)u = 0. In the interior the estimates of [[sec:i-c-3-1]]
+hold in the strong sense ([[rem:i-a-7-3]]: [[prop:i-a-4-2]] (1), [[prop:i-a-5-1]], [[prop:i-a-5-2]] and
+[[cor:i-a-6-5]] do), with the a priori term at the horizon given by the order s of u, so u ∈ H̄^(s′) on {r < 3R_1}
+for every s′: u is smooth up to ∂_♯X. Near ∂X, [[lem:i-c-2-5]] at every order gives χ_∂u ∈ H_(b,α+2)^∞, and
+[[lem:i-c-2-7]] for L = P⁽⁰⁾, with (c_−, c_+) = I and c = α + 2, gives χ_∂u ∈ 𝒜^β for every β < β_+. In [Hin26c]
+this step is a contour shift through (9.109); here it is done by [[lem:i-c-2-3]] and [[lem:i-c-2-7]]. ∎
+
+#### Proof of (3) and (4) {#sec:i-c-3-3}
+
+*Proof of [[thm:i-c-3-1]] (3) and (4).* *Kernel.* By (2), every kernel element u for (s, α) is smooth up to ∂_♯X and
+in 𝒜^β near ∂X for all β < β_+; by [[lem:i-c-2-9]] (c) it lies in H̄_b^(s′,α′) for every s′ and every α′ with
+α′ + 2 < β_+, so it is a kernel element for every pair (s′, α′).
+
+*Annihilator.* Let v ∈ ker_(𝒳_0^*) P̂(0)^(*h) for (s, α). Near ∂X, [[lem:i-c-2-5]] gives χ̃_∂v ∈ H_(b,−α)^∞, and
+[[lem:i-c-2-7]] for ρ⁻²P̂(0)^(*h), whose gap containing −α is (2 − β_+, 2 − β_−), gives χ_∂v ∈ H_(b,c′)^∞ for every
+c′ < 2 − β_−; this is the b-weight −α′ of Ḣ_b^(1−s′,−α′−2) whenever α′ + 2 > β_−. In the interior, the adjoint
+estimates of [[sec:i-c-3-1]] hold in the strong sense ([[rem:i-a-7-3]]) at every order 1 − s′ with s′ > ½ + ϑ_ℋ: at the
+horizon the adjoint estimate is below threshold and needs no a priori condition beyond v ∈ H^(−M), and [[eq:i-a-6-2]]
+and propagation hold at every order. So v is an annihilator for every pair (s′, α′).
+
+So kernels and annihilators do not depend on the pair, and neither does the index. (4) follows: if one pair has
+trivial kernel and annihilator, all do. Without the last terms: if ‖u_j‖_(H̄_b^(s,α)) = 1 and ‖P̂(0)u_j‖ → 0, then by
+[[lem:i-c-2-9]] (b) a subsequence converges in H̄_b^(−M,−M), by [[eq:i-c-3-2]] it is Cauchy in 𝒳_0, and its limit is a
+kernel element of norm 1, a contradiction; likewise for [[eq:i-c-3-3]]. ∎
+
+**Remark {#rem:i-c-3-2}** ([Hin26c, Remark 9.37].) [Hin26c] notes that the error term of [[eq:i-c-3-2]] may be taken
+at orders s^♭ < s and α^♭ < α with α^♭ + 2 in the same gap, and that the kernel is polyhomogeneous. Neither is used
+below, and neither is proved here.
