@@ -1140,9 +1140,9 @@ C depends only on bounds for the coefficients and on inf(−G₀(dr)).
 ends exchanged.
 
 *Uniqueness.* Let d ∈ H^t(Ω_(a,b))^(•,−) for some t, with Ld = 0. Let D ∈ H^t(ℝ⁴) be supported in {r ≤ b} with
-D|_({r>a}) = d. Then LD = 0 on {r > a} and D = 0 on {r > b}. By (H4) and [[sec:i-a-6-2]], every null bicharacteristic
-of G₀ over {a < r < b + δ₀} moves monotonically in r, and its backward direction (increasing r) reaches {r > b}, where
-D vanishes. [[prop:i-a-5-2]], in the use (i) of [[rem:i-a-5-2-uses]], at every order gives D ∈ C^∞({r > a}), as D is
+D|_({r>a}) = d. Then LD = 0 on {a < r < r₂}, L being defined there, and D = 0 on {r > b}. By (H4) and
+[[sec:i-a-6-2]], every null bicharacteristic of G₀ over {a < r < b + δ₀} moves monotonically in r, and its backward
+direction (increasing r) reaches {r > b}, where D vanishes. [[prop:i-a-5-2]], in the use (i) of [[rem:i-a-5-2-uses]], at every order gives D ∈ C^∞({r > a}), as D is
 smooth off the characteristic set by [[prop:i-a-5-1]]. So d|_([a+ε,b]) is smooth up to r = b and vanishes to infinite
 order there; extended by 0 it lies in H²(Ω_(a+ε,b))^(•,−), and [[prop:i-a-6-3]] on Ω_(a+ε,b) gives d = 0 there, for
 every ε > 0.
@@ -1151,10 +1151,11 @@ every ε > 0.
 {L^∗φ : φ ∈ H²(Ω′)^(−,•)} ⊂ L²(Ω′), the functional L^∗φ ↦ ⟨f, φ⟩ is well defined. It is bounded, by
 C‖f‖_(H^(−1))‖L^∗φ‖_(L²), by [[prop:i-a-6-3]] (backward) for L^∗. By the Hahn–Banach and Riesz theorems there is
 w ∈ L²(Ω′), with ‖w‖ ≤ C‖f‖_(H^(−1)), such that ⟨w, L^∗φ⟩ = ⟨f, φ⟩ for all such φ. Taking
-φ ∈ C_c^∞({a′ < r < b + δ₀}), restricted, shows that the extension W of w by 0 beyond b satisfies LW = F on {r > a′},
-where F is the supported extension of f. So w ∈ L²(Ω′)^(•,−) = L²(Ω′) solves Lw = f.
+φ ∈ C_c^∞({a′ < r < b + δ₀}), restricted, shows that the extension W of w by 0 beyond b satisfies LW = F on
+{a′ < r < b + δ₀}, where F is the supported extension of f; both sides vanish on {b < r < r₂}, so LW = F on
+{a′ < r < r₂}. So w ∈ L²(Ω′)^(•,−) = L²(Ω′) solves Lw = f.
 
-*Regularity.* W ∈ L², W = 0 on {r > b}, and LW ∈ H^(s−1) on {r > a′}. [[prop:i-a-5-2]] at order s, propagating from
+*Regularity.* W ∈ L², W = 0 on {r > b}, and LW ∈ H^(s−1) on {a′ < r < r₂}. [[prop:i-a-5-2]] at order s, propagating from
 {r > b} along the monotone bicharacteristics, together with [[prop:i-a-5-1]], gives W ∈ H^s on {r > a}, with
 
     ‖w‖_(H^s(Ω_(a,b))) ≤ C(‖f‖_(H^(s−1)(Ω′)) + ‖w‖_(L²(Ω′))) ≤ C‖f‖_(H^(s−1)(Ω′)).
@@ -1170,8 +1171,9 @@ and L is onto with this bound. It is injective by uniqueness.
 f ∈ H^(s−1)(Ω′)^(•,−) = (H^(1−s)(Ω′)^(−,•))^∗, a solution w ∈ (H^(−s)(Ω′)^(−,•))^∗ = H^s(Ω′)^(•,−) with ‖w‖ ≤ C‖f‖,
 using [[lem:i-a-6-1]] (c). Uniqueness and the extension step finish (i) and (iii). ∎
 
-**Corollary {#cor:i-a-6-5}** (The estimates used near ∂_♯X.) Let r₀ < b′ < b″ < r₂ − δ₀ [[pending:issue-1]], and let
-χ₁ ∈ C_c^∞({b′ < r < b″}) equal 1 on a neighbourhood of supp dχ, where χ = 1 on {r ≤ b′} and χ = 0 near {r ≥ b″}.
+**Corollary {#cor:i-a-6-5}** (The estimates used near ∂_♯X.) Let r₀ < b′ < b″ < r₂ − δ₀ (such radii exist since
+r₀ + δ₀ < r₂, [[sec:i-a-1-1]]), and let χ₁ ∈ C_c^∞({b′ < r < b″}) equal 1 on a neighbourhood of supp dχ, where χ = 1 on
+{r ≤ b′} and χ = 0 near {r ≥ b″}.
 Let 𝒟 ⊂ ℂ be compact. Then for σ ∈ 𝒟,
 
     ‖χu‖_(H̄^s) ≤ C(‖P̂(σ)u‖_(H̄^(s−1)({r₀ < r < b″})) + ‖χ₁u‖_(H^s)),     u ∈ H̄^s,                        {#eq:i-a-6-1}
@@ -1179,8 +1181,9 @@ Let 𝒟 ⊂ ℂ be compact. Then for σ ∈ 𝒟,
     ‖u|_(Ω_(r₀,b″))‖_(H^(1−s)(Ω_(r₀,b″))^(−,•)) ≤ C‖(P̂(σ)^(∗h)u)|_(Ω_(r₀,b″))‖_(H^(−s)(Ω_(r₀,b″))^(−,•)),
                                                                                       u ∈ Ḣ^(1−s).     {#eq:i-a-6-2}
 
-*Proof.* For [[eq:i-a-6-1]]: χu ∈ H^s(Ω_(r₀,b″))^(•,−), and P̂(χu) = χP̂u + [P̂, χ]u, with [P̂, χ] ∈ Diff¹ supported in
-supp dχ. Apply [[prop:i-a-6-4]] (i). For [[eq:i-a-6-2]]: the restriction of u to Ω_(r₀,b″) lies in
+*Proof.* The slab Ω_(r₀,b″) satisfies r₀ − δ₀ < r₀ < b″ < r₂ − δ₀, as [[prop:i-a-6-4]] requires. For
+[[eq:i-a-6-1]]: χu ∈ H^s(Ω_(r₀,b″))^(•,−), and P̂(χu) = χP̂u + [P̂, χ]u, with [P̂, χ] ∈ Diff¹ supported in supp dχ.
+Apply [[prop:i-a-6-4]] (i). For [[eq:i-a-6-2]]: the restriction of u to Ω_(r₀,b″) lies in
 H^(1−s)(Ω_(r₀,b″))^(−,•) (supported at r₀, extendible at b″); apply [[prop:i-a-6-4]] (ii) to L = P̂(σ)^(∗h). The
 constants are uniform in σ ∈ 𝒟 since the coefficients are polynomial in σ. ∎
 

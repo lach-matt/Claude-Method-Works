@@ -302,10 +302,10 @@ This is [Hin26c, Proposition 7.4] in dimension 4 + 1.
 
 *Proof.* W′ := 1, ρ the function of (H3) (extended positive, even and homogeneous of degree −1), 𝖧 = ρH_G, w :=
 ρ_K^(α_K) with ρ_K = t_*⁻¹, and A the frame of an inner product for which ϑ_𝓗 of [[eq:i-a-1-5]] is attained (ϑ_𝓗 is
-at least the supremum of max spec(β_0⁻¹ p_(1,+)(0)) over ∂ℛ_+, with p_(1,+)(0) = ρ σ_1(Im_h P̂(0))). ∂R_(𝓗⁺) lies over K⁺ in {σ
-= 0}, where σ_1(Im_h P_0) = σ_1(Im_h P̂(0)) ([[sec:ii-c-2-3]]), and P − P_0 has coefficients vanishing at K⁺; so 𝔭′ =
-p_(1,+)(0) there. By [[eq:ii-b-4-1]], ρ⁻¹𝖧ρ = β_0 and ρ_K⁻¹𝖧ρ_K = ρ_K(ρ_K⁻²𝖧ρ_K) = 0 at ∂R_(𝓗⁺). So at ∂R_(𝓗⁺), as
-A⁻¹𝔭′A has the eigenvalues of the h-self-adjoint 𝔭′,
+at least the supremum of max spec(β_0⁻¹ p_(1,+)(0)) over ∂ℛ_+, with p_(1,+)(0) = ρ σ_1(Im_h P̂(0))). ∂R_(𝓗⁺) lies
+over K⁺ in {σ = 0}, where σ_1(Im_h P_0) = σ_1(Im_h P̂(0)) ([[sec:ii-c-2-3]]), and P − P_0 has coefficients vanishing
+at K⁺; so 𝔭′ = p_(1,+)(0) there. By [[eq:ii-b-4-1]], ρ⁻¹𝖧ρ = β_0 and ρ_K⁻¹𝖧ρ_K = ρ_K(ρ_K⁻²𝖧ρ_K) = 0 at
+∂R_(𝓗⁺). So at ∂R_(𝓗⁺), as A⁻¹𝔭′A has the eigenvalues of the h-self-adjoint 𝔭′,
 
     Q_ε = (2s_ε − 1)β_0 − 2A⁻¹𝔭′A ≥ (2s_ε − 1 − 2ϑ_𝓗)β_0 ≥ (2s_0 − 1 − 2ϑ_𝓗) inf β_0 =: 2c > 0
 
@@ -866,8 +866,8 @@ for every symbol z with |z| ≤ 1 supported in U(4δ_2), with C independent of �
 applies to X_ε, to Z^ε and to E_2^ε (supported in U(δ_2/2)), the second to δ^β E_3^ε. So X_ε, ‖Z^ε u‖ and
 ‖E_2^ε u‖ are at most C(𝒩_ε + 𝒦) + C_δ𝒦. In [[eq:ii-d-4-11]] the term with the factor Cδ is then at most Cδ(𝒩_ε +
 𝒦)² + C_δ𝒦², and, by Young's inequality, C_δ𝒦X_ε ≤ C_δ𝒦 · C(𝒩_ε + 𝒦) + C_δ𝒦² ≤ δ(𝒩_ε + 𝒦)² + C_δ𝒦². Taking the
-square root, ‖B_δ^ε u‖ ≤ Cδ^(1/2)(𝒩_ε + 𝒦) + C_δ𝒦. By the second form, ‖E_3^ε u‖ ≤ Cδ^(−β)(‖B_δ^ε u‖ + 𝒦) + C_δ𝒦, so by Step 3
-and [[eq:ii-d-4-12]], ‖M^ε u‖ ≤ CR_3^β ‖B_3^ε u‖ + C_δ𝒦 ≤ CR_3^β δ^(−β) ‖B_δ^ε u‖ + C_δ𝒦. Together,
+square root, ‖B_δ^ε u‖ ≤ Cδ^(1/2)(𝒩_ε + 𝒦) + C_δ𝒦. By the second form, ‖E_3^ε u‖ ≤ Cδ^(−β)(‖B_δ^ε u‖ + 𝒦) +
+C_δ𝒦, so by Step 3 and [[eq:ii-d-4-12]], ‖M^ε u‖ ≤ CR_3^β ‖B_3^ε u‖ + C_δ𝒦 ≤ CR_3^β δ^(−β) ‖B_δ^ε u‖ + C_δ𝒦. Together,
 
     𝒩_ε ≤ C_9 (δ^(1/2) + R_3^β δ^(1/2−β)) (𝒩_ε + 𝒦) + C_δ𝒦,
 

@@ -1309,9 +1309,10 @@ slab order 𝗌 + 1 (d_0, d being its constants; by [[eq:ii-f1-2-9]] the same th
 with P_ε u_ε = f; by [[lem:ii-f1-2-2]] it is the forward solution.
 
 *Proof.* Let T := 4/ε and χ′ := χ_(ε/4) = χ_0(4/(ε t^♭)), which is 0 on {t^♭ ≤ 2/ε} and 1 on {t^♭ ≥ 8/(3ε)}. By
-[[lem:ii-f1-2-7]] (b), f|_(Ω_(1,T)) ∈ H^((𝗌;k),2α_I+2)(Ω_(1,T))^(•,−). By [[prop:ii-e-4-4]] for P_ε at the slab order
-𝗌 + 1 ([[lem:ii-f1-2-3]] (c), [[lem:ii-f1-2-6]] (b); its smallness condition is on ‖P_ε − P_0‖_((d_0;d)) only), the
-forward solution u_ini of P_ε u_ini = f on Ω_(1,T) lies in H^((𝗌+1;k),2α_I)(Ω_(1,T))^(•,−). As 1 − χ′ = 0 on
+[[lem:ii-f1-2-7]] (b), f|_(Ω_(1,T+1)) ∈ H^((𝗌;k),2α_I+2)(Ω_(1,T+1))^(•,−). By [[prop:ii-e-4-4]] for P_ε at the slab
+order 𝗌 + 1 ([[lem:ii-f1-2-3]] (c), [[lem:ii-f1-2-6]] (b); its smallness condition is on ‖P_ε − P_0‖_((d_0;d)) only),
+with the right-hand side f given on the larger slab Ω_(1,T+1), the forward solution u_ini of P_ε u_ini = f on Ω_(1,T)
+lies in H^((𝗌+1;k),2α_I)(Ω_(1,T))^(•,−). As 1 − χ′ = 0 on
 {t^♭ ≥ T − 1}, [[lem:ii-f1-2-7]] (a) puts (1 − χ′)u_ini in H^((𝗌+1;k),(2α_I,α_+−δ,−ℵ))_(e3b;b)(Ω_*)^(•,−) ⊂ X(𝗌;k). The
 commutator [P_0, χ′] = x_I² ρ_+² [L_0, χ′] (L_0 := x_I⁻² ρ_+⁻² P_0 ∈ Diff²_e3b on Ω, [[lem:ii-c-1-4]] (b)) is a
 first-order e3b-operator whose coefficients are e3b-derivatives of χ′, in C^∞_b and supported in {2/ε ≤ t^♭ ≤
@@ -1446,11 +1447,12 @@ e_(D_1) ≤ Cε_0) and [[eq:ii-f1-2-11]],
         ≤ C^((1))_k ε_0 η^(δ′) A_k + C_k e_k B_(D_1),
 
 using ‖χ_η u‖_(Z(𝗌;d̃)) ≤ C A_(d̃) ≤ C B_(D_1). With T_η := 2/η as in [[prop:ii-f1-3-1]] (iv), and [[prop:ii-e-4-4]]
-for P on Ω_(1,T_η) ([Hin26c, Proposition 8.9]) in place of [[prop:ii-e-4-3]],
+for P on Ω_(1,T_η) ([Hin26c, Proposition 8.9]) in place of [[prop:ii-e-4-3]], with the right-hand side Pu = P_ε u given
+on the larger slab Ω_(1,T_η+1) (P_ε = P on {t^♭ < 1/(2ε)}, and 1/(2ε) ≥ 2T_η ≥ T_η + 2, as ε ≤ η/8 and η ≤ 1),
 
     ‖(1 − χ_η)u‖_(Z(𝗌;j)) ≤ C_(j,η) ‖u‖_(H^((𝗌;j),2α_I)(Ω_(1,T_η))) ≤ C_(j,η) (B_j + e_j B_(D_1))
 
-for every j ([[lem:ii-f1-2-7]], and ‖P_ε u‖_(H^((𝗌−1;d^S),2α_I+2)(Ω_(1,T_η))) ≤ C B_(D_1)); so, by
+for every j ([[lem:ii-f1-2-7]], and ‖P_ε u‖_(H^((𝗌−1;d^S),2α_I+2)(Ω_(1,T_η+1))) ≤ C B_(D_1)); so, by
 [[eq:ii-f1-2-13]],
 
     ‖(P_ε − P_0)(1 − χ_η)u‖_(Y(𝗌_0;k)) ≤ C_k (ε_0 ‖(1 − χ_η)u‖_(Z(𝗌;k)) + e_k ‖(1 − χ_η)u‖_(Z(𝗌;d̃)))

@@ -35,9 +35,9 @@ bound orders of Sobolev spaces are written M. Δ := Δ_(𝕊³) ≥ 0 is the Lap
 of the Mellin transform and of indicial families is ι ∈ ℂ, and an indicial root is a value of ι. Variable decay orders
 are written 𝗋, as in [[sec:i-a-1-4]], and r = |x|. For an operator A on 𝕊³ with End ℂ^(N_E)-valued coefficients (in
 particular for an endomorphism-valued function), A^† denotes its adjoint for the standard inner product of ℂ^(N_E) and
-the round density, and A^(*h) := H_0⁻¹ A^† H_0, with H_0 = H(0, ·) as in [[sec:i-c-1-1]]. This H_0-adjoint is the one
-meant for operators on 𝕊³ and for the transition face operators of [[sec:i-c-4]], whose coefficients do not depend on
-ρ̂; for operators on X̃ the h-adjoint A^(*h) = H⁻¹A^†H of [[sec:i-c-1-1]] is meant, with A^† the adjoint for |dx|.
+the round density, and A^(*h) := H_0⁻¹ A^† H_0, with H_0 = H(0, ·) as in [[sec:i-c-1-1]]. The same conjugation by H_0,
+with A^† the adjoint for |dx̂|, gives the adjoints of the transition face operators in [[sec:i-c-4]]. For operators on
+X̃, A^(*h) is the h-adjoint H⁻¹A^†H of [[sec:i-c-1-1]], with A^† the adjoint for |dx|.
 
 ### Setting and hypotheses {#sec:i-c-1}
 
@@ -86,7 +86,8 @@ that is not the real part of a root lies in an indicial gap ([Hin26c, Remark 3.1
 The regularity order is a constant s > ½ + ϑ_ℋ throughout ([[rem:i-a-1-1]]).
 
 *Remarks.* (a) (G) is the hypothesis "α + 3/2 lies in an indicial gap" of [Hin26c] in dimension 4 + 1: by
-[[lem:i-c-2-2]] and [[def:i-c-2-8]], H̄_b^(0,α) = ρ^α L²(|dx|) = ρ^(α+2) L²(μ_b) near ∂X, so the b-weight is α + 2.
+[[lem:i-c-2-2]] and [[def:i-c-2-8]], H̄_b^(0,α) = ρ^α L²(|dx|) = ρ^(α+2) L²(μ_b) near ∂X, so the b-weight is α + 2
+(the b-density μ_b and the b-weight are defined in [[sec:i-c-2-2]]).
 (b) Which operators of the Einstein problem satisfy (G), (Z) and (TF), and with which weights, is established in the
 chapters where those operators are studied ([[ch:s13]]–[[ch:s15]]); it is not repeated here. (c) Only (H1)–(H2) near
 ∂X enter [[sec:i-c-4]] and [[sec:i-c-5]]; (H3)–(H4) enter through the interior estimates of [[sec:i-c-3]] and the
@@ -118,11 +119,13 @@ H^(s′) ↪ H^s is compact.
 (K4) *The sphere.* L²(𝕊³) = ⊕_(ℓ≥0) ℋ_ℓ, with ℋ_ℓ the finite-dimensional spaces of spherical harmonics of degree ℓ,
 on which Δ = ℓ(ℓ + 2). For integers m ≥ 0, ‖(1 + Δ)^(m/2) w‖_(L²) is equivalent to the H^m(𝕊³) norm, and H^(−m)(𝕊³)
 is the dual of H^m(𝕊³). Distributional solutions of elliptic equations with smooth coefficients on 𝕊³ with smooth
-right side are smooth. These are (K2) in charts, with a partition of unity.
+right side are smooth. The decomposition into spherical harmonics, with the eigenvalues ℓ(ℓ + 2), is the classical
+theory of spherical harmonics on 𝕊³ and is used as such; the other three facts are (K2) in charts, with a partition of
+unity.
 
-(K5) *Analytic Fredholm theorem* ([RS1, Theorem VI.14]). If D ⊂ ℂ is open and connected, F: D → ℒ(ℋ) is analytic with
-compact values on a Hilbert space ℋ, and Id + F(z_0) is invertible for one z_0 ∈ D, then (Id + F(z))⁻¹ exists for z
-off a discrete set 𝒮 ⊂ D, and is meromorphic on D with finite-rank residues.
+(K5) *Analytic Fredholm theorem* ([RS1, Theorem VI.14, p. 201]). If D ⊂ ℂ is open and connected, F: D → ℒ(ℋ) is
+analytic with compact values on a Hilbert space ℋ, and Id + F(z_0) is invertible for one z_0 ∈ D, then (Id + F(z))⁻¹
+exists for z off a discrete set 𝒮 ⊂ D, and is meromorphic on D with finite-rank residues.
 
 (K6) *Plancherel on ℝ and Cauchy's theorem.* ℱ_t w(τ) := ∫ e^(−itτ) w(t) dt, so ‖ℱ_t w‖² = 2π‖w‖² for
 L²(ℝ; ℋ)-valued w, ℋ a Hilbert space.
@@ -423,10 +426,10 @@ region of (B*); and (F). No a priori term arises. Near ∂X,
 where †_b denotes the adjoint for μ_b and the standard inner product. It is b-elliptic, with (ρ∂_ρ)^(†_b) = −ρ∂_ρ,
 and its normal operator has the Mellin symbol
 
-    I^♯(ι) := H_0⁻¹ I(2 − ῑ)^† H_0 = −ι² + (4 − a^(*h))ι + Δ + V^(*h) + b^(*h) + 2a^(*h) − 4,               {#eq:i-c-3-5}
+    I^♯(ι) := H_0⁻¹ I(2 − ῑ)^† H_0 = −ι² + (4 − a^(*h))ι + H_0⁻¹ΔH_0 + V^(*h) + b^(*h) + 2a^(*h) − 4,      {#eq:i-c-3-5}
 
-which is of the form of [[lem:i-c-2-4]] once Δ in [[eq:i-c-3-5]] is read as H_0⁻¹ΔH_0, which differs from Δ by a
-first-order operator; and spec_(I^♯) = {2 − μ̄ : μ ∈ spec_b}.
+which is of the form of [[lem:i-c-2-4]], since H_0⁻¹ΔH_0 − Δ = H_0⁻¹[Δ, H_0] ∈ Diff¹(𝕊³; End ℂ^(N_E)) can be absorbed
+into V^(*h); and spec_(I^♯) = {2 − μ̄ : μ ∈ spec_b}.
 
 These facts are verified as follows. For an operator A, ⟨Au, v⟩_(|dx|) = ⟨Au, ρ⁻⁴v⟩_(μ_b) =
 ⟨u, ρ⁴A^(†_b)ρ⁻⁴v⟩_(|dx|), so the adjoint for |dx| = ρ⁻⁴μ_b is A^† = ρ⁴A^(†_b)ρ⁻⁴; for A = ρ²P⁽⁰⁾ this is

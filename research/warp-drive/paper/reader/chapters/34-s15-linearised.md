@@ -254,3 +254,291 @@ for |dx| and dt_*; they agree at b_0, and near b_0 the change adds a scalar O(|b
 *Near b_0.* Extend h_Γ to a stationary inner product near Γ_(b_0). p_1^Γ for 2L_b is built from the subprincipal
 symbol of 2L_b and h_Γ, continuous in b uniformly near Γ_(b_0), and Γ_b → Γ_(b_0) by (Dyn); so
 sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_0 are continuous in b by (Dyn) and positive at b_0. ∎
+
+### The setting of the indicial analysis {#sec:iii-f1-1}
+
+This section and the next two carry [Hin26, Sections 8.2–8.3] (pp. 149–153): the indicial roots of the zero energy
+operator of L_b ([Hin26, Lemma 8.4] with (8.13)), the indicial solutions at ι = 0 ([Hin26, Lemma 8.5]),
+tf-admissibility ([Hin26, Proposition 8.6]) and the inversion of the transition face normal operator on b-Sobolev
+spaces ([Hin26, Corollary 8.7]).
+
+L_b = D_(g_b)Ric + δ*_(g_b,E_C) δ_(g_b,E_Υ) G_(g_b) ([[eq:iii-f-1-1]]), and on Minkowski space its model L̄, with
+2L̄ = □̄ + 2Ē^C δ̄ Ḡ + 2δ̄*_(Ē_C) Ē^Υ Ḡ; □̄^Υ := 2δ̄_(Ē_Υ) Ḡ δ̄* and □̄^C := 2δ̄ Ḡ δ̄*_(Ē_C) are the models of
+[[ch:s13]] and [[ch:s14]]. With the trace weight 2/3,
+Ē^Υ h = −γ_Υ(2ι_(c̄_Υ^♯) h − (2/3)(1 − e_Υ)c̄_Υ tr h), c̄_Υ = r⁻¹dt̄, and
+Ē^C ω = γ_C(2c̄_C ⊗_s ω − (2/3)(1 − e_C)ḡ⟨c̄_C, ω⟩), c̄_C = r⁻¹(dt̄ − v_C dr) ([[eq:iii-b-6-5]],
+[[thm:iii-e-1-1]]); so Ē^Υ Ḡ h = −γ_Υ(2ι_(c̄_Υ^♯) h − e_Υ c̄_Υ tr h). By [[lem:iii-f-2-1]] (3) the indicial roots of
+L_b^(0) are those of L̄^(0), which is dilation homogeneous and equal to ρ² times its normal operator; likewise for □^Υ_b
+([[lem:iii-d-2-1]] (3)) and □^C_b ([[sec:iii-e-1]]). All three models commute with the rotations SO(4) of the spatial
+factor.
+
+*Parameters.* e_Υ > 0 and γ_Υ > 0 are small, with z = 4e_Υγ_Υ² ∈ (0, ½], the parameter of [[lem:iii-d-4-1]]; v_C, e_C,
+c_C and γ_C are those of [[thm:iii-e-1-1]], with C_0 = 100 ([[sec:iii-f-1]]). The constraint damping parameters are
+fixed first ([[sec:iv4-0]]); γ_Υ is then taken small, as in [Hin26] ("keeping the other parameters and all 1-forms
+fixed").
+
+*The constraint propagation operator.* The facts about □^C_b used below are the clauses of [[thm:iii-e-1-1]] (3):
+
+(C1) Every indicial root of □^C_b has real part ≥ 2 or < −C_0; the only one with real part 2 is ι = 2, a simple root
+of scalar types 0 and 1. At scalar type 0 two roots lie on each side, written ι^C_(s0,≪,1), ι^C_(s0,≪,2) (real parts
+< −C_0) and 2, ι^C_(s0,+); at scalar type 1 three, ι^C_(s1,≪,j) (j = 1, 2, 3) and 2, ι^C_(s1,+,1), ι^C_(s1,+,2); at
+scalar type l ≥ 2 three, ι^C_(sl,≪,j) and ι^C_(sl,+,j); at vector type l ≥ 1 one, ι^C_(vl,≪) and ι^C_(vl,+).
+
+(C2) The indicial roots of □^C_b are simple.
+
+(C3) At scalar type l no indicial root of □^C_b lies in {1 − l, 3 − l, l + 3, l + 5} ∖ {2}; at vector type l ≥ 2 none
+lies in {1 − l, 2 − l, l + 3, l + 4}.
+
+(C4) Every indicial root of □^C_b whose real part is an integer in [3, 51] is real.
+
+*Types and representations.* Write H_d for the space of harmonic polynomials of degree d on ℝ⁴, restricted to 𝕊³.
+Under SO(4) ≅ (SU(2) × SU(2))/{±1}, H_d is the irreducible representation of highest weights (d/2, d/2); the
+spatial covectors ℝ⁴ are (½, ½), and the symmetric 2-tensors on ℝ⁴ are (0, 0) ⊕ (1, 1), the trace and the trace-free
+part. The scalar, vector and tensor harmonics of degree l are the representations of highest weights (l/2, l/2),
+((l ± 1)/2, (l ∓ 1)/2) and ((l ± 2)/2, (l ∓ 2)/2) (as recalled in the proof of [[prop:iii-d2-3-1]]), whose two
+weights are equal, differ by one and differ by two, and whose sum is l. So each irreducible representation π occurs
+in exactly one type and degree. For a bundle W of Cartesian components (functions, 1-forms or symmetric 2-tensors of
+ℝ^(1+4) in the frame dt̄, dx^i), let W_π be the π-isotypic subspace of C^∞(𝕊³; W). It is finite-dimensional and equal
+to ℂ^k ⊗ π for the type and degree of π, with k the size of that type's indicial matrices ([[eq:iii-a1-2-9]]–
+[[eq:iii-a1-2-10]]); an operator on 𝕊³ commuting with the action of SO(4) on the base and the components acts on W_π as
+N ⊗ Id_π with N a k × k matrix (Schur's lemma).
+
+### The indicial roots {#sec:iii-f1-2}
+
+For a type and degree let N_L(ι), N_Υ(ι) and N_C(ι) be the type's indicial matrices of ρ⁻²(2L̄)^(0), ρ⁻²(□̄^Υ)^(0) and
+ρ⁻²(□̄^C)^(0), in the bases of [[eq:iii-a1-2-9]]–[[eq:iii-a1-2-10]]: of sizes k = 4, 6, 7, 2, 3, 1 for N_L at s0, s1,
+sl (l ≥ 2), v1, vl (l ≥ 2), tl (l ≥ 2), and m = 2, 3, 3, 1, 1 for N_Υ and N_C at s0, s1, sl, v1, vl. Each is −ι² Id
+plus lower powers of ι, so its determinant has degree 2k, resp. 2m, and leading coefficient (−1)^k, resp. (−1)^m.
+
+**Lemma {#lem:iii-f1-2-1}** (The factorisation.) For each type and degree,
+
+    det N_L(ι) = (−1)^k (ι + l)(ι − l − 2) det N_Υ(ι − 1) det N_C(ι + 1) / D(ι),
+    D(ι) = (ι − 1)² at s0 and s1,     D(ι) = ι(ι − 2) at v1,     D(ι) = 1 at sl and vl, l ≥ 2,           {#eq:iii-f1-2-1}
+
+and at tensor type l ≥ 2, det N_L(ι) = −(ι + l)(ι − l − 2). This holds for all values of the parameters γ_Υ, e_Υ,
+γ_C, e_C and v_C.
+
+*Proof.* *Homogeneous sections.* A stationary section of W on ℝ^(1+4) ∖ {r = 0} is *homogeneous of degree −ι* if its
+Cartesian components are r^(−ι) times functions on 𝕊³. On stationary sections a Cartesian derivative is a spatial
+derivative ∂_(x^i), and c̄_Υ, c̄_C are homogeneous of degree −1. So each first-order operator below, δ̄*, δ̄*_(Ē_C),
+δ̄Ḡ and δ̄_(Ē_Υ)Ḡ, maps sections homogeneous of degree −ι to sections homogeneous of degree −ι − 1, and each
+second-order operator, 2D Ric (the linearisation at ḡ), 2L̄, □̄^Υ and □̄^C, to degree −ι − 2. Restricted to the type
+of π these act by matrices, defined by T(r^(−ι)a) = r^(−ι−1)T(ι)a for a first-order T and P(r^(−ι)a) = r^(−ι−2)P(ι)a
+for a second-order P; for P = 2L̄, □̄^Υ, □̄^C these are N_L, N_Υ, N_C, and a composition has
+(T_1T_2)(ι) = T_1(ι + 1)T_2(ι). Write R(ι), B(ι), B′(ι), Ψ(ι), Φ(ι) for 2D Ric, δ̄*, δ̄*_(Ē_C), δ̄Ḡ, δ̄_(Ē_Υ)Ḡ: R is
+k × k, B and B′ are k × m, Ψ and Φ are m × k.
+
+*Five identities.* On Minkowski space, D Ric ∘ δ̄* = 0, since 2δ̄*X^♭ = ℒ_X ḡ and D Ric(ℒ_X ḡ) = ℒ_X Ric(ḡ) = 0; and
+δ̄Ḡ ∘ D Ric = 0, the linearised second Bianchi identity at the Ricci-flat ḡ. With the definitions,
+
+    N_L(ι) = R(ι) + 2B′(ι + 1)Φ(ι),     N_Υ(ι) = 2Φ(ι + 1)B(ι),     N_C(ι) = 2Ψ(ι + 1)B′(ι),
+    R(ι + 1)B(ι) = 0,     Ψ(ι + 2)R(ι) = 0.
+
+*A determinant identity.* Let C be a constant k × (k − m) matrix and C̃ a constant (k − m) × k matrix, and put
+M_1(ι) := (B(ι − 1) | C) and M_2(ι) := (Ψ(ι + 2); C̃) (columns, resp. rows, juxtaposed). By the identities,
+Ψ(ι + 2)N_L(ι)B(ι − 1) = 2Ψ(ι + 2)B′(ι + 1)Φ(ι)B(ι − 1) = ½N_C(ι + 1)N_Υ(ι − 1),
+Ψ(ι + 2)N_L(ι)C = N_C(ι + 1)Φ(ι)C and C̃N_L(ι)B(ι − 1) = C̃B′(ι + 1)N_Υ(ι − 1), so
+
+    M_2 N_L M_1 = ⎛ N_C  0 ⎞ ⎛ ½I     ΦC              ⎞ ⎛ N_Υ  0 ⎞
+                  ⎝ 0    I ⎠ ⎝ C̃B′   C̃RC + 2C̃B′ΦC    ⎠ ⎝ 0    I ⎠
+
+with the arguments ι + 1 of N_C and B′, ι − 1 of N_Υ, and ι of R and Φ. The middle factor has determinant
+det(½I) det(C̃RC + 2C̃B′ΦC − C̃B′(½I)⁻¹ΦC) = 2^(−m) det(C̃RC). Hence, for every ι,
+
+    det M_2(ι) · det N_L(ι) · det M_1(ι) = 2^(−m) det N_C(ι + 1) det N_Υ(ι − 1) det(C̃R(ι)C).
+
+*The flat wave operator.* On Minkowski space 2δ̄Ḡδ̄* = □̄ on 1-forms (in general 2δGδ*ω = □ω − Ric(ω)), and on
+stationary sections □̄ acts in the Cartesian frame as −Δ on each component, Δ the Laplacian of ℝ⁴. For Y ∈ H_d,
+Δ(r^a Y) = r^(a−2)(a(a + 2) − d(d + 2))Y on ℝ⁴; with a = −ι,
+
+    −Δ(r^(−ι) Y) = −r^(−ι−2)(ι + d)(ι − d − 2) Y.
+
+−Δ preserves each H_d ⊗ W, so on the type of π its matrix is diagonal in a basis adapted to the degrees, with the entry
+−(ι + d)(ι − d − 2) repeated n_d(π, W) times, n_d(π, W) the multiplicity of π in H_d ⊗ W. In particular 2Ψ(ι + 1)B(ι),
+the matrix of □̄ on 1-forms, is invertible for ι ∉ ℤ, so B(ι) is injective and Ψ(ι + 1) is surjective for ι ∉ ℤ.
+
+*The ratio does not depend on the parameters.* Fix ι_* ∉ ℤ, choose C whose columns complete those of B(ι_* − 1) to a
+basis, and C̃ whose rows complete those of Ψ(ι_* + 2) to a basis. Then det M_1 and det M_2 are polynomials in ι, nonzero
+at ι_*. R, B and Ψ, hence M_1, M_2 and det(C̃RC), do not involve γ_Υ, e_Υ, γ_C, e_C or v_C. det N_Υ(ι − 1) and
+det N_C(ι + 1) have leading coefficient ±1, so they are not the zero polynomial. So the rational function
+
+    det N_L(ι) / (det N_Υ(ι − 1) det N_C(ι + 1)) = 2^(−m) det(C̃R(ι)C) / (det M_1(ι) det M_2(ι))
+
+is the same for all values of the parameters, and it suffices to compute it at γ_Υ = γ_C = 0.
+
+*The flat case.* At γ_Υ = γ_C = 0, Ē^Υ = 0 and Ē^C = 0, so 2L̄ = 2D Ric + 2δ̄*δ̄Ḡ = □̄ on symmetric 2-tensors (as
+2D Ric = □ − 2δ*δG + 2R with R = 0 at ḡ), and □̄^Υ = □̄^C = □̄ on 1-forms. The components are: for a symmetric
+2-tensor, h_(t̄t̄) (a function, (0, 0)), h_(t̄i) (a spatial 1-form, (½, ½)) and h_(ij) ((0, 0) ⊕ (1, 1)); for a
+1-form, ω_(t̄) ((0, 0)) and ω_i ((½, ½)). By the Clebsch–Gordan rule for SU(2) × SU(2), (d/2, d/2) ⊗ (j_1, j_2) is the
+sum of the (a, b) with a ∈ {|d/2 − j_1|, …, d/2 + j_1} and b ∈ {|d/2 − j_2|, …, d/2 + j_2}. Reading off the degrees d
+with n_d ≠ 0 (each then equal to 1, per summand):
+
+- scalar type l, π = (l/2, l/2): from (0, 0), d = l; from (½, ½), d = l ± 1 (d ≥ 0); from (1, 1), d = l − 2, l, l + 2,
+  except that d = l is absent at l = 0 and d = l − 2 needs l ≥ 2. So the 2-tensor degrees are l; l − 1, l + 1;
+  l, l − 2, l, l + 2 at sl, l ≥ 2 (k = 7); 1; 0, 2; 1, 1, 3 at s1 (k = 6); 0; 1; 0, 2 at s0 (k = 4); and the 1-form
+  degrees are l; l − 1, l + 1 at sl (m = 3), 1; 0, 2 at s1 (m = 3) and 0; 1 at s0 (m = 2);
+- vector type l, π = ((l + 1)/2, (l − 1)/2) or its mirror: from (½, ½), d = l; from (1, 1), d = l − 1 (needs l ≥ 2)
+  and d = l + 1. So the 2-tensor degrees are l; l − 1, l + 1 at vl, l ≥ 2 (k = 3), and 1; 2 at v1 (k = 2), and the
+  1-form degree is l (m = 1);
+- tensor type l, π = ((l + 2)/2, (l − 2)/2) or its mirror: only from (1, 1), d = l (k = 1, m = 0).
+
+These sizes are those of [[eq:iii-a1-2-9]]–[[eq:iii-a1-2-10]]. Write a_j := ι + j and b_j := ι − j − 2, so that
+(ι + d)(ι − d − 2) = a_d b_d, while the same expression at ι + 1 is a_(d+1) b_(d−1) and at ι − 1 is a_(d−1) b_(d+1).
+At the flat point det N_L = (−1)^k Π a_d b_d over the 2-tensor degrees, and det N_Υ(ι − 1) det N_C(ι + 1)
+= Π a_(d−1) b_(d+1) a_(d+1) b_(d−1) over the 1-form degrees (the signs (−1)^m of the two factors cancel). At sl the
+numerator is −a_(l−2) a_(l−1) a_l³ a_(l+1) a_(l+2) b_(l−2) b_(l−1) b_l³ b_(l+1) b_(l+2) and the denominator is
+a_(l−2) a_(l−1) a_l² a_(l+1) a_(l+2) b_(l−2) b_(l−1) b_l² b_(l+1) b_(l+2); the quotient is −a_l b_l. At s1 the
+numerator is a_0 a_1³ a_2 a_3 b_0 b_1³ b_2 b_3 and the denominator a_(−1) a_0 a_1² a_2 a_3 b_(−1) b_0 b_1² b_2 b_3,
+quotient a_1 b_1/(a_(−1) b_(−1)) = (ι + 1)(ι − 3)/(ι − 1)². At s0 the numerator is a_0² a_1 a_2 b_0² b_1 b_2 and the
+denominator a_(−1) a_0 a_1 a_2 b_(−1) b_0 b_1 b_2, quotient ι(ι − 2)/(ι − 1)². At vl the quotient is
+−a_(l−1) a_l a_(l+1) b_(l−1) b_l b_(l+1)/(a_(l−1) a_(l+1) b_(l−1) b_(l+1)) = −a_l b_l; at v1 it is
+a_1 a_2 b_1 b_2/(a_0 a_2 b_0 b_2) = (ι + 1)(ι − 3)/(ι(ι − 2)); at tl, det N_L = −a_l b_l. In every case the quotient is
+(−1)^k(ι + l)(ι − l − 2)/D(ι), which is [[eq:iii-f1-2-1]] at the flat point, and so for all parameters. ∎
+
+The factors have this meaning. On Minkowski space L̄δ̄* = ½δ̄*_(Ē_C) □̄^Υ, so the symmetric gradient of an indicial
+solution of □̄^Υ at ι − 1 is one of L̄ at ι, unless it vanishes, which happens exactly for the stationary homogeneous
+Killing 1-forms: the translations (at ι − 1 = 0, scalar types 0 and 1) and the rotations (at ι − 1 = −1, vector type
+1). The identity δ̄Ḡ(2L̄) = □̄^C δ̄_(Ē_Υ) Ḡ is the dual relation, which shifts the roots of □̄^C by −1. The factor
+(ι + l)(ι − l − 2) carries the gauge-invariant roots −l and l + N − 2, N = 4, the degrees of the homogeneous harmonic
+functions r^l Y and r^(−l−2) Y on ℝ⁴; and D removes the roots that the two relations give twice: the Killing root of
+□̄^Υ and the root 2 of □̄^C at s0 and s1, and at v1 the rotations (ι − 1 = −1) and the root 3 of □̄^C (ι + 1 = 3,
+[[lem:iii-f1-2-2]]).
+
+**Lemma {#lem:iii-f1-2-2}** (Vector type 1 of □^C.) At vector type 1, N_C(ι) = −(ι − 3)(ι + 1 + 2γ_C v_C). So the roots
+are 3 and −1 − 2γ_C v_C, for every value of the parameters.
+
+*Proof.* A vector type 1 1-form of degree 0 is ρV, V = (Wx) · dx with W ∈ 𝔰𝔬(4): a Killing 1-form (δ̄*V = 0),
+tangential and divergence free, with V(∂_r) = 0. For f = r^(−ι−1), ⟨c̄_C, V⟩ = 0 and tr(k ⊗_s V) = ⟨k, V⟩ = 0 for
+k ∈ span(dt̄, dr), so δ̄*_(Ē_C)(fV) = (df + 2γ_C f c̄_C) ⊗_s V = (F_r dr + F_t dt̄) ⊗_s V, with
+F_r = f′ − 2γ_C v_C f/r = −(ι + 1 + 2γ_C v_C) r^(−ι−2), and Ḡ is the identity on it. For a function F(r) one computes
+in Cartesian coordinates δ̄(F dt̄ ⊗_s V) = 0 and δ̄(F dr ⊗_s V) = −½(F′ + 5F/r)V, from ∂_i(F x_i/r) = F′ + 3F/r,
+(x_i/r)∂_i V_j = V_j/r, x · V = 0 and div V = tr W = 0. So □̄^C(fV) = −(F_r′ + 5F_r/r)V
+= −(ι + 1 + 2γ_C v_C)(ι − 3) r^(−2) f V. ∎
+
+**Proposition {#prop:iii-f1-2-3}** (The indicial roots; [Hin26, Lemma 8.4] in dimension 4 + 1.) Assume z ∈ (0, ½] and
+(C1). The indicial roots of L_b^(0), in the notation of [[lem:iii-d-4-1]] and (C1), are:
+
+s0: ι^C_(s0,≪,1) − 1, ι^C_(s0,≪,2) − 1, 2 − ι^Υ_(s0,2), 0; 2, 1 + ι^Υ_(s0,2), ι^C_(s0,+) − 1, 4;
+
+s1: ι^C_(s1,≪,j) − 1 (j = 1, 2, 3), 2 − ι^Υ_(s1,3), 2 − ι^Υ_(s1,2), −1; 3, 1 + ι^Υ_(s1,2), 1 + ι^Υ_(s1,3), 5,
+ι^C_(s1,+,1) − 1, ι^C_(s1,+,2) − 1;
+
+sl, l ≥ 2: ι^C_(sl,≪,j) − 1 (j = 1, 2, 3), −l, 2 − ι^Υ_(sl,l+2), 2 − ι^Υ_(sl,l+1), 2 − l; l + 2,
+1 + ι^Υ_(sl,l+1), 1 + ι^Υ_(sl,l+2), l + 4, ι^C_(sl,+,j) − 1 (j = 1, 2, 3);
+
+v1: −2 − 2γ_C v_C, −1; 3, 4;
+
+vl, l ≥ 2: ι^C_(vl,≪) − 1, −l, 1 − l; l + 2, l + 3, ι^C_(vl,+) − 1;
+
+tl, l ≥ 2: −l; l + 2.
+
+(a) No root has real part in (0, 1]. (b) At each type and degree, k roots (with multiplicity) have real part ≤ 0 and k
+have real part > 1: those before and after the semicolon. (c) 0 is a root only at scalar types 0 and 2, simple there,
+with the indicial solutions of [[lem:iii-f1-2-5]]. (d) The roots with real part ≤ 0 that come from □^C, written with
+superscript C, have real part < −C_0 − 1 = −101. (e) If (C2)–(C3) hold, there is a countable set Z_exc ⊂ (0, ½],
+determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4) holds, then for every
+R > 0 only finitely many roots have |ι| ≤ R, and no non-integer root with |ι| ≤ 50 has integer real part; so there is
+ε_ind ∈ (0, 1] with
+
+    d(Re ι, ℤ) ≥ ε_ind     for every non-integer root ι with |ι| ≤ 50,                                   {#eq:iii-f1-2-2}
+
+which is [Hin26, (8.13)], and (0, ε_ind] ⊂ (0, 1] lies in the indicial gap. The number ε_ind is small: at the gauge
+parameters (e_Υ, γ_Υ) = (1/100, 1/100) the roots 2 − ι^Υ_(sl,l+1), which approach the integers 1 − l as l grows,
+force ε_ind ≤ δ_50 := 1.94137 × 10⁻⁸ ([[prop:np-10-52]]). The gap (0, 1] of (a) is exact, and ε_ind enters only
+through [[eq:iii-f1-2-2]], never as a number of order one.
+
+*Proof.* *The list.* By [[lem:iii-f1-2-1]] the roots of each type are, with multiplicity, −l and l + 2, the roots of
+□^Υ plus 1 and the roots of □^C minus 1, less the roots of D. [[lem:iii-d-4-1]] gives those of □^Υ: s0:
+1 − ι^Υ_(s0,2), 0, ι^Υ_(s0,2), 3; sl (l ≥ 1): 1 − ι^Υ_(sl,l+2), 1 − ι^Υ_(sl,l+1), 1 − l, ι^Υ_(sl,l+1), ι^Υ_(sl,l+2),
+l + 3; vl: −l, l + 2. (C1) and [[lem:iii-f1-2-2]] give those of □^C. At s0 and s1, (ι − 1)² divides the numerator of
+[[eq:iii-f1-2-1]] exactly: ι = 1 is the simple root 0 of □^Υ plus 1 (at s0 the entry 0 of the list, at s1 the entry
+1 − l), simple by [[lem:iii-d-4-1]], and the simple root 2 of □^C minus 1 (C1), and no other factor vanishes at 1
+((ι + l)(ι − l − 2) does not, nor do the roots of either operator other than these two, by the bounds below). At v1,
+ι(ι − 2) divides it exactly: 0 is the root −1 of □^Υ plus 1, and 2 is the root 3 of □^C minus 1
+([[lem:iii-f1-2-2]]), each simple; and (ι + 1)(ι − 3), the other root 3 of □^Υ plus 1 and the other root
+−1 − 2γ_C v_C of □^C minus 1 avoid 0 and 2. What remains is the list.
+
+*Bounds.* By [[eq:iii-d-4-2]], for 0 < z ≤ ½: ι^Υ_(s0,2) ∈ (2, 2 + z/3] and ι^Υ_(sl,l+j) ∈ (l + j, l + j + ¼); so
+2 − ι^Υ_(s0,2) ∈ [−z/3, 0), 2 − ι^Υ_(sl,l+j) ∈ (2 − l − j − ¼, 2 − l − j), 1 + ι^Υ_(s0,2) ∈ (3, 3 + z/3] and
+1 + ι^Υ_(sl,l+j) ∈ (l + j + 1, l + j + 5/4). By (C1) the roots ι^C_(·,≪) − 1 have real part < −C_0 − 1 and the roots
+ι^C_(·,+) − 1 real part > 1. *(a), (b), (d)* are read off: before the semicolon every real part is ≤ 0, after it every
+real part is > 1 (the integers there are ≥ 2), and the counts are 4, 6, 7, 2, 3, 1. *(c)* Before the semicolon, 0
+occurs only as the root 0 at s0 and as 2 − l at l = 2; every other entry there is < 0 (as z > 0,
+2 − ι^Υ_(s0,2) < 0 and 2 − ι^Υ_(s1,2) < 0). So 0 is a simple root at s0 and at s2, and at no other type.
+
+*(e) Simplicity.* Within the roots that do not come from □^C the entries of each type are distinct by the bounds: they
+lie in pairwise disjoint intervals, for instance at sl,
+−l − ¼ < 2 − ι^Υ_(sl,l+2) < −l < 1 − l − ¼ < 2 − ι^Υ_(sl,l+1) < 1 − l < 2 − l, and on the other side
+l + 2 < 1 + ι^Υ_(sl,l+1) < l + 9/4 < l + 3 < 1 + ι^Υ_(sl,l+2) < l + 13/4 < l + 4 (at z = 0 the first and third pairs
+would meet, which is why z > 0 is assumed). The roots from □^C are distinct among themselves by (C2), and at v1 the
+four are distinct as γ_C v_C > 0. A root from □^C equals an integer entry of its type exactly when □^C has a root at
+that integer plus 1: at scalar type l the integer entries are −l, 2 − l, l + 2, l + 4 (with 0, 2, 4 at s0 and −1, 3, 5
+at s1), so these coincidences are the points of (C3) (the root 2 of □^C at s0 and s1 being the one D removes); at
+vector type l ≥ 2 they are −l, 1 − l, l + 2, l + 3, and (C3) excludes them likewise. The remaining coincidences are
+between a real root μ of □^C and ι^Υ + 2 or 3 − ι^Υ, for a root ι^Υ = ι^Υ_(s0,2) or ι^Υ_(sl,l+j) of the same type and
+degree. Each ι^Υ is a strictly increasing function of z: ι^Υ_(s0,2) = ½ + (9/4 + z)^(1/2), and
+ι^Υ_(sl,l+j) = ½ + (¼ + s_(l,j))^(1/2) with s_(l,1) < s_(l,2) the roots of
+Q_l(s) = s² − (2 + 2κ + z)s + κ(κ + 1) + zκ ([[lem:iii-d-4-1]]), where Q_l(κ) = −κ < 0 puts κ strictly between the
+two roots, so that ∂_z s_(l,j) = (s_(l,j) − κ)/∂_s Q_l(s_(l,j)) > 0 for both (numerator and denominator have the same
+sign). The roots of □^C_b do not depend on z (its parameters are fixed first), and there are countably many of them, by
+type and degree; so each coincidence happens at at most one z, and Z_exc, the set of those z, is countable.
+
+*(f)* By [[lem:iii-f1-2-4]] below, with the strip |Re ι| ≤ R, only finitely many isotypic components carry roots with
+|ι| ≤ R, each finitely many. The non-integer roots with |ι| ≤ 50 are those from □^Υ, which are real and lie in the
+open intervals of the bounds above, so their real parts are not integers, and those ι^C_(·,+) − 1 that are not
+integers (by (d) the roots ι^C_(·,≪) − 1 have |ι| > 101); a non-integer one with integer real part n, 2 ≤ n ≤ 50,
+would make ι^C_(·,+) non-real with real part n + 1 ∈ [3, 51], against (C4). The minimum of d(Re ι, ℤ) over this finite
+set is positive, and ε_ind is any number in (0, 1] not exceeding it. ∎
+
+**Lemma {#lem:iii-f1-2-4}** (Roots in a strip, uniformly.) Let 𝒯 be a compact parameter space and
+I_τ(ι) = −ι² + a_τ ι + Δ_(𝕊³) + V_τ + b_τ, τ ∈ 𝒯, indicial families of the form of [[lem:i-c-2-4]] on ℂ^N-valued
+functions on 𝕊³ (the Cartesian frame of T* or S²T* of ℝ^(1+4)), with coefficients continuous in τ and commuting with
+the action of SO(4) that rotates both the base and the Cartesian components. For an irreducible representation π let
+W_π be the π-isotypic subspace, finite-dimensional, and d(π) the least d with W_π ∩ (H_d ⊗ ℂ^N) ≠ 0. Then for every
+X > 0 there is d_0 such that for all τ ∈ 𝒯, all π with d(π) ≥ d_0 and all ι with |Re ι| ≤ X, I_τ(ι) is invertible on
+W_π. On each W_π, det(I_τ(ι)|_(W_π)) is a polynomial of degree 2 dim W_π with leading coefficient (−1)^(dim W_π), so its
+roots, with multiplicity, depend continuously on τ.
+
+*Proof.* H_d ⊗ ℂ^N is invariant under the action (the rotation of components is by constant matrices), and
+Δ = κ_d := d(d + 2) on it. The representation on ℂ^N has irreducible constituents of highest weights (a, b) with
+a + b ≤ 2 (for S²(ℝ ⊕ ℝ⁴), ℝ⁴ = (½, ½)), and H_d = (d/2, d/2); by the Clebsch–Gordan rule for SU(2) × SU(2),
+π = (j_1, j_2) occurs in H_d ⊗ ℂ^N only if |j_1 + j_2 − d| ≤ 2, so W_π ⊂ ⊕_(|d−d(π)|≤4) H_d ⊗ ℂ^N, a
+finite-dimensional space preserved by I_τ(ι), on which κ_(d(π)) ≤ Δ ≤ κ_(d(π)+4). By [[lem:i-c-2-4]] (a), whose
+constants depend on finitely many seminorms of the coefficients and so are uniform in τ, there is μ_0 with I_τ(ι)
+invertible on all of H² for |Re ι| ≤ X, |Im ι| ≥ μ_0. For |ι| ≤ X + μ_0 and u ∈ W_π write I_τ(ι) = (1 + Δ) + R,
+R := −1 − ι² + a_τ ι + V_τ + b_τ; then ‖Ru‖ ≤ C(‖u‖ + ‖u‖_(H¹)) ≤ C(1 + κ_(d(π)+4))^(1/2)‖u‖ and
+‖(1 + Δ)u‖ ≥ (1 + κ_(d(π)))‖u‖, with C uniform in τ; as (1 + κ_(d+4))^(1/2)/(1 + κ_d) → 0, I_τ(ι)u ≠ 0 for u ≠ 0 once
+d(π) ≥ d_0. The last statement: on W_π, I_τ(ι) = −ι² Id + ιA_τ + B_τ with matrices continuous in τ. ∎
+
+By *Types and representations* in [[sec:iii-f1-1]], W_π is ℂ^k ⊗ π for the type and degree of π,
+I(ι)|_(W_π) = N(ι) ⊗ Id_π, and det(I(ι)|_(W_π)) = det N(ι)^(dim π): the roots on W_π are those of the type, each with
+multiplicity multiplied by dim π, and [[prop:iii-f1-2-3]] (b) holds on every W_π, with k dim π = dim W_π.
+
+**Lemma {#lem:iii-f1-2-5}** (The indicial solutions at 0; [Hin26, Lemma 8.5] in dimension 4 + 1.)
+ker N(L̄^(0), 0) ⊂ ker N(ρ⁻¹(δ̄_(Ē_Υ))^(0) Ḡ, 0). More precisely, at scalar type 0 the kernel is spanned by the
+constant tensor
+
+    h̄_s0 := −dt̄² + B_Υ dx²,     B_Υ := (2 − e_Υ)/(4e_Υ),                                               {#eq:iii-f1-2-3}
+
+and at scalar type 2, for each S ∈ 𝒮_2, by h̄_s2(S) := δ̄*(ρ⁻¹w_S), w_S spanning ker N_s2((□̄^Υ)^(0), −1); both
+satisfy δ̄_(Ē_Υ) Ḡ h̄ = 0 and L̄h̄ = 0 exactly.
+
+*Proof.* By [[prop:iii-f1-2-3]] (c) the kernel is that of scalar types 0 and 2, one-dimensional for each S; so it
+suffices that the stated tensors are nonzero, stationary, homogeneous of degree 0 and of the stated types, and satisfy
+the two equations: for a stationary homogeneous h̄ of degree 0, L̄^(0) h̄ = ρ² N(·, 0) h̄, and likewise for the gauge
+operator, both models being dilation homogeneous.
+
+*Scalar type 0.* h̄_s0 = δ̄*Ω with Ω := d(−½t̄² + ½B_Υ r²), as δ̄*d is the Hessian. It is constant (so stationary and
+homogeneous of degree 0), SO(4)-invariant, and nonzero. D Ric(δ̄*Ω) = 0 on Minkowski space. For the gauge condition,
+δ̄Ḡh̄_s0 = 0 (constant coefficients), and with c̄_Υ^♯ = −r⁻¹∂_(t̄), ι_(c̄_Υ^♯) h̄_s0 = r⁻¹dt̄ and
+tr h̄_s0 = 1 + 4B_Υ, so Ē^Υ Ḡ h̄_s0 = −γ_Υ r⁻¹dt̄ (2 − e_Υ(1 + 4B_Υ)), which is 0 exactly when 1 + 4B_Υ = 2/e_Υ, that
+is [[eq:iii-f1-2-3]]. Then L̄h̄_s0 = D Ric h̄_s0 + δ̄*_(Ē_C)(δ̄_(Ē_Υ) Ḡ h̄_s0) = 0. (In the terms of [Hin26],
+Ω = t̄ ω̄^(0)_s0 + W̄ with ω̄^(0)_s0 = −dt̄ Killing and W̄ = B_Υ r dr solving □̄^Υ W̄ = −[□̄^Υ, t̄] ω̄^(0)_s0; that −1
+is not an s0 root of □^Υ for z > 0, [[lem:iii-d-4-1]], is what makes W̄ unique, and B_Υ → ∞ as e_Υ → 0, where
+1 − ι^Υ_(s0,2) → −1.)
+
+*Scalar type 2.* 1 − l = −1 is a simple root of □^Υ at scalar type 2 ([[lem:iii-d-4-1]]), so w_S exists and is unique
+up to scaling, and Ω_S := ρ⁻¹w_S is stationary, homogeneous of degree 1 and annihilated by □̄^Υ. So
+h̄_s2(S) = δ̄*Ω_S is stationary, homogeneous of degree 0, of scalar type 2, satisfies
+δ̄_(Ē_Υ) Ḡ h̄_s2 = ½□̄^Υ Ω_S = 0 and L̄h̄_s2 = D Ric(δ̄*Ω_S) + δ̄*_(Ē_C)(0) = 0. It is nonzero: otherwise Ω_S would be a
+stationary Killing 1-form homogeneous of degree 1, and those are the spatial rotations, of vector type 1. ∎

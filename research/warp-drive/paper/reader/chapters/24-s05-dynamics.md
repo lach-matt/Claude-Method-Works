@@ -988,39 +988,48 @@ Vr = r; a timelike covector that is positive on a future timelike vector is past
 *The function away from ℐ⁺.* dt = dt_* + dr has ḡ⁻¹(dt, dt) = −1, |(g₀⁻¹ − ḡ⁻¹)(dt, dt)| ≤ Cr⁻² by (K1), and
 |(g⁻¹ − g₀⁻¹)(dt, dt)| ≤ Cϵ_G where x_I ≥ c, by the bounds above. So g⁻¹(dt, dt) ≤ −½ on {r ≥ r′₀ − 1, x_I ≥ c} for r′₀
 large and ϵ_G small, and dt is past timelike there (dt(V) = t > 0, V being future timelike as r′₀ − 1 ≥ R₂). On
-{r₀ ≤ r ≤ r′₀ + 1},
-g₀⁻¹(dt_*, dt_*) = g₀₀ ≤ −c₀ < 0 by (H6) and compactness, so g⁻¹(dt_*, dt_*) ≤ −½c₀ for ϵ_G small, and dt_* is past
-timelike there, for g₀ by (H6) and for g by continuity.
+{r₀ ≤ r ≤ r′₀ + 1}, g₀⁻¹(dt_*, dt_*) = g₀₀ ≤ −c₀ < 0 by (H6) and compactness, so g⁻¹(dt_*, dt_*) ≤ −½c₀ for ϵ_G
+small, and dt_* is past timelike there, for g₀ by (H6) and for g by continuity.
 
 *Gluing.* Fix C large (below), C′ := (1 − C^(−ℓ))/(1 + C) and F₂(ρ) := C′(1 + ρ⁻¹), so that
 t_*F₂(ρ_I) = C′(t_* + r) = C′t and F₁ = F₂ at ρ = 1/C. The function φ(ρ) := F₂(ρ) − F₁(ρ) satisfies φ(1/C) = 0 and
 φ′(ρ) = −C′ρ⁻² + ℓρ^(ℓ−1) < 0 on (0, 2/C] for C large (as C′ ≥ (4C)⁻¹ and ℓρ^(ℓ+1) ≤ ℓ(2/C)^(ℓ+1)), and
-F₁/F₂ ≥ 3/2 at ρ = 2/C. Let m_κ be smooth, even and convex, with m_κ(y) = |y| for |y| ≥ κ, and
+F₁/F₂ ≥ 3/2 at ρ = 2/C. Moreover F₁/F₂ is increasing on (0, 2/C] for C large, since
+(F₁/F₂)′ = C′ρ⁻²(1 − (1 + ℓ)ρ^ℓ − ℓρ^(ℓ+1))/F₂² and (1 + ℓ)ρ^ℓ + ℓρ^(ℓ+1) ≤ 2(2/C)^ℓ < 1 there. As F₁ vanishes at
+ρ = 1, log F₁ is used only on (0, 2/C]. Let m_κ be smooth, even and convex, with m_κ(y) = |y| for |y| ≥ κ, and
 M(a, b) := ½(a + b − m_κ(a − b)), a smooth minimum: M = min(a, b) when |a − b| ≥ κ, and ∂_aM, ∂_bM ∈ [0, 1] with
-∂_aM + ∂_bM = 1. Put F := exp M(log F₁, log F₂) with κ ≤ ¼ small; then F = F₁ on (0, ρ₋] and F = F₂ on [ρ⁺, ∞) for some
-ρ₋ < 1/C < ρ⁺ < 2/C, and F′/F = θF₁′/F₁ + (1 − θ)F₂′/F₂ with θ ∈ [0, 1]. Hence
+∂_aM + ∂_bM = 1. Let κ ≤ ¼ be small, and let ρ₋ < 1/C < ρ⁺ < 2/C be the points where F₂/F₁ = e^κ, resp.
+F₁/F₂ = e^κ; they exist and are unique, as F₁/F₂ increases on (0, 2/C] from 0 through 1 at ρ = 1/C to at least
+3/2 > e^κ. Put
+
+    F := exp M(log F₁, log F₂) on (0, 2/C],        F := F₂ on [ρ⁺, ∞);
+
+the two agree on [ρ⁺, 2/C], where log F₁ − log F₂ ≥ κ, so F is smooth on (0, ∞), F = F₁ on (0, ρ₋] and F = F₂ on
+[ρ⁺, ∞), and F′/F = θF₁′/F₁ + (1 − θ)F₂′/F₂ with θ ∈ [0, 1] (θ = 0 on [ρ⁺, ∞)). Hence
 
     d(t_*F(ρ_I)) = F[(1 + ρF′/F)dt_* − ρ²(F′/F)dr] = F[θ d(t_*F₁)/F₁ + (1 − θ) d(t_*F₂)/F₂],
 
 a positive combination of two past timelike covectors, hence past timelike, wherever both are. On the transition
 interval [ρ₋, ρ⁺], with κ so small that ρ₋ ≥ 1/(2C), d(t_*F₁) is past timelike as ρ⁺ ≤ 2/C ≤ ρ_a, and d(t_*F₂) = C′dt
 is past timelike by the previous paragraph with c := (2C)^(−1/2) (so that x_I = ρ_I^(1/2) ≥ c) and ϵ_G small depending
-on C. Let R̃(r) be a smooth maximum of r and r′₀, equal to r′₀ for r ≤ r′₀ − 1 and to r for r ≥ r′₀ + 1, with
-R̃′ ∈ [0, 1]. Define
+on C. So d(t_*F(ρ_I)) is past timelike on {r ≥ r′₀ + 1}: it is d(t_*F₁) where ρ_I ≤ ρ₋, C′dt where ρ_I ≥ ρ⁺ (there
+x_I ≥ c), and the combination above on [ρ₋, ρ⁺]. Let R̃(r) be a smooth maximum of r and r′₀, equal to r′₀ for
+r ≤ r′₀ − 1 and to r for r ≥ r′₀ + 1, with R̃′ ∈ [0, 1]. Define
 
     t^♭_* := C′(t_* + R̃(r)) on {r ≤ Ct_*/2},        t^♭_* := t_*F(t_*/r) on {r ≥ r′₀ + 1}.
 
 For C > 2(r′₀ + 1) and t_* ≥ 1 the overlap {r′₀ + 1 ≤ r ≤ Ct_*/2} is where both are defined, and there both equal
-C′(t_* + r), as ρ_I ≥ 2/C gives F = F₂. On {r ≤ Ct_*/2}, dt^♭_* = C′((1 − R̃′)dt_* + R̃′dt), a positive combination of
-dt_* (past timelike for r ≤ r′₀ + 1) and dt (past timelike for r ≥ r′₀ − 1, x_I ≥ c, as ρ_I ≥ 2/C there). On
-{r ≥ r′₀ + 1} the previous paragraph applies. This proves (2), and (a), (c) hold by construction. (b):
-t_*F₁ ∈ [(1 − C^(−ℓ))t_*, t_*] for ρ ≤ 1/C, and t_*F₂ = C′t_*(1 + ρ⁻¹) ∈ [C′t_*, (1 − C^(−ℓ))t_*] for ρ ≥ 1/C. A smooth
-convex even m_κ equal to |y| for |y| ≥ κ satisfies |y| ≤ m_κ ≤ κ on [−κ, κ], so
-e^(−κ/2)min(F₁, F₂) ≤ F ≤ min(F₁, F₂); on the transition interval min(F₁, F₂) ≥ C′(1 + C/2) (for C large, F₁ ≥ ½
-there, and C′(1 + C/2) ≤ ½ as C^ℓ ≤ 2 + C for ℓ ≤ 1), and e^(−1/8)(1 + C/2) ≥ 1, so C′ ≤ F ≤ 1. And
-C′(t_* + R̃) ≤ C′(t_* + r′₀ + r) ≤ t_* where r ≤ Ct_*/2 and r′₀ ≤ C/2. (1): g₀⁻¹(dr, dr) = G₀(dr) < 0 on
-{r₀ − 2δ₀ < r < r₂} by (H4), so G₀(dr) ≤ −c₁ < 0 on the compact set {r₀ ≤ r ≤ r^♮}; the perturbation is O(ϵ_G) there,
-and dr is future timelike for g₀ (∇r is future timelike, [[sec:i-b-1-2]]) and for g by continuity. ∎
+C′(t_* + r), as ρ_I ≥ 2/C > ρ⁺ gives F = F₂. On {r ≤ Ct_*/2}, dt^♭_* = C′((1 − R̃′)dt_* + R̃′dt), a positive
+combination of dt_* (past timelike for r ≤ r′₀ + 1) and dt (past timelike for r ≥ r′₀ − 1, x_I ≥ c, as ρ_I ≥ 2/C
+there). On {r ≥ r′₀ + 1}, dt^♭_* = d(t_*F(ρ_I)) is past timelike, as just shown. This proves (2), and (a), (c) hold by
+construction. (b): t_*F₁ ∈ [(1 − C^(−ℓ))t_*, t_*] for ρ ≤ 1/C, and t_*F₂ = C′t_*(1 + ρ⁻¹) ∈ [C′t_*, (1 − C^(−ℓ))t_*]
+for ρ ≥ 1/C, so C′ ≤ F ≤ 1 on (0, ρ₋] and on [ρ⁺, ∞). A smooth convex even m_κ equal to |y| for |y| ≥ κ satisfies
+|y| ≤ m_κ ≤ κ on [−κ, κ], so e^(−κ/2)min(F₁, F₂) ≤ F ≤ min(F₁, F₂) on (0, 2/C]; on the transition interval
+min(F₁, F₂) ≥ C′(1 + C/2) (for C large, F₁ ≥ ½ there, and C′(1 + C/2) ≤ ½ as C^ℓ ≤ 2 + C for ℓ ≤ 1), and
+e^(−1/8)(1 + C/2) ≥ 1, so C′ ≤ F ≤ 1 there too. And C′(t_* + R̃) ≤ C′(t_* + r′₀ + r) ≤ t_* where r ≤ Ct_*/2 and
+r′₀ ≤ C/2. (1): g₀⁻¹(dr, dr) = G₀(dr) < 0 on {r₀ − 2δ₀ < r < r₂} by (H4), so G₀(dr) ≤ −c₁ < 0 on the compact set
+{r₀ ≤ r ≤ r^♮}; the perturbation is O(ϵ_G) there, and dr is future timelike for g₀ (∇r is future timelike,
+[[sec:i-b-1-2]]) and for g by continuity. ∎
 
 By (b), Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω ([Hin26c, (6.2)]).
 

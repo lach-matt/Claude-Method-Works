@@ -35,10 +35,10 @@ The notation is that of [[ch:s11]]–[[ch:s16]]. In particular n = 4, D = 5; the
 [[sec:iii-b-3]], with μ₀, R₁ = μ₀^(1/2), the compactification M and its faces I₀, ℐ⁺, ι⁺, K⁺ ([[def:iii-b-2-1]]); the
 gauge-fixed operator of [[sec:iii-b-6]]; the linearised operator L_b and its Minkowski model L̄ of [[ch:s15]], with the
 endomorphism S̄ of [[lem:iii-f-2-1]] and its spectrum [[eq:iii-f-3-1]]; and the index sets and partially polyhomogeneous
-spaces of [[sec:iii-a-1]]. No result of this chapter involves the inner radius r₀ of the spaces of [[ch:s01]]: the
+spaces of [[sec:iii-a-1]]. No step of this chapter involves the inner radius r₀ of the spaces of [[ch:s01]]: the
 exterior region below is a neighbourhood of I₀ ∪ ℐ⁺ of radius at least 4R₁, and the results at ι⁺ and at the transition
-face concern faces at infinity. So every result holds for each choice of the radii at which the hypotheses of
-[[ch:s05]] hold.
+face concern faces at infinity and meet the inner radius only through the results of [[ch:s15]] and [[ch:s16]] that
+they use.
 
 ### Hypotheses, the exterior region, and its coordinates {#sec:iii-c-1}
 
