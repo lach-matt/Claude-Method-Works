@@ -399,12 +399,12 @@ minimum (rounded down). The three cells marked 0 are treated in the proof of [[t
 Row k is the point of Σ′ = {v̂ − R − φ(R) = τ0} on the ingoing ray v = v_k. Its radius R′_k (seven decimals)
 satisfies |R′_k + φ_k − R0_k| ≤ 10⁻⁷. The numbers φ_k, φ′_k and φ″_k are the bend of [[prop:margins-bend]] and its
 derivatives at R′_k, rounded to seven, six and seven decimals ([[lem:margins-bump-table]] (c) reproduces φ_k and φ′_k
-from the bump table to within 10⁻⁶ and 1.7 × 10⁻⁶). Ξ_k (seven decimals) is the numerator [[eq:margins-xi]] at R =
-R′_k with μ = μ_k, μ̇ = (3/2) α_k w_k², V′ = 1 + φ′(R′_k) and V″ = φ″(R′_k), all taken before rounding. On the cell v
-∈ [v_k, v_(k+1)], Φ4_k (rounded up to three decimals) is the supremum of |φ⁗| over R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) +
-5.3 × 10⁻⁶], an interval that contains the true radii of the cell's points of Σ′; it is found from the monotone
-pieces of β″ ([[lem:margins-bump]] (c)) in the variable of each lobe that meets the interval, with the extremal
-values of [[lem:margins-bump]] (c) at interior extremal points. M′_k (rounded up to two decimals) is the bound of
+from the bump table to within 10⁻⁶ and 1.7 × 10⁻⁶). Ξ_k (seven decimals) is the numerator [[eq:margins-xi]] at the
+printed radius R = R′_k, with μ = μ_k and with μ̇ = (3/2) α_k w_k², V′ = 1 + φ′(R′_k) and V″ = φ″(R′_k) taken before
+rounding. On the cell v ∈ [v_k, v_(k+1)], Φ4_k (rounded up to three decimals) is an upper bound for the supremum of |φ⁗|
+over R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], an interval that contains the true radii of the cell's points of
+Σ′; it is found from the monotone pieces of β″ ([[lem:margins-bump]] (c)) in the variable of each lobe that meets the
+interval, with the extremal values of [[lem:margins-bump]] (c) at interior extremal points. M′_k (rounded up to two decimals) is the bound of
 [[lem:margins-curvature]] (b), built from the printed Φ4_k and S2_k and from S_0 and S_1 as in [[sec:table-sigma0]].
 And c_k (rounded down to five decimals) is the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) on the cell of the
 proof of [[thm:margins-hyperbolic]], with R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], μ ∈ [μ_k − 10⁻⁵, μ_(k+1) +

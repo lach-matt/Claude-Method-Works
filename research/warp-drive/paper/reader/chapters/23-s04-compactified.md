@@ -2438,16 +2438,17 @@ ad_(V_S)L = Σ_q Σ_(S′⊂S) (V_(S′)ℓ_q)(ad_(V_(S∖S′))A_q). Here ad_(V
 [[eq:ii-a-9-5]], (ad A_q)V^(J∖S) = Σ V^(J′)A′ with |J′| ≤ k − j and A′ ∈ C^∞_b Ψ^m_e3b fixed. So the terms to bound are
 ‖G_1(V_(S′)ℓ_q)V^(J′)(A′u)‖_(H^(𝗌−m)), with j′ := |S′| ≤ j and |J′| ≤ k − j ≤ k − 1. If j′ ≥ 1, write
 V_(S′)ℓ_q = V_(S′_2)(V_(s_1)ℓ_q), with s_1 the last letter of S′ (the field applied first) and S′_2 the other letters,
-and apply [[eq:ii-a-9-7]] with 𝗌 − m for 𝗌 and
-−N − m for 𝗌_0. Use (B, B^♯) = (G_1, G_2), ℓ := V_(s_1)ℓ_q, A′u for u, and (j′ − 1, j′ − 1 + |J′|) for (j, k). Note
-j′ − 1 + |J′| ≤ k − 1. The bound is
+and apply [[eq:ii-a-9-7]] with 𝗌 − m for 𝗌, −N − m for 𝗌_0, and the cut-off χ_* in place of χ. Use
+(B, B^♯) = (G_1, G_2), which are carried by χ_* ((R2)), ℓ := V_(s_1)ℓ_q, A′u for u, and (j′ − 1, j′ − 1 + |J′|) for
+(j, k). Note j′ − 1 + |J′| ≤ k − 1. The bound is
 
-    C_k(‖V_(s_1)ℓ_q‖_((d_0;d̃))(‖G_2A′u‖_((𝗌−m;k−1)) + ‖χA′u‖_((−N−m;k−1)))
-        + ‖V_(s_1)ℓ_q‖_((d_0;k−1))(‖G_2A′u‖_((𝗌−m;d̃)) + ‖χA′u‖_((−N−m;d̃)))).
+    C_k(‖V_(s_1)ℓ_q‖_((d_0;d̃))(‖G_2A′u‖_((𝗌−m;k−1)) + ‖χ_*A′u‖_((−N−m;k−1)))
+        + ‖V_(s_1)ℓ_q‖_((d_0;k−1))(‖G_2A′u‖_((𝗌−m;d̃)) + ‖χ_*A′u‖_((−N−m;d̃)))).
 
 Now ‖V_(s_1)ℓ_q‖_((d_0;d̃)) ≤ C‖𝐋‖_((d_0;d)) and ‖V_(s_1)ℓ_q‖_((d_0;k−1)) ≤ C‖𝐋‖_((d_0;k)) ([[lem:ii-a-8-2]] (b); this
-is why d = d̃ + 1). Next, ‖χA′u‖_((−N−m;q)) ≤ C‖χu‖_((−N;q)), and ‖G_2A′u‖_((𝗌−m;q)) ≤ C(‖G_3u‖_((𝗌;q)) + ‖χu‖_((−N;q)))
-by [[lem:ii-a-8-4]] (c). By [[eq:ii-a-9-10]] at the order k − 1, with G_3 in place of B, ‖G_3u‖_((𝗌;k−1)) is bounded by
+is why d = d̃ + 1). Next, A′ is a commutator of an operator of 𝒫 with vector fields, so its kernel range is at most D,
+and χ_*A′ = χ_*A′χ ((R2)): ‖χ_*A′u‖_((−N−m;q)) = ‖χ_*A′χu‖_((−N−m;q)) ≤ C‖χu‖_((−N;q)) by [[lem:ii-a-8-4]] (a). And
+‖G_2A′u‖_((𝗌−m;q)) ≤ C(‖G_3u‖_((𝗌;q)) + ‖χu‖_((−N;q))) by [[lem:ii-a-8-4]] (c). By [[eq:ii-a-9-10]] at the order k − 1, with G_3 in place of B, ‖G_3u‖_((𝗌;k−1)) is bounded by
 the right side of [[eq:ii-a-9-10]] at k. Its constant depends only on ‖𝐋‖_((d_0;d)), and its high norm ‖𝐋‖_((d_0;k−1))
 multiplies low norms only. By [[prop:ii-a-9-1]] at the order d̃ < d,
 ‖G_3u‖_((𝗌;d̃)) ≤ C(‖GLu‖_((𝗌−m;d)) + ‖χu‖_((−N;d))). If j′ = 0, the coefficient is ℓ_q itself and |J′| ≤ k − 1, and
