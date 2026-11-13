@@ -9,7 +9,10 @@ II.F1, III.I(15), IV(4), VI.C, … to file names and kept line ranges).
    lists the in-body lines to edit. Read the whole kept range your entry names.
 2. **Keys.** Define every result you carry under its canonical key (OUTLINE.md, "Canonical keys"): III.K Theorem 4.3
    is `**Theorem {#thm:iii-k-4-3}**`. Cite results of other parts by their canonical keys, even if their chapter is not
-   written yet. A section you cite is `[[sec:<part>-<n>]]`.
+   written yet. Label every heading that carries a source section with that section's canonical key (II.B §6 →
+   `### … {#sec:ii-b-6}`, II.B §3.1 → `{#sec:ii-b-3-1}`), and every displayed equation that the source numbers with
+   its canonical key (I.A (4.7) → `{#eq:i-a-4-7}`), so that other chapters' citations of them resolve. A section you
+   cite is `[[sec:<part>-<n>]]`.
 3. **The companion papers.** Each part writes out a result of [Hin26c], [Hin26], [Hin26a], [Hin23a] or [CD03] in
    dimension 4 + 1. In the edition each result has its own statement and proof, and may say once "This is
    [Hin26c, Theorem 9.5] in dimension 4 + 1, with …". The dimensional changes are mathematics and stay. Results of the

@@ -73,8 +73,8 @@ right-hand sides reduce to (3/2) dψ² + 2 dω² and 0. Conversely, if (3/2) dψ
 then e^(−2A) R11 ± e^(−2B) R22 = 0, so R11 = R22 = 0, then Ric[g5]_ab = 0, and the mixed components vanish by
 [[lem:warped-ricci]]. ∎
 
-With ψ̃ := (√3/2) ψ, (2.2) reads Ric[h] = 2 (dψ̃² + dω²), □_h ψ̃ = □_h ω = 0: Huneau and Luk's system [HL18] (1.3),
-quoted in [[ch:introduction]], with the scalar φ replaced by the pair (ψ̃, ω), whose target is the flat Euclidean
+With ψ̃ := (√3/2) ψ, [[eq:reduced]] reads Ric[h] = 2 (dψ̃² + dω²), □_h ψ̃ = □_h ω = 0: Huneau and Luk's system [HL18]
+(1.3),quoted in [[ch:introduction]], with the scalar φ replaced by the pair (ψ̃, ω), whose target is the flat Euclidean
 plane.
 
 ### The background {#sec:background}
@@ -125,12 +125,37 @@ in which f_v does not appear.
 
 *Proof.* The Christoffel symbols follow from Γ_(c,ab) = (∂_a g_bc + ∂_b g_ac − ∂_c g_ab)/2 and the inverse above:
 the only nonzero lowered symbols with no index on S³ are Γ_(r,vv) = f_r/2, Γ_(v,vv) = −f_v/2 and Γ_(v,vr) = −f_r/2,
-and Γ_(r,ij) = −r γ_ij, Γ_(j,ri) = r γ_ij; raising with g^(vr) = 1, g^(rr) = f gives the list. The Riemann
-components follow from R^a_bcd = ∂_cΓ^a_bd − ∂_dΓ^a_bc + Γ^a_ceΓ^e_bd − Γ^a_deΓ^e_bc; for instance
-R^r_rvr = ∂_vΓ^r_rr − ∂_rΓ^r_vr − Γ^r_rvΓ^v_vr = f_rr/2 and R_vrvr = g_rv R^v_rvr + g_rr ... = R^r_rvr, while
-R_ijkl = r² γ_im (R[γ]^m_jkl − r² g^(rr)... ) reduces to the Gauss equation of the spheres, whose second fundamental
-form along the null pair (∂_r, ∂_v + (f/2)∂_r) gives the factor 1 − f. The Ricci components are the contractions
-Ric_bd = g^(ac) R_abcd, with g^(vv) = 0.
+and those with indices on S³ are Γ_(r,ij) = −r γ_ij, Γ_(j,ri) = r γ_ij and Γ[r² γ]_(k,ij); raising with g^(vr) = 1,
+g^(rr) = f, g^(ij) = r⁻² γ^(ij) gives the list.
+
+The isometries of γ act on g by isometries fixing v and r, and the isotropy group of a point of S³ is O(3), acting on
+its tangent space; it contains reflections. An O(3)-invariant tensor on R³ of odd rank vanishes, and one of rank two
+is a multiple of the metric. So, with A, B, C ∈ {v, r}, every component with an odd number of indices on S³ vanishes,
+R_ABij vanishes (it is a multiple of γ_ij and antisymmetric in i, j), R_AiBj = r S_AB γ_ij for some S_AB, and the
+components with four indices on S³ are determined by R^i_jkl, computed below. We use
+R^a_bcd = ∂_cΓ^a_bd − ∂_dΓ^a_bc + Γ^a_ceΓ^e_bd − Γ^a_deΓ^e_bc and R_abcd = g_ae R^e_bcd.
+Since Γ^v_rr = Γ^v_vr = Γ^r_rr = 0 and Γ^v_re = 0 for every e,
+
+    R^v_rvr = 0,   R^r_rvr = −∂_rΓ^r_vr − Γ^r_rvΓ^v_vr = f_rr/2,   so R_vrvr = g_vr R^r_rvr = f_rr/2.
+
+For the mixed components,
+
+    R^v_irj = ∂_rΓ^v_ij − Γ^v_jkΓ^k_ir = −γ_ij + γ_ij = 0,
+    R^r_irj = ∂_rΓ^r_ij + Γ^r_rvΓ^v_ij − Γ^r_jkΓ^k_ir = −(f + r f_r) γ_ij + (r f_r/2) γ_ij + f γ_ij = −(r/2) f_r γ_ij,
+    R^v_ivj = Γ^v_vvΓ^v_ij = −(r/2) f_r γ_ij,
+    R^r_ivj = ∂_vΓ^r_ij + Γ^r_vvΓ^v_ij + Γ^r_vrΓ^r_ij = (−r f_v − (r/2)(f f_r − f_v) + (r/2) f f_r) γ_ij
+            = −(r/2) f_v γ_ij,
+
+so R_virj = g_vr R^r_irj = −(r/2) f_r γ_ij, R_rirj = g_rv R^v_irj = 0, and R_vivj = g_vv R^v_ivj + g_vr R^r_ivj =
+(r/2)(f f_r − f_v) γ_ij. On the spheres, the only
+Christoffel symbols with an upper index on S³ and a lower index v or r are Γ^i_rj = δ^i_j/r, so
+
+    R^i_jkl = R[γ]^i_jkl + Γ^i_krΓ^r_jl − Γ^i_lrΓ^r_jk = (δ^i_k γ_jl − δ^i_l γ_jk) − f (δ^i_k γ_jl − δ^i_l γ_jk),
+
+using R[γ]^i_jkl = δ^i_k γ_jl − δ^i_l γ_jk on the unit sphere; lowering with r² γ gives R_ijkl. The Ricci components
+are the contractions Ric_bd = g^(ac) R_abcd, with g^(vv) = 0, g^(vr) = 1, g^(rr) = f; for instance
+Ric_vv = f R_rvrv + r⁻² γ^(ij) R_ivjv = (f/2) f_rr + (3/(2r))(f f_r − f_v), and
+Ric_ij = g^(vr)(R_virj + R_rivj) + r⁻² γ^(kl) R_kilj = −r f_r γ_ij + 2(1 − f) γ_ij.
 
 For K, group the components by their index pairs. The pair (vr) contributes 4 R_vrvr R^vrvr; raising the
 antisymmetric pair (vr) with the (v, r) block of g⁻¹, [[0, 1], [1, f]], multiplies by its determinant −1, twice, so
@@ -141,7 +166,7 @@ S_vv = (f f_r − f_v)/2, S_vr = S_rv = −f_r/2 and S_rr = 0. Counting the four
     g2⁻¹ S = [[0, 1], [1, f]] [[S_vv, S_vr], [S_vr, 0]] = [[S_vr, 0], [S_vv + f S_vr, S_vr]]
 
 is triangular, so tr((g2⁻¹ S)²) = 2 S_vr² = f_r²/2, and S_vv, the only entry that contains f_v, drops out. With
-γ^(ij)γ_ij = 3 this gives 6 f_r²/r². The components R_ijkl are those of a round three-sphere of radius r with the
+γ^(ij)γ_ij = 3 this gives 6 f_r²/r². The components R_ijkl are those of a three-sphere of radius r times the
 factor 1 − f, and contribute (1 − f)² r⁻⁴ · 2·3·2 = 12 (1 − f)²/r⁴. There are no other nonzero components. ∎
 
 **Proposition {#prop:vaidya}** (the background).
@@ -159,12 +184,12 @@ of g0 and its level sets are the ingoing null cones.
 the mass dropping out.
 (f) H0^ρ := g0^(ab) Γ[g0]^ρ_ab = (−μ/r³, μ x^i/r⁴), smooth on r > 0.
 
-*Proof.* (a) In the form (2.3′), f = 1 − μ/r², so f_v = −μ'/r², f_r = 2μ/r³ and f_rr = −6μ/r⁴. Then
+*Proof.* (a) In the form [[eq:vr-form]], f = 1 − μ/r², so f_v = −μ'/r², f_r = 2μ/r³ and f_rr = −6μ/r⁴. Then
 f_rr + 3 f_r/r = 0 and 2(1 − f) − r f_r = 0, so by [[lem:vr-curvature]] the only nonzero Ricci component is
 Ric_vv = −3 f_v/(2r) = 3μ'/(2r³). In the coordinates (τ, r) the block is [[−1 + m, m], [m, 1 + m]], m := μ/r², of
 determinant (m − 1)(m + 1) − m² = −1.
 
-(b) By (2.3″), K = 36 μ²/r⁸ + 6 · 4μ²/r⁸ + 12 μ²/r⁸ = 72 μ²/r⁸, for every μ(v). For the spheres
+(b) By [[eq:kretschmann-f]], K = 36 μ²/r⁸ + 6 · 4μ²/r⁸ + 12 μ²/r⁸ = 72 μ²/r⁸, for every μ(v). For the spheres
 S_(v,r) := {v, r = const}, the null normals lie in the span of ∂_v and ∂_r of the (v, r) form; ∂_r is null, and
 ∂_v + (f/2) ∂_r is null. In Cartesian terms ∂_r of the (v, r) form is ℓ = −∂_τ + x̂·∂_x, past directed, and ∂_v is
 ∂_τ, future directed. The expansion of a normal N of S_(v,r) is (3/r) N(r), so the future ingoing normal −∂_r has
@@ -203,8 +228,8 @@ On the other side, □̃ u = −∂_τ² u + Δu − m L0 L0 u and (∂_τ + ∂
 ∂_i μ(v) = μ' x̂_i, ∂_a(m L0^a) = μ'/r² − μ'/r² − μ ∂_i(x^i/r³) = −μ/r³, because ∂_i(x^i/r³) = 4/r³ − 3/r³ in R⁴.
 So H0^ρ = −(μ/r³) L0^ρ. ∎
 
-This identity (2.4) is the five-dimensional form of Touati's commutator lemma ([Tou23a] Lemma 3.1, p. 21, which bounds
-[L0, □]f by ∂L0 f, □f and ∂f); here it is an exact identity.
+The identity [[eq:commutator]] is the five-dimensional form of Touati's commutator lemma ([Tou23a] Lemma 3.1, p. 21,
+which bounds [L0, □]f by ∂L0 f, □f and ∂f); here it is an exact identity.
 
 ### The curvature boundary and the domain {#sec:domain}
 
@@ -265,9 +290,9 @@ The gauge is the wave-map gauge relative to g0 itself. For a Lorentzian metric g
 give ([CBCM10] (2.7)–(2.9), p. 8) "R_(αβ) = R^(H)_(αβ) + 1/2 (g_(αλ) D̂_β H^λ + g_(βλ) D̂_α H^λ)" and
 "R^(H)_(αβ) = −1/2 g^(λμ) D̂_λ D̂_μ g_(αβ) + f̂[g, D̂g]_(αβ)", with f̂ "independent of the second derivatives of g".
 In the coordinates of [[sec:background]], D̂_a D̂_b g − ∂_a ∂_b g is Γ[g0] and its first derivatives times (g, ∂g),
-which gives the second line of (2.7): Q is a quadratic polynomial in ∂g, with a linear and a constant part, whose
+which gives the second line of [[eq:gauge]]: Q is a quadratic polynomial in ∂g, with a linear and a constant part, whose
 coefficients are rational in g and smooth in X through Γ[g0] and its first derivatives, hence smooth on r > 0; the
-trace g0^(ab) Γ[g0]^ρ_ab is H0 of [[prop:vaidya]] (f). Second derivatives of g enter (2.7) only through
+trace g0^(ab) Γ[g0]^ρ_ab is H0 of [[prop:vaidya]] (f). Second derivatives of g enter [[eq:gauge]] only through
 −(1/2) g^(ab) ∂_a ∂_b g.
 
 D is a vector field and Ric^H a tensor, built from g and g0 alone, so both are invariant under the isometries of g0,
@@ -381,9 +406,9 @@ the Euclidean norm of (x1 dx2 − x2 dx1)² is ρ1² ≤ r²). (b) No term conta
 (x1 x2 − x2 x1)/r = 0 in the first two forms and x̂·dx − x̂·dx = 0 in the third, so W_TT(L0, ·) = 0. Since
 g0⁻¹ = η⁻¹ − (μ/r²) L0 ⊗ L0 and W_TT(L0, L0) = 0, the g0-trace is the Euclidean trace of the spatial array, which is
 2 r^(−3/2) λ⁻¹ (G c² + F s² − (c² G + s² F)) = 0, the traces of the three forms being ρ1²/r² = c², s² and 4 − 1 = 3.
-(c) In the frame dϑ, c dφ1, s dφ2, orthonormal for γ, the bracket of (2.5′) is diagonal with entries −(p1 + p2), p1,
-p2; on the spheres of radius r, with g0 = r² γ there and W_TT transverse, the norm squared is
-4 r λ⁻² r⁻⁴ (p1² + p2² + (p1 + p2)²) = 8 r⁻³ λ⁻² (p1² + p1 p2 + p2²). ∎
+(c) In the frame dϑ, c dφ1, s dφ2, orthonormal for γ, the bracket of [[eq:waves]] is diagonal with entries −(p1 + p2),
+p1, p2; on the spheres of radius r, with g0 = r² γ there and W_TT transverse, the norm squared is 4 r λ⁻² r⁻⁴ (p1² + p2²
++ (p1 + p2)²) = 8 r⁻³ λ⁻² (p1² + p1 p2 + p2²). ∎
 
 The next lemma computes the mean of the leading equation of the two-scale expansion of [[ch:approximant]]. For a
 profile k, |k|²_(g0) := g0^(ac) g0^(bd) k_ab k_cd.
@@ -405,7 +430,7 @@ By the chain rule, ∇̂_a [u] = λ⁻¹ v_a [∂_θ u] + [∇̂_a u], and g⁻�
     C⁽⁰⁾ρ_ab = (1/2)(v_a k_b^ρ + v_b k_a^ρ − ℓ^ρ k_ab),
 
 indices raised by g0. Every term of C⁽⁰⁾ is linear in k, and ⟨k⟩ = 0, so ⟨C⁽⁰⁾⟩ = 0. Using k(ℓ, ·) = 0 and
-v·ℓ = 0: v_ρ C⁽⁰⁾ρ_ab = 0, C⁽⁰⁾ρ_ρσ = (1/2) v_σ tr k, and so C⁽⁰⁾ρ_ρσ C⁽⁰⁾σ_ab = (1/4) tr k · v_σ C⁽⁰⁾σ_ab = 0.
+v·ℓ = 0: v_ρ C⁽⁰⁾ρ_ab = 0, C⁽⁰⁾ρ_ρσ = (1/2) v_σ tr k, and so C⁽⁰⁾ρ_ρσ C⁽⁰⁾σ_ab = (1/2) tr k · v_σ C⁽⁰⁾σ_ab = 0.
 Expanding C⁽⁰⁾ρ_bσ C⁽⁰⁾σ_aρ into nine products, every product but v_b v_a k_σ^ρ k_ρ^σ contains k(ℓ, ·) or v·ℓ, so
 
     C⁽⁰⁾ρ_bσ C⁽⁰⁾σ_aρ = (1/4) v_a v_b |k|²_(g0).
@@ -425,10 +450,10 @@ is −(1/2) of the symmetrisation of
 
 The first two terms have θ-mean zero as before. In the third, g1_mρ ℓ^ρ = g1(m, ℓ) = ⟨g1⟩(m, ℓ) does not depend on θ,
 so ⟨g1_mρ ∂_θ D⁽⁰⁾ρ⟩ = −(1/2) ⟨g1⟩(m, ℓ) ⟨∂_θ² tr g1⟩ = 0. The gauge term has θ-mean zero at order λ⁰. With
-Ric(g0) = (3μ'/(2r³)) dv ⊗ dv from [[prop:vaidya]] (a), this is (2.8). ∎
+Ric(g0) = (3μ'/(2r³)) dv ⊗ dv from [[prop:vaidya]] (a), this is [[eq:mean-leading]]. ∎
 
 **Proposition {#prop:limit}** (the limit). Let g1 be a profile whose oscillating part g1 − ⟨g1⟩ is W_TT, evaluated at
-a phase θ + φ1(X), plus χ dv ⊗ dv, with φ1 and χ profiles or functions of X. Then ⟨∂_θ g1⟩ = 0,
+a phase θ + κ(X), plus χ dv ⊗ dv, with κ a function of X and χ a profile. Then ⟨∂_θ g1⟩ = 0,
 
     ⟨|∂_θ g1|²_(g0)⟩ = (4/3) A² env² h² (c⁴ + s⁴) r⁻³,      h² (c⁴ + s⁴) = 1,                       {#eq:wave-energy}
 
@@ -449,16 +474,16 @@ F̂ := a sin θ, Ĝ := a cos θ, a := A env h. With ⟨F̂²⟩ = ⟨Ĝ²⟩ = a
 
     ⟨q1²⟩ = (4c⁴ + s⁴) a²/18,   ⟨q2²⟩ = (c⁴ + 4s⁴) a²/18,   ⟨q1 q2⟩ = −(2c⁴ + 2s⁴) a²/18,
 
-so ⟨q1² + q1 q2 + q2²⟩ = (c⁴ + s⁴) a²/6 and ⟨|∂_θ W_TT|²⟩ = (4/3) a² (c⁴ + s⁴) r⁻³. Next,
-c⁴ + s⁴ = ((1 + ζ)² + (1 − ζ)²)/4 = (1 + ζ²)/2, so h² (c⁴ + s⁴) = 1. By (2.8) the mean of the leading equation is
-(3μ'/(2r³) − (1/3) A² env² h² (c⁴ + s⁴) r⁻³) dv ⊗ dv, which vanishes exactly when μ' = (2/9) A² env² h² (c⁴ + s⁴),
-that is (2.10). ∎
+so ⟨q1² + q1 q2 + q2²⟩ = (c⁴ + s⁴) a²/6 and ⟨|∂_θ W_TT|²⟩ = (4/3) a² (c⁴ + s⁴) r⁻³. Next, c⁴ + s⁴ = ((1 + ζ)² + (1 −
+ζ)²)/4 = (1 + ζ²)/2, so h² (c⁴ + s⁴) = 1. By [[eq:mean-leading]] the mean of the leading equation is (3μ'/(2r³) − (1/3)
+A² env² h² (c⁴ + s⁴) r⁻³) dv ⊗ dv, which vanishes exactly when μ' = (2/9) A² env² h² (c⁴ + s⁴), that is [[eq:mu-rate]].
+∎
 
-This is Isaacson's effective stress as a five-dimensional null dust along dv [[pending:bib-isaacson]]. The quadratic
-form of the rates in (2.9), 4(a² + ab + b²) = (2a + b)² + 3b², is positive definite. In the Bondi-type variables of
-[[thm:bondi-law]], in which the wave enters the angular metric through e^(−2(P1+P2)) dϑ² + c² e^(2P1) dφ1² +
-s² e^(2P2) dφ2², the part of R_vv quadratic in the rates ∂_vP1, ∂_vP2 is −2(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²), and every
-other component of the Ricci tensor carries no such product [[pending:computational-2]]. At leading order this is
-(2.8): the linearised angular perturbation r²(−2(P1 + P2) dϑ² + 2c² P1 dφ1² + 2s² P2 dφ2²) has v-derivative of g0-norm
-squared 4((∂_vP1 + ∂_vP2)² + ∂_vP1² + ∂_vP2²) = 8(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²), and −1/4 of it is the quadratic
-part stated.
+This is Isaacson's effective stress as a five-dimensional null dust along dv ([Isa68a], [Isa68b]). The quadratic form of
+the rates in [[eq:wave-energy]], 4(a² + ab + b²) = (2a + b)² + 3b², is positive definite. In the Bondi-type variables of
+[[thm:bondi-law]], in which the wave enters the angular metric through e^(−2(P1+P2)) dϑ² + c² e^(2P1) dφ1² + s² e^(2P2)
+dφ2², the part of R_vv quadratic in the rates ∂_vP1, ∂_vP2 is −2(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²), and every other
+component of the Ricci tensor carries no such product [[pending:computational-2]]. At leading order this is
+[[eq:mean-leading]]: the linearised angular perturbation r²(−2(P1 + P2) dϑ² + 2c² P1 dφ1² + 2s² P2 dφ2²) has
+v-derivative of g0-norm squared 4((∂_vP1 + ∂_vP2)² + ∂_vP1² + ∂_vP2²) = 8(∂_vP1² + ∂_vP1 ∂_vP2 + ∂_vP2²), and −1/4 of it
+is the quadratic part stated.

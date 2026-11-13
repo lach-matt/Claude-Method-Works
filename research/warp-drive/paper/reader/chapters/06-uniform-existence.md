@@ -38,11 +38,11 @@ the conclusions of the domain lemma, and has |g̃⁻¹| ≤ (s0 − ε1)⁻¹. A
 
 with every ∂^i_(X,θ) g_j bounded on Ω × S¹ independently of λ, and suppose:
 
--  (E1) *transversality of the wave*: (g1 − ⟨g1⟩)(ℓ, ·) = 0 for all (X, θ) (the mean ⟨g1⟩ is unrestricted);
--  (E2) *the leading equation*: the λ⁰ coefficient R^(0)(X, θ) of the two-scale expansion of Ric^H(g_app)
+- (E1) *transversality of the wave*: (g1 − ⟨g1⟩)(ℓ, ·) = 0 for all (X, θ) (the mean ⟨g1⟩ is unrestricted);
+- (E2) *the leading equation*: the λ⁰ coefficient R^(0)(X, θ) of the two-scale expansion of Ric^H(g_app)
   ([[pending:two-scale]]) vanishes identically in (X, θ);
--  (E3) *the residual*: |Ric^H(g_app)|_k (τ) ≤ C_R λ^K on [τ0, τ_end];
--  (E4) *the data*: g is a Cauchy datum on Σ_τ0 for Ric^H(g) = 0 with w := g − g_app satisfying
+- (E3) *the residual*: |Ric^H(g_app)|_k (τ) ≤ C_R λ^K on [τ0, τ_end];
+- (E4) *the data*: g is a Cauchy datum on Σ_τ0 for Ric^H(g) = 0 with w := g − g_app satisfying
 
       Data(w) := ‖w‖ + Σ_(1≤j≤k+1) λ^(j−1) ‖∂_x^j w‖ + Σ_(j≤k) λ^j ‖∂_x^j ∂_τ w‖ ≤ C_D λ^K   on Σ_τ0.
 
@@ -174,7 +174,7 @@ coefficients, of L0 𝒫 s, ∂_x 𝒫 s, ∂φ and the spatial Hessian ∂_x² 
 
     L0(∂_x² φ) = −(1/2) ∂_x² 𝒫 s + (∂_x x̂) * ∂_x² φ + (∂_x² x̂) * ∂_x φ,
 
-* denoting contractions with bounded coefficients.
+where * denotes contractions with bounded coefficients.
 
 *Proof.* Apply [[eq:ue-commutator]] to φ: L0 Ψ = □̃ L0 φ + (2/r)(Ψ + (∂_τ + ∂_r) L0 φ) − (3/r²) ∂_r φ, and substitute L0
 φ = −(1/2) 𝒫 s. Next, g_app⁻¹ − g0⁻¹ = O(λ) gives □̃_app φ − Ψ = c^(ab) ∂_a ∂_b φ with |c| ≤ C λ. For the second
@@ -211,15 +211,15 @@ and the energy inequality apply to it) and |∂g| ≤ M1 with M1 independent of 
 λ^j times each is at most C λ^(j−i+1) ‖∂^(j−i+1) ∂h‖ ≤ C 𝒩; the w part is at most C M λ^(K−4) 𝒩 (for i ≤ 4 with ∂^i w in
 L^∞; for i ≥ 5 with ∂^i w in L² and the other factor in L^∞ by the Sobolev bound). The right side of [[eq:ue-h]]:
 
--  λ^j ‖∂^α F‖ ≤ C_R λ^K by (E3);
--  B·∂h and C·h give C 𝒩 (profile coefficients cost λ⁻¹ per derivative, compensated by the weights);
--  the term λ⁻¹ ((1 − 𝒫) s) G2 gives Σ_i λ^(i−1) ‖∂^i (1 − 𝒫) s‖ ≤ C Σ_i λ^i ‖∂^i ∂s‖ ≤ C 𝒩 by (M3), (M4), (M6);
--  λ⁻¹ ((ℓ_app − ℓ)·∂φ) G2 and φ [T1] give C 𝒩;
--  (1/2)(□̃_app φ) G1 = (1/2) Ψ G1 + (1/2)(c ∂²φ) G1 with |c| ≤ C λ, and by [[lem:commutator-transport]] λ ∂²φ is
+- λ^j ‖∂^α F‖ ≤ C_R λ^K by (E3);
+- B·∂h and C·h give C 𝒩 (profile coefficients cost λ⁻¹ per derivative, compensated by the weights);
+- the term λ⁻¹ ((1 − 𝒫) s) G2 gives Σ_i λ^(i−1) ‖∂^i (1 − 𝒫) s‖ ≤ C Σ_i λ^i ‖∂^i ∂s‖ ≤ C 𝒩 by (M3), (M4), (M6);
+- λ⁻¹ ((ℓ_app − ℓ)·∂φ) G2 and φ [T1] give C 𝒩;
+- (1/2)(□̃_app φ) G1 = (1/2) Ψ G1 + (1/2)(c ∂²φ) G1 with |c| ≤ C λ, and by [[lem:commutator-transport]] λ ∂²φ is
   controlled by λ L0 𝒫 s, λ ∂_x 𝒫 s, λ ∂φ and λ ∂_x² φ, each at most C 𝒩 at every level j ≤ k (no Bernstein inequality
   is needed: λ^(j+1) ‖∂^j L0 𝒫 s‖ ≤ C λ^(j+1) ‖∂^j ∂s‖ by (M4), (M6));
--  B1·∂φ and C1 φ give C 𝒩;
--  the nonlinear terms 𝒬(w) and 𝒬_φ are at most C λ⁻⁵ 𝒩² + C λ⁻³ 𝒩² by the product bound and Step 1 (the worst is
+- B1·∂φ and C1 φ give C 𝒩;
+- the nonlinear terms 𝒬(w) and 𝒬_φ are at most C λ⁻⁵ 𝒩² + C λ⁻³ 𝒩² by the product bound and Step 1 (the worst is
   quadratic in ∂w: |∂w ∂w|_k ≤ C λ⁻³ |∂w|_k² ≤ C λ⁻⁵ 𝒩²), hence at most C M² λ^(2K−5) ≤ C M² λ^(K+1), as K ≥ 6.
 
 So
@@ -274,19 +274,19 @@ distinct eigenvalues of the symbol never meet. In the coordinates (τ, x) this f
 − (μ/r²)(x̂·ξ)² < 0 for radial ξ where r² < μ, and Ω reaches r = a < √μ0. So the local theorems are applied in other
 coordinates, in four steps. The results used are the following.
 
--  [DS23, Theorem 2.4]: for a system ∂_t u + A^i(t, x, u) ∂_i u = R(t, x, u) on the torus T^n, with A^i and R smooth and
+- [DS23, Theorem 2.4]: for a system ∂_t u + A^i(t, x, u) ∂_i u = R(t, x, u) on the torus T^n, with A^i and R smooth and
   bounded with their derivatives uniformly in t (their (A1)–(A2)), A^i(t, x, u) ξ_i diagonalizable with real eigenvalues
   (A3) whose distinct values do not meet each other (A4), and r > n/2 + 1: for every u0 ∈ H^r whose values stay at
   positive distance from the boundary of the admissible set of states, there is T > 0, depending on ‖u0‖_r and that
   distance, such that the system has a unique solution u ∈ C([−T, T]; C¹) ∩ C¹([−T, T]; C⁰).
--  [DS23, Theorem 2.6]: for the maximal solution, exactly one of the following holds: it exists for all time; its values
+- [DS23, Theorem 2.6]: for the maximal solution, exactly one of the following holds: it exists for all time; its values
   approach the boundary of the admissible set of states; its norm in C([0, T]; C¹) ∩ C¹([0, T]; C⁰) is unbounded as T
   tends to the maximal time.
--  [LY22, Theorem 26]: a bounded smooth domain in R^n has an extension operator E, one operator, bounded from W^(m,p) of
+- [LY22, Theorem 26]: a bounded smooth domain in R^n has an extension operator E, one operator, bounded from W^(m,p) of
   the domain to compactly supported W^(m,p) functions on a neighbourhood, for every m and 0 < p ≤ ∞; it maps smooth
   functions to smooth functions. [LY22, Lemma 27]: the composition of such an operator with a diffeomorphism with
   bounded derivatives is bounded.
--  [SY21, Sections 1 and 2.1]: a bounded Lipschitz domain in R^n has a universal extension operator (Stein's, or
+- [SY21, Sections 1 and 2.1]: a bounded Lipschitz domain in R^n has a universal extension operator (Stein's, or
   Rychkov's), one operator bounded from W^(m,p) of the domain to W^(m,p)(R^n) for every m and every 1 ≤ p ≤ ∞.
 
 (i) *The coefficients.* On Ω the system for w is Ric^H(g_app + w) = 0, relative to g0, and the profiles of g_app are
@@ -296,8 +296,8 @@ g_app extends smoothly with bounded derivatives of every order, for all τ, and 
 neighbourhood U of Ω, replace g_app and g0 by g_ext and g0_ext, obtained by interpolating lapse, shift and spatial
 metric (relative to τ) convexly to (1, 0, δ) on {r ≤ a/4} and on {r ≥ R2 + 1}, R2 := b(τ0) + 1. Every such combination
 is a Lorentzian metric with each Σ_τ spacelike: a convex combination of positive lapses is positive and a convex
-combination of positive definite spatial metrics is positive definite, and a metric −ν² dτ² + γ_ij (dx^i + β^i dτ)(dx^j
-+ β^j dτ) with ν > 0 and γ positive definite is Lorentzian with dτ timelike. So the system keeps its form, with
+combination of positive definite spatial metrics is positive definite, and a metric −ν² dτ² + γ_ij (dx^i + β^i
+dτ)(dx^j + β^j dτ) with ν > 0 and γ positive definite is Lorentzian with dτ timelike. So the system keeps its form, with
 coefficients smooth in X and equal to Minkowski's outside a compact set in x; on U nothing changes.
 
 (ii) *The coordinates.* Write g_ext = −ν² dτ² + γ_ij (dx^i + β^i dτ)(dx^j + β^j dτ), with lapse ν ≥ ν_min > 0, shift
@@ -366,10 +366,12 @@ Then
 
     −(1/2) g_(1)^(ab) ∂_a ∂_b (w1 − w2) = (1/2)(g_(1)^(ab) − g_(2)^(ab)) ∂_a ∂_b w2 + F(X, w1, ∂w1) − F(X, w2, ∂w2) =: f,
 
-with ‖f‖ ≤ C (‖w1 − w2‖ + ‖∂(w1 − w2)‖), because ∂²w2 is bounded and |g_(i)⁻¹| ≤ (s0 − ε1)⁻¹. The energy inequality from
-τ_i and Gronwall's lemma give w1 = w2. This is the finite speed of propagation the proof uses, obtained from the energy
-inequality with no further input, and the same argument, run from τ0 over all of Ω, gives the uniqueness stated in the
-theorem. With Step 7 the bootstrap continues, so the solution exists on all of Ω with [[eq:ue-remainder]].
+where F(X, w, ∂w) := −Ric^H(g_app + w) − (1/2) g^(ab) ∂_a ∂_b w, g = g_app + w, contains no second derivative of w (and
+F(X, 0, 0) = F). Then ‖f‖ ≤ C (‖w1 − w2‖ + ‖∂(w1 − w2)‖), because ∂²w2 is bounded and |g_(i)⁻¹| ≤ (s0 − ε1)⁻¹. The
+energy inequality from τ_i and Gronwall's lemma give w1 = w2. This is the finite speed of propagation the proof uses,
+obtained from the energy inequality with no further input, and the same argument, run from τ0 over all of Ω, gives the
+uniqueness stated in the theorem. With Step 7 the bootstrap continues, so the solution exists on all of Ω with
+[[eq:ue-remainder]].
 
 Finally the bounds after [[eq:ue-remainder]]. By Step 1, |w|_(k+1) ≤ C 𝒩 ≤ C M λ^K, so ‖w‖ ≤ C M λ^K and ‖∂w‖ ≤ λ⁻¹
 |w|_(k+1) ≤ C M λ^(K−1); |w| ≤ C λ⁻³ 𝒩 ≤ C M λ^(K−3) and |∂w| ≤ C λ⁻⁴ 𝒩 ≤ C M λ^(K−4) (M renamed to absorb C). Then |g −

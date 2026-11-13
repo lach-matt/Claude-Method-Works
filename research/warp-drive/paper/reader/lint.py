@@ -51,14 +51,21 @@ DEF_RX = re.compile(r"\{#(" + "|".join(RESULT_KINDS) + r"):([a-z0-9][a-z0-9\-]*)
 REF_RX = re.compile(r"\[\[(" + "|".join(RESULT_KINDS) + r"|C):([a-z0-9][a-z0-9_\-]*)\]\]")
 
 
+URL = re.compile(r"https?://\S+|doi:\S+|arXiv:\S+")
+
+
 def scan_text(name, text, assembled):
     hits = []
     lines = text.split("\n")
+    refs = "references" in name
     for i, ln in enumerate(lines, 1):
         if len(ln) > 121:
             hits.append((i, "line longer than 121 characters (%d)" % len(ln), ln[:80]))
+        probe = URL.sub("", ln)
         for rx, why in RX:
-            m = rx.search(ln)
+            if refs and why in ("no-code ruling", "file name", "filler", "process word"):
+                continue  # titles of cited works are quoted as published
+            m = rx.search(probe)
             if m:
                 hits.append((i, why, ln.strip()[:110]))
         if assembled and ("{#" in ln or "[[" in ln):

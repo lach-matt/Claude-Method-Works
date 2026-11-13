@@ -35,7 +35,7 @@ with F := λ A env(v) h(ζ) sin θ, G := λ A env(v) h(ζ) cos θ and h(ζ) := �
 
 For a sphere S_(v,r) := {τ = v − r, |x| = r} we write tr_S f := γ0^(AB) f_AB for the trace on S_(v,r), with γ0 the
 metric g0 induces there, r² times the round metric. The covectors dτ and dr vanish on the tangent spaces of S_(v,r),
-and so does dv = dτ + dr. Two consequences for W follow at once from [[eq:waves-hopf]]:
+and so does dv = dτ + dr. It follows at once from [[eq:waves-hopf]] that
 
     tr_S W = 0   on every S_(v,r) and at every phase.                                                {#eq:wave-traceless}
 
@@ -125,9 +125,9 @@ for the mass M of [[prop:mean-mass]].
 
 *Proof.* Put m := μ/r². In the chart of [[sec:horizon-notation]], g0 restricted to the (τ, r) plane is
 g_ττ = −1 + m, g_τr = m, g_rr = 1 + m, and the normal plane of S_(v,r) is spanned by ∂_τ and ∂_r. A vector
-∂_τ + β ∂_r is null when −1 + m + 2 m β + (1 + m) β² = 0, whose roots are β = (1 − m)/(1 + m) and β = −1. The second
-gives L0, which is future directed with L0(τ) = 1 and points inward; the first gives n⁺. Each has n(τ) = 1 > 0 and τ is a
-time function, so both are future directed.
+∂_τ + β ∂_r is null when −1 + m + 2 m β + (1 + m) β² = 0, whose roots are β = (1 − m)/(1 + m) and β = −1. The root
+β = −1 gives L0, which points inward, and the other gives n⁺. Both have n(τ) = 1 > 0, and τ is a time function, so both
+are future directed.
 
 Since g0 is block diagonal with sphere part r² times the round metric, the second fundamental form of S_(v,r) along a
 normal n is r n(r) times the round metric, and the expansion is θ_n = (r²)⁻¹ · 3 · r n(r) = 3 n(r)/r. So θ⁺ =
@@ -167,7 +167,8 @@ n^±(τ) = 1; for G near g0 the two null directions stay distinct, so c^±, α^�
 
     Π_G = G⁻¹ + (n⁺ ⊗ n⁻ + n⁻ ⊗ n⁺)/(−G(n⁺, n⁻)),
 
-smooth in (X, G); it annihilates k⁺ and k⁻, hence every covector of the normal plane. The second fundamental form along n^± is −k^±_c Γ[G]^c_(ab) on tangent vectors, so
+smooth in (X, G); it annihilates k⁺ and k⁻, hence every covector of the normal plane. The second fundamental form
+along n^± is −k^±_c Γ[G]^c_(ab) on tangent vectors, so
 
     θ^±(G) = −Π_G^(ab) Γ[G]^c_(ab) k^±_c,     Γ[G]^c_(ab) = ½ G^(cd) (∂_a G_db + ∂_b G_da − ∂_d G_ab),
 

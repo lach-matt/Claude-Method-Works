@@ -26,6 +26,7 @@ PART_RX = re.compile(r"^# Part\. (.*?)\s*\{#part:([a-z0-9\-]+)\}\s*$")
 CH_RX = re.compile(r"^## (?!Appendix\.)(.*?)\s*\{#ch:([a-z0-9\-]+)\}\s*$")
 APP_RX = re.compile(r"^## Appendix\. (.*?)\s*\{#app:([a-z0-9\-]+)\}\s*$")
 SEC_RX = re.compile(r"^### (.*?)(?:\s*\{#sec:([a-z0-9\-]+)\})?\s*$")
+SUB_RX = re.compile(r"^#### (.*?)(?:\s*\{#sec:([a-z0-9\-]+)\})?\s*$")
 RES_RX = re.compile(r"\*\*(Theorem|Lemma|Proposition|Corollary|Definition|Remark) \{#(thm|lem|prop|cor|def|rem):"
                     r"([a-z0-9\-]+)\}\*\*")
 EQ_RX = re.compile(r"\s*\{#eq:([a-z0-9\-]+)\}\s*$")
@@ -43,7 +44,7 @@ def number(chapters):
     out = []
     part_n = ch_n = app_n = 0
     cur = None          # current chapter number string ("7" or "A")
-    sec_n = res_n = eq_n = 0
+    sec_n = sub_n = res_n = eq_n = 0
 
     def put(key, text, where):
         if key in labels:
@@ -76,9 +77,17 @@ def number(chapters):
                 put("ch:" + m.group(2), "Chapter " + cur, where)
                 new.append("## %s. %s" % (cur, m.group(1)))
                 continue
+            m = SUB_RX.match(ln)
+            if m and cur is not None:
+                sub_n += 1
+                if m.group(2):
+                    put("sec:" + m.group(2), "Section %s.%d.%d" % (cur, sec_n, sub_n), where)
+                new.append("#### %s.%d.%d %s" % (cur, sec_n, sub_n, m.group(1)))
+                continue
             m = SEC_RX.match(ln)
             if m and cur is not None:
                 sec_n += 1
+                sub_n = 0
                 if m.group(2):
                     put("sec:" + m.group(2), "Section %s.%d" % (cur, sec_n), where)
                 new.append("### %s.%d %s" % (cur, sec_n, m.group(1)))

@@ -1,0 +1,25 @@
+label	source	source_name	note
+part:remaining	paper/RESPONSE-HL-5D.md:651	P section 6 heading (The remaining parts)	part heading; title from the assignment
+ch:horizon-mass	docket68/n1star/N1STAR-PROOF.md:1102	NP section 8 (Part (iii) for lam > 0)	chapter; P 297-357 and 651-666 for statements and remarks
+sec:horizon-notation	docket68/n1star/N1STAR-PROOF.md:1107-1112; paper/RESPONSE-HL-5D.md:217-235	NP 8.1 setting; P (2.5') waves	Hopf azimuths renamed xi1, xi2 (phi1 is the first phase); polar angle vartheta
+eq:remainder-pointwise	docket68/n1star/N1STAR-PROOF.md:1145-1146	NP section 4 Step 1 bound as used in Prop 8.1 (iv)	
+eq:waves-hopf	paper/RESPONSE-HL-5D.md:226-229	P (2.5')	restated in the azimuths xi1, xi2; F, G at phase theta
+eq:wave-traceless	docket68/n1star/N1STAR-PROOF.md:1133-1135	NP Prop 8.1 (iii): tr_S W = 0	derived by hand from (2.5') in place of lead5 L5 / horizon5 H2
+eq:column-derivative	docket68/n1star/N1STAR-PROOF.md:1141-1142	NP Prop 8.1 (iii): along a column v is constant (horizon5 H3)	derived: a column is an integral curve of ell
+sec:boundary	paper/RESPONSE-HL-5D.md:297-309; paper/RESPONSE-HL-5D.md:651-656	P Prop 3.2; P s.6 The boundary	
+sec:sphere-expansions	docket68/n1star/N1STAR-PROOF.md:1107-1163	NP Prop 8.1 and its proof	
+prop:boundary-spacelike (proof)	paper/RESPONSE-HL-5D.md:297-309; paper/RESPONSE-HL-5D.md:651-656; docket68/n1star/EQUALITY5.md:44-56	P Prop 3.2 with its inline deductions; P s.6 The boundary; EQUALITY5 (e)	proof written out: contraction (3.1) by hand (replaces response5 R6, hf_theorem5 F2); time orientation; no return; margin (replaces response5 R13); equality case cited to Ch 84-85
+rem:boundary-first-order	paper/RESPONSE-HL-5D.md:654-656	P s.6: first-order term -(chi + m1(#dPhi,#dPhi)), W_TT drops out (support5 C8)	derived by hand
+lem:round-spheres	docket68/n1star/N1STAR-PROOF.md:1117-1127; docket68/n1star/N1STAR-PROOF.md:1164-1170; paper/RESPONSE-HL-5D.md:320-322	NP Prop 8.1 (i)-(ii) background (horizon5 H1); mass of a sphere M = mu (mass5 M1)	derived by hand; normals as vectors
+eq:round-normals	docket68/n1star/N1STAR-PROOF.md:1117-1120	NP Prop 8.1 (i)	
+eq:round-expansions	docket68/n1star/N1STAR-PROOF.md:1124-1127	NP Prop 8.1 (ii) (horizon5 H1)	g0(n+,n-) added for the mass
+lem:sphere-two-scale	docket68/n1star/N1STAR-PROOF.md:1128-1141; docket68/n1star/N1STAR-PROOF.md:1206-1214; docket68/n1star/N1STAR-PROOF.md:1729-1736	NP Prop 8.1 (iii) (horizon5 H2, H2b); Prop 8.2 inside the shell (support5c C13); Prop 9.10 (2)	general lemma replacing H2, H2b, H3, C13 by a derivation; covers any chi and m1
+eq:theta-two-scale	docket68/n1star/N1STAR-PROOF.md:1137-1138	NP Prop 8.1 (iii): theta+(g_app) = theta+(g0) + lam[Th1] + lam^2 E	
+prop:one-zero (proof)	docket68/n1star/N1STAR-PROOF.md:1107-1163	NP Prop 8.1 with the D622 folds	= P Prop 3.3; lam1 written lam_H as in P; support3 D1 and redshift5 R12 replaced by derivations
+eq:theta-plus-close	docket68/n1star/N1STAR-PROOF.md:1142-1146	NP Prop 8.1 (iv)	constant named C3 as in (v)
+rem:round-family	paper/RESPONSE-HL-5D.md:657-666	P s.6 The horizon	comparison with the Bondi-form evolution (hf_core5, hf_theorem5 F4) left as pending:computational-1
+sec:quarter-turn	docket68/n1star/N1STAR-PROOF.md:1164-1170	NP The mass of a sphere	naturality
+eq:quarter-turn-action	docket68/n1star/N1STAR-PROOF.md:1174-1175	NP Lemma 8.2 definition of S	sigma renamed J (sigma is the mollifier ramp in Ch 9)
+lem:quarter-turn	docket68/n1star/N1STAR-PROOF.md:1171-1189; paper/RESPONSE-HL-5D.md:340-346	NP Lemma 8.2 with D622 folds	mass5 M2, M3, M4 and redshift5 R11 replaced by derivations; stage5 S2/S4 cross-check dropped (deduction kept)
+prop:mean-mass (proof)	docket68/n1star/N1STAR-PROOF.md:1191-1210	NP Prop 8.2 with D622 fold	= P Prop 3.4; support5c C13 replaced by lem:sphere-two-scale
+rem:mean-mass-aspect	paper/RESPONSE-HL-5D.md:345-347; paper/RESPONSE-HL-5D.md:663-668; docket68/n1star/N1STAR-PROOF.md:1212-1214	P Prop 3.4 proof (stage5 S2 forcing formula); P s.6 The mean mass	forcing formula of m1 left as pending:computational-2
