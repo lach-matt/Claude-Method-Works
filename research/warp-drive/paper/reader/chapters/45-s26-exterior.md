@@ -465,3 +465,225 @@ spacelike ([[lem:iii-c1-1-1]]). The backward problem is argued directly because 
 gauge-fixed operator, whose E_C-term is odd in time. [[lem:iv2-2-2]] writes this backward problem with the data, and
 [[prop:iv1-2-2]] and [[thm:iv2-2-4]] give the estimate for the tensor operator, with weights at both faces.
 
+### The tensor operator: setting {#sec:iv1-0}
+
+[[sec:iv1-0]]–[[sec:iv1-2]] carry [Hin23a, Sections 3.4–3.5] (Proposition 3.29, Lemmas 3.33–3.34, Proposition 3.32;
+pp. 18–30) to the gauge-fixed operator of [[sec:iii-c-4]] in dimension 4 + 1, on the exterior region of
+[[sec:iii-c-1]]. [[sec:iv1-1]] puts the conjugated operator in edge-b form; in dimension 4 + 1 its first-order matrix
+is the constant Ā of [[lem:iii-c-4-2]], free of the perturbation h ([[prop:iii-c-4-4]], [[rem:iii-c-4-5]]).
+[[sec:iv1-2]] proves the energy estimate for the system, with its tame form and the sharp weights. [Hin23a,
+Section 3.3] (metric perturbations, Lemmas 3.23–3.28) is [[sec:iii-c-2]]–[[sec:iii-c-5]] in dimension 4 + 1, which we
+use as they stand.
+
+U, M_♯, x_I = ρ_I^(1/2), X₀, X_I, 𝒱_(e,b) and the spaces are those of [[sec:iv-0]], and the splitting
+[[eq:iii-c-1-6]], its slots and Ā are those of [[lem:iii-c-4-2]]. Let g₁, g₀ ∈ 𝒢 ([[def:iii-c-3-4]]), k ≥ 5, and
+h ∈ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b(U; S²T*) as in [[prop:iii-c-4-4]]. That is: ℰ₀ as in [[def:iii-c-3-1]] (1),
+min Re ℱ > 0, 2ℱ ⊂ ℱ, ℓ₀, ℓ_I > 0, and h small in H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b, the polyhomogeneous norm. (The coefficients
+ã below are ρ_I⁻¹ times terms in h, whose size near ℐ⁺ the conormal norm H^(k,a₀,a_I)_b does not control when
+a_I < 1.) Assume moreover
+
+    min Re ℱ > 1,     ℓ_I > 1,                                                                          {#eq:iv1-0-1}
+
+which holds for ℱ = ℰ_I^tot (min Re ℰ_I^tot = 3/2, [[eq:iii-c-3-1]]) and every ℓ_I > 3/2, and for ℱ = (2, 0). Put
+g := g₁ + h and
+
+    L_g := 2ρ_Iρ^(−7/2) L^(g,g₀) ρ^(3/2),                                                               {#eq:iv1-0-2}
+
+with L^(g,g₀) the linearised gauge-fixed operator [[eq:iii-c-4-1]], whose principal part is ½□_g ⊗ Id. For the scalar
+operator this is the L of [[eq:iv-2-1]] up to the factor 2: 2L^(g,g₀) has principal part □_g.
+
+### The operator in edge-b form {#sec:iv1-1}
+
+This section is [Hin23a, Proposition 3.29] for the operator of [[sec:iii-c-4]] in dimension 4 + 1 ([Hin26, (5.26b)]).
+
+**Lemma {#lem:iv1-1-1}** (Cartesian derivatives are ρ₀ times eb-vector fields.) On U, ∂_t, ∂_(x^i), ∂₀, ∂₁ lie in
+ρ₀𝒱_(e,b)(M_♯), and |x|⁻¹∂_ω ∈ ρ₀x_I𝒱_(e,b)(M_♯).
+
+*Proof.* By [[eq:iii-c-1-5]], ∂₀ = −½ρ₀ρ_IX_I and ∂₁ = ρ₀(X₀ − X_I + ½ρ_IX_I), with X₀, X_I ∈ 𝒱_(e,b). And
+|x|⁻¹∂_ω = ρ₀x_I · x_I∂_ω, with x_I∂_ω ∈ 𝒱_(e,b). Finally ∂_t = ∂₀ + ∂₁ and
+∂_(x^i) = ω^i(∂₀ − ∂₁) + |x|⁻¹(…)∂_ω, the dots smooth functions of ω. ∎
+
+This refines [[lem:iii-c-1-1]], which places the same fields in ρ₀𝒱_b. The refinement is what the edge-b form needs:
+angular second derivatives come with |x|⁻², hence with ρ₀²x_I² times eb-derivatives.
+
+**Proposition {#prop:iv1-1-2}** (The edge-b form.) Under the hypotheses of [[sec:iv1-0]], on U, in the splitting
+[[eq:iii-c-1-6]],
+
+    L_g = −2(X_I − Ā)(X₀ − X_I) + x_I²Δ̸ + L̃_g,
+    L̃_g ∈ (x_IC^∞(M_♯) + H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b) Diff²_(e,b)(M_♯; S²T*),                      {#eq:iv1-1-1}
+
+where Δ̸ = −g̸^(ab)∂_a∂_b acts on each slot, in local coordinates ω^a of 𝕊³. By [[eq:iv1-0-1]] the coefficients of the
+second class decay at ℐ⁺ at least like ρ_I^(γ−ε) for every ε > 0, γ := min(min Re ℱ − 1, ℓ_I − 1) > 0, and are small
+in L^∞ near ℐ⁺ for h small. So L̃_g is small relative to the leading part near ℐ⁺, as [Hin23a, (3.29b)] is.
+
+*Proof.* *The conjugation.* By [[prop:iii-c-4-4]],
+
+    L^(g,g₀) = −ρ₀²ρ_I(X_I − 3/2 − Ā)(X₀ − X_I) + R,     R ∈ (ρ₀²ρ_I²C^∞ + H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b)Diff²_b.
+
+As (X₀ − X_I)ρ = 0 and X_Iρ^(3/2) = (3/2)ρ^(3/2), ρ^(−3/2)(X_I − 3/2 − Ā)(X₀ − X_I)ρ^(3/2) = (X_I − Ā)(X₀ − X_I); and
+2ρ_Iρ^(−7/2) · ρ₀²ρ_I · ρ^(3/2) = 2. So the leading part of [[eq:iv1-1-1]] is the image of that of [[eq:iii-c-4-4]],
+and L_g + 2(X_I − Ā)(X₀ − X_I) = 2ρ₀⁻²ρ_I⁻¹ρ^(−3/2)Rρ^(3/2). Conjugation by ρ^(3/2) preserves Diff_b and Diff_(e,b), as
+ρ^(−3/2)Vρ^(3/2) = V + (3/2)V(log ρ) with V log ρ smooth for V ∈ 𝒱_b.
+
+*The b-form remainder does not suffice.* ρ₀⁻²ρ_I⁻¹R lies in (ρ_IC^∞ + H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b)Diff²_b. But
+Diff²_b ⊂ x_I⁻²Diff²_(e,b) only, ∂_ω being x_I⁻¹ times an eb-vector field. So we redo the count of the proof of
+[[prop:iii-c-4-4]] with [[lem:iv1-1-1]] in place of [[lem:iii-c-1-1]].
+
+*The background part.* L^(g₁,g₀) differs from L_(b₀) := L^(g_(b₀),g_(b₀)) by terms with a factor g₁ − g_(b₀) or
+g₀ − g_(b₀) in ρ₀²ρ_I²C^∞ ([[def:iii-c-3-4]], [[lem:iii-c-3-5]]). By [[lem:iii-c-4-3]] and [[lem:iv1-1-1]], these lie
+in ρ₀² · ρ₀²ρ_I²C^∞Diff²_(e,b). After the prefactor 2ρ₀⁻²ρ_I⁻¹ this is ρ₀²ρ_IC^∞Diff²_(e,b) ⊂ x_I²Diff²_(e,b). For
+L_(b₀) itself:
+
+- its second-order part is ½□_(g_(b₀)) on each component in the frame, the principal symbol being scalar;
+- its first-order part consists of the connection terms of the frame and the terms of E_C, E_Υ. These are Cartesian
+  derivatives (in ρ₀𝒱_(e,b), [[lem:iv1-1-1]]) times coefficients in ρC^∞ = ρ₀ρ_IC^∞ (c_C, c_Υ and the Christoffel
+  symbols of η in the frame are O(|x|⁻¹), [[def:iii-b-6-1]], [[lem:iii-c-1-3]]), so they lie in
+  ρ₀²ρ_IC^∞Diff¹_(e,b);
+- its zeroth-order part lies in ρ²C^∞.
+
+The calculation of [[lem:iii-c-4-1]] identifies the part of the first-order terms that is not O(ρ_I) relative: it is
+ρ₀²ρ_IĀ(X₀ − X_I) (with the −3/2 of the scalar conjugation). So, after conjugation and the prefactor,
+
+    L_(b₀,conj) = (2ρ_Iρ^(−7/2) ½□_(g_(b₀)) ρ^(3/2)) ⊗ Id + 2Ā(X₀ − X_I) + x_IC^∞Diff¹_(e,b) + x_I²C^∞.
+
+The scalar term is the L of [[lem:iv-2-2]]: −2X_I(X₀ − X_I) + x_I²(Δ̸ + ¾) modulo x_IDiff²_(e,b). Its first-order part
+in [[lem:iv-2-2]] is that of the scalar wave operator, and it differs from that of the frame by the connection terms
+just counted. ¾x_I² and x_IC^∞Diff¹_(e,b) (the angular connection terms) lie in x_IDiff¹_(e,b). So the background
+part of [[eq:iv1-1-1]] holds with L̃ in x_IC^∞Diff²_(e,b).
+
+*The perturbation.* For (g₁ + h, g₀) against (g₁, g₀) the factor is δ = h. By [[lem:iii-c-4-3]] and [[lem:iv1-1-1]],
+each term is ρ₀² times a product of h or of 𝒱_b-derivatives of h of order at most 2 with smooth bounded functions,
+applied through Diff²_(e,b) ([[lem:iv1-1-1]] replaces ρ₀𝒱_b by ρ₀𝒱_(e,b) for the derivatives acting on u). By the
+proof of [[prop:iii-c-4-4]] (the Neumann series, and [[lem:iii-c-2-1]] there), the coefficients lie in
+ρ₀²H^(k−2,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b = H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b. After the prefactor they lie in
+H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b, multiplying Diff²_(e,b). The frame change of [[lem:iii-c-1-3]] preserves the classes, as
+in the proof of [[prop:iii-c-4-4]].
+
+*Smallness.* By [[eq:iv1-0-1]] and the embedding [[eq:iv-0-1]] (k − 2 ≥ 3), elements of
+H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b are bounded by Cρ₀^(min(min Re ℰ₀,ℓ₀))ρ_I^(γ−ε) times their norm, with γ as above, and
+their norm is O(‖h‖_(H^k)). ∎
+
+**Remark {#rem:iv1-1-3}** (The terms A_g and B_g of [Hin23a].) In [Hin23a, (3.29a)] the h-dependent entries of A_g
+and the term B_g are of the size of the leading part at ℐ⁺; in dimension 3 + 1 they are bounded there. In dimension
+4 + 1 they carry an extra factor ρ_I^(1/2) ([[prop:np-10-64]] (7), [[rem:iii-c-4-5]]) and lie in L̃_g. So the
+first-order matrix of [[eq:iv1-1-1]] is Ā, constant and lower triangular, with diagonal [[eq:iii-c-4-3]], all of whose
+entries are ≥ 0:
+
+    2(1 − v_C)γ_C,  (1 − v_C)γ_C,  (1 − e_C)(1 − v_C)γ_C,  (1 − e_Υ)γ_Υ,  γ_Υ,  0,  2γ_Υ.
+
+The term A⁰_h of [Hin23a], for which its proof of Proposition 3.32 uses [Hin23a, Lemma 3.33], does not arise
+([[prop:iii-c-4-4]], [[rem:iii-c-4-5]]): all of the h-dependent first-order part is treated like the contribution of
+L̃_g.
+
+### The energy estimate for the system {#sec:iv1-2}
+
+This section is [Hin23a, Proposition 3.32 and Lemmas 3.33–3.34] in dimension 4 + 1.
+
+**Lemma {#lem:iv1-2-1}** (A fibre inner product.) For every ε > 0 there is a constant positive definite inner product
+⟨·, ·⟩_ε on the fibres of S²T*, in the frame [[eq:iii-c-1-6]], such that
+
+    Ā = D + N_ε,     D = diag(d₁, …, d₇) ⊗ Id_slot,     |N_ε|_ε ≤ ε,
+
+with the diagonal [[eq:iii-c-4-3]], d_j ≥ 0, and D self-adjoint for ⟨·, ·⟩_ε.
+
+*Proof.* Take the slots of [[eq:iii-c-1-6]] orthogonal, each with its standard inner product multiplied by ε^(2j) on
+slot j. Ā maps each slot to slots of the same type by scalars and is lower triangular ([[lem:iii-c-4-2]]). An entry
+Ā_(ji), i < j, which maps slot i to slot j, then has norm ε^(j−i)|Ā_(ji)| in the scaled norms. For ε ≤ 1 this is at
+most ε max|Ā_(ji)|; rename ε. D is diagonal in an orthogonal splitting, so self-adjoint. ∎
+
+**Proposition {#prop:iv1-2-2}** (The energy estimate and its tame form; [Hin23a, Proposition 3.32] in dimension
+4 + 1.) Let Ω, Σ_in, Σ_fin be as in [[sec:iv-3]], and α₀, α_I ∈ ℝ with α_I < min(α₀, 0). Let k ≥ 8 and 3 ≤ m ≤ k − 3,
+and let h be as in [[sec:iv1-0]], small in H^(8,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b. For f ∈ H^(m,(α₀,2α_I))_b(Ω; S²T*) vanishing near
+Σ_in, the forward solution u of L_gu = f lies in H^((1;m),(α₀,2α_I))_(e,b;b)(Ω; S²T*), and
+
+    ‖u‖_(H^((1;m),(α₀,2α_I))_(e,b;b)) ≤ C(‖f‖_(H^(m,(α₀,2α_I))_b)
+                                           + ‖h‖_(H^(m+3,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b)‖f‖_(H^(3,(α₀,2α_I))_b)),     {#eq:iv1-2-1}
+
+with C depending on m, k, α₀, α_I and the classes, not on f or h.
+
+*Proof.* *The basic estimate.* Use the multiplier W = w²V of the proof of [[prop:iv-3-1]], V = X₀ − (1 + κ)X_I, with
+κ > 0 to be fixed, the density μ̄_b, and the fibre inner product of [[lem:iv1-2-1]]. Then
+
+    2 Re⟨wL_gu, wVu⟩ = ⟨Qu, u⟩ + ℬ_fin(u),     Q = [L_g, W] − (div W)L_g + (L_g* − L_g)W,
+
+with ℬ_fin ≥ 0, as in [[prop:iv-3-1]]. The scalar part −2X_I(X₀ − X_I) + x_I²Δ̸ gives the Q̄ of [[eq:iv-3-3]]; the
+constant ¾ is absent here, and it only increased Q̄ there. Write
+
+    Y := w(X₀ − X_I)u,     Z := wX_Iu,     Vu = w⁻¹(Y − κZ).
+
+The first-order term 2Ā(X₀ − X_I) of [[eq:iv1-1-1]] contributes, up to terms of order 0 in u and terms with a factor
+x_I,
+
+    4 Re⟨ĀY, Y − κZ⟩ = 4⟨DY, Y⟩ − 4κ Re⟨DY, Z⟩ + O(ε)(|Y|² + |Z|²).
+
+On each slot, the quadratic form in (Y_j, Z_j) from Q̄ and this term is
+
+    4(d_j − α_I)|Y_j|² − 4κd_j Re(Y_jZ̄_j) + 4κ(α₀ − α_I)|Z_j|².
+
+It is positive definite if 4(d_j − α_I)(α₀ − α_I) > κd_j². As d_j ≥ 0, α_I < 0 and α₀ > α_I, this holds for κ > 0
+small. Fix such κ, then ε small. The angular term of Q̄, (1 + 2(α₀ − α_I) + κ(1 − 2α_I))x_I²|∇̸u|², is positive, so
+⟨Qu, u⟩ controls ‖wu‖²_(H¹_(e,b)) modulo two terms: ‖wu‖²_(L²_b), which the Poincaré inequality of the proof of
+[[prop:iv-3-1]] removes; and the contribution of L̃_g, whose coefficients are O(c^(γ′)) on {x_I < c} for every
+γ′ < min(2 min Re ℱ − 2, 2ℓ_I − 2) by the smallness in [[prop:iv1-1-2]], and which is absorbed for c small, as in
+[[prop:iv-3-1]].
+
+The term (L_g* − L_g)W is that of the first-order part, already counted, plus that of L̃_g. This gives
+
+    ‖u‖_(H^(1,(α₀,2α_I))_(e,b)) ≤ C₀‖L_gu‖_(H^(0,(α₀,2α_I))_b),                                         {#eq:iv1-2-2}
+
+with C₀ uniform for h small in H^(5,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ([Hin23a, (3.53)]; the skew part needs ã ∈ W^(1,∞), so h ∈ H⁶,
+which the hypothesis on H⁸ gives). Away from ℐ⁺, the argument of the proof of [[prop:iv-4-1]] applies to the system:
+the principal part is scalar, and the first-order terms are bounded b-operators, absorbed by the exponential weight.
+[[rem:iv-4-2]] glues the pieces.
+
+*Commuting.* With X₀, X₁ := X_I, the rotation fields X₂, …, X₇ of 𝕊³ (acting on the slots in the frame
+[[eq:iii-c-1-6]], which they preserve, by the equivariance of [[lem:iii-c-4-2]]) and X₈ := 1, apply [[eq:iv1-2-2]] to
+X_(j₁)⋯X_(j_l)u, l ≤ m. [[lem:iv1-2-4]] gives ([Hin23a, (3.55)], with the weights (α₀, 2α_I) throughout)
+
+    ‖u‖_(H^((1;m))_(e,b;b))
+        ≤ C₀(‖L_gu‖_(H^m_b) + Σ_(1≤q≤l≤m) Σ ‖(ad_(X_(i₁))⋯ad_(X_(i_q))L_g) X_(j₁)⋯X_(j_(l−q))u‖_(H⁰_b)),     {#eq:iv1-2-3}
+
+the inner sum over the indices. The commutators of the X_j with the leading part of [[eq:iv1-1-1]] lie in
+x_IDiff^(1;1)_(e,b;b): for the scalar part by [[lem:iv-2-2]]; and Ā is constant and commutes with the X_j (X₀, X_I act
+on the slot coordinates, and the rotations commute with Ā by the equivariance of [[lem:iii-c-4-2]]). These terms are
+absorbed for x_I small. For L̃_g = Σ_i(x_Ia_i + ã_i)P_i, with a_i ∈ C^∞, ã_i ∈ H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b and P_i
+spanning Diff²_(e,b), [Hin23a, (3.56)–(3.58)] apply as they stand: the x_Ia_i-terms are absorbed; the ã_i-terms are
+bounded by the Moser estimate ([[lem:iv1-2-3]]): for b-derivatives V₁, …, V_q, V′₁, …, V′_(m−q+1) and an
+eb-derivative W′,
+
+    ‖(V₁⋯V_q ã) W′V′₁⋯V′_(m−q+1)u‖ ≤ C(‖ã‖_(H⁴)‖u‖_(H^((1;m))) + ‖ã‖_(H^(m+1))‖u‖_(H^((1;3)))).
+
+The first term is absorbed near ℐ⁺, the coefficients decaying at ℐ⁺; the second is bounded by ‖h‖_(H^(m+3)) times
+[[eq:iv1-2-2]] at m = 3, by ‖ã_i‖_(H^(m+1)) ≤ C‖h‖_(H^(m+3)) (the coefficients are rational in at most two
+b-derivatives of h). Commutators of the X_j preserve Diff^k_(e,b): for X₀, X_I as eb-vector fields, and for the
+rotations by the argument for [[eq:iv-2-3]] ([Hin23a, (3.19a)–(3.19b)]). This proves [[eq:iv1-2-1]]. At m = 3 the
+constant depends on ‖h‖_(H⁸) ([Hin23a, (3.54)]). ∎
+
+**Lemma {#lem:iv1-2-3}** (Moser estimates on M_♯.) For s ≥ 3 > 5/2 = ½ dim M_♯ and a, b in the weighted b-Sobolev
+spaces,
+
+    ‖ab‖_(H^(s,(β₀+γ₀,β₁+γ₁))_b) ≤ C(‖a‖_(ρ₀^(β₀)x_I^(β₁)L^∞)‖b‖_(H^(s,(γ₀,γ₁))_b)
+                                      + ‖a‖_(H^(s,(β₀,β₁))_b)‖b‖_(ρ₀^(γ₀)x_I^(γ₁)L^∞)),
+
+and H^s_b embeds in L^∞ ([[eq:iv-0-1]]).
+
+*Proof.* In the coordinates z₀ = log ρ₀, z₁ = log x_I, b-Sobolev spaces are uniformly local Sobolev spaces on
+ℝ² × 𝕊³ (dimension 5), and the weights become exponentials. The estimate is the standard Moser estimate there
+([Tay11, Chapter 13, Propositions 3.6–3.7]; [[thm:std-moser-taylor]]), applied to the products after dividing out the
+weights. ∎
+
+**Lemma {#lem:iv1-2-4}** ([Hin23a, Lemma 3.34], the commutator identity.) In any associative algebra, for
+L, Z₁, …, Z_l, with ad_Z := [·, Z],
+
+    [L, Z₁⋯Z_l] = Σ_(q=1)^l (−1)^(q−1) Σ_(i₁<⋯<i_q) (ad_(Z_(i₁))⋯ad_(Z_(i_q))L) Π_(j∉{i₁,…,i_q}) Z_j,
+
+the products taken in increasing order of j.
+
+*Proof.* Induction on l: [L, Z₁⋯Z_(l+1)] = [L, Z₁⋯Z_l]Z_(l+1) + [L, Z_(l+1)]Z₁⋯Z_l − [ad_(Z_(l+1))L, Z₁⋯Z_l], since
+Z₁⋯Z_l[L, Z_(l+1)] = [L, Z_(l+1)]Z₁⋯Z_l − [ad_(Z_(l+1))L, Z₁⋯Z_l]; the induction hypothesis applied to the first and the
+last term gives the formula for l + 1. ∎
+
+**Remark {#rem:iv1-2-5}** ([Hin23a, Lemma 3.33].) The tame product estimate of [Hin23a, Lemma 3.33], with the
+Sobolev index d_(dim M−1), is used in [Hin23a] only for the term A⁰_h, which does not arise in dimension 4 + 1
+([[rem:iv1-1-3]]). In dimension 4 + 1 its index is d₄ = 3 ([[prop:np-10-64]] (6)).
+

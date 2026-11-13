@@ -54,7 +54,8 @@ where D is the connection of g and β_i = 𝔤_0i; the Gauss–Codazzi equations
 
 *Decay.* For α > 0, an integer j ≥ 1 and data on {r > R₀}, put
 
-    |||(g, K)|||_(α,j) := sup_(r>R₀) ( Σ_(|γ|≤j) r^(α+|γ|)|∂^γ(g − δ)| + Σ_(|γ|≤j−1) r^(α+1+|γ|)|∂^γK| ),      {#eq:v-0-3}
+    |||(g, K)|||_(α,j) := sup_(r>R₀) ( Σ_(|γ|≤j) r^(α+|γ|)|∂^γ(g − δ)| + Σ_(|γ|≤j−1) r^(α+1+|γ|)|∂^γK| ),
+                                                                                                          {#eq:v-0-3}
 
 the components taken in Cartesian coordinates. This is the r^(−α)W^(j,∞)_r-asymptotic flatness of g, with
 K ∈ r^(−α−1)W^(j−1,∞)_r, of [CD03, Section 7, (7.1)], at j = k + 4.
@@ -334,7 +335,8 @@ so it is symmetric and positive for g₀ at each point, and a smooth function of
 the spaces of the unknowns z = (Y, N), of the projected sources, of the sources (δJ, δρ) and of the solutions (δK, δg).
 For u′ ∈ 𝒩_ε and z ∈ 𝒴 put
 
-    T_(u′)z := e^(−2s/x)Φ²P*_(u′)z,     Ψ(u′, z) := π_(g′) e^(2s/x){(J, ρ)(u′ + T_(u′)z) − (J, ρ)(u′)},       {#eq:s28-psi}
+    T_(u′)z := e^(−2s/x)Φ²P*_(u′)z,     Ψ(u′, z) := π_(g′) e^(2s/x){(J, ρ)(u′ + T_(u′)z) − (J, ρ)(u′)},
+                                                                                                          {#eq:s28-psi}
 
 with P*_(u′) the operator [CD03, (2.4)] at u′. The one further hypothesis is:
 
@@ -363,7 +365,7 @@ u′ ∈ 𝒩_ε it is an isomorphism 𝒴 → 𝒵 whose inverse has norm at mo
 (e) The kernel of π_(g′) is 𝒞_(g′)⁻¹𝒦₀. With A_(g′) the matrix (A_(g′))_(ji) := ⟨𝒞_(g′)⁻¹e_i, e_j⟩_(L²_ψ(g₀)), which is
 symmetric and positive definite,
 
-    π_(g′)v = v − Σ_(i,j∈I) (A_(g′)⁻¹)_(ij) ⟨v, e_j⟩_(L²_ψ(g₀)) 𝒞_(g′)⁻¹e_i,                                    {#eq:s28-projection}
+    π_(g′)v = v − Σ_(i,j∈I) (A_(g′)⁻¹)_(ij) ⟨v, e_j⟩_(L²_ψ(g₀)) 𝒞_(g′)⁻¹e_i,                        {#eq:s28-projection}
 
 and ‖π_(g′) − π_(g″)‖_(𝒵̃→𝒵̃) ≤ C‖g′ − g″‖_(W^(k+4,∞)_(x²)(g₀)) for u′, u″ ∈ 𝒩_ε.
 
@@ -406,11 +408,12 @@ e_i are bounded on 𝒜 with all derivatives and ψ² is integrable, so e_i and 
 
 (b) if z ∈ B solves [[eq:v-3-1]] for (u′, (δJ, δρ)) and z̃ ∈ B for (ũ′, (δJ̃, δρ̃)), with u′, ũ′ ∈ 𝒩_(ε_c), then
 
-    ‖z̃ − z‖_𝒴 ≤ 2C₁(‖δf̃ − δf‖_𝒵 + ‖Ψ(u′, z) − Ψ(ũ′, z)‖_𝒵),     δf := π_(g′)e^(2s/x)(δJ, δρ),                {#eq:s28-cont}
+    ‖z̃ − z‖_𝒴 ≤ 2C₁(‖δf̃ − δf‖_𝒵 + ‖Ψ(u′, z) − Ψ(ũ′, z)‖_𝒵),     δf := π_(g′)e^(2s/x)(δJ, δρ),
+                                                                                                          {#eq:s28-cont}
 
     and δf̃ := π_(g̃′)e^(2s/x)(δJ̃, δρ̃); both terms on the right tend to zero as (ũ′, (δJ̃, δρ̃)) tends to
     (u′, (δJ, δρ)) in 𝒩_(ε_c) × 𝒮. So the solution with z ∈ B is unique and depends continuously on the background u′
-    and the source (δJ, δρ), and so does (δK, δg) = T_(u′)z in 𝒳;
+    and the right side (δJ, δρ), and so does (δK, δg) = T_(u′)z in 𝒳;
 
 (c) there is ε_s > 0 such that for u′ ∈ 𝒩_(ε_c) and ‖(δJ, δρ)‖_𝒮 < ε_s the solution of [[lem:s28-setting]] (a) has
 z ∈ B.
@@ -600,18 +603,20 @@ structure, so on O(4)-invariant data X ↦ 𝔔_X is an O(4)-invariant linear fo
 summands ℝ⁴, Λ²ℝ⁴, ℝ⁴, which are irreducible and nontrivial. 𝔟_(e₀) = (∂_jh_ij − ∂_i tr h)νⁱdS involves only
 h = γ − δ. On the graph, γ^m_ij differs from the metric induced on {t_KS = 0} by 2g_(t(i)∂_(j)f + g_tt∂_if∂_jf = O(r⁻⁴),
 with first derivatives O(r⁻⁵), as g_ti = (m/r²)x̂_i. So the two fluxes over S_ϱ differ by O(ϱ⁻²), and 𝔔_(e₀) is that of
-{t_KS = 0}, which is 6π²m by the computation of c_E in the proof of [[prop:v-2-3]], at p = (m, 0, 0, 0). ∎
+{t_KS = 0}, which is 6π²m by the part *c_E* of the proof of [[prop:v-2-3]], at p = (m, 0, 0, 0). ∎
 
 **Proposition {#prop:vii-2-2}** (Gluing in the class; [CD03, Theorem 8.1] with G.) Fix k ≥ 3, the order of the
 gluing. There are R_gl, ζ₀ and C such that for R ≥ max(R_gl, R₃) the following holds. Let (g, K) be G-invariant
 smooth vacuum data on Σ^IVP ∩ {r_♭ ≤ r ≤ 3R} with
 
-    ζ := sup_(R≤r≤3R) ( Σ_(|β|≤k+4) r^(2+|β|)|∂^β(g − γ^(m₀))| + Σ_(|β|≤k+3) r^(3+|β|)|∂^β(K − k^(m₀))| ) ≤ ζ₀.  {#eq:vii-2-1}
+    ζ := sup_(R≤r≤3R) ( Σ_(|β|≤k+4) r^(2+|β|)|∂^β(g − γ^(m₀))| + Σ_(|β|≤k+3) r^(3+|β|)|∂^β(K − k^(m₀))| ) ≤ ζ₀.
+                                                                                                          {#eq:vii-2-1}
 
 Then there are m with |m − m₀| ≤ Cζ, and G-invariant smooth vacuum data (ĝ, K̂) on Σ^IVP, equal to (g, K) on {r ≤ R}
 and to (γ^m, k^m) on {r ≥ 4R}, with
 
-    sup_(R≤r≤4R) ( Σ_(|β|≤k−1) r^(2+|β|)|∂^β(ĝ − γ^(m₀))| + Σ_(|β|≤k−2) r^(3+|β|)|∂^β(K̂ − k^(m₀))| ) ≤ Cζ.       {#eq:vii-2-2}
+    sup_(R≤r≤4R) ( Σ_(|β|≤k−1) r^(2+|β|)|∂^β(ĝ − γ^(m₀))| + Σ_(|β|≤k−2) r^(3+|β|)|∂^β(K̂ − k^(m₀))| ) ≤ Cζ.
+                                                                                                          {#eq:vii-2-2}
 
 *Proof.* The proof of [[thm:v-3-1]], with k in place of 3 ([[sec:s28-solvability]] allows any integer k > n/2), and
 seven changes.
@@ -627,7 +632,7 @@ C(m₀ + ζ₀)R⁻² of (0, δ).
 u′ = (K′, g′), the map Ψ(u′, ·) of [[eq:s28-psi]] is G-equivariant. Indeed, the constraint map is natural, x and the
 weights e^(±s/x), x² are radial, T_(u′) is natural, and π_(g′) commutes with G, as 𝒦₀ = 𝔎|_𝒜 and the L²_ψ(g′) inner
 product are G-invariant. The norms of Step 1 are G-invariant. So the solution of [[eq:v-3-1]] with z in the ball B of
-[[lem:v-3-2]] is unique, hence G-invariant when u′ and the source are, and û_(m,R) := u_(m,R) + δu_(m,R) is
+[[lem:v-3-2]] is unique, hence G-invariant when u′ and the right side are, and û_(m,R) := u_(m,R) + δu_(m,R) is
 G-invariant.
 
 (4) *A one-dimensional obstruction.* By Step 3, (J, ρ)(û_(m,R)) = e^(−2s/x) Σ_i κ_i 𝒞_(g′)⁻¹e_i, which is G-invariant.
@@ -651,7 +656,7 @@ by at most Cζ. Hence
     6π²(m − m₀) = ∫_(Γ(R,4R)) (q(γ^(m₀)) − q(û)) + ∫_(r>4R) (q(γ^(m₀)) − q(γ^m)) + O(ζ).
 
 Write a := 𝒮_R(g, K) and b := 𝒮_R(γ^m, k^m); both are vacuum, and u_(m,R) = b + χ(a − b). The constraint map is smooth
-near flat data and vanishes at b. So the source of Step 1 has
+near flat data and vanishes at b. So the right side of Step 1 has
 ‖(J, ρ)(u_(m,R))‖_(C^(k+1)) ≤ C‖a − b‖_(C^(k+3) × C^(k+4)) ≤ C(ζ + |m − m₀|)R⁻². By the bound of Step 1, δu_(m,R) is of
 the same size in H^(k+2)(𝒜) ⊂ C^(k−1)(𝒜). Unscaled,
 û − (γ^(m₀), k^(m₀)) = χ(a − 𝒮_R(γ^(m₀), k^(m₀))) + (1 − χ)(b − 𝒮_R(γ^(m₀), k^(m₀))) + δu, rescaled back, has

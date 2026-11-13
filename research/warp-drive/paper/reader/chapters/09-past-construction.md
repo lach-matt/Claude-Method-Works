@@ -112,7 +112,7 @@ convolution (ρ_λ(y) := λ⁻⁴ ρ(y/λ)) and 𝒞 g := g ∘ Φ the radial sh
 r_out − r_in, 𝒞 is g(τ, v, x̂) ↦ g(τ, ψ(τ, v), x̂), where ψ(τ, v) = v + 2λ σ0((v − v_start)/Δ(τ)), since |x| − r_in =
 v − v_start at fixed τ. Put
 
-    X_f := 4λ σ_v 𝒞(∂_r M f),      σ_v := σ0′((v − v_start)/Δ)/Δ.                                   {#eq:past-commutator}
+    X_f := 4λ σ_r 𝒞(∂_r M f),      σ_r := σ0′((v − v_start)/Δ)/Δ.                                   {#eq:past-commutator}
 
 Then [□̃, 𝒫] f = −L0 X_f + R_f, and for j ≤ k, with Z ranging over 𝒵 := {λ∂_τ, λ∂_r, Ω_ab} (∂_r = x̂·∂_x),
 
@@ -123,31 +123,33 @@ where R′_f collects the terms with two time derivatives of f, each with a fact
 f = s := w(ℓ, ℓ) these are rewritten through the equation of [[lem:ell-ell]], as in Step 6 of the proof of
 [[thm:uniform-existence]].
 
-*Proof.* *The operator.* In the coordinates (τ, v, x̂), L0 = ∂_τ at fixed (v, x̂) and ∂_r = ∂_v at fixed τ, while
-∂_τ at fixed x is L0 + ∂_v. The flat wave operator is −∂_τ² + ∂_r² + (3/r)∂_r + r⁻² Δ̊, with Δ̊ the Laplacian of the
-unit S³, so it equals −(L0 + ∂_v)² + ∂_v² + (3/r)∂_v + r⁻² Δ̊ = −L0² − 2 ∂_v L0 + (3/r)∂_v + r⁻² Δ̊ (L0 and ∂_v are
+*Proof.* *The operator.* In the coordinates (τ, v, x̂), L0 is the coordinate field ∂/∂τ at fixed (v, x̂), and the
+radial derivative ∂_r = x̂·∂_x at fixed τ is the coordinate field ∂/∂v at fixed (τ, x̂), while ∂_τ at fixed x is
+L0 + ∂_r. The flat wave operator is −∂_τ² + ∂_r² + (3/r)∂_r + r⁻² Δ̊, with Δ̊ the Laplacian of the
+unit S³, so it equals −(L0 + ∂_r)² + ∂_r² + (3/r)∂_r + r⁻² Δ̊ = −L0² − 2 ∂_r L0 + (3/r)∂_r + r⁻² Δ̊ (L0 and ∂_r are
 coordinate fields and commute). With g0⁻¹ = η⁻¹ − (μ/r²) L0 ⊗ L0 and L0^a L0^b ∂_a ∂_b = L0²,
 
     □̃ = −(1 + μ/r²) L0² − 2 ∂_r L0 + (3/r) ∂_r + r⁻² Δ̊.
 
-*The radial part.* Write □̃_rad for the first three terms, r = v − τ and ψ_τ := ∂_τ ψ, ψ_v := ∂_v ψ. With 𝒞 g =
-g(τ, ψ, x̂), the chain rule gives L0 𝒞 g = 𝒞 L0 g + ψ_τ 𝒞 ∂_v g, ∂_v 𝒞 g = ψ_v 𝒞 ∂_v g, and the second derivatives
+*The radial part.* Write □̃_rad for the first three terms, r = v − τ, and ψ_τ, ψ_v, ψ_ττ, ψ_τv for the partial
+derivatives of the function ψ(τ, v). With 𝒞 g =
+g(τ, ψ, x̂), the chain rule gives L0 𝒞 g = 𝒞 L0 g + ψ_τ 𝒞 ∂_r g, ∂_r 𝒞 g = ψ_v 𝒞 ∂_r g, and the second derivatives
 likewise. Collecting terms,
 
-    [□̃_rad, 𝒞] g = −L0(2(ψ_v − 1) 𝒞 ∂_v g) + (3ψ_v/r − 3/(ψ − τ)) 𝒞 ∂_v g − μ(v)(1/r² − 1/(ψ − τ)²) 𝒞 L0² g
+    [□̃_rad, 𝒞] g = −L0(2(ψ_v − 1) 𝒞 ∂_r g) + (3ψ_v/r − 3/(ψ − τ)) 𝒞 ∂_r g − μ(v)(1/r² − 1/(ψ − τ)²) 𝒞 L0² g
                    + ((μ(ψ) − μ(v))/(ψ − τ)²) 𝒞 L0² g
-                   − (1 + μ(v)/r²)(2 ψ_τ 𝒞 ∂_v L0 g + ψ_τ² 𝒞 ∂_v² g + ψ_ττ 𝒞 ∂_v g) − 2 ψ_τ 𝒞 ∂_v² g.
+                   − (1 + μ(v)/r²)(2 ψ_τ 𝒞 ∂_r L0 g + ψ_τ² 𝒞 ∂_r² g + ψ_ττ 𝒞 ∂_r g) − 2 ψ_τ 𝒞 ∂_r² g.
 
 For ψ independent of τ the last line vanishes: then □̃_rad 𝒞 g − 𝒞 □̃_rad g = −(μ(v)/r² − μ(ψ)/(ψ − τ)²) 𝒞 L0² g −
-2(ψ_v − 1) 𝒞 ∂_v L0 g + (3ψ_v/r − 3/(ψ − τ)) 𝒞 ∂_v g, and −2(ψ_v − 1) 𝒞 ∂_v L0 g = −L0(2(ψ_v − 1) 𝒞 ∂_v g) since L0
+2(ψ_v − 1) 𝒞 ∂_r L0 g + (3ψ_v/r − 3/(ψ − τ)) 𝒞 ∂_r g, and −2(ψ_v − 1) 𝒞 ∂_r L0 g = −L0(2(ψ_v − 1) 𝒞 ∂_r g) since L0
 commutes with 𝒞 and with ψ_v. When ψ depends on τ, L0 𝒞 g and L0² 𝒞 g acquire the terms with ψ_τ and ψ_ττ, and writing
-−2(ψ_v − 1) 𝒞 ∂_v L0 g as −L0(2(ψ_v − 1) 𝒞 ∂_v g) adds 2 ∂_τ ψ_v 𝒞 ∂_v g + 2(ψ_v − 1) ψ_τ 𝒞 ∂_v² g; the terms with
-∂_τ ψ_v cancel against those from −2 ∂_v L0 𝒞 g, and what remains is the last line. Here 2(ψ_v − 1) = 4λ σ_v, and
+−2(ψ_v − 1) 𝒞 ∂_r L0 g as −L0(2(ψ_v − 1) 𝒞 ∂_r g) adds 2 ψ_τv 𝒞 ∂_r g + 2(ψ_v − 1) ψ_τ 𝒞 ∂_r² g; the terms with
+ψ_τv cancel against those from −2 ∂_r L0 𝒞 g, and what remains is the last line. Here 2(ψ_v − 1) = 4λ σ_r, and
 
     ψ_τ = 2λ σ0′((v − v_start)/Δ) (v − v_start) h_P′/Δ²,
 
 since Δ′ = −h_P′ by [[eq:past-domain]]; as |v − v_start| ≤ Δ, |σ0′| ≤ 7 and h_P″ = (5/4) h_P′/t, both ψ_τ and ψ_ττ are at
-most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ |μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and |3ψ_v/r − 3/(ψ − τ)|
+most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ sup|μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and |3ψ_v/r − 3/(ψ − τ)|
 ≤ C/r.
 
 *The angular part.* Δ̊ acts on x̂ at fixed (τ, v) and commutes with 𝒞, so [r⁻² Δ̊, 𝒞] = (r⁻² − (ψ − τ)⁻²) 𝒞 Δ̊, of size
@@ -157,14 +159,14 @@ C λ r⁻³ times two rotations, that is C λ r⁻¹ times two derivatives.
 it commutes up to terms with the factor λ |∂(μ x̂ x̂/r²)| ≤ C λ (μ r⁻³ + |μ′| r⁻²) ((M5) of [[lem:mollifier]]).
 
 *The bounds.* Apply the radial and angular identities to g = M f. A λ-weighted second spatial derivative of M f costs
-no more than one derivative of f (Bernstein's inequality, (M2)). The term −L0(4λ σ_v 𝒞 ∂_v M f) is −L0 X_f, and
+no more than one derivative of f (Bernstein's inequality, (M2)). The term −L0(4λ σ_r 𝒞 ∂_r M f) is −L0 X_f, and
 ‖Z^j X_f‖ ≤ C λ Σ ‖Z^i ∂f‖ needs no decaying factor. Every other term carries a factor C/r ≤ C t⁻¹, or C λ h_P′ (the
 last line, with two derivatives of M f, of which one is absorbed by the factor λ), or C λ (μ r⁻³ + |μ′| r⁻²) (the
-terms with L0², which form R′_f). L0 commutes with λσ_v, 𝒞 and M up to factors C(h_P′ + r⁻¹): L0 σ_v = O(h_P′), the ψ_τ
+terms with L0², which form R′_f). L0 commutes with λσ_r, 𝒞 and M up to factors C(h_P′ + r⁻¹): L0 σ_r = O(h_P′), the ψ_τ
 terms above, and [x̂·∂_x, M] = O(λ r⁻¹) by (M5). The fields Z commute with these operators up to bounded operators of the
 same order, which suffices, since every term of R_f already carries a decaying factor and the bound on X_f needs none.
-Z commutes with L0 exactly (∂_τ, ∂_r and Ω_ab do, and L0 = ∂_τ − ∂_r in these coordinates), so the same holds at every
-order. ∎
+Z commutes with L0 exactly (∂_τ at fixed x, ∂_r and Ω_ab do, and L0 = ∂_τ − ∂_r in the coordinates (τ, r, x̂)), so the
+same holds at every order. ∎
 
 So the part of [□̃, 𝒫] f with no decaying factor is an exact L0-derivative. On Ω the commutator has the same form,
 harmlessly. On P it would force the transport of Ψ := □̃ φ ([[lem:commutator-transport]]) by a term of size

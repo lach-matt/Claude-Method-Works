@@ -87,10 +87,10 @@ C μ r⁻⁴; so |∂g| ≤ C μ r⁻³ + |∂H| and |∂∂g| ≤ C μ r⁻⁴ 
 and 2|Γ̂| |∂H| ≤ |Γ̂|² + |∂H|². (b) Each coefficient is a polynomial in g^(±1), ∂g, ∂∂g, Γ̂, ∂Γ̂; between H and 0, g^(±1)
 change by at most C|H|, ∂g by ∂H, ∂∂g by ∂∂H, and Γ̂ not at all. Bounding the difference of a product by the sum, over
 its factors, of the change of one factor times the bounds of the others gives (b). (c) The coefficients depend on μ
-through g = η + μ m + H and Γ̂ only, and μ ∂_μ g = μ m, μ ∂_μ ∂g = μ ∂m, μ ∂_μ ∂∂g = μ ∂∂m, μ ∂_μ g⁻¹ = −g⁻¹ (μ m) g⁻¹, μ ∂_μ Γ̂ = O(μ r⁻³),
-μ ∂_μ ∂Γ̂ = O(μ r⁻⁴). By the product rule μ ∂_μ of each term of the proof of (a) replaces one factor by its μ ∂_μ: a
-factor of size O(1) by one of size O(μ r⁻²), and ∂g, ∂∂g, Γ̂, ∂Γ̂ by factors of sizes O(μ r⁻³), O(μ r⁻⁴), O(μ r⁻³),
-O(μ r⁻⁴). Collecting the terms gives (c). ∎
+through g = η + μ m + H and Γ̂ only, and μ ∂_μ g = μ m, μ ∂_μ ∂g = μ ∂m, μ ∂_μ ∂∂g = μ ∂∂m, μ ∂_μ g⁻¹ = −g⁻¹ (μ m) g⁻¹,
+μ ∂_μ Γ̂ = O(μ r⁻³), μ ∂_μ ∂Γ̂ = O(μ r⁻⁴). By the product rule μ ∂_μ of each term of the proof of (a) replaces one
+factor by its μ ∂_μ: a factor of size O(1) by one of size O(μ r⁻²), and ∂g, ∂∂g, Γ̂, ∂Γ̂ by factors of sizes O(μ r⁻³),
+O(μ r⁻⁴), O(μ r⁻³), O(μ r⁻⁴). Collecting the terms gives (c). ∎
 
 ### The residual of the subtracted expansion {#sec:far-residual}
 
@@ -107,8 +107,8 @@ homogeneous of degree −6. For λ small, on W ∩ {r ≥ 4R}, for every multi-i
 *Proof.* Put Ψ(X; e, d) := Ric^H(η + e m + Σ_p d_p Σ̂_p; η + e m)(X), d = (d_p)_(p∈Π), for X near K and (e, d) near 0;
 it is smooth in all its arguments, its components being rational in the jets of the two metrics with nonvanishing
 denominators near (e, d) = 0; for λ small, the values (e, d) = (μ ς⁻², (λ ς^(−p))_p), ς ≥ 4R, lie in a compact set on
-which it is smooth, with bounds independent of λ, since the jets of Σ̂_p on K are. Since D_ς preserves the region in which Σ̂_p is defined and Σ̂_p ∘ D_ς = ς^(−p) Σ̂_p,
-[[eq:far-scaling]] gives, for X ∈ K and ς ≥ 4R,
+which it is smooth, with bounds independent of λ, since the jets of Σ̂_p on K are. Since D_ς preserves the region in
+which Σ̂_p is defined and Σ̂_p ∘ D_ς = ς^(−p) Σ̂_p, [[eq:far-scaling]] gives, for X ∈ K and ς ≥ 4R,
 
     P(Σ)(D_ς X) = ς⁻² Ψ(X; μ ς⁻², (λ ς^(−p))_p).                                                    {#eq:far-psi}
 
@@ -184,13 +184,14 @@ coefficients with factors ∂^(j_i) k_i, ∂^j H, Γ̂ and ∂Γ̂ in which the 
 number exactly two. The terms linear in Γ^β h_R with every other slot a field Γ^γ Σ, which is O(λ r⁻²) with each
 derivative gaining r⁻¹ ([[eq:far-sigma-bounds]]), therefore have coefficients O(λ r^(−4+j)) on ∂^j Γ^β h_R: λ r⁻²
 (second order, kernel 2), λ r⁻³ (first order, 3) and λ r⁻⁴ (zero order, 3). By [[prop:far-coefficients]] with
-H = Σ + h_R, the bounds of Σ and the pointwise bounds: the terms μ ∂_μ DP(H) give μ r⁻² (second order, 2) and smaller; B(H)·∂φ and the first-order part
-of □_g give (μ + λ) r⁻³ + C ε r^(−3/2−a) (kernels 3 and 3/2 + a); C(H) φ gives (μ + λ) r⁻⁴ + C ε r^(−3/2−a) (zero
-order: kernels 3 and a + 1/2); the deformation term (1/2) w T^(ab) ∂_t g_ab carries ∂_t H = O(λ r⁻³ + ε r^(−3/2−a))
-(kernels 3 and 3/2 + a). The terms with at least two slots h_R have one slot in L², an undifferentiated one through
-Hardy, and the others bounded pointwise by C_S ε r^(−3/2−a), which gives ε r^(−1/2−a) (kernel a + 1/2). The least
-exponents are 2 for the terms of size μ + λ and a + 1/2 for those of size ε, which is κ. The residual: by
-[[prop:far-residual]], |Π_i (Γ_i + c_i) P(Σ)| ≤ C λ r^(−13/2), and w ≤ C r^(2a) on W, so with d⁴x = r³ dr dω on Σ̃_σ
+H = Σ + h_R, the bounds of Σ and the pointwise bounds: the terms μ ∂_μ DP(H) give μ r⁻² (second order, 2) and smaller;
+B(H)·∂φ and the first-order part of □_g give (μ + λ) r⁻³ + C ε r^(−3/2−a) (kernels 3 and 3/2 + a); C(H) φ gives (μ + λ)
+r⁻⁴ + C ε r^(−3/2−a) (zero order: kernels 3 and a + 1/2); the deformation term (1/2) w T^(ab) ∂_t g_ab carries ∂_t H =
+O(λ r⁻³ + ε r^(−3/2−a)) (kernels 3 and 3/2 + a). The terms with at least two slots h_R have one slot in L², an
+undifferentiated one through Hardy, and the others bounded pointwise by C_S ε r^(−3/2−a), which gives ε r^(−1/2−a)
+(kernel a + 1/2). The least exponents are 2 for the terms of size μ + λ and a + 1/2 for those of size ε, which is κ. The
+residual: by [[prop:far-residual]], |Π_i (Γ_i + c_i) P(Σ)| ≤ C λ r^(−13/2), and w ≤ C r^(2a) on W, so with d⁴x = r³ dr
+dω on Σ̃_σ
 
     ‖w^(1/2) Π_i (Γ_i + c_i) P(Σ)‖²_(L²(Σ̃_σ)) ≤ C λ² ∫_(r_σ)^∞ r^(2a − 13 + 3) dr = C λ² r_σ^(2a−9)/(9 − 2a)
 
@@ -212,13 +213,13 @@ Their intersection is (ℓ0 − 1, 3) up to its lower end point, and the theorem
 
 *Proof.* (i) is [[cor:far-kernels]]. (ii) On the initial slice at t̃ = T the support of h_R lies where v − v_1 ≤ C and
 t = T + f(r), so r = |T| + O(1), f being bounded; there w ≤ C r^(2a), |∂h_R| ≤ C r^(−9/2) (a cut-off in v of
-bounded derivative included) and the volume is at most C r³, so the energy is at most C r^(2a − 9 + 3) = C |T|^(2a−6). (iii) On N, the flux density
-of the weighted energy of h_R involves its derivatives tangent to N, of size r^(−11/2) along the generators and r⁻¹
-times r^(−9/2) along the spheres; with w ≤ C r^(2a) and r³ dr dω it is at most C r^(2a − 11 + 3) = C r^(2a−8), whose
-integral beyond R is C R^(2a−7)/(7 − 2a) for a < 7/2 and infinite otherwise. (iv) The weighted energy on S bounds
-∫ r^(2a+3) |∂h_R|² dr, hence by Hardy ∫ r^(2a+1) h_R² dr; with r = 1/ρ, dr = −ρ⁻² dρ, ∫ r^(2a+1) h_R² dr =
-∫ (ρ^(−(a+1)) h_R)² dρ/ρ, so h_R|_S ∈ ρ^(a+1) L²_b, and ρ^(a+1) L²_b ⊂ ρ^(ℓ0) L²_b on ρ ≤ ρ_0 exactly when
-a + 1 ≥ ℓ0. (v) is cited. Since ℓ0 − 1 > 2 > 3/2 > 1/2, the conditions reduce to ℓ0 − 1 ≤ a < 3. ∎
+bounded derivative included) and the volume is at most C r³, so the energy is at most C r^(2a − 9 + 3) = C |T|^(2a−6).
+(iii) On N, the flux density of the weighted energy of h_R involves its derivatives tangent to N, of size r^(−11/2)
+along the generators and r⁻¹ times r^(−9/2) along the spheres; with w ≤ C r^(2a) and r³ dr dω it is at most C r^(2a − 11
++ 3) = C r^(2a−8), whose integral beyond R is C R^(2a−7)/(7 − 2a) for a < 7/2 and infinite otherwise. (iv) The weighted
+energy on S bounds ∫ r^(2a+3) |∂h_R|² dr, hence by Hardy ∫ r^(2a+1) h_R² dr; with r = 1/ρ, dr = −ρ⁻² dρ, ∫ r^(2a+1) h_R²
+dr = ∫ (ρ^(−(a+1)) h_R)² dρ/ρ, so h_R|_S ∈ ρ^(a+1) L²_b, and ρ^(a+1) L²_b ⊂ ρ^(ℓ0) L²_b on ρ ≤ ρ_0 exactly when a + 1 ≥
+ℓ0. (v) is cited. Since ℓ0 − 1 > 2 > 3/2 > 1/2, the conditions reduce to ℓ0 − 1 ≤ a < 3. ∎
 
 **Remark {#rem:far-window-sigma4}** (the term Σ_4). With □_η Σ_4 = 0 every condition keeps its form except (i)'s
 upper end, which becomes a < 3; it coincides with the cap's. So the window (ℓ0 − 1, 3) does not depend on whether Σ_4
