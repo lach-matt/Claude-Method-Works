@@ -87,7 +87,7 @@ only (P3), (P5) and the choice of (P6); so these citations are not circular.
 
 *The inner radius.* The chapter works on Ω_* = cl_M{t^♭_* ≥ 1} with the b-Sobolev spaces of [[ch:s09]] and the
 forward solutions of [[ch:s19]] and [[ch:s20]], which hold with the inner radius r₀ = r_♭ of [[def:s12-radii]] as a
-parameter. Its own radii are scale-free or far out ({|x| ≥ 4R_1} in [[lem:iii-i7-1-1]] (c), {|x| ≤ 5R_1} for the
+parameter. Its own radii are scale-free or far out ({|x| ≥ 4R₁} in [[lem:iii-i7-1-1]] (c), {|x| ≤ 5R₁} for the
 cut-offs), and its weights are fixed at infinity and at K⁺. So every result of this chapter holds with the inner
 radius r₀ as a parameter.
 
@@ -120,7 +120,7 @@ Ric(g) = 0 then D_gRic(ℒ_Y g) = 0 for every smooth vector field Y, so D_gRic �
 L_b := L^(g_b,g_b) = D_(g_b)Ric + δ*_(g_b,E_C) δ_(g_b,E_Υ) G_(g_b). The states ω_s1(S) := ω⁽⁰⁾_(b₀,s1)(S),
 h(S) := δ*_(g_(b₀)) ω_s1(S), the re-centred generalised state h^(≤1)_♮(S) of [[def:iii-i4-1-1]], and the corrections
 h^(−1)(S), ϑ^(−1)(S), ϑ_♯(S) of [[def:iii-i4-2-1]] are those of [[ch:s20]]; at b, h_b(S) := δ*_(g_b) ω_(b,s1)(S) and
-h^(≤1)_(b,♮)(S) is the re-centred s1 state at b of [[lem:iii-i15-2-7]].
+h^(≤1)_(b,♮)(S) is the re-centred s1 state at b of [[def:iii-i4-1-1]].
 
 𝔟 = ℝ × 𝔰𝔬(4) is the parameter space of [[prop:iii-f3-2-2]]. For ḃ ∈ 𝔟 put ġ_(b₀)(ḃ) := ∂_b g_b|_(b=b₀)(ḃ),
 ω̇(ḃ) := ω̇_(b₀)(ḃ) and
@@ -141,17 +141,25 @@ ker D_(g_(b₀))Ric ∩ ker δ_(g_(b₀),E_Υ)G_(g_(b₀)) ([[prop:iii-f3-2-2]] 
 (ḃ, S) ↦ ġ(ḃ) + h(S) is injective, by the rows of [[eq:iii-h-3-1]]. At b the same holds for ġ_b and h_b: they span
 the nullspace of L̂_b(0) in the space of [[prop:iii-h-3-2]], which near b₀ has the dimension it has at b₀, with the
 continuous basis ġ_b(ḃ), h_b(S) (the proof of [[prop:iii-h-3-2]] at b, [[lem:iii-i15-1-1]] (P4), and
-[[lem:iii-i15-1-2]]). We assume
+[[lem:s20-injective]]). We assume
 
     2 + ℰ_ind ⊂ ℰ_+,                                                                                    {#eq:iii-i7-1-2}
 
 which is [[eq:iii-i4-2-4]] for this union, so 𝒢 ⊂ ℰ_+ by [[eq:iii-i-1-3]]. The weight ℓ_I is fixed as in
-[[eq:iii-i5-1-2]], and, as in [[sec:iii-i4-4]], ℓ_I ≤ a_I (so a_I ≥ 2). The rate α_K ∈ (2, min(a_K, 2 + ε_ind, 5/2))
-is as in [[prop:iii-i6-2-1]] (ε_ind the constant of [[eq:iii-f1-2-2]], with which [[prop:iii-g4-5-1]] is stated), and
+[[eq:iii-i5-1-2]], and, as in [[sec:iii-i4-4]], ℓ_I ≤ a_I (so a_I ≥ 2). Two gaps of indicial roots enter, and they are
+different numbers: ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the indicial roots of L̂_b(0), with which the
+hypotheses of [[prop:iii-g4-5-1]] are stated; ε_Υ is the constant of [[sec:iii-d2-1]], fixed by the indicial roots of
+□^Υ_b, by which the remainder [[eq:iii-g4-5-1]] of [[prop:iii-g4-5-1]] gains over the forcing at the transition face.
+Where a step uses both, we use
+
+    ε_g := min(ε_Υ, ε_ind).
+
+The rate α_K ∈ (2, min(a_K, 2 + ε_g, 5/2)) lies in the range of [[prop:iii-i6-2-1]], and
 
     𝒴 := ⋂_(ε>0) H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),4−ε,α_K)_b(Ω_*; S²T*)^(•,−),
 
-real sections, is the class of forcings ([Hin26, (11.116)] in dimension 4 + 1). A large d is fixed throughout, and
+real sections, is the class of forcings ([Hin26, (11.116)] in dimension 4 + 1). A large d, at least the d of
+[[eq:s20-d]], is fixed throughout, and
 "h small" means h ∈ 𝒳^∞ vanishing near {t^♭_* = 1} with small 𝒳^d-norm.
 
 *Translations.* For S = S_w ∈ 𝒮_1 put Y_S := w·∂_x = η⁻¹ω̄_s1(S), V⁰(S) := ½ΘY_S, ψ_S := exp V⁰(S) and
@@ -160,7 +168,7 @@ w⁰(S) := g_(b₀)(Y_S, ·), so that g_(b₀)(V⁰(S), ·) = ½Θw⁰(S) and, b
     ∂_S ψ*_(−S) g_(b₀)|_(S=0)(Ṡ) = −δ*_(g_(b₀))(Θw⁰(Ṡ)).
 
 **Lemma {#lem:iii-i7-1-1}** (Translations; [[lem:iii-b-5-1]] and [[lem:iii-b-5-2]] for translations.) (a) V⁰(S) lifts
-to a b-vector field on M, vanishing near Σ^past ∪ K⁺ ∪ Σ^int and on {|x| ≤ 5R_1} and tangent to every boundary
+to a b-vector field on M, vanishing near Σ^past ∪ K⁺ ∪ Σ^int and on {|x| ≤ 5R₁} and tangent to every boundary
 hypersurface; so ψ_S is a diffeomorphism of M with the properties stated for φ_(S_w) in [[lem:iii-b-5-1]], depending
 smoothly on S.
 
@@ -168,7 +176,7 @@ smoothly on S.
 V⁰(S_w) starting in 𝒩_0 stays, for times in [0, 1], either in {Θ = 1}, where ψ_(S_w) is the translation
 τ_(w/2) : (t, x) ↦ (t, x + w/2), or in a fixed compact subset of M disjoint from I_0 ∪ ℐ⁺ ∪ ι⁺ ∪ K⁺.
 
-(c) For b near b₀ and a ∈ ℝ⁴ small, τ_a*g_b − g_b has Cartesian components in |x|⁻³C^∞(X̄) on {|x| ≥ 4R_1}; it is
+(c) For b near b₀ and a ∈ ℝ⁴ small, τ_a*g_b − g_b has Cartesian components in |x|⁻³C^∞(X̄) on {|x| ≥ 4R₁}; it is
 stationary, smooth in a and O(|a|).
 
 *Proof.* (a) Y_S has constant Cartesian coefficients, so on the radial compactification of ℝ^(1+4) it is a boundary
@@ -178,7 +186,7 @@ vanishing properties, and the rest is that lemma's proof. (b) As in [[lem:iii-b-
 cut-offs gives {Θ = 1} a neighbourhood margin around supp(χ_IVP(1 − χ_K)) near I_0 ∪ ℐ⁺ ∪ ι⁺, so a slightly larger
 neighbourhood 𝒩_0 still has one; M is compact and the time-[0, 1] flow of V⁰(S_w), linear in w, tends to the identity
 uniformly as w → 0; on {Θ = 1}, V⁰(S_w) = ½w·∂_x, whose time-1 flow is τ_(w/2). (c) g_b is stationary with
-g_b − η ∈ |x|⁻²C^∞(X̄) on {|x| ≥ 3R_1} ([[eq:iii-b-3-5]], [[prop:iii-b-3-6]]), and τ_a* acts on Cartesian components
+g_b − η ∈ |x|⁻²C^∞(X̄) on {|x| ≥ 3R₁} ([[eq:iii-b-3-5]], [[prop:iii-b-3-6]]), and τ_a* acts on Cartesian components
 by x ↦ x + a. For F ∈ |x|⁻²C^∞(X̄),
 
     F(x + a) − F(x) = ∫_0^1 a·(∇F)(x + sa) ds,

@@ -1161,3 +1161,36 @@ Conversely, every entire analytic function in ℂⁿ satisfying an estimate of t
 of a distribution with support contained in K. If u ∈ C_c^∞(ℝⁿ) has support in K, there is for every N a constant C_N
 with |û(ζ)| ≤ C_N (1 + |ζ|)^(−N) e^(H(Im ζ)), ζ ∈ ℂⁿ; conversely, every entire analytic function in ℂⁿ satisfying
 these estimates for every N is the Fourier–Laplace transform of a function in C_c^∞(ℝⁿ) supported in K.
+
+### Chebyshev interpolation {#sec:std-chebyshev}
+
+**Theorem {#thm:std-chebyshev}** ([Tre19, (2.2); Chapter 8, pp. 55–57; Theorems 8.1 and 8.2, p. 57; (15.2)–(15.4),
+p. 108; Theorem 15.2, p. 109].) Let n ≥ 0. In [Tre19], "by 'Chebyshev points' we mean Chebyshev points of the second
+kind, defined by (2.2)" (p. 109), x_j = cos(jπ/n), 0 ≤ j ≤ n (2.2); the Chebyshev interpolant p_n of a continuous f on
+[−1, 1] is the polynomial of degree at most n that equals f at these n + 1 points, and ‖·‖ is the maximum norm on
+[−1, 1].
+
+(1) The Bernstein ellipse (Chapter 8, pp. 55–57): "pick a number ρ > 1 and plot the image in the complex x-plane of the
+circle of radius ρ in the z-plane under the Joukowsky map x = (z + z⁻¹)/2. We let E_ρ denote the open region bounded
+by this ellipse." Further, "the length of the semimajor axis of E_ρ plus the length of the semiminor axis is equal to
+ρ".
+
+(2) Theorem 8.1 (p. 57): "Let a function f analytic in [−1,1] be analytically continuable to the open Bernstein
+ellipse E_ρ, where it satisfies |f(x)| ≤ M for some M. Then its Chebyshev coefficients satisfy |a₀| ≤ M and
+|a_k| ≤ 2Mρ^(−k), k ≥ 1. (8.1)" Theorem 8.2 (p. 57): "If f has the properties of Theorem 8.1, then for each n ≥ 0 its
+Chebyshev projections satisfy ‖f − f_n‖ ≤ 2Mρ^(−n)/(ρ − 1) (8.2) and its Chebyshev interpolants satisfy
+
+    ‖f − p_n‖ ≤ 4Mρ^(−n)/(ρ − 1)."      (8.3)
+
+(3) Lagrange form and Lebesgue constant (p. 108). For data f_j at the points, the interpolant is
+p(x) = Σ_(j=0)^n f_j ℓ_j(x) (15.2), ℓ_j the Lagrange polynomials of the points, and "λ(x) = Σ_(j=0)^n |ℓ_j(x)|. (15.3)
+This sum of absolute values is known as the Lebesgue function for the given grid, and the Lebesgue constant is equal
+to its maximum value, Λ = sup_(x∈[−1,1]) λ(x). (15.4)"
+
+(4) Theorem 15.2 (p. 109): "The Lebesgue constants Λ_n for degree n ≥ 0 polynomial interpolation in any set of n + 1
+distinct points in [−1,1] satisfy Λ_n ≥ (2/π) log(n + 1) + 0.52125…; (15.7) the number 0.52125… is
+(2/π)(γ + log(4/π)), where γ ≈ 0.577 is Euler's constant. For Chebyshev points, they satisfy
+
+    Λ_n ≤ (2/π) log(n + 1) + 1 and Λ_n ∼ (2/π) log n, n → ∞. (15.8a,b)
+
+…". Here log is the natural logarithm.
