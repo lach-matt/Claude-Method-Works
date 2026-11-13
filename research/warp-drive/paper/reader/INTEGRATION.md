@@ -578,3 +578,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   the minimum is taken. S20 still writes ε_ind at 39:1269-1369 (ε sweep).
 - S22 third fix (F3-S22): the "→ 0" repair keeps the hypotheses of lem:iii-i11-3-3 and lem:iii-i13-2-3 and proves
   ‖u_j − u‖ → 0 from uniqueness; chapters 42-44 need no change (reader checks).
+- Chapter 61 confirmed (R2-61). Nits: the distance claim "for the members" needs one clause (496-498);
+  cor:after-shell-every-rate should say δ depends on ε (251-254).

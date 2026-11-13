@@ -376,22 +376,21 @@ of [[eq:bg-seed-split]] is at most
 
 that is Δ_0 = 3.34 × 10⁻⁶, Δ_1 = 5.20 × 10⁻⁶, Δ_2 = 1.50 × 10⁻⁵.
 
-The function ẽ_k is bounded by [[lem:bg-tools]] (c) with N = 5 at the midpoint ρ_m of each interval: |ẽ_k| ≤
-Σ_(n≤5) |c_n| hⁿ + h⁶ sup |c_6(ξ)|, where c_n is the n-th Taylor coefficient of ẽ_k at ρ_m, c_6(ξ) := ẽ_k^(6)(ξ)/6!
-for ξ in the interval, and h is the half-width. These coefficients are obtained as follows. The function ẽ_k is built
-from ρ by sums, products, quotients, logarithms and 𝒟: Φ̃ = Σ C_j T_j(y) with y = (ρ − 2.88)/0.56 and T_(j+1) =
-2yT_j − T_(j−1); f1 = 1 − 3/(2ρ²), a = f1/2 and f3(Φ̃) = 1 − μ̃3/Φ̃²; Ψ_0 = ln Φ̃′ + ln f1 − ln f3(Φ̃), Ψ_1 = a𝒟Ψ_0
-and Ψ_2 = a𝒟Ψ_1 ([[eq:bg-psi3]]); v̂ = F(ρ) − F(2.321) with F of [[eq:bg-tangherlini]]; and ψ_s^(k)(v̂), where the
-k-th derivative ψ_s^(k) of the quintic is a polynomial. Starting from the Taylor series ρ_0 + t of ρ at a point ρ_0,
-the rules [[eq:bg-series]] give the Taylor coefficients at ρ_0 of each of these functions in turn, up to order 8
-(each 𝒟 lowers the order by one), and so those of ẽ_k up to order 6; every operation on numbers is replaced by
-[[lem:bg-tools]] (d), with √(3/2) enclosed by it. With ρ_0 = ρ_m this encloses c_0, …, c_5. With ρ_0 replaced by
-each of twenty equal parts P of the interval, the same steps enclose, at every ξ ∈ P, the coefficients at ξ, since
-each is the same finite combination of ξ; the sixth one encloses c_6(ξ). This gives the columns "Taylor" and "rest"
-of [[sec:tab-bg-seed]], the rest being at most 2 × 10⁻¹⁰ in every row, and the totals Taylor + rest + Δ_k bound
-|e_k| on each interval. The largest totals are 3.020 × 10⁻⁵, 2.394 ×
-10⁻⁴ and 8.558 × 10⁻⁴, all on the first interval. Finally |μ3 − μ_s| ≤ |μ̃3 − μ_s| + 4.07 × 10⁻⁷ ≤ 1.3809 × 10⁻⁶ + 4.07 ×
-10⁻⁷.
+The function ẽ_k is bounded by [[lem:bg-tools]] (c) with N = 5 at the midpoint ρ_m of each interval: |ẽ_k| ≤ Σ_(n≤5)
+|c_n| hⁿ + h⁶ sup |c_6(ξ)|, where c_n is the n-th Taylor coefficient of ẽ_k at ρ_m, c_6(ξ) := ẽ_k^(6)(ξ)/6! for ξ in
+the interval, and h is the half-width. These coefficients are obtained as follows. The function ẽ_k is built from ρ by
+sums, products, quotients, logarithms and 𝒟: Φ̃ = Σ C_j T_j(y) with y = (ρ − 2.88)/0.56 and T_(j+1) = 2yT_j − T_(j−1);
+f1 = 1 − 3/(2ρ²), a = f1/2 and f3(Φ̃) = 1 − μ̃3/Φ̃²; Ψ_0 = ln Φ̃′ + ln f1 − ln f3(Φ̃), Ψ_1 = a𝒟Ψ_0 and Ψ_2 = a𝒟Ψ_1
+([[eq:bg-psi3]]); v̂ = F(ρ) − F(2.321) with F of [[eq:bg-tangherlini]]; and ψ_s^(k)(v̂), where the k-th derivative
+ψ_s^(k) of the quintic is a polynomial. Starting from the Taylor series ρ_0 + t of ρ at a point ρ_0, the rules
+[[eq:bg-series]] give the Taylor coefficients at ρ_0 of each of these functions in turn, up to order 8 (each 𝒟 lowers
+the order by one), and so those of ẽ_k up to order 6; every operation on numbers is replaced by [[lem:bg-tools]] (d),
+with √(3/2) enclosed by it. With ρ_0 = ρ_m this encloses c_0, …, c_5. With ρ_0 replaced by each of twenty equal parts
+P of the interval, the same steps enclose, at every ξ ∈ P, the coefficients at ξ, since each is the same finite
+combination of ξ; the sixth one encloses c_6(ξ). This gives the columns "Taylor" and "rest" of [[sec:tab-bg-seed]],
+the rest being at most 2 × 10⁻¹⁰ in every row, and the totals Taylor + rest + Δ_k bound |e_k| on each interval. The
+largest totals are 3.020 × 10⁻⁵, 2.394 × 10⁻⁴ and 8.558 × 10⁻⁴, all on the first interval. Finally |μ3 − μ_s| ≤ |μ̃3 −
+μ_s| + 4.07 × 10⁻⁷ ≤ 1.3809 × 10⁻⁶ + 4.07 × 10⁻⁷.
 
 (c) The bounds of (b) are below (10⁻³, 10⁻³, 3 × 10⁻²) and 10⁻⁴; [[prop:margins-seed]] (b) states Γ > 0 for every
 background of the tube. ∎
@@ -432,9 +431,8 @@ Near R = R_* the packet's slice points approach region I, where E = 1 and N_κ =
 0.8221253] and R(u2)² > μ3.
 
 (b) Region III meets Σ_τ0 ∩ {R ≤ R_*} exactly in 0.68 ≤ R ≤ R_u2, where 1.861394 ≤ R_u2 ≤ 1.861466, and contains the
-seed region. On the seed region,
-|ψ_s^(k) − ψ_III^(k)| ≤ 5.1 × 10⁻⁵, 2.6 × 10⁻⁴, 8.7 × 10⁻⁴ for k = 0, 1, 2, and |μ3 − μ_s| ≤ 1.4 × 10⁻⁵; so the
-background lies in the tube of [[prop:margins-seed]] (b) and Γ > 0 on the seed region.
+seed region. On the seed region, |ψ_s^(k) − ψ_III^(k)| ≤ 5.1 × 10⁻⁵, 2.6 × 10⁻⁴, 8.7 × 10⁻⁴ for k = 0, 1, 2, and |μ3 −
+μ_s| ≤ 1.4 × 10⁻⁵; so the background lies in the tube of [[prop:margins-seed]] (b) and Γ > 0 on the seed region.
 
 (c) On Σ_τ0 for 0.68 ≤ R ≤ R_*: κ > 0, K^l_l < 0 and κK^l_l ≤ −4.76 × 10⁻³.
 

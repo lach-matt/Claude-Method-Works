@@ -17,22 +17,28 @@ existence and bounds but no differentiability of the nonlinear solution in the d
 obtained by differentiating the solution of [[thm:iii-k-4-3]]. Being linear, nothing here needs smallness.
 
 [[sec:ix-0]]–[[sec:ix-2]] compare ġ with a linearised vacuum solution given in another gauge. Every solution of
-DRic = 0 on the future half of a Cauchy development of Σ^IVP in {r > r_♭}, smooth up to Σ^IVP, whose data agree with
-(γ̇, k̇) up to those of a linearised diffeomorphism, is ġ + ℒ_X g there for a vector field X, unique up to Killing
-fields ([[thm:ix-2-2]], [[cor:ix-2-3]]). So the linear stability of [[thm:viii-2-2]] holds in every gauge, modulo a
-linearised diffeomorphism. The argument is the standard one: put the difference into the linearised harmonic gauge by
-solving a linear wave equation for X, show that the result has vanishing Cauchy data, and conclude by uniqueness for a
-linear wave equation. Its only inputs beyond [[sec:viii-0]]–[[sec:viii-2]] are the Cauchy problem for normally
-hyperbolic operators on globally hyperbolic manifolds ([BGP]; [[sec:std-linear-wave]]) and the pointwise identities of
-[[lem:ix-2-1]]. Nothing is asserted here about the size or decay of X ([[rem:ix-2-4]]). Linear solutions in the
+DRic = 0 on the future half of the Cauchy development, in {r > r_♭}, of a piece Σ_U of Σ^IVP, smooth up to Σ_U, whose
+data agree with (γ̇, k̇) up to those of a linearised diffeomorphism, is ġ + ℒ_X g there for a vector field X, unique up
+to Killing fields ([[thm:ix-2-2]], [[cor:ix-2-3]]). So the linear stability of [[thm:viii-2-2]] holds in every gauge,
+modulo a linearised diffeomorphism. The argument is the standard one: put the difference into the linearised harmonic
+gauge by solving a linear wave equation for X, show that the result has vanishing Cauchy data, and conclude by
+uniqueness for a linear wave equation. Its inputs beyond [[sec:viii-0]]–[[sec:viii-2]] are chiefly the Cauchy problem
+for normally hyperbolic operators on globally hyperbolic manifolds ([BGP]; [[sec:std-linear-wave]]) and the pointwise
+identities of [[lem:ix-2-1]]. Nothing is asserted here about the size or decay of X ([[rem:ix-2-4]]). Linear solutions in the
 Regge–Wheeler-type gauge of [KI03], whose gauge-invariant master quantities decay by [HKW18], and in the harmonic gauge
 are treated in [[ch:rw-gauge]]–[[ch:harmonic-rate]], from the results of this chapter.
 
 *The inner radius.* The inner radius r_♭ ∈ (0, ½R₁] of [[ch:s11]], R₁ = m₀^(1/2), is a parameter, with the radii of
-[[def:s12-radii]]; so r₀ = r_♭ and r^♮ = ½(r_♭ + r₂). Every result of the chapter holds for every such r_♭, with
-constants depending on it. The inner radius enters only through [[lem:iii-b-3-7]] (the time functions, with
-ψ_IVP(r_♭) = 0), through [[lem:ii-c-3-2]] (1)–(2) at h = 0 (dr future timelike on {r_♭ ≤ r ≤ r^♮}, dt^♭_* past
-timelike), and through the radius R_ν = ½(r_♭ + 5R₁) of [[prop:iii-k-1-2]].
+[[def:s12-radii]]; so r₀ = r_♭ and r^♮ = ½(r_♭ + r₂) < r₂ < R₁. Every result of the chapter holds for every such r_♭,
+with constants depending on it. Besides results of earlier chapters stated for every such r_♭, the arguments of this
+chapter use the inner radius directly only through: [[lem:s11-ks-domain]] (g_(b₀) is defined on {|x| ≥ ½r_♭});
+[[lem:iii-b-3-7]] (the time functions; ψ_IVP(r_♭) = 0 by the proof of its (b)); [[lem:ii-c-3-2]] (1)–(2) at h = 0
+(dr future timelike on {r_♭ ≤ r ≤ r^♮}, dt^♭_* past timelike); [[lem:ii-f-1-4]] (a) with r₀ = r_♭; [[lem:s27-cover]]
+(c) (the boundary piece {r = r_♭} of 𝒦); the identity F = 0 on [r_♭, 5R₁] of [[sec:iii-k-0]], so that t_* = t_IVP
+there; and the radius R_ν = ½(r_♭ + 5R₁) of [[prop:iii-k-1-2]]. Each holds at r_♭. [[lem:ii-c-3-2]] is stated on
+{t_* > 1}, but it is used below also near Σ^IVP, where t_* is near 0. At h = 0 its statement (1) concerns r only,
+g_(b₀) being stationary, so it holds on all of {r_♭ ≤ r ≤ r^♮}, at every t_*: this is the argument of
+[[lem:s27-below]] (iv), and [[prop:np-10-19-iv]] (d) gives it as well, as r^♮ < R₁ = r_h.
 
 *Notation.* g := g_(b₀). The future unit normal of Σ^IVP for g is written n; the letter ν is kept for the function
 ν(r) of [[prop:iii-k-1-2]]. For data on Σ^IVP, ‖(γ̇, k̇)‖_(H^k) is the norm of H^k of the classes
@@ -46,12 +52,13 @@ Everything of [[sec:iii-k-0]] is kept: t_*, t_IVP, Σ^IVP := t_IVP⁻¹(0), t^�
 on {t^♭_* < T̂ + 2}) and χ_ι, E_C, E_Υ, ℰ_0, ℓ_0, ℰ^C_I, ℓ_I, the weights of the cone and α. The parameters are those
 of [[thm:vi-c-2-1]], as in [[thm:settling]]. A sublevel set {t^♭_* ≤ c} is the complement of {t^♭_* > c}, so that it
 contains the points where t^♭_* is not defined. Also kept are χ^♮_0 and P^♮ of [[lem:iii-k-1-1]], and the region of
-[[prop:iii-k-1-2]] at S = 0,
+[[prop:iii-k-1-2]], which does not depend on the parameters,
 
-    𝒟 = N ∩ {t^♭_* ≤ T̂ + 3},        N = {t_IVP ≥ −ν(|x|)},
+    𝒟 = N_ν ∩ {t^♭_* ≤ T̂ + 3},        N_ν = {t_IVP ≥ −ν(|x|)},
 
-with its cover by Ω_(ext,r_1), the compact part 𝒦 and the slab 𝒮 ([[lem:s27-cover]], with S = 0 and the same r_1,
-R_8, R_9, c, T″ and ρ′_I). 𝒟 contains Ω_* ∩ {t^♭_* ≤ T̂ + 3}, as t_IVP ≥ t_* ≥ t^♭_* ≥ 1 there.
+with ν = 0 on [0, R_ν] and ν > 0 on (R_ν, ∞), and its cover by Ω_(ext,r_1), the compact part 𝒦 and the slab 𝒮
+([[lem:s27-cover]], with the same r_1, R_8, R_9, c, T″ and ρ′_I). 𝒟 contains Ω_* ∩ {t^♭_* ≤ T̂ + 3}, as
+t_IVP ≥ t_* ≥ t^♭_* ≥ 1 there.
 
 *Linearised operators.* For a symmetric 2-tensor k let DRic(k) := (d/ds) Ric(g + sk)|_(s=0), and let Υ̇(k), Υ̇^♮(k),
 Υ̇⁰(k) be the derivatives at (g, g) in the first argument of Υ^(E_Υ), Υ^(χ^♮_0E_Υ) and Υ⁰ ([[eq:iii-b-6-3]],

@@ -46,6 +46,22 @@ estimates is independent of λ, because its profiles are ([[thm:approximant]]). 
 D_T once λ < l5/10: on D_T, x_K = l5² √𝒦 ≤ 1, so the curvature length 𝒦^(−1/4) is at least l5, and λ 𝒦^(1/4) ≤
 λ/l5 < 1/10.
 
+**Remark {#rem:envelope-regularity}** (the regularity of the envelope). The hypothesis env ∈ C_c^∞ is used as it
+stands: [[def:approximant]] asks every profile to be bounded with all its derivatives, and g_λ and the profiles are
+smooth. For a fixed K the estimates use only finitely many derivatives of env; their number is not determined here. An
+envelope of finite smoothness is not covered. The profile sin⁴(π(v − 1/2)/3) on [1/2, 7/2], extended by zero, which
+the numerical observations of [[rem:bondi-solver]] and [[rem:own-tail-bump]] use, is C³ and not C⁴, its fourth
+derivative jumping by 8π⁴/27 at both ends; the proof applies to it for no K ≥ 6, since already Step 4 of the
+proof of [[thm:uniform-existence]] takes six derivatives of the coefficient C of [[eq:ue-linearisation]], which
+contains second derivatives of g1, and the oscillating part of g1 is proportional to env ([[thm:approximant]],
+[[eq:waves]]). The numerical point at which [[prop:lambda0]] bounds λ0 has [v_start, v_end] = [1/2, 7/2] and the
+smooth envelope
+
+    env_C(v) := c β((2v − 4)/3),     β(y) := cos¹²(πy/2) exp(−y²/(1 − y²)) for |y| < 1,  β(y) := 0 for |y| ≥ 1,
+
+with c > 0 fixed by ∫ env_C² = 105/128, which is also ∫ sin⁸(π(v − 1/2)/3) dv over [1/2, 7/2]; then
+1.3240867 < c < 1.3240879.
+
 **Proposition {#prop:boundary-spacelike}** (the boundary). On x_K = 1, with Φ := r − r_q(v),
 
     g0⁻¹(dΦ, dΦ) = 1 − √(μ/(√72 l5²)) − r_q μ'/(2 μ),                                             {#eq:boundary-margin}
@@ -255,27 +271,34 @@ the black hole, the nonlinear stability theory of five-dimensional Schwarzschild
 the exterior and its spatially compact subsets, the slowly rotating Myers–Perry black holes [MP86], and the parameters
 named below are defined there.
 
-**Theorem {#thm:settling}** (settling). Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter of the stability theory, with
-0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ε_+ and some ℓ_I ∈ (3, ℓ0), δ_♯ = (1 − e_Υ) γ_Υ and ε_ind
-the index distance ([[eq:iii-i9-1-1]], [[eq:iii-f1-2-2]]), such that no parameter exponent z at timelike infinity (an
-element of the set Λ of [[def:iii-i10-1-1]], discrete and fixed before these constants) has real part in
-(3, 3 + ε_+] (the condition (G⁺), [[def:iii-j-g-plus]]), and none has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K], nor
-do z + d_c0, z + d_c1 have real part in (2, 2 + ε_K] (the gap (G), [[def:iii-i10-1-3]]), d_c0, d_c1 ∈ (0, 1) being
-the offsets of the two class roots of [[def:iii-i9-gap]]. [[ch:s27]] collects these conditions with the other choices
-of parameters. Fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K large
-enough and on the enlarged domain Ω′ of [[lem:vii-1-2]]. For every ε_m > 0 there are λ1 > 0 and δ > 0, depending on
-ε_m and ε, such that for λ ≤ λ1:
+**Theorem {#thm:settling}** (settling). Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter chosen in the stability theory
+([[thm:vi-c-2-1]], step (4), with the data class [[eq:vii-0-1]] of this ℓ0 at step (3)). It satisfies
+0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ε_+ and some ℓ_I ∈ (3, ℓ0) admissible in row d2 of
+[[sec:vi-c-1]], δ_♯ = (1 − e_Υ) γ_Υ and ε_ind the index distance ([[eq:iii-i9-1-1]], [[eq:iii-f1-2-2]]), such that no
+parameter exponent z at timelike infinity (an element of the set Λ of [[def:iii-i10-1-1]], discrete and fixed before
+these constants) has real part in (3, 3 + ε_+] (the condition (G⁺), [[def:iii-j-g-plus]]); and none has real part in
+(2, 2 + ε_K] ∪ (3, 3 + ε_K], nor do z + d_c0, z + d_c1 have real part in (2, 2 + ε_K], and ε_K < ε_Υ (the gap (G),
+[[def:iii-i10-1-3]]), d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots of [[def:iii-i9-gap]] and ε_Υ the
+constant fixed by the indicial roots of the gauge operator □^Υ ([[sec:iii-d2-1]]). [[ch:s27]] collects these
+conditions with the other choices of parameters. Fix ε ∈ (0, ε_K). There are a choice of the order α of row w2 and of
+steps (5)–(6) of [[thm:vi-c-2-1]], a radius R and the enlarged domain Ω′ of [[lem:vii-1-2]], depending only on ε (the
+data of [[thm:main]] and the inner radius of the stability theory being fixed), such that the following holds for the
+solutions g_λ of [[thm:main]] on Ω′, with A and the envelope fixed and with K = d_1 + 14, d_1 the regularity of
+[[thm:iii-k-4-3]] at that choice: for every ε_m > 0 there are λ1 > 0 and δ > 0, depending on ε_m and ε, such that for
+λ ≤ λ1:
 
-(i) (in the class) the data of g_λ on Hintz's initial surface, continued G-equivariantly to exact Tangherlini data
-beyond a ball ([[prop:vii-2-2]], [[cor:vii-2-3]]), have a G-invariant vacuum development, with the same data as g_λ
-on that ball, which settles to five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m: its difference from
-that metric is O(t*^(−2−ε)) in spatially compact subsets of the exterior;
+(i) (in the class) the data of g_λ on Hintz's initial surface Σ^IVP within {r ≤ R}, continued G-equivariantly to
+exact Tangherlini data on {r ≥ 4R} ([[prop:vii-2-2]], [[cor:vii-2-3]]), have a G-invariant vacuum development, with
+the same data as g_λ on Σ^IVP ∩ {r ≤ R}, which settles to five-dimensional Tangherlini of a mass m′ with
+|m′ − μ_end| < ε_m: its difference from that metric is O(t*^(−2−ε)) in spatially compact subsets of the exterior;
 
-(ii) (without symmetry) every smooth vacuum data set on the same surface whose difference from the data of (i) lies
-in Hintz's data class — polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric and
-r^(−3) and r^(−4) in the second fundamental form, and conormal remainders in r^(−ℓ0) H_b^∞ and r^(−ℓ0−1) H_b^∞ — and has
-norm less than δ in that class has a vacuum development that, its initial slice boosted by a Lorentz boost below ε_m,
-settles at the same rate to a Myers–Perry black hole of mass m′ with |m′ − μ_end| < ε_m and spin below ε_m.
+(ii) (without symmetry) every smooth vacuum data set on Σ^IVP whose difference from the data of (i) lies in Hintz's
+data class — polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric and r^(−3) and
+r^(−4) in the second fundamental form, and conormal remainders in r^(−ℓ0) H_b^∞ and r^(−ℓ0−1) H_b^∞ — and has norm less
+than δ in that class has a vacuum development that, its initial slice moved by a cut-off Lorentz boost and a
+translation, each below ε_m (the slice φ_(−S,−S⁰)⁻¹(Σ^IVP) = φ_S(ψ_(S⁰)(Σ^IVP)) of [[thm:iii-k-4-3]], with
+φ_(S,S⁰) := ψ_(S⁰) ∘ φ_S as in [[eq:s27-motion]] and |S|, |S⁰| < ε_m), settles at the same rate to a Myers–Perry
+black hole of mass m′ with |m′ − μ_end| < ε_m and spin below ε_m.
 
 [[thm:settling]] is proved in [[ch:settling-proof]], from the stability theory of [[part:stability]] to
 [[part:stability-nonlinear]], which is Hintz's proof of the nonlinear stability of Kerr [Hin26] carried into spacetime
