@@ -54,11 +54,17 @@ in the proof of [[prop:iii-d-6-2]]. They define the solutions u_h and u_∞ of �
     u_h e^(iσr_*) → 1,  u_h′ + iσu_h → 0 as r_* → −∞;     u_∞ e^(−iσr_*) → 1,  u_∞′ − iσu_∞ → 0 as r_* → ∞,
 
 the second limit in each case from the differentiated Volterra equation, whose remainder is bounded by the tail of
-∫|V_l|. A solution with u′ + iσu → 0 at −∞ is a multiple of u_h, and one with u′ − iσu → 0 at ∞ a multiple of u_∞: the
-other solution at each end behaves like e^(±iσr_*), for which this quantity is 2iσe^(±iσr_*)(1 + o(1)) and does not
-tend to 0. In the spacetime, e^(−iσt)u_h = e^(−iσ(t + r_*))(1 + o(1)) is the behaviour of a field smooth across
-the future horizon, and e^(−iσt)u_∞ = e^(−iσ(t − r_*))(1 + o(1)) that of an outgoing one: these are the classes of the
-proof of [[prop:iii-d-6-2]].
+∫|V_l|. For real σ the same Volterra equations with e^(iσx) at −∞ and e^(−iσx) at +∞ give a second solution at each
+end; so at each end every solution is Ae^(−iσr_*) + Be^(iσr_*) + o(1), with derivative
+−iσAe^(−iσr_*) + iσBe^(iσr_*) + o(1). A solution with u′ + iσu → 0 at −∞ is a multiple of u_h, and one with
+u′ − iσu → 0 at ∞ a multiple of u_∞. For real σ this holds because u′ + iσu = 2iσBe^(iσr_*) + o(1) at −∞, so that
+B = 0, and likewise at +∞. For Im σ > 0, let u′ + iσu → 0 at −∞. Then (e^(iσx)u)′ = e^(iσx)(u′ + iσu) and
+|e^(iσx)| = e^(−x Im σ) give |u(x)| ≤ C(e^(x Im σ) + 1/Im σ) near −∞, so u is bounded there; as u_h → 0 and
+u_h′ + iσu_h → 0 at −∞, the constant Wronskian u_hu′ − u_h′u = u_h(u′ + iσu) − u(u_h′ + iσu_h) tends to 0, hence
+vanishes, and u is a multiple of u_h. The same argument with e^(−iσx) applies at +∞. In the spacetime,
+e^(−iσt)u_h = e^(−iσ(t + r_*))(1 + o(1)) is the behaviour of a field smooth across the future horizon, and
+e^(−iσt)u_∞ = e^(−iσ(t − r_*))(1 + o(1)) that of an outgoing one: these are the classes of *The class* in the proof of
+[[prop:iii-d-6-2]].
 
 *The resolvent.* H_l := −∂²_(r_*) + V_l, with domain H²(ℝ), is self-adjoint and nonnegative on L²(ℝ, dr_*), V_l being
 bounded and nonnegative. For Im σ > 0, R_l(σ) := (H_l − σ²)⁻¹; then σ² ∉ [0, ∞). For real σ ≠ 0, R_l(σ) is the
@@ -84,8 +90,8 @@ This bound is uniform in l and degenerates as Im σ → 0, where the content of 
 
 From here on σ is real and nonzero.
 
-**Lemma {#lem:rb-flux}** (The flux.) Write u_h = A e^(−iσr_*) + B e^(iσr_*) + o(1) as r_* → ∞.
-Then |A|² = 1 + |B|², and the Wronskian 𝒲 := u_h u_∞′ − u_h′ u_∞ equals 2iσA. In particular |𝒲| ≥ 2|σ|.
+**Lemma {#lem:rb-flux}** (The flux.) Write u_h = A e^(−iσr_*) + B e^(iσr_*) + o(1) as r_* → ∞, with
+u_h′ = −iσAe^(−iσr_*) + iσBe^(iσr_*) + o(1) (*Solutions at the ends* in [[sec:rb-radial]]). Then |A|² = 1 + |B|², and the Wronskian 𝒲 := u_h u_∞′ − u_h′ u_∞ equals 2iσA. In particular |𝒲| ≥ 2|σ|.
 
 *Proof.* V_l is real, so Im(ūu′) is constant for every solution u. For u_h it is −σ at −∞, and −σ|A|² + σ|B|² at +∞,
 the cross terms being real; so |A|² = 1 + |B|². 𝒲 is constant; at +∞, with u_∞ = e^(iσr_*)(1 + o(1)) and
@@ -93,14 +99,14 @@ u_∞′ = iσu_∞ + o(1),
 𝒲 = (Ae^(−iσr_*) + Be^(iσr_*))iσe^(iσr_*) − (−iσAe^(−iσr_*) + iσBe^(iσr_*))e^(iσr_*) + o(1) = 2iσA. ∎
 
 **Lemma {#lem:rb-growth}** (Growth through the barrier.) For a solution u of −u″ + (V_l − σ²)u = 0 put
-E := |u′|² + σ²|u|². Then |E′| ≤ (V_l/|σ|)E. Hence
+E_σ := |u′|² + σ²|u|². Then |E_σ′| ≤ (V_l/|σ|)E_σ. Hence
 
     |u_∞(x)|² ≤ 2 exp(|σ|⁻¹ ∫_x^∞ V_l dr_*),     |u_h(x)|² ≤ 2 exp(|σ|⁻¹ ∫_(−∞)^x V_l dr_*).
 
-*Proof.* E′ = 2Re(ū′u″) + 2σ²Re(ūu′) = 2(V_l − σ²)Re(ū′u) + 2σ²Re(ūu′) = 2V_l Re(ū′u), and
-2|ū′u| ≤ |u′|²/|σ| + |σ||u|² = E/|σ|. E tends to 2σ² at the end where u is normalised (u_∞ at +∞, u_h at −∞), so
-Gronwall's inequality from that end gives E ≤ 2σ² exp(|σ|⁻¹∫V_l) over the interval between the end and x, and
-σ²|u|² ≤ E. ∎
+*Proof.* E_σ′ = 2Re(ū′u″) + 2σ²Re(ūu′) = 2(V_l − σ²)Re(ū′u) + 2σ²Re(ūu′) = 2V_l Re(ū′u), and
+2|ū′u| ≤ |u′|²/|σ| + |σ||u|² = E_σ/|σ|. E_σ tends to 2σ² at the end where u is normalised (u_∞ at +∞, u_h at −∞), so
+Gronwall's inequality from that end gives E_σ ≤ 2σ² exp(|σ|⁻¹∫V_l) over the interval between the end and x, and
+σ²|u|² ≤ E_σ. ∎
 
 **Proposition {#prop:resolvent-outgoing}** (The outgoing resolvent.) Let σ be real and nonzero, and F ∈ L²(ℝ) vanish
 outside a bounded set.
@@ -127,8 +133,8 @@ multiple of u_h and of u_∞, so it vanishes since 𝒲 ≠ 0.
 2 exp(I_l/(2|σ|)), as V_l ≥ 0, and |𝒲| ≥ 2|σ|. A kernel bounded by K on J × J defines an operator on L²(J) of norm at
 most its Hilbert–Schmidt norm, KΛ_J. ∎
 
-This is the injectivity of [[prop:iii-d-6-2]] at real σ, harmonic by harmonic, with a constant obtained by inequalities
-alone. The constant grows like exp(κ/(2|σ|r_h)): the bound |𝒲| ≥ 2|σ| ignores that 𝒲 = 2iσA carries the same
+This is the injectivity of the scalar spectral family ([[lem:rb-scalar]]) at real σ on {r > r_h}, harmonic by
+harmonic, which step (a) of the proof of [[prop:iii-d-6-2]] proves, here with a constant obtained by inequalities alone. The constant grows like exp(κ/(2|σ|r_h)): the bound |𝒲| ≥ 2|σ| ignores that 𝒲 = 2iσA carries the same
 tunnelling factor through the barrier as the solutions.
 
 ### Uniformly in the harmonic where the barrier covers the interval {#sec:rb-uniform}

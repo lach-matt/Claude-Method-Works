@@ -300,42 +300,65 @@ torus-polarised.
 
 ### Separation and coherence of the labels {#sec:vlasov-coherence}
 
-**Lemma {#lem:vlasov-separation}** (The flow keeps the labels separated.) Under (Ω), (V1) and (V2) there is c0 > 0,
-depending on Ω and on the field and not on any choice of labels, such that at every point y ∈ D_α ∩ D_α′
+**Lemma {#lem:vlasov-separation}** (The flow keeps the labels separated.) Assume (Ω), (V1) and (V2), and let S′ ⊂ int S
+be compact. There is c0 > 0, depending on Ω, the field, S and S′ and not on any choice of labels, such that at every
+point y ∈ D_α(S′) ∩ D_α′(S′)
 
     |g⁻¹(du_α, du_α′)(y)| ≥ c0 d(α, α′)².                                                       {#eq:vlasov-separation}
 
-*Proof.* Let ℬ be the bundle of null directions of g3 over the orbit slices, a circle bundle, with the angle β of the
-spatial part in a frame orthonormal for the slice metric. For τ ∈ [τ0, τ_end] let Φ_τ take (x0, α) ∈ Σ_τ0 × S¹ to (y, β)
-∈ ℬ|Σ_τ, the point where the ray of u_α from x0 meets Σ_τ and the angle of du_α there. Φ_τ is the flow of the null
-geodesic spray on ℬ from Σ_τ0 to Σ_τ composed with the section σ(x0, α) := (x0, β0(x0, α)). The flow is a
-diffeomorphism with positive Jacobian (it depends continuously on τ and is the identity at τ0), and Dσ is triangular
-with determinant ∂_α β0 ≥ b. So det DΦ_τ ≥ c_Φ > 0 on the compact set of the (x0, α) in question. Write DΦ_τ in blocks,
-with A := ∂y/∂x0, B := ∂y/∂α, C := ∂β/∂x0, D := ∂β/∂α. At fixed y the label α determines its ray, and x0 = x0(y, α),
-since A is invertible by (V1); the angle at y of du_α is β(y; α) := β(x0(y, α), α), and
+*Proof.* Let ℬ be the bundle of null directions of g3 over the orbit slices of the Σ_τ, a circle bundle. On the orbit
+slices off the axes fix a smooth frame (e1, e2) orthonormal for the slice metric (by the Gram–Schmidt process from
+(∂_r, ∂_ϑ)), let n be the future unit normal of the orbit slice in (Q, g3), and describe a null direction at y by the
+angle β with which a covector k on it, with g3⁻¹k future directed, is written k(n) = −E, k(e1) = E cos β, k(e2) =
+E sin β, E > 0. For two such covectors at y,
 
-    ∂_α β(y; α) = D − C A⁻¹ B = det DΦ_τ / det A,
+    g⁻¹(k, k′) = −E E′ + E E′ cos(β − β′) = −2 E E′ sin²((β − β′)/2).                                 {#eq:vlasov-mixed-angle}
 
-the Schur complement. Since 0 < det A ≤ C_A on the compact set, ∂_α β(y; α) ≥ c1 := c_Φ/C_A > 0 wherever the labels
-between α and α′ are present at y, which holds on a uniform neighbourhood of the diagonal α′ = α by (V1). In 2+1
-dimensions null covectors at y are k = E(−1, cos β, sin β) in an orthonormal frame, E > 0, and
+Let 𝔰(x0, α) := (x0, β0(x0, α)) on S, with values in ℬ over the orbit slice of Σ_τ0. It is injective, by (V1), and its
+differential is triangular with determinant ∂_α β0 ≥ b_* > 0, so on int S it is an injective local diffeomorphism, hence
+a diffeomorphism onto the open set 𝔰(int S). For τ ∈ [τ0, τ_end] and y in the orbit slice of Σ_τ ∩ Ω̄, let Ψ_τ(y, β) be
+the point and direction in which the null geodesic of g3 through y with direction β, followed to the past, meets Σ_τ0.
+It meets Σ_τ0 inside Ω̄: by (Ω) future causal curves leave Ω through its lateral boundaries, so a past causal curve from
+Ω̄ does not; and τ is monotone along it. Ψ_τ is smooth, continuous in (τ, y, β), and a diffeomorphism onto its image,
+its inverse being the future flow. By [[lem:vlasov-flow]] (b) the rays of u_α are null geodesics of g3, with direction
+that of du_α; so if the ray of u_α from x0 ∈ S_α passes through y ∈ Σ_τ, then Ψ_τ(y, β(y; α)) = 𝔰(x0, α), β(y; α) the
+angle of du_α at y.
 
-    g⁻¹(k, k′) = −E E′ (1 − cos(β − β′)),      |g⁻¹(k, k′)| = 2 E E′ sin²((β − β′)/2).
+Let K be the compact set of (x0, α, τ) with (x0, α) ∈ S whose ray reaches Σ_τ inside Ω̄, and Φ_τ(x0, α) :=
+(y_τ(x0), β(y_τ(x0); α)) = Ψ_τ⁻¹(𝔰(x0, α)) on it. det DΦ_τ = det DΨ_τ⁻¹ · ∂_α β0 is positive, the flow Ψ_τ⁻¹ depending
+continuously on τ and being the identity at τ0, so det DΦ_τ ≥ c_Φ > 0 on K. Write DΦ_τ in blocks, with A := ∂y/∂x0,
+B := ∂y/∂α, C := ∂β/∂x0, D := ∂β/∂α; A is invertible by (V1), with 0 < det A ≤ C_A on K. At fixed y, inverting
+x0 ↦ y_τ(x0) gives x0 = x0(y, α) with ∂_α x0 = −A⁻¹B, and the angle β(y; α) = β(x0(y, α), α) has
 
-So near the diagonal |g⁻¹(du_α, du_α′)| ≥ c d(α, α′)², with E bounded below on the compact set. Away from the diagonal
-the left side of [[eq:vlasov-separation]] divided by d(α, α′)² is continuous on a compact set, and it is positive: if
-du_α and du_α′ were parallel at y, the null geodesic of g3 through y in that direction, followed to the past, would
-meet Σ_τ0 at one point x0 with one direction, so β0(x0, α) = β0(x0, α′), and α = α′ since the field is labelled by
-initial direction. Its infimum c0 is positive. ∎
+    ∂_α β(y; α) = D − C A⁻¹ B = det DΦ_τ / det A ≥ c1 := c_Φ/C_A,
+
+the Schur complement.
+
+Fix τ and y ∈ Σ_τ ∩ Ω̄. On the open set B_y := {β : Ψ_τ(y, β) ∈ 𝔰(int S)} put Λ_y(β) := the label of 𝔰⁻¹(Ψ_τ(y, β)),
+a smooth function; if y ∈ D_α(S′), then β(y; α) ∈ B_y and Λ_y(β(y; α)) = α. At β ∈ B_y, with (x0, α″) :=
+𝔰⁻¹(Ψ_τ(y, β)) ∈ int S, whose ray reaches y, so that (x0, α″, τ) ∈ K, Λ_y is the inverse of α ↦ β(y; α) near α″, and
+0 < Λ_y′(β) = 1/∂_α β(y; α″) ≤ 1/c1. Since 𝔰(S′) is a compact subset of the open set 𝔰(int S) and Ψ is uniformly
+continuous on the compact set of the (τ, y, β), there is ρ0 > 0 such that for every τ, y ∈ Σ_τ ∩ Ω̄ and β with Ψ_τ(y, β)
+∈ 𝔰(S′), the arc of the β″ with |β″ − β| ≤ ρ0 lies in B_y.
+
+Let y ∈ D_α(S′) ∩ D_α′(S′), β := β(y; α), β′ := β(y; α′), and δβ ∈ [0, π] their distance on the circle. Let E_* > 0
+be the minimum of E = −du_α(n) over the compact set of the (y, α) with y in the closure of D_α(S); it is positive since
+du_α ≠ 0 is null with g⁻¹du_α future directed. By [[eq:vlasov-mixed-angle]] and sin(t/2) ≥ t/π on [0, π],
+|g⁻¹(du_α, du_α′)(y)| ≥ 2 E_*² sin²(δβ/2) ≥ 2 E_*² δβ²/π². If δβ ≥ ρ0, this is at least 2 E_*² ρ0²/π² ≥
+(2 E_*² ρ0²/π⁴) d(α, α′)², as d(α, α′) ≤ π. If δβ < ρ0, the arc of length δβ from β to β′ lies in B_y, Λ_y maps its ends
+to α and α′, and Λ_y′ ≤ 1/c1 on it, so d(α, α′) ≤ δβ/c1 and the bound is at least (2 E_*² c1²/π²) d(α, α′)². So
+[[eq:vlasov-separation]] holds with c0 := (2 E_*²/π²) min(c1², ρ0²/π²). The injectivity of β0(x, ·) is used in the
+definition of Λ_y, which needs 𝔰 injective. ∎
 
 For the n labels α_A := 2πA/n, d(α_A, α_B) ≥ 2π/n, so the dusts sampled at them are pairwise separated with constant
-c0 (2π/n)². This is the separation η′ ≳ 1/n² of [HL25, Lemma 4.15, p. 18]; for n directions 2πA/n on the flat orbit
-space with unit energies the least mixed symbol is exactly 1 − cos(2π/n), and n²(1 − cos(2π/n)) → 2π².
+c0 (2π/n)² on the overlaps of the tubes D_(α_A)(S′). This is the separation η′ ≳ 1/n² of [HL25, Lemma 4.15, p. 18]; for
+n directions 2πA/n on the flat orbit space with unit energies the least mixed symbol is exactly 1 − cos(2π/n), and
+n²(1 − cos(2π/n)) → 2π².
 
 Pairwise separation is not enough for the scheme of [[thm:vlasov-n-approximant]]. At stage m its residual carries the
 harmonics e^(i j·θ) with |j|₁ ≤ m + 2, and a harmonic with two or more nonzero entries is removed by division by
 
-    Q_j := g⁻¹(K_j, K_j),      K_j := Σ_A j_A ν_A du_A,                                           {#eq:vlasov-symbol}
+    Q_j := g⁻¹(𝔎_j, 𝔎_j),      𝔎_j := Σ_A j_A ν_A du_A,                                           {#eq:vlasov-symbol}
 
 ν_A the frequency of family A.
 
