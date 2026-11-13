@@ -990,7 +990,10 @@ vanishes on {t^♭_* < T̂}, e_S and e_(S⁰) vanish there, and they lie in ℱ^
     ‖e_S(S′)‖_(ℱ^k_ex) + ‖e_(S⁰)(S⁰′)‖_(ℱ^k_ex)
         ≤ C_k (ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))) + ω_♭(‖(γ̃, k̃)‖_(H^(N_NM+k″))) ‖U‖_(𝒟^(k+d)_ex)) (|S′| + |S⁰′|),
 
-by [[prop:iii-k-1-2]] (3) and the tame bounds of [[sec:iii-j2-1]].
+by [[prop:iii-k-1-2]] (3) and the tame bounds of [[sec:iii-j2-1]], when ‖(γ̃, k̃)‖_(H^(k+k′_k)) ≤ s_k and
+‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_♭. At an order k > N_NM at which the first condition fails, ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))) is
+replaced by a finite constant depending on the data, h_(S,S⁰) and its derivatives in (S, S⁰) lying in every H^(k+2)
+([[prop:iii-k-1-2]] (3)); such a constant does not enter the threshold of [[thm:ii-g-2-1]].
 
 So [[thm:iii-i14-3-1]] at the base point Ψ(U), with the defects f^S_Ψ and f^s1_Ψ, is [[thm:iii-i14-3-1]] with two
 more terms e_S(S′) + e_(S⁰)(S⁰′) in the forcing G′ of Step 2 of its proof. They are small with the data and linear in
@@ -1116,9 +1119,11 @@ domain and f ∈ F_η, the tails of U and f vanish on {t^♭_* < T̂ + c_0η}, s
 at every u in the domain does not hold here (the proof of [[lem:iii-k-2-3]]).
 
 *Smallness.* The constants C_k (k ≤ N_NM), C_1, C_2 and δ depend on the data only through ‖(γ̃, k̃)‖_(H^(N_NM+k″))
-([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded once that norm is at most 1. So the threshold of
-[[thm:ii-g-2-1]], ε_NM, is uniform, and ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1),
-d_1 := max(d_0, N_NM + k″) with d_0 of [[prop:iii-k-1-2]], by [[lem:iii-k-2-2]] (d). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2)
+([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded independently of the data once that norm is at most s_♭,
+the threshold of [[prop:iii-k-1-2]] (3) at the orders k ≤ N_NM. So the threshold of [[thm:ii-g-2-1]], ε_NM, is
+uniform. Let d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]]. By [[lem:iii-k-2-2]] (d),
+‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ C_(2d)ω_(2d)(‖(γ̃, k̃)‖_(H^(2d+k′_(2d)))), and 2d + k′_(2d) ≤ N_NM + k″ ≤ d_1; as ω_(2d)(s)
+tends to 0 with s, ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2)
 with |U|_(3d) < δ and P_5(Ψ(U)) = 0. ∎
 
 ### Constraint propagation and the theorem {#sec:iii-k-4}

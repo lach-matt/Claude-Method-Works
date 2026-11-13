@@ -965,9 +965,9 @@ r^(1/2)|h(e_i, e_j)| = |A||S| on C_(τ_1), so the weight r^(1/2) of [[thm:rwg-2]
 *Proof.* Step 1 (the Kruskal form of the master equation). Put 𝒰 := −e^(−u/r_h) and 𝒱 := e^(v/r_h). Then
 −𝒰𝒱 = e^(2r_*/r_h) = F(r) := e^(2r/r_h)(r − r_h)/(r + r_h), and F′(r) = 2r²e^(2r/r_h)/(r_h(r + r_h)²) > 0 on (0, ∞),
 F(0) = −1, F → ∞; so r is a smooth function of 𝒰𝒱 on {𝒰𝒱 < 1}. With ∂_u = −(𝒰/r_h)∂_𝒰 and ∂_v = (𝒱/r_h)∂_𝒱, the
-orbit metric is −f du dv and the master equation 4∂_u∂_vΦ + VΦ = 0 becomes ∂_𝒰∂_𝒱Φ = cΦ with
+orbit metric is −f du dv and the master equation 4∂_u∂_vΦ + VΦ = 0 becomes ∂_𝒰∂_𝒱Φ = 𝔠Φ with
 
-    c := −(r_h²/4)(V/f)(f/(−𝒰𝒱)) = −(r_h²/4) W_S (r + r_h)² e^(−2r/r_h)/r²,
+    𝔠 := −(r_h²/4)(V/f)(f/(−𝒰𝒱)) = −(r_h²/4) W_S (r + r_h)² e^(−2r/r_h)/r²,
 
 smooth wherever r > 0. The past horizon is {𝒱 = 0}, the future horizon {𝒰 = 0}, and C_(τ_1) lies on {𝒰 = 𝒰_1},
 𝒰_1 := −e^(−u_(τ_1)/r_h).
@@ -975,21 +975,30 @@ smooth wherever r > 0. The past horizon is {𝒱 = 0}, the future horizon {𝒰 
 Step 2 (the Goursat problem). Let g(𝒰) := α(𝒰 − 𝒰_1) + (β/2)(𝒰 − 𝒰_1)², and on each rectangle
 Q = [𝒰_−, 𝒰_+] × [0, 𝒱_+] with 𝒰_− ≤ 𝒰_1 ≤ 𝒰_+ and 𝒰_+𝒱_+ < 1 consider
 
-    Φ(𝒰, 𝒱) = g(𝒰) + ∫_(𝒰_1)^𝒰 ∫_0^𝒱 c(𝒰′, 𝒱′)Φ(𝒰′, 𝒱′) d𝒱′ d𝒰′                                         {#eq:rwg-goursat}
+    Φ(𝒰, 𝒱) = g(𝒰) + ∫_(𝒰_1)^𝒰 ∫_0^𝒱 𝔠(𝒰′, 𝒱′)Φ(𝒰′, 𝒱′) d𝒱′ d𝒰′                                         {#eq:rwg-goursat}
 
 (signed integrals). Its n-th Picard iterate differs from the previous one by at most
-sup_Q|g| (M|𝒰 − 𝒰_1|𝒱)^n/(n!)², M := sup_Q|c|, by induction; so [[eq:rwg-goursat]] has a unique continuous
+sup_Q|g| (M|𝒰 − 𝒰_1|𝒱)^n/(n!)², M := sup_Q|𝔠|, by induction; so [[eq:rwg-goursat]] has a unique continuous
 solution on Q, which is smooth (differentiate [[eq:rwg-goursat]] repeatedly), and the solutions on nested rectangles
 agree. The union of these rectangles contains the exterior {𝒰 < 0, 𝒱 > 0}, the future horizon and a neighbourhood of
-it inside. This gives a smooth Φ with ∂_𝒰∂_𝒱Φ = cΦ, Φ(𝒰, 0) = g(𝒰) and Φ(𝒰_1, 𝒱) = 0.
+it inside. This gives a smooth Φ with ∂_𝒰∂_𝒱Φ = 𝔠Φ, Φ(𝒰, 0) = g(𝒰) and Φ(𝒰_1, 𝒱) = 0.
 
-Step 3 (the jets on C_(τ_1)). On 𝒰 = 𝒰_1, Φ = 0, so ∂_𝒱^kΦ = 0; ∂_𝒱∂_𝒰Φ = cΦ = 0 gives ∂_𝒰Φ = g′(𝒰_1) = α, and
-∂_𝒱∂_𝒰²Φ = ∂_𝒰(cΦ) = cα. In the outgoing chart, where ∂_u² = (𝒰²∂_𝒰² + 𝒰∂_𝒰)/r_h², this says: along C_(τ_1),
-Φ = ∂_rΦ = ∂_r²Φ = 0 and TΦ = A := −𝒰_1α/r_h; then ∂_rTΦ = 0 by [[eq:rwg-master]], and its u-derivative gives
-2f∂_rT²Φ = −VA, so T²Φ = B + (A/2)∫_r^∞ (V/f)dr′, the integral finite as V/f = O(r⁻²), B being its limit at null
-infinity. Along C_(τ_1), d𝒱 = (𝒱/r_h)dv and dv = 2dr/f, so ∫_0^∞|c(𝒰_1, 𝒱)|d𝒱 = (r_h/(2|𝒰_1|))∫(V/f)dr < ∞, and
+Step 3 (the jets on C_(τ_1)). On 𝒰 = 𝒰_1, Φ = 0, so ∂_𝒱^kΦ = 0 for every k; ∂_𝒱∂_𝒰Φ = 𝔠Φ = 0 gives
+∂_𝒰Φ = g′(𝒰_1) = α there, and ∂_𝒱∂_𝒰²Φ = ∂_𝒰(𝔠Φ) = (∂_𝒰𝔠)Φ + 𝔠∂_𝒰Φ = 𝔠α, so
+∂_𝒰²Φ(𝒰_1, 𝒱) = β + α∫_0^𝒱 𝔠(𝒰_1, 𝒱′)d𝒱′. In the chart (u, r) the coordinate field ∂_u is T, which in the chart (u, v)
+is ∂_u + ∂_v = (𝒱∂_𝒱 − 𝒰∂_𝒰)/r_h; so
 
-    B = (𝒰_1²(β + α∫_0^∞ c(𝒰_1, 𝒱)d𝒱) + 𝒰_1α)/r_h²,
+    r_h²T² = 𝒱²∂_𝒱² + 𝒱∂_𝒱 − 2𝒰𝒱∂_𝒰∂_𝒱 + 𝒰²∂_𝒰² + 𝒰∂_𝒰,
+
+and on 𝒰 = 𝒰_1, where ∂_𝒱Φ = ∂_𝒱²Φ = 0 and ∂_𝒰∂_𝒱Φ = 0, T²Φ = (𝒰_1²∂_𝒰²Φ + 𝒰_1∂_𝒰Φ)/r_h². (The operator
+(𝒰²∂_𝒰² + 𝒰∂_𝒰)/r_h² alone is the second u-derivative at fixed v, not at fixed r; on C_(τ_1) the two agree on Φ by
+these vanishings, and nowhere else is the formula used.) Along C_(τ_1), ∂_r at fixed u is a multiple of ∂_𝒱, so
+Φ = ∂_rΦ = ∂_r²Φ = 0 there, and TΦ = −𝒰_1∂_𝒰Φ/r_h = A := −𝒰_1α/r_h; then ∂_rTΦ = 0 by [[eq:rwg-master]], and its
+u-derivative gives 2f∂_rT²Φ = −VA, so T²Φ = B + (A/2)∫_r^∞ (V/f)dr′, the integral finite as V/f = O(r⁻²), B being its
+limit at null infinity. Along C_(τ_1), d𝒱 = (𝒱/r_h)dv and dv = 2dr/f, so
+∫_0^∞|𝔠(𝒰_1, 𝒱)|d𝒱 = (r_h/(2|𝒰_1|))∫(V/f)dr < ∞, and letting 𝒱 → ∞ in the formula for T²Φ on C_(τ_1),
+
+    B = (𝒰_1²(β + α∫_0^∞ 𝔠(𝒰_1, 𝒱)d𝒱) + 𝒰_1α)/r_h²,
 
 affine in β with slope 𝒰_1²/r_h² ≠ 0; every (A, B) is reached by choosing α and then β.
 
@@ -1003,7 +1012,7 @@ Step 5 (the data). On Σ_0 ∩ {r ≤ R_H} the solution is smooth on a compact s
 C_0 = Σ_0 ∩ {r ≥ R_H} (u_0 ≤ u_(τ_1)): the rotations act within the mode, so it suffices to take X = T^a. Each T^aΦ
 solves the master equation (T = (𝒱∂_𝒱 − 𝒰∂_𝒰)/r_h is Killing), with data on {𝒱 = 0} and on {𝒰 = 𝒰_1} that are bounded
 (on 𝒰 = 𝒰_1 they are the T^aΦ found below, bounded along the cone). On the strip u_0 ≤ u ≤ u_(τ_1),
-∫∫|c| d𝒰 d𝒱 = (1/4)∫∫V du dv = (1/2)(u_(τ_1) − u_0)∫_(r_h)^∞ (V/f)dr < ∞, so the Picard bound of Step 2 gives
+∫∫|𝔠| d𝒰 d𝒱 = (1/4)∫∫V du dv = (1/2)(u_(τ_1) − u_0)∫_(r_h)^∞ (V/f)dr < ∞, so the Picard bound of Step 2 gives
 sup|T^aΦ| < ∞ on the strip. Along u = u_0, integrating 4∂_u∂_vΦ = −VΦ in u,
 
     ∂_vT^aΦ(u_0, v) = ∂_vT^aΦ(u_(τ_1), v) + (1/4)∫_(u_0)^(u_(τ_1)) VT^aΦ du′;
