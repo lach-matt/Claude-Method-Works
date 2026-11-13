@@ -371,7 +371,7 @@ the map U ↦ Φ(U) and Steps 1–3 of the proof of [[thm:iii-j1-2-1]]. Each of 
 the rules of [[def:ec-accounted-loss]] to a composition of finitely many elementary families.
 
 **Proposition {#prop:ec-upper}** (An upper bound for the accounted loss.) In the setting of [[lem:ec-counts]], with
-background terms charged by [[lem:ec-split-loss]],
+s > ½(α − 4) and with the background terms charged by [[lem:ec-split-loss]],
 
     d_acc ≤ (ℓ_tf + 2)(T_< + T_> + C_2) + 4(1/ι + 2) + r_ι W (N_< + N_> + N_b + 3)
             + Σ_(k=1)^K c(β_k) + N_b c_b + (N_b + 1) c′_b + c_0 + (d_B − 2)_+,                          {#eq:ec-upper}

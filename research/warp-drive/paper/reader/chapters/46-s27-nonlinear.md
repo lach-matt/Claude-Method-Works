@@ -21,9 +21,10 @@ is posed for a translation composed with a boost ([[prop:iii-k-1-2]]). (3) The N
 asks for support conditions on every component of supported character ([[sec:iii-k-3]]). (4) The right inverses of
 [[thm:iii-j1-2-1]] are formed for Ψ, in which the boost and translation directions carry the initial family
 ([[lem:iii-k-2-3]]). The region near null infinity that the initial family must
-reach, a slab bounded in t_*, is solved together with the exterior problem ([[sec:iv3-0]]–[[sec:iv3-2]]), and the
-compact sets that the uniqueness lemma [[lem:ii-f-1-3]] asks for are supplied near ℐ⁺ and near spatial infinity by
-[[lem:iii-k-6-1]] and [[lem:iii-k-6-2]].
+reach, a slab bounded in t_*, is solved together with the exterior problem and the compact region above the initial
+surface, as one Cauchy problem with data on Σ^IVP alone ([[sec:iv3-0]]–[[sec:iv3-2]]); the compact region below it is
+solved backward ([[sec:s27-local]]); and the compact sets that the uniqueness lemma [[lem:ii-f-1-3]] asks for are
+supplied near ℐ⁺ and near spatial infinity by [[lem:iii-k-6-1]] and [[lem:iii-k-6-2]].
 
 *Notation and the inner radius.* The notation is that of [[ch:s11]]–[[ch:s25]]. b₀ = (m₀, 0), R₁ = m₀^(1/2), and the
 inner radius r_♭ ∈ (0, ½R₁] of [[ch:s11]] is a parameter: the spacetime M of [[eq:iii-b-2-1]] has the inner boundary
@@ -33,7 +34,7 @@ depend on it. C′ is the constant of [[eq:iii-b-3-6]], so that t_* = t − |x| 
 the constant value of ψ_IVP on [R₃, ∞) ([[lem:iii-b-3-7]] (b)), so that t_IVP = t − C″ on {|x| ≥ R₃}. The time function
 t^♭_* is that of [[lem:ii-c-3-2]] with ℓ = ½, built with the constant C of the gluing in its proof, written C_g here,
 taken ≥ max(4(r′_0 + 1), 32, 16R₁), r′_0 the radius of [[lem:ii-c-3-2]]. Every condition that proof places on C_g is a
-lower bound, so this is allowed; [[lem:ii-e-1-2]] (iv) takes C_g ≥ 4(r′_0 + 1), and [[lem:s27-below]] uses the other two
+lower bound, so this is allowed; [[lem:ii-e-1-2]] (iv) takes C_g ≥ 4(r′_0 + 1), and [[lem:s27-below]] uses all three
 bounds. The constant C′ of [[lem:ii-c-3-2]] (b) is written C_♭ ∈ (0, 1) here, to distinguish it from the constant of
 [[eq:iii-b-3-6]]. M_(1/2) is the space of [[def:iii-b-2-1]] on which ρ_I^(1/2) is
 smooth. For S = S_w ∈ 𝒮_1 we write |S| := |w|. The boosts φ_S, S ∈ 𝒮_1, are those of [[sec:iii-b-5]] and the
@@ -95,7 +96,8 @@ the hypotheses of [[thm:iii-c1-3-1]]:
     min Re ℰ_0 > 3/2 + 2γ_Υ,     jℰ_0 ⊂ ℰ_0 (j ∈ ℕ),     ℓ_0 > 3,     ℓ_0 ∉ Re π_1ℰ_0,
 
 the bound ℓ_0 > 3 coming from (H4) of [[sec:iii-i10-1]] (see row d1 of [[sec:vi-c-1]]). ℰ^C_I and ℓ_I are then those
-of [[thm:iii-c1-3-1]]. The weights ℓ_I, ε_+, ε_K and α of the cone are those of [[ch:s19]]–[[ch:s24]]. The weights
+of [[thm:iii-c1-3-1]]. The weights ℓ_I, ε_+, ε_K and α of the cone are those of [[ch:s19]]–[[ch:s24]], ℓ_I being the
+b-weight at ℐ⁺ of [[def:iii-i-1-1]], not the class parameter of [[sec:iii-i-1]]. The weights
 3 + ε_0 and 1 + ε_0 of [Hin26] at spatial and null infinity are ℓ_0 and 3/2 + ε_0 here, in the normalisation of
 [[ch:s17]], in which the weights at null infinity are shifted by ½ ([[eq:iii-c1-1-1]]). [[thm:vi-c-2-1]] shows that all
 the conditions can be met together.

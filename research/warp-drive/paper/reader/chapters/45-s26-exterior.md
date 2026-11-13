@@ -917,8 +917,8 @@ w_♯ := ρ₀^(a₀)ρ_I^γE(ρ₀^(−a₀)ρ_I^(−γ)w) on Ω^♯_c. Then w_
     v^((0)) := −∫_(−∞)^(s_c) w_♯ ds′,     ṽ(s) := ∫_(−∞)^s w_♯ ds′     on Ω^♯_c.
 
 At a point of Ω_c, v^((0)) + ṽ(s) = −∫_s^(s_c) w_♯ ds′ = −∫_s^(s_c) w ds′ = v(s), as the segment from s to s_c lies in
-Ω_c. By Cauchy–Schwarz, |v^((0))|² ≤ ∫_(−∞)^(s_c) e^(2γs′) ds′ · ∫ e^(−2γs′)|w_♯|² ds′ = (2γ)⁻¹c^(2γ)∫ e^(−2γs′)|w_♯|² ds′,
-and e^(−γs)|ṽ(s)| ≤ ∫_(−∞)^s e^(−γ(s−s′))e^(−γs′)|w_♯(s′)| ds′, a kernel of L¹-norm γ⁻¹; integration in (ρ₀, ω) with
+Ω_c. By Cauchy–Schwarz,
+|v^((0))|² ≤ ∫_(−∞)^(s_c) e^(2γs′) ds′ · ∫ e^(−2γs′)|w_♯|² ds′ = (2γ)⁻¹c^(2γ)∫ e^(−2γs′)|w_♯|² ds′, and e^(−γs)|ṽ(s)| ≤ ∫_(−∞)^s e^(−γ(s−s′))e^(−γs′)|w_♯(s′)| ds′, a kernel of L¹-norm γ⁻¹; integration in (ρ₀, ω) with
 the weight ρ₀^(−2a₀) gives (b) for m = 0. Over a point of ℐ⁺_c whose curve lies in Ω_c for all ρ_I < c, w_♯ = w along
 it, and for almost every such point ∫ e^(−2γs′)|w|² ds′ is finite; then |ṽ(s)|² ≤ (2γ)⁻¹e^(2γs)∫ e^(−2γs′)|w|² ds′ by
 Cauchy–Schwarz on (−∞, s], so v(s) = v^((0)) + ṽ(s) → v^((0)) as s → −∞. (c): in the coordinates (z, y, ω),
@@ -1223,7 +1223,8 @@ u_(2,j) ∈ H^(k,(a₀,2β))_b for j ≠ 6. For slot 6, Z₆ ∈ H^(k,(a₀,2β)
 *Step 6 (assembly).* On Ω_c, u = u₂ + χ_cu₁, with χ_cu₁ supported in {ρ_I ≥ c/4}; on Ω⁺ ∩ {ρ_I > c/2}, Step 3; on Ω_N,
 Step 1. As χ_I = χ̂(ρ_I) vanishes for ρ_I ≥ c/2, u₆ − χ_Iu^((0)) = ũ₆ + (1 − χ_I)u^((0)) + χ_cu_(1,6) on Ω_c, and
 (1 − χ_I)u^((0)) is supported in {ρ_I ≥ c/4} within Ω_c, where every weight at ℐ⁺ is equivalent. So u ∈ 𝒴^k_(a₀)(Ω⁺),
-with the decomposition (u^((0)), u − χ_Iu^((0)) in slot 6), linear in (f, ġ₀, ġ₁) as every step is; that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−,ℓ^♭_I))_b on Ω⁺ ([[sec:iv2-0]]), and on Ω⁻ by Step 1.
+with the decomposition ([[lem:s26-decompositions]]) whose first component is u^((0)), linear in (f, ġ₀, ġ₁) as every
+step is; that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−,ℓ^♭_I))_b on Ω⁺ ([[sec:iv2-0]]), and on Ω⁻ by Step 1.
 
 *The estimate.* Write |h|_j for the norm of order j of the decomposition of h fixed in the statement, made monotone in
 j as in [[rem:ii-g-2-2]], and N_j := N(f, ġ₀, ġ₁; j); let C depend only on k, α₀, ℓ^♭_I, the parameters and the bound
