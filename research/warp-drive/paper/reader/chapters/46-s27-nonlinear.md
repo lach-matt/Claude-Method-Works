@@ -626,11 +626,11 @@ embedding on the unit cubes of a b-metric, as in the proof of [[lem:iii-c-2-1]]:
 Cartesian component of δ := g_(S,S⁰) − η is at most ε := 1/20 in modulus on 𝒟 ∩ {r ≥ R}.
 
 Then, in the coordinates (t, x), with η = diag(−1, 1, 1, 1, 1), the matrix η⁻¹δ has entries ±δ_ij, so its maximum row-sum
-norm is at most 5ε = ¼. The Neumann series g_(S,S⁰)⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives |(g_(S,S⁰)⁻¹ − η⁻¹)(dt,
-dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_(S,S⁰)⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound holds for η + sδ,
-s ∈ [0, 1], so dt stays timelike along that path, in the component that continues the past cone of η. For V causal for
-g_(S,S⁰), η(V, V) ≤ −δ(V, V) ≤ Σ_(i,j)|δ_ij||V^i||V^j| ≤ ε(Σ_i|V^i|)² ≤ 5ε((V^t)² + |V^x|²), by the Cauchy–Schwarz
-inequality in five variables; with η(V, V) = −(V^t)² + |V^x|² this gives
+norm is at most 5ε = ¼. The Neumann series g_(S,S⁰)⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives
+|(g_(S,S⁰)⁻¹ − η⁻¹)(dt, dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_(S,S⁰)⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound
+holds for η + sδ, s ∈ [0, 1], so dt stays timelike along that path, in the component that continues the past cone of η.
+For V causal for g_(S,S⁰), η(V, V) ≤ −δ(V, V) ≤ Σ_(i,j)|δ_ij||V^i||V^j| ≤ ε(Σ_i|V^i|)² ≤ 5ε((V^t)² + |V^x|²), by the
+Cauchy–Schwarz inequality in five variables; with η(V, V) = −(V^t)² + |V^x|² this gives
 |V^x|² ≤ ((1 + 5ε)/(1 − 5ε))(V^t)² = (5/3)(V^t)², so |V^x| ≤ 2|V^t|.
 
 On 𝒟 ∩ {r ≤ R}, dt_IVP is past timelike for g_(b₀) ([[lem:iii-b-3-7]] (b)), with a margin on this compact set, so also

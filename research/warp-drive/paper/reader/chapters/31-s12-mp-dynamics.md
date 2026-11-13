@@ -38,50 +38,29 @@ the part of Carter's constant, is written 𝔎, the letter 𝒦 being the Kretsc
 
 ### The radii {#sec:s12-radii}
 
-**Definition {#def:s12-radii}** (The radii and the parameters.) Let m₀ > 0, R₁ := m₀^(1/2) and b₀ := (m₀, 0) be as
-in [[sec:iii-b-2]], and fix an *inner radius* r_♭ ∈ (0, ½R₁]. The radii of [[sec:i-a-1-1]] are
+**Definition {#def:s12-radii}** (The radii and the parameters.) Let m₀ > 0, R₁ := m₀^(1/2) and the *inner radius*
+r_♭ ∈ (0, ½R₁] be as in [[sec:iii-b-2]], and let ℬ and b₀ := (m₀, 0) be the parameter set and the base point of
+[[def:s11-parameters]]. The radii of [[sec:i-a-1-1]] are
 
     r₀ := r_♭,     δ₀ := min(R₁/16, r_♭/4),     r₂ := 7R₁/8,     r_e := 17R₁/16,                         {#eq:s12-radii}
 
 and r_h := R₁ is the radius of the horizon of g_(b₀). The *collar* is {r₀ − 2δ₀ ≤ |x| ≤ r₀}, and
-X̃° = {|x| > r₀ − 2δ₀}. The parameter set is
-
-    ℬ_♭ := {b = (m, A) : |m − m₀| < ½m₀, ‖A‖ < ε_♭R₁},     ε_♭ := min(1/20, r_♭/(4R₁)),
-
-with ‖A‖ the operator norm of A ∈ 𝔰𝔬(4), and |b − b₀| denotes a fixed norm on ℝ × 𝔰𝔬(4). The time function is
-t_* := t − ψ(|x|) of [[eq:iii-b-3-6]] with ψ(ρ) := ∫_(r_♭)^ρ (1 − χ_∞(s) 8m₀ s⁻²) ds on [r₀ − 2δ₀, ∞); a different
-lower limit changes t_* by a constant, which changes none of the statements below.
+X̃° = {|x| > r₀ − 2δ₀}. |b − b₀| denotes a fixed norm on ℝ × 𝔰𝔬(4), and every ball {|b − b₀| ≤ ε} used in this
+chapter is taken with ε so small that it lies in ℬ. The time function is t_* := t − ψ(|x|) of [[eq:iii-b-3-6]], on
+{|x| ≥ r₀ − 2δ₀}; a different lower limit in the integral defining ψ changes t_* by a constant, which changes none of
+the statements below.
 
 These radii are ordered:
 
     ½r_♭ ≤ r₀ − 2δ₀ < r₀ − δ₀ < r₀ < r₂ < r_h < r_h + δ₀ ≤ r_e,
 
-since δ₀ ≤ r_♭/4, r_♭ ≤ ½R₁ < 7R₁/8 and δ₀ ≤ R₁/16. Since χ_∞ = 0 on (−∞, 2R₁], ψ′ = 1 on [r₀ − 2δ₀, 2R₁]. At
-r_♭ = ½R₁ the radii are r₀ − 2δ₀ = 3R₁/8, r₀ − δ₀ = 7R₁/16, r₀ = ½R₁, r₂ = 7R₁/8 and r_e = 17R₁/16, and r₀ is the
-inner radius of [[sec:iii-b-2]]. Every constant and every neighbourhood of b₀ chosen below may depend on r_♭; nothing is
-claimed uniform in r_♭.
+since δ₀ ≤ r_♭/4, r_♭ ≤ ½R₁ < 7R₁/8 and δ₀ ≤ R₁/16. Since χ_∞ = 0 on (−∞, 2R₁], ψ′ = 1 on [r₀ − 2δ₀, 2R₁]. For every
+r_♭, r₀ = r_♭ is the inner radius of [[sec:iii-b-2]]. At r_♭ = ½R₁ the radii are r₀ − 2δ₀ = 3R₁/8, r₀ − δ₀ = 7R₁/16,
+r₀ = ½R₁, r₂ = 7R₁/8 and r_e = 17R₁/16. Every constant and every neighbourhood of b₀ chosen below may depend on r_♭;
+nothing is claimed uniform in r_♭.
 
-**Lemma {#lem:s12-ks-domain}** (The Kerr–Schild form on the collar.) Let b = (m, A) with m > 0 and ‖A‖ < r_♭/4; this
-holds for every b ∈ ℬ_♭, and, when r_♭ = ½R₁, for every b in the parameter set ℬ of [[sec:iii-b-3-1]]. On
-{|x| ≥ ½r_♭}: |x|² > s, the condition ‖A‖²(r_A² + ‖A‖²) < r_A⁴ of [[lem:iii-b-3-3]] (c) holds, and
-g^KS_b := g^KS_(m,A) of [[def:iii-b-3-2]] is a smooth Lorentzian metric of signature (1, 4) on ℝ_t × {|x| ≥ ½r_♭},
-with H_(m,A) > 0, depending smoothly on b.
-
-*Proof.* In a frame in which A = aJ₁₂ + bJ₃₄ ([[lem:iii-b-3-1]]), s = a² + b² ≤ 2 max(a², b²) = 2‖A‖², and
-‖A‖² < r_♭²/16. So |x|² ≥ r_♭²/4 > r_♭²/8 > 2‖A‖² ≥ s. By [[lem:iii-b-3-1]] (b),
-r_A² ≥ |x|² − ‖A‖² > r_♭²/4 − r_♭²/16 = 3r_♭²/16 > 3‖A‖². Hence
-
-    ‖A‖²(r_A² + ‖A‖²) < (r_A²/3)(r_A² + r_A²/3) = (4/9) r_A⁴ < r_A⁴,
-
-which is the condition of [[lem:iii-b-3-3]] (c); so F_A ∈ (0, 1] and H_(m,A) > 0. By [[lem:iii-b-3-1]] (b), r_A is
-smooth in (x, A) on {|x|² > s}, and P(r_A) > 0, so ℓ_A, F_A and H_(m,A) are smooth in (x, b), and g^KS_b is smooth.
-For c ∈ [0, 1] let g_c := η + cH_(m,A) k_A ⊗ k_A. As k_A is null for η ([[lem:iii-b-3-3]] (a)), the argument of
-[[lem:iii-b-3-3]] (d) with cH_(m,A) for H_(m,A) gives g_c⁻¹ = η⁻¹ − cH_(m,A) k_A^♯ ⊗ k_A^♯; so every g_c is
-non-degenerate. A continuous path of non-degenerate symmetric forms has constant signature, and g₀ = η has signature
-(1, 4). So g₁ = g^KS_b has signature (1, 4). ∎
-
-The ratio r_♭/4 is all the lemma uses of the parameter set. At r_♭ = ½R₁ it is R₁/8, while the parameter set of
-[[sec:iii-b-3-1]] has ‖A‖ < R₁/10; so on that set the lemma holds on {|x| ≥ R₁/4}.
+As r₀ − 2δ₀ ≥ ½r_♭, [[lem:s11-ks-domain]] applies on the whole of {|x| ≥ r₀ − 2δ₀}: for every b ∈ ℬ, g^KS_b is defined
+there, smooth in (x, b), Lorentzian of signature (1, 4), with H_(m,A) > 0 and F_A ∈ (0, 1].
 
 ### Schwarzschild–Tangherlini: coordinates and the spectral symbols {#sec:vi-a-0}
 
@@ -168,8 +147,8 @@ one.
 
 *Proof.* (a) G^s = 0 means fξ² = f⁻¹ − r⁻²C; multiply by f. (b) W = r⁻² − m r⁻⁴, so W′ = −2r⁻³ + 4m r⁻⁵ =
 2(2m − r²)r⁻⁵, which is positive on (r_h, r_ph) and negative on (r_ph, ∞). At r² = 2m, W = ½(2m)⁻¹ = (4m)⁻¹;
-W(r_h) = 0 as f(r_h) = 0, and 0 < W < r⁻² for r > r_h. (c) f′ = 2m r⁻³ > 0, and f(r) = 0 iff r² = m. By
-[[eq:vi-a-0-2]] at F = r_*, g_(t_s t_s) = −f. In the chart [[eq:vi-a-0-1]], g⁻¹(dr, dr) = G^(rr) = f. (d) The
+W(r_h) = 0 as f(r_h) = 0, and 0 < W < r⁻² for r > r_h. (c) f′ = 2m r⁻³ > 0, and f(r) = 0 iff r² = m. In the
+static form g_(b₀) = −f dt_s² + f⁻¹ dr² + r² g̸ of [[sec:vi-a-0]], g_(t_s t_s) = −f. In the chart [[eq:vi-a-0-1]], g⁻¹(dr, dr) = G^(rr) = f. (d) The
 coefficients are read off [[eq:vi-a-0-1]]: g(∂_r, ∂_r) = 0 and g(∂_v, ∂_r) = 1. On {r > r_h}, ∂_v is timelike
 (g(∂_v, ∂_v) = −f < 0), and a null vector with negative product with a future timelike vector is future directed;
 −∂_r is null and nowhere zero on the connected chart, so it stays future directed by continuity. On {0 < r < r_h},
@@ -227,7 +206,7 @@ the value at the point is the same. So the constant β₀ = ½ min_Γ |q₁| of 
 rate (2m)^(−1/2) of [[prop:np-10-17-ii]] (d).
 
 *Proof.* (a) H_(G₁) r = 2fξ vanishes for r > r_h only at ξ = 0; there G₁ = 0 gives C = r²f⁻¹, and
-H_(G₁) ξ = −∂_rG₁ = −f′f⁻² + 2Cr⁻³ = (2f − rf′)/(f r) = 2(r² − 2m)/(f r³), which vanishes only at r² = 2m; then
+H_(G₁) ξ = −∂_rG₁ = −f′f⁻² + 2Cr⁻³ = (2f − rf′)/(f² r) = 2(r² − 2m)/(f² r³), which vanishes only at r² = 2m; then
 C = 2m·2 = 4m. This is [[prop:np-10-17-ii]] (a)–(b) at σ = 1. (b) By [[prop:np-10-17-ii]] at σ = 1, the linearisation
 is δṙ = δξ, δξ̇ = 16 r_ph⁻² δr, with eigenvalues ±4r_ph⁻¹ = ±ν. For a function φ vanishing at the zero p of a vector
 field V, d(Vφ)_p = dφ_p ∘ DV_p. Here dφ_(s/u) = dξ ± ν dr at p, as f(r_ph) = ½ and (r − r_ph) vanishes at p.

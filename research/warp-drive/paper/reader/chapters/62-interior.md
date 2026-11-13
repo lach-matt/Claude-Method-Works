@@ -43,9 +43,10 @@ curves. At every inner radius r_♭ ≤ ½R₁,
 
 so the inner boundary {r = r_♭} of M is spacelike, for every final mass.
 
-The stability theory is written for every inner radius r_♭ ∈ (0, ½R₁] ([[ch:s11]], [[def:s12-radii]], [[ch:s27]]).
-One explicit fact at small radii, the sign of the damping 1-form, is stated in [[prop:np-10-14]] for r ≥ r_h/2 only;
-the next lemma extends it to every r > 0.
+The stability theory is written for every inner radius r_♭ ∈ (0, ½R₁] ([[ch:s11]], [[def:s12-radii]], [[ch:s14]],
+[[ch:s27]]); in [[ch:s14]] the inner radius r_♯ of the analysis near the black hole is r_♭ ([[sec:iv5-0]]). One
+explicit fact at small radii is the sign of the damping 1-form, which (i) and (ii) of [[prop:np-10-14]] give at every
+r > 0 up to the saddle. The next lemma writes out the inequalities on the inner piece of the 1-form, all of them strict.
 
 **Lemma {#lem:interior-damping}** (The damping 1-form inside half the horizon radius.) Let μ = 1, g and c be as in
 [[prop:np-10-14]], and e its constant. On the piece 0 < r ≤ 50 of [[eq:s14-cform]], c = α(dt + ¼ dr) with α = 1/200,
@@ -53,15 +54,14 @@ and for every r in (0, 50]
 
     g⁻¹(c, c) = α²(−3/2 + (9/16) f) < 0,    g⁻¹(c, dt) = α(−7/4 + (3/4) f) < −α,    g⁻¹(c, dr) = α(¼ + (3/4) r⁻²) > 0;
 
-on 0 < r < r_h = 1, moreover, f e g⁻¹(c, c) + 2(1 − e) g⁻¹(c, dr)² > 0. So (i) and (ii) of [[prop:np-10-14]] hold on
-(0, r_h/2] as well, and ℓ(−dr) is negative definite there ([[prop:np-10-13]] (i)). By scaling, the same holds at every
-mass.
+on 0 < r < r_h = 1, moreover, f e g⁻¹(c, c) + 2(1 − e) g⁻¹(c, dr)² > 0. These are (i) and (ii) of [[prop:np-10-14]] on
+(0, r_h/2], and ℓ(−dr) is negative definite there ([[prop:np-10-13]] (i)). By scaling, the same holds at every mass.
 
 *Proof.* With g^(tt) = −(2 − f), g^(tr) = 1 − f and g^(rr) = f, a form c = α(dt + b dr) has
 α⁻²g⁻¹(c, c) = −2 + 2b + f(1 − b)², α⁻¹g⁻¹(c, dt) = −(2 − b) + f(1 − b) and α⁻¹g⁻¹(c, dr) = 1 − f + fb. At b = ¼
 these are −3/2 + (9/16)f, −7/4 + (3/4)f and 1 − (3/4)f = ¼ + (3/4)r⁻². As f < 1, the first is below −3/2 + 9/16 < 0
-and the second below −1; so c is timelike and in the cone of dt, which is past, and r c is past timelike. On
-0 < r < 1, f < 0, so f e g⁻¹(c, c) > 0, and 2(1 − e) g⁻¹(c, dr)² > 0. ∎
+and the second below −1; so c is timelike and in the cone of dt, which is past, and r c is past timelike. The third is
+positive at every r > 0. On 0 < r < 1, f < 0, so f e g⁻¹(c, c) > 0, and 2(1 − e) g⁻¹(c, dr)² > 0. ∎
 
 **Proposition {#prop:interior}** (The development reaches the curvature boundary inside the black hole.) Let the
 constants be as in [[thm:settling]], and take the inner radius of the stability theory to be
@@ -74,22 +74,24 @@ Then for λ ≤ λ1 the G-invariant vacuum development g of [[thm:settling]] (i)
 
 the whole coordinate region outside the curvature boundary x_K = 1 of the background after the shell, to the future of
 Σ^IVP, for all later times. Its data on Σ^IVP differ from those of g_(b₀) by at most Cλ in the norm of
-[[thm:iii-k-4-3]], and for every R′ and i, β there are C and T′ with
+[[thm:iii-k-4-3]], and for every R′ and i, β there are C and T_1 with
 
-    |(t_*∂_(t_*))^i ∂^β_x (g − g_(m′,0))| ≤ C t_*^(−2−ε)     on {q_end ≤ r ≤ R′, t_* ≥ T′},
+    |(t_*∂_(t_*))^i ∂^β_x (g − g_(m′,0))| ≤ C t_*^(−2−ε)     on {q_end ≤ r ≤ R′, t_* ≥ T_1},
 
 m′ and ε being those of [[thm:settling]]. This holds for every final mass μ_end; λ1, δ and the constants depend on
 r_♭, hence on μ_end. The part {r_♭ ≤ r < q_end} of the domain lies beyond the curvature boundary.
 
 *Proof.* *The inner radius.* r_♭ ∈ (0, ½R₁] since q_end ≤ R₁, and [[thm:settling-precise]] holds at every such
 inner radius, its choices depending on r_♭ ([[sec:vii-4]]); its g is the development of [[thm:settling]] (i). The
-stability theory it rests on is written at every r_♭ ∈ (0, ½R₁] ([[ch:s11]], [[def:s12-radii]], [[ch:s27]]). The
-radius enters it through choices of small constants that a smaller inner radius does not make harder, and through four
-facts at the inner radius, each of which holds at r_♭: the Kerr–Schild family is defined on {|x| ≥ ½r_♭}
-([[lem:s11-ks-domain]]); ψ ≥ 0, and dt_* and dt_IVP are timelike on {|x| ≥ r_♭} ([[lem:iii-b-3-7]]); dr is future
-timelike inside the horizon for g_(b₀), as shown above, and for b near b₀ uniformly on the compact
-{½r_♭ ≤ r ≤ ¾R₁}, by continuity in b; and the damping 1-form has the signs of [[prop:np-10-14]] (i)–(ii) on all of
-(0, r_h/2], which contains the collar down to ½r_♭ ([[lem:interior-damping]]). [[lem:vii-1-2]] takes δ′_0 in
+stability theory it rests on is written at every r_♭ ∈ (0, ½R₁] ([[ch:s11]], [[def:s12-radii]], [[ch:s14]],
+[[ch:s27]]), the inner radius r_♯ of [[sec:iv5-0]] being r_♭. The radius enters it through choices of small constants
+that a smaller inner radius does not make harder, and through four facts at the inner radius, each of which holds at
+r_♭: the Kerr–Schild family is defined on {|x| ≥ ½r_♭} ([[lem:s11-ks-domain]]); ψ ≥ 0, and dt_* and dt_IVP are
+timelike on {|x| ≥ r_♭} ([[lem:iii-b-3-7]]); dr is future timelike inside the horizon for g_(b₀), as shown above, and
+for b near b₀ uniformly on the compact {½r_♭ ≤ r ≤ ¾R₁}, by continuity in b ([[lem:iv5-0-3]] (c)); and the damping
+1-form has the signs of [[prop:np-10-14]] (i)–(ii) on all of (0, r_h/2], which contains the collar down to ½r_♭
+([[prop:np-10-14]], [[lem:interior-damping]]), and for b near b₀ on the compact {r_♭ ≤ r ≤ ½r_h}, by continuity in b,
+the inequalities being strict there ([[lem:iv5-0-5]]). [[lem:vii-1-2]] takes δ′_0 in
 (max(0, q0 − ½r_♭), q0), which is not empty, so that a′ = q0 − δ′_0 < ½r_♭; [[thm:main]] holds on such an Ω′.
 
 *The domain.* g is defined on Ω_* ∪ 𝒟_0 ([[thm:settling-precise]] (i)). This set is M ∩ {t_IVP ≥ 0}. Indeed,
@@ -99,7 +101,8 @@ t_IVP ≥ 0 implies t ≥ 0 ≥ −½|x|, so M ∩ {t_IVP ≥ 0} = {|x| ≥ r_�
 {r ≥ q_end, t_IVP ≥ 0}.
 
 *The data and the rate.* G-invariance, Ric(g) = 0 and the bound on the data are [[thm:settling-precise]] (i), and the
-rate is [[eq:vii-0-2]] with ε_t := ε, on {r_♭ ≤ r ≤ R′, t_* ≥ T′} ⊃ {q_end ≤ r ≤ R′, t_* ≥ T′}. ∎
+rate is [[eq:vii-0-2]] with ε_t := ε, its threshold time written T_1 here, on {r_♭ ≤ r ≤ R′, t_* ≥ T_1}, which
+contains {q_end ≤ r ≤ R′, t_* ≥ T_1}. ∎
 
 **Remark {#rem:interior-condition}** (At the inner radius ½R₁.) With the inner radius ½R₁ the development already
 covers {r ≥ q_end} exactly when q_end ≥ ½R₁, that is when

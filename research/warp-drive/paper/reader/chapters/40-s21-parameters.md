@@ -44,9 +44,9 @@ Re λ − 1 lie in [λ_♯ − 1, 1); they occur only for α_K > λ_♯ + 1 > 5/
 below 5/2 ([[prop:iii-i1-3-1]]). So the index set of the motions is fixed in advance and closed under the operations
 that occur ([[eq:iii-i8-1-1]]), the device u_Σ of [Hin26, (11.180)–(11.183)] and [Hin26, Remark 11.52] are not needed,
 and each level of the induction is a finite-dimensional map close to the identity. The zero energy analysis is that of
-[[prop:iii-i6-2-1]], with the improvement at the transition face iterated once α_K ≥ 2 + ε_g (ε_g of
-[[sec:iii-i7-1]]), as in [Hin26, Step 1.6 of the proof of Proposition 11.51]. The gauge modifications use the generalised gauge 1-forms to order 4 of
-[[prop:iii-d3-3-1]], so that they decay to K⁺-order Re λ + 4.
+[[prop:iii-i6-2-1]], with the improvement at the transition face iterated once α_K ≥ 2 + ε_g (ε_g of [[sec:iii-i7-1]]),
+as in [Hin26, Step 1.6 of the proof of Proposition 11.51]. The gauge modifications use the generalised gauge 1-forms to
+order 4 of [[prop:iii-d3-3-1]], so that they decay to K⁺-order Re λ + 4.
 
 For the pure gauge terms, the exponent 1 does not occur at ι⁺, so the logarithmic time reparametrisation of
 [Hin26, (11.191)] and the exceptional parameters of [Hin26, (11.192)] do not arise. The rows of the table of roots of
@@ -870,8 +870,9 @@ With D_(g′)Ric ∈ ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, δ*_(g_0,E_C) �
 With ν := (s1, λ, k) we write m^(b₀)_ν(S) := χ_K δ*_(g_(b₀)) ω^(≤4)(a_(λ,k)S), h^(b₀)_ν := h^((λ−1,k))_s1 and
 ϑ^(b₀)_(ν,♯) := ϑ^((λ−1,k))_(s1,♯) for the tensors of [[def:iii-i8-2-1]] built at b₀; so
 ϑ^(b₀)_(ν,♯) = δ_(g_(b₀),E_Υ)G_(g_(b₀))(m^(b₀)_ν − h^(b₀)_ν) involves the row built at b₀, not m_(λ,k), and these are
-the tensors in P_3 at every base point. [[lem:iii-i8-2-2]] holds for these rows at b with the same proof, h_b(S) in place of h(S) in [[eq:iii-i8-2-2]]: the
-1-forms at b satisfy the tower relations [[eq:iii-d3-1-3]] at b and have the same index sets ((P3)). [[lem:iii-i8-2-5]]
+the tensors in P_3 at every base point. [[lem:iii-i8-2-2]] holds for these rows at b with the same proof, h_b(S) in
+place of h(S) in [[eq:iii-i8-2-2]]: the 1-forms at b satisfy the tower relations [[eq:iii-d3-1-3]] at b and have the
+same index sets ((P3)). [[lem:iii-i8-2-5]]
 and [[lem:iii-i8-2-6]] hold at b as stated. The pairs (s1, λ, k), (λ, k) ∈ ℳ, are rows of the set 𝒩 of
 [[sec:iii-i9-1]] ([[def:iii-i9-2-1]] gives the same tensors), and [[lem:iii-i8-2-4]] takes the following form.
 
@@ -1098,7 +1099,8 @@ gain a_K, both backgrounds being g_b there ([[lem:iii-i-3-6]]); so the count of 
 𝒴(α). u_j − u lies in the space of the hypothesis of [[lem:iii-i8-3-2]], so that lemma applies to it, at (0, p⃗_b) with
 the forcing R_j. Comparing the expansions [[eq:iii-i8-3-1]] of u_j, u and u_j − u (their coefficients are unique, the
 functions t_*^(−λ+1)(log t_*)^k being independent and h_b injective, as in Step 7 of that proof) gives
-S^(h_j,p⃗_j)_(λ,k)(F_j) − S^(0,p⃗_b)_(λ,k)(F) = S^(0,p⃗_b)_(λ,k)(R_j), and the bound of [[lem:iii-i8-3-2]] at (0, p⃗_b) gives
+S^(h_j,p⃗_j)_(λ,k)(F_j) − S^(0,p⃗_b)_(λ,k)(F) = S^(0,p⃗_b)_(λ,k)(R_j), and the bound of [[lem:iii-i8-3-2]] at (0, p⃗_b)
+gives
 
     |S^(0,p⃗_b)_(λ,k)(R_j)| ≤ C‖R_j‖_(𝒴(α)) + C|p⃗_b|‖u_j − u‖_(α′),
 
@@ -1498,8 +1500,9 @@ L_(h,p⃗).
 *At a base point with parameter b.* The rows and towers are built at b ([[lem:iii-i15-1-1]] (P6)): there
 m_ν(W) := χ_K δ*_(g_b)ω^b_ν(W), with ω^b_ν(W) := Σ_(i=0)^(K_τ) a_ν^((i))(t_*)ω̆^i_(τ,b)(W) built as in
 [[def:iii-i9-2-1]] from the 1-forms ω̆^i_(τ,b)(W) of [[prop:iii-d3-3-1]] at b, while the corrections and the
-counterterms in P_4 stay those built at b₀. We write ω^(b₀)_ν := ω_ν, m^(b₀)_ν, h^(b₀)_ν, ϑ^(b₀)_ν and ϑ^(b₀)_(ν,♯) for the
-tensors of [[def:iii-i9-2-1]] built at b₀; so ϑ^(b₀)_ν = δ_(g_(b₀),E_Υ)G_(g_(b₀))m^(b₀)_ν involves the row built at b₀,
+counterterms in P_4 stay those built at b₀. We write ω^(b₀)_ν := ω_ν, m^(b₀)_ν, h^(b₀)_ν, ϑ^(b₀)_ν and ϑ^(b₀)_(ν,♯) for
+the tensors of [[def:iii-i9-2-1]] built at b₀; so ϑ^(b₀)_ν = δ_(g_(b₀),E_Υ)G_(g_(b₀))m^(b₀)_ν involves the row built at
+b₀,
 not m_ν, and h^(b₀)_ν, ϑ^(b₀)_(ν,♯) are the h_ν, ϑ_(ν,♯) of P_4 at every base point, which is how h_ν, ϑ_ν and ϑ_(ν,♯)
 are read in (a), (b) and (d) of [[lem:iii-i9-2-6]]. [[lem:iii-i9-2-2]] holds at b for the tensors built at b, with
 the same proof ((P3); (P5) for the s0 rows, whose gauge 1-form is Killing for every g_b; (f) by [[lem:iii-i15-1-2]]);
@@ -1542,7 +1545,7 @@ In particular, for h ∈ 𝒳^∞, r^ν_(h,p⃗)(W) ∈ 𝒴_2(α), each seminor
 
     f^ν_(h,p⃗)(W) = L_(h,p⃗)m_ν(W) + r^ν_(h,p⃗)(W) + E^ν_(h,p⃗)(W),
     r^ν_(h,p⃗)(W) := −(L_(h,p⃗) − L_b)ζ^b_ν(W) + (δ*_(g_0,E_C) − δ*_(g_b,E_C))ϑ^b_(ν,♯)(W),
-    E^ν_(h,p⃗)(W) := L_(h,p⃗)(h^(b₀)_ν − h^b_ν)(W) + δ*_(g_0,E_C)(ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯))(W),         {#eq:s21-rows-at-b}
+    E^ν_(h,p⃗)(W) := L_(h,p⃗)(h^(b₀)_ν − h^b_ν)(W) + δ*_(g_0,E_C)(ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯))(W),     {#eq:s21-rows-at-b}
 
 which is the identity [[eq:iii-i15-1-1]]. r^ν_(h,p⃗)(W) is supported in supp χ_K and lies in the class
 [[eq:iii-i9-2-5]], with norm ≤ C_ε|W|(‖h‖_(𝒳^k) + |p⃗|) uniformly on ℬ̄_*; so it lies in 𝒴_2(α) for h ∈ 𝒳^∞, as in (c),
@@ -1616,8 +1619,9 @@ Re e_ν + a_K ≥ λ_♯ − 1 + 4 + ε_K > α by (H2) (e_ν ≥ λ − 1); so r
 (d) Linearity is clear from [[eq:iii-i9-2-3]]; continuity as in [[lem:iii-i7-3-1]] (c), g′ and g_0 depending smoothly
 on (h, p⃗) ([[lem:iii-i7-1-3]] (a), [[lem:iii-i9-2-5]]); the values at (0, 0) are [[lem:iii-i9-2-4]].
 
-(e) *The identity.* The first line of the proof of (c), f^ν = L_(h,p⃗)h^(b₀)_ν + δ*_(g_0,E_C)ϑ^(b₀)_(ν,♯) (the tensors of
-P_4 being those built at b₀), uses only [[eq:iii-i9-2-6]] and L_(h,p⃗) = L^(g′,g_0), and holds at every base point; adding and subtracting the tensors built at
+(e) *The identity.* The first line of the proof of (c), f^ν = L_(h,p⃗)h^(b₀)_ν + δ*_(g_0,E_C)ϑ^(b₀)_(ν,♯) (the tensors
+of P_4 being those built at b₀), uses only [[eq:iii-i9-2-6]] and L_(h,p⃗) = L^(g′,g_0), and holds at every base point;
+adding and subtracting the tensors built at
 b, f^ν = L_(h,p⃗)h^b_ν + δ*_(g_0,E_C)ϑ^b_(ν,♯) + E^ν. By [[eq:s21-conv]] at g_b, h^b_ν = m_ν − ζ^b_ν, and the display of
 the proof of (c), at g_b, which is Ricci flat, gives L_bζ^b_ν = δ*_(g_b,E_C)ϑ^b_(ν,♯). Writing
 L_(h,p⃗)ζ^b_ν = L_bζ^b_ν + (L_(h,p⃗) − L_b)ζ^b_ν gives [[eq:s21-rows-at-b]], as in the proof of

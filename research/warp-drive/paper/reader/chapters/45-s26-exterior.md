@@ -814,8 +814,8 @@ with χ_I := χ̂(ρ_I), χ̂ ∈ C_c^∞([0, c/2)) equal to 1 on [0, c/4], c th
 only over Ω_c := Ω⁺ ∩ {ρ_I < c}; another such χ̂ gives an equivalent norm), u^((0)) a function of (ρ₀, ω) extended to be
 constant in ρ_I, and the norm the sum of the norms. Here ℐ⁺_c is the image of Ω_c under (ρ₀, ρ_I, ω) ↦ (ρ₀, ω), a
 domain in ℐ⁺ containing ℐ⁺ ∩ Ω̄_c and in general larger: an integral curve of X_I near Σ_(fut,r₀) leaves Ω⁺ through
-Σ_(fut,r₀) before it reaches ℐ⁺. The radiation field of π̸₀ġ is ρ₀^(3/2)u^((0)), the coefficient of ρ_I^(3/2). Away from U the classes impose only
-H^k.
+Σ_(fut,r₀) before it reaches ℐ⁺. The radiation field of π̸₀ġ is ρ₀^(3/2)u^((0)), the coefficient of ρ_I^(3/2).
+Away from U the classes impose only H^k.
 
 *The operator.* Let g₀ ∈ 𝒢 ([[def:iii-c-3-4]]) with Ric(g₀) = 0 and g₀ − g_(b₀) small in the sense of the pointwise
 bounds of the proof of [[lem:iii-c1-1-1]], or g₀ = g_(b₀); let h ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) and
@@ -844,7 +844,7 @@ which is empty where r < r₀; Ω_(ext,r₀) ⊂ U ∩ {|x| ≥ r₀} (the proof
 
 This section gives the integrations of [Hin23a, Theorem 3.35] along the integral curves of X_I and of X₀ − X_I.
 
-**Lemma {#lem:iv2-1-1}** (The curves.) Let c ∈ (0, ½] and r₀ ≥ max(R₀, 4|C″| + 4).
+**Lemma {#lem:iv2-1-1}** (The curves.) Let c ∈ (0, ½] and r₀ ≥ R₀ (so r₀ ≥ 4|C″| + 4).
 
 (a) {ρ_I = c} ∩ U = {t = (1 − c)|x| + 2} is spacelike for g_(b₀) near infinity, and {ρ_I < c} lies to its future.
 Ω⁻ ⊂ {ρ_I ≥ ½}.
@@ -873,7 +873,8 @@ and let w ∈ H^(m,(a₀,2γ))_b(Ω_c) vanish on {ρ_I > c/2}. Let v on Ω_c van
 
 (a) If (X_I − d)v = w with d > γ, then ‖v‖_(H^(m,(a₀,2γ))_b) ≤ (d − γ)⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
 
-(b) If X_Iv = w and γ > 0, then v = v^((0)) + ṽ with v^((0)) a function of (ρ₀, ω), and
+(b) If X_Iv = w and γ > 0, then v = v^((0)) + ṽ with v^((0)) a function of (ρ₀, ω) on ℐ⁺_c, the image of Ω_c under
+(ρ₀, ρ_I, ω) ↦ (ρ₀, ω) (as after [[eq:iv2-0-3]]), and
 
     ‖v^((0))‖_(H^(m,a₀)_b(ℐ⁺_c)) ≤ (2γ)^(−1/2)c^γ‖w‖_(H^(m,(a₀,2γ))_b),
     ‖ṽ‖_(H^(m,(a₀,2γ))_b) ≤ γ⁻¹‖w‖_(H^(m,(a₀,2γ))_b).

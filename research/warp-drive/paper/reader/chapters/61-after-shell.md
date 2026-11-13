@@ -491,28 +491,38 @@ The rest is the inverse function theorem. ∎
 So, by [[lem:vii-0-1]], whose proof applies at every order, a smooth vacuum data set on Σ that agrees for r large with
 the data (g̃_p, K̃_p) of a nearby translated, rotated and boosted Myers–Perry metric differs from (γ_λ, k_λ) by an
 element of the class: the class contains these data on Hintz's own surface. On the slices {y⁰ = 0} of [[def:v-2-1]]
-these data lie in the class too, as g_p − δ ∈ ρ²C^∞ and K_p ∈ ρ³C^∞ far out by (a) and (d), but not near
+these data lie in the class too, as g_p − δ ∈ ρ²C^∞ and K_p ∈ ρ³C^∞ far out by (a) and (d) (∇²f ∈ ρ³C^∞), but not near
 (γ_λ, k_λ): by (d), already at p_λ the second fundamental form differs from k^(m_λ) by a fixed term of order r⁻³, of size μ_end, so the members of
 [[def:v-2-1]] are at a distance from (γ_λ, k_λ), in the norm of the class, that no smallness of a perturbation removes.
 This is why the gluing below takes its family on Σ, as [[prop:vii-2-2]] does in the class. That the mass and the boost
 are fixed by the energy and momentum alone (c) is what makes the coefficient of ρ² of the glued data decay with R when
 a > 2 ([[eq:after-shell-params]] below).
 
-**Lemma {#lem:after-shell-charges}** (Charges.) (a) For data z_i = (δ + h_i, K_i), i = 1, 2, with |h_i| ≤ 1/2, put
-m(z) := Σ_(|β|≤2) r^(|β|) |∂^β h| + Σ_(|β|≤1) r^(1+|β|) |∂^β K|. If m(z_1), m(z_2) ≤ 1, then
+**Lemma {#lem:after-shell-charges}** (Charges.) (a) For a pair (h, K) of symmetric 2-tensors put
+𝔪(h, K) := Σ_(|β|≤2) r^(|β|) |∂^β h| + Σ_(|β|≤1) r^(1+|β|) |∂^β K|. For data z_i = (δ + h_i, K_i), i = 1, 2, write
+𝔪(z_i) := 𝔪(h_i, K_i) and z_1 − z_2 := (h_1 − h_2, K_1 − K_2). If |h_i| ≤ 1/2 and 𝔪(z_i) ≤ 1 for i = 1, 2, then
 
-    |q_X(z_1) − q_X(z_2)| ≤ C (1 + r)^(d(X)) r⁻² (m(z_1) + m(z_2)) m(z_1 − z_2).               {#eq:after-shell-bilinear}
+    |q_X(z_1) − q_X(z_2)| ≤ C (1 + r)^(d(X)) r⁻² (𝔪(z_1) + 𝔪(z_2)) 𝔪(z_1 − z_2).               {#eq:after-shell-bilinear}
 
 (b) For a perturbation of order a and size Ξ, with Δ𝔔_X := 𝔔_X(γ, k) − 𝔮̃_X(p_λ): Δ𝔔_X = 0 if a > 2 + d(X), and
 |Δ𝔔_X| ≤ C_1′ Ξ in every case.
 
 *Proof.* (a) By the proof of [[lem:v-1-2]], q_X is linear in (N, Y), with |N| + |Y| ≤ C(1 + r)^(d(X)). The scalar
 curvature is g⁻¹g⁻¹∂²h + g⁻¹g⁻¹g⁻¹ ∂h ∂h, the K-terms of ρ are quadratic in K with coefficients smooth in h, J is
-g⁻¹∂K + g⁻¹g⁻¹ ∂h K, and (det g)^(1/2) is smooth in h. Subtracting the linear part, q_X is a sum of terms c(h)·P, where
-either P is quadratic, one of ∂h ∂h, ∂h K, K K, or P is linear, ∂²h or ∂K, and then c(0) = 0. Telescoping each product
-and applying the mean value theorem to the coefficients c, each term of the difference is at most C r⁻² times
-m(z_1 − z_2) and a factor m(z_1) or m(z_2), with the bound m(z_i) ≤ 1 absorbing the cubic terms of the coefficients'
-differences; this is [[eq:after-shell-bilinear]].
+g⁻¹∂K + g⁻¹g⁻¹ ∂h K, and (det g)^(1/2) is smooth in h, where g⁻¹ is a smooth function of h on {|h| ≤ 1/2}.
+Subtracting the linear part, q_X is a sum of terms c(h)·P, the factor N or Y included in c, with c smooth on
+{|h| ≤ 1/2} and of size at most C(1 + r)^(d(X)) with its h-derivative, where either P is quadratic, one of ∂h ∂h,
+∂h K, K K, or P is linear, ∂²h or ∂K, and then c(0) = 0. By the definition of 𝔪, |∂h|, |K| ≤ r⁻¹𝔪 and
+|∂²h|, |∂K| ≤ r⁻²𝔪. So a quadratic P has |P(z_1)| ≤ r⁻² 𝔪(z_1)² and, being bilinear,
+|P(z_1) − P(z_2)| ≤ r⁻² (𝔪(z_1) + 𝔪(z_2)) 𝔪(z_1 − z_2); a linear P has |P(z_1)| ≤ r⁻² 𝔪(z_1) and
+|P(z_1) − P(z_2)| ≤ r⁻² 𝔪(z_1 − z_2). The mean value theorem on the convex set {|h| ≤ 1/2} gives
+|c(h_1) − c(h_2)| ≤ C(1 + r)^(d(X)) |h_1 − h_2| ≤ C(1 + r)^(d(X)) 𝔪(z_1 − z_2), and |c(h_2)| ≤ C(1 + r)^(d(X)), or
+|c(h_2)| ≤ C(1 + r)^(d(X)) |h_2| ≤ C(1 + r)^(d(X)) 𝔪(z_2) when c(0) = 0. Now
+c(h_1)P(z_1) − c(h_2)P(z_2) = (c(h_1) − c(h_2)) P(z_1) + c(h_2)(P(z_1) − P(z_2)). For a quadratic P the first term is
+at most C(1 + r)^(d(X)) r⁻² 𝔪(z_1 − z_2) 𝔪(z_1)², which is at most C(1 + r)^(d(X)) r⁻² 𝔪(z_1 − z_2) 𝔪(z_1) as
+𝔪(z_1) ≤ 1, and the second at most C(1 + r)^(d(X)) r⁻² (𝔪(z_1) + 𝔪(z_2)) 𝔪(z_1 − z_2). For a linear P the two terms
+are at most C(1 + r)^(d(X)) r⁻² 𝔪(z_1 − z_2) 𝔪(z_1) and C(1 + r)^(d(X)) r⁻² 𝔪(z_2) 𝔪(z_1 − z_2). Summing over the
+finitely many terms gives [[eq:after-shell-bilinear]].
 
 (b) 𝔔_X(γ, k) exists by [[prop:v-1-3]] with α = min(a, 2) > 3/2: (γ_λ, k_λ) = (γ^(m_λ), k^(m_λ)) far out
 ([[lem:vii-2-1]] (a)), and (h, κ) satisfies [[eq:after-shell-order]]. Also 𝔮̃_X(p_λ) = 𝔔_X(γ_λ, k_λ), the two data sets
