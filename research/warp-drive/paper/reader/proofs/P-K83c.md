@@ -113,10 +113,10 @@ condition and (3):
 
 In (iii), by [[eq:class-identity]], |∇²u_in|² = S_loc := (Θ − κ1 − κ2)² + κ1² + κ2² off the axes, and by
 [[eq:class-x]] and continuity ([[prop:class-axis]] (d)), |∇²u_in|² = S_ax := κ1² + ½(Θ − κ1)² + ½σ² near axis 2,
-where σ is the planar shear of the level sets of u_in in the slices {t = s}. Fix δ := 1/2, so that
-[[lem:class-leaf-differences]] holds near every point of axis 2 with 3.3 ≤ ρ1 ≤ 6 (δ ≤ ρ1/4 there), with balls 𝔅, 𝔅′
-and a constant C common to finitely many such points, and let χ_Z be a G-invariant function of ρ2 equal to 1 for
-ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then |∇²u_in|² = χ_Z S_ax + (1 − χ_Z) S_loc on 𝒟. Where χ_Z ≠ 1, S_loc is a smooth
+where σ is the planar shear of the level sets of u_in in the slices {t = s}. Fix δ := 1/2 and the points p_i of axis 2
+in a slice with ρ1(p_i) = 3.4, 3.8, …, 5.8; then δ ≤ ρ1(p_i)/4, and [[lem:class-leaf-differences]], for the background
+and the ingoing family, holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
+0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then |∇²u_in|² = χ_Z S_ax + (1 − χ_Z) S_loc on 𝒟. Where χ_Z ≠ 1, S_loc is a smooth
 function of (g, ∂g, p, Θ), since there g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of
 [[prop:class-augmented]] (a)); where χ_Z ≠ 0, S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near
 axis 2.
@@ -126,12 +126,8 @@ proof of [[thm:class-stability-off-axes]], in the chart (t, x), with the differe
 in Step 4 there, ½(g^(ab) − g0^(ab)) ∂_a ∂_b g0, and (ii)–(iv) as transports along P. Subtracting the background's
 equations from the development's gives on 𝒟 a linear system 𝐀^0 ∂_t 𝔡 + 𝐀^j ∂_j 𝔡 = F_𝔡, with 𝐀^0 = diag(1, −g^(tt),
 g^(ab)) on the wave block and P^t on the transports, 𝐀^j its other matrices, all symmetric and evaluated at the
-development, and
-
-    |F_𝔡| ≤ C |𝔡| + C χ_Z |σ − σ̊|,
-
-σ̊ the background's, C bounding the derivatives of the smooth functions concerned on the compact 𝒟, where both
-solutions are smooth. On 𝒟, dt is timelike and ∂_t future timelike for g; so −g^(tt) > 0, g^(ab), the restriction of
+development, and with F_𝔡 bounded at every point of 𝒟 by C |𝔡| + C χ_Z |σ − σ̊|, σ̊ the background's: C bounds the
+derivatives of the smooth functions concerned on the compact 𝒟, where both solutions are smooth. On 𝒟, dt is timelike and ∂_t future timelike for g; so −g^(tt) > 0, g^(ab), the restriction of
 g⁻¹ to the covectors vanishing on ∂_t, is positive definite, P^t = dt(P) > 0, and 𝐀^0 ≥ c0 I with c0 > 0.
 
 (5) *𝔡 vanishes on 𝒟 ∩ Σ′.* The development's datum on Σ′ is built at each point from the constraint data, the
@@ -150,8 +146,8 @@ of that set, which contains 𝒟 ∩ Σ′.
 function V(R) := τ0 + (1 − s)φ(R) + sδ1 + R with 0.997 ≤ V′ ≤ 1.003 and |V″| ≤ 0.01, so ∂_z v̂ = V′z/R ≥ 0.98 and
 ∂_r² v̂ = V″r²/R² + V′z²/R³ ≤ 0.31 for r ≤ 1/2; v_in differs from v̂ by Cε in C². So, near the axis, the level set
 {v_in = v_in(y)} of the slice meets M3 in a graph z = h(r), 0 ≤ r ≤ 1/4. As v_in is invariant, ∂_r v_in vanishes at
-r = 0, so |h′(r)| = |∂_r v_in/∂_z v_in| ≤ r sup |∂_r² v_in|/0.97 ≤ r. Then tan ϑ = r/h(r) has the derivative (h −
-rh′)/h² > 0, since rh′ ≤ r² < h. So along the leaf from the axis to y, ϑ increases and v_in is constant: the arc
+r = 0, so |h′(r)| = |∂_r v_in/∂_z v_in| ≤ r sup |∂_r² v_in|/0.97 ≤ r. Then tan ϑ = r/h(r) has the derivative
+(h − rh′)/h² > 0, since rh′ ≤ r² < h. So along the leaf from the axis to y, ϑ increases and v_in is constant: the arc
 {(h(r), r) : 0 ≤ r ≤ ρ2(y)}, with its images under G, lies in 𝒟_s.
 
 *An extension.* The map Φ_s(x) := (v_in(s, x), x/|x|) is a G-equivariant diffeomorphism of a neighbourhood of 𝒟_s onto
@@ -160,24 +156,27 @@ affine map of [c_a, c_b] onto [c_a + λs, c_b − λs], and m_s the flow on S³,
 field equal to −∂_ϑ on {α′ − W t1 ≤ ϑ ≤ α′} and to 0 near the axes. Then ψ_s := Φ_s⁻¹ ∘ (A_s × m_s) ∘ Φ_0 is a
 G-equivariant diffeomorphism near 𝒟_0, C¹-close to the identity, with ψ_s(𝒟_0) = 𝒟_s, whose derivatives of order at
 most k − 1, and those of its inverse, are bounded independently of s and of ε by the bound on v_in − v̂; we extend it
-to a diffeomorphism of R⁴ equal to the identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a bounded Lipschitz domain of the x-space.
-Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the average over G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By
-[[thm:std-sy-extension]] and [[thm:std-ly-extension]] (Lemma 27 there), 𝔼_s is bounded on L² and on H^(k−1), with a
-bound C_E depending on α but not on s or ε; and 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.
+to a diffeomorphism of R⁴ equal to the identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a
+bounded Lipschitz domain of the x-space. Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the
+average over G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By [[thm:std-sy-extension]] and [[thm:std-ly-extension]] (Lemma 27 there),
+𝔼_s is bounded on L² and on H^(k−1), with a bound C_E depending on α but not on s or ε; and 𝔼_s f = f on 𝒟_s for
+invariant f, 𝒟_s being invariant.
 
-*The bound.* Let U be the development's state (g, ∂g, p, Θ, q) on the slice, with Θ = □_g u_in, ů the background's,
-and Ŭ := ů + 𝔼_s 𝔡(s). Then Ŭ = U on 𝒟_s, and the distance of Ŭ from ů in the norm 𝒩_(k−1) is at most
-C_E ‖𝔡(s)‖_(H^(k−1)(𝒟_s)) ≤ C_E C ε; so Ŭ lies in the ball 𝔅′ of [[lem:class-leaf-differences]] for ε small,
-depending also on α, and so does U. By the last sentence of [[lem:class-leaf-differences]], the leaves of U are the level sets of u_in, so
-σ[U] = σ, and likewise σ[ů] = σ̊. Let y ∈ 𝒟_s with ρ2(y) ≤ 1/4 and let h be the leaf of U through y, issued from the
-axis point (h(0), 0). On [0, ρ2(y)], [[eq:class-leaf-volterra]] for U uses U only along the arc of h, where Ŭ = U
-together with ∂g; so h solves it for Ŭ there, and by the uniqueness in [[lem:class-volterra]] the leaf of Ŭ issued from
-(h(0), 0) is h on [0, ρ2(y)]: it is the leaf of Ŭ through y. The planar shear at y is determined by h and h′ at ρ2(y),
-by H_L there (which fixes h″ through the leaf equation) and by the 1-jet of γ3 at y, all the same for Ŭ and U; so
-σ[Ŭ](y) = σ(y). Cover {ρ2 ≤ 1/4} ∩ 𝒟_s by the sets 𝒰_δ(p_i) of finitely many points p_i of axis 2 with 3.3 ≤ ρ1(p_i)
-≤ 6. Then [[lem:class-leaf-differences]] (b) gives
+*The bound.* Let U be the development's state (g, ∂g, p, Θ, q) on 𝒟_s, with Θ = □_g u_in, ů the background's state on
+the slice, which the background defines on the sets 𝒰_2δ(p_i) as well, and Ŭ := ů + 𝔼_s 𝔡(s). Then Ŭ = U on 𝒟_s, and
+the distance of Ŭ from ů in the norm 𝒩_(k−1) is at most C_E ‖𝔡(s)‖_(H^(k−1)(𝒟_s)) ≤ C_E C ε; so Ŭ lies in the ball 𝔅′
+of [[lem:class-leaf-differences]] for ε small, depending also on α. Let y ∈ 𝒟_s with ρ2(y) ≤ 1/4 and let h be the
+level set of u_in through y found above, issued from the axis point (h(0), 0). As Θ = □_g u_in, H_L[Θ] is the mean
+curvature of the leaf (step (1) of the proof of [[lem:class-planar-shear]]), so h solves [[eq:class-leaf-volterra]]
+for U on [0, ρ2(y)] ([[lem:class-leaf]] (c)). That equation uses U only along the arc of h, where Ŭ = U together with
+∂g; so h solves it for Ŭ, and by the uniqueness in [[lem:class-volterra]] the leaf of Ŭ issued from (h(0), 0) is h on
+[0, ρ2(y)]: it is the leaf of Ŭ through y. The planar shear at y is determined by h and h′ at ρ2(y), by H_L there,
+which fixes h″ through the leaf equation, and by the values of Ŭ = U and the 1-jet of γ3 at y
+([[eq:class-shear-leaf]]); so σ[Ŭ](y) = σ(y), and likewise σ[ů] = σ̊. The sets 𝒰_δ(p_i) cover {ρ2 ≤ 1/4} ∩ 𝒟_s, where
+3.39 ≤ ρ1 ≤ 5.86, and [[lem:class-leaf-differences]] (b) gives
 
-    ‖χ_Z (σ − σ̊)‖_(L²(𝒟_s)) ≤ Σ_i ‖σ[Ŭ] − σ[ů]‖_(L²(𝒰_δ(p_i))) ≤ C Σ_i ‖Ŭ − ů‖_(L²(𝒰_2δ(p_i))) ≤ C C_E ‖𝔡(s)‖_(L²(𝒟_s)),
+    ‖χ_Z (σ − σ̊)‖_(L²(𝒟_s)) ≤ Σ_i ‖σ[Ŭ] − σ[ů]‖_(L²(𝒰_δ(p_i))) ≤ C Σ_i ‖Ŭ − ů‖_(L²(𝒰_2δ(p_i)))
+                              ≤ C C_E ‖𝔡(s)‖_(L²(𝒟_s)),
 
 which is [[eq:loc-lens-shear]].
 
