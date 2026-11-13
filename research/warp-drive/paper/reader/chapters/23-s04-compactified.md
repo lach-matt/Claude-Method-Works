@@ -518,8 +518,8 @@ uniformly; then R := I − QB has principal symbol 0 at order 0, so it has order
 finite order suffices.) Then A = Σ_j AQV_(0,j)^* w_jV_j + ARV_0, and A_j := AQV_(0,j)^* w_j ∈ C^∞_b Ψ^(𝗌−1)_e3b,
 A_0 := AR ∈ C^∞_b Ψ^(𝗌−1)_e3b. For the last statement, truncate Q to range ϵ ([[sec:ii-a-8-3]], by (S15)). This
 changes Q by a residual operator of the subalgebra of (S10), which goes into R, and R = I − QB then has kernel range
-at most ϵ, B being a differential operator. Kernel supports add under composition, so the kernel ranges of the A_j, j ≥ 1, and of
-A_0 = AR are at most that of A plus ϵ. ∎
+at most ϵ, B being a differential operator. Kernel supports add under composition, so the kernel ranges of the A_j,
+j ≥ 1, and of A_0 = AR are at most that of A plus ϵ. ∎
 
 Passing to the secondary structure (subdividing the cells into ρ-cuboids) gives the larger classes
 Ψ̃_e3b = C^∞_e3b Ψ_e3b with e3b-regular coefficients ((S13): Ψ_𝒱 ⊂ Ψ_(𝒱′)), still bounded on the same
@@ -925,8 +925,8 @@ does not combine them. (This is how the tame estimates are used: an operator arr
 supported within a finite d_ℬ-distance of the diagonal. Here d_ℬ is the metric of (S15) ([Hin26d, Proposition 2.3,
 p. 19]): d_ℬ(p, q) is the infimum of the lengths L(γ, T, I) of the chains from p to q, that is, of piecewise smooth
 curves cut into pieces each of which lies in one chart of ℬ, L being the sum of the Euclidean lengths of the pieces in
-their charts [Hin26d, (2.5)]. Being localized near the diagonal is a property an operator of the calculus may or may not have, and
-residual operators need not have it [Hin26d, Remark 3.48]. Here the operators of 𝒫 and all auxiliary operators are
+their charts [Hin26d, (2.5)]. Being localized near the diagonal is a property an operator of the calculus may or may
+not have, and residual operators need not have it [Hin26d, Remark 3.48]. Here the operators of 𝒫 and all auxiliary operators are
 taken localized near the diagonal. The *kernel range* of such an operator is the supremum of d_ℬ(p, q) over the
 support of its Schwartz kernel. Quantizations are localized near the diagonal, by the cut-off ψ(x − x′) of [Hin26d,
 (3.26)] and the chart cut-offs of [Hin26d, Definition 3.31]. Their kernel ranges may be made as small as we please:
@@ -2057,8 +2057,8 @@ neighbourhood of γ_α([0, t′_α]). [[prop:ii-a1-5-3]] with ς = 1 gives B_α 
 particular near α, and G_α microsupported in a neighbourhood inside Ell(G). It also gives
 ‖B_αu‖_𝗌 ≤ C(‖G_αLu‖_(𝗌−m+1) + ‖Eu‖_𝗌 + ‖χu‖_(−N)), and ‖G_αLu‖ ≤ C(‖GLu‖ + ‖χ_*Lu‖_(−N−m)) ≤ C(‖GLu‖ + ‖χu‖_(−N)),
 with χ_* of (R2) of [[sec:ii-a-8-3]] for B, E and G, by [[lem:ii-a-8-4]] (c) and [[lem:ii-a-8-6]] (a); here G_α is
-taken as an auxiliary operator of (R1) for B, E and G, so that G_αχ_* = G_α. For α ∈ WF′(B) ∖ Char(L), [[thm:ii-a1-3-1]] gives any B_α ∈ C^∞_b Ψ⁰_e3b elliptic near α and
-microsupported in Ell(G) ∩ Ell(L) with ‖B_αu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)). By compactness of WF′(B), finitely many
+taken as an auxiliary operator of (R1) for B, E and G, so that G_αχ_* = G_α. For α ∈ WF′(B) ∖ Char(L),
+[[thm:ii-a1-3-1]] gives any B_α ∈ C^∞_b Ψ⁰_e3b elliptic near α and microsupported in Ell(G) ∩ Ell(L) with ‖B_αu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)). By compactness of WF′(B), finitely many
 B_(α_i) are jointly elliptic on it: Σ_i B_(α_i)^* B_(α_i) ∈ C^∞_b Ψ⁰_e3b is elliptic of order 0 there, the B_(α_i)
 being smooth, as [[lem:ii-a-8-4]] (c) requires. The elliptic estimate ([[lem:ii-a-8-4]] (c), or [[thm:ii-a1-3-1]])
 bounds ‖Bu‖_𝗌 by C Σ_i ‖B_(α_i)u‖_𝗌 + C‖χu‖_(−N). The strong sense and the uniformity are those of

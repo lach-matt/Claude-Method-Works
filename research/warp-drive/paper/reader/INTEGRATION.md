@@ -1026,3 +1026,28 @@ Items found while chapters were written in parallel; each is settled once, editi
   W and g clashes gone; 18 running-text lines with forbidden starts rewrapped (pandoc renders "> 1.4·10⁴⁰" and
   "replaces 2 + 4γ_Cv_C" correctly); crosswalk notes np-10-54, np-10-14, np-10-52, np-10-31 updated. Contingent on the
   S11 fourth reading confirming (E3).
+- R-P-I (cut-off repair): core confirmed (expansion, recursion, degree and weight lemmas, jets, r⁻⁴/r⁻⁵ uniformly in
+  T, cap C(λ, J)|T|^(2a−6), J-independence); Major: lem:own-exterior has no proof for the matched data (e(T) ≍ ϱ⁻⁴,
+  dyadic sum diverges for a ∈ (2, 3); Z, Ω slots unbounded). F-P-I writes the fixed-T exterior lemma and integrates
+  the repair into chapter 63 (proofs/P-I-cutoff.md then deleted); P-G-far (ii) C(λ, J), (v) a < 3,
+  rem:far-window-sigma4 rewritten.
+- R-82: 2 Major (non-radial labels: λ-scaled lem:linear-evolution; radial dusts with T_V ≠ 0 on a non-round
+  background, polarisation at the axes; the source has both gaps), 12 minor, 10 nits; F-82 running, told to prove
+  both; packet hypothesis for cor:vlasov-two-dust forwarded from R-81.
+- F-P-D234 done (report reports/F-P-D234.md); R2-P-D234 running.
+- F-80 done; diff against scratchpad/f80/80-orig.md. Nit 12 narrowed "not Vaidya on Q×" to R_v > 0 (R2-80 asked to
+  prove the wider claim or confirm the narrowing suffices). INTEGRATION: chapter 83 and the P-E proofs should cite
+  lem:two-dust-reparametrisation; chapter 82:651 (F1) → (L1) is in F-82.
+- R2-65 CONFIRMED; its three nits applied (the large weight is 𝔪). Its chapter 66 items went to F-66.
+- R4-S11 CONFIRMED (S11, S12; S14's contingency discharged). INTEGRATION: cite (E3) at 32-s13:1862 (with Π),
+  check 33-s14:2465-2471, 36-s17:1621 (must), 36-s17:1307 and 43-s24:640 (should); [Hin26d, Remark 3.15] has no
+  Appendix A entry.
+- R5-S25: S22 CONFIRMED; S25 text clean, crosswalk minor and one nit in fix; R5-S25.md lists other chapters whose
+  crosswalks are out of step (crosswalk sweep at integration).
+- R-71: 1 Major (N_NM = 21d_acc + 6 unproved; repair N_NM = 21d_NM + 6, d_NM ≥ d_acc), 8 minor, 10 nits; F-71
+  running (also 34:170, 43:239, rem:ec-other-losses max(2, d)); the upper bound enters after P-U71 reports.
+- R-66: 0 Major, 8 minor, 5 nits; F-66 running with R2-65's items, chapter 3 (344-347) and 65:1161.
+- R-81: 3 Major (lem:class-kato-linear for A⁰ ≠ I; ∂_t u in the bootstrap; the ring exp(−(ρ²−ρ0²)²/ε²)), 14 minor,
+  11 nits; F-81 running (also chapter 1:20-21 packet hypothesis).
+- Process: one nit pass (chapters 65, 30) ran on a non-Opus worker by mistake; edits trivial, lint clean; every
+  later agent is Opus.

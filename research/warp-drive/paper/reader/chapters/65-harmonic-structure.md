@@ -365,7 +365,7 @@ stationary 1-forms, L_2 = −g^(00) with g^(00) := g⁻¹(dt_*, dt_*), and near 
 L_2 ∈ ρ²C^∞, the form [[sec:iii-h-1]] uses for L_b; and S̄ = 0, as the spectrum of S̄ is γ_Υ(1 − e_Υ), 2γ_Υ, γ_Υ
 ([[lem:iii-d-3-1]]) and γ_Υ = 0 for □. Fix a weight α with α + 2 ∈ (0, 1) ([[eq:iii-h-1-1]]), a constant regularity
 s > 5/2 (the threshold of the density argument in [[lem:iii-d1-2-1]] (3)), an SO(4)-invariant fibre inner product on
-the bundle E of [[sec:iii-d-1]], which, as in [[sec:iii-h-1]], enters only as the index h of the L² pairing ⟨·, ·⟩_h
+the bundle E of [[sec:iii-d-1]], which, as in [[thm:iii-h-4-1]], enters only as the index h of the L² pairing ⟨·, ·⟩_h
 on X (the index is not the tensor h of [[sec:hg-setting]]), and an SO(4)-invariant φ_* ∈ C_c^∞(X°; E) with
 ⟨W*, φ_*⟩_h = 1 (average any choice over SO(4); W* is SO(4)-invariant).
 The spaces 𝒳_σ, 𝒴_σ, 𝒳_0 = {u ∈ H̄_b^(s,α) : P̂(0)u ∈ 𝒴_0} and 𝒴_0 = H̄_b^(s−1,α+2) are those of [[sec:iii-h-1]] and
@@ -1108,7 +1108,7 @@ forcing terms, (i)–(iii) are [[thm:gd-r2-5]] (i)–(iii) in the b-form of the 
    the hypotheses of [[ch:s01]] ([[sec:hg-augmented]]), invertibility on the compact frequency set J
    ([[prop:iii-d-6-1]], [[prop:iii-d-6-2]]), and S̄ = 0. Its weight conditions at
    (β^f_I + 1, β_ι + 2, β_K) = (w_I, γ_+ + 2, α_K) are α_K ∈ (0, 1), β^f_I = w_I − 1 ≥ 3/2 and
-   w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ_1), which holds with ϵ_1 := 1 − α_K. So u_hi ∈ H^(∞,(3/2−ϵ,N,N))_b(M′) for every N.
+   w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ_1), which holds with ϵ_1 := 1 − α_K. So u_hi ∈ H^(∞,(3/2−ϵ,𝔪,𝔪))_b(M′) for every 𝔪.
 5. *The transform of f.* The condition of [[prop:ii-g1-3-3]] (1) at the weights (w_I, γ_+ + 2, α_K) is
    w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ), and it holds: if α_K ≤ 1 − ϵ it is the hypothesis w_I ≥ γ_+ + 2 − α_K; otherwise it
    reads w_I ≥ γ_+ + 1 + ϵ, and γ_+ + 1 + ϵ ≤ γ_+ + 1 + (3/2 − γ_+)/5 = 13/10 + (4/5)γ_+ < 5/2 ≤ w_I, as γ_+ < 3/2. So
@@ -1122,7 +1122,7 @@ forcing terms, (i)–(iii) are [[thm:gd-r2-5]] (i)–(iii) in the b-form of the 
 7. *The regular part.* [[prop:ii-g1-3-5]] (1) at the K-weight α_K ∈ (0, 1), with a void Taylor condition, gives
    u_reg ∈ H^(∞,(γ_+−ϵ,γ_+,α_K))_b(M′). With 4 this is (i), u′ := u_hi + u_reg, as γ_+ < 3/2 − 2ϵ.
 8. *The cut-off state: [[lem:iii-i2-4-3]]* with the one state W* ∈ 𝒜² (q_1 = 2) and Ψ of [[lem:iii-h-2-5]], which does
-   not depend on the operator: χG_1(b̂_1) ∈ H^(∞,(N,α_K+1−ϵ,α_K−1))_b(X^±_(sc-b)).
+   not depend on the operator: χG_1(b̂_1) ∈ H^(∞,(𝔪,α_K+1−ϵ,α_K−1))_b(X^±_(sc-b)).
 9. *The singular part: one integration.* [[lem:iii-i2-3-1]] is applied once, to u_sing, with β_I := γ_+ − ϵ,
    β_ι := γ_+ and β_K := α_K − 1 ∈ [−½, 0). Its hypotheses: β_ι > β_I; β_K < 0 < β_ι − β_I; β_K ∈ (−1, 1) ∖ {0};
    ℱ(∂_(t_*)u_sing) = χG_1(b̂_1) is 8, whose tf-weight α_K + 1 − ϵ is at least γ_+ (as ϵ ≤ 3/2 − γ_+ and

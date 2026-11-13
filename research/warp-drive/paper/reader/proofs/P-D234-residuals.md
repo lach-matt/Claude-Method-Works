@@ -340,9 +340,9 @@ evaluations of [[lem:tl5-jet-enclosure]] on 𝔟, at its centre and at c, the co
 every square root formed is a positive interval.
 
 *Proof.* The lower ends of J^R_0(c) and of the enclosure of R on 𝔟 are the first numbers that the entries of
-[[sec:tab-d-points]] and [[sec:tab-d-boxes]] require, and those sections record their smallest values: 1.1721 over G,
-for either kind, and 1.807, 4.431 and 2.549 over the boxes of Π*, of Π₁, Π₂ and Π₃, and of Π₄ (the boxes are those
-of [[prop:tl5-box-first]] and [[prop:tl5-boxes-second]]). The enclosure of R at the centre of 𝔟 is J^R_0 there, which
+[[sec:tab-d-points]] and [[sec:tab-d-boxes]] require, and those sections record that they exceed 1.172 at every
+point of G, for either kind, and 1.807, 4.431 and 2.549 on the boxes of Π*, of Π₁, Π₂ and Π₃, and of Π₄ (the boxes of
+[[prop:tl5-box-first]] and [[prop:tl5-boxes-second]]). The enclosure of R at the centre of 𝔟 is J^R_0 there, which
 lies inside the enclosure on 𝔟. The other quantities that are inverted or square-rooted are cosh ξ, cosh ξ · h_ξ a,
 1 + x, 1 − x, w = (1 + x)(1 − x), μ and Ω². The constant terms of e^ξ and e^(−ξ) are positive, hence so is that of
 cosh ξ. The boxes and the points lie in Π, so the constant terms of 1 ± x lie in [1 − x₁, 1 + x₁], and that of w is a

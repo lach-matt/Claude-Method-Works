@@ -200,55 +200,73 @@ near fibre infinity
     ς (H_ℓ(ǎ_ε²) + 2ǎ_ε² ℓ_I) = −b_ε* b_ε − Σ_j b′_(j,ε)* b′_(j,ε) + Σ_i e_(i,ε)* e_(i,ε) + j_ε ℓ + f_ε,   {#eq:ii-d-2-2}
 
 with matrix symbols b_ε, b′_(j,ε), e_(i,ε) bounded in C^(M+2) S̃^s and lying in C^(M+2) S̃^(s−κ) for each ε, scalar j_ε
-as in [[lem:ii-d-2-1]] (with ν = 0), and f_ε bounded in C^(M+2) S̃^(2s−1), all supported in K_1. Then [[eq:ii-d-2-1]]
-holds with B_ε := Op(b_ε), E_ε := Op(e_ε) for the column e_ε of the e_(i,ε), J_ε := ½ Op(j_ε) and δ_c = 0; C_0
-depends on finitely many norms of the symbols.
+as in [[lem:ii-d-2-1]] (with ν = 0), and f_ε bounded in C^(M+2) S̃^(2s−1), all supported in K_1. Let Φ_0 = Op(φ_0)
+and Φ_E = Op(φ_E) be smooth localisers carried by χ, with φ_0 = 1 near K_1 and φ_E = 1 near the supports of the
+e_(i,ε), and put Ǎ_ε := Op(ǎ_ε)Φ_0. Then [[eq:ii-d-2-1]] holds for every w ∈ H^(K′)_e3b, with B_ε := Op(b_ε)Φ_0,
+E_ε := Op(e_ε)Φ_E for the column e_ε of the e_(i,ε), J_ε := ½ Op(j_ε)Φ_0 and δ_c = 0; C_0 depends on finitely many
+norms of the symbols and on the localisers. The same holds with a localiser Φ_(E,i) for each e_(i,ε) in place of Φ_E.
 
-*Proof.* With constant orders and index 0, the remainders of [[prop:ii-a1-2-4]] (b)–(f) have exact orders. As in the
-paragraph on the commutator in the proof of [[prop:ii-a1-5-3]], i[L_R, Ǎ_ε* Ǎ_ε] = Op(H_ℓ(ǎ_ε²)) + R_1 with R_1 of
+*Proof.* With constant orders and index 0, the remainders of [[prop:ii-a1-2-4]] (b)–(f) have exact orders, and the
+identities φ_0ǎ_ε = ǎ_ε, φ_0b_ε = b_ε, φ_0b′_(j,ε) = b′_(j,ε), φ_0j_ε = j_ε and φ_Ee_(i,ε) = e_(i,ε) are exact. As in
+the paragraph on the commutator in the proof of [[prop:ii-a1-5-3]], i[L_R, Ǎ_ε* Ǎ_ε] = Op(H_ℓ(ǎ_ε²)) + R_1 with R_1 of
 order 2s − 1. The operator L_I Ǎ_ε* Ǎ_ε + Ǎ_ε* Ǎ_ε L_I − Op(2ǎ_ε² ℓ_I) is an expression in quantisations whose
-principal symbol vanishes at order 2s, ǎ_ε being scalar. So by [[prop:ii-a1-2-4]] (f) it has order 2s − 1. Hence
-ς C_(ǎ_ε) is the quantisation of the right side of [[eq:ii-d-2-2]] plus an operator of order 2s − 1. By
-[[prop:ii-a1-2-4]] (b), (c), Op(b*b) = Op(b)* Op(b) modulo order 2s − 1, and Op(jℓ) = Op(j) L modulo order 2s − 1, as
-L = Op(ℓ_f) + R_L with ℓ_f − ℓ of order m − 1. All remainders are uniform in ε and have a factor supported in K_1, so
-paired with w they are at most C(‖G′w‖²_(s−½) + ‖χw‖²_(−N′)) ([[prop:ii-a1-2-4]] (e)). ⟨C_(ǎ_ε) w, w⟩ is real, so
-taking real parts and dropping −Σ_j ‖Op(b′_j) w‖² gives [[eq:ii-d-2-1]]. ∎
+principal symbol vanishes at order 2s, ǎ_ε being scalar and φ_0ǎ_ε = ǎ_ε. So by [[prop:ii-a1-2-4]] (f) it has order
+2s − 1. Hence ς C_(ǎ_ε) is the quantisation of the right side of [[eq:ii-d-2-2]] plus an operator of order 2s − 1. By
+[[prop:ii-a1-2-4]] (b), (c), Φ_0* Op(b_ε)* Op(b_ε) Φ_0 = Op(φ_0 b_ε* b_ε φ_0) = Op(b_ε* b_ε) modulo order 2s − 1,
+likewise for the b′_(j,ε) with Φ_0 and for the e_(i,ε) with Φ_E; and Op(j_ε ℓ) = Op(j_ε) Φ_0 L modulo order 2s − 1, as
+L = Op(ℓ_f) + R_L with ℓ_f − ℓ of order m − 1 and j_ε φ_0 ℓ_f = j_ε ℓ_f. All remainders are uniformly of order 2s − 1,
+so paired with w they are at most C‖w‖²_(s−½). ⟨C_(ǎ_ε) w, w⟩ is real, so taking real parts and dropping
+−Σ_j ‖Op(b′_(j,ε)) Φ_0 w‖² gives [[eq:ii-d-2-1]]. ∎
 
-**Lemma {#lem:ii-d-2-4}** (Norms through symbols.) Let q ∈ C^(M) S̃^0 be matrix-valued and supported in a compact set
-K_1 near fibre infinity, and M_q := sup|q|, the supremum of the operator norm. For every η > 0 there is C_η, depending
-on q through finitely many norms, such that for w ∈ L² carried by χ
+**Lemma {#lem:ii-d-2-4}** (Norms through symbols.) Let q ∈ C^(M) S̃^0 be matrix-valued, of index 0, and M_q := sup|q|,
+the supremum of the operator norm. For every η > 0 there is C_η, depending on q through finitely many norms, such that
+for every w ∈ L²
 
-    ‖Op(q) w‖ ≤ (M_q + η) ‖w‖ + C_η (‖G′w‖_(−½) + ‖χw‖_(−N′)),                                             {#eq:ii-d-2-3}
-
-with G′ elliptic on K_1.
+    ‖Op(q) w‖ ≤ (M_q + η) ‖w‖ + C_η ‖w‖_(−½).                                                              {#eq:ii-d-2-3}
 
 *Proof.* (M_q + η)² − q*q ≥ η², so its positive square root c lies in C^(M) S̃^0 ([[lem:ii-a1-2-5]] (i), for positive
-definite matrices), and c − (M_q + η) is supported in K_1. By [[prop:ii-a1-2-4]] (b), (c), Op(c)* Op(c) = (M_q + η)² −
-Op(q)* Op(q) + R, with R of order −1 and microsupported in K_1, as every symbol involved is constant off K_1 and the
-quantisation of a constant is the identity modulo operators of every order. Hence ‖Op(q) w‖² ≤ (M_q + η)² ‖w‖² +
-|⟨Rw, w⟩|, and |⟨Rw, w⟩| ≤ C_η(‖G′w‖²_(−½) + ‖χw‖²_(−N′)). ∎
+definite matrices). By [[prop:ii-a1-2-4]] (b), (c), with constant orders and index 0, Op(c)* Op(c) + Op(q)* Op(q) =
+Op(c*c + q*q) + R = (M_q + η)² I + R, with R of order −1, as Op(1) = I ([[sec:ii-a1-1-1]]). Hence
+‖Op(q) w‖² ≤ (M_q + η)² ‖w‖² + |⟨Rw, w⟩| ≤ (M_q + η)² ‖w‖² + C_η‖w‖²_(−½), and [[eq:ii-d-2-3]] follows. This is
+the argument of [[lem:ii-a1-2-6]], at constant order and index 0. ∎
 
-The pairing identities used below hold at the distributions considered: if G′v ∈ H^(s−½), G′Lv ∈ H^(s−m+½) for G′
-elliptic on K_1 and χv ∈ H^(−N′), and κ ≥ 2, then ⟨C_(ǎ_ε) v, v⟩ = 2 Im⟨Ǎ_ε L v, Ǎ_ε v⟩ for each ε > 0, by Step 1 of
-the proof of [[lem:ii-a1-4-1]] (the regularised commutant has order k − κ ≤ k − 2).
+*The localised form.* [[eq:ii-d-2-1]] is used below also at distributions that are regular only microlocally. Let the
+localisers and operators be as in [[lem:ii-d-2-3]], with κ ≥ 2, and let G′ ∈ C_b^∞Ψ^0_e3b be carried by χ and elliptic on
+(supp φ_0 ∪ supp φ_E) ∩ ᵉ³ᵇS*M. If G′v ∈ H^(s−½), G′Lv ∈ H^(s−m+½) and χv ∈ H^(−N′), then for each ε > 0 the pairing
+⟨C_(ǎ_ε) v, v⟩ := 2 Im⟨Ǎ_ε L v, Ǎ_ε v⟩ is defined, and [[eq:ii-d-2-1]] holds at w = v with C_0‖w‖²_(s−½) replaced by
+C(‖G′v‖²_(s−½) + ‖χv‖²_(−N′)). Indeed, let Φ′ be an auxiliary operator with φ′ = 1 near (supp φ_0 ∪ supp φ_E) ∩ ᵉ³ᵇS*M
+and WF′(Φ′) ⊂ Ell(G′), and put w := Φ′v. By [[lem:ii-a-8-4]] (c), ‖w‖_(s−½) ≤ C(‖G′v‖_(s−½) + ‖χv‖_(−N′)), and
+‖Φ′Lv‖_(s−m+½) ≤ C(‖G′Lv‖_(s−m+½) + ‖χ_*Lv‖_(−N′−m)) with χ_* of (R2), where ‖χ_*Lv‖_(−N′−m) ≤ C‖χv‖_(−N′) by
+[[lem:ii-a-8-6]] (a). For fixed ε every operator in [[eq:ii-d-2-1]] has its order lowered by κ, so [[eq:ii-d-2-1]] holds
+at w by the approximation of Steps 1–2 of the proof of [[lem:ii-a1-4-1]], with Lw = Φ′Lv + [L, Φ′]v and Ǎ_ε[L, Φ′]
+treated as Ǎ_ε[L, Φ] in its Step 0. Each term at w differs from the same term at v by pairings ⟨Tv, v⟩ in which,
+after the operators are moved to one side, T contains as a factor one of Φ_0(I − Φ′) and Φ_E(I − Φ′), which lie in
+Ψ̃^(−∞) ([[lem:ii-a1-1-2]]), or Φ_0L(I − Φ′) and (I − Φ′)*Op(j_ε)Φ_0, which have every order by [[prop:ii-a1-2-4]] (e),
+their outer factors being microsupported in disjoint closed sets. So T has every order uniformly in ε, and as all
+these operators are carried by χ, the differences are at most C‖χv‖²_(−N′).
 
 **Lemma {#lem:ii-d-2-5}** (Comparison of norms.) Let 𝗍 be a constant and z, x_1, …, x_m ∈ C^(M) S̃^0 matrix-valued and
 supported in a compact set K_1 near fibre infinity, and suppose that z = Σ_i q_i x_i on a neighbourhood of supp z, with
 q_i ∈ C^(M) S̃^0 and M_i := sup|q_i|. This holds with M_i = c_*^(−1/2) if |z| ≤ 1 and Σ_i x_i* x_i ≥ c_* > 0 on a
-neighbourhood V of supp z. Then for every η > 0 there is C_η, independent of ε ∈ (0, 1] and depending on the symbols
-through finitely many norms, such that for w ∈ H^(K′)_e3b carried by χ
+neighbourhood V of supp z. Let Φ_z = Op(φ_z) and Φ_i = Op(φ_i) be smooth localisers with φ_z = 1 near supp z and
+φ_i = 1 near supp x_i (any of them may be I). Then for every η > 0 there is C_η, independent of ε ∈ (0, 1] and depending
+on the symbols and the localisers through finitely many norms, such that for every w ∈ H^(K′)_e3b
 
-    ‖Op(ρ^(−𝗍) φ_ε z) w‖ ≤ Σ_i (M_i + η) ‖Op(ρ^(−𝗍) φ_ε x_i) w‖ + C_η (‖G′w‖_(𝗍−½) + ‖χw‖_(−N′)),       {#eq:ii-d-2-4}
+    ‖Op(ρ^(−𝗍) φ_ε z) Φ_z w‖ ≤ Σ_i (M_i + η) ‖Op(ρ^(−𝗍) φ_ε x_i) Φ_i w‖ + C_η ‖w‖_(𝗍−½).                  {#eq:ii-d-2-4}
 
-with G′ elliptic on K_1. If κ ≥ ½, [[eq:ii-d-2-4]] holds also for w with G′w ∈ H^(𝗍−½) and χw ∈ H^(−N′): for fixed ε
-both sides are then finite and continuous in w, and [[lem:ii-a1-2-3]] (b) approximates w.
+If κ ≥ ½, [[eq:ii-d-2-4]] holds also for every w ∈ H^(𝗍−½): for fixed ε both sides are then finite and continuous in w
+on H^(𝗍−½), and [[lem:ii-a1-2-3]] (b) approximates w. It is applied at localised w = Φu, Φ smooth, for which
+‖w‖_(𝗍−½) is bounded by microlocal norms of u ([[lem:ii-a-8-4]] (c)).
 
 *Proof.* Replacing q_i by ζ q_i, with ζ equal to 1 near supp z and supported in the neighbourhood, z = Σ_i q_i x_i
-everywhere. By [[prop:ii-a1-2-4]] (b), Op(ρ^(−𝗍) φ_ε z) = Σ_i Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) + R_ε, with R_ε uniformly of
-order 𝗍 − 1 and microsupported in K_1. [[lem:ii-d-2-4]] applied to Op(q_i) and Op(ρ^(−𝗍) φ_ε x_i) w gives
-[[eq:ii-d-2-4]], as ‖G′ Op(ρ^(−𝗍) φ_ε x_i) w‖_(−½) ≤ C(‖G″w‖_(𝗍−½) + ‖χw‖_(−N′)). In the particular case put X :=
-Σ_j x_j* x_j and q_i := ζ z X⁻¹ x_i* with ζ supported in V. Then Σ_i q_i x_i = ζz = z and Σ_i q_i q_i* = ζ² z X⁻¹ z* ≤
-c_*⁻¹, so |q_i| ≤ c_*^(−1/2). ∎
+everywhere, so z = zφ_z = Σ_i q_i x_i φ_i exactly. By [[prop:ii-a1-2-4]] (b), (f), with constant orders and index 0,
+Op(ρ^(−𝗍) φ_ε z) Φ_z − Op(ρ^(−𝗍) φ_ε z φ_z) and Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) Φ_i − Op(q_i ρ^(−𝗍) φ_ε x_i φ_i) are uniformly
+of order 𝗍 − 1, and by the exact identities Op(ρ^(−𝗍) φ_ε z φ_z) and Σ_i Op(q_i ρ^(−𝗍) φ_ε x_i φ_i) are both
+Op(ρ^(−𝗍) φ_ε z). So
+Op(ρ^(−𝗍) φ_ε z) Φ_z = Σ_i Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) Φ_i + R_ε with R_ε uniformly of order 𝗍 − 1. [[lem:ii-d-2-4]]
+applied to Op(q_i) and Op(ρ^(−𝗍) φ_ε x_i) Φ_i w gives [[eq:ii-d-2-4]], as ‖Op(ρ^(−𝗍) φ_ε x_i) Φ_i w‖_(−½) ≤ C‖w‖_(𝗍−½).
+In the particular case put X := Σ_j x_j* x_j and q_i := ζ z X⁻¹ x_i* with ζ supported in V. Then Σ_i q_i x_i = ζz = z
+and Σ_i q_i q_i* = ζ² z X⁻¹ z* ≤ c_*⁻¹, so |q_i| ≤ c_*^(−1/2). ∎
 
 In [[lem:ii-d-2-3]] and in [[lem:ii-a1-4-1]] and [[lem:ii-a1-4-2]], L enters only through L = Op(ℓ_f) + R_L, with ℓ_f
 ∈ C^(d_0) S̃^m (matrix-valued, with real scalar principal part ℓ) and R_L bounded of every order. So they hold for
@@ -283,8 +301,12 @@ Q_ε^(−1/2) (with Q_ε replaced by c, smoothly, off a neighbourhood of supp Ψ
 (−1, 1), equal to 1 on [−½, ½], non-increasing on [0, ∞), with −ψψ′ the square of a smooth function on [0, ∞). Where
 𝖧f > 0 on the support of ψ′(𝔐f) the term is −b′*b′; where 𝖧f < 0 it is +e*e, and its support determines E. A factor
 ψ(𝔐_Σ ρ²ℓ), a cut-off to the characteristic set, contributes j_ε ℓ, since 𝖧(ρ²ℓ) = 2(ρ⁻¹𝖧ρ) ρ²ℓ, 𝖧ℓ being 0. (6)
-[[lem:ii-d-2-3]] gives [[eq:ii-d-2-1]] for L″, [[lem:ii-d-2-1]] and [[lem:ii-d-2-2]] give the estimate for ũ with Γ :=
-R and τ := s − s_0, and [[sec:ii-d-1-2]] returns it to u.
+[[lem:ii-d-2-3]] gives [[eq:ii-d-2-1]] for L″, with localisers chosen as auxiliary operators: φ_0 = 1 near supp Ψ and
+φ_E = 1 near the supports of the e-terms, both supported, near fibre infinity, in the neighbourhood U of R in which the
+iteration places supp Ψ, and supp φ_E in a closed set that misses R at fibre infinity and on which an E with the
+property (4) of the proposition can be elliptic; each proof below names this set. Then [[lem:ii-d-2-1]] and
+[[lem:ii-d-2-2]] give the estimate for ũ with Γ := R (in [[prop:ii-d-3-6]], the part of R named there) and
+τ := s − s_0, the E of the conclusion being elliptic on the union of these sets, and [[sec:ii-d-1-2]] returns it to u.
 
 The constants depend on P through finitely many norms of the coefficients of L″, and through c and the signs in (5).
 These hold with margins at R, where the quantities are those of the normal form of P (the second-order part of P − P_0
@@ -331,8 +353,10 @@ in W; for 𝔐_R large, ψ(𝔐_R F) is then a symbol supported in W′. Put Ψ 
 The first term is ≤ 0 and is −b′*b′ with b′ := ρ^(−s) φ_ε θ(𝔐_R F) (2𝔐_R 𝖧F)^(1/2) ψ(𝔐ρ_K), θ := (−ψψ′)^(1/2), smooth
 as 𝖧F ≥ c_F/(4𝔐_R) on the support of θ(𝔐_R F). In the second, 𝖧ρ_K = ρ_K²(ρ_K⁻²𝖧ρ_K) ≤ −½ββ_0ρ_K² < 0 near
 ∂R_(𝓗⁺) ([[eq:ii-b-4-1]]), so it is +e*e with e := ρ^(−s) φ_ε θ(𝔐ρ_K) (−2𝔐𝖧ρ_K)^(1/2) ψ(𝔐_R F), supported in {ρ_K ≥
-(2𝔐)⁻¹}, away from K⁺; so E can be chosen with Schwartz kernel in (K ∖ K⁺)², as (4) requires. Choosing 𝔐_R and then 𝔐
-large, supp Ψ lies in U, in W and in {Q_ε ≥ c}. No cut-off to the characteristic set is needed, as the signs hold on a
+(2𝔐)⁻¹}, away from K⁺. Choosing 𝔐_R and then 𝔐 large, supp Ψ lies in U, in W and in {Q_ε ≥ c}. The localiser φ_E of
+the pattern (6) is taken supported, near fibre infinity, in U ∩ {ρ_K ≥ (4𝔐)⁻¹}. So the set of (6), the union of the
+support of e and of supp φ_E, misses ∂R_(𝓗⁺) ⊂ {ρ_K = 0}, and its base projection is a compact subset of K ∖ K⁺ when U
+is small; E can be chosen elliptic on it with Schwartz kernel in (K ∖ K⁺)², as (4) requires. No cut-off to the characteristic set is needed, as the signs hold on a
 full neighbourhood of ∂R_(𝓗⁺) ([[lem:ii-b-4-2]]); so [[eq:ii-d-2-2]] holds with j_ε = 0. The pattern (6) gives
 [[eq:ii-d-3-2]], with ‖χũ‖_(−N′) ≤ C‖χ̃u‖_(H^(s_0,α_K)). ∎
 
@@ -372,8 +396,10 @@ preserving it). Hence ([Hin26c, p. 120])
 on the full phase space over ι⁺, not only on the characteristic set. 𝖧 − 𝖧̄ ∈ ρ_+² 𝒱_b plus O(ε_P ρ_+^(ℓ_+)
 ρ_K^(ℓ_K)) ([[sec:ii-b-3-1]], [[lem:ii-c-4-1]]), so 𝖧q ≥ (2𝔐_R)⁻¹ on supp ψ′(𝔐_R q) ∩ supp ψ(𝔐ρ_+)ψ(𝔐ρ_K) for 𝔐
 large given 𝔐_R. Near R, ρ_+⁻¹𝖧ρ_+ ≥ 1 and ρ_K⁻¹𝖧ρ_K ≤ −1. So in (5) of the pattern, the factors ψ(𝔐_R q) and
-ψ(𝔐ρ_+) give −b′*b′ terms, and ψ(𝔐ρ_K) gives +e*e, supported in {ρ_K ≥ (2𝔐)⁻¹}, away from K⁺, as (4) requires; j_ε
-= 0. The pattern gives [[eq:ii-d-3-4]]. ∎
+ψ(𝔐ρ_+) give −b′*b′ terms, and ψ(𝔐ρ_K) gives +e*e, supported in {ρ_K ≥ (2𝔐)⁻¹}, away from K⁺; j_ε = 0. The
+localiser φ_E of the pattern (6) is taken supported, near fibre infinity, in U ∩ {ρ_K ≥ (4𝔐)⁻¹}. So the set of (6)
+misses R ⊂ {ρ_K = 0}, its base projection is a compact subset of K ∖ K⁺ when U is small, and E can be chosen elliptic
+on it with Schwartz kernel in (K ∖ K⁺)², as (4) requires. The pattern gives [[eq:ii-d-3-4]]. ∎
 
 **Proposition {#prop:ii-d-3-3}** (The outgoing radial set over ∂K⁺.) There are B, E, G with (1)–(3) as in
 [[prop:ii-d-3-2]] with ∂R_(∂K⁺,out) in place of ∂R_(∂K⁺,in), and (4) the operator wave front set of E disjoint from
@@ -399,8 +425,12 @@ Put q := |η̂|² + ξ̂²; by [[eq:ii-b-3-4]], over ι⁺,
 
 which is [Hin26c, (7.18)]. With Ψ := ψ(𝔐_R q) ψ(𝔐ρ_+) ψ(𝔐ρ_K), now ψ(𝔐ρ_K) gives a −b′*b′ term (ρ_K⁻¹𝖧ρ_K ≥ 1 near
 R), while ψ(𝔐_R q) and ψ(𝔐ρ_+) give +e*e terms (𝖧q < 0 on supp ψ′(𝔐_R q), ρ_+⁻¹𝖧ρ_+ ≤ −1). These are supported in
-{q ≥ (2𝔐_R)⁻¹}, disjoint from {ξ̂ = η̂ = 0} ⊃ ∂W_out, and in {ρ_+ ≥ (2𝔐)⁻¹}, away from ι⁺ ⊃ ∂W_out. So E can be chosen
-elliptic on both with WF′(E) ∩ ∂W_out = ∅, and these sets meet fibre infinity in U ∖ R, as [[lem:ii-d-2-2]] requires. ∎
+{q ≥ (2𝔐_R)⁻¹}, disjoint from {ξ̂ = η̂ = 0} ⊃ ∂W_out, and in {ρ_+ ≥ (2𝔐)⁻¹}, away from ι⁺ ⊃ ∂W_out. The localiser φ_E
+of the pattern (6) is taken supported, near fibre infinity, in U ∩ ({q ≥ (4𝔐_R)⁻¹} ∪ {ρ_+ ≥ (4𝔐)⁻¹}). On ∂W_out ⊃ R,
+q = 0 and ρ_+ = 0, so the set of (6) misses ∂W_out and, being compact, has a neighbourhood that misses the closed set
+∂W_out. So E can be chosen elliptic on it with WF′(E) inside that neighbourhood, hence WF′(E) ∩ ∂W_out = ∅, as (4)
+requires, and the set meets fibre infinity in U ∖ R, as
+[[lem:ii-d-2-2]] requires. ∎
 
 **Lemma {#lem:ii-d-3-4}** (The subprincipal symbol at ℐ⁺.) Near ℐ⁺ ∩ Ω, with ρ_+ = t_*⁻¹, x_I = (t_*/r)^(1/2), ω, the
 eb-momenta of [[sec:ii-b-7]] and ρ := σ_eb⁻¹, ξ̂ := ξ_eb/σ_eb, 𝖧 := ρH_(G_eb), let h be a smooth fibre inner product
@@ -477,13 +507,16 @@ Put q := (ξ̂ − 2)² + |η̂|² and Ψ := ψ(𝔐_Σ ρ²ℓ) ψ(𝔐_R q) ψ
 which is [Hin26c, (7.21)]. Off the characteristic set, |η̂|² = ½ξ̂(2 − ξ̂) + ρ² G^0_eb, and ρ²(ℓ − G^0_eb) = O(x_I²) +
 O(ε_P x_I^(2ℓ_I)); so 𝖧q ≥ (4𝔐_R)⁻¹ on supp ψ′(𝔐_R q) within the support of the other factors, for 𝔐_Σ, 𝔐 large
 given 𝔐_R. Near R, x_I⁻¹𝖧x_I ≥ ½ and ρ_+⁻¹𝖧ρ_+ ≤ −1, on the full phase space. So in (5) of the pattern: ψ(𝔐_R q) and
-ψ(𝔐x_I) give −b′*b′; ψ(𝔐ρ_+) gives +e*e, supported in {ρ_+ ≥ (2𝔐)⁻¹}, away from ι⁺, as (4) requires; ψ(𝔐_Σ ρ²ℓ)
-gives j_ε ℓ, with j_ε of order 2s − 2. The pattern gives [[eq:ii-d-3-8]]. ∎
+ψ(𝔐x_I) give −b′*b′; ψ(𝔐ρ_+) gives +e*e, supported in {ρ_+ ≥ (2𝔐)⁻¹}, away from ι⁺; ψ(𝔐_Σ ρ²ℓ) gives j_ε ℓ,
+with j_ε of order 2s − 2. The localiser φ_E of the pattern (6) is taken supported, near fibre infinity, in
+U ∩ {ρ_+ ≥ (4𝔐)⁻¹}. So the set of (6) misses R ⊂ ι⁺, its base projection is a compact subset of K ∖ ι⁺ when U is
+small, and E can be chosen elliptic on it with Schwartz kernel in (K ∖ ι⁺)², as (4) requires. The pattern gives
+[[eq:ii-d-3-8]]. ∎
 
 **Proposition {#prop:ii-d-3-6}** (The outgoing radial set over ℐ⁺.) Let t_(*,−) ∈ ℝ. There are B, E, G with (1)
-operator wave front sets in any fixed neighbourhood of ∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥ t_(*,−)}; (2) Schwartz kernels in K × K
-for any fixed compact neighbourhood K ⊂ M̃ of cl(ℐ⁺ ∩ {t_* ≥ t_(*,−)}); (3) B elliptic at ∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥
-t_(*,−)}; (4) WF′(E) ∩ ∂R_(ℐ⁺,out) ⊂ {t_*^♭ ≤ t_(*,−) − ¼}; such that for all constants s > s_0 and α_I, α_+ with
+operator wave front sets in any fixed neighbourhood of ∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥ t_(*,−) − ½}; (2) Schwartz kernels in
+K × K for any fixed compact neighbourhood K ⊂ M̃ of cl(ℐ⁺ ∩ {t_* ≥ t_(*,−) − ½}); (3) B elliptic at ∂R_(ℐ⁺,out) ∩
+{t_*^♭ ≥ t_(*,−)}; (4) WF′(E) ∩ ∂R_(ℐ⁺,out) ⊂ {t_*^♭ ≤ t_(*,−) − ¼}; such that for all constants s > s_0 and α_I, α_+ with
 
     α_I < −½ + p̄_1                                                                                        {#eq:ii-d-3-9}
 
@@ -503,22 +536,29 @@ continuity and a smooth partition of unity apply verbatim; h_I is extended indep
 
 by [[eq:ii-d-3-9]], independently of s_ε; near R, ρ⁻¹𝖧ρ is small as before.
 
-Put q := ξ̂² + |η̂|², fix η_t ∈ C^∞(ℝ) with η_t = 0 on (−∞, −½], η_t = 1 on [−¼, ∞), η_t′ ≥ 0 and (η_t η_t′)^(1/2)
-smooth, and ψ_− := η_t(t_*^♭ − t_(*,−)), which equals 1 for t_*^♭ ≥ t_(*,−) − ¼. Put Ψ := ψ(𝔐_Σ ρ²ℓ) ψ(𝔐_R q)
-ψ(𝔐x_I) ψ_−. On the characteristic set over ℐ⁺, with |η̂|² = ½ξ̂(2 − ξ̂),
+Put q := ξ̂² + |η̂|² and fix η_t ∈ C^∞(ℝ) with η_t = 0 on (−∞, −½], η_t = 1 on [−¼, ∞), η_t′ ≥ 0 and
+(η_t η_t′)^(1/2) smooth. The pattern (6) is applied with Γ the closure of R ∩ {t_*^♭ ≥ t_(*,−) − ⅜} in the compactified
+bundle, which is compact, and with U_0 inside the neighbourhood of (1). Given an open U with Γ ⊂ U ⊂ U_0, take
+λ ∈ (0, ⅛] and ψ_− := η_t((t_*^♭ − t_(*,−) + ⅜)/λ), which equals 1 for t_*^♭ ≥ t_(*,−) − ⅜ − λ/4, and put
+Ψ := ψ(𝔐_Σ ρ²ℓ) ψ(𝔐_R q) ψ(𝔐x_I) ψ_−, with λ small and 𝔐_Σ, 𝔐_R, 𝔐 large, so that supp Ψ lies in U near fibre
+infinity. On the characteristic set over ℐ⁺, with |η̂|² = ½ξ̂(2 − ξ̂),
 
     𝖧^0 q = −4ξ̂|η̂|² + 2(ξ̂ − 1)|η̂|² = −2(2 − ξ̂)ξ̂² − 2(1 − ξ̂)|η̂|² ≤ −q     for |ξ̂| ≤ ½,
 
 and off it, as in [[prop:ii-d-3-5]], 𝖧q ≤ −(4𝔐_R)⁻¹ on supp ψ′(𝔐_R q) within the support of the other factors. Near
 R, x_I⁻¹𝖧x_I ≤ −½. So ψ(𝔐_R q) and ψ(𝔐x_I) give +e*e terms, supported in {q ≥ (2𝔐_R)⁻¹} and {x_I ≥ (2𝔐)⁻¹}, both
-disjoint from R; ψ(𝔐_Σ ρ²ℓ) gives j_ε ℓ. The factor ψ_− gives 2η_t η_t′ 𝖧t_*^♭ · (other factors)². Whatever its sign,
-with C_t := 1 + sup|𝖧t_*^♭| over the support, it is e_−*e_− − b′_−*b′_− with e_−² := 2C_t η_t η_t′ (⋯)² and b′_−² :=
-2(C_t − 𝖧t_*^♭) η_t η_t′ (⋯)², both smooth squares. Its support lies in {t_*^♭ ∈ [t_(*,−) − ½, t_(*,−) − ¼]}, which
-gives (4); so it misses ∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥ t_(*,−)}, where B is to be elliptic, as [[lem:ii-d-2-2]] requires of the
-E-sets. (With η_t = 1 only on [0, ∞) the two sets could touch at t_*^♭ = t_(*,−).) On the characteristic set over Ω°,
+disjoint from R; ψ(𝔐_Σ ρ²ℓ) gives j_ε ℓ. The factor ψ_− gives 2λ⁻¹ η_t η_t′ 𝖧t_*^♭ · (other factors)², with η_t, η_t′
+evaluated at (t_*^♭ − t_(*,−) + ⅜)/λ. Whatever its sign, with C_t := 1 + sup|𝖧t_*^♭| over the support, it is
+e_−*e_− − b′_−*b′_− with e_−² := 2λ⁻¹ C_t η_t η_t′ (⋯)² and b′_−² := 2λ⁻¹ (C_t − 𝖧t_*^♭) η_t η_t′ (⋯)², both smooth
+squares, supported in {t_*^♭ ∈ [t_(*,−) − ⅜ − λ/2, t_(*,−) − ⅜ − λ/4]}. The localiser φ_E of the pattern (6) is taken
+supported, near fibre infinity, in U ∩ ({q ≥ (4𝔐_R)⁻¹} ∪ {x_I ≥ (4𝔐)⁻¹} ∪ {t_*^♭ ∈ [t_(*,−) − ⅜ − 3λ/4,
+t_(*,−) − ⅜ − λ/8]}). On R, q = x_I = 0, so the set of (6) meets R only where t_*^♭ ≤ t_(*,−) − ⅜ − λ/8; it misses Γ,
+as [[lem:ii-d-2-2]] requires, and its part off the last set has a neighbourhood that misses R. So E, elliptic on the
+union of these sets over the finitely many U of the iteration, can be chosen with WF′(E) ∩ R ⊂ {t_*^♭ ≤ t_(*,−) − ¼},
+which is (4); B is elliptic at Γ ⊃ R ∩ {t_*^♭ ≥ t_(*,−)}, which is (3). On the characteristic set over Ω°,
 𝖧t_*^♭ > 0 ([[lem:ii-c-3-2]] (2)), and e_− is the a priori term at earlier times; off it the sign of 𝖧t_*^♭ is not
-used. The other E-sets are disjoint from R. The pattern gives [[eq:ii-d-3-8]]. Here supp Ψ is not compact in t_*^♭,
-but it is compact in M̃, its closure meeting ℐ⁺ ∩ ι⁺, where [[eq:ii-b-7-4]] holds uniformly. ∎
+used. The pattern gives [[eq:ii-d-3-8]]. Here supp Ψ is not compact in t_*^♭, but it is compact in M̃, its closure
+meeting ℐ⁺ ∩ ι⁺, where [[eq:ii-b-7-4]] holds uniformly. ∎
 
 In both uses below, t_(*,−) ≤ ½. The kernel of E near its e_−-set can then be supported in {t_*^♭ < 1}², where the u of
 [[thm:ii-d-1-2]] vanishes, so that this part of ‖Eu‖ is zero. [Hin26c, Proposition 7.9] states the estimate for t_* ∈
@@ -723,10 +763,13 @@ multiple of ρ²G; it is a term +e*e, supported in {|ϕ^u| ≥ ε′/2}. The fac
 times the same, plus a multiple of ρ²G: a term −b′*b′. The factor in ρ²G gives a multiple of G, as 𝖧(ρ²G) =
 2(ρ⁻¹𝖧ρ)ρ²G. The factor in ρ_K gives 2θ(ρ_K/ε′)²(−𝖧ρ_K)/ε′ times the same, ≥ 0 by (T1): a term +e*e, supported in {ρ_K
 ≥ ε′/2}. Multiples of G are j_ε ℓ. So [[eq:ii-d-2-2]] holds with b_ε := ρ^(−𝗍) φ_ε Ψ_(ε′) Q′_ε^(1/2) and E-symbols
-supported in {|ϕ^u| ≥ ε′/2} ∪ {ρ_K ≥ ε′/2}. [[lem:ii-d-2-1]]–[[lem:ii-d-2-3]], and [[lem:ii-d-2-2]] with the interiors
-of the sets U(2^(−j)·2^(J_0+2) δ_2), 0 ≤ j ≤ J_0, in the proof of [[lem:ii-a1-4-2]] (which needs open sets), and with
-ε′ := 2^(J_0+3−j) δ_2 at its step j ≥ 1, so that the commutant is supported in the (j − 1)st set and equals 1 on the
-jth while its E-sets, in {|ϕ^u| ≥ 4δ_2} ∪ {ρ_K ≥ 4δ_2}, miss U(2δ_2), give, in the strong sense,
+supported in {|ϕ^u| ≥ ε′/2} ∪ {ρ_K ≥ ε′/2}. The localisers of the pattern (6) are taken with φ_0 = 1 near
+supp Ψ_(ε′) and φ_E = 1 near the supports of the E-symbols, both supported in the interior of U(ε′), and with
+supp φ_E ⊂ {|ϕ^u| ≥ ε′/3} ∪ {ρ_K ≥ ε′/3}. [[lem:ii-d-2-1]]–[[lem:ii-d-2-3]], and [[lem:ii-d-2-2]] with Γ := U(2δ_2),
+with the interiors of the sets U(2^(−j)·2^(J_0+2) δ_2), 0 ≤ j ≤ J_0, in the proof of [[lem:ii-a1-4-2]] (which needs
+open sets), and with ε′ := 2^(J_0+3−j) δ_2 at its step j ≥ 1, so that the commutant and the localisers are supported
+in the (j − 1)st set and the commutant equals 1 on the jth, while its E-sets and supp φ_E, in
+{|ϕ^u| ≥ 8δ_2/3} ∪ {ρ_K ≥ 8δ_2/3}, miss U(2δ_2), give, in the strong sense,
 
     ‖B_1v‖_𝗍 ≤ C (‖G_1P′v‖_(𝗍−1) + ‖E_1v‖_𝗍 + ‖G_1v‖_(𝗍−1) + ‖χv‖_(−N′)),
 
@@ -739,11 +782,11 @@ C(‖E′u‖_(s′+1) + ‖χu‖_(−N′)), the commutator having order −1 
     ‖B_1Φ_u u‖_(s′+½) ≤ C𝒦.                                                                                {#eq:ii-d-4-6}
 
 (1b) Now take ε′ := δ_2, Ψ := Ψ_(δ_2), 𝗍 := s′ + 1 and the regulariser: ǎ_ε := φ_ε ρ^(−s′−½) Ψ, b_ε := ρ^(−s′−1) φ_ε
-Ψ Q′_ε^(1/2), B_ε := Op(b_ε). [[lem:ii-d-2-3]] gives [[eq:ii-d-2-1]] for P′ at the order s′ + 1. By [[eq:ii-d-4-6]] and
-[[eq:ii-d-4-5]], G″v ∈ H^(s′+½) and G″P′v ∈ H^(s′−½) for G″ elliptic on U(δ_2) and microsupported in U(2δ_2). So
-[[eq:ii-d-2-1]] holds at v = Φ_u u, by the approximation of Steps 1–2 of the proof of [[lem:ii-a1-4-1]] (for fixed ε
-every operator in [[eq:ii-d-2-1]] has its order lowered by κ = 2), and the pairing identity at the end of
-[[sec:ii-d-2]] applies. Thus
+Ψ Q′_ε^(1/2), and the localisers of (1a) at ε′ = δ_2, so that Ǎ_ε := Op(ǎ_ε)Φ_0 and B_ε := Op(b_ε)Φ_0.
+[[lem:ii-d-2-3]] gives [[eq:ii-d-2-1]] for P′ at the order s′ + 1. By [[eq:ii-d-4-6]] and [[eq:ii-d-4-5]],
+G″v ∈ H^(s′+½) and G″P′v ∈ H^(s′−½) for an auxiliary operator G″ elliptic on U(δ_2) and microsupported in U(2δ_2).
+As φ_0 and φ_E are supported in the interior of U(δ_2), [[eq:ii-d-2-1]] holds at v = Φ_u u in the localised form at the
+end of [[sec:ii-d-2]], with G″ in the role of G′ there and κ = 2. Thus
 
     ‖B_εv‖² ≤ 2|⟨Ǎ_εP′v, Ǎ_εv⟩| + ‖E_εv‖² + 2|⟨J_εP′v, v⟩| + C(‖G″v‖²_(s′+½) + ‖χv‖²_(−N′)).
 
@@ -836,22 +879,28 @@ with j smooth, and Q_ε + 2βw_s ≥ 2c_0 on the support by [[eq:ii-d-4-3]]. In 
 gives a nonnegative square supported in {|ϕ^u| ≥ δ_3/2} plus a multiple of ρ²G, the factor in ρ_K a nonnegative square
 supported in {ρ_K ≥ δ_3/2}, and the factor in ρ²G a multiple of G. So [[eq:ii-d-2-2]] holds with b_ε := ρ^(−s′) φ_ε
 Ψ_3 (Q_ε + 2βw_s)^(1/2), one b′-term ρ^(−s′) φ_ε |ϕ^s|^(−β) χ̄_3 b_3(|ϕ^s|), the e-term ρ^(−s′) φ_ε |ϕ^s|^(−β) χ̄_3
-e_3(|ϕ^s|), e-terms supported in {|ϕ^u| ≥ δ_3/2} ∪ {ρ_K ≥ δ_3/2}, and j_ε collecting the multiples of G. By
-[[lem:ii-d-2-3]], [[eq:ii-d-2-1]] holds, and it holds at u by the approximation of Step 1, as G′u ∈ H^(s′−½) and G′Pu ∈
-H^(s′). In it, Ǎ_ε is uniformly of order s′ − ½, so 2|⟨Ǎ_εPu, Ǎ_εu⟩| ≤ 2‖Ǎ_εPu‖_(½) ‖Ǎ_εu‖_(−½) ≤
+e_3(|ϕ^s|), e-terms supported in {|ϕ^u| ≥ δ_3/2} ∪ {ρ_K ≥ δ_3/2}, and j_ε collecting the multiples of G. Take the
+localisers of [[lem:ii-d-2-3]] supported in the interior of U(16δ_2), where G′ is elliptic: φ_0 = 1 near supp Ψ_3,
+which contains the support of the e-term with e_3 and serves as its localiser, and, for the other e-terms, a localiser
+equal to 1 near their supports and supported in {|ϕ^u| ≥ δ_3/3} ∪ {ρ_K ≥ δ_3/3}, inside 𝒜(δ_2). By [[lem:ii-d-2-3]],
+[[eq:ii-d-2-1]] holds, and it holds at u in the localised form at the end of [[sec:ii-d-2]], as G′u ∈ H^(s′−½) and
+G′Pu ∈ H^(s′). In it, Ǎ_ε is uniformly of order s′ − ½, so 2|⟨Ǎ_εPu, Ǎ_εu⟩| ≤ 2‖Ǎ_εPu‖_(½) ‖Ǎ_εu‖_(−½) ≤
 C_δ(‖G′Pu‖_(s′) ‖G′u‖_(s′−1) + ‖χu‖²_(−N′)). This is where Pu ∈ H^(s′), one order more than real principal type needs,
 is used. |⟨J_εPu, u⟩| ≤ C_δ𝒦², as J_ε is uniformly of order 2s′ − 2. The e-terms in {|ϕ^u| ≥ δ_3/2} ∪ {ρ_K ≥ δ_3/2}
-lie in 𝒜(δ_2) and are at most C_δ(‖E′u‖_(s′) + ‖χu‖_(−N′)). So, with B_3^ε := Op(b_ε) and E_3^ε := Op(ρ^(−s′) φ_ε
-|ϕ^s|^(−β) χ̄_3 e_3(|ϕ^s|)),
+lie in 𝒜(δ_2) and are at most C_δ(‖E′u‖_(s′) + ‖χu‖_(−N′)). So, with B_3^ε := Op(b_ε)Φ_0 and
+E_3^ε := Op(ρ^(−s′) φ_ε |ϕ^s|^(−β) χ̄_3 e_3(|ϕ^s|))Φ_0,
 
     ‖B_3^ε u‖² ≤ ‖E_3^ε u‖² + C_δ𝒦².                                                                      {#eq:ii-d-4-12}
 
-Let M^ε := Op(ρ^(−s′) φ_ε F(|ϕ^s|) χ̄_3). After the factor ρ^(−s′) φ_ε its symbol is z := F(|ϕ^s|) χ̄_3, and that of
+Let M^ε := Op(ρ^(−s′) φ_ε F(|ϕ^s|) χ̄_3)Φ_0, φ_0 being 1 near supp(F(|ϕ^s|) χ̄_3) = supp Ψ_3. After the factor
+ρ^(−s′) φ_ε and the localiser its symbol is z := F(|ϕ^s|) χ̄_3, and that of
 B_3^ε is x_1 := Ψ_3 (Q_ε + 2βw_s)^(1/2). Let ζ be a cut-off equal to 1 near supp z and supported in {δ/4 < |ϕ^s| <
 2R_3} and in a neighbourhood of supp χ̄_3 ∩ {|ϕ^s| ≤ 2R_3} inside the interior of U(δ_1), where [[eq:ii-d-4-3]] holds,
 so that Q_ε + 2βw_s ≥ c_0 on supp ζ, and q_1 := ζ |ϕ^s|^β (Q_ε + 2βw_s)^(−1/2). Then z = q_1 x_1 near supp z, and
-sup|q_1| ≤ (2R_3)^β c_0^(−1/2), independently of δ and ε; so [[lem:ii-d-2-5]] in its general form gives ‖M^ε u‖ ≤
-CR_3^β ‖B_3^ε u‖ + C_δ𝒦, δ entering through the derivatives of |ϕ^s|^β near |ϕ^s| = δ/4. Its particular case does not
+sup|q_1| ≤ (2R_3)^β c_0^(−1/2), independently of δ and ε. So [[lem:ii-d-2-5]] in its general form, with Φ_z = Φ_1 =
+Φ_0 and at w = Φ′u, Φ′ an auxiliary operator with φ′ = 1 near supp φ_0 and WF′(Φ′) ⊂ Ell(G′), gives ‖M^ε u‖ ≤
+CR_3^β ‖B_3^ε u‖ + C_δ𝒦, as Φ_0(I − Φ′) ∈ Ψ̃^(−∞) and ‖Φ′u‖_(s′−½) ≤ C𝒦 ([[lem:ii-a-8-4]] (c)); δ enters through the
+derivatives of |ϕ^s|^β near |ϕ^s| = δ/4. Its particular case does not
 apply, as x_1 vanishes where z does. The symbol of E_3^ε is supported in {δ/2 ≤ |ϕ^s| ≤ δ} ∩ supp χ̄_3, where
 |ϕ^s|^(−β) e_3 ≤ Cδ^(−β): the propagation runs from the shell |ϕ^s| ∼ δ outward, along which |ϕ^s| grows, and the
 weight |ϕ^s|^(−β) costs δ^(−β).
@@ -1034,9 +1083,9 @@ componentwise and X_J := I. For k ≥ 1, 𝒲_k := {1, …, J}^k is the set of w
 and for a position i and a letter j, j·(α∖i) is the word obtained by deleting the i-th letter of α and putting j in
 front. The order of factors matters, as the X_i need not commute; words take care of it.
 
-*Operators of limited regularity.* "Q is of class 𝒬^m_q" means that Q is a finite sum Σ a_l A_l with A_l ∈ C_b^∞Ψ^m_e3b
-fixed and a_l ∈ C^∞ + C^((d_0;k−q))_(e3b;b), carried by the cut-off χ of the estimate, as in [[sec:ii-a-8-2]]: q
-b-derivatives of the coefficients of P have been spent. Its *decaying part* is the sum of the terms whose coefficients
+*Operators of limited regularity.* "Q is of class 𝒬^m_q" means that Q is a finite sum Σ a_l A_l, as in
+[[sec:ii-a-8-2]], with A_l ∈ C_b^∞Ψ^m_e3b fixed and carried by the cut-off χ of the estimate ([[sec:ii-a-8-3]]), and
+a_l ∈ C^∞ + C^((d_0;k−q))_(e3b;b): q b-derivatives of the coefficients of P have been spent. Its *decaying part* is the sum of the terms whose coefficients
 vanish at the face carrying Γ, at a rate ρ_Γ^ℓ for a defining function ρ_Γ of that face and some ℓ > 0. The hypotheses
 on a family are:
 
@@ -1162,14 +1211,16 @@ Propositions 7.17 and 7.22].
 *Proof.* Induction on k. Let k ≥ 1 and assume [[eq:ii-d1-2-6]] at k − 1 for every neighbourhood of Γ. Let U_(k−1) ⊂ U
 be a neighbourhood of Γ on which the conclusion at k − 1 holds for operators B′ microsupported in U_(k−1), with
 operators E′, G′ (the union of the sets of two applications, for B′ and a slightly larger one). Apply (E_𝔩) with
-U_(k−1) in place of U, to w := u^(k), giving B_k, E_k, G_k microsupported in U_(k−1); choose G^♯_1, G^♯_2 with
-WF′(G_k) ⊂ Ell(G^♯_1), WF′(G^♯_1) ⊂ Ell(G^♯_2) and WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at
+U_(k−1) in place of U, to w := u^(k), giving B_k, E_k, G_k microsupported in U_(k−1); choose auxiliary operators
+G^♯_1, G^♯_2 ((R1) of [[sec:ii-a-8-3]]) with WF′(G_k) ⊂ Ell(G^♯_1), WF′(G^♯_1) ⊂ Ell(G^♯_2) and WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at
 Γ. By [[lem:ii-d1-2-1]], ‖G_k L^(k) u^(k)‖ ≤ ‖G_k f^(k)‖ + ‖G_k f̃^(k)‖ + ‖G_k f̃^(k)_♭‖, all norms of order 𝗍 − 1 + 𝔩.
 We bound each term of [[eq:ii-d1-2-5]] at w = u^(k).
 
 *The left side.* By [[eq:ii-d1-2-3]] with B̃ := G^♯_1, ‖Bu‖_(𝗍;k) ≤ C(‖G^♯_1 u‖_(𝗍;k−1) + Σ_α ‖BX^α u‖_𝗍 +
 ‖χ̃u‖_(𝗍_0;k)), and ‖BX^α u‖_𝗍 ≤ C(‖B_k u^(k)‖_𝗍 + ‖χ̃u‖_(𝗍_0;k)), as B_k is elliptic on WF′(B) and ‖χ̃X^α u‖_(𝗍_0) ≤
-C‖χ̃′u‖_(𝗍_0;k), χ̃′ slightly larger. The first term is bounded by [[eq:ii-d1-2-6]] at k − 1.
+C‖χ̃′u‖_(𝗍_0;k), χ̃′ slightly larger: here and below, a cut-off said to be slightly larger than χ̃ equals 1 within
+d_ℬ-distance D of supp χ̃, D bounding the kernel ranges of the operators at hand ([[sec:ii-a-8-3]]). The first term is
+bounded by [[eq:ii-d1-2-6]] at k − 1.
 
 *The a priori terms.* By [[eq:ii-d1-2-4]], ‖E_k X^α u‖_(𝗍+𝔩) ≤ C(‖Eu‖_(𝗍+𝔩;k) + ‖χ̃u‖_(𝗍_0;k)) for E elliptic on
 WF′(E_k), and ‖χ̃u^(k)‖_(𝗍_0) ≤ C‖χ̃′u‖_(𝗍_0;k).
@@ -1190,7 +1241,7 @@ b-vector field preserves Diff²_e3b up to the coefficients ([[lem:ii-a-4-1]], an
     ‖G_k (ad_(X_S) L) X^(α∖S) u‖_(𝗍−1+𝔩) ≤ C (‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) + ‖χ̃u‖_(𝗍_0;k)).
 
 As q − 1 ≥ 1 + 𝔩, q − 1 applications of (F1) bound ‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) by C(‖G^♯_3 u‖_(𝗍;k−1) + ‖χ̃u‖_(−N′;k)),
-with G^♯_3 slightly larger than G^♯_2 and still microsupported in U_(k−1); this is bounded by [[eq:ii-d1-2-6]] at k
+with an auxiliary operator G^♯_3 slightly larger than G^♯_2 and still microsupported in U_(k−1); this is bounded by [[eq:ii-d1-2-6]] at k
 − 1. This is where 𝔩 = 1 needs (C2): a term with q = 2 would need ‖G^♯_2 u‖_(𝗍+2;k−2), which (F1) bounds only by the
 norm at (𝗍 + 1; k − 1), one order above what the induction controls.
 
