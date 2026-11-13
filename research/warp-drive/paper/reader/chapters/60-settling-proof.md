@@ -283,8 +283,8 @@ interior of {χ_K = 1} holds as in (i), and [[cor:s27-rate]] (c) gives [[eq:vii-
 class [[eq:vii-0-1]], and its ε_K is the one chosen at step (4) of [[thm:vi-c-2-1]], with [[eq:vii-0-1]] at step (3).
 With the ℓ_I ∈ (3, ℓ_0) chosen at step (3), which is admissible in row d2 of [[sec:vi-c-1]] (it avoids the discrete
 exclusion sets of that row, [[sec:s27-class]]), and the ε_+ chosen at step (4), ε_K satisfies the conditions that
-[[thm:settling]] states: 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, ¼), (G⁺) and (G) are conditions of row w1. Row w1
-also asks the exactness conditions (Ex1)–(Ex2) of [[def:iii-j3-1-3]], which [[thm:settling]] does not list; as it
+[[thm:settling]] states, all of them conditions of row w1: 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, ¼), (G⁺) and (G).
+Row w1 also asks the exactness conditions (Ex1)–(Ex2) of [[def:iii-j3-1-3]], which [[thm:settling]] does not list; as it
 quantifies ε_+ existentially, nothing is lost. (Ex1) is (G⁺) with its closed endpoint, as [[thm:settling]] states it.
 (Ex2) excludes only finitely many values of ε_+ in a bounded range ([[lem:iii-j3-1-4]]), so an ε_+ that meets the
 conditions [[thm:settling]] states can be lowered inside (ε_K, ε_+) to meet (Ex2) as well, without breaking any other
@@ -334,7 +334,6 @@ orders 2 and 3 at spatial infinity and a conormal remainder of order ℓ_0 ∈ (
 contains every perturbation that is, outside a compact set, a classical symbol of order −2 (in the metric) and −3 (in
 the second fundamental form), that is an element of ρ²C^∞, resp. ρ³C^∞, of the radial compactification, for instance
 the data of a nearby translated, rotated and boosted Myers–Perry metric. So (ii) needs no gluing and no parity
-condition; the gluing is used in (i) only, in its class form [[prop:vii-2-2]]. For a merely
-decaying perturbation, gluing gives only that it agrees on a large ball with one to which (ii) applies, and that
-statement is not made here. Which decaying perturbations (ii) reaches, directly or through gluing, is determined in
-[[ch:after-shell]].
+condition; the gluing is used in (i) only, in its class form [[prop:vii-2-2]]. For a merely decaying perturbation,
+gluing gives only that it agrees on a large ball with one to which (ii) applies, and that statement is not made here.
+Which decaying perturbations (ii) reaches, directly or through gluing, is determined in [[ch:after-shell]].

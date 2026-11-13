@@ -368,7 +368,8 @@ So [[lem:iv2-1-2]] holds on Ω^♮_(c_♮) := Ω^♮ ∩ {ρ′_I < c_♮}, in t
 
 #### The solution on Ω^♮ {#sec:iv3-2}
 
-**Theorem {#thm:iv3-2-1}** (The linear estimate on Ω^♮.) Let g_0 := φ_S^*g_(b₀) with |S| small, or g_0 := g_(b₀); h
+**Theorem {#thm:iv3-2-1}** (The linear estimate on Ω^♮.) Let g_0 := φ_(S,S⁰)^*g_(b₀) with |S| + |S⁰| small, or
+g_0 := g_(b₀); h
 small in H^(8,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮) (weights at ℐ⁺ in ρ′_I); L := L^(χ^♮_0)_(g_0+h,g_0); α_0 > ℓ^♭_I, k ∈ ℕ₀ and
 d := 4. For f ∈ H^(k+d,α_0+2,(−′,ℓ^♭_I+1))_b(Ω^♮), data ġ_0, ġ_1 ∈ H^(k+d,α_0)_b(Σ^IVP_(r_1)) and data
 k̇_0, k̇_1 ∈ H^(k+d)(Σ_c), there is a unique ġ ∈ H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) with Lġ = f, ġ = ġ_0 and
@@ -378,7 +379,8 @@ r ℒ_(∂_(t_IVP))ġ = ġ_1 on Σ^IVP_(r_1), and the Cauchy data (k̇_0, k̇_1)
 *Proof.* As [[thm:iv2-2-4]], with three changes. *The gauge.* On Ω_(ext,r_1), χ^♮_0 = χ_0 ([[lem:iii-k-1-1]] (c));
 on 𝒮, χ^♮_0 = 1 = χ_0, as t_IVP ≥ r/4 there ([[lem:s27-cover]] (d)); so L = L^(χ_0) on Ω^♮, and [[cor:iv2-4-1]]
 applies, χ_0 = 1 on Ω^♮_(c_♮) (ρ′_I < c_♮ gives t_IVP ≥ r/4). *The background.* g_0 ∈ 𝒢″ near 𝒮̄ by
-[[lem:iv3-0-1]], and in the class of [[lem:iii-c2-1-1]] on Ω_(ext,r_1); it is Ricci flat. *The regions.* Fix
+[[lem:iv3-0-1]], and in the class of [[lem:iii-c2-1-1]] on Ω_(ext,r_1) ([[lem:s27-translated-exterior]] (c)); it is
+Ricci flat. *The regions.* Fix
 c_♮ ≤ c/4 so small that [[prop:iv1-2-2]] holds on Ω^♮_(c_♮) with Σ_in := {ρ′_I = c_♮} ∩ Ω^♮ and
 Σ_fin := {t^♭_* = T̂ + 3} ∩ Ω^♮_(c_♮), which is spacelike for g_0 + h, dt^♭_* being past timelike for every g_(b₀) + h′
 with h′ small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:ii-c-3-2]] (2)); every X′_I-curve there begins on Σ_in
@@ -389,8 +391,9 @@ with h′ small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:ii-c-3-2]] (2)); every X′_I
 (ii) On Ω^♮ ∩ {ρ′_I ≥ c_♮/4} ∩ {τ′ ≥ 1/16}, away from ℐ⁺ (τ′ = t_IVP/|x| as in [[sec:iv2-0]]): its part in
 Ω_(ext,r_1) by the first step of [[lem:iv2-2-3]] ([[prop:iv-4-1]] for the system near the interior of I₀, and standard
 energy estimates on the compact part); then its part in 𝒮, which is compact (|x| ≤ 4(T″ − x¹)/c_♮, x¹ bounded), by the
-standard energy estimate for the Cauchy problem of a linear wave equation on a compact domain of dependence, with data
-on Σ_c (given) and on Σ^fut_(r_1) ∩ {c_♮/4 ≤ ρ′_I < c} (from the part in Ω_(ext,r_1)), both spacelike and compact. Its
+energy estimate for the Cauchy problem of a linear wave equation on a compact domain of dependence, with data on Σ_c
+(given) and on Σ^fut_(r_1) ∩ {c_♮/4 ≤ ρ′_I < c} (from the part in Ω_(ext,r_1)), both spacelike and compact: this is
+the local theory of [[sec:s27-local]] for a linear equation, whose solution map, linear and continuous, is bounded. Its
 boundary to the future, {ρ′_I = c_♮/4}, {t^♭_* = T̂ + 3} and Σ^fut_(r_1) ∩ {ρ′_I ≥ c} (where Ω^♮ borders 𝒦), is
 spacelike, so the region is closed under past causal curves within Ω^♮, and [[lem:ii-f-1-3]] gives uniqueness.
 
@@ -406,14 +409,21 @@ H^(k+4). Uniqueness: [[lem:ii-f-1-3]] on each region. ∎
 **Theorem {#thm:iv3-2-2}** (The nonlinear solution on Ω^♮; [Hin26, p. 321].) Let g_0 be as in [[thm:iv3-2-1]],
 (h_0, h_1) data on Σ^IVP_(r_1) as in [[thm:iv2-3-1]], and (k_0, k_1) the Cauchy data on Σ_c of a solution of
 P^♮(g_0 + h, g_0) = 0 on a neighbourhood of Σ_c in 𝒦 ∪ Ω_(ext,r_1) that agrees on Ω_(ext,r_1) with the solution of
-[[thm:iv2-3-1]]. If ‖h_j‖_(H^(2d,ℓ^♭_0)_b) + ‖k_j‖_(H^(2d)(Σ_c)) < ε_0 (d = 7), there is a unique
-h ∈ H^(∞,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮), small in H^(3d), with P^♮(g_0 + h, g_0) = 0 and these data; it equals the solution of
-[[thm:iv2-3-1]] on Ω_(ext,r_1), and the higher norms are bounded as there.
+[[thm:iv2-3-1]]. Let d := 7 and N_ex := 21d + 6 = 153, the regularity of [[thm:ii-g-2-1]] for this d. There is
+ε_0 > 0 such that, if ‖h_j‖_(H^(N_ex,ℓ^♭_0)_b) + ‖k_j‖_(H^(N_ex)(Σ_c)) < ε_0, there is a unique
+h ∈ H^(∞,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮), small in H^(3d), with P^♮(g_0 + h, g_0) = 0 and these data, and it equals the solution
+of [[thm:iv2-3-1]] on Ω_(ext,r_1); and for every k and ε > 0 there is ε_1 ∈ (0, ε_0] such that
+‖h_j‖_(H^(N_ex+k,ℓ^♭_0)_b) + ‖k_j‖_(H^(N_ex+k)(Σ_c)) < ε_1 gives ‖h‖_(H^(3d+k,ℓ^♭_0,(−,ℓ^♭_I))_b) < ε.
 
 *Proof.* The proof of [[thm:iv2-3-1]] on Ω^♮, with the spaces F^k of right sides enlarged by H^k(Σ_c)² and the map by
 the traces on Σ_c minus (k_0, k_1); the right inverses are those of [[thm:iv3-2-1]], and the smoothing and the map are
 as there (P^♮ = P^(χ_0) on Ω^♮, and [[cor:iii-c-5-3]] holds for it by [[lem:iii-c2-2-1]], near 𝒮 in the translated
-chart). Ω_(ext,r_1) is closed under past causal curves within Ω^♮, and its past boundary is
+chart). The data enter the map: ‖Φ(h)‖_k ≤ C′_k(1 + |h|_(k+d)) + Σ_j(‖h_j‖_(H^(k,ℓ^♭_0)_b) + ‖k_j‖_(H^k(Σ_c))),
+with C′_k independent of the data, so for k ≤ N_ex the constants C_k of [[eq:ii-g-2-3]] are bounded independently of
+the data once these norms are at most 1 in H^(N_ex). The threshold of [[thm:ii-g-2-1]] depends on the constants up to
+the order N_ex only, so it is then uniform, and ‖Φ(0)‖_(2d) is below it for data small in H^(N_ex); the shifted scales
+of the proof of [[thm:iv2-3-1]] give the higher norms in the same way, with N_ex + k in place of N_ex. Ω_(ext,r_1) is
+closed under past causal curves within Ω^♮, and its past boundary is
 Σ^IVP_(r_1) ∪ Σ^past_(r_1); so on it the solution depends on (h_0, h_1) only, and it is the solution of
 [[thm:iv2-3-1]] by uniqueness there. ∎
 

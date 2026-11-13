@@ -60,7 +60,7 @@ field ∂_t there. V is smooth, stationary and spherically symmetric. K and K_V 
 the derivative in m of the Ricci-flat metrics −(1 − m/r²) dv² + 2 dv dr + r²γ at m₀, and DRic(ℒ_V g) = 0
 ([[lem:ix-2-1]] (b)).
 
-*Part VIII's solution in the class.* Let (γ̇, k̇) be G-invariant data of [[cor:viii-2-3]], ġ its solution and ṁ its
+*The linear solution in the class.* Let (γ̇, k̇) be G-invariant data of [[cor:viii-2-3]], ġ its solution and ṁ its
 mass change. ġ is G-invariant, smooth on the interior of N = {t_IVP ≥ −ν(r)}, with DRic(ġ) = 0 there, and its
 restriction to N⁺ = M°_♭ ∩ {t_IVP ≥ 0} is smooth up to Σ° ([[lem:s29-g-on-n]], [[sec:ix-0]]). N and N⁺ are unions of
 spheres, t_IVP = t − ψ_IVP(r) ([[lem:iii-b-3-7]] (b)). Put
@@ -253,9 +253,9 @@ part of ℒ_Zg is 2(D̂D̂ − (1/3)γΔ̂)η, so τ[ℒ_Zg] = 2η by (b) of [[l
 **Lemma {#lem:rw-warped}** (Warped products over S³.) Let g′ = g′_ab dy^a dy^b + R²γ, with g′_ab a Lorentzian metric
 and R > 0 a function on a two-dimensional manifold, D, □ and 𝓇 the covariant derivative, wave operator and scalar
 curvature of g′_ab. Then Ric[g′]_ab = (𝓇/2)g′_ab − (3/R)D_aD_bR, Ric[g′]_ai = 0 and
-Ric[g′]_ij = ρ γ_ij with ρ := 2(1 − |dR|²) − R□R. The Misner–Sharp mass m(g′) := R²(1 − |dR|²) satisfies
+Ric[g′]_ij = ρ_S γ_ij with ρ_S := 2(1 − |dR|²) − R□R. The Misner–Sharp mass m(g′) := R²(1 − |dR|²) satisfies
 
-    ∂_a m(g′) = (2R³/3)(Ric_ab − (1/2)g′_ab g′^(cd)Ric_cd) D^bR + Rρ ∂_aR,                                 {#eq:rw-ms}
+    ∂_a m(g′) = (2R³/3)(Ric_ab − (1/2)g′_ab g′^(cd)Ric_cd) D^bR + Rρ_S ∂_aR,                                 {#eq:rw-ms}
 
 with Ric := Ric[g′] and indices raised by g′_ab.
 
@@ -267,7 +267,7 @@ Ricci tensor of a two-dimensional metric is (𝓇/2)g′_ab. For i, j on the fib
 the fibre gives Ric[γ] = 2γ. The mixed
 components vanish since every term carries an odd number of fibre indices of a tensor built from γ and its connection
 alone. For [[eq:rw-ms]]: ∂_am = 2R∂_aR(1 − |dR|²) − 2R²D^bR D_aD_bR. By the formulas just proved,
-D_aD_bR = (R/3)((𝓇/2)g′_ab − Ric_ab), 2(1 − |dR|²) = ρ + R□R and □R = (R/3)(𝓇 − g′^(cd)Ric_cd). Inserting these, the
+D_aD_bR = (R/3)((𝓇/2)g′_ab − Ric_ab), 2(1 − |dR|²) = ρ_S + R□R and □R = (R/3)(𝓇 − g′^(cd)Ric_cd). Inserting these, the
 terms in 𝓇 cancel and [[eq:rw-ms]] remains. ∎
 
 **Lemma {#lem:gd-1-4}** (The spherically symmetric part: the linearised mass and Birkhoff's theorem.) Let
@@ -299,7 +299,7 @@ Y^a(y)∂_a (S³ carries no SO(4)-invariant vector field), so its flow φ_s maps
 spherically symmetric metrics, with R(φ_s*g) = R(g) ∘ φ_s, and m(φ_s*g) = m(g) ∘ φ_s = m₀; differentiating at s = 0,
 δm[ℒ_Yg] = 0. For K, A = r⁻² and the rest vanish, so δm[K] = 1; δm[K_V] = 1 by [[eq:gd-0-1]], V being spherically
 symmetric. Finally, linearise [[eq:rw-ms]] at g, where Ric = 0, R = r and D^br = g^(br): only the variation of the
-Ricci tensor survives, ρ̇ = Ṙ_ϑϑ, and ∂_aδm = (2r³/3)(Ṙ_ab − (1/2)g_ab g^(cd)Ṙ_cd)g^(br) + rṘ_ϑϑ∂_ar. For a = v,
+Ricci tensor survives, ρ̇_S = Ṙ_ϑϑ, and ∂_aδm = (2r³/3)(Ṙ_ab − (1/2)g_ab g^(cd)Ṙ_cd)g^(br) + rṘ_ϑϑ∂_ar. For a = v,
 g^(br)(Ṙ_vb − (1/2)g_vb tr) = Ṙ_vv + fṘ_vr − (1/2)(g_vv + fg_vr)tr = Ṙ_vv + fṘ_vr, as g_vv + fg_vr = 0, and ∂_vr = 0.
 For a = r, Ṙ_rv + fṘ_rr − (1/2)(g_rv + fg_rr)(2Ṙ_vr + fṘ_rr) = (1/2)fṘ_rr.
 
@@ -329,7 +329,7 @@ h_0 = h′ + cK − ℒ_(Y_1)g = cK + ℒ_(ζ∂_v − Y_1)g, which is [[eq:gd-1
 The following theorem passes the decay of [[thm:viii-2-2]] to the Regge–Wheeler-type gauge directly, sphere by sphere;
 it uses neither the reconstruction of the metric from the master fields nor the estimates of [HKW18].
 
-**Theorem {#thm:rw-settling}** (Part VIII's solution in the Regge–Wheeler-type gauge.) Let ġ, ṁ and h = ġ − ṁK_V be
+**Theorem {#thm:rw-settling}** (The linear solution in the Regge–Wheeler-type gauge.) Let ġ, ṁ and h = ġ − ṁK_V be
 as in [[sec:rw-setting]], h_0 the l = 0 part of h, and N⁺ = M°_♭ ∩ {t_IVP ≥ 0}.
 
 (a) δm[h_0] = 0, and with Y[h_0] of [[eq:gd-1-2]], ζ normalised by ζ(v, r) → 0 as v → ∞,
@@ -391,7 +391,7 @@ Regge–Wheeler-type gauge, with l = 0 part c″K_V for a constant c″. By [[le
 **Remark {#rem:rw-zeta}** (The loss of one power in ζ.) It comes from the time integral and is attained by the
 implication "ℒ_Yg decays ⇒ Y decays": by the formula for ℒ_(ζ∂_v)g, Y = (1 + v)^(−q)∂_v has
 ℒ_Yg = 2q(1 + v)^(−q−1)(f dv² − dv dr) = O(v^(−q−1)), with every derivative, while Y is only O(v^(−q)). Whether
-Part VIII's own h_0 makes ζ decay faster is not determined here.
+the h_0 of [[cor:viii-2-3]] makes ζ decay faster is not determined here.
 
 ### The master fields {#sec:rw-master}
 
@@ -466,8 +466,8 @@ chart's ∂_m g = r⁻²dt² + r²(r² − m₀)⁻²dr² equals K + ℒ_(ζ∂_
 h_0 = cK is reached by the gauge vector Y[h_0] of [[eq:gd-1-2]], smooth wherever h_0 is). Then h settles to cK on each
 region {r ≤ R}, the horizon included, uniformly in l, in two data classes:
 
-(iv-a) (Part VIII's data class.) Let h be a solution on N⁺, which reaches inside the horizon (r_♭ < r_h). If the data
-h induces on Σ^IVP are, up to those of a linearised diffeomorphism, G-invariant data (γ̇, k̇) of [[thm:viii-2-2]]
+(iv-a) (The data class of [[thm:viii-2-2]].) Let h be a solution on N⁺, smooth up to Σ°; N⁺ reaches inside the
+horizon (r_♭ < r_h). If the data h induces on Σ^IVP are, up to those of a linearised diffeomorphism, G-invariant data (γ̇, k̇) of [[thm:viii-2-2]]
 (γ̇ ∈ H^(∞,(ℰ_0,ℓ_0))_b, k̇ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b, solving the linearised constraints), then h + cℒ_Vg, which is in
 the Regge–Wheeler-type gauge with l = 0 part cK_V, is the ġ_RW of [[thm:rw-settling]]; so c = ṁ, h = ġ_RW on
 {r ≤ 2R₁}, and h − cK = ġ_RW − ṁK_V everywhere. For every k, R′ and ε′ > 0,
