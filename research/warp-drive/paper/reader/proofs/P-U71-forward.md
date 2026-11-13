@@ -352,13 +352,74 @@ C‖R_∞w‖_(H^(A+2B+1)) ≤ C‖w‖_(H^(−N_0)), by [[lem:fwd-crude]] with 
 n + 1 + A + B x-derivatives of b. Together with Steps 1–3 and ‖Λw‖ ≤ ‖w‖_(H^𝗍) this is the claim.
 The largest count is that of Step 1. For A = B = T: J_1 = 4T + 1, 2L′ = 𝔢(6T + 7) = 6T + 8, K = 10T + 15. ∎
 
-**Lemma {#lem:fwd-norms}** (Localisation of the norms.) For every order function 𝗋 there is C such that, for cut-offs
-θ̃_α := φ_α^*θ̃ (θ̃ ∈ C_c^∞((−15/8, 15/8)ⁿ) equal to 1 on [−7/4, 7/4]ⁿ) and functions v_α supported in [−15/8, 15/8]ⁿ,
+**Lemma {#lem:fwd-norms}** (Localisation of the norms.) Let 𝗋 be an order function, θ̃ ∈ C_c^∞((−13/8, 13/8)ⁿ) equal
+to 1 on [−3/2, 3/2]ⁿ, and θ̃_α := φ_α^*θ̃. There is C such that, for all u and all functions v_α supported in
+[−5/4, 5/4]ⁿ,
 
     ‖Σ_α φ_α^* v_α‖²_𝗋 ≤ C Σ_α ‖v_α‖²_(H^(𝗋_α)(ℝⁿ)),       Σ_α ‖(φ_α)_*(θ̃_α u)‖²_(H^(𝗋_α)(ℝⁿ)) ≤ C ‖u‖²_𝗋.
 
-Both statements concern the smooth calculus only, (S3) for constant orders and (S8), (S13), (S15) for variable ones,
-and involve no symbol of finite regularity.
+*Proof.* Only smooth symbols occur. The lemmas above apply to them with N_0 in place of T, every seminorm
+[[eq:fwd-seminorm]] being finite, and no derivative is counted; the constants depend on 𝗋, on the cut-offs and on
+(S1), (S15), never on the charts. Here N_0 is a fixed integer with N_0 ≥ sup |𝗋|. By finite multiplicity ((S1)) there
+is N_ℬ such that each U_α meets at most N_ℬ of the U_β; let A_α be the set of these β.
+
+*Integer orders.* Let k ∈ ℤ, K ⊂ (−2, 2)ⁿ compact, ϑ ∈ C_c^∞((−2, 2)ⁿ) and ϑ_α := φ_α^*ϑ. We show
+
+    ‖Σ_α φ_α^* w_α‖²_k ≤ C Σ_α ‖w_α‖²_(H^k(ℝⁿ))  (supp w_α ⊂ K),      Σ_α ‖(φ_α)_*(ϑ_α u)‖²_(H^k(ℝⁿ)) ≤ C ‖u‖²_k.
+
+By (S3), ‖u‖²_k = Σ_β ‖(φ_β)_*(χ°_βu)‖²_(H^k(ℝⁿ)) with χ°_β := φ_β^*χ°, the cut-off χ° of (S3) being nonnegative,
+in C_c^∞((−2, 2)ⁿ) and equal to 1 on [−1, 1]ⁿ; as M = ⋃_β φ_β⁻¹((−1, 1)ⁿ) ((S1)), 1 ≤ Σ_β χ°_β ≤ N_ℬ. For charts
+α, β and a function ϕ on (−2, 2)ⁿ that vanishes outside φ_α(F), with F ⊂ U_α ∩ U_β compact, put
+T^ϕ_(βα)w := (ϕw) ∘ φ_α ∘ φ_β⁻¹ on φ_β(U_α ∩ U_β), extended by 0. If the derivatives of ϕ of order at most |k| are
+bounded, then ‖T^ϕ_(βα)w‖_(H^k) ≤ C‖w‖_(H^k). For k ≥ 0 this is Leibniz's rule, the chain rule and the change of
+variables, the transition maps and their inverses having bounded derivatives ((S1)). For k < 0 it follows by
+duality, the L²-adjoint of T^ϕ_(βα) being T^(ϕ′)_(αβ) with ϕ′ := (ϕ̄ |det D(φ_β ∘ φ_α⁻¹)|) ∘ φ_α ∘ φ_β⁻¹, a
+function of the same kind. Now (φ_β)_*(χ°_βφ_α^*w_α) = T^ϕ_(βα)w_α with ϕ := χ̌ · (χ° ∘ φ_β ∘ φ_α⁻¹), where
+χ̌ ∈ C_c^∞((−2, 2)ⁿ) equals 1 on K and χ° ∘ φ_β ∘ φ_α⁻¹, extended by 0, is smooth, as φ_β⁻¹(supp χ°) is compact;
+and it vanishes unless α ∈ A_β. So the left side of the first bound is at most Σ_β N_ℬ Σ_(α∈A_β) C‖w_α‖², which is
+at most CN_ℬ² Σ_α ‖w_α‖². For the second, ϑ_αu = Σ_(β∈A_α) ϑ_αζχ°_βu with ζ := (Σ_γ χ°_γ)⁻¹, whose derivatives in
+the charts are bounded, and (φ_α)_*(ϑ_αζχ°_βu) = T^ϕ_(αβ)(φ_β)_*(χ°_βu) with ϕ := χ̌′ · ((ϑ_αζ) ∘ φ_β⁻¹), where
+χ̌′ ∈ C_c^∞((−2, 2)ⁿ) equals 1 on supp χ°; summing as before gives the second bound.
+
+*Two facts.* Put Λ := Op(ρ_∞^(−𝗋)) ∈ Ψ̃^𝗋 and Λ′_0 := Op(ρ_∞^𝗋). By (S5) and (S8), Λ′_0Λ = I − R_1 with R_1 of
+order −½, as the principal symbols multiply to 1 and Op(1) = I ([[eq:ii-a1-1-1]]). So Λ′ := Σ_(j<4N_0) R_1^jΛ′_0
+satisfies Λ′Λ = I + R with R := −R_1^(4N_0) of order −2N_0, and Λ′ = Op(λ′) + R′ with λ′ a smooth symbol of order
+−𝗋 and R′ ∈ Ψ̃^(−∞) ((S4), (S8)). H^𝗋 is the space of the u ∈ H^(−N_0) with Λu ∈ L² ([[sec:ii-a1-1-1]], (S8)),
+normed by ‖u‖_𝗋 := ‖Λu‖ + ‖u‖_(−N_0). On ℝⁿ, ‖w‖_(H^(𝗋_α)) ≤ C‖w‖_(H^(N_0)), as Op(⟨ξ⟩^(𝗋_α))⟨D⟩^(−N_0) is
+Op(⟨ξ⟩^(𝗋_α−N_0)), bounded on L² by [[lem:fwd-l2]]. Let θ̌ ∈ C_c^∞((−2, 2)ⁿ) equal 1 on [−7/4, 7/4]ⁿ and
+θ̌_α := φ_α^*θ̌. For a smooth symbol g of order 𝗆 with values in [−N_0, N_0], Op(g) = Σ_β O^ε_β(g) + Σ_β O^far_β(g)
+([[eq:fwd-chart-op]] and the near and far parts above).
+
+(P1) Σ_β O^far_β(g) maps H^(−N_0) to H^(N_0). Indeed, by [[lem:fwd-far]] with 2K ≥ 3N_0 + 1, and as the kernel of
+O_β(g) joins points within ¼ in the chart β, O^far_β(g)u = φ_β^*Op(b^β)(φ_β)_*(θ̌_βu), with b^β vanishing for
+x ∉ (−5/4, 5/4)ⁿ and of order at most −2N_0. By [[lem:fwd-crude]] (s = −N_0, μ = −2N_0) and the integer bounds at
+the orders N_0 and −N_0, ‖Σ_β O^far_β(g)u‖²_(N_0) ≤ C Σ_β ‖(φ_β)_*(θ̌_βu)‖²_(H^(−N_0)) ≤ C‖u‖²_(−N_0).
+
+(P2) For charts α, β, (φ_α)_*(θ̃_αO^ε_β(g)f) = (Op(σ) + Op(ρ))(φ_α)_*(θ̌_αf), where σ and ρ vanish for x ∉ supp θ̃
+and unless β ∈ A_α, σ has order 𝗆_α, and |∂_x^γ ρ| ≤ C⟨ξ⟩^(−2N_0) for every γ. Indeed, by [[lem:fwd-transport]]
+with θ := θ̃, the left side is R_c applied to (φ_α)_*f, whose amplitude c contains the factor θ̃(x) and vanishes
+unless |x − y| ≤ Cε, so that θ̌_α may be inserted; θ̃_α and O^ε_β(g)f are supported in U_α and U_β. Then
+[[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have the pointwise
+order 𝗆_α − |γ|, and ρ := ρ_J. So, for every order 𝗍 with values in [−N_0, N_0], Op(σ) maps H^(𝗍_α) to
+H^(𝗍_α−𝗆_α) by [[lem:fwd-local]], as σ vanishes for x ∉ [−7/4, 7/4]ⁿ, and Op(ρ) maps H^(−N_0) to H^(N_0) by
+[[lem:fwd-crude]]; both uniformly in (α, β).
+
+*The first bound.* Let u := Σ_α φ_α^*v_α, first with finitely many v_α ≠ 0, and λ_0 := ρ_∞^(−𝗋), so that
+Λ = Op(λ_0). By the integer bound at −N_0, ‖u‖²_(−N_0) ≤ C Σ_α ‖v_α‖²_(H^(−N_0)) ≤ C Σ_α ‖v_α‖²_(H^(𝗋_α)), and by
+(P1), ‖Σ_β O^far_β(λ_0)u‖ ≤ C‖u‖_(−N_0). The kernel of O^ε_β(λ_0) joins points within Cε in d_ℬ ((S15)), so for ε
+small O^ε_β(λ_0)φ_α^*v_α is supported where θ̃_α = 1. By (P2) with 𝗍 := 𝗋, as θ̌ = 1 on supp v_α,
+Σ_β O^ε_β(λ_0)φ_α^*v_α = φ_α^*V_α with V_α := Σ_(β∈A_α) (Op(σ_(αβ)) + Op(ρ_(αβ)))v_α, which vanishes outside
+supp θ̃ and has ‖V_α‖ ≤ CN_ℬ‖v_α‖_(H^(𝗋_α)). The integer bound at the order 0 with K := supp θ̃ gives
+‖Σ_α φ_α^*V_α‖² ≤ C Σ_α ‖v_α‖²_(H^(𝗋_α)). So ‖u‖²_𝗋 ≤ C Σ_α ‖v_α‖²_(H^(𝗋_α)). For infinitely many v_α, the partial
+sums converge in H^(−N_0), by the integer bound, and are Cauchy in H^𝗋, by this bound; their limit is u.
+
+*The second bound.* Let f := Λu, so ‖f‖ ≤ ‖u‖_𝗋, and u = Λ′f − Ru = Σ_β O^ε_β(λ′)f + h with
+h := Σ_β O^far_β(λ′)f + R′f − Ru. By (P1), and as R′ is residual and R has order −2N_0,
+‖h‖_(N_0) ≤ C(‖f‖ + ‖u‖_(−N_0)) ≤ C‖u‖_𝗋, and the integer bound at N_0 with ϑ := θ̃ gives
+Σ_α ‖(φ_α)_*(θ̃_αh)‖²_(H^(𝗋_α)) ≤ C Σ_α ‖(φ_α)_*(θ̃_αh)‖²_(H^(N_0)) ≤ C‖u‖²_𝗋. By (P2) with g := λ′, of order −𝗋, and
+𝗍 := 0, ‖(φ_α)_*(θ̃_αO^ε_β(λ′)f)‖_(H^(𝗋_α)) ≤ C‖(φ_α)_*(θ̌_αf)‖, and the left side vanishes unless β ∈ A_α. So, by
+the integer bound at the order 0 with ϑ := θ̌, the sum over α of ‖(φ_α)_*(θ̃_α Σ_β O^ε_β(λ′)f)‖²_(H^(𝗋_α)) is at most
+CN_ℬ² Σ_α ‖(φ_α)_*(θ̌_αf)‖² ≤ C‖f‖² ≤ C‖u‖²_𝗋. ∎
 
 **Lemma {#lem:fwd-expansion}** (A product in a chart.) Let r ∈ {1, …, 6}, S ≥ 0 an integer, and F_1, …, F_r each of
 the form Op(g_j) or Op(g_j)^*, the symbol g_j of order 𝗆_j with values in [−T, T] (smooth symbols, such as those of

@@ -395,8 +395,8 @@ for σ > d/2 and ‖∂w‖_(L^∞) ≤ C ‖w‖_(H^σ) for σ > d/2 + 1. We fi
 ‖w‖_(W^(1,∞)) ≤ C_S ‖w‖_(H^s).
 
 For an integer σ ≥ 0, a *bound of order σ* for a function Φ of (t, x, u), such as A^μ or a forcing term, is an
-increasing function of R ≥ 0 that bounds |∂_t^a ∂_x^β ∂_u^γ Φ| on [0, T0] × R^d × {|u| ≤ R} for a + |β| ≤ σ and
-|γ| ≤ σ. By ∂(A^0)⁻¹ = −(A^0)⁻¹ (∂A^0) (A^0)⁻¹, each such derivative of (A^0)⁻¹ is a sum of products of (A^0)⁻¹ and
+increasing function of R ≥ 0 that bounds |∂_t^a ∂_x^β ∂_u^γ Φ| on [0, T0] × R^d × {|u| ≤ R} for all a, β, γ with
+a + |β| ≤ σ and |γ| ≤ σ. By ∂(A^0)⁻¹ = −(A^0)⁻¹ (∂A^0) (A^0)⁻¹, each such derivative of (A^0)⁻¹ is a sum of products of (A^0)⁻¹ and
 of derivatives ∂_t^(a_i) ∂_x^(β_i) ∂_u^(γ_i) A^0 with Σ a_i = a, Σ β_i = β and Σ γ_i = γ; as |(A^0)⁻¹| ≤ c0⁻¹, c0 and
 a bound of order σ for A^0 give one for (A^0)⁻¹. At the order s the constants of this section depend on the
 coefficients and on local forcing terms only through bounds of order s (the paragraph after [[rem:class-kato-local]]).
@@ -799,8 +799,8 @@ put x̂ := x/|x|. On [0, T] × R^(n+1) let
 
 (W_ab)^j the components of W_ab, linear in x; these are zero or the identity off {1/2 < |x| < 2}. They are smooth and
 symmetric, Ã^0 ≥ min(2c0, 1) I, every derivative is bounded on bounded sets of W, by (1) their bounds of order s (in
-the sense of [[sec:class-kato]]) are uniform in P, and F̃(t, x, 0) vanishes for |x| ∉ (1/2, 2). As the W_ab are tangent to the spheres |x| = r and commute with dilations, the system Ã^0 ∂_t W + Ã^j ∂_j W =
-F̃ holds no derivative across the spheres, and on each sphere |x| = r ∈ [3/4, 4/3], with W_r(t, ω) := W(t, rω), it is
+the sense of [[sec:class-kato]]) are uniform in P, and F̃(t, x, 0) vanishes for |x| ∉ (1/2, 2). As the W_ab are
+tangent to the spheres |x| = r and commute with dilations, the system Ã^0 ∂_t W + Ã^j ∂_j W = F̃ holds no derivative across the spheres, and on each sphere |x| = r ∈ [3/4, 4/3], with W_r(t, ω) := W(t, rω), it is
 the system of (1) for W_r. Its forcing term is local and satisfies (F1)–(F3) and (F1′) by [[rem:class-kato-local]], and
 for P = P̄, W̄ := 0 solves it; for general P, 0 satisfies [[eq:class-kato-approximate]] with R := −F̃(t, x, 0), ‖R(t)‖ ≤
 C ‖P − P̄‖_(C^0) and ‖R(t)‖_(H^s) ≤ C ‖P − P̄‖_(C^s) ≤ 1.
@@ -817,14 +817,14 @@ which is at most r0 for ε0 small. The constants are uniform in P: at the order 
 [[thm:class-kato-stability]] depend on the coefficients and on the local forcing term F̃ only through bounds of order s
 and through sup_t ‖F̃(t, ·, 0)‖_(H^s) (the paragraph after [[rem:class-kato-local]]), and by (1) and (2) these are
 uniform in P, sup_t ‖F̃(t, ·, 0)‖_(H^s) being at most C ‖P − P̄‖_(C^s) ≤ 1. W lies in C([0, T]; C¹) by
-[[eq:class-interpolation]], and ∂_t W is continuous by the equation; so W ∈ C¹([0, T] × R^(n+1)), and every W_r, 3/4 ≤ r ≤ 4/3, is a C¹ solution on [0, T] × S^n of the system of (1) with the datum
-w0. Two such solutions coincide: their difference z satisfies the L² energy identity on S^n, in which ∫_(S^n) ⟨B^(ab)
+[[eq:class-interpolation]], and ∂_t W is continuous by the equation; so W ∈ C¹([0, T] × R^(n+1)), and every W_r,
+3/4 ≤ r ≤ 4/3, is a C¹ solution on [0, T] × S^n of the system of (1) with the datum w0. Two such solutions coincide: their difference z satisfies the L² energy identity on S^n, in which ∫_(S^n) ⟨B^(ab)
 W_ab z, z⟩ = −½ ∫_(S^n) ⟨(W_ab B^(ab)) z, z⟩ because the rotations preserve the measure of S^n, and Gronwall's
 inequality gives z = 0. So W(t, rω) = W(t, ω) on the shell 3/4 ≤ |x| ≤ 4/3, and u := ū + W_1 solves
 [[eq:class-kato-sphere]], since |W_1| ≤ r0; and sup |u − ū| = sup |W_1| ≤ sup_t ‖W‖_(W^(1,∞)). On the shell W_ab W(t,
 rω) = (W_ab W_1)(t, ω), and the W_ab have bounded coefficients there; so the L² and H^s norms of W_1(t) on S^n are
-bounded by C times those of W(t) on R^(n+1). This is (a) except uniqueness. *Uniqueness.* For two solutions in the class of (a), the H^s(S^n) norm bounds W_ab u in H^(s−1)(S^n) ⊂
-L^∞ ([[thm:std-bh-manifold]], s − 1 > n/2, the norm of [[cor:std-moser-product]] (2) being equivalent to that of
+bounded by C times those of W(t) on R^(n+1). This is (a) except uniqueness. *Uniqueness.* For two solutions in the
+class of (a), the H^s(S^n) norm bounds W_ab u in H^(s−1)(S^n) ⊂ L^∞ ([[thm:std-bh-manifold]], s − 1 > n/2, the norm of [[cor:std-moser-product]] (2) being equivalent to that of
 [BH17] by the chart comparison in its proof), and ∂_t u is bounded by the equation; the L² energy identity on S^n for
 their difference, as above, gives uniqueness.
 
@@ -856,8 +856,8 @@ steps using its bounds: through [[lem:class-composition]] (c) and (d) at the ord
 through [[lem:class-composition]] (c) at the order s − 1 for Ψ_1 and Ψ_2, which hold ∂_t A^μ and ∂_u A^μ under at
 most s − 1 further derivatives in x and in u, and through L_0 and L_1, which hold first derivatives. The constants of
 [[thm:class-kato]] and [[thm:class-kato-stability]] are made from those of [[lem:class-kato-linear]], from C_S and the
-other Sobolev constants of this section, which depend only on d and the orders used, from sup |A^0|, sup |(A^0)⁻¹|, sup |A^j| and sup |∂_u A^μ| on sets {|u| ≤ R},
-and from C_F, L and C′; for a local forcing term the proof above obtains these from [[lem:class-composition]] (b) at the
+other Sobolev constants of this section, which depend only on d and the orders used, from sup |A^0|, sup |(A^0)⁻¹|,
+sup |A^j| and sup |∂_u A^μ| on sets {|u| ≤ R}, and from C_F, L and C′; for a local forcing term the proof above obtains these from [[lem:class-composition]] (b) at the
 order s, from sup |∂_u F| on such sets and from sup_t ‖F(t, ·, 0)‖_(H^s). So at the order s these constants depend on
 the coefficients and on a local forcing term only through bounds of order s and through sup_t ‖F(t, ·, 0)‖_(H^s).
 
