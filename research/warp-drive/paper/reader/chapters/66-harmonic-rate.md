@@ -11,8 +11,8 @@ zero total horizon charge, past that window to (2, 3) ([[thm:gd-r7-1]]). A homog
 p ∈ (½, 3/2) at spatial infinity then settles at t_*^(−α) for every α < p ([[cor:gd-r7-6]]), and one with data of
 compact support settles with an exact t_*^(−2) term, which an explicit solution of charge 4π² exhibits: the
 switched-on Coulomb field of flat 4 + 1 placed on Tangherlini ([[lem:gd-r7-2]], [[thm:gd-r7-3]], [[cor:gd-r7-4]]). In
-the class the order is p_0 > ½ + 2γ_Υ, and p_0 = 1 for data that differ from a change of mass only on a ball
-([[cor:gd-r7-7]]).
+the class the order is p_0 > ½ + 2γ_Υ, and p_0 = ∞ for data of compact support; for data that differ from a change
+of mass only on a ball the rate is t_*^(−1+ε) ([[cor:gd-r7-7]]).
 
 The part with l ≥ 2 sees no zero-energy state. On the 1-forms with no part of degree l ≤ 1 the zero-energy operator of
 □ has the indicial gap (−1, 3), no kernel and no cokernel at the weights of that gap, and an admissible transition face,
@@ -23,23 +23,24 @@ constraint damping makes the gauge forcing term decay along the forward cone ([[
 
 Together ([[thm:harmonic-rate]]): ġ_H settles to ṁK* + cℒ_(W*)g at t_*^(−min(p_0,3/2)+ε) for every ε > 0, at
 t_*^(−1+ε) when the data differ from a change of mass only on a ball, and at t_*^(−3/2−κ), κ < δ_♯, for data of compact
-support, whose spherically symmetric part then carries the exact term (m₀c/2)t_*^(−2)ℒ_(W*)g. The constant c is the
-limit of the horizon charge of Z′_0 over that of W*, corrected by the Killing part of the data of Z′_0.
+support, whose spherically symmetric part then carries the exact term (m₀c/2)t_*^(−2)ℒ_(W*)g. The constant c, which
+is the c_∞ of [[cor:gd-r4-4]], is the horizon charge of Z′_0 over that of W*, corrected by the Killing part of the data
+of Z′_0.
 
 ### Setting {#sec:hr-setting}
 
 Everything of [[sec:hg-setting]] and [[sec:hg-positive]] is kept: g = g_(b₀) of mass m₀, r_h = m₀^(1/2), the ingoing
-chart, the class, K = r⁻²dv², K_V, the linear solution ġ, its mass change ṁ, h = ġ − ṁK_V and w = α − 2 > 2 + ε_t; □
+chart, the class, K̄ = r⁻²dv², K_V, the linear solution ġ, its mass change ṁ, h = ġ − ṁK_V and w = α − 2 > 2 + ε_t; □
 on 1-forms and □_0 on functions; W*, the horizon functional ℓ of [[eq:hg-ell]] and the horizon charge Q of
 [[eq:hg-charge]]; W**, W**_H and K* of [[prop:np-10-2]]; P̂, P̃, f_*, φ_* and the spaces of [[sec:hg-augmented]]; the
 cut-offs χ_K and χ^H_K of [[sec:hg-setting]], and the cone cut-off χ′ and the constant T_1 of [[sec:hg-source]]; the
-forcing term F_Y of [[eq:gd-r3-2]] and J_h of [[eq:gd-r2-3]]; and M′, its faces I, ι = ι⁺ ∪ ι⁻ and K = K⁺ ∪ K⁻, the
+forcing term F_Y of [[sec:hg-late]] and J_h of [[eq:gd-r2-3]]; and M′, its faces I, ι = ι⁺ ∪ ι⁻ and K = K⁺ ∪ K⁻, the
 spaces H^(k,(w_I,w_ι,w_K))_b(M′), X^±_(sc-b) with its faces scf, tf, zf, and the dictionary of [[sec:hg-positive]],
 by which a conormal function whose pointwise orders exceed the weights lies in the space.
 
-*The gauge condition.* We write Υ̇⁰(k) = −δGk for the linearised gauge 1-form ([[sec:ix-0]]). A symmetric 2-tensor k is
-in harmonic gauge if Υ̇⁰(k) = 0, and [[eq:hg-box]] reads Υ̇⁰(ℒ_Xg) = −□X. By [[prop:np-10-2]] (iv) (b)–(c),
-Υ̇⁰(K_V) = □W**_H and Υ̇⁰(K*) = 0.
+*The gauge condition.* Υ̇⁰(k) = −δGk, and −Υ̇⁰(k) is the linearised harmonic gauge 1-form ([[sec:ix-0]]). A symmetric
+2-tensor k is in harmonic gauge if Υ̇⁰(k) = 0, and [[eq:hg-box]] reads Υ̇⁰(ℒ_Xg) = −□X. By [[prop:np-10-2]] (iv)
+(b)–(c), Υ̇⁰(K_V) = □W**_H and Υ̇⁰(K*) = 0.
 
 *The form dψ.* dψ = m₀W* − (∂_v)^♭, ψ = v + F, is the closed 1-form of [[lem:gd-r2-9]]: □dψ = d□_0ψ = 0, and
 ℒ_(dψ)g = m₀ℒ_(W*)g, as (∂_v)^♭ is Killing. dψ is stationary and bounded, and does not decay at infinity.
