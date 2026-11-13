@@ -788,10 +788,11 @@ by [[lem:layer-flat]] (a) and [[prop:layer-identification]]; for p = 0 it is bou
 [[thm:uniform-existence]] gives |∂^j w| ≤ C λ^(K−3−j) ≤ C on Ω for j ≤ 3, K ≥ 6. So |∂^j g_λ| ≤ C on R for j ≤ 3,
 and |g_λ − g0| ≤ C λ.
 
-**4. The forcing term.** On R, |(g_λ⁻¹ − g_app⁻¹) ∂²g_app| ≤ C |w| (step 3), and the Q-difference is at most C (|w| +
-|∂w|) by the mean value theorem in (g, ∂g), as in the proof of [[prop:eq-seed-region]]. Differentiating, for i ≤ 2,
-|∂^i f| ≤ |∂^i Ric^H(g_app)| + C Σ_(p≤i+1) |∂^p w|, using ∂^q g_app for q ≤ 4 and ∂^q w for q ≤ 3, bounded by step 3; and
-|∂^i Ric^H(g_app)| ≤ C λ^(N−1−i) ε_(M*)(v1) on R ([[lem:layer-flat]] (d)).
+**4. The forcing term.** On R, |(g_λ⁻¹ − g_app⁻¹) ∂²g_app| ≤ C |w| (step 3), and the Q-difference is at most
+C (|w| + |∂w|) by the mean value theorem in (g, ∂g), as in the proof of [[prop:eq-seed-region]]. Differentiating, for
+i ≤ 2, the bound |∂^i f| ≤ |∂^i Ric^H(g_app)| + C Σ_(p≤i+1) |∂^p w| holds, using ∂^q g_app for q ≤ 4 and ∂^q w for
+q ≤ 3, bounded by step 3; and the term |∂^i Ric^H(g_app)| is at most C λ^(N−1−i) ε_(M*)(v1) on R
+([[lem:layer-flat]] (d)).
 
 **5. The data.** On Σ_τ0 ∩ R = {a ≤ r ≤ v1 − τ0}, by the construction of [[sec:data-proof]]: the difference of g_λ from
 G(X, u/λ) has spatial part α dr ⊗ dr, components (τ ·) algebraic in α and the shift, and a τ-derivative of its spatial
@@ -813,8 +814,8 @@ C (E_2(τ0) + ∫_(τ0)^τ (E_2 + Σ_(i≤2) ‖∂^i Ric^H(g_app)‖)), and Gro
 
 **7. Pointwise.** For X ∈ R with r(X) ≥ q0, the slice R ∩ Σ_(τ(X)) = {a ≤ r ≤ ρ(τ(X))} contains X, so ρ(τ(X)) ≥ r(X) ≥
 q0 = a + δ0, and ρ(τ(X)) ≤ b(τ0): its width lies in [δ0, b(τ0) − a]. Sobolev's inequality with a uniform constant on
-such annuli (the proof of [[lem:sobolev]]: images of a fixed annulus under radial maps with bounded derivatives) gives
-|w(X)| ≤ C Σ_(p≤3) ‖∂_x^p w(τ(X))‖ ≤ C E_2(τ(X)). ∎
+such annuli (the proof of [[lem:sobolev]]: images of a fixed annulus under radial maps with bounded derivatives)
+gives |w(X)| ≤ C Σ_(p≤3) ‖∂_x^p w(τ(X))‖ ≤ C E_2(τ(X)). ∎
 
 **Lemma {#lem:layer-remainder-weak}** (The weighted remainder under a weaker hypothesis.) [[lem:layer-remainder]] holds
 with its hypothesis ε_(M*)(v1) ≤ λ³ replaced by ε_4(v1) ≤ λ: for X ∈ R with r(X) ≥ q0, |w(X)| ≤ C λ^(N−5)
