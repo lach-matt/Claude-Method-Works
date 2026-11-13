@@ -26,13 +26,13 @@ Throughout the chapter λ is fixed, 0 < λ ≤ λ_P, and every constant may depe
 
 ### The setting at fixed λ {#sec:bondi-setting}
 
-We use the notation of Chapter 9 [[pending:ch9-decay-classes]]. X = (τ, x) ∈ R × R⁴, r = |x|, x̂ = x/r, v = τ + r and
-t := 1 + τ0 − τ; P is the past domain of [[thm:past-construction]], P+ := P ∩ {v ≥ v_start}, Σ_τ the slices of constant
-τ, and ‖·‖ the flat L² norm on Σ_τ ∩ P+. The field ℓ := g0⁻¹ dv is null and tangent to the ingoing generators of the
-cones {v = const}; ℓf := df(ℓ), and on P+ we use the coordinates (v, r, x̂), in which ℓ = ∂_r and ∂_v is the
-derivative at fixed (r, x̂). Ω_ab := x_a ∂_b − x_b ∂_a are the rotations of R⁴, and □̃ := g0^{ab} ∂_a ∂_b acts on Cartesian components.
-On S³ we use the polar angle ϑ ∈ [0, π/2] and the angles φ1, φ2 of the two rotation planes, the round metric being
-γ = dϑ² + cos²ϑ dφ1² + sin²ϑ dφ2².
+We use the notation of Chapter 9 [[pending:ch9-decay-classes]]. X = (τ, x) ∈ R × R⁴, r = |x|, x̂ = x/r, v = τ + r and t
+:= 1 + τ0 − τ; P is the past domain of [[thm:past-construction]], P+ := P ∩ {v ≥ v_start}, Σ_τ the slices of constant τ,
+and ‖·‖ the flat L² norm on Σ_τ ∩ P+. The field ℓ := g0⁻¹ dv is null and tangent to the ingoing generators of the cones
+{v = const}; ℓf := df(ℓ), and on P+ we use the coordinates (v, r, x̂), in which ℓ = ∂_r and ∂_v is the derivative at
+fixed (r, x̂). Ω_ab := x_a ∂_b − x_b ∂_a are the rotations of R⁴, and □̃ := g0^{ab} ∂_a ∂_b acts on Cartesian
+components. On S³ we use the polar angle ϑ ∈ [0, π/2] and the angles φ1, φ2 of the two rotation planes, the round metric
+being γ = dϑ² + cos²ϑ dφ1² + sin²ϑ dφ2².
 
 For p ≥ 0, E_p is the class of tensors f on P+ (Cartesian components) that vanish for v ≤ v_start and satisfy
 |∂_X^α Ω^β f| ≤ C r^(−p) for all α and β. At fixed λ an oscillating factor [f], the profile f taken at the phase v/λ,
@@ -134,9 +134,9 @@ its kernel. Since U vanishes on {v = v_start}, the Poincaré inequality of [[pen
     ‖b·∂U‖ ≤ C t^(−3/2) ‖∂U‖,       ‖c U‖ ≤ C λ⁻¹ t^(−3/2) ‖U‖ ≤ C λ⁻¹ t^(−3/2) ‖∂U‖,
 
 and ‖f_γ‖ ≤ C (1 + λ⁻¹) t^(−3/2) Σ_{|δ| = j + 1} ‖∂ ∂^δ u_1‖ + ‖R_γ‖. Summed over the family, Gronwall's lemma then
-costs the factor exp(∫ C (1 + λ⁻¹) t^(−3/2) dt). Over the far region t ≥ λ^(−2) this integral is at most
-2 C (1 + λ⁻¹) λ = 2 C (1 + λ), so the factor is at most e^(2C(1 + λ)), free of λ. (With c U taken as a forcing term, through
-the energies of the lower steps, the step also closes at fixed λ, at the cost of one factor λ⁻¹ per order.)
+costs the factor exp(∫ C (1 + λ⁻¹) t^(−3/2) dt). Over the far region t ≥ λ^(−2) this integral is at most 2 C (1 + λ⁻¹) λ
+= 2 C (1 + λ), so the factor is at most e^(2C(1 + λ)), free of λ. (With c U taken as a forcing term, through the
+energies of the lower steps, the step also closes at fixed λ, at the cost of one factor λ⁻¹ per order.)
 
 R_γ is the sum of ∂_X^γ F_1(X, 0, 0), the forcing free of u_1, which is in E_3, and of products of a derivative of g or
 of the coefficients of F_1, of order at most j + 1, with derivatives of u_1 of order at most j + 1. We estimate each
