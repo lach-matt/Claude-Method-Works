@@ -575,3 +575,187 @@ operator is □. For |σ| ≥ C_0, [[prop:iii-d-6-1]] applies. The set K := {c_0
 each σ ∈ K, □̂(σ) is invertible by [[prop:iii-d-6-2]]. By [[thm:i-a-8-1]] (invertibility is open in (σ, 𝗉), the
 hypotheses holding uniformly by [[sec:iii-d-2]] and (Dyn)), each σ ∈ K has a neighbourhood U_σ and an ϵ_σ with
 invertibility on U_σ × {|𝗉 − 𝗉_0| < ϵ_σ}; finitely many U_σ cover K. ∎
+
+### tf-admissibility {#sec:iii-d-7}
+
+The transition face of [[sec:i-c-4]] sees the operator only at infinity. For the unmodified Minkowski operator its
+model is the conjugated Helmholtz operator, componentwise.
+
+**Proposition {#prop:np-10-20}** (The transition face and the weights.) Let Δ_e := −Σ_(i=1)^4 ∂_(x^i)² on ℝ⁴.
+
+(i) At γ_Υ = 0, □̄^Υ = □̄ acts componentwise in the Cartesian frame (dt̄, dx^i) on 4 + 1 Minkowski space, as the
+scalar operator ∂_(t̄)² + Δ_e, and its spectral family (□̄)^(σ) = e^(iσt_*)□̄e^(−iσt_*), t_* = t̄ − r, satisfies
+e^(iσr)(□̄)^(σ)e^(−iσr) = Δ_e − σ² on each component.
+
+(ii) For l ∈ ℕ_0 the substitution u = r⁻¹w turns −u″ − (3/r)u′ + l(l + 2)r⁻²u − u = 0 into Bessel's equation
+r²w″ + rw′ + (r² − (l + 1)²)w = 0 of order l + 1. The exponents of u at r = 0 are l and −(l + 2); in the variable
+1/r they are −l and l + 2, the indicial roots of the scalar operator on degree l harmonics ([[lem:iii-a1-2-3]]), with
+the gap (0, 2) at l = 0. As x → 0, x^(l+1)H^(1)_(l+1)(x) → −(i/π)Γ(l + 1)2^(l+1); as x → ∞,
+e^(−ix)x^(1/2)H^(1)_(l+1)(x) → (2/π)^(1/2)e^(−i((l+1)π/2 + π/4)); and on the positive imaginary half-axis H^(1)_(l+1)
+decays exponentially and H^(2)_(l+1) grows exponentially.
+
+(iii) ρ^a lies in ρ^α L²(r³dr) near infinity if and only if a > α + 2: the shift between decay rates and b-weights
+for the Euclidean density of ℝ⁴ is 2. On g_(b_0), with t the static time and t_* := t − r,
+∂_σ²□̂(0) = 2P_2 = 2g^00 Id ([[lem:iii-d-2-1]] (1)), and 2g^00 W* = −4m_0ρ⁴dt + O(ρ⁵), with W* of [[eq:iii-d1-2-1]].
+
+*Proof.* (i) The Christoffel symbols of ḡ vanish in Cartesian coordinates, so □̄ = −ḡ^(μν)∂_μ∂_ν = ∂_(t̄)² + Δ_e on
+each component. On stationary functions, e^(iσt_*)□̄e^(−iσt_*) = e^(−iσr)(e^(iσt̄)□̄e^(−iσt̄))e^(iσr)
+= e^(−iσr)(Δ_e − σ²)e^(iσr). (ii) With u = w/r, −u″ − 3u′/r = −w″/r − w′/r² + w/r³; adding l(l + 2)w/r³ − w/r and
+multiplying by −r³ gives r²w″ + rw′ − (1 + l(l + 2))w + r²w = 0, and 1 + l(l + 2) = (l + 1)². Bessel's equation of
+order l + 1 has exponents ±(l + 1) at 0, so u has exponents l and −l − 2. The limits are [DLMF, (10.7.7)] and
+[DLMF, (10.17.5)], and the behaviour on the imaginary axis is [DLMF, (10.17.5)–(10.17.6)], which hold uniformly in the
+sector |arg x| ≤ π − δ and in −2π + δ ≤ arg x ≤ π − δ respectively; these are the facts stated in [[lem:i-c-5-4]].
+(iii) ∫^∞ ρ^(2(a−α))r³dr = ∫^∞ r^(3−2(a−α))dr is finite if and only if a − α > 2. By [[prop:np-10-18]] (iv),
+g^00 = −2m_0ρ² + O(ρ⁴), and W* = ρ²dt + r_hρ³f⁻¹dr, so 2g^00W* = −4m_0ρ⁴dt + O(ρ⁵). ∎
+
+**Lemma {#lem:iii-d-7-1}** (tf-admissibility; [Hin26, Lemma 6.8] in dimension 4 + 1.) There is ϵ > 0 such that for
+e_Υ ∈ [0, ϵ), |γ_Υ| < ϵ, every γ_(Υ,H) and every b ∈ ℬ, (□^Υ_b)^ is tf-admissible ([[def:i-c-5-1]]) with every
+weight in the indicial gap (0, ι^Υ_(s1,2)) of [[lem:iii-d-4-1]] (with (0, 2) when e_Υγ_Υ² = 0).
+
+*Proof.* The transition face operator N_tf(e^(iθ)) of [[sec:i-c-4]] is built from the data of the operator at ρ = 0
+only: S_0, the normal operator N(P⁽⁰⁾) and H_0. By [[lem:iii-d-2-1]] (3) these are the model's, independent of b and
+of the horizon modification; so it suffices to consider □̄^Υ. *At γ_Υ = 0.* The model is □̄, which in the Cartesian
+frame has S_0 = 0, N(P⁽⁰⁾) = (−(ρ∂_ρ)² + 2ρ∂_ρ + Δ_𝕊) Id ([[lem:iii-d-2-1]] (3), [[prop:np-10-20]] (i)) and, with the
+standard inner product, H_0 = Id: by [[prop:i-c-5-3]] it is tf-admissible with every weight in (0, 2). *Small γ_Υ.*
+Fix the weight β = 1, which lies in the gap for all small parameters ([[lem:iii-d-4-1]]), q = 2 − β, and orders s, α_+,
+𝗋_± as in [[thm:i-c-4-3]], admissible with margins at γ_Υ = 0; as S̄ = O(γ_Υ) ([[lem:iii-d-3-1]]) and the thresholds
+of [[eq:i-a-1-5]] move continuously, they remain admissible for small parameters. The perturbation
+
+    N^γ_tf − N^0_tf = −2ie^(iθ)ρ̂S̄ + γ_Υ ρ̂²M_E(ρ̂∂_ρ̂, ∂_x̂)
+
+([Hin26, (6.18a)] with [[lem:iii-d-3-1]]) is bounded from the space H_(sc,b)^(s,(𝗋+α_+,q)) of 𝒳_(tf,θ) into that of
+𝒴_(tf,θ) with norm O(|γ_Υ|), uniformly in θ: near the end ρ̂ → 0, ρ̂ · (order 0) gains one order of decay and
+ρ̂² Diff_b¹ = ρ̂ Diff_sc¹ gains one order of decay for one sc-derivative; near ρ̂ → ∞ the weights q and q − 2 allow the
+factors ρ̂ and ρ̂². So 𝒳_(tf,θ) is the same space for all small γ_Υ, and by [[cor:i-c-5-2]] (b) at γ_Υ = 0, uniformly
+over the three sectors, ‖w‖ ≤ C‖N^0_tf w‖ ≤ C‖N^γ_tf w‖ + C′|γ_Υ|‖w‖; for C′|γ_Υ| ≤ ½ this gives injectivity of
+N^γ_tf(e^(iθ)) for all θ ∈ [0, π], and the adjoint estimate [[eq:i-c-5-2]] gives that of N^γ_tf(1)^(*h) in the same
+way. So (□̄^Υ)^ is tf-admissible with weight 1, and by [[cor:i-c-5-2]] (c) with every weight in the gap. The condition
+e_Υ ≥ 0 makes z ≥ 0, so that [[lem:iii-d-4-1]] describes the gap. ∎
+
+### The zero energy setting {#sec:iii-d1-1}
+
+The rest of the chapter concerns σ = 0 and its neighbourhood: [Hin26, Section 6.4 and Lemma 6.13] (pp. 119–125) in
+dimension 4 + 1 here and in [[sec:iii-d1-2]]–[[sec:iii-d1-5]], and [Hin26, Section 6.5] in [[sec:iii-d2-1]] and after.
+The kernel of the unmodified operator at zero energy is proved on Tangherlini from the mode equations of
+[[prop:np-10-16]], and its cokernel from a distributional identity at the horizon, with the index from [[ch:s03]]. The
+first step of the proof of mode stability ([[prop:iii-d1-4-1]]) is a Grushin problem with a fixed compactly supported
+augmentation, to which [[thm:i-c-6-4]] and [[thm:i-c-7-1]] apply as proved; its Schur complement is computed from two
+pairings alone, so the augmented estimate [Hin26, (6.27)] with a joint parameter, and the decay of
+∂_σ□̂(0)ω_(0) that it needs [Hin26, footnote 69], are not used. The second step is carried out at every frequency at
+once, around a base point at which invertibility is already known.
+
+ℬ, g_b, t_*, ρ, E_Υ and □^Υ_b are as in [[sec:iii-d-1]], with c_(Υ,H) := −½χ(r)dr, χ ∈ C_c^∞, χ = 1 near r_h and
+supp χ ∩ U_Γ = ∅. Write 𝗉 := (b, e_Υ, γ_Υ, γ_(Υ,H)), P̂_𝗉(σ) := (□^Υ_b)^(σ), 𝗉_0 := (b_0, 0, 0, 0) and
+P̂ := P̂_(𝗉_0), the spectral family of □ = □_(g_(b_0)) = dδ + δd. On g_(b_0), in the ingoing chart,
+g = −f dv² + 2dv dr + r²g_𝕊 and |dg| = r³|dv dr dg_𝕊|, and t_* − v is a smooth function of r near r_h
+([[eq:iii-b-3-6]]).
+
+*The spaces.* For σ ≠ 0, Im σ ≥ 0: 𝒳_σ, 𝒴_σ of [[eq:i-c-6-4]] (those of [[thm:i-a-7-2]] with the orders of
+[[thm:i-b-1-3]] (3)); at σ = 0: 𝒳_0, 𝒴_0 of [[eq:i-c-3-1]], with the Euclidean density, so that the b-weight of
+H̄_b^(s,α) is α + 2 ([[sec:i-c-1-2]]). By [[sec:iii-d-2]]–[[sec:iii-d-5]], [[sec:iii-d-7]] and (Dyn), every P̂_𝗉, 𝗉 in
+a compact neighbourhood 𝒦 of 𝗉_0 with e_Υ ≥ 0, satisfies (H1)–(H5) with ϑ_ℋ = 1 ([[lem:iii-d-5-1]]), (G) for every α
+with α + 2 ∈ (0, 2) ([[lem:iii-d-4-1]]: (0, 2) lies in the gap (0, ι^Υ_(s1,2)), which is (0, 2) when
+e_Υγ_Υ² = 0), and (TF) ([[lem:iii-d-7-1]]), and has index 0 at σ ≠ 0 ([[thm:i-b-1-3]] (3) at high frequencies, as in
+[[prop:iii-d-6-1]], and the constancy of the index, [[thm:i-a-7-2]] (3), at bounded ones). We fix such an α and a
+constant s > 5/2; by [[thm:i-c-3-1]] (3)–(4) and [[thm:i-a-7-2]] (3), kernels, annihilators of ranges and
+invertibility do not depend on these choices.
+
+*The horizon functional.* Let ω* := d(H(r − r_h)) = δ(r − r_h)dr, H the Heaviside function, a stationary
+distributional 1-form supported on the horizon sphere, and
+
+    ℓ(v) := ∫_X g⁻¹(v, ω*) |dg_X| = r_h³ ∫_(𝕊³) v(∂_(t_*))|_(r=r_h) dx̂,                                    {#eq:iii-d1-1-1}
+
+where |dg| = |dt_*| ⊗ |dg_X|, so |dg_X| = r³|dr dx̂| near r_h, and g⁻¹(v, dr) = v(∇r) = v(∂_v + f∂_r) equals
+v(∂_(t_*)) at r_h. ℓ is continuous on H^(s′) near the horizon sphere for s′ > ½ (the trace theorem), so on 𝒴_0 and
+𝒴_σ, as s − 1 > ½. It is [Hin26]'s pairing with ω*_(0).
+
+*The modified divergence at the horizon.* With the trace weight 2/3, E_H h := 2ι_(c♯_(Υ,H))h − (2/3)c_(Υ,H) tr_g h
+([Hin26, (6.22)] with the weight 2/3), and since tr_g G_g h = −(3/2)tr_g h in dimension 5 ([[lem:iii-b-6-2]]),
+
+    E_H G_g = 2ι_(c♯_(Υ,H)),                                                                               {#eq:iii-d1-1-2}
+
+as [Hin26]'s E_(H⁺,1)G = 2ι_(c♯) in dimension 4 with the weight 1. The horizon part of □^Υ_b is
+2γ_(Υ,H)E_H G δ*.
+
+### Kernel and cokernel at zero energy {#sec:iii-d1-2}
+
+Let
+
+    W* := r⁻²dt + r_h r⁻³f⁻¹dr = r⁻²dv − dr/(r(r + r_h)).                                                  {#eq:iii-d1-2-1}
+
+The two forms agree, as dt = dv − f⁻¹dr and f = (r − r_h)(r + r_h)/r². The second shows that W* is smooth on
+{r > 0} in the ingoing chart, so on X̄ up to ∂_♯X; near infinity dt = dt_* + (f⁻¹ + O(r⁻²))dr with all derivatives
+([[eq:iii-b-3-6]]), so W* ∈ 𝒜²(X̄; E), and W* ∈ H̄_b^(s,α) for α + 2 < 2. dW* = 2r⁻³dt ∧ dr, and δW* = 0:
+δ(a(r)dt) = 0 for the static metric, and δ(b(r)dr) = −r⁻³(r³fb)′ vanishes for b = r_h r⁻³f⁻¹. δdW* = 0, because
+r³F^(rt) is constant for F = 2r⁻³dt ∧ dr (F^(rt) = g^rr g^tt F_rt, g^rr g^tt = −1). So □W* = 0 on {r > r_h}, and on
+{r > 0}, since the components of □W* in the ingoing chart are real-analytic in r. By [[prop:np-10-15]] (iii), W* is
+the only l = 0 element of the kernel that is smooth at the future horizon and decays.
+
+**Lemma {#lem:iii-d1-2-1}** (Kernel and cokernel; [Hin26, Lemma 6.10] in dimension 4 + 1.) Assume (Dyn) at b_0.
+(1) For every stationary u that is smooth near the horizon sphere, ℓ(P̂(0)u) = 0. (2) ker_(𝒳_0) P̂(0) = span{W*}.
+(3) The annihilator of the range of P̂(0): 𝒳_0 → 𝒴_0 is spanned by ℓ.
+
+*Proof.* (1) *Symmetry.* For stationary smooth 1-forms u, w with w compactly supported in X°,
+B(u, w) := ∫_X g⁻¹(u, w̄)|dg_X| satisfies B(□u, w) = B(u, □w). Indeed, let θ_1 ∈ C_c^∞(ℝ) with ∫θ_1 = 1 and
+W := θ_1(t_*)w. As □ = −∇^μ∇_μ, two integrations by parts against the compactly supported W give
+∫g⁻¹(□u, W̄)|dg| = ∫g⁻¹(u, □W̄)|dg|. The left side is B(□u, w). On the right,
+□(θ_1w) = θ_1□w + (□_0θ_1)w − 2∇_(∇θ_1)w with □_0 = −∇^μ∇_μ on functions, and ∇θ_1 = θ_1′∇t_*,
+□_0θ_1 = −θ_1″g⁻¹(dt_*, dt_*) + θ_1′□_0t_*; the coefficients of θ_1′ and θ_1″ are stationary, and
+∫θ_1′ = ∫θ_1″ = 0, so the right side is B(u, □w). By continuity the identity extends to w a stationary distribution
+with compact support in X° (u smooth). *The identity.* Since □ = dδ + δd and δ² = 0, □d = dδd = d□_0 on functions,
+as operators on distributions. In the ingoing chart H(r − r_h) is a v-independent distribution, and
+
+    □_0 H(r − r_h) = −r⁻³∂_μ(r³g^(μr)δ(r − r_h)) = −r⁻³∂_r(r³f δ(r − r_h)) = 0,
+
+as ∂_v annihilates it, g^(ar) = 0, and r³fδ(r − r_h) = r_h³f(r_h)δ(r − r_h) = 0. So □ω* = d□_0H(r − r_h) = 0, and
+ℓ(□u) = B(□u, ω*) = B(u, □ω*) = 0; on stationary u, □u = P̂(0)u. Only u near the horizon sphere enters.
+
+(2) W* ∈ 𝒳_0 and P̂(0)W* = 0, by the above. Conversely let u ∈ 𝒳_0 with P̂(0)u = 0. By [[thm:i-c-3-1]] (2), with the
+gap (0, 2), u is smooth up to ∂_♯X, hence across the horizon, and u ∈ 𝒜^β near ∂X for every β < 2; fix β ∈ (1, 2).
+Let ω := u, a stationary 1-form, and work first on {r > r_h} in the static chart, expanding in harmonics
+([[lem:iii-a1-1-6]]; the projections act in the angles and preserve smoothness at r_h in the ingoing chart and the
+conormal bounds at infinity). Three facts are used. The *scalar identity*: for a stationary function φ,
+δdφ = −r⁻³(r³fφ′)′ + r⁻²Δ_𝕊φ, so a degree l component φ_l of a solution of δdφ = 0 solves (r³fφ_l′)′ = κrφ_l. The
+*energy fact*: if −Φ_** + VΦ = 0 on (r_h, ∞), Φ_* = fΦ′, with V > 0 continuous, Φ of class C¹ in r up to r_h, and
+Φ_*Φ̄ → 0 as r → ∞, then Φ = 0: integrating Φ̄ times the equation over r_* ∈ [r_*(r_1), r_*(R)] gives
+∫(|Φ_*|² + V|Φ|²)dr_* = [Φ_*Φ̄], whose endpoint terms tend to 0 as r_1 → r_h (Φ_* = fΦ′ → 0) and R → ∞. The *mode
+equations* [[prop:np-10-16]] (iii)–(iv), which hold for every σ and are used at σ = 0.
+
+*(a) The divergence.* φ := δω is a smooth stationary function in 𝒜^(β+1) near infinity, and
+δdφ = δ(□ω − δdω) = 0. Multiplying (r³fφ_l′)′ = κrφ_l by φ̄_l and integrating over [r_1, R]:
+[r³fφ_l′φ̄_l]_(r_1)^R = ∫_(r_1)^R (r³f|φ_l′|² + κr|φ_l|²)dr. As r_1 → r_h the bracket tends to 0 (f → 0, φ_l smooth
+in r there); as R → ∞ it is O(R^(3−(β+2)−(β+1))) = O(R^(−2β)). So φ_l′ = 0 and κφ_l = 0; at l = 0, φ_0 is a decaying
+constant. So δω = 0.
+
+*(b) The field.* F := dω ∈ 𝒜^(β+1) and δF = □ω − dδω = 0. *Vector type.* A component r^(−1/2)Φ(r)Y of ω, Y ∈ 𝒱_l,
+l ≥ 1, has δ_𝕊d_𝕊Y = ΛY with Λ = (l + 1)² ≥ 4; by [[prop:np-10-16]] (iii) at σ = 0, −Φ_** + V_1Φ = 0 with V_1 > 0.
+Φ is smooth in r at r_h (angular components are the same in the static and the ingoing chart), and since |Y| is r⁻¹
+in the Euclidean metric, Φ = O(r^(3/2−β)) and Φ_* = O(r^(1/2−β)), so Φ_*Φ̄ = O(r^(2−2β)) → 0. The energy fact gives
+Φ = 0. *Scalar type, l ≥ 1.* In the notation of [[prop:np-10-16]] (iv), W := r³F_tr solves R[W] = (r²M_t)′ = 0
+(M = δdω = 0), so Φ := r^(−1/2)W solves −Φ_** + V_2Φ = 0 with V_2 > 0 (κ ≥ 3, m_0/r² < 1). F_tr = F_vr is smooth at
+r_h, and Φ = r^(5/2)F_tr = O(r^(3/2−β)), Φ_* = O(r^(1/2−β)); so Φ = 0, F_tr = 0, and with M = 0,
+[[prop:np-10-16]] (iv) gives a = b = 0, where (a, b) is the gauge-invariant pair of [[prop:np-10-16]] (iv), defined
+after subtracting d(cS); so this part of ω is d(cS) for a function c(r). *Scalar type, l = 0.* κ = 0 and
+R[W] = (fW′/r)′ = 0, so fW′/r is constant; it vanishes at r_h, as W is smooth there; so W = q, a constant,
+F_tr = qr⁻³, and the l = 0 part a(r)dt + b(r)dr of ω has −a′ = F_tr. Altogether dω = qr⁻³dt ∧ dr = (q/2)dW*.
+
+*(c) The gauge.* ω′ := ω − (q/2)W* is smooth across r_h, in 𝒜^β near infinity, closed on {r > r_h}, and has
+δω′ = 0. With T = ∂_t, Cartan's formula and stationarity give d(ω′(T)) = ℒ_Tω′ − ι_Tdω′ = 0, so ω′(T) is a
+constant; it decays, so it is 0. {r > r_h} is simply connected, so ω′ = dφ with ∂_tφ = ω′(T) = 0; in the ingoing
+chart ω′ has no dv component and its dr component ∂_rφ is smooth at r_h, so φ is smooth in (r, x̂) up to r_h.
+dφ ∈ 𝒜^β gives a constant φ_∞ with φ − φ_∞ = O(r^(1−β)), and δdφ = 0. At l = 0, r³fφ_0′ is constant and vanishes at
+r_h, so φ_0 is constant. At l ≥ 1, the equation (r³fφ_l′)′ = κrφ_l has at r = ∞ a regular singular point (in
+ρ = 1/r: ρ²fφ_ρρ + ρ(ρf_ρ − f)φ_ρ − κφ = 0, f = 1 − m_0ρ²) with indicial equation ν² − 2ν − κ = 0, roots ν = l + 2
+and ν = −l for φ ∼ ρ^ν; by Frobenius' theorem every solution is c_1ρ^(l+2)a_1(ρ) + c_2(ρ^(−l)b_1(ρ)
++ c_3 log ρ ρ^(l+2)a_1(ρ)) with a_1, b_1 analytic and a_1(0) = b_1(0) = 1, and φ_l = O(ρ^(β−1)) forces c_2 = 0. So
+φ_l = O(r^(−l−2)), φ_l′ = O(r^(−l−3)), and the energy identity of (a) gives φ_l = 0. So ω′ = 0 on {r > r_h}.
+
+*(d) Inside the horizon.* u − (q/2)W* lies in ker P̂(0), is smooth on X̄ and vanishes on {r > r_h}; part (d) of the
+proof of [[prop:iii-d-6-2]], which uses only these properties (at σ = 0), shows that it vanishes on {r_0 < r < r_h}.
+So u = (q/2)W*.
+
+(3) By (1) and density, ℓ(P̂(0)u) = 0 for u ∈ 𝒳_0: near the horizon sphere u ∈ H^s, smooth u_j → u in H^s there give
+P̂(0)u_j → P̂(0)u in H^(s−2), and ℓ is continuous on H^(s−2) as s > 5/2. ℓ ≠ 0 on 𝒴_0 (for instance
+ℓ(ζ_1(r)dt_*) = 2π²r_h³ for ζ_1 ∈ C_c^∞ with ζ_1(r_h) = 1). By [[cor:i-c-6-6]], whose hypotheses hold by
+[[sec:iii-d1-1]], P̂(0): 𝒳_0 → 𝒴_0 has index 0, so by (2) the annihilator of its range ([[thm:i-c-3-1]] (1)) is
+one-dimensional, and it is spanned by ℓ. ∎

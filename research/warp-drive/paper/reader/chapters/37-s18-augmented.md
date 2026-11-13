@@ -303,3 +303,284 @@ uniformly for b near b_0: [[eq:iii-h-2-1]] with r^(−4+δ); f̂(0) bounded in �
 [[eq:iii-h-2-2]], f̂(0) depends continuously on b in H̄_b^(∞,a) for every a < 1. Where uniformity in b is used (the bound
 of [[prop:iii-h-3-2]], [[cor:iii-h-4-2]], [[cor:iii-h-4-3]] and [[lem:iii-h-5-2]]) the weights leave room for the loss:
 with δ := ϵ_0 := ¼(1 − (α + 2)), α + 2 + ϵ_0 < 1 − δ and 1 − (α + 2) − δ ≥ ϵ_0.
+
+### The augmented zero energy operator {#sec:iii-h-3}
+
+This section is [Hin26, Proposition 10.6] in dimension 4 + 1.
+
+*The rows.* Fix real f*_1 ∈ C_c^∞(X°; S²T*X) ⊗ 𝔟* and f*_2 ∈ C_c^∞(X°; S²T*X) ⊗ 𝒮_1* such that, at b_0,
+
+    ⟨ġ(ḃ), f*_1⟩ = ḃ,     ⟨h(S), f*_1⟩ = 0,     ⟨ġ(ḃ), f*_2⟩ = 0,     ⟨h(S), f*_2⟩ = S,                {#eq:iii-h-3-1}
+
+after fixing bases; ⟨·, f*_j⟩ is taken componentwise. They exist: the eleven states are independent
+([[prop:iii-f3-4-1]] (1)) and smooth on X°, and the restriction map C_c^∞(X°) → W* is onto for every
+finite-dimensional W ⊂ 𝒟′(X°) (proof of [[cor:iii-f3-4-2]]). By the continuity of the states in b (the last step of
+the proof of [[prop:iii-f3-4-1]]), the matrix B(b) := (⟨·, f*⟩) of the nullspace in these bases is invertible near b_0,
+with B(b_0) = I. [[eq:iii-h-3-1]] contains [Hin26, (10.6b)] and more. [Hin26, (10.6b)] asks only that the
+block-diagonal map (ḃ, S) ↦ (⟨ġ(ḃ), f*_1⟩, ⟨h(S), f*_2⟩) be an isomorphism, while the proof of [Hin26, Proposition
+10.6] uses that u ↦ (⟨u, f*_1⟩, ⟨u, f*_2⟩) is injective on the nullspace; under [Hin26, (10.6b)] alone the conclusion
+of [Hin26, Proposition 10.6] can fail ([[rem:s18-rows]]).
+
+**Definition {#def:iii-h-3-1}** ([Hin26, (10.26)] in dimension 4 + 1.) For Im σ ≥ 0, acting on (u, ḃ, S) with u a
+section over X, ḃ ∈ 𝔟_ℂ and S ∈ 𝒮_(1,ℂ),
+
+    L̃_b(σ)(u, ḃ, S) := (L̂_b(σ)u + f̂_ḃ(σ) + f̂_S(σ), ⟨u, f*_1⟩, ⟨u, f*_2⟩).                           {#eq:iii-h-3-2}
+
+By [[lem:iii-h-2-5]] (c), for σ ≠ 0 the column terms are L̂_b(σ)ĝ^aug(σ)(ḃ) and L̂_b(σ)ĥ^aug(σ)(S), the form they have
+in [Hin26].
+
+**Proposition {#prop:iii-h-3-2}** ([Hin26, Proposition 10.6] in dimension 4 + 1.) For b near b_0 and α as in
+[[eq:iii-h-1-1]],
+
+    L̃_b(0) : 𝒳_0 ⊕ 𝔟_ℂ ⊕ 𝒮_(1,ℂ) → 𝒴_0 ⊕ 𝔟_ℂ ⊕ 𝒮_(1,ℂ),
+    𝒳_0 = {u ∈ H̄_b^(s,α) : L̂_b(0)u ∈ 𝒴_0},     𝒴_0 = H̄_b^(s−1,α+2),
+
+is invertible, with inverse bounded uniformly near b_0. (The column terms lie in 𝒴_0, so the domain is that of
+[Hin26, (10.27)].)
+
+*Proof.* f̂(0) ∈ 𝒜³ ⊂ H̄_b^(∞,α+2) by [[lem:iii-h-2-3]], as α + 2 < 1.
+
+*Index.* By [[prop:iii-f3-4-1]] at the b-weight α + 2 ∈ (0, 1], L̂_b(0) : 𝒳_0 → 𝒴_0 is Fredholm of index 0. So
+L̃_b(0), a finite rank perturbation of L̂_b(0) ⊕ 0_(ℂ¹¹→ℂ¹¹), has index 0.
+
+*Injectivity.* Let L̃_b(0)(u, ḃ, S) = 0. By [[eq:iii-h-2-2]],
+
+    L_0(u + w_ḃ + w_S) + L_1ġ(ḃ) + L_2h(S) + L_1h̆(S) = 0.
+
+Here w := w_ḃ + w_S is smooth on X and lies in 𝒜¹ ⊂ H̄_b^(∞,α) near ∂X (as α < −1), and L_0w ∈ 𝒜³ ⊂ 𝒴_0; so
+u + w ∈ 𝒳_0, and L_0(u + w) lies in the range of [[eq:iii-f3-4-1]], which the dual states [[eq:iii-f3-4-3]] annihilate
+([[prop:iii-f3-4-1]] (2)). Pairing with them,
+
+    ⟨L_1ġ(ḃ) + L_2h(S) + L_1h̆(S), h*⟩ = 0,     h* ∈ {h*_(b,s0), h*_(b,s1)(S′), h*_(b,v1)(V)}.
+
+By [[lem:iii-f4-3-1]] (1)–(4) this is a linear system in (ṁ, S, Ȧ) whose 11 × 11 matrix is block upper triangular with
+determinant 3π²(3π²m/2)⁴(2π²m)⁶ ≠ 0. So ḃ = 0 and S = 0, hence w = 0, and u lies in the nullspace, which the states
+span ([[prop:iii-f3-4-1]] (1)). As ⟨u, f*_1⟩ = 0, ⟨u, f*_2⟩ = 0 and B(b) is invertible, u = 0.
+
+*Uniform bound.* As in [[cor:iii-f3-4-2]] (1): the coefficients of L̃_b(0), including f̂(0) in H̄_b^(∞,α+2), depend
+continuously on b ([[rem:iii-h-2-6]]), and the estimate of [[thm:i-c-3-1]] holds uniformly near b_0
+([[thm:i-c-7-1]] (2)); the argument by contradiction there applies verbatim. ∎
+
+Of s the proof uses only s > ½ + ϑ_L, through [[prop:iii-f3-4-1]], [[thm:i-c-3-1]] and [[thm:i-c-7-1]]. So
+[[prop:iii-h-3-2]] holds at every such constant s, with 𝒳_0 and 𝒴_0 at that regularity; in particular at the
+regularities s + k and s + i at which the proof of [[thm:iii-h-4-1]] inverts 𝒫(0).
+
+[Hin26] pairs with h*_(b,s0), then with h*_(b,v1), then with h*_(b,s1), and handles its error term L̂_b(0)h′ by an
+integration by parts against the decay of the dual states. Here the error L_0w lies in the range of L̂_b(0) on the
+domain itself, as w ∈ 𝒜¹ and α < −1, so no integration by parts is needed; and the pairings are taken in the order of
+the triangular matrix of [[lem:iii-f4-3-1]] (4) (rows ṁ, S, Ȧ), in which the entries that the leading terms do not
+determine drop out.
+
+**Remark {#rem:s18-rows}** (The rows in [Hin26].) [Hin26, (10.6b)] asks that (ḃ, S) ↦ (⟨ġ(ḃ), f*_1⟩, ⟨h(S), f*_2⟩)
+be an isomorphism. The proof of [Hin26, Proposition 10.6] uses that u ↦ (⟨u, f*_1⟩, ⟨u, f*_2⟩) is injective on the
+nullspace, which [Hin26, (10.6b)] does not imply, because of the cross terms ⟨h(S′), f*_1⟩ and ⟨ġ(ḃ′), f*_2⟩. The
+choice [[eq:iii-h-3-1]] gives both. Under [Hin26, (10.6a)–(10.6b)] alone, the conclusion of [Hin26, Proposition 10.6]
+fails for some rows. Indeed, since the restriction map C_c^∞(X°) → W* is onto, every matrix of pairings of the states
+with the rows is realised by some rows. Among them is the matrix with diagonal blocks I and off-diagonal blocks
+⟨h(S), f*_1⟩ = τS and ⟨ġ(ḃ), f*_2⟩ = τ^T ḃ, where τ : 𝒮_1 → 𝔟 is isometric in the fixed bases (dim 𝒮_1 = 4 ≤ 7 =
+dim 𝔟; in dimension 3 + 1 the dimensions are 3 ≤ 4). For it [Hin26, (10.6b)] holds, and for S ≠ 0 the state
+u := ġ(−τS) + h(S) ≠ 0 lies in the nullspace with ⟨u, f*_1⟩ = −τS + τS = 0 and ⟨u, f*_2⟩ = −τ^TτS + S = 0. So
+(u, 0, 0) lies in the kernel of [Hin26, (10.26)] at σ = 0.
+
+### Uniform low-energy estimates {#sec:iii-h-4}
+
+This section is [Hin26, Proposition 10.7] in dimension 4 + 1. [Hin26] extends [Hin26c, Theorem 9.41] to augmentation
+columns that depend on σ and are not compactly supported ([Hin26, p. 209]). [[thm:i-c-6-4]] is stated for constant,
+compactly supported columns, and [[thm:iii-h-4-1]] is the extension. Its hypotheses (A1)–(A4) ask that the values of
+the columns at zero frequency be better than the target by ϵ_0 at tf, that the columns be bounded uniformly, Hölder
+continuous of order ϵ_0 at zf and smooth in σ. The invertibility follows from the index, as there are as many columns
+as rows, and the derivatives in σ from a Schur complement.
+
+**Theorem {#thm:iii-h-4-1}** ([[thm:i-c-6-4]] with columns depending on σ.) Assume (H1)–(H4), (G) and (TF) as in
+[[thm:i-c-6-4]], with s > ½ + ϑ_ℋ constant, the weight α (α + 2 in the gap of (G)) and α_+ ∈ ℝ, and assume that
+P̂(σ) : 𝒳_σ → 𝒴_σ has index 0 for σ ∈ Σ_0. Let Σ′ be Σ_0 or Σ_0 ∩ ℝ, J ∈ ℕ, φ_1, …, φ_J ∈ C_c^∞(X°; E) and
+ϵ_0 ∈ (0, 1], and let F_1, …, F_J be sections over X depending on σ ∈ Σ′ ∪ {0} such that, for all k, j ∈ ℕ_0, every
+constant s′ and every η′ ∈ [0, ϵ_0]:
+
+(A1) F_i(0) ∈ H̄_b^(∞,α+2+ϵ_0);
+
+(A2) sup_(σ∈Σ′, |σ|≤ς_1) ‖(σ∂_σ)^j F_i(σ)‖_((s′;k),(𝗋+α_++1,α+2+η′,0),|σ|) < ∞, with ς_1 that of
+[[eq:ii-g1-4-5a]];
+
+(A3) ‖χ_zf(F_i(σ) − F_i(0))‖_(H̄_b^(s′+k,α+2)) ≤ C|σ|^(ϵ_0) for σ ∈ Σ′, with χ_zf the cut-off of
+[[sec:i-c-6-4]];
+
+(A4) σ ↦ F_i(σ) is smooth on Σ′ (along Σ′) with values in H̄^((s′;j),𝗋_(ς_*)+M) near each σ_* ∈ Σ′, for every M.
+
+Put
+
+    𝒫(σ)(u, c) := (P̂(σ)u + Σ_i c_i F_i(σ), (⟨u, φ_(i′)⟩_h)_(i′))
+
+on 𝒳_σ ⊕ ℂ^J → 𝒴_σ ⊕ ℂ^J (on 𝒳_0 ⊕ ℂ^J → 𝒴_0 ⊕ ℂ^J at σ = 0), and assume that 𝒫(0) is invertible ((Z_𝒫)). Then:
+
+(1) (*Uniform estimates.*) For every k there are c_k ∈ (0, ς_1], non-increasing in k, and C_k such that for σ ∈ Σ′
+with |σ| ≤ c_k and 𝒫(σ)(u, c) = (f, e), (u, c) ∈ 𝒳_σ ⊕ ℂ^J,
+
+    ‖u‖_((s;k),(𝗋+α_+,α,0),ς) + |c| ≤ C_k(‖f‖_((s−1;k),(𝗋+α_++1,α+2,0),ς) + |e|),                       {#eq:iii-h-4-1}
+
+in the strong sense.
+
+(2) (*Invertibility.*) For σ ∈ Σ′ with |σ| ≤ c_0, 𝒫(σ) is invertible.
+
+(3) (*Derivatives in σ.*) If moreover P̂(σ) is invertible for σ ∈ Σ′, |σ| ≤ c_0, then for j, k ∈ ℕ_0 there are
+c_(j,k) ∈ (0, c_0] and C with
+
+    ‖(σ∂_σ)^j 𝒫(σ)⁻¹(f, e)‖_((s+j;k),(𝗋+α_+,α,0),ς) ≤ C(‖f‖_((s−1;k+j),(𝗋+α_++1,α+2,0),ς) + |e|)          {#eq:iii-h-4-2}
+
+for σ ∈ Σ′, |σ| ≤ c_(j,k), the norm on the left being that of the first component plus the modulus of the second.
+Here (σ∂_σ)^j 𝒫(σ)⁻¹ is the derivative on the spaces of [[thm:i-a-7-2]] (6), extended by [[eq:iii-h-4-2]].
+
+*Proof.* We use two facts on the norms of [[def:i-c-6-1]]. First, for l, q ∈ ℝ and η ≥ 0,
+
+    ‖u‖_((s;k),(𝗋,l,q−η),ς) = ς^η ‖u‖_((s;k),(𝗋,l+η,q),ς),                                              {#eq:iii-h-4-3}
+
+as both squares equal ς^(−2(q−η))‖(1 − χ_∂)u‖² + ς^(−2(l+2))‖S_ς(χ_∂u)‖²_((𝗋,q−η−l)). Second, for
+v ∈ H̄_b^(p,a+ϵ_0) independent of σ,
+
+    ‖(1 − χ_zf)v‖_(H̄_b^(p,a)) ≤ Cς^(ϵ_0) ‖v‖_(H̄_b^(p,a+ϵ_0)),                                           {#eq:iii-h-4-4}
+
+as 1 − χ_zf is supported in {ρ ≤ 4ς} and ρ^(ϵ_0)(1 − χ_zf) has b-derivatives bounded by Cς^(ϵ_0).
+
+(1) This is the proof of [[thm:i-c-6-4]] (1) in [[sec:i-c-6-4]], with the following changes; the notation is that of
+[[sec:i-c-6-4]], with ‖·‖_(l,q) := ‖·‖_((s;k),(𝗋+α_+,l,q),ς) and ‖·‖′_(l,q) := ‖·‖_((s−1;k),(𝗋+α_++1,l,q),ς), and
+P̂(σ) = P̂(0) + σT + σ²P_2.
+
+*Finiteness.* P̂(σ)u = f − Σ c_iF_i(σ), which lies in H̄^((s−1;k),𝗋_ς+α_++1) by (A2) and [[lem:i-c-6-2]] (c).
+
+*Step 1.* The bounded inverse of 𝒫(0) at the regularity s + k exists as there, since 𝒫(0) is P̂(0) ⊕ 0 plus a finite
+rank operator whose columns lie in 𝒴_0 at every regularity by (A1). From χ_zf(P̂(σ)u + Σ c_iF_i(σ)) = χ_zf f the
+identity becomes
+
+    P̂(0)(χ_zf u) + Σ c_iF_i(0) = χ_zf f − χ_zf(σT + σ²P_2)u + [P̂(0), χ_zf]u
+                                  + Σ c_i((1 − χ_zf)F_i(0) − χ_zf(F_i(σ) − F_i(0))).
+
+The two new terms are bounded in H̄_b^(s+k−1,α+2) by Cς^(ϵ_0)|c|, by [[eq:iii-h-4-4]] with (A1), and by (A3). So
+[[eq:i-c-6-9]] holds with the extra term Cς^(ϵ_0)|c| on the right.
+
+*Step 2.* Fix η as there and moreover η ≤ ϵ_0. Now χ_tf P̂(σ)u = χ_tf(f − Σ c_iF_i(σ)), so ς²N_tf(σ̂)w gains the term
+−S_ς(Σ c_iχ_tf F_i(σ)). After the multiplication by ς^(−(α+2))ς^(−2) it contributes at most
+
+    C|c| max_i ‖χ_tf F_i(σ)‖_((s−2;k),(𝗋+α_++1,α+2,−η),ς)
+        = Cς^η|c| max_i ‖χ_tf F_i(σ)‖_((s−2;k),(𝗋+α_++1,α+2+η,0),ς) ≤ Cς^η|c|,
+
+by [[eq:iii-h-4-3]], [[lem:i-c-6-2]] (b), (d) and (A2). The conclusion of Step 2 becomes
+
+    ‖u‖_(α,−η) ≤ C‖f‖′_(α+2,0) + C_(ρ_c)ς^η‖u‖_(α,0) + Cς^η|c|,
+
+and inserted in the modified [[eq:i-c-6-9]],
+
+    ‖u‖_(α,0) + |c| ≤ C(‖f‖′_(α+2,0) + |e|) + C′_(ρ_c)ς^η(‖u‖_(α,0) + |c|) + Cς^(ϵ_0)|c|;
+
+the last two terms are absorbed for ς small.
+
+(2) 𝒫(σ) is P̂(σ) ⊕ 0_(ℂ^J→ℂ^J), of index 0, plus a finite rank operator, as its columns lie in 𝒴_σ by (A2). So it
+has index 0, and by [[eq:iii-h-4-1]] at k = 0 it is injective.
+
+(3) Let R(σ) := P̂(σ)⁻¹. For σ ∈ Σ′ with |σ| ≤ c_0, and (f, e),
+
+    𝒫(σ)⁻¹(f, e) = (R(σ)(f − Σ_i c_iF_i(σ)), c),     c = Ξ(σ)⁻¹((⟨R(σ)f, φ_(i′)⟩_h)_(i′) − e),
+    Ξ(σ)_(i′i) := ⟨R(σ)F_i(σ), φ_(i′)⟩_h,
+
+where Ξ(σ) is invertible because 𝒫(σ) is: if Ξ(σ)c = 0, then (−R(σ)Σ c_iF_i(σ), c) lies in the kernel of 𝒫(σ). Fix
+σ_* ∈ Σ′ with |σ_*| ≤ c_0 and ϵ > 0 below the margins of the orders, and let, as in the proof of [[thm:i-c-6-4]] (4)
+for this j,
+
+    D := H̄^((s+ϵ−1;j),𝗋_(ς_*)+ϵ+α_++1),     Z := H̄^((s−ϵ;0),𝗋_(ς_*)−ϵ+α_+).
+
+By [[thm:i-a-7-2]] (6), R(σ) : D → Z is strongly C^j near σ_*: for f ∈ D, σ ↦ R(σ)f is j times differentiable in Z,
+with derivatives R^((i))(σ)f continuous in σ. The columns enter with an argument that depends on σ, which is the point
+of [[rem:i-c-6-7]] (c). Each R^((i))(σ) : D → Z, i ≤ j, being strongly continuous, is bounded locally uniformly in σ
+(Banach–Steinhaus), and σ ↦ F_l(σ) is C^j in norm into D by (A4), with M ≥ ϵ + α_+ + 1 and s′ ≥ s + ϵ − 1. Splitting
+difference quotients as
+
+    R(σ′)(F_l(σ′) − F_l(σ))/(σ′ − σ) + ((R(σ′) − R(σ))/(σ′ − σ)) F_l(σ)
+
+gives the Leibniz rule, and by induction σ ↦ R(σ)F_l(σ) is C^j into Z. As ⟨·, φ_(i′)⟩_h is continuous on Z, Ξ(σ) is
+C^j, hence so is Ξ(σ)⁻¹, and σ ↦ 𝒫(σ)⁻¹(f, e) is j times differentiable near σ_* in Z ⊕ ℂ^J for (f, e) ∈ D ⊕ ℂ^J.
+Applying (σ∂_σ)^i to 𝒫(σ)𝒫(σ)⁻¹ = I gives [[eq:i-c-6-11]] with 𝒫 in place of P̂, and the argument of
+[[sec:i-c-6-6]] applies. The entries of A_i := (σ∂_σ)^i 𝒫(σ) are those of [[lem:i-c-6-5]] in the first column and the
+columns (σ∂_σ)^iF_l(σ), which map ℂ^J boundedly into ℋ^((s′;k),(𝗋+α_++1,α+2,0))_ς for every s′ by (A2); the rows are
+constant. ∎
+
+For the operator L̂_b, (Z_𝒫) is [[prop:iii-h-3-2]]. The index 0 at σ ≠ 0 takes the place of the adjoint estimate
+[[eq:i-c-6-7]] in the proof of invertibility, since 𝒫 has as many columns as rows; [[thm:i-c-6-4]] needs
+[[eq:i-c-6-7]] because there the numbers of columns and rows may differ.
+
+**Corollary {#cor:iii-h-4-2}** ([Hin26, Proposition 10.7] in dimension 4 + 1.) Let b be near b_0, α as in
+[[eq:iii-h-1-1]], α_+ ∈ ℝ, and the orders those of [[sec:i-c-6]] for L̂_b. For every k there are c_k > 0,
+non-increasing in k, and C_k, uniform for b near b_0, such that for σ ∈ Σ_0 with |σ| ≤ c_k the operator
+L̃_b(σ) : 𝒳_σ ⊕ 𝔟_ℂ ⊕ 𝒮_(1,ℂ) → 𝒴_σ ⊕ 𝔟_ℂ ⊕ 𝒮_(1,ℂ) is invertible, and
+
+    ‖u‖_((s;k),(𝗋+α_+,α,0),ς) + |ḃ| + |S| ≤ C_k ‖L̃_b(σ)(u, ḃ, S)‖_((s−1;k),(𝗋+α_++1,α+2,0),ς),           {#eq:iii-h-4-5}
+
+the norm on the right being that of the first component plus the moduli of the others. This is [Hin26, (10.28)].
+
+*Proof.* Apply [[thm:iii-h-4-1]] with P̂ = L̂_b, Σ′ = Σ_0 and J = 11, with the components of f*_1 and f*_2 (converted
+to ⟨·, ·⟩_h by a smooth bundle map) as rows, with the columns F_i := f̂_ḃ, f̂_S for basis elements, and with
+ϵ_0 := ¼(1 − (α + 2)). The hypotheses on L̂_b are those of [[sec:iii-h-1]].
+
+(A1): f̂(0) ∈ 𝒜³ ⊂ H̄_b^(∞,a) for a < 1 ([[lem:iii-h-2-3]]), and α + 2 + ϵ_0 < 1.
+
+(A2): [[lem:iii-h-2-4]] (b), with l + 2 = α + 2 + η′ < 1 and ς_1 of [[eq:iii-h-2-4]], for the orders of
+[[sec:i-c-6]]. These are of the kind of [[lem:ii-g1-4-6]]: s is constant, and 𝗋 equals a constant near the zero
+section over sctf ([[sec:i-c-4-3]] and [[lem:i-a-7-1]]), as the proof of [[prop:ii-g1-4-7]] uses them.
+
+(A3): [[lem:iii-h-2-4]] (c) with a = α + 2 and φ = φ_z of [[sec:i-c-6-4]], as |σ|^(1−(α+2)) ≤ |σ|^(ϵ_0).
+
+(A4): [[lem:iii-h-2-4]] (d).
+
+(Z_𝒫): [[prop:iii-h-3-2]].
+
+*Uniformity in b.* The constants of the proof of [[thm:i-c-6-4]] (1) are uniform near b_0 ([[thm:i-c-7-1]] (2)); the
+tf-normal operator does not depend on b ([[lem:iii-g4-1-1]]); the inverse of L̃_b(0) is bounded uniformly
+([[prop:iii-h-3-2]]); and (A1)–(A3) hold uniformly by [[rem:iii-h-2-6]] with δ = ϵ_0, as α + 2 + ϵ_0 < 1 − δ and
+|σ|^(1−(α+2)−δ) ≤ |σ|^(ϵ_0). ∎
+
+**Corollary {#cor:iii-h-4-3}** (The low-energy range of [Hin26, Proposition 8.8], and [Hin26, (10.48)], in dimension
+4 + 1.) After shrinking c_0 of [[cor:iii-h-4-2]], uniformly near b_0: for b near b_0 and σ ∈ Σ_0 with |σ| ≤ c_0, the
+operator L̂_b(σ) : 𝒳_σ → 𝒴_σ is invertible, and for f ∈ 𝒴_σ, with (u, ḃ, S) := L̃_b(σ)⁻¹(f, 0, 0),
+
+    L̂_b(σ)⁻¹f = u + ĝ^aug(σ)(ḃ) + ĥ^aug(σ)(S).                                                         {#eq:iii-h-4-6}
+
+So [[thm:iii-h-4-1]] (3) applies to L̃_b on Σ_0, which gives [Hin26, (10.29)].
+
+*Proof.* *Injectivity.* Let L̂_b(σ)v = 0 with v ∈ 𝒳_σ. For (ḃ, S) to be chosen put
+
+    v′ := v − ĝ^aug(σ)(ḃ) − ĥ^aug(σ)(S) ∈ 𝒳_σ
+
+([[lem:iii-h-2-5]] (b)). By [[lem:iii-h-2-5]] (c), L̃_b(σ)(v′, ḃ, S) = (0, ⟨v, f*⟩ − B̂(σ)(ḃ, S)), with
+
+    B̂(σ)(ḃ, S) := ⟨ĝ^aug(σ)(ḃ) + ĥ^aug(σ)(S), f*⟩.
+
+Let R be such that supp f* ⊂ {r ≤ R}. By [[lem:iii-h-2-5]] (d), on supp f*,
+
+    ĝ^aug(σ)(ḃ) = iσ⁻¹(1 + O(σ))ġ(ḃ),     ĥ^aug(σ)(S) = (−σ⁻²(1 + O(σ)) + O(σ⁻¹))h(S) + O(σ⁻¹)h̆(S).
+
+So with D(σ) := diag(σ I_𝔟, σ² I_(𝒮_1)) and [[eq:iii-h-3-1]],
+
+    B̂(σ)D(σ) = diag(i I_𝔟, −I_(𝒮_1)) + O(|σ|) + O(|b − b_0|),
+
+which is invertible for σ small and b near b_0. Choosing (ḃ, S) := B̂(σ)⁻¹⟨v, f*⟩ gives L̃_b(σ)(v′, ḃ, S) = 0, so
+v′ = 0, ḃ = 0 and S = 0 ([[cor:iii-h-4-2]]), and v = 0.
+
+*Invertibility.* L̂_b(σ) has index 0 ([[sec:iii-h-1]]).
+
+*The formula [[eq:iii-h-4-6]].* By [[eq:iii-h-3-2]] and [[lem:iii-h-2-5]] (c),
+L̂_b(σ)(u + ĝ^aug(σ)(ḃ) + ĥ^aug(σ)(S)) = f, and the left side of [[eq:iii-h-4-6]] is the unique solution in 𝒳_σ. ∎
+
+**Corollary {#cor:iii-h-4-4}** ([Hin26, Proposition 8.8] in dimension 4 + 1 near b_0.) There is a neighbourhood ℬ of
+b_0 such that for b ∈ ℬ and every σ ≠ 0 with Im σ ≥ 0, L̂_b(σ) : 𝒳_σ → 𝒴_σ is invertible and has trivial kernel on
+every 𝒜^a.
+
+*Proof.* For |σ| ≤ c_0 this is [[cor:iii-h-4-3]], on a neighbourhood of b_0 independent of σ; for |σ| ≥ c_0 it is
+[[prop:iii-f2-4-1]] with this c_0, on its neighbourhood ℬ(c_0). Take ℬ to be the intersection. The kernel on 𝒜^a is
+treated by [[lem:iii-f2-1-3]]. ∎
+
+**Remark {#rem:s18-modes}** (Mode stability at low frequencies near b_0.) [[prop:iii-f2-4-1]] gives the invertibility of
+L̂_b(σ) for |σ| ≥ c_0 on a neighbourhood ℬ(c_0) of b_0 that shrinks as c_0 → 0, so for b ≠ b_0 it does not cover the
+range 0 < |σ| < c_0 ([[sec:iii-f2-5]]). [Hin26] takes this range from [AHW24, Theorem 6.1 (1)], which is proved on
+Kerr from the Teukolsky equation and has no counterpart for the five-dimensional Myers–Perry family.
+[[cor:iii-h-4-3]] and [[cor:iii-h-4-4]] cover the range in dimension 4 + 1, from the zero energy structure near b_0
+([[prop:iii-h-3-2]]) through the uniform low-energy estimate; the perturbation does not degenerate, because c_0 is
+uniform in b. With [[prop:iii-f2-4-1]] this gives [Hin26, Proposition 8.8] in dimension 4 + 1 on the fixed
+neighbourhood ℬ of b_0.

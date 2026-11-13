@@ -1081,7 +1081,7 @@ face is ρ times Re(z⁻¹)r_3 − (S + S^(*h)) plus a term vanishing at R_out, 
     ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)),     𝐨 = (s, 𝗋, 𝖻),      {#eq:i-b-5-8}
 
 and [[eq:i-b-5-4]] holds for P^(*h) at 𝐨* = (s*, −𝗋 − 1, 𝖻*) for every s* and every 𝖻* constant near R_out, with
-B_*, G, E′ as in [[lem:i-b-5-1]]. By (O3) of [[sec:i-a-1-4]] and [[sec:i-a-2-4]], h may be chosen so that the condition
+B_*, G, E′ as in [[lem:i-b-5-1]]. By (O3) of [[sec:i-a-1-4]] and [[lem:i-a-2-4]], h may be chosen so that the condition
 reads 𝗋 < −½ + S̄ up to any given margin.
 
 *Proof.* [[lem:i-b-5-1]] with c_z = z⁻¹, F the face over ∂X, Λ := R_out, ς := ϵ_♭, case (B): by [[lem:i-b-5-4]],

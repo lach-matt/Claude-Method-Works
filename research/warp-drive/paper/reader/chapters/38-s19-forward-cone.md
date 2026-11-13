@@ -160,3 +160,142 @@ vanishes at b = b₀, S = 0 and depends continuously on (b, S)). Such g lie in �
 relative to g_b, that is, they are asymptotically Kerr in the sense of [Hin26c, Definition 5.15]. Smallness of h in
 H^(3,(1,0,0))_b makes x_I²ρ_+²g non-degenerate and Lorentzian ([[rem:s05-metric-class]] (b)): by the
 coefficients in the proof of [[lem:iii-i-2-2]], the weight 1 at 𝓘⁺ suffices ([Hin26, footnote 104]).
+
+### The structure in the forward cone {#sec:iii-i-3}
+
+This section is [Hin26, Proposition 11.6 and Remark 11.7] in dimension 4 + 1.
+
+*Coordinates.* On U⁺ := Ω_* ∩ {|x| ≥ 4R₁} put
+
+    ρ_+ := 1/(t_* + 1),   ρ_I := (t_* + 1)/|x|,   ρ := |x|⁻¹ = ρ_+ρ_I,   X_+ := ρ_+∂_(ρ_+),   X_I := ρ_I∂_(ρ_I).
+                                                                                                  {#eq:iii-i-3-1}
+
+With ω these are smooth coordinates near 𝓘⁺ ∩ ι⁺, and there they are smooth positive multiples of the functions ρ_+,
+ρ_I of [[eq:iii-b-2-2]] (by [[eq:iii-b-2-2]] and t_* = t − |x| + C′ − 8m₀|x|⁻¹ on {|x| ≥ 3R₁}); so they define the
+same faces and the same b-structure.
+
+**Lemma {#lem:iii-i-3-1}** (The vector fields.) On U⁺_C := U⁺ ∩ {ρ_I ≤ C}, C ≥ 1 fixed, exactly
+
+    ∂_(t_*)|_(ρ,ω) = −ρ_+(X_+ − X_I),        ρ∂_ρ|_(t_*,ω) = X_I.                                        {#eq:iii-i-3-2}
+
+The Cartesian derivatives ∂_t, ∂_(x^i) lie in ρ_+𝒱_b(U⁺_C), and |x|⁻¹∂_ω ∈ ρ_+ρ_I𝒱_b(U⁺_C). Near K⁺ (ρ_I → ∞) the
+functions [[eq:iii-i-3-1]] are not coordinates, and the weights there are those of [[eq:iii-b-2-2]]; [[lem:iii-i-3-2]]
+and [[prop:iii-i-3-3]]–[[prop:iii-i-3-4]] use this lemma near 𝓘⁺ ∪ (ι⁺)° only, and the proof of [[prop:iii-i-3-4]]
+treats K⁺ separately.
+
+*Proof.* At fixed ρ, ∂_(t_*)ρ_+ = −ρ_+² and ∂_(t_*)ρ_I = ρ = ρ_+ρ_I; at fixed t_*, ρ_+ is constant and ρ_I is a constant
+multiple of ρ. This gives [[eq:iii-i-3-2]]. Then ∂_t|_x = ∂_(t_*)|_x, and ∂_|x||_t = ∂_|x||_(t_*) − ψ′(|x|)∂_(t_*) with
+∂_|x||_(t_*) = −ρ · ρ∂_ρ = −ρ_+ρ_I X_I and ψ′ bounded; finally ∂_(x^i) = ω^i∂_|x| + |x|⁻¹(·)∂_ω, and
+|x|⁻¹∂_ω = ρ_+ρ_I∂_ω. ∎
+
+**Lemma {#lem:iii-i-3-2}** (The background in the cone.) On U⁺ ∩ {ρ_I ≤ 1}, in the frame of products of dt_*, dx^i,
+
+    L_b = ρ_+²ρ_I(X_+ − X_I)(X_I − 3/2 − S̄) + R̃_b,        R̃_b ∈ ρ_+²ρ_I² Diff²_b(U⁺; S²T*),            {#eq:iii-i-3-3}
+
+with S̄ of [[lem:iii-f-2-1]] (2) and R̃_b with coefficients smooth on U⁺.
+
+*Proof.* This is the proof of [[lem:iii-c-4-1]] with [[eq:iii-i-3-2]] in place of [[eq:iii-c-1-4]]. By
+[[eq:iii-f-2-2]]–[[eq:iii-f-2-3]],
+
+    2L_b = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄) + (2L̄)^∧(0) − g_b^00 ∂²_(t_*) + Q_b∂_(t_*) + R_b,
+
+where (2L̄)^∧(0) ∈ ρ²Diff²_b is the stationary part of the model 2L̄. The last four terms lie in ρ²Diff²_b with
+ρ = ρ_+ρ_I, since ρ∂_ρ|_(t_*) and ∂_ω are b-vector fields on U⁺ and ∂_(t_*) ∈ ρ_+𝒱_b. The first is
+
+    2ρ_+(X_+ − X_I)ρ_+ρ_I(X_I − 3/2 − S̄) = 2ρ_+²ρ_I(X_+ − X_I)(X_I − 3/2 − S̄),
+
+as (X_+ − X_I)(ρ_+ρ_I) = 0 and S̄ depends on ω only. Halving gives [[eq:iii-i-3-3]]. ∎
+
+This is [[eq:iii-c-4-2]] with ρ_+ for ρ_0 and −(X_+ − X_I) for X_0 − X_I; [Hin26, (11.17a)] has 1 for 3/2 and the
+h-dependent A^h, B^h.
+
+*The background class in the cone.* 𝒢⁺ is the set of Lorentzian metrics g_0 on Ω_*, smooth on M, with, on
+U⁺ ∩ {ρ_I ≤ 1}, g_0 − η ∈ ρ_+²ρ_I²C^∞ and π(g_0 − η) ∈ ρ_+²ρ_I³C^∞ for π ≠ π_11 ([[def:iii-c-3-4]] with ρ_+ for ρ_0).
+
+**Proposition {#prop:iii-i-3-3}** (The leading part at 𝓘⁺; [Hin26, Proposition 11.6 (1)] in dimension 4 + 1.) Let
+g_1, g_0 ∈ 𝒢⁺, k ≥ 5, and h ∈ 𝒳^k with small H^(3,(1,0,0))_b-norm. Then g := g_1 + h satisfies, on U⁺ ∩ {ρ_I ≤ 1}, in
+the splitting [[eq:iii-c-1-6]],
+
+    L^(g,g_0) ≡ ρ_+²ρ_I(X_+ − X_I)(X_I − 3/2 − Ā)
+        mod (ρ_+²ρ_I²C^∞ + H^(k−2,(ℰ^tot_I,a_I),(ℰ_++2,a_++2))_b) Diff²_b.                              {#eq:iii-i-3-4}
+
+For h ∈ H^(k,(⟨(3,0)⟩_0,a_I),(ℰ_+,a_+),·)_b the same holds with (2, 0) in place of ℰ^tot_I.
+
+*Proof.* This is the proof of [[prop:iii-c-4-4]] on U⁺, with [[lem:iii-i-3-1]]–[[lem:iii-i-3-2]] in place of
+[[lem:iii-c-1-1]] and [[lem:iii-c-4-1]], and with the expansion of g⁻¹ after [[prop:iii-i-3-4]] in place of the Neumann
+series used there (whose convergence needs smallness in H^k). The change of frame ([[lem:iii-c-1-3]], with
+ρ² = ρ_+²ρ_I²) turns S̄ into Ā ([[lem:iii-c-4-2]]). The backgrounds (g_1, g_0) differ from (g_b, g_b) by
+ρ_+²ρ_I²C^∞, which with the two factors ρ_+ from the derivatives gives ρ_+⁴ρ_I²C^∞ Diff²_b. The perturbation, counted
+as in [[lem:iii-c-4-3]] with Cartesian derivatives in ρ_+𝒱_b ([[lem:iii-i-3-1]]) and c_C, c_Υ ∈ ρ_+ρ_I C^∞, gives
+ρ_+² times H^(k−2)-functions of the index sets of h: ℰ^tot_I at 𝓘⁺ ([[lem:iii-c-3-2]] (b)–(c)), and ℰ_+ at ι⁺
+(jℰ_+ ⊂ ℰ_+ for the Taylor terms of g⁻¹, [[lem:iii-c-2-1]] with the weights (a_I, a_+)). ∎
+
+So, as at I⁰ ∩ 𝓘⁺, the leading part has the constant lower-triangular Ā and no h-dependent term. The terms A^h − A_0
+and B^h of [Hin26] are part of the error, of 𝓘⁺-order 3/2 against the leading order 1 ([[prop:iii-c-4-4]],
+[[rem:iii-c-4-5]]). The edge-b form [Hin26, (11.17b)] is not needed: [[cor:iii-i-5-2]] uses [[eq:iii-i-3-7]] instead.
+
+**Proposition {#prop:iii-i-3-4}** (The difference from L_b; [Hin26, Proposition 11.6 (2)] in dimension 4 + 1.) Let
+g_0 = g_(b₀,b,−S), or more generally g_0 ∈ 𝒢⁺ with ([Hin26, (11.15a)–(11.15b)])
+
+    g_0 − g_(b₀) ∈ H^(∞,(⟨(3,0)⟩_0,∞),((2,0),∞),(0,0))_b(Ω_*),        g_0 = g_b near K⁺,                     {#eq:iii-i-3-5}
+
+let h ∈ 𝒳^k, k ≥ 5, with small H^(3,(1,0,0))_b-norm, and g := g_(b₀,b,−S) + h ([Hin26, (11.16)]). Then on Ω_*
+
+    L^(g,g_0) − L_b ∈ H^(k−2,(ℰ^tot_I,a_I),(ℰ_++2,a_++2),a_K)_b Diff²_b(Ω_*; S²T*),                      {#eq:iii-i-3-6}
+
+    2L^(g,g_0) − 2L_b ∈ x_I²ρ_+² H^(k−2,(2ℓ_I,ℓ_+,ℓ_K))_b Diff²_(e3b)(Ω_*; S²T*),                       {#eq:iii-i-3-7}
+
+for ℓ_I, ℓ_+, ℓ_K as in [[eq:iii-i-2-2]], the latter with norm bounded by C(|b − b₀| + |S| + ‖h‖_(𝒳^k)), C depending
+on k and on an upper bound for ‖h‖_(𝒳^k).
+
+[Hin26, (11.18a)–(11.18b)] carry in addition the term χ_Iρ_Iρ_+²((A^h − A_0)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) + ρ_+⁻¹B^h),
+which contains a term of leading order at 𝓘⁺; in dimension 4 + 1 it is part of the error.
+
+*Proof.* Write g − g_b = (g_(b₀,b,−S) − g_b) + h, and g_0 − g_b. By [[lem:iii-i-3-6]] below, g_(b₀,b,−S) − g_b is
+supported where χ_K < 1, so away from K⁺, and lies in H^(∞,(⟨(3,0)⟩_0,∞),((2,0),∞),∞)_b ⊂ 𝒳^∞ ([[def:iii-c-3-3]] and
+[[lem:iii-c-3-2]] (a); (2, 0) ∈ ℰ_+); the same holds for g_0 − g_b under [[eq:iii-i-3-5]]. So both differences are of
+the class of h, and [[lem:iii-c-4-3]] applies to L^(g,g_0) − L^(g_b,g_b) with δ in 𝒳^k. Cartesian derivatives lie in
+ρ_+𝒱_b near 𝓘⁺ ∪ ι⁺ ([[lem:iii-i-3-1]], and in the interior of ι⁺ by homogeneity) and in ρ_+𝒱_(3b) ⊂ ρ_+𝒱_b near K⁺
+(as in [Hin26]); the counting gives ρ_+² times H^(k−2)-functions of the class of 𝒳^k, which is [[eq:iii-i-3-6]]
+(ρ_+² shifts the data at ι⁺ by 2; at K⁺, ρ_+² is bounded and the weight is a_K).
+
+For [[eq:iii-i-3-7]]: near 𝓘⁺, ∂_0 ∈ x_I²ρ_+𝒱_(e3b), ∂_1 ∈ ρ_+𝒱_(e3b) and |x|⁻¹∂_ω ∈ x_Iρ_+𝒱_(e3b) ([Hin26, (11.12)],
+which does not depend on the dimension), so all Cartesian derivatives lie in ρ_+𝒱_(e3b). A coefficient c of the
+counting carries a factor δ of x_I-order at least 3 (the least slot order, 3/2 in ρ_I), so c ∂∂ ∈ x_I²ρ_+² ·
+x_I · (⋯) Diff²_(e3b), and x_I ≤ x_I^(2ℓ_I); at ι⁺ the factor has order > 1 ≥ ℓ_+, and at K⁺ order a_K ≥ ℓ_K. The
+b-regularity of the coefficients is k − 2, and the e3b-vector fields are b-vector fields on M_(1/2). The norm bound is
+linear in the factors δ, whose norms add up to at most C(|b − b₀| + |S|) + ‖h‖; the other factors are bounded in terms
+of an upper bound for ‖h‖_(𝒳^k). ∎
+
+*The inverse metric.* Smallness enters only through g⁻¹ = (g_b + δ)⁻¹, δ := g − g_b. Write
+
+    (g_b + δ)⁻¹ = Σ_(j≤N) (−g_b⁻¹δ)^j g_b⁻¹ + R_N,        R_N := (−g_b⁻¹δ)^(N+1)(g_b + δ)⁻¹.
+
+(g_b + δ)⁻¹ is a smooth function of δ for δ pointwise small, which the H^(3,(1,0,0))_b-smallness gives by Sobolev
+embedding; so by Moser's composition estimate (the tame estimates of [[sec:ii-a-9]]), (g_b + δ)⁻¹ − g_b⁻¹ is bounded in
+H^k_b with weights 0, by a constant depending on an upper bound for ‖δ‖_(H^k). The factor (−g_b⁻¹δ)^(N+1) has N + 1
+times the least orders of δ, which are positive at each face; so for N large, R_N lies in H^k_b with weights beyond
+every weight in [[eq:iii-i-3-4]], [[eq:iii-i-3-6]] and [[eq:iii-i-3-7]], and adds no expansion term. The Taylor terms
+are products, handled by [[lem:iii-c-2-1]]. This replaces the Neumann series of [[prop:iii-c-4-4]], whose convergence
+needs smallness in H^k.
+
+**Remark {#rem:iii-i-3-5}** ([Hin26, Remark 11.7] in dimension 4 + 1.) g_(b₀) + h and g_(b₀,b,0) + h differ near
+(ι⁺)° by χ_K(g_b − g_(b₀)) ∈ ρ_+²C^∞, which is absorbed into h as (2, 0) ∈ ℰ_+. The same holds for the boost:
+g_(b₀,b,−S) − g_(b₀,b,0) = (1 − χ_K)(φ_(−S)^* g_(b₀) − g_(b₀)) ∈ H^(∞,(⟨(3,0)⟩_0,∞),((2,0),∞),∞)_b
+([[lem:iii-i-3-6]]). This is where the condition (2, 0) ∈ ℰ_+ of [[eq:iii-i-1-3]] is used.
+
+**Lemma {#lem:iii-i-3-6}** (The background differences.) For |b − b₀| and |S| small, g_(b₀,b,−S) satisfies
+[[eq:iii-i-3-5]] and lies in 𝒢⁺; g_(b₀,b,−S) − g_b is supported in {χ_K < 1} and lies in
+H^(∞,(⟨(3,0)⟩_0,∞),((2,0),∞),∞)_b(Ω_*), with seminorms O(|b − b₀| + |S|).
+
+*Proof.* We have g_(b₀,b,−S) − g_b = (1 − χ_K)(φ_(−S)^* g_(b₀) − g_(b₀)) + (1 − χ_K)(g_(b₀) − g_b). On
+supp(1 − χ_K) ∩ Ω_*, χ_IVP = 1 and the flow of V(S) is the boost: this is the first alternative of [[lem:iii-b-5-2]],
+with supp χ^♭_K ⊂ χ_K⁻¹(1); on its second alternative, {|x| < 6R₁}, the difference is smooth and supported in a
+compact set away from the faces at infinity, as that alternative of [[lem:iii-b-5-2]] states, hence in the class. So
+by [[eq:iii-b-5-3]], φ_(−S)^* g_(b₀) − g_(b₀) = |x|⁻²h_(−S)(ω)(dx¹)² + ρ_0²ρ_I³ρ_+² C^∞ with h_(−S) = O(|S|); and by
+[[prop:iii-b-3-6]], g_(b₀) − g_b = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞ on {|x| ≥ 3R₁}. Near 𝓘⁺,
+|x|⁻²(dx¹)² is the slot π_11 at ρ_I-order 2 and ι⁺-order 2, and |x|⁻³ is of orders 3; in the interior of ι⁺,
+|x|⁻² ∈ ρ_+²C^∞. This is the class stated, as 1 − χ_K is smooth on M. For [[eq:iii-i-3-5]]: g_(b₀,b,−S) − g_(b₀) =
+(g_(b₀,b,−S) − g_b) + (g_b − g_(b₀)), the last term being independent of χ_K, smooth at K⁺ and of the same classes; and
+g_(b₀,b,−S) = g_b on χ_K⁻¹(1), a neighbourhood of K⁺. 𝒢⁺: near 𝓘⁺ ∩ ι⁺, g_(b₀,b,−S) = φ_(−S)^* g_(b₀), and
+g_(b₀) − η = m₀|x|⁻²(dx¹)² has the slot π_11 only. ∎
