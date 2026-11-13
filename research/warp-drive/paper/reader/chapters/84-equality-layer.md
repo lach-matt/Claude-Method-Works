@@ -530,11 +530,11 @@ so |d|² ≥ (16/9) · 4 = 64/9, with equality only at u = 0. ∎
 where C depends on the bounds of g0⁻¹ and g_λ⁻¹ on Ω; here |k| ≤ C λ ≤ 1 on Ω, by item 4 of [[thm:main]] and the choice
 of λ0 in [[sec:eq-setting]].
 
-*Proof.* From g_λ = g0 + k, g_λ⁻¹ − g0⁻¹ = −g0⁻¹ k g_λ⁻¹, and substituting this once more for g_λ⁻¹ on the right,
-g_λ⁻¹ = g0⁻¹ − g0⁻¹ k g0⁻¹ + g0⁻¹ k g0⁻¹ k g_λ⁻¹. Contract with dΦ0 twice: the first two terms give −m0 − k(Φ0♯, Φ0♯),
-and the third is q := k(Φ0♯, g0⁻¹ k g_λ⁻¹ dΦ0), so that the absolute value of q is at most C |k(Φ0♯, ·)| times
-|k(g_λ⁻¹ dΦ0, ·)|. The same identity applied to g_λ⁻¹ dΦ0 bounds the latter by |k(Φ0♯, ·)| + C |k| |k(Φ0♯, ·)| +
-C |k|³, which is at most C (|k(Φ0♯, ·)| + |k|²) since |k| ≤ 1. ∎
+*Proof.* From g_λ = g0 + k, g_λ⁻¹ − g0⁻¹ = −g0⁻¹ k g_λ⁻¹, and substituting this once more for g_λ⁻¹ on the right, g_λ⁻¹ =
+g0⁻¹ − g0⁻¹ k g0⁻¹ + g0⁻¹ k g0⁻¹ k g_λ⁻¹. Contract with dΦ0 twice: the first two terms give −m0 − k(Φ0♯, Φ0♯), and the
+third is q := k(Φ0♯, g0⁻¹ k g_λ⁻¹ dΦ0), so that the absolute value of q is at most C |k(Φ0♯, ·)| times |k(g_λ⁻¹ dΦ0, ·)|.
+The same identity applied to g_λ⁻¹ dΦ0 bounds the latter by |k(Φ0♯, ·)| + C |k| |k(Φ0♯, ·)| + C |k|³, which is at most C
+(|k(Φ0♯, ·)| + |k|²) since |k| ≤ 1. ∎
 
 ### Flat-edge bounds {#sec:layer-flat}
 
@@ -727,18 +727,18 @@ That is, the part of first degree of Σ_j λ^j [g_j] is Re Σ_j λ^j H_j e^(iv/�
 sense of [[eq:layer-identification]].
 
 *Proof.* (i) *[[eq:layer-profiles]] is the first-degree system.* By [[lem:layer-seed-operators]] (b), the seed's
-linearised Ric^H on H e^(ikθ) is exactly λ⁻¹ k 𝒯H + R_X H, with no λ⁻² part and R_X independent of k, and its
-linearised D is λ⁻¹ i k Pol(H) + D_X H. So the order-m coefficient of the two-scale expansion, restricted to the terms
-linear in the oscillating profiles and with the seed's coefficients, is Re[(𝒯H_(m+1) + R_X H_m) e^(iθ)] (the term
-T̂ ĝ_(m+1) of [[eq:stage-m]] and the part of 𝒦_m linear in ĝ_m), and the order-m oscillating part of D is Re[(i Pol
-H_(m+1) + D_X H_m) e^(iθ)]; [[lem:stage-data]] (i) solves the latter on Σ_τ0 by i Pol⁺(D_X H_m). (ii) *The means and
-phases have no part of first degree:* this is [[lem:layer-flat]] (b), which rests on (F2). (iii) *The fixed-phase
-rewriting.* By the proof of [[thm:approximant]], g_j is the λ^j coefficient of the means and of the sum
-Σ_l λ^l ĝ_l(X, θ + φ1 + λΨ), Ψ := Σ_(i≥2) λ^(i−2) φ_i; so g_j = m_j + ĝ_j(X, θ + φ1) + T_j, T_j a sum of products of
-∂_θ^p ĝ_l (p ≥ 1, l < j) with monomials of positive degree in φ_2, …, φ_j (for instance T_2 = φ_2 ∂_θ ĝ_1(X, θ + φ1)).
-By [[lem:layer-flat]] (b), |m_j|, |φ_i| ≤ C ε²; by (a) there, the absolute value of ∂_θ^p ĝ_l is at most C ε; so
-|T_j| ≤ C ε³ and |ĝ_j(θ + φ1) − ĝ_j(θ)| ≤ |φ1| sup |∂_θ ĝ_j| ≤ C ε³; and |ĝ_j − Re[H_j e^(iθ)]| ≤ C ε² by (c) there.
-The derivatives follow by Leibniz's rule and [[eq:two-scale-derivative]], with costs at most i + 2j + 1. ∎
+linearised Ric^H on H e^(ikθ) is exactly λ⁻¹ k 𝒯H + R_X H, with no λ⁻² part and R_X independent of k, and its linearised
+D is λ⁻¹ i k Pol(H) + D_X H. So the order-m coefficient of the two-scale expansion, restricted to the terms linear in the
+oscillating profiles and with the seed's coefficients, is Re[(𝒯H_(m+1) + R_X H_m) e^(iθ)] (the term T̂ ĝ_(m+1) of
+[[eq:stage-m]] and the part of 𝒦_m linear in ĝ_m), and the order-m oscillating part of D is Re[(i Pol H_(m+1) + D_X H_m)
+e^(iθ)]; [[lem:stage-data]] (i) solves the latter on Σ_τ0 by i Pol⁺(D_X H_m). (ii) *The means and phases have no part of
+first degree:* this is [[lem:layer-flat]] (b), which rests on (F2). (iii) *The fixed-phase rewriting.* By the proof of
+[[thm:approximant]], g_j is the λ^j coefficient of the means and of the sum Σ_l λ^l ĝ_l(X, θ + φ1 + λΨ), Ψ := Σ_(i≥2)
+λ^(i−2) φ_i; so g_j = m_j + ĝ_j(X, θ + φ1) + T_j, T_j a sum of products of ∂_θ^p ĝ_l (p ≥ 1, l < j) with monomials of
+positive degree in φ_2, …, φ_j (for instance T_2 = φ_2 ∂_θ ĝ_1(X, θ + φ1)). By [[lem:layer-flat]] (b), |m_j|, |φ_i| ≤ C
+ε²; by (a) there, the absolute value of ∂_θ^p ĝ_l is at most C ε; so |T_j| ≤ C ε³ and |ĝ_j(θ + φ1) − ĝ_j(θ)| ≤ |φ1|
+sup |∂_θ ĝ_j| ≤ C ε³; and |ĝ_j − Re[H_j e^(iθ)]| ≤ C ε² by (c) there. The derivatives follow by Leibniz's rule and
+[[eq:two-scale-derivative]], with costs at most i + 2j + 1. ∎
 
 **Corollary {#cor:layer-expansion}** (The expansion on the boundary.) At X = (v, r_q(v), x̂), v_s < v ≤ v_♯, with ε :=
 ε_(M*)(v) and θ = v/λ,
@@ -825,17 +825,16 @@ with its hypothesis ε_(M*)(v1) ≤ λ³ replaced by ε_4(v1) ≤ λ: for X ∈ 
 C_L4 depending on the quantities of [[sec:layer-setting]] and not on λ, v1 or X.
 
 *Proof.* Steps 1, 2, 5 and 7 of the proof of [[lem:layer-remainder]] do not use the hypothesis, step 5 using the
-coefficients of step 3 only as below. In step 3, the terms with l = 1 and p ≥ 1 cost j, those with l ≥ 2 are bounded
-by C λ^(l−p) through the global bounds of the profiles, and those with p = 0 by C λ; so
-|∂^j (g_app − g0)| ≤ C (λ + λ^(1−j) ε_j(v1) + λ^(2−j)), which is bounded for j ≤ 2, since ε_2 ≤ λ, and at most
-C λ^(2−j) for j = 3, 4, since ε_4 ≤ λ. Order the energies E^(0), E^(1), E^(2), E^(i) controlling ∂^(i+1) w and ∂^i w.
-In ∂^i of [[eq:layer-w-equation]], every coefficient of a w-factor of the same level is a derivative of order at most 2
-of g_λ or at most 1 of g_app, bounded; ∂³g_app and ∂⁴g_app occur only in ∂^(i−p) w ∂^(p+2) g_app (p ≥ 1), in
-∂^(1+a) g_app ∂^(1+b) w and in the cubic Q-terms, each multiplying a w-factor of a strictly lower level. So E^(0) obeys
-[[lem:energy]] with bounded coefficients, E^(0) ≤ C λ^(N−3) ε_(M*)(v1), and
-E^(i) ≤ C (E^(i)(τ0) + ∫ (‖∂^i Ric^H(g_app)‖ + Σ_(j<i) L_ij E^(j))) with L_ij ≤ C λ^(j−i); inductively
-E^(i) ≤ C λ^(N−3−i) ε_(M*)(v1). In the data of step 5 the coefficients of the same level are bounded and the large ones
-multiply lower levels, so the same triangular argument applies there. Step 7 as written. ∎
+coefficients of step 3 only as below. In step 3, the terms with l = 1 and p ≥ 1 cost j, those with l ≥ 2 are bounded by C
+λ^(l−p) through the global bounds of the profiles, and those with p = 0 by C λ; so |∂^j (g_app − g0)| ≤ C (λ + λ^(1−j)
+ε_j(v1) + λ^(2−j)), which is bounded for j ≤ 2, since ε_2 ≤ λ, and at most C λ^(2−j) for j = 3, 4, since ε_4 ≤ λ. Order
+the energies E^(0), E^(1), E^(2), E^(i) controlling ∂^(i+1) w and ∂^i w. In ∂^i of [[eq:layer-w-equation]], every
+coefficient of a w-factor of the same level is a derivative of order at most 2 of g_λ or at most 1 of g_app, bounded;
+∂³g_app and ∂⁴g_app occur only in ∂^(i−p) w ∂^(p+2) g_app (p ≥ 1), in ∂^(1+a) g_app ∂^(1+b) w and in the cubic Q-terms,
+each multiplying a w-factor of a strictly lower level. So E^(0) obeys [[lem:energy]] with bounded coefficients, E^(0) ≤ C
+λ^(N−3) ε_(M*)(v1), and E^(i) ≤ C (E^(i)(τ0) + ∫ (‖∂^i Ric^H(g_app)‖ + Σ_(j<i) L_ij E^(j))) with L_ij ≤ C λ^(j−i);
+inductively E^(i) ≤ C λ^(N−3−i) ε_(M*)(v1). In the data of step 5 the coefficients of the same level are bounded and the
+large ones multiply lower levels, so the same triangular argument applies there. Step 7 as written. ∎
 
 ### The window {#sec:layer-window}
 
@@ -897,14 +896,13 @@ v* − v_s ≥ (y/C_κ)^(1/κ) for every κ ≥ 1, C_κ := sup |env^(κ)|/κ!.
 *Proof.* E is continuous and nondecreasing, E = 0 on (−∞, v_s] and E(v) = sup |env| for v ≥ v_end. If E(v′) ≥ y, the
 intermediate value theorem on [v_s, v′] gives a point of (v_s, v′] where E = y. So {E = y} is a nonempty closed set
 contained in (v_s, ∞); v* is its least element, v_s < v*, v* ≤ v′ whenever E(v′) ≥ y, and E < y on (−∞, v*). Since
-E(v*) = y is the maximum of |env| over (−∞, v*] and |env| ≤ E < y on (−∞, v*), the maximum is taken at v*:
-|env(v*)| = y. Let v_+ be the largest point of [v*, v* + L] such that E ≤ 2y on [v*, v_+]; it exists, E being
-continuous with E(v*) = y < 2y. On (−∞, v_+], E ≤ 2y, so [[lem:layer-interpolation]] at i = 1 gives
-|env′| ≤ C_(1,m) (2y)^(1−1/m) M_m^(1/m), and |env − env(v*)| ≤ L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4 on [v*, v_+].
-Since |env(v*)| = y, env keeps the sign of env(v*) on [v*, v_+], with |env| ∈ [3y/4, 5y/4], and then
-E ≤ max(y, 5y/4) < 2y on [v*, v_+]. If v_+ < v* + L, the continuity of E would give E ≤ 2y on a longer interval; so
-v_+ = v* + L. The bound on ε_M is [[eq:layer-cost-level]] with E ≤ 5y/4 ≤ 1. Finally all derivatives of env vanish
-at v_s, so Taylor's formula gives y = |env(v*)| ≤ C_κ (v* − v_s)^κ. ∎
+E(v*) = y is the maximum of |env| over (−∞, v*] and |env| ≤ E < y on (−∞, v*), the maximum is taken at v*: |env(v*)| = y.
+Let v_+ be the largest point of [v*, v* + L] such that E ≤ 2y on [v*, v_+]; it exists, E being continuous with E(v*) = y
+< 2y. On (−∞, v_+], E ≤ 2y, so [[lem:layer-interpolation]] at i = 1 gives |env′| ≤ C_(1,m) (2y)^(1−1/m) M_m^(1/m),
+and |env − env(v*)| ≤ L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4 on [v*, v_+]. Since |env(v*)| = y, env keeps the sign of
+env(v*) on [v*, v_+], with |env| ∈ [3y/4, 5y/4], and then E ≤ max(y, 5y/4) < 2y on [v*, v_+]. If v_+ < v* + L, the
+continuity of E would give E ≤ 2y on a longer interval; so v_+ = v* + L. The bound on ε_M is [[eq:layer-cost-level]] with
+E ≤ 5y/4 ≤ 1. Finally all derivatives of env vanish at v_s, so Taylor's formula gives y = |env(v*)| ≤ C_κ (v* − v_s)^κ. ∎
 
 No regularity of env at its edge beyond smoothness is used: the lemmas hold for every C_c^∞ envelope.
 
@@ -928,13 +926,13 @@ W_λ, points where it is timelike for g_λ (g_λ⁻¹(dΦ0, dΦ0) > 0) and point
 spacelike throughout the layer, and not timelike throughout it. The statement holds for every C_c^∞ envelope,
 whatever its sign, and every admissible τ0, including (v_s − τ0)/√μ0 = ρ*.
 
-*Proof.* Put M := M* = 2N + 8, m := 56 M, p := 14, κ := 64, y := λ^p, Δτ := τ_end − τ0, ε_t := 2 C1 λ and
-L := (4π + 2 C1 Δτ) λ. Fix η1 ∈ (0, min(1, T)] as follows. If (v_s − τ0)/√μ0 ≠ ρ*, then ν(v_s − τ0) ≠ 0
-([[prop:layer-linear]] (d)), and η1 is so small that ν_* := min_(v_s≤v≤v_s+η1) |ν(v − τ0)| > 0. If
-(v_s − τ0)/√μ0 = ρ*, then ν, as a function of ρ = (v − τ0)/√μ0, has a double zero at ρ* with ν″ := d²ν/dρ² ≠ 0
-there, so Taylor's formula gives ν(v − τ0) = (ν″(ρ*)/(2μ0)) (v − v_s)² (1 + o(1)) as v ↓ v_s, and η1 is so small that
-|ν(v − τ0)| ≥ ν_2 (v − v_s)² on [v_s, v_s + η1], ν_2 := |ν″(ρ*)|/(4μ0). Each step below needs λ ≤ Λ for a number
-Λ > 0 that does not depend on λ; [[sec:layer-threshold]] lists them, and λ_L is their minimum.
+*Proof.* Put M := M* = 2N + 8, m := 56 M, p := 14, κ := 64, y := λ^p, Δτ := τ_end − τ0, ε_t := 2 C1 λ and L := (4π + 2 C1
+Δτ) λ. Fix η1 ∈ (0, min(1, T)] as follows. If (v_s − τ0)/√μ0 ≠ ρ*, then ν(v_s − τ0) ≠ 0 ([[prop:layer-linear]] (d)), and
+η1 is so small that ν_* := min_(v_s≤v≤v_s+η1) |ν(v − τ0)| > 0. If (v_s − τ0)/√μ0 = ρ*, then ν, as a function of ρ = (v −
+τ0)/√μ0, has a double zero at ρ* with ν″ := d²ν/dρ² ≠ 0 there, so Taylor's formula gives ν(v − τ0) = (ν″(ρ*)/(2μ0)) (v −
+v_s)² (1 + o(1)) as v ↓ v_s, and η1 is so small that |ν(v − τ0)| ≥ ν_2 (v − v_s)² on [v_s, v_s + η1], ν_2
+:= |ν″(ρ*)|/(4μ0). Each step below needs λ ≤ Λ for a number Λ > 0 that does not depend on λ; [[sec:layer-threshold]]
+lists them, and λ_L is their minimum.
 
 *The window.* Let λ ≤ 1 and λ ≤ Λ_0 := min(E(v_s + η1/2)^(1/p), η1/(2(4π + 2 C1 Δτ))), a positive number since
 v_s = inf supp env. Then y ≤ E(v_s + η1/2), so v* := v*(y) of [[lem:layer-levels]] exists and v_s < v* ≤ v_s + η1/2;
@@ -968,22 +966,22 @@ C_m0 := (A²/(9μ0))(1 + (μ0 μ(v_end))^(1/4)): by [[eq:eq-margin]], concavity 
 √(μ/μ0) − 1 ≤ (μ − μ0)/(2μ0) = (A²/(9μ0)) ∫_(v_s)^v env² ≤ (A²/(9μ0)) E(v)², and
 r_q μ′/(2μ) = (A²/9) (μ0 μ)^(1/4) env²/μ ≤ (A²/(9μ0)) (μ0 μ(v_end))^(1/4) E(v)².
 
-*Domination.* On W_λ, |env| ≥ 3y/4 and |d| ≥ d_* := 8/3 ([[lem:layer-angular]]). In the generic case
-|ν(v − τ0)| ≥ ν_*, since W_λ ⊂ [v_s, v_s + η1]; at ρ*, |ν(v − τ0)| ≥ ν_2 (v − v_s)² ≥ ν_2 (v* − v_s)² ≥
-ν_2 (y/C_κ)^(2/κ), by [[lem:layer-levels]]. So in both cases
+*Domination.* On W_λ, |env| ≥ 3y/4 and |d| ≥ d_* := 8/3 ([[lem:layer-angular]]). In the generic case |ν(v − τ0)| ≥ ν_*,
+since W_λ ⊂ [v_s, v_s + η1]; at ρ*, |ν(v − τ0)| ≥ ν_2 (v − v_s)² ≥ ν_2 (v* − v_s)² ≥ ν_2 (y/C_κ)^(2/κ), by
+[[lem:layer-levels]]. So in both cases
 
     λ³ A |env| |ν(v − τ0)| |d(ϑ)| ≥ 10 G λ^(3+z)   on W_λ × S³,      G := 3 A ν_♭ d_*/40,           {#eq:layer-signal}
 
-with z := p and ν_♭ := ν_* in the generic case, and z := p(1 + 2/κ) and ν_♭ := ν_2 C_κ^(−2/κ) at ρ*. When
-λ ≤ min(Λ_8a, Λ_8b, Λ_8c, Λ_8d), each of m0, C_L11 λ⁴ ε, C_L11 λ ε² and C_L11 C_L4 λ^(N−5) ε is at most G λ^(3+z), by
-the bounds on m0 and ε above. Then, by [[eq:layer-expansion]] and |w| ≤ C_L4 λ^(N−5) ε, C_L11 (λ² ε + λ ε² + |w|) ≤
-G (λ^(1+z) + 2 λ^(3+z)) ≤ 3 G λ^(1+z) bounds |k(Φ0♯, ·)|, and C_L11 (λ ε + |w|) ≤ 2 G λ^z bounds |k|; so
-|q| ≤ C_q (9 G² λ^(2+2z) + 12 G³ λ^(1+3z)) ≤ C_q G² (9 + 12 G) λ^(2+2z), as z ≥ 1, and this is at most G λ^(3+z)
-when λ ≤ Λ_8e. Hence |ρ_λ| ≤ 5 G λ^(3+z), and by [[eq:layer-signal]] the bound of [[eq:layer-main]] holds with
-δ(λ) ≤ 1/2. As λ → 0, each of the five terms divided by λ^(3+z) tends to zero: with ε ≤ C_ε λ^(p(1−M/m)) and
-M/m = 1/56, the quotients are at most constant multiples of λ to the powers 2p − 3 − z, 1 + p(1 − M/m) − z,
-2p(1 − M/m) − 2 − z, N − 8 + p(1 − M/m) − z and z − 1, which are 11, 0.75, 11.5, N − 8.25 and 13 in the generic
-case and 10.5625, 0.3125, 11.0625, N − 8.6875 and 13.4375 at ρ*, all positive since N ≥ 9. So δ(λ) → 0.
+with z := p and ν_♭ := ν_* in the generic case, and z := p(1 + 2/κ) and ν_♭ := ν_2 C_κ^(−2/κ) at ρ*. When λ ≤ min(Λ_8a,
+Λ_8b, Λ_8c, Λ_8d), each of m0, C_L11 λ⁴ ε, C_L11 λ ε² and C_L11 C_L4 λ^(N−5) ε is at most G λ^(3+z), by the bounds on m0
+and ε above. Then, by [[eq:layer-expansion]] and |w| ≤ C_L4 λ^(N−5) ε, C_L11 (λ² ε + λ ε² + |w|) ≤ G (λ^(1+z) + 2
+λ^(3+z)) ≤ 3 G λ^(1+z) bounds |k(Φ0♯, ·)|, and C_L11 (λ ε + |w|) ≤ 2 G λ^z bounds |k|; so |q| ≤ C_q (9 G² λ^(2+2z) + 12
+G³ λ^(1+3z)) ≤ C_q G² (9 + 12 G) λ^(2+2z), as z ≥ 1, and this is at most G λ^(3+z) when λ ≤ Λ_8e. Hence |ρ_λ| ≤ 5 G
+λ^(3+z), and by [[eq:layer-signal]] the bound of [[eq:layer-main]] holds with δ(λ) ≤ 1/2. As λ → 0, each of the five
+terms divided by λ^(3+z) tends to zero: with ε ≤ C_ε λ^(p(1−M/m)) and M/m = 1/56, the quotients are at most constant
+multiples of λ to the powers 2p − 3 − z, 1 + p(1 − M/m) − z, 2p(1 − M/m) − 2 − z, N − 8 + p(1 − M/m) − z and z − 1, which
+are 11, 0.75, 11.5, N − 8.25 and 13 in the generic case and 10.5625, 0.3125, 11.0625, N − 8.6875 and 13.4375 at ρ*, all
+positive since N ≥ 9. So δ(λ) → 0.
 
 *Sign change.* ν ≤ 0, so −ν = |ν|, and env = σ |env| on W_λ; so the first term of [[eq:layer-main]] is
 λ³ A |env| |ν| Re[σ d(ϑ) e^(iv/λ)]: an envelope of the other sign shifts the phase by π. The phase v/λ turns twice on
@@ -1065,16 +1063,16 @@ vϑ (plus faster terms); and c r^(1/2) for AB. The Cartesian norm of dv, dr is b
 of dφ_i over their coefficients, is of order r⁻¹, so in every case r^(3/2) |h|_cart tends to a multiple of |c|.
 
 (b) As in the proof of [[prop:layer-linear]] (b): (R_X H_1) has only rϑ and angular components; H_2,rϑ^∞ = i a_1 r^(−3/2)
-is the decaying solution of (∂_r + 1/(2r)) h = −i a_1 r^(−5/2); i a_1 r^(−1/2) β_∞ solves the vϑ equation, since β_∞′
-= −μ0 r⁻⁴, and decays; R_X H_1 contains no derivative ∂_v H_1 (𝒯H_1 = 0 for every v, [[prop:layer-structure]] (a)), so
-its angular part is O(r^(−3/2)) and the integral converges, giving a decaying angular part, γ-traceless. The vv, vr, rr
+is the decaying solution of (∂_r + 1/(2r)) h = −i a_1 r^(−5/2); i a_1 r^(−1/2) β_∞ solves the vϑ equation, since β_∞′ =
+−μ0 r⁻⁴, and decays; R_X H_1 contains no derivative ∂_v H_1 (𝒯H_1 = 0 for every v, [[prop:layer-structure]] (a)), so its
+angular part is O(r^(−3/2)) and the integral converges, giving a decaying angular part, γ-traceless. The vv, vr, rr
 components vanish by (a). Directly, i Pol(H_2^∞)_ϑ = i · i a_1 r^(−3/2) = −(D_X H_1)_ϑ, and the v and r components of
 Pol(H_2^∞) vanish.
 
-(c) D_X H_2^∞ = i a_2 (r^(−5/2) β_∞ dv + r^(−7/2) dr) + (a dϑ term), as in [[prop:layer-linear]] (c), and (R_X H_2^∞)_vv
-= tr R_X H_2^∞ = 0 since H_2^∞ ∈ 𝔖. The trace of H_3^∞ solves (∂_r + 3/(2r)) tr = 0 and decays, so it vanishes. By
-[[eq:layer-bianchi]] at j = 3, with Z_2 = Z_3 = 0 and G_1 = 0, G_2 := i Pol(H_3^∞) + D_X H_2^∞ solves (∇_ℓ + 3/(2r)) G_2
-= 0; r^(3/2) |G_2|_cart → 0, since H_3^∞ decays and D_X H_2^∞ = O(r^(−5/2)), while the nonzero solutions of that
+(c) D_X H_2^∞ = i a_2 (r^(−5/2) β_∞ dv + r^(−7/2) dr) + (a dϑ term), as in [[prop:layer-linear]] (c), and (R_X
+H_2^∞)_vv = tr R_X H_2^∞ = 0 since H_2^∞ ∈ 𝔖. The trace of H_3^∞ solves (∂_r + 3/(2r)) tr = 0 and decays, so it vanishes.
+By [[eq:layer-bianchi]] at j = 3, with Z_2 = Z_3 = 0 and G_1 = 0, G_2 := i Pol(H_3^∞) + D_X H_2^∞ solves (∇_ℓ + 3/(2r))
+G_2 = 0; r^(3/2) |G_2|_cart → 0, since H_3^∞ decays and D_X H_2^∞ = O(r^(−5/2)), while the nonzero solutions of that
 transport have r^(3/2) |G|_cart tending to a nonzero constant; so G_2 = 0. Hence H_3,rr^∞ = i (D_X H_2^∞)_r = −a_2
 r^(−7/2) and H_3,vr^∞ = i (D_X H_2^∞)_v = −a_2 r^(−5/2) β_∞. The vv equation gives ∂_r (r^(3/2) H_3,vv^∞) = 2μ0 a_2 r⁻⁴
 β_∞ = ∂_r(−a_2 β_∞²), and decay fixes r^(3/2) H_3,vv^∞ = −a_2 β_∞² = −(μ0²/9) a_2 r⁻⁶. At r = √μ0 this is −a_2 μ0^(−3/4)
@@ -1112,19 +1110,18 @@ has an oscillating factor, so the forcing term is in E_3(ε), and the transport 
 ∫_r^∞ r′^(3/2) e^(I(r′)) S dr′ along the generator at fixed v ([[lem:decay-calculus]] (d)), maps E_3(ε) into E_2(ε),
 the weight being that of the generator's v.
 
-(b) M_j := 2 ∫_(−∞)^v 𝒮_(j,3) dv′, with 𝒮_(j,3) the coefficient of r⁻³ in 𝒮_j of the proof of
-[[thm:past-approximant]], evaluated at v′; it is of degree two by (F2), so |M_j| ≤ C (v − v_s) ε². The remainders
-(m̃, φ̃, Ψ̃) solve the remainder system of the proof of [[thm:past-approximant]], whose estimates are linear in the
-forcing terms and run on P_v: [[lem:past-energy]] and [[lem:past-transport]] on P_v, with the null face {v′ = v} to the
-future of P_v and its flux kept, as in [[lem:layer-energy-null]]; L0 is tangent to it, so the transport's boundary term
-vanishes; and the Poincaré inequality of [[lem:past-sobolev]] (b) holds on the thinner slices with the same constant.
-With the oscillating remainder taken as a known forcing term by (a), all forcing terms lie in E_(7/2)(ε²), so the
-energies and the flux through {v′ = v} carry ε² with the t-rates of that proof. The flux gives, as in
-[[lem:layer-null-pointwise]] but integrating from infinity along γ_Y, with ∫_r^∞ r′⁻³ dr′ = 1/(2r²), the bound
-|∂^α Ω^β m̃_j| ≤ C ε² r⁻¹; the proof of [[thm:past-approximant]] gives |m̃_j| ≤ C r^(−5/2); and min(x, y) ≤ (xy)^(1/2)
-gives C ε r^(−7/4). Then σ̃_j := m̃_j(ℓ, ℓ) + q_j is at most C ε r^(−7/4) (q_j is quadratic in (m_i, dφ_i), i < j, with
-no product ∂_v φ_i ∂_v φ_k since g^vv = 0), φ̃_j = −(1/2) ∫_r^∞ σ̃_j gives |φ̃_j|, |∂_v φ̃_j| ≤ C ε r^(−3/4), and Ψ̃_j,
-by its transport, is at most C ε r^(−7/4).
+(b) M_j := 2 ∫_(−∞)^v 𝒮_(j,3) dv′, with 𝒮_(j,3) the coefficient of r⁻³ in 𝒮_j of the proof of [[thm:past-approximant]],
+evaluated at v′; it is of degree two by (F2), so |M_j| ≤ C (v − v_s) ε². The remainders (m̃, φ̃, Ψ̃) solve the remainder
+system of the proof of [[thm:past-approximant]], whose estimates are linear in the forcing terms and run on P_v:
+[[lem:past-energy]] and [[lem:past-transport]] on P_v, with the null face {v′ = v} to the future of P_v and its flux
+kept, as in [[lem:layer-energy-null]]; L0 is tangent to it, so the transport's boundary term vanishes; and the Poincaré
+inequality of [[lem:past-sobolev]] (b) holds on the thinner slices with the same constant. With the oscillating remainder
+taken as a known forcing term by (a), all forcing terms lie in E_(7/2)(ε²), so the energies and the flux through {v′ = v}
+carry ε² with the t-rates of that proof. The flux gives, as in [[lem:layer-null-pointwise]] but integrating from infinity
+along γ_Y, with ∫_r^∞ r′⁻³ dr′ = 1/(2r²), the bound |∂^α Ω^β m̃_j| ≤ C ε² r⁻¹; the proof of [[thm:past-approximant]]
+gives |m̃_j| ≤ C r^(−5/2); and min(x, y) ≤ (xy)^(1/2) gives C ε r^(−7/4). Then σ̃_j := m̃_j(ℓ, ℓ) + q_j is at most C ε
+r^(−7/4) (q_j is quadratic in (m_i, dφ_i), i < j, with no product ∂_v φ_i ∂_v φ_k since g^vv = 0), φ̃_j = −(1/2) ∫_r^∞
+σ̃_j gives |φ̃_j|, |∂_v φ̃_j| ≤ C ε r^(−3/4), and Ψ̃_j, by its transport, is at most C ε r^(−7/4).
 
 (c) As in [[lem:layer-flat]] (c), the forcing term of the transport of the difference is a sum of products of two
 oscillating factors (E_3(ε²)), of mean-type factors with coefficients carrying an oscillating factor (by (b) and the
@@ -1147,19 +1144,19 @@ and R_P := (P ∪ Ω) ∩ {v + ε_t ψ(τ) ≤ v1}: for every X ∈ R_P ∩ Ω w
 
     |w(X)| ≤ C λ^(N_P−3) ε_(M_P)(v1).                                                          {#eq:layer-remainder-past}
 
-*Proof.* As [[lem:layer-remainder]], with four differences. (1) ψ is C¹ and increasing, with ψ′ = t^(−3/2) on P
-(dt/dτ = −1) and ψ′ = 1 on Ω, both sides giving ψ = 2 and ψ′ = 1 at τ0. The face {v + ε_t ψ(τ) = v1} has conormal
-dv + ε_t ψ′ dτ, and as in step 1 of that proof g_λ⁻¹ of it is at most −2sψ′ + 4s³ψ′³ − 4s²ψ′² μ/r² < 0: the tilt
-decays exactly as the perturbation does. ψ ≤ 2 on P, so R_P ⊂ {v ≤ v1} and R_P does not reach the outer boundary B of
-P, since on R_P, v + h_P(τ) ≤ v1 + 1/2 < V_P. (2) There are no data: by [[prop:layer-seed-past]], w = 0 on {v ≤ v_s}, and the energy of w on
+*Proof.* As [[lem:layer-remainder]], with four differences. (1) ψ is C¹ and increasing, with ψ′ = t^(−3/2) on P (dt/dτ =
+−1) and ψ′ = 1 on Ω, both sides giving ψ = 2 and ψ′ = 1 at τ0. The face {v + ε_t ψ(τ) = v1} has conormal dv + ε_t ψ′ dτ,
+and as in step 1 of that proof g_λ⁻¹ of it is at most −2sψ′ + 4s³ψ′³ − 4s²ψ′² μ/r² < 0: the tilt decays exactly as the
+perturbation does. ψ ≤ 2 on P, so R_P ⊂ {v ≤ v1} and R_P does not reach the outer boundary B of P, since on R_P, v +
+h_P(τ) ≤ v1 + 1/2 < V_P. (2) There are no data: by [[prop:layer-seed-past]], w = 0 on {v ≤ v_s}, and the energy of w on
 A_P(τ1) tends to zero as τ1 → −∞ (item 5 of [[thm:past-construction]]), so the energy inequality on R_P ∩ {τ ≤ τ′}
 ([[lem:past-energy]] on P, [[lem:energy]] on Ω, the tilted face's flux dropped) starts from zero at −∞. (3) On P the
 coefficients decay: ∂g_λ and the factor ∂²g_app of (g_λ⁻¹ − g_app⁻¹) ∂²g_app are at most C t^(−3/2), the latter because
 its one large part, λ⁻¹ dv dv [∂_θ² g1], carries the waves' amplitude, at most λ⁻¹ ε_(M_P)(v1) t^(−3/2) ≤ C t^(−3/2) on
 R_P ([[lem:layer-flat-past]] (a)); so the Gronwall kernel is C t^(−3/2) on P, integrable (∫_(−∞)^(τ0) t^(−3/2) dτ = 2),
 and C on Ω. No decomposition of w into a mean and a phase part is needed on R_P: the coefficient of order λ⁻¹ is small
-there. The bounds of item 3 of [[thm:past-construction]] on w and ∂w, with those of [[thm:uniform-existence]] on Ω,
-bound the nonlinear terms. (4) The forcing term: ‖∂^i Ric^H(g_app)‖_(L²) ≤ C λ^(N_P−1−i) ε t^(−3/2) on R_P ∩ Σ̂_τ
+there. The bounds of item 3 of [[thm:past-construction]] on w and ∂w, with those of [[thm:uniform-existence]] on Ω, bound
+the nonlinear terms. (4) The forcing term: ‖∂^i Ric^H(g_app)‖_(L²) ≤ C λ^(N_P−1−i) ε t^(−3/2) on R_P ∩ Σ̂_τ
 ([[lem:layer-flat-past]] (d)), integrable in τ. Gronwall's inequality gives E_2(τ) ≤ C λ^(N_P−3) ε_(M_P)(v1), and step 7
 of the proof of [[lem:layer-remainder]] gives [[eq:layer-remainder-past]]. ∎
 
@@ -1170,16 +1167,15 @@ exceptional value of τ0, and [[cor:layer]] holds for g_λ.
 
 *Proof.* By [[prop:layer-seed-past]] the layer of [[prop:eq-boundary]] (c) is defined for this g_λ.
 [[cor:layer-expansion]] holds at the boundary points with N_P, M_P := 2N_P + 8 and H_j^∞ in place of N, M* and H_j
-([[lem:layer-flat-past]] (c) and the continuation on Ω), and with ν_∞ in place of ν(v − τ0)
-([[lem:layer-profiles-past]] (c)). Run the proof of [[thm:layer]] with M := M_P, m := 56 M_P, C_P in place of C1, Δτ
-replaced by 2 + τ_end − τ0, and the other parameters as there; so ε_t = 2 C_P λ and v1 := v* + 4πλ + ε_t(2 + τ_end −
-τ0), which puts every boundary point X of W_λ in R_P, since ψ(τ(X)) ≤ 2 + τ_end − τ0. The window is that of
-[[thm:layer]], and on it ε_(M_P)(v1) ≤ C_ε y^(1−M/m) with p(1 − M/m) = 13.75 > 3, so the hypothesis
-ε_(M_P)(v1) ≤ λ³ of [[lem:layer-remainder-past]] holds for λ small; the remainder term is then
-O(λ^(N_P−3) ε_(M_P)(v1)) by [[lem:layer-remainder-past]], in place of that of [[lem:layer-remainder-weak]]. Since
-|ν| = |ν_∞| is constant, only the generic case occurs, with ν_* := |ν_∞|, and the domination and the sign change are
-those of the proof of [[thm:layer]]; the exponent conditions listed after [[thm:layer]] hold with N − 5 replaced by
-N_P − 3 ≥ K + 9. ∎
+([[lem:layer-flat-past]] (c) and the continuation on Ω), and with ν_∞ in place of ν(v − τ0) ([[lem:layer-profiles-past]]
+(c)). Run the proof of [[thm:layer]] with M := M_P, m := 56 M_P, C_P in place of C1, Δτ replaced by 2 + τ_end − τ0, and
+the other parameters as there; so ε_t = 2 C_P λ and v1 := v* + 4πλ + ε_t(2 + τ_end − τ0), which puts every boundary point
+X of W_λ in R_P, since ψ(τ(X)) ≤ 2 + τ_end − τ0. The window is that of [[thm:layer]], and on it ε_(M_P)(v1) ≤ C_ε
+y^(1−M/m) with p(1 − M/m) = 13.75 > 3, so the hypothesis ε_(M_P)(v1) ≤ λ³ of [[lem:layer-remainder-past]] holds for λ
+small; the remainder term is then O(λ^(N_P−3) ε_(M_P)(v1)) by [[lem:layer-remainder-past]], in place of that of
+[[lem:layer-remainder-weak]]. Since |ν| = |ν_∞| is constant, only the generic case occurs, with ν_* := |ν_∞|, and the
+domination and the sign change are those of the proof of [[thm:layer]]; the exponent conditions listed after
+[[thm:layer]] hold with N − 5 replaced by N_P − 3 ≥ K + 9. ∎
 
 ### The layer, region by region {#sec:layer-regions}
 
@@ -1230,22 +1226,42 @@ double root uses, and v → v_s as λ → 0.
 with λ^γ c_m E^(2+1/m) at the same level, E ≥ λ^(3+δ), using M/m ≤ 1/56 and (M + 1)/m, (2M + 1)/m ≤ 1/27: λ⁴ ε ≤ C λ⁴
 E^(1−M/m), as 4 − γ > (3 + δ)(1 + (M + 1)/m); λ ε² ≤ C λ E^(2−2M/m), as 1 − γ > (3 + δ)(2M + 1)/m; and the remainder
 C λ^(N−5) E^(1−M/m), as N − 5 − γ > (3 + δ)(1 + (M + 1)/m), N − 5 ≥ 4; each with (3 + δ) ≤ 7/2, (7/2)(28/27) < 3.9 and
-(7/2)/27 < 0.9. So |ρ| ≤ λ^γ m0 for λ small. Over a carrier period env and m0 change by relative amounts at most C λ
-E^(−1/m) and C λ E^(−2/m), both o(λ^γ), since |env′| ≤ C E^(1−1/m) and |m0′| ≤ C (env² + env |env′|); and |ν(· − τ0)|
-by at most C λ/(v − v_s), ν having at most a double zero, which is o(λ^γ) since v − v_s ≥ (E(v)/C_κ)^(1/κ) by Taylor's
-formula at v_s and (3 + δ)/κ < 1/10. So if R(v) ≥ 1 +
-2λ^γ, then R ≥ 1 + (3/2)λ^γ on [v − πλ, v + πλ], and at the points there where Re[d e^(iv/λ)] = |d|, g_λ⁻¹(dΦ0, dΦ0) ≥
-m0 (R − 1 − λ^γ) > 0, using ν ≤ 0. If R(v) ≤ 1 − 2λ^γ, then g_λ⁻¹(dΦ0, dΦ0) ≤ m0(R − 1 + λ^γ) < 0. ∎
+(7/2)/27 < 0.9. Each comparison is strict in the exponent of λ, so it holds with room for a constant factor in E: for
+λ small, |ρ| ≤ λ^γ m0 at every v′ of the layer with λ^(3+δ)/2 ≤ E(v′) ≤ 2 λ^(3−δ).
 
-For the C_c^∞ envelope env_C of the numerical point of [[prop:lambda0]], which increases on [1/2, 2] (both factors of
-β increase on (−1, 0)), every v with env_C(v) small is a first-reach point, so (ii) covers all levels between λ^P and
-λ^(3+δ) at the edge v_s = 1/2.
+Now let R(v) ≥ 1 + 2λ^γ, and put I := [v − πλ, v + πλ]. Then env(v) ≠ 0; let σ be its sign. Since R(v) ≥ 1, |env(v)| ≥
+m0(v)/(λ³ A |ν| |d|) ≥ c λ⁻³ E(v)^(2+1/m), c := c_m/(A ν_max d_max), where |ν| ≤ ν_max := μ0^(−7/4)/4 for ρ ≥ 1 by
+[[eq:layer-nu]], as |2 − 3/ρ − 2/ρ³| ≤ 3 there, and d_max := sup |d| < ∞ by [[eq:layer-d]]. On I, E ≤ (5/4) E(v)
+and |env′| ≤ C E(v)^(1−1/m), so over I env changes by a relative amount at most πλ C E(v)^(1−1/m)/|env(v)| ≤ C λ⁴
+E(v)^(−1−2/m) ≤ C λ^(4−(3+δ)(1+2/m)) ≤ C λ^(0.49), which is o(λ^γ); in particular env keeps the sign σ on I. Also E(v −
+πλ) ≥ E(v) − πλ C E(v)^(1−1/m) = E(v)(1 − o(1)), since |env| reaches E(v) at a point of (−∞, v] and moves by at most πλ C
+E(v)^(1−1/m) on I; so every point of I satisfies the bound on ρ above. The margin changes over I by a relative amount at
+most C λ E(v)^(−2/m) = o(λ^γ), since |m0′| ≤ C (env² + |env| |env′|) ≤ C E(v)^(2−1/m) on I and m0 ≥ c_m E^(2+1/m) ≥ c_m
+(E(v)/2)^(2+1/m) there; and |ν(· − τ0)| by at most C λ/(v − v_s), ν having at most a double zero near v_s, which is
+o(λ^γ) since v − v_s ≥ (E(v)/C_κ)^(1/κ) by Taylor's formula at v_s and (3 + δ)/κ < 1/10. So R ≥ 1 + (3/2)λ^γ on I. The
+phase v′/λ runs over an interval of length 2π on I, so there are points v′ of I where Re[σ d e^(iv′/λ)] = |d|, and at
+them, using ν ≤ 0,
+
+    g_λ⁻¹(dΦ0, dΦ0) = −m0 + λ³ A |env| |ν| Re[σ d e^(iv′/λ)] + ρ ≥ m0 (R − 1 − λ^γ) > 0.
+
+If R(v) ≤ 1 − 2λ^γ, then g_λ⁻¹(dΦ0, dΦ0) ≤ −m0 + R m0 + λ^γ m0 = m0 (R − 1 + λ^γ) < 0. ∎
+
+For the C_c^∞ envelope env_C of [[eq:envelope]], which increases on [1/2, 2] (both factors of β increase on (−1, 0)),
+every v with env_C(v) small is a first-reach point, so (ii) covers all levels between λ^P and λ^(3+δ) at the edge
+v_s = 1/2.
+
+**Remark {#rem:layer-regions-model}** (Numerical observation.) In a model with every constant equal to one, the
+envelope exp(−1/x) at its edge and the derivative count M* of [[lem:layer-flat]], parts (i)–(iii) of
+[[prop:layer-regions]], with [[lem:layer-remainder-weak]], covered for K = 6, at λ = 10^(−1000) and λ = 10^(−3000),
+every depth from the deepest point at which the error terms fall below the first-degree term up to the depth at which
+m0 = 2λ; with the hypothesis of [[lem:layer-remainder]] in place of the weaker one a gap remained for K = 6. No proof
+uses this.
 
 **Proposition {#prop:layer-structure}** (The structure of the expansion.) (a) R_X H = −i 𝒯(∂_v H) + Q H and D_X H =
 Pol(∂_v H) + q H, where ∂_v is the coordinate derivative of (v, r, ϑ) and Q, q contain no derivative in v.
 
-(b) Write H_j = Σ_k env^(k)(v) c_(j,k)(r, r0, ϑ), r0 = v − τ0, with ∂_v acting both on env and on r0. Then c_(j,k) = 0
-for k > j − 2, c_(j,j−2) = i^(j−2) c_(2,0) for j ≥ 2, and c_(j,j−3) = (j − 2) i^(j−3) c_(3,0) for j ≥ 3.
+(b) Write H_j = Σ_k env^(k)(v) c_(j,k)(r, r0, ϑ), r0 = v − τ0, with ∂_v acting both on env and on r0. Then for j ≥ 2,
+c_(j,k) = 0 for k > j − 2 and c_(j,j−2) = i^(j−2) c_(2,0); and c_(j,j−3) = (j − 2) i^(j−3) c_(3,0) for j ≥ 3.
 
 (c) On the boundary, for j ≥ 3,
 
@@ -1254,11 +1270,12 @@ for k > j − 2, c_(j,j−2) = i^(j−2) c_(2,0) for j ≥ 2, and c_(j,j−3) = 
 so the top terms of Σ_j λ^j H_j,vv at the horizon are λ³ A d ν Σ_(k≥0) (k + 1)(iλ)^k env^(k), the formal expansion of
 λ (i/s)² [A d ν env], where i/s := i(∂_v + i/λ)⁻¹ = λ Σ_(k≥0) (iλ ∂_v)^k.
 
-*Proof.* (a) At the seed the Christoffel symbols [[eq:layer-christoffel]] do not depend on v, and g0°^(vv) = 0, so in □H
-= g0°^(ab) ∇_a ∇_b H the derivative ∂_v occurs only in 2 ∂_v ∂_r H from g^vr = 1, in −g0°^(ab) Γ^v_ab ∂_v H = (3/r)
-∂_v H, and in −2 Γ^d_(r·) ∂_v H_(d·), from the connection acting on the indices of ∇_v H with g^vr; together these are
-2 ∂_v (∇_ℓ + 3/(2r)) H = 2i ∂_v 𝒯H. So −(1/2) □H = −i 𝒯(∂_v H) + (terms without ∂_v), and 𝔚 has none. In D_X H = div H −
-(1/2) d tr H, ∂_v occurs in g^vr ∂_v H_(r·) = ∂_v H(ℓ, ·) and in −(1/2) dv ∂_v tr H, which is Pol(∂_v H).
+*Proof.* (a) At the seed the Christoffel symbols [[eq:layer-christoffel]] do not depend on v, and g0°^(vv) = 0, so in
+□H = g0°^(ab) ∇_a ∇_b H the derivative ∂_v occurs only in 2 ∂_v ∂_r H from g^vr = 1, in −g0°^(ab) Γ^v_ab ∂_v H =
+(3/r) ∂_v H, and in −2 Γ^d_(r·) ∂_v H_(d·), from the connection acting on the indices of ∇_v H with g^vr; together
+these are 2 ∂_v (∇_ℓ + 3/(2r)) H = 2i ∂_v 𝒯H. So −(1/2) □H = −i 𝒯(∂_v H) + (terms without ∂_v), and 𝔚 has none. In
+D_X H = div H − (1/2) d tr H, ∂_v occurs in g^vr ∂_v H_(r·) = ∂_v H(ℓ, ·) and in −(1/2) dv ∂_v tr H, which is
+Pol(∂_v H).
 
 (b) Put K_(j+1) := H_(j+1) − i ∂_v H_j. By (a), 𝒯 K_(j+1) = −Q H_j, and by [[eq:layer-profiles]] K_(j+1) = −i (1 − Π) ∂_v
 H_j + i Pol⁺ q H_j at r = r0, Π := Pol⁺ Pol, a projector onto the range of Pol⁺ since Pol Pol⁺ = 1. As 𝒯, Q, q and Pol⁺
@@ -1279,33 +1296,65 @@ c_(2,0) and c_(j,j−3) = (j − 2) i^(j−3) c_(3,0); and c_(3,0) = κ_(3,0) + 
 H_3,vv = env c_(3,0),vv, c_(3,1) = i c_(2,0) having no vv component. With (b) this is the formula, and
 λ (i/s)² = λ³ Σ_k (k + 1)(iλ ∂_v)^k since i/s = i/((i/λ)(1 − iλ ∂_v)). ∎
 
+**Remark {#rem:layer-expansion-edge}** (Numerical observation.) Let x_b(λ) be the depth x = v − v_s at which
+λ |env′/env| = 1; for env = exp(−1/x^k) near the edge, x_b = (kλ)^(1/(k+1)). Write (i/s) f(v) :=
+i ∫_(−∞)^v e^(−i(v−v′)/λ) f(v′) dv′, the operator whose formal expansion is the one in [[prop:layer-structure]] (c).
+For env = exp(−1/x) and λ = 10⁻⁶, the top terms of [[prop:layer-structure]] (c), summed to successive orders, agreed
+in the window of [[thm:layer]] with the re-summed value λ (i/s)² [env] to 1.6·10⁻⁸; at x = 0.3 λ^(1/2) they were off
+by a factor 1.3·10⁸, two consecutive truncations differed by 13 times the first, and the local form λ (i/s̃)² env,
+s̃ := env′/env + i/λ, agreed with the re-summed value to 1.8·10⁻³. Below x_b/2 the top terms increased with the order,
+above 3 x_b they decreased. No proof uses these observations; the very edge is treated in [[ch:equality-edge]].
+
+**Remark {#rem:layer-edge-data}** (Numerical observation.) Below x_b the vv component of the first-degree data on
+Σ_τ0 at r0 = v − τ0 is led by the term λ^(N+1) (N − 1) i^(N−2) env^(N−2) c_(3,0),vv of [[prop:layer-structure]] (b),
+taken at r = r0, which comes from stage N's data. With env = exp(−1/x), λ = 10⁻⁶ and N = 9, at x = 0.3 λ^(1/2), this
+term, transported along ℓ to the horizon without forcing, exceeded the re-summed first-degree value λ (i/s)² [env] by
+a factor of about 2·10⁷ (1.7·10⁻¹³, with the transported coefficient taken at μ0 = 1 and r0 = 5/2, against 8.0·10⁻²¹
+for the re-summed term with unit coefficient, per unit of env). No proof uses this.
+
 ### The threshold {#sec:layer-threshold}
 
-The proof of [[thm:layer]] uses λ ≤ λ_L, where in the generic case, with p = 14, m = 56 M, Δτ := τ_end − τ0, ν_* :=
-min_(W_λ) |ν|, d_* := 8/3, G := 3 A ν_* d_*/32, C_m0 := (A²/(9μ0))(1 + (μ0 μ(v_end))^(1/4)), C_ε := Σ_(i≤M) C_(i,m)
-(5/4)^(1−i/m) M_m^(i/m), and C_L11, C_L4 the constants of [[eq:layer-expansion]] and [[eq:layer-remainder]],
+The proof of [[thm:layer]] uses λ ≤ λ_L, where, with p = 14, m = 56 M, κ = 64, Δτ := τ_end − τ0, the number η1
+fixed at the start of that proof, z and ν_♭ as in [[eq:layer-signal]] (z = p and ν_♭ = ν_* :=
+min_(v_s≤v≤v_s+η1) |ν(v − τ0)| in the generic case, z = p(1 + 2/κ) and ν_♭ = ν_2 C_κ^(−2/κ) at ρ*), d_* := 8/3,
+G := 3 A ν_♭ d_*/40, C_m0 := (A²/(9μ0))(1 + (μ0 μ(v_end))^(1/4)), C_ε := Σ_(i≤M) C_(i,m) (5/4)^(1−i/m) M_m^(i/m),
+C_L11 a constant for which the three bounds of [[eq:layer-expansion]] hold, C_L4 the constant of
+[[lem:layer-remainder-weak]] and C_q that of [[eq:layer-inverse]],
 
-    λ_L := min{ λ0, 1/(2 C1), Λ_4, Λ_5′, Λ_6, Λ_8a, Λ_8b, Λ_8c, Λ_8d },
+    λ_L := min{ 1, λ0, 1/(2 C1), Λ_0, Λ_4, Λ_5′, Λ_6, Λ_8a, Λ_8b, Λ_8c, Λ_8d, Λ_8e },
+    Λ_0 := min( E(v_s + η1/2)^(1/p), η1/(2(4π + 2 C1 Δτ)) ),
     Λ_4 := [8 · 2^(−1/m) C_(1,m) M_m^(1/m) (4π + 2 C1 Δτ)]^(−m/(m−p)),
     Λ_5′ := min_(i≤4) [5 C_(i,m) (5/4)^(1−i/m) M_m^(i/m)]^(−1/(p(1−i/m)−1)),
-    Λ_6 := (288 μ0 C_Φ/(25 A²))^(1/(2p−1)),      Λ_8a := (3 A ν_* d_*/(100 C_m0))^(1/(p−3)),
-    Λ_8b := (G/(C_L11 C_ε))^(4/3),   Λ_8c := (G/(C_L11 C_ε²))^(1/11.5),   Λ_8d := (G/(C_L4 C_ε))^(1/(N−8.25)).
+    Λ_6 := (288 μ0 C_Φ/(25 A²))^(1/(2p−1)),      Λ_8a := (16 G/(25 C_m0))^(1/(2p−3−z)),
+    Λ_8b := (G/(C_L11 C_ε))^(1/(1+p(1−M/m)−z)),      Λ_8c := (G/(C_L11 C_ε²))^(1/(2p(1−M/m)−2−z)),
+    Λ_8d := (G/(C_L11 C_L4 C_ε))^(1/(N−8+p(1−M/m)−z)),      Λ_8e := (C_q G (9 + 12 G))^(−1/(z−1)).
                                                                                                     {#eq:layer-threshold}
 
-Indeed λ ≤ 1/(2 C1) is the hypothesis s ≤ 1/2 of [[lem:layer-remainder]]; Λ_4 is the hypothesis of
-[[lem:layer-levels]] with L = (4π + 2 C1 Δτ) λ and y = λ^p; Λ_5′ makes each term of ε_4(v1) at most λ/5, the hypothesis
-of [[lem:layer-remainder-weak]]; Λ_6 puts W_λ in the layer, (25/72) A² λ^(2p) ≤ 4 μ0 C_Φ λ; and each of Λ_8a–Λ_8d makes
-one error term (the margin, C_m0 (5y/4)² by [[eq:layer-expansion]]; λ⁴ ε; λ ε²; the remainder) at most an eighth of the
-signal's lower bound λ³ A (3y/4) ν_* d_*, the exponents being 1/(1 − pM/m) = 4/3, 1/(p(1 − 2M/m) − 2) = 1/11.5 and
-1/(N − 8 − pM/m). At the double root, y is replaced by y^(1+2/κ) in the signal.
+In the generic case the exponents of Λ_8a, …, Λ_8e are 1/11, 4/3, 1/11.5, 1/(N − 8.25) and −1/13, and
+Λ_8a = (6 A ν_* d_*/(125 C_m0))^(1/11); at ρ* they are 1/10.5625, 1/0.3125, 1/11.0625, 1/(N − 8.6875) and −1/13.4375.
+Every exponent is defined and every base is positive, E(v_s + η1/2) being positive since v_s = inf supp env; so each Λ
+is a positive number, which does not depend on λ. Λ_0 and ν_♭ depend on env and τ0 through η1 and through the level
+E(v_s + η1/2), and not only through the norms of env that the other constants involve.
 
-**Remark {#rem:layer-threshold-size}** (The size of λ_L.) λ0, C1 and C_Φ, C_L11, C_L4 are not evaluated, so neither is
-λ_L. At the numerical point of [[prop:lambda0]], however, λ_L ≤ 10^(−430) whatever those constants are. Indeed m ≥ 56 ·
-26 = 1456. The envelope env_C has its maximum c > 1 at v = 2 = v_s + 3/2, and all its derivatives vanish at v_s, so
-Taylor's formula gives M_m ≥ m! c (2/3)^m, and with m! ≥ (m/e)^m, M_m^(1/m) ≥ (2/3)(m/e) ≥ 357. For the constant
-[[eq:layer-interpolation]] at i = 1: by Lagrange's formula |l_k′(0)| = C(m − 1, k)/k for 1 ≤ k ≤ m − 1, so Λ_(1,m) ≥
-C(m − 1, ⌊(m − 1)/2⌋)/m ≥ 2^(m−1)/m² ≥ 10^430; and for κ ≥ 1 the second term of [[eq:layer-interpolation]] is at least
-(m − 1)^(m−1)/(m − 1)! ≥ e^(m−2)/(m − 1) ≥ 10^600, using n! ≤ n^(n+1) e^(1−n). So C_(1,m) ≥ 10^430, the base of Λ_4
-exceeds 10^430, and since m/(m − p) ≥ 1, Λ_4 ≤ 10^(−430).
+Indeed λ ≤ 1 gives y ≤ 1 and orders the powers of λ that the proof compares; λ ≤ λ0 is [[thm:main]], with the choice
+of λ0 in [[sec:eq-setting]]; λ ≤ 1/(2 C1) is the hypothesis s ≤ 1/2 of [[lem:layer-remainder]]; Λ_0 gives
+v_s < v* ≤ v_s + η1/2 and L ≤ η1/2, hence v1 ≤ v_s + η1 ≤ v_♯, v1 − v_s ≤ 1 and W_λ ⊂ [v_s, v_s + η1], where ν_♭
+bounds |ν| as in [[eq:layer-signal]]; Λ_4 is the hypothesis of [[lem:layer-levels]] with L = (4π + 2 C1 Δτ) λ and
+y = λ^p; Λ_5′ makes each term of ε_4(v1) at most λ/5, the hypothesis of [[lem:layer-remainder-weak]]; Λ_6 puts W_λ in
+the layer, (25/72) A² λ^(2p) ≤ 4 μ0 C_Φ λ; and each of Λ_8a, …, Λ_8e makes one error term (the margin, at most
+C_m0 (5y/4)²; C_L11 λ⁴ ε; C_L11 λ ε²; the remainder C_L11 C_L4 λ^(N−5) ε; the term q) at most G λ^(3+z), a tenth of
+the signal's lower bound [[eq:layer-signal]]. When (v_s − τ0)/√μ0 > ρ*, |ν| increases with ρ on ρ > ρ*, by the
+formula for dν/dρ in [[prop:layer-linear]] (d); then η1 := min(1, T) may be taken, and ν_* = |ν(v_s − τ0)|.
 
-
+**Remark {#rem:layer-threshold-size}** (The size of λ_L.) λ0, C1, C_Φ, C_L11, C_L4 and C_q are not evaluated, and η1
+depends on env and τ0, so the threshold [[eq:layer-threshold]] is not evaluated either; it is the threshold that the
+proof delivers, not the largest λ for which [[thm:layer]] holds. For the envelope env_C of [[eq:envelope]], however, it
+is at most 10^(−430) whatever those constants are, for every l5, A, τ0, T and K that [[thm:layer]] admits. Indeed
+m ≥ 56 · 26 = 1456, as N ≥ 9. The envelope env_C has support [1/2, 7/2], so v_s = 1/2, and its maximum c_e > 1 is taken
+at v = 2 = v_s + 3/2 ([[lem:envelope-constant]]); all its derivatives vanish at v_s, so Taylor's formula gives
+c_e ≤ M_m (3/2)^m/m!, that is M_m ≥ m! c_e (2/3)^m, and with m! ≥ (m/e)^m, M_m^(1/m) ≥ (2/3)(m/e) ≥ 357. For the
+constant of [[eq:layer-interpolation]] at i = 1: by Lagrange's formula |l_k′(0)| = C(m − 1, k)/k for 1 ≤ k ≤ m − 1, so
+Λ_(1,m) ≥ C(m − 1, ⌊(m − 1)/2⌋)/m ≥ 2^(m−1)/m² ≥ 10^430. In the minimum of [[eq:layer-interpolation]], for κ ≤ 1 the
+first term is at least Λ_(1,m), and for κ ≥ 1 the second is at least (m − 1)^(m−1)/(m − 1)! ≥ e^(m−2)/(m − 1) ≥ 10^600,
+using n! ≤ n^(n+1) e^(1−n). So C_(1,m) ≥ 10^430, the base of Λ_4 exceeds 10^430, and since m/(m − p) ≥ 1,
+λ_L ≤ Λ_4 ≤ 10^(−430).

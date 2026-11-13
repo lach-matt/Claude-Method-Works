@@ -335,9 +335,9 @@ L²(μ) pairing identifies (wH^s_𝒱)* with w⁻¹H^(−s)_𝒱.
 
 (S4) [Hin26d, Definitions 3.7 and 3.8, p. 31; the cut-off ψ and (3.26), p. 43; (3.27)–(3.28) and Definition 3.31,
 p. 44; Definition 3.34, p. 46; Definition 3.43, p. 51.] The 𝒱-cotangent bundle ^𝒱T*M has the trivialisations
-U_α × ℝ^n ∋ (p, ξ) ↦ Σ ξ_i dx^i_α/ρ_(α,i). S^m(^𝒱T*M) consists of the functions a whose local expressions satisfy
-|∂_x^β ∂_ξ^γ a| ≤ C_(βγ)⟨ξ⟩^(m−|γ|) uniformly in α. Fix ψ ∈ C_c^∞((−1/4, 1/4)^n) with ψ = 1 near 0. For a symbol a
-on T*ℝ^n with x-support in (−5/4, 5/4)^n, the local quantization has the Schwartz kernel
+U_α × ℝ^n ∋ (p, ξ) ↦ Σ ξ_i dx^i_α/ρ_(α,i). S^m(^𝒱T*M) consists of the functions a whose local expressions
+satisfy |∂_x^β ∂_ξ^γ a| ≤ C_(βγ)⟨ξ⟩^(m−|γ|) uniformly in α. Fix ψ ∈ C_c^∞((−1/4, 1/4)^n) with ψ = 1 near 0. For a symbol
+a on T*ℝ^n with x-support in (−5/4, 5/4)^n, the local quantization has the Schwartz kernel
 
     Op_α(a)(x, x′) = (2π)^(−n) ∫ exp(i Σ_j (x^j − x′^j)ξ_j/ρ_(α,j)) ψ(x − x′) a(x, ξ) dξ |dx′|/(ρ_(α,1)⋯ρ_(α,n)).
 
@@ -656,8 +656,8 @@ C^∞(X̃_(sc-b)) equal 1 near zf and tf respectively, and be supported near the
 
 the latter with the order 𝗋 read on tf ([[sec:i-c-6-1]]); likewise with k b-derivatives. In particular
 H^((s;k),(𝗋,l,q))_((sc-b,ς);b), on functions supported in {ρ < ρ_1} or in the interior, is the space ℋ^((s;k),(𝗋,l,q))_ς
-of [[def:i-c-6-1]], with uniformly equivalent norms. (In dimension 3 + 1 the power in the second equivalence is
-|σ|^(−3/2−l); [Hin26c, (3.46)] prints |σ|^(3/2−l).)
+of [[def:i-c-6-1]], with uniformly equivalent norms. (In dimension 3 + 1 the power in the second equivalence
+is |σ|^(−3/2−l); [Hin26c, (3.46)] prints |σ|^(3/2−l).)
 
 *Proof.* Both norms are defined by sums over cells, (S3). The sc-b-transition cells at ς are the b-cells of ℝ⁴ (at
 radius r ∼ 2^k) with scalings (1 + ς2^k)⁻¹. Where ς2^k ≤ 1 (near zf) the scalings lie in [1/2, 1], so the cells are
@@ -954,14 +954,17 @@ please: by (S15) ([Hin26d, Lemma 3.42, p. 51]), (1 − η̃)Op_𝒱(a) is residu
 η̃ ∈ C^∞_(uni,ℬ×ℬ)(M × M) equals 1 within d_ℬ-distance ϵ of the diagonal, and its proof shows the same when, in each
 local quantization, ψ(x − x′) is replaced by ψ(x − x′)η_0(x − x′) with η_0 ∈ C_c^∞(ℝ^n) equal to 1 near 0 (the form
 used on p. 52). If supp η_0 ⊂ {|x| < ϵ/C}, C the constant of (2.3) in (S15), the new kernel has range at most ϵ. We
-call this *truncating* the quantization to range ϵ. It changes the operator by a residual operator of the subalgebra of
-(S10), by the strengthening on p. 75 quoted in (S15), the operators of this chapter being taken in that subalgebra
-([[sec:ii-a-4-2]]). So the truncated operators lie in the subalgebra, [[eq:ii-a-4-1]] and [[lem:ii-a-8-4]] (a) apply to
-them, and truncation changes no principal symbol, wave front set or elliptic set; it commutes with multiplication on the
-left by functions. For the quantizations Op of Ψ̃ ([[sec:ii-a-4-2]]) the same holds with ρℬ in place of ℬ: its charts are
-boxes in those of ℬ, magnified by factors at least 1, so d_ℬ ≤ d_(ρℬ). The class is closed under compositions and
-adjoints, since kernel supports add or are reflected, and under commutators with vector fields, which do not enlarge
-kernel supports. It contains the finite-order parametrices of [[lem:ii-a-8-4]] (b), which are quantizations.
+call this *truncating* the quantization to range ϵ. It changes the operator by a residual operator of the class
+wρ^∞Ψ^(−∞)_(𝒱,[ ]) of (S10), by the strengthening on p. 75 quoted in (S15), the operators of this chapter being taken in
+the subalgebra Ψ_(𝒱,[ ]) ([[sec:ii-a-4-2]]). That subalgebra consists of the operators Op_𝒱(a) + R with R in this class
+((S10); (4.28) in (S15)), so the truncated operators lie in it, [[eq:ii-a-4-1]] and [[lem:ii-a-8-4]] (a) apply to them,
+and truncation changes no principal symbol, wave front set or elliptic set; it commutes with multiplication on the left
+by functions. For the quantizations Op of Ψ̃ ([[sec:ii-a-4-2]]), truncation is defined in the same way with ρℬ in place
+of ℬ, and changes the operator by a residual operator of Ψ̃ ([Hin26d, Lemma 3.42] for ρℬ), so it changes no principal
+symbol, wave front set or elliptic set. The charts of ρℬ are boxes in those of ℬ, magnified by factors at least 1, so
+d_ℬ ≤ d_(ρℬ). The class of operators localized near the diagonal is closed under compositions and adjoints, since kernel
+supports add or are reflected, and under commutators with vector fields, which do not enlarge kernel supports. It
+contains the finite-order parametrices of [[lem:ii-a-8-4]] (b), which are quantizations.
 
 Cut-offs are real functions in C^∞(M̃). For such a χ, an operator A is *carried by* χ if A = χ′Aχ′ for some
 χ′ ∈ C^∞(M̃) such that χ = 1 within d_ℬ-distance D of supp χ′. Here D bounds the kernel ranges of the finitely many
@@ -1037,7 +1040,7 @@ one follows by induction.
 
 (b) Let a and b be principal symbols of A and B. Choose symbols χ̃_0, …, χ̃_(J−1) ∈ S⁰, each equal to 1 near the support
 of the previous one, with χ̃_0 = 1 near WF′_e3b(B), and all supported in a closed subset of Ell_e3b(A) on which
-|a| ≥ cλ^(−m′) (λ the elliptic weight of (S8)). Put Q_0 := Op(χ̃_0 b/a) ∈ C^∞_b Ψ^(m_B−m′)_e3b. Then R_1 := B − Q_0A has
+cλ^(−m′) ≤ |a| (λ the elliptic weight of (S8)). Put Q_0 := Op(χ̃_0 b/a) ∈ C^∞_b Ψ^(m_B−m′)_e3b. Then R_1 := B − Q_0A has
 principal symbol (1 − χ̃_0)b. This lies in S^(−∞), since χ̃_0 = 1 near the essential support of b. So
 R_1 ∈ C^∞_b Ψ^(m_B−1)_e3b by the principal symbol sequence (S5), and WF′_e3b(R_1) ⊂ supp χ̃_0. Inductively, given
 R_j ∈ C^∞_b Ψ^(m_B−j)_e3b with wave front set in supp χ̃_(j−1), put Q_j := Op(χ̃_j σ(R_j)/a) and
@@ -1215,8 +1218,8 @@ gives the weights (2(α_I + 3/2), α_+ + 2, α_K + 1/2) of [Hin26c].
 functions. Cover the compact manifold with corners M̃ by finitely many charts [0, 1)^q_x × ℝ^(5−q)_y, with a
 subordinate partition of unity {ψ_i}. In logarithmic coordinates z_j = −log x_j the b-vector fields are ∂_(z_j), ∂_y,
 and μ_b is |dz dy| times a smooth positive bounded function. ψ_iu, extended by 0, is a function on ℝ⁵_(z,y) with
-‖ψ_iu‖_(H^(d+3)(ℝ⁵)) ≤ C‖u‖_(H^(d+3)_b). The Sobolev embedding H^(d+3)(ℝ⁵) ↪ C^d(ℝ⁵) holds since 3 > 5/2: for
-|β| ≤ d,
+‖ψ_iu‖_(H^(d+3)(ℝ⁵)) ≤ C‖u‖_(H^(d+3)_b). The Sobolev embedding H^(d+3)(ℝ⁵) ↪ C^d(ℝ⁵) holds since 3 > 5/2:
+for |β| ≤ d,
 
     ‖∂^β f‖_(L^∞) ≤ ∫ |ζ^β f̂| dζ ≤ ‖f‖_(H^(d+3)) (∫ ⟨ζ⟩^(2|β|−2d−6) dζ)^(1/2),
 
@@ -1548,8 +1551,8 @@ Q ≥ c Id, c > 0. Derivatives are taken in the coordinates of [[lem:ii-a1-2-2]]
 (i) If |∂^β Q| ≤ C_0⟨log ρ_∞⟩^(ν|β|) for |β| ≤ M, then Q^(1/2) and Q^(−1/2) satisfy the same bounds, with constants
 depending on c, C_0, M and ν.
 
-(ii) Let Q = Q_0 + λ Id, where Q_0 ≥ c satisfies the bounds of (i) and λ ≥ 0 is scalar with
-|∂^β λ| ≤ C_0⟨log ρ_∞⟩^(1+ν|β|) for |β| ≤ M. Then for |β| ≤ M, with C depending on c, C_0, M and ν,
+(ii) Let Q = Q_0 + λ Id, where Q_0 ≥ c satisfies the bounds of (i) and λ ≥ 0 is scalar
+with |∂^β λ| ≤ C_0⟨log ρ_∞⟩^(1+ν|β|) for |β| ≤ M. Then for |β| ≤ M, with C depending on c, C_0, M and ν,
 
     |∂^β Q^(−1/2)| ≤ C⟨log ρ_∞⟩^((ν+1)|β|),     |Q^(1/2)| ≤ C⟨log ρ_∞⟩^(1/2),
     |∂^β Q^(1/2)| ≤ C⟨log ρ_∞⟩^((ν+1)|β|)  (β ≠ 0).
@@ -1584,8 +1587,8 @@ where sup |z| is the supremum of the operator norm of z over phase space.
 
 *Proof.* Let r := (sup |z|² + η − z^*z)^(1/2), a Hermitian symbol in C^((M))_ν S̃⁰ by [[lem:ii-a1-2-5]] (i), as
 sup |z|² + η − z^*z ≥ η. By [[prop:ii-a1-2-4]] (b), (c), Op(z)*Op(z) + Op(r)*Op(r) = Op(z^*z + r^*r) + R =
-(sup |z|² + η)I + R, with R of order −1 + 2δ and Op(1) = I ([[sec:ii-a1-1-1]]). Pair with v:
-|⟨Rv, v⟩| ≤ C‖v‖²_(−1/2+δ). ∎
+(sup |z|² + η)I + R, with R of order −1 + 2δ and Op(1) = I ([[sec:ii-a1-1-1]]). Pair with
+v: |⟨Rv, v⟩| ≤ C‖v‖²_(−1/2+δ). ∎
 
 *The regulariser.* For κ ∈ (0, 1/2] put φ_ε := (1 + ερ_∞⁻¹)^(−κ) and θ_ε := ερ_∞⁻¹(1 + ερ_∞⁻¹)⁻¹, ε ∈ (0, 1]. For any
 vector field V,
@@ -1612,9 +1615,9 @@ uniform for L in a neighbourhood in C^(d_0)_e3b 𝒫 on which WF′(B) ⊂ Ell(L
 *Proof.* Let K := WF′(B), compact in the open set O := Ell(G) ∩ Ell(L). Fix J ∈ ℕ, to be chosen, and closed sets
 K_0 ⊂ K_1 ⊂ ⋯ ⊂ K_(J+2) of the compactified bundle, each a neighbourhood of the previous one, with K ⊂ K_0° and
 K_(J+2) ∩ ᵉ³ᵇS*M̃ ⊂ O. They lie over {ϑ ≥ 3c/4}, ϑ and c being those of [[sec:ii-a-8-3]] for B and G (K lies over
-{ϑ ≥ c}), and in {|ξ| ≥ 1} near fibre infinity: choose them inside a set {ρ_∞ ≤ r_1} on which ℓ is invertible with
-|ℓ⁻¹| ≤ C_ℓ ρ_∞^m, as Ell(L) is defined by such a bound on a neighbourhood. Fix χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃) with χ̃_i = 1 near
-K_(i−1) and supp χ̃_i ⊂ K_i, and let G_i, i ≥ 1, be Op(χ̃_i) truncated to range ϵ_ϑ. As χ̃_i = f(ϑ)χ̃_i, the G_i are
+{ϑ ≥ c}), and in {|ξ| ≥ 1} near fibre infinity: choose them inside a set {ρ_∞ ≤ r_1} on which ℓ is invertible
+with |ℓ⁻¹| ≤ C_ℓ ρ_∞^m, as Ell(L) is defined by such a bound on a neighbourhood. Fix χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃) with χ̃_i = 1
+near K_(i−1) and supp χ̃_i ⊂ K_i, and let G_i, i ≥ 1, be Op(χ̃_i) truncated to range ϵ_ϑ. As χ̃_i = f(ϑ)χ̃_i, the G_i are
 auxiliary operators ((R1) of [[sec:ii-a-8-3]]), carried by χ; and G_i is Op(χ̃_i) up to a residual operator. By
 [[sec:ii-a1-1-2]], B is microsupported in K_0: B = Op(b) + R_B with supp b ⊂ K_0.
 
@@ -1817,11 +1820,12 @@ conclusion of step j − 1, and gives
 
 Take δ_0 ≤ 1/4 − κ, which is positive as J > 4τ, so that 𝗌_j − 1/2 + δ_0 ≤ 𝗌_(j−1). [[lem:ii-a1-4-1]] at step j
 applies with G_(j−1) in the role of G, which is elliptic on Ū_(j−1) ⊃ K_1 ∪ supp φ_0 ∪ supp φ_E near fibre infinity,
-and with E, which is elliptic on K_E^* ⊃ K_E(U_(j−1)) ⊃ supp φ_E near fibre infinity. In its bound,
-‖G_(j−1)Lu‖_(𝗌_j−m+1) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χ_*Lu‖_(−N−m)) by [[lem:ii-a-8-4]] (c), with χ_* of (R2) of
-[[sec:ii-a-8-3]] for G and E: WF′(G_(j−1)) ⊂ Ell(G), G_(j−1)χ_* = G_(j−1), Gχ_* = G and 𝗌_j ≤ 𝗌. As χ_*L = χ_*Lχ,
-[[lem:ii-a-8-6]] (a) gives ‖χ_*Lu‖_(−N−m) ≤ C‖χu‖_(−N). Induction on j bounds ‖G_Ju‖_𝗌, and [[eq:ii-a1-4-5]] follows
-for B microsupported in U_* := U_J by [[lem:ii-a-8-4]] (c), with the cut-off χ, as G_Jχ = G_J and Bχ = B. ∎
+and with E, which is elliptic on K_E^* ⊃ K_E(U_(j−1)) ⊃ supp φ_E near fibre infinity. In its bound, for j ≥ 2,
+‖G_(j−1)Lu‖_(𝗌_j−m+1) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χ_*Lu‖_(−N−m)) by [[lem:ii-a-8-4]] (c), with χ_* of (R2) of [[sec:ii-a-8-3]]
+for G and E: WF′(G_(j−1)) ⊂ Ell(G), G_(j−1)χ_* = G_(j−1), Gχ_* = G and 𝗌_j ≤ 𝗌. (For j = 1, G_0 = G and 𝗌_1 ≤ 𝗌 give the
+bound at once.) As χ_*L = χ_*Lχ, [[lem:ii-a-8-6]] (a) gives ‖χ_*Lu‖_(−N−m) ≤ C‖χu‖_(−N). Induction on j bounds ‖G_Ju‖_𝗌,
+and [[eq:ii-a1-4-5]] follows for B microsupported in U_* := U_J by [[lem:ii-a-8-4]] (c), with the cut-off χ, as
+G_Jχ = G_J and Bχ = B. ∎
 
 ### Real principal type propagation {#sec:ii-a1-5}
 
@@ -2308,14 +2312,14 @@ For the second, the wave front set lies in that of B, the j = 0 component of u^(
 C‖χu‖_((−N;k)) likewise. The finiteness statements follow as in [[prop:ii-a-9-1]]. At each k the step applies the
 statement at k − 1, and through it (L4), to a new system L^((1)), of rank N′(N + 1), with finite sets enlarged by the
 A_(j,l), and to new operators B_1, E_1, G_1 and a new cut-off χ_1; it applies [[lem:ii-a-8-6]] (a) with a new cut-off
-χ_*. The kernel ranges grow with the depth of the induction: L^((1)) has kernel ranges at most D + ϵ_ϑ, and its proof
-at level k − 1 adds the room found there, so at depth j the ranges are at most D + ϵ^(1) + ⋯ + ϵ^(j), with ϵ^(i) the
-room found at the i-th level. This growth is harmless, as no bound on the ranges is fixed in advance. The statement at
-k − 1 holds for all admissible data, whatever bound their kernel ranges have; here it is applied with the bound
-D + ϵ_ϑ, which the margin D + 7ϵ_ϑ of B_1, E_1 and G_1 covers, and its proof finds its room anew in the carriers of
-B_1, E_1 and G_1 ((R1)). There are k levels, so all ranges stay finite. The truncations change operators by residual
-ones and so change only constants. Neither index depends on these choices ([[thm:ii-a1-5-4]], [[lem:ii-a-8-6]]), so
-d_0 does not depend on k. ∎
+χ_*. The kernel ranges grow with the depth of the induction: L^((1)) has kernel ranges at most D + ϵ_ϑ, and the proof of
+the statement at k − 1, applied to it, adds the room found there, so at depth j the ranges are at most
+D + ϵ^(1) + ⋯ + ϵ^(j), with ϵ^(i) the room found at the i-th level. This growth is harmless, as no bound on the ranges is
+fixed in advance. The statement at k − 1 holds for all admissible data, whatever bound their kernel ranges have; here it
+is applied with the bound D + ϵ_ϑ, which the margin D + 7ϵ_ϑ of B_1, E_1 and G_1 covers, and its proof finds its room
+anew in the carriers of B_1, E_1 and G_1 ((R1)). There are k levels, so all ranges stay finite. The truncations change
+operators by residual ones and so change only constants. Neither index depends on these choices
+([[thm:ii-a1-5-4]], [[lem:ii-a-8-6]]), so d_0 does not depend on k. ∎
 
 #### Tame estimates {#sec:ii-a-9-3}
 
@@ -2356,8 +2360,8 @@ lower order. All the norms below are therefore unchanged up to constants when D_
     ‖(D^a_bℓ)(D^b_bu)‖_(L²(M̃)) ≤ C_(a,b)(‖ℓ‖_(C³_b)‖u‖_(H^(a+b)_b) + ‖ℓ‖_(C^(a+b+3)_b)‖u‖_(H³_b)).
 
 *Proof.* In each chart φ_α of [[sec:ii-a-4-1]], the b-vector fields are uniformly bounded combinations of the
-coordinate vector fields of (−2, 2)⁵, and the density is a constant c_α times a uniformly smooth positive multiple of
-|dx|. The coefficient Lie algebra is C^∞_b 𝒱_b ((S1)). Hence ‖v‖²_(L²) and ‖v‖²_(H^q_b) are equivalent, uniformly, to
+coordinate vector fields of (−2, 2)⁵, and the density is a constant c_α times a uniformly smooth positive multiple
+of |dx|. The coefficient Lie algebra is C^∞_b 𝒱_b ((S1)). Hence ‖v‖²_(L²) and ‖v‖²_(H^q_b) are equivalent, uniformly, to
 Σ_α c_α‖χ(φ_α)_*v‖²_(L²(ℝ⁵)) and to the same sum with the H^q(ℝ⁵)-norms of χ̃(φ_α)_*v, χ̃ = 1 on supp χ. And
 ‖χ̃(φ_α)_*ℓ‖_(C^q) ≤ C‖ℓ‖_(C^q_b) uniformly. It therefore suffices to show, for f ∈ C^(K+3) and g ∈ H^K supported in
 (−2, 2)⁵, K := a + b, and |β| ≤ a, |γ| ≤ b, that
@@ -2445,8 +2449,8 @@ A ∈ C^((d_0;k))_(e3b;b) 𝒫 with a representation 𝐚, and χ′, χ cut-off
 *Proof.* Let χ‴ ∈ C^∞(M̃) carry χ′: χ′ = χ‴χ′χ‴, and χ = 1 within d_ℬ-distance D of supp χ‴, D bounding the kernel
 ranges of the operators of 𝒫. Then χ‴²χ′ = χ′, so |χ‴| = 1 on supp χ′. Put χ″ := F″(|χ‴|²) and χ_c := F_c(|χ‴|²),
 with F″, F_c ∈ C^∞(ℝ), F″ = 1 on [3/4, ∞), F″ = 0 on (−∞, 1/2], F_c = 1 on [1/4, ∞) and F_c = 0 on (−∞, 1/8]. Then
-χ″ = 1 near supp χ′, χ_c = 1 near supp χ″, and supp χ_c ⊂ supp χ‴. By [[eq:ii-a-8-1]] and the Leibniz rule, for
-|J| ≤ k, V^J(χ′a_qP_qu) is a sum of products (V^(J_0)χ′)(V^(J_1)a_q)(V^(J_2)P_qu), with J_0, J_1, J_2 complementary
+χ″ = 1 near supp χ′, χ_c = 1 near supp χ″, and supp χ_c ⊂ supp χ‴. By [[eq:ii-a-8-1]] and the Leibniz rule,
+for |J| ≤ k, V^J(χ′a_qP_qu) is a sum of products (V^(J_0)χ′)(V^(J_1)a_q)(V^(J_2)P_qu), with J_0, J_1, J_2 complementary
 subwords of J. Apply [[eq:ii-a-9-7]] with the cut-off χ_c in place of χ, to B := V^(J_0)χ′ and B^♯ := χ″, which are
 multiplication operators carried by χ_c (as χ_c = 1 near supp χ″ ⊃ supp χ′) with WF′(B) ⊂ Ell(B^♯), to ℓ := a_q, to
 P_qu in place of u, and to (|J_1|, |J_1| + |J_2|) in place of (j, k). Its error terms are ‖χ″P_qu‖_((𝗍−m;q′)) and
@@ -2511,8 +2515,8 @@ and χ_*A′ = χ_*A′χ ((R2)): ‖χ_*A′u‖_((−N−m;q)) = ‖χ_*A′χ
 ‖G_2A′u‖_((𝗌−m;q)) ≤ C(‖G_3u‖_((𝗌;q)) + ‖χu‖_((−N;q))) by [[lem:ii-a-8-4]] (c). By [[eq:ii-a-9-10]] at the order
 k − 1, with G_3 in place of B, ‖G_3u‖_((𝗌;k−1)) is bounded by the right side of [[eq:ii-a-9-10]] at k. Its constant
 depends only on ‖𝐋‖_((d_0;d)), and its high norm ‖𝐋‖_((d_0;k−1)) multiplies low norms only. By [[prop:ii-a-9-1]] at the
-order d̃ < d, ‖G_3u‖_((𝗌;d̃)) ≤ C(‖GLu‖_((𝗌−m;d)) + ‖χu‖_((−N;d))). If j′ = 0, the coefficient is ℓ_q itself and
-|J′| ≤ k − 1, and [[eq:ii-a-9-7]] with ℓ := ℓ_q and (0, |J′|) gives the same bounds, with ‖ℓ_q‖_((d_0;d̃)) and
+order d̃ < d, ‖G_3u‖_((𝗌;d̃)) ≤ C(‖GLu‖_((𝗌−m;d)) + ‖χu‖_((−N;d))). If j′ = 0, the coefficient is ℓ_q itself
+and |J′| ≤ k − 1, and [[eq:ii-a-9-7]] with ℓ := ℓ_q and (0, |J′|) gives the same bounds, with ‖ℓ_q‖_((d_0;d̃)) and
 ‖ℓ_q‖_((d_0;k−1)). Collecting the terms gives [[eq:ii-a-9-10]]. ([Hin26c] treats only the term with the most
 derivatives on the coefficient; the others are bounded in the same way.) ∎
 

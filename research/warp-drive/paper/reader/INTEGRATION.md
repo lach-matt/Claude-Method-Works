@@ -1139,3 +1139,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   1/(96J²), a λ^(N−2)ε_c term, L.19, L.20 and the exp(−a/x^q) claim dropped. FOR THE FINAL REPORT if a claim of the
   source is withdrawn here.
 - P-K83b done; R-P-K83b reading.
+- R-70b: chapter 70's multipliers and band, 0 Major, 2 minor, 8 nits; all 2,699 Morawetz and 503 band Bernstein
+  coefficients and 242 text constants hold. F-70 fixes both readings (R-70a, R-70b).
