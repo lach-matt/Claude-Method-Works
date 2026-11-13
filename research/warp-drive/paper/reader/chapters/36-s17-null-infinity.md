@@ -1733,8 +1733,9 @@ the input slots) is, with γ_C, γ_Υ written C, U,
 
 the matrix at n = 3 being [Hin23a, (2.11)]. In both dimensions π_C A_(E_C,E_Υ) = π_C A_(E_C,E_Υ)π_C, with
 π_C := (00, 0a, tr): the rows 00, 0a, tr involve only the columns 00, 0a, tr. The matrix is block lower triangular with
-respect to ran π_CΥ ⊕ ran π̸₀ ⊕ ran π₁₁, π_CΥ := (00, 01, 0a, 1a, tr); the eigenvalues on π_CΥ are 2C, C, C, −U, −U at n = 3 ([Hin23a, (2.15a)–(2.15b)]) and 2C, C, 3C/2, −3U/2, −U at n = 4,
-that on π̸₀ is 0 and that on π₁₁ is −2U. With the adjoint taken for the fibre inner products of η,
+respect to ran π_CΥ ⊕ ran π̸₀ ⊕ ran π₁₁, π_CΥ := (00, 01, 0a, 1a, tr); the eigenvalues on π_CΥ are 2C, C, C, −U, −U
+at n = 3 ([Hin23a, (2.15a)–(2.15b)]) and 2C, C, 3C/2, −3U/2, −U at n = 4, that on π̸₀ is 0 and that on π₁₁ is −2U.
+With the adjoint taken for the fibre inner products of η,
 
     G⁻¹A^*_(E_C,E_Υ)G = −A_(E_Υ,E_C),                                                                   {#eq:s17-duality}
 

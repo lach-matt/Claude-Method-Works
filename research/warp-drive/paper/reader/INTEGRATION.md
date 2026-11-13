@@ -231,3 +231,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   sentence cites S25 §3 (resolve in S25 step 2). S24's tame chain: cor:ii-a-9-7's d₀ feeds lem:iii-j2-2-1 (b) and
   lem:iii-j2-2-4; thm:ii-f1-1-1 feeds lem:iii-j2-2-1 (a) and lem:iii-j2-2-3; a k-dependent d₀ would break the
   k-independent loss d. This is what the S4 repair must deliver.
+- Front matter second fix: chapter 2's bound on |g − g0| is ε_out (not λ*); proofs/P-C-lambda0.md calls it λ_out and
+  must say ε_out when merged. Chapter 8's λ* (a wavelength threshold) stays. The item now reads "near the initial data
+  of the two-dust background of [[thm:two-dusts]]" (the third reading rules); chapter 83 must then state thm:charge-sign
+  for that background.

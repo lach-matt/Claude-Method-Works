@@ -577,13 +577,13 @@ H^s(X)-norms, for all f, g ∈ L^∞(X) whose uniformly local norms are finite.
 
 *Proof.* (1) For integer s the norm ‖J^s u‖_(L²) is equivalent to (Σ_(|α|≤s) ‖∂^α u‖²_(L²))^(1/2), by Plancherel's
 theorem. Let θ ∈ C_c^∞(ℝⁿ) with 0 ≤ θ ≤ 1 and θ = 1 near 0, let ρ_ε be a standard mollifier, and put
-f_k := θ(·/k)(ρ_(1/k) ∗ f) and g_k := θ(·/k)(ρ_(1/k) ∗ g). These are Schwartz functions with ‖f_k‖_(L^∞) ≤ ‖f‖_(L^∞)
-and ‖g_k‖_(L^∞) ≤ ‖g‖_(L^∞), and f_k → f, g_k → g in H^s: ρ_(1/k) ∗ f → f in H^s, and by Leibniz's rule
-∂^α(θ(·/k)v) − θ(·/k)∂^α v is a sum of terms k^(−|β|)(∂^β θ)(·/k) ∂^(α−β) v with β ≠ 0, while θ(·/k)∂^α v → ∂^α v in
-L² by dominated convergence. So the right side of [[eq:std-moser]] for (f_k, g_k) is at most ‖f‖_(L^∞)‖g_k‖_(H^s) +
-‖f_k‖_(H^s)‖g‖_(L^∞), which converges to the right side for (f, g). Further ‖f_k g_k − fg‖_(L²) ≤ ‖f_k − f‖_(L²)
-‖g‖_(L^∞) + ‖f(g_k − g)‖_(L²), and along a subsequence g_k → g almost everywhere with |f(g_k − g)| ≤ 2‖g‖_(L^∞)|f|,
-so f_k g_k → fg in L² and J^s(f_k g_k) → J^s(fg) as tempered distributions. The J^s(f_k g_k) are bounded in L²; a
+f_ℓ := θ(·/ℓ)(ρ_(1/ℓ) ∗ f) and g_ℓ := θ(·/ℓ)(ρ_(1/ℓ) ∗ g). These are Schwartz functions with ‖f_ℓ‖_(L^∞) ≤ ‖f‖_(L^∞)
+and ‖g_ℓ‖_(L^∞) ≤ ‖g‖_(L^∞), and f_ℓ → f, g_ℓ → g in H^s: ρ_(1/ℓ) ∗ f → f in H^s, and by Leibniz's rule
+∂^α(θ(·/ℓ)v) − θ(·/ℓ)∂^α v is a sum of terms ℓ^(−|β|)(∂^β θ)(·/ℓ) ∂^(α−β) v with β ≠ 0, while θ(·/ℓ)∂^α v → ∂^α v in
+L² by dominated convergence. So the right side of [[eq:std-moser]] for (f_ℓ, g_ℓ) is at most ‖f‖_(L^∞)‖g_ℓ‖_(H^s) +
+‖f_ℓ‖_(H^s)‖g‖_(L^∞), which converges to the right side for (f, g). Further ‖f_ℓ g_ℓ − fg‖_(L²) ≤ ‖f_ℓ − f‖_(L²)
+‖g‖_(L^∞) + ‖f(g_ℓ − g)‖_(L²), and along a subsequence g_ℓ → g almost everywhere with |f(g_ℓ − g)| ≤ 2‖g‖_(L^∞)|f|,
+so f_ℓ g_ℓ → fg in L² and J^s(f_ℓ g_ℓ) → J^s(fg) as tempered distributions. The J^s(f_ℓ g_ℓ) are bounded in L²; a
 subsequence converges weakly in L², its limit is J^s(fg), and its norm is at most the limit inferior of the norms.
 
 (2) Choose charts κ_i : U_i → ℝ^d, i = 1, …, I, of N, functions φ_i ∈ C_c^∞(U_i) with Σ_i φ_i² = 1 and ψ_i ∈
