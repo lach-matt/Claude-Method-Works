@@ -708,9 +708,9 @@ so that the remaining q − 1 derivatives fall on f and r ≤ m − q + 1 on g. 
 derivatives, [[thm:std-gn-moser]] (2) with s := m, through the charts of the proof of [[lem:iv1-2-3]]. Divide out the
 weights, and extend f and g from Ω to M_♯ by the operator of that proof, which is bounded on H^m_b and on L^∞. Let φ_i
 be the partition of unity and ψ_i the cut-offs of that proof, ψ_i = 1 near supp φ_i. The product
-Π := (V₁⋯V_qã)(V′₁⋯V′_rW′u) is Σ_i φ_iΠ, and on supp φ_i it equals (V₂⋯V_q(ψ_if))(V′₁⋯V′_r(ψ_ig)). In the chart of index i each V_l and each V′_l is a combination of
-the fields of 𝒱 (the two coordinate fields of ℝ² and the rotation fields of 𝕊³) with coefficients bounded with all
-their derivatives; expanding the compositions by Leibniz's rule, φ_iΠ is a finite sum of terms c(Z^γ(ψ_if))(Z^δ(ψ_ig))
+Π := (V₁⋯V_qã)(V′₁⋯V′_rW′u) is Σ_i φ_iΠ, and on supp φ_i it equals (V₂⋯V_q(ψ_if))(V′₁⋯V′_r(ψ_ig)). In the chart of
+index i each V_l and each V′_l is a combination of the fields of 𝒱 (the two coordinate fields of ℝ² and the rotation
+fields of 𝕊³) with coefficients bounded with all their derivatives; expanding the compositions by Leibniz's rule, φ_iΠ is a finite sum of terms c(Z^γ(ψ_if))(Z^δ(ψ_ig))
 with c bounded and Z^γ, Z^δ compositions of |γ| ≤ q − 1 and |δ| ≤ r fields of 𝒱, so |γ| + |δ| ≤ m. In the chart,
 [[thm:std-gn-moser]] (2) bounds each term in L² by C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) + ‖ψ_if‖_(H^m)‖ψ_ig‖_(L^∞)), and the
 chart comparison and the boundedness of multiplication by ψ_i in the proof of [[lem:iv1-2-3]] bound these norms by
@@ -1069,7 +1069,7 @@ For |β′| ≤ j − 2 ≤ 2, X^(β′)a′ ∈ H³_b with norm at most ‖a′
 ‖X^(β′)a′‖_(L^∞) ≤ C‖h‖_(H⁷) by the same embedding. Therefore
 
     ‖x_Iã_iP_iu₂‖_(H^(j−2,(a₀,2γ+1−2ε))_b) ≤ C‖h‖_(H⁷)‖u₂‖_(H^(j,(a₀,2γ))_b) ≤ C‖u₂‖_(H^(j,(a₀,2γ))_b),
-                                                                                                         {#eq:iv2-2-5-low}
+                                                                                                    {#eq:iv2-2-5-low}
 
 with C depending on the bound on h in H⁸, as [[eq:iv2-2-3]] allows: at these orders there is no tame term.
 
@@ -1121,9 +1121,10 @@ is bounded in the main term of its step: k + 4 for f, ġ₀ and ġ₁, k + 3 for
 term is at most C‖h‖_(H^(k+7,ℓ^♭₀,(−,ℓ^♭_I))_b) times the main terms, and the steps give [[eq:iii-c1-2-2]] with C
 depending on h. Let k = 0. Step 1 uses [[lem:iv2-2-2]] at s = 3, Step 3 uses [[lem:iv2-2-3]] at m = 3, and both
 integrations of Step 5 use [[eq:iv2-2-5-low]] (at m = 3 and j = 2); none of these has a tame term, h being bounded in
-H⁸. So [[eq:iii-c1-2-2]] holds at k = 0 too, with C depending on the bound on h in H⁸. *Uniqueness.* Two solutions differ by one with vanishing data
-and forcing term; it vanishes on Ω_N by [[lem:iv2-2-2]], and on Ω⁺ as the forward solution with vanishing forcing term
-([[lem:ii-f-1-3]]). ∎
+H⁸. So [[eq:iii-c1-2-2]] holds at k = 0 too, with C depending on the bound on h in H⁸.
+
+*Uniqueness.* Two solutions differ by one with vanishing data and forcing term; it vanishes on Ω_N by [[lem:iv2-2-2]],
+and on Ω⁺ as the forward solution with vanishing forcing term ([[lem:ii-f-1-3]]). ∎
 
 [Hin23a, Theorem 3.35] integrates π_(CΥ)u, then π̸₀u, then π₁₁u, and repeats, because in dimension 3 + 1 the radiation
 field of π̸₀u enters the equation of π₁₁u through the h-dependent entry A̸₁₁ of [Hin23a] and through the second-order

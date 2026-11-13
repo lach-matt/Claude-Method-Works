@@ -1697,8 +1697,8 @@ and L maps H^(−N) to H^(−N−m) ([[lem:ii-a-8-6]] (a)). Hence
     ‖Ǎ_εLv‖_((1−m)/2) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χu‖_(−N)).                                                    {#eq:ii-a1-4-4}
 
 *Step 1: the pairing at v.* Let w_t := T_tv, with T_t from [[lem:ii-a1-2-3]] (b) and K ≥ K′ + sup |𝗌| + 1, so that
-w_t ∈ H^(𝗌−κ+K) ⊂ H^(K′) for t > 0. We show ⟨Ǎ_εLw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εLv, Ǎ_εv⟩ as t → 0, for fixed ε > 0. Symbols of C^((M))_ν S̃^𝗄 act with
-exact orders ([[prop:ii-a1-2-4]] (a)), and only remainders lose δ. So Ǎ_ε has order 𝗄 − κ for this ε, and as
+w_t ∈ H^(𝗌−κ+K) ⊂ H^(K′) for t > 0. We show ⟨Ǎ_εLw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εLv, Ǎ_εv⟩ as t → 0, for fixed ε > 0.
+Symbols of C^((M))_ν S̃^𝗄 act with exact orders ([[prop:ii-a1-2-4]] (a)), and only remainders lose δ. So Ǎ_ε has order 𝗄 − κ for this ε, and as
 v ∈ H^(𝗌−κ), Ǎ_εw_t → Ǎ_εv strongly in H^((m−1)/2). Next, Ǎ_εLw_t = Ǎ_εT_tLv + Ǎ_ε[L, T_t]v. The first term tends to
 Ǎ_εLv in H^((1−m)/2): T_t → I strongly on H^(𝗌−m+1), applied to ΦLu; the part with [L, Φ]u is handled as in Step 0,
 uniformly in t, with Φ_0T_t(I − Φ) and Φ_0T_tL(I − Φ) in place of Φ_0(I − Φ) and Φ_0L(I − Φ) ([[prop:ii-a1-2-4]] (e)
@@ -1883,8 +1883,8 @@ C^((d_0−1)) S̃^𝗄 (index 0), and lies in C^((d_0−1)) S̃^(𝗄−κ) for 
 On the support, 𝖧_f𝗄 = 𝖧_f𝗌 ≤ 0 and log ρ_∞ < 0, so the last term of Q_ε is nonnegative. These two signs hold on the
 set W where (z, y) are defined, 𝖧_f𝗌 ≤ 0 and ρ_∞ < 1, a neighbourhood of the box
 {z ∈ [−2δ, T + 2δ], |y| ≤ 2δ_1} ∩ supp χ_∞; off W, Q_ε need not be positive, nor even defined. Fix
-ζ ∈ C^∞(ᵉ³ᵇT̄*M̃) with values in [0, 1], equal to 1 near that box and supported in W, and choose M ≥ 1 + sup_(supp ζ) |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|,
-uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ M on supp ζ; M will be enlarged once more below. Put
+ζ ∈ C^∞(ᵉ³ᵇT̄*M̃) with values in [0, 1], equal to 1 near that box and supported in W, and choose
+M ≥ 1 + sup_(supp ζ) |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|, uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ M on supp ζ; M will be enlarged once more below. Put
 
     Q̃_ε := ζQ_ε + (1 − ζ)M = Q̃_(0,ε) + ζλ,     Q̃_(0,ε) := ζQ_(0,ε) + (1 − ζ)M,
 
@@ -1957,8 +1957,8 @@ dropping −‖B_(e,ε)w‖² ≤ 0. For the L_I term, fix elliptic operators Λ
 H^(±(m−1)/2), and let C_I be the norm of L_I between these spaces. It depends on finitely many norms of the coefficients
 and not on M or ε. Take Λ_+ := Op(λ_+) with λ_+ classical. Then Λ_+Ǎ = Op(λ_+z_ε)B_ε + (order 𝗌 − 1 + 2δ)
 ([[prop:ii-a1-2-4]] (b), with ǎ_ε = z_εb_ε), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛM^(−1/2), with
-C_Λ := sup |λ_+μ^(−1/2)|, as Q̃_ε ≥ M on all of phase space. [[lem:ii-a1-2-6]] with η := M⁻¹ and δ/2 in place of δ, applied to B_εw, and
-(a + b)² ≤ 2a² + 2b² give
+C_Λ := sup |λ_+μ^(−1/2)|, as Q̃_ε ≥ M on all of phase space. [[lem:ii-a1-2-6]] with η := M⁻¹ and δ/2 in place of
+δ, applied to B_εw, and (a + b)² ≤ 2a² + 2b² give
 
     ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)M⁻¹‖B_εw‖² + C‖w‖²_(𝗌−1/2+δ),
 
@@ -2228,7 +2228,8 @@ operators of order m − 2. Hence
 each in the span of a fixed finite set, with coefficient norms at most C times those of L at (d_0; k). Here
 [[lem:ii-a-4-1]] is applied with ϵ := ϵ_ϑ, the room of (R1) of [[sec:ii-a-8-3]] for B, E and G. So, D bounding the
 kernel ranges of the operators of 𝒫_m and 𝒫_(m−1), the fixed operators A^0_(j,l), A′_(qjl), A″_(ql), and those for L_2,
-have kernel ranges at most D + ϵ_ϑ. Put u^((1)) := (V_ju)_(j=0)^N and f := Lu. Then LV_ju − Σ_l A_(j,l)V_lu = V_jf, that is,
+have kernel ranges at most D + ϵ_ϑ. Put u^((1)) := (V_ju)_(j=0)^N and f := Lu. Then LV_ju − Σ_l A_(j,l)V_lu = V_jf,
+that is,
 
     L^((1))u^((1)) = f^((1)) := (V_jf)_(j=0)^N,     L^((1)) := (Lδ_(jl) − A_(j,l))_(j,l=0,…,N).
 
@@ -2246,8 +2247,8 @@ B_1, E_1, G_1. So the inductive hypothesis, [[eq:ii-a-9-3]] at k − 1 for L^((1
 Here ‖G_1V_jf‖_((𝗌−m+1;k−1)) ≤ ‖G_1f‖_((𝗌−m+1;k)) + ‖[G_1, V_j]f‖_((𝗌−m+1;k−1)). Both terms are bounded by
 C(‖GLu‖_((𝗌−m+1;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c) and [[lem:ii-a-8-6]] (a) for the error term, as in
 [[prop:ii-a-9-1]]. Similarly ‖E_1V_ju‖_((𝗌;k−1)) ≤ C(‖Eu‖_((𝗌;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c), and
-‖χ_1u^((1))‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)), by (R3). On the left, ‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))),
-and both are bounded by C(‖B_1u^((1))‖_((𝗌;k−1)) + ‖χu‖_((−N;k))). For the first, [[lem:ii-a-8-4]] (c) applies with
+‖χ_1u^((1))‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)), by (R3). On the left,
+‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))), and both are bounded by C(‖B_1u^((1))‖_((𝗌;k−1)) + ‖χu‖_((−N;k))). For the first, [[lem:ii-a-8-4]] (c) applies with
 WF′(B) ⊂ Ell(B_1). For the second, the wave front set lies in that of B, and the j = 0 component of u^((1)) is u. The
 finiteness statements follow as in [[prop:ii-a-9-1]]. At each k the step applies the statement at k − 1, and through
 it (L4), to a new system L^((1)), of rank N′(N + 1), with finite sets enlarged by the A_(j,l), and to new operators
@@ -2449,8 +2450,8 @@ and apply [[eq:ii-a-9-7]] with 𝗌 − m for 𝗌, −N − m for 𝗌_0, and t
 Now ‖V_(s_1)ℓ_q‖_((d_0;d̃)) ≤ C‖𝐋‖_((d_0;d)) and ‖V_(s_1)ℓ_q‖_((d_0;k−1)) ≤ C‖𝐋‖_((d_0;k)) ([[lem:ii-a-8-2]] (b); this
 is why d = d̃ + 1). Next, A′ is a commutator of an operator of 𝒫 with vector fields, so its kernel range is at most D,
 and χ_*A′ = χ_*A′χ ((R2)): ‖χ_*A′u‖_((−N−m;q)) = ‖χ_*A′χu‖_((−N−m;q)) ≤ C‖χu‖_((−N;q)) by [[lem:ii-a-8-4]] (a). And
-‖G_2A′u‖_((𝗌−m;q)) ≤ C(‖G_3u‖_((𝗌;q)) + ‖χu‖_((−N;q))) by [[lem:ii-a-8-4]] (c). By [[eq:ii-a-9-10]] at the order k − 1, with G_3 in place of B, ‖G_3u‖_((𝗌;k−1)) is bounded by
-the right side of [[eq:ii-a-9-10]] at k. Its constant depends only on ‖𝐋‖_((d_0;d)), and its high norm ‖𝐋‖_((d_0;k−1))
+‖G_2A′u‖_((𝗌−m;q)) ≤ C(‖G_3u‖_((𝗌;q)) + ‖χu‖_((−N;q))) by [[lem:ii-a-8-4]] (c). By [[eq:ii-a-9-10]] at the order
+k − 1, with G_3 in place of B, ‖G_3u‖_((𝗌;k−1)) is bounded by the right side of [[eq:ii-a-9-10]] at k. Its constant depends only on ‖𝐋‖_((d_0;d)), and its high norm ‖𝐋‖_((d_0;k−1))
 multiplies low norms only. By [[prop:ii-a-9-1]] at the order d̃ < d,
 ‖G_3u‖_((𝗌;d̃)) ≤ C(‖GLu‖_((𝗌−m;d)) + ‖χu‖_((−N;d))). If j′ = 0, the coefficient is ℓ_q itself and |J′| ≤ k − 1, and
 [[eq:ii-a-9-7]] with ℓ := ℓ_q and (0, |J′|) gives the same bounds, with ‖ℓ_q‖_((d_0;d̃)) and ‖ℓ_q‖_((d_0;k−1)).
@@ -2499,8 +2500,8 @@ K_U, and again to U_T ∩ U in place of U, giving U′_T ⊂ U_T, K′_E and K�
 WF′(B_1) ⊂ U′_T, E_1 elliptic on K′_E with WF′(E_1) ⊂ Ell(E), and G_1, G_2, G_3 microsupported in U_T, with G_1 elliptic
 on K′_U ∪ WF′(B_1), WF′(G_1) ⊂ Ell(G_2) and WF′(G_2) ⊂ Ell(G_3), all auxiliary operators of (R1) for B, E and G. They
 are carried by χ, and by χ_1 with the margin D + 7ϵ_ϑ, which bounds the kernel ranges of the operators of L^((k)). By
-(O) the hypotheses of (L4) hold for (B_1, E_1, G_1), and for (G_2, E, G) and (G_3, E, G). (Taking G_1 slightly smaller than G would not do: then WF′(G_3) contains T and may
-reach where the hypotheses fail.) The constant depends on k through the size of the system, and on L only through low
+(O) the hypotheses of (L4) hold for (B_1, E_1, G_1), and for (G_2, E, G) and (G_3, E, G). (Taking G_1 slightly
+smaller than G would not do: then WF′(G_3) contains T and may reach where the hypotheses fail.) The constant depends on k through the size of the system, and on L only through low
 norms:
 
     ‖B_1u^((k))‖_(H^𝗌) ≤ C_k(‖G_1f^((k))‖_(H^(𝗌−m+1)) + ‖G_1f̃^((k))‖_(H^(𝗌−m+1)) + ‖E_1u^((k))‖_(H^𝗌)
@@ -2523,8 +2524,8 @@ the cut-off χ_* of (R2) in place of χ, ℓ replaced by V_(S″)ℓ, S″ the l
 and (j′ − 2, ·) for (j, ·). The coefficient norms are ‖ℓ‖_((d_0;d̃+2)) ≤ C‖𝐋‖_((d_0;d)) and ‖ℓ‖_((d_0;k)). The
 u-norms are bounded by
 ‖G_2A′u‖_((𝗌−m+1;k−2)) ≤ C(‖G_3u‖_((𝗌+1;k−2)) + ‖χu‖_((−N;k))) ≤ C(‖G_3u‖_((𝗌;k−1)) + ‖χu‖_((−N;k)))
-([[lem:ii-a-8-4]] (c), (d)), and the same at d̃; the error terms ‖χ_*A′u‖ are at most C‖χu‖, as in [[prop:ii-a-9-8]]. If j′ ≤ 1, the coefficient carries at most one derivative, and
-[[eq:ii-a-9-7]] with ℓ replaced by V_(S′)ℓ and (0, ·) gives the same bounds, with
+([[lem:ii-a-8-4]] (c), (d)), and the same at d̃; the error terms ‖χ_*A′u‖ are at most C‖χu‖, as in
+[[prop:ii-a-9-8]]. If j′ ≤ 1, the coefficient carries at most one derivative, and [[eq:ii-a-9-7]] with ℓ replaced by V_(S′)ℓ and (0, ·) gives the same bounds, with
 ‖V_(S′)ℓ‖_((d_0;d̃)) ≤ C‖𝐋‖_((d_0;d)). Here ‖G_3u‖_((𝗌;k−1)), and ‖G_2u‖_((𝗌;k−1)) in [[eq:ii-a-9-13]], are bounded by
 [[eq:ii-a-9-12]] at k − 1 with G_3, resp. G_2, in place of B, for which the hypotheses hold by the choice above. And
 ‖G_3u‖_((𝗌;d̃+1)) is bounded by [[prop:ii-a-9-2]] at the order d̃ + 1 < d, with constant depending on ‖𝐋‖_((d_0;d)).

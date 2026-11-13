@@ -247,14 +247,14 @@ so it suffices to bound R(u_p, ·) on [v0, v_p]. Suppose R(u_p, v′) < min(R(p)
 on [v′, v″] R(u_p, ·) decreases, so R(u_p, v″) ≤ R(u_p, v′) < min(R(p), √μ0), and continuity forces v″ = v_p, so that
 R(p) < min(R(p), √μ0), a contradiction.
 
-(a) By [[lem:two-dust-identities]] (i) and (v), μ_u = 0 and ψ_u = 0 where ℬ = 0, so there μ and ψ are functions of v
-alone on each segment of constant v, and with dṽ := e^ψ dv̂ the form [[eq:two-dust-chart]] becomes −f dṽ² + 2 dṽ dR +
+(a) By [[lem:two-dust-identities]] (i) and (v), μ_u = 0 and ψ_u = 0 where ℬ = 0, so on {u ≤ u1} and on {u ≥ u2} μ and
+ψ do not depend on u, and with dṽ := e^ψ dv̂ the form [[eq:two-dust-chart]] becomes −f dṽ² + 2 dṽ dR +
 R² dΩ₃², f = 1 − μ(ṽ)/R²: an ingoing Vaidya metric. On 𝒞_out the data are those of the ingoing Vaidya metric in its
 advanced time v, for which e^ψ = 1 when v̂ = v, by comparison of [[eq:two-dust-chart]] with [[eq:vr-form]]; so ψ = 0 on
 𝒞_out with v̂ = v, and on {u ≤ u1} the background is that ingoing Vaidya metric, with the mass function of the data. On
 {u ≥ u2} it is ingoing Vaidya with ψ(u2, ·) and μ(u2, ·). The statements where 𝒜 = 0 follow in the same way from the
 second form of (v), with ψ̃ = 0 on 𝒞_in ∩ {u ≤ u2} in the retarded time of the data. Where 𝒜 = ℬ = 0 the background is
-Tangherlini. Both 𝒜 and ℬ are nonzero only on Q×, which is compact.
+Tangherlini. 𝒜ℬ ≠ 0 only on Q×, which is compact.
 
 On Σ_τ0, u is strictly decreasing outward: in the chart of [[lem:two-dust-domain]], where v̂ = v and e^ψ = −e^(2σ)/R_u,
 R_v = e^ψ f/2 ≤ 1/2, since e^ψ ≤ 1 and f ≤ 1, so du(∂_R|_τ) = (1 − R_v)/R_u < 0. Hence the points of Σ_τ0 with u ∈
@@ -351,7 +351,7 @@ so the ray lies in G until R = a, and G = {a ≤ R ≤ R(u0, v)} in the coordina
 R² > μ_end, dR/dv = R_v = f/2 < 1, so R(u0, τ + R) − R is strictly decreasing in R, and {τ = const} ∩ G is an interval
 a ≤ R ≤ R_out(τ), R_out(τ) the radius at which the slice meets 𝒞_out. By the choice of the cone, R_out(τ) > b(τ) for τ ≥
 τ0, and the third condition of [[eq:two-dust-omega]] is R ≤ b(τ); the choice of V1 in [[prop:two-dust-background]]
-makes Q contain the values v = τ + R ≤ τ_end + b(τ0). So Σ_τ = A(τ).
+makes Q contain the values v = τ + R ≤ V + 1 + τ_end − τ0 < 2V + 1 − τ0 there. So Σ_τ = A(τ).
 
 (a)–(c) are the contractions of the inverse in [[eq:two-dust-chart]] with dτ = dv − dR and d(v + τ) = 2dv − dR, with
 e^(−ψ) ≥ 1 and f = 1 − μ/R². As in the proof of [[lem:domain]], dτ is timelike and positive on future causal vectors; at
