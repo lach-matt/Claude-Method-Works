@@ -3764,11 +3764,23 @@ Block 1, in "Settling", old:
 Block 1, new:
 
 ```text
+- **Settling.** Theorem 4 is proved, in the supplement's write-out (section 8.8); λ1 and δ exist by the proof, and how
+  far their values are made explicit is stated at the end of this item. Theorem 4 (i) concerns glued data that agree with
+  g_λ's on a ball. That the development of g_λ's own data settles, with no gluing, is also proved, in a data class wider
+  than (ii)'s by half-integer orders, from proved inputs, supplement section 11.1 among them (Beyond the boundary,
+  below). The linear statement of section 8.2 is proved, in the gauge of the
+```
+
+[final-pass 2026-11-13: the paper carries this text after the final pass, which folded the block into the Settling
+item's opening (no conditional framing, no log labels) and moved the λ1/δ sentence to the item's end. The text this
+block held before, kept:]
+
+~~~text
   not evaluated. Theorem 4 (i) concerns glued data that agree with g_λ's on a ball. That the development of g_λ's own
   data settles, with no gluing, is proved in a data class wider than (ii)'s by half-integer orders (Beyond the
   boundary, below), conditional on supplement section 11.1, which is proved (D632, D633). Evaluating λ1 and δ would
   need every constant of the write-out made explicit, and several come from
-```
+~~~
 
 Block 2, in "Beyond the boundary", old:
 
@@ -3789,6 +3801,41 @@ Block 2, in "Beyond the boundary", old:
 Block 2, new:
 
 ```text
+  6.3, deduced). It is proved, with no gluing, that Theorem 4 applies to g_λ's own data in a data class wider than
+  (ii)'s by half-integer orders (supplement `docket68/n1star/SETTLE-GLAM5.md`, rounds 1–10, Theorem R5.1), from the
+  write-out's Parts III, IV, VII and VIII, Theorem P and supplement section 11.1, each proved, the last with its Lemma
+  11.0 repair (SETTLE-GLAM5.md R6-D) read by an independent confirming reader. BEYOND5 Lemma 6.4 (iv) is written out in
+  full there (Lemma R9.1, every inequality computed) and read. After the shell
+  g_λ − g_b0 has at past null infinity an r^(−5/2) coefficient, O(λ^∞), which for a C_c^∞ envelope and every amplitude
+  but at most one is nonzero off a discrete set of λ (deduced, SETTLE-GLAM5.md Proposition 3.1; computed for a bump
+  envelope, `docket68/n1star/checks/tail5.py`); it puts an r^(−5/2) term into g_λ's data at spatial infinity, outside
+  the integer orders of (ii)'s class. With the orders r^(−2), r^(−5/2), r^(−3), … below r^(−ℓ0) admitted in the metric
+  (ℓ0 ∈ (3, 4), ℓ0 ≠ 7/2, and one order more in the second fundamental form), Hintz's construction runs with the same
+  index sets for its iterates and finitely many more derivatives lost; its threshold ε, and with it λ1 and δ, change; in
+  either class their values fall under the limit on explicit constants stated under Settling. g_λ continues to the past
+  domain of dependence of the far part of Hintz's initial surface as a vacuum metric in the record's wave-map gauge, by
+  one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, after its self-similar
+  terms through r^(−4) are subtracted; it is the only continuation in that gauge near Tangherlini whose commuted energies
+  of weight a0 ∈ (0, ½) stay bounded, its energy vanishing toward past null infinity, and its data lie in the widened
+  class with small norm. So for every 0 < λ ≤ λ2, with no exceptional set (λ2 > 0 the proof's threshold in λ, its value
+  under the same limit), the maximal vacuum development of g_λ's own data on Hintz's
+  initial surface settles to five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m at Theorem 4's rate
+  (proved, with the conditions above). Computed, all under `docket68/n1star/checks/`: the operator identities, on the
+  write-out's full operator; the far part's past domain of dependence, the place of its inner null boundary in the
+  record's domains and that, under g_λ, all of it but a strip along that boundary, of width tending to 0 with λ, stays
+  in the domain of dependence (`r9beyond5.py`); the coefficient decays and the residuals' degrees, measured on that
+  operator (`r5op5.py`, and `r6sigma5.py`, which also builds the r^(−4) term there for one example, the general case
+  being deduced); the caps and the null-hypersurface tails, measured on explicit fields; the weight window, computed
+  from those measured exponents and from exponents counted by hand (those of the data class, of the pointwise bound,
+  and of two further thresholds, which do not bind); the remaining kernel exponents, counted by hand with their
+  integrability checked. Below the inner boundary the theorems are not
+```
+
+[final-pass 2026-11-13: the paper carries this text after the final pass: rounds 1–10 (the confirming reader's nit),
+the conditions stated as proved inputs with no log labels, and λ1, δ, λ2 pointed to the limit stated under Settling.
+The text this block held before, kept:]
+
+~~~text
   6.3, deduced). It is proved, with no gluing, that Theorem 4 applies to g_λ's own data in a data class wider than
   (ii)'s by half-integer orders (supplement `docket68/n1star/SETTLE-GLAM5.md`, rounds 1–9, Theorem R5.1), conditional
   on the write-out's Parts III, IV, VII and VIII, proved; on Theorem P, proved; and on supplement section 11.1, proved
@@ -3816,7 +3863,7 @@ Block 2, new:
   from those measured exponents and from exponents counted by hand (those of the data class, of the pointwise bound,
   and of two further thresholds, which do not bind); the remaining kernel exponents, counted by hand with their
   integrability checked. Below the inner boundary the theorems are not
-```
+~~~
 
 Block 3 (section 8.1, for consistency with blocks 1-2), old:
 
@@ -3828,8 +3875,17 @@ Block 3, new:
 
 ```text
 replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, with no gluing, in a class wider by
-half-integer orders, is proved in section 9 (Beyond the boundary), conditional on the supplement's section 11.1, proved.
+half-integer orders, is proved in section 9 (Beyond the boundary), from proved inputs, the supplement's section 11.1
+among them.
 ```
+
+[final-pass 2026-11-13: the paper carries this text after the final pass: the status stated from proved inputs, with no
+conditional framing. The text this block held before, kept:]
+
+~~~text
+replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, with no gluing, in a class wider by
+half-integer orders, is proved in section 9 (Beyond the boundary), conditional on the supplement's section 11.1, proved.
+~~~
 
 Ledger (round 10). Changed and rerun: `r9beyond5.py` (18 checks, B5''' added) and `r6edits5.py` (29); rerun unchanged:
 `r9text5.py` (5), `r7settle5.py` (13); `r5edits5.py`, which reads R5-D and imports r6edits5, rerun after the last edit:

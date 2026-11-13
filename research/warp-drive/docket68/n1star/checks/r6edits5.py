@@ -711,11 +711,40 @@ STRIP = ("and that, under g_λ, all of it but a strip along that boundary, of wi
          "domain of dependence (`r9beyond5.py`);")
 
 
+FP_DROPPED = ("b2: rounds 1-9", "b2: conditional on Parts III, IV, VII and VIII, proved, and Theorem P, proved",
+              "b2: section 11.1 proved, R6-D read by a confirming reader",
+              "b1: proved, conditional on section 11.1, proved", "b3: proved, on section 11.1 proved")
+FP_ADDED = {"b2: rounds 1-10", "fp b1: proved, from proved inputs, section 11.1 among them",
+            "fp b2: from Parts III, IV, VII and VIII, Theorem P and section 11.1, each proved, R6-D read",
+            "fp b2: lambda1, delta and lambda2 under the limit stated under Settling",
+            "fp b3: proved, from proved inputs, section 11.1 among them", "fp no log labels"}
+
+
 def paper_predicates10(b1, b2, b3):
     """[R10] outcome B (round 9 read and confirmed) with the Computed clause of Lemma R9.1 (iii) (a): what is in the
     domain of dependence under g_lam, not where its boundary lies (the round-9 reader's minor)"""
     out = paper_predicates9(b1, b2, b3, "B")
     b2n = norm(b2)
+    # [final-pass] R10-E's new blocks are the paper's seated text: rounds 1-10 (vB7), and the status stated with no
+    # conditional framing and no log labels (the final pass's editorial blocks DR-bh1, DR-b2, DR-b3, DR-bb)
+    b1n, b3n = norm(b1), norm(b3)
+    for k_ in FP_DROPPED:
+        del out[k_]
+    out.update({
+        "b2: rounds 1-10": "rounds 1–10, Theorem R5.1" in b2n,
+        "fp b1: proved, from proved inputs, section 11.1 among them": "is also proved, in a data class wider than "
+            "(ii)'s by half-integer orders, from proved inputs, supplement section 11.1 among them (Beyond the "
+            "boundary, below)." in b1n,
+        "fp b2: from Parts III, IV, VII and VIII, Theorem P and section 11.1, each proved, R6-D read": "Theorem "
+            "R5.1), from the write-out's Parts III, IV, VII and VIII, Theorem P and supplement section 11.1, each "
+            "proved, the last with its Lemma 11.0 repair (SETTLE-GLAM5.md R6-D) read by an independent confirming "
+            "reader." in b2n,
+        "fp b2: lambda1, delta and lambda2 under the limit stated under Settling": "in either class their values fall "
+            "under the limit on explicit constants stated under Settling" in b2n and "(λ2 > 0 the proof's threshold in "
+            "λ, its value under the same limit)" in b2n,
+        "fp b3: proved, from proved inputs, section 11.1 among them": "is proved in section 9 (Beyond the boundary), "
+            "from proved inputs, the supplement's section 11.1 among them." in b3n,
+        "fp no log labels": all("(D63" not in t for t in (b1n, b2n, b3n))})
     out["b2: Lemma R9.1 (iii) (a), no displacement of the boundary"] = (STRIP in b2n
                                                                         and "displacement under g_λ" not in b2n)
     return out
@@ -735,13 +764,11 @@ def e4(S):
         check("E4a six blocks read", False, str(len(bl)))
         return
     P = open(PAPER).read()
-    counts = [P.count(bl[i]) for i in (0, 2, 4)]
-    Q = P
-    for i in (0, 2, 4):
-        Q = Q.replace(bl[i], bl[i + 1], 1)
-    long_ = [(j + 1, len(l)) for j, l in enumerate(Q.split("\n")) if len(l) > 121]
-    check("E4a each old text occurs exactly once in the paper", counts == [1, 1, 1], str(counts))
-    check("E4b the edited paper keeps every line within 121 characters", not long_, str(long_[:5]))
+    counts = [P.count(bl[i]) for i in (1, 3, 5)] + [P.count(bl[i]) for i in (0, 2, 4)]   # seated: new once, no old
+    long_ = [(j + 1, len(l)) for j, l in enumerate(P.split("\n")) if len(l) > 121]
+    check("E4a seated: each new text occurs exactly once in the paper and no old text", counts == [1, 1, 1, 0, 0, 0],
+          str(counts))
+    check("E4b the seated paper keeps every line within 121 characters", not long_, str(long_[:5]))
     pb = paper_predicates10(bl[1], bl[3], bl[5])
     check("E4c the new blocks state outcome B: proved, 'It is proved', '(proved, with the conditions above)', 'is "
           "proved in section 9', no 'not yet read'; Parts III, IV, VII, VIII and Theorem P proved, section 11.1 proved "
@@ -763,7 +790,9 @@ def e4(S):
              "b2: section 11.1 proved, R6-D read by a confirming reader", "b2: round 9 unread, writing out Lemma 6.4 "
              "(iv)", "b2: the domain of dependence computed (r9beyond5)", "no stale status (awaits a confirming read; "
              "BEYOND5 as a deduced condition; round 8)"}
-    ok = f9b == {"b2: Lemma R9.1 (iii) (a), no displacement of the boundary"} and f9a == want9a and f8 == want8
+    # [final-pass] R9-E's blocks fail, besides, every predicate of the final pass's wording (FP_ADDED)
+    ok = (f9b == {"b2: Lemma R9.1 (iii) (a), no displacement of the boundary"} | FP_ADDED
+          and f9a == (want9a - set(FP_DROPPED)) | FP_ADDED and f8 == want8)
     check("E4c' controls: R9-E's outcome-B blocks fail exactly the predicate round 10 adds (the boundary's "
           "displacement); R9-E's outcome-A blocks fail exactly that and outcome B's six status predicates; R8-E's "
           "blocks fail exactly the nine outcome-A predicates round 9 added", ok,

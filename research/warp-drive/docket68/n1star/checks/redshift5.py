@@ -91,9 +91,11 @@ m = k^2 - 3, H = m + 6x; master field Phi(v, r), u_j := d_r^j Phi at fixed v (d_
      mu0 is positive -- the confirming reader's m1, m5 and nit; D627: the 8.2 block re-keyed to the paper as it stands
      since RWGAUGE5's block was seated there, so that it now replaces only 8.2's first sentence): each old text occurs
      exactly once in
-     paper/RESPONSE-HL-5D.md and its new text not at all; every line of the blocks and of this file is at most 121
+     paper/RESPONSE-HL-5D.md and its new text not at all, or, once seated (the final pass), each new text exactly
+     once and its old text not at all or only inside it ([HKW18]'s); every line of the blocks and of this file is
+     at most 121
      characters; and in N1STAR-PROOF.md the D622 text is seated: "N-th order" occurs only inside an [amended D622
-     note, and Lemmas 10.1a-10.1b are present.  Control: a block whose old text is mutated does not occur.
+     note, and Lemmas 10.1a-10.1b are present.  Control: a block whose new text is mutated does not occur.
 
 READ (alphaXiv, 2026-11-06).  [HKW18] P.-K. Hung, J. Keller, M.-T. Wang, arXiv:1809.05144v1: p. 6, (16) "-(1 - mu)
 dv-bar^2 + 2 dv-bar dR + R^2 sigma-ring", (20) "Along the event horizon, the Schwarzschild-Tangherlini solution has
@@ -906,11 +908,11 @@ def r13(control=False):
     rows, ok = [], True
     for name, old, new in BLOCKS:
         if control:
-            old = old[:-1] + "#"
+            new = new[:-1] + "#"                                      # seated: a mutated new text must not be found
         n_old, n_new = paper.count(old), paper.count(new)
         width = max(len(ln) for ln in (old + "\n" + new).splitlines())
         rows.append((name, n_old, n_new, width))
-        ok &= n_old == 1 and n_new == 0 and width <= 121
+        ok &= n_new == 1 and (n_old == 0 or (n_old == 1 and old in new)) and width <= 121   # seated (final pass)
     self_width = max(len(ln) for ln in open(os.path.abspath(__file__), encoding="utf-8").read().splitlines())
     proof = open(PROOF, encoding="utf-8").read()
     nth = [i for i in range(len(proof)) if proof.startswith("N-th order", i)]
@@ -924,7 +926,7 @@ def r13(control=False):
     ok &= self_width <= 121 and nth_ok and seated
     say("  R13%s: (block, old count, new count, widest line): %s; this file's widest line %d; 'N-th order' in "
         "N1STAR-PROOF.md %d time(s), each inside an [amended D622 note: %s; Lemmas 10.1a-10.1b and (iv-a), (iv-b) "
-        "seated: %s" % (" control (old text mutated)" if control else "", rows, self_width, len(nth), nth_ok, seated))
+        "seated: %s" % (" control (new text mutated)" if control else "", rows, self_width, len(nth), nth_ok, seated))
     return bool(ok)
 
 

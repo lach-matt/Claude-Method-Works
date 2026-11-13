@@ -1414,9 +1414,30 @@ New (c):
   entry in Appendix A says so. The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the
   mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme, the settling write-out) are proved in the
   supplement and read by independent verifiers, not computed (deduced). The two-dust background's convergence on a
+  rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's characteristic data
+  (`checks/twodomainx5.py`); for the data the supplement states, explicit Vaidya data on two null cones, the background
+  on the whole domain is deduced (More families, above; supplement `docket68/n1star/FAMILIES5-FULL.md` Part I).
+```
+
+[final-pass 2026-11-13: the paper carries this text after the final pass, whose editorial block DR-g restated the
+two-dust sentence (the background on the whole domain is deduced for the stated data, FAMILIES5-FULL Part I). The text
+this block held before, kept:]
+
+~~~text
+  `checks/support8b.py`, `checks/support8c.py`, `checks/flux5.py`, `checks/mpdata5.py`, `checks/gluedecay5.py`,
+  `checks/kirecon5.py`, `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`, `checks/vii5census.py`,
+  `checks/vii5read.py` and `checks/census9.py`, and for section 9 `checks/support9.py`, `checks/charge5.py`,
+  `checks/eqlayer5.py`, `checks/e2lower5.py`, `checks/twodomainx5.py`, `checks/level2loop5.py`,
+  `checks/lambdacount5.py`, `checks/twodomain5.py`, `checks/r0census5.py` and `checks/excise5.py`. A census of the
+  deduced claims in sections 1–9 (103 claims, of which 27 named no program for the step) left none without one but the
+  analytic estimates named below, the settling write-out and one step resting on a reading at source; where a check
+  stops short of the step (an order λ¹ structure computed to order λ² in place of every order, a scan to a finite l) its
+  entry in Appendix A says so. The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the
+  mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme, the settling write-out) are proved in the
+  supplement and read by independent verifiers, not computed (deduced). The two-dust background's convergence on a
   rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's characteristic data, those data themselves
   being among the items left open above.
-```
+~~~
 
 (d) Appendix A, the entries of mpdata5.py and flux5.py, lines 2180-2190, and a new entry.
 
@@ -1525,9 +1546,56 @@ New (g):
 `checks/stage5b.py` imports `lead5.py` and `checks/stage5.py`, `secondzero5.py` and `resid5.py` import `bondisph5.py`,
 which imports `sectexp5.py`, `resid5.py` and `szrun5.py` import `dnsolve5.py`, `checks/support9.py` imports `lead5.py`,
 `checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports
+`checks/twodomain5.py`, `checks/vii5read.py` imports `checks/vii5census.py`, `checks/axhier5.py` imports
+`checks/axisbianchi5.py`, `checks/axis5.py` imports `dnull5.py` and `checks/linest5.py`, `checks/blocks5.py` imports
+`checks/linest5.py`, `checks/classm5.py` imports `checks/stage1cap5.py`, `checks/cont5.py` imports `checks/null3.py`,
+`checks/cp3grid5.py` imports `checks/cpaxis5.py` and `checks/cpsolve5.py`, `checks/cpaxis5.py` imports
+`checks/cpsolve5.py`, `checks/cpsolve5.py` imports `dnsolve5.py`, `checks/d0count5.py` imports `checks/ordcensus5.py`,
+`checks/dceiling5.py` imports `checks/dweights5.py`, `checks/lambdagen5.py` and `checks/prop31loss5.py`,
+`checks/dnumber5.py` imports `checks/dceiling5.py`, `checks/dweights5.py`, `checks/eflat5.py`, `checks/lambdagen5.py` and
+`checks/prop31loss5.py`, `checks/dweights5.py` imports `checks/prop31loss5.py`, `checks/eflat5.py` imports
+`checks/dceiling5.py`, `checks/dweights5.py` and `checks/iotapoles5.py`, `checks/inverse6_5.py` imports `strap5.py`,
+`checks/inverse6_5m.py` imports `gmodes5.py`, `modes5.py` and `checks/e2certify5.py`, `checks/iotaind5.py` imports
+`checks/dceiling5.py` and `checks/eflat5.py`, `checks/iotapoles5.py` imports `damping5.py`, `iota5.py`, `lin5.py` and
+`checks/dceiling5.py`, `checks/lam0data5.py` imports `data5.py` and `checks/stage1rate5.py`, `checks/lambdagen5.py`
+imports `checks/dweights5.py` and `checks/prop31loss5.py`, `checks/lev1_5.py` imports `checks/linest5.py` and
+`checks/wgron5.py`, `checks/linest5.py` imports `dnsolve5.py` and `checks/null3.py`, `checks/logind5.py` imports
+`checks/dnumber5.py`, `checks/dweights5.py` and `checks/eflat5.py`, `checks/lzerotrace5.py` imports
+`checks/envelope5.py`, `checks/lzeroconst5.py` and `checks/stage0bd5.py`, `checks/m22evol5.py` imports
+`checks/lam0data5.py`, `checks/modcount5.py` imports `checks/d0count5.py`, `checks/dnumber5.py`, `checks/dweights5.py`
+and `checks/prop31loss5.py`, `checks/rcert5.py` imports `checks/bondisph5.py` and `checks/resid5.py`, `checks/rcert5c.py`
+imports `checks/rcert5.py`, `checks/rcert5d.py` imports `checks/rcert5.py`, `checks/reduce5.py` imports `dnull5.py`,
+`checks/rich5.py` imports `checks/rcert5.py` and `checks/rcert5d.py`, `checks/rootavoid5.py` imports `damping5.py`,
+`checks/dweights5.py`, `checks/lambdagen5.py` and `checks/prop31loss5.py`, `checks/scalarblock5.py` imports
+`damping5.py`, `checks/stage0bd5.py` imports `lead5.py`, `checks/envelope5.py` and `checks/lzeroconst5.py`,
+`checks/stage1cap5.py` imports `checks/lzeroconst5.py` and `checks/lzerotrace5.py`, `checks/symbol5.py` imports
+`dnsolve5.py`, `checks/symbol5s.py` imports `checks/symbol5.py`, `checks/szconv5.py` imports `checks/secondzero5.py`,
+`checks/tensorzero5.py` imports `class5.py` and `checks/zeroext5.py`, `checks/thetain5.py` imports `sbar5.py`,
+`checks/wgron5.py` imports `checks/linest5.py`, `checks/x7indep5.py` imports `checks/dnumber5.py` and
+`checks/dweights5.py` (and `checks/blockw5.py` reads `checks/blocks5.out` and `checks/wgron5.out`, `checks/d0count5.py`
+reads `checks/thetain5.out`, `checks/inverse6_5a.py` reads `EFFECTIVE-CONSTANTS.md` and `CONSTANTS5.md`,
+`checks/l2par5.py` reads `checks/dnumber5.out`, `checks/logind5.py` reads `checks/dnumber5.out`, `checks/modcount5.py`
+reads `checks/dnumber5.out`, `checks/dweights5.out`, `checks/lambdagen5.out` and `checks/rootavoid5.out`,
+`checks/mtrunc5.py` reads `checks/cpaxis5_a5.out`, `checks/cpaxis5_a5_m48.out` and `checks/cpaxis5_a5_m56.out`,
+`checks/rootavoid5.py` reads `checks/lambdagen5.out`, `checks/scalarblock5.py` reads `checks/scalarblock5_block.txt`);
+the others import nothing from the research tree:
+```
+
+[final-pass 2026-11-13: the paper carries this text after the final pass, which merged into it the imports of
+CONSTANTS5 R15.7 pair 5 and CERTIFY-10L5-RESULT 12.4 D2 (the same paragraph). The text this block held before, kept:]
+
+~~~text
+`lead5.py`, `past5.py` and `mass5.py`, `checks/support8b.py` and `checks/gluedecay5.py` import `checks/mpdata5.py`,
+`checks/ledger5.py` imports `checks/support5.py`, `checks/support5c.py` imports `horizon5.py` and `lead5.py`,
+`checks/lambdacount5.py` imports `checks/level2loop5.py`, `checks/support8c.py` imports `damping5.py`, `hthresh5.py`,
+`iplus5.py`, `lhor5.py`, `sbar5.py` and `scri5.py`, `checks/gauge5.py` imports `data5.py`, `lead5.py` and
+`paper/response5.py`, `checks/excise5.py` imports `growth5.py`, `checks/stage5.py` imports `lead5.py`,
+`checks/stage5b.py` imports `lead5.py` and `checks/stage5.py`, `secondzero5.py` and `resid5.py` import `bondisph5.py`,
+which imports `sectexp5.py`, `resid5.py` and `szrun5.py` import `dnsolve5.py`, `checks/support9.py` imports `lead5.py`,
+`checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports
 `checks/twodomain5.py`, `checks/vii5read.py` imports `checks/vii5census.py`; the others import nothing from the research
 tree:
-```
+~~~
 
 (h) Appendix D, the md5 table, line 2913.
 
