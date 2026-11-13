@@ -1368,27 +1368,37 @@ Bianchi identity ∇^m Ein(Ric(g))_mn = 0 and ∇^m Ein(½(∇D + ∇D^T))_mn = 
 Where Ric^H(g) = 0 this is a linear homogeneous system for D: −½ g^(ab) ∂_a ∂_b D_n = b·∂D + cD in Cartesian components,
 with Ric(g) and Γ[g] taken as known coefficients, |b| ≤ C(μ r⁻³ + |∂H|) and |c| ≤ C(μ r⁻⁴ + |∂∂H| + |∂H|²) on W,
 H = g − g_b0.
-(ii) *The truncations.* Each g_T solves Ric^H(g_T) = 0 on W_T, so D_T := D(g_T) solves (i)'s system there. Take the
-energy of weight 1 ([[eq:own-energies]] with w = (u* − u)²). By [[eq:own-pointwise]] and [[lem:own-sigma-data]], the
-kernels of its error terms are those of [[cor:far-kernels]], with exponents 3, 3/2 + a and a + 1/2, all integrable, the
-zero-order terms entering through [[eq:own-hardy]]; D_T tends to 0 at spatial infinity along the slices as h_R does in
-Step 1 of the proof of [[thm:own-continuation]]. On N, D_T = D(g_λ) = 0 with its tangential derivatives, g_T being g_λ
-on the side v ≤ v1 ([[lem:own-truncation]] (ii)) and g_λ vacuum in the wave-map gauge ([[thm:past-construction]]); so
-the flux through N vanishes. On Σ̃_T: D_T = 0 on {v ≤ V_T}; on the band, D_T and ∂D_T are O(r^(−9/2)), as g_T − g_λ is
-there with its first and second derivatives, so their energy is at most C|T|^(2−9+3) = C|T|⁻⁴; beyond the band
-D_T = D(g_b0 + Σ) = O(λ r⁻³), and ∂D_T = O(λ r⁻⁴), the second time derivative of g_T differing there from that of
-g_b0 + Σ by the term 2(g^(tt))⁻¹P(Σ) = O(λ r⁻⁶) ([[lem:own-truncation]] (iii)); so their energy is at most
-C λ² ∫_(|T|−C)^∞ r² r⁻⁸ r³ dr ≤ C λ² |T|⁻². Gronwall's inequality, with constants independent of T, gives
-E_σ[D_T] ≤ C(λ² |T|⁻² + |T|⁻⁴) for σ ∈ [T, 0].
-(iii) *The limit.* As T → −∞, g_T → g in C² on compact subsets of W, so D(g_T) → D(g) in C¹ there, and the energy of
+(ii) *The truncations.* Fix J ≥ 2k1 + 7 and write g_T := g_T^(J), T ≤ T_1(λ, J). Each g_T solves Ric^H(g_T) = 0 on
+W_T, so D_T := D(g_T) solves (i)'s system there. D(g) is linear in ∂(g − g_b0) with coefficients in g⁻¹, plus terms
+(g⁻¹ − g_b0⁻¹)Γ̂, so |D(g_b0 + H)| ≤ C(|∂H| + r⁻³|H|), and |∂D(g_b0 + H)| ≤ C(|∂∂H| + |∂H| + r⁻³|H|) where |∂H| is
+bounded. Take the energy of weight 1 ([[eq:own-energies]] with w = (u* − u)² ≤ C r² ≤ C r^(2a)); it is finite on every
+Σ̃_σ, σ ∈ [T, 0], by [[lem:own-exterior]] (b) and [[lem:own-sigma-data]] (b), H = Σ + h_R. By [[eq:own-pointwise]] and
+[[lem:own-sigma-data]], the kernels of its error terms are those of [[cor:far-kernels]], with exponents 3, 3/2 + a and
+a + 1/2, all integrable, the zero-order terms entering through [[eq:own-hardy]]; D_T tends to 0 at spatial infinity
+along the slices by [[lem:own-exterior]] (a). On N, D_T = D(g_λ) = 0 with its tangential derivatives, g_T being g_λ on
+the side v ≤ v1 ([[lem:own-truncation]] (ii)) and g_λ vacuum in the wave-map gauge ([[thm:past-construction]]); so the
+flux through N vanishes. On Σ̃_T, g_T and ∂g_T are those of 𝔤_T and ∂²g_T = ∂²𝔤_T + ∂²δ ([[eq:cutoff-hd]]). On
+Σ̃_T ∩ {v ≤ V_T}, δ vanishes to every order (the proof of [[lem:own-truncation]] (iii)), so D_T and ∂D_T are those of
+D(g_λ) = 0. On 𝒮^♭_T ∩ {v ≥ V_T}, H_D = (g_λ − g_b0) − χ_T m_J, so D(g_b0 + H_D) = D(g_λ) + O(r^(−(J+1)/2)) =
+O(r^(−(J+1)/2)) with its first derivatives ([[lem:cutoff-extension]] (b)), and |∂²δ| ≤ C r^(−(J+3)/2) + C r⁻⁶
+([[lem:cutoff-jets]]); as J ≥ 9, |D_T| + |∂D_T| ≤ C r⁻⁵ there. On Σ̃_T ∩ {v ≥ V_T + δ_0/4}, H_D = Σ + Σ′_J;
+D(g_b0 + Σ) = O(λ r⁻³) and ∂D(g_b0 + Σ) = O(λ r⁻⁴), as |∂^j Σ| ≤ C λ r^(−2−j) ([[lem:own-sigma-data]] (b)); the terms of
+Σ′_J add O(r⁻⁵) and O(r⁻⁶) ([[lem:cutoff-extension]] (a)); and |∂²δ| ≤ C r⁻⁶; so |∂D_T| ≤ C λ r⁻⁴ + C r⁻⁶ there. Here
+C depends on λ and J. With w ≤ C r², d⁴x = r³ dr dω and 𝒮^♭_T = {r_T ≤ r ≤ r_T + d_V} along the rays, the energy of D_T
+on Σ̃_T is at most C ∫_(r_T)^∞ r² (λ² r⁻⁸ + r⁻¹²) r³ dr + C r_T^(2+3) r_T^(−10) d_V ≤ C λ² |T|⁻² + C |T|⁻⁴, as
+r_T ≥ c_W (1 + |T|). Gronwall's inequality, with constants independent of T, gives E_σ[D_T] ≤ C λ² |T|⁻² + C(λ, J) |T|⁻⁴
+for σ ∈ [T, 0], which tends to 0 as T → −∞.
+(iii) *The limit.* As T → −∞, g_T = g_T^(J) → g in C² on compact subsets of W ([[thm:own-continuation]], k_J − 3 ≥ 5), so D(g_T) → D(g) in C¹ there, and the energy of
 D(g) on any compact part of any Σ̃_σ is the limit of those of D_T, hence 0: ∂D(g) = 0 on W. As D(g) = 0 on N, D(g) = 0.
 Then Ric(g) = Ric^H(g) + ½(∇D + ∇D^T) + C = 0. g_λ is vacuum on P′ ∪ Ω′, and the join across N is smooth
 ([[thm:own-continuation]]). ∎
 
-**Proposition {#prop:own-uniqueness}** (uniqueness at a weight below ½). Let a_0 ∈ (0, ½), and let g′ = g_b0 + h′ be a
-smooth metric on W with Ric^H(g′; g_b0) = 0, g′ = g_λ on N with its first derivatives, |h′| ≤ 1/50,
+**Lemma {#lem:own-two-continuations}** (two continuations coincide). Let a_0 ∈ (0, ½) and 0 < λ ≤ λ_2. Let
+g = g_b0 + Σ + h_R be a C⁵ metric on W with Ric^H(g; g_b0) = 0, g = g_λ on N with its first derivatives, satisfying
+[[eq:own-pointwise]] on every Σ̃_σ, σ ≤ 0, with some ε_B ≤ ε_2, and with E_σ[h_R] → 0 as σ → −∞. Let g′ = g_b0 + h′ be
+a C⁵ metric on W with Ric^H(g′; g_b0) = 0, g′ = g_λ on N with its first derivatives, |h′| ≤ 1/50,
 sup_(σ≤0) E^(a_0)_σ[Γ^α h′] < ∞ for |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z}, and E^(a_0)_σ[h′] → 0 as σ → −∞, where E^(a_0) is the
-energy [[eq:own-energies]] for g′ with the weight (u* − u)^(2a_0). Then g′ = g, the metric of [[thm:own-continuation]].
+energy [[eq:own-energies]] for g′ with the weight (u* − u)^(2a_0). Then g′ = g.
 
 *Proof.* (1) By [[lem:own-margins]] (d) for g′ and [[eq:own-s1]], whose right side involves, by
 [[eq:own-ray-derivative]], only the energies of first derivatives of Γ^α h′, |α| ≤ 3, which are bounded uniformly in σ,
