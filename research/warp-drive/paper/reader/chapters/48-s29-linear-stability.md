@@ -584,7 +584,7 @@ globally hyperbolic (on each component, [[sec:ix-0]]), with smooth spacelike Cau
   Hence p ∈ Ω^♯, and N⁺ ⊂ Ω^♯_+; the reverse inclusion holds as Ω^♯ ⊂ U^♯ ⊂ M°_♭. ∎
 
 The region U^♯ reaches to t_IVP = −1 only so that Σ° lies inside it. Nothing below uses Ω^♯ ∩ {t_IVP < 0} beyond the
-background g, the extension of Θ(k) in Step 1 of the proof of [[thm:ix-2-2]], with that step's solution w and
+background g, the extension of Υ̇⁰(k) in Step 1 of the proof of [[thm:ix-2-2]], with that step's solution w and
 field X := w^♯, which live on all of Ω′, and the extension by zero in its Step 3.
 
 ### The comparison {#sec:ix-2}
@@ -602,7 +602,7 @@ where [∇^λ, ∇_μ]k_λν := ∇^λ∇_μk_λν − ∇_μ∇^λk_λν is of 
 (c) If k = 0 on Σ^IVP, then K̇ = ½(∇_n k)|_(TΣ^IVP).
 
 (d) If k = 0 on Σ^IVP, then in an orthonormal frame (n, e_i) there, with k′ := ∇_n k:
-Θ(k)(e_j) = k′(n, e_j) and Θ(k)(n) = ½k′(n, n) + ½Σ_i k′(e_i, e_i).
+−Υ̇⁰(k)(e_j) = k′(n, e_j) and −Υ̇⁰(k)(n) = ½k′(n, n) + ½Σ_i k′(e_i, e_i).
 
 (e) If X = 0 on Σ^IVP and ∇_n X = Y there, then on Σ^IVP: (ℒ_Xg)(e_i, e_j) = 0, (ℒ_Xg)(n, e_j) = g(Y, e_j) and
 (ℒ_Xg)(n, n) = 2g(Y, n). For k with k(e_i, e_j) = 0 on Σ^IVP, the vector field Y := Σ_j k(n, e_j)e_j − ½k(n, n)n on
@@ -615,8 +615,9 @@ the Ricci tensor is DRic(k)_μν = ∇_κΓ̇^κ_μν − ∇_νΓ̇^κ_κμ, wi
 
     DRic(k)_μν = ½(∇^λ∇_μk_λν + ∇^λ∇_νk_λμ − ∇^λ∇_λk_μν − ∇_μ∇_ν tr_g k).
 
-Θ(k)_ν = −∇^λk_λν + ½∇_ν tr_g k, so (δ*_gΘ(k))_μν = −½(∇_μ∇^λk_λν + ∇_ν∇^λk_λμ) + ½∇_μ∇_ν tr_g k. Adding gives the
-formula for 2L⁰ = 2DRic + 2δ*_gΘ. For a 1-form w, tr_g δ*_g w = ∇^λw_λ and
+−Υ̇⁰(k)_ν = (δ_gG_gk)_ν = −∇^λk_λν + ½∇_ν tr_g k ([[sec:ix-0]]), so
+(−δ*_gΥ̇⁰(k))_μν = −½(∇_μ∇^λk_λν + ∇_ν∇^λk_λμ) + ½∇_μ∇_ν tr_g k. Adding gives the formula for
+2L⁰ = 2DRic − 2δ*_gΥ̇⁰. For a 1-form w, tr_g δ*_g w = ∇^λw_λ and
 
     (δ_gG_gδ*_g w)_ν = −½∇^λ∇_λw_ν − ½∇^λ∇_νw_λ + ½∇_ν∇^λw_λ = −½∇^λ∇_λw_ν − ½Ric_νλw^λ,
 
@@ -641,8 +642,9 @@ its tangential covariant derivatives vanish there, ∇_Xk = ∇_Yk = 0. So K̇(X
 
 (d) As k = 0 on Σ^IVP, ∇_(e_i)k = 0 there, and only normal derivatives survive. In the frame,
 g⁻¹ = −n ⊗ n + Σ_i e_i ⊗ e_i, so the divergence is ∇^λk_λ· = −(∇_nk)(n, ·) + Σ_i(∇_(e_i)k)(e_i, ·) = −k′(n, ·);
-and d tr_g k = tr_g ∇k vanishes on e_j, while (d tr_g k)(n) = tr_g k′ = −k′(n, n) + Σ_i k′(e_i, e_i). So
-Θ(k)(e_j) = k′(n, e_j), and Θ(k)(n) = k′(n, n) + ½(−k′(n, n) + Σ_i k′(e_i, e_i)) = ½k′(n, n) + ½Σ_i k′(e_i, e_i).
+and d tr_g k = tr_g ∇k vanishes on e_j, while (d tr_g k)(n) = tr_g k′ = −k′(n, n) + Σ_i k′(e_i, e_i). As
+−Υ̇⁰(k) = −∇^λk_λ· + ½ d tr_g k, this gives −Υ̇⁰(k)(e_j) = k′(n, e_j), and
+−Υ̇⁰(k)(n) = k′(n, n) + ½(−k′(n, n) + Σ_i k′(e_i, e_i)) = ½k′(n, n) + ½Σ_i k′(e_i, e_i).
 
 (e) As X = 0 on Σ^IVP, its tangential covariant derivatives vanish there, ∇_(e_i)X = 0, and ∇_nX = Y. With
 (ℒ_Xg)(a, b) = g(∇_aX, b) + g(a, ∇_bX) this gives the three values. For the given k, Y = Σ_j k(n, e_j)e_j − ½k(n, n)n
@@ -667,7 +669,8 @@ on Ω′_+, smooth up to Σ_U, with
 X is unique up to a Killing field of g on Ω′_+.
 
 *Proof.* Ω′ is globally hyperbolic with smooth spacelike Cauchy hypersurface Σ_U ([[lem:ix-1-2]]), and the data of a
-tensor smooth up to Σ_U are defined from one side ([[lem:viii-1-1]] allows this). Uniqueness up to Killing fields is
+tensor smooth up to Σ_U are defined from one side (the definition of linearised data in [[sec:ix-0]] allows this).
+Uniqueness up to Killing fields is
 ℒ_(X−X′)g = 0.
 
 *Step 0 (zero data).* Let W = W̃ ∩ Ω′_+, W̃ open in Ω′, be the neighbourhood of Σ_U where Z is defined, and
@@ -676,15 +679,15 @@ k_0 := k − ℒ_(ψZ)g has DRic(k_0) = 0 ([[lem:ix-2-1]] (b)), and it induces z
 as ψZ = Z near Σ_U. If k_0 = ℒ_(X_0)g, then k = ℒ_(X_0+ψZ)g. So we may assume Z = 0.
 
 *Step 1 (the gauge vector field).* Zero data means k(e_i, e_j) = 0 on Σ_U (γ̇ = 0) and K̇ = 0. Let Y be the vector
-field of [[lem:ix-2-1]] (e) on Σ_U, smooth, as Y^♭ = k(n, ·) + ½k(n, n)n^♭. Θ(k) is a 1-form on Ω′_+, smooth up to
-Σ_U. Let F be a smooth 1-form on Ω′ with F = Θ(k) on Ω′_+: [[sec:ix-0]] extends Θ(k) to an open neighbourhood V of
-Ω′_+ in Ω′, and a smooth function equal to 1 on the closed set Ω′_+ with support in V (smooth Urysohn) extends it by
-0 beyond. By [[lem:ix-1-1]] on Ω′, with P := 2δ_gG_gδ*_g ([[lem:ix-2-1]] (a)), there is a smooth 1-form w on Ω′ with
+field of [[lem:ix-2-1]] (e) on Σ_U, smooth, as Y^♭ = k(n, ·) + ½k(n, n)n^♭. Υ̇⁰(k) = −δ_gG_gk is a 1-form on Ω′_+,
+smooth up to Σ_U. Let F be a smooth 1-form on Ω′ with F = −Υ̇⁰(k) on Ω′_+: [[sec:ix-0]] extends Υ̇⁰(k) to an open
+neighbourhood V of Ω′_+ in Ω′, and a smooth function equal to 1 on the closed set Ω′_+ with support in V (smooth
+Urysohn) extends it by 0 beyond. By [[lem:ix-1-1]] on Ω′, with P := 2δ_gG_gδ*_g ([[lem:ix-2-1]] (a)), there is a smooth 1-form w on Ω′ with
 
     2δ_gG_gδ*_g w = F,        w|_(Σ_U) = 0,        ∇_n w|_(Σ_U) = Y^♭.
 
 Put X := w^♯, a smooth vector field on Ω′; the theorem's X is its restriction to Ω′_+, and [[lem:ix-2-1]] (f) applies
-to it as it stands. Then Θ(ℒ_X g) = Θ(2δ*_g w) = F = Θ(k) on Ω′_+, and X = 0, ∇_n X = Y on Σ_U.
+to it as it stands. Then −Υ̇⁰(ℒ_X g) = δ_gG_g(2δ*_g w) = F = −Υ̇⁰(k) on Ω′_+, and X = 0, ∇_n X = Y on Σ_U.
 
 *Step 2 (the difference has vanishing Cauchy data).* Let h := k − ℒ_X g.
 
@@ -693,12 +696,12 @@ to it as it stands. Then Θ(ℒ_X g) = Θ(2δ*_g w) = F = Θ(k) on Ω′_+, and 
 - h induces zero linearised data: k does by assumption, and ℒ_X g does by [[lem:ix-2-1]] (f). So by
   [[lem:ix-2-1]] (c), (∇_n h)(e_i, e_j) = 2K̇(e_i, e_j) = 0.
 
-- Θ(h) = 0 on Ω′_+ by Step 1. At Σ_U, [[lem:ix-2-1]] (d) with h′ := ∇_n h and h′(e_i, e_i) = 0 gives h′(n, e_j) = 0
-  and h′(n, n) = 0.
+- Υ̇⁰(h) = 0 on Ω′_+ by Step 1. At Σ_U, [[lem:ix-2-1]] (d) with h′ := ∇_n h and h′(e_i, e_i) = 0 gives
+  h′(n, e_j) = 0 and h′(n, n) = 0.
 
 So h|_(Σ_U) = 0 and ∇_n h|_(Σ_U) = 0.
 
-*Step 3 (it vanishes).* DRic(h) = DRic(k) − DRic(ℒ_X g) = 0 ([[lem:ix-2-1]] (b)), and Θ(h) = 0, so L⁰h = 0 on Ω′_+
+*Step 3 (it vanishes).* DRic(h) = DRic(k) − DRic(ℒ_X g) = 0 ([[lem:ix-2-1]] (b)), and Υ̇⁰(h) = 0, so L⁰h = 0 on Ω′_+
 by [[eq:ix-0-1]]; h is smooth up to Σ_U.
 
 - *h vanishes to infinite order along Σ_U.* Work in coordinates (t_IVP, y) near a point of Σ_U. As h = 0 on Σ_U,
@@ -719,8 +722,9 @@ by [[eq:ix-0-1]]; h is smooth up to Σ_U.
 2L⁰ is normally hyperbolic ([[lem:ix-2-1]] (a)). [[thm:std-bgp-cauchy]] (3) on Ω′, on each component, gives h̃ = 0,
 so h = 0 on Ω′_+. ∎
 
-**Corollary {#cor:ix-2-3}** (The solution of [[thm:viii-2-2]] in any gauge.) Let (γ̇, k̇), ġ, S′, ḃ and U′ be as in
-[[thm:viii-2-2]], U ⊂ U^♯ open, Ω′ := D_U(Σ_U) and Ω′_+ := Ω′ ∩ {t_IVP ≥ 0} ⊂ N⁺ ⊂ N. Let ġ′ be a symmetric 2-tensor
+**Corollary {#cor:ix-2-3}** (The solution of [[thm:viii-2-2]] in any gauge.) Let (γ̇, k̇), ġ, S′, S⁰′, ḃ and U′ be as
+in [[thm:viii-2-2]], U ⊂ U^♯ open, Ω′ := D_U(Σ_U) and Ω′_+ := Ω′ ∩ {t_IVP ≥ 0} ⊂ N⁺ ⊂ N_ν. Let ġ′ be a symmetric
+2-tensor
 on Ω′_+, smooth up to Σ_U, with DRic(ġ′) = 0, that induces on Σ_U the data (γ̇, k̇) plus those of ℒ_Z g, for a vector
 field Z near Σ_U in Ω′_+, smooth up to Σ_U. Then
 

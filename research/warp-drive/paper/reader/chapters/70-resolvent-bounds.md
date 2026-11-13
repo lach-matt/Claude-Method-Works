@@ -144,8 +144,11 @@ normalised, u_h ~ e^(−iσr_*) and u_∞ ~ e^(iσr_*) together with their deriv
 does not increase toward the barrier on the stated intervals. ∎
 
 For m = 1 put g_l := (κ + 3/4)/r² + 9/(4r⁴), so that V_l = fg_l. Then −4g_l/r ≤ dg_l/dr ≤ −2g_l/r, and with
-df/dr = 2/r³ and f = 1 − 1/r², dV_l/dr = g_l df/dr + f dg_l/dr lies between (g_l/r³)(6 − 4r²) and (g_l/r³)(4 − 2r²):
-V_l increases in r for r² < 3/2 and decreases for r² > 2, for every l.                                  {#eq:rb-monotone}
+df/dr = 2/r³ and f = 1 − 1/r², dV_l/dr = g_l df/dr + f dg_l/dr satisfies
+
+    (g_l/r³)(6 − 4r²) ≤ dV_l/dr ≤ (g_l/r³)(4 − 2r²):                                                  {#eq:rb-monotone}
+
+V_l increases in r for r² < 3/2 and decreases for r² > 2, for every l.
 
 **Lemma {#lem:rb-end-signs}** (The signs at the ends of I.) Let x_1 < α and x_2 > β be points with
 V_σ(x_1) = V_σ(x_2) = 0 and V_σ ≥ 0 on [x_1, x_2], with V_l nondecreasing on (−∞, x_1] and nonincreasing on [x_2, ∞).
@@ -248,28 +251,16 @@ the multiplier bounds below, only for the harmonics with V_max ≥ σ² below l_
 12 ≤ l < 50, min_I V_σ > 0 and only the end signs of [[lem:rb-end-signs]] are missing; for 5 ≤ l < 12 the barrier top
 lies above σ² without covering I.
 
-**Remark {#rem:rb-band-observed}** (Numerical observation.) V_l' changes sign once for every l ≤ 40 in a numerical
-check, as [[prop:resolvent-above-barrier]] proves for all l. On I (Λ = 3.74), the cut-off norm computed from numerical
-solutions of the radial equation lies below the bound of [[prop:resolvent-above-barrier]]: 1.89 ≤ 7.57 at σ = 1, l = 0;
-0.41, 0.42, 0.45, 0.51, 0.67 ≤ 1.32, 1.45, 1.72, 2.35, 4.44 at σ = 3, l = 0, …, 4; a tenth of the bound falls below the
-computed norm. At σ = 3 the band between the two bounds was computed the same way (161-point kernel, l = 0, …, 25):
-
-| l | max V_l | min_I V_σ | ‖χ_I R_l χ_I‖ | 1/min_I V_σ | \|𝒲\|/(2σ) | max_I \|u_h\|² |
-|---|---|---|---|---|---|---|
-| 4 | 6.47 | −7.54 | 0.672 | - | 1.01 | 2.22 |
-| 5 | 9.22 | −6.90 | 1.132 | - | 1.46 | 11.6 |
-| 6 | 12.47 | −6.14 | 0.983 | - | 10.4 | 737 |
-| 8 | 20.47 | −4.26 | 0.725 | - | 1.42 × 10³ | 1.39 × 10⁷ |
-| 11 | 36.22 | −0.57 | 0.287 | - | 4.72 × 10⁶ | 9.18 × 10¹³ |
-| 12 | 42.47 | 0.90 | 0.193 | 1.116 | 8.29 × 10⁷ | 1.15 × 10¹⁶ |
-| 17 | 81.22 | 9.98 | 0.0551 | 0.1002 | 3.74 × 10¹⁴ | 7.17 × 10²⁵ |
-| 25 | 169.22 | 30.60 | 0.0225 | 0.0327 | 2.39 × 10²⁶ | 5.29 × 10⁴⁰ |
-
-The computed norm peaks at l = 5, at 1.132, the harmonic whose barrier top 9.22 lies nearest σ² = 9; it is at most
-1.132 for l ≤ 25 and falls like about 1/(l(l + 2)) beyond. Where min_I V_σ > 0 the computed norm lies below 1/min_I V_σ,
-also at 12 ≤ l ≤ 17, where the end-sign conditions fail. For 5 ≤ l ≤ 11, max_I|u_h|² grows to 10¹⁴ while |𝒲|/(2σ) grows
-in step, and the kernel stays of order 1. The computed cut-off norms on I at further frequencies are, for
-l = 0, 1, 2, 4, 8, 16, 32: 4.75, 1.66, 0.79, 0.33, 0.12, 0.040, 0.012 at σ = 0.3; 1.89, 3.00, 1.96, 0.55, 0.14, 0.042,
-0.012 at σ = 1; and 0.41, 0.42, 0.45, 0.67, 0.73, 0.065, 0.014 at σ = 3, where the exponential constant of
-[[prop:resolvent-outgoing]] is 10⁶⁰ at (σ, l) = (0.3, 8). No proof uses these values.
+**Remark {#rem:rb-band-observed}** (Numerical observation.) On I (Λ = 3.74), the cut-off norm computed from numerical
+solutions of the radial equation (a discretised kernel of 161 points) lies below the bound of
+[[prop:resolvent-above-barrier]]: 1.89 ≤ 7.57 at σ = 1, l = 0, and 0.41, 0.42, 0.45, 0.51, 0.67 ≤ 1.32, 1.45, 1.72,
+2.35, 4.44 at σ = 3, l = 0, …, 4; a tenth of the bound falls below the computed norm. Between the two bounds, at σ = 3,
+the computed norm is 0.672, 1.132, 0.983, 0.725, 0.287, 0.193, 0.0551 and 0.0225 at l = 4, 5, 6, 8, 11, 12, 17 and 25
+(max V_l = 6.47, 9.22, 12.47, 20.47, 36.22, 42.47, 81.22, 169.22). It peaks at l = 5, the harmonic whose barrier top
+lies nearest σ² = 9, is at most 1.132 for l ≤ 25, and falls like about 1/(l(l + 2)) beyond; where min_I V_σ > 0
+(l ≥ 12) it lies below 1/min_I V_σ (1.116, 0.1002, 0.0327 at l = 12, 17, 25), also where the end-sign conditions of
+[[lem:rb-end-signs]] fail. For 5 ≤ l ≤ 11, max_I|u_h|² grows to 9.18 · 10¹³ while |𝒲|/(2σ) grows in step to
+4.72 · 10⁶, and the kernel stays of order 1. At further frequencies the computed norms for l = 0, 1, 2, 4, 8, 16, 32 are
+4.75, 1.66, 0.79, 0.33, 0.12, 0.040, 0.012 at σ = 0.3 and 1.89, 3.00, 1.96, 0.55, 0.14, 0.042, 0.012 at σ = 1, while
+the constant of [[prop:resolvent-outgoing]] (b) is about 10⁶⁰ at (σ, l) = (0.3, 8). No proof uses these values.
 

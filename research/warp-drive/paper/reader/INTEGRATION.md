@@ -606,3 +606,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   g_(b₀)⁻¹(dt_*, dt_*) ≤ 0). Minors: Prop. 1.2 (1) on all of 𝒟 (chapter 45's new argument); the projection on the slab;
   (L) for forcing in H^k and k < 4; Prop. 1.2 (3) only a modulus of continuity; (C3) needs the companions' leading terms
   (lem:iii-i14-2-1); lem:s27-boost-move two-sided radius.
+- S11/S12 confirming reading (R2-S11-S12): one parameter set ℬ, ℬ_* ⊂ B̄_1 ⊂ ℬ, ℬ_VI ⊂ ℬ; (E1) for integer s, (E2)'s
+  analytic Fredholm and finite-rank proofs; S12's identity, simplicity of r₊, transversality, signature all correct.
+  S12 CONFIRMED. S11 minors: (E1), (E2), (EE), lem:iii-a-1-4-5 proved for scalar operators only but used on bundles in
+  S14, S15, S22, S24; (E2) gives the derivative gain only for negative-power coefficients. Nits: Theorem 3.21 on p. 38;
+  uP → uΠ (S12:783); r₋ ≤ ‖A‖ (equality at A = 0); 𝒩 clashes with OUTLINE's energy (rename); sampled m in the remark.
+- S13 third reading (R3-S13) CONFIRMED: ℳ uses roots with |Re ι| ≤ 10 (every sl, vl root has |Re ι| ≥ l − 1); every
+  use of ε_Υ (chapters 32, 34, 36, 40, 41, 46) needs only those roots; NP 10.30 (ii) for every z > 0. Nits for
+  integration: line 1197 justify the upper bound z/2 and ι + l > 0; remark (d) 1993-1996 add that in 3 + 1 dimensions
+  μ_s0 + 1 = 0 is a root at z = 0.
