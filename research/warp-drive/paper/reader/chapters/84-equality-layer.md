@@ -898,13 +898,14 @@ v* − v_s ≥ (y/C_κ)^(1/κ) for every κ ≥ 1, C_κ := sup |env^(κ)|/κ!.
 *Proof.* E is continuous and nondecreasing, E = 0 on (−∞, v_s] and E(v) = sup |env| for v ≥ v_end. If E(v′) ≥ y, the
 intermediate value theorem on [v_s, v′] gives a point of (v_s, v′] where E = y. So {E = y} is a nonempty closed set
 contained in (v_s, ∞); v* is its least element, v_s < v*, v* ≤ v′ whenever E(v′) ≥ y, and E < y on (−∞, v*). Since
-E(v*) = y is the maximum of |env| over (−∞, v*] and |env| ≤ E < y on (−∞, v*), the maximum is taken at v*: |env(v*)| = y.
-Let v_+ be the largest point of [v*, v* + L] such that E ≤ 2y on [v*, v_+]; it exists, E being continuous with E(v*) = y
-< 2y. On (−∞, v_+], E ≤ 2y, so [[lem:layer-interpolation]] at i = 1 gives |env′| ≤ C_(1,m) (2y)^(1−1/m) M_m^(1/m),
-and |env − env(v*)| ≤ L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4 on [v*, v_+]. Since |env(v*)| = y, env keeps the sign of
-env(v*) on [v*, v_+], with |env| ∈ [3y/4, 5y/4], and then E ≤ max(y, 5y/4) < 2y on [v*, v_+]. If v_+ < v* + L, the
-continuity of E would give E ≤ 2y on a longer interval; so v_+ = v* + L. The bound on ε_M is [[eq:layer-cost-level]] with
-E ≤ 5y/4 ≤ 1. Finally all derivatives of env vanish at v_s, so Taylor's formula gives y = |env(v*)| ≤ C_κ (v* − v_s)^κ. ∎
+E(v*) = y is the maximum of |env| over (−∞, v*] and |env| ≤ E < y on (−∞, v*), the maximum is taken at v*, that
+is, |env(v*)| = y. Let v_+ be the largest point of [v*, v* + L] such that E ≤ 2y on [v*, v_+]; it exists, since E is
+continuous and E(v*) = y < 2y. On (−∞, v_+], E ≤ 2y, so [[lem:layer-interpolation]] at i = 1 bounds |env′| there by
+C_(1,m) (2y)^(1−1/m) M_m^(1/m), and |env − env(v*)| ≤ L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4 on [v*, v_+].
+Since |env(v*)| = y, env keeps the sign of env(v*) on [v*, v_+], with |env| ∈ [3y/4, 5y/4], and then
+E ≤ max(y, 5y/4) < 2y on [v*, v_+]. If v_+ < v* + L, the continuity of E would give E ≤ 2y on a longer interval; so
+v_+ = v* + L. The bound on ε_M is [[eq:layer-cost-level]] with E ≤ 5y/4 ≤ 1. Finally all derivatives of env vanish
+at v_s, so Taylor's formula gives y = |env(v*)| ≤ C_κ (v* − v_s)^κ. ∎
 
 No regularity of env at its edge beyond smoothness is used: the lemmas hold for every C_c^∞ envelope.
 

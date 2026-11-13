@@ -1389,8 +1389,9 @@ C depends on λ and J. With w ≤ C r², d⁴x = r³ dr dω and 𝒮^♭_T = {r_
 on Σ̃_T is at most C ∫_(r_T)^∞ r² (λ² r⁻⁸ + r⁻¹²) r³ dr + C r_T^(2+3) r_T^(−10) d_V ≤ C λ² |T|⁻² + C |T|⁻⁴, as
 r_T ≥ c_W (1 + |T|). Gronwall's inequality, with constants independent of T, gives E_σ[D_T] ≤ C λ² |T|⁻² + C(λ, J) |T|⁻⁴
 for σ ∈ [T, 0], which tends to 0 as T → −∞.
-(iii) *The limit.* As T → −∞, g_T = g_T^(J) → g in C² on compact subsets of W ([[thm:own-continuation]], k_J − 3 ≥ 5), so D(g_T) → D(g) in C¹ there, and the energy of
-D(g) on any compact part of any Σ̃_σ is the limit of those of D_T, hence 0: ∂D(g) = 0 on W. As D(g) = 0 on N, D(g) = 0.
+(iii) *The limit.* As T → −∞, g_T = g_T^(J) → g in C² on compact subsets of W ([[thm:own-continuation]],
+k_J − 3 ≥ 5), so D(g_T) → D(g) in C¹ there, and the energy of D(g) on any compact part of any Σ̃_σ is the limit of
+those of D_T, hence 0: ∂D(g) = 0 on W. As D(g) = 0 on N, D(g) = 0.
 Then Ric(g) = Ric^H(g) + ½(∇D + ∇D^T) + C = 0. g_λ is vacuum on P′ ∪ Ω′, and the join across N is smooth
 ([[thm:own-continuation]]). ∎
 
