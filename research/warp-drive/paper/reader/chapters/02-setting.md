@@ -74,7 +74,7 @@ then e^(−2A) R11 ± e^(−2B) R22 = 0, so R11 = R22 = 0, then Ric[g5]_ab = 0, 
 [[lem:warped-ricci]]. ∎
 
 With ψ̃ := (√3/2) ψ, [[eq:reduced]] reads Ric[h] = 2 (dψ̃² + dω²), □_h ψ̃ = □_h ω = 0: Huneau and Luk's system [HL18]
-(1.3),quoted in [[ch:introduction]], with the scalar φ replaced by the pair (ψ̃, ω), whose target is the flat Euclidean
+(1.3), quoted in [[ch:introduction]], with the scalar φ replaced by the pair (ψ̃, ω), whose target is the flat Euclidean
 plane.
 
 ### The background {#sec:background}

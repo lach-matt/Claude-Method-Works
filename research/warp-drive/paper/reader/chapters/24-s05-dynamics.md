@@ -389,7 +389,7 @@ defining function of ∂R_(ℋ⁺) and 𝖧F ≥ cF on W. At ∂R_(ℋ⁺),
 
     ρ_∞⁻¹𝖧ρ_∞ = β₀ > 0,        ρ_K⁻²𝖧ρ_K = ρ_∞τ₁ ≤ −ββ₀ < 0,                                         {#eq:ii-b-4-1}
 
-with β₀, β of (H3). So ∂R_(ℋ⁺) is a source for the flow within ³ᵇS*_((K⁺)°)M₀ (not only within ∂Σ⁺), ρ_∞ grows
+with β₀, β of (H3). So ∂R_(ℋ⁺) is a repeller for the flow within ³ᵇS*_((K⁺)°)M₀ (not only within ∂Σ⁺), ρ_∞ grows
 along the flow near it, and ρ_K decays. This is [Hin26c, Lemma 4.9 and (4.28)].
 
 *Proof.* For a function f(x, [ζ]), independent of σ and t_* and homogeneous of degree 0 in ζ, [[lem:ii-b-2-1]] and
