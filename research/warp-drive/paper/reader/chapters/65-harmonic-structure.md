@@ -743,3 +743,391 @@ connection coefficients in the Cartesian frame are O(r⁻¹), and □_0t^♭_* =
 r∂_r- and ∂_(t_*)-derivatives are O(ρ_I^p), the commutator term is O(ρ_I^(p+1)) with its b-derivatives. Choosing
 b_I ∈ (b_+, min(p, 3/2)) in [[lem:gd-r3-5]], it lies in the space there. So χ(t^♭_*)Z_1 is the forward solution of a
 forcing term in that space, and the proof of [[thm:gd-r3-4]] (iii) applies to it; at late times χ(t^♭_*)Z_1 = Z_1. ∎
+
+### The 1-form wave operator near spatial and null infinity {#sec:hg-exterior}
+
+The hypothesis of [[prop:gd-r3-6]] concerns the region near I₀ ∪ ℐ⁺, where the exterior theory of
+[[sec:iv-0]]–[[sec:iv-4]], [[sec:iv1-0]]–[[sec:iv2-4]] and [[sec:iv3-0]]–[[sec:iv3-2]] is written for the linearised
+gauge-fixed Einstein operator. It carries over to □: in Cartesian components □ is the scalar wave operator on each component plus a coupling that
+decays like |x|⁻³.
+
+*Setting.* On {|x| ≥ 3R₁}, in the coordinates (t, x) of [[sec:iii-b-3]], g = η + m₀|x|⁻²ℓ ⊗ ℓ with
+ℓ := dt − d|x| ([[lem:iii-b-3-5]] (b)), a Kerr–Schild metric with the η-null form ℓ, so det g = −1. The chart of
+[[sec:iv-0]] is used: ρ₀, ρ_I, ρ = ρ₀ρ_I = |x|⁻¹, x_I = ρ_I^(1/2), X₀ and X_I, with M_♯ and the edge-b structures there.
+1-forms are written in the Cartesian frame dt, dx^i (i = 1, …, 4), the fixed smooth frame of the spaces of
+[[ch:s05]]; the frames (dt, dr, r dω) and that of [[sec:iii-c-1]] differ from it by smooth bounded functions of x/|x|,
+so the weighted b-spaces and the pointwise orders do not depend on the frame. □_0 is the scalar wave operator, and
+
+    L_□ := ρ_Iρ^(−7/2) □ ρ^(3/2)     on Cartesian components,                                            {#eq:gd-r4-1}
+
+the conjugation of [[eq:iv-2-1]] applied componentwise; L is the scalar operator of [[eq:iv-2-1]].
+
+**Lemma {#lem:gd-r4-1}** (The operator and its indicial data.)
+
+(a) For every 1-form Z, (□Z)_c = □_0Z_c + C_c^(νb)∂_bZ_ν + D_c^νZ_ν, with C and D stationary, C = Σ_(k≥1)m₀^kC_k
+and D = Σ_(k≥1)m₀^kD_k finite sums, C_k and D_k homogeneous in x of degrees −1 − 2k and −2 − 2k (so O(|x|⁻³) and
+O(|x|⁻⁴) with every derivative), and C_1 ≠ 0. There is no second-order coupling.
+
+(b) L_□ = L ⊗ Id + E with E ∈ ρ₀²x_I⁴C^∞(M_♯)Diff¹_(e,b)(M_♯). So [[eq:iv-2-2]] holds for L_□ with
+L̃_□ := L̃ ⊗ Id + E ∈ x_IDiff²_(e,b); [[eq:iv1-1-1]] holds for L_□ with Ā = 0 and without the terms of h; and the
+commutators of L_□ with X₀, X_I and the rotation fields, acting on each Cartesian component, lie in
+x_IDiff^(1;1)_(e,b;b) (as [[eq:iv-2-3]] for L).
+
+(c) (*At ℐ⁺.*) For every constant Cartesian covector e, L_□(ρ₀^aρ_I^λ e) = −2λ(a − λ)ρ₀^aρ_I^λ e + o(ρ_I^λ) at fixed
+ρ₀ and ω. The indicial roots are λ = 0, a radiation field (Z = ρ^(3/2)u of ℐ⁺-order 3/2 in every Cartesian
+component), and λ = a.
+
+(d) (*At I₀.*) In (τ, ρ) := (t/|x|, |x|⁻¹), ρ^(−2−α)□_0(ρ^αv(τ)) → (1 − τ²)v″ + (1 − 2α)τv′ + α(2 − α)v as ρ → 0,
+the coefficient of v″ not depending on α; the coupling of (a) is O(ρ²) relative to this and does not enter. So τ is a
+b-time function on {|τ| < 1} for every weight: there is no indicial restriction at I₀.
+
+(e) (*The multiplier.*) With Ā = 0, the identity [[eq:iv-3-3]] holds on each Cartesian component, and its coefficients
+−4α_I, 4κ(α₀ − α_I) and c_A = 1 + 2(α₀ − α_I) + κ(1 − 2α_I) are positive for every κ > 0 if and only if
+α_I < min(α₀, 0).
+
+*Proof.* (a) As g − η = m₀Hℓ ⊗ ℓ with H := |x|⁻² and ℓ η-null, g⁻¹ = η⁻¹ − m₀Hℓ^♯ ⊗ ℓ^♯ exactly (ℓ^♯ := η⁻¹ℓ):
+(η + m₀Hℓ ⊗ ℓ)(η⁻¹ − m₀Hℓ^♯ ⊗ ℓ^♯) = I − m₀²H²η⁻¹(ℓ, ℓ)ℓ ⊗ ℓ^♯ = I. The coefficients of ℓ are homogeneous of degree 0
+in x and stationary, so ∂(Hℓ ⊗ ℓ) is homogeneous of degree −3, and the Christoffel symbols are Γ = m₀Γ_1 + m₀²Γ_2,
+with Γ_1 = ½η⁻¹∂(Hℓ ⊗ ℓ)-terms of degree −3 and Γ_2 = −½Hℓ^♯ ⊗ ℓ^♯ · ∂(Hℓ ⊗ ℓ)-terms of degree −5. On the Ricci-flat
+g, □ = −∇^α∇_α; written out, −∇^α∇_αZ_c = −g^(ab)(∂_a∂_bZ_c − Γ^d_(ab)∂_dZ_c) + 2g^(ab)Γ^ν_(ac)∂_bZ_ν + (terms in ∂Γ
+and ΓΓ)Z, and the first bracket is □_0Z_c. So C^(νb)_c = 2g^(ab)Γ^ν_(ac) and D is a sum of products g⁻¹∂Γ and
+g⁻¹ΓΓ; expanding g⁻¹ = η⁻¹ − m₀Hℓ^♯ ⊗ ℓ^♯ gives the stated sums and degrees, and no second-order term other than
+□_0's. C_1 = 2η^(ab)(Γ_1)^ν_(ac): its component with ν = b = t and c the index of x^1 is −2(Γ_1)^t_(t1), and
+(Γ_1)^t_(t1) = ½η^(tt)∂_1(Hℓ_tℓ_t) = −½∂_1H (ℓ_t = 1, ∂_tH = 0), so the component is ∂_1H = −2x^1|x|⁻⁴ ≠ 0.
+
+(b) By [[lem:iv1-1-1]], ∂_t, ∂_(x^i) ∈ ρ₀𝒱_(e,b) and |x|⁻¹∂_ω ∈ ρ₀x_I𝒱_(e,b). A coefficient homogeneous of degree −d in
+x is ρ^d times a smooth function of x/|x|, and ρ = ρ₀x_I². The prefactor is ρ_Iρ^(−2) = ρ₀^(−2)x_I^(−2), and the
+conjugation adds (3/2)∂_b log ρ, of degree −1. So C∂(ρ^(3/2)u) contributes ρ₀^(−2)x_I^(−2) · ρ₀³x_I⁶ · ρ₀𝒱_(e,b) ⊂
+ρ₀²x_I⁴Diff¹_(e,b) and ρ₀^(−2)x_I^(−2) · ρ₀³x_I⁶ · ρ₀x_I² ⊂ ρ₀²x_I⁶C^∞; D contributes ρ₀²x_I⁶C^∞; the higher powers of
+m₀ more decay. L ⊗ Id is the conjugated □_0 on each component ([[eq:iv-2-1]]). As 𝒱_(e,b) is a Lie algebra and
+differentiation along it preserves ρ₀^(ℓ₀)x_I^(ℓ_I)C^∞ ([[rem:iv-1-3]]), [E, X] ∈ ρ₀²x_I⁴Diff¹_(e,b) for
+X ∈ {X₀, X_I, rotations}, and with [[eq:iv-2-3]] for L this gives the commutators. The other claims are restatements:
+E ∈ x_IDiff²_(e,b), and its first-order part replaces the matrix Ā of [[eq:iv1-1-1]] by 0.
+
+(c) By [[eq:iv-2-2]], L = −2X_I(X₀ − X_I) + x_I²(Δ̸ + ¾) + L̃ with L̃ ∈ x_IDiff²_(e,b). As X₀ρ₀^a = aρ₀^a and
+X_Iρ_I^λ = λρ_I^λ, −2X_I(X₀ − X_I)(ρ₀^aρ_I^λ) = −2λ(a − λ)ρ₀^aρ_I^λ; the other terms of L, and E by (b), are
+O(x_Iρ_I^λ) = o(ρ_I^λ). The roots of −2λ(a − λ) are 0 and a, and Z = ρ^(3/2)u with u of ℐ⁺-order 0 has order 3/2.
+
+(d) For η, □_0 = ∂_t² − ∂_r² − 3r⁻¹∂_r − r⁻²Δ̂ on functions. With ρ = 1/r and τ = t/r, ∂_tρ = 0, ∂_tτ = ρ, ∂_rρ = −ρ²
+and ∂_rτ = −τρ; so for u = ρ^αv(τ), ∂_t²u = ρ^(α+2)v″, ∂_ru = −ρ^(α+1)(αv + τv′) and
+∂_r²u = ρ^(α+2)((α + 1)(αv + τv′) + (α + 1)τv′ + τ²v″). Hence □_0u = ρ^(α+2)((1 − τ²)v″ + (1 − 2α)τv′ + α(2 − α)v)
+exactly for η. For g, g⁻¹ − η⁻¹ = O(ρ²) and Γ = O(ρ³) with all derivatives, and the derivatives of u of order one and
+two are O(ρ^(α+1)) and O(ρ^(α+2)); so the corrections, and the coupling terms C∂Z = O(ρ³ · ρ^(α+1)) and
+DZ = O(ρ⁴ · ρ^α), are O(ρ^(α+4)), two orders below.
+
+(e) [[eq:iv-3-3]] is an identity for the leading part L₀ = −2X_I(X₀ − X_I) + ρ_I(Δ̸ + ¾) of [[eq:iv-2-2]], which acts
+on each Cartesian component of L_□ by (b). Its coefficients are 4|α_I| (written for α_I < 0), 4κ(α₀ − α_I) and c_A. If
+α_I < min(α₀, 0), then −4α_I > 0, 4κ(α₀ − α_I) > 0 and c_A > 1 + κ > 0; conversely positivity of the first two for
+some κ > 0 needs α_I < 0 and α₀ > α_I. ∎
+
+**Proposition {#prop:gd-r4-2}** (The exterior estimate for □.) Let 𝒟, Ω_(ext,r_1), 𝒦, 𝒮,
+Ω^♮ := Ω_(ext,r_1) ∪ 𝒮, ρ′₀, ρ′_I and c_1 be those of [[sec:iii-k-0]], the proof of [[prop:iii-k-1-2]] and
+[[sec:iv3-0]]–[[sec:iv3-2]], at S = 0; put 𝒟⁺ := 𝒟 ∩ {t_IVP ≥ 0}, τ′ := t_IVP/|x| and
+Ω^♮_(c_1) := Ω^♮ ∩ {ρ′_I < c_1}. Let a₀ ∈ ℝ, α_I < min(a₀, 0) and m ∈ ℕ_0. Let F be a smooth 1-form on 𝒟⁺ with
+f_♭ := ρ_Iρ^(−7/2)F ∈ H^(m+4,(a₀,2α_I))_b over Ω^♮ near infinity (in the translated chart over 𝒮) and
+F ∈ H^(m+4)(𝒦). Then the solution Z of □Z = F on 𝒟⁺ with vanishing Cauchy data on Σ^IVP lies in H^(m+1)(𝒦), and
+u := ρ^(−3/2)Z satisfies
+
+    ‖u‖_(H^(m+1,a₀)_b(Ω^♮∩{ρ′_I>c_1/2})) + ‖u‖_(H^((1;m),(a₀,2α_I))_(e,b;b)(Ω^♮_(c_1)))
+        ≤ C(‖f_♭‖_(H^(m+4,(a₀,2α_I))_b) + ‖F‖_(H^(m+4)(𝒦))).                                         {#eq:gd-r4-2}
+
+(The loss of four derivatives is the d of [[thm:iv2-2-4]]. Compactly supported F is allowed.)
+
+*Proof.* We follow [[prop:iv-3-1]], [[prop:iv-4-1]], [[prop:iv1-2-2]], [[lem:iv2-2-2]], [[lem:iv2-2-3]],
+[[thm:iv2-2-4]] and [[thm:iv3-2-1]] with L_□ in place of the linearised operator; what each takes from it holds for
+□ as follows.
+
+1. *The operator.* Every use of the form [[eq:iv1-1-1]] is met by [[lem:gd-r4-1]] (b) with Ā = 0, the coefficients ã_i
+   of [[eq:iv2-0-4]] equal to 0, and so with no tame terms. The rotations act on each Cartesian component as
+   derivations, and no equivariance is needed for them to act on the components.
+2. *Near ℐ⁺: [[prop:iv1-2-2]] at □.* The multiplier is W = w²V, V = X₀ − (1 + κ)X_I, with the Euclidean fibre inner
+   product on Cartesian components ([[lem:iv1-2-1]] is not needed, Ā = 0 being diagonal). Write
+   2 Re⟨wL_□u, wVu⟩ = 2 Re⟨w(L ⊗ Id)u, wVu⟩ + 2 Re⟨wEu, wVu⟩. The first term is the identity of the proof of
+   [[prop:iv-3-1]] in each component: ⟨Qu, u⟩ + ℬ_fin with ℬ_fin ≥ 0 (the energy current of □_0 ⊗ Id is the sum of the
+   components' currents) and ⟨Qu, u⟩ ≥ c_0‖wu‖²_(H¹_(e,b)) − Cc‖wu‖²_(H¹_(e,b)) on {x_I < c}, with c_0 > 0 by
+   [[lem:gd-r4-1]] (e) and independent of c, after the Poincaré inequality of that proof in each component. The second
+   term is at most Cc²‖wu‖²_(H¹_(e,b)) on {x_I < c}, as E carries ρ₀²x_I⁴ with ρ₀ ≤ 1 and V ∈ 𝒱_(e,b); it is absorbed
+   for c small, as Q − Q̄ is there. Higher b-regularity follows by the same induction, with the commutators of
+   [[lem:gd-r4-1]] (b).
+3. *Near the interior of I₀: [[prop:iv-4-1]] and [[lem:iv2-2-2]] at □.* There ρ_I ≥ δ, the eb- and b-structures agree,
+   L_□ ∈ Diff²_b with principal symbol ρ_IG_b ⊗ Id up to O(ρ), and E ∈ ρ₀²Diff¹_b is a bounded first-order b-operator,
+   absorbed by the exponential weight in τ (or τ′) as the first-order terms of the system are absorbed there; τ′ is a
+   b-time function for every weight ([[lem:gd-r4-1]] (d)). [[lem:iv2-2-2]] at □, with zero data and the forcing term F
+   (which it does not ask to vanish near Σ^IVP), gives Z on Ω_N.
+4. *The gluing: Steps 1–3 of the proof of [[thm:iv2-2-4]] and [[lem:iv2-2-3]] at □*, with 2 and 3: the cut-off
+   χ̂_N(τ′) of Step 2, whose commutator lives where ρ_I ≥ ½, so that every ℐ⁺-weight is met there; then
+   [[lem:iv2-2-3]], away from ℐ⁺ by 3, and near ℐ⁺ the forward problem for u − χ_cu_1, the first-order b-commutator
+   [L_□, χ_c] being supported in {c/4 ≤ ρ_I ≤ c/2}, by 2.
+5. *The slab: [[thm:iv3-2-1]] at □.* Of its three changes, the gauge cut-off is absent for □; the background is g
+   itself (S = 0), for which [[lem:iv3-0-1]] is the form of g − η of [[lem:iii-c-3-5]], and [[lem:gd-r4-1]] holds in the
+   translated chart, g being stationary; and the regions, whose curves ([[lem:iv3-1-1]]) are statements about g, t^♭_*,
+   t_IVP and ρ′_I alone, are unchanged. The compact parts (𝒦, and 𝒮 ∩ {ρ′_I ≥ c_1/4}) use the energy estimates for a
+   linear wave equation with principal symbol g⁻¹(ζ, ζ) Id ([[lem:ix-2-1]] (a)) on compact domains of dependence; on
+   Ω^♮_(c_1), 2 applies with Σ_in = {ρ′_I = c_1} and Σ_fin = {t^♭_* = T̂ + 3}, spacelike for g. Uniqueness on each
+   region is [[lem:ii-f-1-3]].
+6. *What is not used.* The recovery of the sharp weight at ℐ⁺, Steps 4–6 of the proof of [[thm:iv2-2-4]], integrates
+   each slot along X_I and X₀ − X_I; with Ā = 0 every Cartesian component would be integrated as slot 6 is there. Only
+   the estimate [[eq:gd-r4-2]] is needed below. ∎
+
+**Theorem {#thm:gd-r4-3}** (The order of the gauge vector on the initial slab.) Let q_ḣ := min(min Re ℰ_0, ℓ_0), so
+that q_ḣ > 3/2 + 2γ_Υ (min Re ℰ_0 > 3/2 + 2γ_Υ and ℓ_0 > 3, [[sec:iii-k-0]]). For every β ∈ (0, δ_♯) and every p with
+
+    ½ + β < p < min(3/2, q_ḣ − 1),
+
+the Cartesian components of Z_1 of [[prop:gd-r3-6]] and all their b-derivatives are O(ρ_I^p) near ℐ⁺ on
+N⁺ ∩ {2 ≤ t^♭_* ≤ 3}, with constants bounded by finitely many norms of the data. The interval is not empty:
+q_ḣ − 1 > ½ + 2γ_Υ ≥ ½ + 2δ_♯. With the weight ℓ^♭_0 = 3/2 + ½δ_♯ of [[thm:iii-c1-3-1]] in place of q_ḣ the same holds
+for β ∈ (0, ½δ_♯).
+
+*Proof.* (1) *The forcing term on the past of the slab.* In the class S′ = 0 ([[cor:viii-2-3]]), so ġ = ḣ on 𝒟′
+([[thm:viii-2-2]] (2)) and Υ̇^♮(ġ) = 0 there ([[thm:viii-2-2]] (5)). As Υ̇^♮ = −Θ − χ^♮_0E^ΥG (the proof of
+[[thm:gd-r3-4]] (ii)) and χ_K = 0 on {t^♭_* < T_K} with T_K = max(10, T_ι + 2) ≥ T̂ + 4 ([[sec:iii-k-0]]),
+F_Y = χ^♮_0E^ΥGḣ on N⁺ ∩ {t^♭_* < T̂ + 7/4}, which contains {t^♭_* ≤ 7/2} as T̂ ≥ 2. Let χ_3 ∈ C^∞(ℝ) equal 1 on
+(−∞, 3] and 0 on [7/2, ∞), and F′ := χ_3(t^♭_*)F_Y, a smooth 1-form on 𝒟⁺. As dt^♭_* is past timelike
+([[sec:iii-k-0]]), N⁺ ∩ {t^♭_* ≤ 3} is closed under past causal curves in N⁺; so the solution Z′ of □Z′ = F′ on 𝒟⁺
+with vanishing data equals Z_1 there ([[lem:ii-f-1-3]]; the extension across Σ° is immaterial by [[lem:gd-r3-1]]).
+
+(2) *Support.* Near infinity on {τ′ < ⅛}, t_IVP < r/8 and t_* = t_IVP − F(r) ≤ r/8 − r/4 < 0 for r ≥ R_6
+([[eq:s27-f]]), so χ_♮(t_*) = 0, and χ_0 = 0 as χ̌_0(t_IVP/r) = 1; so χ^♮_0 = 0 ([[eq:iii-k-1-1]]). And χ^♮_0 = 0 near
+Σ^IVP ([[lem:iii-k-1-1]] (d)). So F′ vanishes near Σ^IVP and, near infinity, on {τ′ < ⅛}. [[prop:gd-r4-2]] does not
+ask this, but it places the I₀-tail of F′ in {τ′ ≥ ⅛}, the region of [[lem:iv2-2-3]].
+
+(3) *Weights.* On Ω_(ext,r_1) and 𝒮, ḣ ∈ H^(∞,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b ([[prop:viii-1-2]] (2) and its proof): conormal
+with order q_ḣ − η at I₀ for every η > 0 and, at ℐ⁺, with the exponents of [[eq:iii-c-3-2]] slot by slot, above ℓ^♭_I
+in every slot but π̸₀, which has 3/2. E^Υ_(g,∞) is |x|⁻¹ times coefficients smooth on M ([[def:iii-b-6-1]]) and does not
+see π̸₀ (the proof of [[lem:gd-r3-5]]); χ^♮_0 and χ_3(t^♭_*) are smooth on M near infinity ([[lem:iii-k-1-1]] (a);
+t^♭_* is smooth near ℐ⁺, [[sec:iii-k-0]]). So F′ has I₀-order q_ḣ + 1 − η and ℐ⁺-order ℓ^♭_I + 1, and
+f′_♭ := ρ_Iρ^(−7/2)F′ ∈ H^(m,(a₀,2α_I))_b for every m, every a₀ < q_ḣ − 5/2 and every α_I < ℓ^♭_I − 3/2, as
+ρ_Iρ^(−7/2) = ρ₀^(−7/2)ρ_I^(−5/2) ([[eq:iv2-0-2]]).
+
+(4) *The estimate.* Fix a₀ < q_ḣ − 5/2 with p − 3/2 < a₀, and put α_I := p − 3/2; then α_I < min(a₀, 0) and
+α_I < ℓ^♭_I − 3/2 (p < 3/2 < ℓ^♭_I), and
+[[prop:gd-r4-2]] gives u = ρ^(−3/2)Z′ ∈ H^((1;m),(a₀,2α_I))_(e,b;b)(Ω^♮_(c_1)) for every m. By b-Sobolev embedding
+([[eq:iv-0-1]]), V^ju = O(ρ₀^(a₀)ρ_I^(α_I)) for b-vector fields V and j ≤ m − 3; as Vρ^(3/2) ∈ ℂρ^(3/2) for
+V ∈ {X₀, X_I, rotations}, V^jZ′ = O(ρ₀^(3/2+a₀)ρ_I^p). On the slab ρ₀ is bounded above and below ([[sec:iv3-0]]), and
+away from ℐ⁺ there is nothing to show. The three conditions are: α_I > β − 1, that is p > ½ + β; α_I < a₀, possible
+for some a₀ < q_ḣ − 5/2 exactly when p < q_ḣ − 1; and α_I < 0, that is p < 3/2. ∎
+
+The radiation field has ℐ⁺-order 3/2 ([[lem:gd-r4-1]] (c)), and away from I₀ that is the order a solution has. The
+energy estimate reaches the slab through the corner I₀ ∩ ℐ⁺, where the multiplier needs α_I < α₀
+([[lem:gd-r4-1]] (e)); this ties the ℐ⁺-order to the I₀-order of the forcing term, which is one above that of ḣ
+through the factor |x|⁻¹ of c_Υ. Without that factor the interval of [[thm:gd-r4-3]] would be empty.
+
+**Corollary {#cor:gd-r4-6}** (Homogeneous solutions with data of compact support on Σ°.) Let Y be a 1-form on N⁺,
+smooth up to Σ°, with □Y = 0, whose Cauchy data on Σ° have compact support. Then Q[Y] is constant, and on each
+{r_♭ < r ≤ R′, t_* ≥ T′}, |Y − (Q[Y]/4π²)W*| ≤ Ct_*^(−1/2) with the derivatives of [[eq:gd-r2-2]]. Near ℐ⁺ on
+N⁺ ∩ {t^♭_* ≤ T̂ + 3} the Cartesian components of Y and all their b-derivatives are O(ρ_I^p) for every p < 3/2.
+
+*Proof.* Q[Y] is constant by [[eq:gd-2-1]]. (1) *ℐ⁺.* Let Y_c be a smooth 1-form on N⁺ of compact support with Y's
+Cauchy data on Σ°. Then Y − Y_c has vanishing data and □(Y − Y_c) = −□Y_c, which has compact support; so
+ρ_Iρ^(−7/2)□Y_c lies in every weighted space, and [[prop:gd-r4-2]] applies with every a₀. With a₀ > 0 and
+α_I = p − 3/2 < 0, the b-Sobolev embedding of step (4) of the proof of [[thm:gd-r4-3]] gives the order p; Y_c vanishes
+near infinity. (2) *The slab.* With χ of [[lem:gd-r3-5]], χ(t^♭_*)Y solves □(χ(t^♭_*)Y) = [□, χ(t^♭_*)]Y, supported in
+{2 ≤ t^♭_* ≤ 3} and meeting ∂M only at ℐ⁺, of ℐ⁺-order p + 1 (the proof of [[prop:gd-r3-6]]). Fix β ∈ (0, 1) and
+p ∈ (½ + β, 3/2); with b_+ := β + ½ and b_I ∈ (b_+, p), this forcing term lies in the space of [[lem:gd-r3-5]], whose
+conditions hold for □, and [[thm:ii-f1-1-1]] gives its forward solution, which is χ(t^♭_*)Y by the uniqueness argument
+of the proof of [[prop:gd-r3-6]]. (3) *Late times.* As in the proof of [[thm:gd-r3-4]] (iii): χ′Y solves
+□(χ′Y) = [□, χ′]Y, a forcing term supported in supp dχ′ and in the class of [[thm:gd-r2-5]]; [[thm:gd-r2-7]] gives
+|χ′Y − c(t_*)W*| ≤ Ct_*^(−1/2), and for large t_*, dχ′ = 0 near the horizon, so c is constant there, equal to
+Q[χ′Y]/4π² = Q[Y]/4π² ([[eq:gd-2-1]] and □Y = 0). ∎
+
+The data must be taken on Σ°: a slice {t_* = t_0} reaches ℐ⁺, outgoing null rays from a compact set reach ℐ⁺ after a
+bounded increment of t_*, and in 4 + 1 dimensions there is no Huygens principle, so a solution with data of compact
+support on such a slice does not vanish near ℐ⁺ on later slices. Step (1) supplies the estimate at ℐ⁺ that the slab
+needs.
+
+**Corollary {#cor:gd-r4-4}** (The harmonic gauge on all of N⁺.) With Z_1 of [[prop:gd-r3-6]], Z := ṁχ_KW**_H + Z_1 and
+ġ_H := ġ + ℒ_Zg on N⁺: ġ_H is G-invariant, DRic(ġ_H) = 0, Θ(ġ_H) = 0 on all of N⁺, ġ_H = ġ on a neighbourhood of Σ°
+(so ġ_H induces (γ̇, k̇) exactly), and on each {r_♭ < r ≤ R′, t_* ≥ T′}, with the derivatives of [[eq:gd-r2-2]],
+
+    |ġ_H − ṁK* − c_∞ℒ_(W*)g| ≤ Ct_*^(−1/2),        c_∞ := (4π²)⁻¹ ∫ ℓ(χ′J_h + [□, χ′]Z_1) dv,
+
+the limit of a horizon charge. For a 1-form Y_h on N⁺, smooth up to Σ°, with □Y_h = 0 and Cauchy data of compact
+support on Σ°, ġ_H + ℒ_(Y_h)g has the same properties with c_∞ + Q[Y_h]/4π² in place of c_∞, its data changed by those
+of ℒ_(Y_h)g; and the same holds for the representative of [[thm:gd-r3-4]].
+
+*Proof.* [[prop:gd-r3-6]], whose hypothesis is [[thm:gd-r4-3]]. Z_1 is G-invariant by the argument of
+[[prop:gd-2-1]] (a). *Near Σ°.* χ_K = 0 there, and F_Y = χ^♮_0E^ΥGḣ (step (1) of the proof of [[thm:gd-r4-3]])
+vanishes on V ∩ N⁺ for a neighbourhood V of Σ° in U^♯ ([[lem:iii-k-1-1]] (d)); so Z_1, with vanishing data, vanishes
+on D_V(Σ°) ∩ {t_IVP ≥ 0} by the argument of [[lem:gd-r3-1]] on D_V(Σ°) ([[lem:ix-1-2]]). The clause on Y_h is
+[[cor:gd-r4-6]], ℒ_(Y_h)g being linear in Y_h, and DRic(ℒ_(Y_h)g) = 0, Θ(ℒ_(Y_h)g) = □Y_h = 0. ∎
+
+So every perturbation in the class has a representative in harmonic gauge on all of N⁺ that induces the given data
+exactly, and its settling on compact sets is determined up to the constant c_∞: the explicit ṁK*, growing linearly
+in v, plus the stationary c_∞ℒ_(W*)g, plus a decaying remainder.
+
+### The spherically symmetric sector {#sec:hg-l0}
+
+**Proposition {#prop:gd-r2-13}** (The spherically symmetric sector in harmonic gauge.) Let ġ_H be a harmonic-gauge
+solution of [[prop:gd-2-1]] (a), with gauge vector Z′.
+
+(a) (*Exact form.*) (ġ_H)_0 = ṁK* + ℒ_(Z′_0)g, where Z′_0 is the l = 0 part of Z′, □Z′_0 = 0, and K* is the mass
+change of [[prop:np-10-2]] (iv) (c): smooth across the horizon, Θ(K*) = 0, δm[K*] = 1, and K* − (v/2)ℒ_(W*)g
+stationary. The choice Z′_0 = 0 is allowed, and then (ġ_H)_0 = ṁK* identically.
+
+(b) (*Decaying gauge data.*) If Z′_0 has Cauchy data of compact support on Σ°, then on each
+{r_♭ < r ≤ R′, t_* ≥ T′}, with the derivatives of [[eq:gd-r2-2]],
+
+    (ġ_H)_0 = ṁK* + cℒ_(W*)g + O(t_*^(−1/2)),        c = Q[Z′_0]/4π².
+
+When ṁ ≠ 0 this grows linearly in v, and it is not the sum of a stationary tensor smooth at r_h and a term o(1).
+
+(c) (*Non-decaying gauge data.*) Let F be as in [[lem:gd-r2-9]], ψ = v + F, and
+
+    Ψ := ψ² + K_Ψ(r),        K_Ψ′ := (r⁴/2 + r²r_h² − (3/2)r_h⁴ + 2r_h⁴ log(r/r_h))/(r(r² − r_h²)).
+
+Then □_0Ψ = 0, dΨ is smooth across r_h, and S := K* − (4m₀)⁻¹ℒ_(dΨ)g is stationary, smooth across the horizon, with
+Θ(S) = 0 and δm[S] = 1; but S_vv → −1/m₀ as r → ∞. So ṁS is the l = 0 part of a harmonic-gauge solution, with
+Z′_0 = −(ṁ/(4m₀))dΨ: stationary near the horizon, not decaying at infinity, and with a gauge vector that grows in v and
+in r. The growth of the horizon charge ([[thm:gd-2-3]]) is then carried by (ṁ/(2m₀))v(∂_v)^♭, a linearly growing time
+translation, whose Lie derivative is stationary.
+
+*Proof.* (a) (ġ_RW)_0 = ṁK_V ([[thm:rw-settling]] (a)), W**_H is spherically symmetric, and □Z′_0 = 0 by
+[[prop:gd-2-1]] (c); ṁK_V + ṁℒ_(W**_H)g = ṁK* by [[prop:np-10-2]] (iv) (c), which gives the properties of K*.
+
+(b) Z′_0 is smooth up to Σ°, with □Z′_0 = 0, so [[cor:gd-r4-6]] applies; ℒ_(Z′_0)g − cℒ_(W*)g = ℒ_(Z′_0−cW*)g is
+bounded by the derivatives of Z′_0 − cW*. By [[eq:np-10-2-k]], ṁK* = (ṁv/2)ℒ_(W*)g + (stationary), with
+ℒ_(W*)g ≠ 0.
+
+(c) By [[lem:gd-r2-9]], dψ = m₀W* − (∂_v)^♭ and □_0ψ = 0. So □_0(ψ²) = 2ψ□_0ψ − 2g⁻¹(dψ, dψ) = −2g⁻¹(dψ, dψ), and,
+with dψ = dv + F′dr and P := −F′ = (r² + rr_h + r_h²)/(r(r + r_h)), for which fP = (r³ − r_h³)/r³,
+
+    g⁻¹(dψ, dψ) = 2F′ + fF′² = P(fP − 2) = −P(r³ + r_h³)/r³ = −(r⁴ + r²r_h² + r_h⁴)/r⁴.
+
+For a function of r, □_0K_Ψ = −r⁻³(r³fK_Ψ′)′, and r³fK_Ψ′ = r⁴/2 + r²r_h² − (3/2)r_h⁴ + 2r_h⁴ log(r/r_h), whose
+derivative is 2(r⁴ + r²r_h² + r_h⁴)/r. So □_0Ψ = 2(r⁴ + r²r_h² + r_h⁴)/r⁴ − 2(r⁴ + r²r_h² + r_h⁴)/r⁴ = 0.
+dΨ = 2ψdψ + K_Ψ′dr: ψ and dψ are smooth on {r > 0}, and the numerator of K_Ψ′ vanishes at r = r_h
+(r_h⁴/2 + r_h⁴ − (3/2)r_h⁴ = 0), so K_Ψ′ is analytic on {r > 0}. *Stationarity.* ℒ_(dΨ)g = 2∇dΨ =
+4dψ ⊗ dψ + 4ψ∇dψ + 2∇(K_Ψ′dr), and ∇dψ = ½ℒ_(dψ)g = ½m₀ℒ_(W*)g, (∂_v)^♭ being Killing. So
+
+    (4m₀)⁻¹ℒ_(dΨ)g = m₀⁻¹dψ ⊗ dψ + ((v + F)/2)ℒ_(W*)g + (2m₀)⁻¹∇(K_Ψ′dr),
+
+and by [[eq:np-10-2-k]] the terms (v/2)ℒ_(W*)g cancel in S, which is therefore stationary and smooth across the horizon.
+Θ(S) = Θ(K*) − (4m₀)⁻¹□dΨ = −(4m₀)⁻¹d□_0Ψ = 0, as □ = dδ + δd commutes with d. δm[ℒ_(dΨ)g] = 0, dΨ being spherically
+symmetric ([[lem:gd-1-4]] (a)), so δm[S] = 1. *S_vv.* For Y = a dv + b dr, (ℒ_Yg)_vv = 2∂_va − f′a − ff′b (the
+symbols Γ^v_(vv) = f′/2 and Γ^r_(vv) = ff′/2). The v-dependent terms of S_vv cancel, S being stationary. As r → ∞,
+f′ = 2m₀r⁻³, rA → ½, rB → −¼, F = −r + O(1), 1 + fF′ = r_h³r⁻³ and K_Ψ′ = r/2 + O(r⁻¹); so the stationary part of
+(ℒ_(W**)g)_vv is r⁻² + O(r⁻⁴), that of (ℒ_(dΨ)g)_vv = 4 − 2f′ψ(1 + fF′) − ff′K_Ψ′ is 4 + O(r⁻²), and
+S_vv = K_vv + (ℒ_(W**)g)_vv − (4m₀)⁻¹(ℒ_(dΨ)g)_vv = −1/m₀ + O(r⁻²). *The gauge vector.* By [[prop:gd-2-1]] (a), a
+harmonic-gauge solution with Z′_0 = −(ṁ/(4m₀))dΨ exists, and its l = 0 part is ṁK* − (ṁ/(4m₀))ℒ_(dΨ)g = ṁS. The
+growing part of −(ṁ/(4m₀))dΨ = −(ṁ/(2m₀))ψdψ − (ṁ/(4m₀))K_Ψ′dr is −(ṁ/2)vW* + (ṁ/(2m₀))v(∂_v)^♭. The first
+cancels the growing part (ṁ/2)vW* of ṁW**; Q[dΨ] = 0, as δdΨ = □_0Ψ = 0 and d dΨ = 0; and by the argument in the
+proof of [[thm:gd-2-3]], Q[(ṁ/(2m₀))v(∂_v)^♭] = 2π²ṁv, while ℒ_(v(∂_v)^♭)g = 2dv ⊗_s (∂_v)^♭ is stationary. ∎
+
+So the growth of the spherically symmetric part is forced for perturbations whose gauge vector has decaying data, and
+only for them; a statement of the final state in harmonic gauge carries that class.
+
+### The forward solution at positive K⁺-weight {#sec:hg-positive}
+
+The rate t_*^(−1/2) of [[thm:gd-r2-7]] is what square integrability in time gives. For forcing terms with more decay
+at K⁺ the forward solution of □ improves, by the argument of [[prop:iii-i2-5-1]], which is shorter at □: □ is its own
+stationary model, it has one zero-energy state W* ∈ 𝒜² with no generalised partner, and the forcing terms below have
+ℐ⁺-weight at least 5/2.
+
+*Setting.* X = {r ≥ r_♭}, and M′, its faces I, ι = ι⁺ ∪ ι⁻ and K = K⁺ ∪ K⁻, the spaces H^(k,(w_I,w_ι,w_K))_b(M′) for the
+b-density |dt_*/⟨t_*⟩|μ_b, μ_b = |dx|/⟨x⟩⁴, which on Ω_* are those of [[cor:ii-f1-1-2]], and X^±_(sc-b) with its faces
+scf, tf, zf, are those of [[sec:iii-i2-1]]. P̂ and P̃ are those of [[sec:hg-augmented]].
+
+*The dictionary.* Near ι⁺ ∩ K⁺, with ρ_+ = 1/r and ρ_K = r/t_*, one has t_* = 1/(ρ_+ρ_K) and r = 1/ρ_+, so
+|dt_* dx| = ρ_+^(−5)ρ_K^(−1)|(dρ_+/ρ_+)(dρ_K/ρ_K)dω| and L²(|dt_* dx|) = ρ_+^(5/2)ρ_K^(1/2)L²_b. So a 3b-weight
+(β_sf, β_K) of [[sec:iii-h1-1]] is the b-weight (β_sf + 5/2, β_K + ½), as [[cor:ii-f1-1-2]] records. The forcing class
+H^((𝗌;k),(α_sf+2,0))_(3b;b) of [[thm:gd-r2-5]] is the b-class (γ_+ + 2, ½) with γ_+ := α_sf + 5/2, its window
+α_sf + 2 ∈ (0, 1) is γ_+ − ½ ∈ (0, 1), and the K⁺-weight −1 of its solution is the b-weight −½. A conormal function
+O(ρ_+^Aρ_K^B) lies in ρ_+^(w_ι)ρ_K^(w_K)L²_b near the corner if A > w_ι and B > w_K, and b-Sobolev embedding returns to
+pointwise bounds; on compact r-sets ρ_K is comparable to t_*⁻¹, so the b-weight α_K at K⁺ is the rate t_*^(−α_K).
+
+*The window.* On Cartesian components P̂(0) is −Δ up to ρ²-relative terms ([[lem:gd-r4-1]] (a)), with indicial roots
+−l and l + 2 on r^(−q)Y_l (l the degree of the spherical harmonic Y_l); a weight α of [[sec:iii-h-1]] is the
+μ_b-weight α + 2, and the root-free interval around it is (0, 2), the gap of [[sec:hg-augmented]]. The column f̂_*(0)
+∈ 𝒜³ lies in 𝒴_0, of μ_b-weight α + 4, if and only if α + 2 < 1. So the window at □ is α + 2 ∈ (0, 1). At ℐ⁺ the
+outgoing root is 3/2 ([[lem:gd-r4-1]] (c)), the cap 3/2 + S̄ of [[cor:ii-g1-4-5]] with S̄ = 0.
+
+**Theorem {#thm:gd-r5-1}** ([[thm:gd-r2-5]] at positive K⁺-weight.) Let α_K ∈ [½, 1), γ_+ ∈ (α_K, 3/2),
+w_I ≥ max(5/2, γ_+ + 2 − α_K) and
+
+    f ∈ H^(∞,(w_I,γ_++2,α_K))_b(Ω_*; T*)^(•,−),                                                          {#eq:gd-r5-1}
+
+and let u be the forward solution of □u = f ([[thm:ii-f1-1-1]] at P = P_0 = □). Then γ_+ − α_K ∈ (0, 1), and for every
+ϵ ∈ (0, (3/2 − γ_+)/5]:
+
+(i) u = u′ + u_sing with u′ ∈ H^(∞,(γ_+−ϵ,γ_+,α_K))_b(M′);
+
+(ii) u_sing = β(t_*, r)W*, where for one B ∈ H^(∞,α_K)_b(ℝ) ([[def:ii-g1-2-1]]: ⟨t⟩^(α_K−½)∂_t^p(t∂_t)^qB ∈ L²(dt)),
+∂_(t_*)β(·, r) = (∂_tχ_aug)(·, r) ∗ B and β(·, r) − β(·, r′) = (χ_aug(·, r) − χ_aug(·, r′)) ∗ B;
+
+(iii) u_sing, and so u, lies in H^(∞,(γ_+−ϵ,γ_+−ϵ,α_K−1))_b: one order is lost at K⁺ and none at ι⁺.
+
+At each order k the norms are bounded by C_k times the norm of f in [[eq:gd-r5-1]] at an order k + ℓ, ℓ independent of
+k; u′, u_sing and B depend on k through the constant c of [[sec:iii-i2-4]], and u does not. At α_K = ½, for b-regular
+forcing terms, (i)–(iii) are [[thm:gd-r2-5]] (i)–(iii) in the b-form of the dictionary.
+
+*Proof.* We follow the proof of [[prop:iii-i2-5-1]] with the following changes.
+
+1. *The operator.* There, L is a perturbation of L_b, removed by Step 1 and the iteration. Here L = L_b = □: Step 0,
+   Step 1, the iteration and the continuity in (S, h) are void. P̂(σ) is invertible for real σ ≠ 0
+   ([[prop:iii-d-6-2]]), and P̃(σ) for 0 < |σ| ≤ c_k ([[thm:gd-r2-4]]). The window is the one above.
+2. [[lem:iii-i2-2-1]] and [[lem:iii-i2-3-1]] involve no operator, and hold as stated.
+3. *The decomposition* ([[sec:iii-i2-4]]). For f ∈ C_c^∞(Ω_*°), the proof of [[thm:gd-r2-5]] gives
+   u = u_hi + u_reg + u_sing with ℱu_hi = (1 − χ(|σ|))P̂(σ)⁻¹f̂, ℱu_reg = χ(|σ|)û_(reg,1),
+   (û_(reg,1), b̂_1) := P̃(σ)⁻¹(f̂, 0) and ℱ(∂_(t_*)u_sing) = χ(|σ|)G_1(σ)(b̂_1), G_1(σ)b := Ψ(σ, ·)bW*: the first member
+   of [[eq:iii-i2-4-1]], with no second (there is no generalised state). c is chosen as in [[sec:iii-i2-4]], with the
+   constants of [[thm:gd-r2-4]]. For the density argument, the forward solution map of [[thm:ii-f1-1-1]] at
+   P = P_0 = □ (with [[rem:ii-f1-7-1]] and the orders of [[rem:gd-orders]]) is continuous from the space of
+   [[cor:ii-f1-1-2]] with b_+ := ½(½ + γ_+) and b_I := ½(b_+ + 3/2), which contains [[eq:gd-r5-1]]: ½ < b_+ < b_I < 3/2,
+   b_+ ≤ γ_+, b_I + 1 < 5/2 ≤ w_I and α_K ≥ ½; and □ is 1-admissible with sf-weight b_+ − 5/2 by [[thm:gd-r2-5]]
+   (iii), as b_+ − ½ ∈ (0, 1). The extension across {r = r_♭} is that of [[sec:iii-i2-4]].
+4. *High and bounded frequencies: [[lem:iii-i2-4-1]].* Its inputs are [[cor:ii-g1-4-5]], with the hypotheses of
+   [[ch:s02]] for □ (the proof of [[prop:iii-d-6-1]] gives them on a compact set of parameters), [[cor:ii-g1-4-2]], with
+   the hypotheses of [[ch:s01]] ([[sec:hg-augmented]]), invertibility on the compact frequency set J
+   ([[prop:iii-d-6-1]], [[prop:iii-d-6-2]]), and S̄ = 0. Its weight conditions at
+   (β^f_I + 1, β_ι + 2, β_K) = (w_I, γ_+ + 2, α_K) are α_K ∈ (0, 1), β^f_I = w_I − 1 ≥ 3/2 and
+   w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ_1), which holds with ϵ_1 := 1 − α_K. So u_hi ∈ H^(∞,(3/2−ϵ,N,N))_b(M′) for every N.
+5. *The transform of f.* [[prop:ii-g1-3-3]] (1), whose condition is w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ), gives
+   f̂|_(±(0,1]) ∈ H^(∞,(min(w_I,γ_++2)−ϵ,γ_++1,α_K−1))_b(X^±_(sc-b)), the zf index set (0, 0) dropping as α_K − 1 < 0.
+6. *Low frequencies: [[lem:iii-i2-4-2]]* with P̃ in place of L̃_b; its proof is that of [[prop:ii-g1-4-7]] with
+   [[thm:iii-h-4-1]] (3) and the estimate of [[thm:gd-r2-4]], with the outgoing order β_scf − 2 − ϵ/2 below
+   −½ + S̄ = −½. With β_scf := 3/2 − ϵ, β_tf := γ_+ − 1 and β_zf := α_K − 1, so that β_tf − β_zf = γ_+ − α_K ∈ (0, 1),
+   and f̂ in the space of its right side (5/2 − ϵ ≤ min(w_I, γ_+ + 2) − ϵ):
+   û_(reg,1) ∈ H^(∞,(3/2−2ϵ,γ_+−1,α_K−1))_b and b̂_1 ∈ H^(∞,α_K−1)_b(±(0, c], |dσ/σ|).
+7. *The regular part.* [[prop:ii-g1-3-5]] (1) at the K-weight α_K ∈ (0, 1), with a void Taylor condition, gives
+   u_reg ∈ H^(∞,(γ_+−ϵ,γ_+,α_K))_b(M′). With 4 this is (i), u′ := u_hi + u_reg, as γ_+ < 3/2 − 2ϵ.
+8. *The cut-off state: [[lem:iii-i2-4-3]]* with the one state W* ∈ 𝒜² (q_1 = 2) and Ψ of [[lem:iii-h-2-5]], which does
+   not depend on the operator: χG_1(b̂_1) ∈ H^(∞,(N,α_K+1−ϵ,α_K−1))_b(X^±_(sc-b)).
+9. *The singular part: one integration.* [[lem:iii-i2-3-1]] is applied once, to u_sing, with β_I := γ_+ − ϵ,
+   β_ι := γ_+ and β_K := α_K − 1 ∈ [−½, 0). Its hypotheses: β_ι > β_I; β_K < 0 < β_ι − β_I; β_K ∈ (−1, 1) ∖ {0};
+   ℱ(∂_(t_*)u_sing) = χG_1(b̂_1) is 8, whose tf-weight α_K + 1 − ϵ is at least γ_+ (as ϵ ≤ 3/2 − γ_+ and
+   α_K + 1 ≥ 3/2) and whose zf-weight β_K < 0 carries no index term; on {t_* < −r}, u = 0, so
+   u_sing = −(u_hi + u_reg) there, of weights at least (∞, β_ι, β_K) by 4 and 7; and ℱ(∂_(t_*)u_sing) is χ(|σ|) times
+   the boundary value from Im σ > 0 of Ψb̂_1W* (the proof of [[thm:gd-r2-5]]), so ℱu_sing is supported in
+   supp χ(|·|) ∪ {0}, a compact subset of (−c, c), c ≤ ½. [[lem:iii-i2-3-1]] gives
+   u_sing ∈ H^(∞,γ_+−ϵ,γ_+−ϵ,((0,0),α_K−1))_b(M′), the term (0, 0) lying above the weight α_K − 1 < 0: this is (iii).
+   At □ the second integration of [[prop:iii-i2-5-1]], which is needed there for the generalised state, does not occur.
+10. *(ii).* B := ℱ⁻¹(χb̂_1). By 6, the pair (χb̂_1|_(σ<0), χb̂_1|_(σ>0)) lies in the space X^(k,α_K−1) of
+   [[def:ii-g1-2-7]] with no polynomial part (α_K − 1 < 0), and [[prop:ii-g1-2-8]] (2) with β = α_K ∈ (0, 1) gives
+   B ∈ H^(k,α_K)_b(ℝ). The identities are those of [[thm:gd-r2-5]] (ii), proved there from
+   ℱ(∂_(t_*)u_sing) = χΨb̂_1W* without a weight.
+11. *What is not used.* The formal solutions at ℐ⁺ (Step 2a of the proof of [[prop:iii-i2-5-1]]) are not needed, as
+   w_I ≥ 5/2; a forcing term that reaches ℐ⁺ with a lower order is first localised to a cone, as in the proof of
+   [[thm:gd-r3-4]]. The expansion at ℐ⁺ (Step 3 there) is not carried: (iii) states the plain weight γ_+ − ϵ. ∎
+
+**Theorem {#thm:gd-r5-2}** ([[thm:gd-r2-7]] at K⁺-weight α_K.) Let f and u be as in [[thm:gd-r5-1]] and R′ > r_♭. On
+{r_♭ < r ≤ R′, t_* ≥ 8 max(R′, 1)}, with any number of derivatives in x and t_* (the constant depending on the number),
+
+    |u − c_f(t_*)W*| ≤ C t_*^(−α_K)‖f‖,                                                                   {#eq:gd-r5-2}
+
+with c_f of [[eq:gd-r2-2]] and ‖f‖ a norm of [[eq:gd-r5-1]]. In particular: (a) if ℓ(f) = 0, u = O(t_*^(−α_K)); (b) if
+∫_v^∞|ℓ(f)| ≤ C′v^(−κ′), then u = c_∞W* + O(t_*^(−min(α_K,κ′))).
+
+*Proof.* The steps (1)–(5) of the proof of [[thm:gd-r2-7]], with three replacements. In (2): |B(t)| ≤ C⟨t⟩^(−α_K)‖f‖,
+by [[lem:gd-r2-6]] with H = ℂ on [T/2, 4T], as ⟨t⟩^(α_K−½)B and ⟨t⟩^(α_K−½)t∂_tB in L²(dt) give
+∫_(T/2)^(4T)(|B|² + |t∂_tB|²) dt ≤ CT^(1−2α_K); the kernels ∂_rχ_aug, ∂_tχ_aug and ψ are supported in [1, 4 max(R′, 1)],
+so for t_* ≥ 8 max(R′, 1) the convolutions sample B on [t_*/2, t_*] and are O(t_*^(−α_K)). In (3):
+|Q[u′](v)| ≤ C‖u′(t_*)‖_(C¹(𝒦)) ≤ Ct_*^(−α_K)‖f‖, by b-Sobolev embedding of [[thm:gd-r5-1]] (i) near K⁺. In (5):
+u′ = O(t_*^(−α_K)) the same way, with its b-derivatives t_*∂_(t_*) and ∂_x; ∂_(t_*)β = ∂_tχ_aug ∗ B, and
+∂_(t_*)c_f = ℓ(f)/(4π²) is O(t_*^(−α_K)) by b-Sobolev embedding of f near K⁺. Density as in [[thm:gd-r2-7]], by the
+bounds of [[thm:gd-r5-1]]. ∎
+
+At α_K = ½ this is the bound of [[thm:gd-r2-7]], for b-regular forcing terms. The rates that [[thm:gd-r5-1]] and its
+extension to K⁺-weights in (1, 2) give for the representatives of [[thm:gd-r3-4]], [[cor:gd-r4-4]] and
+[[prop:gd-r2-13]] (b), and for the homogeneous gauge vectors of [[cor:gd-r4-6]], together with the rate
+τ^(−min(p,3/2)+ε) of the harmonic-gauge representative, are in [[ch:harmonic-rate]] ([[thm:harmonic-rate]]).

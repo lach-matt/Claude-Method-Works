@@ -383,14 +383,14 @@ sums, products, quotients, logarithms and 𝒟: Φ̃ = Σ C_j T_j(y) with y = (�
 f1 = 1 − 3/(2ρ²), a = f1/2 and f3(Φ̃) = 1 − μ̃3/Φ̃²; Ψ_0 = ln Φ̃′ + ln f1 − ln f3(Φ̃), Ψ_1 = a𝒟Ψ_0 and Ψ_2 = a𝒟Ψ_1
 ([[eq:bg-psi3]]); v̂ = F(ρ) − F(2.321) with F of [[eq:bg-tangherlini]]; and ψ_s^(k)(v̂), where the k-th derivative
 ψ_s^(k) of the quintic is a polynomial. Starting from the Taylor series ρ_0 + t of ρ at a point ρ_0, the rules
-[[eq:bg-series]] give the Taylor coefficients at ρ_0 of each of these functions in turn, up to order 8 (each 𝒟 lowers
-the order by one), and so those of ẽ_k up to order 6; every operation on numbers is replaced by [[lem:bg-tools]] (d),
-with √(3/2) enclosed by it. With ρ_0 = ρ_m this encloses c_0, …, c_5. With ρ_0 replaced by each of twenty equal parts
-P of the interval, the same steps enclose, at every ξ ∈ P, the coefficients at ξ, since each is the same finite
-combination of ξ; the sixth one encloses c_6(ξ). This gives the columns "Taylor" and "rest" of [[sec:tab-bg-seed]],
-the rest being at most 2 × 10⁻¹⁰ in every row, and the totals Taylor + rest + Δ_k bound |e_k| on each interval. The
-largest totals are 3.020 × 10⁻⁵, 2.394 × 10⁻⁴ and 8.558 × 10⁻⁴, all on the first interval. Finally |μ3 − μ_s| ≤ |μ̃3 −
-μ_s| + 4.07 × 10⁻⁷ ≤ 1.3809 × 10⁻⁶ + 4.07 × 10⁻⁷.
+[[eq:bg-series]] give the Taylor coefficients at ρ_0 of each of these functions in turn, up to order 9 (Φ̃ is a
+polynomial, so its series is exact; Φ̃′ and each 𝒟 lower the order by one), and so those of ẽ_k up to order 6; every
+operation on numbers is replaced by [[lem:bg-tools]] (d), with √(3/2) enclosed by it. With ρ_0 = ρ_m this encloses c_0,
+…, c_5. With ρ_0 replaced by each of twenty equal parts P of the interval, the same steps enclose, at every ξ ∈ P, the
+coefficients at ξ, since each is the same finite combination of ξ; the sixth one encloses c_6(ξ). This gives the column
+"Taylor" of [[sec:tab-bg-seed]] and the rest, at most 2 × 10⁻¹⁰ in every row, and the totals Taylor + rest + Δ_k
+bound |e_k| on each interval. The largest totals are 3.020 × 10⁻⁵, 2.394 × 10⁻⁴ and 8.558 × 10⁻⁴, all on the first
+interval. Finally |μ3 − μ_s| ≤ |μ̃3 − μ_s| + 4.07 × 10⁻⁷ ≤ 1.3809 × 10⁻⁶ + 4.07 × 10⁻⁷.
 
 (c) The bounds of (b) are below (10⁻³, 10⁻³, 3 × 10⁻²) and 10⁻⁴; [[prop:margins-seed]] (b) states Γ > 0 for every
 background of the tube. ∎

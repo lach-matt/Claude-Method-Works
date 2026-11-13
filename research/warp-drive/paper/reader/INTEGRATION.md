@@ -655,3 +655,15 @@ Items found while chapters were written in parallel; each is settled once, editi
   bounds are left to chapter 71. Markers computational-1 (scalar-type indicial roots and singular values at the
   computational point) and computational-2 (M₃₃ = −(5000r − 1)/r³): proof project running. Notation: mass m; source
   F; multiplier profile Θ; V_0, V_1, V_2 → V^□, V^v, V^s; λ := 1677/2048 → e₀; Wronskian 𝒲; sgn σ → ϵ_σ.
+- Proof E background confirmed (R2-P-E-background): the λ > 0 argument no longer circular (0.6112 ≥ S − I/2 > 0 without
+  μ; λ(u2) ≥ 0.5295335571); the four-digit ε entries 2.681e-5, 5.681e-6 deliberate and needed; region III rows, the
+  lemma, the sign and the interior errors confirmed; the seed rest 2·10⁻¹⁰ right. Minor (series order 8 → 9, as Φ̃′
+  and each 𝒟 lower the order) and nit ("rest" is not a column) applied in the reviewer's words.
+- S15 confirmed (R2-S15): sign of B and ζ₁ checked by sympy on 5D Tangherlini; ε_ind ≤ δ_50 rests only on the s50 root
+  (prop:np-10-52 (i), (iii)); ε_Υ correct at four places. Nits for integration: 519-521 ℂ^k, "k dim π" → n_W, n_L;
+  407-409 "give twice" does not fit v1; 453 may cite lem:s14-delta50.
+- S29 fix (F-S29): translated background throughout; Θ(k) → −Υ̇⁰(k) via lem:iii-b-6-3; principal part ½□_g with
+  symbol ½g⁻¹(ζ,ζ). Cross-chapter edits it made: 64:64-65 N → N_ν; 45 Σ_IVP → Σ^IVP and Σ_(IVP/fut/past,r₀) →
+  Σ^(IVP/fut/past)_(r₀); chapter 3 line 312 already right. For integration: chapter 65 defines its own Θ := δGk (rename
+  edition-wide); chapter 45's κ (second fundamental form) shares a letter with chapter 46's gauge 1-form κ. Two
+  chapter 46 items (sign in sec:s27-local; lem:s27-cover (c) omits Σ^past_(r_1)) sent to the S27 second fix.
