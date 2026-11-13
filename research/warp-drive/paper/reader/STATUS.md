@@ -23,7 +23,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
 | 30 S11 | NOT CONFIRMED 0M 2m 6n | running (combined with S12: one parameter set) | - |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | running (combined with S11) | - |
-| 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | running |
+| 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | NOT CONFIRMED 1M 1m 4n (ε_Υ needs |Re ι| ≤ 10); second fix running |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | running | - |
 | 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | running | - |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
@@ -31,16 +31,16 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | NOT CONFIRMED 0M 1m 8n; second fix done; third reading running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
-| 40 S21 | NOT CONFIRMED 1M 5m 8n | done | NOT CONFIRMED 0M 3m 6n; third fix running |
+| 40 S21 | NOT CONFIRMED 1M 5m 8n | done | NOT CONFIRMED 0M 3m 6n; third fix done (def:s21-eps-g); third reading running |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | NOT CONFIRMED 0M 1m 4n; third fix running |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | NOT CONFIRMED 0M 2m 8n (38a and 44); third fix running; step 2 after S21-S22 settle |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | running | - |
-| 46 S27 | NOT CONFIRMED 3M 8m 8n | running (translation carried; level-1/2 lemma) | - |
+| 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | running | - |
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
-| 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | running |
+| 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | running | - |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | running | - |
 | 63 M Ch 13 | written (959 lines; issue-1 order k_P, issue-2 commuted cut-off energy); running | - | - |
@@ -59,7 +59,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | NOT CONFIRMED 1M 7m 16n; fixed (transverse term, κ_Σ, R′); confirming reader running |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | NOT CONFIRMED 1M 9m 9n (constants weaker than source); fix running |
 | P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | NOT CONFIRMED 0M 6m 4n; point values and decay unused (class b); fix running |
-| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | NOT CONFIRMED 0M 9m 8n; fix running; every h: P-A3 read (0M 1m 7n), fix running |
+| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | NOT CONFIRMED 0M 9m 8n; fix running; every h: P-A3 fixed, confirming reader running |
 | P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | NOT CONFIRMED 0M 3m 3n (S-bounds to write out); fix running |
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n (arithmetic digits, lens corollary); fix running; C2 deleted |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | NOT CONFIRMED 1M 6m 8n (circular λ > 0; outward rounding); fix running |

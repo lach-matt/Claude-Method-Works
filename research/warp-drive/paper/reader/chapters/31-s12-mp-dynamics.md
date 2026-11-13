@@ -31,10 +31,10 @@ function of [[def:iii-b-3-2]], while H_p is the Hamilton vector field of p, with
 F_A is the function of [[def:iii-b-3-2]], while F is the shift of a time function τ′ = τ − F(r); ψ is the profile of
 t_* in [[sec:vi-a-0]]–[[sec:vi-a-6]] and an azimuth in [[sec:vi-b1-0]]–[[sec:vi-b1-5]]; Φ is a momentum in
 [[sec:vi-b1-0]] and Φ_m the change of time of [[eq:iii-b-3-3]]; E is a momentum, not a bundle; u := 1 − 2m r⁻² in
-[[sec:vi-a-3]] and u := r² in [[sec:vi-b1-1]]; C is the squared angular momentum |η|²_g̸ at b₀ and, in estimates, a
-constant; q_± and q_(z₀) are the functions of (H3) and (Γ.4). The separation constant of [[sec:vi-b1-0]], which plays
-the part of Carter's constant, is written 𝔎, the letter 𝔎 being the Kretschmann scalar. The Poisson bracket is
-{a, b} := H_a b. The polar angle on 𝕊³ is ϑ.
+[[sec:vi-a-3]] and u := r² in [[sec:vi-b-1]] and [[sec:vi-b1-1]]; C is the squared angular momentum |η|²_g̸ at b₀
+and, in estimates, a constant; q_± and q_(z₀) are the functions of (H3) and (Γ.4). The separation constant of
+[[sec:vi-b1-0]], which plays the part of Carter's constant, is written 𝔎, the letter 𝒦 being the Kretschmann scalar.
+The Poisson bracket is {a, b} := H_a b. The polar angle on 𝕊³ is ϑ.
 
 ### The radii {#sec:s12-radii}
 
@@ -517,8 +517,8 @@ u₊ + u₋ = m − s > 0 and u₊u₋ = p² ≥ 0. Hence r₊ = u₊^(1/2) is a
 
     Δ_b > 0 on (r₊, ∞),     Δ_b < 0 on (r₋, r₊),     r₋ < ‖A‖ < r_♭/4,
 
-the last because u₊ ≥ ½(m − s) and m − s > 2‖A‖², so that u₋ = p²/u₊ ≤ 2‖A‖⁴/(m − s) < ‖A‖² (if A ≠ 0; u₋ = 0 if
-p = 0). r₊ is smooth in b ∈ ℬ, as u₊ is a smooth function of (m, s, p²) where the discriminant is positive, and s and
+the last because u₊ ≥ ½(m − s) and m − s > ½m₀ − m₀/200 > 2‖A‖² (as s ≤ 2‖A‖² < m₀/200), so that
+u₋ = p²/u₊ ≤ 2‖A‖⁴/(m − s) < ‖A‖² (if A ≠ 0; u₋ = 0 if p = 0). r₊ is smooth in b ∈ ℬ, as u₊ is a smooth function of (m, s, p²) where the discriminant is positive, and s and
 p² are polynomials in A. At b₀, Δ_(b₀) = r²(r² − m₀), r₊(b₀) = m₀^(1/2) = r_h and r₋(b₀) = 0.
 
 **Lemma {#lem:s12-spheroidal}** (The spheroidal form of the radius.) Let A ∈ 𝔰𝔬(4), |x|² > s, r := r_A(x),
@@ -676,7 +676,7 @@ with the uniformity of (H5) extended to them ([[sec:i-b-1-5]]). With [[sec:vi-a-
 the diffeomorphism of [[lem:vi-b-1-2]]; β is the coefficient of [[lem:vi-b1-0-1]] (c) and β₀ the rate of (H3); ψ is an
 azimuth; and ℛ_c, 𝒮 are the functions of [[lem:vi-b1-2-1]].
 
-Let b = (m, A) with |b − b₀| small, and use the notation of [[ch:s11]]: s = −½ tr(A²), Π(r) = r⁴ + sr² + p²,
+Let b = (m, A) ∈ ℬ with |b − b₀| small, and use the notation of [[ch:s11]]: s = −½ tr(A²), Π(r) = r⁴ + sr² + p²,
 Δ_b = Π − m r², r_A, ℓ_A and H_(m,A) ([[lem:iii-b-3-1]], [[def:iii-b-3-2]]), and r₊(b), the largest root of Δ_b
 ([[eq:vi-b-1-1]]). On {|x| ≥ r₀ − 2δ₀}, which lies in {|x|² > s} by [[lem:s11-ks-domain]], write
 

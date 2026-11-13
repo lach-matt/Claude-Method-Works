@@ -492,11 +492,11 @@ So, by [[lem:vii-0-1]], whose proof applies at every order, a smooth vacuum data
 the data (g̃_p, K̃_p) of a nearby translated, rotated and boosted Myers–Perry metric differs from (γ_λ, k_λ) by an
 element of the class: the class contains these data on Hintz's own surface. On the slices {y⁰ = 0} of [[def:v-2-1]] the
 data (g_p, K_p) of the same metrics lie in the class too, as g_p − δ ∈ ρ²C^∞ and K_p ∈ ρ³C^∞ far out by (a) and (d)
-(∇²f ∈ ρ³C^∞), but not near (γ_λ, k_λ): by (d), already at p_λ the second fundamental form differs from k^(m_λ) by a fixed term of order r⁻³, of size
-μ_end, so the members of [[def:v-2-1]] are at a distance from (γ_λ, k_λ), in the norm of the class, that no smallness of
-a perturbation removes. This is why the gluing below takes its family on Σ, as [[prop:vii-2-2]] does in the class. That
-the mass and the boost are fixed by the energy and momentum alone (c) is what makes the coefficient of ρ² of the glued
-data decay with R when a > 2 ([[eq:after-shell-params]] below).
+(∇²f ∈ ρ³C^∞), but not near (γ_λ, k_λ): by (d), already at p_λ the second fundamental form differs from k^(m_λ) by a
+fixed term of order r⁻³, of size μ_end, so the members of [[def:v-2-1]] are at a distance from (γ_λ, k_λ), in the norm of
+the class, that no smallness of a perturbation removes. This is why the gluing below takes its family on Σ, as
+[[prop:vii-2-2]] does in the class. That the mass and the boost are fixed by the energy and momentum alone (c) is what
+makes the coefficient of ρ² of the glued data decay with R when a > 2 ([[eq:after-shell-params]] below).
 
 **Lemma {#lem:after-shell-charges}** (Charges.) (a) For a pair (h, K) of symmetric 2-tensors put
 𝔪(h, K) := Σ_(|β|≤2) r^(|β|) |∂^β h| + Σ_(|β|≤1) r^(1+|β|) |∂^β K|. For data z_i = (δ + h_i, K_i), i = 1, 2, write
@@ -604,7 +604,8 @@ d_X − 3 + min(0, 3 − a) ≤ d_X − 3 < 0 and ≤ d_X − a. So for R ≥ R_
 (5) *A zero by Brouwer's fixed point theorem* (in place of [[lem:v-3-3]]). Let Θ(Q) := 𝔮̃(p_λ) + Δ𝔔 − T(Q). By (3) and
 (4), |Θ_X(Q) − 𝔮̃_X(p_λ)| ≤ r_X on 𝔅_R: if a ≤ 2 + d_X this reads C_1′ Ξ + Ξ = C_0 Ξ, and if a > 2 + d_X it reads
 0 + Ξ R^(2+d_X−a). Θ is continuous, by Step 3 of the proof of [[thm:v-3-1]] and [[lem:v-3-2]], and 𝔅_R is a product
-of closed intervals, so Θ has a fixed point Q_R. Then G_R(Q_R) = 0, and by Step 3 the data u_(Q_R,R) + δu_(Q_R,R) are vacuum.
+of closed intervals, so Θ has a fixed point Q_R. Then G_R(Q_R) = 0, and by Step 3 the data u_(Q_R,R) + δu_(Q_R,R)
+are vacuum.
 
 (6) *Conclusion.* Step 5 of the proof of [[thm:v-3-1]] gives the smooth vacuum data, with p_R := p(Q_R). Then
 [[eq:after-shell-params]] is (1), and [[eq:after-shell-annulus]] is (2) with [[eq:after-shell-theta]]. ∎

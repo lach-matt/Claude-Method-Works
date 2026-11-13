@@ -87,31 +87,33 @@ of [[prop:morawetz-weight]]). G is affine in a, and the coefficient of a is 2zF.
 
 ### Polynomial multipliers for 3 ≤ |σ| ≤ 14 {#sec:band-polynomial}
 
-**Proposition {#prop:band-polynomial}** (Three polynomial multipliers.) Let (l_1, ψ, W_0, m_0, M_0) be one of the rows
-M5, M7, M11 of [[sec:tb2-polynomial-multipliers]], put F := zψ(z), and let p_I and p_∞ be the values listed there.
+**Proposition {#prop:band-polynomial}** (Three polynomial multipliers.) Let (l_1, Ψ, w_*, m_*, m^*) be one of the rows
+Ψ_5, Ψ_7, Ψ_11 of [[sec:tb2-polynomial-multipliers]], put F := zΨ(z), and let p_I and p_∞ be the values listed there.
 Then for every l ≥ l_1 the multiplier φ := F(z(r_*)) satisfies the hypotheses of [[lem:band-sharp]] with V = V_l, and
-min_I w ≥ W_0, m′ ≥ m_0, M′ ≤ M_0. Hence, for every real σ ≠ 0 and every l ≥ l_1,
+min_I w ≥ w_*, m′ ≥ m_*, M′ ≤ m^*. Hence, for every real σ ≠ 0 and every l ≥ l_1,
 
-    ‖χ_I R_l(σ) χ_I‖ ≤ B♯(σ),   B♯ the constant [[eq:band-sharp]] with w_I = W_0, m′ = m_0, M′ = M_0 and p_I, p_∞.
+    ‖χ_I R_l(σ) χ_I‖ ≤ B♯(σ),   B♯ the constant [[eq:band-sharp]] with w_I = w_*, m′ = m_*, M′ = m^* and p_I, p_∞.
 
-*Proof.* Every claim below is the positivity of a polynomial on an interval, and each follows from
-[[lem:bernstein-lower-bound]] with the least Bernstein coefficients of [[sec:tb2-bernstein]], which are positive on every
-listed piece.
+*Proof.* Every claim below is the positivity of one of the six polynomials (items 1–6) of [[sec:tb2-bernstein]] on an
+interval, which that section cuts into pieces. Each polynomial is given there exactly, and on each piece the section
+prints every Bernstein coefficient b_0, …, b_n of [[lem:bernstein-lower-bound]] (n the degree of the polynomial),
+rounded down. Every printed coefficient is positive, so every b_k is positive, and by [[lem:bernstein-lower-bound]] the
+polynomial is at least min_k b_k > 0 on the piece. The pieces of each item cover its interval.
 
-The sign and the monotonicity. ψ > 0 on [−1, 1] (item 1), so F has the sign of z. F_z ≥ 0 on [−1, 1] (item 2), so
-φ′ = 4ηF_z ≥ 0 and φ is nondecreasing, with φ(∞) = F(1) = ψ(1) and φ(−∞) = F(−1) = −ψ(−1). As F is a polynomial in y,
+The sign and the monotonicity. Ψ > 0 on [−1, 1] (item 1), so F has the sign of z. F_z ≥ 0 on [−1, 1] (item 2), so
+φ′ = 4ηF_z ≥ 0 and φ is nondecreasing, with φ(∞) = F(1) = Ψ(1) and φ(−∞) = F(−1) = −Ψ(−1). As F is a polynomial in y,
 φ′, φ″ and φ‴ are η times polynomials in y and y^(1/2); they are O(r⁻³) as r → ∞ and O(e^(2r_*)) as r_* → −∞, hence
 integrable and vanishing at ±∞.
 
 Positivity of the weight. By [[lem:band-weight-z]], w_l = ηG_l with G_l the weight polynomial for a = κ + 3/4, and at
 l = l_1 this is the polynomial G_(l_1) listed in [[sec:tb2-polynomial-multipliers]] (expanding [[eq:band-weight-z]] with
-F = zψ gives its coefficients). G_(l_1) ≥ 0 on [−1, 1] (item 3), and since F has the sign of z,
+F = zΨ gives its coefficients). G_(l_1) ≥ 0 on [−1, 1] (item 3), and since F has the sign of z,
 G_l ≥ G_(l_1) for l ≥ l_1 by [[lem:band-weight-z]]. So w_l ≥ w_(l_1) ≥ 0 on ℝ.
 
-The constants on I. On I, v ∈ [1/4, 5/6], η = (1 − v²)v³ and z = 1 − 2v², so w_(l_1) − W_0 and φ′ − m_0, M_0 − φ′ are
-the polynomials in v of items 4, 5 and 6. Their positivity gives min_I w_l ≥ min_I w_(l_1) ≥ W_0 and
-m_0 ≤ φ′ ≤ M_0 on I. Since F increases with z, on I it takes values in [F(−7/18), F(7/8)], so max_I |φ| = p_I; and
-max(|φ(∞)|, |φ(−∞)|) = max(ψ(1), ψ(−1)) = p_∞. [[lem:band-sharp]] gives the bound. ∎
+The constants on I. On I, v ∈ [1/4, 5/6], η = (1 − v²)v³ and z = 1 − 2v², so w_(l_1) − w_* and φ′ − m_*, m^* − φ′ are
+the polynomials in v of items 4, 5 and 6. Their positivity gives min_I w_l ≥ min_I w_(l_1) ≥ w_* and
+m_* ≤ φ′ ≤ m^* on I. Since F increases with z, on I it takes values in [F(−7/18), F(7/8)], so max_I |φ| = p_I; and
+max(|φ(∞)|, |φ(−∞)|) = max(Ψ(1), Ψ(−1)) = p_∞. [[lem:band-sharp]] gives the bound. ∎
 
 ### The algebraic multipliers for 14 ≤ |σ| ≤ 384 {#sec:band-algebraic}
 
@@ -133,53 +135,55 @@ Expanding in powers of x,
 *Proof.* F_z = νΦ′(x) = νs^(−3/2), F_zz = ν²Φ″(x) = −3ν²xs^(−5/2) and F_zzz = ν³(12x² − 3)s^(−7/2). Substituting
 these, F = xs^(−1/2) and V_y = (a/ν)x + (9/16)(1 − z)(1 + 3z) into [[eq:band-weight-z]] and multiplying by s^(7/2),
 
-    Gs^(7/2) = 2xs³V_y − ½νE_zz s² + (9/2)ν²xE_z s − ν³(12x² − 3)E.
+    Gs^(7/2) = 2xs³V_y − ½νΞ_zz s² + (9/2)ν²xΞ_z s − ν³(12x² − 3)Ξ.
 
-With the formulas for E, E_z and E_zz of [[eq:band-weight-z]], the term 2xs³ · (a/ν)x is 2(a/ν)x²s³ and the remaining
+With the formulas for Ξ, Ξ_z and Ξ_zz of [[eq:band-weight-z]], the term 2xs³ · (a/ν)x is 2(a/ν)x²s³ and the remaining
 terms are 2R_ν(x). Substituting z = x/ν into [[eq:band-r]] and collecting powers of x gives [[eq:band-r-expanded]]. ∎
 
 **Lemma {#lem:band-positivity}** (Positivity of the core polynomial.) Let 2 ≤ ν ≤ 12 and A_ν := 6ν⁴ + (17/2)ν³. Then
 
     R_ν(x) + (A_ν/ν)x²(1 + x²)³ ≥ ν³     for every real x with |x| ≤ ν.                    {#eq:band-positivity}
 
-*Proof.* Put μ := 1/ν ∈ [1/12, 1/2] and Q := ν⁻³(R_ν(x) + (A_ν/ν)x²(1 + x²)³) − 1. Since A_ν/ν = (6 + 17μ/2)ν³,
-[[eq:band-r-expanded]] gives Q = A_0 + μA_1 + μ²A_2 + μ³A_3 + μ⁴A_4 + μ⁵A_5 with
+*Proof.* Put μ := 1/ν ∈ [1/12, 1/2] and 𝒬 := ν⁻³(R_ν(x) + (A_ν/ν)x²(1 + x²)³) − 1. Since A_ν/ν = (6 + 17μ/2)ν³,
+[[eq:band-r-expanded]] gives 𝒬 = e_0 + μe_1 + μ²e_2 + μ³e_3 + μ⁴e_4 + μ⁵e_5 with
 
-    A_0 = 1/2 + 18x⁴ + 18x⁶ + 6x⁸,            A_1 = −(15/4)x + (17/2)x² + (15/4)x³ + (51/2)(x⁴ + x⁶) + (17/2)x⁸,
-    A_2 = 1 − 10x² + 4x⁴,                      A_3 = (1/16)(−39x + 195x³ + 3x⁵ + 9x⁷),
-    A_4 = (1/8)(−15x² + 63x⁴ + 27x⁶ + 9x⁸),    A_5 = (1/16)(53x³ − 125x⁵ − 85x⁷ − 27x⁹);
+    e_0 = 1/2 + 18x⁴ + 18x⁶ + 6x⁸,            e_1 = −(15/4)x + (17/2)x² + (15/4)x³ + (51/2)(x⁴ + x⁶) + (17/2)x⁸,
+    e_2 = 1 − 10x² + 4x⁴,                      e_3 = (1/16)(−39x + 195x³ + 3x⁵ + 9x⁷),
+    e_4 = (1/8)(−15x² + 63x⁴ + 27x⁶ + 9x⁸),    e_5 = (1/16)(53x³ − 125x⁵ − 85x⁷ − 27x⁹);
 
-here A_0 = 3/2 − 6x² + 6x²(1 + x²)³ − 1 and A_1 = (15/4)(x³ − x) + (17/2)x²(1 + x²)³.
+here e_0 = 3/2 − 6x² + 6x²(1 + x²)³ − 1 and e_1 = (15/4)(x³ − x) + (17/2)x²(1 + x²)³.
 
-Case 0 ≤ x ≤ 1. Dropping nonnegative terms, A_0 ≥ 1/2 + 18x⁴, A_1 ≥ −(15/4)x + (17/2)x², A_2 ≥ 1 − 10x²,
-A_3 ≥ −(39/16)x and A_4 ≥ −(15/8)x². As x ≤ 1, 125x⁵ + 85x⁷ + 27x⁹ − 53x³ ≤ 184x³ ≤ 184x², so A_5 ≥ −(23/2)x². Hence
+Case 0 ≤ x ≤ 1. Dropping nonnegative terms, e_0 ≥ 1/2 + 18x⁴, e_1 ≥ −(15/4)x + (17/2)x², e_2 ≥ 1 − 10x²,
+e_3 ≥ −(39/16)x and e_4 ≥ −(15/8)x². As x ≤ 1, 125x⁵ + 85x⁷ + 27x⁹ − 53x³ ≤ 184x³ ≤ 184x², so e_5 ≥ −(23/2)x². Hence
 
-    Q ≥ 1/2 + μ² − Lx + Mx² + 18x⁴,     L := (15/4)μ + (39/16)μ³,   M := (17/2)μ − 10μ² − (15/8)μ⁴ − (23/2)μ⁵.
+    𝒬 ≥ 1/2 + μ² − β_1x + β_2x² + 18x⁴,
+    β_1 := (15/4)μ + (39/16)μ³,     β_2 := (17/2)μ − 10μ² − (15/8)μ⁴ − (23/2)μ⁵.
 
-L increases with μ, so L ≤ L(1/2) = 279/128. M is concave in μ ≥ 0, so on [1/12, 1/2] it is at least
-min(M(1/12), M(1/2)) = min(0.63875…, 1.2734…) > 0.6387. And 18x⁴ ≥ (9/4)x² − 9/128, since 18(x² − 1/16)² ≥ 0. So
-Q ≥ c_0 − (279/128)x + c_2x² with c_0 := 1/2 + 1/144 − 9/128 > 0.4366 and c_2 := 0.6387 + 9/4 = 2.8887. This quadratic
-has positive leading coefficient and discriminant (279/128)² − 4c_0c_2 < 4.7512 − 5.0448 < 0, so Q > 0.
+β_1 increases with μ, so β_1 ≤ β_1(1/2) = 279/128. β_2 is concave in μ ≥ 0, so on [1/12, 1/2] it is at least
+min(β_2(1/12), β_2(1/2)) = min(0.63875…, 1.2734…) > 0.6387. And 18x⁴ ≥ (9/4)x² − 9/128, since 18(x² − 1/16)² ≥ 0. So
+𝒬 ≥ γ_0 − (279/128)x + γ_2x² with γ_0 := 1/2 + 1/144 − 9/128 > 0.4366 and γ_2 := 0.6387 + 9/4 = 2.8887. This quadratic
+has positive leading coefficient and discriminant (279/128)² − 4γ_0γ_2 < 4.7512 − 5.0448 < 0, so 𝒬 > 0.
 
-Case −1 ≤ x < 0. Put ξ := −x ∈ (0, 1]. Then A_1 = (15/4)ξ(1 − ξ²) + (17/2)ξ² + (51/2)(ξ⁴ + ξ⁶) + (17/2)ξ⁸ ≥ (17/2)ξ²,
-A_2 ≥ 1 − 10ξ², A_3 = (ξ/16)(39 − 195ξ² − 3ξ⁴ − 9ξ⁶) ≥ −(207/16)ξ³ ≥ −(207/16)ξ², A_4 ≥ −(15/8)ξ² and
-A_5 = (ξ³/16)(−53 + 125ξ² + 85ξ⁴ + 27ξ⁶) ≥ −(53/16)ξ². Hence Q ≥ 1/2 + μ² − Nξ², with
-N := 10μ² + (207/16)μ³ + (15/8)μ⁴ + (53/16)μ⁵ − (17/2)μ. N is convex in μ ≥ 0, so on [1/12, 1/2] it is at most
-max(N(1/12), N(1/2)) = N(1/2) = 45/512, as N(1/12) < 0. So Q ≥ 1/2 − 45/512 > 0.
+Case −1 ≤ x < 0. Put ξ := −x ∈ (0, 1]. Then e_0 ≥ 1/2, e_1 = (15/4)ξ(1 − ξ²) + (17/2)ξ² + (51/2)(ξ⁴ + ξ⁶) +
+(17/2)ξ⁸ ≥ (17/2)ξ², e_2 ≥ 1 − 10ξ², e_3 = (ξ/16)(39 − 195ξ² − 3ξ⁴ − 9ξ⁶) ≥ −(207/16)ξ³ ≥ −(207/16)ξ²,
+e_4 ≥ −(15/8)ξ² and e_5 = (ξ³/16)(−53 + 125ξ² + 85ξ⁴ + 27ξ⁶) ≥ −(53/16)ξ². Hence 𝒬 ≥ 1/2 + μ² − β_3ξ², with
+β_3 := 10μ² + (207/16)μ³ + (15/8)μ⁴ + (53/16)μ⁵ − (17/2)μ. β_3 is convex in μ ≥ 0, so on [1/12, 1/2] it is at most
+max(β_3(1/12), β_3(1/2)) = β_3(1/2) = 45/512, as β_3(1/12) < 0. As μ² ≥ 0 and ξ² ≤ 1,
+𝒬 ≥ 1/2 − max(β_3, 0)ξ² ≥ 1/2 − 45/512 > 0.
 
-Case 1 ≤ |x| ≤ ν. Here x² ≥ 1, μ ≤ 1/2 and μ|x| ≤ 1. First A_1 ≥ 0: for x ≥ 1, (15/4)(x³ − x) ≥ 0 and the other terms
-are nonnegative; for x ≤ −1, with ξ = −x, A_1 ≥ (17/2)ξ² + (51/2)ξ⁴ − (15/4)ξ³ ≥ 0, as ξ³ ≤ (ξ² + ξ⁴)/2. Next, using
+Case 1 ≤ |x| ≤ ν. Here x² ≥ 1, μ ≤ 1/2 and μ|x| ≤ 1. First e_1 ≥ 0: for x ≥ 1, (15/4)(x³ − x) ≥ 0 and the other terms
+are nonnegative; for x ≤ −1, with ξ = −x, e_1 ≥ (17/2)ξ² + (51/2)ξ⁴ − (15/4)ξ³ ≥ 0, as ξ³ ≤ (ξ² + ξ⁴)/2. Next, using
 μ|x| ≤ 1 to trade a power of μ for a power of |x|, and μ ≤ 1/2,
 
-    μ²A_2 ≥ −10μ²x² ≥ −(5/2)x²,                        μ⁴A_4 ≥ −(15/8)μ⁴x² ≥ −(15/128)x²,
-    μ³|A_3| ≤ (μ²/16)(39 + 195x² + 3x⁴ + 9x⁶) ≤ (1/64)(39 + 195x² + 3x⁴ + 9x⁶),
-    μ⁵|A_5| ≤ (μ⁴/16)(53x² + 125x⁴ + 85x⁶ + 27x⁸) ≤ (1/256)(53x² + 125x⁴ + 85x⁶ + 27x⁸).
+    μ²e_2 ≥ −10μ²x² ≥ −(5/2)x²,                        μ⁴e_4 ≥ −(15/8)μ⁴x² ≥ −(15/128)x²,
+    μ³|e_3| ≤ (μ²/16)(39 + 195x² + 3x⁴ + 9x⁶) ≤ (1/64)(39 + 195x² + 3x⁴ + 9x⁶),
+    μ⁵|e_5| ≤ (μ⁴/16)(53x² + 125x⁴ + 85x⁶ + 27x⁸) ≤ (1/256)(53x² + 125x⁴ + 85x⁶ + 27x⁸).
 
-Adding these to A_0,
+Adding these to e_0,
 
-    Q ≥ 1/2 − 39/64 − (1503/256)x² + (18 − 137/256)x⁴ + (18 − 121/256)x⁶ + (6 − 27/256)x⁸ ≥ −7/64 − 6x² + 17x⁴,
+    𝒬 ≥ 1/2 − 39/64 − (1503/256)x² + (18 − 137/256)x⁴ + (18 − 121/256)x⁶ + (6 − 27/256)x⁸ ≥ −7/64 − 6x² + 17x⁴,
 
-and −7/64 − 6x² + 17x⁴ ≥ −7/64 + 11x² > 0 since x⁴ ≥ x². In every case Q > 0, which is [[eq:band-positivity]]. ∎
+and −7/64 − 6x² + 17x⁴ ≥ −7/64 + 11x² > 0 since x⁴ ≥ x². In every case 𝒬 > 0, which is [[eq:band-positivity]]. ∎
 
 **Lemma {#lem:band-algebraic-constants}** (The algebraic multiplier on I.) Let 2 ≤ ν ≤ 12, let a ≥ A_ν + (7/2)ν⁴ and
 put α := (a − A_ν)/ν ≥ (7/2)ν³. Then φ := F_ν(z(r_*)) satisfies the hypotheses of [[lem:band-sharp]] for
@@ -208,9 +212,9 @@ on [0, 3/5] and decreases on [3/5, 1] ([[sec:morawetz-identity]]). So on [−7/1
 η(−7/18) = η(y = 25/36) = 1375/7776; there w ≥ 2ν³ min(η(τ), 1375/7776). On [τ, 7/8], w ≥ 2αν²h_ν(z), and h_ν is
 log-concave on (0, 1):
 
-    (log h_ν)″ = −1/(1 + z)² − 3/(2(1 − z)²) − 2/z² + ν²(X − 1)/(1 + X)²,     X := ν²z²,
+    (log h_ν)″ = −1/(1 + z)² − 3/(2(1 − z)²) − 2/z² + ν²(ζ − 1)/(1 + ζ)²,     ζ := ν²z²,
 
-and ν²(X − 1)/(1 + X)² = z⁻²X(X − 1)/(1 + X)² < z⁻², so (log h_ν)″ < −z⁻² < 0. So on [τ, 7/8], h_ν ≥ min(h_ν(τ),
+and ν²(ζ − 1)/(1 + ζ)² = z⁻²ζ(ζ − 1)/(1 + ζ)² < z⁻², so (log h_ν)″ < −z⁻² < 0. So on [τ, 7/8], h_ν ≥ min(h_ν(τ),
 h_ν(7/8)). At z = 7/8, η = η(y = 1/16) = 15/1024 and z² = 49/64, which gives h_ν(7/8). This is [[eq:band-wi]].
 
 The constants. φ′ = 4νη(1 + ν²z²)^(−3/2). On y ∈ [1/16, 1/2] (z ∈ [0, 7/8]),
@@ -232,14 +236,14 @@ serves every harmonic from some l_1 on, and [[lem:band-barrier]] serves the harm
 ([[lem:band-sharp]]) and the barrier bound decreases, so on a range [σ_a, σ_b] it suffices to evaluate B♯ at σ_b and
 the barrier bound at σ_a.
 
-(a) 3 ≤ σ ≤ 15/4, multiplier M5 of [[prop:band-polynomial]], l_1 = 5. With the constants of
-[[sec:tb2-polynomial-multipliers]] (W_0 = 0.87, m_0 = 0.0455, M_0 = 0.75, p_I < 0.99673, p_∞ = 43/40), B♯(15/4) < 10.51.
+(a) 3 ≤ σ ≤ 15/4, the multiplier zΨ_5 of [[prop:band-polynomial]], l_1 = 5. With the constants of
+[[sec:tb2-polynomial-multipliers]] (w_* = 0.87, m_* = 0.0455, m^* = 0.75, p_I < 0.99673, p_∞ = 43/40), B♯(15/4) < 10.51.
 For l ≤ 4, κ ≤ 24 and the barrier bound at σ = 3 is 3.7436 · 3/(9 − 313/48) < 4.531.
 
-(b) 15/4 ≤ σ ≤ 6, multiplier M7, l_1 = 7. B♯(6) < 9.261 (W_0 = 1.30, m_0 = 0.031, M_0 = 0.74, p_I < 0.83442,
+(b) 15/4 ≤ σ ≤ 6, the multiplier zΨ_7, l_1 = 7. B♯(6) < 9.261 (w_* = 1.30, m_* = 0.031, m^* = 0.74, p_I < 0.83442,
 p_∞ = 9/10). For l ≤ 6, κ ≤ 48 and the barrier bound at σ = 15/4 is 3.7436 · (15/4)/(225/16 − 601/48) < 9.107.
 
-(c) 6 ≤ σ ≤ 14, multiplier M11, l_1 = 11. B♯(14) < 9.544 (W_0 = 1.80, m_0 = 0.0210, M_0 = 0.72, p_I < 0.50776,
+(c) 6 ≤ σ ≤ 14, the multiplier zΨ_11, l_1 = 11. B♯(14) < 9.544 (w_* = 1.80, m_* = 0.0210, m^* = 0.72, p_I < 0.50776,
 p_∞ = 59/100). For l ≤ 10, κ ≤ 120 and the barrier bound at σ = 6 is 3.7436 · 6/(36 − 1465/48) < 4.100.
 
 (d)–(f) 14 ≤ σ ≤ 384, the algebraic multipliers F_ν of [[lem:band-algebraic-constants]] with ν = 11/4 on [14, 28],
@@ -257,9 +261,9 @@ The six ranges, with the bound for the harmonics served by each multiplier and f
 
 | range of σ | multiplier | harmonics it serves | multiplier bound ≤ | harmonics below: bound ≤ |
 |---|---|---|---|---|
-| [3, 15/4] | M5 | l ≥ 5 | 10.51 | 4.531 |
-| [15/4, 6] | M7 | l ≥ 7 | 9.261 | 9.107 |
-| [6, 14] | M11 | l ≥ 11 | 9.544 | 4.100 |
+| [3, 15/4] | zΨ_5 | l ≥ 5 | 10.51 | 4.531 |
+| [15/4, 6] | zΨ_7 | l ≥ 7 | 9.261 | 9.107 |
+| [6, 14] | zΨ_11 | l ≥ 11 | 9.544 | 4.100 |
 | [14, 28] | F_(11/4) | l ≥ l_1(σ) | 10.297 | 7.4872 |
 | [28, 108] | F_4 | l ≥ l_1(σ) | 10.579 | 7.4872 |
 | [108, 384] | F_6 | l ≥ l_1(σ) | 10.381 | 7.4872 |
@@ -271,11 +275,21 @@ Together with [[prop:morawetz-resolvent-l-ge-1]] and [[prop:morawetz-l-zero]], w
 8.878, 4.682, 5.990, 4.097, 3.022 and 2.252 at |σ| = 3, 6, 12, 24, 48 and 96; at most 2.024, 1.869 and 1.743 at
 |σ| = 128, 160 and 192; and at most 1.677, 1.815 and 1.963 for every |σ| in [s − 1/20, s] with s = 256, 320 and 384.
 
-*Proof.* At |σ| = 3, [[prop:band-polynomial]] with M5 gives B♯(3) < 8.878 for l ≥ 5, and [[lem:band-barrier]] gives
-4.531 for l ≤ 4. At |σ| = 6, M11 gives B♯(6) < 4.682 for l ≥ 11 and [[lem:band-barrier]] gives 4.100 for l ≤ 10. At
+*Proof.* At |σ| = 3, [[prop:band-polynomial]] with zΨ_5 gives B♯(3) < 8.878 for l ≥ 5, and [[lem:band-barrier]] gives
+4.531 for l ≤ 4. At |σ| = 6, zΨ_11 gives B♯(6) < 4.682 for l ≥ 11 and [[lem:band-barrier]] gives 4.100 for l ≤ 10. At
 the other frequencies, take the row of [[sec:tb2-points]]: the multiplier F_ν of [[lem:band-algebraic-constants]] with
 the listed ν and τ, applied with a at l = l_1 (a larger a only increases α), serves every l ≥ l_1, and gives the listed
 B♯ at the right end σ_+; [[lem:band-barrier]] at the left end σ_- gives the listed bound for every l < l_1. ∎
+
+**Remark {#rem:band-observed}** (Numerical observation.) A numerical optimisation over multipliers that are narrow at
+the photon sphere and wide in the flanks, one multiplier for each l_1 = 5, …, 768, with the bound evaluated in interval
+arithmetic on the 7,620 subintervals of width 1/20 of [3, 384], gives for every l ≥ 0 the bounds 3.7719, 2.3724,
+1.5222 and 0.99697 at |σ| = 12, 24, 48 and 96, and 0.83951, 0.73083, 0.66429, 0.56257, 0.49119 and 0.47635 on the
+subintervals ending at |σ| = 128, 160, 192, 256, 320 and 384 (0.43792 at 384 when more multipliers are admitted); its
+largest value on [3, 384] is 11.477, on [3.2, 3.25]. |σ|^(1/2) times these values is 9.77, 9.20 and 8.58 at
+|σ| = 96, 192 and 384 (the last with 0.43792), so between |σ| = 96 and 384 they decay roughly like |σ|^(−0.6); the
+scaling of the best multiplier at the trapped harmonic suggests |σ|^(−1/2) for larger |σ|. These values are not proved
+here ([[prop:band-points]] proves weaker ones from |σ| = 12 on), and no proof uses them.
 
 ### One derivative on the band {#sec:band-one-derivative}
 

@@ -125,20 +125,26 @@ Euclidean norms in these bases and the operator norm on matrices, and for b ∈ 
 
     B(b)(ḃ, S) := (⟨ġ_b(ḃ) + h_b(S), f*_1⟩, ⟨ġ_b(ḃ) + h_b(S), f*_2⟩),
 
-with the rows f*_1, f*_2 of [[eq:iii-h-3-1]] and the pairing of [[sec:iii-h-1]] at b. Then B(b₀) = I and B is of class
-C¹ in b, so C_B := sup_(ℬ̄_*)|∂_bB| is finite. After shrinking ℬ_* to a ball about b₀ of radius at most 1/(2C_B),
+with the rows f*_1, f*_2 of [[eq:iii-h-3-1]] and the pairing of [[sec:iii-h-1]] at b. Then B(b₀) = I, B(b) is real,
+and B is of class C¹ in b, so C_B := sup_(ℬ̄_*)|∂_bB| is finite. After shrinking ℬ_* to a ball about b₀ of radius at
+most 1/(2C_B),
 
     |B(b) − I| ≤ ½,     |B(b)⁻¹| ≤ 2     for every b ∈ ℬ̄_*.
 
-In particular (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective for every b ∈ ℬ̄_*.
+In particular (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective for every b ∈ ℬ̄_*. If the same matrix B(b), in the same bases and
+norms, is formed again later and its constant is taken as the supremum of |∂_bB| over the ball fixed here, that
+supremum is at most C_B; so the condition that the radius be at most one over twice that supremum holds already, and
+it shrinks ℬ_* no further. This is the case in the chapter that follows.
 
-*Proof.* B(b₀) = I is [[eq:iii-h-3-1]]. The pairing ⟨u, f*_j⟩ = ∫_X ⟨u, f*_j⟩_(g_b)|dx| is an integral over the
-compact set supp f*_1 ∪ supp f*_2 ⊂ X°, and g_b is smooth in b. The states are of class C¹ in b with values in
-continuous sections over that set ((P3); [[prop:iii-d2-3-1]] and [[prop:iii-f3-2-2]] (3) construct them smooth in b).
-So B is of class C¹, and C_B is finite, ℬ̄_* being compact. Shrinking ℬ_* does not increase C_B. The mean value theorem
-along the segment from b₀ to b, which lies in the ball ℬ̄_*, gives |B(b) − I| ≤ C_B|b − b₀| ≤ ½, and the Neumann series
-B(b)⁻¹ = Σ_(n≥0)(I − B(b))^n gives |B(b)⁻¹| ≤ Σ_(n≥0) 2^(−n) = 2. If ġ_b(ḃ) + h_b(S) = 0, then B(b)(ḃ, S) = 0, so
-(ḃ, S) = 0. ∎
+*Proof.* B(b₀) = I is [[eq:iii-h-3-1]]. B(b) is real: the rows f*_1, f*_2 are real ([[sec:iii-h-3]] fixes them real),
+g_b is real, and the states are real on real arguments ((P3)). The pairing ⟨u, f*_j⟩ = ∫_X ⟨u, f*_j⟩_(g_b)|dx| is an
+integral over the compact set supp f*_1 ∪ supp f*_2 ⊂ X°, and g_b is smooth in b. The states are of class C¹ in b with
+values in continuous sections over that set ((P3); [[prop:iii-d2-3-1]] and [[prop:iii-f3-2-2]] (3) construct them
+smooth in b). So B is of class C¹, and C_B is finite, ℬ̄_* being compact. Shrinking ℬ_* does not increase C_B. The mean
+value theorem along the segment from b₀ to b, which lies in the ball ℬ̄_*, gives |B(b) − I| ≤ C_B|b − b₀| ≤ ½, and the
+Neumann series B(b)⁻¹ = Σ_(n≥0)(I − B(b))^n gives |B(b)⁻¹| ≤ Σ_(n≥0) 2^(−n) = 2. If ġ_b(ḃ) + h_b(S) = 0, then
+B(b)(ḃ, S) = 0, so (ḃ, S) = 0. Finally, a supremum over the shrunk ball, a subset of the ball over which C_B was
+taken, is at most C_B, so one over twice it is at least 1/(2C_B), which bounds the radius. ∎
 
 **Lemma {#rem:iii-i15-1-2}** (The rotation state at b.) For b ∈ ℬ̄_* and V ∈ 𝒱_1 there is ḃ_V ∈ 𝔟, linear in V,
 with |ḃ_V| = O(|b − b₀||V|) and
@@ -146,11 +152,13 @@ with |ḃ_V| = O(|b − b₀||V|) and
     h_(b,v1)(V) = ġ_b(ḃ_V),     ker h_(b,v1) = {V : ḃ_V = 0}.
 
 *Proof.* At b, h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in ker L̂_b(0) in the
-space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀, with
-the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of [[prop:iii-h-3-2]],
-with [[lem:s25a-ball]]). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V), with (ḃ_V, S_V) = B(b)⁻¹(⟨h_(b,v1)(V), f*_1⟩,
-⟨h_(b,v1)(V), f*_2⟩); as |B(b)⁻¹| ≤ 2 and the pairings are bounded by the supremum of h_(b,v1)(V) on the compact support
-of the rows, |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and
+space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). That nullspace is eleven-dimensional, and ġ_b(ḃ), the
+gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) span it ([[prop:iii-f3-4-1]] (1) at the b-weight
+α + 2 ∈ (0, 1)); they are independent by [[lem:s25a-ball]]. So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V), with
+(ḃ_V, S_V) = B(b)⁻¹(⟨h_(b,v1)(V), f*_1⟩, ⟨h_(b,v1)(V), f*_2⟩), which is real for real V, B(b) being real
+([[lem:s25a-ball]]) and h_(b,v1)(V) = δ*_(g_b)(V − P_b⁻¹□^Υ_b V) real for real V, the operators being real (the
+proof of (P3)). As |B(b)⁻¹| ≤ 2 and the pairings are bounded by the supremum of h_(b,v1)(V) on the compact support of
+the rows, |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and
 reverses h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by [[lem:s25a-ball]]. So h_(b,v1)(V) = ġ_b(ḃ_V), and ker
 h_(b,v1) = {V : ḃ_V = 0} by the injectivity in [[lem:s25a-ball]]. ∎
 

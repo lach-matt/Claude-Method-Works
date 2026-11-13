@@ -14,17 +14,18 @@ part of the initial surface ([[lem:interior-far-part]]), and defines a data clas
 [[thm:settling]] (ii) by half-integer orders ([[def:half-class]]), in which [[ch:own-data]] proves that the
 development of g_λ's own data settles.
 
-*Notation.* b₀ := (μ_end, 0), so that the mass m₀ of the stability theory is μ_end and R₁ = μ_end^(1/2) = r_h, the
-radius of the horizon of g_(b₀). q_end := (√72 μ_end l5²)^(1/4) is the radius of the curvature boundary x_K = 1 of the
+*Notation.* b₀ := (μ_end, 0), so that the mass m₀ of the stability theory is μ_end and R₁ = μ_end^(1/2) = r_h, the radius
+of the horizon of g_(b₀). q_end := (√72 μ_end l5²)^(1/4) is the radius of the curvature boundary x_K = 1 of the
 background after the shell ([[sec:domain]]); as μ_end ≥ μ0 ≥ √72 l5², q_end ≤ R₁. The inner radius r_♭ ∈ (0, ½R₁], the
 spacetime M of [[eq:iii-b-2-1]], its coordinates (t, x), the functions T_m, ψ and ψ_IVP, the time functions t_* and
 t_IVP, the initial surface Σ^IVP := t_IVP⁻¹(0) and the radius R₃ beyond which t_IVP = t − C″ are those of [[ch:s11]]
-([[eq:iii-b-3-3]], [[eq:iii-b-3-6]], [[lem:iii-b-3-7]]). Since ψ_IVP = ψ on [r_♭, 5R₁] and ψ′ > 0 on [3R₁, ∞),
-R₃ ≥ 5R₁. Ω_*, 𝒟_0, t^♭_* and T̂ are those of [[sec:iii-k-0]] and [[prop:iii-k-1-2]]. The domain Ω′ of the form
+([[eq:iii-b-3-3]], [[eq:iii-b-3-6]], [[lem:iii-b-3-7]]). Since ψ_IVP = ψ on [r_♭, 5R₁] and ψ′ > 0 on [3R₁, ∞), R₃ ≥ 5R₁.
+Ω_*, t^♭_* and T̂ are those of [[sec:iii-k-0]] and [[prop:iii-k-1-2]], and 𝒟_0 := 𝒟_(0,0) is the region 𝒟_(S,S⁰) of
+[[prop:iii-k-1-2]] at (S, S⁰) = (0, 0), φ_(0,0) being the identity ([[eq:s27-motion]]). The domain Ω′ of the form
 [[eq:omega]] with constants (T′, δ′_0), a′ := q0 − δ′_0, V′ := v_end + T′ and τ′_end := max_(v ≤ V′)(v − r_q(v)), the
 constant c₀ of the chart (t, x) = (τ + T_(μ_end)(|x|) + c₀, x), which places Σ^IVP in the coordinates (τ, x) of
-[[sec:background]], and the gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and [[thm:settling-precise]];
-Ω′_+ := Ω′ ∩ {v ≥ v_end + 1}. G = O(2) × O(2) is the group of [[sec:s27-class]].
+[[sec:background]], and the gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and [[thm:settling-precise]]; Ω′_+ := Ω′ ∩
+{v ≥ v_end + 1}. G = O(2) × O(2) is the group of [[sec:s27-class]].
 
 ### The development inside the black hole {#sec:interior-development}
 
@@ -224,16 +225,16 @@ vanishing; so the spatial components of its Ricci tensor are
 
     R_ij = ½∂_s²h_ij + Ric(h_s)_ij + ¼(h^kl ∂_s h_kl) ∂_s h_ij − ½h^kl ∂_s h_ik ∂_s h_jl.
 
-Ric = 0 therefore reads ∂_s²h = F(h, ∂_s h, ∂_x h, ∂_x²h), with F := −2 Ric(h) − ½(h^kl ∂_s h_kl) ∂_s h + (∂_s h)h⁻¹(∂_s h)
-a universal expression, polynomial in h⁻¹, h, ∂_s h and the first and second x-derivatives of h. Differentiating m times
-in s makes ∂_s^(m+2)h at s = 0 a universal expression in the ∂_s^j h, j ≤ m + 1, and their x-derivatives. By induction
-on m, from h^λ_0 = h_0 and ∂_s h^λ_0 = ∂_s h_0, ∂_s^m h^λ and ∂_s^m h agree at s = 0 for every m, with all their
-x-derivatives. So H := h^λ on s ≤ 0 and h on s ≥ 0 has one-sided partial derivatives of every order which agree at
+Ric = 0 therefore reads ∂_s²h = F(h, ∂_s h, ∂_x h, ∂_x²h), with F := −2 Ric(h) − ½(h^kl ∂_s h_kl) ∂_s h + (∂_s h)h⁻¹(∂_s
+h) a universal expression, polynomial in h⁻¹, h, ∂_s h and the first and second x-derivatives of h. Differentiating m
+times in s makes ∂_s^(m+2)h at s = 0 a universal expression in the ∂_s^j h, j ≤ m + 1, and their x-derivatives. By
+induction on m, from h^λ_0 = h_0 and ∂_s h^λ_0 = ∂_s h_0, ∂_s^m h^λ and ∂_s^m h agree at s = 0 for every m, with all
+their x-derivatives. So H := h^λ on s ≤ 0 and h on s ≥ 0 has one-sided partial derivatives of every order which agree at
 s = 0. By induction on the order, every partial derivative of H exists, the one-sided difference quotients in s having
-the same limit at s = 0, and it is continuous; so H is C^∞. The metric −ds² + H is then smooth on (−ε, ε) × U,
-Ricci-flat on s ≠ 0, and so on s = 0 as well, Ric depending continuously on two derivatives. As the transition maps
-between the Φ_U are the identity near Σ, these metrics, g_λ on A ∖ Σ and g on B ∖ Σ form one smooth Ricci-flat
-Lorentzian metric g_gl on M_gl. On Σ = {s = 0} it induces H_0 = γ and the second fundamental form ½∂_s H_0 = k.
+the same limit at s = 0, and it is continuous; so H is C^∞. The metric −ds² + H is then smooth on (−ε, ε) × U, Ricci-flat
+on s ≠ 0, and so on s = 0 as well, Ric depending continuously on two derivatives. As the transition maps between the Φ_U
+are the identity near Σ, these metrics, g_λ on A ∖ Σ and g on B ∖ Σ form one smooth Ricci-flat Lorentzian metric g_gl on
+M_gl. On Σ = {s = 0} it induces H_0 = γ and the second fundamental form ½∂_s H_0 = k.
 
 *(i), time orientation and connectedness.* Along each geodesic s ↦ Φ_U(s, x) the tangent ∂_s is timelike and
 continuous, so it stays in the cone of its value n_λ, resp. n, at s = 0: ∂_s is future directed for g_λ on s < 0 and
@@ -291,12 +292,12 @@ Hausdorff globally hyperbolic development that extends both [Sbi15, Theorem 2.7 
 
 ### Towards the continuation of g_λ's own data {#sec:interior-own-data}
 
-To continue g_λ's own data, g_λ would first have to be constructed on the whole of Σ^IVP, out to spatial infinity.
-The region there lies after the shell (v > v_end), where g_λ is Tangherlini plus the means times powers of λ plus the
+To continue g_λ's own data, g_λ would first have to be constructed on the whole of Σ^IVP, out to spatial infinity. The
+region there lies after the shell (v > v_end), where g_λ is Tangherlini plus the means times powers of λ plus the
 remainder of [[lem:vii-1-1]]. Those data would then have to be shown to lie in a data class of [[thm:iii-k-4-3]], and
-[[prop:vii-3-2]] with b = (m′, 0) and S = 0, applied to g_λ's own data, would give their development, with the interior
-of [[prop:interior]] at late times; without the symmetry, [[thm:settling]] (ii) would. The first step needs estimates
-on a domain reaching spatial infinity at the time of Σ^IVP; the construction from past null infinity
+[[prop:vii-3-2]] with b = (m′, 0) and S = S⁰ = 0, applied to g_λ's own data, would give their development, with the
+interior of [[prop:interior]] at late times; without the symmetry, [[thm:settling]] (ii) would. The first step needs
+estimates on a domain reaching spatial infinity at the time of Σ^IVP; the construction from past null infinity
 ([[thm:past-construction]]) is the natural start. This section locates that step and fixes the data class.
 
 Let P′ be the past domain [[eq:past-domain]] built with V′, τ′_end and a′ in place of V, τ_end and a, so that
@@ -415,9 +416,9 @@ r = v − τ ≥ v1 − τ on W.
 
     m_Ω = V′ + 1 + τ′_end − 2τ_S − 4R ≥ 2V′ + 1 − q_end − 2τ_top − 4R ≥ q_end + 3,
 
-using V′ ≥ τ_top + 2R + q_end + 1. For v ≤ v1 + ½ and r ≥ 4R, τ = v − r ≤ τ_S + ½ ≤ τ_top + ½ ≤ τ′_end − ½. If
-τ ≥ τ0, then v + (τ − τ′_end) ≤ v1 + τ_S + 1 − τ′_end = V′ + 2 − m_Ω ≤ V′ − 1, and r ≥ 4R > a′: the point lies in
-Ω′, strictly inside its defining inequalities other than τ ≥ τ0. If τ ≤ τ0, then, as h_P ≤ κ_P and v1 = V′_P − κ_P − (τ_S − τ0) − m_Ω
+using V′ ≥ τ_top + 2R + q_end + 1. For v ≤ v1 + ½ and r ≥ 4R, τ = v − r ≤ τ_S + ½ ≤ τ_top + ½ ≤ τ′_end − ½. If τ ≥ τ0,
+then v + (τ − τ′_end) ≤ v1 + τ_S + 1 − τ′_end = V′ + 2 − m_Ω ≤ V′ − 1, and r ≥ 4R > a′: the point lies in Ω′, strictly
+inside its defining inequalities other than τ ≥ τ0. If τ ≤ τ0, then, as h_P ≤ κ_P and v1 = V′_P − κ_P − (τ_S − τ0) − m_Ω
 by the definitions of m_Ω and V′_P,
 
     v + h_P(τ) ≤ v1 + ½ + κ_P = V′_P − (τ_S − τ0) − m_Ω + ½ ≤ V′_P − 1 − 3 + ½ < V′_P − 3,
@@ -442,19 +443,19 @@ properties only on {t̃ ≤ 0, r ≥ 4R}, which is W ∪ Z. For p in W_+ and c a
 p, v ≥ v1 + I(τ) ≥ v1 along c while it is in W, as v − I is nondecreasing; and the argument of
 (i) applies verbatim: c meets Σ_far.
 
-(iv) (a) On Ω′, item 4 of [[thm:past-construction]] gives items 1 and 3–5 of [[thm:main]], among them
-|g_λ − g0| ≤ Cλ (item 4 of [[thm:main]]). On P′, g_app − g0 = λW + Σ_j λ^j m_j + Σ_j λ^j ĝ_j, evaluated at θ = u/λ
-([[eq:ansatz]]), a finite sum whose profiles vanish for v ≤ v_start and are at most C r^(−3/2) on P′ ∩ {v ≥ v_start}
-by [[eq:past-classes]]: W_TT ∈ O_(3/2), while χ, m_j and ĝ_j lie in O_2 or L_2 and are at most
-C r⁻² ≤ C a1^(−1/2) r^(−3/2), dv ⊗ dv having bounded Cartesian components. As r ≥ t + a1 ≥ t there
-([[lem:past-domain]] (d)) and 0 < λ ≤ 1, |g_app − g0| ≤ Cλ t^(−3/2) on P′, the bound stated in (P-v) of
-[[sec:past-proof]]. With items 1 and 3 of [[thm:past-construction]], |g_λ − g0| ≤ Cλ^(K−3) t^(−2) + Cλ t^(−3/2) ≤
-C′λ t^(−3/2) on P′, as K ≥ 6 and t ≥ 1 there, and g_λ = g0 for v ≤ v_start. By (ii), Z ⊂ Ω′ ∪ P′ and Z ⊂ {τ ≤ τ_S},
-and t ≤ 1 on Z ∩ Ω′. So ε_λ bounds |g_λ − g0|_op on Z, the operator norm of a 5 × 5 matrix being at most five times
-its largest entry, and |g_λ⁻¹ − g0⁻¹|_op by the Neumann series, for λ small. The integral is ∫_(−∞)^(τ0) t^(−3/2) dτ = ∫_1^∞ t^(−3/2) dt = 2
-plus τ_S − τ0. (b) ε_g is continuous, at most 1/8 for λ and ν small, as v1 − τ ≥ v1 − τ_max > 0 on W ∪ Z, and it
-bounds both norms on W ∪ Z by (a) and the hypothesis. Its integral over (−∞, τ_max] is at most
-C_1λ(τ_max − τ0 + 2) + C_W ν ∫_(−∞)^(τ_max) (v1 − τ)⁻² dτ = C_1λ(τ_max − τ0 + 2) + C_W ν/(v1 − τ_max). (iii) applies.
+(iv) (a) On Ω′, item 4 of [[thm:past-construction]] gives items 1 and 3–5 of [[thm:main]], among them |g_λ − g0| ≤ Cλ
+(item 4 of [[thm:main]]). On P′, g_app − g0 = λW + Σ_j λ^j m_j + Σ_j λ^j ĝ_j, evaluated at θ = u/λ ([[eq:ansatz]]), a
+finite sum whose profiles vanish for v ≤ v_start and are at most C r^(−3/2) on P′ ∩ {v ≥ v_start} by [[eq:past-classes]]:
+W_TT ∈ O_(3/2), while χ, m_j and ĝ_j lie in O_2 or L_2 and are at most C r⁻² ≤ C a1^(−1/2) r^(−3/2), dv ⊗ dv having
+bounded Cartesian components. As r ≥ t + a1 ≥ t there ([[lem:past-domain]] (d)) and 0 < λ ≤ 1, |g_app − g0| ≤ Cλ t^(−3/2)
+on P′, the bound stated in (P-v) of [[sec:past-proof]]. With items 1 and 3 of [[thm:past-construction]], |g_λ − g0| ≤
+Cλ^(K−3) t^(−2) + Cλ t^(−3/2) ≤ C′λ t^(−3/2) on P′, as K ≥ 6 and t ≥ 1 there, and g_λ = g0 for v ≤ v_start. By (ii), Z ⊂
+Ω′ ∪ P′ and Z ⊂ {τ ≤ τ_S}, and t ≤ 1 on Z ∩ Ω′. So ε_λ bounds |g_λ − g0|_op on Z, the operator norm of a 5 × 5 matrix
+being at most five times its largest entry, and |g_λ⁻¹ − g0⁻¹|_op by the Neumann series, for λ small. The integral is
+∫_(−∞)^(τ0) t^(−3/2) dτ = ∫_1^∞ t^(−3/2) dt = 2 plus τ_S − τ0. (b) ε_g is continuous, at most 1/8 for λ and ν small, as
+v1 − τ ≥ v1 − τ_max > 0 on W ∪ Z, and it bounds both norms on W ∪ Z by (a) and the hypothesis. Its integral over (−∞,
+τ_max] is at most C_1λ(τ_max − τ0 + 2) + C_W ν ∫_(−∞)^(τ_max) (v1 − τ)⁻² dτ = C_1λ(τ_max − τ0 + 2) + C_W ν/(v1 − τ_max).
+(iii) applies.
 
 (v) env vanishes for v ≥ v_end, and [W_TT] with it ([[eq:waves]]); [[thm:past-construction]] (2) then reads
 r^(3/2)(g_λ − g0) → 0. ∎
@@ -462,8 +463,10 @@ r^(3/2)(g_λ − g0) → 0. ∎
 So the first step is a characteristic problem on W: the data of g_λ on H₁, nothing incoming at past null infinity,
 solved up to Σ_far and uniformly up to spatial infinity I₀, in the wave-map gauge relative to g_(b₀). It is a
 scattering problem near spatial infinity without incoming radiation, for a perturbation that is O(λ) on H₁. The data of
-g_λ near I₀ are not needed: past null infinity carries nothing there. [[ch:own-data]] uses (i), (ii) and (v) of
-[[lem:interior-far-part]], and (iii)–(iv) (b) for the continued metric.
+g_λ near I₀ are not needed: past null infinity carries nothing there. [[ch:own-data]] continues the metric on W.
+Parts (i), (ii) and (v) of [[lem:interior-far-part]] describe the domain W, its place in Ω′ ∪ P′ and the absence of
+incoming radiation; (iii) and (iv) (b) bound, for any continuation close to g0 at the rate of (iv) (b), the strip along
+H₁ that may lie outside the domain of dependence of Σ_far.
 
 **Remark {#rem:interior-far-part-numerical}** (Numerical observation.) For a radial model g⁻¹ = g0⁻¹ + ε(τ) n ⊗ n with
 ε = 0.05 min(1, t^(−3/2)) and eight fixed covectors n, the past null generator through ∂Σ_far of the boundary of
@@ -472,25 +475,26 @@ D⁻(Σ_far; g) was integrated numerically down to τ_S − 3000: along it |v �
 constant of the comparison dv(Y) ≥ −2ε_g dτ(Y) of [[lem:interior-far-part]] (iii) between ½ and 2. No proof uses these
 observations.
 
-*What H₁ carries.* On H₁ ∩ P′, |g_λ − g_app| ≤ Cλ^(K−3) t^(−2) ([[thm:past-construction]] (3)). After the shell
-g_app − g0 = Σ_j λ^j m_j, the means alone, every oscillating profile vanishing on {v ≥ v_end} (step (3) of the proof
-of [[prop:past-items]]); and m_m ∈ L_2 ([[thm:past-approximant]]): a leading term r⁻² M_m(v, x̂), with
-M_m := 2 ∫_(−∞)^v 𝒮_(m,3) dv′, plus a remainder in E_(5/2). That is a leading term and a bound, not an expansion.
-[[lem:vii-0-1]] asks for components in ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r, and the class of
+*What H₁ carries.* On H₁ ∩ P′, |g_λ − g_app| ≤ Cλ^(K−3) t^(−2) ([[thm:past-construction]] (3)). After the shell g_app −
+g0 = Σ_j λ^j m_j, the means alone, every oscillating profile vanishing on {v ≥ v_end} (step (3) of the proof of
+[[prop:past-items]]); and m_m ∈ L_2 ([[thm:past-approximant]]): a leading term r⁻² M_m(v, x̂), with M_m := 2 ∫_(−∞)^v
+𝒮_(m,3) dv′, plus a remainder in E_(5/2). That is a leading term and a bound, not an expansion. The sufficient condition
+of [[lem:vii-0-1]] asks for components in ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r, and the class of
 [[thm:settling]] (ii) is polyhomogeneous with terms of orders r⁻² and r⁻³. An E_(5/2) bound neither gives such an
-expansion nor excludes one. The data index set of [[thm:iii-k-4-3]] need not be integral: row d1 of [[sec:vi-c-1]]
-asks min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0, and none of these is integrality. Closure
-under sums is the only condition linking the elements, so (5/2, 0) ∈ ℰ_0 forces (5, 0), (15/2, 0), … into it. As
-ℓ_0 > 5/2, the norm ‖·‖_(d_1) of [[sec:s27-class]] is finite on a term ρ^(5/2) a(ω) exactly when (5/2, 0) ∈ ℰ_0; for
-the class [[eq:vii-0-1]] it is infinite.
+expansion nor excludes one. The data index set of [[thm:iii-k-4-3]] need not be integral: row d1 of [[sec:vi-c-1]] asks
+min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0, and none of these is integrality. Closure under sums is
+the only condition linking the elements, so (5/2, 0) ∈ ℰ_0 forces (5, 0), (15/2, 0), … into it. As ℓ_0 > 5/2, the norm
+‖·‖_(d_1) of [[sec:s27-class]] is finite on a term ρ^(5/2) a(ω) exactly when (5/2, 0) ∈ ℰ_0; for the class [[eq:vii-0-1]]
+it is infinite.
 
 **Definition {#def:half-class}** (The half-integer class.) The *half-integer class* is the data class of
 [[thm:iii-k-4-3]] with
 
     ℰ_0^½ := {(2 + j/2, 0) : j ∈ ℕ₀},     ℓ_0 ∈ (3, 4) ∖ {7/2},     ℓ_I ∈ (3, ℓ_0),                   {#eq:half-class}
 
-and ‖·‖^½_(d_1) denotes the H^(d_1)-norm of H^(∞,(ℰ_0^½,ℓ_0))_b × H^(∞,(ℰ_0^½+1,ℓ_0+1))_b, infinite outside these
-spaces.
+with ℓ_I off the discrete exclusion sets of row d2 of [[sec:vi-c-1]] and of (H4) of [[sec:iii-i10-1]], as for
+[[eq:vii-0-1]]; ‖·‖^½_(d_1) denotes the H^(d_1)-norm of H^(∞,(ℰ_0^½,ℓ_0))_b × H^(∞,(ℰ_0^½+1,ℓ_0+1))_b, infinite outside
+these spaces.
 
 **Lemma {#lem:half-class}** (Row d1, and what lies in the half-integer class.) (a) ℰ_0^½ and ℓ_0 satisfy row d1 of
 [[sec:vi-c-1]], and ℰ_0^½ contains the index set of [[eq:vii-0-1]]. (b) Let γ̃, k̃ be smooth symmetric 2-tensors on

@@ -7,14 +7,14 @@ is [[lem:s25-p6]] below.
 
 This chapter proves that the linear theory of [[ch:s19]]–[[ch:s24]] holds at every base point whose black hole
 parameter b lies in a fixed neighbourhood ℬ_* of b₀ = (m₀, 0), with constants and smallness conditions uniform in b
-([[thm:iii-i15-3-1]]). That theory consists of the forward solutions in the cone and their improvement at ι⁺ and K⁺,
-the boost parameter, almost boundedness, the extraction and the elimination of the parameters, the centre-of-mass
-motions, the corrections of the fourth kind, the expansion at the Kerr face, the augmentation by its coefficients,
-the parameterisation by data, the tame estimates and the exact weights. With it, the right inverses that the
-Nash–Moser theorem ([[thm:ii-g-2-1]]) asks for exist at every base point near the one of the iteration, with uniform
-bounds ([[cor:iii-i15-3-2]]). [Hin26] states its Sections 11.2–12 at base points with |b − b₀| small;
-[[thm:iii-i15-3-1]] is that statement in dimension 4 + 1, and the lemmas and propositions that prove it are new in
-this dimension.
+([[thm:iii-i15-3-1]] for [[ch:s19]]–[[ch:s23]], [[cor:s25-tame]] for [[ch:s24]]). That theory consists of the forward
+solutions in the cone and their improvement at ι⁺ and K⁺, the boost parameter, almost boundedness, the extraction and
+the elimination of the parameters, the centre-of-mass motions, the corrections of the fourth kind, the expansion at
+the Kerr face, the augmentation by its coefficients, the parameterisation by data, the tame estimates and the exact
+weights. With it, the right inverses that the Nash–Moser theorem ([[thm:ii-g-2-1]]) asks for exist at every base
+point near the one of the iteration, with uniform bounds ([[cor:iii-i15-3-2]]). [Hin26] states its Sections 11.2–12
+at base points with |b − b₀| small; [[thm:iii-i15-3-1]] and [[cor:s25-tame]] are that statement in dimension 4 + 1,
+and the lemmas and propositions that prove them are new in this dimension.
 
 Three ingredients are proved for this. The model objects at b are those of [[lem:iii-i15-1-1]] ([[ch:s25a]]): the forward
 solutions; the ι⁺- and tf-normal operators and the indicial roots, which do not depend on b; the zero energy states,
@@ -25,11 +25,12 @@ perturbation from b₀ ([[lem:iii-i15-1-2]]); the rotation state at b is a chang
 ([[rem:iii-i15-1-2]]). [[sec:iii-i15-2]] treats the rotation terms: the v1 terms of exponent of real part at most 2 are
 rotation rows whose coefficients are assigned from the construction that produces them ([[prop:iii-i15-2-2]],
 [[def:iii-i15-2-3]]), and with them the decay theorem [[thm:iii-i14-3-1]] holds at b ([[prop:iii-i15-2-5]]).
-[[sec:iii-i15-3]] states the theorem and gives, for every step of the theory whose justification uses a property of b₀
-that a general b need not have, what supplies it at b. Three such steps need more than a substitution: the boost
-identity, the parameter identities and the expansion at a rotating b. They are proved at b, with direct bounds in place
-of continuity in b, in [[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]] ([[ch:s20]]), [[lem:iii-i15-2-11]] and
-[[prop:iii-i15-2-12]] ([[ch:s21]]), and [[lem:iii-i15-2-9]] and [[cor:iii-i15-2-10]] ([[ch:s22]]).
+[[sec:iii-i15-3]] states the theorem and its corollary for the tame and exact forms, and records where a step proved
+at b₀ uses a property of b₀ that a general b need not have, and what replaces it at b. Three such steps need more
+than a substitution: the boost identity, the parameter identities and the expansion at a rotating b. They are proved
+at b, with direct bounds in place of continuity in b, in [[lem:iii-i15-2-7]] and [[prop:iii-i15-2-8]] ([[ch:s20]]),
+[[lem:iii-i15-2-11]] and [[prop:iii-i15-2-12]] ([[ch:s21]]), and [[lem:iii-i15-2-9]] and [[cor:iii-i15-2-10]]
+([[ch:s22]]).
 
 *What changes in dimension 4 + 1.* At b₀ every rotation is Killing. At a rotating b only the rotations commuting with
 the spin are, and the rotation state h_(b,v1) is O(|b − b₀|) but not zero ([[sec:iii-e1-2]]). The v1 terms of
@@ -44,11 +45,12 @@ perturbation ([[lem:iii-i15-1-2]]).
 
 *Notation.* The notation is that of [[ch:s19]]–[[ch:s24]]. The black hole parameters are b = (m, A), b₀ = (m₀, 0) and
 R₁ = m₀^(1/2), and |b − b₀| is the norm of [[def:s12-radii]]. ℬ_1 and ℬ_*, with ℬ̄_* ⊂ ℬ_1, are the neighbourhoods of b₀
-of [[sec:iii-h2-0]]; ℬ_* is the ball about b₀ of radius at most 1/(2C_B) of [[lem:s25a-ball]] (the radius of
-[[lem:s20-rows]]), shrunk further in [[lem:iii-i15-1-2]] and [[prop:iii-i15-2-5]] (and in [[prop:iii-i15-2-8]] and
-[[prop:iii-i15-2-12]]), each time to a smaller ball about b₀, and every statement below holds on the final ℬ_*. (P1)–(P5)
-are the properties of [[lem:iii-i15-1-1]], and (P6) is that of [[lem:s25-p6]]. As in [[ch:s16]], λ ∈ ℂ is an exponent at
-ι⁺; it is not the wavelength. The letter ε > 0 is small, and "order w−" means order w − ε for every ε > 0
+of [[sec:iii-h2-0]]; ℬ_* is the ball about b₀ of radius at most 1/(2C_B) of [[lem:s25a-ball]] ([[lem:s20-rows]]
+takes its constant C_B as a supremum over that ball, which is at most the one of [[lem:s25a-ball]], so its condition on
+the radius holds already and shrinks nothing), shrunk further in [[lem:iii-i15-1-2]] and [[prop:iii-i15-2-5]] (and in
+[[prop:iii-i15-2-8]] and [[prop:iii-i15-2-12]]), each time to a smaller ball about b₀, and every statement below holds
+on the final ℬ_*. (P1)–(P5) are the properties of [[lem:iii-i15-1-1]], and (P6) is that of [[lem:s25-p6]]. As in
+[[ch:s16]], λ ∈ ℂ is an exponent at ι⁺; it is not the wavelength. The letter ε > 0 is small, and "order w−" means order w − ε for every ε > 0
 ([[sec:iii-i14-1]]). The types 𝒯 = {s1, v1, s0, s2, c0, c1}, the rows ν = (τ, λ, k) with their K⁺-exponents e_ν and
 weights κ_ν, the index set 𝒩 = 𝒩_ι ⊔ 𝒩_σ, the coefficient spaces 𝒲_(τ,ℂ), the parameter space 𝒫, the operator P_4 and the
 classes of sources 𝒴_2(α), 𝒴(α) are those of [[sec:iii-i9-1]] and [[sec:iii-i9-2]] (with (G) and the levels of

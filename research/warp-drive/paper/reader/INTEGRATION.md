@@ -508,3 +508,16 @@ Items found while chapters were written in parallel; each is settled once, editi
   against the bound 8.558e-4); the λ > 0 argument was circular (repaired by Ŝ ≥ 0.6112). Every bound is stronger than
   its uses need (tube margins ×33, ×4, ×35, ×56). One copy of the quintic and μ_s: sec:table-seed-profile; E-a's
   sec:tab-bg-spline deleted. T4 (rem:bg-grid) is used by no proof.
+- Chapter 60 confirmed (R2-60). Nits: prop:iii-k-1-2 now defines 𝒟_(S,S⁰); lines 65-66 fix A and the envelope after
+  choices that depend on them; T′, R′, k each name two objects; the comparison at 287-293 omits ε_K < ε_Υ.
+  Follow-up when S27 is confirmed: carry S⁰ at chapter 60 lines 83, 96-97, 101, 260-261, 278-279, 312 (the "without
+  symmetry" half) and in chapter 3's item (ii).
+- S27 fixed (F-S27): translation parameter S⁰, φ_(S,S⁰) := ψ_(S⁰) ∘ φ_S; new lem:s27-translated-exterior (chapter 45
+  is boosts only), lem:s27-below, sec:s27-local from [DS23, Thm 2.5, p. 5] (thm:std-ds-stability, being added). Chapter
+  48 must carry the translation in its Theorem (2)-(6) and the class corollary (h_(S,S⁰), 𝒟_(S,S⁰)). Open question
+  for the S27 reader: whether S13-S25 state their (C3)-choice uses for any choice meeting the listed conditions.
+- S21 third fix (F3-S21): def:s21-eps-g at line ~151; lem:iii-i8-3-3 gains ‖u_j − u‖ → 0; S22 has the same gap in
+  lem:iii-i11-3-3 and lem:iii-i13-2-3 (sent to the S22 fix). S20 still uses ε_ind in prop:iii-i6-2-1 and
+  eq:iii-i6-2-7 (ε sweep).
+- S13 second reading (R2-S13): Major — ε_Υ undefined over all roots (gaps → 0); restore |Re ι| ≤ 10. NP 10.30 (ii)
+  for all z > 0. Proof A3 fixed: the exact e enters only through lem:s14-small-h (a); placement after sec:s14-model.

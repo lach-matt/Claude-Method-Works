@@ -919,9 +919,10 @@ cut-offs χ_(r,j) in [r_♯, r̂], and t_1 < ¼T_0r_♯ in [[prop:iv5-7-2]]. Not
 g := g^KS_b = η + H_b k_b ⊗ k_b is defined, smooth and Lorentzian with H_b > 0 on ℝ_t × {r ≥ ½r_♯}, smoothly in b,
 and the condition of [[lem:iii-b-3-3]] (c) holds there ([[lem:s11-ks-domain]]). The metric g_b of [[sec:iii-b-3-1]]
 is Φ_m*g with Φ_m(t, x) = (t − T_m(|x|), x), and [[rem:iv5-7-4]] transfers the results to it. The 1-form c := c_C of
-[[sec:iv4-0]] is given by its formula on {r ≥ ½r_♯}: for r ≤ ½r_c it is a positive multiple of dt + (v/2) dr, which is
-past timelike for g_(b₀) at every r > 0 ([[prop:np-10-14]] (i)), and so for g_b, b near b₀, on the compact set
-{½r_♯ ≤ r ≤ ½r_c}, by continuity.
+[[sec:iv4-0]] is given by its formula on {r ≥ ½r_♯}; below the smoothing near ½r_c it is a positive multiple of
+dt + (v/2) dr. It is past timelike for g_(b₀) at every r > 0 ([[prop:np-10-14]] (i), (b)), so for g_b, b near b₀, on
+the compact set {½r_♯ ≤ r ≤ 3r_c}, by continuity; and for r ≥ 3r_c it is r⁻¹(dt − v dr), past timelike for every g_b
+by [[lem:iv5-0-3]] (a).
 
 **Definition {#def:iv5-0-1}** (The compactification and the spaces; [Hin26a, Definitions 2.1, 2.2, 2.5, (2.2)–(2.3),
 (2.10), (2.11), (5.19)] in dimension 4 + 1.) Let M₀ := [ℝ̄^(1+4); k₊, k₋], where k_± are the poles of the radial

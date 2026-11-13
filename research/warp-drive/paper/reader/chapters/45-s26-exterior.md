@@ -334,11 +334,13 @@ This is possible. For η, dρ_I = |x|⁻¹(−½ρ_I dx⁰ − (1 − ½ρ_I)dx�
 
 ([Hin23a, (3.8)], with η⁻¹(dx⁰, dx¹) = −2, η⁻¹(dx⁰, dx⁰) = η⁻¹(dx¹, dx¹) = 0). The correction from δ := g_(b₀) − η is
 O(ρ²) relative to ρ_I|x|⁻²: η⁻¹dρ_I = |x|⁻¹((2 − ρ_I)∂₀ + ρ_I∂₁), and with δ_(ab) := δ(∂_a, ∂_b) as in the proof of
-[[lem:iii-c1-1-1]], δ₀₀, δ₀₁ ∈ ρ₀²ρ_I³C^∞ and δ₁₁ ∈ ρ₀²ρ_I²C^∞ ([[def:iii-c-3-4]], [[lem:iii-c-3-5]] (1)), so δ(η⁻¹dρ_I,
-η⁻¹dρ_I) = |x|⁻²((2 − ρ_I)²δ₀₀ + 2ρ_I(2 − ρ_I)δ₀₁ + ρ_I²δ₁₁) ∈ ρ_I|x|⁻² · ρ²C^∞, and the terms quadratic in δ are
-smaller. So [[eq:iv-3-1]] persists for ρ = ρ₀x_I² small; this is the role of the bound x̄_I ≤ 1/√(8m) of [Hin23a]. Here
-c_♯ is fixed by the three conditions above in the Minkowski coordinates of [[sec:iii-c-1]]; the bound of [Hin23a], stated
-in its tortoise coordinates ([[prop:np-10-64]] (8)), is not used.
+[[lem:iii-c1-1-1]], δ₀₀, δ₀₁ ∈ ρ₀²ρ_I³C^∞ and δ₁₁ ∈ ρ₀²ρ_I²C^∞ ([[def:iii-c-3-4]], [[lem:iii-c-3-5]] (1)), so
+
+    δ(η⁻¹dρ_I, η⁻¹dρ_I) = |x|⁻²((2 − ρ_I)²δ₀₀ + 2ρ_I(2 − ρ_I)δ₀₁ + ρ_I²δ₁₁) ∈ ρ_I|x|⁻² · ρ²C^∞,
+
+and the terms quadratic in δ are smaller. So [[eq:iv-3-1]] persists for ρ = ρ₀x_I² small; this is the role of the bound
+x̄_I ≤ 1/√(8m) of [Hin23a]. Here c_♯ is fixed by the three conditions above in the Minkowski coordinates of
+[[sec:iii-c-1]]; the bound of [Hin23a], stated in its tortoise coordinates ([[prop:np-10-64]] (8)), is not used.
 
 Let Ω ⊂ {x_I < c} ∩ {ρ₀ < 1} ∩ {t_* ≤ T₀}, c < c_♯, be open. Its boundary in the interior consists of two
 hypersurfaces, each smooth or piecewise smooth (there is no boundary term at a corner of Σ_in, where u vanishes):
@@ -387,15 +389,15 @@ a further final boundary, with a boundary term of the same sign as ℬ_fin. The 
 on where an X_I-curve ends. So the estimate holds for u_j on Ω_ε, uniformly in ε and j; let ε → 0, then j → ∞, the u_j
 converging to u locally uniformly with their derivatives and the uniform bound passing to the limit. ℬ_fin(u) ≥ 0: it is
 the flux through Σ_fin of the energy current of the future timelike W, and Σ_fin is spacelike or null with Ω to its past.
-It also contains the potential term, a positive multiple of V₀|u|² with V₀ := L(1) = ¾x_I² + O(x_I³) > 0 (near I₀, ¾ρ_I),
+It also contains the potential term, a positive multiple of V₀|u|² with V₀ = L(1) = ¾x_I² + O(x_I³) > 0 (near I₀, ¾ρ_I),
 of the same sign; so does the boundary term of the proof of [[prop:iv-4-1]].
 
 *The bulk term.* Modulo ρ₀^(−2α₀)x_I^(−4α_I+1)Diff²_(e,b), L may be replaced by the leading part L₀ of [[eq:iv-2-2]], and
 μ_b by μ̄_b := |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| ([[lem:iv-2-1]]). Accordingly q(u)μ_b differs from the bulk term q̄(u)μ̄_b of L₀
 and μ̄_b by a quadratic form in u and V′u, V′ ∈ {X₀, X_I, x_IΘ}, with coefficients in w²x_IC^∞: the principal symbols of
-L and L₀ differ by an element of x_IC^∞, V₀ − ¾x_I² ∈ x_I³C^∞, μ_b/μ̄_b ∈ 1 + ρ²C^∞, and differentiation along eb-vector
-fields preserves these classes. For L₀ and μ̄_b, X₀ and X_I are skew-adjoint on L²(μ̄_b), −div_(μ̄_b)W = −V(w²) = w²(2α₀
-− 2(1 + κ)α_I), and, with c_A := 1 + 2(α₀ − α_I) + κ(1 − 2α_I) > 0,
+L and L₀ differ by an element of x_IC^∞(M_♯; S²ᵉᵇTM_♯), V₀ − ¾x_I² ∈ x_I³C^∞, μ_b/μ̄_b ∈ 1 + ρ²C^∞, and
+differentiation along eb-vector fields preserves these classes. For L₀ and μ̄_b, X₀ and X_I are skew-adjoint on
+L²(μ̄_b), −div_(μ̄_b)W = −V(w²) = w²(2α₀ − 2(1 + κ)α_I), and, with c_A := 1 + 2(α₀ − α_I) + κ(1 − 2α_I) > 0,
 
     Q̄ := [L₀, W] − (div_(μ̄_b)W)L₀
        = 4|α_I|(X₀ − X_I)*w²(X₀ − X_I) + 4κ(α₀ − α_I)X_I*w²X_I + c_Ax_Iw(Δ̸ + ¾)wx_I                   {#eq:iv-3-3}
@@ -438,9 +440,8 @@ does not depend on where the curve ends, so integrating in ρ₀ and ω gives �
 
 *Conclusion for k = 0.* On Ω ⊂ {x_I < c}, |∫_Ω(q(u)μ_b − q̄(u)μ̄_b)| ≤ Cc(Σ_(V′)‖wV′u‖²_(L²_b) + ‖wu‖²_(L²_b)), its
 coefficients carrying the factor x_I < c. Cauchy–Schwarz on the left of the identity, ℬ_fin ≥ 0, the Poincaré
-inequality and absorption for c small give
-‖wu‖_(H¹_(e,b)) ≤ C‖wf‖_(L²_b), which is [[eq:iv-3-2]] for k = 0. Existence of the forward solution, smooth in Ω, is
-standard for the wave equation with smooth coefficients on Ω.
+inequality and absorption for c small give ‖wu‖_(H¹_(e,b)) ≤ C‖wf‖_(L²_b), which is [[eq:iv-3-2]] for k = 0. Existence
+of the forward solution, smooth in Ω, is standard for the wave equation with smooth coefficients on Ω.
 
 *Higher b-regularity* (the induction of [Hin23a]). Let X₀, X₁ := X_I, X₂, …, X₇ be the six rotation fields of 𝕊³
 (spanning T𝕊³ pointwise), and X₈ := 1. These span Diff¹_b over C^∞. By [[eq:iv-2-3]], [L, X_j] = Σ_l x_IP_(jl)X_l with
@@ -698,8 +699,9 @@ x_IDiff^(1;1)_(e,b;b): for the scalar part by [[lem:iv-2-2]]; and Ā is constant
 on the slot coordinates, and the rotations commute with Ā by the equivariance of [[lem:iii-c-4-2]]). These terms are
 absorbed for x_I small. For L̃_g = Σ_i(x_Ia_i + ã_i)P_i, with a_i ∈ C^∞, ã_i ∈ H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b and P_i
 spanning Diff²_(e,b), the x_Ia_i-terms are absorbed. By Leibniz's rule the ã_i-terms are sums of products
-(V₁⋯V_qã)(W′V′₁⋯V′_ru), q + r ≤ m + 1, with V_l, V′_l among the X_j and W′ an eb-vector field (the commutators of the
-X_j with P_i stay in Diff²_(e,b), as said below). For q = 0 such a product is bounded by
+(V₁⋯V_qã)(W′V′₁⋯V′_ru), q + r ≤ m + 1, with V_l, V′_l among the X_j and W′ an eb-vector field, up to smooth bounded
+factors (the commutators of the X_j with P_i stay in Diff²_(e,b), as said below, and expanding smooth coefficients
+produces only terms of this kind). For q = 0 such a product is bounded by
 ‖ã‖_(L^∞)‖u‖_(H^((1;m))) ≤ C‖ã‖_(H³)‖u‖_(H^((1;m))). For q ≥ 1, move W′ to the right of the V′_l: as [X_j, W′] is an
 eb-vector field for each X_j, this costs only products of the same form with fewer V′_l. Then the estimate for
 products of derivatives, [[thm:std-gn-moser]] (2), in the coordinates of the proof of [[lem:iv1-2-3]] (after the
@@ -1505,7 +1507,7 @@ P^(χ₀)(φ_S*g_(b₀) + φ_S*h, φ_S*g_(b₀)) vanish on 𝒰, and φ_S*h solv
 stationary 1-form c_C of [[def:iii-b-6-1]], which a boost does not preserve (φ_S*c_C ≠ c_C); so φ_S*h solves the
 equation with φ_S*c_C, while [[eq:iii-c2-3-3]] has c_C, and the two agree where Υ⁰ vanishes. Without the constraints
 statement (1) is not proved here; [Hin26, Theorem 5.23 (1)] states it without them, but its proof pulls back the whole
-operator. So v := h_S − φ_S*h satisfies L̄v = 0 on 𝒰 with vanishing Cauchy data on Σ_(IVP,r₁), where, with
+operator. So v := h_S − φ_S*h satisfies L̄v = 0 on 𝒰 ∩ Ω_(ext,r₁) with vanishing Cauchy data on Σ_(IVP,r₁), where, with
 g₀ := φ_S*g_(b₀) and g_s := g₀ + φ_S*h + sv, L̄ := ∫₀¹ L^(χ₀)_(g_s,g₀) ds. Each g_s is a convex combination of
 φ_S*(g_(b₀) + h) and φ_S*g_(b₀) + h_S, so it is close to g_(b₀) in the frame of [[eq:iii-c-1-6]] for |S| and the data
 small ([[lem:iii-c2-1-1]]); hence 2L̄ has principal symbol ḡ⁻¹(ζ, ζ)Id with ḡ⁻¹ := ∫₀¹ g_s⁻¹ ds, the inverse of a
@@ -1539,11 +1541,12 @@ the same estimate applied to their difference with ḣ, and higher derivatives f
 [Hin26, footnote 59].
 
 (3) The metrics φ_S*g_(b₀) + h_S and φ_S*(g_(b₀) + h) have the same Cauchy data on Σ_(IVP,r₁) ([[eq:iii-c2-3-1]],
-[[eq:iii-c2-3-3]]), hence the same first and second fundamental forms and the same Υ⁰ there, Υ⁰ involving the metric and
-its first derivatives only; so (3) does not depend on (1). By the proof of (1), the Ricci tensor and Υ⁰ of φ_S*(g_(b₀) +
-h) vanish on 𝒰 ⊃ Σ_(IVP,r₁). So the data of φ_S*g_(b₀) + h_S at Σ_(IVP,r₁) satisfy the constraints, and Υ^(χ₀E_Υ) = Υ⁰ =
-0 there (χ₀ = 0 near Σ_(IVP,r₁)). [[rem:iii-c1-2-2]] (1), with [[rem:iii-c1-2-2]] (2) for the background φ_S*g_(b₀) and
-with [[prop:np-10-57-d]] for the cut-off gauge, applied to [[eq:iii-c2-3-3]], gives the conclusions on Ω_(ext,r₁). ∎
+[[eq:iii-c2-3-3]]), hence the same first and second fundamental forms and the same Υ⁰ there, Υ⁰ involving the metric
+and its first derivatives only; so (3) does not depend on (1). By the proof of (1), the Ricci tensor and Υ⁰ of
+φ_S*(g_(b₀) + h) vanish on 𝒰 ⊃ Σ_(IVP,r₁). So the data of φ_S*g_(b₀) + h_S at Σ_(IVP,r₁) satisfy the constraints,
+and Υ^(χ₀E_Υ) = Υ⁰ = 0 there (χ₀ = 0 near Σ_(IVP,r₁)). [[rem:iii-c1-2-2]] (1), with [[rem:iii-c1-2-2]] (2) for the
+background φ_S*g_(b₀) and with [[prop:np-10-57-d]] for the cut-off gauge, applied to [[eq:iii-c2-3-3]], gives the
+conclusions on Ω_(ext,r₁). ∎
 
 **Remark {#rem:iii-c2-3-2}** ([Hin26, Remark 5.24] in dimension 4 + 1.) If h₀ = h₁ = 0, then h_S = 0 by uniqueness,
 and the metric is φ_S*g_(b₀). On all of Σ_IVP such data are compactly supported perturbations of the Myers–Perry data,
