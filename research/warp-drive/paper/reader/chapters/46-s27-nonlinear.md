@@ -413,8 +413,8 @@ the levels of τ transported by the time lines, the equation becomes, as in Step
 
     A⁰∂_τV + A^c∂_cV = BV + F,                                                                          {#eq:s27-system}
 
-with A⁰ = diag(1, −G^(ττ), G^(ab)) and A^c symmetric, both linear in the components of G⁻¹ in (τ, y), c_0 ≤ A⁰ ≤ c_0⁻¹
-for some c_0 > 0, B linear in (G⁻¹, a, b) (the change to the coordinates (τ, y) adds first-order terms linear in G⁻¹),
+with A⁰ = diag(1, −G^(ττ), G^(ab)) and A^c symmetric, both affine in the components of G⁻¹ in (τ, y), c_0 ≤ A⁰ ≤ c_0⁻¹
+for some c_0 > 0, B affine in (G⁻¹, a, b) (the change to the coordinates (τ, y) adds first-order terms linear in G⁻¹),
 and F = (0, 2f, 0); the relation between the last components of V and ∂_yh propagates. Divided by A⁰, it is a system
 ∂_τV + A^i∂_iV = B̃V + F̃ that satisfies (A1)–(A4) of [DS23]. The parameters
 (S, S⁰) are adjoined as unknowns constant in τ, which adds the eigenvalue 0 that the symbol already has. [DS23] asks

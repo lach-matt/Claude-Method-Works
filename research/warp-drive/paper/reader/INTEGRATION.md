@@ -1239,3 +1239,4 @@ Items found while chapters were written in parallel; each is settled once, editi
   and lem:iii-j2-2-4 and lem:iii-k-2-2 (d) use a lossless composition bound the edition does not prove (loss 3,
   absorbed by every use). The d-bound integration round for chapters 71 and 3 waits for F-P-U71-forward,
   F-P-U71-close, R2-P-U71-assembly, P-U71-IS and P-U71-SP.
+- R5-S27 CONFIRMED (0M 0m 1n; the nit applied: chapter 46 lines 416-417 'linear' to 'affine').
