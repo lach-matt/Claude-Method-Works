@@ -123,9 +123,9 @@ and env′ vanish at v_s. As ∫_0^∞ u e^(−s̃u) du = s̃^(−2) and e^(−i
     I_2(v)/env(v) − s̃^(−2) = ∫_0^∞ u e^(−s̃u) f(u) du.
 
 Integrate by parts with u e^(−s̃u) = −(d/du)[(u/s̃ + 1/s̃²) e^(−s̃u)]: the boundary terms vanish (f(0) = 0, and the
-modulus of e^(−s̃u) is e^(−κu)), and f′ = −ψ′ e^(−ψ) on (0, x), f′ = 0 beyond. So the right side is −s̃^(−2) ∫_0^x G_1 e^(−s̃u)
-du − s̃^(−1) ∫_0^x G_2 e^(−s̃u) du with G_1 := ψ′ e^(−ψ) and G_2 := u ψ′ e^(−ψ). Both vanish at u = 0 and as u ↑ x
-(G_1 = −f′), so a second integration by parts gives ∫_0^x G_m e^(−s̃u) du = s̃^(−1) ∫_0^x G_m′ e^(−s̃u) du, and
+modulus of e^(−s̃u) is e^(−κu)), and f′ = −ψ′ e^(−ψ) on (0, x), f′ = 0 beyond. So the right side is −s̃^(−2) ∫_0^x G_1
+e^(−s̃u) du − s̃^(−1) ∫_0^x G_2 e^(−s̃u) du with G_1 := ψ′ e^(−ψ) and G_2 := u ψ′ e^(−ψ). Both vanish at u = 0 and as u ↑
+x (G_1 = −f′), so a second integration by parts gives ∫_0^x G_m e^(−s̃u) du = s̃^(−1) ∫_0^x G_m′ e^(−s̃u) du, and
 
     ρ_2 = −J_1 − s̃ J_2,      J_m := s̃^(−1) ∫_0^x G_m′ e^(−s̃u) du.
 
@@ -296,11 +296,11 @@ with a fixed cost c and C_2 depending on the quantities of [[sec:layer-setting]]
 
 *Proof.* (1) *The equation.* g_λ solves Ric^H(g_λ) = 0 with the gauge relative to g0. The gauge vectors relative to g0
 and to g0° differ by g^(ab)(Γ[g0°] − Γ[g0])^ρ_ab. By [[eq:layer-christoffel]] with μ in place of μ0, and Γ^r_vv =
-μ′/(2r²) + F μ/r³, every component of Γ[g0] − Γ[g0°] is a polynomial of degree at most two in (μ − μ0, μ′), without constant
-term, with coefficients functions of r and of the angles. So Ric^H relative to g0 equals Ric^H relative to g0° plus a
-term 𝒜(g) with |𝒜| ≤ C (|μ − μ0| + |μ′| + |μ″|) for (g, ∂g) bounded, and |∂^k Ω^β 𝒜| ≤ C ε_(k+1)(v)² at points with
-that v, since 0 ≤ μ − μ0 ≤ (2/9) A² (v − v_s) ε_0², μ′ = (2/9) A² env² and μ″ = (4/9) A² env env′. With u := g_λ − g0°,
-g0° vacuum and D(g0°) = 0, Ric^H(g0° + u) = dRic^H(u) + 𝒩(u), and by the quasilinear form [[eq:gauge]] (second
+μ′/(2r²) + F μ/r³, every component of Γ[g0] − Γ[g0°] is a polynomial of degree at most two in (μ − μ0, μ′), without
+constant term, with coefficients functions of r and of the angles. So Ric^H relative to g0 equals Ric^H relative to g0°
+plus a term 𝒜(g) with |𝒜| ≤ C (|μ − μ0| + |μ′| + |μ″|) for (g, ∂g) bounded, and |∂^k Ω^β 𝒜| ≤ C ε_(k+1)(v)² at points
+with that v, since 0 ≤ μ − μ0 ≤ (2/9) A² (v − v_s) ε_0², μ′ = (2/9) A² env² and μ″ = (4/9) A² env env′. With u := g_λ −
+g0°, g0° vacuum and D(g0°) = 0, Ric^H(g0° + u) = dRic^H(u) + 𝒩(u), and by the quasilinear form [[eq:gauge]] (second
 derivatives only in −(1/2) g^(ab) ∂_a ∂_b g) |𝒩(u)| ≤ C (|u| |∂²u| + |∂u|² + |u|²) for |u| + |∂u| small, with
 Ω^β-derivatives by Leibniz's rule. As dRic^H(h^(1)) = 0, dRic^H(r2) = −𝒩(u) − 𝒜(g_λ) =: f_2.
 
@@ -340,20 +340,20 @@ for v_s < v′ ≤ v ≤ v_s + x0 and j ≤ c′, then at those points
     |r2(X)| ≤ C κ(v)^(2c′) env(v)².                                                                  {#eq:edge-localised}
 
 *Proof.* (1) *Any tilt serves.* Put ψ(τ) := τ − τ0 in case Ω and ψ as in [[lem:layer-remainder-past]] in case P, and
-ψ_max := 2 + τ_end − τ0 ≥ ψ. In the proofs of [[lem:layer-remainder]] and [[lem:layer-remainder-past]] the tilt
-(2C1λ, resp. 2C_Pλ) is used only to make the face {v + e ψ(τ) = V} have a conormal α = dv + e ψ′ dτ timelike for g_λ,
-and to keep the region inside S(V). Let Δ(V) be the supremum over S(V) of the Euclidean operator norm of g_λ⁻¹ −
-g0⁻¹ on covectors, weighted by t^(3/2) on P (where ψ′ = t^(−3/2); ψ′ = 1 on Ω). Since g0⁻¹(dv, dv) = 0, g0⁻¹(dv,
-dτ) = −1 and g0⁻¹(dτ, dτ) = −(1 + μ/r²), g0⁻¹(α, α) = −2eψ′ − e²ψ′²(1 + μ/r²); and α = (1 + eψ′) dτ + x̂·dx has the
-Euclidean norm |α|_e² ≤ 13/4 for eψ′ ≤ 1/2. So for every e with 2Δ(V) ≤ e ≤ 2C1λ (resp. 2C_Pλ), g_λ⁻¹(α, α) ≤ ψ′(−2e + (13/4) Δ(V))
+ψ_max := 2 + τ_end − τ0 ≥ ψ. In the proofs of [[lem:layer-remainder]] and [[lem:layer-remainder-past]] the tilt (2C1λ,
+resp. 2C_Pλ) is used only to make the face {v + e ψ(τ) = V} have a conormal α = dv + e ψ′ dτ timelike for g_λ, and to
+keep the region inside S(V). Let Δ(V) be the supremum over S(V) of the Euclidean operator norm of g_λ⁻¹ − g0⁻¹ on
+covectors, weighted by t^(3/2) on P (where ψ′ = t^(−3/2); ψ′ = 1 on Ω). Since g0⁻¹(dv, dv) = 0, g0⁻¹(dv, dτ) = −1 and
+g0⁻¹(dτ, dτ) = −(1 + μ/r²), g0⁻¹(α, α) = −2eψ′ − e²ψ′²(1 + μ/r²); and α = (1 + eψ′) dτ + x̂·dx has the Euclidean
+norm |α|_e² ≤ 13/4 for eψ′ ≤ 1/2. So for every e with 2Δ(V) ≤ e ≤ 2C1λ (resp. 2C_Pλ), g_λ⁻¹(α, α) ≤ ψ′(−2e + (13/4) Δ(V))
 < 0, and the proofs run on R(V, e) := S(V) ∩ {v + eψ(τ) ≤ V} with the same constants (the slices still shrink), and so
-does their form with four derivatives in step (2) of [[lem:edge-degree-two]]. Every boundary point X with v(X) + e
-ψ_max ≤ V lies in R(V, e), so the bound holds there with reach e ψ_max.
+does their form with four derivatives in step (2) of [[lem:edge-degree-two]]. Every boundary point X with v(X) + e ψ_max
+≤ V lies in R(V, e), so the bound holds there with reach e ψ_max.
 
 (2) *Stage 0* is [[lem:layer-remainder]] (case Ω; |w| ≤ C λ^(N−5) ε_(M*)) or [[lem:layer-remainder-past]] (case P;
-there |w| ≤ C λ^(N_P−3) ε_(M_P)) itself, with e_0 := 2C1λ (resp. 2C_Pλ) and reach e_0 ψ_max. Let y_0 be the depth at which
-κ(v_s + y_0) e_0 ψ_max = 1; by [[lem:edge-kappa]] (a), κ is nonincreasing and tends to ∞ at v_s, so y_0 exists for λ
-small, and y_0 → 0 as λ → 0. At depths x ≥ y_0 the reach of stage 0 is at most 1/κ(v). By [[lem:edge-kappa]] (a),
+there |w| ≤ C λ^(N_P−3) ε_(M_P)) itself, with e_0 := 2C1λ (resp. 2C_Pλ) and reach e_0 ψ_max. Let y_0 be the depth at
+which κ(v_s + y_0) e_0 ψ_max = 1; by [[lem:edge-kappa]] (a), κ is nonincreasing and tends to ∞ at v_s, so y_0 exists for
+λ small, and y_0 → 0 as λ → 0. At depths x ≥ y_0 the reach of stage 0 is at most 1/κ(v). By [[lem:edge-kappa]] (a),
 κ(v_s + y) y → ∞ as y ↓ 0, so 1/κ(v_s + y) ≤ y for y small; in particular e_0 ψ_max ≤ y_0.
 
 (3) *Stage 1* [[pending:issue-1]]. On S(v_s + 4y_0), |g_app − g0| ≤ C λ ε_c(v_s + 4y_0) (with the weight t^(−3/2) on P)
