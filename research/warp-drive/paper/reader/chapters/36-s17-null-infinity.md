@@ -1335,3 +1335,279 @@ smooth expansion at r̂ = 0, unlike the right-hand sides of [[thm:iii-g2-3-1]], 
 restrictions to tf of Fourier transforms of functions with good decay at K⁺, which is high regularity, not vanishing,
 at zf ([[prop:iii-a-4-2]], which is [Hin26, Proposition 2.25] in dimension 4 + 1).
 
+### Grafting into the low-energy space {#sec:iii-g4-4}
+
+This section is [Hin26, Definition 9.29, (9.72), Proposition 9.30, Remarks 9.31–9.34] in dimension 4 + 1.
+
+**Definition {#def:iii-g4-4-1}** ([Hin26, Definition 9.29] in dimension 4 + 1.) For a generic row (μ, τ) of 𝒲,
+Y ∈ 𝒴_τ and k ≤ K_μ, h^((μ),≤k)_(b,τ)(σ, Y) := Σ_(j=0)^k (−iσ)^j h̆^((μ),j)_(b,τ)(Y), h̆^((μ),0)_b being the state.
+For s1 and v1, in the indexing of [Hin26], h̆^(≤k)_(b,s1)(σ, S) := Σ_(j=1)^k (−iσ)^(j−1)h̆^j_(b,s1)(S) (without
+h_(b,s1), as in [Hin26, (9.71)]) and h^(≤k)_(b,v1)(σ, V) := h_(b,v1)(V) + Σ_(j=1)^k (−iσ)^j h̆^j_(b,v1)(V). These are
+polynomials in σ with smooth stationary coefficients.
+
+**Lemma {#lem:iii-g4-4-2}** ([Hin26, (9.72)] in dimension 4 + 1.) With the stationary tensors
+E_k := [L_b, t_*]h̆^((μ),k)_b + ½[[L_b, t_*], t_*]h̆^((μ),k−1)_b and E′_k := ½[[L_b, t_*], t_*]h̆^((μ),k)_b
+(h̆^((μ),−1)_b := 0),
+
+    L̂_b(σ)h^((μ),≤k)_(b,τ)(σ, Y) = (−iσ)^(k+1)E_k(Y) + (−iσ)^(k+2)E′_k(Y),                              {#eq:iii-g4-4-1}
+
+and the same holds for h_(b,s1)(S) − iσh̆^(≤k)_(b,s1)(σ, S) and for h^(≤k)_(b,v1)(σ, V), with the towers of
+[[def:iii-g2-2-5]]. So each lies in |σ|^(k+1)C^∞(±[0, 1)_σ × X°); for s1 with k = 4 this is [Hin26, (9.72)].
+
+*Proof.* By [[lem:iii-g2-2-6]], L_bh^(≤k)_b(a) is given by [[eq:iii-g2-2-2]]. Take a = e^(−iσt_*), so
+a^((j)) = (−iσ)^j e^(−iσt_*), and use L_b(e^(−iσt_*)w) = e^(−iσt_*)L̂_b(σ)w for stationary w. For s1,
+h^(≤k)_(b,s1)(e^(−iσt_*)S) = e^(−iσt_*)(h_(b,s1)(S) − iσh̆^(≤k)_(b,s1)(σ, S)). ∎
+
+**Lemma {#lem:iii-g4-4-3}** (Restrictions to tf.) For a generic row let G_(μ,τ)(σ, Y) := |σ|^(−μ)h^((μ),≤c_μ)_(b,τ)(σ,
+Y); for v1, G_(v1)(σ, V) := |σ|iσ⁻¹h^(≤2)_(b,v1)(σ, V); for s1, G_(s1)(σ, S) := |σ|iσ⁻¹h̆^(≤3)_(b,s1)(σ, S) and
+G^exc_(s1)(σ, S) := −|σ|σ⁻²h_(b,s1)(S). Near tf each is polyhomogeneous, with tf-index set (0, 0) ∪ ℰ_ind, where ℰ_ind
+collects the index sets of the corrections of the states (min Re ℰ_ind ≥ ϵ_ind, with the convention of [[ch:s13]] for
+ℰ_ind) and (2, 0), and G|_tf = H_(μ,τ)(Y), h̄^(≤2)_(v1)(±r̂, V), h̄^(≤3)_(s1)(±r̂, S) respectively; G^exc_(s1) vanishes
+at tf to order 2.
+
+*Proof.* Write h̆^((μ),j)_b = χh̆̄^((μ),j) + e_j with e_j ∈ 𝒜^(μ−j+ℰ_ind) ([[sec:iii-g2-2-2]]). By [[lem:iii-g4-2-2]]
+(1), |σ|^(−μ)(−iσ)^j h̆̄^((μ),j) = (∓ir̂)^j r̂^(−μ)φ_j, a function of (r̂, ω) alone, so smooth at tf. And
+|σ|^(−μ)(−iσ)^j e_j is r̂^(j−μ) times ρ^(−μ+j)e_j, polyhomogeneous with index set ℰ_ind in ρ = ρ_scf ρ_tf, so it
+vanishes at tf. For v1, h_(b,v1) ∈ 𝒜^((3,0)∪…) ([[eq:iii-d2-3-4]]) gives |σ|σ⁻¹ρ³, of tf-order 3, and the terms j ≥ 1
+give |σ|iσ⁻¹(−iσ)^j ρ^(−j)φ^((−1,v1))_(j−1) = (∓ir̂)^(j−1) r̂ φ^((−1,v1))_(j−1) (as i(−i) = 1), that is h̄^(≤2)_(v1).
+For s1, h̆¹_(b,s1) ∈ 𝒜^((2,0)∪…) gives |σ|σ⁻¹ρ², of tf-order 2, and the terms j ≥ 2 give
+|σ|iσ⁻¹(−iσ)^(j−1)ρ^(1−j)φ^((−1,s1))_(j−2) = (∓ir̂)^(j−2) r̂ φ^((−1,s1))_(j−2), that is h̄^(≤3)_(s1); and
+|σ|σ⁻²h_(b,s1) ∈ |σ|⁻¹ρ³𝒜⁰ = ρ_tf²ρ_zf⁻¹ρ_scf³𝒜⁰. ∎
+
+*Hypotheses.* Let α₀ ∈ ℂ with Re α₀ ∈ (1, 2 + ϵ_ind), k ∈ ℕ₀, ℓ_scf < 3/2, and
+
+    −ϵ_ind < ℓ_zf − Re α₀ + 2,     ℓ_zf − min(Re α₀ − 2, 0) < ℓ_K^max,     ℓ_zf ∉ ℕ₀,
+    ℓ_zf − Re α₀ + 2 ≠ −μ                                                                               {#eq:iii-g4-4-2}
+
+for every root μ. These imply [[eq:iii-g4-3-1]], as w₀ ≤ ℓ_zf − min(Re α₀ − 2, 0). They also give ℓ_zf < 3 (if
+Re α₀ ≥ 2, ℓ_zf < ℓ_K^max ≤ 3; if Re α₀ < 2, ℓ_zf < ℓ_K^max + Re α₀ − 2 < 3), which Step 1.2 (iii) below uses through
+the bound 3 of its zf-orders. That use could be removed by the split of the second case of [[lem:iii-g4-3-3]] (the term
+it splits off carries |σ|³, which is smooth); we keep [[eq:iii-g4-4-2]].
+
+**Proposition {#prop:iii-g4-4-4}** ([Hin26, Proposition 9.30] in dimension 4 + 1.) Assume [[eq:iii-g4-4-2]] and let
+f ∈ H^(∞,ℓ_scf+1,(α₀,k),((0,0),ℓ_zf))_b(X^±_(sc-b); S²T*X).
+
+(1) There is u ∈ ⋂_(ε>0) H^(∞,ℓ_scf−ε,Re α₀−2−ε,min(−1,Re α₀−3)−ε)_b(X^±_(sc-b)), smooth in the Myers–Perry
+parameters b near b₀, with
+
+    f − L̂_b(σ)u ∈ H^(∞,ℓ_scf+1,ℰ_(α₀,k),((0,0),ℓ_zf))_b(X^±_(sc-b)),
+    ℰ_(α₀,k) := ((α₀, k) + ℰ_ind) ∪ ((4, k + 1) + ((0, 0) ∪ ℰ_ind)),                                     {#eq:iii-g4-4-3}
+
+where ℰ_ind, an index set with min Re ℰ_ind ≥ ϵ_ind not depending on b, α₀, k, is that of [[lem:iii-g4-4-3]] together
+with (1, 0). The exponents at 4 come from the term l_(2−α₀)(|σ|)G^exc_(s1) (Step 1.1); their real part exceeds
+Re α₀ + ϵ_ind. [Hin26, (9.74), (9.81)] state the index set (α₀, k) + ℰ_ind without them.
+
+(2) For k = 0 one can take u = χ_zf|σ|^(α₀−2)u_b + χ_tf ρ_tf^(α₀−2)u_tf with
+u_tf ∈ H^(∞,ℓ_scf−ε,((0,0),ℓ_zf))_b(tf) and
+
+    u_b = l_(2−α₀)(|σ|)G^exc_(s1)(σ, S^((−1))_1) + l_(2−α₀)(r̂)(G_(s1)(σ, S^((−1))_1) + G_(v1)(σ, V^((−1))_1))
+          + Σ′_(μ,τ) l_(β_μ(α₀))(r̂)G_(μ,τ)(σ, Y^((μ))_τ),                                               {#eq:iii-g4-4-4}
+
+the primed sum over the other rows of 𝒲(w₀), as in [[eq:iii-g4-3-5]]; that is, in the notation of [Hin26],
+−l_(2−α₀)(|σ|)|σ|σ⁻²h_(b,s1)(S) + l_(2−α₀)(r̂)|σ|iσ⁻¹(h̆^(≤3)_(b,s1)(σ, S) + h^(≤2)_(b,v1)(σ, V)) + …, and
+l_(β_μ)(r̂)|σ|^(−μ)h^((μ),≤c_μ)_(b,τ)(σ, Y) for the others. For general k, u is a sum of terms of this form and of up to
+k-fold derivatives of such terms in α₀.
+
+*Proof.* It suffices to solve away one term χ_tf ρ_tf^(α₀)(log ρ_tf)^k f₀(r̂, ω),
+f₀ ∈ H^(∞,ℓ_scf+1,((0,0),ℓ_zf))_b(tf), of the expansion of f at tf: f is a sum of k + 1 such terms (with coefficients in
+that space, the restrictions to tf of the coefficients of its partial expansion) and a remainder of tf-index set
+(α₀ + 1, k) ⊂ (α₀, k) + ℰ_ind, as (1, 0) ∈ ℰ_ind; and terms with lower powers of the logarithm are treated in the same
+way.
+
+*Step 1: no logarithms.* For α near α₀ let u_(tf,α) := N_tf⁻¹(ρ_ztf^(−α)f₀), written as [[eq:iii-g4-3-3]] by
+[[thm:iii-g4-3-1]] (with χ_ztf = χ_zf|_tf), and let u_(b,α) be [[eq:iii-g4-4-4]] with α in place of α₀ and the
+coefficients of [[thm:iii-g4-3-1]]. Put
+
+    u_α := |σ|^(α−2)W_α,     W_α := χ_zf u_(b,α) + χ_tf(χ_zf r̂^(2−α)u_(α,1) + (1 − χ_zf)u_(α,∞)).       {#eq:iii-g4-4-5}
+
+The functions l_β(r̂), l_β(|σ|) and |σ|^(α−2) are holomorphic in α with values in the conormal spaces of
+[[lem:iii-g4-2-4]] (2), and the states do not depend on α; so u_α is holomorphic in α with values in
+H^(∞,ℓ_scf−ε,Re α₀−2−ε,min(−1,Re α₀−3)−ε)_b. The zf-weight comes from l_(2−α)(|σ|)|σ|^(α−3)h_(b,s1), of order
+Re α − 3 + min(0, 2 − Re α); every other term is better: the generic rows, as
+Re α − 2 − μ + min(0, Re β_μ) ≥ min(Re α − 2, 0), and the s1 and v1 terms G_(s1), G_(v1), which carry |σ|⁰, have the
+order Re α − 2 + min(0, 2 − Re α) = min(Re α − 2, 0) directly.
+
+In [[eq:iii-g4-4-5]], as |σ|^(α−2)r̂^(2−α) = ρ^(α−2), ρ = ρ_scf ρ_tf and |σ| = ρ_tf ρ_zf, the second part of u_α is
+χ_tf ρ_tf^(α−2)u_tf with u_tf := ρ_scf^(α−2)χ₁u_(α,1) + ρ_zf^(α−2)(1 − χ₁)u_(α,∞), a function of (r̂, ω) in
+H^(∞,ℓ_scf−ε,((0,0),ℓ_zf))_b(tf) (ρ_scf, ρ_zf and χ_zf = χ₁(r̂) being functions of r̂); at α = α₀ this is the form of
+(2) (as in the paragraph of [Hin26] after (9.80)).
+
+*Step 1.1: the restriction.* W_α is polyhomogeneous at tf with index set (0, 0) ∪ ℰ_ind, apart from the term
+χ_zf l_(2−α)(|σ|)G^exc_(s1), and W_α|_tf = u_(tf,α). As l_(2−α)(|σ|) = ((ρ_tf ρ_zf)^(2−α) − 1)/(2 − α), that term has
+the tf-exponents 2 and 4 − α (with 2 + ℰ_ind, 4 − α + ℰ_ind), merging into a logarithm at α = 2; equivalently,
+|σ|^(α−2)l_(2−α)(|σ|)G^exc_(s1) = (2 − α)⁻¹(1 − |σ|^(α−2))G^exc_(s1) has the tf-exponents 2 and α. Indeed
+χ_zf|_tf = χ_ztf, χ_tf = 1 near tf, the functions of (r̂, ω) are smooth at tf, and by [[lem:iii-g4-4-3]]
+(χ_zf u_(b,α))|_tf = χ_ztf u_(α,0): the term l_(2−α)(|σ|)G^exc_(s1) vanishes at tf, to order
+2 + min(0, 2 − Re α) − ε > 1.
+
+*Step 1.2: the error.* Let F_α := χ_tf ρ_tf^α f₀ − L̂_b(σ)u_α. We show
+F_α ∈ H^(∞,ℓ_scf+1,ℰ_α,((0,0),ℓ_zf))_b with ℰ_α := (α + ℰ_ind) ∪ (4 + ((0, 0) ∪ ℰ_ind)) for α ≠ 2 (the exponents 4
+and α + 2 merging into a logarithm at α = 2), holomorphically in α as an element of
+H^(∞,ℓ_scf+1,Re α₀+ϵ_ind−ε,((0,0),ℓ_zf))_b.
+
+(i) *tf.* As L̂_b(σ) has no σ-derivatives, L̂_b(σ)u_α = |σ|^(α−2)L̂_b(σ)W_α. View u_(tf,α) as a function of (r̂, ω) near
+tf. By [[lem:iii-g4-1-1]] (1), |σ|^(α−2)L̄̂(σ)u_(tf,α) = |σ|^αN_tf u_(tf,α) = |σ|^α ρ_ztf^(−α)f₀ = ρ_tf^α f₀, since
+ρ_zf = ρ_ztf as functions of r̂ and |σ| = ρ_tf ρ_zf. So near tf,
+
+    F_α = −|σ|^(α−2)L̄̂(σ)(W_α − u_(tf,α)) − |σ|^(α−2)(L̂_b(σ) − L̄̂(σ))W_α.
+
+By [[lem:iii-g4-1-2]] and Step 1.1, the first term has tf-index set α − 2 + 2 + ℰ_ind (b-operators preserve index sets,
+property (F1) of [[sec:iii-a-1]]) and the second α + 2 + ((0, 0) ∪ ℰ_ind) ⊂ α + ℰ_ind, as (2, 0) ∈ ℰ_ind, apart from
+the term of G^exc_(s1), which by Step 1.1 gives the exponents 4 and α + 2 (from L̄̂(σ) ∈ ρ_tf²Diff_b) and 6 and α + 4
+(from [[lem:iii-g4-1-2]]), each with ℰ_ind: in ℰ_α. Away from tf there is nothing to show at tf.
+
+(ii) *scf.* Near scf, χ_zf = 0 and W_α = χ_tf u_(α,∞), with sctf-weight ℓ_scf − ε; near sctf, u_(tf,α) = u_(α,∞).
+Where χ_tf = 1, (i) gives F_α = −|σ|^(α−2)(L̂_b − L̄̂)u_(α,∞), of scf-order ℓ_scf + 2 − ε by [[lem:iii-g4-1-2]].
+Elsewhere add −|σ|^(α−2)[L̂_b(σ), χ_tf]u_(α,∞): ρ∂_ρχ₂(ρ + |σ|) = ρχ₂′ carries ρ = ρ_scf ρ_tf, so the commutator lies
+in ρ_scf²ρ_tf³Diff¹_b, and this term too has scf-order ℓ_scf + 2 − ε ≥ ℓ_scf + 1.
+
+(iii) *zf.* We read the zf-index sets at zf°, where |σ| defines zf and x ranges over compact sets of X°. Near tf ∩ zf
+every term of F_α is a finite sum of products of jointly polyhomogeneous factors (powers of |σ|, ρ, r̂, the functions
+l_β(r̂), l_β(|σ|), and the expansions of the states at ρ = 0) and of the remainder r̂^(2−α)u_(α,1) with its own
+zf-structure; for such a product the zf-exponents do not depend on the point of zf, so they are those read at zf°. There
+χ_zf = 1, and F_α is χ_tf ρ_tf^α f₀ (whose zf-structure is that of f₀ at ztf, as r̂ = |σ|r) minus the following.
+(a) L̂_b(σ)(|σ|^(α−2)χ_tf r̂^(2−α)u_(α,1)) = L̂_b(σ)(ρ^(α−2)χ_tf u_(α,1)(|σ|r, ω)), of zf-class ((0, 0), ℓ_zf), as
+L̂_b(σ) is a differential operator in x polynomial in σ. (b) A generic term:
+L̂_b(σ)(|σ|^(α−2−μ)l_β(r̂)h^(≤c_μ)_b) = |σ|^(α−2−μ)(l_βL̂_b(σ)h^(≤c_μ)_b + [L̂_b(σ), l_β]h^(≤c_μ)_b). As
+l_β(|σ|r) ∈ 𝒜^(min(0,Re β)−ε) in |σ| and [[lem:iii-g4-4-2]] gives |σ|^(c_μ+1), the first part has zf-order
+Re α − 2 − μ + min(0, Re β_μ) + c_μ + 1 − ε = min(Re α + 1 + {−μ}, 3) − ε > ℓ_zf, by [[eq:iii-g4-4-2]] and α near α₀.
+For the second, ∂_x(l_β(|σ|r)) = (|σ|r)^β∂_x log r ([Hin26, (9.82)]), so [L̂_b(σ), l_β(r̂)] = r̂^βD_β(σ) with D_β(σ) a
+first-order operator on X° with coefficients smooth in x (r is bounded below on X), polynomial in σ and β; and
+|σ|^(α−2−μ)r̂^(β_μ) = |σ|^(⌊−μ⌋)r^(β_μ), so this part is smooth in σ at σ = 0, of zf-class (0, 0). (c) The s1 terms,
+[Hin26, (9.83)]: with β := 2 − α,
+
+    |σ|^(α−2)L̂_b(σ)(−l_β(|σ|)|σ|σ⁻²h_(b,s1) + l_β(r̂)|σ|iσ⁻¹h̆^(≤3)_(b,s1))
+      = −|σ|^(α−2)l_β(|σ|)|σ|σ⁻²L̂_b(σ)(h_(b,s1) − iσh̆^(≤3)_(b,s1))
+        + |σ|^(α−2)(l_β(r̂) − l_β(|σ|))|σ|iσ⁻¹L̂_b(σ)h̆^(≤3)_(b,s1) + |σ|^(α−2)[L̂_b(σ), l_β(r̂)]|σ|iσ⁻¹h̆^(≤3)_(b,s1).
+
+By [[lem:iii-g4-4-2]] the first line on the right has zf-order
+Re α − 2 + min(0, Re β) + 1 − 2 + 4 − ε = min(Re α + 1, 3) − ε > ℓ_zf. By [[lem:iii-g4-2-4]] (3),
+l_β(r̂) − l_β(|σ|) = |σ|^β l_β(r), so the second term is ±i l_β(r)L̂_b(σ)h̆^(≤3)_(b,s1), smooth in σ; and the third is
+±i r^βD_β(σ)h̆^(≤3)_(b,s1), smooth in σ. (d) The v1 term in the same way: [[lem:iii-g4-4-2]] gives zf-order
+Re α − 2 + min(0, Re β) + 3 − ε = min(Re α + 1, 3) − ε, and its commutator part is smooth in σ. (e) The commutators with
+the cut-offs: χ_zf = 1 near zf°; [L̂_b(σ), χ_tf] acts only on the term of (a) (χ_tf does not multiply u_(b,α) in
+[[eq:iii-g4-4-5]]), with the same conclusion. So F_α has zf-class ((0, 0), ℓ_zf). Holomorphy in α holds term by term.
+
+*Step 2: logarithms.* The term is ∂_α^k(χ_tf ρ_tf^α f₀)|_(α₀). Let u := ∂^k_α u_α|_(α₀). By the holomorphy in Step 1.2,
+χ_tf ρ_tf^(α₀)(log ρ_tf)^k f₀ − L̂_b(σ)u = ∂^k_αF_α|_(α₀) lies in H^(∞,ℓ_scf+1,Re α₀+ϵ_ind−ε,((0,0),ℓ_zf))_b, and
+differentiating [[eq:iii-g4-4-5]] term by term shows that it is polyhomogeneous at tf with index set ℰ_(α₀,k) of
+[[eq:iii-g4-4-3]] (the k-th α-derivative of the exponents 4 and α + 2 of the term of G^exc_(s1), which merge at
+α₀ = 2, carries at most k + 1 logarithms at 4). The membership of u is that of u_α, with logarithmic factors absorbed by
+ε.
+
+*Parameters.* N_tf does not depend on b, the states depend smoothly on b ([[ch:s13]], [[ch:s15]]), and so does u. ∎
+
+**Remark {#rem:iii-g4-4-5}** ([Hin26, Remarks 9.31–9.33] in dimension 4 + 1.) (1) u solves f away to leading order at
+tf without creating zf-error terms worse than those of f. For Re α₀ ≤ 2 the restriction of f to zf (k = 0) is of class
+𝒜^(α₀)(X), and [Hin26] notes that this weight lies outside the range where the zero energy operator (or an augmentation
+of it) is inverted, which is why the tf-model is inverted instead; in dimension 4 + 1 the range is that of
+[[cor:iii-f3-4-2]]. (2) The weaker the tf-order of f, the more singular u at zf: the dominant term is
+|σ|^(α₀−2)l_(2−α₀)(|σ|)G^exc_(s1), of zf-order min(−1, Re α₀ − 3) (without the factor |σ|^(α₀−2),
+min(−1, 1 − Re α₀)). The time translation term contributes |σ|^(α₀−2)h^((0),≤2)_(b,s0) and, for α₀ ≠ 2, a smooth term
+h^((0),≤2)_(b,s0); as α₀ → 2 they combine into (log |σ|)h^((0),≤2)_(b,s0), and likewise |σ|²h^((−2))_(b,s2,ph). The
+mechanism is the indicial root 0 of the tf-model, as for the flat Laplacian, in any dimension. (3) A tf-order α₀
+corresponds to an ι⁺-order α₀ + 1 ([[prop:iii-a-4-2]]), and the term t_*^(−α₀+1)h^((0))_(b,s0) of [[thm:iii-g2-4-2]]
+is, on the Fourier side, essentially |σ|^(α₀−2)h^((0))_(b,s0).
+
+**Remark {#rem:iii-g4-4-6}** ([Hin26, Remark 9.34] in dimension 4 + 1.) Had l_(2−α₀)(r̂) been used for the term of
+h_(b,s1), the calculation for s1 would gain
+−|σ|^(α₀−2)[L̂_b(σ), l_(2−α₀)(r̂)]|σ|σ⁻²h_(b,s1) = −|σ|⁻¹r^(2−α₀)D_(2−α₀)(σ)h_(b,s1) (Step 1.2 (b)), of class
+|σ|⁻¹C^∞, singular at σ = 0.
+
+The exceptional term G^exc_(s1) = −|σ|σ⁻²h_(b,s1) vanishes at tf to order 2 (order 1 in [Hin26]), as h_(b,s1) ∈ 𝒜³ in
+dimension 4 + 1 ([[eq:iii-d2-3-4]]); its zf-order, which sets min(−1, Re α₀ − 3) in [[prop:iii-g4-4-4]] (1), is
+unchanged. The factor l_(2−α)(|σ|) of the term l_(2−α)(|σ|)G^exc_(s1) carries the tf-exponent 2 − α, so the grafting
+error has tf-exponents at 4 (and 6) besides α₀ + ℰ_ind, which is the index set ℰ_(α₀,k) of [[eq:iii-g4-4-3]]; the
+weights are unaffected, as 4 > Re α₀ + ϵ_ind.
+
+### Conormal sources at tf {#sec:iii-g4-5}
+
+This section is [Hin26, Proposition 9.35] in dimension 4 + 1.
+
+**Proposition {#prop:iii-g4-5-1}** ([Hin26, Proposition 9.35] in dimension 4 + 1.) Let α ∈ (1, 2), ℓ_scf < 3/2, and
+−ϵ_ind < w := ℓ_zf − α + 2 < ℓ_K^max, ℓ_zf ∉ ℕ₀, with 2 − α + j ≠ −μ and w ≠ −μ for all j ∈ ℕ₀ and all roots μ of
+L̂_b(0). Let k₀ ∈ ℕ₀ and f ∈ H^(∞,ℓ_scf+1,α,((k₀,0),ℓ_zf))_b(X^±_(sc-b); S²T*X). Then there is
+u ∈ ⋂_(ε>0) H^(∞,ℓ_scf−ε,α−2,α−3)_b(X^±_(sc-b)) with
+
+    f − L̂_b(σ)u ∈ ⋂_(ε>0) H^(∞,ℓ_scf+1,α+ϵ_ind−ε,((k₀,0),ℓ_zf))_b(X^±_(sc-b)).                          {#eq:iii-g4-5-1}
+
+One can take u = χ_zf u_b + χ^♯_tf ũ, with χ^♯_tf a cut-off of the kind of χ_tf (fixed in the proof),
+ũ ∈ H^(∞,ℓ_scf−ε,α−2,((k₀,0),ℓ_zf))_b and
+
+    u_b = h^(≤3)_(b,s1)(σ, |σ|^(α−3)S^((−1))_1(σ)) + h^(≤2)_(b,v1)(σ, |σ|^(α−2)V^((−1))_1(σ))
+          + Σ′_(μ,τ) h^((μ),≤c_μ)_(b,τ)(σ, |σ|^(α−2−μ)Y^((μ))_τ(σ)),                                     {#eq:iii-g4-5-2}
+
+where h^(≤3)_(b,s1)(σ, S) := h_(b,s1)(S) − iσh̆^(≤3)_(b,s1)(σ, S) and the coefficients lie in
+H^(∞,0)_b(±[0, 1)_σ, |dσ/σ|; 𝒴_τ). As α < 2, ℓ_zf = w + α − 2 < 3. The point is that [[eq:iii-g4-5-1]] vanishes to
+higher order at tf than f.
+
+*Proof.* Replacing f by χ_tf f costs (1 − χ_tf)f, which is supported away from tf and has zf-class ((k₀, 0), ℓ_zf), so
+it is of the form [[eq:iii-g4-5-1]].
+
+*Step 1: the zf-expansion near the corner.* Near tf ∩ zf, in (ρ, r̂, ω), the partial expansion of f at zf reads
+χ_zf χ_tf f = χ_zf χ_tf(Σ_(k₀≤j<ℓ_zf) |σ|^j ρ^(α−j)f^((j))(ρ, ω) + f′) (cut off by χ_zf, as its terms have scf-weight
+α − j < ℓ_scf + 1 for j ≥ 1), and (1 − χ_zf)χ_tf f, which vanishes near zf, is of the form of f₁ below; here
+f^((j)) ∈ H^(∞,0)_b([0, ρ₀)_ρ × 𝕊³) and f′ is of zf-weight ℓ_zf: the coefficients are functions on zf ≅ X̄, and
+|σ|^jρ^(α−j) = ρ_tf^α ρ_zf^j ρ_scf^(α−j) carries the tf-weight of f. Each term is |σ|^j times a stationary function.
+For j = k₀, k₀ + 1, …, ⌊ℓ_zf⌋ in turn, let v_j solve
+
+    𝒩v_j = ρ^(α−2−j)χ₃(ρ)f^((j)) on (0, ∞)_ρ × 𝕊³,     v_j ∈ H^(∞,α−2−j)_b,                              {#eq:iii-g4-5-3}
+
+(χ₃ ∈ C_c^∞([0, ρ₀)) equal to 1 near supp χ_tf): 𝒩 is elliptic and dilation invariant, and α − 2 − j is not the real
+part of a root (2 − α + j ≠ −μ, the roots being real), so its Mellin family is invertible on that line, with the bounds
+(E1) of [[sec:iii-a-1-1]], and [[eq:iii-g4-5-3]] is solved by Mellin inversion on {Re λ = α − 2 − j} (Plancherel).
+Then U_j := χ_zf χ_tf|σ|^j v_j satisfies, by [[eq:iii-g4-1-2]] and [[lem:iii-g4-1-2]],
+L̂_b(σ)U_j = χ_zf χ_tf|σ|^jρ^(α−j)f^((j)) + e_j on supp χ_tf (where χ₃ = 1), where e_j consists of three kinds of
+terms. First, χ_zf χ_tf|σ|^(j+1)ρ^(α−j−1)g_(j+1) with g_(j+1) := ±iρ^(j+1−α)ρ(ρ∂_ρ − 3/2 − S̄)v_j ∈ H^(∞,0)_b, from
+the term iσρ(·) of [[eq:iii-g4-1-2]]: a term of the same form at j + 1. Second, terms of tf-order α + 2, from
+L̂_b(σ) − L̄̂(σ) ([[lem:iii-g4-1-2]]), of zf-class (k₀, 0). Third, commutators with χ_zf χ_tf; those with χ_tf are
+supported away from tf and have zf-class (k₀, 0), and those with χ_zf = χ₁(r̂) are supported in {1/8 ≤ r̂ ≤ ¼}, away
+from zf and scf. Subtracting g_(j+1) from f^((j+1)) (or setting f^((j+1)) := −g_(j+1) when j + 1 ≥ ℓ_zf) and
+proceeding, we obtain u₀ := Σ_j U_j ∈ H^(∞,∞,α−2,(k₀,0))_b with
+
+    χ_tf f − L̂_b(σ)u₀ = f₁ + f₂,     f₁ ∈ H^(∞,ℓ_scf+1,α,ℓ_zf)_b,                                       {#eq:iii-g4-5-4}
+
+with f₂ the sum of an element of H^(∞,ℓ_scf+1,α+2,((k₀,0),ℓ_zf))_b and of terms supported away from tf of zf-class
+((k₀, 0), ℓ_zf), so of the form [[eq:iii-g4-5-1]]; f₁ collects χ_zf χ_tf f′, (1 − χ_zf)χ_tf f, the commutators with
+χ_zf, and the term of the form at j = ⌊ℓ_zf⌋ + 1, of zf-order > ℓ_zf.
+
+The proof of [Hin26, Proposition 9.35] takes instead u⁽⁰⁾₀(ρ, ·) := L̃(0)(ω, α − 2, ∂_ω)⁻¹f⁽⁰⁾₀(ρ, ·) pointwise in ρ
+and asserts that the terms in which r̂∂_r̂ falls on u⁽⁰⁾₀(|σ|/r̂, ω) carry a factor ρ. They carry ρ∂_ρu⁽⁰⁾₀, which for a
+conormal f⁽⁰⁾₀ is of the size of u⁽⁰⁾₀. For f⁽⁰⁾₀ = ρ^(iη)φ, η ∈ ℝ, the pointwise choice u = 𝒩(α − 2)⁻¹ρ^(iη)φ gives
+ρ^(−α)ρ²𝒩(ρ∂_ρ)(ρ^(α−2)u) = 𝒩(α − 2 + iη)𝒩(α − 2)⁻¹ρ^(iη)φ, so the error is
+(𝒩(α − 2 + iη)𝒩(α − 2)⁻¹ − 1)ρ^(iη)φ, with no factor ρ, while [[eq:iii-g4-5-3]], which inverts 𝒩(α − 2 + iη) on each
+Mellin frequency, leaves no error. The pointwise choice is correct for f⁽⁰⁾₀ smooth in ρ: for f⁽⁰⁾₀ = φ₀ + ρφ₁ the same
+calculation gives the error ρ(𝒩(α − 1)𝒩(α − 2)⁻¹ − 1)φ₁, which carries the factor ρ.
+
+*Step 2: solving away f₁.* Let χ^♯_tf be a cut-off of the same kind, equal to 1 on the supports in Step 1, so
+f₁ = χ^♯_tf f₁. In (σ, r̂, ω), with ρ_scf = (1 + r̂)⁻¹ and ρ_zf = r̂/(1 + r̂) on {ρ < ρ₀} ([[sec:iii-g4-1]]), and the
+b-density |dσ/σ||(dr̂/r̂)dg̸|, |σ|^(−α)f₁ lies in H^(∞,0)_b(±[0, 1)_σ; H^(∞,ℓ_scf+1,ℓ_zf−α)_b(tf)), extended by 0 to
+{r̂ ≤ |σ|/ρ₀}. Let u₁(σ) := N_tf⁻¹(|σ|^(−α)f₁(σ)) by [[cor:iii-f1-3-4]], with β_sctf = ℓ_scf and
+β_ztf ∈ (−1, min(0, w)): as N_tf does not depend on σ (only on its sign), it commutes with σ∂_σ, and
+u₁ ∈ H^(∞,0)_b(±[0, 1)_σ; H^(∞,ℓ_scf−ε,β_ztf)_b(tf)). Its expansion at ztf follows as in [[thm:iii-g4-3-1]], with σ as a
+parameter and without terms from the right-hand side (Pu₁ has no expansion at ztf, its weight being w):
+[[lem:iii-g4-3-4]] with no z_j gives only kernel terms r̂^(−μ)φ₀(Y(σ)), replaced by H_(μ,τ)(Y(σ)) at the cost of terms
+of weight 1 − μ > b̃, and PH_(μ,τ) = (∓i)^(c_μ+1)r̂^(3+{−μ})ψ has weight 3 + {−μ} > w. So
+
+    u₁ = χ_ztf Σ_(μ∈𝒲(w)) Σ_τ H_(μ,τ)(Y^((μ))_τ(σ)) + ũ₁,
+    ũ₁ ∈ H^(∞,0)_b(±[0, 1)_σ; H^(∞,ℓ_scf−ε,w)_b(tf)),                                                    {#eq:iii-g4-5-5}
+
+the coefficients Y(σ) continuous linear functionals of the data (the residues Π_μ applied to Mellin transforms), hence
+in H^(∞,0)_b in σ. Put
+
+    u₂ := |σ|^(α−2)χ_zf(G^exc_(s1) + G_(s1) + G_(v1) + Σ′G_(μ,τ))(σ, Y(σ))
+          + |σ|^(α−2)χ^♯_tf ũ₁(σ, |σ|/ρ, ω),                                                            {#eq:iii-g4-5-6}
+
+which is [Hin26, (9.92)] in dimension 4 + 1, with no functions l_β (no exponent of the right-hand side meets a root).
+*tf.* By [[lem:iii-g4-4-3]], |σ|^(2−α)u₂ = u₁ + e near tf, with e of tf-weight ϵ_ind (the coefficients Y(σ) are
+conormal of weight 0), so by [[lem:iii-g4-1-1]]–[[lem:iii-g4-1-2]],
+L̂_b(σ)u₂ = |σ|^αN_tf u₁ + |σ|^(α−2)(L̂_b − L̄̂)u₁ + |σ|^(α−2)L̂_b(σ)e = f₁ + O(ρ_tf^(α+2)) + O(ρ_tf^(α+ϵ_ind−ε)) there.
+*scf.* As in Step 1.2 (ii) of the proof of [[prop:iii-g4-4-4]]: scf-order ℓ_scf + 2 − ε. *zf.* |σ|^(α−2)ũ₁ has zf-weight
+α − 2 + w = ℓ_zf,
+preserved by L̂_b(σ); at zf°, by [[lem:iii-g4-4-2]], the generic terms give |σ|^(α−2−μ)|σ|^(c_μ+1)Y(σ), of zf-weight
+α + 1 + {−μ}, and the s1 and v1 terms |σ|^(α+1); all exceed ℓ_zf, as ℓ_zf < α + 1 (w < 3). So f₁ − L̂_b(σ)u₂ is of the
+form [[eq:iii-g4-5-1]]. With u := u₀ + u₂ and ũ := |σ|^(α−2)ũ₁ + χ_zf χ_tf Σ|σ|^j v_j (so that
+u = χ_zf u_b + χ^♯_tf ũ, as χ^♯_tf = 1 on supp χ_tf), [[eq:iii-g4-5-1]]–[[eq:iii-g4-5-2]] hold, the powers of |σ| of
+[[eq:iii-g4-5-2]] absorbing the signs and factors ±i; the zf-weight α − 3 of [[eq:iii-g4-5-2]] is that of
+|σ|^(α−3)h_(b,s1). ∎
+

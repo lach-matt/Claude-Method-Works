@@ -697,7 +697,8 @@ trapping admissibility. ∎
 
 **Corollary {#cor:iii-h2-1-2}** (δ_Γ uniformly small.) For every k ∈ ℕ₀ there are η_k ∈ (0, 1] and ε_k > 0 such that,
 with h_Γ := h_(η_k,b) in (Γ.4), δ_Γ(0) < 1/(2(k + 1)) and δ_Γ(−ε) ≤ 1/(k + 1) for ε ∈ (0, ε_k] and every b ∈ B̄_1. So
-B̄_1 ⊂ ℬ_k for every k, with ℬ_k the set of [[sec:iii-h1-1]] on which [[thm:iii-h1-1-3]] holds at the order k.
+B̄_1 ⊂ ℬ_k for every k, with ℬ_k of [[sec:iii-h1-1]], the set of b ∈ ℬ at which (Γ.4) holds for 2L_b with
+δ_Γ(0) < 1/(2(k + 1)).
 
 *Proof.* With f(η′) := sup_Γ λ_max(p_1^Γ − η′q^Γ) of [[eq:i-b-1-4]], q^Γ ≥ 2β_0 and [[eq:iii-h2-1-1]] give
 f(η′) ≤ Cη − 2β_0η′ for η′ ≥ 0, so γ_+ ≤ Cη/(2β_0). f is Lipschitz with constant Q := sup_Γ q^Γ, and

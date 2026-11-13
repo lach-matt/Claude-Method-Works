@@ -100,13 +100,13 @@ A family (v_β) in G^∞ is *tame with loss d* if ‖v_β‖_(G^k) ≤ C_k (1 + 
 (b) If (T_β), E → G, is tame with loss d, (S_β), G → H, with loss d′, and d_0 ≥ d + d′, then (S_β T_β) is tame with
 loss d + d′.
 
-(c) (*Finite rank.*) If ℓ_β : E^∞ → ℂ^N satisfies |ℓ_β e| ≤ C ‖e‖_(E^d) on 𝔹, and v¹_β, …, v^N_β are tame with loss d,
+(c) (*Finite rank.*) If ℓ_β : E^∞ → ℂ^m satisfies |ℓ_β e| ≤ C ‖e‖_(E^d) on 𝔹, and v¹_β, …, v^m_β are tame with loss d,
 then e ↦ Σ_i (ℓ_β e)_i v^i_β is tame with loss d. In particular a family of linear maps between finite-dimensional
 spaces, bounded on 𝔹, is tame with loss 0.
 
 (d) (*Fixed maps.*) A linear map T independent of β that is bounded E^(k+d) → G^k for every k is tame with loss d.
 
-(e) A composition of N families, each tame with loss at most d, is tame with loss Nd if d_0 ≥ Nd; here N is fixed,
+(e) A composition of m families, each tame with loss at most d, is tame with loss md if d_0 ≥ md; here m is fixed,
 independent of k.
 
 (f) (*Regularity statements.*) If a statement takes e ∈ E and an a priori solution u in a space E′ to u ∈ G, and the
@@ -279,8 +279,8 @@ on the point (through g_0, g_0⁻¹ and their derivatives), with Θ(·, 0) = 0 a
 *Proof.* The coefficient of uv at an exponent is a finite sum of products of coefficients of u and of v, functions on
 the face bounded by [[lem:ii-g-4-1]] (2) there; a product with a remainder factor is bounded by [[lem:ii-g-4-1]] (2) in
 the weighted b-Sobolev space, the weights adding ([[cor:ii-a-9-7]]); a term whose exponent lies beyond the remainder's
-weight is put in the remainder with the same bound. For Θ: Taylor's formula to an order N, fixed by the weights, at
-which N times the least real part of the exponents exceeds the remainder's weight; the polynomial part is bounded by
+weight is put in the remainder with the same bound. For Θ: Taylor's formula to an order M, fixed by the weights, at
+which M times the least real part of the exponents exceeds the remainder's weight; the polynomial part is bounded by
 the product bound, and the Taylor remainder by [[lem:ii-g-4-1]] in the weighted b-Sobolev space. ∎
 
 ### The inventory {#sec:iii-j2-3}
@@ -313,7 +313,7 @@ is used in its form at b, named in the entry where it differs from the form at b
   [[prop:iii-i15-2-12]]): FWD, BG, FIN; one step.
 - [[lem:iii-i8-3-1]]–[[lem:iii-i8-3-3]], [[prop:iii-i8-4-1]] (at b, with the base step of [[prop:iii-i15-2-12]]): FWD,
   BG, MOD ([[prop:iii-i1-2-1]], [[prop:iii-i1-3-1]]; [[cor:iii-g2-4-3]]; [[prop:iii-g4-5-1]]; [[prop:iii-h-3-2]]), FIN;
-  levels α_0 < ⋯ < α_N, their number fixed by α and a_K, and the tf steps i_0.
+  finitely many levels α_0 < α_1 < ⋯, their number fixed by α and a_K, and the tf steps i_0.
 - [[def:iii-i9-2-1]], [[lem:iii-i9-2-4]], [[lem:iii-i9-2-6]] (at b, in the form [[eq:iii-i15-1-1]]): FIN (m_ν, h_ν,
   ϑ_ν: fixed sections times W), BG (f^ν, r^ν, and at b the errors E^ν), FWD of L_b; no loop.
 - [[lem:iii-i10-2-1]], [[cor:iii-i10-2-3]], [[prop:iii-i10-3-1]]: MOD ([[prop:iii-i1-3-1]], the formal solutions for
@@ -577,9 +577,9 @@ Z_− of K⁺-weight α − 4δ.
 
     ‖U(λ)‖_(H^(k′,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),α)_b(ι⁺)) + Σ |Y^(μ)_τ(λ)| ≤ C ‖a‖_(k′+d),
 
-and r(λ) = Σ_((e,p)) χ ρ_+^(λ+2+e) (log ρ_+)^p c_(e,p)(λ) + r_N(λ), a finite sum over (e, p) ∈ ℰ_ind with Re e < N,
-with each c_(e,p)(λ) bounded by C‖a‖_(k′+d) in H^(k′,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1),α)_b(ι⁺) and r_N(λ) in the space of plain
-ι⁺-weight Re λ_0 + 2 + N − δ and K⁺-weight α.
+and r(λ) = Σ_((e,p)) χ ρ_+^(λ+2+e) (log ρ_+)^p c_(e,p)(λ) + r_M(λ), a finite sum over (e, p) ∈ ℰ_ind with Re e < M,
+with each c_(e,p)(λ) bounded by C‖a‖_(k′+d) in H^(k′,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1),α)_b(ι⁺) and r_M(λ) in the space of plain
+ι⁺-weight Re λ_0 + 2 + M − δ and K⁺-weight α.
 
 *Proof.* (i) *At the lower weight.* [[thm:iii-g1-3-1]] (2) bounds N_ι⁺(λ)⁻¹ at the fixed weight ℓ_K^− := ℓ_K − 3δ,
 locally uniformly in λ off the poles, hence uniformly on the compact circle ∂D; and the coefficients Y^(μ)_τ are
@@ -637,11 +637,11 @@ Expanding ρ_+^(λ+c) = ρ_+^(λ_0+c) Σ_m (log ρ_+)^m (λ − λ_0)^m/m! point
 
 which vanish for m > k + l_0 (the order of the Laurent series); the coefficients of the remainder are circle integrals
 of the c_(e,p)(λ), which are polynomial in λ, Y(λ) and U(λ), hence meromorphic in D with pole order at most l_0, so the
-same Laurent cut-off applies to them, and its rest is the circle integral of r_N(λ). [[lem:iii-j3-2-2]], with Z the
-space at the exact weight α (the coefficient spaces on ι⁺, and the space of plain ι⁺-weight Re λ_0 + 2 + N − δ) and
+same Laurent cut-off applies to them, and its rest is the circle integral of r_M(λ). [[lem:iii-j3-2-2]], with Z the
+space at the exact weight α (the coefficient spaces on ι⁺, and the space of plain ι⁺-weight Re λ_0 + 2 + M − δ) and
 Z_− the same at α − 4δ, with [[lem:iii-j3-3-3]] bounding the integrands, gives v_m ∈ H^((⟨ℰ^C⟩,ℓ_I),α)(ι⁺), the
 coefficients of f − L_b u in H^((ℰ^tot+2,ℓ_I+1),α)(ι⁺) with exponents in λ_0 + 2 + ℰ_ind + (0, k + l_0), and the rest
-at K⁺-weight α. As N is arbitrary, this is [[eq:iii-j3-3-3]]. The u_(b,0)-part becomes Σ_j χ_K u^(j)_(b,0) with the
+at K⁺-weight α. As M is arbitrary, this is [[eq:iii-j3-3-3]]. The u_(b,0)-part becomes Σ_j χ_K u^(j)_(b,0) with the
 Laurent coefficients of Y(λ) (the form [[eq:iii-g2-4-3]]). The linearity and the bounds, with constants
 Cδ^(−k−l_0−1), follow from [[lem:iii-j3-3-3]]. ∎
 
@@ -697,11 +697,11 @@ At the weights used below, α, α − 1 and α − 2, the fractional part of β 
 **Lemma {#lem:iii-j3-4-2}** ([[lem:iii-i10-2-4]] (b) without δ.) Under the hypotheses of [[lem:iii-i10-2-4]], (b) holds
 with O(t^(−β−1)) in place of O(t^(−β−1+δ)), also after applying (t∂_t)^l.
 
-*Proof.* ∫_(|σ|<1/|t|) |σ|^β dσ = (2/(β + 1)) |t|^(−β−1) (β > −1). On (1/|t|, c), integrate by parts N := ⌈β⌉ + 1
+*Proof.* ∫_(|σ|<1/|t|) |σ|^β dσ = (2/(β + 1)) |t|^(−β−1) (β > −1). On (1/|t|, c), integrate by parts m := ⌈β⌉ + 1
 times, using |∂^j_σ(χ r^±)| ≤ C|σ|^(β−j) (from the hypothesis and ∂^j_σ = σ^(−j) Σ_(i≤j) a_(ji) (σ∂_σ)^i): the boundary
 terms at |σ| = 1/|t| are O(|t|^(−β−1)), and the integral is at most
 
-    |t|^(−N) ∫_(1/|t|)^c σ^(β−N) dσ ≤ |t|^(−β−1)/(⌈β⌉ − β),
+    |t|^(−m) ∫_(1/|t|)^c σ^(β−m) dσ ≤ |t|^(−β−1)/(⌈β⌉ − β),
 
 with ⌈β⌉ − β > 0 as β ∉ ℕ₀. And t∂_t ℱ⁻¹v = ℱ⁻¹(−(1 + σ∂_σ)v) preserves the hypothesis. ∎
 
@@ -837,8 +837,8 @@ the exact space of its degree ([[prop:iii-j3-4-3]]). The second is the level-3 t
 χ_K Σ_j (χ_+ y)^(j) p_j of [[eq:iii-i12-2-1]], and what is left in ũ is its R. This is literal for the conormal towers.
 For the pieces of type (v) the main terms are reorganised by [[lem:iii-i12-2-4]] (Step 3), and the coefficient sections
 at exponents below α are exactly sums of states ([[lem:iii-i12-2-3]] (a)), so again what is left is R and terms of the
-kinds below; so the dichotomy below is exhaustive. [[lem:iii-j3-4-7]] puts R in ρ_+^(3+ε_+) ρ_K^N H^∞_b near the
-corner, for every N. Every other term of ũ there is exact at one face with room at the other ([[lem:iii-j3-2-1]]): it
+kinds below; so the dichotomy below is exhaustive. [[lem:iii-j3-4-7]] puts R in ρ_+^(3+ε_+) ρ_K^κ H^∞_b near the
+corner, for every κ. Every other term of ũ there is exact at one face with room at the other ([[lem:iii-j3-2-1]]): it
 has K⁺-order ≥ α (Steps 0–4) and either ι⁺-order > 3 + ε_+, or is polyhomogeneous at ι⁺ with exponents in ℰ_♯, none of
 real part 3 + ε_+ (E1). So ũ has (ℰ_♯, 3 + ε_+) at ι⁺ jointly with α at K⁺. ∎
 
@@ -847,10 +847,10 @@ and K⁺, on {r ≥ 2, t_* ≥ 8r} with ρ_+ = 1/r and ρ_K = r/t_*, and in the 
 (dt_*/t_*)(dr/r) dω (that of μ_b there):
 
 (a) in case (a), if |(r∂_r)^a ∂_ω^β p_j| ≲ r^(j−d) on {r ≥ 1} for all a, β (degree exactly d − j, without logarithms),
-then R ∈ ρ_+^(w+1+d) ρ_K^N H^∞_b for every N;
+then R ∈ ρ_+^(w+1+d) ρ_K^κ H^∞_b for every κ;
 
 (b) in case (b) with m = 0, if r^(d−j) p_j ∈ H^∞_b near ∂X for the density |(dr/r) dω|, then
-R ∈ ρ_+^(Re z+1+d) ρ_K^N H^∞_b for every N. Moreover, on {r ≥ 2} the left side of [[eq:iii-i12-2-1]] is
+R ∈ ρ_+^(Re z+1+d) ρ_K^κ H^∞_b for every κ. Moreover, on {r ≥ 2} the left side of [[eq:iii-i12-2-1]] is
 Σ_j r^(−1−j−z) F_j(t_*/r) p_j(x), with
 
     F_j(s) := (1/(2π)) ∫ e^(−iζs) χ_0(|ζ|) (−iζ)^j |ζ|^z sgn(ζ)^δ dζ
@@ -858,7 +858,7 @@ R ∈ ρ_+^(Re z+1+d) ρ_K^N H^∞_b for every N. Moreover, on {r ≥ 2} the lef
 smooth and bounded with all its s∂_s-derivatives on bounded sets.
 
 *Proof.* Put s := t_*/r ≥ 8. Then (dt_*/t_*)(dr/r) = (ds/s)(dr/r), and the b-vector fields t_*∂_(t_*), r∂_r are s∂_s
-and r∂_r|_s − s∂_s. So it suffices to bound r^a s^N R, a the stated ι⁺-weight, in L²((ds/s)(dr/r) dω), and likewise
+and r∂_r|_s − s∂_s. So it suffices to bound r^a s^κ R, a the stated ι⁺-weight, in L²((ds/s)(dr/r) dω), and likewise
 after applying s∂_s, r∂_r|_s and ∂_ω. As in the proof of [[lem:iii-i12-2-1]], R = Σ_j e_(j,r)(t_*) p_j(x) there, and
 σ = ζ/r gives
 
@@ -877,7 +877,7 @@ By Minkowski's inequality and the dilation invariance of dr/r,
     ‖∫_(|ζ|≥c_0) |ζ|^(w+j−M) |c̃_l(ζ/r)| dζ‖_(L²(dr/r)) ≤ ‖c̃_l‖_(L²(dσ/σ)) ∫_(|ζ|≥c_0) |ζ|^(w+j−M) dζ < ∞
 
 for M > w + j + 1, uniformly in s. As |r^(d−j) p_j| ≤ C,
-‖r^(w+1+d) s^N R‖_(L²) ≤ C(∫_8^∞ s^(2(N−M)) ds/s)^(1/2) < ∞ for M > N. The field s∂_s acting on e^(−iζs) is ζ∂_ζ,
+‖r^(w+1+d) s^κ R‖_(L²) ≤ C(∫_8^∞ s^(2(κ−M)) ds/s)^(1/2) < ∞ for M > κ. The field s∂_s acting on e^(−iζs) is ζ∂_ζ,
 moved onto the amplitude by parts; r∂_r|_s acting on (χc)(ζ/r) gives −((σ∂_σ)(χc))(ζ/r). Both keep the form above,
 and (r∂_r)^a ∂_ω^β p_j keeps the bound.
 
@@ -885,7 +885,7 @@ and (r∂_r)^a ∂_ω^β p_j keeps the bound.
 in r (a derivative of χ(ζ/r) gives r⁻¹ ≤ |ζ|⁻¹ on its support). So e_(j,r)(t_*) = r^(−1−j−z) E_j(s, r) with
 |(s∂_s)^a (r∂_r|_s)^b E_j| ≤ C_(ab) s^(−M) for M > Re z + j + 1, and
 
-    ‖r^(Re z+1+d) s^N R‖_(L²) ≤ C Σ_j (∫_8^∞ s^(2(N−M)) ds/s)^(1/2) ‖r^(d−j) p_j‖_(L²((dr/r)dω)),
+    ‖r^(Re z+1+d) s^κ R‖_(L²) ≤ C Σ_j (∫_8^∞ s^(2(κ−M)) ds/s)^(1/2) ‖r^(d−j) p_j‖_(L²((dr/r)dω)),
 
 likewise with b-derivatives. For r ≥ 2, χ = 1 on the support of χ_0(|σ|r), so the left side of [[eq:iii-i12-2-1]] is
 Σ_j (y^(j) ∗ k_r)(t_*) p_j(x), with

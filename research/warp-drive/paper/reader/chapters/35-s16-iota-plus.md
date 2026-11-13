@@ -307,9 +307,9 @@ which is the stated condition.
 control operator E microsupported in supp ψ′(ς_R q̃), away from ∂ℛ_±. The iteration runs from −N_1 with no threshold,
 which is the strong sense. The constants are uniform for λ ∈ 𝒟, the symbols being polynomial in λ. ∎
 
-In (1) the threshold is s < 2 + min spec S̄ − Re λ, up to δ. [Hin26] derives it from the characteristic exponents 0
-and 3/2 + α − λ, α ∈ spec S̄, of vN_sf(λ) at v = 0, whose indicial operator there is −2(v∂_v)(v∂_v + λ − 3/2 − S̄),
-and from v_+^w ∈ H^(Re w + 1/2 − ε)_loc for every ε > 0; the two derivations give the same number.
+In (1) the threshold is s < 2 + min spec S̄ − Re λ, up to δ. The derivation of [Hin26], from the characteristic
+exponents 0 and 3/2 + α − λ, α ∈ spec S̄, of vN_sf(λ) at v = 0 (whose indicial operator there is
+−2(v∂_v)(v∂_v + λ − 3/2 − S̄)) and from v_+^w ∈ H^(Re w + 1/2 − ε)_loc for every ε > 0, gives the same number.
 
 #### The artificial boundary and the hyperbolic region {#sec:iii-g-2-2}
 

@@ -247,9 +247,9 @@ solution of L_b u^♭ = f^♭ ([[prop:ii-e-3-4]]).
 
 *Step 2* (the decomposition). As in [[sec:iii-i2-4]], u^♭ = u_hi + u_reg + u_sing, with ℱu_hi =
 (1 − χ(|σ|))L̂_b(σ)⁻¹ f̂^♭(σ), ℱu_reg = χ(|σ|)û_(reg,1)(σ), (û_(reg,1), b̂_1, Ŝ_1) := L̃_b(σ)⁻¹(f̂^♭(σ), 0, 0), and
-u_sing = u_(sing,1) + u_(sing,2) with
+u_sing = v_ġ + v_h with
 
-    ℱ(∂_(t_*) u_(sing,1)) = χ(|σ|)G_1(σ)(b̂_1(σ)),        ℱ(∂²_(t_*) u_(sing,2)) = χ(|σ|)G_2(σ)(Ŝ_1(σ))
+    ℱ(∂_(t_*) v_ġ) = χ(|σ|)G_1(σ)(b̂_1(σ)),        ℱ(∂²_(t_*) v_h) = χ(|σ|)G_2(σ)(Ŝ_1(σ))
 
 ([[eq:iii-i2-4-1]]). The memberships [[eq:iii-i3-2-3]]–[[eq:iii-i3-2-13]] are read as there: at order k, with the c of
 that order and of the weight α of [[eq:iii-h-1-1]] with α + 2 = α^♯_+ − α_K. The functions u, u_I, u^♭ and ũ and the
@@ -305,7 +305,7 @@ coefficient, of order 0 < α_K − 1, the same for the two signs,
 *Step 3.3* (the singular part; [Hin26, (11.72)–(11.74)]). By [[eq:iii-i2-4-1]], [[lem:iii-i3-1-3]] and
 [[lem:iii-i2-4-3]] with a = α_K − 1, applied to b̂_1 − ḃ_0 and Ŝ_1 − S_0,
 
-    ℱ(∂_(t_*) u_(sing,1)) ∈ H^(∞,(N,2−ε,((0,0),α_K−1)))_b,     ℱ(∂²_(t_*) u_(sing,2)) ∈ H^(∞,(N,3−ε,((0,0),α_K−1)))_b,
+    ℱ(∂_(t_*) v_ġ) ∈ H^(∞,(N,2−ε,((0,0),α_K−1)))_b,     ℱ(∂²_(t_*) v_h) ∈ H^(∞,(N,3−ε,((0,0),α_K−1)))_b,
 
 with zf-coefficients ġ_b(ḃ_0) and h_b(S_0): the tf-weights α_K + 1 − ε and α_K + 2 − ε of the remainders exceed 2 − ε
 and 3 − ε, and 1 − ε > α_K − 1. Multiplication by −iσ takes the first to H^(∞,(N,3−ε,α_K−1))_b with zero
@@ -369,8 +369,8 @@ choices, being determined by u.
 (û_0, ḃ_0, S_0), f̂_2, the pieces of Step 2 and the integrations are linear maps bounded between the spaces above (the
 construction of [[prop:iii-i1-3-1]], [[prop:iii-h-3-2]], [[lem:iii-i3-1-1]]–[[lem:iii-i3-1-3]], [[lem:iii-i2-2-1]],
 [[lem:iii-i2-3-1]], [[lem:iii-i2-4-1]]–[[lem:iii-i2-4-3]], [[prop:ii-g1-3-3]] (1) and [[prop:ii-g1-3-5]] (1)). So
-Ṡ = S_0 and ũ depend continuously on f; Step 4 does by the closed graph theorem, L being fixed, or by the
-constructive bound of [[prop:iii-i1-2-1]]. Every input is uniform on ℬ̄_* by (B1)–(B5), and so are the bounds. ∎
+Ṡ = S_0 and ũ depend continuously on f; the 𝓘⁺-data of Step 4 do so by the closed graph theorem, L being fixed, or
+by the constructive bound of [[prop:iii-i1-2-1]]. Every input is uniform on ℬ̄_* by (B1)–(B5), and so are the bounds. ∎
 
 ### Undoing the boost: the setting {#sec:iii-i4-1}
 

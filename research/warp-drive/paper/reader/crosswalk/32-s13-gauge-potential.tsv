@@ -24,7 +24,12 @@ sec:iii-d-5-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:238-267	III.D §5.1
 eq:s13-chris	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:179-183	Christoffel symbols in the proof of III.D1 Lemma 3.1	
 prop:np-10-18	docket68/n1star/N1STAR-PROOF.md:3928-3956	NP 10.18, Prop 10.15 (i)-(iv)	(iii) derived by hand; replaces thresh5.py U1-U4
 lem:iii-d-5-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:249-264	III.D Lemma 5.1	computed sentence 240-247 replaced by prop:np-10-18 (iii)
-sec:iii-d-5-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:269-288	III.D §5.2	facts (a)-(d) cited to S12 items of NP 10.17, 10.19
+sec:iii-d-5-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:269-288	III.D §5.2	facts (a)-(d); NP 10.17 (i), (iii)-(v), 10.19 (iii) carried here, (ii) and 10.19 (ii) cited to S12
+prop:np-10-17-i	docket68/n1star/N1STAR-PROOF.md:3854-3855	NP 10.17, Prop 10.14 (i)	derived in coordinates; replaces trap5.py T0
+prop:np-10-17-iii	docket68/n1star/N1STAR-PROOF.md:3860-3862	NP 10.17, Prop 10.14 (iii)	Gram matrix and H_G C = 0 derived; replaces trap5.py T2
+prop:np-10-17-iv	docket68/n1star/N1STAR-PROOF.md:3863	NP 10.17, Prop 10.14 (iv)	connection derived in the static chart; replaces trap5.py T3
+prop:np-10-17-v	docket68/n1star/N1STAR-PROOF.md:3864-3865	NP 10.17, Prop 10.14 (v)	eigenvalues of a 3x3 matrix; replaces trap5.py T4
+prop:np-10-19-iii	docket68/n1star/N1STAR-PROOF.md:4011-4014	NP 10.19, Prop 10.16 (iii)	from 10.17 (iii)-(v); replaces hienergy5.py V3
 lem:iii-d-5-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:289-318	III.D Lemma 5.2	
 sec:iii-d-6	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:320-435	III.D §6	
 prop:iii-d-6-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:322-333	III.D Proposition 6.1	
