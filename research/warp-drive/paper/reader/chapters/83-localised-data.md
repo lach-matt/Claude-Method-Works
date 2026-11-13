@@ -1271,8 +1271,8 @@ and, from [[eq:loc-scal-exact]] with e^(−α) = 1 − α + α²/2 + O(α³),
     𝔛_1 = −2Δ̂(α_1 − β_1) − 6Δ̂β_1 + 6α_1 − 6√f y_1′S,
     𝔛_2 = −2Δ̂(α_2 − β_2) − 2|D̂(α_1 − β_1)|² − 6Δ̂β_2 − 6D̂α_1·D̂β_1 − 6√f (y_2′S² − α_1y_1′S) − 6(α_1²/2 − α_2).
 
-With Δ̂S = −k²S, 𝔛_1 = ((k² + 3)fA + 4k²F − 6√f y_1′)S. Since DScal[h] = R⁻²𝔛_1 and 6√f y_1′ = 6Z_1 + 6RfZ_1′ with Z_1
-:= 2F − fA/2 + RF′, this is [[eq:loc-c]]. Next, D²Scal[h, h] is twice the ε² coefficient of Scal(γ + εh), R³Scal =
+With Δ̂S = −k²S, 𝔛_1 = ((k² + 3)fA + 4k²F − 6√f y_1′)S. Since DScal[h] = R⁻²𝔛_1 and 6√f y_1′ = 6Z_1 + 6RfZ_1′ with
+Z_1 := 2F − fA/2 + RF′, this is [[eq:loc-c]]. Next, D²Scal[h, h] is twice the ε² coefficient of Scal(γ + εh), R³Scal =
 Re^(−2β)𝔛, and N_s dvol = R³ dR dvol_γ̂; so 𝔈_V(h) = −∫∫ R(𝔛_2 − 2β_1𝔛_1) dvol_γ̂ dR. Integrating over S³, the Laplacian
 terms of 𝔛_2 drop out, ∫|D̂(α_1 − β_1)|² = k²(fA/2 − F)²∫S², ∫D̂α_1·D̂β_1 = (k²fAF/2)∫S², α_1²/2 − α_2 = 3f²A²S²/8, and
 ∫β_1𝔛_1 = R²F C(A, F)∫S²; so 𝔈_V(h) = (2π)²‖S‖² ∫ E_V(A, F) dR with
@@ -1863,9 +1863,9 @@ coefficients of Φ̃⁗ on [2.32, 3.44] ([[lem:bg-tools]] (a)). By direct evalua
 
 and |Φ^(j) − Φ̃^(j)| ≤ ε_j, (ε₀, ε₁, ε₂, ε₃) = (8.69 × 10⁻⁷, 1.68 × 10⁻⁶, 6.10 × 10⁻⁶, 3.65 × 10⁻⁵) at u = u2
 ([[prop:bg-rays]]). This gives the first four rows of the table of [[sec:tab-bg-region-three-end]]. Each later row
-follows from the rows above it, from ρ ∈ [2.7734, 2.7737], μ3 ∈ [0.82211214, 0.82211297] ([[prop:bg-nprime]] (ii)) and R
-∈ [1.861, 1.861441] (by (a)), by the enclosure rule of [[lem:bg-tools]] (d), applied to f1 = 1 − 3/(2ρ²), a = f1/2, a′ =
-3/(2ρ³), a″ = −9/(2ρ⁴), f3(Φ) = 1 − μ3/Φ², h3(Φ) := 1/(Φ³ − μ3Φ), h3′(Φ) = −(3Φ² − μ3)h3(Φ)²,
+follows from the rows above it, from ρ ∈ [2.7734, 2.7737], μ3 ∈ [0.82211214, 0.82211297] ([[prop:bg-nprime]] (ii)) and
+R ∈ [1.861, 1.861441] (by (a)), by the enclosure rule of [[lem:bg-tools]] (d), applied to f1 = 1 − 3/(2ρ²), a = f1/2,
+a′ = 3/(2ρ³), a″ = −9/(2ρ⁴), f3(Φ) = 1 − μ3/Φ², h3(Φ) := 1/(Φ³ − μ3Φ), h3′(Φ) = −(3Φ² − μ3)h3(Φ)²,
 
     ψ_III = ln Φ′ + ln f1 − ln f3(Φ),        ψ_III′ = aΦ″/Φ′ + a′ − 2μ3aΦ′h3(Φ),
     ψ_III″ = a(a′Φ″/Φ′ + a(Φ‴/Φ′ − (Φ″/Φ′)²) + a″ − 2μ3(a′Φ′h3(Φ) + aΦ″h3(Φ) + aΦ′²h3′(Φ)))
@@ -1899,8 +1899,8 @@ points of Σ_τ0 with 1.861 ≤ R ≤ R_u2, Γ/E² ≥ 10.40, so Γ > 0 at every
 
 (c) On Σ_τ0 for R ≤ R_*: κ > 0, K^l_l < 0, e^ψ f < 1 and κK^l_l ≤ −4.76 × 10⁻³.
 
-*Proof.* (a) is [[prop:bg-nprime]], (b) is [[prop:bg-seed]] and [[prop:bg-region-three-end]], (c) is [[prop:bg-slice]].
-∎
+*Proof.* (a) is [[prop:bg-nprime]], (b) is [[prop:bg-seed]] and [[prop:bg-region-three-end]], (c) is
+[[prop:bg-slice]]. ∎
 
 **Remark {#rem:bg-grid}** (Numerical observation.) The reference quintic ψ_s of [[sec:table-seed-profile]] is the first
 piece of a degree-5 smoothing spline fitted to the values of ψ_III on a second-order finite-difference solution of the
@@ -2862,8 +2862,8 @@ table gives the enclosures of qf and of N_κ by [[eq:bg-nk-packet]] and the uppe
 
 #### The end of region III: the enclosures {#sec:tab-bg-region-three-end}
 
-Used in [[prop:bg-region-three-end]] (b). The enclosures hold at every point of Σ_τ0 with 1.861 ≤ R ≤ R_u2, on the box ρ
-∈ [2.7734, 2.7737], μ3 ∈ [0.82211214, 0.82211297], R ∈ [1.861, 1.861441]. The first four rows come from the values of
+Used in [[prop:bg-region-three-end]] (b). The enclosures hold at every point of Σ_τ0 with 1.861 ≤ R ≤ R_u2, on the box
+ρ ∈ [2.7734, 2.7737], μ3 ∈ [0.82211214, 0.82211297], R ∈ [1.861, 1.861441]. The first four rows come from the values of
 Φ̃^(j) at ρ_m = 2.77355, and each later row follows from the rows above it by [[lem:bg-tools]] (d), with the formulas of
 the proof of [[prop:bg-region-three-end]] (b) and 𝔲, m, W, n0, A0, A1, A2, A3 as in [[eq:margins-gamma-form]].
 
