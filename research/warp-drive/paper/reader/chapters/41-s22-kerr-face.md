@@ -434,7 +434,7 @@ N_ι⁺(L̄, ·)⁻¹ at λ_0 is 0, as spec_ι⁺(L̄) ⊂ {Re ≥ 2} ([[lem:iii
 K⁺-weight Re λ_0 + ℓ_K(λ_0) − ε = α − ε, by [[eq:iii-g2-4-4]], and the solutions at ℐ⁺ vanish near K⁺).
 [[cor:iii-g2-4-3]] gives
 
-    u_(λ_0) = Σ_(j≤k) χ_K u^((j))_(b,0) + χ_ι t_*^(−λ_0)(log t_*)^j ũ^((j)),
+    u_(λ_0) = Σ_(j≤k) (χ_K u^((j))_(b,0) + χ_ι t_*^(−λ_0)(log t_*)^j ũ^((j))),
 
 of K⁺-index set ℰ^gr_K(λ_0) + (0, k) at the weight ℓ_K(λ_0) − ε > α − 2. The expansion at ℐ⁺ of the error is removed by
 [[prop:iii-i1-3-1]] as in Step 2 of the proof of [[prop:iii-i5-2-1]]; its solution u′_(λ_0) vanishes near K⁺, and its

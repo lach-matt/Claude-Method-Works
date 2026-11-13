@@ -87,3 +87,11 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Appendix A merged (37 blocks). Four entries unconfirmed ([Hö85] 23.2.4, [Tay11] 3.6-3.7, [MM87], [Hö83] 7.3.1):
   an agent is confirming, replacing or proving them. Bibliography: [BH17] needs its arXiv version (v3); [Mel93] lists
   the A K Peters printing while the page is the online 5.0E edition's.
+
+## S4 Major 1 (tameness): a gap inherited from the record and from [Hin26c, Proposition 3.28]
+- The seminorm index d_0 (and Proposition 2.4 (e)'s M) was claimed independent of k and of the auxiliary cut-offs,
+  but the closed-graph proofs make it depend on them; the inductions of S4 §9 bring in new cut-offs at each level, and
+  the tame estimates S9-S10 need rest on this. Fix round launched: Lemma 8.5 (b) by commutator iteration, Proposition
+  2.4 (e) by the quantitative remainder bound of the calculus, every induction re-checked. Report to the author when
+  settled.
+- S25 is cited by S20-S24 and cites them: the S25 reader proposes the split that makes every reference point back.

@@ -53,15 +53,15 @@ the same properties are also constructed from the waves' free data at past null 
 and at past null infinity they obey the five-dimensional Bondi mass law with the prescribed radiation field
 ([[thm:bondi-law]]).
 
-Beyond that domain, and outside the black hole, we prove that in the class a continuation of their data beyond a ball
-about the hole settles at late times to five-dimensional Tangherlini of a nearby mass, and that their perturbations
-without symmetry that are small in Hintz's data class settle to slowly rotating Myers–Perry black holes
-([[thm:settling]]). The route is Hintz's proof of the nonlinear stability of Kerr [Hin26], carried into five
+Beyond that domain, and outside the black hole, we prove that in the class the development of a continuation of their
+data beyond a ball about the hole settles at late times to five-dimensional Tangherlini of a nearby mass, and that the
+developments of their perturbations without symmetry that are small in Hintz's data class settle to slowly rotating
+Myers–Perry black holes ([[thm:settling]]). The route is Hintz's proof of the nonlinear stability of Kerr [Hin26], carried into five
 dimensions: every input that depends on the dimension is established at Tangherlini, the class removes his boosts,
 rotations and their gauge modifications, and without it they are restored, with the inputs at every nearby
 Myers–Perry parameter proved by perturbation from Tangherlini, in the manner of [HHV21], and the charges by which the
-gluing at large radius matches the Myers–Perry family determined. The proof is written out in full at n = 4: his
-stability paper, the parts of his companion papers [Hin26a, Hin26c, Hin23a] that the route uses, and the gluing of
+gluing at large radius matches the Myers–Perry family determined. The proof is written out in full in spacetime
+dimension n + 1 = 5: his stability paper, the parts of his companion papers [Hin26a, Hin26c, Hin23a] that the route uses, and the gluing of
 [CD03], part by part, from statements of those papers that hold in every dimension. We also prove that the
 development of g_λ's own data settles, with no gluing, in a class wider by half-integer orders, and the linear
 solution's settling in a Regge–Wheeler-type gauge and in harmonic gauge; and we prove the two-dust and
@@ -94,41 +94,41 @@ in the paper involves an inner or Cauchy horizon.
 
 Point by point; HL is [HL18], T is [Tou23a], LR is [LR20], and "here" is this paper.
 
-- **Dimension and symmetry.** HL: 3+1, polarized U(1), a translation with no axis. T: 3+1, none. LR: 3+1, none. Here:
+- *Dimension and symmetry.* HL: 3+1, polarized U(1), a translation with no axis. T: 3+1, none. LR: 3+1, none. Here:
   4+1, T² with both reflections, rotations with two axes.
-- **Reduced system.** HL: 2+1 gravity with one free wave φ, their (1.3). T, LR: none. Here: 2+1 gravity with two free
+- *Reduced system.* HL: 2+1 gravity with one free wave φ, their (1.3). T, LR: none. Here: 2+1 gravity with two free
   waves on the target (3/2) dψ² + 2 dω² ([[prop:reduction]]), identified, and not used in the proof.
-- **Gauge.** HL: elliptic (maximal slices, conformally flat). T: generalised wave. LR: double null. Here: the wave-map
+- *Gauge.* HL: elliptic (maximal slices, conformally flat). T: generalised wave. LR: double null. Here: the wave-map
   gauge relative to the limit g0.
-- **Background.** HL: small, near Minkowski (the smallness condition of Theorem 4.2). T: small, his (2.9), with an
+- *Background.* HL: small, near Minkowski (the smallness condition of Theorem 4.2). T: small, his (2.9), with an
   asymptotically planar phase, his (2.10). LR: large and angularly regular, on a double null domain short in one null
   direction (u̲* ≤ ε, ε depending on the bound C of the data, their Theorem 1.9). Here: five-dimensional Vaidya with
   a black hole; no smallness of μ0, A or env.
-- **Dusts.** HL: any finite number, angularly separated, with generic data. T: one. LR: two, measure-valued; their
+- *Dusts.* HL: any finite number, angularly separated, with generic data. T: one. LR: two, measure-valued; their
   reverse statement, the counterpart of Huneau and Luk's theorem, is their Corollary 1.14, local. Here: one.
-- **Data.** HL: admissible free data on a maximal slice. T: the conformal method of [Tou23b]. LR: characteristic.
+- *Data.* HL: admissible free data on a maximal slice. T: the conformal method of [Tou23b]. LR: characteristic.
   Here: Cauchy data on Σ_τ0, the constraints solved outward in r.
-- **Domain.** HL: [0, 1] × R². T: [0, 1] × R³. LR: [0, u*] × [0, u̲*] × S². Here: Ω ⊃ D_T ∩ {τ ≥ τ0}, through the
+- *Domain.* HL: [0, 1] × R². T: [0, 1] × R³. LR: [0, u*] × [0, u̲*] × S². Here: Ω ⊃ D_T ∩ {τ ≥ τ0}, through the
   horizon to a spacelike boundary.
-- **What closes the estimates.** HL: the smallness ε. T: the smallness ε, with λ ≤ λ0 as well ([Tou23a] Proposition
+- *What closes the estimates.* HL: the smallness ε. T: the smallness ε, with λ ≤ λ0 as well ([Tou23a] Proposition
   7.1, p. 13). LR: angular regularity on a domain short in one null direction. Here: powers of λ, with the
   approximant carried to any order.
-- **The derivative loss.** HL: elliptic estimates for the metric. T: a null foliation and a Fourier cut-off. LR:
+- *The derivative loss.* HL: elliptic estimates for the metric. T: a null foliation and a Fourier cut-off. LR:
   angular regularity. Here: the phase-shift identity, the exact commutator [[eq:commutator]] and a compact mollifier.
-- **Conclusion.** HL: uniform convergence, weak L² convergence of derivatives, ∂ in L^∞ uniformly. T: g_λ = g0 +
+- *Conclusion.* HL: uniform convergence, weak L² convergence of derivatives, ∂ in L^∞ uniformly. T: g_λ = g0 +
   λ g(1) + … in generalised wave gauge. LR: C⁰ and weak W^(1,2). Here: uniform at O(λ), ∂g bounded, weak L².
 
-**What carries over.** The reduction to a 2+1 system with free waves on a flat, positive-definite target, which here is
+*What carries over.* The reduction to a 2+1 system with free waves on a flat, positive-definite target, which here is
 two copies of Huneau and Luk's scalar ([[prop:reduction]]); the geometric-optics construction around an eikonal phase
 of the limit; the weak limit as null dust with Isaacson's flux [Isa68b]; the time interval fixed in advance.
 
-**What changes.** One more dimension; a T²-mirror class whose orbits degenerate on two axes, so that the reduced system
+*What changes.* One more dimension; a T²-mirror class whose orbits degenerate on two axes, so that the reduced system
 cannot be used there; a large black-hole background in place of small data, so that the trapped region and a spacelike
 inner boundary are inside the domain; Cauchy data before the shell reaches the hole, and by [[thm:past-construction]]
 data at past null infinity, which none of the three poses, rather than on a maximal slice or characteristic
 hypersurfaces; one family of dust, not many.
 
-**What the proof needs beyond theirs.** (1) An approximant of every order ([[thm:approximant]]), so that the nonlinear
+*What the proof needs beyond theirs.* (1) An approximant of every order ([[thm:approximant]]), so that the nonlinear
 terms are beaten by λ and only a linear estimate on the large background must be uniform; (2) the phase-shift identity
 of [[ch:uniform-existence]], which removes the one large coefficient of that linear problem; (3) the exact commutator
 [[eq:commutator]] on five-dimensional Vaidya, in which the mass drops out; (4) a compactly supported mollifier adapted
@@ -139,8 +139,8 @@ no data imposed far out ([[ch:data]]); (7) a gauge hierarchy making D vanish to 
 
 ### Scope {#sec:introduction-scope}
 
-[[thm:main]], [[thm:past-construction]] and [[thm:bondi-law]] are made on D_T and Ω, whose inner boundary r = a lies a
-fixed distance inside x_K = 1; beyond them [[thm:settling]] is stated outside the black hole, and its development also
+[[thm:main]], [[thm:past-construction]] and [[thm:bondi-law]] are made on D_T, Ω and the past domain of
+[[thm:past-construction]], whose inner boundary r = a lies a fixed distance inside x_K = 1; beyond them [[thm:settling]] is stated outside the black hole, and its development also
 reaches inside the black hole after the shell, up to the curvature boundary ([[prop:interior]]). Below the inner
 boundary the theorems are not silent: the boundary sits at the curvature scale l5, which is arbitrary, and a smaller l5
 puts every point with r > 0 and v ≤ v_end + T inside D_T, since r_q(v) = (√72 μ(v) l5²)^(1/4) tends to 0 with l5, the

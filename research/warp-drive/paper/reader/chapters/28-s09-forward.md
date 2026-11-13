@@ -295,7 +295,8 @@ Fourier transform ∫ e^(iσt) ⟨w, φ⟩ dt, as τ^(−iσ) = e^(iσt). It is 
 −log τ_1], it is bounded by C ⟨σ⟩^(ν_1) e^((log τ_1) Im σ) for Im σ ≤ 0 (|e^(iσt)| = e^(−t Im σ), largest at t =
 −log τ_1). With the last bound for Im σ ≥ 0 it is bounded by C ⟨σ⟩^(ν_1) e^(H(Im σ)), H(η) := sup{−tη : t ∈ [log T,
 −log τ_1]}; this is the supporting function of that interval for the transform σ ↦ û(−σ), û(ζ) = ∫ e^(−itζ) u dt. By
-the Paley–Wiener–Schwartz theorem ([[thm:std-paley-wiener]]) the support lies in {t ≥ log T} = {t_* ≥ T}. As φ is arbitrary, supp w ⊂ {t_* ≥ T}. ∎
+the Paley–Wiener–Schwartz theorem ([[thm:std-paley-wiener]]) the support lies in {t ≥ log T} = {t_* ≥ T}. As φ is
+arbitrary, supp w ⊂ {t_* ≥ T}. ∎
 
 *Proof of [[prop:ii-f-6-2]] (2).* The proof uses only the integer order s″ := ⌊inf 𝗌⌋, and not part (1).
 

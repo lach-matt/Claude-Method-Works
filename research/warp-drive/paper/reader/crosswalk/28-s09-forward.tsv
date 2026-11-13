@@ -1,5 +1,5 @@
 label	source	source_name	note
-ch:s09	docket68/n1star/proof5/PART-II-F-IOTA.md:1776; docket68/n1star/proof5/PART-II-F2-TAME.md:14	II.F §§6-8 and II.F1 §§1-7	chapter heading; intro composed from the parts' headers (status paragraphs dropped)
+ch:s09	docket68/n1star/proof5/PART-II-F-IOTA.md:1776; docket68/n1star/proof5/PART-II-F2-TAME.md:14	II.F §§6-8 and II.F1 §§1-7	chapter heading; intro composed from the parts' headers (status paragraphs dropped); one sentence added on the three forms of x_I, which agree up to smooth positive factors
 sec:ii-f-6	docket68/n1star/proof5/PART-II-F-IOTA.md:1776	II.F §6	
 sec:ii-f-6-1	docket68/n1star/proof5/PART-II-F-IOTA.md:1781	II.F §6.1	
 eq:ii-f-6-1	docket68/n1star/proof5/PART-II-F-IOTA.md:1791	II.F (6.1)	rotation fields Z_ij written out with a hand proof that they span the tangent space (in place of a program count)
@@ -11,12 +11,12 @@ sec:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1834	II.F §6.2
 prop:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1836	II.F Proposition 6.2	
 eq:ii-f-6-5	docket68/n1star/proof5/PART-II-F-IOTA.md:1843	II.F (6.5)	
 sec:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1857	II.F §6.3	threshold weight shift x_I^(2α) L²(|dg|) = x_I^(2(α+2)) L²(b) written out
-lem:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1869	II.F Lemma 6.3	dilation parameter written Λ; the Cauchy problem black box narrowed to the case used (ℝ^(1+4), Minkowski principal part times Id) and cited as [Hö85, Theorem 23.2.4] with the componentwise reduction; page and system form pending issue-1
+lem:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1869	II.F Lemma 6.3	dilation parameter written Λ; the Cauchy problem used in the case ℝ^(1+4), Minkowski principal part times Id, citing the appendix entry thm:std-hormander-cauchy (no page claimed)
 sec:ii-f-6-4	docket68/n1star/proof5/PART-II-F-IOTA.md:1939	II.F §6.4	heading in the edition: Proof of the existence statement
 eq:ii-f-6-6	docket68/n1star/proof5/PART-II-F-IOTA.md:1945	II.F (6.6)	
 sec:ii-f-6-5	docket68/n1star/proof5/PART-II-F-IOTA.md:2003	II.F §6.5	final comparison with [Hin26c] kept as a neutral remark
 eq:ii-f-6-7	docket68/n1star/proof5/PART-II-F-IOTA.md:2009	II.F (6.7)	
-lem:ii-f-6-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2027	II.F Lemma 6.4	Paley-Wiener-Schwartz theorem [Hö83, Theorem 7.3.1] stated in text; exponent written ν, compact set 𝒦
+lem:ii-f-6-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2027	II.F Lemma 6.4	Paley-Wiener-Schwartz theorem stated in text in dimension one, citing the appendix entry thm:std-paley-wiener (no page claimed); exponent written ν; compact set written 𝒞 (𝒦 reserved)
 sec:ii-f-7	docket68/n1star/proof5/PART-II-F-IOTA.md:2110	II.F §7	
 sec:ii-f-7-1	docket68/n1star/proof5/PART-II-F-IOTA.md:2112	II.F §7.1	
 def:ii-f-7-1	docket68/n1star/proof5/PART-II-F-IOTA.md:2114	II.F Definition 7.1	T_+ = max(2, 2r_0): the inner radius is a parameter
@@ -28,7 +28,7 @@ sec:ii-f-7-3	docket68/n1star/proof5/PART-II-F-IOTA.md:2209	II.F §7.3
 prop:ii-f-7-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2214	II.F Proposition 7.4	
 sec:ii-f-7-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2231	II.F §7.4	
 sec:ii-f-7-5	docket68/n1star/proof5/PART-II-F-IOTA.md:2272	II.F §7.5	
-lem:ii-f-7-5	docket68/n1star/proof5/PART-II-F-IOTA.md:2274	II.F Lemma 7.5	interpolating function of Lemma 1.4 written a; the function h(r) written q(r), threshold a written a_Θ
+lem:ii-f-7-5	docket68/n1star/proof5/PART-II-F-IOTA.md:2274	II.F Lemma 7.5	interpolating function of Lemma 1.4 written a; the function h(r) written Φ(r) (h is the semiclassical parameter, q the symbol of S6), its cut-off ψ_Φ; threshold a written a_Θ
 sec:ii-f-7-6	docket68/n1star/proof5/PART-II-F-IOTA.md:2355	II.F §7.6	absorption parameter written δ_1 (sf-loss δ elsewhere)
 lem:ii-f-7-6	docket68/n1star/proof5/PART-II-F-IOTA.md:2367	II.F Lemma 7.6	
 lem:ii-f-7-7	docket68/n1star/proof5/PART-II-F-IOTA.md:2395	II.F Lemma 7.7	
@@ -72,13 +72,13 @@ sec:ii-f1-2-2	docket68/n1star/proof5/PART-II-F2-TAME.md:188	II.F1 §2.2
 lem:ii-f1-2-2	docket68/n1star/proof5/PART-II-F2-TAME.md:190	II.F1 Lemma 2.2	
 sec:ii-f1-2-3	docket68/n1star/proof5/PART-II-F2-TAME.md:206	II.F1 §2.3	
 eq:ii-f1-2-4	docket68/n1star/proof5/PART-II-F2-TAME.md:214	II.F1 (2.4)	
-lem:ii-f1-2-3	docket68/n1star/proof5/PART-II-F2-TAME.md:218	II.F1 Lemma 2.3	Ω_♮ and the constants ε_I, ε_ι chosen from r_0 (inner radius a parameter)
+lem:ii-f1-2-3	docket68/n1star/proof5/PART-II-F2-TAME.md:218	II.F1 Lemma 2.3	Ω_♮ and the constants ε_I, ε_ι chosen from r_0 (inner radius a parameter); the sentence after it states the orders over Ω_♮ as the positive integers s_in − 2, s_in, s_in + 1 (the hypothesis of the tame estimates of S7)
 eq:ii-f1-2-5	docket68/n1star/proof5/PART-II-F2-TAME.md:221	II.F1 (2.5)	
 sec:ii-f1-2-4	docket68/n1star/proof5/PART-II-F2-TAME.md:263	II.F1 §2.4	
-lem:ii-f1-2-4	docket68/n1star/proof5/PART-II-F2-TAME.md:265	II.F1 Lemma 2.4	large order written ν (N reserved)
+lem:ii-f1-2-4	docket68/n1star/proof5/PART-II-F2-TAME.md:265	II.F1 Lemma 2.4	large order written ν (N reserved); closed set written 𝒞 (𝒦 reserved)
 sec:ii-f1-2-5	docket68/n1star/proof5/PART-II-F2-TAME.md:286	II.F1 §2.5	
 eq:ii-f1-2-6	docket68/n1star/proof5/PART-II-F2-TAME.md:309	II.F1 (2.6)	
-lem:ii-f1-2-5	docket68/n1star/proof5/PART-II-F2-TAME.md:312	II.F1 Lemma 2.5	extension operator written ℰ, ℰ_r (E is the bundle); cut-off θ(r) written ψ_−; compact set 𝒦_κ
+lem:ii-f1-2-5	docket68/n1star/proof5/PART-II-F2-TAME.md:312	II.F1 Lemma 2.5	extension operator written ℰ, ℰ_r (E is the bundle); cut-off θ(r) written ψ_−; compact set 𝒞_κ; Seeley constants cited from the proof of lem:ii-e-1-3 (b)
 eq:ii-f1-2-7	docket68/n1star/proof5/PART-II-F2-TAME.md:316	II.F1 (2.7)	
 sec:ii-f1-2-6	docket68/n1star/proof5/PART-II-F2-TAME.md:355	II.F1 §2.6	
 eq:ii-f1-2-8	docket68/n1star/proof5/PART-II-F2-TAME.md:359	II.F1 (2.8)	cut-off θ_ε written χ̃_ε (θ reserved for the phase)
@@ -93,7 +93,7 @@ eq:ii-f1-2-12	docket68/n1star/proof5/PART-II-F2-TAME.md:464	II.F1 (2.12)
 lem:ii-f1-2-8	docket68/n1star/proof5/PART-II-F2-TAME.md:468	II.F1 Lemma 2.8	
 eq:ii-f1-2-13	docket68/n1star/proof5/PART-II-F2-TAME.md:471	II.F1 (2.13)	
 sec:ii-f1-2-9	docket68/n1star/proof5/PART-II-F2-TAME.md:490	II.F1 §2.9	
-lem:ii-f1-2-9	docket68/n1star/proof5/PART-II-F2-TAME.md:492	II.F1 Lemma 2.9	
+lem:ii-f1-2-9	docket68/n1star/proof5/PART-II-F2-TAME.md:492	II.F1 Lemma 2.9	prop:ii-e-4-4 applied with the right-hand side on the larger slab Ω_(1,T+1) (the form of the tame slab estimate in S7)
 sec:ii-f1-3	docket68/n1star/proof5/PART-II-F2-TAME.md:519	II.F1 §3	
 sec:ii-f1-3-1	docket68/n1star/proof5/PART-II-F2-TAME.md:521	II.F1 §3.1	
 eq:ii-f1-3-1	docket68/n1star/proof5/PART-II-F2-TAME.md:527	II.F1 (3.1)	
@@ -109,7 +109,7 @@ eq:ii-f1-3-8	docket68/n1star/proof5/PART-II-F2-TAME.md:575	II.F1 (3.8)
 sec:ii-f1-3-3	docket68/n1star/proof5/PART-II-F2-TAME.md:583	II.F1 §3.3	
 prop:ii-f1-3-2	docket68/n1star/proof5/PART-II-F2-TAME.md:585	II.F1 Proposition 3.2	
 sec:ii-f1-4	docket68/n1star/proof5/PART-II-F2-TAME.md:602	II.F1 §4	
-prop:ii-f1-4-1	docket68/n1star/proof5/PART-II-F2-TAME.md:604	II.F1 Proposition 4.1	
+prop:ii-f1-4-1	docket68/n1star/proof5/PART-II-F2-TAME.md:604	II.F1 Proposition 4.1	step (iii): prop:ii-e-4-4 applied with the right-hand side P_ε u = Pu on the larger slab Ω_(1,T_η+1)
 eq:ii-f1-4-1	docket68/n1star/proof5/PART-II-F2-TAME.md:608	II.F1 (4.1)	
 eq:ii-f1-4-2	docket68/n1star/proof5/PART-II-F2-TAME.md:618	II.F1 (4.2)	
 prop:ii-f1-4-2	docket68/n1star/proof5/PART-II-F2-TAME.md:641	II.F1 Proposition 4.2	

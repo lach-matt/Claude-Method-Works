@@ -463,31 +463,31 @@ infinity, and modulo S^(𝐨−(½,0,0)) near fibre infinity. The *principal sym
 S^(𝐨−𝟏+ϵ𝟏) for small ϵ > 0; by [[eq:i-b-2-4]] it is multiplicative.
 
 **Proposition {#prop:i-b-2-10}** (Microlocal elliptic estimate.) Let A ∈ Ψ^𝐦 and B, G ∈ Ψ^0 with
-WF′_h(B) ⊂ Ell_h(A) ∩ Ell_h(G). Then for all orders 𝐨 and all K, ‖Bu‖_𝐨 ≤ C(‖GAu‖_(𝐨−𝐦) + ‖u‖_(−K𝟏)).
+WF′_h(B) ⊂ Ell_h(A) ∩ Ell_h(G). Then for all orders 𝐨 and all M, ‖Bu‖_𝐨 ≤ C(‖GAu‖_(𝐨−𝐦) + ‖u‖_(−M𝟏)).
 
 *Proof.* Let φ ∈ S^0 equal 1 near WF′_h(B), supported where a and g are uniformly invertible. Then
 q_0 := φ a⁻¹ g⁻¹ ∈ S^(−𝐦) by [[lem:i-b-2-2]] (e), and Op_h(q_0) G A = Op_h(φ) + Op_h(r) with r ∈ S^(−½𝟏) near
 WF′_h(B). Corrections q_j ∈ S^(−𝐦−(j/2)𝟏) supported in supp φ remove the error to any order: QGA = Op_h(φ) + R with
-R ∈ S^(−K𝟏) near WF′_h(B). Then B = BQGA − BR + B(I − Op_h(φ)), the last term in Ψ^(−K𝟏) by (iv), and
+R ∈ S^(−M𝟏) near WF′_h(B). Then B = BQGA − BR + B(I − Op_h(φ)), the last term in Ψ^(−M𝟏) by (iv), and
 [[prop:i-b-2-8]] bounds the rest. ∎
 
 **Lemma {#lem:i-b-2-11}** (Positivity.) Let A = A* ∈ Ψ^(2𝐦) with principal symbol 𝖺, and B ∈ Ψ^0. Suppose
-𝖺 ≥ c w_𝐦² Id, c > 0, on a neighbourhood of WF′_h(B). Then for all K and small ϵ > 0,
-⟨ABu, Bu⟩ ≥ (c/2) ‖Bu‖²_𝐦 − C ‖Bu‖²_(𝐦−½(1−ϵ)𝟏) − C ‖u‖²_(−K𝟏).
+𝖺 ≥ c w_𝐦² Id, c > 0, on a neighbourhood of WF′_h(B). Then for all M and small ϵ > 0,
+⟨ABu, Bu⟩ ≥ (c/2) ‖Bu‖²_𝐦 − C ‖Bu‖²_(𝐦−½(1−ϵ)𝟏) − C ‖u‖²_(−M𝟏).
 
 *Proof.* Let 𝖺̃ ∈ S^(2𝐦) be Hermitian, equal to 𝖺 near WF′_h(B) and ≥ ¾ c w_𝐦² everywhere. Put
 q := w_𝐦 (w_𝐦^(−2) 𝖺̃ − c/2)^(1/2) ∈ S^𝐦 (positive square root, as in [[thm:i-b-2-7]]). Then
 A = Op_h(q)* Op_h(q) + (c/2) W_𝐦* W_𝐦 + E with E ∈ Ψ^(2𝐦−(1−ϵ)𝟏) near WF′_h(B), so
 ⟨ABu, Bu⟩ ≥ (c/2) ‖Bu‖²_𝐦 + ⟨EBu, Bu⟩, and [[prop:i-b-2-8]] bounds the last term. ∎
 
-**Lemma {#lem:i-b-2-12}** (Square roots with logarithmic growth.) Let Q_0 ∈ S^0 be Hermitian with Q_0 ≥ M Id, M > 0,
-and let κ ≥ 0 be a real scalar function with κ ≤ C L_h and
+**Lemma {#lem:i-b-2-12}** (Square roots with logarithmic growth.) Let Q_0 ∈ S^0 be Hermitian with Q_0 ≥ c_Q Id,
+c_Q > 0, and let κ ≥ 0 be a real scalar function with κ ≤ C L_h and
 |∂_x^α ∂_ζ^β κ| ≤ C_αβ ⟨x⟩^(−|α|) ⟨ζ⟩^(−|β|) L_h^(μ_αβ) for (α, β) ≠ 0. Let Q := Q_0 + κ Id. Then Q^(1/2) ∈ S^(ϵ𝟏)
 for every ϵ > 0 and Q^(−1/2) ∈ S^0. If b := w_𝐨 φ Q^(1/2) with φ ∈ S^0 scalar, then b ∈ S^(𝐨+ϵ𝟏) for every ϵ, and
 wherever φ ≥ c > 0 on an open set U, φ′ b⁻¹ ∈ S^(−𝐨) for φ′ ∈ S^0 supported in U; [[prop:i-b-2-10]] then holds with
 A := Op_h(b), at the order 𝐨, on U.
 
-*Proof.* Q = (1 + κ) Q̃ with Q̃ := (Q_0 + κ)/(1 + κ), whose values lie in [min(M, 1), max(sup |Q_0|, 1)] and whose
+*Proof.* Q = (1 + κ) Q̃ with Q̃ := (Q_0 + κ)/(1 + κ), whose values lie in [min(c_Q, 1), max(sup |Q_0|, 1)] and whose
 derivatives obey [[eq:i-b-2-1]] with order 0. So Q̃^(±1/2) ∈ S^0 by the Cauchy formula of the proof of
 [[thm:i-b-2-7]] over a fixed contour. (1 + κ)^(1/2) ≤ C L_h^(1/2) ≤ C_ϵ w_(ϵ𝟏), and its derivatives
 ½(1 + κ)^(−1/2) ∂κ and higher obey [[eq:i-b-2-1]]; (1 + κ)^(−1/2) ≤ 1 likewise. This gives the first two claims, and
@@ -512,7 +512,7 @@ density to the spaces where it is used.
 𝒢 := {u ∈ H_h^𝐨 : P_(h,z) u ∈ H_h^(𝐨−𝐦+(1,1,0))} with the graph norm. Then 𝒮 is dense in 𝒢. The same holds with the
 b-regular norms of [[eq:i-b-1-5]] and for P_(h,z)^(*h) with 𝐨 replaced by −𝐨 + 𝐦 − (1, 1, 0).
 
-*Proof.* At fixed h, H_h^𝐨 is the space H_sc^(s,𝗋_h) of [HJS] with 𝗋_h(x, ξ) := 𝗋(x, hξ), with an equivalent norm
+*Proof.* At fixed h, H_h^𝐨 is the space H^(s,𝗋_h) of [[sec:i-a-2-2]] with 𝗋_h(x, ξ) := 𝗋(x, hξ), with an equivalent norm
 ([[sec:i-b-2-3]]), and P_(h,z) = h² P̂(z/h) ∈ Ψ_sc^(2,0). With T_t from (C8) of [[sec:i-a-2-1]], T_t u → u in H_h^𝐨,
 and P_(h,z) T_t u = T_t P_(h,z) u + [P_(h,z), T_t] u. Here T_t P_(h,z) u → P_(h,z) u, and [P_(h,z), T_t] is bounded
 in Ψ_sc^(1,−1) and tends to 0 in Ψ_sc^(1+δ,−1+δ) for every δ > 0 ([[lem:i-a-2-1]] (c) and (C8) of [[sec:i-a-2-1]]).
@@ -520,7 +520,7 @@ So it is uniformly bounded from H^(s,𝗋_h) to H^(s−1,𝗋_h+1) and tends to 
 strongly. T_t u is Schwartz. For the b-regular norms, [⟨x⟩D_x, T_t] is likewise bounded in Ψ_sc^(0,0) and tends to 0
 strongly. ∎
 
-Every term of the estimates below (‖Bu‖_𝐨, h⁻¹‖G P_(h,z) u‖_(𝐨−𝐦+(1,1,0)), ‖Eu‖_𝐨, ‖u‖_(−K𝟏), with B, G, E ∈ Ψ^0) is
+Every term of the estimates below (‖Bu‖_𝐨, h⁻¹‖G P_(h,z) u‖_(𝐨−𝐦+(1,1,0)), ‖Eu‖_𝐨, ‖u‖_(−M𝟏), with B, G, E ∈ Ψ^0) is
 continuous on 𝒢. So an estimate proved for Schwartz u holds on 𝒢, with the same constant, for each h. Near ∂_♯X the
 estimates are applied to χu with χ ∈ C_c^∞({r > r_0 − δ_0}); then P_(h,z)(χu) = χ P_(h,z) u + [P_(h,z), χ] u with
 [P_(h,z), χ] = h · Diff¹_h.
@@ -548,33 +548,33 @@ of 𝒫 and G ∈ Ψ^0 elliptic on K_1. Suppose Ǎ = Ǎ^(*h) ∈ Ψ^𝐤 and tha
 
     ςC = −B^(*h)B − F + E^(*h)E + JP + R,                                                               {#eq:i-b-3-3}
 
-where: B ∈ Ψ^𝐨 and Ǎ = ZB + Y with Z ∈ Ψ^(−½(𝐦−(1,1,0))), Y ∈ Ψ^(𝐤−½𝟏); ⟨Fw, w⟩_h ≥ −C_F‖w‖²_(−K𝟏) for Schwartz
+where: B ∈ Ψ^𝐨 and Ǎ = ZB + Y with Z ∈ Ψ^(−½(𝐦−(1,1,0))), Y ∈ Ψ^(𝐤−½𝟏); ⟨Fw, w⟩_h ≥ −C_F‖w‖²_(−M𝟏) for Schwartz
 w; E ∈ Ψ^𝐨 is microsupported in a closed set K_E; J ∈ Ψ^(2𝐨−𝐦) with WF′_h(J) ⊂ Ell_h(P); R ∈ Ψ^(2𝐨−½𝟏); and
 Ǎ, B, E, J, R are microsupported in K_1. Let E′ ∈ Ψ^0 be elliptic on K_E. Then for Schwartz u and h < h_0,
 
-    ‖Bu‖² ≤ C(h⁻² ‖GPu‖²_(𝐨−𝐦+(1,1,0)) + ‖E′u‖²_𝐨 + ‖Gu‖²_(𝐨−¼𝟏) + ‖u‖²_(−K𝟏)).                      {#eq:i-b-3-4}
+    ‖Bu‖² ≤ C(h⁻² ‖GPu‖²_(𝐨−𝐦+(1,1,0)) + ‖E′u‖²_𝐨 + ‖Gu‖²_(𝐨−¼𝟏) + ‖u‖²_(−M𝟏)).                      {#eq:i-b-3-4}
 
 C depends on C_F and on seminorms of the operators involved.
 
 *Proof.* By [[eq:i-b-3-1]] and [[eq:i-b-3-3]],
 ‖Bu‖² = −ς(2/h) Im⟨ǍPu, Ǎu⟩ − ⟨Fu, u⟩ + ‖Eu‖² + ⟨JPu, u⟩ + ⟨Ru, u⟩. Microlocalise first: let Φ ∈ Ψ^0 be
 microlocally the identity near K_1, with WF′_h(Φ) ⊂ Ell_h(G); then Ǎ(I − Φ) and (I − Φ)^(*h)Ǎ are residual, and
-‖Φf‖_𝐭 ≤ C(‖Gf‖_𝐭 + ‖f‖_(−K𝟏)) by [[prop:i-b-2-10]].
+‖Φf‖_𝐭 ≤ C(‖Gf‖_𝐭 + ‖f‖_(−M𝟏)) by [[prop:i-b-2-10]].
 
 (a) ⟨ǍPu, Ǎu⟩ = ⟨Z^(*h)ǍPu, Bu⟩ + ⟨ǍPu, Yu⟩, and Z^(*h)Ǎ ∈ Ψ^(𝐨−𝐦+(1,1,0)), Ǎ maps H^(𝐨−𝐦+(1,1,0)) to
 H^(−½(𝐦−(1,1,0))), and Y maps H^(𝐨−½𝟏) to H^(½(𝐦−(1,1,0))). So
-(2/h)|⟨ǍPu, Ǎu⟩| ≤ ½‖Bu‖² + C h⁻² ‖GPu‖²_(𝐨−𝐦+(1,1,0)) + C ‖Gu‖²_(𝐨−½𝟏) + C ‖u‖²_(−K𝟏).
+(2/h)|⟨ǍPu, Ǎu⟩| ≤ ½‖Bu‖² + C h⁻² ‖GPu‖²_(𝐨−𝐦+(1,1,0)) + C ‖Gu‖²_(𝐨−½𝟏) + C ‖u‖²_(−M𝟏).
 
-(b) −⟨Fu, u⟩ ≤ C_F ‖u‖²_(−K𝟏).
+(b) −⟨Fu, u⟩ ≤ C_F ‖u‖²_(−M𝟏).
 
-(c) ‖Eu‖ ≤ C(‖E′u‖_𝐨 + ‖u‖_(−K𝟏)) by [[prop:i-b-2-10]].
+(c) ‖Eu‖ ≤ C(‖E′u‖_𝐨 + ‖u‖_(−M𝟏)) by [[prop:i-b-2-10]].
 
 (d) Let Φ_J ∈ Ψ^0 be microlocally the identity near WF′_h(J) with WF′_h(Φ_J) ⊂ Ell_h(P) ∩ Ell_h(G); then
-⟨JPu, u⟩ = ⟨JPu, Φ_J u⟩ + O(‖u‖²_(−K𝟏) + ‖GPu‖²), ‖JPu‖_(−𝐨) ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−K𝟏)), and
-‖Φ_J u‖_𝐨 ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−K𝟏)) by [[prop:i-b-2-10]]; and
-‖GPu‖_(𝐨−𝐦) ≤ ‖GPu‖_(𝐨−𝐦+(1,1,0)) ≤ h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)).
+⟨JPu, u⟩ = ⟨JPu, Φ_J u⟩ + O(‖u‖²_(−M𝟏) + ‖GPu‖²), ‖JPu‖_(−𝐨) ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−M𝟏)), and
+‖Φ_J u‖_𝐨 ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−M𝟏)) by [[prop:i-b-2-10]]; and
+‖GPu‖_(𝐨−𝐦) ≤ C ‖GPu‖_(𝐨−𝐦+(1,1,0)) ≤ C h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) ([[prop:i-b-2-8]]).
 
-(e) |⟨Ru, u⟩| ≤ C ‖Gu‖²_(𝐨−¼𝟏) + C ‖u‖²_(−K𝟏).
+(e) |⟨Ru, u⟩| ≤ C ‖Gu‖²_(𝐨−¼𝟏) + C ‖u‖²_(−M𝟏).
 
 Absorb ½‖Bu‖². ∎
 
@@ -591,31 +591,31 @@ subset of Ū_0 ∖ Λ (or no E term), and B elliptic on the closure of an open n
 Ū_0 and M ∈ ℕ. Then there are a neighbourhood U_* of Λ and a closed set K_E^* ⊂ Ū_0 ∖ Λ such that for every
 B_* ∈ Ψ^0 microsupported in U_*, every E′ elliptic on K_E^*, and Schwartz u,
 
-    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)).                       {#eq:i-b-3-5}
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−M𝟏)).                       {#eq:i-b-3-5}
 
 *Proof.* Let J := 4M. Choose U_0 ⊃ U_1 ⊃ ⋯ ⊃ U_J ⊃ Λ, U_j the U′ of the hypothesis for U_(j−1), with B^(j) elliptic on
 Ū_j and K_E^* := ⋃_j K_E(U_(j−1)). Let G_0 := G and, for j ≥ 1, G_j ∈ Ψ^0 elliptic on Ū_j with
-WF′_h(G_j) ⊂ Ell_h(B^(j)), so that ‖G_j u‖_𝐭 ≤ C(‖B^(j)u‖_(𝐭−𝐨) + ‖u‖_(−K𝟏)) (with B^(j) at the shifted order). Apply
+WF′_h(G_j) ⊂ Ell_h(B^(j)), so that ‖G_j u‖_𝐭 ≤ C(‖B^(j)u‖_(𝐭−𝐨) + ‖u‖_(−M𝟏)) (with B^(j) at the shifted order). Apply
 [[lem:i-b-3-3]] at the order 𝐨 − (0, 0, (J − j)/4) with (U_(j−1), G_(j−1)), using the scaling above:
 
     ‖G_j u‖_(𝐨−(0,0,(J−j)/4)) ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + ‖G_(j−1) u‖_(𝐨−(0,0,(J−j+1)/4))
-                                 + ‖u‖_(−K𝟏)).
+                                 + ‖u‖_(−M𝟏)).
 
 Chaining from j = J down to j = 1 leaves ‖G_0 u‖_(𝐨−(0,0,J/4)) = h^M ‖Gu‖_𝐨. Take U_* := U_J and use
-‖B_* u‖_𝐨 ≤ C(‖G_J u‖_𝐨 + ‖u‖_(−K𝟏)). ∎
+‖B_* u‖_𝐨 ≤ C(‖G_J u‖_𝐨 + ‖u‖_(−M𝟏)). ∎
 
 *Positivity of absorbing terms.* Suppose h⁻¹ Im_h P contains −ℓ𝒜 with ℓ ≥ 0 a constant, ℓ ≤ C h⁻¹, and 𝒜 = 𝒜^(*h)
 such that ς𝒜 ∈ Ψ^(2𝐭) has principal symbol ≥ c w_𝐭² on a neighbourhood of WF′_h(Ǎ), for some order 𝐭. Then ςC
 contains −ℓς(Ǎ²𝒜 + 𝒜Ǎ²) = −F − ℓς[[𝒜, Ǎ], Ǎ] with F := 2ℓǍ(ς𝒜)Ǎ. The double commutator lies in
 ℓΨ^(2𝐤+2𝐭−2𝟏), which for the orders below is in the class of R. And F satisfies the hypothesis of [[lem:i-b-3-3]]:
 [[lem:i-b-2-11]], whose proof does not use the order of B, gives
-⟨ς𝒜Ǎw, Ǎw⟩ ≥ (c/2) ‖Ǎw‖²_𝐭 − C ‖Ǎw‖²_(𝐭−½(1−ϵ)𝟏) − C ‖w‖²_(−K𝟏), and the middle term is at most
-C h^(1−ϵ) ‖Ǎw‖²_𝐭, which the first absorbs for h small. So ⟨Fw, w⟩ ≥ −Cℓ ‖w‖²_(−K𝟏) ≥ −C ‖w‖²_(−(K−1)𝟏). This is
+⟨ς𝒜Ǎw, Ǎw⟩ ≥ (c/2) ‖Ǎw‖²_𝐭 − C ‖Ǎw‖²_(𝐭−½(1−ϵ)𝟏) − C ‖w‖²_(−M𝟏), and the middle term is at most
+C h^(1−ϵ) ‖Ǎw‖²_𝐭, which the first absorbs for h small. So ⟨Fw, w⟩ ≥ −Cℓ ‖w‖²_(−M𝟏) ≥ −C ‖w‖²_(−(M−1)𝟏). This is
 [Hin26c, (9.69)].
 
 In [[lem:i-b-3-3]] we also allow B ∈ ⋂_ϵ Ψ^(𝐨+ϵ𝟏) of the form of [[lem:i-b-2-12]] (a variable order contributes a
 factor (1 + κ)^(1/2) with κ logarithmic); the proof is unchanged, and [[lem:i-b-2-12]] gives
-‖B_* u‖_𝐨 ≤ C(‖Bu‖ + ‖u‖_(−K𝟏)) for B_* microsupported where the cut-offs of B equal 1, which is what [[lem:i-b-3-4]]
+‖B_* u‖_𝐨 ≤ C(‖Bu‖ + ‖u‖_(−M𝟏)) for B_* microsupported where the cut-offs of B equal 1, which is what [[lem:i-b-3-4]]
 uses.
 
 ### Elliptic and real principal type estimates {#sec:i-b-4}
@@ -678,14 +678,14 @@ of z_0 on Σ_(z_0) ∩ {ρ = 0} ∖ R_out and vanishes at R_out.
 
 #### The elliptic estimate {#sec:i-b-4-2}
 
-**Proposition {#prop:i-b-4-2}** Let K ⊂ 𝒫 be compact with Ĝ_z ≠ 0 on K for every z ∈ Z, and B, G ∈ Ψ^0 with
-WF′_h(B) ⊂ K and G elliptic on K. Then for all orders 𝐨 and all K′, uniformly for z ∈ Z and h < h_0,
+**Proposition {#prop:i-b-4-2}** Let K_0 ⊂ 𝒫 be compact with Ĝ_z ≠ 0 on K_0 for every z ∈ Z, and B, G ∈ Ψ^0 with
+WF′_h(B) ⊂ K_0 and G elliptic on K_0. Then for all orders 𝐨 and all M, uniformly for z ∈ Z and h < h_0,
 
-    ‖Bu‖_𝐨 ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−K′𝟏)) ≤ C(‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖u‖_(−K′𝟏)).                         {#eq:i-b-4-2}
+    ‖Bu‖_𝐨 ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−M𝟏)) ≤ C(‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖u‖_(−M𝟏)).                         {#eq:i-b-4-2}
 
 The same holds for P^(*h).
 
-*Proof.* By compactness of K × Z there are a neighbourhood U of K and c > 0 with |Ĝ_z| ≥ c on U for z ∈ Z. Since
+*Proof.* By compactness of K_0 × Z there are a neighbourhood U of K_0 and c > 0 with |Ĝ_z| ≥ c on U for z ∈ Z. Since
 p_(h,z) − G_z Id ∈ S^((1,−1,−1)) is bounded by C h w_𝐦, p_(h,z) is invertible on U with
 |p_(h,z)⁻¹| ≤ 2c⁻¹ w_𝐦⁻¹ for h < h_0. [[prop:i-b-2-10]] applies, with constants depending on seminorms and on c only.
 The second inequality is ‖f‖_(𝐨−𝐦) ≤ C ‖f‖_(𝐨−𝐦+(1,1,0)) ([[prop:i-b-2-8]]). For P^(*h) the symbol is Ḡ_z modulo
@@ -735,9 +735,9 @@ For ϵ_♭ ∈ {1, −1} write P_(ϵ_♭) := P if ϵ_♭ = 1 and P^(*h) if ϵ_�
 Let γ be the integral curve of ς𝖧_(z_*) with γ(0) = ϖ_0. There is T_0 > 0 such that for every neighbourhood W of
 γ(−T_0/2) there are a neighbourhood Z_0 of z_* in Z, a neighbourhood U_* of γ([−T_0/4, 0]) and a compact set
 K_E ⊂ W with the following property: for B_* ∈ Ψ^0 microsupported in U_*, E′ ∈ Ψ^0 elliptic on K_E, G ∈ Ψ^0 elliptic
-on Ū_0, all M, K, z ∈ Z_0, h < h_0 and Schwartz u,
+on Ū_0, all M, z ∈ Z_0, h < h_0 and Schwartz u,
 
-    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖G P_(ϵ_♭) u‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)).                  {#eq:i-b-4-5}
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖G P_(ϵ_♭) u‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−M𝟏)).                  {#eq:i-b-4-5}
 
 So estimates propagate along ς𝖧 where ς has the sign of ϵ_♭ q: for P, along the future field sgn(q)𝖧 of
 [[sec:i-b-1-3]]; for P^(*h), along the past field. The hypothesis [[eq:i-b-4-4]] is stated for 𝖧_(Re z) and not 𝖧_z;
@@ -784,7 +784,7 @@ with β_r := 2(C_r ρ − ς(Im z)² 𝖧^(2) 𝗋) log⟨x⟩ bounded with all 
 
 Let Q_0 := 2M_1 − β − β_r on U_1, and choose M_1 with Q_0 ≥ M_1 Id there for z ∈ Z_0; replace Q_0 by
 χ̃Q_0 + (1 − χ̃)M_1 Id, which is ≥ M_1 Id everywhere. κ_0 := κ_r + κ_b satisfies the hypotheses of
-[[lem:i-b-2-12]] (with κ := κ_0 and M := M_1). With
+[[lem:i-b-2-12]] (with κ := κ_0 and c_Q := M_1). With
 
     b := w_𝐨 φ (Q_0 + κ_0)^(1/2),     B := Op_h(b),     E := Op_h(w_𝐨 e Id),     F_+ := Op_h(w_𝐨 f_+ Id),
 
@@ -806,7 +806,7 @@ the principal symbols agree; B ∈ Ψ^(𝐨+ϵ′𝟏) ([[lem:i-b-2-12]]), so B^
 the last term involving the anti-self-adjoint part Op_h(μ c_b χ̃)^a ∈ Ψ^((0,−2,−2+ϵ′)) of Op_h(μ c_b χ̃) (its symbol is
 real, [[thm:i-b-2-5]]), hence in Ψ^(2𝐨−(1,1,1)+(0,0,ϵ′)). 𝒬_♯ ∈ Ψ^((1,0,0)) has principal symbol ϵ_♭ς q_z (the added
 term is of lower order), which is ≥ c_0⟨ζ⟩ on U_1; so by the paragraph on positivity of absorbing terms in
-[[sec:i-b-3-3]], with 𝐭 = (½, 0, 0), ⟨Fw, w⟩ ≥ −C‖w‖²_(−K𝟏), and the double commutator lies in
+[[sec:i-b-3-3]], with 𝐭 = (½, 0, 0), ⟨Fw, w⟩ ≥ −C‖w‖²_(−M𝟏), and the double commutator lies in
 ℓΨ^(2𝐤+(1,0,0)−2𝟏+ϵ′𝟏) ⊂ Ψ^(2𝐨−½𝟏). So R ∈ Ψ^(2𝐨−½𝟏). Finally Ǎ = ZB + Y with
 Z := Op_h(w_(𝐤−𝐨) χ̃ (Q_0 + κ_0)^(−1/2)) ∈ Ψ^(−½(𝐦−(1,1,0))) ([[lem:i-b-2-12]]) and Y ∈ Ψ^(𝐤−½𝟏), since the principal
 symbol of ZB is ǎ. So [[eq:i-b-3-3]] holds with J = 0, K_1 := supp φ and K_E := supp e, and by [[lem:i-b-2-12]], B is
@@ -915,9 +915,9 @@ projection of Ū_0.
 satisfies 𝒯 ≥ c_𝒯 Id, c_𝒯 > 0.
 
 Then there are a neighbourhood U_* of Λ and a compact set K_E ⊂ Ū_0 ∖ Λ such that for B_* ∈ Ψ^0 microsupported in U_*,
-G ∈ Ψ^0 elliptic on Ū_0, E′ ∈ Ψ^0 elliptic on K_E, all M, K, z ∈ Z′, h < h_0 and Schwartz u,
+G ∈ Ψ^0 elliptic on Ū_0, E′ ∈ Ψ^0 elliptic on K_E, all M, z ∈ Z′, h < h_0 and Schwartz u,
 
-    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖G𝐏u‖_(𝐨−𝐦+(1,1,0)) + δ_sink ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)),                {#eq:i-b-5-3}
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖G𝐏u‖_(𝐨−𝐦+(1,1,0)) + δ_sink ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−M𝟏)),                {#eq:i-b-5-3}
 
 where δ_sink := 0 if Λ is a source, and δ_sink := 1 if Λ is a sink.
 
@@ -961,7 +961,7 @@ j_3 := w_(2𝐨) k_3 𝐠_z⁻¹ ∈ S^(2𝐨−𝐦) ([[lem:i-b-2-2]] (e)) and 
 J𝐏 has principal symbol w_(2𝐨) k_3.
 
 *The absorbing term.* In case (A) it is treated exactly as in [[prop:i-b-4-5]] (here c_b = 0): −2ℓǍ(ϵ_♭ς𝒜)Ǎ is a term
-−F_abs with ⟨F_abs w, w⟩ ≥ −C‖w‖²_(−K𝟏), and the double commutator is in Ψ^(2𝐨−½𝟏). In case (B),
+−F_abs with ⟨F_abs w, w⟩ ≥ −C‖w‖²_(−M𝟏), and the double commutator is in Ψ^(2𝐨−½𝟏). In case (B),
 −ℓ(Ǎ²𝒜 + 𝒜Ǎ²) = −2ℓǍ𝒜Ǎ − ℓ[[𝒜, Ǎ], Ǎ], and for every w
 
     ⟨Ǎ𝒜Ǎw, w⟩_h = ⟨M̃ WǍw, WǍw⟩_(h^(⊕J)) + ⟨𝒜_0 Ǎw, Ǎw⟩_h ≥ 0
@@ -988,13 +988,13 @@ s > ½ + ϑ_ℋ, Z compact as in [[sec:i-b-4]], and 𝗋, 𝖻 constant near ∂
 neighbourhoods U_* ⊂ U_0 of ∂ℛ_±, with U_0 over {|r − r_h| < δ_0}, and a compact K_E ⊂ Ū_0 ∖ ∂ℛ_±, such that,
 uniformly in z ∈ Z, for B_* microsupported in U_* and G elliptic on Ū_0:
 
-    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)),     𝐨 = (s, 𝗋, 𝖻),                  {#eq:i-b-5-4}
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + h^M ‖Gu‖_𝐨 + ‖u‖_(−M𝟏)),     𝐨 = (s, 𝗋, 𝖻),                  {#eq:i-b-5-4}
 
-    ‖B_* v‖_(𝐨*) ≤ C(h⁻¹ ‖GP^(*h)v‖_(𝐨*−𝐦+(1,1,0)) + ‖E′v‖_(𝐨*) + h^M ‖Gv‖_(𝐨*) + ‖v‖_(−K𝟏)),
+    ‖B_* v‖_(𝐨*) ≤ C(h⁻¹ ‖GP^(*h)v‖_(𝐨*−𝐦+(1,1,0)) + ‖E′v‖_(𝐨*) + h^M ‖Gv‖_(𝐨*) + ‖v‖_(−M𝟏)),
     𝐨* = (1 − s, 𝗋*, 𝖻*),                                                                              {#eq:i-b-5-5}
 
 for any orders 𝗋*, 𝖻* constant near ∂ℛ_±, with E′ elliptic on K_E. The fibre inner product may be chosen near ∂ℛ_±
-as in (O3) of [[sec:i-a-1-4]]; the adjoint in [[eq:i-b-5-5]] may be taken in any fibre inner product
+as in (O3) of [[def:i-a-admissible]]; the adjoint in [[eq:i-b-5-5]] may be taken in any fibre inner product
 ([[prop:i-a-4-2]]). The band {|r − r_h| < δ_0} may be replaced by {|r − r_h| < δ} for any δ ∈ (0, δ_0]: the
 proposition asserts neighbourhoods inside the band, and its proof is local at ∂ℛ_±.
 
@@ -1009,9 +1009,10 @@ For (iii) take g := Ĝ_0, and φ := q_± ∘ π, where q_± is the quadratic def
 retraction of a neighbourhood of ∂ℛ_± in 𝒫 onto ∂Σ_0 (projecting along the level sets of a complement of (ρ_∞, Ĝ_0) in
 a coordinate system, as in [[lem:i-a-4-1]]). Ellipticity: |Ĝ_z| ≥ |Re Ĝ_z| ≥ |Ĝ_0| − Cρ_∞. For [[eq:i-b-5-1]]: at a
 point ϖ, 𝖧_z φ(ϖ) = dq_±(π_*𝖧_z(ϖ)) and π_*𝖧_z(ϖ) = 𝖧_z(πϖ) + O(|Ĝ_0(ϖ)| + ρ_∞(ϖ)); and |dq_±| ≤ C√q_±, as q_± ≥ 0
-is smooth (for a non-negative C² function, |∇f|² ≤ 2f sup|∇²f|). With ±𝖧q_± ≥ c q_± on ∂Σ_0 (H3),
+is smooth (for a non-negative C² function, |∇f|² ≤ 2f sup|∇²f|). With 𝖧q_± ≥ c q_± near ∂ℛ_± in ∂Σ_0 ((H3), 𝖧 the
+future field), and ς𝖧_z = ϵ_♭ρ⁻¹𝖧 at fibre infinity,
 
-    ς𝖧_z φ ≷ ϵ_♭(c ρ⁻¹ φ − C(|g| + ρ_∞)√φ),
+    ς𝖧_z φ ≥ c ρ⁻¹ φ − C(|g| + ρ_∞)√φ   if ϵ_♭ = 1,     ς𝖧_z φ ≤ −c ρ⁻¹ φ + C(|g| + ρ_∞)√φ   if ϵ_♭ = −1,
 
 and C|g|√φ ≤ (c/4)ρ⁻¹φ + C′g², C ρ_∞ √φ ≤ C′ρ_∞ on U_0; this is [[eq:i-b-5-1]] (for ϵ_♭ = 1 at a source, for
 ϵ_♭ = −1 at a sink). (iv) holds by assumption. For (v): μ⁻¹p_1 = ρ⁻¹ρ_∞p_1 and, at fibre infinity,
@@ -1028,7 +1029,7 @@ same condition. [[lem:i-b-5-1]] gives [[eq:i-b-5-4]] and [[eq:i-b-5-5]]. ∎
 
 **Proposition {#prop:i-b-5-3}** (Cf. [[prop:i-a-4-6]].) Let z_0 ∈ {1, −1}, ν_1 > 0 and Z_in := z_0 + i[0, ν_1]. Let
 𝗋, 𝖻 be constant near R_(z_0,in), with 𝗋 > ½(−1 + ϑ_in) there, the fibre inner product chosen as in (O3) of
-[[sec:i-a-1-4]]. Then there are neighbourhoods U_* ⊂ U_0 of R_(z_0,in) at finite frequencies and a compact
+[[def:i-a-admissible]]. Then there are neighbourhoods U_* ⊂ U_0 of R_(z_0,in) at finite frequencies and a compact
 K_E ⊂ Ū_0 ∖ R_(z_0,in) such that [[eq:i-b-5-4]] holds for z ∈ Z_in with 𝐨 = (s, 𝗋, 𝖻), and [[eq:i-b-5-5]] holds with
 𝐨* = (s*, −𝗋 − 1, 𝖻*) for any s* and any 𝖻* constant near R_(z_0,in).
 
@@ -1062,9 +1063,9 @@ part onto an operator that is non-negative exactly.
 Ω_ab := x_a∂_b − x_b∂_a (1 ≤ a < b ≤ 4), and W := (W_0, W_ab) with W_0 := hρV_1, W_ab := hρΩ_ab, acting componentwise;
 J := 7. Near ∂X, on {ρ < ρ_1},
 
-    h² Re_h P̂(0) = W^(*h) M̃ W + h R_1^h,     M̃ = Id + ρm,                                             {#eq:i-b-5-6}
+    h² Re_h P̂(0) = W^(*h) M̃ W + h R_1^h,     M̃ = Id + ρΞ,                                             {#eq:i-b-5-6}
 
-with m a smooth h^(⊕J)-self-adjoint matrix function, and R_1^h ∈ hρ² Diff¹_b h-self-adjoint, whose semiclassical symbol
+with Ξ a smooth h^(⊕J)-self-adjoint matrix function, and R_1^h ∈ hρ² Diff¹_b h-self-adjoint, whose semiclassical symbol
 divided by ρ vanishes at R_out. With P̃ := z⁻¹P and ℓ = Im z/h,
 
     h⁻¹ Im_h P̃ = 𝒫̃_1 − ℓ𝒜,     𝒫̃_1 := Re(z⁻¹) h Im_h P̂(0) + Im_h T − (Im z/|z|²) R_1^h,
@@ -1090,7 +1091,7 @@ face is ρ times Re(z⁻¹)r_3 − (S + S^(*h)) plus a term vanishing at R_out, 
 𝗋 < −½ + ½ inf_(∂X) min spec(S + S^(*h)). Then there are neighbourhoods U_* ⊂ U_0 of R_out at finite frequencies over
 {ρ < ρ_1} and a compact K_E ⊂ Ū_0 ∖ R_out such that, uniformly in z ∈ Z,
 
-    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)),     𝐨 = (s, 𝗋, 𝖻),      {#eq:i-b-5-8}
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−M𝟏)),     𝐨 = (s, 𝗋, 𝖻),      {#eq:i-b-5-8}
 
 and [[eq:i-b-5-4]] holds for P^(*h) at 𝐨* = (s*, −𝗋 − 1, 𝖻*) for every s* and every 𝖻* constant near R_out, with
 B_*, G, E′ as in [[lem:i-b-5-1]]. By (O3) of [[sec:i-a-1-4]] and [[lem:i-a-2-4]], h may be chosen so that the condition
@@ -1153,7 +1154,7 @@ O(ρ) at the face, so vanishing at R_out; and h²R_αβ ∈ Ψ^((1,−1,0)). ∎
 **Proposition {#prop:i-b-5-7}** (Cf. [Hin26c, (9.77)].) In the setting of [[prop:i-b-5-5]], for k ∈ ℕ_0 there are B_*
 elliptic at R_out, G and a compact K_E ⊂ Ū_0 ∖ R_out such that for E′ elliptic on K_E, uniformly in z ∈ Z,
 
-    ‖B_* u‖_(𝐨;k) ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0);k) + ‖E′u‖_(𝐨+k(1,1,0)) + h^M ‖Gu‖_(𝐨;k) + ‖u‖_(−K𝟏)).      {#eq:i-b-5-11}
+    ‖B_* u‖_(𝐨;k) ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0);k) + ‖E′u‖_(𝐨+k(1,1,0)) + h^M ‖Gu‖_(𝐨;k) + ‖u‖_(−M𝟏)).      {#eq:i-b-5-11}
 
 *Proof.* Induction on k; k = 0 is [[eq:i-b-5-8]]. Let k ≥ 1. The system [[eq:i-b-5-10]] is 𝐏^(k)u^(k) = f^(k) with
 𝐏^(k) := P ⊗ Id + hρ𝒦 on ℂ^(N_E) ⊗ ℂ^(A_k), inner product h^(⊕A_k). Apply [[lem:i-b-5-1]] to 𝐏 := z⁻¹𝐏^(k) exactly
@@ -1161,12 +1162,12 @@ as in [[prop:i-b-5-5]]. The added term changes nothing that the lemma uses: Re_h
 order (its commutator with Ǎ², divided by h, lies in Ψ^(2𝐨−𝟏+ϵ′𝟏), Ǎ being scalar), and
 h⁻¹ Im_h(z⁻¹hρ𝒦) = Im_h(z⁻¹ρ𝒦) ∈ Ψ^((1,−1,0)) is added to 𝒫̃_1 ⊗ Id, with μ⁻¹ times its symbol vanishing at R_out.
 So the threshold matrix is 𝒯 ⊗ Id, the same. This gives [[eq:i-b-5-8]] for u^(k), with G𝐏^(k)u^(k) = Gf^(k). Now
-‖G(hV)^α Pu‖_𝐭 + ‖G h(hV)^(α′) Pu‖_𝐭 ≤ C‖G̃Pu‖_(𝐭;k) + C‖u‖_(−K𝟏), 𝐭 := 𝐨 − 𝐦 + (1, 1, 0), with G̃ elliptic on
+‖G(hV)^α Pu‖_𝐭 + ‖G h(hV)^(α′) Pu‖_𝐭 ≤ C‖G̃Pu‖_(𝐭;k) + C‖u‖_(−M𝟏), 𝐭 := 𝐨 − 𝐦 + (1, 1, 0), with G̃ elliptic on
 WF′_h(G); and, G being microsupported at finite frequencies,
-‖G h^(k−|β|) R_αβ^h (hV)^β u‖_𝐭 ≤ Ch‖G̃(hV)^β u‖_𝐨 + C‖u‖_(−K𝟏), so h⁻¹ times it is bounded by ‖G̃u‖_(𝐨;k−1), which
+‖G h^(k−|β|) R_αβ^h (hV)^β u‖_𝐭 ≤ Ch‖G̃(hV)^β u‖_𝐨 + C‖u‖_(−M𝟏), so h⁻¹ times it is bounded by ‖G̃u‖_(𝐨;k−1), which
 the induction hypothesis (applied with G̃ in place of B_*, after shrinking) bounds. The term ‖E′u^(k)‖_𝐨 is at most
-C‖E″u‖_(𝐨+k(1,1,0)) + C‖u‖_(−K𝟏), since (hV)^α ∈ Ψ^(k(1,1,0)) ([[prop:i-b-2-8]]). Finally
-‖B_*′u‖_(𝐨;k) ≤ C(‖B_* u^(k)‖_𝐨 + ‖G̃u‖_(𝐨;k−1) + ‖u‖_(−K𝟏)) for B_*′ microsupported where B_* is elliptic, since
+C‖E″u‖_(𝐨+k(1,1,0)) + C‖u‖_(−M𝟏), since (hV)^α ∈ Ψ^(k(1,1,0)) ([[prop:i-b-2-8]]). Finally
+‖B_*′u‖_(𝐨;k) ≤ C(‖B_* u^(k)‖_𝐨 + ‖G̃u‖_(𝐨;k−1) + ‖u‖_(−M𝟏)) for B_*′ microsupported where B_* is elliptic, since
 [B_*′, (hV)^α] is a sum of terms (hV)^γ [B_*′, hV] (hV)^(γ′), |γ| + |γ′| = k − 1, with [B_*′, hV] ∈ Ψ^((0,0,−1)) by
 [[thm:i-b-2-4]]. ∎
 
@@ -1561,7 +1562,7 @@ described. Altogether, for z ∈ z_0 + i[hβ, hβ′],
 and with h⁻¹ in place of h⁻² at Im z = hβ′, using [[prop:i-b-6-1]] there; the last term is absorbed for h < h_0.
 
 (b) Invertibility. For fixed h, P′_(h,z) is elliptic in the scattering sense at fibre infinity and over ∂X
-([[lem:i-b-6-5]] (c)), so it has a parametrix modulo an operator with symbol in S^(−K𝟏), K large, which is compact on
+([[lem:i-b-6-5]] (c)), so it has a parametrix modulo an operator with symbol in S^(−M𝟏), K large, which is compact on
 L²; so P′_(h,z) : H_h^((2,0,0)) → L² is Fredholm, and by (a) it and its adjoint are injective.
 
 (c) Interpolation. In terms of σ = z/h, (a) gives ‖P̂′(σ)⁻¹‖_(L²→L²) ≤ C for Re σ ≥ h_0⁻¹ and Im σ ∈ [β, β′], and
@@ -1770,7 +1771,7 @@ P_(h,z)u ∈ H̄_h^(𝐨′), with δ := δ_Γ(Im(z/h) − ϵ),
 (H8), (H4) at fibre infinity and [[lem:i-a-4-5]] over ∂X.
 
 - (R) ϖ ∈ ∂ℛ_+ ∪ ∂ℛ_− ∪ R_(z_0,in): [[prop:i-b-5-2]] and [[prop:i-b-5-3]] give a neighbourhood U_ϖ and
-  ‖B_* u‖_𝐨 ≤ C(h⁻¹‖GPu‖_(𝐨′) + h^M‖Gu‖_𝐨 + ‖u‖_(−K𝟏)) for B_* microsupported in U_ϖ, with no a priori term; here
+  ‖B_* u‖_𝐨 ≤ C(h⁻¹‖GPu‖_(𝐨′) + h^M‖Gu‖_𝐨 + ‖u‖_(−M𝟏)) for B_* microsupported in U_ϖ, with no a priori term; here
   s > ½ + ϑ_ℋ and 𝗋 + α_+ > ½(−1 + ϑ_in) at R_(z_0,in) are used.
 - (A) ϖ is not of kind (R), not in Γ̄_u and not R_out: its backward curve tends to a set of kind (R) ((H8) (a)), so
   after finite time enters a neighbourhood U_* given by (R); on the segment, 𝖧_(z_0) ≠ 0, q̂_(z_0) ≠ 0
@@ -1794,13 +1795,13 @@ of this holds for z ∈ z_0 + i[0, ν_1]. For φ ∈ {1 − χ, χ_1}, both supp
 unity Σ_j B_j = φ, modulo a residual operator, subordinate to the cover, and the chain of estimates give, with δ ≤ 1
 and h^(−δ) · h⁻¹ ≤ h^(−1−δ),
 
-    ‖φu‖_(H_h^𝐨) ≤ C(h^(−1−δ)‖Pu‖_(H̄_h^(𝐨′)) + h^M‖u‖_(H̄_h^𝐨) + ‖u‖_(H̄_h^(−K𝟏))).
+    ‖φu‖_(H_h^𝐨) ≤ C(h^(−1−δ)‖Pu‖_(H̄_h^(𝐨′)) + h^M‖u‖_(H̄_h^𝐨) + ‖u‖_(H̄_h^(−M𝟏))).
 
 *The artificial boundary.* By [[eq:i-b-7-2]], ‖χu‖_(H̄_h^𝐨) ≤ C(h⁻¹‖Pu‖_(H̄_h^(𝐨′)) + ‖χ_1 u‖_(H_h^𝐨)), the orders
 being constant there apart from s; the last term is the previous display with φ = χ_1, and
 ‖u‖ ≤ ‖χu‖ + ‖(1 − χ)u‖, the second by the previous display with φ = 1 − χ.
 
-*Absorption.* ‖u‖_(H̄_h^(−K𝟏)) ≤ Ch‖u‖_(H̄_h^𝐨) for K ≥ max(−s, −min(𝗋 + α_+), 1 − min 𝖻), since w_(−K𝟏)/w_𝐨 ≤ Ch;
+*Absorption.* ‖u‖_(H̄_h^(−M𝟏)) ≤ Ch‖u‖_(H̄_h^𝐨) for K ≥ max(−s, −min(𝗋 + α_+), 1 − min 𝖻), since w_(−M𝟏)/w_𝐨 ≤ Ch;
 so for h < h_0 the last two terms are absorbed, which is [[eq:i-b-8-1]].
 
 (b) For Im z ≥ ν_1, P_(h,z) is elliptic at finite frequencies over X̃° ([[lem:i-b-1-1]] (d)) and over ∂X except at
@@ -1860,12 +1861,12 @@ h⁻¹‖Pu‖_(H̄_h^(𝐨′+(k,0,0))) + ‖χ_1 u‖_(H_h^(𝐨+(k,0,0))), th
 
 (ii) Away from R_out and the zero section: the symbols of the hV_j are ρ⁻¹ times the components of ζ in a frame
 ([[lem:i-a-4-4]]), so Σ_(|α|=k) ((hV)^α)*(hV)^α is elliptic of order 2k(1, 1, 0) wherever |ζ| ≥ c > 0, including fibre
-infinity; there ‖Bu‖_(𝐨;k) and ‖Bu‖_(𝐨+k(1,1,0)) bound each other modulo ‖B̃u‖_(𝐨;k−1) + ‖u‖_(−K𝟏), by
+infinity; there ‖Bu‖_(𝐨;k) and ‖Bu‖_(𝐨+k(1,1,0)) bound each other modulo ‖B̃u‖_(𝐨;k−1) + ‖u‖_(−M𝟏), by
 [[prop:i-b-2-10]]. At the zero section over X̃°, G_z(x, 0) = z²g_00 ≠ 0, so P is elliptic there, and every order is
 controlled by ‖Pu‖ ([[prop:i-b-4-2]]); at finite frequencies over a compact set all orders are equivalent.
 
 (iii) So the chain of [[sec:i-b-8-2]] at the shifted order 𝐨_k := 𝐨 + k(1, 1, 0) bounds u microlocally on the cover
-except near R_out, with ‖GPu‖_(𝐨_k−𝐦+(1,1,0)) ≤ C(‖Pu‖_(𝐨′;k) + ‖u‖_(−K𝟏)) for the G that occur (all microsupported
+except near R_out, with ‖GPu‖_(𝐨_k−𝐦+(1,1,0)) ≤ C(‖Pu‖_(𝐨′;k) + ‖u‖_(−M𝟏)) for the G that occur (all microsupported
 where (ii) applies). 𝐨_k satisfies every condition the chain uses away from R_out: s + k > ½ + ϑ_ℋ, 𝗋 + α_+ + k is
 above the threshold at R_(z_0,in), and the monotonicity is unchanged by adding constants.
 

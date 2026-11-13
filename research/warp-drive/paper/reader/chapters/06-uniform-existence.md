@@ -145,8 +145,8 @@ driven by s.
     □̃ s = c1·∂h + c0·h + c2·∂φ + c3 φ − 2q F(ℓ, ℓ) − 2q 𝒬(w)(ℓ, ℓ) + 2q 𝒬_φ(ℓ, ℓ)
           + Σ_(b,i) c^(bi) (∂_b ∂_i h)(ℓ, ℓ),
 
-where (∂_b ∂_i h)(ℓ, ℓ) := (∂_b ∂_i h_mn) ℓ^m ℓ^n, c0, …, c3 are bounded coefficients (profiles, and profiles times the function q of the proof, which depends on w
-and so is not a profile; the terms 2 g0^(ab) ∂_a(ℓ ⊗ ℓ)·∂_b h and h·□̃(ℓ ⊗ ℓ) carry no q), the sum runs over pairs with
+where (∂_b ∂_i h)(ℓ, ℓ) := (∂_b ∂_i h_mn) ℓ^m ℓ^n, c0, …, c3 are bounded coefficients (profiles, and profiles times the
+function q of the proof, which depends on w and so is not a profile; the terms 2 g0^(ab) ∂_a(ℓ ⊗ ℓ)·∂_b h and h·□̃(ℓ ⊗ ℓ) carry no q), the sum runs over pairs with
 i spatial, |c^(bi)| ≤ C(λ + |w|) and |∂c^(bi)| ≤ C(1 + |∂w|), and 𝒬_φ(ℓ, ℓ) contains no second derivative of φ. There is
 no coefficient of size 1/λ.
 
@@ -420,16 +420,26 @@ order for the approximant of [[thm:approximant]] with the data of [[thm:data]], 
 4 at k = 6 and i ≤ k − 2 in general. Step 4: the commutator terms ∂^i g · ∂^(j−i+1) ∂h are split with ∂^i w in L^∞ for i
 ≤ 4 and in L² for i ≥ 5, the other factor then of order j − i + 1 ≤ 2 in L^∞; at order k the split is at k − 2, the L^∞
 factor needing at most 2 + 1 + 3 ≤ k + 1 derivatives of 𝒩's quantities. The nonlinear terms use |∂w ∂w|_k ≤ C λ⁻³
-|∂w|_k², the scaled product bound in four space dimensions, valid at every k ≥ 3 with C = C_k. Step 8: [DS23, Theorem
-2.4] with r = k > 4/2 + 1. Steps 2, 5, 6 and 7 do not use k = 6.
+|∂w|_k², the scaled product bound |f g|_k ≤ C_k λ⁻³ |f|_k |g|_k on the slices, in four space dimensions, which holds at
+every k ≥ 3. Indeed, expand λ^j ∂^j (f g), j ≤ k, by Leibniz's rule into terms λ^i ∂^i f · λ^(j−i) ∂^(j−i) g. If i =
+0, then ‖f‖_(L^∞) ≤ C λ⁻³ |f|_3 ≤ C λ⁻³ |f|_k by [[eq:sobolev]] and ‖λ^j ∂^j g‖ ≤ |g|_k; if i = j, the same holds with f
+and g exchanged. If 1 ≤ i ≤ j − 1, both factors are put in L⁴. By [BH17, Theorem 7.27, p. 56], on a nonempty bounded
+open subset of R^n with Lipschitz boundary W^(s,p) embeds in W^(t,q) whenever 1 ≤ p, q < ∞, 0 ≤ t ≤ s and s − n/p ≥
+t − n/q; with s = 1, p = 2, t = 0, q = 4 and n = 4 this gives ‖u‖_(L⁴) ≤ C (‖u‖ + ‖∂_x u‖) on the fixed annulus, and
+on every A(τ) with the same C by the radial maps of the proof of [[lem:sobolev]]. Hence ‖λ^i ∂^i f‖_(L⁴) ≤ C (λ^i
+‖∂^i f‖ + λ^i ‖∂^(i+1) f‖) ≤ C λ⁻¹ |f|_(i+1) ≤ C λ⁻¹ |f|_k, since i + 1 ≤ j ≤ k, and likewise ‖λ^(j−i) ∂^(j−i)
+g‖_(L⁴) ≤ C λ⁻¹ |g|_k. By Hölder's inequality the term is at most C λ⁻² |f|_k |g|_k ≤ C λ⁻³ |f|_k |g|_k. Step 8:
+[DS23, Theorem 2.4] with r = k > 4/2 + 1. Steps 2, 5, 6 and 7 do not use k = 6.
 
 (b) *The closing.* The bootstrap closes when 2K − 5 ≥ K + 1 (Step 4's C M² λ^(2K−5) ≤ C M² λ^(K+1)), that is when K ≥ 6,
 whatever k is; the constants C, C2, M and λ0 then depend on k. So 𝒩_k(τ) ≤ M_k λ^K on [τ0, τ_end], given (E3) and (E4)
 at order k.
 
-(c) *The inputs at order k.* (E3) at order k: the residual of the approximant of [[thm:approximant]] is λ^N times a
-profile bounded with all its derivatives ([[sec:approximant]]), so |Ric^H(g_app)|_k ≤ C_k λ^N for every k: the
-approximant of [[thm:approximant]] is of order N − 1 at every regularity k. (E4) at order k: [[prop:exact-correction]]
+(c) *The inputs at order k.* (E3) at order k: for the approximant of [[thm:approximant]], the residual of G(X, u/λ)
+([[eq:ansatz]]) is λ^N times a profile bounded with all its derivatives, and the passage to the fixed-phase form
+[[eq:approximant]], which is g_app, changes Ric^H by O(λ^(N−1)) in |·|_k ([[sec:approximant]]); so |Ric^H(g_app)|_k ≤
+C_k λ^(N−1) for every k: the approximant of [[thm:approximant]] is of order N − 1 at every regularity k, and with N = K
++ 3 this is λ^(K+2) ≤ λ^K. (E4) at order k: [[prop:exact-correction]]
 bounds the correction at every order, sup_r ‖∂_r^j U(r)‖_(H^s(S³)) ≤ C_(j,s) λ^(N−2−j), with λ0 independent of the
 order, so Data(w) at order k is O(λ^(N−3)) = O(λ^K) with N = K + 3, as in the proof of [[thm:data]].
 
