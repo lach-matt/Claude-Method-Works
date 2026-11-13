@@ -769,10 +769,11 @@ dense: an element of the space is the restriction of a distribution F supported 
 τ > 0 in t_*, supported in {t_* ≥ 1 + τ}, converge to F as τ ↓ 0, and each is a limit of smooth sections with compact
 support in {t_* > 1}, by the density of C_c^∞ ([[lem:ii-a1-2-3]] (a) and its proof) and a cut-off in t_* equal to 1 on
 {t_* ≥ 1 + τ}. (Sections that vanish near {r = r_0} are not dense, the spaces being extendible there.) Then
-f̂(σ) := ∫ e^(iσt_*) f dt_* is entire with values in the smooth sections on X supported in a fixed compact subset of
-X̄ ∖ ∂X, and ‖f̂(σ)‖ ≤ C_M⟨σ⟩^(−M)e^(−t_1 Im σ) in every norm, for Im σ ≥ 0. Fix k, b ∈ ℬ_k and 𝗌 ∈ 𝒪_c. Let c ∈ (0, ς_1], with ς_1 of [[eq:ii-g1-4-5a]], be at most the
-constants c_(j,k′) of [[thm:iii-h-4-1]] (3) for L̃_b on Σ′ = Σ_0 ∩ ℝ, with the orders (s_c + 1, 𝗋 + 1) of
-[[lem:iii-h1-1-2]] (c), for j + k′ ≤ k ([[cor:iii-h-4-3]]); and fix χ ∈ C_c^∞([0, c)) with χ = 1 on [0, c/2]. Put
+f̂(σ) := ∫ e^(iσt_*) f dt_* is entire with values in the smooth sections on X supported in a fixed compact subset of X̄ ∖
+∂X, and ‖f̂(σ)‖ ≤ C_M⟨σ⟩^(−M)e^(−t_1 Im σ) in every norm, for Im σ ≥ 0. Fix k, b ∈ ℬ_k and 𝗌 ∈ 𝒪_c. Let c ∈ (0, ς_1],
+with ς_1 of [[eq:ii-g1-4-5a]], be at most the constants c_(j,k′) of [[thm:iii-h-4-1]] (3) for L̃_b on Σ′ = Σ_0 ∩ ℝ, with
+the orders (s_c + 1, 𝗋 + 1) of [[lem:iii-h1-1-2]] (c), for j + k′ ≤ k ([[cor:iii-h-4-3]]); and fix χ ∈ C_c^∞([0, c)) with
+χ = 1 on [0, c/2]. Put
 
     𝒞_− := (−∞, −c/2],     𝒞_0 := (c/2)e^(i[π,0]),     𝒞_+ := [c/2, ∞).
 
@@ -880,12 +881,12 @@ By [[eq:iii-h-4-6]], for these σ,
 *Properties.* By the formula in the proof of [[thm:iii-h-4-1]] (3), with e = 0,
 (b̂_1, Ŝ_1) = Ξ(σ)⁻¹(⟨R(σ)f̂(σ), φ_(i′)⟩_h)_(i′), with R = L̂_b⁻¹ and Ξ(σ)_(i′i) = ⟨R(σ)F_i(σ), φ_(i′)⟩_h. R is
 holomorphic in Im σ > 0 ([[thm:i-a-7-2]] (6)), the columns F_i = f̂_ḃ, f̂_S are holomorphic there with values in every
-H̄_b^(p,M) ([[lem:iii-h-2-4]] (d)), and f̂ is entire. So b̂_1, Ŝ_1 and
-û_(reg,1) = R(σ)(f̂(σ) − Σ_i (b̂_1(σ), Ŝ_1(σ))_i F_i(σ)), with (b̂_1, Ŝ_1)_i the coefficient of the column F_i (paired
-with any φ ∈ C_c^∞(X°)), are holomorphic in Im σ > 0, continuous down to [−c, c] ∖ 0 ([[thm:i-a-7-2]] (6) at real σ_*), and
-bounded uniformly by [[eq:iii-h-4-5]]. Here any orders of [[sec:i-c-6]] may be used, since these are statements about
-pairings with test sections, which do not depend on the orders; and ‖f̂(σ)‖_((s_c;k),(𝗋+α_sf+2,α_sf+2,0),|σ|) is
-bounded for |σ| ≤ 1, as f̂(σ) is supported in a fixed compact subset of X̄ ∖ ∂X ([[lem:i-c-6-2]] (a)).
+H̄_b^(p,M) ([[lem:iii-h-2-4]] (d)), and f̂ is entire. So b̂_1, Ŝ_1 and û_(reg,1) = R(σ)(f̂(σ) − Σ_i (b̂_1(σ), Ŝ_1(σ))_i
+F_i(σ)), with (b̂_1, Ŝ_1)_i the coefficient of the column F_i (paired with any φ ∈ C_c^∞(X°)), are holomorphic in Im σ >
+0, continuous down to [−c, c] ∖ 0 ([[thm:i-a-7-2]] (6) at real σ_*), and bounded uniformly by [[eq:iii-h-4-5]]. Here any
+orders of [[sec:i-c-6]] may be used, since these are statements about pairings with test sections, which do not depend on
+the orders; and ‖f̂(σ)‖_((s_c;k),(𝗋+α_sf+2,α_sf+2,0),|σ|) is bounded for |σ| ≤ 1, as f̂(σ) is supported in a fixed
+compact subset of X̄ ∖ ∂X ([[lem:i-c-6-2]] (a)).
 
 **Lemma {#lem:iii-h1-4-1}** (The regular part.)
 u_reg(t_*, ·) := (2π)⁻¹ ∫_(𝒞_−∪𝒞_0∪𝒞_+) e^(−iσt_*) χ(|σ|) û_(reg,1)(σ) dσ satisfies
@@ -1130,11 +1131,11 @@ without α_K. Here u_hi is measured at the weight α_sf + 1 − 2ϵ, with ϵ bel
 u_reg at the regularity 𝗌 + 1
 ([[lem:iii-h1-4-1]]); both use the margin, and nothing is lost in [[thm:iii-h1-1-3]].
 
-(c) *The neighbourhood of b_0.* The high-energy estimate with k orders of b-regularity needs (k + 1)δ_Γ(−ϵ′) ≤ 1 for
-some ϵ′ > 0 ([[lem:iii-h1-3-1]]). [[prop:iii-f-4-1]] gives strong trapping admissibility at b_0, and, near b_0, the smallness of
-δ_Γ(0) only on a neighbourhood that shrinks as the bound decreases. [Hin26] states its Theorem 10.1 for b near b_0 with
-its Proposition 8.3 (strong trapping admissibility near b_0 in dimension 3 + 1). [[thm:iii-h1-1-3]] is therefore stated
-on the sets ℬ_k, and [[rem:s18-every-k]] gives one neighbourhood for every k.
+(c) *The neighbourhood of b_0.* The high-energy estimate with k orders of b-regularity needs (k + 1)δ_Γ(−ϵ′) ≤ 1 for some
+ϵ′ > 0 ([[lem:iii-h1-3-1]]). [[prop:iii-f-4-1]] gives strong trapping admissibility at b_0, and, near b_0, the smallness
+of δ_Γ(0) only on a neighbourhood that shrinks as the bound decreases. [Hin26] states its Theorem 10.1 for b near b_0
+with its Proposition 8.3 (strong trapping admissibility near b_0 in dimension 3 + 1). [[thm:iii-h1-1-3]] is therefore
+stated on the sets ℬ_k, and [[rem:s18-every-k]] gives one neighbourhood for every k.
 
 (d) *The class of orders.* 𝒪_c adds to [[def:ii-c-2-4]] the conditions (C1)–(C3), under which the induced spectral
 orders satisfy the hypotheses of [[ch:s01]]–[[ch:s03]]: a constant regularity order ((O1) of [[def:i-a-admissible]]

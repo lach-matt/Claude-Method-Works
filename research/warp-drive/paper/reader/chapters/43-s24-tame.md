@@ -373,20 +373,20 @@ is used in its form at b, named in the entry where it differs from the form at b
 ### The tame theorems {#sec:iii-j2-4}
 
 **Theorem {#thm:iii-j2-4-1}** (The tame form of the forward problem with parameters.) Let ε ∈ (0, ε_1], and let
-ε′_j := ε′(ε, j) ∈ (0, ε], j ∈ ℕ₀, non-increasing in j, be the input losses that [[thm:iii-i14-3-1]] assigns to the
-output loss ε ([[sec:iii-j2-1]]; independent of j for the statements listed there). There are d, d_0 ∈ ℕ and δ_𝔹 > 0
+ε′(ε, j) ∈ (0, ε], j ∈ ℕ₀, non-increasing in j, be the input losses that [[thm:iii-i14-3-1]] assigns to the output
+loss ε ([[sec:iii-j2-1]]; independent of j for the statements listed there). There are d, d_0 ∈ ℕ and δ_𝔹 > 0
 such that for (h, p⃗, q) with ‖h‖_(𝒳^(d_0)) + |p⃗| + ‖q‖_(𝒬^(d_0)) < δ_𝔹 the maps F ↦ (h′, p⃗′, q′) of
 [[thm:iii-i14-3-1]] (at a rotating black hole parameter, of [[prop:iii-i15-2-5]]) satisfy, for every k ∈ ℕ₀,
 
     ‖h′‖_k + |p⃗′| + ‖q′‖_k ≤ C_k (‖F‖_(k+d) + (‖h‖_(k+d) + |p⃗| + ‖q‖_(k+d)) ‖F‖_d),                  {#eq:iii-j2-4-1}
 
-with ‖h′‖_k and ‖q′‖_k the norms of the order-k spaces of [[eq:iii-i14-3-2]] and of 𝒬^k ([[eq:iii-i14-1-1]]) at the
-loss ε, the background norms at the loss ε, and ‖F‖_j the norm of the order-j space of 𝒴^♮(α−) at the loss ε′_j. On
-the exact scales of [[sec:iii-j3-1]] it holds with ε′_j = ε = 0 for every j ([[cor:iii-j3-6-6]]). Here δ_𝔹 is at most
-the radius of a ball about b_0 in ℬ_*, so the black hole parameter b of p⃗ lies in ℬ_*, and d, d_0, δ_𝔹 and the C_k do
-not depend on b. The same holds for the solution maps of [[ch:s19]]–[[ch:s22]] in their spaces (at a rotating b, those
-of [[thm:iii-i11-4-1]] and [[prop:iii-i13-2-4]] read as in [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]], with q = 0),
-and for [[thm:iii-i14-3-1]] with η_2 replaced by ε_+ ([[lem:iii-j1-1-1]]).
+with ‖h′‖_k and ‖q′‖_k the norms of the order-k spaces of [[eq:iii-i14-3-2]] and of 𝒬^k ([[eq:iii-i14-1-1]]) at the loss
+ε, the background norms at the loss ε, and ‖F‖_j the norm of the order-j space of 𝒴^♮(α−) at the loss ε′(ε, j). On the
+exact scales of [[sec:iii-j3-1]] it holds with ε′(ε, j) = ε = 0 for every j ([[cor:iii-j3-6-6]]). Here δ_𝔹 is at most the
+radius of a ball about b_0 in ℬ_*, so the black hole parameter b of p⃗ lies in ℬ_*, and d, d_0, δ_𝔹 and the C_k do not
+depend on b. The same holds for the solution maps of [[ch:s19]]–[[ch:s22]] in their spaces (at a rotating b, those of
+[[thm:iii-i11-4-1]] and [[prop:iii-i13-2-4]] read as in [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]], with q = 0), and
+for [[thm:iii-i14-3-1]] with η_2 replaced by ε_+ ([[lem:iii-j1-1-1]]).
 
 This is the tame estimate that [Hin26, Corollary 11.66, pp. 294–295] states.
 
@@ -400,17 +400,16 @@ losses its statement assigns ([[sec:iii-j2-1]]). For [[thm:iii-i14-3-1]] the bac
 constants of [[lem:iii-j2-2-1]] are uniform on ℬ̄_*, and d_* of [[lem:iii-j2-2-3]] does not depend on b; so neither do
 d, d_0 and the C_k. ∎
 
-**Theorem {#thm:iii-j2-4-2}** (The tame form of the right inverse.) Let ε ∈ (0, ε_1], and let ε′_j = ε′(ε, j),
-non-increasing in j, be the input losses that [[thm:iii-j1-2-1]] assigns, as in [[thm:iii-j2-4-1]]. There are
-d, d_0 ∈ ℕ and ε_0 > 0 such that for U ∈ 𝒟^∞_ε with ‖U‖_(𝒟^(d_0)_ε) < ε_0, whose black hole parameter then lies in
-ℬ_*, the solution U′ of [[eq:iii-j1-2-1]] satisfies, for every k,
+**Theorem {#thm:iii-j2-4-2}** (The tame form of the right inverse.) Let ε ∈ (0, ε_1], and let ε′(ε, j), non-increasing in
+j, be the input losses that [[thm:iii-j1-2-1]] assigns, as in [[thm:iii-j2-4-1]]. There are d, d_0 ∈ ℕ and ε_0 > 0 such
+that for U ∈ 𝒟^∞_ε with ‖U‖_(𝒟^(d_0)_ε) < ε_0, whose black hole parameter then lies in ℬ_*, the solution U′ of
+[[eq:iii-j1-2-1]] satisfies, for every k,
 
-    ‖U′‖_(𝒟^k_ε) ≤ C_k (‖f‖_(ℱ^(k+d)_(ε′_(k+d))) + ‖U‖_(𝒟^(k+d)_ε) ‖f‖_(ℱ^d_(ε′_d))),                   {#eq:iii-j2-4-2}
+    ‖U′‖_(𝒟^k_ε) ≤ C_k (‖f‖_(ℱ^(k+d)_(ε′(ε,k+d))) + ‖U‖_(𝒟^(k+d)_ε) ‖f‖_(ℱ^d_(ε′(ε,d)))),          {#eq:iii-j2-4-2}
 
-with C_k independent of U. On the exact scales of [[sec:iii-j3-1]] it holds with ε′_j = ε = 0 for every j
-([[cor:iii-j3-6-6]]). At a rotating black hole parameter, U′ is built from the solution map of
-[[prop:iii-i15-2-5]]. The smallness is in one norm for every k ([[lem:iii-j2-2-3]]), which replaces the orders d_k of
-[[thm:iii-j1-2-1]].
+with C_k independent of U. On the exact scales of [[sec:iii-j3-1]] it holds with ε′(ε, j) = ε = 0 for every j
+([[cor:iii-j3-6-6]]). At a rotating black hole parameter, U′ is built from the solution map of [[prop:iii-i15-2-5]]. The
+smallness is in one norm for every k ([[lem:iii-j2-2-3]]), which replaces the orders d_k of [[thm:iii-j1-2-1]].
 
 This is the estimate of [Hin26, Theorem 12.8, p. 312].
 

@@ -201,18 +201,18 @@ Since ℒ_Ω differs from Ω acting componentwise by a constant matrix, the same
 compact subsets of {v ≠ 0}, v∂_v and the Ω_a span the vector fields, so there Ḣ^((s;k),μ)_(b;b) is H^(s+k); near R = 0
 it is H^(s+k)_(b,μ) ([[lem:i-c-2-2]] (h)).
 
-*Duality and calculi.* With the pairing of L²(μ_sf) and a fibre inner product h (below),
+*Duality and calculi.* With the pairing of L²(μ_sf) and a fibre inner product 𝔥 (below),
 (Ḣ^(s,μ)_b)* = H̄^(−s,−μ)_b: near v = −1 by [[lem:i-a-6-1]] (b), near R = 0 by [[lem:i-c-2-2]] (d), glued with χ_∂. For
 Re ϰ in a compact set, N_sf(ϰ): Ḣ^(s,μ)_b → Ḣ^(s−2,μ)_b is bounded ([[lem:i-c-2-2]] (c) near R = 0, by
 [[eq:iii-g-1-4]]). On {−3/2 < v < 5} we use the diffeomorphism (v, ω) ↦ x = e^v ω onto an annulus of ℝ⁴, so that the
 pseudodifferential operators of [[sec:i-a-2]] and the semiclassical ones of [[sec:i-b-2]] with kernels supported there
 act; the decay orders are then immaterial. Near R = 0 we use x = Rω, the end at 0 of [[ch:s03]].
 
-**Lemma {#lem:iii-g-1-4}** (Fibre inner products.) For every δ > 0 there is a smooth fibre inner product h on
+**Lemma {#lem:iii-g-1-4}** (Fibre inner products.) For every δ > 0 there is a smooth fibre inner product 𝔥 on
 𝕊³ × ℂ¹⁵, independent of v, with Re_𝔥 S̄ := ½(S̄ + S̄^(*𝔥)) ≥ −δ everywhere.
 
 *Proof.* This is the construction in the proof of [[cor:iii-f1-3-4]]: at each ω, rescale a Jordan basis of S̄(ω) so
-that the strict inequality holds at ω, hence near ω; the condition is convex in h, so a partition of unity on 𝕊³ glues
+that the strict inequality holds at ω, hence near ω; the condition is convex in 𝔥, so a partition of unity on 𝕊³ glues
 the local choices. It applies as min spec S̄ = 0. ∎
 
 ### Fixed ϰ: the Fredholm property and b-regularity {#sec:iii-g-2}
@@ -255,7 +255,7 @@ bounded by 0; if its limit were v_1 < 0, then 𝖧v ≤ −c < 0 near v_1 would 
 time. So v → 0, and then |η̂|² = −v(v + 2) → 0 on Σ_0, so the curve tends to {v = 0, η̂ = 0} = ∂ℛ_+ ∪ ∂ℛ_−. Forward,
 𝖧v ≤ −c(v_0) < 0 on {v ≤ v_0}, v_0 < 0, so v reaches every value in (−2, v_0). ∎
 
-**Lemma {#lem:iii-g-2-2}** (Radial estimate at the light cone.) Let 𝒟 ⊂ ℂ be compact, δ > 0, h as in
+**Lemma {#lem:iii-g-2-2}** (Radial estimate at the light cone.) Let 𝒟 ⊂ ℂ be compact, δ > 0, 𝔥 as in
 [[lem:iii-g-1-4]], and 𝔐 a first-order differential operator on a neighbourhood of {v = 0}, with smooth coefficients,
 whose principal symbol vanishes on ℛ_±, acting on ℂ¹⁵ ⊗ ℂ^m (the case 𝔐 = 0, m = 1 being N_sf(ϰ) itself). Put
 N_𝔐 := N_sf(ϰ) ⊗ Id + 𝔐. Let U be a neighbourhood of ∂ℛ_±.
@@ -271,7 +271,7 @@ sense,
 
     ‖Bw‖_(H^(s′)) ≤ C(‖GN_𝔐^(*𝔥)w‖_(H^(s′−1)) + ‖Gw‖_(H^(s_0)) + ‖w‖_(H^(−M))),                         {#eq:iii-g-2-2}
 
-the adjoint taken for L²(μ_sf) and h (or for any other fibre inner product, as [[prop:i-a-4-2]] notes).
+the adjoint taken for L²(μ_sf) and 𝔥 (or for any other fibre inner product, as [[prop:i-a-4-2]] notes).
 
 *Proof.* The proof of [[prop:i-a-4-2]] uses of the operator and of the hypotheses of [[ch:s01]] only: that the operator
 is a differential operator with principal symbol G_0 Id, G_0 real; that ∂ℛ is a source, with 𝖧ρ_∞ = β_0ρ_∞ and
@@ -283,13 +283,13 @@ order is immaterial. Here G_0 = p_2 ([[lem:iii-g-1-2]] (a); 𝔐 is of first ord
 *The subprincipal symbol at the light cone.* The first-order terms of N_𝔐 are −2(ϰ − 3/2 − S̄)∂_v; the terms
 a v∂_v, −2ϰ v∂_v and V of [[eq:iii-g-1-2]]–[[eq:iii-g-1-3]]; 𝔐; and the first-order part of Im_𝔥 of the second-order
 part D := −2∂_v v∂_v − (v∂_v)² + Δ_(𝕊³). The symbols of v∂_v, of V and of 𝔐 vanish on ℛ_± (where v = 0, resp. η = 0).
-For D: the density μ_sf = m|dv dg̸|, m := (2 + v)⁻¹, and h do not depend on v except through m. For an operator
+For D: the density μ_sf = m|dv dg̸|, m := (2 + v)⁻¹, and 𝔥 do not depend on v except through m. For an operator
 Q = q_2(v)∂_v² + q_1(v)∂_v with real coefficients, its formal adjoint for m|dv| is m⁻¹Q^t m, Q^t the transpose for
 |dv|, with second-order coefficient q_2 and first-order coefficient 2q_2′ + 2q_2m′/m − q_1. The (v, ∂_v)-part of D is
 Q = −v(v + 2)∂_v² − (v + 2)∂_v, with 2q_2′ + 2q_2m′/m − q_1 = −4(v + 1) + 2v + (v + 2) = −(v + 2) = q_1; so the first-
-order coefficient of D − D^(*𝔥) in ∂_v vanishes identically. And Δ_(𝕊³) − Δ_(𝕊³)^(*𝔥) = H⁻¹[H, Δ_(𝕊³)], h = ⟨H·, ·⟩,
+order coefficient of D − D^(*𝔥) in ∂_v vanishes identically. And Δ_(𝕊³) − Δ_(𝕊³)^(*𝔥) = H⁻¹[H, Δ_(𝕊³)], 𝔥 = ⟨H·, ·⟩,
 has symbol linear in η, which vanishes on ℛ_±. Finally, with A := ϰ − 3/2 − S̄, the principal symbols of −2A∂_v and of
-its h-adjoint are −2iξA and 2iξA^(*𝔥), so σ_1(Im_𝔥(−2A∂_v)) = (2i)⁻¹(−2iξA − 2iξA^(*𝔥)) = −ξ(A + A^(*𝔥)). So on ℛ_±
+its 𝔥-adjoint are −2iξA and 2iξA^(*𝔥), so σ_1(Im_𝔥(−2A∂_v)) = (2i)⁻¹(−2iξA − 2iξA^(*𝔥)) = −ξ(A + A^(*𝔥)). So on ℛ_±
 
     σ_1(Im_𝔥 N_𝔐) = ξ(3 + 2Re_𝔥 S̄ − 2Re ϰ),   p_1 = 3 + 2Re_𝔥 S̄ − 2Re ϰ,   β_0⁻¹p_1 = 3/2 + Re_𝔥 S̄ − Re ϰ,
                                                                                                       {#eq:iii-g-2-3}

@@ -376,8 +376,8 @@ with the convention of [[sec:viii-0]] that this sublevel set contains the points
 Ω_* ∪ 𝒟 = N, and ġ is smooth on the interior of N with DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
 
 Where ν > 0, Σ° lies in the interior of N, where ġ is smooth. Where ν = 0, Σ° is part of the boundary of N. Such
-points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]], [[sec:s27-cover]]), as ψ′_IVP = ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the
-proof of [[lem:iii-b-3-7]] (b)). So of the cover of 𝒟 used in [[prop:viii-1-2]] only the compact part 𝒦 reaches them:
+points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]],
+[[sec:s27-cover]]), as ψ′_IVP = ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the proof of [[lem:iii-b-3-7]] (b)). So of the cover of 𝒟 used in [[prop:viii-1-2]] only the compact part 𝒦 reaches them:
 Ω_(ext,r_1) ⊂ {r ≥ r_1}, and the slab 𝒮 lies in {|x| > R_9}, R_9 ≥ R₃ > 5R₁ > R_ν, and does not meet Σ^IVP, as
 t_IVP ≥ r/4 > 0 on 𝒮 ([[lem:s27-cover]] (a), (d)). So a half-ball {t_IVP ≥ 0} about each such point lies in 𝒦. There
 ġ = ḣ + ġ_(S′) ([[thm:viii-2-2]] (2)); ġ_(S′) = −ℒ_(V(S′))g is smooth across Σ^IVP, and ḣ lies in every H^k of the
