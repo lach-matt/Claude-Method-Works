@@ -658,3 +658,192 @@ smooth by (K2). Near ztf, [[lem:i-c-2-5]] gives χ̃w ∈ H_(b,q−2)^∞, and [
 the mapping of 𝒜^a to 𝒜^(a+1) by N_tf there (the converse in [[sec:i-a-7-5]]) give membership in the sctf part of
 𝒳_(tf,θ); near ztf, 𝒜^(−β_−−ϵ) ⊂ H_(b,−β_−−2ϵ)^∞ ⊂ H_(b,q−2)^s by [[lem:i-c-2-2]] (f), as q − 2 < −β_−, and
 N_tf w ∈ r̂⁻² 𝒜^(−β_−−ϵ) ⊂ H_(b,q−4)^(s−2) likewise. ∎
+
+### tf-admissibility {#sec:i-c-5}
+
+#### The definition and its consequences {#sec:i-c-5-1}
+
+**Definition {#def:i-c-5-1}** (tf-admissibility in dimension 4 + 1.) P̂ is *tf-admissible with weight* β if (i) β lies
+in an indicial gap (β_−, β_+) of P̂(0); and, with q := 2 − β and s, α_+, 𝗋_± as in [[thm:i-c-4-3]], (ii)
+N_tf(e^(iθ)): 𝒳_(tf,θ) → 𝒴_(tf,θ) is injective for every θ ∈ [0, π], and (iii) N_tf(1)^(*h) is injective on
+𝒳_(tf,0)^* (with 𝗋 = 𝗋_+). By [[thm:i-c-4-3]] (3), (ii) and (iii) do not depend on the choices of s, α_+ and 𝗋_±,
+nor on q with −q + 2 in the gap.
+
+*Relation to [Hin26c, Definition 5.10]* (with the weight −n + 2 + β = −2 + β of [Hin26c, Corollary 9.39]). There,
+(ii) is the triviality of the kernel of N_tf(e^(iθ)) on 𝒜^(a,−β)(tf) for every a, which implies (ii) here by
+[[thm:i-c-4-3]] (5); and (iii) is its triviality on e^(−2i/ρ_sctf)𝒜^(a,−2+β)(tf) for every a, which implies (iii)
+here when [Hin26c, (9.115)] holds. So the tf-admissibility of [Hin26c] implies this one, given (9.115), which is not
+proved here ([[sec:i-c-4-3]]). [[cor:i-c-5-2]] needs only [[def:i-c-5-1]], and [[prop:i-c-5-3]] verifies
+[[def:i-c-5-1]] directly.
+
+**Corollary {#cor:i-c-5-2}** (Consequences of tf-admissibility.) Let P̂ be tf-admissible with weight
+β_0 ∈ (β_−, β_+). Then:
+
+(a) N_tf(e^(iθ)): 𝒳_(tf,θ) → 𝒴_(tf,θ) is invertible for every θ ∈ [0, π], every q ∈ (2 − β_+, 2 − β_−) and the
+orders of [[thm:i-c-4-3]] (1)–(2), and so is N_tf(e^(iθ))^(*h): 𝒳_(tf,θ)^* → H_(sc,b)^(−s,(−𝗋−α_+,−q)).
+
+(b) Let Σ_+ := [0, π/4], Σ_m := [π/4, 3π/4] and Σ_− := [3π/4, π], with orders 𝗋_(Σ_±) := 𝗋_± and
+𝗋_(Σ_m) := 𝗋_mid, a constant with 𝗋_mid + α_+ < −½ + S̄. For each sector Σ and k ∈ ℕ_0, uniformly in θ ∈ Σ, with
+𝗋 := 𝗋_Σ,
+
+    ‖w‖_(H_(sc,b;b)^((s;k),(𝗋+α_+,q))) ≤ C_k ‖N_tf(e^(iθ))w‖_(H_(sc,b;b)^((s−2;k),(𝗋+α_++1,q−2))),          {#eq:i-c-5-1}
+
+    ‖w‖_(H_(sc,b)^(−s+2,(−𝗋−α_+−1,−q+2))) ≤ C ‖N_tf(e^(iθ))^(*h)w‖_(H_(sc,b)^(−s,(−𝗋−α_+,−q))).             {#eq:i-c-5-2}
+
+(c) P̂ is tf-admissible with every weight in (β_−, β_+).
+
+This is [Hin26c, Corollary 9.39] in dimension 4 + 1.
+
+*Proof.* (a) At θ = 0 the kernel is trivial by (ii) and the annihilator of the range by (iii) and [[thm:i-c-4-3]] (3),
+so the index there is 0, and by [[thm:i-c-4-3]] (3) it is 0 for every θ and q. By (ii) and [[thm:i-c-4-3]] (3) the
+kernel is trivial for every θ and q, so the operator is invertible, and its adjoint, whose kernel is the annihilator of
+the range, is injective with closed range of codimension equal to the dimension of the kernel, which is 0. (b) Each
+sector is covered by the settings of [[thm:i-c-4-3]]: Σ_+ by (1) on Θ_+ = [0, θ_1], θ_1 := 2 arcsin ¼ < π/4, and by (2)
+on [θ_1/2, π/4] with the order 𝗋_+, which is constant near R_out with the threshold there; Σ_− likewise; Σ_m by (2).
+So [[eq:i-c-4-3]] holds uniformly on Σ. If [[eq:i-c-5-1]] failed at k = 0 there would be θ_j → θ_* ∈ Σ and w_j of
+norm 1 with ‖N_tf(e^(iθ_j))w_j‖ → 0; by [[eq:i-c-4-3]] and the compact inclusion a subsequence converges in
+H^(−M,(−M,−M)) to some w ≠ 0 (as the left side of [[eq:i-c-4-3]] is 1), with N_tf(e^(iθ_*))w = 0 as a distribution
+and, by [[eq:i-c-4-3]] at θ_* applied to differences, w ∈ 𝒳_(tf,θ_*); this contradicts (a). For k ≥ 1 combine
+[[eq:i-c-4-5]] with the case k = 0; [[eq:i-c-5-2]] is the same argument with [[eq:i-c-4-4]]. (c) Let
+β ∈ (β_−, β_+) and q := 2 − β. (i) holds, and (ii)–(iii) at q hold by (a). ∎
+
+#### Hankel functions {#sec:i-c-5-2}
+
+We use the following facts from [DLMF]. For Re ν > 0, as z → 0 ([DLMF, (10.7.7)]),
+
+    H_ν^(1)(z) ∼ −H_ν^(2)(z) ∼ −(i/π) Γ(ν) (½z)^(−ν);
+
+and, as |z| → ∞ in the closed sectors indicated, with δ > 0, a_0(ν) = 1 and φ_ν(z) := z − ½νπ − ¼π
+([DLMF, (10.17.2), (10.17.5), (10.17.6)]),
+
+    H_ν^(1)(z) ∼ (2/(πz))^(1/2) e^(iφ_ν(z)) Σ_(k=0)^∞ i^k a_k(ν) z^(−k),          −π + δ ≤ ph z ≤ 2π − δ,
+    H_ν^(2)(z) ∼ (2/(πz))^(1/2) e^(−iφ_ν(z)) Σ_(k=0)^∞ (−i)^k a_k(ν) z^(−k),      −2π + δ ≤ ph z ≤ π − δ.
+
+H_ν^(1) and H_ν^(2) are solutions of Bessel's equation z²w″ + zw′ + (z² − ν²)w = 0, holomorphic in ℂ ∖ (−∞, 0]
+(their definition, [DLMF, Section 10.2 (ii)]).
+
+**Lemma {#lem:i-c-5-4}** (The radial equation.) Let ℓ ∈ ℕ_0, ν := ℓ + 1, σ̂ = e^(iθ), θ ∈ [0, π). (At θ = π,
+σ̂² = 1 as at θ = 0, so the equation in (a) is that of θ = 0, and f_j denotes the function defined at θ = 0.)
+
+(a) The solutions on (0, ∞) of
+
+    −u″ − (3/r̂)u′ + (ℓ(ℓ + 2)/r̂²)u − σ̂²u = 0
+
+are the combinations of f_j(r̂) := r̂⁻¹ H_ν^(j)(σ̂r̂), j = 1, 2, which are linearly independent.
+
+(b) For θ = 0, g_1 := e^(−ir̂)f_1 and g_2 := e^(ir̂)f_2 satisfy, for r̂ ≥ 1 and every k,
+|(r̂∂_r̂)^k(g_j − c_j r̂^(−3/2))| ≤ C_k r̂^(−5/2), with c_j := (2/π)^(1/2) e^(∓i(½νπ+¼π)) ≠ 0 (the upper sign for j = 1);
+in particular g_j ∈ 𝒜^(3/2) near sctf.
+
+(c) For θ ∈ (0, π), |f_1(r̂)| ≤ Ce^(−r̂ sin θ) and |f_2(r̂)| ≥ c r̂^(−3/2) e^(r̂ sin θ) for r̂ ≥ R.
+
+(d) As r̂ → 0, |f_j(r̂)| ≥ c r̂^(−2−ℓ).
+
+*Proof.* (a) Put z := σ̂r̂ and u(r̂) = r̂⁻¹Z(σ̂r̂). Writing ′ for d/dr̂ on u and for d/dz on Z,
+
+    u′ = −r̂⁻²Z + σ̂r̂⁻¹Z′,     u″ = 2r̂⁻³Z − 2σ̂r̂⁻²Z′ + σ̂²r̂⁻¹Z″,
+
+so −u″ − (3/r̂)u′ = r̂⁻³Z − σ̂r̂⁻²Z′ − σ̂²r̂⁻¹Z″, and
+
+    −u″ − (3/r̂)u′ + (ℓ(ℓ + 2)/r̂²)u − σ̂²u = −r̂⁻³(σ̂²r̂²Z″ + σ̂r̂Z′ + (σ̂²r̂² − 1 − ℓ(ℓ + 2))Z)
+                                            = −r̂⁻³(z²Z″ + zZ′ + (z² − (ℓ + 1)²)Z),
+
+as 1 + ℓ(ℓ + 2) = (ℓ + 1)². So u solves the equation if and only if Z solves Bessel's equation of order ν = ℓ + 1 on
+the ray {σ̂r̂ : r̂ > 0}, which lies in ℂ ∖ (−∞, 0] for θ ∈ [0, π); in particular f_1 and f_2 are solutions. The
+equation is of second order with smooth coefficients on (0, ∞), so its solutions form a two-dimensional space; f_1 and
+f_2 are independent because on the ray ph z = θ their leading terms e^(±iz) in [DLMF, (10.17.5)–(10.17.6)] are,
+e^(2iz) not tending to a constant. (b) The remainders after the first term in (10.17.5)–(10.17.6) are O(|z|^(−3/2))
+uniformly in closed subsectors; e^(∓iz) z^(1/2) H_ν^(j)(z) is holomorphic on {|ph z| < π/2}, and for real x ≥ 1 the
+disc of radius x/2 about x lies in {|ph z| ≤ π/6}, so Cauchy's estimates give |x^k ∂_x^k(·)| ≤ C_k times the bound on
+the disc, for the remainder of the expansion as well as for each term. As (r̂∂_r̂)^k is a combination of the r̂^i∂^i,
+i ≤ k, this gives (b); the constant is that of the first term, r̂⁻¹(2/π)^(1/2) r̂^(−1/2) e^(∓i(½νπ+¼π)). (c) On the ray
+z = e^(iθ)r̂, θ ∈ (0, π) fixed, (10.17.5)–(10.17.6) apply, |e^(iz)| = e^(−r̂ sin θ) and |e^(−iz)| = e^(r̂ sin θ).
+(d) (10.7.7) with |z| = r̂ and Γ(ν) ≠ 0 gives |f_j(r̂)| = r̂⁻¹|H_ν^(j)(σ̂r̂)| ≥ c r̂^(−1−ν) = c r̂^(−2−ℓ). ∎
+
+**Lemma {#lem:i-c-5-5}** (Spherical waves.) Let κ ∈ ℝ, g ∈ C^∞([1, ∞)) with |∂^k g| ≤ C_k r̂^(−γ−k),
+Y ∈ C^∞(𝕊³; ℂ^(N_E)), χ_∞ a cut-off to {r̂ ≥ 2}, and v := χ_∞ e^(iκr̂) g(r̂) Y(ω). Then v ∈ H_sc^(m,l) for all m and
+l < γ − 2, and Qv ∈ H_sc^(∞,∞) for every Q ∈ Ψ_sc^(0,0) microsupported, at the boundary face over sctf, away from
+{ξ = κ, η = 0}.
+
+*Proof.* Derivatives ∂_x̂ of v are bounded by C r̂^(−γ), so v ∈ H^(m,l) for l < γ − 2, as
+∫^∞ r̂^(2l−2γ) r̂³ dr̂ < ∞. Let
+
+    A := χ(D_r̂ − κ)^*(D_r̂ − κ)χ + Σ_i (χr̂⁻¹Z_i)^*(χr̂⁻¹Z_i) + (1 − χ²),
+
+with χ a cut-off to {r̂ ≥ 1} equal to 1 near the support of χ_∞ and adjoints for |dx̂|: a scattering differential
+operator of order (2, 0) whose principal symbol at the boundary face is (ξ − κ)² + |η|² ([[lem:i-a-4-4]] (a): D_r̂ has
+symbol ξ, and r̂⁻¹Z_i that of a component of η), and which is elliptic at fibre infinity. It is elliptic at the boundary
+face off {ξ = κ, η = 0}. (D_r̂ − κ)(e^(iκr̂)gY) = e^(iκr̂)(D_r̂ g)Y and r̂⁻¹Z_i(e^(iκr̂)gY) = e^(iκr̂) r̂⁻¹ g Z_iY, and
+(D_r̂ − κ)^* = D_r̂ − κ − 3i/r̂; so A^j v has the form of v with γ replaced by γ + 2j, plus a smooth compactly supported
+term, and lies in H^(m,l) for l < γ + 2j − 2. The microlocal elliptic estimate ([HJS, Propositions 4.9 and 4.10]) for
+A^j, elliptic of order (2j, 0) on WF′(Q), gives Qv ∈ H^(m,l) for l < γ + 2j − 2, for every j. ∎
+
+#### The asymptotically Minkowski case {#sec:i-c-5-3}
+
+**Lemma {#lem:i-c-5-6}** (Frames.) Let Θ ∈ C^∞(𝕊³; GL(N_E, ℂ)). Replacing S_0, N(P⁽⁰⁾) and H_0 by Θ⁻¹S_0Θ,
+Θ⁻¹N(P⁽⁰⁾)Θ and Θ^†H_0Θ (a change of frame of E that does not depend on ρ) preserves the class of [[eq:i-c-1-1]] at
+ρ = 0, the indicial roots, and tf-admissibility with each weight.
+
+*Proof.* Θ(ω) commutes with ρ∂_ρ and ρ̂, so Θ⁻¹N_tfΘ is [[eq:i-c-4-1]] for the new data, Θ⁻¹ΔΘ − Δ being of first
+order on 𝕊³; I(ι) becomes Θ⁻¹I(ι)Θ. Multiplication by Θ and Θ⁻¹ is bounded on every space of [[def:i-c-4-1]] (Θ is
+homogeneous of degree 0, so a symbol of order (0, 0) near sctf, and in C_b^∞ near ztf), and the adjoint for Θ^†H_0Θ of
+Θ⁻¹NΘ is Θ⁻¹N^(*h)Θ. So kernels correspond, on spaces that correspond. ∎
+
+**Proposition {#prop:i-c-5-3}** (The asymptotically Minkowski case.) Suppose that, in some frame Θ as in
+[[lem:i-c-5-6]], S_0 = 0, N(P⁽⁰⁾) = (−(ρ∂_ρ)² + 2ρ∂_ρ + Δ) Id and H_0 = Id: the data of the wave operator of
+4 + 1-dimensional Minkowski space acting componentwise, as for the scalar and the tensor wave operators in the
+Cartesian frame dt, dx¹, …, dx⁴, and so for an asymptotically Minkowski operator whose data at ρ = 0 are these. Then
+P̂ is tf-admissible with every weight β ∈ (0, 2).
+
+This is [Hin26c, Proposition 9.40] in dimension 4 + 1, with Bessel order ℓ + 1 and weights (0, 2).
+
+*Proof.* By [[lem:i-c-5-6]] take Θ = Id, and as the data act componentwise take N_E = 1. *The roots.* On ℋ_ℓ,
+I(ι) = −ι² + 2ι + ℓ(ℓ + 2) = −(ι + ℓ)(ι − ℓ − 2), since (ι + ℓ)(ι − ℓ − 2) = ι² − 2ι − ℓ(ℓ + 2). So
+spec_b = {−ℓ, ℓ + 2 : ℓ ≥ 0}; every root has real part ≤ 0 or ≥ 2, and (0, 2) is an indicial gap.
+
+*The operator.* N_tf(σ̂) = e^(−iσ̂r̂)(Δ_e − σ̂²)e^(iσ̂r̂), with Δ_e ≥ 0 the Euclidean Laplacian on ℝ⁴. Indeed, in polar
+coordinates Δ_e = −∂_r̂² − (3/r̂)∂_r̂ + r̂⁻²Δ, and e^(−iσ̂r̂)∂_r̂ e^(iσ̂r̂) = ∂_r̂ + iσ̂, so
+
+    e^(−iσ̂r̂) Δ_e e^(iσ̂r̂) = −(∂_r̂ + iσ̂)² − (3/r̂)(∂_r̂ + iσ̂) + r̂⁻²Δ = Δ_e − 2iσ̂(∂_r̂ + 3/(2r̂)) + σ̂²,
+
+and e^(−iσ̂r̂)(Δ_e − σ̂²)e^(iσ̂r̂) = Δ_e − 2iσ̂(∂_r̂ + 3/(2r̂)). With ∂_r̂ = −ρ̂²∂_ρ̂,
+−2iσ̂(∂_r̂ + 3/(2r̂)) = 2iσ̂ρ̂(ρ̂∂_ρ̂ − 3/2); and as r̂²∂_r̂² = (r̂∂_r̂)² − r̂∂_r̂ and r̂∂_r̂ = −ρ̂∂_ρ̂,
+
+    r̂²Δ_e = −(r̂∂_r̂)² − 2r̂∂_r̂ + Δ = −(ρ̂∂_ρ̂)² + 2ρ̂∂_ρ̂ + Δ,
+
+so Δ_e = ρ̂²N(P⁽⁰⁾). This is [[eq:i-c-4-1]] with S_0 = 0. N_tf(σ̂) commutes with rotations, so with the projections
+Π_ℓ onto ℋ_ℓ in ω, which are averages of rotations against the character of ℋ_ℓ and so bounded on every space of
+[[def:i-c-4-1]] whose order 𝗋 is rotation-invariant (the rotations act isometrically on them, strongly continuously);
+the orders 𝗋_± are, and 𝗋_mid is constant. For a distribution w on tf°, Π_ℓ w = Σ_m w_m(r̂) Y_m(ω), with (Y_m) an
+orthonormal basis of ℋ_ℓ and w_m distributions on (0, ∞).
+
+*(ii).* Let w ∈ ker_(𝒳_(tf,θ)) N_tf(e^(iθ)) and β ∈ (0, 2). By [[thm:i-c-4-3]] (5) (with S̄ = 0),
+w ∈ 𝒜^(3/2−ϵ,−β′)(tf) for all ϵ > 0 and β′ ∈ (0, 2); so are its components w_m, and u_m := e^(iσ̂r̂)w_m solves the
+equation of [[lem:i-c-5-4]] (a), weakly and hence classically, so u_m = a_1f_1 + a_2f_2 with constants a_1, a_2. If
+θ ∈ (0, π), |u_m| ≤ Ce^(−r̂ sin θ) r̂⁻¹, so a_2 = 0 by [[lem:i-c-5-4]] (c). If θ = 0, w_m = a_1g_1 + a_2e^(−2ir̂)g_2
+with g_1, g_2 ∈ 𝒜^(3/2) ([[lem:i-c-5-4]] (b)); then a_2e^(−2ir̂)g_2 = w_m − a_1g_1 is conormal, while
+r̂∂_r̂(e^(−2ir̂)g_2) = e^(−2ir̂)(−2ir̂g_2 + r̂∂_r̂g_2) has size 2|c_2| r̂^(−1/2)(1 + o(1)), with |c_2| = (2/π)^(1/2), not
+O(r̂^(−3/2+ϵ)); so a_2 = 0. If θ = π, σ̂² = 1 again, u_m = a_1f_1 + a_2f_2 with the f_j of θ = 0 ([[lem:i-c-5-4]]), and
+w_m = e^(ir̂)u_m = a_1e^(2ir̂)g_1 + a_2g_2; the same argument gives a_1 = 0. In each case one coefficient remains, and
+by [[lem:i-c-5-4]] (d), |w_m| ≥ c r̂^(−2−ℓ) as r̂ → 0 unless it vanishes, while w_m = O(r̂^(−β′)) with
+β′ < 2 ≤ 2 + ℓ. So w = 0.
+
+*(iii).* Take s := 2 (allowed by [[thm:i-c-4-3]] (3)), so that 𝒳_(tf,0)^* ⊂ H_(sc,b)^(0,(−𝗋_+−α_+−1,−q+2)),
+q = 2 − β ∈ (0, 2). Here N_tf(1)^(*h) = N_tf(1), because e^(∓ir̂) are adjoint to each other and Δ_e − 1 is symmetric
+for |dx̂|. Let v be in the kernel; then u := e^(ir̂)v solves (Δ_e − 1)u = 0, so
+
+    Π_ℓ v = Σ_m (a_(1m) e^(−ir̂)f_1 + a_(2m) e^(−ir̂)f_2) Y_m = Σ_m (a_(1m) g_1 + a_(2m) e^(−2ir̂)g_2) Y_m,
+
+with f_j at θ = 0. *At sctf.* Near R_out, the zero section, the decay order of 𝒳_(tf,0)^* is the constant
+𝗋′_0 := −(𝗋_+ + α_+)(R_out) − 1 > −½, as 𝗋_+ + α_+ < −½ there (S̄ = 0). Let Q ∈ Ψ_sc^(0,0) be the identity
+microlocally near the zero section over sctf and microsupported where that order is constant. By [[lem:i-c-5-5]] with
+κ = −2, Q(χ_∞e^(−2ir̂)g_2Y_m) ∈ H^(∞,∞); with κ = 0, (I − Q)(χ_∞g_1Y_m) ∈ H^(∞,∞). Since
+Qχ_∞Π_ℓ v ∈ H^(0,𝗋′_0), it follows that χ_∞ Σ_m a_(1m) g_1Y_m ∈ H^(0,𝗋′_0), that is,
+∫^∞ |g_1|² r̂^(2𝗋′_0) r̂³ dr̂ · Σ_m |a_(1m)|² < ∞. By [[lem:i-c-5-4]] (b), |g_1| ≥ ½|c_1| r̂^(−3/2) for r̂ large, and
+∫^∞ r̂^(2𝗋′_0) dr̂ = ∞ as 𝗋′_0 > −½. So all a_(1m) = 0. *At ztf.* Then Π_ℓ v = Σ_m a_(2m) e^(−ir̂)f_2Y_m, which by
+[[lem:i-c-5-4]] (d) has size at least c(Σ_m |a_(2m)|²)^(1/2) r̂^(−2−ℓ) as r̂ → 0, while 𝒳_(tf,0)^* has b-weight −q at
+ztf: ∫_0 r̂^(2(q−2−ℓ)) dr̂/r̂ < ∞ would need q > 2 + ℓ, which is false as q < 2. So a_(2m) = 0, and v = 0. ∎
+
+The proof is that of [Hin26c], run for (iii) on the spaces of [[thm:i-c-4-3]]; the condition (iii) of [Hin26c], on
+e^(−2i/ρ_sctf)𝒜^(a,−2+β), is settled by the same argument. The interval (0, 2) is the whole indicial gap containing
+it, since 0 and 2 are the roots for ℓ = 0.

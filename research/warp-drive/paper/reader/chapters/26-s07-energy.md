@@ -492,3 +492,299 @@ with norm at most C‖u‖_(H¹(O_(T_2+1))). For v, in the reverse order: [[lem:
 {t′ = T_2 + 1}, bounds χv. On the extended slabs the proofs apply verbatim, by [[lem:ii-e-1-2]] (iii)–(iv), with
 [[eq:ii-e-1-2]] holding at 2δ′, so that the coefficient of [[lem:ii-e-2-5]] is a = −2(2α+1) + 4(p̄_1 − 2δ′) = 8δ′ in
 place of 12δ′. ∎
+
+### Solvability on slabs {#sec:ii-e-3}
+
+Throughout, α < −1/2 + p̄_1, and h is a fibre inner product equal to h_I of [[eq:ii-e-1-2]] near ℐ⁺ (patched with the
+standard one by a partition of unity; the conditions are convex in the Gram matrix). P* is the adjoint of P (or of
+P^ext) for |dg| and h. Changing the density from |dt dx| ([[sec:ii-c-1-1]]) to |dg| = μ|dt dx| adds to σ_1(Im_h P) the
+term (1/2) H_G log μ, which vanishes at the radial sets, where 𝖧 = 0; so the thresholds below are those of [[ch:s06]].
+R := ∂R_(ℐ⁺,out) is the outgoing radial set over ℐ⁺, and R_([a,b]) := R ∩ {a ≤ t_* ≤ b}.
+
+#### Radial estimates at ∂R_(ℐ⁺,out) localised in time {#sec:ii-e-3-1}
+
+We use the eb-coordinates of [[sec:ii-b-7]] near ℐ⁺: ρ_+ = t_*⁻¹, x′_I = (t_*/r)^(1/2), ρ := σ_eb⁻¹, ξ̂, η̂,
+ℓ := G_eb = x′_I^(−2) ρ_+^(−2) G and 𝖧 := ρ H_ℓ ([[eq:ii-b-7-3]]), as in [[prop:ii-d-3-5]] and [[prop:ii-d-3-6]]. For
+κ > 0 put
+
+    F := t_* − κ x′_I^(2ℓ_I).
+
+x′_I^(2ℓ_I) has bounded eb-derivatives of every order, so functions of F are admissible factors of a commutant.
+
+**Lemma {#lem:ii-e-3-1}** (A time function adapted to R.) Let t̄ > 1. There are κ, x_0 > 0 and C, depending on t̄,
+such that on U_F := {|ξ̂| ≤ 1/2, x′_I ≤ x_0, 1/2 ≤ t_* ≤ t̄} in ^(eb)S*M, for P with ε_P ≤ 1,
+
+    𝖧F = h_F − t_* ρ² ℓ,     h_F = t_* ((1/2) ξ̂² + |η̂|² + (1/4) x′_I² ξ̂²) + x′_I^(2ℓ_I) h̃_F,     h̃_F ≥ (1/2) κ ℓ_I,
+                                                                                                     {#eq:ii-e-3-1}
+
+with h̃_F of class C^(d_0−2) with bounded eb-derivatives.
+
+*Proof.* In eb-coordinates σ_eb is dual to ρ_+∂_(ρ_+), so H_ℓ ρ_+ = ρ_+ ∂_(σ_eb) ℓ and 𝖧t_* = −t_* ρ ∂_(σ_eb) ℓ. For
+Ḡ_eb = (1/2) ξ(ξ − 2σ) + |η|² + (1/4) x′_I² ξ² ([[eq:ii-b-7-1]]), −∂_σ Ḡ_eb = ξ, and
+ρ² Ḡ_eb = (1/2) ξ̂(ξ̂ − 2) + |η̂|² + (1/4) x′_I² ξ̂², so
+
+    ξ̂ = (1/2) ξ̂² + |η̂|² + (1/4) x′_I² ξ̂² − ρ² Ḡ_eb.
+
+Put d := ℓ − Ḡ_eb; by [[eq:ii-c-5-1]] and [[lem:ii-c-4-1]] (a), d ∈ x′_I^(2ℓ_I) C^(d_0−1) P^[2], with norm bounded for
+ε_P ≤ 1. Hence
+
+    𝖧t_* = t_* ((1/2) ξ̂² + |η̂|² + (1/4) x′_I² ξ̂²) − t_* ρ² ℓ + t_* (ρ² d − ρ ∂_σ d),
+
+and the last term is x′_I^(2ℓ_I) times a function bounded by C_d t_* on the cosphere bundle. By [[eq:ii-b-7-4]] and
+[[eq:ii-c-5-1]], x′_I⁻¹ 𝖧x′_I = ξ̂ − 1 + O(x′_I^(2ℓ_I)), so 𝖧(x′_I^(2ℓ_I)) = 2ℓ_I x′_I^(2ℓ_I)(ξ̂ − 1 + O(x′_I^(2ℓ_I))).
+Therefore [[eq:ii-e-3-1]] holds with
+
+    h̃_F = 2κℓ_I (1 − ξ̂) + t_* x′_I^(−2ℓ_I) (ρ² d − ρ ∂_σ d) + κ O(x′_I^(2ℓ_I)),
+
+and h̃_F ≥ κℓ_I − C_d t̄ − Cκ x_0^(2ℓ_I) ≥ (1/2) κℓ_I on U_F for κ := 4C_d t̄/ℓ_I and x_0 small. ∎
+
+So 𝖧F is, up to a multiple of ℓ, a sum of squares of symbols on a full neighbourhood of R at bounded times, on and off
+the characteristic set: h_F = Σ_i c_i² with c_i among (t_*/2)^(1/2) ξ̂, t_*^(1/2) η̂_j, (1/2) t_*^(1/2) x′_I ξ̂ and
+x′_I^(ℓ_I) h̃_F^(1/2). For t^♭ in place of F this fails: at x_I = 0, 𝖧t^♭ = t_* ξ̂, which is negative off the
+characteristic set near R (the paragraph after [[prop:ii-d-3-6]]).
+
+**Proposition {#prop:ii-e-3-2}** (Localised radial estimates at R.) Let t_− < t_+ and ω_0 ∈ (0, 1] with
+t_− − ω_0 ≥ 1/2, let s > s_0 be constants, and suppose [[eq:ii-e-1-2]] holds with 2δ′ in place of δ′ on
+R_([t_−−ω_0, t_++ω_0]) (for P^ext below t_* = 1, [[lem:ii-e-1-2]] (iii)). There are B, E, E_±, G ∈ C_b^∞Ψ⁰_(e3b) such
+that
+
+(1) their operator wave front sets lie in any given neighbourhood of R_([t_−−ω_0, t_++ω_0]);
+
+(2) their Schwartz kernels lie in 𝒦 × 𝒦 for any given compact neighbourhood 𝒦 of ℐ⁺ ∩ {t_− − ω_0 ≤ t_* ≤ t_+ + ω_0};
+
+(3) B is elliptic at R_([t_−,t_+]);
+
+(4) WF′(E_−) ⊂ {t_* ≤ t_−}, WF′(E_+) ⊂ {t_* ≥ t_+}, and WF′(E) ∩ R = ∅;
+
+and such that, in the strong sense and uniformly for ε_P small,
+
+    ‖Bu‖_(s,2α) ≤ C (‖GPu‖_(s−1,2α+2) + ‖E_−u‖_(s,2α) + ‖Eu‖_(s,2α) + ‖χ̃u‖_(s_0,2α)),               {#eq:ii-e-3-2}
+
+    ‖Bv‖_(s,−2α−2) ≤ C (‖GP*v‖_(s−1,−2α) + ‖E_+v‖_(s,−2α−2) + ‖χ̃v‖_(s_0,−2α−2)),                     {#eq:ii-e-3-3}
+
+with χ̃ as in [[prop:ii-d-3-6]] and the norms of H^(·,(2β,0))_(e3b) near ℐ⁺ at finite times.
+
+[[eq:ii-e-3-2]] is the sink estimate of [[prop:ii-d-3-6]] localised to t_* ≤ t_+, with no error term at late times;
+[[eq:ii-e-3-3]] is the estimate for the adjoint at R, which is then a radial source, propagating backward in time. In
+the proof of [Hin26c, Proposition 8.3] the first is taken from [Hin26c, Proposition 7.9] with a finite final time, and
+the second is left to the reader.
+
+*Proof.* We follow the pattern of [[sec:ii-d-3]] at R, with W′ := x′_I² ρ_+², ρ and 𝖧 as above, A := A_I the frame of
+h_I, and the weight w := x′_I^(2α) for [[eq:ii-e-3-2]], w* := x′_I^(2α*) with α* := −α − 1 for [[eq:ii-e-3-3]]. The
+commutant is ǎ = ρ^(−s+1/2) Ψ χ_∞ with
+
+    Ψ := ψ(𝔐_Σ ρ²ℓ) ψ(𝔐_R q) ψ(𝔐 x′_I) ψ_−(F) ψ_+(F),        q := ξ̂² + |η̂|²,
+    ψ_−(F) := η_t((F − t_−)/ω_0),        ψ_+(F) := η_t((t_+ − F)/ω_0),
+
+η_t as in [[prop:ii-d-3-6]], and t̄ := t_+ + 2 in [[lem:ii-e-3-1]]. On supp ψ(𝔐_R q) ψ(𝔐 x′_I), |ξ̂| ≤ 1/2 and
+x′_I ≤ x_0 for 𝔐_R and 𝔐 large, and 0 ≤ t_* − F ≤ κ𝔐^(−2ℓ_I) ≤ ω_0/4. As η_t = 0 on (−∞, −1/2], η_t = 1 on
+[−1/4, ∞) and η_t′ ≠ 0 only on (−1/2, −1/4), on supp Ψ we have t_− − ω_0/2 ≤ F ≤ t_+ + ω_0/2; so
+supp Ψ ⊂ U_F ∩ {t_− − ω_0/2 ≤ t_* ≤ t_+ + 3ω_0/4}, which is compact, and Ψ = 1 at R_([t_−,t_+]), where F = t_*. In
+[[eq:ii-d-3-1]], which is used below, ℓ_I denotes, as there, the principal symbol of the imaginary part of the
+conjugated operator, not the decay order at ℐ⁺.
+
+*[[eq:ii-e-3-2]], with ς = 1.* [[eq:ii-d-3-1]] gives
+H_ℓ(ǎ_ε²) + 2ǎ_ε² ℓ_I = ρ^(−2s) φ_ε² (−Ψ² Q_ε + 𝖧(Ψ²)), and at R, as in [[prop:ii-d-3-6]],
+
+    Q_ε = 4A⁻¹(Re_(h_I) p_1)A − 2 − 4α ≥ 4(p̄_1 − 2δ′) − 2 − 4α = 8δ′,
+
+by [[eq:ii-e-1-2]] with 2δ′, as 4(p̄_1 − 1/2 − α) = 16δ′. The factors ψ(𝔐_Σ ρ²ℓ), ψ(𝔐_R q) and ψ(𝔐 x′_I) contribute as
+in [[prop:ii-d-3-6]]: j_ε ℓ, and +e*e terms supported in {q ≥ (2𝔐_R)⁻¹} ∪ {x′_I ≥ (2𝔐)⁻¹}, which give E. For the time
+factors, by the chain rule and [[eq:ii-e-3-1]],
+
+    𝖧(ψ_−(F)²) = (2/ω_0) ψ_− η_t′((F − t_−)/ω_0) (h_F − t_* ρ² ℓ),
+    𝖧(ψ_+(F)²) = −(2/ω_0) ψ_+ η_t′((t_+ − F)/ω_0) (h_F − t_* ρ² ℓ)        [[pending:issue-3]].
+
+The part with t_* ρ² ℓ is of the form j_ε ℓ ([[lem:ii-d-2-1]]). The part with h_F = Σ_i c_i² is, up to its sign,
+Σ_i ((2/ω_0)^(1/2) (ψ_± η_t′)^(1/2) c_i)², a finite sum of squares of symbols, since (η_t η_t′)^(1/2) is smooth. For
+ψ_+ it enters with the sign −: a term −b′*b′, so no error term arises at late times. For ψ_− it enters with the sign +:
+a term +e_−*e_−, supported where η_t′((F − t_−)/ω_0) ≠ 0, so where F < t_− − ω_0/4, and hence t_* < t_− on supp Ψ;
+this gives E_−. Then [[lem:ii-d-2-1]]–[[lem:ii-d-2-3]] give [[eq:ii-e-3-2]].
+
+*[[eq:ii-e-3-3]], with ς = −1.* For P* the conjugated operator has 𝔭′_(P*) = −𝔭′ ([[lem:ii-d-1-1]], as
+Im_h P* = −Im_h P), so [[eq:ii-d-3-1]] gives
+
+    −(H_ℓ(ǎ_ε²) + 2ǎ_ε² ℓ_(I,P*)) = ρ^(−2s) φ_ε² (−Ψ² Q*_ε − 𝖧(Ψ²)),
+    Q*_ε := −(2s_ε − 1) ρ⁻¹𝖧ρ − 2A⁻¹(𝔭′ + (1/2) 𝖧 log W′ + 𝖧 log w*)A.
+
+At R, ρ⁻¹𝖧ρ = 0, 𝔭′ = −2 Re_(h_I) p_1 ([[lem:ii-d-3-4]]), 𝖧 log W′ = 2x′_I⁻¹ 𝖧x′_I + 2ρ_+⁻¹ 𝖧ρ_+ = −2 and
+𝖧 log w* = −2α* = 2α + 2 ([[eq:ii-b-7-4]]). So Q*_ε = 4A⁻¹(Re_(h_I) p_1)A + 2 − 4α − 4, the same quantity as Q_ε in
+[[eq:ii-e-3-2]], and positive; near R the term with ρ⁻¹𝖧ρ is small, as in [[sec:ii-d-3]]. Now the localisers enter
+with the opposite sign. As 𝖧q ≤ −q and 𝖧x′_I ≤ −x′_I/2 near R ([[prop:ii-d-3-6]]), the factors ψ(𝔐_R q) and
+ψ(𝔐 x′_I) give −b′*b′ terms: for −𝖧 the set R is a radial source, and no error term arises from them.
+ψ(𝔐_Σ ρ²ℓ) gives j_ε ℓ. Of the time factors, ψ_− gives −b′*b′ and ψ_+ gives +e_+*e_+, supported where
+F > t_+ + ω_0/4, hence in {t_* > t_+}; this is E_+. [[lem:ii-d-2-1]]–[[lem:ii-d-2-3]] hold with ς = −1, as
+[[lem:ii-a1-4-1]], on which they rest, allows either sign; they give [[eq:ii-e-3-3]].
+
+Both estimates use the operator only through the pattern, so they hold for P^ext near {t_* ≤ 1}, and for systems
+P ⊗ Id − Q with Q of first order whose principal symbol vanishes at R, as in [[lem:ii-d1-2-5]]. The constants depend on
+P through finitely many coefficient norms and the margins, which are uniform for ε_P small. ∎
+
+#### Regularity on slabs {#sec:ii-e-3-2}
+
+Below, 𝗌 is a **slab order**: 𝗌 ∈ C^∞(^(e3b)S*M) with ±𝖧𝗌 ≤ 0 on ∂Σ^± over the region considered, and 𝗌 constant
+near R. Admissible order functions ([[def:ii-c-5-2]]) are slab orders over Ω_*, by [[prop:ii-c-5-1]] (2) and (5); so
+are constants.
+
+*The order on the extension region.* [[prop:ii-c-5-1]] (2) concerns Ω_* only, while [[lem:ii-e-3-3]] (a) at T_0 = 1
+propagates through the collar {1 − η_0/2 < t^♭ < 1}, part of which lies in {t_* < 1}, and over {r^♯ ≤ r ≤ r_0}. There
+the admissible order is extended by its own formula [[eq:ii-c-5-3]]: 𝗌 = s_in − (s_in − s_out)χ, with
+χ = ψ_0(x_I) χ_I + (1 − ψ_0(x_I)) χ_ι. The second term is supported in
+
+    Ω_ι ∩ {ϱ < ε_ι δ} ⊂ {r > (ε_ι δ)⁻¹, t_* ≥ r/C_ι}
+
+([[sec:ii-c-5-2]], with ϱ = r⁻¹ and ρ_K = r/t_* ≤ C_ι on Ω_ι), which, after decreasing ε_ι so that (C_ι ε_ι δ)⁻¹ > 1,
+meets neither {t_* ≤ 1} nor {r ≤ r_0} (as (ε_ι δ)⁻¹ > r_h + 1). The factor χ_I is a function of the eb-fibre variables
+ξ̂, |η̂|² and σ_eb²/|ν|²_eb alone, defined and invariant under translation in t_* for t_* ≥ 1/2. So on {t_* ≥ 1/2}
+outside Ω_*, 𝗌 = s_in − (s_in − s_out) ψ_0(x_I) χ_I, which is s_in where x_I ≥ ε_I (in particular over
+{r^♯ ≤ r ≤ r_0} at these times). It is a slab order there: where it is constant, trivially; near ℐ⁺,
+±𝖧(ψ_0(x_I) χ_I) ≥ 0 on ∂Σ^± by the monotonicity argument of [[sec:ii-c-5-2]] (ψ_0′ ≤ 0 with 𝖧x_I ≤ −x_I/4, and
+φ′(ξ̂) 𝖧ξ̂ ≥ 0), which uses only [[lem:ii-c-5-3]] and [[lem:ii-c-5-4]] near ℐ⁺. Their proofs use only the bounds
+𝖧^eb − 𝖧^0 = O(x_I^(2ℓ_I)) on ξ̂ and O(x_I^(1+2ℓ_I)) on x_I, uniformly in t_*, which [[lem:ii-e-1-2]] (ii) provides for
+P^ext on {t_* ≥ 1/2}, the coefficients of P^ext − P_0 being small there in the norms of [[def:ii-c-3-3]]. "Slab order"
+in [[prop:ii-e-3-4]], [[prop:ii-e-4-3]], [[prop:ii-e-4-4]] and [[thm:ii-e-6-1]] refers to this extension.
+
+Two slabs Ω_1 ⊂ Ω_2 are **nested with room δ > 0** if they have the same initial face and each final face of Ω_1 lies
+at distance at least δ (in t^♭, resp. in r) inside Ω_2. Typical choices are Ω_1 = Ω_(T_0,T_1) and
+
+    Ω_2 = Ω^♯_(T_0,T_1) := {T_0 ≤ t^♭ ≤ T_1 + 1, r ≥ r^♯}
+
+with P^ext; or Ω_1 = Ω_(T_0,T_1−δ) ∩ {r ≥ r_0 + δ} and Ω_2 = Ω_(T_0,T_1). The spaces, [[lem:ii-e-1-3]],
+[[lem:ii-e-2-5]], [[lem:ii-e-2-6]] and [[prop:ii-e-2-7]] hold for these domains with the same proofs, {r = r_0 + δ} and
+{r = r^♯} being spacelike final faces ([[lem:ii-e-1-2]] (iv)).
+
+**Lemma {#lem:ii-e-3-3}** (Regularity on slabs.) (a) Let Ω_1 ⊂ Ω_2 be nested with room δ, with initial face
+{t^♭ = T_0}, T_0 ≥ 1 − η_0/2, let 𝗌_0 < 𝗌 be slab orders, and let u ∈ H^(𝗌_0,2α)(Ω_2)^(•,−) with
+Pu ∈ H^(𝗌−1,2α+2)(Ω_2)^(•,−) (P^ext where defined). Then u|_(Ω_1) ∈ H^(𝗌,2α)(Ω_1)^(•,−) and
+
+    ‖u‖_(H^(𝗌,2α)(Ω_1)^(•,−)) ≤ C (‖Pu‖_(H^(𝗌−1,2α+2)(Ω_2)^(•,−)) + ‖u‖_(H^(𝗌_0,2α)(Ω_2)^(•,−))).
+
+(b) Let Ω_1 = Ω_(T_0,T_1) ⊂ Ω_3 := Ω_(T_0−δ,T_1) (the same final faces; T_0 − δ ≥ 1 − η_0), let s_0 < s be constants,
+and let v ∈ H^(s_0,−2α−2)(Ω_3)^(−,•) with P*v ∈ H^(s−1,−2α)(Ω_3)^(−,•). Then v|_(Ω_1) ∈ H^(s,−2α−2)(Ω_1)^(−,•), with the
+corresponding estimate.
+
+The constants are uniform for ε_P small, with d_0 depending only on the orders.
+
+*Proof.* (a) Let ũ be an extension of u supported in {t^♭ ≥ T_0}, and f ∈ H^(𝗌−1,2α+2)_e the minimal extension of Pu.
+Let U_2 be the union of the interior of Ω_2 relative to its final faces and of {t^♭ < T_0}, near the slab. On U_2,
+Pũ = f: U_2 is the open set to which the spaces of Ω_2 restrict, and this is what Pu ∈ H^(𝗌−1,2α+2)(Ω_2)^(•,−) means. So
+for operators with Schwartz kernels in U_2 × U_2 the microlocal estimates below see Pũ only through f. Let ω_0 be as
+below; fix a cut-off χ_1 equal to 1 near Ω_1 and supported in U_2 ∩ {t^♭ > T_0 − ω_0/2}, and let all operators be
+carried by such cut-offs. We control ũ microlocally at order 𝗌 at every point of ^(e3b)S*M over supp χ_1 (a compact
+set in the compactified bundle).
+
+Off the characteristic set we use the elliptic estimate ([[thm:ii-a1-3-1]]). On it over M°: by [[prop:ii-c-4-2]] and
+[[lem:ii-e-1-2]] (iv), the backward curve reaches {t^♭ < T_0}, where ũ = 0, in finite time, and stays in
+{r > r_0 − δ}, as dr is future timelike near {r = r_0}, so that r cannot decrease along a backward curve there.
+Propagation ([[thm:ii-a1-5-4]], at the order 𝗌, with 𝖧𝗌 ≤ 0) controls ũ there. Over ℐ⁺ off R: the curves of
+[[lem:ii-b-7-2]] (1) (i), (iii) reach {t_* < T_0} backward (below t_* = 1 the flow over ℐ⁺ is still given by
+[[eq:ii-b-7-5]], the normal form of P^ext being that of P_0 there); propagation applies as before. At
+R_([T_0, T_1+δ/2]) we use [[prop:ii-e-3-2]], [[eq:ii-e-3-2]], with
+
+    t_− := T_0 − ω_0/2,     t_+ := T_1 + δ/2,     ω_0 := min(δ/2, η_0/4),
+
+at the constant value of 𝗌 near R. Its E_− is microsupported in {t_* ≤ t_−}, where ũ = 0 (kernels in {t^♭ < T_0}²),
+and its E in a punctured neighbourhood of R at times in [t_− − ω_0, t_+ + ω_0], from whose points the backward curves
+reach {t^♭ < T_0}, as above; by compactness of WF′(E) and the local boundedness of the entrance times
+([[sec:ii-a-9-1]], (O)), propagation bounds ‖Eũ‖_𝗌. The finitely many operators so obtained are jointly elliptic over
+supp χ_1, and [[lem:ii-a-8-4]] (c) gives
+
+    ‖χ_1 ũ‖_(𝗌,2α) ≤ C (‖χ_1′ f‖_(𝗌−1,2α+2) + ‖χ_1′ ũ‖_(𝗌_0,2α)).
+
+χ_1 ũ is an extension of u|_(Ω_1) supported in {t^♭ ≥ T_0}, and χ_1′f, χ_1′ũ depend only on Pu and u (the cut-off χ_1′
+being supported in U_2), with norms at most C times the quotient norms. This is (a), in the strong sense, since each
+estimate used holds in it.
+
+(b) The same with −𝖧. Let ṽ be an extension of v supported in F_3 := Ω ∩ {t^♭ ≤ T_1, r ≥ r_0}; P*ṽ is controlled on
+the set V_3 formed by the interior of Ω_3 relative to its initial face, together with {t^♭ > T_1} ∪ {r < r_0}, where
+ṽ = 0. Propagation for the backward problem is propagation for −P*, whose rescaled Hamilton field is −𝖧; it applies to
+constant orders. Every forward curve from a point of the characteristic set over Ω_1 either reaches
+{t^♭ > T_1} ∪ {r < r_0} in finite time, or enters any given neighbourhood of R_([T_0,T_1]). Indeed t^♭ increases along
+it; if it stays in the slab, its ω-limit set is non-empty, compact and invariant; a point of it over M° would have its
+orbit in the limit set with t^♭ strictly increasing there, against t^♭ being constant (equal to lim t^♭) on the limit
+set; so the limit set lies over ℐ⁺ at the time t_∞ := lim t^♭ ∈ [T_0, T_1], where 𝖧t_* = t_* ξ̂ = 0, so ξ̂ = 0 and
+|η̂|² = (1/2) ξ̂(2 − ξ̂) = 0: it lies in R. Over ℐ⁺ the curves (iii) of [[lem:ii-b-7-2]] reach {t_* > T_1} and the
+curves (i) tend to R. At R_([T_0−δ/2, T_1]) use [[eq:ii-e-3-3]] with t_− := T_0 − δ/2 and t_+ := T_1 + ω_0/2 (ω_0 as in
+(a)). Its E_+ quantises e_+, whose symbol is supported in {t_* > t_+} (proof of [[prop:ii-e-3-2]]), and its Schwartz
+kernel lies in 𝒦 × 𝒦. Neither places the kernel in {t^♭ > T_1}: the operator wave front set does not locate a kernel,
+and 𝒦 covers ℐ⁺ ∩ {t_− − ω_0 ≤ t_* ≤ t_+ + ω_0}. So quantise e_+ with Schwartz kernel within ω_0/8 of the diagonal in
+t_*, as is done for E after [[prop:ii-d-3-6]]; this changes E_+ by an operator of order −∞ with kernel in 𝒦 × 𝒦,
+which the low-order term of [[eq:ii-e-3-3]] absorbs, and the kernel now lies in (𝒦 ∩ {t_* > t_+ − ω_0/8})². 𝒦 is any
+compact neighbourhood of a compact part of ℐ⁺, where x_I = 0, so we take it so small that
+t_*^(1+ℓ_I) x_I^(2ℓ_I) < ω_0/4 on 𝒦. Then on 𝒦 ∩ {t_* > t_+ − ω_0/8},
+
+    t^♭ = t_* − t_*^(1+ℓ_I) x_I^(2ℓ_I) > T_1 + ω_0/8,
+
+where ṽ = 0, so E_+ṽ = 0. Conclude as in (a). ∎
+
+#### Solvability {#sec:ii-e-3-3}
+
+**Proposition {#prop:ii-e-3-4}** (Solvability of forward problems on slabs.) Let α < −1/2 + p̄_1, Ω′ = Ω_(T_0,T_1) with
+T_0 ≥ 1 (P^ext below t^♭ = 1), and 𝗌 a slab order. There are d_0, depending only on 𝗌 (and, in (i), on s′), and C,
+uniform for ε_P small, such that:
+
+(i) (*uniqueness*) if u ∈ H^(s′,2α)(Ω′)^(•,−) for some s′ ∈ ℝ and Pu = 0, then u = 0;
+
+(ii) (*existence*) for every f ∈ H^(𝗌−1,2α+2)(Ω′)^(•,−) there is u ∈ H^(𝗌,2α)(Ω′)^(•,−) with Pu = f and
+
+    ‖u‖_(H^(𝗌,2α)(Ω′)^(•,−)) ≤ C ‖f‖_(H^(𝗌−1,2α+2)(Ω′)^(•,−)).                                         {#eq:ii-e-3-4}
+
+The same holds for P* and backward problems on H^(s,−2α−2)(Ω′)^(−,•), s constant, and for the systems of
+[[sec:ii-e-4]] and of [[prop:ii-e-3-2]].
+
+This is [Hin26c, Corollary 8.2 and Proposition 8.3] in dimension 4 + 1.
+
+*Proof.* (i) For δ > 0 small let Ω_δ := Ω_(T_0,T_1−δ) ∩ {r ≥ r_0 + δ}, nested in Ω′ with room δ. By [[lem:ii-e-3-3]]
+(a) at the constant orders s′ < m′, u|_(Ω_δ) ∈ H^(m′,2α)(Ω_δ)^(•,−) for every m′ > s′, hence
+u|_(Ω_δ) ∈ H^(2,2α)(Ω_δ)^(•,−). By [[lem:ii-e-1-3]] (c), D(Ω_δ) is dense in H^(2,2α)(Ω_δ)^(•,−); both sides of the
+first estimate [[eq:ii-e-2-4]] on Ω_δ are continuous in that norm (P maps it to H^(0,2α+2), whose quotient norm is the
+L²-norm on the slab). So ‖u‖_(H^(1,2α)(Ω_δ)) ≤ C‖Pu‖ = 0, and u = 0 on Ω_δ for every δ.
+
+(ii) *Step 1: weak solutions in L².* Let Ω^♯ := Ω^♯_(T_0,T_1) and let f^♯ be the restriction to Ω^♯ of the minimal
+extension of f in H^(𝗌−1,2α+2)_e; assume first inf 𝗌 ≥ 0, so that f^♯ ∈ H^(−1,2α+2)(Ω^♯)^(•,−) with norm ≤ C‖f‖. For
+v ∈ D_*(Ω^♯), by [[lem:ii-e-1-3]] (a),
+
+    |⟨f^♯, v⟩| ≤ C ‖f‖ ‖v‖_(H^(1,−2α−2)(Ω^♯)^(−,•)) ≤ C′ ‖f‖ ‖v‖_(H^(1,−2α−2)(Ω^♯)) ≤ C″ ‖f‖ ‖P*v‖_(H^(0,−2α)(Ω^♯)),
+
+the second inequality by Seeley's extension E_0 of [[lem:ii-e-1-3]] (b), which is bounded from the slab norm, and the
+third by [[eq:ii-e-2-4]] for the adjoint of P^ext on Ω^♯. So P*v ↦ ⟨f^♯, v⟩ is a bounded functional on P*D_*(Ω^♯) in
+the L²-norm. By the Hahn–Banach theorem and the Riesz representation theorem there is u^♯ ∈ H^(0,2α)(Ω^♯), with
+‖u^♯‖ ≤ C‖f‖ and ⟨u^♯, P*v⟩ = ⟨f^♯, v⟩ for v ∈ D_*(Ω^♯). Extended by zero, u^♯ is supported in {t^♭ ≥ T_0}, and for
+v ∈ D_* (a test function on M) ⟨Pu^♯, v⟩ = ⟨u^♯, P*v⟩. So Pu^♯ and f^♯ agree on D_*(Ω^♯), which contains the
+C_c^∞-functions supported in {t^♭ < T_1 + 1, r > r^♯}: Pu^♯ = f^♯ on Ω^♯.
+
+*Step 2: regularity.* [[lem:ii-e-3-3]] (a) with Ω′ ⊂ Ω^♯ (room 1, resp. r_0 − r^♯) and 𝗌_0 := min(0, inf 𝗌) − 1 gives
+u := u^♯|_(Ω′) ∈ H^(𝗌,2α)(Ω′)^(•,−) and [[eq:ii-e-3-4]]. By (i) it is the solution.
+
+*Step 3: the backward problem at nonnegative orders.* The same argument applies with the roles exchanged. For
+g ∈ H^(m_1−1,−2α)(Ω′)^(−,•), m_1 ≥ 1 an integer, let Ω_3 := Ω_(T_0−δ,T_1) (with P^ext if T_0 − δ < 1; δ := η_0/2) and
+let g_3 be the restriction of the minimal extension, in L². For u ∈ D(Ω_3),
+
+    |⟨u, g_3⟩| ≤ ‖u‖_(H^(0,2α)) ‖g_3‖ ≤ C ‖Pu‖_(H^(0,2α+2)) ‖g‖
+
+by [[eq:ii-e-2-4]] on Ω_3, the H⁰ quotient norm being the L²-norm, so that no extension operator is needed. The
+Hahn–Banach theorem gives v_3 ∈ H^(0,−2α−2)(Ω_3) with P*v_3 = g_3 (by the density of D(Ω_3), [[lem:ii-e-1-3]] (c)), and
+[[lem:ii-e-3-3]] (b) gives S_* g := v_3|_(Ω′) ∈ H^(m_1,−2α−2)(Ω′)^(−,•) with ‖S_* g‖ ≤ C‖g‖. Uniqueness for the backward
+problem is (i) with the roles exchanged. So S_* is the solution operator, and S_* P*v = v for v ∈ D_*(Ω′).
+
+*Step 4: negative orders.* Let inf 𝗌 < 0 and m ∈ ℕ with −m < inf 𝗌 − 1. Work on Ω^♯ with
+f^♯ ∈ H^(−m−1,2α+2)(Ω^♯)^(•,−). For g ∈ H^(m,−2α)(Ω^♯)^(−,•) put Λ(g) := ⟨f^♯, S_* g⟩, with S_* of Step 3 on Ω^♯ (at
+the order m_1 = m + 1); |Λ(g)| ≤ C‖f‖‖g‖. By [[lem:ii-e-1-3]] (b) (at m, on Ω^♯) there is
+u^♯ ∈ H^(−m,2α)(Ω^♯)^(•,−), ‖u^♯‖ ≤ C‖f‖, with ⟨u^♯, g⟩ = Λ(g). For v ∈ D_*(Ω^♯),
+
+    ⟨Pu^♯, v⟩ = ⟨u^♯, P*v⟩ = ⟨f^♯, S_* P*v⟩ = ⟨f^♯, v⟩,
+
+so Pu^♯ = f^♯ as in Step 1. Step 2 with 𝗌_0 := −m concludes.
+
+The constants depend on P through finitely many coefficient norms and the structural margins (the timelike conditions,
+the threshold, the dynamics), uniformly for ε_P small; for the systems of [[sec:ii-e-4]] the same margins hold, the
+coupling being of first order with principal symbol vanishing at R and not entering the threshold of [[lem:ii-e-2-5]]
+(it decays at ℐ⁺). ∎
+
+[Hin26c] proves the step 𝗌 ≥ 1 with its Proposition 7.9 for a finite final time, a case whose proof fails off the
+characteristic set (the paragraph after [[prop:ii-d-3-6]]); [[prop:ii-e-3-2]] replaces it. [Hin26c, Corollary 8.2]
+constructs the H¹-solution by smoothing the coefficients, quoting finite-time solvability of wave equations with smooth
+coefficients and passing to a weak limit, and asserts its uniqueness, which [Hin26c, (8.5)], proved for u ∈ H², gives
+for solutions in H¹ only after a density argument. Steps 1–3 construct the solution by duality from the energy
+estimates for P and P* instead, and (i) proves uniqueness in every H^(s′) by regularity on nested slabs
+([[lem:ii-e-3-3]]) and the energy estimate on the dense class ([[lem:ii-e-1-3]] (c)).

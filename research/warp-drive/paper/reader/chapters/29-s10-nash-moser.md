@@ -451,3 +451,249 @@ asks 0 < ε_+ < min(1/3, ε_I) and [Hin26c, Theorem 12.11] asks 0 < ε_+ < ε_I 
 (11.5)], β_I = 1 − ε_I and β_+ = 1 − ε_+, require β_+ < β_I, that is ε_+ > ε_I; in [Hin26c, Theorem 12.9] the
 conditions [Hin26c, (12.23)] of its proof, (p − 1)(1 − ε_I) ≥ 1 and (p − 1)(1 − ε_+) ≥ 2, hold for p ≥ 4 and ε_I <
 ε_+ ≤ 1/3. [Hin26c, Theorem 12.12] prints β_+ = −1 − ε_+, while its proof uses β_+ = 1 − ε_+ [Hin26c, p. 243].
+
+### Improving decay: scope, and what dimension 4 + 1 changes {#sec:ii-g1-1}
+
+[Hin26c, Section 13], "Improving decay", has four subsections. Its Sections 13.1–13.3 are general tools, proved here in
+dimension 4 + 1 in the forms used later: the Fourier transform on the line ([Hin26c, Lemmas 13.2, 13.4, 13.6,
+Corollaries 13.3, 13.5, 13.7]) and on the resolved spaces ([Hin26c, Lemma 13.8, Propositions 13.9 and 13.11, Lemma
+13.10, Remark 13.12]); the resolvent bounds ([Hin26c, Lemma 13.13, Corollary 13.14, Proposition 13.16, Corollary 13.17,
+the bounds (13.30), Proposition 13.18]); and the radiation field ([Hin26c, Definition 13.19, Proposition 13.20]). Its
+Section 13.4 ([Hin26c, Theorem 13.21 and Remark 13.22]) is a model application to the scalar wave equation on Kerr and
+is not used ([[sec:ii-g1-6-1]]). The tools are used in the linear theory, where the decay of solutions of the
+linearised gauge-fixed Einstein equations is improved beyond [[thm:ii-f1-1-1]] as [Hin26c, Section 14] does for its
+1-form example.
+
+In dimension 4 + 1 the statements change as follows; each change is derived where the statement is proved.
+
+(a) *Densities.* On X, μ := |dx| and μ_b := |dx|/⟨x⟩⁴, so L²(X, μ) = ρ² L²(X, μ_b), ρ := ⟨x⟩⁻¹: a scattering decay
+order 𝗋 is a b-weight 𝗋 + 2. The shifts 5/2 and 3/2 of [Hin26c, (13.23a)–(13.23b)] become 3 and 2, and its 5/2, 7/2,
+3/2 in [Hin26c, (13.30)] become 3, 4, 2.
+
+(b) *Thresholds.* The condition β_scf < 1 + S̄ of [Hin26c, Corollaries 13.14, 13.17, Propositions 13.16, 13.18] becomes
+β_scf < 3/2 + S̄, the threshold 𝗋 < −1/2 + S̄ at the outgoing radial set of [[eq:i-a-1-5]], read as a b-weight.
+
+(c) *The zero energy gap.* The gap condition of [Hin26c, Proposition 13.18] is on the b-weight for μ_b, as in (G) of
+[[sec:i-c-1-2]]: β_tf − β_zf lies in an indicial gap of P̂(0).
+
+(d) *The radiation field.* Near ℐ⁺ ∩ ι⁺ the stationary model has the form (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) −
+3/2)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) + P̃ ([[lem:ii-g1-5-1]]), where [Hin26c, (13.32)] has ρ_I∂_(ρ_I) − 1; the radiation field
+is the coefficient of ρ_I^(3/2), that is of r^(−3/2) at bounded t_*, and [Hin26c, Proposition 13.20] holds with 3/2 in
+place of 1 ([[prop:ii-g1-5-4]]).
+
+From here to the end of the chapter, ℋ denotes a separable Hilbert space, functions may be ℋ-valued, and |·| is the norm
+of ℋ. For the bundle E of [[sec:i-a-1-2]] every space is taken componentwise.
+
+### The Fourier transform on the line {#sec:ii-g1-2}
+
+#### Conventions {#sec:ii-g1-2-1}
+
+(ℱu)(σ) := ∫ e^(iσt) u(t) dt and (ℱ⁻¹v)(t) := (2π)⁻¹ ∫ e^(−iσt) v(σ) dσ, as in [Hin26c]. Plancherel's theorem
+‖ℱu‖_(L²(dσ)) = (2π)^(1/2) ‖u‖_(L²(dt)) holds for ℋ-valued functions (componentwise in an orthonormal basis).
+ℱ(∂_t u) = −iσ ℱu and ℱ(tu) = D_σ ℱu, D_σ := −i∂_σ. For γ ∈ ℝ let H^γ(ℝ_σ; ℋ) := {v ∈ 𝒮′ : ⟨t⟩^γ ℱ⁻¹v ∈ L²(dt)},
+‖v‖_(H^γ) := (2π)^(1/2) ‖⟨t⟩^γ ℱ⁻¹v‖_(L²); as (ℱ⁻¹v)(t) = (2π)⁻¹ v̂(t) with v̂(τ) := ∫ e^(−iστ) v(σ) dσ, this is the
+usual Sobolev space, with the usual norm (2π)^(−1/2) ‖⟨τ⟩^γ v̂‖.
+
+**Definition {#def:ii-g1-2-1}** ([Hin26c, Section 13.1.1].) For k ∈ ℕ₀ and β ∈ ℝ, H^(k,β)_b(ℝ; ℋ) is the space of u ∈ 𝒮′
+with ⟨t⟩^(β−1/2) ∂_t^p (t∂_t)^q u ∈ L²(ℝ, dt; ℋ) for p + q ≤ k, normed by the sum of these norms.
+
+This is the space ⟨t⟩^(−β) H^k_b(ℝ, |dt/⟨t⟩|) of [Hin26c]: ⟨t⟩^(−β) L²(dt/⟨t⟩) = ⟨t⟩^(−β+1/2) L²(dt), and the
+b-vector fields of the radial compactification, spanned by ⟨t⟩∂_t over its smooth functions, are spanned by ∂_t =
+⟨t⟩⁻¹ · ⟨t⟩∂_t and t∂_t = (t/⟨t⟩) ⟨t⟩∂_t, as ⟨t⟩∂_t = ⟨t⟩⁻¹ ∂_t + (t/⟨t⟩) t∂_t; the words of length ≤ k in ∂_t, t∂_t
+span the same space as the ordered products ∂_t^p (t∂_t)^q, as [∂_t, t∂_t] = ∂_t.
+
+**Lemma {#lem:ii-g1-2-2}** ([Hin26c, (13.1)].) u ∈ H^(k,β)_b(ℝ; ℋ) if and only if σ^p (σ∂_σ)^q ℱu ∈ H^(β−1/2)(ℝ; ℋ)
+for all p + q ≤ k, with equivalent norms.
+
+*Proof.* ℱ(t∂_t u) = D_σ(−iσ ℱu) = −(1 + σ∂_σ) ℱu, so ℱ(∂_t^p (t∂_t)^q u) = (−iσ)^p (−1 − σ∂_σ)^q ℱu. The operators
+σ^p (1 + σ∂_σ)^q, p + q ≤ k, and σ^p (σ∂_σ)^q, p + q ≤ k, are related by a triangular matrix with ones on the diagonal
+(binomial expansion), so they span the same space. And ‖⟨t⟩^(β−1/2) w‖_(L²) = (2π)^(−1/2) ‖ℱw‖_(H^(β−1/2)) by
+definition. ∎
+
+#### The Gagliardo seminorm and two Hardy inequalities {#sec:ii-g1-2-2}
+
+For θ ∈ (0, 1) and g ∈ L²(ℝ; ℋ) let [g]_θ² := ∬ |g(x) − g(y)|² |x − y|^(−1−2θ) dx dy ∈ [0, ∞].
+
+**Lemma {#lem:ii-g1-2-3}** (The Gagliardo seminorm and two Hardy inequalities.) Let θ ∈ (0, 1).
+
+(a) [g]_θ² = c_θ (2π)⁻¹ ∫ |ξ|^(2θ) |ĝ(ξ)|² dξ with c_θ := ∫ |e^(is) − 1|² |s|^(−1−2θ) ds ∈ (0, ∞). So ‖g‖²_(L²) +
+[g]_θ² is equivalent to ‖g‖²_(H^θ), and for ψ ∈ C^∞_c(ℝ) and ε > 0, [ψ(·/ε)]_θ² = ε^(1−2θ) [ψ]_θ².
+
+(b) If θ < 1/2, then ∫_(−1)^1 |x|^(−2θ) |g|² dx ≤ C_θ (‖g‖²_(L²(−1,1)) + [g]_θ²).
+
+(c) If θ > 1/2 and g ∈ H^θ, then g is continuous, and if g(0) = 0 then ∫_(−1)^1 |x|^(−2θ) |g|² dx ≤ C_θ [g]_θ².
+
+(d) If θ < 1/2 and w ∈ L¹_loc is supported in [−1, 1] with |x|^θ w ∈ L², then w ∈ H^(−θ) and ‖w‖_(H^(−θ)) ≤
+C_θ ‖|x|^θ w‖_(L²).
+
+*Proof.* (a) For fixed h, ∫ |g(x + h) − g(x)|² dx = (2π)⁻¹ ∫ |e^(ihξ) − 1|² |ĝ(ξ)|² dξ by Plancherel. Integrating
+against |h|^(−1−2θ) dh (Tonelli) and substituting s = hξ gives the identity; c_θ < ∞ as |e^(is) − 1|² ≤ min(s², 4),
+and c_θ > 0. Then 1 + c_θ |ξ|^(2θ) is comparable to ⟨ξ⟩^(2θ). The scaling follows by substituting x = εx′, y = εy′.
+
+(b), (c). By symmetry consider (0, 1]. Let I_k := [2^(−k−1), 2^(−k)], k ≥ 0, a_k := 2^(k+1) ∫_(I_k) g, and
+
+    E_k := ∬_(I_k×I_k) |g(x) − g(y)|² |x − y|^(−1−2θ) dx dy,
+    E′_k := ∬_(I_k×I_(k+1)) |g(x) − g(y)|² |x − y|^(−1−2θ) dx dy,
+
+so Σ_k (E_k + E′_k) ≤ 2[g]_θ², the regions being disjoint. By Jensen's inequality, |g(x) − a_k|² ≤ 2^(k+1) ∫_(I_k)
+|g(x) − g(y)|² dy, and |x − y| ≤ 2^(−k−1) on I_k × I_k, so ∫_(I_k) |g − a_k|² ≤ 2^(−2θ(k+1)) E_k. Likewise |a_k −
+a_(k+1)|² ≤ 2^(2k+3) ∬_(I_k×I_(k+1)) |g(x) − g(y)|², and |x − y| ≤ 2^(−k) there, so |a_k − a_(k+1)|² ≤ 8 ·
+2^(k(1−2θ)) E′_k. Hence
+
+    ∫_0^1 x^(−2θ) |g|² ≤ Σ_k 2^(2θ(k+1)) · 2 (∫_(I_k) |g − a_k|² + 2^(−k−1) |a_k|²) ≤ 2 Σ_k E_k + 2^(2θ) Σ_k b_k²,
+                                                                          b_k := 2^(k(θ−1/2)) |a_k|.
+
+For (b), θ < 1/2: |a_k| ≤ |a_0| + Σ_(j<k) |a_(j+1) − a_j|, so with q := 2^(θ−1/2) < 1 and e_j := E′_j^(1/2), b_k ≤
+q^k |a_0| + √8 Σ_(j<k) q^(k−j) e_j. By Cauchy–Schwarz (Σ_(j<k) q^(k−j) e_j)² ≤ (q/(1 − q)) Σ_(j<k) q^(k−j) e_j², and
+summing over k, Σ_k b_k² ≤ (2/(1 − q²)) |a_0|² + 16 (q/(1 − q))² Σ_j e_j²; finally |a_0|² ≤ 2 ‖g‖²_(L²(I_0)). For
+(c), θ > 1/2: ĝ ∈ L¹ as ∫ |ĝ| ≤ ‖⟨ξ⟩^θ ĝ‖ ‖⟨ξ⟩^(−θ)‖, so g is continuous; if g(0) = 0 then a_k → 0, so a_k =
+Σ_(j≥k) (a_j − a_(j+1)), and with q := 2^(1/2−θ) < 1, b_k ≤ √8 Σ_(j≥k) q^(j−k) e_j, whence Σ_k b_k² ≤ 8 (1 − q)^(−2)
+Σ_j e_j² in the same way.
+
+(d) For φ ∈ 𝒮, |∫ ⟨w, φ⟩_ℋ| ≤ ‖|x|^θ w‖_(L²) ‖|x|^(−θ) φ‖_(L²(−1,1)) ≤ C ‖|x|^θ w‖_(L²) ‖φ‖_(H^θ) by (b) and (a), and
+H^(−θ) is the dual of H^θ for the L² pairing. ∎
+
+#### Taylor expansions at σ = 0 {#sec:ii-g1-2-3}
+
+For γ > −1/2 let n_0(γ) be the number of ℓ ∈ ℕ₀ with ℓ < γ − 1/2.
+
+**Lemma {#lem:ii-g1-2-4}** (Taylor expansion at σ = 0; the content of [Hin26c, Corollary 13.3 and Lemma 13.4] that is
+used.) Let γ ∈ (0, ∞) ∖ (1/2 + ℕ₀), n_0 := n_0(γ) and g ∈ H^γ(ℝ; ℋ). Then g ∈ C^(n_0−1) (no condition if n_0 = 0),
+|g^(ℓ)(0)| ≤ C ‖g‖_(H^γ) for ℓ < n_0, and with P_g(σ) := Σ_(ℓ<n_0) g^(ℓ)(0) σ^ℓ/ℓ!,
+
+    ‖|σ|^(−γ) (g − P_g)‖_(L²(−1,1)) ≤ C ‖g‖_(H^γ).                                                  {#eq:ii-g1-2-1}
+
+*Proof.* For ℓ < γ − 1/2, ∫ |τ|^ℓ |ĝ(τ)| dτ ≤ ‖⟨τ⟩^γ ĝ‖ ‖⟨τ⟩^(ℓ−γ)‖_(L²), which gives the continuity of g^(ℓ) and the
+bound. Write γ = p + θ, p ∈ ℕ₀, θ ∈ [0, 1) ∖ {1/2}.
+
+If θ ∈ [0, 1/2), then n_0 = p. Put f := g^(p), so ‖f‖_(H^θ) ≤ ‖g‖_(H^γ), and ‖|σ|^(−θ) f‖_(L²(−1,1)) ≤ C ‖g‖_(H^γ):
+for θ = 0 trivially, for θ > 0 by [[lem:ii-g1-2-3]] (a), (b).
+
+If θ ∈ (1/2, 1), then n_0 = p + 1. Put f := g^(p) − g^(p)(0). With ψ ∈ C^∞_c((−2, 2)) equal to 1 on [−1, 1], ψf =
+ψg^(p) − g^(p)(0)ψ ∈ H^θ with norm ≤ C ‖g‖_(H^γ) and (ψf)(0) = 0, so ‖|σ|^(−θ) f‖_(L²(−1,1)) ≤ C ‖g‖_(H^γ) by
+[[lem:ii-g1-2-3]] (c).
+
+In both cases, if p = 0 then g − P_g = f on (−1, 1) and [[eq:ii-g1-2-1]] is the bound on f. If p ≥ 1, Taylor's formula
+with integral remainder (g^(p−1) is absolutely continuous, as g ∈ H^p_loc) gives g(σ) − P_g(σ) = σ^p ∫_0^1 f(sσ)
+(1 − s)^(p−1)/(p − 1)! ds; for θ > 1/2 this uses ∫_0^σ g^(p)(0) (σ − τ)^(p−1)/(p − 1)! dτ = g^(p)(0) σ^p/p!. By
+Minkowski's inequality and ‖|sσ|^(−θ) f(sσ)‖_(L²(−1,1;dσ)) = s^(−1/2) ‖|τ|^(−θ) f‖_(L²(−s,s)),
+
+    ‖|σ|^(−γ) (g − P_g)‖_(L²(−1,1)) ≤ ∫_0^1 s^(θ−1/2) ((1 − s)^(p−1)/(p − 1)!) ds · ‖|τ|^(−θ) f‖_(L²(−1,1)),
+
+and θ − 1/2 > −1. ∎
+
+**Lemma {#lem:ii-g1-2-5}** (Taylor coefficients under σ^j (σ∂_σ)^l.) Let n_0 ≥ 1, J ∈ {(−1, 1), (0, 1)}, R ∈
+C^(n_0−1)(J̄ ∩ (−1, 1); ℋ) with R^(i)(0) = 0 for i < n_0 (one-sided derivatives if J = (0, 1)), and j, l ∈ ℕ₀. If the
+distribution G := σ^j (σ∂_σ)^l R on J extends to an element of C^(n_0−1)(J̄ ∩ (−1, 1)), then G^(i)(0) = 0 for i < n_0.
+
+*Proof.* Fix i < n_0. The moments m_(i′)(φ) := ∫ s^(i′) φ(s) ds, i′ < n_0, are linearly independent functionals on
+C^∞_c((1, 2)), so there is φ with m_(i′)(φ) = δ_(ii′) i!. By Taylor's formula with Peano remainder, G(εs) =
+Σ_(i′<n_0) G^(i′)(0) (εs)^(i′)/i′! + o(ε^(n_0−1)) uniformly for s ∈ [1, 2], so ε^(−1−i) ∫ G(σ) φ(σ/ε) dσ → G^(i)(0) as
+ε → 0. On the other hand, as (σ∂_σ)^T = −1 − σ∂_σ and σ∂_σ commutes with dilations, ∫ G φ(σ/ε) dσ = ∫ R(σ) ε^j
+Φ(σ/ε) dσ with Φ := (−1 − s∂_s)^l (s^j φ) ∈ C^∞_c((1, 2)), and this is ε^(j+1) ∫ R(εs) Φ(s) ds = ε^(j+1)
+o(ε^(n_0−1)). So ε^(−1−i) ∫ G φ(σ/ε) dσ = o(ε^(j+n_0−1−i)) → 0. ∎
+
+**Lemma {#lem:ii-g1-2-6}** (Gluing.) Let γ ∈ (−1/2, ∞) ∖ (1/2 + ℕ₀) and m := ⌈γ_+⌉, where γ_± := max(±γ, 0). Let w be
+a function on ℝ ∖ {0}, vanishing for |σ| ≥ 2, with (σ∂_σ)^l w ∈ |σ|^γ L²(±(0, ∞); ℋ) on each side for l ≤ m, and
+N(w) := Σ_(l≤m) ‖|σ|^(−γ) (σ∂_σ)^l w‖_(L²(ℝ∖0)). Then w ∈ L¹_loc(ℝ) and, as a distribution on ℝ, w ∈ H^γ(ℝ; ℋ) with
+‖w‖_(H^γ) ≤ C N(w).
+
+*Proof.* |σ|^γ L² ⊂ L¹_loc near 0 as γ > −1/2. If γ ∈ (−1/2, 0) this is [[lem:ii-g1-2-3]] (d) with θ = −γ (scaled to
+[−2, 2]); if γ = 0 it is trivial. Let γ > 0, γ = p + θ as before. On each side ∂_σ^l w = σ^(−l) Σ_(i≤l) a_(li)
+(σ∂_σ)^i w with constants a_(li), so ∂_σ^l w ∈ |σ|^(γ−l) L² on each side for l ≤ m, with norm ≤ C N(w).
+
+*No distributions at 0.* For ℓ < γ − 1/2 we have ℓ + 1 ≤ m, and ∂^(ℓ+1) w ∈ |σ|^(γ−ℓ−1) L² ⊂ L¹ near 0 on each side
+(γ − ℓ − 1 > −1/2), so ∂^ℓ w has one-sided limits at 0; as ∂^ℓ w ∈ |σ|^(γ−ℓ) L² with γ − ℓ > 1/2, they vanish. A function
+that is W^(1,1) on each side of 0 near 0 and continuous at 0 has as distributional derivative its pointwise derivative.
+Inductively the distributional derivatives ∂^i w, i ≤ n_0(γ), are the functions ∂^i w on ℝ ∖ 0. As n_0(γ) ≥ p, w ∈ H^p
+with norm ≤ C N(w) (γ − i ≥ 0 for i ≤ p, and the support is compact). If θ = 0 we are done.
+
+*The fractional part.* Let θ ∈ (0, 1) and G := ∂^p w, so G ∈ |σ|^θ L² and G′ ∈ |σ|^(θ−1) L² on each side (as m =
+p + 1). Let A := {(x, y) : |x − y| ≤ |x|/2}; on A, x and y have the same sign. With J_k := [2^(−k), 2^(−k+1)], k ∈ ℤ,
+and J_k^* := [2^(−k−1), 3 · 2^(−k)], for |h| ≤ 2^(−k) we have G(x + h) − G(x) = h ∫_0^1 G′(x + sh) ds and so
+∫_(J_k) |G(x + h) − G(x)|² dx ≤ h² ∫_(J_k^*) |G′|². Hence
+
+    ∬_(A∩{x>0}) |G(x) − G(y)|² |x − y|^(−1−2θ) ≤ Σ_k ∫_(|h|≤2^(−k)) |h|^(1−2θ) dh ∫_(J_k^*) |G′|²
+                                                ≤ C Σ_k ∫_(J_k^*) |x|^(2−2θ) |G′|² ≤ C ‖|σ|^(1−θ) G′‖²,
+
+as θ < 1, |x| ∼ 2^(−k) on J_k^* and the J_k^* overlap boundedly; likewise for x < 0. On the complement of A, |G(x) −
+G(y)|² ≤ 2|G(x)|² + 2|G(y)|²; ∫_(|x−y|>|x|/2) |x − y|^(−1−2θ) dy = C|x|^(−2θ), and for fixed y the set of x with |x −
+y| > |x|/2 lies in {|x − y| ≥ |y|/4} (if |x − y| < |y|/4 then |x| > (3/4)|y| and |x − y| < (1/3)|x|), so
+∫ |x − y|^(−1−2θ) dx ≤ C|y|^(−2θ) there. So [G]_θ² ≤ C ‖|σ|^(−θ) G‖² + C ‖|σ|^(1−θ) G′‖² ≤ C N(w)², G ∈ H^θ by
+[[lem:ii-g1-2-3]] (a), and w ∈ H^(p+θ), as ⟨τ⟩^(2γ) ≤ C(1 + |τ|^(2p) ⟨τ⟩^(2θ)). ∎
+
+#### The lossy Fourier transform {#sec:ii-g1-2-4}
+
+Fix χ ∈ C^∞_c((−2, 2)), even, equal to 1 on [−1, 1].
+
+**Definition {#def:ii-g1-2-7}** (The target spaces of the Fourier transform.) For a ∈ (−1, ∞) ∖ ℕ₀ and k ∈ ℕ₀,
+X^(k,a)(ℋ) is the space of pairs (v_−, v_+) of functions on (−∞, 0) and (0, ∞) of the form v_± = χP + w_±, with P a
+polynomial of degree < a with coefficients in ℋ, the same for both signs, and σ^j (σ∂_σ)^l w_± ∈ |σ|^(a+1/2)
+L²(±(0, ∞); ℋ) for j + l ≤ k; the norm is the sum of the norms of the coefficients of P and of
+‖|σ|^(−a−1/2) σ^j (σ∂_σ)^l w_±‖.
+
+The decomposition is unique: a polynomial of degree < a that lies in |σ|^(a+1/2) L² near 0 vanishes (its lowest term
+would not). Its elements are locally integrable on ℝ (a > −1) and of polynomial growth in L² at infinity, so v := v_− on
+(−∞, 0), v_+ on (0, ∞) is a tempered distribution. As |σ|^(a+1/2) L²(dσ) = |σ|^a L²(|dσ/σ|), X^(k,a) is the space of
+[Hin26c, Corollary 13.7], with the Taylor polynomial carried by v and the b-regularity by the remainder. The Taylor
+terms are indexed by the weight. [Hin26c, (13.7)–(13.8)] index the sum by the regularity ("the sum is empty for s <
+1/2"), and the b+-spaces are defined through H^(0,((0,0),β))_b, in which the sum is empty; with no Taylor terms,
+[Hin26c, Corollary 13.7 (1)] would fail for β > 1: for u ∈ C^∞_c(ℝ) with ∫ u ≠ 0, u lies in every H^(k,β)_b, while
+ℱu(0) ≠ 0 and ℱu ∉ |σ|^(β−1) L²(|dσ/σ|) near 0. The matching condition v_−^(l)(0) = v_+^(l)(0), l < β − 1, of
+[Hin26c, Corollary 13.7] presupposes Taylor terms of degree < β − 1, which is the reading of [[def:ii-g1-2-7]].
+
+**Proposition {#prop:ii-g1-2-8}** (The lossy Fourier transform; [Hin26c, Corollary 13.7].) Let β ∈ (0, ∞) ∖ ℕ, γ :=
+β − 1/2, ℓ_±(β) := ⌈γ_±⌉ and k ∈ ℕ₀.
+
+(1) If u ∈ H^(k+ℓ_−(β),β)_b(ℝ; ℋ), then (ℱu|_((−∞,0)), ℱu|_((0,∞))) ∈ X^(k,β−1), with norm ≤ C ‖u‖.
+
+(2) If (v_−, v_+) ∈ X^(k+ℓ_+(β),β−1), then ℱ⁻¹v ∈ H^(k,β)_b(ℝ; ℋ), with norm ≤ C ‖(v_−, v_+)‖.
+
+*Proof.* (1) Let v := ℱu and F_(jl) := σ^j (σ∂_σ)^l v; by [[lem:ii-g1-2-2]], F_(jl) ∈ H^γ for j + l ≤ k + ℓ_−.
+
+*Case γ > 0*, so ℓ_− = 0. Let n_0 := n_0(γ) and P := P_v ([[lem:ii-g1-2-4]]), of degree < n_0, that is < γ − 1/2 =
+β − 1. Fix j + l ≤ k. If n_0 ≥ 1, R := v − P ∈ C^(n_0−1) with R^(i)(0) = 0 for i < n_0, and σ^j (σ∂_σ)^l R = F_(jl) −
+σ^j (σ∂_σ)^l P is C^(n_0−1) ([[lem:ii-g1-2-4]] for F_(jl)); by [[lem:ii-g1-2-5]] its derivatives of order < n_0 at 0
+vanish, so P_(F_(jl)) is the part of σ^j (σ∂_σ)^l P of degree < n_0. On (−1, 1) ∖ 0, where χ = 1,
+
+    σ^j (σ∂_σ)^l (v − χP) = (F_(jl) − P_(F_(jl))) − (σ^j (σ∂_σ)^l P − P_(F_(jl))),
+
+the first term in |σ|^γ L²(−1, 1) by [[eq:ii-g1-2-1]], the second a polynomial whose terms have degree ≥ n_0 > γ − 1/2,
+hence also in |σ|^γ L²(−1, 1); the bounds are by ‖F_(jl)‖_(H^γ) and the coefficients of P, so by C ‖u‖. If n_0 = 0,
+P = 0 and this is [[eq:ii-g1-2-1]] for F_(jl). On |σ| ≥ 1, σ^j (σ∂_σ)^l (v − χP) = F_(jl) minus a smooth function
+supported in |σ| ≤ 2, and F_(jl) ∈ L² ⊂ |σ|^γ L² there. So w_± := (v − χP)|_(±(0,∞)) satisfy [[def:ii-g1-2-7]] with
+a = β − 1 (|σ|^(a+1/2) = |σ|^γ).
+
+*Case γ = 0*: P = 0 (a = −1/2), and F_(jl) ∈ L².
+
+*Case γ ∈ (−1/2, 0)*, so ℓ_− = 1 and P = 0. Fix j + l ≤ k and let F := F_(jl), G := σF = F_(j+1,l) ∈ H^γ. Then
+∂_σ G = (1 + j)F + F_(j,l+1) ∈ H^γ, so G ∈ H^(γ+1) with norm ≤ C ‖u‖. By [[lem:ii-g1-2-4]] at γ + 1 ∈ (1/2, 1), G is
+continuous and G − G(0) ∈ |σ|^(γ+1) L²(−1, 1). We show G(0) = 0. Let ψ ∈ C^∞_c((1, 2)) with ∫ ψ(s) ds/s = 1 and
+ψ_ε := ψ(·/ε). On (0, ∞), F = G/σ, so ∫ F ψ_ε = G(0) + ∫ (G − G(0)) ψ_ε dσ/σ, and the last term is at most
+‖|σ|^(−γ−1) (G − G(0))‖ ‖|σ|^γ ψ_ε‖_(L²) = O(ε^(γ+1/2)) → 0. But |∫ F ψ_ε| ≤ ‖F‖_(H^γ) ‖ψ_ε‖_(H^(−γ)), and by
+[[lem:ii-g1-2-3]] (a) with θ = −γ, ‖ψ_ε‖²_(H^(−γ)) ≤ C(ε ‖ψ‖² + ε^(1+2γ) [ψ]²_(−γ)) → 0. So G(0) = 0, and on (−1, 1) ∖
+0, F = G/σ ∈ |σ|^γ L²; on |σ| ≥ 1, F = G/σ ∈ |σ|⁻¹ L² ⊂ |σ|^γ L².
+
+(2) Write v = χP + w, w := w_± on ±(0, ∞). σ^p (σ∂_σ)^q (χP) ∈ 𝒮 ⊂ H^γ. *Distributional derivatives.* If f is a
+function on ℝ ∖ 0 with f and σ∂_σ f integrable near 0 on both sides, then σf is absolutely continuous on each side
+near 0, with one-sided limits at 0 that vanish (else |f| ≥ c/|σ| near 0); so σf is continuous, its distributional
+derivative is f + σ∂_σ f, and the distributional σ∂_σ f = ∂_σ(σf) − f is the function σ∂_σ f. Applied repeatedly (each
+σ^j (σ∂_σ)^l w lies in |σ|^(a+1/2) L² ⊂ L¹_loc, a + 1/2 = γ > −1/2), W := σ^p (σ∂_σ)^q w, p + q ≤ k, is the same
+whether computed on ℝ or on each side. As σ^j (σ∂_σ)^l σ^p (σ∂_σ)^q = σ^(j+p) (σ∂_σ + p)^l (σ∂_σ)^q, σ^j (σ∂_σ)^l W ∈
+|σ|^γ L² on each side for j + l ≤ ℓ_+, with norm ≤ C ‖(v_−, v_+)‖. Let ψ ∈ C^∞_c((−2, 2)) equal 1 on [−1, 1]. Then
+(σ∂_σ)^l (ψW) ∈ |σ|^γ L² for l ≤ m := ⌈γ_+⌉ = ℓ_+, so ψW ∈ H^γ by [[lem:ii-g1-2-6]]. If γ ≤ 0, (1 − ψ)W ∈ |σ|^γ L² ⊂
+L² ⊂ H^γ on |σ| ≥ 1. If γ > 0: for i ≤ m, ∂^i_σ W = σ^(−i) Σ_(i′≤i) a_(ii′) (σ∂_σ)^(i′) W, and σ^(m−i′) (σ∂_σ)^(i′) W
+∈ |σ|^γ L² gives σ^(−i) (σ∂_σ)^(i′) W ∈ |σ|^(γ−m+i′−i) L² ⊂ L² on |σ| ≥ 1, as γ ≤ m and i′ ≤ i; so (1 − ψ)W ∈ H^m ⊂
+H^γ. Hence σ^p (σ∂_σ)^q v ∈ H^γ for p + q ≤ k, and [[lem:ii-g1-2-2]] gives the claim. ∎
+
+**Remark {#rem:ii-g1-2-9}** (What of [Hin26c, Section 13.1.1] is used.) [Hin26c, Lemma 13.2] (supported and extendible
+spaces) and [Hin26c, Lemma 13.6] (the lossless transform) are not used later; [[lem:ii-g1-2-3]] (d) and
+[[lem:ii-g1-2-6]] contain what the proof of [[prop:ii-g1-2-8]] needs of them. [Hin26c, Lemma 13.4] is used only in the
+form of [[lem:ii-g1-2-4]], for the weight at σ = 0. With the weight at σ = ∞ as well, which [Hin26c] asks for after its
+Corollary 13.5, the identification Ḣ^s([0, ∞)) ≅ σ^(s−1/2) H^s_b([0, ∞), |dσ/σ|) of [Hin26c, Lemma 13.4] fails. For s
+= 1 let u := (1 − χ_0) σ^(2/5) with χ_0 ∈ C^∞_c([0, 2)) equal to 1 on [0, 1]. Then σ⁻¹u, ∂_σ u and σ⁻¹ σ∂_σ u lie in
+L²(dσ), so u ∈ σ H^1_b([0, ∞), |dσ|) = σ^(1/2) H^1_b([0, ∞), |dσ/σ|); but u ∉ L²(dσ), so u ∉ Ḣ¹. The same u lies in
+H^(1,((0,0),1/2))_b([0, ∞)) and not in H̄¹((0, ∞)), so [Hin26c, Corollary 13.5] fails as printed as well, and the
+inverse transform of the same example, extended by 0, shows that [Hin26c, Lemma 13.6] fails at σ = ∞. The proof of
+[Hin26c, Lemma 13.2] draws on [Tay11a, Chapter 4, Proposition 5.3] and that of [Hin26c, Lemma 13.4] on complex
+interpolation; [[sec:ii-g1-2-2]]–[[sec:ii-g1-2-4]] use neither.
