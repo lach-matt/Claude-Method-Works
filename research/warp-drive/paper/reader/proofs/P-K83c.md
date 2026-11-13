@@ -116,10 +116,10 @@ In (iii), by [[eq:class-identity]], |∇²u_in|² = S_loc := (Θ − κ1 − κ2
 where σ is the planar shear of the level sets of u_in in the slices {t = s}. Fix δ := 1/2 and the points p_i of axis 2
 in a slice with ρ1(p_i) = 3.4, 3.8, …, 5.8; then δ ≤ ρ1(p_i)/4, and [[lem:class-leaf-differences]], for the background
 and the ingoing family, holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
-0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then |∇²u_in|² = χ_Z S_ax + (1 − χ_Z) S_loc on 𝒟. Where χ_Z ≠ 1, S_loc is a smooth
-function of (g, ∂g, p, Θ), since there g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of
-[[prop:class-augmented]] (a)); where χ_Z ≠ 0, S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near
-axis 2.
+0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then
+|∇²u_in|² = χ_Z S_ax + (1 − χ_Z) S_loc on 𝒟. Where χ_Z ≠ 1, S_loc is a smooth function of (g, ∂g, p, Θ), since there
+g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of [[prop:class-augmented]] (a)); where χ_Z ≠ 0,
+S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near axis 2.
 
 Put w := g − g0 and 𝔡 := (w, ∂_t w, ∂_x w, p − p̊, Θ − Θ̊, q − q̊). Write (i) in the first-order form of Step 9 of the
 proof of [[thm:class-stability-off-axes]], in the chart (t, x), with the difference of the principal parts taken as
@@ -127,8 +127,9 @@ in Step 4 there, ½(g^(ab) − g0^(ab)) ∂_a ∂_b g0, and (ii)–(iv) as trans
 equations from the development's gives on 𝒟 a linear system 𝐀^0 ∂_t 𝔡 + 𝐀^j ∂_j 𝔡 = F_𝔡, with 𝐀^0 = diag(1, −g^(tt),
 g^(ab)) on the wave block and P^t on the transports, 𝐀^j its other matrices, all symmetric and evaluated at the
 development, and with F_𝔡 bounded at every point of 𝒟 by C |𝔡| + C χ_Z |σ − σ̊|, σ̊ the background's: C bounds the
-derivatives of the smooth functions concerned on the compact 𝒟, where both solutions are smooth. On 𝒟, dt is timelike and ∂_t future timelike for g; so −g^(tt) > 0, g^(ab), the restriction of
-g⁻¹ to the covectors vanishing on ∂_t, is positive definite, P^t = dt(P) > 0, and 𝐀^0 ≥ c0 I with c0 > 0.
+derivatives of the smooth functions concerned on the compact 𝒟, where both solutions are smooth. On 𝒟, dt is timelike
+and ∂_t future timelike for g; so −g^(tt) > 0, g^(ab), the restriction of g⁻¹ to the covectors vanishing on ∂_t, is
+positive definite, P^t = dt(P) > 0, and 𝐀^0 ≥ c0 I with c0 > 0.
 
 (5) *𝔡 vanishes on 𝒟 ∩ Σ′.* The development's datum on Σ′ is built at each point from the constraint data, the
 background's lapse and shift and the gauge condition D(g) = 0 solved for the transversal derivatives ([[thm:data]]);
