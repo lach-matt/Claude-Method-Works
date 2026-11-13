@@ -943,3 +943,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   lem:ec-closed-forms, rem:ec-other-losses notes amended (35 rows, labels in order). Notes outside: chapter 34 line about
   170 (Y := ḡ⁻¹dt̄ with ρ in one term only — nit); rem:ec-other-losses's "2" for background terms is tame with loss
   max(2, d) (minor, affects only an upper bound). Independent reader running.
+- Ch 66 written (W-66): 1,118 lines, 53 labels; exports thm:harmonic-rate (t_*^(−α), α < min(p_0, 3/2); t_*^(−1+ε)
+  for a change of mass beyond a ball; t_*^(−3/2−κ) for compact data with an exact t_*^(−2) l = 0 term; l ≥ 2 always
+  t_*^(−3/2−κ), κ < δ_♯). cor:hr-compact-rates and cor:gd-r5-3 supply chapter 65's rates. Issues: Def R8.1's equality
+  with ran Π_≥2 replaced by the inclusion (Π_cl := Π_G(1 − Π_0)); Cor R7.7 (b) via thm:ix-2-2 and lem:gd-1-4 (c); p_0
+  as "every p < q − 1". Notation: K for r⁻²dv² (chapter 64 writes K̄) and −Υ̇⁰ for Θ — to align with chapters 64/65 at
+  the fix round. Independent reader running.

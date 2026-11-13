@@ -894,39 +894,44 @@ N⁺ ∩ {2 ≤ t^♭_* ≤ 3}, with constants bounded by finitely many norms of
 q_ḣ − 1 > ½ + 2γ_Υ ≥ ½ + 2δ_♯. With the weight ℓ^♭_0 = 3/2 + ½δ_♯ of [[thm:iii-c1-3-1]] in place of q_ḣ the same holds
 for β ∈ (0, ½δ_♯).
 
-*Proof.* (1) *The forcing term on the past of the slab.* In the class S′ = 0 ([[cor:viii-2-3]]), so ġ = ḣ on 𝒟′
-([[thm:viii-2-2]] (2)) and Υ̇^♮(ġ) = 0 there ([[thm:viii-2-2]] (5)). As Υ̇^♮ = −Θ − χ^♮_0E^ΥG (the proof of
-[[thm:gd-r3-4]] (ii)) and χ_K = 0 on {t^♭_* < T_K} with T_K = max(10, T_ι + 2) ≥ T̂ + 4 ([[sec:iii-k-0]]),
-F_Y = χ^♮_0E^ΥGḣ on N⁺ ∩ {t^♭_* < T̂ + 7/4}, which contains {t^♭_* ≤ 7/2} as T̂ ≥ 2. Let χ_3 ∈ C^∞(ℝ) equal 1 on
-(−∞, 3] and 0 on [7/2, ∞), and F′ := χ_3(t^♭_*)F_Y, a smooth 1-form on 𝒟⁺. As dt^♭_* is past timelike
-([[sec:iii-k-0]]), N⁺ ∩ {t^♭_* ≤ 3} is closed under past causal curves in N⁺; so the solution Z′ of □Z′ = F′ on 𝒟⁺
-with vanishing data equals Z_1 there ([[lem:ii-f-1-3]]; the extension across Σ° is immaterial by [[lem:gd-r3-1]]).
+*Proof.* (1) *The forcing term on the past of the slab.* In the class S′ = S⁰′ = 0 ([[cor:viii-2-3]]), so
+ġ_(S′) = ġ⁰_(S⁰′) = 0, ġ = ḣ on 𝒟′ ([[thm:viii-2-2]] (2)) and Υ̇^♮(ġ) = 0 there ([[thm:viii-2-2]] (5)). As
+Υ̇^♮ = Υ̇⁰ − χ^♮_0E^ΥG (the proof of [[thm:gd-r3-4]] (ii)) and χ_K = 0 on {t^♭_* < T_K} with
+T_K = max(10, T_ι + 2) ≥ T̂ + 4 ([[sec:iii-k-0]]), F_Y = χ^♮_0E^ΥGḣ on N⁺ ∩ {t^♭_* < T̂ + 7/4}, which contains
+{t^♭_* ≤ 7/2} as T̂ ≥ 2. Let χ_3 ∈ C^∞(ℝ) equal 1 on (−∞, 3] and 0 on [7/2, ∞), and F_3 := χ_3(t^♭_*)F_Y, a smooth
+1-form on 𝒟⁺. As dt^♭_* is past timelike ([[sec:iii-k-0]]), N⁺ ∩ {t^♭_* ≤ 3} is closed under past causal curves in
+N⁺; so the solution Z_3 of □Z_3 = F_3 on 𝒟⁺ with vanishing data equals Z_1 there ([[lem:ii-f-1-3]]; the extension
+across Σ° is immaterial by [[lem:gd-r3-1]]).
 
-(2) *Support.* Near infinity on {τ′ < ⅛}, t_IVP < r/8 and t_* = t_IVP − F(r) ≤ r/8 − r/4 < 0 for r ≥ R_6
-([[eq:s27-f]]), so χ_♮(t_*) = 0, and χ_0 = 0 as χ̌_0(t_IVP/r) = 1; so χ^♮_0 = 0 ([[eq:iii-k-1-1]]). And χ^♮_0 = 0 near
-Σ^IVP ([[lem:iii-k-1-1]] (d)). So F′ vanishes near Σ^IVP and, near infinity, on {τ′ < ⅛}. [[prop:gd-r4-2]] does not
-ask this, but it places the I₀-tail of F′ in {τ′ ≥ ⅛}, the region of [[lem:iv2-2-3]].
+(2) *Support.* Near infinity on {τ′ < ⅛}, t_IVP < r/8 and t_* = t_IVP − F_s(r) ≤ r/8 − r/4 < 0 for r ≥ R_6, where
+F_s(r) := t_IVP − t_* is the function of [[eq:s27-f]], so χ_♮(t_*) = 0, and χ_0 = 0 as χ̌_0(t_IVP/r) = 1; so χ^♮_0 = 0 ([[eq:iii-k-1-1]]). And χ^♮_0 = 0 near
+Σ^IVP ([[lem:iii-k-1-1]] (d)). So F_3 vanishes near Σ^IVP and, near infinity, on {τ′ < ⅛}. [[prop:gd-r4-2]] does not
+ask this, but it places the I₀-tail of F_3 in {τ′ ≥ ⅛}, the region of [[lem:iv2-2-3]].
 
 (3) *Weights.* On Ω_(ext,r_1) and 𝒮, ḣ ∈ H^(∞,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b ([[prop:viii-1-2]] (2) and its proof): conormal
 with order q_ḣ − η at I₀ for every η > 0 and, at ℐ⁺, with the exponents of [[eq:iii-c-3-2]] slot by slot, above ℓ^♭_I
 in every slot but π̸₀, which has 3/2. E^Υ_(g,∞) is |x|⁻¹ times coefficients smooth on M ([[def:iii-b-6-1]]) and does not
 see π̸₀ (the proof of [[lem:gd-r3-5]]); χ^♮_0 and χ_3(t^♭_*) are smooth on M near infinity ([[lem:iii-k-1-1]] (a);
-t^♭_* is smooth near ℐ⁺, [[sec:iii-k-0]]). So F′ has I₀-order q_ḣ + 1 − η and ℐ⁺-order ℓ^♭_I + 1, and
-f′_♭ := ρ_Iρ^(−7/2)F′ ∈ H^(m,(a₀,2α_I))_b for every m, every a₀ < q_ḣ − 5/2 and every α_I < ℓ^♭_I − 3/2, as
+t^♭_* is smooth near ℐ⁺, [[sec:iii-k-0]]). So F_3 has I₀-order q_ḣ + 1 − η and ℐ⁺-order ℓ^♭_I + 1, and
+f_♭ := ρ_Iρ^(−7/2)F_3 ∈ H^(m,(a₀,2α_I))_b for every m, every a₀ < q_ḣ − 5/2 and every α_I < ℓ^♭_I − 3/2, as
 ρ_Iρ^(−7/2) = ρ₀^(−7/2)ρ_I^(−5/2) ([[eq:iv2-0-2]]).
 
 (4) *The estimate.* Fix a₀ < q_ḣ − 5/2 with p − 3/2 < a₀, and put α_I := p − 3/2; then α_I < min(a₀, 0) and
-α_I < ℓ^♭_I − 3/2 (p < 3/2 < ℓ^♭_I), and
-[[prop:gd-r4-2]] gives u = ρ^(−3/2)Z′ ∈ H^((1;m),(a₀,2α_I))_(e,b;b)(Ω^♮_(c_1)) for every m. By b-Sobolev embedding
-([[eq:iv-0-1]]), V^ju = O(ρ₀^(a₀)ρ_I^(α_I)) for b-vector fields V and j ≤ m − 3; as Vρ^(3/2) ∈ ℂρ^(3/2) for
-V ∈ {X₀, X_I, rotations}, V^jZ′ = O(ρ₀^(3/2+a₀)ρ_I^p). On the slab ρ₀ is bounded above and below ([[sec:iv3-0]]), and
+α_I < ℓ^♭_I − 3/2 (p < 3/2 < ℓ^♭_I), and [[prop:gd-r4-2]] gives u = ρ^(−3/2)Z_3 ∈ H^((1;m),(a₀,2α_I))_(e,b;b)(Ω^♮_(c_1))
+for every m. By b-Sobolev embedding ([[eq:iv-0-1]]), V^ju = O(ρ₀^(a₀)ρ_I^(α_I)) for b-vector fields V and j ≤ m − 3;
+as Vρ^(3/2) ∈ ℂρ^(3/2) for V ∈ {X₀, X_I, rotations}, V^jZ_3 = O(ρ₀^(3/2+a₀)ρ_I^p). On the slab ρ₀ is bounded above and below ([[sec:iv3-0]]), and
 away from ℐ⁺ there is nothing to show. The three conditions are: α_I > β − 1, that is p > ½ + β; α_I < a₀, possible
 for some a₀ < q_ḣ − 5/2 exactly when p < q_ḣ − 1; and α_I < 0, that is p < 3/2. ∎
 
-The radiation field has ℐ⁺-order 3/2 ([[lem:gd-r4-1]] (c)), and away from I₀ that is the order a solution has. The
-energy estimate reaches the slab through the corner I₀ ∩ ℐ⁺, where the multiplier needs α_I < α₀
-([[lem:gd-r4-1]] (e)); this ties the ℐ⁺-order to the I₀-order of the forcing term, which is one above that of ḣ
-through the factor |x|⁻¹ of c_Υ. Without that factor the interval of [[thm:gd-r4-3]] would be empty.
+**Remark {#rem:gd-r4-bounds}** (Where the two bounds on p come from.) This remark is a heuristic about the method,
+and no proof uses it. The bound p < 3/2 is the condition α_I < 0 of the multiplier ([[lem:gd-r4-1]] (e)), whose
+threshold α_I = 0 is the indicial root of the radiation field, of ℐ⁺-order exactly 3/2 ([[lem:gd-r4-1]] (c)); it is
+not shown here whether Z_1 attains that order, the recovery of the sharp ℐ⁺-weight not being carried out for □
+(item 6 of the proof of [[prop:gd-r4-2]]). The bound p < q_ḣ − 1 is the condition α_I < a₀ of [[prop:gd-r4-2]],
+which the multiplier needs at the corner I₀ ∩ ℐ⁺ ([[lem:gd-r4-1]] (e)); it ties the ℐ⁺-order to the I₀-order of the
+forcing term, which is one above that of ḣ through the factor |x|⁻¹ of c_Υ (step (3) of the proof of
+[[thm:gd-r4-3]]). Without that factor the same argument would give only p < q_ḣ − 2, which leaves no p > ½ + β when
+q_ḣ ≤ 5/2 + β.
 
 **Corollary {#cor:gd-r4-6}** (Homogeneous solutions with data of compact support on Σ°.) Let Y be a 1-form on N⁺,
 smooth up to Σ°, with □Y = 0, whose Cauchy data on Σ° have compact support. Then Q[Y] is constant, and on each
