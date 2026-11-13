@@ -982,9 +982,11 @@ likewise.
 (b) (Microlocal parametrix.) Let B ∈ C^∞_b Ψ^(m_B)_e3b with WF′_e3b(B) ⊂ Ell_e3b(A), and J ∈ ℕ. Then B = QA + R with
 Q ∈ C^∞_b Ψ^(m_B−m′)_e3b and R ∈ C^∞_b Ψ^(m_B−J)_e3b.
 
-(c) In (b), if B and A are carried by χ, then for all 𝗌, N and k,
+(c) In (b), if Aχ = A and Bχ = B (for instance, if both are carried by χ), then for all 𝗌, N and k,
 
     ‖Bu‖_(H^((𝗌−m_B;k))_(e3b;b)) ≤ C(‖Au‖_(H^((𝗌−m′;k))_(e3b;b)) + ‖χu‖_(H^((−N;k))_(e3b;b))).
+
+(b) and (c) hold, with the same proof, for A and B in the classes Ψ̃ of [[sec:ii-a-4-2]], (S5) applying to ρℬ ((S13)).
 
 (d) H^((𝗌;k))_(e3b;b) ⊂ H^((𝗌+1;k−1))_(e3b;b) continuously for k ≥ 1; hence H^((𝗌;k))_(e3b;b) ⊂ H^(𝗌+k)_e3b, and
 H^(s̄)_b = H^((0;s̄))_(e3b;b) ⊂ H^(s̄)_e3b for s̄ ∈ ℕ_0.
@@ -1002,8 +1004,7 @@ R_j ∈ C^∞_b Ψ^(m_B−j)_e3b with wave front set in supp χ̃_(j−1), put Q
 R_(j+1) := R_j − Q_jA ∈ C^∞_b Ψ^(m_B−j−1)_e3b. Then B = (Σ_(j<J) Q_j)A + R_J. Only finitely many steps are taken, so no
 asymptotic summation is needed.
 
-(c) Bu = B(χu) = QAχu + R_Jχu = QAu + R_Jχu, because Aχ = A and Bχ = B for operators carried by χ. Take J ≥ sup 𝗌 + N
-and use (a).
+(c) Bu = B(χu) = QAχu + R_Jχu = QAu + R_Jχu, because Aχ = A and Bχ = B. Take J ≥ sup 𝗌 + N and use (a).
 
 (d) By [[lem:ii-a-4-1]] (with (S8) for variable orders), an elliptic Λ ∈ C^∞_b Ψ^(𝗌+1)_e3b is Σ_(l=0)^N Λ_lV_l with
 Λ_l ∈ C^∞_b Ψ^𝗌_e3b. Microlocal elliptic regularity (S5), with I in place of B, gives
