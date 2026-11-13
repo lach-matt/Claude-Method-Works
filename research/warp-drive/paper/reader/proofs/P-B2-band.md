@@ -293,26 +293,30 @@ here ([[prop:band-points]] proves weaker ones from |σ| = 12 on), and no proof u
 
 ### One derivative on the band {#sec:band-one-derivative}
 
-**Corollary {#cor:band-one-derivative}** (The one-derivative constants on the band.) Let 3 ≤ |σ| ≤ 384,
-f ∈ L²(ℝ) vanishing off I, and u = R_l(σ)f. Then
+**Corollary {#cor:band-one-derivative}** (The one-derivative constants on the band.) Let 3 ≤ |σ| ≤ 384. For f ∈ L²(ℝ)
+vanishing off I and u = R_l(σ)f,
 
     ‖u′‖_I ≤ 283.06‖f‖ for every l ≥ 1,        ‖u′‖_I ≤ 305.31‖f‖ for l = 0;
 
-in particular ‖u′‖_I ≤ 963.4‖f‖ for l ≥ 1 and ≤ 1516‖f‖ for l = 0. Summed over the harmonics, which are orthogonal on
-𝕊³, with ψ = 2ηz² the weight of [[prop:morawetz-weight]] and the angular term at l = 1 taken unweighted,
+in particular ‖u′‖_I ≤ 963.4‖f‖ for l ≥ 1 and ≤ 1516‖f‖ for l = 0. For f ∈ L²(I × 𝕊³), extended by zero to
+ℝ × 𝕊³, with harmonic components f_l (the components of f in the eigenspaces of the Laplacian of 𝕊³ with eigenvalue
+−κ, which are orthogonal), put u_l := R_l(σ)f_l, acting in r_*, and u := Σ_l u_l; by [[thm:band]] and the first bound
+the series and its r_*-derivative converge in L² on I × 𝕊³. Then, with the norms taken on I × 𝕊³, ψ = 2ηz² the weight
+of [[prop:morawetz-weight]] and the angular term at l = 1 taken unweighted,
 
     ‖∂_(r_*)u‖_I² + Σ_l κ∫_I ψ|u_l|² ≤ C²‖f‖²,     C ≤ 308.46.
 
 *Proof.* By [[thm:band]], B̃ := 11.477 bounds ‖u‖_I/‖f‖ for every l. [[lem:morawetz-identity]] then gives ‖u′‖_I ≤
-X(B̃)‖f‖ with X(B̃) = (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′), with (m′, M′) = (15/256, 0.74362) for l ≥ 1
-([[prop:morawetz-resolvent-l-ge-1]]) and (3315/65536, 0.3999) at l = 0 ([[prop:morawetz-l-zero]]). X(B̃) increases
-with |σ|, so its value at |σ| = 384 bounds the band: for l ≥ 1,
+X(B̃)‖f‖ with X(B̃) = (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′), where (m′, M′) = (15/256, 0.74362) for l ≥ 1, the
+constants of φ = 1 − 2/r² and q = 0 ([[prop:morawetz-resolvent-l-ge-1]]), and (m′, M′) = (3315/65536, 0.3999) at
+l = 0, those of φ = 1 − 2/r² and q = ½η(1 + 3y/2) ([[prop:morawetz-l-zero]]). X(B̃) increases with |σ|, so its value
+at |σ| = 384 bounds the band: for l ≥ 1,
 2m′(M′ + 768)B̃ = (15/128)(768.74362)(11.477) < 1033.94, whose increment by 1 has square root less than 32.171, so
 X < (1 + 32.171)/(15/128) < 283.06; at l = 0, 2m′(M′ + 768)B̃ = (3315/32768)(768.3999)(11.477) < 892.18, whose
 increment by 1 has square root less than 29.8862, so X_0 < (1 + 29.8862)(32768/3315) < 305.31.
 
 For the sum, [[cor:morawetz-one-derivative]] (a) with B_l replaced by B̃ gives, for l ≥ 2,
-κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))K‖f_l‖², K := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.88 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
+κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))J‖f_l‖², J := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.88 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
 κ ≥ 8. So for l ≥ 2 the harmonic contributes at most (283.06² + (8/5)(9389.0))‖f_l‖² < 308.46²‖f_l‖²; for l = 1 at
-most (283.06² + 3B̃²)‖f_1‖² < 283.76²‖f_1‖²; and for l = 0 at most 305.31²‖f_0‖². Summing over l with
-‖f‖² = Σ_l‖f_l‖² gives C ≤ 308.46. ∎
+most (283.06² + 3B̃²)‖f_1‖² < 283.76²‖f_1‖²; and for l = 0 at most 305.31²‖f_0‖². Summing over l, with
+‖∂_(r_*)u‖_I² = Σ_l‖u_l′‖_I² and ‖f‖² = Σ_l‖f_l‖² by the orthogonality of the harmonics, gives C ≤ 308.46. ∎

@@ -428,9 +428,346 @@ Euclidean norm of dv = dτ + x̂·dx is √2, so |χ dv ⊗ dv|_F = 2|χ|. The n
 a > 0.2698587885 ([[lem:envelope-constant]], [[lem:lambda0-point]]): a^(−3/2) < 7.1333767 and a⁻² < 13.73179; and
 from c > 1.3240867, a^(−3/2) > 7.133376 at the point of equality. ∎
 
-Bounds on the derivatives of orders 1 to 14 on Ω × S¹ of W_TT, of χ dv ⊗ dv and of the θ-mean of R^(1) at
-stage 1, of the kind [[lem:envelope-derivatives]] gives for the envelope, are [[pending:computational-1]]. No result
-of the paper uses them.
+### The mean source of stage 1 {#sec:stage-one-source}
+
+At stage 1 the mean equation (a) of [[eq:stage-system]] has the source 𝒮_1 = −⟨𝒦_1⟩, and by [[lem:first-entry]] 𝒦_1
+depends on g0, v and W alone. Setting every unknown of the stages m ≥ 1 to zero in [[eq:stage-m]] at m = 1 removes
+T̂ ĝ2 and 𝒲(m1, φ1), makes e2 vanish (q2 vanishes with m1 and dφ1), and leaves G = g0 + λW and u = v. So 𝒦_1 is the
+coefficient R^(1) of λ in the two-scale expansion [[eq:two-scale-expansion]] of R[g0 + λW], and 𝒮_1 = −⟨R^(1)⟩. In this
+section and the next, c² = cos² ϑ and s² = sin² ϑ are the angular functions of [[sec:waves]] and q = c² − s² = cos 2ϑ,
+as in [[sec:stage-zero-bounds]].
+
+**Lemma {#lem:stage-one-source}** (The mean source of stage 1.) Let g0 be built on any smooth mass function μ, let χ be
+a smooth function on Ω × S¹ that is, at each X, a combination of cos 2θ and sin 2θ, put W := W_TT + χ dv ⊗ dv, and let
+R^(1) be the coefficient of λ in the two-scale expansion of R[g0 + λW]. Then
+
+    ⟨R^(1)⟩ = S := −(4/9) A² env(v)² h² sin 2ϑ r⁻³ (dv ⊗ dϑ + dϑ ⊗ dv).                            {#eq:stage-one-source}
+
+The function χ of [[eq:chi-transport]] is of this kind ([[lem:chi-closed-form]]); so at stage 1 of [[lem:stage-system]]
+the mean equation has the source 𝒮_1 = −S, whatever the data of the stages.
+
+*Proof.* We use the notation of the proof of [[lem:leading-coefficient]]: ∂ := ∂_θ, v_a := ∂_a v, indices are moved with
+g0, ℓ^a = g0^(ab) v_b, ∇ is the Levi-Civita connection of g0 acting at fixed θ, and C_0, C_1 and D_1 are the profiles
+defined there. Put K_ab := ∇_a ∇_b v. Since g0⁻¹(dv, dv) = 0 identically, 0 = ∇_a (ℓ^b v_b) = 2 ℓ^b K_ab; so
+K(ℓ, ·) = 0, ∇_ℓ ℓ = 0 and ∇_ℓ dv = 0. Write W = W_TT + Y with Y := χ dv ⊗ dv. By [[lem:stage-zero]] (a), W_TT, Y and
+their θ-derivatives vanish on ℓ and have g0-trace zero, and so does W; and Y^(cd) = χ ℓ^c ℓ^d.
+
+*The coefficient of λ.* With h = λW one has C := Γ[g] − Γ[g0] = C_0 + λ C_1 + λ² C_2 + O(λ³) and
+D = λ D_1 + λ² D_2 + O(λ³), C_2 and D_2 being profiles. In Ric(g) − Ric(g0) = ∇^v_c C^c_ab − ∇^v_b C^c_ac +
+C^c_cd C^d_ab − C^c_bd C^d_ac, where ∇^v = ∇ + λ⁻¹ v ⊗ ∂, the coefficient of λ is
+
+    ∇_c C_1^c_ab + v_c ∂C_2^c_ab − ∇_b C_1^c_ac − v_b ∂C_2^c_ac + C_0^c_cd C_1^d_ab + C_1^c_cd C_0^d_ab
+        − C_0^c_bd C_1^d_ac − C_1^c_bd C_0^d_ac,
+
+and in the gauge term (1/2)(g_mρ ∇^v_n D^ρ + g_nρ ∇^v_m D^ρ), with g = g0 + λW, it is
+
+    (1/2)(v_n W_mρ ∂D_1^ρ + (g0)_mρ (∇_n D_1^ρ + v_n ∂D_2^ρ)) + (the same with m and n exchanged).
+
+*Terms of mean zero.* The θ-mean of a θ-derivative vanishes, and ⟨·⟩ commutes with ∇ and with multiplication by
+functions of X. W_TT is a combination of cos θ and sin θ and Y one of cos 2θ and sin 2θ, so ⟨W⟩ = 0 and every term
+linear in W has mean zero; the terms with ∂C_2 and ∂D_2 are θ-derivatives. The proof of [[lem:leading-coefficient]]
+gives C_0^c_cd = 0 and C_1^c_ac = −(1/2) v_a W·∂W, where W·∂W = W^(cd) ∂W_cd = (1/2) ∂(W^(cd) W_cd) is a θ-derivative;
+so ∇_b C_1^c_ac has mean zero, and C_0^c_cd C_1^d_ab + C_1^c_cd C_0^d_ab = −(1/2)(W·∂W) v_d C_0^d_ab = 0, because
+v_d C_0^d_ab = (1/2)(v_a v_d ∂W_b^d + v_b v_d ∂W_a^d − v_d ℓ^d ∂W_ab) = 0. In the gauge term D_1 = div W +
+(1/2) ℓ W·∂W; the part (1/2) ℓ^ρ W·∂W is a θ-derivative in ∇_n D_1 and is annihilated by W_mρ ℓ^ρ = 0, and div W is
+linear. Since W^(cd) v_d = 0, the part of C_1 quadratic in W is C_Q^c_ab := −(1/2)(v_a W^(cd) ∂W_bd + v_b W^(cd)
+∂W_ad). Put P_ab := C_0^c_bd C_1^d_ac; then C_1^c_bd C_0^d_ac = P_ba. Hence
+
+    ⟨R^(1)⟩_ab = ∇_c ⟨C_Q^c_ab⟩ − ⟨P_ab + P_ba⟩ − (1/2)(v_b ⟨W_aρ ∂(div W)^ρ⟩ + v_a ⟨W_bρ ∂(div W)^ρ⟩).     {#eq:mean-r1}
+
+*The first term vanishes.* Off the axes the vectors e_ϑ := r⁻¹ ∂_ϑ, e_1 := (rc)⁻¹ ∂_φ1, e_2 := (rs)⁻¹ ∂_φ2 are
+g0-orthonormal and g0-orthogonal to ∂_v and ∂_r ([[eq:eddington]]), and W_TT = Σ_i w_i e^i ⊗ e^i with e^i := g0(e_i, ·),
+w_ϑ := −2(y1 + y2), w_1 := 2y1, w_2 := 2y2. So the frame components of W_TT^(cd) ∂(W_TT)_bd are w_i ∂w_i δ_ij =
+(1/2) ∂(w_i²) δ_ij, of mean zero. The remaining parts of W^(cd) ∂W_bd vanish: W_TT^(cd) ∂Y_bd = ∂χ v_b W_TT^(cd) v_d = 0
+and Y^(cd) ∂W_bd = χ ℓ^c ℓ^d ∂W_bd = 0. So ⟨C_Q⟩ = 0 off the axes, and everywhere by continuity.
+
+*The second term.* Differentiating v_d W_c^d = 0 and ℓ^c W_cd = 0 gives v_d ∇_a W_c^d = −W_c^d K_ad and
+ℓ^c ∇_a W_c^d = −W_c^d K_a^c; and ∇_c ℓ^d = K_c^d. Of the nine products in
+
+    4 P_ab = (v_b ∂W_d^c + v_d ∂W_b^c − ℓ^c ∂W_bd)(∇_a W_c^d + ∇_c W_a^d − ∇^d W_ac),
+
+the first is v_b ∂W:∇_a W, with ∂W:∇_a W := ∂W^(cd) ∇_a W_cd; v_b ∂W_d^c ∇_c W_a^d and −v_b ∂W_d^c ∇^d W_ac cancel
+(exchange c and d); v_d ∂W_b^c ∇_a W_c^d = −∂W_b^c W_c^d K_da and −ℓ^c ∂W_bd ∇_a W_c^d = ∂W_bd W_c^d K_a^c cancel;
+v_d ∂W_b^c ∇_c W_a^d = −∂W_b^c W_a^d K_cd and ℓ^c ∂W_bd ∇^d W_ac = −∂W_bd W_ac K^(dc) are equal; and
+−v_d ∂W_b^c ∇^d W_ac and −ℓ^c ∂W_bd ∇_c W_a^d both equal −∂W_b^c (∇_ℓ W)_ca. So
+
+    4 P_ab = v_b ∂W:∇_a W − 2 ∂W_bc K^(cd) W_da − 2 ∂W_b^c (∇_ℓ W)_ca.
+
+Integrating by parts in θ, ⟨∂W_ac K^(cd) W_db⟩ = −⟨W_ac K^(cd) ∂W_db⟩ = −⟨∂W_bd K^(dc) W_ca⟩, so the K-terms of
+P_ab + P_ba have mean zero. In the ∇_ℓ-terms Y contributes nothing: ∇_ℓ Y = ℓ(χ) dv ⊗ dv, ∂Y_a^c = ∂χ v_a ℓ^c, and
+ℓ^c (∇_ℓ W_TT)_cb = −W_TT(∇_ℓ ℓ, ·)_b = 0, ∂(W_TT)_ac ℓ^c = 0 and v_c ℓ^c = 0. The angular components of W_TT are
+r^(1/2) times functions of (v, ϑ, θ), so [[eq:transport-angular]] gives ∇_ℓ W_TT = −(3/(2r)) W_TT, and the ∇_ℓ-terms
+of 4(P_ab + P_ba) are (3/r) ∂((W_TT)_a^c (W_TT)_cb), of mean zero. Likewise ∂W:∇_a W = ∂W_TT:∇_a W_TT, since
+∂Y^(cd) ∇_a W_cd = ∂χ ℓ^c ℓ^d ∇_a W_cd = −2 ∂χ W_cd ℓ^c K_a^d = 0 and ∂W_TT^(cd) ∇_a Y_cd =
+∂W_TT^(cd)(∂_a χ v_c v_d + χ K_ac v_d + χ v_c K_ad) = 0. Therefore
+
+    ⟨P_ab + P_ba⟩ = (1/4)(v_b ⟨∂W_TT:∇_a W_TT⟩ + v_a ⟨∂W_TT:∇_b W_TT⟩).
+
+*The third term.* ℓ^ρ (div W)_ρ = ∇^c (W_cρ ℓ^ρ) − W^(cρ) K_cρ = −W_TT^(cρ) K_cρ, because K(ℓ, ℓ) = 0. So
+Y_aρ ∂(div W)^ρ = −χ v_a ∂(W_TT^(cρ) K_cρ) is the product of a combination of cos 2θ and sin 2θ with one of cos θ and
+sin θ, and has mean zero. Further div Y = (ℓ(χ) + χ □_(g0) v) dv, since ∇_ℓ dv = 0, so W_aρ ∂(div Y)^ρ = 0. Hence
+⟨W_aρ ∂(div W)^ρ⟩ = ⟨(W_TT)_aρ ∂(div W_TT)^ρ⟩, and [[eq:mean-r1]] becomes ⟨R^(1)⟩ = dv ⊗ X + X ⊗ dv with
+
+    X_b := −(1/4) ⟨∂W_TT:∇_b W_TT⟩ − (1/2) ⟨(W_TT)_b^ρ ∂(div W_TT)_ρ⟩.
+
+*Evaluation.* In the frame above ∂W_TT is diagonal with entries ∂w_i, and (∇_b W_TT)(e_i, e_i) = ∂_b w_i −
+2 W_TT(∇_b e_i, e_i) = ∂_b w_i, since W_TT(·, e_i) = w_i g0(·, e_i) and g0(∇_b e_i, e_i) = 0. So ∂W_TT:∇_b W_TT =
+Σ_i ∂w_i ∂_b w_i. Write w_i = (2α/3) P̂_i with α = A env(v) h r^(−3/2), a function of (v, r, ϑ), and
+
+    P̂_ϑ := −(c² cos θ + s² sin θ),     P̂_1 := 2c² cos θ − s² sin θ,     P̂_2 := 2s² sin θ − c² cos θ.
+
+For b ∈ {v, r, φ1, φ2}, ∂_b w_i = (∂_b α/α) w_i and ⟨w_i ∂w_i⟩ = 0. For b = ϑ the term with ∂_ϑ α again has mean zero,
+and ⟨∂w_i ∂_ϑ w_i⟩ = (4α²/9) ⟨∂P̂_i ∂_ϑ P̂_i⟩, where
+
+    ⟨∂P̂_1 ∂_ϑ P̂_1⟩ = ⟨(2c² sin θ + s² cos θ) 2cs (2 cos θ + sin θ)⟩ = 2cs,
+    ⟨∂P̂_2 ∂_ϑ P̂_2⟩ = ⟨(2s² cos θ + c² sin θ) 2cs (2 sin θ + cos θ)⟩ = 2cs,
+    ⟨∂P̂_ϑ ∂_ϑ P̂_ϑ⟩ = ⟨(c² sin θ − s² cos θ) 2cs (cos θ − sin θ)⟩ = −cs.
+
+So ⟨∂W_TT:∇_ϑ W_TT⟩ = (4/3) α² cs, and the other components of ⟨∂W_TT:∇_b W_TT⟩ vanish.
+
+For the divergence, the Christoffel symbols of [[eq:eddington]] satisfy Γ^B_(vr) = Γ^B_(rr) = Γ^B_(vC) = 0 and
+Γ^B_(rC) = r⁻¹ δ^B_C for angular B, C, and on angular indices Γ^D_(BC) are those of the round metric
+γ := dϑ² + c² dφ1² + s² dφ2². For a symmetric W' with only angular components and g0-trace zero it follows that
+(div W')_v = −g0^(BC) Γ^D_(Cv) W'_BD = 0, (div W')_r = −g0^(BC) Γ^D_(Cr) W'_BD = −r⁻¹ tr W' = 0, and
+(div W')_A = γ^(BC) 𝒟_C w'_BA, where w' := r⁻² W' and 𝒟 is the Levi-Civita connection of γ. The nonzero symbols of γ
+are Γ^ϑ_(φ1φ1) = cs, Γ^ϑ_(φ2φ2) = −cs, Γ^(φ1)_(ϑφ1) = −s/c and Γ^(φ2)_(ϑφ2) = c/s (with their symmetric partners), and
+w' = 2(−(y1 + y2) dϑ² + c² y1 dφ1² + s² y2 dφ2²) for W' = W_TT does not depend on φ1, φ2. This gives
+(div W_TT)_φ1 = (div W_TT)_φ2 = 0 and
+
+    (div W_TT)_ϑ = −2 ∂_ϑ(y1 + y2) + 2(s/c − c/s)(y1 + y2) + 2(s/c) y1 − 2(c/s) y2
+                 = −(2/3) α_ϑ (c² cos θ + s² sin θ) + (10/3) α cs (cos θ − sin θ),
+
+with α_ϑ := ∂_ϑ α, since y1 + y2 = (α/3)(c² cos θ + s² sin θ) and (4s² − 2c²) y1 + (2s² − 4c²) y2 =
+2α c² s² (cos θ − sin θ). As (W_TT)_ϑ^ϑ = −2(y1 + y2) and the other components (W_TT)_b^ϑ vanish, the second part of
+X_b is zero for b ≠ ϑ, and for b = ϑ it is
+
+    ⟨(y1 + y2) ∂(div W_TT)_ϑ⟩ = (α/3) ⟨(c² cos θ + s² sin θ)((2/3) α_ϑ (c² sin θ − s² cos θ)
+                                     − (10/3) α cs (sin θ + cos θ))⟩ = −(5/9) α² cs.
+
+So X = −(1/3 + 5/9) α² cs dϑ = −(4/9) α² sin 2ϑ dϑ, and α² = A² env² h² r⁻³ gives [[eq:stage-one-source]]. ∎
+
+### Derivatives of the stage-0 profiles and of the mean source {#sec:stage-bounds-higher}
+
+**Definition {#def:stage-derivative-bound}** (Derivative bounds.) For a smooth array F of functions on a neighbourhood
+of Ω × S¹ and n ≥ 0, D_F[n] is the supremum, over the points p ∈ Ω × S¹ and the vectors e ∈ ℝ⁶ with |e| = 1, of
+|(d/dt)ⁿ F(p + te)|_(t=0)|_F. Here p + te is formed in the coordinates (τ, x1, …, x4, θ), and |·|_F is the Frobenius
+norm of the Cartesian components in (τ, x).
+
+This section bounds D_F[n] for 0 ≤ n ≤ 14 at the numerical point, for F = W_TT, χ dv ⊗ dv, their sum and S.
+
+**Lemma {#lem:stage-cartesian}** (Cartesian forms.) Let x ∈ ℝ⁴ ∖ {0}, ξ := x/r, ξ' := (ξ1, ξ2), ξ'' := (ξ3, ξ4), so
+that c² = |ξ'|², s² = |ξ''|² and q = c² − s², and let U := (1, ξ) ∈ ℝ⁵, the components of dv. Then W_TT has no
+τ components, and its spatial components form the 4 × 4 array
+
+    W_TT = (A env(v) h/(3 r^(3/2))) B,      B := ( α1 I₂ + β1 ξ' ⊗ ξ'      γ ξ' ⊗ ξ''             )
+                                                 ( γ ξ'' ⊗ ξ'             α2 I₂ + β2 ξ'' ⊗ ξ'' ),
+    α1 := 4c² cos θ − 2s² sin θ,     α2 := −2c² cos θ + 4s² sin θ,     γ := 2(c² cos θ + s² sin θ),
+    β1 := −(5 − q) cos θ + (1 − q) sin θ,     β2 := (1 + q) cos θ − (5 + q) sin θ,                {#eq:stage-cartesian-w}
+
+I₂ the 2 × 2 identity. With T := 4q sin 2θ + (1 − q²) cos 2θ and Z := (0, −s² ξ', c² ξ'') ∈ ℝ⁵,
+
+    χ dv ⊗ dv = −(A² env(v)² h² T/12)(r⁻² − (v − τ0)^(−1/2) r^(−3/2)) U ⊗ U,
+    S = −(8/9) A² env(v)² h² r⁻⁴ (U ⊗ Z + Z ⊗ U).                                                {#eq:stage-cartesian-cs}
+
+*Proof.* In the plane of (x1, x2), |dx'|² = dρ1² + ρ1² dφ1² with ρ1 = |x'| = rc and ρ1 dρ1 = x'·dx', so
+ρ1² dφ1² = |dx'|² − (ξ'·dx')²/c²; likewise ρ2² dφ2² = |dx''|² − (ξ''·dx'')²/s² with ρ2 = rs. From ρ1 = r cos ϑ and
+ρ2 = r sin ϑ, ρ1 dρ2 − ρ2 dρ1 = r² dϑ, that is r dϑ = (c/s) ξ''·dx'' − (s/c) ξ'·dx'. Substituting these into
+W_TT = 2(−(y1 + y2)(r dϑ)² + y1 ρ1² dφ1² + y2 ρ2² dφ2²) and collecting the coefficients of |dx'|², |dx''|², (ξ'·dx')²,
+(ξ''·dx'')² and (ξ'·dx')(ξ''·dx'') gives [[eq:stage-cartesian-w]], with α = A env h r^(−3/2); for example the
+coefficient of (ξ'·dx')² is −2((y1 + y2) s² + y1)/c² = −(2α/3)((2c² + 3s²) cos θ − s² sin θ) = (α/3) β1, since
+2(2c² + 3s²) = 5 − q and 2s² = 1 − q. The form of χ dv ⊗ dv is [[lem:chi-closed-form]] with dv = dτ + ξ·dx. For S,
+d(c²) = d(|x'|²/r²) = (2/r)(ξ'·dx' − c² ξ·dx) = (2/r)(s² ξ'·dx' − c² ξ''·dx'') and d(c²) = −sin 2ϑ dϑ; insert this
+into [[eq:stage-one-source]]. ∎
+
+For complex vectors z, w ∈ ℂ⁴ write z·w := Σ_i z_i w_i, R²(z) := z·z and ‖z‖² := Σ_i |z_i|², and for a complex
+array M write ‖M‖ := (Σ |M_ij|²)^(1/2); on real arrays ‖·‖ is |·|_F. Put K(σ) := (1 + σ²)/(1 − σ²).
+
+**Lemma {#lem:complex-lines}** (Complex lines.) Let 0 < σ ≤ 1/2, let x ∈ ℝ⁴ with |x| = r > 0, e_x ∈ ℝ⁴ with
+|e_x| ≤ 1 and t ∈ ℂ with |t| ≤ σr, and put z := x + t e_x. Then:
+
+(a) (1 − σ)² r² ≤ |R²(z)| ≤ (1 + σ)² r²;
+
+(b) for either square root r(z) of R²(z), ξ := z/r(z) satisfies ξ·ξ = 1 and ‖ξ‖² ≤ K(σ).
+
+*Proof.* If e_x = 0 then z = x. Otherwise put ω := x/r, ê := e_x/|e_x|, u := ω·ê ∈ [−1, 1] and s := t|e_x|/r, so
+that z = r(ω + s ê) and |s| ≤ σ. (a) R²(z) = r²(1 + 2su + s²) = r²(s − s₊)(s − s₋) with s± := −u ± i(1 − u²)^(1/2),
+|s±| = 1; so (1 − |s|)² ≤ |1 + 2su + s²| ≤ (1 + |s|)². (b) ξ·ξ = R²(z)/r(z)² = 1, and ‖ξ‖² = ‖z‖²/|R²(z)|. If
+u = ±1 then ξ = ±ω is real and ‖ξ‖² = 1. Otherwise ê = uω + (1 − u²)^(1/2) f with f a real unit vector orthogonal to
+ω, and with w := s(1 − u²)^(1/2)/(1 + su) (note |su| < 1) one has ω + s ê = (1 + su)(ω + w f). Hence
+‖z‖² = r²|1 + su|²(1 + |w|²) and R²(z) = r²(1 + su)²(1 + w²), so ‖ξ‖² = (1 + |w|²)/|1 + w²|. With w = w1 + i w2,
+both |1 + w²|² and (1 + |w|²)² − 4w2² equal (1 + w1² − w2²)² + 4w1²w2²; therefore
+
+    ‖ξ‖² = (1 − (2|w2|/(1 + |w|²))²)^(−1/2) ≤ (1 − (2|w2|/(1 + w2²))²)^(−1/2) = (1 + w2²)/(1 − w2²),
+
+provided |w2| < 1, and it suffices to show |w2| ≤ σ. Now w2 = (1 − u²)^(1/2) Im s/|1 + su|². Write s = ϱ e^(iφ) with
+ϱ ≤ σ; then |1 + su|² = 1 + 2ϱu cos φ + ϱ²u² ≥ 1 + 2ϱu cos φ ≥ 0, and (1 − u²)^(1/2)|sin φ| − 2ϱu cos φ ≤
+(1 − u² + 4ϱ²u²)^(1/2) ≤ 1 because 2ϱ ≤ 1. So (1 − u²)^(1/2)|Im s| ≤ ϱ(1 + 2ϱu cos φ) ≤ σ|1 + su|². ∎
+
+**Lemma {#lem:complex-unit}** (Unit complex vectors.) Let ξ ∈ ℂ⁴ with ξ·ξ = 1, put K := ‖ξ‖², and assume K² < 2. Let
+ξ' := (ξ1, ξ2), ξ'' := (ξ3, ξ4), c² := ξ'·ξ', s² := ξ''·ξ'', q := c² − s², ν1 := ‖ξ'‖² and ν2 := ‖ξ''‖². Then:
+
+(a) c² + s² = 1, ν1 + ν2 = K, |c²| ≤ ν1, |s²| ≤ ν2, |c²| + |s²| ≥ 1, and |c²|² + |s²|² = (1 + |q|²)/2;
+
+(b) |Im q| ≤ (K² − 1)^(1/2) < 1; and Q := (1 + |q|²)/|1 + q²| satisfies Q ≤ K²/(2 − K²), so that 1 + q² ≠ 0;
+
+(c) (ν1² − |c²|²) + (ν2² − |s²|²) ≤ K² − 1;
+
+(d) |ν1 − c²| + |ν2 − s²| ≤ K − 1 + (K² − 1)^(1/2).
+
+*Proof.* Write ξ = α + iβ with α, β ∈ ℝ⁴ and α', β', α'', β'' for their halves. From ξ·ξ = |α|² − |β|² + 2iα·β = 1
+and K = |α|² + |β|², α·β = 0, |α|² = (K + 1)/2, |β|² = (K − 1)/2 and 4|α|²|β|² = K² − 1. (a) The first two hold by
+definition; |c²| = |ξ'·ξ'| ≤ ν1 and |s²| ≤ ν2 by the Cauchy–Schwarz inequality; |c²| + |s²| ≥ |c² + s²| = 1; and
+c² = (1 + q)/2, s² = (1 − q)/2 give the last. (b) Im q = 2(α'·β' − α''·β''), and α'·β' + α''·β'' = α·β = 0, so
+Im q = 4α'·β' = −4α''·β'' and (Im q)² = 16|α'·β'||α''·β''| ≤ 16|α'||α''||β'||β''| ≤ 4|α|²|β|² = K² − 1, using
+|α'||α''| ≤ |α|²/2 and |β'||β''| ≤ |β|²/2. For every complex q, both |1 + q²|² and (1 + |q|²)² − 4(Im q)² equal
+(1 + q1² − q2²)² + 4q1²q2², q = q1 + iq2. With b := |Im q| < 1 and 1 + |q|² ≥ 1 + b² this gives
+Q = (1 − (2b/(1 + |q|²))²)^(−1/2) ≤ (1 + b²)/(1 − b²) ≤ K²/(2 − K²). (c) ν1² − |c²|² = (|α'|² + |β'|²)² −
+(|α'|² − |β'|²)² − 4(α'·β')² ≤ 4|α'|²|β'|², likewise for the second halves, and |α'|²|β'|² + |α''|²|β''|² ≤
+|α|²|β|². (d) ν1 − c² = 2|β'|² − 2iα'·β', so |ν1 − c²| ≤ 2|β'|² + 2|α'||β'|, and adding the second halves gives at most
+2|β|² + 2|α||β| = K − 1 + (K² − 1)^(1/2). ∎
+
+**Lemma {#lem:profile-complex}** (The profiles along complex lines.) On (ℝ⁴ ∖ {0}) × ℝ put, in the notation of
+[[lem:stage-cartesian]],
+
+    G_W := h B/(3 r^(3/2)),   G_a := −h² T U ⊗ U/(12 r²),   G_b := h² T U ⊗ U/(12 r^(3/2)),
+    G_S := −(8/9) h² r⁻⁴ (U ⊗ Z + Z ⊗ U),
+
+so that at the numerical point, where A = 1,
+
+    W_TT = env(v) G_W,   χ dv ⊗ dv = env(v)² G_a + env(v)² (v − τ0)^(−1/2) G_b,   S = env(v)² G_S.  {#eq:profile-split}
+
+Let 0 < σ ≤ 9/25, ρ := σa, p = (τ, x, θ) ∈ Ω × S¹ and e = (e_τ, e_x, e_θ) ∈ ℝ⁶ with |e| = 1. Put K := K(σ) and
+Q̄ := K²/(2 − K²). Then:
+
+(a) for each i ∈ {W, a, b, S} the function t ↦ G_i(x + t e_x, θ + t e_θ) of real t extends holomorphically to a
+neighbourhood of the disc |t| ≤ ρ, and there
+
+    ‖G_W‖ ≤ ((1 − σ)a)^(−3/2) M_W(σ),     M_W(σ) := (1/3)(1.02 Q̄ (20 + 4K² + 54.84 (K² − 1)))^(1/2),
+    ‖G_a‖ ≤ ((1 − σ)a)^(−2) M_A(σ),       ‖G_b‖ ≤ ((1 − σ)a)^(−3/2) M_A(σ),
+    M_A(σ) := (1/3)(1.08)^(1/2) (2Q̄² − 1)^(1/2) (1 + K),
+    ‖G_S‖ ≤ ((1 − σ)a)^(−4) M_S(σ),       M_S(σ) := (8/9) Q̄ K (2(1 + K) + 32σ²/(1 − σ)²)^(1/2);
+
+(b) on Ω × S¹, |G_W|_F ≤ (2√6/3) a^(−3/2), |G_a|_F ≤ (2/3) a⁻², |G_b|_F ≤ (2/3) a^(−3/2) and |G_S|_F ≤ (16/9) a⁻⁴;
+and for m ≥ 1, with ā := 3.70565,
+
+    ‖(d/dt)^m G_i(x + t e_x, θ + t e_θ)|_(t=0)‖ ≤ m! (ā/σ)^m L_i(σ),                                {#eq:profile-cauchy}
+
+where L_W := ā^(3/2)(1 − σ)^(−3/2) M_W, L_a := ā²(1 − σ)^(−2) M_A, L_b := ā^(3/2)(1 − σ)^(−3/2) M_A and
+L_S := ā⁴(1 − σ)^(−4) M_S.
+
+*Proof.* (a) Let |t| ≤ ρ and z := x + t e_x. Since r ≥ a on Ω, |t| ≤ σr, and [[lem:complex-lines]] (a) gives
+|R²(z)| ≥ (1 − σ)² a² > 0. So R²(z) has a holomorphic square root r(z) on a neighbourhood of the disc, equal to |x| at
+t = 0, and ξ := z/r(z) is holomorphic, with ξ·ξ = 1 and ‖ξ‖² ≤ K ≤ K(9/25) = 353/272 by [[lem:complex-lines]] (b);
+so K² < 2. Put c² := ξ'·ξ', s² := ξ''·ξ'' and q := c² − s². By [[lem:complex-unit]] (b), 1 + q² ≠ 0, so
+h := 2^(1/2)(1 + q²)^(−1/2) has a holomorphic branch, positive at t = 0, and so do r(z)^(−1/2) and r(z)^(−3/2); and
+θ' := θ + t e_θ enters only through cos θ', sin θ', cos 2θ' and sin 2θ'. The formulas of [[lem:stage-cartesian]] with
+these functions define the extensions. For real t they agree with the profiles, because the roots involved are
+continuous roots of the same nonvanishing functions and agree at t = 0. Since a < 0.27, |Im θ'| ≤ ρ < 0.0972, so
+κ² := |cos θ'|² + |sin θ'|² = cosh(2 Im θ') < cosh 0.1944 < 1.02 and κ₂² := |cos 2θ'|² + |sin 2θ'|² =
+cosh(4 Im θ') < cosh 0.3888 < 1.08. For complex p1, p2 the Cauchy–Schwarz inequality gives
+|p1 cos θ' + p2 sin θ'|² ≤ κ²(|p1|² + |p2|²), and the same with 2θ' and κ₂. Put Q := (1 + |q|²)/|1 + q²| ≤ Q̄. Then
+|h|² = 2/|1 + q²| = 2Q/(1 + |q|²), and by [[lem:complex-unit]] (a), |h|²(|c²|² + |s²|²) = Q. Finally |r(z)| ≥
+(1 − σ)a by [[lem:complex-lines]] (a).
+
+*G_W.* For complex numbers α, β and the complex 2-vector ξ', ‖α I₂ + β ξ' ⊗ ξ'‖² = 2|α|² + 2 Re(ᾱ β c²) + |β|² ν1² =
+|α|² + |α + β c²|² + |β|²(ν1² − |c²|²), with ν1 := ‖ξ'‖². Here α1 + β1 c² = −s² γ and α2 + β2 s² = −c² γ, and the
+off-diagonal blocks have the squared norm |γ|² ν1 ν2 each, ν2 := ‖ξ''‖². So
+
+    ‖B‖² = |α1|² + |α2|² + |γ|²(|c²|² + |s²|² + 2ν1ν2) + |β1|²(ν1² − |c²|²) + |β2|²(ν2² − |s²|²).
+
+Now |α1|² + |α2|² ≤ 20κ²(|c²|² + |s²|²), |γ|² ≤ 4κ²(|c²|² + |s²|²), |c²|² + |s²|² + 2ν1ν2 ≤ (ν1 + ν2)² ≤ K², and
+|β1|², |β2|² ≤ κ²(26 + 12|q| + 2|q|²). Since the quadratic (12 + 6√5)y² − 12y + 6√5 − 12 has discriminant zero,
+12y + 24 ≤ (12 + 6√5)(1 + y²) for real y; so 2(26 + 12|q| + 2|q|²)/(1 + |q|²) ≤ 28 + 12√5 < 54.84 and
+|h|² |β_j|² ≤ 54.84 κ² Q. With [[lem:complex-unit]] (c), |h|² ‖B‖² ≤ κ² Q (20 + 4K² + 54.84 (K² − 1)), and
+‖G_W‖ = |h| ‖B‖ |r(z)|^(−3/2)/3 gives the bound.
+
+*G_a and G_b.* As c² + s² = 1, 1 + q² = 2(c⁴ + s⁴), 1 − q² = 4c²s² and q = c⁴ − s⁴, so
+h²T = 4((c⁴ − s⁴) sin 2θ' + c²s² cos 2θ')/(c⁴ + s⁴). Put Σ := |c²|² + |s²|² and J := 2 Im(c² s̄²). Then
+|c² ± i s²|² = Σ ± J, so |c⁴ + s⁴|² = Σ² − J² and Q = 2Σ/|1 + q²| = Σ/|c⁴ + s⁴|. Moreover |c²s²|² − Re(c⁴ s̄⁴) =
+|c² s̄²|² − Re((c² s̄²)²) = J²/2, whence |c⁴ − s⁴|² + |c²s²|² = |c⁴ + s⁴|² − 4 Re(c⁴ s̄⁴) + |c²s²|² =
+Σ² + J² − 3|c²s²|² ≤ Σ² + J². So (|c⁴ − s⁴|² + |c²s²|²)/|c⁴ + s⁴|² ≤ (Σ² + J²)/(Σ² − J²) = 2Q² − 1 and
+|h²T| ≤ 4κ₂(2Q² − 1)^(1/2). With U := (1, ξ), ‖U ⊗ U‖ = ‖U‖² = 1 + ‖ξ‖² ≤ 1 + K; and |r(z)|⁻² and |r(z)|^(−3/2) are
+at most ((1 − σ)a)^(−2) and ((1 − σ)a)^(−3/2).
+
+*G_S.* For complex 5-vectors, ‖U ⊗ Z + Z ⊗ U‖² = 2‖U‖²‖Z‖² + 2|U·Z̄|², Z̄ the complex conjugate. Here
+Z = (0, −s² ξ', c² ξ''), so ‖Z‖² = |s²|² ν1 + |c²|² ν2 ≤ ν1ν2(|c²| + |s²|), and U·Z̄ = c̄² ν2 − s̄² ν1, so
+|U·Z̄| = |(c² − ν1)ν2 − (s² − ν2)ν1| ≤ K(K − 1 + (K² − 1)^(1/2)) = 2σK/(1 − σ) by [[lem:complex-unit]] (d), the bound
+being increasing in K. As |h²| = 2/|1 + q²| = Q/Σ and Σ ≥ (|c²| + |s²|)²/2 ≥ 1/2, one has ‖Z‖²/Σ² ≤
+4ν1ν2/(|c²| + |s²|)³ ≤ K² and |U·Z̄|²/Σ² ≤ 4(2σK/(1 − σ))²; so |h²| ‖U ⊗ Z + Z ⊗ U‖ ≤
+Q K (2(1 + K) + 32σ²/(1 − σ)²)^(1/2), and |r(z)|⁻⁴ ≤ ((1 − σ)a)⁻⁴.
+
+(b) For real arguments ξ is real, so K = Q = 1, ν1 = |c²| and ν2 = |s²|, and with κ = κ₂ = 1 the estimates of the
+proof of (a) give |G_W|_F ≤ (1/3) 24^(1/2) r^(−3/2) = (2√6/3) r^(−3/2), |G_a|_F ≤ (2/3) r⁻² and
+|G_b|_F ≤ (2/3) r^(−3/2), as in the proof of [[prop:stage-zero-bounds]]. For G_S, U·Z = 0, |U| = √2
+and |Z| = cs, so |G_S|_F = (8/9) h² r⁻⁴ · 2cs = (16/9) r⁻⁴ sin 2ϑ/(1 + cos² 2ϑ) ≤ (16/9) r⁻⁴. On Ω, r ≥ a. For m ≥ 1,
+Cauchy's estimate on the circle |t| = ρ, applied to the holomorphic function of (a), gives the bound
+m! ρ^(−m) max_(|t|=ρ) ‖G_i‖; and ρ^(−m) ≤ (ā/σ)^m and ((1 − σ)a)^d ≤ ā^(−d)(1 − σ)^d for d < 0, because
+a > 1/ā by [[lem:lambda0-point]] (a). ∎
+
+**Lemma {#lem:envelope-lines}** (The factors that depend on v, along lines.) Let V_1 := √2 and V_m := 4|b_m| a^(1−m)
+for 2 ≤ m ≤ 14, where |b_m| := C(2m, m)/((2m − 1) 4^m), and for 0 ≤ k ≤ j ≤ 14 let B_(j,k) be j!/k! times the
+coefficient of T^j in (Σ_(m=1)^14 V_m T^m)^k. Let E be a smooth function on (τ0, ∞) with |E^(k)| ≤ F_k for
+0 ≤ k ≤ 14. Then for p ∈ Ω × S¹ and e ∈ ℝ⁶ with |e| = 1, and v(p + te) := τ + t e_τ + |x + t e_x|,
+
+    |(d/dt)^j E(v(p + te))|_(t=0)| ≤ Σ_(k=0)^j F_k B_(j,k)          (0 ≤ j ≤ 14).                    {#eq:envelope-lines}
+
+For E = env one may take F_k = e_k, the bound of the third column of [[eq:envelope-derivatives]]; for E = env²,
+F_k^a := Σ_(l=0)^k C(k, l) e_l e_(k−l); and for E = env² (v − τ0)^(−1/2), F_k^b := Σ_(l=0)^k C(k, l) F_l^a w_(k−l),
+where w_n := (1/2)_n (2/5)^(n+1/2) and (1/2)_n := (1/2)(3/2)⋯((2n − 1)/2).
+
+*Proof.* Put g(t) := v(p + te). Then g'(0) = e_τ + ξ·e_x and |g'(0)| ≤ |e_τ| + |e_x| ≤ √2. If e_x ≠ 0, put
+cos ψ := ξ·e_x/|e_x| and w := −t|e_x|/r. For real t near 0, |x + t e_x| = r(1 − 2w cos ψ + w²)^(1/2) =
+r(1 − w e^(iψ))^(1/2)(1 − w e^(−iψ))^(1/2), the two factors being complex conjugate. The binomial series
+(1 − ζ)^(1/2) = Σ_k b_k ζ^k, |ζ| < 1, has b_0 = 1 and b_k = −|b_k| for k ≥ 1. So the coefficient of w^m in the
+product is Σ_(k+l=m) b_k b_l e^(i(k−l)ψ). Its modulus is at most Σ_(k+l=m) |b_k||b_l|, the coefficient of ζ^m in
+(2 − (1 − ζ)^(1/2))² = 5 − ζ − 4(1 − ζ)^(1/2), that is 4|b_m| for m ≥ 2. Hence |g^(m)(0)|/m! ≤ 4|b_m| |e_x|^m
+r^(1−m) ≤ V_m for m ≥ 2, since |e_x| ≤ 1 and r ≥ a.
+
+Let P(t) := Σ_(m=1)^j g^(m)(0) t^m/m!. Taylor's formula for E at g(0), with y = g(t) − g(0) = P(t) + o(|t|^j) and
+y = O(|t|), gives E(g(t)) = Σ_(k=0)^j E^(k)(g(0)) P(t)^k/k! + o(|t|^j). So (E∘g)^(j)(0)/j! is the coefficient of t^j
+in Σ_k E^(k)(g(0)) P(t)^k/k!. That coefficient is a polynomial in the coefficients of P with nonnegative coefficients;
+its modulus is therefore at most the same polynomial in the bounds V_m, with |E^(k)| ≤ F_k, which is
+[[eq:envelope-lines]]. For the three choices of E, Leibniz's rule gives |(env²)^(k)| ≤ F_k^a. On the support
+[1/2, 7/2] of env one has v − τ0 ≥ 5/2, where |d^n (v − τ0)^(−1/2)/dv^n| = (1/2)_n (v − τ0)^(−1/2−n) ≤ w_n; and off
+the support env² vanishes with all its derivatives. ∎
+
+[[sec:stage-bounds-table-v]], [[sec:stage-bounds-table-b]] and [[sec:stage-bounds-table-f]] print upper bounds for
+V_m, B_(j,k), F_k^a, w_k and F_k^b, and [[sec:stage-bounds-table-eps]] the resulting bounds ε_j^W, ε_j^a and ε_j^b of
+the right side of [[eq:envelope-lines]] for env, env² and env²(v − τ0)^(−1/2). [[sec:stage-bounds-table-sigma]] and
+[[sec:stage-bounds-table-gamma]] print M_W, M_A, M_S and L_i at eight values of σ, and the bounds γ_m^i of
+[[lem:profile-complex]] (b) with the σ used for each m.
+
+**Proposition {#prop:stage-bounds-higher}** (Derivative bounds at the numerical point.) At the numerical point, for
+0 ≤ n ≤ 14,
+
+    D_(W_TT)[n] ≤ D^W[n],    D_(χ dv⊗dv)[n] ≤ D^χ[n],    D_S[n] ≤ D^S[n],    D_(W_TT + χ dv⊗dv)[n] ≤ D^W[n] + D^χ[n],
+
+with the numbers of [[sec:stage-bounds-table-d]]. At n = 0, D_S[0] = (16/9) c² a⁻⁴ ∈ (587.711, 587.713), c the
+envelope constant of [[eq:envelope]], attained at v = 2, r = a, ϑ = π/4. In particular:
+
+    n     D_(W_TT)[n]       D_(χ dv⊗dv)[n]     D_S[n]            D_(W_TT + χ dv⊗dv)[n]
+    0     15.43             16.05              587.72            31.48
+    1     6.253 · 10²       1.196 · 10³        4.260 · 10⁴       1.822 · 10³
+    3     9.341 · 10⁵       3.017 · 10⁶        1.526 · 10⁸       3.952 · 10⁶
+    6     1.562 · 10¹¹      8.028 · 10¹¹       6.025 · 10¹³      9.590 · 10¹¹
+    9     8.741 · 10¹⁶      5.301 · 10¹⁷       5.044 · 10¹⁹      6.176 · 10¹⁷
+    11    1.020 · 10²¹      6.330 · 10²¹       6.444 · 10²³      7.350 · 10²¹
+    14    2.430 · 10²⁷      1.518 · 10²⁸       1.583 · 10³⁰      1.761 · 10²⁸
+
+*Proof.* Let p ∈ Ω × S¹ and e ∈ ℝ⁶ with |e| = 1. By [[eq:profile-split]] and Leibniz's rule along the line,
+
+    (d/dt)ⁿ W_TT(p + te)|_(t=0) = Σ_(j=0)^n C(n, j) ((d/dt)^j env(v(p + te))) ((d/dt)^(n−j) G_W(x + t e_x, θ + t e_θ))
+
+at t = 0, and likewise for the two terms of χ dv ⊗ dv and for S. By [[lem:envelope-lines]] the first factor is at most
+ε_j^W, ε_j^a, ε_j^b or ε_j^S := ε_j^a. By [[lem:profile-complex]] (b), with the σ printed in
+[[sec:stage-bounds-table-gamma]], the second is at most γ_(n−j)^W, γ_(n−j)^a, γ_(n−j)^b or γ_(n−j)^S. Summing gives
+D^W[n], D^χ[n] and D^S[n], and the triangle inequality gives the sum. At n = 0 the sharper values 15.43 and 16.05 are
+those of [[prop:stage-zero-bounds]]. By [[lem:profile-complex]] (b), |S|_F = (16/9) env² r⁻⁴ sin 2ϑ/(1 + cos² 2ϑ) ≤
+(16/9) c² a⁻⁴, with equality at v = 2, r = a, ϑ = π/4; this is a point of Ω × S¹, since Ω is invariant under rotations
+of x and contains the point X* of [[sec:lambda0-norms]], where v = 2 and r = a. The enclosure follows
+from 1.3240867 < c < 1.3240879 and 0.2698587885 < a < 0.269858789. ∎
+
+No result of the paper uses the bounds of this section.
 
 ### The threshold in three norms {#sec:lambda0-norms}
 

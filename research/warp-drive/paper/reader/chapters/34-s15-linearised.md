@@ -980,17 +980,20 @@ of the components of h, and of finitely many of their r-derivatives, which in th
 so h = 0 = δ*0.
 
 *Step 2: vector type, l ≥ 2.* h = 2rf_a V_i dy^a dz^i + 2r²H_T V_ij dz^i dz^j. With ζ_0 := r²BV_i dz^i,
-B := 2H_T/k_V, h′ := h + δ*ζ_0 has H_T = 0 and f_a = F_a := f_a + (r/k_V)D_aH_T, the gauge invariant of
-[[thm:s15-ki]] (V) [[pending:issue-1]]. D Ric(h′) = D Ric(h) = 0, so r²F^a = ε^(ab)D_bΩ with Ω as in (V). The
-r-component, r²F^r = ε^(rt)∂_tΩ, determines Ω = e^(−iσt)Ω_0(r) up to a function of r alone, which (V)'s equation for Ω
-and the t-component force to vanish, as k_V² − 2 > 0; so Ω = ±r²F^r/(iσ), the sign that of ε^(rt). In the ingoing
+B := 2H_T/k_V, the vector gauge shifts give H_T − (k_V/2)B = 0 and f_a + (r/2)D_aB = f_a + (r/k_V)D_aH_T; so
+h′ := h + δ*ζ_0 has H_T = 0 and f_a = F_a := f_a + (r/k_V)D_aH_T, the gauge invariant of [[thm:s15-ki]] (V).
+D Ric(h′) = D Ric(h) = 0, so r²F^a = ε^(ab)D_bΩ with Ω as in (V). The r-component, r²F^r = ε^(rt)∂_tΩ, determines
+Ω = e^(−iσt)Ω_0(r) up to a function of r alone, which (V)'s equation for Ω and the t-component force to vanish, as
+k_V² − 2 > 0; so r²F^r = −iσε^(rt)Ω and Ω = ε^(tr)r²F^r/(iσ), as ε^(tr) = −ε^(rt) = ±1 (the orbit metric has
+determinant −1). In the ingoing
 chart F_a dy^a = F_v dv + F′_r dr, so F^r = fF_r = fF′_r + F_v has no factor 1/f. Φ := r^(−3/2)Ω solves the master
 equation with V_V > 0, so Φ = 0; then F = 0, h′ = 0 and h = δ*(−ζ_0).
 
 *Step 3: scalar type, l ≥ 2.* h = f_ab S dy^a dy^b + 2rf_a S_i dy^a dz^i + 2r²(H_L γ_ij S + H_T S_ij)dz^i dz^j. With
-ζ_1 := 2X_a S dy^a + (2r²/k)H_T S_i dz^i, X_a as in [[thm:s15-ki]] (S) [[pending:issue-1]], the gauge shifts give
+ζ_1 := 2X_a S dy^a + (2r²/k)H_T S_i dz^i, X_a as in [[thm:s15-ki]] (S), the gauge shifts give
 H_T + (−k/2)(2H_T/k) = 0 and f_a + (r/k)D_aH_T − (k/r)X_a = 0, so h′ := h + δ*ζ_1 has f_a = H_T = 0, and its remaining
-components are the invariants F_ab and F (X_a vanishes for h′). D Ric(h′) = 0, so by [[thm:s15-ki]] (S) the function
+components are the invariants F_ab and F (f_ab + D_aX_b + D_bX_a = F_ab and H_L + H_T/3 + r⁻¹(D^a r)X_a = F, by the
+same shifts; X_a vanishes for h′). D Ric(h′) = 0, so by [[thm:s15-ki]] (S) the function
 Φ solves −Φ_** + V_SΦ = σ²Φ, V_S > 0. In the ingoing chart, with F_ab dy^a dy^b = F_vv dv² + 2F_vr dv dr + F′_rr dr²,
 one has F^t_t = −F_vv/f, F^r_r = F_vv/f + 2F_vr + fF′_rr and F^r_t = F_vv + fF_vr, so X + Y = r(2F_vr + fF′_rr − 4F)
 and Z = r(F_vv + fF_vr) have no factor 1/f, and neither has Φ (H ≥ p > 0). The radial uniqueness gives Φ = 0, so

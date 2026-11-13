@@ -400,7 +400,7 @@ and D_zΨ(u′, 0) is an isomorphism 𝒴 → 𝒵 whose inverse has norm at mos
 (e) For u′ ∈ 𝒩_ε let A_(g′) be the matrix (A_(g′))_(ij) := ⟨e_i, e_j⟩_(L²_ψ(g′)); it is symmetric and positive
 definite, and
 
-    π_(g′)v = v − Σ_(i,j∈I) (A_(g′)⁻¹)_(ij) ⟨v, e_j⟩_(L²_ψ(g′)) e_i.                                    {#eq:s28-projection}
+    π_(g′)v = v − Σ_(i,j∈I) (A_(g′)⁻¹)_(ij) ⟨v, e_j⟩_(L²_ψ(g′)) e_i.                                 {#eq:s28-projection}
 
 The kernel of π_(g′) is 𝒦₀, and π₀π_(g′) = π₀, π_(g′)π₀ = π_(g′). π_(g′) maps 𝒵̃ and H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ)
 into themselves, and on each ‖π_(g′) − π_(g″)‖ ≤ C‖g′ − g″‖_(W^(k+4,∞)_(x²)(g₀)) for u′, u″ ∈ 𝒩_ε. The maps
@@ -424,8 +424,8 @@ in v and e_j, so |⟨v, e_j⟩_(L²_ψ(g′)) − ⟨v, e_j⟩_(L²_ψ(g″))| �
 A_(g′) − A_(g″), hence for A_(g′)⁻¹ − A_(g″)⁻¹, and this gives the bound on π_(g′) − π_(g″), sup_𝒜|g′ − g″|_(g₀) being at
 most the norm of W^(k+4,∞)_(x²)(g₀). For z ∈ 𝒴, ι_(u′)z lies in H̊^(k+3)_(x²,ψ) × H̊^(k+4)_(x²,ψ) and in 𝒦₀^(⊥g′), so in
 𝒴_(g′); likewise π₀y ∈ 𝒴 for y ∈ 𝒴_(g′); and π₀ι_(u′)z = π₀π_(g′)z = π₀z = z, ι_(u′)π₀y = π_(g′)π₀y = π_(g′)y = y. The
-same argument applies to π₀|_(𝒵_(g′)) and π_(g′)|_𝒵. Finally, ♯_(g′) multiplies the 1-form by g′⁻¹, and
-x^(2i)|∇^(i)(g′⁻¹ − g₀⁻¹)|_(g₀) ≤ Cε for i ≤ k + 4, while x^(2i)|∇^(i)(g′⁻¹ − g″⁻¹)|_(g₀) ≤ C‖g′ − g″‖_(W^(k+4,∞)_(x²)(g₀));
+same argument applies to π₀|_(𝒵_(g′)) and π_(g′)|_𝒵. Finally, ♯_(g′) multiplies the 1-form by g′⁻¹, and for
+i ≤ k + 4, x^(2i)|∇^(i)(g′⁻¹ − g₀⁻¹)|_(g₀) ≤ Cε and x^(2i)|∇^(i)(g′⁻¹ − g″⁻¹)|_(g₀) ≤ C‖g′ − g″‖_(W^(k+4,∞)_(x²)(g₀));
 by the Leibniz rule, multiplication by a tensor with bounded x^(2i)|∇^(i)·|_(g₀), i ≤ k + 1, is bounded on H̊^j_(x²,ψ),
 j ≤ k + 1, by a multiple of these bounds.
 

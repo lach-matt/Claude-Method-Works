@@ -225,16 +225,17 @@ vanishing; so the spatial components of its Ricci tensor are
 
     R_ij = ½∂_s²h_ij + Ric(h_s)_ij + ¼(h^kl ∂_s h_kl) ∂_s h_ij − ½h^kl ∂_s h_ik ∂_s h_jl.
 
-Ric = 0 therefore reads ∂_s²h = F(h, ∂_s h, ∂_x h, ∂_x²h), with F := −2 Ric(h) − ½(h^kl ∂_s h_kl) ∂_s h + (∂_s h)h⁻¹(∂_s
-h) a universal expression, polynomial in h⁻¹, h, ∂_s h and the first and second x-derivatives of h. Differentiating m
-times in s makes ∂_s^(m+2)h at s = 0 a universal expression in the ∂_s^j h, j ≤ m + 1, and their x-derivatives. By
-induction on m, from h^λ_0 = h_0 and ∂_s h^λ_0 = ∂_s h_0, ∂_s^m h^λ and ∂_s^m h agree at s = 0 for every m, with all
-their x-derivatives. So H := h^λ on s ≤ 0 and h on s ≥ 0 has one-sided partial derivatives of every order which agree at
-s = 0. By induction on the order, every partial derivative of H exists, the one-sided difference quotients in s having
-the same limit at s = 0, and it is continuous; so H is C^∞. The metric −ds² + H is then smooth on (−ε, ε) × U, Ricci-flat
-on s ≠ 0, and so on s = 0 as well, Ric depending continuously on two derivatives. As the transition maps between the Φ_U
-are the identity near Σ, these metrics, g_λ on A ∖ Σ and g on B ∖ Σ form one smooth Ricci-flat Lorentzian metric g_gl on
-M_gl. On Σ = {s = 0} it induces H_0 = γ and the second fundamental form ½∂_s H_0 = k.
+Ric = 0 therefore reads ∂_s²h = F(h, ∂_s h, ∂_x h, ∂_x²h), with
+F := −2 Ric(h) − ½(h^kl ∂_s h_kl) ∂_s h + (∂_s h)h⁻¹(∂_s h) a universal expression, polynomial in h⁻¹, h, ∂_s h and the
+first and second x-derivatives of h. Differentiating m times in s makes ∂_s^(m+2)h at s = 0 a universal expression in the
+∂_s^j h, j ≤ m + 1, and their x-derivatives. By induction on m, from h^λ_0 = h_0 and ∂_s h^λ_0 = ∂_s h_0, ∂_s^m h^λ and
+∂_s^m h agree at s = 0 for every m, with all their x-derivatives. So H := h^λ on s ≤ 0 and h on s ≥ 0 has one-sided
+partial derivatives of every order which agree at s = 0. By induction on the order, every partial derivative of H exists,
+the one-sided difference quotients in s having the same limit at s = 0, and it is continuous; so H is C^∞. The metric
+−ds² + H is then smooth on (−ε, ε) × U, Ricci-flat on s ≠ 0, and so on s = 0 as well, Ric depending continuously on two
+derivatives. As the transition maps between the Φ_U are the identity near Σ, these metrics, g_λ on A ∖ Σ and g on B ∖ Σ,
+form one smooth Ricci-flat Lorentzian metric g_gl on M_gl. On Σ = {s = 0} it induces H_0 = γ and the second fundamental
+form ½∂_s H_0 = k.
 
 *(i), time orientation and connectedness.* Along each geodesic s ↦ Φ_U(s, x) the tangent ∂_s is timelike and
 continuous, so it stays in the cone of its value n_λ, resp. n, at s = 0: ∂_s is future directed for g_λ on s < 0 and

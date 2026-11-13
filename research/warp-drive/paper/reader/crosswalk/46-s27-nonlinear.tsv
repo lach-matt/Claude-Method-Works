@@ -47,3 +47,7 @@ prop:vii-3-2	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:390	VII Proposition 3.2
 sec:s27-rate	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:427	VII section 4 (427-437, 445-456)	private key
 cor:s27-rate	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:427	VII section 4: the ε_m refinement and the rate (0.2)	private key; for S30
 eq:s27-rate	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:87	VII (0.2) as derived in section 4 (445-456)	
+eq:s27-motion	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:87-91	III.I(7) Definition 1.2, the composite in (1.3)	private key; φ_(S,S⁰) := ψ_(S⁰) ∘ φ_S stated as a map (review R-S27 M1)
+lem:s27-translated-exterior	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:60-110; docket68/n1star/proof5/PART-III-I8-UNPARAM.md:460-469	III.I(7) Lemma 1.1, Lemma 1.3 (a); finding (I′′′′′′′1), the requirement	private key; (b) is lem:iii-i7-1-3 (a) for φ_(S,S⁰); (c) checks the S26 exterior results for φ_(S,S⁰) (review R-S27 M1)
+sec:s27-local	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:185-188; docket68/n1star/proof5/PART-III-K-NONLINEAR.md:208	III.K proof of Proposition 1.2, compact part	private key; "standard local theory" and Cauchy stability stated as (L), (N) and derived from [DS23] Theorems 2.4-2.6 (review R-S27 m8)
+lem:s27-below	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:679-690	III.K Lemma 2.3 D626 bracket (L6.1 Uses); pointwise proof of II.C Lemma 3.2 and II.E Lemma 1.2 (iv)	private key; review R-S27 finding 3 (M3): level 7/8 below Ω_*

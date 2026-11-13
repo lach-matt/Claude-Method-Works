@@ -229,10 +229,10 @@ the hypothesis of [[lem:iii-i13-2-3]], then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p
 [[lem:iii-i8-3-2]] holds at b as at b₀.
 
 *Proof.* By [[lem:iii-i13-2-2]], which is stated at b, u = Σ_(ν∈𝒩_β) m_ν(S_ν) + u^rot_β + ũ with ũ in the class of
-[[eq:iii-i13-2-2]], and the S_ν are determined by u − u^rot_β. There u^rot_β is the sum of the v1 terms of
-[[prop:iii-i10-3-1]] with Re λ₀ < β − 2 and of the v1 terms v^rot_β of [[prop:iii-i11-3-1]] at the level β, and
-[[prop:iii-i15-2-2]] (a)–(b) identifies each of them: the terms of u^rot_β are the rotation rows with the coefficients
-A_(b,ν)(G) of [[def:iii-i15-2-3]],
+[[eq:iii-i13-2-2]], and the S_ν are determined by u − u^rot_β. There u^rot_β is the sum of the terms of u^rot_ι
+([[prop:iii-i10-3-1]]) with Re λ₀ < β − 2 and of the spectral v1 terms v^rot_β ([[prop:iii-i13-2-1]]), and
+[[prop:iii-i15-2-2]] (a) and (b) identify these two kinds of terms; the identifications do not involve the level, and
+β − 2 ≤ α − 2. So the terms of u^rot_β are the rotation rows with the coefficients A_(b,ν)(G) of [[def:iii-i15-2-3]],
 
     u^rot_β = Σ_(ν∈𝒩^(<β)_rot) m_ν(A_(b,ν)(G))     up to K⁺-weight Re λ + 1 − ε > β − 2,
 
@@ -288,8 +288,8 @@ the parameter of p⃗ tending to b₀. The bound on A_k is direct, with no conti
 C^(k+1)_ν(p⃗′) = S^(h,p⃗,β_(k+1))_ν(G′(p⃗′)) − W′_ν, resp. A_(b,ν)(G′(p⃗′)) − W′_ν, and G′ is affine in p⃗′. Its
 dependence on the coordinates W′_ν of the rows of 𝒩 ⊔ 𝒩_rot is through:
 
-- (r^ν_(h,p⃗) + E^ν_(h,p⃗))(W′_ν). At the base point (0, p⃗_b) the identity [[lem:iii-i9-2-4]] at b gives
-  f^ν_b = L_(0,p⃗_b)m_ν up to the O(|b − b₀|) mixing of g_(b₀,b,0) in 𝒞. So r^ν_(h,p⃗) + E^ν_(h,p⃗) has norm
+- (r^ν_(h,p⃗) + E^ν_(h,p⃗))(W′_ν). At the base point (0, p⃗_b), [[lem:iii-i9-2-6]] (e) gives
+  f^ν_b = L_(0,p⃗_b)m_ν + r^ν_(0,p⃗_b) with r^ν_(0,p⃗_b) = O(|b − b₀||W|). So r^ν_(h,p⃗) + E^ν_(h,p⃗) has norm
   O(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) in 𝒴^♮_2(α−) (the bounds of [[lem:iii-i9-2-6]] (e), and (P6)).
 - Δ_q(p⃗′) and R_q u(p⃗′), of norm O(‖q‖) ([[lem:iii-i14-2-3]], [[lem:iii-i14-2-4]]).
 
@@ -363,7 +363,7 @@ b ∈ ℬ̄_*, the statements at b ([[def:s25-at-b]]) of the following hold, the
   of [[lem:iii-i9-2-6]] (e), and the identities [[eq:iii-i7-2-3]] that [[lem:iii-i9-2-4]] states for P_4 in the form
   [[eq:iii-i15-2-7]] of [[lem:iii-i15-2-11]], P_4 being P_2 on the directions of p⃗_≤0 at W = 0;
 - [[def:iii-i10-1-1]], [[def:iii-i10-1-3]], [[lem:iii-i10-1-2]], [[lem:iii-i10-2-1]] (c) and [[prop:iii-i10-3-1]];
-- [[prop:iii-i11-3-1]], [[lem:iii-i11-3-2]] and [[lem:iii-i11-3-3]] (at fixed b, the proof of [[lem:iii-i15-2-4]]),
+- [[prop:iii-i11-3-1]], [[lem:iii-i11-3-2]] and [[lem:iii-i11-3-3]] (stated at a fixed b),
   and [[thm:iii-i11-4-1]] only inside [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]: at a rotating b its parameter
   space lacks the rotation rows, and [[prop:iii-i15-2-5]] with q = 0 is its form there;
 - [[lem:iii-i12-2-3]], [[lem:iii-i12-2-4]] and [[thm:iii-i12-3-1]], in the forms of [[lem:iii-i15-2-9]] and

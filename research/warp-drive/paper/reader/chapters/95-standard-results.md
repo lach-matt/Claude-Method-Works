@@ -251,6 +251,13 @@ following a standard argument, given any compact interval I ⊂ ℝ and s > N/2,
 denotes a continuous increasing function (a positive constant, resp.) depending on the structure of A^i and R such that
 F_(I_1) ≤ F_(I_2) (C_(I_1) ≤ C_(I_2), resp.) whenever I_1 ⊂ I_2."
 
+**Theorem {#thm:std-ds-stability}** ([DS23, Theorem 2.5, p. 5].) "Let r > N/2 + 1. Assume that (A1)-(A4) are satisfied
+on some U ⊂ ℝ^m open. The solution asserted in Theorem 2.4 depends continuously on the initial data in the following
+sense. Assume that u0 ∈ H^r with M̃ = dist(U^c, Im(u0)) > 0 and u is the solution asserted in Theorem 2.4 with initial
+datum u0 on the interval I = [−T, T]. If u_(0,n) → u0 in H^r as n → ∞, then for sufficiently large n, the solutions u_n
+corresponding to the initial data u_(0,n) also exist on I and u_n → u in C(I, H^r)." Theorem 2.4 of [DS23] is
+[[thm:std-ds-existence]].
+
 **Theorem {#thm:std-ao-existence}** ([AO14, Theorem 1.1, p. 2, and Remark 1.2, p. 3].) The setting is the initial value
 problem (p. 2)
 
