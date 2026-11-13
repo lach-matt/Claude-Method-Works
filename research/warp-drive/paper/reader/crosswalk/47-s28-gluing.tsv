@@ -1,0 +1,45 @@
+label	source	source_name	note
+ch:s28	docket68/n1star/proof5/PART-V-GLUING.md:1-18; docket68/n1star/proof5/PART-VII-ASSEMBLY.md:160-166; docket68/n1star/BEYOND5-R0-PROOF.md:353-366, 409-439	V status sentence; VII section 2 opening; R0P sections 7 and 9	introduction from V's statement sentence (status dropped); inner-radius paragraph from R0P sections 7, 9 (family read on |x| >= 50 R_1; VII section 2 takes data on r_flat <= r <= 3R); continuity lemma announced for ch:localised-data
+sec:v-0	docket68/n1star/proof5/PART-V-GLUING.md:20-49	V section 0 (Notation)	data-pair letter x renamed u (x is the defining function); Lorentzian metric G renamed fraktur g (G is the symmetry group); derivative count m in (0.3) renamed j (m is the mass); KID space calK renamed fraktur K (script K is the Kretschmann scalar edition-wide); rotations R in O(4) renamed O; [CD03] (2.4) quoted with page (was cited only)
+eq:v-0-1	docket68/n1star/proof5/PART-V-GLUING.md:26-27	V (0.1)	[CD03] (2.1), p. 4; also thm:std-cd-constraints
+eq:v-0-2	docket68/n1star/proof5/PART-V-GLUING.md:31	V (0.2)
+eq:v-0-3	docket68/n1star/proof5/PART-V-GLUING.md:35-37	V (0.3)	index m renamed j
+eq:v-0-4	docket68/n1star/proof5/PART-V-GLUING.md:43	V (0.4)	W_ab identified with S11's J_ab
+sec:v-1	docket68/n1star/proof5/PART-V-GLUING.md:51-134	V section 1
+lem:v-1-1	docket68/n1star/proof5/PART-V-GLUING.md:53-64	V Lemma 1.1	Omega renamed calO (Omega is the main domain)
+lem:v-1-2	docket68/n1star/proof5/PART-V-GLUING.md:66-95	V Lemma 1.2
+eq:v-1-1	docket68/n1star/proof5/PART-V-GLUING.md:68-71	V (1.1)
+eq:v-1-2	docket68/n1star/proof5/PART-V-GLUING.md:74	V (1.2)
+prop:v-1-3	docket68/n1star/proof5/PART-V-GLUING.md:97-118	V Proposition 1.3 (as corrected at D315, finding V6: no normalisation of the norm)	sphere radius rho renamed varrho (rho is the Hamiltonian constraint); ADM-units paragraph 120-122 kept, G = 1 written as Newton's constant equal to one
+eq:v-1-3	docket68/n1star/proof5/PART-V-GLUING.md:101-102	V (1.3)	amendment tag dropped
+lem:v-1-4	docket68/n1star/proof5/PART-V-GLUING.md:124-134	V Lemma 1.4	scaling map sigma_R renamed calS_R (sigma is the spectral parameter)
+eq:v-1-4	docket68/n1star/proof5/PART-V-GLUING.md:127-128	V (1.4)
+sec:v-2	docket68/n1star/proof5/PART-V-GLUING.md:136-264	V section 2	mass mu renamed m, mu_0 renamed m_0 (S11 notation)
+def:v-2-1	docket68/n1star/proof5/PART-V-GLUING.md:138-152; docket68/n1star/BEYOND5-R0-PROOF.md:355-362	V Definition 2.1 with R0P section 7	domain clause read on |x| >= 50 R_1 (R0P); |A| taken as the operator norm, eps_P <= R_1; the domain argument (KS metric defined for ||A|| < R_1 there) written from R0P 359-360; Poincare map Phi_p renamed calP_p (Phi is [CD03]'s weight map), G_p renamed fraktur g_p
+lem:v-2-2	docket68/n1star/proof5/PART-V-GLUING.md:154-166	V Lemma 2.2	P (III.B) written Pi as in S11; III.B Lemma 3.1 (b) and the proof of prop:iii-b-3-6 cited for the symbol classes
+prop:v-2-3	docket68/n1star/proof5/PART-V-GLUING.md:168-260	V Proposition 2.3	diagonal scalars e, j renamed c_E, c_J and the matrix (a b'; c' d) renamed (a11 a12; a21 a22) (d is the degree, e the KID basis); the 1-form alpha renamed xi_A (alpha is the decay rate); the parenthetical citing the numerical check moved to rem:s28-jacobian
+eq:v-2-1	docket68/n1star/proof5/PART-V-GLUING.md:171-174	V (2.1)
+cor:v-2-4	docket68/n1star/proof5/PART-V-GLUING.md:262-264	V Corollary 2.4
+rem:s28-jacobian	docket68/n1star/proof5/PART-V-GLUING.md:178-179, 427-428	V Prop 2.3's parenthetical and finding (V2) (jac5 check)	written as a numerical observation (registry C231, MEASUREMENT); no proof uses it
+sec:v-3	docket68/n1star/proof5/PART-V-GLUING.md:266-412	V section 3
+sec:s28-solvability	docket68/n1star/proof5/PART-V-GLUING.md:277-304	V Theorem 3.1 proof, Step 1	Step 1's setting stated for a general compact manifold with boundary and smooth background (re-run of the same argument), so the continuity lemma can be cited by ch:localised-data; [CD03] (A.1), (2.9), Lemma 2.6, Proposition 3.3 and p. 11, Definition 5.3 quoted with pages
+eq:s28-psi	docket68/n1star/proof5/PART-V-GLUING.md:310-313	V Lemma 3.2's map Psi and T_x'
+lem:s28-setting	docket68/n1star/proof5/PART-V-GLUING.md:277-304	V Step 1 (as corrected at D315, finding V7: projection orthogonal in the current metric)	(e) the kernel of pi_g' and its continuity in g': explicit formula written (source: deduced without derivation); (c) Sobolev embedding as in source; (d) Theorem 3.6's bound
+eq:v-3-1	docket68/n1star/proof5/PART-V-GLUING.md:296-297	V (3.1)
+eq:s28-projection	docket68/n1star/proof5/PART-V-GLUING.md:287-290	V Step 1 (kernel M_g'^-1 K of the projection)	explicit formula written; M_g' renamed calC_g'
+lem:v-3-2	docket68/n1star/proof5/PART-V-GLUING.md:306-327	V Lemma 3.2 (as corrected at D315, finding V8)	stated at a general background with hypotheses explicit (setting + (Fin)); Lipschitz derivative written out (source: deduced, finding V8); part (c) (Theorem 5.9's solution lies in the uniqueness ball, via [CD03] Lemma 2.6) added as the step the source takes for granted
+eq:s28-lower	docket68/n1star/proof5/PART-V-GLUING.md:318-320	V Lemma 3.2 proof display
+eq:s28-cont	docket68/n1star/proof5/PART-V-GLUING.md:322-327	V Lemma 3.2 proof (continuity)
+lem:v-3-3	docket68/n1star/proof5/PART-V-GLUING.md:376-384	V Lemma 3.3 ([CD03] Lemma 3.18)	maps renamed f, f_R and parameter R (lambda is the wavelength); R^m written R^D (m is the mass)
+sec:s28-gluing-theorem	docket68/n1star/proof5/PART-V-GLUING.md:268-395	V Theorem 3.1 and proof
+thm:v-3-1	docket68/n1star/proof5/PART-V-GLUING.md:268-395	V Theorem 3.1 (Step 5 as corrected at D317)	Step 1 applies sec:s28-solvability at (0, delta) on the closed annulus; threshold R_2 renamed R_eps; Step 3 coefficients c_i renamed kappa_i
+eq:v-3-2	docket68/n1star/proof5/PART-V-GLUING.md:372	V (3.2)
+rem:v-3-4	docket68/n1star/proof5/PART-V-GLUING.md:397-412; docket68/n1star/GLUEDECAY5.md:346-361 (Lemma 4.1 (d))	V Remark 3.4 with its last two sentences replaced by the bracket at 404-412 (GLUEDECAY5 R2.0, R3.0)	rho^4 C^infty written |x|^-4 C^infty(Xbar); GLUEDECAY5 Lemma 4.1 (d) cited as pending (ch:after-shell, no exported key)
+rem:s28-cd03	docket68/n1star/proof5/PART-V-GLUING.md:416-450	V findings (V1), (V3), (V4), (V7) condensed	optional remarks on the sources (outline-S 2.3), neutral words, no labels
+sec:vii-2	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:160-166, 31-41	VII section 2 opening and VII section 0 (the group, its fixed spaces)	mu_end written m_0 (S27 states the class with mu_0 general); G fixed spaces restated from VII 36-41 (S27 carries section 0); c_IVP written C'' (S11 notation)
+lem:vii-2-1	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:168-190	VII Lemma 2.1	rho^j C^infty written |x|^-j C^infty(Xbar); I_mu written I_m
+prop:vii-2-2	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:192-254	VII Proposition 2.2	smallness eta renamed zeta (eta is Minkowski); mu-bar written m_0; r_0 written r_flat (R0P section 9); "(new)" dropped
+eq:vii-2-1	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:195-197	VII (2.1)
+eq:vii-2-2	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:199-201	VII (2.2)
+rem:s28-mass-bound	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:525-528	VII finding (VII6) (dropped tail)	mined as a remark after P2.2 (outline-S S28 Fold; risk R7)
+cor:vii-2-3	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:256-269	VII Corollary 2.3	cites lem:vii-1-1, lem:vii-1-2 (S30, forward) and lem:vii-0-1 (S27); b_0 = (mu_end, 0) stated; Theorem E's order J kept as that lemma's parameter

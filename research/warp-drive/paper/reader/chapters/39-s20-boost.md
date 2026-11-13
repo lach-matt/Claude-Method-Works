@@ -1163,7 +1163,8 @@ L = L_(h,S), χ_K, ℓ_I (with [[eq:iii-i5-1-2]]), λ_♯ and [[eq:iii-i5-1-1]] 
 On the spectral side, L̂_b(σ) = L_0 − iσL_1 − σ²L_2 with L_0 = L̂_b(0), L_1 = [L_b, t_*] and L_2 = ½[[L_b, t_*], t_*]
 stationary ([[sec:iii-h-1]]); near ∂X̄, L_1 ∈ ρ Diff¹_b and L_2 ∈ ρ²C^∞ ⊂ C^∞ (Cartesian derivatives lie in ρ𝒱_b, and
 L_2 is of order 0). L̃_b(σ) is the augmented operator of [[def:iii-h-3-1]], with the rows
-r(u) := (⟨u, f*_1⟩, ⟨u, f*_2⟩), f*_j ∈ C^∞_c(X°) subject to [[eq:iii-h-3-1]], and the columns
+r(u) := (⟨u, f*_1⟩, ⟨u, f*_2⟩), f*_j ∈ C^∞_c(X°) normalised at b₀ by [[eq:iii-h-3-1]], their matrix B(b) on the states
+at b being invertible on ℬ̄_* ([[eq:s20-rows]], [[lem:s20-rows]]), and the columns
 f̂_ḃ(σ) = L̂_b(σ)ĝ^aug(σ)(ḃ) and f̂_S(σ) = L̂_b(σ)ĥ^aug(σ)(S) ([[lem:iii-h-2-5]] (c)), where
 
     ĝ^aug(σ)(ḃ) = iσ⁻¹Ψ ġ_b(ḃ),        ĥ^aug(σ)(S) = ∂_σ(σ⁻¹Ψ) h_b(S) + iσ⁻¹Ψ h̆_b(S)                    {#eq:iii-i6-1-1}
@@ -1193,8 +1194,8 @@ N and ε > 0, with f̂′(0) := ∂_σ f̂(0) = i∫ t_* f dt_* ∈ H^(∞,2−�
 (b) By [[lem:iii-h-2-4]] (a), f̂ = f̂_c + f̂_∞, with f̂_c entire in σ and supported in {r ≤ 2}, where χ_zf = 1 for
 |σ| ≤ c ([[sec:iii-i3-1]]); so its Taylor remainder is O(σ²) in C^∞, which gives the zf-weight 2 − ε and no condition
 at tf or scf. And f̂_∞ = r⁻³G(σr, x) on {r ≥ 1}, with G entire and |(ζ∂_ζ)^j(r∂_r)^i∂^β_ω G| ≤ C⟨ζ⟩^(−N). With
-r̂ = |σ|r, the function r⁻³(G(σr) − χ_1(r̂)(G(0) + σrG′(0))) is r⁻³ times a function of (σr, x) that is O(r̂²) for
-r̂ ≤ 1/8 and O(⟨r̂⟩^(−N) + r̂ 1_(r̂≤1/4)) beyond, with the same derivative bounds. In the Fubini count of the proof of
+ζ := σr, so that |ζ| ∼ r̂ on {r ≥ 1}, the function r⁻³(G(ζ, x) − χ_1(r̂)(G(0, x) + ζ∂_ζG(0, x))) is r⁻³ times a
+function that is O(r̂²) for r̂ ≤ 1/8 and O(⟨r̂⟩^(−N) + r̂ 1_(r̂≤1/4)) beyond, with the same derivative bounds. In the Fubini count of the proof of
 [[lem:iii-i3-1-2]] (b) (ρ_zf ∼ r̂ and ρ_tf ∼ r⁻¹ near zf, ρ_scf ∼ r̂⁻¹ near scf) this gives the weights
 (N, 3 − ε, 2 − ε): the remainder O(r̂²) contributes ∫_0^(1/⟨x⟩) σ^(4−2γ_zf) dσ/σ, finite for γ_zf < 2, where the
 remainder O(r̂) gave 1 − ε. f̂′(0) = ∂_σ f̂_c(0) + r⁻²∂_ζG(0, x) is smooth and lies in 𝒜² ⊂ H^(∞,2−ε)_b near ∂X̄. ∎

@@ -394,9 +394,10 @@ Suppose τ > τ0 along all of it. Parametrised by τ ∈ (τ*, τ(p)], τ* ≥ �
 of the compact set Ω the causal vectors V with dτ(V) = 1 form a compact set: a sequence of them with Euclidean norms
 tending to infinity would have, after normalisation, a causal limit V ≠ 0 with dτ(V) = 0, which the timelike covector
 dτ excludes. So γ is Lipschitz in τ and converges, as τ decreases to τ*, to a point of Ω ⊂ {r > a/2}, and γ is
-extendible, a contradiction. Hence γ reaches {τ = τ0}, at a point of Ω ∩ {τ = τ0} = Σ_τ0 ⊂ S, and p ∈ D. Ω is connected and meets S, so it lies in the connected component of D that contains the connected set S. This
-component is open and globally hyperbolic with Cauchy hypersurface S, since an inextendible causal curve in it is one
-of D; we call it D again.
+extendible, a contradiction. Hence γ reaches {τ = τ0}, at a point of Ω ∩ {τ = τ0} = Σ_τ0 ⊂ S, and p ∈ D. Ω is
+connected and meets S, so it lies in the connected component of D that contains the connected set S. This component
+is open and globally hyperbolic with Cauchy hypersurface S, since an inextendible causal curve in it is one of D; we
+call it D again.
 
 (ii) The extension. The interior of Ω is a bounded Lipschitz domain in ℝ⁵: near each point of its boundary it is
 bounded by at most two of the hypersurfaces {τ = τ0}, {τ = τ_end}, {r = a} and {v + τ = V + 1 + τ_end}, which are

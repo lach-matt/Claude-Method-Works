@@ -133,3 +133,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   Chapter 31 fixes the radii; carry the condition into chapters 21, 24, 25, 26, 28, 29, 31, 32 and 34 (38 optional).
 - Rank still written ℂ^N in chapters 23, 24, 28 and 34, and "N" at chapter 22 line 33: change to N_E.
 - Chapter 23 writes e^(−Mz); C_z would match S1.
+- S21 reader: S25 §1 uses parts of S21 but not circularly; S25 cannot move before S20 (bears on the S25 order item).
+  The λ census and the three S15 keys are in its review (R-S21).
