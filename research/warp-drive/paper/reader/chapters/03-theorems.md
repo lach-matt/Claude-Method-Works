@@ -199,7 +199,7 @@ areal radius — in which
           + sin²ϑ_B e^(2P2) dφ2²],                                                                  {#eq:bondi-form}
 
 with P1, P2, β, U, W − 1 expanded in r_B^(−1/2) to order r_B^(−3) with o(r_B^(−3)) remainders, coefficients smooth in
-(v_B, ϑ_B) and zero for v_B ≤ v_start. In it:
+(v_B, ϑ_B) and, for v_B ≤ v_start, those of g0: all zero except W − 1 = −μ0 r_B^(−2). In it:
 
 1. P_i = r_B^(−3/2) p_i + O(r_B^(−5/2)), with p1 = (2c² G − s² F)/3 and p2 = (2s² F − c² G)/3 as in [[eq:waves]],
    c = cos ϑ_B, s = sin ϑ_B and the free data F, G of [[sec:waves]] at phase v_B/λ (the radiation field of
