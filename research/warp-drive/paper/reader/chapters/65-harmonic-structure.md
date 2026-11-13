@@ -122,10 +122,10 @@ So under Υ̇⁰(h) = 0 the linearised vacuum equation DRic(h) = 0 is the Lichne
 [[sec:rw-spheres]] (γ-trace-free and divergence-free on each sphere, [[lem:gd-1-2]] (c)) satisfies Υ̇⁰(h^TT) = 0: the
 tensor part is in harmonic gauge as it stands.
 
-(iii) (*The scalar modes.*) Every class 1-form X is, on each sphere, a sum over even l of X_a^(l)S_l dy^a + η_l dS_l, S_l
-:= P_(l/2)(cos 2ϑ), with X_a^(l) and η_l functions on the orbit space. For each l, □ maps the class 1-forms X_aS_l dy^a +
-η dS_l to class 1-forms of the same kind, and □X = J is, for (X_v, X_r, η), a system of three equations on the orbit
-space with coefficients depending on r, m₀ and l only, each with principal part −g^(ab)∂_a∂_b (in the static chart
+(iii) (*The scalar modes.*) Every class 1-form X is, on each sphere, a sum over even l of X_a^(l)S_l dy^a + η_l dS_l,
+S_l := P_(l/2)(cos 2ϑ), with X_a^(l) and η_l functions on the orbit space. For each l, □ maps the class 1-forms X_aS_l
+dy^a + η dS_l to class 1-forms of the same kind, and □X = J is, for (X_v, X_r, η), a system of three equations on the
+orbit space with coefficients depending on r, m₀ and l only, each with principal part −g^(ab)∂_a∂_b (in the static chart
 f⁻¹∂_t² − f∂_r²), coupled at first order. For the scalar mode h_S = F_abS_l dy^ady^b + 2r²FS_lγ of [[prop:np-10-1]] (ii),
 the forcing term Υ̇⁰(h_S) is of the same kind and linear in F, F_ab and their first derivatives; by [[eq:np-10-1]] it is
 linear in the master field Φ of the mode and its derivatives of order at most three.
@@ -170,18 +170,18 @@ these contains a vanishing orbit or mixed component of k, so ∇^μk_μj = r⁻�
 and class functions expand in the S_l. Let L_1, …, L_6 be the Lie derivatives along the rotation fields Ω_i of
 [[lem:rwg-a]], extended to spacetime as rotations of x, and C := Σ_i L_i². They generate isometries of g, so C commutes
 with □ and with Υ̇⁰. As the Ω_i are tangent to the spheres and the y^a are invariant, L_i(S dy^a) = (Ω_iS)dy^a and L_i(η
-dS) = η d(Ω_iS); by [[lem:rwg-a]], Σ_iΩ_i² = Δ̂, so C(S_l dy^a) = −k_l²S_l dy^a and C(η dS_l) = −k_l²η dS_l, k_l² = l(l +
-2). These eigenvalues are distinct for distinct l. □ preserves the class (G acts by isometries) and commutes with C, so
-it maps the mode-l part of a class 1-form, the −k_l²-eigenspace of C in the class, into itself. Writing □(X_aS_l dy^a + η
-dS_l) = J_aS_l dy^a + ζ dS_l, the coefficients of the linear differential operator (X_a, η) ↦ (J_a, ζ) at a point y are
-those of □ at (y, ϑ) divided by S_l(ϑ) or S_l′(ϑ), for any ϑ where these do not vanish, so they depend on r (through g),
-m₀ and l only. In the chart (y, ϑ, φ1, φ2), □ = −g^(μν)∂_μ∂_ν + (first order) on each component ([[lem:ix-2-1]] (a)); on
-X_aS_l dy^a + ηS_l′dϑ the second derivatives in y give −g^(ab)∂_a∂_bX_c S_l and −g^(ab)∂_a∂_bη S_l′, and those that fall
-on S_l are of lower order in y. So each equation has principal part −g^(ab)∂_a∂_b, and in the static chart −g^(ab)∂_a∂_b
-= f⁻¹∂_t² − f∂_r² + (first order). For h_S, C acts on its components as on those of a 1-form of mode l (C(S_l k_ab) =
-−k_l²S_l k_ab and C(S_lγ) = −k_l²S_lγ, γ being invariant), and C commutes with Υ̇⁰; so Υ̇⁰(h_S) is a class 1-form of mode
-l. Υ̇⁰ is a first-order operator, so Υ̇⁰(h_S) is linear in F, F_ab and their first derivatives, and these are linear in Φ
-and its derivatives of order at most two by [[eq:np-10-1]].
+dS) = η d(Ω_iS); by [[lem:rwg-a]], Σ_iΩ_i² = Δ̂, so C(S_l dy^a) = −k_l²S_l dy^a and C(η dS_l) = −k_l²η dS_l,
+k_l² = l(l + 2). These eigenvalues are distinct for distinct l. □ preserves the class (G acts by isometries) and commutes
+with C, so it maps the mode-l part of a class 1-form, the −k_l²-eigenspace of C in the class, into itself. Writing
+□(X_aS_l dy^a + η dS_l) = J_aS_l dy^a + ζ dS_l, the coefficients of the linear differential operator (X_a, η) ↦ (J_a, ζ)
+at a point y are those of □ at (y, ϑ) divided by S_l(ϑ) or S_l′(ϑ), for any ϑ where these do not vanish, so they depend
+on r (through g), m₀ and l only. In the chart (y, ϑ, φ1, φ2), □ = −g^(μν)∂_μ∂_ν + (first order) on each component
+([[lem:ix-2-1]] (a)); on X_aS_l dy^a + ηS_l′dϑ the second derivatives in y give −g^(ab)∂_a∂_bX_c S_l and −g^(ab)∂_a∂_bη
+S_l′, and those that fall on S_l are of lower order in y. So each equation has principal part −g^(ab)∂_a∂_b, and in the
+static chart −g^(ab)∂_a∂_b = f⁻¹∂_t² − f∂_r² + (first order). For h_S, C acts on its components as on those of a 1-form
+of mode l (C(S_l k_ab) = −k_l²S_l k_ab and C(S_lγ) = −k_l²S_lγ, γ being invariant), and C commutes with Υ̇⁰; so Υ̇⁰(h_S)
+is a class 1-form of mode l. Υ̇⁰ is a first-order operator, so Υ̇⁰(h_S) is linear in F, F_ab and their first derivatives,
+and these are linear in Φ and its derivatives of order at most two by [[eq:np-10-1]].
 
 (iv) The first sentence is [[lem:gd-r2-9]].
 
@@ -207,10 +207,10 @@ r²/(2(r + r_h)). So U has φ = −1/(2r(r + r_h)) and q = r_h/2 + r²/(2(r + r_
 [[eq:gd-0-1]] and [[eq:hg-box]], Υ̇⁰(K_V) = Υ̇⁰(K̄) − □V^♭, so □W**_H = Υ̇⁰(K̄) − □V^♭ = Υ̇⁰(K_V).
 
 (c) ℒ_Vg = ℒ_(V^♭)g, so K* = K̄ + ℒ_Vg + ℒ_(W**)g − ℒ_(V^♭)g = K̄ + ℒ_(W**)g. K̄ and W** are smooth across the horizon
-(by (a)), so K* is. Υ̇⁰(K*) = Υ̇⁰(K̄) − □W** = 0 by (b). W** is spherically symmetric, so δm[ℒ_(W**)g] = 0 and δm[K*] =
-δm[K̄] = 1 ([[lem:gd-1-4]] (a)). With ℒ_(cX)g = cℒ_Xg + 2dc ⊗_s X, ℒ_((v/2)W*)g = (v/2)ℒ_(W*)g + dv ⊗_s W*, which gives
-[[eq:np-10-2-k]]; its right side has stationary coefficients, smooth across the horizon. W* is not a multiple of (∂_v)^♭,
-so by [[lem:gd-1-4]] (c) it is not Killing, and ℒ_(W*)g ≠ 0.
+(by (a)), so K* is. Υ̇⁰(K*) = Υ̇⁰(K̄) − □W** = 0 by (b). W** is spherically symmetric, so δm[ℒ_(W**)g] = 0 and
+δm[K*] = δm[K̄] = 1 ([[lem:gd-1-4]] (a)). With ℒ_(cX)g = cℒ_Xg + 2dc ⊗_s X, ℒ_((v/2)W*)g = (v/2)ℒ_(W*)g + dv ⊗_s W*,
+which gives [[eq:np-10-2-k]]; its right side has stationary coefficients, smooth across the horizon. W* is not a multiple
+of (∂_v)^♭, so by [[lem:gd-1-4]] (c) it is not Killing, and ℒ_(W*)g ≠ 0.
 
 (d) □(cvW* + U) = c[□, v]W* + cv□W* + □U = c[□, v]W* + □U, a stationary 1-form. By [[lem:iii-d1-2-1]] (1),
 ℓ(□U) = 0, and by the proof of [[lem:iii-d1-3-1]] (1), ℓ([□, v]W*) = 4π². ℓ(Υ̇⁰(K̄)) = ℓ(r⁻³dv) = r_h³ · r_h⁻³ · 2π² =
@@ -301,17 +301,18 @@ the same data up to a linearised diffeomorphism. A decay statement in harmonic g
 the freedom being the solutions of □Y = 0 (more than the multiples of W* when the data of Y do not decay:
 [[prop:gd-r2-13]] (c)).
 
-*Proof.* (a) DRic(ġ_RW) = 0 ([[thm:rw-settling]] (a)) and DRic(ℒ_Xg) = 0 ([[lem:ix-2-1]] (b)). By [[prop:np-10-2]] (iv)
-(b) and [[eq:hg-box]], Υ̇⁰(ġ_H) = ṁΥ̇⁰(K_V) + Υ̇⁰(e) − ṁ□W**_H − □Z′ = ṁΥ̇⁰(K_V) + Υ̇⁰(e) − ṁΥ̇⁰(K_V) − Υ̇⁰(e) = 0. ġ_RW
-induces (γ̇, k̇) plus the data of ℒ_(X_RW)g ([[thm:rw-settling]] (a)), and W**_H and Z′ are smooth up to Σ°. *Existence.*
-e is given on N⁺ only, smooth up to Σ°. As in Step 1 of the proof of [[thm:ix-2-2]], Υ̇⁰(e) extends to a smooth 1-form F
-on Ω^♯: it extends to an open neighbourhood of N⁺ ([[sec:ix-0]]), and a smooth function equal to 1 on N⁺ and supported in
-that neighbourhood extends it by 0 beyond. By [[lem:ix-1-1]] on Ω^♯ (globally hyperbolic on each component with Cauchy
-hypersurface Σ°, [[lem:ix-1-2]]), with the normally hyperbolic operator □ ([[sec:ix-0]]), □Z̃ = F has a smooth solution
-on Ω^♯ with any given smooth data on Σ°, and Z′ := Z̃|_(N⁺) is smooth up to Σ°. By [[lem:gd-r3-1]], Z′ does not depend on
-the extension, and two solutions on N⁺ with the same data agree. *Invariance.* G preserves t_IVP and |x|, so N⁺, Ω^♯ and
-Σ°; Υ̇⁰(e) is G-invariant, and □ commutes with the action of G. For σ ∈ G, σ*Z′ solves □(σ*Z′) = Υ̇⁰(e) on N⁺ with the
-data σ* of those of Z′; for G-invariant data, σ*Z′ = Z′ by uniqueness.
+*Proof.* (a) DRic(ġ_RW) = 0 ([[thm:rw-settling]] (a)) and DRic(ℒ_Xg) = 0 ([[lem:ix-2-1]] (b)). By
+[[prop:np-10-2]] (iv) (b) and [[eq:hg-box]], Υ̇⁰(ġ_H) = ṁΥ̇⁰(K_V) + Υ̇⁰(e) − ṁ□W**_H − □Z′ = ṁΥ̇⁰(K_V) + Υ̇⁰(e) −
+ṁΥ̇⁰(K_V) − Υ̇⁰(e) = 0. ġ_RW induces (γ̇, k̇) plus the data of ℒ_(X_RW)g ([[thm:rw-settling]] (a)), and W**_H and Z′ are
+smooth up to Σ°. *Existence.* e is given on N⁺ only, smooth up to Σ°. As in Step 1 of the proof of [[thm:ix-2-2]], Υ̇⁰(e)
+extends to a smooth 1-form F on Ω^♯: it extends to an open neighbourhood of N⁺ ([[sec:ix-0]]), and a smooth function
+equal to 1 on N⁺ and supported in that neighbourhood extends it by 0 beyond. By [[lem:ix-1-1]] on Ω^♯ (globally
+hyperbolic on each component with Cauchy hypersurface Σ°, [[lem:ix-1-2]]), with the normally hyperbolic operator □
+([[sec:ix-0]]), □Z̃ = F has a smooth solution on Ω^♯ with any given smooth data on Σ°, and Z′ := Z̃|_(N⁺) is smooth up to
+Σ°. By [[lem:gd-r3-1]], Z′ does not depend on the extension, and two solutions on N⁺ with the same data agree.
+*Invariance.* G preserves t_IVP and |x|, so N⁺, Ω^♯ and Σ°; Υ̇⁰(e) is G-invariant, and □ commutes with the action of G.
+For σ ∈ G, σ*Z′ solves □(σ*Z′) = Υ̇⁰(e) on N⁺ with the data σ* of those of Z′; for G-invariant data, σ*Z′ = Z′ by
+uniqueness.
 
 (b) By [[cor:ix-2-3]] and [[rem:ix-2-4]] (c), ġ′ = ġ + ℒ_(X′)g on Ω′_+ ⊂ N⁺ with X′ G-invariant and smooth up to
 Σ_U; and ġ_RW = ġ + ℒ_(X_RW)g. So ġ′ − ġ_RW = ℒ_Yg with Y := X′ − X_RW, G-invariant. Υ̇⁰(ġ′) = 0 reads
@@ -470,8 +471,8 @@ For (ii): by the proof of [[lem:iii-h1-5-1]], ℱ(∂_(t_*)u_sing) = χ(|σ|)Ψb
 transform of ∂_tχ^H_K(·, r) ([[lem:iii-h-2-5]]). B := ℱ⁻¹(χb̂_1) is bounded as stated by [[lem:iii-h1-4-2]] and
 Plancherel's theorem, as ℱ(t∂_tB) = −(1 + σ∂_σ)ℱB. The first identity is then the convolution theorem. For the second,
 χ_(r,r′) := χ^H_K(·, r) − χ^H_K(·, r′) lies in C_c^∞([1, max(2, 4r, 4r′)]) (both functions vanish for t_* ≤ 1 and equal 1
-for t_* ≥ max(2, 4r, 4r′)), so β(·, r) − β(·, r′) − χ_(r,r′) ∗ B has zero t_*-derivative; it is square integrable as t_*
-→ −∞, where u_sing = −u′, so it vanishes. (i) and (ii) extend to general f by density, u′ and B by continuity. ∎
+for t_* ≥ max(2, 4r, 4r′)), so β(·, r) − β(·, r′) − χ_(r,r′) ∗ B has zero t_*-derivative; it is square integrable as
+t_* → −∞, where u_sing = −u′, so it vanishes. (i) and (ii) extend to general f by density, u′ and B by continuity. ∎
 
 **Remark {#rem:gd-orders}** (The orders used with □.) [[thm:ii-f1-1-1]], in the relaxed form of [[rem:ii-f1-7-1]],
 is applied to □ below with the orders of [[prop:ii-c-5-1]] built for □. They lie in 𝒪_c(□): the proof of
@@ -533,8 +534,8 @@ max(R′, 1) the convolutions sample B on [t_*/2, t_*], where [[lem:gd-r2-6]] gi
 there.
 
 For general f, both sides of [[eq:gd-r2-2]] depend continuously on f on bounded time intervals ([[thm:gd-r2-5]] (iii);
-ℓ(f) ∈ L²_loc), and C_c^∞(Ω°) is dense. (a): ℓ(f) depends only on the l = 0 part of f, by the argument of [[lem:gd-2-2]]
-(a). (b): |c_f − c_∞| ≤ C′v_h^(−κ)/(4π²). ∎
+ℓ(f) ∈ L²_loc), and C_c^∞(Ω°) is dense. (a): ℓ(f) depends only on the l = 0 part of f, by the argument of
+[[lem:gd-2-2]] (a). (b): |c_f − c_∞| ≤ C′v_h^(−κ)/(4π²). ∎
 
 c_f need not converge, ℓ(f) being only square integrable; c_fW* is then the growth that the K⁺-weight −1 of
 [[thm:gd-r2-5]] (iii) allows, and all of it is along W*.
@@ -720,14 +721,14 @@ there. χ^♮_0 = 0 near Σ° ([[lem:iii-k-1-1]] (d)).
 forward solution of □(χ′Y) = χ′J_h + [□, χ′]Y. The first term lies in the class of [[thm:gd-r2-5]] with α_sf + 2 = β, by
 [[prop:gd-r3-2]] and [[lem:gd-r2-11]] (ι⁺-order ϰ_♯ + 1 − η > β + 5/2, K⁺-order above ½). The second is supported in supp
 dχ′, a compact set together with the cone {T_1 ≤ t_*, t_*/40 ≤ r ≤ t_*/20} in (ι⁺)°; there Y ∈ H^(k,(b_I−2,α_+,−1))_b by
-[[thm:ii-f1-1-1]] (ℵ = 1, sf-loss 0; its ℐ⁺-weight is b_I − 2 by [[eq:ii-f1-1-6]]), and [□, χ′] = (□_0χ′) − 2∇_(∇χ′) ∈
-ρ_+²Diff¹_b on the cone, χ′ being homogeneous of degree 0 for t_* ≥ 2T_1; so the second term has sf-weight α_+ + 2 = β,
-the class of [[thm:gd-r2-5]] (b-regularity gives every 3b-order on the cone, as in the proof of [[lem:gd-r2-11]]).
-[[thm:gd-r2-7]] gives |χ′Y − c(t_*)W*| ≤ Ct_*^(−1/2) with one more derivative, c(t_*) := (4π²)⁻¹∫^(v_h(t_*))ℓ of the
-forcing term. For t_* ≥ max(2T_1, 40r_h), χ′ = 1 on compact r-sets near the horizon and dχ′ = 0 there, so the integrand
-is ℓ(J_h) = ℓ(Υ̇⁰(h)), which is O(v^(−w+ε′)) ([[thm:gd-2-3]]); so c(t_*) → c_∞, with c − c_∞ and dc/dt_* of order
-t_*^(−(w−1)+ε′) and t_*^(−w+ε′). *The conclusion.* On compact r-sets at late times, Y = χ′Y and χ_K = 1, so ġ_H = ṁK_V +
-h + ṁℒ_(W**_H)g + ℒ_Yg = ṁK* + h + ℒ_Yg, and with ℒ_(cW*)g = cℒ_(W*)g + 2dc ⊗_s W*,
+[[thm:ii-f1-1-1]] (ℵ = 1, sf-loss 0; its ℐ⁺-weight is b_I − 2 by [[eq:ii-f1-1-6]]), and [□,
+χ′] = (□_0χ′) − 2∇_(∇χ′) ∈ ρ_+²Diff¹_b on the cone, χ′ being homogeneous of degree 0 for t_* ≥ 2T_1; so the second term
+has sf-weight α_+ + 2 = β, the class of [[thm:gd-r2-5]] (b-regularity gives every 3b-order on the cone, as in the proof
+of [[lem:gd-r2-11]]). [[thm:gd-r2-7]] gives |χ′Y − c(t_*)W*| ≤ Ct_*^(−1/2) with one more derivative,
+c(t_*) := (4π²)⁻¹∫^(v_h(t_*))ℓ of the forcing term. For t_* ≥ max(2T_1, 40r_h), χ′ = 1 on compact r-sets near the horizon
+and dχ′ = 0 there, so the integrand is ℓ(J_h) = ℓ(Υ̇⁰(h)), which is O(v^(−w+ε′)) ([[thm:gd-2-3]]); so c(t_*) → c_∞, with
+c − c_∞ and dc/dt_* of order t_*^(−(w−1)+ε′) and t_*^(−w+ε′). *The conclusion.* On compact r-sets at late times, Y = χ′Y
+and χ_K = 1, so ġ_H = ṁK_V + h + ṁℒ_(W**_H)g + ℒ_Yg = ṁK* + h + ℒ_Yg, and with ℒ_(cW*)g = cℒ_(W*)g + 2dc ⊗_s W*,
 
     ġ_H − ṁK* − c_∞ℒ_(W*)g = h + ℒ_(Y−cW*)g + (c − c_∞)ℒ_(W*)g + 2dc ⊗_s W*.
 
@@ -752,12 +753,13 @@ each {t^♭_* ≤ T} is closed under past causal curves (dt^♭_* is past timeli
 every T ([[lem:ii-f-1-3]]). The first term is that of [[lem:gd-r3-5]]. The second is supported in {2 ≤ t^♭_* ≤ 3},
 bounded in t_*, and meets ∂M only at ℐ⁺. Near ℐ⁺, t^♭_* = t_*(1 − (t_*/r)^(1/2)) ([[lem:ii-c-3-2]] (a), with the exponent
 ½), smooth in x_I and equal to t_* at ℐ⁺, and, with dχ/ds the derivative of χ, [□, χ(t^♭_*)] = (□_0χ(t^♭_*)) −
-2(dχ/ds)(t^♭_*)∇_(∇t^♭_*) gains one order at ℐ⁺: in the coordinates (t_*, r, ω) on a bounded t_*-range, g⁻¹ = ḡ⁻¹ +
-O(r⁻²) with ḡ⁻¹(dt_*, ·) = −∂_r ([[lem:iii-d-2-1]] (3) and its proof), dt^♭_* = (1 − (3/2)(t_*/r)^(1/2))dt_* +
-O(r^(−3/2))dr, the connection coefficients in the Cartesian frame are O(r⁻¹), and □_0t^♭_* = O(r⁻¹); so for Z_1 =
-O(ρ_I^p), whose r∂_r- and ∂_(t_*)-derivatives are O(ρ_I^p), the commutator term is O(ρ_I^(p+1)) with its b-derivatives.
-Choosing b_I ∈ (b_+, min(p, 3/2)) in [[lem:gd-r3-5]], it lies in the space there. So χ(t^♭_*)Z_1 is the forward solution
-of a forcing term in that space, and the proof of [[thm:gd-r3-4]] (iii) applies to it; at late times χ(t^♭_*)Z_1 = Z_1. ∎
+2(dχ/ds)(t^♭_*)∇_(∇t^♭_*) gains one order at ℐ⁺: in the coordinates (t_*, r, ω) on a bounded t_*-range,
+g⁻¹ = ḡ⁻¹ + O(r⁻²) with ḡ⁻¹(dt_*, ·) = −∂_r ([[lem:iii-d-2-1]] (3) and its proof), dt^♭_* = (1 − (3/2)(t_*/r)^(1/2))dt_*
++ O(r^(−3/2))dr, the connection coefficients in the Cartesian frame are O(r⁻¹), and □_0t^♭_* = O(r⁻¹); so for
+Z_1 = O(ρ_I^p), whose r∂_r- and ∂_(t_*)-derivatives are O(ρ_I^p), the commutator term is O(ρ_I^(p+1)) with its
+b-derivatives. Choosing b_I ∈ (b_+, min(p, 3/2)) in [[lem:gd-r3-5]], it lies in the space there. So χ(t^♭_*)Z_1 is the
+forward solution of a forcing term in that space, and the proof of [[thm:gd-r3-4]] (iii) applies to it; at late times
+χ(t^♭_*)Z_1 = Z_1. ∎
 
 ### The 1-form wave operator near spatial and null infinity {#sec:hg-exterior}
 
@@ -904,9 +906,10 @@ N⁺; so the solution Z_3 of □Z_3 = F_3 on 𝒟⁺ with vanishing data equals 
 across Σ° is immaterial by [[lem:gd-r3-1]]).
 
 (2) *Support.* Near infinity on {τ′ < ⅛}, t_IVP < r/8 and t_* = t_IVP − F_s(r) ≤ r/8 − r/4 < 0 for r ≥ R_6, where
-F_s(r) := t_IVP − t_* is the function of [[eq:s27-f]], so χ_♮(t_*) = 0, and χ_0 = 0 as χ̌_0(t_IVP/r) = 1; so χ^♮_0 = 0 ([[eq:iii-k-1-1]]). And χ^♮_0 = 0 near
-Σ^IVP ([[lem:iii-k-1-1]] (d)). So F_3 vanishes near Σ^IVP and, near infinity, on {τ′ < ⅛}. [[prop:gd-r4-2]] does not
-ask this, but it places the I₀-tail of F_3 in {τ′ ≥ ⅛}, the region of [[lem:iv2-2-3]].
+F_s(r) := t_IVP − t_* is the function of [[eq:s27-f]], so χ_♮(t_*) = 0, and χ_0 = 0 as χ̌_0(t_IVP/r) = 1; so χ^♮_0 = 0
+([[eq:iii-k-1-1]]). And χ^♮_0 = 0 near Σ^IVP ([[lem:iii-k-1-1]] (d)). So F_3 vanishes near Σ^IVP and, near infinity, on
+{τ′ < ⅛}. [[prop:gd-r4-2]] does not ask this, but it places the I₀-tail of F_3 in {τ′ ≥ ⅛}, the region of
+[[lem:iv2-2-3]].
 
 (3) *Weights.* On Ω_(ext,r_1) and 𝒮, ḣ ∈ H^(∞,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b ([[prop:viii-1-2]] (2) and its proof): conormal
 with order q_ḣ − η at I₀ for every η > 0 and, at ℐ⁺, with the exponents of [[eq:iii-c-3-2]] slot by slot, above ℓ^♭_I
@@ -918,10 +921,10 @@ f_♭ := ρ_Iρ^(−7/2)F_3 ∈ H^(m,(a₀,2α_I))_b for every m, every a₀ < q
 
 (4) *The estimate.* Fix a₀ < q_ḣ − 5/2 with p − 3/2 < a₀, and put α_I := p − 3/2; then α_I < min(a₀, 0) and
 α_I < ℓ^♭_I − 3/2 (p < 3/2 < ℓ^♭_I), and [[prop:gd-r4-2]] gives u = ρ^(−3/2)Z_3 ∈ H^((1;m),(a₀,2α_I))_(e,b;b)(Ω^♮_(c_1))
-for every m. By b-Sobolev embedding ([[eq:iv-0-1]]), V^ju = O(ρ₀^(a₀)ρ_I^(α_I)) for b-vector fields V and j ≤ m − 3;
-as Vρ^(3/2) ∈ ℂρ^(3/2) for V ∈ {X₀, X_I, rotations}, V^jZ_3 = O(ρ₀^(3/2+a₀)ρ_I^p). On the slab ρ₀ is bounded above and below ([[sec:iv3-0]]), and
-away from ℐ⁺ there is nothing to show. The three conditions are: α_I > β − 1, that is p > ½ + β; α_I < a₀, possible
-for some a₀ < q_ḣ − 5/2 exactly when p < q_ḣ − 1; and α_I < 0, that is p < 3/2. ∎
+for every m. By b-Sobolev embedding ([[eq:iv-0-1]]), V^ju = O(ρ₀^(a₀)ρ_I^(α_I)) for b-vector fields V and j ≤ m − 3; as
+Vρ^(3/2) ∈ ℂρ^(3/2) for V ∈ {X₀, X_I, rotations}, V^jZ_3 = O(ρ₀^(3/2+a₀)ρ_I^p). On the slab ρ₀ is bounded above and below
+([[sec:iv3-0]]), and away from ℐ⁺ there is nothing to show. The three conditions are: α_I > β − 1, that is p > ½ + β;
+α_I < a₀, possible for some a₀ < q_ḣ − 5/2 exactly when p < q_ḣ − 1; and α_I < 0, that is p < 3/2. ∎
 
 **Remark {#rem:gd-r4-bounds}** (Where the two bounds on p come from.) This remark is a heuristic about the method,
 and no proof uses it. The bound p < 3/2 is the condition α_I < 0 of the multiplier ([[lem:gd-r4-1]] (e)), whose
@@ -938,20 +941,20 @@ smooth up to Σ°, with □Y = 0, whose Cauchy data on Σ° have compact support
 {r_♭ < r ≤ R′, t_* ≥ T′}, |Y − (Q[Y]/4π²)W*| ≤ Ct_*^(−1/2) with the derivatives of [[eq:gd-r2-2]]. Near ℐ⁺ on
 N⁺ ∩ {t^♭_* ≤ T̂ + 3} the Cartesian components of Y and all their b-derivatives are O(ρ_I^p) for every p < 3/2.
 
-*Proof.* Q[Y] is constant by [[eq:gd-2-1]]. (1) *ℐ⁺.* Let Y_c be a smooth 1-form on N⁺ of compact support with Y's
-Cauchy data on Σ°. Then Y − Y_c has vanishing data and □(Y − Y_c) = −□Y_c, which has compact support; so
-ρ_Iρ^(−7/2)□Y_c lies in every weighted space, and [[prop:gd-r4-2]] applies with every a₀. With a₀ > 0 and
-α_I = p − 3/2 < 0, the b-Sobolev embedding of step (4) of the proof of [[thm:gd-r4-3]] gives the order p; Y_c vanishes
-near infinity. (2) *The slab.* With χ of [[lem:gd-r3-5]], χ(t^♭_*)Y solves □(χ(t^♭_*)Y) = [□, χ(t^♭_*)]Y, supported in
-{2 ≤ t^♭_* ≤ 3} and meeting ∂M only at ℐ⁺, of ℐ⁺-order p + 1 (the proof of [[prop:gd-r3-6]]). Fix β ∈ (0, 1) and
-p ∈ (½ + β, 3/2), and put b_+ := β + ½ and b_I ∈ (b_+, p). This forcing term lies in
-H^(∞,(b_I+1,b_++2,1/2))_b(Ω_*, μ_b)^(•,−), the space of [[eq:ii-f1-1-4]] in the form of [[cor:ii-f1-1-2]], whose
-conditions b_I < 3/2 + S̄ and b_+ < b_I hold for □ (S̄ = 0, [[lem:iii-d-3-1]] at γ_Υ = 0); □ is 1-admissible with
-sf-weight b_+ − 5/2 = β − 2 ([[thm:gd-r2-5]] (iii), as β ∈ (0, 1)), and [[thm:ii-f1-1-1]] gives its forward solution, which is χ(t^♭_*)Y by the uniqueness argument
-of the proof of [[prop:gd-r3-6]]. (3) *Late times.* As in the proof of [[thm:gd-r3-4]] (iii): χ′Y solves
-□(χ′Y) = [□, χ′]Y, a forcing term supported in supp dχ′ and in the class of [[thm:gd-r2-5]]; [[thm:gd-r2-7]] gives
-|χ′Y − c(t_*)W*| ≤ Ct_*^(−1/2), and for large t_*, dχ′ = 0 near the horizon, so c is constant there, equal to
-Q[χ′Y]/4π² = Q[Y]/4π² ([[eq:gd-2-1]] and □Y = 0). ∎
+*Proof.* Q[Y] is constant by [[eq:gd-2-1]]. (1) *ℐ⁺.* Let Y_c be a smooth 1-form on N⁺ of compact support with Y's Cauchy
+data on Σ°. Then Y − Y_c has vanishing data and □(Y − Y_c) = −□Y_c, which has compact support; so ρ_Iρ^(−7/2)□Y_c lies in
+every weighted space, and [[prop:gd-r4-2]] applies with every a₀. With a₀ > 0 and α_I = p − 3/2 < 0, the b-Sobolev
+embedding of step (4) of the proof of [[thm:gd-r4-3]] gives the order p; Y_c vanishes near infinity. (2) *The slab.* With
+χ of [[lem:gd-r3-5]], χ(t^♭_*)Y solves □(χ(t^♭_*)Y) = [□, χ(t^♭_*)]Y, supported in {2 ≤ t^♭_* ≤ 3} and meeting ∂M only at
+ℐ⁺, of ℐ⁺-order p + 1 (the proof of [[prop:gd-r3-6]]). Fix β ∈ (0, 1) and p ∈ (½ + β, 3/2), and put b_+ := β + ½ and
+b_I ∈ (b_+, p). This forcing term lies in H^(∞,(b_I+1,b_++2,1/2))_b(Ω_*, μ_b)^(•,−), the space of [[eq:ii-f1-1-4]] in the
+form of [[cor:ii-f1-1-2]], whose conditions b_I < 3/2 + S̄ and b_+ < b_I hold for □ (S̄ = 0, [[lem:iii-d-3-1]] at
+γ_Υ = 0); □ is 1-admissible with sf-weight b_+ − 5/2 = β − 2 ([[thm:gd-r2-5]] (iii), as β ∈ (0, 1)), and
+[[thm:ii-f1-1-1]] gives its forward solution, which is χ(t^♭_*)Y by the uniqueness argument of the proof of
+[[prop:gd-r3-6]]. (3) *Late times.* As in the proof of [[thm:gd-r3-4]] (iii): χ′Y solves □(χ′Y) = [□, χ′]Y, a forcing
+term supported in supp dχ′ and in the class of [[thm:gd-r2-5]]; [[thm:gd-r2-7]] gives |χ′Y − c(t_*)W*| ≤ Ct_*^(−1/2), and
+for large t_*, dχ′ = 0 near the horizon, so c is constant there, equal to Q[χ′Y]/4π² = Q[Y]/4π² ([[eq:gd-2-1]] and
+□Y = 0). ∎
 
 The data must be taken on Σ°: a slice {t_* = t_0} reaches ℐ⁺, outgoing null rays from a compact set reach ℐ⁺ after a
 bounded increment of t_*, and in 4 + 1 dimensions there is no Huygens principle, so a solution with data of compact
@@ -1081,7 +1084,7 @@ and let u be the forward solution of □u = f ([[thm:ii-f1-1-1]] at P = P_0 = �
 
 (iii) u_sing, and so u, lies in H^(∞,(γ_+−ϵ,γ_+−ϵ,α_K−1))_b: one order is lost at K⁺ and none at ι⁺.
 
-At each order k the norms are bounded by C_k times the norm of f in [[eq:gd-r5-1]] at an order k + ℓ, ℓ independent of
+At each order k the norms are bounded by C_k times the norm of f in [[eq:gd-r5-1]] at an order k + k′, k′ independent of
 k; u′, u_sing and B depend on k through the constant c of [[sec:iii-i2-4]], and u does not. At α_K = ½, for b-regular
 forcing terms, (i)–(iii) are [[thm:gd-r2-5]] (i)–(iii) in the b-form of the dictionary.
 
@@ -1106,8 +1109,11 @@ forcing terms, (i)–(iii) are [[thm:gd-r2-5]] (i)–(iii) in the b-form of the 
    ([[prop:iii-d-6-1]], [[prop:iii-d-6-2]]), and S̄ = 0. Its weight conditions at
    (β^f_I + 1, β_ι + 2, β_K) = (w_I, γ_+ + 2, α_K) are α_K ∈ (0, 1), β^f_I = w_I − 1 ≥ 3/2 and
    w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ_1), which holds with ϵ_1 := 1 − α_K. So u_hi ∈ H^(∞,(3/2−ϵ,N,N))_b(M′) for every N.
-5. *The transform of f.* [[prop:ii-g1-3-3]] (1), whose condition is w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ), gives
-   f̂|_(±(0,1]) ∈ H^(∞,(min(w_I,γ_++2)−ϵ,γ_++1,α_K−1))_b(X^±_(sc-b)), the zf index set (0, 0) dropping as α_K − 1 < 0.
+5. *The transform of f.* The condition of [[prop:ii-g1-3-3]] (1) at the weights (w_I, γ_+ + 2, α_K) is
+   w_I ≥ γ_+ + 2 − min(α_K, 1 − ϵ), and it holds: if α_K ≤ 1 − ϵ it is the hypothesis w_I ≥ γ_+ + 2 − α_K; otherwise it
+   reads w_I ≥ γ_+ + 1 + ϵ, and γ_+ + 1 + ϵ ≤ γ_+ + 1 + (3/2 − γ_+)/5 = 13/10 + (4/5)γ_+ < 5/2 ≤ w_I, as γ_+ < 3/2. So
+   [[prop:ii-g1-3-3]] (1) gives f̂|_(±(0,1]) ∈ H^(∞,(min(w_I,γ_++2)−ϵ,γ_++1,α_K−1))_b(X^±_(sc-b)), the zf index set (0,
+   0) dropping as α_K − 1 < 0.
 6. *Low frequencies: [[lem:iii-i2-4-2]]* with P̃ in place of L̃_b; its proof is that of [[prop:ii-g1-4-7]] with
    [[thm:iii-h-4-1]] (3) and the estimate of [[thm:gd-r2-4]], with the outgoing order β_scf − 2 − ϵ/2 below
    −½ + S̄ = −½. With β_scf := 3/2 − ϵ, β_tf := γ_+ − 1 and β_zf := α_K − 1, so that β_tf − β_zf = γ_+ − α_K ∈ (0, 1),
@@ -1127,7 +1133,7 @@ forcing terms, (i)–(iii) are [[thm:gd-r2-5]] (i)–(iii) in the b-form of the 
    u_sing ∈ H^(∞,γ_+−ϵ,γ_+−ϵ,((0,0),α_K−1))_b(M′), the term (0, 0) lying above the weight α_K − 1 < 0: this is (iii).
    At □ the second integration of [[prop:iii-i2-5-1]], which is needed there for the generalised state, does not occur.
 10. *(ii).* B := ℱ⁻¹(χb̂_1). By 6, the pair (χb̂_1|_(σ<0), χb̂_1|_(σ>0)) lies in the space X^(k,α_K−1) of
-   [[def:ii-g1-2-7]] with no polynomial part (α_K − 1 < 0), and [[prop:ii-g1-2-8]] (2) with β = α_K ∈ (0, 1) gives
+   [[def:ii-g1-2-7]] with no polynomial part (α_K − 1 < 0), and [[prop:ii-g1-2-8]] (2) at the weight α_K ∈ (0, 1) gives
    B ∈ H^(k,α_K)_b(ℝ). The identities are those of [[thm:gd-r2-5]] (ii), proved there from
    ℱ(∂_(t_*)u_sing) = χΨb̂_1W* without a weight.
 11. *What is not used.* The formal solutions at ℐ⁺ (Step 2a of the proof of [[prop:iii-i2-5-1]]) are not needed, as
@@ -1142,12 +1148,12 @@ forcing terms, (i)–(iii) are [[thm:gd-r2-5]] (i)–(iii) in the b-form of the 
 with c_f of [[eq:gd-r2-2]] and ‖f‖ a norm of [[eq:gd-r5-1]]. In particular: (a) if ℓ(f) = 0, u = O(t_*^(−α_K)); (b) if
 ∫_v^∞|ℓ(f)| ≤ C′v^(−κ′), then u = c_∞W* + O(t_*^(−min(α_K,κ′))).
 
-*Proof.* The steps (1)–(5) of the proof of [[thm:gd-r2-7]], with three replacements. In (2): |B(t)| ≤ C⟨t⟩^(−α_K)‖f‖,
-by [[lem:gd-r2-6]] with H = ℂ on [T/2, 4T], as ⟨t⟩^(α_K−½)B and ⟨t⟩^(α_K−½)t∂_tB in L²(dt) give
-∫_(T/2)^(4T)(|B|² + |t∂_tB|²) dt ≤ CT^(1−2α_K); the kernels ∂_rχ^H_K, ∂_tχ^H_K and ψ are supported in [1, 4 max(R′, 1)],
-so for t_* ≥ 8 max(R′, 1) the convolutions sample B on [t_*/2, t_*] and are O(t_*^(−α_K)). In (3):
-|Q[u′](v)| ≤ C‖u′(t_*)‖_(C¹(𝒦)) ≤ Ct_*^(−α_K)‖f‖, by b-Sobolev embedding of [[thm:gd-r5-1]] (i) near K⁺. In (5):
-u′ = O(t_*^(−α_K)) the same way, with its b-derivatives t_*∂_(t_*) and ∂_x; ∂_(t_*)β = ∂_tχ^H_K ∗ B, and
+*Proof.* The steps (1)–(5) of the proof of [[thm:gd-r2-7]], with three replacements. In (2): |B(t)| ≤ C⟨t⟩^(−α_K)‖f‖, by
+[[lem:gd-r2-6]] with H = ℂ on [T/2, 4T], as ⟨t⟩^(α_K−½)B and ⟨t⟩^(α_K−½)t∂_tB in L²(dt) give
+∫_(T/2)^(4T)(|B|² + |t∂_tB|²) dt ≤ CT^(1−2α_K); the kernels ∂_rχ^H_K, ∂_tχ^H_K and χ_(r,r_h) are supported in [1, 4
+max(R′, 1)], so for t_* ≥ 8 max(R′, 1) the convolutions sample B on [t_*/2, t_*] and are O(t_*^(−α_K)).
+In (3): |Q[u′](v)| ≤ C‖u′(t_*)‖_(C¹(𝒰_h)) ≤ Ct_*^(−α_K)‖f‖, by b-Sobolev embedding of [[thm:gd-r5-1]] (i) near K⁺.
+In (5): u′ = O(t_*^(−α_K)) the same way, with its b-derivatives t_*∂_(t_*) and ∂_x; ∂_(t_*)β = ∂_tχ^H_K ∗ B, and
 ∂_(t_*)c_f = ℓ(f)/(4π²) is O(t_*^(−α_K)) by b-Sobolev embedding of f near K⁺. Density as in [[thm:gd-r2-7]], by the
 bounds of [[thm:gd-r5-1]]. ∎
 

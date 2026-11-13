@@ -52,7 +52,9 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 82 M Ch 21 | written (912 lines, 62 labels; thm:vlasov; non-vacuity by a separable Tangherlini family with margins; 11 pending keys to chapters 80 and 81; (V3) symmetrizer for non-round slices open); independent reader running | - | - |
 | 81 M Ch 20 | written (965 lines, 56 labels; thm:class-stability (N′), thm:class-kato-stability (K′); issue-1 linear symmetric hyperbolic existence with A⁰ ≠ I; N′1 inner-boundary claim made a hypothesis); independent reader running | - | - |
 | 66 M Ch 16 | written (1,118 lines, 53 labels, 28 proofs; thm:harmonic-rate; cor:hr-compact-rates and cor:gd-r5-3 for chapter 65; three issues: inclusion for ran Π_≥2, Killing-data step via thm:ix-2-2, p_0 with logarithms); independent reader running | - | - |
-| 83-90 | being written: 83, 84 (writers running); 85, 86, 87, 90 not yet written | - | - |
+| 84 M Ch 23 | written (1,248 lines; thm:layer, cor:layer; cor:layer-interpolation-band for 85; λ_L ≤ 10^(−430) proved in place of the source's 2.71·10⁻¹²; L.12 for every K ≥ 6; L.14 and Remark E.6 dropped); independent reader running | - | - |
+| 85 M Ch 24 | being written | - | - |
+| 83, 86-90 | being written: 83 (writer running); 86 after proof C confirms, 87 after proof D2-D4 confirms, 90 last | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | CONFIRMED (5 nits); CD03 block and Sbierski entry to be read after their edits |
 
 ## Proof files (merged into their chapters after an independent reading)

@@ -954,3 +954,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   new item (e). Nits: K → α*, phase ψ with φ1 the phase shift of thm:approximant, ζ = cos 2ϑ. Follow-ups applied:
   P-F-edge:9-11 "c_e the constant of [[eq:envelope]]"; chapter 03 line 64 cites lem:envelope-constant (b) (a proof-file
   label: --chapters reports it undefined, the joint run resolves it; resolves at assembly). Third reading running.
+- Ch 84 written (W-84): 1,248 lines; exports thm:layer, cor:layer, lem:layer-interpolation and the new
+  cor:layer-interpolation-band (ε_c² ≤ C λ^(−1/8) E² at m = 56c; ≤ C λ^(−1/8) m0 for m ≥ 84c). FOR THE FINAL REPORT TO
+  THE USER: the source's λ_L < 2.71·10⁻¹² rested on Chebyshev nodes, the Duffin–Schaeffer inequality and a certified
+  bound on M_1456, none carried by the edition; the edition proves λ_L ≤ 10^(−430) at the numerical point instead. L.12
+  now proved for every K ≥ 6 (source: ledgers on grids). L.14 dropped (conclusion withdrawn; reader to say whether its
+  numerics stay as a remark); Remark E.6's heuristic dropped (the source shows it false). Notation: ν for K, d_1, β_2,
+  β_Φ, 𝒯, 𝔖, g0°. Independent reader running; chapter 85 writer launched on its exports.

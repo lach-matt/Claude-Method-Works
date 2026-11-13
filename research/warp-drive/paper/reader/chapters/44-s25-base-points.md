@@ -138,9 +138,12 @@ b- and S-coefficients would invert a map that degenerates as b → b₀. This is
 ### The rotation rows at b {#sec:iii-i15-2}
 
 Let 𝒩_rot, ℳ_rot = ℰ_♯ ∩ {Re ≤ 2} and the rotation rows m_ν, ν = (rot, λ, k), be those of [[def:iii-i14-1-1]] and
-[[def:iii-i14-1-3]], with the v1 tower T_(v1,b) at the base point's b:
+[[def:iii-i14-1-3]], built at the base point's b. With the v1 tower T_(v1,b) at b of [[sec:iii-i15-2-7]],
 
-    m_ν(W) = χ_K T_(v1,b)(a_ν W),     a_ν = t_*^(−λ)(log t_*)^k,     W ∈ 𝒱_(1,ℂ).
+    m_ν(W) = χ_K T_(v1,b)(a_ν W),     a_ν = t_*^(−λ)(log t_*)^k,     W ∈ 𝒱_(1,ℂ),
+
+up to the terms with a_ν^((3)) and a_ν^((4)), of K⁺-order Re λ + 3 − ε > α ([[lem:iii-i10-2-1]] (a): the tower of
+[[def:iii-i14-1-3]] has the length K_v1 = 3 of [[sec:iii-i9-2]], and T_(v1,b) is its part j ≤ 2).
 
 **Lemma {#lem:iii-i15-2-1}** (Rotation rows at b.) At b ∈ ℬ̄_*, m_ν(W) has K⁺-weight Re λ − ε (its bottom
 a_ν h_(b,v1)(W), of size O(|b − b₀||W|)), and m_ν(W) − χ_K a_ν h_(b,v1)(W) has K⁺-weight Re λ + 1 − ε.
@@ -203,14 +206,14 @@ level 1 is α₀ (the piece is σu_((α₀,k)), and c_v1 contributes |σ|^(α₀
 (c) As stated. ∎
 
 **Definition {#def:iii-i15-2-3}** (The assigned rotation coordinates.) Let (h, p⃗) be a base point with parameter
-b ∈ ℬ̄_*, β > 3, and G ∈ 𝒴^♮(β) such that the forward solution u of L_(h,p⃗)u = G satisfies the hypothesis of
-[[lem:iii-i13-2-2]] with some w_0. The *assigned rotation coordinates* A_(b,ν)(G) ∈ 𝒱_(1,ℂ), ν ∈ 𝒩_rot, are the
-coefficients of the rotation rows that [[prop:iii-i15-2-2]] (a)–(b) produces in u: the graft's v1 coefficients at the
-exponents of ℳ (spacetime phase), and the spectral level-1 coefficients at the exponents of real part 2. They do not
-depend on β or on ε, and neither does E^ν ((P6)). A_b commutes with complex conjugation: A_(b,ν̄)(Ḡ) is the complex
+b ∈ ℬ̄_*, β ∈ (3, 4 + ε_K] admissible, and G ∈ 𝒴^♮(β) such that the forward solution u of L_(h,p⃗)u = G satisfies the
+hypothesis of [[lem:iii-i13-2-2]] with some w_0. The *assigned rotation coordinates* A_(b,ν)(G) ∈ 𝒱_(1,ℂ), ν ∈ 𝒩_rot,
+are the coefficients of the rotation rows that [[prop:iii-i15-2-2]] (a)–(b) produces in u: the graft's v1 coefficients
+at the exponents of ℳ (spacetime phase), and the spectral level-1 coefficients at the exponents of real part 2. They do
+not depend on β or on ε, and neither does E^ν ((P6)). A_b commutes with complex conjugation: A_(b,ν̄)(Ḡ) is the complex
 conjugate of A_(b,ν)(G), as L_(h,p⃗) is real and the objects of [[prop:iii-i15-2-2]] are real ((P3)). So for real G the
-tuple (A_(b,ν)(G))_ν is conjugation-symmetric, as [[eq:iii-i15-2-2]] and [[def:iii-i14-1-3]] need. A_b := (A_(b,ν))_ν
-is linear in G and has the bound of [[lem:iii-i13-2-2]]: for every w ∈ (0, w_0],
+tuple (A_(b,ν)(G))_ν is conjugation-symmetric, as [[eq:iii-i15-2-2]] and [[def:iii-i14-1-3]] need. A_b := (A_(b,ν))_ν is
+linear in G and has the bound of [[lem:iii-i13-2-2]]: for every w ∈ (0, w_0],
 
     |A_b(G)| ≤ C‖G‖_(𝒴^♮(β)) + C(‖h‖ + |p⃗|)‖u‖_(w),
 

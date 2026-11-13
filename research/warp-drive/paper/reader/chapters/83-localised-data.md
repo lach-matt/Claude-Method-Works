@@ -415,19 +415,19 @@ DΦ[δ] = 0, ρ and J are O(ε²). By [[eq:racz-kid]], N_s² − |Y_s|²_γ = f 
 −C′ε³, while the left side is ε²Q(δ) + O(ε³) with Q(δ) < 0 by [[cor:loc-charge-seed]]: a contradiction for ε small.
 
 (b) On a vacuum region of the chart, let ℓ_out := ∂_v̂ + (qf/2)∂_R, the future-directed outgoing null direction
-(g(ℓ_out, ℓ_out) = 0, and d(v̂ − R)(ℓ_out) = 1 − qf/2 > 0), and T := d ℓ_out^♭ ⊗ ℓ_out^♭ with density d ≥ 0, which
+(g(ℓ_out, ℓ_out) = 0, and d(v̂ − R)(ℓ_out) = 1 − qf/2 > 0), and T := ϖ ℓ_out^♭ ⊗ ℓ_out^♭ with density ϖ ≥ 0, which
 satisfies the dominant energy condition. Since ℓ_out^♭ = −(q²f/2) dv̂ + q dR, ℓ_out^♭(ξ) = −qf/2 and ℓ_out^♭(n) =
 −N(2 − qf)/2, so
 
-    T(ξ, n) = d qf (2 − qf)/(4√(2/q − f)),
+    T(ξ, n) = ϖ qf (2 − qf)/(4√(2/q − f)),
 
-which has the sign of f. Fix a dust density d1 ≥ 0 supported in U ∩ {f < 0} with ∫T1(ξ, n) dvol < 0 and put s* :=
-Q(δ)/(2∫T1(ξ, n) dvol) > 0. Solve, as in [[prop:loc-projection]] (b), for data bg + εδ + c whose constraints equal
-ε²s times those of the dust of density d1 (the matter term computed with the unit normal of the unknown data, which
-depends smoothly on them and is O(ε²)) up to the static Killing initial data, for s ∈ [0, 2s*] [[pending:issue-1]].
-Pairing as in (a), the coefficient of the Killing data has the sign of m(ε, s) = ε²(Q(δ) − 2s∫T1(ξ, n)) + O(ε³),
-uniformly in s and continuous in s. Then m(ε, 0) < 0 < m(ε, 2s*) for ε small, and m(ε, s(ε)) = 0 for some s(ε): exact
-Einstein–null-dust data, equal to the background's outside U, with dust density ε²s(ε)d1 ≥ 0. ∎
+which has the sign of f. Fix a nonzero dust density ϖ_1 ≥ 0 supported in U ∩ {f < 0}, with stress T_1; then ∫T_1(ξ, n)
+dvol < 0. Put s* := Q(δ)/(2∫T_1(ξ, n) dvol) > 0. Solve, as in [[prop:loc-projection]] (b), for data bg + εδ + c whose
+constraints equal ε²s times those of the dust of density ϖ_1 (the matter term computed with the unit normal of the
+unknown data, which depends smoothly on them and is O(ε²)) up to the static Killing initial data, for s ∈ [0, 2s*]
+[[pending:issue-1]]. Pairing as in (a), the coefficient of the Killing data has the sign of m(ε, s) = ε²(Q(δ) − 2s∫T_1(ξ,
+n)) + O(ε³), uniformly in s and continuous in s. Then m(ε, 0) < 0 < m(ε, 2s*) for ε small, and m(ε, s(ε)) = 0 for some
+s(ε): exact Einstein–null-dust data, equal to the background's outside U, with dust density ε²s(ε)ϖ_1 ≥ 0. ∎
 
 Where f > 0 the vector ξ is future timelike and its charge is an energy, which the dominant energy condition makes
 nonnegative; where f < 0 it is spacelike, its charge is a momentum, and outgoing dust carries it with the sign

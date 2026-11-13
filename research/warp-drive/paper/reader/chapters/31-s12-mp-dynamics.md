@@ -806,7 +806,7 @@ C²([0, 2/m₀]), which is below min(m₀²/12, ¼) for ‖A‖ small. ∎
 
 **Remark {#rem:s12-convexity-sample}** (Numerical observation.) Sampled at m = m₀ and ‖A‖ ≤ 0.02 m₀^(1/2) on the
 face (|Φ| + |Ψ|)² = Λ of 𝔑, the two bounds of [[lem:vi-b1-1-1]] were observed with minima of about 0.30 m₀² (for 𝒬″,
-where Λ ≥ m₀/6) and 0.80 (for 𝒬, where Λ < m₀/6). No proof uses this; [[lem:vi-b1-1-1]] rests on the perturbation
+where Λ ≥ m₀/6) and 0.788 (for 𝒬, where Λ < m₀/6). No proof uses this; [[lem:vi-b1-1-1]] rests on the perturbation
 argument above.
 
 **Corollary {#cor:vi-b1-1-2}** (The radial structure.) Let ε_R also be so small that r₊(b)⁻² < 2/m₀, and let
