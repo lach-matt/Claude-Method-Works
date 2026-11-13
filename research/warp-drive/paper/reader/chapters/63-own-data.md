@@ -728,9 +728,9 @@ Rem′(D_ς X) := ς⁻² Rem(X; μ ς⁻², (λ ς^(−p))_p); it does not depe
 and the homogeneous terms do not. Differentiation in ς gives Z Rem′ = −ς⁻² (2 + 2e ∂_e + Σ_p p d_p ∂_(d_p)) Rem. Here
 e ∂_e Rem and d_p′ ∂_(d_p′) Rem are again of the form Σ_p d_p Ψ″_p, with Ψ″_p vanishing to second order at
 (e, d) = (0, 0), and so is an X-derivative of Rem. Further ∂_a Rem′ = ς⁻¹ (∂_X Rem)′, and L_Ω_ab, which commutes with
-D_ς, maps Rem′ to (L_Ω_ab Rem)′. So every Π_i (Γ_i + c_i) Rem′ is O(λ r⁻⁸), and [[eq:far-residual]] follows. At most
-|α| derivatives in X enter, and the homogeneous terms involve the Σ̂_p through their jets of order |α| + 2 on 𝔎; so
-the constants are independent of λ for |α| ≤ k1 + 2. ∎
+D_ς, maps Rem′ to (L_Ω_ab Rem)′. So every Π_i (Γ_i + c_i) Rem′ is O(λ r⁻⁸), and [[eq:far-residual]] follows. The
+derivatives in X that enter number at most |α|, and the homogeneous terms involve the Σ̂_p through their jets of order
+|α| + 2 on 𝔎; so the constants are independent of λ for |α| ≤ k1 + 2. ∎
 
 **Lemma {#lem:far-naturality}** (naturality). Let O ∈ O(4), Õ(t, x) := (t, O x) and Ō := diag(1, O). For every
 symmetric h, in Cartesian components,
