@@ -218,3 +218,242 @@ depend on the variable x³" [HL18, p. 3, footnote 5]. Their local theory assumes
 for the higher norms" (p. 9); and in [HL25] "local existence in the elliptic gauge requires a smallness assumption"
 (p. 4). They use the Raychaudhuri equation for a gain in the wavelength: "To obtain this improvement, we use the
 Raychaudhuri equation that χ_A satisfies" [HL25, pp. 4–5].
+
+### The augmented system {#sec:class-augmented}
+
+**Definition {#def:class-admissible}** (Admissible domains.) Let g̊ be a smooth G-invariant Lorentzian metric on a
+neighbourhood of a compact set Ω ⊂ R × (R⁴ ∖ {0}). Ω is *admissible* for g̊ if Ω = ⋃_(τ0 ≤ τ ≤ τ1) {τ} × Σ_τ, where
+each Σ_τ is a G-invariant compact domain of R⁴ ∖ {0} with smooth boundary, the image of the annulus {1 ≤ |x| ≤ 2}
+under a diffeomorphism depending smoothly on τ with all derivatives bounded uniformly in τ, and:
+
+(a) dτ is timelike for g̊ on Ω, so every Σ_τ is spacelike;
+(b) each lateral boundary component, the hypersurface swept by one component of ∂Σ_τ, is spacelike for g̊ with Ω to
+its past: future causal vectors at its points do not point into Ω;
+(c) there is ε1 > 0 such that (a) and (b) hold for every Lorentzian g with |g − g̊| ≤ ε1 on Ω; then J⁻(p; g) ∩
+{τ ≥ τ0} ⊂ Ω for every p ∈ Ω, because a past causal curve cannot leave Ω through a lateral boundary or through Σ_(τ1).
+
+The domain Ω of [[eq:omega]] is admissible for g0 by [[lem:domain]] (a)–(c), (e), and the domain Ω₂ of
+[[eq:two-dust-omega]] is admissible for the two-dust background by [[lem:two-dust-domain]] (a)–(c), (e). The slices are
+connected and simply connected, and the Sobolev inequality of [[lem:sobolev]] holds on them with a constant independent
+of τ, by its proof. The energy inequality [[lem:energy]] holds on an admissible domain with g̊ in place of g0, since
+its proof uses only (a)–(c).
+
+Let ů = (g̊, ů_A, q̊_A), A = 1, …, N_f, be a class solution on a neighbourhood of a domain Ω admissible for g̊, with
+dů_A ≠ 0 on Ω. Replacing ů_A by −ů_A where needed (which changes nothing in [[eq:class-system]]), every P̊_A := g̊⁻¹dů_A
+is future directed: it is null and nonzero, so never tangent to the spacelike Σ_τ, and Ω is connected. For a closed
+set S ⊂ Σ_τ0 and a vector field P on Ω transverse to the slices, the *tube* of S is the union of the integral curves
+of P in Ω through the points of S. Fix δ > 0, closed G-invariant sets S_A ⊂ Σ_τ0 containing supp q̊_A ∩ Σ_τ0 whose
+tubes 𝒯̊_A for P̊_A lie at distance at least 2δ from the axes, and G-invariant cut-offs ζ_A ∈ C^∞, equal to 1 on a
+neighbourhood of 𝒯̊_A and to 0 within distance δ of the axes. Put S̊_A := P̊_A(□_g̊ ů_A), a fixed smooth function on Ω.
+
+The unknowns of the *augmented system* are a metric g and, for each family, a covector field p_A and functions Θ_A and
+q_A; we put P_A := g⁻¹p_A, ψ_i := ½ log g(K_i, K_i) and κ_Ai := g⁻¹(p_A, dψ_i). The equations are
+
+    (Aug1)   Ric^H(g) = Σ_A q_A p_A ⊗ p_A,                                                             {#eq:class-aug1}
+    (Aug2)   P_A^b ∂_b p_(A,a) = P_A^b Γ[g]^c_(ba) p_(A,c),      that is, ∇_(P_A) p_A = 0,                {#eq:class-aug2}
+    (Aug3)   P_A(Θ_A) = ζ_A S_A + (1 − ζ_A) S̊_A,                                                       {#eq:class-aug3}
+    (Aug4)   P_A(q_A) = −Θ_A q_A,                                                                     {#eq:class-aug4}
+
+with S_A := −(Θ_A − κ_A1 − κ_A2)² − κ_A1² − κ_A2² − Σ_B q_B g⁻¹(p_A, p_B)², the right side of
+[[eq:class-raychaudhuri]], and Ric^H the reduced Ricci tensor of [[sec:gauge]] relative to g̊ (g̊ in place of g0 in
+[[eq:gauge]]), with its gauge vector D(g). ζ_A S_A is smooth, since ζ_A vanishes near the axes.
+
+**Proposition {#prop:class-augmented}** (The augmented system.) Let (g, p_A, Θ_A, q_A) solve (Aug1)–(Aug4) on an open
+set, and put ν_A := g⁻¹(p_A, p_A), Δ_A := Θ_A − div_g P_A and T := Σ_A q_A p_A ⊗ p_A.
+
+(a) (Orders.) The sources of (Aug2)–(Aug4) are smooth functions of (g, dg, p_B, Θ_B, q_B), and the lower-order part of
+(Aug1) is a smooth function of (g, dg, p_B, q_B). So if an energy controls ∂^j of (dg, p_A, Θ_A, q_A) for j ≤ k, every
+source is controlled at order k, and the loop closes. Each of three variants loses one derivative: the transport
+P_A(q_A) = −(div_g P_A) q_A in place of (Aug4), whose source holds ∂p_A; the general Raychaudhuri source −|∇²u_A|²,
+which holds ∂p_A; and S_A at an axis point, where κ_A2 is of the order of ∂p_A ([[prop:class-axis]] (b)).
+
+(b) (The phase.) P_A(ν_A) = 2 g⁻¹(p_A, ∇_(P_A) p_A), ∇_(P_A) p_A = ½ dν_A + ι_(P_A) dp_A, and ℒ_(P_A)(dp_A) =
+d(ι_(P_A) dp_A), with ι_P ω := ω(P, ·). So under (Aug2) ν_A is constant along P_A, and where ν_A ≡ 0, dp_A is
+Lie-transported along P_A.
+
+(c) (The stress.) div_g T = Σ_A ((P_A(q_A) + q_A div_g P_A) p_A + q_A ∇_(P_A) p_A) and tr_g T = Σ_A q_A ν_A; under
+(Aug2) and (Aug4), div_g T = −Σ_A Δ_A q_A p_A.
+
+(d) (The expansion defect.) Where ζ_A = 1 and p_A = du_A with u_A an eikonal,
+
+    P_A(Δ_A) = −Δ_A (Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) − (T − Ric(g))(P_A, P_A).                        {#eq:class-defect}
+
+(e) (The gauge.) Put B_g T := −div_g T + ½ d tr_g T = Σ_A Δ_A q_A p_A + ½ d(Σ_A q_A ν_A). The gauge vector D := D(g),
+with D_m := g_mρ D^ρ, solves
+
+    □_g D_n + Ric(g)_nσ D^σ + 2 ∇^m(L_mn − ½ g_mn tr L) = 2 (B_g T)_n,                                   {#eq:class-gauge-wave}
+
+with L the tensor of the proof of [[lem:gauge-propagation]], linear in D and free of its derivatives; and
+(T − Ric(g))(P_A, P_A) = −g(∇_(P_A) D, P_A) − L(P_A, P_A), linear in (D, ∂D).
+
+(f) (Characteristics.) The symbol ξ ↦ ξ(P_A) of the transport P_A·∂ vanishes at ξ = p_A, where also g⁻¹(ξ, ξ) =
+ν_A = 0 for an eikonal: the characteristic set of the transport meets the light cone along the conormal p_A. In a
+first-order form with time τ, the speed P_A^i ξ_i/P_A^τ of the transport meets the speed 0 where P_A^i ξ_i = 0, and the
+speed of another family on hyperplanes of ξ. So condition (A4) of [DS23] ([[thm:std-ds-existence]]), that distinct
+eigenvalues of the symbol never meet, fails for the augmented system.
+
+*Proof.* (a) S_A is a polynomial in Θ_A, κ_Ai, q_B and g⁻¹(p_A, p_B), and κ_Ai = g⁻¹(p_A, dψ_i) holds dψ_i =
+½ d g(K_i, K_i)/g(K_i, K_i), a smooth function of (g, dg) where g(K_i, K_i) > 0, in particular on supp ζ_A; the source
+of (Aug2) holds Γ[g], of (Aug4) Θ_A q_A; and the lower-order part Q of Ric^H is quadratic in dg by [[eq:gauge]]. The
+three variants hold div_g P_A, |∇²u_A|² and ∂²u_A respectively, each one derivative above p_A.
+
+(b) P_A(ν_A) = 2 g^(ab) p_(A,a) ∇_(P_A) p_(A,b) since ∇g = 0. For a covector p, P^b ∇_b p_a = P^b ∇_a p_b + P^b
+(∇_b p_a − ∇_a p_b) = ½ ∂_a (g^(bc) p_b p_c) + P^b (dp)_(ba), with (dp)_(ba) := ∂_b p_a − ∂_a p_b. Cartan's formula
+ℒ_P = d ι_P + ι_P d and d(dp) = 0 give the third identity. Under (Aug2) the first gives P_A(ν_A) = 0; where ν_A ≡ 0, the
+second gives ι_(P_A) dp_A = 0, and then ℒ_(P_A)(dp_A) = 0.
+
+(c) ∇^a(q p_a p_b) = P(q) p_b + q (∇^a p_a) p_b + q p_a ∇^a p_b, and p_a ∇^a p_b = (∇_P p)_b; tr_g T = Σ q_A
+g⁻¹(p_A, p_A). Under (Aug2) and (Aug4), the coefficient of p_A is −Θ_A q_A + q_A div_g P_A = −Δ_A q_A.
+
+(d) Put θ̃ := div_g P_A = □_g u_A. Where ζ_A = 1, (Aug3) reads P_A(Θ_A) = −(Θ_A − κ1 − κ2)² − κ1² − κ2² − T(P_A, P_A),
+since T(P_A, P_A) = Σ_B q_B (p_B(P_A))² = Σ_B q_B g⁻¹(p_A, p_B)² (κ_i := κ_Ai). [[eq:class-raychaudhuri]] gives P_A(θ̃) =
+−(θ̃ − κ1 − κ2)² − κ1² − κ2² − Ric(g)(P_A, P_A). Subtracting, P_A(Δ_A) = −(Θ_A − θ̃)(Θ_A + θ̃ − 2κ1 − 2κ2) − (T −
+Ric(g))(P_A, P_A).
+
+(e) As in the proof of [[lem:gauge-propagation]], (Aug1) reads Ric(g) = T + ½(∇_m D_n + ∇_n D_m) + L_mn. Put E :=
+Ric(g) − T. The contracted Bianchi identity gives ∇^m(E_mn − ½ g_mn tr E) = −∇^m(T_mn − ½ g_mn tr T) = (B_g T)_n, and
+the left side is ½ □_g D_n + ½(∇^m∇_n D_m − ∇_n∇^m D_m) + ∇^m(L_mn − ½ g_mn tr L) with ∇^m∇_n D_m − ∇_n∇^m D_m =
+Ric(g)_nσ D^σ. The last claim is the formula for Ric(g) contracted with P_A twice.
+
+(f) ξ(P_A) = g⁻¹(p_A, ξ) vanishes at ξ = p_A. With time τ the transport reads P_A^τ (∂_τ + (P_A^i/P_A^τ) ∂_i), with
+speed P_A^i ξ_i/P_A^τ in the direction ξ; the first-order form of the wave equation has the speed 0 among its
+eigenvalues, as in Step 8 of [[sec:ue-existence]]. ∎
+
+**Lemma {#lem:class-speeds}** (Speeds on the two-dust background.) Let g0 be the two-dust background of
+[[prop:two-dust-background]] in the chart (τ, R, angles) of [[lem:two-dust-domain]], with v̂ = v, τ = v − R and ψ the
+function of [[eq:two-dust-chart]], and f = 1 − μ/R². Every future causal vector Y with dτ(Y) = 1 satisfies
+
+    R² |Ω̇|² ≤ e^ψ/(2 − e^ψ f) ≤ 1,      dR(Y) ∈ [−1, e^ψ f/(2 − e^ψ f)] ⊂ [−1, 1],
+
+where |Ω̇| is the length of the angular part of Y in the unit round metric; the upper end of the interval is negative
+where f < 0, and 1 − e^ψ/(2 − e^ψ f) = (2 − e^ψ (1 + f))/(2 − e^ψ f).
+
+*Proof.* Put E := e^ψ and x := dR(Y). On G, ψ ≤ 0 (proof of [[lem:two-dust-domain]]) and μ ≥ μ0 > 0
+([[prop:two-dust-background]] (b)), so 0 < E ≤ 1, f ≤ 1 and E f ≤ 1. By [[eq:two-dust-chart]] with dv̂(Y) = 1 + x,
+
+    g0(Y, Y) = −E² f (1 + x)² + 2E (1 + x) x + R² |Ω̇|²,
+
+so Y is causal exactly when R² |Ω̇|² ≤ q(x) := E (1 + x)(E f (1 + x) − 2x). The quadratic q has leading coefficient
+E (E f − 2) < 0 and roots x = −1 and x = E f/(2 − E f), so q ≥ 0 exactly between them; E f/(2 − E f) ≤ 1 because E f ≤ 1,
+and it is negative where f < 0. Its maximum, at x* = −(1 − E f)/(2 − E f) where 1 + x* = 1/(2 − E f), is q(x*) =
+(E² f + 2E (1 − E f))/(2 − E f)² = E/(2 − E f), and E/(2 − E f) ≤ 1 because E (1 + f) ≤ 2. ∎
+
+**Lemma {#lem:class-transport}** (Transport along a causal field.) Let Ω be admissible for g̊, g a Lorentzian metric with
+|g − g̊| ≤ ε1 on Ω, and P a C¹ vector field on Ω, future causal for g, with P(τ) ≥ c_P > 0 and |P| + |∂P| ≤ c_P⁻¹. Let
+P(φ) − c φ = f on Ω, with φ a function or an array and c a bounded function or matrix. Then
+
+    ‖φ(τ)‖ ≤ C (‖φ(τ0)‖ + ∫_(τ0)^τ ‖f(t)‖ dt),      ‖·‖ the flat L²(Σ_τ) norm,
+
+with C depending on c_P, sup |c| and Ω.
+
+*Proof.* In the coordinate density, ∂_a(φ² P^a) = 2φ (c φ + f) + φ² ∂_a P^a. Integrate over Ω ∩ {τ0 ≤ t ≤ τ}. The
+flux through Σ_τ is ∫_(Σ_τ) P^τ φ², that through Σ_τ0 enters with the opposite sign, and that through a lateral
+boundary component {F = 0}, with Ω ⊂ {F ≤ 0} and dF positive on future timelike vectors, is the integral of φ² dF(P)
+times a positive density, which is nonnegative because P is future causal and the component is spacelike for g
+([[def:class-admissible]] (c)). Dropping it, ∫_(Σ_τ) P^τ φ² ≤ ∫_(Σ_τ0) P^τ φ² + ∫ (2|φ||f| + C φ²), and c_P ≤ P^τ ≤
+c_P⁻¹. Gronwall's inequality concludes. ∎
+
+### Kato's iteration with a non-local source {#sec:class-kato}
+
+Let d ≥ 1, let s > d/2 + 1 be an integer, and let A^0, A^1, …, A^d be smooth symmetric m × m matrix functions of
+(t, x, u) ∈ [0, T0] × R^d × R^m with A^0 ≥ c0 I, every derivative of which is bounded on [0, T0] × R^d × {|u| ≤ R} for
+every R. Let F map [0, T0] × H^s(R^d; R^m) to H^s(R^d; R^m) with:
+
+(K1) ‖F(t, u)‖_(H^s) ≤ C(M) for ‖u‖_(H^s) ≤ M;
+(K2) ‖F(t, u) − F(t, v)‖_(L²) ≤ L(M) ‖u − v‖_(L²) for ‖u‖_(H^s), ‖v‖_(H^s) ≤ M;
+(K3) t ↦ F(t, u(t)) is continuous into L² whenever u ∈ C([0, T]; L²) ∩ L^∞([0, T]; H^s).
+
+Consider
+
+    A^0(t, x, u) ∂_t u + A^j(t, x, u) ∂_j u = F(t, u),      u(0) = u0.                                   {#eq:class-kato-system}
+
+The *domain version* concerns a compact domain Ω = ⋃_t {t} × Σ_t of the kind of [[def:class-admissible]] whose lateral
+boundaries are spacelike for the system: at each of their points, for the outward conormal ν (positive on vectors
+pointing out of Ω), the matrix ν_t A^0 + ν_j A^j is positive semidefinite. It assumes
+
+(K4) F(t, u) on Σ_t ∩ Ω depends only on u on Σ_t ∩ Ω, and (K1)–(K3) hold with every norm taken on Σ_t ∩ Ω.
+
+The linear problem used below is [[eq:class-kato-system]] with coefficients A^0(t, x, v(t, x)), A^j(t, x, v(t, x)) for a
+given v ∈ C([0, T]; L²) ∩ L^∞([0, T]; H^s) with ∂_t v ∈ L^∞([0, T]; H^(s−1)), and a given source f ∈ C([0, T]; L²) ∩
+L^∞([0, T]; H^s): it has a unique solution w ∈ C([0, T]; L²) ∩ L^∞([0, T]; H^s) with ∂_t w ∈ L^∞([0, T]; H^(s−1)), for
+which the energy inequalities below hold [[pending:issue-1]].
+
+**Theorem {#thm:class-kato}** (Kato's iteration with a non-local source.) Under (K1)–(K3), for every u0 ∈ H^s there are
+T* > 0, depending only on ‖u0‖_(H^s), and a unique u ∈ L^∞([0, T*]; H^s) ∩ Lip([0, T*]; L²) solving
+[[eq:class-kato-system]]. The solution continues as long as ‖u(t)‖_(H^s) stays bounded. Under (K4) the same holds on a
+domain whose lateral boundaries are spacelike for the system, with every norm taken on Σ_t ∩ Ω, and the solution on Ω
+depends only on the data on Σ_0 ∩ Ω.
+
+*Proof.* Put M := 2C_E ‖u0‖_(H^s) + 1, C_E ≥ 1 a constant fixed below. Let u^0(t) := u0 and let u^(n+1) solve
+
+    A^0(t, x, u^n) ∂_t u^(n+1) + A^j(t, x, u^n) ∂_j u^(n+1) = F(t, u^n),      u^(n+1)(0) = u0.
+
+*Boundedness.* For |α| ≤ s apply ∂^α, take the L² product with ∂^α u^(n+1) and integrate by parts in x, using the
+symmetry of the matrices. The commutators [∂^α, A^μ(u^n)] ∂_μ u^(n+1), with ∂_t u^(n+1) expressed by the equation, are
+bounded in L² by C(M) ‖u^(n+1)‖_(H^s) by the product estimates of [[thm:std-gn-moser]] and Sobolev's embedding
+H^s ⊂ W^(1,∞) (s > d/2 + 1), and the terms in ∂A^μ(u^n) likewise. With E_s(w) := Σ_(|α|≤s) ⟨A^0 ∂^α w, ∂^α w⟩, which
+is comparable to ‖w‖²_(H^s) with constants depending on c0 and M, this gives
+
+    d/dt E_s(u^(n+1)) ≤ C(M) (E_s(u^(n+1)) + ‖F(t, u^n)‖_(H^s) E_s(u^(n+1))^(1/2)),
+
+and with (K1) and Gronwall's inequality, ‖u^n(t)‖_(H^s) ≤ M on [0, T*] for all n, for T* small depending on M; this
+fixes C_E. *Contraction.* w := u^(n+1) − u^n solves the linear problem with coefficients at u^n and the source
+
+    −(A^0(u^n) − A^0(u^(n−1))) ∂_t u^n − (A^j(u^n) − A^j(u^(n−1))) ∂_j u^n + F(t, u^n) − F(t, u^(n−1)),
+
+whose L² norm is at most C(M) ‖u^n − u^(n−1)‖_(L²), by the bounds on ∂u^n in L^∞ and by (K2). The L² energy gives
+sup_t ‖w(t)‖_(L²) ≤ C(M) T* sup_t ‖u^n − u^(n−1)‖_(L²), a contraction for T* small. *Limit.* u^n → u in C([0, T*];
+L²), hence in C([0, T*]; H^(s′)) for s′ < s by interpolation, u ∈ L^∞([0, T*]; H^s) by weak-* compactness, F(t, u^n) →
+F(t, u) in L² by (K2), and u solves [[eq:class-kato-system]]. Uniqueness is the same L² estimate for the difference of
+two solutions, and continuation holds because T* depends only on M. Locality of F is used nowhere on R^d. On a domain,
+the energy identities on Σ_t ∩ Ω carry lateral boundary terms ∫ ∂^α w · (ν_t A^0 + ν_j A^j) ∂^α w ≥ 0, which are
+dropped; by (K4) every estimate of F on Σ_t ∩ Ω involves u there only, and the coefficients and sources are extended
+outside Ω as in Step 8 (i) of [[sec:ue-existence]]. ∎
+
+[IT20, Theorem 1, p. 3] is the case A^0 = I and F = 0: "The equation (1.2) is locally well-posed in H^s in the Hadamard
+sense for s > d/2 + 1", for ∂_t u = A^j(u) ∂_j u with "the m × m matrices A^j … symmetric" [IT20, p. 2]; it is due to
+Kato [Kat75] ([IT20, p. 4]). Cauchy stability is part of well-posedness in Hadamard's sense: "for a solution u ∈
+C([0, T]; H^s), small perturbations of the initial data u_0 yield solutions which are also defined in [0, T]"
+[IT20, p. 2]. With a non-local source over a given interval it needs a tame bound.
+
+**Theorem {#thm:class-kato-stability}** (Cauchy stability.) In the setting of [[thm:class-kato]] assume moreover
+
+(K1′) ‖F(t, u)‖_(H^s) ≤ C(‖u‖_(W^(1,∞))) (1 + ‖u‖_(H^s)),
+
+and (K4) for the domain version. Let ū ∈ C([0, T]; H^s) solve [[eq:class-kato-system]] on [0, T] (on the domain, with
+lateral boundaries spacelike for the system). There is ε0 > 0 such that for ‖u0 − ū(0)‖_(H^s) ≤ ε0 the solution exists
+on [0, T], and
+
+    sup_t ‖u − ū‖_(L²) ≤ e^(L T) ‖u0 − ū(0)‖_(L²),      sup_t ‖u‖_(H^s) ≤ M,
+    sup_t ‖u − ū‖_(H^(s′)) ≤ C ‖u0 − ū(0)‖_(L²)^(1 − s′/s)      for d/2 + 1 < s′ < s,
+
+with M, L, C depending on ū and T.
+
+*Proof.* Put K := sup_t ‖ū‖_(W^(1,∞)) + 1 and let T* ≤ T be the supremum of the t for which the solution exists on
+[0, t] with ‖u − ū‖_(W^(1,∞)) ≤ 1. On [0, T*): (1) ‖u‖_(W^(1,∞)) ≤ K, so Moser's tame bound for the commutators,
+‖[∂^α, A(u)] ∂u‖_(L²) ≤ C(‖u‖_(W^(1,∞))) ‖u‖_(H^s) ([[thm:std-gn-moser]]), and (K1′) give d/dt E_s ≤ C(K)(1 + E_s), so
+‖u(t)‖_(H^s) ≤ (1 + ‖u0‖_(H^s)) e^(C(K) T) =: M, uniformly for data within ε0 ≤ 1 of ū(0). (2) w := u − ū solves the
+linear system with coefficients at u and source −(A(u) − A(ū)) ∂ū + F(u) − F(ū); its L² energy, with (K2) on the H^s
+ball of radius max(M, sup_t ‖ū‖_(H^s)), gives ‖w(t)‖_(L²) ≤ e^(L t) ‖w(0)‖_(L²). (3) By Sobolev's embedding H^(s′) ⊂
+W^(1,∞) and the interpolation inequality ‖w‖_(H^(s′)) ≤ ‖w‖_(L²)^(1−s′/s) ‖w‖_(H^s)^(s′/s), which on R^d is Hölder's
+inequality for ∫ (1 + |ξ|²)^(s′) |ŵ|² dξ with the exponents s/(s − s′) and s/s′,
+
+    ‖w‖_(W^(1,∞)) ≤ C ‖w‖_(H^(s′)) ≤ C (2M)^(s′/s) (e^(L T) ε0)^(1−s′/s) < 1/2      for ε0 small.
+
+(4) If T* < T, the solution at T* lies in the H^s ball of radius M, so [[thm:class-kato]] continues it past T*, and by
+continuity ‖w‖_(W^(1,∞)) < 1 a little beyond: a contradiction. So T* = T. On the domain the energy identities on
+Σ_t ∩ Ω carry lateral boundary terms of the good sign, as in [[lem:energy]], and (K4) makes every estimate of F on
+Σ_t ∩ Ω depend on u there only; the inequalities of (3) hold on Σ_t ∩ Ω after a uniform extension
+([[thm:std-sy-extension]]). ∎
+
+A source that is a smooth function of (t, x, u), with every derivative bounded on bounded sets of u, satisfies (K1)–(K4)
+and (K1′), by Moser's estimate [[cor:std-moser-product]].
+
+**Remark {#rem:class-kato-model}** (Numerical observation.) For the scalar model u_t + (1 + u) u_x = −(1 − ∂_x²)⁻¹(u²)
+on the line, whose source is non-local, the iteration of [[thm:class-kato]] was run in floating point: the successive
+differences sup_t ‖u^(n+1) − u^n‖_(L²) fell by ratios between 0.053 and 0.110, and the H² norms stayed at 2.40 within
+5 %; with the source 0.5 u_xx in its place, which violates (K1) and (K2), the H² norms grew from 2.07 to 230. For the
+stability statement, the quotient ‖F(u)‖_(H²)/(‖u‖_(L^∞) ‖u‖_(H²)) stayed below 0.2629 on twenty random states, and on
+[0, 1], inside the lifespan of the computed solution ū, sup_t ‖u_d − ū‖_(H²)/d was 12.46, 12.45, 12.45 for perturbations
+of the data of size d = 4 × 10⁻³, 2 × 10⁻³, 10⁻³; on [0, 3], past the shock of ū, ‖ū‖_(H²) grew by a factor 420. No
+proof uses these observations.
