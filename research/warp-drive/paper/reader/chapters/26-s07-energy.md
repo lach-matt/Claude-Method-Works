@@ -973,3 +973,369 @@ of length at most j − 1 on the larger slab Ω_(2j−2), tame by step j − 1;
 ‖u″‖_((𝗌+1;d̃)) ≤ C‖u″‖_((𝗌;d̃+1)) ≤ C‖f″‖_((𝗌−1;d̃+1)) by [[eq:ii-e-4-2]] at d̃ + 1 < d; and
 ‖p‖_((d_1+2;d̃+2)) ≤ Cε_(P,d), ‖p‖_((d_1+2;j)) ≤ Cε_(P,j). The finitely many nested slabs used for a given k make C_k
 depend on k only. Conclude with [[lem:ii-e-4-1]] (c) and the bound on f″. ∎
+
+### The black hole interior {#sec:ii-e-5}
+
+The region {r_0 ≤ r ≤ r^♮} at late times is unbounded in time: its closure meets K⁺. There dr is timelike, and −r
+serves as a time function. The estimates of [[sec:ii-e-2]]–[[sec:ii-e-4]] hold there with −r in place of t^♭, with no
+radial set and no threshold; this is [Hin26c, Section 8.2] in dimension 4 + 1.
+
+#### r-slabs {#sec:ii-e-5-1}
+
+By [[lem:ii-e-1-2]] (iv) there is δ_♮ > 0 such that dr is future timelike for the metric of P^ext on
+{r^♯ ≤ r ≤ r^♮ + δ_♮} ∩ {t^♭ ≥ 1 − η_0}. For T_0 ≥ 1 − η_0/2 and r^♯ ≤ a < b ≤ r^♮ + δ_♮ the **r-slab** is
+
+    Ω^K_([a,b]) := {t^♭ ≥ T_0, a ≤ r ≤ b},
+
+with T_0 understood and P^ext in place of P where P is not given. Its faces in M° are {t^♭ = T_0} and {r = b}, which are
+initial, and {r = a}, which is final: future causal vectors point into it across the first two and out of it across the
+last, as ∇t^♭ is past and ∇r future timelike, and dt^♭, dr are independent where the faces meet. Its closure meets ∂M
+only in K⁺ ∩ {a ≤ r ≤ b}. There, in the coordinates (ρ_K = t_*⁻¹, x), the e3b-vector fields are spanned by
+∂_(t_*) = −ρ_K² ∂_(ρ_K) and ∂_x, and the b-vector fields by t_*∂_(t_*) and ∂_x ([[sec:ii-a-1]]; [Hin26c] calls these
+spaces cusp spaces). Only the weight at K⁺ matters, and near the r-slabs we write
+
+    H^(𝗌,α_K)_K := H^(𝗌,(0,0,α_K))_(e3b),        H^((𝗌;k),α_K)_K := H^((𝗌;k),(0,0,α_K))_(e3b;b),
+
+with the density |dg|, a smooth positive multiple of |dt_* dx| there. So ‖u‖_(H^(1,α_K)_K) is equivalent to the
+L²-norm of t_*^(α_K)(|u| + |∂_(t_*)u| + |∂_x u|). [Hin26c] glosses the left side of its (8.38) as controlling
+t_*^(−α_K) u; with its multiplier ρ_K^(−2α_K)∇r and (8.39) the norm is that of ρ_K^(α_K) L², which controls
+t_*^(α_K) u = ρ_K^(−α_K) u.
+
+Let U^K := M° ∩ {r > a}, V^K := M° ∩ {t^♭ > T_0, r < b} and U^K_0 := M° ∩ {a < r < b}, and define, with quotient norms,
+
+    H^(𝗌,α_K)(Ω^K_([a,b]))^(•,−) := {u|_(U^K) : u ∈ H^(𝗌,α_K)_K, supp u ⊂ {t^♭ ≥ T_0, r ≤ b}},
+    H^(𝗌,α_K)(Ω^K_([a,b]))^(−,•) := {v|_(V^K) : v ∈ H^(𝗌,α_K)_K, supp v ⊂ {r ≥ a}},
+    H^(𝗌,α_K)(Ω^K_([a,b]))^•    := {u|_(U^K_0) : u ∈ H^(𝗌,α_K)_K, supp u ⊂ {t^♭ ≥ T_0}},
+
+and the mixed spaces of order (𝗌;k) likewise. The first are the spaces of forward problems, the second those of backward
+problems; the third is supported at {t^♭ = T_0} only and extendible at both r-faces, the space of the continuation
+estimates. D(Ω^K_([a,b])) is the set of restrictions to U^K of functions in C_c^∞(M°) supported in
+{t^♭ > T_0, r < b}, and D_*(Ω^K_([a,b])) that of restrictions to V^K of functions in C_c^∞(M°) supported in {r > a}.
+Both consist of functions vanishing near K⁺.
+
+[[lem:ii-e-1-3]] holds for r-slabs, with these changes in its proof. The collar field is Z := ∇t^♭:
+Z t^♭ = G(dt^♭) < 0, and Z r = g⁻¹(dt^♭, dr) > 0, as ∇t^♭ is past and ∇r future timelike. Near K⁺, Z is a stationary
+vector field in (t_*, x) plus one with coefficients O(ρ_K^(ℓ_K)), so its flow changes t_* by a bounded amount in bounded
+time and is bounded on H^(m,α_K)_K, uniformly for bounded times, and strongly continuous. −Z moves supports in
+{t^♭ ≥ T_0, r ≤ b} into {t^♭ > T_0, r < b}, and Z moves supports in {r ≥ a} into {r > a}. Seeley's operator is applied
+first across {r = b} in the variable r, with (t_*, ω) as parameters, and then across {t^♭ = T_0} in the collar
+coordinates of Z, with collar width η_0/2; along a collar line r increases as t^♭ decreases, so the extension of a
+function vanishing on {r < a} vanishes there. For density, one cuts off also at large times by 1 − χ_0(t_*/T),
+T → ∞, whose derivative along ∂_(t_*) is O(T⁻¹) and along ∂_x is zero.
+
+#### Energy estimates {#sec:ii-e-5-2}
+
+**Lemma {#lem:ii-e-5-1}** (Energy estimates on r-slabs.) Let α_K ∈ ℝ and Ω^K := Ω^K_([a,b]). There is C, uniform for
+ε_P small with d_0 = 2 (the norm of P − P_0 with the weights (0, 0, ℓ_K) suffices), such that
+
+    ‖u‖_(H^(1,α_K)(Ω^K)) ≤ C ‖Pu‖_(H^(0,α_K)(Ω^K)),          u ∈ D(Ω^K),
+    ‖v‖_(H^(1,−α_K)(Ω^K)) ≤ C ‖P*v‖_(H^(0,−α_K)(Ω^K)),       v ∈ D_*(Ω^K).                              {#eq:ii-e-5-1}
+
+Here H^(1,β)(Ω^K) and H^(0,β)(Ω^K) are the L²(Ω^K, |dg|)-norms of t_*^β(|u| + |∂_(t_*)u| + |∂_x u|) and of t_*^β u,
+and P* is the adjoint for |dg| and a fixed smooth fibre inner product h_K. The same holds on Ω^K ∩ {t^♭ ≤ T_1}, with
+{t^♭ = T_1} a further final face.
+
+This is [Hin26c, Lemma 8.10] in dimension 4 + 1.
+
+*Proof.* Let w := t_*^(2α_K) = ρ_K^(−2α_K), Y_r := ∇r/|G(dr)|, which is future timelike with Y_r(−r) = 1, and
+|ζ|² := ζ_(t_*)² + |ζ_x|² for covectors ζ = ζ_(t_*) dt_* + ζ_x dx. On the r-slab, by stationarity of g_0, compactness
+in x and the decay of g − g_0, there are constants, uniform for ε_P small with d_0 = 2, with: |div_g Y_r| ≤ C_0 and
+|Y_r log w| = 2|α_K| |Y_r t_*|/t_* ≤ C_1; T(∇r, ∇r)(ζ) ≥ c_r |ζ|², by [[lem:ii-e-2-2]]; and
+|K_(w^(±1)∇r)(ζ)| ≤ C_3 w^(±1) |ζ|², by the formula for K_(fX) in [[lem:ii-e-2-1]], as |∇w| ≤ Cw and ∇r has bounded
+first derivatives. P − P_□ is of first order with bounded coefficients in the frame ∂_(t_*), ∂_x, so for any vector
+field X with |X| ≤ C_X f, |2 Re⟨(P − P_□)u, Xu⟩| ≤ C_4 f (|du|² + |u||du|), with C_4 depending on C_X and h_K only.
+
+*Forward.* Let X := e^(2Φr) w ∇r, which is future timelike. By [[lem:ii-e-2-1]],
+
+    K_X = e^(2Φr) (K_(w∇r) + 2Φ w T(∇r, ∇r)) ≥ e^(2Φr) w (2Φ c_r − C_3) |ζ|².
+
+Apply [[eq:ii-e-2-1]] on O := Ω^K to u ∈ D(Ω^K), which has compact support in Ō. The only face near which u ≠ 0 is
+{r = a} (and {t^♭ = T_1}), where ∇φ = ∇r (resp. −∇t^♭) is future timelike; with X future timelike the boundary term is
+≥ 0 by [[lem:ii-e-2-2]]. So
+
+    ∫ e^(2Φr) w (4Φ c_r − 2C_3 − C_4) |du|² ≤ 2 Re ∫ ⟨Pu, Xu⟩ + C_4 ∫ e^(2Φr) w |u||du|
+                                          ≤ C_5 ∫ e^(2Φr) w |Pu||du| + C_4 ∫ e^(2Φr) w |u||du|.
+
+[[lem:ii-e-2-3]] with Y = Y_r, τ := −r, the weight w and Φ ≥ C_0 + C_1 applies, as u vanishes near the faces with
+Y_r φ > 0, namely {t^♭ = T_0} (Y_r φ = dt^♭(Y_r) > 0) and {r = b} (Y_r φ = −dr(Y_r) = 1); it gives
+
+    ∫ e^(2Φr) w |u|² ≤ 4Φ⁻² ∫ e^(2Φr) w |Y_r u|² ≤ C_6 Φ⁻² ∫ e^(2Φr) w |du|².
+
+With the Cauchy–Schwarz inequality the last term above is at most C_4 C_6^(1/2) Φ⁻¹ ∫ e^(2Φr) w |du|², and
+C_5 |Pu||du| ≤ Φ c_r |du|² + C_5² (4Φ c_r)⁻¹ |Pu|². Fix Φ large: ∫ e^(2Φr) w |du|² ≤ C ∫ e^(2Φr) w |Pu|². As e^(2Φr)
+lies between e^(2Φa) and e^(2Φb), this and the Poincaré inequality give the first estimate [[eq:ii-e-5-1]].
+
+*Backward.* Let X_* := −e^(−2Φr) w⁻¹ ∇r, which is past timelike. By [[lem:ii-e-2-1]],
+
+    K_(X_*) = e^(−2Φr) (−K_(w⁻¹∇r) + 2Φ w⁻¹ T(∇r, ∇r)) ≥ e^(−2Φr) w⁻¹ (2Φ c_r − C_3) |ζ|².
+
+For v ∈ D_*(Ω^K) the faces near which v ≠ 0 are {t^♭ = T_0} and {r = b}, with ∇φ = ∇t^♭, resp. −∇r, past timelike, so
+the boundary terms 2T(X_*, ∇φ)(dv) are ≥ 0 by [[lem:ii-e-2-2]]. P* = P_□ + (P* − P_□), with P* − P_□ of first order
+with bounded coefficients. [[lem:ii-e-2-3]] in the reverse direction, with the weight w⁻¹, applies, as v vanishes near
+{r = a} (and {t^♭ = T_1}), the only faces with Y_r φ < 0. The rest is as before. ∎
+
+#### Solvability, uniqueness and continuation {#sec:ii-e-5-3}
+
+A **slab order on an r-slab** is 𝗌 ∈ C^∞(^(e3b)S*M) with ±𝖧𝗌 ≤ 0 on ∂Σ^± over it. Admissible order functions are slab
+orders on the r-slabs inside Ω_*, by [[prop:ii-c-5-1]] (2); so are constants.
+
+**Lemma {#lem:ii-e-5-2}** (The flow in the interior.) There is c > 0 such that, over
+{r^♯ ≤ r ≤ r^♮ + δ_♮} ∩ {t^♭ ≥ 1 − η_0}, up to K⁺ and for ε_P small, 𝖧r ≤ −c on ∂Σ^+ and 𝖧r ≥ c on ∂Σ^−. So r
+decreases strictly along the future field, at a rate bounded below, and there is no radial set and no trapping there.
+
+*Proof.* 𝖧 = ρH_G with ρ a positive defining function of fibre infinity, homogeneous of degree −1, and
+H_G r = 2g⁻¹(ζ, dr). On ∂Σ^+ the future field is 𝖧 ([[sec:ii-c-2-3]]): the projection of H_G there, 2g⁻¹(ζ, ·), is
+future null, so g⁻¹(ζ, dr) = g(ζ^♯, ∇r) < 0, ∇r being future timelike. On ∂Σ^− the signs reverse. ρ g⁻¹(ζ, dr) is
+homogeneous of degree 0 and continuous on the compactified cosphere bundle over the closure of the region, up to K⁺,
+where it is that of the stationary metric g_0; it does not vanish on the characteristic set, which is compact. ∎
+
+**Lemma {#lem:ii-e-5-3}** (Regularity on r-slabs.) (a) Let r^♯ ≤ a′ < a < b < r^♮ + δ_♮,
+Ω_1 := Ω^K_([a,b]) ⊂ Ω_2 := Ω^K_([a′,b]), let 𝗌_0 < 𝗌 be slab orders, and let u ∈ H^(𝗌_0,α_K)(Ω_2)^(•,−) with
+Pu ∈ H^(𝗌−1,α_K)(Ω_2)^(•,−). Then u|_(Ω_1) ∈ H^(𝗌,α_K)(Ω_1)^(•,−) and
+
+    ‖u‖_(H^(𝗌,α_K)(Ω_1)^(•,−)) ≤ C (‖Pu‖_(H^(𝗌−1,α_K)(Ω_2)^(•,−)) + ‖u‖_(H^(𝗌_0,α_K)(Ω_2)^(•,−))).
+
+(b) Let δ > 0 with T_0 − δ ≥ 1 − η_0 and b + δ ≤ r^♮ + δ_♮, let Ω_3 be the r-slab {t^♭ ≥ T_0 − δ, a ≤ r ≤ b + δ},
+let s_0 < s be constants, and let v ∈ H^(s_0,−α_K)(Ω_3)^(−,•) with P*v ∈ H^(s−1,−α_K)(Ω_3)^(−,•). Then
+v|_(Ω_1) ∈ H^(s,−α_K)(Ω_1)^(−,•), with the corresponding estimate.
+
+Both hold for systems P ⊗ Id − Q, Q of first order, with constants depending on finitely many coefficient norms; they
+are uniform for ε_P small, with d_0 depending only on the orders.
+
+*Proof.* (a) Let ũ be an extension of u supported in {t^♭ ≥ T_0, r ≤ b} and f one of Pu; that Pu lies in
+H^(𝗌−1,α_K)(Ω_2)^(•,−) means Pũ = f on U_2 := M° ∩ {r > a′}, which contains the region outside the initial faces. Let
+χ_1 be a cut-off equal to 1 near Ω_1 and supported in {r > (a + a′)/2}, and carry all operators by such cut-offs. Off
+the characteristic set use the elliptic estimate ([[thm:ii-a1-3-1]]). On it, by [[lem:ii-e-5-2]], the backward curve
+from any point over supp χ_1 has r increasing at a rate at least c, so within parameter time (b − a′ + 1)/c it reaches
+{r > b} or, earlier, {t^♭ < T_0}, where ũ = 0, staying in {r > (a + a′)/2}; this holds also over K⁺. Propagation
+([[thm:ii-a1-5-4]], at the order 𝗌, with 𝖧𝗌 ≤ 0 along the future field) controls ũ at every such point. Finitely many
+of these operators are jointly elliptic over supp χ_1, and [[lem:ii-a-8-4]] (c) gives
+
+    ‖χ_1 ũ‖_𝗌 ≤ C (‖χ_1′ f‖_(𝗌−1) + ‖χ_1′ ũ‖_(𝗌_0))
+
+with χ_1′ supported in U_2, which is (a) after taking infima over the extensions.
+
+(b) The same with the future field: let ṽ extend v with support in {r ≥ a}; P*ṽ is controlled on
+V_3 := M° ∩ {t^♭ > T_0 − δ, r < b + δ}; forward curves from points over Ω_1 reach {r < a}, where ṽ = 0, within bounded
+time, staying in V_3, as t^♭ increases and r decreases along them. Propagation for −P* applies to constant orders. For
+systems the principal symbol is scalar and the coupling of lower order, which the elliptic and real principal type
+estimates allow. ∎
+
+**Proposition {#prop:ii-e-5-4}** (Solvability, uniqueness and continuation on r-slabs.) Let α_K ∈ ℝ,
+T_0 ≥ 1 − η_0/2, r^♯ < a < b ≤ r^♮, and 𝗌 a slab order. There are d_0, depending only on 𝗌, and C, uniform for ε_P
+small, such that:
+
+(i) (*uniqueness*) if u ∈ H^(s′,α_K)(Ω^K_([a,b]))^(•,−) for some s′ ∈ ℝ and Pu = 0, then u = 0;
+
+(ii) (*existence*) for every f ∈ H^(𝗌−1,α_K)(Ω^K_([a,b]))^(•,−) there is u ∈ H^(𝗌,α_K)(Ω^K_([a,b]))^(•,−) with Pu = f
+and
+
+    ‖u‖_(H^(𝗌,α_K)(Ω^K_([a,b]))^(•,−)) ≤ C ‖f‖_(H^(𝗌−1,α_K)(Ω^K_([a,b]))^(•,−));                     {#eq:ii-e-5-2}
+
+(iii) (*continuation*) for a < a⁺ < b, every u ∈ H^(s′,α_K)(Ω^K_([a,b]))^•, s′ ∈ ℝ, with
+Pu ∈ H^(𝗌−1,α_K)(Ω^K_([a,b]))^• satisfies, in the strong sense,
+
+    ‖u‖_(H^(𝗌,α_K)(Ω^K_([a,b]))^•)
+        ≤ C (‖Pu‖_(H^(𝗌−1,α_K)(Ω^K_([a,b]))^•) + ‖u‖_(H^(𝗌,α_K)(Ω^K_([a⁺,b]))^•)).                     {#eq:ii-e-5-3}
+
+The same holds for P* and backward problems at constant orders, and for systems P ⊗ Id − Q with Q of first order.
+
+This is [Hin26c, Proposition 8.11 and (8.40)] in dimension 4 + 1.
+
+*Proof.* (i) and (ii) are proved as [[prop:ii-e-3-4]], with [[lem:ii-e-5-1]] in place of [[eq:ii-e-2-4]],
+[[lem:ii-e-5-3]] in place of [[lem:ii-e-3-3]], and the r-slab form of [[lem:ii-e-1-3]]. For (i),
+Ω_δ := Ω^K_([a+δ,b]), and D(Ω_δ) is dense in H^(2,α_K)(Ω_δ)^(•,−). For Step 1 of (ii), Ω^♯ := Ω^K_([a−δ_1,b]),
+δ_1 := min(1, a − r^♯), with P^ext; for Step 3, Ω_3 := {t^♭ ≥ T_0 − δ, a ≤ r ≤ b + δ} with δ := min(η_0/2, δ_♮), so
+that b + δ ≤ r^♮ + δ_♮, and the backward estimate [[eq:ii-e-5-1]] on Ω_3. There is no threshold, so the weight is any
+α_K, and P does not shift it.
+
+(iii) Let δ_2 := (b − a⁺)/4 and χ = χ(r) equal 1 for r ≤ a⁺ + δ_2 and 0 for r ≥ b − δ_2. If ũ extends u with support
+in {t^♭ ≥ T_0}, then χũ is supported in {t^♭ ≥ T_0, r ≤ b − δ_2}, so v := χu ∈ H^(s′,α_K)(Ω^K_([a,b]))^(•,−), and
+Pv = g := χPu + [P, χ]u. [P, χ] is a first-order operator with coefficients supported in {a⁺ + δ_2 ≤ r ≤ b − δ_2}, so
+by [[lem:ii-e-4-1]] (a), with a cut-off,
+
+    ‖g‖_(H^(𝗌−1,α_K)(Ω^K_([a,b]))^(•,−))
+        ≤ C (‖Pu‖_(H^(𝗌−1,α_K)(Ω^K_([a,b]))^•) + ‖u‖_(H^(𝗌,α_K)(Ω^K_([a⁺,b]))^•)).
+
+By (i), v is the solution of (ii) with f := g, so ‖v‖_𝗌 ≤ C‖g‖_(𝗌−1), and in the strong sense, as (ii) produces a
+solution in H^𝗌 whenever g ∈ H^(𝗌−1). As u = v on {r ≤ a⁺ + δ_2}, a partition of unity in r gives [[eq:ii-e-5-3]]. ∎
+
+#### b-regularity and the tame estimates {#sec:ii-e-5-4}
+
+On {r^♯ ≤ r ≤ r^♮ + δ_♮} ∩ {t_* ≥ 1/2}, with x = (x¹, …, x⁴) the Cartesian coordinates of [[def:ii-a-1-3]] (A), let
+
+    𝒳_K := (V_1, …, V_5, I),        V_1 := t_* ∂_(t_*),     V_(1+j) := ∂_(x^j)  (j = 1, …, 4),
+
+acting componentwise in a fixed trivialisation of the bundle. The V_i commute. They span 𝒱_b near the closures of the
+r-slabs, as near (K⁺)° the b-vector fields are spanned by t_*∂_(t_*) and ∂_x and in M° by all vector fields; and every
+e3b-vector field there is a combination of the V_i with bounded coefficients, as ∂_(t_*) = t_*⁻¹ V_1 with t_* ≥ 1/2.
+
+**Lemma {#lem:ii-e-5-5}** (The commutators in the interior.) For P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)), 𝒳_K satisfies
+condition (C) of [[sec:ii-d1-2]] there, with W = 1 and R_i = 0: [P, X_i] = Σ_j Q_ij X_j, with Q_ij first-order
+e3b-operators whose coefficients lie in C^((d_0;k−1))_(e3b;b) (a stationary part plus a part O(ρ_K^(ℓ_K))).
+
+This is [Hin26c, (8.41)–(8.42)] in dimension 4 + 1.
+
+*Proof.* In (t_*, x) write P = Σ a^(μν) ∂_μ ∂_ν + Σ b^μ ∂_μ + c, the coefficients of P_0 independent of t_* and smooth,
+those of P − P_0 in ρ_K^(ℓ_K) C^((d_0;k))_(e3b;b) near K⁺ ([[def:ii-c-3-3]]). [P, ∂_(x^j)] has the coefficients
+differentiated by −∂_(x^j); [P, t_*∂_(t_*)] = [P, t_*]∂_(t_*) − (t_*∂_(t_*) applied to the coefficients), with
+[P, t_*] = 2 Σ_ν a^(t_* ν) ∂_ν + b^(t_*). In both cases a second-order operator in ∂_(t_*), ∂_x results, with
+coefficients in C^((d_0;k−1))_(e3b;b), as V_i is a b-vector field. Write each second-order term ∂_μ ∂_ν as
+∂_μ ∘ Σ_j c_(νj) V_j with c_(νj) ∈ {0, 1, t_*⁻¹}; this is Σ_j Q_ij V_j with Q_ij of first order. [P, I] = 0. ∎
+
+By [[lem:ii-d1-2-1]] in its case without loss of derivatives and with R_i = 0, as in [[eq:ii-e-4-1]], for u on an
+r-slab and f := Pu the words u^(j) := (X^γ u)_(γ∈𝒲_j) satisfy
+
+    P^(j) u^(j) = (X^γ f)_γ + f̃^(j),     P^(j) := P ⊗ Id − Q^(j),
+    f̃^(j)_γ = −Σ_(|S|≥2) (ad_(X_S) P) X^(γ∖S) u.                                                       {#eq:ii-e-5-4}
+
+P^(j) is a system with scalar principal part and first-order coupling, whose coefficients carry at most one
+b-derivative of those of P; [[lem:ii-e-5-1]], [[lem:ii-e-5-2]], [[lem:ii-e-5-3]] and [[prop:ii-e-5-4]] hold for it,
+with no condition on the coupling, as on r-slabs every first-order term is absorbed by the factor Φ in
+[[lem:ii-e-5-1]].
+
+**Proposition {#prop:ii-e-5-6}** (b-regularity and tame estimates in the interior.) Let α_K, T_0 and
+r^♯ < a < a⁺ < b ≤ r^♮ be as in [[prop:ii-e-5-4]], and 𝗌 a slab order.
+
+(a) There is d_0, depending only on 𝗌, such that for all k ∈ ℕ_0 and P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ε_(P,k)
+small, every u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^•, s′ ∈ ℝ, with f := Pu satisfies, in the strong sense,
+
+    ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a,b]))^•)
+        ≤ C_k (‖f‖_(H^((𝗌−1;k),α_K)(Ω^K_([a,b]))^•) + ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a⁺,b]))^•)).                {#eq:ii-e-5-5}
+
+(b) If 𝗌 is constant near {r = a}, with value a nonnegative integer there [[pending:issue-1]], there is d ∈ ℕ,
+depending only on 𝗌, such that for all k and P of that class with ε_(P,d) small,
+
+    ‖u‖_((𝗌;k)) ≤ C_k (‖f‖_((𝗌−1;k)) + ‖u‖^([a⁺,b])_((𝗌;k))
+                       + ε_(P,k) (‖f‖_((𝗌−1;d)) + ‖u‖^([a⁺,b])_((𝗌;d)))),                                    {#eq:ii-e-5-6}
+
+with the spaces of [[eq:ii-e-5-5]], the superscript marking the norm on Ω^K_([a⁺,b]), and C_k depending on P only
+through a bound for ε_(P,d). Here ε_(P,k) may be the norm of P − P_0 over Ω^K_([a,b]) alone: on the room below
+{r = a} used in the proof, P is replaced by the operator whose coefficients are the Seeley extensions across {r = a}
+of those on Ω^K_([a,b]) (as in [[lem:ii-e-1-2]]), which agrees with P on the r-slab.
+
+This is [Hin26c, Propositions 8.12 and 8.13] in dimension 4 + 1.
+
+*Proof.* (a) *Reduction to a forward problem.* With χ and δ_2 as in the proof of [[prop:ii-e-5-4]] (iii), v := χu lies
+in H^((s′;k),α_K)(Ω^K_([a,b]))^(•,−) and solves Pv = g := χf + [P, χ]u, and by [[lem:ii-e-4-1]] (a)
+
+    ‖g‖_(H^((𝗌−1;k),α_K)(Ω^K_([a,b]))^(•,−))
+        ≤ C_k (‖f‖_(H^((𝗌−1;k),α_K)(Ω^K_([a,b]))^•) + ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a⁺,b]))^•)).               {#eq:ii-e-5-7}
+
+As u = v on {r ≤ a⁺ + δ_2}, it suffices to bound ‖v‖_((𝗌;k)) by C_k ‖g‖_((𝗌−1;k)).
+
+*Induction.* Let Ω″ := Ω^K_([a−δ_1,b]), δ_1 := (1/2) min(1, a − r^♯), let g″ be the restriction to Ω″ of the minimal
+extension of g, and let v″ be the forward solution of Pv″ = g″ on Ω″ ([[prop:ii-e-5-4]] (ii)); by uniqueness
+v″|_(Ω^K_([a,b])) = v. We show by induction on j ≤ k that
+
+    Σ_(|γ|≤j) ‖X^γ v″‖_(H^(𝗌,α_K)(Ω″)^(•,−)) ≤ C_j ‖g″‖_(H^((𝗌−1;j),α_K)(Ω″)^(•,−)).                    {#eq:ii-e-5-8}
+
+j = 0 is [[eq:ii-e-5-2]]. Let j ≥ 1. A b-vector field maps H^(𝗍,β)_K into H^(𝗍−1,β−1)_K, as
+t_*∂_(t_*) = ρ_K⁻¹ ∂_(t_*), so a priori v″^(j) ∈ H^(𝗌_−,α_K−j)(Ω″)^(•,−) for some order 𝗌_−. By [[prop:ii-e-5-4]] (i)
+for P^(j) at the weight α_K − j, v″^(j) is the forward solution of [[eq:ii-e-5-4]], which by [[prop:ii-e-5-4]] (ii) at
+the weight α_K lies in H^(𝗌,α_K)(Ω″)^(•,−), with norm at most C times that of the right side of [[eq:ii-e-5-4]] in
+H^(𝗌−1,α_K)(Ω″)^(•,−). By [[lem:ii-e-4-1]] (c), ‖X^γ g″‖_(𝗌−1) ≤ C ‖g″‖_((𝗌−1;j)). For |S| = q ≥ 2, ad_(X_S) P is a
+second-order e3b-operator with coefficients in C^((d_0;k−q))_(e3b;b), as each commutator with a V_i differentiates the
+coefficients once ([[lem:ii-e-5-5]]); so it is Σ_i A_i X_i with A_i first-order e3b-operators, and by
+[[lem:ii-e-4-1]] (a) ‖(ad_(X_S) P) X^(γ∖S) v″‖_(𝗌−1) ≤ C Σ_i ‖X_i X^(γ∖S) v″‖_𝗌, a sum over words of length
+j − q + 1 ≤ j − 1, bounded by [[eq:ii-e-5-8]] at j − 1. This proves [[eq:ii-e-5-8]]. By [[lem:ii-e-4-1]] (c) with room,
+‖v‖_((𝗌;k)) ≤ C_k Σ_(|γ|≤k) ‖X^γ v″‖_𝗌 ≤ C_k ‖g‖_((𝗌−1;k)). Each step holds in the strong sense, so
+[[eq:ii-e-5-5]] does.
+
+(b) As in [[prop:ii-e-4-4]], with 𝒳_K, W = 1, nested r-slabs
+
+    Ω^K_([a,b]) ⊂ Ω_(2k) ⊂ ⋯ ⊂ Ω_(0) = Ω″
+
+with room 2^(−i−2) δ_1 at the final face, two per step as there, and d := d̃ + 3; the right-hand side is extended
+across {r = a} by an extension bounded at every order of b-regularity at once, as described before
+[[prop:ii-e-4-4]]. The one new term is [P, χ]u in [[eq:ii-e-5-7]]. Its coefficients are χ′ times those of P, which are
+stationary smooth ones plus O(ε_(P,k)) in C^((d_0;k)); by [[lem:ii-e-4-1]] (b), whose proof applies verbatim to the
+spaces H(·)^• with room at both r-faces, here {a⁺ + δ_2 ≤ r ≤ b − δ_2} inside Ω^K_([a⁺,b]),
+
+    ‖[P, χ]u‖_((𝗌−1;k)) ≤ C_k (‖u‖^([a⁺,b])_((𝗌;k)) + ε_(P,k) ‖u‖^([a⁺,b])_((𝗌;d̃))),
+
+the stationary part contributing ‖u‖_((𝗌;d̃)) ≤ ‖u‖_((𝗌;k)) for k ≥ d̃. The induction then gives [[eq:ii-e-5-6]], the
+norms of g at order (𝗌 − 1; d) being bounded by [[eq:ii-e-5-7]] at k = d. ∎
+
+[Hin26c] states its Propositions 8.11–8.13 for constant orders ("We do not need variable orders in this part", its
+footnote 66), and its Theorem 8.14 applies them with the admissible order functions, which need not be constant on
+r⁻¹([m, r^♮]). Here they are proved for slab orders ([[lem:ii-e-5-3]] at the variable order, [[prop:ii-e-5-4]] (ii) by
+the scheme of [[prop:ii-e-3-4]]), and admissible orders are slab orders by [[prop:ii-c-5-1]] (2).
+
+### The global estimate {#sec:ii-e-6}
+
+**Theorem {#thm:ii-e-6-1}** (The global estimate.) Let the weights satisfy
+
+    α_I < −1/2 + p̄_1,        α_+ < α_I − 1/2,        α_K ∈ ℝ
+
+([[eq:ii-d-1-3]]), and let 𝗌_0 < 𝗌 be order functions admissible for P_0 with weights α_+, α_K and margin 0
+([[def:ii-c-5-2]]). For every k ∈ ℕ_0 there is C_k such that
+
+    ‖u‖_(H^((𝗌;k),(2α_I,α_+,α_K))_(e3b;b)(Ω_*)^(•,−))
+        ≤ C_k (‖Pu‖_(H^((𝗌;k),(2α_I+2,α_++2,α_K))_(e3b;b)(Ω_*)^(•,−))
+               + ‖u‖_(H^((𝗌_0;k),(2α_I,α_+,α_K))_(e3b;b)(Ω_*)^(•,−)))                               {#eq:ii-e-6-1}
+
+for P = P_0, in the strong sense, and for every weakly admissible P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ε_(P,k)
+small, with C_k uniform; d_0 depends only on 𝗌_0 and 𝗌. Moreover, if 𝗌 and 𝗌_0 are constant near {r ≤ r_0}, with
+nonnegative integer values there [[pending:issue-1]], there is d ∈ ℕ such that for every k and every P of that class
+with ε_(P,d) small,
+
+    ‖u‖_((𝗌;k)) ≤ C_k (‖Pu‖_((𝗌;k)) + ‖u‖_((𝗌_0;k)) + ε_(P,k) (‖Pu‖_((𝗌;d)) + ‖u‖_((𝗌_0;d)))),           {#eq:ii-e-6-2}
+
+with the spaces and weights of [[eq:ii-e-6-1]], ε_(P,k) := ‖P − P_0‖_((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) over Ω_*, and C_k depending
+on P only through a bound for ε_(P,d). Both hold uniformly when P_0 is replaced by the stationary models of nearby
+parameters, or perturbed within the stationary wave-type operators.
+
+This is [Hin26c, Theorem 8.14] in dimension 4 + 1. [Hin26c] assumes only the first condition on the weights; the second,
+α_+ < α_I − 1/2, is the threshold at the incoming radial set over ℐ⁺ ∩ ι⁺, where the quantity 4(α_I − α_+ − 1/2) must
+be positive ([[prop:ii-d-3-5]]; [Hin26c, (7.19)]), and [Hin26c, Proposition 7.11], invoked in its proof, assumes it. It
+does not involve the orders. [Hin26c] prints its tame estimate (8.46) with the weights (2α_I, α_+, α_K) on Pu, where
+(8.45) and [Hin26c, Proposition 7.11] have (2α_I + 2, α_+ + 2, α_K); as printed it would bound u by a weaker norm of Pu
+than (8.45) does, which is not what the proof gives. [[eq:ii-e-6-2]] carries the weights of [[eq:ii-e-6-1]].
+
+*Proof.* Let f := Pu, and assume the right side of [[eq:ii-e-6-1]] finite; then u ∈ H^((𝗌_0;k)), and u is the forward
+solution of Pu = f on every slab and r-slab below, by [[prop:ii-e-3-4]] (i) and [[prop:ii-e-5-4]] (i).
+
+*A partition of unity.* Let χ and r_1^+ be the cut-off and the radius of [[eq:ii-d-1-2]]: r_0 < r_1 < r_1^+ < r^♮, χ = 0
+on (t^♭)⁻¹([1, 2]) ∪ r⁻¹([r_0, r_1]) and χ = 1 on {t^♭ ≥ 3} ∩ {r ≥ r_1^+}. Let ψ_t ∈ C^∞(ℝ) equal 1 on (−∞, 7/2] and
+0 on [4, ∞), and ψ_r ∈ C^∞(ℝ) equal 1 on (−∞, r_1^+ + δ_3] and 0 on [r^♮ − δ_3, ∞), δ_3 := (r^♮ − r_1^+)/4. Put
+
+    φ_A := ψ_t(t^♭),     φ_C := (1 − ψ_t(t^♭)) ψ_r(r),     φ_B := (1 − ψ_t(t^♭))(1 − ψ_r(r)).
+
+They are smooth on M with bounded b-derivatives (ψ_r(r) = 0 near ι⁺ and ℐ⁺, and r is smooth near (K⁺)°), and
+φ_A + φ_B + φ_C = 1. φ_A is supported in {t^♭ ≤ 4}; φ_B in {t^♭ ≥ 7/2, r ≥ r_1^+ + δ_3}, where χ = 1; φ_C in
+{t^♭ ≥ 7/2, r ≤ r^♮ − δ_3}. Let Ω_(1,5) be the slab of [[sec:ii-e-1-1]] and Ω^K := Ω^K_([r_0,r^♮]) the r-slab with
+T_0 = 1, which is Ω_* ∩ {r ≤ r^♮}. On Ω_(1,5), ρ_+ and ρ_K are bounded above and below, and the spaces of
+[[eq:ii-e-6-1]] restrict to those of [[sec:ii-e-1-1]] with the weight 2α_I; on Ω^K, ρ_I and ρ_+ are, and they restrict
+to those of [[sec:ii-e-5-1]] with the weight α_K. An extension of u|_(Ω_(1,5)) supported in {t^♭ ≥ 1}, multiplied by
+φ_A, extends φ_A u; likewise for Ω^K and φ_C. As multiplication by the φ's is bounded ([[lem:ii-a-8-4]] (a)),
+
+    ‖u‖_((𝗌;k)) ≤ C (‖u‖_(H^((𝗌;k),2α_I)(Ω_(1,5))^(•,−)) + ‖χu‖_((𝗌;k)) + ‖u‖_(H^((𝗌;k),α_K)(Ω^K)^•)).   {#eq:ii-e-6-3}
+
+*(A) Finite times.* 𝗌 is a slab order ([[sec:ii-e-3-2]]). By [[prop:ii-e-4-3]] on Ω_(1,5), with P^ext below t^♭ = 1,
+
+    ‖u‖_(H^((𝗌;k),2α_I)(Ω_(1,5))^(•,−)) ≤ C_k ‖f‖_(H^((𝗌−1;k),2α_I+2)(Ω_(1,5))^(•,−)) ≤ C_k ‖f‖_((𝗌;k)).
+
+[Hin26c] applies its Propositions 8.6 and 8.9 "on a t_*-interval [1, 4]", below the range T_0 ≥ inf_Ω t_* + 1 = 2 in
+which they are stated, the margin giving room below the initial face for its extension argument; [[lem:ii-e-1-2]]
+extends P below t^♭ = 1, and [[lem:ii-e-1-3]] uses a collar of width η_0/2, so the slabs with T_0 ≥ 1 are covered.
+
+*(B) Away from the initial surface and the interior.* [[thm:ii-d1-1-1]], [[eq:ii-d1-1-1]]:
+‖χu‖_((𝗌;k)) ≤ C_k (‖f‖_((𝗌;k)) + ‖u‖_((𝗌_0;k))).
+
+*(C) The interior.* 𝗌 is a slab order on Ω^K ([[sec:ii-e-5-3]]). [[prop:ii-e-5-6]] (a) with a := r_0, a⁺ := r_1^+ and
+b := r^♮ gives
+
+    ‖u‖_(H^((𝗌;k),α_K)(Ω^K)^•) ≤ C_k (‖f‖_((𝗌−1;k)) + ‖u‖^([r_1^+,r^♮])_((𝗌;k))).
+
+On Ω^K_([r_1^+,r^♮]), u = ψ_t(t^♭)u + (1 − ψ_t(t^♭))χu, as χ = 1 on {t^♭ ≥ 7/2, r ≥ r_1^+}; so the last norm is at most
+C times the sum of the first two norms on the right of [[eq:ii-e-6-3]], which (A) and (B) bound.
+
+Inserting (A)–(C) in [[eq:ii-e-6-3]] gives [[eq:ii-e-6-1]], and in the strong sense, as each of (A)–(C) holds in it.
+For [[eq:ii-e-6-2]] use [[prop:ii-e-4-4]], [[eq:ii-d1-1-2]] and [[prop:ii-e-5-6]] (b) instead; in (A) the right-hand
+side f is the restriction of Pu, given on all of Ω_*, so its norms on the larger slabs used in the proof of
+[[prop:ii-e-4-4]] are bounded by the norms on Ω_*. The term ε_(P,k) ‖u‖^([r_1^+,r^♮])_((𝗌;d)) of [[eq:ii-e-5-6]] is
+bounded by (A) and (B) at k = d, with constants depending on ε_(P,d) only. d_0 and d are the largest of those of the
+three pieces. Uniformity in P_0: the constants of [[sec:ii-e-2]]–[[sec:ii-e-5]] depend on P_0 through finitely many
+coefficient norms and the margins of [[lem:ii-c-3-2]], of [[eq:ii-e-1-2]] and of the dynamics of [[ch:s05]], which are
+uniform as in [[rem:ii-d-1-3]]; so are those of (B). ∎

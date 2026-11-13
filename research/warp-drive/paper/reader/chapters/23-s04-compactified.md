@@ -1729,3 +1729,411 @@ carry the weight, and need not vanish at I⁰ and K⁻. So χ is taken supported
 ([[sec:ii-a-1]]), and [[lem:ii-a1-5-1]] (c) supplies the uniqueness of integral curves at the faces, on which the
 continuity of the flow rests.
 
+### Estimates on mixed spaces, and their tame versions {#sec:ii-a-9}
+
+Orders: m, N ∈ ℝ, and 𝗌, 𝗌_0 ∈ C^∞(ᵉ³ᵇS*M̃) variable orders; wave front sets, elliptic and characteristic sets are those
+of the e3b-calculus, in ᵉ³ᵇS*M̃. Cut-offs are as in [[sec:ii-a-8-3]], and weights are suppressed (see the beginning of
+[[sec:ii-a-8]]). For an operator L = Σ a_jP_j of limited regularity, Ell_e3b(L) is the set where its principal symbol
+ℓ = Σ a_jσ(P_j) is invertible with inverse bounded by a constant times λ^m, λ the elliptic weight of (S8); on
+ℂ^(N′)-valued functions, σ(P_j) is matrix-valued ([[sec:ii-a-4-3]]).
+
+*Choosing auxiliary operators.* Let K ⊂ ᵉ³ᵇS*M̃ be compact and O ⊃ K open, over the interior of {χ = 1}. Then there are
+B_1, B_2, … ∈ C^∞_b Ψ⁰_e3b, carried by nested cut-offs between χ′ and χ, with K ⊂ Ell(B_1), WF′(B_i) ⊂ Ell(B_(i+1)) and
+all wave front sets in O. Some B_i may be chosen microlocally equal to I near K, that is, with WF′(I − B_i) ∩ K = ∅:
+quantize symbols χ̃_i ∈ S⁰ with χ̃_i = 1 near the support of χ̃_(i−1), and multiply by cut-offs.
+
+The hypotheses of the propagation estimates are open. Let T be the union of the backward segments of the integral
+curves of 𝖧 from WF′(B) ∩ Char(L) up to their first entry into Ell(E), and suppose that they reach Ell(E) within a time
+T_0, remaining in Ell(G). Then T ⊂ Ell(G) is compact: it is the image under the flow of the set of (α, t) with
+0 ≤ t ≤ t_α, t_α the first entry time, and this set is closed because α ↦ t_α is upper semicontinuous, Ell(E) being
+open. Moreover:
+
+(O) For every neighbourhood U ⊂ Ell(G) of T there are a neighbourhood U_T ⊂ Ell(G) of T ∪ WF′(B), with
+U_T ∩ Char(L) ⊂ U, and compact sets K_E ⊂ Ell(E) and K_U ⊂ U, such that the backward curve from every point of
+U_T ∩ Char(L) reaches K_E within time T_0 + 1 and stays in K_U until then. U_T may be replaced by any smaller
+neighbourhood of T ∪ WF′(B).
+
+For α ∈ WF′(B) ∩ Char(L) choose t′_α ∈ (t_α, t_α + 1) with exp(−t′_α𝖧)α ∈ Ell(E) and the curve on [0, t′_α] in U,
+which is possible as U is open. By the continuity of the flow, every point near exp(−t𝖧)α, 0 ≤ t ≤ t_α, has a backward
+curve that stays in a fixed compact neighbourhood in U of exp(−[t, t′_α]𝖧)α up to the time t′_α − t, and then lies in a
+fixed compact neighbourhood of exp(−t′_α𝖧)α in Ell(E). Finitely many such neighbourhoods cover the compact set T. Their
+union, together with a neighbourhood in Ell(G) of the compact set WF′(B) ∖ U disjoint from Char(L), is U_T. The flow is
+continuous although 𝖧 is only continuous at ∂M̃: its integral curves are unique, and limits of integral curves are
+integral curves ([[lem:ii-a1-5-1]] (c)). When 𝖧𝗌 ≤ 0 on U, the hypotheses of (L4) below therefore hold for (B′, E′, G′)
+whenever WF′(B′) ⊂ U_T, E′ is elliptic on K_E and G′ is elliptic on K_U ∪ WF′(B′). Below, "slightly larger" and
+"slightly smaller" operators refer to such choices.
+
+#### The standard estimates {#sec:ii-a-9-1}
+
+The two estimates without b-regularity are [Hin26c, Propositions 3.23 and 3.24] for k = 0 (pp. 69–71), in dimension
+4 + 1; their statements do not use the dimension. [Hin26c] proves them by the standard elliptic parametrix and positive
+commutator arguments. For variable orders it cites [Vas18, Theorem 5.3], with the sharp Gårding inequality on each unit
+cell and a commutant as in [dHUV15], and it takes the coefficient regularity d_0 finite because the arguments use the
+boundedness of finitely many operators on a fixed range of spaces. [Hin26d] does not treat propagation (its Section 3.6
+says so), and [HJS] has constant differential orders. In this edition the two estimates are [[thm:ii-a1-3-1]] and
+[[thm:ii-a1-5-4]], proved in [[sec:ii-a1-1]] to [[sec:ii-a1-5]] without the sharp Gårding inequality. We refer to them
+as (L3) and (L4) and recall their content.
+
+(L3) (Elliptic estimate, k = 0; [[thm:ii-a1-3-1]].) There is d_0 = d_0(m, 𝗌, N) such that the following holds for every
+finite 𝒫 ⊂ C^∞_b Ψ^m_e3b, every N′ and every L ∈ C^(d_0)_e3b 𝒫 on ℂ^(N′)-valued functions. Let B, G ∈ C^∞_b Ψ⁰_e3b be
+carried by χ, with WF′(B) ⊂ Ell(G) ∩ Ell(L). If χu ∈ H^(−N)_e3b and GLu ∈ H^(𝗌−m)_e3b, then Bu ∈ H^𝗌_e3b and
+
+    ‖Bu‖_(H^𝗌_e3b) ≤ C(‖GLu‖_(H^(𝗌−m)_e3b) + ‖χu‖_(H^(−N)_e3b)),
+
+with C uniform for L in a neighbourhood in C^(d_0)_e3b 𝒫 on which WF′(B) ⊂ Ell(L) holds with a uniform bound.
+
+(L4) (Real principal type propagation, k = 0; [[thm:ii-a1-5-4]].) Let m ∈ ℕ_0. There is d_0 = d_0(m, 𝗌, N) such that
+the following holds for every δ > 0, all finite sets 𝒫_(m−j) ⊂ C^∞_b Ψ^(m−j)_e3b, j = 0, 1, the elements of 𝒫_m having
+classical principal symbols, every N′, and operators on ℂ^(N′) of the form
+
+    L = L_0 + L_1 + L_2,   L_0 ∈ Diff^m_e3b ⊗ Id,   L_1 ∈ C^(d_0,(2δ,δ,δ))_e3b 𝒫_m ⊗ Id,
+    L_2 ∈ C^(d_0)_e3b 𝒫_(m−1) ⊗ End ℂ^(N′),
+
+with the scalar principal symbol ℓ of L real. Let ρ_∞ ∈ S^(−1)_hom be a fixed positive elliptic symbol and
+𝖧 := ρ_∞^(m−1)H_ℓ. Let B, E, G ∈ C^∞_b Ψ⁰_e3b be carried by χ, with supp χ disjoint from I⁰ ∪ K⁻, as on a neighbourhood
+of Ω̄, which meets ∂M̃ only in ℐ⁺, ι⁺ and K⁺ ([[sec:ii-a-1]]). Over M̃ ∖ (I⁰ ∪ K⁻), 𝖧 is a continuous vector field on
+ᵉ³ᵇS*M̃, as the coefficients of L_1 vanish at ℐ⁺, ι⁺ and K⁺ ([Hin26c, p. 71]; [[lem:ii-a1-5-1]]). Suppose that
+WF′(B) ⊂ Ell(G), that the backward integral curves of 𝖧 from WF′(B) ∩ Char(L) reach Ell(E) in uniformly finite time
+while remaining in Ell(G), and that 𝖧𝗌 ≤ 0 on a neighbourhood in ᵉ³ᵇS*M̃ of the union T of these backward segments, up
+to their first entry into Ell(E). If χu ∈ H^(−N), GLu ∈ H^(𝗌−m+1) and Eu ∈ H^𝗌, then Bu ∈ H^𝗌 and
+
+    ‖Bu‖_(H^𝗌_e3b) ≤ C(‖GLu‖_(H^(𝗌−m+1)_e3b) + ‖Eu‖_(H^𝗌_e3b) + ‖χu‖_(H^(−N)_e3b)),
+
+with C locally uniform for perturbations of L_0, L_1, L_2 in Diff^m_e3b, C^(d_0,(2δ,δ,δ))_e3b 𝒫_m and
+C^(d_0)_e3b 𝒫_(m−1) with real principal symbols, for which 𝖧′𝗌 ≤ 0 on the same neighbourhood of T; the other hypotheses
+persist under small perturbations, by the continuity of the flow in the field ([[lem:ii-a1-5-1]] (c)).
+
+Everything else in [[sec:ii-a-8]] and [[sec:ii-a-9]] is proved from (L3), (L4) and the calculus of [[sec:ii-a-3]].
+
+#### Estimates with b-regularity {#sec:ii-a-9-2}
+
+**Proposition {#prop:ii-a-9-1}** ([Hin26c, Proposition 3.23].) There is d_0 = d_0(m, 𝗌, N) such that the following
+holds for all k ∈ ℕ_0 and L ∈ C^((d_0;k))_(e3b;b) 𝒫, 𝒫 ⊂ C^∞_b Ψ^m_e3b finite. Let B, G be carried by χ, with
+WF′(B) ⊂ Ell(G) ∩ Ell(L). If χu ∈ H^((−N;k)) and GLu ∈ H^((𝗌−m;k)), then Bu ∈ H^((𝗌;k)) and
+
+    ‖Bu‖_(H^((𝗌;k))_(e3b;b)) ≤ C(‖GLu‖_(H^((𝗌−m;k))_(e3b;b)) + ‖χu‖_(H^((−N;k))_(e3b;b))).                 {#eq:ii-a-9-1}
+
+The constant is locally uniform for L in C^((d_0;k))_(e3b;b) 𝒫: it depends on L through a bound for ‖𝐚‖_((d_0;k)) for
+some representation, and through (L3).
+
+*Proof.* Let d_0 be the largest of the numbers of (L3) and of [[lem:ii-a-8-6]] for the orders (𝗌, m, N) and
+(−N, m, N). Induction on k; k = 0 is (L3). Let k ≥ 1 and assume [[eq:ii-a-9-1]] at k − 1 for all admissible B, G and χ.
+Choose B_1, G_1, G_2, G_3, carried by χ_1 with χ = 1 near the required neighbourhood of supp χ_1. They satisfy
+WF′(B) ⊂ Ell(G_1), WF′(G_1) ⊂ Ell(G_2), WF′(G_2) ⊂ Ell(G_3) and WF′(G_3) ⊂ Ell(G) ∩ Ell(L). By [[eq:ii-a-8-1]],
+‖Bu‖_((𝗌;k)) ≤ ‖Bu‖_((𝗌;k−1)) + Σ_j ‖V_jBu‖_((𝗌;k−1)). The first term is bounded by [[eq:ii-a-9-1]] at k − 1. Write
+V_jBu = BV_ju + [V_j, B]u. Here [V_j, B] is carried by χ_1 with wave front set in that of B ([[lem:ii-a-8-4]] (a)), so
+‖[V_j, B]u‖_((𝗌;k−1)) is bounded by [[eq:ii-a-9-1]] at k − 1. For BV_ju, apply [[eq:ii-a-9-1]] at k − 1 to V_ju, with
+G_1 in place of G:
+
+    ‖BV_ju‖_((𝗌;k−1)) ≤ C(‖G_1LV_ju‖_((𝗌−m;k−1)) + ‖χ_1V_ju‖_((−N;k−1))).
+
+The last term is at most C‖χu‖_((−N;k)), since χ_1V_ju = V_j(χ_1u) − (V_jχ_1)χu. Write LV_ju = V_jLu − [V_j, L]u.
+First,
+
+    ‖G_1V_jLu‖_((𝗌−m;k−1)) ≤ ‖G_1Lu‖_((𝗌−m;k)) + ‖[G_1, V_j]Lu‖_((𝗌−m;k−1)) ≤ C(‖GLu‖_((𝗌−m;k)) + ‖χ_*Lu‖_((−N−m;k)))
+
+by [[lem:ii-a-8-4]] (c), since WF′(G_1) ⊂ Ell(G), with χ_* carrying G_1 and G. By the support convention and
+[[lem:ii-a-8-6]] (a) at the order −N, ‖χ_*Lu‖_((−N−m;k)) ≤ C‖𝐚‖_((d_0;k))‖χu‖_((−N;k)). Second,
+[V_j, L] = Σ_q ((V_ja_q)P_q + a_q[V_j, P_q]) lies in C^((d_0;k−1))_(e3b;b) 𝒫′, 𝒫′ := 𝒫 ∪ {[V_j, P_q]}, with a
+representation of norm at most C‖𝐚‖_((d_0;k)) ([[lem:ii-a-8-2]] (b)). By [[lem:ii-a-8-6]] (b),
+
+    ‖G_1[V_j, L]u‖_((𝗌−m;k−1)) ≤ C‖𝐚‖_((d_0;k))(‖G_2u‖_((𝗌;k−1)) + ‖χu‖_((−N;k−1))).
+
+Since WF′(G_2) ⊂ Ell(G_3) ∩ Ell(L), [[eq:ii-a-9-1]] at k − 1 bounds ‖G_2u‖_((𝗌;k−1)) by
+C(‖G_3Lu‖_((𝗌−m;k−1)) + ‖χu‖_((−N;k−1))). [[lem:ii-a-8-4]] (c) bounds ‖G_3Lu‖ by
+C(‖GLu‖_((𝗌−m;k−1)) + ‖χ_*Lu‖_((−N−m;k−1))), and the last term is treated as before. Each step shows that the quantity
+bounded is finite when the right side of [[eq:ii-a-9-1]] is: the step at k − 1 applied to V_ju has finite right side.
+So V_jBu ∈ H^((𝗌;k−1)) for every j, that is, Bu ∈ H^((𝗌;k)), with [[eq:ii-a-9-1]]. The constants depend on L through
+‖𝐚‖_((d_0;k)), the constants at k − 1 and those of (L3), and d_0 does not depend on k. ∎
+
+**Proposition {#prop:ii-a-9-2}** ([Hin26c, Proposition 3.24].) There is d_0 = d_0(m, 𝗌, N) such that the following
+holds for all δ > 0, k ∈ ℕ_0 and operators on ℂ^(N′) of the form
+
+    L = L_0 + L_1 + L_2,   L_0 ∈ Diff^m_e3b ⊗ Id,   L_1 ∈ C^((d_0;k),(2δ,δ,δ))_(e3b;b) 𝒫_m ⊗ Id,
+    L_2 ∈ C^((d_0;k))_(e3b;b) 𝒫_(m−1) ⊗ End ℂ^(N′),                                                      {#eq:ii-a-9-2}
+
+under the hypotheses of (L4) on ℓ, B, E, G and 𝗌. If χu ∈ H^((−N;k)), GLu ∈ H^((𝗌−m+1;k)) and Eu ∈ H^((𝗌;k)), then
+Bu ∈ H^((𝗌;k)) and
+
+    ‖Bu‖_(H^((𝗌;k))_(e3b;b))
+       ≤ C(‖GLu‖_(H^((𝗌−m+1;k))_(e3b;b)) + ‖Eu‖_(H^((𝗌;k))_(e3b;b)) + ‖χu‖_(H^((−N;k))_(e3b;b))),         {#eq:ii-a-9-3}
+
+with C locally uniform for perturbations as in (L4), at the regularity (d_0; k).
+
+*Proof.* Let d_0 be the largest of the numbers of (L4), of [[lem:ii-a-8-6]] for the orders that occur, and 2. Induction
+on k; k = 0 is (L4). Let k ≥ 1. By [[lem:ii-a-4-1]], [L_0, V_j] = Σ_(l=0)^N A^0_(j,l)V_l with A^0_(j,l) ∈ C^∞_b
+Ψ^(m−1)_e3b fixed operators; here [L_0, V_j] ∈ Diff^m_e3b, by [[eq:ii-a-4-1]]. For L_1 = Σ a_qP_q,
+
+    [a_qP_q, V_j] = a_q[P_q, V_j] − (V_ja_q)P_q = Σ_l (a_qA′_(qjl) − (V_ja_q)A″_(ql))V_l,
+
+with A′_(qjl), A″_(ql) ∈ C^∞_b Ψ^(m−1)_e3b fixed ([[lem:ii-a-4-1]] for [P_q, V_j] and for P_q). Likewise for L_2, with
+operators of order m − 2. Hence
+
+    [L, V_j] = Σ_(l=0)^N A_(j,l)V_l,
+    A_(j,l) ∈ C^∞_b Ψ^(m−1)_e3b + C^((d_0;k−1),(2δ,δ,δ))_(e3b;b) Ψ^(m−1)_e3b + C^((d_0;k−1))_(e3b;b) Ψ^(m−2)_e3b,
+
+each in the span of a fixed finite set, with coefficient norms at most C times those of L at (d_0; k). Put
+u^((1)) := (V_ju)_(j=0)^N and f := Lu. Then LV_ju − Σ_l A_(j,l)V_lu = V_jf, that is,
+
+    L^((1))u^((1)) = f^((1)) := (V_jf)_(j=0)^N,     L^((1)) := (Lδ_(jl) − A_(j,l))_(j,l=0,…,N).
+
+L^((1)) acts on ℂ^(N′(N+1)), and is of the form [[eq:ii-a-9-2]] at the regularity (d_0; k − 1). Its parts are
+L_0 ⊗ Id and L_1 ⊗ Id, and a part of order m − 1 that collects L_2 ⊗ Id and the A_(j,l); the weighted coefficients lie
+in the unweighted class by [[lem:ii-a-8-2]] (d). Its principal symbol is ℓ Id, so the hypotheses on ℓ, 𝖧 and 𝗌 are those
+for L. Choose B_1 slightly larger than B, with WF′(B) ⊂ Ell(B_1), and E_1, G_1 slightly smaller than E, G, with
+WF′(E_1) ⊂ Ell(E) and WF′(G_1) ⊂ Ell(G), such that the hypotheses hold for (B_1, E_1, G_1) (the beginning of
+[[sec:ii-a-9]]). The inductive hypothesis, [[eq:ii-a-9-3]] at k − 1 for L^((1)), gives
+
+    ‖B_1u^((1))‖_((𝗌;k−1)) ≤ C(‖G_1f^((1))‖_((𝗌−m+1;k−1)) + ‖E_1u^((1))‖_((𝗌;k−1)) + ‖χ_1u^((1))‖_((−N;k−1))).
+
+Here ‖G_1V_jf‖_((𝗌−m+1;k−1)) ≤ ‖G_1f‖_((𝗌−m+1;k)) + ‖[G_1, V_j]f‖_((𝗌−m+1;k−1)). Both terms are bounded by
+C(‖GLu‖_((𝗌−m+1;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c) and [[lem:ii-a-8-6]] (a) for the error term, as in
+[[prop:ii-a-9-1]]. Similarly ‖E_1V_ju‖_((𝗌;k−1)) ≤ C(‖Eu‖_((𝗌;k)) + ‖χu‖_((−N;k))) and
+‖χ_1u^((1))‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)). On the left, ‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))),
+and both are bounded by C(‖B_1u^((1))‖_((𝗌;k−1)) + ‖χu‖_((−N;k))). For the first, [[lem:ii-a-8-4]] (c) applies with
+WF′(B) ⊂ Ell(B_1). For the second, the wave front set lies in that of B, and the j = 0 component of u^((1)) is u. The
+finiteness statements follow as in [[prop:ii-a-9-1]]. ∎
+
+#### Tame estimates {#sec:ii-a-9-3}
+
+**Lemma {#lem:ii-a-9-3}** ([Hin26c, Lemma 3.25].) Let R be a ring, ad_A := [A, ·], and P, X_1, …, X_N ∈ R. Then
+
+    [X_1⋯X_N, P] = Σ_(q=1)^N Σ_(i_1<⋯<i_q) (ad_(X_(i_1))⋯ad_(X_(i_q))P) ∏_(j∉{i_1,…,i_q}) X_j              {#eq:ii-a-9-4}
+                 = Σ_(q=1)^N (−1)^(q−1) Σ_(i_1<⋯<i_q) (∏_(j∉{i_1,…,i_q}) X_j)(ad_(X_(i_q))⋯ad_(X_(i_1))P), {#eq:ii-a-9-5}
+
+the products taken in increasing order of j.
+
+*Proof.* N = 1 is the definition. For [[eq:ii-a-9-4]], assume it for N and let X_(N+1) ∈ R. Then
+
+    [X_1⋯X_(N+1), P] = [X_1⋯X_N, P]X_(N+1) + (ad_(X_(N+1))P)X_1⋯X_N + [X_1⋯X_N, ad_(X_(N+1))P],
+
+because X_1⋯X_N Q = QX_1⋯X_N + [X_1⋯X_N, Q] with Q := ad_(X_(N+1))P. The inductive hypothesis applies to the first and
+third terms. The first gives the terms of [[eq:ii-a-9-4]] for N + 1 whose index set omits N + 1. The second gives the
+set {N + 1}. The third gives the sets containing N + 1 and some i_1 < ⋯ < i_q ≤ N, with ad_(X_(N+1)) innermost, as
+[[eq:ii-a-9-4]] requires. Each subset occurs exactly once. For [[eq:ii-a-9-5]], assume it for the N elements
+X_2, …, X_(N+1). Then
+
+    [X_1⋯X_(N+1), P] = X_1[X_2⋯X_(N+1), P] + X_2⋯X_(N+1)(ad_(X_1)P) − [X_2⋯X_(N+1), ad_(X_1)P].
+
+The first term gives the sets omitting 1, with X_1 first in the product. The second gives {1}. The third gives the sets
+{1} ∪ S, with sign −(−1)^(|S|−1) = (−1)^|S| and with ad_(X_1) innermost. ∎
+
+**Definition {#def:ii-a-9-4}** (Notation; [Hin26c, Notation 3.26].) Fix a finite set 𝒱^♯ spanning 𝒱_b(M̃) over
+C^∞(M̃), and the good spanning set V_1, …, V_N. D^j_b, resp. D^j_([b]), denotes the vector of all j-fold compositions of
+elements of 𝒱^♯, resp. of the V_i, and D^(≤j) those of order at most j. Each component of D^j_b is a combination, with
+coefficients in C^∞(M̃), of components of D^(≤j)_([b]), and conversely; the coefficients' derivatives produce terms of
+lower order. All the norms below are therefore unchanged up to constants when D_b is replaced by D_([b]). By
+[[lem:ii-a-9-3]], for |J| = q, schematically,
+
+    [D^q_([b]), P] = Σ_(q′=1)^q (ad^(q′)_(D_([b]))P) D^(q−q′)_([b]) = Σ_(q′=1)^q D^(q−q′)_([b]) (ad^(q′)_(D_([b]))P).
+                                                                                                           {#eq:ii-a-9-6}
+
+**Lemma {#lem:ii-a-9-5}** ([Hin26c, Lemma 3.27], with C³_b in the first term.) For a, b ∈ ℕ_0 there is C_(a,b) with
+
+    ‖(D^a_bℓ)(D^b_bu)‖_(L²(M̃)) ≤ C_(a,b)(‖ℓ‖_(C³_b)‖u‖_(H^(a+b)_b) + ‖ℓ‖_(C^(a+b+3)_b)‖u‖_(H³_b)).
+
+*Proof.* In each chart φ_α of [[sec:ii-a-4-1]], the b-vector fields are uniformly bounded combinations of the
+coordinate vector fields of (−2, 2)⁵, and the density is a constant c_α times a uniformly smooth positive multiple of
+|dx|. The coefficient Lie algebra is C^∞_b 𝒱_b ((S1)). Hence ‖v‖²_(L²) and ‖v‖²_(H^q_b) are equivalent, uniformly, to
+Σ_α c_α‖χ(φ_α)_*v‖²_(L²(ℝ⁵)) and to the same sum with the H^q(ℝ⁵)-norms of χ̃(φ_α)_*v, χ̃ = 1 on supp χ. And
+‖χ̃(φ_α)_*ℓ‖_(C^q) ≤ C‖ℓ‖_(C^q_b) uniformly. It therefore suffices to show, for f ∈ C^(K+3) and g ∈ H^K supported in
+(−2, 2)⁵, K := a + b, and |β| ≤ a, |γ| ≤ b, that
+
+    ‖∂^βf ∂^γg‖_(L²(ℝ⁵)) ≤ C(‖f‖_(C³)‖g‖_(H^K) + ‖f‖_(C^(K+3))‖g‖_(H³)),
+
+and to sum over α (finite multiplicity). If |γ| < 3, the left side is at most ‖f‖_(C^K)‖g‖_(H²). If β = 0, it is at
+most ‖f‖_(C⁰)‖g‖_(H^K). Otherwise |β| ≥ 1, |γ| ≥ 3 and K′ := |β| + |γ| ≥ 4. Sobolev embedding on ℝ⁵ (3 > 5/2) gives
+‖∂^βf‖_(L^∞) ≤ C‖f‖_(H^(|β|+3)). On the Fourier side, Hölder's inequality gives
+‖h‖_(H^((1−θ)t_0+θt_1)) ≤ ‖h‖^(1−θ)_(H^(t_0))‖h‖^θ_(H^(t_1)). With θ := |β|/K′ for f (t_0 = 3, t_1 = K′ + 3) and
+θ′ := (|γ| − 3)/(K′ − 3) for g (t_0 = 3, t_1 = K′),
+
+    ‖∂^βf ∂^γg‖_(L²) ≤ C ‖f‖^(1−θ)_(H³)‖f‖^θ_(H^(K′+3))‖g‖^(1−θ′)_(H³)‖g‖^(θ′)_(H^(K′)).
+
+Now θ′ ≤ 1 − θ, as K′(|γ| − 3) ≤ |γ|(K′ − 3), and ‖g‖_(H³) ≤ ‖g‖_(H^(K′)). So
+‖g‖^(1−θ′)_(H³)‖g‖^(θ′)_(H^(K′)) ≤ ‖g‖^θ_(H³)‖g‖^(1−θ)_(H^(K′)), and the right side is at most
+C(‖f‖_(H³)‖g‖_(H^(K′)))^(1−θ)(‖f‖_(H^(K′+3))‖g‖_(H³))^θ ≤ C(‖f‖_(H³)‖g‖_(H^(K′)) + ‖f‖_(H^(K′+3))‖g‖_(H³)) by Young's
+inequality. Finally ‖f‖_(H^q) ≤ C‖f‖_(C^q) for f supported in (−2, 2)⁵, and K′ ≤ K. ∎
+
+[Hin26c] uses the Moser estimate in place of the interpolation above, with ‖ℓ‖_(C⁰_b) in the first term. The three
+derivatives lost here are absorbed in the thresholds of [[prop:ii-a-9-6]].
+
+**Proposition {#prop:ii-a-9-6}** ([Hin26c, Proposition 3.28].) Let 𝗌 and 𝗌_0 be variable orders,
+s̄ := max(0, ⌈sup 𝗌⌉), s̲ := max(0, ⌈−inf 𝗌⌉) and s̲_0 := max(0, ⌈−inf 𝗌_0⌉). There are d_0, d̃ ∈ ℕ such that the
+following holds for all B, B^♯ ∈ C^∞_b Ψ⁰_e3b carried by χ with WF′(B) ⊂ Ell(B^♯). For all k there is C_k such that, for
+all 0 ≤ j ≤ k,
+
+    ‖B(D^j_([b])ℓ)(D^(k−j)_([b])u)‖_(H^𝗌_e3b)
+       ≤ C_k(‖ℓ‖_(C^((d_0;d̃))_(e3b;b))(‖B^♯u‖_(H^((𝗌;k))_(e3b;b)) + ‖χu‖_(H^((𝗌_0;k))_(e3b;b)))
+             + ‖ℓ‖_(C^((d_0;k))_(e3b;b))(‖B^♯u‖_(H^((𝗌;d̃))_(e3b;b)) + ‖χu‖_(H^((𝗌_0;d̃))_(e3b;b)))).      {#eq:ii-a-9-7}
+
+One can take d_1 := s̄ + max(s̲, s̲_0) + 3, d̃ := d_1 + max(s̲, s̲_0) + 3, and d_0 the number of [[lem:ii-a-8-5]] for
+(𝗌, 𝗌_0).
+
+*Proof.* Choose B_1, B_2 carried by χ with WF′(I − B_1) ∩ WF′(B) = ∅, WF′(B_1) ⊂ Ell(B_2) and WF′(B_2) ⊂ Ell(B^♯). By
+[[lem:ii-a-8-4]] (c), ‖B_iv‖_((𝗌;q)) ≤ C(‖B^♯v‖_((𝗌;q)) + ‖χv‖_((𝗌_0;q))), taking N ≥ −inf 𝗌_0 there. It therefore
+suffices to prove [[eq:ii-a-9-7]] with B_2 in place of B^♯. By the support convention, u may be replaced by χu.
+
+*The case k = 0.* Bℓu = BℓB_1u + Bℓ(I − B_1)u. [[lem:ii-a-8-5]] (a) and the boundedness of B bound the first term by
+C‖ℓ‖_(C^(d_0)_e3b)‖B_1u‖_(H^𝗌), and [[lem:ii-a-8-5]] (b) bounds the second by C‖ℓ‖_(C^(d_0)_e3b)‖χu‖_(H^(𝗌_0)).
+Finally ‖B_1u‖_(H^𝗌) ≤ C(‖B_2u‖_(H^𝗌) + ‖χu‖_(H^(𝗌_0))).
+
+*The case k ≤ d̃.* Apply the case k = 0 to D^jℓ and D^(k−j)u. By [[lem:ii-a-8-2]] (b),
+‖D^jℓ‖_(C^(d_0)_e3b) ≤ C‖ℓ‖_(C^((d_0;j))) ≤ C‖ℓ‖_(C^((d_0;d̃))). By [[eq:ii-a-9-6]],
+B_1D^(k−j) = Σ_q D^(k−j−q)(ad^q_(D_([b]))B_1), where ad^qB_1 ∈ C^∞_b Ψ⁰_e3b has wave front set in
+WF′(B_1) ⊂ Ell(B_2) ([[lem:ii-a-8-4]] (a)). So, by [[lem:ii-a-8-4]] (c),
+
+    ‖B_1D^(k−j)u‖_(H^𝗌) ≤ C(‖B_2u‖_((𝗌;k−j)) + ‖χu‖_((𝗌_0;k−j))).                                       {#eq:ii-a-9-8}
+
+Also ‖χD^(k−j)u‖_(H^(𝗌_0)) ≤ C‖χu‖_((𝗌_0;k−j)), as in [[prop:ii-a-9-1]]. This is [[eq:ii-a-9-7]].
+
+*The case k > d̃.* If j ≤ d̃, the argument just given bounds the left side by the first line of [[eq:ii-a-9-7]]. If
+j ≥ k − d̃, it bounds it by ‖D^jℓ‖_(C^(d_0)_e3b) ≤ C‖ℓ‖_(C^((d_0;k))) times ‖B_2u‖_((𝗌;d̃)) + ‖χu‖_((𝗌_0;d̃)), the
+second line. Let d̃ < j < k − d̃. By [[lem:ii-a-8-4]] (d),
+‖v‖_(H^𝗌_e3b) ≤ ‖v‖_(H^(s̄)_e3b) ≤ C‖v‖_(H^(s̄)_b) ≤ C Σ_(l≤s̄) ‖D^l_([b])v‖_(L²). By [[eq:ii-a-9-6]],
+D^l_([b])B = Σ_(l′≤l) (ad^(l−l′)_(D_([b]))B)D^(l′)_([b]), with ad^(l−l′)B bounded on L². By the Leibniz rule,
+D^(l′)((D^jℓ)(D^(k−j)u)) is a sum of terms (D^(j+l_1)ℓ)(D^(k−j+l_2)u), l_1 + l_2 = l′. So it suffices to bound, for
+l_1 + l_2 ≤ s̄ and v ∈ {B_1u, (I − B_1)u},
+
+    ‖(D^(j+l_1)ℓ)(D^(k−j+l_2)v)‖_(L²).                                                                  {#eq:ii-a-9-9}
+
+Apply [[lem:ii-a-9-5]] to D^(d_1)ℓ and D^(d_1)v, with a := j + l_1 − d_1 and b := k − j + l_2 − d_1. Both are
+positive, since j > d̃ ≥ d_1 and k − j > d̃. Then a + b + d_1 = k + l_1 + l_2 − d_1 ≤ k + s̄ − d_1, and
+[[eq:ii-a-9-9]] is at most
+
+    C(‖ℓ‖_(C^(d_1+3)_b)‖v‖_(H^(k+s̄−d_1)_b) + ‖ℓ‖_(C^(k+s̄−d_1+3)_b)‖v‖_(H^(d_1+3)_b)).
+
+Here ‖ℓ‖_(C^(d_1+3)_b) ≤ ‖ℓ‖_(C^((d_0;d̃))), as d_1 + 3 ≤ d̃, and ‖ℓ‖_(C^(k+s̄−d_1+3)_b) ≤ ‖ℓ‖_(C^((d_0;k))), as
+d_1 ≥ s̄ + 3. For v = B_1u, [[lem:ii-a-8-7]] and [[lem:ii-a-8-4]] (c) give
+‖B_1u‖_(H^(k+s̄−d_1)_b) ≤ C‖B_1u‖_((𝗌;k+s̄−d_1+s̲)) ≤ C(‖B_2u‖_((𝗌;k)) + ‖χu‖_((𝗌_0;k))), as d_1 ≥ s̄ + s̲. Likewise
+‖B_1u‖_(H^(d_1+3)_b) ≤ C(‖B_2u‖_((𝗌;d̃)) + ‖χu‖_((𝗌_0;d̃))), as d_1 + 3 + s̲ ≤ d̃. For v = (I − B_1)u, the same with 𝗌_0
+for 𝗌 and s̲_0 for s̲ gives ‖χu‖_((𝗌_0;k)) and ‖χu‖_((𝗌_0;d̃)), as I − B_1 is bounded on the mixed spaces. The products
+are those of [[eq:ii-a-9-7]]. ∎
+
+**Corollary {#cor:ii-a-9-7}** (Tame bound for operators of limited regularity.) Let 𝒫 ⊂ C^∞_b Ψ^m_e3b be finite,
+A ∈ C^((d_0;k))_(e3b;b) 𝒫 with a representation 𝐚, and χ′, χ cut-offs with χ′ carried by χ. With d_0 and d̃ of
+[[prop:ii-a-9-6]] for 𝗌 = 𝗌_0 = 𝗍 − m,
+
+    ‖χ′Au‖_((𝗍−m;k)) ≤ C_k(‖𝐚‖_((d_0;d̃))‖χu‖_((𝗍;k)) + ‖𝐚‖_((d_0;k))‖χu‖_((𝗍;d̃))).
+
+*Proof.* By [[eq:ii-a-8-1]] and the Leibniz rule, V^J(a_qP_qu) is a sum of products (V^(J_1)a_q)(V^(J_2)P_qu). Apply
+[[eq:ii-a-9-7]] with B := χ′ and B^♯ := χ″, multiplication operators with χ″ = 1 near supp χ′ and χ″ carried by χ, to
+ℓ := a_q and to P_qu in place of u. Then ‖χ″P_qu‖_((𝗍−m;q′)) ≤ C‖χu‖_((𝗍;q′)), by the support convention and
+[[lem:ii-a-8-4]] (a). ∎
+
+**Proposition {#prop:ii-a-9-8}** ([Hin26c, Proposition 3.29].) Let 𝒫 ⊂ C^∞_b Ψ^m_e3b be finite. There are d_0, d ∈ ℕ
+such that the following holds for all k and L ∈ C^((d_0;d))_(e3b;b) 𝒫 with a representation 𝐋. Let B, G be carried by
+χ with WF′(B) ⊂ Ell(G) ∩ Ell(L). If 𝐋 is a representation at (d_0; k), then
+
+    ‖Bu‖_((𝗌;k)) ≤ C_k(‖GLu‖_((𝗌−m;k)) + ‖χu‖_((−N;k)) + ‖𝐋‖_((d_0;k))(‖GLu‖_((𝗌−m;d)) + ‖χu‖_((−N;d)))), {#eq:ii-a-9-10}
+
+with the finiteness statement of [[prop:ii-a-9-1]]. C_k depends on L only through a bound for ‖𝐋‖_((d_0;d)) and the
+ellipticity margin of (L3), and so is locally uniform in C^((d_0;d))_(e3b;b) 𝒫 for all k at once.
+
+*Proof.* Take d := d̃ + 1, with d_0 and d̃ those of [[prop:ii-a-9-6]] for (𝗌 − m, −N − m), enlarged to serve also
+[[prop:ii-a-9-1]] and [[cor:ii-a-9-7]]. For k ≤ d, [[eq:ii-a-9-10]] is [[prop:ii-a-9-1]], whose constant depends on
+‖𝐋‖_((d_0;k)) ≤ ‖𝐋‖_((d_0;d)). Let k > d and assume [[eq:ii-a-9-10]] at all orders below k, for all admissible B and G.
+Choose G_1, G_2, G_3 as in [[prop:ii-a-9-1]], with WF′(G_3) ⊂ Ell(G) ∩ Ell(L). For a word J of length k,
+[[eq:ii-a-9-4]] gives
+
+    LV^Ju = V^JLu − Σ_(∅≠S⊂J) (ad_(V_S)L)V^(J∖S)u,                                                        {#eq:ii-a-9-11}
+
+with ad_(V_S) the iterated commutator in the order of S and J ∖ S in its order. (L3), applied to V^Ju with G_1, has a
+constant depending only on ‖𝐋‖_((d_0;0)):
+
+    ‖BV^Ju‖_(H^𝗌) ≤ C(‖G_1V^JLu‖_(H^(𝗌−m)) + Σ_S ‖G_1(ad_(V_S)L)V^(J∖S)u‖_(H^(𝗌−m)) + ‖χ_1V^Ju‖_(H^(−N))).
+
+*The left side.* ‖Bu‖_((𝗌;k)) is at most the sum of ‖Bu‖_((𝗌;k−1)) and the ‖V^JBu‖_(H^𝗌), |J| = k. By
+[[eq:ii-a-9-4]], V^JB = BV^J + Σ_S (ad_(V_S)B)V^(J∖S). The operators ad_(V_S)B are carried by χ with wave front set in
+that of B, and each term with S ≠ ∅ has at most k − 1 factors V. Moving them to the left by [[eq:ii-a-9-5]] bounds these
+terms by finitely many ‖B′u‖_((𝗌;k−1)), with WF′(B′) ⊂ WF′(B). These, and ‖Bu‖_((𝗌;k−1)), are bounded by
+[[eq:ii-a-9-10]] at k − 1, which is at most the right side of [[eq:ii-a-9-10]] at k.
+
+*The first two terms on the right.* ‖χ_1V^Ju‖_(H^(−N)) ≤ C‖χu‖_((−N;k)). By [[eq:ii-a-9-6]],
+‖G_1V^JLu‖_(H^(𝗌−m)) ≤ ‖G_1Lu‖_((𝗌−m;k)) + Σ ‖G′Lu‖_((𝗌−m;k−1)), with WF′(G′) ⊂ WF′(G_1). By [[lem:ii-a-8-4]] (c)
+both are at most C(‖GLu‖_((𝗌−m;k)) + ‖χ_*Lu‖_((−N−m;k))). [[cor:ii-a-9-7]] bounds the error term tamely by
+C_k(‖𝐋‖_((d_0;d̃))‖χu‖_((−N;k)) + ‖𝐋‖_((d_0;k))‖χu‖_((−N;d̃))).
+
+*The commutator terms.* Let |S| = j ≥ 1. With L = Σ_q ℓ_qA_q, iterating ad_V(ℓA) = (Vℓ)A + ℓ ad_VA gives
+ad_(V_S)L = Σ_q Σ_(S′⊂S) (V_(S′)ℓ_q)(ad_(V_(S∖S′))A_q). Here ad_(V_(S∖S′))A_q ∈ C^∞_b Ψ^m_e3b is fixed, by (S10). By
+[[eq:ii-a-9-5]], (ad A_q)V^(J∖S) = Σ V^(J′)A′ with |J′| ≤ k − j and A′ ∈ C^∞_b Ψ^m_e3b fixed. So the terms to bound are
+‖G_1(V_(S′)ℓ_q)V^(J′)(A′u)‖_(H^(𝗌−m)), with j′ := |S′| ≤ j and |J′| ≤ k − j ≤ k − 1. If j′ ≥ 1, write
+V_(S′)ℓ_q = V_(S′_2)(V_(s_1)ℓ_q), with s_1 the first letter of S′, and apply [[eq:ii-a-9-7]] with 𝗌 − m for 𝗌 and
+−N − m for 𝗌_0. Use (B, B^♯) = (G_1, G_2), ℓ := V_(s_1)ℓ_q, A′u for u, and (j′ − 1, j′ − 1 + |J′|) for (j, k). Note
+j′ − 1 + |J′| ≤ k − 1. The bound is
+
+    C_k(‖V_(s_1)ℓ_q‖_((d_0;d̃))(‖G_2A′u‖_((𝗌−m;k−1)) + ‖χA′u‖_((−N−m;k−1)))
+        + ‖V_(s_1)ℓ_q‖_((d_0;k−1))(‖G_2A′u‖_((𝗌−m;d̃)) + ‖χA′u‖_((−N−m;d̃)))).
+
+Now ‖V_(s_1)ℓ_q‖_((d_0;d̃)) ≤ C‖𝐋‖_((d_0;d)) and ‖V_(s_1)ℓ_q‖_((d_0;k−1)) ≤ C‖𝐋‖_((d_0;k)) ([[lem:ii-a-8-2]] (b); this
+is why d = d̃ + 1). Next, ‖χA′u‖_((−N−m;q)) ≤ C‖χu‖_((−N;q)), and ‖G_2A′u‖_((𝗌−m;q)) ≤ C(‖G_3u‖_((𝗌;q)) + ‖χu‖_((−N;q)))
+by [[lem:ii-a-8-4]] (c). By [[eq:ii-a-9-10]] at the order k − 1, with G_3 in place of B, ‖G_3u‖_((𝗌;k−1)) is bounded by
+the right side of [[eq:ii-a-9-10]] at k. Its constant depends only on ‖𝐋‖_((d_0;d)), and its high norm ‖𝐋‖_((d_0;k−1))
+multiplies low norms only. By [[prop:ii-a-9-1]] at the order d̃ < d,
+‖G_3u‖_((𝗌;d̃)) ≤ C(‖GLu‖_((𝗌−m;d)) + ‖χu‖_((−N;d))). If j′ = 0, the coefficient is ℓ_q itself and |J′| ≤ k − 1, and
+[[eq:ii-a-9-7]] with ℓ := ℓ_q and (0, |J′|) gives the same bounds, with ‖ℓ_q‖_((d_0;d̃)) and ‖ℓ_q‖_((d_0;k−1)).
+Collecting the terms gives [[eq:ii-a-9-10]]. ([Hin26c] treats only the term with the most derivatives on the
+coefficient; the others are bounded in the same way.) ∎
+
+**Proposition {#prop:ii-a-9-9}** ([Hin26c, Proposition 3.30], with 𝗌 − m + 1.) There are d_0, d ∈ ℕ such that the
+following holds for all δ > 0, all k, finite sets 𝒫_(m−j), j = 0, 1, and L = L_0 + L_1 + L_2. Here L_0 ∈ Diff^m_e3b,
+L_1 ∈ C^((d_0;d),(2δ,δ,δ))_(e3b;b) 𝒫_m and L_2 ∈ C^((d_0;d))_(e3b;b) 𝒫_(m−1), with representations 𝐋_1 and 𝐋_2, under
+the hypotheses of (L4). If the representations are at (d_0; k), then
+
+    ‖Bu‖_((𝗌;k)) ≤ C_k(‖GLu‖_((𝗌−m+1;k)) + ‖Eu‖_((𝗌;k)) + ‖χu‖_((−N;k))
+                       + ‖𝐋‖_((d_0;k))(‖GLu‖_((𝗌−m+1;d)) + ‖Eu‖_((𝗌;d)) + ‖χu‖_((−N;d)))),              {#eq:ii-a-9-12}
+
+with ‖𝐋‖ := ‖𝐋_1‖ + ‖𝐋_2‖. C_k depends on L only through bounds at (d_0; d), and is locally uniform for perturbations of
+L_0, L_1, L_2 in Diff^m_e3b, C^((d_0;d),(2δ,δ,δ))_(e3b;b) 𝒫_m and C^((d_0;d))_(e3b;b) 𝒫_(m−1). ([Hin26c, (3.85)] prints
+𝗌 − m for 𝗌 − m + 1 in both places; the real principal type estimate gives 𝗌 − m + 1, which the proof of [Hin26c,
+Proposition 3.30] uses, and 𝗌 − m would be false, as propagation loses one derivative.)
+
+*Proof.* Take d := d̃ + 2, with d_0 and d̃ of [[prop:ii-a-9-6]] for (𝗌 − m + 1, −N − m), enlarged to serve
+[[prop:ii-a-9-2]] and [[cor:ii-a-9-7]]. For k ≤ d, [[eq:ii-a-9-12]] is [[prop:ii-a-9-2]]. Let k > d and assume
+[[eq:ii-a-9-12]] below k. Let 𝒲_k be the set of words of length k in the letters 0, …, N, with V_0 = I, and put
+u^((k)) := (V^αu)_(α∈𝒲_k). By [[eq:ii-a-9-4]], LV^αu = V^αLu − Σ_(S≠∅) (ad_(V_S)L)V^(α∖S)u. For |S| = 1, S = {i},
+[[lem:ii-a-4-1]] and the calculation in the proof of [[prop:ii-a-9-2]] give ad_(V_(α_i))L = Σ_ν L_(α_i,ν)V_ν. Here
+
+    L_(α_i,ν) ∈ C^∞_b Ψ^(m−1)_e3b + C^((d_0;d−1),(2δ,δ,δ))_(e3b;b) Ψ^(m−1)_e3b + C^((d_0;d−1))_(e3b;b) Ψ^(m−2)_e3b,
+
+in the span of a fixed finite set. Its coefficients carry at most one b-derivative of those of L, so their
+C^(d_0)_e3b-norms are bounded by C‖𝐋‖_((d_0;1)). And V_νV^(α∖{i}) is again a word of length k. Hence
+
+    L^((k))u^((k)) = f^((k)) + f̃^((k)),     f^((k)) := (V^αLu)_α,     f̃^((k)) := (−Σ_(|S|≥2) (ad_(V_S)L)V^(α∖S)u)_α,
+
+where (L^((k))w)_α := Lw_α + Σ_i Σ_ν L_(α_i,ν)w_(ν·(α∖{i})). L^((k)) is a system of the form of (L4), built from
+commutators of the fixed operators with the V_j. Its principal symbol is ℓ Id and its coefficients have
+C^(d_0)-norms bounded by C‖𝐋‖_((d_0;1)). Apply (L4) to it, with operators chosen as follows. Let T be as at the
+beginning of [[sec:ii-a-9]], and U ⊂ Ell(G) a neighbourhood of T on which 𝖧𝗌 ≤ 0. Apply (O) to U, giving U_T, K_E and
+K_U, and again to U_T ∩ U in place of U, giving U′_T ⊂ U_T, K′_E and K′_U ⊂ U_T. Take B_1 with WF′(B) ⊂ Ell(B_1) and
+WF′(B_1) ⊂ U′_T, E_1 elliptic on K′_E with WF′(E_1) ⊂ Ell(E), and G_1, G_2, G_3 microsupported in U_T, with G_1 elliptic
+on K′_U ∪ WF′(B_1), WF′(G_1) ⊂ Ell(G_2) and WF′(G_2) ⊂ Ell(G_3). By (O) the hypotheses of (L4) hold for (B_1, E_1, G_1),
+and for (G_2, E, G) and (G_3, E, G). (Taking G_1 slightly smaller than G would not do: then WF′(G_3) contains T and may
+reach where the hypotheses fail.) The constant depends on k through the size of the system, and on L only through low
+norms:
+
+    ‖B_1u^((k))‖_(H^𝗌) ≤ C_k(‖G_1f^((k))‖_(H^(𝗌−m+1)) + ‖G_1f̃^((k))‖_(H^(𝗌−m+1)) + ‖E_1u^((k))‖_(H^𝗌)
+                              + ‖χ_1u^((k))‖_(H^(−N))).
+
+The left side controls ‖Bu‖_((𝗌;k)) up to terms ‖B′u‖_((𝗌;k−1)), WF′(B′) ⊂ WF′(B), which are bounded by
+[[eq:ii-a-9-12]] at k − 1 (as in [[prop:ii-a-9-8]]). The terms with f^((k)), E_1 and χ_1 are bounded as in
+[[prop:ii-a-9-8]], the error term of G_1f^((k)) by [[cor:ii-a-9-7]]. It remains to bound G_1f̃^((k)). Its terms are
+G_1(ad_(V_S)L)V^(α∖S)u with |S| = j ≥ 2, so at most k − 2 factors V act on u.
+
+For L_0, ad_(V_S)L_0 ∈ Diff^m_e3b is fixed, and by [[lem:ii-a-8-4]] (c) and (d),
+
+    ‖G_1(ad_(V_S)L_0)V^(α∖S)u‖_(H^(𝗌−m+1)) ≤ C(‖G_2u‖_((𝗌+1;k−2)) + ‖χu‖_((−N;k)))
+                                           ≤ C(‖G_2u‖_((𝗌;k−1)) + ‖χu‖_((−N;k))).                     {#eq:ii-a-9-13}
+
+The second inequality is [Hin26c, (3.87)], here [[lem:ii-a-8-4]] (d). For L_1 and L_2,
+ad_(V_S)(ℓA) = Σ_(S′⊂S) (V_(S′)ℓ)(ad_(V_(S∖S′))A) with A of order m or m − 1. Commute the fixed operator through the
+V's by [[eq:ii-a-9-5]]. If j′ := |S′| ≥ 2, apply [[eq:ii-a-9-7]] at the order 𝗌 − m + 1, with ℓ replaced by
+V_(s_1)V_(s_2)ℓ (two letters of S′ removed) and (j′ − 2, ·) for (j, ·). The coefficient norms are
+‖ℓ‖_((d_0;d̃+2)) ≤ C‖𝐋‖_((d_0;d)) and ‖ℓ‖_((d_0;k)). The u-norms are bounded by
+‖G_2A′u‖_((𝗌−m+1;k−2)) ≤ C(‖G_3u‖_((𝗌+1;k−2)) + ‖χu‖_((−N;k))) ≤ C(‖G_3u‖_((𝗌;k−1)) + ‖χu‖_((−N;k)))
+([[lem:ii-a-8-4]] (c), (d)), and the same at d̃. If j′ ≤ 1, the coefficient carries at most one derivative, and
+[[eq:ii-a-9-7]] with ℓ replaced by V_(S′)ℓ and (0, ·) gives the same bounds, with
+‖V_(S′)ℓ‖_((d_0;d̃)) ≤ C‖𝐋‖_((d_0;d)). Here ‖G_3u‖_((𝗌;k−1)), and ‖G_2u‖_((𝗌;k−1)) in [[eq:ii-a-9-13]], are bounded by
+[[eq:ii-a-9-12]] at k − 1 with G_3, resp. G_2, in place of B, for which the hypotheses hold by the choice above. And
+‖G_3u‖_((𝗌;d̃+1)) is bounded by [[prop:ii-a-9-2]] at the order d̃ + 1 < d, with constant depending on ‖𝐋‖_((d_0;d)).
+This gives [[eq:ii-a-9-12]]. The local uniformity follows from that of (L4) and [[prop:ii-a-9-2]]. ∎
+

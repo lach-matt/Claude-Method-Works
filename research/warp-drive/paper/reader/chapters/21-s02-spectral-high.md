@@ -1431,7 +1431,7 @@ supp ν ⊂ Γ_u^♮ ∩ Σ_(z_0), H_(φ_u^♮) a = a_1′(φ_s^♮){φ_u^♮, �
 
     (c_Γ/(2δ)) 𝗆(δ) ≤ C_1 + (4C_Γ/δ_1) ν(U_1),     so     𝗆(δ) ≤ C_2 δ                                   {#eq:i-b-6-9}
 
-with C_2 independent of δ ∈ (0, δ_1/4).
+with C_2 independent of δ ∈ (0, δ_1/4) [[pending:issue-1]].
 
 *Step 3: propagation for logarithmic times.* [[lem:i-b-6-3]] (b), with ‖G𝐏u‖ = o(h²), gives
 ∫(Va dν + 2a tr((p^♮ − ηq^♮) dμ)) = 0 for real a ∈ C_c^∞(Ell_h(B)). Let p_η := max spec(p^♮ − ηq^♮), continuous;
