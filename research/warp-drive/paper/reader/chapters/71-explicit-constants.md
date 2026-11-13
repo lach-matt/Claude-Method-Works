@@ -12,10 +12,11 @@ elementary losses have closed forms in the weights, the threshold quantities of 
 ([[lem:ec-closed-forms]]); three nested iterations contribute their numbers of steps; and at one parameter point of
 the gauge and damping parameters two of these iterations alone make d larger than 5.306 × 10¹⁵, and larger than
 7.959 × 10¹⁵ (N_NM larger than 1.671 × 10¹⁷) when each of their steps is charged one derivative for the inverse of the
-model at the transition face ([[thm:loss-d]]). That parameter point lies outside the set on which [[thm:settling]] is proved
-([[rem:ec-point-outside]]), and the bounds bound what this proof's choices produce, not the optimal loss. The same
-formulas bound δ and λ1 from above ([[prop:ec-delta-cap]]). The chapter ends with the parts of the first constants of
-the linear theory that are in hand, and with the places where explicit evaluation stops ([[rem:ec-not-evaluated]]).
+model at the transition face ([[thm:loss-d]]). That parameter point lies outside the set on which [[thm:settling]] is
+proved ([[rem:ec-point-outside]]), and the bounds bound what this proof's choices produce, not the optimal loss. The
+same formulas bound δ and λ1 from above ([[prop:ec-delta-cap]]). The chapter ends with the parts of the first
+constants of the linear theory that are in hand, and with the places where explicit evaluation stops
+([[rem:ec-not-evaluated]]).
 No result of this chapter is used in the proof of any theorem of this paper.
 
 ### The computational point {#sec:ec-point}

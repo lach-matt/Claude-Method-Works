@@ -806,3 +806,11 @@ Items found while chapters were written in parallel; each is settled once, editi
   thm:iii-i12-3-1 reduces it to C‖F‖ at b_0; chapter 44's def:iii-i15-2-3, lem:iii-i15-2-4, prop:iii-i15-2-5 Step 3
   and cor:s25-tame's proof (592-594) bound by G plus the solution term, the A_k bound unchanged so chapter 46's citations
   keep their strength; four nits. Fourth reading running.
+- Proof E margins CONFIRMED (R3-P-E-margins): Σ_τ0 acausal proved; 3.3·10⁻⁴ rad fully proved; Rácz (4.19), the
+  symmetrizer definition (p. 12), (4.22)-(4.23) (p. 13) match arXiv v3 word for word, (4.22) an exact factor of the
+  characteristic polynomial by (4.20); roots and the no-symmetrizer argument right. [Rac16] already lists
+  arXiv:1508.01810v3 (no fix). Nits at merge into chapter 83: add "e^ψ f < 1" to prop:bg-slice and thm:bg-margins (c)
+  in P-E-background and cite it directly; P:38 "symmetric positive definite"; optionally quote (4.20) or one
+  factorisation line; resolve the marker at P:17 to lem:bg-identities and eq:bg-field (chapter 80 now defines them);
+  OUTLINE.md: one line exporting the Appendix A std- keys (exact text in R3-P-E-margins). The pending Rácz-formulas lemma
+  must include the ψ ≠ 0 forms of κ, K^l_l, N_κ (checked) and the Γ/E² identity.

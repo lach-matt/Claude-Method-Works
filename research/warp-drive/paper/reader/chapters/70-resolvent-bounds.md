@@ -1504,9 +1504,51 @@ components, with model(r^(−ι)w) = r^(−ι−2)N^n_l(ι)w for w ∈ ℂ^(n_l)
     det N^n_l(ι) = 2^(−n_l)(−1)^(n_l)(ι + l)(ι − l − 2) det N_Υ(ι − 1) det N_C(ι + 1)/D(ι).
 
 So the roots of det N^n_l are −l, l + 2, the indicial roots of □^Υ plus 1 and those of □^C less 1, with D removing a
-double root 1 at l = 0. At (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), the roots with real part greater than 1 nearest to 1
-are, at l = 0, 2 and 4, 1.0000747438, 1.0000029324 and 1.0000169224, each an indicial root of □^C at scalar type l
-less 1 [[pending:computational-1]].
+double root 1 at l = 0.
+
+**Lemma {#lem:rb-roots-point}** (The roots nearest the weight line.) Let (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), and let
+C and P_l be the polynomials of [[prop:np-10-12]] (iii) at (v, e, h) = (1/2, 1/102400, 10⁻⁶), h = γ_C⁻¹. At l = 0, 2
+and 4, the root of det N^n_l with real part greater than 1 nearest to 1 is ι_l − 1, where ι_0 is the root of C greater
+than 2 and, at l = 2, 4, ι_l is the least of the roots of P_l with real part greater than 2. It is real, no other root
+of det N^n_l has real part in (1, ι_l − 1], and
+
+    1.00007474375 < ι_0 − 1 < 1.00007474385,     1.00000293235 < ι_2 − 1 < 1.00000293245,
+    1.00001692235 < ι_4 − 1 < 1.00001692245.                                                       {#eq:rb-roots-point}
+
+To ten decimal places these roots are 1.0000747438, 1.0000029324 and 1.0000169224; each is an indicial root of □^C at
+scalar type l less 1.
+
+*Proof.* *The factors other than □^C.* In the basis of [[prop:np-10-12]] (ii) the scalar type l indicial family of □^C
+is the matrix N_l(ι) there, with det(hN_l) = P_l at l ≥ 1 and det(hN_0) = P_0 = −(ι − 2)C; that basis differs from the
+one of [[eq:iii-a1-2-9]] by a change that does not depend on ι, so det N_C is a nonzero constant times P_l. By
+[[lem:iii-d-4-1]] and [[eq:iii-d-4-2]] the roots of det N_Υ are real: 1 − ι^Υ_(s0,2) < −1, 0, ι^Υ_(s0,2) > 2 and 3 at
+l = 0; the negative numbers 1 − ι^Υ_(sl,l+2), 1 − ι^Υ_(sl,l+1) and 1 − l, and ι^Υ_(sl,l+1) > l + 1,
+ι^Υ_(sl,l+2) > l + 2 and l + 3, at l ≥ 2. So the roots of det N_Υ(ι − 1) greater than 1 exceed 3 at l = 0 and l + 2 at
+l ≥ 2, and the root l + 2 is at least 2. At l = 0 the root 1 of det N_Υ(ι − 1) and the root 1 of
+P_0(ι + 1) = −(ι − 1)C(ι + 1) form the double root that D removes. Hence a root of det N^n_l with real part greater
+than 1 is at least 2 unless it is μ − 1 for a root μ of C (at l = 0) or of P_l (at l = 2, 4).
+
+*The roots of C and of P_l.* By [[prop:np-10-54]] and its proof, C has exactly one root greater than 2, its other two
+roots having real part below −100; and at l = 2, 4, P_l has exactly three roots, counted with multiplicity, with real
+part greater than 2, the other three having real part below −100. Expanding [[eq:s14-c0]] and the determinant of
+[[eq:s14-nl]] about ι = 2 gives C(2 + ε) = Σ_(k≤3) c_kε^k and P_l(2 + ε) = Σ_(k≤6) c_kε^k, with the exact coefficients
+
+    C:    c_0 = 1.4948443959375·10⁻⁴,  c_1 = −1.999957171827171875,  c_2 = −2.999994234375·10⁻⁶,  c_3 = −10⁻¹²;
+    P_2:  c_0 = 1.131875750625·10⁻⁹,  c_1 = −3.9186117873477253125·10⁻⁴,  c_2 = 2.000144656033436956015625,
+          c_3 = −1.999958171536796769234375;
+    P_4:  c_0 = 1.4261642521875·10⁻⁸,  c_1 = −8.7661649198425078125·10⁻⁴,  c_2 = 2.000224654883184362015625,
+          c_3 = −1.999958171408796889734375;
+
+and, for P_2 and P_4, |c_4| < 5·10⁻⁶, |c_5| < 4·10⁻¹² and c_6 = −10⁻¹⁸, so that |c_4ε⁴ + c_5ε⁵ + c_6ε⁶| < 10⁻²⁴ for
+0 ≤ ε ≤ 2·10⁻⁵. Let (ε_−, ε_+) be (7.474375·10⁻⁵, 7.474385·10⁻⁵) for C, (2.93235·10⁻⁶, 2.93245·10⁻⁶) for P_2 and
+(1.692235·10⁻⁵, 1.692245·10⁻⁵) for P_4. The sums c_0 + c_1ε + c_2ε² + c_3ε³ at ε = ε_− and ε = ε_+ are
+1.4071…·10⁻¹⁰ and −5.9280…·10⁻¹¹ for C, 1.6962…·10⁻¹⁶ and −3.7843…·10⁻¹⁴ for P_2, and 1.7929…·10⁻¹⁴ and
+−6.2962…·10⁻¹⁴ for P_4; so C and P_l are positive at 2 + ε_− and negative at 2 + ε_+. From [[eq:s14-nl]],
+moreover, P_2(5/2) = 0.2498…, P_2(3) = −2.1037…·10⁻⁴, P_4(5/2) = 0.2496… and P_4(3) = −6.1511…·10⁻⁴. Hence C has a
+root in (2 + ε_−, 2 + ε_+), which is its only root greater than 2; and P_l has a root in each of (2 + ε_−, 2 + ε_+),
+(2 + ε_+, 5/2) and (5/2, 3), which are therefore its three roots with real part greater than 2, each simple, the least
+being ι_l. So ι_l − 1 ∈ (1 + ε_−, 1 + ε_+), which is [[eq:rb-roots-point]]; every other root of det N^n_l coming from C
+or P_l has real part below −99 or, at l = 2, 4, greater than 1 + ε_+; and with the first part the lemma follows. ∎
 
 *The horizon.* Write x := a_vγ_C r_h, with a_v the dv-component of c_C at r_h.
 

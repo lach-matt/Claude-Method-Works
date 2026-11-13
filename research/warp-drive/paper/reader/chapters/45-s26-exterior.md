@@ -999,12 +999,59 @@ u₂ = 0 on {ρ_I > c/2}, and
     L_gu₂ = f₃ := (1 − χ_c)f_♭ − [L_g, χ_c]u₁,
 
 which vanishes on {ρ_I > c/2}, hence near Σ_in = {ρ_I = c}. The commutator is a first-order b-operator supported in
-{c/4 ≤ ρ_I ≤ c/2}, so ‖[L_g, χ_c]u₁‖_(H^(m,(a₀,2α_I))_b) ≤ C‖u₁‖_(H^(m+1,a₀)_b(Ω′)). u₂ is the forward solution on Ω_c
-from Σ_in (uniqueness by [[lem:ii-f-1-3]]), and [[prop:iv1-2-2]] on Ω_c ([[lem:iv2-2-1]]) gives the second term of
-[[eq:iv2-2-2]]. For m = 3: the last term of [[eq:iv1-2-1]] is ‖h‖_(H⁶)‖f₃‖_(H^(3,(a₀,2α_I))_b), at most
-C‖f₃‖_(H^(3,(a₀,2α_I))_b) as h is bounded in H⁸; and the norm of f₃ in H^(3,(a₀,2α_I))_b is at most
-C(‖f_♭‖_(H^(3,(a₀,2α_I))_b) + ‖u₁‖_(H^(4,a₀)_b(Ω′))), where u₁ is bounded without a tame term. So at m = 3 no tame
-term arises. ∎
+{c/4 ≤ ρ_I ≤ c/2}: [L_g, χ_c] = Σ_l c_lV_l + c₀, with V_l b-vector fields, c_l products of b-derivatives of χ_c with the
+second-order coefficients of L_g, which are smooth functions of h, and c₀ involving also the first-order coefficients,
+smooth functions of h and of its first b-derivatives. Each coefficient is its value at h = 0, smooth and bounded with
+all its b-derivatives, plus a part c̃ that vanishes at h = 0, with ‖c̃_l‖_(H^j_b) ≤ C‖h‖_(H^j) and
+‖c̃₀‖_(H^j_b) ≤ C‖h‖_(H^(j+1)) for every j, as for the coefficients ã_i ([[eq:iv2-0-4]]), and with
+‖c̃‖_(L^∞) ≤ C‖h‖_(H⁵) by the embedding of [[lem:iv1-2-3]]. On {ρ_I ≥ c/4} the weight at ℐ⁺ is immaterial, and
+‖V_lu₁‖_(L^∞) + ‖u₁‖_(L^∞) ≤ C‖u₁‖_(H^(4,a₀)_b(Ω′)) with the weight a₀ divided out, by the same embedding. So
+[[lem:iv1-2-3]] with s := m, applied to each product c̃V_lu₁ and c̃₀u₁, gives
+
+    ‖[L_g, χ_c]u₁‖_(H^(m,(a₀,2α_I))_b) ≤ C(‖u₁‖_(H^(m+1,a₀)_b(Ω′)) + ‖h‖_(H^(m+1))‖u₁‖_(H^(4,a₀)_b(Ω′))).    {#eq:s26-commutator}
+
+u₂ is the forward solution on Ω_c from Σ_in (uniqueness by [[lem:ii-f-1-3]]), and [[prop:iv1-2-2]] on Ω_c
+([[lem:iv2-2-1]]) gives ‖u₂‖_(H^((1;m),(a₀,2α_I))_(e,b;b)) ≤ C(‖f₃‖_m + ‖h‖_(H^(m+3))‖f₃‖_3), where here and below
+‖·‖_j is the norm of H^(j,(a₀,2α_I))_b, and that of H^(j,a₀)_b(Ω′) for u₁. The bound for u₁ above, at the order m and
+at the order 3 (the latter without tame term, by the part *Low orders* of the proof of [[lem:iv2-2-2]]), gives
+‖u₁‖_(m+1) ≤ C(‖f_♭‖_m + ‖h‖_(H^(m+2))‖f_♭‖_4) and ‖u₁‖_4 ≤ C‖f_♭‖_3. With [[eq:s26-commutator]] this gives
+
+    ‖f₃‖_m ≤ C(‖f_♭‖_m + ‖u₁‖_(m+1) + ‖h‖_(H^(m+1))‖u₁‖_4) ≤ C(‖f_♭‖_m + ‖h‖_(H^(m+2))‖f_♭‖_4),
+    ‖f₃‖_3 ≤ C(‖f_♭‖_3 + ‖u₁‖_4) ≤ C‖f_♭‖_3,
+
+h being bounded in H⁸. Hence ‖u₂‖_(H^((1;m),(a₀,2α_I))_(e,b;b)) ≤ C(‖f_♭‖_m + ‖h‖_(H^(m+3))‖f_♭‖_4), the second term of
+[[eq:iv2-2-2]]; no product of two norms of h arises. For m = 3, the last term of [[eq:iv1-2-1]] is
+‖h‖_(H⁶)‖f₃‖_3 ≤ C‖f₃‖_3 ≤ C‖f_♭‖_3, and u₁ is bounded without tame term, so no tame term arises. ∎
+
+**Lemma {#lem:s26-interpolation}** (Interpolation in the class.) For j ∈ ℕ₀ let |v|_j be the norm of
+H^(j,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) given by [[eq:iv2-0-3]] after conjugation and made monotone in j as in
+[[rem:ii-g-2-2]], which is the norm of B^j in the proof of [[thm:iv2-3-1]]. For integers 0 ≤ s₀ ≤ s ≤ s₁ there is C
+such that for every v ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*)
+
+    |v|_s ≤ C|v|_(s₀)^(1−λ)|v|_(s₁)^λ,     λ := (s − s₀)/(s₁ − s₀)  (λ := 0 if s₁ = s₀),              {#eq:s26-interpolation}
+
+and for integers 0 ≤ s₀ ≤ b ≤ a there is C such that for every such v
+
+    |v|_a|v|_b ≤ C|v|_(s₀)|v|_(a+b−s₀).                                                            {#eq:s26-interpolation-product}
+
+*Proof.* The smoothing operators S_θ, θ > 1, of part (i) of the proof of [[thm:iv2-3-1]] act on
+H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) and satisfy [[eq:ii-g-2-1]] for these norms, the support classes being trivial;
+they are built componentwise from the operator S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]], and their construction
+uses nothing of this section. Let s₀ < s < s₁, the other cases being trivial, and v ≠ 0, so that |v|_(s₀) > 0. Put
+R := |v|_(s₁)/|v|_(s₀), which is at least 1 as the norms are monotone. If R ≤ 2^(s₁−s₀), then
+
+    |v|_s ≤ |v|_(s₁) = |v|_(s₁)^(1−λ)|v|_(s₁)^λ ≤ 2^(s₁−s₀)|v|_(s₀)^(1−λ)|v|_(s₁)^λ.
+
+Otherwise θ := R^(1/(s₁−s₀)) > 2, and [[eq:ii-g-2-1]], with (s, t) := (s, s₀) for S_θv and (s, t) := (s, s₁) for
+v − S_θv, gives
+
+    |v|_s ≤ |S_θv|_s + |v − S_θv|_s ≤ C_(s,s₀)θ^(s−s₀)|v|_(s₀) + C_(s,s₁)θ^(s−s₁)|v|_(s₁)
+        = (C_(s,s₀) + C_(s,s₁))|v|_(s₀)^(1−λ)|v|_(s₁)^λ,
+
+as θ^(s−s₀) = R^λ and θ^(s−s₁) = R^(λ−1). For the product put n := a + b − s₀, so n ≥ a. If n = s₀, then a = b = s₀
+and the claim is an identity. Otherwise [[eq:s26-interpolation]] with s₁ := n, at s = a and at s = b, has the exponents
+λ_a := (a − s₀)/(n − s₀) and λ_b := (b − s₀)/(n − s₀), and λ_a + λ_b = 1 as (a − s₀) + (b − s₀) = n − s₀. The product
+of the two bounds is |v|_a|v|_b ≤ C|v|_(s₀)^(2−λ_a−λ_b)|v|_n^(λ_a+λ_b) = C|v|_(s₀)|v|_n. ∎
 
 **Theorem {#thm:iv2-2-4}** (The linear exterior estimate; [Hin23a, Theorem 3.35] in dimension 4 + 1, with [Hin26,
 (5.52)–(5.53)].) Let α₀ > ℓ^♭_I, a₀ := α₀ − 3/2, k ∈ ℕ₀, d := 4, and let h be small in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b. For
