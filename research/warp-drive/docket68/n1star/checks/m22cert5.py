@@ -17,24 +17,33 @@ READ (cited values). It imports m22evol5.py (the system, the solver, the data) a
      point of the slice), with mu >= 1, mu' <= (2/9) c^2 and q_lo, the least eigenvalue of Q (stage1rate5 K2), bounded
      above over m in [1/r^2, mu_end/r^2]. Its integral over [tau0, tau*] is a certified lower bound on the exponent of
      the estimate's Gronwall factor.
-  X4 (computed, floating point) The residual: the tau-tau component of the PDE residual of the solver's interpolant,
-     measured off the collocation nodes (on the grid with twice the nodes) at twelve times, at Nr x Nx = 32 x 12,
-     40 x 12, 48 x 16, 64 x 20; the route's bound int e^(Lambda(s)) ||rho(s)|| ds against what m_lo > 0 needs, and the
-     resolution at which it would fall below (extrapolated).
+  X4 (computed, floating point; an indicator) The tau-tau component of the defect of the lifted semi-discrete state
+     (the PDE applied to the spectral lift of the solver's nodal state, minus the lift of its semi-discrete d_tau^2),
+     off the collocation nodes (on the grid with twice the nodes) at twelve times, at Nr x Nx = 32 x 12, 40 x 12,
+     48 x 16, 64 x 20. It is not the residual of one space-time interpolant (psi is not d_r of the lifted m, and
+     there is no time-interpolation error). With it in place of rho: int e^(Lambda(s)) ||rho(s)|| ds, and the
+     resolution at which it would fall below the budget (extrapolated).
   X5 (computed) What m_lo buys (m22evol5's chain): the bounds at m_lo = 1 and 1/2.
-  X6 (certified, Arb) The residual's tau-tau component at a slice of the 48 x 16 run (tau = -0.8): the interpolant
+  X6 (certified, Arb) That defect's tau-tau component at a slice of the 48 x 16 run (tau = -0.8): the lift
      (2D Chebyshev series through the nodal values) and the vv equation's coefficients evaluated in Arb balls, mu by
      certified quadrature of env^2 (python-flint's Petras integrator, the tails bounded) and c from its defining
      integral; at collocation nodes it reproduces the solver (|rho| < 1e-12), at midpoints it is certified nonzero;
      on boxes of half-width delta its enclosure grows as (slope) delta: the sharpness a certificate reaches, the
      boxes and time it would need.
+  X7 (certified, Arb) The T-entries of the tau-tau row at X* (r = a, v = 2, mu(2) = 419/384 exactly by the
+     envelope's symmetry, mu' = (2/9) c^2) and their sup over r in [a, 5], mu in [1, mu_end], mu' in [0, (2/9) c^2].
+  X8 (deduced from X3 and the requirement; the data computed, floating point) The data requirement: Corollary 2
+     carries E^(1/2)(tau0) with the full factor, so m_lo > 0 needs E^(1/2)(tau0) < |M_22|/(C_pt e^32.84); the data are
+     cut at P_13(cos 2th), and the first omitted mode, P_15, alone contributes at least (q_lo)^(1/2) ||d_tau T_15|| to
+     the data error's E^(1/2) (the modes are orthogonal in x; q_lo >= 0.196683, stage1rate5 K3).
   Controls (each mutates the computed path and must fail): C1 P_eta without its factor 1/2: X1's cancellation of the
   principal parts fails; C2 the envelope with each slope taken at the piece's end: X2's supersolution test fails; C3
   X3's bound evaluated at the outer boundary r = 3 - tau (a point of the slice, but where the coefficients are small):
   X3's threshold (a factor above 10^12) fails; C4 the interpolated d_tau^2 m_vv raised by 1e-6 of its maximum: X6's
-  nodal test fails.
+  nodal test fails; C5 X8's requirement with C3's factor in place of X3's: the P_15 contribution falls below it, so
+  X8's test fails.
 
-    python3 checks/m22cert5.py [--selftest]       (every check; about 20 minutes)
+    python3 checks/m22cert5.py [--selftest]       (every check; about 30 minutes)
 """
 import builtins
 import contextlib
@@ -531,7 +540,7 @@ def check_x6(res, kept, need_pt):
     real = sum(1 for q in mids if abs(float(q.mid())) > 1e3 * max(float(n) for n in nodes)
                and abs(float(q.mid())) > 1e6 * float(q.rad()))
     OK['X6'] = ok_nodes and real >= 2
-    print('  X6 (certified, Arb): the tau-tau residual of the 48 x 16 interpolant at tau = %.3f, in Arb balls with mu '
+    print('  X6 (certified, Arb): the tau-tau defect of the lifted 48 x 16 state at tau = %.3f, in Arb balls with mu '
           'by certified quadrature and c from its defining integral (%s): at three collocation nodes it is at most %.1e '
           '(the evaluator reproduces the solver there), at the three midpoints next to them %s; certified nonzero '
           'values where the solution is large: %s %s'
@@ -562,6 +571,62 @@ def check_x6(res, kept, need_pt):
         print('    radius <= %.0e needs delta <= %.1e: about %.1e boxes per slice, %.1e over the run\'s ~%d slices, '
               'about %.1e s at this rate' % (target, dl, boxes, boxes * nstep, nstep, boxes * nstep * per))
     return slope, per
+
+
+def check_x7():
+    """the T-entries of the tau-tau row (X1) at X* and their sup over the domain, in Arb"""
+    c_lo, c_hi = flint.arb('1.32407110621'), flint.arb('1.3241034918')        # envelope5.out E1 (READ)
+    c = flint.arb((c_lo + c_hi) / 2, (c_hi - c_lo) / 2)
+    q0 = (flint.arb(9) / 1250) ** (flint.arb(1) / 8)
+    a = q0 / 2
+    mu, mup = flint.arb(419) / 384, flint.arb(2) / 9 * c ** 2
+    er = (5 * mu / 2 - mup * a) / a ** 3
+    et = (mup * a - mu / 2) / a ** 3
+    z = (2 * mu ** 3 - mu ** 2 * a ** 2 + mu * mup * a ** 3 - mup * a ** 5) / a ** 8
+    mue = arb(MU_END)
+    er_sup = (5 * mue / 2) / a ** 3
+    et_sup = (mue / 2 + flint.arb(2) / 9 * c ** 2 * a) / a ** 3
+    z_sup = (2 * mue ** 3 + mue ** 2 * a ** 2 + mue * flint.arb(2) / 9 * c ** 2 * a ** 3
+             + flint.arb(2) / 9 * c ** 2 * a ** 5) / a ** 8
+    OK['X7'] = flint.arb(133) < er < flint.arb(134) and er < er_sup
+    print('  X7 (certified, Arb): at X* (r = a, mu(2) = 419/384 by the envelope\'s symmetry about v = 2, mu\' = (2/9) '
+          'c^2) the T-entries of the tau-tau row are e_r: %s, e_tau: %s, zero order: %s; over r in [a, 5], mu in [1, '
+          'mu_end], mu\' in [0, (2/9) c^2] each is at most %s, %s, %s in modulus (bounds by the moduli of their terms, '
+          'each decreasing in r, taken at r = a with mu = mu_end). The other entries of the row and the other rows are '
+          'not computed: %s'
+          % (er.str(6), et.str(6), z.str(6), er_sup.upper().str(6), et_sup.upper().str(6), z_sup.upper().str(6),
+             OK['X7']))
+
+
+def check_x8(funcs, env, fode, lam, lam_o, cpt):
+    """the data requirement against the first omitted mode, P_15"""
+    req = 2.207738 / (cpt * math.exp(lam))
+    Sv = ME.Solver(48, 32, funcs, env)
+    r1, L, _ = Sv.grid(ME.TAU0)
+    wr = cc_weights(Sv.Nr) / 2 * L
+    wx = np.pi / Sv.Nx * np.sqrt(1 - Sv.x ** 2)
+    rr = r1[:, None] * np.ones((1, Sv.Nx))
+    keep = ME.KS
+    out = {}
+    try:
+        for ks in ((1, 3, 5, 7, 9, 11, 13), (15,)):
+            ME.KS = ks
+            T = ME.cauchy_data(Sv, fode)[1][0]                    # d_tau m_vv on Sigma (step (ii))
+            out[ks] = math.sqrt(0.196683 * math.pi ** 2 * float(np.einsum('i,j,ij->', wr, wx, T ** 2 * rr ** 3)))
+    finally:
+        ME.KS = keep
+    e13, e15 = out[(1, 3, 5, 7, 9, 11, 13)], out[(15,)]
+    s15, s1 = float(ME.L5.sigma_k(15)), float(ME.L5.sigma_k(1))
+    OK['X8'] = e15 > req
+    print('  X8 (the data requirement): Corollary 2 carries the data error with the full factor, so m_lo > 0 needs '
+          'E^(1/2)(tau0) < |M_22|/(C_pt e^%.4f) = %.2e (deduced from X3 and the requirement). The data are cut at P_13; '
+          'the first omitted mode, P_15 (|sigma_15/sigma_1| = %.1e), alone gives the data error an E^(1/2) of at least '
+          'q_lo^(1/2) ||d_tau T_15|| = %.2e (computed, floating point, on 48 x 32; the kept modes give %.2e), %.1e '
+          'times the requirement, on every grid: %s' % (lam, req, abs(s15 / s1), e15, e13, e15 / req, OK['X8']))
+    req_o = 2.207738 / (cpt * math.exp(lam_o))
+    OK['C5'] = not e15 > req_o
+    print('  C5 (control): the requirement with C3\'s factor e^%.4f in place of X3\'s: %.2e, above the P_15 '
+          'contribution, so X8\'s test fails: %s' % (lam_o, req_o, OK['C5']))
 
 
 def main():
@@ -606,8 +671,9 @@ def main():
     check_x6(res, rows['kept'], need / (ME.TAU_STAR - ME.TAU0) / math.exp(lam_keep))
     b48, b64 = rows[(48, 16, 1.0)][3], rows[(64, 20, 1.0)][3]
     OK['X4'] = all(np.isfinite(rows[c][3]) for c in rows if c != 'kept') and b64 < b48 and b64 > need
-    print('  X4 (computed, floating point): the route\'s bound for the solver\'s solution, int e^Lambda ||rho_tautau|| '
-          'ds (rho_tautau alone, a lower bound on the residual the route needs), is %.2e at 32 x 12, %.2e at 40 x 12, '
+    print('  X4 (computed, floating point; an indicator): with the tau-tau defect of the lifted semi-discrete state in '
+          'place of rho (not the residual of one space-time interpolant), int e^Lambda ||rho|| ds is %.2e at 32 x 12, '
+          '%.2e at 40 x 12, '
           '%.2e at 48 x 16 and %.2e at 64 x 20, against the %.2f it must stay below: still a factor %.1e above it at '
           'the finest grid, though falling: %s' % (rows[(32, 12, 1.0)][3], rows[(40, 12, 1.0)][3], b48, b64, need,
                                                   b64 / need, OK['X4']))
@@ -619,14 +685,16 @@ def main():
     cost = t64 * (Nr / 64) ** 2 * (Nr * Nx * (Nr + Nx)) / (64 * 20 * 84)
     print('  Resolution and cost (extrapolated from the last two grids, floating point): one step (+16 in r, +4 in x) '
           'divides the bound by %.1f, so it would fall below %.2f after %.1f more steps, at about %d x %d; the run with '
-          'its residual took %.0f s at 64 x 20, and scales as Nr^3 Nx (Nr + Nx), so about %.0f s there. That is for '
-          'the lower bound of X3 alone, with the residual measured, not certified, and of the tau-tau component only'
+          'its defect took %.0f s at 64 x 20, and scales as Nr^3 Nx (Nr + Nx), so about %.0f s there. An indicator '
+          'only, and not the whole condition: X8\'s data requirement fails at the data\'s own truncation'
           % (step, need, k, Nr, Nx, t64, cost))
     m1, mh = ME.lam_of(1.0), ME.lam_of(0.5)
     OK['X5'] = m1[0] < 0.0024433 and mh[0] < 0.0024433
     print('  X5 (computed): a certified m_lo would give lambda0 < %s at m_lo = 1 and %s at m_lo = 1/2 (operator norm, '
           'Frobenius, largest entry), against the certified 0.0024433, 0.0019079, 0.0012228, which stand: %s'
           % (', '.join('%.7f' % x for x in m1), ', '.join('%.7f' % x for x in mh), OK['X5']))
+    check_x7()
+    check_x8(funcs, env, fode, float(lam), float(lam_o), cpt)
     for k, val in OK.items():
         builtins.print(k, 'PASS' if val else 'FAIL')
     builtins.print('m22cert5: %d/%d %s' % (sum(OK.values()), len(OK), el()))
