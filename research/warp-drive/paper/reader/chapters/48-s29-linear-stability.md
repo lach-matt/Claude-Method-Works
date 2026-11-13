@@ -270,9 +270,10 @@ gauge 1-form κ of [[prop:iii-k-4-2]]: of Υ^(E_Υ)(𝔤(U) + k, g_(p⃗)) − �
 *Proof.* *Step 1 (the right inverse at Tangherlini).* At zero data, h_(S,S⁰) = 0 for every (S, S⁰)
 ([[prop:iii-k-1-2]] (3)), so Ψ = Φ ([[eq:iii-k-2-1]]). [[lem:iii-k-2-3]] at zero data and U = 0 gives a linear
 ℛ : ℱ^∞_ex → 𝒟^∞_ex with D_0(P_5 ∘ Φ)(ℛf) = f, bounded by the tame estimate of [[thm:iii-j2-4-2]] on the exact scales
-([[cor:iii-j3-6-6]]), which at U = 0 reads ‖ℛf‖_(𝒟^k_ex) ≤ C_k‖f‖_(ℱ^(k+d)_ex), d its loss. The tail of U = 0 vanishes everywhere, so the support
-clause of [[lem:iii-k-2-3]] applies with c := T̂ + 7/4: if f vanishes on {t^♭_* < T̂ + 7/4}, so does the tail of ℛf. Put
-U′ := ℛf with f of [[lem:viii-2-1]]. Its tail h̃′ vanishes on {t^♭_* < T̂ + 7/4}, and (6) follows from [[lem:viii-2-1]].
+([[cor:iii-j3-6-6]]), which at U = 0 reads ‖ℛf‖_(𝒟^k_ex) ≤ C_k‖f‖_(ℱ^(k+d)_ex), d its loss. The tail of U = 0
+vanishes everywhere, so the support clause of [[lem:iii-k-2-3]] applies with c := T̂ + 7/4: if f vanishes on
+{t^♭_* < T̂ + 7/4}, so does the tail of ℛf. Put U′ := ℛf with f of [[lem:viii-2-1]]. Its tail h̃′ vanishes on
+{t^♭_* < T̂ + 7/4}, and (6) follows from [[lem:viii-2-1]].
 
 *Step 2 (the equation in the cone).* For U small and a symmetric 2-tensor k on Ω_*, the equation of the proof of
 [[prop:iii-k-4-2]] gives, with zero data,

@@ -185,16 +185,19 @@ isometric embedding j : U → D_V(Σ), the identity on Σ, so that on U the metr
 two developments glued along U by j form one Hausdorff globally hyperbolic development of (Σ, γ, k).
 
 *Proof.* *V exists.* Σ̄ = Σ^IVP ∩ {r_♭ ≤ r ≤ R} is compact and connected, a graph over the closed shell
-{r_♭ ≤ |x| ≤ R}, and lies in the interior of Ω′_+ ([[lem:vii-1-2]] (b)), where g0 = g_(b₀) ((a) there). dt_IVP is
-timelike for g_(b₀) on {|x| ≥ ½r_♭}: on {|x| ≥ r_♭} by [[lem:iii-b-3-7]] (b), and on {½r_♭ ≤ |x| ≤ r_♭}, where
-ψ′_IVP = ψ′ = 1, as for t_* after [[lem:iii-b-3-7]]. In the Kerr–Schild coordinates, with τ = t_KS − c₀,
-dt_IVP = dt_KS − β dr with β ∈ (−1, 1], and g_(b₀)⁻¹(dt_KS, dt_IVP) = −1 − H(1 + β) < 0, H = μ_end r⁻²
-([[lem:iii-b-3-3]] (d)); so dt_IVP lies in the cone of dτ. By compactness and continuity there are c, δ > 0 such that
-the closed coordinate δ-neighbourhood of Σ̄ lies in the interior of Ω′_+ ∩ {|x| > ½r_♭}, and g_(b₀)⁻¹(dt_IVP, dt_IVP)
-and g_(b₀)⁻¹(dτ, dt_IVP) are at most −2c on it. By [[lem:vii-1-1]], g_λ − g_(b₀) = O(λ) in C⁰ on Ω′_+. So for λ small,
-depending on c and δ and hence on R and Ω′, the two quantities are at most −c for g_λ there. Let V be the open
-δ-neighbourhood of Σ̄; it is connected, the union of balls each meeting the connected set Σ̄. On V, dt_IVP is timelike
-for g_λ and in the cone of dτ, which is past; so t_IVP increases strictly along future causal curves of (V, g_λ).
+{r_♭ ≤ |x| ≤ R}, and lies in the interior of Ω′_+ ([[lem:vii-1-2]] (b)). dt_IVP is timelike for g_(b₀) on
+{|x| ≥ ½r_♭}: on {|x| ≥ r_♭} by [[lem:iii-b-3-7]] (b), and on {½r_♭ ≤ |x| ≤ r_♭}, where ψ′_IVP = ψ′ = 1, as for t_*
+after [[lem:iii-b-3-7]]. In the Kerr–Schild coordinates, with τ = t_KS − c₀, dt_IVP = dt_KS − β dr with β ∈ (−1, 1],
+and g_(b₀)⁻¹(dt_KS, dt_IVP) = −1 − H(1 + β) < 0, H = μ_end r⁻² ([[lem:iii-b-3-3]] (d)); so dt_IVP lies in the cone of
+dτ. By compactness and continuity there are c_V, δ_V > 0 such that the closed coordinate δ_V-neighbourhood Q of Σ̄ lies
+in the interior of Ω′_+ ∩ {|x| > ½r_♭}, and g_(b₀)⁻¹(dt_IVP, dt_IVP) and g_(b₀)⁻¹(dτ, dt_IVP) are at most −2c_V on Q.
+Q is compact, so by [[lem:interior-chart]] (b) the components of g_λ⁻¹ − g_(b₀)⁻¹ are at most C_Qλ on Q. So for
+λ small, depending on c_V and Q and hence on R and Ω′, the two quantities, in which dt_IVP and dτ have components
+bounded on Q, are at most −c_V for g_λ on Q. Let V be the
+open δ_V-neighbourhood of Σ̄; it is connected, the union of balls each meeting the connected set Σ̄. So this V is one
+such neighbourhood as the statement asks for. On any such V, dt_IVP is timelike for g_λ and in the cone of dτ, which
+is past: Ω′ is time-oriented by dτ, which is timelike for g_λ ([[lem:domain]] (e) on Ω′, with item 4 of [[thm:main]]).
+So t_IVP increases strictly along future causal curves of (V, g_λ).
 
 *Σ in V.* Σ = V ∩ {r_♭ < |x| < R, t_IVP = 0} is an open subset of a level set of t_IVP, whose differential does not
 vanish; so Σ is a smooth hypersurface of V, spacelike as dt_IVP is timelike, and acausal, as t_IVP increases strictly
