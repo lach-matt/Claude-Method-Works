@@ -1404,11 +1404,11 @@ meets the requirement whenever Re λ > 1 + ε and ℓ_K^max = 3. The pure ι⁺-
 state at −3, and every state it needs is constructed in [[ch:s13]] and [[ch:s15]], with at least the companions
 required ([[def:iii-g2-table-1-1]]).
 
-Throughout this section and the next three we assume (Dyn), the dynamical hypotheses of [[ch:s13]], which hold
-for g_b, b near b_0, by [[thm:vi-a-6-1]] and [[thm:vi-b1-5-1]]; the parameters of [[prop:iii-f1-3-3]] with γ_Υ <
-min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); (C1) of
-[[sec:iii-f1-1]]; and (C2)–(C3) of [[sec:iii-f1-1]] with z_Υ := 4e_Υγ_Υ² outside the exceptional set Z_exc of
-[[prop:iii-f1-2-3]] (e), so that every indicial root of L̂_b(0) is simple. We fix
+Throughout this section and the next three we assume (Dyn), the dynamical hypotheses of [[ch:s13]], which hold for
+g_b, b near b_0, by [[thm:vi-a-6-1]] and [[thm:vi-b1-5-1]]; the parameters of [[prop:iii-f1-3-3]] with
+γ_Υ < min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); (C1) of [[sec:iii-f1-1]]; and (C2)–(C3) of [[sec:iii-f1-1]] with
+z_Υ := 4e_Υγ_Υ² outside the exceptional set Z_exc of [[prop:iii-f1-2-3]] (e), so that every indicial root of L̂_b(0) is
+simple. We fix
 
     ℓ_K^max := min(3, 2 + 2γ_Cv_C),                                                                     {#eq:iii-g2-1-1}
 
@@ -1425,7 +1425,7 @@ For ℓ_K < ℓ_K^max let 𝒲(ℓ_K) be the set of indicial roots μ of L̂_b(0
 −ℓ_K < Re μ ≤ 0. All are real ([[lem:iii-g1-1-3]] (c)). For a root μ of type τ and degree l, let 𝒴_τ be the space of
 harmonics of [[sec:iii-a1-1]] that parametrises that type: 𝒮_l for scalar, 𝒱_l for vector and 𝒯_l for tensor types.
 
-**Definition {#def:iii-g2-table-1-1}** (The roots of 𝒲(ℓ_K), ℓ_K < 3, and their states; Table 1.1.) For each root μ in
+**Definition {#def:iii-g2-table-1-1}** (The roots of 𝒲(ℓ_K), ℓ_K < 3, and their states.) For each root μ in
 the window we list its types; its origin in the factorisation [[eq:iii-f1-2-1]]; the state whose leading term spans
 its indicial solutions ([[lem:iii-g2-1-2]]); the number m_0 of generalised companions constructed; and the number k_μ
 used below.

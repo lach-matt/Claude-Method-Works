@@ -417,15 +417,15 @@ parts; [[eq:ii-g-4-1]] is the same inequality read off the Fourier transform.
 
 Let P_0 be a stationary wave-type operator with S̄ = 0 which is 0-admissible with sf-loss 0, as [Hin26c, Theorem 12.2]
 proves for the scalar wave operator on Kerr. [[thm:ii-f1-1-1]], with ℵ = δ = 0, then applies for weights with α_I <
-−1/2 and α_+ < α_I − 1/2 ([[eq:ii-f1-1-3]]), and α_+ + 2 must lie in the indicial gap of P̂_0(0) ([[def:ii-c-2-7]]
-(2)). For the scalar wave operator in dimension 4 + 1 the gap is (0, 2), the indicial roots at angular momentum 0 being
-0 and 2 (the remark after [[def:ii-c-2-7]]); so α_+ ∈ (−2, α_I − 1/2), and with α_I = −1/2 − ε_I, α_+ = −1 − ε_+,
+−1/2 and α_+ < α_I − 1/2 ([[eq:ii-f1-1-3]]), and α_+ + 2 must lie in the indicial gap of P̂_0(0) (the paragraph after
+[[def:ii-c-2-7]]). For the scalar wave operator in dimension 4 + 1 the gap is (0, 2), the indicial roots at angular
+momentum 0 being 0 and 2 (the same paragraph); so α_+ ∈ (−2, α_I − 1/2), and with α_I = −1/2 − ε_I, α_+ = −1 − ε_+,
 
     0 < ε_I < ε_+ < 1.                                                                             {#eq:ii-g-5-1}
 
 In dimension 3 + 1 the same reasoning, with the gap shifted to (−3/2, −1/2) for α_+, gives 0 < ε_I < ε_+ < 1/2;
-[Hin26c, (12.7)] prints 0 < ε_+ < ε_I < 1/2, whereas the condition α_+ < α_I − 1/2 of [Hin26c, (11.5), p. 228] is
-ε_+ > ε_I. In the b-weights of [[cor:ii-f1-1-2]], b_I = α_I + 2 = 3/2 − ε_I and b_+ = α_+ + 5/2 = 3/2 − ε_+, and
+[Hin26c, (12.7)] prints 0 < ε_+ < ε_I < 1/2, whereas the condition α_+ < α_I − 1/2 of [Hin26c, Theorem 11.1]
+(β_+ < β_I in the b-weights of [Hin26c, (11.5), p. 228]) is ε_+ > ε_I. In the b-weights of [[cor:ii-f1-1-2]], b_I = α_I + 2 = 3/2 − ε_I and b_+ = α_+ + 5/2 = 3/2 − ε_+, and
 [[eq:ii-f1-1-8]] gives, for k ≥ 3 and forward solutions of Pu = f with P as in [[thm:ii-f1-1-1]] and f in the space
 [[eq:ii-f1-1-4]], with the density μ_b of [[eq:ii-f1-1-7]],
 
@@ -442,8 +442,9 @@ mode stability there, which the stability theory does not use.
 
 (b) [Hin26c, Theorem 12.3], mode stability implies 0-admissibility. Its proof assembles the estimates of
 [[ch:s01]]–[[ch:s03]] at high, bounded and low frequencies on the Fourier transform in t_* and closes with a
-Paley–Wiener argument for the support. Its version with a loss ℵ > 0, which the gauge-fixed linearised Einstein operator
-needs, is proved in [[ch:s18]].
+Paley–Wiener argument for the support. The gauge-fixed linearised Einstein operator has a loss ℵ = 2: its
+2-admissibility, in the relaxed form of [[def:ii-c-2-7]] with margin 1, is [[thm:iii-h1-1-3]], proved by an argument of
+the same kind.
 
 (c) The model problems: [Hin26c, Theorem 12.9] (power nonlinearity, p ≥ 4), [Hin26c, Remark 12.10], [Hin26c, Theorem
 12.11] (a quasilinear equation with spatially compact metric perturbations), [Hin26c, Theorem 12.12] (a null form) and
@@ -611,8 +612,9 @@ with norm ≤ C N(w) (γ − i ≥ 0 for i ≤ p, and the support is compact). I
 
 *The fractional part.* Let θ ∈ (0, 1) and G := ∂^p w, so G ∈ |σ|^θ L² and G′ ∈ |σ|^(θ−1) L² on each side (as m =
 p + 1). Let A := {(x, y) : |x − y| ≤ |x|/2}; on A, x and y have the same sign. With J_k := [2^(−k), 2^(−k+1)], k ∈ ℤ,
-and J_k^* := [2^(−k−1), 3 · 2^(−k)], for |h| ≤ 2^(−k) we have G(x + h) − G(x) = h ∫_0^1 G′(x + sh) ds and so
-∫_(J_k) |G(x + h) − G(x)|² dx ≤ h² ∫_(J_k^*) |G′|². Hence
+and J_k^* := [2^(−k−1), 3 · 2^(−k)]: for x ∈ J_k and |h| ≤ x/2 (that is, (x, x + h) ∈ A) we have |h| ≤ 2^(−k) and
+x + sh ∈ [x/2, 3x/2] ⊂ J_k^* for s ∈ [0, 1], so G(x + h) − G(x) = h ∫_0^1 G′(x + sh) ds, and the integral of
+|G(x + h) − G(x)|² over {x ∈ J_k : |h| ≤ x/2} is at most h² ∫_(J_k^*) |G′|². Hence
 
     ∬_(A∩{x>0}) |G(x) − G(y)|² |x − y|^(−1−2θ) ≤ Σ_k ∫_(|h|≤2^(−k)) |h|^(1−2θ) dh ∫_(J_k^*) |G′|²
                                                 ≤ C Σ_k ∫_(J_k^*) |x|^(2−2θ) |G′|² ≤ C ‖|σ|^(1−θ) G′‖²,
@@ -1107,7 +1109,7 @@ u‖_(𝐨+m(1,1,0)) ≤ C(‖Au‖_(𝐨−m(1,1,0)) + ‖u‖_(−L𝟏)) ≤ 
 
 [[eq:ii-g1-4-3a]] is proved in the same way, with 𝐨_d := (0, 𝗋_out + 1 + ε, 0) as the orders of the domain and 𝐨′ :=
 (s − 1, 𝗋 + 1, 𝖻) as the target: w_(𝐨′) w_(𝐨_d)⁻¹ ≤ C h^(−𝖻_out) on U_0 and ≤ C h^(−sup 𝖻) on supp ϕ_2; and 𝐨′ +
-k(1, 1, 0) ≤ 𝐨_d + (k + ℓ_1)(1, 1, 0) + (0, 0, ν_1) with ℓ_1 := max(⌈(s − 1)_+⌉, ⌈sup 𝗋 − 𝗋_out⌉) and ν_1 :=
+k(1, 1, 0) ≤ 𝐨_d + (k + ℓ_1)(1, 1, 0) + (0, 0, ν′_1) with ℓ_1 := max(⌈(s − 1)_+⌉, ⌈sup 𝗋 − 𝗋_out⌉) and ν′_1 :=
 ⌈(sup 𝖻)_+⌉. ∎
 
 **Proposition {#prop:ii-g1-4-4}** (Resolvent bounds at high frequencies; [Hin26c, Proposition 13.16] in dimension 4 + 1.)
@@ -1122,7 +1124,8 @@ the spaces of [[sec:ii-g1-3-1]] with X̄ and μ_b.
 [Hin26c, Proposition 13.16] writes the loss as k(1 + δ_Γ(−ε)) + ℓ, which need not be an integer, and states the
 proposition without proof. It also notes that the loss in k is harmless for strongly trapping admissible operators with
 ε = 1/k. In the terms of [[eq:i-b-1-4]]: if γ_+ < 0, then δ_Γ(−η) = 0 for η < −γ_+; if γ_+ = 0, then δ_Γ(−η) =
-η/(−γ_−) for 0 < η ≤ −γ_−, and ⌈k δ_Γ(−1/k)⌉ = ⌈1/(−γ_−)⌉ for every k ≥ 1/(−γ_−) [[pending:issue-1]].
+min(1, η/(−γ_−)) for η > 0, so ⌈k δ_Γ(−1/k)⌉ = min(k, ⌈1/(−γ_−)⌉) for every k ≥ 1. This equals ⌈1/(−γ_−)⌉ for
+k ≥ 1/(−γ_−) and never exceeds it, so this part of the loss is bounded independently of k.
 
 *Proof.* Take z_0 := ±1, h := |σ|⁻¹ (so z = hσ = z_0 for real σ), α_+ := 0, and the orders above with 𝗋_out := β_scf −
 2 − ε/2, 𝖻 ≡ 0; let ℓ_1, ℓ_2, ν be those of [[lem:ii-g1-4-3]] with ε/2. For ±σ ≥ C_0, P̂(σ) is invertible
@@ -1188,7 +1191,7 @@ be as in [[lem:ii-g1-4-1]], and l ∈ ℝ, k ∈ ℕ₀, ε > 0. Uniformly in ς
 
     ‖u‖_(H^(k−ℓ̃,(𝗋_out+2−ε, l+2, 0))_(b,ς)) ≤ C ‖u‖_((s;k),(𝗋,l,0),ς)        (k ≥ ℓ̃).               {#eq:ii-g1-4-5b}
 
-[Hin26c, (13.30a)–(13.30b)] have 5/2, 7/2 and 3/2, 3/2 in place of 3, 4 and 2, 2 (the shift n/2 with n the spatial
+[Hin26c, (13.30a)–(13.30b)] have 5/2, 7/2 and 3/2, 3/2 in place of 3, 4 and 2, 2 (the shift by half the spatial
 dimension), and are written with α_+, α_tf (here absorbed in 𝗋 and l).
 
 *Proof.* By [[def:i-c-6-1]], ‖u‖²_((s;k),(𝗋,l,0),ς) = ‖(1 − χ_∂)u‖²_(H̄^(s+k)) + ς^(−2(l+2)) ‖S_ς(χ_∂
@@ -1271,7 +1274,7 @@ so t_*∂_(t_*) = (1 − ρ_I)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) and ρ∂_ρ =
 ρ_I 𝖶; and ρ t_*⁻¹ = (ρ_I ρ_+)(ρ_+(1 − ρ_I)).
 
 **Lemma {#lem:ii-g1-5-1}** (The normal form in dimension 4 + 1; [Hin26c, (13.32)].) Let P_0 be a stationary wave-type
-operator ([[def:ii-c-1-1]]) with S ∈ ρ C^∞(X̄) in [[eq:ii-c-1-1]], that is S|_(∂X) = 0. If c_0 is small, then on 𝒞
+operator ([[def:ii-c-1-1]]) with S ∈ ρ C^∞(X̄; End ℂ^N) in [[eq:ii-c-1-1]], that is S|_(∂X) = 0. If c_0 is small, then on 𝒞
 
     (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) − 3/2) 𝖶 + P̃,        P̃ ∈ ρ_I Diff²_b(𝒞),                {#eq:ii-g1-5-2}
 
