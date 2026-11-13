@@ -1671,8 +1671,9 @@ The a priori hypothesis Gu ∈ H^(𝗌−κ) is used only for the limits t → 0
 
 **Lemma {#lem:ii-a1-4-2}** (Iteration.) Let Γ ⊂ ᵉ³ᵇS*M̃ be compact and U_0 an open neighbourhood of it. Suppose that for
 every κ ∈ (0, 1/4], every order 𝗌′ = 𝗌 − τ′ with 0 ≤ τ′ ≤ τ (τ > 0 a constant), and every open U with Γ ⊂ U ⊂ U_0, the
-hypotheses of [[lem:ii-a1-4-1]] hold for (𝗌′, κ) with K_1 inside U (near fibre infinity), with E-symbols supported in a
-closed set K_E(U) whose intersection with fibre infinity lies in U ∖ Γ, and with b_0 elliptic of order 𝗌′ on an open
+hypotheses of [[lem:ii-a1-4-1]] hold for (𝗌′, κ), for some localisers Φ_0, Φ_E as there, with K_1 and supp φ_0
+inside U (near fibre infinity), with E-symbols supported in a closed set K_E(U) whose intersection with fibre infinity
+lies in U ∖ Γ, and with b_0 elliptic of order 𝗌′ on an open
 neighbourhood U′ of Γ: b_0⁻¹ ∈ C^((M))_ν S̃^(−𝗌′) on U′ near fibre infinity. Let G be elliptic on Ū_0. Then there are
 a neighbourhood U_* of Γ and a closed set K_E^* missing Γ such that, for E elliptic on K_E^* and B ∈ C^∞_b Ψ⁰_e3b
 carried by χ and microsupported in U_*, in the strong sense,
@@ -1685,9 +1686,14 @@ K_E^* := ⋃_j K_E(U_(j−1)). Let G_0 := G and G_j := Op(g_j), carried by χ, w
 equal to 1 near Ū_j and supported in U′_j ∩ U_(j−1), where b_0^((j)) is elliptic and G_(j−1) is elliptic; so
 WF′(G_j) ⊂ U_0 ⊂ Ell(G), which the step from ‖G_(j−1)Lu‖ to ‖GLu‖ and the next step need. Then
 ‖G_ju‖_(𝗌_j) ≤ C(‖B_0^((j))u‖ + ‖χu‖_(−N)). This is the parametrix argument of the proof of [[thm:ii-a1-3-1]], with
-B_0^((j)), of order 𝗌_j + δ, in place of L, and χ̃a(b_0^((j)))⁻¹ in place of χ̃aℓ⁻¹. Op(χ̃a(b_0^((j)))⁻¹) has order
-𝗋 − 𝗌_j without loss ([[prop:ii-a1-2-4]] (a)), and the remainders have order 𝗋 − 1 + 2δ, so with δ = 1/4 the iteration
-closes as there; B_0^((j))u ∈ L² enters without localization. (With an operator of order −𝗌_j + δ in place of the
+B_0^((j)) = Op(b)Φ_0, b := b_0^((j)) and Φ_0 := Φ_0^((j)), of order 𝗌_j + δ, in place of L, and q := χ̃ab⁻¹ in place of
+χ̃aℓ⁻¹. As φ_0 = 1 on supp b ⊃ U′_j ⊃ supp χ̃, the identity qbφ_0 = χ̃a = a of symbols is exact, so
+
+    Op(q)B_0^((j)) − A = (Op(q)Op(b) − Op(qb))Φ_0 + (Op(qb)Φ_0 − Op(qbφ_0)) − R_A
+
+has order 𝗋 − 1 + 2δ by [[prop:ii-a1-2-4]] (b). Op(q) has order 𝗋 − 𝗌_j without loss ([[prop:ii-a1-2-4]] (a)), so
+with δ = 1/4 the iteration closes as there, with the localisation by G_(i+1) and I − G_(i+2) and [[prop:ii-a1-2-4]] (e)
+for the remainders; B_0^((j))u ∈ L² enters without localization. (With an operator of order −𝗌_j + δ in place of the
 parametrix, the conclusion would be H^(𝗌_j−δ) only.) [[lem:ii-a1-4-1]] at step j needs G_(j−1)u ∈ H^(𝗌_(j−1)), the
 conclusion of step j − 1, and gives
 

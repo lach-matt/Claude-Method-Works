@@ -25,8 +25,8 @@ of its proof). The rows this produces are all the rows of [[sec:iii-i9-1]] with 
 through the towers ([[lem:iii-i10-2-1]]). (2) The parameter exponents, which [Hin26] builds after the proof by the
 procedure of its (11.186), are fixed in advance ([[def:iii-i10-1-1]]), with logarithmic orders that grow with the real
 part. The rows' own sources never enter the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]] (c);
-at a general b, (e) adds a forcing term E^ν of K⁺-weight above α); this is how the self-consistency of [Hin26, Remark 11.62]
-enters. (3) Two further conditions are needed: (H4), ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero
+at a general b, (e) adds a forcing term E^ν of K⁺-weight above α); this is how the self-consistency of
+[Hin26, Remark 11.62] enters. (3) Two further conditions are needed: (H4), ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero
 frequency Taylor expansion of the transformed forcing has
 four terms (orders σ⁰ to σ³, as α − 1 > 3); the four zero energy solves are written out, with the polyhomogeneous
 transition face model [[prop:iii-g4-4-4]] at the levels 1 and 2 and its conormal form [[prop:iii-g4-5-1]] at the level
@@ -1617,9 +1617,9 @@ The solution of [[thm:iii-i11-4-1]] at b_0 and the solution of [[prop:iii-i15-2-
 
 *Proof.* The proof of [[thm:iii-i12-3-1]] uses its setting only through the hypothesis stated here (the remark after
 that proof). It uses G through the decomposition of its Step 0 and, in its Steps 2 and 5, through the statement that
-the ι⁺-exponents produced lie in ℰ_♯. For G ∈ 𝒴^♮(α−) both hold at b. For G ∈ 𝒴^♮(α) they follow by the argument of
+the ι⁺-exponents produced lie in ℰ_♯. Both hold at b for G ∈ 𝒴^♮(α−). For G ∈ 𝒴^♮(α) they follow by the argument of
 the proof of [[prop:iii-i13-2-4]], whose inputs hold at b: [[lem:iii-i13-1-3]] concerns only Λ, ℰ_♯ and ℰ^♮, which do
-not depend on b, and [[prop:iii-i13-2-1]] and [[lem:iii-i13-2-2]] are stated at b. The passage to the order α− is the
+not depend on b, and [[prop:iii-i13-2-1]] and [[lem:iii-i13-2-2]] are stated at b. The passage to G ∈ 𝒴^♮(α−) is the
 argument of the proof of [[lem:iii-i14-2-5]], which uses of the base point only the indicial roots and the transition
 face propositions, uniform in b by [[lem:iii-i15-1-1]] (P2), (P4). Step 0 at b: [[lem:iii-i13-2-2]] at β = α gives
 u_0 = u_I + u_ι + v as there, the spacetime and spectral v1 terms u^rot_ι and v^rot being polyhomogeneous towers of the
