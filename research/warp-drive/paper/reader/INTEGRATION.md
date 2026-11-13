@@ -1128,3 +1128,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   decides).
 - F5-S19 done (report reports/F5-S19.md; diff against 64ecf1e): chapters 28 and 38; new lem:s09-off-star; 46:98 note
   wording in the report. R6-S19 reading.
+- F-71 done (report reports/F-71.md, with the map of where the assembly project's texts overlap its repairs:
+  thm:loss-d, prop:ec-rounds; deleting sec:ec-integer would remove several of its repairs, so the bound integration
+  must re-home them). Lower-bound numbers unchanged by F-71. Next for chapter 71: after R-P-U71-assembly and
+  P-U71-close, one integration round applies the confirmed bounds (and chapter 3's sentence), then one reader.

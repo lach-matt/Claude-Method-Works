@@ -875,10 +875,12 @@ with C depending on c, m, A, μ0, μ(v_end) and M_m.
 
 *Proof.* By [[lem:layer-interpolation]] for f = env, sup_(v′≤v) |env^(i)| ≤ C_(i,m) E^(1−i/m) M_m^(i/m) ≤ C_(i,m)
 M_m^(i/m) E^(1−c/m) for E ≤ 1 and i ≤ c; summing gives [[eq:layer-cost-level]]. For [[eq:layer-cost-band]],
-E^(2−2c/m) = E² E^(−1/28) ≤ E² λ^(−(3+δ)/28) and (3 + δ)/28 ≤ 1/8. For [[eq:layer-cost-margin]]: let v_m ≤ v with
-env(v_m) = E(v) =: E and put ε_1 := sup_(v′≤v) |env′| > 0. Then env ≥ E/2 on [v_m − E/(2ε_1), v_m], an interval inside
-[v_s, v] since env(v_s) = 0, so ∫_(v_s)^v env² ≥ E³/(8 ε_1) ≥ E^(2+1/m)/(8 C_(1,m) M_m^(1/m)). With √x − 1 = (x −
-1)/(√x + 1) ≥ (x − 1)/(1 + √(μ(v_end)/μ0)) for 1 ≤ x ≤ μ(v_end)/μ0, and μ − μ0 = (2/9) A² ∫ env²,
+E^(2−2c/m) = E² E^(−1/28) ≤ E² λ^(−(3+δ)/28) and (3 + δ)/28 ≤ 1/8. For [[eq:layer-cost-margin]] we first bound m0
+below at every v with E(v) > 0, with no hypothesis on E or λ. The supremum E(v) =: E is attained, env being continuous
+and zero on (−∞, v_s]: let v_m ≤ v with |env(v_m)| = E, and put ε_1 := sup_(v′≤v) |env′| > 0. Then |env| ≥ E/2 on
+[v_m − E/(2ε_1), v_m], an interval inside (v_s, v] since env = 0 on (−∞, v_s], so ∫_(v_s)^v env² ≥ E³/(8 ε_1), and
+ε_1 ≤ C_(1,m) E^(1−1/m) M_m^(1/m) by [[lem:layer-interpolation]], so ∫_(v_s)^v env² ≥ E^(2+1/m)/(8 C_(1,m) M_m^(1/m)).
+With √x − 1 = (x − 1)/(√x + 1) ≥ (x − 1)/(1 + √(μ(v_end)/μ0)) for 1 ≤ x ≤ μ(v_end)/μ0, and μ − μ0 = (2/9) A² ∫ env²,
 
     m0(v) ≥ √(μ/μ0) − 1 ≥ c_m E(v)^(2+1/m),      c_m := A²/(36 μ0 (1 + √(μ(v_end)/μ0)) C_(1,m) M_m^(1/m)).
                                                                                                  {#eq:layer-margin-lower}
@@ -886,15 +888,23 @@ env(v_m) = E(v) =: E and put ε_1 := sup_(v′≤v) |env′| > 0. Then env ≥ E
 So ε_c² ≤ C_c² E^(2−2c/m) ≤ (C_c²/c_m) m0 E^(−(2c+1)/m), and E^(−(2c+1)/m) ≤ λ^(−(3+δ)(2c+1)/m) ≤ λ^(−1/8), since
 (2c + 1)/m ≤ 3c/(84c) = 1/28 and (3 + δ)/28 ≤ 1/8. ∎
 
-**Lemma {#lem:layer-levels}** (First reach of a level.) For 0 < y < E(v_s + 1) put v*(y) := min{v : E(v) = y}. Then
-env(v*) = y and E < y before v*. If L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4, then on [v*, v* + L] env lies in [3y/4,
-5y/4], E ≤ 5y/4, and ε_M(v* + L) ≤ C y^(1−M/m) for M ≤ m/2, by [[eq:layer-cost-level]]. Moreover v* − v_s ≥
-(y/C_κ)^(1/κ) for every κ ≥ 1, C_κ := sup |env^(κ)|/κ!.
+**Lemma {#lem:layer-levels}** (First reach of a level.) For 0 < y ≤ sup |env| put v*(y) := min{v : E(v) = y}. Then
+v_s < v*, |env(v*)| = y, E < y on (−∞, v*), and v* ≤ v′ whenever E(v′) ≥ y. If L > 0 and
+L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4, then on [v*, v* + L] env has the sign of env(v*), |env| lies in [3y/4, 5y/4]
+and E ≤ 5y/4; and, for M ≤ m/2 and y ≤ 4/5, ε_M(v* + L) ≤ C y^(1−M/m) by [[eq:layer-cost-level]]. Moreover
+v* − v_s ≥ (y/C_κ)^(1/κ) for every κ ≥ 1, C_κ := sup |env^(κ)|/κ!.
 
-*Proof.* E is continuous and nondecreasing with E(v_s) = 0, so v* exists, env(v*) = y and E < y before v*. By
-[[lem:layer-interpolation]], |env′| ≤ C_(1,m) (2y)^(1−1/m) M_m^(1/m) as long as E ≤ 2y, so env moves by at most y/4 on
-[v*, v* + L], which keeps E ≤ 5y/4 by continuity. Finally all derivatives of env vanish at v_s, so Taylor's formula
-gives y = env(v*) ≤ C_κ (v* − v_s)^κ. ∎
+*Proof.* E is continuous and nondecreasing, E = 0 on (−∞, v_s] and E(v) = sup |env| for v ≥ v_end. If E(v′) ≥ y, the
+intermediate value theorem on [v_s, v′] gives a point of (v_s, v′] where E = y. So {E = y} is a nonempty closed set
+contained in (v_s, ∞); v* is its least element, v_s < v*, v* ≤ v′ whenever E(v′) ≥ y, and E < y on (−∞, v*). Since
+E(v*) = y is the maximum of |env| over (−∞, v*] and |env| ≤ E < y on (−∞, v*), the maximum is taken at v*:
+|env(v*)| = y. Let v_+ be the largest point of [v*, v* + L] such that E ≤ 2y on [v*, v_+]; it exists, E being
+continuous with E(v*) = y < 2y. On (−∞, v_+], E ≤ 2y, so [[lem:layer-interpolation]] at i = 1 gives
+|env′| ≤ C_(1,m) (2y)^(1−1/m) M_m^(1/m), and |env − env(v*)| ≤ L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4 on [v*, v_+].
+Since |env(v*)| = y, env keeps the sign of env(v*) on [v*, v_+], with |env| ∈ [3y/4, 5y/4], and then
+E ≤ max(y, 5y/4) < 2y on [v*, v_+]. If v_+ < v* + L, the continuity of E would give E ≤ 2y on a longer interval; so
+v_+ = v* + L. The bound on ε_M is [[eq:layer-cost-level]] with E ≤ 5y/4 ≤ 1. Finally all derivatives of env vanish
+at v_s, so Taylor's formula gives y = |env(v*)| ≤ C_κ (v* − v_s)^κ. ∎
 
 No regularity of env at its edge beyond smoothness is used: the lemmas hold for every C_c^∞ envelope.
 
