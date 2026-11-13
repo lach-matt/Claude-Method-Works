@@ -4,9 +4,10 @@
 Tangherlini data beyond it. This chapter proves that the maximal vacuum development of the data that g_λ itself induces
 on Hintz's initial surface Σ^IVP settles to five-dimensional Tangherlini, with no gluing, for every λ below a threshold
 and with no exceptional set. The data class of [[thm:settling]] (ii) does not contain these data: after the shell the
-difference g_λ − g0 carries at past null infinity a coefficient of r^(−5/2), of size O(λ^∞) but nonzero for all λ off a
-discrete set, and it reaches the data at spatial infinity as a term ρ^(5/2), ρ := 1/r. The class is therefore widened by
-the half-integer orders, and the stability theory runs in the wider class with the same index sets.
+difference g_λ − g0 carries at past null infinity a coefficient of r^(−5/2), of size O(λ^∞) but, for every amplitude
+but at most one, nonzero for all λ off a set whose only possible accumulation point is λ = 0, and it reaches the data
+at spatial infinity as a term ρ^(5/2), ρ := 1/r. The class is therefore widened by the half-integer orders, and the
+stability theory runs in the wider class with the same index sets.
 
 The argument has five parts. (1) The far part S := Σ^IVP ∩ {r ≥ 4R} of the initial surface has a past domain of
 dependence W for Tangherlini, bounded by S, by an ingoing null cone N on which g_λ is known, and by past null infinity,
@@ -28,10 +29,11 @@ past domain, [[eq:past-domain]] with these constants: P′ := {τ ≤ τ0, |x| �
 holds for every domain of the form [[eq:omega]] and its past domain). On {v ≥ v_end}, μ = μ_end, and we write μ := μ_end
 in this chapter; there g0 = g_b0 := η + μ r⁻² dv ⊗ dv, five-dimensional Tangherlini in Kerr–Schild form, whose
 Kerr–Schild time is τ ([[lem:vii-1-2]] (a)). In the far region we write t := τ, so that (t, x) are Kerr–Schild Cartesian
-coordinates and v = t + r; the variable t of [[ch:past-construction]] is written t_P := 1 + τ0 − τ. We put 𝔪 := μ r⁻².
-R is the radius of [[lem:vii-1-2]], taken as in [[ch:interior]] (4R ≥ 20R₁); for r ≥ R_3 the initial surface is a graph
-Σ^IVP = {τ = f(r)}, with f′ ∈ |x|⁻² C^∞ near infinity ([[lem:interior-where]] (ii), the function F there). G = O(2) ×
-O(2) acts by (t, x) ↦ (t, Ox) ([[sec:s27-class]]).
+coordinates and v = t + r; this t is the Kerr–Schild time τ, not the time of the chart of [[lem:vii-1-2]], and the
+variable t of [[ch:past-construction]] is written t_P := 1 + τ0 − τ. We put 𝔪 := μ r⁻². R is the radius of
+[[lem:vii-1-2]], taken as in [[ch:interior]] (4R ≥ 20R₁) and, R ≥ R_3 being free, with 4R ≥ 1 as well; for r ≥ R_3 the
+initial surface is a graph Σ^IVP = {τ = f(r)}, with f′ ∈ |x|⁻² C^∞ near infinity ([[lem:interior-where]] (ii), the
+function F there). G = O(2) × O(2) acts by (t, x) ↦ (t, Ox) ([[sec:s27-class]]).
 
 **Theorem {#thm:own-data}** (the development of g_λ's own data settles). Fix A, the envelope env ∈ C_c^∞, the angular
 profile and the seed. Let ℓ0 ∈ (3, 4) ∖ {7/2}, ℓ_I ∈ (3, ℓ0) off the exclusion sets of row d2 of [[sec:vi-c-1]], ε_m > 0
@@ -44,9 +46,10 @@ such that for every 0 < λ ≤ λ_2, with no exceptional set:
 
 (1) g_λ continues to the past domain of dependence W of S := Σ^IVP ∩ {r ≥ 4R} for g_b0 as a smooth G-invariant vacuum
 metric g in the wave-map gauge relative to g_b0, and all of W but a strip along its null boundary, of v-width tending to
-0 with λ, lies in the domain of dependence of S for g. It is the only continuation in that gauge with |g − g_b0| ≤ 1/50,
-commuted energies of some weight a_0 ∈ (0, ½) bounded uniformly in the slices, and energy tending to 0 toward past null
-infinity ([[prop:own-uniqueness]]);
+0 with λ, lies in the domain of dependence of S for g. It is the only continuation in that gauge with |g − g_b0| ≤ 1/50
+whose energies of some weight a_0 ∈ (0, ½) of the fields Γ^α (g − g_b0), |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z} (Section
+[[sec:far-homogeneity]]), are bounded uniformly in the slices and whose energy tends to 0 toward past null infinity
+([[prop:own-uniqueness]]);
 
 (2) its data (γ, k) on Σ^IVP satisfy γ − γ_b0 ∈ H^(∞,(ℰ_0^½,ℓ0))_b, k − k_b0 ∈ H^(∞,(ℰ_0^½+1,ℓ0+1))_b, with
 ‖(γ − γ_b0, k − k_b0)‖_(d_1) < ε in the norm of [[sec:s27-class]] taken with ℰ_0 = ℰ_0^½;
@@ -55,8 +58,10 @@ infinity ([[prop:own-uniqueness]]);
 {r_♭ ≤ r ≤ R′, t_* ≥ T′}, |(t_*∂_(t_*))^i ∂_x^β (ĝ − g_(m′,0))| ≤ C t_*^(−2−ε_t) for every R′, i and β, with C and T′
 depending on them.
 
-The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The proof is in Section [[sec:own-proof]].
-[[pending:issue-1]]
+The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The order k_P is what the subtracted
+expansion of Section [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
+derivatives of their data on N ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in Section
+[[sec:own-proof]]; its first step checks every use of k_P.
 
 ### The far part of the initial surface and its past domain of dependence {#sec:own-far-part}
 

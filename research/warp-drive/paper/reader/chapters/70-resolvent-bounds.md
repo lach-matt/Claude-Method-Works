@@ -1380,8 +1380,8 @@ d(log φ′)/dy = 3/(2y) − 1/(1 − y) + 6ν²z/(1 + ν²z²) ≥ 3 − 2 > 0,
 φ′ ≥ φ′(y = 1/16) = 4ν(15/1024)(1 + 49ν²/64)^(−3/2).
 On y ∈ [1/2, 25/36], η ≥ 2^(−5/2) ([[sec:morawetz-identity]]) and |z| ≤ 7/18, so φ′ ≥ 4ν2^(−5/2)(1 + 49ν²/324)^(−3/2),
 which is larger, as 4 · 2^(−5/2) > 15/256 and 49/324 < 49/64. This gives m′. Next φ′ ≤ 4ν max η = 4ν · 6√15/125 <
-0.74362ν (as in [[prop:morawetz-resolvent-l-ge-1]]). Since Φ is odd and increasing, max_I |φ| = max(Φ(7ν/8), Φ(7ν/18))
-= Φ(7ν/8), and |φ(±∞)| = Φ(ν). ∎
+0.74362ν (as in [[prop:morawetz-resolvent-l-ge-1]]). Since Φ is odd and increasing,
+max_I |φ| = max(Φ(7ν/8), Φ(7ν/18)) = Φ(7ν/8), and |φ(±∞)| = Φ(ν). ∎
 
 #### The band {#sec:band-theorem}
 
@@ -2362,9 +2362,10 @@ Then [[eq:i-b-6-11]] holds with the constant 4F_ΓC′_a: for h ≤ h_0/2 and z 
 imaginary axis. Let σ_0 ≥ h_0⁻¹, so σ_0 ≥ 1, and w ∈ L². Apply [[lem:i-b-6-6]] to F(ζ) := P̂′(3σ_0 + iβ + κ_Γζ)⁻¹w on
 the rectangle [−L, L] + i[0, 1], L := 2σ_0/κ_Γ, where Re σ ∈ [σ_0, 5σ_0] and Im σ ∈ [β, β′]. F is holomorphic near the
 rectangle, as P̂′(σ) is a polynomial in σ and is invertible on an open set containing this range ([[prop:i-b-6-7]]).
-There ‖F‖ ≤ A := C′_a‖w‖, and ‖F‖ ≤ A_0 := C′_a‖w‖ on Im ζ = 0 and ‖F‖ ≤ A_1 := C′_aσ_0⁻¹‖w‖ on Im ζ = 1, as
-|σ| ≥ σ_0 there; A_1 ≤ A since σ_0 ≥ 1, and the Λ of [[lem:i-b-6-6]] is Λ_0 := log(A/A_1) = log σ_0. With
-t := Im ζ = (Im σ − β)/κ_Γ ∈ [0, 1] and πL/4 = πσ_0/(2κ_Γ), the lemma gives, for Re σ ∈ [2σ_0, 4σ_0],
+There ‖F‖ ≤ A := C′_a‖w‖, and ‖F‖ ≤ A_0 := C′_a‖w‖ on Im ζ = 0 and ‖F‖ ≤ A_1 := C′_aσ_0⁻¹‖w‖ on Im ζ = 1, since
+the modulus of σ is at least σ_0 there; A_1 ≤ A since σ_0 ≥ 1, and the Λ of [[lem:i-b-6-6]] is
+Λ_0 := log(A/A_1) = log σ_0. With t := Im ζ = (Im σ − β)/κ_Γ ∈ [0, 1] and πL/4 = πσ_0/(2κ_Γ), the lemma gives, for
+Re σ ∈ [2σ_0, 4σ_0],
 ‖P̂′(σ)⁻¹w‖ ≤ C′_a σ_0^(−t) exp(3Λ_0 e^(−πσ_0/(2κ_Γ)))‖w‖ ≤ F_Γ C′_a σ_0^(−t)‖w‖. There h = 1/Re σ ∈ [1/(4σ_0),
 1/(2σ_0)], so σ_0^(−t) ≤ (4h)^t ≤ 4h^t, and (P′_(h,z))⁻¹ = h⁻²P̂′(z/h)⁻¹; as 2 − t = 1 + (β′ − Im(z/h))/κ_Γ, this is
 the bound, and every h ≤ h_0/2 is 1/Re σ for some such σ_0. For the value: with c := π/(2κ_Γ) = √2π > 4.44288 and
@@ -2481,9 +2482,9 @@ L δ*w = δ*_(E_C)(½□^Υw), with □^Υ := 2δ_(E_Υ)Gδ* of [[eq:iii-b-6-4]]
 2δG(Lh) = □^C Υ(h), with Υ(h) := δ_(E_Υ)Gh and □^C := 2δGδ*_(E_C) of [[eq:iii-e-1-1]]. (c) h_m := r⁻²(dt + dr)², the
 derivative in m of the Kerr–Schild metrics η + mr⁻²(dt + dr)², satisfies D Ric(h_m) = 0.
 
-*Proof.* L = D Ric + δ*_(E_C)δ_(E_Υ)G at the Ricci-flat g_(b_0). (a) δ*w = ½ℒ_(w♯)g_(b_0), and D Ric(ℒ_Xg) = ℒ_X Ric(g)
-= 0 at a Ricci-flat g, so Lδ*w = δ*_(E_C)δ_(E_Υ)Gδ*w = δ*_(E_C)(½□^Υw). (b) The contracted Bianchi identity δ_gG_g
-Ric(g) = 0 holds for every metric; differentiating at the Ricci-flat g_(b_0), where Ric = 0, gives δG(D Ric(h)) = 0. So
+*Proof.* L = D Ric + δ*_(E_C)δ_(E_Υ)G at the Ricci-flat g_(b_0). (a) δ*w = ½ℒ_(w♯)g_(b_0), and
+D Ric(ℒ_Xg) = ℒ_X Ric(g) = 0 at a Ricci-flat g, so Lδ*w = δ*_(E_C)δ_(E_Υ)Gδ*w = δ*_(E_C)(½□^Υw). (b) The
+contracted Bianchi identity δ_gG_g Ric(g) = 0 holds for every metric; differentiating at the Ricci-flat g_(b_0), where Ric = 0, gives δG(D Ric(h)) = 0. So
 2δG(Lh) = 2δGδ*_(E_C)(δ_(E_Υ)Gh) = □^C Υ(h). (c) The Kerr–Schild metrics are Ricci-flat for every m
 ([[prop:iii-b-3-4]]); differentiate at m = 1. ∎
 

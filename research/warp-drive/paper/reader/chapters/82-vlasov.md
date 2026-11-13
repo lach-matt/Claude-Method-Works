@@ -224,10 +224,10 @@ direction whose g3-geodesic reaches x0 transversally to the axis.
 
 *Proof.* Suppose that f > 0 at a null direction whose geodesic reaches x0 transversally. Let P be the fixed set {x2 =
 x4 = 0} of the two reflections, a three-dimensional submanifold with coordinates (τ, x1, x3). It meets every orbit near
-x0, at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2, ∂_4 at the points of P and orthogonal to P
-by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P is g3 in the coordinates (τ, ρ1, ρ2) =
-(τ, x1, x3). As g5 is C², g_P is a C² Lorentzian metric on P, even in x3: g3 extends across the edge {ρ2 = 0} to g_P,
-and the null geodesic flow of g3 extends to the flow of g_P, which is C¹, under which the geodesic reaching x0
+x0, at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2, ∂_4 at the points of P and orthogonal
+to P by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P is g3 in the coordinates (τ, ρ1,
+ρ2) = (τ, x1, x3). As g5 is C², g_P is a C² Lorentzian metric on P, even in x3: g3 extends across the edge {ρ2 = 0} to
+g_P, and the null geodesic flow of g3 extends to the flow of g_P, which is C¹, under which the geodesic reaching x0
 transversally crosses {x3 = 0}. In the coordinates of P, κ is the same function of g_P and its first derivatives, so it
 is continuous on the bundle of null directions of g_P over a neighbourhood of x0. Hence f, which equals its initial
 value times exp(−∫κ) along each flow line, stays positive along the flow line of the given direction, and, by
@@ -527,13 +527,13 @@ parallel to dr). So every non-radial wave with a nonzero orbit part leaves a ter
 *Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In R(γ) = γ^(ij)(∂_k
 Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and ∂_i∂_k(λ
 W) = λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is W″(p^♯, p^♯) − |p|² tr W″,
-with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij), gives the first line of
-[[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry derivatives of h or first derivatives of
-γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃ ∂_i(γ^(jl) κ_(jl)), whose parts of order λ⁻¹ are
-−γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the second line; the Christoffel terms are of order one.
-The terms −|κ|² + (tr κ)² have no term of order λ⁻¹, and no term of order λ⁻¹ depends on k. With several phases the fast
-derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms vanish, each W_A depending on one phase; ∂²(λ²
-M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
+with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij), gives the first
+line of [[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry derivatives of h or first
+derivatives of γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃ ∂_i(γ^(jl) κ_(jl)), whose parts of
+order λ⁻¹ are −γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the second line; the Christoffel terms are
+of order one. The terms −|κ|² + (tr κ)² have no term of order λ⁻¹, and no term of order λ⁻¹ depends on k. With several
+phases the fast derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms vanish, each W_A depending on one
+phase; ∂²(λ² M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
 
 (b) The parts of order λ⁻¹ of R(γ + h) and J(γ + h, κ + k) are, by the proof of (a), W″(p^♯, p^♯) − |p|² tr W″ and
 2(−γ_h^(jl) p_l κ1′_(ji) + p_i γ_h^(jl) κ1′_(jl)) with the inverse γ_h⁻¹ of γ + h. Since γ0 and h have no mixed
@@ -728,12 +728,12 @@ diag(6, γ_U^(rr) Π^(AB)) is positive definite, and every 𝒮 A^C is symmetric
 *Proof.* The derivation of the principal part of J in the proof of [[lem:constraints-evolution]] (a) uses only the
 identities Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr) (so that Π^(rk) = 0 and Π_A^k ∂_k = ∂_A), tr_(γ_U) Π = γ^(ij) Π_ij =
 4 − 1 = 3, q(γ⁻¹dr) = 0, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr and (1 + α γ^(rr))⁻¹ γ^(rr) = γ_U^(rr), each of which holds
-for every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the uniqueness
-of the symmetrizer, which [[lem:linear-evolution]] does not use. So that derivation gives, for every such γ and α, the
-principal part 𝒮A0 ∂_r + 𝒮A^C ∂_C of 𝒮J in (ϖ, q_B), with 𝒮A0 = diag(6, γ_U^(rr) Π^(AB)) and the symmetric 𝒮A^C
-displayed there. γ_U^(rr) = γ^(rr)/(1 + α γ^(rr)) > 0, and Π^(AB), the inverse of the induced metric of the spheres, is
-positive definite. 𝒮 = [[1, γ^(rB)/γ^(rr)], [0, −½ Π^(AB)]] is block triangular with invertible diagonal blocks and
-involves γ only. ∎
+for every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the
+uniqueness of the symmetrizer, which [[lem:linear-evolution]] does not use. So that derivation gives, for every such γ
+and α, the principal part 𝒮A0 ∂_r + 𝒮A^C ∂_C of 𝒮J in (ϖ, q_B), with 𝒮A0 = diag(6, γ_U^(rr) Π^(AB)) and the symmetric
+𝒮A^C displayed there. γ_U^(rr) = γ^(rr)/(1 + α γ^(rr)) > 0, and Π^(AB), the inverse of the induced metric of the
+spheres, is positive definite. 𝒮 = [[1, γ^(rB)/γ^(rr)], [0, −½ Π^(AB)]] is block triangular with invertible diagonal
+blocks and involves γ only. ∎
 
 So (V3), positive mean curvature of the spheres, is the only sign the radial solve needs on the initial slice of
 [[thm:vlasov]]: the second sign of [[lem:constraints-evolution]] (a) holds on every slice.
