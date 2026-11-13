@@ -253,25 +253,45 @@ In the double-null gauge of the class,
     g = −2Ω² (du ⊗ dv + dv ⊗ du) + γ_ϑ (dϑ − b du)² + e^(2A_c) dφ1² + e^(2A_s) dφ2²,  {#eq:loc-double-null}
 
 with Ω, γ_ϑ, b, A_c, A_s functions of (u, v, ϑ), the cone 𝒞 := {u = u_c} is ruled by the null generators ∂_v. Put
-λ_1 := ½ ln γ_ϑ, λ_2 := A_c, λ_3 := A_s.
+ϰ_1 := ½ ln γ_ϑ, ϰ_2 := A_c, ϰ_3 := A_s.
 
 **Lemma {#lem:loc-cone-equations}** (The constraints on a cone.) On 𝒞,
 
-    Ric(∂_v, ∂_v) = Σ_(i=1)^3 (−∂_v²λ_i − (∂_vλ_i)² + 2 ∂_v ln Ω ∂_vλ_i),
+    Ric(∂_v, ∂_v) = Σ_(i=1)^3 (−∂_v²ϰ_i − (∂_vϰ_i)² + 2 ∂_v ln Ω ∂_vϰ_i),
     Ric(∂_v, ∂_ϑ) = (γ_ϑ/(4Ω²)) (∂_v²b + ∂_v ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) ∂_v b) + r,  {#eq:loc-cone}
 
-where r is a polynomial in the first and mixed derivatives ∂_v, ∂_ϑ, ∂_v∂_ϑ of ln Ω, λ_1, λ_2, λ_3. Neither contains a
-u-derivative, and b enters only through ∂_v b and ∂_v² b.
+    r := (∂_ϑ ln Ω + ∂_ϑϰ_2 + ∂_ϑϰ_3) ∂_vϰ_1 + (∂_vϰ_2 + ∂_vϰ_3) ∂_ϑ ln Ω − ∂_v∂_ϑ ln Ω
+         − Σ_(i=2,3) (∂_ϑϰ_i ∂_vϰ_i + ∂_v∂_ϑϰ_i).                                              {#eq:loc-cone-r}
+
+Neither line contains a u-derivative, and b enters only through ∂_v b and ∂_v² b.
 
 *Proof.* The inverse metric has g^(uv) = −1/(2Ω²), g^(vϑ) = −b/(2Ω²), g^(ϑϑ) = γ_ϑ⁻¹, g^(φ1φ1) = e^(−2A_c),
 g^(φ2φ2) = e^(−2A_s), and g^(uu) = g^(vv) = g^(uϑ) = 0. Hence ∇_(∂_v)∂_v = Γ^v_(vv)∂_v = k ∂_v with k := 2∂_v ln Ω,
 since g_vv = g_vϑ = 0. The sections {u, v constant} carry the metric γ_ϑ dϑ² + e^(2A_c)dφ1² + e^(2A_s)dφ2², b not
 entering because du = 0 on them; ∂_v is orthogonal to them and commutes with ∂_ϑ and ∂_(φi), so their null second
-fundamental form along ∂_v is half the v-derivative of that metric, with eigenvalues ∂_vλ_i, expansion θ_v = Σ∂_vλ_i and
-|χ|² = Σ(∂_vλ_i)². The Raychaudhuri equation ∂_vθ_v = kθ_v − |χ|² − Ric(∂_v, ∂_v) is the first line. The second
-line follows by a direct calculation of the Christoffel symbols of [[eq:loc-double-null]] in the coordinates (u, v,
-ϑ, φ1, φ2), in which b enters only through g_uu = γ_ϑb², g_uϑ = −γ_ϑb and g^(vϑ) = −b/(2Ω²); in R_vϑ the terms in
-b that carry no v-derivative cancel, and no u-derivative survives. ∎
+fundamental form χ along ∂_v is half the v-derivative of that metric, with eigenvalues ∂_vϰ_i, trace tr χ = Σ∂_vϰ_i and
+|χ|² = Σ(∂_vϰ_i)². The Raychaudhuri equation ∂_v tr χ = k tr χ − |χ|² − Ric(∂_v, ∂_v) is the first line.
+
+For the second line we use Ric(∂_v, ∂_ϑ) = ∂_aΓ^a_(vϑ) − ∂_v∂_ϑ ln √|det g| + Γ^a_(ad)Γ^d_(vϑ) − Γ^a_(ϑd)Γ^d_(av),
+with indices over (u, v, ϑ, φ1, φ2) and Γ^a_(ad) = ∂_d ln √|det g|, where det g = −4Ω⁴γ_ϑe^(2A_c + 2A_s). From the
+inverse metric above and Γ^a_(bc) = ½g^(ad)(∂_bg_(dc) + ∂_cg_(db) − ∂_dg_(bc)), with β_v := (γ_ϑ/(4Ω²))∂_v b, the symbols
+that enter are
+
+    Γ^v_(vv) = 2∂_v ln Ω,   Γ^v_(vϑ) = ∂_ϑ ln Ω + β_v,   Γ^ϑ_(vϑ) = ∂_vϰ_1,   Γ^(φ1)_(vφ1) = ∂_vϰ_2,
+    Γ^(φ2)_(vφ2) = ∂_vϰ_3,   Γ^(φi)_(ϑφi) = ∂_ϑϰ_(i+1),   Γ^u_(ϑϑ) = (γ_ϑ/(2Ω²))∂_vϰ_1,
+    Γ^ϑ_(ϑϑ) = ∂_ϑϰ_1 + (γ_ϑb/(2Ω²))∂_vϰ_1,   Γ^ϑ_(uv) = (2Ω²/γ_ϑ)∂_ϑ ln Ω − ½∂_v b − b∂_vϰ_1,
+
+and Γ^u_(vv) = Γ^u_(uv) = Γ^u_(vϑ) = Γ^ϑ_(vv) = Γ^(φi)_(vϑ) = 0; the only nonzero Γ^d_(vϑ) are Γ^v_(vϑ) and Γ^ϑ_(vϑ).
+None of these contains a u-derivative, and Γ^u_(vϑ) = 0, so no u-derivative enters. Then ∂_aΓ^a_(vϑ) = ∂_v∂_ϑ ln Ω +
+∂_vβ_v + ∂_v∂_ϑϰ_1; Γ^a_(ad)Γ^d_(vϑ) = ∂_v ln √|det g| (∂_ϑ ln Ω + β_v) + ∂_ϑ ln √|det g| ∂_vϰ_1; and the terms of
+Γ^a_(ϑd)Γ^d_(av) are, for (a, d) = (v, v), (ϑ, v), (u, ϑ), (ϑ, ϑ), (φi, φi),
+
+    2∂_v ln Ω (∂_ϑ ln Ω + β_v),   ∂_vϰ_1 (∂_ϑ ln Ω + β_v),   ∂_vϰ_1 ∂_ϑ ln Ω − ∂_vϰ_1β_v − (γ_ϑb/(2Ω²))(∂_vϰ_1)²,
+    (∂_ϑϰ_1 + (γ_ϑb/(2Ω²))∂_vϰ_1)∂_vϰ_1,   ∂_ϑϰ_(i+1)∂_vϰ_(i+1),
+
+all other products vanishing. The two terms in b without derivative cancel. With ln √|det g| = ln 2 + 2 ln Ω + ϰ_1 +
+ϰ_2 + ϰ_3, the terms in β_v add up to ∂_vβ_v + (∂_vϰ_1 + ∂_vϰ_2 + ∂_vϰ_3)β_v, which is the first term of the second line
+since ∂_vβ_v = β_v(2∂_vϰ_1 − 2∂_v ln Ω) + (γ_ϑ/(4Ω²))∂_v²b; and the remaining terms add up to r. ∎
 
 **Proposition {#prop:loc-cones}** (Exact localisation on cones.) On the outgoing cone 𝒞_out = {u = 0} write γ_ϑ =
 e^(2ϕ + 2ℓ_1), A_c = ϕ + ℓ_2, A_s = ϕ + ℓ_3 with ℓ_1 + ℓ_2 + ℓ_3 = 0, keep Ω the background's, and let the free data

@@ -236,14 +236,14 @@ Indeed, γ_ε = Λ²ĝ with Λ := Re^β and ĝ := ã²dR² + γ̂, ã := e^(α�
 ĝ for every R, so their second fundamental form vanishes, and the Gauss and Riccati equations of the proof of
 [[lem:constraints-evolution]] (a), with lapse ã and second fundamental form 0, give Scal(ĝ) = 6 − 2ã⁻¹Δ̂ã. Tracing the
 formula for Ric[h] − Ric[g] in the proof of [[lem:conformal]] with m = 4, g = ĝ and h = Λ²ĝ (so that ψ = ln Λ and □ =
-Δ_ĝ there) gives Scal(Λ²ĝ) = Λ⁻²(Scal(ĝ) − 6Δ_ĝ ln Λ − 6|d ln Λ|²_ĝ) = Λ⁻²(Scal(ĝ) − 6Λ⁻¹Δ_ĝΛ), since Δ_ĝ ln Λ +
-|d ln Λ|²_ĝ = Λ⁻¹Δ_ĝΛ; and Δ_ĝΛ = ã⁻¹∂_R(ã⁻¹∂_RΛ) + ã⁻¹D̂·(ãD̂Λ), the volume form of ĝ being ã dR dvol_γ̂. Inserting
-ã⁻¹Δ̂ã = Δ̂ζ + |D̂ζ|², Λ⁻¹ã⁻¹∂_R(ã⁻¹∂_RΛ) = √f e^(−α)∂_R(R√f e^(2β−α)(1 + R∂_Rβ)) and Λ⁻¹ã⁻¹D̂·(ãD̂Λ) = Δ̂β + D̂α·D̂β
-gives [[eq:loc-scal-exact]].
+Δ_ĝ there) gives Scal(Λ²ĝ) = Λ⁻²(Scal(ĝ) − 6Δ_ĝ ln Λ − 6|d ln Λ|²_ĝ) = Λ⁻²(Scal(ĝ) − 6Λ⁻¹Δ_ĝΛ), since
+Δ_ĝ ln Λ + |d ln Λ|²_ĝ = Λ⁻¹Δ_ĝΛ; and Δ_ĝΛ = ã⁻¹∂_R(ã⁻¹∂_RΛ) + ã⁻¹D̂·(ãD̂Λ), the volume form of ĝ being
+ã dR dvol_γ̂. Inserting ã⁻¹Δ̂ã = Δ̂ζ + |D̂ζ|², Λ⁻¹ã⁻¹∂_R(ã⁻¹∂_RΛ) = √f e^(−α)∂_R(R√f e^(2β−α)(1 + R∂_Rβ)) and
+Λ⁻¹ã⁻¹D̂·(ãD̂Λ) = Δ̂β + D̂α·D̂β gives [[eq:loc-scal-exact]].
 
 For b = e = 0, γ + εh = f⁻¹(1 + εfAS)dR² + R²(1 + 2εFS)γ̂, so α = εα_1 + ε²α_2 + O(ε³) and β = εβ_1 + ε²β_2 + O(ε³) with
-α_1 = fAS/2, α_2 = −f²A²S²/4, β_1 = FS and β_2 = −F²S². Write Y := R√f e^(2β−α)(1 + R∂_Rβ) = Y_0 + εy_1S + ε²y_2S² +
-O(ε³) and Ξ := R²e^(2β)Scal(γ + εh) = εΞ_1 + ε²Ξ_2 + O(ε³). Then Y_0 = R√f and Y_0′ = (f + Rf′/2)/√f = 1/√f, so that the
+α_1 = fAS/2, α_2 = −f²A²S²/4, β_1 = FS and β_2 = −F²S². Write 𝒴 := R√f e^(2β−α)(1 + R∂_Rβ) = 𝒴_0 + εy_1S + ε²y_2S² +
+O(ε³) and Ξ := R²e^(2β)Scal(γ + εh) = εΞ_1 + ε²Ξ_2 + O(ε³). Then 𝒴_0 = R√f and 𝒴_0′ = (f + Rf′/2)/√f = 1/√f, so that the
 term of order ε⁰ of Ξ is 6 − 6 = 0;
 
     y_1 = R√f (2F − fA/2 + RF′),        y_2 = R√f (3f²A²/8 − fAF − RfAF′/2);
@@ -255,8 +255,8 @@ and, from [[eq:loc-scal-exact]] with e^(−α) = 1 − α + α²/2 + O(α³),
 
 With Δ̂S = −k²S, Ξ_1 = ((k² + 3)fA + 4k²F − 6√f y_1′)S. Since DScal[h] = R⁻²Ξ_1 and 6√f y_1′ = 6Z_1 + 6RfZ_1′ with Z_1 :=
 2F − fA/2 + RF′, this is [[eq:loc-c]]. Next, D²Scal[h, h] is twice the ε² coefficient of Scal(γ + εh), R³Scal =
-Re^(−2β)Ξ, and N_s dvol = R³ dR dvol_γ̂; so 𝔈_V(h) = −∫∫ R(Ξ_2 − 2β_1Ξ_1) dvol_γ̂ dR. Integrating over S³, the four
-Laplacians drop out, ∫|D̂(α_1 − β_1)|² = k²(fA/2 − F)²∫S², ∫D̂α_1·D̂β_1 = (k²fAF/2)∫S², α_1²/2 − α_2 = 3f²A²S²/8, and
+Re^(−2β)Ξ, and N_s dvol = R³ dR dvol_γ̂; so 𝔈_V(h) = −∫∫ R(Ξ_2 − 2β_1Ξ_1) dvol_γ̂ dR. Integrating over S³, the Laplacian
+terms of Ξ_2 drop out, ∫|D̂(α_1 − β_1)|² = k²(fA/2 − F)²∫S², ∫D̂α_1·D̂β_1 = (k²fAF/2)∫S², α_1²/2 − α_2 = 3f²A²S²/8, and
 ∫β_1Ξ_1 = R²F C(A, F)∫S²; so 𝔈_V(h) = (2π)²‖S‖² ∫ E_V(A, F) dR with
 
     E_V(A, F) = R(2k²(fA/2 − F)² + 3k²fAF + 6√f (y_2′ − (fA/2) y_1′) + (9/4)f²A²) + 2R³F C(A, F),

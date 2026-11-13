@@ -583,8 +583,11 @@ above; (D10) and (D11) at (𝗍, 2, N′), 𝗍 ∈ {𝗌, 𝗌 + 1}. Increment 
 (Step 3). The energy estimates need d_0 = 2 ([[lem:ii-e-2-5]], [[prop:ii-e-2-7]]). Increment 0.
 
 (W) [[lem:ii-e-4-1]] (a) at (𝗌, m): (D1) at 𝗌 − m; (b) at 𝗌: (D8) at (𝗌, 𝗌). (Sb) [[prop:ii-e-4-3]] at 𝗌: (Sv) at 𝗌 for
-the systems P^(j), with (i) at s′ = s⁻ − 1 (the corrected a priori order, part (b) of the report below), and (W) (a) at
-(𝗌, 1). (St) [[prop:ii-e-4-4]] at 𝗌: (Sb), and (W) (b) at 𝗌 + 1 and 𝗌 − 1; increment 2 (d_0 ≥ d_1 + 2).
+the systems P^(j), with (i) at s′ = s⁻ − 1, and (W) (a) at (𝗌, 1). Here the uniqueness step of the induction is taken
+at s′ = s⁻ − 1 and the weight α − ½: by [[eq:ii-e-4-3]] at j − 1 every word of length j − 1 applied to u″ lies in
+H^(𝗌,2α)(Ω″)^(•,−), and a b-vector field maps H^(𝗍,2β)_e into H^(𝗍−1,2β−1)_e, so u″^(j) ∈ H^(𝗌−1,2α−1)(Ω″)^(•,−); the
+threshold holds at the weight α − ½. (An a priori order 𝗌 − j, falling with j, would make the index of (i), which
+depends on s′, depend on k.) The same applies to [[prop:ii-e-5-6]] (a), with s′ = s⁻ − 1 and the weight α_K − 1. (St) [[prop:ii-e-4-4]] at 𝗌: (Sb), and (W) (b) at 𝗌 + 1 and 𝗌 − 1; increment 2 (d_0 ≥ d_1 + 2).
 
 (K) [[lem:ii-e-5-3]], [[prop:ii-e-5-4]] and [[prop:ii-e-5-6]] at 𝗌 and s′: as (Sl), (Sv), (Sb), (St), with no radial
 set; [[prop:ii-e-5-6]] (b) has increment 2.
@@ -613,8 +616,8 @@ for scalar symbols.
 At the parameters of the operator of [[thm:iii-i-5-3]], (B1)–(B5) hold at every site, and the indices satisfy:
 every symbol order lies in [−71, 71], every Sobolev order in [−51, 38], every N of (e) is at most 63.
 
-*Proof.* The lists are read from the proofs cited; for (Sb) and (K) with the a priori order of part (b) of the report
-(the induction hypothesis puts the words of length j in H^(𝗌−1)). The parameters at which (D4), (D5) are used:
+*Proof.* The lists are read from the proofs cited, for (Sb) and (K) with the uniqueness step at s′ = s⁻ − 1 as said
+there. The parameters at which (D4), (D5) are used:
 (G), (B): (2, 𝗌 + 1, 13) with s⁺ = 12, s⁻ = −9, τ = 25, σ_* = 34; (2, 𝗌, 13) with τ = 24, σ_* = 34. (Sv) at 𝗌:
 Step 2 at (2, 𝗌, 11), τ = 22, σ_* = 32; Step 4, m = 12, at (2, 𝗌, 12), τ = 23, σ_* = 33; Step 3 at (2, 13, 0), σ_* = 13;
 (i) at (2, 2, −s′) with s′ ∈ {−9, −11, −12, −13}, σ_* ≤ 13. (Sv) at 𝗌 + 2 (s⁺ = 13, s⁻ = −8): Step 2 at (2, 𝗌 + 2, 9),

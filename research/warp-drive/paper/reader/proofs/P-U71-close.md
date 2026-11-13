@@ -64,7 +64,7 @@ do not bound these numbers either.
 
 **Lemma {#lem:uc-two-offsets}** (Two class offsets near 3.) Let a := 1,109,655 and b := 31,682. Then
 
-    1.6415·10⁻¹⁴ < λ_♯ + a𝔡₀ + b𝔡₁ − 3 < 1.6417·10⁻¹⁴.                                                {#eq:uc-two-offsets}
+    1.6415·10⁻¹⁴ < λ_♯ + a𝔡₀ + b𝔡₁ − 3 < 1.6417·10⁻¹⁴.                                               {#eq:uc-two-offsets}
 
 *Proof.* *The offsets.* 𝔡₀ = (9/4 + z)^(1/2) − 3/2 ([[sec:ec-gap-sums]]), and 9/4 + z = 562501/250000, so
 𝔡₀ = (√562501 − 750)/500. By [[lem:iii-d-4-1]] and its proof, ι^Υ_(s1,2) = ½ + (¼ + s_(1,1))^(1/2), where s_(1,1) is
@@ -214,7 +214,7 @@ with ε_+ < δ_♯ < ¼ ([[eq:iii-i9-1-1]]). So β_sctf = 3/2 − ε ∈ (1, 3/2
 
     ‖Au‖_k ≤ C_k (‖u‖_(k+2) + ‖β‖_(k+11) ‖u‖_2),                                                       {#eq:uc-dbg}
 
-and each source v_β of [[lem:iii-j2-2-1]] (b) satisfies ‖v_β‖_k ≤ C_k(1 + ‖β‖_(k+11)). So the families of
+and each family v_β of sources in [[lem:iii-j2-2-1]] (b) satisfies ‖v_β‖_k ≤ C_k(1 + ‖β‖_(k+11)). So the families of
 [[lem:iii-j2-2-1]] (b) have split loss (2; 11, 2) in the sense of [[lem:ec-split-loss]], the bound of
 [[lem:iii-j2-2-1]] (b) holds with d = 11, and the charge max(2, d_BG) of [[rem:ec-other-losses]] may be taken to be 11.
 
@@ -255,7 +255,7 @@ sources are the case of a fixed section u, or of a fixed operator applied to the
 [[prop:iii-a-4-2]] (1) with E_ι = ℰ^♭ + 2, β_ι = w_+ − ε, E_I = E_K = ∅ and β_K = β − ε. Its loss, by
 [[lem:ec-closed-forms]] (g), is
 
-    l = 1 + n_ι + 2⌊β − ε⌋,     n_ι = n(ℰ^♭ + 2, w_+ − ε),                                             {#eq:uc-fourier-count}
+    l = 1 + n_ι + 2⌊β − ε⌋,     n_ι = n(ℰ^♭ + 2, w_+ − ε),                                         {#eq:uc-fourier-count}
 
 and n_ι is the number of pairs (λ, k) ∈ ℰ^♭ with Re λ ≤ 3 + ε_+ − ε. [[prop:iii-i10-3-1]] (c) fixes ℰ^♭ only by
 π_1(ℰ^♭ ∩ {Re < 3 + ε_+}) ⊂ Λ ∩ {Re ≥ 2} and the logarithmic order at most k̄(λ) at λ. So, with
@@ -268,9 +268,9 @@ least 1 + n_ι.
 
 *Proof.* The data of Step 0 are those printed there. By the case E_I = ∅ of [[lem:ec-closed-forms]] (g),
 l = 1 + n_ι + 2(n_K + ⌊β_K⌋) with n_K = n(∅, β_K) = 0. By the definition of n(E, β) before [[lem:ec-closed-forms]],
-n(E_ι, β_ι) counts the pairs (z, m′) ∈ ℰ^♭ + 2 with Re z ≤ w_+ − ε = 5 + ε_+ − ε. At an exponent λ of ℰ^♭ of logarithmic order m there are m + 1
-pairs, and m ≤ k̄(λ) = k̄_0 + (J_* + 1)(l_* + 1)(n(λ) + 1) with n(λ) ≤ N_Λ − 1; at most N_Λ exponents occur. This gives
-the bound for n_ι. By [[lem:ec-iota-gap]], η_0 ≥ ε_Υ, so J_* = ⌈5/η_0⌉ + 2 ≤ ⌈5/ε_Υ⌉ + 2, and
+n(E_ι, β_ι) counts the pairs (z, m′) ∈ ℰ^♭ + 2 with Re z ≤ w_+ − ε = 5 + ε_+ − ε. At an exponent λ of ℰ^♭ of
+logarithmic order m there are m + 1 pairs, and m ≤ k̄(λ) = k̄_0 + (J_* + 1)(l_* + 1)(n(λ) + 1) with n(λ) ≤ N_Λ − 1; at
+most N_Λ exponents occur. This gives the bound for n_ι. By [[lem:ec-iota-gap]], η_0 ≥ ε_Υ, so J_* = ⌈5/η_0⌉ + 2 ≤ ⌈5/ε_Υ⌉ + 2, and
 5/(1.4619·10⁻¹⁰) = 500000000000000/14619 = 34202065804.77…, whose ceiling is 34,202,065,805. The level step composes
 this map with maps of non-negative loss, so by [[def:ec-accounted-loss]] its charge is at least l ≥ 1 + n_ι. ∎
 
