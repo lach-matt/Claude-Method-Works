@@ -1048,8 +1048,8 @@ subtract values of D_UΦ, which lie in the exact classes and whose images under 
 ([[prop:iii-j3-5-4]]); Step 2 reads g_j at ℓ_K(λ_0) − ε, a loss it tolerates, as it needs only the formal solutions of
 rate < α to be visible below ℓ_K. Step 3: after the subtractions h′ has no ι⁺-term below 3 + ε_+, so its class
 (ℰ_♯, 3 + ε_+) with vanishing coefficients is the plain weight 3 + ε_+, and its K⁺-weight is α; so h′ is in the exact
-class of h̃, and the conormal parts of q′ have the exact orders. The bounds compose finitely many bounded maps; the order d is
-fixed by [[lem:iii-j2-2-3]]. ∎
+class of h̃, and the conormal parts of q′ have the exact orders. The bounds compose finitely many bounded maps; the
+order d is fixed by [[lem:iii-j2-2-3]]. ∎
 
 The ι⁺-order of [[lem:iii-j1-1-1]] is thus exactly 3 + ε_+ under (Ex1); its choice η_2 := ε_+ − 3ε and the resulting
 loss 5ε are not needed.

@@ -42,31 +42,31 @@ w > z/102: indeed A·102 > z(102 + A/102) because 102(A − z) = 25.5z² > zA/10
 
 ### The vector type and the scalar type 0 {#sec:s14-pa-vector}
 
-**Lemma {#lem:s14-vector-distance}** (The vector type at γ_C = 10⁶.) Let l ≥ 1 and C₀ := 250002000000. The roots of
-p_(v) are −499999 ± (C₀ + (l + 1)²)^(1/2). The smaller is below −10⁶. The larger, ι_v, is at least 3, and if ι_v ≤ 51
+**Lemma {#lem:s14-vector-distance}** (The vector type at γ_C = 10⁶.) Let l ≥ 1 and Γ := 250002000000. The roots of
+p_(v) are −499999 ± (Γ + (l + 1)²)^(1/2). The smaller is below −10⁶. The larger, ι_v, is at least 3, and if ι_v ≤ 51
 and ι_v ∉ ℤ then
 
     dist(ι_v, ℤ) ≥ 3/1000100 > 2.9997·10⁻⁶.
 
 *Proof.* At h = 10⁻⁶ and v = 1/2, −h⁻¹p_(v)(ι) = ι² + 999998ι − κ − 3·10⁶ ([[prop:np-10-12]] (ii)). Since
-499999² = 249999000001 and κ = (l + 1)² − 1, (ι + 499999)² = C₀ + (l + 1)² at a root, which gives the roots; ι_v
+499999² = 249999000001 and κ = (l + 1)² − 1, (ι + 499999)² = Γ + (l + 1)² at a root, which gives the roots; ι_v
 increases with l and equals (250002000004)^(1/2) − 499999 = 500002 − 499999 = 3 at l = 1.
 
-Let m be the integer nearest ι_v; then 3 ≤ m ≤ 51. Put k := m − 1 and M := m + 499999. Expanding,
-M² − C₀ = m² + 999998m − 2999999 = X_k, where X_k := k² + 10⁶(k − 2). Hence
+Let ι_v ≤ 51 and let m be the integer nearest ι_v; then 3 ≤ m ≤ 51. Put k := m − 1 and M := m + 499999. Expanding,
+M² − Γ = m² + 999998m − 2999999 = X_k, where X_k := k² + 10⁶(k − 2). Hence
 
     (ι_v − m)(ι_v + m + 999998) = (ι_v + 499999)² − M² = (l + 1)² − X_k,
 
 and if ι_v ≠ m the integer N := (l + 1)² − X_k is not 0. We show |N| ≥ 3. As 10⁶ = 2⁶·5⁶, X_k ≡ k² modulo 64 and
-modulo 25. Modulo 4, N ≡ (l + 1)² − k² ∈ {0, 1, −1}, so N ≠ ±2. Suppose N = −f with f = ±1, that is X_k + f is a
-square. Modulo 8 the squares are 0, 1, 4: if k is odd, k² + 1 ≡ 2, so f = −1; if k ≡ 2 (mod 4), k² ± 1 ≡ 5 or 3,
+modulo 25. Modulo 4, N ≡ (l + 1)² − k² ∈ {0, 1, −1}, so N ≠ ±2. Suppose N = f with f = ±1, that is X_k + f = (l + 1)²
+is a square. Modulo 8 the squares are 0, 1, 4: if k is odd, k² + 1 ≡ 2, so f = −1; if k ≡ 2 (mod 4), k² ± 1 ≡ 5 or 3,
 impossible; if 4 | k, k² − 1 ≡ 7, so f = +1. Modulo 5 the squares are 0, 1, 4: f = +1 excludes k ≡ ±1 and f = −1
 excludes k ≡ ±2 (mod 5). If k² + f ≡ 0 (mod 5) it must be ≡ 0 (mod 25), a square divisible by 5 being divisible by
 25; among 2 ≤ k ≤ 50 this leaves, of k ∈ {8, 12, 28, 32, 48} with f = +1, only k = 32 (k² + 1 = 65, 145, 785, 1025,
 2305), and of the odd k ≡ ±1 (mod 5) with f = −1 only k = 49 (k² − 1 = 2400). What remains is f = +1 with
 k ∈ {20, 32, 40} and f = −1 with k ∈ {5, 15, 25, 35, 45, 49}; for these nine, X_k + f lies strictly between two
 consecutive squares ([[sec:tab-a-vector]]). So |N| ≥ 3, and since ι_v ≤ 51 and m ≤ 51,
-|ι_v − m| = |N|/(ι_v + m + 999998) ≥ 3/1000100. The smaller root is −499999 − (C₀ + (l + 1)²)^(1/2) < −10⁶. ∎
+|ι_v − m| = |N|/(ι_v + m + 999998) ≥ 3/1000100. The smaller root is −499999 − (Γ + (l + 1)²)^(1/2) < −10⁶. ∎
 
 **Lemma {#lem:s14-scalar-zero}** (The scalar type 0 at γ_C = 10⁶.) The root ι₁ > 2 of C (proof of
 [[prop:np-10-54]]) satisfies 2 + δ_C < ι₁ < 5/2.
@@ -149,7 +149,7 @@ roots). So Λ(x) = Σ_j W(ρ_j)/∂_ιU(ρ_j). W and U have real coefficients, s
 W(ζ)/∂_ιU(ζ) + W(ζ̄)/∂_ιU(ζ̄) = Λ(x) − W(2 + x, x)/∂_ιU(2 + x, x), and ∂_ιU(2 + x, x) = −Q(2 + x, x), so by (ii) the
 last quotient is c(x). The division gives Λ⁰, Λ₁, Λ₂. The bounds on Π − Π⁰ = h(Λ₁ − c₁) + h²(Λ₂ − c₂) follow by
 summing the absolute values of the terms at x = 35 and x = 70; those on the quadratic Π⁰ and on Π⁰′ = 9x/4 −
-10598081/215424 from its vertex value −617.5 at x = 21.87 and its values −79.66, 423.7 and 1989.1 at x = 0, 35, 70. ∎
+10598081/215424 from its vertex value −617.5 at x = 21.87 and its values −79.66, −423.4 and 1989.1 at x = 0, 35, 70. ∎
 
 **Lemma {#lem:s14-majorant}** (Majorants.) For a polynomial f(ι, x) = Σ_(j,k) f_jk (ι − p)^j x^k about a centre p,
 put f̄(S, T) := Σ_(j,k) |f_jk| S^j T^k. Then |f(ι, x)| ≤ f̄(S, T) whenever |ι − p| ≤ S and 0 ≤ x ≤ T, and f̄ increases
@@ -183,7 +183,7 @@ equals ι*. The last bound is the quotient rule. ∎
 multiplicity, in |ι| < 1000. (b) For x ≥ 70, P_l has no root with |ι − 1| ≤ 50.
 
 *Proof.* (a) For x ≤ 70 the roots of U(·, x) are 2 + x ≤ 72 and the roots of Q(·, x), which by
-[[lem:s14-sextic-split]] (iii)–(iv) have modulus at most (3656)^(1/2) < 61. On |ι| = 1000, therefore,
+[[lem:s14-sextic-split]] (iii)–(iv) have modulus at most (3657)^(1/2) < 61. On |ι| = 1000, therefore,
 |U| ≥ 928·2·939² > 1.63·10⁹, while by [[lem:s14-majorant]] with p = 0
 
     |hW| ≤ h(R̄₁(1000, 70) + hR̄₂(1000, 70) + h²R̄₃(1000)) < 10⁻⁶(5.67·10¹² + 4.3·10⁹ + 1.02·10⁶) < 5.7·10⁶.
@@ -223,7 +223,7 @@ L₀(−2.94, κ) = −1619κ/64 − 2.12 and |E| ≤ h(10⁻⁶κ³ + 24.3κ² 
 (δ) By [[sec:tab-a-expansions]], P_l(2 + hξ) = h²(G₀(ξ, κ) + E) with |E| ≤ h(κ³ + 20κ² + 690κ + 1251) for |ξ| ≤ 3.
 At κ = 8, |E| ≤ 0.0086, G₀(2.93, 8) = 0.8968… and G₀(2.94, 8) = −2.9043…, so P_2(2 + 2.93h) > 0 > P_2(2 + 2.94h).
 For 15 ≤ κ ≤ 18000, G₀(2.94, κ) = (1811κ² − 11133.66κ)/64 − 422.1968… ≥ 28.29κ² − 174κ − 422.2, while hκ³ ≤ 0.018κ²
-gives |E| ≤ 0.0181κ² + 0.0007κ + 0.0013; the difference is 3328 at κ = 15 and increases, so P_l(2 + δ_C) > 0.
+gives |E| ≤ 0.0181κ² + 0.0007κ + 0.0013; the difference exceeds 3300 at κ = 15 and increases, so P_l(2 + δ_C) > 0.
 
 In (c), 2 + δ_C < 2 + x < a(x) < 3 − δ_C and the signs of P_l at these points are +, −, +, −; so P_l has a root in
 each of the three open intervals. These are three distinct roots in |ι| < 1000, hence all of them by
@@ -297,7 +297,7 @@ and, as K′_n = x_n/h + 2Π⁰(x_n)/3,
 
     |κ − K′_n| ≤ 4(δ_C + e_P)/(3h) + (2/3)(|Π(x) − Π⁰(x)| + |Π⁰(x) − Π⁰(x_n)|).
 
-If n ≤ 28 then x ≤ 35 (as |x − x_n| < 0.002 and x₂₈ = 34.67), so e_P ≤ 17h, |Π| ≤ 619, |x − x_n| ≤ 440h, and by
+If n ≤ 28 then x ≤ 35 (as |x − x_n| < 0.002 and x₂₈ = 34), so e_P ≤ 17h, |Π| ≤ 619, |x − x_n| ≤ 440h, and by
 [[lem:s14-sextic-split]] (v) the right side is at most (4/3)(19.94) + (2/3)(0.57 + 49.2·440·10⁻⁶) < 27. If n ≥ 29
 then x ≥ 35, e_P ≤ 72h, |Π| ≤ 1995, |x − x_n| ≤ 1430h, and the right side is at most
 (4/3)(74.94) + (2/3)(4.17 + 108.4·1430·10⁻⁶) < 103. ∎
@@ -377,7 +377,7 @@ when ε < 5.019·10⁻⁸, a bound more than 2.5 times δ_50.
 
 *Proof.* *The offsets.* By [[eq:s14-pa-sqrt]], d_s0 = z/(3/2 + (9/4 + z)^(1/2)) lies between z/(3 + z/3) and z/3, so
 1.3333327·10⁻⁶ < d_s0 < 1.3333334·10⁻⁶. By [[prop:np-10-52]] (i), δ₂ = z(1 + θ₂)/15 and δ′₁ = 3z(1 + θ₁)/20 with
-|θ₁|, |θ₂| ≤ z, so 2.666656·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999976·10⁻⁷ < δ′₁ < 6.000024·10⁻⁷. For d_s1, at u = 2,
+|θ₁|, |θ₂| ≤ z, so 2.666655·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999975·10⁻⁷ < δ′₁ < 6.000025·10⁻⁷. For d_s1, at u = 2,
 d_s1 = ½((9 + B₂)^(1/2) − 3) = B₂/(2(3 + (9 + B₂)^(1/2))) with B₂ := 2z − 4w₂ and w₂ := (4 + A)^(1/2) − 2 =
 A/(2 + (4 + A)^(1/2)), A = 4.000004·10⁻⁶. By [[eq:s14-pa-sqrt]], 4 + A/4 − A²/64 ≤ 2 + (4 + A)^(1/2) ≤ 4 + A/4, with
 A/4 = 1.000001·10⁻⁶ and A²/64 < 2.6·10⁻¹³; so

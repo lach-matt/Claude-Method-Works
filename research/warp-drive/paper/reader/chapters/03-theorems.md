@@ -319,9 +319,12 @@ The remaining chapters prove the following; each is stated in full where it is p
   included where the lateral boundaries meeting them are adapted to the dust ([[thm:class-stability]]); restricted
   massless Vlasov limits, for fields that are caustic-free families of dusts meeting the hypotheses stated there, as
   weak limits of class vacuum metrics along odd numbers of dusts ([[thm:vlasov]]); and exactly localised vacuum data
-  near the data of [[thm:main]], of the form background + εδ + O(ε²) with δ not a gauge perturbation and ε small: on
-  every band of the initial slice that meets the inside of the apparent horizon such data exist, while on bands outside
-  it the sign of their second-order charge excludes them when δ is invariant ([[thm:charge-sign]]).
+  near the initial data of the two-dust background of [[thm:two-dusts]]: data equal to the background's outside a
+  compact subset of a band, vacuum in the band, whose first-order part in a small amplitude is a perturbation of the
+  metric that is not a gauge perturbation. On every vacuum band of the initial slice (a band on which the background
+  is vacuum) that meets the inside of the apparent horizon such data exist for small amplitude, while on vacuum bands
+  outside it the sign of their charge at second order excludes them for small amplitude when the first-order part is
+  T² × Z2 × Z2-invariant ([[thm:charge-sign]]).
 - *The boundary at equality.* If μ0 = √72 l5², the curvature boundary is spacelike for g_λ away from a layer at the
   start of the shell, where timelike curves of g_λ cross it ([[thm:layer]], [[cor:layer]]), and at the very edge of
   the layer the character of the boundary is decided column by column ([[thm:very-edge]]).

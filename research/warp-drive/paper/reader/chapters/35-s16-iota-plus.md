@@ -1337,7 +1337,7 @@ Step 3 (b), which for f in the weighted space holds on {Re ζ < ℓ_I}: there H_
 holomorphic in the weaker weight in which h(ϰ) is, and bounded in the ℓ_I-weighted space locally uniformly in ϰ, the
 constants of Steps 1–5 being built from N_sf(ϰ)⁻¹ and fixed-circle integrals. A locally bounded map from an open subset
 of ℂ into a Banach space X such that x* ∘ f is holomorphic for every x* in a subspace of X* that separates the points
-of X is holomorphic ([AN00, Theorem 3.1]); applied with X the ℓ_I-weighted space and the functionals of the larger
+of X is holomorphic ([AN00, Theorem 3.1] [[pending:literature-page-AN00]]); applied with X the ℓ_I-weighted space and the functionals of the larger
 space, this shows that the remainder is holomorphic in the ℓ_I-weighted space. So [[eq:iii-g1-3-3]] is
 finite-meromorphic on {Re ϰ < ℓ_I}. Its principal part at ϰ_0 is obtained by expanding R^(±ϰ) about ϰ_0: its Laurent
 coefficients are finite combinations of R^(−ϰ_0)(log R)^iA_(−j)(log R)^(i′)R^(2+ϰ_0), with A_(−j) those of N_sf⁻¹.
@@ -1665,8 +1665,11 @@ This is the counterpart at n = 4 of the index set ℰ_K of [Hin26].
 ### Grafting {#sec:iii-g2-4}
 
 This section is [Hin26, Proposition 9.11 and Corollary 9.12] in dimension 4 + 1. Let M be the compactified spacetime
-of [[sec:iii-b-2]] ([Hin26, (3.3)]), with its faces 𝓘⁺, ι⁺ and K⁺, and Ω_* := cl_M{t_* ≥ 1} ([Hin26, (9.38)]); the
-b-spaces on Ω_* carry three orders, listed for 𝓘⁺, ι⁺ and K⁺ ([Hin26, Definitions 2.6–2.8]). Let χ_K ∈ C^∞(M) equal 1
+of [[sec:iii-b-2]] ([Hin26, (3.3)]), with its faces 𝓘⁺, ι⁺ and K⁺, and Ω := cl_M{t_* ≥ 1} ([Hin26, (9.38)]), with
+t_* of [[eq:iii-b-3-6]]: the domain of [[def:ii-a-1-3]], for this time function. The b-spaces on Ω
+([[def:s11-b-analysis]] (3)–(6)) carry three orders, listed for 𝓘⁺, ι⁺ and K⁺, and the superscript (•,−) marks, as in
+[[sec:iii-a-2]] and [[sec:ii-a-7]], the spaces of distributions supported at the initial face {t_* = 1} and extendible
+at the other boundary hypersurfaces of Ω. Let χ_K ∈ C^∞(M) equal 1
 near K⁺ and 0 near t_*⁻¹(1) ∪ 𝓘⁺, and be a function of R alone near ι⁺. Let χ_ι := χ(t_*), with χ ∈ C^∞(ℝ) equal to 0
 on (−∞, 1] and 1 on [2, ∞); it equals 1 near ι⁺ and is supported in Ω.
 
@@ -1745,8 +1748,7 @@ t_*-dependence of χ_K enters, as χ_K is a function of R near ι⁺. So the ι�
 those collected in ℰ^gr_K(ϰ). ∎
 
 As in [Hin26], a right side of size O(t_*^(−ϰ−2)) can set the black hole in motion. The s1 term is a centre-of-mass
-motion
-of size O(t_*^(−ϰ+1)), or O(log t_*) at ϰ = 1; at n = 4 there are four directions. In the v1 term, the summand
+motion of size O(t_*^(−ϰ+1)), or O(log t_*) at ϰ = 1; at n = 4 there are four directions. In the v1 term, the summand
 h_(b,v1)(a_v1V) is invisible at ι⁺ and is non-zero only for A ≠ 0 ([[prop:iii-d2-3-1]] (3)), an O(|A|) change of the
 rotation in 𝔰𝔬(4); the summand h̆¹_(b,v1)(a′_v1V) is visible there and reproduces h̄¹_v1. At n = 4 the boost and
 rotation states decay one order faster than in dimension 3 + 1 (ρ³, ρ², ρ³ against ρ², ρ, ρ; [[eq:iii-d2-3-4]]), so

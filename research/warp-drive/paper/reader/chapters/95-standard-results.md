@@ -3,9 +3,9 @@
 The proofs use the published results below as stated, without proof. Each is cited by its source, with its number and
 its page where given. Pages are those of the arXiv versions listed in the references; the arXiv text of [BGP] carries
 the book's page numbers, [See64] is cited by its journal page, [Mel93] by the page of the author's online edition
-(version 5.0E, 1993), and [DLMF] by equation number. Quotation marks enclose the source's own wording, transcribed into
-this edition's typography; an ellipsis marks words of the statement left out because no proof here depends on them.
-Inside each item the letters are the source's.
+(version 5.0E, 1993), [Hö90] and [RS1] by the pages of the printed books, and [DLMF] by equation number. Quotation
+marks enclose the source's own wording, transcribed into this edition's typography; an ellipsis marks words of the
+statement left out because no proof here depends on them. Inside each item the letters are the source's.
 
 ### Linear wave equations on Lorentzian manifolds {#sec:std-linear-wave}
 
@@ -87,11 +87,83 @@ after [Rie49].) Let V be an n-dimensional Minkowski space, with ⟨x, y⟩ = −
 □R_±(α + 2) = R_±(α)"; "(4) For every α ∈ ℂ ∖ ({0, −2, −4, …} ∪ {n − 2, n − 4, …}), we have supp(R_±(α)) = J_±(0)
 and sing supp(R_±(α)) ⊂ C_±(0)"; "(7) R_±(0) = δ_0".
 
-**Theorem {#thm:std-hormander-cauchy}** ([Hö85, Theorem 23.2.4] [[pending:literature-not-found]].) Let X be a manifold
-with a time-oriented Lorentzian metric, globally hyperbolic, and let P be a second-order differential operator on a
-vector bundle over X with smooth coefficients and principal symbol the dual metric times the identity. Let t be a time
-function whose level sets are Cauchy hypersurfaces. For f ∈ H^(s−1)_loc(X) with supp f ⊂ {t ≥ t0} there is
-u ∈ H^(s)_loc(X) with Pu = f and supp u ⊂ {t ≥ t0}.
+**Theorem {#thm:std-hormander-cauchy}** (The Cauchy problem for wave operators on Minkowski space; [BW15, Corollary 12,
+p. 15] and [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3 and Lemma 3.4.4, p. 89].) Let M = ℝ^(1+n) with the
+Minkowski metric and the Minkowski time t, and write J_±(A) = A + J_±(0) for the causal future and past of A ⊂ M. Let P
+be a normally hyperbolic operator ([[def:std-normally-hyperbolic]]) acting on ℂ^N-valued functions on M, with smooth
+coefficients. Let s ∈ ℤ, t0 ∈ ℝ and f ∈ H^(s−1)_loc(M; ℂ^N) with supp f ⊂ {t ≥ t0}. Then there is exactly one
+u ∈ 𝒟′(M; ℂ^N) with Pu = f and supp u ⊂ {t ≥ t0}; it lies in H^(s)_loc(M; ℂ^N), and supp u ⊂ J_+(supp f).
+
+If the principal symbol of a second-order operator Q is the dual metric function times the identity, then Q or −Q is
+normally hyperbolic, the sign depending only on the convention for principal symbols, and the theorem applies to Q
+with f replaced by ±f.
+
+The proof uses the following two results. Distributions act on test functions through the bilinear pairing
+∫ φ · u dV, and P^* denotes the formally dual operator, ∫ φ · (Pψ) dV = ∫ (P^*φ) · ψ dV; "if P is a wave operator,
+then so are its formally dual operator … and its formally adjoint operator" [BW15, Section 1.8, p. 12]. Here 𝒟
+denotes smooth sections with compact support.
+
+(1) [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3 and Lemma 3.4.4, p. 89]. "A linear map G_+ : 𝒟(M, E) →
+C^∞(M, E) satisfying (i) P ∘ G_+ = id_(𝒟(M,E)), (ii) G_+ ∘ P|_(𝒟(M,E)) = id_(𝒟(M,E)), (iii) supp(G_+φ) ⊂
+J^M_+(supp(φ)) for all φ ∈ 𝒟(M, E), is called an advanced Green's operator for P. Similarly, a linear map G_− :
+𝒟(M, E) → C^∞(M, E) satisfying (i), (ii), and (iii′) supp(G_−φ) ⊂ J^M_−(supp(φ)) for all φ ∈ 𝒟(M, E) instead of
+(iii) is called a retarded Green's operator for P." Corollary 3.4.3: "Let M be a globally hyperbolic Lorentzian
+manifold. Let P be a normally hyperbolic operator acting on sections in a vector bundle E over M. Then there exist
+unique advanced and retarded Green's operators G_± : 𝒟(M, E) → C^∞(M, E) for P." Lemma 3.4.4: on a globally
+hyperbolic manifold, with G_± the Green's operators for P and G^*_± "the Green's operators for the adjoint operator P^*",
+
+    ∫_M (G^*_± φ) · ψ dV = ∫_M φ · (G_∓ ψ) dV      (3.9)
+
+"holds for all φ ∈ 𝒟(M, E^*) and ψ ∈ 𝒟(M, E)".
+
+(2) [BW15, Corollary 12, p. 15]. For a wave operator P (a second-order operator whose principal symbol is given by the
+metric, P = −Σ g^(ij) ∂²/∂x^i∂x^j + lower order terms, [BW15, Section 1.8, p. 12]) on a globally hyperbolic manifold
+with Cauchy temporal function t, and Σ[t0, t1] := t⁻¹([t0, t1]) (p. 14): "Let [T0, T1] ⊂ t(M) and let K ⊂ M be
+compact. Let k ∈ ℕ. Then there exists a constant C > 0 such that
+
+    ‖u‖²_(H^k(Σ[t0,t1])) ≤ C · (‖u|_(Σ_t0)‖²_(H^k(Σ_t0)) + ‖∇_t u‖²_(H^(k−1)(Σ_t0)) + ‖Pu‖²_(H^(k−1)(Σ[t0,t1])))
+
+holds for all t0, t1 ∈ [T0, T1] with t0 < t1 and for all u ∈ C^∞_(J(K))(M)." Here ℕ = {1, 2, 3, …} (p. 3),
+J(K) = J_+(K) ∪ J_−(K), and C^∞_(J(K))(M) is the space of smooth sections supported in J(K) (p. 5). On M = ℝ^(1+n),
+with the Minkowski time and the trivial connection, ‖·‖_(H^k(Σ[t0,t1])) is, on functions supported in a fixed compact
+set, equivalent to the norm (Σ_(|α|≤k) ‖∂^α u‖²_(L²))^(1/2) over the slab {t0 < t < t1} ([BW15, Section 1.6.1, p. 7]).
+Reversing the time orientation makes −t a Cauchy temporal function, so (2) also holds with the data taken on Σ_t1.
+
+*Proof.* *Uniqueness.* For every p ∈ M the set {t ≥ t0} ∩ J_−(p) is compact, so a distribution supported in
+{t ≥ t0} has past compact support; by [[thm:std-bgp-cauchy]] (2), Pu = 0 and supp u ⊂ {t ≥ t0} imply u = 0.
+
+*Reduction to compact support.* Let (χ_j) be a locally finite smooth partition of unity on M by functions with
+compact supports, and f_j := χ_j f ∈ H^(s−1)(ℝ^(1+n); ℂ^N). Suppose that for every j there is u_j ∈ H^(s)_loc with
+Pu_j = f_j and supp u_j ⊂ J_+(supp f_j). A compact set L meets J_+(supp f_j) only if supp f_j meets the compact set
+J_−(L) ∩ {t ≥ t0}, so only finitely many u_j are nonzero near L. Hence u := Σ_j u_j lies in H^(s)_loc, Pu = f, and
+supp u ⊂ ⋃_j J_+(supp f_j) ⊂ supp f + J_+(0) ⊂ {t ≥ t0}.
+
+So let g ∈ H^(s−1)(ℝ^(1+n); ℂ^N) have compact support K, and let G_± and G^*_± be the Green's operators of P and of
+P^* given by (1).
+
+*The case s ≥ 1.* Let ρ_ε be a standard mollifier and g_k := ρ_(1/k) ∗ g. It is smooth, supported in the closed
+(1/k)-neighbourhood K_k of K, and g_k → g in H^(s−1). Put u_k := G_+ g_k: it is smooth, Pu_k = g_k and
+supp u_k ⊂ J_+(K_k) ⊂ J_+(K_1). Fix T0 < min_(K_1) t and T1 > T0. The functions u_k − u_l are supported in J(K_1) and
+vanish with their t-derivatives on {t = T0}, so (2) with k = s and K = K_1 gives
+
+    ‖u_k − u_l‖_(H^s(Σ[T0,T1])) ≤ C ‖g_k − g_l‖_(H^(s−1)(ℝ^(1+n))).
+
+As T1 is arbitrary and u_k = 0 for t < T0, (u_k) converges in H^(s)_loc(M) to some u with Pu = g, and
+supp u ⊂ ⋂_k (K_k + J_+(0)) = K + J_+(0) = J_+(K).
+
+*The case s ≤ 0.* Put m := 1 − s ≥ 1, so g ∈ H^(−m). Let χ ∈ C_c^∞(M) equal 1 near K. For φ ∈ 𝒟(M; ℂ^N) put
+
+    u(φ) := g(χ G^*_− φ).
+
+If supp φ lies in a compact set L, choose T1 > max_L t and T0 < min_(supp χ) t. Then w := G^*_− φ is smooth,
+P^* w = φ, and w is supported in J_−(L) ⊂ {t ≤ max_L t}, so w and ∂_t w vanish on {t = T1}. By (2) for P^* with the
+data on Σ_T1, with K = L and k = m, ‖w‖_(H^m(Σ[T0,T1])) ≤ C ‖φ‖_(H^(m−1)); as χw is supported in {T0 < t < T1},
+
+    |u(φ)| ≤ ‖g‖_(H^(−m)) ‖χw‖_(H^m) ≤ C_L ‖φ‖_(H^(m−1)),      supp φ ⊂ L.
+
+So u is a distribution, and ψu ∈ H^(1−m) for every ψ ∈ C_c^∞(M), that is, u ∈ H^(s)_loc. For φ ∈ 𝒟,
+G^*_− P^* φ = φ by (1) (ii), so (Pu)(φ) = u(P^*φ) = g(χφ) = g(φ): Pu = g. If supp φ ∩ J_+(K) = ∅, then
+J_−(supp φ) ∩ K = ∅, so χ G^*_− φ vanishes near K and u(φ) = 0; hence supp u ⊂ J_+(K). ∎
 
 ### Quasilinear hyperbolic systems {#sec:std-hyperbolic}
 
@@ -471,12 +543,63 @@ a smooth vector bundle of rank r over M equipped with fiber metric ⟨·, ·⟩_
 L^∞(M, E)). Suppose s ∈ ℝ and p ∈ (1, ∞) are such that sp > n. Then W^(s,p)(M, E) ↪ L^∞(M, E). Moreover, every element
 u in W^(s,p)(M, E) has a continuous version."
 
-**Theorem {#thm:std-moser-taylor}** ([Tay11, Chapter 13, Propositions 3.6–3.7] [[pending:literature-not-found]].) Moser
-estimates for products in Sobolev spaces: for s ≥ 0,
+**Theorem {#thm:std-bh17-embedding}** ([BH17, Theorem 7.27, p. 56].) "Let Ω be a nonempty bounded open subset of ℝⁿ with
+Lipschitz continuous boundary. Suppose 1 ≤ p, q < ∞ (p does not need to be less than or equal to q) and 0 ≤ t ≤ s
+satisfy s − n/p ≥ t − n/q. Then W^(s,p)(Ω) ↪ W^(t,q)(Ω). In particular, W^(s,p)(Ω) ↪ W^(t,p)(Ω)." For an integer
+k ≥ 0, W^(k,p)(Ω) is the space of u ∈ L^p(Ω) with ‖u‖_(W^(k,p)(Ω)) := Σ_(|ν|≤k) ‖∂^ν u‖_(L^p(Ω)) < ∞ [BH17,
+Definition 7.11, p. 50]; W^(0,q)(Ω) = L^q(Ω).
 
-    ‖fg‖_(H^s) ≤ C (‖f‖_(L^∞) ‖g‖_(H^s) + ‖f‖_(H^s) ‖g‖_(L^∞)),
+**Theorem {#thm:std-moser-taylor}** ([GO13, Theorem 1, (2), p. 2].) With J^s := (1 − Δ)^(s/2) on ℝⁿ (p. 1): "Let
+1/2 < r < ∞, 1 < p_1, p_2, q_1, q_2 ≤ ∞ satisfy 1/r = 1/p_1 + 1/q_1 = 1/p_2 + 1/q_2. Given s > max(0, n/r − n) or
+s ∈ 2ℕ, there exists a constant C = C(n, s, r, p_1, q_1, p_2, q_2) < ∞ such that for all f, g ∈ 𝒮(ℝⁿ) we have …
 
-in the form needed on uniformly local Sobolev spaces of ℝ² × 𝕊³.
+    ‖J^s(fg)‖_(L^r(ℝⁿ)) ≤ C(s, n) [‖f‖_(L^(p_1)(ℝⁿ)) ‖J^s g‖_(L^(q_1)(ℝⁿ))
+                                   + ‖J^s f‖_(L^(p_2)(ℝⁿ)) ‖g‖_(L^(q_2)(ℝⁿ))]      (2)."
+
+For r = 2, p_1 = q_2 = ∞ and q_1 = p_2 = 2 the condition on s is s > 0, and (2) reads, for f, g ∈ 𝒮(ℝⁿ),
+
+    ‖fg‖_(H^s) ≤ C (‖f‖_(L^∞) ‖g‖_(H^s) + ‖f‖_(H^s) ‖g‖_(L^∞)),      ‖u‖_(H^s) := ‖J^s u‖_(L²).      {#eq:std-moser}
+
+**Corollary {#cor:std-moser-product}** (Moser's product estimate.) Let s ≥ 1 be an integer.
+
+(1) If f, g ∈ H^s(ℝⁿ) ∩ L^∞(ℝⁿ), then fg ∈ H^s(ℝⁿ) and [[eq:std-moser]] holds with the same constant.
+
+(2) Let N be a compact manifold without boundary, of dimension d, with a smooth Riemannian metric, let k ≥ 0, and let
+X := ℝ^k × N carry the product metric and its measure. Let W_1, …, W_q be smooth vector fields on N spanning TN at
+every point, 𝒱 := {∂_(z_1), …, ∂_(z_k), W_1, …, W_q}, and let H^s(X) be the space of u ∈ L²(X) with V_1 ⋯ V_j u ∈
+L²(X) for all V_i ∈ 𝒱 and j ≤ s, normed by the sum of the L²-norms of these derivatives. There is C with
+
+    ‖fg‖_(H^s(X)) ≤ C (‖f‖_(L^∞) ‖g‖_(H^s(X)) + ‖f‖_(H^s(X)) ‖g‖_(L^∞)),      f, g ∈ H^s(X) ∩ L^∞(X).
+
+(3) Let 0 ≤ χ ∈ C_c^∞(ℝ^k) with Σ_(j∈ℤ^k) χ(z − j) = 1, put χ_j(z, y) := χ(z − j) on X and
+‖u‖_(H^s_ul(X)) := sup_j ‖χ_j u‖_(H^s(X)). Then the bound of (2) holds with the uniformly local norms in place of the
+H^s(X)-norms, for all f, g ∈ L^∞(X) whose uniformly local norms are finite.
+
+*Proof.* (1) For integer s the norm ‖J^s u‖_(L²) is equivalent to (Σ_(|α|≤s) ‖∂^α u‖²_(L²))^(1/2), by Plancherel's
+theorem. Let θ ∈ C_c^∞(ℝⁿ) with 0 ≤ θ ≤ 1 and θ = 1 near 0, let ρ_ε be a standard mollifier, and put
+f_k := θ(·/k)(ρ_(1/k) ∗ f) and g_k := θ(·/k)(ρ_(1/k) ∗ g). These are Schwartz functions with ‖f_k‖_(L^∞) ≤ ‖f‖_(L^∞)
+and ‖g_k‖_(L^∞) ≤ ‖g‖_(L^∞), and f_k → f, g_k → g in H^s: ρ_(1/k) ∗ f → f in H^s, and by Leibniz's rule
+∂^α(θ(·/k)v) − θ(·/k)∂^α v is a sum of terms k^(−|β|)(∂^β θ)(·/k) ∂^(α−β) v with β ≠ 0, while θ(·/k)∂^α v → ∂^α v in
+L² by dominated convergence. So the right side of [[eq:std-moser]] for (f_k, g_k) is at most ‖f‖_(L^∞)‖g_k‖_(H^s) +
+‖f_k‖_(H^s)‖g‖_(L^∞), which converges to the right side for (f, g). Further ‖f_k g_k − fg‖_(L²) ≤ ‖f_k − f‖_(L²)
+‖g‖_(L^∞) + ‖f(g_k − g)‖_(L²), and along a subsequence g_k → g almost everywhere with |f(g_k − g)| ≤ 2‖g‖_(L^∞)|f|,
+so f_k g_k → fg in L² and J^s(f_k g_k) → J^s(fg) as tempered distributions. The J^s(f_k g_k) are bounded in L²; a
+subsequence converges weakly in L², its limit is J^s(fg), and its norm is at most the limit inferior of the norms.
+
+(2) Choose charts κ_i : U_i → ℝ^d, i = 1, …, I, of N, functions φ_i ∈ C_c^∞(U_i) with Σ_i φ_i² = 1 and ψ_i ∈
+C_c^∞(U_i) equal to 1 near supp φ_i. For v on X supported in ℝ^k × supp ψ_i let v^(i) := v ∘ (id × κ_i⁻¹), extended
+by zero to ℝ^(k+d). On ℝ^k × supp ψ_i the fields of 𝒱 have, in the coordinates (z, κ_i), coefficients bounded with
+all their derivatives, they span the tangent spaces, and the measure has a density bounded above and below; so there
+is C with C⁻¹‖v‖_(H^s(X)) ≤ ‖v^(i)‖_(H^s(ℝ^(k+d))) ≤ C‖v‖_(H^s(X)) for such v, and multiplication by φ_i or ψ_i is
+bounded on H^s(X). As u = Σ_i φ_i(φ_i u), ‖u‖_(H^s(X)) ≤ C Σ_i ‖(φ_i u)^(i)‖_(H^s). Now (φ_i fg)^(i) =
+(ψ_i f)^(i) (φ_i g)^(i), and (1) gives
+
+    ‖fg‖_(H^s(X)) ≤ C Σ_i (‖f‖_(L^∞) ‖(φ_i g)^(i)‖_(H^s) + ‖(ψ_i f)^(i)‖_(H^s) ‖g‖_(L^∞))
+                  ≤ C (‖f‖_(L^∞) ‖g‖_(H^s(X)) + ‖f‖_(H^s(X)) ‖g‖_(L^∞)).
+
+(3) Let supp χ ⊂ {|z|_∞ ≤ R}, R a positive integer, and χ̃_j := Σ_(|l−j|_∞ ≤ 2R) χ_l. Then χ̃_j = 1 on supp χ_j,
+0 ≤ χ̃_j ≤ 1, χ_j fg = (χ̃_j f)(χ_j g), and ‖χ̃_j f‖_(H^s(X)) ≤ (4R + 1)^k ‖f‖_(H^s_ul(X)). Applying (2) to χ̃_j f and
+χ_j g and taking the supremum over j gives the bound. ∎
 
 **Theorem {#thm:std-kato-ponce}** ([GO13, p. 1].) Grafakos and Oh recall the commutator estimate of Kato and Ponce
 (T. Kato, G. Ponce, Comm. Pure Appl. Math. 41 (1988) 891–907): with J^s := (1 − Δ)^(s/2) on ℝⁿ, for Schwartz functions
@@ -700,8 +823,92 @@ Theorem 3.4 are satisfied when α0 < α and α1 > α are sufficiently close to �
 Then for any α ∈ [α0, α1], the operator P is a Fredholm operator as in (3.23)." It also places the generalized
 inverse in the calculus with bounds.
 
-**Theorem {#thm:std-mazzeo-melrose}** ([MM87] [[pending:literature-not-found]].) Operators of the small 0-calculus
-Ψ^m_0(X) are bounded on the weighted 0-Sobolev spaces x^α H^s_0(X) → x^α H^(s−m)_0(X).
+**Theorem {#thm:std-mazzeo-melrose}** (Boundedness of the small 0-calculus; [Usu26, Definition 2.1, p. 11; p. 26;
+Theorem 5.20 (1), p. 119] and [MM87, Lemma (5.10), p. 284].) Let X be a compact manifold with boundary, of dimension
+n + 1, x a boundary defining function and ω a smooth positive density on X.
+
+(1) [Usu26, p. 11]. X²_0 = [X²; ∂Δ] is the blow-up of X² at the boundary of its diagonal Δ; its boundary
+hypersurfaces are lf and rf, the lifts of ∂X × X and X × ∂X, and the front face ff_0; Δ_0 is the lifted diagonal,
+β_0 : X²_0 → X² the blow-down map and β_(0,R) the lift of the right projection. Definition 2.1: "Let m ∈ ℝ. We denote
+by Ψ^m_0(X) the space of operators A ∈ Op(X) whose Schwartz kernels K_A lift via β_0 to elements
+
+    κ_A ∈ 𝒜^((∞,∞,0))_phg I^m(X²_0, Δ_0; r_(ff_0)^(−n−1) β^*_(0,R) D¹_X).
+
+This means that κ_A is a section of r_(ff_0)^(−n−1) β^*_(0,R) D¹_X vanishing to infinite order at the faces lf, rf,
+smooth across ff_0, and with an interior conormal singularity of order m along Δ_0." Here Op(X) is the class of
+continuous linear operators Ċ^∞(X) → C^(−∞)(X), D¹_X is the density bundle of X, and r_(ff_0) is a boundary defining
+function of ff_0.
+
+(2) [Usu26, p. 26 and footnote 6, p. 119]. L²_b(X) is the space of functions on X° that are square integrable with
+respect to x⁻¹ω. For an integer k ≥ 0, H^k_0(X) is "the space of L²_b functions u on X such that, for any set
+V_1, …, V_j ∈ 𝒱_0(X) with j ≤ k, the weak multiple 0-derivative V_1 ⋯ V_j u is still in L²_b(X)", where 𝒱_0(X)
+is the space of smooth vector fields on X vanishing at ∂X, and x^δ H^k_0(X) := {x^δ u : u ∈ H^k_0(X)}, normed by
+means of a finite set of 0-vector fields spanning ⁰TX at every point.
+
+(3) [Usu26, Theorem 5.20 (1), p. 119]: "If P ∈ Ψ^m_0(X), then P is bounded as a map x^δ H^(k+m)_0(X) →
+x^δ H^k_0(X) for every k and δ." Here m ∈ ℤ and k, k + m ≥ 0 ([Usu26, p. 26]). [Usu26] gives this with the
+attribution to [Maz91, Theorem 3.25, Corollary 3.23 and Proposition 3.29] and [Lau03, Theorem 5.2.2].
+
+(4) [MM87, Lemma (5.10), p. 284]: "The space 𝒱_0 of vector fields on X acting on the left factor of X × X lifts under
+b into the Lie algebra, 𝒱_l, of those C^∞ vector fields on X ×_0 X tangent to the front and bottom faces and vanishing
+at the top face." Here X ×_0 X = X²_0, b = β_0, the top face is lf and the bottom face is rf.
+
+(5) Operators on 0-half-densities. Let ν = x^(−n−1)ω̃, with ω̃ a smooth positive density, be a smooth positive
+0-density on X. Then A ↦ (u ↦ ν^(−1/2) A(u ν^(1/2))) maps the operators of [Hin23e, Definition 1.1, p. 3], whose
+Schwartz kernels are the elements of I^m(X²_0, diag_0, KD_0) that vanish to infinite order at lb ∪ rb, with
+KD_0 = π^*_L(⁰Ω^(1/2)X) ⊗ π^*_R(⁰Ω^(1/2)X) [Hin23e, (1.2)], onto Ψ^m_0(X) of (1). Indeed ν^(1/2) ⊗ ν^(1/2) lifts to a
+smooth nowhere vanishing section of KD_0, so these kernels are c ν^(1/2) ⊗ ν^(1/2) with c conormal of order m at Δ_0,
+smooth across ff_0 and vanishing to infinite order at lf ∪ rf; the corresponding right density is
+c (β^*_(0,R) x)^(−n−1) β^*_(0,R) ω̃, and β^*_(0,R) x = r_(ff_0) r_rf a with a smooth and positive, so the factor
+r_rf^(−n−1) is absorbed by the vanishing of c at rf, and conversely.
+
+**Corollary {#cor:std-zero-sobolev}** (All integer orders.) In the setting of [[thm:std-mazzeo-melrose]], for integers
+k ≥ 0 and δ ∈ ℝ let x^δ H^(−k)_0(X) be the dual space of x^(−δ) H^k_0(X) for the pairing ⟨u, v⟩ := ∫ u v x⁻¹ω.
+Then x^δ L²_b(X) embeds injectively and densely into x^δ H^(−k)_0(X). Let m ≤ 0 be an integer, δ ∈ ℝ and
+P ∈ Ψ^m_0(X). For every k ∈ ℤ there is C with
+
+    ‖Pu‖_(x^δ H^k_0(X)) ≤ C ‖u‖_(x^δ H^(k+m)_0(X)),      u ∈ C_c^∞(X°),
+
+so P extends to a bounded map x^δ H^(k+m)_0(X) → x^δ H^k_0(X); for k, k + m ≥ 0 this is the map of
+[[thm:std-mazzeo-melrose]] (3).
+
+*Proof.* (a) *Density.* C_c^∞(X°) is dense in x^δ H^j_0(X) for every integer j ≥ 0. Let χ ∈ C^∞(ℝ) vanish on
+(−∞, 1] and equal 1 on [2, ∞), and put φ_ε := χ(x/ε). In a collar [0, 1)_x × ∂X the 0-vector fields are combinations
+with smooth coefficients of x∂_x and of xY, Y a vector field on ∂X; since (x∂_x)^a φ_ε = ((t∂_t)^a χ)(x/ε) and
+xYφ_ε = 0, every product V_1 ⋯ V_l φ_ε with V_i ∈ 𝒱_0(X) and l ≥ 1 is bounded uniformly in ε ∈ (0, 1/2] and is
+supported in {ε ≤ x ≤ 2ε}. By Leibniz's rule and dominated convergence, φ_ε v → v in x^δ H^j_0(X) for every
+v ∈ x^δ H^j_0(X). The function φ_ε v has compact support in X°, where the 0-vector fields span the tangent spaces, and
+mollification in coordinate charts gives approximants in C_c^∞(X°). Since C_c^∞(X°) is dense in x^(−δ)H^j_0(X), the map
+taking u ∈ x^δ L²_b(X) to ⟨u, ·⟩ is injective; its range is dense, because x^(−δ) H^j_0(X) is reflexive and an element
+of it annihilated by all ⟨u, ·⟩, u ∈ x^δ L²_b(X), vanishes. So C_c^∞(X°) is dense in every x^δ H^k_0(X), k ∈ ℤ.
+
+(b) *Weights.* The lifts of x and of x′ = x ∘ π_R to X²_0 are r_lf r_(ff_0) a and r_rf r_(ff_0) a′ with a, a′ smooth
+and positive, so (x/x′)^δ is a smooth positive function times r_lf^δ r_rf^(−δ). Multiplying an element of
+𝒜^((∞,∞,0))_phg I^m by it gives again such an element; hence x^(−δ) P x^δ ∈ Ψ^m_0(X). As u ↦ x^δ u maps H^j_0(X)
+isometrically onto x^δ H^j_0(X) for j ≥ 0, and by duality (⟨x^δ u, x^(−δ) v⟩ = ⟨u, v⟩) also for j < 0, it suffices to
+take δ = 0.
+
+(c) *Transposes and compositions.* Write κ_P = b r_(ff_0)^(−n−1) β^*_(0,R) ω, with b ∈ 𝒜^((∞,∞,0))_phg I^m, so that
+K_P(z, z′) = k(z, z′) ω(z′) with β_0^* k = b r_(ff_0)^(−n−1). The transpose P^t, ⟨Pu, v⟩ = ⟨u, P^t v⟩ for
+u, v ∈ C_c^∞(X°), has kernel k(z′, z) x(z) x(z′)⁻¹ ω(z′). The exchange of the factors of X² preserves ∂Δ, so it lifts
+to a diffeomorphism R of X²_0 that preserves Δ_0 and ff_0 and exchanges lf and rf. The lift of k(z′, z) x(z) x(z′)⁻¹ is
+(x/x′)(b ∘ R)((r_(ff_0) ∘ R)/r_(ff_0))^(−n−1) r_(ff_0)^(−n−1), and by (b) the first three factors form an element of
+𝒜^((∞,∞,0))_phg I^m; so P^t ∈ Ψ^m_0(X). For V ∈ 𝒱_0(X) the kernel of VP lifts to Ṽ(b r_(ff_0)^(−n−1)) β^*_(0,R) ω,
+where Ṽ is the lift of V acting on the left factor; by (4) Ṽ is a smooth vector field tangent to every boundary
+hypersurface of X²_0, so Ṽ(b r_(ff_0)^(−n−1)) = (Ṽb − (n + 1)(Ṽ r_(ff_0)/r_(ff_0)) b) r_(ff_0)^(−n−1) with
+Ṽ r_(ff_0)/r_(ff_0) smooth and Ṽb ∈ 𝒜^((∞,∞,0))_phg I^(m+1); so VP ∈ Ψ^(m+1)_0(X). Finally Ψ^(m′)_0(X) ⊂ Ψ^m_0(X)
+for m′ ≤ m.
+
+(d) *The bounds,* with δ = 0. For u ∈ C_c^∞(X°), Pu ∈ H^j_0(X) for every j ≥ 0, by (3). If k ≥ 0 and k + m ≥ 0, the
+bound is (3). If k ≤ 0 and k + m ≤ 0, then for u, v ∈ C_c^∞(X°)
+
+    |⟨Pu, v⟩| = |⟨u, P^t v⟩| ≤ ‖u‖_(H^(k+m)_0) ‖P^t v‖_(H^(−k−m)_0) ≤ C ‖u‖_(H^(k+m)_0) ‖v‖_(H^(−k)_0)
+
+by (3) for P^t, and the bound follows by the density in (a). As m ≤ 0, the remaining case is k > 0 > k + m. Then
+‖Pu‖_(H^k_0) is bounded by a constant times the sum of ‖V_1 ⋯ V_j P u‖_(L²_b) over j ≤ k and V_i in a finite
+spanning set of 𝒱_0(X); by (c) V_1 ⋯ V_j P ∈ Ψ^(k+m)_0(X), and the previous case, with target order 0 and order
+k + m ≤ 0, bounds each term by C‖u‖_(H^(k+m)_0). The extension agrees with the map of (3) on the dense subspace
+C_c^∞(X°). ∎
 
 **Theorem {#thm:std-relative-index}** ([Mel93, Theorem 6.5, p. 214].) Let X be a compact manifold with boundary whose
 boundary has p components. For P ∈ Diff^m_b(X; E, F) elliptic and a multiweight a ∈ ℝ^p,
@@ -719,8 +926,13 @@ Here rank_j(z) is the rank of the zero z of the indicial family at the j-th boun
 and the difference is minus the sum of the ranks of the points of spec_b(P) between the two lines Im z = −α and
 Im z = −α′".
 
-**Theorem {#thm:std-analytic-fredholm}** ([RS1, Theorem VI.14].) Let D ⊂ ℂ be open and connected, 𝓗 a Hilbert space,
-and F : D → 𝓛(𝓗) analytic with F(z) compact for every z ∈ D. If Id + F(z0) is invertible for one z0 ∈ D, then
+**Theorem {#thm:std-analytic-fredholm}** ([RS1, Theorem VI.14, p. 201].) Let D ⊂ ℂ be open and connected, 𝓗 a Hilbert
+space, and f : D → 𝓛(𝓗) analytic with f(z) compact for every z ∈ D. Then either (I − f(z))⁻¹ exists for no z ∈ D, or
+(I − f(z))⁻¹ exists for all z ∈ D ∖ S, where S is a discrete subset of D; in the second case (I − f(z))⁻¹ is
+meromorphic in D and analytic in D ∖ S, its residues at the poles are finite rank operators, and for z ∈ S the
+equation f(z)ψ = ψ has a nonzero solution in 𝓗.
+
+Applied to f = −F: if F : D → 𝓛(𝓗) is analytic with compact values and Id + F(z0) is invertible for one z0 ∈ D, then
 (Id + F(z))⁻¹ exists for z off a discrete set S ⊂ D, and it is meromorphic on D with finite-rank residues.
 
 ### Special functions and the Fourier–Laplace transform {#sec:std-special}
@@ -747,17 +959,31 @@ z → ∞ with ν fixed,
 
     H^(2)_ν(z) ∼ (2/(πz))^(1/2) e^(−iω) Σ_(k=0)^∞ (−i)^k a_k(ν)/z^k,   −2π + δ ≤ ph z ≤ π − δ      (10.17.6).
 
-**Theorem {#thm:std-dlmf-modified}** ([DLMF, (10.25.1), (10.28.2), (10.30.2), (10.40.1)–(10.40.2)].) The modified
-Bessel equation is z² w″ + z w′ − (z² + ν²) w = 0 (10.25.1), with solutions I_ν and K_ν. Their Wronskian is
-𝒲{K_ν(z), I_ν(z)} = 1/z (10.28.2). As z → 0, K_ν(z) ∼ (1/2) Γ(ν) (z/2)^(−ν) for Re ν > 0 (10.30.2). As z → ∞,
-I_ν(z) ∼ e^z (2πz)^(−1/2)(1 + O(1/z)) and K_ν(z) ∼ (π/(2z))^(1/2) e^(−z)(1 + O(1/z)) ((10.40.1)–(10.40.2), first
-terms).
+**Theorem {#thm:std-dlmf-modified}** ([DLMF, (10.25.1)–(10.25.3), (10.28.2), (10.30.2), (10.40.1)–(10.40.2), (10.17.1),
+(2.1.13)–(2.1.14)].) The modified Bessel equation is z² w″ + z w′ − (z² + ν²) w = 0 (10.25.1). Its standard solutions
+are I_ν, defined by the series (10.25.2), and K_ν, characterised by K_ν(z) ∼ (π/(2z))^(1/2) e^(−z) "as z → ∞ in
+|ph z| ≤ 3π/2 − δ (< 3π/2)" (10.25.3). Their Wronskian is
 
-**Theorem {#thm:std-paley-wiener}** ([Hö83, Theorem 7.3.1] [[pending:literature-not-found]].) Let K be a convex compact
-subset of ℝⁿ with supporting function H(ξ) = sup_(x∈K) ⟨x, ξ⟩. If u is a distribution of order N with support in K,
-then its Fourier–Laplace transform û(ζ) = u(e^(−i⟨·,ζ⟩)) is entire and
+    𝒲{K_ν(z), I_ν(z)} = I_ν(z) K_(ν+1)(z) + I_(ν+1)(z) K_ν(z) = 1/z      (10.28.2).
+
+"When ν is fixed and z → 0", K_ν(z) ∼ ½ Γ(ν) (½z)^(−ν) for Re ν > 0 (10.30.2). As z → ∞ with ν fixed,
+
+    I_ν(z) ∼ (e^z/(2πz)^(1/2)) Σ_(k=0)^∞ (−1)^k a_k(ν)/z^k,   |ph z| ≤ π/2 − δ      (10.40.1),
+
+    K_ν(z) ∼ (π/(2z))^(1/2) e^(−z) Σ_(k=0)^∞ a_k(ν)/z^k,   |ph z| ≤ 3π/2 − δ      (10.40.2),
+
+with a_0(ν) = 1 (10.17.1). By the definition of an asymptotic expansion, f(x) = Σ_(s=0)^(n−1) a_s x^(−s) + O(x^(−n))
+for each n (2.1.13)–(2.1.14), the first terms give I_ν(z) = e^z (2πz)^(−1/2)(1 + O(1/z)) and
+K_ν(z) = (π/(2z))^(1/2) e^(−z)(1 + O(1/z)) as z → ∞ in these sectors, in particular for z > 0.
+
+**Theorem {#thm:std-paley-wiener}** ([Hö90, Theorem 7.3.1, p. 181].) For a compact set K ⊂ ℝⁿ the supporting function
+is H(ξ) = sup_(x∈K) ⟨x, ξ⟩, ξ ∈ ℝⁿ, and the Fourier–Laplace transform of a distribution u with compact support is the
+entire function û(ζ) = u(e^(−i⟨·,ζ⟩)), ζ ∈ ℂⁿ. Let K be a convex compact subset of ℝⁿ with supporting function H. If u
+is a distribution of order N with support contained in K, then
 
     |û(ζ)| ≤ C (1 + |ζ|)^N e^(H(Im ζ)),   ζ ∈ ℂⁿ.
 
 Conversely, every entire analytic function in ℂⁿ satisfying an estimate of this form is the Fourier–Laplace transform
-of a distribution with support in K.
+of a distribution with support contained in K. If u ∈ C_c^∞(ℝⁿ) has support in K, there is for every N a constant C_N
+with |û(ζ)| ≤ C_N (1 + |ζ|)^(−N) e^(H(Im ζ)), ζ ∈ ℂⁿ; conversely, every entire analytic function in ℂⁿ satisfying
+these estimates for every N is the Fourier–Laplace transform of a function in C_c^∞(ℝⁿ) supported in K.
