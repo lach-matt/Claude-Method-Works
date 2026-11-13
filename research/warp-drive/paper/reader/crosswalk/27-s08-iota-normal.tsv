@@ -27,8 +27,8 @@ eq:ii-f-1-16	docket68/n1star/proof5/PART-II-F-IOTA.md:195	II.F (1.16)
 eq:ii-f-1-17	docket68/n1star/proof5/PART-II-F-IOTA.md:220	II.F (1.17)	
 sec:ii-f-1-4	docket68/n1star/proof5/PART-II-F-IOTA.md:225	II.F section 1.4	
 lem:ii-f-1-3	docket68/n1star/proof5/PART-II-F-IOTA.md:234	II.F Lemma 1.3	
-lem:ii-f-1-4	docket68/n1star/proof5/PART-II-F-IOTA.md:278	II.F Lemma 1.4	(a) states the compact sets L_p (eq:ii-f-lp) that II.F 6.3, 8.2 and Part VIII Step 4 build from it; t^flat written t^flat_* as in II.C Lemma 3.2
-eq:ii-f-lp	docket68/n1star/proof5/PART-II-F-IOTA.md:1929-1933; docket68/n1star/proof5/PART-II-F-IOTA.md:2575; docket68/n1star/proof5/PART-VIII-LINEAR.md:286-290	compact sets of II.F Lemma 1.4 (a) as used in II.F 6.3, 8.2 and Part VIII Step 4	risk R4: stated inside Lemma 1.4 (a)
+lem:ii-f-1-4	docket68/n1star/proof5/PART-II-F-IOTA.md:278	II.F Lemma 1.4	(a) states the compact sets L_p (eq:ii-f-lp) that II.F 6.3, 8.2 and Part VIII Step 4 build from it; t^flat written t^flat_* as in II.C Lemma 3.2; (a) also states the set L′_p without t_* ≤ t_*(p), valid when C′t_* ≤ τ′ (τ′ = t^flat_*, or τ′ = t_* with c ≥ 0), the form Part VIII Step 4 uses
+eq:ii-f-lp	docket68/n1star/proof5/PART-II-F-IOTA.md:1929-1933; docket68/n1star/proof5/PART-II-F-IOTA.md:2575; docket68/n1star/proof5/PART-VIII-LINEAR.md:286-290	compact sets of II.F Lemma 1.4 (a) as used in II.F 6.3, 8.2 and Part VIII Step 4	risk R4: stated inside Lemma 1.4 (a); L′_p (unlabelled, in the statement) is the Part VIII form
 sec:ii-f-2	docket68/n1star/proof5/PART-II-F-IOTA.md:316	II.F section 2	
 sec:ii-f-2-1	docket68/n1star/proof5/PART-II-F-IOTA.md:326	II.F section 2.1	
 eq:ii-f-2-1	docket68/n1star/proof5/PART-II-F-IOTA.md:333	II.F (2.1)	
@@ -52,7 +52,7 @@ prop:ii-f-3-1	docket68/n1star/proof5/PART-II-F-IOTA.md:692	II.F Proposition 3.1
 eq:ii-f-3-4	docket68/n1star/proof5/PART-II-F-IOTA.md:694	II.F (3.4)	
 rem:ii-f-families	docket68/n1star/proof5/PART-II-F-IOTA.md:700-707	II.F remark after Proposition 3.1	pointer to section 9 (F2) dropped
 sec:ii-f-3-2	docket68/n1star/proof5/PART-II-F-IOTA.md:709	II.F section 3.2	
-lem:ii-f-3-2	docket68/n1star/proof5/PART-II-F-IOTA.md:716	II.F Lemma 3.2	(d): the adjoint and commutator steps written out (program checks N2, N3, N6)
+lem:ii-f-3-2	docket68/n1star/proof5/PART-II-F-IOTA.md:716	II.F Lemma 3.2	(d): the adjoint and commutator steps written out (program checks N2, N3, N6); (c): the ¼-term written −¼(x_I∂_(x_I))², the sign of (1.10) and (1.13) (II.F:776 prints +¼)
 eq:ii-f-3-5	docket68/n1star/proof5/PART-II-F-IOTA.md:720	II.F (3.5)	
 eq:ii-f-3-6	docket68/n1star/proof5/PART-II-F-IOTA.md:723	II.F (3.6)	
 eq:ii-f-3-7	docket68/n1star/proof5/PART-II-F-IOTA.md:736	II.F (3.7)	
@@ -100,7 +100,7 @@ sec:ii-f-5-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1421	II.F section 5.3
 eq:ii-f-5-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1426	II.F (5.3)	
 eq:ii-f-5-4	docket68/n1star/proof5/PART-II-F-IOTA.md:1432	II.F (5.4)	
 lem:ii-f-5-4	docket68/n1star/proof5/PART-II-F-IOTA.md:1445	II.F Lemma 5.4	eigenvalues lambda_i written d_i; [Hin23e] Definition 1.2 quoted before the lemma
-lem:ii-f-5-5	docket68/n1star/proof5/PART-II-F-IOTA.md:1488	II.F Lemma 5.5	[Hin23e] Theorem 3.4 quoted in the proof; N' written M'
+lem:ii-f-5-5	docket68/n1star/proof5/PART-II-F-IOTA.md:1488	II.F Lemma 5.5	[Hin23e] Theorem 3.4 quoted in the proof; N' written M'; lift of 0-fields cited to [MM87] Lemma (5.10) p. 284, conormal classes to [Hin23e] p. 9; boundedness of the small 0-calculus marked pending:issue-1 ([MM87] does not state it)
 eq:ii-f-5-5	docket68/n1star/proof5/PART-II-F-IOTA.md:1493	II.F (5.5)	
 sec:ii-f-5-4	docket68/n1star/proof5/PART-II-F-IOTA.md:1537	II.F section 5.4	
 lem:ii-f-5-6	docket68/n1star/proof5/PART-II-F-IOTA.md:1544	II.F Lemma 5.6	N and Z_N written M and Z_M; Mellin variable lambda written zeta

@@ -20,8 +20,9 @@ max spec A and min spec A are its largest and smallest eigenvalues. h is the sem
 (^(*h), Re_h, Im_h, h_Γ) it denotes a fibre inner product, as in [[ch:s01]]. ℓ denotes Im z/h, except in
 [[prop:i-b-7-1]], where it is the exponent of the weight e^(ℓr). Large integers that bound orders are written M: the
 residual terms h^M and ‖u‖_(−M𝟏) of the estimates, the classes S^(−M𝟏), and the number of terms of a symbol
-expansion. The letter K occurs only with a subscript, for closed subsets of phase space (K_0, K_1, K_E, K_Γ, …), and
-in the deformation term ^(X)K of [[sec:i-b-7-1]]. Multi-orders are written in bold letters (𝐨, 𝐦, 𝐤, 𝐭).
+expansion; an M with a subscript (M_F, M_1, …) is a constant of the proof in which it occurs. The letter K occurs only
+with a subscript, for closed subsets of phase space (K_0, K_1, K_E, K_Γ, …), and in the deformation term ^(X)K of
+[[sec:i-b-7-1]]. Multi-orders are written in bold letters (𝐨, 𝐦, 𝐤, 𝐭).
 
 ### Setting, hypotheses and the theorem {#sec:i-b-1}
 
@@ -1971,13 +1972,13 @@ from those of the commutator computed in [[lem:i-a-4-8]] (there the diagonal ter
 α_1 ≥ 1; see [[rem:i-a-4-8-sign]]); [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]]
 does at fixed σ, and [[prop:i-b-5-7]] then needs no sign of it. (e) [Hin26c, (3.35)] defines
 H_(sc,h)^(s,𝗋,𝖻) = ρ^𝗋 h^𝖻 H_(sc,h)^s, which gives ‖u‖ = h^(−𝖻)‖⟨hD⟩^s(⟨x⟩^𝗋 u)‖ on ℝ^n, while the parenthesis
-after it prints ⟨x⟩^(−𝗋)u; we use w_𝐨 = ⟨ζ⟩^s⟨x⟩^𝗋h^(−𝖻), as (3.35) does. (f) The method differs in these points: one positive commutator scheme without
-regularisation, a priori estimates being proved for Schwartz functions and extended by density ([[sec:i-b-3]]);
-propagation with flow boxes depending on z, the difference 𝖧_z − 𝖧_(Re z) absorbed by ℓ𝒬 ([[prop:i-b-4-5]]), in place of
-the three regimes of [Hin26c, Propositions 9.19, 9.22, 9.23]; one radial lemma for all three radial sets
-([[lem:i-b-5-1]]); at R_out the large imaginary part written as W*M̃W − g_00, non-negative exactly ([[lem:i-b-5-4]]),
-which needs the remainder R_2 of [Hin26c, (9.49)] to be put into that form; matrix-valued defect measures, entering
-through tr and max spec ([[lem:i-b-6-2]]); the complex absorption written as Q̂_♭(σ̄)*Q̂_♭(σ), entire and of exact sign
-([[sec:i-b-6-5]]); a three lines lemma with its proof ([[lem:i-b-6-6]]) in place of [DZ19, Lemma D.1]; and the energy
-estimate at the artificial boundary for every Im z ≥ 0 through an exponential weight in r ([[prop:i-b-7-1]]), in place of
-[Hin25a, Theorem 9.44] for bounded h⁻¹ Im z.
+after it prints ⟨x⟩^(−𝗋)u; we use w_𝐨 = ⟨ζ⟩^s⟨x⟩^𝗋h^(−𝖻), as (3.35) does. (f) The method differs in these points: one
+positive commutator scheme without regularisation, a priori estimates being proved for Schwartz functions and extended by
+density ([[sec:i-b-3]]); propagation with flow boxes depending on z, the difference 𝖧_z − 𝖧_(Re z) absorbed by ℓ𝒬
+([[prop:i-b-4-5]]), in place of the three regimes of [Hin26c, Propositions 9.19, 9.22, 9.23]; one radial lemma for all
+three radial sets ([[lem:i-b-5-1]]); at R_out the large imaginary part written as W*M̃W − g_00, non-negative exactly
+([[lem:i-b-5-4]]), which needs the remainder R_2 of [Hin26c, (9.49)] to be put into that form; matrix-valued defect
+measures, entering through tr and max spec ([[lem:i-b-6-2]]); the complex absorption written as Q̂_♭(σ̄)*Q̂_♭(σ), entire
+and of exact sign ([[sec:i-b-6-5]]); a three lines lemma with its proof ([[lem:i-b-6-6]]) in place of [DZ19, Lemma D.1];
+and the energy estimate at the artificial boundary for every Im z ≥ 0 through an exponential weight in r
+([[prop:i-b-7-1]]), in place of [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z.

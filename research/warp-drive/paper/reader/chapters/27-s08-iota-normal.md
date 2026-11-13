@@ -1384,7 +1384,7 @@ Cx^ax′^b, which is covered by (i). So T_(α,α) is bounded.
 With a = α_1 and b = 3 − α_0, (i) and (ii) bound the residual parts of Q and Q′ on x^αL²(μ_b). Their kernels are
 conormal: by the definition of these classes in [Hin23e, Section 2, p. 9], a kernel of Ψ_0^(−∞,(α_lb,α_rb)) stays
 bounded by Cρ_lb^(α_lb)ρ_rb^(α_rb) after any number of smooth vector fields on X̂²_0 tangent to lb and rb are applied to
-it, and a kernel of Ψ^(−∞,(α_0,α_1)) likewise on X̂² with the vector fields tangent to its two boundary hypersurfaces.
+it, and a fully residual kernel likewise on X̂², with the vector fields tangent to its two boundary hypersurfaces.
 The 0-fields of the left factor lift to X̂²_0 as smooth vector fields tangent to ff and rb and vanishing at lb ([MM87,
 Lemma (5.10), p. 284], where lb is the top face and rb the bottom face), and those of the right factor, by the symmetry
 of X̂²_0 that exchanges the factors, as smooth vector fields tangent to ff and lb and vanishing at rb; on X̂² the

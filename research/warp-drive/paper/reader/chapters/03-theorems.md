@@ -13,8 +13,8 @@ env ∈ C_c^∞([v_start, v_end]), and let g0 be the Vaidya metric [[eq:backgrou
 C, depending on (l5, μ0, A, env, T, τ0, K) and the inner radius a of Ω, and not on λ, such that for every
 λ ∈ (0, λ0] there is a smooth Lorentzian metric g_λ on Ω ⊃ D_T ∩ {τ ≥ τ0} with:
 
-1. **Vacuum and symmetry.** Ric(g_λ) = 0 on Ω, and g_λ is invariant under the T² action and both reflections.
-2. **Data.** On Σ_τ0, the Cauchy data of g_λ satisfy the vacuum constraints exactly, equal the data of the seed
+1. *Vacuum and symmetry.* Ric(g_λ) = 0 on Ω, and g_λ is invariant under the T² action and both reflections.
+2. *Data.* On Σ_τ0, the Cauchy data of g_λ satisfy the vacuum constraints exactly, equal the data of the seed
    (five-dimensional Schwarzschild–Tangherlini of mass μ0) on r < v_start − τ0, and differ from those of an
    approximate solution g_app ([[thm:approximant]]) by O(λ^K) in the λ-scaled data norm: with w := g_λ − g_app
    and k = 6,
@@ -22,28 +22,29 @@ C, depending on (l5, μ0, A, env, T, τ0, K) and the inner radius a of Ω, and n
        Data(w) := ‖w‖ + Σ_(1≤j≤k+1) λ^(j−1) ‖∂_x^j w‖ + Σ_(j≤k) λ^j ‖∂_x^j ∂_τ w‖ ≤ C λ^K   on Σ_τ0;
 
    the leading oscillation of g_app is the waves of [[sec:waves]].
-3. **The remainder.** g_λ = g_app + w with |w| ≤ C λ^(K−3) and |∂w| ≤ C λ^(K−4) on Ω, where
-   g_app = g0 + λ [g1] + Σ_(j=2)^N λ^j [g_j] with smooth profiles g_j(X, θ), 2π-periodic in θ, evaluated at θ = v/λ.
-4. **Convergence.** |g_λ − g0| ≤ C λ and |∂g_λ| ≤ C on Ω; ∂g_λ − ∂g0 = dv ⊗ [∂_θ g1] + O(λ), so ∂g_λ → ∂g0 weakly
+3. *The remainder.* g_λ = g_app + w with |w| ≤ C λ^(K−3) and |∂w| ≤ C λ^(K−4) on Ω, where
+   g_app = g0 + λ [g1] + Σ_(j=2)^N λ^j [g_j], N = K + 3, with smooth profiles g_j(X, θ), 2π-periodic in θ, evaluated
+   at θ = v/λ.
+4. *Convergence.* |g_λ − g0| ≤ C λ and |∂g_λ| ≤ C on Ω; ∂g_λ − ∂g0 = dv ⊗ [∂_θ g1] + O(λ), so ∂g_λ → ∂g0 weakly
    in L²(Ω), and not strongly wherever env ≠ 0: the phase mean of ∂_θ g1 is 0 and that of its g0-norm squared is
    (4/3) A² env² r⁻³. The limit g0 satisfies Ric(g0) = (3 μ'/(2 r³)) dv ⊗ dv with [[eq:mu-rate]]: it is not vacuum
    but Einstein–null dust with one family.
-5. **Gauge and uniqueness.** D(g_λ) = 0 on Ω, and g_λ is the only C² solution g of Ric^H(g) = 0 on Ω with the data
+5. *Gauge and uniqueness.* D(g_λ) = 0 on Ω, and g_λ is the only C² solution g of Ric^H(g) = 0 on Ω with the data
    of g_λ on Σ_τ0 and |g − g0| ≤ ε1 on Ω, ε1 the number fixed in [[sec:profiles]].
-6. **The spheres' horizon.** If μ0 > √72 l5² and λ ≤ λ_H ([[prop:one-zero]]), the outgoing expansion of the spheres
+6. *The spheres' horizon.* If μ0 > √72 l5² and λ ≤ λ_H ([[prop:one-zero]]), the outgoing expansion of the spheres
    {v, r = const} has at most one zero on each column (v and the angles fixed), exactly one within C λ of √μ(v) on the
    columns that reach across it, the spheres with r ≤ √μ(v) − C λ being trapped and those with r ≥ √μ(v) + C λ
    untrapped: no inner zero, and the zero converges to √μ at O(λ) ([[prop:one-zero]]).
-7. **Mean mass.** For every sphere S_(v,r) in D_T ∩ {τ ≥ τ0}, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ²
+7. *Mean mass.* For every sphere S_(v,r) in D_T ∩ {τ ≥ τ0}, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ²
    before and after the shell (v ≤ v_start or v ≥ v_end), and ≤ C λ within it ([[prop:mean-mass]]).
 
-The construction fixes some constants explicitly: the order of the energy is k = 6, the approximant used has
-N = K + 3 stages, λ ≤ λ_Ω := min(1, δ0)/10 where δ0 := r_q(μ0) − a (a condition the construction imposes, not a
-bound below which the theorem holds: that is λ0), and the data are solved in H^s(S³) with s > 3/2 + 4
-([[ch:data]]). λ0 and C are not evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point. Every constant of
-the approximant's own estimates is independent of λ, because its profiles are ([[thm:approximant]]). The waves are
-high-frequency on all of D_T once λ < l5/10: on D_T, x_K = l5² √𝒦 ≤ 1, so the curvature length 𝒦^(−1/4) is at least
-l5, and λ 𝒦^(1/4) ≤ λ/l5 < 1/10.
+The construction fixes some constants explicitly: the order of the energy is k = 6, the approximant used has N = K + 3
+stages, λ ≤ λ_Ω := min(1, δ0)/10 with δ0 = q0 − a as in [[sec:domain]] (a condition the construction imposes, not a
+bound below which the theorem holds: that is λ0), and the data are solved in H^s(S³) with s > 3/2 + 4 ([[ch:data]]). λ0
+and C are not evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point. Every constant of the approximant's own
+estimates is independent of λ, because its profiles are ([[thm:approximant]]). The waves are high-frequency on all of
+D_T once λ < l5/10: on D_T, x_K = l5² √𝒦 ≤ 1, so the curvature length 𝒦^(−1/4) is at least l5, and λ 𝒦^(1/4) ≤ λ/l5
+< 1/10.
 
 **Proposition {#prop:boundary-spacelike}** (the boundary). On x_K = 1, with Φ := r − r_q(v),
 
@@ -51,7 +52,8 @@ l5, and λ 𝒦^(1/4) ≤ λ/l5 < 1/10.
 
 so, μ being at least μ0 ≥ √72 l5² throughout, the boundary is spacelike for g0 wherever μ > √72 l5² or μ' > 0, and
 every future causal curve that meets it leaves D_T there and does not return. If μ0 > √72 l5² the margin is uniform,
-g0⁻¹(dΦ, dΦ) ≤ −δ with δ := √(μ0/(√72 l5²)) − 1 > 0, and for g_λ the margin is −δ + C λ ≤ −δ/2 once C λ ≤ δ/2. If
+g0⁻¹(dΦ, dΦ) ≤ −δ_b with δ_b := √(μ0/(√72 l5²)) − 1 > 0, and for g_λ the margin is −δ_b + C λ ≤ −δ_b/2 once
+C λ ≤ δ_b/2. If
 μ0 = √72 l5² exactly, the boundary is the seed's horizon, and null for g_λ, on {v ≤ inf supp env}; after the shell
 starts it is spacelike for g_λ outside a layer whose width tends to 0 with λ ([[ch:equality-layer]]), and inside that
 layer, for λ small, every column has points where it is timelike for g_λ, so the no-return property stated above for
@@ -122,13 +124,13 @@ The vacuum constraints are G(N, ·) = 0 on Σ_τ0, and g⁻¹(n, n) < 0 by [[lem
 on Σ_τ0. The energy inequality of [[ch:inequalities]], applied to this system on Ω, with Gronwall's lemma, gives D = 0
 on Ω; then Ric(g) = 0. ∎
 
-*Proof of [[thm:main]].* Let g_app be the approximant of [[thm:approximant]] with N = K + 3 stages and stage data
-making its Cauchy data satisfy the constraints and D = 0 to order N − 2, and let the data on Σ_τ0 be those of
-[[thm:data]], which satisfy the constraints exactly, carry D = 0, equal the seed's data on r < v_start − τ0 and are
-within C λ^K of g_app's in the norm of item 2. [[thm:uniform-existence]] gives, for λ ≤ λ0, the solution g_λ of
-Ric^H(g) = 0 on Ω with these data, unique among C² solutions with these data and |g − g0| ≤ ε1 on Ω, together with
-the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. Taking λ0 so small that C λ0 ≤ ε1,
-[[lem:gauge-propagation]] gives D(g_λ) = 0 and Ric(g_λ) = 0. By [[lem:domain]] (f), D_T ∩ {τ ≥ τ0} lies in Ω.
+*Proof of [[thm:main]].* Let g_app be the approximant of [[thm:approximant]] with N = K + 3 stages and the stage data of
+[[lem:stage-data]], which make its Cauchy data satisfy the constraints and D = 0 to order N − 2, and let the data on
+Σ_τ0 be those of [[thm:data]], which satisfy the constraints exactly, carry D = 0, equal the seed's data on r <
+v_start − τ0 and are within C λ^K of g_app's in the norm of item 2. [[thm:uniform-existence]] gives, for λ ≤ λ0, the
+solution g_λ of Ric^H(g) = 0 on Ω with these data, unique among C² solutions with these data and |g − g0| ≤ ε1 on Ω,
+together with the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. Taking λ0 so small that C
+λ0 ≤ ε1, [[lem:gauge-propagation]] gives D(g_λ) = 0 and Ric(g_λ) = 0. By [[lem:domain]] (f), D_T ∩ {τ ≥ τ0} lies in Ω.
 
 Symmetry. Let ι be an element of G = O(2) × O(2), acting on x by an orthogonal matrix and fixing τ. It preserves r,
 v, η and dv, hence g0, Ω and Σ_τ0. Ric^H and D are built from g and g0 alone, so ι*g_λ solves Ric^H(ι*g_λ) = 0; its
@@ -136,12 +138,12 @@ data are ι* of the data of [[thm:data]], which are invariant under G ([[ch:data
 an orthogonal matrix, which preserves the Euclidean operator norm, so |ι*g_λ − g0| = |g_λ − g0| ≤ ε1. By the
 uniqueness of item 5, ι*g_λ = g_λ. This is item 1.
 
-Weak convergence. For a profile f and φ ∈ C_c^∞ in the interior of Ω, write f = Σ_n f_n(X) e^(inθ); the coefficients
-decay faster than any power of n, uniformly with their X-derivatives. Since ∂_τ v = 1, for n ≠ 0,
+Weak convergence. For a profile f and a test function u ∈ C_c^∞ in the interior of Ω, write f = Σ_n f_n(X) e^(inθ); the
+coefficients decay faster than any power of n, uniformly with their X-derivatives. Since ∂_τ v = 1, for n ≠ 0,
 
-    ∫ φ f_n e^(inv/λ) = (λ/(in)) ∫ φ f_n ∂_τ e^(inv/λ) = −(λ/(in)) ∫ ∂_τ(φ f_n) e^(inv/λ) = O(λ/|n|),
+    ∫ u f_n e^(inv/λ) = (λ/(in)) ∫ u f_n ∂_τ e^(inv/λ) = −(λ/(in)) ∫ ∂_τ(u f_n) e^(inv/λ) = O(λ/|n|),
 
-so ∫ φ [f] → ∫ φ ⟨f⟩, and, [f] being bounded, [f] → ⟨f⟩ weakly in L²(Ω). By [[thm:approximant]] the oscillating part of
+so ∫ u [f] → ∫ u ⟨f⟩, and, [f] being bounded, [f] → ⟨f⟩ weakly in L²(Ω). By [[thm:approximant]] the oscillating part of
 g1 is W_TT at a shifted phase plus a term χ dv ⊗ dv, so [[prop:limit]] gives ⟨∂_θ g1⟩ = 0 and ⟨|∂_θ g1|²_(g0)⟩ = (4/3)
 A² env² r⁻³. Hence dv ⊗ [∂_θ g1] → 0 weakly, which with item 3 is the weak convergence of item 4. Applying the same
 limit to the profile |dv ⊗ ∂_θ g1|², the Euclidean square of the array, shows that ‖dv ⊗ [∂_θ g1]‖²_(L²(U)) tends to ∫_U
@@ -157,8 +159,9 @@ Items 2, 3 and 5 are those of [[thm:data]] and [[thm:uniform-existence]]; items 
 **Theorem {#thm:past-construction}** (the construction from past null infinity). Let the waves at past null infinity
 be the free data [F], [G] of [[sec:waves]], on the background of [[thm:main]]. For every K ≥ 6 there is λ_P > 0
 such that for 0 < λ ≤ λ_P there is a smooth vacuum metric g_λ, in the wave-map gauge relative to g0, on Ω together
-with a past domain P: the region τ ≤ τ0, r ≥ a, below an outer boundary v + (1/2)(1 + τ0 − τ)^(−1/4) = V_P that is
-spacelike, chosen so that P and Ω share the slice Σ_τ0. It satisfies:
+with a past domain P: the region τ ≤ τ0, r ≥ a, below the outer boundary v + (1/2)(1 + τ0 − τ)^(−1/4) = V_P, where
+V_P := V + 1 + (τ_end − τ0) + 1/2; this boundary is spacelike and meets Σ_τ0 where the outer boundary of Ω does, so
+that P and Ω share the slice Σ_τ0 ([[ch:past-construction]]). It satisfies:
 
 1. g_λ = g0 for v ≤ v_start: before the shell, the black hole exactly;
 2. its radiation field at past null infinity is the prescribed one: at every fixed v < V_P and x̂,
@@ -207,7 +210,7 @@ with P1, P2, β, U, W − 1 expanded in r_B^(−1/2) to order r_B^(−3) with o(
 2. W = 1 + r_B^(−3/2) V1 − r_B^(−2) M + O(r_B^(−5/2)), with V1 a divergence on S³ and the mass aspect M obeying,
    pointwise, the five-dimensional Bondi law of [TTS09] (28), time-reversed,
 
-       ∂_v M = (4/3)(∂_v p1² + ∂_v p1 ∂_v p2 + ∂_v p2²),                                            {#eq:bondi-law}
+       ∂_v M = (4/3)((∂_v p1)² + ∂_v p1 ∂_v p2 + (∂_v p2)²),                                            {#eq:bondi-law}
 
    with M = μ0 for v_B ≤ v_start;
 3. the Bondi mass μ_B(v) := ⟨M(v, ·)⟩, the mean over S³, therefore obeys, exactly,
@@ -249,31 +252,31 @@ the exterior and its spatially compact subsets, the slowly rotating Myers–Perr
 named below are defined there.
 
 **Theorem {#thm:settling}** (settling). Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter of the stability theory, with
-0 < ε_K < ε_+ < min(δ♯, ε_ind, ℓ_I − 3, 1/4) for some ℓ_I ∈ (3, ℓ0), δ♯ = (1 − e_Υ) γ_Υ and ε_ind the index
-distance, such that no parameter exponent z at timelike infinity (a discrete set fixed before these constants) has
-real part in (3, 3 + ε_+] (the condition (G⁺) of [[ch:s23]]), and none has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K],
-nor z + d_c0, z + d_c1 in (2, 2 + ε_K], d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots (the gap (G) of
-[[ch:s21]], with [[def:iii-i10-1-3]] and the parameter conditions of [[ch:s27]]) [[pending:stability-parameters]];
-and fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K large enough
-and on a domain enlarged as in [[ch:after-shell]]. For every ε_m > 0 there are λ1 > 0 and δ > 0, depending on ε_m
-and ε, such that for λ ≤ λ1:
+0 < ε_K < ε_+ < min(δ♯, ε_ind, ℓ_I − 3, 1/4) for some ℓ_I ∈ (3, ℓ0), δ♯ = (1 − e_Υ) γ_Υ and ε_ind the index distance
+([[eq:iii-i9-1-1]], [[eq:iii-f1-2-2]]), such that no parameter exponent z at timelike infinity (a discrete set fixed
+before these constants) has real part in (3, 3 + ε_+] (the condition (G⁺), [[def:iii-j-g-plus]]), and none has real part
+in (2, 2 + ε_K] ∪ (3, 3 + ε_K], nor z + d_c0, z + d_c1 in (2, 2 + ε_K], d_c0, d_c1 ∈ (0, 1) being the offsets of the two
+class roots ([[def:iii-i9-gap]]) (the gap (G), [[def:iii-i10-1-3]]; [[ch:s27]] collects these conditions with the other
+choices of parameters); and fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K
+large enough and on a domain enlarged as in [[ch:after-shell]]. For every ε_m > 0 there are λ1 > 0 and δ > 0, depending
+on ε_m and ε, such that for λ ≤ λ1:
 
 (i) (in the class) the data of g_λ on Hintz's initial surface, continued G-equivariantly to exact Tangherlini data
 beyond a ball ([[ch:after-shell]]), have a G-invariant vacuum development, with the same data as g_λ on that ball,
 which settles to five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m: its difference from that metric
 is O(t*^(−2−ε)) in spatially compact subsets of the exterior;
 
-(ii) (without symmetry) every smooth vacuum data set on the same surface whose difference from the data of (i) is
-small in Hintz's data class — polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the
-metric and r^(−3) and r^(−4) in the second fundamental form, and conormal remainders in r^(−ℓ0) H_b^∞ and
-r^(−ℓ0−1) H_b^∞ — has a vacuum development that, its initial slice boosted by a Lorentz boost below ε_m, settles at
-the same rate to a Myers–Perry black hole of mass m′ with |m′ − μ_end| < ε_m and spin below ε_m.
+(ii) (without symmetry) every smooth vacuum data set on the same surface whose difference from the data of (i) lies
+in Hintz's data class — polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric and
+r^(−3) and r^(−4) in the second fundamental form, and conormal remainders in r^(−ℓ0) H_b^∞ and r^(−ℓ0−1) H_b^∞ — and has
+norm less than δ in that class has a vacuum development that, its initial slice boosted by a Lorentz boost below ε_m,
+settles at the same rate to a Myers–Perry black hole of mass m′ with |m′ − μ_end| < ε_m and spin below ε_m.
 
 [[thm:settling]] is proved in [[ch:settling-proof]], from the stability theory of [[part:stability]] to
-[[part:stability-nonlinear]], which is Hintz's proof of the nonlinear stability of Kerr [Hin26] carried into five
-dimensions and written out in full at n = 4. Gluing a perturbation far out to a boosted Myers–Perry metric replaces
-its data near infinity, on which the solution near the hole at late times depends; so (ii) is stated for perturbations
-in Hintz's own data class, where his theorem applies without gluing, and [[ch:after-shell]] determines which decaying
+[[part:stability-nonlinear]], which is Hintz's proof of the nonlinear stability of Kerr [Hin26] carried into spacetime
+dimension n + 1 = 5 and written out in full. Gluing a perturbation far out to a boosted Myers–Perry metric replaces its
+data near infinity, on which the solution near the hole at late times depends; so (ii) is stated for perturbations in
+Hintz's own data class, where his theorem applies without gluing, and [[ch:after-shell]] determines which decaying
 perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
 
 The linear statement is proved with it, as the nonlinear theorem's linearisation at the Tangherlini data
@@ -290,34 +293,40 @@ differs from this one there by a linearised diffeomorphism L_X g, X unique up to
 
 The remaining chapters prove the following; each is stated in full where it is proved.
 
-- **After the shell.** On {v > v_end} every oscillating profile of the approximant vanishes, the estimate of
+- *After the shell.* On {v > v_end} every oscillating profile of the approximant vanishes, the estimate of
   [[thm:uniform-existence]] holds at every order of derivatives, and the data near the hole are small in every norm
   [[thm:settling]] uses; equivariant gluing matches the mass alone. The perturbations to which [[thm:settling]] (ii)
   applies, directly or through gluing uniformly in the gluing radius, are exactly those small in Hintz's class
   ([[ch:after-shell]]).
-- **Beyond the boundary.** The development of [[thm:settling]] (i) also reaches inside the black hole after the shell,
+- *Beyond the boundary.* The development of [[thm:settling]] (i) also reaches inside the black hole after the shell,
   up to the curvature boundary, and on the common domain of dependence it and g_λ are one spacetime
   ([[prop:interior]]). The development of g_λ's own data settles, with no gluing, in a data class wider than (ii)'s by
   half-integer orders, for every λ below a threshold and with no exceptional set ([[thm:own-data]]).
-- **The linear solution in two gauges.** In a Regge–Wheeler-type gauge the gauge vector is explicit, and the
+- *The linear solution in two gauges.* In a Regge–Wheeler-type gauge the gauge vector is explicit, and the
   perturbation settles to the change of mass on each region r ≤ R, the horizon included, at the linear rate with two
   derivatives lost ([[thm:rw-settling]]). In the harmonic gauge a representative exists on the whole domain, induces
-  the given data and settles at the rate τ^(−min(p,3/2)+ε), p the order of decay of its spherically symmetric gauge
-  data at spatial infinity ([[thm:harmonic-rate]]).
-- **The constants of [[thm:settling]].** The loss d of the tame estimates and the regularity N_NM = 21d + 6 of the
+  the given data and settles on each region r ≤ R to μ̇K* + c π_(W*), the gauge-fixed change of mass plus a multiple of
+  the pure-gauge solution of an explicit stationary one-form W*, at the rate τ^(−min(p,3/2)+ε), where p > 1/2 + 2γ_Υ
+  is the order of decay of its spherically symmetric gauge data at spatial infinity and γ_Υ a parameter of the gauge
+  of the stability theory ([[thm:harmonic-rate]]).
+- *The constants of [[thm:settling]].* The loss d of the tame estimates and the regularity N_NM = 21d + 6 of the
   Nash–Moser step, with explicit upper bounds at a parameter point that lies outside the proved set ([[thm:loss-d]]),
   explicit resolvent bounds on five-dimensional Tangherlini ([[ch:resolvent-bounds]]), and where explicit evaluation
   of λ1 and δ stops ([[ch:explicit-constants]]).
-- **More families.** Two crossing radial null dusts, one ingoing and one outgoing, with the background, the
+- *More families.* Two crossing radial null dusts, one ingoing and one outgoing, with the background, the
   approximant, the uniform estimate and the data ([[thm:two-dusts]]); Cauchy stability of the class
-  Einstein–null-dust system on compact domains, the axes included ([[thm:class-stability]]); restricted massless
-  Vlasov limits as weak limits of class vacuum metrics ([[thm:vlasov]]); and exactly localised data, whose charge has
-  a sign that forbids them outside the horizon and admits them inside ([[thm:charge-sign]]).
-- **The boundary at equality.** If μ0 = √72 l5², the curvature boundary is spacelike for g_λ away from a layer at the
+  Einstein–null-dust system, without smallness, on compact domains of the type of Ω, for caustic-free dusts, the axes
+  included where the lateral boundaries meeting them are adapted to the dust ([[thm:class-stability]]); restricted
+  massless Vlasov limits, for fields that are caustic-free families of dusts meeting the hypotheses stated there, as
+  weak limits of class vacuum metrics along odd numbers of dusts ([[thm:vlasov]]); and exactly localised vacuum data
+  near the data of [[thm:main]], of the form background + εδ + O(ε²) with δ not a gauge perturbation and ε small: on
+  every band of the initial slice that meets the inside of the apparent horizon such data exist, while on bands outside
+  it the sign of their second-order charge excludes them when δ is invariant ([[thm:charge-sign]]).
+- *The boundary at equality.* If μ0 = √72 l5², the curvature boundary is spacelike for g_λ away from a layer at the
   start of the shell, where timelike curves of g_λ cross it ([[thm:layer]], [[cor:layer]]), and at the very edge of
   the layer the character of the boundary is decided column by column ([[thm:very-edge]]).
-- **Physical wavelengths.** An upper bound for λ0 at a numerical point, and the first stage's mean correction there
-  ([[prop:lambda0]]); at the prescribed wavelength 10 l5 there is no separation of scales, and existence holds where
-  the solution is the seed ([[thm:ten-l5]]).
+- *Physical wavelengths.* An upper bound for λ0 at a numerical point, and an approximate value, which is not proved, of
+  the first stage's mean correction there ([[prop:lambda0]]); at the prescribed wavelength 10 l5 there is no separation
+  of scales, and existence holds where the solution is the seed ([[thm:ten-l5]]).
 
 [[ch:scope]] collects what is claimed and what is not.
