@@ -1252,3 +1252,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   product) and the edition proves neither; corrected to a fixed loss 3, absorbed by every use (also lem:iii-k-2-2 (d)).
   Chapter texts for these are in reports/F-P-U71-close.md, for the d-bound integration round.
 - R3-87 CONFIRMED (no findings): chapter 87 CONFIRMED. Chapter 90 is the last writer.
+- P-K83c done. FOR THE FINAL REPORT: chapter 83's cone data with dust (m4) rests on a characteristic initial value
+  problem for five-dimensional Einstein-null dust that no published theorem covers (Luk-Rodnianski is 3+1 only); the
+  chapter states only what holds and names the loss. Its localisation (c) drops radial localisation inside the lens.

@@ -13,10 +13,9 @@ the cut-offs of that proof, whose non-local zones near the axes are not saturate
 here. lem:class-volterra supplies one ingredient, the uniqueness of the leaf issued from an axis point, and
 lem:class-leaf-differences (b) another. The lemma below proves the needed uniqueness on non-annular regions near an
 axis, by an energy estimate on a region whose three lateral pieces are spacelike. Insert it after the end of the proof
-of thm:loc-bent-slice (the line ending "3.25 × 10⁻⁴ < 3.3 × 10⁻⁴ for ε small. ∎", which Block 3 replaces) and before
-rem:loc-band-grid. Its statement fixes the constant 3.3 × 10⁻⁴ of thm:loc-bent-slice (c); the causal-curve argument
-of the old paragraph "The angular widening" is no longer needed and Block 3 removes it. New labels:
-lem:loc-lens-dependence, eq:loc-lens-region, eq:loc-lens-shear. -->
+of thm:loc-bent-slice, as Block 3 leaves it, and before rem:loc-band-grid. Its statement fixes the constant
+3.3 × 10⁻⁴ of thm:loc-bent-slice (c); the causal-curve argument of the old paragraph "The angular widening" is no
+longer needed and Block 3 removes it. New labels: lem:loc-lens-dependence, eq:loc-lens-region, eq:loc-lens-shear. -->
 
 **Lemma {#lem:loc-lens-dependence}** (Dependence across the lens.) Let Ω_L, t and δ1 be as in the proof of
 [[thm:loc-bent-slice]] (c), and let (g, u_A, q_A) be the development constructed there. Let 3.3 × 10⁻⁴ < α < π/2, and
@@ -160,8 +159,9 @@ most k − 1, and those of its inverse, are bounded independently of s and of ε
 to a diffeomorphism of R⁴ equal to the identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a
 bounded Lipschitz domain of the x-space. Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the
 average over G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By [[thm:std-sy-extension]] and [[thm:std-ly-extension]] (Lemma 27 there),
-𝔼_s is bounded on L² and on H^(k−1), with a bound C_E depending on α but not on s or ε; and 𝔼_s f = f on 𝒟_s for
-invariant f, 𝒟_s being invariant.
+𝔼_s is bounded on L² and on H^(k−1), the norms of the compositions depending only on bounds for the derivatives of
+ψ_s and ψ_s⁻¹ (chain rule and change of variables, as in the proof of [[thm:class-kato]] (b) (ii)); so its bound C_E
+depends on α but not on s or ε. And 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.
 
 *The bound.* Let U be the development's state (g, ∂g, p, Θ, q) on 𝒟_s, with Θ = □_g u_in, ů the background's state on
 the slice, which the background defines on the sets 𝒰_2δ(p_i) as well, and Ŭ := ů + 𝔼_s 𝔡(s). Then Ŭ = U on 𝒟_s, and
