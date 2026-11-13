@@ -117,9 +117,9 @@ where σ is the planar shear of the level sets of u_in in the slices {t = s}. Fi
 in a slice with ρ1(p_i) = 3.4, 3.8, …, 5.8; then δ ≤ ρ1(p_i)/4, and [[lem:class-leaf-differences]], for the background
 and the ingoing family, holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
 0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then on 𝒟,
-the square |∇²u_in|² is χ_Z S_ax + (1 − χ_Z) S_loc. Where χ_Z ≠ 1, S_loc is a smooth function of (g, ∂g, p, Θ), since there
-g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of [[prop:class-augmented]] (a)); where χ_Z ≠ 0,
-S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near axis 2.
+the square |∇²u_in|² is χ_Z S_ax + (1 − χ_Z) S_loc. Where χ_Z ≠ 1, S_loc is a smooth function of (g, ∂g, p, Θ),
+since there g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of [[prop:class-augmented]] (a));
+where χ_Z ≠ 0, S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near axis 2.
 
 Put w := g − g0 and 𝔡 := (w, ∂_t w, ∂_x w, p − p̊, Θ − Θ̊, q − q̊). Write (i) in the first-order form of Step 9 of the
 proof of [[thm:class-stability-off-axes]], in the chart (t, x), with the difference of the principal parts taken as
