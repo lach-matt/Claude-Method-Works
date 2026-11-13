@@ -127,12 +127,13 @@ there, of the same sign when g⁻¹du_A and g⁻¹du_B have the same time orient
 one with gradient a multiple of the outgoing covector.
 (d) d(Σ n_A f_A(v)) = (Σ n_A f_A′) dv and g⁻¹(dv, dv) = 0. ∎
 
-At an axis point the gradient of a phase with g⁻¹du future directed is a multiple of dv or of the outgoing covector,
-of the sign fixed by that time orientation; it is not always a positive multiple, since the dτ-component 1 − μ/r² of
-the outgoing covector is negative where r² < μ, which Ω reaches. So in (c) the quotient of [HL18, Definition 4.1]
-equals 1 for two families of one orientation. With densities
-that vanish near the axes, separation is needed only on the overlaps of the supports, and any finite number of separated
-families is possible, for instance non-radial phases of different ellipsoids supported away from the axes.
+At an axis point the gradient of a phase u with g0⁻¹du future directed is a negative multiple of dv or of the outgoing
+covector, at every r: g0⁻¹(dτ, dv) = −1 and g0⁻¹(dτ, (1 − μ/r²) dτ − (1 + μ/r²) dr) = −1 − μ/r² are negative, so g0⁻¹dv
+and g0⁻¹ of the outgoing covector are past directed. The sign of du(∂_τ) is no normalisation, the dτ-component 1 − μ/r²
+of the outgoing covector changing sign at r² = μ, which Ω reaches. So in (c) the quotient of [HL18, Definition 4.1]
+equals 1 for two families of one orientation. With densities that vanish near the axes, separation is needed only on
+the overlaps of the supports, and any finite number of separated families is possible, for instance non-radial phases
+of different ellipsoids supported away from the axes.
 
 ### The class Einstein–null-dust system {#sec:class-system-def}
 
@@ -393,6 +394,13 @@ and the Cauchy–Schwarz inequality, ∫ |ŵ| dξ ≤ ‖(1 + |ξ|²)^(σ/2) ŵ�
 for σ > d/2 and ‖∂w‖_(L^∞) ≤ C ‖w‖_(H^σ) for σ > d/2 + 1. We fix C_S ≥ 1 with ‖w‖_(L^∞) ≤ C_S ‖w‖_(H^(s−1)) and
 ‖w‖_(W^(1,∞)) ≤ C_S ‖w‖_(H^s).
 
+For an integer σ ≥ 0, a *bound of order σ* for a function Φ of (t, x, u), such as A^μ or a forcing term, is an
+increasing function of R ≥ 0 that bounds |∂_t^a ∂_x^β ∂_u^γ Φ| on [0, T0] × R^d × {|u| ≤ R} for a + |β| ≤ σ and
+|γ| ≤ σ. By ∂(A^0)⁻¹ = −(A^0)⁻¹ (∂A^0) (A^0)⁻¹, each such derivative of (A^0)⁻¹ is a sum of products of (A^0)⁻¹ and
+of derivatives ∂_t^(a_i) ∂_x^(β_i) ∂_u^(γ_i) A^0 with Σ a_i = a, Σ β_i = β and Σ γ_i = γ; as |(A^0)⁻¹| ≤ c0⁻¹, c0 and
+a bound of order σ for A^0 give one for (A^0)⁻¹. At the order s the constants of this section depend on the
+coefficients and on local forcing terms only through bounds of order s (the paragraph after [[rem:class-kato-local]]).
+
 *Mollifiers.* Let φ ∈ C_c^∞(R^d) be even and nonnegative with integral one, φ_ε(x) := ε^(−d) φ(x/ε) and J_ε u := φ_ε ∗ u.
 J_ε is self-adjoint on L², commutes with every ∂^α, and does not increase the norms of L², L^∞ and H^σ; ‖∂_j J_ε u‖ ≤
 ‖∂_j φ‖_(L¹) ε⁻¹ ‖u‖ by Young's inequality; and since |φ̂(εξ) − 1| ≤ min(2, ε |ξ| ∫ |z| φ(z) dz) ≤ C (ε |ξ|)^β for
@@ -406,7 +414,8 @@ give the bound.
 
 **Lemma {#lem:class-composition}** (Products and compositions.) Let σ ≥ 1 be an integer, and let Φ be a smooth
 function of (t, x, u) ∈ [0, T0] × R^d × R^m, with values in a space of matrices, every derivative of which is bounded
-on [0, T0] × R^d × {|u| ≤ R} for every R. Constants C(·) are increasing functions depending on d, σ and Φ.
+on [0, T0] × R^d × {|u| ≤ R} for every R. Constants C(·) are increasing functions of their argument R, depending only
+on d, σ and a bound for |∂_x^β ∂_u^γ Φ| on [0, T0] × R^d × {|u| ≤ R}, |β| ≤ σ, |γ| ≤ σ.
 
 (a) For f_1, …, f_ℓ ∈ H^σ ∩ L^∞ and multi-indices α_1, …, α_ℓ with |α_1| + … + |α_ℓ| ≤ σ, every component product
 satisfies ‖∂^(α_1) f_1 ⋯ ∂^(α_ℓ) f_ℓ‖ ≤ C Σ_i ‖f_i‖_(H^σ) Π_(j≠i) ‖f_j‖_(L^∞), C depending on d, σ and ℓ.
@@ -435,7 +444,7 @@ product by C ‖u‖_(H^σ) ‖u‖_(L^∞)^(ℓ−1); for α = 0, |Φ(t, x, u) 
 Schwartz u_n → u in H^σ with ‖u_n‖_(L^∞) ≤ ‖u‖_(L^∞); Φ(t, ·, u_n) − Φ(t, ·, 0) converges to Φ(t, ·, u) − Φ(t, ·, 0)
 in L² and is bounded in H^σ, so the limit lies in H^σ with the same bound.
 (c) By Leibniz's rule ∂^α(Φ(u) y) = Σ_(β≤α) (α choose β) ∂^(α−β)[Φ(u)] ∂^β y, and ∂^(α−β)[Φ(u)] is the sum of
-terms of (b), now including ℓ = 0, (∂_x^(β′) Φ)(t, x, u). Terms with ℓ = 0 are bounded functions times ∂^β y; those
+terms of (b), including also ℓ = 0, (∂_x^(β′) Φ)(t, x, u). Terms with ℓ = 0 are bounded functions times ∂^β y; those
 with ℓ ≥ 1 are bounded functions times products of derivatives of u and of y of total order at most σ, bounded by (a)
 by C(‖u‖_(L^∞)) (‖u‖_(H^σ) ‖y‖_(L^∞) + ‖y‖_(H^σ)). The approximation is that of (b).
 (d) [∂^α, Φ(u)] y = Σ_(0<β≤α) (α choose β) ∂^β[Φ(u)] ∂^(α−β) y. Choose a unit multi-index e ≤ β and write ∂^β[Φ(u)] =
@@ -443,9 +452,15 @@ by C(‖u‖_(L^∞)) (‖u‖_(H^σ) ‖y‖_(L^∞) + ‖y‖_(H^σ)). The app
 order at least one as a derivative of some ∂_(e′) u, each term is a function bounded by C(‖u‖_(W^(1,∞))) times a
 product of derivatives of the functions ∂_(e′) u and of y of total order at most |α| − 1 ≤ σ − 1. By (a) at the order
 σ − 1 (for σ = 1 the products are bounded functions times y), with ‖∂u‖_(H^(σ−1)) ≤ ‖u‖_(H^σ) and ‖∂u‖_(L^∞) ≤
-‖u‖_(W^(1,∞)), each is at most C(‖u‖_(W^(1,∞))) (‖y‖_(H^(σ−1)) + ‖u‖_(H^σ) ‖y‖_(L^∞)). ∎
+‖u‖_(W^(1,∞)), each is at most C(‖u‖_(W^(1,∞))) (‖y‖_(H^(σ−1)) + ‖u‖_(H^σ) ‖y‖_(L^∞)). For general u and y take
+the approximations of (b); the commutators converge as distributions and are bounded in L², so the bound passes to the
+limit, ‖∂u_n‖_(L^∞) ≤ ‖u‖_(W^(1,∞)) + o(1).
+In (b)–(d), Φ enters only through derivatives ∂_x^β ∂_u^γ Φ with |β| ≤ σ and |γ| ≤ σ, evaluated at u or, in the
+first part of (b), between 0 and u: the chain rule for ∂^α, |α| ≤ σ, produces |β| + |γ| ≤ |α| in (b) and (c), the
+first part of (b) uses ∂_u ∂_x^α Φ, and in (d) the derivative ∂^β, |β| ≤ σ, falls on Φ(t, x, u) in the same way, so
+that the constants depend on Φ only through a bound for these derivatives. ∎
 
-The iteration below solves, at each step, a linear problem, and the energy inequalities it needs are proved now.
+The iteration below solves, at each step, a linear problem, and the energy inequalities it needs are proved first.
 
 **Lemma {#lem:class-kato-linear}** (The linear problem.) Let 0 < T ≤ T0, and let v map [0, T] into H^s with
 ‖v(t)‖_(H^s) ≤ 𝔐 and ‖v(t) − v(t′)‖_(H^(s−1)) ≤ 𝔐′ |t − t′| for t, t′ ∈ [0, T]. Put 𝐀^μ(t, x) := A^μ(t, x, v(t, x)),
@@ -617,10 +632,10 @@ is a solution on [0, T*]. *Uniqueness.* Let u, ũ be solutions on [0, T] with th
 u(t)‖_(H^(s−1)) is bounded, so v := u satisfies the hypotheses of [[lem:class-kato-linear]], and z := u − ũ solves the
 linear problem with coefficients at u, data 0 and forcing term F(t, u) − F(t, ũ) − (A^μ(u) − A^μ(ũ)) ∂_μ ũ (∂_0 := ∂_t),
 continuous into L² with norm at most C ‖z‖, by (F2) and the bounds on ∂ũ. Part (a) of the lemma and Gronwall's
-inequality give z = 0. *Continuation.* The hypotheses are unchanged under t ↦ t − t1 on [t1, T0]. With K_1 := sup_(t<T2)
-‖u(t)‖_(H^s), the first part from the time t1 with data u(t1) gives a solution on [t1, t1 + T*(K_1)], T*(K_1) not
-depending on t1; for t1 > T2 − T*(K_1) it agrees with u on [t1, T2) by uniqueness, and the two together form a solution
-on [0, min(t1 + T*(K_1), T0)].
+inequality give z = 0. *Continuation.* The hypotheses are unchanged under t ↦ t − t1 on [t1, T0]. With 𝔐_2 := sup_(t<T2)
+‖u(t)‖_(H^s), the first part from the time t1 with data u(t1) gives a solution on [t1, t1 + T*(𝔐_2)], T*(𝔐_2) not
+depending on t1; for t1 > T2 − T*(𝔐_2) it agrees with u on [t1, T2) by uniqueness, and the two together form a solution
+on [0, min(t1 + T*(𝔐_2), T0)].
 
 (b) (i) z := u − ũ lies in C¹([t1, t2]; L²) ∩ C([t1, t2]; H^(s−1)), by [[eq:class-interpolation]], so z and its first
 derivatives lie in L² on Ω_t := Ω ∩ {t1 ≤ t′ ≤ t}, and z is bounded. The matrices 𝐀^μ := A^μ(t, x, u) are Lipschitz in
@@ -672,7 +687,9 @@ the functions C_F, L and C′, and the bounds on the A^μ and their derivatives 
 ψ_t(y)). Let (F4) and (F5) hold with u_* := ū_e, the extension defined in the proof. Then for data u0 on Σ_0 with ‖u0
 − ū(0)‖_(H^s(Σ_0)) ≤ ε0 the system has a solution on Ω ∩ {t ≤ T}: the restriction to Ω of a solution on [0, T] of the
 system with a forcing term equal to F on every Σ_t. It is the only such restriction within r_b of ū_e, and the
-conclusions of (a) hold for it with R = 0 and every norm taken on Σ_t, the constants depending also on Ω.
+conclusions of (a) hold for it with R = 0 and every norm taken on Σ_t, the constants depending also on Ω. The
+hypothesis on ū ∘ Ψ in (b) is stronger than continuity of ū into H^s(Σ_t); no result of this paper uses (b), and none
+needs it for a ū with that weaker regularity.
 
 With R = 0, (a) is the stability of an exact solution. If ū solves the system with coefficients Ā^μ and forcing term F̄,
 it satisfies [[eq:class-kato-approximate]] with R := (A^μ(t, x, ū) − Ā^μ(t, x, ū)) ∂_μ ū − F(t, ū) + F̄(t, ū); so (a)
@@ -684,11 +701,12 @@ finite: by [[eq:class-kato-approximate]], ‖∂_t ū(t)‖_(H^(s−1)) is bound
 (a) with u(0) = u0 on its maximal interval [0, T_m) ∩ [0, T], and put q(t) := ‖u(t) − ū(t)‖_(W^(1,∞)) + ‖∂_t u(t) −
 ∂_t ū(t)‖_(L^∞). q is continuous: u and ū are continuous into H^(s′) for s′ < s by [[eq:class-interpolation]], and
 H^(s′) ⊂ W^(1,∞) for s′ > d/2 + 1; and by their equations ∂_t u and ∂_t ū are continuous into L^∞, since F(t, u(t))
-and R are continuous into L² and bounded in H^s, hence continuous into H^(s″) ⊂ L^∞ for d/2 < s″ < s. Let T* be the
-supremum of the t < min(T_m, T) with q ≤ 1 on [0, t]; we show q ≤ ½ on [0, T*) for ε0 small, which excludes T* <
-min(T_m, T), and T_m ≤ T.
+and R are continuous into L² and bounded in H^s, hence continuous into H^(s″) ⊂ L^∞ for d/2 < s″ < s. At t = 0, the
+estimates of (3), with w(0) = u0 − ū(0), give q(0) ≤ ½ for ε0 small. Let T* be the supremum of the t < min(T_m, T)
+with q ≤ 1 on [0, t]; we show q ≤ ½ on [0, T*) for ε0 small, which excludes T* < min(T_m, T), and T_m ≤ T.
 
-(1) On [0, T*), K := sup (‖u‖_(W^(1,∞)) + ‖∂_t u‖_(L^∞)) ≤ K_ū + 1. On [0, t] for t < T*, v := u satisfies the
+(1) Put K := K_ū + 1. On [0, T*), sup (‖u‖_(W^(1,∞)) + ‖∂_t u‖_(L^∞)) ≤ K, and ‖ū‖_(W^(1,∞)) + ‖∂_t ū‖_(L^∞) ≤ K.
+On [0, t] for t < T*, v := u satisfies the
 hypotheses of [[lem:class-kato-linear]], ∂_t u being bounded in H^(s−1) by its equation, and u solves the linear problem
 with f := F(t, u); by part (a) of the lemma it is the solution of (b), so (c) and (F1′) give
 

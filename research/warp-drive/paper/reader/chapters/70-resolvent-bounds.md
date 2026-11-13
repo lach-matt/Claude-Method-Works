@@ -897,8 +897,9 @@ G Id; (H5) is void for a single operator. The remaining conditions concern Im �
 real coefficients, and two integrations by parts give ∫(□u)v̄|dg| = ∫g^(μν)∂_νu ∂_μv̄|dg| = ∫u conj(□v)|dg| for
 smooth compactly supported u, v. Moreover |dg| = |dt_*||dx| on X̃°. The Kerr–Schild chart of [[prop:iii-b-3-4]] covers
 X̃° ([[lem:s11-ks-domain]]; r_0 − 2δ_0 ≥ ½r_♭ by [[sec:s12-radii]]). Let t_KS be its time, so that g_(b_0) is
-g^KS_(m_0,0) in the coordinates (t_KS, x) ([[eq:iii-b-3-3]]), r = |x|, and z = (z¹, z², z³) coordinates on 𝕊³.
-Expanding η + m_0r⁻²(dt_KS + dr)² with η = −dt_KS² + dr² + r²g̸ gives
+g^KS_(m_0,0) in the coordinates (t_KS, x) ([[eq:iii-b-3-3]]); write r = |x|, and let z = (z¹, z², z³) be coordinates
+on 𝕊³. Expanding η + m_0r⁻²(dt_KS + dr)² ([[prop:iii-b-3-4]] at A = 0), with the Minkowski metric
+η = −dt_KS² + dr² + r²g̸, gives
 g_(b_0) = −f dt_KS² + 2(1 − f) dt_KS dr + (2 − f) dr² + r²g̸ with f = 1 − m_0r⁻², the form used in the proof of
 [[lem:rb-m33]]. Its (t_KS, r) block has determinant −f(2 − f) − (1 − f)² = −1, and no term couples dt_KS or dr to dz;
 so in the coordinates (t_KS, r, z), |det g| = r⁶ det g̸ and |dg| = r³(det g̸)^(1/2)|dt_KS dr dz|. The Euclidean metric
@@ -2375,15 +2376,15 @@ imaginary axis. Let σ_0 ≥ h_0⁻¹, so σ_0 ≥ 1, and w ∈ L². Apply [[lem
 the rectangle [−L, L] + i[0, 1], L := 2σ_0/κ_Γ, where Re σ ∈ [σ_0, 5σ_0] and Im σ ∈ [β, β′]. F is holomorphic near the
 rectangle. Indeed, P̂′(σ) is entire in σ (the sentence after [[eq:i-b-6-10]]) as a family of bounded operators from
 H^(2,0) into L², where H^(2,0) is the scattering Sobolev space of [[sec:i-a-2-2]], which is the space H_h^((2,0,0)) of
-[[prop:i-b-6-7]] at each fixed h, with an equivalent norm ([[sec:i-b-2-3]]). On the compact set 𝒦 of the σ above, where the bound C′_a holds, P̂′(σ) is invertible from H^(2,0) onto L², with inverse
-bounded from L² into H^(2,0) by the open mapping theorem. For σ_1 ∈ 𝒦 put 𝔗(σ) := P̂′(σ_1)⁻¹(P̂′(σ_1) − P̂′(σ)), a
-holomorphic family of bounded operators on H^(2,0); its norm is at most ‖P̂′(σ_1)⁻¹‖‖P̂′(σ_1) − P̂′(σ)‖, less than ½
-for σ near σ_1, P̂′ being continuous in norm. For such σ, P̂′(σ) = P̂′(σ_1)(I − 𝔗(σ)) is invertible and
-P̂′(σ)⁻¹ = Σ_(n≥0) 𝔗(σ)ⁿP̂′(σ_1)⁻¹, a series of holomorphic functions that converges uniformly (its n-th term has norm
-at most 2⁻ⁿ‖P̂′(σ_1)⁻¹‖), and a uniform limit of holomorphic functions is holomorphic. So σ ↦ P̂′(σ)⁻¹w is holomorphic
-on a neighbourhood of 𝒦, and F near the rectangle.
-There ‖F‖ ≤ A := C′_a‖w‖, and ‖F‖ ≤ A_0 := C′_a‖w‖ on Im ζ = 0 and ‖F‖ ≤ A_1 := C′_aσ_0⁻¹‖w‖ on Im ζ = 1, since
-the modulus of σ is at least σ_0 there; A_1 ≤ A since σ_0 ≥ 1, and the Λ of [[lem:i-b-6-6]] is
+[[prop:i-b-6-7]] at each fixed h, with an equivalent norm ([[sec:i-b-2-3]]). On the compact set 𝒦 of the σ above,
+where the bound C′_a holds, P̂′(σ) is invertible from H^(2,0) onto L², with inverse bounded from L² into H^(2,0) by the
+open mapping theorem. For σ_1 ∈ 𝒦 put 𝔗(σ) := P̂′(σ_1)⁻¹(P̂′(σ_1) − P̂′(σ)), a holomorphic family of bounded operators
+on H^(2,0); its norm is at most ‖P̂′(σ_1)⁻¹‖‖P̂′(σ_1) − P̂′(σ)‖, less than ½ for σ near σ_1, P̂′ being continuous in
+norm. For such σ, P̂′(σ) = P̂′(σ_1)(I − 𝔗(σ)) is invertible and P̂′(σ)⁻¹ = Σ_(n≥0) 𝔗(σ)ⁿP̂′(σ_1)⁻¹, a series of
+holomorphic functions that converges uniformly (its n-th term has norm at most 2⁻ⁿ‖P̂′(σ_1)⁻¹‖), and a uniform limit
+of holomorphic functions is holomorphic. So σ ↦ P̂′(σ)⁻¹w is holomorphic on a neighbourhood of 𝒦, and F near the
+rectangle. On the rectangle ‖F‖ ≤ A := C′_a‖w‖, and ‖F‖ ≤ A_0 := C′_a‖w‖ on Im ζ = 0 and ‖F‖ ≤ A_1 := C′_aσ_0⁻¹‖w‖
+on Im ζ = 1, since the modulus of σ is at least σ_0 there; A_1 ≤ A since σ_0 ≥ 1, and the Λ of [[lem:i-b-6-6]] is
 Λ_0 := log(A/A_1) = log σ_0. With t := Im ζ = (Im σ − β)/κ_Γ ∈ [0, 1] and πL/4 = πσ_0/(2κ_Γ), the lemma gives, for
 Re σ ∈ [2σ_0, 4σ_0],
 ‖P̂′(σ)⁻¹w‖ ≤ C′_a σ_0^(−t) exp(3Λ_0 e^(−πσ_0/(2κ_Γ)))‖w‖ ≤ F_Γ C′_a σ_0^(−t)‖w‖. There h = 1/Re σ ∈ [1/(4σ_0),
@@ -2419,9 +2420,9 @@ compact set I × 𝕊³ ⊂ X°, the norm of 𝒴_σ is, up to constants, that o
 
 When s − 1 ≤ 0, ‖·‖_(H^(s−1)) ≤ ‖·‖_(L²), so k is bounded from 𝔏 into 𝒴_σ, and W is a bounded operator on 𝔏, such as
 multiplication by sgn(σ)q with q as in [[lem:rb-absorbed]], supported in the interior of I × 𝕊³, and χ = 1 on the
-support of q. Then kWj is multiplication by sgn(σ)χ²q = ϵ_σq, so for P̂ = □̂(σ) the operator P_1 of [[lem:rb-gluing]] is
-the operator □̂(σ) − iϵ_σQ of [[lem:rb-absorbed]]. Otherwise W is a smoothing operator on 𝔏 with values in fields smooth
-on I × 𝕊³, for which kW is bounded.
+support of q. Then kWj is multiplication by sgn(σ)χ²q = sgn(σ)q, so for P̂ = □̂(σ) the operator P_1 of
+[[lem:rb-gluing]] is the operator □̂(σ) − iϵ_σQ of [[lem:rb-absorbed]]. Otherwise W is a smoothing operator on 𝔏 with
+values in fields smooth on I × 𝕊³, for which kW is bounded.
 
 For v ∈ W(𝒵), as χ = χ_Iχ, jP̂⁻¹kv = χ(χ_IP̂(σ)⁻¹χ_I)(χv), with χv supported in I × 𝕊³ and ‖χv‖_𝔏 ≤ ‖v‖_𝔏. The
 cut-off bound of the preceding sections is C_D(σ) of [[lem:rb-schur]], the norm of χ_IP̂(σ)⁻¹χ_I on the dense subspace
@@ -2457,8 +2458,9 @@ where u − c_±e^(±iσr_*) → 0. Integrating over ℝ, 0 = −σ(|c_+|² + |c
 −σ, so c_+ = 0; u is then the zero multiple of u_∞ near +∞, and u = 0. So ω = 0 on {r > r_h}, and inside the horizon
 ω = 0 follows as in part (d) of the proof of [[prop:iii-d-6-2]]. ∎
 
-In the notation of [[lem:rb-gluing]], W is multiplication by sgn(σ)q and kWj = ϵ_σQ, and [[lem:rb-gluing]] uses no sign
-of W. With ϵ_σ replaced by −sgn σ the two terms in the proof can cancel.
+In the notation of [[lem:rb-gluing]], W is multiplication by sgn(σ)q, and its operator kWj is ϵ_σ times the Q of
+[[lem:rb-absorbed]]; [[lem:rb-gluing]] uses no sign of W. With ϵ_σ replaced by −sgn σ the two terms in the proof can
+cancel.
 
 ### The scalar-type blocks at zero energy {#sec:rb-scalar-blocks}
 

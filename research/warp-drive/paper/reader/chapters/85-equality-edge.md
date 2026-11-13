@@ -965,7 +965,7 @@ So b̂4 is purely imaginary and nonzero at ρ*, the same at every angle, and δ_
 0.03817 μ0^(−9/4). Moreover b̂4(r0, ϑ) and b̂5(r0, ϑ) are smooth in r0 for the waves of [[sec:layer-linear]], as |d| ≥
 8/3 ([[lem:layer-angular]]) and c_(5,1) is smooth.
 
-*Proof.* We use the recursion of [[prop:layer-structure]] (b) for c_(j+1,k) itself: as c_(j+1,l) = κ_(j+1,l) + i(∂_(r0)
+*Proof.* We use the recursion of [[prop:layer-structure]] (b) for c_(j+1,l) itself: as c_(j+1,l) = κ_(j+1,l) + i(∂_(r0)
 c_(j,l) + c_(j,l−1)) and Π = Pol⁺ Pol,
 
     𝒯 c_(j+1,l) = −[−i 𝒯(∂_(r0) c_(j,l) + c_(j,l−1)) + Q c_(j,l)],
@@ -974,23 +974,23 @@ c_(j,l) + c_(j,l−1)) and Π = Pol⁺ Pol,
 the brackets being the families l of R_X H_j and of D_X H_j ([[prop:layer-structure]] (a)); c_(1,0) = A r^(1/2) T and
 c_(j,−1) := 0.
 
-(1) *Scaling.* Put σ := √μ0 and Φ(v, r, ω) := (σv, σr, ω). By [[eq:eq-g0]] with μ ≡ μ0, Φ*g0° = σ² g̃, where g̃ is the
+(1) *Scaling.* Put σ := √μ0 and Φ(v, r, x̂) := (σv, σr, x̂). By [[eq:eq-g0]] with μ ≡ μ0, Φ*g0° = σ² g̃, where g̃ is the
 seed of mass 1, and Φ multiplies the Cartesian coordinates (τ, x) by σ. Ric^H is unchanged when the metric and the
 reference metric are multiplied by one constant, and so is the lowered gauge D, while both are natural under Φ; so for
-P h := σ⁻² Φ*h, Φ*(dRic^H(h)) = dRic̃^H(P h) and Φ*(dD(h)) = dD̃(P h), the tilde marking the objects of g̃. For h = H
+𝒮h := σ⁻² Φ*h, Φ*(dRic^H(h)) = dRic̃^H(𝒮h) and Φ*(dD(h)) = dD̃(𝒮h), the tilde marking the objects of g̃. For h = H
 e^(iv/λ), Φ*h = (Φ*H) e^(iṽ/λ̃) with λ̃ := λ/σ, and comparing the coefficients of the powers of λ⁻¹ in
-[[lem:layer-seed-operators]] (b) gives P(𝒯H) = σ⁻¹ 𝒯̃(PH), P(R_X H) = σ⁻² R̃_X(PH), Φ*(Pol H) = σ Pol̃(PH) and
-Φ*(D_X H) = D̃_X(PH). The matrix of Pol at a point depends only on F°(r) = 1 − μ0/r², which takes the same value at
+[[lem:layer-seed-operators]] (b) gives 𝒮(𝒯H) = σ⁻¹ 𝒯̃(𝒮H), 𝒮(R_X H) = σ⁻² R̃_X(𝒮H), Φ*(Pol H) = σ Pol̃(𝒮H) and
+Φ*(D_X H) = D̃_X(𝒮H). The matrix of Pol at a point depends only on F°(r) = 1 − μ0/r², which takes the same value at
 corresponding points, and Φ* multiplies the Cartesian components of covectors by σ and of 2-tensors by σ²; so Pol̃ and
-Pol̃⁺ have the matrices of Pol and Pol⁺, and P(Pol⁺V) = σ⁻¹ Pol̃⁺(Φ*V). Since ∂_(r0) = σ⁻¹ ∂_ρ, (R) and induction on j
-give P c_(j,l) = σ^(l−j−1/2) c̃_(j,l), with c̃_(j,l) the coefficients of mass 1 at r̃0 = ρ, starting from P c_(1,0) =
-σ⁻² σ^(1/2) A r̃^(1/2) T. The vv component of P c is the vv component of c at the corresponding point, as v is scaled by
+Pol̃⁺ have the matrices of Pol and Pol⁺, and 𝒮(Pol⁺V) = σ⁻¹ Pol̃⁺(Φ*V). Since ∂_(r0) = σ⁻¹ ∂_ρ, (R) and induction on j
+give 𝒮c_(j,l) = σ^(l−j−1/2) c̃_(j,l), with c̃_(j,l) the coefficients of mass 1 at r̃0 = ρ, starting from 𝒮c_(1,0) =
+σ⁻² σ^(1/2) A r̃^(1/2) T. The vv component of 𝒮c is the vv component of c at the corresponding point, as v is scaled by
 σ. So c_(4,0),vv(√μ0; r0) = μ0^(−9/4) c̃_(4,0),vv(1; ρ), and it suffices to prove [[eq:edge-next-family]] at μ0 = 1,
 which we assume from now on; r0 = ρ, F := 1 − r⁻².
 
 (2) *Reduction to one harmonic.* Let 𝔴(ϑ) := ∫_0^ϑ d_1; 𝔴 is a smooth T²-invariant function on S³, as d_1 dϑ = div_γ T is
-a smooth closed form. For a smooth T²-invariant 𝔲 put 𝕊(𝔲)_AB := ∇_A ∇_B 𝔲 − (1/3) γ_AB ΔU, on the unit S³. Its
-divergence is (2/3) d((Δ + 3)𝔲), by ∇^A ∇_A ∇_B 𝔲 = ∇_B ΔU + 2 ∇_B 𝔲 (the Ricci tensor of S³ is 2γ); so div div 𝕊(𝔲) =
+a smooth closed form. For a smooth T²-invariant 𝔲 put 𝕊(𝔲)_AB := ∇_A ∇_B 𝔲 − (1/3) γ_AB Δ𝔲, on the unit S³. Its
+divergence is (2/3) d((Δ + 3)𝔲), by ∇^A ∇_A ∇_B 𝔲 = ∇_B Δ𝔲 + 2 ∇_B 𝔲 (the Ricci tensor of S³ is 2γ); so div div 𝕊(𝔲) =
 (2/3) Δ(Δ + 3)𝔲. The kernel of Δ + 3 consists of the restrictions of linear functions of ℝ⁴, of which none but 0 is
 T²-invariant; so 𝔲 := (3/2)(Δ + 3)⁻¹ 𝔴 is smooth and T²-invariant, and T_tt := T − 𝕊(𝔲) is γ-traceless with div_γ T_tt =
 0, and d = (2/3) Δ(Δ + 3) 𝔲.
@@ -1004,7 +1004,7 @@ depending on (v, r), of γ^(AB) 𝔗_AB, of div_γ 𝔗 and of div_γ div_γ �
 combination of 𝔗 and of the rough Laplacian Δ̊𝔗 of the unit S³, with the same kind of coefficients, plus terms in γ
 tr_γ 𝔗 and in the symmetrised gradient of div_γ 𝔗, which vanish. On S³, of constant curvature, div_γ Δ̊𝔗 − Δ̊ div_γ 𝔗
 is a combination of div_γ 𝔗 and of d tr_γ 𝔗 (Ricci identity), so Δ̊𝔗 is again traceless and divergence-free; and
-𝒯h = −i(∂_r − 1/(2r)) h is of the same form. So, by (R), the T_tt-part of every c_(j,k) is of this form, and its vv
+𝒯h = −i(∂_r − 1/(2r)) h is of the same form. So, by (R), the T_tt-part of every c_(j,l) is of this form, and its vv
 component vanishes. By linearity it remains to treat T = 𝕊(𝔲), and, expanding 𝔲 in T²-invariant eigenfunctions of Δ
 (the series converges with all derivatives, 𝔲 being smooth, and c_(4,0),vv(1) is a linear differential operator in the
 angles applied to 𝔲), to treat 𝔲 = Y with ΔY = −kY. Then d = ω_k Y and d_1 = ω_(1,k) Y′ with
@@ -2106,7 +2106,7 @@ Here 44! = 2658271574788448768043625811014615890319638528000000000 ≥ 2.6582 ·
 54.4245; 44 log10 88 ≥ 85.5572; and 7744/(175 ln 10) ≤ 19.2182, as ln 10 ≥ 2.302585. So log10 B_44 ≥ 120.7635.
 
 (3) *The number.* With log10 2 ≥ 0.301029, c₁ ≥ 40.0368 + 120.7635 ≥ 160.79; with (3.5 ln 10)^(1/2) ≥ 2.838846 (its
-square 8.0590466 is below 3.5 · 2.302585 = 8.0590475), b₁ ≥ 44 · 0.301029 · 2.838846 ≥ 37.601. Then
+square is below 8.059047 < 3.5 · 2.302585 = 8.0590475), b₁ ≥ 44 · 0.301029 · 2.838846 ≥ 37.601. Then
 
     y₊ ≥ 37.601 + (37.601² + 2 · 160.79)^(1/2) ≥ 37.601 + (1735.415)^(1/2) ≥ 37.601 + 41.6583 = 79.2593,
 
