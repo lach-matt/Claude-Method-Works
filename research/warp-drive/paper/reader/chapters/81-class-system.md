@@ -396,10 +396,11 @@ for σ > d/2 and ‖∂w‖_(L^∞) ≤ C ‖w‖_(H^σ) for σ > d/2 + 1. We fi
 
 For an integer σ ≥ 0, a *bound of order σ* for a function Φ of (t, x, u), such as A^μ or a forcing term, is an
 increasing function of R ≥ 0 that bounds |∂_t^a ∂_x^β ∂_u^γ Φ| on [0, T0] × R^d × {|u| ≤ R} for all a, β, γ with
-a + |β| ≤ σ and |γ| ≤ σ. By ∂(A^0)⁻¹ = −(A^0)⁻¹ (∂A^0) (A^0)⁻¹, each such derivative of (A^0)⁻¹ is a sum of products of
-(A^0)⁻¹ and of derivatives ∂_t^(a_i) ∂_x^(β_i) ∂_u^(γ_i) A^0 with Σ a_i = a, Σ β_i = β and Σ γ_i = γ; as |(A^0)⁻¹| ≤
-c0⁻¹, c0 and a bound of order σ for A^0 give one for (A^0)⁻¹. At the order s the constants of this section depend on the
-coefficients and on local forcing terms only through bounds of order s (the paragraph after [[rem:class-kato-local]]).
+a + |β| ≤ σ and |γ| ≤ σ. By ∂(A^0)⁻¹ = −(A^0)⁻¹ (∂A^0) (A^0)⁻¹, each such derivative of (A^0)⁻¹ is a sum of
+products of (A^0)⁻¹ and of derivatives ∂_t^(a_i) ∂_x^(β_i) ∂_u^(γ_i) A^0 with Σ a_i = a, Σ β_i = β and Σ γ_i = γ;
+as |(A^0)⁻¹| ≤ c0⁻¹, c0 and a bound of order σ for A^0 give one for (A^0)⁻¹. At the order s the constants of this
+section depend on the coefficients and on local forcing terms only through bounds of order s (the paragraph after
+[[rem:class-kato-local]]).
 
 *Mollifiers.* Let φ ∈ C_c^∞(R^d) be even and nonnegative with integral one, φ_ε(x) := ε^(−d) φ(x/ε) and J_ε u := φ_ε ∗ u.
 J_ε is self-adjoint on L², commutes with every ∂^α, and does not increase the norms of L², L^∞ and H^σ; ‖∂_j J_ε u‖ ≤
@@ -825,10 +826,10 @@ B^(ab)) z, z⟩ because the rotations preserve the measure of S^n, and Gronwall'
 W(t, ω) on the shell 3/4 ≤ |x| ≤ 4/3, and u := ū + W_1 solves [[eq:class-kato-sphere]], since |W_1| ≤ r0; and
 sup |u − ū| = sup |W_1| ≤ sup_t ‖W‖_(W^(1,∞)). On the shell W_ab W(t, rω) = (W_ab W_1)(t, ω), and the W_ab have
 bounded coefficients there; so the L² and H^s norms of W_1(t) on S^n are bounded by C times those of W(t) on R^(n+1).
-This is (a) except uniqueness. *Uniqueness.* For two solutions in the class of (a), the H^s(S^n) norm bounds W_ab u in H^(s−1)(S^n) ⊂ L^∞
-([[thm:std-bh-manifold]], s − 1 > n/2, the norm of [[cor:std-moser-product]] (2) being equivalent to that of [BH17] by
-the chart comparison in its proof), and ∂_t u is bounded by the equation; the L² energy identity on S^n for their
-difference, as above, gives uniqueness.
+This is (a) except uniqueness. *Uniqueness.* For two solutions in the class of (a), the H^s(S^n) norm bounds W_ab u in
+H^(s−1)(S^n) ⊂ L^∞ ([[thm:std-bh-manifold]], s − 1 > n/2, the norm of [[cor:std-moser-product]] (2) being equivalent to
+that of [BH17] by the chart comparison in its proof), and ∂_t u is bounded by the equation; the L² energy identity on S^n
+for their difference, as above, gives uniqueness.
 
 (4) *Smoothness.* If u0 is smooth, W(0) and the coefficients are smooth, and for every integer σ ≥ s, [[thm:class-kato]]
 (a) at the order σ gives a solution in H^σ, equal to W on its interval by uniqueness. While it exists,

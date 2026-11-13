@@ -398,8 +398,8 @@ the orders N_0 and −N_0, ‖Σ_β O^far_β(g)u‖²_(N_0) ≤ C Σ_β ‖(φ_�
 (P2) For charts α, β, (φ_α)_*(θ̃_αO^ε_β(g)f) = (Op(σ) + Op(ρ))(φ_α)_*(θ̌_αf), where σ and ρ vanish for x ∉ supp θ̃
 and unless β ∈ A_α, σ has order 𝗆_α, and every x-derivative of ρ is bounded by C⟨ξ⟩^(−2N_0). Indeed, by
 [[lem:fwd-transport]] with θ := θ̃, the left side is R_c applied to (φ_α)_*f, whose amplitude c contains the factor
-θ̃(x) and vanishes unless |x − y| ≤ Cε ≤ 1/8, so that θ̌_α may be inserted; θ̃_α and O^ε_β(g)f are supported in U_α
-and U_β. Then [[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have
+θ̃(x) and vanishes unless y ∈ (−7/4, 7/4)ⁿ (the choice of ε in that proof), so that θ̌_α may be inserted; θ̃_α and
+O^ε_β(g)f are supported in U_α and U_β. Then [[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have
 the pointwise order 𝗆_α − |γ|, and ρ := ρ_J, of order at most N_0 − J + ½ < −2N_0. So, for every order 𝗍 with values
 in [−N_0, N_0], Op(σ) maps H^(𝗍_α) to
 H^(𝗍_α−𝗆_α) by [[lem:fwd-local]], as σ vanishes for x ∉ [−7/4, 7/4]ⁿ, and Op(ρ) maps H^(−N_0) to H^(N_0) by
@@ -461,7 +461,12 @@ the manifold by (S3); adjoints by duality. Start from H^𝗍 ⊂ H^(−T). The f
 the order by at most T each, the gaining factor raises it by R, the others lower it by at most T: the result lies in
 H^(−T−(r−1)T+R) = H^S. The input orders s of the factors of order at most T lie in [−rT, R − T], so |s − T| ≤
 max((r + 1)T, R − 2T); that of the gaining factor lies in [−rT, −T], so |s + R| ≤ R − T = S + (r − 1)T. So B
-x-derivatives suffice in every application of [[lem:fwd-crude]].
+x-derivatives suffice in every application of [[lem:fwd-crude]]. The bounds that [[lem:fwd-crude]] needs carry the loss
+ϰ. A factor of order at most T satisfies them with μ := T + 1/32, as its symbol is differentiated at most 𝔐(T) times
+(the counts below) and ϰ𝔐(T) = 1/32. The bounds [[eq:fwd-reduction]], [[eq:fwd-remainder]] and those of
+[[lem:fwd-far]] include the loss, so the gaining factor satisfies them with μ := −R − ¼. The at most five shifts by
+1/32 lower the final order by less than ¼ and change each |s − μ| by less than 1; so the result lies in H^S, and
+N := B satisfies N > n + |s − μ| in every application.
 
 The counts, all derivatives of g_j: ρ_j costs 2J_R + B + 2L′ with 2L′ = 𝔢(n + 1 + J_R + T) ([[lem:fwd-reduction]], as
 the distance from sup 𝗆_j to J_R is at most J_R + T); a far part costs 2K + B ([[lem:fwd-far]]); a factor Op(s_j)
