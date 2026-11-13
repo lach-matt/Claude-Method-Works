@@ -19,7 +19,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 25 S6 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (4 new nits); depends on S4 |
 | 26 S7 | NOT CONFIRMED 2M 4m 3n | done | running |
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done (one citation pending) | running |
-| 28 S9 | NOT CONFIRMED 2M 4m 8n | done | running; depends on S4 |
+| 28 S9 | NOT CONFIRMED 2M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (Theorem 1.1 tame estimate) |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | NOT CONFIRMED 0M 1m 3n; third fix running |
 | 30 S11 | running | - | - |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | held for S11 (parameter set) | - |

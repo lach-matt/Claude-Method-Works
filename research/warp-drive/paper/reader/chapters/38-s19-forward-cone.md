@@ -47,12 +47,9 @@ r_0 = r_♭ ∈ (0, ½R₁], the inner radius of the spacetime of [[ch:s11]]; th
 [[ch:s04]]–[[ch:s10]] is the inner boundary of that spacetime. Every result of the chapter holds for each such r_♭, with
 constants and neighbourhoods of b₀ that may depend on it. The slots of a symmetric 2-tensor near 𝓘⁺ are those of
 [[def:iii-c-1-2]], in the splitting [[eq:iii-c-1-6]]: slots 1–3 form π_C, and slots 4, 5, 6, 7 are π₀₁, π_(1/), π̸₀
-and π₁₁. We write
-
-    σ_Υ := {0, (1 − e_Υ)γ_Υ, γ_Υ, 2γ_Υ},
-
-the eigenvalues of Ā on the slots 6, 4, 5, 7, and λ_C ∈ γ_C{2(1 − v_C), 1 − v_C, (1 − e_C)(1 − v_C)} those on the slots
-1–3 ([[eq:iii-c-4-3]]). The gauge parameters satisfy 0 < γ_Υ < 1/4, 0 < e_Υ < 1 ([[eq:iii-c-1-1]]) and
+and π₁₁. The eigenvalues of Ā ([[eq:iii-c-4-3]]) on the slots 6, 4, 5, 7 are the elements 0, (1 − e_Υ)γ_Υ, γ_Υ,
+2γ_Υ of the set σ_Υ of [[sec:iii-c-3]], and those on the slots 1–3 are the elements 2(1 − v_C)γ_C, (1 − v_C)γ_C,
+(1 − e_C)(1 − v_C)γ_C of the set σ_C of [[eq:iii-g1-1-4]]. The gauge parameters satisfy 0 < γ_Υ < 1/4, 0 < e_Υ < 1 ([[eq:iii-c-1-1]]) and
 (1 − e_C)(1 − v_C)γ_C > 100 ([[sec:iii-f-1]]). For an index set E, (E, ℓ) denotes the expansion in E up to the
 weight ℓ, and E ∪̄ {(z, 0)} is the extended union of [[lem:iii-a-1-2]]: E ∪ {(z, 0)} if z ∉ π_1E, and E with the
 logarithmic order at z raised by one otherwise; ∪̄^m is that union taken m times.
@@ -156,8 +153,9 @@ e3b-weight in [[lem:iii-i-2-2]], [[cor:iii-i-5-2]] and the proof of [[thm:iii-i-
 *Consequences.* By [[lem:iii-i-2-2]] with ℓ_I = ½ and [[lem:ii-c-3-2]], dt^♭_* is past timelike for
 g = g_(b₀,b,−S) + h when |b − b₀|, |S| and ‖h‖_(𝒳⁴) are small: g − g_(b₀) = (g_(b₀,b,−S) − g_(b₀)) + h, and
 g_(b₀,b,−S) − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:iii-i-3-6]] with the argument of [[lem:iii-i-2-2]]; it
-vanishes at b = b₀, S = 0 and depends continuously on (b, S)). Such g lie in 𝒢^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b)
-relative to g_b, that is, they are asymptotically Kerr in the sense of [Hin26c, Definition 5.15]. Smallness of h in
+vanishes at b = b₀, S = 0 and depends continuously on (b, S)). Such g lie in the class 𝒢^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b)
+of asymptotically stationary metrics of [[def:ii-c-3-1]] with g_b in place of g₀ (cf. [Hin26c, Definition 5.15]).
+Smallness of h in
 H^(3,(1,0,0))_b makes x_I²ρ_+²g non-degenerate and Lorentzian ([[rem:s05-metric-class]] (b)): by the
 coefficients in the proof of [[lem:iii-i-2-2]], the weight 1 at 𝓘⁺ suffices ([Hin26, footnote 104]).
 

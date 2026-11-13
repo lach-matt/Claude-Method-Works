@@ -1478,11 +1478,11 @@ which these quantities are uniform. [[sec:i-a-8]], [[sec:i-b-9]] and [[sec:i-c-7
 cited estimates are uniform over a family of operators. For the stationary models 2L_b, b near b₀ ([[sec:iii-h2-0]]),
 which the later chapters use, the quantities on which [[lem:ii-g1-4-1]]–[[cor:ii-g1-4-5]] depend are uniform in b.
 The number S̄ does not depend on b ([[lem:iii-h2-3-2]]). The order of (B4) of [[sec:iii-h2-0]] is admissible for every
-2L_b with one margin, so ϑ_ℋ and ϑ_in are bounded uniformly in b ([[def:ii-c-2-4]] (4) and (6), [[lem:ii-c-2-6]]), and one
-choice of orders serves every b. The function δ_Γ is uniformly small by [[cor:iii-h2-1-2]], which rests on
-[[prop:iii-h2-1-1]]. The constants of [[thm:i-a-7-2]] and [[thm:i-b-1-3]], C_0 among them, are uniform by
-[[thm:i-a-8-1]] and [[sec:i-b-9]], whose hypotheses hold for this family (the proof of [[thm:iii-h2-2-1]], (ii) and
-(iii)). [[thm:i-c-6-4]] (4) and [[prop:ii-g1-4-7]] do not apply to 2L_b, which has zero-energy states; the augmented
-form [[thm:iii-h-4-1]] takes their place, and its radii are uniform in b (the proof of [[thm:iii-h2-2-1]], (i)). The
-forward problem is solved uniformly over the same family in [[thm:iii-h2-3-1]] and [[thm:iii-h2-4-1]]. This chapter
-adds no condition to these.
+2L_b with one margin, so ϑ_ℋ and ϑ_in are bounded uniformly in b ([[def:ii-c-2-4]] (4) and (6), [[lem:ii-c-2-6]]), and
+one choice of orders serves every b. The function δ_Γ is uniformly small by [[cor:iii-h2-1-2]], which rests on
+[[prop:iii-h2-1-1]]. The constants of [[thm:i-a-7-2]] and [[thm:i-b-1-3]], C_0 among them, are uniform by [[thm:i-a-8-1]]
+and [[sec:i-b-9]], whose hypotheses hold for this family (the proof of [[thm:iii-h2-2-1]], (ii) and (iii)).
+[[thm:i-c-6-4]] (4) and [[prop:ii-g1-4-7]] do not apply to 2L_b, which has zero-energy states; the augmented form
+[[thm:iii-h-4-1]] takes their place, and its radii are uniform in b (the proof of [[thm:iii-h2-2-1]], (i)). The forward
+problem is solved uniformly over the same family in [[thm:iii-h2-3-1]] and [[thm:iii-h2-4-1]]. This chapter adds no
+condition to these.

@@ -1,6 +1,6 @@
 # Part. The stability theory, V: the exterior, the nonlinear theorem, gluing and linear stability {#part:stability-nonlinear}
 
-## The exterior region: estimates at null and spatial infinity, the exterior solution, partial polyhomogeneity and boosts {#ch:s26}
+## The exterior region: estimates at infinity, the exterior solution, polyhomogeneity and boosts {#ch:s26}
 
 This chapter solves the gauge-fixed Einstein equation near spatial infinity I₀ and future null infinity ℐ⁺, for small
 data on the part of the initial surface Σ_IVP outside a large ball, and describes the solution there. It is [Hin26,
