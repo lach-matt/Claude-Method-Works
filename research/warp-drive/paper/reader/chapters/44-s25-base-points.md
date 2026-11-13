@@ -6,8 +6,8 @@ parameter b lies in a fixed neighbourhood ℬ_* of b₀ = (m₀, 0), with consta
 the boost parameter, almost boundedness, the extraction and the elimination of the parameters, the centre-of-mass
 motions, the corrections of the fourth kind, the expansion at the Kerr face, the augmentation by its coefficients,
 the parameterisation by data, the tame estimates and the exact weights. With it, the right inverses that the
-Nash–Moser theorem [[thm:ii-g-2-1]] asks for exist at every base point near the one of the iteration, with uniform
-bounds ([[cor:iii-i15-3-2]]). [Hin26] states its Sections 11.2–12 at base points with |b − b₀| small; Theorem
+Nash–Moser theorem ([[thm:ii-g-2-1]]) asks for exist at every base point near the one of the iteration, with uniform
+bounds ([[cor:iii-i15-3-2]]). [Hin26] states its Sections 11.2–12 at base points with |b − b₀| small;
 [[thm:iii-i15-3-1]] is that statement in dimension 4 + 1, and the lemmas and propositions that prove it are new in
 this dimension.
 
@@ -55,11 +55,11 @@ states ġ_b(ḃ), h_b(S) = h_(b,s1)(S), h̆_b(S) and h_(b,v1)(V) are those of [[
 [[prop:iii-f3-2-2]].
 
 *The inner radius.* Every result of the chapter holds with the inner radius r₀ = r_♭ ∈ (0, ½R₁] of [[def:s12-radii]]
-as a parameter, with constants and neighbourhoods of b₀ that may depend on it. The chapter names no inner radius. It
-works on Ω_* = cl_M{t^♭_* ≥ 1} with the spaces of [[ch:s04]]–[[ch:s10]], extendible at the inner boundary, and with
-the results of [[ch:s04]]–[[ch:s24]], which hold at every such r_♭; its fixed radii are scale-free ({r ≤ 2}, {r ≥ 1})
-or far out, and its levels and weights are fixed by weights at infinity and at K⁺, not by the inner radius. The
-neighbourhoods ℬ_1 and ℬ_* are those chosen in [[sec:iii-h2-0]] for the given r_♭.
+as a parameter, with constants and neighbourhoods of b₀ that may depend on it. The chapter names no inner radius and
+no fixed radius. It works on Ω_* = cl_M{t^♭_* ≥ 1} with the spaces of [[ch:s04]]–[[ch:s10]], extendible at the inner
+boundary, and with the results of [[ch:s04]]–[[ch:s24]], which hold at every such r_♭; its levels and weights are fixed
+by weights at infinity and at K⁺, not by the inner radius. The neighbourhoods ℬ_1 and ℬ_* are those chosen in
+[[sec:iii-h2-0]] for the given r_♭.
 
 **Definition {#def:s25-at-b}** (Base points and the statement at b.) A *base point* is a pair (h, p⃗) of
 [[ch:s20]]–[[ch:s22]] (h ∈ 𝒳^∞ small, p⃗ ∈ 𝒫), a triple (h, p⃗, q) of [[ch:s23]] (q ∈ 𝒬), or a point U of the data space

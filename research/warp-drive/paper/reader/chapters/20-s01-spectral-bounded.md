@@ -1229,8 +1229,7 @@ uniform in σ₀. There is C such that for σ = σ₀ + iσ₁ with σ₀ ∈ I 
 
 (3) (*Fredholm property.*) In the settings of (1) and (2), P̂(σ) : 𝒳_σ → 𝒴_σ is Fredholm. Its kernel and the
 annihilator of its range do not depend on the admissible orders. Its index is independent of
-σ ∈ {σ ≠ 0, Im σ ≥ 0}. Under the hypotheses of [[thm:i-b-1-3]] the index is 0, since by [[thm:i-b-1-3]] (3) the
-operator P̂(σ) is invertible for Im σ ≥ 0 and |σ| large.
+σ ∈ {σ ≠ 0, Im σ ≥ 0}.
 
 (4) (*Higher b-regularity.*) If u ∈ 𝒳_σ and P̂(σ)u ∈ H̄^((s−1;k),𝗋+α₊+1) for some k ∈ ℕ₀, then
 u ∈ H̄^((s;k),𝗋+α₊) and
@@ -1263,6 +1262,11 @@ This is [Hin26c, Theorem 9.5] in dimension 4 + 1, on the bundle E, for a constan
 strong sense. Hence [[eq:i-a-7-1]] holds in the strong sense with the error term replaced by ‖u‖_(H̄^(s₀,𝗋₀+α₊)) for
 orders s₀ < s and 𝗋₀ < 𝗋 that are still above the thresholds at ∂ℛ_± and at R_in: if the right side is finite, so is
 the left. Likewise for [[eq:i-a-7-2]], with an a priori order at R_out.
+
+**Remark {#rem:i-a-index-zero}** (Index zero.) Under the hypotheses of [[thm:i-b-1-3]] the index in [[thm:i-a-7-2]]
+(3) is 0. It is constant on {σ ≠ 0, Im σ ≥ 0} by [[thm:i-a-7-2]] (3), and [[thm:i-b-1-3]] (3) gives σ in that set at
+which P̂(σ) : 𝒳_σ → 𝒴_σ is invertible. The proof of [[thm:i-b-1-3]] (3) uses of [[thm:i-a-7-2]] only the Fredholm
+property in (3), so the argument is not circular. This is [Hin26c, Theorem 9.16 (3)] in dimension 4 + 1.
 
 #### The Fredholm estimates {#sec:i-a-7-1}
 

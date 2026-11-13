@@ -2,7 +2,7 @@
 
 This chapter proves, in dimension 4 + 1, [Hin26, Theorem 11.59] and its proof (pp. 278–292). With the correction
 terms of the fourth kind of [[ch:s21]], the forward solution of the linearised gauge-fixed Einstein equation, for a
-source of K⁺-order α ≤ 4 + ε_K, is made to decay at K⁺ at the order α − 2 by a unique choice of the modification
+forcing of K⁺-order α ≤ 4 + ε_K, is made to decay at K⁺ at the order α − 2 by a unique choice of the modification
 parameters ([[thm:iii-i11-4-1]], the form of [Hin26, (11.222)] in dimension 4 + 1). The solution so obtained is,
 modulo a remainder of K⁺-order α, a sum of towers of the zero energy states whose coefficients are functions of t_*:
 partially polyhomogeneous, except for a conormal boost coefficient of order α − 2 and a conormal black hole parameter of
@@ -11,9 +11,9 @@ as close to ε_+ as desired ([[thm:iii-i12-3-1]], the form of [Hin26, (11.196)] 
 also obtained at every level β ∈ (3, 4 + ε_K], and for the enlarged sources that the linearisation in the black hole
 parameters of [[ch:s23]] produces ([[sec:iii-i13-2]]).
 
-The argument has two phases. In spacetime ([[sec:iii-i10-3]]) the ι⁺-terms of the source of u-exponent below 2 are
+The argument has two phases. In spacetime ([[sec:iii-i10-3]]) the ι⁺-terms of the forcing of u-exponent below 2 are
 solved by the ι⁺-normal operator up to the K⁺-order α ≤ 4 + ε_K, and the K⁺-terms this produces below the order α − 2
-are identified as rows. What is left is a forward problem whose source is partially polyhomogeneous at ι⁺ from the order
+are identified as rows. What is left is a forward problem whose forcing is partially polyhomogeneous at ι⁺ from the order
 4 on; it is solved on the spectral side ([[sec:iii-i11-3]]), through four zero energy solves, at the Taylor levels 0 to
 3 at zero frequency, and the transition face model between them. The rows are then eliminated by the choice of the
 parameters ([[sec:iii-i11-4]]), and the solution is expanded at K⁺ modulo the order α ([[sec:iii-i12-3]]).
@@ -26,7 +26,7 @@ through the towers ([[lem:iii-i10-2-1]]). (2) The parameter exponents, which [Hi
 procedure of its (11.186), are fixed in advance ([[def:iii-i10-1-1]]), with logarithmic orders that grow with the real
 part. The rows' own sources never pass through the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]]);
 this is how the self-consistency of [Hin26, Remark 11.62] enters. (3) Two further conditions are needed: (H4),
-ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero frequency Taylor expansion of the transformed source has
+ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero frequency Taylor expansion of the transformed forcing has
 four terms (orders σ⁰ to σ³, as α − 1 > 3); the four zero energy solves are written out, with the polyhomogeneous
 transition face model [[prop:iii-g4-4-4]] at the levels 1 and 2 and its conormal form [[prop:iii-g4-5-1]] at the level
 3. (5) The spectral solution is written directly as a sum of physical pieces ([[lem:iii-i11-2-5]]): L̂_b(σ) is
@@ -41,7 +41,7 @@ degree, by the order of their states at ∂X. (8) The expansion modulo the order
 order every coefficient section is a stationary solution of moderate growth ([[lem:iii-i12-2-3]]), so the
 polyhomogeneous part at K⁺ is a sum of towers whatever the individual pieces are ([[lem:iii-i12-2-4]]). (9) The
 spectral cut-off is an approximate identity with vanishing moments ([[lem:iii-i12-2-1]]), so each spectral piece is,
-near K⁺, the spacetime tower of the inverse transform of its scalar coefficient. (10) Below the order 4 the source of the
+near K⁺, the spacetime tower of the inverse transform of its scalar coefficient. (10) Below the order 4 the forcing of the
 last Taylor level has a negative zero frequency weight; the zero energy solve of that level then drops out
 ([[prop:iii-i13-2-1]]).
 
@@ -96,7 +96,7 @@ Everything of [[sec:iii-i9-1]] is kept, at b: the enlarged index set ℰ_ind, �
 
 the hypotheses (H1)–(H3) on the class, the types 𝒯 = {s1, v1, s0, s2, c0, c1} with the shifts d_τ, the rows
 ν = (τ, λ, k) with K⁺-exponent e_ν = λ + d_τ and the finite set 𝒩 of the rows with Re e_ν ≤ 2, the coefficient spaces
-𝒲_τ (with 𝒲_v1 = 0), the index sets ℰ_rows and ℰ_src with [[eq:iii-i9-1-3]], and the source spaces 𝒴_1(α), 𝒴_2(α),
+𝒲_τ (with 𝒲_v1 = 0), the index sets ℰ_rows and ℰ_src with [[eq:iii-i9-1-3]], and the forcing spaces 𝒴_1(α), 𝒴_2(α),
 𝒴(α). From [[sec:iii-i9-2]] are kept the tower lengths K_τ, the stationary 1-forms ω̆^i_τ, the identity
 [[eq:iii-i9-2-1]], the states h_τ, the functions r_ν, a_ν, the rows m_ν, the corrections h_ν and counterterms ϑ_ν, the
 operator P_4, its linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(h,p⃗). ℰ^♯_+ is the set [[eq:iii-i1-3-2]],
@@ -303,7 +303,7 @@ which deduces it from the case b_0 by perturbation, with a lower bound uniform i
 every b ∈ ℬ̄_*.
 
 *Proof.* Suppose not, and let e_0 be the least real part of e_ν over the ν with W_ν ≠ 0. By [[lem:iii-i9-2-2]] (e),
-m_ν(W) − χ_K r_ν h_τ(W) has K⁺-weight Re e_ν + 1 − ε; this is a computation with the tower relations, which holds at b
+m_ν(W) − χ_K r_ν h_τ(W) has K⁺-weight Re e_ν + 1 − ε; this follows from the tower relations, which hold at b
 ([[lem:iii-i15-1-1]] (P3)). So on every compact spatial set, for large t_*,
 
     Σ_((e,k): Re e = e_0) t_*^(−e)(log t_*)^k Σ_τ h_τ(W_((τ,e−d_τ,k))) = O(t_*^(−e_0−δ))
@@ -429,7 +429,7 @@ window by window. For each such λ_0, ℓ_K(λ_0) := α − Re λ_0 ∈ (α − 
 admissibility. The other hypotheses of [[cor:iii-g2-4-3]] at b hold as in that step: Re λ_0 ≥ λ_♯ > 1; the pole order of
 N_ι⁺(L̄, ·)⁻¹ at λ_0 is 0, as spec_ι⁺(L̄) ⊂ {Re ≥ 2} ([[lem:iii-g1-4-2]] (a)); ℓ_I < 3/2 + s_C,
 ℓ_I ∉ Re π_1ℰ^tot_(ι⁺,ℐ) and Re λ_0 < 2 < ℓ_I; and the coefficients at λ_0 have R-weight at least
-α − ε − Re λ_0 − 2 = ℓ_K(λ_0) − 2 − ε, the current source having K⁺-weight α − ε (each error of [[cor:iii-g2-4-3]] has
+α − ε − Re λ_0 − 2 = ℓ_K(λ_0) − 2 − ε, the current forcing having K⁺-weight α − ε (each error of [[cor:iii-g2-4-3]] has
 K⁺-weight Re λ_0 + ℓ_K(λ_0) − ε = α − ε, by [[eq:iii-g2-4-4]], and the solutions at ℐ⁺ vanish near K⁺).
 [[cor:iii-g2-4-3]] gives
 
@@ -464,7 +464,7 @@ So for f ∈ 𝒴⁰(α) the forward solution u of L_b u = f is
 
     u = Σ_(ν∈𝒩_ι) m_ν(S_ν) + u^rot_ι + u_rem + v,
 
-with u_rem of K⁺-weight α − 2 − ε and v the forward solution of L_b v = f^♭, a source partially polyhomogeneous at ι⁺
+with u_rem of K⁺-weight α − 2 − ε and v the forward solution of L_b v = f^♭, a forcing partially polyhomogeneous at ι⁺
 from the order 4 on, with plain ℐ⁺-weight ℓ_I + 1. [[sec:iii-i11-3]] expands v at K⁺: its terms of rate below α − 2
 are the rows of 𝒩_σ, together, at a rotating b, with v1 terms of exponent of real part 2. At a rotating b the terms of
 u^rot_ι are the bottoms of the rotation rows of [[prop:iii-i15-2-2]] (a).
@@ -488,15 +488,15 @@ L̂_b(σ)ĝ^aug(σ)(ḃ) = f̂_ḃ(σ), L̂_b(σ)ĥ^aug(σ)(S) = f̂_S(σ), and 
 
 *Dictionary* ([[prop:iii-a-4-2]] and Steps 3–5 of the proof of [[prop:iii-i6-2-1]]). A zf-term |σ|^z(log|σ|)^m
 corresponds to the K⁺-term t_*^(−z−1)(log t_*)^(≤m), and a zf-weight w to the K⁺-weight w + 1; a tf-weight (exponent) w
-of û to the ι⁺-weight (exponent) w + 1 of u; the ι⁺-exponent ζ + 2 of a source to the tf-exponent ζ + 1 of its
+of û to the ι⁺-weight (exponent) w + 1 of u; the ι⁺-exponent ζ + 2 of a forcing to the tf-exponent ζ + 1 of its
 transform; and the Taylor coefficient of order m at zf of a function of tf-weight w has weight w − m at ∂X. *Levels.*
-At the Taylor level j (after j divisions by σ), a tf-exponent ζ of the current source corresponds to the u-exponent
+At the Taylor level j (after j divisions by σ), a tf-exponent ζ of the current forcing corresponds to the u-exponent
 ζ + j − 1, and a zero energy solution at level j with the exponent w at ∂X to the u-exponent w + j + 1. A row of
 u-exponent λ has the K⁺-rate λ − 1 (s1), λ (s0, s2) or λ + d_τ (c0, c1).
 
 *Constants.* Let α = 4 + ε_K − ε′ be admissible ([[def:iii-i10-1-3]]; 0 < ε′ < ε′_0 < ε_K, so α > 4). Fix
 η_1, η_2 ∈ (ε_K, ε_+) with η_1 < η_2 such that no λ ∈ Λ has real part 2 + η_1 or 3 + η_2; they lie below ε_+, so that
-every exponent treated has u-exponent below 3 + ε_+, where the source is polyhomogeneous and [[lem:iii-i10-1-2]] (c)
+every exponent treated has u-exponent below 3 + ε_+, where the forcing is polyhomogeneous and [[lem:iii-i10-1-2]] (c)
 counts the logarithms. *The exclusion set of [[def:iii-i10-1-3]]* is the finite set of ε′ for which one of the
 conditions [[eq:iii-g4-4-2]] of [[prop:iii-g4-4-4]] fails at the levels 1 and 2 below (for the finitely many α_0 treated
 there, with ℓ_zf = α − 1 − j − ε), one of the conditions of [[prop:iii-g4-5-1]] fails at level 3 (finitely many rounds),
@@ -504,7 +504,7 @@ or α − 4 − ε is a real part excluded in [[lem:iii-i2-4-2]] or in [[eq:iii-
 2ε < ε_+ − η_2, and off a finite set as well. The orders q_j ∈ (2, 3) of the zero energy solves are chosen off the real
 parts of the exponents at hand.
 
-*The a priori facts.* f^♭ is the source of [[prop:iii-i10-3-1]] (c) for f ∈ 𝒴⁰(α), and v is the forward solution of
+*The a priori facts.* f^♭ is the forcing of [[prop:iii-i10-3-1]] (c) for f ∈ 𝒴⁰(α), and v is the forward solution of
 L_b v = f^♭. In [[sec:iii-i11-3]], v = u − u_I − u_ι with u as in the hypothesis of [[lem:iii-i11-3-2]], so v has a
 K⁺-weight w_v > 0 and the ι⁺-weight β′_+ ([[prop:iii-i10-3-1]] (a)–(b): u_I vanishes near K⁺, the rows of 𝒩_ι have
 rates at least λ_♯ − 1 > 0, and the terms of u^rot_ι have K⁺-weight Re λ_0 − ε > 0).
@@ -546,7 +546,7 @@ integrations by parts in s for the decay in ξ (Im ξ ≥ 0, s > 0), and r⁻³G
 **Lemma {#lem:iii-i11-2-1}** (Zero energy with expansions.) Let q ∈ (2, 3), q′ ∈ (q, 5], and let
 F ∈ H^(∞,(E,q′))_b(X̄) be partially polyhomogeneous at ∂X with an index set E, min Re E > q. Then
 (û, ḃ, S) := L̃_b(0)⁻¹(F, 0, 0) ([[prop:iii-h-3-2]] at b, with its weight α_H := q − 4, so that α_H + 2 = q − 2 ∈ (0, 1)
-is the L²-b-weight of a source of conormal order q) has û ∈ H^(∞,(E′,q′−2))_b(X̄), where E′ is the index set that
+is the L²-b-weight of a forcing of conormal order q) has û ∈ H^(∞,(E′,q′−2))_b(X̄), where E′ is the index set that
 [[lem:iii-a-1-4]] builds from (E − 2) ∪ (1 + ℰ_col) and the indicial roots of L̂_b(0) ([[prop:iii-f1-2-3]]) with real
 part in (q − 2, q′ − 2). Below the real part 3 the only such root is 2 (of type s0: the mass), so E′ lies in the extended
 union of (E − 2) ∪ (1 + ℰ_col) and (2, l_*), plus ℕ₀; in u-exponents at level j these are Λ-valued
@@ -595,7 +595,7 @@ The tf-weights: κ − 1, and q′_û + 1 = κ − 1, with q′_û = κ − 2 th
 polyhomogeneous. ∎
 
 **Lemma {#lem:iii-i11-2-3}** (The pieces of the transition face model in compact sets.) Let u be the solution of
-[[prop:iii-g4-4-4]] at b for a source whose leading term at tf is at (α_0, k) with k = 0 (for k > 0 apply the following
+[[prop:iii-g4-4-4]] at b for a forcing whose leading term at tf is at (α_0, k) with k = 0 (for k > 0 apply the following
 to the α_0-derivatives). Let R < 2/ρ_0. On {r ≤ R} and for 0 < ±σ ≤ c_R, χ_zf = 1 and χ_tf = χ_2(ρ + |σ|) = 0
 ([[sec:iii-g4-1]]), so u = |σ|^(α_0−2)u_b there, and
 
@@ -715,8 +715,8 @@ pieces σ²(χ_zf û_2 + ĝ^aug(ḃ_2) + ĥ^aug(S_2)), and [[lem:iii-i11-2-2]] g
 (conormal; its expansion is not needed) and zf-data ((0, 0), ℓ_3), ℓ_3 := α − 4 − ε ∈ (0, ε_K).
 
 *Step 4 (level 3; [Hin26, Step 2.A.8 and Part 3]).* Fix δ > 0 with δ + ℓ_3 + 2ε < ε_ind. While the tf-weight κ of the
-current level-3 source is at most 2 + ℓ_3 + ε, apply [[prop:iii-g4-5-1]] with α_κ := min(κ, 2 − δ) ∈ (1, 2) (the
-source has the tf-weight α_κ), ℓ_zf := ℓ_3, the order 0 of the zf-index set there, and w = ℓ_3 − α_κ + 2 ∈ (0, 1)
+current level-3 forcing is at most 2 + ℓ_3 + ε, apply [[prop:iii-g4-5-1]] with α_κ := min(κ, 2 − δ) ∈ (1, 2) (the
+forcing has the tf-weight α_κ), ℓ_zf := ℓ_3, the order 0 of the zf-index set there, and w = ℓ_3 − α_κ + 2 ∈ (0, 1)
 (α_κ ≥ κ_3 > 1 + ℓ_3, as η_2 > ε_K > ℓ_3). Its conditions w ≠ −μ and 2 − α_κ + j ≠ −μ hold for ε off a finite set
 (admissibility) and, when α_κ = 2 − δ, for δ off the finite set {−μ − j}, which we impose on δ. It gives
 
@@ -724,13 +724,13 @@ source has the tf-weight α_κ), ℓ_zf := ℓ_3, the order 0 of the zf-index se
 
 with a remainder of tf-weight α_κ + ε_ind − ε, which exceeds κ by ε_ind − ε when α_κ = κ, and, when α_κ = 2 − δ < κ,
 exceeds 2 + ℓ_3 + ε (as δ + ℓ_3 + 2ε < ε_ind), after which the loop ends; the pieces are σ³u. After finitely many
-rounds κ > 2 + ℓ_3 + ε; lowering κ if necessary (a source of tf-weight κ has every smaller tf-weight),
+rounds κ > 2 + ℓ_3 + ε; lowering κ if necessary (a forcing of tf-weight κ has every smaller tf-weight),
 κ ∈ (2 + ℓ_3 + ε, 3). [[lem:iii-i11-2-1]] with q_3 := κ − ε, q′ := κ and E = ∅ gives (û_3, ḃ_3, S_3)^± and the pieces
 σ³(χ_zf û_3 + ĝ^aug(ḃ_3) + ĥ^aug(S_3)). The rest,
 
     g_J := (the level-3 source) − L̂_b(σ)(χ_zf û_3) − f̂_(ḃ_3) − f̂_(S_3) ∈ H^(∞,(5/2−ε,κ−ε,ℓ_3))_b
 
-(the zf-coefficient is removed, the next Taylor order being 1; tf by the computation of [[lem:iii-i11-2-2]] without
+(the zf-coefficient is removed, the next Taylor order being 1; tf as in the proof of [[lem:iii-i11-2-2]], without
 the division), is inverted by [[lem:iii-i2-4-2]] with β_scf := 3/2 − 2ε, β_tf := κ − 2 − ε, β_zf := ℓ_3,
 β_tf − β_zf ∈ (0, 1):
 
@@ -829,7 +829,7 @@ G ∈ 𝒴⁰(α). Suppose that the forward solution u of L_(h,p⃗)u = G lies i
     u = Σ_(ν∈𝒩) m_ν(S_ν) + u^rot + ũ,     ũ ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*)^(•,−)         {#eq:iii-i11-3-2}
 
 for every β_+ < min(3/2, min Re ℰ_+). Here u^rot := u^rot_ι + v^rot is the sum of the v1 terms of
-[[prop:iii-i10-3-1]] and [[prop:iii-i11-3-1]] for the source f′ of the proof, and the coefficients
+[[prop:iii-i10-3-1]] and [[prop:iii-i11-3-1]] for the forcing f′ of the proof, and the coefficients
 S_ν = S^(h,p⃗)_ν(G) ∈ 𝒲_(τ,ℂ) are determined by u − u^rot ([[cor:iii-i10-2-3]]); u^rot and the S_ν are
 conjugation-symmetric, linear and continuous in G, with bounds uniform for (h, p⃗) small and b ∈ ℬ̄_*. When h_(b,v1) = 0,
 in particular at b_0, u^rot has K⁺-weight α − 2 − ε and is put into ũ.
@@ -1079,7 +1079,7 @@ substitution σ = ζ/r gives
 
 uniformly in t/r (by the symbol estimates of S, as in the proof of [[lem:iii-i12-2-1]]), with h ∈ 𝒜³, h̆ ∈ 𝒜²: the
 order a + 5 at ι⁺. Replacing a_0 by A = χ_+a_0 changes the right side only for t_* ≤ 2, where χ_K is supported in
-{r ≤ 1}. The second identity is the same computation with b_0 := ℱ⁻¹[iχσ²ḃ] and ġ ∈ 𝒜²:
+{r ≤ 1}. The second identity is proved in the same way, with b_0 := ℱ⁻¹[iχσ²ḃ] and ġ ∈ 𝒜²:
 
     ∫ b_0(t − τ)φ_x(τ) dτ = b_0(t) − ∫ τ ∫_0^1 b′_0(t − sτ) ds φ_x(τ) dτ,
 
@@ -1340,7 +1340,7 @@ tower relations, as in Step 3. ∎
 
 The proof uses its setting only through the following: u has the K⁺-weight α − 2 − ε and the ι⁺- and ℐ⁺-data of
 [[eq:iii-i11-4-2]]; and u = u_0 − Σ_(ν∈𝒩″) m_ν(W_ν) for a finite set 𝒩″ of rows, with u_0 the forward solution of
-L_(h,p⃗)u_0 = G for a source G ∈ 𝒴⁰(α) and with L_b m_ν of K⁺-order above α for ν ∈ 𝒩″. Step 1 (iii) treats the
+L_(h,p⃗)u_0 = G for a forcing G ∈ 𝒴⁰(α) and with L_b m_ν of K⁺-order above α for ν ∈ 𝒩″. Step 1 (iii) treats the
 m_ν(W_ν) as it treats the m_ν(S_ν).
 
 ### Admissible levels and enlarged sources {#sec:iii-i13-1}
@@ -1395,12 +1395,12 @@ above 2; ℰ_++ is closed under the addition of ℰ_ind ∪ ℰ^ι_ind below 2 (
 {Re < 2} (λ_♯ + 1 > 2).
 
 (b) In the induction of the proof of [[lem:iii-i10-1-2]] (c), the logarithmic order at λ is the largest over its
-contributions plus at most J_*(l_* + 1) from the raises at λ. A source exponent of ℰ^♮ is a further contribution, of
+contributions plus at most J_*(l_* + 1) from the raises at λ. A forcing exponent of ℰ^♮ is a further contribution, of
 logarithmic order at most k̄(λ) − J_*(l_* + 1) − 1 by (a); so the bound k̄(λ) survives, and the induction runs as
-there. Below 2 the exponents of the source lie in ℰ_++ by (a), as [[eq:iii-i8-1-1]] and Step 2 of the proof of
+there. Below 2 the exponents of the forcing lie in ℰ_++ by (a), as [[eq:iii-i8-1-1]] and Step 2 of the proof of
 [[prop:iii-i10-3-1]] require. ∎
 
-The constructions of [[sec:iii-i10-3]], [[sec:iii-i11-3]] and [[sec:iii-i12-3]] see the ι⁺-index set of a source only
+The constructions of [[sec:iii-i10-3]], [[sec:iii-i11-3]] and [[sec:iii-i12-3]] see the ι⁺-index set of a forcing only
 through this count, the plain weight w_+ − ε and, for the part not supported in supp χ^♯_K, the step at ℐ⁺ (Step 1 of
 the proof of [[prop:iii-i10-3-1]], which acts on f_1 ∈ 𝒴⁰_1 only; a section of 𝒴^♮_2 enters there as f_2 does, being
 supported away from ℐ⁺). This is used in [[prop:iii-i13-2-4]].
@@ -1408,7 +1408,7 @@ supported away from ℐ⁺). This is used in [[prop:iii-i13-2-4]].
 ### The expansion at every level {#sec:iii-i13-2}
 
 **Proposition {#prop:iii-i13-2-1}** (The spectral phase at every level.) Let β ∈ (3, 4 + ε_K] be admissible and
-f ∈ 𝒴^♮(β), and let f^♭ and v be as in [[sec:iii-i11-1]] with β in place of α (f^♭ is the source of
+f ∈ 𝒴^♮(β), and let f^♭ and v be as in [[sec:iii-i11-1]] with β in place of α (f^♭ is the forcing of
 [[prop:iii-i10-3-1]] (c) for f, and v the forward solution of L_b v = f^♭, of K⁺-weight w_v > 0). Then there are
 S_ν ∈ 𝒲_(τ,ℂ), ν ∈ 𝒩_σ ∩ 𝒩_β, linear and continuous in f, with
 
@@ -1433,12 +1433,12 @@ remainder exponents α_0 + ℰ_ind are treated in turn as there. [[lem:iii-i11-2
 
 *Step 4 for ℓ_3 > 0* (β > 4, where ℓ_3 = β − 4 − ε > 0 by [[def:iii-i13-1-1]]) is that of [[prop:iii-i11-3-1]].
 *For ℓ_3 < 0* (β < 4), g_3 has no zf-term to remove, and the zero energy solve of level 3 ([[lem:iii-i11-2-1]] with
-q_3) is omitted. While the tf-weight κ of the current level-3 source is at most β − 2 = 2 + ℓ_3 + ε, apply
+q_3) is omitted. While the tf-weight κ of the current level-3 forcing is at most β − 2 = 2 + ℓ_3 + ε, apply
 [[prop:iii-g4-5-1]] with α_κ := κ ∈ (1, 2) (κ ≥ κ_3 = 1 + η_2 − 2ε > 1 and κ ≤ β − 2 < 2), ℓ_zf := ℓ_3 ∉ ℕ₀, the order
 0 of the zf-index set, and w = ℓ_3 − κ + 2 ∈ [−ε, 1) ⊂ (−ε_ind, ℓ^max_K); its conditions w ≠ −μ and 2 − κ + j ≠ −μ hold
 for ε off a finite set, the values of κ being κ_3 + i(ε_ind − ε). Each round leaves a remainder of tf-weight
 κ + ε_ind − ε and the pieces σ³u; after finitely many rounds κ > β − 2, and, lowering κ if necessary,
-κ ∈ (β − 2, β − 1 − ε). The rest, g_J (the level-3 source after the rounds), lies in H^(∞,(5/2−ε,κ,ℓ_3))_b and is
+κ ∈ (β − 2, β − 1 − ε). The rest, g_J (the level-3 forcing after the rounds), lies in H^(∞,(5/2−ε,κ,ℓ_3))_b and is
 inverted by [[lem:iii-i2-4-2]] with β_scf := 3/2 − 2ε, β_tf := κ − 2, β_zf := ℓ_3,
 β_tf − β_zf = κ − β + 2 + ε ∈ (0, 1) (ε off a finite set, [[def:iii-i13-1-1]] (c)):
 
@@ -1466,7 +1466,7 @@ solution u of L_(h,p⃗)u = G lies in ⋂_ε H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_
     u = Σ_(ν∈𝒩_β) m_ν(S_ν) + u^rot_β + ũ,     ũ ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,β−2−ε)_b(Ω_*)^(•,−)            {#eq:iii-i13-2-2}
 
 for every β_+ < min(3/2, min Re ℰ_+). Here u^rot_β is the sum of the terms of u^rot_ι ([[prop:iii-i10-3-1]]) with
-Re λ_0 < β − 2 and of v^rot_β, for the source f′ of the proof; the coefficients S_ν = S^(h,p⃗,β)_ν(G) ∈ 𝒲_(τ,ℂ) are
+Re λ_0 < β − 2 and of v^rot_β, for the forcing f′ of the proof; the coefficients S_ν = S^(h,p⃗,β)_ν(G) ∈ 𝒲_(τ,ℂ) are
 determined by u − u^rot_β; u^rot_β and the S_ν are conjugation-symmetric, linear and continuous in G, with bounds
 uniform for (h, p⃗) small and b ∈ ℬ̄_*. When h_(b,v1) = 0, in particular at b_0, u^rot_β is put into ũ. For β ∈ (2, 3),
 [[lem:iii-i8-3-2]] holds for G ∈ 𝒴^♮(β).

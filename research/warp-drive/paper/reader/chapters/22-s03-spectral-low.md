@@ -1106,17 +1106,21 @@ for ‖·‖_((s−1;k),(𝗋+α_++1,l,q),ς).
 P̂(σ)u = f − Σ c_iψ_i ∈ H̄^((s−1;k),𝗋_ς+α_++1), so u ∈ H̄^((s;k),𝗋_ς+α_+) by [[thm:i-a-7-2]] (4), and
 ‖u‖_(α,0) < ∞ by [[lem:i-c-6-2]] (c). This is what makes the absorptions below legitimate.
 
-*Step 1 (zf).* For ς small, χ_zf u is supported in {ρ ≥ 2ς}, a compact subset of X̄ ∖ ∂X for fixed ς, so
-χ_zf u ∈ H̄^(s+k) with compact support, and (χ_zf u, c) ∈ 𝒳_0 ⊕ ℂ^(m_1) at the regularity s + k. (Z_𝒫) holds at the
-regularity s + k as well: the kernel of 𝒫(0) there lies in the kernel at s, and the index of 𝒫(0), which is that of
-P̂(0) plus m_1 − m_2, does not depend on the regularity by [[thm:i-c-3-1]] (3). So by [[lem:i-c-6-2]] (a), the bounded
-inverse of 𝒫(0) at s + k, and ⟨χ_zf u, φ_j⟩_h = ⟨u, φ_j⟩_h,
+*Step 1 (zf).* For ς small, χ_zf u is supported in {ρ ≥ 2ς}, a compact subset of X̄ ∖ ∂X for fixed ς. Since
+χ_zf ψ_i = ψ_i and P̂(0)u = f − Σ c_iψ_i − (σT + σ²P_2)u,
+
+    P̂(0)(χ_zf u) + Σ c_iψ_i = χ_zf f − χ_zf(σT + σ²P_2)u + [P̂(0), χ_zf]u.
+
+By the finiteness above and [[lem:i-c-6-2]] (c), u ∈ H̄^(s+k) and f ∈ H̄^(s+k−1) on {ρ ≥ ς}, which contains the
+supports of all these terms, and the operators on the right are of order at most 1. So χ_zf u ∈ H̄^(s+k) and
+P̂(0)(χ_zf u) ∈ H̄^(s+k−1), both with compact support in X̄ ∖ ∂X, and (χ_zf u, c) ∈ 𝒳_0 ⊕ ℂ^(m_1) at the regularity
+s + k. (Z_𝒫) holds at the regularity s + k as well: the kernel of 𝒫(0) there lies in the kernel at s, and the index of
+𝒫(0), which is that of P̂(0) plus m_1 − m_2, does not depend on the regularity by [[thm:i-c-3-1]] (3). So by
+[[lem:i-c-6-2]] (a), the bounded inverse of 𝒫(0) at s + k, and ⟨χ_zf u, φ_j⟩_h = ⟨u, φ_j⟩_h,
 
     ‖χ_zf u‖_(α,0) + |c| ≤ C‖χ_zf u‖_(H̄_b^(s+k,α)) + |c| ≤ C(‖P̂(0)(χ_zf u) + Σ c_iψ_i‖_(H̄_b^(s+k−1,α+2)) + |e|).
 
-Since χ_zf ψ_i = ψ_i and P̂(0)u = f − Σ c_iψ_i − (σT + σ²P_2)u,
-
-    P̂(0)(χ_zf u) + Σ c_iψ_i = χ_zf f − χ_zf(σT + σ²P_2)u + [P̂(0), χ_zf]u.
+The terms of the identity above are bounded as follows.
 
 (i) By [[lem:i-c-6-2]] (a), (b), ‖χ_zf f‖_(H̄_b^(s+k−1,α+2)) ≤ C‖χ_zf f‖′_(α+2,0) ≤ C‖f‖′_(α+2,0).
 
