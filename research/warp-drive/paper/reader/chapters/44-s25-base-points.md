@@ -311,8 +311,8 @@ dependence on the coordinates W′_ν of the rows of 𝒩 ⊔ 𝒩_rot is throug
 - Δ_q(p⃗′) and R_q u(p⃗′), of norm O(‖q‖) ([[lem:iii-i14-2-3]], [[lem:iii-i14-2-4]]).
 
 The motion coordinates (S′, b′, S^(0)′_1) enter through f^S, f^b, f^(s1) in full: these are linear in their
-finite-dimensional arguments, with values in 𝒴⁰(α), which lies in the class of every level as G′ does in Step 2
-([[sec:iii-i10-1]]), and norms O(|S′|), O(|b′|), O(|S^(0)′_1|) ([[lem:iii-i7-3-1]] (c), [[lem:iii-i9-2-6]] (a)).
+finite-dimensional arguments, with values in 𝒴⁰(α) ([[sec:iii-i10-1]]) and so in the class of every level, as in
+Step 2, and norms O(|S′|), O(|b′|), O(|S^(0)′_1|) ([[lem:iii-i7-3-1]] (c), [[lem:iii-i9-2-6]] (a)).
 They lie at the base level, below every new row, and along 𝒫_k they change only by O(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)
 times the change of the row coordinates; this is [[eq:s25-motions-small]] below.
 
@@ -365,9 +365,8 @@ most a seminorm of it in those weights. The four kinds of terms of e_rows(W⃗):
 - m_rows(W⃗) has K⁺-weight λ_♯ − 1 − ε, ι⁺-weight λ_♯ − ε > 3/2 (above every β′_+ < 3/2), vanishes near ℐ⁺ and for
   t^♭_* < 10, and has seminorms O(|W⃗|) ([[lem:iii-i9-2-2]], [[lem:iii-i15-2-1]]). So [[lem:iii-i14-2-3]] at b (*The
   augmentation at b* in the proof of [[thm:iii-i15-3-1]]), with w := λ_♯ − 1, applies: R_q m_rows(W⃗) is supported
-  in supp χ_K, has
-  K⁺-weight (λ_♯ + α − 3)− > α_1 (as λ_♯ > 1 and α_1 < α − 2) and plain ι⁺-weight above w_+ > 4 (the proof of that
-  lemma), with seminorms at most C‖q‖|W⃗|.
+  in supp χ_K, has K⁺-weight (λ_♯ + α − 3)− > α_1 (as λ_♯ > 1 and α_1 < α − 2) and plain ι⁺-weight above w_+ > 4
+  (the proof of that lemma), with seminorms at most C‖q‖|W⃗|.
 - Δ_q(W⃗) = Σ_ν R_q(h_ν(W_ν)) is supported in supp χ_K, has K⁺-order ∞ and plain ι⁺-weight above w_+, with norm
   O(‖q‖|W⃗|) ([[lem:iii-i14-2-4]] (a), at b as in the same paragraph).
 
@@ -387,9 +386,8 @@ forcing L_(h″,p⃗)m_rows(W⃗), the property that defines p⃗′_(α_1), and
 p⃗′_(α_1)(L_(h″,p⃗)m_rows(W⃗)) = 0. This is the argument of the paragraph *The level map* of the proof of
 [[prop:iii-i8-4-1]], and of the paragraph *At (0, 0)* of the proof of [[thm:iii-i11-4-1]].
 
-(4) *The bound.* By (1), (3) and the linearity of p⃗′_(α_1),
-p⃗′_(α_1)(D_(W⃗)P_5(W⃗)) = p⃗′_(α_1)(e_rows(W⃗)), and the bound of (i) of [[prop:iii-i8-4-1]] with (2) gives
-[[eq:s25-motions-small]].
+(4) *The bound.* By (1), (3) and the linearity of p⃗′_(α_1), p⃗′_(α_1)(D_(W⃗)P_5(W⃗)) = p⃗′_(α_1)(e_rows(W⃗)), and
+the bound of (i) of [[prop:iii-i8-4-1]] with (2) gives [[eq:s25-motions-small]].
 
 Along 𝒫_k ⊂ 𝒫_0, with F fixed, a change δW⃗ of the row coordinates therefore changes the motion coordinates by
 δp⃗′_< = −p⃗′_(α_1)(D_(W⃗)P_5(δW⃗)), of size at most C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|δW⃗|.

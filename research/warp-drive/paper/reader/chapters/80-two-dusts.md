@@ -5,7 +5,7 @@
 This chapter carries [[thm:main]] over to two families of waves, one ingoing and one outgoing, whose high-frequency
 limit is a solution of the Einstein equations with two crossing radial null dusts. Three things change. The background
 is no longer explicit: it is the solution of a characteristic problem with explicit Vaidya data on two null cones, and it
-is a Vaidya metric everywhere except on a compact diamond where the two dusts cross ([[prop:two-dust-background]]). The
+carries a single dust everywhere except on a compact diamond where the two dusts cross ([[prop:two-dust-background]]). The
 approximant carries two phases, and the harmonics that mix them are removed at every order by division by a symbol that
 is bounded away from zero, so that there are no small divisors ([[lem:two-dust-nonresonance]]). The uniform estimate
 needs one phase shift per family; the two phase shifts are coupled through bounded coefficients, and the coupling
@@ -25,9 +25,10 @@ with σ and R > 0 functions of (u, v) and dΩ₃² the round metric of S³, writ
 [[sec:background]]. Since g0 is invariant under O(4) acting on S³, the point x := R x̂ ∈ R⁴, x̂ ∈ S³, is well defined,
 and with a time function τ (fixed in [[sec:two-dust-background]]) the pair X = (τ, x) is a chart in which tensors are
 arrays of Cartesian components, as in [[sec:background]]. Two-phase profiles are smooth functions or tensors f(X, θ1, θ2)
-on Ω₂ × T², 2π-periodic in each phase variable; we write [f](X) := f(X, v(X)/λ, u(X)/λ), ⟨f⟩ for the mean over T², F_𝔨 :=
-∂_(θ_𝔨) for 𝔨 ∈ {in, out}, θ_in := θ1, θ_out := θ2, ϕ_in := v, ϕ_out := u, and ℓ_𝔨 := g0⁻¹ dϕ_𝔨. A harmonic e^(i(n1 θ1 +
-n2 θ2)) with n ≠ 0 is *pure* if n1 n2 = 0 and *mixed* if n1 n2 ≠ 0. The chain rule reads
+on Ω₂ × T², 2π-periodic in each phase variable; we write [f](X) := f(X, v(X)/λ, u(X)/λ) and ⟨f⟩ for the mean over T².
+The letter 𝔨, and 𝔧 beside it, is a family index, ranging over {in, out}; θ_in := θ1, θ_out := θ2, ϕ_in := v,
+ϕ_out := u, F_𝔨 := ∂_(θ_𝔨) and ℓ_𝔨 := g0⁻¹ dϕ_𝔨. A harmonic e^(i(n1 θ1 + n2 θ2)) with n ≠ 0 is *pure* if n1 n2 = 0
+and *mixed* if n1 n2 ≠ 0. The chain rule reads
 
     ∂_a [f] = λ⁻¹ (∂_a v) [F1 f] + λ⁻¹ (∂_a u) [F2 f] + [∂_a f],                                     {#eq:two-dust-chain}
 
@@ -79,7 +80,7 @@ invariant under the T² action and both reflections, with:
 4. *Convergence.* |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C, and ∂g_λ − ∂g0 = dv ⊗ [F1 g1] + du ⊗ [F2 g1] + O(λ), so ∂g_λ → ∂g0
    weakly in L²(Ω₂), and not strongly wherever env or env₂ is nonzero. The limit is the two-null-dust background:
 
-       Ric(g0) = K_in dv ⊗ dv + K_out du ⊗ du,      K_in R³ = 𝒜(v),      K_out R³ = ℬ(u),            {#eq:two-dust-limit}
+       Ric(g0) = (𝒜(v)/R³) dv ⊗ dv + (ℬ(u)/R³) du ⊗ du,                                            {#eq:two-dust-limit}
 
    the two families' Isaacson fluxes [[eq:two-dust-fluxes]].
 5. *Gauge and uniqueness.* D(g_λ) = 0 on Ω₂ (the gauge of [[sec:gauge]], relative to the two-dust g0), and g_λ is the
