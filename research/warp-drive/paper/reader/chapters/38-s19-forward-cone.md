@@ -1143,13 +1143,17 @@ u depends continuously on (b, S, h) in H^(k−1,(β_I−ς,β_+−ς,−3/2−ς
 ε′_0 is the ε_0 of [[thm:iii-h2-4-1]]. Its hypothesis (i) is [[thm:iii-h2-2-1]]. (ii) is unchanged, as S̄ and Ā do not
 depend on b. (iii) is [[cor:iii-i-5-2]], which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis holds
 by [[thm:iii-h2-2-1]], with ‖P − 2L_b‖_((0;d)) ≤ C(|b − b₀| + |S| + ‖h‖_(𝒳^(d+5))) by [[prop:iii-i-3-4]],
-[[eq:iii-i-3-7]], below ε′_0 by (B5).
+[[eq:iii-i-3-7]], below ε′_0 by (B5). The metric g of P satisfies [[eq:s19-time-hyp-b]], the additional hypothesis of
+[[thm:iii-h2-4-1]]: by [[eq:s19-time-hyp]] and (B2), ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2 + C(|S| + ‖h‖_(𝒳³)),
+which is below ε_♭ for |S| and ‖h‖_(𝒳^d) small (d ≥ 3), with C independent of b; no condition on b beyond b ∈ B̄_1
+enters.
 
 *Continuity.* Let k ≥ 1. In the notation of the proof of [[thm:iii-i-5-3]], in which h ∈ 𝒳^(k+d+5), let (b_j, S_j, h_j) →
 (b, S, h), with b_j, b ∈ B_*, S_j, S, h_j, h as in the statement and h_j → h in 𝒳^(k+d+5). Put g_(0,j) :=
 g_(b₀,b_j,−S_j), g_j := g_(0,j) + h_j, P_j := 2L^(g_j,g_(0,j)) and P := 2L^(g,g_0), and let f_j := f. These satisfy the
 hypotheses of the continuity statement of [[thm:iii-h2-4-1]]. By (iii) above, P_j is admissible relative to 2L_(b_j) of
-the class that theorem asks, with ‖P_j − 2L_(b_j)‖_((0;d)) < ε′_0 by (B5); and ‖P_j − 2L_(b_j)‖_((0;k+d)) is bounded in j
+the class that theorem asks, with ‖P_j − 2L_(b_j)‖_((0;d)) < ε′_0 by (B5) and its metric satisfying
+[[eq:s19-time-hyp-b]] as just shown; and ‖P_j − 2L_(b_j)‖_((0;k+d)) is bounded in j
 by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], as ‖h_j‖_(𝒳^(k+d+5)) is. The same holds for P relative to 2L_b; in particular
 ‖P − 2L_b‖_((0;d)) < ε′_0 by (B5), which is the smallness that the identification in the proof of [[thm:iii-h2-4-1]]
 uses at the limit. The coefficients of P_j converge to those of P in C² on compact subsets of M° ∩ {r > r_0}. On such

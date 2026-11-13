@@ -177,7 +177,7 @@ That is 7 + 2⌈ℓ_I − Re ϰ⌉ for Re ϰ < 2 − δ, and, when 3 < ℓ_I < 3
 (g) [[prop:iii-a-4-2]]: with n_ι := n(E_ι, β_ι), n_K := n(E_K, β_K), n_I := n(E_I, β_I),
 B := max(β_K, β_ι + max(0, −min Re π_1E_I)) and ℓ_F := ⌈(max(β_ι − β_scf, β_K) + ε − ½)_+⌉,
 
-    (1):  l = 1 + n_ι + 2 max(n_K + ⌊β_K⌋, n_I + ⌊B⌋),        (2):  l = n_ι + n_K + ℓ_F.                {#eq:ec-fourier-loss}
+    (1):  l = 1 + n_ι + 2 max(n_K + ⌊β_K⌋, n_I + ⌊B⌋),     (2):  l = n_ι + n_K + ℓ_F.  {#eq:ec-fourier-loss}
 
 *Proof.* (a) is the statement of [[lem:ii-g1-4-1]].
 
@@ -450,7 +450,7 @@ in I is its own resolvent.
 u ≠ 0 be a function of r_*, supported in I, with u and u′ absolutely continuous and u″ ∈ L². Put
 F := −u″ + (V_l − σ²)u. Then F ≠ 0, R_l(σ)F = u, and
 
-    ‖χ_I R_l(σ) χ_I‖ ≥ ‖u‖/‖F‖.                                                                     {#eq:ec-test-function}
+    ‖χ_I R_l(σ) χ_I‖ ≥ ‖u‖/‖F‖.                                                                 {#eq:ec-test-function}
 
 *Proof.* F lies in L² and vanishes outside I, V_l being bounded on I. If F were 0, u would solve the homogeneous
 equation and vanish on an interval, so u = 0. The function u solves −u″ + (V_l − σ²)u = F and vanishes near −∞ and
