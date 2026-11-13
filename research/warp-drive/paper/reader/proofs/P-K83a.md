@@ -181,7 +181,7 @@ derivatives are those of γ plus those of a_θ − γ. The factor of order k, if
 way. So each term has L²-norm at most C‖ζ‖_(H^(k+2)) on a box, the L⁴-norm bounding the L²-norm there, and integrating
 in θ gives (C).
 
-*The equation.* For z ∈ 𝒴 let (δK_z, δg_z) := T_(u′)z and
+*The equation.* For z ∈ 𝒴 let (δK_z, δg_z) := T_(u′)z, and, when |εδγ_s + δg_z|_γ < ½ on Ω_c,
 
     σ(z) := −𝔍(u′) + ε²s (−2J_1, 2ρ_1 f(g′ + δg_z)).                                             {#eq:loc-continuity-source}
 
@@ -250,9 +250,9 @@ since |J_1|_γ = ρ_1 and ||J_1|_(γ_D) − |J_1|_γ| ≤ Cρ_1|γ_D − γ|_γ 
 w := εδ_s + c_(ε,s), which is of class C², vanishes outside 𝒱 and has ‖w‖_(C²) ≤ Cε. Φ = (ℋ, ℳ) is a smooth function of
 the 2-jet of the data and vanishes at the background's data on U, so on 𝒱, by Taylor's formula,
 Φ(bg + w) = DΦ[w] + ½D²Φ[w, w] + O(ε³) uniformly in s, with DΦ[w] = DΦ[c_(ε,s)], as DΦ[δ_s] = 0, and
-½D²Φ[w, w] = ½ε²D²Φ[δ_s, δ_s] + O(ε³). The pairing of DΦ[c_(ε,s)] with (N_s, 2Y_s) is ∫_U ⟨P*(𝔨), c_(ε,s)⟩ dvol = 0, by
-the computation in the proof of [[lem:loc-kid-space]] (b), the integrations by parts being valid for a pair of class C²
-that vanishes outside the compact 𝒱. So the left sides give ε²Q(δ_s) + O(ε³) by [[eq:loc-charge]], uniformly in s, and
+½D²Φ[w, w] = ½ε²D²Φ[δ_s, δ_s] + O(ε³). The pairing of DΦ[c_(ε,s)] with (N_s, 2Y_s) is ∫_U ⟨P*(𝔨), (δK, δγ)⟩ dvol = 0, for
+c_(ε,s) = (δγ, δK), by the computation in the proof of [[lem:loc-kid-space]] (b), the integrations by parts being valid
+for a pair of class C² that vanishes outside the compact 𝒱. So the left sides give ε²Q(δ_s) + O(ε³) by [[eq:loc-charge]], uniformly in s, and
 [[eq:loc-continuity-m]] follows; 𝔫 ≥ ∫_U 𝔴 N_s² dvol > 0.
 
 *Continuity in s.* Let Θ_s be the map Θ built with s and u′_(ε,s), and z*_s its fixed point. For s, t ∈ [s_a, s_b],
@@ -307,8 +307,10 @@ of U independent of ε and s, and a continuous function m(ε, ·) on [0, 2s*] wi
 
     m(ε, s) 𝔫(ε, s) = ε² (Q(δ) − 2s ∫T_1(ξ, n) dvol) + O(ε³),      𝔫(ε, s) > 0,
 
-uniformly in s, such that ℋ(D_(ε,s)) − 2ε²s|J_1|_(γ_D) and ℳ(D_(ε,s)) − ε²sJ_1 are m(ε, s) times the Killing terms of
-[[eq:loc-continuity-res]], γ_D the metric of D_(ε,s). Since Q(δ) < 0 and Q(δ) − 4s*∫T_1(ξ, n) dvol = −Q(δ) > 0, we have
+uniformly in s, such that, γ_D being the metric of D_(ε,s) and δγ = 0 ([[eq:loc-continuity-res]]),
+
+    ℋ(D_(ε,s)) = 2ε²s |J_1|_(γ_D) + m(ε, s) 𝔴 N_s,      ℳ(D_(ε,s)) = ε²s J_1 + ½ m(ε, s) 𝔴 γ(Y_s, ·).
+ Since Q(δ) < 0 and Q(δ) − 4s*∫T_1(ξ, n) dvol = −Q(δ) > 0, we have
 m(ε, 0) < 0 < m(ε, 2s*) for ε small, and by the intermediate value theorem m(ε, s(ε)) = 0 for some s(ε) ∈ (0, 2s*). The
 data D := D_(ε,s(ε)) then satisfy ℋ(D) = 2ρ and ℳ(D) = J exactly, with ρ := ε²s(ε)|J_1|_(γ_D) ≥ 0 and
 J := ε²s(ε)J_1 = −ρ dR/|dR|_(γ_D). These are the data of outgoing radial null dust: for a null dust ϖ ℓ ⊗ ℓ and the unit

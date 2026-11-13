@@ -262,9 +262,8 @@ on H^(𝗍−½), and [[lem:ii-a1-2-3]] (b) approximates w. It is applied at loc
 everywhere, so z = zφ_z = Σ_i q_i x_i φ_i exactly. By [[prop:ii-a1-2-4]] (b), (f), with constant orders and index 0,
 Op(ρ^(−𝗍) φ_ε z) Φ_z − Op(ρ^(−𝗍) φ_ε z φ_z) and Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) Φ_i − Op(q_i ρ^(−𝗍) φ_ε x_i φ_i) are uniformly
 of order 𝗍 − 1, and by the exact identities Op(ρ^(−𝗍) φ_ε z φ_z) and Σ_i Op(q_i ρ^(−𝗍) φ_ε x_i φ_i) are both
-Op(ρ^(−𝗍) φ_ε z). So
-Op(ρ^(−𝗍) φ_ε z) Φ_z = Σ_i Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) Φ_i + R_ε with R_ε uniformly of order 𝗍 − 1. [[lem:ii-d-2-4]]
-applied to Op(q_i) and Op(ρ^(−𝗍) φ_ε x_i) Φ_i w gives [[eq:ii-d-2-4]], as ‖Op(ρ^(−𝗍) φ_ε x_i) Φ_i w‖_(−½) ≤ C‖w‖_(𝗍−½).
+Op(ρ^(−𝗍) φ_ε z). So Op(ρ^(−𝗍) φ_ε z) Φ_z = Σ_i Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) Φ_i + R_ε with R_ε uniformly of order
+𝗍 − 1. [[lem:ii-d-2-4]] applied to Op(q_i) and Op(ρ^(−𝗍) φ_ε x_i) Φ_i w gives [[eq:ii-d-2-4]], as ‖Op(ρ^(−𝗍) φ_ε x_i) Φ_i w‖_(−½) ≤ C‖w‖_(𝗍−½).
 In the particular case put X := Σ_j x_j* x_j and q_i := ζ z X⁻¹ x_i* with ζ supported in V. Then Σ_i q_i x_i = ζz = z
 and Σ_i q_i q_i* = ζ² z X⁻¹ z* ≤ c_*⁻¹, so |q_i| ≤ c_*^(−1/2). ∎
 

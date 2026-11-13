@@ -703,12 +703,12 @@ spanning Diff²_(e,b), the x_Ia_i-terms are absorbed. By Leibniz's rule the ã_i
 factors (the commutators of the X_j with P_i stay in Diff²_(e,b), as said below, and expanding smooth coefficients
 produces only terms of this kind). For q = 0 such a product is bounded by
 ‖ã‖_(L^∞)‖u‖_(H^((1;m))) ≤ C‖ã‖_(H³)‖u‖_(H^((1;m))). For q ≥ 1, move W′ to the right of the V′_l: as [X_j, W′] is an
-eb-vector field for each X_j, this costs only products of the same form with fewer V′_l. Put f := V₁ã and g := W′u,
+eb-vector field for each X_j, this costs only products of the same form with fewer V′_l. Put f := V_qã and g := W′u,
 so that the remaining q − 1 derivatives fall on f and r ≤ m − q + 1 on g. We reduce to the estimate for products of
 derivatives, [[thm:std-gn-moser]] (2) with s := m, through the charts of the proof of [[lem:iv1-2-3]]. Divide out the
 weights, and extend f and g from Ω to M_♯ by the operator of that proof, which is bounded on H^m_b and on L^∞. Let φ_i
 be the partition of unity and ψ_i the cut-offs of that proof, ψ_i = 1 near supp φ_i. The product
-Π := (V₁⋯V_qã)(V′₁⋯V′_rW′u) is Σ_i φ_iΠ, and on supp φ_i it equals (V₂⋯V_q(ψ_if))(V′₁⋯V′_r(ψ_ig)). In the chart of
+Π := (V₁⋯V_qã)(V′₁⋯V′_rW′u) is Σ_i φ_iΠ, and on supp φ_i it equals (V₁⋯V_(q−1)(ψ_if))(V′₁⋯V′_r(ψ_ig)). In the chart of
 index i each V_l and each V′_l is a combination of the fields of 𝒱 (the two coordinate fields of ℝ² and the rotation
 fields of 𝕊³) with coefficients bounded with all their derivatives; expanding the compositions by Leibniz's rule, φ_iΠ is
 a finite sum of terms c(Q′(ψ_if))(Q″(ψ_ig)) with c bounded and Q′, Q″ compositions of at most q − 1 and at most r fields
@@ -716,7 +716,7 @@ of 𝒱, so of at most m fields in all. In the chart, [[thm:std-gn-moser]] (2) b
 C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) + ‖ψ_if‖_(H^m)‖ψ_ig‖_(L^∞)), and the chart comparison and the boundedness of multiplication by
 ψ_i in the proof of [[lem:iv1-2-3]] bound these norms by those of f and g. Summing over i gives
 
-    ‖(V₁⋯V_qã)(V′₁⋯V′_rW′u)‖ ≤ C(‖V₁ã‖_(L^∞)‖W′u‖_(H^m_b) + ‖V₁ã‖_(H^m_b)‖W′u‖_(L^∞))
+    ‖(V₁⋯V_qã)(V′₁⋯V′_rW′u)‖ ≤ C(‖V_qã‖_(L^∞)‖W′u‖_(H^m_b) + ‖V_qã‖_(H^m_b)‖W′u‖_(L^∞))
                               ≤ C(‖ã‖_(H⁴)‖u‖_(H^((1;m))) + ‖ã‖_(H^(m+1))‖u‖_(H^((1;3)))),
 
 by [[eq:iv-0-1]] (H³_b ⊂ L^∞) and ‖W′u‖_(H^j_b) ≤ C‖u‖_(H^((1;j))), which holds by moving W′ to the left in the same way.

@@ -934,16 +934,14 @@ please: by (S15) ([Hin26d, Lemma 3.42, p. 51]), (1 − η̃)Op_𝒱(a) is residu
 η̃ ∈ C^∞_(uni,ℬ×ℬ)(M × M) equals 1 within d_ℬ-distance ϵ of the diagonal, and its proof shows the same when, in each
 local quantization, ψ(x − x′) is replaced by ψ(x − x′)η_0(x − x′) with η_0 ∈ C_c^∞(ℝ^n) equal to 1 near 0 (the form
 used on p. 52). If supp η_0 ⊂ {|x| < ϵ/C}, C the constant of (2.3) in (S15), the new kernel has range at most ϵ. We
-call this
-*truncating* the quantization to range ϵ. It changes the operator by a residual operator of the subalgebra of (S10),
-by the strengthening on p. 75 quoted in (S15), the operators of this chapter being taken in that subalgebra
-([[sec:ii-a-4-2]]). So the truncated operators lie in the subalgebra, [[eq:ii-a-4-1]] and [[lem:ii-a-8-4]] (a) apply
-to them, and truncation changes no principal symbol, wave front set or elliptic set; it commutes with multiplication
-on the left by functions. For the quantizations Op
-of Ψ̃ ([[sec:ii-a-4-2]]) the same holds with ρℬ in place of ℬ: its charts are boxes in those of ℬ, magnified by factors
-at least 1, so d_ℬ ≤ d_(ρℬ). The class is closed under compositions and adjoints, since kernel supports add or are
-reflected, and under commutators with vector fields, which do not enlarge kernel supports. It contains the finite-order
-parametrices of [[lem:ii-a-8-4]] (b), which are quantizations.
+call this *truncating* the quantization to range ϵ. It changes the operator by a residual operator of the subalgebra of
+(S10), by the strengthening on p. 75 quoted in (S15), the operators of this chapter being taken in that subalgebra
+([[sec:ii-a-4-2]]). So the truncated operators lie in the subalgebra, [[eq:ii-a-4-1]] and [[lem:ii-a-8-4]] (a) apply to
+them, and truncation changes no principal symbol, wave front set or elliptic set; it commutes with multiplication on the
+left by functions. For the quantizations Op of Ψ̃ ([[sec:ii-a-4-2]]) the same holds with ρℬ in place of ℬ: its charts are
+boxes in those of ℬ, magnified by factors at least 1, so d_ℬ ≤ d_(ρℬ). The class is closed under compositions and
+adjoints, since kernel supports add or are reflected, and under commutators with vector fields, which do not enlarge
+kernel supports. It contains the finite-order parametrices of [[lem:ii-a-8-4]] (b), which are quantizations.
 
 Cut-offs are real functions in C^∞(M̃). For such a χ, an operator A is *carried by* χ if A = χ′Aχ′ for some
 χ′ ∈ C^∞(M̃) such that χ = 1 within d_ℬ-distance D of supp χ′. Here D bounds the kernel ranges of the finitely many
