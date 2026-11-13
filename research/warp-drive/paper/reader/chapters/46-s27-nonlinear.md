@@ -31,8 +31,11 @@ inner radius r_♭ ∈ (0, ½R₁] of [[ch:s11]] is a parameter: the spacetime M
 in [[ch:s19]]. Every result of this chapter holds for each such r_♭, with constants and neighbourhoods of b₀ that may
 depend on it. C′ is the constant of [[eq:iii-b-3-6]], so that t_* = t − |x| + C′ − 8m₀|x|⁻¹ on {|x| ≥ 3R₁}, and C″ is
 the constant value of ψ_IVP on [R₃, ∞) ([[lem:iii-b-3-7]] (b)), so that t_IVP = t − C″ on {|x| ≥ R₃}. The time function
-t^♭_* is that of [[lem:ii-c-3-2]] with ℓ = ½; its constant C′ of [[lem:ii-c-3-2]] (b) is written C_♭ ∈ (0, 1) here, to
-distinguish it from the constant of [[eq:iii-b-3-6]]. M_(1/2) is the space of [[def:iii-b-2-1]] on which ρ_I^(1/2) is
+t^♭_* is that of [[lem:ii-c-3-2]] with ℓ = ½, built with the constant C of the gluing in its proof, written C_g here,
+taken ≥ max(4(r′_0 + 1), 32, 16R₁), r′_0 the radius of [[lem:ii-c-3-2]]. Every condition that proof places on C_g is a
+lower bound, so this is allowed; [[lem:ii-e-1-2]] (iv) takes C_g ≥ 4(r′_0 + 1), and [[lem:s27-below]] uses the other two
+bounds. The constant C′ of [[lem:ii-c-3-2]] (b) is written C_♭ ∈ (0, 1) here, to distinguish it from the constant of
+[[eq:iii-b-3-6]]. M_(1/2) is the space of [[def:iii-b-2-1]] on which ρ_I^(1/2) is
 smooth. For S = S_w ∈ 𝒮_1 we write |S| := |w|. The boosts φ_S, S ∈ 𝒮_1, are those of [[sec:iii-b-5]] and the
 translations ψ_(S⁰), S⁰ ∈ 𝒮_1, those of [[lem:iii-i7-1-1]]; for S, S⁰ ∈ 𝒮_1 put
 

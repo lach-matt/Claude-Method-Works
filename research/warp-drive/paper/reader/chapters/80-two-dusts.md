@@ -164,8 +164,8 @@ the mass function. Then:
 (iv) (e^(−2σ) R_u)_u = −e^(−2σ) ℬ/(3R²) and (e^(−2σ) R_v)_v = −e^(−2σ) 𝒜/(3R²);
 (v) where R_u < 0, (v̂, R) are coordinates for every increasing function v̂ of v, and with e^ψ := −e^(2σ)/(R_u v̂′),
 
-        g0 = −e^(2ψ) f dv̂² + 2 e^ψ dv̂ dR + R² dΩ₃²,   g0^(v̂v̂) = 0,  g0^(v̂R) = e^(−ψ),  g0^(RR) = f,  ψ_u = ℬ/(3R² R_u);
-                                                                                                     {#eq:two-dust-chart}
+        g0 = −e^(2ψ) f dv̂² + 2 e^ψ dv̂ dR + R² dΩ₃²,      ψ_u = ℬ/(3R² R_u),
+        g0^(v̂v̂) = 0,      g0^(v̂R) = e^(−ψ),      g0^(RR) = f;                                  {#eq:two-dust-chart}
     where R_v > 0, for every increasing function ũ of u, with e^ψ̃ := e^(2σ)/(R_v ũ′), g0 = −e^(2ψ̃) f dũ² − 2 e^ψ̃ dũ dR
     + R² dΩ₃² and ψ̃_v = 𝒜/(3R² R_v);
 (vi) the Kretschmann scalar is
@@ -695,8 +695,9 @@ R^(0) of g_app, and it equals ℛ^(0)(X, θ1 + φ_1^in, θ2 + φ_1^out) = 0, sin
 
 Let g_app be a two-phase approximant ([[def:two-dust-approximant]]), F := −Ric^H(g_app), and
 
-    ℓ_app^K := g_app⁻¹ dϕ_K,   s_K(w) := w(ℓ_K, ℓ_K),   G1^K := [F_K g1],   G2^K := [F_K² g1],   Y_K := [F_K g1 + λ F_K g2],
-    c_in := G1^out(ℓ_in, ℓ_in),   c_out := G1^in(ℓ_out, ℓ_out),   □̃_app := g_app^(ab) ∂_a∂_b,   □̃ := g0^(ab) ∂_a∂_b,
+    ℓ_app^K := g_app⁻¹ dϕ_K,   s_K(w) := w(ℓ_K, ℓ_K),   G1^K := [F_K g1],   G2^K := [F_K² g1],
+    Y_K := [F_K g1 + λ F_K g2],   c_in := G1^out(ℓ_in, ℓ_in),   c_out := G1^in(ℓ_out, ℓ_out),
+    □̃_app := g_app^(ab) ∂_a∂_b,   □̃ := g0^(ab) ∂_a∂_b,
 
 for K ∈ {in, out}, with g1, g2 the first two profiles of g_app. The remainder w is decomposed as
 
@@ -969,7 +970,8 @@ The proof is that of [[thm:data]] on the two-dust slice, with the changes of the
 and let κ be any symmetric 2-tensor invariant under O(4). With U = (α, ϖ, q) and (γ_U, κ_U) as in [[eq:data-u]], the
 linearisation at U = 0 of the constraint map of (γ_U, κ_U) has the principal part
 
-    ρ ≅ (3/(R G²)) ∂_R α − (1/(G R²)) Δ_(S³) α,      J_R ≅ 6 ∂_R ϖ − (2/R²) γ̂^(AB) ∂_A q_B,      J_A ≅ −(2/G) ∂_R q_A + 4 ∂_A ϖ,
+    ρ ≅ (3/(R G²)) ∂_R α − (1/(G R²)) Δ_(S³) α,
+    J_R ≅ 6 ∂_R ϖ − (2/R²) γ̂^(AB) ∂_A q_B,      J_A ≅ −(2/G) ∂_R q_A + 4 ∂_A ϖ,
 
 with no ∂_R² α and no ∂_R∂_A α in ρ, and independent of κ. The coefficient of ∂_R α is (γ^(RR))^(3/2) H, H = 3/(R √G) >
 0 the mean curvature of the spheres; the symmetrizer 𝒮 = diag(1, −½ Π⁻¹), Π = R² γ̂, gives 𝒮A0 = diag(6, G⁻¹ Π⁻¹) > 0

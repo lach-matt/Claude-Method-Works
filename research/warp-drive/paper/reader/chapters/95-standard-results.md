@@ -421,6 +421,30 @@ with the freely specifiable data (4.28), uniquely determines κ via (4.17). The 
 up from the solution to (4.16), (3.2) and (4.17) and from the freely specifiable part of the data do satisfy the full
 constraint system (1.1)–(1.2) in the domain of dependence of S_ρ0 in Σ."
 
+**Remark {#rem:std-racz-characteristic}** ([Rac16, (4.19), p. 12; (4.22) and (4.23), p. 13].) In the notation of
+[[thm:std-racz-hyperbolic]] and [Rac16, (2.1)–(2.6), p. 5]: n̂^i is the unit normal of the leaves S_ρ, γ̂^(KL) is the
+inverse of their induced metric in leaf coordinates x^K (K = 2, …, n), κ = n̂^k n̂^l K_kl, k_i = γ̂^k_i n̂^l K_kl is the
+mixed part and K^l_l (also written K^E_E) the trace on the leaves of the second fundamental form K_ij of Σ, and N̂, N̂^K
+are the lapse and shift of the vector field ρ^i with ρ^i D_i ρ = 1, so that n̂_i = N̂(dρ)_i. On p. 12: "when writing
+out (4.16) and (3.2) in local coordinates (ρ, x², …, xⁿ), adopted to the foliation S_ρ and the vector field ρ^i, they
+take the form
+
+    ∂_ρ u + B^(K) ∂_K u + C = 0   (4.19)
+
+for the vector valued variable u = (k_B, K^E_E)ᵀ", and "A system of the form of (4.19) is known to be Friedrichs
+symmetrizable … if a common symmetrizer of the coefficients B^(K) exists. A bilinear form, H_ij, is called to be a
+common symmetrizer to (4.19) if it is positive definite and is such that for any value of K = 2, …, n the product
+H_ij B^(K)_jk is symmetric." On p. 13: "It is also informative to inspect the characteristic directions ξ_i = (ξ_ρ,
+ξ_2, …, ξ_n) which are the roots of the essential part of the characteristic polynomial
+
+    K^l_l (n̂^i ξ_i)² − 2 (n̂^i ξ_i) (γ̂^(KL) k_K ξ_L) + κ (γ̂^(KL) ξ_K ξ_L) = 0   (4.22)
+
+of (4.19). In virtue of (2.3) and (4.22), for the ρ-component of a characteristic direction the relation
+
+    ξ_ρ = N̂^K ξ_K + (N̂/K^E_E) [(γ̂^(KL) k_K ξ_L) ± √((γ̂^(KL) k_K ξ_L)² − κ · K^E_E (γ̂^(KL) ξ_K ξ_L))]   (4.23)
+
+holds."
+
 **Theorem {#thm:std-cd-isomorphism}** ([CD03, Theorem 3.6, p. 13].) "Let k ≥ 0, g0 ∈ W^(k+4,∞)_loc, suppose that (A.2)
 holds with 0 ≤ i ≤ 4 + k, that Ric(g0) ∈ φ^(−2) W^(k+2,∞)_φ(g0), K0 ∈ φ^(−1) W^(k+3,∞)_φ(g0), and that the weights φ
 and ψ have the scaling property … If there exists a compact set 𝒦 ⊂ M such that for all H̊¹_(φ,ψ)(g0) vector fields Y

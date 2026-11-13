@@ -1535,8 +1535,9 @@ C|S|r ([[lem:iii-b-5-1]], [[lem:iii-b-5-2]]), while for r ≥ r₁ = 2r₀ the p
 −1/12 near |x| = r₁, while a boost moves t_IVP by about |S|r₁, so |S| would have to be below about 1/(12Cr₁), against
 the bound depending only on b₀ and ℓ^♭ that [Hin26, Theorem 5.23] states.)
 
-**Theorem {#thm:iii-c2-3-1}** ([Hin26, Theorem 5.23] in dimension 4 + 1.) Let h₀, h₁ be small data as in
-[[thm:iii-c1-3-1]], and let h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₀)) solve
+**Theorem {#thm:iii-c2-3-1}** ([Hin26, Theorem 5.23] in dimension 4 + 1.) There are k₂ ∈ ℕ and ε₂ > 0 such that the
+following holds. Let h₀, h₁ be data as in [[thm:iii-c1-3-1]] with ‖h_j‖_(H^(k₂,ℓ^♭₀)_b) < ε₂ (j = 0, 1), and let
+h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₀)) solve
 
     P^(χ₀)(g_(b₀) + h, g_(b₀)) = 0,     h|_(Σ_(IVP,r₀)) = h₀,     rℒ_(∂_(t_IVP))h|_(Σ_(IVP,r₀)) = h₁     {#eq:iii-c2-3-2}
 

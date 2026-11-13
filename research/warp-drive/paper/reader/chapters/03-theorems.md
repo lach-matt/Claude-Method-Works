@@ -274,7 +274,7 @@ the exterior and its spatially compact subsets, the slowly rotating Myers–Perr
 named below are defined there.
 
 **Theorem {#thm:settling}** (settling). Fix l5, μ0, A, env and τ0 as in [[thm:main]], set the stability theory up
-about the Tangherlini metric of mass μ_end, that is at b₀ = (μ_end, 0), and fix its inner radius r_♭ ∈ (0, √μ_end/2]
+about the Tangherlini metric of mass μ_end, that is at b₀ = (μ_end, 0), and fix its inner radius r_♭ ∈ (0, (1/2)√μ_end]
 and ℓ0 ∈ (3, 4); let ε_K be the decay parameter chosen in that theory ([[thm:vi-c-2-1]], step (4), with the data class
 [[eq:vii-0-1]] of this ℓ0 at step (3)). It satisfies
 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ε_+ and some ℓ_I ∈ (3, ℓ0) admissible in row d2 of
