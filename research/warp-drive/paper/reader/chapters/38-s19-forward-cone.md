@@ -1070,14 +1070,16 @@ are applied relative to P_0 = 2L_b ([[prop:ii-f1-3-1]] (iv) on Ω_(1,T_η), [[le
 [[thm:iii-h2-3-1]] (b).
 
 (ii) The thresholds of [[lem:ii-f1-2-1]] and [[lem:ii-c-3-7]], which are continuous in the coefficients, and the
-hypothesis of [[lem:ii-c-3-2]] for the time function t^♭ of (B2). The proof of [[thm:ii-f1-1-1]] runs here in the form
-of [[rem:ii-f1-7-4]] with g_0 := g_b and ℓ_♭ = ½, the base metric of t^♭ being g_(b₀) instead of g_b. By the last
-statement of that remark, it applies [[lem:ii-c-3-2]] (1)–(2) only to g_b, to g, to metrics g′ with
-‖g′ − g_b‖ ≤ C_♭‖g − g_b‖ and to metrics g′ with ‖g′ − g_b‖ < ϵ_G/2 (the norms of 𝒢̃^(0,(1,0,0))_(e3b), and the last
-by the choices made in the proof of [[thm:ii-f-8-1]], uniform on B̄_1 by [[thm:iii-h2-3-1]]); here C_♭ is that of (B2),
-as x_I²ρ_+²g_b and its inverse are bounded by twice the bounds at b₀ by (B2). With [[eq:s19-time-hyp-b]] and
-‖g_b − g_(b₀)‖ < ε_♭/2 ((B2)), ‖g − g_b‖ < 3ε_♭/2, so each of these metrics lies within
-max((3C_♭ + 1)ε_♭/2 hmm
+hypothesis of [[lem:ii-c-3-2]] for the time function t^♭ of (B2), built for g_(b₀) with ℓ = ½. The proof of
+[[thm:ii-f1-1-1]] runs in the form of [[rem:ii-f1-7-4]] with g_0 := g_b and ℓ_♭ = ½, except that t^♭ is built for
+g_(b₀). By the last statement of that remark, it applies [[lem:ii-c-3-2]] (1)–(2) only to g_b, to g, to metrics g′
+with ‖g′ − g_b‖ ≤ C_♭‖g − g_b‖, and to metrics g′ with ‖g′ − g_b‖ < ϵ_G/2, the last by the choices of the proof of
+[[thm:ii-f-8-1]], which [[thm:iii-h2-3-1]] makes uniformly on B̄_1 (all norms those of 𝒢̃^(0,(1,0,0))_(e3b)). C_♭ is
+that of (B2), as x_I²ρ_+²g_b and its inverse are bounded by twice the bounds at b₀. By (B2) and
+[[eq:s19-time-hyp-b]], ‖g_b − g_(b₀)‖ < ε_♭/2, ‖g − g_(b₀)‖ < ε_♭ and ‖g − g_b‖ < 3ε_♭/2; so the metrics of the
+third kind lie within (3C_♭ + 1)ε_♭/2 < ϵ_G of g_(b₀), as ε_♭ ≤ ϵ_G/(4C_♭ + 2), and those of the fourth kind within
+ϵ_G/2 + ε_♭/2 < ϵ_G. So [[lem:ii-c-3-2]] (1)–(2), for t^♭ and g_(b₀), applies to all of them. The other uses of t^♭
+in that proof, (B) of [[rem:ii-f1-7-4]], concern the function alone.
 
 (iii) The orders ([[sec:ii-f1-2-3]]), fixed by (B4).
 
@@ -1118,8 +1120,9 @@ at s′ = s_u relative to 2L_b, in the norm with the d_0 of that proposition. Th
 statement of [[prop:ii-e-3-4]]), here 𝗌 and s_u, which (B4) fixes for every b ∈ B̄_1; it is the index
 d^U_0 ≤ D_0 ≤ d, with D_0 the index of [[eq:ii-f1-3-2]], so that norm is at most C‖P − 2L_b‖_((0;d))
 ([[eq:ii-f1-3-1]]); and its smallness threshold is uniform on B̄_1 by (i). Both conditions are among those that fix
-ε_0 ([[sec:ii-f1-3-1]]), so ‖P − 2L_b‖_((0;d)) < ε_0 gives them at the limit parameter b. Both ũ and u solve Pv = f,
-so ũ = u.
+ε_0 ([[sec:ii-f1-3-1]]), so ‖P − 2L_b‖_((0;d)) < ε_0 gives them at the limit parameter b; the hypothesis of
+[[lem:ii-c-3-2]] for the metric of P, which [[lem:ii-f1-2-2]] also uses, is [[eq:s19-time-hyp-b]] for P, as in (ii).
+Both ũ and u solve Pv = f, so ũ = u.
 
 *Convergence.* Every subsequence of (u_j) is bounded in X, so it has a further subsequence converging weakly in X, and
 by what was just shown its limit is u. Hence u_j ⇀ u in X, and so in H. By [[lem:ii-f1-6-1]] (k ≥ 1), the inclusion of

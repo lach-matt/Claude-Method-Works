@@ -427,3 +427,71 @@ log₁₀ δ < −4.45 × 10¹⁷. The count depends on the point: the windows o
 where 𝔡₁ ≈ 3.33·10⁻⁹, so the bookkeeping gives no bound uniform over the admissible parameters. The integer was
 obtained by exact rational arithmetic over the 1.065 × 10⁸ levels and the 8.0 × 10⁷ steps of the base level; it is
 not proved in this paper, and no proof uses it.
+
+### The first constants of the linear theory {#sec:ec-linear}
+
+For the scalar wave operator on five-dimensional Tangherlini of mass 1, [[ch:resolvent-bounds]] gives explicit
+constants: the resolvent cut off to I = {6/5 ≤ r ≤ 4} is bounded for every harmonic and every real 0 < |σ| ≤ 3
+([[prop:morawetz-resolvent-l-ge-1]], [[prop:morawetz-l-zero]]) and by 11.477 on 3 ≤ |σ| ≤ 384 ([[thm:band]]), with
+the values of [[prop:band-points]] at sampled frequencies; there the constant bounding the radial derivative is at
+most 283.06 for every l ≥ 1 and 305.31 at l = 0, and 308.46 bounds the radial and angular derivatives summed over the
+harmonics ([[cor:band-one-derivative]]). The same chapter makes explicit the factor of the interpolation step of the
+high-energy inverses ([[lem:rb-interpolation]]: at most 1.002659), replaces one of the inverse bounds by a parametrix
+([[lem:rb-parametrix]]), bounds the resolvent of every master operator behind the mode stability of the 1-form wave
+operator and of the linearised operator at every harmonic and every real frequency, carried exactly to the
+tensor-type and vector-type blocks ([[prop:morawetz-master-potentials]], [[lem:rb-transfer]]), and writes out the
+scalar-type blocks of the linearised operator at zero energy, with an upper bound for their least singular value that
+obstructs a good constant at a weight next to an indicial root ([[sec:rb-scalar-blocks]], [[lem:rb-quasimode]]).
+
+How far the upper bound of [[thm:band]] lies above the norm can be measured from below, since a test function supported
+in I is its own resolvent.
+
+**Lemma {#lem:ec-test-function}** (Lower bounds by test functions.) Let σ be real and nonzero, l ≥ 0, and let
+u ≠ 0 be a function of r_*, supported in I, with u and u′ absolutely continuous and u″ ∈ L². Put
+F := −u″ + (V_l − σ²)u. Then F ≠ 0, R_l(σ)F = u, and
+
+    ‖χ_I R_l(σ) χ_I‖ ≥ ‖u‖/‖F‖.                                                                     {#eq:ec-test-function}
+
+*Proof.* F lies in L² and vanishes outside I, V_l being bounded on I. If F were 0, u would solve the homogeneous
+equation and vanish on an interval, so u = 0. The function u solves −u″ + (V_l − σ²)u = F and vanishes near −∞ and
+near +∞, where it is the zero multiple of u_h and of u_∞; by the uniqueness in [[prop:resolvent-outgoing]] (a),
+u = R_l(σ)F. As F = χ_IF and u = χ_Iu, ‖χ_I R_l(σ) χ_I F‖ = ‖u‖, which gives [[eq:ec-test-function]]. ∎
+
+**Remark {#rem:ec-lower-bounds-observed}** (Numerical observation.) Polynomial test functions in the radial variable
+on I, of degree up to 159 and vanishing to high order at the ends of I, evaluated in exact rational arithmetic with
+the resolvent inverted exactly as in [[lem:ec-test-function]], give ‖χ_I R_l(σ) χ_I‖ ≥ 0.450, 0.250, 0.147, 0.0827,
+0.0448 and 0.0241 at |σ| = 3, 6, 12, 24, 48 and 96, each at one harmonic; these are about 40 to 46 per cent of the
+values of [[rem:rb-large-frequency-observed]]. With them, the bounds of [[prop:band-points]] would lie at most 19.8,
+18.8, 40.8, 49.6, 67.5 and 93.5 times above the norm at these frequencies. The test functions are not printed here,
+and no proof uses these values.
+
+**Remark {#rem:ec-linear-observed}** (Numerical observation.) Three further constants of the linear theory at the
+final black hole (mass 1, at rest) were evaluated, from exact identities with bounds in exact rational arithmetic and
+certified enclosures, and are not proved in this paper: the zero-energy inverse bound of the scalar model, carried
+into the low-energy norm of order 1 and weight −1 on the domain extended through the horizon, with constant 2.81; the
+zero-energy inverse bound of the tensor-type blocks of the linearised gauge-fixed operator, at every harmonic and
+through the horizon, with constant 3.94; and the data of the trapping estimate at the trapped set {r² = 2, ξ = 0}
+(minimal expansion rate ν_min = 4·2^(−1/2), q^Γ = 4, β_0^Γ = 2), where, for the graded fibre inner products h_Γ(η)
+of the trapping estimate of 2L_(b_0), the largest eigenvalue of the relevant symbol is η²(γ_C − 80·2^(1/2))²/(192γ_C)
+to leading order in η, matched by enclosures at twelve points (γ_C = 10⁶, 10⁷, 10⁸; η = 10⁻¹, …, 10⁻⁴), so that the
+estimate's condition needs η below about 16.48γ_C^(−1/2) and the condition number of h_Γ(η) is η^(−16). No proof uses
+them.
+
+**Remark {#rem:ec-not-evaluated}** (Where explicit evaluation stops.) The values of λ1 and δ are not determined in this
+paper; [[prop:ec-delta-cap]] bounds them from above, and they are positive by the proof of [[thm:settling]]. Explicit
+values stop first upstream of every constant: the proof fixes the gauge and damping parameters only below thresholds
+whose existence it proves ([[thm:vi-c-2-1]]), and the cut-offs and orders of its function spaces only up to
+admissibility, so explicit constants need those choices made with numbers, which [[def:ec-point]] does only at a point
+outside the proved set. Among the inputs that depend on those choices are the gauge reconstruction, the inverse of the
+absorbed problem in the norms of [[ch:s01]] (invertible by a Fredholm argument, [[lem:rb-absorbed]], which gives no
+bound), and a lower bound, uniform in the harmonic, for the least singular value of the scalar-type blocks at zero
+energy ([[lem:rb-quasimode]] bounds it from above). Four kinds of argument give a constant without a value: a compact
+error removed by injectivity, by contradiction (the low-energy and Fredholm estimates of [[ch:s01]]–[[ch:s03]] and
+their analogues later); uniformity in the spectral parameter and in the black hole parameters near the final one, by
+sequences and compactness; the trapping estimate, by a defect-measure argument by contradiction ([[ch:s02]]), with the
+a priori constants built on it; and finite covers of compact parameter sets. Bounds obtained from the closed graph,
+open mapping and uniform boundedness theorems, among them the tame constants C_k of the membership statements
+([[lem:iii-j2-1-2]] (f)), also give no value until each is read off from the explicit estimates behind the statement.
+The parametrix norms at ι⁺ are not given by the construction of the parametrix, and the tame constants to the order
+N_NM, the Nash–Moser thresholds of the exterior and slab problems and the constants of the gluing are not evaluated.
+This is a limit of the explicit evaluation, not of [[thm:settling]].

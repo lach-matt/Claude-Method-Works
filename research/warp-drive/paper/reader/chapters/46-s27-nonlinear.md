@@ -488,8 +488,8 @@ classes of [[cor:iv3-2-3]] so are the coefficients of the expansion at ℐ⁺.
 g_0 := g_(b₀); h small in H^(8,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω^♮) (weights at ℐ⁺ in ρ′_I); L := L^(χ^♮_0)_(g_0+h,g_0);
 α_0 > ℓ^♭_I, k ∈ ℕ with k ≥ 1, and d := 4. For f ∈ H^(k+d,α_0+2,(−′,ℓ^♭_I+1))_b(Ω^♮), data
 ġ_0, ġ_1 ∈ H^(k+d,α_0)_b(Σ^IVP_(r_1)) and data k̇_0, k̇_1 ∈ H^(k+d)(Σ_c), there is a unique
-ġ ∈ H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) with Lġ = f, ġ = ġ_0 and r ℒ_(∂_(t_IVP))ġ = ġ_1 on Σ^IVP_(r_1), and the Cauchy data (k̇_0, k̇_1) on Σ_c; and [[eq:iv2-2-3]] holds with
-‖k̇_0‖_(H^(k+d)) + ‖k̇_1‖_(H^(k+d)) added to N(f, ġ_0, ġ_1; k + d) and their H⁸-norms added to N(f, ġ_0, ġ_1; 8).
+ġ ∈ H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) with Lġ = f, ġ = ġ_0 and r ℒ_(∂_(t_IVP))ġ = ġ_1 on Σ^IVP_(r_1), and the Cauchy data
+(k̇_0, k̇_1) on Σ_c; and [[eq:iv2-2-3]] holds with ‖k̇_0‖_(H^(k+d)) + ‖k̇_1‖_(H^(k+d)) added to N(f, ġ_0, ġ_1; k + d) and their H⁸-norms added to N(f, ġ_0, ġ_1; 8).
 
 *Proof.* As [[thm:iv2-2-4]], with three changes. *The gauge.* On Ω_(ext,r_1), χ^♮_0 = χ_0 ([[lem:iii-k-1-1]] (c));
 on 𝒮, χ^♮_0 = 1 = χ_0, as t_IVP ≥ r/4 there ([[lem:s27-cover]] (d)); so L = L^(χ_0) on Ω^♮, and [[cor:iv2-4-1]]
@@ -537,8 +537,8 @@ the traces on Σ_c minus (k_0, k_1); the right inverses are those of [[thm:iv3-2
 as there (the smoothing of the radiation field built on ℐ⁺_♮; P^♮ = P^(χ_0) on Ω^♮, and [[cor:iii-c-5-3]] holds for it
 by [[lem:iii-c2-2-1]], near 𝒮 in the translated chart). The data enter the map:
 ‖Φ(h)‖_k ≤ C′_k(1 + |h|_(k+d)) + Σ_j(‖h_j‖_(H^(k,ℓ^♭_0)_b) + ‖k_j‖_(H^k(Σ_c))), with C′_k independent of the data,
-so for k ≤ N_ex the constants C_k of [[eq:ii-g-2-3]] are bounded independently of the data once these norms are at most 1 in H^(N_ex). The threshold of [[thm:ii-g-2-1]] depends on the constants up to
-the order N_ex only, so it is then uniform, and ‖Φ(0)‖_(2d) is below it for data small in H^(N_ex); the shifted scales
+so for k ≤ N_ex the constants C_k of [[eq:ii-g-2-3]] are bounded independently of the data once these norms are at
+most 1 in H^(N_ex). The threshold of [[thm:ii-g-2-1]] depends on the constants up to the order N_ex only, so it is then uniform, and ‖Φ(0)‖_(2d) is below it for data small in H^(N_ex); the shifted scales
 of the proof of [[thm:iv2-3-1]] give the higher norms in the same way, with N_ex + k in place of N_ex. Ω_(ext,r_1) is
 closed under past causal curves within Ω^♮, and its past boundary is
 Σ^IVP_(r_1) ∪ Σ^past_(r_1); so on it the solution depends on (h_0, h_1) only, and it is the solution of
