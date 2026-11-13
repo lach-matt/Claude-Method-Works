@@ -300,12 +300,17 @@ on a domain reaching spatial infinity at the time of Σ^IVP; the construction fr
 ([[thm:past-construction]]) is the natural start. This section locates that step and fixes the data class.
 
 Let P′ be the past domain [[eq:past-domain]] built with V′, τ′_end and a′ in place of V, τ_end and a, so that
-V′_P := V′ + 1 + (τ′_end − τ0) + κ_P, with κ_P = ½ and h_P(τ) = κ_P t^(−1/4), t := 1 + τ0 − τ. [[lem:vii-1-2]] chooses
-c₀ and T′ so that on Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}
+V′_P := V′ + 1 + (τ′_end − τ0) + κ_P, with κ_P = ½ and h_P(τ) = κ_P t^(−1/4), t := 1 + τ0 − τ. The proof of
+[[lem:vii-1-2]] chooses c₀ and T′ so that on Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}
 
     τ ≥ τ0 + 1,   v ≥ v_end + 2,   τ ≤ τ_top,   and   V′ ≥ τ_top + 2R + q_end + 1,               {#eq:interior-placing}
 
 τ_top a constant; then τ′_end ≥ V′ − q_end ≥ τ_top + 1, as r_q(v) ≤ q_end. Also a′ < ½r_♭ < 4R.
+
+Two solutions carry the name g_λ here: that of [[thm:main]] on Ω′, whose data [[thm:settling]] glues, and that of
+[[thm:past-construction]] on P′ ∪ Ω′, which satisfies items 1 and 3–5 of [[thm:main]] on Ω′ (item 4 of
+[[thm:past-construction]]). [[lem:interior-where]] (i) speaks of both; from [[lem:interior-where]] (ii) on, g_λ denotes
+the solution of [[thm:past-construction]], whose own data this section continues.
 
 **Lemma {#lem:interior-where}** (Where g_λ is defined.) (i) [[thm:main]] gives g_λ on Ω′, and [[thm:past-construction]]
 gives its solution on P′ ∪ Ω′; both domains lie in {v ≤ V′_P}: on Ω′, v ≤ V′ + 1 + τ′_end − τ ≤ V′_P − κ_P, as
@@ -325,8 +330,8 @@ A_P(τ) have thickness up to d1 = V′_P − v_start and outer radius up to t + 
 ([[lem:past-domain]] (d)); the Poincaré constant of [[lem:past-sobolev]] (b) grows with d1, r³ varying along a ray by a
 factor up to (1 + d1)³; [[lem:past-transport]] carries the weight (t + a2)^γ when γ ≤ 0; and the decay classes E_p of
 [[sec:past-approximant]] are bounds whose constants are taken on the domain. The proofs give no threshold uniform in
-V′_P. So at a fixed λ the data of g_λ are available on a bounded part of Σ^IVP: on Σ^IVP ∩ {r ≤ 4R} for λ small
-depending on R, which is what [[cor:vii-2-3]] uses.
+V′_P. So at a fixed λ the data of either solution are available on a bounded part of Σ^IVP: on Σ^IVP ∩ {r ≤ 4R} for
+λ small depending on R, which is what [[cor:vii-2-3]] uses for the solution of [[thm:main]].
 
 *The far part and its past domain of dependence.* On {v ≥ v_end}, μ = μ_end and
 

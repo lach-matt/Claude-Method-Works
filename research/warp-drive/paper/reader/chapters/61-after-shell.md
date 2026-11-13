@@ -610,8 +610,8 @@ intervals, so Θ has a fixed point Q_R. Then G_R(Q_R) = 0, and by Step 3 the dat
 [[eq:after-shell-params]] is (1), and [[eq:after-shell-annulus]] is (2) with [[eq:after-shell-theta]]. ∎
 
 **Remark {#rem:after-shell-box}** (Why the box does not shrink.) For a ≤ 2 + d(X) the charge difference Δ𝔔_X is O(Ξ) and
-need not vanish, so the radius r_X cannot tend to 0 with R. For instance, with d(X) = 1, pull the data of (i) back by x ↦
-x + χ_1(|x|) c for a small constant c ∈ ℝ⁴, χ_1 as in [[prop:after-shell-outside]]. This is a vacuum perturbation, pure
+need not vanish, so the radius r_X cannot tend to 0 with R. For instance, with d(X) = 1, pull the data of (i) back by
+x ↦ x + χ_1(|x|) c for a small constant c ∈ ℝ⁴, χ_1 as in [[prop:after-shell-outside]]. This is a vacuum perturbation, pure
 gauge, of order 3 = 2 + d(X): by [[eq:after-shell-gain]], γ^(m_λ)(x + c) − γ^(m_λ)(x) ∈ ρ³C^∞. Its centre-of-mass charges
 are Δ𝔔_(e′_l) = −6π² m_λ c_l + O(|c|²): they involve the metric only, the metric on Σ differs from that on the
 Kerr–Schild slice by ρ⁴C^∞ ([[lem:after-shell-mp-data]] (d) at w = 0), whose translation derivative contributes no

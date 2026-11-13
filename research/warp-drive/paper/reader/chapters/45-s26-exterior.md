@@ -1591,7 +1591,7 @@ These data enter [[thm:iii-c1-3-1]] when min Re ℰ₀ > 3/2 + 2γ_Υ, ℓ₀ > 
 **Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in
 dimension 4 + 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), Σ^BL := t_BL⁻¹(0) near spatial infinity, and
 γ^BL_(b₀), κ^BL_(b₀) the first and second fundamental forms of Σ^BL for g_(b₀). Let ℰ₀, ℓ₀ and ℓ^♭₀ be as in
-[[thm:iii-c1-3-1]], δ ∈ (0, ¼], and let γ^BL = γ^BL_(b₀) + γ̃^BL and κ^BL = κ^BL_(b₀) + κ̃^BL be symmetric 2-tensors on
+[[thm:iii-c1-3-1]], δ ∈ (0, ¼] small, and let γ^BL = γ^BL_(b₀) + γ̃^BL and κ^BL = κ^BL_(b₀) + κ̃^BL be symmetric 2-tensors on
 Σ^BL ∩ {r > δ⁻¹} satisfying the vacuum constraint equations, with γ̃^BL ∈ H^(∞,(ℰ₀,ℓ₀))_b and
 κ̃^BL ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b. Let h^BL_0, h^BL_1 be the gauged Cauchy data on Σ^BL that the proof of [[prop:iii-c2-4-1]]
 gives with t_BL in place of t_IVP, and assume them small in H^(N_NM,ℓ^♭₀)_b, N_NM = 153 as in [[thm:iv2-3-1]] (by the

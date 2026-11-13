@@ -94,36 +94,36 @@ with real part −1/(2h).
 
 *Proof.* Put K := h²κ and F(σ) := h³P(σ/h; κ, h). Multiply the matrix [[eq:s14-nl]] at v = 1/2 by h, put ι = σ/h and
 κ = K/h², then multiply its third column by h and divide its third row by h. The determinant becomes F(σ), and the
-matrix becomes, with M := K − σ − σ²,
+matrix becomes, with 𝔪 := K − σ − σ²,
 
-    Y := ( M + 2h(σ + 1),   2σ − 4h,                                2K                 )
-         ( 2e(σ + h),       M − σ + 2hσ + 4h + 3h² + e(σ + h),      −(1 + 2h)K         )
-         ( −2e,             −(e + 2h),                              M + 2hσ + 3h − h² ).                  {#eq:s14-y}
+    Y := ( 𝔪 + 2h(σ + 1),   2σ − 4h,                                2K                 )
+         ( 2e(σ + h),       𝔪 − σ + 2hσ + 4h + 3h² + e(σ + h),      −(1 + 2h)K         )
+         ( −2e,             −(e + 2h),                              𝔪 + 2hσ + 3h − h² ).                  {#eq:s14-y}
 
 A root ι of P(·; κ, h) with real part −1/(2h) gives the root σ = hι = −1/2 + iy of F = det Y, y real. On this line
-M = K + 1/4 + y² is real, |σ|² = 1/4 + y² ≤ M and K ≤ M. Put m := M^(1/2) ≥ 1/2; then |σ| ≤ m, K ≤ m², 1 ≤ 2m and
-m ≤ 2m². Write Y = Y⁰ + Z, where Y⁰ is the upper triangular matrix with rows (M, 2σ, 2K), (0, M − σ, −K) and
-(0, 0, M). Then
+𝔪 = K + 1/4 + y² is real, |σ|² = 1/4 + y² ≤ 𝔪 and K ≤ 𝔪. Put m := 𝔪^(1/2) ≥ 1/2; then |σ| ≤ m, K ≤ m², 1 ≤ 2m and
+m ≤ 2m². Write Y = Y⁰ + Z, where Y⁰ is the upper triangular matrix with rows (𝔪, 2σ, 2K), (0, 𝔪 − σ, −K) and
+(0, 0, 𝔪). Then
 
-    det Y⁰ = M²(M − σ),     |det Y⁰| ≥ M² Re(M − σ) = m⁴(m² + 1/2) > m⁶.
+    det Y⁰ = 𝔪²(𝔪 − σ),     |det Y⁰| ≥ 𝔪² Re(𝔪 − σ) = m⁴(m² + 1/2) > m⁶.
 
 The rows of Z are (2h(σ + 1), −4h, 0), (2e(σ + h), 2hσ + 4h + 3h² + e(σ + h), −2hK) and (−2e, −(e + 2h),
-2hσ + 3h − h²). Let r_i and ρ_i be the sums of the moduli of the entries of row i of Y⁰ and of Z. With the bounds
+2hσ + 3h − h²). Let α_i and β_i be the sums of the moduli of the entries of row i of Y⁰ and of Z. With the bounds
 above,
 
-    r₁ ≤ m² + 2m + 2m² ≤ 7m²,     r₂ ≤ (m² + m) + m² ≤ 4m²,     r₃ = m²,
-    ρ₁ ≤ 2h(m + 1) + 4h ≤ 14hm ≤ 28hm²,
-    ρ₂ ≤ 2e(m + h) + (2hm + 4h + 3h² + e(m + h)) + 2hm² ≤ (6e + 22h + 12eh + 12h²)m² ≤ (6e + 23h)m²,
-    ρ₃ ≤ 2e + (e + 2h) + (2hm + 3h + h²) ≤ (12e + 24h + 4h²)m² ≤ (12e + 25h)m²,
+    α₁ ≤ m² + 2m + 2m² ≤ 7m²,     α₂ ≤ (m² + m) + m² ≤ 4m²,     α₃ = m²,
+    β₁ ≤ 2h(m + 1) + 4h ≤ 14hm ≤ 28hm²,
+    β₂ ≤ 2e(m + h) + (2hm + 4h + 3h² + e(m + h)) + 2hm² ≤ (6e + 22h + 12eh + 12h²)m² ≤ (6e + 23h)m²,
+    β₃ ≤ 2e + (e + 2h) + (2hm + 3h + h²) ≤ (12e + 24h + 4h²)m² ≤ (12e + 25h)m²,
 
 where 1 ≤ 4m² and m ≤ 2m² were used to bring every term to a multiple of m². The determinant is multilinear in the
 rows, so det Y − det Y⁰ is the sum, over the seven nonempty sets S ⊂ {1, 2, 3}, of the determinants of the matrices
 whose rows i ∈ S are those of Z and whose other rows are those of Y⁰. By Hadamard's inequality, and since the
-euclidean norm of a vector is at most the sum of the moduli of its entries, such a determinant has modulus at most
-the product of ρ_i over i ∈ S and of r_i over i ∉ S. Hence, the expression in the middle being increasing in each r_i
-and each ρ_i,
+Euclidean norm of a vector is at most the sum of the moduli of its entries, such a determinant has modulus at most
+the product of β_i over i ∈ S and of α_i over i ∉ S. Hence, the expression in the middle being increasing in each α_i
+and each β_i,
 
-    |det Y − det Y⁰| ≤ (r₁ + ρ₁)(r₂ + ρ₂)(r₃ + ρ₃) − r₁r₂r₃ ≤ 28m⁶((1 + 4h)(1 + (6e + 23h)/4)(1 + 12e + 25h) − 1).
+    |det Y − det Y⁰| ≤ (α₁ + β₁)(α₂ + β₂)(α₃ + β₃) − α₁α₂α₃ ≤ 28m⁶((1 + 4h)(1 + (6e + 23h)/4)(1 + 12e + 25h) − 1).
 
 As e < 10⁻⁵ and h ≤ 10⁻⁶, the numbers 4h, (6e + 23h)/4 and 12e + 25h are below 1.5·10⁻⁴, and the right side is
 below 28m⁶((1 + 1.5·10⁻⁴)³ − 1) < 0.02m⁶ < |det Y⁰|. So det Y ≠ 0 on the line Re σ = −1/2. ∎
@@ -136,10 +136,14 @@ below 28m⁶((1 + 1.5·10⁻⁴)³ − 1) < 0.02m⁶ < |det Y⁰|. So det Y ≠ 
 
 (b) The three numbers 1/τ_j of [[lem:s14-small-h]] (a) are real and less than −1/2.
 
-*Proof.* (a) By [[eq:s14-q5]] at v = 1/2, 4Q_5(ι) = e(5(ι − 3)(ι + 1) − 3κ) − 2(ι − 2)(ι − 3), a quadratic with
-leading coefficient 5e − 2 < 0, and 4Q_5(2) = −e(15 + 3κ) < 0, 4Q_5(3) = −3eκ < 0. The midpoint of its roots is
-c := (5 + 1/13653)/2 ∈ (2, 3) by [[lem:s14-q5]] (b). If the roots are not real, their real part is c. If they are
-real, Q_5 ≥ 0 exactly on the closed interval between them, which contains c and neither 2 nor 3, so it lies in (2, 3).
+*Proof.* (a) By [[eq:s14-q5]] at v = 1/2,
+
+    4Q_5(ι) = e(5(ι − 3)(ι + 1) − 3κ) − 2(ι − 2)(ι − 3) = (5e − 2)ι² + (10 − 10e)ι − 12 − 15e − 3eκ,
+
+a quadratic with leading coefficient 5e − 2 < 0, and 4Q_5(2) = −e(15 + 3κ) < 0, 4Q_5(3) = −3eκ < 0. The midpoint of
+its roots is μ := (5 − 5e)/(2 − 5e) = 5/2 + 15e/(4 − 10e), which lies in (5/2, 3) as 0 < e < 1/10. If the roots are
+not real, their real part is μ. If they are real, Q_5 ≥ 0 exactly on the closed interval between them, which contains
+μ and neither 2 nor 3, so it lies in (2, 3).
 
 (b) The factor τ + 1 of [[eq:s14-ttau]] gives 1/τ = −1. The quadratic factor q(τ) := (5e − 2)τ² + (e − 3)τ − 1 has
 q(−2) = 18e − 3 < 0, q(−1) = 4e > 0, q(−1/2) = 3e/4 > 0 and q(0) = −1 < 0; so its roots lie in (−2, −1) and
