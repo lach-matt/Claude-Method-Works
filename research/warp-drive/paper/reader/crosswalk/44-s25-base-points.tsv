@@ -1,12 +1,10 @@
 label	source	source_name	note
 ch:s25	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:23	III.I(15) intro and status sentence	chapter heading; intro from 'What n = 4 changes' (23-33) and the status paragraph's rule for 'the statement at b' (14-19); status, verifier history and labels dropped
-def:s25-at-b	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:14	III.I(15) status paragraph, rule 'The statement at b'	private key: base points, their black hole parameter, and the substitution rule made a definition
-sec:iii-i15-1	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:35	III.I(15) §1	
-lem:iii-i15-1-1	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:37	III.I(15) Lemma 1.1 (P1)-(P6)	verifier attributions and file:line pointers re-keyed to results (III.B (3.2) evenness via III.E1 Lemma 2.1 with O = -1; c_C via IV(4) §0; O(4)-invariance via VII Lemma 3.1)
+sec:s25-rows	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:79-156	III.I(15) §1 from (P6) to the end of Lemma 1.2	private key: new section holding (P6) with (1.1), the paragraph after Lemma 1.1's proof and Lemma 1.2; §1's (P1)-(P5) and the paragraph 'v1 stays excluded at b' are in chapter 38a
+lem:s25-p6	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:79-93; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:112-128	III.I(15) Lemma 1.1 (P6) and the (P6) part of its proof	private key: (P6) made its own lemma, as it uses S21-S23 and chapter 38a uses nothing after S19; corrections #1-#4 named by their definitions; verifier attributions dropped
 eq:iii-i15-1-1	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:84	III.I(15) (1.1)	
 rem:s25-rows-at-b	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:130	III.I(15) paragraph after Lemma 1.1's proof	private key; D329/D330 and verifier tags dropped
 lem:iii-i15-1-2	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:143	III.I(15) Lemma 1.2	compact set renamed 𝔎_0 (𝒦 is the Kretschmann scalar)
-rem:iii-i15-1-2	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:158	III.I(15) paragraph 'v1 stays excluded at b' (Lemma 1.2's remark)	made a remark with statement and proof; cited by S21, S22 as 'Lemma 1.2's remark'
 sec:iii-i15-2	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:169	III.I(15) §2 (2.1-2.5)	§§2.6-2.8 are carried by S20, S22, S21
 lem:iii-i15-2-1	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:176	III.I(15) Lemma 2.1	
 prop:iii-i15-2-2	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:191	III.I(15) Proposition 2.2	N_(ι,rot), N_(σ,rot) glossed as the rotation rows that arise
@@ -14,11 +12,11 @@ def:iii-i15-2-3	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:237	III.I(15) 
 lem:iii-i15-2-4	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:249	III.I(15) Lemma 2.4	
 eq:iii-i15-2-1	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:254	III.I(15) (2.1)	
 prop:iii-i15-2-5	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:276	III.I(15) Proposition 2.5	sign attribution of Step 4' dropped
-eq:s25-motions-small	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:325	III.I(15) Proposition 2.5, Step 3: 'the lower coordinates are ... affine functions of the free ones with coefficients of the same smallness'	private key: the sentence is proved in the edition (uniqueness at alpha_1 of prop:iii-i8-4-1 for the row terms, as in its level step; bound by its (i)); fourth reading of S22/S25, M1
 eq:iii-i15-2-2	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:284	III.I(15) (2.2)	
 eq:iii-i15-2-3	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:299	III.I(15) (2.3)	
+eq:s25-motions-small	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:325	III.I(15) Proposition 2.5, Step 3: 'the lower coordinates are ... affine functions of the free ones with coefficients of the same smallness'	private key: the sentence is proved in the edition (uniqueness at alpha_1 of prop:iii-i8-4-1 for the row terms, as in its level step; bound by its (i)); fourth reading of S22/S25, M1
 rem:iii-i15-2-6	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:360	III.I(15) Remark 2.6	
 sec:iii-i15-3	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:643	III.I(15) §3	heading 'The parts at b' renamed
 thm:iii-i15-3-1	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:645; docket68/n1star/proof5/BASEPOINT-LEDGER.md:63	III.I(15) Theorem 3.1 and proof items (i)-(xi), 'The constants'	the reading-census paragraph (690-697) replaced by the rule of supplies; items citing S20-S24 where those chapters prove the step at b; 'The augmentation at b' re-keyed from the ledger's supplied-by column, batch 4 (III.I(14), III.J1 rows)
-prop:iii-i2-5-1-b	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:649; docket68/n1star/proof5/BASEPOINT-LEDGER.md:63	III.I(15) Theorem 3.1 first bullet for III.I(1)-(2), with the ledger's batch 1 supplies (I2, I3 rows)	new key requested by the coordinator: III.I(2) Proposition 5.1 (and III.I(1), III.I(2) lemmas) at b, for S20
+cor:s25-tame	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:685-688; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:748-779; docket68/n1star/proof5/BASEPOINT-LEDGER.md:392-399	III.I(15) Theorem 3.1 bullets for III.J'' and III.J''', item (viii) of its proof, and the ledger's batch 5 supplies	private key: the S24 part of Theorem 3.1 made a corollary; (E1)-(E4) cited as (Ex1)-(Ex4) of def:iii-j3-1-3 (crosswalk 43); '(Ex3) at b' written out from the ledger's J''' 78-99, 101-113 row (docket68/n1star/proof5/BASEPOINT-LEDGER.md:439), the profiles from its J''' 462 row (452); 'supersedes' and verifier attributions dropped
 cor:iii-i15-3-2	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:800	III.I(15) Corollary 3.2 ((J'3) closed)	title neutralised; a three-line proof from Theorem 3.1 added

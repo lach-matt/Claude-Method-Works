@@ -2109,8 +2109,8 @@ instance). Then there are auxiliary operators B_1, B_2, … ∈ C^∞_b Ψ⁰_e3
 microlocally equal to I near K, that is, with WF′(I − B_i) ∩ K = ∅: replacing O by its part over {ϑ > 3c/4}, which
 still contains K, quantize the symbols f(ϑ)χ̃_i, with χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃), χ̃_1 = 1 near K, χ̃_i = 1 near the support
 of χ̃_(i−1), and supp χ̃_i ∩ ᵉ³ᵇS*M̃ ⊂ O, and truncate to range ϵ_ϑ. As f(ϑ) = 1 over {ϑ ≥ 3c/4}, the symbol of B_(i+1)
-equals χ̃_(i+1) near supp χ̃_i ∩ ᵉ³ᵇS*M̃, so WF′(B_i) ⊂ Ell(B_(i+1)). Every finite chain of such operators fits: only the supports in the fibres are nested, inside the fixed
-open set O, while the base factor f(ϑ) and the room ϵ_ϑ are the same for all of them.
+equals χ̃_(i+1) near supp χ̃_i ∩ ᵉ³ᵇS*M̃, so WF′(B_i) ⊂ Ell(B_(i+1)). Every finite chain of such operators fits: only
+the supports in the fibres are nested, inside the fixed open set O, while the base factor f(ϑ) and the room ϵ_ϑ are the same for all of them.
 
 The hypotheses of the propagation estimates are open. Let T be the union of the backward segments of the integral
 curves of 𝖧 from WF′(B) ∩ Char(L) up to their first entry into Ell(E), and suppose that they reach Ell(E) within a time

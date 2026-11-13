@@ -356,9 +356,9 @@ as 𝖧F ≥ c_F/(4𝔐_R) on the support of θ(𝔐_R F). In the second, 𝖧ρ
 (2𝔐)⁻¹}, away from K⁺. Choosing 𝔐_R and then 𝔐 large, supp Ψ lies in U, in W and in {Q_ε ≥ c}. The localiser φ_E of
 the pattern (6) is taken supported, near fibre infinity, in U ∩ {ρ_K ≥ (4𝔐)⁻¹}. So the set of (6), the union of the
 support of e and of supp φ_E, misses ∂R_(𝓗⁺) ⊂ {ρ_K = 0}, and its base projection is a compact subset of K ∖ K⁺ when U
-is small; E can be chosen elliptic on it with Schwartz kernel in (K ∖ K⁺)², as (4) requires. No cut-off to the characteristic set is needed, as the signs hold on a
-full neighbourhood of ∂R_(𝓗⁺) ([[lem:ii-b-4-2]]); so [[eq:ii-d-2-2]] holds with j_ε = 0. The pattern (6) gives
-[[eq:ii-d-3-2]], with ‖χũ‖_(−N′) ≤ C‖χ̃u‖_(H^(s_0,α_K)). ∎
+is small; E can be chosen elliptic on it with Schwartz kernel in (K ∖ K⁺)², as (4) requires. No cut-off to the
+characteristic set is needed, as the signs hold on a full neighbourhood of ∂R_(𝓗⁺) ([[lem:ii-b-4-2]]); so
+[[eq:ii-d-2-2]] holds with j_ε = 0. The pattern (6) gives [[eq:ii-d-3-2]], with ‖χũ‖_(−N′) ≤ C‖χ̃u‖_(H^(s_0,α_K)). ∎
 
 **Proposition {#prop:ii-d-3-2}** (The incoming radial set over ∂K⁺.) There are B, E, G with (1) operator wave front
 sets in any fixed neighbourhood of ∂R_(∂K⁺,in); (2) Schwartz kernels in K × K for any fixed compact neighbourhood K of
@@ -516,7 +516,8 @@ small, and E can be chosen elliptic on it with Schwartz kernel in (K ∖ ι⁺)�
 **Proposition {#prop:ii-d-3-6}** (The outgoing radial set over ℐ⁺.) Let t_(*,−) ∈ ℝ. There are B, E, G with (1)
 operator wave front sets in any fixed neighbourhood of ∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥ t_(*,−) − ½}; (2) Schwartz kernels in
 K × K for any fixed compact neighbourhood K ⊂ M̃ of cl(ℐ⁺ ∩ {t_* ≥ t_(*,−) − ½}); (3) B elliptic at ∂R_(ℐ⁺,out) ∩
-{t_*^♭ ≥ t_(*,−)}; (4) WF′(E) ∩ ∂R_(ℐ⁺,out) ⊂ {t_*^♭ ≤ t_(*,−) − ¼}; such that for all constants s > s_0 and α_I, α_+ with
+{t_*^♭ ≥ t_(*,−)}; (4) WF′(E) ∩ ∂R_(ℐ⁺,out) ⊂ {t_*^♭ ≤ t_(*,−) − ¼}; such that for all constants s > s_0 and α_I,
+α_+ with
 
     α_I < −½ + p̄_1                                                                                        {#eq:ii-d-3-9}
 
@@ -1085,8 +1086,8 @@ front. The order of factors matters, as the X_i need not commute; words take car
 
 *Operators of limited regularity.* "Q is of class 𝒬^m_q" means that Q is a finite sum Σ a_l A_l, as in
 [[sec:ii-a-8-2]], with A_l ∈ C_b^∞Ψ^m_e3b fixed and carried by the cut-off χ of the estimate ([[sec:ii-a-8-3]]), and
-a_l ∈ C^∞ + C^((d_0;k−q))_(e3b;b): q b-derivatives of the coefficients of P have been spent. Its *decaying part* is the sum of the terms whose coefficients
-vanish at the face carrying Γ, at a rate ρ_Γ^ℓ for a defining function ρ_Γ of that face and some ℓ > 0. The hypotheses
+a_l ∈ C^∞ + C^((d_0;k−q))_(e3b;b): q b-derivatives of the coefficients of P have been spent. Its *decaying part* is
+the sum of the terms whose coefficients vanish at the face carrying Γ, at a rate ρ_Γ^ℓ for a defining function ρ_Γ of that face and some ℓ > 0. The hypotheses
 on a family are:
 
 (C) For each i < J, [L, X_i] = Σ_(j=1)^J Q_(ij) X_j + R_i, with Q_(ij) of class 𝒬^1_1 and R_i of class 𝒬^2_1 with
@@ -1212,8 +1213,8 @@ Propositions 7.17 and 7.22].
 be a neighbourhood of Γ on which the conclusion at k − 1 holds for operators B′ microsupported in U_(k−1), with
 operators E′, G′ (the union of the sets of two applications, for B′ and a slightly larger one). Apply (E_𝔩) with
 U_(k−1) in place of U, to w := u^(k), giving B_k, E_k, G_k microsupported in U_(k−1); choose auxiliary operators
-G^♯_1, G^♯_2 ((R1) of [[sec:ii-a-8-3]]) with WF′(G_k) ⊂ Ell(G^♯_1), WF′(G^♯_1) ⊂ Ell(G^♯_2) and WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at
-Γ. By [[lem:ii-d1-2-1]], ‖G_k L^(k) u^(k)‖ ≤ ‖G_k f^(k)‖ + ‖G_k f̃^(k)‖ + ‖G_k f̃^(k)_♭‖, all norms of order 𝗍 − 1 + 𝔩.
+G^♯_1, G^♯_2 ((R1) of [[sec:ii-a-8-3]]) with WF′(G_k) ⊂ Ell(G^♯_1), WF′(G^♯_1) ⊂ Ell(G^♯_2) and
+WF′(G^♯_2) ⊂ U_(k−1), and B with WF′(B) ⊂ Ell(B_k), B elliptic at Γ. By [[lem:ii-d1-2-1]], ‖G_k L^(k) u^(k)‖ ≤ ‖G_k f^(k)‖ + ‖G_k f̃^(k)‖ + ‖G_k f̃^(k)_♭‖, all norms of order 𝗍 − 1 + 𝔩.
 We bound each term of [[eq:ii-d1-2-5]] at w = u^(k).
 
 *The left side.* By [[eq:ii-d1-2-3]] with B̃ := G^♯_1, ‖Bu‖_(𝗍;k) ≤ C(‖G^♯_1 u‖_(𝗍;k−1) + Σ_α ‖BX^α u‖_𝗍 +
@@ -1241,8 +1242,8 @@ b-vector field preserves Diff²_e3b up to the coefficients ([[lem:ii-a-4-1]], an
     ‖G_k (ad_(X_S) L) X^(α∖S) u‖_(𝗍−1+𝔩) ≤ C (‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) + ‖χ̃u‖_(𝗍_0;k)).
 
 As q − 1 ≥ 1 + 𝔩, q − 1 applications of (F1) bound ‖G^♯_2 u‖_(𝗍+1+𝔩;k−q) by C(‖G^♯_3 u‖_(𝗍;k−1) + ‖χ̃u‖_(−N′;k)),
-with an auxiliary operator G^♯_3 slightly larger than G^♯_2 and still microsupported in U_(k−1); this is bounded by [[eq:ii-d1-2-6]] at k
-− 1. This is where 𝔩 = 1 needs (C2): a term with q = 2 would need ‖G^♯_2 u‖_(𝗍+2;k−2), which (F1) bounds only by the
+with an auxiliary operator G^♯_3 slightly larger than G^♯_2 and still microsupported in U_(k−1); this is bounded by
+[[eq:ii-d1-2-6]] at k − 1. This is where 𝔩 = 1 needs (C2): a term with q = 2 would need ‖G^♯_2 u‖_(𝗍+2;k−2), which (F1) bounds only by the
 norm at (𝗍 + 1; k − 1), one order above what the induction controls.
 
 Collecting the terms gives [[eq:ii-d1-2-6]] at k, with E elliptic on the union of WF′(E_k) and the E-sets of the step k
