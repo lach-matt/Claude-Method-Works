@@ -1128,7 +1128,7 @@ the function χ_out of θ2, of zero mean, so it has mixed harmonics only; likewi
 
 Induct on m = 0, …, N − 2 with the hypothesis (H_m): D^(j) = 0 for j < m, D^(m) does not depend on (θ1, θ2), and the
 mixed harmonics of D^(m+1) vanish. (H_0) holds: D^(0) = 0 by [[lem:two-dust-stage-zero]] (f), and at order −1 the only
-term of [[eq:data-bianchi]] is, by (α), g0^(uv) F1F2 D^(1), its right side involving ℛ^(−1) and ℛ^(0) only; so the mixed
+term of [[eq:data-bianchi]] is, by (α), g0^(uv) F1F2 D^(1), its right side involving only ℛ^(−1) and ℛ^(0), which vanish; so the mixed
 harmonics of D^(1) vanish. Assume (H_m). At order m the terms of the left side of [[eq:data-bianchi]] are: from D^(m),
 only terms without phase derivatives, by (β), namely ½ □̃ ⟨D^(m)⟩ and terms of first order in ⟨D^(m)⟩ with bounded
 profiles as coefficients; from D^(m+1), whose mixed harmonics vanish, by (β), Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + M_𝔨) Ξ_𝔨
@@ -1228,7 +1228,7 @@ g_AB, A, B angular, and put α := (det γ_AB)^(1/2). For a normal covector k = k
                                                                                                      {#eq:two-dust-theta}
 
 since γ^(AB) ∂_d g_AB = 2 ∂_d ln α for d ∈ {u, v}. The outgoing covector is k⁺ = c(g)(du + β dv), with β fixed by
-g⁻¹(k⁺, k⁺) = 0 and c(g) > 0 by n(τ) = 1; for g0, β = 0 and n0 = c0 g0⁻¹ du has n0^u = 0 and no angular component. The
+g⁻¹(k⁺, k⁺) = 0 and c(g) < 0 by n(τ) = 1, g0⁻¹ du = −e^(−2σ) ∂_v being past directed; for g0, β = 0 and n0 = c0 g0⁻¹ du has n0^u = 0 and no angular component. The
 last two terms of [[eq:two-dust-theta]] contain only angular derivatives of g, which carry no phase derivative since
 ∂_A ϕ_𝔨 = 0. At order λ they are products of first-order quantities with g0-quantities; as g0_dB = 0 for d ∈ {u, v},
 n0^C = 0, the oscillating parts of g1 have no components g1_dB with d ∈ {u, v} (W_TT^𝔨 is angular and χ_𝔨 dϕ_𝔨 ⊗ dϕ_𝔨
@@ -1256,7 +1256,7 @@ as R^(0) ≡ 0 and F1F2 multiplies the harmonic (n1, n2) by −n1 n2 ≠ 0, the 
 Ric^H = Ric − S with S_AB = ½ (g_Aρ ∇̂_B D^ρ + g_Bρ ∇̂_A D^ρ), and D = O(λ) by [[lem:two-dust-stage-zero]] (f); the
 derivatives in S_AB are angular, so they bring no factor λ⁻¹, and S_AB = O(λ). Ric has no term of order λ⁻¹ either, so
 γ^(AB) Ric_AB has the λ⁰ coefficient γ0^(AB) R^(0)_AB. Second, a mixed harmonic of order λ⁰ comes only from terms with
-two phase derivatives, one of each phase: bilinear in (W_in, W_out), or linear in λ² ĝ_2. The latter come from the
+two phase derivatives: bilinear in (W_in, W_out), or linear in λ² ĝ_2. The latter come from the
 principal part alone and give e^(−2σ) F1F2 tr_S ĝ_2 = −2 g0^(uv) F1F2 (½ tr_S ĝ_2). The former are terms of Ric_AB with
 two phase derivatives of g̃ := g0 + λ (W_in + W_out), and contain no angular derivative; Ric being at most quadratic in
 first derivatives, they are those of the metric with the same components and the same derivatives in (u, v) at the
