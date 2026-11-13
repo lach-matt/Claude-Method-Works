@@ -43,7 +43,7 @@ Each of these sets enters the statements of this paper through memberships of th
 polyhomogeneous space with the index set E) and a lower bound for its real parts, and it is fixed by a construction.
 ℰ_ind is built in the proofs of [[prop:iii-d2-3-1]] ((F1) there), [[lem:iii-f3-2-1]] and [[lem:iii-d3-2-1]] by
 [[lem:iii-a-1-4]], from the indicial roots of (□^Υ_b)^(0), which [[lem:iii-d-4-1]] and [[prop:np-10-52]] (i) give in
-closed form, and from source exponents that are integers or such roots shifted by integers. ℰ^ι_ind collects the index
+closed form, and from exponents of the right sides that are integers or such roots shifted by integers. ℰ^ι_ind collects the index
 sets of the states of [[ch:s13]] and [[ch:s15]], 2 + ℕ₀ and (2, 1) (the proof of [[thm:iii-g2-4-2]]); the physical
 states of [[ch:s15]] are built by [[lem:iii-a-1-4]] from the roots of L_b^(0) ([[prop:iii-f1-2-3]]), among them ι^C − 1
 for the roots ι^C of the polynomials of [[prop:np-10-12]] (the proof of [[prop:iii-f4-5-1]]). The least ℰ^C_I is

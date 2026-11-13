@@ -719,10 +719,11 @@ the terms of the commutators that are not of positive grade in each commutator v
 Ǎ = Op(ǎ)Φ_0, i[L_R, D_ǎǍ] and Ǎ^*[Ǎ, D_I] in [[prop:ii-a1-5-3]], order m + 𝗄 − 2, resp. 2𝗌 − 1: as (F1), with
 φ_0ǎ = ǎ, and the terms of positive index of the symbol of Φ_0 vanish near supp ǎ, as each carries a ξ-derivative of
 φ_0 (η enters the amplitude only through φ_0, [[lem:fwd-transport]]) and φ_0 = 1 there. (F3)
-L_IǍ_ε^*Ǎ_ε + Ǎ_ε^*Ǎ_εL_I − Op(2ǎ_ε²ℓ_I) and i[L_R, Ǎ_ε^*Ǎ_ε] − Op(H_ℓ(ǎ_ε²)) in [[lem:ii-d-2-3]], order 2s − 1: ǎ_ε is scalar, φ_0ǎ_ε = ǎ_ε, and ℓ_I, the principal symbol of L_I, is in every chart
-the part of order m − 1 of the symbol of L_I: for smooth coefficients this is (S5), and both sides are the same
-polynomial in finitely many derivatives of the coefficients and of the transition maps, so the identity persists in
-finite regularity ([[lem:ii-a1-2-2]]); likewise H_ℓ(ǎ_ε²) is the principal symbol of i[L_R, Ǎ_ε^*Ǎ_ε] ((d)).
+L_IǍ_ε^*Ǎ_ε + Ǎ_ε^*Ǎ_εL_I − Op(2ǎ_ε²ℓ_I) and i[L_R, Ǎ_ε^*Ǎ_ε] − Op(H_ℓ(ǎ_ε²)) in [[lem:ii-d-2-3]], order 2s − 1:
+ǎ_ε is scalar, φ_0ǎ_ε = ǎ_ε, and ℓ_I, the principal symbol of L_I, is in every chart the part of order m − 1 of the
+symbol of L_I: for smooth coefficients this is (S5), and both sides are the same polynomial in finitely many
+derivatives of the coefficients and of the transition maps, so the identity persists in finite regularity
+([[lem:ii-a1-2-2]]); likewise H_ℓ(ǎ_ε²) is the principal symbol of i[L_R, Ǎ_ε^*Ǎ_ε] ((d)).
 (F4) Op(ρ^(−𝗍)φ_εz)Φ_z − Op(ρ^(−𝗍)φ_εzφ_z) and the products of [[lem:ii-d-2-5]], [[lem:ii-a1-2-6]], [[lem:ii-d-2-4]],
 order one below the sum: φ_zz = z and the terms of index 0 agree ((b)). [Φ_u, A_ε] in [[prop:ii-d-4-2]] is (b), (d)
 for scalar symbols.
@@ -736,13 +737,13 @@ there. The parameters at which (D4), (D5) are used:
 Step 2 at (2, 𝗌, 11), τ = 22, σ_* = 32; Step 4, m = 12, at (2, 𝗌, 12), τ = 23, σ_* = 33; Step 3 at (2, 13, 0), σ_* = 13;
 (i) at (2, 2, −s′) with s′ ∈ {−9, −11, −12, −13}, σ_* ≤ 13. (Sv) at 𝗌 + 2 (s⁺ = 13, s⁻ = −8): Step 2 at (2, 𝗌 + 2, 9),
 τ = 22, σ_* = 30; Step 4, m = 10, τ = 23, σ_* = 31; Step 3 at (2, 11, 0). (K): as (Sv) at 𝗌. (R) at constant
-s ∈ {12, −10, 13, 2, ≤ 13}: σ_* ≤ 13. So σ_* ≤ 34, and (D5) gives symbol orders in [−2·34 − 3, 2·34 + 3] = [−71, 71], Sobolev
-orders in [−34 − 13 − 4, 34 + 4] = [−51, 38], and N ≤ 12 + 13 + 34 + 4 = 63; (D4) gives N ≤ 12 + 13 + 3 = 28 and
-Sobolev orders down to −9 − 12 − 13 − 4 = −38. (Γ) at (11, 8): symbol orders in [9, 29], Sobolev orders in [−16, 17],
-N ≤ 27. The (D2)-instances: (D8) at (13, 8), (−9, −13), (6, 6), (−15, −15) and (𝗋, 𝗋) for 𝗋 ∈ {𝗌 − 2, 𝗌 − 1, 𝗌 + 1,
-𝗌 + 3} (N ≤ 21, s_0⁻ ≥ −15); (D10), (D11) at (𝗍, 2, 13): (D8) at (𝗌 − 2, −15), (𝗌 − 1, −15), (𝗌, −15) with N ≤ 26;
-(I): (D2) at (11, 6) and (−11, −15), N ≤ 5; (D3) at (𝗍, 2, 13), 𝗍 ∈ {𝗌, 𝗌 + 1}: N ≤ 25. All lie in the box, and the
-expressions have at most five quantizations. ∎
+s ∈ {12, −10, 13, 2, ≤ 13}: σ_* ≤ 13. So σ_* ≤ 34, and (D5) gives symbol orders in [−2·34 − 3, 2·34 + 3] =
+[−71, 71], Sobolev orders in [−34 − 13 − 4, 34 + 4] = [−51, 38], and N ≤ 12 + 13 + 34 + 4 = 63; (D4) gives
+N ≤ 12 + 13 + 3 = 28 and Sobolev orders down to −9 − 12 − 13 − 4 = −38. (Γ) at (11, 8): symbol orders in [9, 29],
+Sobolev orders in [−16, 17], N ≤ 27. The (D2)-instances: (D8) at (13, 8), (−9, −13), (6, 6), (−15, −15) and (𝗋, 𝗋)
+for 𝗋 ∈ {𝗌 − 2, 𝗌 − 1, 𝗌 + 1, 𝗌 + 3} (N ≤ 21, s_0⁻ ≥ −15); (D10), (D11) at (𝗍, 2, 13): (D8) at (𝗌 − 2, −15),
+(𝗌 − 1, −15), (𝗌, −15) with N ≤ 26; (I): (D2) at (11, 6) and (−11, −15), N ≤ 5; (D3) at (𝗍, 2, 13),
+𝗍 ∈ {𝗌, 𝗌 + 1}: N ≤ 25. All lie in the box, and the expressions have at most five quantizations. ∎
 
 **Lemma {#lem:fwd-increments}** (The increments.) Every coefficient index entering D_0 is at most 𝔐(100) + 4.
 
