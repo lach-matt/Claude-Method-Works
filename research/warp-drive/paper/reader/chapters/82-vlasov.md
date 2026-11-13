@@ -67,8 +67,8 @@ Ric(g0)(∂_(φ1), ∂_(φ2)) vanish.
 
 (c) If moreover g0 is round (invariant under the action of O(4) on the spheres {τ, r = const} of the chart, as every
 background of [[thm:two-dusts]] is), then at every point with r > 0 the field is carried by the two radial null
-directions, and in double-null coordinates (u, v) of the round metric, Ric(g0) = K_in dv ⊗ dv + K_out du ⊗ du with
-K_in, K_out ≥ 0: g0 is an Einstein–two-null-dust solution, with one ingoing and one outgoing radial dust.
+directions, and in double-null coordinates (u, v) of the round metric, Ric(g0) = 𝔮_in dv ⊗ dv + 𝔮_out du ⊗ du with
+𝔮_in, 𝔮_out ≥ 0: g0 is an Einstein–two-null-dust solution, with one ingoing and one outgoing radial dust.
 
 *Proof.* (a) The mixed components vanish identically for every metric of the class ([[lem:warped-ricci]]). Let U be a
 compact set off the axes and put h := e^(2ψ) g3, as in [[prop:reduction]]. The functions ψi = ½ log g(∂_(φi), ∂_(φi))
@@ -95,7 +95,10 @@ are invariant subspaces, hence 0 or T_x S_x: B = c γ. At least one of ∂_(φ1)
 and B vanishes on it by (a); so c = 0. Then ∫ p(e)² dμ_x = B(e, e) = 0 for every e ∈ T_x S_x, and as in (b) μ_x is
 carried by the null covectors that vanish on T_x S_x. These form a Lorentzian plane, whose null covectors are the
 multiples of dv and du; writing p = E dv or p = E du on the two lines, Ric(g0)_x = (∫ E² dμ_in) dv ⊗ dv + (∫ E² dμ_out)
-du ⊗ du. ∎
+du ⊗ du. Each dust is conserved: Ric(g0) is traceless, dv and du being null, so the contracted Bianchi identity gives
+div Ric(g0) = 0; since ∇_(g0⁻¹dv) dv = ½ d(g0⁻¹(dv, dv)) = 0, div(𝔮_in dv ⊗ dv) = div(𝔮_in g0⁻¹dv) dv, and likewise for
+du; as dv and du are independent, div(𝔮_in g0⁻¹dv) = div(𝔮_out g0⁻¹du) = 0, in the sense of distributions where the
+densities are only continuous. ∎
 
 So the round massless Vlasov limits in the class are Einstein–two-radial-null-dust solutions, and those with the
 configuration of [[thm:two-dusts]] (a seed, an ingoing shell and an outgoing packet between them on Σ_τ0) are realised
@@ -146,7 +149,8 @@ q □3 u, and div_(g3)(e^ψ q ℓ) = ℓ(e^ψ q) + e^ψ q □3 u. ∎
 **Definition {#def:vlasov-label}** (Fields in label form.) Let Ω be a domain of the type [[eq:omega]] for a metric g of
 the class (its constants (τ0, τ_end, a, V) fixed and its sets defined by the coordinate functions τ, r, v). A *restricted
 field in label form* on Ω is a pair (F, u) of smooth invariant functions on Ω × S¹, F ≥ 0, with density q := F², such
-that each u_α := u(·, α) is an eikonal of g on a neighbourhood of the *tube* D_α of supp q(·, α), with stress
+that each u_α := u(·, α) is an eikonal of g on a neighbourhood of the *tube* D_α of supp q(·, α), with g⁻¹du_α future
+directed there, and with stress
 
     T_V := ∫_(S¹) q(·, α) du_α ⊗ du_α dα,                                                          {#eq:vlasov-stress}
 
@@ -159,6 +163,11 @@ of ℓ_α, and D_α is the set of points of Ω on the future rays from supp q(·
 angle, in a frame of the orbit slice of Σ_τ0 orthonormal for its induced metric, of the covector d(u_α|Σ_τ0)(x). The
 field is *labelled by initial direction* if for every x the map α ↦ β0(x, α) is injective on the labels α with (x, α) ∈
 supp q. T_V is the stress of the restricted field μ_x := ∫ q(x, α) δ_(du_α(x)) dα, and each label is a null dust.
+Replacing u_α by −u_α changes neither T_V nor [[eq:vlasov-amplitude]], so the time orientation of ℓ_α only fixes a sign.
+It fixes the *branch* of the eikonal equation used below: given the restriction of u_α to Σ_τ0, of nonzero differential,
+the τ-derivative of u_α there is the root of g⁻¹(du_α, du_α) = 0 for which g⁻¹du_α is future directed. (A null covector
+with that spatial part has two such roots, and they give the two time orientations, since g⁻¹du is never tangent to the
+spacelike Σ_τ0.)
 
 In [HL25, (1.2), p. 2] the labels are the initial directions themselves: u_α↾Σ0 = x¹ cos α + x² sin α, so β0 = α.
 
