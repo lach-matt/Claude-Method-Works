@@ -168,9 +168,9 @@ Cover 𝒱′ by finitely many coordinate boxes [R₋′, R₊′] × W̄, W a b
 [[thm:std-bh-embedding]] applied to derivatives of order at most k − 1, which lie in H³ with 3 · 2 > 4, and by
 [[thm:std-bh17-embedding]] with (s, p, t, q) = (2, 2, 0, 4) applied to derivatives of order k, every component u of
 a − γ, b − γ or ζ := a − b satisfies sup|∂^βu| ≤ C‖u‖_(H^(k+2)) for |β| ≤ k − 1, and
-‖∂^βu‖_(L⁴) ≤ C‖u‖_(H^(k+2)) for |β| = k. Put a_θ := b + θζ, θ ∈ [0, 1]; then |a_θ − γ|_γ ≤ ¼, ‖a_θ − γ‖_(H^(k+2)) ≤ 1, and
-f(a) − f(b) = ∫₀¹ Df(a_θ)[ζ] dθ, Df being the derivative in the metric. For |α| ≤ k, by the Leibniz and chain rules,
-∂^α(ρ_1 Df(a_θ)[ζ]) is a finite sum of terms
+‖∂^βu‖_(L⁴) ≤ C‖u‖_(H^(k+2)) for |β| = k. Put a_θ := b + θζ, θ ∈ [0, 1]; then |a_θ − γ|_γ ≤ ¼,
+‖a_θ − γ‖_(H^(k+2)) ≤ 1, and f(a) − f(b) = ∫₀¹ Df(a_θ)[ζ] dθ, Df being the derivative in the metric. For |α| ≤ k, by
+the Leibniz and chain rules, ∂^α(ρ_1 Df(a_θ)[ζ]) is a finite sum of terms
 
     b_θ · (∂^(β₁)a_θ ⊗ ⋯ ⊗ ∂^(β_i)a_θ ⊗ ∂^(β₀)ζ),      |β₀| + |β₁| + ⋯ + |β_i| ≤ |α|,   |β_l| ≥ 1 for l ≥ 1,
 
@@ -260,13 +260,13 @@ being valid for a pair of class C² that vanishes outside the compact 𝒱. So t
     ‖z*_s − z*_t‖_𝒴 ≤ ‖Θ_s(z*_s) − Θ_s(z*_t)‖_𝒴 + ‖Θ_s(z*_t) − Θ_t(z*_t)‖_𝒴
                      ≤ ½‖z*_s − z*_t‖_𝒴 + ‖Θ_s(z*_t) − Θ_t(z*_t)‖_𝒴,
 
-so ‖z*_s − z*_t‖_𝒴 ≤ 2‖Θ_s(w) − Θ_t(w)‖_𝒴 with w := z*_t. By *The equation*, Θ_s(w) and Θ_t(w) are the solutions in B
-of [[eq:v-3-1]] for (u′_(ε,s), σ_s(w)) and (u′_(ε,t), σ_t(w)), σ_s being σ built with s and u′_(ε,s). By [[lem:v-3-2]] (b)
-their difference tends to zero as s → t, as u′_(ε,s) → u′_(ε,t) in the norm of 𝒩 and σ_s(w) → σ_t(w) in 𝒮. The latter
-holds because 𝔍(u′_(ε,s)) → 𝔍(u′_(ε,t)) in C^(k+2) with supports in Ω_c; T_(u′) depends continuously on u′ in operator
-norm (proof of [[lem:v-3-2]] (a)), so the metric part of T_(u′_(ε,s))w tends to that of T_(u′_(ε,t))w in 𝒳; g_(ε,s) → g_(ε,t)
-in C^(k+4); and (C) applies. So s ↦ z*_s is continuous in 𝒴, and c_(ε,s) = T_(u′_(ε,s))z*_s is continuous in 𝒳, hence
-in C² ([[lem:s28-setting]] (c)). Finally m(ε, s) is the left side of the pairing minus
+so ‖z*_s − z*_t‖_𝒴 ≤ 2‖Θ_s(w) − Θ_t(w)‖_𝒴 with w := z*_t. By *The equation*, Θ_s(w) and Θ_t(w) are the solutions in
+B of [[eq:v-3-1]] for (u′_(ε,s), σ_s(w)) and (u′_(ε,t), σ_t(w)), σ_s being σ built with s and u′_(ε,s). By
+[[lem:v-3-2]] (b) their difference tends to zero as s → t, as u′_(ε,s) → u′_(ε,t) in the norm of 𝒩 and σ_s(w) → σ_t(w)
+in 𝒮. The latter holds because 𝔍(u′_(ε,s)) → 𝔍(u′_(ε,t)) in C^(k+2) with supports in Ω_c; T_(u′) depends continuously
+on u′ in operator norm (proof of [[lem:v-3-2]] (a)), so the metric part of T_(u′_(ε,s))w tends to that of T_(u′_(ε,t))w
+in 𝒳; g_(ε,s) → g_(ε,t) in C^(k+4); and (C) applies. So s ↦ z*_s is continuous in 𝒴, and c_(ε,s) = T_(u′_(ε,s))z*_s
+is continuous in 𝒳, hence in C² ([[lem:s28-setting]] (c)). Finally m(ε, s) is the left side of the pairing minus
 2ε²s ∫_U (N_s|J_1|_(γ_D) + Y_s·J_1) dvol, divided by 𝔫(ε, s); D_(ε,s) and γ_D are continuous in s in C², and 𝔫 is
 continuous in s, so m(ε, ·) is continuous. ∎
 

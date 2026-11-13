@@ -791,8 +791,9 @@ end of [[sec:ii-d-2]], with G″ in the role of G′ there and κ = 2. Thus
     ‖B_εv‖² ≤ 2|⟨Ǎ_εP′v, Ǎ_εv⟩| + ‖E_εv‖² + 2|⟨J_εP′v, v⟩| + C(‖G″v‖²_(s′+½) + ‖χv‖²_(−N′)).
 
 We bound the terms. (i) As in (a) of Step 2 of the proof of [[lem:ii-a1-4-1]], ‖Ǎ_εv‖_(½) ≤ C‖B_εv‖ +
-C‖G″v‖_(s′+½). (ii) Ǎ_ε − Op(ρ^(−s′−½)Ψ)Λ_ε is uniformly of order s′ − ½, so ‖Ǎ_εP′v‖_(−½) ≤ C(‖G″Λ_εP′v‖_(s′) +
-‖G″P′v‖_(s′−1) + ‖χu‖_(−N′)). In [[eq:ii-d-4-5]], Λ_εR_2 = R_2Λ_ε + [Λ_ε, R_2] with the commutator uniformly of order
+C‖G″v‖_(s′+½). (ii) Ǎ_ε − Op(ρ^(−s′−½)Ψ)Λ_εΦ_0 is uniformly of order s′ − ½, with Φ_0 on its right, and
+[Λ_ε, Φ_0] is smooth and uniformly of order −1; as WF′(Φ_0) ⊂ Ell(G″), [[lem:ii-a-8-4]] (c) gives
+‖Ǎ_εP′v‖_(−½) ≤ C(‖G″Λ_εP′v‖_(s′) + ‖G″P′v‖_(s′−1) + ‖χu‖_(−N′)). In [[eq:ii-d-4-5]], Λ_εR_2 = R_2Λ_ε + [Λ_ε, R_2] with the commutator uniformly of order
 −1 ([[prop:ii-a1-2-4]] (d)), and G″R_2^♭ has every order. So
 
     ‖G″Λ_εP′v‖_(s′) ≤ C (‖G′f‖_(s′) + X_ε + ‖G′u‖_(s′−½) + ‖χu‖_(−N′)),       X_ε := ‖Op(ρ^(−s′) φ_ε g_0)u‖,
