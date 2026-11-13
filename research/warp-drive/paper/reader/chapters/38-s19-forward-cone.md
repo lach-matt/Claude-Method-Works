@@ -50,9 +50,9 @@ constants and neighbourhoods of b₀ that may depend on it. The slots of a symme
 and π₁₁. The eigenvalues of Ā ([[eq:iii-c-4-3]]) on the slots 6, 4, 5, 7 are the elements 0, (1 − e_Υ)γ_Υ, γ_Υ,
 2γ_Υ of the set σ_Υ of [[sec:iii-c-3]], and those on the slots 1–3 are the elements 2(1 − v_C)γ_C, (1 − v_C)γ_C,
 (1 − e_C)(1 − v_C)γ_C of the set σ_C of [[eq:iii-g1-1-4]]. The gauge parameters satisfy 0 < γ_Υ < 1/4,
-0 < e_Υ < 1 ([[eq:iii-c-1-1]]) and (1 − e_C)(1 − v_C)γ_C > 100 ([[sec:iii-f-1]]). For an index set E, (E, ℓ) denotes the expansion in E up to the
-weight ℓ, and E ∪̄ {(z, 0)} is the extended union of [[lem:iii-a-1-2]]: E ∪ {(z, 0)} if z ∉ π_1E, and E with the
-logarithmic order at z raised by one otherwise; ∪̄^m is that union taken m times.
+0 < e_Υ < 1 ([[eq:iii-c-1-1]]) and (1 − e_C)(1 − v_C)γ_C > 100 ([[sec:iii-f-1]]). For an index set E, (E, ℓ) denotes
+the expansion in E up to the weight ℓ, and E ∪̄ {(z, 0)} is the extended union of [[lem:iii-a-1-2]]: E ∪ {(z, 0)} if
+z ∉ π_1E, and E with the logarithmic order at z raised by one otherwise; ∪̄^m is that union taken m times.
 
 ### The setting {#sec:iii-i-1}
 
@@ -155,8 +155,9 @@ g = g_(b₀,b,−S) + h when |b − b₀|, |S| and ‖h‖_(𝒳⁴) are small: 
 g_(b₀,b,−S) − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:iii-i-3-6]] with the argument of [[lem:iii-i-2-2]]; it
 vanishes at b = b₀, S = 0 and depends continuously on (b, S)). Such g lie in the class
 𝒢^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b) of asymptotically stationary metrics of [[def:ii-c-3-1]], with g_b in place of g₀
-(cf. [Hin26c, Definition 5.15]). Smallness of h in H^(3,(1,0,0))_b makes x_I²ρ_+²g non-degenerate and Lorentzian ([[rem:s05-metric-class]] (b)): by the
-coefficients in the proof of [[lem:iii-i-2-2]], the weight 1 at 𝓘⁺ suffices ([Hin26, footnote 104]).
+(cf. [Hin26c, Definition 5.15]). Smallness of h in H^(3,(1,0,0))_b makes x_I²ρ_+²g non-degenerate and Lorentzian
+([[rem:s05-metric-class]] (b)): by the coefficients in the proof of [[lem:iii-i-2-2]], the weight 1 at 𝓘⁺ suffices
+([Hin26, footnote 104]).
 
 ### The structure in the forward cone {#sec:iii-i-3}
 
@@ -515,17 +516,31 @@ of (H7) ([[sec:i-b-1-5]]) hold, with ν_min, β_0 and sup_Γ q^Γ continuous in 
 
 (B2) dt_* is g_b-timelike over U_Γ (g_b^00 < 0 on X°, [[lem:iii-b-3-7]] (a)), and g_b − g_(b₀) is below the ϵ_G of
 [[lem:ii-c-3-2]] (2), so that the time function t^♭ := t^♭_* built from g_(b₀) serves every g_b and
-Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover g_b⁻¹(dr, dr) ≤ −c < 0 and g_b⁻¹(dt_*, dr) > 0 on
-{½r_♭ ≤ r ≤ 15R₁/16}, with c independent of b. Then dr is future timelike for g_b there: dt_* is past timelike
-([[lem:vi-a-1-1]]), and two timelike covectors lie in the same cone exactly when their g_b⁻¹-pairing is negative. At b₀
-this holds by [[eq:vi-a-0-1]]. On {r ≤ 2R₁} the change of time Φ_(m₀) is a translation ([[lem:iii-b-3-5]] (c)) and
-ψ′ = 1 ([[def:s12-radii]]), so dt_* = dt − dr = dv − 2dr with v = t_KS + r; and g_(b₀)⁻¹(dv, dv) = 0,
-g_(b₀)⁻¹(dv, dr) = 1, g_(b₀)⁻¹(dr, dr) = f = 1 − m₀r⁻². So
+Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
+g_b⁻¹(dr, dr) ≤ −c and g_b⁻¹(dt, dr) > 0, with c := 31/450 independent of b; so dr is future timelike for g_b there.
+This makes the inner boundary {r = r₀} spacelike at every b ∈ B̄_1, and r decreasing along future causal curves on the
+collar {r₀ − 2δ₀ ≤ r ≤ r₀} and up to r₂ = 7R₁/8, with a margin uniform in b, as the energy estimates on slabs use at
+each b (cf. (H4), and [[lem:ii-c-3-2]] (1), whose region {r₀ ≤ r ≤ r^♮} the annulus contains).
 
-    g_(b₀)⁻¹(dr, dr) = 1 − m₀r⁻² < 0,      g_(b₀)⁻¹(dt_*, dr) = 1 − 2f = 2m₀r⁻² − 1 > 0      (r < R₁).
+*The time orientation in (B2).* On {½r_♭ ≤ |x| ≤ 2R₁}, g_b is g^KS_b in a time coordinate translated by a constant
+([[lem:iii-b-3-5]] (c)), so by [[lem:iii-b-3-3]] (e), whose hypothesis holds there by [[lem:s12-ks-domain]], dt − β dr
+is g_b-timelike for every β ∈ [0, 1]. Where ψ′ = 1, that is on {r₀ − 2δ₀ ≤ |x| ≤ 2R₁} ([[def:s12-radii]]),
+dt_* = dt − dr; so the path β ↦ dt − β dr, β ∈ [0, 1], joins dt to dt_* through timelike covectors, and dt lies in
+the cone of dt_*, which is the past cone of the time orientation of (H6) ([[sec:i-b-1-2]], [[lem:vi-a-1-1]]). As dt is
+timelike on the connected set {½r_♭ ≤ |x| ≤ 2R₁}, it lies in one cone throughout; this extends the time orientation to
+the annulus, with dt past timelike. Two timelike covectors lie in the same cone exactly when their g_b⁻¹-pairing is
+negative; so the two inequalities say that dr is timelike and lies in the cone opposite to that of dt, that is, dr is
+future timelike.
 
-The metrics g_b are stationary and depend smoothly on b on {|x| ≥ ½r_♭} ([[lem:s12-ks-domain]]), and
-{½r_♭ ≤ r ≤ 15R₁/16} is compact in X, so both strict inequalities persist for b near b₀.
+*The inequalities of (B2).* At b₀ they follow from [[eq:vi-a-0-1]]: on {|x| ≤ 2R₁}, t − t_KS is constant, so
+dt = dv − dr with v = t_KS + r, and g_(b₀)⁻¹(dv, dv) = 0, g_(b₀)⁻¹(dv, dr) = 1, g_(b₀)⁻¹(dr, dr) = f = 1 − m₀r⁻². So
+
+    g_(b₀)⁻¹(dr, dr) = 1 − m₀r⁻² ≤ −31/225,      g_(b₀)⁻¹(dt, dr) = 1 − f = m₀r⁻² > 0      (½r_♭ ≤ r ≤ 15R₁/16),
+
+as m₀r⁻² ≥ (16/15)² = 256/225 for r ≤ 15R₁/16. The components of g_b⁻¹ in the frame dt, dx^i do not depend on t and
+are continuous in (x, b) on {|x| ≥ ½r_♭} ([[lem:s12-ks-domain]], with the inverse of [[lem:iii-b-3-3]] (d)), and the
+annulus {½r_♭ ≤ |x| ≤ 15R₁/16} is compact; so for b near b₀ the second inequality persists and the first holds with
+−31/225 replaced by −c = −31/450.
 
 (B3) c_C is past timelike for g_b over U_Γ ([[thm:iii-e-1-1]] at b₀, and continuity over the closure of U_Γ, which is
 compact modulo t_*-translations, all quantities being stationary).
@@ -553,10 +568,20 @@ Put f_b := |dg_b|/(|dt_*| |dx|), a smooth positive stationary function, smooth i
 ### Strong trapping admissibility near b₀ {#sec:iii-h2-1}
 
 This section is [Hin26, Proposition 8.3] on B̄_1, in dimension 4 + 1 and with a different frame. We use the following
-identity of [Hin17, Proposition 4.1], valid in every dimension and for every metric: for the tensor wave operator
-□_g = −g^(κλ)∇_κ∇_λ on a bundle with the connection ∇ induced by the Levi-Civita connection, the subprincipal operator
-on half-densities by |dg| is iS_sub(□_g) = ∇^(π*E)_(H_G), the derivative along the Hamilton vector field H_G of
-G(ζ) = g⁻¹(ζ, ζ) for the pullback connection ∇^(π*E) on π*E over T*M ∖ o.
+result of [Hin17, Proposition 4.1, p. 20] (page of the arXiv version 1502.03183v2). Let (M, g) be a smooth manifold with
+a metric g of arbitrary signature, let k ≥ 1, let T^kM := ⊗^k T*M carry the metric and the connection ∇ induced by g,
+and let Δ_k := −tr ∇² ∈ Diff²(M; T^kM). Let G(x, ζ) := g⁻¹_x(ζ, ζ) on T*M, H_G its Hamilton vector field,
+π : T*M ∖ o → M the projection and ∇^(π*T^kM) the pullback connection on π*T^kM. Then the subprincipal operator of Δ_k,
+in the sense of [Hin17, Definition 3.8] for operators acting on bundle-valued half-densities, is
+
+    S_sub(Δ_k) = −i∇^(π*T^kM)_(H_G) ∈ Diff¹(T*M ∖ o; π*T^kM).
+
+We apply it on a subbundle E ⊂ T^kM preserved by ∇, here S²T*M ⊂ T²M. Then Δ_k maps sections of E to sections of E,
+and ∇^(π*T^kM) preserves π*E, on which it is the pullback connection ∇^(π*E). In a local frame of T^kM whose first
+members span E, the matrix of Δ_k is block upper triangular, so by [Hin17, Definition 3.8] the subprincipal operator of
+Δ_k on E is the restriction of S_sub(Δ_k) to π*E; [Hin17, p. 26] restricts its results to such subbundles in the same
+way. So the tensor wave operator □_g := Δ_k on E, taken on half-densities by |dg| as in [[eq:iii-f-4-1]], satisfies
+iS_sub(□_g) = ∇^(π*E)_(H_G), in every dimension and for every metric.
 
 **Proposition {#prop:iii-h2-1-1}** (Strong trapping admissibility near b₀.) For η ∈ (0, 1] and b ∈ B̄_1 there is a
 stationary fibre inner product h_(η,b) on π*S²T* over O, homogeneous of degree 0 and smooth in b, such that, with p_1^Γ
@@ -564,15 +589,15 @@ of (Γ.4) ([[sec:i-b-1-5]]) for 2L_b, the inner product h_(η,b) and the adjoint
 
     sup_(Γ_b) λ_max(p_1^Γ) ≤ Cη,                                                                    {#eq:iii-h2-1-1}
 
-with C independent of η and b. In particular 2L_b is strongly trapping admissible ([Hin26c, Definition 5.8]) at every
-b ∈ B̄_1.
+with C independent of η and b. In particular 2L_b is strongly trapping admissible ([[def:ii-c-2-1]]; cf. [Hin26c,
+Definition 5.8]) at every b ∈ B̄_1.
 
 *Proof.* *Step 1: the subprincipal operator.* Over U_Γ, E^Υ = 0 and R_(g_b) has order 0, so [[eq:iii-f-4-1]] holds at
 every b ∈ B̄_1, on half-densities by |dg_b|:
 
     iS_sub(2L_b) = ∇^(π*S²T*)_(H_G) + 2E^C_(g_b) σ_1(iδ_(g_b)) G_(g_b),
 
-by the identity of [Hin17, Proposition 4.1] recalled above, with σ_1(iδ_g)(ζ)h = ι_(g⁻¹ζ)h.
+by [Hin17, Proposition 4.1] on S²T*, as recalled above, with σ_1(iδ_g)(ζ)h = ι_(g⁻¹ζ)h.
 
 *Step 2: the frame.* On O put σ := −ζ(∂_(t_*)) and e_0 := ζ/σ: stationary, homogeneous of degree 0, null on Σ := Σ_b
 and future directed there. As ∂_(t_*) is Killing, H_Gσ = 0; and ∇^(π*T*)_(H_G)ζ = 0, which is the geodesic equation

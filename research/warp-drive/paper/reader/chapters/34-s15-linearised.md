@@ -1094,3 +1094,409 @@ Proposition 8.8 (the contour deformation before [Hin26, (10.3)], through [Hin26c
 supplied by the low energy analysis of L_b^(σ) near the zero energy operator, whose kernel and cokernel are found in
 [[sec:iii-f3-4]]: mode stability for b near b_0 at small nonzero frequencies is [[cor:iii-h-4-3]] and
 [[cor:iii-h-4-4]].
+
+### The zero energy setting {#sec:iii-f3-1}
+
+This section and the next three carry [Hin26, Section 8.4] from Proposition 8.9 to Corollary 8.13 (pp. 154–158): the
+linearised Myers–Perry metrics brought into the gauge, the spin changes that are pure gauge, the kernel and cokernel
+of the zero energy operator L_b^(0), eleven-dimensional against the seven of [Hin26], and the linear right inverse
+built from them. [Hin26] takes the kernel bound from [AHW24, Theorem 6.1 (2)], the classification of the stationary
+decaying solutions of the linearised Einstein equation on Kerr; at b_0 it is proved here harmonic by harmonic at zero
+frequency ([[thm:iii-f3-3-1]]), and near b_0 the count follows from the invertibility at b_0 of an augmented operator
+and the perturbation theory of [[thm:i-c-7-1]], so no rigidity statement for spinning Myers–Perry metrics is needed.
+The pairings of [Hin26, Lemma 8.12] are not used here; they are part of [[sec:iii-f4-3]].
+
+The parameters are those of [[sec:iii-f1-1]] and [[sec:iii-f2-1]]: (Dyn), z = 4e_Υγ_Υ² ∈ (0, ½], (C1), γ_Υ as in
+[[prop:iii-f1-3-3]], the horizon modification and b ∈ ℬ(γ_(Υ,H)) as in [[prop:iii-d1-4-1]] and [[sec:iii-d2-1]], and
+s > ½ + ϑ_L ([[lem:iii-f2-1-1]]). *All b-spaces use an unweighted b-density μ_b = |dx|/|x|⁴ near ∂X*, so that
+H̄_b^(s,α) here is H̄_b^(s,α−2) of [[ch:s03]], and H_b^(∞,a) ⊂ 𝒜^a near ∂X. ε_ind and ℰ_ind are as in
+[[sec:iii-d2-1]]: ε_ind ∈ (0, ½) is less than d(Re ι, ℤ) for every indicial root ι of (□^Υ_b)^(0) with non-integer
+real part of modulus at most 10 (the gauge potential operator's number, not that of [[eq:iii-f1-2-2]], which concerns
+the roots of L_b^(0) and is far smaller), and ℰ_ind denotes an index set with min Re ℰ_ind ≥ ε_ind, independent of b,
+which may change from line to line. Write β^L_+ := min{Re ι : ι an indicial root of L_b^(0), Re ι > 0}; by
+[[prop:iii-f1-2-3]], β^L_+ > 1, so every α ∈ (0, 1] lies in the indicial gap (0, β^L_+).
+
+*Densities and adjoints.* In the Kerr–Schild coordinates (t, x) of [[def:iii-b-3-2]], g_b = η + Hk ⊗ k with k null for
+η ([[lem:iii-b-3-3]] (a)), so det g_b = det η = −1; and t_* − t = −ψ(|x|) is a function on X ([[eq:iii-b-3-6]]), so the
+change (t, x) ↦ (t_*, x) has Jacobian 1 and |dg_b| = |dt_*| |dx| for every b. Adjoints on X are taken with respect to
+|dx| and the fibre inner product induced by g_b (indefinite); for a stationary operator P on M with formal adjoint P*
+with respect to |dg_b| and g_b, P^(0)* = (P*)^(0) (pair φ(t_*)u with φ(t_*)v, φ ∈ C_c^∞(ℝ), u, v ∈ C_c^∞(X°)
+stationary, and integrate in t_*). The spatial density |dg_b|_X| of [Hin26] is |dx| here.
+
+*The linearised family at b_0.* t denotes the Kerr–Schild time, v := t + |x|, and on {r > r_h} the static chart
+(t_s, r, z) of [[sec:iii-f2-2]] has v = t_s + r_*, so dt + d|x| = dt_s + f⁻¹dr. For Ȧ ∈ 𝔰𝔬(4) put
+V(Ȧ) := (Ȧx) · dx; it is r² times a Killing 1-form V_i dz^i of the unit 𝕊³, of vector type 1, and Ȧ ↦ V(Ȧ) is an
+isomorphism of 𝔰𝔬(4) onto 𝒱_1 ([[eq:iii-d2-1-2]]).
+
+**Lemma {#lem:iii-f3-1-1}** (The linearised family at b_0.) ġ_(b_0)(1, 0) = |x|⁻²(dt + d|x|)² and
+ġ_(b_0)(0, Ȧ) = 2m_0|x|⁻⁴(dt + d|x|) ⊗_s V(Ȧ). So ġ_(b_0)(1, 0) is O(4)-invariant (scalar type 0) and equals
+r⁻²(dt_s + f⁻¹dr)²; and ġ_(b_0)(0, Ȧ) is of vector type 1, with coefficients (h = 2rf_a V_i dy^a dz^i)
+f_t = m_0 r⁻³ and f_r = m_0 r⁻³ f⁻¹ in the static chart, on the Killing form r⁻²V(Ȧ).
+
+*Proof.* At A = 0 the metric is η + m|x|⁻²(dt + d|x|)² ([[prop:iii-b-3-4]]), which gives the first formula. For the
+second, s = −½ tr(A²), p² and |Ax|² are of order |A|², so r_A = |x| + O(|A|²), P = r_A⁴ + O(|A|²), F_A = 1 + O(|A|²)
+and H_(m,A) = m|x|⁻² + O(|A|²) ([[eq:iii-b-3-1]], [[lem:iii-b-3-1]] (b)); and 𝖬/P = (r²I − A²)⁻¹ = r⁻²I + O(|A|²)
+([[lem:iii-b-3-1]] (a)), so ℓ_A = |x|⁻¹x · dx + |x|⁻²(Ax) · dx + O(|A|²). Differentiating H_(m,A)k_A ⊗ k_A at A = 0 in
+the direction Ȧ gives 2m|x|⁻²(dt + d|x|) ⊗_s |x|⁻²(Ȧx) · dx. With a ⊗_s b = ½(a ⊗ b + b ⊗ a), the component of
+ġ_(b_0)(0, Ȧ) on (∂_(t_s), ∂_(z^i)) is m_0r⁻⁴ · r²V_i, so rf_t = m_0r⁻², and the dr part gives f_r = m_0r⁻³f⁻¹. ∎
+
+### Gauged linearised Myers–Perry metrics {#sec:iii-f3-2}
+
+**Lemma {#lem:iii-f3-2-1}** (Inverse images.) Let k ∈ {1, 2} and let f be a stationary section, smooth on X̄, with
+f ∈ ρ^(2+k)C^∞ near ∂X. Then u := (□^Υ_b)^(0)⁻¹f ∈ 𝒜^((k,0)∪(k+ℰ_ind))(X̄; E), with ℰ_ind independent of b; its ρ^k
+coefficient u_k solves I(k)u_k = f_(2+k), where f = ρ^(2+k)f_(2+k) + O(ρ^(3+k)) and I is the indicial family of
+A := ρ⁻²(□^Υ_b)^(0) near ∂X ([[eq:i-c-1-3]]).
+
+*Proof.* f ∈ 𝒜^(2+(k,0)), so [[lem:iii-d1-5-1]] (2) applies with ℰ = (k, 0) and α ∈ (0, k), and its proof gives
+u ∈ 𝒜^(ℰ′) with ℰ′ the index set of [[lem:iii-a-1-4]] built from E(α) (the boundary spectrum with real part > α),
+F = (k, 0) and their shifts by ℕ_0: E_0 = E(α) ∪̄ F, E_(j+1) = E(α) ∪̄ (F ∪̄ (E_j + 1)). By [[lem:iii-d-4-1]] and
+[[eq:iii-d-4-2]], every indicial root with positive real part is at least ι^Υ_(s1,2) ∈ (2, 3); so E(α) has
+min Re ≥ ι^Υ_(s1,2), and ι^Υ_(s1,2) − 2 > ε_ind by the choice of ε_ind. The exponent k occurs in each E_j only through
+F, with logarithmic order 0: k ∉ E(α), and E_j + 1 has minimal real part at least k + 1. Every other element of
+ℰ′ = ⋃_j E_j has real part ≥ k + 1 or ≥ ι^Υ_(s1,2), hence ≥ k + ε_ind. So ℰ′ ⊂ (k, 0) ∪ (k + ℰ_ind); the roots do not
+depend on b ([[lem:iii-d-4-1]]), nor does this index set. Inserting u = ρ^k u_k + O(ρ^(k+ε_ind)) into Au = ρ⁻²f and
+comparing the ρ^k terms gives I(k)u_k = f_(2+k); I(k) is invertible since neither 1 nor 2 is an indicial root
+([[sec:iii-d2-1]]). (At the types that occur below, scalar type 0 at k = 1 and vector type 1 at k = 2, the
+determinants are det N_s0(1) = 1 · (−2) · (1 − 1 − 2 − z) = 2(2 + z) and N_v1(2) = (2 + 1)(3 − 2) = 3, by
+[[eq:s13-dets]].) ∎
+
+**Proposition {#prop:iii-f3-2-2}** (Gauged linearised metrics; [Hin26, Proposition 8.9] in dimension 4 + 1.) For b near
+b_0 and ḃ = (ṁ, Ȧ) ∈ ℝ × 𝔰𝔬(4) let η_b(ḃ) := 2δ_(g_b,E_Υ)G_(g_b)ġ_b(ḃ) and
+
+    ω̇_b(ḃ) := −(□^Υ_b)^(0)⁻¹ η_b(ḃ),     ġ^Υ_b(ḃ) := ġ_b(ḃ) + δ*_(g_b) ω̇_b(ḃ).                         {#eq:iii-f3-2-1}
+
+(1) ω̇_b(1, 0) ∈ 𝒜^((1,0)∪(1+ℰ_ind)) and ω̇_b(0, Ȧ) ∈ 𝒜^((2,0)∪(2+ℰ_ind)); in particular neither has a logarithmic
+term (the term c_b(log ρ)ω̄^(0)_s0 of [Hin26] is absent).
+
+(2) ġ^Υ_b(ḃ) lies in ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G_(g_b), hence in ker L_b^(0), and
+
+    ġ^Υ_b(1, 0) ∈ 𝒜^((2,0)∪(2+ℰ_ind)),     ġ^Υ_b(0, Ȧ) ∈ 𝒜^((3,0)∪(3+ℰ_ind)).                            {#eq:iii-f3-2-2}
+
+(3) ω̇_b(ḃ) and ġ^Υ_b(ḃ) are linear in ḃ and of class C^k in b for every k, with values in H̄_b^(s,α′), resp.
+H̄_b^(s−1,α′+1), for every s and every α′ ∈ (0, 1) (for ḃ = (1, 0)) or α′ ∈ (0, 2) (for ḃ = (0, Ȧ)).
+
+(4) At b_0, ω̇_(b_0)(1, 0) and ġ^Υ_(b_0)(1, 0) are of scalar type 0, and ω̇_(b_0)(0, Ȧ), ġ^Υ_(b_0)(0, Ȧ) of vector type
+1; and the coefficient f_t of ġ^Υ_(b_0)(0, Ȧ) is that of ġ_(b_0)(0, Ȧ).
+
+*Proof.* (1) By [[eq:iii-b-3-7]], ġ_b(1, 0) ∈ ρ²C^∞ and ġ_b(0, Ȧ) ∈ ρ³C^∞ near ∂X, smooth on X̄ and stationary. As in
+the proof of [[lem:iii-d2-2-1]], δ_(g_b) ∈ ρDiff¹_b, E^Υ_(g_b) ∈ ρDiff⁰_b and G_(g_b) ∈ Diff⁰_b near ∂X, with
+coefficients smooth on X̄; so η_b(1, 0) ∈ ρ³C^∞ and η_b(0, Ȧ) ∈ ρ⁴C^∞, and [[lem:iii-f3-2-1]] with k = 1, resp. k = 2,
+gives (1).
+
+(2) g_b is Ricci-flat for every b ([[prop:iii-b-3-4]]), so D_(g_b)Ric(ġ_b(ḃ)) = 0; and D_(g_b)Ric ∘ δ*_(g_b) = 0, since
+2δ*_(g_b)X^♭ = ℒ_X g_b and D_(g_b)Ric(ℒ_X g_b) = ℒ_X Ric(g_b) = 0. With □^Υ_b = 2δ_(g_b,E_Υ)G_(g_b)δ*_(g_b)
+([[eq:iii-d-1-1]]), 2δ_(g_b,E_Υ)G_(g_b)ġ^Υ_b = η_b + □^Υ_b ω̇_b = 0; and then
+L_b^(0)ġ^Υ_b = D_(g_b)Ric(ġ^Υ_b) + δ*_(g_b,E_C)δ_(g_b,E_Υ)G_(g_b)ġ^Υ_b = 0 ([[eq:iii-f-1-1]]). Since
+δ*_(g_b) ∈ ρDiff¹_b ([[eq:iii-d2-2-1]]) maps 𝒜^ℱ to 𝒜^(1+ℱ), (1) gives [[eq:iii-f3-2-2]].
+
+(3) Linearity is clear. b ↦ ġ_b(ḃ) is smooth into C^∞ ([[eq:iii-b-3-7]] holds smoothly in b), so b ↦ η_b(ḃ) is smooth
+into H̄_b^(s−1,α′+2) for every s and α′ < k; [[lem:iii-d2-2-2]] gives ω̇_b, and δ*_(g_b) is smooth in b.
+
+(4) At b_0 the operators δ_(g_(b_0),E_Υ), G_(g_(b_0)) and □^Υ_(b_0) commute with the rotations of x (c_Υ and c_(Υ,H)
+are rotation-invariant, [[sec:iii-d2-1]]), and so does (□^Υ_(b_0))^(0)⁻¹, being the inverse of an invertible operator
+that commutes with them. The projections onto a type and degree ([[lem:iii-a1-1-6]]) are averages over SO(4) and
+commute with all of these; so ω̇_(b_0)(ḃ) and ġ^Υ_(b_0)(ḃ) have the type of ġ_(b_0)(ḃ), which [[lem:iii-f3-1-1]]
+gives. A stationary 1-form of vector type 1 is r²B(r)V_i dz^i, and (δ*(r²BV_j dz^j))_(t_s i) =
+½∂_(t_s)(r²BV_i) − Γ^j_(t_s i)r²BV_j = 0, the static metric having Γ^j_(t_s i) = 0; so δ* of it leaves f_t
+unchanged. ∎
+
+**Remark {#rem:iii-f3-2-3}** (Pure gauge spin changes; [Hin26, Remark 8.10] in dimension 4 + 1.) Let A_V ∈ 𝔰𝔬(4),
+V := V(A_V), V_b := g_b(R_(A_V), ·) and W := [A(b), A_V]. Then
+
+    ġ^Υ_b(0, [A(b), A_V]) = 2h_(b,v1)(V),     h_(b,v1)(V) = δ*_(g_b) ω^(−1)_(b,v1)(V)  ([[eq:iii-d2-3-4]]).
+                                                                                                         {#eq:iii-f3-2-3}
+
+*Proof.* By [[lem:iii-e1-2-2]], ġ_b(0, W) = D_Ag_b(W) = 2δ*_(g_b)V_b. Let
+D := 2V_b + ω̇_b(0, W) − 2ω^(−1)_(b,v1)(V), a stationary 1-form smooth on X̄. Near ∂X, V_b − V = (g_b − ḡ)(R_(A_V), ·)
+∈ ρC^∞ (g_b − ḡ ∈ ρ²C^∞, [[eq:iii-d2-2-3]], and R_(A_V) has Cartesian components in ρ⁻¹C^∞),
+ω̇_b(0, W) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) and ω^(−1)_(b,v1)(V) − V ∈ 𝒜^((2,0)∪(2+ℰ_ind)) ([[eq:iii-d2-3-2]]); so D ∈ 𝒜^ϵ for
+every ϵ < 1. And (□^Υ_b)^(0)D = 2δ_(g_b,E_Υ)G_(g_b)(ġ_b(0, W) + δ*_(g_b)ω̇_b(0, W)) = 2δ_(g_b,E_Υ)G_(g_b)ġ^Υ_b(0, W)
+= 0 by [[prop:iii-f3-2-2]] (2) and [[eq:iii-d2-3-3]]. By [[prop:iii-d1-4-1]], D = 0, and
+ġ^Υ_b(0, W) = δ*_(g_b)(2V_b + ω̇_b(0, W)) = 2h_(b,v1)(V). ∎
+
+So the spin changes in the image of ad_(A(b)), of dimension 6 − dim ker ad_(A(b)) ∈ {0, 2, 4} ([[lem:iii-e1-2-3]]), are
+pure gauge. But for fixed Ȧ = [A, A_V] ≠ 0 and A → 0, ‖A_V‖ ≥ ‖Ȧ‖/(2‖A‖) → ∞, so the gauge potential
+2ω^(−1)_(b,v1)(V), whose leading term is 2V, is unbounded as b approaches the Tangherlini parameters. As in [Hin26], the
+final angular momentum must therefore be encoded as an element of 𝔰𝔬(4), all six components, and not modulo the pure
+gauge changes.
+
+### Stationary solutions on five-dimensional Tangherlini {#sec:iii-f3-3}
+
+On {r > r_h} use the static chart (t_s, r, z) of [[sec:iii-f2-2]] and the time t_*. A stationary symmetric 2-tensor or
+1-form on {r > r_0} is *in 𝒜^β near infinity* if its components in the frame (dt_*, dx) are; the frames
+(dt_*, dr, r dz) and (dt_s, dr, r dz) differ near infinity by matrices with bounded conormal entries
+(t_* = t_s − r_* + c_0 + O(r⁻¹) with all derivatives), so then the coefficients f_ab, f_a, H_L, H_T of each harmonic
+([[thm:s15-ki]]), as functions of r, are conormal and O(r^(−β)), and a 1-form ζ = A_aS dy^a + r²BS_i dz^i (or
+r²BV_i dz^i) is in 𝒜^(β−1) if A_a and rB are conormal and O(r^(1−β)). The ordinary differential equations below have
+regular singular points at r = ∞ (analytic in 1/r) with the stated exponents p_+ > p_− in r. The solution behaving like
+r^(p_−) carries no logarithm (in 1/r it belongs to the larger exponent −p_−; Frobenius), and every solution not
+proportional to it grows like r^(p_+), possibly with a logarithmic factor; so a solution that is O(r^(−β)) with
+−β < p_+ is a multiple of the decaying one.
+
+**Theorem {#thm:iii-f3-3-1}** (Stationary solutions; [AHW24, Theorem 6.1 (2)] on five-dimensional Tangherlini.) Let
+β ∈ (0, 1), and let h be a stationary symmetric 2-tensor on {r > r_0}, smooth there, in 𝒜^β near infinity, of one type
+and degree, with D_(g_(b_0))Ric(h) = 0 on {r > r_h}. Then there are ḃ = (ṁ, Ȧ), with ṁ = 0 unless the type is scalar
+type 0 and Ȧ = 0 unless it is vector type 1, and a stationary 1-form ω on {r > r_0}, smooth, of the same type and
+degree, in 𝒜^(β−1) near infinity, with h = ġ_(b_0)(ḃ) + δ*_(g_(b_0))ω on {r > r_h}.
+
+*Proof.* Steps 1–6 find, for each type, a 1-form ω smooth on {r > r_h}, in 𝒜^(β−1) near infinity, with
+h = ġ_(b_0)(ḃ) + δ*ω on {r > r_h}; Step 7 makes it smooth on {r > r_0}. A gauge 1-form ζ in 𝒜^(β−1) that is smooth on
+{r > r_0} leaves h′ := h + δ*ζ smooth on {r > r_0}, in 𝒜^β and in the kernel of D Ric. The gauge shifts are those of
+the proof of [[thm:iii-f2-2-2]] at σ = 0.
+
+*Step 1: tensor type, l ≥ 2.* h = 2r²H T_ij dz^i dz^j. By [[thm:s15-ki]] (T) at σ = 0 (□_2 = ∂_r f ∂_r on functions of
+r, D r · D = f∂_r, k_T² + 2 = κ), r⁻³(r³fH′)′ − l(l + 2)r⁻²H = 0, and Φ := r^(3/2)H solves f(fΦ′)′ = V_TΦ,
+V_T = (f/r²)(l(l + 2) + 3/4 + 9m_0/(4r²)), with V_T/f positive and bounded on [r_h, ∞); the exponents of H at infinity
+are the roots p of p(p + 2) = l(l + 2), l and −(l + 2). H is an angular component, the same in all charts, so smooth on
+{r > r_0}; at infinity H = O(r^(−β)) excludes the exponent l, so H = O(r^(−l−2)) and H′ = O(r^(−l−3)). On solutions,
+f and V_T being real, (fΦ̄Φ′)′ = f|Φ′|² + V_T|Φ|²/f; the boundary terms vanish at r_h (f = 0, Φ and Φ′ bounded) and at
+infinity (O(r^(−2l−2))), so ∫_(r_h)^∞ (f|Φ′|² + V_T|Φ|²/f) dr = 0, Φ = 0, and h = 0.
+
+*Step 2: vector type, l ≥ 2.* h = 2rf_a V_i dy^a dz^i + 2r²H_T V_ij dz^i dz^j. With ζ_0 := r²BV_i dz^i,
+B := 2H_T/k_V (smooth on {r > r_0}, rB = O(r^(1−β))), h′ := h + δ*ζ_0 has H′_T = 0 and f′_a = F_a, the invariants
+f_a + (r/k_V)D_aH_T [[pending:issue-1]]. By [[thm:s15-ki]] (V), r²F^a = ε^(ab)D_bΩ. As F is static,
+∂_tΩ = r²F^r/ε^(rt) is a function of r, so Ω = αt + Ω_0(r), and ε^(tr)∂_rΩ = r²F^t static forces α to be constant;
+the equation for Ω of (V) then gives (k_V² − 2)αt/r² = 0 (□_2 t = 0 and Dr · Dt = 0), so α = 0, F^r = 0 and F_r = 0.
+With F_t = ry, r²F^t = −r³y/f = ε^(tr)Ω_0′, and the equation for Ω_0, (fΩ_0′)′ − (3/r)fΩ_0′ − ((k_V² − 2)/r²)Ω_0 = 0,
+becomes ∓r³y′ = ((k_V² − 2)/r²)Ω_0; differentiating and using Ω_0′ = ∓r³y/f,
+
+    f(r⁵y′)′ = (k_V² − 2)r³y,     k_V² − 2 = l(l + 2) − 3 ≥ 5;
+
+the exponents of f_t = ry at infinity are l and −(l + 2) (y ∼ r^p with p(p + 4) = (l + 3)(l − 1)). In the ingoing chart
+(v, r, z), as f_t dt + f_r dr = f_t dv + (f_r − f_t/f)dr, h_vi = rf_t V_i and h_ri = r(f_r − f_t/f)V_i. So, with
+F_r = 0, h′_ri = −rf′_t V_i/f is smooth at r_h: y = f′_t/r is f times a smooth function near r_h, so y → 0 and y′ is
+bounded there. At infinity f′_t = O(r^(−β)), so y = O(r^(−l−3)), y′ = O(r^(−l−4)). On solutions
+(r⁵ȳy′)′ = r⁵|y′|² + (k_V² − 2)r³|y|²/f, with |y|²/f integrable at r_h and the boundary terms zero at both ends; so
+y = 0, h′ = 0 and h = δ*(−ζ_0).
+
+*Step 3: scalar type, l ≥ 2.* h = f_ab S dy^a dy^b + 2rf_a S_i dy^a dz^i + 2r²(H_L γ_ij S + H_T S_ij)dz^i dz^j. With
+the gauge 1-form ζ_1 := 2X_a S dy^a + (2r²/k)H_T S_i dz^i, X_a := (r/k)(f_a + (r/k)D_aH_T) ([KI03, (2.8)]; built
+covariantly on the orbit space from h, so smooth on {r > r_0}, and O(r^(1−β))), h′ := h + δ*ζ_1 has
+f′_a = H′_T = 0, its remaining components being the invariants F_ab, F of [[thm:s15-ki]] (S) [[pending:issue-1]]. By
+[[thm:s15-ki]] (S0), Z = 0, that is F_tr = 0; and with X := r(−F_tt/f − 2F), Y := r(fF_rr − 2F) (the X, Y of (S) in the
+static chart), [KI03, (4.2)] at n = 3, K = 1, Λ = 0 and f = 1 − m_0/r² (f − 1 = −m_0/r², f′ = 2m_0/r³,
+f″ = −6m_0/r⁴) is the flow
+
+    Y′ = m_0(X − Y)/(r(r² − m_0)),
+    X′ = (m_0(m_0 − 2r²)X + (k²r²(r² − m_0) + 4m_0r² − 3r⁴)Y)/(m_0 r(r² − m_0)),                         {#eq:iii-f3-3-1}
+
+on which all the equations hold. With Z̃ := (fr²/k²)(X′ − X/r − (f′/f − 2/r)Y) ([KI03, (2.24a)] at ω = 0, solved for
+Z̃) and H := k² − 3 + 6m_0/r², put Φ := (3Z̃ − r(X + Y))/(r^(1/2)H). Inserting [[eq:iii-f3-3-1]] into Z̃ gives, on the
+flow,
+
+    3Z̃ − r(X + Y) = (−m_0(k²r² + 9r² − 6m_0)X + (3(k² − 3)r⁴ − 2(2k² − 9)m_0r² − 12m_0²)Y)/(k²m_0r),    {#eq:iii-f3-3-2}
+
+and comparing coefficients, Φ = (Q_Y X − Q_X Y)/(2k²r^(1/2)f′H) with Q_X, Q_Y as in [[thm:s15-ki]] (S0) (as f′ = 2m_0/r³,
+the right side is r^(5/2)(Q_Y X − Q_X Y)/(4k²m_0H), and r⁴(Q_Y X − Q_X Y)/4 is the numerator of
+[[eq:iii-f3-3-2]]). So by (S0), f(fΦ′)′ = V_SΦ with V_S = fQ/(16r²H²), and X and Y are
+linear combinations of Φ and Φ′. At infinity V_S = (l(l + 2) + 3/4)r⁻² + O(r⁻⁴) (Q → 16p³ + 60p² = 4p²(4p + 15),
+H → p = κ − 3), so the exponents of Φ there are l + 3/2 and −l − 1/2. At r_h: where F_tr = 0, in ingoing components
+F_vv = −fF_vr, X = r(F_vr − 2F) and Y = r(fF′_rr + F_vr − 2F) (from F_tt = F_vv, F_tr = F_vv/f + F_vr and
+F_rr = F_vv/f² + 2F_vr/f + F′_rr), smooth since h′ is; so by [[eq:iii-f3-3-2]], whose coefficients are polynomials in
+r divided by k²m_0r, and H ≥ k² − 3 > 0, Φ is smooth on [r_h, ∞). At infinity X, Y = O(r^(1−β)), so
+Φ = O(r^(7/2−β)) by [[eq:iii-f3-3-2]], which excludes the exponent l + 3/2 ≥ 7/2: Φ = O(r^(−l−1/2)),
+Φ′ = O(r^(−l−3/2)). As Q > 0 on {r > r_h} for l ≥ 2 ([[sec:iii-f2-2]], *Positivity of the potentials*), V_S > 0 and
+V_S/f is bounded; the identity (fΦ̄Φ′)′ = f|Φ′|² + V_S|Φ|²/f gives Φ = 0 as in Step 1; then X = Y = 0, and the
+relations of (S) give F^t_t = F^r_r = F = 0, so F_tt = F_rr = F = 0, h′ = 0 and h = δ*(−ζ_1).
+
+*Step 4: scalar type 0.* h = f_ab dy^a dy^b + 2r²H_L γ. δ*(A_t dt_s + A_r dr) shifts H_L by fA_r/(2r) (from
+Γ^r_ij = −rfγ_ij) and f_tr by ½A_t′ − Γ^(t)_(tr)A_t = (f/2)(A_t/f)′. Put A_r := −2rH_L/f and
+A_t := −f∫_(r_1)^r 2f_tr f⁻¹ dr′, smooth on (r_h, ∞) and O(r^(1−β)) (β < 1); h′ := h + δ*ζ, ζ := A_t dt_s + A_r dr, has
+H′_L = f′_tr = 0, is O(r^(−β)) and solves the stationary equations, so by [[cor:s15-low]] (c),
+(f′_tt, f′_rr) = c_1(f, 0) + ṁ(r⁻², r⁻²f⁻²). The first is c_1 f dt_s², not O(r^(−β)) unless c_1 = 0. By
+[[lem:iii-f3-1-1]], ġ_(b_0)(1, 0) = r⁻²dt_s² + 2r⁻²f⁻¹dt_s dr + r⁻²f⁻²dr², and 2r⁻²f⁻¹dt_s dr = δ*(A^m dt_s) with
+A^m := −f∫_r^∞ 2s⁻²f(s)⁻² ds = O(r⁻¹) (δ*(A dt_s) has only the tr component (f/2)(A/f)′). So
+h = ṁ ġ_(b_0)(1, 0) + δ*(−ζ − ṁA^m dt_s) on {r > r_h}.
+
+*Step 5: vector type 1.* h = 2rf_a V_i dy^a dz^i, V_ij = 0. By [[thm:s15-ki]] (V1), F^(1)_tr = −r(f_t/r)′ = Lε_tr/r⁴
+with L constant, so f_t = ar + b′r⁻³ with constants a, b′, and f_r is unconstrained. δ*(r²BV_i dz^i) shifts f_r by
+(r/2)B′ and f_t by 0. Put B := 2∫_∞^r f_r(s)s⁻¹ ds, convergent and O(r^(−β)); then h′ := h − δ*(r²BV_i dz^i) has
+f′_r = 0, f′_t = f_t, and is O(r^(−β)), so a = 0. Let Ȧ with V(Ȧ) = (b′/m_0)r²V_i dz^i; by [[lem:iii-f3-1-1]],
+k_1 := h − ġ_(b_0)(0, Ȧ) has f_t = 0 and f_r = O(r^(−β)), and with B̃ := 2∫_∞^r f^(k_1)_r(s)s⁻¹ ds,
+k_1 − δ*(r²B̃V_i dz^i) has f_t = f_r = 0, so vanishes. Hence h = ġ_(b_0)(0, Ȧ) + δ*(r²B̃V_i dz^i), with
+rB̃ = O(r^(1−β)).
+
+*Step 6: scalar type 1.* h = f_ab S dy^a dy^b + 2rf_a S_i dy^a dz^i + 2r²H_L γ_ij S dz^i dz^j, D̂_iD̂_jS = −γ_ij S,
+k = 3^(1/2). For stationary ζ = A_tS dt_s + A_rS dr + r²BS_i dz^i, δ*ζ shifts f_tt, f_t, H_L by −(ff′/2)A_r,
+−(k/(2r))A_t, (k/6)B + (f/(2r))A_r, free of derivatives, with determinant −m_0(r² − m_0)/(4r⁶) ≠ 0 on (r_h, ∞) (rows
+f_tt, f_t, H_L; columns A_t, A_r, B; the determinant of the proof of [[thm:iii-f2-2-2]] at σ = 0), and f_rr, f_r by
+A_r′ + m_0A_r/(r(r² − m_0)) and (r²B′ − kA_r)/(2r). Let ζ solve the algebraic system making h + δ*ζ have
+f_tt = f_t = H_L = 0; then h + δ*ζ has the form of [[lem:s15-low]] (b) at σ = 0 and solves the stationary equations, so
+it vanishes by [[cor:s15-low]] (b), and ω := −ζ has h = δ*ω. Its coefficients satisfy, from the f_t, f_rr and H_L
+components of h = δ*ω: A^ω_t = −2rf_t/k = O(r^(1−β)); (f^(1/2)A^ω_r)′ = f^(1/2)f_rr, so
+A^ω_r = f^(−1/2)(c + ∫_(r_1)^r f^(1/2)f_rr) = O(r^(1−β)); and B^ω = (6/k)(H_L − (f/(2r))A^ω_r) = O(r^(−β)). So
+ω ∈ 𝒜^(β−1) near infinity.
+
+*Step 7: across the horizon.* By [[lem:iii-a1-1-6]] the sectors of Steps 1–6 are all the types and degrees of
+symmetric 2-tensors on 𝕊³. In each, h = ġ_(b_0)(ḃ) + δ*ω on {r > r_h} with ω smooth there and in 𝒜^(β−1).
+[[lem:iii-f2-2-1]] holds at σ = 0 with the same proof (its formulas are those of δ* with ∂_τ ↦ 0). Let ω̃ be the
+solution on (r_0, ∞), in the chart (t_*, r, z), of the r-row system of δ*ω̃ = h − ġ_(b_0)(ḃ), whose coefficients and
+right side are smooth on (r_0, ∞), with ω̃ = ω at one point r_1 > r_h. By [[lem:iii-f2-2-1]] (a) there, ω̃ = ω on
+(r_h, ∞); so ω̃ is smooth on (r_0, ∞) and in 𝒜^(β−1) near infinity. ∎
+
+**Corollary {#cor:iii-f3-3-2}** (Stationary gauge invariants at b_0.) On {r > r_h}, for stationary 1-forms ω: (a) if
+ṁ ġ_(b_0)(1, 0) = δ*ω, then ṁ = 0; (b) if ġ_(b_0)(0, Ȧ) = δ*ω, then Ȧ = 0; (c) if ω is of scalar type 1 and δ*ω = 0,
+then ω = 0.
+
+*Proof.* At b_0, δ* commutes with the projections onto types and degrees, so in (a) and (b) ω may be replaced by its
+scalar type 0, resp. vector type 1, part. (a) For ω = A_t dt_s + A_r dr, the H_L component fA_r/(2r) of δ*ω must
+vanish, so A_r = 0, and then the tt component −(ff′/2)A_r vanishes, while that of ġ_(b_0)(1, 0) is r⁻²
+([[lem:iii-f3-1-1]]). (b) δ*(r²BV_i dz^i) has f_t = 0 ([[prop:iii-f3-2-2]] (4)), while ġ_(b_0)(0, Ȧ) has
+f_t = m_0r⁻³ on r⁻²V(Ȧ) ([[lem:iii-f3-1-1]]). (c) Componentwise in a basis of 𝒮_1, the shifts of f_tt, f_t, H_L
+vanish, and their determinant is nonzero (Step 6 of [[thm:iii-f3-3-1]]), so A_t = A_r = B = 0. ∎
+
+### The zero energy kernel and cokernel {#sec:iii-f3-4}
+
+For α ∈ (0, 1] consider
+
+    L_b^(0) : 𝒳_b := {u ∈ H̄_b^(s,α)(X̄; S²T*X) : L_b^(0)u ∈ H̄_b^(s−1,α+2)} → H̄_b^(s−1,α+2)(X̄; S²T*X).
+                                                                                                         {#eq:iii-f3-4-1}
+
+Under the pairing ⟨u, v⟩ := ∫_X ⟨u, v⟩_(g_b) |dx|, and |dx| = ρ⁻⁴μ_b, the dual of H̄_b^(s−1,α+2) is Ḣ_b^(1−s,2−α)
+([Hin26, footnote 79] in dimension 4 + 1).
+
+**Proposition {#prop:iii-f3-4-1}** (Kernel and cokernel at zero energy; [Hin26, Proposition 8.11] in dimension 4 + 1.)
+For b near b_0 and every α ∈ (0, 1], [[eq:iii-f3-4-1]] is Fredholm of index 0, and:
+
+(1) (*Kernel.*) Its nullspace is eleven-dimensional, spanned by
+
+    ġ^Υ_b(1, 0) ∈ 𝒜^((2,0)∪(2+ℰ_ind)),   ġ^Υ_b(0, Ȧ) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) (Ȧ ∈ 𝔰𝔬(4)),
+    h_(b,s1)(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) (S ∈ 𝒮_1),                                                         {#eq:iii-f3-4-2}
+
+of [[prop:iii-f3-2-2]] and [[eq:iii-d2-3-4]]; all lie in ker δ_(g_b,E_Υ)G_(g_b).
+
+(2) (*Cokernel.*) The annihilator of its range in Ḣ_b^(1−s,2−α) is the kernel there of L_b^(0)*, and is
+eleven-dimensional, spanned by the dual states of [[prop:iii-e-3-1]] (2),
+
+    h*_(b,s0),     h*_(b,s1)(S) (S ∈ 𝒮_1),     h*_(b,v1)(V) (V ∈ 𝒱_1).                                   {#eq:iii-f3-4-3}
+
+*Proof.* *Step 0: the index.* L_b^(·) satisfies (H1)–(H5) with index 0 at σ ≠ 0 ([[cor:iii-f2-1-2]]), (G) with the
+weight α − 2 of [[ch:s03]], since α ∈ (0, β^L_+) ([[sec:iii-f3-1]]), and (TF) with the weight α ([[prop:iii-f1-3-3]]);
+so [[eq:iii-f3-4-1]] has index 0 by [[cor:i-c-6-6]]. By [[thm:i-c-3-1]] (1)–(2) it is Fredholm, the annihilator of its
+range is the kernel of the adjoint on the dual domain, and every element of its nullspace is smooth up to ∂_♯X and lies
+in 𝒜^β near ∂X for every β < β^L_+ (the upper end of the gap containing α). The pairing with |dx| and g_b in place of
+that of [[ch:s03]] identifies the adjoints' kernels by an invertible bundle map, smooth on X̄.
+
+*Step 1: the states and the dual states.* By [[prop:iii-f3-2-2]] (2) and [[prop:iii-d2-3-1]] (2), the tensors
+[[eq:iii-f3-4-2]] lie in ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G_(g_b) ⊂ ker L_b^(0), and, being smooth on X̄ and O(ρ²), in
+H̄_b^(s,α) for α < 2. For the adjoint: G := G_(g_b) = Id − ½g_b tr_(g_b) is self-adjoint and invertible,
+G⁻¹ = Id − ⅓g_b tr_(g_b) in five dimensions ([[lem:iii-b-6-2]]), and G ∘ D_(g_b)Ric is formally self-adjoint (it is
+the linearised Einstein operator, the second variation of the Einstein–Hilbert action); so
+(D_(g_b)Ric)* = G D_(g_b)Ric G⁻¹ and
+
+    L_b* = G D_(g_b)Ric G⁻¹ + G(δ_(g_b,E_Υ))*(δ*_(g_b,E_C))*.                                            {#eq:iii-f3-4-4}
+
+For h* = Gδ*_(g_b)ω* with ω* ∈ ker(□^C_b)*, using D_(g_b)Ric ∘ δ*_(g_b) = 0 and
+(□^C_b)* = 2(δ*_(g_b,E_C))*Gδ*_(g_b) (from □^C_b = 2δ_(g_b)Gδ*_(g_b,E_C), [[eq:iii-e-1-2]]),
+L_b*h* = G(δ_(g_b,E_Υ))* ½(□^C_b)*ω* = 0. The dual states [[eq:iii-f3-4-3]] are of this form ([[prop:iii-e-3-1]]),
+stationary, so in the kernel of L_b^(0)* = (L_b*)^(0) ([[sec:iii-f3-1]]), and they lie in
+Ḣ_b^(0,((3,0),C_0+3)) ⊂ Ḣ_b^(1−s,2−α) (2 − α < 3, s ≥ 1; they vanish on {r_0 < |x| < r_h}). By Step 0 they annihilate
+the range.
+
+*Step 2: the dual states are independent, for every b.* Let
+a h*_(b,s0) + h*_(b,s1)(S) + h*_(b,v1)(V) = 0, and ω := aω*^(0)_(b,s0) + ω*^(0)_(b,s1)(S) + ω*^(−1)_(b,v1)(V). Then
+δ*_(g_b)ω = 0: ω is a Killing 1-form of g_b on X°, which vanishes on {r_0 < |x| < r_h} ([[prop:iii-e-3-1]] (2)),
+hence everywhere (∇∇ω is a linear expression in ω through the curvature, so ω is determined by (ω, ∇ω) at one point of
+the connected X°). By [[eq:iii-e-3-1]] and [[eq:iii-d2-3-2]], near ∂X, ω = χ(−a dt̄ + ξ_S · dx + V) + ω_2 with
+|x|S = ξ_S · x and ω_2 partially polyhomogeneous with index set (2, 0); V has Cartesian components homogeneous of degree
+1, and dt̄ = dt_* + d|x| and the dx^i are independent on ∂X. So ω = 0 forces V = 0, then a = 0 and ξ_S = 0.
+
+*Step 3: the kernel at b_0.* Let u be in the nullspace of [[eq:iii-f3-4-1]] at b_0, and fix β ∈ (0, 1), so that
+u ∈ 𝒜^β near ∂X, smooth up to ∂_♯X (Step 0).
+
+(i) *The gauge 1-form.* η := δ_(g,E_Υ)Gu ∈ 𝒜^(1+β), smooth up to ∂_♯X. The linearised second Bianchi identity
+δ_g G_g D_g Ric = 0 gives δ_g G_g L_(b_0) = ½□^C δ_(g,E_Υ)G_g, so (□^C)^(0)η = 0. As η ∈ H̄_b^(s′,1) for every s′,
+which is the Euclidean weight −1, and −1 + 2 ∈ [−C_0, 2), [[thm:iii-e-1-1]] (2) gives η = 0. So D_(g_(b_0))Ric(u) = 0
+and δ_(g_(b_0),E_Υ)G_(g_(b_0))u = 0.
+
+(ii) *Harmonics.* Both operators commute with the rotations at b_0 (proof of [[prop:iii-f3-2-2]] (4)), so each
+component u_π of a type and degree π ([[lem:iii-a1-1-6]]) lies in both kernels, is smooth on {r > r_0} and in 𝒜^β. By
+[[thm:iii-f3-3-1]], u_π = ġ_(b_0)(ḃ_π) + δ*ω_π on {r > r_h}, with ω_π of type π, smooth on {r > r_0}, in 𝒜^(β−1). Let
+ω′_π := ω_π − ω̇_(b_0)(ḃ_π), of type π ([[prop:iii-f3-2-2]] (4)) and in 𝒜^(β−1) ([[prop:iii-f3-2-2]] (1)). Then
+u_π = ġ^Υ_(b_0)(ḃ_π) + δ*ω′_π on {r > r_h}, and applying 2δ_(E_Υ)G, □^Υ_(b_0)ω′_π = 0 there.
+
+(iii) *Inside the horizon.* [[lem:iii-f2-2-3]] holds at σ = 0 with the same proof (the radial equation
+−fU″ + AU′ + BU = 0 in the ingoing chart does not use σ ≠ 0). With Q = □^Υ_(b_0) it gives ω̃_π, smooth on
+{r > r_0 − δ_0}, so up to {r = r_0}, equal to ω′_π on {r ≥ r_h}, with (□^Υ_(b_0))^(0)ω̃_π = 0 on all of X̄.
+
+(iv) *The expansion at infinity.* Near ∂X, (□^Υ_(b_0))^(0) = ρ²A with A elliptic, and ω̃_π ∈ H_b^(∞,a) for every
+a < β − 1; take a ∈ (−1, β − 1). [[lem:iii-a-1-4]], applied as in the proof of [[lem:iii-d1-5-1]] (2), with F = ∅ (as
+Aω̃_π = 0 there) and a weight ϵ ∈ (0, ι^Υ_(s1,2)), gives ω̃_π ∈ H_b^(∞,(E,ϵ)) with E built from the roots of real part
+> a. By [[lem:iii-d-4-1]] the only root with real part in (a, ϵ) ⊂ (−1, ι^Υ_(s1,2)) is 0, at scalar types 0 and 1 only,
+and it is simple; so ω̃_π = χw_0 + w_ϵ with w_ϵ ∈ H_b^(∞,ϵ) ⊂ 𝒜^ϵ and w_0 an indicial solution for the root 0 of
+type π: by [[lem:iii-d-4-1]], w_0 = c dt̄ at scalar type 0, w_0 = d(|x|S′) (S′ ∈ 𝒮_1) at scalar type 1, and w_0 = 0
+otherwise.
+
+(v) *Mode stability.* Let D_π := ω̃_π + c ω^(0)_(b_0,s0), resp. ω̃_π − ω^(0)_(b_0,s1)(S′), resp. ω̃_π (recall
+ω̄^(0)_s0 = −dt̄). By [[eq:iii-d2-3-2]]–[[eq:iii-d2-3-3]], D_π ∈ 𝒜^(ϵ′) for some ϵ′ > 0, smooth on X̄, and
+(□^Υ_(b_0))^(0)D_π = 0; [[prop:iii-d1-4-1]] gives D_π = 0. As δ*ω^(0)_(b_0,s0) = 0 and
+δ*ω^(0)_(b_0,s1)(S′) = h_(b_0,s1)(S′), on {r ≥ r_h}
+
+    u_π = ġ^Υ_(b_0)(ḃ_π) + h_(b_0,s1)(S′_π),                                                             {#eq:iii-f3-4-5}
+
+with ḃ_π = 0 except at scalar type 0 and vector type 1, and S′_π = 0 except at scalar type 1.
+
+(vi) *The interior.* k_π := u_π − ġ^Υ_(b_0)(ḃ_π) − h_(b_0,s1)(S′_π) lies in ker D Ric ∩ ker δ_(E_Υ)G, so P′k_π = 0
+with 2P′ = □ + 2δ*E^ΥG of principal part □, and k_π = 0 on {r > r_h}; by part (d) of the proof of [[prop:iii-d-6-2]],
+as in the proof of [[prop:iii-f2-3-1]] (*The interior*), k_π = 0 on {r > r_0}.
+
+So u_π = 0 except at scalar types 0 and 1 and vector type 1, and u, the convergent sum of its components
+([[lem:iii-a1-1-6]]), lies in the span of [[eq:iii-f3-4-2]] at b_0.
+
+*Step 4: independence at b_0.* Suppose ġ^Υ_(b_0)(ṁ, Ȧ) + h_(b_0,s1)(S) = 0. First, ω^(0)_(b_0,s1)(S) is of scalar type
+1: with Π the projection onto scalar type 1, Πω^(0)_(b_0,s1)(S) lies in ker (□^Υ_(b_0))^(0) and differs from d(|x|S) by
+an element of 𝒜^ϵ, as ω^(0)_(b_0,s1)(S) does, so the two differ by an element of 𝒜^ϵ ∩ ker (□^Υ_(b_0))^(0) = 0. So by
+[[prop:iii-f3-2-2]] (4) the three summands are of scalar type 0, vector type 1 and scalar type 1, and each vanishes.
+ġ^Υ_(b_0)(ṁ, 0) = 0 means ṁ ġ_(b_0)(1, 0) = δ*(−ω̇_(b_0)(ṁ, 0)), so ṁ = 0 ([[cor:iii-f3-3-2]] (a)); likewise Ȧ = 0
+([[cor:iii-f3-3-2]] (b)); and δ*ω^(0)_(b_0,s1)(S) = 0 gives ω^(0)_(b_0,s1)(S) = 0 on {r > r_h}
+([[cor:iii-f3-3-2]] (c)), so its leading term d(|x|S) vanishes and S = 0. With Step 3, the nullspace at b_0 is
+eleven-dimensional and spanned by [[eq:iii-f3-4-2]]. By Step 0 the annihilator of the range has dimension 11, and by
+Steps 1–2 it is spanned by [[eq:iii-f3-4-3]].
+
+*Step 5: near b_0.* Fix f*_j, f♯_j as in [[cor:iii-f3-4-2]]. At b_0, L̃_(b_0) of [[cor:iii-f3-4-2]] is invertible: if
+L_(b_0)^(0)u + Σ_j c_j f♯_j = 0 and ⟨u, f*_j⟩ = 0 for all j, pairing with the annihilator of the range (Step 4) gives
+c = 0, so u is in the nullspace and u = 0; and L̃_(b_0) has index 0, being a finite rank perturbation of
+L_(b_0)^(0) ⊕ 0_(ℂ¹¹→ℂ¹¹). This is (Z_𝒫) of [[ch:s03]] for L_(b_0)^(·), with m_1 = m_2 = 11 and the compactly
+supported f♯_j, f*_j; by [[thm:i-c-7-1]] (1) it holds for b near b_0, so L̃_b is invertible. Then
+u ↦ (⟨u, f*_j⟩)_j is injective on the nullspace of [[eq:iii-f3-4-1]] at b (L̃_b(u, 0) = 0 otherwise), so its dimension
+is at most 11. The eleven states [[eq:iii-f3-4-2]] depend continuously on b in H̄_b^(s−1,α) ([[prop:iii-f3-2-2]] (3);
+[[prop:iii-d2-3-1]], smooth in b), so the matrix (⟨u_i(b), f*_j⟩)_(ij), invertible at b_0 by Step 4 and the choice of
+f*_j, stays invertible near b_0: the states are independent, hence a basis. By index 0 the annihilator of the range has
+dimension 11, and by Steps 1–2 it is spanned by [[eq:iii-f3-4-3]]. ∎
+
+**Corollary {#cor:iii-f3-4-2}** (The right inverse at zero energy; [Hin26, Corollary 8.13] in dimension 4 + 1.) Fix
+f*_j, f♯_j ∈ C_c^∞(X°; S²T*X), j = 1, …, 11, real, such that u ↦ (⟨u, f*_j⟩)_j and u* ↦ (⟨f♯_j, u*⟩)_j restrict to
+isomorphisms of the nullspace of [[eq:iii-f3-4-1]] at b_0, resp. of the annihilator of its range, onto ℂ¹¹. Define
+
+    L̃_b(u, c) := (L_b^(0)u + Σ_(j=1)^11 c_j f♯_j, (⟨u, f*_j⟩)_(j=1,…,11)).                              {#eq:iii-f3-4-6}
+
+(1) (*Invertibility.*) For b near b_0, L̃_b : 𝒳_b ⊕ ℂ¹¹ → H̄_b^(s−1,α+2) ⊕ ℂ¹¹ is invertible, with ‖L̃_b⁻¹‖ bounded near
+b_0; and if b ↦ (f_b, c_b) is of class C^k into 𝒜^(α+2)(X̄; S²T*X) ⊕ ℂ¹¹, then b ↦ L̃_b⁻¹(f_b, c_b) is of class C^k
+into 𝒜^(α−ϵ) ⊕ ℂ¹¹ for every ϵ ∈ (0, α).
+
+(2) (*Inversion of L_b^(0).*) If f ∈ 𝒜^(α+2) is orthogonal to the dual states [[eq:iii-f3-4-3]] and
+(u, c) = L̃_b⁻¹(f, 0), then c = 0 and L_b^(0)u = f; if f depends smoothly on b and the orthogonality holds for all b,
+then u depends smoothly on b.
+
+*Proof.* The f*_j, f♯_j exist: the nullspace and the annihilator are finite-dimensional spaces of distributions on X°
+(smooth tensors, by Step 0 of the proof of [[prop:iii-f3-4-1]]), and the restriction of C_c^∞(X°) → W* to a
+finite-dimensional W ⊂ 𝒟′(X°) is onto, since otherwise a nonzero element of W would annihilate every test section; real
+ones suffice, the spaces being spanned by real tensors.
+
+(1) Invertibility near b_0 is Step 5 of the proof of [[prop:iii-f3-4-1]]. *Uniform bound.* Otherwise there are
+b_j → b_0 and (u_j, c_j) with ‖u_j‖_(H̄_b^(s,α)) + |c_j| = 1 and L̃_(b_j)(u_j, c_j) → 0. By [[thm:i-c-7-1]] (2) the
+estimate [[eq:i-c-3-2]] of [[thm:i-c-3-1]] holds uniformly near b_0:
+‖u_j‖_(H̄_b^(s,α)) ≤ C(‖L_(b_j)^(0)u_j‖_(H̄_b^(s−1,α+2)) + ‖u_j‖_(H̄_b^(−N,−N))). Passing to a subsequence,
+u_j → u weakly in H̄_b^(s,α) and strongly in H̄_b^(−N,−N) (compact inclusion), and c_j → c; since
+L_(b_j)^(0) − L_(b_0)^(0) → 0 as maps H̄_b^(s,α) → H̄_b^(s−2,α+2), L̃_(b_0)(u, c) = 0, so (u, c) = 0; then
+‖L_(b_j)^(0)u_j‖ ≤ |c_j| max_k ‖f♯_k‖ + o(1) → 0 and the estimate give ‖u_j‖_(H̄_b^(s,α)) → 0, contradicting the
+normalisation. *Smoothness.* As in the proof of [[lem:iii-d2-2-2]]: the coefficients of L̃_b depend smoothly on b, so
+b ↦ L̃_b⁻¹w is continuous for fixed w in ⋂_s H̄_b^(s−1,α′+2) ⊕ ℂ¹¹ (α′ := α − ϵ ∈ (0, 1], for which all of the above
+holds), uniformly on bounded sets, and the difference quotients converge to L̃_b⁻¹(ẇ − L̃̇ L̃_b⁻¹w); induction gives
+C^k. Finally 𝒜^(α+2) ⊂ ⋂_s H̄_b^(s−1,α′+2) near ∂X (with smoothness up to ∂_♯X) and ⋂_s H̄_b^(s,α′) ⊂ 𝒜^(α′).
+
+(2) Pairing L_b^(0)u + Σ_j c_j f♯_j = f with each dual state h*_i(b) of [[eq:iii-f3-4-3]], which annihilate the range
+([[prop:iii-f3-4-1]] (2)), gives Σ_j c_j ⟨f♯_j, h*_i(b)⟩ = ⟨f, h*_i(b)⟩ = 0. The matrix (⟨f♯_j, h*_i(b)⟩) is
+invertible at b_0 by the choice of f♯_j, and depends continuously on b ([[prop:iii-e-3-1]] and [[prop:iii-e1-3-1]]:
+the dual states are continuous in b in Ḣ_b^(0,C_0+3), resp. Ḣ_b^(0,((3,0),C_0+3))), so it is invertible near b_0 and
+c = 0. Smoothness follows from (1). ∎

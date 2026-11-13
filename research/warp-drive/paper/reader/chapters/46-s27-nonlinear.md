@@ -854,3 +854,129 @@ g = φ_(−S)^*g_(b₀) + h_(−S) = φ_(−S)^*(g_(b₀) + h_0). (3) holds as �
 the slowest terms at ι⁺ come from h_tot(p⃗), which is supported in 𝒞 ([[lem:iii-i7-2-2]]); in dimension 4 + 1 their
 orders are those of [[ch:s21]]. [Hin26] deduces its Theorem 1.1 by pulling back along a diffeomorphism of M that is the
 identity near ℐ⁺ ∪ ι⁺ ∪ K⁺, which changes nothing above.
+
+### The parameters: the conditions {#sec:vi-c-1}
+
+The stability theory leaves open the constraint damping gauge E_C, the gauge modification parameters E_Υ, the weights
+at ℐ⁺, ι⁺ and K⁺, the data classes and the set of Myers–Perry parameters, and its results state conditions on them.
+This section lists every such condition with the results that state or use it, and what its threshold depends on;
+[[thm:vi-c-2-1]] shows that they can all be met, in an order in which each threshold depends only on choices already
+made. m₀ > 0 is fixed and R₁ := m₀^(1/2). Conditions that only restate a choice made in another row are omitted. The
+constants v_C, e_C, C_0 and γ_C of the damping are fixed once, in [[eq:iv4-0-1]], at the point where [[thm:iii-e-1-1]]
+is proved, and no result varies them; every result that names them uses that point.
+
+**c1.** (v_C, e_C, C_0) = (½, 1/102400, 100), the point at which [[thm:iii-e-1-1]] is proved ([[eq:iv4-0-1]],
+[[sec:iii-k-0]]). Threshold: none.
+
+**c2.** γ_C = h⁻¹, h ∈ 𝖧 = (0, h_*) ∖ 𝖹, h_* = min(10⁻⁶, h_0, h_tf), 𝖹 countable ([[eq:iv4-0-1]], [[lem:iv4-1-3]] (b),
+[[prop:np-10-52]] (ii)–(iii)). Threshold: c1.
+
+**c3.** γ_C: (C1)–(C4), the clauses of [[thm:iii-e-1-1]] (3) after its first sentence: the indicial roots of □^C_b are
+simple, avoid the listed sets, and are real where their real part is an integer in [3, 51] (used in [[ch:s15]]).
+Threshold: c1, c2.
+
+**c4.** γ_C: (C5) γ_C v_C ≥ ½ ([[sec:iii-i10-1]], [[sec:iii-g2-1]]), and s_C := (1 − e_C)(1 − v_C)γ_C > 100
+([[sec:iii-f-1]], [[sec:iii-k-0]]). Both hold as γ_C > 10⁶. Threshold: c1.
+
+**u1.** c_Υ, c_(Υ,H), c_C: the fixed 1-forms of [[def:iii-b-6-1]], in the radial forms the proofs use: c_Υ =
+ζ(|x|)|x|⁻¹dt and c_(Υ,H) = −½χ(|x|)d|x| ([[sec:iii-d2-1]], [[lem:iii-d-5-1]]), and c_C of [[sec:iv4-0]]. Threshold:
+c1.
+
+**u2.** γ_(Υ,H) ∈ (0, ε_0], ε_0 that of [[prop:iii-d1-4-1]]. Threshold: none.
+
+**u3.** e_Υ ∈ (0, min(ε_1, ε_L)), with ε_1 of [[prop:iii-d1-4-1]] and ε_L of [[lem:iii-d-7-1]]
+([[prop:iii-f1-3-3]]). Threshold: ε_1 on u2; ε_L on c1–c2.
+
+**u4.** 0 < γ_Υ < min(ε_1, ε_L, γ_1, 3/8, ½s_C, ¼), with γ_1 of [[prop:iii-f1-3-3]]; ε_L contains the bound
+C′|γ_Υ| ≤ ½ of the proof of [[lem:iii-d-7-1]] ([[prop:iii-d1-4-1]], [[sec:iii-g2-1]], [[eq:iii-c-1-1]],
+[[eq:iii-i9-1-1]]). Threshold: γ_1 on c1–c3 and u2–u3; ε_L on c1–c2.
+
+**u5.** z_Υ := 4e_Υγ_Υ² ∈ (0, ½] ∖ 𝖹_exc, 𝖹_exc countable ([[prop:iii-f1-2-3]] (e), [[sec:iii-g2-1]]). Threshold:
+𝖹_exc on c1–c3; u3.
+
+**b1.** b in the ball ℬ_VI of [[thm:vi-b1-5-1]], on which (Dyn) holds. Threshold: none.
+
+**b2.** b ∈ ℬ(γ_(Υ,H)) ([[prop:iii-d1-4-1]]); with c_0 of [[cor:iii-h-4-3]], b ∈ ℬ(c_0) ([[prop:iii-f2-4-1]]) and in
+the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as [[thm:iii-e-1-1]], [[prop:iii-f1-3-3]] and
+[[sec:iii-j-1]] ask. Threshold: c1–c2, u1–u5.
+
+**b3.** ℬ_*: open, with closure in ℬ_1, and (B5) of [[sec:iii-h2-0]]: ‖P − 2L_b‖_((0;d)) < ε_0 on ℬ̄_*. This is the only
+condition on ℬ_* there; b4 shrinks it further. Threshold: b2, u1–u5.
+
+**b4.** ℬ_*: shrunk so that the states at b are jointly injective ([[lem:iii-i15-1-2]]) and the maps −id + A_k of the
+elimination are invertible at every base point ([[thm:iii-i15-3-1]]); both depend on the row set and on the levels up
+to α. Threshold: b3, w1–w2, d1–d2.
+
+**w1.** ε_+, ε_K: 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3) and ε_+ < ¼ ([[eq:iii-i9-1-1]], (H4) of
+[[sec:iii-i10-1]]); (G⁺) ([[def:iii-j-g-plus]]) after decreasing ε_+, Λ containing π_1ℰ^C_I ([[sec:iii-i10-1]]), so
+that it is fixed after rows d1–d2; the gap (G) of [[def:iii-i10-1-3]] for ε_K; and the exactness conditions (E1)–(E2)
+of [[def:iii-j3-1-3]] [[pending:issue-3]]. Here δ_♯ = (1 − e_Υ)γ_Υ, and ε_ind is the constant of [[eq:iii-f1-2-2]],
+with which [[prop:iii-g4-5-1]] is stated; at the gauge parameters of [[prop:np-10-52]], ε_ind ≤ δ_50 =
+1.94137 × 10⁻⁸, the least distance from ℤ of the non-integer roots of modulus at most 50 of L̂_(b₀)(0), those of □^Υ
+plus 1 ([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f)). Threshold: u1–u5, d1–d2.
+
+**w2.** α: admissible ([[def:iii-i10-1-3]]), with (A_J) ([[def:iii-j-a-j]]) and the exactness conditions (E3)–(E4) of
+[[def:iii-j3-1-3]], in (4 + ε_K − ε′_0, 4 + ε_K], where such α are dense ([[def:iii-j-a-j]], [[lem:iii-j3-1-4]]).
+Threshold: w1, d1–d2 ((A_J) involves Λ).
+
+**d1.** ℰ_0, ℓ_0: min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 (so that row d2 is nonempty), ℓ_0 ∉ Re π_1ℰ_0
+([[thm:iii-c1-3-1]], [[sec:iii-k-0]], (H4) of [[sec:iii-i10-1]]). Threshold: u4.
+
+**d2.** ℓ_I: 3 < ℓ_I < min(ℓ_0, 3/2 + s_C), with row w1's ε_+ < ℓ_I − 3: [[thm:iii-c1-3-1]] asks 3/2 < ℓ_I < ℓ_0, (H4)
+asks ℓ_I > 3 + ε_+, and [[thm:iii-k-4-3]] uses one ℓ_I for both. ℓ_I avoids the exclusion sets of (H4), which are
+discrete: for ℓ_I in a bounded interval, ℰ^C_I ranges over finitely many index sets ([[thm:iii-c1-3-1]]), and
+ℓ_I ∉ Re π_1ℰ^C_I avoids their real parts; and ℓ_I ∉ 3/2 + σ_Υ, σ_Υ = {0, (1 − e_Υ)γ_Υ, γ_Υ, 2γ_Υ} ([[def:iii-c-3-1]],
+[[prop:iii-i1-3-1]], [[sec:iii-i10-1]]). Threshold: c1–c2, u3–u4, d1.
+
+**n1.** ε, d_1: the smallness and regularity of [[thm:iii-k-4-3]]. Threshold: all the above.
+
+### The parameters: the choice {#sec:vi-c-2}
+
+**Theorem {#thm:vi-c-2-1}** (The parameters can be chosen together.) The conditions of [[sec:vi-c-1]] can be met
+together. Make the choices in this order; at each step the thresholds depend only on the choices before it:
+
+(0) ℬ_VI := {|b − b₀| ≤ ε_VI} of [[thm:vi-b1-5-1]]. It depends on the metrics alone.
+
+(1) (v_C, e_C, C_0) := (½, 1/102400, 100) and h ∈ 𝖧, γ_C := h⁻¹. Then [[thm:iii-e-1-1]] holds at these values
+([[thm:iv4-2-1]] for (1)–(3), [[thm:iv6-4-1]] for (4)), with (C1)–(C4) (row c3), and (C5) and s_C > 100 hold, as
+γ_C > 10⁶.
+
+(2) The gauge. ε_0 of [[prop:iii-d1-4-1]] is uniform. Choose γ_(Υ,H) ∈ (0, ε_0]; this fixes ε_1 and ℬ(γ_(Υ,H)).
+Choose e_Υ ∈ (0, min(ε_1, ε_L)); this fixes γ_1 of [[prop:iii-f1-3-3]], which fixes all parameters but γ_Υ and
+depends on the orders, hence on γ_C. 𝖹_exc is fixed by step (1). Choose γ_Υ in the interval of row u4 with
+4e_Υγ_Υ² ∉ 𝖹_exc. This is possible because the interval is nonempty and open, while {γ > 0 : 4e_Υγ² ∈ 𝖹_exc} is
+countable. Then z_Υ ∈ (0, ½], as γ_Υ < ¼ and e_Υ < 1. [[prop:iii-d-6-3]] (the invertibility of the spectral family
+of □^Υ_b at |σ| ≥ c_0) is then implied, for every c_0 and b ∈ ℬ(γ_(Υ,H)), by [[prop:iii-d1-4-1]], which gives it for
+every σ with Im σ ≥ 0; so it imposes no further condition.
+
+(3) The data classes: ℰ_0 and ℓ_0 > 3 as in row d1, then ℓ_I in the interval (3, min(ℓ_0, 3/2 + s_C)) of row d2,
+minus the four points 3/2 + σ_Υ and the exclusion sets of (H4). This fixes ℰ^C_I ([[thm:iii-c1-3-1]]) and Λ. In the
+symmetry class, [[sec:s27-class]] takes ℰ_0 = {(j, 0) : j ≥ 2}, ℓ_0 ∈ (3, 4) and ℓ_I ∈ (3, ℓ_0) ([[eq:vii-0-1]]).
+
+(4) The weights. δ_♯ > 0 and ε_ind > 0 are fixed by step (2). Choose ε_+ < min(δ_♯, ε_ind, ¼, ℓ_I − 3), decreased for
+(G⁺) and (E1)–(E2) (possible: no λ ∈ Λ has real part in (3, 3 + ε_+] for ε_+ small, [[def:iii-j-g-plus]], and (E2)
+excludes finitely many values in a bounded range, [[lem:iii-j3-1-4]]); then ε_K, decreased for (G)
+([[def:iii-i10-1-3]]); then α as in row w2. (H4) holds as ε_+ < ℓ_I − 3, and decreasing ε_+ keeps rows d1–d2.
+
+(5) The parameter set. The gauge being fixed, take c_0 of [[cor:iii-h-4-3]] (uniform near b₀), then ℬ(c_0) of
+[[prop:iii-f2-4-1]], which fixes the modification parameters first and then allows every c_0 > 0. Let ℬ_* be an open
+ball about b₀ whose closure lies in ℬ_VI, in every neighbourhood of row b2, and in ℬ_1, with (B5). These are finitely
+many neighbourhoods of b₀, fixed by steps (0)–(4). Balls are taken in the norm |m − m₀| + |A|, |A| the Frobenius norm,
+which is invariant under conjugation by O(4), so every parameter ball is O(4)-invariant ([[lem:vii-3-1]] uses this).
+[[sec:iii-h2-0]] imposes no lower bound on ℬ_*, so shrinking it is allowed. Every operator family of the stability
+theory is then taken over ℬ̄_*, a compact set on which (Dyn) holds (step (0)), as (H5) and its extensions ask. Last,
+ℬ_* is shrunk as row b4 asks, which depends on steps (3)–(4) only.
+
+(6) ε and d_1 of [[thm:iii-k-4-3]], which depend on all of the above.
+
+*Proof.* Each step's existence claim is the cited statement, read with the quantifiers it has; the last entry of each
+row of [[sec:vi-c-1]] records that no threshold depends on a later choice. In step (2), the ε_0 of [[prop:iii-d1-4-1]]
+is uniform, while its ε_1 and ℬ(γ_(Υ,H)) come after γ_(Υ,H), so the order γ_(Υ,H), e_Υ, γ_Υ meets it. The only
+low-frequency radius that depends on the gauge is the c_0 of [[cor:iii-h-4-3]], and it is used only after the gauge is
+fixed, through [[prop:iii-f2-4-1]], whose neighbourhood is then chosen. In step (5), each neighbourhood of rows b2 and
+b4 is open and contains b₀, so their intersection with ℬ_VI contains a ball. The ball of [[thm:vi-b1-5-1]] depends on
+no gauge parameter, as the dynamical hypotheses concern the metric alone ([[sec:vi-a-0]]). (K3) holds for every ε
+([[prop:vi-b1-3-4]]), so ε_VI depends neither on the regularity d_0 of [[thm:ii-c1-1-1]] nor on its order k. ∎
+
+The invertibility of L̂_b(σ) for b ≠ b₀ and 0 < |σ| < c_0, which [[sec:iii-f2-5]] leaves open, holds for b near b₀ and
+σ ∈ Σ_0, |σ| ≤ c_0, by [[cor:iii-h-4-3]]; its neighbourhood is one of row b2, so it holds on ℬ̄_*.

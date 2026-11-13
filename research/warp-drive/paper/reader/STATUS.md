@@ -26,7 +26,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 32 S13 | running | - | - |
 | 33 S14 | running | - | - |
 | 34 S15 | being written | - | - |
-| 35 S16 | running | - | - |
+| 35 S16 | NOT CONFIRMED 1M 6m 5n | running | - |
 | 36 S17 | running | - | - |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | running | - |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | running | - |
@@ -39,3 +39,9 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 45-48 S26-S29 | being written | - | - |
 | 60-90 | not yet written | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; four citations being resolved | - |
+
+## Proof files (merged into their chapters after an independent reading)
+
+| file | written | reading |
+|---|---|---|
+| P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | running |

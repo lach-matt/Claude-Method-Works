@@ -641,7 +641,7 @@ the principal part is scalar, and the first-order terms are bounded b-operators,
 X_(j₁)⋯X_(j_l)u, l ≤ m. [[lem:iv1-2-4]] gives ([Hin23a, (3.55)], with the weights (α₀, 2α_I) throughout)
 
     ‖u‖_(H^((1;m))_(e,b;b))
-        ≤ C₀(‖L_gu‖_(H^m_b) + Σ_(1≤q≤l≤m) Σ ‖(ad_(X_(i₁))⋯ad_(X_(i_q))L_g) X_(j₁)⋯X_(j_(l−q))u‖_(H⁰_b)),     {#eq:iv1-2-3}
+        ≤ C₀(‖L_gu‖_(H^m_b) + Σ_(1≤q≤l≤m) Σ ‖(ad_(X_(i₁))⋯ad_(X_(i_q))L_g) X_(j₁)⋯X_(j_(l−q))u‖_(H⁰_b)),   {#eq:iv1-2-3}
 
 the inner sum over the indices. The commutators of the X_j with the leading part of [[eq:iv1-1-1]] lie in
 x_IDiff^(1;1)_(e,b;b): for the scalar part by [[lem:iv-2-2]]; and Ā is constant and commutes with the X_j (X₀, X_I act

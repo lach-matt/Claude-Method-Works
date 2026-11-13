@@ -111,3 +111,14 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S2 renamed K -> subscripts only: S8 (27, ~412-413) still cites S^(−K𝟏) from S2; update in integration.
 - S5 nits for integration: ρ_a ≤ c_V² left implicit; ϵ₁ names two thresholds. Ch 4: rename φ1(X) to κ(X) (F-00-03).
 - S3 nits for integration: line 33's stale 'N in [[sec:i-a-1-2]]' (now N_E); 'every other term' in remark (4); a missing |Y_0| factor in the sharpness proof; 'a' with three meanings in Lemma 6.2.
+
+## From proof D1 and the S16 reading (2026-11-13)
+
+- [Tre19] (Trefethen, Approximation Theory and Approximation Practice, Theorems 8.2 and 15.2) is a new citation, used
+  by proof D1. Add it to the bibliography (98) and to Appendix A with its verbatim statements once the D1 reader quotes
+  them at source.
+- Proof D1 carries a pending marker for the Raychaudhuri identity; it resolves to chapter 87's identity when written.
+- Proof D1 proves bounds far below the stated constants (sup|Ric_vv| 1.3e-8 / 6.3e-8 against 4.97e-5 / 2.28e-5). The
+  chapters keep the stated constants; sharpening them is optional. Its optional corollary bounds |R_app - R|.
+- Notation: the S16 reader proposes ϰ in place of λ for the ι⁺ parameter (S16-S21), with a caveat about κ. The S16 fix
+  round applies it in S16 and lists the other chapters; the integration pass carries it.

@@ -197,6 +197,33 @@ and put γ := c0 − 3/2. With a₊ := a1 if γ > 0 and a₊ := a2 if γ ≤ 0,
 The transports used below have c0 = 0 (φ and its derivatives; γ = −3/2), c0 = 3/2 (the oscillating profiles; γ = 0)
 and c0 = 2 (Ψ; γ = 1/2).
 
+**Lemma {#lem:past-linear-wave}** (Linear wave equations on P.) Let τ1 < τ0 and P_1 := P ∩ {τ ≥ τ1}, and let B^a
+and C be smooth d × d matrices of functions on P_1, smooth up to its boundary. For every smooth f on P_1 with values in
+ℝ^d and smooth u0, u1 on Σ_τ1 ∩ P there is a unique smooth u on P_1 with
+
+    −½ □̃ u + B^a ∂_a u + C u = f   on P_1,      u = u0  and  ∂_τ u = u1   on Σ_τ1 ∩ P.
+
+If f, u0 and u1 vanish where v ≤ v_start, then u vanishes on P_1 ∩ {v ≤ v_start}.
+
+*Proof.* The proof of [[lem:linear-wave]] runs with P_1 and Σ_τ1 in place of Ω and Σ_τ0. It uses four properties of
+the domain, and each holds here. (1) P_1 is compact and connected: on it τ1 ≤ τ ≤ τ0 and a ≤ |x| ≤ r_out(τ). (2) A
+past inextendible causal curve of g0 through a point of P_1 stays in P_1 while τ ≥ τ1: this is [[lem:past-domain]] (f)
+for g = g0. With (1), step (i) of that proof shows that P_1 lies in the Cauchy development of Σ_τ1 ∩ {|x| > a/2}.
+(3) The interior of P_1 is a bounded Lipschitz domain, as step (ii) needs: near each boundary point it is bounded by at
+most two of the smooth hypersurfaces Σ_τ1, Σ_τ0, {r = a} and B, and where two of them meet their conormals are linearly
+independent, since any two of dτ, dr and dΦ_B = (1 + h_P′) dτ + dr are. B does not meet {r = a}: ∂_τ r_out =
+−1 − h_P′ < 0, so r_out(τ) ≥ r_out(τ0) for τ ≤ τ0, and r_out(τ0) = b(τ0) by [[lem:past-domain]] (c), with
+b(τ0) − a ≥ 1 + δ0 by [[lem:domain]] (f). (4) For uniqueness, the boundary pieces of P_1 other than Σ_τ1 are spacelike
+for g0 with P_1 to their past ([[lem:past-domain]] (a), (b) and [[lem:domain]] (b)), so in the energy argument of
+[[lem:energy]] on P_1 their fluxes are nonnegative and are dropped.
+
+For the vanishing, let 0 < ε ≤ 1, Φ_ε := v + ε h_P(τ) and R_ε := P_1 ∩ {Φ_ε ≤ v_start}. The calculation of
+[[lem:past-domain]] (b) with ε κ_P in place of κ_P gives g0⁻¹(dΦ_ε, dΦ_ε) ≤ −(ε κ_P/2) t^(−5/4), and Φ_ε increases
+along future causal curves of g0, so {Φ_ε = v_start} is spacelike with R_ε to its past. R_ε does not meet B, since on
+it v < v_start ≤ V_P − κ_P − 1 < V_P − h_P(τ) ([[lem:past-domain]] (d)). The energy argument of [[lem:energy]] on
+R_ε ∩ {τ ≤ τ′}, in which the fluxes through {Φ_ε = v_start} and {r = a} are nonnegative and are dropped, gives u = 0 on
+R_ε, since f, u0 and u1 vanish there. Letting ε → 0 covers P_1 ∩ {v < v_start}, and continuity covers v = v_start. ∎
+
 ### Decay classes and the approximant from past null infinity {#sec:past-approximant}
 
 On P⁺ we use the coordinates (v, r, x̂): ∂_v is the derivative at fixed (r, x̂), which is ∂_τ at fixed x, and ℓ is the
@@ -274,7 +301,7 @@ and
                                                                                                    {#eq:past-classes}
 
 The approximant g_app built from them as in the proof of [[thm:approximant]] satisfies (E1) and (E2) of
-[[thm:uniform-existence]] on P, and Ric^H(g_app) = λ^(N−1) [R_N] + λ^N [R′_N] with R_N, R′_N in E_3, uniformly for
+[[def:approximant]] on P, and Ric^H(g_app) = λ^(N−1) [R_N] + λ^N [R′_N] with R_N, R′_N in E_3, uniformly for
 0 < λ ≤ 1, so |Ric^H(g_app)|_(k,P) ≤ C_R λ^(N−1) t^(−3/2). On Ω the profiles continue as the solutions of
 [[lem:stage-system]] with their own data on Σ_τ0, g_app is smooth on P ∪ Ω, and the conclusions of
 [[thm:approximant]] hold on Ω.
@@ -320,10 +347,15 @@ dv′, which vanishes for v ≤ v_start; m⁰ := r⁻² M_m; φ⁰ := −½ r⁻
 (m̃, φ̃, ĝ̃) := (m_m − m⁰, φ_m − φ⁰, ĝ_(m+1) − ĝ⁰) solve the system (a)–(c) with every forcing term in E_(7/2): the
 coefficients act on the leading terms through the classes of the count, and ℓφ̃ = ½ (m̃(ℓ, ℓ) + q_m) with q_m in E_3.
 
-*Estimates.* For n large let P_n := P ∩ {τ ≥ τ_n}. [[lem:stage-system]], whose proof uses only
-[[lem:energy]] and [[lem:transport]], holds on P_n with [[lem:past-energy]] and [[lem:past-transport]]
-in their place, and gives the solution of the stage system on P_n whose data on Σ_(τ_n) are the leading terms; its
-remainders start at zero. Commute the system with ∂_X and Ω to an order j0 (the classes are preserved), and let e(τ) be
+*Estimates.* For n large let P_n := P ∩ {τ ≥ τ_n}. The proof of [[lem:stage-system]] runs on P_n with three
+replacements: [[lem:past-linear-wave]] with τ1 = τ_n in place of [[lem:linear-wave]], for the wave equation (a) at each
+step of the iteration; the transports solved along the integral curves of L0 from Σ_(τ_n), which they meet inside P by
+[[lem:past-domain]] (e); and [[lem:past-energy]] and [[lem:past-transport]] in place of [[lem:energy]] and
+[[lem:transport]] for the convergence. It gives the solution of the stage system on P_n whose data on Σ_(τ_n) are the
+leading terms. These data and the forcing terms of (a)–(c) vanish for v ≤ v_start, since each forcing term contains a
+profile of an earlier stage; so every iterate vanishes there, by the last clause of [[lem:past-linear-wave]] for (a) and
+because the transports run at fixed v. Hence the differences of iterates and the solution vanish on P_n ∩ {v ≤ v_start},
+as [[lem:past-energy]] requires. Its remainders start at zero. Commute the system with ∂_X and Ω to an order j0 (the classes are preserved), and let e(τ) be
 the energy of m̃ to that order, f(τ) the norms of ∂_v φ̃ and Ω φ̃, p(τ) that of Ψ̃ := □̃ φ̃, and z(τ) that of Z̃ :=
 ∂_θ ĝ̃ (zero mean, so ‖ĝ̃‖ ≤ ‖Z̃‖). The L² norm of an E_q-profile on A_P(τ) is at most C t^(3/2−q), and
 [[lem:past-sobolev]] (b) bounds m̃ by e. [[lem:past-energy]] for (a), [[lem:past-transport]] with c0 = 0 for ∂_v φ̃ and
@@ -347,7 +379,8 @@ data on Σ_(τ_n) given by the n′-th remainders there, of sizes C t_n⁻¹ (fo
 [[eq:stage-estimates]] without forcing keeps e and z of size C t_n⁻¹, p of size C t^(−1/2) t_n^(−1/2), and f,
 transported with γ = −3/2, of size C (t/t_n)^(3/2) ≤ C t^(3/2) t_n^(−3/2); so the difference tends to zero on every
 bounded part of P. The limit solves the stage system on P with the same bounds. A solution with nothing coming in is
-unique, since the difference of two satisfies [[eq:stage-estimates]] without forcing and tends to zero at −∞.
+unique, since the difference of two satisfies [[eq:stage-estimates]] without forcing, and its e, z, p and t^(−3/2) f tend
+to zero at −∞, which is what [[lem:past-transport]] with γ = −3/2 needs for f.
 
 *Classes.* [[lem:past-sobolev]] (a), with the bound of m̃ by e, turns e ≤ C t⁻¹ into m̃ in E_(5/2). Then σ̃ is in
 E_(5/2); φ̃ = −½ ∫_r^∞ σ̃ dr′ is in E_(3/2), with ℓφ̃ in E_(5/2); Ψ̃ is in E_(5/2) by [[eq:wave-operator-vr]]; the
@@ -359,7 +392,7 @@ likewise for the derivatives that commute with ℓ, and ℓĝ̃ = −(3/(2r)) ĝ
 *The residual, the phase, the continuation.* The argument of the proof of [[thm:approximant]] gives ℛ^(m) = 0 for m ≤ N −
 1. The rest of the residual is λ^N times a sum of monomials of [[eq:gauge]] with all factors known, each in E_3 by the
 count; the expansion of g⁻¹ converges uniformly, since |g_app − g0| ≤ C λ r^(−3/2). Rewriting with the fixed phase v
-(Taylor's formula in λΨ about θ + φ1) multiplies profiles by powers of φ_j, keeping every product in its class, and costs
+(Taylor's formula in λ Σ_(j≥2) λ^(j−2) φ_j about θ + φ1) multiplies profiles by powers of φ_j, keeping every product in its class, and costs
 λ^(N+1) in the metric and so λ^(N−1) in Ric^H: R_N is in E_3. The scaled norm follows because ∂^i [f] costs λ^(−i) and Ω
 costs nothing, and the L² norm of an E_3 profile on A_P(τ) is at most C t^(−3/2). (E1) holds (W_TT and χ dv dv are
 transverse to ℓ), and (E2) by stage 0. On Σ_τ0 ([[lem:past-domain]] (c)) the profiles' data determine, by
@@ -371,8 +404,8 @@ the solutions are unique, so they are invariant. ∎
 ### The far and near regions {#sec:far-near}
 
 Let β0 be the number of [[prop:near-region]], which does not depend on the order of the approximant. For K ≥ 6 take the
-approximant of [[thm:past-approximant]] of order N := K + 4 + ⌈4β0⌉ and put K′ := N − 1 = K + 3 + ⌈4β0⌉, so that
-F := −Ric^H(g_app) has |F|_(k,P) ≤ C_R λ^(K′) t^(−3/2), with k = 6. Put T_λ := λ⁻² and let τ_λ be the time with t =
+approximant of [[thm:past-approximant]] with N := K + 4 + ⌈4β0⌉ stages and put K′ := N − 1 = K + 3 + ⌈4β0⌉, its order,
+so that the residual F_R := −Ric^H(g_app) has |F_R|_(k,P) ≤ C_R λ^(K′) t^(−3/2), with k = 6. Put T_λ := λ⁻² and let τ_λ be the time with t =
 T_λ; the *far region* is P ∩ {τ ≤ τ_λ}, the *near region* P ∩ {τ_λ ≤ τ ≤ τ0}.
 
 *The coefficients on P.* By [[thm:past-approximant]] and [[eq:ue-linearisation]], on P⁺: the coefficients B and C
@@ -397,8 +430,9 @@ which the dφ terms of B1 vanish, since the oscillating part of g1 is transverse
 
 *Proof.* Assume E ≤ 2 M_F λ^(K′) t^(−1/2). [[lem:past-sobolev]] gives |w_n| ≤ C M_F λ^(K′−3) t⁻² and |∂w_n| ≤
 C M_F λ^(K′−4) t⁻², so g_n has the margin of [[lem:past-domain]] (f) (|g_app⁻¹ − g0⁻¹| ≤ C λ t^(−3/2)), and
-[[lem:seed-region]] gives w_n = 0 on {v ≤ v_start}; also |∂g_n| ≤ C t^(−3/2). Apply λ^i ∂^i Ω^β to P(w) = F + 𝒬(w), the
-equation for w without the decomposition ([[eq:ue-linearisation]]), and [[lem:past-energy]] with
+[[lem:seed-region]] gives w_n = 0 on {v ≤ v_start}; also |∂g_n| ≤ C t^(−3/2). Apply λ^i ∂^i Ω^β to the equation
+for w without the decomposition, −½ g_n^(ab) ∂_a ∂_b w + ½ λ⁻¹ s G2 + B·∂w + C·w = F_R + 𝒬(w), s := w(ℓ, ℓ), with 𝒬 the
+nonlinear terms, as in the proof of [[thm:uniform-existence]] ([[eq:ue-linearisation]]), and [[lem:past-energy]] with
 k(τ) = C t^(−3/2):
 
 (i) the term with coefficient 1/λ: λ⁻¹ |s G2|_k ≤ C λ⁻¹ t^(−3/2) E, by [[lem:past-sobolev]] (b) for the
@@ -409,10 +443,14 @@ undifferentiated s and [λ ∂G2] in E_(3/2);
 derivatives, act otherwise only through g⁻¹ − g0⁻¹, in λ E_(3/2) plus w; so they are at most C t^(−3/2) E;
 (iv) the nonlinear terms are at most C λ⁻⁵ t^(−3/2) E², as in Step 4, with [[lem:past-sobolev]] (a) in place of
 [[lem:sobolev]];
-(v) |F|_k ≤ C_R λ^(K′) t^(−3/2).
+(v) |F_R|_(k,P) ≤ C_R λ^(K′) t^(−3/2).
 
 On the far region t ≥ T_λ, so ∫ λ⁻¹ t^(−3/2) ≤ 2 λ⁻¹ T_λ^(−1/2) = 2: the coupling of size 1/λ integrates to a constant.
-Since E(τ_n) = 0 and ∫_t^∞ t′^(−3/2) dt′ = 2 t^(−1/2), Gronwall's inequality gives E(τ) ≤ C e^(6C) (2 C_R λ^(K′) +
+On Σ_(τ_n), w_n = ∂_τ w_n = 0, so every term of E(τ_n) with at most one τ-derivative of w_n vanishes; the others are
+fixed by the equation, solved for ∂_τ² w_n as in Step 2 of the proof of [[thm:uniform-existence]] (at the lowest order
+∂_τ² w_n = −2 F_R/g_n^ττ there). A term λ^i ∂^i Ω^β ∂w_n with i ≥ 1 is thus λ^i times derivatives of order i − 1 of
+F_R, so E(τ_n) ≤ C λ |F_R|_(k,P)(τ_n) ≤ C C_R λ^(K′+1) t_n^(−3/2), which is at most C_R λ^(K′) t^(−1/2) once C λ ≤ 1,
+as t ≤ t_n. With ∫_t^∞ t′^(−3/2) dt′ = 2 t^(−1/2), Gronwall's inequality gives E(τ) ≤ C e^(6C) (3 C_R λ^(K′) +
 C M_F² λ^(2K′−5)) t^(−1/2), which is at most M_F λ^(K′) t^(−1/2) for M_F := 4 C e^(6C) C_R + 1 and λ small, as
 2K′ − 5 > K′. Existence and continuation are Step 8 of the proof of [[thm:uniform-existence]] on the bounded pieces
 P ∩ {τ_i ≤ τ ≤ τ_i + δ}, whose slices are compact annuli of the kind used there. ∎
@@ -423,8 +461,8 @@ solutions of [[prop:far-region]] continue to P ∩ {τ_λ ≤ τ ≤ τ0}, with 
 
     𝒩_P(τ) ≤ M_N λ^(K′) t^(−1/2) (T_λ/t)^β0      on [τ_λ, τ0].                                       {#eq:near-bootstrap}
 
-Here 𝒩_P is the quantity 𝒩 of [[eq:ue-energy]] with four changes: Ω^β stands beside ∂^i in the
-h-part (i + |β| ≤ k); the parts in φ and Ψ are commuted with Z ∈ 𝒵 = {λ∂_τ, λ∂_r, Ω_ab}, which commute with L0
+Here 𝒩_P is the quantity 𝒩 of [[eq:ue-energy]] with four changes: products of at most k − i rotations Ω_ab stand
+beside ∂^i in the h-part; the parts in φ and Ψ are commuted with Z ∈ 𝒵 = {λ∂_τ, λ∂_r, Ω_ab}, which commute with L0
 exactly, and the second derivatives of φ are taken as λ (∂_r² φ, r⁻¹ ∂_r Ω φ, r⁻² Ω² φ) (with ∂_τ = L0 + ∂_r and
 L0 φ = −½ 𝒫 s these give every second derivative; at each order the norms are equivalent to the Cartesian ones, with
 constants depending on k); the Ψ-part is that of Ψ′ := Ψ − ½ X_s ([[lem:past-commutator]]); and the factor t^(−1/2) of

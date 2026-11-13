@@ -171,7 +171,7 @@ where ‖A‖ is the operator norm and ε_P ∈ (0, R₁] is fixed small below (
 - (g_p, K_p), the data [[eq:v-0-2]] of 𝔤_p on {y⁰ = 0} ∩ {|y| > R_P}, with R_P := 100R₁ (not the gluing radius of
   [[thm:v-3-1]]).
 
-Write p₀ := (m₀, 0, 0, 0). 𝔸 := Σ_(a<b) A_ab W_ab fixes the coordinates A_ab on 𝔰𝔬(4).
+Write p₀ := (m₀, 0, 0, 0). Writing A = Σ_(a<b) A_ab W_ab fixes the coordinates A_ab on 𝔰𝔬(4).
 
 g^KS_(m,A) is defined, smooth in (x, m, A), Lorentzian and Ricci-flat on ℝ_t × {|x| ≥ 50R₁} for ‖A‖ < R₁. Indeed
 −½ tr(A²) ≤ 2‖A‖² < 2R₁² < |x|², so r_A is defined there ([[lem:iii-b-3-1]] (b)), and
@@ -194,7 +194,7 @@ vanishing at (η, 0). This gives the bounds. 𝔤_p is Ricci-flat ([[prop:iii-b-
 
 **Proposition {#prop:v-2-3}** (The charge map near Tangherlini; the equivalent of [CD03, Proposition F.1].) The map
 
-    𝔮 : p ↦ (𝔔_X(g_p, K_p))_(X∈(0.4)) ∈ ℝ¹⁵
+    𝔮 : p ↦ (𝔔_X(g_p, K_p))_X ∈ ℝ¹⁵
 
 (X ranging over the basis [[eq:v-0-4]]) is C¹. At p₀, 𝔮(p₀) = (6π²m₀, 0, …, 0), and D𝔮(p₀) is invertible. In the bases
 [[eq:v-0-4]] and (m, A_ab, w_k, c_k) it is block lower triangular, with diagonal blocks
@@ -404,16 +404,16 @@ e_i are bounded on 𝒜 with all derivatives and ψ² is integrable, so e_i and 
 
     ‖Ψ(u′, z₁) − Ψ(u′, z₂)‖_𝒵 ≥ (2C₁)⁻¹‖z₁ − z₂‖_𝒴;                                                       {#eq:s28-lower}
 
-    in particular [[eq:v-3-1]] has at most one solution (δK, δg) = T_(u′)z with z ∈ B;
+in particular [[eq:v-3-1]] has at most one solution (δK, δg) = T_(u′)z with z ∈ B;
 
 (b) if z ∈ B solves [[eq:v-3-1]] for (u′, (δJ, δρ)) and z̃ ∈ B for (ũ′, (δJ̃, δρ̃)), with u′, ũ′ ∈ 𝒩_(ε_c), then
 
     ‖z̃ − z‖_𝒴 ≤ 2C₁(‖δf̃ − δf‖_𝒵 + ‖Ψ(u′, z) − Ψ(ũ′, z)‖_𝒵),     δf := π_(g′)e^(2s/x)(δJ, δρ),
                                                                                                           {#eq:s28-cont}
 
-    and δf̃ := π_(g̃′)e^(2s/x)(δJ̃, δρ̃); both terms on the right tend to zero as (ũ′, (δJ̃, δρ̃)) tends to
-    (u′, (δJ, δρ)) in 𝒩_(ε_c) × 𝒮. So the solution with z ∈ B is unique and depends continuously on the background u′
-    and the right side (δJ, δρ), and so does (δK, δg) = T_(u′)z in 𝒳;
+and δf̃ := π_(g̃′)e^(2s/x)(δJ̃, δρ̃); both terms on the right tend to zero as (ũ′, (δJ̃, δρ̃)) tends to
+(u′, (δJ, δρ)) in 𝒩_(ε_c) × 𝒮. So the solution with z ∈ B is unique and depends continuously on the background u′ and
+the right side (δJ, δρ), and so does (δK, δg) = T_(u′)z in 𝒳;
 
 (c) there is ε_s > 0 such that for u′ ∈ 𝒩_(ε_c) and ‖(δJ, δρ)‖_𝒮 < ε_s the solution of [[lem:s28-setting]] (a) has
 z ∈ B.
@@ -448,8 +448,9 @@ product estimates, and π_(g′) is continuous in g′ ([[lem:s28-setting]] (e))
 By [[lem:s28-setting]] (e) again, δf̃ → δf as (ũ′, (δJ̃, δρ̃)) → (u′, (δJ, δρ)). The continuity of T_(u′)z in 𝒳 follows
 from that of z and of T_(u′).
 
-(c) By [[lem:s28-setting]] (d) and [CD03, Lemma 2.6] (whose hypotheses hold for u′ ∈ 𝒩_ε, as in the proof of [CD03,
-Theorem 5.9]), with w := ΦP*_(u′)z,
+(c) [CD03, Lemma 2.6] applies at u′ ∈ 𝒩_ε: its hypotheses at u₀ are among those of [[thm:std-cd-isomorphism]], verified
+in the proof of [CD03, Theorem 5.9], and they persist under perturbations small in the norm of 𝒩_ε. By it and
+[[lem:s28-setting]] (d), with w := ΦP*_(u′)z,
 
     ‖z‖_𝒴 ≤ C₁‖π_(g′)ψ⁻²P_(u′)Φψ²w‖_𝒵 ≤ C₁C₂‖w‖_(H̊^(k+2)_(x²,ψ) × H̊^(k+2)_(x²,ψ)) ≤ C₁C₄‖T_(u′)z‖_𝒳,
 
@@ -540,14 +541,14 @@ Near S_R, 𝔵 = (g, K), so ∮_(S_R) 𝔟_(e_j) = 𝔔⁰_j + O(R^(2+d_j−2α)
 
 and 3 − 2α < 0. (The power R^(−2−d_j) is R^(−(n−2)−d_j) at n = 4; [CD03, (8.7)] prints R⁻¹ for every charge at n = 3.)
 
-*Step 5: conclusion.* Apply [[lem:v-3-3]] with U′ the interior of B̄, f(Q) := Q − 𝔔⁰, f_R := G_R and y = 0. For every
-r′ > 0 below the radius of B̄ there is R(r′) such that for R ≥ R(r′) some Q_R with |Q_R − 𝔔⁰| ≤ r′ has G_R(Q_R) = 0;
-put R_gl := max(R(r′₀), R_ε) for one such r′₀. Then F_R(Q_R) = 0 and, by Step 3, (J, ρ)(û_(Q_R,R)) = 0. Put
-p_R := p(Q_R), and let (ĝ_R, K̂_R) be (g, K) on {R₀ < r ≤ R}, 𝒮_R⁻¹û_(Q_R,R) on Γ(R, 4R) and (g_(p_R), K_(p_R)) on
-{r ≥ 4R}. These are smooth, as χ is constant near ∂𝒜 and δu extends smoothly by zero. They are vacuum everywhere, and
-ĝ_R is Riemannian, being C⁰-close to δ on Γ(R, 4R). Finally 𝔮(p_R) = Q_R. Choose Q_R for an admissible
-r′ = r′(R) ≤ 2 inf{r′ : R ≥ R(r′)} + R⁻¹, which exists as R ≥ R(r′₀), and tends to 0 as R → ∞, since every r′ > 0 is
-admissible once R ≥ R(r′). Then 𝔮(p_R) → 𝔔⁰. ∎
+*Step 5: conclusion.* Apply [[lem:v-3-3]] with U′ the interior of B̄, f(Q) := Q − 𝔔⁰, f_R := G_R for
+R ≥ max(2R₀, R_P, R_ε), and y = 0. For every r′ > 0 below the radius of B̄ there is R(r′) such that for R ≥ R(r′)
+some Q_R with |Q_R − 𝔔⁰| ≤ r′ has G_R(Q_R) = 0; put R_gl := R(r′₀) for one such r′₀. Then F_R(Q_R) = 0 and, by
+Step 3, (J, ρ)(û_(Q_R,R)) = 0. Put p_R := p(Q_R), and let (ĝ_R, K̂_R) be (g, K) on {R₀ < r ≤ R}, 𝒮_R⁻¹û_(Q_R,R) on
+Γ(R, 4R) and (g_(p_R), K_(p_R)) on {r ≥ 4R}. These are smooth, as χ is constant near ∂𝒜 and δu extends smoothly by
+zero. They are vacuum everywhere, and ĝ_R is Riemannian, being C⁰-close to δ on Γ(R, 4R). Finally 𝔮(p_R) = Q_R.
+Choose Q_R for an admissible r′ = r′(R) ≤ 2 inf{r′ : R ≥ R(r′)} + R⁻¹, which exists as R ≥ R(r′₀), and tends to 0 as
+R → ∞, since every r′ > 0 is admissible once R ≥ R(r′). Then 𝔮(p_R) → 𝔔⁰. ∎
 
 **Remark {#rem:v-3-4}** (What the settling theorem takes from [[thm:v-3-1]].) The data (ĝ_R, K̂_R) equal, for
 r ≥ 4R, the data that 𝔤_(p_R) = 𝒫_(p_R)*g^KS_(m,A) induces on {y⁰ = 0}. By uniqueness for the vacuum Cauchy problem,
@@ -575,11 +576,11 @@ matrix tends to the flat one.
 
 ### Gluing in the symmetry class {#sec:vii-2}
 
-In this section b₀ = (m₀, 0), Σ^IVP is the hypersurface of [[sec:iii-b-3-3]], identified with
-X = cl{|x| ≥ r_♭} by (t, x) ↦ x, and G = O(2) × O(2) acts on ℝ⁴ as in [[sec:class]] and on spacetime by
-(t, x) ↦ (t, σx). Every element of O(4), acting so, is an isometry of every g^KS_(m,0) and fixes every function of
-(t, |x|). The fixed spaces are (ℝ⁴)^G = 0 and 𝔰𝔬(4)^G = 0: the torus T² ⊂ G fixes in ℝ⁴ only 0, and in 𝔰𝔬(4) exactly
-span(W₁₂, W₃₄), while x² ↦ −x² reverses W₁₂ and x⁴ ↦ −x⁴ reverses W₃₄. So 𝔎^G = span(e₀).
+In this section b₀ = (m₀, 0), Σ^IVP is the hypersurface of [[sec:iii-b-3-3]], identified with X = cl{|x| ≥ r_♭} by
+(t, x) ↦ x, and G = O(2) × O(2) acts on ℝ⁴ as in [[sec:class]] and on spacetime by (t, x) ↦ (t, Ox), O ∈ G ⊂ O(4).
+Every element of O(4), acting so, is an isometry of every g^KS_(m,0) and fixes every function of (t, |x|). The fixed
+spaces are (ℝ⁴)^G = 0 and 𝔰𝔬(4)^G = 0: the torus T² ⊂ G fixes in ℝ⁴ only 0, and in 𝔰𝔬(4) exactly span(W₁₂, W₃₄),
+while x² ↦ −x² reverses W₁₂ and x⁴ ↦ −x⁴ reverses W₃₄. So 𝔎^G = span(e₀).
 
 For |x| ≥ R₃, Σ^IVP = {t = C″} ([[lem:iii-b-3-7]] (b)), that is {t_KS = f(|x|)} with f := C″ − T_(m₀)(|x|) in the
 Kerr–Schild time t_KS = t − T_(m₀)(|x|) of [[eq:iii-b-3-3]]. For m ∈ I_m := [¾m₀, (5/4)m₀], let (γ^m, k^m) be the data

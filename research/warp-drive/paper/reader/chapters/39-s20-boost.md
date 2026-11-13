@@ -25,14 +25,19 @@ centre-of-mass motion: the motions that the exponents at ι⁺ create decay at K
 The chapter is written at a general base point b near b₀. The operator is taken at b and the corrections are tensors
 built from b₀-objects. The one identity that is exact only at b₀, the boost identity [[lem:iii-i4-2-4]], acquires an
 error at b ([[lem:iii-i15-2-7]]), and the invertibility of the boost parameter map is proved at b by a direct bound
-([[prop:iii-i15-2-8]]).
+([[prop:iii-i15-2-8]]). The rows of the augmented zero energy operator are normalised at b₀; at b their matrix on the
+states is a perturbation of the identity ([[lem:s20-rows]]), and its inverse enters the row data
+([[lem:iii-i6-1-3]]).
 
 ### The setting at a base point {#sec:s20-setting}
 
 The notation is that of [[ch:s11]]–[[ch:s19]]; n = 4 throughout. The black hole parameters are b = (m, A), with
-tangent space 𝔟 := ℝ ⊕ 𝔰𝔬(4), and b₀ = (m₀, 0); R₁ = m₀^(1/2). ℬ_* is the open ball about b₀ fixed in
-[[sec:iii-h2-0]], with ℬ̄_* ⊂ ℬ_1. It is shrunk finitely many times below, each time to a smaller ball about b₀. 𝒮_1
-is the space of the s1 parameters: S = S_w ∈ 𝒮_1 has |x|S = w · x with w ∈ ℝ⁴, so 𝒮_1 ≅ ℝ⁴.
+tangent space 𝔟 := ℝ ⊕ 𝔰𝔬(4), and b₀ = (m₀, 0); R₁ = m₀^(1/2), and |b − b₀| is the norm of [[def:s12-radii]]. We
+write ℬ_1 and ℬ_* for the open neighbourhoods B_1 and B_* of b₀ fixed in [[sec:iii-h2-0]], B̄_* ⊂ B_1. Shrinking ℬ_*,
+we take it to be an open ball about b₀. It is shrunk finitely many times below ([[lem:s20-rows]],
+[[prop:iii-i15-2-8]]), each time to a smaller ball about b₀, and every statement holds on the final ℬ_*; in particular
+the segment from b₀ to each b ∈ ℬ̄_* lies in ℬ̄_*. 𝒮_1 is the space of the s1 parameters: S = S_w ∈ 𝒮_1 has
+|x|S = w · x with w ∈ ℝ⁴, so 𝒮_1 ≅ ℝ⁴.
 
 *Spaces.* M, Ω_* = cl_M{t^♭_* ≥ 1}, the faces 𝓘⁺, ι⁺, K⁺ with their defining functions ρ_I, ρ_+, ρ_K, and the
 unweighted b-density μ_b are those of [[sec:iii-i-1]]. Weights and index sets are listed at (𝓘⁺, ι⁺, K⁺); a single
@@ -53,9 +58,12 @@ spectral side, M′, Ω_− := cl_(M′){t_* ≤ 1}, Ω_<, the faces I, ι = ι�
 the spaces on M′ are those of [[sec:iii-i2-1]]; H̄ denotes restrictions. X^±_(sc-b) over ±[0, c] is the space of
 [[sec:ii-g1-3-1]], with faces scf, tf, zf, weights listed in that order and the defining functions [[eq:ii-g1-3-2]];
 ρ = ⟨x⟩⁻¹, μ_X = |dx|/⟨x⟩⁴, r̂ := |σ|⟨x⟩, and χ_zf := χ_1(r̂) is the cut-off of [[sec:ii-g1-3-1]], equal to 1 for
-r̂ ≤ 1/8 and to 0 for r̂ ≥ 1/4. ℱ is the Fourier transform in t_*, under which ∂_(t_*) becomes −iσ. The
-inner radius r_0 of the artificial boundary {r = r_0}, at which every space is extendible, is a parameter of the
-setting ([[ch:s12]]); no step of this chapter uses its value.
+r̂ ≤ 1/8 and to 0 for r̂ ≥ 1/4. ℱ is the Fourier transform in t_*, under which ∂_(t_*) becomes −iσ.
+
+*The inner radius.* Every result of the chapter holds with the inner radius r_0 = r_♭ ∈ (0, ½R₁] of
+[[def:s12-radii]], the radius of the artificial boundary {r = r_0} at which every space is extendible, as a parameter;
+constants and neighbourhoods of b₀ may depend on it. The chapter names no inner radius: the fixed radii it uses are
+scale-free ({r ≤ 2}, {r ≥ 1}) or far out (|x| ≥ 5R₁, t ≥ 60R₁), and its weights are fixed at infinity and at K⁺.
 
 *The operator at the base point.* A base point is a pair (h, S), with S ∈ 𝒮_1 small and h ∈ 𝒳^∞ small in 𝒳^d,
 together with a black hole parameter b ∈ ℬ̄_*. Its background is
@@ -67,24 +75,29 @@ L^(g,g_0) := D_1P(·, g_0) at g is the linearised gauge-fixed Einstein operator 
 stationary model at b, and L̂_b(σ) = L_0 − iσL_1 − σ²L_2 its spectral family ([[sec:iii-h-1]]). The following
 properties of the base point are used.
 
-(B1) [[lem:iii-i-3-6]], [[prop:iii-i-3-4]], [[prop:iii-i-4-1]] and [[cor:iii-i-5-2]] are stated for the background
+(BP1) [[lem:iii-i-3-6]], [[prop:iii-i-3-4]], [[prop:iii-i-4-1]] and [[cor:iii-i-5-2]] are stated for the background
 g_(b₀,b,−S) with |b − b₀| and |S| small: g_(b₀,b,−S) − g_b lies in the class of h, vanishes near K⁺, and
 L^(g,g_0) − L_b gains a_K at K⁺. [[thm:iii-i-5-3]] holds at every b ∈ ℬ̄_*, with constants uniform in b and with
 continuity in (b, S, h) ([[cor:iii-h2-5-1]]).
 
-(B2) The models do not depend on b. N_ι⁺(2L_b) = N_ι⁺(2L̄) ([[lem:iii-h2-3-2]]), so the ι⁺-spectrum and
+(BP2) The models do not depend on b. N_ι⁺(2L_b) = N_ι⁺(2L̄) ([[lem:iii-h2-3-2]]), so the ι⁺-spectrum and
 [[thm:iii-g1-3-1]] are those at b₀, and [[thm:iii-g2-4-2]] and [[cor:iii-g2-4-3]] hold at b with the K⁺-towers of L_b.
 The tf-normal operator does not depend on b ([[lem:iii-g4-1-1]]). The indicial roots of L̂_b(0) do not depend on b,
 the normal operator of L̂_b(0) at ∂X̄ being that of 2L̄ ([[lem:iii-f-2-1]] (3)); by [[prop:iii-f1-2-3]] (a) none of
 them has real part in (0, 1], so (0, 1) lies in the indicial gap of L̂_b(0) for μ_b.
 
-(B3) The states at b are those of [[sec:iii-h-1]]: for ḃ ∈ 𝔟 and S ∈ 𝒮_1, ġ_b(ḃ) is the gauge-corrected linearised
+(BP3) The states at b are those of [[sec:iii-h-1]]: for ḃ ∈ 𝔟 and S ∈ 𝒮_1, ġ_b(ḃ) is the gauge-corrected linearised
 metric of [[eq:iii-f3-2-1]], h_b(S) := h_(b,s1)(S) = δ*_(g_b) ω^(0)_(b,s1)(S) and h̆_b(S) := h̆¹_(b,s1)(S), with the
-1-forms ω^(0)_(b,s1)(S), ω̆^((0),1)_(b,s1)(S) of [[prop:iii-d2-3-1]]. They are stationary, linear in their arguments,
-real on real arguments and smooth in b; their index sets at ∂X̄ are those at b₀, with ℰ_ind independent of b:
-ġ_b(ḃ) ∈ 𝒜², h_b(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind)), h̆_b(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)). Their seminorms in 𝒜^(q−δ) are bounded
-uniformly in b for every δ > 0 ([[rem:iii-h-2-6]]), a loss absorbed below, where every weight is used with room. The
-generalised state of the boosts
+1-forms ω^(0)_(b,s1)(S), ω̆^((0),1)_(b,s1)(S) of [[prop:iii-d2-3-1]]. They are stationary, linear in their arguments
+and real on real arguments; their index sets at ∂X̄ are those at b₀, with ℰ_ind independent of b: ġ_b(ḃ) ∈ 𝒜²,
+h_b(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind)), h̆_b(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)). They are of class C^k in b for every k, with values in
+the b-Sobolev spaces in which [[rem:iii-h-2-6]] takes them continuous: ġ_b(ḃ) by [[prop:iii-f3-2-2]] (3); h_b(S) and
+h̆_b(S) because their 1-forms are of class C^k in b (the construction of [[prop:iii-d2-3-1]] with [[lem:iii-d2-2-2]],
+whose b-derivatives are inverse images of the same kind) and δ*_(g_b) has coefficients smooth in b. By the b-Sobolev
+embedding H̄_b^(∞,a) ⊂ 𝒜^(a+2) of [[rem:iii-h-2-6]], the states and their first derivatives in b are therefore
+bounded in 𝒜^(q−δ), uniformly on ℬ̄_*, for every δ > 0, with q = 2 for ġ_b(1, 0) and h̆_b(S) and q = 3 for
+ġ_b(0, Ȧ) and h_b(S); and in C⁰ on compact subsets of X°. The loss δ is absorbed below, where every weight is used
+with room. The generalised state of the boosts
 
     h^(≤1)_b(S) := t_* h_b(S) + h̆_b(S) = δ*_(g_b)(t_* ω^(0)_(b,s1)(S) + ω̆^((0),1)_(b,s1)(S))
 
@@ -92,7 +105,7 @@ lies in the kernels of D_(g_b)Ric and of δ_(g_b,E_Υ)G_(g_b) ([[prop:iii-d2-3-1
 L_b ġ_b(ḃ) = 0. These results use the dynamical hypotheses (Dyn) of [[ch:s13]], which hold for b near b₀
 ([[ch:s12]]).
 
-(B4) The results of [[ch:s18]] that we use — [[def:iii-h-2-1]], [[def:iii-h-3-1]], [[lem:iii-h-2-2]]–[[lem:iii-h-2-5]],
+(BP4) The results of [[ch:s18]] that we use — [[def:iii-h-2-1]], [[def:iii-h-3-1]], [[lem:iii-h-2-2]]–[[lem:iii-h-2-5]],
 [[prop:iii-h-3-2]], [[thm:iii-h-4-1]] and [[cor:iii-h-4-2]]–[[cor:iii-h-4-4]] — are stated for b near b₀ and hold on
 ℬ̄_* with constants uniform in b, by [[thm:iii-h2-2-1]]. So do [[prop:iii-g4-5-1]] and [[lem:iii-g4-4-3]], whose inputs
 are the tf-normal operator (B2), the zero energy states (B3) and [[ch:s18]].
