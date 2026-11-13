@@ -257,15 +257,14 @@ R_Π, H², |𝒜|² and the σ-part of ∂_(e_r) H contain α algebraically or t
 −|κ_U|² + (tr κ_U)² contain U algebraically. This proves the form [[eq:data-rho]].
 
 (a), J. Let γ_rA be small. Put Π^(ij) := γ^(ik) γ^(jl) Π_kl and Π_i^k := γ^(kj) Π_ji. Since Π = γ − dr ⊗ dr/γ^(rr),
-Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr), that is γ⁻¹ = Π^♯ + γ⁻¹dr ⊗ γ⁻¹dr/γ^(rr) with Π^♯ := (Π^(ij)); so Π^(rk) = 0,
-and the angular block Π^(AB) = γ^(AB) − γ^(rA) γ^(rB)/γ^(rr) is the inverse of the angular block (γ_AB) of γ (the
-inverse of a block of a matrix is the Schur complement of the complementary block of the inverse matrix), that is of
-the induced metric of the spheres, as in the statement. In J = 2(−div_(γ_U) κ_U + d tr_(γ_U) κ_U) the derivatives of
-(ϖ, q) come from κ_U − κ. Since
-Π(γ⁻¹dr, ·) = 0 and q(γ⁻¹dr) = 0, the formula for γ_U⁻¹ gives tr_(γ_U) Π = 3 and tr_(γ_U)(q ⊗ dr + dr ⊗ q) = 0, so d
-tr_(γ_U) κ_U contains 3 dϖ. Further, γ_U^(jk) Π_ij ∂_k ϖ = Π_i^k ∂_k ϖ, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr, and γ_U^(jk)
-∂_k q_j = Π^(AB) ∂_A q_B + (lower order), because (γ⁻¹dr)^j ∂_k q_j = ∂_k(q(γ⁻¹dr)) − q_j ∂_k (γ⁻¹dr)^j is of order zero
-and Π^(rk) = 0. So the principal part of J is
+Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr), that is γ⁻¹ = Π^♯ + γ⁻¹dr ⊗ γ⁻¹dr/γ^(rr) with Π^♯ := (Π^(ij)); so Π^(rk) = 0, and
+the angular block Π^(AB) = γ^(AB) − γ^(rA) γ^(rB)/γ^(rr) is the inverse of the angular block (γ_AB) of γ (the inverse of
+a block of a matrix is the Schur complement of the complementary block of the inverse matrix), that is of the induced
+metric of the spheres, as in the statement. In J = 2(−div_(γ_U) κ_U + d tr_(γ_U) κ_U) the derivatives of (ϖ, q) come from
+κ_U − κ. Since Π(γ⁻¹dr, ·) = 0 and q(γ⁻¹dr) = 0, the formula for γ_U⁻¹ gives tr_(γ_U) Π = 3 and tr_(γ_U)(q ⊗ dr + dr ⊗ q)
+= 0, so d tr_(γ_U) κ_U contains 3 dϖ. Further, γ_U^(jk) Π_ij ∂_k ϖ = Π_i^k ∂_k ϖ, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr, and
+γ_U^(jk) ∂_k q_j = Π^(AB) ∂_A q_B + (lower order), because (γ⁻¹dr)^j ∂_k q_j = ∂_k(q(γ⁻¹dr)) − q_j ∂_k (γ⁻¹dr)^j is of
+order zero and Π^(rk) = 0. So the principal part of J is
 
     J_i ≅ 2 (3 ∂_i ϖ − Π_i^k ∂_k ϖ − (1 + α γ^(rr))⁻¹ (γ⁻¹dr)^k ∂_k q_i − ∂_i r Π^(AB) ∂_A q_B).
 
@@ -330,10 +329,10 @@ is not a multiple of sin²θ + cos²θ.) The other terms of the coefficient quad
 ∂_(e_r) H, whose quadratic part (1/2) ∂_r Π^(AB) ∂_r Π_AB + (1/2) Π^(AB) ∂_r² Π_AB ⊃ −(1/2) |[∂_θ W]|² − (1/2) [W^(AB)
 ∂_θ² W_AB] has θ-mean zero, and from H², which has no oscillating part of order one; the κ-terms carry κ̃(γ⁻¹dr, ·) and
 tr κ̃, and κ̃_rA = 0, while tr_(Π0) κ̃_AB = 0 and κ̃_rr vanishes with χ on Σ. In J_A = 2(…), the term −γ^(jk)
-Γ(γ_U)^l_(jk) κ_lA of −div κ_U contributes 2 γ^(jk) Γ(γ_U)^B_(jk) κ_AB ⊃ −γ^(rr) Π^(BC) κ_AB ∂_C α, from γ^(jk)
-Γ(γ_U)^B_(jk) ⊃ −(1/2) γ^(rr) Π^(BC) ∂_C α, while the other terms with ∂_C α carry κ(γ⁻¹dr, γ⁻¹dr) δ_A^C or κ_Ar, whose
-oscillating parts are multiples of δ_A^C or zero; the oscillating part −γ^(rr) Π^(BC) κ̃_AB is not a multiple of δ_A^C,
-W_TT being traceless, so it does not cancel. The remaining claims are those of (a). ∎
+Γ(γ_U)^l_(jk) κ_lA of div κ_U contributes 2 γ^(jk) Γ(γ_U)^B_(jk) κ_BA ⊃ −γ^(rr) Π^(BC) κ_AB ∂_C α (the part l = r carries
+κ_rA), from γ^(jk) Γ(γ_U)^B_(jk) ⊃ −(1/2) γ^(rr) Π^(BC) ∂_C α, while the other terms with ∂_C α carry κ(γ⁻¹dr, γ⁻¹dr)
+δ_A^C or κ_Ar, whose oscillating parts are multiples of δ_A^C or zero; the oscillating part −γ^(rr) Π^(BC) κ̃_AB is not a
+multiple of δ_A^C, W_TT being traceless, so it does not cancel. The remaining claims are those of (a). ∎
 
 **Lemma {#lem:linear-evolution}** (The linear evolution.) Consider on [a, b1] × S³, b1 > a, the linear system, with
 coefficients measurable in r for which M_s below is finite,

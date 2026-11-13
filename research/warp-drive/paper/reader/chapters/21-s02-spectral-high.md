@@ -1968,9 +1968,9 @@ P* as for P ([[sec:i-b-6-1]] defines p^♮ and q^♮ with the field of each, and
 range z_0 + i[hβ, ν′] of [[thm:i-b-6-8]] serves both. (d) The second step of the b-regular estimate at R_out in
 [Hin26c, (9.77)] carries the diagonal term −2kihzρδ_(α,(k,0,…,0)) of [Hin26c, (9.45)], whose sign and index set differ
 from those of the commutator computed in [[lem:i-a-4-8]] (there the diagonal term is +2iα_1σρ, for every α with
-α_1 ≥ 1; see [[rem:i-a-4-8-sign]]); [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]] does at fixed σ,
-and [[prop:i-b-5-7]] then needs no sign of it. (e) [Hin26c, (3.35)] defines H_(sc,h)^(s,𝗋,𝖻) = ρ^𝗋 h^𝖻 H_(sc,h)^s, which
-gives ‖u‖ = h^(−𝖻)‖⟨hD⟩^s(⟨x⟩^𝗋 u)‖ on ℝ^n, while the parenthesis after it prints ⟨x⟩^(−𝗋)u; we use
+α_1 ≥ 1; see [[rem:i-a-4-8-sign]]); [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]]
+does at fixed σ, and [[prop:i-b-5-7]] then needs no sign of it. (e) [Hin26c, (3.35)] defines
+H_(sc,h)^(s,𝗋,𝖻) = ρ^𝗋 h^𝖻 H_(sc,h)^s, which gives ‖u‖ = h^(−𝖻)‖⟨hD⟩^s(⟨x⟩^𝗋 u)‖ on ℝ^n, while the parenthesis after it prints ⟨x⟩^(−𝗋)u; we use
 w_𝐨 = ⟨ζ⟩^s⟨x⟩^𝗋h^(−𝖻), as (3.35) does. (f) The method differs in these points: one positive commutator scheme without
 regularisation, a priori estimates being proved for Schwartz functions and extended by density ([[sec:i-b-3]]);
 propagation with flow boxes depending on z, the difference 𝖧_z − 𝖧_(Re z) absorbed by ℓ𝒬 ([[prop:i-b-4-5]]), in place of

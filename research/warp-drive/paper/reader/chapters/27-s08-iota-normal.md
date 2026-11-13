@@ -1391,10 +1391,11 @@ of X̂²_0 that exchanges the factors, as smooth vector fields tangent to ff and
 0-fields of either factor are tangent to both boundary hypersurfaces. So the same bounds hold after applying them on
 either side, and these parts map x^αH^(m−2)_0 to x^αH^m_0 for every integer m. The part in Ψ^(−2)_0 does so because the
 small 0-calculus is bounded on weighted 0-Sobolev spaces, an operator of Ψ^m_0 mapping x^αH^s_0 to x^αH^(s−m)_0
-[[pending:issue-1]]; the proof of [Hin23e, Corollary 3.3, pp. 31–32] uses this in the same way. By (i) with α_R = α and α < α_L < α_1, R′ maps x^αH^m_0 boundedly into x^(α_L)H^(m+1)_0, which embeds
-compactly in x^αH^m_0 ([[lem:ii-f-5-3]]); likewise R (a = ∞, b = 3 − α_0 > 3 − α) is compact on x^αH^(m−2)_0. So Q′P̂ =
-I − R′ and P̂Q = I − R make P̂ Fredholm at the weight α = 2γ_I: finite-dimensional kernel and closed range from the
-first, finite codimension from the second. This is [Hin23e, Corollary 3.6, p. 34] at α = 2γ_I, whose proof [Hin23e]
+[[pending:issue-1]]; the proof of [Hin23e, Corollary 3.3, pp. 31–32] uses this in the same way. By (i) with α_R = α
+and α < α_L < α_1, R′ maps x^αH^m_0 boundedly into x^(α_L)H^(m+1)_0, which embeds compactly in x^αH^m_0
+([[lem:ii-f-5-3]]); likewise R (a = ∞, b = 3 − α_0 > 3 − α) is compact on x^αH^(m−2)_0. So Q′P̂ = I − R′ and P̂Q = I − R
+make P̂ Fredholm at the weight α = 2γ_I: finite-dimensional kernel and closed range from the first, finite codimension
+from the second. This is [Hin23e, Corollary 3.6, p. 34] at α = 2γ_I, whose proof [Hin23e]
 leaves to the reader. Under the L²(μ_b) pairing the duals of x^(2γ_I)H^m_0 and x^(2γ_I)H^(m−2)_0 are x^(−2γ_I)H^(−m)_0
 and x^(−2γ_I)H^(2−m)_0 ([[lem:ii-a-7-1]]), and the Banach adjoint of P̂ acts on them as the formal adjoint P̂* (test
 against C^∞_c(X̂°), which is dense). The adjoint of a Fredholm operator is Fredholm.
