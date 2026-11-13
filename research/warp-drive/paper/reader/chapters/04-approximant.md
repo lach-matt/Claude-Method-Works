@@ -4,18 +4,18 @@
 
 This chapter constructs, for every number of stages N, a metric g_app that solves the reduced equations Ric^H = 0 up to
 an error of order λ^(N−1) in the scaled norms. Its leading oscillation is the pair of waves of
-[[pending:setting-waves]], shifted in phase and completed by a second harmonic along dv ⊗ dv, and its mean at leading
-order is the five-dimensional Vaidya metric g0 with the mass law [[pending:setting-mass-law]]. The construction is the
+[[eq:waves]], shifted in phase and completed by a second harmonic along dv ⊗ dv, and its mean at leading
+order is the five-dimensional Vaidya metric g0 with the mass law [[eq:mu-rate]]. The construction is the
 two-scale expansion of geometric optics, carried to every order: each order is a linear hyperbolic system with smooth
 coefficients for a mean correction, a phase correction and the next oscillating profile. The uniform existence theorem
 [[thm:uniform-existence]] takes g_app as its input, in the form fixed by [[def:approximant]].
 
 Throughout, the background g0, the phase v, the null geodesic generator ℓ = g0⁻¹dv = −L0, the operator □̃ := g0^(ab)
-∂_a ∂_b acting componentwise and the commutator identity for [L0, □̃] are those of [[pending:setting-vaidya]]; the
-gauge field D and the reduced Ricci tensor Ric^H are those of [[pending:setting-gauge]]; Ω, its slices Σ_τ, τ0 and
-τ_end are those of [[pending:setting-domain]]; and profiles f(X, θ) on Ω × S¹, their evaluation [f](X) = f(X, v(X)/λ),
-their θ-mean ⟨f⟩ and the scaled norms |f|_j are those of [[pending:setting-profiles]] and
-[[pending:setting-scaled-norms]]. Tensors are arrays of components in the Cartesian coordinates X = (τ, x) unless
+∂_a ∂_b acting componentwise and the commutator identity [[eq:commutator]] for [L0, □̃] are those of [[prop:vaidya]]; the
+gauge field D and the reduced Ricci tensor Ric^H are those of [[sec:gauge]]; Ω, its slices Σ_τ, τ0 and
+τ_end are those of [[sec:domain]]; and profiles f(X, θ) on Ω × S¹, their evaluation [f](X) = f(X, v(X)/λ),
+their θ-mean ⟨f⟩ and the scaled norms |f|_j are those of [[sec:profiles]] and
+[[eq:scaled-norm]]. Tensors are arrays of components in the Cartesian coordinates X = (τ, x) unless
 another chart is named.
 
 ### Two-scale operators {#sec:two-scale}
@@ -23,21 +23,21 @@ another chart is named.
 Let u be a smooth function on Ω, a phase. For a profile f write [f]_u(X) := f(X, u(X)/λ), so that [f]_v = [f]. The chain
 rule gives
 
-    ∂_a [f]_u = [D^u_a f]_u,        D^u_a := ∂_a + λ⁻¹ (∂_a u) ∂_θ.                            {#eq:two-scale-derivative}
+    ∂_a [f]_u = [∂^u_a f]_u,        ∂^u_a := ∂_a + λ⁻¹ (∂_a u) ∂_θ.                            {#eq:two-scale-derivative}
 
 In the coordinates X the reduced Ricci tensor is an expression
 
     Ric^H(g)_mn = F_mn(X, g, ∂g, ∂²g),
 
 polynomial in g, g⁻¹, ∂g and ∂²g, whose explicit dependence on X is through the Christoffel symbols of g0 and their first
-derivatives [[pending:setting-gauge]]; second derivatives of g enter it only through −(1/2) g^(ab) ∂_a ∂_b g_mn.
+derivatives [[sec:gauge]]; second derivatives of g enter it only through −(1/2) g^(ab) ∂_a ∂_b g_mn.
 
 **Definition {#def:two-scale}** (The two-scale operator.) For a profile G of symmetric 2-tensors with det G ≠ 0, the
 two-scale operator is
 
-    R_u[G](X, θ) := F(X, G, D^u G, D^u D^u G)(X, θ),
+    R_u[G](X, θ) := F(X, G, ∂^u G, ∂^u ∂^u G)(X, θ),
 
-that is, Ric^H with g replaced by G and every derivative ∂_a by D^u_a. We write R := R_v.
+that is, Ric^H with g replaced by G and every derivative ∂_a by ∂^u_a. We write R := R_v.
 
 By [[eq:two-scale-derivative]], Ric^H([G]_u) = [R_u[G]]_u. The operator R_u[G] is a polynomial in λ⁻¹ whose coefficients
 are built from G and its X- and θ-derivatives, from g0 and its derivatives at X, and from the derivatives of u; it
@@ -52,10 +52,10 @@ constant c,
 
 *Proof.* (b) contains (a): for Φ = c, ∂u = ∂v, so R_u = R. For a profile f put f_Φ(X, θ) := f(X, θ + Φ(X)). Then
 
-    D^v_a f_Φ = (∂_a f + (∂_a Φ) ∂_θ f + λ⁻¹ (∂_a v) ∂_θ f)(X, θ + Φ(X)) = (D^u_a f)_Φ,
+    ∂^v_a f_Φ = (∂_a f + (∂_a Φ) ∂_θ f + λ⁻¹ (∂_a v) ∂_θ f)(X, θ + Φ(X)) = (∂^u_a f)_Φ,
 
-since ∂_a u = ∂_a v + λ ∂_a Φ. Applied to the profile D^u_b f, the same identity gives D^v_a D^v_b f_Φ = (D^u_a D^u_b
-f)_Φ. So R[G_Φ](X, θ) = F(X, G_Φ, D^v G_Φ, D^v D^v G_Φ) = F(X, G, D^u G, D^u D^u G)(X, θ + Φ(X)) = R_u[G](X, θ + Φ(X)),
+since ∂_a u = ∂_a v + λ ∂_a Φ. Applied to the profile ∂^u_b f, the same identity gives ∂^v_a ∂^v_b f_Φ = (∂^u_a ∂^u_b
+f)_Φ. So R[G_Φ](X, θ) = F(X, G_Φ, ∂^v G_Φ, ∂^v ∂^v G_Φ) = F(X, G, ∂^u G, ∂^u ∂^u G)(X, θ + Φ(X)) = R_u[G](X, θ + Φ(X)),
 because the explicit dependence of F on X does not involve θ. ∎
 
 Let G = g0 + λ g1 + Σ_(j≥2) λ^j g_j be a finite sum of profiles bounded with all their derivatives. Then R[G] is a
@@ -67,8 +67,8 @@ The term of order λ⁻¹ is
 
     R^(−1) = −(1/2) g0⁻¹(dv, dv) ∂_θ² g1 = 0.
 
-Indeed D^v_a D^v_b (λ g1) = λ⁻¹ (∂_a v)(∂_b v) ∂_θ² g1 + O(1), and every other term of Ric^H contains at most first
-derivatives, while D^v G = O(1); and g0⁻¹(dv, dv) = 0 because dv is null for g0 [[pending:setting-vaidya]].
+Indeed ∂^v_a ∂^v_b (λ g1) = λ⁻¹ (∂_a v)(∂_b v) ∂_θ² g1 + O(1), and every other term of Ric^H contains at most first
+derivatives, while ∂^v G = O(1); and g0⁻¹(dv, dv) = 0 because dv is null for g0 [[prop:vaidya]].
 
 ### Approximants {#sec:approximants}
 
@@ -97,8 +97,8 @@ The leading coefficient R^(0) of a wave on g0 has a closed form once the wave is
 where ∇ is the Levi-Civita connection of g0 acting on W at fixed θ, □_(g0) the wave operator of g0 on functions, and
 |∂_θ W|² := g0^(ac) g0^(bd) ∂_θ W_ab ∂_θ W_cd.
 
-*Proof.* The statement is tensorial. Ric^H is a tensor built from g and g0 [[pending:setting-gauge]], and the chain rule
-∂_a [f] = [D^v_a f] holds in every chart, since v is a scalar; so the two-scale expansion of Ric^H(g0 + λ[W]) may be
+*Proof.* The statement is tensorial. Ric^H is a tensor built from g and g0 [[sec:gauge]], and the chain rule
+∂_a [f] = [∂^v_a f] holds in every chart, since v is a scalar; so the two-scale expansion of Ric^H(g0 + λ[W]) may be
 computed covariantly. Write ∂ := ∂_θ, v_a := ∂_a v, raise and lower indices with g0, so that ℓ^a = g0^(ab) v_b, and put h
 := λ [W], g := g0 + h. The hypotheses give, at every (X, θ),
 
@@ -110,7 +110,7 @@ The tensor C := Γ[g] − Γ[g0] satisfies
     Ric(g)_ab = Ric(g0)_ab + ∇_c C^c_ab − ∇_b C^c_ac + C^c_cd C^d_ab − C^c_bd C^d_ac,
 
 and the gauge field is D^ρ = g^(ab) C^ρ_ab, so that Ric^H(g)_mn = Ric(g)_mn − S_mn with S_mn := (1/2)(g_mρ ∇_n D^ρ + g_nρ
-∇_m D^ρ) [[pending:setting-gauge]]. For a profile F, ∇_a [F] = λ⁻¹ v_a [∂F] + [∇_a F], with ∇_a F taken at fixed θ.
+∇_m D^ρ) [[sec:gauge]]. For a profile F, ∇_a [F] = λ⁻¹ v_a [∂F] + [∇_a F], with ∇_a F taken at fixed θ.
 Hence ∇_a h = v_a [∂W] + λ [∇_a W], and g⁻¹ = g0⁻¹ − λ [W^♯] + O(λ²) with W^♯ := g0⁻¹ W g0⁻¹. So C = [C_0] + λ [C_1] +
 O(λ²) with the profiles
 
@@ -190,15 +190,15 @@ tensor Y with only angular components, ∇_ℓ Y has only angular components, eq
 
     (∇_ℓ Y)_AB = ∂_r Y_AB − (2/r) Y_AB.                                                           {#eq:transport-angular}
 
-The Ricci tensor of g0 is Ric(g0) = (3 μ'(v)/(2 r³)) dv ⊗ dv [[pending:setting-vaidya]].
+The Ricci tensor of g0 is Ric(g0) = (3 μ'(v)/(2 r³)) dv ⊗ dv [[prop:vaidya]].
 
-The leading wave of [[pending:setting-waves]], written as a profile, is
+The leading wave of [[eq:waves]], written as a profile, is
 
     W_TT := 2 r² (−(y1 + y2) dϑ² + c² y1 dφ1² + s² y2 dφ2²),
     y1 := (α/3)(2 c² cos θ − s² sin θ),     y2 := (α/3)(2 s² sin θ − c² cos θ),     α := A env(v) h r^(−3/2),
                                                                                                        {#eq:wave-profile}
 
-with h := (2/(1 + cos² 2ϑ))^(1/2); the tensor λ W_TT evaluated at θ = v/λ is the wave of [[pending:setting-waves]].
+with h := (2/(1 + cos² 2ϑ))^(1/2); the tensor λ W_TT evaluated at θ = v/λ is the wave of [[eq:waves]].
 
 **Lemma {#lem:stage-zero}** (Stage 0.) Let χ be a smooth function on Ω × S¹ and W := W_TT + χ dv ⊗ dv. Then:
 
@@ -252,7 +252,7 @@ oscillating part is a second harmonic. By (b) every component of R^(0) other tha
 
 (e) is read from (b). ∎
 
-*The choice at stage 0.* Assume the mass law μ' = (2/9) A² env² [[pending:setting-mass-law]]. By [[lem:stage-zero]],
+*The choice at stage 0.* Assume the mass law μ' = (2/9) A² env² [[eq:mu-rate]]. By [[lem:stage-zero]],
 R^(0) = (F_2 − (∂_r + 3/(2r)) ∂_θ χ) dv ⊗ dv with
 
     F_2 := −2 ((∂_θ y1)² + ∂_θ y1 ∂_θ y2 + (∂_θ y2)²) + (1/3) α² (c⁴ + s⁴),
@@ -263,10 +263,9 @@ transport
     (∂_r + 3/(2r)) ∂_θ χ = F_2                                                                        {#eq:chi-transport}
 
 along ℓ = ∂_r: first ∂_θ χ, a second harmonic, is found by integrating along the integral curves of ℓ, which from every
-point of Ω reach Σ_τ0 inside Ω [[pending:setting-domain-lemma]], and χ is its primitive in θ with zero mean. Then R^(0)
+point of Ω reach Σ_τ0 inside Ω [[lem:domain]] (d), and χ is its primitive in θ with zero mean. Then R^(0)
 ≡ 0 identically in (X, θ). The function χ is smooth on Ω × S¹, at the axes of the T² action included: ℓ has no angular
-component, so the transport preserves smoothness on S³, and its right-hand side F_2 is built from g0 and W_TT, which is
-smooth at both axes [[pending:setting-waves]]; explicitly F_2 is r⁻³ env(v)² h² times a polynomial in sin θ, cos θ, c² =
+component, so the transport preserves smoothness on S³, and its right-hand side F_2 is built from g0 and W_TT, which is smooth at both axes ([[lem:waves]] (a)); explicitly F_2 is r⁻³ env(v)² h² times a polynomial in sin θ, cos θ, c² =
 (x1² + x2²)/r² and s² = (x3² + x4²)/r², with h² = 2/(1 + cos² 2ϑ) and cos 2ϑ = (x1² + x2² − x3² − x4²)/r², which is
 smooth on r > 0.
 
@@ -345,21 +344,21 @@ At order −1 the only term is −(1/2) g0⁻¹(dv, dv) ∂_θ² W = 0. ∎
 
 with ℳ algebraic in X, with smooth bounded profile coefficients, and of first order in θ.
 
-*Proof.* We take the terms of R_(u1)[G1 + ε λ Y] linear in ε at order λ⁰. Here D^(u1)_a = ∂_a + λ⁻¹ v_a ∂_θ + (∂_a φ1)
+*Proof.* We take the terms of R_(u1)[G1 + ε λ Y] linear in ε at order λ⁰. Here ∂^(u1)_a = ∂_a + λ⁻¹ v_a ∂_θ + (∂_a φ1)
 ∂_θ, so
 
-    D_a D_b (λ Y) = λ⁻¹ v_a v_b ∂_θ² Y + v_a ∂_b ∂_θ Y + v_b ∂_a ∂_θ Y + (∂_a ∂_b v) ∂_θ Y
+    ∂^(u1)_a ∂^(u1)_b (λ Y) = λ⁻¹ v_a v_b ∂_θ² Y + v_a ∂_b ∂_θ Y + v_b ∂_a ∂_θ Y + (∂_a ∂_b v) ∂_θ Y
                     + (v_a ∂_b φ1 + v_b ∂_a φ1) ∂_θ² Y + O(λ),
 
-and G1⁻¹ = g0⁻¹ − λ (m1 + W)^♯ + O(λ²). The principal term −(1/2) G1^(ab) D_a D_b (λ Y) therefore contributes at order
+and G1⁻¹ = g0⁻¹ − λ (m1 + W)^♯ + O(λ²). The principal term −(1/2) G1^(ab) ∂^(u1)_a ∂^(u1)_b (λ Y) therefore contributes at order
 λ⁰
 
     −(ℓ·∂_X) ∂_θ Y − (1/2)(□̃v) ∂_θ Y − (ℓ·dφ1) ∂_θ² Y + (1/2)(m1 + W)(ℓ, ℓ) ∂_θ² Y
         = −(ℓ·∂_X) ∂_θ Y − (1/2)(□̃v) ∂_θ Y − (1/2) e_1 ∂_θ² Y,
 
 since W(ℓ, ℓ) = 0 and e_1 = 2 ℓ·dφ1 − m1(ℓ, ℓ). The variation of G⁻¹ in the principal term, −λ Y^♯ + O(λ²), meets
-D_a D_b G1 = λ⁻¹ v_a v_b ∂_θ² W + O(1) and gives (1/2) Y(ℓ, ℓ) ∂_θ² W. The remaining terms of Ric^H are of first order
-in g [[pending:setting-gauge]]; their variation contains D(λ Y) = dv ⊗ ∂_θ Y + O(λ) times coefficients built from G1,
+∂^(u1)_a ∂^(u1)_b G1 = λ⁻¹ v_a v_b ∂_θ² W + O(1) and gives (1/2) Y(ℓ, ℓ) ∂_θ² W. The remaining terms of Ric^H are of first order
+in g [[sec:gauge]]; their variation contains D(λ Y) = dv ⊗ ∂_θ Y + O(λ) times coefficients built from G1,
 D G1 and g0, which are bounded profiles, and λ Y times bounded profiles, which is O(λ). So T̂ Y = −(ℓ·∂_X) ∂_θ Y −
 (1/2) e_1 ∂_θ² Y + ℳ Y with ℳ Y := −(1/2)(□̃v) ∂_θ Y + (1/2) Y(ℓ, ℓ) ∂_θ² W + B·(dv ⊗ ∂_θ Y), B a bounded profile. With
 e_1 = 0 this is the claim. ∎
@@ -383,8 +382,8 @@ whose mean is zero. For Z := ∂_θ ĝ_(m+1), equation (c) is the transport
 
 along ℓ, with ℳ' := ℳ ∂_θ⁻¹ a bounded operator on smooth zero-mean profiles ([[lem:first-stage-operator]]; ∂_θ⁻¹ the
 zero-mean primitive): an ordinary differential equation along the integral curves of ℓ, which reach Σ_τ0 inside Ω
-[[pending:setting-domain-lemma]]. Its right-hand side contains □̃φ_m. Put Ψ_m := □̃φ_m. By the commutator identity for
-[L0, □̃] [[pending:setting-commutator]] applied to (b), Ψ_m satisfies the transport
+[[lem:domain]] (d). Its right-hand side contains □̃φ_m. Put Ψ_m := □̃φ_m. By the commutator identity for
+[L0, □̃] [[eq:commutator]] applied to (b), Ψ_m satisfies the transport
 
     L0 Ψ_m − (2/r) Ψ_m = −(1/2) □̃(m_m(ℓ, ℓ) + q_m) − (1/r)(∂_τ + ∂_r)(m_m(ℓ, ℓ) + q_m) − (3/r²) ∂_r φ_m,
 
@@ -399,7 +398,7 @@ difference solves a homogeneous transport with zero data. Smooth data give smoot
 **Theorem {#thm:approximant}** (The approximant to every order.) For every N ≥ 1 and every smooth choice of stage data
 there are profiles g1, …, g_N, independent of λ, such that g_app = g0 + λ [g1] + Σ_(j=2)^N λ^j [g_j] is an approximant
 with N stages of order K = N − 1 ([[def:approximant]]), at every regularity k, with C_R depending on k. Its oscillating
-part of g1 is the wave W_TT of [[pending:setting-waves]] with the second harmonic χ dv ⊗ dv of [[eq:chi-transport]],
+part of g1 is the wave W_TT of [[eq:waves]] with the second harmonic χ dv ⊗ dv of [[eq:chi-transport]],
 shifted in phase: g1 = m1 + W(X, θ + φ1(X)), W = W_TT + χ dv ⊗ dv. The background is g0 with μ' = (2/9) A² env².
 
 Here the stage data are the data on Σ_τ0 of [[lem:stage-system]], (m_m, ∂_τ m_m), φ_m and ĝ_(m+1) for m = 1, …, N, each
@@ -411,7 +410,7 @@ only ℛ^(m) with m ≤ N − 1 is used. By [[lem:first-entry]], ℛ^(m) = 0 for
 and e_1 = 0, and for 1 ≤ m ≤ N − 1 the mean and oscillating parts of [[eq:stage-m]] vanish by [[eq:stage-system]] and
 e_(m+1) = 0. So R_u[G] = Σ_(m≥N) λ^m ℛ^(m) is λ^N times a profile bounded uniformly in λ, rational in λ through
 G⁻¹. Since the scaled norm of an evaluated profile is bounded by the bounds of the profile and its derivatives, with no
-loss for the oscillation [[pending:setting-scaled-norms]], |Ric^H([G]_u)|_k ≤ C λ^N for every k.
+loss for the oscillation [[sec:profiles]], |Ric^H([G]_u)|_k ≤ C λ^N for every k.
 
 Rewrite with the fixed phase v. With Ψ := Σ_(j≥2) λ^(j−2) φ_j, [G]_u(X) = G(X, v/λ + φ1 + λ Ψ). Expanding in λΨ by
 Taylor's formula about θ + φ1 to order N gives profiles g_j(X, θ) independent of λ, with g1 = m1 + W(X, θ + φ1(X)), and a
@@ -429,4 +428,4 @@ So the uniform existence theorem [[thm:uniform-existence]] applies to the approx
 stage data.
 
 **Remark {#rem:stage-data}** Stage data for which the approximant's Cauchy data satisfy the constraints and the gauge
-condition D = 0 to order N − 2 exist; they are chosen in the proof of [[thm:data]] [[pending:data-stage-data]].
+condition D = 0 to order N − 2 exist; they are chosen in [[lem:stage-data]], in the proof of [[thm:data]].
