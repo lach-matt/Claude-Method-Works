@@ -1377,19 +1377,24 @@ initial direction.
 2.49. Over that time |ϑ − ϑ0| ≤ ∫_0^2.49 1.7 (2.64 + 0.56 s)⁻² ds = (1.7/0.56)(1/2.64 − 1/4.0344) < 0.3975. So on the
 tubes of S, ϑ ∈ [0.2078, π/2 − 0.2078], since π/4 − 0.18 − 0.3975 > 0.2078, and r ≥ 2.64; so ρ1 = r cos ϑ and ρ2 =
 r sin ϑ are at least 2.64 sin 0.2078 > 0.54 > 0.53 =: 2δ.
-(V2′) is vacuous, there being no radial dust.
 
-*The solutions.* The data are those of g0 on Σ_0 with the field ε F0 and the labels u_α|Σ_0 on the outgoing branch, the
-metric data corrected by the radial solve of [[sec:data-evolution]] with the stress of the field, which is small and
-which (V3), holding at g0 with margin, allows. By [[prop:vlasov-cauchy]] around g0 (with the zero field, the margins of
-[[lem:vlasov-open]] holding on the tubes of S by the two preceding steps), the solution exists on Ω for ε small and is
-close to g0 in H^m for every m, hence in C², and its eikonals with the data u_α|Σ_0 are C¹-close to u_α. By
-[[lem:vlasov-open]] it satisfies (V1) and (V2) with margins 1/2, 0.18 and δ = 0.265, and (Ω), (V3) by openness. ∎
+*The solutions.* The reference (g0, 0, u), with the zero field and the labels u_α, is a smooth class solution in label
+form satisfying (Ω), (V1) on S with J0 = 1 and b_* = 0.36, (V2) with 2δ = 0.53, and (V3), by the preceding steps. The
+datum D_ε has the field ε F0, the labels u_α|Σ_0 with the future roots, and the metric data of g0 on Σ_0 corrected to
+satisfy the constraints with the stress of the field: 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯_ε(·, α), 𝒯_ε the constraint stress of
+∫ ε² F0(·, α)² du_α ⊗ du_α dα, has the structure of [[lem:vlasov-structure]] with λ = 1 and no phases, the signs by (V3)
+and [[lem:vlasov-symmetrizer]], and sup_r ‖𝔉(0)‖_(8) ≤ C ε², since the data of g0 satisfy the vacuum constraints; so
+[[prop:vlasov-scaled-correction]] gives a smooth invariant correction U with ‖U‖_(𝒴_8) ≤ C ε². So d(D_ε) ≤ C ε, and
+[[prop:vlasov-cauchy]] around (g0, 0, u), with m = 6, gives for ε small the solution on Ω, with ‖g − g0‖_(H^7) ≤ C ε on
+every Σ_τ, hence, by Sobolev's inequality on the slices and the equations for the τ-derivatives, C²-close to g0, and with
+eikonals C¹-close to u_α. By
+[[lem:vlasov-open]] it satisfies (V1) with the margins J0/2 = 1/2 and b_*/2 = 0.18 and (V2) with dist(D_α(S), axes) ≥
+0.265, and (Ω), (V3) by openness. ∎
 
 **Remark {#rem:vlasov-test-family}** (Numerical observation.) For the family with data u_α = cos α ρ(r) + 3 sin α ϑ on
 Σ_0, ρ′ = (1 + 1/r²)^(1/2), outgoing labels α ∈ [−0.5, 0.5] and ingoing labels α ∈ [π − 0.15, π + 0.15] (inside the
 horizon when they leave Ω), and the density on the same ball, the margins were measured on a 9 × 9 grid of rays over
-the ball enlarged by 20 %, with 81 labels per interval: J0 = 1.0000 and 0.8978, δ = 0.157 and 0.098, b = 0.909. A family
+the ball enlarged by 20 %, with 81 labels per interval: J0 = 1.0000 and 0.8978, δ = 0.157 and 0.098, b_* = 0.909. A family
 focused at distance 1 ahead had a Jacobian changing sign (least value −0.071); a wider ingoing interval [π − 0.5,
 π + 0.5] reached an axis inside the horizon, as [[prop:vlasov-axis-focus]] predicts, so (V2) is a real restriction;
 with mass 1.02 and directions tilted by 0.02 sin 2ϑ, the margins were J0 = 1.0000 and 0.8471, δ = 0.152 and 0.072. No

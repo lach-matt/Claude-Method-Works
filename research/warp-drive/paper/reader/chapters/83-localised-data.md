@@ -959,7 +959,8 @@ vacuum solution with data δ in a harmonic gauge with compactly supported gauge 
 (2) J^a := Ein²[h]^(ab) ξ_b is divergence-free;
 
 (3) for a suitable static slice {t = t_1} of the exterior, h's data there are compactly supported, Q(δ) =
-Q_static(h|_(t = t_1)), the charge [[eq:loc-charge]] on that slice, and δ is a gauge seed exactly when h|_(t = t_1) is.
+Q_static(h|_(t = t_1)), the charge [[eq:loc-charge]] on that slice, and δ is a gauge seed exactly when h|_(t = t_1) is,
+in the sense of [[def:loc-charge]] on the static slice, all of whose bands are vacuum.
 
 *Proof.* (1) For g_ε := g + εh with data (γ_ε, K_ε), normal n_ε and ξ = N_ε n_ε + Y_ε, [[lem:loc-kid]] (a) gives
 N_sℋ + 2Y_s·ℳ = 2Ein_ε(ξ, n_ε) + (N_s − N_ε)ℋ + 2(Y_s − Y_ε)·ℳ, and the last two terms are O(ε³), since Ein_ε =
@@ -967,8 +968,8 @@ O(ε²) (Ein(g) = 0 and Ein¹[h] = 0). The ε² coefficient of the left side is 
 2Y_s·Dℳ[δ_2], δ_2 the compactly supported second variation of the data, which pairs to zero by [[lem:loc-kid]] (b).
 (2) The ε² coefficient of ∇^(ε)_a Ein_ε^(ab) = 0, with Ein¹[h] = 0, is ∇_a Ein²[h]^(ab) = 0, and ∇_(a ξ_b) = 0.
 (3) In Kruskal coordinates (U_K, V_K) of the exterior, both increasing to the future, the slice is a curve along which
-U_K decreases and V_K increases with R. The support K := supp δ lies in U_K ∈ [U_K(R2′), U_K(R1′)], V_K ∈
-[V_K(R1′), V_K(R2′)], and J^±(K) lie in {U_K ≥ U_K(R2′), V_K ≥ V_K(R1′)} and {U_K ≤ U_K(R1′), V_K ≤ V_K(R2′)},
+U_K decreases and V_K increases with R. The support supp δ lies in U_K ∈ [U_K(R2′), U_K(R1′)], V_K ∈
+[V_K(R1′), V_K(R2′)], and J^±(supp δ) lie in {U_K ≥ U_K(R2′), V_K ≥ V_K(R1′)} and {U_K ≤ U_K(R1′), V_K ≤ V_K(R2′)},
 causal curves projecting to causal curves of the orbit space. The rectangles S_in := {U_K(R1′) < U_K < 0, 0 < V_K <
 V_K(R1′)} and S_out := {U_K < U_K(R2′), V_K > V_K(R2′)} meet neither. A static slice is a ray V_K = c|U_K|. Take R_a ∈
 (√μ, R1′) on the slice and c ∈ (V_K(R_a)/|U_K(R1′)|, V_K(R1′)/|U_K(R1′)|); the ray meets S_in at a point U_K = U_s

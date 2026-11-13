@@ -2644,8 +2644,9 @@ admissible choice of the free gauge data,
 
     inf_(H≠0) ‖L_lH‖_Y/‖H‖_X ≤ |N^n_l(β)v|/((1 + β² + κ)^(1/2)|v|),
 
-the infimum over H supported in r ≥ R for any R; at l = 0 also over H orthogonal in X to any given finite-dimensional
-subspace of X.
+the infimum over the smooth H with compact support in {r ≥ R}, for any R; at l = 0 also over the H = H′ + w with H′
+smooth with compact support in {r ≥ R} and w ∈ V that are orthogonal in X to V, for any finite-dimensional subspace V
+of X with L_l(V) ⊂ Y.
 
 *Proof.* Take φ ∈ C_c^∞((0, 1)) with ‖φ‖_(L²) = 1, x_0 ≥ log R, W ≥ 1, φ_W(x) := W^(−1/2)φ((x − x_0)/W), and H_W with
 orthonormal components u = r^(−β)φ_W(log r)v. Then ‖H_W‖_X² = |v|²∫(|φ_W|² + |φ_W′ − βφ_W|² + κ|φ_W|²)dx =
@@ -2656,9 +2657,11 @@ supported where the coefficients are those of the model up to O(r⁻²); since t
     L_lH_W = r^(−β−2)(N^n_l(β − ∂_x)(φ_Wv) + e),     N^n_l(β − ∂_x) = N^n_l(β) − N^n_l′(β)∂_x + ½N^n_l″(β)∂_x²,
 
 with |e| ≤ Ce^(−2x_0)(|φ_W| + |φ_W′| + |φ_W″|)|v|. Hence ‖L_lH_W‖_Y ≤ |N^n_l(β)v| + CW⁻¹ + Ce^(−2x_0), and letting
-W → ∞ and then x_0 → ∞ gives the bound. At l = 0, H_W → 0 weakly in X as x_0 → ∞, since its support leaves every
-compact set at bounded norm; so its component along a fixed finite-dimensional subspace tends to 0, and the quotient
-on the orthogonal complement has the same limit. ∎
+W → ∞ and then x_0 → ∞ gives the bound. At l = 0, let P be the orthogonal projection of X onto V; then H_W − PH_W
+is of the stated form. For fixed W, H_W → 0 weakly in X as x_0 → ∞, since it is bounded and its support leaves every
+compact set, while fields with compact support are dense in X; so ‖PH_W‖_X → 0, V being finite-dimensional. As L_l is
+linear from the finite-dimensional V into Y, ‖L_lPH_W‖_Y ≤ C_V‖PH_W‖_X → 0, and
+‖L_l(H_W − PH_W)‖_Y/‖H_W − PH_W‖_X has the same limit as ‖L_lH_W‖_Y/‖H_W‖_X, as ‖H_W‖_X ≥ (1 + β² + κ)^(1/2)|v|. ∎
 
 This is the elementary half of the b-calculus fact that the norm of an inverse on a weighted space is at least that of
 the inverse of the indicial family on the weight line. For the scalar model ½A_l, whose indicial family is
@@ -2781,8 +2784,9 @@ With (1 + β² + κ)^(1/2) = √2, √10 and √26 at β = 1 (κ = 0, 8, 24), la
 less than 3.14128 · 10⁻⁶, 2.61805 · 10⁻⁷, 1.49554 · 10⁻⁶, 0.0203988, 0.0148362 and 0.0120540, which gives the bounds;
 and 1/(2.6181 · 10⁻⁷) > 3.8195 · 10⁶. ∎
 
-An explicit constant for these blocks is therefore to be sought at a weight in the middle of the gap; α + 2 ∈ (0, 1) is
-what [[sec:iii-d1-1]] uses.
+An explicit constant for these blocks is therefore to be sought at a weight in the middle of the gap. The linearised
+operator is used at the weights of [[eq:iii-h-1-1]], α + 2 ∈ (0, 1), an open interval, so the weight α = −1 of
+[[prop:rb-quasimode-point]] lies at its closed end, outside it.
 
 **Remark {#rem:rb-quasimode-observed}** (Numerical observation.) On the full degree-2 block at the parameters above,
 the quasi-mode of the proof of [[lem:rb-quasimode]] with x_0 = log 400 and widths W = 100, 1000 and 10000, evaluated in
@@ -2791,8 +2795,9 @@ dilation-invariant model gives the same to 10⁻³. At these widths the term N^n
 so the quotient falls like 1/W and reaches the bound of [[lem:rb-quasimode]] only for W of order 5 · 10¹². No proof uses
 these values.
 
-*The perturbative route at large degree.* Write L_l = ½A_l · Id + ℛ_l in the orthonormal components, ℛ_l of first order.
-A lower bound σ_min(L_l) ≥ σ_min(½A_l) − ‖ℛ_l‖_(X→Y) needs ‖ℛ_l‖ below σ_min(½A_l) ≤ (κ + 1)/(2(κ + 2)^(1/2)). At the
+*The perturbative route at large degree.* Write L_l = ½A_l · Id + ℛ_l in the orthonormal components, ℛ_l of first order,
+and s_min for the least singular value in the norms [[eq:rb-block-norms]] at α = −1. A lower bound
+s_min(L_l) ≥ s_min(½A_l) − ‖ℛ_l‖_(X→Y) needs ‖ℛ_l‖ below s_min(½A_l) ≤ (κ + 1)/(2(κ + 2)^(1/2)). At the
 inner gauge data (c_C = (1/200)dt + (1/800)dr, c_(Υ,H) = −½dr, γ_C = 10⁶), the coefficient of u_3′ in the u_3 component
 of ℛ_l is M_33(r) = −(5000r − 1)/r³, free of κ: this is the following lemma with γ_Ca = 10⁶/200 = 5000.
 
