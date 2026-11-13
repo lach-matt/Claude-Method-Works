@@ -703,3 +703,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   (m,0,0,0) matches in sympy; rem:v-3-4's sign right; n9 acyclic. Chapter 61 step (2) should bound C^(k_g+2) (the same
   right side bounds it). Open nits for integration: n10 (Appendix A, Theorem 3.6 gloss) not applied; k₀ has two
   meanings; a ψ-sign remark against [CD03] p. 25.
+- Ch 65 written (W-65): keys for chapter 66: prop:np-10-2, prop:gd-2-1, lem:gd-2-2, thm:gd-2-3, gd-r2-1..7, 9..11, 13,
+  gd-r3-1/2/4/5/6, gd-r4-1/2/3/4/6, gd-r5-1/2. States the t^(−1/2) rates only; chapter 66 must state the faster rates
+  of the later amendments. NP 10.2 (v)-(vi) dropped (they serve only Hung's route). Lemma R4.1 (c) proved in general
+  (the source computed one parameter point): its reader checks it. Notation: GD's K → K_V; the III.H cut-off χ^H_K;
+  the augmentation row φ_*; its own Θ := δGk (rename edition-wide); ϰ_♯ cites eq:iii-g3-0-1, which S17 may still
+  print as λ_♯ (check at integration). The word "Source" followed by a space trips the lint ("forcing term" used).

@@ -369,8 +369,9 @@ Row S4. Here κ ≥ 24, p = κ − 3 = 21 + t with t := κ − 24 ≥ 0, and H =
 uniformly in l ≥ 4.
 
 The lower bounds for w_I. In each row the pieces of [[sec:tb-morawetz-pieces]] cover I, and on a piece
-w = ηG ≥ (least value of η)(least Bernstein coefficient of G) by [[lem:bernstein-lower-bound]], the least value of η
-being attained at an end of the piece ([[sec:morawetz-identity]]); in rows with two corners this is done for each corner.
+w = ηG ≥ (least value of η)(least Bernstein coefficient of G) by [[lem:bernstein-lower-bound]], since that coefficient
+is positive on every piece listed, the least value of η being attained at an end of the piece
+([[sec:morawetz-identity]]); in rows with two corners this is done for each corner.
 For S3 the least coefficient of Π is divided by 120(2 + y)³ at the right end of the piece, its largest value there; for
 S4, ζ is bounded below by the least Bernstein coefficients of c_0, …, c_3 with H_0 at the right end of the piece. Every
 product listed is at least the w_I of its row.

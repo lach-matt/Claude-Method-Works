@@ -1665,7 +1665,7 @@ Fix smooth localisers Φ_0 = Op(φ_0) and Φ_E = Op(φ_E), carried by χ, with �
 
     Ǎ_ε := Op(ǎ_ε)Φ_0,     B_ε := Op(b_ε)Φ_0,     E_ε := Op(e_ε)Φ_E.
 
-(iii) For every w ∈ H^(K′)_e3b carried by χ, where K′ ≥ sup |𝗌| + m + 2 is a fixed integer,
+(iii) For every w ∈ H^(K′)_e3b, where K′ ≥ sup |𝗌| + m + 2 is a fixed integer,
 
     ς⟨C_(ǎ_ε)w, w⟩ ≤ −‖B_εw‖² + ‖E_εw‖² + C_0‖w‖²_(𝗌−1/2+δ_0),                                           {#eq:ii-a1-4-2}
 
@@ -1695,8 +1695,7 @@ and L maps H^(−N) to H^(−N−m) ([[lem:ii-a-8-6]] (a)). Hence
     ‖Ǎ_εLv‖_((1−m)/2) ≤ C(‖GLu‖_(𝗌−m+1) + ‖χu‖_(−N)).                                                    {#eq:ii-a1-4-4}
 
 *Step 1: the pairing at v.* Let w_t := T_tv, with T_t from [[lem:ii-a1-2-3]] (b) and K ≥ K′ + sup |𝗌| + 1, so that
-w_t ∈ H^(𝗌−κ+K) ⊂ H^(K′) for t > 0 (carried by χ by the support convention, the kernels of T_t being supported near the
-diagonal). We show ⟨Ǎ_εLw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εLv, Ǎ_εv⟩ as t → 0, for fixed ε > 0. Symbols of C^((M))_ν S̃^𝗄 act with
+w_t ∈ H^(𝗌−κ+K) ⊂ H^(K′) for t > 0. We show ⟨Ǎ_εLw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εLv, Ǎ_εv⟩ as t → 0, for fixed ε > 0. Symbols of C^((M))_ν S̃^𝗄 act with
 exact orders ([[prop:ii-a1-2-4]] (a)), and only remainders lose δ. So Ǎ_ε has order 𝗄 − κ for this ε, and as
 v ∈ H^(𝗌−κ), Ǎ_εw_t → Ǎ_εv strongly in H^((m−1)/2). Next, Ǎ_εLw_t = Ǎ_εT_tLv + Ǎ_ε[L, T_t]v. The first term tends to
 Ǎ_εLv in H^((1−m)/2): T_t → I strongly on H^(𝗌−m+1), applied to ΦLu; the part with [L, Φ]u is handled as in Step 0,
@@ -1724,7 +1723,8 @@ order −(m − 1)/2 without loss ([[prop:ii-a1-2-4]] (a)), ‖Ǎ_εv‖_((m−1
 (b) E_εv = E_εu − Op(e_ε)(Φ_E(I − Φ))χu, and Φ_E(I − Φ) ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]), so the second term is bounded by
 C‖χu‖_(−N), uniformly. For the first, E is elliptic on the essential support of φ_E, so the parametrix construction of
 [[lem:ii-a-8-4]] (b), carried out in the smooth calculus Ψ̃ of ρℬ, to which (S5) applies, gives Φ_E = Q_EE + R_E with
-Q_E ∈ Ψ̃⁰ and R_E ∈ Ψ̃^(−J), J ≥ sup 𝗌 + N, both carried by χ. As Op(e_ε) is bounded of order 𝗌 uniformly,
+Q_E ∈ Ψ̃⁰ and R_E ∈ Ψ̃^(−J), J ≥ sup 𝗌 + N. Then R_Eχ = R_E, as Φ_Eχ = Φ_E and Eχ = E, the two being carried by χ;
+no property of the kernel of Q_E is used. As Op(e_ε) is bounded of order 𝗌 uniformly,
 ‖E_εu‖ ≤ ‖Op(e_ε)Q_EEu‖ + ‖Op(e_ε)R_Eχu‖ ≤ C(‖Eu‖_𝗌 + ‖χu‖_(−N)).
 
 (c) ‖v‖_(𝗌−1/2+δ_0) ≤ C(‖Gu‖_(𝗌−1/2+δ_0) + ‖χu‖_(−N)), by [[lem:ii-a-8-4]] (c).
@@ -1741,9 +1741,9 @@ The a priori hypothesis Gu ∈ H^(𝗌−κ) is used only for the limits t → 0
 
 **Lemma {#lem:ii-a1-4-2}** (Iteration.) Let Γ ⊂ ᵉ³ᵇS*M̃ be compact and U_0 an open neighbourhood of it. Suppose that for
 every κ ∈ (0, 1/4], every order 𝗌′ = 𝗌 − τ′ with 0 ≤ τ′ ≤ τ (τ > 0 a constant), and every open U with Γ ⊂ U ⊂ U_0, the
-hypotheses of [[lem:ii-a1-4-1]] hold for (𝗌′, κ), for some localisers Φ_0, Φ_E as there, with K_1 and supp φ_0
-inside U (near fibre infinity), with E-symbols supported in a closed set K_E(U) whose intersection with fibre infinity
-lies in U ∖ Γ, and with b_0 elliptic of order 𝗌′ on an open
+hypotheses of [[lem:ii-a1-4-1]] hold for (𝗌′, κ), for some localisers Φ_0, Φ_E as there, with K_1, supp φ_0 and
+supp φ_E inside U (near fibre infinity), with e_ε and φ_E supported in a closed set K_E(U) whose intersection with fibre
+infinity lies in U ∖ Γ, and with b_0 elliptic of order 𝗌′ on an open
 neighbourhood U′ of Γ: b_0⁻¹ ∈ C^((M))_ν S̃^(−𝗌′) on U′ near fibre infinity. Let G be elliptic on Ū_0. Then there are
 a neighbourhood U_* of Γ and a closed set K_E^* missing Γ such that, for E elliptic on K_E^* and B ∈ C^∞_b Ψ⁰_e3b
 carried by χ and microsupported in U_*, in the strong sense,
@@ -1770,7 +1770,8 @@ conclusion of step j − 1, and gives
     ‖B_0^((j))u‖ ≤ C(‖G_(j−1)Lu‖_(𝗌_j−m+1) + ‖Eu‖_(𝗌_j) + ‖G_(j−1)u‖_(𝗌_j−1/2+δ_0) + ‖χu‖_(−N)).
 
 Take δ_0 ≤ 1/4 − κ, which is positive as J > 4τ, so that 𝗌_j − 1/2 + δ_0 ≤ 𝗌_(j−1). [[lem:ii-a1-4-1]] at step j
-applies with G_(j−1) in the role of G, which is elliptic on Ū_(j−1) ⊃ K_1 ∪ K_E near fibre infinity. Induction on j
+applies with G_(j−1) in the role of G, which is elliptic on Ū_(j−1) ⊃ K_1 ∪ supp φ_0 ∪ supp φ_E near fibre infinity,
+and with E, which is elliptic on K_E^* ⊃ K_E(U_(j−1)) ⊃ supp φ_E near fibre infinity. Induction on j
 bounds ‖G_Ju‖_𝗌, and [[eq:ii-a1-4-5]] follows for B microsupported in U_* := U_J by [[lem:ii-a-8-4]] (c). ∎
 
 ### Real principal type propagation {#sec:ii-a1-5}
