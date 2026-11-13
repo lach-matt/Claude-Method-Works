@@ -278,9 +278,14 @@ d_ι is at most 7 + 2⌈ℓ_I − λ₋⌉ where Re ϰ < 2 − δ, as ⌈ℓ_I �
 
 (f) The proof of [[prop:iii-g3-2-4]] at finite regularity applies [[lem:iii-g3-2-2]], with the loss
 l = 2⌈ℓ_I⌉ + 10 of its statement, and then [[thm:iii-g1-3-1]] (2) on the strip, and takes l′ := l + sup d_ι.
-The map of [[prop:iii-g3-3-7]] is continuous by [[prop:iii-g3-2-4]] on a strip containing λ, with the loss l′, and its
-range and right inverse use besides only a map u ↦ f that applies the second-order operator N_(ι⁺), of loss 2 ≤ l′; a
-sum keeps the larger loss, so its loss is l′. [[cor:iii-g3-3-1]] (1) comes from [[prop:iii-g3-2-4]] on a strip
+The map of [[prop:iii-g3-3-7]] is continuous by [[prop:iii-g3-2-4]] on a strip containing λ, with the loss l′, and the
+l of its statement is this l′ (that of [[lem:iii-g3-3-5]]). Its right inverse applies the map u ↦ f of the proof of
+[[lem:iii-g3-3-5]], which applies the second-order operator N_(ι⁺) (loss 2), splits f = f₁ + f₂, keeps f₂, and maps
+f₁ to res_(z=λ)(t_*^(−z)N_(ι⁺)(z)⁻¹f₁(z)): a map of finite rank into the finite-dimensional space Res_(ι⁺)(L̄, λ) of
+[[def:iii-g3-3-6]], whose coefficients are integrals of the inverse of [[thm:iii-g1-3-1]] (2) over a small circle
+about λ in the strip, so bounded by the norm of order sup d_ι of f₁. So the right inverse costs at most
+2 + sup d_ι < l′ ([[lem:iii-j2-1-2]] (b), (c)), and the loss of [[prop:iii-g3-3-7]] is l′. [[cor:iii-g3-3-1]] (1)
+comes from [[prop:iii-g3-2-4]] on a strip
 containing its exponent, with the loss l′; its expansion (2) costs nothing beyond, and its continuous functionals are
 counted where a construction that uses them adds its losses. For 3 < ℓ_I < 3.5, ⌈ℓ_I⌉ = 4 and sup d_ι = 12 by (e),
 so l′ = 8 + 10 + 12 = 30.
@@ -392,23 +397,20 @@ used h beyond ε_ind(h) ≤ δ_50. ∎
 [[def:ec-accounted-loss]]. Then [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d = d_acc, the Nash–Moser theorem
 [[thm:ii-g-2-1]] is applied in the proof of [[thm:iii-k-4-3]] at the regularity N_NM = 21d_acc + 6, and:
 
-(i) d_acc is composed, by the rules of [[def:ec-accounted-loss]], of elementary losses that are closed forms in the
-weights, the thresholds ϑ_in, ϑ_ℋ, the regularity orders s_c and the counts n(E, β) of the index sets
-([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), and of the numbers of steps of the iterations of
-[[sec:ec-floor]], each round being charged at least the loss of [[lem:ec-round-loss]];
+(i) d_acc is composed, by the rules of [[def:ec-accounted-loss]], of elementary losses and of the numbers of steps of
+the iterations of [[sec:ec-floor]], each round being charged at least the loss of [[lem:ec-round-loss]]; the
+elementary losses are closed forms in the weights, the thresholds ϑ_in, ϑ_ℋ, the regularity orders s_c and the counts
+n(E, β) of the index sets ([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution
+operators, which their proof fixes without a value ([[rem:ec-other-losses]]);
 
 (ii) at the computational point, for every admissible choice of the weights there,
 
-    d_acc ≥ (2 + ℓ_tf) R > 5.306 × 10¹⁵,        N_NM > 1.114 × 10¹⁷,
+    d_acc ≥ (2 + ℓ_tf) R ≥ 3R > 7.959 × 10¹⁵,        N_NM = 21d_acc + 6 > 1.671 × 10¹⁷,
 
-with R the number of rounds of [[prop:ec-rounds]] and ℓ_tf the loss of [[cor:iii-f1-3-4]];
-
-(iii) if the incoming threshold ϑ_in of N_tf(L_b, ±1) is non-negative, then
-
-    d_acc > 7.959 × 10¹⁵,        N_NM = 21d_acc + 6 > 1.671 × 10¹⁷.
+with R the number of rounds of [[prop:ec-rounds]] and ℓ_tf ≥ 1 the loss of [[cor:iii-f1-3-4]].
 
 These are lower bounds for the loss that this proof's choices produce, not for the least loss with which the tame
-estimates hold. [[pending:issue-1]]
+estimates hold. No upper bound for d_acc is proved in this paper ([[rem:ec-other-losses]]).
 
 *Proof.* The first assertions are [[lem:iii-j2-1-2]], which gives the tame estimates with any loss at least the
 accounted one, and the parameters of [[thm:ii-g-2-1]] ([[eq:ii-g-2-5]]). (i) is [[def:ec-accounted-loss]] with
