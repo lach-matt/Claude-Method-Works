@@ -239,3 +239,22 @@ Items found while chapters were written in parallel; each is settled once, editi
   the clause that g_λ is Lorentzian by lem:lorentz-margin (Ch 7 gave it). Appendix A must add, verbatim: [BH17, Theorem
   7.27, p. 56]: "Let Ω be a nonempty bounded open subset of Rⁿ with Lipschitz continuous boundary. Suppose 1 ≤ p, q < ∞
   … and 0 ≤ t ≤ s satisfy s − n/p ≥ t − n/q. Then W^(s,p)(Ω) ↪ W^(t,q)(Ω)."
+
+## From S16, proofs A, D1, F and the literature pass (2026-11-13)
+
+- S16 renamed the ι⁺ parameter λ → ϰ (and λ_♯ → ϰ_♯, λ_0 → ϰ_0, ∂_λ → ∂_ϰ, C_λ → C_ϰ); its Mellin variable κ → ζ.
+  Chapters that must follow: S17, S20, S21, S22, S23, S24, S25, S27 (in S17 and S22 λ^Υ/λ^C → ι^Υ/ι^C; check κ before
+  renaming in S17, S21, S22, S24, S25). Line counts in F-S16. The PDF font must distinguish ϰ from κ. S16 also uses 𝔥
+  for the fibre inner product (adopt edition-wide) and 𝔐 for its operator.
+- [AN00, Theorem 3.1]: page not found (paywalled); [[pending:literature-page-AN00]] in S16. Possible substitute
+  [ABHN, Theorem A.7], p. 464 unconfirmed, not in the bibliography.
+- Proof A: ε_ind(10⁻⁶) = δ_50 ∈ (1.941370568463, 1.941370568464)·10⁻⁸; prop:gap-sums (least excess
+  (5.0190, 5.0193)·10⁻⁸) belongs in chapter 71. Every h ∈ (0, 10⁻⁶] and the remote roots: proof A3.
+- Proof D1 reader: the metric class must be in the source's gauge G_x = R²e^(−2(P+Q))/(4(1 − x²)) for the Raychaudhuri
+  identity; [Tre19] = Trefethen, ATAP Extended Edition, SIAM 2019, Thm 8.2 (8.3) p. 57, Thm 15.2 (15.8a) p. 109.
+- Proof F reader: decision recorded — the source's fixed-interval part (a) of L.27 is dropped (no use needs it).
+  L.24's m0′ bounds rested on sampled numbers: proof H. L.26 gets key prop:l-26 in chapter 85.
+- Literature pass: Appendix A cites [BW15] (Cauchy, integer s only), [GO13] (Moser, new cor:std-moser-product),
+  [Usu26] + [MM87] (0-calculus, new cor:std-zero-sobolev), [Hö90], [RS1] p. 201, new thm:std-bh17-embedding. [Hö83],
+  [Hö85] now uncited (drop). S26 line 672 still cites [Tay11]: change to GO13's entry. Chapter 6 should cite
+  thm:std-bh17-embedding where it uses [BH17, Theorem 7.27].

@@ -449,9 +449,9 @@ j ∈ {1, …, 4}, a sign ±, k ∈ ℕ_0, i ≥ k + 10 and l ∈ ℤ³ with |l|
 
 (2) Near ι⁺ ∩ {ρ_K ≤ 3}, with τ = 1/t_* and ρ_K = r/t_*, and the eight chart domains
 𝕊³_(k±) := {ω ∈ 𝕊³ : ±ω_k > 1/4}, k = 1, …, 4, each a graph over the other three coordinates (they cover 𝕊³, as
-max_k |ω_k| ≥ 1/2; any finite cover by charts gives an equivalent structure [Hin26d, Proposition 3.2]):
+max_k |ω_k| ≥ 1/2; any finite cover by charts gives an equivalent structure, (S12)):
 
-    U_(2,ijk±) := (2^(−i−2), 2^(−i+2))_τ × (2^(−j−2), 2^(−j+2))_(ρ_K) × 𝕊³_(k±),     j ≥ i,
+    U_(2,ijk±) := (2^(−i−2), 2^(−i+2))_τ × (2^(−j−2), 2^(−j+2))_(ρ_K) × 𝕊³_(k±),     i ≥ j,
 
 with scalings ρ_τ = 2^(−j) and ρ_(ρ_K) = ρ_ω = 1; 𝒱 is spanned by ρ_Kτ∂_τ, ρ_K∂_(ρ_K), ∂_ω (equivalently r∂_(t_*), r∂_r,
 ∂_ω), and 𝒲 by τ∂_τ, ρ_K∂_(ρ_K), ∂_ω.
@@ -498,14 +498,14 @@ finite order suffices.) Then A = Σ_j AQV_(0,j)^* w_jV_j + ARV_0, and A_j := AQV
 A_0 := AR ∈ C^∞_b Ψ^(𝗌−1)_e3b. ∎
 
 Passing to the secondary structure (subdividing the cells into ρ-cuboids) gives the larger classes
-Ψ̃_e3b = C^∞_e3b Ψ_e3b with e3b-regular coefficients ([Hin26d, Remark 3.48]: Ψ_𝒱 ⊂ Ψ_(𝒱′)), still bounded on the same
+Ψ̃_e3b = C^∞_e3b Ψ_e3b with e3b-regular coefficients ((S13): Ψ_𝒱 ⊂ Ψ_(𝒱′)), still bounded on the same
 spaces.
 
 #### Bundles {#sec:ii-a-4-3}
 
 Operators on the trivial bundle ℂ^N (the bundles of [[sec:i-a-1-2]]) are N × N matrices of scalar operators; all
 statements above and below hold for them with matrix-valued symbols, the principal symbols multiplying as matrices
-([Hin26d, Remark 3.13] for differential operators; for pseudodifferential operators, matrices of scalar ones). Where a
+((S14) for differential operators; for pseudodifferential operators, matrices of scalar ones). Where a
 scalar principal symbol is needed (commutators lowering the order), it is assumed and said.
 
 ### The Fourier transform near K⁺ {#sec:ii-a-5}
@@ -527,7 +527,13 @@ algebra is C^∞_3b 𝒱_3b(M̃_0), and the spaces are Ψ̃^(𝗌,(α_sf,α_K))_
 
 [Hin26c, (3.27)], the weights meaning decay.
 
-By (S9), the Fourier transform in t, û(σ) = ∫ e^(−iσt) u dt, leads to the parameterised scaled b.g. structure on
+We use the Fourier transform in t
+
+    û(σ) = ℱu(σ) := ∫ e^(iσt) u dt,
+
+as in [Hin26c] and in [[ch:s01]], where the spectral families are e^(iσt)Ae^(−iσt). (S9) is stated for ∫ e^(−iσt) u dt,
+which is û(−σ); so (S9) applies to û after σ ↦ −σ, and the orders it restricts to σ dt + T*X are, for û at σ, those
+restricted to −σ dt + T*X. This transform leads to the parameterised scaled b.g. structure on
 X̃ = ℝ̄⁴ with the b-cells and the scalings ρ_(σ,α,i) = (1 + |σ|⟨x⟩)⁻¹ [Hin26c, Section 3.2.2], with coefficient Lie
 algebra C^∞_b 𝒱_b(X̃) for all σ, and the following operator Lie algebras and spaces.
 
@@ -570,8 +576,9 @@ supported where the 3b-cells of [[sec:ii-a-5-1]] apply,
        ∼ Σ_± ∫_(±[0,1]) ‖û(σ)‖²_(H^(𝗌_σ,(𝗌_σ+α_sf,α_sf,0))_(sc-b,σ)(X̃,|dx|)) dσ
          + Σ_± ∫_(±[1,∞)) ‖û(σ)‖²_(H^(𝗌_σ,𝗌_σ+α_sf,𝗌_σ)_(sc,|σ|⁻¹)(X̃,|dx|)) dσ.
 
-*Proof.* (S9) ([Hin26d, Proposition 4.18], with the variable-order version referred to in [Hin26c] after (3.16))
-gives the isomorphism onto L²(ℝ_σ; ρ_sf^(α_sf)⟨τσ⟩^(−𝗌_σ) H^(𝗌_σ)_(𝒱̂_σ)) with τ ∼ ⟨x⟩, and |dt dx| on one side, |dx|
+*Proof.* (S9) ([Hin26d, Proposition 4.18], with the variable-order version referred to in [Hin26c] after (3.16)),
+applied after σ ↦ −σ ([[sec:ii-a-5-1]]), so that the order at σ is 𝗌 restricted to −σ dt + T*X̃, gives the
+isomorphism onto L²(ℝ_σ; ρ_sf^(α_sf)⟨τσ⟩^(−𝗌_σ) H^(𝗌_σ)_(𝒱̂_σ)) with τ ∼ ⟨x⟩, and |dt dx| on one side, |dx|
 on the other (the t-factor is unitary). It remains to name the spaces. For |σ| ≤ 1, 𝒱̂_σ is the sc-b-transition
 algebra, ⟨τσ⟩⁻¹ ∼ (1 + |σ|⟨x⟩)⁻¹ ∼ ρ_scf and ρ_sf = ⟨x⟩⁻¹ ∼ ρ_scf ρ_tf (with ρ_zf⁰), giving the weights
 (𝗌_σ + α_sf, α_sf, 0). For |σ| ≥ 1, 𝒱̂_σ is the semiclassical scattering algebra with h = |σ|⁻¹, and
@@ -589,7 +596,7 @@ algebra, ⟨τσ⟩⁻¹ ∼ (1 + |σ|⟨x⟩)⁻¹ ∼ ρ_scf and ρ_sf = ⟨x�
 
 with j = j_1 + j_2 in the second sum.
 
-*Proof.* Spatial b-derivatives commute with the Fourier transform ℱ. ℱ(∂_t u) = iσû and
+*Proof.* Spatial b-derivatives commute with the Fourier transform ℱ. ℱ(∂_t u) = −iσû, ℱ(tu) = −i∂_σû, and
 ℱ(t∂_t u) = −∂_σ(σû) = −(1 + σ∂_σ)û. So, for |σ| ≤ 1, ∂_t costs a factor σ, which is bounded, and t∂_t becomes
 −(1 + σ∂_σ); for |σ| ≥ 1, ∂_t gives σ^(j_1). Apply [[lem:ii-a-5-1]] to each ∂_t^(j_1)(t∂_t)^(j_2)(⟨x⟩∂_x)^α u, expand
 (1 + σ∂_σ)^(j_2), and use that the (𝗌;k)-norms are sums of 𝗌-norms of up to k b-derivatives. The two sides are sums of
@@ -610,7 +617,7 @@ of [[def:i-c-6-1]], with uniformly equivalent norms. (In dimension 3 + 1 the pow
 
 *Proof.* Both norms are defined by sums over cells, (S3). The sc-b-transition cells at ς are the b-cells of ℝ⁴ (at
 radius r ∼ 2^k) with scalings (1 + ς2^k)⁻¹. Where ς2^k ≤ 1 (near zf) the scalings lie in [1/2, 1], so the cells are
-b-cells up to a uniformly compatible change [Hin26d, Proposition 3.2], and the weight ρ_scf^𝗋 ρ_tf^l ρ_zf^q is there
+b-cells up to a uniformly compatible change (S12), and the weight ρ_scf^𝗋 ρ_tf^l ρ_zf^q is there
 ∼ ρ^(l−q)ς^q (ρ_scf ∼ 1, ρ_tf ∼ ρ + ς ∼ ρ, ρ_zf ∼ ς/ρ): this is the first equivalence. Where ς2^k ≥ 1 the scalings are
 ∼ (ς2^k)⁻¹ = r̂⁻¹; under S_ς ([[sec:i-c-6-1]]) the cell at r ∼ 2^k goes to the cell at r̂ = ς2^k with scaling r̂⁻¹, a
 scattering cell of tf near sctf, and the cells at r̂ ≲ 1 go to b-cells of tf near ztf; the weights become
@@ -643,6 +650,9 @@ C^∞_b 𝒱_(b,e)(ι⁺) (the b-vector fields tangent to the fibres of ι⁺ �
 in τ,
 
     (ℳu)(σ, p) = ∫_0^∞ τ^(iσ) u(τ, p) dτ/τ.
+
+As τ^(iσ) = e^(−i(σ log 2)t), this is (log 2) times the transform ∫ e^(−iσ′t) u dt of (S9) at σ′ = σ log 2; so (S9)
+applies to ℳ directly, the order at σ being 𝗌 restricted to −σ dτ/τ + T*ι⁺.
 
 The spectral side is the parameterised structure on (ι⁺)° with scalings (1 + ρ_K|σ|)⁻¹ near K⁺ and ⟨σ⟩⁻¹, x_I⟨σ⟩⁻¹
 near ℐ⁺ [Hin26c, Section 3.2.4]. For fixed σ it is the 0,b-structure C^∞_b 𝒱_(0,b)(ι⁺) (0-vector fields x_I∂_(x_I),
@@ -715,7 +725,8 @@ uniformly positive 𝒱-density for L²_(𝒱_σ).
 (1) The pairing ⟨u, v⟩ extends to H^𝗌_(𝒱_σ) × H^(−𝗌)_(𝒱_σ) with |⟨u, v⟩| ≤ C‖u‖_(H^𝗌)‖v‖_(H^(−𝗌)), C independent
 of σ.
 
-(2) c‖u‖_(H^𝗌) ≤ sup_(‖v‖_(H^(−𝗌)) = 1) |⟨u, v⟩| ≤ C‖u‖_(H^𝗌), uniformly in σ.
+(2) c‖u‖_(H^𝗌) ≤ sup_(‖v‖_(H^(−𝗌)) = 1) |⟨u, v⟩| ≤ C‖u‖_(H^𝗌), uniformly in σ. Moreover every bounded linear functional
+λ on H^(−𝗌)_(𝒱_σ) is λ(v) = ⟨v, u⟩ for a unique u ∈ H^𝗌_(𝒱_σ), and ‖u‖_(H^𝗌) ≤ C‖λ‖, uniformly in σ.
 
 *Proof.* For 𝗌 = 0 this is the Cauchy–Schwarz inequality and the Riesz representation theorem. In general take an
 elliptic A ∈ Ψ^𝗌_𝒱 and a two-sided parametrix to finite order: B ∈ Ψ^(−𝗌)_𝒱 with BA = I − R_1 and AB = I − R_2, where
@@ -727,11 +738,22 @@ R_2, R_2^* map L² into H^(−𝗌) and H^𝗌 respectively.
 
 (1) For u, v ∈ C_c^∞, ⟨u, v⟩ = ⟨Au, B^*v⟩ + ⟨R_1u, v⟩, and, as v = A^*B^*v + R_1^*v,
 ⟨R_1u, v⟩ = ⟨AR_1u, B^*v⟩ + ⟨R_1u, R_1^*v⟩; so ⟨u, v⟩ = ⟨A(I + R_1)u, B^*v⟩ + ⟨R_1u, R_1^*v⟩, each factor bounded into
-L² from H^𝗌 or H^(−𝗌) respectively.
+L² from H^𝗌 or H^(−𝗌) respectively. C_c^∞ is dense in both spaces ([[lem:ii-a1-2-3]] (a), whose proof uses only (S8)),
+so the pairing extends, with the bound.
 
-(2) Given λ ∈ (H^(−𝗌))*, the map j : L² ⊕ L² ∋ (v_0, v_1) ↦ Av_0 + R_2v_1 ∈ H^(−𝗌) is bounded and onto, as v = j(Bv, v).
-Write λ ∘ j = ⟨·, u_0⟩ + ⟨·, u_1⟩ with ‖u_0‖ + ‖u_1‖ ≤ C‖λ‖. Then λ(v) = ⟨Bv, u_0⟩ + ⟨R_2v, u_1⟩ = ⟨v, u⟩ with
-u := B^*u_0 + R_2^*u_1 ∈ H^𝗌 and ‖u‖_(H^𝗌) ≤ C′‖λ‖. ∎
+(2) The map j : L² ⊕ L² ∋ (v_0, v_1) ↦ Av_0 + R_2v_1 ∈ H^(−𝗌) is bounded, A having order 𝗌 and R_2 order −J ≤ −sup 𝗌.
+For v ∈ H^(−𝗌), the pair (B(I + R_2)v, R_2v) lies in L² ⊕ L², with norm at most C‖v‖_(H^(−𝗌)): B has order −𝗌, and
+R_2v ∈ H^(J−𝗌) ⊂ L² as J ≥ sup |𝗌|. (The pair (Bv, v) would not do: v need not lie in L² where 𝗌 > 0.) And
+j(B(I + R_2)v, R_2v) = AB(I + R_2)v + R_2²v = (I − R_2)(I + R_2)v + R_2²v = v. Given λ ∈ (H^(−𝗌))*, write
+λ ∘ j = ⟨·, u_0⟩ + ⟨·, u_1⟩ (Riesz) with ‖u_0‖ + ‖u_1‖ ≤ C‖λ‖. Then
+
+    λ(v) = ⟨B(I + R_2)v, u_0⟩ + ⟨R_2v, u_1⟩ = ⟨v, u⟩,     u := (I + R_2^*)B^*u_0 + R_2^*u_1,
+
+first for v ∈ C_c^∞ and then by density and (1). Here B^*u_0 ∈ H^𝗌 (B^* has order −𝗌), R_2^* maps H^𝗌 and L² into H^𝗌
+(J ≥ sup |𝗌|), so u ∈ H^𝗌 and ‖u‖_(H^𝗌) ≤ C′‖λ‖. u is unique, since ⟨φ, u⟩ = λ(φ) for φ ∈ C_c^∞ fixes u as a
+distribution. Finally, for a given u ∈ H^𝗌, apply this to λ := ⟨·, u⟩, whose norm is the supremum in (2) and is at
+most C‖u‖_(H^𝗌) by (1): uniqueness gives ‖u‖_(H^𝗌) ≤ C′‖λ‖, which is the lower bound. All constants are uniform
+in σ. ∎
 
 **Definition {#def:ii-a-7-2}** ([Hin26c, Definition 3.16].) For Ω ⊂ M open,
 Ḣ^𝗌_(𝒱_σ)(Ω̄) := {u ∈ H^𝗌_(𝒱_σ)(M) : supp u ⊂ Ω̄}, and H̄^𝗌_(𝒱_σ)(Ω) := {u|_Ω : u ∈ H^𝗌_(𝒱_σ)(M)} with the quotient

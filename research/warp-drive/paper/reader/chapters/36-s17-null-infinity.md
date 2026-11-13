@@ -968,8 +968,8 @@ Near v = 0 on ι⁺, S̄ has the matrix Ā in the slots ([[sec:iii-g3-1]]), and 
     N_(ι⁺)(λ)(v^xφ) = −2v^(x+1)(x − λ)(x − 3/2 − Ā)φ + v^(x+2)L̃(0)(ω, x, ∂_ω)φ,
 
 so the indicial family of v⁻¹N_(ι⁺)(λ) at ℐ⁺ ∩ ι⁺ is −2(x − λ)(x − 3/2 − Ā). On the type-τ tensors given by Y its
-determinant is the product of −2(x − λ)(x − 3/2 − Ā_jj) over j ∈ J_τ. Over the four types its roots other than λ are
-the constraint exponents 3/2 + σ_C (slots 1–3, σ_C := γ_C{2(1 − v_C), 1 − v_C, (1 − e_C)(1 − v_C)}) and the radiative
+determinant is the product of −2(x − λ)(x − 3/2 − Ā_jj) over j ∈ J_τ. Over the four types its roots are λ, the
+constraint exponents 3/2 + σ_C (slots 1–3, σ_C := γ_C{2(1 − v_C), 1 − v_C, (1 − e_C)(1 − v_C)}) and the radiative
 exponents 3/2 + σ_Υ (slots 4–7): 3/2 + (1 − e_Υ)γ_Υ, 3/2 + γ_Υ, 3/2 and 3/2 + 2γ_Υ, the exponents of the index sets
 [[eq:iii-c-3-2]].
 
@@ -982,10 +982,10 @@ the 11-component only at the order 2, which lies in ℰ_I^C: ℱ_(I,11) = 1 + (�
 lies in spec_(ι⁺)(L̄): there is no pure resonant state at a radiative exponent (Res_(ι⁺)(L̄, 3/2 + s) = {0} whenever
 3/2 + s < ℓ_I). Nor is there an outgoing solution there, or at any other λ with Re λ < min(ℓ_I, 2): if h lies in the
 space H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) of [[def:iii-g1-1-2]] (2), the target of [[thm:iii-g1-3-1]] (2), and
-N_(ι⁺)(λ)h = 0 with Re λ < min(ℓ_I, 2), then h = 0. On the spaces of [[def:iii-g3-1-1]], the only pole of [[eq:iii-g3-2-2]] with real part
-at most 3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f only if f has the exceptional term
-f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇ ≠ 0 of [[eq:iii-g3-3-5]]. The radiative exponents 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ are not
-poles.
+N_(ι⁺)(λ)h = 0 with Re λ < min(ℓ_I, 2), then h = 0. On the spaces of [[def:iii-g3-1-1]], the only pole of
+[[eq:iii-g3-2-2]] with real part at most 3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f only if f
+has the exceptional term f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇ ≠ 0 of [[eq:iii-g3-3-5]]. The radiative exponents 3/2, 3/2 + γ_Υ
+and 3/2 + 2γ_Υ are not poles.
 
 *Proof.* (1) The proof of [[lem:iii-c-4-2]] gives the slots of S̄h in terms of those of h; their coefficients are
 [[eq:s17-abar]]. In spatial dimension n the same calculation applies with ⅔ replaced by 2/(n − 1) in Ē^C, with the

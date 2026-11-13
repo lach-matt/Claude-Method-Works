@@ -26,7 +26,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | running | - |
 | 33 S14 | running | - | - |
 | 34 S15 | running (sign slip and np-10-34-iv to adjudicate) | - | - |
-| 35 S16 | NOT CONFIRMED 1M 6m 5n | running | - |
+| 35 S16 | NOT CONFIRMED 1M 6m 5n | done | running |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | running | - |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | running |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | running |
@@ -44,13 +44,15 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 61-62 M Ch 11-12 | being written | - | - |
 | 63-64 M Ch 13-14 | being written | - | - |
 | 65-90 | not yet written | - | - |
-| 95 Appendix A | (in R-04-05-95) | merged; four citations being resolved | - |
+| 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | running |
 
 ## Proof files (merged into their chapters after an independent reading)
 
 | file | written | reading |
 |---|---|---|
-| P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | running |
-| P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | running |
+| P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | NOT CONFIRMED 2M 4m 9n; fix running |
+| P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | NOT CONFIRMED 0M 5m 7n; fix running |
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | running |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | running |
+| P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | running; every-h and remote roots: P-A3 being written |
+| P-H-l24 (L.24 m0′, for 85) | being written (gap found by the F reader) | - |

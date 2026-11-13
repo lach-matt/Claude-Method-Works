@@ -1,7 +1,7 @@
 ## The expansion at the Kerr face {#ch:s22}
 
-This chapter proves, in dimension 4 + 1, [Hin26, Theorem 11.59] and its proof (pp. 278–292). With the correction
-terms of the fourth kind of [[ch:s21]], the forward solution of the linearised gauge-fixed Einstein equation, for a
+This chapter proves, in dimension 4 + 1, [Hin26, Theorem 11.59] (pp. 278–292), following its proof. With the
+correction terms of the fourth kind of [[ch:s21]], the forward solution of the linearised gauge-fixed Einstein equation, for a
 forcing of K⁺-order α ≤ 4 + ε_K, is made to decay at K⁺ at the order α − 2 by a unique choice of the modification
 parameters ([[thm:iii-i11-4-1]], the form of [Hin26, (11.222)] in dimension 4 + 1). The solution so obtained is,
 modulo a remainder of K⁺-order α, a sum of towers of the zero energy states whose coefficients are functions of t_*:
@@ -82,7 +82,8 @@ every b ([[sec:iii-i9-1]]). The statements below keep these v1 terms explicit wh
 the map V ↦ h_(b,v1)(V), which degenerates as b → b_0.
 
 *The inner radius.* The chapter works on Ω_* with the spaces of [[ch:s09]] and the forward solutions of [[ch:s19]],
-which hold with the inner radius r_0 of the artificial boundary as a parameter. Its own radii are scale-free
+which hold with the inner radius r_0 = r_♭ ∈ (0, ½R₁] of [[def:s12-radii]], the radius of the artificial boundary, as
+a parameter. Its own radii are scale-free
 ({r ≤ 2}, {r ≥ 1}, {r ≤ R} for arbitrary R), and its levels, loops and windows are fixed by weights at infinity and at
 K⁺. So every result of this chapter holds with r_0 as a parameter.
 
@@ -97,8 +98,8 @@ Everything of [[sec:iii-i9-1]] is kept, at b: the enlarged index set ℰ_ind, �
 the hypotheses (H1)–(H3) on the class, the types 𝒯 = {s1, v1, s0, s2, c0, c1} with the shifts d_τ, the rows
 ν = (τ, λ, k) with K⁺-exponent e_ν = λ + d_τ and the finite set 𝒩 of the rows with Re e_ν ≤ 2, the coefficient spaces
 𝒲_τ (with 𝒲_v1 = 0), the index sets ℰ_rows and ℰ_src with [[eq:iii-i9-1-3]], and the forcing spaces 𝒴_1(α), 𝒴_2(α),
-𝒴(α). From [[sec:iii-i9-2]] are kept the tower lengths K_τ, the stationary 1-forms ω̆^i_τ, the identity
-[[eq:iii-i9-2-1]], the states h_τ, the functions r_ν, a_ν, the rows m_ν, the corrections h_ν and counterterms ϑ_ν, the
+𝒴(α). From [[sec:iii-i9-2]] are kept the tower lengths K_τ, the stationary 1-forms ω̆^i_τ and their index
+sets [[eq:iii-i9-2-1]], the states h_τ, the functions r_ν, a_ν, the rows m_ν, the corrections h_ν and counterterms ϑ_ν, the
 operator P_4, its linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(h,p⃗). ℰ^♯_+ is the set [[eq:iii-i1-3-2]],
 
     λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = min Re ℰ^♯_+,
@@ -134,7 +135,11 @@ that contains
     π_1(ℰ_++ ∪ 𝒢 ∪ ℰ^C_I) ∪ {λ_♯, 3} ∪ (2 + π_1ℰ_col)
 
 and satisfies Λ + w ⊂ Λ for every w ∈ π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}. Here ℰ_++ is the least choice in [[eq:iii-i8-1-1]],
-and ℰ_col ⊂ {Re ≥ 0} is the index set at ∂X of the column terms ([[lem:iii-i11-1-1]]), independent of b. Let
+and
+
+    ℰ_col = ({(0, 0), (1, 0)} ∪ ℰ_ind ∪ (1 + ℰ_ind)) + ℕ₀ ⊂ {Re ≥ 0}
+
+is the index set at ∂X of the column terms ([[lem:iii-i11-1-1]]), independent of b. Let
 
     η_0 := min Re(π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}) > 0,          J_* := ⌈5/η_0⌉ + 2;
 
@@ -151,7 +156,8 @@ Put
 
 The number 3 ∈ Λ is the u-exponent of the boost row that the zero energy mass state produces ([[sec:iii-i11-3]]); the
 increment 1 accounts for the Taylor levels of the spectral construction, and 2 + π_1ℰ_col for the column terms at its
-first Taylor level.
+first Taylor level. Since 2 + π_1ℰ_col = ({2, 3} ∪ (2 + π_1ℰ_ind) ∪ (3 + π_1ℰ_ind)) + ℕ₀ lies in π_1𝒢 + ℕ₀ ⊂ Λ, this
+last generator adds no exponent to Λ; the logarithmic orders of the column terms are bounded through k̄_0.
 
 **Lemma {#lem:iii-i10-1-2}** (a) Λ ∩ {Re ≤ R} is finite for every R, Λ ⊂ {Re ≥ λ_♯}, and Λ ∩ {Re < 2} = π_1ℳ.
 
@@ -218,7 +224,7 @@ and α avoids the finite set of values for which α − Re λ_0, λ_0 ∈ Λ, Re
 L̂_b(0) or lies in Re π_1ℰ_K ([[lem:iii-g1-1-3]]), and the finite exclusion set of [[sec:iii-i11-1]].
 
 For admissible α ≥ 3 the rows of K⁺-rate below α − 2 are exactly those of 𝒩: a row with (λ, k) ∈ ℰ_par has the rate
-Re λ − 1 ≤ 2 (s1), Re λ (s0, s2) or Re λ + d_τ (c0, c1), and by (G) no such rate lies in (2, 2 + ε_K] ⊃ (2, α − 2).
+Re λ − 1 (s1), Re λ (s0, s2) or Re λ + d_τ (c0, c1), and by (G) no such rate lies in (2, 2 + ε_K] ⊃ (2, α − 2).
 
 ### Towers, row expansions and forward tails {#sec:iii-i10-2}
 
@@ -369,7 +375,7 @@ counted with s^+. As t → −∞ only the s^−-terms and r^± contribute beyon
     w(t) = Σ_(z,m) B^−_(z,m) ∂^m_z(c̄(z̄)|t|^(−z−1)) + O(|t|^(−β−1+δ)) = O(|t|^(−β−1)).
 
 The functions |t|^(−z−1)(log|t|)^j, finitely many and distinct with Re z < β, are independent modulo
-O(|t|^(−β−1+δ)) for small δ, and for each z the top powers of the logarithm computed above are strictly increasing in m
+O(|t|^(−β−1+δ)) for small δ, and for each z the top powers of the logarithm found above are strictly increasing in m
 (for z ∈ ℕ₀ from m = 1 on); so by descending induction on m every B^−_(z,m) with z ∉ ℕ₀, or with z ∈ ℕ₀ and m ≥ 1,
 vanishes. For z ∈ ℕ₀ this includes m = M + 1, which is (a). On σ > 0 the s^+_(z,m) are σ^z(log σ)^m, so
 B^+_(z,m) = a^+_(z,m) for m ≥ 1, and for m = 0 when z ∉ ℕ₀; and (b) follows from the formula for ℱ⁻¹s^+_(z,m) on t > 0,
