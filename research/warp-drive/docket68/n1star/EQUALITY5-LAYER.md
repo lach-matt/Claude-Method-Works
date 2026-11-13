@@ -3419,7 +3419,12 @@ c). At P* (μ0 = A = 1, μ_end = 227/192, c ≤ 1.3241035): sup r_q′ ≤ 0.097
 1.44488 at CONSTANTS5 1.4's ε1 = 5.2617·10^(−4). C1 also takes the exact ratio at 400 boundary points (μ ∈ [μ0, μ_end],
 μ′ ∈ [0, (2/9)A²c²], the Kerr–Schild g0 in Cartesian components) for four k each, two adversarial (∓s0 uu^T, u along
 Φ0♯) and two random, |k| = s0: at most 0.924 of the pointwise constant and 0.791 of C_L1. Control: without its quadratic
-term (pointwise |Φ0♯|²) the bound is exceeded at an adversarial k.
+term (pointwise |Φ0♯|²) the bound is exceeded at an adversarial k. [R9-nits, 3: the 400 points are samples, a sanity
+check, not the certification: the reader's mutant that drops r_q′ from |β0| survived them (they reach 0.791 of C_L1).
+The uniform bound is now certified over the whole admissible range: lamconst5 C1 encloses the pointwise C_L1 (n_X := 1 +
+2μ/r_q², β0 = 1 − √(μ/μ0) − r_q′, r_q′ = r_q μ′/(4μ)) on [μ0, μ_end] × [0, (2/9)A²c²] by 64 × 64 interval boxes: at
+most 1.78257, below C_L1 ≥ 1.90359; and the mutant's uniform 1.61375 lies below the certified 1.77104 reached in a box,
+so the boxes kill it (a control of C1)]
 
 (b) **C_L3 (L.3 (b); Theorem 1).** C_L3 := max_(m≤N) Cb_m, Cb_m = C_N C_E e^(C_E T)(Ce_m + T K (sa_m² + sb_m) + T K
 Ca_(m+1)(1 + sa_m)) the (b) line of R5.5's recursion: a formula in λ0's leaves (lamconst5 C2, on constL5's DAG: its
@@ -3446,7 +3451,8 @@ from (J) (C_ρλ ≤ 2^(−n−2)); L.3_P holds for every λ ≤ 1 (Theorem A_P)
 
 (e) **Theorem 2's: C_P, C_L3P, C_L4P and λ_P (transcribed from L.3_P, L.4_P and N1STAR-PROOF.md sections 9.1-9.4).** The
 supplement states λ_P only as existing ("there are lam_P > 0 and C"); its proof fixes every step, and with the constants
-each step names:
+each step names [R9-nits, 1: the supplement's β0 is written β_P throughout round 9, as T6 and lam25_5 write it, since
+β0 is Φ0♯'s ∂_r coefficient (section 1; R9.1 (a)); lamconst5 writes betaP]:
 
     β_P := max(2, 4C_9 + 1),   N_P := K + 4 + ⌈4β_P⌉,   K′ := N_P − 1,
     M_F := 4 C_F e^(6C_F) C_R + 1   (9.8),        M_N := 8 C_9 C′ (M_F + C_R + 1)   (9.9: B = M_N λ^K′),
@@ -3477,7 +3483,9 @@ as L.4's step 6 (R5.5's e^(C2(1+M+K)T) with M_EP) and step 7's C_S. And
 λ0's (C2, C3, C_dw, C_inf, C_nl, ε2, ε1 and ι), the seed's (K_s, C_S3) or certified; C_P, C_ρ, C_L3P, C_L4P increase,
 and every term of λ_P decreases (ε_P: increases), in every leaf at fixed β_P; an independent transcription agrees to
 10^(−30) at 20 points (controls: L.4_P's factor 2 dropped, λ_N's exponent with 2β_P for 4β_P, and a planted leaf, each
-detected). C4, the census of N1STAR-PROOF.md sections 9.1-9.4 at 5c1a186a…: 31 lines carry a threshold phrase (lam_X,
+detected) [R9-nits, 2: the second transcription is written from R9.1's display, so it checks the code against the
+display, not the display against the supplement; that step is the reading of N1STAR-PROOF.md sections 9.1-9.4 above,
+confirmed by the reader of round 9]. C4, the census of N1STAR-PROOF.md sections 9.1-9.4 at 5c1a186a…: 31 lines carry a threshold phrase (lam_X,
 "small", "absorb", eps_P, eps_U, lam1, d0/20, "lam <= 1", "there is/are", "margin of Lemma 9.1", "Theorem E with this
 K"), 23 of them a term of λ_P and 8 setting none (β_P's existence, ε_U's class, a local step in τ, an exponent count, an
 identity of (9.9b), Lemma 9.5's hypothesis, an amendment note); every term of λ_P has its line (control: a planted "for
@@ -3521,7 +3529,10 @@ certify. **Certified, whatever those leaves are** (lamconst5 C5): the conditions
 
     λ_25(1/10) ≤ 10^(−130159.0),     λ_25(1/2) ≤ 10^(−6613.6),     λ_25(δ) ≤ 10^(−6613.6) for every δ ∈ (0, 1/2],
 
-binding (H2), L.4_P's hypothesis ε_(M_P)(v_1) ≤ λ³, at β_P = 2. They hold for every β_P: E_H2 increases with β_P (130159.0,
+binding (H2), L.4_P's hypothesis ε_(M_P)(v_1) ≤ λ³, at β_P = 2 [R9-nits, 4: and at K = 6 (N_P = 18). They hold for every
+K ≥ 6: (H2)'s a = δ does not depend on K, and its b, c and (Tl)'s threshold grow with M_P = 2N_P + 8, which grows with K;
+lamconst5 C5: E_H2 = 130159.0, 142080.0, 167480.7, 209478.6 at K = 6, 7, 9, 12 for δ = 1/10, and 6613.6, 7194.3,
+8427.0, 10454.7 for δ = 1/2]. They hold for every β_P: E_H2 increases with β_P (130159.0,
 142080.1, 180961.0, 307495.9 at β_P = 2, 9/4, 3, 5 for δ = 1/10; 6613.6, 7194.3, 9079.3, 15151.5 for δ = 1/2). And E_H2
 decreases in δ: at E = E_H2(δ) and δ′ < δ, f_δ′(E) − f_δ(E) = (δ − δ′)E − (b(δ) − b(δ′))√E ≥ (δ − δ′)√E(√E − c_b) > 0
 (√(3 + δ) − √(3 + δ′) ≤ (δ − δ′)/(2√3), c_b := M_P log10 2 (ln 10)^(1/2)/(2√3) ≤ 5.803), since √E ≥ b(0)/δ ≥ 69.62; so
