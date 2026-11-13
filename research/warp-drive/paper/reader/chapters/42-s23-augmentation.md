@@ -479,8 +479,8 @@ return the coefficients; let ℓ be the one returning V. On Z_0, for t_* large, 
 coefficients Ẏ_ψ, Ẏ_v1′, ḃ_rem, Ṡ_rem at t_*, plus the higher terms of the towers, whose coefficients are
 t_*-derivatives of these (the v1 bottom is h_(b₀,v1) = 0, and Ẏ_v1 enters through h̆^1_(b₀,v1)(Ẏ_v1′)). Suppose u has
 two such expansions with remainders of K⁺-order α−, and let ΔẎ_v1, ΔṠ_rem, … be the differences of their coefficients.
-Then ℓ applied to the difference of the expansions gives (ΔẎ_v1)′ plus terms O(t_*^(−3−δ′)), with δ′ :=
-½ min(ε_K, α − 4) > 0. The bottoms are removed by ℓ exactly, and what remains is: the remainders (K⁺-order α − ε > 3 + δ′); the
+Then ℓ applied to the difference of the expansions gives (ΔẎ_v1)′ plus terms O(t_*^(−3−δ′)), with δ′ := ½ min(ε_K, α
+− 4) > 0. The bottoms are removed by ℓ exactly, and what remains is: the remainders (K⁺-order α − ε > 3 + δ′); the
 derivatives of ΔṠ_rem and Δḃ_rem (order (α − 1)−) and of the other coefficients (rate > 2 + ε_K: every term of χ_K u_exp
 has K⁺-order ≥ α − 2 − ε by [[thm:iii-i12-3-1]], and (G)); and the second derivative of ΔẎ_v1 (order ≥ Re λ + 2 ≥ λ_♯ +
 2 > 3 + δ′ at the exponents of ℳ_rot, > 4 at the others). The derivative of ΔẎ_v1 at its exponents of real part > 2,
@@ -706,10 +706,11 @@ K⁺-order Re e_ν + i; the corrections have u-exponents in λ₀ + ℰ_ind. For
 h̆̄^(i+1)_s0 with r_ν = t_*^(−λ₀)(log t_*)^j. For s2, c0, c1, Σ_i a_ν^(i) h̆̄^i_τ = h̄^((μ_τ),≤K_τ)_τ(a_ν) with a_ν =
 t_*^(−λ₀+μ_τ)(log t_*)^j. Comparing with [[eq:iii-g2-3-1]] of [[thm:iii-g2-3-1]] (and its (log t_*)^j-version,
 [[cor:iii-g3-3-1]] (2)): the terms with i ≤ k_(μ_τ) (for s1 the convention h̄^(≤3)_s1, i ≤ 3) are the formal solution,
-with coefficient c_τ(λ₀)W in the top log power; derivatives of (log t_*)^j produce the lower powers; and the terms with i
-> k_(μ_τ) and the dt_*-term have K⁺-order ≥ Re e_ν + k_(μ_τ) + 1 ≥ Re λ₀ + 3 (the table of [[sec:iii-g2-1]]: k_μ ≥ 2 + μ,
-and for s1, k = 3). For the rotation rows the same argument applies with h̆^0_v1 = h_(b₀,v1) = 0 ([[def:iii-i14-1-3]]):
-Σ_(i≥1) a_ν^(i) h̆̄^i_v1 = h̄^(≤K_v1)_v1(a_ν′) ([[eq:iii-g2-2-5]]), with a_ν′ = −λ₀ t_*^(−λ₀−1)(log t_*)^j + ⋯.
+with coefficient c_τ(λ₀)W in the top log power; derivatives of (log t_*)^j produce the lower powers; and the terms with
+i > k_(μ_τ) and the dt_*-term have K⁺-order ≥ Re e_ν + k_(μ_τ) + 1 ≥ Re λ₀ + 3 (the table of [[sec:iii-g2-1]]: k_μ ≥ 2 +
+μ, and for s1, k = 3). For the rotation rows the same argument applies with h̆^0_v1 = h_(b₀,v1) = 0
+([[def:iii-i14-1-3]]): Σ_(i≥1) a_ν^(i) h̆̄^i_v1 = h̄^(≤K_v1)_v1(a_ν′) ([[eq:iii-g2-2-5]]), with a_ν′ = −λ₀
+t_*^(−λ₀−1)(log t_*)^j + ⋯.
 
 (b) T_(ψ,b) = h^((μ),≤k_μ)_(b,τ) ([[def:iii-g2-2-5]]), whose leading part at ∂X is the Minkowski tower of
 [[def:iii-g2-2-3]] and does not depend on b ([[lem:iii-i14-2-1]]). Take a = t_*^(−λ₀+μ)(log t_*)^j Y for ψ other than

@@ -57,7 +57,7 @@ R_8, R_9, c, T″ and ρ′_I). 𝒟 contains Ω_* ∩ {t^♭_* ≤ T̂ + 3}, as
 Υ̇⁰(k) be the derivatives at (g, g) in the first argument of Υ^(E_Υ), Υ^(χ^♮_0E_Υ) and Υ⁰ ([[eq:iii-b-6-3]],
 [[eq:iii-c2-2-1]], [[lem:iii-k-1-1]]). As δ*_(g_0,E_C) depends on g_0 only,
 
-    L := D_1P(g, g) = DRic − δ*_(g,E_C)Υ̇,        L^♮ := D_1P^♮(g, g) = DRic − δ*_(g,E_C)Υ̇^♮.               {#eq:viii-0-1}
+    L := D_1P(g, g) = DRic − δ*_(g,E_C)Υ̇,        L^♮ := D_1P^♮(g, g) = DRic − δ*_(g,E_C)Υ̇^♮.             {#eq:viii-0-1}
 
 L is the operator L_g of [[eq:iii-b-6-4]], and L^♮ is the linearisation L^(χ^♮_0)_(g,g) of P^♮. On Ω_*, χ^♮_0 = 1
 ([[lem:iii-k-1-1]] (b)), so L^♮ = L and Υ̇^♮ = Υ̇ there. Near Σ^IVP, χ^♮_0 = 0 ([[lem:iii-k-1-1]] (d)), so
@@ -72,7 +72,7 @@ uses them. Data (γ̇, k̇) satisfy the *linearised constraint equations* if D�
 *The boost generator.* φ_S = exp V(S), with V(S) linear in S ∈ 𝒮_1 and supported where χ^♭_K ≠ 1
 ([[lem:iii-b-5-1]]). Put
 
-    ġ_(S′) := (d/ds) φ*_(−sS′) g |_(s=0) = −ℒ_(V(S′)) g,                                                     {#eq:viii-0-2}
+    ġ_(S′) := (d/ds) φ*_(−sS′) g |_(s=0) = −ℒ_(V(S′)) g,                                                   {#eq:viii-0-2}
 
 a linearised diffeomorphism. DRic(ġ_(S′)) = (d/ds) Ric(φ*_(−sS′)g)|_(s=0) = 0, and ġ_(S′) = 0 on the interior of
 {χ^♭_K = 1}, where V(S′) = 0. Put 𝒟′ := 𝒟 ∖ {t^♭_* ≥ T̂ + 7/4}. Then Ω_* ∪ 𝒟 = Ω_* ∪ 𝒟′, as the points of 𝒟 with
@@ -128,7 +128,7 @@ D𝒞(γ̇, k̇) = 0. ∎
 (γ̇, k̇) be as in [[lem:viii-1-1]] and satisfy the linearised constraint equations. There is a unique ḣ on 𝒟, in the
 classes named in the proof, with
 
-    L^♮ḣ = 0,        ḣ = ḣ_0,   rℒ_(∂_(t_IVP))ḣ = ḣ_1   on Σ^IVP,                                               {#eq:viii-1-1}
+    L^♮ḣ = 0,        ḣ = ḣ_0,   rℒ_(∂_(t_IVP))ḣ = ḣ_1   on Σ^IVP,                                          {#eq:viii-1-1}
 
 and:
 
@@ -164,7 +164,7 @@ g that fixes t and |x|, the weights being functions of (t, |x|) ([[eq:iii-b-2-2]
 
 *(2).* On Ω_(ext,r_1) this is the proof of [[thm:iii-c1-3-1]] for L^(χ_0) ([[lem:iii-c2-2-1]]). There
 L^(χ_0)_(g,g)ḣ = 0, with [[lem:iii-c2-2-1]] giving the structure of [[prop:iii-c-4-4]] for L^(χ_0); so [[eq:iii-c1-3-4]]
-holds with source 0 and [[eq:iii-c1-3-5]] without its integral, and every step is linear in the data. Its
+holds with right side 0 and [[eq:iii-c1-3-5]] without its integral, and every step is linear in the data. Its
 [[eq:iii-c1-3-2]] becomes ‖ḣ‖_(H^(k,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b) ≤ C_k‖(ḣ_0, ḣ_1)‖_(H^(k_0,(ℰ_0,ℓ_0))_b), a linear map
 continuous at 0 being bounded. On 𝒮, the proof of [[cor:iv3-2-3]] (the proof of [[thm:iii-c1-3-1]] on Ω^♮) gives the
 same, with the data on Σ_c bounded by the energy estimate on 𝒦. On 𝒦 there is nothing at ℐ⁺. [[lem:viii-1-1]] bounds
@@ -185,7 +185,7 @@ metric, gives ∂_nη̇ = 0. So the Cauchy data of η̇ vanish, and η̇ = 0 on 
 **Lemma {#lem:viii-2-1}** (The source.) Let ḣ be given by [[prop:viii-1-2]]. χ_−(t^♭_*)ḣ is defined on
 Ω_* ∩ {t^♭_* ≤ T̂ + 2} ⊂ 𝒟; extend it by 0 to Ω_*, and put
 
-    f := −L(χ_−(t^♭_*)ḣ)     on Ω_*.                                                                         {#eq:viii-2-1}
+    f := −L(χ_−(t^♭_*)ḣ)     on Ω_*.                                                                       {#eq:viii-2-1}
 
 Then f = −[L, χ_−(t^♭_*)]ḣ is supported in {T̂ + 7/4 ≤ t^♭_* ≤ T̂ + 2}, f ∈ ℱ^∞_ex, and
 ‖f‖_(ℱ^k_ex) ≤ C_k‖(γ̇, k̇)‖_(H^(k+k′_k)), with k′_k as in [[lem:iii-k-2-2]] (d).
@@ -217,12 +217,12 @@ the metric of [[thm:iii-k-4-3]] (3); and D_0Φ(U′) = (h′, p⃗′, q′) wit
 
 (4) where χ_K = 1,
 
-    ġ − ∂_b g_b|_(b=b₀)(ḃ) = h_(b₀,rem)(q′) + h′.                                                              {#eq:viii-2-2}
+    ġ − ∂_b g_b|_(b=b₀)(ḃ) = h_(b₀,rem)(q′) + h′.                                                          {#eq:viii-2-2}
 
 So for every R′, ε′ > 0 and i, β there are C, k₁ and T′ with
 
     |(t_*∂_(t_*))^i ∂^β_x (ġ − ∂_b g_b|_(b₀)(ḃ))| ≤ C‖(γ̇, k̇)‖_(H^(k₁)) t_*^(−(α−2)+ε′)
-                                                                  on {r_♭ ≤ r ≤ R′, t_* ≥ T′};                {#eq:viii-2-3}
+                                                                  on {r_♭ ≤ r ≤ R′, t_* ≥ T′};             {#eq:viii-2-3}
 
 and if, for a given ε_t < ε_K, α is chosen with α > 4 + ε_t, then ε′ := α − 4 − ε_t gives
 ġ − ∂_b g_b(ḃ) = O(t_*^(−2−ε_t)) there. Such α exist, as ε_K does not depend on ε_t and the admissible α are dense in
@@ -257,7 +257,7 @@ h_tot, ϑ_tot and h_rem are smooth in (p⃗, q) ([[def:iii-i7-2-3]], [[def:iii-i
 [[def:iii-i9-2-3]], [[def:iii-i14-1-2]]). At (U, k) = (0, 0) the metric is g and the gauge 1-form vanishes, so the
 variation of δ*_(𝔤_0(U),E_C) drops out. Differentiating at (0, 0) in the direction (U′, χ_−ḣ) gives
 
-    DRic(ġ) − δ*_(g,E_C)η̇ = D_0(P_5 ∘ Φ)(U′) + L(χ_−ḣ) = f − f = 0     on Ω_*,                              {#eq:viii-2-4}
+    DRic(ġ) − δ*_(g,E_C)η̇ = D_0(P_5 ∘ Φ)(U′) + L(χ_−ḣ) = f − f = 0     on Ω_*,                            {#eq:viii-2-4}
 
 with ġ := D_0𝔤(U′) + χ_−ḣ and η̇ as in (5). Here D_hP_5(0)(k) = Lk, since at U = 0 the right side is P(g + k, g).
 
@@ -398,7 +398,7 @@ acausal in every open subset of M°_♭.
 δ*_g w := ½(∇w + (∇w)^T), so that ℒ_X g = 2δ*_g X^♭, and Θ(k) := δ_g G_g k, the linearised harmonic gauge 1-form
 (the letter Θ has this meaning in [[sec:ix-0]]–[[sec:ix-2]] only). DRic is as in [[sec:viii-0]]. Put
 
-    L⁰ := DRic + δ*_g Θ.                                                                                         {#eq:ix-0-1}
+    L⁰ := DRic + δ*_g Θ.                                                                                     {#eq:ix-0-1}
 
 *Linearised data.* As in [[lem:viii-1-1]] (1): a symmetric 2-tensor k, defined near a piece of Σ^IVP or on one side of
 it up to Σ^IVP, *induces* the linearised data (γ̇, K̇), the s-derivatives at s = 0 of the first and second fundamental
@@ -505,7 +505,7 @@ globally hyperbolic (on each component, [[sec:ix-0]]), with smooth spacelike Cau
   Hence p ∈ Ω^♯, and N⁺ ⊂ Ω^♯_+; the reverse inclusion holds as Ω^♯ ⊂ U^♯ ⊂ M°_♭. ∎
 
 The region U^♯ reaches to t_IVP = −1 only so that Σ° lies inside it. Nothing below uses Ω^♯ ∩ {t_IVP < 0} beyond the
-background g, the extension of a source in Step 1 of the proof of [[thm:ix-2-2]], with that step's solution w and
+background g, the extension of Θ(k) in Step 1 of the proof of [[thm:ix-2-2]], with that step's solution w and
 field X := w^♯, which live on all of Ω′, and the extension by zero in its Step 3.
 
 ### The comparison {#sec:ix-2}
@@ -667,8 +667,8 @@ data of ℒ_(Z+V(S′))g. [[thm:ix-2-2]] gives k = ℒ_X g. The second display i
 **Remark {#rem:ix-2-4}** (What is and is not asserted.) (a) The statement is the linear counterpart of the gauge
 comparison that [[rem:vii-4-1]] leaves to the nonlinear theory; it is proved here for the linearisation only.
 
-(b) Nothing is asserted here about the size or decay of X. X solves a linear wave equation with source Θ(k) and its
-own Cauchy data, and its behaviour at ℐ⁺ and K⁺ depends on the gauge of ġ′. A solution in the Regge–Wheeler-type gauge
+(b) Nothing is asserted here about the size or decay of X. X solves a linear wave equation with right side Θ(k) and
+its own Cauchy data, and its behaviour at ℐ⁺ and K⁺ depends on the gauge of ġ′. A solution in the Regge–Wheeler-type gauge
 or in the harmonic gauge with the same data, given on that region and smooth up to the initial surface, is ġ + ℒ_X g on
 the future of Σ^IVP in {r > r_♭} ([[cor:ix-2-3]]), and so settles modulo ℒ_X g; the decay in those gauges is the decay
 of ℒ_X g there. It is proved in the Regge–Wheeler-type gauge in [[thm:rw-settling]], and for the harmonic-gauge
