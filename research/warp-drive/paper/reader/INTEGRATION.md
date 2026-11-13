@@ -760,3 +760,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   Suggestion for chapter 46: lem:s27-translated-exterior (c) could add "pull-back bounded, uniformly in (S, S⁰)". The
   fixer found two further gaps at k ≥ 7 (an unstated interpolation inequality; two commutator bounds without tame
   terms) and is adding them before the confirming reading.
+- Cut-off project (P-I-cutoff): issue-2 confirmed a third time (G_9(v1) independent of v on the band gives forcing
+  −3χ′r^(−11/2)G_9(v1); E_T[Z^k h_R] ~ |T|^(2a+2k−8); flat 4+1 model slope −3.5 vs −4.5). Repair: beyond the band the
+  data are g_b0 + Σ + Σ′_J, J ≥ 2k1 + 7; new lemma: after the shell each G_k is a polynomial in v of degree ≤ k/2 − 2
+  whose weight > −4 parts are Σ's Taylor coefficients, so Σ′_J is homogeneous of degree ≤ −4 and the band mismatch is
+  O(r^(−(J+1)/2)); |Γ^α h_R| ≤ Cr⁻⁴, |∂Γ^α h_R| ≤ Cr⁻⁵ uniformly in T; cap ≤ C|T|^(2a−6); Step 4 at every order with J
+  per order, uniqueness makes the limit independent of J; no sourced Σ_4, no larger K*. Chapter 63 replaces lines
+  648-653, 660-663, 682-688, 738, 784-786, 800-809, 852-857 and drops the issue-2 marker; proof G changes
+  prop:far-window's initial-slice hypothesis. Separate defect reported: lem:own-exterior's tail bound (L² part ~ϱ⁻⁴)
+  fails for a > 2 (the reader checks it). Independent reader running before the chapter 63 fix round.

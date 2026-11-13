@@ -571,13 +571,14 @@ being the pointwise order. Likewise ρ³Φ = Σ_(j ≤ 3) ρ^(3+j/2) b_j + ρ⁵
 
 **Remark {#rem:half-class-changes}** (What the half-integer class changes.) The data index set enters the rest of the
 stability theory only through ℰ^C_I ([[thm:iii-c1-3-1]], row d2 of [[sec:vi-c-1]]), the exponents Λ ⊃ π_1ℰ^C_I and the
-bound l_* of [[def:iii-i10-1-1]], and the threshold ε and order d_1 of [[thm:iii-k-4-3]] (row n1). Every index set
-ℰ^C_I satisfying [[def:iii-c-3-1]] contains (2, 0) and is closed under adding ½ ([[lem:iii-c-3-2]] (a)), so it contains
-ℰ_0^½. Hence the smallest such set containing the index set of [[eq:vii-0-1]] ([[lem:iii-c-3-2]] (e)), from which the
-proof of [[thm:iii-c1-3-1]] starts, is also the smallest containing ℰ_0^½. So π_1ℰ^C_I, Λ, the conditions (G) and
-(G⁺), ε_+, ε_K and the loss d ([[thm:loss-d]]) are the same in the half-integer class. Only the logarithmic orders of
-ℰ^C_I at the half-integers can rise, through the extended unions ℰ_0 ∪̄ ℰ^C_I of that proof; they enter l_* and
-k̄(λ) of [[def:iii-i10-1-1]], and their values are not determined here. ε and d_1, and with them λ1 and δ, may change.
+bound l_* of [[def:iii-i10-1-1]], and the smallness threshold of [[thm:iii-k-4-3]], written ε_n here, and its order d_1
+(row n1). Every index set ℰ^C_I satisfying [[def:iii-c-3-1]] contains (2, 0) and is closed under adding ½
+([[lem:iii-c-3-2]] (a)), so it contains ℰ_0^½. Hence the smallest such set containing the index set of [[eq:vii-0-1]]
+([[lem:iii-c-3-2]] (e)), from which the proof of [[thm:iii-c1-3-1]] starts, is also the smallest containing ℰ_0^½. So
+π_1ℰ^C_I, Λ, the conditions (G) and (G⁺), ε_+, ε_K and the loss d ([[thm:loss-d]]) are the same in the half-integer
+class. Only the logarithmic orders of ℰ^C_I at the half-integers can rise, through the extended unions ℰ_0 ∪̄ ℰ^C_I of
+that proof; they enter l_* and k̄(λ) of [[def:iii-i10-1-1]], and their values are not determined here. ε_n and d_1,
+and with them λ1 and δ, may change.
 
 So the continuation of g_λ's own data consists of three steps: (1) the scattering problem on W of
 [[lem:interior-far-part]], with r-weighted estimates in place of the annuli of bounded thickness of

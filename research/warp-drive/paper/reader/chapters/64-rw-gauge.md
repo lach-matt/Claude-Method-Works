@@ -666,18 +666,19 @@ type 𝒴 = Y_αβ := (D̂D̂ − (1/3)γΔ̂)S, with ‖Y_αβ‖² = (2/3)k²(
 
 *Proof.* The tensor type: ĥ_αβ = 2r²H_T T = 2r^(1/2)ΦT by [[thm:rw-ki]] (T). The scalar type: in the gauge
 f_a = 0 = H_T, the quantities of [HKW18, (159)–(162)] are ȟ_AB = rF_AB and Ȟ = rF. By the trace of [[eq:np-10-1]],
-g^(ab)rF_ab = −2rF, so X + Y = −6rF. In the static chart g_tr = 0, Γ^t_tr = f′/(2f), so by [[eq:np-10-1]]
-rF_tr = H⁻¹D_tD_rΦ̃ = H⁻¹∂_t(∂_rΦ̃ − (f′/(2f))Φ̃), and with ∂_rΦ̃ = r^(3/2)H(∂_rΦ + (3/(2r) − 12ς/(rH))Φ),
+g^(ab)rF_ab = −2rF, so X + Y = −6rF. In the static chart (t_s, r), in which ∂_r is taken at fixed t_s,
+g_(t_s r) = 0 and Γ^(t_s)_(t_s r) = f′/(2f), so by [[eq:np-10-1]]
+rF_(t_s r) = H⁻¹D_(t_s)D_rΦ̃ = H⁻¹∂_(t_s)(∂_rΦ̃ − (f′/(2f))Φ̃), and with ∂_rΦ̃ = r^(3/2)H(∂_rΦ + (3/(2r) − 12ς/(rH))Φ),
 
-    Z = g^(rr)rF_rt = −∂_tZ̃_0,        Z̃_0 := r^(1/2)((ς − (3/2)f + 12fς/H)Φ − rf∂_rΦ).
+    Z = g^(rr)rF_(r t_s) = −∂_(t_s)Z̃_0,        Z̃_0 := r^(1/2)((ς − (3/2)f + 12fς/H)Φ − rf∂_rΦ).
 
-By (167), Z = −∂_tZ̃ with Z̃ of (168). So E := Z̃ − Z̃_0, a linear expression in the derivatives of Φ with coefficients
-depending on r alone, satisfies ∂_tE[Φ′] = 0 for every solution Φ′ of the master equation near any point (each such
-solution gives a vacuum perturbation, [[thm:rw-ki]] (S)). Given a solution Φ on a product (t_0 − δ, t_0 + δ) × J, let
-Π solve the linear ordinary differential equation (fΠ′)′ − WΠ = f⁻¹∂_tΦ(t_0, ·) on J; then
-Φ′ := ∫_(t_0)^t Φ(t″, ·)dt″ + Π solves the master equation (its defect −f⁻¹∂_t²Φ′ + ∂_r(f∂_rΦ′) − WΦ′ has
-t-derivative □Φ − WΦ = 0 and vanishes at t_0), and ∂_tΦ′ = Φ. So E[Φ] = E[∂_tΦ′] = ∂_tE[Φ′] = 0, and Z̃ = Z̃_0. In
-the static chart Dr · DΦ̃ = f∂_rΦ̃, and [[eq:np-10-1]] gives
+By (167), in which their ∂_t is ∂_(t_s), Z = −∂_(t_s)Z̃ with Z̃ of (168). So E := Z̃ − Z̃_0, a linear expression in the
+derivatives of Φ with coefficients depending on r alone, satisfies ∂_(t_s)E[Φ′] = 0 for every solution Φ′ of the
+master equation near any point (each such solution gives a vacuum perturbation, [[thm:rw-ki]] (S)). Given a solution Φ
+on a product {t_0 − δ < t_s < t_0 + δ, r ∈ J}, let Π solve the linear ordinary differential equation
+(fΠ′)′ − WΠ = f⁻¹∂_(t_s)Φ(t_0, ·) on J; then Φ′ := ∫_(t_0)^(t_s) Φ(t″, ·)dt″ + Π solves the master equation (its defect
+−f⁻¹∂_(t_s)²Φ′ + ∂_r(f∂_rΦ′) − WΦ′ has t_s-derivative □Φ − WΦ = 0 and vanishes at t_s = t_0), and ∂_(t_s)Φ′ = Φ. So
+E[Φ] = E[∂_(t_s)Φ′] = ∂_(t_s)E[Φ′] = 0, and Z̃ = Z̃_0. In the static chart Dr · DΦ̃ = f∂_rΦ̃, and [[eq:np-10-1]] gives
 
     rF = (r^(−1/2)/12)((2H − 6ς + 9f − 72fς/H)Φ + 6rf∂_rΦ).
 

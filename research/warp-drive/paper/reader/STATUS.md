@@ -43,7 +43,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | CONFIRMED (second reading; 2 nits) |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | third reading NOT CONFIRMED 0M 2m 3n (domain-of-dependence wording; m := μ(v)r⁻²); third fix running |
-| 63 M Ch 13 | NOT CONFIRMED 1M 6m 15n (issue-1 k_P = 2k1 + 14 needed and enough; issue-2 a real gap, as in the source: E_T[Z^k h_R] ~ |T|^(2a+2k−8)) | waits on the cut-off proof project | - |
+| 63 M Ch 13 | NOT CONFIRMED 1M 6m 15n (issue-1 k_P = 2k1 + 14 needed and enough; issue-2 a real gap, as in the source: E_T[Z^k h_R] ~ | waits on the cut-off repair's reader; then the fix round (R-63 minors and nits, merge of the repair at 648-653, 660-663, 682-688, 738, 784-786, 800-809, 852-857, lem:own-exterior tail) |^(2a+2k−8)) | waits on the cut-off proof project | - |
 | 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | running | - |
 | 65 M Ch 15 | written (1,132 lines, 58 crosswalk rows, no markers); independent reader running | - | - |
 | 70 M Ch 17 | written (1,624 lines, 102 labels; B2 merged with 4.683; P-B merged pre-fix, to re-merge; 3 computational markers, proof project running) | - | - |
@@ -66,4 +66,4 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | CONFIRMED (second reading 0M 1m 1n; order 9 and the "rest" wording applied by the coordinator in the reviewer's words; rows unaffected) |
 | P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | tables written (rounded to 10⁻¹⁸, rounding lemma proved; D4b dropped); independent reader running |
 | P-C-lambda0 (λ0 constants, for 86; T-C and T-C261 dropped) | C2a and C2b done: e_k larger than printed (5 rounded down); C261 proved, S closed form, 242 entries | fixed (C261 chain, e_k, the energy constant dropped as cited by nothing; Poisson summation proved; no value changed); confirming reader running |
-| P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | - |
+| P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | repair written (data g_b0 + Σ + Σ′_J beyond the band; G_k polynomial in v after the shell; |Γ^α h_R| ≤ Cr⁻⁴ uniformly in T; cap ≤ C|T|^(2a−6)); independent reader running |
