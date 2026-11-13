@@ -307,14 +307,16 @@ of U independent of ε and s, and a continuous function m(ε, ·) on [0, 2s*] wi
 
     m(ε, s) 𝔫(ε, s) = ε² (Q(δ) − 2s ∫T_1(ξ, n) dvol) + O(ε³),      𝔫(ε, s) > 0,
 
-uniformly in s, such that, γ_D being the metric of D_(ε,s) and δγ = 0 ([[eq:loc-continuity-res]]),
+uniformly in s, such that, with γ_D the metric of D_(ε,s), [[eq:loc-continuity-res]] holds; as δγ = 0, it reads
 
     ℋ(D_(ε,s)) = 2ε²s |J_1|_(γ_D) + m(ε, s) 𝔴 N_s,      ℳ(D_(ε,s)) = ε²s J_1 + ½ m(ε, s) 𝔴 γ(Y_s, ·).
- Since Q(δ) < 0 and Q(δ) − 4s*∫T_1(ξ, n) dvol = −Q(δ) > 0, we have
-m(ε, 0) < 0 < m(ε, 2s*) for ε small, and by the intermediate value theorem m(ε, s(ε)) = 0 for some s(ε) ∈ (0, 2s*). The
-data D := D_(ε,s(ε)) then satisfy ℋ(D) = 2ρ and ℳ(D) = J exactly, with ρ := ε²s(ε)|J_1|_(γ_D) ≥ 0 and
-J := ε²s(ε)J_1 = −ρ dR/|dR|_(γ_D). These are the data of outgoing radial null dust: for a null dust ϖ ℓ ⊗ ℓ and the unit
-normal n̂ of a slice, ℓ = a(n̂ + ν) with ν a unit tangent vector gives the data (ϖa², −ϖa²ν^♭), so the data
-(ρ, −ρν^♭) with ρ ≥ 0 are those of null dust moving along ν, here ν^♭ = dR/|dR|_(γ_D), the outward unit conormal of the
-spheres R = const for γ_D. So D are exact Einstein–null-dust data, equal to the background's outside U, with outgoing
-radial null dust of energy density ε²s(ε)|J_1|_(γ_D) = ε²s(ε)ρ_1(1 + O(ε)) ≥ 0, supported in the support of ϖ_1. ∎
+
+Since Q(δ) < 0 and Q(δ) − 4s*∫T_1(ξ, n) dvol = −Q(δ) > 0, we have m(ε, 0) < 0 < m(ε, 2s*) for ε small, and by the
+intermediate value theorem m(ε, s(ε)) = 0 for some s(ε) ∈ (0, 2s*). The data D := D_(ε,s(ε)) then satisfy ℋ(D) = 2ρ
+and ℳ(D) = J exactly, with ρ := ε²s(ε)|J_1|_(γ_D) ≥ 0 and J := ε²s(ε)J_1 = −ρ dR/|dR|_(γ_D). These are the data of
+outgoing radial null dust. Indeed, for a null dust T = ϖ ℓ^♭ ⊗ ℓ^♭ and the future unit normal n̂ of a slice, writing
+ℓ = a(n̂ + ν) with a > 0 and ν a unit vector tangent to the slice gives (T(n̂, n̂), T(n̂, ·)) = (ϖa², −ϖa²ν^♭); so the
+data (ρ, −ρν^♭) with ρ ≥ 0 are those of null dust moving along ν, here with ν^♭ = dR/|dR|_(γ_D), the outward unit
+conormal of the spheres R = const for γ_D. So D are exact Einstein–null-dust data, equal to the background's outside U,
+with outgoing radial null dust of energy density ε²s(ε)|J_1|_(γ_D) = ε²s(ε)ρ_1(1 + O(ε)) ≥ 0, supported in the support
+of ϖ_1. ∎
