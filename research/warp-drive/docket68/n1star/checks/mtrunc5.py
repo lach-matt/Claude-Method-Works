@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""mtrunc5.py -- CERTIFY-10L5-RESULT.md rounds 8-9 (the verifiers of rounds 7 and 8, M7-B and M8-A): is the late
+"""mtrunc5.py -- CERTIFY-10L5-RESULT.md rounds 8-10 (the verifiers of rounds 7 and 8, M7-B and M8-A): is the late
 region's constraint violation consistent with angular truncation?  Labels: computed (arithmetic on the printed outputs
 of cpaxis5.py --nullstep at 800 rows for M = 32, 40, 48 and 56; the regularised scheme, cut 0.9).
 
@@ -11,7 +11,8 @@ areal-radius class, m(M) is the interior Ric_xx monitor at 800 rows, on the 400-
   - 'not truncation' if m(56)/m(48) >= theta while m(56) exceeds F times the class's 800-row null-step level L;
   - 'undecided' otherwise.
 The verdicts are printed at theta = 0.8, F = 10, and then their sensitivity (M2): for every band the thresholds at
-which its verdict changes, and the range of theta over which every decided verdict stands (round 9, M8-A).
+which its verdict changes, and the range of theta over which every decided verdict stands (round 9, M8-A), printed
+to two decimals rounded inward and re-checked by classifying every decided band at both of its ends (round 10).
 L is the largest m(M), over the four M, on the class's bands that converge at second order in the null step (v < 1.8
 at 0.9-1.0 and 1.0-1.2; v < 2.0 at >= 1.2): there the monitor is the null step's, not the angle's.
   Controls: (k1) a sequence halving at each step must read 'consistent with angular truncation' on every band; (k2)
@@ -23,7 +24,7 @@ at 0.9-1.0 and 1.0-1.2; v < 2.0 at >= 1.2): there the monitor is the null step's
 
   python3 checks/mtrunc5.py     (reads checks/cpaxis5_a5.out, cpaxis5_a5_m48.out, cpaxis5_a5_m56.out)
 """
-import os, re, sys
+import math, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CLAIMED = {'0.9-1.0': 1.8, '1.0-1.2': 1.8, '>= 1.2': 2.0}
@@ -119,13 +120,16 @@ def main():
         print('   %s from %.2f: truncation for theta >= %.3f; not truncation for theta <= %.3f with F < %.3g -> at '
               '0.8: %s' % (c, b, max(st), st[2], seq[3] / L[c], vd))
     flips = sorted((max(st), (c, b)) for (c, b), (seq, st, vd) in beyond.items() if vd == 'undecided')
-    print('   every decided verdict (%d) stands for theta in [%.3f, %.3f] (F = 10); the undecided bands read %s from '
-          'theta = %s' % (len(decided), lo, hi, TRUNC, ', '.join('%.3f (%s from %.2f)' % (t, c, b) for t, (c, b) in
-                                                                flips)))
+    lo2, hi2 = math.ceil(lo * 100 - 1e-9) / 100, math.floor(hi * 100 + 1e-9) / 100
+    ends = all(classify(beyond[k][0], L[k[0]], theta=th)[0] == vd for k, vd in decided.items() for th in (lo2, hi2))
+    print('   every decided verdict (%d) stands for theta in [%.2f, %.2f] (F = 10; the exact ends %.4f and %.4f, '
+          'rounded inward; re-checked at both ends: %s); the undecided bands read %s from theta = %s' % (
+              len(decided), lo2, hi2, lo, hi, 'yes' if ends else 'NO', TRUNC,
+              ', '.join('%.3f (%s from %.2f)' % (t, c, b) for t, (c, b) in flips)))
     for (c, b), (seq, st, vd) in sorted(beyond.items()):
         if vd == 'undecided' and seq[3] > 10 * L[c]:
             print('   %s from %.2f reads not truncation for theta <= %.3f' % (c, b, st[2]))
-    ok &= lo < 0.8 < hi
+    ok &= lo < 0.8 < hi and ends
     # controls
     k1 = all(classify([1.0, 0.5, 0.25, 0.125], L[c])[0] == TRUNC for c in CLAIMED)
     k2 = True

@@ -4,6 +4,10 @@
       (certified, every admissible eps1; at CONSTANTS5 1.4's eps1 = 5.2617e-4, C_L1 <= 1.44488).  400 boundary points, 4
       k each (adversarial -+s0 u u^T and random, |k| = s0): max ratio/pointwise C_L1 = 0.9237045, max ratio/uniform C_L1
       = 0.790589, max |g0^-1|/n_b = 0.761992: True
+  C1 (round 9 nits, 3) certified over the whole admissible range: on [mu0, mu_end] x [0, (2/9) A^2 c^2] (mu, mu') by 64 x
+      64 boxes, the pointwise C_L1 (n_X = 1 + 2 mu/r_q^2, beta0 = 1 - sqrt(mu/mu0) - r_q') lies in [1.771041, 1.78257] at
+      its largest box, <= the uniform C_L1 >= 1.90359: True.  Control (the reader's mutant): sup |beta0| without r_q'
+      gives a uniform 1.613747, below the certified 1.771041 reached in a box: detected True
 C1 PASS
   C2 Theorem 1's: C_L3 := max_m Cb_m (R5.5's node for L.3 (b)), C1 = iota (C_app + 2 C_inf M lambda0^2), C_rho1 = 2 C1
       (tau_end - tau0), lam_rec1 = min(lambda0, 1/(2 C1)): leaves ['C0', 'C2', 'C64', 'C_S3', 'C_app', 'C_inf', 'K_s',
@@ -19,28 +23,29 @@ C2 PASS
       traces Tr1..Tr18, lambda0's leaves and nodes ['C2', 'C3', 'C_dw', 'C_inf', 'C_nl', 'eps1', 'eps2', 'iota'] and the
       seed's ['C_S3', 'K_s']; outside these and the certified numbers (C_E5 = pi sqrt(2 d1) <= 15.0254, lam1 >= 0.026985,
       d0 >= 10.9372): none; C_P, C_rhoP, C_L3P, C_L4P increasing and every term of lambda_P decreasing (eps_P:
-      increasing) in every leaf at beta0 = 2, structurally True, True, by finite differences True; an independent
-      transcription at 20 random points: largest relative difference 3.13e-31: True.  Illustration (every uncertified
-      leaf 1, eps1 = 5.2617e-4, iota = 1074.6; so beta0 = 5, N_P = 30): log10 C_P = 7.44415, log10 C_rhoP = 8.64485,
-      log10 C_L3P = 1.96164e+13, log10 C_L4P = 6.08107e+14, lambda_P = 5.9752e-9 (binding lam_EP)
+      increasing) in every leaf at betaP = 2, structurally True, True, by finite differences True; a second transcription
+      (from R9.1's display) at 20 random points: largest relative difference 3.13e-31: True.  Illustration (every
+      uncertified leaf 1, eps1 = 5.2617e-4, iota = 1074.6; so betaP = 5, N_P = 30): log10 C_P = 7.44415, log10 C_rhoP =
+      8.64485, log10 C_L3P = 1.96164e+13, log10 C_L4P = 6.08107e+14, lambda_P = 5.9752e-9 (binding lam_EP)
 C3 PASS
   C4 census of N1STAR-PROOF.md (md5 5c1a186a) sections 9.1-9.4, lines 1215-1658 (located by content): 31 lines with a
       threshold phrase, 23 of class T and 8 of class X; unclassified: none; table rows matching no line: none; every term
       of lambda_P (lam1, d0/20, the term 1, lam_F, lam_mF, lam_N, lam_abs, lam_mN, lam_EP) has a T line: True
 C4 PASS
-  C5 lambda_25's status: the constant-free conditions (H1, H2 and Tl at beta0 = 2, Lh, J with gamma_J >= log10 4 pi)
+  C5 lambda_25's status: the constant-free conditions (H1, H2 and Tl at betaP = 2, Lh, J with gamma_J >= log10 4 pi)
       give, certified, delta = 1/10: E_cf = 130159.0 (binding H2; H1 10.0, H2 130159.1, J 3.6, Lh 35.8, Tl 32.0), so
-      lambda_25 <= 10^(-130159.0) whatever the leaves are; direct evaluation at 200 points beyond: True; E_H2 at beta0 =
-      2, 9/4, 3, 5: 130159.0, 142080.1, 180961.0, 307495.9 (increasing: True); delta = 1/2: E_cf = 6613.6 (binding H2; H1
-      8.2, H2 6613.7, J 3.7, Lh 40.2, Tl 28.3), so lambda_25 <= 10^(-6613.6) whatever the leaves are; direct evaluation
-      at 200 points beyond: True; E_H2 at beta0 = 2, 9/4, 3, 5: 6613.6, 7194.333, 9079.268, 15151.54 (increasing: True);
-      E_H2 at delta = 1/2, 9/20, 2/5, 3/10, 1/5, 1/10, 1/20, 1/100: 6613.6, 7950.1, 9789.2, 16429.5, 34761.6, 130159.0,
-      502741.2, 12208991.7, decreasing in delta: True (and deduced on all of (0, 1/2]: sqrt(E_H2) >= 69.62 > c_b =
-      5.803), so lambda_25(delta) <= 10^(-6613.6) for every delta in (0, 1/2].  Every other condition's gamma involves
-      C_L3, C_L4, C_L3P or C_L4P, uncertified.  Illustration (every uncertified leaf 1, lambda0 = 0.00244, eps1 =
-      5.2617e-4, iota = 1074.6; beta0 = 5, N_P = 30; C_L1 certified, log10 C_L1 = 0.27958): gamma_w = 1796003.0, gamma_m
-      = 179599.4, gamma_wP = 6.081071e+14, gamma_mP = 1.961636e+13, C_rho = 4.41413e+8, lam_rec = 5.9752e-9; delta =
-      1/10: E_25 = 25876911889038.0 (binding W2); delta = 1/2: E_25 = 26324997819847.0 (binding W2) (a value of the
-      formula, not a bound)
+      lambda_25 <= 10^(-130159.0) whatever the leaves are; direct evaluation at 200 points beyond: True; E_H2 at betaP =
+      2, 9/4, 3, 5: 130159.0, 142080.1, 180961.0, 307495.9 (increasing: True); E_H2 at K = 6, 7, 9, 12: 130159.0,
+      142080.0, 167480.7, 209478.6 (increasing: True); delta = 1/2: E_cf = 6613.6 (binding H2; H1 8.2, H2 6613.7, J 3.7,
+      Lh 40.2, Tl 28.3), so lambda_25 <= 10^(-6613.6) whatever the leaves are; direct evaluation at 200 points beyond:
+      True; E_H2 at betaP = 2, 9/4, 3, 5: 6613.6, 7194.333, 9079.268, 15151.54 (increasing: True); E_H2 at K = 6, 7, 9,
+      12: 6613.6, 7194.3, 8427.0, 10454.7 (increasing: True); E_H2 at delta = 1/2, 9/20, 2/5, 3/10, 1/5, 1/10, 1/20,
+      1/100: 6613.6, 7950.1, 9789.2, 16429.5, 34761.6, 130159.0, 502741.2, 12208991.7, decreasing in delta: True (and
+      deduced on all of (0, 1/2]: sqrt(E_H2) >= 69.62 > c_b = 5.803), so lambda_25(delta) <= 10^(-6613.6) for every delta
+      in (0, 1/2].  Every other condition's gamma involves C_L3, C_L4, C_L3P or C_L4P, uncertified.  Illustration (every
+      uncertified leaf 1, lambda0 = 0.00244, eps1 = 5.2617e-4, iota = 1074.6; betaP = 5, N_P = 30; C_L1 certified, log10
+      C_L1 = 0.27958): gamma_w = 1796003.0, gamma_m = 179599.4, gamma_wP = 6.081071e+14, gamma_mP = 1.961636e+13, C_rho =
+      4.41413e+8, lam_rec = 5.9752e-9; delta = 1/10: E_25 = 25876911889038.0 (binding W2); delta = 1/2: E_25 =
+      26324997819847.0 (binding W2) (a value of the formula, not a bound)
 C5 PASS
 lamconst5: all checks pass, every control fails

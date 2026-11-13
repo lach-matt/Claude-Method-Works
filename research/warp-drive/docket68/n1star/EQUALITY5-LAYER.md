@@ -3485,7 +3485,8 @@ and every term of λ_P decreases (ε_P: increases), in every leaf at fixed β_P;
 10^(−30) at 20 points (controls: L.4_P's factor 2 dropped, λ_N's exponent with 2β_P for 4β_P, and a planted leaf, each
 detected) [R9-nits, 2: the second transcription is written from R9.1's display, so it checks the code against the
 display, not the display against the supplement; that step is the reading of N1STAR-PROOF.md sections 9.1-9.4 above,
-confirmed by the reader of round 9]. C4, the census of N1STAR-PROOF.md sections 9.1-9.4 at 5c1a186a…: 31 lines carry a threshold phrase (lam_X,
+confirmed by the reader of round 9]. C4, the census of N1STAR-PROOF.md sections 9.1-9.4 at 5c1a186a…: 31 lines carry a
+threshold phrase (lam_X,
 "small", "absorb", eps_P, eps_U, lam1, d0/20, "lam <= 1", "there is/are", "margin of Lemma 9.1", "Theorem E with this
 K"), 23 of them a term of λ_P and 8 setting none (β_P's existence, ε_U's class, a local step in τ, an exponent count, an
 identity of (9.9b), Lemma 9.5's hypothesis, an amendment note); every term of λ_P has its line (control: a planted "for
@@ -3643,14 +3644,18 @@ Sources (R8.5's, extended): λ_25, R8.3, R9.1, R9.2. (P3, final) Appendix A, C, 
 envelope the paper uses, every input of λ_25 is written out, and the paper states the thresholds' status as R9.2 does.
 λ0's, Theorem P's and the seed's uncertified leaves are not open items of this note: they are the constants of Theorems
 1 and 2, whose certification is the nine-stage solve CONSTANTS5 1.5 describes and its analogue on P; R9.1 (f) names the
-step. O2: round 9 awaits an independent reader.
+step. O2: round 9 awaits an independent reader. [R9-nits: round 9 is confirmed by an independent reader, with no major
+or minor finding (it recomputed C_L1 = 1.9035986 and C_S3 = 0.4349545, matched Theorem 2's constants against the
+supplement, and checked λ_25's bound for every β_P ≥ 2 and K ≥ 6); its four nits are seated as "[R9-nits, …]" notes]
 
 Runs (full, each `.out` beside its program, under a load average near 8 on four cores, with other jobs running): bfam5
 B1-B6 under PYTHONHASHSEED = 0, 1612 s (`.out` md5 dfb2115e…, program 9e16e91b…; its B1-B5 lines and controls (i), (ii)
 byte-identical to round 8's `.out` d9e0d744…, B6 and control (iii) new); edge1_5 X1-X17, 1496 s (49000672…, b46b5e0f…;
 X1-X16 as round 8's apart from the printed times, X17's rows as round 8's with the phase rows added); lamconst5 C1-C5,
 two runs byte-identical, 550 s and 419 s (aee57835…, 7c35b511…); a scratch run of X17's model at N = 9 with b̂4 → +|b̂4|
-(nit 3's re-derivation), decided. Every check passes and every control fails.
+(nit 3's re-derivation), decided. Every check passes and every control fails. [R9-nits: lamconst5 changed (C1's
+certified boxes and the mutant control, C5's K rows, betaP, the transcription's wording) and rerun in full, two runs
+byte-identical, 422 s and 424 s (`.out` md5 d6e7f079…, program 0844a337…); its other figures are unchanged]
 
 READ: the reader of round 8's report (`scratchpad/report-vE7r8.md`, and its scripts `mut/m17.py`); RESPONSE-HL-5D.md at
 md5 805be200… (P1 lines 302-305, P2 lines 1547-1555, located by content); N1STAR-PROOF.md at 5c1a186a… (sections

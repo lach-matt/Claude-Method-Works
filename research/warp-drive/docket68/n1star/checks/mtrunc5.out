@@ -44,8 +44,9 @@ M2 (computed) sensitivity: per band beyond, the theta at and above which it read
        truncation
    >= 1.2 from 2.00: truncation for theta >= 0.680; not truncation for theta <= 0.680 with F < 38.8 -> at 0.8: consistent
        with angular truncation
-   every decided verdict (5) stands for theta in [0.680, 1.149] (F = 10); the undecided bands read consistent with
-       angular truncation from theta = 0.818 (1.0-1.2 from 1.90), 1.056 (1.0-1.2 from 1.80)
+   every decided verdict (5) stands for theta in [0.68, 1.14] (F = 10; the exact ends 0.6799 and 1.1491, rounded inward;
+       re-checked at both ends: yes); the undecided bands read consistent with angular truncation from theta = 0.818
+       (1.0-1.2 from 1.90), 1.056 (1.0-1.2 from 1.80)
    1.0-1.2 from 1.90 reads not truncation for theta <= 0.778
    control (k1) a halving sequence reads consistent with angular truncation on every class: yes (good)
    control (k2) M = 32 given for every M: never consistent with angular truncation, not truncation exactly where m(32) >
