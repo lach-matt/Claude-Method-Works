@@ -324,10 +324,10 @@ S g = g:
 ([[def:two-scale]]), and it contains no explicit θ. Let ρ(θ) := 3π/2 − θ. Since ∂_θ (f ∘ ρ) = −(∂_θ f) ∘ ρ, we have
 D^λ_a (f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, hence R[g ∘ ρ](·; λ) = R[g](·; −λ) ∘ ρ. Since J is linear in x and fixes v, D^λ
 commutes with J*, and Ric^H(J* g) = J* Ric^H(g) for every metric g, because Ric^H is built from g and g0 alone and J is
-an isometry of g0. So R[J* g] = J* R[g]. Now g̃ = J* g(·, ρ(·); −λ), because λ^j (S g)_j = (−λ)^j J* g_j ∘ ρ and J* g0 =
-g0; combining the two identities gives the formula. Expanding in λ gives the coefficients. (E1) is preserved because J_*
-ℓ = ℓ; (E2) and the vanishing of each R^(m) because R^(m) ↦ (−1)^m J* R^(m) ∘ ρ; and J preserves each slice and its flat
-L² norms.
+an isometry of g0. So R[J* g] = J* R[g]. Now g̃ = J* g(·, ρ(·); −λ), because λ^j (S g)_j = (−λ)^j J* g_j ∘ ρ and
+J* g0 = g0; combining the two identities gives the formula. Expanding in λ gives the coefficients. (E1) is preserved
+because J_* ℓ = ℓ; (E2) and the vanishing of each R^(m) because R^(m) ↦ (−1)^m J* R^(m) ∘ ρ; and J preserves each slice
+and its flat L² norms.
 
 (b) Under ϑ ↦ π/2 − ϑ, cos ϑ and sin ϑ exchange, ζ ↦ −ζ and h(−ζ) = h(ζ). Under θ ↦ 3π/2 − θ, sin θ ↦ −cos θ and
 cos θ ↦ −sin θ. So F(JX, 3π/2 − θ) = −G(X, θ) and G(JX, 3π/2 − θ) = −F(X, θ), and from [[eq:waves-hopf]]
@@ -481,9 +481,9 @@ div_γ the divergence on the unit S³; and V_a = r⁻³ ⟨ω_a^c (div_γ ω̇)_
 on ξ1, ξ2 and is diagonal, so (div_γ ω̇)_ξ1 = (div_γ ω̇)_ξ2 = 0. Every component therefore vanishes except
 ⟨R^(1)⟩_vϑ = −¼ X_ϑ − ½ V_ϑ.
 
-Write c := cos ϑ, s := sin ϑ and κ_A := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form κ_A h (α cos θ + β
-sin θ), with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q and Q′, the second with
-coefficients (α′, β′), the terms with ∂_ϑ h cancel and
+Write c := cos ϑ, s := sin ϑ and κ_A := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form
+κ_A h (α cos θ + β sin θ), with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q and
+Q′, the second with coefficients (α′, β′), the terms with ∂_ϑ h cancel and
 
     ⟨∂_θ Q ∂_ϑ Q⟩ = ½ κ_A² h² (β ∂_ϑ α − α ∂_ϑ β),      ⟨Q ∂_θ Q′⟩ = ½ κ_A² h² (α β′ − β α′).
 

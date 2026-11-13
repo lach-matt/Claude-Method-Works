@@ -282,7 +282,8 @@ with t^♭_*(p) > c, J⁻_(Ω_*°)(p) ∩ {t^♭_* ≥ c} lies in
 
     L_p := {c ≤ t^♭_* ≤ t^♭_*(p),  B ≤ B(p),  r ≥ min(r(p), r^♮)},
 
-the set [[eq:ii-f-lp]] with τ′ := t^♭_*, t^♭_* being a time function. L_p is compact, as B bounds r there
+t^♭_* being a time function: this is the set [[eq:ii-f-lp]] with X := Ω_*° and τ′ := t^♭_* (≤ t_*), its condition
+on t_* being implied by C_♭t_* ≤ t^♭_*. L_p is compact, as B bounds r there
 (c ≤ t_* ≤ t^♭_*(p)/C_♭, R̃(r) ≤ B(p) − c, and R̃(r) = r for r ≥ r′_0 + 1), and it lies in Ω_*°, as t^♭_* ≥ c > 1
 and r ≥ min(r(p), r^♮) > r_♭ on it. ([[lem:iii-k-6-1]] (c) at h = 0 gives such sets as well.) So DRic(ġ) = 0 on Ω_*
 by [[eq:viii-2-4]].
@@ -375,8 +376,7 @@ with the convention of [[sec:viii-0]] that this sublevel set contains the points
 Ω_* ∪ 𝒟 = N, and ġ is smooth on the interior of N with DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
 
 Where ν > 0, Σ° lies in the interior of N, where ġ is smooth. Where ν = 0, Σ° is part of the boundary of N. Such
-points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, φ_S being the identity on {|x| ≤ 5R₁} ([[lem:iii-b-5-1]]); and
-r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]], [[sec:s27-cover]]), as ψ′_IVP = ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the
+points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]], [[sec:s27-cover]]), as ψ′_IVP = ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the
 proof of [[lem:iii-b-3-7]] (b)). So of the cover of 𝒟 used in [[prop:viii-1-2]] only the compact part 𝒦 reaches them:
 Ω_(ext,r_1) ⊂ {r ≥ r_1}, and the slab 𝒮 lies in {|x| > R_9}, R_9 ≥ R₃ > 5R₁ > R_ν, and does not meet Σ^IVP, as
 t_IVP ≥ r/4 > 0 on 𝒮 ([[lem:s27-cover]] (a), (d)). So a half-ball {t_IVP ≥ 0} about each such point lies in 𝒦. There
@@ -560,12 +560,12 @@ k(∇_Xn, Y) + g(∇_Xṅ, Y) + g(C(X, n), Y), where C is the variation of the c
 The first term vanishes as k = 0 on Σ^IVP, and the second as ṅ = 0 along Σ^IVP and X is tangent. As k = 0 on Σ^IVP,
 its tangential covariant derivatives vanish there, ∇_Xk = ∇_Yk = 0. So K̇(X, Y) = g(C(X, n), Y) = ½(∇_nk)(X, Y).
 
-(d) As k = 0 on Σ^IVP, ∇_{e_i}k = 0 there, and only normal derivatives survive. With g^(nn) = −1,
-∇^λk_λμ = −k′(n, ·)_μ and ∇_μ tr_g k = n_μ-component only: ∇_{e_j} tr_g k = 0 and
-∇_n tr_g k = tr_g k′ = −k′(n, n) + Σ_i k′(e_i, e_i). So Θ(k)(e_j) = k′(n, e_j) and
-Θ(k)(n) = k′(n, n) + ½(−k′(n, n) + Σ_i k′(e_i, e_i)) = ½k′(n, n) + ½Σ_i k′(e_i, e_i).
+(d) As k = 0 on Σ^IVP, ∇_(e_i)k = 0 there, and only normal derivatives survive. In the frame,
+g⁻¹ = −n ⊗ n + Σ_i e_i ⊗ e_i, so the divergence is ∇^λk_λ· = −(∇_nk)(n, ·) + Σ_i(∇_(e_i)k)(e_i, ·) = −k′(n, ·);
+and d tr_g k = tr_g ∇k vanishes on e_j, while (d tr_g k)(n) = tr_g k′ = −k′(n, n) + Σ_i k′(e_i, e_i). So
+Θ(k)(e_j) = k′(n, e_j), and Θ(k)(n) = k′(n, n) + ½(−k′(n, n) + Σ_i k′(e_i, e_i)) = ½k′(n, n) + ½Σ_i k′(e_i, e_i).
 
-(e) As X = 0 on Σ^IVP, its tangential covariant derivatives vanish there, ∇_{e_i}X = 0, and ∇_nX = Y. With
+(e) As X = 0 on Σ^IVP, its tangential covariant derivatives vanish there, ∇_(e_i)X = 0, and ∇_nX = Y. With
 (ℒ_Xg)(a, b) = g(∇_aX, b) + g(a, ∇_bX) this gives the three values. For the given k, Y = Σ_j k(n, e_j)e_j − ½k(n, n)n
 has g(Y, e_j) = k(n, e_j) and 2g(Y, n) = k(n, n), as g(n, n) = −1; so ℒ_X g = k at Σ^IVP, both vanishing on
 (e_i, e_j). Since a covector ω equals Σ_j ω(e_j)e_j^♭ − ω(n)n^♭, Y^♭ = k(n, ·) + ½k(n, n)n^♭.

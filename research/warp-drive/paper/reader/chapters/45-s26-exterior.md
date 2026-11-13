@@ -697,7 +697,7 @@ backgrounds of [[rem:iii-c1-2-2]] (2) ([[cor:iv2-4-1]]). [[sec:iv2-1]] integrate
 families of curves; [[sec:iv2-2]] proves the linear theorem in three steps: the Cauchy problem near the interior of I₀,
 the energy estimate of [[prop:iv1-2-2]] near ℐ⁺, and the recovery of the sharp weight at ℐ⁺; [[sec:iv2-3]] applies
 [[thm:ii-g-2-1]]. In dimension 4 + 1 the recovery needs two integrations and no leading terms depending on h
-([[rem:iv1-1-3]]), and only slot 6 carries a radiation field. Lemmas [[lem:iv2-1-1]], [[lem:iv2-1-2]] and
+([[rem:iv1-1-3]]), and only slot 6 carries a radiation field. [[lem:iv2-1-1]], [[lem:iv2-1-2]] and
 [[lem:iv2-2-1]] are stated so that the continuation of the solution near ℐ⁺ on a slab beyond Σ_(fut,r₀), which the
 nonlinear theorem of [[ch:s27]] poses, can use them.
 
