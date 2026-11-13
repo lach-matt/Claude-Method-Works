@@ -327,21 +327,21 @@ the results of [[ch:s26]] on the exterior region use the chart only through the 
 of [[lem:iii-c-1-3]] for g_(b₀) − η, which are invariant under this map; so they hold on U″ in the translated chart, for
 backgrounds in 𝒢″, with the same proofs.
 
-**Lemma {#lem:iv3-0-1}** (The background on the slab.) Let S ∈ 𝒮_1 be small as in [[lem:iii-b-5-2]]. On a
-neighbourhood of 𝒮̄ in U″, φ_S^*g_(b₀) agrees with an element of 𝒢″; on Ω_(ext,r_1) it is the background of
-[[lem:iii-c2-1-1]].
+**Lemma {#lem:iv3-0-1}** (The background on the slab.) Let S, S⁰ ∈ 𝒮_1 be small as in [[lem:iii-b-5-2]] and
+[[lem:s27-translated-exterior]]. On a neighbourhood of 𝒮̄ in U″, φ_(S,S⁰)^*g_(b₀) agrees with an element of 𝒢″; on
+Ω_(ext,r_1) it is the background of [[lem:iii-c2-1-1]] for φ_(S,S⁰) ([[lem:s27-translated-exterior]] (c)).
 
 *Proof.* On 𝒮, χ_IVP = 1, as t_IVP ≥ 0 > −|x|/10 ([[sec:iii-b-5]]). And χ_K = 0 on 𝒮: supp χ_K lies in the interior
 of {χ^♯_K = 1} ⊂ supp χ^♯_K ⊂ {|x| < t/2}, while on 𝒮, t^♭_* ≤ T̂ + 3 gives t_* ≤ (T̂ + 3)/C_♭ and so x¹ ≤ T″ − 1,
-so t ≤ |x| + T″ < 2|x| near infinity, where 𝒮 lies. So [[eq:iii-b-5-3]] holds near 𝒮̄:
+so t ≤ |x| + T″ < 2|x| near infinity, where 𝒮 lies. So [[lem:s27-translated-exterior]] (b) gives near 𝒮̄
 
-    φ_S^*g_(b₀) − g_(b₀) − |x|⁻² 𝔥_S(ω)(dx¹)² ∈ ρ₀²ρ_I³ρ_+² C^∞(M; S²T*),
+    φ_(S,S⁰)^*g_(b₀) − g_(b₀) − |x|⁻² 𝔥_S(ω)(dx¹)² ∈ ρ₀²ρ_I³ρ_+² C^∞(M; S²T*),
 
 with 𝔥_S the function h_(S_w) of [[eq:iii-b-5-2]]; and g_(b₀) − η = m₀|x|⁻²(dx¹)² + |x|⁻³C^∞ on {|x| ≥ 3R₁}
 ([[lem:iii-c-3-5]] (1) and its proof). On 𝒮, ρ₀, ρ′_0 and ρ_+ are bounded below and ρ_I/ρ′_I is smooth and positive,
-so φ_S^*g_(b₀) − η ∈ (ρ′_0)²(ρ′_I)²C^∞ with only the slot π₁₁ at that order, (dx¹)² being of type π₁₁, and the other
-slots in (ρ′_0)²(ρ′_I)³C^∞: this is [[eq:iii-c-3-4]] in the translated chart, and φ_S^*g_(b₀) is smooth on M. On
-Ω_(ext,r_1) the statement is [[lem:iii-c2-1-1]]. ∎
+so φ_(S,S⁰)^*g_(b₀) − η ∈ (ρ′_0)²(ρ′_I)²C^∞ with only the slot π₁₁ at that order, (dx¹)² being of type π₁₁, and the
+other slots in (ρ′_0)²(ρ′_I)³C^∞: this is [[eq:iii-c-3-4]] in the translated chart, and φ_(S,S⁰)^*g_(b₀) is smooth on
+M. On Ω_(ext,r_1) the statement is [[lem:s27-translated-exterior]] (c). ∎
 
 #### The curves on Ω^♮ {#sec:iv3-1}
 

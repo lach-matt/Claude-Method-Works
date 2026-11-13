@@ -69,11 +69,12 @@ spheres, t_IVP = t − ψ_IVP(r) ([[lem:iii-b-3-7]] (b)). Put
 
 so that w > 2 + ε_t by [[thm:viii-2-2]] (4). For a tensor field u put
 
-    |u|_k(v, r) := Σ_(j≤k) sup_(S³_(v,r)) |D^j u|,
+    |u|_k(v, r) := Σ_(j≤k) sup_(S³_(v,r)) |𝒫_j u|,
 
-D^j ranging over the products of j of the operators ℒ_(∂_v), ℒ_(∂_r) (the coordinate fields of (v, r, x/r)) and the
+𝒫_j ranging over the products of j of the operators ℒ_(∂_v), ℒ_(∂_r) (the coordinate fields of (v, r, x/r)) and the
 Lie derivatives along the rotation fields Ω_ij = x^i∂_j − x^j∂_i, and |·| the Euclidean norm of the components in the
-coordinates (t, x). On {r_♭ ≤ r ≤ R′} these operators and ∂_t, ∂_(x^i) span the same module over functions with bounded
+coordinates (t, x). (In |·|_k and k₁(k) the letter k counts derivatives; elsewhere k := (l(l + 2))^(1/2) is the number
+of [KI03] for a harmonic of degree l.) On {r_♭ ≤ r ≤ R′} these operators and ∂_t, ∂_(x^i) span the same module over functions with bounded
 derivatives, and ∂_t = t_*⁻¹ (t_*∂_(t_*)) at fixed x. So [[eq:viii-2-3]] with ḃ = (ṁ, 0) reads: for every k, R′ and
 ε′ > 0 there are C, k₁ = k₁(k) and T′ with
 
@@ -155,7 +156,7 @@ and, with constants independent of h and of l,
 
     sup|β_a| ≤ C|h_(a·)|_1,     sup|τ| ≤ C|h^TF|_0,     sup|D̂τ| ≤ C|h^TF|_1,
 
-the same holding with any product D^j of ℒ_(∂_v), ℒ_(∂_r) and the rotations applied to both sides. Here |h_(a·)|_k and
+the same holding with any product 𝒫_j of ℒ_(∂_v), ℒ_(∂_r) and the rotations applied to both sides. Here |h_(a·)|_k and
 |h^TF|_k are taken with the norm of the unit sphere; on {r_♭ ≤ r ≤ R′} each is at most C_(R′)|h|_k. No sum over
 harmonics is formed.
 
@@ -572,7 +573,8 @@ Section 7.3, p. 30; (89), p. 29; p. 38; (114)–(116) and Lemma 11, p. 39; (124)
 properties: Σ_0 intersects the future horizon H⁺ transversely and Σ_0 is spacelike in r_h ≤ r ≤ R_1, Σ_0 ∩ {r_1 ≤ r ≤
 R_1} = {t = 0} ∩ {r_1 ≤ r ≤ R_1}, Σ_0 ∩ {R_1 ≤ r} = {u = −(1/2)(R_1)_*} ∩ {R_1 ≤ r} … Flowing along the static Killing
 vector field T, we construct our decay foliation Σ_τ := φ_τ(Σ_0). We define n_(Σ_τ) as the unit timelike normal vector
-for Σ_τ for r ≤ R_1 and n_(Σ_τ) := L for r > R_1" (p. 30), the volume form of the null part being r^n dv_H dVol_(S^n). We write R_H for their radius R_1.
+for Σ_τ for r ≤ R_1 and n_(Σ_τ) := L for r > R_1" (p. 30), the volume form of the null part being r^n dv_H dVol_(S^n).
+We write R_H for their radius R_1.
 
 (E) (The energies.) For a symmetric trace-free two-tensor Ψ on the spheres, "Ť_ab[Ψ] := ∇_aΨ · ∇_bΨ −
 (1/2)g_ab(∇_cΨ · ∇^cΨ)" (89), with the projected covariant derivative; Y is a vector field with "Y|_(r=r_h) = −∂/∂R"

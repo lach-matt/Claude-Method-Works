@@ -331,10 +331,20 @@ the semiclassical principal symbol of L_(g,c,e,h) in [[eq:s14-lh]] ([Hin26a, Lem
 if ⟨c, ζ⟩ < 0 and 2(1 − e)⟨c, ζ⟩² + eG(c)G(ζ) > 0. With the trace weight 1 in place of 2/3, the damping symbol has this
 form with e′ = (3e − 1)/2 < 0, for which B is indefinite.
 
-(ii) (*The critical sets on 𝗌𝖿.*) On 4 + 1 Minkowski space with c = r⁻¹(dt − v dr), let w := ρ_sf^(b_sf) ρ_K^(b_K)
-with ρ_sf = 1/r, ρ_K = r/t, and d := b_sf − b_K. At e = 0 the eigenvalues of T := r²(−ℓ(dw/w) + S), S the skew-adjoint
-part of [[eq:s14-s]] below, are 2v(1 − d), 4v(1 − d) and 2v(2 − d) (three times) at ρ_K = 0, and, at b_K = 0, the same
-with d = b_sf at every ρ_K. They are positive if and only if d < 1.
+(ii) (*The bundle map S, and the critical sets on 𝗌𝖿.*) Let g be a Lorentzian metric on a manifold of dimension D, c
+a past timelike 1-form, e ∈ (0, 1), and A := (2ih)⁻¹L_(g,c,e,h) = 2δ_g(c ⊗_s ·) + e dι_(c♯). Let
+K(X, Y) := (∇_X c)(Y), K_s its symmetric part, tr K := g^(μν)K_(μν) = div c, F(ω) := (dc)(ω♯, c♯) and G := G(c). Then
+S := A + A*, A* the formal adjoint of A for |dg| and the fibre inner product B, is the bundle map given by
+B(Sω, ω′) = s(ω, ω′), where
+
+    s(ω, ω′) := −2K_s(ω♯, ω′♯) − (tr K)⟨ω, ω′⟩ + (1 + e)G⁻¹(⟨c, ω⟩F(ω′) + ⟨c, ω′⟩F(ω))
+                + ((1 + e)²G⁻¹ tr K + 2(1 − e²)G⁻²K(c♯, c♯))⟨c, ω⟩⟨c, ω′⟩.                                {#eq:s14-s}
+
+So S is B-self-adjoint, and S(λc) = λS(c) for λ > 0; it is the map S of [Hin26a, Lemma 3.9]. On 4 + 1 Minkowski
+space with c = r⁻¹(dt − v dr), let w := ρ_sf^(b_sf) ρ_K^(b_K) with ρ_sf = 1/r, ρ_K = r/t, and d := b_sf − b_K. The
+entries of T := r²(−ℓ(dw/w) + S) are polynomials in e; at e = 0 its eigenvalues are 2v(1 − d), 4v(1 − d) and
+2v(2 − d) (three times) at ρ_K = 0, and, at b_K = 0, the same with d = b_sf at every ρ_K. They are positive if and
+only if d < 1.
 
 (iii) (*The interior saddle.*) With c = r_0⁻²(r_0 dt − v(r − r_0) dr) on Minkowski space, at the point r = r_0(1 +
 xe^(1/2)/v), r₀²S is block diagonal in the splitting by dt, dr and r dω: the angular block is v(6e^(1/2)x +
@@ -356,40 +366,111 @@ X ∈ c^⊥, B(c, c) = −eG(c) > 0; so B is positive definite. Using ⟨½ℓ(�
 
     B(½ℓ(ζ)ω, ω′) = ⟨ζ, c⟩⟨ω, ω′⟩ − e⟨ζ, ω⟩⟨c, ω′⟩ − e⟨c, ω⟩⟨ζ, ω′⟩ − (1 − e²)G(c)⁻¹⟨ζ, c⟩⟨ω, c⟩⟨ω′, c⟩,
 
-which is symmetric in (ω, ω′). On the (D − 2)-dimensional space orthogonal to c and ζ, ½ℓ(ζ) = ⟨c, ζ⟩; on span{c, ζ},
+which is symmetric in (ω, ω′). Let ζ ∉ ℝc; the case ζ ∈ ℝc follows by continuity. On the (D − 2)-dimensional space
+orthogonal to c and ζ, ½ℓ(ζ) = ⟨c, ζ⟩; on span{c, ζ},
 ½ℓ(ζ)c = 2⟨c, ζ⟩c − eG(c)ζ and ½ℓ(ζ)ζ = G(ζ)c + (1 − e)⟨c, ζ⟩ζ, a matrix with trace (3 − e)⟨c, ζ⟩ and determinant
 2(1 − e)⟨c, ζ⟩² + eG(c)G(ζ). The eigenvalues are real, ℓ(ζ) being B-self-adjoint, and all are negative exactly under
 the stated conditions. With the weight 1, [[prop:np-10-12]] (i) replaces e by e′, and B(c, c) = −e′G(c) < 0 while B is
 positive on c^⊥.
 
-(ii) Write A := (2ih)⁻¹L_(g,c,e,h) = 2δ(c ⊗_s ·) + e dι_(c♯), (Aω)_a = M^μ_(ak)∂_μω_k + N_(ak)ω_k in Cartesian
-coordinates. Its adjoint for |dx| and B is A* = −B⁻¹∂_μ(M^(μ)ᵀB ·) + B⁻¹NᵀB, and since BM^μ is symmetric for every μ
-(by (i), the symbol of A at ζ being −iℓ(ζ)/2), the skew-adjoint part
+(ii) *The formula for S.* In index notation, Aω = ∇_μ(M^μω) with (M^μω)_a := −c_aω^μ − c^μω_a + e⟨c, ω⟩δ^μ_a, as
+2δ(c ⊗_s ω)_a = −∇^μ(c_aω_μ + c_μω_a) and e(d⟨c, ω⟩)_a = e∇_μ(⟨c, ω⟩δ^μ_a). For a covector ζ, ζ_μM^μ = −½ℓ(ζ),
+which is B-self-adjoint by (i); so each M^μ is B-self-adjoint. Expanding the divergence, Aω = M^μ∇_μω + 𝒩ω with the
+bundle map 𝒩 := ∇_μM^μ (ω held parallel),
 
-    S := A + A* = N + B⁻¹(NᵀB − ∂_μ(M^(μ)ᵀB))                                                              {#eq:s14-s}
+    (𝒩ω)_a = −K(ω♯, ∂_a) − (tr K)ω_a + eK(∂_a, ω♯).
 
-is a bundle map, the map S of [Hin26a, Lemma 3.9]. For c = r⁻¹(dt − v dr), evaluated with the formulas for ∇c in the
-proof of [[prop:np-10-12]], it is, in the splitting by dt, dr and r dω and on the rows the components of Sω,
+For compactly supported ω, ω′,
 
-    r²S = (1 − v²)⁻¹ ( v(5 + 3e − 2v²),  1 + 2v² + 3ev² ;  −(3v² + 4ev² − e),  v(1 + e)(1 − 4v²) ) ⊕ 4v Id.
+    B(Aω, ω′) = ∇_μ(B(M^μω, ω′)) − (∇_μB)(M^μω, ω′) − B(M^μω, ∇_μω′),
 
-With dw/w = −d dr/r − b_K ρ_K dt/r and [[eq:s14-ell]], T is block diagonal with angular block
-2v(2 − d) − 2b_Kρ_K, and its (dt, dr) block at ρ_K = 0 has characteristic polynomial q_(v,e)(ν) with
+and B(M^μω, ∇_μω′) = B(ω, M^μ∇_μω′) = B(ω, Aω′) − B(ω, 𝒩ω′). The divergence integrates to zero against |dg|, so
+∫(B(Aω, ω′) + B(ω, Aω′))|dg| = ∫(B(ω, 𝒩ω′) − (∇_μB)(M^μω, ω′))|dg|: A + A* is the bundle map S with
+
+    B(Sω, ω′) = B(ω, 𝒩ω′) − (∇_μB)(M^μω, ω′).
+
+We evaluate the two terms. First, B(ω, 𝒩ω′) = ⟨ω, 𝒩ω′⟩ − (1 + e)G⁻¹⟨c, ω⟩⟨c, 𝒩ω′⟩, with
+
+    ⟨ω, 𝒩ω′⟩ = −K(ω′♯, ω♯) − (tr K)⟨ω, ω′⟩ + eK(ω♯, ω′♯),
+    ⟨c, 𝒩ω′⟩ = −K(ω′♯, c♯) − (tr K)⟨c, ω′⟩ + eK(c♯, ω′♯).
+
+Second, ∇_μB = −(1 + e)∇_μ(G⁻¹c♯ ⊗ c♯) with ∂_μG = 2K(∂_μ, c♯); with
+
+    ⟨c, M^μω⟩∂_μ = −Gω♯ − (1 − e)⟨c, ω⟩c♯,     Σ_μ(∇_μc)(M^μω) = −K(ω♯, c♯) − K(c♯, ω♯) + e(tr K)⟨c, ω⟩,
+
+this gives
+
+    (∇_μB)(M^μω, ω′) = −(1 + e)( G⁻¹(K(ω♯, c♯) − K(c♯, ω♯))⟨c, ω′⟩ − (1 − e)G⁻¹⟨c, ω⟩K(c♯, ω′♯) − K(ω♯, ω′♯)
+                        + G⁻²(2(1 − e)K(c♯, c♯) + eG tr K)⟨c, ω⟩⟨c, ω′⟩ ).
+
+In the difference the terms in K(ω♯, ω′♯) and K(ω′♯, ω♯) give −2K_s(ω♯, ω′♯), the terms linear in ⟨c, ω⟩ give
+(1 + e)G⁻¹⟨c, ω⟩F(ω′), those linear in ⟨c, ω′⟩ give (1 + e)G⁻¹⟨c, ω′⟩F(ω), and the rest is the last line of
+[[eq:s14-s]]. So B(Sω, ω′) = s(ω, ω′), which is symmetric. B does not change under c ↦ λc, and every term of s has
+degree 1 in c.
+
+*A stationary radial 1-form on Minkowski space.* Let c = a(r) dt + b(r) dr on 4 + 1 Minkowski space, with a² > b².
+With ∇dt = 0 and ∇dr = r⁻¹Π, Π := dx² − dr ⊗ dr (dx² the Euclidean metric),
+
+    K = a′ dr ⊗ dt + b′ dr ⊗ dr + (b/r)Π,     tr K = b′ + 3b/r,     dc = a′ dr ∧ dt;
+
+and with (dt)♯ = −∂_t, (dr)♯ = ∂_r and c♯ = −a∂_t + b∂_r: G = b² − a², ⟨c, ω⟩ = −aω_t + bω_r,
+F(ω) = a′(bω_t − aω_r) and K(c♯, c♯) = b(bb′ − aa′). K, Π and ⟨c, ·⟩ have no component mixing span{dt, dr} with the
+angular covectors, so S is block diagonal in the splitting by dt, dr and r dω, free of the angles, and scalar on
+r dω, where B = g⁻¹ and s = −(2b/r + tr K)⟨·, ·⟩:
+
+    S = −(b′ + 5b/r)     on r dω.                                                                          {#eq:s14-s-ang}
+
+On span{dt, dr}, in the basis (dt, dr), the matrices of s and B are
+
+    s = (0, a′; a′, −2b′) + (tr K)(1, 0; 0, −1) + (1 + e)a′G⁻¹(−2ab, a² + b²; a² + b², −2ab)
+        + ((1 + e)²G⁻¹ tr K + 2(1 − e²)G⁻²b(bb′ − aa′))(a², −ab; −ab, b²),
+    B = (−1, 0; 0, 1) − (1 + e)G⁻¹(a², −ab; −ab, b²),                                                       {#eq:s14-s-rad}
+
+and S = B⁻¹s, the rows being the components of Sω.
+
+*The critical sets on 𝗌𝖿.* For c = r⁻¹(dt − v dr), a = r⁻¹ and b = −vr⁻¹, so a′ = −r⁻², b′ = vr⁻², tr K = −2vr⁻²,
+G = −(1 − v²)r⁻² and K(c♯, c♯) = −v(1 − v²)r⁻⁴. [[eq:s14-s-rad]] gives
+
+    r²s = (1 − v²)⁻¹ ( 2v(2e² + 3e + v²),  4e²v² + 5ev² + e + 2v² ;  4e²v² + 5ev² + e + 2v²,  2v(1 + e)(2ev² + 1) ),
+    B = (1 − v²)⁻¹ ( e + v²,  (1 + e)v ;  (1 + e)v,  1 + ev² ),     det B = e,
+
+and so
+
+    r²S = (1 − v²)⁻¹ ( v(5 + 3e − 2v²),  1 + 2v² + 3ev² ;  −(3v² + 4ev² − e),  v(1 + e)(1 − 4v²) ) ⊕ 4v Id,
+
+the angular entry being −r²(b′ + 5b/r) = 4v. Next, dw/w = −d dr/r − b_Kρ_K dt/r, so
+T = d rℓ(dr) + b_Kρ_K rℓ(dt) + r²S, and by [[eq:s14-ell]], with rc = dt − v dr,
+
+    rℓ(dr) = ( −2v, 2 ; 2e, −4v + 2ev ) ⊕ (−2v) Id,     rℓ(dt) = ( 2(e − 2), 2ev ; 2v, −2 ) ⊕ (−2) Id.
+
+So T is block diagonal with angular block 2v(2 − d) − 2b_Kρ_K, and its (dt, dr) block at ρ_K = 0, d rℓ(dr) + r²S,
+has characteristic polynomial q_(v,e)(ν) with
 
     q_(v,e)(ν) = ν² − (6v + 4ev − (6 − 2e)vd)ν − (4e(1 + v²) − 8v²)d² − (4e(1 + v²) + 16v²)d + 8v² + 8ev² − e.
 
 At e = 0, q_(v,0)(ν) = (ν − 2v(1 − d))(ν − 4v(1 − d)). At b_K = 0 the terms in ρ_K vanish, and T is the same with
 d = b_sf.
 
-(iii) [[eq:s14-s]] with the stated c, evaluated at r = r_0(1 + xe^(1/2)/v), gives the stated block structure and
-angular entry; its (dt, dr) block has trace and determinant that are rational in (x, e^(1/2), v), equal at e = 0 to 5v
-and 2v²(3 − 2x²), and at (v, e) = (1/2, 1/102400), e^(1/2) = 1/320, to the stated functions. For |x| ≤ 6/5 the
-denominator of tr is negative and its numerator is at most −4194312192000 + 73400524800·(6/5) + 24575920·(36/25) +
-614401·(216/125) < 0, so tr > 0. The denominator of det is positive. Write N(x) = A₀ + A₁x + A₂x² + A₃x³ + A₄x⁴ +
-A₅x⁵ + A₆x⁶ with the coefficients displayed. For |x| ≤ 6/5, A₀ + A₂x² ≥ A₀ + (36/25)A₂ > 8.3·10¹⁷; the function x(A₁ +
-A₃x²) is increasing there, as A₁ + 3A₃x² ≥ A₁ + (108/25)A₃ > 0, so x(A₁ + A₃x²) ≥ −(6/5)(A₁ + (36/25)A₃) > −6.4·10¹⁷;
-and A₄x⁴ + A₅x⁵ + A₆x⁶ > −1.2·10¹⁵. Hence N(x) > 1.8·10¹⁷ > 0. The angular entry is (3x + 80)/(x + 160) > 0. So the
-block, B-self-adjoint with positive trace and determinant, is positive definite.
+(iii) Here a = r_0⁻¹ and b = −v(r − r_0)r_0⁻², so a′ = 0, b′ = −vr_0⁻² and F = 0. Put y := xe^(1/2)/v, so that
+r = r_0(1 + y) and r_0b = −xe^(1/2). Then
+
+    r_0²G = ex² − 1,     r_0² tr K = −v(1 + 4y)/(1 + y),     r_0⁴K(c♯, c♯) = −evx²,
+
+and [[eq:s14-s-rad]] gives, with Λ := (1 + e)²(r_0²G)⁻¹r_0² tr K − 2(1 − e²)(r_0²G)⁻²evx²,
+
+    r_0²s = (0, 0; 0, 2v) + r_0² tr K (1, 0; 0, −1) + Λ(1, xe^(1/2); xe^(1/2), ex²),
+    B = (−1, 0; 0, 1) − (1 + e)(r_0²G)⁻¹(1, xe^(1/2); xe^(1/2), ex²).
+
+By [[eq:s14-s-ang]] the angular entry of r_0²S is v + 5vy/(1 + y) = v(6e^(1/2)x + v)/(e^(1/2)x + v). The trace and the
+determinant of r_0²S = B⁻¹(r_0²s) on span{dt, dr} are therefore rational in (x, e^(1/2), v); their values at e = 0, with
+x fixed, are 5v and 2v²(3 − 2x²), and at (v, e) = (1/2, 1/102400), e^(1/2) = 1/320, they are the stated functions.
+For |x| ≤ 6/5 the denominator of tr is negative and its numerator is at most −4194312192000 + 73400524800·(6/5) +
+24575920·(36/25) + 614401·(216/125) < 0, so tr > 0. The denominator of det is positive. Write N(x) = A₀ + A₁x + A₂x² +
+A₃x³ + A₄x⁴ + A₅x⁵ + A₆x⁶ with the coefficients displayed. For |x| ≤ 6/5, A₀ + A₂x² ≥ A₀ + (36/25)A₂ > 8.3·10¹⁷; the
+function x(A₁ + A₃x²) is increasing there, as A₁ + 3A₃x² ≥ A₁ + (108/25)A₃ > 0, so
+x(A₁ + A₃x²) ≥ −(6/5)(A₁ + (36/25)A₃) > −6.4·10¹⁷; and A₄x⁴ + A₅x⁵ + A₆x⁶ > −1.2·10¹⁵. Hence N(x) > 1.8·10¹⁷ > 0.
+At (v, e) = (1/2, 1/102400) the angular entry is (3x + 80)/(x + 160) > 0. So the block, B-self-adjoint with positive
+trace and determinant, is positive definite, and so is r_0²S.
 
 (iv) By (i) with ζ = ±dr: G(dr) = 1, ⟨c, ±dr⟩ = ∓v(r − r_0)r_0⁻² and G(c) = r_0⁻⁴(−r_0² + v²(r − r_0)²). With w := v²(r
 − r_0)²/r_0² < 1 (c timelike), the second condition of (i) reads 2(1 − e)w > e(1 − w), and for w ≥ e, 2(1 − e)w/(e(1 −
