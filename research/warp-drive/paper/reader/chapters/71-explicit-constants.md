@@ -19,9 +19,8 @@ transition face, whose incoming threshold is non-negative ([[lem:ec-theta-in]], 
 lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds bound what this
 proof's choices produce, not the optimal loss. No upper bound for d is proved: the loss of the forward solution
 operators is fixed by its proof without a value ([[rem:ec-other-losses]]), and the upper bound for d_acc at one choice
-of the weights in [[rem:ec-integer-bound]] is an observation. The same formulas bound δ and λ1 from above in terms of
-d ([[prop:ec-delta-cap]]). The chapter ends with
-the parts of the first constants of the linear theory that are in hand, and with the places where explicit evaluation
+of the weights in [[rem:ec-integer-bound]] is an observation. The same formulas bound λ1 by δ and the modulus of the
+initial family at 2δ in terms of d ([[prop:ec-delta-cap]]). The chapter ends with the parts of the first constants of the linear theory that are in hand, and with the places where explicit evaluation
 stops ([[rem:ec-not-evaluated]]).
 No result of this chapter is used in the proof of any theorem of this paper.
 
@@ -521,30 +520,30 @@ bound for d_acc, and holds for d_NM and N_NM because d_NM ≥ d_acc and N_NM inc
 
 ### What the proof's formulas give for δ and λ1 {#sec:ec-delta}
 
-**Proposition {#prop:ec-delta-cap}** (Upper bounds for δ and λ1.) In the proof of [[thm:settling]], let d be the loss
+**Proposition {#prop:ec-delta-cap}** (The thresholds δ and λ1.) In the proof of [[thm:settling]], let d be the loss
 d_NM with which [[thm:iii-k-3-2]] applies [[thm:ii-g-2-1]] (d ≥ d_acc, [[thm:loss-d]]), and let the Nash–Moser
-threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]. Let C_(2d) and ω_(2d) be the
-constant and the modulus of [[lem:iii-k-2-2]] (d) at the order 2d, in the norm of H^(2d+k′_(2d)), enlarged if
-necessary so that C_(2d) ≥ 1 and ω_(2d)(s) ≥ s, and let the data threshold ε of [[cor:s27-rate]] satisfy
-C_(2d)ω_(2d)(ε) ≤ ε_NM; and let C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
+threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]. Let ε be the data threshold
+of [[cor:s27-rate]], chosen, as in the proof of [[thm:iii-k-3-2]], with ε ≤ s_(2d) and C_(2d)ω_(2d)(ε) ≤ ε_NM, where
+C_(2d) ≥ 1 (enlarged if necessary), s_(2d) and the modulus ω_(2d) are those of [[lem:iii-k-2-2]] (d) at the order 2d
+([[prop:iii-k-1-2]] (3)); and let C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
 
-    δ ≤ 2^(−(32d+9)),        λ1 < δ,        log₁₀ δ < −(59/196)(32d + 9).
+    λ1 < δ,        ω_(2d)(2δ) ≤ 2^(−(32d+8)),        log₁₀ ω_(2d)(2δ) < −(59/196)(32d + 8).
 
-As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives log₁₀ δ < −7.666 × 10¹⁶; the same bound holds for λ1.
+As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives log₁₀ ω_(2d)(2δ) < −7.666 × 10¹⁶. If moreover ω_(2d)(s) ≥ s/A on
+[0, s_(2d)] for some A ≥ 1, then δ ≤ A·2^(−(32d+9)).
 
-*Proof.* Replacing ω_(2d) by s ↦ max(ω_(2d)(s), s) and C_(2d) by max(C_(2d), 1) keeps [[lem:iii-k-2-2]] (d) true and
-keeps ω_(2d) non-decreasing with limit 0 at 0, so the proof of [[thm:iii-k-3-2]] runs with them unchanged. Then
-ε ≤ ω_(2d)(ε) ≤ C_(2d)ω_(2d)(ε) ≤ ε_NM. The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so
-θ_0 ≥ 16 and ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So δ = ½ε ≤ ½ε_NM ≤ 2^(−(32d+9)). The proof of [[thm:settling]]
-([[sec:vii-4]]) takes λ1 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so
+*Proof.* The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
+ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So ω_(2d)(2δ) = ω_(2d)(ε) ≤ ε_NM/C_(2d) ≤ 2^(−(32d+8)). The proof of
+[[thm:settling]] ([[sec:vii-4]]) takes λ1 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so
 2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the binomial expansion, all of whose terms are positive,
 1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, which
-gives the third bound. With d ≥ d_acc > 7.959 × 10¹⁵, (59/196)(32d + 9) > 7.666 × 10¹⁶. ∎
+gives the third bound. With d ≥ d_acc > 7.959 × 10¹⁵, (59/196)(32d + 8) > 7.666 × 10¹⁶. Under the last hypothesis,
+ε/A ≤ ω_(2d)(ε) ≤ 2^(−(32d+8)), so δ = ½ε ≤ A·2^(−(32d+9)). ∎
 
-The bounds hold whatever the other constants are, once C_(2d), ω_(2d) and C_R are enlarged as above, which keeps the
-estimates in which they enter true. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), for the inverse of
-the modulus s ↦ C_(2d)ω_(2d)(s) and for 1/C_R, that is, upper bounds for every constant of the proof that enters them;
-[[rem:ec-not-evaluated]] says where those stop.
+The bounds hold whatever the other constants are, once each constant of an upper bound is taken at least 1, which
+enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), the inverse of ω_(2d) and 1/C_R,
+that is, upper bounds for every constant of the proof that enters them; [[rem:ec-not-evaluated]] says where those
+stop.
 
 ### The loss at the computational point {#sec:ec-integer}
 
@@ -591,7 +590,8 @@ whether that step is read once per exponent or once per exponent and power of th
 result is d_acc ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ (of which the base level's loops contribute 5.75 × 10¹⁴;
 with the calculus at order 10, d_acc = 46,236,501,332,809,678), against the lower bound 8.41 × 10¹⁵ at the same
 weights, and 21d_acc + 6 ≤ 970,966,868,316,550,587 ≈ 9.710 × 10¹⁷, which is a bound for N_NM when d_NM = d_acc; the
-bound of [[prop:ec-delta-cap]], evaluated at d = 46,236,517,538,883,361, reads log₁₀ δ < −4.45 × 10¹⁷. The count
+bound of [[prop:ec-delta-cap]], evaluated at d = 46,236,517,538,883,361, reads log₁₀ ω_(2d)(2δ) < −4.45 × 10¹⁷. The
+count
 depends on the point: the windows of one construction step, ⌈(2 − ε − λ_♯)/𝔡₁⌉ = 1,470,302 at the computational
 point, become about a hundred times as many at e_Υ = 1/10000,
 where 𝔡₁ ≈ 3.33·10⁻⁹, so the bookkeeping gives no bound uniform over the admissible parameters. The integer was
@@ -650,7 +650,8 @@ estimate's condition needs η below about 16.48γ_C^(−1/2) and the condition n
 them.
 
 **Remark {#rem:ec-not-evaluated}** (Where explicit evaluation stops.) The values of λ1 and δ are not determined in this
-paper; [[prop:ec-delta-cap]] bounds them from above, and they are positive by the proof of [[thm:settling]]. Explicit
+paper; [[prop:ec-delta-cap]] bounds λ1 by δ and the modulus at 2δ, and they are positive by the proof of
+[[thm:settling]]. Explicit
 values stop first upstream of every constant: the proof fixes the gauge and damping parameters only below thresholds
 whose existence it proves ([[thm:vi-c-2-1]]), and the cut-offs and orders of its function spaces only up to
 admissibility, so explicit constants need those choices made with numbers, which [[def:ec-point]] does only at a point

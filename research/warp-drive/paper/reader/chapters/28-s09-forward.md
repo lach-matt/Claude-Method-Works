@@ -1089,11 +1089,11 @@ with c_♭ ≥ 1 depending only on t^♭ and the frame.
 
 (a) Let P̃ = Σ_j a_jP_j be the representation of [[def:ii-c-3-6]] ([[def:ii-a-8-3]]), the set of the P_j enlarged, with
 coefficients 0, by the products of at most two fields of a fixed finite set of e3b-vector fields spanning them over
-C^∞(M̃). Let the V^γ be the products of at most two of ∂_(t^♭) and the fields of x above (the empty product being 1). By
-the description of the e3b-vector fields on Ω_2, there P_j = Σ_γ n_(jγ)V^γ and V^γ = Σ_j m_(γj)P_j with n_(jγ), m_(γj) ∈
-C^∞_b, the derivatives of C^∞_b-functions by e3b-vector fields lying in C^∞_b. So P̃ = Σ_γ q′_γV^γ on Ω_* ∩ Ω_2, q′_γ :=
-Σ_j a_j n_(jγ), and E_♭P̃ = Σ_γ (E_♭q′_γ)V^γ. Let ψ ∈ C^∞(ℝ) equal 0 on (−∞, 3/2] and 1 on [2, ∞); ψ(t^♭) ∈ C^∞_b by
-[[lem:ii-f1-2-6]] (a). Then
+C^∞(M̃). Let the V^γ be the products of at most two of ∂_(t^♭) and the fields above whose coefficients depend on x only
+(the empty product being 1). By the description of the e3b-vector fields on Ω_2, there P_j = Σ_γ n_(jγ)V^γ and
+V^γ = Σ_j m_(γj)P_j with n_(jγ) and m_(γj) in C^∞_b, the derivatives of C^∞_b-functions by e3b-vector fields lying in
+C^∞_b. So P̃ = Σ_γ q′_γV^γ on Ω_* ∩ Ω_2, with q′_γ := Σ_j a_j n_(jγ), and E_♭P̃ = Σ_γ (E_♭q′_γ)V^γ. Let ψ ∈ C^∞(ℝ)
+equal 0 on (−∞, 3/2] and 1 on [2, ∞); ψ(t^♭) ∈ C^∞_b by [[lem:ii-f1-2-6]] (a). Then
 
     a^♭_j := ψ(t^♭) a_j + (1 − ψ(t^♭)) Σ_γ m_(γj) E_♭q′_γ
 
