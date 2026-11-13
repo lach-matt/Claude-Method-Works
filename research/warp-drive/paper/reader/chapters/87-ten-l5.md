@@ -635,9 +635,9 @@ follows. For −1 < u < 0, 1 − u⁻² < 0, so ∂_vR < 0, and θ_leaf = 3 ∂_
 Let C_v be an ingoing cone {v = const}. The vector field L̲ := ∂_u + β ∂_x is tangent to C_v, null, and orthogonal to
 every vector tangent to C_v: g(L̲, L̲) = G_x β² − 2G_x β² + G_x β² = 0, g(L̲, ∂_x) = −G_x β + G_x β = 0,
 g(L̲, ∂_φi) = 0 and g(L̲, ∂_v) = −2e^(2W). Its integral curves are the ingoing generators of C_v. A T²-invariant
-section of C_v is a compact T²-invariant C² submanifold S ⊂ C_v of dimension three that meets each generator in a
-compact set D ⊂ C_v exactly once and transversally; then S = {u = Ũ} for a C² function Ũ on D, constant along the
-generators and T²-invariant, and U := u|_S. The leaf through a point of C_v is its intersection with {u = const}, and
+section of C_v is a compact T²-invariant C² submanifold S ⊂ C_v of dimension three that meets every generator of C_v
+exactly once, and transversally; then S = {u = Ũ} for a C² function Ũ on C_v, constant along the generators and
+T²-invariant, and U := u|_S. The leaf through a point of C_v is its intersection with {u = const}, and
 γ denotes its metric. With θ_S its outgoing expansion along the null normal l_S of [[lem:tl5-section]], S is
 marginally outer trapped if θ_S = 0 on S. Its innermost point is a point where U is largest, its outermost point one
 where U is smallest.
@@ -689,7 +689,8 @@ a T²-invariant section of C_v contained in D, with innermost point p and outerm
 
 (c) Suppose S is marginally outer trapped, D contains the segment of the generator of C_v through q from N to q, and
 the segment of the generator through p from p to a point with u > −1. Then θ_leaf has a zero on the first segment and a
-zero on the second; so S lies in the band between the least and the greatest u of the zeros of θ_leaf on C_v ∩ D.
+zero on the second; so S lies in the band between the infimum and the supremum of u over the zeros of θ_leaf on
+C_v ∩ D.
 
 *Proof.* (a) U attains its maximum at p, so p is a critical point and the Hessian of U at p is negative semidefinite,
 whence Δ_S U(p) ≤ 0; [[eq:tl5-section]] gives the first inequality, and the minimum at q the second. (b) If
@@ -697,8 +698,8 @@ whence Δ_S U(p) ≤ 0; [[eq:tl5-section]] gives the first inequality, and the m
 θ_leaf(p) ≥ 0 and θ_leaf(q) ≤ 0. On the second segment θ_leaf is continuous, nonnegative at p and negative at its end
 with u > −1 ([[prop:tl5-leaves]]), so it vanishes at some point with u ≥ u(p). At the end of the first segment on N,
 θ_leaf = 3 ∂_vR/R = (3f/(2R)) ∂_rR > 0 by [[eq:cone-v]] and [[prop:cone-exact]] (a)–(c), which give ∂_rR ≥ 0.967 and
-R > 0 on N; so θ_leaf vanishes at some point of the first segment with u ≤ u(q). Hence u(q) is at least the least zero
-and u(p) at most the greatest, and every point of S has u between them. ∎
+R > 0 on N; so θ_leaf vanishes at some point of the first segment with u ≤ u(q). Hence u(q) is at least that infimum
+and u(p) at most that supremum, and every point of S has u between them. ∎
 
 **Remark {#rem:tl5-second-zero-runs}** (Numerical observation.) On the computed solutions of [[rem:tl5-runs]] the
 leaves' expansion has one zero per angular node along every ingoing cone of the converged region: at the first seed at
@@ -711,11 +712,12 @@ first seed, are tilted against the leaves, and their outgoing expansion reproduc
 least areal radius reached (0.64–0.78), the band of columns along which the rebuilt spheres are untrapped has each edge
 within one column spacing of the Bondi scheme's up to v = 1.525, at two radii of the data cone and two null resolutions,
 and at v = 1.55 the Bondi scheme's band reaches the axis while the rebuilt one stops about four spacings short; from 800
-to 1600 rows of the null grid the rebuilt outer zero changes by at most 0.007 up to v = 1.375, against its difference of
-0.026–0.046 from the Bondi scheme's from v = 1.3, which is consistent with the truncation of the data, halving as the
-radius of the data cone doubles, at two radii; the leaves' own expansion leaves no column untrapped. At the second seed
-the rebuild reaches no sphere below areal radius about 0.5, so the Bondi scheme's second zero there, at 0.21–0.30, is
-neither reproduced nor contradicted. No proof uses these observations.
+to 1600 rows of the null grid the rebuilt outer zero changes by at most 0.007 up to v = 1.375, against its difference
+from the Bondi scheme's from v = 1.3, 0.026–0.046 at the larger radius of the data cone and 0.053–0.106 at the smaller,
+which is consistent with the truncation of the data, halving as the radius of the data cone doubles, at two radii; the
+leaves' own expansion leaves no column untrapped. At the second seed the rebuild reaches no sphere below areal radius
+about 0.5, so the Bondi scheme's second zero there, at 0.21–0.30, is neither reproduced nor contradicted. No proof uses
+these observations.
 
 ### The residuals of two explicit approximants {#sec:tl5-residuals}
 
@@ -1138,7 +1140,7 @@ one these rules give; [[sec:tab-d-tables]] says where they differ.
 ### Continuation beyond the seed {#sec:tl5-beyond}
 
 The following lemma reduces existence beyond the seed to an a priori estimate on the whole region and a closing
-condition.
+condition, assuming the local existence, uniqueness and continuation of the characteristic problem in the gauge.
 
 **Lemma {#lem:tl5-continuation}** (Existence by continuity.) Let u* ∈ (−10, 0) and v* > 1/2, and let smooth
 T²-invariant characteristic data for the vacuum equations of the class in the gauge be given on
@@ -1156,17 +1158,32 @@ finite atlas of [−10, u*] × [1/2, v*] × S³;
 
 (H3) 4AB < 1, and y_(1/2)(g) ≤ A for every solution g.
 
+Suppose moreover that the characteristic initial value problem in the gauge has, for these data, the following three
+properties.
+
+(F1) There are s > 1/2 and a solution on D_s.
+
+(F2) Two solutions on the same D_s coincide.
+
+(F3) A solution on D_s with s < v* is the restriction of a solution on D_(s′) for some s′ > s.
+
 Then there is a solution g on D, and y_σ(g) ≤ 2A for every σ ∈ [1/2, v*].
 
-The proof uses three properties of the characteristic initial value problem in the gauge. (F1) For smooth data as in
-the lemma there is s > 1/2 and a solution on D_s. (F2) Two solutions on D_s coincide. (F3) A solution on D_s with
-s < v* is the restriction of a solution on D_(s′) for some s′ > s. [[thm:std-ctg-neighbourhood]] gives the geometric
-part of each: the maximal globally hyperbolic development of the data, and that of the data induced by a solution on
-{v = s} ∩ D and on N₁ ∩ {v ≥ s}, which meet transversally at the sphere {u = −10, v = s}, contains a future
-neighbourhood of the two characteristic hypersurfaces. The remaining steps, that the T² action of the data extends to
-the development by the uniqueness of the maximal development, that the double-null gauge is built on such a
-neighbourhood and covers D_(s′) for some s′ > s, and that a solution in the gauge is determined by its data, are
-standard and are not written out here [[pending:issue-2]].
+(F1)–(F3) are the local existence, uniqueness and continuation of the characteristic problem in the gauge. For smooth
+data, [[thm:std-ctg-neighbourhood]] gives a vacuum development containing a future neighbourhood of N₀ ∪ N₁, and
+likewise for the data that a solution on D_s induces on {v = s} ∩ D and on N₁ ∩ {v ≥ s}, which meet transversally at
+the sphere {u = −10, v = s}. Three further facts would give (F1)–(F3) from it: that the T² action of the data and the
+reflections φ1 ↦ −φ1 and φ2 ↦ −φ2 extend to isometries of the development, which puts the metric in the form of the
+class; that double-null coordinates on that neighbourhood, with u constant on the outgoing null hypersurfaces through
+the leaves of N₀, v constant on the ingoing ones through the leaves of N₁, and x, φ1 and φ2 constant along the
+outgoing generators and equal on N₀ to those of the data, cover a region D_(s′) with s′ > s; and that a solution in the
+gauge is determined by its data. The first and the third rest on the uniqueness, up to isometry, of the vacuum
+development of characteristic data on a neighbourhood of the whole of the two hypersurfaces, which no result quoted in
+[[app:standard-results]] provides. [CP12, Section 4.3, p. 16] writes of the characteristic problem that "Here
+uniqueness is understood locally, though again it is clear that unique maximal globally hyperbolic developments should
+exist in the current context", and the proof of [CCTW16, Theorem 5.3, p. 55] notes that "the question, whether a
+unique such maximal domain exists is irrelevant for our purposes". So (F1)–(F3) are hypotheses of the lemma. No proof
+in this paper uses the lemma.
 
 *Proof.* First, if 4AB < 1 and y ≥ 0 satisfies y ≤ A + By², then y ∉ (2A, 1/(2B)), and if moreover y ≤ 2A then
 y ≤ A + 4A²B < 2A. Indeed q(y) := By² − y + A is convex with q(2A) = A(4AB − 1) < 0 and q(1/(2B)) =
@@ -1178,10 +1195,10 @@ s ∈ I and 1/2 < s′ < s, then s′ ∈ I, by restriction.
 I is not empty. By (F1) there is a solution g on some D_(s₁); y_(1/2)(g) ≤ A < 2A by (H3), and y_σ(g) is continuous in
 σ, so y_σ(g) ≤ 2A on [1/2, s₂] for some s₂ ∈ (1/2, s₁], and s₂ ∈ I.
 
-I is open in (1/2, v*]. Let s ∈ I with s < v*, and g the solution on D_s. For σ ∈ [1/2, s] the restriction of g to D_σ
-is a solution on D_σ, so (H1) and y_σ(g) ≤ 2A give y_σ(g) ≤ A + 4A²B < 2A. By (F3), g is the restriction of a
-solution g′ on some D_(s′), s′ > s, and since y_σ(g′) is continuous in σ and y_s(g′) = y_s(g) < 2A, y_σ(g′) ≤ 2A on
-[1/2, s″] for some s″ ∈ (s, s′]. So s″ ∈ I.
+I is open in (1/2, v*]. Let s ∈ I with s < v*, and g the solution on D_s. For σ ∈ (1/2, s] the restriction of g to D_σ
+is a solution on D_σ, so (H1) and y_σ(g) ≤ 2A give y_σ(g) ≤ A + 4A²B < 2A; at σ = 1/2, y_(1/2)(g) ≤ A by (H3). By
+(F3), g is the restriction of a solution g′ on some D_(s′), s′ > s, and since y_σ(g′) is continuous in σ and
+y_s(g′) = y_s(g) < 2A, y_σ(g′) ≤ 2A on [1/2, s″] for some s″ ∈ (s, s′]. So s″ ∈ I.
 
 I is closed. Let s_n ∈ I increase to s̄ ≤ v*, with solutions g_n on D_(s_n). By (F2), g_m restricted to D_(s_n)
 is g_n for m ≥ n, so the g_n define a smooth metric g on D ∩ {v < s̄}, with y_σ(g) ≤ 2A for σ < s̄. By (H2) the
@@ -1195,9 +1212,9 @@ y_(s̄) ≤ 2A by the continuity of y_σ. Hence s̄ ∈ I.
 So I = (1/2, v*], and v* ∈ I is the claim. ∎
 
 In an application y_σ(g) is a norm of g − ĝ on D_σ, ĝ an explicit approximant on D, and (H1) is an a priori estimate
-with A = F r and B = F G: r is the size of the residual of ĝ, F the constant of a linear estimate for the problem
+with A = F ε_r and B = F G: ε_r is the size of the residual of ĝ, F the constant of a linear estimate for the problem
 linearised about ĝ, and G the constant of its quadratic remainder. The condition 4AB < 1 of (H3) is then the closing
-condition 4F²G r < 1.
+condition 4F²G ε_r < 1.
 
 **Remark {#rem:tl5-beyond}** (Why no existence is claimed beyond the seed.) [[lem:tl5-continuation]] concerns smooth
 data. The data of [[def:tl5-problem]] are not smooth: env is C³ and not C⁴ at v = 1/2 and v = 7/2
