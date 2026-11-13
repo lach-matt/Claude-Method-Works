@@ -1595,8 +1595,8 @@ The new terms are again compatible: a companion a^((j))h̆^j has the exponent z 
 coefficients, which are independent of b ((P3)) or, for ġ_b, smooth in b; so the bounds are uniform on ℬ̄_*. ∎
 
 **Corollary {#cor:iii-i15-2-10}** ([[thm:iii-i12-3-1]] at b.) Let α > 4 be admissible, b ∈ ℬ̄_*, and (h, p⃗) a small
-base point with black hole parameter b. Let G ∈ 𝒴^♮(α), let u_0 be the forward solution of L_(h,p⃗)u_0 = G, and let
-u = u_0 − Σ_(ν∈𝒩″) m_ν(W_ν), where 𝒩″ is a finite set of rows of 𝒩 and of rotation rows
+base point with black hole parameter b. Let G ∈ 𝒴^♮(α−) := ⋂_(ε>0) 𝒴^♮(α − ε), let u_0 be the forward solution of
+L_(h,p⃗)u_0 = G, and let u = u_0 − Σ_(ν∈𝒩″) m_ν(W_ν), where 𝒩″ is a finite set of rows of 𝒩 and of rotation rows
 m_ν(W) = χ_K T_(v1,b)(a_ν W), a_ν = t_*^(−λ)(log t_*)^k, (λ, k) ∈ ℰ_♯ ∩ {Re ≤ 2}, W ∈ 𝒱_(1,ℂ) ([[def:iii-i14-1-3]]).
 Suppose that u has the K⁺-weight α − 2 − ε and the ι⁺- and ℐ⁺-data of [[eq:iii-i11-4-2]]. Then
 [[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]] hold at b, uniformly in b, with h^(≤1)_(b,s1), ġ_b and the towers T_(ψ,b) at b in
@@ -1610,11 +1610,18 @@ place of those at b_0, the v1 tower being T_(v1,b). Two changes are needed:
   vanish. The space [[eq:iii-i12-3-2]] admits this coefficient (w_v1 = 3 + η_2 − 2ε), and L_b of it has K⁺-order
   α_κ + 5 > α.
 
-The solution of [[thm:iii-i11-4-1]] at b_0 and the solution of [[prop:iii-i15-2-5]] with q = 0 at b are of this form,
-by [[lem:iii-i9-2-6]] (c) and [[eq:iii-i15-1-1]].
+The solution of [[thm:iii-i11-4-1]] at b_0 and the solution of [[prop:iii-i15-2-5]] at b are of this form: the first by
+[[lem:iii-i9-2-6]] (c), its forcing lying in 𝒴⁰(α) ⊂ 𝒴^♮(α−); the second by [[lem:iii-i9-2-6]] (e), the identity
+[[eq:iii-i15-1-1]], whose added source E^ν lies in 𝒴^♮_2(α−), its forcing lying in 𝒴^♮(α−) by Step 2 of the proof of
+[[prop:iii-i15-2-5]].
 
 *Proof.* The proof of [[thm:iii-i12-3-1]] uses its setting only through the hypothesis stated here (the remark after
-that proof), with [[prop:iii-i13-2-4]] for G ∈ 𝒴^♮(α). Step 0 at b: [[lem:iii-i13-2-2]] at β = α gives
+that proof). It uses G through the decomposition of its Step 0 and, in its Steps 2 and 5, through the statement that
+the ι⁺-exponents produced lie in ℰ_♯. For G ∈ 𝒴^♮(α−) both hold at b. For G ∈ 𝒴^♮(α) they follow by the argument of
+the proof of [[prop:iii-i13-2-4]], whose inputs hold at b: [[lem:iii-i13-1-3]] concerns only Λ, ℰ_♯ and ℰ^♮, which do
+not depend on b, and [[prop:iii-i13-2-1]] and [[lem:iii-i13-2-2]] are stated at b. The passage to the order α− is the
+argument of the proof of [[lem:iii-i14-2-5]], which uses of the base point only the indicial roots and the transition
+face propositions, uniform in b by [[lem:iii-i15-1-1]] (P2), (P4). Step 0 at b: [[lem:iii-i13-2-2]] at β = α gives
 u_0 = u_I + u_ι + v as there, the spacetime and spectral v1 terms u^rot_ι and v^rot being polyhomogeneous towers of the
 types (ii) and (vi) of Step 1; and L_b u has K⁺-order α − ε by the tower relations, L_b m_ν involving only the top of
 the tower for the rotation rows as for the other rows (of K⁺-order Re λ + 4 > α). Step 1 is unchanged at b: its pieces

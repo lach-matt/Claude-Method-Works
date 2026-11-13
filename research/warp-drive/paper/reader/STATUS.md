@@ -51,7 +51,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | file | written | reading |
 |---|---|---|
 | P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | NOT CONFIRMED 2M 4m 9n; fix running |
-| P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | NOT CONFIRMED 0M 5m 7n; fix running |
+| P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | NOT CONFIRMED 0M 5m 7n; fixed; confirming reader running |
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | running |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | running |
 | P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | running; every-h and remote roots: P-A3 being written |

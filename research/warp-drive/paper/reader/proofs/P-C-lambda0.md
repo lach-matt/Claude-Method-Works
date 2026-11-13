@@ -107,37 +107,130 @@ The seven printed values for n = 1, …, 7 sum to 0.747713403759, so T_(1/8) = (
 *The constant.* c² = 35/(64 I). Now 1.3240867² · 64 · 0.3119286 < 35 < 1.3240879² · 64 · 0.3119281, which is
 [[eq:envelope-c]]. ∎
 
-**Lemma {#lem:envelope-derivatives}** (Derivatives of the envelope.) Let e_k := sup_ℝ |env^(k)|. Then e_0 = c, and
+**Lemma {#lem:envelope-derivatives}** (Derivatives of the envelope.) For k = 0, …, 14 let e_k := sup_ℝ |env^(k)| and
+S_k := sup_ℝ |β^(k)|. Then e_k = c (2/3)^k S_k, and:
 
-    e_k ≤ 10.55 · 2^k · k!   for 1 ≤ k ≤ 13,          e_14 ≤ 2.88 · 10¹⁶.                {#eq:envelope-derivatives}
+(a) for even k, S_k = |β^(k)(0)|, where
 
-In numbers: e_1 ≤ 21.1, e_2 ≤ 84.4, e_3 ≤ 507, e_4 ≤ 4052, e_5 ≤ 4.06 · 10⁴, e_6 ≤ 4.87 · 10⁵, e_7 ≤ 6.81 · 10⁶,
-e_8 ≤ 1.09 · 10⁸, e_9 ≤ 1.97 · 10⁹, e_10 ≤ 3.93 · 10¹⁰, e_11 ≤ 8.63 · 10¹¹, e_12 ≤ 2.07 · 10¹³, e_13 ≤ 5.39 · 10¹⁴.
+    β(0) = 1,     β''(0) = −2 − 3π²,     β⁽⁴⁾(0) = −12 + 36π² + (51/2)π⁴,
+    β⁽⁶⁾(0) = −120 + 540π² − 765π⁴ − (681/2)π⁶,
+    β⁽⁸⁾(0) = 1680 + 10080π² − 21420π⁴ + 19068π⁶ + 5988π⁸,
+    β⁽¹⁰⁾(0) = 574560 − 226800π² − 642600π⁴ + 858060π⁶ − 538920π⁸ − 127128π¹⁰,
+    β⁽¹²⁾(0) = 100457280 − 113762880π² + 21205800π⁴ + 37754640π⁶ − 35568720π⁸ + 16780896π¹⁰
+               + (12368577/4)π¹²,
+    β⁽¹⁴⁾(0) = 18871332480 − 27424837440π² + 14665931280π⁴ − 1717836120π⁶ − 2157835680π⁸
+               + 1527061536π¹⁰ − (1125540507/2)π¹² − (332780187/4)π¹⁴;                              {#eq:beta-even}
 
-*Proof.* e_0 = c by [[lem:envelope-constant]] (a), and env^(k)(v) = c (2/3)^k β^(k)(y), y = (2v − 4)/3, so it suffices
-to show sup |β^(k)| ≤ 7.964 · 3^k · k! for k ≤ 13 and sup |β^(14)| ≤ 7.27 · 10⁷ · 14!; indeed 7.964 c < 10.55, and
-c (2/3)¹⁴ · 7.27 · 10⁷ · 14! < 2.88 · 10¹⁶. On ℂ minus {±1}, β(ζ) = cos¹²(πζ/2) exp(1 − 1/(1 − ζ²)) is holomorphic,
-and for a closed disc D(y, ρ) avoiding ±1 Cauchy's estimate gives |β^(k)(y)| ≤ k! ρ^(−k) max_(D(y,ρ)) |β|. With
-ζ = a' + i b', |cos(πζ/2)|² = cos²(πa'/2) + sinh²(πb'/2), and |exp(1 − 1/(1 − ζ²))| = exp(1 − Re 1/(1 − ζ²)).
-β is even, so take y ≥ 0.
+(b) for odd k, |β^(k)(m_k)| ≤ S_k ≤ |β^(k)(m_k)| + β^(k+1)(m_k)²/(2ν_k), with the points m_k and the numbers ν_k > 0
+of [[sec:envelope-table-peaks]]; the two ends differ by less than 5 · 10⁻⁸ S_k;
 
-*The middle, 0 ≤ y ≤ 2/3.* Take ρ < 1/3. Then D(y, ρ) lies in the open unit disc, so ζ² does, and w ↦ 1/(1 − w) maps
-the open unit disc onto Re > 1/2; hence |exp(1 − 1/(1 − ζ²))| < e^(1/2). Also |b'| < 1/3, so |cos(πζ/2)|¹² ≤
-cosh¹²(π/6) < 4.8302. So |β^(k)(y)| ≤ k! ρ^(−k) · 1.64873 · 4.8302, and letting ρ → 1/3, |β^(k)(y)| ≤ 7.964 · 3^k k!.
+(c) in numbers, with 1.3240867 < c < 1.3240879 ([[eq:envelope-c]]),
 
-*The end, 2/3 ≤ y < 1.* Put t := 1 − y ∈ (0, 1/3] and take ρ < t. On D(y, ρ), 1 − ζ lies in the disc of centre t and
-radius ρ, whose image under w ↦ 1/w has real parts at least 1/(t + ρ) > 1/(2t); and 1 + ζ lies in the disc of centre
-2 − t and radius ρ < t, so Re 1/(1 + ζ) ≥ 1/2. As 1/(1 − ζ²) = (1/2)(1/(1 − ζ) + 1/(1 + ζ)), Re 1/(1 − ζ²) ≥
-1/(4t) + 1/4, and |exp(1 − 1/(1 − ζ²))| ≤ e^(3/4 − 1/(4t)). Next a' ∈ [1 − 2t, 1] ⊂ [1/3, 1], so cos²(πa'/2) ≤
-cos²(π(1 − 2t)/2) = sin²(πt) ≤ π² t²; and |b'| < t ≤ 1/3, so, sinh x/x being increasing, sinh²(πb'/2) ≤ (πt/2)²
-(sinh(π/6)/(π/6))² ≤ (πt/2)² · 1.0948. Hence |cos(πζ/2)|² ≤ π² t² (1 + 1.0948/4) < 12.58 t², and with ρ → t,
+    k    S_k                                   e_k                             e_k ≤
+    0    1                                     c                               1.3241
+    1    [3.485522216, 3.485522219]            [3.076755, 3.076759]            3.077
+    2    31.60881320…                          [18.60124, 18.60127]            18.61
+    3    [244.0561121, 244.0561124]            [95.74857, 95.74867]            95.75
+    4    2827.237579…                          [739.4583, 739.4590]            739.5
+    5    [29624.95630, 29624.95632]            [5165.565, 5165.570]            5166
+    6    3.966613886… · 10⁵                    [46109.32, 46109.38]            4.611 · 10⁴
+    7    [4.956575167, 4.956575169] · 10⁶      [3.841132, 3.841137] · 10⁵      3.842 · 10⁵
+    8    7.316375574… · 10⁷                    [3.779917, 3.779922] · 10⁶      3.780 · 10⁶
+    9    [1.027395856, 1.027395858] · 10⁹      [3.538611, 3.538615] · 10⁷      3.539 · 10⁷
+    10   1.625817745… · 10¹⁰                   [3.733152, 3.733156] · 10⁸      3.734 · 10⁸
+    11   [2.479629522, 2.479629524] · 10¹¹     [3.795765, 3.795769] · 10⁹      3.796 · 10⁹
+    12   4.129317080… · 10¹²                   [4.214048, 4.214053] · 10¹⁰     4.215 · 10¹⁰
+    13   [6.690168788, 6.690169106] · 10¹³     [4.551631, 4.551637] · 10¹¹     4.552 · 10¹¹
+    14   1.157013734… · 10¹⁵                   [5.247800, 5.247806] · 10¹²     5.248 · 10¹²   {#eq:envelope-derivatives}
 
-    |β^(k)(y)| ≤ k! · 12.58⁶ e^(3/4) · t^(12−k) e^(−1/(4t)).
+where a bracket is an enclosure and a value ending in … is truncated.
 
-For k ≤ 12 the function t^(12−k) e^(−1/(4t)) increases on (0, 1/3], so the bound is at most k! 12.58⁶ 3^(k−12) <
-7.46 · 3^k k!. For k = 13, t⁻¹ e^(−1/(4t)) ≤ 4/e (its maximum, at t = 1/4), and 12.58⁶ e^(3/4) · 4/e < 1.24 · 10⁷ <
-7.964 · 3¹³. For k = 14, t⁻² e^(−1/(4t)) ≤ 64/e² (its maximum, at t = 1/8), and 12.58⁶ e^(3/4) · 64/e² < 7.27 · 10⁷,
-which exceeds 7.964 · 3¹⁴ and so governs k = 14. ∎
+*Proof.* Since env^(k)(v) = c (2/3)^k β^(k)((2v − 4)/3), e_k = c (2/3)^k S_k. β is even and vanishes with all its
+derivatives on |y| ≥ 1 ([[lem:envelope-constant]] (a)), so |β^(k)| is even and S_k is its supremum over [0, 1); and
+S_0 = β(0) = 1, since 0 ≤ β ≤ 1. The rest of the proof has five steps.
+
+*Step 1: the Taylor coefficients.* For 0 ≤ m < 1 let β_n(m) := β^(n)(m)/n!, and let γ_i(m) and ψ_j(m) be the Taylor
+coefficients at m of cos¹²(πy/2) and of ψ(y) := exp(−y²/(1 − y²)). Then β_n = Σ_(i=0)^n γ_i ψ_(n−i), with
+
+    γ_0(m) = 2⁻¹² (924 + 2 Σ_(l=1)^6 C(12, 6 − l) cos(lπm)),
+    γ_i(m) = 2⁻¹¹ Σ_(l=1)^6 C(12, 6 − l) (lπ)^i cos(lπm + iπ/2)/i!   (i ≥ 1),
+    ψ_0(m) = exp(−m²/(1 − m²)),
+    (n + 1) q_0 ψ_(n+1)(m) = −2m ψ_n(m) − 2ψ_(n−1)(m) − Σ_(i=1)^4 (n + 1 − i) q_i ψ_(n+1−i)(m), n ≥ 0, {#eq:taylor-beta}
+
+where C(12, 5), …, C(12, 0) = 792, 495, 220, 66, 12, 1, ψ_j := 0 for j < 0, p := 1 − m², and q_0 = p², q_1 = −4mp,
+q_2 = 4m² − 2p, q_3 = 4m, q_4 = 1. Indeed cos¹²x = 2⁻¹² (924 + 2 Σ_l C(12, 6 − l) cos 2lx), by the binomial expansion
+of ((e^(ix) + e^(−ix))/2)¹², and cos(lπ(m + t)) = Σ_i (lπ)^i cos(lπm + iπ/2) t^i/i!. The function ψ satisfies
+(1 − y²)² ψ' = −2y ψ on (−1, 1), and (1 − (m + t)²)² = Σ_(i=0)^4 q_i t^i; comparing the coefficients of t^n in this
+equation at y = m + t gives the recursion. So each β_n(m) is a finite expression in exp(−m²/(1 − m²)), cos(lπm) and
+sin(lπm) (l ≤ 6), π and rationals. At m = 0 the odd coefficients vanish, γ_0(0) = 1,
+
+    γ_(2i)(0) = (−1)^i π^(2i) (792 + 495 · 4^i + 220 · 9^i + 66 · 16^i + 12 · 25^i + 36^i)/(2¹¹ (2i)!)   (i ≥ 1),
+
+and ψ_(2j)(0) = L_j := Σ_(r=1)^j (−1)^r C(j − 1, r − 1)/r! for j ≥ 1, L_0 = 1, since exp(−w/(1 − w)) =
+Σ_r (−w)^r (1 − w)^(−r)/r! with w = y². Hence β^(2j)(0) = (2j)! Σ_(i=0)^j γ_(2i)(0) L_(j−i), which is [[eq:beta-even]];
+for instance L_1 = −1, γ_2(0) = −(3/2)π², and β''(0) = 2(γ_2(0) + L_1) = −2 − 3π². The entries of
+[[sec:envelope-table-nodes]] are the values of [[eq:taylor-beta]] at thirty nodes m, for n ≤ 30.
+
+*Step 2: Cauchy's inequality.* Let 0 < ρ < 1 − m. The closed disc D(m, ρ) ⊂ ℂ avoids ±1, β(ζ) = cos¹²(πζ/2)
+exp(1 − 1/(1 − ζ²)) is holomorphic near it, and |β| ≤ M(m, ρ) on it, where
+
+    M(m, ρ) := (cos²((π/2) max(m − ρ, 0)) + sinh²(πρ/2))⁶ exp(1 − (1/2)(1/(1 − m + ρ) + 1/(1 + m + ρ))).   {#eq:cauchy-m}
+
+Indeed, for ζ = a' + i b' in D(m, ρ), |cos(πζ/2)|² = cos²(πa'/2) + sinh²(πb'/2) with |b'| ≤ ρ and a' ∈ [m − ρ, m + ρ] ⊂
+(−1, 1), on which cos²(πa'/2) is largest at the point nearest 0. Next, 1/(1 − ζ²) = (1/2)(1/(1 − ζ) + 1/(1 + ζ)), where
+1 − ζ and 1 + ζ lie in the closed discs of radius ρ about 1 − m and 1 + m; and w ↦ 1/w maps the closed disc of radius
+ρ about p > ρ onto the disc with real diameter [1/(p + ρ), 1/(p − ρ)]. So Re 1/(1 − ζ²) ≥ (1/2)(1/(1 − m + ρ) +
+1/(1 + m + ρ)), and |exp(1 − 1/(1 − ζ²))| = exp(1 − Re 1/(1 − ζ²)). By Cauchy's inequality, |β_n(m)| ≤ M(m, ρ) ρ^(−n)
+for every n.
+
+*Step 3: the cells.* Let 0 < h < ρ < 1 − m and x := h/ρ. The Taylor series of β at m converges on D(m, ρ), so
+β^(k)(m + t) = k! Σ_(n≥k) C(n, k) β_n(m) t^(n−k) for |t| ≤ h. Bounding the terms with n ≤ 30 by their absolute values
+and those with n > 30 by Step 2, and using Σ_(n≥k) C(n, k) x^(n−k) = (1 − x)^(−k−1),
+
+    sup_(|t|≤h) |β^(k)(m + t)| ≤ Γ_k := k! (Σ_(n=k)^30 C(n, k) |β_n(m)| h^(n−k)
+                       + M(m, ρ) ρ^(−k) ((1 − x)^(−k−1) − Σ_(n=k)^30 C(n, k) x^(n−k))).                 {#eq:cell-bound}
+
+[[sec:envelope-table-cells]] lists twenty-three cells [m − h, m + h] ∩ [0, 1) whose union is [0, 0.984], with their Γ_k.
+
+*Step 4: the peak intervals.* Fix k and the data m_k, h_k < ρ_k of [[sec:envelope-table-peaks]], let x := h_k/ρ_k,
+M_k := M(m_k, ρ_k), and write u, u′, u″ for the values of β^(k), β^(k+1), β^(k+2) at m_k. The argument of Step 3
+applied to β^(k+2), with its constant term left out, gives for |t| ≤ h_k
+
+    |β^(k+2)(m_k + t) − u″| ≤ R_k := (k + 2)! (Σ_(n=k+3)^30 C(n, k + 2) |β_n(m_k)| h_k^(n−k−2)
+                    + M_k ρ_k^(−k−2) ((1 − x)^(−k−3) − Σ_(n=k+2)^30 C(n, k + 2) x^(n−k−2))).         {#eq:peak-remainder}
+
+Let σ be the sign of u. [[sec:envelope-table-peaks]] shows σu″ < 0 and ν_k = |u″| − R_k > 0; so σβ^(k+2) ≤ −ν_k
+and |β^(k+2)| ≤ G_k on J_k = [m_k − h_k, m_k + h_k] ∩ [0, 1). By Taylor's formula with integral remainder, for |t| ≤ h_k,
+
+    σβ^(k)(m_k + t) ≤ |u| + σu′t − ν_k t²/2 ≤ |u| + u′²/(2ν_k),     σβ^(k)(m_k + t) ≥ |u| − |u′| h_k − G_k h_k²/2 = w_k,
+
+and that table shows w_k > −|u|. So |β^(k)| ≤ |u| + u′²/(2ν_k) on J_k, and |β^(k)(m_k)| = |u|. For even k, m_k = 0 and
+u′ = β^(k+1)(0) = 0, so the supremum of |β^(k)| over J_k is exactly |β^(k)(0)|.
+
+*Step 5: the end.* Let 0.984 ≤ y < 1, t := 1 − y ≤ 0.016 and 0 < ρ < t. On D(y, ρ), 1 − ζ lies in the disc of radius ρ
+about t, so Re 1/(1 − ζ) ≥ 1/(t + ρ) > 1/(2t), and 1 + ζ in the disc of radius ρ < t about 2 − t, so Re 1/(1 + ζ) ≥
+1/2; hence |exp(1 − 1/(1 − ζ²))| ≤ e^(3/4 − 1/(4t)). Also Re ζ ∈ (1 − 2t, 1) ⊂ [1/3, 1], so cos²(π Re ζ/2) ≤
+sin²(πt) ≤ π²t², and |Im ζ| < t ≤ 1/3, so, sinh s/s being increasing, sinh²(π Im ζ/2) ≤ (πt/2)² (sinh(π/6)/(π/6))² ≤
+1.0948 (πt/2)². So |cos(πζ/2)|² ≤ π²t² (1 + 1.0948/4) < 12.58 t², and Cauchy's estimate with ρ → t gives
+
+    |β^(k)(y)| ≤ k! 12.58⁶ e^(3/4) t^(12−k) e^(−1/(4t)).
+
+For k ≤ 14, t^(12−k) e^(−1/(4t)) increases on (0, 1/8], so on [0.984, 1) the bound is at most k! 12.58⁶ e^(3/4)
+(0.016)^(12−k) e^(−15.625). This is below 4.68 · 10¹⁴ < 0.41 S_14⁻ at k = 14, below 5.35 · 10¹¹ < 0.008 S_13⁻ at
+k = 13, and below 2 · 10⁻⁴ S_k⁻ for k ≤ 12, with S_k⁻ the lower ends of [[sec:envelope-table-peaks]].
+
+*Conclusion.* For each k, every cell of [[sec:envelope-table-cells]] either lies in J_k or has Γ_k < S_k⁻ ≤ |u|, and
+the cells cover [0, 0.984]. With Steps 4 and 5, S_k is the supremum of |β^(k)| over J_k, which lies between |u| and
+|u| + u′²/(2ν_k), and equals |β^(k)(0)| for even k. This is (a) and (b); the enclosures [S_k⁻, S_k⁺] of
+[[sec:envelope-table-peaks]] and the bounds on c give (c). ∎
+
+A reader checks this proof row by row: each entry of [[sec:envelope-table-nodes]] from [[eq:taylor-beta]] (one
+exponential and twelve trigonometric values per node, then the recursion and a convolution); each Γ_k of
+[[sec:envelope-table-cells]] from [[eq:cell-bound]] with the entries of that cell's node and the value of
+[[eq:cauchy-m]]; each line of [[sec:envelope-table-peaks]] from [[eq:peak-remainder]]; and the comparisons Γ_k < S_k⁻,
+σu″ < 0, ν_k > 0 and w_k > −|u_k|, which are comparisons of printed decimals. The closest comparison is Γ_14 =
+1.143 · 10¹⁵ on [0.175, 0.205] against S_14⁻ = 1.157013733 · 10¹⁵. For even k the value S_k itself is checked from
+[[eq:beta-even]] alone.
 
 **Remark {#rem:envelope-dependence}** (Which end of c each bound uses.) The two ends of [[eq:envelope-c]] enter different
 bounds. (i) The lower end enters every bound on λ0 at the numerical point that rests on the size of the wave: at the
