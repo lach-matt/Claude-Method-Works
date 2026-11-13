@@ -1,74 +1,74 @@
 label	source	source_name	note
 ch:s07	docket68/n1star/proof5/PART-II-E-ENERGY.md:12-35; docket68/n1star/BEYOND5-R0-PROOF.md:92-133	II.E status sentence 12-17 (mathematical content only), Method, Organisation; R0P section 2	status paragraph 3-11 dropped; inner radius stated as a parameter per R0P section 2 (the constant at II.E:565)
 sec:ii-e-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:37	II.E section 1	heading
-sec:ii-e-1-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:39-74	II.E section 1.1
+sec:ii-e-1-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:39-74; docket68/n1star/proof5/PART-II-F2-TAME.md:139-186	II.E section 1.1; II.F1 Lemma 2.1 (b)	"weakly admissible" stated as conditions (1)-(2) of def:ii-c-3-3, (3) not assumed (no proof of II.E uses it)
 sec:ii-e-1-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:76-102	II.E section 1.2	n = 3 remark (100-102) merged with (E1) of the dropped tail (1209-1213)
-lem:ii-e-1-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:78-98	II.E Lemma 1.1
-eq:ii-e-1-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:79-80	II.E (1.1)
-sec:ii-e-1-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:104-111	II.E section 1.3	reason of (E2) (1215-1220) folded into the remark
-eq:ii-e-1-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:109	II.E (1.2)
-sec:ii-e-1-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:113-156	II.E section 1.4
+lem:ii-e-1-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:78-98	II.E Lemma 1.1	p_1 written as S|dX + p~_1 (its definition sits inside condition (3) of def:ii-c-3-3)
+eq:ii-e-1-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:79-80	II.E (1.1)	
+sec:ii-e-1-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:104-111; docket68/n1star/proof5/PART-II-E-ENERGY.md:1215-1220; docket68/n1star/proof5/PART-II-F2-TAME.md:160-183	II.E section 1.3 with (E2); construction of h_I as in II.D Prop 3.6 and II.F1 Lemma 2.1 (b)	(E2) written as mathematics: only the positivity of 4 Re p_1 - 2 - 4 alpha is used; Im p_1 and p_0 enter without smallness; condition (3) of def:ii-c-3-3 not used
+eq:ii-e-1-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:109	II.E (1.2)	
+sec:ii-e-1-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:113-156	II.E section 1.4	
 lem:ii-e-1-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:118-156	II.E Lemma 1.2	delta_0 of (iv) renamed delta_natural (collides with Part I's collar width delta_0 in the same statement)
 sec:ii-e-1-5	docket68/n1star/proof5/PART-II-E-ENERGY.md:158-229	II.E section 1.5	tag (D326) at 173 deleted; (E8) folded as one sentence after Lemma 1.3
 lem:ii-e-1-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:179-229	II.E Lemma 1.3	functional lambda renamed Lambda (lambda is the wavelength)
 sec:ii-e-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:231	II.E section 2	heading
-sec:ii-e-2-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:233-287	II.E section 2.1
+sec:ii-e-2-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:233-287	II.E section 2.1	
 lem:ii-e-2-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:245-260	II.E Lemma 2.1	"C^N-valued" written as values in the fibre
-eq:ii-e-2-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:248-249	II.E (2.1)
-lem:ii-e-2-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:262-273	II.E Lemma 2.2
+eq:ii-e-2-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:248-249	II.E (2.1)	
+lem:ii-e-2-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:262-273	II.E Lemma 2.2	
 lem:ii-e-2-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:275-287	II.E Lemma 2.3	vector field N renamed Y and the auxiliary Y renamed Y_Phi (N reserved for the approximant)
-eq:ii-e-2-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:279	II.E (2.2)
-sec:ii-e-2-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:289-438	II.E section 2.2
+eq:ii-e-2-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:279	II.E (2.2)	
+sec:ii-e-2-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:289-438	II.E section 2.2	
 lem:ii-e-2-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:298-327; docket68/n1star/proof5/PART-II-E-ENERGY.md:1255-1258	II.E Lemma 2.4 with (E9)	"also checked symbolically" replaced by the term-by-term expansion of 2K; the source's intermediate xi^2 line (317) is garbled, its final coefficients agree with the expansion
 lem:ii-e-2-5	docket68/n1star/proof5/PART-II-E-ENERGY.md:329-405	II.E Lemma 2.5	delta_0 (bound on x_I) renamed delta_I; p~_1 := A_I^-1 p_1 A_I renamed p_1^A (p~_1 also names the II.C data in Lemma 1.2); multiplier Y of (ii) renamed X_*
-eq:ii-e-2-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:359-360	II.E (2.3)
+eq:ii-e-2-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:359-360	II.E (2.3)	
 lem:ii-e-2-6	docket68/n1star/proof5/PART-II-E-ENERGY.md:407-421	II.E Lemma 2.6	N, N^ renamed Y_flat, Y^_flat
-prop:ii-e-2-7	docket68/n1star/proof5/PART-II-E-ENERGY.md:423-438	II.E Proposition 2.7
-eq:ii-e-2-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:426-427	II.E (2.4)
-sec:ii-e-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:440-447	II.E section 3 (introductory paragraph)
-sec:ii-e-3-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:449-550	II.E section 3.1
-lem:ii-e-3-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:457-477	II.E Lemma 3.1
-eq:ii-e-3-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:460-461	II.E (3.1)
+prop:ii-e-2-7	docket68/n1star/proof5/PART-II-E-ENERGY.md:423-438	II.E Proposition 2.7	
+eq:ii-e-2-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:426-427	II.E (2.4)	
+sec:ii-e-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:440-447	II.E section 3 (introductory paragraph)	
+sec:ii-e-3-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:449-550	II.E section 3.1	
+lem:ii-e-3-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:457-477	II.E Lemma 3.1	
+eq:ii-e-3-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:460-461	II.E (3.1)	
 prop:ii-e-3-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:485-550; docket68/n1star/proof5/PART-II-E-ENERGY.md:1222-1228	II.E Proposition 3.2 with (E3)	compact set K renamed calK; the display of H(psi_pm(F)^2) at 524 written per sign (issue-3); clarifying sentence on the two meanings of l_I added
-eq:ii-e-3-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:494-495	II.E (3.2)
+eq:ii-e-3-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:494-495	II.E (3.2)	
 eq:ii-e-3-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:496-497	II.E (3.3)	tag "(section 7, (E3))" at 502-503 replaced by a citation of [Hin26c]
 sec:ii-e-3-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:552-644	II.E section 3.2	"the computation of II.C section 5.2" reworded as "the monotonicity argument"
 lem:ii-e-3-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:583-644	II.E Lemma 3.3, (b) with the kernel argument of 633-643	tag "(D326; the D207 repair ...)" at 637 deleted; sets N_2, N_3 renamed U_2, V_3; compact set K renamed calK
-sec:ii-e-3-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:646-711	II.E section 3.3
+sec:ii-e-3-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:646-711	II.E section 3.3	
 prop:ii-e-3-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:648-711; docket68/n1star/proof5/PART-II-E-ENERGY.md:1230-1234	II.E Proposition 3.4 with (E4)	"for every N, in particular N = 2" and "sigma >= 1 an integer" reworded (N, sigma reserved); remark 708-711: "its finding (D2)" replaced by the mathematical reason; functional lambda renamed Lambda
-eq:ii-e-3-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:654-655	II.E (3.4)
+eq:ii-e-3-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:654-655	II.E (3.4)	
 sec:ii-e-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:713	II.E section 4	heading
-sec:ii-e-4-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:715-772; docket68/n1star/proof5/PART-II-E-ENERGY.md:1245-1249	II.E section 4.1 with (E7)
+sec:ii-e-4-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:715-772; docket68/n1star/proof5/PART-II-E-ENERGY.md:1245-1249	II.E section 4.1 with (E7)	
 lem:ii-e-4-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:717-767	II.E Lemma 4.1	word index alpha renamed gamma (alpha is also the weight); II.A Notation 9.4 cited as def:ii-a-9-4, written D^j_([b]) as in chapter S4
-sec:ii-e-4-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:774-876	II.E section 4.2
-lem:ii-e-4-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:784-793	II.E Lemma 4.2
+sec:ii-e-4-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:774-876	II.E section 4.2	
+lem:ii-e-4-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:784-793	II.E Lemma 4.2	
 eq:ii-e-4-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:795-808	II.E (4.1)	"II.D' Lemma 2.1 with lambda = 0" written with the loss index l = 0 as in chapter S6; C^(N|W_j|) written (C^(N_E))^(W_j) as in S6
-prop:ii-e-4-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:810-840	II.E Proposition 4.3
-eq:ii-e-4-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:814-815	II.E (4.2)
-eq:ii-e-4-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:821-822	II.E (4.3)
+prop:ii-e-4-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:810-840	II.E Proposition 4.3	
+eq:ii-e-4-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:814-815	II.E (4.2)	
+eq:ii-e-4-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:821-822	II.E (4.3)	
 prop:ii-e-4-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:842-876; docket68/n1star/proof5/PART-II-E-ENERGY.md:1279-1288; docket68/n1star/proof5/PART-II-F2-TAME.md:816-826	II.E Proposition 4.4 as narrowed by (E14); II.F1 section 8.2 (b)	"((E14))" replaced by the hypothesis in the statement and the paragraph "The extension in the tame estimates" citing lem:ii-f1-2-5, lem:ii-f1-2-3; the proof's f'' takes that extension (E14: "the proofs go through with it"); (E11) folded; issues 1, 2
-eq:ii-e-4-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:846-848	II.E (4.4)
-sec:ii-e-5	docket68/n1star/proof5/PART-II-E-ENERGY.md:878-882	II.E section 5 (introductory paragraph)
+eq:ii-e-4-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:846-848	II.E (4.4)	
+sec:ii-e-5	docket68/n1star/proof5/PART-II-E-ENERGY.md:878-882	II.E section 5 (introductory paragraph)	
 sec:ii-e-5-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:884-925; docket68/n1star/proof5/PART-II-E-ENERGY.md:1269-1271	II.E section 5.1 with (E12)	delta_0 renamed delta_natural
-sec:ii-e-5-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:927-968	II.E section 5.2
+sec:ii-e-5-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:927-968	II.E section 5.2	
 lem:ii-e-5-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:929-968	II.E Lemma 5.1	N renamed Y_r; backward multiplier Y renamed X_*
-eq:ii-e-5-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:932-933	II.E (5.1)
-sec:ii-e-5-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:970-1053	II.E section 5.3
+eq:ii-e-5-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:932-933	II.E (5.1)	
+sec:ii-e-5-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:970-1053	II.E section 5.3	
 lem:ii-e-5-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:976-986	II.E Lemma 5.2	delta_0 renamed delta_natural
 lem:ii-e-5-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:988-1016	II.E Lemma 5.3	delta_0 renamed delta_natural
 prop:ii-e-5-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:1018-1053	II.E Proposition 5.4	delta_0 renamed delta_natural
-eq:ii-e-5-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:1027-1028	II.E (5.2)
-eq:ii-e-5-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:1032-1034	II.E (5.3)
-sec:ii-e-5-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:1055-1144; docket68/n1star/proof5/PART-II-E-ENERGY.md:1260-1264	II.E section 5.4 with (E10)
-lem:ii-e-5-5	docket68/n1star/proof5/PART-II-E-ENERGY.md:1065-1077	II.E Lemma 5.5
-eq:ii-e-5-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:1079-1082	II.E (5.4)
+eq:ii-e-5-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:1027-1028	II.E (5.2)	
+eq:ii-e-5-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:1032-1034	II.E (5.3)	
+sec:ii-e-5-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:1055-1144; docket68/n1star/proof5/PART-II-E-ENERGY.md:1260-1264	II.E section 5.4 with (E10)	
+lem:ii-e-5-5	docket68/n1star/proof5/PART-II-E-ENERGY.md:1065-1077	II.E Lemma 5.5	
+eq:ii-e-5-4	docket68/n1star/proof5/PART-II-E-ENERGY.md:1079-1082	II.E (5.4)	
 prop:ii-e-5-6	docket68/n1star/proof5/PART-II-E-ENERGY.md:1087-1140; docket68/n1star/proof5/PART-II-E-ENERGY.md:1279-1288	II.E Proposition 5.6 as narrowed by (E14)	"((E14))" replaced by the stated hypothesis; (b)'s proof takes the bounded-at-every-level extension across r = a (issue-1)
-eq:ii-e-5-5	docket68/n1star/proof5/PART-II-E-ENERGY.md:1093-1095	II.E (5.5)
-eq:ii-e-5-6	docket68/n1star/proof5/PART-II-E-ENERGY.md:1099-1100	II.E (5.6)
-eq:ii-e-5-7	docket68/n1star/proof5/PART-II-E-ENERGY.md:1109-1111	II.E (5.7)
-eq:ii-e-5-8	docket68/n1star/proof5/PART-II-E-ENERGY.md:1117-1118	II.E (5.8)
-sec:ii-e-6	docket68/n1star/proof5/PART-II-E-ENERGY.md:1146-1205	II.E section 6
+eq:ii-e-5-5	docket68/n1star/proof5/PART-II-E-ENERGY.md:1093-1095	II.E (5.5)	
+eq:ii-e-5-6	docket68/n1star/proof5/PART-II-E-ENERGY.md:1099-1100	II.E (5.6)	
+eq:ii-e-5-7	docket68/n1star/proof5/PART-II-E-ENERGY.md:1109-1111	II.E (5.7)	
+eq:ii-e-5-8	docket68/n1star/proof5/PART-II-E-ENERGY.md:1117-1118	II.E (5.8)	
+sec:ii-e-6	docket68/n1star/proof5/PART-II-E-ENERGY.md:1146-1205	II.E section 6	
 thm:ii-e-6-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:1148-1205; docket68/n1star/proof5/PART-II-E-ENERGY.md:1236-1243; docket68/n1star/proof5/PART-II-E-ENERGY.md:1273-1277	II.E Theorem 6.1 with (E5), (E6), (E13)	II.D (1.3) written out; "((E14))" replaced by the stated hypothesis (issue-1); proof of (6.2) adds that Pu is given on all of Omega_*, which settles the time-final face there
-eq:ii-e-6-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:1151-1153	II.E (6.1)
-eq:ii-e-6-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:1158-1159	II.E (6.2)
-eq:ii-e-6-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:1182-1183	II.E (6.3)
+eq:ii-e-6-1	docket68/n1star/proof5/PART-II-E-ENERGY.md:1151-1153	II.E (6.1)	
+eq:ii-e-6-2	docket68/n1star/proof5/PART-II-E-ENERGY.md:1158-1159	II.E (6.2)	
+eq:ii-e-6-3	docket68/n1star/proof5/PART-II-E-ENERGY.md:1182-1183	II.E (6.3)	

@@ -80,13 +80,13 @@ t ≤ N_NM, such that if ‖Φ(0)‖_(2d) < ε, then there is u ∈ B^∞_(η_0/
 
 This is [Hin26c, Theorem 12.4], with its hypotheses made precise where they are stated loosely; [Hin26c] quotes the
 theorem from [SR89] in the form of [Hin24a, Theorem 6.11], with the regularity 16d² + 43d + 24 in place of N_NM. The
-proof below needs the constants up to the order N_NM. [Hin26c, Theorem 12.4] states (ii) for all η ∈ [0,
-1], together with Φ(0) ∈ F^∞_(η_0); as 0 ∈ B^∞_η for every η, the hypothesis for all η ∈ [0, 1] would force Φ(0) ∈
-F^∞_1. The form above asks (ii) only for η ≤ η_0; in the applications of [Hin26c] both forms hold, with η_0 = 1, the
-right side being supported in {t_* ≥ 2}. The conclusion of [Hin26c, Theorem 12.4] is u ∈ B^∞; as its B^k_0 is the whole
-space ([Hin26c, (12.21)]), that is the support t_* ≥ 1 its applications use [Hin26c, p. 240], the better support
-t_* ≥ 2 being obtained there by local uniqueness. [[thm:ii-g-2-1]] strengthens the conclusion to u ∈ B^∞_(η_0/2),
-which costs the closedness of the B^k_η; the spaces of [[prop:ii-g-3-1]] have it.
+proof below needs the constants up to the order N_NM. [Hin26c, Theorem 12.4] states (ii) for all η ∈ [0, 1], together
+with Φ(0) ∈ F^∞_(η_0); as 0 ∈ B^∞_η for every η, the hypothesis for all η ∈ [0, 1] would force Φ(0) ∈ F^∞_1. The form
+above asks (ii) only for η ≤ η_0; in the applications of [Hin26c] both forms hold, with η_0 = 1, the right side being
+supported in {t_* ≥ 2}. The conclusion of [Hin26c, Theorem 12.4] is u ∈ B^∞; as its B^k_0 is the whole space ([Hin26c,
+(12.21)]), that is the support t_* ≥ 1 its applications use [Hin26c, p. 240], the better support t_* ≥ 2 being obtained
+there by local uniqueness. [[thm:ii-g-2-1]] strengthens the conclusion to u ∈ B^∞_(η_0/2), which costs the closedness of
+the B^k_η; the spaces of [[prop:ii-g-3-1]] have it.
 
 **Remark {#rem:s10-right-inverses}** (The support hypothesis on the right inverses.) [Hin26c, Theorem 12.4] asks the
 support property of the right inverses at every u ∈ U. Hypothesis (iii) asks it only at u ∈ U ∩ B^∞_η, which is all

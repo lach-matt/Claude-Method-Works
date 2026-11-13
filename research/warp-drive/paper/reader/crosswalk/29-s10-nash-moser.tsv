@@ -1,0 +1,100 @@
+label	source	source_name	note
+ch:s10	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:1	II.G and II.G1 (whole kept ranges)	intro from II.G 14-23 and II.G1 15-25; inner radius a parameter (BEYOND5-R0-PROOF section 2: Parts I-II hold for abstract radii)
+sec:ii-g-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:28	II.G section 1	not-used list condensed; admissibility pointer to ch:s18
+sec:ii-g-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:46	II.G section 2	
+sec:ii-g-2-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:48	II.G section 2.1	
+thm:ii-g-2-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:53	II.G Theorem 2.1 with (iii) as amended (D304)	N renamed N_NM; (iii) at u in U cap B_eta only; tag at 78-79 deleted; comparison paragraph 86-91 kept without its tag
+eq:ii-g-2-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:64	II.G (2.1)	
+eq:ii-g-2-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:72	II.G (2.2)	
+eq:ii-g-2-3	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:75	II.G (2.3)	
+eq:ii-g-2-4	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:80	II.G (2.4)	
+rem:s10-right-inverses	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:506	II.G finding (H10), first three sentences	private key; folded after Thm 2.1 per outline-S S10; verifier attribution dropped; cites lem:iii-k-2-3
+rem:ii-g-2-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:93	II.G Remark 2.2	
+sec:ii-g-2-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:100	II.G section 2.2 (proof of Theorem 2.1)	
+eq:ii-g-2-5	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:103	II.G (2.5)	the three identities checked in one written line
+eq:ii-g-2-6	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:106	II.G (2.6)	
+eq:ii-g-2-7	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:110	II.G (2.7)	
+eq:ii-g-2-8	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:136	II.G (2.8)	constants K_1..K_5 renamed A_1..A_5 (K reserved); exponent 5d-N+beta = -12d-4 stated
+eq:ii-g-2-9	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:163	II.G (2.9)	K_M, K'_M renamed A_M, A'_M
+sec:ii-g-3	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:178	II.G section 3	
+sec:ii-g-3-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:180	II.G section 3.1	
+prop:ii-g-3-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:210	II.G Proposition 3.1	
+eq:ii-g-3-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:216	II.G (3.1)	
+rem:ii-g-3-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:219	II.G Example 3.2	Example carried as a Remark (there is no example kind); r-sharp named via lem:ii-e-1-2
+sec:ii-g-3-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:250	II.G section 3.2 (proof of Proposition 3.1)	(H5), (H6) folded as the closing paragraph; tag at 336 deleted
+eq:ii-g-3-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:259	II.G (3.2)	smoothing scale lambda renamed Lambda (lambda reserved); K in lambda^-K renamed J
+eq:ii-g-3-3	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:318	II.G (3.3)	
+sec:ii-g-4	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:355	II.G section 4	
+lem:ii-g-4-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:357	II.G Lemma 4.1	(H9) folded as the closing paragraph
+eq:ii-g-4-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:390	II.G (4.1)	
+sec:ii-g-5	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:417	II.G section 5	
+sec:ii-g-5-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:419	II.G section 5.1	(H1) folded after (5.1)
+eq:ii-g-5-1	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:427	II.G (5.1)	
+eq:ii-g-5-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:434	II.G (5.2)	
+sec:ii-g-5-2	docket68/n1star/proof5/PART-II-G-NASHMOSER.md:439	II.G section 5.2	(H1) for Thms 12.9, 12.11 and (H4) folded into (c); (b) points to ch:s18
+sec:ii-g1-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:31	II.G1 section 1	
+sec:ii-g1-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:66	II.G1 section 2	
+sec:ii-g1-2-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:68	II.G1 section 2.1	
+def:ii-g1-2-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:79	II.G1 Definition 2.1	
+lem:ii-g1-2-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:91	II.G1 Lemma 2.2	
+sec:ii-g1-2-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:101	II.G1 section 2.2	
+lem:ii-g1-2-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:106	II.G1 Lemma 2.3	
+sec:ii-g1-2-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:147	II.G1 section 2.3	
+lem:ii-g1-2-4	docket68/n1star/proof5/PART-II-G2-DECAY.md:151	II.G1 Lemma 2.4	
+eq:ii-g1-2-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:155	II.G1 (2.1)	
+lem:ii-g1-2-5	docket68/n1star/proof5/PART-II-G2-DECAY.md:178	II.G1 Lemma 2.5	
+lem:ii-g1-2-6	docket68/n1star/proof5/PART-II-G2-DECAY.md:194	II.G1 Lemma 2.6	gamma_pm := max(+-gamma, 0) stated
+sec:ii-g1-2-4	docket68/n1star/proof5/PART-II-G2-DECAY.md:229	II.G1 section 2.4	
+def:ii-g1-2-7	docket68/n1star/proof5/PART-II-G2-DECAY.md:233	II.G1 Definition 2.7	finding (J2) folded after it
+prop:ii-g1-2-8	docket68/n1star/proof5/PART-II-G2-DECAY.md:246	II.G1 Proposition 2.8	there is no Definition 2.8 in II.G1
+rem:ii-g1-2-9	docket68/n1star/proof5/PART-II-G2-DECAY.md:305	II.G1 Remark 2.9	finding (J1) counterexample folded; its cut-off renamed chi_0
+sec:ii-g1-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:311	II.G1 section 3	
+sec:ii-g1-3-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:313	II.G1 section 3.1	index N of the H_b+ inclusion renamed p
+eq:ii-g1-3-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:325	II.G1 (3.1)	
+eq:ii-g1-3-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:339	II.G1 (3.2)	
+eq:s10-zf	docket68/n1star/proof5/PART-II-G2-DECAY.md:350	II.G1 unnumbered display (the space with zf Taylor terms)	private key
+lem:ii-g1-3-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:365	II.G1 Lemma 3.1	
+sec:ii-g1-3-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:391	II.G1 section 3.2	
+lem:ii-g1-3-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:393	II.G1 Lemma 3.2	
+sec:ii-g1-3-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:420	II.G1 section 3.3	
+prop:ii-g1-3-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:422	II.G1 Proposition 3.3	(J4) folded after the statement
+eq:ii-g1-3-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:466	II.G1 (3.3)	
+lem:ii-g1-3-4	docket68/n1star/proof5/PART-II-G2-DECAY.md:513	II.G1 Lemma 3.4	
+prop:ii-g1-3-5	docket68/n1star/proof5/PART-II-G2-DECAY.md:526	II.G1 Proposition 3.5	(J5) folded in the proof; N renamed p in (1) and m' in (2)
+rem:ii-g1-3-6	docket68/n1star/proof5/PART-II-G2-DECAY.md:600	II.G1 Remark 3.6	(J6) folded
+rem:ii-g1-3-7	docket68/n1star/proof5/PART-II-G2-DECAY.md:606	II.G1 Remark 3.7	
+sec:ii-g1-4	docket68/n1star/proof5/PART-II-G2-DECAY.md:616	II.G1 section 4	
+sec:ii-g1-4-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:618	II.G1 section 4.1	
+lem:ii-g1-4-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:627	II.G1 Lemma 4.1	multi-index alpha renamed gamma (alpha is the shift); -N renamed -L
+eq:ii-g1-4-1a	docket68/n1star/proof5/PART-II-G2-DECAY.md:634	II.G1 (4.1a)	
+eq:ii-g1-4-1b	docket68/n1star/proof5/PART-II-G2-DECAY.md:636	II.G1 (4.1b)	
+cor:ii-g1-4-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:672	II.G1 Corollary 4.2	(J8) folded after the statement
+sec:ii-g1-4-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:724	II.G1 section 4.2	
+eq:ii-g1-4-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:729	II.G1 (4.2)	
+lem:ii-g1-4-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:746	II.G1 Lemma 4.3	N, N_0, N_1 renamed nu, nu_0, nu_1; -K1 renamed -L1; o_s renamed o_d; multi-index gamma
+eq:ii-g1-4-3a	docket68/n1star/proof5/PART-II-G2-DECAY.md:750	II.G1 (4.3a)	
+eq:ii-g1-4-3b	docket68/n1star/proof5/PART-II-G2-DECAY.md:751	II.G1 (4.3b)	
+prop:ii-g1-4-4	docket68/n1star/proof5/PART-II-G2-DECAY.md:792	II.G1 Proposition 4.4	(J9) folded; remark on delta_Gamma marked pending:issue-1; K renamed k_1, M renamed m_1, N renamed nu
+eq:ii-g1-4-4	docket68/n1star/proof5/PART-II-G2-DECAY.md:797	II.G1 (4.4)	
+cor:ii-g1-4-5	docket68/n1star/proof5/PART-II-G2-DECAY.md:830	II.G1 Corollary 4.5	K (order of f) renamed k_f
+sec:ii-g1-4-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:863	II.G1 section 4.3	
+lem:ii-g1-4-6	docket68/n1star/proof5/PART-II-G2-DECAY.md:877	II.G1 Lemma 4.6	
+eq:ii-g1-4-5a	docket68/n1star/proof5/PART-II-G2-DECAY.md:882	II.G1 (4.5a)	
+eq:ii-g1-4-5b	docket68/n1star/proof5/PART-II-G2-DECAY.md:884	II.G1 (4.5b)	
+prop:ii-g1-4-7	docket68/n1star/proof5/PART-II-G2-DECAY.md:917	II.G1 Proposition 4.7	(J10) folded after the statement
+eq:ii-g1-4-6	docket68/n1star/proof5/PART-II-G2-DECAY.md:925	II.G1 (4.6)	
+sec:ii-g1-5	docket68/n1star/proof5/PART-II-G2-DECAY.md:957	II.G1 section 5	
+sec:ii-g1-5-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:959	II.G1 section 5.1	the program check cited at 980-982 replaced by the written derivation of (5.1)
+eq:ii-g1-5-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:979	II.G1 (5.1)	the four derivatives and the identities written out
+lem:ii-g1-5-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:984	II.G1 Lemma 5.1	S in rho C^infty stated without End C^N (N reserved); tagged line 1015 rewritten with lem:ii-c-1-3
+eq:ii-g1-5-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:988	II.G1 (5.2)	
+def:ii-g1-5-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:1018	II.G1 Definition 5.2	(J13) folded
+sec:ii-g1-5-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:1031	II.G1 section 5.2	
+lem:ii-g1-5-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:1038	II.G1 Lemma 5.3	K renamed k; sphere multi-index alpha renamed gamma; [Hin26b] there is the edition's [Hin26]
+sec:ii-g1-5-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:1071	II.G1 section 5.3	
+prop:ii-g1-5-4	docket68/n1star/proof5/PART-II-G2-DECAY.md:1073	II.G1 Proposition 5.4	(J11), (J12) folded; step regularity K renamed k_1
+eq:ii-g1-5-3	docket68/n1star/proof5/PART-II-G2-DECAY.md:1081	II.G1 (5.3)	
+rem:ii-g1-5-5	docket68/n1star/proof5/PART-II-G2-DECAY.md:1148	II.G1 Remark 5.5	[Hin26b] Lemmas 2.12, 2.23 cited as [Hin26]
+sec:ii-g1-6	docket68/n1star/proof5/PART-II-G2-DECAY.md:1155	II.G1 section 6	
+sec:ii-g1-6-1	docket68/n1star/proof5/PART-II-G2-DECAY.md:1157	II.G1 section 6.1	
+sec:ii-g1-6-2	docket68/n1star/proof5/PART-II-G2-DECAY.md:1183	II.G1 section 6.2	the open item (F'11) replaced by thm:iii-h2-4-1, which discharges it for the family 2L_b (III.H2 line 11)

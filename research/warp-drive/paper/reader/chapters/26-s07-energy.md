@@ -95,8 +95,8 @@ the set of restrictions to V′ of functions in C_c^∞(M°) supported in {t^♭
 
 with p_0 and p_1 := S|_(∂X) + p̃_1 as in [[def:ii-c-3-3]], and Δ_(𝕊³) ≥ 0 the Laplacian of the round sphere. Hence,
 for covectors ζ = ζ_(t_*) dt_* + ξ dx_I/x_I + η, G(ζ) ≡ x_I²(ξ ζ_(t_*) + x_I²|η|²) modulo x_I^(2+2ℓ_I) times a quadratic
-form in (ζ_(t_*), ξ, x_I η); that is, g⁻¹ ≡ x_I²(x_I∂_(x_I) ⊗_s ∂_(t_*) + x_I² g̸⁻¹), with a ⊗_s b := (a ⊗ b + b ⊗ a)/2 and g̸
-the round metric.
+form in (ζ_(t_*), ξ, x_I η); that is, g⁻¹ ≡ x_I²(x_I∂_(x_I) ⊗_s ∂_(t_*) + x_I² g̸⁻¹), with
+a ⊗_s b := (a ⊗ b + b ⊗ a)/2 and g̸ the round metric.
 
 This is [Hin26c, (8.3)] in dimension 4 + 1.
 
@@ -134,14 +134,14 @@ Re_(h_x) p_1 ≥ p̄_1 − δ′ near x, and the condition Re h(p_1 v, v) ≥ (p
 passes to a convex combination of such inner products. No triangular structure of p_1 is used.
 
 Of the data p_0, p_1 at ℐ⁺, the proofs below use only [[eq:ii-e-1-2]], and that only through the positivity of
-4 Re_(h_I) p_1 − 2 − 4α at ℐ⁺: with δ′ := (p̄_1 − 1/2 − α)/4, [[eq:ii-e-1-2]] gives
-4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′, and ≥ 8δ′ where it holds with 2δ′ in place of δ′ (in [[lem:ii-e-2-5]] and
-[[prop:ii-e-2-7]], and in [[prop:ii-e-3-2]]). The other terms enter without any smallness. In [[lem:ii-e-2-5]] every
+4 Re_(h_I) p_1 − 2 − 4α at ℐ⁺: with δ′ := (p̄_1 − 1/2 − α)/4, [[eq:ii-e-1-2]] gives 4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′ (as
+used in [[lem:ii-e-2-5]]), and ≥ 8δ′ where it holds with 2δ′ in place of δ′ (as used on the extended slabs of
+[[prop:ii-e-2-7]] and in [[prop:ii-e-3-2]]). The other terms enter without any smallness. In [[lem:ii-e-2-5]] every
 first-order term other than 2x_I² p_1^A ∂_(t_*) of [[eq:ii-e-2-3]], and the part of that term carrying Im p_1, which
 enters only through a cross term with x_I∂_(x_I), is kept as a pointwise quadratic form in the edge derivatives and
-absorbed by the exponential weight in time; the zeroth-order terms, among them the one carrying p_0, are absorbed by
-the Poincaré inequality [[lem:ii-e-2-3]]. The commuted systems of [[sec:ii-e-4]] have the same p_1 ([[eq:ii-e-4-1]] and
-the paragraph after it). So the fibre inner product need not make Im_h p_1 or p_0 small, as [Hin26c, (8.4)] requires
+absorbed by the exponential weight in time; the zeroth-order terms, among them the one carrying p_0, are absorbed by the
+Poincaré inequality [[lem:ii-e-2-3]]. The commuted systems of [[sec:ii-e-4]] have the same p_1 ([[eq:ii-e-4-1]] and the
+paragraph after it). So the fibre inner product need not make Im_h p_1 or p_0 small, as [Hin26c, (8.4)] requires
 (|Im_h p_1| < ε and ‖p_0‖_h < ε), and the block-diagonal inner product by which [Hin26c] obtains that smallness from
 condition (3) of [[def:ii-c-3-3]] is not used.
 
