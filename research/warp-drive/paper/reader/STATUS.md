@@ -41,7 +41,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 47 S28 | running | - | - |
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
 | 60 S30 | running | - | - |
-| 61 M Ch 11 | being written | - | - |
+| 61 M Ch 11 | running | - | - |
 | 62 M Ch 12 | running (issue-1: B open) | - | - |
 | 63-64 M Ch 13-14 | being written | - | - |
 | 65-90 | not yet written | - | - |

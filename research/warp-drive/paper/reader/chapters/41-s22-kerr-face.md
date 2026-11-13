@@ -65,14 +65,13 @@ On the spectral side, X̄, M′, X^±_(sc-b) with the faces scf, tf, zf and the 
 parameter b lies in the closed ball ℬ̄_* about b_0 of [[sec:iii-h2-0]], shrunk as in [[ch:s20]] (to a radius at most
 1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]) and in [[lem:iii-i15-1-2]]; every result below holds on this
 ball. On ℬ̄_* the model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem at b with continuity in
-(b, S, h) (property (P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots
-of L̂_b(0) at ∂X, which do not depend on b (P2); the zero energy states of the table of roots of [[sec:iii-g2-1]] for
-L_b, their companions, the 1-form towers of [[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b,
-which are real and smooth
-in b, with index sets in (μ − j) + ℰ_ind, ℰ_ind independent of b (P3); the augmented low energy theory of [[ch:s18]]
-at b (P4); and the time translation, Killing for every g_b (P5). The rows are built at the base point's b, and the
-correction terms and their counterterms are the tensors built from b_0 (P6). Every statement below is the statement at
-b: L_(b_0), g_(b_0) near K⁺, the states, towers and companions at b_0 and ℰ_ind are replaced by those at b, and the
+(b, S, h) (property (P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots of
+L̂_b(0) at ∂X, which do not depend on b (P2); the zero energy states of the table of roots of [[sec:iii-g2-1]] for L_b,
+their companions, the 1-form towers of [[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b, which are
+real and smooth in b, with index sets in (μ − j) + ℰ_ind, ℰ_ind independent of b (P3); the augmented low energy theory of
+[[ch:s18]] at b (P4); and the time translation, Killing for every g_b (P5). The rows are built at the base point's b, and
+the correction terms and their counterterms are the tensors built from b_0 (P6). Every statement below is the statement
+at b: L_(b_0), g_(b_0) near K⁺, the states, towers and companions at b_0 and ℰ_ind are replaced by those at b, and the
 splitting L_(h,p⃗) = L_b + (L_(h,p⃗) − L_b) near K⁺, which moves a perturbation into the source, has the same K⁺-gain as
 at b_0, since the background equals g_b near K⁺ ([[lem:iii-i-3-6]]). Every constant is uniform on ℬ̄_*.
 

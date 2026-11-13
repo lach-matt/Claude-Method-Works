@@ -128,8 +128,10 @@ on Ω; then Ric(g) = 0. ∎
 Σ_τ0 be those of [[thm:data]], which satisfy the constraints exactly, carry D = 0, equal the seed's data on
 r < v_start − τ0 and are within C λ^K of g_app's in the norm of item 2. [[thm:uniform-existence]] gives, for λ ≤ λ0,
 the solution g_λ of Ric^H(g) = 0 on Ω with these data, unique among C² solutions with these data and |g − g0| ≤ ε1 on
-Ω, together with the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. Taking λ0 so small
-that C λ0 ≤ ε1, [[lem:gauge-propagation]] gives D(g_λ) = 0 and Ric(g_λ) = 0. By [[lem:domain]] (f), D_T ∩ {τ ≥ τ0}
+Ω, together with the bounds of items 3 and 4 on w = g_λ − g_app and |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C. The solution g_λ is
+smooth, because [[thm:uniform-existence]] gives a smooth solution for smooth data and the data of [[thm:data]] are
+smooth. Take λ0 so small that C λ0 ≤ ε1; then |g_λ − g0| ≤ ε1 < s0, so g_λ is Lorentzian by [[lem:lorentz-margin]].
+Hence [[lem:gauge-propagation]] applies and gives D(g_λ) = 0 and Ric(g_λ) = 0. By [[lem:domain]] (f), D_T ∩ {τ ≥ τ0}
 lies in Ω.
 
 Symmetry. Let ι be an element of G = O(2) × O(2), acting on x by an orthogonal matrix and fixing τ. It preserves r,
@@ -252,17 +254,18 @@ the exterior and its spatially compact subsets, the slowly rotating Myers–Perr
 named below are defined there.
 
 **Theorem {#thm:settling}** (settling). Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter of the stability theory, with
-0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ℓ_I ∈ (3, ℓ0), δ_♯ = (1 − e_Υ) γ_Υ and ε_ind the index distance
-([[eq:iii-i9-1-1]], [[eq:iii-f1-2-2]]), such that no parameter exponent z at timelike infinity (a discrete set fixed
-before these constants) has real part in (3, 3 + ε_+] (the condition (G⁺), [[def:iii-j-g-plus]]), and none has real part
-in (2, 2 + ε_K] ∪ (3, 3 + ε_K], nor z + d_c0, z + d_c1 in (2, 2 + ε_K] (the gap (G), [[def:iii-i10-1-3]]),
-d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots of [[def:iii-i9-gap]]. [[ch:s27]] collects these conditions
-with the other choices of parameters. Fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope
-fixed, with K large enough and on a domain enlarged as in [[ch:after-shell]]. For every ε_m > 0 there are λ1 > 0 and
+0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ε_+ and some ℓ_I ∈ (3, ℓ0), δ_♯ = (1 − e_Υ) γ_Υ and ε_ind
+the index distance ([[eq:iii-i9-1-1]], [[eq:iii-f1-2-2]]), such that no parameter exponent z at timelike infinity (an
+element of the set Λ of [[def:iii-i10-1-1]], discrete and fixed before these constants) has real part in
+(3, 3 + ε_+] (the condition (G⁺), [[def:iii-j-g-plus]]), and none has real part in (2, 2 + ε_K] ∪ (3, 3 + ε_K], nor
+do z + d_c0, z + d_c1 have real part in (2, 2 + ε_K] (the gap (G), [[def:iii-i10-1-3]]), d_c0, d_c1 ∈ (0, 1) being
+the offsets of the two class roots of [[def:iii-i9-gap]]. [[ch:s27]] collects these conditions with the other choices
+of parameters. Fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K large
+enough and on the enlarged domain Ω′ of [[lem:vii-1-2]]. For every ε_m > 0 there are λ1 > 0 and
 δ > 0, depending on ε_m and ε, such that for λ ≤ λ1:
 
 (i) (in the class) the data of g_λ on Hintz's initial surface, continued G-equivariantly to exact Tangherlini data
-beyond a ball ([[ch:after-shell]]), have a G-invariant vacuum development, with the same data as g_λ on that ball,
+beyond a ball ([[prop:vii-2-2]], [[cor:vii-2-3]]), have a G-invariant vacuum development, with the same data as g_λ on that ball,
 which settles to five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m: its difference from that metric
 is O(t*^(−2−ε)) in spatially compact subsets of the exterior;
 
@@ -321,8 +324,8 @@ The remaining chapters prove the following; each is stated in full where it is p
   weak limits of class vacuum metrics along odd numbers of dusts ([[thm:vlasov]]); and exactly localised vacuum data
   near the initial data of the two-dust background of [[thm:two-dusts]]: data equal to the background's outside a
   compact subset of a band, vacuum in the band, whose first-order part in a small amplitude is a perturbation of the
-  metric that is not a gauge perturbation. On every vacuum band of the initial slice (a band on which the background
-  is vacuum) that meets the inside of the apparent horizon such data exist for small amplitude, while on vacuum bands
+  metric that is not a gauge perturbation. On every vacuum band of the initial slice (a shell {R1 < r < R2} whose
+  closure lies where the background is vacuum) that meets the inside of the apparent horizon such data exist for small amplitude, while on vacuum bands
   outside it the sign of their charge at second order excludes them for small amplitude when the first-order part is
   T² × Z2 × Z2-invariant ([[thm:charge-sign]]).
 - *The boundary at equality.* If μ0 = √72 l5², the curvature boundary is spacelike for g_λ away from a layer at the

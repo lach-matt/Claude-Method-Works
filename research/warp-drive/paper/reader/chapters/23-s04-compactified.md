@@ -1891,8 +1891,7 @@ hold by the construction, with d_0 large enough that the norms used are among th
 M of [[prop:ii-a1-2-4]] at the orders involved and index 1, called M′ here.
 
 *Conclusion.* The hypotheses of [[lem:ii-a1-4-2]] hold with Γ := γ([0, T]). For each U ⊃ Γ shrink δ and δ_1, and the
-supports of the localisers, so that
-the support lies in U. The E-sets lie in {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ⊂ Ell(E), which misses Γ. There is no threshold, so
+supports of the localisers, so that the supports lie in U. The E-sets lie in {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ⊂ Ell(E), which misses Γ. There is no threshold, so
 τ is arbitrary. Take τ ≥ sup 𝗌 + N; then ‖Gu‖_(𝗌−τ) ≤ C‖χu‖_(−N), and [[eq:ii-a1-4-5]] is [[eq:ii-a1-5-1]], with any
 B ∈ C^∞_b Ψ⁰_e3b carried by χ, microsupported in U_* and elliptic on Γ. On ℂ^(N′) the commutant is scalar and L_I is
 matrix-valued; nothing above used a scalar L_I.
@@ -1907,14 +1906,16 @@ close to 𝖧, (z′, y′) is defined and injective on a fixed neighbourhood of
 of [[lem:ii-a1-5-2]] uniform, and (z′, y′) → (z, y) uniformly there. The box {z′ ∈ [−δ, T + δ], |y′| ≤ δ_1} then lies in
 the box of 𝖧 with 2δ and 2δ_1, which has the properties required above by the choice of the margin, given that
 𝖧′_f𝗌 ≤ 0 on the same neighbourhood. With M chosen with a margin too, as the bounds it must exceed depend continuously on
-the coefficients, the same δ, δ_1 and M serve. ∎
+the coefficients, the same δ, δ_1 and M serve, and so do the same localisers, φ_0 and φ_E being 1 near the boxes of 𝖧
+with 2δ and 2δ_1. ∎
 
 #### The global estimate {#sec:ii-a1-5-3}
 
 **Theorem {#thm:ii-a1-5-4}** (Real principal type propagation; [Hin26c, Proposition 3.24] at k = 0, with the
 hypotheses of [[rem:ii-a1-hypotheses]].) Let m ∈ ℕ_0, 𝗌 a variable order and N ∈ ℝ. There is d_0 = d_0(m, 𝗌, N) with
-the following property. Let L be as in [[sec:ii-a1-5-1]] with this d_0, for any δ_w > 0, any finite 𝒫_m and 𝒫_(m−1)
-(the elements of 𝒫_m having classical principal symbols) and any N′. Let B, E, G ∈ C^∞_b Ψ⁰_e3b be carried by χ, with
+the following property; d_0 does not depend on δ_w, 𝒫_m, 𝒫_(m−1), N′, L, B, E, G or χ. Let L be as in
+[[sec:ii-a1-5-1]] with this d_0, for any δ_w > 0, any finite 𝒫_m and 𝒫_(m−1) (the elements of 𝒫_m having classical
+principal symbols) and any N′. Let B, E, G ∈ C^∞_b Ψ⁰_e3b be carried by χ, with
 supp χ disjoint from I⁰ ∪ K⁻ and WF′(B) ⊂ Ell(G). Suppose:
 
 (A) for every α ∈ WF′(B) ∩ Char(L), the backward integral curve of 𝖧 from α reaches Ell(E) in a time at most T_0,
@@ -1929,8 +1930,9 @@ If χu ∈ H^(−N), GLu ∈ H^(𝗌−m+1) and Eu ∈ H^𝗌, then Bu ∈ H^�
 
 with C locally uniform: uniform for perturbations of L small in the norms of [[sec:ii-a1-5-1]] (that is, of L_0, L_1 and
 L_2 in Diff^m_e3b, C^(d_0,(2δ_w,δ_w,δ_w))_e3b 𝒫_m and C^(d_0)_e3b 𝒫_(m−1)), with real principal symbols, for which (B)
-holds on the same neighbourhood. The other hypotheses persist under small perturbations, by the continuity of the flow
-in the field ([[lem:ii-a1-5-1]] (c)).
+holds on the same neighbourhood. The proof uses (A) and (B) for L only, and (B) on the same neighbourhood for the
+perturbed operator; the perturbed backward curves reach Ell(E) within a slightly larger time, by the continuity of the
+flow in the field ([[lem:ii-a1-5-1]] (c)), as in (O) of [[sec:ii-a-9]].
 
 *Proof.* Let α ∈ WF′(B) ∩ Char(L) and t_α := inf{t ≥ 0 : exp(−t𝖧)α ∈ Ell(E)} ≤ T_0. 𝖧 ≠ 0 along the backward curve,
 for a stationary point outside Ell(E) would never reach it. Take t′_α slightly larger than t_α with
@@ -1940,7 +1942,8 @@ most t′_α, and then the backward curve would have entered Ell(E) at an earlie
 constant along the flow, and in Ell(G). As the neighbourhood in (B) is open, t′_α can be chosen so that (B) holds on a
 neighbourhood of γ_α([0, t′_α]). [[prop:ii-a1-5-3]] with ς = 1 gives B_α ∈ C^∞_b Ψ⁰_e3b elliptic on γ_α([0, t′_α]), in
 particular near α, and G_α microsupported in a neighbourhood inside Ell(G). It also gives
-‖B_αu‖_𝗌 ≤ C(‖G_αLu‖_(𝗌−m+1) + ‖Eu‖_𝗌 + ‖χu‖_(−N)), and ‖G_αLu‖ ≤ C(‖GLu‖ + ‖χu‖_(−N)) by [[lem:ii-a-8-4]] (c) and
+‖B_αu‖_𝗌 ≤ C(‖G_αLu‖_(𝗌−m+1) + ‖Eu‖_𝗌 + ‖χu‖_(−N)), and ‖G_αLu‖ ≤ C(‖GLu‖ + ‖χ_*Lu‖_(−N−m)) ≤ C(‖GLu‖ + ‖χu‖_(−N)),
+with χ_* as in the proof of [[thm:ii-a1-3-1]], by [[lem:ii-a-8-4]] (c) and
 [[lem:ii-a-8-6]] (a). For α ∈ WF′(B) ∖ Char(L), [[thm:ii-a1-3-1]] gives any B_α ∈ C^∞_b Ψ⁰_e3b elliptic near α and
 microsupported in Ell(G) ∩ Ell(L) with ‖B_αu‖_𝗌 ≤ C(‖GLu‖_(𝗌−m) + ‖χu‖_(−N)). By compactness of WF′(B), finitely many
 B_(α_i) are jointly elliptic on it: Σ_i B_(α_i)^* B_(α_i) ∈ C^∞_b Ψ⁰_e3b is elliptic of order 0 there, the B_(α_i)

@@ -321,3 +321,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   melrose, Usula 5.20 (1)); S9's Cauchy use is at s ∈ ℤ and lem:ii-f-6-3 narrowed to s′ ∈ ℤ (decided: every use is at
   an integer order). New label eq:ii-f-lp-prime (S29 at 48:283-286 may cite it; add a crosswalk row at integration).
   A reader checks both changes.
+- Chapter 61: lem:after-shell-mp-data (d) replaces S28's pending marker (sent to the S28 reader); chapter 61 adds the
+  hypothesis m(z_i) ≤ 1 to GLUEDECAY5's bilinear bound (5.1) (the reader rules); S28's prop:v-2-3 should hold "at every
+  (m, 0, 0, 0)"; chapter 61 fixes the norm ‖·‖_(d_1) (def:after-shell-norm) that chapter 46 leaves open — chapter 46
+  may point to it; thm:after-shell-reach for chapter 03's further results and chapter 60's rem:settling-class;
+  rem:after-shell-bump for chapter 47's rem:s28-mass-bound.

@@ -247,7 +247,7 @@ and r_q ≤ √μ, so that it lies inside or on the horizon, exactly when r_q⁴
 
 the region from past null infinity to the curvature boundary, up to the time T after the shell has passed. Put
 V := v_end + T and q0 := (√72 μ0 l5²)^(1/4), the value of r_q for v ≤ v_start, so q0 ≤ √μ0. Fix 0 < δ0 < q0,
-a := q0 − δ0, τ0 with v_start − τ0 > √μ0 + 1 (on Σ_τ0 := {τ = τ0} the shell lies outside the seed's horizon: the
+a := q0 − δ0, τ0 with v_start − τ0 > √μ0 + 1 (on the slice {τ = τ0} the shell lies outside the seed's horizon: the
 slice is before the shell reaches the hole), and τ_end := max_(v ≤ V) (v − r_q(v)). Let
 
     Ω := { τ0 ≤ τ ≤ τ_end,  |x| ≥ a,  v + (τ − τ_end) ≤ V + 1 },                                   {#eq:omega}
@@ -278,8 +278,8 @@ L0(τ) = 1 are open conditions in g on the compact set Ω; a past causal curve f
 min_(v ≤ V) (V − v + r_q(v)) + 1 ≥ q0 + 1; a point of D_T has v ≤ V, r ≥ r_q(v) ≥ q0 > a and τ = v − r ≤
 v − r_q(v) ≤ τ_end, hence also v + (τ − τ_end) ≤ v ≤ V < V + 1. ∎
 
-So every part of the boundary of Ω other than Σ_τ0 is spacelike with Ω to its past, Ω is a domain of dependence of
-Σ_τ0 ∩ Ω, and so is Ω for every Lorentzian metric within ε1 of g0.
+So every part of the boundary of Ω other than Σ_τ0 is spacelike with Ω to its past, and Ω is a domain of dependence
+of Σ_τ0, for g0 and for every Lorentzian metric within ε1 of g0.
 
 ### The gauge {#sec:gauge}
 
