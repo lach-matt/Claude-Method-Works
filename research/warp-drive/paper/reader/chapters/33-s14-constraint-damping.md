@@ -606,9 +606,20 @@ term ∂_(t_*) times a tangential derivative and no ∂²_(t_*) term, and S̄^C 
 so in the splitting by dr, dt_* and r dω, S̄^C is lower triangular with diagonal h⁻¹(2(1 − v), (1 − e)(1 − v), 1 − v),
 diagonalisable, with spectrum h⁻¹{2(1 − v), (1 − e)(1 − v), 1 − v (three times)}, all positive for 0 < v < 1, 0 ≤ e < 1;
 
-(ii) (*the incoming radial set*) the isometry t ↦ −t of η carries c_v := r⁻¹(dt − v dr) to −c_(−v), so it conjugates
-□^C with (c_v, h⁻¹) to the operator with (c_(−v), −h⁻¹); the matrix M with −v for v has spectrum
-{2(1 + v), (1 − e)(1 + v), 1 + v (three times)};
+(ii) (*the radial sets*) on stationary sections, the first-order part of (□^C)^(0) in the radial direction is that of
+−Δ plus 2ρh⁻¹N∂_r, where
+
+    Nω := vω − ω_r(dt − v dr) − e(ω_t + vω_r) dr,     ω = ω_t dt + ω_r dr + ω_⊥;
+
+and M + 2N = D M_(−v) D, where M_(−v) is M with −v for v and D is the reflection
+ω_t dt + ω_r dr + ω_⊥ ↦ ω_t dt − ω_r dr + ω_⊥. So h⁻¹(M + 2N) is diagonalisable, with spectrum
+h⁻¹{2(1 + v), (1 − e)(1 + v), 1 + v (three times)}. Consequently the number ϑ_in of [[sec:i-a-1-4]] for the spectral
+family of □^C, evaluated with a fibre inner product in which an eigenbasis of M + 2N is orthonormal, is
+
+    ϑ_in = −2h⁻¹(1 − e)(1 + v),     so that     (−1 + ϑ_in)/2 = −½ − h⁻¹(1 − e)(1 + v);                    {#eq:s14-theta-in}
+
+and the same holds for □^C_b, b near b₀, with c_C. Moreover the isometry t ↦ −t of η carries c_v := r⁻¹(dt − v dr)
+to −c_(−v), so it conjugates □^C with (c_v, h⁻¹) to the operator with (c_(−v), −h⁻¹);
 
 (iii) (*the weights*) over a slab 0 ≤ t ≤ Tr the weight rises by 1/2 in every dimension, as
 ∫_0^(Tr) ρ^(−2a) r^(n−1) dt = Tρ^(−2a−1) r^(n−1); ρ^k lies in ρ^a L²(r³ dr) near infinity iff a < k − 2, so pointwise
@@ -628,8 +639,31 @@ d⟨c, ω⟩, ⟨c, ω⟩ = −r⁻¹(ω_t + vω_r) and df has the part ∂_(t_*
 which on dr and dt_* = dt − dr gives the stated values. The other terms of 𝓛_c contain no derivative in t_*. The
 triangular form gives the spectrum, and M is diagonalisable since 2(1 − v) ≠ (1 − e)(1 − v) and M is scalar on r dω.
 
-(ii) (t, x) ↦ (−t, x) preserves η and pulls dt back to −dt; c_v becomes −r⁻¹(dt + v dr) = −c_(−v), and E^C changes
-sign with c, which is the operator with (c_(−v), −h⁻¹). The spectrum of M at −v is read off (i).
+(ii) On stationary sections ∂_(t_*) acts as 0 and the spatial derivatives are those at fixed t_*. In h⁻¹𝓛_c the
+radial derivatives come from the same three terms as in (i): div ω contains ∂_rω_r; c♯ = −r⁻¹((1 − v)∂_(t_*) + v∂_r)
+in (t_*, x), so −2∇_(c♯)ω contains 2r⁻¹v∂_rω; and d⟨c, ω⟩ contains ∂_r⟨c, ω⟩ dr = −r⁻¹∂_r(ω_t + vω_r) dr plus terms
+of order zero. So the radial first-order part of h⁻¹𝓛_c is 2ρh⁻¹N∂_r. The identity M + 2N = D M_(−v) D: by (i) and the
+definition of N,
+
+    (M + 2N)ω = (dt − v dr)(ω_t − ω_r) + (1 + v)ω − e(dt + dr)(ω_t + vω_r),
+
+and D M_(−v) Dω is the same expression, since M_(−v)ω = (dt + v dr)(ω_t + ω_r) + (1 + v)ω − e(dt − dr)(ω_t − vω_r)
+and D reverses the signs of dr and of ω_r. So the spectrum of M + 2N is that of M_(−v), read off (i), and it is diagonalisable as M_(−v) is.
+
+For ϑ_in, recall p_in = σ(ρ⁻¹Im_H P̂(0))|_(ρ=0, ξ=−2, η=0) and the structure [[eq:i-a-1-2]] of the spectral family,
+here with S = S̄^C = h⁻¹M at ρ = 0; H denotes the fibre inner product. The scattering symbol of ∂_r at ξ dr is iξ, so
+the radial first-order term 2ρh⁻¹N∂_r contributes ξ·2ρh⁻¹Re_H N to the symbol of Im_H P̂(0), and ρ⁻¹ times this is
+−4h⁻¹Re_H N at ξ = −2. The scalar part −Δ Id contributes nothing at η = 0: H depends on the angles only, so its
+derivatives are tangential and O(ρ), and the commutator of −Δ with H has symbol vanishing at η = 0 and lower order in
+ρ. The other terms of P̂(0) have coefficients in ρ²C^∞ and do not contribute at ρ = 0. So
+
+    p_in − (S + S^(*H)) = −2h⁻¹ Re_H(M + 2N) = −2h⁻¹(M + 2N),
+
+the last because an H-orthonormal eigenbasis makes M + 2N H-self-adjoint; its largest eigenvalue is
+−2h⁻¹ min spec(M + 2N) = −2h⁻¹(1 − e)(1 + v), at every point of ∂X. For □^C_b, b near b₀, the difference
+P^C_b − P̄^C lies in ρ⁴Diff²_b ⊂ ρ²Diff²_sc and S − S̄^C in ρC^∞ ([[lem:iv4-1-2]]), which do not change p_in or S at
+ρ = 0. Finally, (t, x) ↦ (−t, x) preserves η and pulls dt back to −dt; c_v becomes −r⁻¹(dt + v dr) = −c_(−v), and E^C
+changes sign with c, which is the operator with (c_(−v), −h⁻¹).
 
 (iii) ρ^k ∈ ρ^a L²(r³ dr) near infinity iff ∫^∞ r^(2a−2k) r³ dr < ∞, that is 2k − 2a > 4. The rest is arithmetic. ∎
 
@@ -656,7 +690,7 @@ the derivative contributes λ⁻¹. (ii)–(iii) are the (t, r) block of g⁻¹ 
 dτ = r⁻¹(dt − τ dr). (iv) At ∂K⁺, d = b_sf − b_K = −C_0 − 5/2 < b*, and at R_v, d = b_sf = −C_0 − 3/2 < b*, so
 [[prop:np-10-14]] (iv) applies. At C_0 = 100 the angular entry of T is 2v(2 − d) − 2ρ_K = (209 − 4ρ_K)/2 > 0 for
 ρ_K ≤ 10, and the (dt, dr) block, from the formulas of [[prop:np-10-13]] (ii), has trace
-(61439800 + 2150399 − 1228796ρ_K)/204800 > 0 and determinant 3(1092260ρ_K² − 113048512ρ_K + 2925089043)/409600, which
+(63590199 − 1228796ρ_K)/204800 > 0 and determinant 3(1092260ρ_K² − 113048512ρ_K + 2925089043)/409600, which
 is decreasing on [0, 10] (its vertex is at ρ_K > 51) and positive at ρ_K = 10. ∎
 
 **Proposition {#prop:np-10-79}** (The horizon threshold.) Let g be Tangherlini space [[eq:s14-tang]], c the 1-form of
@@ -692,18 +726,26 @@ differs from it by B⁻¹[·, B], whose principal symbol at ζ is a multiple of 
 stationary. So only 2g^(ab)Γ^c_(ak)∂_b contributes; its symbol at ζ = ξ dr is 2iξ Γ_t, as ζ♯ = ξ∂_t, and σ₁((P −
 P*)/(2i)) = ξ(Γ_t + Γ_t^(*B)). At r_h, with g_(tt) = −f, g_(tr) = 1 − f, g_(rr) = 2 − f, Γ^c_(tk) = ½g^(cd)(∂_kg_(dt) −
 ∂_dg_(tk)) gives, on the components (ω_t, ω_r), 2Γ_t = (2/r_h)(1, 0; 2, −1) (rows k = t, r), and Γ_t = 0 on the angular
-components. With c = α(dt + b dr), b = v/2, one has G(c)α⁻² = 2(b − 1), c♯α⁻¹ = (b − 2)∂_t + ∂_r, B = g⁻¹ − (1 +
-e)G(c)⁻¹c♯ ⊗ c♯; the B-symmetric part X_s of 2Γ_t on the (t, r) block has trace 0 and determinant −(1 + e)²/(e r_h²),
-for every b. So its eigenvalues are ±(1 + e)/(e^(1/2)r_h).
+components. With c = α(dt + b dr), b = v/2, one has G(c)α⁻² = 2(b − 1) and c♯α⁻¹ = (b − 2)∂_t + ∂_r. In the
+components (ω_t, ω_r), writing matrices by rows with the row index the output component, at r = r_h
+
+    g⁻¹ = (−2, 1; 1, 0),     B = (2(1 − b))⁻¹( (1 + e)b² − 4eb + 4e,  −(1 − e)b − 2e ;  −(1 − e)b − 2e,  1 + e ),
+
+and the B-symmetric part X_s = ½(2Γ_t + B⁻¹(2Γ_t)ᵀB) of 2Γ_t has trace 0 and determinant −(1 + e)²/(e r_h²), for every
+b. So its eigenvalues are ±(1 + e)/(e^(1/2)r_h).
 
 (iii) is [[prop:np-10-13]] (i) with ζ = dr, G(dr) = 0, ⟨c, dr⟩ = a.
 
 (iv) By the definition, ϑ_ℋ = (r_h/2) × the largest eigenvalue of ρ_∞σ₁((P_0 − P_0^*)/(2i)) − h⁻¹ℓ(dr), the
 damping L contributing −h⁻¹ℓ(ζ)ρ_∞ ([[eq:s14-lh]]). On the angular components the matrix is −2a h⁻¹. On the (t, r)
-block, a direct evaluation of the 2 × 2 matrices of (ii) and (iii) gives the characteristic polynomial χ, for every b.
+block, [[eq:s14-ell]] gives, in the convention of (ii),
 
-(v) At e = 1/102400, (1 + e)²/(4e) = 10485964801/409600 and s ≥ 5000 for h ≤ 10⁻⁶. The vertex of χ is at
-−(3 − e)s/2 < −201/2, so ν₊ < −201/2 iff χ(−201/2) > 0, and
+    ℓ(dr) = 2a( 2, 0 ; (1 − e)b + 2e, 1 − e ),
+
+and the characteristic polynomial of (r_h/2)(X_s − h⁻¹ℓ(dr)), with X_s from (ii), is χ, for every b.
+
+(v) At e = 1/102400, (1 + e)²/(4e) = 10485964801/409600. For h < h_2, s = 1/(200h) > 1/(200h_2) > 190 > 201/(3 − e),
+so the vertex of χ is at −(3 − e)s/2 < −201/2, and ν₊ < −201/2 iff χ(−201/2) > 0; and
 
     χ(−201/2) = (102399 − 3077109850h − 31744512005000h²)/(2048000000h²),
 

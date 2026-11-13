@@ -444,3 +444,14 @@ Items found while chapters were written in parallel; each is settled once, editi
   prop:iii-g4-5-1's conclusion now carries ε_Υ, so S20, S21, S22, S27 need ε_g := min(ε_Υ, ε_ind) where they use its
   gain (sent to the S21 and S27 fixes; S20 and S22 at their next rounds); S15 34:1113-1116 still writes ε_ind for S13's
   constant (S15 round).
+- Chapter 61 (R-61): Major at 474-476 (the Myers–Perry data on Kerr–Schild slices lie in the class, but not near the
+  data of (i)). The bilinear bound needs m(z_i) ≤ 1 (the source's bound is false; counterexample in the review) and
+  large radii (R_λ := max(r_χ, R_F, 1)). Line 141's flux claim is false on Σ^IVP when m ≠ μ_end. For chapter 47
+  (sent to its fix): prop:v-2-3 at every (m, 0, 0, 0) with |m − m₀| < ½m₀, and rem:v-3-4's sign of ∇²f reworded.
+- Chapter 60 fixed (F-60): quantifiers ε_t → (α, steps (5)-(6), R, Ω′) → ε_m → (λ_1, δ); C_𝔟 ≥ 1 compares the two
+  norms on 𝔟 (1 if chapter 46 fixes |m| + |A|). For the Ch 3 round: "with K = d_1 + 14, d_1 the regularity of
+  [[thm:iii-k-4-3]]", and the ε_K clause: "Fix ℓ0 ∈ (3, 4); let ε_K be the decay parameter chosen in the stability
+  theory ([[thm:vi-c-2-1]], step (4), with the data class [[eq:vii-0-1]] at step (3)). It satisfies 0 < ε_K < ε_+ <
+  min(δ_♯, ε_ind, ℓ_I − 3, 1/4) for some ε_+ and some ℓ_I ∈ (3, ℓ0) admissible in row d2 of [[sec:vi-c-1]], …"
+  ("chosen" is needed: the list omits ε_K < ε_Υ of def:iii-i10-1-3). If S27's translation parameter enters
+  thm:iii-k-4-3 (4) or eq:s27-rate, chapter 60 item (ii) must carry it.

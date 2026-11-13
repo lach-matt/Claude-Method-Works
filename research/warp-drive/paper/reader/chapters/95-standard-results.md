@@ -950,6 +950,10 @@ such E and F "one defines wΨ^m_𝒱(M; E, F) as sums of matrices of quantizatio
 and residual operators which are smoothing (in the sense of 𝒱-regularity and ρ-decay) between Sobolev spaces of
 sections of E, F. We leave the details to the interested reader."
 
+In [[thm:std-zero-calculus]], [[thm:std-mazzeo-melrose]] and [[cor:std-zero-sobolev]], n denotes the dimension of X,
+as in [Hin23e]. [Usu26] writes n + 1 for the dimension of X; accordingly its exponent −n − 1 is written −n here, also
+in the quotation of [Usu26, Definition 2.1].
+
 **Theorem {#thm:std-zero-calculus}** ([Hin23e, (1.3)–(1.5), Definition 1.2, Proposition 2.7, Corollary 3.3,
 Theorem 3.4, Remark 3.5 and Corollary 3.6, pp. 1–34].) Let n ≥ 1 and let X be a smooth n-dimensional manifold with
 boundary ∂X ≠ ∅ (p. 1).
@@ -991,44 +995,46 @@ Theorem 3.4 are satisfied when α0 < α and α1 > α are sufficiently close to �
 Then for any α ∈ [α0, α1], the operator P is a Fredholm operator as in (3.23)." It also places the generalized
 inverse in the calculus with bounds.
 
-**Theorem {#thm:std-mazzeo-melrose}** (Boundedness of the small 0-calculus; [Usu26, Definition 2.1, p. 11; p. 26;
-Theorem 5.20 (1), p. 119] and [MM87, Lemma (5.10), p. 284].) Let X be a compact manifold with boundary, of dimension
-n + 1, x a boundary defining function and ω a smooth positive density on X.
+**Theorem {#thm:std-mazzeo-melrose}** (Boundedness of the small 0-calculus; [Usu26, Definition 2.1, p. 11; footnote 6,
+p. 26; Theorem 5.20 (1), p. 119] and [MM87, Lemma (5.10), p. 284].) Let X be a compact manifold with boundary, of
+dimension n ≥ 1, x a boundary defining function and ω a smooth positive density on X.
 
 (1) [Usu26, p. 11]. X²_0 = [X²; ∂Δ] is the blow-up of X² at the boundary of its diagonal Δ; its boundary
 hypersurfaces are lf and rf, the lifts of ∂X × X and X × ∂X, and the front face ff_0; Δ_0 is the lifted diagonal,
 β_0 : X²_0 → X² the blow-down map and β_(0,R) the lift of the right projection. Definition 2.1: "Let m ∈ ℝ. We denote
 by Ψ^m_0(X) the space of operators A ∈ Op(X) whose Schwartz kernels K_A lift via β_0 to elements
 
-    κ_A ∈ 𝒜^((∞,∞,0))_phg I^m(X²_0, Δ_0; r_(ff_0)^(−n−1) β^*_(0,R) D¹_X).
+    κ_A ∈ 𝒜^((∞,∞,0))_phg I^m(X²_0, Δ_0; r_(ff_0)^(−n) β^*_(0,R) D¹_X).
 
-This means that κ_A is a section of r_(ff_0)^(−n−1) β^*_(0,R) D¹_X vanishing to infinite order at the faces lf, rf,
+This means that κ_A is a section of r_(ff_0)^(−n) β^*_(0,R) D¹_X vanishing to infinite order at the faces lf, rf,
 smooth across ff_0, and with an interior conormal singularity of order m along Δ_0." Here Op(X) is the class of
 continuous linear operators Ċ^∞(X) → C^(−∞)(X), D¹_X is the density bundle of X, and r_(ff_0) is a boundary defining
 function of ff_0.
 
-(2) [Usu26, p. 26 and footnote 6, p. 119]. L²_b(X) is the space of functions on X° that are square integrable with
-respect to x⁻¹ω. For an integer k ≥ 0, H^k_0(X) is "the space of L²_b functions u on X such that, for any set
-V_1, …, V_j ∈ 𝒱_0(X) with j ≤ k, the weak multiple 0-derivative V_1 ⋯ V_j u is still in L²_b(X)", where 𝒱_0(X)
-is the space of smooth vector fields on X vanishing at ∂X, and x^δ H^k_0(X) := {x^δ u : u ∈ H^k_0(X)}, normed by
-means of a finite set of 0-vector fields spanning ⁰TX at every point.
+(2) [Usu26, footnote 6, p. 26; p. 119]. L²_b(X) is the space of functions on X° that are square integrable with
+respect to x⁻¹ω (footnote 6, p. 26). For an integer k ≥ 0, H^k_0(X) is "the space of L²_b functions u on X such that,
+for any set V_1, …, V_j ∈ 𝒱_0(X) with j ≤ k, the weak multiple 0-derivative V_1 ⋯ V_j u is still in L²_b(X)"
+(p. 119), where 𝒱_0(X) is the space of smooth vector fields on X vanishing at ∂X. The norm of H^k_0(X) is the sum of
+the L²_b-norms of V_1 ⋯ V_j u, j ≤ k, the V_i ranging over a finite set of 0-vector fields spanning ⁰TX at every
+point; and x^δ H^k_0(X) := {x^δ u : u ∈ H^k_0(X)}, with ‖x^δ u‖_(x^δ H^k_0(X)) := ‖u‖_(H^k_0(X)).
 
 (3) [Usu26, Theorem 5.20 (1), p. 119]: "If P ∈ Ψ^m_0(X), then P is bounded as a map x^δ H^(k+m)_0(X) →
-x^δ H^k_0(X) for every k and δ." Here m ∈ ℤ and k, k + m ≥ 0 ([Usu26, p. 26]). [Usu26] gives this with the
+x^δ H^k_0(X) for every k and δ." Here m ∈ ℤ and k, k + m ≥ 0 are integers ([Usu26, p. 26]; there
+ℕ = {0, 1, 2, …}, p. 10). [Usu26] gives this with the
 attribution to [Maz91, Theorem 3.25, Corollary 3.23 and Proposition 3.29] and [Lau03, Theorem 5.2.2].
 
 (4) [MM87, Lemma (5.10), p. 284]: "The space 𝒱_0 of vector fields on X acting on the left factor of X × X lifts under
 b into the Lie algebra, 𝒱_l, of those C^∞ vector fields on X ×_0 X tangent to the front and bottom faces and vanishing
 at the top face." Here X ×_0 X = X²_0, b = β_0, the top face is lf and the bottom face is rf.
 
-(5) Operators on 0-half-densities. Let ν = x^(−n−1)ω̃, with ω̃ a smooth positive density, be a smooth positive
+(5) Operators on 0-half-densities. Let ν = x^(−n)ω̃, with ω̃ a smooth positive density, be a smooth positive
 0-density on X. Then A ↦ (u ↦ ν^(−1/2) A(u ν^(1/2))) maps the operators of [Hin23e, Definition 1.1, p. 3], whose
-Schwartz kernels are the elements of I^m(X²_0, diag_0, KD_0) that vanish to infinite order at lb ∪ rb, with
-KD_0 = π^*_L(⁰Ω^(1/2)X) ⊗ π^*_R(⁰Ω^(1/2)X) [Hin23e, (1.2)], onto Ψ^m_0(X) of (1). Indeed ν^(1/2) ⊗ ν^(1/2) lifts to a
-smooth nowhere vanishing section of KD_0, so these kernels are c ν^(1/2) ⊗ ν^(1/2) with c conormal of order m at Δ_0,
-smooth across ff_0 and vanishing to infinite order at lf ∪ rf; the corresponding right density is
-c (β^*_(0,R) x)^(−n−1) β^*_(0,R) ω̃, and β^*_(0,R) x = r_(ff_0) r_rf a with a smooth and positive, so the factor
-r_rf^(−n−1) is absorbed by the vanishing of c at rf, and conversely.
+Schwartz kernels are the elements of I^m(X²_0, diag_0, KD_0) that vanish to infinite order at lb ∪ rb (lf ∪ rf in the
+notation of (1)), with KD_0 = π^*_L(⁰Ω^(1/2)X) ⊗ π^*_R(⁰Ω^(1/2)X) [Hin23e, (1.2)], onto Ψ^m_0(X) of (1). Indeed
+ν^(1/2) ⊗ ν^(1/2) lifts to a smooth nowhere vanishing section of KD_0, so these kernels are c ν^(1/2) ⊗ ν^(1/2) with c
+conormal of order m at Δ_0, smooth across ff_0 and vanishing to infinite order at lf ∪ rf; the corresponding right
+density is c (β^*_(0,R) x)^(−n) β^*_(0,R) ω̃, and β^*_(0,R) x = r_(ff_0) r_rf a with a smooth and positive, so the
+factor r_rf^(−n) is absorbed by the vanishing of c at rf, and conversely.
 
 **Corollary {#cor:std-zero-sobolev}** (All integer orders.) In the setting of [[thm:std-mazzeo-melrose]], for integers
 k ≥ 0 and δ ∈ ℝ let x^δ H^(−k)_0(X) be the dual space of x^(−δ) H^k_0(X) for the pairing ⟨u, v⟩ := ∫ u v x⁻¹ω.
@@ -1056,14 +1062,14 @@ and positive, so (x/x′)^δ is a smooth positive function times r_lf^δ r_rf^(�
 isometrically onto x^δ H^j_0(X) for j ≥ 0, and by duality (⟨x^δ u, x^(−δ) v⟩ = ⟨u, v⟩) also for j < 0, it suffices to
 take δ = 0.
 
-(c) *Transposes and compositions.* Write κ_P = b r_(ff_0)^(−n−1) β^*_(0,R) ω, with b ∈ 𝒜^((∞,∞,0))_phg I^m, so that
-K_P(z, z′) = k(z, z′) ω(z′) with β_0^* k = b r_(ff_0)^(−n−1). The transpose P^t, ⟨Pu, v⟩ = ⟨u, P^t v⟩ for
+(c) *Transposes and compositions.* Write κ_P = b r_(ff_0)^(−n) β^*_(0,R) ω, with b ∈ 𝒜^((∞,∞,0))_phg I^m, so that
+K_P(z, z′) = k(z, z′) ω(z′) with β_0^* k = b r_(ff_0)^(−n). The transpose P^t, ⟨Pu, v⟩ = ⟨u, P^t v⟩ for
 u, v ∈ C_c^∞(X°), has kernel k(z′, z) x(z) x(z′)⁻¹ ω(z′). The exchange of the factors of X² preserves ∂Δ, so it lifts
 to a diffeomorphism R of X²_0 that preserves Δ_0 and ff_0 and exchanges lf and rf. The lift of k(z′, z) x(z) x(z′)⁻¹ is
-(x/x′)(b ∘ R)((r_(ff_0) ∘ R)/r_(ff_0))^(−n−1) r_(ff_0)^(−n−1), and by (b) the first three factors form an element of
-𝒜^((∞,∞,0))_phg I^m; so P^t ∈ Ψ^m_0(X). For V ∈ 𝒱_0(X) the kernel of VP lifts to Ṽ(b r_(ff_0)^(−n−1)) β^*_(0,R) ω,
+(x/x′)(b ∘ R)((r_(ff_0) ∘ R)/r_(ff_0))^(−n) r_(ff_0)^(−n), and by (b) the first three factors form an element of
+𝒜^((∞,∞,0))_phg I^m; so P^t ∈ Ψ^m_0(X). For V ∈ 𝒱_0(X) the kernel of VP lifts to Ṽ(b r_(ff_0)^(−n)) β^*_(0,R) ω,
 where Ṽ is the lift of V acting on the left factor; by (4) Ṽ is a smooth vector field tangent to every boundary
-hypersurface of X²_0, so Ṽ(b r_(ff_0)^(−n−1)) = (Ṽb − (n + 1)(Ṽ r_(ff_0)/r_(ff_0)) b) r_(ff_0)^(−n−1) with
+hypersurface of X²_0, so Ṽ(b r_(ff_0)^(−n)) = (Ṽb − n(Ṽ r_(ff_0)/r_(ff_0)) b) r_(ff_0)^(−n) with
 Ṽ r_(ff_0)/r_(ff_0) smooth and Ṽb ∈ 𝒜^((∞,∞,0))_phg I^(m+1); so VP ∈ Ψ^(m+1)_0(X). Finally Ψ^(m′)_0(X) ⊂ Ψ^m_0(X)
 for m′ ≤ m.
 

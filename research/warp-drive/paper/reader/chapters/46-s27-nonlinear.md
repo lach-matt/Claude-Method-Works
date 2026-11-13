@@ -483,33 +483,84 @@ g_(b₀) and of the combinations G_θ only: for h small in the class of [[lem:ii
 be spacelike near ℐ⁺, as (g_(b₀)⁻¹ − η⁻¹)(dt, dt) = O(r⁻²) there while a perturbation of that class is larger. The next
 two lemmas give the bounds for every metric of the classes used.
 
-**Lemma {#lem:iii-k-6-1}** (The radius near ℐ⁺ along past causal curves.) Let ℓ = ½, ε_G, r′_0, r^♮ and t^♭_* be
-those of [[lem:ii-c-3-2]] for g_0 = g_(b₀), C_♭ its constant, and T ≥ ½; put T_1 := T/C_♭ + 1. Let Ω° denote the
-interior of the domain {t_* ≥ ½} of t^♭_* ([[lem:ii-e-1-2]] (iv)). There is R_T < ∞, depending only on T and on the
-constants of [[lem:ii-c-3-2]] and its proof, such that for every g = g_(b₀) + h with
-‖h‖_(𝒢̃^(0,(2ℓ,0,0))_(e3b)) < ε_G:
+**Lemma {#lem:s27-below}** (The time function below Ω_*.) Let ℓ = ½, and let ε_G, C_♭, r′_0, r^♮ and t^♭_* be those of
+[[lem:ii-c-3-2]] for g_0 = g_(b₀), with t^♭_* given on {t_* > 0} by the formulae of its proof ([[lem:ii-e-1-2]] (iv)).
+Let Ω_(1/2) := cl_M{t_* ≥ ½}, with interior Ω°_(1/2), and let 𝒢̃_(1/2) be the class 𝒢̃^(0,(2ℓ,0,0))_(e3b) of
+[[def:ii-c-3-1]] with Ω_(1/2) in place of Ω, with its norm. There are ε′_G ∈ (0, ε_G], C₁ and R_V such that for every
+g = g_(b₀) + h with ‖h‖_(𝒢̃_(1/2)) < ε′_G:
 
-(a) on W_T := Ω° ∩ {½ < t_* < T_1, r > R_T} the covector α := dt^♭_* + r⁻¹dr is past timelike for g, so
-Ξ := t^♭_* + log r is a time function on W_T;
-
-(b) if ½ < c < t^♭_*(p) ≤ T and γ is a past directed causal curve of g in Ω° from p along which t^♭_* ≥ c, then
-r ≤ R_p := max(R_T, r(p)) e^(t^♭_*(p)−c) on γ;
-
-(c) if moreover X ⊂ Ω° is open and contains L_p := {c ≤ t^♭_* ≤ t^♭_*(p), min(r(p), r^♮) ≤ r ≤ R_p}, then L_p is
-compact and contains J⁻_X(p) ∩ {t^♭_* ≥ c}. These are the compact sets [[lem:ii-f-1-3]] asks for, with τ := t^♭_*.
-
-The proof is pointwise along the curves, so (a)–(c) hold as well for h given and small in that norm on an open
-Y ⊂ Ω° only, with W_T ∩ Y in (a) and the curves and X in Y in (b)–(c).
-
-*Proof.* (a) The proof of [[lem:ii-c-3-2]] gives, near ℐ⁺ and with ρ := ρ_I = t_*/r: the coefficients of g⁻¹ − ḡ⁻¹ in
-the basis
+(i) near ℐ⁺ on Ω_(1/2), with ρ := ρ_I = t_*/r, the coefficients of g⁻¹ − ḡ⁻¹ in the basis
 
     ρ∂²_(t_*),   ∂_(t_*) ⊗_s ∂_r,   x_I∂_(t_*) ⊗_s r⁻¹∂_ω,   ρ⁻¹∂²_r,   x_I⁻¹∂_r ⊗_s r⁻¹∂_ω,   r⁻¹∂_ω ⊗_s r⁻¹∂_ω
 
-are at most C₁(ε_G + ρ^(1−ℓ))ρ^ℓ ≤ Cρ^ℓ for ρ ≤ 1, with C := max(1, C₁(ε_G + 1)); ḡ⁻¹(dt_*, dt_*) = 0,
-ḡ⁻¹(dt_*, dr) = −1 and ḡ⁻¹(dr, dr) = 1; on {ρ ≤ ρ_−, r ≥ r′_0 + 1}, t^♭_* = t_*F₁(ρ) and dt^♭_* = A dt_* + B dr with
-A = 1 − (1 + ℓ)ρ^ℓ and B = ℓρ^(ℓ+1) (the coefficients of that proof); and V := t∂_t + r∂_r is future timelike for g on
-{r ≥ R_V}, R_V the radius R₂ there, with dt^♭_*(V) > 0. Let x := ρ^ℓ, so ρ ≤ x ≤ 1 for ρ ≤ 1, and
+of the proof of [[lem:ii-c-3-2]] are at most C₁(ε′_G + ρ^(1−ℓ))ρ^ℓ;
+
+(ii) V := t∂_t + r∂_r is future timelike for g on Ω_(1/2) ∩ {r ≥ R_V};
+
+(iii) dt^♭_* is past timelike for g on Ω°_(1/2), so t^♭_* is a time function of g there, and dt^♭_*(V) > 0 on
+Ω°_(1/2) ∩ {r ≥ R_V};
+
+(iv) dr is future timelike for g on Ω_(1/2) ∩ {r_♭ ≤ r ≤ r^♮}.
+
+The statements are pointwise, so they hold as well for h given only on an open subset of Ω_(1/2), and small there in
+that norm, on that subset.
+
+*Proof.* On Ω_(1/2) ∩ {t_* ≥ 1} ⊂ Ω (Ω = cl_M{t_* ≥ 1}, [[def:ii-a-1-3]]) the statements are [[lem:ii-c-3-2]] and its
+proof, the norm of h on Ω being at most its norm on Ω_(1/2). The proof of [[lem:ii-c-3-2]] is pointwise, and it is run
+on Ω_(1/2) ∩ {t_* ≤ 1} as follows.
+
+(i) The proof of [[lem:ii-c-3-2]] bounds the coefficients of g⁻¹ − g_(b₀)⁻¹ by C‖h‖ρ^ℓ and those of g_(b₀)⁻¹ − ḡ⁻¹
+by Cρ, times powers of ρ_+, and uses ρ_+ ≤ 1 on Ω only to bound these powers. On Ω_(1/2), ρ_+ ≤ 2, as in the proof of
+[[lem:ii-e-1-2]] (iv) (near ℐ⁺ ∩ ι⁺, ρ_+ = 1/t_*); so the bound holds with a larger C₁.
+
+(ii) As in the proof of [[lem:ii-c-3-2]] and in [[sec:ii-b-7]]: ḡ(V, V) = −t_*² − 2t_*r, and by (K1)
+|g_(b₀)(V, V) − ḡ(V, V)| ≤ C₂r⁻²(t_* + r)². For t_* ≥ ½ this is at most ½(t_*² + 2t_*r) once r ≥ 8C₂ and
+r² ≥ 8C₂: if t_* ≤ r, the left side is at most 4C₂ and the right side at least t_*r ≥ r/2; if t_* > r, the left side is
+at most 4C₂t_*²r⁻² and the right side at least ½t_*². Take R_V ≥ R₂ with R_V ≥ 8C₂ and R_V² ≥ 8C₂. The bound
+|h(V, V)| ≤ Cε′_G|g_(b₀)(V, V)| of that proof uses, near ℐ⁺, the bound of (i), and where x_I ≥ c_V the membership of
+h in its frames, both valid on Ω_(1/2); so V is timelike for g on Ω_(1/2) ∩ {r ≥ R_V} once ε′_G is small. It is future
+directed for g_(b₀), as there, and so for g, the orientation being continuous along g_(b₀) + sh, s ∈ [0, 1].
+
+(iii) Near ℐ⁺, where ρ ≤ ρ_−, t^♭_* = t_*F₁(ρ) and dt^♭_* = A dt_* + B dr with A = 1 − (1 + ℓ)ρ^ℓ and B = ℓρ^(ℓ+1);
+the computation of that proof, with (i), gives g⁻¹(dt^♭_*, dt^♭_*) ≤ −ℓρ^(ℓ+1) for ρ ≤ ρ_a and ε′_G small, and
+dt^♭_*(V) = At_* + Br > 0; so dt^♭_* is past timelike there, by (ii). The rest of Ω_(1/2) ∩ {t_* ≤ 1}, the set
+{½ ≤ t_* ≤ 1, ρ_I ≥ ρ_−}, is compact (r ≤ t_*/ρ_− there). On it dt^♭_* is past timelike for g_(b₀): by the formulae
+of the proof of [[lem:ii-c-3-2]], it is C_♭dt_* on {r ≤ r′_0 − 1}, a positive combination of dt_* and dt on
+{r ≤ Ct_*/2}, and a positive combination of d(t_*F₁) and dt on {r ≥ r′_0 + 1}; and dt_* is past timelike for
+g_(b₀) on {r ≤ r′_0 + 1} ((H6)), dt on {r ≥ r′_0 − 1} (g_(b₀)⁻¹(dt, dt) ≤ −1 + C₂r⁻² < 0 there, and
+g_(b₀)⁻¹(dt, dt_*) = −1 + O(r⁻²) < 0 with dt_* past timelike, [[lem:ii-b-1-1]]), and d(t_*F₁) on {ρ_I ≤ 2/C}, each a
+statement at a point that does not involve t_*. By compactness the margin is uniform, and it persists for g once
+ε′_G is small, the norm bounding h in C⁰ on this set. Where both are past timelike and V is future timelike,
+dt^♭_*(V) > 0.
+
+(iv) g_(b₀)⁻¹(dr, dr) ≤ −c_r < 0 on {r_♭ ≤ r ≤ r^♮} by (H4) and compactness of this range of r, at every t_*, as g_(b₀)
+is stationary; dr is future timelike for g_(b₀) there, as in the proof of [[lem:ii-c-3-2]] (1), and on
+Ω_(1/2) ∩ {t_* ≤ 1, r_♭ ≤ r ≤ r^♮}, a compact set, the perturbation is O(ε′_G). ∎
+
+**Lemma {#lem:iii-k-6-1}** (The radius near ℐ⁺ along past causal curves.) Let ℓ = ½, ε′_G, C₁, R_V, r′_0, r^♮,
+t^♭_*, Ω_(1/2) and 𝒢̃_(1/2) be those of [[lem:s27-below]], C_♭ the constant of [[lem:ii-c-3-2]] (b), and T ≥ ½; put
+T_1 := T/C_♭ + 1. There is R_T < ∞, depending only on T and on the constants of [[lem:ii-c-3-2]], [[lem:s27-below]]
+and their proofs, such that for every g = g_(b₀) + h with ‖h‖_(𝒢̃_(1/2)) < ε′_G:
+
+(a) on W_T := Ω°_(1/2) ∩ {t_* < T_1, r > R_T} the covector α := dt^♭_* + r⁻¹dr is past timelike for g, so
+Ξ := t^♭_* + log r is a time function on W_T;
+
+(b) if ½ < c < t^♭_*(p) ≤ T and γ is a past directed causal curve of g in Ω°_(1/2) from p along which t^♭_* ≥ c,
+then r ≤ R_p := max(R_T, r(p)) e^(t^♭_*(p)−c) on γ;
+
+(c) if moreover X ⊂ Ω°_(1/2) is open and contains L_p := {c ≤ t^♭_* ≤ t^♭_*(p), min(r(p), r^♮) ≤ r ≤ R_p}, then
+L_p is compact and contains J⁻_X(p) ∩ {t^♭_* ≥ c}. These are the compact sets [[lem:ii-f-1-3]] asks for, with
+τ := t^♭_*.
+
+The proof is pointwise along the curves, so (a)–(c) hold as well for h given and small in that norm on an open
+Y ⊂ Ω°_(1/2) only, with W_T ∩ Y in (a) and the curves and X in Y in (b)–(c).
+
+*Proof.* (a) By [[lem:s27-below]] (i), near ℐ⁺ and with ρ := ρ_I = t_*/r, the coefficients of g⁻¹ − ḡ⁻¹ in the basis
+displayed there are at most C₁(ε′_G + ρ^(1−ℓ))ρ^ℓ ≤ Cρ^ℓ for ρ ≤ 1, with C := max(1, C₁(ε′_G + 1));
+ḡ⁻¹(dt_*, dt_*) = 0, ḡ⁻¹(dt_*, dr) = −1 and ḡ⁻¹(dr, dr) = 1; on {ρ ≤ ρ_−, r ≥ r′_0 + 1}, t^♭_* = t_*F₁(ρ) and
+dt^♭_* = A dt_* + B dr with A = 1 − (1 + ℓ)ρ^ℓ and B = ℓρ^(ℓ+1) (the coefficients of the proof of [[lem:ii-c-3-2]]);
+and V := t∂_t + r∂_r is future timelike for g on {r ≥ R_V}, with dt^♭_*(V) > 0 ([[lem:s27-below]] (ii)–(iii)). Let
+x := ρ^ℓ, so ρ ≤ x ≤ 1 for ρ ≤ 1, and
 
     ρ_T := min(ρ_−, (37CT_1)^(−1/ℓ)),     R_T := max(R_V, r′_0 + 1, T_1/ρ_T).
 
@@ -532,8 +583,7 @@ using ρ ≤ x and C ≥ 1. Finally ρ ≤ T_1 r⁻¹ (as r⁻¹ ≥ ρ/T_1), so
 So α is timelike, and α(V) = dt^♭_*(V) + 1 > 0, as dr(V) = r: a timelike covector positive on a future timelike vector
 is past timelike. So Ξ, with dΞ = α, is a time function on W_T.
 
-(b) t^♭_* is a time function of g ([[lem:ii-c-3-2]] (2), [[lem:ii-e-1-2]] (iv)), so along γ,
-c ≤ t^♭_* ≤ t^♭_*(p) ≤ T, and
+(b) t^♭_* is a time function of g on Ω°_(1/2) ([[lem:s27-below]] (iii)), so along γ, c ≤ t^♭_* ≤ t^♭_*(p) ≤ T, and
 ½ < t_* ≤ t^♭_*/C_♭ < T_1 ([[lem:ii-c-3-2]] (b)). Let R′_p := max(R_T, r(p)), suppose that r > R_p at γ(s_1), and let
 s_0 := sup{s ≤ s_1 : r(γ(s)) ≤ R′_p}, which exists as r(γ(0)) = r(p). On (s_0, s_1], r > R′_p ≥ R_T, so γ lies in W_T
 there and Ξ ∘ γ is non-increasing (dΞ = α is negative on past causal vectors); by continuity Ξ(γ(s_1)) ≤ Ξ(γ(s_0)),
@@ -541,8 +591,8 @@ and r(γ(s_0)) = R′_p. Hence log r(γ(s_1)) ≤ log R′_p + t^♭_*(γ(s_0)) 
 is r(γ(s_1)) ≤ R_p, against the assumption. So r ≤ R_p on γ.
 
 (c) For q ∈ J⁻_X(p) ∩ {t^♭_* ≥ c} let γ be a past directed causal curve in X from p to q. t^♭_* decreases along γ, so
-c ≤ t^♭_*(q) ≤ t^♭_* ≤ t^♭_*(p) on it; r ≥ min(r(p), r^♮) on it, dr being future timelike for g on {r ≤ r^♮}
-([[lem:ii-c-3-2]] (1)), as in [[lem:ii-f-1-4]] (a); and r ≤ R_p by (b). So q ∈ L_p. L_p is closed, and on it
+c ≤ t^♭_*(q) ≤ t^♭_* ≤ t^♭_*(p) on it; r ≥ min(r(p), r^♮) on it, dr being future timelike for g on
+Ω_(1/2) ∩ {r ≤ r^♮} ([[lem:s27-below]] (iv)), as in [[lem:ii-f-1-4]] (a); and r ≤ R_p by (b). So q ∈ L_p. L_p is closed, and on it
 t_* ∈ [c, t^♭_*(p)/C_♭] and min(r(p), r^♮) ≤ r ≤ R_p, where r(p) (p ∈ X) and r^♮ lie in the range of r on M°; so L_p
 is compact. ∎
 

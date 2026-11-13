@@ -787,13 +787,13 @@ The statements on the regions {r ≤ R} have constants growing with R. This sect
 on the outgoing part of [HKW18]'s leaves.
 
 *Notation.* r_* := r + (r_h/2) log((r − r_h)/(r + r_h)), so that dr_*/dr = 1/f (it differs from the r_* of [HKW18],
-normalised by r_*(r_P) = 0, by a constant); u := t − r_* and v := t + r_*, which are 2u_H and 2v_H up to constants; the
-static t is related to that of [[sec:rw-setting]] by v = t + r_* up to a constant. In the outgoing chart (u, r), g = −f
-du² − 2 du dr + r²γ and T = ∂_t = ∂_u. A scalar mode of the class has harmonic S = P_j(cos 2ϑ), l = 2j ≥ 2, master field
-Φ(u, r), and in the gauge of [[prop:np-10-1]] (ii) it is h = F_abS dy^ady^b + 2r²FSγ with [[eq:np-10-1]]. The
-orthonormal frame of the static observers on {r > r_h} is e_0 = f^(−1/2)∂_t = f^(−1/2)∂_u, e_1 = f^(1/2)∂_r|_t =
-f^(1/2)∂_r − f^(−1/2)∂_u, and the unit frame e_i of the sphere of radius r, in which h(e_i, e_j) = 2FSδ_ij. The master
-equation □Φ = W_SΦ, with □ = −2∂_u∂_r + ∂_r(f∂_r) in this chart, reads
+normalised by r_*(r_P) = 0, by a constant); u := t − r_* and v := t + r_*, which are 2u_H and 2v_H up to constants; t is
+the static time, and the v of [[sec:rw-setting]] is t + r_* up to a constant. In the outgoing chart (u, r), g = −f du² −
+2 du dr + r²γ and T = ∂_t = ∂_u. A scalar mode of the class has harmonic S = P_j(cos 2ϑ), l = 2j ≥ 2, master field Φ(u,
+r), and in the gauge of [[prop:np-10-1]] (ii) it is h = F_abS dy^ady^b + 2r²FSγ with [[eq:np-10-1]]. The orthonormal
+frame of the static observers on {r > r_h} is e_0 = f^(−1/2)∂_t = f^(−1/2)∂_u, e_1 = f^(1/2)∂_r|_t = f^(1/2)∂_r −
+f^(−1/2)∂_u, and the unit frame e_i of the sphere of radius r, in which h(e_i, e_j) = 2FSδ_ij. The master equation □Φ =
+W_SΦ, with □ = −2∂_u∂_r + ∂_r(f∂_r) in this chart, reads
 
     2f∂_rTΦ = f∂_r(f∂_rΦ) − VΦ,        V = V_S.                                                         {#eq:rwg-master}
 
