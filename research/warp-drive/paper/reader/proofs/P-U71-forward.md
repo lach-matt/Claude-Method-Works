@@ -1,6 +1,6 @@
-<!-- New section, proposed placement: at the end of chapter 28 (ch:s09), after sec:ii-f1-7, or in chapter 71 before
-rem:ec-other-losses. It evaluates the loss d of thm:iii-i-5-3. Statements to strengthen elsewhere are listed in the
-report; this text cites only results stated in the edition, with the explicit values added there. -->
+<!-- Placement: a new section at the end of ch:s09, after sec:ii-f1-7, or in the chapter of rem:ec-other-losses,
+before that remark. It evaluates the loss d of thm:iii-i-5-3. The statements of other chapters that it cites with
+explicit values are given in the comment at the end of this section. Both comments are deleted at placement. -->
 
 ### The loss of the forward solution operators, evaluated {#sec:fwd}
 
@@ -44,10 +44,29 @@ with η = 7 and α_K = −2, each threshold in a fibre inner product chosen for 
 for δ = ¼ there is a fixed fibre inner product with ϑ_ℋ < ϑ_L + ¼ < 9/4 at b₀.
 
 *The incoming radial set over ∂K⁺.* By [[lem:ii-c-2-6]], ϑ^(3b)_in = ϑ_in, the threshold of [[eq:i-a-1-5]] at R_in.
-By [[lem:ec-theta-in]] (a), p_in − (S + S^(∗h)) = −2 Re_h(A + S) at ∂X for every fibre inner product h, and by its
-part (b) the eigenvalues of A + S at ∂X have real parts ≥ 0. The construction in the proof of [[lem:ii-c-2-5]], applied
-to the endomorphism A + S in place of S (it uses only the Jordan form at each point and a partition of unity), gives
-for every ϵ > 0 a fibre inner product h with λ_min(Re_h(A + S)) ≥ −ϵ on ∂X. With ϵ = 1/8, ϑ_in ≤ ¼.
+By [[lem:ec-theta-in]] (a), p_in − (S + S^(∗h)) = −2 Re_h(A + S) at ∂X for every fibre inner product h, so that
+ϑ_in = −2 inf_(∂X) λ_min(Re_h(A + S)) by [[eq:i-a-1-5]]. We show that every eigenvalue of A + S at every point of ∂X
+is real and ≥ 0. A + S is homogeneous of degree 0 ([[lem:ec-theta-in]] (b)), so it suffices to take it at a point x
+with |x| > 0, where ρ(A + S) = −Ē^C ι_(ḡ⁻¹ζ) Ḡ + (ζ ⊗_s ·) Ē^Υ Ḡ by [[eq:ec-theta-in-l]]. Use the frame
+(dx̄⁰, dx̄¹, |x|e^a) of the proof of [[lem:iii-c-4-2]], in which ζ = dt̄ + d|x| = dt_* + 2d|x| = dx̄⁰ and dt_* = dx̄¹,
+and let Π be the linear map of the tensors at x that exchanges the frame indices 0 and 1. The components of ḡ and of
+ḡ⁻¹ in this frame do not change under the exchange (ḡ⁻¹(dx̄⁰, dx̄¹) = −2, ḡ⁻¹(dx̄⁰, dx̄⁰) = ḡ⁻¹(dx̄¹, dx̄¹) = 0, and no
+mixed null-tangential components). So Π commutes with raising and lowering indices, with contractions and traces, with
+⊗_s and with Ḡ; and Π dx̄⁰ = dx̄¹, Π dt̄ = dt̄ and ΠY = Y for Y := ḡ⁻¹dt̄, while Π maps
+ĉ = ½(1 − v_C)dx̄⁰ + ½(1 + v_C)dx̄¹ to ĉ with v_C replaced by −v_C. In that proof Ē^C and Ē^ΥḠ are written through
+ĉ, ḡ, dt̄ and Y alone: Ē^Cω = γ_Cρ(2ĉ ⊗_s ω − ⅔(1 − e_C)ḡ⟨ĉ, ω⟩) and Ē^ΥḠh = −γ_Υρ(2ι_Y h − e_Υ(tr h) dt̄). Hence
+Π ρ(A + S) Π⁻¹ = −Ē^C_− ι_(ḡ⁻¹dt_*) Ḡ + (dt_* ⊗_s ·) Ē^Υ Ḡ, with Ē^C_− the operator Ē^C with v_C replaced by −v_C;
+this is ρS̄ of [[eq:iii-f-2-2]] with v_C replaced by −v_C. The proof of [[lem:iii-c-4-2]] computes the matrix of that
+expression in the frame for any real constant in place of v_C (it uses v_C only through a = ½(1 − v_C) and
+b = ½(1 + v_C)). So Π(A + S)Π⁻¹ is lower triangular, with the diagonal [[eq:iii-c-4-3]] with v_C replaced by −v_C,
+
+    2(1 + v_C)γ_C,  (1 + v_C)γ_C,  (1 − e_C)(1 + v_C)γ_C,  (1 − e_Υ)γ_Υ,  γ_Υ,  0,  2γ_Υ,
+
+each entry acting on its slot as a multiple of the identity. These are the eigenvalues of A + S, with the ranks of
+the slots as multiplicities. As v_C ∈ (0, 1) ([[def:iii-b-6-1]]), 0 < e_C < 1, γ_C > 0, 0 < e_Υ < 1 and γ_Υ > 0
+([[sec:iii-c-1]], [[eq:iii-c-1-1]]), all are ≥ 0, and 0 is one of them: inf_(∂X) min Re spec(A + S) = 0.
+[[lem:ii-c-2-5]], applied to a smooth extension of A + S to X̄ in place of S (only its values on ∂X enter), gives for
+every ϵ > 0 a fibre inner product h with λ_min(Re_h(A + S)) ≥ −ϵ on ∂X. With ϵ = 1/8, ϑ_in ≤ ¼.
 
 *The outgoing radial set.* By [[lem:ii-c-2-6]] with the inner product of [[lem:ii-c-2-5]] at ϵ = 1/8,
 ϑ_out ≥ 2S̄ − ¼ = −¼, as S̄ = 0 for 2L_(b₀) ([[eq:iii-c-4-3]]).
@@ -90,9 +109,10 @@ no tame loss. So d^S = 41.
 [[prop:ii-a-9-8]]–[[prop:ii-a-9-9]] at the orders 𝗌 + 1 and 𝗌, with error order −N.
 [[lem:ii-d1-2-4]] has d = d̃ + 3 with d̃ the larger of [[prop:ii-a-9-6]] at (𝗍 + 1 + 𝔩, 𝗍_0) and (𝗍_0 − 2, 𝗍_0 − 2),
 𝗍, 𝗍_0 the constant values of the orders at the set, 𝔩 ≤ 1. At the horizon, at ∂R_(ℐ⁺,in,+) and at ∂R_(∂K⁺,in) the
-orders are (𝗌 + 1, 𝗌_0) = (12, 8): d̃(14, 8) = 20, d̃(6, 6) = 12, d = 23. At the trapped set (11, 8): d = 22. At
-∂R_(∂K⁺,out) and ∂R_(ℐ⁺,out) the orders are (𝗌, 𝗌_0) = (−10, −13): d̃(−8, −13) = 0 + 26 + 6 = 32,
-d̃(−15, −15) = 36, d = 39.
+orders are (𝗌 + 1, 𝗌_0) = (12, 8) and 𝔩 = 0: d̃(13, 8) = 19, d̃(6, 6) = 12, d = 22. At the trapped set (11, 8),
+𝔩 = 1: d̃(13, 8) = 19, d = 22. At ∂R_(∂K⁺,out) and ∂R_(ℐ⁺,out) the orders are (𝗌, 𝗌_0) = (−10, −13) and 𝔩 = 0:
+d̃(−9, −13) = 0 + 26 + 6 = 32, d̃(−15, −15) = 36, d = 39. (𝔩 = 0 at the radial sets and 𝔩 = 1 at the trapped set,
+[[sec:ii-d1-2]].)
 [[prop:ii-a-9-9]] at the order 𝗍 has d = d̃ + 2 with [[prop:ii-a-9-6]] at (𝗍 − m + 1, −N − m), m = 2: at 𝗍 = 𝗌 + 1,
 (𝗌, −15) gives s̄ = 11, max(s̲, s̲_0) = 15, d̃ = 47, d = 49; at 𝗍 = 𝗌, d̃ = 46, d = 48. [[prop:ii-a-9-8]] at
 𝗍 ≤ 𝗌 + 1 has d = d̃ + 1 with (𝗍 − m, −N − m): d̃(𝗌 − 1, −15) = 46, d = 47. So d^E = 49.
@@ -136,7 +156,7 @@ normed by ‖Op(⟨ξ⟩^(𝗆_α))w‖ + ‖w‖_(H^(−N_0)) for a fixed N_0 �
 ((S8); elliptic regularity of the smooth calculus).
 
 **Lemma {#lem:fwd-crude}** (Boundedness from x-derivatives.) Let p vanish for x ∉ Q_4, let μ, s ∈ ℝ, and suppose that
-the bound |∂_(x_l)^j p(x, ξ)| ≤ A⟨ξ⟩^μ for l = 1, …, n and j ≤ N, where N ≥ n + 1 + |s − μ|. Then
+the bound |∂_(x_l)^j p(x, ξ)| ≤ A⟨ξ⟩^μ for l = 1, …, n and j ≤ N, where N is an integer with N > n + |s − μ|. Then
 ‖Op(p)u‖_(H^(s−μ)) ≤ C A ‖u‖_(H^s), C depending on n, s − μ and N.
 
 *Proof.* Let θ ∈ C_c^∞((−3, 3)ⁿ) equal 1 on Q_4 and e_k(x) := e^(iπk·x/3), k ∈ ℤⁿ. On [−3, 3]ⁿ,

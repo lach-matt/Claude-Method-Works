@@ -757,13 +757,14 @@ tangent spaces, and H^σ(S^n) the space of u ∈ L²(S^n) with W_(a1b1) ⋯ W_(a
 
     A^0(t, ω, u, P) ∂_t u + Σ_(a<b) A^(ab)(t, ω, u, P) W_ab u = F(t, ω, u, P)                     {#eq:class-kato-sphere}
 
-with P = P̄, and let A^0 be positive definite at the points (t, ω, ū(t, ω), P̄(t, ω)). There are r0, ε0 > 0 and C
-such that, for every smooth P : [0, T] × S^n → R^q with ‖P − P̄‖_(C^s) ≤ ε0 (derivatives of order at most s in (t,
-ω)) and every u0 ∈ H^s(S^n) with ‖u0 − ū(0)‖_(H^s(S^n)) ≤ ε0:
+with P = P̄, and let A^0 be positive definite at the points (t, ω, ū(t, ω), P̄(t, ω)). There is r̄ > 0 such that for
+every r0 ∈ (0, r̄] there are ε0 > 0 and C such that, for every smooth P : [0, T] × S^n → R^q with ‖P − P̄‖_(C^s) ≤ ε0
+(derivatives of order at most s in (t, ω)) and every u0 ∈ H^s(S^n) with ‖u0 − ū(0)‖_(H^s(S^n)) ≤ ε0:
 
 (a) [[eq:class-kato-sphere]] has a solution u ∈ C¹([0, T] × S^n) with u(0) = u0, u(t) ∈ H^s(S^n), |u − ū| ≤ r0, and
 
-    sup_t ‖u − ū‖_(L²(S^n)) ≤ C (‖u0 − ū(0)‖_(L²(S^n)) + ‖P − P̄‖_(C^0)),      sup_t ‖u(t)‖_(H^s(S^n)) ≤ C;
+    sup_t ‖u − ū‖_(L²(S^n)) ≤ C (‖u0 − ū(0)‖_(L²(S^n)) + ‖P − P̄‖_(C^0)),      sup_t ‖u(t)‖_(H^s(S^n)) ≤ C,
+    sup |u − ū| ≤ C (‖u0 − ū(0)‖_(L²(S^n)) + ‖P − P̄‖_(C^0))^(1/(4s));
 
 it is the only solution in C¹([0, T]; L²(S^n)) with u(t) ∈ H^s(S^n) for every t, sup_t ‖u(t)‖_(H^s(S^n)) < ∞ and |u −
 ū| ≤ r0. So every map that carries such solutions with the datum u0 to such solutions with the datum u0 fixes u.
@@ -778,16 +779,17 @@ X − ⟨x, X⟩ x = X for X tangent to S^n at x; so a system ∂_t u + B^K ∂_
 symmetric, H positive definite at ū) is of the form [[eq:class-kato-sphere]] with A^0 := H, A^(ab) := H B^K ⟨∂_K, W_ab⟩
 and F := −H C.
 
-*Proof.* (1) *A cut-off of the states.* By compactness there are r0, ε1 > 0 and c0 > 0 with A^0(t, ω, u, π) ≥ 2c0 I
-for |u − ū(t, ω)| ≤ 2r0 and |π − P̄(t, ω)| ≤ ε1. Let ϒ be a smooth map of R^m with ϒ(w) = w for |w| ≤ r0 and |ϒ| ≤
-2r0, and let ε0 ≤ ε1. For w := u − ū the system reads, where |w| ≤ r0,
+*Proof.* (1) *A cut-off of the states.* By compactness there are r̄, ε1 > 0 and c0 > 0 with A^0(t, ω, u, π) ≥ 2c0 I
+for |u − ū(t, ω)| ≤ 2r̄ and |π − P̄(t, ω)| ≤ ε1; let 0 < r0 ≤ r̄. Let ϒ be a smooth map of R^m with ϒ(w) = w for |w| ≤
+r0 and |ϒ| ≤ 2r0, and let ε0 ≤ ε1; the constants below depend on r0. For w := u − ū the system reads, where |w| ≤ r0,
 
     B^0 ∂_t w + Σ_(a<b) B^(ab) W_ab w = G(t, ω, w),
 
 with B^μ(t, ω, w) := A^μ(t, ω, ū + ϒ(w), P) (μ = 0 or μ = ab) and G := F(t, ω, ū + ϒ(w), P) − B^0 ∂_t ū − Σ B^(ab)
 W_ab ū; B^0 ≥ 2c0 I for every w, and G(t, ω, 0) = 0 when P = P̄. So |G(t, ω, 0)| ≤ C ‖P − P̄‖_(C^0) and the C^s norm of
-G(·, ·, 0) is at most C ‖P − P̄‖_(C^s), and the derivatives of the B^μ and of G of order at most s are bounded on
-bounded sets of w uniformly in P.
+G(·, ·, 0) is at most C ‖P − P̄‖_(C^s). A derivative of the B^μ or of G of order at most s in (t, ω), and of any order
+in w, holds derivatives of P of order at most s only, and ‖P‖_(C^s) ≤ ‖P̄‖_(C^s) + ε1; so these derivatives are
+bounded on bounded sets of w uniformly in P.
 
 (2) *The system on R^(n+1).* Let χ, χ_1 ∈ C_c^∞((1/2, 2)) take values in [0, 1] and equal 1 on [3/4, 4/3], and for x ≠ 0
 put x̂ := x/|x|. On [0, T] × R^(n+1) let
@@ -796,8 +798,8 @@ put x̂ := x/|x|. On [0, T] × R^(n+1) let
     F̃ := χ(|x|) G(t, x̂, W),
 
 (W_ab)^j the components of W_ab, linear in x; these are zero or the identity off {1/2 < |x| < 2}. They are smooth and
-symmetric, Ã^0 ≥ min(2c0, 1) I, every derivative is bounded on bounded sets of W, and F̃(t, x, 0) vanishes for |x| ∉
-(1/2, 2). As the W_ab are tangent to the spheres |x| = r and commute with dilations, the system Ã^0 ∂_t W + Ã^j ∂_j W =
+symmetric, Ã^0 ≥ min(2c0, 1) I, every derivative is bounded on bounded sets of W, by (1) their bounds of order s (in
+the sense of [[sec:class-kato]]) are uniform in P, and F̃(t, x, 0) vanishes for |x| ∉ (1/2, 2). As the W_ab are tangent to the spheres |x| = r and commute with dilations, the system Ã^0 ∂_t W + Ã^j ∂_j W =
 F̃ holds no derivative across the spheres, and on each sphere |x| = r ∈ [3/4, 4/3], with W_r(t, ω) := W(t, rω), it is
 the system of (1) for W_r. Its forcing term is local and satisfies (F1)–(F3) and (F1′) by [[rem:class-kato-local]], and
 for P = P̄, W̄ := 0 solves it; for general P, 0 satisfies [[eq:class-kato-approximate]] with R := −F̃(t, x, 0), ‖R(t)‖ ≤
@@ -806,15 +808,22 @@ C ‖P − P̄‖_(C^0) and ‖R(t)‖_(H^s) ≤ C ‖P − P̄‖_(C^s) ≤ 1.
 (3) *Existence and bounds.* Put W(0, x) := χ_1(|x|) w0(x̂), w0 := u0 − ū(0). Since ∂_j = x̂_j ∂_r − |x|⁻² Σ_b x_b W_jb
 (W_jb := −W_bj), ‖W(0)‖_(H^s(R^(n+1))) ≤ C ‖w0‖_(H^s(S^n)) and ‖W(0)‖ ≤ C ‖w0‖_(L²(S^n)). [[thm:class-kato-stability]]
 (a) in R^(n+1), with s > (n + 1)/2 + 1, gives for ε0 small a solution W on [0, T] with sup_t ‖W‖ ≤ C (‖w0‖_(L²(S^n)) +
-‖P − P̄‖_(C^0)), sup_t ‖W‖_(H^s) ≤ C and sup_t ‖W‖_(W^(1,∞)) ≤ C ‖W‖_(H^(s′)) ≤ r0 for ε0 small, the constants uniform
-in P by (1). W lies in C([0, T]; C¹) by [[eq:class-interpolation]], and ∂_t W is continuous by the equation; so W ∈
-C¹([0, T] × R^(n+1)), and every W_r, 3/4 ≤ r ≤ 4/3, is a C¹ solution on [0, T] × S^n of the system of (1) with the datum
+‖P − P̄‖_(C^0)) and sup_t ‖W‖_(H^s) ≤ C. Put s′ := s − 1/4, which exceeds (n + 1)/2 + 1, an integer larger than
+(n + 1)/2 + 1 being larger by at least 1/2; then 1 − s′/s = 1/(4s), and the bound of that theorem in H^(s′) gives
+
+    sup_t ‖W‖_(W^(1,∞)) ≤ C sup_t ‖W‖_(H^(s′)) ≤ C (‖w0‖_(L²(S^n)) + ‖P − P̄‖_(C^0))^(1/(4s)),
+
+which is at most r0 for ε0 small. The constants are uniform in P: at the order s, those of
+[[thm:class-kato-stability]] depend on the coefficients and on the local forcing term F̃ only through bounds of order s
+and through sup_t ‖F̃(t, ·, 0)‖_(H^s) (the paragraph after [[rem:class-kato-local]]), and by (1) and (2) these are
+uniform in P, sup_t ‖F̃(t, ·, 0)‖_(H^s) being at most C ‖P − P̄‖_(C^s) ≤ 1. W lies in C([0, T]; C¹) by
+[[eq:class-interpolation]], and ∂_t W is continuous by the equation; so W ∈ C¹([0, T] × R^(n+1)), and every W_r, 3/4 ≤ r ≤ 4/3, is a C¹ solution on [0, T] × S^n of the system of (1) with the datum
 w0. Two such solutions coincide: their difference z satisfies the L² energy identity on S^n, in which ∫_(S^n) ⟨B^(ab)
 W_ab z, z⟩ = −½ ∫_(S^n) ⟨(W_ab B^(ab)) z, z⟩ because the rotations preserve the measure of S^n, and Gronwall's
 inequality gives z = 0. So W(t, rω) = W(t, ω) on the shell 3/4 ≤ |x| ≤ 4/3, and u := ū + W_1 solves
-[[eq:class-kato-sphere]], since |W_1| ≤ r0. On the shell W_ab W(t, rω) = (W_ab W_1)(t, ω), and the W_ab have bounded
-coefficients there; so the L² and H^s norms of W_1(t) on S^n are bounded by C times those of W(t) on R^(n+1). This is (a)
-except uniqueness. *Uniqueness.* For two solutions in the class of (a), the H^s(S^n) norm bounds W_ab u in H^(s−1)(S^n) ⊂
+[[eq:class-kato-sphere]], since |W_1| ≤ r0; and sup |u − ū| = sup |W_1| ≤ sup_t ‖W‖_(W^(1,∞)). On the shell W_ab W(t,
+rω) = (W_ab W_1)(t, ω), and the W_ab have bounded coefficients there; so the L² and H^s norms of W_1(t) on S^n are
+bounded by C times those of W(t) on R^(n+1). This is (a) except uniqueness. *Uniqueness.* For two solutions in the class of (a), the H^s(S^n) norm bounds W_ab u in H^(s−1)(S^n) ⊂
 L^∞ ([[thm:std-bh-manifold]], s − 1 > n/2, the norm of [[cor:std-moser-product]] (2) being equivalent to that of
 [BH17] by the chart comparison in its proof), and ∂_t u is bounded by the equation; the L² energy identity on S^n for
 their difference, as above, gives uniqueness.
