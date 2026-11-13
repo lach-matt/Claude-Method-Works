@@ -272,12 +272,12 @@ is noncharacteristic for □. Step 3 of the proof of [[thm:ix-2-2]] uses of its 
 of order below m, or of order m with at most m − 1 derivatives in t_IVP, so it vanishes, and ∂^m_(t_IVP)d = 0. So d
 vanishes to infinite order along Σ°, and its extension d̃ by 0 to Ω^♯ ∩ {t_IVP < 0} is smooth on Ω^♯, with □d̃ = 0
 and vanishing data on Σ°. Ω^♯ is globally hyperbolic on each component, with Cauchy hypersurface Σ° ([[lem:ix-1-2]]),
-and ±□ is normally hyperbolic, so [[thm:std-bgp-cauchy]] (3) on each component gives d̃ = 0. For the second claim
+and □ = 2δGδ* is normally hyperbolic ([[sec:ix-0]]), so [[thm:std-bgp-cauchy]] (3) on each component gives d̃ = 0. For the second claim
 apply the first to d := (Z̃_1 − Z̃_2)|_(N⁺). ∎
 
 **Proposition {#prop:gd-2-1}** (The harmonic-gauge solutions.)
 
-(a) For every 1-form Z′ on N⁺, smooth up to Σ°, with □Z′ = −Θ(e) on N⁺,
+(a) For every 1-form Z′ on N⁺, smooth up to Σ°, with □Z′ = Υ̇⁰(e) on N⁺,
 
     ġ_H := ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g                                                                   {#eq:gd-2-gh}
 
@@ -288,10 +288,10 @@ for G-invariant data it is G-invariant.
 (b) Let U ⊂ U^♯ be open and G-invariant, Ω′_+ := D_U(Σ_U) ∩ {t_IVP ≥ 0}, and let ġ′ be a G-invariant linearised vacuum
 solution on Ω′_+, smooth up to Σ_U, in harmonic gauge, inducing (γ̇, k̇) plus the data of ℒ_Zg for a vector field Z
 near Σ_U, smooth up to Σ_U. Then ġ′ = ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g on Ω′_+ for a G-invariant 1-form Z′ with
-□Z′ = −Θ(e).
+□Z′ = Υ̇⁰(e).
 
-(c) (*The forcing term has no l = 0 part.*) Θ(e)_0 = 0. So the l = 0 part Z′_0 of Z′ solves □Z′_0 = 0, and
-Z′_(≥2) := Z′ − Z′_0 solves □Z′_(≥2) = J := −Θ(e), with, for every k, R′ and ε′ > 0,
+(c) (*The forcing term has no l = 0 part.*) Υ̇⁰(e)_0 = 0. So the l = 0 part Z′_0 of Z′ solves □Z′_0 = 0, and
+Z′_(≥2) := Z′ − Z′_0 solves □Z′_(≥2) = J := Υ̇⁰(e), with, for every k, R′ and ε′ > 0,
 
     |J|_k ≤ C‖(γ̇, k̇)‖_(H^(k₁(k+3))) t_*^(−w+ε′)     on {r_♭ < r ≤ R′, t_* ≥ T′},
 
@@ -303,47 +303,47 @@ the freedom being the solutions of □Y = 0 (more than the multiples of W* when 
 [[prop:gd-r2-13]] (c)).
 
 *Proof.* (a) DRic(ġ_RW) = 0 ([[thm:rw-settling]] (a)) and DRic(ℒ_Xg) = 0 ([[lem:ix-2-1]] (b)). By [[prop:np-10-2]]
-(iv) (b), Θ(ġ_H) = ṁΘ(K_V) + Θ(e) + ṁ□W**_H + □Z′ = ṁΘ(K_V) + Θ(e) − ṁΘ(K_V) − Θ(e) = 0. ġ_RW induces (γ̇, k̇)
-plus the data of ℒ_(X_RW)g ([[thm:rw-settling]] (a)), and W**_H and Z′ are smooth up to Σ°. *Existence.* e is given
-on N⁺ only, smooth up to Σ°. As in Step 1 of the proof of [[thm:ix-2-2]], −Θ(e) extends to a smooth 1-form F on Ω^♯:
+(iv) (b) and [[eq:hg-box]], Υ̇⁰(ġ_H) = ṁΥ̇⁰(K_V) + Υ̇⁰(e) − ṁ□W**_H − □Z′ = ṁΥ̇⁰(K_V) + Υ̇⁰(e) − ṁΥ̇⁰(K_V) − Υ̇⁰(e)
+= 0. ġ_RW induces (γ̇, k̇) plus the data of ℒ_(X_RW)g ([[thm:rw-settling]] (a)), and W**_H and Z′ are smooth up to Σ°. *Existence.* e is given
+on N⁺ only, smooth up to Σ°. As in Step 1 of the proof of [[thm:ix-2-2]], Υ̇⁰(e) extends to a smooth 1-form F on Ω^♯:
 it extends to an open neighbourhood of N⁺ ([[sec:ix-0]]), and a smooth function equal to 1 on N⁺ and supported in
 that neighbourhood extends it by 0 beyond. By [[lem:ix-1-1]] on Ω^♯ (globally hyperbolic on each component with Cauchy
-hypersurface Σ°, [[lem:ix-1-2]]), with the operator ±□ ([[lem:ix-2-1]] (a)), □Z̃ = F has a smooth solution on Ω^♯
+hypersurface Σ°, [[lem:ix-1-2]]), with the normally hyperbolic operator □ ([[sec:ix-0]]), □Z̃ = F has a smooth solution on Ω^♯
 with any given smooth data on Σ°, and Z′ := Z̃|_(N⁺) is smooth up to Σ°. By [[lem:gd-r3-1]], Z′ does not depend on the
 extension, and two solutions on N⁺ with the same data agree. *Invariance.* G preserves t_IVP and |x|, so N⁺, Ω^♯ and
-Σ°; Θ(e) is G-invariant, and □ commutes with the action of G. For σ ∈ G, σ*Z′ solves □(σ*Z′) = −Θ(e) on N⁺ with the
+Σ°; Υ̇⁰(e) is G-invariant, and □ commutes with the action of G. For σ ∈ G, σ*Z′ solves □(σ*Z′) = Υ̇⁰(e) on N⁺ with the
 data σ* of those of Z′; for G-invariant data, σ*Z′ = Z′ by uniqueness.
 
 (b) By [[cor:ix-2-3]] and [[rem:ix-2-4]] (c), ġ′ = ġ + ℒ_(X′)g on Ω′_+ ⊂ N⁺ with X′ G-invariant and smooth up to
-Σ_U; and ġ_RW = ġ + ℒ_(X_RW)g. So ġ′ − ġ_RW = ℒ_Yg with Y := X′ − X_RW, G-invariant. Θ(ġ′) = 0 reads
-Θ(e) + ṁΘ(K_V) + □Y = 0, that is □(Y − ṁW**_H) = −Θ(e) by [[prop:np-10-2]] (iv) (b). Put Z′ := Y − ṁW**_H.
+Σ_U; and ġ_RW = ġ + ℒ_(X_RW)g. So ġ′ − ġ_RW = ℒ_Yg with Y := X′ − X_RW, G-invariant. Υ̇⁰(ġ′) = 0 reads
+Υ̇⁰(e) + ṁΥ̇⁰(K_V) − □Y = 0, that is □(Y − ṁW**_H) = Υ̇⁰(e) by [[prop:np-10-2]] (iv) (b). Put Z′ := Y − ṁW**_H.
 
-(c) Θ commutes with the SO(4)-average, and e_0 = 0, so Θ(e)_0 = 0; □ commutes with it too, so □Z′_0 = (□Z′)_0 = 0.
-Θ(e) is first order in e, so |Θ(e)|_k ≤ C|e|_(k+1), and [[thm:rw-settling]] (b) bounds |e|_(k+1).
+(c) Υ̇⁰ commutes with the SO(4)-average, and e_0 = 0, so Υ̇⁰(e)_0 = 0; □ commutes with it too, so □Z′_0 = (□Z′)_0 = 0.
+Υ̇⁰(e) is first order in e, so |Υ̇⁰(e)|_k ≤ C|e|_(k+1), and [[thm:rw-settling]] (b) bounds |e|_(k+1).
 
 (d) □W* = 0 ([[sec:hg-setting]]), and ℒ_(cW*)g = cℒ_(W*)g is a linearised diffeomorphism. ∎
 
 **Theorem {#thm:gd-2-3}** (The forced linear growth.) Let ġ_H = ġ + ℒ_Zg be a harmonic-gauge solution of
 [[prop:gd-2-1]] (a), Z = X_RW + ṁW**_H + Z′ G-invariant. Then on the horizon, for v ≥ v_0 with t_* ≥ T′ there,
 
-    Q[Z](v) = Q[Z](v_0) + 2π²ṁ(v − v_0) − ∫_(v_0)^v ℓ(Θ(h))(v′) dv′,        |ℓ(Θ(h))(v)| ≤ Cv^(−w+ε′),
+    Q[Z](v) = Q[Z](v_0) + 2π²ṁ(v − v_0) + ∫_(v_0)^v ℓ(Υ̇⁰(h))(v′) dv′,        |ℓ(Υ̇⁰(h))(v)| ≤ Cv^(−w+ε′),
 
 and Q[Z − ṁW**_H](v) converges as v → ∞. Consequently, if ṁ ≠ 0, no harmonic-gauge solution settles to ṁK_V near
 the horizon at an integrable rate: there are no δ, ε > 0 for which (ġ_H − ṁK_V)_0 and its first derivatives are
 O(t_*^(−1−δ)) on {|r − r_h| ≤ ε}.
 
-*Proof.* □Z = Θ(ℒ_Zg) = −Θ(ġ) = −ṁΘ(K_V) − Θ(h), as Θ(ġ_H) = 0, and ℓ(Θ(K_V)) = −2π² ([[lem:gd-2-2]] (b)).
-ℓ(Θ(h)) involves h and its first derivatives at r_h, bounded by [[eq:gd-0-2]], with |t_* − v| ≤ C near r_h.
+*Proof.* □Z = −Υ̇⁰(ℒ_Zg) = Υ̇⁰(ġ) = ṁΥ̇⁰(K_V) + Υ̇⁰(h), as Υ̇⁰(ġ_H) = 0, and ℓ(Υ̇⁰(K_V)) = 2π² ([[lem:gd-2-2]] (b)).
+ℓ(Υ̇⁰(h)) involves h and its first derivatives at r_h, bounded by [[eq:gd-0-2]], with |t_* − v| ≤ C near r_h.
 Integrating [[eq:gd-2-1]] gives the identity. Near the horizon V is a constant multiple of the Killing field ∂_t
-([[eq:gd-0-1]]), so there □V^♭ = Θ(ℒ_Vg) = 0 and Q[V^♭] is constant by [[eq:gd-2-1]]; and (d/dv)Q[W**] = 2π²
-([[lem:gd-2-2]] (b)). So (d/dv)Q[ṁW**_H] = 2π²ṁ, and Q[Z − ṁW**_H] has the integrable derivative −ℓ(Θ(h)) and
+([[eq:gd-0-1]]), so there □V^♭ = −Υ̇⁰(ℒ_Vg) = 0 and Q[V^♭] is constant by [[eq:gd-2-1]]; and (d/dv)Q[W**] = 2π²
+([[lem:gd-2-2]] (b)). So (d/dv)Q[ṁW**_H] = 2π²ṁ, and Q[Z − ṁW**_H] has the integrable derivative ℓ(Υ̇⁰(h)) and
 converges.
 
 Suppose ṁ ≠ 0 and (ġ_H − ṁK_V)_0 is O(t_*^(−1−δ)), with its first derivatives, on {|r − r_h| ≤ ε}, ε small. Averaging
 ġ_H = ṁK_V + h + ℒ_Zg, ℒ_(Z_0)g = (ġ_H − ṁK_V)_0 − h_0, which with [[eq:gd-0-2]] is O(t_*^(−min(1+δ,w−ε′))) there,
 with first derivatives. It is a spherically symmetric linearised vacuum solution with δm[ℒ_(Z_0)g] = 0
 ([[lem:gd-1-4]] (a)). Apply [[lem:gd-1-4]] (b) on the simply connected set {|r − r_h| < ε, v > v_1} of the orbit
-space: ℒ_(Z_0)g = ℒ_(Y)g with Y = ζ∂_v + rH_L∂_r, where H_L and dζ = ω are algebraic in ℒ_(Z_0)g and its first
+space: ℒ_(Z_0)g = ℒ_(Y)g with Y = ζ∂_v + rH_L∂_r, where H_L and dζ = 𝔷 are algebraic in ℒ_(Z_0)g and its first
 derivatives, so integrable in v; hence ζ(v, r_h) converges as v → ∞, and H_L and its first derivatives tend to 0. By
 [[lem:gd-1-4]] (c), Z_0 − Y^♭ = c′(∂_v)^♭ for a constant c′. Now ζ(∂_v)^♭ has δ(ζ(∂_v)^♭) = −∂_vζ and
 (d(ζ(∂_v)^♭))_(vr) = ∂_vζ + f∂_rζ + ζf′, so at r_h, where f = 0 and f′ = 2/r_h, Q[ζ(∂_v)^♭] = 4π²m₀ζ(v, r_h). And

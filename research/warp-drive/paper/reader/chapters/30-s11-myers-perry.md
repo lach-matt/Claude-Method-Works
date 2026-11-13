@@ -1429,23 +1429,30 @@ coefficient (the Riemann sums are the same, and convergence in H^(s+m) implies c
 maps H^s to H^(s+m), with norm at most r₁^(−k)C′_Ω. As s is arbitrary, it maps C^∞(∂M), the intersection of the
 H^s(∂M), to itself. ∎
 
-*Proof of (E3).* Fix ι₁ ∈ ℂ and write, near ι₁, N(A, ι)⁻¹ = Σ_(k≥−p) R_k(ι − ι₁)^k with p ≥ 0 and R_k : L² → H^m, and
-N(A, ι) = Σ_(j≤m) 𝒩_j(ι − ι₁)^j with 𝒩_j : H^m → L² bounded and 𝒩_0 = N(A, ι₁). At every ι that is not a pole, Π
-commutes with N(A, ι)⁻¹: for g ∈ L² and u := N(A, ι)⁻¹g, Πu ∈ H^m and N(A, ι)Πu = ΠN(A, ι)u = Πg, so
-ΠN(A, ι)⁻¹g = N(A, ι)⁻¹Πg. Applying Π to the circle integrals that give the R_k (proof of (E2)) yields ΠR_k = R_kΠ
-for every k, as operators on L².
+*Proof of (E3).* Let S be the set of [[thm:std-analytic-fredholm]] in the proof of (E2). As
+Id + B(ι) = N(A, ι₀)⁻¹N(A, ι) with N(A, ι₀)⁻¹ : L² → H^m bijective, N(A, ι) : H^m → L² is invertible exactly for
+ι ∉ S, and N(A, ·)⁻¹ is holomorphic on ℂ ∖ S, so every pole lies in S. S is discrete, and it is closed: its complement
+is open, as B is continuous in norm and a Neumann series inverts every small perturbation of an invertible operator. So
+S has finitely many points in every compact set. For ι ∉ S, Π commutes with N(A, ι)⁻¹: for g ∈ L² and
+u := N(A, ι)⁻¹g, Πu ∈ H^m and N(A, ι)Πu = ΠN(A, ι)u = Πg, so ΠN(A, ι)⁻¹g = N(A, ι)⁻¹Πg.
+
+Fix ι₁ ∈ ℂ and r₁ > 0 such that the closed disc of radius r₁ about ι₁ contains no point of S other than ι₁. On the
+punctured disc write N(A, ι)⁻¹ = Σ_(k≥−p) R_k(ι − ι₁)^k, with p ≥ 0 and R_k : L² → H^m, and
+N(A, ι) = Σ_(j≤m) 𝒩_j(ι − ι₁)^j, with 𝒩_j : H^m → L² bounded and 𝒩_0 = N(A, ι₁). R_k is (2πi)⁻¹ times the integral
+of (ι − ι₁)^(−k−1)N(A, ι)⁻¹ over the circle |ι − ι₁| = r₁, on which Π commutes with N(A, ι)⁻¹; so ΠR_k = R_kΠ for
+every k, as operators on L². The Laurent coefficients of N(A, ·)⁻¹Π at ι₁ are the R_kΠ.
 
 *A pole gives a kernel.* Suppose that N(A, ·)⁻¹Π has a pole at ι₁, and let q ≥ 1 be the largest integer with
-R_(−q)Π ≠ 0. For ι ≠ ι₁ near ι₁, N(A, ι)N(A, ι)⁻¹Π = Π. The coefficient of (ι − ι₁)^(−q) on the left is 𝒩_0R_(−q)Π,
-as R_kΠ = 0 for k < −q, and on the right it is 0; so N(A, ι₁)R_(−q)Π = 0. Take g ∈ L² with u := R_(−q)Πg ≠ 0. Then
-u ∈ H^m, N(A, ι₁)u = 0, and u = R_(−q)ΠΠg = ΠR_(−q)Πg = Πu. Write ι₁ = c + iτ, n := ⌊τ⌋, κ := τ − n and
-v := e^(inx)u ∈ L²(Z), as in the proof of (E1). Then P_(c,κ)v = e^(inx)N(A, ι₁)u = 0, so (EE), which holds for
-P_(c,κ) (proof of (E1)), gives v ∈ H^(s+m)(Z) for every s, and the comparison of ‖v‖_(H^k(Z)) with [u]_(k,τ) in the
-proof of (E1) gives u ∈ H^(s+m)(∂M) for every s. So u ∈ C^∞(∂M), and u = Πu ∈ ΠC^∞(∂M) is a nonzero solution of
-N(A, ι₁)u = 0.
+R_(−q)Π ≠ 0. For 0 < |ι − ι₁| < r₁, N(A, ι)N(A, ι)⁻¹Π = Π. The coefficient of (ι − ι₁)^(−q) on the left is
+𝒩_0R_(−q)Π, as R_kΠ = 0 for k < −q, and on the right it is 0; so N(A, ι₁)R_(−q)Π = 0. Take g ∈ L² with
+u := R_(−q)Πg ≠ 0. Then u ∈ H^m, N(A, ι₁)u = 0, and u = R_(−q)ΠΠg = ΠR_(−q)Πg = Πu. Write ι₁ = c + iτ, n := ⌊τ⌋,
+κ := τ − n and v := e^(inx)u ∈ L²(Z), as in the proof of (E1). Then P_(c,κ)v = e^(inx)N(A, ι₁)u = 0, so (EE), which
+holds for P_(c,κ) (proof of (E1)), gives v ∈ H^(s+m)(Z) for every s, and the comparison of ‖v‖_(H^k(Z)) with
+[u]_(k,τ) in the proof of (E1) gives u ∈ H^(s+m)(∂M) for every s. So u ∈ C^∞(∂M), and u = Πu ∈ ΠC^∞(∂M) is a nonzero
+solution of N(A, ι₁)u = 0.
 
 *No pole gives invertibility.* Suppose that N(A, ·)⁻¹Π has no pole at ι₁: R_kΠ = 0 for k < 0, and N(A, ι)⁻¹Π → R_0Π
-in the norm of operators L² → H^m as ι → ι₁. For u ∈ ΠH^m and ι ≠ ι₁ near ι₁,
+in the norm of operators L² → H^m as ι → ι₁. For u ∈ ΠH^m and 0 < |ι − ι₁| < r₁,
 N(A, ι)⁻¹ΠN(A, ι)u = N(A, ι)⁻¹N(A, ι)Πu = u, and letting ι → ι₁ (N(A, ·) : H^m → L² is continuous) gives
 R_0ΠN(A, ι₁)u = u. So N(A, ι₁) is injective on ΠH^m, and in particular N(A, ι₁)u = 0 has no solution
 0 ≠ u ∈ ΠC^∞(∂M); with the last paragraph this proves the equivalence. Letting ι → ι₁ in N(A, ι)N(A, ι)⁻¹Π = Π gives
@@ -1456,12 +1463,10 @@ bijectively onto itself.
 
 *The case Π = Id.* By the equivalence, ι₁ is a pole of N(A, ·)⁻¹ if and only if N(A, ι₁)u = 0 for some
 0 ≠ u ∈ C^∞(∂M), that is, if and only if ι₁ ∈ spec_b(A) ([[def:s11-b-analysis]] (2)). Off spec_b(A) the bijectivity
-was just shown; on spec_b(A), N(A, ι) has a nonzero kernel in C^∞(∂M). The poles lie in the set S of
-[[thm:std-analytic-fredholm]] used in the proof of (E2), which is discrete and is closed, being the set where
-Id + B(ι) is not invertible, whose complement is open (B is continuous in norm, and a Neumann series inverts small
-perturbations of an invertible operator); so only finitely many poles lie in any compact set. By (E1), for every strip
-{c₁ ≤ Re ι ≤ c₂} there is R such that N(A, ι) : H^m → L² is invertible, so ι is not a pole, for |Im ι| ≥ R in the
-strip. So the poles in the strip lie in the compact set {c₁ ≤ Re ι ≤ c₂, |Im ι| ≤ R}, and there are finitely many. ∎
+was just shown, and on spec_b(A), N(A, ι) has a nonzero kernel in C^∞(∂M). In particular S is exactly the set of
+poles. By (E1), for every strip {c₁ ≤ Re ι ≤ c₂} there is R such that N(A, ι) : H^m → L² is invertible, that is
+ι ∉ S, for |Im ι| ≥ R in the strip. So the poles in the strip lie in S ∩ {c₁ ≤ Re ι ≤ c₂, |Im ι| ≤ R}, the
+intersection of S with a compact set, and there are finitely many. ∎
 
 Define
 
