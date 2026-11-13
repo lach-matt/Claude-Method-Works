@@ -134,7 +134,8 @@ Re_(h_x) p_1 ≥ p̄_1 − δ′ near x, and the condition Re h(p_1 v, v) ≥ (p
 passes to a convex combination of such inner products. No triangular structure of p_1 is used.
 
 Of the data p_0, p_1 at ℐ⁺, the proofs below use only [[eq:ii-e-1-2]], and that only through the positivity of
-4 Re_(h_I) p_1 − 2 − 4α at ℐ⁺: with δ′ := (p̄_1 − 1/2 − α)/4, [[eq:ii-e-1-2]] gives 4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′ (as
+4 Re_(h_I) p_1 − 2 − 4α at ℐ⁺ (and so near ℐ⁺, p_1 and h_I being independent of x_I): with δ′ := (p̄_1 − 1/2 − α)/4,
+[[eq:ii-e-1-2]] gives 4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′ (as
 used in [[lem:ii-e-2-5]]), and ≥ 8δ′ where it holds with 2δ′ in place of δ′ (as used on the extended slabs of
 [[prop:ii-e-2-7]] and in [[prop:ii-e-3-2]]). The other terms enter without any smallness. In [[lem:ii-e-2-5]] every
 first-order term other than 2x_I² p_1^A ∂_(t_*) of [[eq:ii-e-2-3]], and the part of that term carrying Im p_1, which
@@ -206,8 +207,8 @@ by at most 2η_0, and elsewhere at bounded times it stays in a compact set. ∎
 ∂_(t_*) t^♭ = 1 − (1 + ℓ_I)(t_*/r)^(ℓ_I) ≥ 1/2 by [[lem:ii-c-3-2]] (a). On {r ≤ R}, ∇t^♭ is past timelike
 ([[lem:ii-c-3-2]] (2) and [[lem:ii-e-1-2]] (iv)), so Z t^♭ = g⁻¹(dt^♭, dt^♭) < 0 there, with a negative bound on the
 compact part at bounded times, and (∇t^♭) r = g⁻¹(dt^♭, dr) > 0 near r = r_0, dr being future timelike. Near ℐ⁺ the
-flow Φ_τ of Z is translation in t_*, which preserves the edge structure, the weight and the density; elsewhere it is a
-smooth flow on a compact set. So (Φ_τ)_* is bounded on H^(m,2α)_e, m ∈ ℕ_0, uniformly for |τ| ≤ τ_0, and strongly
+flow Φ_τ of Z is translation in t_*, which preserves the edge structure and the weight, and the density up to a smooth
+positive factor bounded with its derivatives at bounded times; elsewhere it is a smooth flow on a compact set. So (Φ_τ)_* is bounded on H^(m,2α)_e, m ∈ ℕ_0, uniformly for |τ| ≤ τ_0, and strongly
 continuous at τ = 0, by the chain rule and the density of C_c^∞.
 
 As Z and Φ_τ are defined only near Ω⁻_* ∩ {t^♭ ≤ T_1 + 2}, in [[lem:ii-e-1-3]] below (Φ_(±τ))_* is applied only after
@@ -606,7 +607,7 @@ H_ℓ(ǎ_ε²) + 2ǎ_ε² ℓ_I = ρ^(−2s) φ_ε² (−Ψ² Q_ε + 𝖧(Ψ²))
 
 by [[eq:ii-e-1-2]] with 2δ′, as 4(p̄_1 − 1/2 − α) = 16δ′. The factors ψ(𝔐_Σ ρ²ℓ), ψ(𝔐_R q) and ψ(𝔐 x′_I) contribute as
 in [[prop:ii-d-3-6]]: j_ε ℓ, and +e*e terms supported in {q ≥ (2𝔐_R)⁻¹} ∪ {x′_I ≥ (2𝔐)⁻¹}, which give E. For the time
-factors, by the chain rule and [[eq:ii-e-3-1]] [[pending:issue-3]],
+factors, by the chain rule and [[eq:ii-e-3-1]],
 
     𝖧(ψ_−(F)²) = (2/ω_0) ψ_− η_t′((F − t_−)/ω_0) (h_F − t_* ρ² ℓ),
     𝖧(ψ_+(F)²) = −(2/ω_0) ψ_+ η_t′((t_+ − F)/ω_0) (h_F − t_* ρ² ℓ).
@@ -699,9 +700,15 @@ R_([T_0, T_1+δ/2]) we use [[prop:ii-e-3-2]], [[eq:ii-e-3-2]], with
 
     t_− := T_0 − ω_0/2,     t_+ := T_1 + δ/2,     ω_0 := min(δ/2, η_0/4),
 
-at the constant value of 𝗌 near R. Its E_− is microsupported in {t_* ≤ t_−}, where ũ = 0 (kernels in {t^♭ < T_0}²),
-and its E in a punctured neighbourhood of R at times in [t_− − ω_0, t_+ + ω_0], from whose points the backward curves
-reach {t^♭ < T_0}, as above; by compactness of WF′(E) and the local boundedness of the entrance times
+at the constant value of 𝗌 near R. Its E_− quantises e_−, whose symbol is supported in {t_* ≤ t_−} (proof of
+[[prop:ii-e-3-2]]), and its Schwartz kernel lies in 𝒦 × 𝒦, which does not place it in {t^♭ < T_0}². So quantise e_−
+with Schwartz kernel within ω_0/8 of the diagonal in t_*, as for E_+ in (b); this changes E_− by an operator of order −∞
+with kernel in 𝒦 × 𝒦, which the low-order term of [[eq:ii-e-3-2]] absorbs, and the kernel now lies in
+{t_* ≤ t_− + ω_0/8}². Taking 𝒦 so small that t^♭ = t_* − t_*^(1+ℓ_I) x_I^(2ℓ_I) ≤ t_* on it ([[lem:ii-c-3-2]] (a),
+[[lem:ii-e-1-2]] (iv)), and as t_− + ω_0/8 = T_0 − 3ω_0/8, the kernel lies in {t^♭ ≤ T_0 − 3ω_0/8}², where ũ = 0, so
+E_−ũ = 0. Its E is microsupported in a punctured neighbourhood of R at times in
+[t_− − ω_0, t_+ + ω_0], from whose points the backward curves reach {t^♭ < T_0}, as above; by compactness of WF′(E)
+and the local boundedness of the entrance times
 ([[sec:ii-a-9-1]], (O)), propagation bounds ‖Eũ‖_𝗌. The finitely many operators so obtained are jointly elliptic over
 supp χ_1, and [[lem:ii-a-8-4]] (c) gives
 

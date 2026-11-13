@@ -1376,11 +1376,11 @@ Riesz representation theorem applied to each matrix entry, L(b) = ∫ tr(b dμ) 
 
 (d) Positivity: let b ≥ 0 with supp b ⊂ K_b ⋐ U, and j ∈ C_c^∞(U) scalar, 0 ≤ j ≤ 1, equal to 1 on K_b. For ϵ > 0,
 b + ϵj² Id is positive definite on K_b and equal to ϵj² Id off K_b, so it is q_ϵ*q_ϵ with q_ϵ ∈ C_c^∞(U) (on K_b the
-positive square root; off K_b, √ϵ j, which is smooth as j ≥ 0); then Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)*
-Op_h(q_ϵ) + hR′, so liminf ⟨Op_h(b)u, u⟩ ≥ −ϵ limsup ‖Op_h(j)u‖² ≥ −Cϵ. Hence L(b) ≥ 0 for b ≥ 0; taking b = φvv* with
-φ ≥ 0 scalar and v ∈ ℂ^(N_E) shows v*μv ≥ 0, so μ is Hermitian and positive semidefinite. Each entry is then absolutely
-continuous with respect to ν (|μ_ab| ≤ ν for a positive matrix measure), which gives dμ/dν; and tr(p dμ/dν) ≤ max spec(p)
-tr(dμ/dν) as dμ/dν ≥ 0. ∎
+positive square root; off K_b, √ϵ j, which is smooth as j ≥ 0); then
+Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)* Op_h(q_ϵ) + hR′, so liminf ⟨Op_h(b)u, u⟩ ≥ −ϵ limsup ‖Op_h(j)u‖² ≥ −Cϵ.
+Hence L(b) ≥ 0 for b ≥ 0; taking b = φvv* with φ ≥ 0 scalar and v ∈ ℂ^(N_E) shows v*μv ≥ 0, so μ is Hermitian and
+positive semidefinite. Each entry is then absolutely continuous with respect to ν (|μ_ab| ≤ ν for a positive matrix
+measure), which gives dμ/dν; and tr(p dμ/dν) ≤ max spec(p) tr(dμ/dν) as dμ/dν ≥ 0. ∎
 
 **Lemma {#lem:i-b-6-3}** (Cf. [Hin26c, Lemmas 9.31–9.32], on E.) Let (u_j) be tempered on U with defect measure μ, and
 𝐏_j := 𝐏_(h_j,z_j) with Im z_j/h_j → η ∈ [0, ∞).
@@ -1678,8 +1678,8 @@ the coefficients, on inf(−G_0(dr)) over the slab and on Z.
 *Proof.* By density ([[lem:i-a-6-1]] (c), and smooth approximation up to the extendible side) take u smooth on Ω̄_(a,b)
 and vanishing near r = b. P_0 − □_g Id =: L_1 is first order with t-independent coefficients ([[sec:i-b-1-2]]), so
 L̂_1(σ) = L̂_1(0) + σY_0 with Y_0 a matrix function and |L̂_1(z/h)u| ≤ C(|du| + h⁻¹|u|). Let u′(t, x) := e^(−izt/h) u(x)
-on D := [0, 1]_t × Ω_(a,b), so that □_g u′ = e^(−izt/h)(P̂(z/h) − L̂_1(z/h))u, and let W := wX with w := e^(−2(Im z)t/h)
-e^(ℓr). Then
+on D := [0, 1]_t × Ω_(a,b), so that □_g u′ = e^(−izt/h)(P̂(z/h) − L̂_1(z/h))u, and let W := wX with
+w := e^(−2(Im z)t/h) e^(ℓr). Then
 
     ^(W)K[u′] = w(^(X)K[u′] + 2h⁻¹(Im z) T[u′](−∇t, X) + ℓ T[u′](X, X)) ≥ w(ℓc_0 − C_0)|du′|²_R,
 
@@ -1961,14 +1961,14 @@ that treat each operator.
 [[rem:i-b-relation]], the following points differ from [Hin26c]. (a) [Hin26c, Theorem 9.28] states that B is
 semiclassically elliptic "at ∂ℛ_+"; the estimate is at the trapped set, and B is elliptic at Γ ([[thm:i-b-6-8]]). (b) In
 the proof of [Hin26c, (9.83)] a constant is fixed in (inf_Γ p_1/(2β_0), γ); positivity of −2p_1 + 4β_0γ_0 on Γ needs
-γ_0 > sup_Γ p_1/(2β_0) = γ_+. [[prop:i-b-6-1]] avoids the constant by writing p − ℓq = (p − γq) − (ℓ − γ)q. (c) [Hin26c,
-Theorem 9.28 (2)] states the adjoint estimate for z ∈ 1 + i[−hβ, ν]. For β < 0 that range misses the real axis, which the
-adjoint estimate at Im z = 0 in [Hin26c, (9.59)] needs. The symbol calculus gives the same threshold for P* as for P
-([[sec:i-b-6-1]] defines p^♮ and q^♮ with the field of each, and [[eq:i-b-1-4]] reads the same), so the range z_0 + i[hβ,
-ν′] of [[thm:i-b-6-8]] serves both. (d) The second step of the b-regular estimate at R_out in [Hin26c, (9.77)] carries
-the diagonal term −2kihzρδ_(α,(k,0,…,0)) of [Hin26c, (9.45)], whose sign and index set differ from those of the
-commutator computed in [[lem:i-a-4-8]] (there the diagonal term is +2iα_1σρ, for every α with α_1 ≥ 1; see
-[[rem:i-a-4-8-sign]]); [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]] does at fixed σ,
+γ_0 > sup_Γ p_1/(2β_0) = γ_+. [[prop:i-b-6-1]] avoids the constant by writing p − ℓq = (p − γq) − (ℓ − γ)q. (c)
+[Hin26c, Theorem 9.28 (2)] states the adjoint estimate for z ∈ 1 + i[−hβ, ν]. For β < 0 that range misses the real
+axis, which the adjoint estimate at Im z = 0 in [Hin26c, (9.59)] needs. The symbol calculus gives the same threshold for
+P* as for P ([[sec:i-b-6-1]] defines p^♮ and q^♮ with the field of each, and [[eq:i-b-1-4]] reads the same), so the
+range z_0 + i[hβ, ν′] of [[thm:i-b-6-8]] serves both. (d) The second step of the b-regular estimate at R_out in
+[Hin26c, (9.77)] carries the diagonal term −2kihzρδ_(α,(k,0,…,0)) of [Hin26c, (9.45)], whose sign and index set differ
+from those of the commutator computed in [[lem:i-a-4-8]] (there the diagonal term is +2iα_1σρ, for every α with
+α_1 ≥ 1; see [[rem:i-a-4-8-sign]]); [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]] does at fixed σ,
 and [[prop:i-b-5-7]] then needs no sign of it. (e) [Hin26c, (3.35)] defines H_(sc,h)^(s,𝗋,𝖻) = ρ^𝗋 h^𝖻 H_(sc,h)^s, which
 gives ‖u‖ = h^(−𝖻)‖⟨hD⟩^s(⟨x⟩^𝗋 u)‖ on ℝ^n, while the parenthesis after it prints ⟨x⟩^(−𝗋)u; we use
 w_𝐨 = ⟨ζ⟩^s⟨x⟩^𝗋h^(−𝖻), as (3.35) does. (f) The method differs in these points: one positive commutator scheme without

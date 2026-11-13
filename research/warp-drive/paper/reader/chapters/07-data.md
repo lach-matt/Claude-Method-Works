@@ -21,12 +21,11 @@ no dr component and is traceless on the spheres {τ, r = const} ([[lem:waves]] (
 
 ### The theorem {#sec:data-theorem}
 
-**Theorem {#thm:data}** (Exact data.) Let K ≥ 6 and N := K + 3, and let g_app be the approximant of
-[[thm:approximant]] with N stages and the stage data of [[lem:stage-data]], in its fixed-phase form [[eq:approximant]].
-For λ small there is a vacuum Cauchy datum (γ, κ) on Σ (the constraints hold exactly), with the gauge condition D = 0
-imposed through ∂_τ g, whose w := g − g_app satisfies (E4) of
-[[thm:uniform-existence]]; it equals the seed's datum on Σ ∩ {r < v_start − τ0}. The datum is smooth and invariant under
-the T² action and both reflections.
+**Theorem {#thm:data}** (Exact data.) Let K ≥ 6 and N := K + 3, and let g_app be the approximant of [[thm:approximant]]
+with N stages and the stage data of [[lem:stage-data]], in its fixed-phase form [[eq:approximant]]. For λ small there is
+a vacuum Cauchy datum (γ, κ) on Σ (the constraints hold exactly), with the gauge condition D = 0 imposed through ∂_τ g,
+whose w := g − g_app satisfies (E4) of [[thm:uniform-existence]]; it equals the seed's datum on Σ ∩ {r < v_start − τ0}.
+The datum is smooth and invariant under the T² action and both reflections.
 
 The proof is in [[sec:data-proof]].
 
@@ -514,10 +513,10 @@ spatial part of w′ and ∂_τ of it are U and combinations of U and its tangen
 not vanish but are algebraic in U: g and G(X, u/λ) have the same lapse and the same shift β, and their spatial parts
 differ by α dr ⊗ dr, so w′_(τi) = α (dr)_i dr(β) and w′_(ττ) = α dr(β)², with β bounded with its derivatives in the
 scaled norms. And ∂_τ w′_(τ ·) solves the linear relation D(g) − D(G(X, u/λ)) = −D(G(X, u/λ)) = O(λ^(N−1)) with
-invertible coefficient. So, each derivative costing at most λ⁻¹, Data(w′) ≤ C λ⁻¹ λ^(N−2) = C λ^K, and (E4) holds. The
-data are smooth ([[prop:exact-correction]]) and invariant under T² and both reflections: the construction commutes with
-the symmetries, by the uniqueness in [[lem:linear-evolution]], [[prop:exact-correction]] and the stage equations, Pol⁺
-being equivariant. They equal the seed's data on Σ ∩ {r < v_start − τ0}. ∎
+invertible coefficient. So, each derivative costing at most λ⁻¹, Data(w′) ≤ C λ⁻¹ λ^(N−2) = C λ^K, hence Data(w) ≤ C λ^K:
+(E4). The data are smooth ([[prop:exact-correction]]) and invariant under T² and both reflections: the construction
+commutes with the symmetries, by the uniqueness in [[lem:linear-evolution]], [[prop:exact-correction]] and the stage
+equations, Pol⁺ being equivariant. They equal the seed's data on Σ ∩ {r < v_start − τ0}. ∎
 
 ### The proof of the main theorem, items 1–5 {#sec:data-assembly}
 

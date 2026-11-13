@@ -95,3 +95,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   2.4 (e) by the quantitative remainder bound of the calculus, every induction re-checked. Report to the author when
   settled.
 - S25 is cited by S20-S24 and cites them: the S25 reader proposes the split that makes every reference point back.
+- S12 review (R-S12): S11's ℬ and S12's ℬ_♭ are two parameter sets, neither containing the other, so S12's
+  lem:vi-a-1-1 (‖A‖ < r_♭/4) cites prop:iii-b-3-6 outside S11's range. One parameter set for the whole edition is
+  needed; held for the S11 reader (R-S11, checking S11's widening) and then one combined S11+S12 fix round. S12 also:
+  line 226 f -> f² in prop:np-10-19-ii (a); lem:s12-ks-domain to be replaced by S11's lem:s11-ks-domain (re-key S19).
+- [Hin17, Proposition 4.1] is on p. 20 of arXiv:1502.03183v2 (Appendix A entry from the S19 fix round).
