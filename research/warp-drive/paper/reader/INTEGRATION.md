@@ -916,3 +916,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   remark. Choices: injectivity in the label; amplitude F with q = F²; n dusts (N the stage count); labels α ∈ S¹.
   Open: (V3) uses chapter 7's symmetrizer derived for small γ_rA. Pending keys: 9 to chapter 80 (labels mapped in
   W-82), 2 to chapter 81 (class-augmented-system, class-adapted-domain). Independent reader running.
+- Ch 81 written (W-81): 965 lines, 56 labels; exports thm:class-stability (N′), also thm:class-kato,
+  thm:class-kato-stability (K′). Five computations replaced by written derivations; two Numerical observation
+  remarks. [[pending:issue-1]]: linear symmetric hyperbolic existence with A⁰ ≠ I (proposed repair: S = (A⁰)^(1/2)
+  reduces to A⁰ = I, then [IT20, Proposition 3.8] and commuted derivatives). cor:class-two-dust (N′1): the outgoing
+  packet not reaching R = a is now a hypothesis (the source used a computed example) — check chapters 3, 60, 82. Ch 82's
+  two pending keys class-augmented-system, class-adapted-domain to map to chapter 81's labels at integration.
+  Independent reader running.

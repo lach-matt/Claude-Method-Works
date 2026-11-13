@@ -484,8 +484,9 @@ wide and the window loop at its ceiling, every step of the construction was char
 losses by [[lem:ec-closed-forms]], with ℓ_tf = 1 (the transition face model's incoming threshold being 0 there), the
 forward solution operators D_0 + D_1 + d′ + d″ + 6 ≤ 766 + 88 + 8 + 9 + 6 = 877 ([[rem:ec-other-losses]]), with D_0
 and D_1 bounded over the orders at which the calculus of [[ch:s04]] is used, the round of the iteration at ι⁺ charged
-15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on (3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows [k + 1/2, k + 0.5099]
-where a step is added before d_ι rises), the steps of each level taken from the families that the inventory of
+15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I (19 on (3.5099, 4.5), then 23, 27 and 31
+up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows [k + 1/2, k + 0.5099] where a step is added before d_ι
+rises), the steps of each level taken from the families that the inventory of
 [[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic orders of the index
 sets by induction over the construction's steps, and the index set at ι⁺ left unlisted by the construction computed
 from the constructions that define it (it adds no exponent). The applications of the level-2 step at one exponent act
