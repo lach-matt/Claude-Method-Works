@@ -1039,17 +1039,46 @@ solution on Ω⁺. On Ω⁺ ∩ {ρ_I > c/2} this already bounds u in H^(k+4,a�
 
     (X_I − Ā)(X₀ − X_I)u₂ = F := −½(f₃ − x_I²Δ̸u₂ − L̃_gu₂).                                              {#eq:iv2-2-4}
 
-*The gain.* For u₂ ∈ H^(j,(a₀,2γ))_b, x_I²Δ̸u₂ and L̃_gu₂ lie in H^(j−2,(a₀,2γ+1−2ε))_b: x_I²Δ̸ and x_Ia_iP_i carry the
-factor x_I and are of second order; for x_Iã_iP_i, [[lem:iv1-2-3]] with ã_i ∈ L^∞ and ã_i ∈ H^(j−2,(ℓ^♭₀,−2ε))_b (its
-expansion at ℐ⁺ starts at ρ_I⁰, which lies in every x_I^(−2ε)L²_b near ℐ⁺ but not in L²_b), and P_iu₂ ∈ x_I^(2γ)L^∞ by
-the embedding [[eq:iv-0-1]], gives
+*The gain.* Let j ≥ 2 and u₂ ∈ H^(j,(a₀,2γ))_b. Then x_I²Δ̸u₂ and L̃_gu₂ lie in H^(j−2,(a₀,2γ+1−2ε))_b. Indeed x_I²Δ̸
+and x_Ia_iP_i carry the factor x_I and are of second order. For x_Iã_iP_iu₂ put b_i := P_iu₂, so that
+‖b_i‖_(H^(j−2,(a₀,2γ))_b) ≤ C‖u₂‖_(H^(j,(a₀,2γ))_b). By [[eq:iv2-0-4]], for every j′ ∈ ℕ₀,
+ã_i ∈ H^(j′,(ℓ^♭₀,−2ε))_b ⊂ H^(j′,(0,−2ε))_b with norm at most C‖h‖_(H^(j′+2)) (its expansion at ℐ⁺ starts at ρ_I⁰,
+which lies in every x_I^(−2ε)L²_b near ℐ⁺ but not in L²_b; and ρ₀ ≤ 1 on Ω_c). By the embedding of [[lem:iv1-2-3]] (order
+3, on Ω_c), ã_i ∈ x_I^(−2ε)L^∞ with norm at most C‖h‖_(H⁵). There are two cases.
+
+(1) j ≥ 5. Then b_i ∈ H^(3,(a₀,2γ))_b, so b_i ∈ ρ₀^(a₀)x_I^(2γ)L^∞ with norm at most C‖u₂‖_(H^(5,(a₀,2γ))_b), by the same
+embedding. [[lem:iv1-2-3]] with s := j − 2, a := ã_i with the weights (0, −2ε) and b := b_i with the weights (a₀, 2γ),
+followed by multiplication by x_I, gives
 
     ‖x_Iã_iP_iu₂‖_(H^(j−2,(a₀,2γ+1−2ε))_b)
-        ≤ C(‖u₂‖_(H^(j,(a₀,2γ))_b) + ‖h‖_(H^j)‖u₂‖_(H^(5,(a₀,2γ))_b)).                                    {#eq:iv2-2-5}
+        ≤ C(‖u₂‖_(H^(j,(a₀,2γ))_b) + ‖h‖_(H^j)‖u₂‖_(H^(5,(a₀,2γ))_b)),                                    {#eq:iv2-2-5}
 
-With u₂ ∈ H^((1;m))_(e,b;b) in place of H^j, the loss is one b-derivative instead of two, as
-P_i ∈ Diff¹_(e,b)Diff¹_b and x_I²Δ̸ ∈ x_IDiff¹_(e,b)Diff¹_b. And f₃ ∈ H^(k+3,(a₀,2β))_b: f_(2,♭) is, and [L_g, χ_c]u₁
-is supported in {ρ_I ≥ c/4}.
+the first term from ‖ã_i‖_(x_I^(−2ε)L^∞)‖b_i‖_(H^(j−2,(a₀,2γ))_b) and the second from
+‖ã_i‖_(H^(j−2,(0,−2ε))_b)‖b_i‖_(ρ₀^(a₀)x_I^(2γ)L^∞).
+
+(2) 2 ≤ j ≤ 4. Now b_i ∈ H^(j−2)_b need not be bounded, and we use Leibniz's rule, which puts at most j − 2 ≤ 2
+derivatives on ã_i. Divide out the weights: ã_i = x_I^(−2ε)a′ and b_i = ρ₀^(a₀)x_I^(2γ)b′, so that the left side of
+[[eq:iv2-2-5]] is ‖a′b′‖_(H^(j−2)_b). Measure H^p_b by the L²_b-norms of the compositions X^β := X_(l₁)⋯X_(l_q), q ≤ p,
+of the fields X₀, …, X₈ of the proof of [[prop:iv1-2-2]], which span Diff¹_b over C^∞. For l ≤ 7, X_l obeys Leibniz's
+rule for the product of a coefficient with a section, and X₈ = 1; so X^β(a′b′) is a sum of at most 2^q products
+(X^(β′)a′)(X^(β″)b′) with |β′| + |β″| ≤ q. Hence
+
+    ‖a′b′‖_(H^(j−2)_b) ≤ C max_(|β′|≤j−2) ‖X^(β′)a′‖_(L^∞) ‖b′‖_(H^(j−2)_b).
+
+For |β′| ≤ j − 2 ≤ 2, X^(β′)a′ ∈ H³_b with norm at most ‖a′‖_(H⁵_b) = ‖ã_i‖_(H^(5,(0,−2ε))_b) ≤ C‖h‖_(H⁷), so
+‖X^(β′)a′‖_(L^∞) ≤ C‖h‖_(H⁷) by the same embedding. Therefore
+
+    ‖x_Iã_iP_iu₂‖_(H^(j−2,(a₀,2γ+1−2ε))_b) ≤ C‖h‖_(H⁷)‖u₂‖_(H^(j,(a₀,2γ))_b) ≤ C‖u₂‖_(H^(j,(a₀,2γ))_b),
+                                                                                                         {#eq:iv2-2-5-low}
+
+with C depending on the bound on h in H⁸, as [[eq:iv2-2-3]] allows: at these orders there is no tame term.
+
+With u₂ ∈ H^((1;m),(a₀,2γ))_(e,b;b) in place of H^(j,(a₀,2γ))_b the loss is one b-derivative instead of two, as
+P_i ∈ Diff¹_(e,b)Diff¹_b and x_I²Δ̸ ∈ x_IDiff¹_(e,b)Diff¹_b: then b_i ∈ H^(m−1,(a₀,2γ))_b with norm at most
+C‖u₂‖_(H^((1;m),(a₀,2γ))_(e,b;b)), and the two cases read with m − 1 in place of j − 2. For m ≥ 4 this gives
+[[eq:iv2-2-5]] with ‖h‖_(H^(m+1)) and ‖u₂‖_(H^((1;4),(a₀,2γ))_(e,b;b)) in the tame term, and the first term of its right
+side in H^((1;m)); for m ≤ 3 it gives [[eq:iv2-2-5-low]] in H^((1;m)). And f₃ ∈ H^(k+3,(a₀,2β))_b: f_(2,♭) is, and
+[L_g, χ_c]u₁ is supported in {ρ_I ≥ c/4}.
 
 *Step 5 (the integration, slot by slot).* Write [[eq:iv2-2-4]] by slots. As Ā is lower triangular with the entries of
 [[sec:iv2-0]], for j ≠ 6

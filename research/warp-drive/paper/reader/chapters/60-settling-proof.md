@@ -96,13 +96,14 @@ the same data.
 
 Then there are b ∈ ℬ_* with |b − b₀| < ε_m, S, S⁰ ∈ 𝒮_1 with |S|, |S⁰| < ε_m, and a metric g on
 Ω_* ∪ 𝒟_(−S,−S⁰) with Ric(g) = 0 inducing (φ|)^*(γ, k) on φ⁻¹(Σ^IVP) = φ_S(ψ_(S⁰)(Σ^IVP)), φ := φ_(−S,−S⁰), such
-that, where χ_K = 1, g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h with the classes of (i), h_tot(p⃗) = 0 on the interior of {χ_K = 1}, and [[eq:vii-0-2]] holds with g_b in place of
-g_(m′,0). So g settles to the Myers–Perry metric g_b at the rates [[eq:vii-0-2]].
+that, where χ_K = 1, g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h with the classes of (i), h_tot(p⃗) = 0 on the interior
+of {χ_K = 1}, and [[eq:vii-0-2]] holds with g_b in place of g_(m′,0). So g settles to the Myers–Perry metric g_b at
+the rates [[eq:vii-0-2]].
 
 Here 𝒟_0 := 𝒟_(0,0) ⊂ 𝒟 is the region 𝒟_(S,S⁰) of [[prop:iii-k-1-2]] at S = S⁰ = 0, and |b − b₀| = |m − μ_end| + |A|
-for b = (m, A), the norm of step (5) of [[thm:vi-c-2-1]]. On the finite-dimensional space 𝔟 it is equivalent to the norm ‖·‖_𝔟 of 𝔟 as a
-component of 𝒟_ex, in which [[cor:s27-rate]] (a) bounds b − b₀; we fix C_𝔟 ≥ 1 with |b − b₀| ≤ C_𝔟‖b − b₀‖_𝔟, so
-that [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m, gives |b − b₀| < ε_m. C depends on R and on the data of
+for b = (m, A), the norm of step (5) of [[thm:vi-c-2-1]]. On the finite-dimensional space 𝔟 it is equivalent to the
+norm ‖·‖_𝔟 of 𝔟 as a component of 𝒟_ex, in which [[cor:s27-rate]] (a) bounds b − b₀; we fix C_𝔟 ≥ 1 with
+|b − b₀| ≤ C_𝔟‖b − b₀‖_𝔟, so that [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m, gives |b − b₀| < ε_m. C depends on R and on the data of
 [[thm:main]], not on λ.
 
 ### The solution after the shell {#sec:vii-1}

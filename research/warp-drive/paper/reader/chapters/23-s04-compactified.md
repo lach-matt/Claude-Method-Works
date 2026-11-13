@@ -2211,7 +2211,7 @@ Bu ∈ H^((𝗌;k)) and
 
 with C locally uniform for perturbations as in (L4), at the regularity (d_0; k).
 
-*Proof.* Let d_0 be the largest of the numbers of (L4), of [[lem:ii-a-8-6]] for the orders that occur, and 2. Induction
+*Proof.* Let d_0 be the largest of the numbers of (L4), of [[lem:ii-a-8-6]] (a) at (−N, m, N), and 2. Induction
 on k; k = 0 is (L4). Let k ≥ 1. By [[lem:ii-a-4-1]], [L_0, V_j] = Σ_(l=0)^N A^0_(j,l)V_l with A^0_(j,l) ∈ C^∞_b
 Ψ^(m−1)_e3b fixed operators; here [L_0, V_j] ∈ Diff^m_e3b, by [[eq:ii-a-4-1]]. For L_1 = Σ a_qP_q,
 
@@ -2223,8 +2223,10 @@ operators of order m − 2. Hence
     [L, V_j] = Σ_(l=0)^N A_(j,l)V_l,
     A_(j,l) ∈ C^∞_b Ψ^(m−1)_e3b + C^((d_0;k−1),(2δ,δ,δ))_(e3b;b) Ψ^(m−1)_e3b + C^((d_0;k−1))_(e3b;b) Ψ^(m−2)_e3b,
 
-each in the span of a fixed finite set, with coefficient norms at most C times those of L at (d_0; k). Put
-u^((1)) := (V_ju)_(j=0)^N and f := Lu. Then LV_ju − Σ_l A_(j,l)V_lu = V_jf, that is,
+each in the span of a fixed finite set, with coefficient norms at most C times those of L at (d_0; k). Here
+[[lem:ii-a-4-1]] is applied with ϵ := ϵ_ϑ, the room of (R1) of [[sec:ii-a-8-3]] for B, E and G. So, D bounding the
+kernel ranges of the operators of 𝒫_m and 𝒫_(m−1), the fixed operators A^0_(j,l), A′_(qjl), A″_(ql), and those for L_2,
+have kernel ranges at most D + ϵ_ϑ. Put u^((1)) := (V_ju)_(j=0)^N and f := Lu. Then LV_ju − Σ_l A_(j,l)V_lu = V_jf, that is,
 
     L^((1))u^((1)) = f^((1)) := (V_jf)_(j=0)^N,     L^((1)) := (Lδ_(jl) − A_(j,l))_(j,l=0,…,N).
 
@@ -2233,14 +2235,16 @@ L_0 ⊗ Id and L_1 ⊗ Id, and a part of order m − 1 that collects L_2 ⊗ Id 
 in the unweighted class by [[lem:ii-a-8-2]] (d). Its principal symbol is ℓ Id, so the hypotheses on ℓ, 𝖧 and 𝗌 are those
 for L. Choose B_1 slightly larger than B, with WF′(B) ⊂ Ell(B_1), and E_1, G_1 slightly smaller than E, G, with
 WF′(E_1) ⊂ Ell(E) and WF′(G_1) ⊂ Ell(G), such that the hypotheses hold for (B_1, E_1, G_1) (the beginning of
-[[sec:ii-a-9]]). The inductive hypothesis, [[eq:ii-a-9-3]] at k − 1 for L^((1)), gives
+[[sec:ii-a-9]]): auxiliary operators of (R1) for B, E and G. Put χ_1 := h_♭(χ) ((R3)). By (R1) and (R3), B_1, E_1 and
+G_1 are carried by χ_1 with the margin D + 7ϵ_ϑ, which bounds the kernel ranges of the operators of L^((1)) and of
+B_1, E_1, G_1. So the inductive hypothesis, [[eq:ii-a-9-3]] at k − 1 for L^((1)) with these operators and χ_1, gives
 
     ‖B_1u^((1))‖_((𝗌;k−1)) ≤ C(‖G_1f^((1))‖_((𝗌−m+1;k−1)) + ‖E_1u^((1))‖_((𝗌;k−1)) + ‖χ_1u^((1))‖_((−N;k−1))).
 
 Here ‖G_1V_jf‖_((𝗌−m+1;k−1)) ≤ ‖G_1f‖_((𝗌−m+1;k)) + ‖[G_1, V_j]f‖_((𝗌−m+1;k−1)). Both terms are bounded by
 C(‖GLu‖_((𝗌−m+1;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c) and [[lem:ii-a-8-6]] (a) for the error term, as in
-[[prop:ii-a-9-1]]. Similarly ‖E_1V_ju‖_((𝗌;k−1)) ≤ C(‖Eu‖_((𝗌;k)) + ‖χu‖_((−N;k))) and
-‖χ_1u^((1))‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)). On the left, ‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))),
+[[prop:ii-a-9-1]]. Similarly ‖E_1V_ju‖_((𝗌;k−1)) ≤ C(‖Eu‖_((𝗌;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c), and
+‖χ_1u^((1))‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)), by (R3). On the left, ‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))),
 and both are bounded by C(‖B_1u^((1))‖_((𝗌;k−1)) + ‖χu‖_((−N;k))). For the first, [[lem:ii-a-8-4]] (c) applies with
 WF′(B) ⊂ Ell(B_1). For the second, the wave front set lies in that of B, and the j = 0 component of u^((1)) is u. The
 finiteness statements follow as in [[prop:ii-a-9-1]]. At each k the step applies (L4) to a new system L^((1)), of rank
