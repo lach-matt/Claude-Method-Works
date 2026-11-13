@@ -109,3 +109,4 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S6 overloads for the integration pass: ϕ/φ, J, p_1, θ_ε; S6's four new nits (ρ_+ ≤ 1 -> bounded; q_1 twice;
   two citations needing their proofs). Ch 3's Theorem 4 should cite def:iii-j-g-plus (S23).
 - S2 renamed K -> subscripts only: S8 (27, ~412-413) still cites S^(−K𝟏) from S2; update in integration.
+- S5 nits for integration: ρ_a ≤ c_V² left implicit; ϵ₁ names two thresholds. Ch 4: rename φ1(X) to κ(X) (F-00-03).

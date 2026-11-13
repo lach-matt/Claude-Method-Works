@@ -457,13 +457,15 @@ conditions [Hin26c, (12.23)] of its proof, (p − 1)(1 − ε_I) ≥ 1 and (p �
 ### Improving decay: scope, and what dimension 4 + 1 changes {#sec:ii-g1-1}
 
 [Hin26c, Section 13, pp. 243–260], "Improving decay", has four subsections. Its Sections 13.1–13.3 are general tools,
-proved here in dimension 4 + 1 in the forms used later: the Fourier transform on the line ([Hin26c, Lemmas 13.2, 13.4,
+proved here in dimension 4 + 1: the Fourier transform on the line ([Hin26c, Lemmas 13.2, 13.4,
 13.6, Corollaries 13.3, 13.5, 13.7]) and on the resolved spaces ([Hin26c, Lemma 13.8, Propositions 13.9 and 13.11, Lemma
 13.10, Remark 13.12]); the resolvent bounds ([Hin26c, Lemma 13.13, Corollary 13.14, Proposition 13.16, Corollary 13.17,
 the bounds (13.30), Proposition 13.18]); and the radiation field ([Hin26c, Definition 13.19, Proposition 13.20]). Its
 Section 13.4 ([Hin26c, Theorem 13.21 and Remark 13.22]) is a model application to the scalar wave equation on Kerr and is
-not used ([[sec:ii-g1-6-1]]). The tools are used in the linear theory, where the decay of solutions of the linearised
-gauge-fixed Einstein equations is improved beyond [[thm:ii-f1-1-1]] as [Hin26c, Section 14] does for its 1-form example.
+not used ([[sec:ii-g1-6-1]]). The Fourier transform and the resolvent bounds are used in the linear theory, where the
+decay of solutions of the linearised gauge-fixed Einstein equations is improved beyond [[thm:ii-f1-1-1]] as
+[Hin26c, Section 14] does for its 1-form example; the radiation field ([[sec:ii-g1-5]]) is carried as a tool and is not
+applied.
 
 In dimension 4 + 1 the statements change as follows; each change is derived where the statement is proved.
 
@@ -478,9 +480,9 @@ order 𝗋 is a b-weight 𝗋 + 2. The shifts 5/2 and 3/2 of [Hin26c, (13.23a)�
 [[sec:i-c-1-2]]: β_tf − β_zf lies in an indicial gap of P̂(0).
 
 (d) *The radiation field.* Near ℐ⁺ ∩ ι⁺ the stationary model has the form (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) −
-3/2)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) + P̃ ([[lem:ii-g1-5-1]]), where [Hin26c, (13.32)] has ρ_I∂_(ρ_I) − 1; the radiation field
-is the coefficient of ρ_I^(3/2), that is of r^(−3/2) at bounded t_*, and [Hin26c, Proposition 13.20] holds with 3/2 in
-place of 1 ([[prop:ii-g1-5-4]]).
+3/2)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) + P̃ ([[lem:ii-g1-5-1]]), where [Hin26c, (13.32)] has ρ_I∂_(ρ_I) − 1; the radiation field,
+the coefficient of r^(−3/2) at bounded t_*, is carried by the coefficient of ρ_I^(3/2), and [Hin26c, Proposition 13.20]
+holds with 3/2 in place of 1 ([[prop:ii-g1-5-4]]).
 
 From here to the end of the chapter, ℋ denotes a separable Hilbert space, functions may be ℋ-valued, and |·| is the norm
 of ℋ. For the bundle E of [[sec:i-a-1-2]] every space is taken componentwise.
@@ -1122,7 +1124,7 @@ the spaces of [[sec:ii-g1-3-1]] with X̄ and μ_b.
 
 [Hin26c, Proposition 13.16] writes the loss as k(1 + δ_Γ(−ε)) + ℓ, which need not be an integer, and states the
 proposition without proof. It also notes that the loss in k is harmless for strongly trapping admissible operators with
-ε = 1/k. In the terms of [[eq:i-b-1-4]]: if γ_+ < 0, then δ_Γ(−η) = 0 for η < −γ_+; if γ_+ = 0, then δ_Γ(−η) =
+ε = 1/k (here η = 1/k). In the terms of [[eq:i-b-1-4]]: if γ_+ < 0, then δ_Γ(−η) = 0 for η < −γ_+; if γ_+ = 0, then δ_Γ(−η) =
 min(1, η/(−γ_−)) for η > 0, so ⌈k δ_Γ(−1/k)⌉ = min(k, ⌈1/(−γ_−)⌉) for every k ≥ 1. This equals ⌈1/(−γ_−)⌉ for
 k ≥ 1/(−γ_−) and never exceeds it, so this part of the loss is bounded independently of k.
 
@@ -1368,8 +1370,8 @@ H^(k+ℓ,(β_I,β_+))_b(𝒞) vanishes on {t_* < 1} and P_0 u ∈ H^(k+ℓ,(β�
 
     u ∈ H^(k,(((3/2,0),β′_I),β_+))_b(𝒞_a).                                                         {#eq:ii-g1-5-3}
 
-So u has a radiation field ρ_I^(3/2) u_0, the coefficient of r^(−3/2), plus a remainder with the weight of P_0 u at ℐ⁺,
-shifted by the factor ρ_I ρ_+² of [[eq:ii-g1-5-2]]. In dimension 3 + 1, [Hin26c, Proposition 13.20] has the exponent 1,
+So u = χ_I(ρ_I/a) ρ_I^(3/2) u_0 + ũ: u_0 carries the radiation field, the coefficient of r^(−3/2), and the remainder ũ
+has the weight of P_0 u at ℐ⁺, shifted by the factor ρ_I ρ_+² of [[eq:ii-g1-5-2]]. In dimension 3 + 1, [Hin26c, Proposition 13.20] has the exponent 1,
 the condition 1 ≠ β_+ < β_I, and β′_I < 3/2 = 1 + 1/2 (κ = 1/2); here the hypothesis β_+ < β_I is not used, and the loss
 depends on κ as well as on β_I and β′_I.
 
@@ -1474,9 +1476,13 @@ depending on k and ℓ.
 So every bound of this half of the chapter, and every loss ℓ and radius c_k, is uniform over any family of operators for
 which these quantities are uniform. [[sec:i-a-8]], [[sec:i-b-9]] and [[sec:i-c-7]] give conditions under which the
 cited estimates are uniform over a family of operators. For the stationary models 2L_b, b near b₀ ([[sec:iii-h2-0]]),
-which the later chapters use, the quantities of [[sec:ii-g1-4]] are uniform in b: one order serves every b ((B4) of
-[[sec:iii-h2-0]]); δ_Γ is uniformly small by [[cor:iii-h2-1-2]], which rests on [[prop:iii-h2-1-1]]; and the proof of
-[[thm:iii-h2-2-1]] shows the constants of [[thm:i-a-7-2]] and [[thm:i-b-1-3]], C_0 among them, and the radii of the
-low-energy estimates it uses ([[thm:iii-h-4-1]], the augmented form of [[thm:i-c-6-4]]) to be uniform in b. The
+which the later chapters use, the quantities on which [[lem:ii-g1-4-1]]–[[cor:ii-g1-4-5]] depend are uniform in b.
+S̄ does not depend on b ([[lem:iii-h2-3-2]]). The order of (B4) of [[sec:iii-h2-0]] is admissible for every 2L_b with
+one margin, so ϑ_ℋ and ϑ_in are bounded uniformly in b ([[def:ii-c-2-4]] (4) and (6), [[lem:ii-c-2-6]]), and one
+choice of orders serves every b. The function δ_Γ is uniformly small by [[cor:iii-h2-1-2]], which rests on
+[[prop:iii-h2-1-1]]. The constants of [[thm:i-a-7-2]] and [[thm:i-b-1-3]], C_0 among them, are uniform by
+[[thm:i-a-8-1]] and [[sec:i-b-9]], whose hypotheses hold for this family (the proof of [[thm:iii-h2-2-1]], (ii) and
+(iii)). [[thm:i-c-6-4]] (4) and [[prop:ii-g1-4-7]] do not apply to 2L_b, which has zero-energy states; the augmented
+form [[thm:iii-h-4-1]] takes their place, and its radii are uniform in b (the proof of [[thm:iii-h2-2-1]], (i)). The
 forward problem is solved uniformly over the same family in [[thm:iii-h2-3-1]] and [[thm:iii-h2-4-1]]. This chapter
 adds no condition to these.

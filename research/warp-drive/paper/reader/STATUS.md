@@ -6,7 +6,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 
 | file | first reading | fix round | second reading |
 |---|---|---|---|
-| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | running | - |
+| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | running |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | running |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | running |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | running | - |
@@ -15,7 +15,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 21 S2 | NOT CONFIRMED 1M 6m 17n | done | running |
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | running |
 | 23 S4 | NOT CONFIRMED 3M 8m 7n | running (tameness) | - |
-| 24 S5 | NOT CONFIRMED 1M 3m 6n | done | running |
+| 24 S5 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (2 optional nits) |
 | 25 S6 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (4 new nits); depends on S4 |
 | 26 S7 | NOT CONFIRMED 2M 4m 3n | running | - |
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done (one citation pending) | running |

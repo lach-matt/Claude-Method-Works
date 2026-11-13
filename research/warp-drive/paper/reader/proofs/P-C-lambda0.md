@@ -1,5 +1,3 @@
-## The constants at the numerical point {#sec:lambda0-constants}
-
 This part proves, at one parameter point, the constants on which the bounds of [[prop:lambda0]] and the threshold of
 [[thm:layer]] rest: the normalising constant of the envelope and the derivatives of the envelope, the admissible range
 of ε1, the energy constant of the wave operator of g0 on Ω, and the size of the explicit profiles of stage 0. Every
@@ -28,8 +26,7 @@ corner τ = τ_end, r = a of Ω;
 corner τ = τ0.
 
 *Proof.* (a) q0 = (√72 μ0 l5²)^(1/4) gives q0⁸ = 72/10⁴ = 9/1250 = 0.0072. Three squarings give
-0.539717577⁸ < 0.0072 < 0.539717578⁸, and a = q0/2. By [[lem:eigen]]'s paragraph on the numerical point,
-μ0/a² = 4 (1250/9)^(1/4) > 13.
+0.539717577⁸ < 0.0072 < 0.539717578⁸, and a = q0/2. Then μ0/a² = 4/q0² > 4/0.539717578² > 13.73.
 
 (b) μ_end = μ0 + (2/9) A² ∫ env² = 1 + (2/9)(105/128) = 227/192 by [[lem:envelope-constant]] (a), and
 1.042752⁴ < 227/192 < 1.042753⁴.
@@ -112,10 +109,10 @@ The seven printed values for n = 1, …, 7 sum to 0.747713403759, so T_(1/8) = (
 
 **Lemma {#lem:envelope-derivatives}** (Derivatives of the envelope.) Let e_k := sup_ℝ |env^(k)|. Then e_0 = c, and
 
-    e_k ≤ 10.55 · 2^k · k!   for 1 ≤ k ≤ 13,          e_14 ≤ 2.88 · 10¹⁶.                              {#eq:envelope-derivatives}
+    e_k ≤ 10.55 · 2^k · k!   for 1 ≤ k ≤ 13,          e_14 ≤ 2.88 · 10¹⁶.                {#eq:envelope-derivatives}
 
-In numbers: e_1 ≤ 21.1, e_2 ≤ 84.4, e_3 ≤ 507, e_4 ≤ 4050, e_5 ≤ 4.05 · 10⁴, e_6 ≤ 4.86 · 10⁵, e_7 ≤ 6.81 · 10⁶,
-e_8 ≤ 1.09 · 10⁸, e_9 ≤ 1.96 · 10⁹, e_10 ≤ 3.92 · 10¹⁰, e_11 ≤ 8.63 · 10¹¹, e_12 ≤ 2.07 · 10¹³, e_13 ≤ 5.38 · 10¹⁴.
+In numbers: e_1 ≤ 21.1, e_2 ≤ 84.4, e_3 ≤ 507, e_4 ≤ 4052, e_5 ≤ 4.06 · 10⁴, e_6 ≤ 4.87 · 10⁵, e_7 ≤ 6.81 · 10⁶,
+e_8 ≤ 1.09 · 10⁸, e_9 ≤ 1.97 · 10⁹, e_10 ≤ 3.93 · 10¹⁰, e_11 ≤ 8.63 · 10¹¹, e_12 ≤ 2.07 · 10¹³, e_13 ≤ 5.39 · 10¹⁴.
 
 *Proof.* e_0 = c by [[lem:envelope-constant]] (a), and env^(k)(v) = c (2/3)^k β^(k)(y), y = (2v − 4)/3, so it suffices
 to show sup |β^(k)| ≤ 7.964 · 3^k · k! for k ≤ 13 and sup |β^(14)| ≤ 7.27 · 10⁷ · 14!; indeed 7.964 c < 10.55, and
@@ -180,7 +177,7 @@ is Lorentzian on Ω with |g̃ − g0| = λ_out, and the outer boundary is null f
 From b(τ0) ∈ (13.437207, 13.437209), 1.182291 < μ_end < 1.182292 and 13.437207² > 180.5585, 13.437209² < 180.5587,
 one gets 0.0065479 < μ_end/b(τ0)² < 0.0065480 and the bounds on λ_out. By [[lem:eigen]] the least eigenvalues of the
 three restrictions are 1 on ker dτ, min(1, μ/a² − 1) = 1 on ker dr at r = a (by (a)), and min(1, (3 + μ/r²)/5) ≥ λ_out
-on the outer boundary; a perturbation of operator norm ε1 < λ_out lowers each by less than λ_out.
+on the outer boundary; a symmetric perturbation of operator norm at most ε1 < λ_out lowers each by at most ε1.
 
 The vector e is a unit vector of ker d(v + τ) = ker(2dτ + dr): with T = −1/√5 and X = (2/√5) x̂ one has 2T + x̂·X = 0.
 In the notation of the proof of [[lem:eigen]] it is the direction X⊥ = 0, s = 2/√5, on which g0(e, e) = (3 + μ/r²)/5.
@@ -219,10 +216,10 @@ q_hi := 280.545 and κ := 12. On Ω:
 (d) for τ ∈ [τ0, τ_end],
 
     ‖du(τ)‖ ≤ (q_hi/q_lo)^(1/2) e^(κ(τ−τ0)/2) ‖du(τ0)‖ + √2 q_lo^(−1/2) e^(κ(τ−τ0)/2) ∫_(τ0)^τ ‖f(s)‖ ds
-            ≤ 9.7 · 10¹⁶ ‖du(τ0)‖ + 8.2 · 10¹⁵ ∫_(τ0)^τ ‖f(s)‖ ds.                                    {#eq:energy-constant}
+            ≤ 9.7 · 10¹⁶ ‖du(τ0)‖ + 8.2 · 10¹⁵ ∫_(τ0)^τ ‖f(s)‖ ds.                              {#eq:energy-constant}
 
-The same holds with the larger rate κ = 13.2197 and the smaller q_lo = 0.196683, which give e^(κ(τ_end−τ0)/2) ≤
-e^(39.2441) < 1.106 · 10¹⁷ and the coefficients 4.18 · 10¹⁸ and 3.525 · 10¹⁷ in [[eq:energy-constant]].
+The same holds with the larger rate κ = 13.2197 and the smaller q_lo = 0.196683, which give e^(κ(τ_end−τ0)/2) <
+e^(39.24407) < 1.10531 · 10¹⁷ and the coefficients 4.18 · 10¹⁸ and 3.525 · 10¹⁷ in [[eq:energy-constant]].
 
 *Proof.* *Coordinates.* By the O(4) invariance work at a point with x̂ = e1, in the coordinates (τ, r, ω) in which
 g0 = −dτ² + dr² + r² γ + m (dτ + dr)², m := μ(v)/r², and put k := μ'(v)/r ≥ 0. The (τ, r) block of g0 is
@@ -253,11 +250,11 @@ g0⁻¹(du, du) = −(1 − m) A² − 2m AB + (1 + m) B² + w², and π^(ab) �
     2r 𝔅     = (k − m − 3m²) A² + 2(3m + 3m² − k) AB + (k − 5m − 3m²) B² + m w².
 
 (a) The (p, q) block of 2T(Y, Y) has trace 2(m² + m + 1) and determinant (1 + m)², so T(Y, Y) has the Euclidean
-eigenvalues q± = (m² + m + 1 ± m (m² + 2m + 2)^(1/2))/2 and (1 + m)/2 ≥ 1/2. Here q₊ increases in m, and
-q₋ = (1 + m)²/(4 q₊) = 1/(2φ(z)) with z := 1/(1 + m) and φ(z) = 1 − z + z² + (1 − z)(1 + z²)^(1/2); one has
+eigenvalues ν± = (m² + m + 1 ± m (m² + 2m + 2)^(1/2))/2 and (1 + m)/2 ∈ [1/2, 9). Here ν₊ increases in m, and
+ν₋ = (1 + m)²/(4 ν₊) = 1/(2φ(z)) with z := 1/(1 + m) and φ(z) = 1 − z + z² + (1 − z)(1 + z²)^(1/2); one has
 φ'(z) < 0 on (0, 1], because (2z − 1)(1 + z²)^(1/2) < 1 − z + 2z² (trivially if 2z ≤ 1, and otherwise by squaring,
-the difference of the squares being 2z). So q₋ decreases in m. By [[lem:lambda0-point]] (d), m ≤ m* < 16.234971, and
-at m = 16.234971 one has q₊ < 280.5447 and q₋ > 0.26470.
+the difference of the squares being 2z). So ν₋ decreases in m. By [[lem:lambda0-point]] (d), m ≤ m* < 16.234971, and
+at m = 16.234971 one has ν₊ < 280.5447 and ν₋ > 0.26470; so every eigenvalue lies in [q_lo, q_hi].
 
 (b) For a covector ξ write ξ = α g0(Y, ·) + ξ' with ξ'(Y) = 0; ξ' is g0-orthogonal to the timelike Y, so
 g0⁻¹(ξ', ξ') ≥ 0, and g0⁻¹(ξ, ξ) ≥ α² g0(Y, Y) = −ξ(Y)²/(1 + m). Hence T(Y, Y) = (Yu)² + ((1 + m)/2) g0⁻¹(du, du)
@@ -283,8 +280,8 @@ r > 3/0.39 > 7.6, and |λ±| ≤ (2w + 2m(1 + m))/(1 + m)² ≤ 2k + 2 < 2.2. He
 inequality, and (a) converts y to ‖du‖. With τ_end − τ0 < 5.937209 ([[lem:lambda0-point]] (c)),
 e^(6 · 5.937209) < 2.958 · 10¹⁵, (q_hi/q_lo)^(1/2) < 32.56 and (2/q_lo)^(1/2) < 2.749, which gives the numbers in
 [[eq:energy-constant]]. Since κ = 12 < 13.2197 and q_lo > 0.196683, the weaker constants follow too:
-13.2197 · 5.937209/2 < 39.2441, e^(39.2441) < 1.106 · 10¹⁷, (280.545/0.196683)^(1/2) < 37.77 and
-(2/0.196683)^(1/2) < 3.1889. ∎
+13.2197 · 5.937209/2 < 39.24407, e^(39.24407) < 1.10531 · 10¹⁷, (280.545/0.196683)^(1/2) < 37.77 and
+(2/0.196683)^(1/2) < 3.18884. ∎
 
 **Remark {#rem:energy-one-sided}** (A one-sided rate.) Only the upper bound 𝔅 ≤ r⁻¹ max(λ₊, 1) T(Y, Y) enters the
 differential inequality, and λ₊ < 2 where w ≤ 0. So κ in (c) and (d) may be replaced by 2/a < 7.42.
@@ -318,7 +315,8 @@ with |·| the operator norm and |·|_F the Frobenius norm. The first bound is at
 where |W_TT| = (4/3) c a^(−3/2) > 12.5934 and |W_TT|_F = (2√6/3) c a^(−3/2).
 
 *Proof.* W_TT has only angular components, and r⁻¹ ∂_ϑ, (rc)⁻¹ ∂_φ1, (rs)⁻¹ ∂_φ2 are Euclidean-orthonormal and
-orthogonal to ∂_τ and ∂_r; so the eigenvalues of W_TT are 0, 0, −2(y1 + y2), 2y1, 2y2. With α = A env h r^(−3/2),
+orthogonal to ∂_τ and ∂_r; so off the axes the eigenvalues of W_TT are 0, 0, −2(y1 + y2), 2y1, 2y2, and the bounds
+below extend to the axes by continuity. With α = A env h r^(−3/2),
 
     2|y1| ≤ (2α/3)(4c⁴ + s⁴)^(1/2),   2|y2| ≤ (2α/3)(4s⁴ + c⁴)^(1/2),   2|y1 + y2| ≤ (2α/3)(c⁴ + s⁴)^(1/2),
 
@@ -333,5 +331,6 @@ Euclidean norm of dv = dτ + x̂·dx is √2, so |χ dv ⊗ dv|_F = 2|χ|. The n
 a > 0.2698587885 ([[lem:envelope-constant]], [[lem:lambda0-point]]): a^(−3/2) < 7.1333767 and a⁻² < 13.73179; and
 from c > 1.3240867, a^(−3/2) > 7.133376 at the point of equality. ∎
 
-Bounds on the derivatives of W_TT, χ dv ⊗ dv and the stage-1 mean source of orders 1 to 14 on Ω × S¹, of the kind
-[[lem:envelope-derivatives]] gives for the envelope, are [[pending:computational-1]]. No result of the paper uses them.
+Bounds on the derivatives of orders 1 to 14 on Ω × S¹ of W_TT, of χ dv ⊗ dv and of the θ-mean of R^(1) at
+stage 1, of the kind [[lem:envelope-derivatives]] gives for the envelope, are [[pending:computational-1]]. No result
+of the paper uses them.

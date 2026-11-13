@@ -306,10 +306,10 @@ identity, and J_* ℓ = ℓ. For a family of profiles (g_j) put
 
     (S g)_j (X, θ) := (−1)^j (J* g_j)(X, 3π/2 − θ).                                             {#eq:quarter-turn-action}
 
-**Lemma {#lem:quarter-turn}** (The quarter-turn symmetry.) (a) For every family of profiles with G = g0 + Σ_j λ^j g_j,
-the family G̃ := g0 + Σ_j λ^j (S g)_j has two-scale residual R[G̃](X, θ; λ) = J* R[G](X, 3π/2 − θ; −λ). Its
-coefficient of λ^m is (−1)^m J* R^(m)(·, 3π/2 − ·), so S preserves (E1)–(E3) of [[thm:uniform-existence]] at every
-order: it preserves (E1), (E2) and the vanishing of each coefficient R^(m).
+**Lemma {#lem:quarter-turn}** (The quarter-turn symmetry.) (a) For every family of profiles (g_j) with
+g := g0 + Σ_j λ^j g_j, the sum g̃ := g0 + Σ_j λ^j (S g)_j has two-scale residual R[g̃](X, θ; λ) =
+J* R[g](X, 3π/2 − θ; −λ). Its coefficient of λ^m is (−1)^m J* R^(m)(·, 3π/2 − ·), so S preserves (E1)–(E3) of
+[[def:approximant]] at every order: it preserves (E1), (E2) and the vanishing of each coefficient R^(m).
 
 (b) The stage-0 wave is S-invariant: (J* W_TT)(X, 3π/2 − θ) = −W_TT(X, θ); so is χ, and so is W = W_TT + χ dv² at
 weight 1.
@@ -319,12 +319,12 @@ S g = g:
 
     (J* g_j)(·, 3π/2 − ·) = (−1)^j g_j,   and for the means,   J* ⟨g_j⟩ = (−1)^j ⟨g_j⟩;   in particular J* m1 = −m1.
 
-*Proof.* (a) The operator R[G] is Ric^H of [[eq:gauge]] with every ∂_a replaced by D^λ_a := ∂_a + λ⁻¹
+*Proof.* (a) The operator R[g] is Ric^H of [[eq:gauge]] with every ∂_a replaced by D^λ_a := ∂_a + λ⁻¹
 (∂_a v) ∂_θ ([[def:two-scale]]), and it contains no explicit θ. Let ρ(θ) := 3π/2 − θ. Since ∂_θ (f ∘ ρ) =
-−(∂_θ f) ∘ ρ, we have D^λ_a (f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, hence R[G ∘ ρ](·; λ) = R[G](·; −λ) ∘ ρ. Since J is linear in
-x and fixes v, D^λ commutes with J*, and Ric^H(J* g) = J* Ric^H(g) because Ric^H is built from g and g0 alone and J is
-an isometry of g0. So R[J* G] = J* R[G]. Now G̃ = J* G(·, ρ(·); −λ), because λ^j (S g)_j = (−λ)^j J* g_j ∘ ρ and J* g0 =
-g0; combining the two identities gives the formula. Expanding in λ gives the coefficients. (E1) is preserved because
+−(∂_θ f) ∘ ρ, we have D^λ_a (f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, hence R[g ∘ ρ](·; λ) = R[g](·; −λ) ∘ ρ. Since J is linear in
+x and fixes v, D^λ commutes with J*, and Ric^H(J* g) = J* Ric^H(g) for every metric g, because Ric^H is built from g
+and g0 alone and J is an isometry of g0. So R[J* g] = J* R[g]. Now g̃ = J* g(·, ρ(·); −λ), because λ^j (S g)_j =
+(−λ)^j J* g_j ∘ ρ and J* g0 = g0; combining the two identities gives the formula. Expanding in λ gives the coefficients. (E1) is preserved because
 J_* ℓ = ℓ; (E2) and the vanishing of each R^(m) because R^(m) ↦ (−1)^m J* R^(m) ∘ ρ; and J preserves each slice
 and its flat L² norms.
 
@@ -346,7 +346,7 @@ is S-invariant at weight 1, and so is W. By (a) applied to the S-invariant famil
 order one: J* R^(1)[g0 + λ W](·, 3π/2 − ·) = −R^(1)[g0 + λ W], the mean part and the oscillating part alike.
 
 (c) The unknowns of the ansatz [[eq:ansatz]] are the means m_j, the phases φ_j and the oscillating profiles ĝ_j,
-with G(X, θ; λ) = g0 + Σ λ^j m_j + λ W + Σ λ^j ĝ_j(X, θ) and phase u = v + Σ λ^j φ_j. Let S act by
+with profile 𝒢(X, θ; λ) := g0 + Σ λ^j m_j + λ W + Σ λ^j ĝ_j(X, θ) and phase u = v + Σ λ^j φ_j. Let S act by
 
     m_j ↦ (−1)^j J* m_j,    φ_j ↦ (−1)^j J* φ_j,    ĝ_j ↦ (−1)^j J* ĝ_j(·, 3π/2 − ·).
 
@@ -360,10 +360,11 @@ uniqueness of stage 1, whose unknowns (m1, φ1, ĝ2) solve a system that S maps 
 through L0 φ1 = −½ m1(ℓ, ℓ) with zero data, J* φ1 = −φ1.
 
 The rewriting with the fixed phase (in the proof of [[thm:approximant]]) commutes with S. There the profiles g_j are the
-coefficients of Ĝ(X, θ; λ) := G(X, θ + φ1 + λΨ; λ), Ψ := Σ_(j≥2) λ^(j−2) φ_j. For the transformed unknowns φ̃1 = −J*
-φ1 and λ Ψ̃(λ) = −J*((−λ) Ψ(−λ)), and G̃(X, θ′; λ) = J* G(X, 3π/2 − θ′; −λ), so
+coefficients of 𝒢̂(X, θ; λ) := 𝒢(X, θ + φ1 + λΨ; λ), Ψ := Σ_(j≥2) λ^(j−2) φ_j. For the transformed unknowns φ̃1 = −J*
+φ1 and λ Ψ̃(λ) = −J*((−λ) Ψ(−λ)), and their profile is 𝒢̃(X, θ′; λ) = J* 𝒢(X, 3π/2 − θ′; −λ), so their rewritten
+profile is
 
-    Ĝ̃(X, θ; λ) = J* G(X, 3π/2 − θ + φ1 + (−λ) Ψ(−λ); −λ) = J* Ĝ(X, 3π/2 − θ; −λ),
+    𝒢̃(X, θ + φ̃1 + λ Ψ̃(λ); λ) = J* 𝒢(X, 3π/2 − θ + φ1 + (−λ) Ψ(−λ); −λ) = J* 𝒢̂(X, 3π/2 − θ; −λ),
 
 whose coefficient of λ^j is (−1)^j J* g_j(·, 3π/2 − ·) = (S g)_j. Hence S g = g. Taking the θ-mean, which the
 reflection θ ↦ 3π/2 − θ preserves, gives J* ⟨g_j⟩ = (−1)^j ⟨g_j⟩, and ⟨g1⟩ = m1 since W has θ-mean zero. ∎
@@ -384,14 +385,26 @@ By [[lem:quarter-turn]] (c), DM[m1] = DM[J* m1] = −DM[m1], so DM[m1] = 0. The 
 [[eq:remainder-pointwise]]. For v < v_start the means vanish too: their forcing terms and data on Σ_τ0 are supported in
 v ≥ v_start, and v does not decrease along future causal curves of g0.
 
-*Inside the shell.* By [[lem:sphere-two-scale]] (a)–(b) for G = g_app, θ^±, the area and g_app(n⁺, n⁻) are those of g0
+*Inside the shell.* By [[lem:sphere-two-scale]] (a)–(b) for g = g_app, θ^±, the area and g_app(n⁺, n⁻) are those of g0
 up to O(λ): the wave enters at order λ⁰ only through the term ½ k^±(ℓ) ∂_θ tr_S g1 of the proof of that lemma, which
 vanishes by [[eq:wave-traceless]]. So M[S_(v,r)](g_app) − μ(v) = O(λ), and the remainder contributes C(|w| + |∂w|) ≤
-C λ^(K−4). ∎
+C λ^(K−4).
 
-The first mean m1 is driven by the following forcing. By [[lem:first-entry]], the part of the coefficient of λ that is
-free of the unknowns m1, φ1 and ĝ2 is its value with these set to zero, which is the coefficient R^(1) of λ in
-R[g0 + λ W]; so the forcing of the mean equation of stage 1 ([[lem:stage-system]] (a)) is 𝒮_1 = −⟨R^(1)⟩.
+*Larger λ.* The two steps above hold for λ ≤ λ*, with λ* that of [[lem:sphere-two-scale]], taken so small that the
+Taylor expansion about g0 applies. For λ* < λ ≤ λ0 the bounds hold with a larger C. Indeed |g_λ − g0| ≤ C λ ≤ ε1 and
+|∂g_λ| ≤ C on Ω ([[thm:uniform-existence]], λ0 being so small that C λ0 ≤ ε1), and ε1 < 3/5. Each S_(v,r) lies in a
+slice Σ_τ, on whose tangent space ker dτ the form g0 has least eigenvalue 1 relative to the Euclidean inner product
+([[lem:eigen]]); so g_λ restricted to ker dτ has least eigenvalue at least 2/5, and the spheres are spacelike for g_λ.
+The quantities R, θ^±, g(n⁺, n⁻) and Θ that make up M are continuous functions of (X, g, ∂g) on the compact set where
+X ∈ Ω, |g − g0(X)| ≤ ε1 and |∂g| ≤ C, on which −g(n⁺, n⁻) > 0; so |M[S_(v,r)](g_λ)| ≤ C_M there, and for λ > λ*,
+|M[S_(v,r)](g_λ) − μ(v)| ≤ C_M + μ(v_end) ≤ (C_M + μ(v_end)) λ*⁻² λ². ∎
+
+The first mean m1 is driven by the following forcing. By [[lem:first-entry]], the coefficient of λ is ℛ^(1) =
+T̂ ĝ2 − ½ e_2 ∂_θ² W + 𝒲(m1, φ1) + 𝒦_1. The term 𝒦_1 contains none of the unknowns of the stages, so it is the value of
+ℛ^(1) with all of them set to zero, which is the coefficient R^(1) of λ in R[g0 + λ W]. The term −½ e_2 ∂_θ² W, which
+contains m2 and φ2, is not part of 𝒦_1, but its θ-mean is zero: e_2 does not depend on θ ([[eq:eikonal-coefficients]]),
+and ∂_θ² W has θ-mean zero. So the forcing of the mean equation of stage 1 ([[lem:stage-system]] (a)) is
+𝒮_1 = −⟨𝒦_1⟩ = −⟨R^(1)⟩.
 
 **Lemma {#lem:first-mean-forcing}** (The forcing of the first mean.) Let W = W_TT + χ dv ⊗ dv with χ a profile of zero
 θ-mean, and let R^(1) be the coefficient of λ in the two-scale expansion of R[g0 + λ W] ([[def:two-scale]]). In the

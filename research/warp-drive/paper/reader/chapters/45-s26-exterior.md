@@ -144,3 +144,91 @@ the compact set {t_IVP(p) ≤ t_IVP ≤ 0, φ₋ ≥ φ₋(p), |x| ≤ |x(p)| + 
 causal curve from p meets Σ°. Every inextendible causal curve through p contains a past (resp. future) inextendible
 one from p. So Ω° is the Cauchy development of Σ° in Ω°, and [[thm:std-bgp-development]] gives the claim. ∎
 
+### The edge-b structure at null infinity {#sec:iv-0}
+
+[[sec:iv-0]]–[[sec:iv-4]] are [Hin23a, Sections 3.1–3.2] (pp. 9–17) in dimension 4 + 1, for the operator of
+[[sec:iii-c-4]] on the exterior region of [[sec:iii-c-1]]: the edge-b structure at ℐ⁺ ([Hin23a, Definitions 3.1–3.3,
+Lemmas 3.6, 3.12–3.16, Corollary 3.14]), the basic energy estimate ([Hin23a, Proposition 3.17]), and the estimate near
+the interior of I₀ for which [Hin23a] cites [HV20, Proposition 4.3]. The dimension enters through the quantities of
+[[prop:np-10-64]]; here each is written into the proof.
+
+*The region.* U, (ρ₀, ρ_I, ω), X₀ = ρ₀∂_(ρ₀), X_I = ρ_I∂_(ρ_I), the null coordinates x⁰ = t + |x|, x¹ = t − |x| and
+ρ = ρ₀ρ_I = |x|⁻¹ are those of [[sec:iii-c-1]] ([[lem:iii-c-1-1]], [[eq:iii-c-1-2]]–[[eq:iii-c-1-5]]), with ω ∈ 𝕊³. Put
+x_I := ρ_I^(1/2) and let M_♯ be U with the smooth structure in which (ρ₀, x_I, ω) are coordinates near ℐ⁺ ([Hin23a,
+(3.6)], there with ρ₀ and x_I of the null coordinates of Schwarzschild space). The faces of M_♯ at infinity are
+I₀ = {ρ₀ = 0} and ℐ⁺ = {x_I = 0}, and ℐ⁺ is fibred by (ρ₀, ω) ↦ ω over 𝕊³, with fibres the ρ₀-lines ([Hin23a,
+Definition 3.7]).
+
+*Edge-b objects* ([Hin23a, Definitions 3.1–3.4], stated on any manifold with two boundary hypersurfaces and a
+fibration of one of them; no dimension enters). 𝒱_b(M_♯) is spanned over C^∞(M_♯) by X₀, X_I = ½x_I∂_(x_I) and the
+vector fields on 𝕊³. 𝒱_(e,b)(M_♯) ⊂ 𝒱_b(M_♯), the vector fields whose restriction to ℐ⁺ is tangent to its fibres, is
+spanned by X₀, X_I and x_IΘ, Θ ∈ 𝒱(𝕊³) ([Hin23a, (3.9)]). Diff^k_(e,b)(M_♯) consists of the sums of compositions of at
+most k elements of 𝒱_(e,b)(M_♯) with C^∞ coefficients, and Diff^(m;k)_(e,b;b)(M_♯) := Diff^m_(e,b)(M_♯) · Diff^k_b(M_♯)
+of the sums of compositions PQ with P ∈ Diff^m_(e,b), Q ∈ Diff^k_b; on sections of a bundle the coefficients are
+smooth endomorphisms, and for a space ℱ of functions, ℱDiff^k_(e,b) denotes the operators with coefficients in ℱ. With
+the b-density, H^k_(e,b)(M_♯) is the space of u ∈ L² with Pu ∈ L² for all P ∈ Diff^k_(e,b), and H^((m;k))_(e,b;b)(M_♯)
+that of u with PQu ∈ L² for all P ∈ Diff^m_(e,b), Q ∈ Diff^k_b; the weighted spaces are
+H^(k,(α₀,α₁))_(e,b) := ρ₀^(α₀)x_I^(α₁)H^k_(e,b) and H^((m;k),(α₀,α₁))_(e,b;b) := ρ₀^(α₀)x_I^(α₁)H^((m;k))_(e,b;b). The
+b-spaces are those of [[sec:iii-c-2]]: 𝒱_b and the b-density are the same in the coordinates ρ_I and x_I
+(|dρ_I/ρ_I| = 2|dx_I/x_I|), and x_I^(2α) = ρ_I^α, so H^(k,(α₀,2α_I))_b in (ρ₀, x_I) is H^(k,α₀,α_I)_b of
+[[sec:iii-c-2]] in (ρ₀, ρ_I). As dim M_♯ = 5,
+
+    H^(s,(α₀,α₁))_b(M_♯) ↪ ρ₀^(α₀)x_I^(α₁)L^∞,     s > 5/2,                                              {#eq:iv-0-1}
+
+by the change of variables z₀ = log ρ₀, z₁ = log x_I, in which b-Sobolev spaces are uniformly local Sobolev spaces on
+ℝ² × 𝕊³, and Sobolev embedding there; the order s = 3 serves in dimensions 3 + 1 and 4 + 1 ([[prop:np-10-64]] (6)).
+
+*The metric.* g_(b₀) is the Tangherlini metric, b₀ = (m₀, 0) ([[sec:iii-b-3]]), in the coordinates of [[ch:s11]], and
+η = −dx⁰dx¹ + |x|²g̸ is the Minkowski metric. On U the components of g_(b₀) − η in the rescaled null frame of
+[[eq:iii-c-1-6]] lie in ρ²C^∞(U) ([[lem:iii-c-3-5]] (1), [[lem:iii-c-1-3]]).
+
+### The frame as edge-b covectors {#sec:iv-1}
+
+This section is [Hin23a, Lemmas 3.12–3.13, Corollary 3.14 and Remark 3.15] in dimension 4 + 1.
+
+**Lemma {#lem:iv-1-1}** ([Hin23a, Lemma 3.13] in dimension 4 + 1.) For ω̸ ∈ C^∞(𝕊³; T*𝕊³),
+
+    dx⁰ ∈ ρ₀⁻¹x_I⁻²C^∞(M_♯; ᵉᵇT*M_♯),     dx¹ ∈ ρ₀⁻¹C^∞(M_♯; ᵉᵇT*M_♯),     |x|ω̸ ∈ ρ₀⁻¹x_I⁻¹C^∞(M_♯; ᵉᵇT*M_♯),
+
+where ᵉᵇTM_♯ is the bundle whose smooth sections are the elements of 𝒱_(e,b)(M_♯) and ᵉᵇT*M_♯ its dual; and the
+products of the frame [[eq:iii-c-1-6]] have the orders of [Hin23a, (3.13)]: (dx⁰)² ∈ ρ₀⁻²x_I⁻⁴C^∞; dx⁰dx¹ and |x|²h̸,
+for h̸ ∈ C^∞(𝕊³; S²T*𝕊³), in ρ₀⁻²x_I⁻²C^∞; dx⁰ ⊗_s |x|ω̸ ∈ ρ₀⁻²x_I⁻³C^∞; (dx¹)² ∈ ρ₀⁻²C^∞;
+dx¹ ⊗_s |x|ω̸ ∈ ρ₀⁻²x_I⁻¹C^∞, as sections of S²ᵉᵇT*M_♯.
+
+*Proof.* By [[eq:iii-c-1-5]], ∂₀ = −½ρ₀ρ_I X_I and ∂₁ = ρ₀(X₀ − X_I + ½ρ_I X_I), and |x|⁻¹e_a = ρ₀x_I · x_Ie_a for an
+orthonormal frame e_a of 𝕊³. So (∂₀, ∂₁, |x|⁻¹e_a) = ρ₀DB(X₀, X_I, x_Ie_a) with D = diag(x_I², 1, x_I Id₃) and
+
+    B = ( 0     −½            0   )
+        ( 1     −1 + ½x_I²    0   )
+        ( 0      0            Id₃ ),     det B = ½.
+
+B is smooth and invertible up to x_I = 0, and (X₀, X_I, x_Ie_a) is a frame of ᵉᵇTM_♯. The dual coframe of
+(∂₀, ∂₁, |x|⁻¹e_a) is (dx⁰, dx¹, |x|e^a). So (dx⁰, dx¹, |x|e^a) is ρ₀⁻¹D⁻¹(B⁻¹)ᵀ applied to the dual eb-coframe, which
+gives the three memberships, and the products follow. ∎
+
+**Corollary {#cor:iv-1-2}** ([Hin23a, Lemma 3.12 and Corollary 3.14] in dimension 4 + 1.)
+g_(b₀) ∈ ρ₀⁻²x_I⁻²C^∞(M_♯; S²ᵉᵇT*M_♯) is nondegenerate of Lorentzian signature up to I₀ ∪ ℐ⁺, and
+
+    ρ₀²x_I²g_(b₀) ≡ 2(dρ₀/ρ₀)² + 2(dρ₀/ρ₀) ⊗_s (dρ_I/ρ_I) + x_I⁻²g̸,
+    ρ₀⁻²x_I⁻²g_(b₀)⁻¹ ≡ 2X_I ⊗_s (X₀ − X_I) + x_I²g̸⁻¹,
+
+modulo x_IC^∞(M_♯; S²ᵉᵇT*M_♯), resp. x_IC^∞(M_♯; S²ᵉᵇTM_♯).
+
+*Proof.* For η: dx¹ = ρ₀⁻¹dρ₀/ρ₀ and d|x| = −|x|(dρ₀/ρ₀ + dρ_I/ρ_I), from x¹ = 2 − ρ₀⁻¹ and |x| = (ρ₀ρ_I)⁻¹; with
+dx⁰ = dx¹ + 2d|x|,
+
+    ρ₀²ρ_Iη = 2(dρ₀/ρ₀)² + 2(dρ₀/ρ₀) ⊗_s (dρ_I/ρ_I) − ρ_I(dρ₀/ρ₀)² + ρ_I⁻¹g̸
+
+exactly, and ρ_I⁻¹g̸ = x_I⁻²g̸ is a smooth eb-tensor (dω/x_I being an eb-covector). The dual statement for
+η⁻¹ = −4∂₀ ⊗_s ∂₁ + |x|⁻²g̸⁻¹ follows from [[eq:iii-c-1-5]] in the same way, with the remainder x_I²X_I ⊗ X_I. By
+[[sec:iv-0]], the components of g_(b₀) − η in the null frame are O(ρ²); by [[lem:iv-1-1]] the worst frame product,
+(dx⁰)², lies in ρ₀⁻²x_I⁻⁴C^∞, and ρ² = ρ₀²x_I⁴. So g_(b₀) − η ∈ C^∞ = ρ₀⁻²x_I⁻² · ρ₀²x_I²C^∞, which lies in the
+error class. Nondegeneracy and the signature follow from the leading form, which is that of η. ∎
+
+**Remark {#rem:iv-1-3}** ([Hin23a, Remark 3.15].) As 𝒱_(e,b) is a Lie algebra and differentiation along it preserves
+ρ₀^(ℓ₀)x_I^(ℓ_I)C^∞, the Koszul formula gives ∇^(g_(b₀)) ∈ Diff¹_(e,b) on eb-tensor bundles, and
+
+    □_(g_(b₀)) ∈ ρ₀²x_I²Diff²_(e,b)(M_♯; ᵉᵇT^(p,q)M_♯)                                                   {#eq:iv-1-1}
+
+([Hin23a, (3.14)]). Nothing here depends on the dimension.
+

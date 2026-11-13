@@ -707,11 +707,10 @@ with Schwartz kernel within ω_0/8 of the diagonal in t_*, as for E_+ in (b); th
 with kernel in 𝒦 × 𝒦, which the low-order term of [[eq:ii-e-3-2]] absorbs, and the kernel then lies in
 {t_* ≤ t_− + ω_0/8}². Taking 𝒦 so small that t^♭ = t_* − t_*^(1+ℓ_I) x_I^(2ℓ_I) ≤ t_* on it ([[lem:ii-c-3-2]] (a),
 [[lem:ii-e-1-2]] (iv)), and as t_− + ω_0/8 = T_0 − 3ω_0/8, the kernel lies in {t^♭ ≤ T_0 − 3ω_0/8}², where ũ = 0, so
-E_−ũ = 0. Its E is microsupported in a punctured neighbourhood of R at times in
-[t_− − ω_0, t_+ + ω_0], from whose points the backward curves reach {t^♭ < T_0}, as above; by compactness of WF′(E)
-and the local boundedness of the entrance times
-([[sec:ii-a-9-1]], (O)), propagation bounds ‖Eũ‖_𝗌. The finitely many operators so obtained are jointly elliptic over
-supp χ_1, and [[lem:ii-a-8-4]] (c) gives
+E_−ũ = 0. Its E is microsupported in a punctured neighbourhood of R at times in [t_− − ω_0, t_+ + ω_0], from whose
+points the backward curves reach {t^♭ < T_0}, as above; by compactness of WF′(E) and the local boundedness of the
+entrance times ([[sec:ii-a-9-1]], (O)), propagation bounds ‖Eũ‖_𝗌. The finitely many operators so obtained are
+jointly elliptic over supp χ_1, and [[lem:ii-a-8-4]] (c) gives
 
     ‖χ_1 ũ‖_(𝗌,2α) ≤ C (‖χ_1′ f‖_(𝗌−1,2α+2) + ‖χ_1′ ũ‖_(𝗌_0,2α)).
 
@@ -1400,8 +1399,9 @@ g″ := (ℰg)|_(Ω″) in place of the minimal extension, with ℰ the extensio
 Ω^K_([a,b]), the order 𝗍 := 𝗌 − 1 and the weight α_K. As ℰg is supported in {t^♭ ≥ T_0, r ≤ b} and equals g on
 {r > a}, v″|_(Ω^K_([a,b])) = v by uniqueness, and ‖g″‖_(H^((𝗌−1;j),α_K)(Ω″)^(•,−)) ≤
 C_j ‖g‖_(H^((𝗌−1;j),α_K)(Ω^K_([a,b]))^(•,−)) for every j at once. The one new term is [P, χ]u in [[eq:ii-e-5-7]]. Its
-coefficients are χ′ times those of P, which are stationary smooth ones plus O(ε_(P,k)) in C^((d_0;k)); by [[lem:ii-e-4-1]] (b), whose proof applies verbatim to the
-spaces H(·)^• with room at both r-faces, here {a⁺ + δ_2 ≤ r ≤ b − δ_2} inside Ω^K_([a⁺,b]),
+coefficients are χ′ times those of P, which are stationary smooth ones plus O(ε_(P,k)) in C^((d_0;k)); by
+[[lem:ii-e-4-1]] (b), whose proof applies verbatim to the spaces H(·)^• with room at both r-faces, here
+{a⁺ + δ_2 ≤ r ≤ b − δ_2} inside Ω^K_([a⁺,b]),
 
     ‖[P, χ]u‖_((𝗌−1;k)) ≤ C_k (‖u‖^([a⁺,b])_((𝗌;k)) + ε_(P,k) ‖u‖^([a⁺,b])_((𝗌;d̃))),
 

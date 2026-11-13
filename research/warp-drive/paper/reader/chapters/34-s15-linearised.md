@@ -717,3 +717,380 @@ H^((s;k),(𝗋,q))_(sc,b;b). Near ztf these are H^(s−2+k)_(b,β_ztf−2) and H
 artificial boundary) gives H_b^(k+ℓ,β_sctf+1) ↪ H^((s−1;k),𝗋+1) and H^((s;k),𝗋) ↪ H_b^(k−ℓ̃,β_sctf−ϵ) with the losses
 ℓ, ℓ̃ of that lemma (𝗋_out + 3 + ϵ/2 = β_sctf + 1 and 𝗋_out + 2 − ϵ/2 = β_sctf − ϵ). Replacing k by k + ℓ̃ and enlarging
 ℓ gives [[eq:iii-f1-3-3]], with ℓ independent of ϵ as in [[cor:ii-g1-4-2]]. ∎
+
+### The horizon threshold and the hypotheses of the spectral theory {#sec:iii-f2-1}
+
+This section and the next four carry [Hin26, Proposition 8.8] (p. 153), mode stability of L_b at the nonzero
+frequencies of the closed upper half plane: at b_0 for every such frequency, and for b near b_0 for the frequencies
+bounded away from zero. [Hin26] takes its input from [AHW24, Theorem 6.1 (1)], mode stability of the linearised Einstein
+equation on Kerr, which has no five-dimensional counterpart; at b_0 it is proved here from the Kodama–Ishibashi
+decomposition, with the gauge 1-form built by an ordinary differential equation in the radial direction and continued
+inside the horizon as a solution. We write P′ := D_(g_b)Ric + δ*_(g_b) δ_(g_b,E_Υ) G_(g_b) for the operator without
+the constraint damping modification. First we supply the threshold of L_b at the event horizon, by which the theory of
+[[ch:s01]]–[[ch:s02]] applies to L_b.
+
+**Lemma {#lem:iii-f2-1-1}** (The horizon threshold; [Hin26, footnote 78] in dimension 4 + 1.) On Tangherlini, in the
+ingoing chart (v, r, ω), let c_C = a_v dv + a_r dr and c_(Υ,H) = c_v dv + c_r dr at r_h, and put x := a_v γ_C r_h,
+y := c_v γ_(Υ,H) r_h. At N*ℋ, ζ = ξ dr, the subprincipal symbol of 2L_(b_0) on half-densities by |dg| is iξf′(r_h)K with
+
+    det(ν − K) = ν⁵ (ν − 1 + x)³ (ν − 2 + 2x)(ν + (1 − e_C)x) (ν − y)(ν + 1 − y)³(ν + 2 − 2y).           {#eq:iii-f2-1-1}
+
+So the threshold quantity ϑ_ℋ of [[sec:i-a-1]], in a suitable fibre inner product, is any number above
+ϑ_L := max{0, 1 − x, 2 − 2x, −(1 − e_C)x, y, y − 1, 2y − 2}, and the regularity condition is s > ½ + ϑ_L. With the
+choice c_(Υ,H) = −½χ dr of [[sec:iii-d1-1]] (y = 0), x = a_v γ_C r_h > 0, and e_C ∈ (0, 1) makes −(1 − e_C)x < 0; so
+ϑ_L = max(0, 2 − 2x): it is 0 when a_v γ_C r_h ≥ 1, and below 2 always; 2, the threshold s > 5/2 of [Hin26, footnote
+78], is its value without the damping (γ_C = 0). For every δ > 0 there is a neighbourhood of b_0 (and of the
+modification parameters, in a compact set) on which ϑ_ℋ < ϑ_L + δ in a fixed fibre inner product.
+
+*Proof.* *The terms.* Only the first-order part of 2L_(b_0) = □ + 2E^C δG + 2δ*_(E_C) E^Υ G + 2R ([[eq:iii-f-1-2]])
+enters a subprincipal symbol beyond the principal part: 2E^C δG and 2δ*E^Υ G; the terms 2E^C E^Υ G and 2R are of order
+zero. Near the horizon E^Υ is its horizon part, with E^Υ_H G h = 2γ_(Υ,H) ι_(g⁻¹c_(Υ,H)) h ([[eq:iii-b-6-5]]), and only
+the values of c_C and c_(Υ,H) at r_h enter, as they multiply first derivatives. In the ingoing chart
+g_(b_0) = −f dv² + 2dv dr + r²γ, g⁻¹ has g^vv = 0, g^vr = 1, g^rr = f, so at r_h, g⁻¹dr = ∂_v and g⁻¹dv = ∂_r, and
+f′(r_h) = 2/r_h.
+
+*The wave operator.* S_sub(□) = −i∇^(π*S²T*)_(H_G) on half-densities by |dg| ([[eq:iii-f-4-1]]), and at N*ℋ,
+H_G = 2ξ∂_v plus a fibre term, which acts trivially on fibre-constant sections. At r_h the Christoffel symbols with a
+lower index v are Γ^v_vv = f′/2, Γ^r_vr = −f′/2 and zero otherwise (Γ^r_vv = ff′/2 vanishes there), so
+∇_(∂_v) dv = −(f′/2)dv, ∇_(∂_v) dr = (f′/2)dr and ∇_(∂_v) e = 0 for the angular covectors e = r ê, ê of unit length for
+γ. So on 1-forms −i∇_(H_G) = iξf′(r_h)K_0 with K_0 = 1 on dv, −1 on dr and 0 on the angular covectors (the matrix of
+[[lem:iii-d-5-1]] at γ_(Υ,H) = 0), and on symmetric 2-tensors K_0 is its Leibniz extension.
+
+*The modifications.* With σ_1(δ)(ζ)h = −iι_(g⁻¹ζ)h and σ_1(δ*)(ζ)ω = iζ ⊗_s ω, the principal symbol at ζ = ξ dr of
+2E^C δG + 2δ*E^Υ G is iξ(−2E^C ι_(∂_v) G + 2dr ⊗_s E^Υ G). So K = K_0 + K_C + K_Υ with
+
+    K_C h = −r_h γ_C (2c_C ⊗_s ι_(∂_v)Gh − (2/3)(1 − e_C) g ⟨c_C, ι_(∂_v)Gh⟩),
+    K_Υ h = 2r_h γ_(Υ,H) dr ⊗_s ι_(c_v∂_r + c_r∂_v) h.
+
+*A grading.* Give dv, dr and the angular covectors the weights 1, −1, 0, and a symmetric product of two the sum. K_0
+multiplies a monomial by its weight. ι_(∂_v) removes a factor dv, lowering the weight by 1, and ι_(∂_r) removes a factor
+dr, raising it by 1; at r_h, g = 2dv dr + T with T := Σ_a e_a² (e_1, e_2, e_3 an orthonormal angular coframe) has weight
+0, tr picks the pairs (dv, dr) and (e_a, e_a), so G preserves the weight; ⟨dv, ·⟩ picks the dr-component and ⟨dr, ·⟩ the
+dv-component. Hence the a_v-part of K_C and the c_v-part of K_Υ preserve the weight, and the a_r-part of K_C and the
+c_r-part of K_Υ lower it by 2. So K is block triangular for the grading, and det(ν − K) is the product of the
+characteristic polynomials of the weight-preserving part D_0 on the five weight spaces. With x = a_v γ_C r_h and
+y = c_v γ_(Υ,H) r_h:
+
+- weight 2, dv²: Gdv² = dv² (tr dv² = g^vv = 0), ι_(∂_v)dv² = dv and ⟨dv, dv⟩ = 0, so D_0 dv² = (2 − 2x)dv²;
+- weight 1, dv e_a: G is the identity there, ι_(∂_v)(dv e_a) = ½e_a, ⟨dv, e_a⟩ = 0 and ι_(∂_r)(dv e_a) = 0, so
+  D_0 = 1 − x, three times;
+- weight 0, spanned by dv dr, T and the five trace-free angular monomials: K_0 = 0 there. G(dv dr) = dv dr − ½g = −½T
+  and ι_(∂_v)T = 0, so K_C(dv dr) = 0; GT = T − (3/2)g = −½T − 3dv dr, ι_(∂_v)GT = −(3/2)dr and ⟨dv, dr⟩ = 1, so
+  K_C T = −x(−3dv dr + (1 − e_C)g) = x(1 + 2e_C)dv dr − x(1 − e_C)T; K_C vanishes on the trace-free angular part; and
+  ι_(∂_r)(dv dr) = ½dv, ι_(∂_r)T = 0, so K_Υ(dv dr) = y dv dr and K_Υ vanishes on T and on the trace-free angular part.
+  So D_0 is triangular there, with eigenvalues y, −(1 − e_C)x and 0 five times;
+- weight −1, dr e_a: K_C vanishes (ι_(∂_v)(dr e_a) = 0), and ι_(∂_r)(dr e_a) = ½e_a, so D_0 = −1 + y, three times;
+- weight −2, dr²: K_C vanishes, and ι_(∂_r)dr² = dr, so D_0 dr² = (−2 + 2y)dr².
+
+The product is [[eq:iii-f2-1-1]]; at γ_C = γ_(Υ,H) = 0 it is (ν − 2)(ν + 2)(ν − 1)³(ν + 1)³ν⁷, the sums of two of the
+1-form values 1, −1, 0, 0, 0.
+
+*The threshold.* The normalisation of [[sec:i-a-1]] is that of the proof of [[lem:iii-d-5-1]], β_0⁻¹p_(1,±) being K up
+to the orientation sign. For a matrix K and δ > 0, a Jordan basis rescaled so that the off-diagonal entries are at most
+δ defines an inner product in which the self-adjoint part of K has its eigenvalues below max Re spec K + δ; K is
+constant on N*ℋ up to the rotations, which act by isometries of such a choice made at one point and transported. The
+sign of a_v: at r_h, g⁻¹(c_C, c_C) = 2a_v a_r < 0 and g⁻¹c_C = a_v∂_r + a_r∂_v, and a past-directed timelike vector
+has positive inner product with the future-directed null ∂_v, which is c_C(∂_v) = a_v. The continuity in b and the
+parameters is as in [[lem:iii-d-5-1]]. ∎
+
+The constraint damping thus helps at the horizon as it does at infinity ([[eq:iii-f-3-1]]): its five eigenvalues are
+the background's 2, 1, 1, 1, 0 lowered by x · (2, 1, 1, 1, 1 − e_C), and the gauge modification's five are the
+background's −2, −1, −1, −1, 0 raised by y · (2, 1, 1, 1, 1); the other five are 0. The value of x is fixed with c_C in
+[[sec:iv4-0]]; the regularity s is chosen accordingly, once.
+
+**Corollary {#cor:iii-f2-1-2}** (The hypotheses of the spectral theory.) For b near b_0 and the parameters of
+[[sec:iii-f1-1]], L_b^(·) satisfies, with (Dyn), the hypotheses (H1)–(H5) of [[sec:i-a-1]], with ϑ_ℋ < ϑ_L + δ, and
+(H6)–(H7) of [[ch:s02]]: (H1), (H2) and the operator part of (H6) by [[lem:iii-f-2-1]], the threshold at infinity by
+[[eq:iii-f-3-1]] (min spec S̄ = 0), (H7) by [[prop:iii-f-4-1]], and the horizon by [[lem:iii-f2-1-1]], the remaining
+items concerning the metric alone and holding as for □^Υ_b ([[sec:iii-d-2]]–[[sec:iii-d-5]]). Hence, for
+s > ½ + ϑ_L and admissible orders: L_b^(σ) : 𝒳_σ → 𝒴_σ is Fredholm of index 0 for σ ≠ 0, Im σ ≥ 0 ([[thm:i-a-7-2]] (3),
+[[thm:i-b-1-3]] (3)); there is C_hf with L_b^(σ) invertible for |σ| ≥ C_hf, Im σ ≥ 0 ([[thm:i-b-1-3]], as
+[[prop:iii-d-6-1]] for □^Υ_b); and the constants and the openness of invertibility are uniform in b ([[thm:i-a-8-1]]).
+The same holds for P′, whose horizon matrix is [[eq:iii-f2-1-1]] at x = 0.
+
+**Lemma {#lem:iii-f2-1-3}** (Conormal states.) Let P̂ satisfy (H1)–(H4), σ ≠ 0 with Im σ ≥ 0, and u ∈ 𝒜^a(X̄; E) for some
+a ∈ ℝ (smooth up to ∂_♯X, conormal at ∂X) with P̂(σ)u = 0. Then u ∈ 𝒳_σ for admissible orders, so
+u ∈ 𝒜^(3/2+S̄−ϵ) for every ϵ > 0 ([[thm:i-a-7-2]] (5)), and u = 0 if P̂(σ) is invertible.
+
+*Proof.* Admissibility ((O1)–(O3) of [[sec:i-a-1]]) bounds 𝗋 + α_+ at R_out, the zero section of the boundary face,
+only from above; so [[lem:i-a-7-1]] gives admissible orders with 𝗋_out + α_+ < min(a − 2, −½ + S̄) when Re σ ≠ 0, and
+the constant order 𝗋_out is allowed when Re σ = 0 ([[thm:i-a-7-2]] (2)). By [[lem:i-a-7-4]] (a),
+u ∈ H̄^(s,𝗋+α_+) for every s (the order exceeds a − 2 only away from the zero section, where it is unrestricted), and
+P̂(σ)u = 0 ∈ 𝒴_σ. The kernel does not depend on the admissible orders ([[thm:i-a-7-2]] (3)). ∎
+
+### The linearised Einstein equation on Tangherlini {#sec:iii-f2-2}
+
+On {r > r_h} use the static chart (t, r, z), g_(b_0) = −f dt² + f⁻¹dr² + r²γ, r_* := r + (r_h/2) log((r − r_h)/(r +
+r_h)), and the time t_* of [[eq:iii-b-3-6]], which is v + F_H(r) near r_h (v = t + r_*, F_H smooth in the ingoing chart)
+and t − r_* + c_0 + O(r⁻¹), with all derivatives, at infinity (proof of [[prop:iii-d-6-2]], *The class*). A *mode* is
+h = e^(−iσt_*)u with u smooth on {r > r_0} (in the ingoing chart near r_h) and conormal at infinity, u ∈ 𝒜^a for some
+a; equivalently, on {r > r_h}, h = e^(−iσt)e^(−iσr_*) × (smooth across r_h) near r_h and
+e^(−iσt)e^(iσr_*) × (conormal) near infinity. The operators D Ric, δ*, □^Υ_(b_0) and P′ at b_0 commute with the
+rotations (E^Υ at b_0 is built from dt̄, dr ([[eq:iii-b-6-5]]) and c_(Υ,H) = −½χ dr), and the projections onto a type
+and degree ([[lem:iii-a1-1-6]]) preserve modes. We use the radial uniqueness stated in the proof of
+[[prop:iii-d-6-2]]: a solution of −Φ_** + VΦ = σ²Φ on (r_h, ∞), ∂_* := f∂_r, V real, positive, O(r⁻²) with all
+derivatives at infinity and O(f) at r_h, of the form e^(−iσr_*) × (smooth at r_h) and e^(iσr_*) × (conormal,
+polynomially bounded) at infinity, vanishes.
+
+*The Kodama–Ishibashi reduction.* Write g_(b_0) = g_ab dy^a dy^b + r²γ with the orbit metric
+g_ab dy^a dy^b = −f dt² + f⁻¹dr², D_a its covariant derivative, □_2 := D^aD_a its wave operator and ε_ab its volume
+form. The vacuum equation D Ric(h) = 0 is equivalent to the vanishing of the linearised Einstein tensor, as
+δG = G_(g_(b_0)) ∘ D Ric at the Ricci-flat g_(b_0) and G_(g_(b_0)) is invertible ([[lem:iii-b-6-2]]). We use the
+following results of [KI03], which hold in every dimension n + 2; we state them at n = 3, K = 1, Λ = 0 and 2M = m_0,
+where the metric function of [KI03, (2.15)] is f. Page numbers refer to the arXiv version of [KI03].
+
+**Theorem {#thm:s15-ki}** ([KI03, Sections 2–5].) Let h be a symmetric 2-tensor on {r > r_h} of one type and degree l,
+decomposed by [KI03, (2.4), p. 4, (5.1), p. 13, (5.7)–(5.9), p. 14], with D Ric(h) = 0.
+
+(T) ([KI03, (5.3)–(5.6), p. 13].) Tensor type, l ≥ 2: h = 2r²H_T T_ij dz^i dz^j with T trace-free, divergence-free and
+(Δ̂ + k_T²)T = 0, k_T² = κ − 2. H_T is gauge invariant, it satisfies □_2H_T + (3/r)Dr · DH_T − ((k_T² + 2)/r²)H_T = 0,
+and Φ := r^(3/2)H_T satisfies □_2Φ − (V_T/f)Φ = 0 with V_T = (f/r²)(k_T² + 2 + 3/4 + 9m_0/(4r²)).
+
+(V) ([KI03, (5.10)–(5.15), p. 14].) Vector type, l ≥ 2: h = 2rf_a V_i dy^a dz^i + 2r²H_T V_ij dz^i dz^j with V co-closed,
+(Δ̂ + k_V²)V = 0, k_V² = κ − 1 and V_ij = −(D̂_iV_j + D̂_jV_i)/(2k_V). F_a := f_a + (r/k_V)D_aH_T is gauge invariant, and
+r²F^a = ε^(ab)D_bΩ for a function Ω on the orbit space satisfying □_2Ω − (3/r)Dr · DΩ − ((k_V² − 2)/r²)Ω = 0; and
+Φ := r^(−3/2)Ω satisfies □_2Φ − (V_V/f)Φ = 0 with V_V = (f/r²)(k_V² + 1 + 3/4 − 27m_0/(4r²)).
+
+(V1) ([KI03, (5.16)–(5.17), p. 15].) Vector type, l = 1 (V a Killing 1-form of 𝕊³, V_ij = 0, h = 2rf_a V_i dy^a dz^i):
+F^(1)_ab := rD_a(f_b/r) − rD_b(f_a/r) is gauge invariant and equals Lε_ab/r⁴ with L a constant.
+
+(S) ([KI03, (2.7)–(2.8), p. 5, (2.11), p. 5, (2.20)–(2.24), p. 7, (3.1)–(3.10), pp. 8–9].) Scalar type, l ≥ 2:
+h = f_ab S dy^a dy^b + 2rf_a S_i dy^a dz^i + 2r²(H_L γ_ij S + H_T S_ij)dz^i dz^j with (Δ̂ + k²)S = 0, k² = κ,
+S_i = −D̂_iS/k and S_ij = D̂_iD̂_jS/k² + γ_ij S/3. The quantities F := H_L + H_T/3 + r⁻¹(D^a r)X_a and
+F_ab := f_ab + D_aX_b + D_bX_a, X_a := (r/k)(f_a + (r/k)D_aH_T), are gauge invariant. With X := r(F^t_t − 2F),
+Y := r(F^r_r − 2F) and Z := rF^r_t, one has F^a_a = −2F, and F^t_t = (2X − Y)/(3r), F^r_r = (2Y − X)/(3r),
+F^r_t = Z/r, F = −(X + Y)/(6r). If h = e^(−iσt)k with σ ≠ 0, then with Z̃ defined from Z by [KI03, (2.23)] and
+ς := m_0/r², p := κ − 3, H := p + 6ς, the function Φ := (3Z̃ − r(X + Y))/(r^(1/2)H) satisfies
+−f(fΦ′)′ + V_SΦ = σ²Φ with V_S = fQ/(16r²H²) and
+
+    Q = 1296ς³ + (624p − 144)ς² + 36p(p − 12)ς + 16p³ + 60p²,                                           {#eq:s15-ki-q}
+
+and X, Y and Z are linear combinations of Φ and Φ′ with coefficients depending on r and σ ([KI03, (3.9)]).
+
+(S0) ([KI03, (4.1)–(4.3), pp. 10–11, (3.12), p. 9].) Scalar type, l ≥ 2, h independent of t: then Z = 0, X and Y satisfy
+the first-order system [KI03, (4.2)], the function Φ := (Q_Y X − Q_X Y)/(2k²r^(1/2)f′H) with
+Q_X := 48ς² + (16p − 24)ς − 12p and Q_Y := 24ς² − 4(p + 12)ς satisfies f(fΦ′)′ = V_SΦ, and X and Y are linear
+combinations of Φ and Φ′ ([KI03, (3.12a)–(3.12b)] with ∂_tΦ = 0).
+
+In (T), (V), (S) a function Φ = e^(−iσt)Φ_0(r) satisfies □_2Φ − (V/f)Φ = 0 exactly when −Φ_0,** + VΦ_0 = σ²Φ_0, as
+□_2 = −f⁻¹∂_t² + ∂_r f ∂_r.
+
+*Positivity of the potentials.* For l ≥ 2 and r > r_h (so 0 < ς < 1 and f > 0): V_T > 0; V_V ≥ (f/r²)(k_V² − 5)
+= (f/r²)(κ − 6) > 0, as κ ≥ 8; and Q > 0, so V_S > 0. Indeed p = κ − 3 ≥ 5, and with a := 624p − 144 > 0,
+b := 36p(p − 12) and c := 16p³ + 60p² > 0,
+
+    4ac − b² = 16p²((624p − 144)(4p + 15) − 81(p − 12)²) = 48p²(23p − 24)(35p + 192) > 0,
+
+so aς² + bς + c > 0 for all real ς, and Q ≥ aς² + bς + c > 0 for ς ≥ 0. Each potential is O(r⁻²) with all derivatives
+at infinity (a function of ς times f/r²) and O(f) at r_h (H ≥ p > 0).
+
+*The low sectors.* For the types l ≤ 1 not covered by [KI03]'s master equations we use the linearised Ricci tensor
+directly. The Christoffel symbols of g_(b_0) in the static chart are Γ^t_tr = f′/(2f), Γ^r_tt = ff′/2,
+Γ^r_rr = −f′/(2f), Γ^r_ij = −rfγ_ij, Γ^i_rj = δ^i_j/r and those of γ; with them,
+D Ric(h)_μν = ½(∇^λ∇_μ h_νλ + ∇^λ∇_ν h_μλ − ∇^λ∇_λ h_μν − ∇_μ∇_ν tr h) is written out on each type.
+
+**Lemma {#lem:s15-low}** (The low sectors.) Let σ ∈ ℂ, and let a, b, c be functions of r on an interval in (r_h, ∞).
+
+(a) For h = e^(−iσt)(2a dt dr + b dr²) (scalar type 0 with f_tt = H_L = 0),
+
+    D Ric(h)_tr = −(3iσf/(2r)) b e^(−iσt),
+    D Ric(h)_ij = (iσra + (f/(2r²))(2(m_0 + 2r²)b + r³fb′)) e^(−iσt) γ_ij.
+
+(b) For h = e^(−iσt)((2a dt dr + b dr²)S + 2rcS_i dr dz^i), S ∈ 𝒮_1 (scalar type 1 with f_tt = f_t = H_L = 0; here
+D̂_iD̂_jS = −γ_ij S, k = 3^(1/2) and S_ij = 0), all components multiplied by e^(−iσt),
+
+    D Ric(h)_tr = (S/(2r³))(3ra − iσ(3r²b + 3^(1/2)r²c − 3m_0b)),
+    D Ric(h)_ri = −(S_i/(2·3^(1/2) r³(r² − m_0)))(3iσr⁵a + 3(r² − m_0)(2r² − m_0)b + 3^(1/2)r²(4(r² − m_0) + σ²r⁴)c),
+    D Ric(h)_ti = −(S_i/(2·3^(1/2) r³))(3(m_0 + r²)a + r(r² − m_0)(3a′ + iσ(3b + 3^(1/2)(4c + rc′)))),
+    D Ric(h)_rr = (S/(2r⁴(r² − m_0)))(2iσm_0r⁵a/(r² − m_0) + 2iσr⁶a′ + (3r⁴ + 3m_0r² − 4m_0² − σ²r⁶)b
+                  + r(3r² − 2m_0)(r² − m_0)b′ + 2·3^(1/2)r⁴c + 2·3^(1/2)r³(r² − m_0)c′),
+    D Ric(h)_ij = (Sγ_ij/(6r⁴))(6iσr⁵a + 3(r² − m_0)(2m_0 + 5r²)b + 2·3^(1/2)r²(5r² − 3m_0)c
+                  + 3r(r² − m_0)²b′ + 2·3^(1/2)r³(r² − m_0)c′).
+
+(c) For a static metric −A dt² + B dr² + r²γ the Einstein tensor has G^t_t = −(3/(2r³))(r²(1 − B⁻¹))′ and
+G^r_r − G^t_t = (3/(2rB))(log AB)′. Hence for h = a dt² + b dr² (scalar type 0, static, with H_L = f_tr = 0), the
+linearised Einstein tensor at g_(b_0) has δG^t_t = −(3/(2r³))(r²f²b)′ and δG^r_r − δG^t_t = (3f/(2r))(fb − a/f)′.
+
+*Proof.* (a) and (b) are D Ric written out with the Christoffel symbols above, ∂_t acting as −iσ, and, in (b), the
+identities D̂^iS_i = kS (from S_i = −D̂_iS/k and D̂^iD̂_iS = −k²S) and D̂_iS_j = (k/3)γ_ij S (from
+D̂_iD̂_jS = −γ_ijS and k² = 3). (c) The two formulas are the tt-component and the difference of the rr- and
+tt-components of the Einstein tensor of a warped product with fibre 𝕊³ of radius r; at A = f, B = f⁻¹ one has
+r²(1 − B⁻¹) = m_0 and AB = 1, and the variations of A and B are −a and b, which gives δ(r²(1 − B⁻¹)) = r²f²b and
+δ log AB = −a/f + fb. ∎
+
+**Corollary {#cor:s15-low}** (Vanishing in the low sectors.) (a) In [[lem:s15-low]] (a), if σ ≠ 0 and
+D Ric(h) = 0, then a = b = 0. (b) In [[lem:s15-low]] (b), if D Ric(h) = 0 on an interval on which
+σ²r⁴ ≠ m_0, then a = b = c = 0. (c) In [[lem:s15-low]] (c), if D Ric(h) = 0, then (a, b) = c_1(f, 0) +
+ṁ(r⁻², r⁻²f⁻²) for constants c_1, ṁ.
+
+*Proof.* (a) The tr-component gives b = 0 (f > 0), and then the angular one gives σra = 0. (b) The tr- and
+ri-components are two linear equations for (a, c) given b, with determinant 3r · 3^(1/2)r²(4(r² − m_0) + σ²r⁴)
+− (−3^(1/2)iσr²)(3iσr⁵) = 12 · 3^(1/2) r³(r² − m_0) ≠ 0; they give
+
+    a = (iσ/(4r))(2r² − 3m_0 + σ²r⁴)b,     c = (3^(1/2)/(4r²))(m_0 − 2r² + σ²r⁴)b.
+
+Substituting, the angular component becomes −(Sγ_ij/(4r⁴))(Q_1b − Pb′) and the ti-component
+−(3^(1/2)iσS_i/(4r⁴))(Q_2b + Pb′), with P := r(r² − m_0)(σ²r⁴ − m_0),
+Q_1 := 5m_0² − 3m_0r² + 2m_0σ²r⁴ − 5σ²r⁶ + σ⁴r⁸ and Q_2 := −4m_0² + 3m_0r² − 4m_0σ²r⁴ + 5σ²r⁶. If σ ≠ 0 the two
+equations give (Q_1 + Q_2)b = (σ²r⁴ − m_0)²b = 0, so b = 0. If σ = 0 the ti-component vanishes identically, and the
+rr-component becomes (m_0 S/(4r⁴(r² − m_0)))((3r² − 2m_0)b − r(r² − m_0)b′), while the angular one is
+(m_0 Sγ_ij/(4r⁴))((3r² − 5m_0)b − r(r² − m_0)b′); their difference gives 3m_0 b = 0. In both cases b = 0, and then
+a = c = 0. (c) δG = 0 gives r²f²b = ṁ and fb − a/f = −c_1 with constants ṁ, c_1, that is b = ṁ/(r²f²) and
+a = f(fb + c_1) = ṁ/r² + c_1 f. ∎
+
+**Lemma {#lem:iii-f2-2-1}** (The radial equations.) Fix a type and degree, σ ∈ ℂ, and a chart (τ, r, z) in which τ is a
+time function with ∂_τ the Killing field (τ = t on {r > r_h}, or τ = t_* on {r > r_0}). For a symmetric 2-tensor
+h = e^(−iστ)k of that type and degree, the r-row of δ*ω = h, (δ*ω)_rμ = h_rμ for ω = e^(−iστ)w of the same type and
+degree, is a linear system ∂_rW = A(r)W + H(r) for the coefficients W of w, with A smooth where the chart is:
+∂_r w_r = h_rr + Γ^λ_rr w_λ, ∂_r w_τ = 2h_rτ + iσw_r + 2Γ^λ_rτ w_λ, ∂_r w_A = 2h_rA − ∂_A w_r + 2Γ^λ_rA w_λ, the angular
+derivative acting on the harmonic algebraically. Hence: (a) every 1-form of that type with δ*ω = h on an interval is
+the solution of the system determined by its value at one point; (b) in the chart (t_*, r, z) on {r > r_0}, if h is a
+mode, so are the solutions; (c) in the static chart the coefficients are real-analytic in r on (r_h, ∞).
+
+*Proof.* The formulas are the definition of δ* with ∂_τ ↦ −iσ. (a) is uniqueness for the system. (b) A is smooth on
+(r_0, ∞), as the chart is. Near infinity, in the time t_* (t − r_* + c_0 + O(r⁻¹) there), g_(t_*t_*) + 1, g_(t_*r) + 1
+and g_rr are O(r⁻²) with b-derivatives, and g is t_*-independent and block-diagonal against the sphere. So
+Γ^λ_rr and Γ^λ_(rt_*) (λ ∈ {t_*, r}) are O(r⁻³), Γ^(t_*)_rA = Γ^r_rA = Γ^A_rr = Γ^A_(rt_*) = 0 and
+Γ^B_rA = r⁻¹δ^B_A: the one entry of A that does not decay is iσ, coupling w_r into the w_(t_*) row. In
+W̃ := (w_r, r⁻¹w_(t_*), r⁻¹w_A) the system is r∂_rW̃ = ÃW̃ + H̃ with Ã bounded with all b-derivatives (the entry iσ in
+the second row; in the angular row r∂_rW̃_A = W̃_A − ∂_AW̃_r + 2h_rA, from Γ^B_rA = r⁻¹δ^B_A and the scaling, a diagonal
++1 and an O(1) coupling −∂_A to W̃_r, bounded on each type and degree; O(r⁻¹) and O(r⁻²) entries elsewhere) and H̃
+conormal with a polynomial bound; for this b-system variation of constants gives polynomial bounds and propagates
+b-regularity. (c) The static Tangherlini metric is analytic in r > r_h. ∎
+
+**Theorem {#thm:iii-f2-2-2}** (Mode stability of the linearised Einstein operator on Tangherlini; [AHW24, Theorem 6.1
+(1)] in dimension 4 + 1.) Let σ ≠ 0, Im σ ≥ 0, and let h be a mode of one type and degree with D_(g_(b_0))Ric(h) = 0
+on {r > r_h}. Then there is a mode 1-form ω on {r > r_0}, of the same type and degree, with h = δ*ω on {r > r_h}.
+
+*Proof.* We work on {r > r_h} in the static chart, with the splitting into (t, r)- and 𝕊³-parts of
+[[thm:s15-ki]]. In each sector we find a 1-form ζ, smooth on {r > r_h} off at most one radius, with h = δ*ζ there;
+Step 5 removes the exceptional radius, and Step 6 makes ζ a mode on {r > r_0}. Each master field below is a function
+of the components of h, and of finitely many of their r-derivatives, which in the ingoing chart (v, r, z) has no factor
+1/f; so it is e^(−iσt)e^(−iσr_*) × (smooth at r_h). At infinity the static components are combinations of those in
+(t_*, r, z) with bounded conormal coefficients, so it is e^(−iσt)e^(iσr_*) × (conormal, polynomially bounded).
+
+*The gauge shifts.* For ζ = e^(−iσt)(A_a S dy^a + r²BS_i dz^i) (scalar type) the definition of δ* with
+Γ^j_ai = (∂_a r/r)δ^j_i and Γ^a_ij = −r(D^a r)γ_ij gives that δ*ζ shifts f_ab by ½(D_aA_b + D_bA_a), f_a by
+(r²D_aB − kA_a)/(2r), H_L by kB/6 + (D^a r)A_a/(2r) and H_T by −kB/2 (using D̂_iS_j = −kS_ij + (k/3)γ_ij S); for
+ζ = e^(−iσt)r²BV_i dz^i (vector type) it shifts f_a by (r/2)D_aB and H_T by −k_V B/2 (using D̂_(iV_j) = −k_V V_ij).
+
+*Step 1: tensor type, l ≥ 2.* h = 2r²H T_ij dz^i dz^j. By [[thm:s15-ki]] (T), Φ := r^(3/2)H solves
+−Φ_** + V_TΦ = σ²Φ, V_T > 0. H is an angular component, the same in both charts; the radial uniqueness gives Φ = 0,
+so h = 0 = δ*0.
+
+*Step 2: vector type, l ≥ 2.* h = 2rf_a V_i dy^a dz^i + 2r²H_T V_ij dz^i dz^j. With ζ_0 := r²BV_i dz^i,
+B := 2H_T/k_V, h′ := h + δ*ζ_0 has H_T = 0 and f_a = F_a := f_a + (r/k_V)D_aH_T, the gauge invariant of
+[[thm:s15-ki]] (V) [[pending:issue-1]]. D Ric(h′) = D Ric(h) = 0, so r²F^a = ε^(ab)D_bΩ with Ω as in (V). The
+r-component, r²F^r = ε^(rt)∂_tΩ, determines Ω = e^(−iσt)Ω_0(r) up to a function of r alone, which (V)'s equation for Ω
+and the t-component force to vanish, as k_V² − 2 > 0; so Ω = ±r²F^r/(iσ), the sign that of ε^(rt). In the ingoing
+chart F_a dy^a = F_v dv + F′_r dr, so F^r = fF_r = fF′_r + F_v has no factor 1/f. Φ := r^(−3/2)Ω solves the master
+equation with V_V > 0, so Φ = 0; then F = 0, h′ = 0 and h = δ*(−ζ_0).
+
+*Step 3: scalar type, l ≥ 2.* h = f_ab S dy^a dy^b + 2rf_a S_i dy^a dz^i + 2r²(H_L γ_ij S + H_T S_ij)dz^i dz^j. With
+ζ_1 := 2X_a S dy^a + (2r²/k)H_T S_i dz^i, X_a as in [[thm:s15-ki]] (S) [[pending:issue-1]], the gauge shifts give
+H_T + (−k/2)(2H_T/k) = 0 and f_a + (r/k)D_aH_T − (k/r)X_a = 0, so h′ := h + δ*ζ_1 has f_a = H_T = 0, and its remaining
+components are the invariants F_ab and F (X_a vanishes for h′). D Ric(h′) = 0, so by [[thm:s15-ki]] (S) the function
+Φ solves −Φ_** + V_SΦ = σ²Φ, V_S > 0. In the ingoing chart, with F_ab dy^a dy^b = F_vv dv² + 2F_vr dv dr + F′_rr dr²,
+one has F^t_t = −F_vv/f, F^r_r = F_vv/f + 2F_vr + fF′_rr and F^r_t = F_vv + fF_vr, so X + Y = r(2F_vr + fF′_rr − 4F)
+and Z = r(F_vv + fF_vr) have no factor 1/f, and neither has Φ (H ≥ p > 0). The radial uniqueness gives Φ = 0, so
+X = Y = Z = 0 ([KI03, (3.9)]), F_ab = F = 0 by the relations of (S), h′ = 0 and h = δ*(−ζ_1).
+
+*Step 4: the exceptional sectors.* *Scalar type 0* (S = 1). δ*(e^(−iσt)(A_t dt + A_r dr)) shifts f_tt by
+−iσA_t − (ff′/2)A_r and H_L by fA_r/(2r), so f_tt = H_L = 0 is reached with A_r = −2rH_L/f and then A_t,
+algebraically on {r > r_h}; the result h′ has the form of [[lem:s15-low]] (a) and solves D Ric(h′) = 0, so
+f_tr = f_rr = 0 by [[cor:s15-low]] (a). So h is pure gauge; there is no change of mass, σ being nonzero. *Vector type 1*
+(V a Killing field of 𝕊³, V_ij = 0). By [[thm:s15-ki]] (V1), F^(1)_tr = Lε_tr/r⁴ with L constant; as h is
+proportional to e^(−iσt) with σ ≠ 0, L = 0, so r∂_t(f_r/r) = r∂_r(f_t/r). With B := 2if_t/(σr), (r/2)∂_tB = f_t and
+(r/2)∂_rB = (ir/σ)∂_r(f_t/r) = f_r, so h = δ*(r²BV_i dz^i) by the vector gauge shift. *Scalar type 1*
+(D̂_iD̂_jS = −γ_ij S, S_ij = 0, k = 3^(1/2)). The shifts of f_tt, f_t and H_L under
+δ*(e^(−iσt)(A_aS dy^a + r²BS_i dz^i)) are −iσA_t − (ff′/2)A_r, −(kA_t + iσr²B)/(2r) and kB/6 + fA_r/(2r), free of
+derivatives, with determinant (rows f_tt, f_t, H_L; columns A_t, A_r, B)
+
+    det ⎛ −iσ         −ff′/2     0        ⎞ = σ²f/4 − ff′k²/(24r) = (r² − m_0)(σ²r⁴ − m_0)/(4r⁶).
+        ⎜ −k/(2r)     0          −iσr/2   ⎟
+        ⎝ 0           f/(2r)     k/6      ⎠
+
+So off the radius r_σ with σ²r_σ⁴ = m_0 (which lies in (r_h, ∞) only for real σ with σ² < 1/m_0) the gauge reaching
+f_tt = f_t = H_L = 0 is algebraic; the result has the form of [[lem:s15-low]] (b), and [[cor:s15-low]] (b) gives
+f_tr = f_rr = f_r = 0: h = δ*ζ_± on the intervals (r_h, r_σ) and (r_σ, ∞).
+
+*Step 5: the radius r_σ.* Let ω be the solution, on (r_h, ∞), of the static radial system of [[lem:iii-f2-2-1]] equal
+to ζ_− at a point of (r_h, r_σ). By [[lem:iii-f2-2-1]] (a), ω = ζ_− on (r_h, r_σ), so κ_h := h − δ*ω, smooth on
+(r_h, ∞), vanishes there. On (r_σ, ∞), ζ_+ − ω solves the homogeneous radial system, so it is Z(r)c for a fundamental
+matrix Z, analytic on (r_h, ∞) ([[lem:iii-f2-2-1]] (c)), and κ_h = δ*(Zc) there. δ*(Zc) is analytic on (r_h, ∞), and
+at r_σ all its derivatives from the right are those of the smooth κ_h, which vanish (from the left); so
+δ*(Zc) ≡ 0 and κ_h = 0 on (r_σ, ∞) too: h = δ*ω on (r_h, ∞).
+
+*Step 6: the mode.* In each sector h = δ*ζ on (r_h, ∞) with ζ smooth there. Let ω be the solution on (r_0, ∞) of the
+radial system in the chart (t_*, r, z) equal to ζ at a point r_1 > r_h; by [[lem:iii-f2-2-1]] (a) in that chart, ω = ζ
+on (r_h, ∞), so h = δ*ω there, and by [[lem:iii-f2-2-1]] (b) ω is a mode. ∎
+
+The sectors exhaust the types and degrees of [[lem:iii-a1-1-6]] for symmetric 2-tensors on 𝕊³: tensor l ≥ 2, vector
+l ≥ 1, scalar l ≥ 0.
+
+**Lemma {#lem:iii-f2-2-3}** (Continuing a solution inside the horizon.) Let Q be a stationary operator on
+{r > r_0 − δ_0} whose principal part is a positive multiple of □_(g_(b_0)), commuting with the rotations, σ ∈ ℂ with
+Im σ ≥ 0, and w of one type and degree, smooth on {r ≥ r_h} (up to the horizon), with Q^(σ)w = 0 on {r > r_h}. Then
+there is w̃ of that type and degree, smooth on {r > r_0 − δ_0} (so up to {r = r_0}), with Q^(σ)w̃ = 0 on
+{r > r_0 − δ_0} and w̃ = w on {r ≥ r_h}.
+
+*Proof.* As in part (d) of the proof of [[prop:iii-d-6-2]], in the ingoing chart the equation on the coefficients U(r) of
+the type and degree is −fU″ + AU′ + BU = 0 with A, B smooth on (r_0 − δ_0, ∞), and with Y := (U, (r − r_h)U′) it is
+(r − r_h)Y′ = MY, M smooth. Y is smooth on [r_h, ∞) and solves the equation on (r_h, ∞), so its Taylor series at r_h
+solves it formally. Let Y_B be smooth on (r_h − ϵ, r_h] with that Taylor series (Borel), so R := (r − r_h)Y_B′ − MY_B
+vanishes to infinite order at r_h. Let Ψ be a fundamental matrix of (r − r_h)Ψ′ = MΨ on (r_h − ϵ, r_h); Gronwall gives
+|Ψ(r)| + |Ψ(r)⁻¹| ≤ C|r − r_h|^(−m_1), m_1 := max ‖M‖. Then Z(r) := −Ψ(r)∫_(r_h)^r Ψ(s)⁻¹R(s)(s − r_h)⁻¹ ds converges,
+vanishes to infinite order at r_h (the integrand does, and the equation Z′ = (MZ − R)/(r − r_h) carries this to every
+derivative), and solves (r − r_h)Z′ = MZ − R. So Y_B + Z solves the equation on (r_h − ϵ, r_h) with the Taylor series of
+Y at r_h; glued to Y it is smooth on (r_h − ϵ, ∞), and on (r_0 − δ_0, r_h − ϵ], where f < 0, the equation is a regular
+second-order system and the solution continues. Its first entry, times the harmonic and e^(−iσt_*), is w̃ (the first
+row of M being (0, 1), the second entry stays (r − r_h)U′). ∎
+
+### Mode stability at the Tangherlini parameter {#sec:iii-f2-3}
+
+**Proposition {#prop:iii-f2-3-1}** (Mode stability at b_0; [Hin26, Proposition 8.8] at b_0 in dimension 4 + 1.) Let the
+modification parameters be those of [[prop:iii-d1-4-1]] and [[sec:iii-f1-1]], and s > ½ + ϑ_L. For every σ ≠ 0 with
+Im σ ≥ 0, L_(b_0)^(σ) : 𝒳_σ → 𝒴_σ is invertible, and L_(b_0)^(σ) has trivial kernel on 𝒜^α(X̄; S²T*X) for every
+α ∈ ℝ.
+
+*Proof.* By [[cor:iii-f2-1-2]] the operator is Fredholm of index 0, so injectivity suffices; and by [[lem:iii-f2-1-3]] a
+kernel element in 𝒜^α lies in 𝒳_σ. Let u ∈ 𝒳_σ, L_(b_0)^(σ)u = 0. By [[thm:i-a-7-2]] (5), u ∈ 𝒜^(3/2−ϵ), smooth up to
+{r = r_0}, conormal at infinity. Let h := e^(−iσt_*)u, a mode, with L_(b_0)h = 0.
+
+*The gauge 1-form.* η := (δ_(E_Υ))^(σ)Gu is conormal and smooth up to {r = r_0}, and the linearised second Bianchi
+identity δG D Ric = 0 gives δG(2L_(b_0)) = □^C δ_(E_Υ)G, so (□^C_(b_0))^(σ)η = 0. By [[lem:iii-f2-1-3]] for □^C_(b_0),
+which satisfies (H1)–(H4) ([[thm:iii-e-1-1]] (2)), and [[thm:iii-e-1-1]] (1), η = 0. So D Ric(h) = 0 and
+δ_(E_Υ)Gh = 0 on {r > r_0}, and P′h = 0 there.
+
+*The exterior.* Let h_π be the component of h of one type and degree, again a mode with both equations. By
+[[thm:iii-f2-2-2]] there is a mode 1-form ω_π = e^(−iσt_*)w_π with h_π = δ*ω_π on {r > r_h}; then
+□^Υω_π = 2δ_(E_Υ)Gδ*ω_π = 2δ_(E_Υ)Gh_π = 0 there. [[lem:iii-f2-2-3]], with Q = □^Υ_(b_0), gives w̃_π, smooth on X̄
+(that is, up to {r = r_0}), conormal at infinity (it is w_π on {r ≥ r_h}), with (□^Υ_(b_0))^(σ)w̃_π = 0 on all of X̄.
+By [[lem:iii-f2-1-3]] and [[prop:iii-d1-4-1]] (invertibility for every σ of the closed upper half plane), w̃_π = 0; so
+h_π = 0 on {r > r_h}.
+
+*The interior.* h_π vanishes on {r > r_h} and solves P′h_π = 0 on {r > r_0}, 2P′ = □ + 2δ*E^ΥG having the principal
+part of □; part (d) of the proof of [[prop:iii-d-6-2]] (the system (r − r_h)Y′ = MY and Gronwall) gives h_π = 0 on
+{r > r_0}. As this holds for every type and degree, u = 0. ∎
+
+### Near the Tangherlini parameter {#sec:iii-f2-4}
+
+**Proposition {#prop:iii-f2-4-1}** ([Hin26, Proposition 8.8] for |σ| ≥ c_0, in dimension 4 + 1.) Fix the modification
+parameters as in [[prop:iii-f2-3-1]]. For every c_0 > 0 there is a neighbourhood ℬ(c_0) of b_0 such that for
+b ∈ ℬ(c_0) and every σ with Im σ ≥ 0, |σ| ≥ c_0, L_b^(σ) : 𝒳_σ → 𝒴_σ is invertible and has trivial kernel on every
+𝒜^α.
+
+*Proof.* As [[prop:iii-d-6-3]]. For |σ| ≥ C_hf, [[cor:iii-f2-1-2]]. On the compact set
+K := {c_0 ≤ |σ| ≤ C_hf, Im σ ≥ 0}, L_(b_0)^(σ) is invertible ([[prop:iii-f2-3-1]]); by [[thm:i-a-8-1]] every σ ∈ K
+has a neighbourhood U_σ and a neighbourhood of b_0 on which invertibility holds; finitely many U_σ cover K. The kernel
+on 𝒜^α by [[lem:iii-f2-1-3]]. ∎
+
+### Small frequencies near the Tangherlini parameter {#sec:iii-f2-5}
+
+For b ≠ b_0 and 0 < |σ| < c_0 the perturbation argument of [[prop:iii-f2-4-1]] degenerates, the neighbourhood ℬ(c_0)
+shrinking as c_0 → 0. [Hin26] covers this range by [AHW24, Theorem 6.1 (1)], proved on Kerr from the Teukolsky
+equation, which has no counterpart for the five-dimensional Myers–Perry family; it is needed where [Hin26] uses
+Proposition 8.8 (the contour deformation before [Hin26, (10.3)], through [Hin26c, Theorem 9.5], p. 168). Here it is
+supplied by the low energy analysis of L_b^(σ) near the zero energy operator, whose kernel and cokernel are found in
+[[sec:iii-f3-4]]: mode stability for b near b_0 at small nonzero frequencies is [[cor:iii-h-4-3]] and
+[[cor:iii-h-4-4]].
