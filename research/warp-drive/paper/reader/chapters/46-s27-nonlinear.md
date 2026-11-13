@@ -295,12 +295,12 @@ The slab 𝒮 is bounded by {ρ′_I = c} ∪ Σ^fut_(r_1) to the past and by {t
 
 #### The local theory on compact sets {#sec:s27-local}
 
-On the compact pieces of 𝒟 (the set 𝒦, and the part of 𝒮 away from ℐ⁺ in the proof of [[thm:iv3-2-1]]) the equations
-are solved by the local theory of quasilinear wave equations. The equation [[eq:iii-k-1-2]] is, in the gauge's normal
-form, P^♮(g_0 + h, g_0) = −½□_(g_0+h)h plus a smooth function of (x, h, ∂h), with g_0 = φ_(S,S⁰)^*g_(b₀), principal
-part −½(g_0 + h)⁻¹(ζ, ζ) times the identity, and everything smooth in the parameters (S, S⁰); h = 0 solves it for every value of the
-parameters, as P^♮(g_0, g_0) = Ric(g_0) = 0. Its linearisations have the same principal part at h. Two statements are
-used, on a compact set 𝒦′ that is the domain of dependence, within 𝒟, of a spacelike past boundary carrying the data:
+On the compact pieces of 𝒟 (the set 𝒦, and the part of 𝒮 away from ℐ⁺ in the proof of [[thm:iv3-2-1]]) the equations are
+solved by the local theory of quasilinear wave equations. The equation [[eq:iii-k-1-2]] is, in the gauge's normal form,
+P^♮(g_0 + h, g_0) = −½□_(g_0+h)h plus a smooth function of (x, h, ∂h), with g_0 = φ_(S,S⁰)^*g_(b₀), principal part
+−½(g_0 + h)⁻¹(ζ, ζ) times the identity, and everything smooth in the parameters (S, S⁰); h = 0 solves it for every value
+of the parameters, as P^♮(g_0, g_0) = Ric(g_0) = 0. Its linearisations have the same principal part at h. Two statements
+are used, on a compact set 𝒦′ that is the domain of dependence, within 𝒟, of a spacelike past boundary carrying the data:
 
 (L) for a linear equation of this kind with smooth coefficients, and data in H^(k+1) × H^k and forcing in H^k, there
 is a unique solution on 𝒦′, bounded in H^k(𝒦′) by the data and the forcing;
@@ -466,7 +466,7 @@ compact part (whose data on Σ^fut_(r_1) ∩ {ρ′_I ≥ c} come from the exter
 
 **Corollary {#cor:iv3-2-3}** (The orders on the slab.) Under the hypotheses of [[thm:iii-c1-3-1]] on the data, the
 solution of [[thm:iv3-2-2]] lies in H^(∞,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b(Ω^♮), with the bound [[eq:iii-c1-3-2]]; in
-particular h_S has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ on 𝒮, as [[prop:iii-k-1-2]] (3) states.
+particular h_(S,S⁰) has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ on 𝒮, as [[prop:iii-k-1-2]] (3) states.
 
 *Proof.* The proof of [[thm:iii-c1-3-1]] on Ω^♮, with [[thm:iv3-2-1]] in place of the linear estimate
 [[eq:iii-c1-2-2]]. Its Step 1 works at I₀, which Ω^♮ meets only within Ω_(ext,r_1); its Step 2 integrates, slot by
@@ -591,20 +591,21 @@ and r(γ(s_0)) = R′_p. Hence log r(γ(s_1)) ≤ log R′_p + t^♭_*(γ(s_0)) 
 is r(γ(s_1)) ≤ R_p, against the assumption. So r ≤ R_p on γ.
 
 (c) For q ∈ J⁻_X(p) ∩ {t^♭_* ≥ c} let γ be a past directed causal curve in X from p to q. t^♭_* decreases along γ, so
-c ≤ t^♭_*(q) ≤ t^♭_* ≤ t^♭_*(p) on it; r ≥ min(r(p), r^♮) on it, dr being future timelike for g on
-Ω_(1/2) ∩ {r ≤ r^♮} ([[lem:s27-below]] (iv)), as in [[lem:ii-f-1-4]] (a); and r ≤ R_p by (b). So q ∈ L_p. L_p is closed, and on it
-t_* ∈ [c, t^♭_*(p)/C_♭] and min(r(p), r^♮) ≤ r ≤ R_p, where r(p) (p ∈ X) and r^♮ lie in the range of r on M°; so L_p
-is compact. ∎
+c ≤ t^♭_*(q) ≤ t^♭_* ≤ t^♭_*(p) on it; r ≥ min(r(p), r^♮) on it, dr being future timelike for g on Ω_(1/2) ∩ {r ≤ r^♮}
+([[lem:s27-below]] (iv)), as in [[lem:ii-f-1-4]] (a); and r ≤ R_p by (b). So q ∈ L_p. L_p is closed, and on it
+t_* ∈ [c, t^♭_*(p)/C_♭] and min(r(p), r^♮) ≤ r ≤ R_p, where r(p) (p ∈ X) and r^♮ lie in the range of r on M°; so L_p is
+compact. ∎
 
-**Lemma {#lem:iii-k-6-2}** (Uniqueness near spatial infinity for the initial family.) Let g_(S,S⁰) := φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰) on
-𝒟, where h_(S,S⁰) is given on 𝒟 ∩ Ω_(ext,r_1) by [[thm:iii-c2-3-1]] for φ_(S,S⁰) and on 𝒮 by
-[[thm:iv3-2-2]], and is small in C⁰ on 𝒦,
-with |S| + |S⁰| and the data small. There is R ≥ R_5 such that 𝒟 ∩ {r ≥ R} ⊂ Ω_(ext,r_1) ∪ 𝒮 and t_IVP = t − C″ there, and:
+**Lemma {#lem:iii-k-6-2}** (Uniqueness near spatial infinity for the initial family.) Let
+g_(S,S⁰) := φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰) on 𝒟, where h_(S,S⁰) is given on 𝒟 ∩ Ω_(ext,r_1) by [[thm:iii-c2-3-1]] for
+φ_(S,S⁰) and on 𝒮 by [[thm:iv3-2-2]], and is small in C⁰ on 𝒦, with |S| + |S⁰| and the data small. There is R ≥ R_5 such
+that 𝒟 ∩ {r ≥ R} ⊂ Ω_(ext,r_1) ∪ 𝒮 and t_IVP = t − C″ there, and:
 
 (a) on 𝒟 ∩ {r ≥ R}, every Cartesian component of g_(S,S⁰) − η is at most 1/20 in modulus, g_(S,S⁰)⁻¹(dt, dt) ≤ −½, and
-|V^x| ≤ 2|V^t| for every g_(S,S⁰)-causal vector V; dt lies in the component of the timelike covectors of g_(S,S⁰) that continues
-the past cone of η along η + s(g_(S,S⁰) − η), s ∈ [0, 1], and g_(S,S⁰) is time-oriented on 𝒟 as a small deformation of g_(b₀),
-for which dt_IVP is past timelike ([[lem:iii-b-3-7]] (b)); so dt_IVP is past timelike for g_(S,S⁰) on 𝒟;
+|V^x| ≤ 2|V^t| for every g_(S,S⁰)-causal vector V; dt lies in the component of the timelike covectors of g_(S,S⁰) that
+continues the past cone of η along η + s(g_(S,S⁰) − η), s ∈ [0, 1], and g_(S,S⁰) is time-oriented on 𝒟 as a small
+deformation of g_(b₀), for which dt_IVP is past timelike ([[lem:iii-b-3-7]] (b)); so dt_IVP is past timelike for g_(S,S⁰)
+on 𝒟;
 
 (b) along causal curves of g_(S,S⁰) in {r ≥ R}, r + 2t_IVP does not increase towards the past and r − 2t_IVP does not
 increase towards the future;
@@ -615,26 +616,26 @@ increase towards the future;
 
 *Proof.* 𝒦 is compact, so for R above its radius 𝒟 ∩ {r ≥ R} lies in Ω_(ext,r_1) ∪ 𝒮 ([[lem:s27-cover]]), and
 t_IVP = t − C″ for r ≥ R_5. There φ_(S,S⁰)^*g_(b₀) agrees with an element of the class 𝒢 of [[def:iii-c-3-4]], so
-φ_(S,S⁰)^*g_(b₀) − η ∈ ρ₀²ρ_I²C^∞: on Ω_(ext,r_1) by [[lem:iii-c2-1-1]] for φ_(S,S⁰) ([[lem:s27-translated-exterior]] (c)), and on 𝒮 by
-[[lem:iv3-0-1]]. And h_(S,S⁰) lies in the
-class H^(k,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b of [[def:iii-c-3-1]], k ≥ 5, with norm tending to 0 with ‖(γ̃, k̃)‖_(H^(d_0)): on Ω_(ext,r_1) by
-[[thm:iii-c2-3-1]] (2) with [[thm:iii-c1-3-1]], and on 𝒮 by [[cor:iv3-2-3]]. Its slot coordinates are bounded pointwise
-by that norm (Sobolev embedding on the unit cubes of a b-metric, as in the proof of [[lem:iii-c-2-1]]: k ≥ 5 > 5/2, and
-the weights ℓ_0 > 0, ℓ_I > 3/2 and the real parts of the index sets are positive), and they are bounded multiples of its
-Cartesian components ([[lem:iii-c-1-3]]: the frames are related by F_0(ω)(I + ρ²C^∞)). So for R large and the data and
-|S| + |S⁰| small, each Cartesian component of δ := g_(S,S⁰) − η is at most ε := 1/20 in modulus on 𝒟 ∩ {r ≥ R}.
+φ_(S,S⁰)^*g_(b₀) − η ∈ ρ₀²ρ_I²C^∞: on Ω_(ext,r_1) by [[lem:iii-c2-1-1]] for φ_(S,S⁰) ([[lem:s27-translated-exterior]]
+(c)), and on 𝒮 by [[lem:iv3-0-1]]. And h_(S,S⁰) lies in the class H^(k,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b of [[def:iii-c-3-1]],
+k ≥ 5, with norm tending to 0 with ‖(γ̃, k̃)‖_(H^(d_0)): on Ω_(ext,r_1) by [[thm:iii-c2-3-1]] (2) with
+[[thm:iii-c1-3-1]], and on 𝒮 by [[cor:iv3-2-3]]. Its slot coordinates are bounded pointwise by that norm (Sobolev
+embedding on the unit cubes of a b-metric, as in the proof of [[lem:iii-c-2-1]]: k ≥ 5 > 5/2, and the weights ℓ_0 > 0,
+ℓ_I > 3/2 and the real parts of the index sets are positive), and they are bounded multiples of its Cartesian components
+([[lem:iii-c-1-3]]: the frames are related by F_0(ω)(I + ρ²C^∞)). So for R large and the data and |S| + |S⁰| small, each
+Cartesian component of δ := g_(S,S⁰) − η is at most ε := 1/20 in modulus on 𝒟 ∩ {r ≥ R}.
 
-Then, in the coordinates (t, x), with η = diag(−1, 1, 1, 1, 1), the matrix η⁻¹δ has entries ±δ_ij, so its maximum
-row-sum norm is at most 5ε = ¼. The Neumann series g_(S,S⁰)⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives
-|(g_(S,S⁰)⁻¹ − η⁻¹)(dt, dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_(S,S⁰)⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound holds
-for η + sδ, s ∈ [0, 1], so dt stays timelike along that path, in the component that continues the past cone of η. For
-V causal for g_(S,S⁰), η(V, V) ≤ −δ(V, V) ≤ Σ_(i,j)|δ_ij||V^i||V^j| ≤ ε(Σ_i|V^i|)² ≤ 5ε((V^t)² + |V^x|²), by the
-Cauchy–Schwarz inequality in five variables; with η(V, V) = −(V^t)² + |V^x|² this gives
+Then, in the coordinates (t, x), with η = diag(−1, 1, 1, 1, 1), the matrix η⁻¹δ has entries ±δ_ij, so its maximum row-sum
+norm is at most 5ε = ¼. The Neumann series g_(S,S⁰)⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives
+|(g_(S,S⁰)⁻¹ − η⁻¹)(dt, dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_(S,S⁰)⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound holds for η + sδ,
+s ∈ [0, 1], so dt stays timelike along that path, in the component that continues the past cone of η. For V causal for
+g_(S,S⁰), η(V, V) ≤ −δ(V, V) ≤ Σ_(i,j)|δ_ij||V^i||V^j| ≤ ε(Σ_i|V^i|)² ≤ 5ε((V^t)² + |V^x|²), by the Cauchy–Schwarz
+inequality in five variables; with η(V, V) = −(V^t)² + |V^x|² this gives
 |V^x|² ≤ ((1 + 5ε)/(1 − 5ε))(V^t)² = (5/3)(V^t)², so |V^x| ≤ 2|V^t|.
 
 On 𝒟 ∩ {r ≤ R}, dt_IVP is past timelike for g_(b₀) ([[lem:iii-b-3-7]] (b)), with a margin on this compact set, so also
-for g_(S,S⁰), φ_(S,S⁰) tending to the identity there and h_(S,S⁰) being small in C⁰ (Cauchy stability on 𝒦, (N) of [[sec:s27-local]], and the classes above).
-This proves (a), dt_IVP = dt on {r ≥ R}.
+for g_(S,S⁰), φ_(S,S⁰) tending to the identity there and h_(S,S⁰) being small in C⁰ (Cauchy stability on 𝒦, (N) of
+[[sec:s27-local]], and the classes above). This proves (a), dt_IVP = dt on {r ≥ R}.
 
 (b) For a past directed causal V in {r ≥ R}, dt(V) = V^t < 0 and dr(V) ≤ |V^x| ≤ −2V^t, so
 d(r + 2t_IVP)(V) ≤ 0; likewise for future directed V, d(r − 2t_IVP)(V) ≤ |V^x| − 2V^t ≤ 0.
@@ -952,11 +953,11 @@ domain and f ∈ F_η, the tails of U and f vanish on {t^♭_* < T̂ + c_0η}, s
 [[thm:ii-g-2-1]] (iii), which asks the support property for u ∈ U ∩ B^∞_η only ([[rem:s10-right-inverses]]); the form
 at every u in the domain does not hold here (the proof of [[lem:iii-k-2-3]]).
 
-*Smallness.* The constants C_k (k ≤ N_NM), C_1, C_2 and δ depend on the data only through
-‖(γ̃, k̃)‖_(H^(N_NM+k″)) ([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded once that norm is at most 1. So the
-threshold of [[thm:ii-g-2-1]], ε_NM, is uniform, and ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1),
-d_1 := max(d_0, N_NM + k″) with d_0 of [[prop:iii-k-1-2]], by [[lem:iii-k-2-2]] (d). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2) with |U|_(3d) < δ and
-P_5(Ψ(U)) = 0. ∎
+*Smallness.* The constants C_k (k ≤ N_NM), C_1, C_2 and δ depend on the data only through ‖(γ̃, k̃)‖_(H^(N_NM+k″))
+([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded once that norm is at most 1. So the threshold of
+[[thm:ii-g-2-1]], ε_NM, is uniform, and ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1),
+d_1 := max(d_0, N_NM + k″) with d_0 of [[prop:iii-k-1-2]], by [[lem:iii-k-2-2]] (d). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2)
+with |U|_(3d) < δ and P_5(Ψ(U)) = 0. ∎
 
 ### Constraint propagation and the theorem {#sec:iii-k-4}
 
@@ -1085,8 +1086,8 @@ C′|γ_Υ| ≤ ½ of the proof of [[lem:iii-d-7-1]] ([[prop:iii-d1-4-1]], [[sec
 
 **b1.** b in the ball ℬ_VI of [[thm:vi-b1-5-1]], on which (Dyn) holds. Threshold: none.
 
-**b2.** b ∈ ℬ(γ_(Υ,H)) ([[prop:iii-d1-4-1]]); with the low-frequency radius c_0 of [[cor:iii-h-4-3]], written c_σ in
-this section and the next to distinguish it from the constant c_0 of [[sec:iii-k-3]], b ∈ ℬ(c_σ) ([[prop:iii-f2-4-1]]) and in
+**b2.** b ∈ ℬ(γ_(Υ,H)) ([[prop:iii-d1-4-1]]); with the low-frequency radius c_0 of [[cor:iii-h-4-3]], written c_σ in this
+section and the next to distinguish it from the constant c_0 of [[sec:iii-k-3]], b ∈ ℬ(c_σ) ([[prop:iii-f2-4-1]]) and in
 the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as [[thm:iii-e-1-1]], [[prop:iii-f1-3-3]] and
 [[sec:iii-j-1]] ask. Threshold: c1–c2, u1–u5.
 
@@ -1269,8 +1270,12 @@ Then, for every closed subgroup G′ of O(4), every G′-invariant data (γ, k),
 
     Φ(σ·U) = σ·Φ(U),     Ψ(σ·U) = σ_*Ψ(U),     P_5(Ψ(σ·U)) = σ_*P_5(Ψ(U)).
 
-The averaged choices are admissible: each object of (C3) and (C3′) is introduced by a statement that a choice with the
-conditions listed exists, and the results of [[ch:s13]]–[[ch:s25]] that use it hold for every such choice. Three
+The averaged choices are admissible. Each object of (C3) and (C3′) is given by an existence statement, which asserts
+that a choice with the conditions listed exists: [[prop:iii-d2-3-1]] for ω_s1(S) and ω̆(S), [[prop:iii-d2-3-1]] and
+[[prop:iii-d3-3-1]] for the 1-form towers, the table of [[sec:iii-g2-1]] for the states and towers of the rows, the
+step of [[sec:iii-j-2]] for the operators 𝒮_(λ₀), and [[lem:iii-i14-2-1]] for the families in b. The results of
+[[ch:s13]]–[[ch:s25]] that use these objects take them as given by those statements, for any choice with the
+conditions listed, and so hold for the averaged one. Three
 properties used there are not themselves linear conditions, and each is kept. The s1 and v1 states are unique given
 their conditions (the zero energy operator is injective at the weights in the gap, [[prop:iii-d2-3-1]]), so the
 average is the choice. The bijectivity of [[lem:iii-g2-1-2]] is a statement about leading terms, which are prescribed
@@ -1317,7 +1322,7 @@ So Ψ(U) = (χ_−h_(−S,−S^(0)_1), 0, 0) + Φ(U) ([[eq:iii-k-2-1]]) and P_5 
 
 **Proposition {#prop:vii-3-2}** ([[thm:iii-k-4-3]] in the symmetry class; [Hin26, Theorem 13.1] in the class.) Make
 the choices of [[lem:vii-3-1]] equivariant. If the data (γ, k) of [[thm:iii-k-4-3]] are G-invariant, and small for the
-threshold ε^G_NM below, its conclusion holds with U fixed by G, b = (m′, 0), S = 0 and g G-invariant.
+threshold ε^G_NM below, its conclusion holds with U fixed by G, b = (m′, 0), S = S⁰ = 0 and g G-invariant.
 
 *Proof.* *The action.* G ⊂ O(4) acts on M by diffeomorphisms that are smooth on the compactification, preserve each
 boundary hypersurface (the defining functions of [[eq:iii-b-2-2]] are functions of (t, |x|)), and fix t, t_*, t_IVP and
@@ -1330,34 +1335,42 @@ estimate used below holds with changed constants.
 Π := ∫_G σ dσ (Haar probability measure) is a projection onto them of norm at most 1 that preserves every support
 class.
 
-*[[thm:ii-g-2-1]] on the fixed spaces.* (i) ΠS_θ, with S_θ of [[lem:iii-k-3-1]], maps B^(∞,G)_(θ^(−1/2)) into B^(∞,G)
-and B^(∞,G)_η into B^(∞,G)_(η−θ^(−1/2)), and satisfies [[eq:ii-g-2-1]] with the constants of the G-sup norms: for
-v ∈ B^(∞,G), v − ΠS_θv = Π(v − S_θv), and Π has norm at most 1. (ii) By [[lem:vii-3-1]], U ↦ P_5(Ψ(U)) maps the
-fixed part of the domain of [[thm:iii-k-3-2]] into F^(∞,G), and B^(∞,G)_η into F^(∞,G)_η. Differentiability and
-[[eq:ii-g-2-2]]–[[eq:ii-g-2-3]] hold by restriction. (iii) For U ∈ B^(∞,G), differentiating
-P_5(Ψ(σ·V)) = σ_*P_5(Ψ(V)) at V = U gives D_U(P_5 ∘ Ψ) ∘ σ = σ_* ∘ D_U(P_5 ∘ Ψ), so D_U(P_5 ∘ Ψ) commutes with Π. So
-Ψ^G_NM(U) := ΠΨ_NM(U) on F^(∞,G) satisfies D_U(P_5 ∘ Ψ)Ψ^G_NM(U)f = ΠD_U(P_5 ∘ Ψ)Ψ_NM(U)f = Πf = f. It maps F^(∞,G)_η
-into B^(∞,G)_η for U in the domain of (ii) and in B^(∞,G)_η, which is what [[thm:ii-g-2-1]] (iii) asks, and it
-inherits [[eq:ii-g-2-4]]. So [[thm:ii-g-2-1]] holds on the fixed spaces, with its own threshold ε^G_NM computed from
-the constants of the G-sup norms, and gives U ∈ B^(∞,G)_(1/2) with P_5(Ψ(U)) = 0 on Ω_*.
+*[[thm:ii-g-2-1]] on the fixed spaces.* (i) ΠS_θ, with S_θ of [[lem:iii-k-3-1]], maps B^(∞,G)_(θ^(−1/2)) into B^(∞,G) and
+B^(∞,G)_η into B^(∞,G)_(η−θ^(−1/2)), and satisfies [[eq:ii-g-2-1]] with the constants of the G-sup norms: for
+v ∈ B^(∞,G), v − ΠS_θv = Π(v − S_θv), and Π has norm at most 1. (ii) By [[lem:vii-3-1]], U ↦ P_5(Ψ(U)) maps the fixed
+part of the domain of [[thm:iii-k-3-2]] into F^(∞,G), and B^(∞,G)_η into F^(∞,G)_η. Differentiability and
+[[eq:ii-g-2-2]]–[[eq:ii-g-2-3]] hold by restriction. (iii) For U ∈ B^(∞,G), differentiating P_5(Ψ(σ·V)) = σ_*P_5(Ψ(V)) at
+V = U gives D_U(P_5 ∘ Ψ) ∘ σ = σ_* ∘ D_U(P_5 ∘ Ψ), so D_U(P_5 ∘ Ψ) commutes with Π. So Ψ^G_NM(U) := ΠΨ_NM(U) on F^(∞,G)
+satisfies D_U(P_5 ∘ Ψ)Ψ^G_NM(U)f = ΠD_U(P_5 ∘ Ψ)Ψ_NM(U)f = Πf = f, and it inherits [[eq:ii-g-2-4]]. It maps F^(∞,G)_η
+into B^(∞,G)_η for U in the domain of (ii) and in B^(∞,G)_η, which is what [[thm:ii-g-2-1]] (iii) asks. Indeed, let
+f ∈ F^(∞,G)_η, U′ := ℛ(U)f and V := ΠZU′ = Ψ^G_NM(U)f, with Z of the proof of [[thm:iii-k-3-2]]. V ∈ B^(∞,G), and its
+boost and translation components vanish, as 𝒮_1^G = 0. Its q-tails lie in {t_* ≥ 17/2} ⊂ {t_* ≥ 8 + c_0η}, as Z and Π
+commute (χ_9(t_*) is invariant). On {t^♭_* < T̂ + c_0η}, D_U(P_5 ∘ Ψ)V = Πf = f vanishes; and there U, being fixed, has
+S = S^(0)_1 = 0 and tail 0, so, as in the *Supports* part of the proof of [[lem:iii-k-2-3]],
+D_U(P_5 ∘ Ψ)V = L_(G_(0,0), g_(b₀))h̃_V with G_(0,0) = g_(b₀) + h_0, the boost and translation components of V vanishing.
+The argument there, with [[lem:s27-below]] and [[lem:iii-k-6-1]], gives h̃_V = 0 on {t^♭_* < T̂ + c_0η}. So
+V ∈ B^(∞,G)_η. Hence [[thm:ii-g-2-1]] holds on the fixed spaces, with its own threshold ε^G_NM computed from the constants
+of the G-sup norms, and gives U ∈ B^(∞,G)_(1/2) with P_5(Ψ(U)) = 0 on Ω_*.
 
-*The metric.* [[prop:iii-k-4-2]] builds g from (h, p⃗, q) = Φ(U), h_(−S) and g_(b₀,b,−S). By [[lem:vii-3-1]] every
+*The metric.* [[prop:iii-k-4-2]] builds g from (h, p⃗, q) = Φ(U), h_(−S,−S^(0)_1) and g_(p⃗). By [[lem:vii-3-1]] every
 ingredient is equivariant and U is fixed, so g is G-invariant. U_0 = (b − b₀, S, S^(0)_1) is fixed: 𝔟^G = ℝ × {0} and
 𝒮_1^G = 0, 𝒮_1 being ℝ⁴ as a representation. So b = (m′, 0) and S = S^(0)_1 = 0, and [[thm:iii-k-4-3]] (1)–(5) hold
 with these values. ∎
 
 ### Small final parameters and the rate of settling {#sec:s27-rate}
 
-**Corollary {#cor:s27-rate}** (Small final parameters; the rate on compact sets.) Let ε_m > 0 and ε_t ∈ (0, ε_K).
-Choose the parameters as in [[thm:vi-c-2-1]], with α > 4 + ε_t in row w2 (possible, as ε_K does not depend on ε_t and
-the admissible α are dense in (4 + ε_K − ε′_0, 4 + ε_K]). Then there is ε = ε(ε_m, ε_t) > 0, with d_1 as in
-[[thm:iii-k-4-3]], such that for data as in [[thm:iii-k-4-3]] of norm below ε:
+**Corollary {#cor:s27-rate}** (Small final parameters; the rate on compact sets.) Make the choices of
+[[thm:vi-c-2-1]] through the choice of ε_K in step (4). Let ε_m > 0 and ε_t ∈ (0, ε_K); take α in row w2 with
+α > 4 + ε_t (possible: the α of row w2 are dense in (4 + ε_K − ε′_0, 4 + ε_K], and 4 + ε_t < 4 + ε_K), and finish
+steps (5)–(6). Then there is ε = ε(ε_m, ε_t) > 0, with d_1 as in [[thm:iii-k-4-3]], such that for data as in
+[[thm:iii-k-4-3]] of norm below ε:
 
-(a) the conclusion of [[thm:iii-k-4-3]] holds with |b − b₀| < ε_m and |S| < ε_m;
+(a) the conclusion of [[thm:iii-k-4-3]] holds with |b − b₀| < ε_m, |S| < ε_m and |S⁰| < ε_m;
 
 (b) if the data are G-invariant, the conclusion of [[prop:vii-3-2]] holds, with |m′ − m₀| < ε_m;
 
-(c) in either case, for every R′, ε′ > 0 and i, β there are C and T′ with
+(c) in either case, for every R′, ε′ > 0 and i, β there are C and T′ such that the Cartesian components of g − g_b, in
+the coordinates (t, x) of [[sec:iii-b-2]], satisfy
 
     |(t_*∂_(t_*))^i ∂^β_x (g − g_b)| ≤ C t_*^(−(α−2)+ε′)     on {r_♭ ≤ r ≤ R′, t_* ≥ T′},              {#eq:s27-rate}
 
@@ -1366,9 +1379,9 @@ O(t_*^(−2−ε_t)) there.
 
 *Proof.* (a) In the proof of [[thm:iii-k-3-2]], apply [[thm:ii-g-2-1]] with its radius δ replaced by min(δ, ε_m): its
 hypotheses restrict to the smaller set, and its threshold then depends on ε_m. This gives [[thm:iii-k-4-3]] with
-|b − b₀| ≤ ‖U‖_(𝒟^d_ex) ≤ |U|_(3d) < ε_m and |S| ≤ |U|_(3d) < ε_m, the black hole parameter and the boost being
-components of U, for data of norm below some ε. (b) Take ε moreover below the threshold ε^G_NM of the run of
-[[thm:ii-g-2-1]] in [[prop:vii-3-2]], with the radius min(δ, ε_m) there too, through the equivalence of the norms.
+|b − b₀| ≤ ‖U‖_(𝒟^d_ex) ≤ |U|_(3d) < ε_m and |S|, |S⁰| ≤ |U|_(3d) < ε_m, the black hole parameter, the boost and the
+translation being components of U, for data of norm below some ε. (b) Take ε moreover below the threshold ε^G_NM of the
+run of [[thm:ii-g-2-1]] in [[prop:vii-3-2]], with the radius min(δ, ε_m) there too, through the equivalence of the norms.
 
 (c) Where χ_K = 1, g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h ([[thm:iii-k-4-3]] (4)). h_tot(p⃗) is supported in 𝒞, whose
 closure is disjoint from K⁺ ([[lem:iii-i7-2-2]]); so it vanishes on {r ≤ R′} for t_* large, as does 1 − χ_K.

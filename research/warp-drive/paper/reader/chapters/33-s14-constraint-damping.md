@@ -1412,10 +1412,31 @@ data required to lie in a compact subset of C^∞(I × B_3) are g, B, a 3b-conne
 [[lem:iv5-0-2]] (a), (c), (d), uniformly for b ∈ U. The hypothesis on ℓ, positive definite on future causal covectors,
 is [[lem:iv5-0-4]] ([Hin26a, Lemma 3.5]).
 
-**Proposition {#prop:iv5-6-1}** ([Hin26a, Proposition 5.16] in dimension 4 + 1.) The estimates [Hin26a, (5.66)–(5.69)]
-hold with T := T_0, with the radii of [Hin26a] read as r_♯ ≤ r_1 < r_2 < r_3 ≤ r̂, and with the level-set density
-r⁴|dr d𝑔̸| for the density r³|dr d𝑔̸| of [Hin26a] in the norms on τ⁻¹(T). Moreover, at fixed h, for
-ω ∈ ρ_sf^(α_sf)H̄²_3b without support condition,
+**Proposition {#prop:iv5-6-1}** ([Hin26a, Proposition 5.16] in dimension 4 + 1.) Let α_sf, α_K ∈ ℝ.
+
+(1) (*Near X_0*; the weight at K⁺ is dropped.) There are h_0 > 0 and C such that for h ∈ (0, h_0) and every
+ω ∈ ρ_sf^(α_sf)H²_(3b,h) vanishing for t < 0,
+
+    ‖ω‖_(ρ_sf^(α_sf)H¹_(3b,h)(τ⁻¹([0,T_0]))) ≤ Ch⁻¹‖P_hω‖_(ρ_sf^(α_sf+2)L²(τ⁻¹([0,T_0]))),
+
+and for every ω ∈ ρ_sf^(−α_sf−2)H²_(3b,h), without support condition,
+
+    ‖ω‖_(ρ_sf^(−α_sf−2)H¹_(3b,h)(τ⁻¹([0,T_0/2])))
+        ≤ C(h⁻¹‖P_h*ω‖_(ρ_sf^(−α_sf)L²(τ⁻¹([0,T_0]))) + ‖ω‖_(ρ_sf^(−α_sf−2)H¹_(3b,h)(τ⁻¹([T_0/2,T_0])))).
+
+(2) (*Near Σ^♯*; the weight at 𝗌𝖿 is dropped.) Let r_♯ ≤ r_1 < r_2 < r_3 ≤ r̂. There are h_0 > 0 and C such that for
+h ∈ (0, h_0) and every ω ∈ ρ_K^(α_K)H²_(3b,h) vanishing for t < 0,
+
+    ‖ω‖_(ρ_K^(α_K)H¹_(3b,h)(r⁻¹([r_1,r_2])))
+        ≤ C(h⁻¹‖P_hω‖_(ρ_K^(α_K)L²(r⁻¹([r_1,r_3]))) + ‖ω‖_(ρ_K^(α_K)H¹_(3b,h)(r⁻¹([r_2,r_3])))),
+
+and for every ω ∈ ρ_K^(−α_K)H²_(3b,h) vanishing for r < r_1,
+
+    ‖ω‖_(ρ_K^(−α_K)H¹_(3b,h)(r⁻¹([r_1,r_3]) ∩ {τ ≥ 0})) ≤ Ch⁻¹‖P_h*ω‖_(ρ_K^(−α_K)L²(r⁻¹([r_1,r_3]) ∩ {τ ≥ 0})).
+
+These four estimates are [Hin26a, (5.66)–(5.69)], with T := T_0 and with the radii m ≤ r_1 < r_2 < r_3 < r₊ of
+[Hin26a] read as above; in the proofs the level sets of τ carry the density r⁴|dr d𝑔̸|, which tensored with |dτ| is
+|dg|. Moreover, at fixed h, for ω ∈ ρ_sf^(α_sf)H̄²_3b without support condition,
 
     ‖ω‖_(ρ_sf^(α_sf)H̄¹_3b(τ⁻¹([0,T_0]))) ≤ C_h(‖P_hω‖_(ρ_sf^(α_sf+2)L²(τ⁻¹([0,T_0])))
                                                 + ‖(ω, r𝓛_(∂_t)ω)|_(X_0)‖_(ℋ_data)),                {#eq:iv5-6-1}
@@ -1977,8 +1998,8 @@ satisfies (H1)–(H4) with ½ + ϑ_ℋ < −C_0;
 
 *Proof.* (3) is [[lem:iv4-1-3]], and the second half of (2) is [[lem:iv4-1-5]] and [[lem:iv4-1-6]]. [[thm:iv5-7-3]] is
 used with the weights [[eq:iv4-2-1]], which its hypothesis in dimension 4 + 1, α_sf < b* − 1 and
-α_K > α_sf + 1 − b* ([[lem:iv4-1-4]]; [[prop:np-10-22]] (iv)), allows, and with C_0 + 1 for C_0, as in
-[Hin26a, p. 67].
+α_K > α_sf + 1 − b* ([[lem:iv4-1-4]]; [[prop:np-10-22]] (iv)), allows, and with the regularity range C₁ := C_0 + 1,
+as in [Hin26a, p. 67].
 
 *(1).* Let ω′ ∈ 𝒜^γ(X̄; E) with (□^C_b)^(σ)ω′ = 0, and ω := e^(−iσt_*)ω′, a solution of □^C_bω = 0. It is outgoing in
 the sense of [Hin26a, Definition 6.1]: t_* = t − ψ(|x|) with ψ(r) = r − C_ψ + 8m₀r⁻¹ for large r ([[eq:iii-b-3-6]]), and
@@ -2013,8 +2034,8 @@ ker_(𝒳*_0)(P^C_b)*, 𝒳*_0 ⊂ Ḣ_b^(1−s,−α−2) (supported at the inn
 of (P^C_b)* are 2 − ῑ ([[lem:iii-e-2-1]] (2), which uses only [[lem:iv4-1-3]]), with real part ≤ 0 or > C_0 + 2. As
 α + 2 < 2, v has pointwise weight −α > 0 at ∂X, so the normal operator argument (the expansion of v along the roots of
 real part above its weight, [[thm:i-c-3-1]] (2) for the adjoint) gives v ∈ 𝒜^k near ∂X for every k < ϱ₁. Here
-ϱ₁ > C_0 + 2 is the least real part of an indicial root of (P^C_b)* above C_0 + 2, which exists as the roots are discrete
-([[lem:iv4-1-3]] (a)); the roots of real part ≤ 0 are below the weight. So ω′(t, x) := v(x) is a stationary solution of
+ϱ₁ > C_0 + 2 is the least real part of an indicial root of (P^C_b)* above C_0 + 2, which exists as such roots exist and
+each strip {|Re ι| ≤ R} contains finitely many roots ([[lem:iv4-1-3]] (a)); the roots of real part ≤ 0 are below the weight. So ω′(t, x) := v(x) is a stationary solution of
 (□^C_b)*ω′ = 0. Put α′_sf := −C_0 − 3/2, the weight [[eq:iv4-2-1]] at C_0 − 1. A stationary function of pointwise decay
 ρ^k lies in ρ^aρ_K⁻¹L²(Ω, |dg|) near ∂X iff k > a + 5/2: the shift is 2 for ρ^aL²(r³dr) ([[prop:np-10-21]] (iii)),
 plus ½ from ∫_0^∞ρ_K²dt = ∫_0^∞(r/(t + r))²dt = r. At a = −α′_sf − 2 = C_0 − ½ this asks k > C_0 + 2, which
@@ -2025,7 +2046,8 @@ k > C_0 + 3, which [[lem:iv4-1-3]] does not give at C_0 = 100; this is why h_* i
 [[thm:iv5-7-3]] at C_0 − 1 as well.) So P^C_b is surjective, hence invertible, and by [[thm:i-c-3-1]] (4) the estimates
 hold without the error terms. ∎
 
-*Remark.* [Hin26a] has two further routes to the surjectivity: the index 0 from [Hin26a, Theorem B.1] with
+**Remark {#rem:s14-other-routes}** (Other routes to surjectivity.) [Hin26a] has two further routes to the
+surjectivity: the index 0 from [Hin26a, Theorem B.1] with
 [[cor:i-c-6-6]], and the radial ordinary differential operators of a static metric with [Hin26a, Theorem 4.9 (3)]. They
 are not used: the first needs the tf-admissibility and the index at σ ≠ 0, the second an index count for operators that
 are singular at the horizon. The route through the adjoint estimate needs only what the proof of [[thm:iv5-7-3]]
@@ -2033,8 +2055,8 @@ provides.
 
 ### tf-admissibility {#sec:iv6-4}
 
-**Theorem {#thm:iv6-4-1}** ([[thm:iii-e-1-1]] (4).) For b near b₀, h ∈ (0, min(h_*, h_tf)) and C_0 ∈ [3/2, 100], □^C_b
-is tf-admissible ([[def:i-c-5-1]]) with every weight β_tf ∈ [−C_0, 2).
+**Theorem {#thm:iv6-4-1}** ([[thm:iii-e-1-1]] (4).) For b near b₀, h ∈ (0, h_*) and C_0 ∈ [3/2, 100], □^C_b is
+tf-admissible ([[def:i-c-5-1]]) with every weight β_tf ∈ [−C_0, 2).
 
 *Proof.* We check (i)–(iii) of [[def:i-c-5-1]].
 
@@ -2046,9 +2068,9 @@ is tf-admissible ([[def:i-c-5-1]]) with every weight β_tf ∈ [−C_0, 2).
 both. The map 𝒳_(tf,θ) → 𝒴_(tf,θ) of [[sec:i-c-4]] is then [[eq:iv6-1-1]] at σ = e^(iθ), by [[lem:iv6-0-1]] (d).
 These orders are admissible in the sense of [[def:iv6-0-2]]: q = β ∈ (0, 2 + C_0]; the orders 𝗋_± with weight α₊ are
 those of [[lem:i-a-7-1]] at σ_* = ±1, constant near the radial sets and monotone along the flow, functions of ξ and
-|η|²; and their thresholds are those of [[sec:i-a-1]] for (□^C_b)^, which are the data of □^C_b at ρ = 0
-([[sec:i-c-4]]): −½ + min spec S̄^C at R_out, and at R_in the bound −½ − S_in with S_in = h⁻¹(1 − e)(1 + v)
-([[prop:np-10-21]] (ii)). These are the thresholds of [[def:iv6-0-2]].
+|η|²; and their thresholds are those of [[eq:i-a-1-5]] for (□^C_b)^, which are the data of □^C_b at ρ = 0
+([[sec:i-c-4]]): at R_out, −½ + S̄ with S̄ = min spec S̄^C = h⁻¹(1 − e)(1 − v) ([[prop:np-10-21]] (i)); at R_in,
+(−1 + ϑ_in)/2 = −½ − h⁻¹(1 − e)(1 + v) by [[eq:s14-theta-in]]. These are the thresholds of [[def:iv6-0-2]].
 
 (ii) By [[thm:iv6-3-1]], N_tf(e^(iθ)) is invertible, so injective, on 𝒳_(tf,θ) for every θ ∈ [0, π].
 
@@ -2100,12 +2122,13 @@ remainder, compactly supported away from ∂X modulo Ḣ_b^(s−1,C_0+4), by (1)
 it is u, (1) being injective at that α. Since the adjoint has no root with real part in (0, C_0 + 2], the exponents of ℰ
 below C_0 + 2 are those of ℱ less 2 plus ℕ_0, without logarithms.
 
-(b) *Vanishing inside the horizon.* On {r_0 < |x| < r_h} the Killing field ∂_(t_*) is spacelike, so the quotient metric
-is Lorentzian with |x| timelike, and on stationary sections (P^C_b)* is a wave operator in the time −|x| there. An
-element of its kernel, or a solution with a forcing supported in {|x| > r_h}, that lies in a Ḣ space vanishes, extended
-by zero, on {|x| < r_0} (the supported character), and so on {r_0 < |x| < r_h} by uniqueness for the Cauchy problem on
-the spacelike hypersurfaces {|x| = c}, c < r_h, run from {|x| < r_0} across {|x| = r_0}, where the operator is still
-hyperbolic in |x|.
+(b) *Vanishing inside the horizon.* On {r_♭ < |x| < r_h} the Killing field ∂_(t_*) is spacelike, so the quotient
+metric is Lorentzian with |x| timelike, and on stationary sections (P^C_b)* is a wave operator in the time −|x| there.
+An element of its kernel, or a solution with a forcing supported in {|x| > r_h}, that lies in a Ḣ space vanishes,
+extended by zero, on {|x| < r_♭} (the supported character, the inner boundary being {|x| = r_♭}), and so on
+{r_♭ < |x| < r_h} by uniqueness for the Cauchy problem on the spacelike hypersurfaces {|x| = c}, c < r_h, run from
+{|x| < r_♭} across {|x| = r_♭}. Near {|x| = r_♭} the operator is defined, and hyperbolic in |x|, as dr is timelike on
+{½r_♭ ≤ |x| ≤ ¾R₁} for b near b₀ ([[lem:iv5-0-3]] (c), with r_♯ = r_♭).
 
 **Proposition {#prop:np-10-31}** (The adjoint's indicial values and the translations on Tangherlini space.) On
 4 + 1 Minkowski space, with the notation of [[prop:np-10-12]]:
@@ -2114,16 +2137,18 @@ hyperbolic in |x|.
 l = 1 (κ = 3) the roots of □^C are 3 and −1 − 2vγ_C, those of the adjoint −1 and 3 + 2vγ_C, and the indicial value of
 the adjoint at 2 is N_(v,1)(0) = 3(1 + 2v_Cγ_C);
 
-(ii) on Tangherlini space, with S ∈ 𝒮₁ a linear function, (□^C)*(dS) ∈ ρ⁴C^∞ near ∂X, so that
-(□^C)*(χ dS) ∈ C_c^∞ + ρ⁴C^∞, and the correction ρ²(A S dt + B S dr + C r dS) that cancels its ρ⁴ term is unique, 2
-being no root of the adjoint at scalar type 1.
+(ii) on Tangherlini space, with S ∈ 𝒮₁ a harmonic of degree 1, so that |x|S = ξ·x for some ξ ∈ ℝ⁴ and
+d(|x|S) = ξ·dx is the translation 1-form ω̄_s1(S), (□^C)*(d(|x|S)) ∈ ρ⁴C^∞ near ∂X, so that
+(□^C)*(χ d(|x|S)) ∈ C_c^∞ + ρ⁴C^∞, and the correction ρ²(A S dt + B S dr + C r dS) that cancels its ρ⁴ term is unique,
+2 being no root of the adjoint at scalar type 1.
 
 *Proof.* (i) The first statement is [[lem:iii-e-2-1]] (2). At κ = 3, p_(v)(ι) = −hι² + (2h − 2v)ι + 3h + 6v vanishes at
 ι = 3, and the product of its roots is −(3h + 6v)/h, so the other root is −1 − 2v/h. The adjoint's are 2 − 3 = −1 and
 2 − (−1 − 2v/h) = 3 + 2vγ_C, and N_(v,1)(2 − 2) = h⁻¹p_(v)(0) = 3 + 6v/h.
 
-(ii) dS is parallel for η, so δ*_η dS = 0 and (□^C_η)*(dS) = 0; on Tangherlini space δ*_g dS = −(Γ_g − Γ_η)·dS has
-coefficients in mρ³C^∞ by [[prop:np-10-22]] (i), and (δ*_(g,E_C))*G_g ∈ ρDiff¹_b near ∂X, so (□^C)*(dS) ∈ ρ⁴C^∞. The
+(ii) d(|x|S) = ξ·dx is parallel for η, so δ*_η d(|x|S) = 0 and (□^C_η)*(d(|x|S)) = 0; on Tangherlini space
+δ*_g d(|x|S) = −(Γ_g − Γ_η)·d(|x|S) has coefficients in mρ³C^∞ by [[prop:np-10-22]] (i), and
+(δ*_(g,E_C))*G_g ∈ ρDiff¹_b near ∂X, so (□^C)*(d(|x|S)) ∈ ρ⁴C^∞. The
 correction is unique because N(ρ⁻²(P^C)*, 2) is invertible at scalar type 1, 2 not being a root of the adjoint there by
 (i) and [[lem:iii-e-2-1]] (2). ∎
 
@@ -2150,7 +2175,7 @@ which lie in ker(□^C_b)*. The corrections to the translations and rotations, �
 
 with h*_(b,s1)(S) := G_(g_b)δ*_(g_b)ω*^((0))_(b,s1)(S) and likewise for V, of class C^k in b in Ḣ_b^(−k,C_0+3), resp.
 Ḣ_b^(−k,((3,0),C_0+3)); and h*_(b,v1)(V) ∈ Ḣ_b^(0,C_0+3) when R_V is Killing for g_b. All these 1-forms and tensors
-vanish on {r_0 < |x| < r_h} ([[sec:iii-e-2]], (b)).
+vanish on {r_♭ < |x| < r_h} ([[sec:iii-e-2]], (b)).
 
 *Proof. Time translation.* ∂_(t_*) is Killing, so δ*_(g_b)(χg_b(∂_(t_*), ·)) = dχ ⊗_s g_b(∂_(t_*), ·) ∈ C_c^∞(X°),
 and by [[eq:iii-e-1-2]], f_b := (□^C_b)*(χg_b(∂_(t_*), ·)) = 2(δ*_(g_b,E_C))*G_(g_b)(dχ ⊗_s g_b(∂_(t_*), ·)) ∈

@@ -373,8 +373,13 @@ the eb-sense.
 
     2 Re⟨wLu, wVu⟩_(L²(Ω,μ_b)) = ⟨Qu, u⟩ + ℬ_fin(u),     Q := L*W + W*L = [L, W] − (div_(μ_b)W)L.
 
-Here ℬ_fin is the boundary term at Σ_fin; there is none at Σ_in, where u vanishes to second order, and none at
-I₀ ∪ ℐ⁺ in the following approximation, which is needed as the forward solution is not known beforehand to lie in the
+It is the integral over Ω of the pointwise identity 2 Re(w²Lu · Vū) = div_(μ_b)J + q(u) of the vector field method.
+As L is real and formally self-adjoint ([[lem:iv-2-1]]), L = −div_(μ_b)(G∇u) + V₀u with G its principal symbol and
+V₀ := L(1); J is the energy current of W, including the potential term; and q(u), built from G, its derivative along W,
+∇W, div_(μ_b)W, V₀ and WV₀, is a quadratic form in u and its first derivatives with no products of u with its
+derivatives. We write ⟨Qu, u⟩ for ∫_Ω q(u)μ_b, which is the pairing of Qu with u when u vanishes near Σ_fin, and
+ℬ_fin(u) for the flux of J through Σ_fin. There is no boundary term at Σ_in, where u vanishes to second order, and
+none at I₀ ∪ ℐ⁺ in the following approximation, which is needed as the forward solution is not known beforehand to lie in the
 weighted space. Approximate f in H^(k,(α₀,2α_I))_b by f_j supported in {ρ₀ ≥ 1/j}. The forward solution u_j of
 Lu_j = f_j vanishes near I₀, the causal future of supp f_j staying in {x¹ ≥ x¹_j} for some x¹_j, so away from spatial
 infinity. Apply the identity to u_j on Ω_ε := Ω ∩ {x_I > ε}, whose added boundary {x_I = ε} is spacelike by
@@ -386,22 +391,44 @@ timelike W, and Σ_fin is spacelike or null with Ω to its past. It also contain
 multiple of V₀|u|² with V₀ := L(1) = ¾x_I² + O(x_I³) > 0 (near I₀, ¾ρ_I), of the same sign; so does the boundary term
 of the proof of [[prop:iv-4-1]].
 
-*The principal symbol of Q.* Modulo ρ₀^(−2α₀)x_I^(−4α_I+1)Diff²_(e,b), L may be replaced by the leading part L₀ of
-[[eq:iv-2-2]], and μ_b by μ̄_b := |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| ([[lem:iv-2-1]]). Then
-−div_(μ̄_b)W = −V(w²) = w²(2α₀ − 2(1 + κ)α_I), and, with D_(ρ₀) := −i∂_(ρ₀) and D_(ρ_I) := −i∂_(ρ_I),
+*The bulk term.* Modulo ρ₀^(−2α₀)x_I^(−4α_I+1)Diff²_(e,b), L may be replaced by the leading part L₀ of
+[[eq:iv-2-2]], and μ_b by μ̄_b := |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| ([[lem:iv-2-1]]). Accordingly q(u)μ_b differs from the bulk term
+q̄(u)μ̄_b of L₀ and μ̄_b by a quadratic form in u and V′u, V′ ∈ {X₀, X_I, x_IΘ}, with coefficients in w²x_IC^∞: the
+principal symbols of L and L₀ differ by an element of x_IC^∞, V₀ − ¾x_I² ∈ x_I³C^∞, μ_b/μ̄_b ∈ 1 + ρ²C^∞, and
+differentiation along eb-vector fields preserves these classes. For L₀ and μ̄_b, X₀ and X_I are skew-adjoint on
+L²(μ̄_b), −div_(μ̄_b)W = −V(w²) = w²(2α₀ − 2(1 + κ)α_I), and, with c_A := 1 + 2(α₀ − α_I) + κ(1 − 2α_I) > 0,
 
-    Q ≡ Q̄ := w²(−4α_I(ρ₀D_(ρ₀) − ρ_ID_(ρ_I))² + 4κ(α₀ − α_I)(ρ_ID_(ρ_I))²
-                + (1 + 2(α₀ − α_I) + κ(1 − 2α_I))x_I²(Δ̸ + ¾)).                                        {#eq:iv-3-3}
+    Q̄ := [L₀, W] − (div_(μ̄_b)W)L₀
+       = 4|α_I|(X₀ − X_I)*w²(X₀ − X_I) + 4κ(α₀ − α_I)X_I*w²X_I + c_Ax_Iw(Δ̸ + ¾)wx_I                   {#eq:iv-3-3}
 
-This is [Hin23a, (3.25)] with Δ̸ + ¾ in place of Δ̸: it is [[prop:np-10-64]] (3) with q₄ = ¾ and κ in place of c, where
-the second-order part in (X₀, X_I) is 4α_I(X₀ − X_I)² − 4κ(α₀ − α_I)X_I² and the angular part is the last term of
-[[eq:iv-3-3]]. The constant ¾ enters only through the angular term: ¾x_I² commutes with X₀, and its commutator with
-X_I is of order 0. As α_I < 0, κ > 0, α₀ − α_I > 0 and Δ̸ + ¾ ≥ ¾ > 0, Q̄ is a positive elliptic element of
-ρ₀^(−2α₀)x_I^(−4α_I)Diff²_(e,b) (the constant term only increasing it). So
+exactly. Indeed, put Y₀ := X₀ − X_I, so that L₀ = −2X_IY₀ + ρ_I(Δ̸ + ¾) and V = Y₀ − κX_I. The fields X_I, Y₀, V
+commute with each other and with Δ̸, and X_Iw² = −2α_Iw², Y₀w² = −2(α₀ − α_I)w², Vρ_I = −(1 + κ)ρ_I. The angular part
+of Q̄ is −w²(Vρ_I)(Δ̸ + ¾) + w²(2α₀ − 2(1 + κ)α_I)ρ_I(Δ̸ + ¾) = c_Aρ_Iw²(Δ̸ + ¾), which is the last term, as x_I and w
+commute with Δ̸. The rest is
 
-    ⟨Q̄u, u⟩ ≥ c₀ Σ_(V′) ‖wV′u‖²_(L²_b),
+    [−2X_IY₀, w²V] − 2(2α₀ − 2(1 + κ)α_I)w²X_IY₀
+        = −8α_I(α₀ − α_I)w²V + 4(α₀ − α_I)w²X_IV + 4α_Iw²Y₀V − 4(α₀ − (1 + κ)α_I)w²X_IY₀
+        = w²(4α_IY₀² − 4κ(α₀ − α_I)X_I²) − 8α_I(α₀ − α_I)w²V,
 
-the sum over V′ ∈ {X₀, X_I, x_IΘ_j}, with the Θ_j spanning T𝕊³.
+the terms in X_IY₀ cancelling. On the other side, as X* = −X for X ∈ {X₀, X_I},
+4|α_I|Y₀*w²Y₀ = 4α_IY₀w²Y₀ = 4α_Iw²Y₀² − 8α_I(α₀ − α_I)w²Y₀ and
+4κ(α₀ − α_I)X_I*w²X_I = −4κ(α₀ − α_I)w²X_I² + 8κα_I(α₀ − α_I)w²X_I, whose first-order terms add up to
+−8α_I(α₀ − α_I)w²V. Written with w² in front, as the identity is usually written, the right side of [[eq:iv-3-3]] would
+be w²(4α_IY₀² − 4κ(α₀ − α_I)X_I² + c_Aρ_I(Δ̸ + ¾)); that form omits the first-order term −8α_I(α₀ − α_I)w²V, which
+carries no factor x_I, so only the symmetric form is exact. Its principal symbol is that of [Hin23a, (3.25)] with
+Δ̸ + ¾ in place of Δ̸, which is [[prop:np-10-64]] (3) with q₄ = ¾ and κ in place of c.
+
+So q̄(u) and
+
+    4|α_I|w²|(X₀ − X_I)u|² + 4κ(α₀ − α_I)w²|X_Iu|² + c_Aρ_Iw²(|∇̸u|² + ¾|u|²)
+
+are quadratic forms in u and its first derivatives without products of u with its derivatives, with the same operator
+Q̄; such a form is determined by its operator, so the two are equal. As α_I < 0, κ > 0 and α₀ − α_I > 0, all
+coefficients are positive, and with ‖wX₀u‖ ≤ ‖w(X₀ − X_I)u‖ + ‖wX_Iu‖ and |Θ_ju| ≤ C|∇̸u|,
+
+    ∫_Ω q̄(u) μ̄_b ≥ c₀ Σ_(V′) ‖wV′u‖²_(L²_b),
+
+the sum over V′ ∈ {X₀, X_I, x_IΘ_j}, with the Θ_j spanning T𝕊³. The constant ¾ only adds the term ¾c_Aρ_Iw²|u|² ≥ 0.
 
 *Poincaré.* Along each integral curve of X_I in Ω, which begins on Σ_in where u = 0, with s := −log ρ_I and ρ₀ fixed,
 
@@ -410,8 +437,9 @@ the sum over V′ ∈ {X₀, X_I, x_IΘ_j}, with the Θ_j spanning T𝕊³.
 by u(s) = ∫_(s₀)^s ∂_s u and Young's inequality for the kernel e^(α_I(s−s′)), s′ < s, of L¹-norm |α_I|⁻¹. The constant
 does not depend on where the curve ends, so integrating in ρ₀ and ω gives ‖wu‖_(L²_b) ≤ C‖wX_Iu‖_(L²_b).
 
-*Conclusion for k = 0.* The error Q − Q̄ is bounded by Cc times the right side of the positivity bound, for c small
-(it carries a factor x_I < c). Cauchy–Schwarz on the left of the identity, ℬ_fin ≥ 0 and absorption give
+*Conclusion for k = 0.* On Ω ⊂ {x_I < c}, |∫_Ω(q(u)μ_b − q̄(u)μ̄_b)| ≤ Cc(Σ_(V′)‖wV′u‖²_(L²_b) + ‖wu‖²_(L²_b)), its
+coefficients carrying the factor x_I < c. Cauchy–Schwarz on the left of the identity, ℬ_fin ≥ 0, the Poincaré
+inequality and absorption for c small give
 ‖wu‖_(H¹_(e,b)) ≤ C‖wf‖_(L²_b), which is [[eq:iv-3-2]] for k = 0. Existence of the forward solution, smooth in Ω, is
 standard for the wave equation with smooth coefficients on Ω.
 
@@ -451,7 +479,12 @@ G_b(dτ, dτ) = −(1 − τ²) < 0 for |τ| < 1, so τ is a b-time function the
 
 Use the multiplier W₀ := w₀²V₀, with w₀ := ρ^(−α₀)e^(−Λτ) and V₀ := −G_b(dτ, ·), a future timelike b-vector field. In
 the identity 2 Re⟨w₀Lu, w₀V₀u⟩ = ⟨Q₀u, u⟩ + ℬ_fin, the boundary term at Σ_fin is ≥ 0, as in the proof of
-[[prop:iv-3-1]], and Q₀ = [L, W₀] − (div W₀)L.
+[[prop:iv-3-1]], and Q₀ = [L, W₀] − (div W₀)L. There is no boundary term at I₀ in the following approximation.
+Approximate f in ρ^(α₀)H^k_b by f_j supported in {ρ ≥ 1/j}. As g_(b₀) − η is O(ρ²) relative, d|x| ≤ (1 + δ/4)dt along
+future causal curves in Ω₀ for ρ₁ small; with t ≤ (1 − δ)|x| on Ω₀ and (1 + δ/4)(1 − δ) < 1, the bound
+|x| ≤ |x₀| + (1 + δ/4)(t − t₀) along such a curve from (t₀, x₀) ∈ supp f_j keeps |x| bounded. So the forward solution
+u_j of Lu_j = f_j vanishes near I₀, the identity holds for it, and the estimate passes to the limit j → ∞ as in the
+proof of [[prop:iv-3-1]].
 
 The term of Q₀ from differentiating e^(−2Λτ) is 2Λw₀² times the energy-momentum quadratic form of V₀ and dτ in ρ_IG_b.
 It is positive definite in the b-gradient, as V₀ and −∇τ are future timelike (the dominant energy condition for the
@@ -556,7 +589,7 @@ L_(b₀) itself:
   ρ₀²ρ_IC^∞Diff¹_(e,b);
 - its zeroth-order part lies in ρ²C^∞.
 
-The calculation of [[lem:iii-c-4-1]] identifies the part of the first-order terms that is not O(ρ_I) relative: it is
+The calculation of [[lem:iii-c-4-1]] identifies the part of the first-order terms that is not O(x_I) relative: it is
 ρ₀²ρ_IĀ(X₀ − X_I) (with the −3/2 of the scalar conjugation). So, after conjugation and the prefactor,
 
     L_(b₀,conj) = (2ρ_Iρ^(−7/2) ½□_(g_(b₀)) ρ^(3/2)) ⊗ Id + 2Ā(X₀ − X_I) + x_IC^∞Diff¹_(e,b) + x_I²C^∞.

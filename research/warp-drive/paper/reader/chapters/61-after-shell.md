@@ -10,7 +10,7 @@ there g_λ is Tangherlini of mass μ_end up to smooth corrections of order λ ([
 with only the mass to match, which gives the data of item (i) of [[thm:settling]].
 
 [[sec:after-shell-reach]] determines which perturbations of these data item (ii) reaches. A perturbation that decays like
-r^(−a), with a > 3, lies in Hintz's class and is reached directly
+r^(−a), with a > 3, lies in Hintz's class for the theorem run with ℓ0 ∈ (3, min(a, 4)) and is reached directly
 ([[prop:after-shell-above]], [[cor:after-shell-every-rate]]). For 3/2 < a ≤ ℓ0 the rate does not decide. Agreement on
 every ball with data to which (ii) applies, uniformly in the radius, is equivalent to membership in the class
 ([[prop:after-shell-membership]]). At every such rate some pure-gauge perturbations lie outside the class, and every data
@@ -97,8 +97,9 @@ notation of [[sec:ansatz]]: the means m_j, the phases φ_j, the leading oscillat
 with g0 = η + (μ_end/r²) dv ⊗ dv, five-dimensional Schwarzschild–Tangherlini of mass μ_end, and the m_j smooth and
 independent of λ. In the coordinates (t, x) := (τ, x), g0 = g^KS_(μ_end,0) of [[def:iii-b-3-2]] there.
 
-(b) On Ω ∩ {v > v_end}, |g_λ − g0 − λ m1| ≤ C λ² and |∂(g_λ − g0 − λ m1)| ≤ C λ². If [[thm:main]] is run at order k ≥ d
-with K ≥ d + 1, then g_λ − g0 is O(λ) in H^d of the slices Σ_τ ∩ {v > v_end}.
+(b) On Ω ∩ {v > v_end}, |g_λ − g0 − λ m1| ≤ C λ² and |∂(g_λ − g0 − λ m1)| ≤ C λ². If the energy estimate of
+[[thm:main]] is taken at order k ≥ d ([[rem:ue-every-order]]), with K ≥ d + 1, then g_λ − g0 is O(λ) in H^d of the
+slices Σ_τ ∩ {v > v_end}.
 
 (c) If T > r_q(μ_end) − a, a the inner radius of Ω ([[sec:domain]]), then for every τ1 ∈ (v_end − a, τ_end] the whole
 slice Σ_τ1 lies in {v > v_end}, and its inner sphere {r = a} lies inside the horizon {r = √μ_end} of g0.
@@ -138,8 +139,9 @@ Killing initial data of flat space ([[eq:v-0-4]]). On G-invariant data only its 
 in G, being the composition of the half-turns of the planes (x1, x2) and (x3, x4), so G-invariant data are invariant
 under x ↦ −x; in space dimension 4 the gluing needs no parity condition at all ([[rem:s28-cd03]]). The flux identity
 [[eq:v-1-1]] at X = e₀ bounds the distance of the glued mass from μ_end by the size of the data's deviation on the
-annulus: the flux of Tangherlini's data is 6π²m at every radius ([[lem:vii-2-1]] (c)), and the remainder q_(e₀) vanishes
-to second order at flat data, which gives the mass bound of step (6) of the proof of [[prop:vii-2-2]]. So the glued data
+annulus: the flux of Tangherlini's data on the Kerr–Schild slices is 6π²m at every radius (the part *c_E* of the
+proof of [[prop:v-2-3]]), and its charge on Σ^IVP is 6π²m ([[lem:vii-2-1]] (c)); the remainder q_(e₀) vanishes to
+second order at flat data, and together these give the mass bound of step (6) of the proof of [[prop:vii-2-2]]. So the glued data
 stay O(λ)-close to Tangherlini in the weighted norm of the stability theory at a fixed gluing radius
 ([[cor:vii-2-3]], [[rem:s28-mass-bound]]). The stability theorem, run on G-invariant spaces with its choices made
 equivariant ([[lem:vii-3-1]]), gives a G-invariant development whose final parameters, fixed by G, are a mass alone
@@ -154,7 +156,7 @@ statement of settling concerns late times near the hole, outside it.
 In this section the letter a denotes an order of decay, not the inner radius of Ω.
 
 *The data of (i).* Fix ℓ0 ∈ (3, 4), and let d_1 ([[thm:iii-k-4-3]]), λ1, δ and the data (γ_λ, k_λ) of item (i) be
-those of [[thm:settling]] and its proof run with this ℓ0, and fix λ ≤ λ1. By [[cor:vii-2-3]], (γ_λ, k_λ) are G-invariant
+those of [[thm:settling]] and its proof run with this ℓ0, a fixed ε < ε_K and a fixed ε_m > 0, and fix λ ≤ λ1. By [[cor:vii-2-3]], (γ_λ, k_λ) are G-invariant
 smooth vacuum data on Σ := Σ^IVP, equal to (γ^(m_λ), k^(m_λ)) on Σ ∩ {r ≥ 4R_i}, where R_i is the gluing radius there,
 |m_λ − μ_end| ≤ C λ, and (γ^m, k^m) are the data that g^KS_(m,0) induces on Σ far out ([[sec:vii-2]]). We write
 b₀ = (μ_end, 0) and R₁ = μ_end^(1/2). For r ≥ R₃, Σ is the graph {t_KS = f(|x|)} in the Kerr–Schild time of
@@ -189,8 +191,15 @@ Near infinity the b-vector fields of the radial compactification are spanned by 
 H^(∞,(ℰ0,ℓ0))_b × H^(∞,(ℰ0+1,ℓ0+1))_b of [[def:s11-b-analysis]] (5) with the index set ℰ0 = {(j, 0) : j ≥ 2} of
 [[eq:vii-0-1]], whose exponents below ℓ0 are 2 and 3, and those of ℰ0 + 1 below ℓ0 + 1 are 3 and 4; and ‖·‖_(d_1) is a
 norm in which [[thm:iii-k-4-3]] measures the data. Other choices of the cut-off, of the spanning set or of the sum over
-components give the same spaces and equivalent norms ([[def:s11-b-analysis]] (3), (5)). We read δ for this norm; an
-equivalent norm changes δ and the constants below by fixed factors. [[thm:settling]] (ii) asks
+components give the same spaces and equivalent norms. For the spanning set this is [[def:s11-b-analysis]] (3), and the
+space does not depend on the defining function by [[def:s11-b-analysis]] (5). For the cut-off, let χ′_c have the
+properties of χ_c. Then (χ_c − χ′_c)(ρ² b2 + ρ³ b3) is supported in {r_χ < r < 2r_χ}, where the weights are bounded,
+and its norm in H^(d,ℓ0)_b is at most C(‖b2‖_(H^d(𝕊³)) + ‖b3‖_(H^d(𝕊³))), as r∂_r acts on the radial factor and the
+Ω_ij are smooth vector fields on 𝕊³. So the difference of two expansions of u, one with each cut-off, puts
+χ′_c(ρ²(u^((2)) − u′^((2))) + ρ³(u^((3)) − u′^((3)))) in H^(d,ℓ0)_b, and [[lem:after-shell-expansion]], whose proof uses
+only large r, gives equal coefficients; ũ then changes by the term above, bounded by the coefficients' norms. For the
+sum over components: they are finitely many. We read δ for this norm; an equivalent norm changes δ and the constants
+below by fixed factors. [[thm:settling]] (ii) asks
 (γ − γ_λ, k − k_λ) ∈ ℋ^∞ with ‖(γ − γ_λ, k − k_λ)‖_(d_1) < δ.
 
 **Lemma {#lem:after-shell-expansion}** (The expansion is unique.) If b2, b3 ∈ L²(𝕊³) and χ_c

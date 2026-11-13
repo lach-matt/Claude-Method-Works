@@ -976,8 +976,14 @@ solution u of L_(h,p⃗)u = F lies in ⋂_ε H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_
     u = Σ_((λ,k)∈ℳ_α∖ℳ_(α′)) χ_K t_*^(−λ+1)(log t_*)^k h_b(S_(λ,k)) + ũ,
         ũ ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*)^(•,−),                                          {#eq:iii-i8-3-1}
 
-for every β_+ < min(3/2, min Re ℰ_+), with S_(λ,k) =: S^(h,p⃗)_(λ,k)(F) ∈ 𝒮_(1,ℂ) determined by u (its K⁺-expansion),
-linear and continuous in F, with bounds uniform for (h, p⃗) small and b ∈ ℬ̄_*.
+for every β_+ < min(3/2, min Re ℰ_+), with S_(λ,k) =: S^(h,p⃗)_(λ,k)(F) ∈ 𝒮_(1,ℂ) determined by u (its K⁺-expansion)
+and linear in F, and
+
+    |S^(h,p⃗)_(λ,k)(F)| + ‖ũ‖_(α) ≤ C‖F‖_(𝒴(α)) + C(‖h‖ + |p⃗|)‖u‖_(α′),
+
+with ‖·‖_(α) and ‖·‖_(α′) the seminorms of [[sec:iii-i8-1]] at the levels α and α′, and C uniform for (h, p⃗) small and
+b ∈ ℬ̄_*. This is not a bound by F alone: the last term vanishes at b = b₀ and (h, p⃗) = (0, 0), but not at the
+reference point (0, p⃗_b) with b ≠ b₀.
 
 *Proof.* Write L := L_(h,p⃗) and F = F_1 + F_2, F_j ∈ 𝒴_j(α). *Step 0.* f′ := F − (L − L_b)u = f′_1 + F_2 with
 f′_1 := F_1 − (L − L_b)u ∈ 𝒴_1(α): [[eq:iii-i-4-2]] (for L, [[lem:iii-i8-2-5]]) gives the ℐ⁺-data
@@ -1063,25 +1069,40 @@ near K⁺), so the stationary tensor ġ_b(ḃ_0) + h_b(iŜ_4) times χ_K has pos
 admissible): a finite sum of such polyhomogeneous terms in that space is zero, the functions t_*^(−λ+1)(log t_*)^j
 being independent and h_b injective. *Step 8.* The ℐ⁺-data of ũ follow from [[prop:iii-i1-2-1]] as in Step 6 of the
 proof of [[prop:iii-i6-2-1]] (χ_K = 0 near ℐ⁺). *Determination, linearity, bounds.* The S_(λ,k) are the coefficients
-of the K⁺-expansion of u below α − 2; every map used is linear, and fixed by L_b, given by L − L_b, or
-[[prop:iii-i1-2-1]] applied to L (Step 8), with coefficient bounds uniform for small (h, p⃗) and b ∈ ℬ̄_*
+of the K⁺-expansion of u below α − 2, and ũ is the rest; every map used is linear, and fixed by L_b, given by L − L_b,
+or [[prop:iii-i1-2-1]] applied to L (Step 8), with coefficient bounds uniform for small (h, p⃗) and b ∈ ℬ̄_*
 ([[lem:iii-i8-2-5]], [[lem:iii-i7-2-5]] (c), [[lem:iii-i15-1-1]] (P1)–(P4), and [[prop:iii-i2-5-1-b]] for
-[[prop:iii-i1-2-1]] at b). The coefficients are read from f′ of Step 0, so for a forcing F with forward solution u
-they are bounded by C‖f′‖_(𝒴(α)) ≤ C‖F‖_(𝒴(α)) + C(‖h‖ + |p⃗|)‖u‖_(α′), the last term by the count of Step 0. ∎
+[[prop:iii-i1-2-1]] at b). In Steps 1–7 the coefficients and the parts u_I, u_ι and u^♭ are obtained from f′ of Step 0
+by maps fixed by L_b, and Step 8 bounds the ℐ⁺-data of ũ by Lũ = F − L(Σ_((λ,k)) χ_K t_*^(−λ+1)(log t_*)^k h_b(S_(λ,k)))
+and by those parts. So |S_(λ,k)| + ‖ũ‖_(α) ≤ C‖F‖_(𝒴(α)) + C‖f′‖_(𝒴(α)), and the count of Step 0, whose coefficients
+L − L_b have size O(‖h‖ + |p⃗|), gives ‖(L − L_b)u‖_(𝒴(α)) ≤ C(‖h‖ + |p⃗|)‖u‖_(α′), so
+‖f′‖_(𝒴(α)) ≤ ‖F‖_(𝒴(α)) + C(‖h‖ + |p⃗|)‖u‖_(α′). At (0, p⃗_b) the coefficients of L_(0,p⃗_b) − L_b are of size |b − b₀|
+on supp(1 − χ_K), so the last term is present there when b ≠ b₀. ∎
 
 At a base point with parameter b no rotation row has rate below α − 2 for α < 3 (its K⁺-weight is Re λ − ε > 1); so
 [[lem:iii-i8-3-2]] holds at b as at b₀, with the states at b.
 
 **Lemma {#lem:iii-i8-3-3}** (The coefficients near the reference point.) Fix b ∈ ℬ̄_*. Let α′ < α be as in
 [[lem:iii-i8-3-2]], (h_j, p⃗_j) → (0, p⃗_b) with parameter b, F_j → F in 𝒴(α), and suppose that the forward solutions
-u_j of L_(h_j,p⃗_j)u_j = F_j and u of L_(0,p⃗_b)u = F lie in the space of the hypothesis of [[lem:iii-i8-3-2]], u_j
-bounded there. Then S^(h_j,p⃗_j)_(λ,k)(F_j) → S^(0,p⃗_b)_(λ,k)(F) for every (λ, k) ∈ ℳ_α ∖ ℳ_(α′).
+u_j of L_(h_j,p⃗_j)u_j = F_j and u of L_(0,p⃗_b)u = F lie in the space of the hypothesis of [[lem:iii-i8-3-2]], with
+‖u_j − u‖_(α′) → 0 (so the u_j are bounded in ‖·‖_(α′)). Then S^(h_j,p⃗_j)_(λ,k)(F_j) → S^(0,p⃗_b)_(λ,k)(F) for every
+(λ, k) ∈ ℳ_α ∖ ℳ_(α′). At b = b₀ it suffices that the u_j be bounded in ‖·‖_(α′).
 
-*Proof.* u_j − u is the forward solution of L_(0,p⃗_b)(u_j − u) = R_j := F_j − F − (L_(h_j,p⃗_j) − L_(0,p⃗_b))u_j,
-and (L_(h_j,p⃗_j) − L_(0,p⃗_b))u_j → 0 in 𝒴_1(α) by the count of Step 0 (coefficients of norm o(1),
-[[lem:iii-i8-2-5]]). So R_j → 0, u_j − u satisfies the hypothesis of [[lem:iii-i8-3-2]], and comparing the expansions
-[[eq:iii-i8-3-1]] of u_j, u and u_j − u gives S^(h_j,p⃗_j)_(λ,k)(F_j) − S^(0,p⃗_b)_(λ,k)(F) = S^(0,p⃗_b)_(λ,k)(R_j) → 0.
-∎
+*Proof.* u_j − u is the forward solution of
+
+    L_(0,p⃗_b)(u_j − u) = R_j := F_j − F − (L_(h_j,p⃗_j) − L_(0,p⃗_b))u_j.
+
+The coefficients of L_(h_j,p⃗_j) − L_(0,p⃗_b) have norm O(‖h_j‖ + |p⃗_j − p⃗_b|) ([[lem:iii-i8-2-5]]), and near K⁺ they
+gain a_K, both backgrounds being g_b there ([[lem:iii-i-3-6]]); so the count of Step 0 of the proof of
+[[lem:iii-i8-3-2]] gives ‖(L_(h_j,p⃗_j) − L_(0,p⃗_b))u_j‖_(𝒴(α)) ≤ C(‖h_j‖ + |p⃗_j − p⃗_b|)‖u_j‖_(α′) → 0, and R_j → 0 in
+𝒴(α). u_j − u lies in the space of the hypothesis of [[lem:iii-i8-3-2]], so that lemma applies to it, at (0, p⃗_b) with
+the forcing R_j. Comparing the expansions [[eq:iii-i8-3-1]] of u_j, u and u_j − u (their coefficients are unique, the
+functions t_*^(−λ+1)(log t_*)^k being independent and h_b injective, as in Step 7 of that proof) gives
+S^(h_j,p⃗_j)_(λ,k)(F_j) − S^(0,p⃗_b)_(λ,k)(F) = S^(0,p⃗_b)_(λ,k)(R_j), and the bound of [[lem:iii-i8-3-2]] at (0, p⃗_b) gives
+
+    |S^(0,p⃗_b)_(λ,k)(R_j)| ≤ C‖R_j‖_(𝒴(α)) + C|p⃗_b|‖u_j − u‖_(α′),
+
+which tends to 0, as R_j → 0 and ‖u_j − u‖_(α′) → 0. At b = b₀, p⃗_(b₀) = 0 and the second term is absent. ∎
 
 ### Elimination of the motions {#sec:iii-i8-4}
 
@@ -1157,12 +1178,44 @@ S⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′_(h,p⃗,α″)(F) := p⃗′_(h,p⃗,α�
 G(S⃗) (linearity of D_p⃗P_3(h, p⃗) in the direction), whose solution u(S⃗) has no term of ℳ′ in [[eq:iii-i8-3-1]], so
 lies in [[eq:iii-i8-4-2]] at α″. *Uniqueness:* if p⃗″ ∈ 𝒫_(α″) also gives [[eq:iii-i8-4-2]] at α″, with ℳ′-part S⃗″,
 then its solution lies in [[eq:iii-i8-4-2]] at α′ with the forcing F(S⃗″) − D_p⃗P_3(h, p⃗)(q⃗), q⃗ ∈ 𝒫_(α′), so
-q⃗ = p⃗′_(h,p⃗,α′)(F(S⃗″)) by uniqueness at α′, the solution is u(S⃗″), and C(S⃗″) = 0 gives S⃗″ = S⃗. *(i) at α″:*
-linear by construction, and uniform, as T_(h,p⃗)⁻¹ and the maps of [[lem:iii-i8-3-2]] are. *(ii) at α″, at fixed b:* for
-fixed S⃗, G_1 at (h_j, p⃗_j) tends to G_1 at (0, p⃗_b) in 𝒴(α″) ([[lem:iii-i8-2-6]] (c) and (ii) at α′), and the
-forward solutions are bounded in [[eq:iii-i8-4-2]] at α′ ((i) at α′), so [[lem:iii-i8-3-3]] gives
-T_(h_j,p⃗_j)S⃗ → T_(0,p⃗_b)S⃗; with [[lem:iii-i8-3-3]] for C(0) (with the forcings F_j(0)) and (ii) at α′, this gives
-(ii). ∎
+q⃗ = p⃗′_(h,p⃗,α′)(F(S⃗″)) by uniqueness at α′, the solution is u(S⃗″), and C(S⃗″) = 0 gives S⃗″ = S⃗.
+
+*(i) at α″.* Linearity holds by construction. Write ‖F‖ := ‖F‖_(𝒴(α″)). By (i) at α′ and [[lem:iii-i8-2-6]],
+‖G(0)‖_(𝒴(α″)) ≤ C‖F‖, and u(0), the solution of [[eq:iii-i8-4-1]] at α′ for the forcing F, has ‖u(0)‖_(α′) ≤ C‖F‖;
+so the bound of [[lem:iii-i8-3-2]] gives |C(0)| ≤ C‖F‖, and |S⃗| ≤ 2|C(0)| ≤ C‖F‖. Then ‖F(S⃗)‖_(𝒴(α″)) ≤ C‖F‖
+([[lem:iii-i8-2-6]] (b)), and (i) at α′ bounds p⃗′_(h,p⃗,α′)(F(S⃗)), G(S⃗) and u(S⃗), the solution of [[eq:iii-i8-4-1]]
+at α′ for F(S⃗), by C‖F‖ in 𝒫_(α′), 𝒴(α″) and ‖·‖_(α′). So |p⃗′_(h,p⃗,α″)(F)| ≤ C‖F‖, and the bound of
+[[lem:iii-i8-3-2]] on the remainder, which is u(S⃗) itself, gives ‖u(S⃗)‖_(α″) ≤ C‖F‖. The constants are uniform for
+(h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*, as those of (i) at α′, of [[lem:iii-i8-3-2]] and the bound on T_(h,p⃗)⁻¹ are.
+
+*(ii) at α″, at fixed b.* Let (h_j, p⃗_j) → (0, p⃗_b) and F_j → F in 𝒴(α″). Write T_j, C_j for the objects above at
+(h_j, p⃗_j) with the forcing F_j, and T, C for those at (0, p⃗_b) with F. We first show: *if Φ_j → Φ in 𝒴(α″), and w_j,
+w are the solutions of [[eq:iii-i8-4-1]] at α′ for the forcing Φ_j at (h_j, p⃗_j) and for Φ at (0, p⃗_b), with the
+forcings*
+
+    Ψ_j := Φ_j − D_p⃗P_3(h_j, p⃗_j)(p⃗′_(h_j,p⃗_j,α′)(Φ_j)),     Ψ := Φ − D_p⃗P_3(0, p⃗_b)(p⃗′_(0,p⃗_b,α′)(Φ)),
+
+*then Ψ_j → Ψ in 𝒴(α″) and ‖w_j − w‖_(α′) → 0.* Indeed, p⃗′_(h_j,p⃗_j,α′)(Φ_j) → p⃗′_(0,p⃗_b,α′)(Φ) by (ii) at α′, and
+D_p⃗P_3(h, p⃗) is linear in the direction, bounded uniformly and continuous in (h, p⃗) ([[lem:iii-i8-2-6]]), so
+Ψ_j → Ψ. Next, w_j − w is the forward solution of
+
+    L_(0,p⃗_b)(w_j − w) = R_j := Ψ_j − Ψ − (L_(h_j,p⃗_j) − L_(0,p⃗_b))w_j.
+
+The w_j are bounded in ‖·‖_(α′) by (i) at α′, and the coefficients of L_(h_j,p⃗_j) − L_(0,p⃗_b) have norm
+O(‖h_j‖ + |p⃗_j − p⃗_b|) and gain a_K near K⁺, where both backgrounds are g_b; so the count of Step 0 of the proof of
+[[lem:iii-i8-3-2]] gives ‖(L_(h_j,p⃗_j) − L_(0,p⃗_b))w_j‖_(𝒴(α″)) → 0, and R_j → 0 in 𝒴(α″) ⊂ 𝒴(α′); R_j is real.
+w_j − w lies in [[eq:iii-i8-4-2]] at α′, as w_j and w do. So p⃗′ = 0 has, for (0, p⃗_b) and the forcing R_j, the
+property of the statement at α′; by uniqueness at α′, p⃗′_(0,p⃗_b,α′)(R_j) = 0 and w_j − w is the solution of
+[[eq:iii-i8-4-1]] at α′ for R_j, and (i) at α′ gives ‖w_j − w‖_(α′) ≤ C‖R_j‖_(𝒴(α′)) → 0.
+
+For fixed S⃗ take Φ_j := Σ_ν f^ν_(h_j,p⃗_j)(S_ν) and Φ := Σ_ν f^ν_(0,p⃗_b)(S_ν), so that Φ_j → Φ ([[lem:iii-i8-2-6]]
+(c)); then Ψ_j and Ψ are G_1(S⃗) at (h_j, p⃗_j) and at (0, p⃗_b), and w_j, w their forward solutions, so
+[[lem:iii-i8-3-3]] gives T_jS⃗ → TS⃗. On the finite-dimensional space of the conjugation-symmetric tuples this is
+T_j → T, and as |T_j⁻¹| ≤ 2, T_j⁻¹ − T⁻¹ = T_j⁻¹(T − T_j)T⁻¹ → 0. Take next Φ_j := F_j and Φ := F; then Ψ_j and Ψ are
+G(0) at (h_j, p⃗_j) with F_j and at (0, p⃗_b) with F, and [[lem:iii-i8-3-3]] gives C_j(0) → C(0). So
+S⃗_j := T_j⁻¹C_j(0) → S⃗ := T⁻¹C(0). Finally F_j(S⃗_j) → F(S⃗) in 𝒴(α″), as f^ν_(h,p⃗)(S_ν) is linear in S_ν with norm
+O(|S_ν|) uniformly and continuous in (h, p⃗) ([[lem:iii-i8-2-6]] (b), (c)); so (ii) at α′ gives
+p⃗′_(h_j,p⃗_j,α′)(F_j(S⃗_j)) → p⃗′_(0,p⃗_b,α′)(F(S⃗)), and p⃗′_(h_j,p⃗_j,α″)(F_j) → p⃗′_(0,p⃗_b,α″)(F). ∎
 
 [Hin26, Proposition 11.51] has f_2 of K⁺-weight 4 + ε_K and h with 4 + ε_K orders of decay ([Hin26, (11.148)]); here
 α < a_K is what the b-derivative needs ([[lem:iii-i7-3-1]] (b)), and the remainder is α − 2 − ε for every ε,

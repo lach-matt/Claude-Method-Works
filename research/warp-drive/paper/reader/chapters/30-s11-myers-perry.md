@@ -1252,7 +1252,7 @@ then u ∈ H^(k,(E⃗,α⃗))_b(M). Conversely, u ∈ H^(k,(E⃗,α⃗))_b impli
 positive factor, which by [[def:s11-b-analysis]] (5) does not change the spaces). Conversely: by [[eq:iii-a-1-1]] the
 product annihilates Σ_((z,ℓ)∈E_(H,≤)) ρ_H^z(log ρ_H)^ℓ u^((z,ℓ)), the factor V − z being taken once for each (z, ℓ),
 ℓ ≤ k(E_H, z), so k(E_H, z) + 1 times; derivatives falling on the cut-off are supported away from H; and each factor
-costs one derivative (F1). Directly: order the factors as (z_1, ℓ_1), …, (z_p, ℓ_p) with Re z_1 ≥ ⋯ ≥ Re z_N and put
+costs one derivative (F1). Directly: order the factors as (z_1, ℓ_1), …, (z_p, ℓ_p) with Re z_1 ≥ ⋯ ≥ Re z_p and put
 w_i := Π_(j>i)(V − z_j)u, so that w_0 is the left side of [[eq:iii-a-1-3]], w_p = u and (V − z_i)w_i = w_(i−1). Apply
 [[lem:iii-a-1-2]] for i = 1, …, p, peeling the outermost factor first (its hypothesis α_H ≠ Re z_i is ours): by
 [[def:s11-b-analysis]] (4) it raises the logarithmic order at z_i by one and completes by [[eq:s11-index-set]], which
@@ -1272,13 +1272,85 @@ there (the solutions of the ordinary differential equation in ρ_H), and its coe
 #### Normal operator arguments {#sec:iii-a-1-1}
 
 Let ∂M be a compact manifold without boundary, M := [0, ρ₀)_ρ × ∂M, with the b-density |dρ/ρ| ⊗ μ, μ a smooth
-positive density on ∂M. For A ∈ Diff^m_b(M) elliptic near ρ = 0, N(A, ι) is an elliptic operator on ∂M depending
-polynomially on ι; we use two standard facts. (E1) *Large-parameter ellipticity:* for every strip
-{c₁ ≤ Re ι ≤ c₂} there is R such that N(A, ι) is invertible for |Im ι| ≥ R in the strip, with
-Σ_(j≤m) |ι|^(m−j)‖N(A, ι)⁻¹g‖_(H^(s+j)(∂M)) ≤ C‖g‖_(H^s(∂M)); this is the elliptic estimate with parameter for the
-operator family Σ_j A_j(0)ι^j, whose joint symbol Σ_j σ(A_j(0))(y, η)(iξ)^j is invertible for real (ξ, η) ≠ 0 by the
-b-ellipticity of A (equivalently, the semiclassical elliptic estimate with h = |Im ι|⁻¹). (E2) *Analytic Fredholm
-theory:* N(A, ι)⁻¹ is then meromorphic in ℂ with finite-rank Laurent coefficients mapping C^∞ to C^∞. Define
+positive density on ∂M. Fix smooth vector fields X₁, …, X_q on ∂M spanning T∂M at every point. For an integer k ≥ 0,
+H^k(∂M) is normed by ‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices; this is the
+usual Sobolev norm up to equivalence ([Hin26d, Definition 3.14 and Remark 3.15, pp. 34–35]), and
+‖u‖_(H^k) = ‖u‖_(L²) + Σ_i ‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M) elliptic near ρ = 0, N(A, ι) = Σ_j A_j(0)ι^j
+is an elliptic operator on ∂M depending polynomially on ι. We use two facts about it.
+
+(E1) *Large-parameter ellipticity.* For every strip {c₁ ≤ Re ι ≤ c₂} and every integer s ≥ 0 there are R and C such
+that N(A, ι) : H^(s+m)(∂M) → H^s(∂M) is invertible for |Im ι| ≥ R in the strip, with
+
+    Σ_(j≤m) |ι|^(m−j)‖N(A, ι)⁻¹g‖_(H^(s+j)(∂M)) ≤ C‖g‖_(H^s(∂M)).
+
+(E2) *Analytic Fredholm theory.* N(A, ι)⁻¹ : L²(∂M) → H^m(∂M) is meromorphic in ℂ. The coefficients of the negative
+powers in its Laurent expansions have finite rank and map H^s(∂M) to H^(s+m)(∂M) for every integer s ≥ 0, so C^∞(∂M)
+to C^∞(∂M).
+
+Both are proved from one result of the literature, the elliptic estimate on a compact manifold without boundary.
+[Hin26d, Proposition 3.55 (3), p. 57] states: for A ∈ w′Ψ^(m′)_𝒱(M), B ∈ Ψ⁰_𝒱(M) and u ∈ wρ^(−∞)H^(−∞)_𝒱(M), "If
+WF′_𝒱(B) ⊂ Ell^(m,w)_𝒱(A), then for any N there exists C_N so that ‖Bu‖_(wρ^l H^m_𝒱(M)) ≤ C_N(‖Au‖_(ww′ρ^l
+H^(m−m′)_𝒱(M)) + ‖u‖_(wρ^(−N) H^(−N)_𝒱))". On a compact manifold Z without boundary the calculus is the standard one
+([Hin26d, Example 3.63, p. 61]), with ρ = w = w′ = 1 and H^m_𝒱(Z) = H^m(Z). With B = I and N = 0 this gives, for a
+differential operator P of order m on Z whose principal symbol vanishes nowhere on T*Z ∖ o and every integer s ≥ 0,
+a constant C with
+
+    ‖w‖_(H^(s+m)(Z)) ≤ C(‖Pw‖_(H^s(Z)) + ‖w‖_(L²(Z))),                                                 (EE)
+
+and w ∈ H^(s+m)(Z) whenever w ∈ L²(Z) and Pw ∈ H^s(Z).
+
+*Proof of (E1).* Let 𝕋 := ℝ/2πℤ and Z := 𝕋_x × ∂M, with the density |dx| ⊗ μ and the norms H^k(Z) defined as above
+with the fields ∂_x, X₁, …, X_q. For c ∈ ℝ and κ ∈ [0, 1] let P_(c,κ) := Σ_j A_j(0)(∂_x + c + iκ)^j. In local
+coordinates y on ∂M, with A = Σ_(j+|β|≤m) a_jβ(ρ, y)(ρ∂_ρ)^j∂_y^β, P_(c,κ) = Σ a_jβ(0, y)(∂_x + c + iκ)^j∂_y^β, whose
+principal symbol at (ξ, η) is i^m Σ_(j+|β|=m) a_jβ(0, y)ξ^jη^β; it vanishes nowhere on T*Z ∖ o, by the ellipticity of
+A. So (EE) holds for each P_(c,κ). It holds with one constant C₁ for all (c, κ) ∈ K := [c₁, c₂] × [0, 1]: the
+difference P_(c,κ) − P_(c′,κ′) has order at most m − 1, with coefficients bounded by C_K(|c − c′| + |κ − κ′|) on K,
+so ‖(P_(c,κ) − P_(c′,κ′))w‖_(H^s) ≤ C_K(|c − c′| + |κ − κ′|)‖w‖_(H^(s+m)); for (c, κ) close to (c′, κ′) this term is
+absorbed, and (EE) holds there with twice the constant of (c′, κ′); finitely many such neighbourhoods cover K.
+
+Now let u ∈ H^(s+m)(∂M), ι = c + iτ with c ∈ [c₁, c₂], n := ⌊τ⌋, κ := τ − n and w := e^(inx)u. Then
+P_(c,κ)w = e^(inx)N(A, ι)u. As ∂_x commutes with the X_i, every product of at most k of the fields ∂_x, X_i applied to
+w is e^(inx)(in)^l X_(i₁)⋯X_(i_p)u with l + p ≤ k; so ‖w‖_(H^k(Z)) is bounded above and below, with constants
+depending only on k, by [u]_(k,τ) := Σ_(l≤k) ⟨τ⟩^l ‖u‖_(H^(k−l)(∂M)), ⟨τ⟩ := (1 + τ²)^(1/2) (the term l = 0 dominates
+the others where |n| ≤ 1). So (EE) gives [u]_(s+m,τ) ≤ C₂([N(A, ι)u]_(s,τ) + ‖u‖_(L²)), and as
+‖u‖_(L²) ≤ ⟨τ⟩^(−s−m)[u]_(s+m,τ),
+
+    [u]_(s+m,τ) ≤ 2C₂[N(A, ι)u]_(s,τ)     for ⟨τ⟩^(s+m) ≥ 2C₂.                                           (E1′)
+
+*Invertibility.* Fix R with ⟨R⟩^m ≥ 2C₂ for s = 0. By (E1′) at s = 0, N(A, ι) : H^m → L² is injective with closed
+range for |Im ι| ≥ R. Its formal adjoint with respect to μ is Σ_j A_j(0)*ῑ^j = N(A′, ῑ) with A′ := Σ_j A_j(0)*(ρ∂_ρ)^j,
+which is elliptic near ρ = 0, as its polynomial at ρ = 0 is (−1)^m times the complex conjugate of that of A at
+(−ξ, η); and Re ῑ = Re ι. So, after enlarging R, N(A′, ῑ) is injective on H^m as well. If g ∈ L² is orthogonal to the
+range of N(A, ι), then N(A′, ῑ)g = 0 in the sense of distributions; (EE) for the operator P′ built from A′ as P_(c,κ)
+from A, applied to e^(in′x)g with n′ := ⌊−τ⌋, gives g ∈ H^m, so g = 0. Hence N(A, ι) : H^m → L² is bijective. For
+g ∈ H^s, u := N(A, ι)⁻¹g lies in H^m and P_(c,κ)(e^(inx)u) = e^(inx)g ∈ H^s(Z), so u ∈ H^(s+m) by (EE).
+
+*The estimate.* We show, by induction on s,
+
+    Σ_(l≤m) ⟨τ⟩^l ‖u‖_(H^(s+m−l)) ≤ C‖N(A, ι)u‖_(H^s)     (u ∈ H^(s+m), ι = c + iτ, c ∈ [c₁, c₂], |τ| ≥ R),
+
+which is (E1), as |ι| ≤ C⟨τ⟩ in the strip. At s = 0 it is (E1′). Let s ≥ 1 and g := N(A, ι)u. Then
+N(A, ι)X_iu = X_ig + [N(A, ι), X_i]u, where [N(A, ι), X_i] = Σ_j ι^j[A_j(0), X_i] and [A_j(0), X_i] has order at
+most m − j; so ‖[N(A, ι), X_i]u‖_(H^(s−1)) ≤ C Σ_(l≤m) ⟨τ⟩^l‖u‖_(H^(s−1+m−l)) ≤ C′‖g‖_(H^(s−1)), by the case s − 1.
+The case s − 1 applied to X_iu ∈ H^(s−1+m) then gives Σ_l ⟨τ⟩^l‖X_iu‖_(H^(s−1+m−l)) ≤ C(‖X_ig‖_(H^(s−1)) +
+C′‖g‖_(H^(s−1))) ≤ C″‖g‖_(H^s), and ‖v‖_(H^k) ≤ ‖v‖_(H^(k−1)) + Σ_i ‖X_iv‖_(H^(k−1)) gives the case s. ∎
+
+*Proof of (E2).* Fix ι₀ at which N(A, ι₀) is invertible, by (E1). On the Hilbert space H^m(∂M) let
+B(ι) := N(A, ι₀)⁻¹(N(A, ι) − N(A, ι₀)) = Σ_(j≥1) (ι^j − ι₀^j)N(A, ι₀)⁻¹A_j(0). For j ≥ 1, A_j(0) has order at most
+m − 1 and maps H^m to H^1, and N(A, ι₀)⁻¹ maps H^1 to H^(m+1) by (E1); and the inclusion H^(m+1)(∂M) ↪ H^m(∂M) is
+compact ([Hin26d, Theorem 3.21, p. 37], [[thm:std-sbg-calculus]] (S3), on the compact ∂M with w = w′ = 1). So B is an
+entire family of compact operators on H^m, and Id + B(ι) = N(A, ι₀)⁻¹N(A, ι) is invertible wherever N(A, ι) is,
+in particular at ι₀. By [[thm:std-analytic-fredholm]], W(ι) := (Id + B(ι))⁻¹ exists off a discrete set and is
+meromorphic on ℂ; so is N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ : L² → H^m. At a pole ι₁ of order p write
+W(ι) = Σ_(k≥−p) W_k(ι − ι₁)^k and B(ι) = Σ_(k≥0) B_k(ι − ι₁)^k. From (Id + B)W = Id, (Id + B₀)W_(−p) = 0 and
+(Id + B₀)W_(−p+k) = −Σ_(1≤l≤k) B_lW_(−p+k−l) for 1 ≤ k < p. The kernel of Id + B₀ is finite-dimensional, as v = −B₀v
+on it and B₀ is compact; so W_(−p) has finite rank, and inductively each W_(−p+k), k < p, maps into the preimage under
+Id + B₀ of a finite-dimensional space, which is finite-dimensional. So the coefficients of the negative powers of
+N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ have finite rank. They are integrals of (ι − ι₁)^(k−1)N(A, ι)⁻¹ over a small circle about
+ι₁; on it, by (EE) for P_(c,κ) with the constant C₁ and the comparison of norms above (|τ| being bounded there),
+‖N(A, ι)⁻¹g‖_(H^(s+m)) ≤ C(‖g‖_(H^s) + ‖N(A, ι)⁻¹g‖_(L²)) ≤ C′‖g‖_(H^s), so they map H^s to H^(s+m). ∎
+
+Define
 
     Spec_b(A) := {(ι, k) : N(A, ζ)⁻¹ has a pole of order ≥ k + 1 at ζ = ι}
 
@@ -1424,12 +1496,14 @@ a^∞_jα(ω) := a_jα|_(∂ℝ̄⁴), ω = x/|x| ∈ 𝕊³,
 
     N_sf(A) := r^(α_sf) Σ_(j+|α|≤m) a^∞_jα(ω)(r∂_(t_*))^j (r∂_x)^α                                        {#eq:iii-a-2-4}
 
-is homogeneous of degree α_sf under (t_*, x) ↦ (λ₀t_*, λ₀x), λ₀ > 0, and A − N_sf(A) ∈ Diff^(m,(α_sf−1,0))_3b on
+is homogeneous of degree α_sf under (t_*, x) ↦ (ct_*, cx), c > 0, and A − N_sf(A) ∈ Diff^(m,(α_sf−1,0))_3b on
 {r ≥ 1}, as a_jα − a^∞_jα and ⟨x⟩ − r are O(r⁻¹) with all b-derivatives. In ρ = r⁻¹, ω, v := ρt_* (so
 sf° = ℝ_v × 𝕊³), N_sf(r^(−α_sf)A) = Σ a_jkγ(ω) ∂_v^j (ρ∂_ρ + v∂_v)^k ∂_ω^γ, since ρ⁻¹∂_(t_*) = ∂_v and
 ρ∂_ρ|_(t_*) = ρ∂_ρ|_v + v∂_v; and the Mellin transform in ρ gives
 
-    N_sf(r^(−α_sf)A, ρ^ι) := Σ_(j+k+|γ|≤m) a_jkγ(ω) ∂_v^j (ι + v∂_v)^k ∂_ω^γ ∈ Diff^m_b(sf).              {#eq:iii-a-2-5}
+    N_sf(r^(−α_sf)A, ϰ) := Σ_(j+k+|γ|≤m) a_jkγ(ω) ∂_v^j (ϰ + v∂_v)^k ∂_ω^γ ∈ Diff^m_b(sf),                {#eq:iii-a-2-5}
+
+so that N_sf(r^(−α_sf)A)(ρ^ϰ u) = ρ^ϰ N_sf(r^(−α_sf)A, ϰ)u for u = u(v, ω).
 
 The only change from dimension 3 + 1 is 𝕊³ in place of 𝕊².
 
@@ -1516,7 +1590,7 @@ For p = 1 this is [[lem:iii-a-3-2]] for log-free E (Z = {(z_1 + j, 0) : j ∈ �
 put into the index set at y = 0 and returns (z + 1, 1), which (E + Z) ∪̄ F need not contain. The cure is to solve for
 each coefficient in x at once.
 
-*Proof.* Order the factors so that Re z_1 ≥ ⋯ ≥ Re z_N, and let G := (E + Z) ∪̄ F.
+*Proof.* Order the factors so that Re z_1 ≥ ⋯ ≥ Re z_p, and let G := (E + Z) ∪̄ F.
 
 *Step 1, at x = 0, one coefficient at a time.* As E has no logarithms, [[eq:iii-a-3-1]] gives
 P(x^w a(y, q)) = x^w Π_j(w + z_j − y∂_y)a exactly. For w ∈ π₁E with Re w ≤ α, let v_w ∈ H^(k,(F,β))_b be the

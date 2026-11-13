@@ -631,8 +631,8 @@ every first derivative, are combinations with coefficients bounded by 1 + 4/r of
 the norms in L²([R′, ∞) × S³, dr dω).
 (c) If φ → 0 at spatial infinity along the rays and ∫^∞ r^(2a+3)(dφ/dr)² dr < ∞, then
 
-    ∫_(r_σ)^∞ r^(2a+1) φ² dr ≤ (a + 1)⁻² ∫_(r_σ)^∞ r^(2a+3) (dφ/dr)² dr,     r^(2a+2) φ(r)² ≤ (2a + 2)⁻¹ ∫_r^∞ s^(2a+3) (dφ/ds)² ds.
-                                                                                                    {#eq:own-hardy}
+    ∫_(r_σ)^∞ r^(2a+1) φ² dr ≤ (a + 1)⁻² ∫_(r_σ)^∞ r^(2a+3) (dφ/dr)² dr,
+    r^(2a+2) φ(r)² ≤ (2a + 2)⁻¹ ∫_r^∞ s^(2a+3) (dφ/ds)² ds.                                         {#eq:own-hardy}
 
 *Proof.* (a) x_j Ω_ij = x_i (x·∂) − r² ∂_i and x·∂ = Z − (t − v1)∂_t; and Z∂_c = ∂_c Z − ∂_c, as [Z, ∂_c] = −∂_c.
 (b) On [R′, R″], R′^(2a+3)𝐅(R′)² = R″^(2a+3)𝐅(R″)² − ∫ ((2a + 3) r^(2a+2) 𝐅² + r^(2a+3) d(𝐅²)/dr) dr, with

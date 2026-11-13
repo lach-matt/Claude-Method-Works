@@ -197,8 +197,8 @@ K_1 in place of K and (T0, T1) in place of (t0, t1),
     ‖u_k − u_l‖_(s,S(T0,T1)) ≤ C ‖g_k − g_l‖_(s−1,S(T0,T1)) ≤ C ‖g_k − g_l‖_(H^(s−1)(ℝ^(1+n))),
 
 the last norm being equivalent, for the integer s − 1 ≥ 0, to the sum of the L²-norms of the derivatives of order at
-most s − 1, by Plancherel's theorem. As T1 is arbitrary and u_k = 0 for t < T0, (u_k) converges in H^(s)_loc(M) to some u with Pu = g, and
-supp u ⊂ ⋂_k (K_k + J_+(0)) = K + J_+(0) = J_+(K).
+most s − 1, by Plancherel's theorem. As T1 is arbitrary and u_k = 0 for t < T0, (u_k) converges in H^(s)_loc(M) to
+some u with Pu = g, and supp u ⊂ ⋂_k (K_k + J_+(0)) = K + J_+(0) = J_+(K).
 
 *The case s ≤ 0.* Put m := 1 − s ≥ 1, so g ∈ H^(−m). Let χ ∈ C_c^∞(M) equal 1 near K. For φ ∈ 𝒟(M; ℂ^N) put
 

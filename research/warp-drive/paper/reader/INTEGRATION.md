@@ -471,3 +471,12 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Chapter 64 written. Notation to reconcile: ṁ (Ch 3 μ̇), K := r⁻²dv² with K_V, R_H for [HKW18]'s R_1, 𝔪 for
   Kodama–Ishibashi's m (Ch 34 p). [KI03] and [HKW18] statements (thm:rw-ki, thm:rw-hkw) to fold into Appendix A.
   support8 K8 and [Hol08] belong with chapter 61's source.
+- Proof H (R-P-H): every constant correct; the source's 0.93 (and its m0′/(κm0) ≥ 2.001 / 2.003) false at R = 1.1,
+  0.89 suffices (0.89 · 2 · 25/26 = 89/52 ≥ 1.7). For chapter 85: ε in the source's L.24 proof is ε_(M*) (M* = 2N + 8),
+  so "m0 ≥ cε²" is false; use ε² ≤ Cλ^(−1/8)·m0 (the source's Lemma L.5). Copying that sentence would be a Major.
+- Proof G fixed (F-P-G): renames ρ → κ_Σ, R → R′, v_1 → v1 (sent to the chapter 63 writer); far-wedge geometry cites
+  lem:interior-far-part (i); five markers remain for chapter 63 to supply.
+- Writers started: chapter 65 (M Ch 15) and chapter 70 (M Ch 17, merging proofs B and B2).
+- S15 (R-S15): the edition's sign (B = +2H_T/k_V) is correct and the sources' minus sign doubles H_T and f_a; no
+  conclusion changes. The source's numeral 1 + 2.93e-6 is a root location, not a bound; prop:np-10-52's ε_ind ≤ δ₅₀ is
+  stronger and proved. The two ε_ind bounds differ by a factor of about 5.
