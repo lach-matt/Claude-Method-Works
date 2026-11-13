@@ -534,8 +534,8 @@ of λ0 in [[sec:eq-setting]].
 *Proof.* From g_λ = g0 + k, g_λ⁻¹ − g0⁻¹ = −g0⁻¹ k g_λ⁻¹, and substituting this once more for g_λ⁻¹ on the right, g_λ⁻¹ =
 g0⁻¹ − g0⁻¹ k g0⁻¹ + g0⁻¹ k g0⁻¹ k g_λ⁻¹. Contract with dΦ0 twice: the first two terms give −m0 − k(Φ0♯, Φ0♯), and the
 third is q := k(Φ0♯, g0⁻¹ k g_λ⁻¹ dΦ0), so that the absolute value of q is at most C |k(Φ0♯, ·)| times |k(g_λ⁻¹ dΦ0, ·)|.
-The same identity applied to g_λ⁻¹ dΦ0 bounds the latter by |k(Φ0♯, ·)| + C |k| |k(Φ0♯, ·)| + C |k|³, which is at most C
-(|k(Φ0♯, ·)| + |k|²) since |k| ≤ 1. ∎
+The same identity applied to g_λ⁻¹ dΦ0 bounds the latter by |k(Φ0♯, ·)| + C |k| |k(Φ0♯, ·)| + C |k|³, which is at
+most C (|k(Φ0♯, ·)| + |k|²) since |k| ≤ 1. ∎
 
 ### Flat-edge bounds {#sec:layer-flat}
 
@@ -826,16 +826,17 @@ with its hypothesis ε_(M*)(v1) ≤ λ³ replaced by ε_4(v1) ≤ λ: for X ∈ 
 C_L4 depending on the quantities of [[sec:layer-setting]] and not on λ, v1 or X.
 
 *Proof.* Steps 1, 2, 5 and 7 of the proof of [[lem:layer-remainder]] do not use the hypothesis, step 5 using the
-coefficients of step 3 only as below. In step 3, the terms with l = 1 and p ≥ 1 cost j, those with l ≥ 2 are bounded by C
-λ^(l−p) through the global bounds of the profiles, and those with p = 0 by C λ; so |∂^j (g_app − g0)| ≤ C (λ + λ^(1−j)
-ε_j(v1) + λ^(2−j)), which is bounded for j ≤ 2, since ε_2 ≤ λ, and at most C λ^(2−j) for j = 3, 4, since ε_4 ≤ λ. Order
-the energies E^(0), E^(1), E^(2), E^(i) controlling ∂^(i+1) w and ∂^i w. In ∂^i of [[eq:layer-w-equation]], every
-coefficient of a w-factor of the same level is a derivative of order at most 2 of g_λ or at most 1 of g_app, bounded;
-∂³g_app and ∂⁴g_app occur only in ∂^(i−p) w ∂^(p+2) g_app (p ≥ 1), in ∂^(1+a) g_app ∂^(1+b) w and in the cubic Q-terms,
-each multiplying a w-factor of a strictly lower level. So E^(0) obeys [[lem:energy]] with bounded coefficients, E^(0) ≤ C
-λ^(N−3) ε_(M*)(v1), and E^(i) ≤ C (E^(i)(τ0) + ∫ (‖∂^i Ric^H(g_app)‖ + Σ_(j<i) L_ij E^(j))) with L_ij ≤ C λ^(j−i);
-inductively E^(i) ≤ C λ^(N−3−i) ε_(M*)(v1). In the data of step 5 the coefficients of the same level are bounded and the
-large ones multiply lower levels, so the same triangular argument applies there. Step 7 as written. ∎
+coefficients of step 3 only as below. In step 3, the terms with l = 1 and p ≥ 1 cost j, those with l ≥ 2 are
+bounded by C λ^(l−p) through the global bounds of the profiles, and those with p = 0 by C λ; so the derivative
+∂^j (g_app − g0) is at most C (λ + λ^(1−j) ε_j(v1) + λ^(2−j)), which is bounded for j ≤ 2, since ε_2 ≤ λ, and at most
+C λ^(2−j) for j = 3, 4, since ε_4 ≤ λ. Order the energies E^(0), E^(1), E^(2), E^(i) controlling ∂^(i+1) w and ∂^i w.
+In ∂^i of [[eq:layer-w-equation]], every coefficient of a w-factor of the same level is a derivative of order at most 2
+of g_λ or at most 1 of g_app, bounded; ∂³g_app and ∂⁴g_app occur only in ∂^(i−p) w ∂^(p+2) g_app (p ≥ 1), in
+∂^(1+a) g_app ∂^(1+b) w and in the cubic Q-terms, each multiplying a w-factor of a strictly lower level. So E^(0)
+obeys [[lem:energy]] with bounded coefficients, E^(0) ≤ C λ^(N−3) ε_(M*)(v1), and
+E^(i) ≤ C (E^(i)(τ0) + ∫ (‖∂^i Ric^H(g_app)‖ + Σ_(j<i) L_ij E^(j))) with L_ij ≤ C λ^(j−i); inductively
+E^(i) ≤ C λ^(N−3−i) ε_(M*)(v1). In the data of step 5 the coefficients of the same level are bounded and the large
+ones multiply lower levels, so the same triangular argument applies there. Step 7 as written. ∎
 
 ### The window {#sec:layer-window}
 

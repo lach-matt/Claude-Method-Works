@@ -1162,13 +1162,14 @@ I ⊂ the r-range of A_σ″(ϱ, V_*),
 
     |∂^(β_0) δ|² ≤ C r_p^(−3−2(a+q−1)) 𝒥(σ″; ϱ, V_*) = C r_p^(−2a−2q−1) 𝒥(σ″; ϱ, V_*)   on {r = r_p}.
 
-Let p be a point of X_(ϱ_1,V_*) with t̃(p) = σ″ ≤ σ and r_p := r(p) ≥ ϱ_1. If r_p − 1 ≥ ϱ_1 + 2(σ″ − T), take
+Let o be a point of X_(ϱ_1,V_*) with t̃(o) = σ″ ≤ σ, and put r_p := r(o) ≥ ϱ_1. If r_p − 1 ≥ ϱ_1 + 2(σ″ − T), take
 ϱ := r_p − 1 − 2(σ″ − T) ≥ ϱ_1 and I := [r_p − 1, r_p], which lies in the r-range of A_σ″(ϱ, V_*) as
 r_p ≤ V_* − 2(σ″ − T); then ϱ ≥ r_p/2, as r_p ≥ 2 + 4(σ′ − T). Otherwise take ϱ := ϱ_1 and I := [r_p, r_p + 1], which
-lies in the r-range of A_σ″(ϱ_1, V_*) as r_p + 1 < ϱ_1 + 2(σ′ − T) + 2 < V_* − 2(σ′ − T); then ϱ_1 > r_p − 1 − 2(σ′ − T)
-≥ r_p/2. In both cases [[eq:own-ext-weighted]] gives 𝒥(σ″; ϱ, V_*) ≤ C_K 2^(6−2a) r_p^(2a−6), and so
+lies in the r-range of A_σ″(ϱ_1, V_*) as r_p + 1 < ϱ_1 + 2(σ′ − T) + 2 < V_* − 2(σ′ − T); then
+ϱ_1 > r_p − 1 − 2(σ′ − T) ≥ r_p/2. In both cases [[eq:own-ext-weighted]] gives
+𝒥(σ″; ϱ, V_*) ≤ C_K 2^(6−2a) r_p^(2a−6), and so
 
-    |∂^q δ(p)| ≤ C′_K r_p^(−q−7/2)   (q ≤ m − 2),                                                         {#eq:own-ext-pointwise}
+    |∂^q δ(o)| ≤ C′_K r_p^(−q−7/2)   (q ≤ m − 2),                                        {#eq:own-ext-pointwise}
 
 C′_K depending on K besides and independent of ϱ_1 and V_*.
 
@@ -1333,9 +1334,9 @@ k1 − 2 ≤ k_J − 3), and has E_σ[Γ^α h_R^(J)] ≤ C ϑ(σ) → 0 as σ �
 
 *The limit does not depend on J.* For J′ ≥ J ≥ 2k1 + 7, g^(J′) = g^(J) by [[lem:cutoff-independence]], which is in
 Section [[sec:own-vacuum]]; its proof uses only the properties of g^(J) and g^(J′) just listed and
-[[lem:own-two-continuations]], not the conclusions of this theorem. Write g for the common limit. As g = g^(J) is of class
-C^(k_J−3) for every J, g is smooth, and as it equals g_λ on N with all its derivatives (each g_T equals g_λ on its side
-v ≤ v1, [[lem:own-truncation]] (ii)), g and g_λ join smoothly across N. Taking J := max(2k1 + 7, 2k + 7) gives
+[[lem:own-two-continuations]], not the conclusions of this theorem. Write g for the common limit. As g = g^(J) is of
+class C^(k_J−3) for every J, g is smooth, and as it equals g_λ on N with all its derivatives (each g_T equals g_λ on its
+side v ≤ v1, [[lem:own-truncation]] (ii)), g and g_λ join smoothly across N. Taking J := max(2k1 + 7, 2k + 7) gives
 𝔈_k ≤ C_k(λ) := C_k(λ, J) for every k.
 
 *Step 6 (the class on S).* On S = {t = f(r)}, r d/dr (h_R|_S) = (Z h_R)|_S + (v1 − f + r f′)(∂_t h_R)|_S, with
