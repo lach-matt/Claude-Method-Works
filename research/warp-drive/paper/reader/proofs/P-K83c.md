@@ -291,20 +291,21 @@ development.
 <!-- Block 5. Proof of thm:loc-bent-slice (b) in chapter 83: what it uses of [Rac16, (4.21)] matches the source (Block
 6): H is rational in k, K^E_E, κ and γ̂ with powers of κ as its only denominators, symmetric, positive definite exactly
 where κK^E_E < 0, and HB^(K) is symmetric there. The change below only points to the place where positivity is shown.
-Old text, exactly:
+Old text, exactly (two whole lines):
 
 graph of (ū, P̄) it is a smooth function of (ρ, ω, u, P), symmetric, positive definite at ū, and HB^(K) is
-symmetric.
+symmetric. With t := R2 − ρ the system reads ∂_tu − B^(K)∂_Ku − C = 0, which is [[eq:class-kato-sphere]] with n =
 
-New text: -->
+New text (three lines; the next line of the chapter, beginning "3, A^0 := H,", follows unchanged): -->
 
 graph of (ū, P̄) it is a smooth function of (ρ, ω, u, P), symmetric, positive definite at ū, where κK^E_E < 0
-([[thm:std-racz-hyperbolic]]), and HB^(K) is symmetric.
+([[thm:std-racz-hyperbolic]]), and HB^(K) is symmetric. With t := R2 − ρ the system reads ∂_tu − B^(K)∂_Ku − C = 0,
+which is [[eq:class-kato-sphere]] with n =
 
 <!-- Block 6. Item 3, the Appendix A entry (chapter 95). Source: I. Rácz, Constraints as evolutionary systems, arXiv
 1508.01810v3, page 12 (printed page number 12), equations (4.20) and (4.21), the sentence after (4.21), and footnote
-6; read from the PDF of that version, and every symbol of (4.20) and (4.21) checked against the author's typeset
-formulas. The consequence drawn at the end (the block form and its Schur complement) was checked for n = 3, 4, 5 with
+6; read from the arXiv text of that version, and every symbol of (4.20) and (4.21) checked against the author's
+typeset formulas. The consequence drawn at the end (the block form and its Schur complement) was checked for n = 3, 4, 5 with
 generic entries; the leaves of chapter 83 have n = 4. Two changes to thm:std-racz-hyperbolic.
 
 First, its opening. Old text, exactly:
