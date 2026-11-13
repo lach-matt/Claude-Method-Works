@@ -673,16 +673,16 @@ of |I′|, |I″| is at most ⌊j/2⌋,
 
     (P1) ‖f · g‖_(j) ≤ C ‖f‖_(j),∞ ‖g‖_(j);      (P2) ‖f · g‖_(j) ≤ C (‖f‖_(⌊j/2⌋),∞ ‖g‖_(j) + ‖f‖_(j) ‖g‖_(⌊j/2⌋),∞).
 
-*Classes of coefficients.* Fix smooth functions φ_1, …, φ_m on Σ with nonzero differentials (the phases; m = 0 is
-allowed) and a closed ball 𝔅 ⊂ ℝ^d centred at 0. A *profile function* is a smooth function h(x, θ_1, …, θ_m, λ, y) on
-Σ × T^m × [0, 1] × 𝔅, and [h](x, y) := h(x, φ_1(x)/λ, …, φ_m(x)/λ, λ, y). By the chain rule 𝓛_i [h] = [X_i h] +
-λ⁻¹ Σ_B X_i(φ_B) [∂_(θ_B) h] and ∂_r [h] = [∂_r h] + λ⁻¹ Σ_B ∂_r φ_B [∂_(θ_B) h], so
+*Classes of coefficients.* Fix smooth functions φ_1, …, φ_(n_φ) on Σ with nonzero differentials (the phases;
+n_φ = 0 is allowed) and a closed ball 𝔅 ⊂ ℝ^d centred at 0. A *profile function* is a smooth function
+h(x, θ_1, …, θ_(n_φ), λ, y) on Σ × T^(n_φ) × [0, 1] × 𝔅, and [h](x, y) := h(x, φ_1(x)/λ, …, φ_(n_φ)(x)/λ, λ, y). By
+the chain rule 𝓛_i [h] = [X_i h] + λ⁻¹ Σ_B X_i(φ_B) [∂_(θ_B) h] and ∂_r [h] = [∂_r h] + λ⁻¹ Σ_B ∂_r φ_B [∂_(θ_B) h], so
 
     (C0) λ^|I| |𝓛^I ∂_y^β [h]| ≤ C_(I,β) on Σ × 𝔅, for every word I and multi-index β,
 
 and λ ∂_r [h] is again of the form [h′]. A function c(x, y) is of *class 𝔏* if it is [h] for a profile function h, and
 of *class 𝔓* if c = c0 + λ [h] with c0 smooth on Σ × 𝔅 and independent of λ; then also λ^|I| |𝓛^I ∂_y^β c| ≤ C λ for |I|
-≥ 1, and ∂_r c is of class 𝔏. The *class bounds* of c are the constants C_(I,β). With m = 0 and λ = 1 both classes
+≥ 1, and ∂_r c is of class 𝔏. The *class bounds* of c are the constants C_(I,β). With n_φ = 0 and λ = 1 both classes
 consist of the smooth functions on Σ × 𝔅.
 
 *Structure.* We consider maps 𝔉 = (𝔉_ρ, 𝔉_J) of the form, the dependence on x not written,

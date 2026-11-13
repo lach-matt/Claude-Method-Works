@@ -651,25 +651,24 @@ g⁻¹ − g_b0⁻¹ = O(λ r⁻²), B(Σ) − B(0) = O(λ r⁻³) and C(Σ) −
     DP(H)[k] = −(1/2) g^(ab) ∂_a∂_b k + (1/2)(g⁻¹ k g⁻¹)^(ab) ∂_a∂_b g + 2 q(g)(∂g, ∂k) + (∂_g q)[k](∂g, ∂g)
                + l(g)(Γ̂, ∂k) + (∂_g l)[k](Γ̂, ∂g) + (∂_g c)[k](∂Γ̂) + (∂_g c′)[k](Γ̂, Γ̂),
 
-so B(H)·∂k = 2q(g)(∂g, ∂k) + l(g)(Γ̂, ∂k) and C(H)k is the rest. *Bounds on g.* The covector dv has Cartesian
-components (1, x̂), of Euclidean length √2, so |μ m| = 2μ r⁻² ≤ 1/8. By [[eq:background]], g_b0⁻¹ = η⁻¹ − μ r⁻² L0 ⊗ L0
-with |L0|² = 2, so |g_b0⁻¹| ≤ 9/8. Hence |g_b0⁻¹ H| ≤ 9/400, and g = g_b0 (1 + g_b0⁻¹ H) is invertible, with
-norm of the inverse |g⁻¹| ≤ (9/8)/(1 − 9/400) < 6/5; also the norm of g is at most 1 + 1/8 + 1/50 < 6/5. So the
-components of g and g⁻¹ are bounded by an absolute constant, and so are the coefficients of q, l, c, c′ and their
-g-derivatives. (a) By [[eq:far-sigma-bounds]] and [[lem:far-scaling]] (a), the first derivatives satisfy
-|∂g_b0| + |Γ̂| ≤ C μ r⁻³ and the second ones |∂∂g_b0| + |∂Γ̂| ≤ C μ r⁻⁴. So |∂g| ≤ C μ r⁻³ + |∂H| and
-|∂∂g| ≤ C μ r⁻⁴ + |∂∂H|, and (a) follows term by term, with μ² r⁻⁶ ≤ μ r⁻⁴/16 and 2|Γ̂| |∂H| ≤ |Γ̂|² + |∂H|². (b) Each
-coefficient is a polynomial in g^(±1), ∂g, ∂∂g, Γ̂, ∂Γ̂. Between H and 0, g^(±1)
-change by at most C|H| (g⁻¹ − g_b0⁻¹ = −g⁻¹ H g_b0⁻¹), ∂g by ∂H, ∂∂g by ∂∂H, and Γ̂ not at all. Bounding the difference
-of a product by the sum, over its factors, of the change of one factor times the bounds of the others gives (b). (c) The
-coefficients depend on μ only through g = η + μ m + H and Γ̂. The operator μ ∂_μ maps μ m, μ ∂m and μ ∂∂m to themselves
-and g⁻¹ to −g⁻¹ (μ m) g⁻¹. By [[lem:far-scaling]] (a), Γ̂ = μ Θ_3 + μ² Θ_5, and μ ∂_μ maps it to μ Θ_3 + 2μ² Θ_5;
-likewise ∂Γ̂. So μ ∂_μ of a term of the proof of (a) is a sum of terms in each of which one factor is replaced: a
-factor of size O(1) by one of size O(μ r⁻²), and ∂g, ∂∂g, Γ̂, ∂Γ̂ by factors of sizes O(μ r⁻³), O(μ r⁻⁴), O(μ r⁻³),
-O(μ r⁻⁴). Collecting the terms gives (c) for j = 1. A further μ ∂_μ acts on the new factors in the same way: it maps
-μ m, μ ∂m and μ ∂∂m to themselves, μ Θ_3 + 2μ² Θ_5 to μ Θ_3 + 4μ² Θ_5, and a g-derivative of a coefficient evaluated
-on μ m to terms of the same size or smaller. So each application replaces a factor by one of the same size or a
-smaller one, and induction on j gives (c). ∎
+so B(H)·∂k = 2q(g)(∂g, ∂k) + l(g)(Γ̂, ∂k) and C(H)k is the rest. *Bounds on g.* The covector dv has Cartesian components
+(1, x̂), of Euclidean length √2, so |μ m| = 2μ r⁻² ≤ 1/8. By [[eq:background]], g_b0⁻¹ = η⁻¹ − μ r⁻² L0 ⊗ L0 with |L0|² =
+2, so |g_b0⁻¹| ≤ 9/8. Hence |g_b0⁻¹ H| ≤ 9/400, and g = g_b0 (1 + g_b0⁻¹ H) is invertible, with norm of the inverse |g⁻¹|
+≤ (9/8)/(1 − 9/400) < 6/5; also the norm of g is at most 1 + 1/8 + 1/50 < 6/5. So the components of g and g⁻¹ are bounded
+by an absolute constant, and so are the coefficients of q, l, c, c′ and their g-derivatives. (a) By
+[[eq:far-sigma-bounds]] and [[lem:far-scaling]] (a), the first derivatives satisfy |∂g_b0| + |Γ̂| ≤ C μ r⁻³ and the
+second ones |∂∂g_b0| + |∂Γ̂| ≤ C μ r⁻⁴. So |∂g| ≤ C μ r⁻³ + |∂H| and |∂∂g| ≤ C μ r⁻⁴ + |∂∂H|, and (a) follows term by
+term, with μ² r⁻⁶ ≤ μ r⁻⁴/16 and 2|Γ̂| |∂H| ≤ |Γ̂|² + |∂H|². (b) Each coefficient is a polynomial in g^(±1), ∂g, ∂∂g, Γ̂,
+∂Γ̂. Between H and 0, g^(±1) change by at most C|H| (g⁻¹ − g_b0⁻¹ = −g⁻¹ H g_b0⁻¹), ∂g by ∂H, ∂∂g by ∂∂H, and Γ̂ not at
+all. Bounding the difference of a product by the sum, over its factors, of the change of one factor times the bounds of
+the others gives (b). (c) The coefficients depend on μ only through g = η + μ m + H and Γ̂. The operator μ ∂_μ maps μ m,
+μ ∂m and μ ∂∂m to themselves and g⁻¹ to −g⁻¹ (μ m) g⁻¹. By [[lem:far-scaling]] (a), Γ̂ = μ Θ_3 + μ² Θ_5, and μ ∂_μ maps
+it to μ Θ_3 + 2μ² Θ_5; likewise ∂Γ̂. So μ ∂_μ of a term of the proof of (a) is a sum of terms in each of which one factor
+is replaced: a factor of size O(1) by one of size O(μ r⁻²), and ∂g, ∂∂g, Γ̂, ∂Γ̂ by factors of sizes O(μ r⁻³), O(μ r⁻⁴),
+O(μ r⁻³), O(μ r⁻⁴). Collecting the terms gives (c) for j = 1. A further μ ∂_μ acts on the new factors in the same way: it
+maps μ m, μ ∂m and μ ∂∂m to themselves, μ Θ_3 + 2μ² Θ_5 to μ Θ_3 + 4μ² Θ_5, and a g-derivative of a coefficient evaluated
+on μ m to terms of the same size or smaller. So each application replaces a factor by one of the same size or a smaller
+one, and induction on j gives (c). ∎
 
 **Proposition {#prop:far-residual}** (the degree of the residual). Let M_1[h] := ∂_μ(DP_μ(0)[h]) at μ = 0, the first
 variation of P_μ at 0 differentiated in the mass, and M_2[h, h′] the second variation of Ric^H(η + ·; η) at 0; put
@@ -717,21 +716,21 @@ e^i Π d_p^(n_p), at e = μ ς⁻² and d_p = λ ς^(−p) and multiplied by ς�
 degree −2 − 2i − Σ n_p p; in particular Q_6 is homogeneous of degree −6.
 
 Now count degrees, with Σ n_p ≥ 1 and ς = r. The terms of degree greater than −13/2, that is 2 + 2i + Σ n_p p < 13/2,
-are: i = 0 and one factor d_p, every p ∈ Π (degree −p − 2); i = 1 and the factor d_2 (degree −6); i = 0 and d_2²
-(degree −6). The first vanish on 𝒞, since □_η Σ_p = 0 there for every p ∈ Π. The other two sum to Q_6, which carries
-the factor λ of Σ_2. Every other term of [[eq:far-taylor]] has degree at most −13/2 and carries a factor λ. Since
-|d| ≤ C λ ς⁻², Rem contributes ς⁻² |Rem| ≤ C λ ς⁻⁴ (μ ς⁻² + λ ς⁻²)² ≤ C λ r⁻⁸. So P(Σ) − Q_6 is at most C λ r^(−13/2)
-in norm, and P(Σ) at most C λ r⁻⁶. The terms of degree −13/2 are μ M_1[Σ_(5/2)] and M_2[Σ_2, Σ_(5/2)].
+are: i = 0 and one factor d_p, every p ∈ Π (degree −p − 2); i = 1 and the factor d_2 (degree −6); i = 0 and d_2² (degree
+−6). The first vanish on 𝒞, since □_η Σ_p = 0 there for every p ∈ Π. The other two sum to Q_6, which carries the factor λ
+of Σ_2. Every other term of [[eq:far-taylor]] has degree at most −13/2 and carries a factor λ. Since |d| ≤ C λ ς⁻², Rem
+contributes ς⁻² |Rem| ≤ C λ ς⁻⁴ (μ ς⁻² + λ ς⁻²)² ≤ C λ r⁻⁸. So P(Σ) − Q_6 is at most C λ r^(−13/2) in norm, and P(Σ) at
+most C λ r⁻⁶. The terms of degree −13/2 are μ M_1[Σ_(5/2)] and M_2[Σ_2, Σ_(5/2)].
 
 The commutators. A homogeneous term of degree −q is mapped by Z to −q times itself, by L_Ω_ab to a homogeneous term of
-degree −q and by ∂_t to one of degree −q − 1, so it keeps its bound. For the remainder put
-Rem′(D_ς X) := ς⁻² Rem(X; μ ς⁻², (λ ς^(−p))_p); it does not depend on the choice of (X, ς) with D_ς X given, since P(Σ)
-and the homogeneous terms do not. Differentiation in ς gives Z Rem′ = −ς⁻² (2 + 2e ∂_e + Σ_p p d_p ∂_(d_p)) Rem. Here
-e ∂_e Rem and d_p′ ∂_(d_p′) Rem are again of the form Σ_p d_p Ψ″_p, with Ψ″_p vanishing to second order at
-(e, d) = (0, 0), and so is an X-derivative of Rem. Further ∂_a Rem′ = ς⁻¹ (∂_X Rem)′, and L_Ω_ab, which commutes with
-D_ς, maps Rem′ to (L_Ω_ab Rem)′. So every Π_i (Γ_i + c_i) Rem′ is O(λ r⁻⁸), and [[eq:far-residual]] follows. At most
-|α| derivatives in X enter, and the homogeneous terms involve the Σ̂_p through their jets of order |α| + 2 on 𝔎; so the
-constants are independent of λ for |α| ≤ k1 + 2. ∎
+degree −q and by ∂_t to one of degree −q − 1, so it keeps its bound. For the remainder put Rem′(D_ς X) := ς⁻² Rem(X; μ
+ς⁻², (λ ς^(−p))_p); it does not depend on the choice of (X, ς) with D_ς X given, since P(Σ) and the homogeneous terms do
+not. Differentiation in ς gives Z Rem′ = −ς⁻² (2 + 2e ∂_e + Σ_p p d_p ∂_(d_p)) Rem. Here e ∂_e Rem and d_p′ ∂_(d_p′) Rem
+are again of the form Σ_p d_p Ψ″_p, with Ψ″_p vanishing to second order at (e, d) = (0, 0), and so is an X-derivative of
+Rem. Further ∂_a Rem′ = ς⁻¹ (∂_X Rem)′, and L_Ω_ab, which commutes with D_ς, maps Rem′ to (L_Ω_ab Rem)′. So every Π_i
+(Γ_i + c_i) Rem′ is O(λ r⁻⁸), and [[eq:far-residual]] follows. At most |α| derivatives in X enter, and the homogeneous
+terms involve the Σ̂_p through their jets of order |α| + 2 on 𝔎; so the constants are independent of λ for |α| ≤ k1 + 2.
+∎
 
 **Lemma {#lem:far-naturality}** (naturality). Let O ∈ O(4), Õ(t, x) := (t, O x) and Ō := diag(1, O). For every
 symmetric h, in Cartesian components,
@@ -1404,21 +1403,20 @@ the integral over {x : r_σ ≤ |x| ≤ ϱ} of a function continuous in (σ, x),
 σ, and of the tails, at most C ϱ^(2a−6) uniformly in σ ∈ [T, σ′]. So 𝔈_k is finite and, as ϱ → ∞, a uniform limit of
 continuous functions on [T, σ′]. ∎
 
-*The error terms of the energy identity.* Let T ≤ σ* ≤ 0, let g = g_b0 + H be a smooth metric on W_T ∩ {t̃ ≤ σ*} with
-|H| ≤ 1/50 there, h_R := H − Σ, and φ := (Γ^α h_R)_ij, |α| ≤ k1. Norms ‖·‖ are those of L²(Σ̃_σ, d⁴x), and
-𝔈 := 𝔈_k1(σ) for σ ∈ [T, σ*]. The error terms of the energy identity [[eq:own-energy-identity]] for φ on Σ̃_σ are
-bounded by three tools.
-(1) By [[lem:own-margins]] (d) and r^(2a) ≤ w ≤ C r^(2a) on W, 𝔈 bounds c_1 ∫_(Σ̃_σ) w |∂Γ^β h_R|² d⁴x for |β| ≤ k1.
-So a first-order coefficient c with |c| ≤ c_0 r^(−q) gives ‖w^(1/2) c ∂φ‖ ≤ C c_0 r_σ^(−q) 𝔈^(1/2).
-(2) Suppose that every Γ^β h_R, |β| ≤ k1, tends to 0 at spatial infinity along the rays of Σ̃_σ. The first inequality
-of [[eq:own-hardy]] on almost every ray, with |dψ/dr| ≤ C |∂ψ| along the rays, integrated over S³, gives
-∫_(Σ̃_σ) r^(2a−2) |Γ^β h_R|² d⁴x ≤ C 𝔈. So a zero-order coefficient with |c| ≤ c_0 r^(−q), q ≥ 1, gives
-‖w^(1/2) c φ‖ ≤ C c_0 r_σ^(−q+1) 𝔈^(1/2).
-(3) A second-order coefficient with |c| ≤ c_0 r^(−q) on ∂∂ψ, ψ := Γ^β h_R, |β| ≤ k1 − 1, gives C c_0 r_σ^(−q) 𝔈^(1/2):
-by [[lem:own-rays]] (a), |∂∂ψ| ≤ C Σ_Γ |∂Γψ| + C r⁻¹ |∂ψ|, the fields Γψ having order at most k1 (Ω_ab acting
-componentwise differs from L_Ω_ab by a constant linear map of the components).
-Since r_σ ≥ c_W (1 + |σ|), a term of the energy identity bounded by C r_σ^(−q) 𝔈^(1/2) in the norm ‖w^(1/2) ·‖, or by
-C r_σ^(−q) 𝔈 as an integral over Σ̃_σ, has the *kernel* (1 + |σ|)^(−q).
+*The error terms of the energy identity.* Let T ≤ σ* ≤ 0, let g = g_b0 + H be a smooth metric on W_T ∩ {t̃ ≤ σ*} with |H|
+≤ 1/50 there, h_R := H − Σ, and φ := (Γ^α h_R)_ij, |α| ≤ k1. Norms ‖·‖ are those of L²(Σ̃_σ, d⁴x), and 𝔈 := 𝔈_k1(σ) for σ
+∈ [T, σ*]. The error terms of the energy identity [[eq:own-energy-identity]] for φ on Σ̃_σ are bounded by three tools.
+(1) By [[lem:own-margins]] (d) and r^(2a) ≤ w ≤ C r^(2a) on W, 𝔈 bounds c_1 ∫_(Σ̃_σ) w |∂Γ^β h_R|² d⁴x for |β| ≤ k1. So a
+first-order coefficient c with |c| ≤ c_0 r^(−q) gives ‖w^(1/2) c ∂φ‖ ≤ C c_0 r_σ^(−q) 𝔈^(1/2).
+(2) Suppose that every Γ^β h_R, |β| ≤ k1, tends to 0 at spatial infinity along the rays of Σ̃_σ. The first inequality of
+[[eq:own-hardy]] on almost every ray, with |dψ/dr| ≤ C |∂ψ| along the rays, integrated over S³, gives ∫_(Σ̃_σ)
+r^(2a−2) |Γ^β h_R|² d⁴x ≤ C 𝔈. So a zero-order coefficient with |c| ≤ c_0 r^(−q), q ≥ 1, gives ‖w^(1/2) c φ‖ ≤ C c_0
+r_σ^(−q+1) 𝔈^(1/2).
+(3) A second-order coefficient with |c| ≤ c_0 r^(−q) on ∂∂ψ, ψ := Γ^β h_R, |β| ≤ k1 − 1, gives C c_0 r_σ^(−q) 𝔈^(1/2): by
+[[lem:own-rays]] (a), |∂∂ψ| ≤ C Σ_Γ |∂Γψ| + C r⁻¹ |∂ψ|, the fields Γψ having order at most k1 (Ω_ab acting componentwise
+differs from L_Ω_ab by a constant linear map of the components). Since r_σ ≥ c_W (1 + |σ|), a term of the energy identity
+bounded by C r_σ^(−q) 𝔈^(1/2) in the norm ‖w^(1/2) ·‖, or by C r_σ^(−q) 𝔈 as an integral over Σ̃_σ, has the *kernel*
+(1 + |σ|)^(−q).
 
 **Corollary {#cor:far-kernels}** (the kernels). Let 0 < a < 4 and λ be small, and let g = g_b0 + Σ + h_R be as in the
 preceding paragraph, with P(Σ + h_R) = 0, 𝔈_k1 finite on [T, σ*], every Γ^β h_R, |β| ≤ k1, tending to 0 at spatial
@@ -1487,13 +1485,12 @@ for uniqueness at a smaller weight ([[lem:own-two-continuations]]); a < 7/2, for
 ([[lem:own-truncation]] (iii), [[lem:own-exterior]]). None of them restricts a beyond (ii) and (iv).
 Their intersection is [ℓ0 − 1, 3), and [[thm:own-data]] uses its interior a ∈ (ℓ0 − 1, 3).
 
-*Proof.* (i) is [[cor:far-kernels]]. (ii) By [[lem:own-truncation]] (iii) with k = k1 (J ≥ 2k1 + 7),
-|∂Γ^α h_R| ≤ C r⁻⁵ on all of Σ̃_T for |α| ≤ k1, on the band and beyond it alike, with C depending on λ and J and not on
-T. With w ≤ C r^(2a), d⁴x = r³ dr dω and r_T ≥ c_W (1 + |T|), the energy is at most
-C ∫_(r_T)^∞ r^(2a−10+3) dr = C r_T^(2a−6)/(6 − 2a) ≤ C |T|^(2a−6) for a < 3; for a ≥ 3 the integral of the bound
-diverges. (iii) For g_b0 the covector dv is null and −g_b0⁻¹ dv = L0 ([[prop:vaidya]] (c)), with
-g_b0(∂_t, L0) = −dv(∂_t) = −1. With L := ∂_t + x̂·∂_x and ∇̸ the gradient on the spheres {t, r fixed},
-|dφ|²_(g_b0) = −(Lφ)(L0φ) + |∇̸φ|² − μ r⁻² (L0φ)², so the flux density of g_b0 is
+*Proof.* (i) is [[cor:far-kernels]]. (ii) By [[lem:own-truncation]] (iii) with k = k1 (J ≥ 2k1 + 7), |∂Γ^α h_R| ≤ C r⁻⁵
+on all of Σ̃_T for |α| ≤ k1, on the band and beyond it alike, with C depending on λ and J and not on T. With w ≤ C
+r^(2a), d⁴x = r³ dr dω and r_T ≥ c_W (1 + |T|), the energy is at most C ∫_(r_T)^∞ r^(2a−10+3) dr = C r_T^(2a−6)/(6 − 2a)
+≤ C |T|^(2a−6) for a < 3; for a ≥ 3 the integral of the bound diverges. (iii) For g_b0 the covector dv is null and
+−g_b0⁻¹ dv = L0 ([[prop:vaidya]] (c)), with g_b0(∂_t, L0) = −dv(∂_t) = −1. With L := ∂_t + x̂·∂_x and ∇̸ the gradient on
+the spheres {t, r fixed}, |dφ|²_(g_b0) = −(Lφ)(L0φ) + |∇̸φ|² − μ r⁻² (L0φ)², so the flux density of g_b0 is
 
     T_(g_b0)[φ](w ∂_t, L0) = w ((1/2)(L0φ)² + (1/2)|∇̸φ|² − (1/2) μ r⁻² (L0φ)²).
 
@@ -1607,18 +1604,18 @@ independent of T, J, λ and ε_B. By [[lem:own-n-data]] (ii) and (iii), 𝔉_(k1
 C_* ≥ 1, which depends on neither T nor J. So ε_B → 0 as λ → 0, ε_B ≤ ε_2 for λ ≤ λ_2, and 𝔈_(k1) ≤ ε_B² < 4ε_B² on
 [T, σ*]; and by Step 1, |H| ≤ 1/100 < 1/50 on W_T ∩ {t̃ ≤ σ*}: (BA) is improved.
 
-*Openness.* Let σ′ ∈ (σ*, σ_1(T)); every derivative of g_T is bounded on W_T ∩ {t̃ ≤ σ′}, say |∂H| ≤ C_1 there. Let
-p ∈ W_T with σ* < t̃(p) ≤ σ* + δ′ ≤ σ′. Along the segment from p on which v and x̂ are fixed and r increases,
-t̃ = v − r − f(r) decreases at the rate 1 + f′ ≥ 1, while v ≥ v1 and r ≥ 4R stay true; so it reaches Σ̃_(σ*) after an
-increase of r by at most δ′, inside W_T ∩ {t̃ ≤ σ′}, with Euclidean length at most √2 δ′. Hence
-|H(p)| ≤ 1/100 + √2 C_1 δ′ ≤ 1/50 for δ′ small, and [[lem:own-exterior]] applies on [T, σ* + δ′] with c = 0.0232: by its
-(c), 𝔈_(k1) is continuous there, and as 𝔈_(k1)(σ*) ≤ ε_B², (BA) holds on [T, σ* + δ″] for some δ″ > 0. The set of the
-σ* ∈ [T, σ_1(T)) at which (BA) holds is therefore open; it is closed, both conditions being closed; and it contains T,
-since on Σ̃_T, 𝔈_(k1)(T) ≤ λ² ≤ 4ε_B² and H = H_D, |H_D| ≤ 1/50 (the proof of [[lem:own-truncation]] (iii)). So (BA),
-and with it 𝔈_(k1) ≤ ε_B² and the bounds of Step 1, hold on [T, σ_1(T)). If σ_1(T) < 0, these bounds, uniform on
-W_T ∩ {t̃ < σ_1(T)}, let the local theory continue g_T with bounded derivatives beyond σ_1(T) ([[lem:own-truncation]]
-(iv)), against the definition of σ_1(T); so σ_1(T) = 0, and the same continuation across {t̃ = 0} shows that g_T exists
-and is smooth on all of W_T, with 𝔈_(k1) ≤ ε_B² and the bounds of Step 1 on [T, 0].
+*Openness.* Let σ′ ∈ (σ*, σ_1(T)); every derivative of g_T is bounded on W_T ∩ {t̃ ≤ σ′}, say |∂H| ≤ C_1 there. Let p ∈
+W_T with σ* < t̃(p) ≤ σ* + δ′ ≤ σ′. Along the segment from p on which v and x̂ are fixed and r increases, t̃ = v − r −
+f(r) decreases at the rate 1 + f′ ≥ 1, while v ≥ v1 and r ≥ 4R stay true; so it reaches Σ̃_(σ*) after an increase of r by
+at most δ′, inside W_T ∩ {t̃ ≤ σ′}, with Euclidean length at most √2 δ′. Hence |H(p)| ≤ 1/100 + √2 C_1 δ′ ≤ 1/50 for δ′
+small, and [[lem:own-exterior]] applies on [T, σ* + δ′] with c = 0.0232: by its (c), 𝔈_(k1) is continuous there, and as
+𝔈_(k1)(σ*) ≤ ε_B², (BA) holds on [T, σ* + δ″] for some δ″ > 0. The set of the σ* ∈ [T, σ_1(T)) at which (BA) holds is
+therefore open; it is closed, both conditions being closed; and it contains T, since on Σ̃_T, 𝔈_(k1)(T) ≤ λ² ≤ 4ε_B² and
+H = H_D, |H_D| ≤ 1/50 (the proof of [[lem:own-truncation]] (iii)). So (BA), and with it 𝔈_(k1) ≤ ε_B² and the bounds of
+Step 1, hold on [T, σ_1(T)). If σ_1(T) < 0, these bounds, uniform on W_T ∩ {t̃ < σ_1(T)}, let the local theory continue
+g_T with bounded derivatives beyond σ_1(T) ([[lem:own-truncation]] (iv)), against the definition of σ_1(T); so σ_1(T) =
+0, and the same continuation across {t̃ = 0} shows that g_T exists and is smooth on all of W_T, with 𝔈_(k1) ≤ ε_B² and
+the bounds of Step 1 on [T, 0].
 
 *Step 4 (higher orders at fixed λ and J).* For k1 < k ≤ k_J, induct on k: in the commuted equations at order k the
 terms of top order are linear in the order-k quantities, with coefficients bounded by [[eq:own-pointwise]] and its
