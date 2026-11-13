@@ -91,23 +91,28 @@ after [Rie49].) Let V be an n-dimensional Minkowski space, with ⟨x, y⟩ = −
 □R_±(α + 2) = R_±(α)"; "(4) For every α ∈ ℂ ∖ ({0, −2, −4, …} ∪ {n − 2, n − 4, …}), we have supp(R_±(α)) = J_±(0)
 and sing supp(R_±(α)) ⊂ C_±(0)"; "(7) R_±(0) = δ_0".
 
-**Theorem {#thm:std-hormander-cauchy}** (The Cauchy problem for wave operators on Minkowski space; [BW15, Corollary 12,
-p. 15] and [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3 and Lemma 3.4.4, p. 89].) Let M = ℝ^(1+n) with the
-Minkowski metric and the Minkowski time t, and write J_±(A) = A + J_±(0) for the causal future and past of A ⊂ M. Let P
-be a normally hyperbolic operator ([[def:std-normally-hyperbolic]]) acting on ℂ^N-valued functions on M, with smooth
-coefficients. Let s ∈ ℤ, t0 ∈ ℝ and f ∈ H^(s−1)_loc(M; ℂ^N) with supp f ⊂ {t ≥ t0}. Then there is exactly one
+**Theorem {#thm:std-hormander-cauchy}** (The Cauchy problem for wave operators on Minkowski space; proved below from
+[BW15, Definition 7 and Theorem 8, p. 13] and [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3, p. 89].) Let
+M = ℝ^(1+n) with the Minkowski metric and the Minkowski time t, and write J_±(A) = A + J_±(0) for the causal future and
+past of A ⊂ M. Let P be a normally hyperbolic operator ([[def:std-normally-hyperbolic]]) acting on ℂ^N-valued functions
+on M, with smooth coefficients. Let s ∈ ℤ, t0 ∈ ℝ and f ∈ H^(s−1)_loc(M; ℂ^N) with supp f ⊂ {t ≥ t0}. Then there is exactly one
 u ∈ 𝒟′(M; ℂ^N) with Pu = f and supp u ⊂ {t ≥ t0}; it lies in H^(s)_loc(M; ℂ^N), and supp u ⊂ J_+(supp f).
 
 If the principal symbol of a second-order operator Q is the dual metric function times the identity, then Q or −Q is
 normally hyperbolic, the sign depending only on the convention for principal symbols, and the theorem applies to Q
 with f replaced by ±f.
 
-The proof uses the following two results. Distributions act on test functions through the bilinear pairing
-∫ φ · u dV, and P^* denotes the formally dual operator, ∫ φ · (Pψ) dV = ∫ (P^*φ) · ψ dV; "if P is a wave operator,
-then so are its formally dual operator … and its formally adjoint operator" [BW15, Section 1.8, p. 12]. Here 𝒟
-denotes smooth sections with compact support.
+The proof uses the two results (1) and (2) below and the estimate (3), which is proved from (2). Distributions act on
+test functions through the bilinear pairing ∫ φ · u dV, and P^* denotes the formally dual operator,
+∫ φ · (Pψ) dV = ∫ (P^*φ) · ψ dV ([BW15, Section 1.4.2, p. 6] writes P† for it). In the coordinates of
+[[def:std-normally-hyperbolic]], with the constant Minkowski g^(ij),
 
-(1) [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3 and Lemma 3.4.4, p. 89]. "A linear map G_+ : 𝒟(M, E) →
+    P = −Σ g^(ij) ∂²/∂x^i∂x^j + Σ A_j ∂/∂x^j + B_1,    P^*φ = −Σ g^(ij) ∂²φ/∂x^i∂x^j − Σ ∂(A_j^T φ)/∂x^j + B_1^T φ,
+
+T denoting the transpose; so P^* is again normally hyperbolic with smooth coefficients. Here 𝒟 denotes smooth sections
+with compact support, and E = M × ℂ^N.
+
+(1) [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3, p. 89]. "A linear map G_+ : 𝒟(M, E) →
 C^∞(M, E) satisfying (i) P ∘ G_+ = id_(𝒟(M,E)), (ii) G_+ ∘ P|_(𝒟(M,E)) = id_(𝒟(M,E)), (iii) supp(G_+φ) ⊂
 J^M_+(supp(φ)) for all φ ∈ 𝒟(M, E), is called an advanced Green's operator for P. Similarly, a linear map G_− :
 𝒟(M, E) → C^∞(M, E) satisfying (i), (ii), and (iii′) supp(G_−φ) ⊂ J^M_−(supp(φ)) for all φ ∈ 𝒟(M, E) instead of

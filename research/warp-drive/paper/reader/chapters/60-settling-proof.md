@@ -279,19 +279,31 @@ lies in the class, with norm below δ + ½ε = ε. So [[cor:s27-rate]] (a) appli
 ‖b − b₀‖_𝔟 < ε_m/C_𝔟 and |S| < ε_m/C_𝔟, hence |b − b₀| < ε_m and |S| < ε_m. The vanishing of h_tot(p⃗) on the interior of {χ_K = 1} holds as in (i), and
 [[cor:s27-rate]] (c) gives [[eq:vii-0-2]] with g_b in place of g_(m′,0). ∎
 
-*Proof of [[thm:settling]].* The number ℓ0 ∈ (3, 4) of [[thm:settling]] is the ℓ_0 of the data class [[eq:vii-0-1]],
-and the conditions stated there on ε_+, ℓ_I ∈ (3, ℓ0) and ε_K are those of rows d1–d2 and w1 of [[sec:vi-c-1]], under
-which [[thm:vi-c-2-1]] chooses them; with the parameters so chosen, the hypotheses of [[thm:settling-precise]] hold.
-Let 0 < ε < ε_K be the exponent of [[thm:settling]] and ε_m > 0, and apply [[thm:settling-precise]] with ε_t := ε. It
-gives R, Ω′, λ_1 and δ, which depend on ε_m and ε. The solutions g_λ of [[thm:settling]] are those of [[thm:main]] on
-the enlarged domain Ω′ of [[lem:vii-1-2]], built with K = d_1 + 14.
+*Proof of [[thm:settling]].* *The parameters.* The number ℓ0 ∈ (3, 4) of [[thm:settling]] is the ℓ_0 of the data
+class [[eq:vii-0-1]], and its ε_K is the one chosen at step (4) of [[thm:vi-c-2-1]], with [[eq:vii-0-1]] at step (3).
+With the ℓ_I ∈ (3, ℓ_0) chosen at step (3), which is admissible in row d2 of [[sec:vi-c-1]] (it avoids the discrete
+exclusion sets of that row, [[sec:s27-class]]), and the ε_+ chosen at step (4), ε_K satisfies the conditions that
+[[thm:settling]] states: 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3, ¼), (G⁺) and (G) are conditions of row w1. Row w1
+also asks the exactness conditions (Ex1)–(Ex2) of [[def:iii-j3-1-3]], which [[thm:settling]] does not list; as it
+quantifies ε_+ existentially, nothing is lost. (Ex1) is (G⁺) with its closed endpoint, as [[thm:settling]] states it.
+(Ex2) excludes only finitely many values of ε_+ in a bounded range ([[lem:iii-j3-1-4]]), so an ε_+ that meets the
+conditions [[thm:settling]] states can be lowered inside (ε_K, ε_+) to meet (Ex2) as well, without breaking any other
+condition: the bound by the minimum and (G⁺) persist when ε_+ decreases, as do rows d1–d2 (step (4) of
+[[thm:vi-c-2-1]]); (G) concerns ε_K alone; ε′_0 = ½ min(ε_K, ε_+ − ε_K) stays positive, so the window of row w2 stays
+nonempty; and ε_+ enters no conclusion. With the parameters so chosen, the hypotheses of [[thm:settling-precise]]
+hold.
+
+Let ε ∈ (0, ε_K) be the exponent of [[thm:settling]], put ε_t := ε, and apply [[thm:settling-precise]]. It gives
+K = d_1 + 14, R and Ω′, which depend on ε_t (and r_♭) only, and, for each ε_m > 0, λ_1 and δ, which depend on ε_m and
+ε_t. The solutions g_λ of [[thm:settling]] are those of [[thm:main]] on the enlarged domain Ω′ of [[lem:vii-1-2]],
+built with K = d_1 + 14, d_1 the regularity of [[thm:iii-k-4-3]].
 
 Item (i). The data of g_λ on Σ^IVP ∩ {r ≤ R}, continued G-equivariantly to the exact Tangherlini data
 (γ^(m_λ), k^(m_λ)) on {r ≥ 4R}, are the data (γ_λ, k_λ) of [[thm:settling-precise]] (i), constructed in
 [[cor:vii-2-3]]. Their development g is G-invariant and vacuum, induces the data of g_λ on the ball Σ^IVP ∩ {r < R},
-and by [[eq:vii-0-2]] satisfies g − g_(m′,0) = O(t_*^(−2−ε)) on every set {r_♭ ≤ r ≤ R′, t_* ≥ T′}, where g_(m′,0) is
-the Tangherlini metric of mass m′, |m′ − μ_end| < ε_m. A spatially compact subset of the exterior of the black hole is
-a set of points of M on which r is bounded, by R′ say, and its points with t_* ≥ T′ lie in {r_♭ ≤ r ≤ R′, t_* ≥ T′}.
+and by [[eq:vii-0-2]] satisfies g − g_(m′,0) = O(t_*^(−2−ε_t)) on every set {r_♭ ≤ r ≤ R′, t_* ≥ T′}, where g_(m′,0)
+is the Tangherlini metric of mass m′, |m′ − μ_end| < ε_m. Every spatially compact subset of the exterior of the black
+hole lies in M ∩ {r ≤ R′} for some R′, and its points with t_* ≥ T′ lie in {r_♭ ≤ r ≤ R′, t_* ≥ T′}.
 
 Item (ii). The data class of (ii) in [[thm:settling]] is H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b with
 [[eq:vii-0-1]]: the elements of ℰ_0 below ℓ_0 give the polyhomogeneous terms of orders 2 and 3 in the metric, those of
@@ -304,10 +316,13 @@ b = (m′, A), with |m′ − μ_end| + |A| = |b − b₀| < ε_m: mass within �
 ### Remarks on the statement {#sec:vii-5}
 
 **Remark {#rem:vii-4-1}** (The development and g_λ.) The development g of [[thm:settling-precise]] (i) and g_λ are
-vacuum metrics that induce the same data on Σ^IVP ∩ {r < R}, in different gauges. That, near
-Σ^IVP ∩ {r_♭ < r < R} and on the common domain of dependence of this set, they agree up to an isometry that is the
-identity on it, and so give one vacuum spacetime, is [[lem:interior-one-spacetime]] of [[ch:interior]]. Nothing in
-[[thm:settling-precise]] or in its proof uses it.
+vacuum metrics that induce the same data on Σ^IVP ∩ {r < R}, in different gauges. Let Σ := Σ^IVP ∩ {r_♭ < r < R}.
+That g_λ, near the hole just before Σ, and g, after Σ^IVP, glued along Σ by the identity, form one smooth vacuum
+spacetime M_gl; and that the Cauchy developments of Σ in M_gl and, for g_λ, in a neighbourhood of the closure of Σ
+have a maximal common globally hyperbolic development U, which contains a neighbourhood of Σ, with an isometric
+embedding of U into the second that preserves the time orientation and is the identity on Σ, is
+[[lem:interior-one-spacetime]] of [[ch:interior]]. How far U reaches into the future of Σ is not decided there.
+Nothing in [[thm:settling-precise]] or in its proof uses the lemma.
 
 **Remark {#rem:settling-class}** (Perturbations and gluing.) [[thm:settling-precise]] (ii) takes the perturbation in
 the data class of [[thm:iii-k-4-3]], and not in a class of decaying data reached by gluing. Gluing a perturbation that
@@ -316,8 +331,8 @@ its data near infinity, and the solution near the black hole at late times depen
 not in the domain of dependence of any bounded part of the initial surface. So a settling statement reached by gluing
 holds for the glued data, not for the perturbation. With [[eq:vii-0-1]] the data class has polyhomogeneous terms of
 orders 2 and 3 at spatial infinity and a conormal remainder of order ℓ_0 ∈ (3 + ε_+, 4). By [[lem:vii-0-1]] it
-contains every perturbation that is, outside a compact set, a symbol of order −2 (in the metric) and −3 (in the second
-fundamental form), for instance the data of a nearby translated, rotated and boosted Myers–Perry metric. So (ii) needs
+contains every perturbation that is, outside a compact set, a classical symbol of order −2 (in the metric) and −3 (in
+the second fundamental form), that is an element of ρ²C^∞, resp. ρ³C^∞, of the radial compactification, for instance the data of a nearby translated, rotated and boosted Myers–Perry metric. So (ii) needs
 no gluing and no parity condition; the gluing is used in (i) only, in its class form [[prop:vii-2-2]]. For a merely
 decaying perturbation, gluing gives only that it agrees on a large ball with one to which (ii) applies, and that
 statement is not made here. Which decaying perturbations (ii) reaches, directly or through gluing, is determined in

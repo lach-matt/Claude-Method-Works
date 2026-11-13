@@ -113,26 +113,37 @@ be the cut-off of [[sec:iii-c2-2]], χ_0 = 1 − χ̌_0(t_IVP/r) with χ̌_0 ∈
     χ^♮_0 := 1 − (1 − χ_0)(1 − χ_♮(t_*)).                                                             {#eq:iii-k-1-1}
 
 Then: (a) χ^♮_0 ∈ C^∞(M); (b) χ^♮_0 = 1 on {t_* ≥ 1} ⊃ Ω_*; (c) χ^♮_0 = χ_0 on {t_* ≤ ½}, and on Ω_(ext,r_1) for
-r_1 ≥ R_6; (d) χ^♮_0 = 0 near Σ^IVP and near φ_(±S)(Σ^IVP) for |S| small.
+r_1 ≥ R_6; (d) χ^♮_0 = 0 near Σ^IVP, and near φ(Σ^IVP) for φ = φ_(S,S⁰) and φ = φ_(S,S⁰)⁻¹, |S| + |S⁰| small.
 
 Here Ω_(ext,r_1) is the exterior domain of [[lem:iii-c1-1-1]] at the radius r_1. The proof of (d) uses the following
-bound on the boosts.
+bound on the boosts and translations.
 
-**Lemma {#lem:s27-boost-move}** (The boosts move t_IVP by O(|S|r).) There is C such that for S ∈ 𝒮_1 with |S| ≤ 1 and
-every p ∈ M, |t_IVP(φ_(±S)(p)) − t_IVP(p)| ≤ C|S| r(p), and r(φ_(±S)(p)) ≤ C r(p). φ_(±S) is the identity on
-{|x| ≤ 5R₁} and maps {|x| > 5R₁} into itself.
+**Lemma {#lem:s27-boost-move}** (Boosts and translations move t_IVP by O((|S| + |S⁰|)r).) There is C such that for
+S, S⁰ ∈ 𝒮_1 with |S|, |S⁰| ≤ 1, for φ = φ_(S,S⁰) and φ = φ_(S,S⁰)⁻¹, and for every p ∈ M,
 
-*Proof.* φ_(S_w) is the time-1 flow of V(S_w) = ½χ_r(|x|)χ^♯_IVP(1 − χ^♭_K)X_w, X_w = t w·∂_x + (w·x)∂_t
-([[lem:iii-b-5-1]]); φ_(−S) is that of V(S_(−w)) = −V(S_w). As 1 − χ^♭_K = 0 on {|x| < t/10, t > 60R₁}, every point of
-supp V(S_w) has t ≤ 10|x| + 60R₁, and t ≥ −½|x| on M; so |t| ≤ 10|x| + 60R₁ ≤ C|x| there, |x| ≥ r_♭ being bounded
-below. With X_w|x| = t S_w(x̂) and t_IVP = t − ψ_IVP(|x|), 0 ≤ ψ_IVP′ ≤ ψ′ ≤ 1,
+    |t_IVP(φ(p)) − t_IVP(p)| ≤ C(|S| + |S⁰|) r(p),     r(φ(p)) ≤ C r(p).
+
+φ is the identity on {|x| ≤ 5R₁} and maps {|x| > 5R₁} into itself.
+
+*Proof.* *Boosts.* φ_(S_w) is the time-1 flow of V(S_w) = ½χ_r(|x|)χ^♯_IVP(1 − χ^♭_K)X_w,
+X_w = t w·∂_x + (w·x)∂_t ([[lem:iii-b-5-1]]); φ_(−S) is that of V(S_(−w)) = −V(S_w). As 1 − χ^♭_K = 0 on
+{|x| < t/10, t > T′} ([[sec:iii-k-0]]), every point of supp V(S_w) has t ≤ 10|x| + T′, and t ≥ −½|x| on M; so
+|t| ≤ 10|x| + T′ ≤ C|x| there, |x| ≥ r_♭ being bounded below. With X_w|x| = t S_w(x̂), t_IVP = t − ψ_IVP(|x|), and
+0 ≤ ψ_IVP′ ≤ ψ′ ≤ 1 on {|x| ≥ 5R₁} ⊃ supp V(S_w) ([[lem:iii-b-3-7]] (b); ψ′ = 1 − 8m₀|x|⁻² there),
 
     |V(S_w)|x|| ≤ ½|w||t| ≤ C|w||x|,     |V(S_w)t_IVP| = ½χ_rχ^♯_IVP(1 − χ^♭_K)|w·x − ψ_IVP′ t S_w(x̂)| ≤ C|w||x|
 
 on M, the left sides vanishing off supp V(S_w). Along an integral curve γ(s), s ∈ [0, 1], of ±V(S_w),
 |d log|x(γ(s))|/ds| ≤ C|w|, so |x(γ(s))| ≤ e^(C|w|)|x(γ(0))|; and |d t_IVP(γ(s))/ds| ≤ C|w||x(γ(s))|. Integrating
-gives both bounds. V(S_w) vanishes on {|x| ≤ 5R₁} (χ_r = 0 there), whose points are fixed by the flow; by uniqueness
-of integral curves no curve starting in {|x| > 5R₁} reaches it. ∎
+gives both bounds for φ_(±S). *Translations.* ψ_(S⁰), S⁰ = S_w, is the time-1 flow of V⁰(S⁰) = ½Θ w·∂_x, with
+Θ = χ_r(|x|)χ^♯_IVP(1 − χ^♭_K) ∈ [0, 1] ([[lem:iii-i7-1-1]]), and ψ_(−S⁰) is that of −V⁰(S⁰). So
+|V⁰(S⁰)|x|| = ½Θ|w·x̂| ≤ ½|w| and |V⁰(S⁰)t_IVP| = ½Θψ_IVP′|w·x̂| ≤ ½|w|, as ψ_IVP′ ∈ [0, 1] on supp Θ ⊂ {|x| ≥ 5R₁}.
+An integral curve of ±V⁰(S⁰) that moves stays in {|x| > 5R₁} (below), so in time 1 it changes |x| and t_IVP by at
+most ½|w| ≤ |w||x|/(10R₁); this gives both bounds for ψ_(±S⁰). *Composites.* For φ_(S,S⁰) = ψ_(S⁰) ∘ φ_S and
+q := φ_S(p), |t_IVP(ψ_(S⁰)(q)) − t_IVP(p)| ≤ C|S⁰|r(q) + C|S|r(p) ≤ C′(|S| + |S⁰|)r(p), as r(q) ≤ Cr(p), and
+r(ψ_(S⁰)(q)) ≤ Cr(q) ≤ C²r(p); likewise for φ_(S,S⁰)⁻¹ = φ_(−S) ∘ ψ_(−S⁰). V(S_w) and V⁰(S⁰) vanish on
+{|x| ≤ 5R₁} (χ_r = 0 there), whose points are fixed by the flows; by uniqueness of integral curves no curve starting
+in {|x| > 5R₁} reaches it. ∎
 
 *Proof of [[lem:iii-k-1-1]].* (a) χ_0 ∈ C^∞(M) ([[sec:iii-c2-2]]). Near ℐ⁺, t_* is a smooth function on M
 ([[eq:iii-b-3-6]]); near I₀ and near the corner I₀ ∩ ℐ⁺, t_* → −∞, so χ_♮(t_*) = 0; near ι⁺ and K⁺, t_* → +∞, so
@@ -140,11 +151,39 @@ of integral curves no curve starting in {|x| > 5R₁} reaches it. ∎
 Ω_(ext,r_1) ∩ {t_* > ½}, r ≥ r_1 ≥ R_6, so t_IVP = t_* + F(r) > r/4 by [[eq:s27-f]], where χ_0 = 1
 ([[sec:iii-c2-2]]); both cut-offs are 1 there. (d) On Σ^IVP, t_* = −F ≤ 0. Let ν_0 := min(¼, r_♭/8). On
 {|t_IVP| < ν_0}, a neighbourhood of Σ^IVP, t_* ≤ t_IVP < ¼, so χ_♮(t_*) = 0; and |t_IVP| < r/8 as r ≥ r_♭, so
-χ_0 = 0. Hence χ^♮_0 = 0 there. Let p be near φ_(±S)(Σ^IVP), p = φ_(±S)(q) with |t_IVP(q)| small. If r(p) ≥ R_6 + 1,
-then by [[lem:s27-boost-move]] |t_IVP(p)| ≤ |t_IVP(q)| + C|S|r(q) ≤ |t_IVP(q)| + C²|S|r(p) < r(p)/8 for |S| and
-|t_IVP(q)| small, so χ_0(p) = 0, and t_*(p) = t_IVP(p) − F(r(p)) < r(p)/8 − r(p)/4 < 0, so χ_♮(t_*(p)) = 0. On the
-compact set {r ≤ R_6 + 2} ∩ M, the boosts tend to the identity smoothly as S → 0, so φ_(±S)(Σ^IVP) ∩ {r ≤ R_6 + 1}
-lies in {|t_IVP| < ν_0} for |S| small, and χ^♮_0 = 0 there, as just shown. ∎
+χ_0 = 0. Hence χ^♮_0 = 0 there. Let p be near φ(Σ^IVP), p = φ(q) with |t_IVP(q)| small. If r(p) ≥ R_6 + 1, then by
+[[lem:s27-boost-move]], applied to φ⁻¹ at p, |t_IVP(p)| ≤ |t_IVP(q)| + C(|S| + |S⁰|)r(p) < r(p)/8 for |S| + |S⁰|
+and |t_IVP(q)| small, so χ_0(p) = 0, and t_*(p) = t_IVP(p) − F(r(p)) < r(p)/8 − r(p)/4 < 0, so χ_♮(t_*(p)) = 0. On
+the compact set {r ≤ R_6 + 2} ∩ M, φ tends to the identity smoothly as (S, S⁰) → 0, so φ(Σ^IVP) ∩ {r ≤ R_6 + 1} lies
+in {|t_IVP| < ν_0} for |S| + |S⁰| small, and χ^♮_0 = 0 there, as just shown. ∎
+
+The exterior theory of [[ch:s26]] is stated for the boosts φ_S. It holds for φ_(S,S⁰), with the same proofs:
+
+**Lemma {#lem:s27-translated-exterior}** (The exterior theory for translated boosts.) Let S, S⁰ ∈ 𝒮_1 be small.
+
+(a) φ_(S,S⁰) is a diffeomorphism of M with the properties stated for φ_(S_w) in [[lem:iii-b-5-1]], smooth in
+(S, S⁰), and the identity on {|x| ≤ 5R₁}.
+
+(b) With 𝔥_S the function h_(S_w) of [[eq:iii-b-5-2]] (S = S_w), for every b near b₀,
+
+    χ_IVP(1 − χ_K)(φ_(S,S⁰)^*g_b − (g_b + |x|⁻²𝔥_S(ω)(dx¹)²)) ∈ ρ₀²ρ_I³ρ_+²C^∞(M; S²T*),
+
+smoothly in (S, S⁰).
+
+(c) [[lem:iii-c2-1-1]], [[thm:iii-c2-3-1]] and [[rem:iii-c2-3-2]] hold with φ_(S,S⁰) in place of φ_S and |S| + |S⁰|
+in place of |S|.
+
+*Proof.* (a) φ_S and ψ_(S⁰) have these properties ([[lem:iii-b-5-1]], [[lem:iii-i7-1-1]] (a)), and they persist under
+composition. (b) is [[lem:iii-i7-1-3]] (a), stated there for the composite ψ_(−S^(0)_1) ∘ φ_(−S) at every small pair
+(−S, −S^(0)_1), hence for φ_(S,S⁰) at every small (S, S⁰); its leading term is that of φ_S. (c) The proof of
+[[lem:iii-c2-1-1]] uses of φ_S only [[eq:iii-b-5-3]] on Ω_(ext,r_1) ⊂ {χ_IVP(1 − χ_K) = 1} and the naturality of Ric,
+and (b) is [[eq:iii-b-5-3]] for φ_(S,S⁰). The proof of [[thm:iii-c2-3-1]] uses of φ_S: that near |x| = r it moves t_IVP
+by at most C|S|r, which [[lem:s27-boost-move]] gives for φ_(S,S⁰) with C(|S| + |S⁰|); the naturality of Ric and of Υ⁰
+([[eq:iii-c2-2-2]]) under diffeomorphisms; that S ↦ φ_S^*g_(b₀) is smooth, with derivative in ρ₀²ρ_I²C^∞ with the
+slots of [[eq:iii-c-3-4]] on Ω_(ext,r_1), which (b), differentiated in (S, S⁰), gives; and that pull-back by the flow
+of a b-vector field tangent to every boundary hypersurface preserves the weighted, partially polyhomogeneous b-Sobolev
+spaces near compact subsets of the interior of I₀, which holds for both factors by (a). [[rem:iii-c2-3-2]] is
+uniqueness. ∎
 
 Let
 
