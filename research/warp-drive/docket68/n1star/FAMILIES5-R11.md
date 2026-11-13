@@ -68,4 +68,9 @@ paper's current "More families" bullet (OLD) and FAMILIES5-R10.md R10.1 (NEW), a
   - It holds in five dimensions: the proof uses only the null Raychaudhuri equation and the causal structure of
     J⁻(I⁺), and vacuum and null dust satisfy the null convergence condition.
   - In this SO(4) class the direct argument also suffices (deduced).
-- The R10.1 block is unchanged, and so is the wording pair.
+- **One sentence of the R10.1 block is reworded** (the final-pass audit), and the wording pair is updated to match.
+  "These hypotheses are open for perturbations whose supports stay in a fixed compact set …" now reads "These
+  hypotheses hold on an open set of solutions: they persist under perturbations small in C² × C¹ whose supports stay in
+  a fixed compact set and whose radial dusts keep adapted boundaries (deduced)".
+  - This is Lemma O″'s content, with "open" unambiguously topological.
+  - No other word changed; the generator now also keeps short formulas such as "f > 0" on one line.

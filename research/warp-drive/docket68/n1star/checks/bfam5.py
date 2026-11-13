@@ -32,12 +32,19 @@ r^(1/2) R_rth, (r^(1/2) H_vth)' = r^(1/2) (-i R_vth - H_rth/r^3), (r^(-1/2) H_kk
      alpha4(rho*) for every th and every wave: exact in Q(rho*), enclosed by interval arithmetic, purely imaginary and
      nonzero; and for the paper's wave T = T^G - i T^F (N6) b4 avoids [0, oo) on all of th in [0, pi/2] (interval
      arithmetic in zeta = cos 2th, where b4 = N(zeta)/((1 + zeta^2)^2 |P|^2) with N polynomial).
+  B6 (exact; round 9, the reader of round 8's nit 5) the chain B1-B4 at mu0 = 16 (the horizon r = 4, mu0^(1/4) = 2,
+     every coefficient rational; H4's families 0 and 1), both equations in every family computed, and at the horizon,
+     for every angular profile: c_(3,0),vv/A = 2^-7 K(r0/4) d, c_(4,0),vv/A = 2^-9 (alpha4(r0/4) d + beta4(r0/4) Lap d)
+     and c_(5,1),vv/(i A) = 3 c_(4,0),vv/A, with alpha4, beta4 those of B5 (mu0 = 1).  So b4(4 rho*, th) = 16^(-9/4)
+     b4(rho*, th)|_(mu0=1): a positive factor, the scaling mu0^(-1/4 - j/2 + k/2) of c_(j,k),vv at fixed rho = r0/sqrt
+     mu0, computed at mu0 = 16; b5 = 3 b4 there too.
   Controls: (i) the vv transport with its mass coupling 2 H_vr/r^3 halved: B2's K and the vv equation fail (detected);
      (ii) d_v not acting on r0 (r0 frozen): c_(4,0),vv at the horizon differs (printed at rho*), so the r0-motion
-     matters at this family.
+     matters at this family; (iii) (round 9) at mu0 = 16 the transports' mass couplings left at mu0 = 1: B2's vv
+     equation fails (detected).
 
-Labels: B1-B5's forms computed (exact, sympy); B5's values at rho* and the paper's-wave decision certified (interval
-arithmetic, mpmath.iv).  Run: PYTHONHASHSEED=0 python3 checks/bfam5.py   (about forty minutes under load)
+Labels: B1-B6's forms computed (exact, sympy); B5's values at rho* and the paper's-wave decision certified (interval
+arithmetic, mpmath.iv).  Run: PYTHONHASHSEED=0 python3 checks/bfam5.py   (about eighty minutes under load)
 """
 import os
 import sys
@@ -62,7 +69,7 @@ NAMES = {(0, 0): 'Hvv', (0, 1): 'Hvr', (1, 1): 'Hrr', (0, 2): 'Hvt', (1, 2): 'Hr
          (4, 4): 'H22'}
 BYNAME = {nm: ij for ij, nm in NAMES.items()}
 T0 = time.time()
-OPT = {'r0': True, 'halfmass': False}
+OPT = {'r0': True, 'halfmass': False, 'mu0': sp.Integer(1), 'tmu0': None}
 
 
 def out(msg):
@@ -136,7 +143,7 @@ def canon(e):
 
 # ------------------------------------------------------------------------------------------------------------ operators
 def parse(expr):
-    expr = sp.expand(expr).subs(mu0, 1)
+    expr = sp.expand(expr).subs(mu0, OPT['mu0'])
     reps = {}
     for d in expr.atoms(sp.Derivative):
         cnt = dict((var, n) for var, n in d.variable_count)
@@ -156,17 +163,21 @@ def parse(expr):
 
 
 TAB = {}
+RAW = {}
 
 
 def build_table():
-    Hg = L.general_H()
-    Rg, Dg = L.ops(Hg)
-    for (i, j) in COMPS:
-        e = sp.expand(Rg[i, j])
-        TAB[('R', i, j)] = (parse(e.coeff(lam, -1)), parse(e.coeff(lam, 0)))
-    for k in range(3):
-        e = sp.expand(Dg[k])
-        TAB[('D', k)] = (parse(e.coeff(lam, -1)), parse(e.coeff(lam, 0)))
+    """the operator table at OPT['mu0'] (layerlin5's ops taken once, then specialised)"""
+    if not RAW:
+        Hg = L.general_H()
+        Rg, Dg = L.ops(Hg)
+        for (i, j) in COMPS:
+            RAW[('R', i, j)] = sp.expand(Rg[i, j])
+        for k in range(3):
+            RAW[('D', k)] = sp.expand(Dg[k])
+    TAB.clear()
+    for key, e in RAW.items():
+        TAB[key] = (parse(e.coeff(lam, -1)), parse(e.coeff(lam, 0)))
     assert all(m == 0 for key in TAB for co, nm, (m, p, q) in TAB[key][0])      # the lam^-1 parts carry no d_v
 
 
@@ -235,16 +246,16 @@ def integ(f, w):
     return canon(sp.Add(*res))
 
 
-ZSYM = None
+ZSYM = {}
 
 
 def data(Dk):
-    global ZSYM
-    if ZSYM is None:
+    key = OPT['mu0']
+    if key not in ZSYM:
         Z, _ = L.polplus(sp.Matrix([L.Vv, L.Vr, L.Vt, 0, 0]))
-        ZSYM = Z.subs(mu0, 1).applyfunc(to_t)
+        ZSYM[key] = Z.subs(mu0, key).applyfunc(to_t)
     sub = {L.Vv: Dk[0].subs(r, r0), L.Vr: Dk[1].subs(r, r0), L.Vt: Dk[2].subs(r, r0)}
-    return (I*ZSYM.subs(r, r0)).subs(sub).applyfunc(canon)
+    return (I*ZSYM[key].subs(r, r0)).subs(sub).applyfunc(canon)
 
 
 def transport(R, Z, comps=None):
@@ -252,16 +263,17 @@ def transport(R, Z, comps=None):
     H = {}
     h = canon
     half = sp.Rational(1, 2) if OPT['halfmass'] else 1
+    mu = OPT['mu0'] if OPT['tmu0'] is None else OPT['tmu0']        # the mass couplings mu0 H/r^3
     if (1, 1) in comps or (0, 1) in comps or (0, 0) in comps:
         H[(1, 1)] = h(r**sp.Rational(-3, 2)*(r0**sp.Rational(3, 2)*Z[1, 1] - I*integ(R[(1, 1)], sp.Rational(3, 2))))
         H[(0, 1)] = h(r**sp.Rational(-3, 2)*(r0**sp.Rational(3, 2)*Z[0, 1]
-                                             + integ(-I*R[(0, 1)] - H[(1, 1)]/r**3, sp.Rational(3, 2))))
+                                             + integ(-I*R[(0, 1)] - mu*H[(1, 1)]/r**3, sp.Rational(3, 2))))
         H[(0, 0)] = h(r**sp.Rational(-3, 2)*(r0**sp.Rational(3, 2)*Z[0, 0]
-                                             + integ(-I*R[(0, 0)] - 2*half*H[(0, 1)]/r**3, sp.Rational(3, 2))))
+                                             + integ(-I*R[(0, 0)] - 2*half*mu*H[(0, 1)]/r**3, sp.Rational(3, 2))))
     if (1, 2) in comps or (0, 2) in comps:
         H[(1, 2)] = h(r**sp.Rational(-1, 2)*(r0**sp.Rational(1, 2)*Z[1, 2] - I*integ(R[(1, 2)], sp.Rational(1, 2))))
         H[(0, 2)] = h(r**sp.Rational(-1, 2)*(r0**sp.Rational(1, 2)*Z[0, 2]
-                                             + integ(-I*R[(0, 2)] - H[(1, 2)]/r**3, sp.Rational(1, 2))))
+                                             + integ(-I*R[(0, 2)] - mu*H[(1, 2)]/r**3, sp.Rational(1, 2))))
     for k in (2, 3, 4):
         if (k, k) in comps:
             H[(k, k)] = h(r**sp.Rational(1, 2)*(r0**sp.Rational(-1, 2)*Z[k, k]
@@ -486,7 +498,7 @@ def sizes(prof):
 
 
 def horizon(prof):
-    return canon(prof.get((0, 0), 0).subs(r, 1))
+    return canon(prof.get((0, 0), 0).subs(r, sp.sqrt(OPT['mu0'])))
 
 
 def at_rho(e, rs):
@@ -526,6 +538,46 @@ def chain(record):
     record['B4'] = b4
     log("B4 %s" % b4)
     return H2, H3, H4, H5
+
+
+def b6(a4, b4, d, Ld):
+    """B6: the chain at mu0 = 16, and the horizon values against B5's at mu0 = 1 (r0 -> r0/4, factors 2^-7, 2^-9)"""
+    OPT['mu0'] = sp.Integer(16)
+    build_table()
+    H1 = {0: H1prof()}
+    H2, R1, D1 = next_profile(H1, [0, 1])
+    ok = all(e == 0 for e in H2[1].values()) and all(equations(H2, R1, D1, 0))
+    H2 = {0: H2[0]}
+    H3, R2, D2 = next_profile(H2, [0, 1])
+    ok &= same(H3[1], H2[0], I) and all(equations(H3, R2, D2, 0)) and all(equations(H3, R2, D2, 1))
+    log("B6 H3 %s" % ok)
+    H4, R3, D3 = next_profile(H3, [0, 1])
+    ok &= same(H4[1], H3[0], 2*I) and all(equations(H4, R3, D3, 0)) and all(equations(H4, R3, D3, 1))
+    log("B6 H4 %s" % ok)
+    cv = [(0, 0), (0, 1), (1, 1)]
+    H5, R4, D4 = next_profile({0: H4[0], 1: H4[1]}, [1], comps=cv)
+    ok &= all(equations(H5, R4, D4, 1, comps=cv))
+    log("B6 H5 %s" % ok)
+    c3, rem3 = fit(canon(horizon(H3[0])/A), [(d, 2), (Ld, 4)])
+    c4, rem4 = fit(canon(horizon(H4[0])/A), [(d, 2), (Ld, 4)])
+    c5, rem5 = fit(canon(horizon(H5[1])/(I*A)), [(d, 2), (Ld, 4)])
+    K1 = -(2*r0**3 - 3*r0**2 - 2)**2/(36*r0**6)
+    s4 = r0/4
+    fits = c3 is not None and c4 is not None and c5 is not None and rem3 == 0 and rem4 == 0 and rem5 == 0
+    scal = fits and sp.cancel(c3[0] - K1.subs(r0, s4)/2**7) == 0 and c3[1] == 0
+    scal = scal and sp.cancel(c4[0] - a4.subs(r0, s4)/2**9) == 0 and sp.cancel(c4[1] - b4.subs(r0, s4)/2**9) == 0
+    three = fits and sp.cancel(c5[0] - 3*c4[0]) == 0 and sp.cancel(c5[1] - 3*c4[1]) == 0
+    ratio = sp.cancel(c4[0]/a4.subs(r0, s4)) if fits else None
+    # control (iii): the transports' mass couplings left at mu0 = 1 while the operators are at mu0 = 16
+    OPT['tmu0'] = sp.Integer(1)
+    Rk = {ij: sp.sympify(R2[ij].get(0, 0)) for ij in COMPS}
+    Dk = [sp.sympify(D2[kk].get(0, 0)) for kk in range(3)]
+    H3m = {0: transport(Rk, data(Dk))}
+    OPT['tmu0'] = None
+    ctl = equations(H3m, R2, D2, 0)[0]
+    OPT['mu0'] = sp.Integer(1)
+    build_table()
+    return ok, fits, scal, three, ratio, ctl
 
 
 def nstr(p, n=16):
@@ -611,6 +663,18 @@ def main():
                differs))
     out("controls %s" % ("PASS (control (i) detected; (ii) differs)" if not ctl1 and differs else "FAIL"))
     ok &= not ctl1 and differs
+    # B6 (round 9): mu0 = 16
+    e6, fits6, scal6, three6, ratio6, ctl6 = b6(a4, b4, d, Ld)
+    good6 = e6 and fits6 and scal6 and three6
+    out("  B6 at mu0 = 16 (horizon r = 4): H2, H3, H4 (families 0, 1) and H5's family 1 with both equations as in B1-B4:"
+        " %s; at the horizon, for every angular profile, c_(3,0),vv/A = 2^-7 K(r0/4) d and c_(4,0),vv/A = 2^-9"
+        " (alpha4(r0/4) d + beta4(r0/4) Lap d), alpha4, beta4 of B5, exactly: %s (c_(4,0)'s alpha over alpha4(r0/4): %s);"
+        " c_(5,1),vv/(i A) = 3 c_(4,0),vv/A: %s.  So b4(4 rho*, th) = 16^(-9/4) b4(rho*, th)|_(mu0 = 1) = %s i and b5 ="
+        " 3 b4: a positive factor, the phase unchanged" % (e6, scal6, ratio6, three6, nstr(al[1]/512)))
+    out("  control (iii) at mu0 = 16 with the transports' mass couplings left at mu0 = 1: B2's vv equation holds: %s"
+        % ctl6)
+    out("B6 %s" % ("PASS (control (iii) detected)" if good6 and not ctl6 else "FAIL"))
+    ok &= good6 and not ctl6
     out("bfam5: %s" % ("all checks pass, every control fails" if ok else "FAILURES"))
     return 0 if ok else 1
 

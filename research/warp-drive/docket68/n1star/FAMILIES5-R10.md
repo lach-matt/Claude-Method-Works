@@ -94,7 +94,9 @@ The old text is the paper's current bullet, located by content. It begins "- **M
 the passage to Vlasov matter are not attempted." and ends "No statement about several families is proved." It occurs
 exactly once in `paper/RESPONSE-HL-5D.md` (section 9, "What is not proved") and is quoted verbatim in R7.6.
 
-New:
+New ([R11-nits] reworded in one sentence: "These hypotheses are open for perturbations ..." now reads "These
+hypotheses hold on an open set of solutions: they persist under perturbations small in C² × C¹ ...", the same content,
+Lemma O″, with "open" unambiguously topological; no other word changed):
 
 ```
 - **More families.** Two crossing radial null dusts, one ingoing and one outgoing, are carried through the record's
@@ -115,35 +117,36 @@ New:
   to the order the scheme uses; data with overlapping families, whose only divisors are spacetime symbols; the N-family
   energy estimate, its power counting computed term by term (`docket68/n1star/checks/nledger5.py`); a diagonal choice of
   λ_N, as Huneau and Luk do; `docket68/n1star/FAMILIES5-VLASOV.md`, `docket68/n1star/FAMILIES5-R6.md`,
-  `docket68/n1star/FAMILIES5-R8.md`, the identities, divisors and data step computed). These hypotheses are open for
-  perturbations whose supports stay in a fixed compact set and whose radial dusts keep adapted boundaries (deduced), and
-  an explicit test family on Tangherlini meets them (computed, `docket68/n1star/checks/vlasovex5.py`). Data localised in
-  an angle exist on cones exactly (computed) and, near Part I's data, on all of Part I's slice in a band widened by a
-  computed amount (deduced): Rácz's split is hyperbolic on the slice except one band inside the shell, R between 4.29
-  and 4.53 (computed, `docket68/n1star/checks/racglobal5.py`; its extent certified by interval arithmetic for the
-  background with the record's characteristic data, whose reduction to ordinary differential equations is deduced, each
-  edge enclosed to within 0.008, `docket68/n1star/checks/intcert5.py`, `docket68/n1star/checks/truebg5.py`), where no
-  foliation of that slice is hyperbolic (deduced from Rácz's characteristic equation), and a slice bent by at most
-  0.0012 is hyperbolic everywhere (certified for that background and for its computed approximation in a stated
-  interpolant; `docket68/n1star/checks/racslice5.py`, `docket68/n1star/checks/intcert5.py`,
-  `docket68/n1star/checks/truebg5.py`). Near Part I's data, exactly localised vacuum data whose first-order part
-  perturbs the extrinsic curvature alone do not exist for small amplitude: their charge is minus a sum of squares minus
-  a term carrying the mass, at the axes too (deduced; the identity computed exactly for every background and every R and
-  θ, `docket68/n1star/checks/qsign5.py`, `docket68/n1star/checks/mbslice5.py`, and the last term's sign certified for
-  that background and for its computed approximation in a stated interpolant, `docket68/n1star/checks/truebg5.py`,
-  `docket68/n1star/checks/intcert5.py`); with matter obeying the dominant energy condition such data do not exist where
-  f > 0, and where f < 0 they exist with outgoing null dust (deduced; the sign computed). For first-order parts that
-  perturb the metric the charge is Q = 2∫_U G^(2)(ξ, n) =: −E, and its sign is decided
-  (`docket68/n1star/FAMILIES5-MB.md`, `docket68/n1star/checks/mbsign5.py`, `docket68/n1star/checks/mbslice5.py`). Where
-  f < 0, inside the apparent horizon R² = μ, E takes both signs on perturbations of tensor type, so near Part I's data
-  exactly localised vacuum data background + εδ + O(ε²), δ a perturbation of the metric that is not a gauge one, exist
-  for small amplitude on every vacuum band of the slice that meets {f < 0} (deduced, by intermediate values; the tensor
-  sector's charge computed exactly on every slice). Where f > 0, E is positive on every invariant perturbation that is
-  not a gauge one: in the class it is the sum, over the even harmonics, of the energies of Kodama and Ishibashi's master
-  equations, whose potentials are positive in five dimensions for every l ≥ 2 (the reduction and the positivity computed
-  exactly; the tensor harmonics beyond l = 8 and the passage to a static slice deduced). So on bands in {f > 0}, near
-  Part I's data, no exactly localised vacuum data background + εδ + O(ε²) with δ an invariant perturbation that is not a
-  gauge one exist for small amplitude: exact vacuum localisation fails there at second order.
+  `docket68/n1star/FAMILIES5-R8.md`, the identities, divisors and data step computed). These hypotheses hold on an open
+  set of solutions: they persist under perturbations small in C² × C¹ whose supports stay in a fixed compact set and
+  whose radial dusts keep adapted boundaries (deduced), and an explicit test family on Tangherlini meets them (computed,
+  `docket68/n1star/checks/vlasovex5.py`). Data localised in an angle exist on cones exactly (computed) and, near Part
+  I's data, on all of Part I's slice in a band widened by a computed amount (deduced): Rácz's split is hyperbolic on the
+  slice except one band inside the shell, R between 4.29 and 4.53 (computed, `docket68/n1star/checks/racglobal5.py`; its
+  extent certified by interval arithmetic for the background with the record's characteristic data, whose reduction to
+  ordinary differential equations is deduced, each edge enclosed to within 0.008, `docket68/n1star/checks/intcert5.py`,
+  `docket68/n1star/checks/truebg5.py`), where no foliation of that slice is hyperbolic (deduced from Rácz's
+  characteristic equation), and a slice bent by at most 0.0012 is hyperbolic everywhere (certified for that background
+  and for its computed approximation in a stated interpolant; `docket68/n1star/checks/racslice5.py`,
+  `docket68/n1star/checks/intcert5.py`, `docket68/n1star/checks/truebg5.py`). Near Part I's data, exactly localised
+  vacuum data whose first-order part perturbs the extrinsic curvature alone do not exist for small amplitude: their
+  charge is minus a sum of squares minus a term carrying the mass, at the axes too (deduced; the identity computed
+  exactly for every background and every R and θ, `docket68/n1star/checks/qsign5.py`,
+  `docket68/n1star/checks/mbslice5.py`, and the last term's sign certified for that background and for its computed
+  approximation in a stated interpolant, `docket68/n1star/checks/truebg5.py`, `docket68/n1star/checks/intcert5.py`);
+  with matter obeying the dominant energy condition such data do not exist where f > 0, and where f < 0 they exist with
+  outgoing null dust (deduced; the sign computed). For first-order parts that perturb the metric the charge is
+  Q = 2∫_U G^(2)(ξ, n) =: −E, and its sign is decided (`docket68/n1star/FAMILIES5-MB.md`,
+  `docket68/n1star/checks/mbsign5.py`, `docket68/n1star/checks/mbslice5.py`). Where f < 0, inside the apparent horizon
+  R² = μ, E takes both signs on perturbations of tensor type, so near Part I's data exactly localised vacuum data
+  background + εδ + O(ε²), δ a perturbation of the metric that is not a gauge one, exist for small amplitude on every
+  vacuum band of the slice that meets {f < 0} (deduced, by intermediate values; the tensor sector's charge computed
+  exactly on every slice). Where f > 0, E is positive on every invariant perturbation that is not a gauge one: in the
+  class it is the sum, over the even harmonics, of the energies of Kodama and Ishibashi's master equations, whose
+  potentials are positive in five dimensions for every l ≥ 2 (the reduction and the positivity computed exactly; the
+  tensor harmonics beyond l = 8 and the passage to a static slice deduced). So on bands in {f > 0}, near Part I's data,
+  no exactly localised vacuum data background + εδ + O(ε²) with δ an invariant perturbation that is not a gauge one
+  exist for small amplitude: exact vacuum localisation fails there at second order.
 ```
 
 ## Files
