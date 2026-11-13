@@ -163,7 +163,7 @@ those of [[lem:iii-k-2-2]] (d) at the order 2d ([[prop:iii-k-1-2]] (3)); and let
 
     λ1 < δ,        ω_(2d)(2δ) ≤ 2^(−(32d+8)),        log₁₀ ω_(2d)(2δ) < −(59/196)(32d + 8).
 
-With d ≥ d_acc and [[thm:loss-d]] (ii), log₁₀ ω_(2d)(2δ) < −1.351 × 10²¹. If moreover ω_(2d)(s) ≥ s/A on [0, s_(2d)]
+With d = d_acc and [[thm:loss-d]] (ii), log₁₀ ω_(2d)(2δ) < −1.351 × 10²¹. If moreover ω_(2d)(s) ≥ s/A on [0, s_(2d)]
 for some A ≥ 1, then δ ≤ A·2^(−(32d+9)).
 
 *Proof.* The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
@@ -171,9 +171,8 @@ for some A ≥ 1, then δ ≤ A·2^(−(32d+9)).
 [[thm:settling]] ([[sec:vii-4]]) takes λ1 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so
 2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the binomial expansion, all of whose terms are positive,
 1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, which
-gives the third bound. The proof of [[thm:iii-k-3-2]] takes d at least the loss of [[lem:iii-k-2-3]], which is that of
-[[thm:iii-j2-4-2]] for Ψ, so d ≥ d_acc; with d_acc > 1.403·10²⁰, (59/196)(32d + 8) > 1.351·10²¹. Under the last
-hypothesis, ε/A ≤ ω_(2d)(ε) ≤ 2^(−(32d+8)), so δ = ½ε ≤ A·2^(−(32d+9)). ∎
+gives the third bound. With d > 1.403·10²⁰, (59/196)(32d + 8) > 1.351·10²¹. Under the last hypothesis,
+ε/A ≤ ω_(2d)(ε) ≤ 2^(−(32d+8)), so δ = ½ε ≤ A·2^(−(32d+9)). ∎
 
 The bounds hold whatever the other constants are, once each constant of an upper bound is taken at least 1, which
 enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), the inverse of ω_(2d) and 1/C_R,
@@ -218,8 +217,8 @@ loss d of [[thm:iii-i-5-3]] ([[eq:iii-i-5-2]]). The background terms of [[lem:ii
 background in the bound displayed in [[lem:iii-j2-2-1]] (b); in the sense of [[def:iii-j2-1-1]] they are tame with
 loss max(2, d_B), not 2. By (c) the difference is paid once: a composition in which every background term is charged 2
 and every other family its loss is tame with that sum plus (d_B − 2)_+, whatever the number of background terms in it.
-A finite-rank map built from a functional bounded at the order d_ℓ and from families of split loss (a; c, b) has split
-loss (max(d_ℓ, b); c, max(d_ℓ, b)) by [[lem:iii-j2-1-2]] (c), so it adds no excess beyond those of its factors.
+A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and fixed sections v^i, as the rows and the
+coefficient maps of the construction are ([[lem:iii-j2-2-1]] (c)), has split loss (d_ℓ; 0, d_ℓ), so it adds no excess.
 
 **Lemma {#lem:ec-iota-gap}** (The gaps of the index sets at ι⁺.) The index set ℰ^ι_ind of [[thm:iii-g2-4-2]]
 ([[eq:iii-g2-4-4]]) satisfies ε^ι_ind := min Re ℰ^ι_ind ≥ ε_Υ, and the number η_0 of [[def:iii-i10-1-1]] satisfies
@@ -227,9 +226,9 @@ loss (max(d_ℓ, b); c, max(d_ℓ, b)) by [[lem:iii-j2-1-2]] (c), so it adds no 
 
 *Proof.* By the proof of [[thm:iii-g2-4-2]] (its paragraph on the ι⁺-order of the remainder near K⁺ ∩ ι⁺), ℰ^ι_ind
 collects the index sets of the corrections of the states of [[ch:s13]] and [[ch:s15]] relative to their leading terms,
-the set 2 + ℕ₀, and (2, 1) when ϰ = 1. The first have least real part at least ε_Υ, by the convention of
-[[sec:iii-d2-1]] for ℰ_ind, which [[ch:s15]] keeps ([[sec:iii-g4-1]], [[lem:iii-g4-4-3]]); the others have real part
-at least 2. So ε^ι_ind ≥ min(ε_Υ, 2) = ε_Υ. The increments of [[def:iii-i10-1-1]] are π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}, the
+the set 2 + ℕ₀, and (2, 1) when ϰ = 1. The first have least real part at least ε_Υ: this is the convention of
+[[sec:iii-d2-1]] for ℰ_ind, kept in [[ch:s15]] for the states of L_b, and [[sec:iii-g4-1]] and [[lem:iii-g4-4-3]] state it
+for the corrections of the states; the others have real part at least 2. So ε^ι_ind ≥ min(ε_Υ, 2) = ε_Υ. The increments of [[def:iii-i10-1-1]] are π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}, the
 first being the index sets of the corrections of the states ([[sec:iii-i10-1]]), of least real part at least ε_Υ; so
 η_0 ≥ min(ε_Υ, ε^ι_ind, 1) = ε_Υ. ∎
 

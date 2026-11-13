@@ -578,18 +578,20 @@ step (4) of the proof of [[thm:gd-r4-3]], give the Cartesian components of Y and
 
 (2) *The forward solution.* With χ of [[lem:gd-r3-5]], χ(t^♭_*)Y solves □(χ(t^♭_*)Y) = [□, χ(t^♭_*)]Y, a forcing
 term supported in {2 ≤ t^♭_* ≤ 3}, meeting ∂M only at ℐ⁺, of ℐ⁺-order p_slab + 1 (the proof of [[prop:gd-r3-6]]).
-With b_+ = β + ½ and b_I ∈ (b_+, p_slab) it lies in the space of [[lem:gd-r3-5]], whose conditions b_+ < b_I < 3/2 hold
-for □, which is 1-admissible with sf-weight b_+ − 5/2 ([[thm:gd-r2-5]] (iii), b_+ − ½ = β ∈ (0, 1)). So
-χ(t^♭_*)Y is its forward solution ([[thm:ii-f1-1-1]]; uniqueness as in the proof of [[prop:gd-r3-6]]), and
-[[cor:ii-f1-1-2]] gives χ(t^♭_*)Y ∈ H^(k,(b_I,b_+,−1/2))_b(Ω_*, μ_b) for every k.
+As b_I + 1 < p_slab + 1 and the slab meets neither ι⁺ nor K⁺, it lies in H^(∞,(b_I+1,b_++2,1/2))_b(Ω_*, μ_b)^(•,−)
+(a conormal tensor whose pointwise orders exceed the weights lies in the space, the proof of [[lem:gd-r3-5]]), the
+space of [[eq:ii-f1-1-4]] in the form of [[cor:ii-f1-1-2]]. Its conditions b_I < 3/2 + S̄ and b_+ < b_I hold for □
+(S̄ = 0, [[lem:iii-d-3-1]] at γ_Υ = 0), and □ is 1-admissible with sf-weight b_+ − 5/2 = β − 2 ([[thm:gd-r2-5]]
+(iii), as β ∈ (0, 1)). So χ(t^♭_*)Y is its forward solution ([[thm:ii-f1-1-1]]; uniqueness as in the proof of
+[[prop:gd-r3-6]]), and [[cor:ii-f1-1-2]] gives χ(t^♭_*)Y ∈ H^(k,(b_I,b_+,−1/2))_b(Ω_*, μ_b) for every k.
 
 (3) *The cone.* χ′Y is the forward solution of [□, χ′]Y. On the cone part {t_*/40 ≤ r ≤ t_*/20} of supp dχ′,
 [□, χ′] ∈ ρ_+²Diff¹_b (the proof of [[thm:gd-r3-4]] (iii)), and that cone stays away from K⁺ and ℐ⁺; the rest of
 supp dχ′ is compact. So [□, χ′]Y ∈ H^(∞,(𝔪,b_++2,𝔪))_b for every 𝔪. If α_K < 1, it lies in [[eq:gd-r5-1]] with
 γ_+ ∈ (α_K, 3/2) and α_K ∈ [½, 1), as γ_+ < b_+; if α_K ∈ (1, 2), it lies in [[eq:gd-r6-1]] with γ_+ ∈ (α_K, 2),
-for any ϵ_1, the forcing term vanishing near ℐ⁺. [[thm:gd-r5-2]], resp. [[thm:gd-r6-5]], gives
-|χ′Y − c_f(t_*)W*| ≤ Ct_*^(−α_K). At late times dχ′ = 0 near the horizon, so ℓ of the forcing term vanishes for large v
-and c_f = Q[χ′Y]/4π² = Q[Y]/4π², constant. On compact r-sets at late times χ′Y = Y. The metric part:
+for any ϵ_1, the forcing term vanishing near ℐ⁺. [[thm:gd-r5-2]], resp. [[thm:gd-r6-5]],
+gives |χ′Y − c_f(t_*)W*| ≤ Ct_*^(−α_K). At late times dχ′ = 0 near the horizon, so ℓ of the forcing term vanishes for
+large v and c_f = Q[χ′Y]/4π² = Q[Y]/4π², constant. On compact r-sets at late times χ′Y = Y. The metric part:
 ℒ_Yg − cℒ_(W*)g = ℒ_(Y−cW*)g, bounded by the derivatives of Y − cW*. ∎
 
 At p = ½ the chain α_K < γ_+ < b_+ < b_I < p_slab < p is empty; for p ≥ 3/2 it stops at 3/2, the a priori ι⁺-weight

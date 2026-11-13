@@ -964,7 +964,8 @@ are bounded, and lies in H^(∞,(a₀,2β))_b(Ω_c); and u₆ = χ_I(u^((0)) + z
 
 (a) If (u^((0)), ũ) and (u′^((0)), ũ′) are decompositions of u, then z := u^((0)) − u′^((0)) satisfies
 χ_Iz = ũ′₆ − ũ₆ ∈ H^(0,(a₀,2β))_b(Ω_c). In the coordinates (s, ρ₀, ω), s := log ρ_I, of the proof of [[lem:iv2-1-2]],
-the square of this norm is ∫(∫ e^(−2βs)|χ_Iz|² ds) ρ₀^(−2a₀)(dρ₀/ρ₀)dg̸, which is finite. Over a point with x¹ ≤ y_* the
+the square of this norm is comparable to ∫(∫ e^(−2βs)|χ_Iz|² ds) ρ₀^(−2a₀)(dρ₀/ρ₀)dg̸, which is therefore finite. Over a
+point with x¹ ≤ y_* the
 inner integral runs over (−∞, log c), on which χ_I = 1 for s ≤ log(c/4), and ∫_(−∞)^(log(c/4)) e^(−2βs) ds = ∞ as
 β > 0. So z = 0 at almost every such point. ∎
 
