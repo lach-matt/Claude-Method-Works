@@ -278,9 +278,9 @@ t^j = Σ_(k≥j) (C(k, j)/C(n, j))C(n, k)t^k(1 − t)^(n−k), as C(n − j, k �
 p(α + (β − α)t) = Σ_k b_k C(n, k)t^k(1 − t)^(n−k), a combination of the b_k with nonnegative weights of sum 1 on
 t ∈ [0, 1]. ∎
 
-**Lemma {#lem:morawetz-polynomial-weight}** (The weight of a polynomial multiplier.) Let F be a real polynomial in z and g
-a real polynomial in y, with g ≥ 0 and 4F_z(1 − 2y) − g(y) ≥ 0 for 0 ≤ y ≤ 1, and put φ := F(z) and q := ηg. Then φ and
-q satisfy the hypotheses of [[lem:morawetz-identity]] on φ and q, with φ(±∞) = F(±1); and q ≥ 0, φ′ = 4ηF_z,
+**Lemma {#lem:morawetz-polynomial-weight}** (The weight of a polynomial multiplier.) Let F be a real polynomial in z
+and g a real polynomial in y, with g ≥ 0 and 4F_z(1 − 2y) − g(y) ≥ 0 for 0 ≤ y ≤ 1, and put φ := F(z) and q := ηg. Then
+φ and q satisfy the hypotheses of [[lem:morawetz-identity]] on φ and q, with φ(±∞) = F(±1); and q ≥ 0, φ′ = 4ηF_z,
 φ′ − q = η(4F_z − g) ≥ 0 and φ′ − 2q = η(4F_z − 2g) on ℝ, the derivatives of F taken at z = 1 − 2y. For V = V_(a,b) or
 V = V_S the weight of [[lem:morawetz-identity]] is W = ηG with
 
@@ -406,8 +406,8 @@ At σ → 0 and |σ| = 1/2, 1, 2, 3 and 10, B*_l is at most:
 | 5 | 8.29 | 8.50 | 8.87 | 10.00 | 11.51 | 26.01 |
 | every l ≥ 6 | 8.21 | 8.42 | 8.78 | 9.88 | 11.36 | 25.56 |
 
-*Proof.* (i) By the last sentence of [[prop:morawetz-polynomial]], each listed row contains V_(κ+3/4,9/4) for the l in its
-range, and each bound is even in σ and increasing in |σ|, hence so is their least. For l ≥ 6, rows C6 and
+*Proof.* (i) By the last sentence of [[prop:morawetz-polynomial]], each listed row contains V_(κ+3/4,9/4) for the l in
+its range, and each bound is even in σ and increasing in |σ|, hence so is their least. For l ≥ 6, rows C6 and
 [[prop:morawetz-resolvent-l-ge-1]] give bounds independent of l. The entries come from row A′ at l = 1; from row B′ at
 l = 2, except at σ = 10, from row Z; from [[prop:morawetz-resolvent-l-ge-1]] at l = 3 for σ → 0 and |σ| = 1/2, and from
 row C3 otherwise; and from rows C4, C5 and C6 at l = 4, 5 and every l ≥ 6. At |σ| = 1/2 and 2 they evaluate

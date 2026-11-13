@@ -947,12 +947,11 @@ products with differential operators. As f(ϑ) = 1 near {ϑ ≥ c}, they may be 
 I, on any compact subset of ᵉ³ᵇS*M̃ over {ϑ ≥ c}, with wave front sets in any given neighbourhood of it. Both base
 points of the kernel of an auxiliary operator or of an A_i lie in {ϑ ≥ c/2 − Λ_ϑϵ_ϑ} ⊂ {ϑ > c/4}, where φ̂ := f̂(ϑ)
 equals 1. So every such operator T, and every operator whose kernel lies in the support of the kernel of T (its
-commutators with vector fields, for instance), equals φ̂Tφ̂. Let p be within d_ℬ-distance D + 8ϵ_ϑ = D + c/(8Λ_ϑ) of
-supp φ̂ ⊂ {ϑ ≥ c/8}. Take a chain from a point of supp φ̂ to p of length below D + c/(8Λ_ϑ), and cut it where the length
-of its initial part first exceeds the excess of its length over D (if that excess is positive). Along the initial
-part, of length below c/(8Λ_ϑ), ϑ stays positive, and the rest has length below D. So p is within D of
-{ϑ > 0} ⊂ ⋃_i supp χ′_i, where χ = 1. Hence these operators are carried by χ through φ̂, in statements whose operators
-have kernel ranges up to D + 8ϵ_ϑ.
+commutators with vector fields, for instance), equals φ̂Tφ̂. Let p be at d_ℬ-distance less than
+D + 8ϵ_ϑ = D + c/(8Λ_ϑ) from supp φ̂ ⊂ {ϑ ≥ c/8}, and take a chain from a point of supp φ̂ to p of length ℓ below
+D + c/(8Λ_ϑ). Cut it where its initial part has length max(0, ℓ − D) < c/(8Λ_ϑ). Along the initial part ϑ stays
+positive, and the rest has length at most D. So p is within D of {ϑ > 0} ⊂ ⋃_i supp χ′_i, where χ = 1. Hence these
+operators are carried by χ through φ̂, in statements whose operators have kernel ranges up to D + 7ϵ_ϑ.
 
 (R2) *The cut-off χ_*.* Put χ_* := f_*(ϑ). It equals 1 within d_ℬ-distance ϵ_ϑ of supp φ̂, where
 ϑ > c/8 − c/64 > c/16, and χ = 1 within D of supp χ_* ⊂ ⋃_i supp χ′_i. So Tχ_* = T for the operators T of (R1);
