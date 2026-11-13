@@ -147,6 +147,64 @@ applied in the proof of [[thm:iii-k-4-3]], asks smallness in H^(N_NM) with N_NM 
 may exceed it. Each elementary loss is a non-negative integer, so d_acc is at least the sum of the losses of any
 family of steps that are composed one after another in the construction.
 
+One threshold enters the lower bounds below: the incoming threshold ϑ_in of [[eq:i-a-1-5]] of the transition face
+model N_tf((2L_b)^(·), ±1) of [[cor:iii-f1-3-4]], which bounds from below the decay orders that its proof takes at
+the incoming radial sets. Its sign is fixed by the structure of L_b at infinity. For an operator with (H1)–(H2) of
+[[sec:i-a-1-3]], a = A_1(0) denotes the coefficient of ρ∂_ρ at ρ = 0 in [[eq:i-c-1-2]].
+
+**Lemma {#lem:ec-theta-in}** (The incoming threshold of the transition face model.) (a) Let P̂ satisfy (H1)–(H2) and
+put A := 2 Id − a. For every fibre inner product h, at every point of ∂X,
+
+    p_in − (S + S^(∗h)) = −2 Re_h(A + S),                                                               {#eq:ec-theta-in}
+
+and ϑ_in ≥ −2 Re μ for every eigenvalue μ of A + S at any point of ∂X.
+
+(b) For P̂ = (2L_b)^(σ), with L_b the operator of [[ch:s15]], at every point of ∂X
+
+    ρ(A + S) = −Ē^C ι_(ḡ⁻¹ℓ) Ḡ + (ℓ ⊗_s ·) Ē^Υ Ḡ,        ℓ := dt̄ + d|x|,                               {#eq:ec-theta-in-l}
+
+and A + S has a kernel of dimension at least 5. Hence the incoming threshold ϑ_in of (2L_b)^(σ), and that of
+N_tf((2L_b)^(·), ±1), is non-negative in every fibre inner product.
+
+*Proof.* (a) Write D := ρ∂_ρ. By (H2) and [[eq:i-c-1-2]], near ∂X,
+
+    ρ⁻²P̂(0) = (−D² + 2D) Id − A D + B + ρR,
+
+with A = A(ω), B a family of operators on 𝕊³ (angular derivatives of order at most 2 and terms of order 0) and
+R ∈ Diff²_b. For the density ρ⁻⁵dρ dω the formal adjoint of D is −D + 4, so (ρ²D)^† = −ρ²D + 2ρ² and
+(ρ²D²)^† = ρ²(D² − 4D + 4), and ρ²(−D² + 2D) is formally self-adjoint. Let H be the matrix of h, smooth in (ρ, ω) up
+to ρ = 0. Then Im_h(ρ²(−D² + 2D) Id) = (2i)⁻¹H⁻¹[H, ρ²(−D² + 2D)], each of whose terms carries DH ∈ ρC^∞, so it lies
+in ρ³(C^∞D + C^∞). Next (ρ²AD)^(∗h) = H⁻¹(−ρ²D + 2ρ²)A^∗H = −ρ²A^(∗h)D + ρ²C^∞, so
+Im_h(−ρ²AD) = iρ² Re_h(A) D + ρ²C^∞. The h-adjoint of ρ²B has no D-term. By [[rem:i-a-hypotheses]] (a),
+Im_h P̂(0) ∈ ρ²Diff¹_b, and so are the imaginary parts of the other terms; hence Im_h(ρ³R) ∈ ρ³Diff²_b ∩ ρ²Diff¹_b,
+which is ρ³Diff¹_b. Altogether ρ⁻¹Im_h P̂(0) is i Re_h(A) ρD plus terms with angular derivatives and terms vanishing
+at ρ = 0. As ρD = −∂_r has symbol −iξ at ξ dr + rη ([[lem:i-a-4-4]] (a)), and the angular terms have symbols linear in
+η, p_in = i Re_h(A)(−i)(−2) = −2 Re_h(A) at ρ = 0. With S + S^(∗h) = 2 Re_h S this is [[eq:ec-theta-in]]. If
+(A + S)v = μv with v ≠ 0 at a point of ∂X, then h(Re_h(A + S)v, v) = Re h((A + S)v, v) = (Re μ) h(v, v); so the
+h-self-adjoint Re_h(A + S) has an eigenvalue at most Re μ there, p_in − (S + S^(∗h)) has one at least −2 Re μ, and
+ϑ_in ≥ −2 Re μ.
+
+(b) By [[lem:iii-f-2-1]] (3), (H2) holds with S = S̄ near infinity, and (2L_b)^(0) − (2L̄)^(0) ∈ ρ⁴Diff²_b changes
+only R; so A + S is that of 2L̄. We compute A and S̄ as endomorphisms of the fibres of S²T*: a change of frame by a
+matrix function of ω commutes with D, conjugates A and S alike, and adds only terms that belong to B. In the Cartesian
+frame □̄ acts componentwise, and its stationary part is −Σ_i ∂²_(x^i) = ρ²(−D² + 2D + Δ_(𝕊³)) on each component; so □̄
+contributes nothing to A. The other terms of [[eq:iii-f-2-1]] are of order at most 1. On stationary sections, in
+(t_*, x), the Cartesian derivative ∂_(t̄) = ∂_(t_*) acts as 0 and ∂_(x^i) acts as ∂_(x^i)|_(t_*) =
+(x^i/|x|)∂_r + (tangential derivatives); so the ∂_r-coefficient of ∂_μ is (d|x|)_μ. As in the proof of
+[[lem:iii-f-2-1]] (2), the ∂_r-coefficient of δ̄*ω = sym ∂ω is d|x| ⊗_s ω, and that of δ̄h = −ḡ^(μν) ∂_μ h_(ν·) is
+−ι_(ḡ⁻¹d|x|)h. So the ∂_r-coefficient of 2L̄ − □̄ on stationary sections is 2(−Ē^C ι_(ḡ⁻¹d|x|) Ḡ +
+(d|x| ⊗_s ·) Ē^Υ Ḡ), and as ∂_r = −ρD this term is −ρ²AD with
+
+    ρA = 2(−Ē^C ι_(ḡ⁻¹d|x|) Ḡ + (d|x| ⊗_s ·) Ē^Υ Ḡ).
+
+Adding [[eq:iii-f-2-2]], ρS̄ = −Ē^C ι_(ḡ⁻¹dt_*) Ḡ + (dt_* ⊗_s ·) Ē^Υ Ḡ, and using dt_* + 2d|x| = dt̄ + d|x| = ℓ gives
+[[eq:ec-theta-in-l]]. Its first term is ι_(ḡ⁻¹ℓ)Ḡ : S²T* → T* followed by −Ē^C, and its second is Ē^ΥḠ : S²T* → T*
+followed by ℓ ⊗_s ·. So A + S vanishes on the common kernel of two linear maps from the fibre of S²T*, of dimension 15,
+to that of T*, of dimension 5, and that kernel has dimension at least 15 − 10 = 5. By (a) with μ = 0, ϑ_in ≥ 0 in
+every fibre inner product. On {r̂ > 1}, N_tf((2L_b)^(·), σ̂) has the form (H2), with S_0 = S|_(ρ=0) in place of S and
+N(P⁽⁰⁾) in place of P⁽⁰⁾ ([[sec:i-c-4-1]] (a)), and the coefficient of ρ̂∂_ρ̂ in N(P⁽⁰⁾) is a ([[eq:i-c-1-3]]); so
+its A + S is the same endomorphism, and (a) applies to it with ρ̂ for ρ. ∎
+
 The losses of the following model inverses and transforms are given by their proofs in closed form. For a weight β
 and an index set E, n(E, β) denotes the number of pairs (z, m′) ∈ E with Re z ≤ β. ϑ_in and ϑ_ℋ are the thresholds of
 [[eq:i-a-1-5]] of the operator concerned, and s_c > ½ + ϑ_ℋ is the constant regularity order its proof fixes.
