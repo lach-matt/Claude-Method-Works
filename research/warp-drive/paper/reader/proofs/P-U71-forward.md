@@ -699,11 +699,8 @@ above; (D10) and (D11) at (𝗍, 2, N′), 𝗍 ∈ {𝗌, 𝗌 + 1}. Increment 
 (Step 3). The energy estimates need d_0 = 2 ([[lem:ii-e-2-5]], [[prop:ii-e-2-7]]). Increment 0.
 
 (W) [[lem:ii-e-4-1]] (a) at (𝗌, m): (D1) at 𝗌 − m; (b) at 𝗌: (D8) at (𝗌, 𝗌). (Sb) [[prop:ii-e-4-3]] at 𝗌: (Sv) at 𝗌 for
-the systems P^(j), with (i) at s′ = s⁻ − 1, and (W) (a) at (𝗌, 1). Here the uniqueness step of the induction is taken
-at s′ = s⁻ − 1 and the weight α − ½: by [[eq:ii-e-4-3]] at j − 1 every word of length j − 1 applied to u″ lies in
-H^(𝗌,2α)(Ω″)^(•,−), and a b-vector field maps H^(𝗍,2β)_e into H^(𝗍−1,2β−1)_e, so u″^(j) ∈ H^(𝗌−1,2α−1)(Ω″)^(•,−); the
-threshold holds at the weight α − ½. (An a priori order 𝗌 − j, falling with j, would make the index of (i), which
-depends on s′, depend on k.) The same applies to [[prop:ii-e-5-6]] (a), with s′ = s⁻ − 1 and the weight α_K − 1.
+the systems P^(j), with (i) at s′ = s⁻ − 1, and (W) (a) at (𝗌, 1). The uniqueness step of the induction is taken at
+s′ = s⁻ − 1 ([[prop:ii-e-4-3]], [[prop:ii-e-5-6]] (a)).
 
 (St) [[prop:ii-e-4-4]] at 𝗌: (Sb), and (W) (b) at 𝗌 + 1 and 𝗌 − 1; increment 2 (d_0 ≥ d_1 + 2).
 
@@ -721,8 +718,8 @@ symbol t_α in every chart has no term above the order stated: (F1) [D_a, Op(ǎ)
 D_a = Op(a)^* − Op(a^*), orders m + 𝗄 − 2 and m + 2𝗄 − 3: the terms of index 0 of D_a cancel ((c)), and ǎ is scalar, so
 the terms of the commutators that are not of positive grade in each commutator vanish. (F2) [D_R, Ǎ], [D_I, Ǎ],
 Ǎ = Op(ǎ)Φ_0, i[L_R, D_ǎǍ] and Ǎ^*[Ǎ, D_I] in [[prop:ii-a1-5-3]], order m + 𝗄 − 2, resp. 2𝗌 − 1: as (F1), with
-φ_0ǎ = ǎ, and the terms of positive index of the symbol of Φ_0 vanish near supp ǎ, as there φ_0 = 1 and its amplitude
-does not depend on η. (F3) L_IǍ_ε^*Ǎ_ε + Ǎ_ε^*Ǎ_εL_I − Op(2ǎ_ε²ℓ_I) and i[L_R, Ǎ_ε^*Ǎ_ε] − Op(H_ℓ(ǎ_ε²)) in
+φ_0ǎ = ǎ, and the terms of positive index of the symbol of Φ_0 vanish near supp ǎ, as each carries a ξ-derivative of
+φ_0 (η enters the amplitude only through φ_0, [[lem:fwd-transport]]) and φ_0 = 1 there. (F3) L_IǍ_ε^*Ǎ_ε + Ǎ_ε^*Ǎ_εL_I − Op(2ǎ_ε²ℓ_I) and i[L_R, Ǎ_ε^*Ǎ_ε] − Op(H_ℓ(ǎ_ε²)) in
 [[lem:ii-d-2-3]], order 2s − 1: ǎ_ε is scalar, φ_0ǎ_ε = ǎ_ε, and ℓ_I, the principal symbol of L_I, is in every chart
 the part of order m − 1 of the symbol of L_I: for smooth coefficients this is (S5), and both sides are the same
 polynomial in finitely many derivatives of the coefficients and of the transition maps, so the identity persists in
@@ -751,7 +748,7 @@ expressions have at most five quantizations. ∎
 **Lemma {#lem:fwd-increments}** (The increments.) Every coefficient index entering D_0 is at most 𝔐(100) + 4.
 
 *Proof.* By [[lem:fwd-box]] and [[lem:fwd-derived]], every index entering D_0 is a maximum over sites, and each site's
-index is the maximum of the indices of the sites it invokes plus its increment, ending at the items of
+index is the larger of 𝔐(100) plus its increment and the indices of the sites it invokes, ending at the items of
 [[prop:fwd-calculus]] (index M + 2 = 𝔐(100) for [[prop:ii-a1-2-4]], d_0 = 𝔐(100) for [[lem:ii-a-8-5]]) at orders that
 satisfy (B1)–(B5). The increments along any chain of sites, site by site: (D1)–(D4), (D6), (D8)–(D11) add 0 (they take
 maxima); (D5) adds 2 ([[thm:ii-a1-5-4]], *The index*: the flow box of [[lem:ii-a1-5-2]] has d_0 − 1 derivatives, the
