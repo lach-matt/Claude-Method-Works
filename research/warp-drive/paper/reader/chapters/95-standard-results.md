@@ -405,9 +405,30 @@ and trace parts (k_B, K^E_E) of the second fundamental form, with ρ as the evol
 K = 2, …, n being an index of coordinates on the leaves. The Hamiltonian constraint becomes a parabolic equation for the
 lapse of the foliation, (4.7).
 
-**Theorem {#thm:std-racz-hyperbolic}** ([Rac16, Lemma 4.1, p. 12; Theorem 4.3, p. 14].) In the notation of [Rac16,
-Sections 3–4]: the slice Σ is foliated by the level surfaces S_ρ; κ is given algebraically by (4.17); and (4.16) and
-(3.2) are the evolution equations for (k_i, K^l_l) in ρ.
+**Theorem {#thm:std-racz-hyperbolic}** ([Rac16, (4.20), (4.21) and Lemma 4.1, p. 12; Theorem 4.3, p. 14].) In the
+notation of [Rac16, Sections 3–4]: the slice Σ is foliated by the level surfaces S_ρ; κ is given algebraically by
+(4.17); and (4.16) and (3.2) are the evolution equations for (k_i, K^l_l) in ρ.
+
+Written as (4.19) ([[rem:std-racz-characteristic]]), with u = (k_B, K^E_E)ᵀ, the system has "the coefficients B^(K) of
+∂_K, with K = 2, 3, …, n," given by
+
+    B^(K)_ij = −N̂^K δ_ij − N̂ γ̂^(KL) δ_in δ_j(L−1) + (κ N̂/K^E_E) δ_i(K−1) δ_jn
+               − 2 (N̂ k_L/K^E_E) γ̂^(LM) δ_i(K−1) δ_(j+1)M,   (4.20)
+
+"where the lowercase and uppercase Latin indices take the value 1, 2, …, n and 2, 3, …, n, respectively"; with a
+common symmetrizer as defined in [[rem:std-racz-characteristic]], "It may be verified by a direct calculation that the
+matrix of the form
+
+    H_ij = δ_in δ_jn − (2/κ) k_P γ̂^(PQ) [δ_in δ_(j+1)Q + δ_(i+1)Q δ_jn] +
+           (1/κ²) [4 (k_P γ̂^(PQ) δ_(i+1)Q) (k_S γ̂^(ST) δ_(j+1)T) − κ · K^E_E γ̂^(PQ) δ_(i+1)P δ_(j+1)Q]   (4.21)
+
+is indeed a common symmetrizer to (4.19) in a subset of Σ where neither κ nor K^l_l vanishes and in which they are of
+opposite sign." By footnote 6 (p. 12), "in evaluating a term of the form δ_(j+1)M, here and also in (4.21), one needs
+to refer to the (n + 1)-dimensional Kronecker delta"; so u_i = k_(i+1) for i < n and u_n = K^E_E. With a^Q := k_P
+γ̂^(PQ), H has the entry 1 at (n, n), the entries −2a^(j+1)/κ elsewhere in the last row and column, and the block
+(4a^(i+1)a^(j+1) − κK^E_E γ̂^((i+1)(j+1)))/κ² for i, j < n. Subtracting from that block the product of the last column
+with the last row leaves −(K^E_E/κ) γ̂^((i+1)(j+1)), and γ̂ is positive definite; so H is positive definite exactly
+where κK^E_E < 0. H is a rational function of k_P, K^E_E, κ and γ̂ whose only denominators are powers of κ.
 
 Lemma 4.1: "Assume that κ · K^l_l < 0 holds in a subset of Σ. Then equations (4.16) and (3.2) comprise a first order
 symmetrizable hyperbolic system there."

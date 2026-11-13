@@ -1256,3 +1256,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   problem for five-dimensional Einstein-null dust that no published theorem covers (Luk-Rodnianski is 3+1 only); the
   chapter states only what holds and names the loss. Its localisation (c) drops radial localisation inside the lens.
 - R3-70 CONFIRMED; chapter 70 CONFIRMED (with chapter 21's two nit edits).
+- M-83c done. Crosswalk sweep item: crosswalk/95 has 25 rows for 67 labels (pre-existing); check whether the
+  rule for chapter 95 is one row per label, and complete it in the crosswalk sweep if so.
