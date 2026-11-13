@@ -37,7 +37,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | running |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | running (step 1: new 38a before S20) | - |
 | 45 S26 | running | - | - |
-| 46 S27 | running (three writer issues to adjudicate) | - | - |
+| 46 S27 | NOT CONFIRMED 3M 8m 8n | running (translation carried; level-1/2 lemma) | - |
 | 47 S28 | running | - | - |
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
 | 60 S30 | running | - | - |

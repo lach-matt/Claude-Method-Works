@@ -13,7 +13,7 @@ generalised zero energy states of □^Υ_b ([[sec:iii-d2-1]]–[[sec:iii-d3-3]])
 
 The dimensional changes are these. The mass of g_b enters g_b − ḡ at |x|⁻² and its rotation at |x|⁻³, where those of
 Kerr enter at |x|⁻¹ and |x|⁻²; so every comparison with Minkowski space gains a power of |x|⁻¹. The radial weight
-ρ∂_ρ − 1 becomes ρ∂_ρ − 3/2, the trace weight of the modification is 2/3 = 2/(D − 2), and the harmonics are those of
+ρ∂_ρ − 1 becomes ρ∂_ρ − 3/2, the trace weight of the modification is 2/3 = 2/(d − 2), and the harmonics are those of
 𝕊³, which has six rotations and a tensor type. The indicial roots move: the gap of the unmodified operator at zero
 energy is (0, 2), and that of □^Υ_b is (0, ι^Υ_(s1,2)) with ι^Υ_(s1,2) just above 2. Two inputs that [Hin26] takes
 from [AHW24, Theorem 5.1] on Kerr, mode stability of the unmodified operator away from zero frequency and its kernel at
@@ -102,7 +102,7 @@ P⁽⁰⁾ := ρ⁻²((□̄^Υ)^(0) + R_b), and P⁽⁰⁾ − ((ρD_ρ)² + Δ
 −g_b^00 (−iσ)² = σ²g_b^00, and the principal symbol of the σ¹ coefficient is −2g_b⁻¹(dt_*, ζ), times the identity.
 g_b^00 < 0 on X°, as dt_* is timelike ([[lem:iii-b-3-7]] (a)).
 
-(2) By [[lem:iii-a1-2-1]] (1) at N = 3, □̄ = −2∂_(t_*) ρ(ρ∂_ρ − 3/2) + ᵇ□̄(0), and by [[lem:iii-d-3-1]] below
+(2) By [[lem:iii-a1-2-1]] (1) at ν = 3, □̄ = −2∂_(t_*) ρ(ρ∂_ρ − 3/2) + ᵇ□̄(0), and by [[lem:iii-d-3-1]] below
 2ĒḠδ̄* = 2∂_(t_*) ρS̄ + γ_Υ ρ²M_E; this is [[eq:iii-d-2-1]]. The dual metric
 ḡ⁻¹ = 2ρ∂_(t_*) ⊗_s ρ∂_ρ + ρ²((ρ∂_ρ)² + g_𝕊⁻¹) ([[eq:iii-a1-2-3]]) has no ∂_(t_*) ⊗ ∂_(t_*) term, and ĒḠδ̄* is of
 first order.
@@ -138,45 +138,45 @@ We use the splitting [[eq:iii-a1-2-2]] of 1-forms: (ω_0, ω_1, ω_𝕊) is ω_0
 x̄⁰ := t̄ + r and x̄¹ := t̄ − r = t_*; and (a, b, c, e′, f, q) is the symmetric 2-tensor
 a(dx̄⁰)² + 2b dx̄⁰dx̄¹ + 2dx̄⁰ ⊗_s rc + e′(dx̄¹)² + 2dx̄¹ ⊗_s rf + r²q.
 
-**Lemma {#lem:iii-d-3-1}** (The Minkowski model; [Hin26, Lemma 6.3] in dimension 4 + 1.) Let N ≥ 2 and m_N := 2/N,
-the trace weight 2/(D − 2) of dimension D = N + 2 (2/3 at N = 3). In the splitting [[eq:iii-a1-2-2]] for 𝕊^N, with
+**Lemma {#lem:iii-d-3-1}** (The Minkowski model; [Hin26, Lemma 6.3] in dimension 4 + 1.) Let ν ≥ 2 and m_ν := 2/ν,
+the trace weight 2/(d − 2) of dimension d = ν + 2 (2/3 at ν = 3). In the splitting [[eq:iii-a1-2-2]] for 𝕊^ν, with
 D := ρ∂_ρ, e := e_Υ and γ := γ_Υ:
 
     c̄ = ρ(½, ½, 0),     ḡ⁻¹(c̄) = −ρ(∂_0 + ∂_1),
 
-           ⎛ 2   2 − 2m_N(1 − e)   0   0   0   ½m_N(1 − e) tr ⎞
-    Ē = γρ ⎜ 0   2 − 2m_N(1 − e)   0   2   0   ½m_N(1 − e) tr ⎟ ;
+           ⎛ 2   2 − 2m_ν(1 − e)   0   0   0   ½m_ν(1 − e) tr ⎞
+    Ē = γρ ⎜ 0   2 − 2m_ν(1 − e)   0   2   0   ½m_ν(1 − e) tr ⎟ ;
            ⎝ 0   0                 2   0   2   0              ⎠                                           {#eq:iii-d-3-1}
 
                                         ⎛ 1 − e   0   0 ⎞
     2ĒḠδ̄* = 2∂_(t_*) ρS̄ + γρ²M_E,   S̄ = γ ⎜ 1 − e   2   0 ⎟ ,
                                         ⎝ 0       0   1 ⎠
 
-          ⎛ −(1 + e)D + Ne    −(1 − e)D − Ne   −e δ_𝕊 ⎞
-    M_E = ⎜ (1 − e)D + Ne     (1 + e)D − Ne    −e δ_𝕊 ⎟ ;
+          ⎛ −(1 + e)D + νe    −(1 − e)D − νe   −e δ_𝕊 ⎞
+    M_E = ⎜ (1 − e)D + νe     (1 + e)D − νe    −e δ_𝕊 ⎟ ;
           ⎝ 2d_𝕊              2d_𝕊             0      ⎠                                                   {#eq:iii-d-3-2}
 
-so that □̄^Υ = −2∂_(t_*) ρ(D − N/2 − S̄) + (□̄^Υ)^(0) with
+so that □̄^Υ = −2∂_(t_*) ρ(D − ν/2 − S̄) + (□̄^Υ)^(0) with
 
     (□̄^Υ)^(0) = ᵇ□̄(0) + γρ²M_E.                                                                         {#eq:iii-d-3-3}
 
-At N = 2 these are [Hin26, (6.10)–(6.11)]. The spectrum of S̄ is γ(1 − e), 2γ and γ (with multiplicity N) at every N,
+At ν = 2 these are [Hin26, (6.10)–(6.11)]. The spectrum of S̄ is γ(1 − e), 2γ and γ (with multiplicity ν) at every ν,
 so min Re spec S̄ = γ min(1 − e, 1).
 
 *Proof.* dt̄ = ½(dx̄⁰ + dx̄¹) and ḡ⁻¹(dt̄) = −∂_(t̄) = −(∂_0 + ∂_1) give the first two. For h = (a, b, c, e′, f, q),
 ι_(ḡ⁻¹c̄)h = −ρ(a + b, b + e′, c + f) in the 1-form splitting, and tr h = −4b + tr q ([[sec:iii-a1-2]]), so
-Ēh = −γ(2ιh − m_N(1 − e)c̄ tr h) is [[eq:iii-d-3-1]]. By [[lem:iii-b-6-2]], ĒḠh = −γ(2ι_(ḡ⁻¹c̄)h − e c̄ tr h), so
+Ēh = −γ(2ιh − m_ν(1 − e)c̄ tr h) is [[eq:iii-d-3-1]]. By [[lem:iii-b-6-2]], ĒḠh = −γ(2ι_(ḡ⁻¹c̄)h − e c̄ tr h), so
 
     2ĒḠh = 2γρ(2a + 2(1 − e)b + ½e tr q,  2(1 − e)b + 2e′ + ½e tr q,  2(c + f)).
 
 Insert h = δ̄*ω from [[lem:iii-a1-2-1]] (1): a = −½ρDω_0, b = ½∂_(t_*)ω_0 + ¼ρD(ω_0 − ω_1),
 c = ρ(½d_𝕊ω_0 − ¼(D + 1)ω_𝕊), e′ = ∂_(t_*)ω_1 + ½ρDω_1, f = ½∂_(t_*)ω_𝕊 + ρ(½d_𝕊ω_1 + ¼(D + 1)ω_𝕊), and
-tr q = ρ(N(ω_0 − ω_1) − δ_𝕊ω_𝕊) (as tr g_𝕊 = N and tr δ*_𝕊 = −δ_𝕊). The ∂_(t_*)-terms are
+tr q = ρ(ν(ω_0 − ω_1) − δ_𝕊ω_𝕊) (as tr g_𝕊 = ν and tr δ*_𝕊 = −δ_𝕊). The ∂_(t_*)-terms are
 2γρ∂_(t_*)((1 − e)ω_0, (1 − e)ω_0 + 2ω_1, ω_𝕊), which is 2∂_(t_*)ρS̄ω. The rest is γρ² times: in the first row
-−2Dω_0 + (1 − e)D(ω_0 − ω_1) + eN(ω_0 − ω_1) − eδ_𝕊ω_𝕊; in the second (1 − e)D(ω_0 − ω_1) + 2Dω_1 + eN(ω_0 − ω_1) −
+−2Dω_0 + (1 − e)D(ω_0 − ω_1) + eν(ω_0 − ω_1) − eδ_𝕊ω_𝕊; in the second (1 − e)D(ω_0 − ω_1) + 2Dω_1 + eν(ω_0 − ω_1) −
 eδ_𝕊ω_𝕊; in the third 2d_𝕊ω_0 + 2d_𝕊ω_1 (the (D + 1)ω_𝕊 terms of c and f cancel). This is M_E. With
-[[lem:iii-a1-2-1]] (1) for □̄ we get [[eq:iii-d-3-3]]. S̄ is lower triangular with diagonal γ(1 − e), 2γ, γ. At N = 2,
-m_N = 1, 2 − 2m_N(1 − e) = 2e and ½m_N = ½, which is [Hin26, (6.10)]; and ±Ne = ±2e is [Hin26, (6.11)]. ∎
+[[lem:iii-a1-2-1]] (1) for □̄ we get [[eq:iii-d-3-3]]. S̄ is lower triangular with diagonal γ(1 − e), 2γ, γ. At ν = 2,
+m_ν = 1, 2 − 2m_ν(1 − e) = 2e and ½m_ν = ½, which is [Hin26, (6.10)]; and ±νe = ±2e is [Hin26, (6.11)]. ∎
 
 ### Indicial roots {#sec:iii-d-4}
 
@@ -287,8 +287,8 @@ above 2.
 1, then, as tr_g G_g h = −(3/2) tr_g h in dimension 5, ĒḠh = −γ(2ι_(ḡ⁻¹c̄)h − ½(3e − 1)c̄ tr h): every formula of
 [[lem:iii-d-3-1]] and [[eq:s13-dets]] holds with e replaced by (3e − 1)/2. In particular the spectrum of S̄ becomes
 (3/2)(1 − e)γ, 2γ, γ, and the s0 root 2 of the unmodified operator moves to (1 + (9 − 8γ²(1 − 3e))^(1/2))/2, which
-lies in (1, 2) when e < 1/3 and 0 < γ²(1 − 3e) < 1, inside the gap (0, 2). The weight 2/3 = 2/(D − 2) avoids this:
-(2/(D − 2))(1 − D/2) = −1 in every dimension D, so that ĒḠ takes the same form −γ(2ι − e c̄ tr) as in dimension 4
+lies in (1, 2) when e < 1/3 and 0 < γ²(1 − 3e) < 1, inside the gap (0, 2). The weight 2/3 = 2/(d − 2) avoids this:
+(2/(d − 2))(1 − d/2) = −1 in every dimension d, so that ĒḠ takes the same form −γ(2ι − e c̄ tr) as in dimension 4
 with the weight 1.
 
 ### The subprincipal data {#sec:iii-d-5}

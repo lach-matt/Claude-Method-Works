@@ -384,7 +384,7 @@ with minimum ϰ(a, ℓ0).
 #### The Myers–Perry data on Hintz's surface, and the upper bound {#sec:after-shell-upper}
 
 We use the family of [[def:v-2-1]] with base mass μ_end: for p = (m, A, w, c) in its range, 𝔤_p = 𝒫_p* g^KS_(m,A) with
-𝒫_p(y) = Λ_w y + (0, c), in coordinates y = (y⁰, y) of ℝ^(1+4), and (g_p, K_p) are its data on the slice {y⁰ = 0}. Let
+𝒫_p(y) = Λ_w y + (0, c), in coordinates (y⁰, y) of ℝ^(1+4), and (g_p, K_p) are its data on the slice {y⁰ = 0}. Let
 (g̃_p, K̃_p) be the data that 𝔤_p induces on the graph {y⁰ = f(|y|)} over {|y| > R_F}, f as in [[eq:after-shell-f]],
 identified with Σ ∩ {r > R_F} by x = y. Write p_λ := (m_λ, 0, 0, 0), p₂ := (m, w) and Δp := p − p_λ. Let 𝔔_X be the
 charges of [[prop:v-1-3]], 𝔟_X and q_X those of [[lem:v-1-2]], and d(X) the degree of X in the basis [[eq:v-0-4]]. A

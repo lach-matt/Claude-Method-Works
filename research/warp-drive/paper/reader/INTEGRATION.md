@@ -307,3 +307,13 @@ Items found while chapters were written in parallel; each is settled once, editi
   [Sbi15] is a new Appendix A entry (arXiv:1309.7591v3, pages in W-62). Chapter 62 exports lem:interior-far-part,
   lem:interior-where, eq:interior-placing, def:half-class, eq:half-class, lem:half-class, rem:half-class-changes for
   chapter 63.
+
+## S27 (R-S27, 2026-11-13): decisions
+
+- Major 1 (translation parameter): decided to carry the translation in the initial family (ψ_T ∘ φ_S, a translation
+  term beside e_S) so the theorem holds without symmetry; not to restrict Theorem 4.3 to the class. Chapters 47, 48
+  and 60 must follow (F-S27 lists the passages).
+- Major 2: the support argument runs on ΠU′. Major 3: a lemma extending lem:ii-c-3-2 to t_* > ½ is inserted in S27.
+- S27 needs an Appendix A entry for local well-posedness and Cauchy stability of the compact part (F-S27 names it).
+- S27's dependence on the S4 tame estimate is only through S24 (and S9/S19 behind it): Lemma 2.2 (c), Lemma 2.3,
+  Theorem 3.2 (ii), (iii) and the smallness step.

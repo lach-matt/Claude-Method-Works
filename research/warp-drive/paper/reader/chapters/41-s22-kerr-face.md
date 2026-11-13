@@ -20,35 +20,33 @@ parameters ([[sec:iii-i11-4]]), and the solution is expanded at K⁺ modulo the 
 
 The dimension changes the scheme of [Hin26] in these places. (1) Under the hypothesis (C5) below, the K⁺-range of the
 ι⁺-normal operator is ℓ^max_K = 3, so [[cor:iii-g2-4-3]] solves the term at a u-exponent λ_0 with Re λ_0 < 2 with
-ℓ_K = α − Re λ_0 for every α ≤ 4 + ε_K; [Hin26] uses its Proposition 9.11 at the exponent 1 only (Steps 2.A.2 and 4.1
-of its proof). The rows this produces are all the rows of [[sec:iii-i9-1]] with Re λ < 2, and they are identified
-through the towers ([[lem:iii-i10-2-1]]). (2) The parameter exponents, which [Hin26] builds after the proof by the
-procedure of its (11.186), are fixed in advance ([[def:iii-i10-1-1]]), with logarithmic orders that grow with the real
-part. The rows' own sources never enter the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]] (c);
-at a general b, (e) adds a forcing term E^ν of K⁺-weight above α); this is how the self-consistency of
-[Hin26, Remark 11.62] enters. (3) Two further conditions are needed: (H4), ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero
-frequency Taylor expansion of the transformed forcing has
-four terms (orders σ⁰ to σ³, as α − 1 > 3); the four zero energy solves are written out, with the polyhomogeneous
-transition face model [[prop:iii-g4-4-4]] at the levels 1 and 2 and its conormal form [[prop:iii-g4-5-1]] at the level
-3. (5) The spectral solution is written directly as a sum of physical pieces ([[lem:iii-i11-2-5]]): L̂_b(σ) is
-injective on 𝒳′_σ ([[lem:iii-i6-1-2]]), so the rows of the augmented operator and the column moves of
-[[lem:iii-i6-1-4]] are needed only at zero energy and at the last level. (6) The K⁺-terms below α − 2 come on the
-spectral side only from the pieces of [[prop:iii-g4-4-4]] at the levels 1 and 2, which are homogeneous functions of σ
-times spectral towers ([[lem:iii-i11-2-3]]); a lemma on forward tails ([[lem:iii-i10-2-4]]) turns them into rows,
-among them the boost rows at the exponent 3 that the zero energy mass state produces. (7) The elimination is a
-perturbation of the identity ([[lem:iii-i9-2-6]] (c), and (e) at a general b; [[cor:iii-i10-2-3]]), where
-[Hin26, Step 2.B] has ± the identity plus o(1); rows of different types at one rate are told apart by the degree of their
-spherical type and, within a
-degree, by the order of their states at ∂X. (8) The expansion modulo the order α uses the equation itself: below that
-order every coefficient section is a stationary solution of moderate growth ([[lem:iii-i12-2-3]]), so the
-polyhomogeneous part at K⁺ is a sum of towers whatever the individual pieces are ([[lem:iii-i12-2-4]]). (9) The
-spectral cut-off is an approximate identity with vanishing moments ([[lem:iii-i12-2-1]]), so each spectral piece is,
-near K⁺, the spacetime tower of the inverse transform of its scalar coefficient. (10) Below the order 4 the forcing of
-the last Taylor level has a negative zero frequency weight; the zero energy solve of that level then drops out
+ℓ_K = α − Re λ_0 for every α ≤ 4 + ε_K; [Hin26] uses its Proposition 9.11 at the exponent 1 only (Steps 2.A.2 and 4.1 of
+its proof). The rows this produces are all the rows of [[sec:iii-i9-1]] with Re λ < 2, and they are identified through
+the towers ([[lem:iii-i10-2-1]]). (2) The parameter exponents, which [Hin26] builds after the proof by the procedure of
+its (11.186), are fixed in advance ([[def:iii-i10-1-1]]), with logarithmic orders that grow with the real part. The rows'
+own sources never enter the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]] (c); at a general b, (e)
+adds a forcing term E^ν of K⁺-weight above α); this is how the self-consistency of [Hin26, Remark 11.62] enters. (3) Two
+further conditions are needed: (H4), ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero frequency Taylor
+expansion of the transformed forcing has four terms (orders σ⁰ to σ³, as α − 1 > 3); the four zero energy solves are
+written out, with the polyhomogeneous transition face model [[prop:iii-g4-4-4]] at the levels 1 and 2 and its conormal
+form [[prop:iii-g4-5-1]] at the level 3. (5) The spectral solution is written directly as a sum of physical pieces
+([[lem:iii-i11-2-5]]): L̂_b(σ) is injective on 𝒳′_σ ([[lem:iii-i6-1-2]]), so the rows of the augmented operator and the
+column moves of [[lem:iii-i6-1-4]] are needed only at zero energy and at the last level. (6) The K⁺-terms below α − 2
+come on the spectral side only from the pieces of [[prop:iii-g4-4-4]] at the levels 1 and 2, which are homogeneous
+functions of σ times spectral towers ([[lem:iii-i11-2-3]]); a lemma on forward tails ([[lem:iii-i10-2-4]]) turns them
+into rows, among them the boost rows at the exponent 3 that the zero energy mass state produces. (7) The elimination is a
+perturbation of the identity ([[lem:iii-i9-2-6]] (c), and (e) at a general b; [[cor:iii-i10-2-3]]), where [Hin26, Step
+2.B] has ± the identity plus o(1); rows of different types at one rate are told apart by the degree of their spherical
+type and, within a degree, by the order of their states at ∂X. (8) The expansion modulo the order α uses the equation
+itself: below that order every coefficient section is a stationary solution of moderate growth ([[lem:iii-i12-2-3]]), so
+the polyhomogeneous part at K⁺ is a sum of towers whatever the individual pieces are ([[lem:iii-i12-2-4]]). (9) The
+spectral cut-off is an approximate identity with vanishing moments ([[lem:iii-i12-2-1]]), so each spectral piece is, near
+K⁺, the spacetime tower of the inverse transform of its scalar coefficient. (10) Below the order 4 the forcing of the
+last Taylor level has a negative zero frequency weight; the zero energy solve of that level then drops out
 ([[prop:iii-i13-2-1]]).
 
-The steps that [Hin26, Part 3 (5) of the proof of Theorem 11.59] calls analogous are written out: the order
-4 + ε_K needs four zero energy solves, of which [Hin26] writes three (its Steps 2.A.3, 2.A.5, 2.A.7), the fourth, at
+The steps that [Hin26, Part 3 (5) of the proof of Theorem 11.59] calls analogous are written out: the order 4 + ε_K needs
+four zero energy solves, of which [Hin26] writes three (its Steps 2.A.3, 2.A.5, 2.A.7), the fourth, at
 σ³, being implicit there as well.
 
 ### The setting at a base point {#sec:s22-setting}
