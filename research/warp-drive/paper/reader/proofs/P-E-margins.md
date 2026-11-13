@@ -8,7 +8,7 @@ with an explicit margin, and locates the band of Σ_τ0 where it fails. [[prop:m
 the seed region, for a reference profile and for every profile in a tube around it. Each inequality is reduced to a
 finite list of rows, printed in [[sec:table-margins]], and each row is checked by a rule stated here.
 
-**The background.** We recall what is used. The metric is g = −2e^(2s) du dv + R² dΩ₃² on the quotient by the T²
+*The background.* We recall what is used. The metric is g = −2e^(2s) du dv + R² dΩ₃² on the quotient by the T²
 action, the ingoing dust has profile α(v) := 3.6 b(v; 3, 4.5) on 𝒩 := {u = 0}, the outgoing dust has profile B(u) :=
 1.7 b(u; 5.7, 7.2) on 𝒩′ := {v = 0}, e^(2s) = 1/2 on both cones, and at the corner R = 5, R_u = −0.47, R_v = 1/2, with
 mass 3/2. Here b(x; a, c) := β((2x − a − c)/(c − a)) with the bump β of [[sec:table-bump]]. The mass function is μ :=
@@ -111,6 +111,10 @@ and K := ∫_(−1)^1 β.
 
 and for y ≥ 1, C(y) = K and D(y) = yK.
 
+(c) Let φ be the bend of [[prop:margins-bend]] and, for its three lobes X with half-width h_X, centre c_X and weight
+ε_X (ε = 1 for the central lobe, −l1 and −l2 for the others), y_X := (R − c_X)/h_X. Then φ′(R) = 0.01 Σ_X ε_X h_X C(y_X)
+and φ(R) = 0.01 Σ_X ε_X h_X² D(y_X). Evaluating C and D by (b) gives φ′(R) to within 1.7 × 10⁻⁶ and φ(R) to within 10⁻⁶.
+
 *Proof.* (a) The recursion for C̃ applies [[eq:margins-hermite]] to f = β on each [y_j, y_(j+1)]. Summing, |C(y_j) − C̃_j|
 ≤ (δ⁴/384) ∫|β⁗| + 40 × 5 × 10⁻¹¹ ≤ 2936/(384 × 20⁴) + 2 × 10⁻⁹ ≤ 4.8 × 10⁻⁵ by [[lem:margins-bump]] (d), the second
 term accounting for the rounding of the printed values. The recursion for D̃ applies [[eq:margins-hermite]] to f = C,
@@ -120,7 +124,11 @@ with f′ = β and f⁗ = β‴, but with C̃ in place of C; so |D(y_j) − D̃_
 (b) By [[lem:margins-enclosure]] (c), |∫_(y_j)^y β − (y − y_j)(β(y_j) + β(y))/2| ≤ (δ³/12) × 21.093 ≤ 2.2 × 10⁻⁴; add
 (a). Next D(y) = D(y_j) + (y − y_j) C(y_j) + ∫_(y_j)^y (y − s) β(s) ds, and |∫_(y_j)^y (y − s)(β(s) − β(y_j)) ds| ≤
 sup|β′| ∫_(y_j)^y (y − s)(s − y_j) ds ≤ 2.1704 δ³/6 ≤ 4.6 × 10⁻⁵; add (a) and δ × 5 × 10⁻⁵. For y ≥ 1, C(y) = K, and
-D(y) = yK − ∫ sβ(s) ds = yK because β is even. ∎
+D(y) = yK − ∫ sβ(s) ds = yK because β is even. (c) The formulas follow from φ(R) = ∫_(3.5)^R (R − t) φ″(t) dt and the
+substitution t = c_X + h_X s. The error in φ′ is at most 0.01 (h_P + l1 h_L + l2 h_R) × 2.7 × 10⁻⁴ ≤ 1.7 × 10⁻⁶. For
+φ, a lobe in progress contributes at most 0.01 h_X² × 1.5 × 10⁻⁴ and a completed lobe, where D = y_X K with |y_X| ≤ 7.2,
+at most 0.01 h_X² × 7.2 × 5 × 10⁻⁵; in all at most 0.01 (0.09 × 2.3 × 10⁻⁴ + 0.0487 × 3.6 × 10⁻⁴ + 0.0553 × 1.5 × 10⁻⁴)
+≤ 10⁻⁶. ∎
 
 ### The bend {#sec:margins-bend}
 
@@ -234,7 +242,8 @@ with R = 13/2, P = 1/2, μ = 3/2 and v̂ = v̂_0 at v = 3 (v̂_0 as in [[sec:tab
 
     w′ = 2μ/(3R³),    g′ = −4μP²/(f_N² R³),    dμ/dv̂ = (3/2) α w².                                     {#eq:margins-rates}
 
-(a) For 3 ≤ v ≤ 4.5: 0.4742 ≤ P ≤ 1/2, 13/2 ≤ R ≤ 29/4, 3/2 ≤ μ ≤ 3.7911, 0.9102 ≤ f_N ≤ 0.9715 and 0.6068 ≤ w ≤ 0.7030.
+(a) For 3 ≤ v ≤ 4.5: 0.47428 ≤ P ≤ 1/2, 13/2 ≤ R ≤ 29/4, 3/2 ≤ μ ≤ 3.79033, 0.91028 ≤ f_N ≤ 0.97147 and 0.60685 ≤ w ≤
+0.70282.
 
 (b) Let h := 1/80, v_k := 3 + kh, α_k := α(v_k), α′_k := α′(v_k), and
 
@@ -254,16 +263,15 @@ with w_k, g_k evaluated on row k, up to residuals r_k of modulus at most 10⁻�
 4 × 10⁻⁶.
 
 *Proof.* Put Q := R_u on 𝒩, where e^(2s) = 1/2. Then (S3) gives P′ = −α/(3R²); the definition of μ gives μ = R²(1 +
-4QP), so Q = −f_N/(4P); (S1) gives μ′ = −(4/3)αQ = αw; and dv̂/dv = −e^(2s)/Q... more precisely −e^(2s)/R_u = −1/(2Q) =
-g. Before the shell α = 0, so R = 5 + v/2, P = 1/2 and μ = 3/2, and v̂(3) = ∫_5^(13/2) 2/f_N dR = F(13/2) − F(5) = v̂_0.
+4QP), so Q = −f_N/(4P); (S1) gives μ′ = −(4/3)αQ = αw; and dv̂/dv = −e^(2s)/R_u = −1/(2Q) = g. Before the shell α = 0, so R = 5 + v/2, P = 1/2 and μ = 3/2, and v̂(3) = ∫_5^(13/2) 2/f_N dR = F(13/2) − F(5) = v̂_0.
 Next, f_N′ = −αw/R² + 2μP/R³ gives w′ = (f_N′ P − f_N P′)/(3P²) = −αw/(3PR²) + 2μ/(3R³) + f_N α/(9P²R²), and the first
 and last terms cancel because f_N/(3P) = w. Likewise g′ = 2P′/f_N − 2P f_N′/f_N² = −2α/(3R² f_N) + 2Pαw/(R² f_N²) −
 4μP²/(R³ f_N²), and 2Pw/f_N² = 2/(3f_N) cancels the first term. Finally dμ/dv̂ = μ′/g = αw f_N/(2P) = (3/2)αw².
 
-(a) P′ ≤ 0, so P ≤ 1/2, and while P > 0, R ≥ 13/2. Then P ≥ 1/2 − (1/3) ∫α/R² ≥ 1/2 − 2.7K/126.75 ≥ 0.47429, because
-∫α = 3.6 × 0.75 K and K ≤ 1.20696. So R ≤ 13/2 + (3/2)(1/2) = 29/4. While f_N > 0, μ′ ≥ 0 and w ≤ 1/(3 × 0.4742), so μ
-≤ 3/2 + 0.70295 × 3.25878 ≤ 3.7911 and f_N ≥ 1 − 3.7911/42.25 ≥ 0.9102 > 0; this closes the argument. The remaining
-bounds follow from f_N ≤ 1 − 1.5/R² ≤ 1 − 1.5/(29/4)².
+(a) P′ ≤ 0, so P ≤ 1/2, and while P > 0, R ≥ 13/2. Then P ≥ 1/2 − (1/3) ∫α/R² ≥ 1/2 − 2.7K/126.75 ≥ 0.47428, because
+∫α = 3.6 × 0.75 K and K ≤ 1.2069549 by [[lem:margins-bump-table]] (a). So R ≤ 13/2 + (3/2)(1/2) = 29/4. While f_N > 0,
+μ′ ≥ 0 and w ≤ 1/(3 × 0.47428) ≤ 0.70282, so μ ≤ 3/2 + 0.70282 × 3.25878 ≤ 3.79033 and f_N ≥ 1 − 3.79033/42.25 ≥
+0.91028 > 0; this closes the argument. The remaining bounds follow from f_N ≤ 1 − 1.5/R² ≤ 1 − 1.5/(29/4)².
 
 (b) is a row-by-row check of [[sec:table-shell]], with α_k and α′_k from [[lem:margins-bump]] (a).
 
@@ -280,8 +288,8 @@ bounding μ′P², 2μP|P′|, 2μP²|f_N′|/f_N and 3μP³/R. By [[eq:margins-
 |A0_k − Ã0_k| ≤ (h⁴/384) ∫|α⁗| and |A1_k − Ã1_k| ≤ (h⁴/384)(4 ∫|α‴| + h ∫|α⁗|), integrals over the cell; summed over
 k, with ∫|α⁗| = 3.6 (4/3)³ ∫|β⁗| ≤ 25050 and ∫|α‴| = 3.6 (4/3)² ∫|β‴| ≤ 622, these are at most 1.6 × 10⁻⁶ and 1.8 ×
 10⁻⁷. Let e^X_k be the true value minus the row value, for X = R, P, μ, v̂, so e_0 = 0. On the box (a), which contains
-the rows, the Lipschitz bounds are |Δ(R⁻²)| ≤ 0.0072827|ΔR|, |Δw| ≤ 0.016635|Δμ| + 0.019401|ΔR| + 1.43952|ΔP| and |Δg|
-≤ 2.19710|ΔP| + 0.028564|Δμ| + 0.033311|ΔR|; also R⁻² ≤ 1/42.25, |(R⁻²)′| ≤ 0.0036414 and |w′| ≤ 0.0092. Subtracting the
+the rows, the Lipschitz bounds are |Δ(R⁻²)| ≤ 0.0072827|ΔR|, |Δw| ≤ 0.016635|Δμ| + 0.019401|ΔR| + 1.43959|ΔP| and |Δg|
+≤ 2.19713|ΔP| + 0.028564|Δμ| + 0.033313|ΔR|; also R⁻² ≤ 1/42.25, |(R⁻²)′| ≤ 0.0036414 and |w′| ≤ 0.0092. Subtracting the
 row relations from the true ones,
 
     |e^R_(k+1)| ≤ |e^R_k| + (h/2)(|e^P_k| + |e^P_(k+1)|) + |τ^R_k| + |r^R_k|,
@@ -289,16 +297,16 @@ row relations from the true ones,
     |e^μ_(k+1)| ≤ |e^μ_k| + (|Ã0_k| + |Ã1_k|/h)|Δw_k| + (|Ã1_k|/h)|Δw_(k+1)| + m^μ_k + |τ^μ_k| + |r^μ_k|,
     |e^v_(k+1)| ≤ |e^v_k| + (h/2)(|Δg_k| + |Δg_(k+1)|) + |τ^v_k| + |r^v_k|,
 
-where m^P_k := (1/3)(|A0_k − Ã0_k|/42.25 + 0.0036414 |A1_k − Ã1_k|) and m^μ_k := 0.7030 |A0_k − Ã0_k| + 0.0092 |A1_k −
+where m^P_k := (1/3)(|A0_k − Ã0_k|/42.25 + 0.0036414 |A1_k − Ã1_k|) and m^μ_k := 0.70282 |A0_k − Ã0_k| + 0.0092 |A1_k −
 Ã1_k|. Let E^X be the largest |e^X_k|. Summing from 0 and using Σ_k (|Ã0_k| + 2|Ã1_k|/h) ≤ 6.52 (from the table) and
 Σ_k h = 3/2, the sources are S^R ≤ 1.70 × 10⁻⁶ + 5 × 10⁻⁷, S^P ≤ 3.6 × 10⁻⁸ + 5 × 10⁻⁷, S^μ ≤ 1.66 × 10⁻⁶ + 5 × 10⁻⁷
 and S^v ≤ 3.9 × 10⁻⁷ + 5 × 10⁻⁷, and
 
-    E^R ≤ S^R + 1.5 E^P,   E^P ≤ S^P + 0.015828 E^R,   E^μ ≤ S^μ + 6.52 (0.016635 E^μ + 0.019401 E^R + 1.43952 E^P),
-    E^v ≤ S^v + 1.5 (2.19710 E^P + 0.028564 E^μ + 0.033311 E^R).
+    E^R ≤ S^R + 1.5 E^P,   E^P ≤ S^P + 0.015828 E^R,   E^μ ≤ S^μ + 6.52 (0.016635 E^μ + 0.019401 E^R + 1.43959 E^P),
+    E^v ≤ S^v + 1.5 (2.19713 E^P + 0.028564 E^μ + 0.033313 E^R).
 
 The first two give E^P ≤ (S^P + 0.015828 S^R)/(1 − 0.023742) ≤ 5.9 × 10⁻⁷ and E^R ≤ 3.1 × 10⁻⁶; then E^μ ≤
-(S^μ + 6.52(0.019401 E^R + 1.43952 E^P))/(1 − 0.10846) ≤ 9.0 × 10⁻⁶ and E^v ≤ 3.4 × 10⁻⁶. ∎
+(S^μ + 6.52(0.019401 E^R + 1.43959 E^P))/(1 − 0.10846) ≤ 9.1 × 10⁻⁶ and E^v ≤ 3.4 × 10⁻⁶. ∎
 
 ### Rácz's quantities in region I {#sec:margins-racz}
 
@@ -402,7 +410,7 @@ the cell [v_k, v_(k+1)], Ξ ≥ L_k := min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ −
 in the numerator and the largest R, V′ and smallest fV′ in the denominator. Every row has L_k > 0, and the bound column
 gives κ′K′^l_l ≤ −c_k L_k ≤ −3.041 × 10⁻⁴ on every cell.
 
-*Σ′ after the shell.* For R ∈ [R′(4.5), 5.75], R′(4.5) = 5.3725246, μ = μ(4.5) ∈ [3.605795, 3.605812] and μ̇ = 0;
+*Σ′ after the shell.* For R ∈ [R′(4.5), 5.75], R′(4.5) = 5.3725246, μ = μ(4.5) ∈ [3.60579, 3.60582] and μ̇ = 0;
 φ″ ≥ −0.01 l2 ≥ −0.0027323 and V′ ∈ [1, 1.0014840] (φ′ ≥ 0 there), and f ∈ [0.875076, 0.890940]. So Ξ ≥ −0.0027323 +
 (3.605795/5.75³)(3 − 0.890940 × 1.0014840) ≥ 0.037246 and c ≥ 0.323214/(5.75 × 1.0014840² × 1.124924²) ≥ 0.044288,
 so κ′K′^l_l ≤ −1.6 × 10⁻³. For R ≥ 5.75, Σ′ = Σ_τ0, μ is constant and μ̇ = 0, so N_κ = −2μ/R³ − μ²/R⁵ < 0; hence κ > 0,
@@ -428,8 +436,8 @@ Since R0 is increasing, N_κ < 0 on R ∈ [R_*, 4.288224] ⊃ [R_*, 4.2882] and 
 on [4.295486, 4.525813] ⊃ [4.2955, 4.5258]. On Σ_τ0, K^l_l < 0, so the split is hyperbolic exactly where N_κ < 0. By
 continuity N_κ vanishes in each of the two intervals left over. ∎
 
-The rows give more than the statement: κ′K′^l_l ≤ −3.04 × 10⁻⁴ on Σ′ ∩ {R_* ≤ R ≤ 5.75}, the bound being attained on
-the cells around R = 4.66, where the bend's central lobe is on its falling side.
+The rows give more than the statement: κ′K′^l_l ≤ −3.04 × 10⁻⁴ on Σ′ ∩ {R_* ≤ R ≤ 5.75}. The largest cell bounds
+occur on the cells around R = 4.66, where the bend's central lobe is on its falling side.
 
 ### Γ on the seed region {#sec:margins-seed}
 

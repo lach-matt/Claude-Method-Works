@@ -298,8 +298,8 @@ b = (m′, A), with |m′ − μ_end| + |A| = |b − b₀| < ε_m: mass within �
 **Remark {#rem:vii-4-1}** (The development and g_λ.) The development g of [[thm:settling-precise]] (i) and g_λ are
 vacuum metrics that induce the same data on Σ^IVP ∩ {r < R}, in different gauges. That, near
 Σ^IVP ∩ {r_♭ < r < R} and on the common domain of dependence of this set, they agree up to an isometry that is the
-identity on it, and so give one vacuum spacetime, is shown in [[ch:interior]] ([[prop:interior]]); there both metrics
-are close to g_(b₀) on a compact region. Nothing in [[thm:settling-precise]] or in its proof uses it.
+identity on it, and so give one vacuum spacetime, is [[lem:interior-one-spacetime]] of [[ch:interior]]. Nothing in
+[[thm:settling-precise]] or in its proof uses it.
 
 **Remark {#rem:settling-class}** (Perturbations and gluing.) [[thm:settling-precise]] (ii) takes the perturbation in
 the data class of [[thm:iii-k-4-3]], and not in a class of decaying data reached by gluing. Gluing a perturbation that

@@ -260,3 +260,13 @@ Items found while chapters were written in parallel; each is settled once, editi
   thm:std-bh17-embedding where it uses [BH17, Theorem 7.27].
 - S17 fix: a hat convention for spectral families is stated in S17 at L38-39 (n7); adopt it in the Notation list
   (OUTLINE) and check S16, S18, S22 use it the same way. S17 uses η for Minkowski space in sec:s17-exterior.
+
+## Ch 4-5 confirmed (2026-11-13, R3-04-05)
+
+- Six notation nits: in lem:linear-wave D (Cauchy development) clashes with the gauge field, C is both the coefficient
+  matrix and a generic constant, d should be N_E; 𝒦_m clashes with the Kretschmann 𝒦; φ1, φ2 name the Hopf angles and
+  the phase corrections, Ψ names two objects; ∂_r at 04:441 means x̂·∂_x (the stage-0 section uses the
+  Eddington–Finkelstein ∂_r); typo "Its oscillating part" 04:468; drop "or profile m" 05:93. If nits 1-3 are adopted,
+  Ch 8 (08:406-410) and Ch 9 (09:200-216) follow.
+- Σ_τ: Ch 2:250 and 282 write Σ_τ0 := {τ = τ0}, against 02:255 and Ch 4-5 (the annulus A(τ0)); Ch 9 uses Σ_τ for whole
+  level sets at τ < τ0 (sent to the readers of 00-03 and 08-09).
