@@ -1106,3 +1106,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   F3-S27. R4-S26 reading chapter 45.
 - Chapter 80 CONFIRMED: R2-80's minor and six nits applied with the review's text. Outside: chapter 82:651 (F1) → (L1)
   is in F-82; chapter 83 and the P-E proofs to cite lem:two-dust-reparametrisation at integration.
+- R-83: 2 Major (M1 prop:loc-projection (b) needs chapter 47's lem:s28-setting and lem:v-3-2, not [CD03, Thm 5.6];
+  M2 invariant KIDs need the KID–Killing correspondence; both are what P-K83a supplies), 10 minor (opening overstates
+  the momentum-seed range [0.70, 1.861]; a = 0.70 and Ω₂ parameters; Ric_vϑ printed; [CTG23] vacuum-only vs dust cone
+  data; support beyond the band on Σ_τ0; the lens vs thm:class-stability's hypotheses; Riemann–Lebesgue o(ω²); the
+  last clause of lem:loc-transfer; 10 "|"/"> " line starts; λ, M, N, θ against OUTLINE), 13 nits; C1 chapter 3 should
+  say "an explicit" background. thm-class-kato-stability: chapter 81's theorem lacks coefficient perturbation and
+  closed leaves (sent to F-81). Chapter 83's fix round waits for R-P-K83a and P-K83b.

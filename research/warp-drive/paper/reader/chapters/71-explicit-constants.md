@@ -302,17 +302,15 @@ Re ϰ = 2, as ℓ_I − 1 > 2. If λ₋ > ℓ_I − 2, then 7 + 2⌈ℓ_I − λ
 (f) The proof of [[prop:iii-g3-2-4]] at finite regularity applies [[lem:iii-g3-2-2]], with the loss
 l = 2⌈ℓ_I⌉ + 10 of its statement, and then [[thm:iii-g1-3-1]] (2) on the strip, and takes l′ := l + sup d_ι. Here,
 as in [[ch:s17]], λ ∈ ℂ is an exponent at ι⁺ with Re λ < ℓ_I (not the wavelength), and z is the variable of the
-ι⁺-normal operator N_(ι⁺)(z).
-The map of [[prop:iii-g3-3-7]] is continuous by [[prop:iii-g3-2-4]] on a strip containing λ, with the loss l′, and the
-l of its statement is this l′ (that of [[lem:iii-g3-3-5]]). Its right inverse applies the map u ↦ f of the proof of
+ι⁺-normal operator N_(ι⁺)(z). The map of [[prop:iii-g3-3-7]] is continuous by [[prop:iii-g3-2-4]] on a strip
+containing λ, with the loss l′, and the l of its statement is this l′ (that of [[lem:iii-g3-3-5]]). Its right inverse applies the map u ↦ f of the proof of
 [[lem:iii-g3-3-5]], which applies the second-order operator N_(ι⁺) (loss 2), splits f = f₁ + f₂, keeps f₂, and maps
 f₁ to res_(z=λ)(t_*^(−z)N_(ι⁺)(z)⁻¹f₁(z)): a map of finite rank into the finite-dimensional space Res_(ι⁺)(L̄, λ) of
 [[def:iii-g3-3-6]], whose coefficients are integrals of the inverse of [[thm:iii-g1-3-1]] (2) over a small circle
 about λ in the strip, so bounded by the norm of order sup d_ι of f₁. So the right inverse costs at most
 2 + sup d_ι < l′ ([[lem:iii-j2-1-2]] (b), (c)), and the loss of [[prop:iii-g3-3-7]] is l′. [[cor:iii-g3-3-1]] (1)
-comes from [[prop:iii-g3-2-4]] on a strip
-containing its exponent, with the loss l′; its expansion (2) costs nothing beyond, and its continuous functionals are
-counted where a construction that uses them adds its losses. For 3 < ℓ_I < 3.5, ⌈ℓ_I⌉ = 4 and sup d_ι = 12 by (e),
+comes from [[prop:iii-g3-2-4]] on a strip containing its exponent, with the loss l′; its expansion (2) costs nothing
+beyond, and its continuous functionals are counted where a construction that uses them adds its losses. For 3 < ℓ_I < 3.5, ⌈ℓ_I⌉ = 4 and sup d_ι = 12 by (e),
 so l′ = 8 + 10 + 12 = 30.
 
 (g) In the proof of [[prop:iii-a-4-2]], the transform bounds (T1) and (T3) lose 1 ([[prop:ii-g1-3-3]] (1)) and ℓ_F
@@ -506,8 +504,7 @@ construction of [[thm:iii-j2-4-2]] applies that of [[thm:iii-j2-4-1]] to the rig
 output by maps of non-negative loss (Step 0 of the proof of [[thm:iii-j1-2-1]]). The elementary losses do not depend
 on the base point ([[lem:iii-j2-2-1]]: only its constants do). By [[def:ec-accounted-loss]], a further summand does
 not lower the largest of the losses of a sum, and a further factor of non-negative loss does not lower the loss of a
-composition;
-so the loss of ℛ(U) is at least the numbers assigned to both constructions, and d_NM ≥ d_acc. (i) is
+composition; so the loss of ℛ(U) is at least the numbers assigned to both constructions, and d_NM ≥ d_acc. (i) is
 [[def:ec-accounted-loss]] with [[lem:ec-closed-forms]], [[rem:ec-other-losses]] and [[lem:ec-round-loss]].
 
 (ii) Level k + 1 of [[thm:iii-i14-3-1]] takes the solution of level k as input through R_qu, and at each level the

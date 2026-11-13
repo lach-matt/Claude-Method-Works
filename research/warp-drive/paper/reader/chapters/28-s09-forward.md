@@ -893,11 +893,11 @@ H^(k−1,(α_I−ς,α_+−δ−ς,−ℵ−ς))_b(Ω_*; E)^(•,−), for every
 
 In the theorem, as throughout this chapter, "admissible" may be read as conditions (1) and (2) of [[def:ii-c-3-3]]
 alone: the proof does not use condition (3) ([[lem:ii-f1-2-1]] and the convention after it). So the theorem applies to
-every P with (1) and (2) of that class and the stated smallness. Only the restriction of P to Ω_* enters, over which the
-smallness is measured: the proof applies the results of [[ch:s07]], which concern an operator on Ω with its norms over
-Ω, to the operator P^♭ of [[lem:s09-off-star]], which equals P on Ω_*, acts as P on the spaces of the theorem, and has
-its norms over Ω bounded by those of P over Ω_*. So P may also be given on Ω_* only, with (1), (2) and its norms over
-Ω_*; Pu then means P^♭u.
+every P with (1) and (2) of that class and the stated smallness. Only the restriction of P to Ω_*, over which the
+smallness is measured, enters: the proof applies the results of [[ch:s07]], which concern an operator on Ω with its
+norms over Ω, to the operator P^♭ of [[lem:s09-off-star]], which equals P on Ω_*, acts as P on the spaces of the
+theorem, and has its norms over Ω bounded by those of P over Ω_*. So P may also be given on Ω_* only, with (1), (2) and
+its norms over Ω_*; Pu then means P^♭u.
 
 This is [Hin26c, Theorem 11.1] in dimension 4 + 1. [Hin26c] states it with ℓ_+ > δ; the class of [[def:ii-c-3-1]] has
 ℓ_+ ≤ 1. The conditions of [Hin26c] are those of [[eq:ii-f1-1-3]], and the dimension enters through the densities
