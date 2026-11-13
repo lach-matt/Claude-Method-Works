@@ -17,7 +17,11 @@ made explicit in [[prop:fwd-calculus]].
 **Theorem {#thm:fwd-loss}** (The forward loss.) In [[thm:iii-i-5-3]] one may take d = 20,180, for every
 β_+ ∈ (½, 3/2) and β_I ∈ (β_+, 3/2). More precisely d′ = 10, d″ = 11, D_1 = 49 and D_0 ≤ 20,104 in [[eq:fwd-split]].
 
-The proof occupies the rest of the section and is completed after [[lem:fwd-increments]].
+The proof occupies the rest of the section and is completed after [[lem:fwd-increments]]. It uses the following
+statements of other sections with explicit values: [[prop:ii-a1-2-4]] with M + 2 = 200T + 100 in the form of
+[[prop:fwd-calculus]]; [[lem:ii-a-8-5]] (a), (b) with d_0 = 200T + 100 under the conditions there; the a priori order
+N′ = 13 of [[ch:s06]]; the choice s_in = 11, s_out = −10 in [[sec:ii-c-5-2]]; and the uniqueness steps of the proofs
+of [[prop:ii-e-4-3]] and [[prop:ii-e-5-6]] (a) taken at s′ = inf 𝗌 − 1 ([[lem:fwd-box]], (Sb)).
 
 #### The orders {#sec:fwd-orders}
 
@@ -106,8 +110,9 @@ charts of ρℬ) and K ∈ ℕ_0 put
 
     |p|^𝗆_K := max_(|β|+|γ|≤K) sup ⟨ξ⟩^(−𝗆(x,ξ)−ϰ(|β|+|γ|)+|γ|) |∂_x^β ∂_ξ^γ p(x, ξ)|,          {#eq:fwd-seminorm}
 
-with ϰ := 1/(32𝔐(T)). By Leibniz's rule |pq|^(𝗆_1+𝗆_2)_K ≤ C|p|^(𝗆_1)_K |q|^(𝗆_2)_K; and ⟨ξ⟩^(𝗆(x,ξ)) has
-|·|^𝗆_K ≤ C_K for every K, its derivatives carrying factors log⟨ξ⟩ ≤ C⟨ξ⟩^ϰ. A symbol of [[def:ii-a1-1-3]] of any
+with ϰ := 1/(32𝔐(T)). By Leibniz's rule |pq|^(𝗆_1+𝗆_2)_K ≤ C|p|^(𝗆_1)_K |q|^(𝗆_2)_K; and the seminorm of order 𝗆
+of ⟨ξ⟩^(𝗆(x,ξ)) is at most C_K for every K, its derivatives carrying factors log⟨ξ⟩ ≤ C⟨ξ⟩^ϰ. A symbol of
+[[def:ii-a1-1-3]] of any
 index ν, written in a chart of ρℬ, satisfies |a|^𝗆_M ≤ C‖a‖_((M);ν,𝗆): by [[lem:ii-a1-2-2]], ∂_ξ is e^(−τ) times
 bounded combinations of ∂_ω, ∂_τ, and ⟨log ρ_∞⟩^(νj) ≤ C⟨ξ⟩^(ϰj). The constants depend on ϰ, ν and K, never on the
 symbol beyond the seminorm; in particular the index ν enters no count. Every product estimated below is a product of at
@@ -233,10 +238,11 @@ values in [−3T, 3T]: the cut-off ψ consumes no derivative.
 w_K(x − y)(−Δ_ξ)^K b(x, ξ), w_K(z) := w(z)|z|^(−2K) ∈ C_c^∞. Multiplication of a kernel by a function of x − y is
 convolution of the symbol in ξ with its Fourier transform: the operator is Op(b_w), b_w(x, ξ) = (2π)^(−n)
 ∫ ŵ_K(ζ)(−Δ_ξ)^K b(x, ξ − ζ) dζ. x-derivatives commute with the convolution, ŵ_K is rapidly decreasing, and Peetre's
-inequality gives the bound. The same identity with ψ in place of w_K gives b_ψ. For the variable weight, if
-|ζ| ≤ ⟨ξ⟩/2 then |𝗆(x, ξ − ζ) − 𝗆(x, ξ)| ≤ C|ζ|/⟨ξ⟩, so ⟨ξ − ζ⟩^(𝗆(x,ξ−ζ)) ≤ C⟨ξ⟩^(𝗆(x,ξ)) when
-|ζ| ≤ ⟨ξ⟩^(1/2) and ≤ C⟨ξ⟩^(𝗆(x,ξ))⟨ζ⟩^(C′) when ⟨ξ⟩^(1/2) < |ζ| ≤ ⟨ξ⟩/2; if |ζ| > ⟨ξ⟩/2 both ⟨ξ⟩ and ⟨ξ − ζ⟩
-are at most 3⟨ζ⟩, and the quotient is at most C⟨ζ⟩^(6T). These polynomial factors are integrable against ψ̂. ∎
+inequality gives the bound. The same identity with ψ in place of w_K gives b_ψ. For the variable weight: if
+the length of ζ is at most ⟨ξ⟩/2, then 𝗆(x, ξ − ζ) − 𝗆(x, ξ) is at most C|ζ|/⟨ξ⟩ in modulus, so
+⟨ξ − ζ⟩^(𝗆(x,ξ−ζ)) ≤ C⟨ξ⟩^(𝗆(x,ξ)) when moreover |ζ| ≤ ⟨ξ⟩^(1/2), and ≤ C⟨ξ⟩^(𝗆(x,ξ))⟨ζ⟩^(C′) otherwise; for
+larger ζ, both ⟨ξ⟩ and ⟨ξ − ζ⟩ are at most 3⟨ζ⟩, and the quotient is at most C⟨ζ⟩^(6T). These polynomial factors
+are integrable against ψ̂. ∎
 
 *Near and far parts.* Fix ε ∈ (0, 1/8], depending only on the constants of (S1) and (S15), as below, and
 η_0 ∈ C_c^∞((−ε, ε)ⁿ) equal to 1 near 0. Split O_β(g) = O^ε_β(g) + O^far_β(g), the near part having the kernel of
@@ -251,7 +257,7 @@ both are), θ ∈ C_c^∞((−13/8, 13/8)ⁿ), and g a symbol of order 𝗆 with
 
     c(x, y, η) = θ(x) η̃(x, y) g_β(κ(x), Φ(x, y)^(−T) η) |det Φ(x, y)|⁻¹ |det Dκ(y)|,
     c^*(x, y, η) = θ(x) η̃^*(x, y) (μ_α(y)/μ_α(x)) g_β(κ(y), Φ(x, y)^(−T) η)^* |det Φ(x, y)|⁻¹
-                   × |det Dκ(x)|,                                                                       {#eq:fwd-transport}
+                   × |det Dκ(x)|,                                                                     {#eq:fwd-transport}
 
 where Φ(x, y) := ∫_0^1 Dκ(y + t(x − y)) dt, so that κ(x) − κ(y) = Φ(x, y)(x − y), the star on g is the conjugate
 transpose, and η̃(x, y) := (ψη_0)(Φ(x, y)(x − y)), η̃^*(x, y) := \overline{(ψη_0)(Φ(x, y)(y − x))}. Each derivative of
@@ -294,11 +300,11 @@ Let b vanish for x ∉ Q_4 and have order 𝗆 with values in [−B, B], and let
 R_∞ of order −∞ (smooth calculus). Norm H^(𝗍−𝗆) with N_0 := A + B. Then
 Op(λ)Op(b)w = QΛw − Op(λ)Op(b)R_∞w with Q := Op(λ)Op(b)Op(λ′).
 Step 1. [[lem:fwd-composition]] with p := λ (order with values in [−A − B, A + B]), q := b (vanishing off Q_4), J := J_1
-and B := 6 gives Op(λ)Op(b) = Op(c_1) + Op(r_1), r_1 of order at most (A + B) + B − J_1 + ¾ = −A − ¼. Op(λ′) maps L² to
+and 6 x-derivatives of the remainder gives Op(λ)Op(b) = Op(c_1) + Op(r_1), r_1 of order at most (A + B) + B − J_1 + ¾ = −A − ¼. Op(λ′) maps L² to
 H^𝗍 ⊂ H^(−A), and [[lem:fwd-crude]] (s = −A, μ = −A, N = 6) maps H^(−A) to L². Cost on b: J_1 + 6 + 2L′ with
 2L′ = 𝔢(n + 1 + J_1 + A + B), as |sup(𝗍 − 𝗆) − J_1| ≤ J_1 + A + B; this is K(A, B).
 Step 2. [[lem:fwd-composition]] with p := c_1 (order 𝗍, values in [−A, A]), q := λ′ (not compactly supported), J := J_2
-and B := 6 gives Op(c_1)Op(λ′) = Op(c) + Op(r_2), r_2 of order at most 2A − J_2 + ¾ < 0, bounded on L² by
+and 6 x-derivatives gives Op(c_1)Op(λ′) = Op(c) + Op(r_2), r_2 of order at most 2A − J_2 + ¾ < 0, bounded on L² by
 [[lem:fwd-crude]] (N = 6). Cost on c_1: J_2 + 12, on b: J_2 + 12 + (J_1 − 1) = 4A + 2B + 13 ≤ K(A, B).
 Step 3. c = Σ ∂_ξ^(α′)(∂_ξ^α λ · D_x^α b) D_x^(α′) λ′/(α!α′!) has the pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′|,
 the variable orders cancelling at every point; [[lem:fwd-l2]] bounds Op(c) on L² by C|c|^0_12, at a cost on b of
@@ -357,10 +363,11 @@ max((r + 1)T, R − 2T); that of the gaining factor lies in [−rT, −T], so |s
 x-derivatives suffice in every application of [[lem:fwd-crude]].
 
 The counts, all derivatives of g_j: ρ_j costs 2J_R + B + 2L′ with 2L′ = 𝔢(n + 1 + J_R + T) ([[lem:fwd-reduction]], as
-|sup 𝗆_j − J_R| ≤ J_R + T); a far part costs 2K + B ([[lem:fwd-far]]); a factor Op(s_j) bounded by [[lem:fwd-crude]]
-costs B + 2(J_R − 1) ([[lem:fwd-transport]]). In the composition of t_(j−1) := s_1 ♯ ⋯ ♯ s_(j−1) with s_j, the left
-symbol needs J_C + B derivatives and the right one J_C + B + 2L′_C, 2L′_C = 𝔢(n + 1 + J_C + (j − 1)T), since
-|sup ord t_(j−1) − J_C| ≤ J_C + (j − 1)T. The symbol t_(j−1) already contains, on s_i, at most (j − 2)(J_C − 1)
+the distance from sup 𝗆_j to J_R is at most J_R + T); a far part costs 2K + B ([[lem:fwd-far]]); a factor Op(s_j)
+bounded by [[lem:fwd-crude]] costs B + 2(J_R − 1) ([[lem:fwd-transport]]). In the composition of
+t_(j−1) := s_1 ♯ ⋯ ♯ s_(j−1) with s_j, the left symbol needs J_C + B derivatives and the right one J_C + B + 2L′_C,
+2L′_C = 𝔢(n + 1 + J_C + (j − 1)T), since the order of t_(j−1) has supremum within J_C + (j − 1)T of J_C. The symbol
+t_(j−1) already contains, on s_i, at most (j − 2)(J_C − 1)
 derivatives (ξ-derivatives from the j − 2 compositions in which it stood on the left, or x-derivatives from the one in
 which it stood on the right and ξ-derivatives from the later ones), and s_i contains 2(J_R − 1) derivatives of g_i. With
 j ≤ r this gives the last two entries of [[eq:fwd-ecount]], and the statement on t_α. The grades are those of
@@ -587,7 +594,9 @@ the systems P^(j), with (i) at s′ = s⁻ − 1, and (W) (a) at (𝗌, 1). Here
 at s′ = s⁻ − 1 and the weight α − ½: by [[eq:ii-e-4-3]] at j − 1 every word of length j − 1 applied to u″ lies in
 H^(𝗌,2α)(Ω″)^(•,−), and a b-vector field maps H^(𝗍,2β)_e into H^(𝗍−1,2β−1)_e, so u″^(j) ∈ H^(𝗌−1,2α−1)(Ω″)^(•,−); the
 threshold holds at the weight α − ½. (An a priori order 𝗌 − j, falling with j, would make the index of (i), which
-depends on s′, depend on k.) The same applies to [[prop:ii-e-5-6]] (a), with s′ = s⁻ − 1 and the weight α_K − 1. (St) [[prop:ii-e-4-4]] at 𝗌: (Sb), and (W) (b) at 𝗌 + 1 and 𝗌 − 1; increment 2 (d_0 ≥ d_1 + 2).
+depends on s′, depend on k.) The same applies to [[prop:ii-e-5-6]] (a), with s′ = s⁻ − 1 and the weight α_K − 1.
+
+(St) [[prop:ii-e-4-4]] at 𝗌: (Sb), and (W) (b) at 𝗌 + 1 and 𝗌 − 1; increment 2 (d_0 ≥ d_1 + 2).
 
 (K) [[lem:ii-e-5-3]], [[prop:ii-e-5-4]] and [[prop:ii-e-5-6]] at 𝗌 and s′: as (Sl), (Sv), (Sb), (St), with no radial
 set; [[prop:ii-e-5-6]] (b) has increment 2.

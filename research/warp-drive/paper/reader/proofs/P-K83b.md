@@ -6,12 +6,12 @@ Part 2 closes computational-2: the scalar modes on the static slice. Block 2.1 r
 statement and its proof (chapter lines 594-619); it keeps the labels eq:loc-ek and eq:loc-ev and the formulas the rest
 of the chapter cites, and adds the formulas the proof uses. Block 2.2 replaces, in the proof of thm:loc-outside, the
 parenthesis "(orthogonality of the class harmonics of different type and degree, [[lem:loc-harmonics]], the mode sums
-converging for smooth data)" by "([[lem:loc-scalar-reduction]], the splitting)".
+converging for smooth data)" by "([[lem:loc-scalar-reduction]])".
 Part 3 closes the scope gap: Gamma > 0 on the whole of region III, which ends at 1.8614372 <= R_u2 <= 1.8614410.
 Block 3.1 is a new subsection with one proposition, inserted in sec:bg-below after prop:bg-slice and the paragraph that
 follows it, before sec:bg-theorem. Blocks 3.2-3.6 replace the statements that used the seed region in place of region
 III: cor:loc-charge-seed, thm:charge-sign (a), a sentence of sec:loc-setting, thm:bg-margins (b) and the sentence after
-the proof of prop:margins-seed. -->
+the proof of prop:margins-seed. Block 3.7 adds the new subsection to the list of results that opens sec:bg-below. -->
 
 <!-- Part 1. Block 1.1: after lem:loc-harmonics, before thm:loc-tensor. -->
 
@@ -139,10 +139,10 @@ constraints split mode by mode. Write a scalar mode of degree l = 2j ≥ 2 as h_
 R²(cSγ̂ + eŜ), its other components vanishing, with S := P_j(cos 2ϑ), k² := l(l + 2), Ŝ := D̂D̂S + (k²/3)γ̂S, and k
 likewise with (p, q_k, w, z) in place of (a, b, c, e); put ‖S‖² := ∫_0^(π/2) S² sc dϑ, m := k² − 3 and H_KI := m + 6x.
 
-(a) The vector field X = αS∂_R + β̃ ∂_ϑS ∂_ϑ shifts (a, b, c, e) by ((1/f)′α + 2α′/f, α/(Rf) + Rβ̃′, 2α/R − (2k²/3)β̃,
-2β̃), so that b = e = 0 is reached by β̃ = −e/2 and α = −Rf(b − Re′/2); the quantities A := a + (1/f)′α + 2α′/f and F :=
-c/2 − fb + k²e/6 + fRe′/2 are gauge invariant. The direction k_ψ with ψ_g = ψS has trace-free angular part ψŜ, so z = 0
-is reached by ψ = −R²z. Both gauges are local in R.
+(a) The vector field X = α̃S∂_R + β̃ ∂_ϑS ∂_ϑ shifts (a, b, c, e) by ((1/f)′α̃ + 2α̃′/f, α̃/(Rf) + Rβ̃′, 2α̃/R −
+(2k²/3)β̃, 2β̃), so that b = e = 0 is reached by β̃ = −e/2 and α̃ = −Rf(b − Re′/2); the quantities A := a + (1/f)′α̃ +
+2α̃′/f and F := c/2 − fb + k²e/6 + fRe′/2 are gauge invariant. The direction k_ψ with ψ_g = ψS has trace-free angular
+part ψŜ, so z = 0 is reached by ψ = −R²z. Both gauges are local in R.
 
 (b) For z = 0 the momentum constraint of the mode is ℳ = 𝔪_R S dR + 𝔪_ϑ ∂_ϑS dϑ, with
 
@@ -194,14 +194,14 @@ same representation (Schur's lemma). So the polarisations of 𝔈_V and 𝔈_K v
 constraints of a seed hold exactly when those of each mode hold. The mode expansions of smooth data converge with all
 their derivatives, so 𝔈_V and 𝔈_K of a seed are the sums of those of its modes.
 
-*(a) The gauges.* The vector field X has X^R = αS and X^ϑ = β̃∂_ϑS, so X_R = αS/f and X_A = R²β̃∂_AS. Then (L_Xγ)_RR =
-(α(1/f)′ + 2α′/f)S, (L_Xγ)_RA = (α/f + R²β̃′)∂_AS and (L_Xγ)_AB = 2RαSγ̂_AB + 2R²β̃D̂_AD̂_BS = R²((2α/R − (2k²/3)β̃)Sγ̂ +
-2β̃Ŝ)_AB, which are the stated shifts. The shifts are linear in (α, β̃), and b = e = 0 is reached by exactly one (α, β̃),
+*(a) The gauges.* The vector field X has X^R = α̃S and X^ϑ = β̃∂_ϑS, so X_R = α̃S/f and X_A = R²β̃∂_AS. Then (L_Xγ)_RR =
+(α̃(1/f)′ + 2α̃′/f)S, (L_Xγ)_RA = (α̃/f + R²β̃′)∂_AS and (L_Xγ)_AB = 2Rα̃Sγ̂_AB + 2R²β̃D̂_AD̂_BS = R²((2α̃/R − (2k²/3)β̃)Sγ̂ +
+2β̃Ŝ)_AB, which are the stated shifts. The shifts are linear in (α̃, β̃), and b = e = 0 is reached by exactly one (α̃, β̃),
 the stated one; A and F are the a and c/2 of the representative so reached. Adding to the data the shifts of another
-vector field X′ of this form changes the (α, β̃) that reaches b = e = 0 by −X′ and leaves that representative unchanged,
+vector field X′ of this form changes the (α̃, β̃) that reaches b = e = 0 by −X′ and leaves that representative unchanged,
 so A and F are gauge invariant. For ψ_g = ψ(R)S, the spherical part of D²ψ_g is ψD̂D̂S + Rfψ′Sγ̂, since Γ^R_AB =
 −Rfγ̂_AB, and Ric(γ) is round; so the trace-free spherical part of k_ψ = D²ψ_g − ψ_g Ric(γ) is ψ(D̂D̂S + (k²/3)γ̂S) = ψŜ,
-which shifts z by ψ/R². The gauge functions α, β̃ and ψ are built pointwise from the data and their R-derivatives, so
+which shifts z by ψ/R². The gauge functions α̃, β̃ and ψ are built pointwise from the data and their R-derivatives, so
 they have compact support with the data.
 
 *(b) The momentum constraint.* For z = 0, k_RR = pS, k_RA = Rq_k ∂_AS and k_AB = R²wSγ̂_AB, and tr k = (fp + 3w)S. With
@@ -325,15 +325,16 @@ variation of the data along the generator ψ_g n + RF∂_R, a gauge seed. Its en
 <!-- Part 2. Block 2.2: in the proof of thm:loc-outside, the parenthesis "(orthogonality of the class harmonics of
 different type and degree, [[lem:loc-harmonics]], the mode sums converging for smooth data)" becomes: -->
 
-([[lem:loc-scalar-reduction]], the splitting)
+([[lem:loc-scalar-reduction]])
 
 <!-- Part 3. Block 3.1: a new subsection of sec:bg-below, after prop:bg-slice and the paragraph that follows it
 ("Near R = R_* the packet's slice points approach region I ..."), before sec:bg-theorem. -->
 
 #### The end of region III {#sec:bg-region-three-end}
 
-**Proposition {#prop:bg-region-three-end}** (The end of region III.) Let ρ_u2 and R_u2 be as in [[prop:bg-seed]] (a), so
-that region III meets Σ_τ0 in the points with 0.70 ≤ R ≤ R_u2.
+**Proposition {#prop:bg-region-three-end}** (The end of region III.) Let R_u2 be as in [[prop:bg-seed]] (a) and ρ_u2 the
+zero of g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 on [2.32, 3.44] found in its proof, so that R_u2 = v̂(ρ_u2) + 0.68 and region III
+meets Σ_τ0, which starts at R = 0.70, in the points with 0.70 ≤ R ≤ R_u2.
 
 (a) 2.773631 < ρ_u2 < 2.7736325 and 1.8614372 ≤ R_u2 ≤ 1.8614410.
 
@@ -346,8 +347,8 @@ that region III meets Σ_τ0 in the points with 0.70 ≤ R ≤ R_u2.
 (d) No point of Σ_τ0 with R_u2 < R < R_* is a vacuum point of the background. So every band of Σ_τ0 on which the
 background is vacuum lies in region III, {0.70 ≤ R ≤ R_u2}, or in {R ≥ R_*}.
 
-*Proof.* (a) As in the proof of [[prop:bg-seed]] (a), g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 is decreasing on [2.32, 3.44] with the
-single zero ρ_u2, and R_u2 = v̂(ρ_u2) + 0.68. By direct evaluation of the polynomial Φ̃ of [[sec:tab-bg-ray]] and of
+*Proof.* (a) By the proof of [[prop:bg-seed]] (a), g is decreasing on [2.32, 3.44] with the single zero ρ_u2. By direct
+evaluation of the polynomial Φ̃ of [[sec:tab-bg-ray]] and of
 [[eq:bg-tangherlini]], Φ̃(2.773631) − v̂(2.773631) − 0.68 ≥ 1.3949 × 10⁻⁶ and Φ̃(2.7736325) − v̂(2.7736325) − 0.68 ≤
 −1.1149 × 10⁻⁶. Since |Φ − Φ̃| ≤ ε₀ = 8.69 × 10⁻⁷ at u = u2 ([[prop:bg-rays]]), g(2.773631) > 0 > g(2.7736325), so
 2.773631 < ρ_u2 < 2.7736325. As v̂ is increasing, R_u2 lies between v̂(2.773631) + 0.68 ≥ 1.86143720 and v̂(2.7736325) +
@@ -373,7 +374,7 @@ the enclosure rule of [[lem:bg-tools]] (d), applied to f1 = 1 − 3/(2ρ²), a =
     ψ_III = ln Φ′ + ln f1 − ln f3(Φ),        ψ_III′ = aΦ″/Φ′ + a′ − 2μ3aΦ′h3(Φ),
     ψ_III″ = a(a′Φ″/Φ′ + a(Φ‴/Φ′ − (Φ″/Φ′)²) + a″ − 2μ3(a′Φ′h3(Φ) + aΦ″h3(Φ) + aΦ′²h3′(Φ)))
 
-(the derivatives in v̂, Ψ_0, Ψ_1 and Ψ_2 = a𝒟Ψ_1 of [[eq:bg-psi3]] written out), q = e^(ψ_III), u = 1 − q, m = μ3/R², w =
+(the derivatives in v̂, Ψ_0, Ψ_1 and Ψ_2 = a𝒟Ψ_1 of [[eq:bg-psi3]] written out), q = e^(ψ_III), u = 1 − q (the variable of [[eq:margins-gamma-form]], not the null coordinate), m = μ3/R², w =
 q(1 − m), and n0, A0, A1, A2, A3 and Γ/E² = A0 + A1ψ_III′ + A2ψ_III′² + A3ψ_III″ in the form written in
 [[eq:margins-gamma-form]]. Every entry is rounded outward, and later rows use the printed entries.
 
@@ -432,12 +433,17 @@ Region III meets Σ_τ0 in {0.70 ≤ R ≤ R_u2}, 1.8614372 ≤ R_u2 ≤ 1.86144
 1.861} is the *seed region*.
 
 <!-- Part 3. Block 3.5: in thm:bg-margins (b) (chapter lines 1112-1114), "where 1.861394 ≤ R_u2 ≤ 1.861466" becomes
-"where 1.8614372 ≤ R_u2 ≤ 1.8614410", the last clause "and Γ > 0 on the seed region." becomes "and Γ > 0 on the whole
-of region III ∩ Σ_τ0, with Γ/E² ≥ 10.40 for 1.861 ≤ R ≤ R_u2.", and the proof's "(b) is [[prop:bg-seed]]" becomes: -->
+"where 1.8614372 ≤ R_u2 ≤ 1.8614410", the last clause "and Γ > 0 on the seed region." becomes "and Γ > 0 on the seed
+region; for 1.861 ≤ R ≤ R_u2, Γ/E² ≥ 10.40, so Γ > 0 on the whole of region III ∩ Σ_τ0.", and the proof's "(b) is
+[[prop:bg-seed]]" becomes: -->
 
 (b) is [[prop:bg-seed]] and [[prop:bg-region-three-end]]
 
 <!-- Part 3. Block 3.6: the paragraph after the proof of prop:margins-seed (chapter lines 1702-1703) becomes: -->
 
 By [[prop:bg-seed]] (c), the background itself lies in the tube of (b), which gives Γ > 0 on its seed region; with
-[[prop:bg-region-three-end]] this gives Γ > 0 on all of region III, and so [[cor:loc-charge-seed]] there.
+[[prop:bg-region-three-end]] this gives Γ > 0 on all of region III ∩ Σ_τ0, and so [[cor:loc-charge-seed]] there.
+
+<!-- Part 3. Block 3.7: in the paragraph that opens sec:bg-below, after "([[prop:bg-seed]]);" insert: -->
+
+that Γ > 0 on the rest of region III on Σ_τ0, which ends at R_u2 ([[prop:bg-region-three-end]]);

@@ -1172,3 +1172,13 @@ Items found while chapters were written in parallel; each is settled once, editi
   issue-1 proof, and P-G-far's fixes and merge; then one reading of the whole of chapter 63.
 - F4-S06 done (reports/F4-S06.md): chapters 25, 26 and Appendix A's (S15) entry (the R5-S04 integration item is
   therefore done). R5-S06 reads all three.
+- F-81 done (reports/F-81.md): 3M 14m 11n of R-81 fixed, no pending marker left; cor:class-kato-sphere sent to F-83,
+  the cor:vlasov-two-dust sentence sent to F-82. R2-81 reading.
+- W-87 done (reports/W-87.md): chapter 87 written (13,593 lines with the merged D1 and D2-D4 tables; 102 crosswalk
+  rows). FOR THE FINAL REPORT: the 10 l5 data are only C³, so the source's continuation lemma, which needs smooth data,
+  does not apply to them as stated; the source does not say so, the chapter does. R-87 reading; P-K87 closes issue-1
+  (the source's linear estimates: prove in full or replace the sentence) and issue-2 (three standard facts: symmetry
+  extension, double-null gauge, uniqueness).
+- R3-66 CONFIRMED 0M 0m 3n (reviews/R3-66.md); the three nits applied by the coordinator. Chapter 66 CONFIRMED.
+  FOR THE FINAL REPORT: chapter 66's cor:gd-r7-7 (b) had a gap also present in the source (a corollary applied to data
+  vanishing only outside a ball); the edition proves the extension by the domain of influence inside the horizon.

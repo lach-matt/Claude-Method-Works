@@ -46,13 +46,12 @@ by which a conormal function whose pointwise orders exceed the weights lies in t
 ℒ_(dψ)g = m₀ℒ_(W*)g, as (∂_v)^♭ is Killing. dψ is stationary and bounded, and does not decay at infinity.
 
 *Charges.* For a 1-form f on Ω_* in one of the spaces [[eq:gd-r5-1]] (of [[thm:gd-r5-1]]), [[eq:gd-r6-1]] and
-[[eq:gd-r7-1]] (below), c_f(t_*) := (4π²)⁻¹∫_(−∞)^(v_h(t_*)) ℓ(f) dv is its *running charge* ([[eq:gd-r2-2]]),
-and for the forward solution u
-of □u = f, Q[u](v_h(t_*)) = 4π²c_f(t_*) by [[eq:gd-2-1]], as u and f vanish at early times. If f has K⁺-weight
-α_K > 1, as in [[eq:gd-r6-1]] and [[eq:gd-r7-1]], then f and its derivatives are O(t_*^(−α_K)) on compact r-sets, by
-b-Sobolev embedding near K⁺ ([[sec:hg-positive]]); so f̂(0) := ∫f dt_* exists there, and ∫ℓ(f) dv = ℓ(f̂(0)), as
-t_* − v is a function of r near r_h and ℓ evaluates at r = r_h. We call ∫ℓ(f) dv the *total charge* of f; it is the
-limit of 4π²c_f(t_*) as t_* → ∞.
+[[eq:gd-r7-1]] (below), c_f(t_*) := (4π²)⁻¹∫_(−∞)^(v_h(t_*)) ℓ(f) dv is its *running charge* ([[eq:gd-r2-2]]), and
+for the forward solution u of □u = f, Q[u](v_h(t_*)) = 4π²c_f(t_*) by [[eq:gd-2-1]], as u and f vanish at early
+times. If f has K⁺-weight α_K > 1, as in [[eq:gd-r6-1]] and [[eq:gd-r7-1]], then f and its derivatives are
+O(t_*^(−α_K)) on compact r-sets, by b-Sobolev embedding near K⁺ ([[sec:hg-positive]]); so f̂(0) := ∫f dt_* exists
+there, and ∫ℓ(f) dv = ℓ(f̂(0)), as t_* − v is a function of r near r_h and ℓ evaluates at r = r_h. We call ∫ℓ(f) dv
+the *total charge* of f; it is the limit of 4π²c_f(t_*) as t_* → ∞.
 
 **Lemma {#lem:hr-charges}** (Two horizon charges.) For functions β and φ of (v, r) near the horizon, with ∂_r taken at
 fixed v,
@@ -482,7 +481,7 @@ to Σ°, with □Y = 0, whose Cauchy data on Σ° have compact support, and let 
     ℒ_Yg − cℒ_(W*)g = (m₀c/2) t_*^(−2) ℒ_(W*)g + O(t_*^(−3+ε)).                                          {#eq:gd-r7-3}
 
 The second term is not o(t_*^(−2)) when c ≠ 0: ℒ_(W*)g ≠ 0, and (ℒ_(W*)g)_(vr) = −(7/24)r_h⁻³ at r = 2r_h. Both
-identities hold, with the same c, when the data of Y on Σ° vanish only outside a ball, not near {|x| = r_♭}.
+identities hold, with the same c, when the data of Y on Σ° vanish outside a ball and need not vanish near {|x| = r_♭}.
 
 *Proof.* The cut-off of the proof of [[cor:gd-r6-6]], with its translation, gives U = Y on compact r-sets at late times,
 U the forward solution of a smooth forcing term with compact support in spacetime; that forcing term lies in
@@ -499,11 +498,12 @@ have compact support in Σ° ([[thm:std-bgp-cauchy]] (5) on Ω^♯, [[lem:ix-1-2
 A point of N⁺ ∖ J⁺(K) lies in the Cauchy development of Σ° ∖ K in Ω^♯, as a past inextendible causal curve from it
 meets Σ°, and not in K; that development is globally hyperbolic with Cauchy hypersurface Σ° ∖ K
 ([[thm:std-bgp-development]]), so the argument of [[lem:gd-r3-1]] there gives Y = Y_2 on N⁺ ∖ J⁺(K). On {r < r_h},
-f < 0. A future causal vector X has X^v = −g(X, −∂_r) ≥ 0, −∂_r being future null, and the inequalities
-0 ≥ g(X, X) ≥ |f|(X^v)² + 2X^vX^r give X^r ≤ −½|f|X^v (if X^v = 0, X is a negative multiple of ∂_r). So along a
-future causal curve from K, r does not increase and v increases by at most 2(r_1 − r_♭)/|f(r_1)|; as v is bounded on
-K and t_* − v is a smooth function of r on {r_♭ ≤ r ≤ r_1}, J⁺(K) ⊂ {r ≤ r_1, t_* ≤ T_K} for a constant T_K. Hence
-Y = Y_2 on {r > r_1}, so Q[Y] = Q[Y_2], and on {t_* > T_K}: the identities for Y_2, with T′ > T_K, are those for Y. ∎
+f < 0. A future causal vector X has X^v = −g(X, −∂_r) ≥ 0, −∂_r being future null ([[prop:np-10-19-iv]] (d)), and the
+inequalities 0 ≥ g(X, X) ≥ |f|(X^v)² + 2X^vX^r give X^r ≤ −½|f|X^v (if X^v = 0, X is a negative multiple of ∂_r). So
+along a future causal curve from K, r does not increase and v increases by at most 2(r_1 − r_♭)/|f(r_1)|; as v is
+bounded on K and t_* − v is a smooth function of r on {r_♭ ≤ r ≤ r_1}, J⁺(K) ⊂ {r ≤ r_1, t_* ≤ T_K} for a constant
+T_K. Hence Y = Y_2 on {r > r_1}, so Q[Y] = Q[Y_2], and on {t_* > T_K}: the identities for Y_2, with T′ > T_K, are
+those for Y. ∎
 
 **Corollary {#cor:hr-compact-rates}** (The rates of [[ch:harmonic-structure]] for gauge vectors with compactly
 supported data.) Let ε > 0; on each {r_♭ < r ≤ R′, t_* ≥ T′}, with every number of derivatives:

@@ -875,21 +875,72 @@ resolvent at l = 1 and about 117.3 for the constant of ‖u′‖_I at l = 0, ab
 
 ### From the radial problem to the spacetime operators {#sec:rb-transfer}
 
-**Lemma {#lem:rb-schur}** (Blocks.) Let P̂(σ) be the spectral family at b_0 of □ on functions, of □ on 1-forms or of
-2L_(b_0), and let 𝔏 := L²(I × 𝕊³, r³dr dω) with the pointwise norm of the static frame (dt, dr, r dω) (for m_0 = 1,
-I = {6/5 ≤ r ≤ 4}). The rotations SO(4) act unitarily on 𝔏 and commute with P̂(σ) and χ_I. Let C_π bound
-‖χ_I P̂(σ)⁻¹ χ_I F‖_𝔏/‖F‖_𝔏 over the smooth F supported in I × 𝕊³ that lie in the isotypic component π. Then
-C_D(σ) := ‖χ_I P̂(σ)⁻¹ χ_I‖_(𝔏→𝔏) ≤ sup_π C_π, with equality when each C_π is the least such bound. For functions the
-components are the degrees l; for 1-forms and symmetric 2-tensors each component consists of fields of one type
-([[def:iii-a1-1-3]]) and one degree.
+At b_0 we take the 1-forms c_Υ, c_(Υ,H) and c_C that enter L_(b_0) to be combinations of dt and dr with coefficients
+depending on r alone. This is a choice: [[def:iii-b-6-1]] fixes c_Υ and c_C only for large |x|, as |x|⁻¹dt and
+|x|⁻¹(dt − v_C d|x|), and c_(Υ,H) only through its support; the choices c_(Υ,H) = −½χ(r)dr of [[sec:iii-d1-1]] and c_C
+of [[sec:iv4-0]], built from [[eq:s14-cform]], are of this form.
 
-*Proof.* SO(4) acts by isometries of g_(b_0), on sections of the tensor bundles; it preserves the density and the
-static frame up to rotation of its angular part, so it acts unitarily on 𝔏. P̂(σ) is built from g_(b_0) and from
-1-forms that are combinations of dt and dr with coefficients depending on r alone, so it commutes with SO(4), and so do
-P̂(σ)⁻¹ and χ_I. The isotypic decomposition of a unitary representation of a compact group is orthogonal, and an
-operator commuting with the group maps each component into itself; so for F = Σ_π F_π,
-‖χ_IP̂(σ)⁻¹χ_IF‖² = Σ_π ‖χ_IP̂(σ)⁻¹χ_IF_π‖² ≤ sup_π C_π² Σ_π‖F_π‖², and the smooth fields supported in I × 𝕊³ are
-dense. Scalar harmonics of degree l carry the representation (l/2, l/2) of SO(4) = (SU(2) × SU(2))/{±1}, vector-type
+**Lemma {#lem:rb-scalar}** (The scalar spectral family.) Let □ = δd = −∇^μ∇_μ act on functions on g_(b_0) (the
+operator □_0 of [[ch:s13]]), and let □̂(σ) := e^(iσt_*)□e^(−iσt_*) be its spectral family, acting on stationary
+functions, sections of the trivial bundle of rank one. For σ ≠ 0 with Im σ ≥ 0, □̂(σ) : 𝒳_σ → 𝒴_σ is invertible, with
+𝒳_σ and 𝒴_σ the spaces of [[thm:i-a-7-2]] with the orders of [[thm:i-b-1-3]] (3).
+
+*Proof.* *The hypotheses.* □ is t_*-translation invariant with principal symbol G := g_(b_0)⁻¹(ζ, ζ). By
+[[lem:ii-c-1-3]] at (p, q) = (0, 0), whose proof uses of the metric only (K1), □ is a stationary wave-type operator with
+S = 0; so by [[lem:ii-c-1-2]] its spectral family satisfies (H1), (H2) with S = 0, hence S̄ = 0, and the operator part
+of (H6). By [[thm:vi-a-6-1]], (K1), the metric part of (H6), the dynamical parts of (H3), all of (H4), (Γ.1)–(Γ.3) with
+ν_min = 4(2m_0)^(−1/2), the values q^Γ = 4 and β_0 = 2 on Γ (for m_0 = 1), and (H8) hold, for every operator with
+principal symbol G Id; (H5) is void for a single operator. The remaining conditions concern Im P̂, taken for the density
+|dx| of [[sec:i-a-1-1]] and the standard inner product of ℂ. In coordinates □u = −|g|^(−1/2)∂_μ(|g|^(1/2)g^(μν)∂_νu)
+has real coefficients, and two integrations by parts give ∫(□u)v̄|dg| = ∫g^(μν)∂_νu ∂_μv̄|dg| = ∫u conj(□v)|dg| for
+smooth compactly supported u, v. Moreover |dg| = |dt_*||dx|: in the static chart |det g| = r⁶ det g̸, the density of
+ℝ⁴ is r³dr dω, and t_* − t is a function of r. Writing □ = A_0 + A_1∂_(t_*) + A_2∂²_(t_*) with stationary A_k, the
+symmetry gives A_k* = (−1)^kA_k for |dx|, so □̂(σ) = A_0 − iσA_1 − σ²A_2 satisfies □̂(σ)* = □̂(σ̄). Hence
+Im □̂(0) = 0 and Im T = 0 for T = −iA_1; the threshold quantities of [[eq:i-a-1-5]] are ϑ_ℋ = 0 and ϑ_in = 0, as S = 0;
+and the endomorphism p_1 of (Γ.4) vanishes ([[lem:i-b-1-1]] (b), with the standard inner product as h_Γ), so that the
+function of (Γ.4) is η ↦ −q^Γη, with γ_+ = 0 and γ_− = −ν_min/(2q^Γ) < 0.
+
+*Fredholm of index 0.* So [[thm:i-a-7-2]] (3) and [[thm:i-b-1-3]] (3) apply: □̂(σ) : 𝒳_σ → 𝒴_σ is Fredholm with an index
+that does not depend on σ ∈ {σ ≠ 0, Im σ ≥ 0}, and it is invertible for |σ| ≥ C_0; so the index is 0.
+
+*Injectivity.* Let u ∈ 𝒳_σ with □̂(σ)u = 0. By [[thm:i-a-7-2]] (5) with S̄ = 0, u ∈ 𝒜^(3/2−ε)(X̄) for every ε > 0.
+Put ω := e^(iσt_*)d(e^(−iσt_*)u) = du − iσu dt_*, a stationary 1-form. In the frame dt_*, dx¹, …, dx⁴ its components
+are −iσu and ∂_(x^i)u, and ∂_(x^i) ∈ ρ𝒱_b maps 𝒜^q into 𝒜^(q+1); so ω ∈ ⋂_(ε>0)𝒜^(3/2−ε), which lies in the space
+𝒳_σ of the 1-form operator □ of [[prop:iii-d-6-2]] by [[thm:i-a-7-2]] (5), its S̄ being 0 ([[lem:ii-c-1-3]] at
+(p, q) = (0, 1), as □ = ∇*∇ there). On 1-forms □ = dδ + δd ([[prop:np-10-16]] (i)), so □d = dδd = d□ on functions,
+and □(e^(−iσt_*)ω) = □d(e^(−iσt_*)u) = d□(e^(−iσt_*)u) = d(e^(−iσt_*)□̂(σ)u) = 0. So ω is in the kernel of the
+spectral family of [[prop:iii-d-6-2]], and ω = 0. Its dt_*-component −iσu vanishes, and u = 0 as σ ≠ 0. ∎
+
+**Lemma {#lem:rb-schur}** (Blocks.) Let ℌ_1 and ℌ_2 be Hilbert spaces on which SO(4) acts unitarily, let 𝒟 ⊂ ℌ_1 be a
+dense subspace that SO(4) and the isotypic projections E_π of ℌ_1 (π running over the irreducible representations of
+SO(4)) map into itself, and let A : 𝒟 → ℌ_2 be linear with A(gF) = gAF and AE_πF = E_πAF for g ∈ SO(4) and F ∈ 𝒟. If
+C_π bounds ‖AF‖/‖F‖ over the nonzero F ∈ 𝒟 in the component π, then ‖AF‖ ≤ (sup_π C_π)‖F‖ for every F ∈ 𝒟, and the
+least bound is sup_π C_π when each C_π is the least such bound. This applies:
+
+(a) to A := χ_I P̂(σ)⁻¹ χ_I on ℌ_1 = ℌ_2 = 𝔏 := L²(I × 𝕊³, r³dr dω), with the pointwise norm of the static frame
+(dt, dr, r dω) (for m_0 = 1, I = {6/5 ≤ r ≤ 4}), and 𝒟 the smooth fields supported in I × 𝕊³, where P̂(σ), σ ≠ 0 and
+Im σ ≥ 0, is the spectral family at b_0 of □ on functions, of □ on 1-forms or of 2L_(b_0); so
+C_D(σ) := ‖χ_I P̂(σ)⁻¹ χ_I‖_(𝔏→𝔏) ≤ sup_π C_π, with C_π the bound over the smooth F supported in I × 𝕊³ in the
+component π;
+
+(b) to the inverse of any of these operators, at σ ≠ 0 or at zero energy, between any two Hilbert norms invariant under
+SO(4) in which it is bounded, with 𝒟 = ℌ_1.
+
+For functions the components are the degrees l; for 1-forms and symmetric 2-tensors each component consists of fields of
+one type ([[def:iii-a1-1-3]]) and one degree.
+
+*Proof.* By the Peter–Weyl theorem, in ℌ_1 and in ℌ_2 the operators E_π := d_π∫_(SO(4)) conj(χ_π(g)) g dg, with d_π
+the dimension and χ_π the character of π and dg the Haar probability measure, are mutually orthogonal orthogonal
+projections with Σ_π E_π = I strongly. For F ∈ 𝒟, E_πF ∈ 𝒟 lies in the component π, so
+‖AF‖² = Σ_π ‖E_πAF‖² = Σ_π ‖AE_πF‖² ≤ sup_π C_π² Σ_π ‖E_πF‖² = sup_π C_π² ‖F‖². If each C_π is least, the norm of A
+on 𝒟 is at least every C_π. (a) SO(4) acts by isometries of g_(b_0), on sections of the tensor bundles; it preserves
+the density and the static frame up to rotation of its angular part, so it acts unitarily on 𝔏, and it maps 𝒟 into
+itself. P̂(σ) is built from g_(b_0) and, for 2L_(b_0), from the 1-forms fixed above, which SO(4) preserves; so it
+commutes with SO(4), and so do P̂(σ)⁻¹ and χ_I. For F ∈ 𝒟, g ↦ gF is continuous into the smooth fields supported in
+I × 𝕊³, so the integral defining E_πF converges there, E_πF ∈ 𝒟, and the integral converges in 𝒴_σ, into which these
+fields embed continuously; χ_IP̂(σ)⁻¹ is continuous from 𝒴_σ into 𝔏 (𝒳_σ has positive regularity), so
+AE_πF = d_π∫conj(χ_π(g)) A(gF) dg = d_π∫conj(χ_π(g)) gAF dg = E_πAF. (b) There A is bounded on ℌ_1 and commutes with
+SO(4), hence with every E_π. Scalar harmonics of degree l carry the representation (l/2, l/2) of SO(4) = (SU(2) × SU(2))/{±1}, vector-type
 fields of degree l the sum of ((l + 1)/2, (l − 1)/2) and ((l − 1)/2, (l + 1)/2), and tensor-type fields the sum of
 ((l + 2)/2, (l − 2)/2) and ((l − 2)/2, (l + 2)/2). These are distinct for distinct pairs (type, degree), so each
 isotypic component lies within one type and one degree. ∎

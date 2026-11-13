@@ -59,8 +59,8 @@ generator and 3 − λ_♯ + t ∈ π_1E_t is an increment, so 3 + t ∈ Λ_t. I
 ε_K ≥ t, which (G) excludes. ∎
 
 The same enlargement, by any finite set of exponents of real part at least ε_Υ, with any logarithmic orders, raises the
-number of points of Λ below 3 + ε_+ and the bound l_* of [[def:iii-i10-1-1]] beyond any given bound; so the statements
-do not bound these numbers either.
+number of points of Λ below 3 + ε_+ and the bounds l_* and k̄_0 of [[def:iii-i10-1-1]] (the latter through 𝒢) beyond
+any given bound; so the statements do not bound these numbers either.
 
 **Lemma {#lem:uc-two-offsets}** (Two class offsets near 3.) Let a := 1,109,655 and b := 31,682. Then
 
@@ -178,7 +178,9 @@ which is the value of ℓ_tf in [[lem:ec-closed-forms]] (d), and its least possi
 *Proof.* *The regularity.* [[prop:iii-f1-3-3]] gives the tf-admissibility of L_b^(·) with every weight in (0, 1], in
 particular with β := −β_ztf. By [[def:i-c-5-1]], tf-admissibility does not depend on the choices of s, α_+ and the
 orders, and [[cor:i-c-5-2]] (a)–(b) holds with s and α_+ as in [[thm:i-c-4-3]], which takes s and α_+ in ℝ and uses
-the order pair of [[lem:i-a-7-1]] only through its decay order at the boundary face of tf. So [[eq:i-c-5-1]] holds at
+the order pair of [[lem:i-a-7-1]] only through its decay order at the boundary face of tf. The face tf carries no
+event horizon, so the condition s > ½ + ϑ_ℋ that [[prop:iii-f1-3-3]] meets for the spectral families on X (whence its
+"s large") does not enter the bound on tf. So [[eq:i-c-5-1]] holds at
 s = 1 and α_+ = 0, and with [[thm:i-c-4-3]] (4) for k further b-derivatives, N_tf(±1)⁻¹ is bounded from
 H^((s−2;k),(𝗋+1,q−2))_(sc,b;b) to H^((s;k),(𝗋,q))_(sc,b;b), as in the proof of [[cor:iii-f1-3-4]].
 
@@ -270,9 +272,10 @@ least 1 + n_ι.
 l = 1 + n_ι + 2(n_K + ⌊β_K⌋) with n_K = n(∅, β_K) = 0. By the definition of n(E, β) before [[lem:ec-closed-forms]],
 n(E_ι, β_ι) counts the pairs (z, m′) ∈ ℰ^♭ + 2 with Re z ≤ w_+ − ε = 5 + ε_+ − ε. At an exponent λ of ℰ^♭ of
 logarithmic order m there are m + 1 pairs, and m ≤ k̄(λ) = k̄_0 + (J_* + 1)(l_* + 1)(n(λ) + 1) with n(λ) ≤ N_Λ − 1; at
-most N_Λ exponents occur. This gives the bound for n_ι. By [[lem:ec-iota-gap]], η_0 ≥ ε_Υ, so J_* = ⌈5/η_0⌉ + 2 ≤ ⌈5/ε_Υ⌉ + 2, and
-5/(1.4619·10⁻¹⁰) = 500000000000000/14619 = 34202065804.77…, whose ceiling is 34,202,065,805. The level step composes
-this map with maps of non-negative loss, so by [[def:ec-accounted-loss]] its charge is at least l ≥ 1 + n_ι. ∎
+most N_Λ exponents occur. This gives the bound for n_ι. By [[lem:ec-iota-gap]], η_0 ≥ ε_Υ, so
+J_* = ⌈5/η_0⌉ + 2 ≤ ⌈5/ε_Υ⌉ + 2, and 5/(1.4619·10⁻¹⁰) = 500000000000000/14619 = 34202065804.77…, whose ceiling is
+34,202,065,805. The level step composes this map with maps of non-negative loss, so by [[def:ec-accounted-loss]] its
+charge is at least l ≥ 1 + n_ι. ∎
 
 **Lemma {#lem:uc-phi-loss}** (The loss of Φ and the two other components of d_NM.) Let 3 < ℓ_I < 3.5, and let the
 strips of [[cor:iii-g3-3-1]] used in the proof of [[thm:iii-j-2-4]] be taken with λ₋ ∈ (ℓ_I − 2, 3/2) and
@@ -311,7 +314,7 @@ of the losses of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], t
 bound of [[prop:ec-upper]] other than the single-step losses is explicit in ε_K and the other weights; the single-step
 losses at the levels above 3 are at least 1 + n_ι, with n_ι bounded by [[lem:uc-fourier-count]] in N_Λ, l_* and k̄_0.
 
-(iii) The numbers ε_K (through (G)), N_Λ, l_* and k̄_0 are fixed by the index sets of [[sec:uc-index-sets]] alone, and
+(iii) The admissible ε_K (through (G)), N_Λ, l_* and k̄_0 are fixed by the index sets of [[sec:uc-index-sets]], and
 the statements of this paper fix none of them: for every M > 0 there is a choice of ℰ_ind compatible with every
 membership in which it is asserted, as in [[prop:uc-no-eps]], for which every ε_K satisfying (G) is below
 1/M and, for every admissible choice of the weights, d_NM ≥ d_acc > 2M · 10¹⁰.
