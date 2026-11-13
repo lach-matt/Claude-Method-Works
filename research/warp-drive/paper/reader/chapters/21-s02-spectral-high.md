@@ -1374,13 +1374,13 @@ each compact set) gives a subsequence along which L(b) := lim ⟨Op_h(b)u, u⟩ 
 extends to a linear functional on C_c(U; End ℂ^(N_E)), continuous for the supremum norm on each compact set. By the
 Riesz representation theorem applied to each matrix entry, L(b) = ∫ tr(b dμ) for a matrix of complex Radon measures.
 
-(d) Positivity: let b ≥ 0 with supp b ⊂ K_b ⋐ U, and j ∈ C_c^∞(U) scalar, 0 ≤ j ≤ 1, equal to 1 on K_b. For ϵ > 0, b +
-ϵj² Id is positive definite on K_b and equal to ϵj² Id off K_b, so it is q_ϵ*q_ϵ with q_ϵ ∈ C_c^∞(U) (on K_b the positive
-square root; off K_b, √ϵ j, which is smooth as j ≥ 0); then Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)* Op_h(q_ϵ) + hR′, so
-liminf ⟨Op_h(b)u, u⟩ ≥ −ϵ limsup ‖Op_h(j)u‖² ≥ −Cϵ. Hence L(b) ≥ 0 for b ≥ 0; taking b = φvv* with φ ≥ 0 scalar and v ∈
-ℂ^(N_E) shows v*μv ≥ 0, so μ is Hermitian and positive semidefinite. Each entry is then absolutely continuous with
-respect to ν (|μ_ab| ≤ ν for a positive matrix measure), which gives dμ/dν; and tr(p dμ/dν) ≤ max spec(p) tr(dμ/dν) as
-dμ/dν ≥ 0. ∎
+(d) Positivity: let b ≥ 0 with supp b ⊂ K_b ⋐ U, and j ∈ C_c^∞(U) scalar, 0 ≤ j ≤ 1, equal to 1 on K_b. For ϵ > 0,
+b + ϵj² Id is positive definite on K_b and equal to ϵj² Id off K_b, so it is q_ϵ*q_ϵ with q_ϵ ∈ C_c^∞(U) (on K_b the
+positive square root; off K_b, √ϵ j, which is smooth as j ≥ 0); then Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)*
+Op_h(q_ϵ) + hR′, so liminf ⟨Op_h(b)u, u⟩ ≥ −ϵ limsup ‖Op_h(j)u‖² ≥ −Cϵ. Hence L(b) ≥ 0 for b ≥ 0; taking b = φvv* with
+φ ≥ 0 scalar and v ∈ ℂ^(N_E) shows v*μv ≥ 0, so μ is Hermitian and positive semidefinite. Each entry is then absolutely
+continuous with respect to ν (|μ_ab| ≤ ν for a positive matrix measure), which gives dμ/dν; and tr(p dμ/dν) ≤ max spec(p)
+tr(dμ/dν) as dμ/dν ≥ 0. ∎
 
 **Lemma {#lem:i-b-6-3}** (Cf. [Hin26c, Lemmas 9.31–9.32], on E.) Let (u_j) be tempered on U with defect measure μ, and
 𝐏_j := 𝐏_(h_j,z_j) with Im z_j/h_j → η ∈ [0, ∞).
@@ -1645,17 +1645,17 @@ closure of the forward V-flowout of K_X ∩ Σ_(z_0) inside Γ(ε_Γ). Then ther
 
 *Proof.* If ϖ is in the elliptic set of 𝐏″, [[prop:i-b-2-10]] gives ‖B_ϖw‖ ≤ C(‖G𝐏″w‖ + h^M‖w‖) with G microsupported
 near ϖ, off K_X. Otherwise the backward V-curve from ϖ reaches the elliptic set of the absorption without meeting K_X,
-and [[cor:i-b-4-6]] gives ‖B_ϖw‖ ≤ C(h⁻¹‖G𝐏″w‖ + h^M‖w‖) with G microsupported near that curve, again off K_X. Take w :=
-(𝐏″)⁻¹Xf: G𝐏″w = GXf = O(h^∞) and ‖w‖ ≤ Ch⁻¹‖Xf‖. ∎
+and [[cor:i-b-4-6]] gives ‖B_ϖw‖ ≤ C(h⁻¹‖G𝐏″w‖ + h^M‖w‖) with G microsupported near that curve, again off K_X. Take
+w := (𝐏″)⁻¹Xf: G𝐏″w = GXf = O(h^∞) and ‖w‖ ≤ Ch⁻¹‖Xf‖. ∎
 
 ### The artificial boundary {#sec:i-b-7}
 
-This is [Hin26c, Proposition 9.35], the semiclassical form of [[sec:i-a-6]]. [Hin26c] proves the energy estimate for h⁻¹
-Im z large and cites [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z; here one argument covers every z with Im z ≥ 0, the
-exponential weight in r of [[prop:i-a-6-3]] supplying the positivity that the weight in t supplies there only for h⁻¹ Im
-z large. The slab spaces H^s(Ω_(a,b))^(•,−) (supported at r = b, extendible at r = a) and H^s(Ω_(a,b))^(−,•) are those of
-[[sec:i-a-6-1]], with the semiclassical norms ‖u‖_(H_h^s) := ‖⟨hD⟩^s u‖; over the compact slabs used here the decay order
-plays no role, and an admissible 𝖻 is constant ([[sec:i-b-1-4]]), so it enters only as the factor h^(−𝖻).
+This is [Hin26c, Proposition 9.35], the semiclassical form of [[sec:i-a-6]]. [Hin26c] proves the energy estimate for
+h⁻¹ Im z large and cites [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z; here one argument covers every z with Im z ≥ 0, the
+exponential weight in r of [[prop:i-a-6-3]] supplying the positivity that the weight in t supplies there only for
+h⁻¹ Im z large. The slab spaces H^s(Ω_(a,b))^(•,−) (supported at r = b, extendible at r = a) and H^s(Ω_(a,b))^(−,•) are
+those of [[sec:i-a-6-1]], with the semiclassical norms ‖u‖_(H_h^s) := ‖⟨hD⟩^s u‖; over the compact slabs used here the
+decay order plays no role, and an admissible 𝖻 is constant ([[sec:i-b-1-4]]), so it enters only as the factor h^(−𝖻).
 
 #### The H¹_h estimate {#sec:i-b-7-1}
 
@@ -1959,25 +1959,25 @@ that treat each operator.
 
 **Remark {#rem:i-b-comparison}** (Comparison with [Hin26c, Section 9.3].) Besides the changes of statement in
 [[rem:i-b-relation]], the following points differ from [Hin26c]. (a) [Hin26c, Theorem 9.28] states that B is
-semiclassically elliptic "at ∂ℛ_+"; the estimate is at the trapped set, and B is elliptic at Γ ([[thm:i-b-6-8]]). (b)
-In the proof of [Hin26c, (9.83)] a constant is fixed in (inf_Γ p_1/(2β_0), γ); positivity of −2p_1 + 4β_0γ_0 on Γ
-needs γ_0 > sup_Γ p_1/(2β_0) = γ_+. [[prop:i-b-6-1]] avoids the constant by writing p − ℓq = (p − γq) − (ℓ − γ)q. (c)
-[Hin26c, Theorem 9.28 (2)] states the adjoint estimate for z ∈ 1 + i[−hβ, ν]. For β < 0 that range misses the real axis,
-which the adjoint estimate at Im z = 0 in [Hin26c, (9.59)] needs. The symbol calculus gives the same threshold for P* as
-for P ([[sec:i-b-6-1]] defines p^♮ and q^♮ with the field of each, and [[eq:i-b-1-4]] reads the same), so the range z_0 +
-i[hβ, ν′] of [[thm:i-b-6-8]] serves both. (d) The second step of the b-regular estimate at R_out in [Hin26c, (9.77)]
-carries the diagonal term −2kihzρδ_(α,(k,0,…,0)) of [Hin26c, (9.45)], whose sign and index set differ from those of the
+semiclassically elliptic "at ∂ℛ_+"; the estimate is at the trapped set, and B is elliptic at Γ ([[thm:i-b-6-8]]). (b) In
+the proof of [Hin26c, (9.83)] a constant is fixed in (inf_Γ p_1/(2β_0), γ); positivity of −2p_1 + 4β_0γ_0 on Γ needs
+γ_0 > sup_Γ p_1/(2β_0) = γ_+. [[prop:i-b-6-1]] avoids the constant by writing p − ℓq = (p − γq) − (ℓ − γ)q. (c) [Hin26c,
+Theorem 9.28 (2)] states the adjoint estimate for z ∈ 1 + i[−hβ, ν]. For β < 0 that range misses the real axis, which the
+adjoint estimate at Im z = 0 in [Hin26c, (9.59)] needs. The symbol calculus gives the same threshold for P* as for P
+([[sec:i-b-6-1]] defines p^♮ and q^♮ with the field of each, and [[eq:i-b-1-4]] reads the same), so the range z_0 + i[hβ,
+ν′] of [[thm:i-b-6-8]] serves both. (d) The second step of the b-regular estimate at R_out in [Hin26c, (9.77)] carries
+the diagonal term −2kihzρδ_(α,(k,0,…,0)) of [Hin26c, (9.45)], whose sign and index set differ from those of the
 commutator computed in [[lem:i-a-4-8]] (there the diagonal term is +2iα_1σρ, for every α with α_1 ≥ 1; see
 [[rem:i-a-4-8-sign]]); [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]] does at fixed σ,
 and [[prop:i-b-5-7]] then needs no sign of it. (e) [Hin26c, (3.35)] defines H_(sc,h)^(s,𝗋,𝖻) = ρ^𝗋 h^𝖻 H_(sc,h)^s, which
-gives ‖u‖ = h^(−𝖻)‖⟨hD⟩^s(⟨x⟩^𝗋 u)‖ on ℝ^n, while the parenthesis after it prints ⟨x⟩^(−𝗋)u; we use w_𝐨 =
-⟨ζ⟩^s⟨x⟩^𝗋h^(−𝖻), as (3.35) does. (f) The method differs in these points: one positive commutator scheme without
+gives ‖u‖ = h^(−𝖻)‖⟨hD⟩^s(⟨x⟩^𝗋 u)‖ on ℝ^n, while the parenthesis after it prints ⟨x⟩^(−𝗋)u; we use
+w_𝐨 = ⟨ζ⟩^s⟨x⟩^𝗋h^(−𝖻), as (3.35) does. (f) The method differs in these points: one positive commutator scheme without
 regularisation, a priori estimates being proved for Schwartz functions and extended by density ([[sec:i-b-3]]);
 propagation with flow boxes depending on z, the difference 𝖧_z − 𝖧_(Re z) absorbed by ℓ𝒬 ([[prop:i-b-4-5]]), in place of
-the three regimes of [Hin26c, Propositions 9.19, 9.22, 9.23]; one radial lemma for all
-three radial sets ([[lem:i-b-5-1]]); at R_out the large imaginary part written as W*M̃W − g_00, non-negative exactly
-([[lem:i-b-5-4]]), which needs the remainder R_2 of [Hin26c, (9.49)] to be put into that form; matrix-valued defect
-measures, entering through tr and max spec ([[lem:i-b-6-2]]); the complex absorption written as Q̂_♭(σ̄)*Q̂_♭(σ),
-entire and of exact sign ([[sec:i-b-6-5]]); a three lines lemma with its proof ([[lem:i-b-6-6]]) in place of
-[DZ19, Lemma D.1]; and the energy estimate at the artificial boundary for every Im z ≥ 0 through an exponential weight
-in r ([[prop:i-b-7-1]]), in place of [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z.
+the three regimes of [Hin26c, Propositions 9.19, 9.22, 9.23]; one radial lemma for all three radial sets
+([[lem:i-b-5-1]]); at R_out the large imaginary part written as W*M̃W − g_00, non-negative exactly ([[lem:i-b-5-4]]),
+which needs the remainder R_2 of [Hin26c, (9.49)] to be put into that form; matrix-valued defect measures, entering
+through tr and max spec ([[lem:i-b-6-2]]); the complex absorption written as Q̂_♭(σ̄)*Q̂_♭(σ), entire and of exact sign
+([[sec:i-b-6-5]]); a three lines lemma with its proof ([[lem:i-b-6-6]]) in place of [DZ19, Lemma D.1]; and the energy
+estimate at the artificial boundary for every Im z ≥ 0 through an exponential weight in r ([[prop:i-b-7-1]]), in place of
+[Hin25a, Theorem 9.44] for bounded h⁻¹ Im z.

@@ -245,10 +245,10 @@ and r_q ≤ √μ, so that it lies inside or on the horizon, exactly when r_q⁴
 
     D_T := { v ≤ v_end + T,  r ≥ r_q(v) },                                                          {#eq:dt}
 
-the region from past null infinity to the curvature boundary, up to the time T after the shell has passed. Put
-V := v_end + T and q0 := (√72 μ0 l5²)^(1/4), the value of r_q for v ≤ v_start, so q0 ≤ √μ0. Fix 0 < δ0 < q0, a := q0 − δ0, τ0 with
-v_start − τ0 > √μ0 + 1 (on Σ_τ0 := {τ = τ0} the shell lies outside the seed's horizon: the slice is before the shell
-reaches the hole), and τ_end := max_(v ≤ V) (v − r_q(v)). Let
+the region from past null infinity to the curvature boundary, up to the time T after the shell has passed. Put V :=
+v_end + T and q0 := (√72 μ0 l5²)^(1/4), the value of r_q for v ≤ v_start, so q0 ≤ √μ0. Fix 0 < δ0 < q0, a := q0 − δ0, τ0
+with v_start − τ0 > √μ0 + 1 (on Σ_τ0 := {τ = τ0} the shell lies outside the seed's horizon: the slice is before the
+shell reaches the hole), and τ_end := max_(v ≤ V) (v − r_q(v)). Let
 
     Ω := { τ0 ≤ τ ≤ τ_end,  |x| ≥ a,  v + (τ − τ_end) ≤ V + 1 },                                   {#eq:omega}
 
@@ -311,17 +311,26 @@ derivatives of order j and ‖·‖ the flat L²(Σ_τ) norm, the λ-scaled norm
 
     |f|_j := Σ_(i≤j) λ^i ‖∂^i f‖.                                                                   {#eq:scaled-norm}
 
-For pointwise bounds on a symmetric 2-tensor A of Cartesian components, |A| is the Euclidean operator norm (the
-largest absolute eigenvalue); for arrays of higher rank (|∂w|, |∂g|), |·| is the Frobenius norm, and ‖·‖ always
-integrates the Euclidean sum of squares.
+Chain rule: ∂_a [f] = λ⁻¹ (∂_a v)[∂_θ f] + [∂_a f], so |[f]|_j ≤ C_j sup_(i≤j) |∂^i_(X,θ) f|_(L^∞): the oscillation
+costs nothing in the scaled norms; and ‖∂^i [f]‖_(L^∞) ≤ C λ^(−i).
+
+For pointwise bounds on symmetric 2-tensors of Cartesian components, |·| is the Euclidean operator norm (the largest
+absolute eigenvalue); for arrays of higher rank (|∂w|, |∂g|), |·| is the Frobenius norm, and ‖·‖ always integrates the
+Euclidean sum of squares. Any other norm on arrays changes only constants.
+
+The eigenvalues of g0 are explicit. In Cartesian components g0 = η + m U Uᵀ, with U the array of dv, |U|² = 2 and
+m := μ/r². On the orthogonal complement of the span of (1, 0) and (0, x̂), g0 is the identity, and on that span it is
+the matrix [[−1 + m, m], [m, 1 + m]], whose eigenvalues are m ± (m² + 1)^(1/2). So the eigenvalues of g0 are 1 (three
+times), m + (m² + 1)^(1/2) and m − (m² + 1)^(1/2) < 0.
 
 **Lemma {#lem:eigen}** (the margins of the boundaries). Restricted to ker dτ, to ker dr on {r = a}, and to
 ker d(v + τ), the form g0 has least eigenvalues, relative to the Euclidean inner product on each subspace,
 
     1,      min(1, μ/a² − 1),      min(1, (3 + μ/r²)/5).
 
-Hence [[lem:domain]] (e) holds for every ε1 ≤ 3/5 with ε1 < μ0/a² − 1. Where μ = μ0 on {r = a}, the Lorentzian
-metric g := g0 − (μ0/a² − 1) dτ ⊗ dτ has |g − g0| = μ0/a² − 1 and makes {r = a} null.
+Hence [[lem:domain]] (e) holds for every ε1 ≤ 3/5 with ε1 < μ0/a² − 1, and every Lorentzian g with |g − g0| ≤ ε1 on Ω
+is time-oriented by dτ. Where μ = μ0 on {r = a}, the Lorentzian metric g := g0 − (μ0/a² − 1) dτ ⊗ dτ has
+|g − g0| = μ0/a² − 1 and makes {r = a} null.
 
 *Proof.* On ker dτ, vectors (0, X), g0 = |X|² + (μ/r²)(x̂·X)², with eigenvalues 1 (three times) and 1 + μ/r². On
 ker dr at r = a, vectors (T, X) with x̂·X = 0, g0 = −T² + |X|² + (μ/a²) T² = (μ/a² − 1) T² + |X|². On
@@ -330,45 +339,77 @@ ker d(v + τ) = ker(2dτ + dr), write X = X⊥ + s x̂ with x̂·X⊥ = 0; then 
     g0 = −s²/4 + |X⊥|² + s² + (μ/r²)(s/2)² = |X⊥|² + s² (3 + μ/r²)/4,
 
 while the Euclidean norm squared of (T, X) is |X⊥|² + (5/4) s²; the ratio on the s-direction is (3 + μ/r²)/5 ≥ 3/5.
-A symmetric perturbation of Euclidean operator norm ε lowers each least eigenvalue by at most ε, so for
-ε1 ≤ 3/5 and ε1 < μ0/a² − 1 the three restrictions stay positive definite, which is what [[lem:domain]] (e) uses. For
-the last claim, g0 − ε dτ ⊗ dτ, ε > 0, agrees with g0 on the four-dimensional subspace ker dτ, where g0 is positive
-definite, and is ≤ g0, so it has exactly one negative eigenvalue; on ker dr at r = a it is ((μ0/a² − 1) − ε) T² + |X|²,
-degenerate at ε = μ0/a² − 1. ∎
+
+Let g be Lorentzian with |g − g0| ≤ ε on Ω, where ε ≤ 3/5 and ε < μ0/a² − 1, and put g₋ := g0 − ε I, I the
+Euclidean identity. Then g ≥ g₋ as quadratic forms. The eigenvalues of g₋ are 1 − ε (three times),
+m + (m² + 1)^(1/2) − ε > 0 and m − (m² + 1)^(1/2) − ε < 0, so g₋ is Lorentzian, and its nonzero causal vectors form
+two convex cones, each the negative of the other. Subtracting ε I lowers each restricted eigenvalue by exactly ε, so
+g₋ restricted to ker dτ, to ker dr at r = a and to ker d(v + τ) has least eigenvalues 1 − ε, min(1, μ/a² − 1) − ε and
+min(1, (3 + μ/r²)/5) − ε, all positive, the last because μ/r² > 0 and ε ≤ 3/5. So dτ, dr (at r = a) and d(v + τ)
+vanish on no nonzero g₋-causal vector, and each has one sign on each of the two cones. Every g0-causal vector is
+g₋-causal, since g₋ ≤ g0; so the cone that contains the future causal vectors of g0 has dτ > 0, dr < 0 at r = a and
+d(v + τ) > 0, by [[lem:domain]] (a)–(c). Every g-causal vector is g₋-causal, since g ≥ g₋. Hence dτ vanishes on no
+nonzero g-causal vector, so g is time-oriented by dτ, and its future causal vectors, a convex set on which dτ > 0, lie
+in that cone. So for g the hypersurfaces Σ_τ, {r = a} and {v + τ = const} are spacelike, g being bounded below by g₋,
+which is positive definite on the three kernels; and along future causal curves of g, τ and v + τ increase and, at
+r = a, r decreases. These are the properties (a)–(c) that the proof of [[lem:domain]] (e) uses, so (e) holds for g.
+
+For the last claim, g0 − c dτ ⊗ dτ, c > 0, agrees with g0 on the four-dimensional subspace ker dτ, where g0 is
+positive definite, and is ≤ g0, so it has exactly one negative eigenvalue and no zero one, and |c dτ ⊗ dτ| = c; on
+ker dr at r = a it is ((μ0/a² − 1) − c) T² + |X|² where μ = μ0, degenerate at c = μ0/a² − 1. Such points exist: on
+Σ_τ0, v = τ0 + a < v_start at r = a. ∎
 
 [[lem:domain]] (e) is not the only requirement on ε1. The energy inequality of [[ch:inequalities]] needs ε1 < s0, where
 
-    s0 := inf over Ω of g0's least absolute eigenvalue = (m*² + 1)^(1/2) − m*,   m* := sup_Ω μ/r² ≤ μ_end/a².
+    s0 := inf over Ω of g0's least absolute eigenvalue = (m*² + 1)^(1/2) − m*,   m* := sup_Ω μ/r² ≤ μ_end/a²,
 
-Indeed g0 = η + m U Uᵀ in Cartesian components, with U the array of dv, |U|² = 2 and m = μ/r²; on the orthogonal
-complement of the span of (1, 0) and (0, x̂), g0 is the identity, and on that span it is the matrix [[−1 + m, m],
-[m, 1 + m]], whose eigenvalues are m ± (m² + 1)^(1/2). So the eigenvalues of g0 are 1 (three times) and
-m ± (m² + 1)^(1/2); the least absolute one is (m² + 1)^(1/2) − m, which decreases in m.
+since by the eigenvalues of g0 above the least absolute one is (m² + 1)^(1/2) − m, which decreases in m.
 
 **Lemma {#lem:lorentz-margin}** (Lorentzian metrics near g0). Every symmetric g̃ with |g̃ − g0| ≤ ε1 < s0 on Ω is
-Lorentzian with |g̃⁻¹| ≤ (s0 − ε1)⁻¹. For ε1 ≥ s0 there are Lorentzian g̃ within ε1 of g0 with |g̃⁻¹| unbounded.
+Lorentzian with |g̃⁻¹| ≤ (s0 − ε1)⁻¹. For ε1 ≥ s0, at a point of Ω where μ/r² = m*, there are Lorentzian forms g̃ with
+|g̃ − g0| ≤ ε1 and |g̃⁻¹| arbitrarily large.
 
 *Proof.* Every eigenvalue of g0 has absolute value at least s0, so |g̃ x| ≥ |g0 x| − |(g̃ − g0) x| ≥ (s0 − ε1)|x|,
 which bounds |g̃⁻¹|. Moreover x·g̃ x ≥ (s0 − ε1)|x|² on the four-dimensional span of g0's eigenvectors with positive
 eigenvalues, while e·g̃ e ≤ −s0 + ε1 < 0 for the unit eigenvector e of its negative eigenvalue; so g̃ has exactly one
 negative eigenvalue, since a second non-positive direction would meet that span. This is Weyl's inequality in the case
-used. For ε1 ≥ s0, at a point where m = m*, let e be the unit eigenvector of g0 with eigenvalue −s0 and put
-g̃_t := g0 + t s0 e eᵀ for t ∈ [0, 1): g̃_t is Lorentzian, within s0 ≤ ε1 of g0, and its eigenvalue −(1 − t) s0 tends
-to 0, so |g̃_t⁻¹| is unbounded. ∎
+used. For ε1 ≥ s0, at a point where m = m* (there is one, Ω being compact), let e be the unit eigenvector of g0 with
+eigenvalue −s0 and put g̃_t := g0 + t s0 e eᵀ for t ∈ [0, 1): g̃_t is Lorentzian, within s0 ≤ ε1 of g0, and its
+eigenvalue −(1 − t) s0 tends to 0, so |g̃_t⁻¹| is unbounded. ∎
 
 Since μ/a² > 1 on {r = a}, s0 < 2^(1/2) − 1 < 3/5. From here on ε1 is one fixed number with
 
-    0 < ε1 < min(s0, μ0/a² − 1).
+    0 < ε1 < min(s0, μ0/a² − 1),
 
-At the numerical point of [[ch:lambda0]] (μ0 = 1, l5 = 1/10, a = δ0 = q0/2) one has μ0/a² − 1 > 12: there
-q0⁸ = 72 μ0² l5⁴ = 9/1250, so μ0/a² = 4/q0² = 4 (1250/9)^(1/4), and (1250/9) > 28561/256 = (13/4)⁴ gives
-μ0/a² > 13. So every ε1 ≤ 3/5 serves for [[lem:domain]] (e) there, and none above the least value of (3 + μ/r²)/5 on
-the outer boundary, which there is 0.6013096 [[pending:computational-1]]; and s0, its value at r = a, μ = μ_end, lies
-in [0.030768559, 0.030768560] [[pending:computational-1]], so there ε1 < 0.0308. Any other norm on arrays changes only
-constants.
+so that both [[lem:eigen]] and [[lem:lorentz-margin]] apply to it.
 
-Chain rule: ∂_a [f] = λ⁻¹ (∂_a v)[∂_θ f] + [∂_a f], so |[f]|_j ≤ C_j sup_(i≤j) |∂^i_(X,θ) f|_(L^∞): the oscillation
-costs nothing in the scaled norms; and ‖∂^i [f]‖_(L^∞) ≤ C λ^(−i).
+At the numerical point of [[ch:lambda0]] (μ0 = 1, l5 = 1/10, a = δ0 = q0/2, A = 1, env supported in
+[v_start, v_end] = [1/2, 7/2] with ∫ env² = 105/128, T = 1, τ0 = −2) the three thresholds are as follows.
+
+(i) μ0/a² − 1 > 12, so every ε1 ≤ 3/5 serves for [[lem:domain]] (e) there: q0⁸ = 72 μ0² l5⁴ = 9/1250, so
+μ0/a² = 4/q0² = 4 (1250/9)^(1/4), and 1250/9 > 28561/256 = (13/4)⁴ gives μ0/a² > 13.
+
+(ii) No ε1 ≥ 0.6013096 serves for [[lem:domain]] (e) there. On the outer boundary v = V + 1 + τ_end − τ ≥ V + 1 > v_end,
+so μ = μ_end there, and r ≤ b(τ0), with equality at its corner with Σ_τ0; so the least value of (3 + μ/r²)/5 on it is
+λ* := (3 + μ_end/b(τ0)²)/5, attained at the corner. Here μ_end = 1 + (2/9)(105/128) = 227/192 and V = 9/2. With
+q_end := (√72 μ_end l5²)^(1/4), the value of r_q at v = V, one has τ_end ≥ V − q_end, so b(τ0) = V + 1 + τ_end − 2τ0 ≥
+14 − q_end. Since q_end⁸ = 72 μ_end² l5⁴ = 51529/5120000 = 0.0100642… is less than 0.5628⁸ = 0.0100654…, q_end < 0.5628,
+b(τ0) > 13.4372 and λ* < (3 + (227/192)/13.4372²)/5 = 0.60130959… < 0.6013096. Now let n := (1, −2x̂)/√5, a Euclidean
+unit vector field, n ⊗ n the tensor of Cartesian components n_a n_b, and g := g0 − λ* n ⊗ n, so that |g − g0| = λ*. The
+vector n lies in ker d(v + τ), being the case s = −2/√5 of the proof of [[lem:eigen]], so g0(n, n) = (3 + m)/5, and
+g0(n, (0, X⊥)) = 0 when x̂·X⊥ = 0. In the Euclidean orthonormal basis of ker d(v + τ) formed by n and three vectors
+(0, X⊥), g0 is diag((3 + m)/5, 1, 1, 1) and g is diag((3 + m)/5 − λ*, 1, 1, 1), which at the corner is diag(0, 1, 1, 1):
+the outer boundary is null for g there. And g is Lorentzian on Ω. In the plane of the τ- and x̂-directions the Cartesian
+block of g0 is [[−1 + m, m], [m, 1 + m]], with inverse [[−1 − m, m], [m, 1 − m]], so nᵀ g0⁻¹ n = (3 − 9m)/5, and by the
+rank-one formula det(M − c n nᵀ) = det M (1 − c nᵀ M⁻¹ n), det g = −(1 − λ* (3 − 9m)/5) < 0, as λ* < 1. Since g is the
+identity on the three directions (0, X⊥), it has at least three positive eigenvalues, and, its determinant being
+negative, exactly one negative one. So (e) fails for every ε1 ≥ λ*, in particular for every ε1 ≥ 0.6013096.
+
+(iii) s0 lies between 0.030768559 and 0.030768560, so there ε1 < 0.0308. On the inner sphere of Σ_τ_end,
+v = τ_end + a ≥ V − q_end + a > v_end, so μ = μ_end there and m* = μ_end/a² = (227/48)(1250/9)^(1/4). Since
+s0 = (m*² + 1)^(1/2) − m* is the positive root of s² + 2m* s = 1, a number x > 0 lies below s0 exactly when
+x² + 2m* x < 1, that is when (24(1 − x²)/(227 x))⁴ > 1250/9 = 138.88888…; at x = 0.030768559 the left side is
+138.88889948…, larger, and at x = 0.030768560 it is 138.88888139…, smaller.
 
 ### The waves and their average {#sec:waves}
 

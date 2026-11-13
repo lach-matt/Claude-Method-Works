@@ -508,22 +508,26 @@ dr + dr ⊗ q, and ∂_τ of the lapse and shift fixed by D(g) = 0 (as in [[sec:
 Then the constraints hold exactly ([[prop:exact-correction]]), D = 0, and, by [[eq:data-constraint-gauge]], ∂_τ D = 0 on
 Σ for the solution of Ric^H = 0 with these data.
 
-For w := g − g_app on Σ: here g_app is G(X, u/λ), while (E4) is stated for its fixed-phase form [[eq:approximant]]; the
-two differ by O(λ^(N+1)) in scaled norms ([[sec:approximant]]), within C λ^K since N + 1 > K. The spatial part of w and
-∂_τ of it are U and combinations of U and its tangential derivatives, and ∂_τ w_(τ ·) solves the linear relation D(g) −
-D(g_app) = −D(g_app) = O(λ^(N−1)) with invertible coefficient. So, each derivative costing at most λ⁻¹, Data(w) ≤ C λ⁻¹
-λ^(N−2) = C λ^K: (E4). The data are smooth ([[prop:exact-correction]]) and invariant under T² and both reflections: the
-construction commutes with the symmetries, by the uniqueness in [[lem:linear-evolution]], [[prop:exact-correction]] and
-the stage equations, Pol⁺ being equivariant. They equal the seed's data on Σ ∩ {r < v_start − τ0}. ∎
+For w := g − g_app on Σ, g_app the fixed-phase form of the statement: G(X, u/λ) and that form differ by O(λ^(N+1)) in
+scaled norms ([[sec:approximant]]), within C λ^K since N + 1 > K, so it suffices to bound w′ := g − G(X, u/λ). The
+spatial part of w′ and ∂_τ of it are U and combinations of U and its tangential derivatives. The components w′_(τ ·) do
+not vanish but are algebraic in U: g and G(X, u/λ) have the same lapse and the same shift β, and their spatial parts
+differ by α dr ⊗ dr, so w′_(τi) = α (dr)_i dr(β) and w′_(ττ) = α dr(β)², with β bounded with its derivatives in the
+scaled norms. And ∂_τ w′_(τ ·) solves the linear relation D(g) − D(G(X, u/λ)) = −D(G(X, u/λ)) = O(λ^(N−1)) with
+invertible coefficient. So, each derivative costing at most λ⁻¹, Data(w′) ≤ C λ⁻¹ λ^(N−2) = C λ^K, and (E4) holds. The
+data are smooth ([[prop:exact-correction]]) and invariant under T² and both reflections: the construction commutes with
+the symmetries, by the uniqueness in [[lem:linear-evolution]], [[prop:exact-correction]] and the stage equations, Pol⁺
+being equivariant. They equal the seed's data on Σ ∩ {r < v_start − τ0}. ∎
 
 ### The proof of the main theorem, items 1–5 {#sec:data-assembly}
 
 *Proof of items 1–5 of [[thm:main]].* Let N := K + 3. [[thm:approximant]], with the stage data of [[lem:stage-data]],
 gives profiles g1, …, g_N with (E1)–(E3), the residual of order N − 1 = K + 2 ≥ K; its g1 is the mean m1 plus the waves
 with the second harmonic χ dv dv and a phase shift. [[thm:data]] gives a vacuum datum on Σ with (E4) for this
-approximant. [[thm:uniform-existence]] then gives, for 0 < λ ≤ λ0, the solution g_λ of Ric^H(g) = 0 on Ω with these
-data, smooth, with [[eq:ue-remainder]]; λ0 and the constants depend on (l5, μ0, A, env, T, τ0, K) and a, through Ω, the
-profiles and C_R, C_D, and not on λ.
+approximant. [[thm:uniform-existence]] then gives, for 0 < λ ≤ λ0, the solution g_λ of Ric^H(g) = 0 on Ω with these data,
+smooth, with [[eq:ue-remainder]]; λ0 and the constants depend on (l5, μ0, A, env, T, τ0, K) and a, through Ω, the
+profiles and C_R, C_D, and not on λ. Taking λ0 so small that C λ0 ≤ ε1, g_λ is Lorentzian on Ω by [[lem:lorentz-margin]],
+since |g_λ − g0| ≤ C λ ≤ ε1 < s0 there ([[thm:uniform-existence]]).
 
 *Item 5, the gauge and uniqueness.* D := D(g_λ) satisfies B_g[D] = −div_g Gt(Ric^H(g_λ)) = 0 by [[eq:data-bianchi]], a
 homogeneous linear wave system: −(1/2) g^(ab) ∂_a ∂_b D = f with f linear in (D, ∂D) with bounded coefficients. On Σ, D
@@ -549,12 +553,12 @@ with g_app = g0 + λ [g1] + Σ_(j=2)^(N) λ^j [g_j] as in [[eq:approximant]].
 O(λ) = dv ⊗ [∂_θ g1] + O(λ). For a smooth profile f with ⟨f⟩ = 0, [f] → 0 weakly in L²(Ω): with Φ_f the zero-mean
 θ-antiderivative of f, ∂_τ [Φ_f] = λ⁻¹ [f] + [∂_τ Φ_f] since ∂_τ v = 1, so for a test function ψ, ∫ ψ [f] = −λ ∫ (∂_τ ψ)
 [Φ_f] − λ ∫ ψ [∂_τ Φ_f] → 0, and the bound ‖[f]‖_(L²) ≤ C extends this to every ψ ∈ L²(Ω). As ⟨∂_θ g1⟩ = 0, ∂g_λ → ∂g0
-weakly in L²(Ω). The convergence is not strong wherever env ≠ 0. Applying the same fact to f² − ⟨f²⟩ with ψ the
-indicator of a set B gives ‖dv ⊗ [∂_θ g1]‖²_(L²(B)) → ∫_B ⟨|dv ⊗ ∂_θ g1|²⟩, which is positive when ∂_θ g1 ≠ 0 on B. The
-oscillating part of g1 is W(X, θ + φ1) with W = W_TT + χ dv dv ([[thm:approximant]]), so by [[prop:limit]] the phase
-mean of the g0-norm squared of ∂_θ g1 is ⟨|∂_θ g1|²_(g0)⟩ = (4/3) A² env² r⁻³ ([[eq:wave-energy]]); where env ≠ 0 this
-is positive, so ∂_θ g1 ≠ 0 there. The limit g0 satisfies Ric(g0) = (3 μ′/(2 r³)) dv ⊗ dv ([[prop:vaidya]] (a)): it is
-not vacuum but Einstein–null dust with one family.
+weakly in L²(Ω). The convergence is not strong wherever env ≠ 0. Applying the same fact to f² − ⟨f²⟩ with ψ the indicator
+of a set B gives ‖dv ⊗ [∂_θ g1]‖²_(L²(B)) → ∫_B ⟨|dv ⊗ ∂_θ g1|²⟩, which is positive when ∂_θ g1 ≠ 0 on a subset of B of
+positive measure. The oscillating part of g1 is W(X, θ + φ1) with W = W_TT + χ dv dv ([[thm:approximant]]), so by
+[[prop:limit]] the phase mean of the g0-norm squared of ∂_θ g1 is ⟨|∂_θ g1|²_(g0)⟩ = (4/3) A² env² r⁻³
+([[eq:wave-energy]]); where env ≠ 0 this is positive, so ∂_θ g1 ≠ 0 there. The limit g0 satisfies Ric(g0) = (3 μ′/(2 r³))
+dv ⊗ dv ([[prop:vaidya]] (a)): it is not vacuum but Einstein–null dust with one family.
 
 Finally, D_T ∩ {τ ≥ τ0} lies in Ω ([[lem:domain]] (f)). No derivative is lost: the bootstrap of
 [[thm:uniform-existence]] closes at the fixed order k. The formulation is regular across the axes, the unknowns being

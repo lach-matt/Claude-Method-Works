@@ -36,7 +36,7 @@ fields act on them componentwise, and a fibre inner product is a smooth family o
 The radii r_0 − 2δ_0 < r_0 < r_2 < r_h are those of [[sec:i-a-1]]. They are parameters: every constant chosen below from
 them is chosen by an inequality that a smaller inner radius r_0 does not make harder to satisfy (for instance the bound
 (ε_ι δ)⁻¹ > r_h + 1 in [[sec:ii-e-3-2]]), so every result of this chapter holds at every inner radius r_0 for which the
-hypotheses of [[sec:i-a-1]], [[sec:i-b-1-2]] and [[sec:ii-b-1-1]] hold.
+hypotheses (H1)–(H8) of [[sec:i-a-1]], [[sec:i-b-1-2]] and [[sec:i-b-1-5]], and (K1)–(K4) of [[sec:ii-b-1-1]], hold.
 
 ### Setting {#sec:ii-e-1}
 
@@ -46,8 +46,8 @@ hypotheses of [[sec:i-a-1]], [[sec:i-b-1-2]] and [[sec:ii-b-1-1]] hold.
 is the coordinate of [[def:ii-a-1-3]]. P is weakly admissible of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) relative to P_0 in the
 following sense: conditions (1) and (2) of [[def:ii-c-3-3]] hold, with the weights of a weakly admissible operator, and
 condition (3), the triangular structure of p_1 and p_0, is not assumed. No proof in this chapter uses condition (3)
-([[sec:ii-e-1-3]]), nor do the results of [[ch:s06]] cited here ([[lem:ii-f1-2-1]] (b)); throughout the chapter "of
-class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K))" and "weakly admissible" are meant in this sense. We take
+([[sec:ii-e-1-3]]), nor do the results of [[ch:s06]] cited here ([[sec:ii-d-1-1]], [[sec:ii-d1-1]]); throughout the
+chapter "of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K))" and "weakly admissible" are meant in this sense. We take
 
     ε_P := ‖P − P_0‖_((d_0;0),(2ℓ_I,ℓ_+,ℓ_K))
 
@@ -123,8 +123,8 @@ times t_*⁻¹ is a bounded positive factor, and zeroth-order terms are absorbed
 
 #### The fibre inner product {#sec:ii-e-1-3}
 
-Let δ′ > 0. As in the proof of [[prop:ii-d-3-6]] there is a smooth fibre inner product h_I = ⟨A_I⁻¹·, A_I⁻¹·⟩ over a
-neighbourhood of cl(ℐ⁺ ∩ Ω), extended independently of x_I, with
+Let δ′ > 0. As in [[lem:ii-c-2-5]] (and the proof of [[prop:ii-d-3-6]]) there is a smooth fibre inner product
+h_I = ⟨A_I⁻¹·, A_I⁻¹·⟩ over a neighbourhood of cl(ℐ⁺ ∩ Ω), extended independently of x_I, with
 
     Re_(h_I) p_1 ≥ p̄_1 − δ′     on cl(ℐ⁺ ∩ Ω).                                                     {#eq:ii-e-1-2}
 

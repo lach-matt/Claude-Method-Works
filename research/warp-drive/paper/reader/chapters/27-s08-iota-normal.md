@@ -203,7 +203,7 @@ all over sf. At z = 1: on {x_I = 0}, G_(ι,1)/x_I² = ½(ξ − 1)² − ½ + |�
            at x_I = 0 to first order,                                                                     {#eq:ii-f-1-15}
 
 with H_(|η|²) = 2η·∂_ω at the centre of normal coordinates ([Hin26c, Section 10.1.2]; the evaluation is that of
-[[eq:ii-b-7-4]] at the time frequency −1). It vanishes exactly at R_(I⁺,±1,in) and R_(I⁺,out) on the characteristic set
+[[eq:ii-b-7-4]] at the time frequency −1). It vanishes exactly at R_(I⁺,1,in) and R_(I⁺,out) on the characteristic set
 over {x_I = 0}, where ξ(ξ − 2) = −2|η|². Near ι⁺ ∩ K⁺, with ĥ := h/R, the field of G_(ι,1) in the covectors ξ_cħ dR/h +
 η_cħ R dω/h is ([Hin26c, Section 10.1.2], by the change of variables)
 
@@ -270,15 +270,16 @@ hypersurface (dτ ≠ 0) which is acausal (τ is strictly increasing along causa
 D is globally hyperbolic with Cauchy hypersurface S. A point q ∈ D with τ(q) > c lies in J⁺_D(S): an inextendible
 timelike curve in D through q (the maximal integral curve of −∇τ, which has no zeros) meets S, where τ = c < τ(q), so in
 the past of q. Hence supp(w|_D) ⊂ J⁺_D(S), and for x ∈ D, supp(w|_D) ∩ J⁻_D(x) is a closed subset of the compact set
-J⁺_D(S) ∩ J⁻_D(x): supp(w|_D) is past compact. On each connected component D_1 of D, which is open and globally
-hyperbolic (a causal curve in D starting in D_1 stays in D_1, so the causal sets of D_1 are those of D), [BGP, Theorem
-3.1.1] with [BGP, Remark 3.1.3] gives w = 0. So w vanishes on D ⊃ {τ > c} ⊃ supp w, and w = 0. ∎
+J⁺_D(S) ∩ J⁻_D(x) (J⁻_D(x) is closed, as the causal relation of the globally hyperbolic D is closed, [BGP, Remark
+3.1.3]): supp(w|_D) is past compact. On each connected component D_1 of D, which is open and globally hyperbolic (a
+causal curve in D starting in D_1 stays in D_1, so the causal sets of D_1 are those of D), [BGP, Theorem 3.1.1] with
+[BGP, Remark 3.1.3] gives w = 0. So w vanishes on D ⊃ {τ > c} ⊃ supp w, and w = 0. ∎
 
 The compact sets L_p are produced by functions that are monotone along causal curves. Let Ḡ be the dual Minkowski metric
 and G_0 that of g_0, time-oriented so that dt_* is past timelike ([[lem:ii-b-1-1]]); let r′_0, C′, C and R̃ be as in
 [[lem:ii-c-3-2]] and its proof (R̃ a smooth maximum of r and r′_0, equal to r′_0 for r ≤ r′_0 − 1 and to r for r ≥
-r′_0 + 1, with R̃′ ∈ [0, 1]; C ≥ 4, [[lem:ii-e-1-2]] (iv)), and t^♭_* the time function of [[lem:ii-c-3-2]]. For a
-smooth θ with values in [0, 1] put G_θ := (1 − θ)G_0 + θḠ on a region where it is Lorentzian.
+r′_0 + 1, with R̃′ ∈ [0, 1]; C ≥ 4 by the proof of [[lem:ii-e-1-2]] (iv)), and t^♭_* the time function of
+[[lem:ii-c-3-2]]. For a smooth θ with values in [0, 1] put G_θ := (1 − θ)G_0 + θḠ on a region where it is Lorentzian.
 
 **Lemma {#lem:ii-f-1-4}** (Monotone functions.) Along future directed causal curves of G_θ:
 
@@ -290,9 +291,14 @@ Consequently, let X be an open set on which G_θ is defined and Lorentzian, τ�
     L_p := {q ∈ X : c ≤ τ′(q) ≤ τ′(p), t_*(q) ≤ t_*(p), B(q) ≤ B(p), r(q) ≥ min(r(p), r^♮)},             {#eq:ii-f-lp}
 
 on which c ≤ t_* ≤ t_*(p) and min(r(p), r^♮) ≤ r ≤ max(r′_0 + 1, B(p) − c). If the closure of L_p lies in X, then L_p is
-compact, and it is a set as in [[lem:ii-f-1-3]] for τ := τ′ at p. For τ′ = t_* and for τ′ = t^♭_* (where it is a time
-function; C′t_* ≤ t^♭_* ≤ t_* by [[lem:ii-c-3-2]] (b)) the condition t_*(q) ≤ t_*(p) in [[eq:ii-f-lp]] may be replaced
-by t_*(q) ≤ τ′(p)/C′, with the same conclusions;
+compact, and it is a set as in [[lem:ii-f-1-3]] for τ := τ′ at p. If moreover C′t_* ≤ τ′ on X ∩ {τ′ ≥ c}, as holds for
+τ′ = t^♭_* where it is a time function (C′t_* ≤ t^♭_* ≤ t_* by [[lem:ii-c-3-2]] (b)) and for τ′ = t_* when c ≥ 0, then
+t_*(q) ≤ τ′(q)/C′ ≤ τ′(p)/C′ wherever c ≤ τ′(q) ≤ τ′(p), and the condition t_*(q) ≤ t_*(p) may be dropped: the set
+
+    L′_p := {q ∈ X : c ≤ τ′(q) ≤ τ′(p), B(q) ≤ B(p), r(q) ≥ min(r(p), r^♮)} ⊃ L_p
+
+also contains J⁻_X(p) ∩ {τ′ ≥ c}; on it c ≤ t_* ≤ τ′(p)/C′ and min(r(p), r^♮) ≤ r ≤ max(r′_0 + 1, B(p) − c); and if
+its closure lies in X, then L′_p is compact and is a set as in [[lem:ii-f-1-3]] for τ := τ′ at p;
 
 (b) if θ = χ(R) with χ as in [[def:ii-f-7-1]], on {t_* > t_1}, where t_1 ≥ r′_0 + 1 is so large that G_χ is Lorentzian
 there: t_* is non-decreasing, t = t_* + r is a time function, and so is t^♭_+, defined as C′t on {r ≤ ½Ct_*} and as
@@ -319,8 +325,10 @@ towards the past, τ′ and B decrease, t_* does not increase and r stays ≥ mi
 t_*(p), B(q) ≤ B(p) and r(q) ≥ min(r(p), r^♮), that is q ∈ L_p. On L_p, t_* ≥ τ′ ≥ c; so R̃(r) = B − t_* ≤ B(p) − c, and
 as R̃(r) = r for r ≥ r′_0 + 1, r ≤ max(r′_0 + 1, B(p) − c). The closure of L_p in the spacetime therefore lies in the
 compact set {c ≤ t_* ≤ t_*(p), min(r(p), r^♮) ≤ r ≤ max(r′_0 + 1, B(p) − c)}; if it lies in X, the four conditions,
-which are closed in X, hold on it, so it equals L_p, and L_p is compact. For τ′ = t^♭_*, t_* ≤ t^♭_*/C′ ≤ τ′(p)/C′ on
-L_p, which bounds t_* in the same way.
+which are closed in X, hold on it, so it equals L_p, and L_p is compact. If C′t_* ≤ τ′ on X ∩ {τ′ ≥ c}, then on L′_p,
+c ≤ τ′ ≤ t_* ≤ τ′/C′ ≤ τ′(p)/C′ and, as before, R̃(r) = B − t_* ≤ B(p) − c; so the closure of L′_p lies in the compact
+set {c ≤ t_* ≤ τ′(p)/C′, min(r(p), r^♮) ≤ r ≤ max(r′_0 + 1, B(p) − c)}, and the same argument, with three closed
+conditions, shows that L′_p is compact when its closure lies in X.
 
 (b) Where θ ∈ (0, 1), 1 < R < 2, so r > t_* > t_1 ≥ r′_0 + 1; where R ≤ 1, G_χ = Ḡ; where R ≥ 2, G_χ = G_0. So dt is
 past timelike for G_χ. On {r′_0 + 1 ≤ r ≤ ½Ct_*}, t^♭_* = C′(t_* + R̃(r)) = C′t (the proof of [[lem:ii-c-3-2]]), so the
