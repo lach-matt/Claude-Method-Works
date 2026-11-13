@@ -245,10 +245,14 @@ on [5R₁, ∞), and on [r_♭, 5R₁], where β_IVP = 1 − χ_∞(8m₀/ϱ² �
 β′ ∈ (−1, 1], and d(t_IVP + ν) is timelike for g_(b₀) by [[lem:iii-b-3-3]] (e) and [[lem:s11-ks-domain]]: {t_IVP = −ν}
 is spacelike. Near {r = r_♭}, ν = 0, and {r = r_♭} is spacelike with dr future timelike ([[lem:ii-c-3-2]] (1)), N_ν
 lying to its past; past directed causal curves from points with r > r_♭ stay in {r ≥ min(r(p), r^♮)}, so a backward
-problem needs no data there. For the inclusions: near |x| = r, φ_(S,S⁰) and φ_(S,S⁰)⁻¹ move t_IVP by at most
-C(|S| + |S⁰|)r ([[lem:s27-boost-move]]) and not at all for r ≤ 5R₁, while ν(r) ≥ c_ν r on [5R₁, ∞) with
-c_ν := min(ν(5R₁)/(16R_8), 1/64) > 0; so C(|S| + |S⁰|) ≤ ½c_ν suffices. (φ_(S,S⁰)⁻¹, not φ_(S,S⁰), appears in
-𝒟_(S,S⁰): φ_(S,S⁰)^*h_0 at p needs h_0 at φ_(S,S⁰)(p).)
+problem needs no data there. For the inclusions: φ := φ_(S,S⁰) and φ⁻¹ are the identity on {r ≤ 5R₁} and map
+{r > 5R₁} into itself; there they move t_IVP by at most C(|S| + |S⁰|)r and r by at most C(|S| + |S⁰|)r
+([[lem:s27-boost-move]]), while ν(r) ≥ c_ν r on [5R₁, ∞) with c_ν := min(ν(5R₁)/(16R_8), 1/64) > 0. Let
+C(|S| + |S⁰|) ≤ ⅓c_ν and C(|S| + |S⁰|) ≤ ⅓. If r(q) > 5R₁ and t_IVP(q) > −⅓c_ν r(q), then
+t_IVP(φ(q)) > −⅔c_ν r(q) ≥ −c_ν r(φ(q)) ≥ −ν(r(φ(q))), as r(φ(q)) ≥ ⅔r(q); so φ maps the neighbourhood
+{t_IVP > −⅓c_ν r} ∪ {r < 5R₁ + 1} ∩ N_ν of Σ^IVP ∪ φ⁻¹(Σ^IVP) into N_ν (φ⁻¹(Σ^IVP) lies in {|t_IVP| ≤ ⅓c_ν r}), and
+likewise φ⁻¹({t_IVP ≥ 0}) ⊂ {t_IVP ≥ −⅓c_ν r} ∪ {r ≤ 5R₁} ⊂ N_ν, which with t_* < t^♭_*/C_♭ gives 𝒟_(S,S⁰) ⊂ 𝒟.
+(φ_(S,S⁰)⁻¹, not φ_(S,S⁰), appears in 𝒟_(S,S⁰): φ_(S,S⁰)^*h_0 at p needs h_0 at φ_(S,S⁰)(p).)
 
 #### The cover of 𝒟 {#sec:s27-cover}
 

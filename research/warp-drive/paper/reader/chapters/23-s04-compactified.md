@@ -1441,8 +1441,9 @@ S_1B_1TB_2S_2 with expressions S_1, S_2 as in (f), and a product of bounded oper
 every order.
 
 (f) (General principle.) Let T(a_1, …, a_r) be a finite expression in the operators Op(a_i), Op of products and of
-complex conjugates of the a_i, and their adjoints, formed by sums and compositions. Suppose that for smooth symbols it lies in the class of order μ, by (S5) and (S8): a
-difference of operators with the same principal symbol is one order lower, and a commutator is one order lower than the
+complex conjugates of the a_i, and their adjoints, formed by sums and compositions. Suppose that for smooth symbols it
+lies in the class of order μ, by (S5) and (S8): a difference of operators with the same principal symbol is one order
+lower, and a commutator is one order lower than the
 product. This is to hold for all symbols of the stated orders, the expression being fixed; a relation between the
 symbols, such as one being 1 on the support of another, is not allowed to enter. Then for symbols of finite regularity
 the operator given by the same expression has order μ + δ, or μ when all orders are constant and ν = 0. Its norm is at
