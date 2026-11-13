@@ -1543,13 +1543,15 @@ h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₀)) solve
 
 (it exists by [[thm:iii-c1-2-1]] and [[thm:iii-c1-3-1]] in the cut-off gauge: [[cor:iv2-4-1]] gives the former, and
 the proof of the latter holds for L^(χ₀) by [[lem:iii-c2-2-1]], which leaves the leading part at ℐ⁺ unchanged and adds
-to the error of [[eq:iii-c-4-4]] a term of that class). For S ∈ 𝒮₁ small, depending only on b₀, ℓ^♭₀ and ℓ^♭_I, let
-h_S ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₁)) solve
+to the error of [[eq:iii-c-4-4]] a term of that class). For S ∈ 𝒮₁ small, depending only on b₀, ℓ^♭₀ and ℓ^♭_I, the
+problem
 
     P^(χ₀)(φ_S*g_(b₀) + h_S, φ_S*g_(b₀)) = 0 in Ω_(ext,r₁),     h_S = h_(S,0),  rℒ_(∂_(t_IVP))h_S = h_(S,1) on Σ_(IVP,r₁)
                                                                                                          {#eq:iii-c2-3-3}
 
-([[lem:iii-c2-1-1]]). Then:
+([[lem:iii-c2-1-1]]) has a solution h_S ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₁)), unique among the solutions in
+H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₁)) that are small in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b. By the proof, k₂ = 2N_NM + 2 = 308, with
+N_NM = 153 the order of [[thm:iv2-3-1]]. Then:
 
 (1) h_S at S = 0 is h on Ω_(ext,r₁); and under the hypotheses of (3), h_S = φ_S*h on a neighbourhood in Ω_(ext,r₁) of
 Σ°_(IVP,r₁) := Σ_(IVP,r₁) ∩ {|x| > r₁};

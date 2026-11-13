@@ -2477,7 +2477,8 @@ system L^((k)), whose rank (N + 1)^k N′ grows with k, and applies (L4), [[prop
 d_0 and d do not depend on k. For k ≤ d, [[eq:ii-a-9-12]] is [[prop:ii-a-9-2]]. Let k > d and assume
 [[eq:ii-a-9-12]] below k. Let 𝒲_k be the set of words of length k in the letters 0, …, N, with V_0 = I, and put
 u^((k)) := (V^αu)_(α∈𝒲_k). By [[eq:ii-a-9-4]], LV^αu = V^αLu − Σ_(S≠∅) (ad_(V_S)L)V^(α∖S)u. For |S| = 1, S = {i},
-[[lem:ii-a-4-1]] and the calculation in the proof of [[prop:ii-a-9-2]] give ad_(V_(α_i))L = Σ_ν L_(α_i,ν)V_ν. Here
+[[lem:ii-a-4-1]], with ϵ := ϵ_ϑ, the room of (R1) of [[sec:ii-a-8-3]] for B, E and G, and the calculation in the proof
+of [[prop:ii-a-9-2]] give ad_(V_(α_i))L = Σ_ν L_(α_i,ν)V_ν. Here
 
     L_(α_i,ν) ∈ C^∞_b Ψ^(m−1)_e3b + C^((d_0;d−1),(2δ,δ,δ))_(e3b;b) Ψ^(m−1)_e3b + C^((d_0;d−1))_(e3b;b) Ψ^(m−2)_e3b,
 
@@ -2488,12 +2489,15 @@ C^(d_0)_e3b-norms are bounded by C‖𝐋‖_((d_0;1)). And V_νV^(α∖{i}) is 
 
 where (L^((k))w)_α := Lw_α + Σ_i Σ_ν L_(α_i,ν)w_(ν·(α∖{i})). L^((k)) is a system of the form of (L4), built from
 commutators of the fixed operators with the V_j. Its principal symbol is ℓ Id and its coefficients have
-C^(d_0)-norms bounded by C‖𝐋‖_((d_0;1)). Apply (L4) to it, with operators chosen as follows. Let T be as at the
+C^(d_0)-norms bounded by C‖𝐋‖_((d_0;1)). If D bounds the kernel ranges of the operators of 𝒫_m and 𝒫_(m−1), those of
+its operators are at most D + ϵ_ϑ, once and for all: L^((k)) is built from the fixed L_(α_i,ν) at every k. Apply (L4)
+to it, with the cut-off χ_1 := h_♭(χ) of (R3) and with operators chosen as follows. Let T be as at the
 beginning of [[sec:ii-a-9]], and U ⊂ Ell(G) a neighbourhood of T on which 𝖧𝗌 ≤ 0. Apply (O) to U, giving U_T, K_E and
 K_U, and again to U_T ∩ U in place of U, giving U′_T ⊂ U_T, K′_E and K′_U ⊂ U_T. Take B_1 with WF′(B) ⊂ Ell(B_1) and
 WF′(B_1) ⊂ U′_T, E_1 elliptic on K′_E with WF′(E_1) ⊂ Ell(E), and G_1, G_2, G_3 microsupported in U_T, with G_1 elliptic
-on K′_U ∪ WF′(B_1), WF′(G_1) ⊂ Ell(G_2) and WF′(G_2) ⊂ Ell(G_3). By (O) the hypotheses of (L4) hold for (B_1, E_1, G_1),
-and for (G_2, E, G) and (G_3, E, G). (Taking G_1 slightly smaller than G would not do: then WF′(G_3) contains T and may
+on K′_U ∪ WF′(B_1), WF′(G_1) ⊂ Ell(G_2) and WF′(G_2) ⊂ Ell(G_3), all auxiliary operators of (R1) for B, E and G. They
+are carried by χ, and by χ_1 with the margin D + 7ϵ_ϑ, which bounds the kernel ranges of the operators of L^((k)). By
+(O) the hypotheses of (L4) hold for (B_1, E_1, G_1), and for (G_2, E, G) and (G_3, E, G). (Taking G_1 slightly smaller than G would not do: then WF′(G_3) contains T and may
 reach where the hypotheses fail.) The constant depends on k through the size of the system, and on L only through low
 norms:
 
@@ -2512,11 +2516,12 @@ For L_0, ad_(V_S)L_0 ∈ Diff^m_e3b is fixed, and by [[lem:ii-a-8-4]] (c) and (d
 
 The second inequality is [Hin26c, (3.87)], here [[lem:ii-a-8-4]] (d). For L_1 and L_2,
 ad_(V_S)(ℓA) = Σ_(S′⊂S) (V_(S′)ℓ)(ad_(V_(S∖S′))A) with A of order m or m − 1. Commute the fixed operator through the
-V's by [[eq:ii-a-9-5]]. If j′ := |S′| ≥ 2, apply [[eq:ii-a-9-7]] at the order 𝗌 − m + 1, with ℓ replaced by V_(S″)ℓ,
-S″ the last two letters of S′ (the fields applied first), and (j′ − 2, ·) for (j, ·). The coefficient norms are
-‖ℓ‖_((d_0;d̃+2)) ≤ C‖𝐋‖_((d_0;d)) and ‖ℓ‖_((d_0;k)). The u-norms are bounded by
+V's by [[eq:ii-a-9-5]]. If j′ := |S′| ≥ 2, apply [[eq:ii-a-9-7]] at the order 𝗌 − m + 1, with (B, B^♯) = (G_1, G_2),
+the cut-off χ_* of (R2) in place of χ, ℓ replaced by V_(S″)ℓ, S″ the last two letters of S′ (the fields applied first),
+and (j′ − 2, ·) for (j, ·). The coefficient norms are ‖ℓ‖_((d_0;d̃+2)) ≤ C‖𝐋‖_((d_0;d)) and ‖ℓ‖_((d_0;k)). The
+u-norms are bounded by
 ‖G_2A′u‖_((𝗌−m+1;k−2)) ≤ C(‖G_3u‖_((𝗌+1;k−2)) + ‖χu‖_((−N;k))) ≤ C(‖G_3u‖_((𝗌;k−1)) + ‖χu‖_((−N;k)))
-([[lem:ii-a-8-4]] (c), (d)), and the same at d̃. If j′ ≤ 1, the coefficient carries at most one derivative, and
+([[lem:ii-a-8-4]] (c), (d)), and the same at d̃; the error terms ‖χ_*A′u‖ are at most C‖χu‖, as in [[prop:ii-a-9-8]]. If j′ ≤ 1, the coefficient carries at most one derivative, and
 [[eq:ii-a-9-7]] with ℓ replaced by V_(S′)ℓ and (0, ·) gives the same bounds, with
 ‖V_(S′)ℓ‖_((d_0;d̃)) ≤ C‖𝐋‖_((d_0;d)). Here ‖G_3u‖_((𝗌;k−1)), and ‖G_2u‖_((𝗌;k−1)) in [[eq:ii-a-9-13]], are bounded by
 [[eq:ii-a-9-12]] at k − 1 with G_3, resp. G_2, in place of B, for which the hypotheses hold by the choice above. And

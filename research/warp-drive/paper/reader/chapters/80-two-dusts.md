@@ -535,7 +535,7 @@ products of a function of θ1 of zero mean with a function of θ2 of zero mean, 
 
 (c) By (b), the mean of R^(0) is Ric(g0) − ¼ ⟨|F1 W_in|²⟩ dv ⊗ dv − ¼ ⟨|F2 W_out|²⟩ du ⊗ du, the other terms of
 [[eq:leading-coefficient]] being phase derivatives. As in the proof of [[prop:limit]], χ_K does not contribute, and the
-computation there, which uses only that g0 is R² times the round metric on the spheres, gives ⟨|F1 W_TT^in|²_(g0)⟩ =
+calculation there, which uses only that g0 is R² times the round metric on the spheres, gives ⟨|F1 W_TT^in|²_(g0)⟩ =
 (4/3) A² env² R⁻³ and ⟨|F2 W_TT^out|²_(g0)⟩ = (4/3) A₂² env₂² R⁻³ ([[eq:wave-energy]]).
 
 (d) The pure harmonics (n, 0) come from R^(0)_in alone. In the coordinates (u, v), ℓ_in = −e^(−2σ) ∂_u and □_(g0) v =
@@ -660,7 +660,7 @@ mixed part of T̂ ĝ_(m+1), which (d′) carries.
 (c) (b′) is e_m^K = 0. The mean of [[eq:two-dust-stage-m]] is (a′), its pure harmonics of θ_K are (c′), and its mixed
 harmonics are (d′), which, by [[lem:two-dust-nonresonance]], is solved pointwise in X by division by −e^(−2σ) n1 n2.
 ⟨T̂ ĝ⟩ contains no X-derivative of ĝ and ⟨𝒲_φ⟩ only dφ_m^K. For Z_K := F_K Π_K ĝ_(m+1), (c′) is the transport −(ℓ_K·∂_X)
-Z_K + ℳ′_K Z_K = (source) along ℓ_K, with ℳ′_K a bounded operator on profiles of zero mean. Its source contains
+Z_K + ℳ′_K Z_K = (forcing) along ℓ_K, with ℳ′_K a bounded operator on profiles of zero mean. Its forcing contains
 □̃φ_m^K, and Ψ_m^K := □̃φ_m^K satisfies the transport [[eq:two-dust-psi]] along ℓ_K with F = ½ (m_m(ℓ_K, ℓ_K) + q_m^K),
 whose □̃F contains □̃ m_m from (a′). The system for (m_m, φ_m^in, φ_m^out, Ψ_m^in, Ψ_m^out, Z_in, Z_out) is linear with
 smooth coefficients and closes without loss, m_m and φ_m^K in H^(s+1), Ψ_m^K and Z_K in H^s, by the Picard iteration of
@@ -838,16 +838,16 @@ the right side. ∎
 
     □̃ s = c1·dh + c0·h + Σ_K (c2^K·dφ_K + c3^K φ_K) − q c_in Ψ_out + q λ⁻¹ ((1 − 𝒫) s_out(h)) G2^out(ℓ_in, ℓ_in)
           + Σ_K c4^(K,ab) ∂_a∂_b φ_K − 2q F(ℓ_in, ℓ_in) − 2q 𝒬(w)(ℓ_in, ℓ_in) + 2q Σ_K 𝒬_φ^K(ℓ_in, ℓ_in)
-          + Σ_(a,i) c^(ai) (∂_a∂_i h)(ℓ_in, ℓ_in),                                                 {#eq:two-dust-ell-ell}
+          + Σ_(b,i) c^(bi) (∂_b∂_i h)(ℓ_in, ℓ_in),                                                 {#eq:two-dust-ell-ell}
 
 with c0, c1, c2^K, c3^K bounded coefficients (profiles, and profiles times the function q of (F5)), c_in and
-G2^out(ℓ_in, ℓ_in) bounded profiles oscillating in θ2, |c4^K| ≤ C λ, |c^(ai)| ≤ C (λ + |w|) and |∂c^(ai)| ≤ C (1 +
+G2^out(ℓ_in, ℓ_in) bounded profiles oscillating in θ2, |c4^K| ≤ C λ, |c^(bi)| ≤ C (λ + |w|) and |∂c^(bi)| ≤ C (1 +
 |∂w|), i spatial. 𝒬_φ^in(ℓ_in, ℓ_in) contains second derivatives of φ_in only with a factor λ |w|, and 𝒬_φ^out(ℓ_in,
 ℓ_in) contains |w| |∂² φ_out|. The only coefficient of order λ⁻¹ multiplies (1 − 𝒫) s_out(h), which is O(λ ∂s_out(h))
 by (M3). The mirror statement holds for s_out(h), with ℓ_out ⊗ ℓ_out, c_out and Ψ_in.
 
 *Proof.* By (F5), □̃ s = (□̃h)(ℓ_in, ℓ_in) + c1·dh + c0·h, ℓ_in being smooth and λ-independent, and (□̃h)(ℓ_in, ℓ_in) =
-q (g^(ab) ∂_a∂_b h)(ℓ_in, ℓ_in) + Σ c^(ai) (∂_a∂_i h)(ℓ_in, ℓ_in) + (first order), each term of c^(ab) ∂_a∂_b having a
+q (g^(ab) ∂_a∂_b h)(ℓ_in, ℓ_in) + Σ c^(bi) (∂_b∂_i h)(ℓ_in, ℓ_in) + (first order), each term of c^(ab) ∂_a∂_b having a
 spatial index because c^(ττ) = 0. By [[eq:two-dust-h]], (g^(ab) ∂_a∂_b h)(ℓ_in, ℓ_in) is −2 times the contraction of its
 right side minus B·dh − C·h. Contract with ℓ_in ⊗ ℓ_in using (F4). Family in: G1^in(ℓ_in, ·) = G2^in(ℓ_in, ·) = 0
 removes its term of order λ⁻¹, its (ℓ_app^in − ℓ_in) term and ½ (□̃_app φ_in) G1^in exactly, and ½ λ (□̃_app φ_in) [F1
@@ -905,11 +905,11 @@ most C 𝒩₂. So
 No term in (a)–(j) has a coefficient of order λ⁻¹ beyond (d), which (M3) pays for, and the two families enter (d)–(i)
 once each.
 
-**Step 5** (φ_in, φ_out). Each φ_K obeys its own transport [[eq:two-dust-phases]] with source ½ 𝒫 s_K(h): L0 φ_in =
+**Step 5** (φ_in, φ_out). Each φ_K obeys its own transport [[eq:two-dust-phases]] with right side ½ 𝒫 s_K(h): L0 φ_in =
 −½ e^ψ 𝒫 s_in(h), the transport [[eq:ue-transport]] with the smooth bounded factor e^ψ, and Z_out φ_out =
 ½ 𝒫 s_out(h)/ℓ_out(τ). Apply ∂^α, |α| = j ≤ k: [Z_K, ∂^α] has smooth λ-independent coefficients and involves derivatives
 of φ_K of order at most j, and λ^j ‖∂^α ∂ 𝒫 s_K‖ ≤ C λ^j ‖∂^(j+1) s_K(h)‖ ≤ C 𝒩₂ by (M1), (M4), (M6), s_K(h) =
-h(ℓ_K, ℓ_K) with ℓ_K smooth. For λ ∂_x² φ_K use the transport of (F6), with source ½ ∂_x² 𝒫 s_K, and the Bernstein bound
+h(ℓ_K, ℓ_K) with ℓ_K smooth. For λ ∂_x² φ_K use the transport of (F6), with right side ½ ∂_x² 𝒫 s_K, and the Bernstein bound
 (M2) on one spatial derivative: λ^(j+1) ‖∂^j ∂_x² 𝒫 s_K‖ ≤ C λ^j ‖∂^j ∂_x s_K‖ ≤ C 𝒩₂. [[lem:transport]] for φ_in and
 [[lem:two-dust-transport]] for φ_out bound the φ-part of 𝒩₂(τ) by C (𝒩₂(τ0) + ∫_(τ0)^τ 𝒩₂). Without (M2) the transport of
 ∂_x² φ_K would need k + 2 derivatives of s_K.
@@ -919,21 +919,21 @@ coefficient a_in, and [[lem:transport]]. In ½ □̃ 𝒫 s_in = ½ 𝒫 □̃ s
 
 - (a) 𝒫 of the terms of [[eq:two-dust-ell-ell]]: c1·dh, c0·h, c2^K·dφ_K and c3^K φ_K give at most C 𝒩₂. The coupling:
   ‖𝒫(q c_in Ψ_out)‖ ≤ C ‖Ψ_out‖ by (M1), and λ^j ‖∂^j 𝒫(q c_in Ψ_out)‖ ≤ C Σ_(i≤j) λ^i ‖∂^i Ψ_out‖ ≤ C 𝒩₂, each
-derivative   on the profile q c_in costing λ⁻¹ and the weight paying for it. q λ⁻¹ ((1 − 𝒫) s_out) G2^out(ℓ_in, ℓ_in) is
-at most   C 𝒩₂ by (M3); c4^K ∂² φ_K at most C 𝒩₂ by (F6); F, 𝒬(w) and 𝒬_φ^K give C_R λ^K, C M² λ^(K+1) and C M λ^(K−5)
-𝒩₂; and   Σ c^(ai) ∂_a∂_i h, written 𝒫 ∂_i(c ∂_a h) − 𝒫((∂_i c) ∂_a h) with the Bernstein bound on the ∂_i, is at most C
-λ⁻¹   ‖c ∂h‖ + C ‖∂h‖ ≤ C 𝒩₂, as |c| ≤ C (λ + |w|); at level j only k + 1 derivatives of h occur, where taking the second
-  derivatives directly would need k + 2.
+  derivative on the profile q c_in costing λ⁻¹ and the weight paying for it. q λ⁻¹ ((1 − 𝒫) s_out) G2^out(ℓ_in, ℓ_in)
+  is at most C 𝒩₂ by (M3); c4^K ∂² φ_K at most C 𝒩₂ by (F6); F, 𝒬(w) and 𝒬_φ^K give C_R λ^K, C M² λ^(K+1) and
+  C M λ^(K−5) 𝒩₂; and Σ c^(bi) ∂_b∂_i h, written 𝒫 ∂_i(c ∂_b h) − 𝒫((∂_i c) ∂_b h) with the Bernstein bound on the ∂_i,
+  is at most C λ⁻¹ ‖c ∂h‖ + C ‖∂h‖ ≤ C 𝒩₂, as |c| ≤ C (λ + |w|); at level j only k + 1 derivatives of h occur, where
+  taking the second derivatives directly would need k + 2.
 - (b) [□̃, 𝒫] s_in: the terms with a spatial index are at most C ‖∂s_in‖ by the first form of (M5). The ττ term is
   rewritten through ∂_τ² s_in = (□̃ s_in − 2 g0^(τi) ∂_τ∂_i s_in − g0^(ij) ∂_i∂_j s_in)/g0^(ττ), g0^(ττ) ≤ −1, after
   which the second form of (M5) gains λ on every term of [[eq:two-dust-ell-ell]], the coupling included (at most C λ 𝒩₂),
-  except Σ c^(ai) ∂_a∂_i h, which is written ∂_i(c ∂_a h) − (∂_i c) ∂_a h and bounded by the first form (the second
+  except Σ c^(bi) ∂_b∂_i h, which is written ∂_i(c ∂_b h) − (∂_i c) ∂_b h and bounded by the first form (the second
   form on them would cost a derivative at j = k, as in Step 6 there); and g0^(ab) (∂_a∂_b 𝒫 − 𝒫 ∂_a∂_b) s_in is at
   most C ‖∂s_in‖ by (M4), (M6).
 - (c) −½ M_in(𝒫 s_in) and −N_in φ_in are of first order, at most C 𝒩₂.
 
 So the Ψ_in-part of 𝒩₂(τ) is at most C (𝒩₂(τ0) + ∫ (𝒩₂ + C_R λ^K + C M² λ^(K+1))). The same holds for Ψ_out, along
-Z_out with [[lem:two-dust-transport]], whose source contains 𝒫(q′ c_out Ψ_in). The coupling enters through ∫ 𝒩₂: Ψ_in
+Z_out with [[lem:two-dust-transport]], whose right side contains 𝒫(q′ c_out Ψ_in). The coupling enters through ∫ 𝒩₂: Ψ_in
 and Ψ_out are estimated together, which is why both are in 𝒩₂. Treated as a generic second derivative of φ_out, the
 coupling term would lose a power of λ.
 
@@ -1172,7 +1172,7 @@ satisfy S g = g. In particular J* m1 = −m1.
 function of (τ, R), u and v among them. The proof of [[lem:quarter-turn]] (a) applies with D^λ_a := ∂_a + λ⁻¹ (∂_a v) F1
 + λ⁻¹ (∂_a u) F2 and ρ(θ1, θ2) := (3π/2 − θ1, 3π/2 − θ2): D^λ_a(f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, and J* commutes with D^λ.
 (b) The outgoing wave has the algebraic form of the ingoing one, with F₂ := λ A₂ env₂(u) h(ζ) sin θ2 and G₂ :=
-λ A₂ env₂(u) h(ζ) cos θ2, and J fixes u; so the computation of [[lem:quarter-turn]] (b) gives (J* W_TT^K)(X, 3π/2 −
+λ A₂ env₂(u) h(ζ) cos θ2, and J fixes u; so the calculation of [[lem:quarter-turn]] (b) gives (J* W_TT^K)(X, 3π/2 −
 θ_K) = −W_TT^K(X, θ_K) for both families. χ_in and χ_out are S-invariant by the uniqueness of the transports
 [[eq:two-dust-chi]], which commute with J and whose forcing terms are S-even by (a) at order 0, as in
 [[lem:quarter-turn]] (b). The last claim is (a) at order 1 for the S-invariant family g0 + λ W_K.

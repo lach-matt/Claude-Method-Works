@@ -121,17 +121,19 @@ r_1 ≥ R_6; (d) χ^♮_0 = 0 near Σ^IVP, and near φ(Σ^IVP) for φ = φ_(S,S�
 Here Ω_(ext,r_1) is the exterior domain of [[lem:iii-c1-1-1]] at the radius r_1. The proof of (d) uses the following
 bound on the boosts and translations.
 
-**Lemma {#lem:s27-boost-move}** (Boosts and translations move t_IVP by O((|S| + |S⁰|)r).) There is C such that for
-S, S⁰ ∈ 𝒮_1 with |S|, |S⁰| ≤ 1, for φ = φ_(S,S⁰) and φ = φ_(S,S⁰)⁻¹, and for every p ∈ M,
+**Lemma {#lem:s27-boost-move}** (Boosts and translations move t_IVP and r by O((|S| + |S⁰|)r).) There is C such that
+for S, S⁰ ∈ 𝒮_1 with |S|, |S⁰| ≤ 1, for φ = φ_(S,S⁰) and φ = φ_(S,S⁰)⁻¹, and for every p ∈ M,
 
-    |t_IVP(φ(p)) − t_IVP(p)| ≤ C(|S| + |S⁰|) r(p),     r(φ(p)) ≤ C r(p).
+    |t_IVP(φ(p)) − t_IVP(p)| ≤ C(|S| + |S⁰|) r(p),     |r(φ(p)) − r(p)| ≤ C(|S| + |S⁰|) r(p).
 
 φ is the identity on {|x| ≤ 5R₁} and maps {|x| > 5R₁} into itself.
 
 *Proof.* *Boosts.* φ_(S_w) is the time-1 flow of V(S_w) = ½χ_r(|x|)χ^♯_IVP(1 − χ^♭_K)X_w,
 X_w = t w·∂_x + (w·x)∂_t ([[lem:iii-b-5-1]]); φ_(−S) is that of V(S_(−w)) = −V(S_w). As 1 − χ^♭_K = 0 on
-{|x| < t/10, t > T′} ([[sec:iii-k-0]]), every point of supp V(S_w) has t ≤ 10|x| + T′, and t ≥ −½|x| on M; so
-|t| ≤ 10|x| + T′ ≤ C|x| there, |x| ≥ r_♭ being bounded below. With X_w|x| = t S_w(x̂), t_IVP = t − ψ_IVP(|x|), and
+{|x| < t/10, t > T′} ([[sec:iii-k-0]]), every point of supp V(S_w) has t ≤ 10|x| + T′. And t ≥ −½|x| on supp V(S_w):
+there χ^♯_IVP ≠ 0, so t_IVP > −|x|/2 ([[sec:iii-b-5]]), and t = t_IVP + ψ_IVP(|x|) ≥ t_IVP as ψ_IVP ≥ 0
+([[lem:iii-b-3-7]] (b)). So |t| ≤ 10|x| + T′ ≤ C|x| there, |x| ≥ r_♭ being bounded below. With X_w|x| = t S_w(x̂),
+t_IVP = t − ψ_IVP(|x|), and
 0 ≤ ψ_IVP′ ≤ ψ′ ≤ 1 on {|x| ≥ 5R₁} ⊃ supp V(S_w) ([[lem:iii-b-3-7]] (b); ψ′ = 1 − 8m₀|x|⁻² there),
 
     |V(S_w)|x|| ≤ ½|w||t| ≤ C|w||x|,     |V(S_w)t_IVP| = ½χ_rχ^♯_IVP(1 − χ^♭_K)|w·x − ψ_IVP′ t S_w(x̂)| ≤ C|w||x|
