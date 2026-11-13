@@ -2457,7 +2457,7 @@ h_0 − 3c_0r⁻⁴dr ⊗_s V = ρ³(m dt_* + (2m − 3c_0) d|x|) ⊗_s ρV, and
 on X̄ and b-independent normal operator (as P^C_b − P̄^C ∈ ρ⁴Diff²_b), so P*(ρ^jc) = ρ^(j+2)N(ρ⁻²P*, j)c + ρ^(j+3)C^∞
 for c ∈ C^∞(∂X; T*X|_(∂X)). For 3 ≤ j ≤ J, N(ρ⁻²P*, j) is invertible on C^∞(∂X). Indeed, in the trivialisation by
 dt_*, dx¹, …, dx⁴, ρ⁻²P* is near ∂X an element of Diff²_b with values in 5 × 5 matrices, elliptic, its principal symbol
-at ∂X being, like that of ρ⁻²P^C_b ([[lem:iv4-1-6]], (H2)), the Euclidean Laplacian's in b-form times the identity (the
+at ∂X being, like that of ρ⁻²P^C_b (the proof of [[lem:iv4-1-6]], (H2)), the Euclidean Laplacian's in b-form times the identity (the
 formal adjoint for a smooth nondegenerate pairing has the adjoint principal symbol, and this one is real and scalar);
 so it lies in the setting of [[sec:iii-a-1-1]] with N_E = 5, and (E2) there applies to N(ρ⁻²P*, ι). The number j is
 not an indicial root of P*, whose indicial roots are 0, have negative real part, or have real part > C_0 + 2 ≥ J
@@ -2607,9 +2607,10 @@ union of these finite sets over l ≥ 0 and k ∈ [−49, 51]; it is countable, 
 with |ι| ≤ 50 has dist(Re ι, ℤ) > 0, so ε_ind(h) > 0.
 
 For the upper bound, 1 − l − d₂ at l = 50 is −49 − δ_50, an entry with |ι| < 50 for every h, at distance δ_50 from ℤ,
-and δ_50 ≤ 50z/(2·51·101) by θ₂ ≤ 0. Among the h-independent entries the distances from ℤ are d_s0 := ι^Υ_(s0,2) − 2
-at scalar type 0 and, at l ≥ 1, d₁ and d₂, all below ½: 1 − l − d₂ has |ι| ≤ 50 iff l ≤ 50, l + 2 + d₂ iff l ≤ 47,
-−l − d₁ iff l ≤ 49, and l + 3 + d₁ iff l ≤ 46. First, d_s0 = z/((9/4 + z)^(1/2) + 3/2) > z/(3 + z/3) > 10⁻⁶ > δ_50.
+and δ_50 ≤ 50z/(2·51·101) by θ₂ ≤ 0. Among the h-independent entries the distances from ℤ are ι^Υ_(s0,2) − 2 at
+scalar type 0 and, at l ≥ 1, d₁ and d₂, all below ½: 1 − l − d₂ has |ι| ≤ 50 iff l ≤ 50, l + 2 + d₂ iff l ≤ 47,
+−l − d₁ iff l ≤ 49, and l + 3 + d₁ iff l ≤ 46. First, ι^Υ_(s0,2) − 2 = z/((9/4 + z)^(1/2) + 3/2) > z/(3 + z/3) >
+10⁻⁶ > δ_50.
 Next, f(u) := (u − 1)/(u(2u − 1)) is decreasing for u ≥ 2 (the numerator of f′ is −2u² + 4u − 1 < 0), so for
 2 ≤ u ≤ 50, f(u)/f(51) ≥ f(50)/f(51) = 252399/247500 > 1.0197; with [[eq:s14-theta]],
 
@@ -2623,9 +2624,10 @@ any number in (0, min(1, ε_ind(h))]. The number δ_50 is a constant of its own:
 γ_Υ) of [[ch:s13]] alone, through z, and not by h, being ι^Υ_(s50,51) − 51, the distance from 51 of a root of the gauge
 potential operator at scalar type 50. It is neither the constant of [[ch:s13]] that bounds from below the distances from
 ℤ of the roots of the gauge potential operator with |Re ι| ≤ 10, nor the ε_ind of [[ch:s15]], which it bounds from
-above. Its value is given by [[cor:s14-eps-ind-point]], which also proves ε_ind(10⁻⁶) = δ_50.
+above. Its value is given by [[lem:s14-delta50]], which does not involve h; [[cor:s14-eps-ind-point]] proves
+ε_ind(10⁻⁶) = δ_50.
 
 **Remark {#rem:s14-eps-point}** (The point h = 10⁻⁶.) At h = 10⁻⁶, ε_ind(10⁻⁶) = δ_50, and every entry of the lists of
-[[prop:np-10-52]] (iii) that comes from a root of P_l, P_0 or p_(v), is not an integer and has modulus at most 50 lies
-at distance more than 2.93·10⁻⁶ from ℤ ([[cor:s14-eps-ind-point]]). Later chapters use only ε_ind(h) > 0 and ε_ind(h) ≤
-δ_50, which hold for every admissible h by [[prop:np-10-52]] (iii).
+[[prop:np-10-52]] (iii) that comes from a root of P_l, P_0 or p_(v), is not an integer and has modulus at most 50 has
+real part at distance more than 2.93·10⁻⁶ from ℤ ([[cor:s14-eps-ind-point]]). Later chapters use only ε_ind(h) > 0
+and ε_ind(h) ≤ δ_50, which hold for every admissible h by [[prop:np-10-52]] (iii).
