@@ -155,8 +155,11 @@ used and not proved here.
 
 In this section L is any operator of the form of [[sec:ii-a1-5-1]], possibly on a vector bundle of another rank, with
 real scalar principal symbol ℓ of order m. L_R, L_I and C_ǎ are those of [[eq:ii-a1-4-1]], ℓ_I is the principal symbol
-of L_I (an Hermitian matrix of order m − 1), norms are those of H^𝗍_e3b, and B, E, G, J are carried by χ
-([[sec:ii-a-8-3]]). For a positive symbol ρ, homogeneous of degree −1 near fibre infinity, and κ > 0, the regulariser is
+of L_I (an Hermitian matrix of order m − 1), norms are those of H^𝗍_e3b, and B, E, G are carried by χ
+([[sec:ii-a-8-3]]). In the proofs of this chapter, auxiliary operators (the localisers Φ_0, Φ_E and Φ′ below, and the
+operators G″, G^♯ and the like of later sections) are chosen by the rules (R1)–(R3) of [[sec:ii-a-8-3]] for the
+operators of the statement at hand, and so are the cut-off χ_* of error terms ((R2)) and inner cut-offs ((R3)). For a
+positive symbol ρ, homogeneous of degree −1 near fibre infinity, and κ > 0, the regulariser is
 φ_ε := (1 + ερ⁻¹)^(−κ), ε ∈ (0, 1], and θ_ε := ερ⁻¹(1 + ερ⁻¹)⁻¹; [[eq:ii-a1-2-1]] holds with ρ in place of ρ_∞, and
 φ_ε has the properties stated after it. [[sec:ii-a1-2]] states both for κ ∈ (0, ½]; they hold for every κ > 0 with the
 same proof, the identity being exact for every κ and |1 − φ_ε| ≤ min(1, κερ⁻¹) as in the proof of [[lem:ii-a1-2-3]]

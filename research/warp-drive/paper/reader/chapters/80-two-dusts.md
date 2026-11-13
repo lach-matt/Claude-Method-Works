@@ -346,9 +346,9 @@ time v and the sets J⁻(p) = {u ≤ u(p), v ≤ v(p)}, none of which depends on
 *Proof.* As dũ = ũ′ du and dṽ = ṽ′ dv, −2 e^(2σ̃) dũ dṽ = −2 e^(2σ̃) ũ′ ṽ′ du dv = −2 e^(2σ) du dv. Ric(g0) is a
 tensor, and (𝒜/R³) dv ⊗ dv + (ℬ/R³) du ⊗ du = (𝒜̃/R³) dṽ ⊗ dṽ + (ℬ̃/R³) dũ ⊗ dũ. For the constraints, R_ũ = R_u/ũ′,
 R_ũũ = R_uu/ũ′² − ũ″ R_u/ũ′³ and σ̃_ũ = σ_u/ũ′ − ũ″/(2ũ′²), so R_ũũ − 2σ̃_ũ R_ũ = (R_uu − 2σ_u R_u)/ũ′², while
-ℬ̃/(3R²) = ℬ/(3R² ũ′²); the same calculation in ṽ gives C̃_ṽ. By [[eq:two-dust-mass]], f = g0⁻¹(dR, dR) and μ = R²(1 −
-f); by [[eq:two-dust-chart]], e^ψ = g0(∂_v̂, ∂_R) in the coordinates (v̂, R, ϑ, φ1, φ2); these depend only on g0, R and
-v̂. Finally e^(−4σ̃) 𝒜̃ℬ̃ = e^(−4σ) (ũ′ṽ′)² 𝒜ℬ/(ũ′ṽ′)².
+ℬ̃/(3R²) = ℬ/(3R² ũ′²); the same calculation in ṽ gives C̃_ṽ. By [[eq:two-dust-mass]], f = g0⁻¹(dR, dR) and
+μ = R²(1 − f); by [[eq:two-dust-chart]], e^ψ = g0(∂_v̂, ∂_R) in the coordinates (v̂, R, ϑ, φ1, φ2); these depend only on
+g0, R and v̂. Finally e^(−4σ̃) 𝒜̃ℬ̃ = e^(−4σ) (ũ′ṽ′)² 𝒜ℬ/(ũ′ṽ′)².
 
 (a) By the proof of [[prop:two-dust-background]] (a), ψ = 0 on 𝒞_out when v̂ is the advanced time, and ψ̃ = 0 on
 𝒞_in ∩ {u ≤ u2} when the outgoing coordinate is the retarded time. Conversely, ψ = 0 on 𝒞_out means v̂′ = −e^(2σ)/R_u
@@ -1134,8 +1134,8 @@ so the mixed harmonics of D^(1) vanish. Assume (H_m). At order m the terms of th
 from D^(m), only terms without phase derivatives, by (β), namely ½ □̃ ⟨D^(m)⟩ and terms of first order in ⟨D^(m)⟩ with
 bounded profiles as coefficients; from D^(m+1), whose mixed harmonics vanish, by (β), Σ_𝔨 (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨 + M_𝔨)
 Ξ_𝔨 with Ξ_𝔨 := F_𝔨 Π_𝔨 D^(m+1), together with −½ e^(−4σ) χ_out F1 Ξ_in − ½ e^(−4σ) χ_in F2 Ξ_out, which has mixed
-harmonics only; and from D^(m+2), by (α), g0^(uv) F1F2 D^(m+2), which has mixed harmonics only. Terms from D^(j),
-j ≥ m + 3, are of higher order. So the mean of the order-m equation is the linear wave equation for ⟨D^(m)⟩ of the proof of
+harmonics only; and from D^(m+2), by (α), g0^(uv) F1F2 D^(m+2), which has mixed harmonics only. The terms from D^(j),
+for j ≥ m + 3, are of higher order. So the mean of the order-m equation is the linear wave equation for ⟨D^(m)⟩ of the proof of
 [[lem:gauge-hierarchy]], with the forcing Σ_𝔨 ⟨M_𝔨 Ξ_𝔨⟩; its pure harmonics of θ_𝔨 are the transport
 
     (ℓ_𝔨·∂_X + ½ □_(g0) ϕ_𝔨) Ξ_𝔨 + Π_𝔨 Σ_𝔧 M_𝔧 Ξ_𝔧 = (first order in ⟨D^(m)⟩)
