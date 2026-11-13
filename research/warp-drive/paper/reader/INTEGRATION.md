@@ -235,3 +235,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   must say ε_out when merged. Chapter 8's λ* (a wavelength threshold) stays. The item now reads "near the initial data
   of the two-dust background of [[thm:two-dusts]]" (the third reading rules); chapter 83 must then state thm:charge-sign
   for that background.
+- Ch 6-7 nit pass: Ch 7's duplicate section is now a pointer to lem:gauge-propagation and sec:main-proof; Ch 3 should add
+  the clause that g_λ is Lorentzian by lem:lorentz-margin (Ch 7 gave it). Appendix A must add, verbatim: [BH17, Theorem
+  7.27, p. 56]: "Let Ω be a nonempty bounded open subset of Rⁿ with Lipschitz continuous boundary. Suppose 1 ≤ p, q < ∞
+  … and 0 ≤ t ≤ s satisfy s − n/p ≥ t − n/q. Then W^(s,p)(Ω) ↪ W^(t,q)(Ω)."

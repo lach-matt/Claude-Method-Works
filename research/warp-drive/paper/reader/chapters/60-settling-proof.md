@@ -224,8 +224,8 @@ v ≥ v_end + 2 > v_end + 1. So these points lie in the interior of Ω′_+. Fin
 
 ### Proof of the theorem {#sec:vii-4}
 
-*The choices.* Let ε_m > 0 and ε_t ∈ (0, ε_K). The parameters are chosen by [[thm:vi-c-2-1]] with [[eq:vii-0-1]] at
-its step (3), up to ε_K at its step (4); ε_K does not depend on ε_t. Take α > 4 + ε_t in row w2 and finish steps
+*Proof of [[thm:settling-precise]].* *The choices.* Let ε_m > 0 and ε_t ∈ (0, ε_K). The parameters are chosen by
+[[thm:vi-c-2-1]] with [[eq:vii-0-1]] at its step (3), up to ε_K at its step (4); ε_K does not depend on ε_t. Take α > 4 + ε_t in row w2 and finish steps
 (5)–(6). [[cor:s27-rate]] then gives ε = ε(ε_m, ε_t) > 0, with d_1 as in [[thm:iii-k-4-3]], such that its conclusions
 (a)–(c) hold for data of norm below ε; its part (b) contains the threshold of the run of [[thm:ii-g-2-1]] in the
 symmetry class ([[prop:vii-3-2]]). Then choose, in this order:

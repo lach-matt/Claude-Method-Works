@@ -8,7 +8,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 |---|---|---|---|
 | 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | NOT CONFIRMED 0M 2m 5n; second fix done; third reading running |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | NOT CONFIRMED 0M 2m 3n; third fix done; third reading running |
-| 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED (6 nits, being applied with the Ch 7 pointer cut) |
+| 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED; nits applied (N1 added a proof of det g_app ≤ −1/2), reading of the new text running |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | running |
 | 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | done | running |
 | 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |

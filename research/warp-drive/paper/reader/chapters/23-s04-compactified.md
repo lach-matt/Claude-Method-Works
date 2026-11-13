@@ -310,8 +310,8 @@ A = Σ a_(jkα)(ρ_+, ρ_K, ω)(Rτ∂_τ)^j (R∂_R)^k ∂_ω^α and freeze ρ_
 
 The pseudodifferential calculus used in this chapter and the following ones is that of [Hin26d] (pseudodifferential
 operators on manifolds with scaled bounded geometry; the pages cited are those of its arXiv version 1). We use the
-following results of that paper, as stated there; they hold on smooth manifolds of every dimension n. The notation
-inside the list is that of [Hin26d]. Later chapters cite them as (S1)–(S11).
+following results of that paper (and, in (S6), one of [Hin26c]), as stated there; they hold on smooth manifolds
+of every dimension n. The notation inside the list is that of [Hin26d]. Later chapters cite them as (S1)–(S14).
 
 (S1) [Hin26d, Definition 1.1, p. 2; Definition 1.3 and (1.6), pp. 5–6.] A *b.g. structure* on an n-manifold M without
 boundary is a collection ℬ = {(U_α, φ_α)} of charts φ_α : U_α → (−2, 2)^n of finite multiplicity, with
@@ -354,7 +354,7 @@ WF′(B) ⊂ Ell(A), then ‖Bu‖_(wρ^l H^m) ≤ C_N(‖Au‖_(ww′ρ^l H^(m�
 Fredholm when 𝒱 is *fully symbolic*, that is, when for every ε > 0 the scaling weight ρ is smaller than ε outside a
 compact subset of M [Hin26d, Definition 3.27, p. 41].
 
-(S6) [Hin26d, Remark 3.33, p. 45; Hintz, [Hin26c, Lemma 3.5, p. 49].] The boundedness
+(S6) [Hin26d, Remark 3.33, p. 45]; [Hin26c, Lemma 3.5, p. 49]. The boundedness
 Op_𝒱(a) : w′H^((s;k))_(𝒱;𝒲) → ww′H^((s−m;k))_(𝒱;𝒲) requires only uniform bounds ⟨ξ⟩^(m−|γ|) on
 (ρ_α∂_x)^β ∂_x^(β′) ∂_ξ^γ a_α for |β′| ≤ k (𝒱-regular symbols with x-derivatives up to order k) [Hin26d, Remark 3.33].
 [Hin26c, Lemma 3.5] states: given a compact interval I ⊂ ℝ, there exist d_0 ∈ ℕ and C such that for all s, m ∈ I and
@@ -368,12 +368,15 @@ bounds uniform in p, the above holds uniformly in p; operators are families with
 parts, bounded uniformly on the p-dependent spaces.
 
 (S8) [Hin26d, Definition 4.6 and the paragraph after it, p. 66; Section 4.2.] Variable orders 𝗆, 𝗅 ∈ S⁰: the symbols
-ρ^(−𝗅)λ^(−𝗆)a_0 with a_0 ∈ ⋂_(δ∈(0,1/2)) S⁰_(1−δ,δ), contained in ⋂_δ ρ^(−sup 𝗅) S^(sup 𝗆)_(1−δ,δ), and the corresponding
+ρ^(−𝗅)λ^(−𝗆)a_0 with a_0 ∈ ⋂_(δ∈(0,1/2)) S⁰_(1−δ,δ), λ being an *elliptic weight*, a positive symbol of order −1
+whose reciprocal is a symbol of order 1 [Hin26d, Lemma 3.24 (2), p. 40]. They are contained in
+⋂_δ ρ^(−sup 𝗅) S^(sup 𝗆)_(1−δ,δ), and the corresponding
 operators and Sobolev spaces (variable decay orders when the scaling weight tends to 0). The paper states that orders
 are additive under composition and that its Theorem 3.44 "remains valid, mutatis mutandis, in the variable order case",
 the principal symbol being taken modulo ⋂_δ ρ^(−𝗅+1−2δ) S^(𝗆−1+2δ). Theorem 3.44 there is the boundedness theorem; the
 statement concerns composition, and we read it as including the calculus of its Theorem 3.51. It also states that the
-operators map H^(𝗆′,𝗅′) to H^(𝗆′−𝗆,𝗅′−𝗅), by the proof of its Proposition 4.2. The factor a_0 need not lie in S⁰: its
+operators map H^(𝗆′,𝗅′) to H^(𝗆′−𝗆,𝗅′−𝗅), and that (wH^(𝗆,𝗅)_𝒱)* = w⁻¹H^(−𝗆,−𝗅)_𝒱, by the proof of its Proposition 4.2;
+the duality is that of the L²-pairing of a uniformly positive 𝒱-density, as in (S3). The factor a_0 need not lie in S⁰: its
 derivatives may carry logarithmic factors, as those of λ^(−𝗆) do.
 
 (S9) [Hin26d, Definition 4.11, p. 68; Definition 4.14, p. 69; Proposition 4.15, p. 70; Proposition 4.17, p. 71;
@@ -403,6 +406,22 @@ chapter and the following ones.
 
 (S11) [Hin26d, Proposition 4.2, p. 63.] For phase space weights w, w′, Ψ^w_𝒱 maps H^(w′)_𝒱 to H^(ww′)_𝒱, and
 (H^w_𝒱)* = H^(w⁻¹)_𝒱.
+
+(S12) [Hin26d, Proposition 3.2, p. 28.] Two scaled b.g. structures on M have the same operator Lie algebra if and only
+if they are compatible, and then they also have the same coefficient and large operator Lie algebras. Since the
+calculus and the spaces are defined from these algebras, they do not change when the cells are replaced by a compatible
+family (for instance, when a cover of 𝕊³ by charts is replaced by another finite one).
+
+(S13) [Hin26d, Proposition 3.3, p. 29; Remark 3.48, p. 52.] Subdividing each cell of ℬ^× into cuboids of side lengths
+comparable to the scalings gives, for a large enough subdivision constant, a b.g. structure ρℬ, the *secondary
+structure*, whose coordinate vector fields span the large operator Lie algebra:
+𝒱′ = C^∞_(uni,ρℬ)(M; TM) = 𝒱 ⊗_(C^∞_(uni,ℬ)) C^∞_(uni,ρℬ). With all scalings equal to 1, ρℬ defines a calculus Ψ_(𝒱′), and
+wΨ^m_𝒱(M) ⊂ wΨ^m_(𝒱′)(M); the residual operators of Ψ_(𝒱′) are not required to be localised near the diagonal.
+
+(S14) [Hin26d, Remark 3.13, p. 34.] On vector bundles of bounded geometry (trivialisations over the U_α with transition
+functions uniformly bounded in C^∞), 𝒱-differential operators are those which, in the charts and trivialisations, are
+matrices of scalar 𝒱-differential operators with uniformly bounded coefficients; their principal symbols are the
+matrices of the principal symbols.
 
 The sharp Gårding inequality is not among these statements and is not used: the real principal type estimate
 ([[thm:ii-a1-5-4]]) is proved without it.
