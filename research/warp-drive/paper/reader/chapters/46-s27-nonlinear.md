@@ -722,13 +722,20 @@ derivatives, and k′_k collects the losses up to the order k + 2. ∎
 ### The map Ψ {#sec:iii-k-2}
 
 **Definition {#def:iii-k-2-1}** (The map Ψ; [Hin26, (12.34)].) Let χ_− ∈ C^∞(ℝ) equal 1 on (−∞, T̂ + 7/4] and 0 on
-[T̂ + 2, ∞). For U ∈ 𝒟^∞_ex small, with boost component S,
+[T̂ + 2, ∞). For U ∈ 𝒟^∞_ex small, with boost component S and translation component S⁰ := S^(0)_1
+([[def:iii-j-1-1]]),
 
-    Ψ(U) := (χ_−(t^♭_*) h_(−S), 0, 0) + Φ(U).                                                           {#eq:iii-k-2-1}
+    Ψ(U) := (χ_−(t^♭_*) h_(−S,−S⁰), 0, 0) + Φ(U).                                                       {#eq:iii-k-2-1}
 
-The first component is defined on Ω_* ∩ {t^♭_* ≤ T̂ + 2} ⊂ 𝒟_(−S), and extended by 0.
+The first component is defined on Ω_* ∩ {t^♭_* ≤ T̂ + 2} ⊂ 𝒟_(−S,−S⁰), and extended by 0. For S, S⁰ ∈ 𝒮_1 small put
 
-**Lemma {#lem:iii-k-2-2}** ([[thm:iii-j-2-4]] for Ψ; [Hin26, Lemma 12.7].) For U ∈ 𝒟^∞_ex small in 𝒟^d_ex:
+    ĝ_(S,S⁰) := φ_(−S,−S⁰)^*g_(b₀),     G_(S,S⁰) := ĝ_(S,S⁰) + h_(−S,−S⁰),
+
+so that g_(p⃗) = ĝ_(S,S⁰) where χ_K = 0, and G_(S,S⁰) = φ_(−S,−S⁰)^*(g_(b₀) + h_0) near φ_(−S,−S⁰)⁻¹(Σ^IVP)
+([[prop:iii-k-1-2]] (1)).
+
+**Lemma {#lem:iii-k-2-2}** ([[thm:iii-j-2-4]] for Ψ; [Hin26, Lemma 12.7].) There are d and ε_0 > 0 such that for
+U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < ε_0:
 
 (a) Ψ(U) − Φ(U) is supported in {t^♭_* ≤ T̂ + 2}, and P_5(Ψ(U)) = P_5(Φ(U)) on {t^♭_* > T̂ + 2};
 
@@ -738,45 +745,46 @@ The first component is defined on Ω_* ∩ {t^♭_* ≤ T̂ + 2} ⊂ 𝒟_(−S)
 constants depending on the data through finitely many norms of (γ̃, k̃);
 
 (d) P_5(Ψ(0)) is supported in {T̂ + 7/4 ≤ t^♭_* ≤ T̂ + 2}, and ‖P_5(Ψ(0))‖_(ℱ^k_ex) ≤ C_k‖(γ̃, k̃)‖_(H^(k+k′_k)),
-with k′_k the k′ of [[prop:iii-k-1-2]] (3) at the order k.
+with k′_k of [[prop:iii-k-1-2]] (3).
 
 Below, N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] and k″ := max_(k≤N_NM) k′_k. The smallness constants use
-orders k ≤ N_NM only; a bound needed at every order k (the bound on e_S in the proof of [[lem:iii-k-2-3]], which feeds
-[[eq:ii-g-2-4]]) carries k′_k.
+orders k ≤ N_NM only; a bound needed at every order k (the bound on e_S and e_(S⁰) in the proof of
+[[lem:iii-k-2-3]], which feeds [[eq:ii-g-2-4]]) carries k′_k.
 
-*Proof.* On {t^♭_* < T̂ + 2}, χ_K = 0 (as T_K > T̂ + 2), so g_(b₀,b,−S) = φ_(−S)^*g_(b₀). Also h_tot(p⃗) and ϑ_tot(p⃗)
-vanish there, being supported in 𝒞 ⊂ supp χ_K ([[lem:iii-i7-2-2]], [[def:iii-i9-2-3]]), and so does h_(b,rem)(q), which
-carries χ_K ([[eq:iii-i14-1-2]]). By [[eq:iii-j-2-1]], the metric component of Φ(U) is
-χ_ι Σ_λ u_λ + h̃ + χ_ι Σ_(λ₀) h_(λ₀), which is h̃ on {t^♭_* ≤ T̂ + 2}, as χ_ι = 0 there ([[sec:iii-k-0]]). So on
-Ω_* ∩ {t^♭_* < T̂ + 2},
+*Proof.* Write ĝ := ĝ_(S,S⁰) and G := G_(S,S⁰), with S⁰ := S^(0)_1. On {t^♭_* < T̂ + 2}, χ_K = 0 (as T_K > T̂ + 2), so
+g_(p⃗) = ĝ ([[sec:iii-k-0]]). Also h_tot(p⃗) and ϑ_tot(p⃗) vanish there, being supported in 𝒞 ⊂ supp χ_K
+([[lem:iii-i7-2-2]], [[def:iii-i9-2-3]]), and so does h_(b,rem)(q), which carries χ_K ([[eq:iii-i14-1-2]]). By
+[[eq:iii-j-2-1]], the metric component of Φ(U) is χ_ι Σ_λ u_λ + h̃ + χ_ι Σ_(λ₀) h_(λ₀), which is h̃ on
+{t^♭_* ≤ T̂ + 2}, as χ_ι = 0 there ([[sec:iii-k-0]]). So on Ω_* ∩ {t^♭_* < T̂ + 2},
 
-    P_5(Ψ(U)) = P(φ_(−S)^*g_(b₀) + χ_−h_(−S) + h̃, φ_(−S)^*g_(b₀)),     P(g, g_0) := Ric(g) − δ*_(g_0,E_C)Υ^(E_Υ)(g, g_0)
+    P_5(Ψ(U)) = P(ĝ + χ_−h_(−S,−S⁰) + h̃, ĝ),     P(g, g_0) := Ric(g) − δ*_(g_0,E_C)Υ^(E_Υ)(g, g_0)
 
-([[eq:iii-i9-2-3]]).
+([[eq:iii-i9-2-3]], with g_0 = g_(p⃗) as in [[def:iii-i7-2-3]]).
 
 (a) holds as χ_− = 0 on {t^♭_* ≥ T̂ + 2} and P_5 is a differential operator.
 
-(b) On Ω_* ∩ {t^♭_* < c}, χ_− = 1 and h̃ = 0, so P_5(Ψ(U)) = P(φ_(−S)^*g_(b₀) + h_(−S), φ_(−S)^*g_(b₀)). This is
-0 − δ*0 = 0 by [[prop:iii-k-1-2]] (2) with −S, as Ω_* ⊂ {t_* ≥ 1}, where χ^♮_0 = 1.
+(b) On Ω_* ∩ {t^♭_* < c}, χ_− = 1 and h̃ = 0, so P_5(Ψ(U)) = P(G, ĝ). This is 0 − δ*0 = 0 by [[prop:iii-k-1-2]] (2)
+with (−S, −S⁰), as Ω_* ⊂ {t_* ≥ 1}, where χ^♮_0 = 1.
 
-(c) Near ℐ⁺ ∩ {t^♭_* ≤ T̂ + 2}, [[cor:iii-c-5-3]] applies with g_0 = φ_(−S)^*g_(b₀) (in 𝒢, Ric(g_0) = 0) and
-h = χ_−h_(−S) + h̃, which has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ ([[prop:iii-k-1-2]] (3), [[def:iii-j3-1-1]]). So
-P_5(Ψ(U)) has the orders (⟨ℰ^C_I + 1⟩′, ℓ_I + 1) of ℱ_ex there. On {t^♭_* > T̂ + 2} it is P_5(Φ(U)) ∈ ℱ^∞_ex
-([[cor:iii-j3-6-6]]). Supported character: for U whose tail vanishes on {t^♭_* < T̂} (the class B^∞ of
-[[sec:iii-k-3]]), P_5(Ψ(U)) vanishes there by (b); and on {t^♭_* < T̂ + 7/4},
+(c) Near ℐ⁺ ∩ {t^♭_* ≤ T̂ + 2}, [[cor:iii-c-5-3]] applies with g_0 = ĝ (in 𝒢 by [[lem:s27-translated-exterior]] (b),
+as in [[lem:iv3-0-1]]; Ric(g_0) = 0) and h = χ_−h_(−S,−S⁰) + h̃, which has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺
+([[prop:iii-k-1-2]] (3), [[def:iii-j3-1-1]]). So P_5(Ψ(U)) has the orders (⟨ℰ^C_I + 1⟩′, ℓ_I + 1) of ℱ_ex there. On
+{t^♭_* > T̂ + 2} it is P_5(Φ(U)) ∈ ℱ^∞_ex ([[cor:iii-j3-6-6]]). Supported character: for U whose tail vanishes on
+{t^♭_* < T̂} (the class B^∞ of [[sec:iii-k-3]]), P_5(Ψ(U)) vanishes there by (b); and on {t^♭_* < T̂ + 7/4},
 
-    P_5(Ψ(U)) = ∫_0^1 L_(G_S+sh̃, φ_(−S)^*g_(b₀)) h̃ ds,     G_S := φ_(−S)^*g_(b₀) + h_(−S),
+    P_5(Ψ(U)) = ∫_0^1 L_(G+sh̃, ĝ) h̃ ds,
 
-as P(G_S, φ_(−S)^*g_(b₀)) = 0; here L_(g,g_0) is the linearisation of P in its first argument. This is a differential
-operator applied to h̃, which has supported character. The bounds of [[prop:iii-j2-4-3]] hold for Φ. The added terms
-are χ_−h_(−S), a fixed tensor smooth in the finite-dimensional S ([[prop:iii-k-1-2]] (3)), and its products with h̃ in
-P on the compact t^♭_*-range [1, T̂ + 2]. The tame bounds of [[sec:iii-j2-1]] (with [[lem:ii-g-4-1]]) bound them, with
-constants depending on finitely many norms of h_(−S) and ∂^j_S h_(−S), j ≤ 2.
+as P(G, ĝ) = 0; here L_(g,g_0) is the linearisation of P in its first argument. This is a differential operator applied
+to h̃, which has supported character. The bounds of [[prop:iii-j2-4-3]] hold for Φ. The added terms are
+χ_−h_(−S,−S⁰), a fixed tensor smooth in the finite-dimensional (S, S⁰) ([[prop:iii-k-1-2]] (3)), and its products with
+h̃ in P on the compact t^♭_*-range [1, T̂ + 2]. The tame bounds of [[sec:iii-j2-1]] (with [[lem:ii-g-4-1]]) bound them,
+with constants depending on finitely many norms of h_(−S,−S⁰) and of its derivatives in (S, S⁰) of order at most 2.
 
-(d) At U = 0, h̃ = 0 and S = 0, so P_5(Ψ(0)) = P(g_(b₀) + χ_−h_0, g_(b₀)) on Ω_* ∩ {t^♭_* < T̂ + 2} by the display
+(d) At U = 0, h̃ = 0 and S = S⁰ = 0, so P_5(Ψ(0)) = P(g_(b₀) + χ_−h_0, g_(b₀)) on Ω_* ∩ {t^♭_* < T̂ + 2} by the display
 above, and P_5(Ψ(0)) = P_5(Φ(0)) = P(g_(b₀), g_(b₀)) = 0 on {t^♭_* > T̂ + 2} by (a). On {t^♭_* < T̂ + 7/4} it is
-P(g_(b₀) + h_0, g_(b₀)) = 0 by [[prop:iii-k-1-2]] (2). So it vanishes outside supp dχ_−, is a smooth function of h_0
-and its derivatives vanishing at h_0 = 0, and so is bounded by [[prop:iii-k-1-2]] (3). ∎
+P(g_(b₀) + h_0, g_(b₀)) = 0 by [[prop:iii-k-1-2]] (2). So it vanishes outside supp dχ_−, and it is a smooth function
+of h_0 and its derivatives of order at most 2, vanishing at h_0 = 0; so its ℱ^k_ex-norm is at most C‖h_0‖_(H^(k+2)),
+which [[prop:iii-k-1-2]] (3) bounds. ∎
 
 **Lemma {#lem:iii-k-2-3}** (Right inverses for Ψ; [[thm:iii-j1-2-1]] for Ψ, [Hin26, Theorem 12.8, last paragraph].)
 There are d and ε_0 such that for U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < ε_0 there is a linear map

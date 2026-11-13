@@ -931,7 +931,7 @@ O(|b − b₀||S|). ∎
 
 ### The expansion at one level {#sec:iii-i8-3}
 
-**Lemma {#lem:iii-i8-3-1}** (The base level.) Let α_0 ∈ (2, min(a_K, 2 + ε_ind, 5/2)) be admissible (ε_ind as in
+**Lemma {#lem:iii-i8-3-1}** (The base level.) Let α_0 ∈ (2, min(a_K, 2 + ε_g, 5/2)) be admissible (ε_g as in
 [[sec:iii-i7-1]]). Then [[prop:iii-i6-2-1]], [[lem:iii-i7-4-1]], [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]],
 [[cor:iii-i7-4-6]] and [[prop:iii-i15-2-12]] hold with 𝒴(α_0) in place of 𝒴, at the base points of
 [[lem:iii-i8-2-5]], with the conclusions at K⁺-weight α_0 − 2 − ε for every ε > 0.
@@ -1008,7 +1008,10 @@ every term of u_ι decays at K⁺ (weight at least min(λ_♯ − 1, α − 2) �
 w = α_K − 2 + ε, and the remainder weights of [[eq:iii-i6-2-4]]). They give û_0, ḃ_0, S_0 = 0 (the argument there: u has
 K⁺-weight > −1), û′_3, Σ_3, (û_4, b̂_4, Ŝ_4) and
 
-    f̂_5 ∈ H^(∞,(5/2−ε,τ_0,α−2−ε′))_b,     τ_0 := 2 + ε_ind − 2ε     ([[eq:iii-i6-2-7]]).
+    f̂_5 ∈ H^(∞,(5/2−ε,τ_0,α−2−ε′))_b,     τ_0 := 2 + ε_g − 2ε     ([[eq:iii-i6-2-7]]);
+
+the tf-weight τ_0 rests on the gain ε_Υ − ε of [[eq:iii-g4-5-1]] over the forcing in Step 3.2 there and on the
+indicial gap (0, ε_ind] of L̂_b(0) for the zero energy solve of Step 3.3, so it uses both constants.
 
 *Step 3.4′ (the iteration at the transition face; [Hin26, Step 1.6 of the proof of Proposition 11.51]).* Put
 f̂^((0)) := f̂_5. While τ_i ≤ α − ε′, apply [[prop:iii-g4-5-1]] on X^±_(sc-b) separately to
@@ -1017,16 +1020,17 @@ g_i := σ⁻¹f̂^((i)) ∈ H^(∞,(5/2−ε,τ_i−1,α−3−ε′))_b (|σ| =
 w = ℓ_zf − α_i + 2 = α − ε′ − τ_i ∈ [0, 1), inside (−ε_ind, ℓ^max_K); ε and ε′ are chosen so that w and every
 2 − α_i + j, j ∈ ℕ₀, avoid the discrete set of the −μ (finitely many i). It gives
 v_i = χ_zf u^((i))_b + χ^♯_tf ṽ_i ∈ H^(∞,(3/2−2ε,α_i−2,α_i−3))_b with
-g_i − L̂_b(σ)v_i ∈ H^(∞,(5/2−ε,α_i+ε_ind−ε,α−3−ε′))_b. With the s1 coefficient S_i := S^((−1))_1 of u^((i))_b
+g_i − L̂_b(σ)v_i ∈ H^(∞,(5/2−ε,α_i+ε_Υ−ε,α−3−ε′))_b ⊂ H^(∞,(5/2−ε,α_i+ε_g−ε,α−3−ε′))_b ([[eq:iii-g4-5-1]]: the
+window −ε_ind < w is its hypothesis, the gain ε_Υ its conclusion). With the s1 coefficient S_i := S^((−1))_1 of u^((i))_b
 ([[eq:iii-g4-5-2]]), Σ^((i)) := −σ²|σ|^(α_i−3)S_i and v′_i := v_i − ĥ^aug(σ)(Σ^((i))), [[lem:iii-i6-1-4]] and
 [[eq:iii-i6-2-6]] give L̂_b(σ)v′_i + f̂_(Σ^((i)))(σ) = L̂_b(σ)v_i, v′_i of tf- and zf-weight α_i − 2 near zf and tf,
 r(v′_i) = O(|σ|^(α_i−2)), and Σ^((i)) = O(|σ|^(α_i−1)). Put
 
-    f̂^((i+1)) := f̂^((i)) − σL̂_b(σ)v_i ∈ H^(∞,(5/2−ε,τ_(i+1),α−2−ε′))_b,     τ_(i+1) := τ_i + ε_ind − ε.
+    f̂^((i+1)) := f̂^((i)) − σL̂_b(σ)v_i ∈ H^(∞,(5/2−ε,τ_(i+1),α−2−ε′))_b,     τ_(i+1) := τ_i + ε_g − ε.
 
-The increments are below 1 (ε_ind < 1: the class roots of the table of [[sec:iii-g2-1]] are not integers, and
-[[sec:iii-g4-3]] places every {−μ} at 0 or in [ε_ind, 1 − ε_ind]), so after finitely many steps, i_0 say,
-τ_(i_0) ∈ (α − ε′, α − ε′ + 1) (i_0 = 0 if τ_0 > α − ε′, which is the case α_K < 2 + ε_ind of
+The increments ε_g − ε are positive for ε < ε_g and below 1/2 (ε_g ≤ ε_Υ, and ε_Υ is less than half the distance
+between consecutive integers, all of which lie in the set of [[sec:iii-d2-1]] that fixes it), so after finitely many
+steps, i_0 say, τ_(i_0) ∈ (α − ε′, α − ε′ + 1) (i_0 = 0 if τ_0 > α − ε′, which is the case α_K < 2 + ε_g of
 [[prop:iii-i6-2-1]]). Then [[lem:iii-i2-4-2]] (at b, [[prop:iii-i2-5-1-b]]) with β_scf := 3/2 − 2ε, β_tf := τ_(i_0) − 2,
 β_zf := α − 2 − ε′, β_tf − β_zf ∈ (0, 1), gives (û_6, b̂_6, Ŝ_6) := L̃_b(σ)⁻¹(f̂^((i_0)), 0, 0),
 û_6 ∈ H^(∞,(3/2−3ε,τ_(i_0)−2,α−2−ε′))_b, b̂_6, Ŝ_6 ∈ H^(∞,α−2−ε′)_b(±(0, c], |dσ/σ|). With
@@ -1042,7 +1046,7 @@ applies. By [[lem:iii-i6-1-3]], B^((i)), Σ^((i))_r = O(|σ|^(1−ε)·|σ|^(α_
 least α_i − 1 − ε. This replaces Step 3.4 of the proof of [[prop:iii-i6-2-1]].
 
 *Step 3.5′ (assembly).* [[eq:iii-i6-2-8]] holds with this (û_5, b̂_5, Ŝ_5), by the same calculation. In
-[[eq:iii-i6-2-9]] the new terms are σ²v′_i, of zf- and tf-weight α_i ≥ 1 + ε_ind − 2ε > α − 2, σU^((i)), σû_6
+[[eq:iii-i6-2-9]] the new terms are σ²v′_i, of zf- and tf-weight α_i ≥ 1 + ε_g − 2ε > α − 2, σU^((i)), σû_6
 (zf-weight α − 1 − ε′), σB^((i)), σb̂_6, and, in σ⁻¹Ŝ_1 − Ŝ_4, the terms σΣ^((i)) = O(|σ|^(α_i)), Σ^((i))_r and Ŝ_6,
 all O(|σ|^(α−2−ε′)) with σ∂_σ-regularity (α_i > 1 > α − 2). So [[eq:iii-i6-2-9]] holds with α − ε′ for α_K.
 
@@ -1095,7 +1099,7 @@ Moreover (i) p⃗′_(h,p⃗) and F ↦ u are linear, with bounds uniform for (h
 b, if (h_j, p⃗_j) → (0, p⃗_b) and F_j → F in 𝒴(α), then p⃗′_(h_j,p⃗_j)(F_j) → p⃗′_(0,p⃗_b)(F). In compact spatial sets
 u = O(t_*^(−α+2+ε)), almost O(t_*⁻¹) as α → 3.
 
-*Proof.* Choose admissible α_0 < α_1 < ⋯ < α_n = α with α_0 ∈ (2, min(a_K, 2 + ε_ind, 5/2)) and
+*Proof.* Choose admissible α_0 < α_1 < ⋯ < α_n = α with α_0 ∈ (2, min(a_K, 2 + ε_g, 5/2)) and
 α_(i+1) − α_i < a_K − 2 (the excluded set is finite). By induction on i we prove the statement, with (i)–(ii), at α_i.
 Write p⃗′_(h,p⃗,α_i) for the map at the level α_i.
 
@@ -1183,8 +1187,9 @@ with the enlarged set, which only strengthens them. Put ℱ := (0, 0) ∪ ℰ_in
     δ_♯ := λ_♯ − 3/2 = (1 − e_Υ)γ_Υ > 0,
 
 which lies in (0, 1/4), as 0 < e_Υ < 1 and 0 < γ_Υ < 1/4 ([[eq:iii-c-1-1]]). Let ε_ind be the constant of
-[[eq:iii-f1-2-2]], with which [[prop:iii-g4-5-1]] is stated: (0, ε_ind] lies in the indicial gap, and the real part of
-every non-integer root of modulus at most 50 has distance at least ε_ind from ℤ. Fix constants
+[[eq:iii-f1-2-2]], with which the hypotheses of [[prop:iii-g4-5-1]] are stated: (0, ε_ind] lies in the indicial gap of
+L̂_b(0), and the real part of every non-integer root of modulus at most 50 has distance at least ε_ind from ℤ; ε_Υ and
+ε_g = min(ε_Υ, ε_ind) are those of [[sec:iii-i7-1]]. Fix constants
 
     0 < ε_K < ε_+ < min(δ_♯, ε_ind),      w_+ := 5 + ε_+,                                                {#eq:iii-i9-1-1}
 

@@ -244,6 +244,8 @@
   doi:10.1007/s00220-023-04715-8 arXiv:2206.13062v2
 - [Tou24] A. Touati, *The reverse Burnett conjecture for null dusts*, Ann. PDE 11 (2025), 22.
   doi:10.1007/s40818-025-00213-3 arXiv:2402.17530v2
+- [Tre19] L. N. Trefethen, *Approximation theory and approximation practice*, extended edition, Other Titles in Applied
+  Mathematics 164, SIAM, Philadelphia, PA (2019). doi:10.1137/1.9781611975949
 - [TTS09] K. Tanabe, N. Tanahashi, T. Shiromizu, *On asymptotic structure at null infinity in five dimensions*, J. Math.
   Phys. 51 (2010), 062502. doi:10.1063/1.3429580 arXiv:0909.0426v2
 - [Usu26] M. Usula, *Boundary value problems for 0-elliptic operators*, Ars Inven. Anal. 2026, Paper No. 4, 153 pp.

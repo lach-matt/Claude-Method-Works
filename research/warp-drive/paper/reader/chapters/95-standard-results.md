@@ -95,8 +95,9 @@ and sing supp(R_±(α)) ⊂ C_±(0)"; "(7) R_±(0) = δ_0".
 [BW15, Definition 7 and Theorem 8, p. 13] and [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3, p. 89].) Let
 M = ℝ^(1+n) with the Minkowski metric and the Minkowski time t, and write J_±(A) = A + J_±(0) for the causal future and
 past of A ⊂ M. Let P be a normally hyperbolic operator ([[def:std-normally-hyperbolic]]) acting on ℂ^N-valued functions
-on M, with smooth coefficients. Let s ∈ ℤ, t0 ∈ ℝ and f ∈ H^(s−1)_loc(M; ℂ^N) with supp f ⊂ {t ≥ t0}. Then there is exactly one
-u ∈ 𝒟′(M; ℂ^N) with Pu = f and supp u ⊂ {t ≥ t0}; it lies in H^(s)_loc(M; ℂ^N), and supp u ⊂ J_+(supp f).
+on M, with smooth coefficients. Let s ∈ ℤ, t0 ∈ ℝ and f ∈ H^(s−1)_loc(M; ℂ^N) with supp f ⊂ {t ≥ t0}. Then there is
+exactly one u ∈ 𝒟′(M; ℂ^N) with Pu = f and supp u ⊂ {t ≥ t0}; it lies in H^(s)_loc(M; ℂ^N), and
+supp u ⊂ J_+(supp f).
 
 If the principal symbol of a second-order operator Q is the dual metric function times the identity, then Q or −Q is
 normally hyperbolic, the sign depending only on the convention for principal symbols, and the theorem applies to Q
@@ -125,7 +126,10 @@ principal symbol is given by the metric, P = −Σ g^(ij) ∂²/∂x^i∂x^j + l
 acting on sections of a vector bundle S with a Riemannian or Hermitian metric and a compatible connection ∇, over a
 globally hyperbolic manifold with a Cauchy temporal function t, in which the metric is g = −β dt² + g_t (p. 3);
 Σ_s := t⁻¹(s), and H^k(Σ_s) is the Sobolev space of [BW15, Section 1.6, pp. 6–8]. Definition 7: "Given a Cauchy
-temporal function t, we briefly write E_k(u, s) := E_k(u, Σ_s) = ‖u|_(Σ_s)‖²_(H^k(Σ_s)) + ‖β^(−1/2)∇_t u‖²_(H^(k−1)(Σ_s))."
+temporal function t, we briefly write
+
+    E_k(u, s) := E_k(u, Σ_s) = ‖u|_(Σ_s)‖²_(H^k(Σ_s)) + ‖β^(−1/2)∇_t u‖²_(H^(k−1)(Σ_s))."
+
 Theorem 8: "Let [T0, T1] ⊂ t(M), let K ⊂ M be compact, and let k ∈ ℝ. Then there exists a constant C > 0 such that
 
     E_k(u, t1) ≤ E_k(u, t0) · e^(C(t1−t0)) + ∫_(t0)^(t1) e^(C(t1−s)) ‖Pu‖²_(H^(k−1)(Σ_s)) ds      (4)

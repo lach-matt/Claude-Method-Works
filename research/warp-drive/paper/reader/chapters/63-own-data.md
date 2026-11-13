@@ -29,14 +29,12 @@ holds for every domain of the form [[eq:omega]] and its past domain). On {v ≥ 
 in this chapter; there g0 = g_b0 := η + μ r⁻² dv ⊗ dv, five-dimensional Tangherlini in Kerr–Schild form, whose
 Kerr–Schild time is τ ([[lem:vii-1-2]] (a)). In the far region we write t := τ, so that (t, x) are Kerr–Schild Cartesian
 coordinates and v = t + r; the variable t of [[ch:past-construction]] is written t_P := 1 + τ0 − τ. We put 𝔪 := μ r⁻².
-For |x| ≥ R_3 the initial surface is a graph, Σ^IVP ∩ {|x| ≥ R_3} = {t = f(|x|)}, with f′ ∈ |x|⁻² C^∞ near infinity
-([[lem:vii-2-1]] and the paragraph before it, with t_KS = τ up to a constant absorbed in f). Enlarging R, |f′| ≤ ¼ and 𝔪
-≤ 1/16 on r ≥ 4R. G = O(2) × O(2) acts by (t, x) ↦ (t, Ox) ([[sec:s27-class]]).
+R is the radius of [[lem:vii-1-2]], taken as in [[ch:interior]] (4R ≥ 20R₁); for r ≥ R_3 the initial surface is a graph Σ^IVP = {τ = f(r)}, with f′ ∈ |x|⁻² C^∞ near infinity ([[lem:interior-where]] (ii), the function F there). G = O(2) × O(2) acts by (t, x) ↦ (t, Ox) ([[sec:s27-class]]).
 
 **Theorem {#thm:own-data}** (the development of g_λ's own data settles). Fix A, the envelope env ∈ C_c^∞, the angular
 profile and the seed. Let ℓ0 ∈ (3, 4) ∖ {7/2}, ℓ_I ∈ (3, ℓ0) off the exclusion sets of row d2 of [[sec:vi-c-1]], ε_m > 0
 and 0 < ε_t < ε_K, the parameters of the stability theory chosen as for [[thm:settling]]. Let ε and d_1 be those of
-[[thm:iii-k-4-3]] in the class ℰ_0^½ ([[def:own-half-class]], [[thm:own-half-settling]]), below the threshold of
+[[thm:iii-k-4-3]] in the class ℰ_0^½ ([[def:half-class]], [[thm:own-half-settling]]), below the threshold of
 [[prop:vii-3-2]] and that of [[cor:s27-rate]] for ε_m and ε_t. Let a ∈ (ℓ0 − 1, 3), k1 := max(8, d_1 + 4),
 M := 15 + 2(k1 + 1), K > max(d_1 + 14, K*(a, M, k1)) with K* of [[lem:own-e-flux]], and let the approximant of
 [[thm:past-approximant]] have K + 4 + ⌈4β0(k_P)⌉ stages, k_P := 2k1 + 14 ([[cor:own-p-order]]). Then there is λ_2 > 0
@@ -60,90 +58,36 @@ The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The 
 
 ### The far part of the initial surface and its past domain of dependence {#sec:own-far-part}
 
-Let S := Σ^IVP ∩ {r ≥ 4R} = {τ = f(r), r ≥ 4R}, τ_S := f(4R), v1 := 4R + τ_S the value of v on ∂S,
-τ_max := sup_(r≥4R) f, and put
+We use the far part of Σ^IVP and its past domain of dependence as they are set up before [[lem:interior-far-part]],
+writing f for F, S for Σ_far, N for H₁, Z_b for the set Z there (Z denotes a vector field below) and 𝔪 for m = μ r⁻².
+So S = Σ^IVP ∩ {r ≥ 4R} = {τ = f(r), r ≥ 4R}, τ_S := f(4R), v1 := 4R + τ_S is the value of v on ∂S,
+τ_max := sup_(r≥4R) f, and
 
-    t̃ := τ − f(r),     W := {v ≥ v1, t̃ ≤ 0, r ≥ 4R},     N := W ∩ {v = v1},     Z_b := {v ≤ v1, r ≥ 4R},
-    Σ̃_σ := W ∩ {t̃ = σ} (σ ≤ 0),     s := (v − v1)/r.                                                {#eq:own-wedge}
+    t̃ := τ − f(r),     W := {v ≥ v1, t̃ ≤ 0, r ≥ 4R},     N := W ∩ {v = v1},
+    Σ̃_σ := W ∩ {t̃ = σ} (σ ≤ 0),     s := (v − v1)/r,     W_T := W ∩ {t̃ ≥ T}.                         {#eq:own-wedge}
 
-Σ̃_0 = S. The constants τ0, τ_top, q_end and r_0 are those of [[lem:vii-1-2]] and its proof: on Σ^IVP ∩ {r_0 ≤ r ≤ 4R},
-τ ≥ τ0 + 1, v ≥ v_end + 2 and τ ≤ τ_top; V′ ≥ τ_top + 2R + q_end + 1; τ′_end ≥ V′ − q_end and τ′_end ≥ τ_top + 1;
-r_0 > a′; and 4R > r_0.
+Σ̃_0 = S. On r ≥ 4R, 0 < f′ ≤ ¼ and 𝔪 ≤ 1/400, f is bounded, |f| ≤ C_f, and v1 − τ_max > 0. By
+[[lem:interior-far-part]]: W = D⁻(S; g_b0), with boundary S, N and past null infinity at v ≥ v1, and r ≥ v1 − τ on W
+(i); N and the strip {v1 ≤ v ≤ v1 + ½, r ≥ 4R} lie in Ω′ ∪ P′, and v1 ≤ V′_P − κ_P − 1 − m_Ω with m_Ω ≥ 3 (ii); for a
+metric on W ∪ Z_b equal to g_λ on Z_b and within C_W ν (v1 − τ)⁻² of g0 on W, all of W but a strip along N of v-width
+O(λ + ν) lies in the domain of dependence of S ((iv) (b)); and for v ≥ v1 nothing comes in at past null infinity:
+r^(3/2)(g_λ − g0) → 0 as r → ∞ at fixed v ∈ [v1, V′_P) and x̂ (v). Two further facts about W are used.
 
-**Lemma {#lem:own-domain}** (the far part's past domain of dependence).
-(i) t̃ is a time function on {r ≥ 4R} for g_b0, with g_b0⁻¹(dt̃, dt̃) = −1 + f′² − 𝔪(1 + f′)² ≤ −15/16, and v is
-nondecreasing along future causal curves. W = D⁻(S; g_b0). Its boundary is S, N and past null infinity at v ≥ v1 (τ → −∞
-at fixed v and x̂), and r ≥ v1 − τ on W.
-(ii) m_Ω := V′ + 1 − (v1 + τ_S − τ′_end) ≥ q_end + 3 ≥ 3 and v1 ≥ v_end + 2. Every point of {v ≤ v1 + ½, r ≥ 4R} lies in
-Ω′ if τ ≥ τ0 and in P′ if τ ≤ τ0, with v + h_P(τ) ≤ V′_P − 3 in the latter case. So N and the strip
-{v1 ≤ v ≤ v1 + ½, r ≥ 4R} lie in Ω′ ∪ P′, and v1 ≤ V′_P − κ_P − 1 − m_Ω.
-(iii) Let g be a smooth Lorentzian metric on an open set containing W and ε_g a continuous function of τ with
-0 ≤ ε_g ≤ 1/8, |g − g_b0|_op ≤ ε_g(τ) and |g⁻¹ − g_b0⁻¹|_op ≤ ε_g(τ) on W (Euclidean operator norms of the component
-matrices), and I(τ) := 2 ∫_τ^(τ_max) ε_g finite. Then W_+ := {v ≥ v1 + I(τ), t̃ ≤ 0, r ≥ 4R} lies in D⁻(S; g).
-(iv) For the metric g of [[thm:own-continuation]] on W, I(−∞) ≤ C(λ + ε_B), with ε_B the size of the bootstrap there,
-which tends to 0 with λ: all of W but a strip along N of v-width at most C(λ + ε_B) lies in D⁻(S; g).
-(v) For v ≥ v1 the radiation field of g_λ at past null infinity vanishes: r^(3/2)(g_λ − g0) → 0 as r → ∞ at every fixed
-v ∈ [v1, V′_P) and x̂.
-(vi) On W, s ∈ [0, 5/4], |τ − v1| ≤ r and r ≥ v1 − τ. Each Σ̃_σ is {r ≥ r_σ} along the rays t = f(r) + σ, with r_σ
-the solution of r + f(r) = v1 − σ, and r_σ ≥ c_W (1 + |σ|) for some c_W > 0.
-
-*Proof.* (i) By [[prop:vaidya]] (c)–(d), g_b0⁻¹(dv, dv) = 0, g_b0⁻¹(dv, dτ) = −1, g_b0⁻¹(dτ, dτ) = −1 − 𝔪,
-g_b0⁻¹(dr, dr) = 1 − 𝔪 and g_b0⁻¹(dτ, dr) = 𝔪. With dt̃ = dτ − f′ dr this gives the stated value, whose maximum over
-𝔪 ≥ 0 is at 𝔪 = 0, and −1 + f′² ≤ −15/16. dt̃(∂_τ) = dv(∂_τ) = 1, so t̃ increases and v does not decrease along future
-causal curves (dv is null). The conormals β̂ := d(r + 2t̃) and α̂ := d(r − 2t̃) satisfy, by the same contractions,
+**Lemma {#lem:own-wedge}** (the geometry of W). (a) The conormals α̂ := d(r − 2t̃) and β̂ := d(r + 2t̃) satisfy
 
     g_b0⁻¹(β̂, β̂) = (2f′ − 3)(2f′ + 1) − 𝔪(1 + 2f′)²,
     g_b0⁻¹(α̂, α̂) = (2f′ − 1)(2f′ + 3) − 𝔪(3 + 2f′)²,                                              {#eq:own-cones}
 
-both at most −7/4 for |f′| ≤ ¼ (with y := 2f′ ∈ [−½, ½], y² − 2y − 3 and y² + 2y − 3 are at most −7/4), and
-β̂(∂_τ) = 2, α̂(∂_τ) = −2. So |dr(Y)| < 2 dt̃(Y) for future causal Y. L0 is future null with L0(v) = 0, L0(τ) = 1,
-L0(r) = −1; along its rays t̃ = v − r − f(r) increases as r decreases, and d(r + f)/dr = 1 + f′ ≥ ¾.
-*D⁻(S; g_b0) ⊂ W.* For p in D⁻(S), the future ingoing null ray from p (v = v(p), r decreasing) must meet S, at some r* ≥
-4R with τ = f(r*); so v(p) = r* + f(r*) ≥ 4R + f(4R) = v1, r(p) ≥ r* ≥ 4R, and t̃(p) ≤ 0, as t̃ increases along the ray
-to 0 at r*. *W ⊂ D⁻(S; g_b0).* Let p ∈ W and γ a future-inextendible causal curve from p; v ≥ v1 along it. If γ reaches
-{r = 4R}, at a first point q, then t̃(q) = τ(q) − τ_S = v(q) − v1 ≥ 0, so γ meets {t̃ = 0} at or before q, at a point
-with r ≥ 4R and v ≥ v1, a point of S. Otherwise γ stays in {r ≥ 4R}; while t̃ ≤ 0 it lies in the compact set {t̃(p) ≤ t̃
-≤ 0, 4R ≤ r ≤ r(p) + 2|t̃(p)|}, where dt̃ is uniformly timelike, so its coordinate velocity parametrised by t̃ is
-bounded; if t̃ stayed below 0, γ would have an endpoint and be extendible. So γ reaches t̃ = 0 at a point of S. The
-description of the boundary and r = v − τ ≥ v1 − τ follow from the definitions.
+both at most −7/4, with β̂(∂_τ) = 2 and α̂(∂_τ) = −2; |α̂|_E², |β̂|_E² ≤ 25/4 and g_b0⁻¹(dt̃, dt̃) ≤ −15/16.
+(b) On W, s ∈ [0, 5/4] and |τ − v1| ≤ r. Each Σ̃_σ is {r ≥ r_σ} along the rays τ = f(r) + σ, r_σ being the solution of
+r + f(r) = v1 − σ, and r_σ ≥ c_W (1 + |σ|) for some c_W > 0.
 
-(ii) m_Ω = V′ + 1 + τ′_end − 2τ_S − 4R ≥ 2V′ + 1 − q_end − 2τ_top − 4R ≥ q_end + 3, by τ_S ≤ τ_top, τ′_end ≥ V′ − q_end
-and V′ ≥ τ_top + 2R + q_end + 1; and v1 ≥ v_end + 2 since ∂S ⊂ Σ^IVP ∩ {r_0 ≤ r ≤ 4R}. Let v ≤ v1 + ½ and r ≥ 4R. Then
-τ = v − r ≤ τ_S + ½ ≤ τ′_end − ½. If τ ≥ τ0: v + (τ − τ′_end) ≤ v1 + τ_S + 1 − τ′_end = V′ + 2 − m_Ω ≤ V′ − 1, and
-r > a′, so the point lies in the interior of Ω′ ([[eq:omega]]). If τ ≤ τ0: v + h_P(τ) ≤ v1 + ½ + κ_P = V′_P − (τ_S − τ0)
-− m_Ω + ½ ≤ V′_P − 3, as τ_S ≥ τ0 + 1, h_P ≤ κ_P and V′_P = V′ + 1 + (τ′_end − τ0) + κ_P; so it lies in P′. The last
-inequality is the same estimate.
-
-(iii) Since ε_g ≤ 1/8 < 1, g(∂_τ, ∂_τ) ≤ −1 + 𝔪 + ε_g < 0 and g⁻¹(dτ, dτ) ≤ −1 − 𝔪 + ε_g < 0; we time-orient g by
-∂_τ, so dτ(Y) > 0 for future g-causal Y. The covector ω := dv + 2ε_g dτ has |ω|_E² ≤ 2 + 4ε_g + 4ε_g² and
-
-    g⁻¹(ω, ω) ≤ g_b0⁻¹(ω, ω) + ε_g |ω|_E² = −4ε_g − 4ε_g²(1 + 𝔪) + ε_g |ω|_E² ≤ −2ε_g − 4𝔪ε_g² + 4ε_g³ < 0
-
-for 0 < ε_g ≤ 1/8, and ω(∂_τ) = 1 + 2ε_g > 0; so ω(Y) > 0 for future g-causal Y: dv(Y) ≥ −2ε_g dτ(Y). Along a future
-g-causal curve parametrised by τ, v − I(τ) is therefore nondecreasing. By [[eq:own-cones]] and ε_g ≤ 1/8 < 7/25 (the
-perturbation changes g⁻¹(α̂, α̂) and g⁻¹(β̂, β̂) by at most (25/4) ε_g ≤ 25/32 < 7/4), t̃ is a g-time function on
-{r ≥ 4R} and |dr(Y)| < 2 dt̃(Y) for future g-causal Y. For p ∈ W_+ and γ a future-inextendible g-causal curve from p,
-v ≥ v1 + I(τ) ≥ v1 along γ while it lies in W, and the argument of (i) applies verbatim: γ meets S.
-
-(iv) On W, by the pointwise bounds [[eq:own-pointwise]] of [[thm:own-continuation]] and [[lem:own-sigma-data]],
-|g − g_b0| ≤ C λ r⁻² + C_S ε_B r^(−1/2−a) ≤ C(λ + ε_B)(v1 − τ)⁻², as r ≥ v1 − τ > 0 and a ≥ 3/2, and the same holds
-for the inverse by the Neumann series. So ε_g := C(λ + ε_B)(v1 − τ)⁻² serves for λ small, and
-I(−∞) = 2 C(λ + ε_B)/(v1 − τ_max). (iii) gives the claim.
-
-(v) For v > v_end the envelope vanishes, so the leading wave, proportional to it, vanishes, and every oscillating
-profile of the approximant vanishes there ([[lem:vii-1-1]], the paragraph *After the shell* of its proof, which is a
-statement about the profiles and holds on P′ as on Ω′: on P′ each oscillating profile is the transport solution along ℓ
-from past null infinity at fixed v ([[thm:past-approximant]]), with data and forcing that vanish at v > v_end, by
-induction on the stage). Item 2 of [[thm:past-construction]] with λ[W_TT] = 0 at v ≥ v1 > v_end gives the claim.
-
-(vi) On W, v − v1 = τ + r − v1 ≥ 0 and τ ≤ f(r), so v − v1 ≤ f(r) − f(4R) + r − 4R ≤ (5/4)(r − 4R), as |f′| ≤ ¼: hence
-0 ≤ s ≤ 5/4. τ − v1 = (v − v1) − r ≥ −r, and τ − v1 ≤ f(r) − f(4R) − 4R ≤ r. On Σ̃_σ, τ = f(r) + σ and v = r + f(r) + σ,
-which increases in r (1 + f′ ≥ ¾), so v ≥ v1 exactly for r ≥ r_σ. As f′ = O(r⁻²), f is bounded on r ≥ 4R, |f| ≤ C_f; then
-r_σ ≥ max(4R, |σ| + v1 − C_f) for σ ≤ 0, which is at least c_W (1 + |σ|) for some c_W > 0 depending on R, v1 and
-C_f. ∎
-
-Enlarging R, we also take sup_(r≥4R) |f − f(4R)| ≤ 1 (f′ = O(r⁻²)), so that v1 − τ_max ≥ 4R − 1 > 0. We write W_T := W ∩
-{t̃ ≥ T} for T ≤ 0.
+*Proof.* (a) These are the contractions of the proof of [[lem:interior-far-part]] (i) ((2f′ − 3)(2f′ + 1) =
+−3 − 4f′ + 4f′², (2f′ − 1)(2f′ + 3) = −3 + 4f′ + 4f′²), and |α̂|_E², |β̂|_E² = 4 + (1 ± 2f′)². (b) On W, v − v1 = τ + r −
+v1 ≥ 0 and τ ≤ f(r), so v − v1 ≤ f(r) − f(4R) + r − 4R ≤ (5/4)(r − 4R): hence 0 ≤ s ≤ 5/4. τ − v1 = (v − v1) − r ≥ −r,
+and τ − v1 ≤ f(r) − f(4R) − 4R ≤ r. On Σ̃_σ, v = r + f(r) + σ increases in r (1 + f′ ≥ 1), so v ≥ v1 exactly for
+r ≥ r_σ; and r_σ ≥ max(4R, |σ| + v1 − C_f) for σ ≤ 0, which is at least c_W (1 + |σ|) for some c_W > 0 depending on R,
+v1 and C_f. ∎
 
 ### The half-order tail at past null infinity {#sec:own-tail}
 
@@ -234,9 +178,13 @@ order λ⁶ there rather than O(λ^∞). No proof uses these values.
 
 ### The stability theory in the half-integer class {#sec:own-half-class}
 
-**Definition {#def:own-half-class}** (the half-integer class). ℰ_0^½ := {(2 + j/2, 0) : j ∈ ℕ_0}, and ℰ_0^ℤ := {(j, 0) :
-j ∈ ℕ, j ≥ 2} is the class [[eq:vii-0-1]]. For an index set E_0 with min Re E_0 > 3/2 + 2γ_Υ, ⟨E_0⟩ denotes the smallest
-index set containing E_0 and satisfying (2)–(3) of [[def:iii-c-3-1]] ([[lem:iii-c-3-2]] (e)), and the proof of
+ℰ_0^½ is the index set of the half-integer class ([[def:half-class]], [[eq:half-class]]), and ℰ_0^ℤ := {(j, 0) : j ∈ ℕ,
+j ≥ 2} that of [[eq:vii-0-1]]. By [[lem:half-class]] (a), ℰ_0^½ satisfies row d1 of [[sec:vi-c-1]] for every
+ℓ0 ∈ (3, 4) ∖ {7/2}. This section shows that the stability theory runs in that class with the index sets of
+[[eq:vii-0-1]], logarithmic orders included, which settles the question left open in [[rem:half-class-changes]].
+
+**Definition {#def:own-iterates}** (the iterates). For an index set E_0 with min Re E_0 > 3/2 + 2γ_Υ, ⟨E_0⟩ denotes the
+smallest index set containing E_0 and satisfying (2)–(3) of [[def:iii-c-3-1]] ([[lem:iii-c-3-2]] (e)), and the proof of
 [[thm:iii-c1-3-1]] builds the sets
 
     ℰ^((0))(E_0) := ⟨E_0⟩,     ℰ^((m+1))(E_0) := ⟨E_0 ∪̄ ℰ^((m))(E_0)⟩,                              {#eq:own-iterates}
@@ -244,13 +192,6 @@ index set containing E_0 and satisfying (2)–(3) of [[def:iii-c-3-1]] ([[lem:ii
 taking ℰ_I^C := ℰ^((J))(E_0), J the number of its repetitions. We write k(F, z) for the largest log order of an index set
 F at z ([[def:s11-b-analysis]] (4)), and 𝒵_Υ := {(3/2 + s, 0) : s ∈ σ_Υ} for the set of points that [[eq:iii-c-3-1]]
 adjoins to ℰ_I^C (each with its translates by ℕ_0).
-
-**Lemma {#lem:own-half-admissible}** (the class is admissible). ℰ_0^½ is an index set, closed under sums, with
-min Re ℰ_0^½ = 2 > 3/2 + 2γ_Υ. Row d1 of [[sec:vi-c-1]] holds for ℰ_0^½ and every ℓ0 ∈ (3, 4) ∖ {7/2}.
-
-*Proof.* (2 + j/2) + (2 + j′/2) = 2 + (j + j′ + 4)/2, so ℰ_0^½ + ℰ_0^½ ⊂ ℰ_0^½ and jℰ_0^½ ⊂ ℰ_0^½; it is closed under +
-ℕ_0 and has finitely many elements below every real number. γ_Υ < ¼ (row u4), so 3/2 + 2γ_Υ < 2. Re π_1 ℰ_0^½ meets (3,
-4) only at 7/2, so ℓ0 ∉ Re π_1 ℰ_0^½, and ℓ0 > 3. ∎
 
 **Lemma {#lem:own-words}** (the smallest set by words). Let A be an index set with min Re A > 3/2 + 2γ_Υ. Then ⟨A⟩ is
 the set of pairs (z, k) with
@@ -325,7 +266,7 @@ Tangherlini metric g_(m′,0), |m′ − m0| < ε_m, at the rate O(t_*^(−2−�
 satisfying row d1 (the setting of [[sec:iii-k-0]]): [[thm:iii-c1-3-1]], [[thm:iii-c2-3-1]], [[prop:iii-c2-4-1]] (any
 index set with positive minimum real part, closed under positive multiples), [[cor:iv3-2-3]], [[lem:viii-1-1]],
 [[thm:iii-k-4-3]], [[prop:vii-3-2]] and [[cor:s27-rate]], with the norm of [[sec:s27-class]] built from ℰ_0. Row d1 holds
-by [[lem:own-half-admissible]]. By [[prop:own-same-index-sets]], ℰ_I^C and Λ are those of [[eq:vii-0-1]], so rows d2,
+by [[lem:half-class]] (a). By [[prop:own-same-index-sets]], ℰ_I^C and Λ are those of [[eq:vii-0-1]], so rows d2,
 w1, w2 and b4 hold with the same choices, and step (6) chooses ε and d_1 for ℰ_0^½. ∎
 
 **Remark {#rem:own-half-changes}** (what the class changes). (a) H^(∞,(ℰ_0^ℤ,ℓ0))_b lies continuously in
@@ -453,7 +394,7 @@ gains ½. The transport (b), L0 φ_j = −½ m_j(ℓ, ℓ) − ½ q_j, integrate
 ĝ_(j+1)), and (c) with coefficients in E_(3/2) (for m_j, Ψ_j and ℓφ_j) and E_(5/2) (for ∂_v φ_j and r⁻¹ Ω φ_j), while
 m_j, ℓφ_j, Ψ_j, r⁻¹ Ω φ_j are in L_2, φ_j and ∂_v φ_j in L_1 and ĝ_(j+1) in O_2, and the known forcing terms lie in L_3;
 so every input of (a) and (c) has exponent at least 3 and every input of (b) at least 2, and each order adds ½.
-After the shell every oscillating profile vanishes ([[lem:own-domain]] (v)) and μ = μ_end. The forcing terms of the stage
+After the shell every oscillating profile vanishes ([[lem:interior-far-part]] (v)) and μ = μ_end. The forcing terms of the stage
 equations are then products of earlier means and terms in μ: two factors r⁻² with two derivatives, a ∂_v of a leading
 coefficient vanishing by the induction (∂_v M_(i,4) = ∂_v M_(i,5) = 0 there, by [[eq:own-flat-recursion]] with M_(i,2) =
 M_(i,3) = 0), or −(μ/r²) ℓℓ, Γ[g0]·∂ and ∂∂g0, which add r⁻² to r⁻⁴ to a factor r⁻²; every one is O(r⁻⁶). So they enter
