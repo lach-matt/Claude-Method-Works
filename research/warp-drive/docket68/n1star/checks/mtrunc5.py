@@ -69,8 +69,8 @@ def main():
               1e-3 * a40[k][0] for k in a40)      # the same M = 32 file in all three
     table = {k: (a40[k][0], a40[k][1], a48[k][1], a56[k][1]) for k in a40}
     L = levels(table)
-    print('M1 (computed) the interior Ric_xx monitor at 800 rows for M = 32, 40, 48, 56, its steps m(M + 8)/m(M), and the '
-          'verdict by the fixed rule; the null-step level L per class: %s' % ', '.join('%s %.2e' % kv for kv in
+    print('M1 (computed) the interior Ric_xx monitor at 800 rows for M = 32, 40, 48, 56, its steps m(M + 8)/m(M), and '
+          'the verdict by the fixed rule; the null-step level L per class: %s' % ', '.join('%s %.2e' % kv for kv in
                                                                                        L.items()))
     verdicts = {}
     for c in CLAIMED:
