@@ -146,16 +146,15 @@ driven by s.
           + Σ_(b,i) c^(bi) (∂_b ∂_i h)(ℓ, ℓ),
 
 where (∂_b ∂_i h)(ℓ, ℓ) := (∂_b ∂_i h_mn) ℓ^m ℓ^n, c0, …, c3 are bounded coefficients (profiles, and profiles times the
-function q of the proof, which depends on w and so is not a profile; the terms 2 g0^(ab) ∂_a(ℓ ⊗ ℓ)·∂_b h and h·□̃(ℓ ⊗ ℓ) carry no q), the sum runs over pairs with
-i spatial, |c^(bi)| ≤ C(λ + |w|) and |∂c^(bi)| ≤ C(1 + |∂w|), and 𝒬_φ(ℓ, ℓ) contains no second derivative of φ. There is
-no coefficient of size 1/λ.
+function q of the proof, which depends on w and so is not a profile; the terms 2 g0^(ab) ∂_a(ℓ ⊗ ℓ)·∂_b h and h·□̃(ℓ ⊗ ℓ)
+carry no q), the sum runs over pairs with i spatial, |c^(bi)| ≤ C(λ + |w|) and |∂c^(bi)| ≤ C(1 + |∂w|), and 𝒬_φ(ℓ, ℓ)
+contains no second derivative of φ. There is no coefficient of size 1/λ.
 
 *Proof.* □̃ s = (□̃ h)(ℓ, ℓ) + 2 g0^(ab) ∂_a(ℓ ⊗ ℓ)·∂_b h + h·□̃(ℓ ⊗ ℓ). Write g0^(ab) ∂_a ∂_b = q g^(ab) ∂_a ∂_b + Σ
-c^(bi) ∂_b ∂_i with q := g0^(ττ)/g^(ττ); here g^(ττ) ≠ 0, since the slices stay spacelike for g ([[lem:domain]] (e)),
-and c^(bi) = O(|g⁻¹ − g0⁻¹|) = O(λ + |w|); so (□̃ h)(ℓ, ℓ) = q (g^(ab) ∂_a ∂_b h)(ℓ, ℓ) + Σ c^(bi) (∂_b ∂_i h)(ℓ,
-ℓ). Contract [[eq:ue-h]] with ℓ ⊗ ℓ: G2(ℓ, ℓ) = G1(ℓ, ℓ) = 0 removes the 1/λ
-terms and the □̃_app φ term exactly; B1·∂φ and C1 φ stay of first order; the second derivatives of φ in 𝒬_φ multiply G1
-and also drop. ∎
+c^(bi) ∂_b ∂_i with q := g0^(ττ)/g^(ττ); here g^(ττ) ≠ 0, since the slices stay spacelike for g ([[lem:domain]] (e)), and
+c^(bi) = O(|g⁻¹ − g0⁻¹|) = O(λ + |w|); so (□̃ h)(ℓ, ℓ) = q (g^(ab) ∂_a ∂_b h)(ℓ, ℓ) + Σ c^(bi) (∂_b ∂_i h)(ℓ, ℓ).
+Contract [[eq:ue-h]] with ℓ ⊗ ℓ: G2(ℓ, ℓ) = G1(ℓ, ℓ) = 0 removes the 1/λ terms and the □̃_app φ term exactly; B1·∂φ and
+C1 φ stay of first order; the second derivatives of φ in 𝒬_φ multiply G1 and also drop. ∎
 
 **Lemma {#lem:commutator-transport}** (The commutator transport.) Ψ := □̃ φ satisfies
 

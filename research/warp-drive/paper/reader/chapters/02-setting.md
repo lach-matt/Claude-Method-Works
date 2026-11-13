@@ -191,10 +191,12 @@ determinant (m − 1)(m + 1) − m² = −1.
 
 (b) By [[eq:kretschmann-f]], 𝒦 = 36 μ²/r⁸ + 6 · 4μ²/r⁸ + 12 μ²/r⁸ = 72 μ²/r⁸, for every μ(v). For the spheres
 S_(v,r) := {v, r = const}, the null normals lie in the span of ∂_v and ∂_r of the (v, r) form; ∂_r is null, and
-∂_v + (f/2) ∂_r is null. In Cartesian terms ∂_r of the (v, r) form is ℓ = −∂_τ + x̂·∂_x, past directed, and ∂_v is
-∂_τ, future directed. The expansion of a normal N of S_(v,r) is (3/r) N(r), so the future ingoing normal −∂_r has
-expansion −3/r and the future outgoing normal ∂_v + (f/2) ∂_r has expansion 3f/(2r). Normalised by n(τ) = 1, where
-(∂_v + (f/2)∂_r)(τ) = 1 − f/2 = (1 + μ/r²)/2, the outgoing expansion is
+n⁺ := ∂_v + (f/2) ∂_r is null. We time-orient g0 by dτ, which is timelike by (d): a causal vector Y is future directed
+when dτ(Y) > 0. In Cartesian terms ∂_r of the (v, r) form is ℓ = −∂_τ + x̂·∂_x = −L0, and ∂_v is ∂_τ; so −∂_r = L0 is
+future directed, since L0(τ) = 1, and n⁺ is future directed, since dτ(n⁺) = 1 − f/2 = (1 + μ/r²)/2 > 0. The expansion
+of a normal N of S_(v,r) is (3/r) N(r), so the future ingoing normal −∂_r has expansion −3/r and the future outgoing
+normal n⁺ has expansion 3f/(2r). Normalised by n(τ) = 1, that is divided by dτ(n⁺) = (1 + μ/r²)/2, the outgoing
+expansion is
 
     θ⁺ = (2r²/(r² + μ)) · 3(1 − μ/r²)/(2r),
 
@@ -224,7 +226,8 @@ g0^(ab) ∂_a∂_b L0^i = 3 x^i/r³. Hence
 On the other side, □̃ u = −∂_τ² u + Δu − m L0 L0 u and (∂_τ + ∂_r)(∂_τ − ∂_r) u = ∂_τ² u − ∂_r² u, so
 (2/r)(□̃ u + (∂_τ + ∂_r) L0 u) = (2/r)(Δu − ∂_r² u) − (2μ/r³) L0 L0 u, which is the same.
 
-(f) Since det g0 = −1, g0^(ab) Γ[g0]^ρ_ab = −∂_a g0^(aρ) = ∂_a(m L0^a L0^ρ) = L0^ρ ∂_a(m L0^a). With
+(f) Since det g0 = −1, g0^(ab) Γ[g0]^ρ_ab = −∂_a g0^(aρ) = ∂_a(m L0^a L0^ρ) = L0^ρ ∂_a(m L0^a), because
+m L0^a ∂_a L0^ρ = m L0(L0^ρ) = 0 by the proof of (e). With
 ∂_i μ(v) = μ' x̂_i, ∂_a(m L0^a) = μ'/r² − μ'/r² − μ ∂_i(x^i/r³) = −μ/r³, because ∂_i(x^i/r³) = 4/r³ − 3/r³ in R⁴.
 So H0^ρ = −(μ/r³) L0^ρ. ∎
 
@@ -243,7 +246,7 @@ and r_q ≤ √μ, so that it lies inside or on the horizon, exactly when r_q⁴
     D_T := { v ≤ v_end + T,  r ≥ r_q(v) },                                                          {#eq:dt}
 
 the region from past null infinity to the curvature boundary, up to the time T after the shell has passed. Put
-V := v_end + T and q0 := r_q(μ0) := (√72 μ0 l5²)^(1/4), so q0 ≤ √μ0. Fix 0 < δ0 < q0, a := q0 − δ0, τ0 with
+V := v_end + T and q0 := (√72 μ0 l5²)^(1/4), the value of r_q for v ≤ v_start, so q0 ≤ √μ0. Fix 0 < δ0 < q0, a := q0 − δ0, τ0 with
 v_start − τ0 > √μ0 + 1 (on Σ_τ0 := {τ = τ0} the shell lies outside the seed's horizon: the slice is before the shell
 reaches the hole), and τ_end := max_(v ≤ V) (v − r_q(v)). Let
 
@@ -273,7 +276,7 @@ and v is fixed, so r ≥ a and v + (τ − τ_end) ≤ V + 1 are kept. (e): the 
 L0(τ) = 1 are open conditions in g on the compact set Ω; a past causal curve from p cannot cross {r = a} or
 {v + τ = const} outward, by (b) and (c), nor Σ_τ_end. (f): b decreases in τ, and b(τ_end) = V + 1 − τ_end =
 min_(v ≤ V) (V − v + r_q(v)) + 1 ≥ q0 + 1; a point of D_T has v ≤ V, r ≥ r_q(v) ≥ q0 > a and τ = v − r ≤
-v − r_q(v) ≤ τ_end. ∎
+v − r_q(v) ≤ τ_end, hence also v + (τ − τ_end) ≤ v ≤ V < V + 1. ∎
 
 So every part of the boundary of Ω other than Σ_τ0 is spacelike with Ω to its past, Ω is a domain of dependence of
 Σ_τ0 ∩ Ω, and so is Ω for every Lorentzian metric within ε1 of g0.
@@ -296,7 +299,7 @@ trace g0^(ab) Γ[g0]^ρ_ab is H0 of [[prop:vaidya]] (f). Second derivatives of g
 −(1/2) g^(ab) ∂_a ∂_b g.
 
 D is a vector field and Ric^H a tensor, built from g and g0 alone, so both are invariant under the isometries of g0,
-which form O(4) acting on x and contain G, and they may be computed in any coordinates. D(g0) = 0, so Ric^H(g0) =
+which include O(4) acting on x and so contain G, and they may be computed in any coordinates. D(g0) = 0, so Ric^H(g0) =
 Ric(g0), which is not zero; this is why Q needs a constant part. Ric^H(g) = 0 is a quasilinear wave system, and a
 solution with D = 0 is vacuum.
 

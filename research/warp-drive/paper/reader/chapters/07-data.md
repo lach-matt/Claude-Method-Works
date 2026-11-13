@@ -9,7 +9,8 @@ seed's exactly ([[sec:data-evolution]]). The data then coincide with the seed's 
 
 Notation is that of [[ch:uniform-existence]]. In addition, the ansatz [[eq:ansatz]], G = ḡ + λ W + Σ_(j=2)^(N+1) λ^j ĝ_j
 with the mean metric ḡ = g0 + Σ_(j=1)^(N) λ^j m_j, the phase u = v + Σ_(j=1)^(N) λ^j φ_j and the approximant g_app =
-G(X, u/λ), the two-scale operator R_u of [[def:two-scale]] with the orders ℛ^(m) of the expansion R_u[G] = Σ_m λ^m
+G(X, u/λ) (in (E4), and so in [[thm:data]], g_app is the fixed-phase form [[eq:approximant]] instead; the two differ
+by O(λ^(N+1)) in scaled norms, [[sec:approximant]]), the two-scale operator R_u of [[def:two-scale]] with the orders ℛ^(m) of the expansion R_u[G] = Σ_m λ^m
 ℛ^(m), and the coefficients e_j = 2 ℓ·dφ_j − m_j(ℓ, ℓ) − q_j of ḡ⁻¹(du, du) = Σ_(j≥1) λ^j e_j
 ([[eq:eikonal-coefficients]]) are those of [[ch:approximant]]. Stage 0 is [[lem:stage-zero]]: the wave W = W_TT + χ dv
 dv has W(ℓ, ·) = 0 and tr_g0 W = 0, and χ vanishes on Σ_τ0 ([[eq:chi-transport]]). Where each unknown first enters the
@@ -20,8 +21,10 @@ dr component and is traceless on the spheres {τ, r = const} ([[lem:waves]] (b))
 
 ### The theorem {#sec:data-theorem}
 
-**Theorem {#thm:data}** (Exact data.) For λ small there is a vacuum Cauchy datum (γ, κ) on Σ (the constraints hold
-exactly), with the gauge condition D = 0 imposed through ∂_τ g, whose w := g − g_app satisfies (E4) of
+**Theorem {#thm:data}** (Exact data.) Let K ≥ 6 and N := K + 3, and let g_app be the approximant of
+[[thm:approximant]] with N stages and the stage data of [[lem:stage-data]], in its fixed-phase form [[eq:approximant]].
+For λ small there is a vacuum Cauchy datum (γ, κ) on Σ (the constraints hold exactly), with the gauge condition D = 0
+imposed through ∂_τ g, whose w := g − g_app satisfies (E4) of
 [[thm:uniform-existence]]; it equals the seed's datum on Σ ∩ {r < v_start − τ0}. The datum is smooth and invariant under
 the T² action and both reflections.
 
@@ -141,7 +144,7 @@ with e_(N+1) = −q_(N+1) independent of θ. The unknowns left on Σ are γ_m an
 metric and of the second fundamental form (γ_m is the spatial part of m_m, and, given γ_m, κ_m fixes ∂_τ of that spatial
 part), ∂_τ (m_m)_(τ ·), and ĝ_(m+1).
 
-(i) On Σ the oscillating part of D^(m) is Pol(∂_θ ĝ_(m+1)) + Λ_m(γ_m) + (known), where
+(i) On Σ the oscillating part of D^(m), its index lowered by g0, is Pol(∂_θ ĝ_(m+1)) + Λ_m(γ_m) + (known), where
 
     Pol(Y) := Y(ℓ, ·) − (1/2) dv tr_(g0) Y
 

@@ -1077,9 +1077,9 @@ p̃_z := Re(z⁻¹G_z) = Re(z⁻¹)G_0 + τ_1 + (Re z)g_00.
 *Proof.* By (H2), P^(0) − ((ρD_ρ)² + Δ_(𝕊³)) Id ∈ Diff¹_b + ρ Diff²_b, and Δ_(𝕊³) = Σ_(a<b) Ω_ab* Ω_ab, the rotations
 being divergence free for dx. Since (ρV_1)* = −ρV_1 + ρC^∞ and [ρ, V_1] ∈ ρC^∞,
 h²ρ²(ρD_ρ)² = W_0*W_0 + h²ρ² Diff¹_b and h²ρ²Ω_ab*Ω_ab = W_ab*W_ab + h²ρ² Diff¹_b. An element of h²ρ³ Diff²_b is
-Σ W_j* ρm′_jk W_k modulo h²ρ³ Diff¹_b, the second order part being spanned by products of the V's. W_j^(*h) − W_j* is a
+Σ W_j* ρΞ′_jk W_k modulo h²ρ³ Diff¹_b, the second order part being spanned by products of the V's. W_j^(*h) − W_j* is a
 matrix function times hρ. Take h-self-adjoint parts: the left side of [[eq:i-b-5-6]] is h-self-adjoint, so replacing
-m′ by its h^(⊕J)-self-adjoint part m changes only the remainder, which lies in h²ρ² Diff¹_b = h · hρ² Diff¹_b. Its
+Ξ′ by its h^(⊕J)-self-adjoint part Ξ changes only the remainder, which lies in h²ρ² Diff¹_b = h · hρ² Diff¹_b. Its
 symbol: hρ² Diff¹_b = ρ · hρ Diff¹_b, and hρ Diff¹_b consists of c · hρV + hρd, with semiclassical symbol linear in ζ
 plus O(ρ); so the symbol divided by ρ vanishes at ζ = 0, ρ = 0. For [[eq:i-b-5-7]]: P̃ = z⁻¹h²P̂(0) + hT + zg_00 by
 [[eq:i-b-1-2]], and Im_h(cA) = (Re c) Im_h A + (Im c) Re_h A with Im(z⁻¹) = −Im z/|z|². The symbol of 𝒫̃_1 at the
@@ -1094,8 +1094,8 @@ face is ρ times Re(z⁻¹)r_3 − (S + S^(*h)) plus a term vanishing at R_out, 
     ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−M𝟏)),     𝐨 = (s, 𝗋, 𝖻),      {#eq:i-b-5-8}
 
 and [[eq:i-b-5-4]] holds for P^(*h) at 𝐨* = (s*, −𝗋 − 1, 𝖻*) for every s* and every 𝖻* constant near R_out, with
-B_*, G, E′ as in [[lem:i-b-5-1]]. By (O3) of [[sec:i-a-1-4]] and [[lem:i-a-2-4]], h may be chosen so that the condition
-reads 𝗋 < −½ + S̄ up to any given margin.
+B_*, G, E′ as in [[lem:i-b-5-1]]. By (O3) of [[def:i-a-admissible]] and [[lem:i-a-2-4]], h may be chosen so that the
+condition reads 𝗋 < −½ + S̄ up to any given margin.
 
 *Proof.* [[lem:i-b-5-1]] with c_z = z⁻¹, F the face over ∂X, Λ := R_out, ς := ϵ_♭, case (B): by [[lem:i-b-5-4]],
 h⁻¹ Im_h 𝐏 = ϵ_♭(𝒫̃_1 − ℓ𝒜). Write M̃ = M̃_ext + (1 − χ_1)(M̃ − Id) with M̃_ext := χ_1M̃ + (1 − χ_1)Id, where
@@ -1103,12 +1103,12 @@ h⁻¹ Im_h 𝐏 = ϵ_♭(𝒫̃_1 − ℓ𝒜). Write M̃ = M̃_ext + (1 − χ
 M̃ ≥ ½ Id on {ρ < ρ_2}; then M̃_ext ≥ ½ Id everywhere, and 𝒜_1 := |z|⁻² W^(*h)(1 − χ_1)(M̃ − Id)W (with M̃ extended
 arbitrarily off {ρ < ρ_1}, and the identity [[eq:i-b-5-7]] used only near the base projection of Ū_0).
 𝒜_0 := −g_00 ≥ 0 by (H6). So (ii)(B) holds. By [[eq:i-a-4-4]], at the face 𝖧_z^𝐏 = ⟨ζ⟩⁻¹𝖵_g̃ with
-g̃ := 2ξ + κ(ξ² + |η|²), κ := Re(z⁻¹), and ([[eq:i-a-4-11]]) ρ⁻¹𝖵_g̃ ρ = −2(1 + κξ), 𝖵_g̃(ξ² + |η|²) = −4|η|²,
+g̃ := 2ξ + a_z(ξ² + |η|²), a_z := Re(z⁻¹), and ([[eq:i-a-4-11]]) ρ⁻¹𝖵_g̃ ρ = −2(1 + a_zξ), 𝖵_g̃(ξ² + |η|²) = −4|η|²,
 𝖵_g̃ g̃ = 0; 𝖵_g̃ vanishes at R_out as a vector field on 𝒫. So β_ϱ = −2ϵ_♭ at R_out, and ϵ_♭β_ϱ ≤ −1 near it: for P it
 is a sink; for P^(*h), a source.
 
 For (iii), g := g̃ and φ := ξ² + |η|², extended in a collar. |ρ_∞² z⁻¹G_z| ≥ |Re(z⁻¹Ĝ_z)| ≥ |g̃| − Cρ. On
-{φ ≤ κ^(−2)}, 2ξ = g − κφ gives ξ² ≤ ½(g² + κ²φ²) ≤ ½g² + ½φ, hence |η|² ≥ ½φ − ½g² and
+{φ ≤ a_z^(−2)}, 2ξ = g − a_zφ gives ξ² ≤ ½(g² + a_z²φ²) ≤ ½g² + ½φ, hence |η|² ≥ ½φ − ½g² and
 ς𝖧_z^𝐏 φ = −4ϵ_♭⟨ζ⟩⁻¹|η|² + O(ρ), which is [[eq:i-b-5-1]] (for P at a sink; for P^(*h), at a source).
 (iv) holds by assumption. For (v), by [[lem:i-b-5-4]], ςϵ_♭μ⁻¹p_1^𝐏 = −(S + S^(*h)) at R_out, so
 
@@ -1133,10 +1133,10 @@ equivalent.
 **Lemma {#lem:i-b-5-6}** (The semiclassical form of [[lem:i-a-4-8]].) On {ρ < ρ_1}, for Schwartz u and k ≥ 1,
 u^(k) := ((hV)^α u)_(α∈A_k) satisfies
 
-    P u_α^(k) + Σ_(β∈A_k) hρ 𝒦_αβ u_β^(k)
+    P u_α^(k) + Σ_(β∈A_k) hρ 𝒟_αβ u_β^(k)
         = (hV)^α Pu − α_1 h (hV)^(α′) Pu + Σ_(|β|≤k−1) h^(k−|β|) R_αβ^h (hV)^β u,                          {#eq:i-b-5-10}
 
-with 𝒦_αβ ∈ Ψ^((1,0,0)) semiclassical differential operators whose symbols vanish at R_out, and R_αβ^h ∈ Ψ^((1,−1,0));
+with 𝒟_αβ ∈ Ψ^((1,0,0)) semiclassical differential operators whose symbols vanish at R_out, and R_αβ^h ∈ Ψ^((1,−1,0));
 all depend polynomially on z.
 
 *Proof.* Multiply [[eq:i-a-4-10]], with σ = z/h and f = P̂(σ)u, by h^(2+k): h^(2+k)V^α = h²(hV)^α, h²P̂(σ) = P, and
@@ -1148,7 +1148,7 @@ O(ρ). From σρ(3/2 + S) and from the commutators of 2iσρV_1 beyond the diago
 |β| ≤ k − 1 only; times h², hzρC^∞ ∈ Ψ^((0,−1,−1)). From σQ, Q ∈ ρ³ Diff¹_b: [V^α, Q] and QV^(α′) lie in
 ρ³ Diff^k_b, whose part with |β| = k has coefficients in ρ³C^∞; so σρ³C^∞ on the diagonal level and σρ³ Diff¹_b below
 it; times h², hzρ³C^∞ = hρ · zρ²C^∞ and zρ² · hρ Diff¹_b ⊂ Ψ^((1,−2,0)). From σ²g_00, g_00 ∈ ρ²C^∞: only below the
-diagonal level, σ²ρ²C^∞; times h², z²ρ²C^∞. Collecting: h²P̃_αβ = hρ𝒦_αβ with 𝒦_αβ having symbol linear in ζ plus
+diagonal level, σ²ρ²C^∞; times h², z²ρ²C^∞. Collecting: h²P̃_αβ = hρ𝒟_αβ with 𝒟_αβ having symbol linear in ζ plus
 O(ρ) at the face, so vanishing at R_out; and h²R_αβ ∈ Ψ^((1,−1,0)). ∎
 
 **Proposition {#prop:i-b-5-7}** (Cf. [Hin26c, (9.77)].) In the setting of [[prop:i-b-5-5]], for k ∈ ℕ_0 there are B_*
@@ -1157,10 +1157,10 @@ elliptic at R_out, G and a compact K_E ⊂ Ū_0 ∖ R_out such that for E′ ell
     ‖B_* u‖_(𝐨;k) ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0);k) + ‖E′u‖_(𝐨+k(1,1,0)) + h^M ‖Gu‖_(𝐨;k) + ‖u‖_(−M𝟏)).      {#eq:i-b-5-11}
 
 *Proof.* Induction on k; k = 0 is [[eq:i-b-5-8]]. Let k ≥ 1. The system [[eq:i-b-5-10]] is 𝐏^(k)u^(k) = f^(k) with
-𝐏^(k) := P ⊗ Id + hρ𝒦 on ℂ^(N_E) ⊗ ℂ^(A_k), inner product h^(⊕A_k). Apply [[lem:i-b-5-1]] to 𝐏 := z⁻¹𝐏^(k) exactly
-as in [[prop:i-b-5-5]]. The added term changes nothing that the lemma uses: Re_h(z⁻¹hρ𝒦) ∈ Ψ^((1,−1,−1)) is of lower
+𝐏^(k) := P ⊗ Id + hρ𝒟 on ℂ^(N_E) ⊗ ℂ^(A_k), inner product h^(⊕A_k). Apply [[lem:i-b-5-1]] to 𝐏 := z⁻¹𝐏^(k) exactly
+as in [[prop:i-b-5-5]]. The added term changes nothing that the lemma uses: Re_h(z⁻¹hρ𝒟) ∈ Ψ^((1,−1,−1)) is of lower
 order (its commutator with Ǎ², divided by h, lies in Ψ^(2𝐨−𝟏+ϵ′𝟏), Ǎ being scalar), and
-h⁻¹ Im_h(z⁻¹hρ𝒦) = Im_h(z⁻¹ρ𝒦) ∈ Ψ^((1,−1,0)) is added to 𝒫̃_1 ⊗ Id, with μ⁻¹ times its symbol vanishing at R_out.
+h⁻¹ Im_h(z⁻¹hρ𝒟) = Im_h(z⁻¹ρ𝒟) ∈ Ψ^((1,−1,0)) is added to 𝒫̃_1 ⊗ Id, with μ⁻¹ times its symbol vanishing at R_out.
 So the threshold matrix is 𝒯 ⊗ Id, the same. This gives [[eq:i-b-5-8]] for u^(k), with G𝐏^(k)u^(k) = Gf^(k). Now
 ‖G(hV)^α Pu‖_𝐭 + ‖G h(hV)^(α′) Pu‖_𝐭 ≤ C‖G̃Pu‖_(𝐭;k) + C‖u‖_(−M𝟏), 𝐭 := 𝐨 − 𝐦 + (1, 1, 0), with G̃ elliptic on
 WF′_h(G); and, G being microsupported at finite frequencies,
@@ -1181,21 +1181,23 @@ equals 1 near K_Γ, and ‖u‖_(−M) := ‖χ_Γ u‖_(H_h^(−M)). By [[lem:i
 product of a trivialisation of E over K_Γ. For h_Γ from the base this is the choice of an h_Γ-orthonormal frame, the
 adjoint in another fibre inner product being conjugate to this one by a matrix function ([[prop:i-a-4-2]]); for h_Γ on
 phase space it is the replacement of P by P_Q, every estimate being carried back by [[lem:i-b-6-0]] (d). Adjoints are
-then ordinary adjoints. A small number ε_Γ > 0, fixed in [[sec:i-b-6-1]], measures the neighbourhoods Γ(δ) of Γ used
-throughout this section.
+then ordinary adjoints. A small number ε_Γ > 0 and the compact neighbourhoods Γ(δ), 0 < δ ≤ ε_Γ, of Γ, defined through
+φ_u, φ_s and G_(z_0), are fixed in [[sec:i-b-6-1]] and used throughout this section.
 
 #### Inner products on phase space {#sec:i-b-6-0}
 
 **Lemma {#lem:i-b-6-0}** (Cf. [Hin26c, (5.9)] and [Hin17, Proposition 3.12].) Let h_Γ be a smooth fibre inner product on
 π*E over a neighbourhood of Γ, given in the trivialisation of E over K_Γ by a positive definite Hermitian matrix
 function b(x, ζ). At z = z_0, G := G_(z_0) is real, and h⁻¹ Im P and h⁻¹(Re P − Op_h(G)), taken in the standard inner
-product, are of order 0 near Γ; let p_1 (as in [[eq:i-b-6-1]]) and r be their symbols (r is Hermitian up to a scalar
-that depends on the quantisation and drops out below). Put
+product, are of order 0 near Γ; let p_1 and r be their symbols (r is Hermitian up to a scalar that depends on the
+quantisation and drops out below). Here p_1 is the p_1(z_0) of [[lem:i-b-1-1]] (b), as h⁻¹ Im P = 𝒫_1(z_0) at
+Im z = 0 by [[eq:i-b-1-3]]; [[eq:i-b-6-1]] below writes p^♮ = z_0 p_1. Put
 
     p_1^(h_Γ) := ½(p_1 + b⁻¹p_1b) + (i/2) b⁻¹[r, b] + ½ b⁻¹H_G b,                                       {#eq:i-b-6-0}
 
 which is h_Γ-self-adjoint (b p_1^(h_Γ) is Hermitian, term by term) and equals p_1 when b = Id. Let ψ_Γ ∈ C_c^∞,
-0 ≤ ψ_Γ ≤ 1, equal 1 near Γ, supported in Γ(ε_Γ/3) ([[sec:i-b-6-5]]) and in the domain of b; let
+0 ≤ ψ_Γ ≤ 1, equal 1 near Γ, supported in Γ(ε_Γ/3) (the set of [[sec:i-b-6-1]] near which the operator of
+[[sec:i-b-6-5]] agrees with P) and in the domain of b; let
 b̃ := ψ_Γ b + (1 − ψ_Γ) Id, q := b̃^(1/2) (the positive square root) and Q := Op_h(q). Then for h < h_0:
 
 (a) Q is invertible on L² and on every H_h^𝐨, and Q − I and Q⁻¹ − I lie in Ψ^(−∞), microsupported in supp ψ_Γ up to
@@ -1253,7 +1255,7 @@ replaced by 1. Write H := H_(G_(z_0)), ℓ := Im z/h ≥ 0, and, on a neighbourh
 
 q^♮ ≥ 2β_0 on Γ by (H7) and [[lem:i-b-1-1]] (e), p^♮ is the endomorphism p_1^Γ of [[eq:i-b-1-4]] on Γ, and both depend
 on Re z = z_0 only ([[lem:i-b-1-1]] (b)). For a real scalar a ∈ C_c^∞ near Γ and A = A* quantising a Id, the operator C
-of [[eq:i-b-3-1]] for 𝐏 satisfies, by [[eq:i-b-4-3]],
+of [[eq:i-b-3-1]] for 𝐏, with A in place of Ǎ², satisfies, by [[eq:i-b-4-3]],
 
     σ(ςC) = ςH_(Re G_z) a + 2a(p^♮ − ℓq^♮),     ςH_(Re G_z) a = Va + O((Im z)²)                           {#eq:i-b-6-2}
 

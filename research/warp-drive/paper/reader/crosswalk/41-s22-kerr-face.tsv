@@ -1,0 +1,74 @@
+label	source	source_name	note
+ch:s22	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:15; docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:14; docket68/n1star/proof5/PART-III-I13-EXPANSION.md:13; docket68/n1star/proof5/PART-III-I14-LEVELS.md:16	III.I(10)-(13) intros	heading and introduction composed from the four parts' kept intros (what n = 4 changes)
+sec:s22-setting	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:23; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:37; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:158; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:645	III.I(15) intro, L1.1 (P1)-(P6), T3.1 items (i), (iii), (vi)	private key: the base point b, statements at b, v1 terms at a rotating b; inner radius per BEYOND5-R0-PROOF section 5
+sec:iii-i10-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:28	III.I(10) section 1	
+eq:iii-i10-1-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:54	III.I(10) (1.1)	
+def:iii-i10-1-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:66	III.I(10) Def 1.1	K(lambda), L_0, N_* written kbar(lambda), kbar_0, J_*; E_col independent of b by III.I(15) T3.1 (iii)
+eq:iii-i10-1-2	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:81	III.I(10) (1.2)	
+lem:iii-i10-1-2	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:87	III.I(10) Lemma 1.2	historical parenthesis at 140-142 dropped
+def:iii-i10-1-3	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:152	III.I(10) Def 1.3	the gap (G); cited by the paper's Theorem 4
+sec:iii-i10-2	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:167	III.I(10) section 2	
+lem:iii-i10-2-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:169	III.I(10) Lemma 2.1 at b	(c) at b keeps the v1 bottom chi_K t^-lambda0 h_(b,v1)(V) on the left (III.I(15) Prop 2.2 (a) proof); source form at b_0
+eq:iii-i10-2-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:175	III.I(10) (2.1)	
+eq:iii-i10-2-2	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:194	III.I(10) (2.2) at b	v1 bottom added (zero at b_0)
+eq:iii-i10-2-3	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:200	III.I(10) (2.3)	
+lem:iii-i10-2-2	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:229; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:143	III.I(10) Lemma 2.2; at b III.I(15) L1.2	b-form cited to lem:iii-i15-1-2
+cor:iii-i10-2-3	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:245; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:154	III.I(10) Cor 2.3; at b III.I(15) L1.2 proof	
+lem:iii-i10-2-4	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:260	III.I(10) Lemma 2.4	classical; proof in full
+sec:iii-i10-3	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:320	III.I(10) section 3	
+prop:iii-i10-3-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:329; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:194	III.I(10) Prop 3.1 at b	(b) with the v1 bottoms u^rot_iota isolated; III.I(15) Prop 2.2 (a) makes them rotation rows
+sec:iii-i11-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:29	III.I(11) section 1	zero energy orders mu_j written q_j; tf-weight tau written kappa
+eq:iii-i11-1-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:41	III.I(11) (1.1)	
+lem:iii-i11-1-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:73; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:714	III.I(11) Lemma 1.1; at b III.I(15) T3.1 (iii)	b-independence of E_col argued as T3.1 (iii) does, without its explicit set (issue 1); G(zeta,x) written G(xi,x)
+sec:iii-i11-2	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:108	III.I(11) section 2	
+lem:iii-i11-2-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:110	III.I(11) Lemma 2.1	
+lem:iii-i11-2-2	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:131	III.I(11) Lemma 2.2	
+eq:iii-i11-2-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:136	III.I(11) (2.1)	
+lem:iii-i11-2-3	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:163	III.I(11) Lemma 2.3	v1 term written from III.G4 (4.4), G_v1 with sigma^-1: own c_v1 and a P_int term; pending issue-2
+eq:iii-i11-2-2	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:171	III.I(11) (2.2)	
+lem:iii-i11-2-4	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:204	III.I(11) Lemma 2.4	
+lem:iii-i11-2-5	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:220	III.I(11) Lemma 2.5	
+eq:iii-i11-2-3	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:227	III.I(11) (2.3)	
+sec:iii-i11-3	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:239	III.I(11) section 3	
+prop:iii-i11-3-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:241; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:206	III.I(11) Prop 3.1 at b	v^rot (level-1 v1 towers with Re alpha_0 = 2) isolated at b; III.I(15) Prop 2.2 (b) makes them rotation rows
+eq:iii-i11-3-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:244	III.I(11) (3.1) at b	v^rot added
+lem:iii-i11-3-2	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:403; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:249	III.I(11) Lemma 3.2 at b	u^rot = u^rot_iota + v^rot isolated; splitting at b per III.I(15) T3.1 item (i)
+eq:iii-i11-3-2	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:409	III.I(11) (3.2) at b	
+lem:iii-i11-3-3	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:429; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:257	III.I(11) Lemma 3.3 at fixed b	reference operator L_(0,p_b) as in III.I(15) Lemma 2.4
+sec:iii-i11-4	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:437	III.I(11) section 4	
+thm:iii-i11-4-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:446; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:667	III.I(11) Thm 4.1 at b_0	at b its form is III.I(15) Prop 2.5 with q = 0 (T3.1 list); said in a closing sentence
+eq:iii-i11-4-1	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:449	III.I(11) (4.1)	
+eq:iii-i11-4-2	docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:452	III.I(11) (4.2)	
+sec:iii-i12-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:28	III.I(12) section 1	table rows rho written psi (rho is the defining function)
+def:iii-i12-1-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:38	III.I(12) Def 1.1	generic coefficient space Y written Z
+eq:iii-i12-1-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:42	III.I(12) (1.1)	
+sec:iii-i12-2	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:79	III.I(12) section 2	
+lem:iii-i12-2-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:90	III.I(12) Lemma 2.1	
+eq:iii-i12-2-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:96	III.I(12) (2.1)	
+lem:iii-i12-2-2	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:129	III.I(12) Lemma 2.2	Taylor variable theta written s
+eq:iii-i12-2-2	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:136	III.I(12) (2.2)	
+lem:iii-i12-2-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:171	III.I(12) Lemma 2.3 at b_0	space G written G_*; b-form lem:iii-i15-2-9 (a)-(b)
+lem:iii-i12-2-4	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:216	III.I(12) Lemma 2.4 at b_0	exponent set I written I_*; b-form lem:iii-i15-2-9 (c)
+eq:iii-i12-2-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:217	III.I(12) (2.3)	
+eq:iii-i12-2-4	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:224	III.I(12) (2.4)	
+sec:iii-i12-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:271	III.I(12) section 3	
+thm:iii-i12-3-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:273	III.I(12) Thm 3.1 at b_0	a closing remark records the properties of the setting its proof uses (the hypothesis of cor:iii-i15-2-10)
+eq:iii-i12-3-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:275	III.I(12) (3.1)	
+eq:iii-i12-3-2	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:280	III.I(12) (3.2)	
+eq:iii-i12-3-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:283	III.I(12) (3.3)	
+eq:iii-i12-3-4	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:389	III.I(12) (3.4)	
+sec:iii-i13-1	docket68/n1star/proof5/PART-III-I14-LEVELS.md:26	III.I(13) section 1	motivation from the kept intro; the status paragraph's pointers dropped
+def:iii-i13-1-1	docket68/n1star/proof5/PART-III-I14-LEVELS.md:35	III.I(13) Def 1.1	
+def:iii-i13-1-2	docket68/n1star/proof5/PART-III-I14-LEVELS.md:52	III.I(13) Def 1.2	
+lem:iii-i13-1-3	docket68/n1star/proof5/PART-III-I14-LEVELS.md:60	III.I(13) Lemma 1.3	
+sec:iii-i13-2	docket68/n1star/proof5/PART-III-I14-LEVELS.md:91	III.I(13) section 2	
+prop:iii-i13-2-1	docket68/n1star/proof5/PART-III-I14-LEVELS.md:93	III.I(13) Prop 2.1 at b	v^rot_beta for beta > 4
+eq:iii-i13-2-1	docket68/n1star/proof5/PART-III-I14-LEVELS.md:99	III.I(13) (2.1) at b	
+lem:iii-i13-2-2	docket68/n1star/proof5/PART-III-I14-LEVELS.md:152; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:249	III.I(13) Lemma 2.2 at b	u^rot_beta isolated; III.I(15) Lemma 2.4 makes it rotation rows
+eq:iii-i13-2-2	docket68/n1star/proof5/PART-III-I14-LEVELS.md:158	III.I(13) (2.2) at b	
+lem:iii-i13-2-3	docket68/n1star/proof5/PART-III-I14-LEVELS.md:172; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:257	III.I(13) Lemma 2.3 at fixed b	
+prop:iii-i13-2-4	docket68/n1star/proof5/PART-III-I14-LEVELS.md:178	III.I(13) Prop 2.4 at b_0	at b used only inside III.I(15) Prop 2.5 (T3.1 list)
+sec:iii-i15-2-7	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:456	III.I(15) section 2.7	rotation-state identity h_(b,v1)(V) = gdot_b(bdot_V) taken with its proof from the remark after III.I(15) L1.2 (158-167)
+eq:iii-i15-2-6	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:465	III.I(15) (2.6)	
+lem:iii-i15-2-9	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:470	III.I(15) Lemma 2.9	reviewer attributions dropped
+cor:iii-i15-2-10	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:518	III.I(15) Cor 2.10	hypothesis written as the properties the proof of Thm 3.1 uses (u = u_0 minus rows and rotation rows)

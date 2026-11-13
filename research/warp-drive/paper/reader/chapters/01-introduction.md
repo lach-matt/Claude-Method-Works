@@ -56,15 +56,15 @@ and at past null infinity they obey the five-dimensional Bondi mass law with the
 Beyond that domain, and outside the black hole, we prove that in the class the development of a continuation of their
 data beyond a ball about the hole settles at late times to five-dimensional Tangherlini of a nearby mass, and that the
 developments of their perturbations without symmetry that are small in Hintz's data class settle to slowly rotating
-Myers–Perry black holes ([[thm:settling]]). The route is Hintz's proof of the nonlinear stability of Kerr [Hin26], carried into five
-dimensions: every input that depends on the dimension is established at Tangherlini, the class removes his boosts,
-rotations and their gauge modifications, and without it they are restored, with the inputs at every nearby
+Myers–Perry black holes ([[thm:settling]]). The route is Hintz's proof of the nonlinear stability of Kerr [Hin26],
+carried into five dimensions: every input that depends on the dimension is established at Tangherlini, the class removes
+his boosts, rotations and their gauge modifications, and without it they are restored, with the inputs at every nearby
 Myers–Perry parameter proved by perturbation from Tangherlini, in the manner of [HHV21], and the charges by which the
 gluing at large radius matches the Myers–Perry family determined. The proof is written out in full in spacetime
-dimension n + 1 = 5: his stability paper, the parts of his companion papers [Hin26a, Hin26c, Hin23a] that the route uses, and the gluing of
-[CD03], part by part, from statements of those papers that hold in every dimension. We also prove that the
-development of g_λ's own data settles, with no gluing, in a class wider by half-integer orders, and the linear
-solution's settling in a Regge–Wheeler-type gauge and in harmonic gauge; and we prove the two-dust and
+dimension n + 1 = 5: his stability paper, the parts of his companion papers [Hin26a, Hin26c, Hin23a] that the route
+uses, and the gluing of [CD03], part by part, from statements of those papers that hold in every dimension. We also
+prove that the development of g_λ's own data settles, with no gluing, in a class wider by half-integer orders, and the
+linear solution's settling in a Regge–Wheeler-type gauge and in harmonic gauge; and we prove the two-dust and
 restricted-Vlasov counterparts, state the constants, and state the scope.
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
@@ -139,17 +139,17 @@ no data imposed far out ([[ch:data]]); (7) a gauge hierarchy making D vanish to 
 
 ### Scope {#sec:introduction-scope}
 
-[[thm:main]], [[thm:past-construction]] and [[thm:bondi-law]] are made on D_T, Ω and the past domain of
-[[thm:past-construction]], whose inner boundary r = a lies a fixed distance inside x_K = 1; beyond them [[thm:settling]] is stated outside the black hole, and its development also
-reaches inside the black hole after the shell, up to the curvature boundary ([[prop:interior]]). Below the inner
-boundary the theorems are not silent: the boundary sits at the curvature scale l5, which is arbitrary, and a smaller l5
-puts every point with r > 0 and v ≤ v_end + T inside D_T, since r_q(v) = (√72 μ(v) l5²)^(1/4) tends to 0 with l5, the
-constants then depending on l5; at r = 0 the limit itself is singular, its Kretschmann scalar being 72 μ²/r⁸
-([[prop:vaidya]]). The thresholds λ0, λ1 and δ exist by the proofs and are not evaluated; [[prop:lambda0]] bounds λ0
-above at a numerical point, and [[ch:explicit-constants]] states where the explicit evaluation of λ1 and δ stops. A
-high-frequency theorem, whose expansion parameter is the wavelength over the curvature length, does not apply at a
-prescribed wavelength of 10 l5; there existence holds where the solution is the seed ([[thm:ten-l5]]). [[ch:scope]]
-collects these statements.
+[[thm:main]], [[thm:past-construction]] and [[thm:bondi-law]] are made on D_T, on Ω and on the past domain of
+[[thm:past-construction]], the last two bounded inside by r = a, a fixed distance inside x_K = 1; beyond them
+[[thm:settling]] is stated outside the black hole, and its development also reaches inside the black hole after the
+shell, up to the curvature boundary ([[prop:interior]]). Below the inner boundary the theorems are not silent: the
+boundary sits at the curvature scale l5, which is arbitrary, and a smaller l5 puts every point with r > 0 and v ≤
+v_end + T inside D_T, since r_q(v) = (√72 μ(v) l5²)^(1/4) tends to 0 with l5, the constants then depending on l5; at r = 0 the
+limit itself is singular, its Kretschmann scalar being 72 μ²/r⁸ ([[prop:vaidya]]). The thresholds λ0, λ1 and δ exist by
+the proofs and are not evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and [[ch:explicit-constants]]
+states where the explicit evaluation of λ1 and δ stops. A high-frequency theorem, whose expansion parameter is the
+wavelength over the curvature length, does not apply at a prescribed wavelength of 10 l5; there existence holds where
+the solution is the seed ([[thm:ten-l5]]). [[ch:scope]] collects these statements.
 
 ### Organisation of the paper {#sec:organisation}
 
