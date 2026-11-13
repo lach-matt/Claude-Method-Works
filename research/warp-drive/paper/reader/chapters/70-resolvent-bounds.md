@@ -1429,7 +1429,8 @@ Together with [[prop:morawetz-resolvent-l-ge-1]] and [[prop:morawetz-l-zero]], w
 
 **Proposition {#prop:band-points}** (Sampled frequencies.) For every harmonic l ≥ 0, ‖χ_I R_l(σ) χ_I‖ is at most
 8.878, 4.683, 5.990, 4.097, 3.022 and 2.252 at |σ| = 3, 6, 12, 24, 48 and 96; at most 2.024, 1.869 and 1.743
-at |σ| = 128, 160 and 192; and at most 1.677, 1.815 and 1.963 for every |σ| in [s − 1/20, s] with s = 256, 320 and 384.
+at |σ| = 128, 160 and 192; and at most 1.677, 1.815 and 1.963 for every |σ| in [σ_+ − 1/20, σ_+] with σ_+ = 256, 320
+and 384.
 
 *Proof.* At |σ| = 3, [[prop:band-polynomial]] with zΨ_5 gives B♯(3) < 8.878 for l ≥ 5, and [[lem:band-barrier]] gives
 4.531 for l ≤ 4. At |σ| = 6, zΨ_11 gives B♯(6) < 4.683 for l ≥ 11 and [[lem:band-barrier]] gives 4.100 for l ≤ 10. At
@@ -1445,8 +1446,8 @@ subintervals ending at |σ| = 128, 160, 192, 256, 320 and 384 (0.43792 at 384 wh
 largest value on [3, 384] is 11.477, on [3.2, 3.25]. These values times |σ|^(1/2) are 9.77, 9.20 and 8.58
 at |σ| = 96, 192 and 384 (the last with 0.43792), so between |σ| = 96 and 384 they decay roughly like |σ|^(−0.6); the
 scaling of the best multiplier at the trapped harmonic (the l with max V_l nearest σ²) suggests |σ|^(−1/2) for
-larger |σ|. These values are not proved here ([[prop:band-points]] proves weaker ones from |σ| = 12 on), and no proof
-uses them.
+larger |σ|. The values from |σ| = 12 on and the decay are not proved here ([[prop:band-points]] proves weaker ones),
+and no proof uses them; the largest value, 11.477, is the constant of [[thm:band]].
 
 #### One derivative on the band {#sec:band-one-derivative}
 
@@ -1473,7 +1474,7 @@ X < (1 + 32.171)/(15/128) < 283.06; at l = 0, 2m′(M′ + 768)B̃ = (3315/32768
 increment by 1 has square root less than 29.8862, so X_0 < (1 + 29.8862)(32768/3315) < 305.31.
 
 For the sum, [[cor:morawetz-one-derivative]] (a) with B*_l replaced by B̃ gives, for l ≥ 2,
-κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))J‖F_l‖², J := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.88 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
+κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))J♯‖F_l‖², J♯ := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.88 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
 κ ≥ 8. So for l ≥ 2 the harmonic contributes at most (283.06² + (8/5)(9389.0))‖F_l‖² < 308.46²‖F_l‖²; for l = 1 at
 most (283.06² + 3B̃²)‖F_1‖² < 283.76²‖F_1‖²; and for l = 0 at most 305.31²‖F_0‖². Summing over l, with
 ‖∂_(r_*)u‖_I² = Σ_l‖u_l′‖_I² and ‖F‖² = Σ_l‖F_l‖² by the orthogonality of the harmonics, gives C ≤ 308.46. ∎
@@ -1485,7 +1486,7 @@ numerical solutions of the radial equation (with at least 40 grid points per wav
 maximum is 2.887 + 0.459 log σ to within 0.004; between them the maximum oscillates in σ with a period of about 1/2,
 the spacing of the barrier tops, and near σ = 12 it lies up to about 1.7 % above that fit. At σ = 128 and 160 it is
 0.0399913 and 0.0326365 (l = 255 and 319). So the bounds of [[prop:band-points]] lie between 7.5 and 58 times above
-these values at the sampled frequencies, the ratio growing with σ. With one multiplier of fixed width for every
+these values at the sampled frequencies, the ratio growing with σ from σ = 6 on. With one multiplier of fixed width for every
 frequency, the bound of [[lem:morawetz-identity]] grows instead like |σ|: maximised over l, with the best of forty tanh
 widths at each σ, it is 253, 429, 800, 1554, 3068 and 6099 at σ = 3, 6, 12, 24, 48 and 96, set by l = 1. No proof uses
 these values.
@@ -1502,8 +1503,9 @@ interval r_2 ≤ r ≤ r_1, that is 1/r_1² ≤ y ≤ 1/r_2². Since η increase
 least value on a piece is at an end, and "η ≥" is that value rounded down; "η ≤" is its greatest value on the piece,
 rounded up (6√15/125 < 0.18591 on a piece that contains y = 3/5). An entry of a column headed "product ≥" (respectively
 "product ≤") is the product of the exact factors, rounded down (respectively up), and not the product of the
-printed factors, from which it may differ in the last digit; the product of the printed factors satisfies the same
-bound against the constant of its table.
+printed factors, from which it may differ in the last digit; on a piece containing y = 3/5 the factor η is taken as
+0.18591 in a "product ≤" entry. The product of the printed factors satisfies the same bound against the constant of
+its table.
 
 #### The weight polynomials {#sec:tb-morawetz-weights}
 
@@ -2108,8 +2110,7 @@ at the right end of the piece.
 
 ### Tables for the resolvent bound on the band {#sec:tb2}
 
-These tables carry the numbers used by [[prop:band-polynomial]], [[thm:band]], [[prop:band-points]] and
-[[cor:band-one-derivative]]. The notation is that of [[sec:band]]: y = 1/r², z = 1 − 2y, v := 1/r = y^(1/2),
+These tables carry the numbers used by [[prop:band-polynomial]], [[thm:band]] and [[prop:band-points]]. The notation is that of [[sec:band]]: y = 1/r², z = 1 − 2y, v := 1/r = y^(1/2),
 η = (1 − y)y^(3/2) = (1 − v²)v³, I = {1/4 ≤ v ≤ 5/6} = {−7/18 ≤ z ≤ 7/8}, κ = l(l + 2) and a = κ + 3/4. The Bernstein
 coefficients of a polynomial p on a piece are the numbers b_0, …, b_n of [[lem:bernstein-lower-bound]], with that piece
 as the interval there and n the degree of p.

@@ -1032,19 +1032,23 @@ its own generator; (d) every mixed harmonic e^(i j·θ) with at least two nonzer
 divided by Q_j. The bound on |j|₁: the waves W_A carry the first harmonic of θ_A and, through their gauge parts, the
 second, so g_1 has |j|₁ ≤ 2; a product of profiles ĝ_(l_1), …, ĝ_(l_p) enters the expansion of the reduced Ricci tensor
 at order λ^(l_1 + ⋯ + l_p − 2) at most, and, by induction on the stage, ĝ_l has |j|₁ ≤ 2l, so the residual of order
-λ^m has |j|₁ ≤ 2(m + 2). On the overlaps |Q_j| ≥ 2 ν_B1 ν_B2 c* for |j|₁ ≤ m* = 2N + 4, by (ii′). The phase corrections and the mean change Q_j by O(λ),
-and this change is moved to the next order, as in [[lem:two-dust-nonresonance]], since |j|₁ is bounded at each stage;
-each division costs one derivative, and there are finitely many stages. Every generator through a point of Ω reaches Σ_τ0
-inside Ω, by (Ω), so the Picard argument of [[thm:approximant]] closes the stage system. Stage 0: with g_1 := Σ_A W_A
-and ĝ_2 := q, R[g0 + λ Σ_A W_A + λ² q] has R^(−1) = 0, and its R^(0) is Σ_A (R^(0)_A − Ric(g0)) + Ric(g0) + R^(0)_× + (the
-contribution of q), as in [[lem:two-dust-stage-zero]] (a)–(b) with n phases: a term with two phase derivatives on one
-wave W_A is that of R[g0 + λ W_A], a product of two different waves has only mixed harmonics, and the cross terms of
-order λ⁻¹ vanish since each W_A depends on one phase. By [[lem:vlasov-wave]], R^(0)_A = Ric(g0) − F_A² du_A ⊗ du_A, with
-no oscillating part, the gauge part χ_A k_A ⊗ k_A removing the second harmonic of the quadratic term; the sum of these
-means is Ric(g0) − Σ_A F_A² du_A ⊗ du_A = 0, g0 being the Einstein–n-null-dust solution. The mixed harmonics R^(0)_× are
-removed by the mixed harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ ≤ 4, bounded below
-by (ii′), since q enters R^(0) only through −½ g0^(ab) ∂_a ∂_b, as multiplication of the harmonic e^(i j·θ) by ½ Q_j. The assembly is that of [[thm:two-dust-approximant]]: the stages m = 1, …, N by (a)–(d) above, and the passage
-to the fixed phases ν_A u_A/λ by the Taylor expansion in the phase corrections. ∎
+λ^m has |j|₁ ≤ 2(m + 2). On the overlaps |Q_j| ≥ 2 ν_B1 ν_B2 c* for |j|₁ ≤ m* = 2N + 4, by (ii′). The phase
+corrections and the mean change Q_j by O(λ), and this change is moved to the next order, as in
+[[lem:two-dust-nonresonance]], since |j|₁ is bounded at each stage; each division costs one derivative, and there are
+finitely many stages. Every generator through a point of Ω reaches Σ_τ0 inside Ω, by (Ω), so the Picard argument of
+[[thm:approximant]] closes the stage system.
+
+Stage 0: with g_1 := Σ_A W_A and ĝ_2 := q, R[g0 + λ Σ_A W_A + λ² q] has R^(−1) = 0, and its coefficient of λ⁰ is
+R^(0) = Σ_A (R^(0)_A − Ric(g0)) + Ric(g0) + R^(0)_× + (the contribution of q), as in [[lem:two-dust-stage-zero]] (a)–(b)
+with n phases: a term with two phase derivatives on one wave W_A is that of R[g0 + λ W_A], a product of two different
+waves has only mixed harmonics, and the cross terms of order λ⁻¹ vanish since each W_A depends on one phase. By
+[[lem:vlasov-wave]], R^(0)_A = Ric(g0) − F_A² du_A ⊗ du_A, with no oscillating part, the gauge part χ_A k_A ⊗ k_A
+removing the second harmonic of the quadratic term; so the first three terms add up to Ric(g0) − Σ_A F_A² du_A ⊗ du_A
++ R^(0)_× = R^(0)_×, g0 being the Einstein–n-null-dust solution. The mixed harmonics R^(0)_× are removed by the mixed
+harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ ≤ 4, bounded below by (ii′), since q
+enters R^(0) only through −½ g0^(ab) ∂_a ∂_b, as multiplication of the harmonic e^(i j·θ) by ½ Q_j. The assembly is
+that of [[thm:two-dust-approximant]]: the stages m = 1, …, N by (a)–(d) above, and the passage to the fixed phases
+ν_A u_A/λ by the Taylor expansion in the phase corrections. ∎
 
 Let s_A(h) := h(ℓ_A, ℓ_A), and let Y_A, G1^A, G2^A, 𝒫 and the energy be those of [[thm:two-dust-uniform]] (defined
 before it), with one index per family and the phase derivative ∂_(θ_A) in place of the operator written F_𝔨 there:
