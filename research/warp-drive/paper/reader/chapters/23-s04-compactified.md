@@ -128,12 +128,16 @@ The Minkowski metric is
     ḡ = r²(−(dt/r)² + (dr/r)² + g̸) ∈ r² C^∞(M̃_0; S² ³ᵇT*M̃_0),     ḡ⁻¹ = r⁻²(−(r∂_t)² + (r∂_r)² + g̸⁻¹)
 
 [Hin26c, (2.20)]. Near K⁺ ∩ sf, with ρ_K = r/t and ρ_+ = 1/r, r∂_t = −ρ_K²∂_(ρ_K) and r∂_r = ρ_K∂_(ρ_K) − ρ_+∂_(ρ_+).
-Hence 𝒱_3b ⊂ 𝒱_b and ρ_K𝒱_b ⊂ 𝒱_3b (as ρ_K t∂_t = r∂_t), and [r∂_r, r∂_t] = r∂_t shows that 𝒱_3b is a Lie algebra. A
-b-vector field V lies in 𝒱_3b if and only if Vt ∈ tρ_K C^∞ near K⁺ (the coefficient of t∂_t must lie in ρ_K C^∞). Away
-from K⁺, 3b- and b-vector fields coincide, and ³ᵇTM̃ = ᵇTM̃ over M̃ ∖ (K⁺ ∪ ℐ⁺) [Hin26c, (2.21)].
+Hence 𝒱_3b ⊂ 𝒱_b and ρ_K𝒱_b ⊂ 𝒱_3b (as ρ_K t∂_t = r∂_t), and [r∂_r, r∂_t] = r∂_t shows that 𝒱_3b is a Lie algebra. The
+map t ↦ −t exchanges K⁺ and K⁻, fixes t∂_t and changes the sign of r∂_t, so near K⁻ all of this holds with
+ρ_K := r/|t|; below, ρ_K denotes a defining function of K⁺ ∪ K⁻ of this form near the corners with sf. A
+b-vector field V lies in 𝒱_3b if and only if Vt ∈ tρ_K C^∞ near K⁺ ∪ K⁻ (the coefficient of t∂_t must lie in
+ρ_K C^∞). Away from K⁺ ∪ K⁻, 3b- and b-vector fields coincide, and ³ᵇTM̃ = ᵇTM̃ over M̃ ∖ (K⁺ ∪ K⁻ ∪ ℐ⁺).
+([Hin26c, (2.21)] and the sentence before it state this away from K⁺ ∪ ℐ⁺; near K⁻, ⟨x⟩∂_t degenerates as it does
+near K⁺, so K⁻ must be removed too.)
 
 **Lemma {#lem:ii-a-2-2}** (Commutators with time dilations; [Hin26c, Lemma 2.11].) Let V ∈ 𝒱_b(M̃_0) with
-V − t∂_t ∈ ρ_K𝒱_b(M̃_0) near K⁺, and let W ∈ 𝒱_3b(M̃_0). Then [V, W] = ρ_K w^♭ V + ρ_K W^♯ with w^♭ ∈ C^∞(M̃_0) and
+V − t∂_t ∈ ρ_K𝒱_b(M̃_0) near K⁺ ∪ K⁻, and let W ∈ 𝒱_3b(M̃_0). Then [V, W] = ρ_K w^♭ V + ρ_K W^♯ with w^♭ ∈ C^∞(M̃_0) and
 W^♯ ∈ 𝒱_3b(M̃_0); in particular [V, W] ∈ 𝒱_3b. If W ∈ ρ_sf^(−α_sf) ρ_K^(−α_K) Diff^m_3b(M̃_0), then [V, W] lies in the
 same space; and if α_K = 0, then [V, W] = ρ_K W^♭ V + ρ_K W^♯ with W^♭ ∈ ρ_sf^(−α_sf) Diff^(m−1)_3b and
 W^♯ ∈ ρ_sf^(−α_sf) Diff^m_3b. The same holds on a smooth vector bundle E, with V ∈ Diff¹_b and
@@ -141,7 +145,8 @@ V − ∇_(t∂_t) ∈ ρ_K Diff¹_b for a smooth connection ∇.
 
 ([Hin26c, Lemma 2.11] prints W^♯ ∈ Diff^m_3b in the weighted case; its proof gives the weighted class stated here.)
 
-*Proof.* Only the corner K⁺ ∩ sf needs an argument; there take ρ_K = r/t, and note that Vf ∈ ρ_K C^∞ for f ∈ C^∞, since
+*Proof.* Only the corners K^± ∩ sf need an argument, and K⁻ ∩ sf is K⁺ ∩ sf after t ↦ −t, which fixes t∂_t and maps
+3b-vector fields to 3b-vector fields. At K⁺ ∩ sf take ρ_K = r/t, and note that Vf ∈ ρ_K C^∞ for f ∈ C^∞, since
 by hypothesis V ≡ −ρ_K∂_(ρ_K) modulo ρ_K𝒱_b, which is t∂_t, and t∂_t f = −ρ_K∂_(ρ_K) f ∈ ρ_K C^∞. If the claim holds for
 W, it holds for fW: [V, fW] = f[V, W] + (Vf)W, and (Vf)W ∈ ρ_K𝒱_3b. So it suffices to take W ∈ {r∂_t, r∂_r, ∂_ω}, which
 span 𝒱_3b there. For V = t∂_t: [t∂_t, r∂_t] = −r∂_t = −ρ_K t∂_t, [t∂_t, r∂_r] = 0 and [t∂_t, ∂_ω] = 0; this is the
@@ -176,8 +181,8 @@ The field V in [[lem:ii-a-2-2]] can be taken to be t_*∂_(t_*) in the coordinat
 **Corollary {#cor:ii-a-2-3}** ([Hin26c, Corollary 2.12].) The 3b-commutator b-vector fields, that is, the
 W ∈ 𝒱_b(M̃_0) with [W, V] ∈ 𝒱_3b for all V ∈ 𝒱_3b, span 𝒱_b(M̃_0) over C^∞.
 
-*Proof.* Near K⁺, t∂_t is one by [[lem:ii-a-2-2]], and the ⟨x⟩∂_(z^μ) are trivially ones; their C^∞-span is 𝒱_b near
-K⁺ by the spanning sets of [[sec:ii-a-2-1]]. Away from K⁺, 𝒱_3b = 𝒱_b. ∎
+*Proof.* Near K⁺ ∪ K⁻, t∂_t is one by [[lem:ii-a-2-2]], and the ⟨x⟩∂_(z^μ) are trivially ones; their C^∞-span is 𝒱_b
+near K^± by the spanning sets of [[sec:ii-a-2-1]] (with t replaced by −t near K⁻). Away from K⁺ ∪ K⁻, 𝒱_3b = 𝒱_b. ∎
 
 #### Edge-b-structures {#sec:ii-a-2-3}
 In ρ_+ = 1/t_* and x_I = (t_*/r)^(1/2) near ℐ⁺ ∩ ι⁺ we have t_* = ρ_+⁻¹ and r = ρ_+⁻¹x_I⁻², so
@@ -229,8 +234,9 @@ the W ∈ 𝒱_b with [V, W] ∈ 𝒱_eb for all V ∈ 𝒱_eb, span 𝒱_b(M̃)
 
 #### e3b-structures {#sec:ii-a-2-4}
 **Definition {#def:ii-a-2-8}** ([Hin26c, Definition 2.17].) ᵉ³ᵇTM̃ is ³ᵇTM̃_0 over M̃ ∖ ℐ⁺ = M̃_0 ∖ Y⁺ and ᵉᵇTM̃ over
-M̃ ∖ K⁺, glued over M̃ ∖ (K⁺ ∪ ℐ⁺) by the identity of Tℝ^(1+4) (which is how both are identified with ᵇT there).
-Equivalently, 𝒱_e3b(M̃) is the space of b-vector fields tangent to the fibres of ℐ⁺ with Vt ∈ tρ_K C^∞ near K⁺.
+M̃ ∖ (K⁺ ∪ K⁻), glued over M̃ ∖ (K⁺ ∪ K⁻ ∪ ℐ⁺) by the identity of Tℝ^(1+4) (which is how both are identified with ᵇT
+there). Equivalently, 𝒱_e3b(M̃) is the space of b-vector fields tangent to the fibres of ℐ⁺ with Vt ∈ tρ_K C^∞ near
+K⁺ ∪ K⁻.
 Diff^m_e3b is defined as before. On Ω, ḡ ∈ ρ_0⁻²x_I⁻²ρ_+⁻² C^∞(Ω; S² ᵉ³ᵇT*M̃) and
 ḡ⁻¹ ∈ ρ_0²x_I²ρ_+² C^∞(Ω; S² ᵉ³ᵇTM̃).
 
@@ -242,7 +248,7 @@ and {V_(0,j)} spans 𝒱_e3b over C^∞.
 *Proof.* The spanning statement combines [[cor:ii-a-2-3]] and [[cor:ii-a-2-7]], the two regions being disjoint up to the
 region where both algebras equal 𝒱_b. A good spanning set: finitely many e3b-vector fields spanning 𝒱_e3b (weights 1),
 together with χ_K t∂_t = ρ_K⁻¹χ_K r∂_t (w = ρ_K = r/t) and, for a spanning set of vector fields ∂_ω on 𝕊³,
-χ_I∂_ω = x_I⁻¹χ_I x_I∂_ω (w = x_I), where χ_K and χ_I localise near K⁺ and ℐ⁺; these are commutator fields by
+χ_I∂_ω = x_I⁻¹χ_I x_I∂_ω (w = x_I), where χ_K and χ_I localise near K⁺ ∪ K⁻ and ℐ⁺; these are commutator fields by
 [[lem:ii-a-2-2]] and [[lem:ii-a-2-6]], and together with the e3b-vector fields they span 𝒱_b. ∎
 
 #### Hamiltonian vector fields {#sec:ii-a-2-5}

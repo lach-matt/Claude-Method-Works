@@ -264,7 +264,8 @@ P_l has two zeros in |ι − a| < 0.45, as U has (2 + x lies outside, |2 + x −
 [[lem:s14-sextic-split]] (iii). With M₀, M₁ of the row, |Ξ| ≤ hM₀/|V|_min ≤ ϱ and |Ξ′| ≤ L < 1, and |Ξ(ζ)| =
 h|W(ζ)|/|V(ζ)| ≤ hM_ζ/(4d⁻b⁻), as |V(ζ)| = 2|2 + x − ζ|·2b. [[lem:s14-fixed-point]] gives ι_P and the first bound.
 Since V(ζ) = ∂_ιU(ζ), [[eq:s14-pa-re]] gives Re Ξ(ζ) = −hΠ(x)/2, and |Re(ι_P − ζ − Ξ(ζ))| ≤ L|Ξ(ζ)|/(1 − L) ≤ e_P.
-The conjugate statement follows from the real coefficients. Finally ϱ < b⁻ and ϱ_B + ϱ_P < d⁻ for every pair of rows,
+The conjugate statement follows from the real coefficients. Finally, with ϱ_B and ϱ_P the radii of the two tables,
+ϱ_P < b⁻ and ϱ_B + ϱ_P < d⁻ for every pair of rows,
 so the discs about 2 + x, ζ and ζ̄, resp. the disc of (b) and the disc about 2 + x (as 0.45 + 0.001 < 0.49), are
 disjoint and lie in |ι| < 1000; by [[lem:s14-sextic-count]] they hold all three roots there. ∎
 

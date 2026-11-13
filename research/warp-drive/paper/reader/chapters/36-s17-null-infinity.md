@@ -965,7 +965,7 @@ the splitting [[eq:iii-c-1-6]], components only in the slots
 with one dimension for each slot of J_τ, and Ā maps their span to itself, acting by its submatrix (Ā_ij)_(i,j∈J_τ).
 Near v = 0 on ι⁺, S̄ has the matrix Ā in the slots ([[sec:iii-g3-1]]), and for a section φ over 𝕊³
 
-    N_(ι⁺)(λ)(v^xφ) = −2v^(x+1)(x − λ)(x − 3/2 − Ā)φ + v^(x+2)L̃(0)(ω, x, ∂_ω)φ,                       {#eq:s17-indicial}
+    N_(ι⁺)(λ)(v^xφ) = −2v^(x+1)(x − λ)(x − 3/2 − Ā)φ + v^(x+2)L̃(0)(ω, x, ∂_ω)φ,
 
 so the indicial family of v⁻¹N_(ι⁺)(λ) at ℐ⁺ ∩ ι⁺ is −2(x − λ)(x − 3/2 − Ā). On the type-τ tensors given by Y its
 determinant is the product of −2(x − λ)(x − 3/2 − Ā_jj) over j ∈ J_τ. Over the four types its roots other than λ are
@@ -1009,7 +1009,7 @@ slot. By the proof of [[lem:iii-c-4-2]] the entries of Ā act between scalar slo
 and the off-diagonal entries of [[eq:s17-abar]] connect slots within {1, 3, 4, 7} or within {2, 5}; row and column 6
 of Ā vanish off the diagonal. So Ā maps the type-τ tensors given by Y to themselves, by its submatrix on J_τ, which is
 lower triangular, and the determinant of −2(x − λ)(x − 3/2 − Ā) there is the product of its diagonal entries; the
-diagonal is [[eq:iii-c-4-3]]. [[eq:s17-indicial]] is [[eq:iii-g3-1-1]] applied to v^xφ: (v∂_v − λ)v^x = (x − λ)v^x,
+diagonal is [[eq:iii-c-4-3]]. The display in (2) is [[eq:iii-g3-1-1]] applied to v^xφ: (v∂_v − λ)v^x = (x − λ)v^x,
 S̄ does not depend on v, and L̃(0)(ω, v∂_v, ∂_ω)v^xφ = v^xL̃(0)(ω, x, ∂_ω)φ.
 
 (3) This is [[prop:iii-c-4-4]] with [[lem:iii-c-3-2]] (b)–(c), [[rem:iii-c-4-5]], the calculation of the leading part in
