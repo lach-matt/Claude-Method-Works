@@ -4,9 +4,9 @@
 
 The stability theory obtains its inverse bounds for the spectral families by Fredholm, compactness and contradiction
 arguments, which give no number. This chapter makes the first of them explicit for one operator: the scalar wave
-operator □ = δd on functions on five-dimensional Schwarzschild–Tangherlini, whose mode equation is step (a) of the proof
-of [[prop:iii-d-6-2]] and whose spectral family is invertible for Im σ ≥ 0, σ ≠ 0 ([[lem:rb-scalar]]); harmonic by
-harmonic, its mode equation is an ordinary differential equation. For each harmonic the resolvent,
+operator □ = δd on functions on five-dimensional Schwarzschild–Tangherlini, whose spectral family is invertible for
+Im σ ≥ 0, σ ≠ 0 ([[lem:rb-scalar]]), and whose mode equation, the one solved in step (a) of the proof of
+[[prop:iii-d-6-2]], is an ordinary differential equation harmonic by harmonic. For each harmonic the resolvent,
 cut off to an interval about the photon sphere, is bounded with explicit constants: off the real axis by self-adjointness
 ([[lem:rb-off-axis]]); on the real axis first with a constant exponential in the harmonic's degree
 ([[prop:resolvent-outgoing]]), then uniformly in the degree where the potential barrier covers the interval
@@ -895,8 +895,16 @@ of (H6). By [[thm:vi-a-6-1]], (K1), the metric part of (H6), the dynamical parts
 G Id; (H5) is void for a single operator. The remaining conditions concern Im □̂, taken for the density |dx| of
 [[sec:i-a-1-1]] and the standard inner product of ℂ. In coordinates □u = −|g|^(−1/2)∂_μ(|g|^(1/2)g^(μν)∂_νu) has
 real coefficients, and two integrations by parts give ∫(□u)v̄|dg| = ∫g^(μν)∂_νu ∂_μv̄|dg| = ∫u conj(□v)|dg| for
-smooth compactly supported u, v. Moreover |dg| = |dt_*||dx|: in the static chart |det g| = r⁶ det g̸, the density of
-ℝ⁴ is r³dr dω, and t_* − t is a function of r. Writing □ = A_0 + A_1∂_(t_*) + A_2∂²_(t_*) with stationary A_k, the
+smooth compactly supported u, v. Moreover |dg| = |dt_*||dx| on X̃°. The Kerr–Schild chart of [[prop:iii-b-3-4]] covers
+X̃° ([[lem:s11-ks-domain]]; r_0 − 2δ_0 ≥ ½r_♭ by [[sec:s12-radii]]). Let t_KS be its time, so that g_(b_0) is
+g^KS_(m_0,0) in the coordinates (t_KS, x) ([[eq:iii-b-3-3]]), r = |x|, and z = (z¹, z², z³) coordinates on 𝕊³.
+Expanding η + m_0r⁻²(dt_KS + dr)² with η = −dt_KS² + dr² + r²g̸ gives
+g_(b_0) = −f dt_KS² + 2(1 − f) dt_KS dr + (2 − f) dr² + r²g̸ with f = 1 − m_0r⁻², the form used in the proof of
+[[lem:rb-m33]]. Its (t_KS, r) block has determinant −f(2 − f) − (1 − f)² = −1, and no term couples dt_KS or dr to dz;
+so in the coordinates (t_KS, r, z), |det g| = r⁶ det g̸ and |dg| = r³(det g̸)^(1/2)|dt_KS dr dz|. The Euclidean metric
+is dr² + r²g̸ in (r, z), so |dx| = r³(det g̸)^(1/2)|dr dz| = r³dr dω. Finally t_* − t_KS is a function of r
+([[eq:iii-b-3-3]], [[eq:iii-b-3-6]]), so the change of coordinates (t_KS, r, z) ↦ (t_*, r, z) has a triangular Jacobian
+matrix with determinant 1, and |dg| = r³(det g̸)^(1/2)|dt_* dr dz| = |dt_*||dx|. Writing □ = A_0 + A_1∂_(t_*) + A_2∂²_(t_*) with stationary A_k, the
 symmetry gives A_k* = (−1)^kA_k for |dx|, so □̂(σ) = A_0 − iσA_1 − σ²A_2 satisfies □̂(σ)* = □̂(σ̄). Hence
 Im □̂(0) = 0 and Im T = 0 for T = −iA_1; the threshold quantities of [[eq:i-a-1-5]] are ϑ_ℋ = 0 and ϑ_in = 0, as S = 0;
 and the endomorphism p_1 of (Γ.4) vanishes ([[lem:i-b-1-1]] (b), with the standard inner product as h_Γ), so that the
@@ -1016,15 +1024,19 @@ in each of the following cases: P̂ = □ on functions of degree l, V = V_l; P̂
 *Proof.* P̂(σ) is invertible on the spaces of the stability theory ([[lem:rb-scalar]] for □ on functions,
 [[prop:iii-d-6-2]] for □ on 1-forms, [[prop:iii-f2-3-1]] for 2L_(b_0)). Let F be smooth, supported in I × 𝕊³ and in
 the block, and ω := P̂(σ)⁻¹F. Then ω lies in the block, as P̂(σ)⁻¹ commutes with the isotypic projections (proof of
-[[lem:rb-schur]]). Kernels and ranges do not depend on the admissible orders ([[thm:i-a-7-2]] (3)), so ω lies in 𝒳_σ
-for orders of every regularity, and is smooth on X°; and it is conormal at infinity, with polynomial bounds, by
-[[thm:i-a-7-2]] (4). Since t_* − t is a function of r ([[eq:iii-b-3-6]]) and σ is real, e^(−iσt_*)ω = e^(−iσt)ω̃ and
-e^(−iσt_*)F = e^(−iσt)F̃ with ω̃ := e^(−iσ(t_*−t))ω and F̃ := e^(−iσ(t_*−t))F, which have the pointwise norms of ω and F;
-in the static chart on {r > r_h} the equation is P(e^(−iσt)ω̃) = e^(−iσt)F̃, P the stationary operator. Let (Y_k) be
-an orthonormal basis in L²(𝕊³) of the angular fields of the block (of 𝒮_l, 𝒱_l or 𝒯_l), and ω_k, F_k the components
-of ω̃, F̃ along Y_k; for each r these components are orthogonal on 𝕊³, so by Parseval's identity
-‖χ_Iω‖²_𝔏 = Σ_k‖χ_Iω_k‖²_𝔏 and ‖F‖²_𝔏 = Σ_k‖F_k‖²_𝔏, as in [[cor:morawetz-one-derivative]] (c). Each ω_k solves the
-equation with right side F_k, and we bound it. Recall dr = f dr_*.
+[[lem:rb-schur]]). The kernel of P̂(σ) and the annihilator of its range do not depend on the admissible orders
+([[thm:i-a-7-2]] (3)), so P̂(σ) is invertible at every admissible order (a Fredholm operator with trivial kernel and
+trivial annihilator of its closed range is invertible), and the inverse at a larger regularity is the restriction of the
+inverse at a smaller one: the spaces at the larger orders lie in those at the smaller, and the solution is unique in the
+latter. F lies in 𝒴_σ at every order, so ω lies in 𝒳_σ for orders of every regularity, and is smooth on X°; and it is
+conormal at infinity, with polynomial bounds, by [[thm:i-a-7-2]] (4). Since t_* − t is a function of r
+([[eq:iii-b-3-6]]) and σ is real, e^(−iσt_*)ω = e^(−iσt)ω̃ and e^(−iσt_*)F = e^(−iσt)F̃ with ω̃ := e^(−iσ(t_*−t))ω and
+F̃ := e^(−iσ(t_*−t))F, which have the pointwise norms of ω and F; in the static chart on {r > r_h} the equation is
+P(e^(−iσt)ω̃) = e^(−iσt)F̃, P the stationary operator. Let (Y_k) be an orthonormal basis in L²(𝕊³) of the angular
+fields of the block (of 𝒮_l, 𝒱_l or 𝒯_l), and ω_k, F_k the components of ω̃, F̃ along Y_k; for each r these
+components are orthogonal on 𝕊³, so by Parseval's identity ‖χ_Iω‖²_𝔏 = Σ_k‖χ_Iω_k‖²_𝔏 and
+‖F‖²_𝔏 = Σ_k‖F_k‖²_𝔏, as in [[cor:morawetz-one-derivative]] (c). Each ω_k solves the equation with right side F_k, and
+we bound it. Recall dr = f dr_*.
 
 - *Functions.* ω_k = r^(−3/2)uS and F_k = gS, S = Y_k. By [[eq:rb-radial]], −u″ + (V_l − σ²)u = G with G := fr^(3/2)g.
   Then |ω_k|²r³dr = f|u|²|S|²dr_* and |G|² dr_* = fr³|g|² dr, so ‖χ_Iω_k‖²_𝔏 ≤ (max_I f)‖u‖²_I and
@@ -2360,8 +2372,14 @@ Then [[eq:i-b-6-11]] holds with the constant 4F_ΓC′_a: for h ≤ h_0/2 and z 
 *Proof.* Let z_0 = 1; for z_0 = −1 the same argument runs with Re σ ≤ −h_0⁻¹ and the rectangle reflected in the
 imaginary axis. Let σ_0 ≥ h_0⁻¹, so σ_0 ≥ 1, and w ∈ L². Apply [[lem:i-b-6-6]] to F(ζ) := P̂′(3σ_0 + iβ + κ_Γζ)⁻¹w on
 the rectangle [−L, L] + i[0, 1], L := 2σ_0/κ_Γ, where Re σ ∈ [σ_0, 5σ_0] and Im σ ∈ [β, β′]. F is holomorphic near the
-rectangle: P̂′(σ) is a polynomial in σ, invertible on this range (where the bound C′_a holds), and invertibility is an
-open condition.
+rectangle. Indeed, P̂′(σ) is entire in σ (the sentence after [[eq:i-b-6-10]]) as a family of bounded operators from
+H^(2,0) into L², H^(2,0) being the space H_h^((2,0,0)) of [[prop:i-b-6-7]] at each fixed h ([[sec:i-b-2-3]]). On the
+compact set 𝒦 of the σ above, where the bound C′_a holds, P̂′(σ) is invertible from H^(2,0) onto L², with inverse
+bounded from L² into H^(2,0) by the open mapping theorem. For σ_1 ∈ 𝒦 put 𝔗(σ) := P̂′(σ_1)⁻¹(P̂′(σ_1) − P̂′(σ)), a
+holomorphic family of bounded operators on H^(2,0); its norm is at most ‖P̂′(σ_1)⁻¹‖‖P̂′(σ_1) − P̂′(σ)‖, less than ½
+for σ near σ_1, P̂′ being continuous in norm. For such σ, P̂′(σ) = P̂′(σ_1)(I − 𝔗(σ)) is invertible and
+P̂′(σ)⁻¹ = Σ_(n≥0) 𝔗(σ)ⁿP̂′(σ_1)⁻¹, a series of holomorphic functions that converges uniformly (its n-th term has norm
+at most 2⁻ⁿ‖P̂′(σ_1)⁻¹‖). So σ ↦ P̂′(σ)⁻¹w is holomorphic on a neighbourhood of 𝒦, and F near the rectangle.
 There ‖F‖ ≤ A := C′_a‖w‖, and ‖F‖ ≤ A_0 := C′_a‖w‖ on Im ζ = 0 and ‖F‖ ≤ A_1 := C′_aσ_0⁻¹‖w‖ on Im ζ = 1, since
 the modulus of σ is at least σ_0 there; A_1 ≤ A since σ_0 ≥ 1, and the Λ of [[lem:i-b-6-6]] is
 Λ_0 := log(A/A_1) = log σ_0. With t := Im ζ = (Im σ − β)/κ_Γ ∈ [0, 1] and πL/4 = πσ_0/(2κ_Γ), the lemma gives, for
@@ -2392,16 +2410,30 @@ norm of jP̂⁻¹k on the subspace W(𝒵) of 𝒵 on which it is defined,
 into the first, P̂⁻¹ = P_1⁻¹ − iP_1⁻¹QP_1⁻¹ − P_1⁻¹(QP̂⁻¹Q)P_1⁻¹. For x ∈ 𝒳, v := Wjx lies in W(𝒵) and
 QP̂⁻¹Qx = kW(jP̂⁻¹kv), so ‖QP̂⁻¹Qx‖ ≤ ‖kW‖C_D‖Wj‖‖x‖; and ‖Q‖ = ‖kWj‖. ∎
 
-In the stability theory, 𝒳 = 𝒳_σ, 𝒴 = 𝒴_σ, 𝒵 = 𝔏 of [[lem:rb-schur]], and j and k are multiplication by a smooth
-cut-off χ supported in I × 𝕊³ with 0 ≤ χ ≤ 1; j is bounded from 𝒳_σ into 𝔏, as 𝒳_σ has positive regularity. W is the
-identity when 𝒴_σ has order at most 0 on I, so that k is bounded from 𝔏 into 𝒴_σ, and otherwise a smoothing operator
-on 𝔏 with values in fields smooth on I × 𝕊³, for which kW is bounded. For v ∈ W(𝒵), jP̂⁻¹kv = χ(χ_IP̂(σ)⁻¹χ_I)(χv)
-with χv supported in I × 𝕊³ (and smooth in the second case), so C_D ≤ C_D(σ) of [[lem:rb-schur]], the cut-off bound
-of the preceding sections, which is the norm on 𝔏 of χ_IP̂(σ)⁻¹χ_I on the dense subspace of smooth fields. So, once
-the cut-off bound is known, an inverse bound in the spaces of the stability theory needs only C_ext(σ), the inverse of
-the absorbed problem. Its estimate is the chain of Fredholm estimates at the fixed σ with the absorbing term, and
-involves no trapping estimate and no mode stability; its invertibility is a hypothesis of
-[[lem:rb-gluing]], which the next lemma supplies for the scalar wave.
+In the stability theory, at real σ ≠ 0, 𝒳 = 𝒳_σ, 𝒴 = 𝒴_σ, 𝒵 = 𝔏 of [[lem:rb-schur]], and j and k are multiplication
+by a smooth cut-off χ supported in I × 𝕊³ with 0 ≤ χ ≤ 1; j is bounded from 𝒳_σ into 𝔏, as 𝒳_σ has positive
+regularity. Let s be the regularity order of 𝒳_σ, so that 𝒴_σ has regularity order s − 1; on fields supported in the
+compact set I × 𝕊³ ⊂ X°, the norm of 𝒴_σ is, up to constants, that of H^(s−1), and the norm of 𝔏 that of L².
+
+When s − 1 ≤ 0, ‖·‖_(H^(s−1)) ≤ ‖·‖_(L²), so k is bounded from 𝔏 into 𝒴_σ, and W is a bounded operator on 𝔏, such as
+multiplication by sgn(σ)q with q as in [[lem:rb-absorbed]], supported in the interior of I × 𝕊³, and χ = 1 on the
+support of q. Then kWj is multiplication by sgn(σ)χ²q = ϵ_σq, so for P̂ = □̂(σ) the operator P_1 of [[lem:rb-gluing]] is
+the operator □̂(σ) − iϵ_σQ of [[lem:rb-absorbed]]. Otherwise W is a smoothing operator on 𝔏 with values in fields smooth
+on I × 𝕊³, for which kW is bounded.
+
+For v ∈ W(𝒵), as χ = χ_Iχ, jP̂⁻¹kv = χ(χ_IP̂(σ)⁻¹χ_I)(χv), with χv supported in I × 𝕊³ and ‖χv‖_𝔏 ≤ ‖v‖_𝔏. The
+cut-off bound of the preceding sections is C_D(σ) of [[lem:rb-schur]], the norm of χ_IP̂(σ)⁻¹χ_I on the dense subspace
+𝒟 of smooth fields supported in I × 𝕊³. In the second case χv lies in 𝒟. In the first, χ_I is bounded from 𝔏 into 𝒴_σ
+like k and from 𝒳_σ into 𝔏 like j, so χ_IP̂(σ)⁻¹χ_I is bounded on 𝔏, and its norm on 𝔏 equals its norm on the dense
+subspace 𝒟. In both cases, as 0 ≤ χ ≤ 1, ‖jP̂⁻¹kv‖_𝔏 ≤ C_D(σ)‖χv‖_𝔏 ≤ C_D(σ)‖v‖_𝔏, so C_D ≤ C_D(σ). So, once the
+cut-off bound is known, an inverse bound in the spaces of the stability theory needs only C_ext(σ), the inverse of the
+absorbed problem, besides the norms of the fixed operators kWj, kW and Wj. Its estimate is the chain of Fredholm
+estimates at the fixed σ with the absorbing term, and involves no trapping estimate and no mode stability; its
+invertibility is a hypothesis of [[lem:rb-gluing]]. For the scalar wave the next lemma supplies it, with W
+multiplication by sgn(σ)q. There every constant s ∈ (½, 1] is an admissible regularity order, as ϑ_ℋ = 0
+([[lem:rb-scalar]]) and [[def:i-a-admissible]] and [[thm:i-b-1-3]] ask of the regularity order only that it be a
+constant s > ½ + ϑ_ℋ; at such an order 𝒴_σ has regularity order s − 1 ≤ 0, and P̂ = □̂(σ) and P_1 are invertible by
+[[lem:rb-scalar]] and [[lem:rb-absorbed]].
 
 **Lemma {#lem:rb-absorbed}** (The absorbed scalar problem is invertible.) At b_0, let q ≥ 0 be a smooth radial function
 (q = q(r)) with compact support in {r > r_h}, Q multiplication by q, σ real and nonzero and ϵ_σ := sgn σ. Then
@@ -2423,8 +2455,8 @@ where u − c_±e^(±iσr_*) → 0. Integrating over ℝ, 0 = −σ(|c_+|² + |c
 −σ, so c_+ = 0; u is then the zero multiple of u_∞ near +∞, and u = 0. So ω = 0 on {r > r_h}, and inside the horizon
 ω = 0 follows as in part (d) of the proof of [[prop:iii-d-6-2]]. ∎
 
-In the notation of [[lem:rb-gluing]], W = sgn(σ)q, and [[lem:rb-gluing]] uses no sign of W. With ϵ_σ replaced by −sgn σ
-the two terms in the proof can cancel.
+In the notation of [[lem:rb-gluing]], W is multiplication by sgn(σ)q and kWj = ϵ_σQ, and [[lem:rb-gluing]] uses no sign
+of W. With ϵ_σ replaced by −sgn σ the two terms in the proof can cancel.
 
 ### The scalar-type blocks at zero energy {#sec:rb-scalar-blocks}
 
@@ -2589,7 +2621,7 @@ for γ (∂_vr = 0): ∇_(∂_v) acts on the frame by 𝔄_v = −(f′(r_h)/2)K
 angular covectors, extended to symmetric 2-tensors by the Leibniz rule. In □ = ∇*∇ = −g^(μν)∇_μ∇_ν the first-order
 terms in ∂_r are −(1/√|g|)∂_μ(√|g|g^(μr))∂_r = −r⁻³(r³f)′∂_r, which is −f′(r_h)∂_r at r_h, and −2g^(μr)𝔄_μ∂_r =
 −2𝔄_v∂_r at r_h; together −f′(r_h)(1 − K_0)∂_r. The first-order operators 2E^CδG and 2δ*E^ΥG have, at r_h,
-∂_r-coefficients equal to their principal symbols at ζ = ξdr divided by iξ. With σ_1(δ)(ζ)h = −iι_(g⁻¹ζ)h,
+∂_r-coefficients equal to their principal symbols at the covector ξdr divided by iξ. With σ_1(δ)(ζ)h = −iι_(g⁻¹ζ)h,
 σ_1(δ*)(ζ)w = iζ ⊗_s w, g⁻¹dr = ∂_v at r_h, f′(r_h) = 2/r_h and E^Υ equal to its horizon part near r_h, these
 coefficients are f′(r_h)K_C and f′(r_h)K_Υ, where by [[eq:iii-b-6-2]] and [[eq:iii-b-6-5]]
 
@@ -2597,8 +2629,9 @@ coefficients are f′(r_h)K_C and f′(r_h)K_Υ, where by [[eq:iii-b-6-2]] and [
 
 ⟨·, ·⟩ the pairing by g⁻¹. All other terms are of order zero in r on stationary fields of one degree. So the
 coefficient of ∂_r of 2L at r_h is −f′(r_h)(1 − K) with K := K_0 + K_C + K_Υ, and 1 + A_1(r_h)/f′(r_h) = K on the
-block. This K is the endomorphism of [[lem:iii-f2-1-1]]: on half-densities by |dg| = 𝔪|dv dr dy|, an operator
-−g^(μν)∂_μ∂_ν + b^μ∂_μ + c has subprincipal symbol iξ(b^r + 𝔪⁻¹∂_μ(𝔪g^(μr))) at ζ = ξdr, and
+block. This K is the endomorphism of [[lem:iii-f2-1-1]]: on half-densities by |dg| = 𝔪|dv dr dz|, with
+z = (z¹, z², z³) coordinates on 𝕊³ and 𝔪 := r³|det γ|^(1/2) (the (v, r) block of g has determinant −1), an operator
+−g^(μν)∂_μ∂_ν + b^μ∂_μ + c has subprincipal symbol iξ(b^r + 𝔪⁻¹∂_μ(𝔪g^(μr))) at the covector ξdr, and
 𝔪⁻¹∂_μ(𝔪g^(μr)) = r⁻³(r³f)′ = f′(r_h) at r_h, so the subprincipal symbol of 2L there is iξf′(r_h)K.
 
 *The values.* Give dv, dr and the angular covectors the weights 1, −1 and 0, and a symmetric product the sum of the
@@ -2630,10 +2663,11 @@ list. ∎
 At (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), with a_v = 1/200 (the inner form of c_C) and r_h = 1, x = 5000, and at
 l ≥ 2 the exponents other than the n_l zeros are −9998, −4999, −2559975/512, 0, 0, −1, −2 when c_Υ vanishes near the
 horizon, and −9998, −4999, −2559975/512, −0.0099, 0, −1.01, −2.02 when ζ = 1 there. At the horizon the exponents are
-the same at every degree, and they are of size γ_Ca_vr_h. The zeroth-order coefficients of the block at r_h depend on
-κ: on h = H_0S dt² the only term of 2L that differentiates S twice is the angular part of □, the other terms
-differentiating S at most once, which gives no multiple of S dt²; so the coefficient of H_0 in F_0 is κ/(2r_h²) plus a
-number that does not depend on κ.
+the same at every degree, and three of them, 2 − 2x, 1 − x and −(1 − e_C)x, are of size γ_Ca_vr_h. The zeroth-order
+coefficients of the block at r_h depend on κ: on h = H_0S dt² the only term of 2L that differentiates S twice is the
+angular part of □, which contributes κr⁻²H_0S dt²; a term that differentiates S once gives no multiple of S dt², and a
+term that does not differentiate S has a coefficient independent of κ; so the coefficient of H_0 in F_0 is κ/(2r_h²)
+plus a number that does not depend on κ.
 
 *The weight.* Let α + 2 =: β lie in the indicial gap at infinity of the block. The zero-energy problem is posed on
 X̄ = {r ≥ r_0}, with r_0 = r_♭ ≤ r_h/2 ([[def:s12-radii]]), so that its domain contains r = r_h/2. On stationary
@@ -2795,7 +2829,7 @@ and 1/(2.6181 · 10⁻⁷) > 3.8195 · 10⁶. ∎
 
 An explicit constant for these blocks is therefore to be sought at a weight in the middle of the gap. The linearised
 operator is used at the weights of [[eq:iii-h-1-1]], α + 2 ∈ (0, 1), an open interval, so the weight α = −1 of
-[[prop:rb-quasimode-point]] lies at its closed end, outside it.
+[[prop:rb-quasimode-point]] lies at its upper end point, outside it.
 
 **Remark {#rem:rb-quasimode-observed}** (Numerical observation.) On the full degree-2 block at the parameters above,
 the quasi-mode of the proof of [[lem:rb-quasimode]] with x_0 = log 400 and widths W = 100, 1000 and 10000, evaluated in

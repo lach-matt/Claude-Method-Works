@@ -44,7 +44,7 @@ hypotheses: nothing below uses their values, and the radii chosen from them belo
 with them. Fix ℓ_I ∈ (0, ½], ℓ_+ ∈ (0, 1] and ℓ_K > 0. P is a weakly admissible wave-type operator relative to P_0 of
 class ((d_0; 0), (2ℓ_I, ℓ_+, ℓ_K)) ([[def:ii-c-3-3]]), and ε_P := ‖P − P_0‖_((d_0;0),(2ℓ_I,ℓ_+,ℓ_K))
 ([[def:ii-c-3-6]]). Only ℓ_I ∈ (0, ½], ℓ_+ > 0, ℓ_K > 0 are used: the conditions [Hin26c, (5.23)] play no part in
-microlocal regularity ([Hin26c, p. 115]). The bound ℓ_+ ≤ 1 is no restriction: as ρ_+ ≤ 1 on Ω, ρ_+^(ℓ_+−1) is
+microlocal regularity ([Hin26c, p. 115]). The bound ℓ_+ ≤ 1 is no restriction: as ρ_+ is bounded on Ω, ρ_+^(ℓ_+−1) is
 bounded with its b-derivatives for ℓ_+ > 1, so a class with ℓ_+ > 1 lies in the class with ℓ_+ = 1, with norm at most
 a constant times its own. Of [[def:ii-c-3-3]], only conditions (1) and (2) are used, together with
 [[def:ii-c-3-5]] and [[def:ii-c-3-6]]; condition (3), the triangular structure of p_1 and p_0, is not assumed anywhere in
@@ -589,7 +589,7 @@ degree −1 near fibre infinity ([[sec:ii-d-2]]). Then 𝖧 := ρH_G is the fiel
 G(t_*, x; −dt_* + z). Three facts are used throughout.
 
 (T1) 𝖧t_* ≥ ½β_Γ on a neighbourhood of ∂Γ_0 in the full phase space, for ε_P small (the paragraph after
-[[lem:ii-c1-3-3]]), with β_Γ = ½ min_Γ |q_1| the constant of (Γ.4), not the horizon constant β_0. So 𝖧ρ_K = −ρ_K²
+[[lem:ii-c1-3-3]]), with β_Γ = ½ min_Γ |q_(z_0)| the constant of (Γ.4), not the horizon constant β_0. So 𝖧ρ_K = −ρ_K²
 𝖧t_* < 0 there.
 
 (T2) ρ⁻¹𝖧ρ = H_G(σ⁻¹) = −σ⁻² ∂_(t_*)G, as H_G σ = ∂_(t_*)G, σ being minus the momentum of t_*. It vanishes for P_0,
@@ -651,7 +651,7 @@ partition of unity in (x, z), independent of t_*, patches them. The integral for
 ∂_(t_*), ∂_x and the fibres, and the convergence as ρ_K → 0. For ϕ^s ∈ C^(d_0−2) the same argument loses one more
 derivative.
 
-(c) At ρ_K = 0, on {y_2 = 0} = {G_1 = 0}, 𝖧 = q_1 ∂_(t_*) + H_(G_1) ([[sec:ii-c1-3-2]], after [[lem:ii-c1-3-2]]) and
+(c) At ρ_K = 0, on {y_2 = 0} = {G_1 = 0}, 𝖧 = q_(z_0) ∂_(t_*) + H_(G_1) ([[sec:ii-c1-3-2]], after [[lem:ii-c1-3-2]]) and
 ϕ^u = ϕ_u, so f = H_(G_1) ϕ_u = −ν_u ϕ_u by (Γ.2). Thus w_u = ν_u on {y_2 = 0} where ϕ_u ≠ 0, hence on all of it by
 continuity, as dϕ_u ≠ 0 there. Likewise w_s = ν_s.
 
@@ -718,9 +718,9 @@ in S̃⁰ with index 0; this is used without comment.
 (d) Half steps. Let J_0 := 5, the number of steps that [[lem:ii-a1-4-2]] takes for τ = 1 with κ ≤ ¼. For δ_2 ∈ (0,
 2^(−J_0−6) δ_1], so that 2^(J_0+4) δ_2 ≤ δ_1/4, let 𝒜(δ_2) := U(2^(J_0+2) δ_2) ∩ ({|ϕ^u| ≥ δ_2/16} ∪ {ρ_K ≥
 δ_2/16}), a closed set disjoint from Γ^u_(K⁺) by [[lem:ii-d-4-1]] (a). As U(δ) lies in the interior of U(2δ) for δ ≤
-δ_U ([[lem:ii-d-4-1]] (a)), an operator elliptic on U(2^(J_0+3) δ_2) can be microsupported in U(2^(J_0+4) δ_2) ⊂
-U(δ_1/4), and an operator microsupported in U(2^(J_0+3) δ_2) is microsupported in the interior of U(δ_1/2), where r^♭
-of [[eq:ii-d-4-4]] vanishes. We show:
+δ_U ([[lem:ii-d-4-1]] (a) and its proof), an operator elliptic on U(2^(J_0+3) δ_2) can be microsupported in
+U(2^(J_0+4) δ_2) ⊂ U(δ_1/4), and an operator microsupported in U(2^(J_0+3) δ_2) is microsupported in the interior of
+U(δ_1/2), where r^♭ of [[eq:ii-d-4-4]] vanishes. We show:
 
 (★) Let s′ ∈ [s_0, s] and δ_2 be as above, G′ elliptic on U(2^(J_0+3) δ_2) and microsupported in U(δ_1/4), and E′
 elliptic on 𝒜(δ_2) and microsupported in U(δ_1/4) ∩ ({|ϕ^u| ≥ δ_2/32} ∪ {ρ_K ≥ δ_2/32}). If G′u ∈ H^(s′−½), G′Pu ∈
@@ -1237,7 +1237,7 @@ use of L^(k) only that it is L ⊗ Id minus a coupling whose coefficients carry 
 P, so they hold for [[eq:ii-d1-2-2-prime]]. For a letter 1 with α_i = 1, α[i→1] = α: the coupling through that letter
 is diagonal. This is what the horizon needs ([[lem:ii-d1-4-1]] (c)). With [[eq:ii-d1-2-2]] the word 1·(α∖i) differs
 from α in general (for instance α = (2, 1), i = 2), and for k ≥ 2 the Hermitian part of the coupling is indefinite. At
-the horizon Q_(1j) = 0 for j ≠ 1, and Q_(21), Q_(22) decay at K⁺ ([[lem:ii-d1-4-1]] (b) and its proof); so at
+the horizon Q_(1j) = 0 for j ≠ 1, and Q_(21), Q_(22) decay at K⁺ ([[lem:ii-d1-4-1]] (b), (c) and their proofs); so at
 ∂R_(𝓗⁺), on the two components (1, 2, …, 2) and (2, 1, 2, …, 2), the principal symbol of Im(L^(k) − L ⊗ Id) for
 [[eq:ii-d1-2-2]] is σ_1(Im(−Q_11)) ≠ 0 times the matrix with rows (1, ½) and (½, 0), whose determinant is −¼.
 

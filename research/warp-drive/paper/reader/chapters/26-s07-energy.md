@@ -162,9 +162,9 @@ by a constant times those of P − P_0;
 (iii) near ℐ⁺, P^ext has the form [[eq:ii-e-1-1]] with the data p_0, p̃_1 extended to t_* ∈ [1/2, 1], and
 [[eq:ii-e-1-2]] holds for t_* ∈ [1 − η_0, 1] with 2δ′ in place of δ′, for some η_0 > 0;
 
-(iv) t^♭ extends to {r ≥ r^♯, t_* ≥ 1/2}, and for ε_P small there is δ_♮ > 0 such that, after shrinking η_0: dt^♭ is
-past timelike for the metric of P^ext on the region Ω⁻_*, the union of {t^♭ ≥ 1, r ≥ r^♯} and of the collar
-{1 − η_0 ≤ t^♭ ≤ 1} below its face {t^♭ = 1} (in the collar coordinates of [[sec:ii-e-1-5]]), which lies in
+(iv) t^♭ extends to {r ≥ r^♯, t_* ≥ 1/2}, and for ε_P small there is δ_♮ > 0 such that, after shrinking η_0 (we take
+η_0 ≤ 1/2): dt^♭ is past timelike for the metric of P^ext on the region Ω⁻_*, the union of {t^♭ ≥ 1, r ≥ r^♯} and of
+the collar {1 − η_0 ≤ t^♭ ≤ 1} below its face {t^♭ = 1} (in the collar coordinates of [[sec:ii-e-1-5]]), which lies in
 {t_* > 1/2}; and dr is future timelike on Ω⁻_* ∩ {r^♯ ≤ r ≤ r^♮ + δ_♮}.
 
 *Proof.* Write P_0 and P − P_0 in a fixed frame as sums of coefficients times fixed operators Id, ∂_(z^μ),
@@ -962,8 +962,9 @@ first-order edge operators with C^((d_0;j−q)) coefficients, and by [[lem:ii-e-
     ‖W (ad_(X_S) L) X^(γ∖S) u″‖_(H^(𝗌−1,2α+2)) ≤ C Σ_i ‖X_i X^(γ∖S) u″‖_(H^(𝗌,2α)),
 
 a sum over words of length j − q + 1 ≤ j − 1, bounded by [[eq:ii-e-4-3]] at j − 1. This proves [[eq:ii-e-4-3]] at j, the
-order staying 𝗌 and the uniqueness being used at s′ = inf 𝗌 − 1 for every j, so that d_0 depends only on 𝗌. Finally, by
-[[lem:ii-e-4-1]] (c) with room, ‖u‖_(H^((𝗌;k))(Ω′)) ≤ C_k Σ_(|γ|≤k) ‖X^γ u″‖_(H^𝗌(Ω″)) ≤ C_k ‖f″‖ ≤ C_k ‖f‖. ∎
+order staying 𝗌 and the uniqueness being used at s′ = inf 𝗌 − 1 for every j and at inf 𝗌 for u″|_(Ω′) = u, so that
+d_0 depends only on 𝗌. Finally, by [[lem:ii-e-4-1]] (c) with room, ‖u‖_(H^((𝗌;k))(Ω′)) ≤ C_k Σ_(|γ|≤k) ‖X^γ u″‖_(H^𝗌(Ω″))
+≤ C_k ‖f″‖ ≤ C_k ‖f‖. ∎
 
 *The extension in the tame estimates.* A tame bound controls a low and a high b-regularity of one function at once, so
 its proof needs one extension of the right-hand side f across the final faces of the slab that is nearly minimal for
@@ -1004,8 +1005,8 @@ map ℰ on H^((𝗍;0))(Ω′_+)^(•,−) such that for every u in it:
     ‖ℰu‖_(H^((𝗍;j))_(e3b;b)) ≤ C_j ‖u‖_(H^((𝗍;j))(Ω′_+)^(•,−)).
 
 *Proof.* *Choices.* Decreasing κ_0, we may assume κ_0 ≤ η_0/4, c − κ_0 > r^♯ and c + κ_0 < r^♮ (in case (S),
-r^♯ < r_0 < r^♮); as η_0 of [[lem:ii-e-1-2]] may be decreased, we take η_0 ≤ 1/2, so that T_0 − κ_0 ≥ 1/2. Fix
-κ ∈ (0, κ_0/3], in case (K) with c + 2κ ≤ b. Let ψ = ψ(r) equal 1 for r ≤ c + κ and 0 for r ≥ c + 2κ; ψ_− = ψ_−(r)
+r^♯ < r_0 < r^♮); as η_0 ≤ 1/2 ([[lem:ii-e-1-2]] (iv)), T_0 − κ_0 ≥ 1/2. Fix κ ∈ (0, κ_0/3], in case (K) with
+c + 2κ ≤ b. Let ψ = ψ(r) equal 1 for r ≤ c + κ and 0 for r ≥ c + 2κ; ψ_− = ψ_−(r)
 equal 1 for r ≥ c and 0 for r ≤ c − κ; and χ_+ = χ_+(t^♭) equal 1 on (−∞, T_+ − 1/2] and 0 on [T_+ − 1/4, ∞), with
 χ_+ ≡ 1 if T_+ = ∞. These have bounded b-derivatives: ψ and ψ_− are smooth functions of x on a bounded range of r, and
 χ_+ varies only where t_* ≤ T_+/C′ ([[lem:ii-c-3-2]] (b)), at bounded times, where t^♭ has bounded b-derivatives.
@@ -1038,11 +1039,12 @@ of |dt_* dx| = r³ |dt_* dr dω| = (r³/C′) |dt^♭ dr dω| ([[sec:ii-e-5-1]] 
 
 where Y^q runs over the products of q fields among ∂_r and the Ω_ab. Then ‖v‖_(H^((𝗍;j))_(e3b;b)) and D_(m,j)(v) are
 equivalent on such v, with constants depending on m and j. Indeed, let φ := φ_1(t^♭) φ_2(r), with φ_1 equal to 1 on
-[T_0 − κ_0/3, T_+ + κ_0/3] and supported in (T_0 − 2κ_0/3, T_+ + 2κ_0/3), and φ_2 equal to 1 on [c − 2κ, c + 2κ] and
-supported in (c − κ_0, c + κ_0). Then φ ∈ C^∞_b, supp φ ⊂ 𝒰 and φ = 1 near 𝒦. By [[lem:ii-f1-2-4]] (with U := 𝒰, and
-𝗍 against the constant m both ways), whose proof uses only [[ch:s04]], the norms of orders (𝗍;j) and (m;j) are
-equivalent on such v, the terms of order (−ν;j) of that lemma being bounded by either side, as m ≥ 0 ≥ −ν. As
-m ∈ ℕ_0, the norm of order (m;j) is equivalent on such v to D_(m,j)(v): by [[eq:ii-a-8-1]] it is the sum of the
+[T_0 − κ_0/3, T_+ + κ_0/3] and supported in (T_0 − 2κ_0/3, T_+ + 2κ_0/3), and φ_2 equal to 1 on [c − 5κ/2, c + 5κ/2]
+and supported in (c − κ_0, c + κ_0). Then φ ∈ C^∞_b, supp φ ⊂ 𝒰 and φ = 1 near 𝒦. By [[lem:ii-f1-2-4]] (with U := 𝒰,
+and 𝗍 against the constant m both ways), whose proof uses only [[ch:s04]], the norms of orders (𝗍;j) and (m;j) are
+equivalent on such v: we take ν ≥ max(0, −inf 𝗍) in that lemma, so that −ν ≤ m and −ν ≤ 𝗍, and its terms of order
+(−ν;j) are bounded by either side.
+As m ∈ ℕ_0, the norm of order (m;j) is equivalent on such v to D_(m,j)(v): by [[eq:ii-a-8-1]] it is the sum of the
 H^m_e3b-norms of up to j b-derivatives of v, and on 𝒰 the spanning set used there may be replaced by t^♭∂_(t^♭), ∂_r
 and the Ω_ab; in each scaled chart of (S3) of [[sec:ii-a-3]] the H^m(ℝ⁵)-norm is the sum of the L²-norms of up to m
 derivatives, and on 𝒰 the scaled coordinate fields and ∂_(t^♭), ∂_r, Ω_ab span the e3b-vector fields over C^∞_b;
@@ -1094,7 +1096,7 @@ unique; ℰu then agrees with u only up to t^♭ = T_+ − 1/2, which is why the
 side on a slab one unit of time longer.
 
 **Proposition {#prop:ii-e-4-4}** (Tame estimates on slabs.) In the setting of [[prop:ii-e-4-3]], let 𝗌 be constant
-near {r ≤ r_0}, over {t_* ≥ 1/2, r^♯ ≤ r < r_0 + κ_0} for some κ_0 > 0, with value a positive integer there, and put
+over {t_* ≥ 1/2, r^♯ ≤ r < r_0 + κ_0} for some κ_0 > 0, with value a positive integer there, and put
 Ω′_+ := Ω_(T_0,T_1+1). There is d ∈ ℕ, depending only on 𝗌, such that for all k, all P of class
 ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ‖P − P_0‖_((d_0;d),(2ℓ_I,ℓ_+,ℓ_K)) small and all f ∈ H^((𝗌−1;k),2α+2)(Ω′_+)^(•,−), the
 forward solution u on Ω′ of Pu = f (that is, of Pu = f|_(Ω′)) satisfies
@@ -1368,11 +1370,10 @@ with no condition on the coupling, as on r-slabs every first-order term is absor
 [[lem:ii-e-5-1]].
 
 **Proposition {#prop:ii-e-5-6}** (b-regularity and tame estimates in the interior.) Let α_K, T_0 and
-r^♯ < a < a⁺ < b ≤ r^♮ be as in [[prop:ii-e-5-4]], and 𝗌 a slab order.
+r^♯ < a < a⁺ < b ≤ r^♮ be as in [[prop:ii-e-5-4]], 𝗌 a slab order and s′ ∈ ℝ.
 
-(a) Let s′ ∈ ℝ. There is d_0, depending only on 𝗌 and s′, such that for all k ∈ ℕ_0 and P of class
-((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ε_(P,k) small, every u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^• with f := Pu satisfies, in the
-strong sense,
+(a) There is d_0, depending only on 𝗌 and s′, such that for all k ∈ ℕ_0 and P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with
+ε_(P,k) small, every u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^• with f := Pu satisfies, in the strong sense,
 
     ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a,b]))^•)
         ≤ C_k (‖f‖_(H^((𝗌−1;k),α_K)(Ω^K_([a,b]))^•) + ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a⁺,b]))^•)).                {#eq:ii-e-5-5}
@@ -1456,7 +1457,7 @@ the scheme of [[prop:ii-e-3-4]]), and admissible orders are slab orders by [[pro
 
 for P = P_0, in the strong sense, and for every weakly admissible P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) (conditions (1)
 and (2) of [[def:ii-c-3-3]], as in [[sec:ii-e-1-1]]) with ε_(P,k)
-small, with C_k uniform; d_0 depends only on 𝗌_0 and 𝗌. Moreover, if 𝗌 and 𝗌_0 are constant near {r ≤ r_0}, over
+small, with C_k uniform; d_0 depends only on 𝗌_0 and 𝗌. Moreover, if 𝗌 and 𝗌_0 are constant over
 {t_* ≥ 1/2, r^♯ ≤ r < r_0 + κ_0} for some κ_0 > 0, with values there a positive integer and a nonnegative integer
 respectively, there is d ∈ ℕ such that for every k and every P of that class with ε_(P,d) small,
 

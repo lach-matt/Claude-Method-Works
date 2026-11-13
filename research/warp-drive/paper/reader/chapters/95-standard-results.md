@@ -939,7 +939,8 @@ that "by mimicking the proof of Proposition 4.2, one shows … (wH^(m,l)_𝒱(M)
 is an isomorphism, with l̂_σ = l|_(σ dt + T*X) and ŝ_σ = s|_(σ dt + T*X) (4.24a).
 
 (S10) Commutator 𝒲-vector fields [Hin26d, Definition 4.20 p. 74, Proposition 4.22 p. 75]. 𝒲_[𝒱] is "the space of all
-W ∈ 𝒲 so that [W, V] ∈ 𝒱 for all V ∈ 𝒱". If 𝒲_[𝒱] spans 𝒲 over C^∞_(uni,𝓑)(M) (4.25), then
+W ∈ 𝒲 so that [W, V] ∈ 𝒱 for all V ∈ 𝒱". If 𝒲_[𝒱] spans 𝒲 over C^∞_(uni,𝓑)(M) (4.25), then, with ad and the
+classes ρ^(−l) Ψ^m_(𝒱,[ ])(M) as defined in (S15),
 "ad_(W_1) ⋯ ad_(W_k) A ∈ ρ^(−l) Ψ^m_(𝒱,[ ])(M) for all A ∈ ρ^(−l) Ψ^m_(𝒱,[ ])(M), k ∈ ℕ, W_1, …, W_k ∈ 𝒲_[𝒱]", and
 "⋃_(m,l∈ℝ) ρ^(−l) Ψ^m_(𝒱,[ ])(M) is closed under compositions and adjoints. Analogous statements hold for operators
 with weights, phase space weights, and variable orders."

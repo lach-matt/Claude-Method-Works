@@ -145,11 +145,16 @@ operators, which is at most 20,180 ([[thm:fwd-loss]]);
 with R the number of rounds of [[prop:ec-rounds]], the sum over those rounds, and ℓ_tf ≥ 1 the lower bound of
 [[lem:ec-closed-forms]] (d) for the loss of [[cor:iii-f1-3-4]] at the weights of each round;
 
-(iii) d_acc is bounded from above by [[prop:ec-upper]], explicitly in the numbers of steps of the long iterations,
-which [[lem:ec-counts]] counts, and in finitely many losses of single steps.
+(iii) when the levels of [[thm:iii-i14-3-1]] are more than ½(α − 4) apart, d_acc is bounded from above by
+[[prop:ec-upper]], explicitly in the numbers of steps of the long iterations, which [[lem:ec-counts]] counts, in the
+losses of their single steps, and in finitely many further losses, each assigned to a finite composition.
 
 The bounds (ii) are lower bounds for the loss that this proof's choices produce, not for the least loss with which
-the tame estimates hold. No numerical upper bound for d_acc or d_NM is proved in this paper ([[rem:ec-upper-open]]).
+the tame estimates hold. The bound (iii) is explicit in numbers that this theorem does not evaluate: the numbers of
+steps, which [[lem:ec-counts]] bounds through the spacing of the levels, below ε_K, and so through a lower bound for
+the admissible ε_K, which the exponents of the index sets of the construction fix; and the further losses, which
+contain counts that these exponents and the orders of the poles of N_ι⁺(L̄, ·)⁻¹ fix. So this theorem gives no
+integer upper bound for d_acc or d_NM ([[thm:uc-reduction]]); [[rem:uc-missing]] states what one needs.
 
 *Proof.* [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d_acc by [[lem:iii-j2-1-2]], which gives the tame
 estimates with any loss at least the accounted one; N_NM = 21d_NM + 6 is the regularity of [[thm:ii-g-2-1]] at the
@@ -189,7 +194,7 @@ enlarged if necessary so that C_(2d) ≥ 1 and ω_(2d)(t) ≥ t on [0, s_(2d)]; 
 
     λ1 < δ,     ω_(2d)(2δ) ≤ 2^(−(32d+8)),     δ ≤ 2^(−(32d+9)),     log₁₀ δ < −(59/196)(32d + 9).
 
-As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives log₁₀ δ < −1.351 × 10²¹.
+As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives, at the computational point, log₁₀ δ < −1.351 × 10²¹.
 
 *Proof.* Replacing C_(2d) by max(C_(2d), 1) and ω_(2d)(t) by max(ω_(2d)(t), t) keeps [[lem:iii-k-2-2]] (d) true,
 and the modulus still tends to 0 with t, which is all that the proof of [[thm:iii-k-3-2]] uses of it; so these are
@@ -206,12 +211,13 @@ enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_
 that is, upper bounds for every constant of the proof that enters them; [[rem:ec-not-evaluated]] says where those
 stop.
 
-### An upper bound for d {#sec:ec-upper}
+### An upper bound for the accounted loss {#sec:ec-upper}
 
-This section bounds d_acc from above. The bound is explicit in the numbers of steps of the long iterations, which it
-counts from above, and in the losses of their single steps; the remaining steps of the construction enter through
-finitely many losses of single steps, each finite and charged once per level or once in all. First, a rule for
-families whose loss differs in the two norms of [[eq:iii-j2-1-1]], which shows how the background terms enter.
+This section bounds d_acc from above, at choices of the levels more than ½(α − 4) apart. The bound is explicit in the
+numbers of steps of the long iterations, which it counts from above, and in the losses of their single steps; the
+remaining steps of the construction enter through finitely many further losses, each finite and charged once per
+level, once per step of the base or once in all. First, a rule for families whose loss differs in the two norms of
+[[eq:iii-j2-1-1]], which shows how the background terms enter.
 
 **Lemma {#lem:ec-split-loss}** (Families with a split loss.) Call a family (T_β), E → G, *tame with split loss* (a; c,
 b), a, c, b ∈ ℕ₀, if for every k there is C_k with
@@ -323,9 +329,10 @@ Q_3·0 + 0·Q_1, Q_3·0 + 0·Q_2 and Q_4·0 + 0·Q_1, Q_4·0 + 0·Q_2, that is, 
 UVf(UV) = Uf(VU)V for every polynomial f, so m(UV) = 0 for m(ν) := ν p_Υ(ν)p_C(ν). The seven roots of m are
 distinct, real and non-negative: the six other than 0 are positive, those of each of the two sets of the statement
 are distinct as 0 < e_Υ, e_C < 1, and the two sets are disjoint. Let P_μ := Π_(μ′≠μ)(UV − μ′)/(μ − μ′) for each root
-μ, the product over the other roots. Then Σ_μ P_μ = Id (the polynomial Σ_μ Π_(μ′≠μ)(ν − μ′)/(μ − μ′) has degree at most 6 and equals 1 at the
-seven roots), (UV − μ)P_μ and P_μP_μ′ (μ ≠ μ′) are multiples of m(UV) = 0, and so P_μ² = P_μ and A + S = UV = Σ_μ μP_μ:
-A + S is diagonalisable with eigenvalues among the roots of m. By [[lem:ec-theta-in]] (b) its kernel is non-zero.
+μ, the product over the other roots. Then Σ_μ P_μ = Id (the polynomial Σ_μ Π_(μ′≠μ)(ν − μ′)/(μ − μ′) has degree at
+most 6 and equals 1 at the seven roots), (UV − μ)P_μ and P_μP_μ′ (μ ≠ μ′) are multiples of m(UV) = 0, and so
+P_μ² = P_μ and A + S = UV = Σ_μ μP_μ: A + S is diagonalisable with eigenvalues among the roots of m. By
+[[lem:ec-theta-in]] (b) its kernel is non-zero.
 
 The roots of m do not depend on the point, and A + S depends smoothly on it, so the P_μ, polynomials in A + S, are
 smooth. Fix a smooth fibre inner product h_0 and put h(u, v) := Σ_μ h_0(P_μu, P_μv), at ∂X, extended to a smooth fibre
@@ -338,10 +345,12 @@ face model has the same endomorphism (the end of the proof of [[lem:ec-theta-in]
 the computational point the two sets are {10⁻², 2·10⁻², 0.99·10⁻²} and 1.5·10⁶{1, 2, 1 − 1/102400}. ∎
 
 **Lemma {#lem:ec-tf-loss}** (The loss of the transition face inverse.) Let β_sctf ∈ [1, 3/2) and β_ztf ∈ [−1, 0), and
-let s be the regularity order with which the proof of [[cor:iii-f1-3-4]] applies [[prop:iii-f1-3-3]], an integer that
-proposition takes large; let s ≥ 1. In the proof of [[cor:iii-f1-3-4]] take, at the incoming radial sets, the fibre
-inner product of [[lem:ec-theta-in-zero]] ((O3) of [[def:i-a-admissible]] chooses the inner products separately for
-each radial set) and the incoming order 𝗋_in := −¼. Then that proof gives [[eq:iii-f1-3-3]] with the loss
+let s ≥ 1 be the integer regularity order of the spaces of [[thm:i-c-4-3]] at which the proof of [[cor:iii-f1-3-4]]
+applies [[cor:i-c-5-2]]; the tf-admissibility of [[prop:iii-f1-3-3]] does not depend on it ([[def:i-c-5-1]]), so any
+such s may be taken, s = 1 among them ([[prop:uc-ltf]]). In the proof of [[cor:iii-f1-3-4]] take, at the incoming
+radial sets, the fibre inner product of [[lem:ec-theta-in-zero]] ((O3) of [[def:i-a-admissible]] chooses the inner
+products separately for each radial set) and the incoming order 𝗋_in := −¼. Then that proof gives [[eq:iii-f1-3-3]]
+with the loss
 
     ℓ_tf(s) := max(1, s − 1),
 
@@ -350,17 +359,20 @@ in every application of [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]] at the level
 [[lem:iii-i8-3-2]], [[prop:iii-i11-3-1]] and [[prop:iii-i13-2-1]]; then all of them apply [[cor:iii-f1-3-4]] with the
 loss ℓ_tf(s).
 
-*Proof.* The proof of [[cor:iii-f1-3-4]] takes α_+ := 0, ϵ < ϵ_0 := ¼(3/2 − β_sctf) ≤ 1/8 (the number it calls δ),
-𝗋_out := β_sctf − 2 − ϵ/2 < −½ and the orders of [[lem:i-a-7-1]] at σ_* = ±1. By [[lem:ec-theta-in-zero]] the incoming
-threshold of N_tf((2L_b)^(·), ±1) is 0 in the inner product chosen, so [[lem:i-a-7-1]] asks 𝗋_in > −½ and 𝗋_in ≥ 𝗋_out,
-which 𝗋_in = −¼ satisfies. Its order 𝗋 = 𝗋_out + (𝗋_in − 𝗋_out)Θχ_c takes the values 𝗋_out and 𝗋_in and no value
-outside [𝗋_out, 𝗋_in] (extended with values in that interval, as in the proof of [[cor:ii-g1-4-2]]), so sup 𝗋 = 𝗋_in
-and inf 𝗋 = 𝗋_out. So in [[lem:ii-g1-4-1]], sup 𝗋 − 𝗋_out = 7/4 − β_sctf + ϵ/2 lies in (¼, 13/16), as 7/4 − β_sctf ∈
-(¼, ¾] and ϵ/2 < 1/16; its ceiling is 1, and 𝗋_out − inf 𝗋 = 0. As s ≥ 1, ℓ = max(1, s − 1) and ℓ̃ = 0 for every
-ϵ ∈ (0, ϵ_0). They do not depend on ϵ, so the last step of the proof, which replaces k by k + ℓ̃ and enlarges ℓ until
-it does not depend on ϵ, gives [[eq:iii-f1-3-3]] with the loss ℓ + ℓ̃ = ℓ_tf(s) for ϵ < ϵ_0, and so for every ϵ > 0, a
-larger ϵ giving a weaker statement. Near ztf the proof's spaces have the orders s − 2 + k and s + k, and s − 2 < ℓ and
-s ≥ 0, so nothing is lost there. The expression of [[lem:ec-closed-forms]] (d) is ℓ + ℓ̃ at these orders.
+*Proof.* [[thm:i-c-4-3]] takes s ∈ ℝ, and [[cor:i-c-5-2]] (a)–(b) holds at every s ([[def:i-c-5-1]]). The face tf
+carries no event horizon, and the orders of [[lem:i-a-7-1]] that [[thm:i-c-4-3]] uses concern only the boundary face;
+so the condition s_c > ½ + ϑ_ℋ of (O3) of [[def:i-a-admissible]], which concerns the radial sets ∂ℛ_± over the
+horizon, does not enter. The proof of [[cor:iii-f1-3-4]] takes α_+ := 0, ϵ < ϵ_0 := ¼(3/2 − β_sctf) ≤ 1/8 (the number
+it calls δ), 𝗋_out := β_sctf − 2 − ϵ/2 < −½ and the orders of [[lem:i-a-7-1]] at σ_* = ±1. By [[lem:ec-theta-in-zero]]
+the incoming threshold of N_tf((2L_b)^(·), ±1) is 0 in the inner product chosen, so [[lem:i-a-7-1]] asks 𝗋_in > −½
+and 𝗋_in ≥ 𝗋_out, which 𝗋_in = −¼ satisfies. Its order 𝗋 = 𝗋_out + (𝗋_in − 𝗋_out)Θχ_c takes the values 𝗋_out and 𝗋_in
+and no value outside [𝗋_out, 𝗋_in] (extended with values in that interval, as in the proof of [[cor:ii-g1-4-2]]), so
+sup 𝗋 = 𝗋_in and inf 𝗋 = 𝗋_out. So in [[lem:ii-g1-4-1]], sup 𝗋 − 𝗋_out = 7/4 − β_sctf + ϵ/2 lies in (¼, 13/16), as
+7/4 − β_sctf ∈ (¼, ¾] and ϵ/2 < 1/16; its ceiling is 1, and 𝗋_out − inf 𝗋 = 0. As s ≥ 1, ℓ = max(1, s − 1) and ℓ̃ = 0
+for every ϵ ∈ (0, ϵ_0). They do not depend on ϵ, so the last step of the proof, which replaces k by k + ℓ̃ and enlarges
+ℓ until it does not depend on ϵ, gives [[eq:iii-f1-3-3]] with the loss ℓ + ℓ̃ = ℓ_tf(s) for ϵ < ϵ_0, and so for every
+ϵ > 0, a larger ϵ giving a weaker statement. Near ztf the proof's spaces have the orders s − 2 + k and s + k, and
+s − 2 < ℓ and s ≥ 0, so nothing is lost there. The expression of [[lem:ec-closed-forms]] (d) is ℓ + ℓ̃ at these orders.
 
 Finally, Step 3.4′ of the proof of [[lem:iii-i8-3-2]] and Step 2 of the proof of [[prop:iii-i11-3-1]] take ℓ_scf :=
 3/2 − ε; at the levels 2 and 3 the forcings have scf-weight 5/2 − ε ([[lem:iii-i11-2-2]]), which allows ℓ_scf := 3/2 − ε
@@ -370,7 +382,7 @@ there too. [[prop:iii-g4-5-1]] and [[thm:iii-g4-3-1]], through which [[prop:iii-
 **Lemma {#lem:ec-round-charges}** (The losses of single rounds, from above.) In the accounting of
 [[def:ec-accounted-loss]], let ℓ⁺_tf be the largest of the losses with which the construction applies
 [[cor:iii-f1-3-4]] in the rounds of (a) and the applications of (b), which are finitely many; at the choices of
-[[lem:ec-tf-loss]], ℓ⁺_tf = ℓ_tf(s) = max(1, s − 1). Then:
+[[lem:ec-tf-loss]], ℓ⁺_tf = ℓ_tf(s) = max(1, s − 1), which is 1 at s = 1 ([[prop:uc-ltf]]). Then:
 
 (a) a transition face round of the proof of [[lem:iii-i8-3-2]], and a level-3 round of the proof of
 [[prop:iii-i13-2-1]] at a level β < 4, map the current forcing to the next one with a loss at most ℓ⁺_tf + 2; a level-3
@@ -587,7 +599,8 @@ N_b ≤ 1/(a♭_K − 2) + 1. For L ≥ 1 the function x ↦ (L + x/2)²/(2x) = 
 **Remark {#rem:ec-upper-point}** (The upper bound at the computational point.) At the computational point take
 ε_Υ = 1.4619·10⁻¹⁰ ([[lem:ec-gauge-gap]]), ε_ind ≥ ε_Υ (so ε_g = ε_Υ), 3 < ℓ_I < 3.5 and δ_ι < 3.5 − ℓ_I (so
 d^max_ι ≤ 12 and r_ι ≤ 16), and η_2 < ε_+ ≤ 2·10⁻⁸, and suppose that the gap condition (G) of [[def:iii-i10-1-3]] holds
-with ε_K = 1.46·10⁻¹⁰. As the admissible values are dense, one may take α − 4 ≥ 0.999ε_K, levels with
+with ε_K = 1.46·10⁻¹⁰ (this fails for the index sets as the proofs construct them, [[cor:uc-two-offsets]],
+[[rem:uc-offset-d0]]). As the admissible values are dense, one may take α − 4 ≥ 0.999ε_K, levels with
 Δβ ≥ 0.999(α − 4) > ½(α − 4), a♭_K − 2 ≥ 0.999(α − 4) and ε ≤ 10⁻³ε_g (the number δ₄ of Step 4 of the proof of
 [[prop:iii-i11-3-1]] then exists, as ℓ_3 + 2ε ≤ ε_K + ε < 1.4615·10⁻¹⁰ < ε_g); then [[eq:ec-upper-counts]] holds with
 Δβ_0 = 0.999²ε_K = 1.45708146·10⁻¹⁰ and Δτ_0 = 0.999ε_Υ = 1.4604381·10⁻¹⁰. From
@@ -609,32 +622,36 @@ constant 2(T_< + T_> + T_2) + 4(1/Δτ_0 + 2) + r_ιW(N_< + N_> + N_b + 3) is le
     d_acc ≤ 9.394·10¹⁹ ℓ⁺_tf + 1.2923·10²¹ + 1.3727·10¹⁰ max_k c(β_k)
             + 6.864·10⁹ (c_b + c′_b) + c′_b + c_0,
 
-with ℓ⁺_tf as in [[lem:ec-round-charges]], equal to max(1, s − 1) at the choices of [[lem:ec-tf-loss]]. The coefficient
-of ℓ⁺_tf, 9.394·10¹⁹, and the constant 1.2923·10²¹ (of which 1.10·10²¹ comes from the window loops at ι⁺, through the
-bound ε^ι_ind ≥ ε_Υ) are the explicit part. Against the lower bound 3R > 1.403·10²⁰ of [[thm:loss-d]] (ii), the
-explicit part at ℓ⁺_tf = 1 is less than 1.3863·10²¹, less than 9.9 times the lower bound. The losses c(β_k), c_b and
-c′_b are losses of single steps, multiplied by at most 1.38·10¹⁰; c_0 enters once and contains the iterations of
-Steps 4′ and 4, each bounded as in [[lem:ec-counts]].
+with ℓ⁺_tf as in [[lem:ec-round-charges]], equal to 1 at the choices of [[lem:ec-tf-loss]] with s = 1
+([[prop:uc-ltf]]). The coefficient of ℓ⁺_tf, 9.394·10¹⁹, and the constant 1.2923·10²¹ (of which 1.10·10²¹ comes from
+the window loops at ι⁺, through the bound ε^ι_ind ≥ ε_Υ) are the explicit part. Against the lower bound
+3R > 1.403·10²⁰ of [[thm:loss-d]] (ii), the explicit part at ℓ⁺_tf = 1 is less than 1.3863·10²¹, less than 9.9 times
+the lower bound. The losses c(β_k), c_b and c′_b are losses of single steps, multiplied by at most 1.38·10¹⁰; c_0
+enters once and contains the iterations of Steps 4′ and 4, each bounded as in [[lem:ec-counts]]. These losses contain
+counts n(E, β) of index sets ([[lem:uc-fourier-count]]), which depend on the exponents of the index sets and on the
+orders of the poles of N_ι⁺(L̄, ·)⁻¹ ([[rem:uc-missing]]).
 
 **Remark {#rem:ec-upper-open}** (What the upper bound leaves open.) Four inputs separate [[prop:ec-upper]] from an
-integer. (1) ε_K: (G) asks that no element of the set Λ of [[def:iii-i10-1-1]] have real part in (2, 2 + ε_K] or in
-(3, 3 + ε_K], and that no λ + d_c0 or λ + d_c1, λ ∈ Λ, have real part in (2, 2 + ε_K]; this paper bounds the
-generators and increments of Λ only by their least real parts. [[prop:gap-sums]] and [[rem:gap-sums]] settle the three
-windows for ε_K < 5.019·10⁻⁸ on the part of Λ built from 2, 3, λ_♯ and the offsets 𝔡₁, 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁, but
-not on the rest; so no lower bound for the admissible ε_K, and with it no upper bound for the number of levels,
-follows from the statements of this paper. (2) ℓ⁺_tf: at the choices of [[lem:ec-tf-loss]] it is max(1, s − 1), with
-s the integer regularity order with which the proof of [[cor:iii-f1-3-4]] applies [[prop:iii-f1-3-3]], which that
-proposition takes large and this paper does not fix; ℓ⁺_tf = 1 exactly when s ≤ 2. (3) The single-step losses c(β),
-c_b, c′_b and c_0: each is a finite composition of the elementary losses of [[lem:ec-closed-forms]] and
-[[rem:ec-other-losses]] and of the forward loss, at most 20,180 ([[thm:fwd-loss]]), charged at each forward solution
-they apply, but their numbers of steps and the counts n(E, β) of the index sets entering [[eq:ec-fourier-loss]] are not
-evaluated here; c_0 contains, besides, the iterations of Steps 4′ and 4 at the top level, each bounded as in
-[[lem:ec-counts]], and the loss of [[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over
-the exponents of Λ ∩ {Re < 3 + ε_+}, a number of steps not evaluated here. (4) d_BG, the background order in
-[[lem:iii-j2-2-1]] (b), fixed by the product estimates there and not evaluated; it enters c(β), c_b, c′_b and c_0
-through the charge max(2, d_BG). An upper bound for N_NM needs besides upper bounds for the losses of [[lem:iii-k-2-2]]
-and [[prop:iii-j2-4-3]], which enter d_NM; their proofs fix them through the loss of [[thm:iii-j-2-4]] and the product
-orders of [[lem:iii-j2-2-4]], not evaluated here. Given ε_K, the bound [[eq:ec-upper]] is of the order 1/(ε_Kε_g), the
-order of the lower bound of [[prop:ec-rounds]]; ℓ⁺_tf multiplies terms of that order, c(β) enters at most
-N_< + N_> times, about 2/ε_K, and c_b and c′_b at most about 1/ε_K times each. All these numbers depend on the point
-through z, which fixes ε_Υ ([[rem:ec-gauge-gap]]).
+integer. (2) and (4) are evaluated; (1) and (3) depend on the exponents of the index sets of the construction and on the
+orders of the poles of N_ι⁺(L̄, ·)⁻¹, and [[rem:uc-missing]] states what an integer upper bound needs. (1) ε_K, N_Λ and
+k̄_0: (G) asks that no element of the set Λ of [[def:iii-i10-1-1]] have real part in (2, 2 + ε_K] or in (3, 3 + ε_K],
+and that no λ + d_c0 or λ + d_c1, λ ∈ Λ, have real part in (2, 2 + ε_K]; these numbers are fixed by the exponents and
+logarithmic orders of the index sets of [[sec:uc-index-sets]], which this paper fixes by its constructions
+([[prop:uc-no-eps]], [[rem:uc-missing]] (IS)). [[prop:gap-sums]] and [[rem:gap-sums]] settle the three windows for
+ε_K < 5.019·10⁻⁸ on the part of Λ built from 2, 3, λ_♯ and the offsets 𝔡₁, 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁. With ℰ_ind as the
+proofs construct it, 𝔡₀ and 𝔡₁ are themselves increments, and (G) fails for every ε_K ≥ 1.6417·10⁻¹⁴
+([[cor:uc-two-offsets]], [[rem:uc-offset-d0]]). A lower bound for the admissible ε_K, and with it an upper bound for the
+numbers of levels and of rounds, is a statement about the exponents of Λ below 3 + ε_K. (2) ℓ⁺_tf = 1 at the choices of
+[[lem:ec-tf-loss]] with s = 1 ([[prop:uc-ltf]]). (3) The single-step losses c(β), c_b, c′_b and c_0: each is a finite
+composition of the elementary losses of [[lem:ec-closed-forms]] and [[rem:ec-other-losses]] and of the forward loss, at
+most 20,180 ([[thm:fwd-loss]]), charged at each forward solution they apply; they contain the counts n(E, β) of the
+index sets entering [[eq:ec-fourier-loss]], which [[lem:uc-fourier-count]] bounds through N_Λ, k̄_0 and l_*, and l_*
+bounds also the orders of the poles of N_ι⁺(L̄, ·)⁻¹ ([[rem:uc-missing]] (SP)); c_0 contains, besides, the iterations of
+Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]], and the loss of [[thm:iii-j-2-4]], which its
+proof takes as the sum of the losses of its steps over the exponents of Λ ∩ {Re < 3 + ε_+} ([[lem:uc-phi-loss]]).
+(4) d_BG = 11 serves ([[prop:uc-dbg]]); it enters c(β), c_b, c′_b and c_0 through the charge max(2, d_BG). An upper
+bound for d_NM, and so for N_NM, needs besides upper bounds for the losses of [[lem:iii-k-2-2]] and [[prop:iii-j2-4-3]],
+which [[lem:uc-phi-loss]] gives in terms of N_Λ; see [[thm:uc-reduction]]. Given ε_K, the explicit part of
+[[eq:ec-upper]] is of the order 1/(ε_Kε_g), the order of the lower bound of [[prop:ec-rounds]]; ℓ⁺_tf multiplies terms
+of that order, c(β) enters at most N_< + N_> times, about 2/ε_K, and c_b and c′_b at most about 1/ε_K times each. All
+these numbers depend on the point through z, which fixes ε_Υ ([[rem:ec-gauge-gap]]), and through the index sets.

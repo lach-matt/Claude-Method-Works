@@ -1832,7 +1832,7 @@ being constant there apart from s; the last term is the previous display with φ
 
 *Absorption.* For M ≥ max(1, −s, −min(𝗋 + α_+), 1 − min 𝖻), since w_(−M𝟏)/w_𝐨 ≤ Ch,
 
-    ‖u‖_(H̄_h^(−M𝟏)) ≤ C_K h‖u‖_(H̄_h^𝐨),                                                              {#eq:i-b-8-absorb}
+    ‖u‖_(H̄_h^(−M𝟏)) ≤ C h‖u‖_(H̄_h^𝐨),                                                                {#eq:i-b-8-absorb}
 
 and h^M ≤ h; so for h < h_0 the last two terms of [[eq:i-b-8-chain]] are absorbed, which is [[eq:i-b-8-1]].
 
