@@ -173,8 +173,8 @@ of [HJS, Definition 10.2] on ℝ⁴ (constant regularity order, variable decay o
 region {r > r_Γ}, r_Γ > r_e, where P̂(σ) is elliptic. The calculus of [HJS] used here takes the differential order
 constant ([HJS, p. 77]: "we will take the differential order to be constant, and the spatial order to be variable"),
 and every proof below uses only s ≡ s_c, so [[thm:i-a-7-2]] is stated and proved for constant s. The semiclassical
-calculus of [[ch:s02]] has variable orders in all three senses; with the semiclassical parameter equal to 1 it supplies
-the elliptic estimate at a variable s over {r > r_Γ}.
+calculus of [[ch:s02]] has variable orders in all three senses; with the semiclassical parameter equal to 1 it would
+supply the elliptic estimate at a variable s over {r > r_Γ}, but no result of this chapter needs it.
 
 ### The calculus {#sec:i-a-2}
 
@@ -257,7 +257,8 @@ B₀ := Op(σ(A)⁻¹χ) for a cut-off χ, and run the Neumann series of [HJS, P
 R₁ ∈ Ψ^(−1,−1) by (a), and the asymptotic sum Σ_j R₁^j exists entrywise. The microlocal versions are identical. ∎
 
 **Lemma {#lem:i-a-2-2}** (Square roots.) Let 𝒦 be a compact set of h-self-adjoint endomorphisms with spectra in
-[c, ∞), c > 0. Then Q ↦ Q^(1/2), the h-positive square root, is real-analytic on a neighbourhood of 𝒦 in End ℂ^(N_E), with
+[c, ∞), c > 0. Then Q ↦ Q^(1/2), the h-positive square root, is real-analytic on a neighbourhood of 𝒦 in
+End ℂ^(N_E), with
 
     Q^(1/2) = (2πi)⁻¹ ∮_γ z^(1/2) (z − Q)⁻¹ dz,
 
@@ -457,9 +458,10 @@ Likewise Y_ε is bounded only in Ψ^(𝐤−𝟏+2δ𝟏), which is harmless in 
 **Definition {#def:i-a-cutoff}** (The cut-off.) Fix once and for all ψ ∈ C_c^∞((−1, 1)), even, with ψ = 1 on
 [−½, ½], ψ′ ≤ 0 on [0, ∞) and √(−xψ(x)ψ′(x)) ∈ C^∞([0, ∞)) [Hin26c, (9.25)].
 
-Such a ψ exists. Let ν ∈ C^∞([0, 1)) vanish on [0, ½], be positive on (½, 1) and equal (1 − x)⁻¹ near 1, and set
-ψ(x) := exp(−∫_0^(|x|) ν²) for |x| < 1 and ψ := 0 otherwise. Then ψ is smooth, since ∫_0^x ν² → ∞ like (1 − x)⁻¹;
-−ψ′ = ν²ψ for x ≥ 0; and √(−xψψ′) = √x νψ, which is smooth because ν = 0 on [0, ½] and νψ is smooth (flat at 1).
+Such a ψ exists. Let ν ∈ C^∞([0, ¾)) vanish on [0, ½], be positive on (½, ¾) and equal (¾ − x)⁻¹ near ¾, and set
+ψ(x) := exp(−∫_0^(|x|) ν²) for |x| < ¾ and ψ := 0 otherwise. Then ψ is smooth, since ∫_0^x ν² → ∞ like (¾ − x)⁻¹,
+so that ψ and all its derivatives tend to 0 at ±¾; supp ψ = [−¾, ¾] ⊂ (−1, 1); −ψ′ = ν²ψ for x ≥ 0; and
+√(−xψψ′) = √x νψ, which is smooth because ν = 0 on [0, ½] and νψ is smooth (flat at ¾).
 
 **Definition {#def:i-a-regulariser}** (The regulariser.) For κ ∈ (0, ½] and a defining function ϱ of a boundary face
 of phase space, let φ_ε(ϱ) := (1 + εϱ⁻¹)^(−κ), ε ∈ (0, 1], and θ_ε := εϱ⁻¹(1 + εϱ⁻¹)⁻¹ ∈ [0, 1).
@@ -1068,8 +1070,8 @@ elements of C_c^∞({|x| < r₀}), which is (a) for the ball, with μ < 1; each 
 On {r₀ − 2δ₀ < r < r₂} let 𝔤 be the Lorentzian metric on X̃ whose inverse is the bilinear form of G₀. Its signature
 is (1, 3) there, by (H4). Let X := 𝔤⁻¹(dr, ·) = ∇r, a 𝔤-timelike vector field, and time-orient 𝔤 so that X is future
 directed. Then dr(V) = 𝔤(X, V) < 0 for V future timelike: r decreases to the future, as in (H4). Let
-□ := −|𝔤|^(−1/2)∂_i|𝔤|^(1/2)𝔤^(ij)∂_j act componentwise, with principal symbol G₀ Id, and for u valued in ℂ^(N_E) (standard
-inner product) let
+□ := −|𝔤|^(−1/2)∂_i|𝔤|^(1/2)𝔤^(ij)∂_j act componentwise, with principal symbol G₀ Id, and for u valued in ℂ^(N_E)
+(standard inner product) let
 
     T[u](Y, Z) := Re(⟨Yu, Zu⟩ − ½𝔤(Y, Z)𝔤^(ij)⟨∂_iu, ∂_ju⟩),     ^((Y))K[u] := ½T[u]^(ij)(ℒ_Y𝔤)_ij.
 
@@ -1142,10 +1144,10 @@ ends exchanged.
 *Uniqueness.* Let d ∈ H^t(Ω_(a,b))^(•,−) for some t, with Ld = 0. Let D ∈ H^t(ℝ⁴) be supported in {r ≤ b} with
 D|_({r>a}) = d. Then LD = 0 on {a < r < r₂}, L being defined there, and D = 0 on {r > b}. By (H4) and
 [[sec:i-a-6-2]], every null bicharacteristic of G₀ over {a < r < b + δ₀} moves monotonically in r, and its backward
-direction (increasing r) reaches {r > b}, where D vanishes. [[prop:i-a-5-2]], in the use (i) of [[rem:i-a-5-2-uses]], at every order gives D ∈ C^∞({r > a}), as D is
-smooth off the characteristic set by [[prop:i-a-5-1]]. So d|_([a+ε,b]) is smooth up to r = b and vanishes to infinite
-order there; extended by 0 it lies in H²(Ω_(a+ε,b))^(•,−), and [[prop:i-a-6-3]] on Ω_(a+ε,b) gives d = 0 there, for
-every ε > 0.
+direction (increasing r) reaches {r > b}, where D vanishes. [[prop:i-a-5-2]], in the use (i) of [[rem:i-a-5-2-uses]],
+at every order gives D ∈ C^∞({r > a}), as D is smooth off the characteristic set by [[prop:i-a-5-1]]. So
+d|_([a+ε,b]) is smooth up to r = b and vanishes to infinite order there; extended by 0 it lies in H²(Ω_(a+ε,b))^(•,−),
+and [[prop:i-a-6-3]] on Ω_(a+ε,b) gives d = 0 there, for every ε > 0.
 
 *Existence for s ≥ 0.* Let f ∈ H^(s−1)(Ω′)^(•,−) ⊂ H^(−1)(Ω′)^(•,−) = (H¹(Ω′)^(−,•))^∗. On
 {L^∗φ : φ ∈ H²(Ω′)^(−,•)} ⊂ L²(Ω′), the functional L^∗φ ↦ ⟨f, φ⟩ is well defined. It is bounded, by
@@ -1299,20 +1301,20 @@ For each k choose B_k elliptic on WF′(Q_k) from the corresponding estimate, so
 ‖Q_ku‖_𝐬 ≤ C(‖B_ku‖_𝐬 + ‖u‖_(−𝐌)). Let δ_in > 0 be the margin of the threshold at R_in in [[eq:i-a-1-5]], so that
 𝗋 + α₊ ≥ (−1 + ϑ_in)/2 + δ_in there.
 
-*The estimates, in order.* (A): [[prop:i-a-4-2]] (1), with s_c > s₀ > ½ + ϑ_ℋ, gives ‖B_Au‖_(s_c) ≤ C(‖GP̂u‖_(s_c−1) +
-‖Gu‖_(s₀) + ‖u‖_(−M)). (B): by (H4) every point of ∂Σ₀ over {r ≥ b′} outside U′_ℋ lies on a curve of 𝖧 whose backward
-continuation enters U′_ℋ in finite time. [[prop:i-a-5-2]], in the use (i) of [[rem:i-a-5-2-uses]], with E microsupported
-in Ell(B_A), applies along it. By compactness finitely many curves suffice. (Near r = b′ such a curve stays over {r >
-r₀} backward, since r increases backward.) (C): [[prop:i-a-4-6]] (1) at the decay order 𝗋 + α₊, which is constant near
-R_in, with the a priori decay order 𝗋 + α₊ − δ_in/2 there; this lies above (−1 + ϑ_in)/2 by the choice of δ_in. (D): by
-[[lem:i-a-4-5]] every point of Σ^∂_(σ₀) outside U′_in ∪ U′_out lies on a curve of ε₀𝖧_(σ₀) whose backward continuation
-enters U′_in. [[prop:i-a-5-2]], in the use (ii), applies, with E in Ell(B_C) and the order monotone by (O2). (E):
-[[prop:i-a-4-9]] (1), with E elliptic on the set K_E^∗ of [[lem:i-a-3-2]] and microsupported near it, U′_out being
-chosen disjoint from K_E^∗; the part of K_E^∗ on Σ^∂_(σ₀) lies in the region (D), and its part off Σ^∂_(σ₀) lies in (F).
-(F): [[prop:i-a-5-1]]. Each E-term is bounded by the estimates of earlier pieces. Each ‖GP̂(σ)u‖ is at most
-C‖P̂(σ)u‖_(H̄^(𝐬′)), since G has kernel supported in X̄°. The orders used are those of 𝐬, through (O1)–(O3): at fibre
-infinity over the compact region only s_c matters, at the boundary face only 𝗋 + α₊, and at the corner both, by
-ellipticity.
+*The estimates, in order.* (A): [[prop:i-a-4-2]] (1), with s_c > s₀ > ½ + ϑ_ℋ, gives
+‖B_Au‖_(s_c) ≤ C(‖GP̂u‖_(s_c−1) + ‖Gu‖_(s₀) + ‖u‖_(−M)). (B): by (H4) every point of ∂Σ₀ over {r ≥ b′} outside U′_ℋ
+lies on a curve of 𝖧 whose backward continuation enters U′_ℋ in finite time. [[prop:i-a-5-2]], in the use (i) of
+[[rem:i-a-5-2-uses]], with E microsupported in Ell(B_A), applies along it. By compactness finitely many curves
+suffice. (Near r = b′ such a curve stays over {r > r₀} backward, since r increases backward.) (C): [[prop:i-a-4-6]]
+(1) at the decay order 𝗋 + α₊, which is constant near R_in, with the a priori decay order 𝗋 + α₊ − δ_in/2 there;
+this lies above (−1 + ϑ_in)/2 by the choice of δ_in. (D): by [[lem:i-a-4-5]] every point of Σ^∂_(σ₀) outside
+U′_in ∪ U′_out lies on a curve of ε₀𝖧_(σ₀) whose backward continuation enters U′_in. [[prop:i-a-5-2]], in the use
+(ii), applies, with E in Ell(B_C) and the order monotone by (O2). (E): [[prop:i-a-4-9]] (1), with E elliptic on the
+set K_E^∗ of [[lem:i-a-3-2]] and microsupported near it, U′_out being chosen disjoint from K_E^∗; the part of K_E^∗ on
+Σ^∂_(σ₀) lies in the region (D), and its part off Σ^∂_(σ₀) lies in (F). (F): [[prop:i-a-5-1]]. Each E-term is bounded
+by the estimates of earlier pieces. Each ‖GP̂(σ)u‖ is at most C‖P̂(σ)u‖_(H̄^(𝐬′)), since G has kernel supported in X̄°.
+The orders used are those of 𝐬, through (O1)–(O3): at fibre infinity over the compact region only s_c matters, at the
+boundary face only 𝗋 + α₊, and at the corner both, by ellipticity.
 
 *The artificial boundary.* By [[eq:i-a-6-1]], ‖χu‖_(H̄^s) ≤ C(‖P̂(σ)u‖_(H̄^(s−1)) + ‖χ₁u‖_(H^s)). The function χ₁u
 is compactly supported in {b′ < r < b″}, so ‖χ₁u‖_(H^s) is bounded by the pieces (B) and (F) over that region, at

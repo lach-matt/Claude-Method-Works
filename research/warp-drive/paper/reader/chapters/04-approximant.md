@@ -409,7 +409,7 @@ and D open; multiply the extensions of f, u0 and u1 by ψ.
 principal symbol ∓ g0⁻¹(ξ, ξ) id, so P or −P is normally hyperbolic for g0 ([[def:std-normally-hyperbolic]]); we take
 that one, changing the sign of the right-hand side with it. With n the future unit normal of S and ∇ the connection
 of [[thm:std-bgp-cauchy]], prescribing u and ∇_n u on S is equivalent to prescribing u and ∂_τ u on S, since dτ(n) > 0
-and the other terms of ∇_n u are tangential derivatives of u and multiples of u. [[thm:std-bgp-cauchy]] therefore
+and the other terms of ∇_n u are tangential derivatives of u and multiples of u. [[thm:std-bgp-cauchy]] (5) therefore
 gives u ∈ C^∞(D) solving P u = −2 ψ f̃, f̃ the extension of f, with the data ψ ũ0, ψ ũ1, the extensions of u0 and u1.
 On Ω the cut-off equals 1 and the extensions agree with B^a, C, f, u0 and u1, so u restricted to Ω solves
 [[eq:linear-wave]]. ∎

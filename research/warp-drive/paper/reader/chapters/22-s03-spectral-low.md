@@ -860,8 +860,9 @@ e^(−2i/ρ_sctf)𝒜^(a,−2+β), is settled by the same argument. The interval
 weight β ≥ 2.
 
 *Proof.* If β is the real part of a root, (i) of [[def:i-c-5-1]] fails. Otherwise β lies in an indicial gap
-(β_−, β_+), and β_− ≥ 2, as 2 is a root. Let q := 2 − β, let Y_0 ∈ ℋ_0 be a nonzero constant, let f_1, g_1 be the
-functions of [[lem:i-c-5-4]] at ℓ = 0 and θ = 0, and put w := g_1Y_0 = e^(−ir̂)f_1Y_0 ≠ 0. Then
+(β_−, β_+), and β_− ≥ 2, as 2 is a root. As in the proof of [[prop:i-c-5-3]] take Θ = Id and N_E = 1, so that
+N_tf(1) = e^(−ir̂)(Δ_e − 1)e^(ir̂). Let q := 2 − β, let Y_0 ∈ ℋ_0 be a nonzero constant, let f_1, g_1 be the functions
+of [[lem:i-c-5-4]] at ℓ = 0 and θ = 0, and put w := g_1Y_0 = e^(−ir̂)f_1Y_0 ≠ 0. Then
 N_tf(1)w = e^(−ir̂)(Δ_e − 1)(f_1Y_0) = 0 by [[lem:i-c-5-4]] (a), and w ∈ 𝒜^(3/2) near sctf by [[lem:i-c-5-4]] (b).
 Near ztf, r̂²|w| = r̂|H_1^(1)(r̂)| is bounded on (0, 2], by [DLMF, (10.7.7)] (H_1^(1)(z) ∼ −2i/(πz)) and continuity; so
 ‖r̂^(−c)w‖_(L²(μ_b)) is finite on {r̂ < 2} for every c < −2, as ∫_0^2 r̂^(−2c−4) dr̂/r̂ < ∞. Since r̂²N_tf(1) is
@@ -1216,7 +1217,7 @@ finite, and it is: on a neighbourhood of supp χ_tf, P̂(σ)^(*h)v = g, as the �
 elliptic at fibre infinity there, so [[prop:i-a-5-1]] in its strong form (the left side is finite when the right side
 is) gives v the regularity 2 − s there, with its decay orders.
 
-The absorptions are those of the proof of (1) at k = 0, with C_T now the constant of [[eq:i-c-5-2]] and the constants of
+The absorptions are those of the proof of (1) at k = 0, with C_T the constant of [[eq:i-c-5-2]] and the constants of
 [[eq:i-c-6-10]], of the adjoint terms (i)–(iv) and of the adjoint form of [[lem:i-c-6-3]] in place of theirs: ρ_c is
 fixed with C_T Cρ_c ≤ ¼, then ς ≤ ρ_c/8 with C_T Cς ≤ ¼, and the last absorption needs C′_(ρ_c)ς^η ≤ ½. These hold for
 0 < ς ≤ c_0^*, for some c_0^* > 0 determined by these constants alone. As c_0 ≤ c_0^* by its definition in the proof of
@@ -1366,8 +1367,12 @@ so the index of P̂^b(0) is m_2 − m_1 there. ∎
 
 ### Remarks on [Hin26c] {#sec:s03-remarks}
 
-The following points concern the text of [Hin26c] and explain where this chapter departs from it in form; none changes
-a statement of [Hin26c]. Pages are the printed pages of [Hin26c].
+The following points concern the text of [Hin26c]; pages are its printed pages. Remarks (3) and (5) correct misprints
+in two statements, [Hin26c, (9.107)] and the condition on θ in [Hin26c, Theorem 9.38 (1)]: as printed, the first would
+gain two orders of decay, and the second pairs 𝗋_+ with θ near π. Their intended forms are the ones proved here.
+Remark (2) corrects a power in the norm equivalence [Hin26c, (3.46)], which cancels in the proof of [Hin26c, Theorem
+9.41]. Remarks (1), (4) and (7) concern two signs that cancel, a term dropped in a proof whose conclusion holds as
+printed, and slips of the pen. Remark (6) closes a gap in a proof. No result of [Hin26c] changes in substance.
 
 (1) In [Hin26c, Section 3.2.3, p. 61] the Mellin transform is (ℳu)(σ) = ∫_0^∞ ρ^(iσ) u dρ/ρ, so ρ∂_ρ becomes −iσ and
 the indicial roots are ι = −iσ at the poles of N(A, σ)⁻¹ ([Hin26c, Definition 3.12]). For u ∈ ρ^β L²(dρ/ρ) the
@@ -1386,10 +1391,16 @@ both sides of the tf step of the proof of [Hin26c, Theorem 9.41] and cancels the
 Ḣ_b^(−s_0,−α−2). The adjoint lies in ρ² Diff_b^2 and raises the weight by 2, and the space of its values is dual to
 that of the domain, H̄_b^(s_0,α); the weight there is −α, as in [[eq:i-c-3-3]].
 
-(4) The proof of [Hin26c, (9.117), p. 196] expands −ρ̂²(ρ̂∂_ρ̂ − n + 2 + 2iρ̂⁻¹)² with the middle term
+(4) [Hin26c, (9.117), p. 196] gives the conjugated adjoint e^(2i/ρ̂)N_tf(1)^*e^(−2i/ρ̂), the adjoint taken for the
+Euclidean density ρ̂^(−n)|dρ̂/ρ̂ dω| of ℝⁿ, the form −2iρ̂(ρ̂∂_ρ̂ − (n − 1)/2 − S̃) + ρ̂²P̃⁽⁰⁾ of N_tf(−1). Its proof
+expands −ρ̂²(ρ̂∂_ρ̂ − n + 2 + 2iρ̂⁻¹)², the conjugate of the adjoint of −ρ̂²(ρ̂∂_ρ̂)², with the middle term
 −2iρ̂(ρ̂∂_ρ̂ − n + 1). Of the two cross products, (ρ̂∂_ρ̂ − n + 2)·2iρ̂⁻¹ = 2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 1) and
-2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 2), only the first is kept; with both, the middle term is −2iρ̂(2ρ̂∂_ρ̂ − 2n + 3). [Hin26c, (9.117)]
-serves only [Hin26c, (9.115)], which is not used here ([[sec:i-c-4-3]]).
+2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 2), only the first is kept; with both, the middle term is −2iρ̂(2ρ̂∂_ρ̂ − 2n + 3). The conclusion
+stands. The adjoint of 2iρ̂·ρ̂∂_ρ̂ for that density is 2iρ̂(ρ̂∂_ρ̂ + 1 − n), which the conjugation turns into
+2iρ̂(ρ̂∂_ρ̂ + 1 − n) − 4, and every other term of N_tf(1)^* conjugates to ρ̂ times an operator of order 0 on the
+sphere plus an element of ρ̂² Diff_b^2. So the coefficient of ρ̂·ρ̂∂_ρ̂ is 2i − 4i = −2i (with the printed middle
+term it would be 0), the constants −4 and 4 cancel, and the remaining terms enter S̃ and P̃⁽⁰⁾: [Hin26c, (9.117)]
+holds as printed. It serves only [Hin26c, (9.115)], which is not used here ([[sec:i-c-4-3]]).
 
 (5) [Hin26c, Theorem 9.38 (1), p. 195] takes θ with |e^(iθ) ± 1| ≤ ½ and 𝗋 = 𝗋_±. The orders 𝗋_± are those for
 frequencies near ±1 ([Hin26c, Theorem 9.41] uses 𝗋_+ for arg σ ∈ [0, π/4]), so the condition is |e^(iθ) ∓ 1| ≤ ½, as

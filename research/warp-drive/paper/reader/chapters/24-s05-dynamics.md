@@ -1712,8 +1712,8 @@ The following points compare this chapter with the texts it writes out in dimens
   {ξ_(3b) = 2σ_(3b)}, printed as ξ_(3b) = −2σ_(3b), and within Σ⁺ it is the characteristic set of 2r∂_(t_*) − r∂_r =
   r(∂_t − ∂_r), printed as r∂_(t_*) − 2r∂_r; the (t, r)-form r(∂_t − ∂_r) given there is the right one. [Hin26c, (4.18)]
   has the factor −2 in place of −4; only the sign is used. The angular coefficient 1 in G⁰_(eb) ([[eq:ii-b-7-1]]) comes
-  from the angular term g_(𝕊³)/(2x_I²) of ḡ near ℐ⁺ ∩ ι⁺ ([[sec:ii-a-2-3]]); the term g_(𝕊³)/x_I² printed in [Hin26c,
-  (2.27)] would give ½|η_(eb)|², and [Hin26c, (4.67)] agrees with the former. [Hin26c, Definition 5.15] gives
+  from the angular term g_(𝕊³)/(2x_I²) of ḡ near ℐ⁺ ∩ ι⁺ ([[sec:ii-a-2-3]]); the term g_(𝕊³)/x_I² printed in
+  [Hin26c, (2.27)] would give ½|η_(eb)|², and [Hin26c, (4.67)] agrees with the former. [Hin26c, Definition 5.15] gives
   x_I⁻²ρ₊⁻²C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) the norm of C^((d₀;k),(2ℓ_I+2,ℓ₊+2,ℓ_K))_(e3b;b); under the convention of
   [Hin26c, Definition 3.19] ([[def:ii-a-8-1]]) the factor x_I⁻²ρ₊⁻² lowers both weights by 2, so the norm is that of
   C^((d₀;k),(2ℓ_I−2,ℓ₊−2,ℓ_K))_(e3b;b) ([[def:ii-c-3-1]]). On [Hin26c, p. 107], after Definition 5.15, the section

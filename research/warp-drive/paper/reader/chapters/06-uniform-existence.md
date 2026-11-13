@@ -18,8 +18,9 @@ entering only through the first term. The domain Ω of [[eq:omega]], its slices 
 τ0 < τ_end and the properties (a)–(f) of Ω are those of [[lem:domain]]. Profiles f(X, θ) on Ω × S¹, their evaluations
 [f](X) := f(X, v(X)/λ), their θ-means ⟨f⟩, the scaled norms |f|_j of [[eq:scaled-norm]] and the chain rule ∂_a [f] = λ⁻¹
 (∂_a v) [∂_θ f] + [∂_a f] are those of [[sec:profiles]]. The number ε1, with 0 < ε1 < min(s0, μ0/a² − 1), is the one
-fixed after [[lem:eigen]]: every g̃ with |g̃ − g0| ≤ ε1 on Ω is Lorentzian, satisfies the conclusions of [[lem:domain]]
-(e), and has |g̃⁻¹| ≤ (s0 − ε1)⁻¹ ([[lem:lorentz-margin]]). All constants below depend on Ω and not on λ, and 0 < λ ≤ λ1
+fixed in [[sec:profiles]], after [[lem:lorentz-margin]]: every g̃ with |g̃ − g0| ≤ ε1 on Ω is Lorentzian with |g̃⁻¹| ≤
+(s0 − ε1)⁻¹ ([[lem:lorentz-margin]]) and satisfies the conclusions of [[lem:domain]] (e) ([[lem:eigen]]). All
+constants below depend on Ω and not on λ, and 0 < λ ≤ λ1
 := min(1, δ0)/10 ([[eq:lambda-one]]). The inequalities on the slices used below are the Sobolev and product bounds of
 [[lem:sobolev]], the compactly supported mollifier 𝒫 adapted to the annuli with its properties (M1)–(M6)
 ([[lem:mollifier]]), the energy inequality [[eq:energy]] of [[lem:energy]] for −(1/2) g̃^(ab) ∂_a ∂_b u = f with |g̃ −
@@ -54,7 +55,8 @@ Let R = R_v be the two-scale operator of [[def:two-scale]], so that Ric^H([G]) =
 [[lem:phase-shift-symmetry]] (a) it satisfies the translation identity [[eq:phase-equivariance]], R[G(·, · + c)](X, θ) =
 R[G](X, θ + c) for every constant c.
 
-For the profile of g_app, R = λ⁻¹ R^(−1) + R^(0) + λ R^(1) + …, with R^(−1) = −(1/2) g0⁻¹(dv, dv) ∂_θ² g1 = 0.
+For the profile of g_app, R has the expansion [[eq:two-scale-expansion]], R = λ⁻¹ R^(−1) + R^(0) + λ R^(1) + …, with
+R^(−1) = −(1/2) g0⁻¹(dv, dv) ∂_θ² g1 = 0 because dv is null for g0 (as shown after [[eq:two-scale-expansion]]).
 
 Let P(w) := (d/ds) Ric^H(g_app + s w) at s = 0. Then
 
@@ -140,16 +142,18 @@ driven by s.
 
 **Lemma {#lem:ell-ell}** (The ℓℓ component.) The component s satisfies
 
-    □̃ s = c1·∂h + c0·h + c2·∂φ + c3 φ − 2q F(ℓ, ℓ) − 2q 𝒬(w)(ℓ, ℓ) + 2q 𝒬_φ(ℓ, ℓ) + Σ_(b,i) c^(bi) ∂_b ∂_i h,
+    □̃ s = c1·∂h + c0·h + c2·∂φ + c3 φ − 2q F(ℓ, ℓ) − 2q 𝒬(w)(ℓ, ℓ) + 2q 𝒬_φ(ℓ, ℓ)
+          + Σ_(b,i) c^(bi) (∂_b ∂_i h)(ℓ, ℓ),
 
-where c0, …, c3 are bounded coefficients (profiles, and profiles times the function q of the proof, which depends on w
+where (∂_b ∂_i h)(ℓ, ℓ) := (∂_b ∂_i h_mn) ℓ^m ℓ^n, c0, …, c3 are bounded coefficients (profiles, and profiles times the function q of the proof, which depends on w
 and so is not a profile; the terms 2 g0^(ab) ∂_a(ℓ ⊗ ℓ)·∂_b h and h·□̃(ℓ ⊗ ℓ) carry no q), the sum runs over pairs with
 i spatial, |c^(bi)| ≤ C(λ + |w|) and |∂c^(bi)| ≤ C(1 + |∂w|), and 𝒬_φ(ℓ, ℓ) contains no second derivative of φ. There is
 no coefficient of size 1/λ.
 
 *Proof.* □̃ s = (□̃ h)(ℓ, ℓ) + 2 g0^(ab) ∂_a(ℓ ⊗ ℓ)·∂_b h + h·□̃(ℓ ⊗ ℓ). Write g0^(ab) ∂_a ∂_b = q g^(ab) ∂_a ∂_b + Σ
 c^(bi) ∂_b ∂_i with q := g0^(ττ)/g^(ττ); here g^(ττ) ≠ 0, since the slices stay spacelike for g ([[lem:domain]] (e)),
-and c^(bi) = O(|g⁻¹ − g0⁻¹|) = O(λ + |w|). Contract [[eq:ue-h]] with ℓ ⊗ ℓ: G2(ℓ, ℓ) = G1(ℓ, ℓ) = 0 removes the 1/λ
+and c^(bi) = O(|g⁻¹ − g0⁻¹|) = O(λ + |w|); so (□̃ h)(ℓ, ℓ) = q (g^(ab) ∂_a ∂_b h)(ℓ, ℓ) + Σ c^(bi) (∂_b ∂_i h)(ℓ,
+ℓ). Contract [[eq:ue-h]] with ℓ ⊗ ℓ: G2(ℓ, ℓ) = G1(ℓ, ℓ) = 0 removes the 1/λ
 terms and the □̃_app φ term exactly; B1·∂φ and C1 φ stay of first order; the second derivatives of φ in 𝒬_φ multiply G1
 and also drop. ∎
 
@@ -222,8 +226,10 @@ the Bernstein bound (M2) in the one spatial derivative. The transport estimate t
 (𝒩(τ0) + ∫_(τ0)^(τ) 𝒩) (∂_τ φ does not vanish on Σ_τ0).
 
 **Step 6** (Ψ). Apply ∂^α to [[eq:ue-psi]] and the transport estimate (with c = 2/r ≤ 2/a). Write □̃ 𝒫 s = 𝒫 □̃ s + [□̃,
-𝒫] s. By [[lem:ell-ell]], □̃ s is of first order in (h, φ) up to F, the nonlinear terms and Σ c^(bi) ∂_b ∂_i h. For the
-last, 𝒫(c ∂_b ∂_i h) = 𝒫 ∂_i(c ∂_b h) − 𝒫((∂_i c) ∂_b h) and ‖𝒫 ∂_i f‖ ≤ C λ⁻¹ ‖f‖ by (M2), (M4), with |c| ≤ C(λ + |w|):
+𝒫] s. By [[lem:ell-ell]], □̃ s is of first order in (h, φ) up to F, the nonlinear terms and Σ c^(bi) (∂_b ∂_i h)(ℓ, ℓ).
+For the last, the contraction with ℓ ⊗ ℓ is understood below; differentiating ℓ ⊗ ℓ adds terms c ∂h ∂(ℓ ⊗ ℓ), of first
+order with the small coefficient c. Then 𝒫(c ∂_b ∂_i h) = 𝒫 ∂_i(c ∂_b h) − 𝒫((∂_i c) ∂_b h) and ‖𝒫 ∂_i f‖ ≤ C λ⁻¹ ‖f‖
+by (M2), (M4), with |c| ≤ C(λ + |w|):
 at most C ‖∂h‖ at level 0, and at level j
 
     λ^j ‖∂^α 𝒫 ∂_i (c ∂h)‖ ≤ C λ^(j−1) Σ_i ‖∂^i c‖_∞ ‖∂^(j−i) ∂h‖ ≤ C 𝒩,
@@ -255,36 +261,47 @@ interval of existence.
 ### Existence, continuation and uniqueness {#sec:ue-existence}
 
 **Step 8** (existence and continuation). The local theory needs the time lines timelike as well as the slices spacelike.
-[AO14, Theorem 1.1, p. 2] ([[thm:std-ao-existence]]), for the divergence-form equation ∂_μ(A^(μν)(U) ∂_ν U) = F on
-[0, T] × R^n, asks in its hypothesis (1.3) that (1/γ)|ξ|² ≤ A^(ij) ξ_i ξ_j ≤ γ|ξ|² and A^(00) ≤ −κ for all (U, ξ),
-with constants γ, κ > 0; and in the first-order form the eigenvalue 0
-of the symbol meets a characteristic speed wherever g^(ij) ξ_i ξ_j = 0, against [DS23, (A4)], which asks that the
-distinct eigenvalues of the symbol never meet. In the coordinates (τ, x) this fails on part of Ω: g0^(ij) ξ_i ξ_j = |ξ|²
+[AO14, Theorem 1.1, p. 2] ([[thm:std-ao-existence]]), for the divergence-form equation ∂_μ(A^(μν)(u) ∂_ν u) = F on
+[0, T] × R^n, asks in its hypothesis (1.3) that c_A⁻¹ |ξ|² ≤ A^(ij) ξ_i ξ_j ≤ c_A |ξ|² and A^(00) ≤ −c_A′ for all (u,
+ξ), with constants c_A, c_A′ > 0 (named γ and κ there); and in the first-order form the eigenvalue 0 of the symbol
+meets a characteristic speed wherever g^(ij) ξ_i ξ_j = 0, against [DS23, (A4)], which asks that the distinct
+eigenvalues of the symbol never meet. In the coordinates (τ, x) this fails on part of Ω: g0^(ij) ξ_i ξ_j = |ξ|²
 − (μ/r²)(x̂·ξ)² < 0 for radial ξ where r² < μ, and Ω reaches r = a < √μ0. So the local theorems are applied in other
-coordinates, in four steps. The results used are the following.
+coordinates, in four steps. The results used are the following; 𝒰 denotes an open set of states.
 
-- [DS23, Theorem 2.4]: for a system ∂_t u + A^i(t, x, u) ∂_i u = R(t, x, u) on the torus T^n, with A^i and R smooth and
-  bounded with their derivatives uniformly in t (their (A1)–(A2)), A^i(t, x, u) ξ_i diagonalizable with real eigenvalues
-  (A3) whose distinct values do not meet each other (A4), and r > n/2 + 1: for every u0 ∈ H^r whose values stay at
-  positive distance from the boundary of the admissible set of states, there is T > 0, depending on ‖u0‖_r and that
-  distance, such that the system has a unique solution u ∈ C([−T, T]; C¹) ∩ C¹([−T, T]; C⁰).
-- [DS23, Theorem 2.6]: for the maximal solution, exactly one of the following holds: it exists for all time; its values
-  approach the boundary of the admissible set of states; its norm in C([0, T]; C¹) ∩ C¹([0, T]; C⁰) is unbounded as T
-  tends to the maximal time.
-- [LY22, Theorem 26]: a bounded smooth domain in R^n has an extension operator E, one operator, bounded from W^(m,p) of
-  the domain to compactly supported W^(m,p) functions on a neighbourhood, for every m and 0 < p ≤ ∞; it maps smooth
-  functions to smooth functions. [LY22, Lemma 27] ([[thm:std-ly-extension]]): for χ ∈ C_c^∞(R^n) and a
-  bijection Φ of R^n whose derivatives of positive order and those of its inverse are bounded, f ↦ (χ f) ∘ Φ is
-  bounded on every W^(m,p)(R^n).
-- [SY21, Sections 1 and 2.1]: a bounded Lipschitz domain in R^n has a universal extension operator (Stein's, or
-  Rychkov's), one operator bounded from W^(m,p) of the domain to W^(m,p)(R^n) for every m and every 1 ≤ p ≤ ∞.
+- [DS23, Theorem 2.4] ([[thm:std-ds-existence]]): let the system ∂_t u + A^i(t, x, u) ∂_i u = R(t, x, u) on the torus
+  T^n satisfy (A1)–(A4) of [DS23] on 𝒰 (A^i and R smooth, each of their derivatives bounded by a continuous increasing
+  function of |u|, uniformly in (t, x); A^i(t, x, u) ξ_i diagonalizable with real eigenvalues for ξ ≠ 0, its distinct
+  eigenvalues of class C^(1,0,1,0) and never meeting), and let r > n/2 + 1. For every u0 ∈ H^r whose values lie at
+  positive distance from the complement of 𝒰 there is T > 0, depending on ‖u0‖_r and that distance, such that the
+  system has a unique solution u with u(0) = u0 in B([−T, T]) := C([−T, T]; C¹) ∩ C¹([−T, T]; C⁰); moreover u ∈
+  C([−T, T]; H^r) ∩ C¹([−T, T]; H^(r−1)), with values in 𝒰.
+- [DS23, Theorem 2.6] ([[thm:std-ds-continuation]]): under the same hypotheses, every solution u ∈ B([0, T]) with
+  values in 𝒰 and u(0) ∈ H^r lies in C([0, T]; H^r) ∩ C¹([0, T]; H^(r−1)); and for the supremum T* of the T for which
+  such a solution exists on [0, T], exactly one of the following holds: T* = ∞; the distance of the values from the
+  complement of 𝒰 has infimum 0 on [0, T*); the norm of u in B([0, T]) tends to infinity as T tends to T*.
+- [LY22, Theorem 26] ([[thm:std-ly-extension]]): for a bounded smooth domain in R^n and a bounded neighbourhood of its
+  closure there is one extension operator, bounded from W^(m,p) of the domain to the W^(m,p) functions with compact
+  support in the neighbourhood, and from C^m of the domain to C^m functions with compact support there, for every
+  integer m ≥ 0 and 0 < p ≤ ∞; in particular it maps smooth functions to smooth functions.
+- [SY21, Sections 1 and 2.1] ([[thm:std-sy-extension]]): a bounded Lipschitz domain in R^n has one extension operator
+  (Stein's), bounded from W^(m,p) of the domain to W^(m,p)(R^n) for every integer m ≥ 0 and 1 ≤ p ≤ ∞.
 
 (i) *The coefficients.* On Ω the system for w is Ric^H(g_app + w) = 0, relative to g0, and the profiles of g_app are
 defined on Ω × S¹. Extend them to R⁵ × S¹ by one universal extension operator acting in X, the same for every order
-(Stein's or Rychkov's, for the bounded Lipschitz domain Ω, a convex polygon in (τ, r) times S³ [SY21, Sections 1, 2.1]):
-g_app extends smoothly with bounded derivatives of every order, for all τ, and is unchanged on Ω. Outside a
-neighbourhood U of Ω, replace g_app and g0 by g_ext and g0_ext, obtained by interpolating lapse, shift and spatial
-metric (relative to τ) convexly to (1, 0, δ) on {r ≤ a/4} and on {r ≥ R2 + 1}, R2 := b(τ0) + 1. Every such combination
+(Stein's or Rychkov's, for the bounded Lipschitz domain Ω, a convex polygon in (τ, r) times S³; [SY21, Sections 1,
+2.1], [[thm:std-sy-extension]]): g_app extends smoothly with bounded derivatives of every order, for all τ, and is
+unchanged on Ω. Put R2 := b(τ0) + 1. On {a/4 ≤ r ≤ R2 + 1}, at every τ, the extended g_app still has spacelike slices
+for λ small. Indeed the extended profiles are bounded, so |g_app − g0| ≤ C λ there. The slices of g0 have the induced
+metric δ + (μ/r²) dr² ≥ δ, the components of g0 = η + (μ/r²) dv ⊗ dv are bounded by 1 + 2μ_end/r² ≤ 1 + 32 μ_end/a²,
+and det g0 = −1 ([[eq:background]]). So there is λ_ext > 0, depending only on C, a and μ_end, such that for λ ≤ λ_ext
+the extended g_app has, on that region, induced metric at least δ/2 on every Σ_τ and negative determinant. A symmetric
+form that is positive definite on a hyperplane has at least four positive eigenvalues, and with negative determinant
+the fifth is negative: g_app is Lorentzian with every Σ_τ spacelike there, and its lapse, shift and spatial metric
+relative to τ are defined, with the lapse and the spatial metric bounded above and below uniformly in τ. We take λ0 ≤
+λ_ext. Outside a neighbourhood U of Ω in {a/2 < r < R2}, replace g_app and g0 by g_ext and g0_ext, obtained by
+interpolating lapse, shift
+and spatial metric (relative to τ) convexly to (1, 0, δ) on {r ≤ a/4} and on {r ≥ R2 + 1}. Every such combination
 is a Lorentzian metric with each Σ_τ spacelike: a convex combination of positive lapses is positive and a convex
 combination of positive definite spatial metrics is positive definite, and a metric −ν² dτ² + γ_ij (dx^i + β^i
 dτ)(dx^j + β^j dτ) with ν > 0 and γ positive definite is Lorentzian with dτ timelike. So the system keeps its form, with
@@ -304,9 +321,9 @@ because g_ext(∂_τ, ∂_i) = γ_ij β^j. So in (τ, y) the metric g_ext has ze
 stay the Cartesian arrays of the coordinates (τ, x), the principal part stays −(1/2) g^(ab) ∂_a ∂_b with g^(ab)
 transformed as a tensor, and the system stays quasilinear with coefficients smooth in (τ, y).
 
-(iii) *The cut-off.* Let χ be a smooth map of the components, the identity on |w| ≤ ε2/2 and with values in |w| ≤ ε2,
+(iii) *The cut-off.* Let ϒ be a smooth map of the components, the identity on |w| ≤ ε2/2 and with values in |w| ≤ ε2,
 with ε2 so small that every metric within ε2 of g_ext keeps the conditions g^(00) ≤ −c_0 and g^(ab) ξ_a ξ_b ≥ c_0 |ξ|²
-with a fixed constant c_0 > 0 in (τ, y). Put χ(w) for w in the coefficients and lower-order terms. The modified system
+with a fixed constant c_0 > 0 in (τ, y). Put ϒ(w) for w in the coefficients and lower-order terms. The modified system
 agrees with the original where |w| ≤ ε2/2, which holds on Ω (|w| ≤ C M λ^(K−3), Step 3). The coefficients and the
 forcing term are taken at time τ̄(τ), τ̄ smooth, equal to τ on [τ0 − 1, τ_end + 1] and constant outside [τ0 − 2, τ_end +
 2]: the coordinates of (ii) degenerate as |τ| grows (the flow lines of Z pile up where β_ext vanishes), and [DS23, (A1)]

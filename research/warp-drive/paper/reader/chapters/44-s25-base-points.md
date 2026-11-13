@@ -129,8 +129,8 @@ O(|b − b₀||W|). Its support is in supp χ_K, its K⁺-weight is κ_ν − ϵ
 *Proof.* (P1)–(P4) are the cited statements. (P5): g_b is stationary. The reality in (P3) holds as at b₀: L_b, δ*_(g_b)
 and □_(g_b) are real, and [[prop:iii-d2-3-1]], [[prop:iii-d3-3-1]], [[prop:iii-f4-5-1]] and the normalisation of
 [[lem:iii-i14-2-1]] are real constructions. The parity in (P3) follows from the constructions of the states. Write φ for
-the pullback by −1. P_b is invertible on the b-spaces of decaying sections of [[sec:iii-d2-1]] (weights in the gap
-(0, ι^Υ_(s1,2))), which φ preserves. Since φ commutes with P_b, it commutes with P_b⁻¹ there, and it commutes with δ*_(g_b).
+the pullback by −1. P_b is invertible on the b-spaces of decaying sections of [[sec:iii-d2-1]] (weights in the gap (0,
+ι^Υ_(s1,2))), which φ preserves. Since φ commutes with P_b, it commutes with P_b⁻¹ there, and it commutes with δ*_(g_b).
 [[prop:iii-d2-3-1]] builds
 
     ω_(b,s1)(S) = ω̄_s1(S) − P_b⁻¹□^Υ_b ω̄_s1(S)
@@ -466,9 +466,9 @@ only D_hP_1 and D_SP_1.
 
 (ii) *The model at ι⁺ and at tf:* the results of [[ch:s16]] and [[ch:s17]], through (P2) and (P4).
 
-(iii) *The states, towers and index sets.* [[ch:s20]] and [[ch:s21]] use the index sets of [[prop:iii-d2-3-1]],
-[[prop:iii-d3-3-1]], [[prop:iii-f3-2-2]] and [[prop:iii-f3-4-1]] at b₀. They are independent of b ((P3)), so the index
-sets ℰ_ind, ℰ_♯ and ℰ_+ serve at every b, and so does ℰ^♮ ([[def:iii-i13-1-2]]), built from ℰ_♯ and ℰ_ind. The
+(iii) *The states, towers and index sets.* The index sets of [[prop:iii-d2-3-1]], [[prop:iii-d3-3-1]],
+[[prop:iii-f3-2-2]] and [[prop:iii-f3-4-1]], which [[ch:s20]] and [[ch:s21]] use, are independent of b ((P3)), so the
+index sets ℰ_ind, ℰ_♯ and ℰ_+ serve at every b, and so does ℰ^♮ ([[def:iii-i13-1-2]]), built from ℰ_♯ and ℰ_ind. The
 collision set ℰ_col ([[def:iii-i10-1-1]], [[lem:iii-i11-1-1]]), which generates Λ and through it ℰ_par, 𝒩, ℰ_♯, ℰ^♮,
 (G) and admissibility, is read at every b as the b-independent set
 
@@ -477,7 +477,7 @@ collision set ℰ_col ([[def:iii-i10-1-1]], [[lem:iii-i11-1-1]]), which generate
 which contains the exponents it collects at b, by the index sets of (P3), the smooth coefficients of the L_k
 ([[lem:iii-i3-1-1]] at b) and the boundedness of F ([[lem:iii-h-2-4]] (a), (P4)).
 
-(iv) *The derivatives in b,* taken at b₀ in [[cor:iii-i7-4-6]] and [[lem:iii-i14-2-4]] (c): at b, the b-column is ġ_b
+(iv) *The derivatives in b* ([[cor:iii-i7-4-6]], [[lem:iii-i14-2-4]] (c)) are taken at b: the b-column is ġ_b
 ((P3)). So is ġ = ∂_b g_b in [[ch:s19]] and [[ch:s20]], which enters through the columns and the singular part of
 [[ch:s18]] ((P3), (P4)). The proof of [[lem:iii-i14-2-4]] (c) is written for every b near b₀, and the use of
 L̂_(b₀)(0)∂_b h_(b,v1) = 0 in Step 1 of the proof of [[thm:iii-i14-3-1]] is replaced at b by the rates of the v1
@@ -504,9 +504,8 @@ used there survives.
 with parameter b ([[thm:iii-j-2-4]]), and their proofs use [[thm:iii-i14-3-1]] and the maps of [[sec:iii-j-2]] at that
 base point, by (i)–(vii). The tame calculus of [[ch:s24]] ([[def:iii-j2-1-1]]–[[lem:iii-j2-2-4]]) has constants that
 depend on the base point through finitely many seminorms, continuous in b; the exact classes and the conditions
-(E1)–(E5) of [[def:iii-j3-1-3]] do not involve b ((P2)–(P3): the exponents, roots and index sets are those at b₀); and
-at b the rotation rows add K⁺-exponents λ + ℕ_0 with Re λ ≤ 2, none of real part α − 2, α − 1 or α, so the values
-excluded by (E3) are unchanged. The solution maps of [[ch:s19]]–[[ch:s23]] in [[thm:iii-j2-4-1]] are read at b as in
+(E1)–(E5) of [[def:iii-j3-1-3]] do not involve b ((P2)–(P3): the exponents, roots and index sets are those at
+b₀). The solution maps of [[ch:s19]]–[[ch:s23]] in [[thm:iii-j2-4-1]] are read at b as in
 [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]]. The new objects enter the inventory of [[lem:iii-j2-2-1]] (c): A_b is
 bounded by a fixed low seminorm of G, as it reads the ι⁺-data u_+ and the tf-data ([[prop:iii-i15-2-2]]); E^ν is
 bounded by C|b − b₀||W| in a fixed seminorm ((P6)); the rotation rows enter −id + A_k as the other rows do; and d_*
@@ -604,8 +603,8 @@ For the almost linear bounds, the steps of [[sec:iii-i2-1]]–[[sec:iii-i2-5]] t
   the second result of [[ch:s18]] on it for b ∈ ℬ̄_1 ((P4)). L̂_b(σ) is invertible for real σ ≠ 0
   ([[cor:iii-h-4-4]]) and L̃_b(σ) for 0 < |σ| ≤ c_k ([[cor:iii-h-4-2]]), with c_k uniform ((P4)). No indicial root of
   L̂_b(0) has real part in (0, 1] ((P2)), so the window (0, 1) is the same at every b.
-- [[lem:iii-i2-2-1]] does not involve the operator. In [[lem:iii-i2-3-1]] and [[sec:iii-i2-4]] the constants c ≤ c_k′
-  of [[cor:iii-h-4-2]] and c_(j,k′) of [[thm:iii-h-4-1]] (3) are those at b, uniform by (P4).
+- [[lem:iii-i2-2-1]] and [[lem:iii-i2-3-1]] use no property of the base point. In [[sec:iii-i2-4]] the constants
+  c ≤ c_k′ of [[cor:iii-h-4-2]] and c_(j,k′) of [[thm:iii-h-4-1]] (3) are those at b, uniform by (P4).
 - *The three frequency ranges.* The Fourier transform in t_* uses only that g_b is stationary. The splitting
   u = u_hi + u_reg + u_sing of [[lem:iii-h1-2-1]] and [[eq:iii-h1-4-1]]–[[eq:iii-h1-5-2]], with u_sing = ġ + h_s1,
   holds at b ((P4): [[thm:iii-h2-2-1]] reruns [[sec:iii-h1-2]]–[[sec:iii-h1-7]] at b), with ġ = ġ_b and

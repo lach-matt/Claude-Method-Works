@@ -16,9 +16,12 @@ real principal type, radial points, the trapped set, and the artificial boundary
 [[sec:i-b-9]] its uniformity.
 
 *Notation.* The rank of the bundle is N_E. For an endomorphism A that is self-adjoint for a fibre inner product,
-max spec A and min spec A are its largest and smallest eigenvalues. ℓ denotes Im z/h, except in [[prop:i-b-7-1]],
-where it is the exponent of the weight e^(ℓr). M denotes an arbitrary large integer in the residual terms h^M of the
-estimates.
+max spec A and min spec A are its largest and smallest eigenvalues. h is the semiclassical parameter; as an index
+(^(*h), Re_h, Im_h, h_Γ) it denotes a fibre inner product, as in [[ch:s01]]. ℓ denotes Im z/h, except in
+[[prop:i-b-7-1]], where it is the exponent of the weight e^(ℓr). Large integers that bound orders are written M: the
+residual terms h^M and ‖u‖_(−M𝟏) of the estimates, the classes S^(−M𝟏), and the number of terms of a symbol
+expansion. The letter K occurs only with a subscript, for closed subsets of phase space (K_0, K_1, K_E, K_Γ, …), and
+in the deformation term ^(X)K of [[sec:i-b-7-1]]. Multi-orders are written in bold letters (𝐨, 𝐦, 𝐤, 𝐭).
 
 ### Setting, hypotheses and the theorem {#sec:i-b-1}
 
@@ -57,7 +60,8 @@ For h ∈ (0, 1] and z ∈ ℂ, |z| ∈ [½, 2], put σ := z/h and
 **Lemma {#lem:i-b-1-1}** (Cf. [Hin26c, Lemmas 9.20–9.21], on E.) Fix a fibre inner product h.
 
 (a) P_(h,z) = Op_h(p_(h,z)) on X̃°, with p_(h,z) a polynomial of degree 2 in ζ whose coefficients are smooth on the
-compactification near ∂X; its principal symbol, modulo S^(1,−1,−1), is G_z Id with G_z(x, ζ) := G(−z dt + ζ).
+compactification near ∂X; its principal symbol, modulo S^(1,−1,−1), is G_z Id with G_z(x, ζ) := G(−z dt + ζ). (The
+quantisation Op_h and the symbol classes S^𝐨 are defined in [[sec:i-b-2-2]] and [[def:i-b-2-1]].)
 
 (b) Exactly,
 
@@ -83,7 +87,7 @@ face the lower terms gain ρ ([[lem:i-a-4-4]]).
 (b) Im_h(cA) = (Re c) Im_h A + (Im c) Re_h A, g_00 Id is h-self-adjoint, and Im(z²) = 2 Re z Im z. Hence
 h⁻¹ Im_h P_(h,z) = h Im_h P̂(0) + (Re z) Im_h T + (Im z) Re_h T + 2h⁻¹ Re z Im z g_00, which is [[eq:i-b-1-3]].
 Re_h T has principal symbol τ_1 (by (H1)), so h Re_h T has semiclassical principal symbol τ_1(ζ); Im_h T has order 0;
-Im_h P̂(0) has order 1 (remark (a) on the hypotheses in [[sec:i-a-1-3]]).
+Im_h P̂(0) has order 1 ([[rem:i-a-hypotheses]] (a)).
 
 (c) Expand G(−(Re z + i Im z) dt + ζ).
 
@@ -118,8 +122,8 @@ inner product of (O3), up to any margin; [[prop:i-b-5-3]] and [[prop:i-b-5-5]]).
 
 Constant orders are admissible. The monotonicity is asked on a neighbourhood of the characteristic set, not on the
 set alone: [[prop:i-b-4-5]] needs it on the support of a commutant, where the factor log(1/h) multiplies 𝖧𝖻. It is
-stronger than (O2) of [[sec:i-a-1-4]], so 𝗋_h(x, ξ) := 𝗋(x, hξ) satisfies (O2)–(O3) of [[sec:i-a-1-4]] at
-σ_0 = z_0/h ([[sec:i-b-8-4]]).
+stronger than (O2) of [[def:i-a-admissible]], so 𝗋_h(x, ξ) := 𝗋(x, hξ) satisfies (O2)–(O3) of
+[[def:i-a-admissible]] at σ_0 = z_0/h ([[sec:i-b-8-4]]).
 
 *Thresholds.* ϑ_ℋ, ϑ_in and S̄ are those of [[eq:i-a-1-5]], each computed in a fibre inner product chosen for its
 radial set. The regularity order satisfies s > ½ + ϑ_ℋ.
@@ -164,16 +168,16 @@ and forward trapped sets. They are invariant under the flow, so a maximal curve 
 
 (b) makes the chain of [[sec:i-b-8-2]] acyclic. Together with (H4) at fibre infinity and [[lem:i-a-4-5]] over ∂X, (a)
 describes the flow on the whole characteristic set. The global sets in (a) cannot be replaced by the local ones
-Γ_(u/s): a point of Γ_u ∖ Γ leaves O forward, so its curve is not contained in Γ_u.
+Γ_(u/s): a point of Γ_u ∖ Γ leaves O forward, so its curve is not contained in Γ_u, and with the local sets (a) would
+force that curve to tend backward to the radial sets, whereas by (D2) of [[sec:i-b-6-1]] it tends to Γ.
 
 (H5) is extended to (H6)–(H8): g, Γ, φ_(u/s), ν_(u/s) and h_Γ may depend continuously on the parameter b ∈ ℬ (into
-C^∞), with ν_min, β_0, γ_± and the convergence in (H8) uniform. For the operators to which the stability theory applies
-this chapter, (H6)–(H8) are verified in [[ch:s12]] and the chapters that treat each operator; they are not verified
-here.
+C^∞), with ν_min, β_0, γ_± and the convergence in (H8) uniform. For the operators to which this chapter is applied in
+the stability theory, (H6)–(H8) are verified in [[ch:s12]] and the chapters that treat each operator; they are not
+verified here.
 
-*Notation.* h is the semiclassical parameter; as an index (^(*h), Re_h, Im_h, h_Γ) it denotes a fibre inner product,
-as in [[ch:s01]]. ℓ is Im z/h, except in [[prop:i-b-7-1]]. 𝖧_(z_0) = z_0 H_(G_(z_0)) in (H7) is the future field; the
-field 𝖧_z of [[eq:i-b-4-1]] is a positive multiple of H_(G_z), and the future field is ς𝖧_z ([[rem:i-b-1-4]]).
+*The two fields.* 𝖧_(z_0) = z_0 H_(G_(z_0)) in (H7) is the future field; the field 𝖧_z of [[eq:i-b-4-1]] is a
+positive multiple of H_(G_z), and the future field is ς𝖧_z ([[rem:i-b-1-4]]).
 
 #### The spaces and the theorem {#sec:i-b-1-6}
 
@@ -229,8 +233,8 @@ sup_Γ max spec(p_1 − ηq) < ½ν_min; this follows from the condition printed
 static spherically symmetric metric, with Γ at one radius). The thresholds [[eq:i-b-1-4]] agree with [Hin26c, (9.80)]
 when q is constant on Γ, and every later use needs only that δ_Γ(0) is small, which holds for either definition when
 γ_+ is small. [Hin26c, Theorem 9.16 (1)] asserts the h⁻² estimate for z ∈ ±1 + i[0, ν], while [Hin26c, Theorem 9.28]
-is proved for Im(h⁻¹z) ≥ β > γ_−; at Im z = 0 this needs γ_− < 0, which holds in the applications of [Hin26c] and is
-part of (H7) here.
+is proved for Im(h⁻¹z) ≥ β > γ_−; at Im z = 0 this needs γ_− < 0, which [Hin26c] notes for its applications and
+which is part of (H7) here.
 
 ### The semiclassical scattering calculus {#sec:i-b-2}
 
@@ -259,8 +263,8 @@ and, for each (α, β) ≠ 0, constants C_αβ, μ_αβ ≥ 0 with
 
     |∂_x^α ∂_ζ^β a_h(x, ζ)| ≤ C_αβ w_𝐨(x, ζ) ⟨x⟩^(−|α|) ⟨ζ⟩^(−|β|) L_h(x, ζ)^(μ_αβ).                    {#eq:i-b-2-1}
 
-The best constants with |α| + |β| ≤ k (and fixed exponents) are the seminorms. S^(−∞) := ⋂_K S^(−K𝟏). Note
-h^K S^𝐨 = S^(𝐨−(0,0,K)).
+The best constants with |α| + |β| ≤ k (and fixed exponents) are the seminorms. S^(−∞) := ⋂_M S^(−M𝟏). Note
+h^M S^𝐨 = S^(𝐨−(0,0,M)).
 
 **Lemma {#lem:i-b-2-2}** For orders 𝐨, 𝐨′:
 
@@ -291,24 +295,24 @@ For a ∈ S^𝐨 and u ∈ 𝒮(ℝ^n; ℂ^(N_E)),
 
 with ℱ_h u(ζ) := ∫ e^(−ix′·ζ/h) u(x′) dx′, Schwartz. Ψ^𝐨 := Op_h(S^𝐨). Op_h(a) maps 𝒮 to itself:
 x^γ e^(ix·ζ/h) = (−ih∂_ζ)^γ e^(ix·ζ/h), and integrating by parts gives
-|x^γ ∂_x^κ Op_h(a)u(x)| ≤ C_γκ ⟨x⟩^(sup 𝗋+|κ|) L_h(x, 0)^μ for some μ and every γ.
+|x^γ ∂_x^(γ′) Op_h(a)u(x)| ≤ C_(γγ′) ⟨x⟩^(sup 𝗋+|γ′|) L_h(x, 0)^μ for some μ and every γ.
 
 **Lemma {#lem:i-b-2-3}** (Oscillatory integrals.) Let F ∈ C^∞(ℝ^(2n)_(w,η); ℂ^(N_E×N_E)) satisfy
-|∂_w^γ ∂_η^κ F| ≤ A_γκ ⟨w⟩^M ⟨η⟩^M. Fix χ ∈ C_c^∞(ℝ^n) with χ(0) = 1. Then
+|∂_w^γ ∂_η^(γ′) F| ≤ A_(γγ′) ⟨w⟩^(M_F) ⟨η⟩^(M_F). Fix χ ∈ C_c^∞(ℝ^n) with χ(0) = 1. Then
 
     I(F) := lim_(ϵ→0) (2π)^(−n) ∫∫ e^(−iw·η) χ(ϵw) χ(ϵη) F(w, η) dw dη
 
-exists, does not depend on χ, and for 2k > M + n
+exists, does not depend on χ, and for 2k > M_F + n
 
     I(F) = (2π)^(−n) ∫∫ e^(−iw·η) ⟨η⟩^(−2k) (1 − Δ_w)^k [⟨w⟩^(−2k) (1 − Δ_η)^k F] dw dη,
-    |I(F)| ≤ C_(n,M) max_(|γ|,|κ|≤2k) A_γκ.                                                             {#eq:i-b-2-2}
+    |I(F)| ≤ C_(n,M_F) max_(|γ|,|γ′|≤2k) A_(γγ′).                                                      {#eq:i-b-2-2}
 
 Moreover I(w^γ F) = I(D_η^γ F), and I(F) = F(·, 0) if F does not depend on w.
 
 *Proof.* (1 − Δ_η) e^(−iw·η) = ⟨w⟩² e^(−iw·η) and (1 − Δ_w) e^(−iw·η) = ⟨η⟩² e^(−iw·η). Integrating by parts k times
 in each variable in the regularised integral gives [[eq:i-b-2-2]] with F replaced by χ(ϵw)χ(ϵη)F; the derivatives
 falling on the cut-offs are bounded for ϵ ≤ 1 and tend to 0 pointwise, and the integrand is dominated by
-C⟨w⟩^(M−2k)⟨η⟩^(M−2k), which is integrable. Dominated convergence gives the limit and [[eq:i-b-2-2]]. The identity
+C⟨w⟩^(M_F−2k)⟨η⟩^(M_F−2k), which is integrable. Dominated convergence gives the limit and [[eq:i-b-2-2]]. The identity
 w^γ e^(−iw·η) = (i∂_η)^γ e^(−iw·η) gives I(w^γ F) = I(D_η^γ F). If F = F(η), then
 (2π)^(−n) ∫ e^(−iw·η) χ(ϵw) dw = ϵ^(−n) χ̌(η/ϵ) with ∫ χ̌ = χ(0) = 1, an approximate identity, so I(F) = F(0). ∎
 
@@ -316,9 +320,9 @@ w^γ e^(−iw·η) = (i∂_η)^γ e^(−iw·η) gives I(w^γ F) = I(D_η^γ F). 
 
     a#b(x, ζ) = I(F_(x,ζ)),     F_(x,ζ)(w, η) := a_h(x, ζ + η) b_h(x + hw, ζ).                          {#eq:i-b-2-3}
 
-a#b ∈ S^(𝐨+𝐨′), and for every K ≥ 1
+a#b ∈ S^(𝐨+𝐨′), and for every M ≥ 1
 
-    a#b − Σ_(|α|<K) (h^(|α|)/α!) ∂_ζ^α a D_x^α b ∈ S^(𝐨+𝐨′−(K/2)𝟏).                                      {#eq:i-b-2-4}
+    a#b − Σ_(|α|<M) (h^(|α|)/α!) ∂_ζ^α a D_x^α b ∈ S^(𝐨+𝐨′−(M/2)𝟏).                                      {#eq:i-b-2-4}
 
 Each seminorm of a#b and of the remainder is bounded by a product of seminorms of a and b. The term with α lies in
 S^(𝐨+𝐨′−|α|𝟏+ϵ𝟏) for every ϵ > 0.
@@ -331,33 +335,35 @@ letting ϵ → 0.
 
 *The expansion.* By Taylor's formula,
 
-    b(x + hw, ζ) = Σ_(|α|<K) ((hw)^α/α!) ∂_x^α b(x, ζ)
-                   + K Σ_(|α|=K) ((hw)^α/α!) ∫_0^1 (1 − t)^(K−1) ∂_x^α b(x + thw, ζ) dt.
+    b(x + hw, ζ) = Σ_(|α|<M) ((hw)^α/α!) ∂_x^α b(x, ζ)
+                   + M Σ_(|α|=M) ((hw)^α/α!) ∫_0^1 (1 − t)^(M−1) ∂_x^α b(x + thw, ζ) dt.
 
 [[lem:i-b-2-3]] gives I(w^α a(x, ζ + η) ∂_x^α b(x, ζ)) = (D_ζ^α a)(x, ζ) ∂_x^α b(x, ζ), and
 D_ζ^α a ∂_x^α b = ∂_ζ^α a D_x^α b: these are the terms of [[eq:i-b-2-4]]. The remainder is
-R_K = K Σ_(|α|=K) (h^K/α!) ∫_0^1 (1 − t)^(K−1) I(G_(α,t)) dt with
+R_M = M Σ_(|α|=M) (h^M/α!) ∫_0^1 (1 − t)^(M−1) I(G_(α,t)) dt with
 G_(α,t)(w, η) := (D_ζ^α a)(x, ζ + η) (∂_x^α b)(x + thw, ζ).
 
 *The remainder, with constant orders.* Let 𝐨_+, 𝐨′_+ be the componentwise suprema. Since
-⟨x + y⟩^t ≤ 2^(|t|/2) ⟨x⟩^t ⟨y⟩^(|t|) (Peetre's inequality) and L_h(x + y, ζ + η) ≤ L_h(x, ζ) ⟨y⟩ ⟨η⟩, and using
-(th)^(|γ|) ≤ 1, ⟨x + thw⟩^(−|γ|) ≤ 1 and ⟨ζ + η⟩^(−|κ|) ≤ 1, for |γ|, |κ| ≤ 2k
+⟨x + y⟩^t ≤ 2^(|t|/2) ⟨x⟩^t ⟨y⟩^(|t|) (Peetre's inequality) and L_h(x + y, ζ + η) ≤ 2L_h(x, ζ) ⟨y⟩ ⟨η⟩ (as
+log⟨x + y⟩ ≤ log⟨x⟩ + log(1 + |y|) ≤ log⟨x⟩ + |y|, likewise in ζ, and
+|y| + |η| ≤ 2⟨y⟩⟨η⟩ − 1 ≤ (2⟨y⟩⟨η⟩ − 1)L_h(x, ζ)), and using
+(th)^(|γ|) ≤ 1, ⟨x + thw⟩^(−|γ|) ≤ 1 and ⟨ζ + η⟩^(−|γ′|) ≤ 1, for |γ|, |γ′| ≤ 2k
 
-    |∂_w^γ ∂_η^κ G_(α,t)| ≤ C w_(𝐨_++𝐨′_+)(x, ζ) ⟨x⟩^(−K) ⟨ζ⟩^(−K) L_h(x, ζ)^μ ⟨w⟩^M ⟨η⟩^M,
-    M := |𝗋′_+ − K| + |s_+ − K| + μ + 1,
+    |∂_w^γ ∂_η^(γ′) G_(α,t)| ≤ C w_(𝐨_++𝐨′_+)(x, ζ) ⟨x⟩^(−M) ⟨ζ⟩^(−M) L_h(x, ζ)^μ ⟨w⟩^(M_F) ⟨η⟩^(M_F),
+    M_F := |𝗋′_+ − M| + |s_+ − M| + μ + 1,
 
-with μ depending on K and k. By [[eq:i-b-2-2]] with 2k > M + n, |I(G_(α,t))| obeys the same bound without the last two
-factors. A derivative of R_K in x or ζ falls on a or b inside I; it gains ⟨x⟩⁻¹ or ⟨ζ⟩⁻¹ up to a factor
-L_h⟨w⟩⟨η⟩, which [[eq:i-b-2-2]] absorbs with a larger k. So R_K ∈ S^(𝐨_++𝐨′_+−K𝟏+ϵ𝟏) for every ϵ > 0, the factor
-h^K being the gain in the semiclassical order.
+with μ depending on M and k. By [[eq:i-b-2-2]] with 2k > M_F + n, |I(G_(α,t))| obeys the same bound without the last
+two factors. A derivative of R_M in x or ζ falls on a or b inside I; it gains ⟨x⟩⁻¹ or ⟨ζ⟩⁻¹ up to a factor
+L_h⟨w⟩⟨η⟩, which [[eq:i-b-2-2]] absorbs with a larger k. So R_M ∈ S^(𝐨_++𝐨′_+−M𝟏+ϵ𝟏) for every ϵ > 0, the factor
+h^M being the gain in the semiclassical order.
 
-*Variable orders.* Let ω be the sum over the three components of sup 𝐨 + sup 𝐨′ − inf(𝐨 + 𝐨′). For K ≥ 2ω + 2,
-𝐨_+ + 𝐨′_+ − K𝟏 + ϵ𝟏 ≤ 𝐨 + 𝐨′ − (K/2)𝟏 pointwise, so R_K ∈ S^(𝐨+𝐨′−(K/2)𝟏) by [[lem:i-b-2-2]] (c). The terms
-with |α| < K lie in S^(𝐨+𝐨′−|α|𝟏+ϵ𝟏) by [[lem:i-b-2-2]] (b), (d). Applying this with K′ := max(K, 2ω + 2) and moving
-the terms with K ≤ |α| < K′ into the remainder gives [[eq:i-b-2-4]] for every K, and a#b ∈ S^(𝐨+𝐨′). ∎
+*Variable orders.* Let ω be the sum over the three components of sup 𝐨 + sup 𝐨′ − inf(𝐨 + 𝐨′). For M ≥ 2ω + 2,
+𝐨_+ + 𝐨′_+ − M𝟏 + ϵ𝟏 ≤ 𝐨 + 𝐨′ − (M/2)𝟏 pointwise, so R_M ∈ S^(𝐨+𝐨′−(M/2)𝟏) by [[lem:i-b-2-2]] (c). The terms
+with |α| < M lie in S^(𝐨+𝐨′−|α|𝟏+ϵ𝟏) by [[lem:i-b-2-2]] (b), (d). Applying this with M′ := max(M, 2ω + 2) and moving
+the terms with M ≤ |α| < M′ into the remainder gives [[eq:i-b-2-4]] for every M, and a#b ∈ S^(𝐨+𝐨′). ∎
 
 **Theorem {#thm:i-b-2-5}** (Adjoints.) For a ∈ S^𝐨, the formal adjoint in L²(ℝ^n; ℂ^(N_E)) is Op_h(a)* = Op_h(a^♮)
-with a^♮(x, ζ) = I(a_h(x + hw, ζ + η)*), and a^♮ − Σ_(|α|<K) (h^(|α|)/α!) ∂_ζ^α D_x^α a* ∈ S^(𝐨−(K/2)𝟏).
+with a^♮(x, ζ) = I(a_h(x + hw, ζ + η)*), and a^♮ − Σ_(|α|<M) (h^(|α|)/α!) ∂_ζ^α D_x^α a* ∈ S^(𝐨−(M/2)𝟏).
 
 *Proof.* The kernel of Op_h(a)* is (2πh)^(−n) ∫ e^(i(x−x′)·ζ/h) a(x′, ζ)* dζ, the kernel of Op_h(c) with
 c(x, ζ′) = (2πh)^(−n) ∫∫ e^(iy·(ζ−ζ′)/h) a(x − y, ζ)* dy dζ; substitute ζ = ζ′ + η, y = −hw. The expansion follows

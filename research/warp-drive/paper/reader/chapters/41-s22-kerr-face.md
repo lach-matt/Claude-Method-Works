@@ -231,7 +231,7 @@ with ω̆^(−1)_τ := 0 and ω̆^i_τ := 0 for i > K_τ.
 (a) For every function a = a(t_*) and K ≤ K_τ,
 
     δ*_(g_b)(Σ_(i=0)^K a^((i)) ω̆^i_τ(W))
-        = Σ_(i=0)^K a^((i)) h̆^i_τ(W) + a^((K+1)) dt_* ⊗_s ω̆^K_τ(W).                                     {#eq:iii-i10-2-1}
+        = Σ_(i=0)^K a^((i)) h̆^i_τ(W) + a^((K+1)) dt_* ⊗_s ω̆^K_τ(W).                                   {#eq:iii-i10-2-1}
 
 So m_ν(W) = χ_K(Σ_(i≤K_τ) a_ν^((i)) h̆^i_τ(W) + a_ν^((K_τ+1)) dt_* ⊗_s ω̆^(K_τ)_τ(W)) for ν = (τ, λ, k); and
 h̆⁰_τ = h_τ for τ ≠ s0, while h̆⁰_s0 = 0 and h̆¹_s0 = h_s0.
@@ -751,7 +751,7 @@ so vanishes. Near σ = 0, −iσχ times the sum is iχ sgn(σ)h(S_o) (G_2(0) = 
 inverse transforms have K⁻-weight above 1 in {r ≤ R}: the sign-even part of iG_2(σ)(S^±_1) and Ψġ(ḃ_0) (the
 −iσ-multiples of the terms above) are smooth in σ; every other piece times σ is, in {r ≤ R}, a sum of terms
 sgn(σ)^δ|σ|^z(log|σ|)^m times smooth sections with Re z > 0 ([[lem:iii-i11-2-3]], with χ_zf = 1 there for
-|σ| ≤ c_R), whose inverse transforms are O(|t_*|^(−1−Re z) log^m), or of zf-weight above 0 ([[prop:iii-g1-3-5]] (1)).
+|σ| ≤ c_R), whose inverse transforms are O(|t_*|^(−1−Re z) log^m), or of zf-weight above 0 ([[prop:ii-g1-3-5]] (1)).
 The inverse transform of χ sgn(σ) is c t_*⁻¹(1 + o(1)) as t_* → −∞, with c ≠ 0. Hence h(S_o) = 0 on {r ≤ R}, so S_o = 0
 ([[eq:iii-h-3-1]]), and S_1 is the same for both signs. We then read the pieces of v̂ itself, the column pieces with
 constant coefficients as boundary values ([[lem:iii-i11-2-4]]) and the others as locally integrable functions: as
@@ -771,7 +771,7 @@ sign-even parts contribute nothing for large t_*, the sign-odd parts being again
 (iii) *The last level.* σ³û_f has zf-weight ℓ_3 + 3; σ³ĝ^aug(ḃ_f) and σ³ĥ^aug(S_f) give the K⁺-weights ℓ_3 + 3 and
 ℓ_3 + 2 = α − 2 − ε ([[lem:iii-i11-2-4]]); the level-3 pieces of Step 4 have zf-weight α_κ − 3 + 3 ≥ κ_3 =
 1 + η_2 − 2ε, so K⁺-weight at least 2 + η_2 − 2ε > α − 2 (η_2 > ε_K), by [[prop:iii-a-4-2]] (2) (on {r ≤ R},
-[[prop:iii-g1-3-5]] (1)).
+[[prop:ii-g1-3-5]] (1)).
 
 (iv) *The transition face pieces at the levels 1 and 2*, by [[lem:iii-i11-2-3]]: σ^j(Σ_τ c_τ(σ)T_τ(σ) + P_int(σ)).
 The terms of σ^jP_int are, in {r ≤ R}, finite sums of |σ|^m sgn(σ)^δ times polynomials in σ, with m + j ≥ 0 (m ≥ −1,
@@ -886,7 +886,7 @@ F ∈ 𝒴⁰(α) there is a unique p⃗′ = p⃗′_(h,p⃗)(F) ∈ 𝒫 such 
 satisfies
 
     u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*; S²T*)^(•,−)
-        for every β_+ < min(3/2, min Re ℰ_+).                                                            {#eq:iii-i11-4-2}
+        for every β_+ < min(3/2, min Re ℰ_+).                                                           {#eq:iii-i11-4-2}
 
 Moreover p⃗′_(h,p⃗) is linear, with bounds uniform for (h, p⃗) small, and continuous at (0, 0) as in
 [[prop:iii-i8-4-1]] (ii). In compact spatial sets u = O(t_*^(−2−ε_K+ε′+ε)); letting ε′ → 0 along admissible values,
@@ -940,10 +940,11 @@ Hence G(W⃗) = G(0) and C(W⃗) = C(0) − W⃗ on 𝒩′: the equation has th
 *Near (0, 0).* C(W⃗) = C(0) − T_(h,p⃗)W⃗ with T_(h,p⃗)W⃗ := W⃗ − S^(h,p⃗)(G(W⃗) − G(0)), linear on the
 finite-dimensional space of the W⃗. G(W⃗) − G(0) = −Σ r^ν(W_ν) − (the q⃗-terms of q⃗(W⃗) − q⃗(0)); the first is
 O(|W⃗|(‖h‖ + |p⃗|)) in 𝒴_2(α) ([[eq:iii-i9-2-5]]), and q⃗(W⃗) − q⃗(0) = −p⃗′_(h,p⃗,α′)(D_(p⃗)P_4(h, p⃗)(W⃗)) tends to
-−p⃗′_(0,0,α′)(Σ L_(b_0)m_ν(W_ν)) = 0 as (h, p⃗) → (0, 0), for fixed W⃗ ([[prop:iii-i8-4-1]] (ii), with [[lem:iii-i9-2-6]] (b)–(d) for the convergence of the
-sources in 𝒴(α′)). With the uniform bounds of [[lem:iii-i11-3-2]] and of [[prop:iii-i8-4-1]] (i), T_(h,p⃗) → id, so
-T_(h,p⃗) is invertible for (h, p⃗) small; put W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is
-preserved, as L and F are real and T commutes with the conjugation of [[sec:iii-i9-1]].
+−p⃗′_(0,0,α′)(Σ L_(b_0)m_ν(W_ν)) = 0 as (h, p⃗) → (0, 0), for fixed W⃗ ([[prop:iii-i8-4-1]] (ii), with
+[[lem:iii-i9-2-6]] (b)–(d) for the convergence of the sources in 𝒴(α′)). With the uniform bounds of
+[[lem:iii-i11-3-2]] and of [[prop:iii-i8-4-1]] (i), T_(h,p⃗) → id, so T_(h,p⃗) is invertible for (h, p⃗) small; put
+W⃗ := T_(h,p⃗)⁻¹C(0) and p⃗′ := q⃗(W⃗) ⊕ W⃗. The conjugation symmetry is preserved, as L and F are real and T commutes
+with the conjugation of [[sec:iii-i9-1]].
 
 *Uniqueness.* If p⃗″ also gives [[eq:iii-i11-4-2]] at α, its solution lies in [[eq:iii-i8-4-2]] at α′, so its
 𝒫_(α′)-part is q⃗(W⃗″) by the uniqueness at α′ ([[prop:iii-i8-4-1]]), where W⃗″ is its 𝒩′-part; then C(W⃗″) = 0, so
@@ -1028,7 +1029,7 @@ b-derivatives) and, near ι⁺, the order w + 1 + d. In case (b), if the p_j are
 the part from the p^c_j has the order Re z + 1 + d′ at ι⁺; and χ_+y ∈ Ḣ^(∞,𝒬((z+1,m),∞))_b. In case (a),
 χ_+y ∈ Ḣ^(∞,w+1)_b.
 
-*Proof.* y satisfies the symbol estimates |(t∂_t)^l y^((j))(t)| ≲ ⟨t⟩^(−w−1−j) ([[prop:iii-g1-3-5]] (1) in case (a);
+*Proof.* y satisfies the symbol estimates |(t∂_t)^l y^((j))(t)| ≲ ⟨t⟩^(−w−1−j) ([[prop:ii-g1-3-5]] (1) in case (a);
 in case (b), y is c_±|t|^(−z−1) times polynomials in log|t| plus a Schwartz function as t → ±∞), so χ_+y lies in the
 stated classes. For every x the left side of [[eq:iii-i12-2-1]] is Σ_j (y^((j)) + e_(j,r))(t_*)p_j(x) (as
 ℱ(a′) = −iσâ), with e_(j,r) := ℱ⁻¹[(−iσ)^j χc(χ_0(|σ|r) − 1)]. Let χ_0 = 1 on [0, c_0]. The symbol of e_(j,r) vanishes
