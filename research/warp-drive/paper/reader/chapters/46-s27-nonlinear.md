@@ -1267,8 +1267,9 @@ to α. Threshold: b3, w1–w2, d1–d2.
 
 **w1.** ε_+, ε_K: 0 < ε_K < ε_+ < min(δ_♯, ε_ind, ℓ_I − 3) and ε_+ < ¼ ([[eq:iii-i9-1-1]], (H4) of
 [[sec:iii-i10-1]]); (G⁺) ([[def:iii-j-g-plus]]) after decreasing ε_+, Λ containing π_1ℰ^C_I ([[sec:iii-i10-1]]), so
-that it is fixed after rows d1–d2; the gap (G) of [[def:iii-i10-1-3]] for ε_K, which includes ε_K < ε_Υ, so that
-ε_K < ε_g := min(ε_Υ, ε_ind) ([[ch:s22]]); and the exactness conditions (Ex1) (which is (G⁺) with its closed endpoint)
+that it is fixed after rows d1–d2; the gap (G) of [[def:iii-i10-1-3]] for ε_K and the condition ε_K < ε_Υ of
+[[def:iii-i10-1-3]], so that ε_K < ε_g := min(ε_Υ, ε_ind) ([[def:s21-eps-g]]); and the exactness conditions (Ex1)
+(which is (G⁺) with its closed endpoint)
 and (Ex2) of [[def:iii-j3-1-3]]. Here δ_♯ = (1 − e_Υ)γ_Υ; ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the
 indicial roots of L̂_b(0), with which the hypotheses of [[prop:iii-g4-5-1]] are stated; and ε_Υ is the constant of
 [[sec:iii-d2-1]], fixed by the indicial roots of (□^Υ_b)^(0), with which the gain in the conclusion of
@@ -1317,8 +1318,8 @@ symmetry class, [[sec:s27-class]] takes ℰ_0 = {(j, 0) : j ≥ 2}, ℓ_0 ∈ (3
 (4) The weights. δ_♯, ε_ind and ε_Υ, all positive, are fixed by step (2). Choose ε_+ < min(δ_♯, ε_ind, ¼, ℓ_I − 3),
 decreased for (G⁺) and (Ex1)–(Ex2) (possible: no λ ∈ Λ has real part in (3, 3 + ε_+] for ε_+ small,
 [[def:iii-j-g-plus]], and (Ex2) excludes finitely many values in a bounded range, [[lem:iii-j3-1-4]]; (Ex2) involves
-ℰ^tot_I and λ_♯, fixed by steps (2)–(3)); then ε_K, decreased for (G) ([[def:iii-i10-1-3]]), which includes
-ε_K < ε_Υ; then α as in row w2. (H4) holds as ε_+ < ℓ_I − 3, and decreasing ε_+ keeps rows d1–d2.
+ℰ^tot_I and λ_♯, fixed by steps (2)–(3)); then ε_K, decreased for (G) and for the condition ε_K < ε_Υ of
+[[def:iii-i10-1-3]]; then α as in row w2. (H4) holds as ε_+ < ℓ_I − 3, and decreasing ε_+ keeps rows d1–d2.
 
 (5) The parameter set. The gauge being fixed, take c_σ of [[cor:iii-h-4-3]] (uniform near b₀), then ℬ(c_σ) of
 [[prop:iii-f2-4-1]], which fixes the modification parameters first and then allows every c_σ > 0. Let ℬ_* be an open
@@ -1365,7 +1366,7 @@ off the discrete exclusion sets of row d2 and of (H4). Step (4) then takes ε_+ 
 [[sec:iii-i10-1]] holds. ε and d_1 are those of [[thm:iii-k-4-3]] (step (6)). For a pair (γ̃, k̃) of symmetric
 2-tensors on Σ^IVP, ‖(γ̃, k̃)‖_(d_1) denotes the norm in which [[thm:iii-k-4-3]] measures (γ − γ_(b₀), k − k_(b₀)):
 the H^(d_1)-norm of H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, and ∞ outside these spaces. The weights are those of the
-b-density, so that a weight is the pointwise order (the notation of [[ch:s26]]).
+b-density, so that a weight is the pointwise order ([[sec:iii-c1-0]]).
 
 **Lemma {#lem:vii-0-1}** (What lies in the class.) Let ρ := |x|⁻¹, and let γ̃, k̃ be smooth symmetric 2-tensors on
 Σ^IVP whose Cartesian components lie, on {r ≥ R′}, in ρ²C^∞ and ρ³C^∞ of the radial compactification. Then
@@ -1509,15 +1510,12 @@ part of the domain of [[thm:iii-k-3-2]] into F^(∞,G), and B^(∞,G)_η into F^
 [[eq:ii-g-2-2]]–[[eq:ii-g-2-3]] hold by restriction. (iii) For U ∈ B^(∞,G), differentiating P_5(Ψ(σ·V)) = σ_*P_5(Ψ(V)) at
 V = U gives D_U(P_5 ∘ Ψ) ∘ σ = σ_* ∘ D_U(P_5 ∘ Ψ), so D_U(P_5 ∘ Ψ) commutes with Π. So Ψ^G_NM(U) := ΠΨ_NM(U) on F^(∞,G)
 satisfies D_U(P_5 ∘ Ψ)Ψ^G_NM(U)f = ΠD_U(P_5 ∘ Ψ)Ψ_NM(U)f = Πf = f, and it inherits [[eq:ii-g-2-4]]. It maps F^(∞,G)_η
-into B^(∞,G)_η for U in the domain of (ii) and in B^(∞,G)_η, which is what [[thm:ii-g-2-1]] (iii) asks. Indeed, let
-f ∈ F^(∞,G)_η, U′ := ℛ(U)f and V := ΠZU′ = Ψ^G_NM(U)f, with Z of the proof of [[thm:iii-k-3-2]]. V ∈ B^(∞,G), and its
-boost and translation components vanish, as 𝒮_1^G = 0. Its q-tails lie in {t_* ≥ 17/2} ⊂ {t_* ≥ 8 + c_0η}, as Z and Π
-commute (χ_9(t_*) is invariant). On {t^♭_* < T̂ + c_0η}, D_U(P_5 ∘ Ψ)V = Πf = f vanishes; and there U, being fixed, has
-S = S^(0)_1 = 0 and tail 0, so, as in the *Supports* part of the proof of [[lem:iii-k-2-3]],
-D_U(P_5 ∘ Ψ)V = L_(G_(0,0), g_(b₀))h̃_V with G_(0,0) = g_(b₀) + h_0, the boost and translation components of V vanishing.
-The argument there, with [[lem:s27-below]] and [[lem:iii-k-6-1]], gives h̃_V = 0 on {t^♭_* < T̂ + c_0η}. So
-V ∈ B^(∞,G)_η. Hence [[thm:ii-g-2-1]] holds on the fixed spaces, with its own threshold ε^G_NM computed from the
-constants of the G-sup norms, and gives U ∈ B^(∞,G)_(1/2) with P_5(Ψ(U)) = 0 on Ω_*.
+into B^(∞,G)_η for U in the domain of (ii) and in B^(∞,G)_η, which is what [[thm:ii-g-2-1]] (iii) asks. Indeed, for
+such U and f ∈ F^(∞,G)_η ⊂ F^∞_η, Ψ_NM(U)f ∈ B^∞_η by (iii) of the proof of [[thm:iii-k-3-2]], which applies at
+U ∈ B^∞_η, a base point whose tail vanishes below the level ([[lem:iii-k-2-3]]); and Π preserves B^∞_η and maps it
+into the fixed space. So Ψ^G_NM(U)f = ΠΨ_NM(U)f ∈ B^(∞,G)_η. Hence [[thm:ii-g-2-1]] holds on the fixed spaces, with
+its own threshold ε^G_NM determined by the constants of the G-sup norms, and gives U ∈ B^(∞,G)_(1/2) with
+P_5(Ψ(U)) = 0 on Ω_*.
 
 *The metric.* [[prop:iii-k-4-2]] builds g from (h, p⃗, q) = Φ(U), h_(−S,−S^(0)_1) and g_(p⃗). By [[lem:vii-3-1]] every
 ingredient is equivariant and U is fixed, so g is G-invariant. U_0 = (b − b₀, S, S^(0)_1) is fixed: 𝔟^G = ℝ × {0} and

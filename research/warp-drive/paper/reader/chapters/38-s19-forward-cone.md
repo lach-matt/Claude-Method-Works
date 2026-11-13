@@ -557,7 +557,15 @@ g_0 = g_(b₀,b,−S) (or g_0 with [[eq:iii-i-3-5]]) and g := g_0 + h, h ∈ �
 P := 2L^(g,g_0) is admissible relative to P_0 := 2L_b of class ((0;k−5),(2ℓ_I,ℓ_+,ℓ_K)) ([[def:ii-c-3-3]]) for every
 ℓ_I ∈ (0, ½), ℓ_+ ∈ (0, 1] and ℓ_K ∈ (2, a_K], with p_0 = p̃_1 = 0, whenever P_0 is 2-admissible with sf-loss 0 and
 margin 1 for the orders of 𝒪_c ([[def:iii-h1-1-1]]). By [[thm:iii-h1-1-3]] this holds at b = b₀, and by
-[[thm:iii-h2-2-1]] at every b of the neighbourhood B̄_1 of [[sec:iii-h2-0]], for every k.
+[[thm:iii-h2-2-1]] at every b of the neighbourhood B̄_1 of [[sec:iii-h2-0]], for every k. Moreover, for
+g_0 = g_(b₀,b,−S) the metric g of P satisfies
+
+    ‖g − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) ≤ ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) + C(|S| + ‖h‖_(𝒳³)),      {#eq:s19-time-hyp}
+
+and for g_0 with [[eq:iii-i-3-5]] the left side is at most ‖g_0 − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) + C‖h‖_(𝒳³), the
+first term being at most a constant times a seminorm of g_0 − g_(b₀) in the class of [[eq:iii-i-3-5]]. When the
+right side is small, g therefore satisfies the hypothesis [[eq:ii-f1-7-1]] of [[rem:ii-f1-7-4]] (at b = b₀) and that
+of [[thm:iii-h2-4-1]] (at b ∈ B̄_1), with ℓ_♭ = ½ and the time function t^♭_* of [[sec:iii-i-1]].
 
 *Proof.* (1) σ_2(P) = G_g, with g − g_b = (g_0 − g_b) + h ∈ 𝒢̃^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K)) by [[lem:iii-i-2-2]] and
 [[lem:iii-i-3-6]]. (2) With p_0 = p̃_1 = 0, P̃ = P − P_0, which by [[eq:iii-i-3-7]] (ℓ_I < ½) and Sobolev embedding
@@ -565,7 +573,16 @@ margin 1 for the orders of 𝒪_c ([[def:iii-h1-1-1]]). By [[thm:iii-h1-1-3]] th
 in x_I²ρ_+² C^(k−5,(2ℓ_I,ℓ_+,ℓ_K))_b Diff²_(e3b).
 (3) p_1 = S|_(∂X), which in the splitting [[eq:iii-c-1-6]] is Ā, lower triangular with real diagonal
 ([[lem:iii-c-4-2]]), and p_0 = 0 is strictly lower triangular. The conditions ℓ_+ > δ = 0 and ℓ_K > ℵ = 2 of
-[[def:ii-c-3-3]] hold. ∎
+[[def:ii-c-3-3]] hold.
+(4) By [[eq:iii-i-1-1]], g − g_(b₀) = (1 − χ_K)(φ_(−S)^* g_(b₀) − g_(b₀)) + χ_K(g_b − g_(b₀)) + h. The first term is
+g_(b₀,b₀,−S) − g_(b₀), which lies in H^(∞,(⟨(3,0)⟩₀,∞),((2,0),∞),∞)_b ⊂ 𝒳^∞ with seminorms O(|S|) ([[lem:iii-i-3-6]]
+at b = b₀, and the proof of [[prop:iii-i-3-4]]); by [[lem:iii-i-2-2]] with ℓ_I = ½ and k = 3, its norm is at most
+C|S|, ρ_+ and ρ_K being bounded on Ω_*. Multiplication by χ_K, which takes values in [0, 1], does not increase the norm
+of the second term, as the norm is a weighted supremum of the coefficients in a fixed frame. The third term has norm at
+most C‖h‖_(𝒳³), by [[lem:iii-i-2-2]] in the same way. For g_0 with [[eq:iii-i-3-5]], write
+g − g_(b₀) = (g_0 − g_(b₀)) + h; the argument of [[lem:iii-i-2-2]] (b-Sobolev embedding, and the x_I-orders of the
+coefficients in the frame [[eq:iii-i-2-1]], at least 1 for the index sets of [[eq:iii-i-3-5]] at 𝓘⁺; at ι⁺ and K⁺ the
+weight is 0) bounds the first term by a seminorm of g_0 − g_(b₀). ∎
 
 [Hin26] has p̃_1 = (A^h − A_0)|_(𝓘⁺) and p_0 = 4ρ_+⁻¹B^h|_(𝓘⁺), of class ρ_+^(ℓ_+)C^(k−4)_b, and needs ℓ_+ ∈ (δ, 1)
 and ℓ_I < min(2γ_Υ, ½). Here only ℓ_I < ½ remains, from [[eq:iii-i-3-7]].

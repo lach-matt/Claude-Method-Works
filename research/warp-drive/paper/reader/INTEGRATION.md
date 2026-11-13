@@ -782,3 +782,11 @@ Items found while chapters were written in parallel; each is settled once, editi
   Chapter 45: prop:iii-c2-4-1 uses κ = −g(∇_Xν, Y), opposite to lem:iii-b-3-9 and chapter 48's K (sent to the S26
   fixer). Chapter 64: N → N_ν at 64, line 84 restrict to r > r_♭ (sent to the chapter 64 fixer). Chapter 65: ġ_0 →
   ġ_(p⃗′) as in chapter 48, "S′ = 0" → "S′ = S⁰′ = 0", N → N_ν, and Θ attributed to sec:ix-0 (for its fix round).
+- S11 second fix (F2-S11): (E1), (E2), (EE), lem:iii-a-1-4, lem:iii-a-1-5 for ℂ^(N_E)-valued functions (componentwise
+  spaces, matrix symbols, ellipticity as invertibility, bundles framed as in sec:i-a-1-2); (EE) now quotes
+  [Shu92, Appendix 1, Lemma 1.4, pp. 69-70] (taken from the numdam PDF through a fetch connector) in place of
+  [Hin26d, Proposition 3.55 (3)]; (E2) every Laurent coefficient maps H^s → H^(s+m), inverse uniformly bounded on
+  compact pole-free sets; Theorem 3.21 at p. 38; w → v; 𝒩 → 𝖭 (S11), 𝒩 → 𝔑 (S12); S12 nits 1-6. Crosswalk:
+  def:s11-parameters and rem:s12-convexity-sample added, lem:s12-ks-domain removed. For Appendix A (small round): add
+  [Shu92, Appendix 1, Lemma 1.4] with its statement and pages. Open in other chapters (R2-S11-S12's O items): O2 at
+  S14:2399, O3 at S24:640, O4 at S13:1149-1151 (details in F2-S11.md); for those chapters' next rounds.

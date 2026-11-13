@@ -21,7 +21,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done | CONFIRMED; citation resolved and confirmed |
 | 28 S9 | NOT CONFIRMED 2M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (Theorem 1.1 tame estimate) |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
-| 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | NOT CONFIRMED 0M 2m 4n (bundles; every Laurent coefficient); second fix running |
+| 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | second fix done (bundles: ℂ^(N_E)-valued, (EE) by [Shu92, App. 1, Lemma 1.4]; every Laurent coefficient; nits; S12 nits applied); third reading running (S11 and S12) |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | CONFIRMED (0M 0m 6n; nits applied with the S11 second fix) |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | CONFIRMED (third reading 0M 0m 2n; ℳ restricted to roots with Re ι at most 10 in modulus) |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | running |
