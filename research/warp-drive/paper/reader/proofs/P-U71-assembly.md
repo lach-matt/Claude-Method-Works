@@ -136,8 +136,8 @@ many losses of single steps.
 The bound (ii) is a lower bound for the loss that this proof's choices produce, not for the least loss with which the
 tame estimates hold.
 
-*Proof.* The first assertions are [[lem:iii-j2-1-2]] with [[lem:ec-split-loss]], which give the tame estimates with
-any loss at least the accounted one, the parameters of [[thm:ii-g-2-1]] ([[eq:ii-g-2-5]]) and d_NM ≥ d_acc
+*Proof.* The first assertions are [[lem:iii-j2-1-2]], which gives the tame estimates with any loss at least the
+accounted one, the parameters of [[thm:ii-g-2-1]] ([[eq:ii-g-2-5]]) and d_NM ≥ d_acc
 ([[def:ec-accounted-loss]] and the paragraph after it). (i) is [[def:ec-accounted-loss]] with [[lem:ec-closed-forms]],
 [[rem:ec-other-losses]] and [[lem:ec-round-loss]].
 
@@ -368,7 +368,7 @@ and of the level step α_0 → α_1 of [[prop:iii-i8-4-1]] charged 0; Steps 3, 4
 being assigned by the rules of [[def:ec-accounted-loss]] to a composition of finitely many elementary families.
 
 **Proposition {#prop:ec-upper}** (An upper bound for the accounted loss.) In the setting of [[lem:ec-counts]], with s >
-½(α − 4) and with the background terms charged by [[lem:ec-split-loss]],
+½(α − 4),
 
     d_acc ≤ (ℓ_tf + 2)(T_< + T_> + C_2) + 4(1/ι + 2) + r_ι W (N_< + N_> + N_b + 3)
             + Σ_(k=1)^K c(β_k) + N_b c_b + (N_b + 1) c′_b + c_0,                                        {#eq:ec-upper}
@@ -392,8 +392,10 @@ composes this with U ↦ Φ(U) and with Steps 1–3 of the proof of [[thm:iii-j1
 
 *The second kind.* Along a chain the charges other than those of the counted iterations are, by the definitions above,
 at most Σ_k c(β_k) over the level steps, c_b per round of [[prop:iii-i5-2-1]] in the base and c′_b per step of
-[[prop:iii-i2-5-1]] there, and c_0 for the rest; the background terms, charged 2 among them, add (d_B − 2)_+ once by
-[[lem:ec-split-loss]] (c). By [[lem:ec-counts]] (f) this is the second line of [[eq:ec-upper]].
+[[prop:iii-i2-5-1]] there, and c_0 for the rest, the background terms being among them with the charge max(2, d_BG)
+of [[rem:ec-other-losses]]. By [[lem:ec-counts]] (f) this is the second line of [[eq:ec-upper]]. (Charging them 2 and
+adding (d_BG − 2)_+ once instead, as [[lem:ec-split-loss]] (c) allows, lowers c(β), c_b, c′_b and c_0 by the excess of
+their background terms and adds (d_BG − 2)_+.)
 
 *The first kind.* A level step at β ∈ (2, 3) runs one window loop (Steps 1–2 of the proof of [[lem:iii-i8-3-2]]) and
 its transition face rounds, one after another; a level step at β ∈ (3, α] runs one window loop (Step 2 of the proof of
@@ -425,7 +427,7 @@ r_ι ≤ 16), η_2 < ε_+ ≤ 2·10⁻⁸ and θ := 10⁻³, and suppose that th
 so that [[eq:ec-upper]] reads
 
     d_acc ≤ 9.394·10¹⁹ ℓ_tf + 1.2923·10²¹ + 1.3727·10¹⁰ max_k c(β_k)
-            + 6.864·10⁹ (c_b + c′_b) + c′_b + c_0 + (d_B − 2)_+.
+            + 6.864·10⁹ (c_b + c′_b) + c′_b + c_0.
 
 The coefficient of ℓ_tf, 9.394·10¹⁹, and the constant 1.2923·10²¹ (of which 1.10·10²¹ comes from the window loops at
 ι⁺, through the bound ε^ι_ind ≥ ε_Υ) are the explicit part. Against the lower bound 3R > 1.403·10²⁰ of [[thm:loss-d]]
@@ -445,8 +447,8 @@ d_F ≤ 20,180 ([[thm:fwd-loss]]), charged at each forward solution they apply, 
 n(E, β) of the index sets entering [[eq:ec-fourier-loss]] are not evaluated here; c_0 contains, besides, the
 iterations of Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]], and the loss of
 [[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over the exponents of Λ ∩ {Re < 3 +
-ε_+}, a number of steps not evaluated here. (4) d_B, the background order in [[lem:iii-j2-2-1]] (b), fixed by the
-product estimates there and not evaluated. An upper bound for N_NM needs besides upper bounds for the losses of
+ε_+}, a number of steps not evaluated here. (4) d_BG, the background order in [[lem:iii-j2-2-1]] (b), fixed by the
+product estimates there and not evaluated; it enters c(β), c_b, c′_b and c_0 through the charge max(2, d_BG). An upper bound for N_NM needs besides upper bounds for the losses of
 [[lem:iii-k-2-2]] and [[prop:iii-j2-4-3]], which enter d_NM; their proofs fix them through the loss of
 [[thm:iii-j-2-4]] and the product orders of [[lem:iii-j2-2-4]], not evaluated here. Given ε_K, the bound
 [[eq:ec-upper]] is of the order 1/(ε_Kε_g), the order of the lower bound of [[prop:ec-rounds]]; ℓ_tf multiplies terms

@@ -377,14 +377,16 @@ k − j derivatives, this costs ℓ_+(γ + 1) = ⌈γ + ½⌉, as γ > 0. The sa
 [[thm:iii-i-5-3]], which its proof takes from [[thm:ii-f1-1-1]] and raises by 6. There d = D_0 + D_1 + d′ + d″
 ([[eq:ii-f1-3-3]]): d′ and d″ are read off the order 𝗌, while D_0 and D_1 are maxima of the orders d_0 and d of the
 energy estimates of [[ch:s07]] and of [[lem:ii-f1-2-8]] ([[eq:ii-f1-3-2]]), whose existence is proved and whose values
-are not determined in this paper. The order of choices behind ℓ + 1 is: d_acc first, then N_NM, then the trapping data
-at the orders k ≤ N_NM ([[cor:iii-h2-1-2]]); the constants of the smallness conditions are used at those orders only,
-the tame estimates themselves at every order. The statement "d_acc is an explicit number" needs, besides these closed
-forms, values of D_0 and D_1, numbers for the weights at the parameters in question, the index sets n(E, β) and the
-numbers of steps of the iterations; the next section bounds two of these iterations from below. The forward solution
-operators are a factor of the construction of [[thm:iii-i14-3-1]] (Step 0 of its proof), so d_acc is at least their
-loss, and an upper bound for d_acc would bound D_0 + D_1. None is proved here; [[rem:ec-integer-bound]] records one at
-one choice of the weights.
+are not determined in this paper. The order of choices behind ℓ + 1 is: d_acc and d_NM first, then N_NM, then the
+trapping data at the orders k ≤ N_NM ([[cor:iii-h2-1-2]]); the constants of the smallness conditions are used at those
+orders only, the tame estimates themselves at every order. The statement "d_acc is an explicit number" needs, besides
+these closed forms, values of D_0 and D_1 and of the order d_BG, numbers for the weights at the parameters in
+question, the index sets n(E, β) and the numbers of steps of the iterations of the inventory of [[sec:iii-j2-3]]; the
+next section bounds two of these iterations from below. The forward solution operators are a factor of the
+construction of [[thm:iii-i14-3-1]] (Step 0 of its proof), so d_acc is at least their loss, and an upper bound for
+d_acc would bound D_0 + D_1. An upper bound for d_NM would need upper bounds for the losses of [[lem:iii-k-2-2]] and
+[[prop:iii-j2-4-3]] and for that of [[lem:iii-k-2-3]], which is at least d_acc. None is proved here;
+[[rem:ec-integer-bound]] records one for d_acc at one choice of the weights.
 
 ### Two long iterations, and a lower bound for d {#sec:ec-floor}
 
