@@ -243,9 +243,9 @@ along every column
 
 (iv) The remainder. Since θ⁺ is smooth in g and affine in ∂g, and ∂g_app and ∂g_λ are bounded,
 |θ⁺(g_λ) − θ⁺(g_app)| ≤ C (|w| + |∂w|). Its derivative along a column is at most C (|w| + |∂w| + |∂²w|): the derivative
-falls on w, on ∂w, or on the coefficients, which are smooth functions of (X, g) evaluated at g_app or g_λ and multiply
-g_app, ∂g_app or w, ∂w; and ℓ g_app is bounded and ℓ ∂g_app = dv ⊗ [ℓ ∂_θ g1] + O(1) is bounded, because ℓ(v) = 0. By
-[[eq:remainder-pointwise]] both are at most C M λ^(K−5) ≤ C λ, as K ≥ 6. With (iii), along every column
+falls on w, on ∂w, or on coefficients that are smooth functions of (X, g) at g_app or g_λ, times ∂g_app; these have
+bounded derivatives along a column, since ℓ g_app and ℓ ∂g_app = dv ⊗ [ℓ ∂_θ g1] + O(1) are bounded, because
+ℓ(v) = 0. By [[eq:remainder-pointwise]] both are at most C M λ^(K−5) ≤ C λ, as K ≥ 6. With (iii), along every column
 
     |θ⁺_λ − θ⁺(g0)| + |(d/dr)(θ⁺_λ − θ⁺(g0))| ≤ C3 λ.                                              {#eq:theta-plus-close}
 
@@ -257,8 +257,9 @@ columns, C3 enlarged if necessary.
 ¼ μ^(−3/4)(2 μ^(1/4) − b) in μ, which is positive for μ > b⁴/16 = √72 l5²/16, in particular for μ ≥ μ0 ≥ √72 l5².
 So √μ(v) − r_q(v) is at least its value at μ0, which is positive when μ0 > √72 l5². Put μ_max := μ(v_end). Fix δ in
 (0, that value) such that ∂_r θ⁺(g0) ≥ 3/(2 μ_max) on |r − √μ(v)| ≤ δ (possible by continuity, since ∂_r θ⁺(g0) = 3/μ ≥
-3/μ_max at r = √μ), and let m_δ > 0 be the minimum of |θ⁺(g0)| on the compact rest of the columns. Let λ_H ≤ λ0 be
-such that C3 λ_H < min(m_δ, 3/(4 μ_max)) and λ_H ≤ λ*. For λ ≤ λ_H, by [[eq:theta-plus-close]], θ⁺_λ has no zero
+3/μ_max at r = √μ), and let m_δ > 0 be the minimum of |θ⁺(g0)| on the compact rest of the columns. Let r_max be the
+largest value of r on Ω, and let λ_H ≤ λ0 be such that C3 λ_H < min(m_δ, 3/(4 μ_max), 3/r_max) and λ_H ≤ λ*. For
+λ ≤ λ_H, by [[eq:theta-plus-close]], θ⁺_λ has no zero
 where |r − √μ| > δ, and on |r − √μ| ≤ δ its r-derivative is at least 3/(2 μ_max) − C3 λ > 3/(4 μ_max), so it is strictly
 increasing there. Hence it has at most one zero on each column, positive above it and negative below it.
 
@@ -272,10 +273,10 @@ Put C := 2 C′. On the band, for r ≤ √μ − C λ,
     θ⁺_λ(r) ≤ θ⁺_λ(√μ) − (3/(4 μ_max)) (√μ − r) ≤ C3 λ − 2 C3 λ < 0,
 
 and likewise θ⁺_λ(r) ≥ C3 λ > 0 for r ≥ √μ + C λ. At distance C′ λ these bounds give only θ⁺_λ ≤ 0 and θ⁺_λ ≥ 0,
-which is why C is taken to be twice C′. Off the band θ⁺_λ has the sign of θ⁺(g0). The ingoing expansion is
-θ⁻(g_λ) = −3/r + O(λ) < 0 everywhere, by [[lem:sphere-two-scale]] (a) for g_app and the bound C (|w| + |∂w|) for the
-remainder. So the spheres with r ≤ √μ − C λ are trapped, both future null expansions being negative at every point,
-and those with r ≥ √μ + C λ are untrapped.
+which is why C is taken to be twice C′. Off the band θ⁺_λ has the sign of θ⁺(g0). The ingoing expansion satisfies
+θ⁻(g_λ) ≤ −3/r + C3 λ ≤ −3/r_max + C3 λ < 0 at every point of the columns, by the bound after
+[[eq:theta-plus-close]] and the choice of λ_H. So the spheres with r ≤ √μ − C λ are trapped, both future null
+expansions being negative at every point, and those with r ≥ √μ + C λ are untrapped.
 
 If μ0 = √72 l5², fix instead δ in (0, √μ_max − r_q(μ_max)) with the same band property. The argument for the zero and
 the signs runs on the columns where √μ − r_q ≥ δ; by the monotonicity in μ shown above, this is μ(v) ≥ μ0 + δ2 for some
@@ -284,9 +285,12 @@ the signs runs on the columns where √μ − r_q ≥ δ; by the monotonicity in
 **Remark {#rem:round-family}** (The round family.) The zero set of θ⁺_λ on the columns is not a marginally trapped
 surface: the statement concerns the round family {S_(v,r)}. Although ∂g_λ converges only weakly, the expansion of these
 spheres does not see the oscillation at leading order, because the wave is traceless on them
-([[eq:wave-traceless]]) and the phase v/λ is constant along each column ([[eq:column-derivative]]). The agreement of
-this statement with an evolution of the same free data in Bondi-type variables, the departure of the horizon from √μ
-halving with λ, is [[pending:computational-1]].
+([[eq:wave-traceless]]) and the phase v/λ is constant along each column ([[eq:column-derivative]]).
+
+**Remark {#rem:round-family-numerics}** (Numerical observation.) A numerical evolution of the metric in the Bondi form
+[[eq:bondi-form]] from the free data of [[sec:waves]], with each quantity read on the same round spheres, agrees with
+[[prop:one-zero]]: the departure of the computed zero of θ⁺ from √μ halves when λ is halved, the successive ratios being
+2.47, 2.26 and 2.14 at μ0/l5² = 100, and 2.26 and 2.14 at μ0/l5² = 1000. No proof in this paper uses this observation.
 
 ### The Hawking mass and the quarter turn {#sec:quarter-turn}
 
