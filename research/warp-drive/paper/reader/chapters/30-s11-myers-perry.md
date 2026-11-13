@@ -326,8 +326,8 @@ is [Hin26, Lemma 2.29], entry by entry.
 component of a tensor as the scalar operator ∂_t² − ∂_r² − (ν/r)∂_r + r⁻²Δ̸, which on a Cartesian component, regarded as
 a function of (t, r) with values in functions on 𝕊^ν, is L₀ + r⁻²Δᵉ, L₀ := ∂_t² − ∂_r² − (ν/r)∂_r. Write
 □_c := L₀ + r⁻²Δ̸ acting componentwise in the splitting; by the calculation of [[eq:iii-a1-2-6]],
-□_c = −2∂_(t_*)ρ(D − ν/2) + ρ²(−D² + (ν − 1)D + Δ̸). Write α := dt = ½(dx̄⁰ + dx̄¹) and β := dr = ½(dx̄⁰ − dx̄¹) = x̂ ·
-dx.
+□_c = −2∂_(t_*)ρ(D − ν/2) + ρ²(−D² + (ν − 1)D + Δ̸).
+Write α := dt = ½(dx̄⁰ + dx̄¹) and β := dr = ½(dx̄⁰ − dx̄¹) = x̂ · dx.
 
 1-forms: ω₀dx̄⁰ + ω₁dx̄¹ + rω̸ = (ω₀ + ω₁)α + (ω₀ − ω₁)x̂ · dx + V · dx with V the field of ω̸. By [[eq:iii-a1-1-2a]] and
 [[eq:iii-a1-1-2b]],
@@ -1064,16 +1064,17 @@ weight is 2/(5 − 2): the modifications act as in spacetime dimension 4, and th
 **Lemma {#lem:iii-b-6-3}** ([Hin26, Lemma 4.4] in spacetime dimension 5.) With C(g, g₀)^λ_μκ := Γ(g)^λ_μκ −
 Γ(g₀)^λ_μκ, C_(g,g₀)(ġ)^κ := g^κλ C(g, g₀)_λμσ ġ^μσ and Y_(g,g₀)(ġ)^κ := Υ⁰(g, g₀)^λ ġ^κ_λ (indices moved with g):
 
-    D¹|_((g,g₀))Υ⁰ = −δ_g G_g − C_(g,g₀) + Y_(g,g₀),     D¹|_((g,g₀))Υ^(E_Υ) = −δ_g G_g − C_(g,g₀) + Y_(g,g₀) − E^Υ_(g₀)G_(g₀);
-                                                                                                         {#eq:iii-b-6-6}
+    D¹|_((g,g₀))Υ⁰ = −δ_g G_g − C_(g,g₀) + Y_(g,g₀),
+    D¹|_((g,g₀))Υ^(E_Υ) = −δ_g G_g − C_(g,g₀) + Y_(g,g₀) − E^Υ_(g₀)G_(g₀);                                {#eq:iii-b-6-6}
 
     D_g Ric = ½□_g − δ*_g δ_g G_g + R_g,     (□_g ġ)_μκ := −g^σλ ġ_(μκ;σλ),                               {#eq:iii-b-6-7}
 
 with R_g the zeroth order term of [Hin26, (4.12)], (R_g ġ)_λκ = Riem(g)^ρ_λκ^σ ġ_ρσ + ½(Ric(g)^ρ_κ ġ_λρ +
 Ric(g)^ρ_λ ġ_κρ) in the curvature convention of [Hin26]; and
 
-    L_(g,g₀) = ½□_g + E^C_(g₀)δ_g G_g + (δ*_(g₀) − δ*_g)δ_g G_g + R_g + δ*_(g₀,E_C)(C_(g,g₀) − Y_(g,g₀) + E^Υ_(g₀)G_(g₀)),
-    L_g = D_g Ric + δ*_(g,E_C)δ_(g,E_Υ)G_g.                                                              {#eq:iii-b-6-8}
+    L_(g,g₀) = ½□_g + E^C_(g₀)δ_g G_g + (δ*_(g₀) − δ*_g)δ_g G_g + R_g
+               + δ*_(g₀,E_C)(C_(g,g₀) − Y_(g,g₀) + E^Υ_(g₀)G_(g₀)),
+    L_g = D_g Ric + δ*_(g,E_C)δ_(g,E_Υ)G_g.                                                               {#eq:iii-b-6-8}
 
 *Proof.* The proof of [Hin26, p. 83] is an index calculation in which the dimension does not appear; we give it.
 [[eq:iii-b-6-6]]: from [[eq:iii-b-6-3]],
