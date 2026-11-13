@@ -192,9 +192,9 @@ Im_h P̂(0) ∈ ρ²Diff¹_b, and so are the imaginary parts of the other terms;
 which is ρ³Diff¹_b. Altogether ρ⁻¹Im_h P̂(0) is i Re_h(A) ρ²∂_ρ plus terms with angular derivatives and terms
 vanishing at ρ = 0. As ρ²∂_ρ = −∂_r has symbol −iξ at ξ dr + rη ([[lem:i-a-4-4]] (a)), and the angular terms have
 symbols linear in η, p_in = i Re_h(A)(−i)(−2) = −2 Re_h(A) at ρ = 0. With S + S^(∗h) = 2 Re_h S this is
-[[eq:ec-theta-in]]. If (A + S)v = μv with v ≠ 0 at a point of ∂X, then h(Re_h(A + S)v, v) = Re h((A + S)v, v) = (Re μ) h(v, v); so the
-h-self-adjoint Re_h(A + S) has an eigenvalue at most Re μ there, p_in − (S + S^(∗h)) has one at least −2 Re μ, and
-ϑ_in ≥ −2 Re μ.
+[[eq:ec-theta-in]]. If (A + S)v = μv with v ≠ 0 at a point of ∂X, then
+h(Re_h(A + S)v, v) = Re h((A + S)v, v) = (Re μ) h(v, v); so the h-self-adjoint Re_h(A + S) has an eigenvalue at most
+Re μ there, p_in − (S + S^(∗h)) has one at least −2 Re μ, and ϑ_in ≥ −2 Re μ.
 
 (b) By [[lem:iii-f-2-1]] (3), (H2) holds with S = S̄ near infinity, and (2L_b)^(0) − (2L̄)^(0) ∈ ρ⁴Diff²_b changes
 only R; so A + S is that of 2L̄. As (2L̄)^(0) is homogeneous under dilations of x, in the Cartesian frame A has
@@ -583,9 +583,9 @@ and the background terms charged 2, the forward solution operators D_0 + D_1 + d
 the round of the iteration at ι⁺ charged 15 derivatives when ℓ_I ∈ (3, 3.5) and 4 more for each further unit of ℓ_I
 (19 on (3.5099, 4.5), then 23, 27 and 31 up to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows
 [k + 1/2, k + 0.5099] where a step is added before d_ι rises), the steps of each level taken from the families that
-the inventory of [[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic orders of the index
-sets by induction over the construction's steps, and the index set at ι⁺ left unlisted by the construction computed
-from the constructions that define it (it adds no exponent). The applications of the level-2 step at one exponent act
+the inventory of [[sec:iii-j2-3]] lists (212 uses in the levels and 89 in the base level's loops), the logarithmic
+orders of the index sets by induction over the construction's steps, and the index set at ι⁺ left unlisted by the
+construction computed from the constructions that define it (it adds no exponent). The applications of the level-2 step at one exponent act
 on separate terms of one forcing and none on another's output, so their losses do not add, and the count is the same
 whether that step is read once per exponent or once per exponent and power of the logarithm. With these charges the
 result is d_acc ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ (of which the base level's loops contribute 5.75 × 10¹⁴;
