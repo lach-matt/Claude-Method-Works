@@ -342,14 +342,14 @@ a smooth function; if y ∈ D_α(S′), then β(y; α) ∈ B_y and Λ_y(β(y; α
 continuous on the compact set of the (τ, y, β), there is ρ0 > 0 such that for every τ, y ∈ Σ_τ ∩ Ω̄ and β with Ψ_τ(y, β)
 ∈ 𝔰(S′), the arc of the β″ with |β″ − β| ≤ ρ0 lies in B_y.
 
-Let y ∈ D_α(S′) ∩ D_α′(S′), β := β(y; α), β′ := β(y; α′), and δβ ∈ [0, π] their distance on the circle. Let E_* > 0
-be the minimum of E = −du_α(n) over the compact set of the (y, α) with y in the closure of D_α(S); it is positive since
-du_α ≠ 0 is null with g⁻¹du_α future directed. By [[eq:vlasov-mixed-angle]] and sin(t/2) ≥ t/π on [0, π],
-|g⁻¹(du_α, du_α′)(y)| ≥ 2 E_*² sin²(δβ/2) ≥ 2 E_*² δβ²/π². If δβ ≥ ρ0, this is at least 2 E_*² ρ0²/π² ≥
-(2 E_*² ρ0²/π⁴) d(α, α′)², as d(α, α′) ≤ π. If δβ < ρ0, the arc of length δβ from β to β′ lies in B_y, Λ_y maps its ends
-to α and α′, and Λ_y′ ≤ 1/c1 on it, so d(α, α′) ≤ δβ/c1 and the bound is at least (2 E_*² c1²/π²) d(α, α′)². So
-[[eq:vlasov-separation]] holds with c0 := (2 E_*²/π²) min(c1², ρ0²/π²). The injectivity of β0(x, ·) is used in the
-definition of Λ_y, which needs 𝔰 injective. ∎
+Let y ∈ D_α(S′) ∩ D_α′(S′), β := β(y; α), β′ := β(y; α′), and δβ ∈ [0, π] their distance on the circle. Let E_* > 0 be
+the minimum of E = −du_α(n) over the compact set of the (y, α) with y in the closure of D_α(S); it is positive since
+du_α ≠ 0 is null with g⁻¹du_α future directed. By [[eq:vlasov-mixed-angle]] and sin(t/2) ≥ t/π on [0, π], |g⁻¹(du_α,
+du_α′)(y)| ≥ 2 E_*² sin²(δβ/2) ≥ 2 E_*² δβ²/π². If δβ ≥ ρ0, this is at least 2 E_*² ρ0²/π² ≥ (2 E_*² ρ0²/π⁴) d(α, α′)²,
+as d(α, α′) ≤ π. If δβ < ρ0, the arc of length δβ from β to β′ lies in B_y, Λ_y maps its ends to α and α′, and Λ_y′ ≤
+1/c1 on it, so d(α, α′) ≤ δβ/c1 and the bound is at least (2 E_*² c1²/π²) d(α, α′)². So [[eq:vlasov-separation]] holds
+with c0 := (2 E_*²/π²) min(c1², ρ0²/π²). The injectivity of β0(x, ·) is used in the definition of Λ_y, which needs 𝔰
+injective. ∎
 
 For the n labels α_A := 2πA/n, d(α_A, α_B) ≥ 2π/n, so the dusts sampled at them are pairwise separated with constant
 c0 (2π/n)² on the overlaps of the tubes D_(α_A)(S′). This is the separation η′ ≳ 1/n² of [HL25, Lemma 4.15, p. 18]; for
@@ -382,9 +382,9 @@ In particular every such combination is non-null, with this margin, once Λ > (m
 
 *Proof.* In the orthonormal frame |g⁻¹(k, k′)| ≤ |k| |k′|. Put 𝔎 := 𝔎_j = j_B1 ν_B1 k_B1 + V, V := Σ_(A ≠ B1) j_A ν_A
 k_A. Since k_B1 is null, g⁻¹(𝔎, 𝔎) = 2 j_B1 ν_B1 g⁻¹(k_B1, V) + g⁻¹(V, V). Here g⁻¹(k_B1, V) = j_B2 ν_B2 g⁻¹(k_B1,
-k_B2) + Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m Ē²/Λ), using
-|j_B2| ≥ 1 and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A Ē ≤ m ν_B2 Ē, so |g⁻¹(V, V)| ≤ m² Ē² ν_B2² ≤ m² Ē² ν_B1
-ν_B2/Λ. With |j_B1| ≥ 1, |g⁻¹(𝔎, 𝔎)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ) − m² Ē² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
+k_B2) + Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m Ē²/Λ), using |j_B2|
+≥ 1 and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A Ē ≤ m ν_B2 Ē, so |g⁻¹(V, V)| ≤ m² Ē² ν_B2² ≤ m² Ē² ν_B1 ν_B2/Λ.
+With |j_B1| ≥ 1, |g⁻¹(𝔎, 𝔎)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ) − m² Ē² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
 
 With c = c0 (2π/n)², Λ is of order n², as in the choice a_A = c n² a_(A−1) of [HL25, Lemma 4.16, p. 18]. The phases ν_A
 u_A are eikonals, so the two-scale scheme is unchanged; the wave of family A carries the amplitude λ F_A/ν_A, so that its
@@ -393,8 +393,8 @@ derivatives are of the size of F_A ([[eq:vlasov-wave]]).
 **Remark {#rem:vlasov-coherence-values}** (Numerical observation.) On the orbit space of Tangherlini with μ = 1 and
 labels in [−0.6, 0.6], the Schur formula of [[lem:vlasov-separation]] agreed with shooting to 1.1 × 10⁻⁹, ∂_α β was at
 least 0.798, and the least mixed symbol of adjacent labels divided by (Δα)² was 0.2923, 0.2926, 0.2927, 0.2927 at n = 8,
-16, 32, 64. For the four labels 2πA/4 on flat 2+1 with the hierarchy, every Q_j with |j|₁ ≤ 5 satisfied exactly
-|Q_j|/(ν_B1 ν_B2) ≥ 359/216. No proof uses these values.
+16, 32, 64. For the four labels 2πA/4 on flat 2+1 with the hierarchy, every Q_j with |j|₁ ≤ 5 satisfied
+exactly |Q_j|/(ν_B1 ν_B2) ≥ 359/216. No proof uses these values.
 
 ### Torus-polarised waves and the orbit space {#sec:vlasov-polarisation}
 
@@ -471,8 +471,8 @@ g0, computed with ∂_a + λ⁻¹ ν ∂_a u ∂_θ), R^(−1) = 0 and
 
     R^(0) = Ric(g0) − F² du ⊗ du.                                                                    {#eq:vlasov-wave-r0}
 
-*Proof.* The first term of W has torus components only and ℓ is an orbit vector, and (k ⊗ k)(ℓ, ·) = ν² g0⁻¹(du, du) du
-= 0; tr_(g0) W = 2 ξ cos θ (e^(−2ψ1) e^(2ψ1) − e^(−2ψ2) e^(2ψ2)) + χ g0⁻¹(k, k) = 0. The proof of
+*Proof.* The first term of W has torus components only and ℓ is an orbit vector, and (k ⊗ k)(ℓ, ·) = ν² g0⁻¹(du, du)
+du = 0; tr_(g0) W = 2 ξ cos θ (e^(−2ψ1) e^(2ψ1) − e^(−2ψ2) e^(2ψ2)) + χ g0⁻¹(k, k) = 0. The proof of
 [[lem:leading-coefficient]] uses of the background only that the phase is null and has gradient ℓ, and of the wave only
 W(ℓ, ·) = 0 and tr W = 0 (as in the proof of [[lem:two-dust-stage-zero]] (b)); applied with v replaced by ν u, dv by k
 and ℓ by ν ℓ, it gives R^(−1) = 0 and
@@ -524,16 +524,16 @@ to p, ζ ≠ 0, W_T with torus components only and tr W = 0 (for instance W_T = 
 and h = c dr ⊗ dr, dρ⁽⁻¹⁾ = −c ζ |p|² cos θ ⟨dr, q̂⟩², which is not zero where c ≠ 0 and the phase is not radial (p not
 parallel to dr). So every non-radial wave with a nonzero orbit part leaves a term of order λ⁻¹.
 
-*Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In
-R(γ) = γ^(ij)(∂_k Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j
-γ_kl), and ∂_i∂_k(λ W) = λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is
-W″(p^♯, p^♯) − |p|² tr W″, with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij)
-− ε h^(ij), gives the first line of [[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry
-derivatives of h or first derivatives of γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃
-∂_i(γ^(jl) κ_(jl)), whose parts of order λ⁻¹ are −γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the
-second line; the Christoffel terms are of order one. −|κ|² + (tr κ)² has no term of order λ⁻¹, and no term of order
-λ⁻¹ depends on k. With several phases the fast derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms
-vanish, each W_A depending on one phase; ∂²(λ² M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
+*Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In R(γ) = γ^(ij)(∂_k
+Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and ∂_i∂_k(λ W) =
+λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is W″(p^♯, p^♯) − |p|² tr W″, with p^♯ :=
+γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij), gives the first line of
+[[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry derivatives of h or first derivatives of
+γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃ ∂_i(γ^(jl) κ_(jl)), whose parts of order λ⁻¹ are
+−γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the second line; the Christoffel terms are of order one.
+−|κ|² + (tr κ)² has no term of order λ⁻¹, and no term of order λ⁻¹ depends on k. With several phases the fast
+derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms vanish, each W_A depending on one phase; ∂²(λ²
+M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
 
 (b) The parts of order λ⁻¹ of R(γ + h) and J(γ + h, κ + k) are, by the proof of (a), W″(p^♯, p^♯) − |p|² tr W″ and
 2(−γ_h^(jl) p_l κ1′_(ji) + p_i γ_h^(jl) κ1′_(jl)) with the inverse γ_h⁻¹ of γ + h. Since γ0 and h have no mixed
@@ -543,9 +543,9 @@ e^(−2ψ20) e^(2ψ20)) + O(λ) = O(λ) and likewise tr κ1′ = O(λ). The corr
 by a multiple of dr ⊗ dr only. The argument is pointwise and algebraic in h and k: the terms of order λ⁻¹ are those
 displayed, with the inverse of γ + h, and they vanish wherever γ + h is block-diagonal, whatever the derivatives of h.
 
-(c) Here W″ = −W, W″p = 0 because q̂ ⊥ p and the torus block annihilates p, and tr W″ = −tr W = 0. So dρ⁽⁻¹⁾ =
-|p|² ⟨h, W″⟩ = −c |p|² W(γ0⁻¹dr, γ0⁻¹dr) = −c ζ |p|² cos θ ⟨dr, q̂⟩², since γ0⁻¹dr is an orbit vector, on which W_T
-vanishes. In the two-dimensional orbit slice ⟨dr, q̂⟩ = 0 exactly when dr is parallel to p. ∎
+(c) Here W″ = −W, W″p = 0 because q̂ ⊥ p and the torus block annihilates p, and tr W″ = −tr W = 0. So dρ⁽⁻¹⁾ = |p|² ⟨h,
+W″⟩ = −c |p|² W(γ0⁻¹dr, γ0⁻¹dr) = −c ζ |p|² cos θ ⟨dr, q̂⟩², since γ0⁻¹dr is an orbit vector, on which W_T vanishes. In
+the two-dimensional orbit slice ⟨dr, q̂⟩ = 0 exactly when dr is parallel to p. ∎
 
 **Lemma {#lem:vlasov-leaf-curvature}** (The principal coefficients do not oscillate.) At data of the form of
 [[lem:vlasov-constraint-coefficient]] with torus-polarised waves W_A and with second and mixed harmonics of order λ² in
@@ -557,15 +557,15 @@ the data (γ0, κ0) plus λ times a smooth function of x, of the phases θ_A and
 unknown α. For a wave with a trace on the spheres, ξ2 = ξ1, the mean curvature H oscillates at order λ⁰.
 
 *Proof.* The coefficients of the angular second derivatives of the metric unknown in ρ and of the first derivatives of
-the momentum unknowns in J, and 𝒮, involve γ, its inverse, Π and α, undifferentiated ([[lem:constraints-evolution]] (a)),
-and γ = γ0 + λ (…), the dots a polynomial in λ with profile coefficients. In (γ^(rr))^(3/2) H, γ^(rr) is
+the momentum unknowns in J, and 𝒮, involve γ, its inverse, Π and α, undifferentiated ([[lem:constraints-evolution]]
+(a)), and γ = γ0 + λ (…), the dots a polynomial in λ with profile coefficients. In (γ^(rr))^(3/2) H, γ^(rr) is
 undifferentiated, and H = H̃/ν with H̃ = ½ tr_Π(∂_r Π − 𝓛_σ Π). The torus directions are tangent to the spheres, so the
 part of order λ⁰ of ∂_r Π is ∂_r Π0 plus the oscillating part Σ_A ν_A ∂_r u_A ∂_(θ_A) W_A, and Π^(AB) = Π0^(AB) + O(λ),
-so the part of order λ⁰ of H̃ is H̃0 plus Σ_A ν_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless. The
-harmonics of order λ² contribute O(λ) to first derivatives, and so does the shift of the foliation, whose oscillating
-part is of order λ². The metric unknown enters these coefficients only through ν_U² = ν² + α and γ_U⁻¹, algebraically,
-so the same holds as functions of α. If ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r u_A sin θ_A at
-order λ⁰. ∎
+so the part of order λ⁰ of H̃ is H̃0 plus Σ_A ν_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless.
+The harmonics of order λ² contribute O(λ) to first derivatives, and so does the shift of the foliation, whose
+oscillating part is of order λ². The metric unknown enters these coefficients only through ν_U² = ν² + α and γ_U⁻¹,
+algebraically, so the same holds as functions of α. If ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r
+u_A sin θ_A at order λ⁰. ∎
 
 Next the commutator of the wave operator with a generator, which the uniform estimate needs for each family. For a
 radial family on a round background it is [[lem:two-dust-commutator]], whose proof uses that the generator is
@@ -639,9 +639,9 @@ E and tensor fields on S³. For a word I = (i_1, …, i_j) put 𝓛^I := 𝓛_(i
 
 (K1) Each 𝓛_i commutes with ∇, with Δ, with contractions by the round metric and with ∂_r (X_i is a Killing field).
 
-(K2) Σ_i ⟨X_i, Y⟩² = |Y|² for every tangent vector Y of S³, by Lagrange's identity Σ_(a<b) (x_a Y_b − x_b Y_a)² =
-|x|² |Y|² − (x·Y)² with |x| = 1 and x·Y = 0; so Y = Σ_i ⟨X_i, Y⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order zero in f with
-coefficients built from ∇X_i, |∇f| ≤ C (Σ_i |𝓛_i f| + |f|), |∇² f| ≤ C Σ_(|J|≤2) |𝓛^J f| and |𝓛_i f| ≤ C (|∇f| + |f|)
+(K2) Σ_i ⟨X_i, Y⟩² = |Y|² for every tangent vector Y of S³, by Lagrange's identity Σ_(a<b) (x_a Y_b − x_b
+Y_a)² = |x|² |Y|² − (x·Y)² with |x| = 1 and x·Y = 0; so Y = Σ_i ⟨X_i, Y⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order zero in
+f with coefficients built from ∇X_i, |∇f| ≤ C (Σ_i |𝓛_i f| + |f|), |∇² f| ≤ C Σ_(|J|≤2) |𝓛^J f| and |𝓛_i f| ≤ C (|∇f| + |f|)
 for every function, section of E or tensor field f.
 
 (K3) sup |f| ≤ C_S Σ_(|J|≤2) ‖𝓛^J f‖, by (K2) and the embedding of H² in the continuous functions on the compact
@@ -666,9 +666,9 @@ and ‖U‖_(𝒴_j) := ‖U‖_(𝒴_j(a,b1)). With constants depending on j on
     (N4) ‖∇α‖_(j) ≤ ‖α‖_(j;1),  ‖∇²α‖_(j) ≤ ‖α‖_(j;2).
 
 Indeed, by (K3), λ^|I| sup |𝓛^I f| ≤ C_S Σ_(|J|≤2) λ^(−|J|) λ^(|I|+|J|) ‖𝓛^J 𝓛^I f‖, which gives (N1); for (N2), (K2)
-bounds ‖𝓛^J 𝓛^I α‖ for |J| ≤ 2 by C (‖𝓛^I α‖ + ‖∇𝓛^I α‖ + Σ_i (‖𝓛_i 𝓛^I α‖ + ‖∇𝓛_i 𝓛^I α‖)); (N3) is (K2) applied to
-𝓛^I f; and (N4) holds because ∇ and ∇² commute with 𝓛^I (K1). By (K4), λ^|I| = λ^|I′| λ^|I″| and the fact that one of
-|I′|, |I″| is at most ⌊j/2⌋,
+bounds ‖𝓛^J 𝓛^I α‖ for |J| ≤ 2 by C (‖𝓛^I α‖ + ‖∇𝓛^I α‖ + Σ_i (‖𝓛_i 𝓛^I α‖ + ‖∇𝓛_i 𝓛^I α‖)); (N3) is (K2) applied to 𝓛^I
+f; and (N4) holds because ∇ and ∇² commute with 𝓛^I (K1). By (K4), λ^|I| = λ^|I′| λ^|I″| and the fact that one
+of |I′|, |I″| is at most ⌊j/2⌋,
 
     (P1) ‖f · g‖_(j) ≤ C ‖f‖_(j),∞ ‖g‖_(j);      (P2) ‖f · g‖_(j) ≤ C (‖f‖_(⌊j/2⌋),∞ ‖g‖_(j) + ‖f‖_(j) ‖g‖_(⌊j/2⌋),∞).
 
@@ -680,8 +680,8 @@ allowed) and a closed ball Y ⊂ ℝ^d centred at 0. A *profile function* is a s
     (C0) λ^|I| |𝓛^I ∂_y^β [h]| ≤ C_(I,β) on Σ × Y, for every word I and multi-index β,
 
 and λ ∂_r [h] is again of the form [h′]. A function c(x, y) is of *class 𝔏* if it is [h] for a profile function h, and
-of *class 𝔓* if c = c0 + λ [h] with c0 smooth on Σ × Y and independent of λ; then also λ^|I| |𝓛^I ∂_y^β c| ≤ C λ for
-|I| ≥ 1, and ∂_r c is of class 𝔏. The *class bounds* of c are the constants C_(I,β). With m = 0 and λ = 1 both classes
+of *class 𝔓* if c = c0 + λ [h] with c0 smooth on Σ × Y and independent of λ; then also λ^|I| |𝓛^I ∂_y^β c| ≤ C λ for |I|
+≥ 1, and ∂_r c is of class 𝔏. The *class bounds* of c are the constants C_(I,β). With m = 0 and λ = 1 both classes
 consist of the smooth functions on Σ × Y.
 
 *Structure.* We consider maps 𝔉 = (𝔉_ρ, 𝔉_J) of the form, the dependence on x not written,
@@ -725,9 +725,9 @@ with 1 + α γ^(rr) > 0. Then the matrix 𝒮 of [[eq:data-symmetrizer]] is inve
 diag(6, γ_U^(rr) Π^(AB)) is positive definite, and every 𝒮 A^C is symmetric.
 
 *Proof.* The derivation of the principal part of J in the proof of [[lem:constraints-evolution]] (a) uses only the
-identities Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr) (so that Π^(rk) = 0 and Π_A^k ∂_k = ∂_A), tr_(γ_U) Π = γ^(ij) Π_ij = 4 −
-1 = 3, q(γ⁻¹dr) = 0, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr and (1 + α γ^(rr))⁻¹ γ^(rr) = γ_U^(rr), each of which holds for
-every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the uniqueness
+identities Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr) (so that Π^(rk) = 0 and Π_A^k ∂_k = ∂_A), tr_(γ_U) Π = γ^(ij) Π_ij =
+4 − 1 = 3, q(γ⁻¹dr) = 0, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr and (1 + α γ^(rr))⁻¹ γ^(rr) = γ_U^(rr), each of which holds
+for every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the uniqueness
 of the symmetrizer, which [[lem:linear-evolution]] does not use. So that derivation gives, for every such γ and α, the
 principal part 𝒮A0 ∂_r + 𝒮A^C ∂_C of 𝒮J in (ϖ, q_B), with 𝒮A0 = diag(6, γ_U^(rr) Π^(AB)) and the symmetric 𝒮A^C
 displayed there. γ_U^(rr) = γ^(rr)/(1 + α γ^(rr)) > 0, and Π^(AB), the inverse of the induced metric of the spheres, is
@@ -757,8 +757,8 @@ Moreover, for every k′ > k there is K′, depending on k′, λ, the class bou
 
 *Proof.* *Existence.* Put S0 := 𝒮(α_V) A0(α_V) and S^C := S0 B^C = 𝒮(α_V) A^C(α_V). With A0 replaced by the identity,
 A^B by B^B and the symmetrizer 𝒮 by S0, [[eq:vlasov-scaled-linear]] is a system of the form [[eq:data-linear]] (the
-difference between ∇_C and ∂_C on w being a term of order zero), with S0 ≥ A00 and S^C symmetric by the signs, since
-|α_V| ≤ C λ⁻¹ ‖α_V‖_(k;1) ≤ C η1 λ² ≤ η0 by (N2) for η1 small. Its coefficients are smooth, so the quantity M_s of
+difference between ∇_C and ∂_C on w being a term of order zero), with S0 ≥ A00 and S^C symmetric by the signs,
+since |α_V| ≤ C λ⁻¹ ‖α_V‖_(k;1) ≤ C η1 λ² ≤ η0 by (N2) for η1 small. Its coefficients are smooth, so the quantity M_s of
 [[lem:linear-evolution]] is finite for every s, and that lemma gives a unique solution, of every regularity in the
 angles; the equations, solved for ∂_r α and ∂_r w, give its r-derivatives. So the identities below hold, every pairing
 being absolutely continuous in r.
@@ -768,14 +768,14 @@ in (x, α), evaluated at α_V) or f̂(α_V, w_V), b/p(α_V), c/p(α_V), e/p(α_V
 𝓛^I [c̃(x, Y)] for Y = α_V or Y = (α_V, w_V) is the sum, over the partitions of the letters of I into a word I_0 and
 nonempty words J_1, …, J_l (l ≥ 0), each keeping the order of I, of (𝓛^(I_0) ∂_y^l c̃)(x, Y)[𝓛^(J_1) Y, …, 𝓛^(J_l) Y]:
 applying 𝓛_i to such a term adds i to I_0, or to one J_s, or as a new word J_(l+1) = (i). By (N1), (N2) and the
-hypothesis, λ^|J| sup |𝓛^J α_V| ≤ C η1 λ² for |J| ≤ k − 1, λ^|J| sup |𝓛^J w_V| ≤ C η1 λ for |J| ≤ k − 2, and
-‖λ^|J| 𝓛^J Y‖ ≤ η1 λ³ for |J| ≤ k. Put in c_I^♭ the terms of λ^|I| 𝓛^I c in which every factor 𝓛^(J_s) Y has |J_s| ≤
-k − 2 (|J_s| ≤ k − 1 for an α_V factor), and the rest in c_I^♯. Then, for |I| ≤ k: |c_I^♭| ≤ C_0, and |c_I^♭| ≤ C_0 λ if
-c is principal and I ≠ ∅ (a term with I_0 ≠ ∅ carries λ^|I_0| |𝓛^(I_0) c̃| ≤ C λ, and one with l ≥ 1 a factor at most
-C η1 λ²); c_I^♯ = 0 for |I| ≤ k − 2; and ‖c_I^♯‖ ≤ C_0 η1 λ³, since a term of c_I^♯ has exactly one factor of order at
-least k − 1 (two such would have total order 2k − 2 > k), taken in L², the others being bounded. Also |∇c| ≤ C_0 for c
-principal, as ∇[c̃(x, α_V)] = (∇_x c̃) + (∂_y c̃) ∇α_V with |∇_x c̃| ≤ C by (C0) and (K2) and |∇α_V| ≤ C η1 λ; and
-|∂_r S0| ≤ C_0 (1 + μ), μ := C_S λ⁻² ‖∂_r α_V‖_(2), with ∫_a^(b1) μ² ≤ C η1² λ² ≤ 1, as ∂_r c̃ is of class 𝔏.
+hypothesis, λ^|J| sup |𝓛^J α_V| ≤ C η1 λ² for |J| ≤ k − 1, λ^|J| sup |𝓛^J w_V| ≤ C η1 λ for |J| ≤ k − 2, and ‖λ^|J| 𝓛^J
+Y‖ ≤ η1 λ³ for |J| ≤ k. Put in c_I^♭ the terms of λ^|I| 𝓛^I c in which every factor 𝓛^(J_s) Y has |J_s| ≤ k − 2 (|J_s| ≤
+k − 1 for an α_V factor), and the rest in c_I^♯. Then, for |I| ≤ k: |c_I^♭| ≤ C_0, and |c_I^♭| ≤ C_0 λ if c is principal
+and I ≠ ∅ (a term with I_0 ≠ ∅ carries λ^|I_0| |𝓛^(I_0) c̃| ≤ C λ, and one with l ≥ 1 a factor at most C η1 λ²); c_I^♯ =
+0 for |I| ≤ k − 2; and ‖c_I^♯‖ ≤ C_0 η1 λ³, since a term of c_I^♯ has exactly one factor of order at least k − 1 (two
+such would have total order 2k − 2 > k), taken in L², the others being bounded. Also |∇c| ≤ C_0 for c principal, as
+∇[c̃(x, α_V)] = (∇_x c̃) + (∂_y c̃) ∇α_V with |∇_x c̃| ≤ C by (C0) and (K2) and |∇α_V| ≤ C η1 λ; and |∂_r S0| ≤ C_0 (1 +
+μ), μ := C_S λ⁻² ‖∂_r α_V‖_(2), with ∫_a^(b1) μ² ≤ C η1² λ² ≤ 1, as ∂_r c̃ is of class 𝔏.
 
 *Step 2: products and commutators.* For c as in Step 1, Z a function or section and 3 ≤ j ≤ k, by (K4):
 
@@ -797,10 +797,10 @@ Put e_I := λ^(2|I|) (‖𝓛^I α‖² + ‖∇𝓛^I α‖²) and g_I := λ^(2
 
     ⟨Δf, Q^(AB) ∇_A ∇_B f⟩ ≥ δ ‖∇²f‖² − C_M (‖∇f‖ ‖∇²f‖ + ‖∇f‖²):                                   {#eq:vlasov-elliptic}
 
-integrating by parts twice, ⟨Δf, Q^(AB) ∇_A ∇_B f⟩ = −∫ ∇^C f (∇_C Q^(AB)) ∇_A ∇_B f − ∫ ∇^C f Q^(AB) ∇_C ∇_A ∇_B f,
-and ∇_C ∇_A ∇_B f = ∇_A ∇_B ∇_C f + (curvature of the round S³) · ∇f, while −∫ ∇^C f Q^(AB) ∇_A ∇_B ∇_C f =
-∫ Q^(AB) ∇_A ∇^C f ∇_B ∇_C f + ∫ (∇_A Q^(AB)) ∇^C f ∇_B ∇_C f ≥ δ ‖∇²f‖² − M ‖∇f‖ ‖∇²f‖. Here Q ≥ δ := δ_e/sup p and
-|Q| + |∇Q| ≤ C_0 by Step 1. With f := 𝓛^I α, using |⟨f, Q·∇²f⟩| ≤ C_0 ‖f‖ ‖∇²f‖ and ‖f − Δf‖ ≤ ‖f‖ + √3 ‖∇²f‖,
+integrating by parts twice, ⟨Δf, Q^(AB) ∇_A ∇_B f⟩ = −∫ ∇^C f (∇_C Q^(AB)) ∇_A ∇_B f − ∫ ∇^C f Q^(AB) ∇_C ∇_A ∇_B f, and
+∇_C ∇_A ∇_B f = ∇_A ∇_B ∇_C f + (curvature of the round S³) · ∇f, while −∫ ∇^C f Q^(AB) ∇_A ∇_B ∇_C f = ∫ Q^(AB) ∇_A ∇^C
+f ∇_B ∇_C f + ∫ (∇_A Q^(AB)) ∇^C f ∇_B ∇_C f ≥ δ ‖∇²f‖² − M ‖∇f‖ ‖∇²f‖. Here Q ≥ δ := δ_e/sup p and |Q| + |∇Q| ≤ C_0 by
+Step 1. With f := 𝓛^I α, using |⟨f, Q·∇²f⟩| ≤ C_0 ‖f‖ ‖∇²f‖ and ‖f − Δf‖ ≤ ‖f‖ + √3 ‖∇²f‖,
 
     λ^(2|I|) d/dr ½ (‖f‖² + ‖∇f‖²) ≤ −δ g_I + C (e_I^(1/2) g_I^(1/2) + e_I)
                                          + (e_I^(1/2) + √3 g_I^(1/2)) λ^|I| (‖𝒦_I‖ + ‖𝓛^I R_ρ‖).
@@ -964,22 +964,22 @@ unchanged and C, n0, C_k depending on m′. For the data of (g, F, u), d = 0 and
 *Data.* The constraints of D_n are 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯_n(·, α) = 0, with (γ_U, κ_U) built on (γ_D, κ_D) and 𝒯_n the
 constraint stress of T^(n), algebraic in α through γ_U⁻¹ (the unit normal and the roots of the eikonal equation involve
 γ_U). By [[lem:vlasov-structure]] 𝔉 has the structure [[eq:vlasov-structure]], with λ = 1, no phases, and class bounds
-independent of n, 𝒯_n being a quadrature of a smooth integrand. The signs hold: p > 0 by (V3) for γ and so for γ_D and
-|α| ≤ η0, for ε0 and η0 small; P = γ_U^(rr) Π^(AB) is positive definite; and 𝒮 has the properties of
-[[lem:vlasov-symmetrizer]]. 𝔉(0) is the difference of the constraint stresses of the field of D and of T^(n), a quadrature
-error of [[lem:vlasov-trapezoid]] for the integrand F_D² du_D ⊗ du_D, so sup_r ‖𝔉(0)‖_(k) ≤ C_k n^(−k) at λ = 1.
-[[prop:vlasov-scaled-correction]] applies for n ≥ n0 and gives a smooth invariant correction U with ‖U‖_(𝒴_k) ≤ C_k
-n^(−k); at λ = 1 the 𝒴_k norm bounds the H^(k+1) × H^k norm of (α, w) on the slice, and the equations bound their
+independent of n, 𝒯_n being a quadrature of a smooth integrand. The signs hold: p > 0 by (V3) for γ and so for γ_D
+and |α| ≤ η0, for ε0 and η0 small; P = γ_U^(rr) Π^(AB) is positive definite; and 𝒮 has the properties of
+[[lem:vlasov-symmetrizer]]. 𝔉(0) is the difference of the constraint stresses of the field of D and of T^(n), a
+quadrature error of [[lem:vlasov-trapezoid]] for the integrand F_D² du_D ⊗ du_D, so sup_r ‖𝔉(0)‖_(k) ≤ C_k n^(−k) at
+λ = 1. [[prop:vlasov-scaled-correction]] applies for n ≥ n0 and gives a smooth invariant correction U with ‖U‖_(𝒴_k) ≤
+C_k n^(−k); at λ = 1 the 𝒴_k norm bounds the H^(k+1) × H^k norm of (α, w) on the slice, and the equations bound their
 r-derivatives. So the metric data of D_n differ from those of g by at most C d(D) + C_k n^(−k) in H^(m+1) × H^m, and the
 families' data from the sampled continuum's by C d(D), with the weight 2π/n.
 
 *Evolution.* Take as reference the sampled continuum ů: the metric g, in the gauge relative to g itself, with the
-families (ů_A, q̊_A) := (u_(α_A), (2π/n) q(·, α_A)), the sets S_A := S_(α_A), whose tubes lie at distance at least 2δ from
-the axes by (V2), and Ω, admissible for g by (Ω). It solves (Aug2) and (Aug4) exactly, since each involves only g and its
-own family, and (Aug1) and (Aug3) up to the residual E_n, which enters the first as a matter term and the second through
-E_n(P̊_A, P̊_A), the Ricci term of the Raychaudhuri equation being Ric(P_A, P_A). Steps 1–8 of the proof of
-[[thm:class-stability-off-axes]] apply to the difference between the solution of the augmented system with the datum
-D_n and ů, with these changes. (1) The family norms of [[eq:class-energy]] are weighted: Σ_A is replaced by the ℓ² sum
+families (ů_A, q̊_A) := (u_(α_A), (2π/n) q(·, α_A)), the sets S_A := S_(α_A), whose tubes lie at distance at least 2δ
+from the axes by (V2), and Ω, admissible for g by (Ω). It solves (Aug2) and (Aug4) exactly, since each involves only g
+and its own family, and (Aug1) and (Aug3) up to the residual E_n, which enters the first as a matter term and the second
+through E_n(P̊_A, P̊_A), the Ricci term of the Raychaudhuri equation being Ric(P_A, P_A). Steps 1–8 of the proof of
+[[thm:class-stability-off-axes]] apply to the difference between the solution of the augmented system with the datum D_n
+and ů, with these changes. (1) The family norms of [[eq:class-energy]] are weighted: Σ_A is replaced by the ℓ² sum
 ((2π/n) Σ_A ‖·‖²)^(1/2) of the norms of (δp_A, δΘ_A, ς_A), ς_A := q_A/(2π/n) − q̄_A, q̄_A := q(·, α_A). (2) The matter
 term of the metric equation for the difference is exactly
 
@@ -1039,17 +1039,17 @@ corrections and the mean change Q_j by O(λ), and this change is moved to the ne
 finitely many stages. Every generator through a point of Ω reaches Σ_τ0 inside Ω, by (Ω), so the Picard argument of
 [[thm:approximant]] closes the stage system.
 
-Stage 0: with g_1 := Σ_A W_A and ĝ_2 := q, R[g0 + λ Σ_A W_A + λ² q] has R^(−1) = 0, and its coefficient of λ⁰ is
-R^(0) = Σ_A (R^(0)_A − Ric(g0)) + Ric(g0) + R^(0)_× + (the contribution of q), as in [[lem:two-dust-stage-zero]] (a)–(b)
-with n phases: a term with two phase derivatives on one wave W_A is that of R[g0 + λ W_A], a product of two different
-waves has only mixed harmonics, and the cross terms of order λ⁻¹ vanish since each W_A depends on one phase. By
+Stage 0: with g_1 := Σ_A W_A and ĝ_2 := q, R[g0 + λ Σ_A W_A + λ² q] has R^(−1) = 0, and its coefficient of λ⁰ is R^(0) =
+Σ_A (R^(0)_A − Ric(g0)) + Ric(g0) + R^(0)_× + (the contribution of q), as in [[lem:two-dust-stage-zero]] (a)–(b) with n
+phases: a term with two phase derivatives on one wave W_A is that of R[g0 + λ W_A], a product of two different waves has
+only mixed harmonics, and the cross terms of order λ⁻¹ vanish since each W_A depends on one phase. By
 [[lem:vlasov-wave]], R^(0)_A = Ric(g0) − F_A² du_A ⊗ du_A, with no oscillating part, the gauge part χ_A k_A ⊗ k_A
-removing the second harmonic of the quadratic term; so the first three terms add up to Ric(g0) − Σ_A F_A² du_A ⊗ du_A
-+ R^(0)_× = R^(0)_×, g0 being the Einstein–n-null-dust solution. The mixed harmonics R^(0)_× are removed by the mixed
-harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ ≤ 4, bounded below by (ii′), since q
-enters R^(0) only through −½ g0^(ab) ∂_a ∂_b, as multiplication of the harmonic e^(i j·θ) by ½ Q_j. The assembly is
-that of [[thm:two-dust-approximant]]: the stages m = 1, …, N by (a)–(d) above, and the passage to the fixed phases
-ν_A u_A/λ by the Taylor expansion in the phase corrections. ∎
+removing the second harmonic of the quadratic term; so the first three terms add up to Ric(g0) − Σ_A F_A² du_A ⊗ du_A +
+R^(0)_× = R^(0)_×, g0 being the Einstein–n-null-dust solution. The mixed harmonics R^(0)_× are removed by the mixed
+harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ ≤ 4, bounded below by (ii′), since q enters
+R^(0) only through −½ g0^(ab) ∂_a ∂_b, as multiplication of the harmonic e^(i j·θ) by ½ Q_j. The assembly is that of
+[[thm:two-dust-approximant]]: the stages m = 1, …, N by (a)–(d) above, and the passage to the fixed phases ν_A u_A/λ by
+the Taylor expansion in the phase corrections. ∎
 
 Let s_A(h) := h(ℓ_A, ℓ_A), and let Y_A, G1^A, G2^A, 𝒫 and the energy be those of [[thm:two-dust-uniform]] (defined
 before it), with one index per family and the phase derivative ∂_(θ_A) in place of the operator written F_𝔨 there:
@@ -1154,20 +1154,20 @@ Solving 𝔉(U) = 0 for ∂_r α and ∂_r w, and substituting the first into th
 
     ∂_r α = G_α(x, 𝔍),      ∂_r w = G_w(x, 𝔍),      𝔍 := (α, ∇α, ∇²α, w, ∇w),
 
-with G_α = Q ∇²α − p⁻¹ g_ρ and G_w = −B^C ∇_C w − A0⁻¹ (f G_α + g_J), Q := P/p and B^C := A0⁻¹A^C taken at α; here
-g = 𝔉(0) + g̃, with 𝔉(0) = λ^(N−2)[h]. Give the factor ∇^m α the weight (m − 2)₊ := max(m − 2, 0) and ∇^m w the weight
-m. By induction on i, ∂_r^i U is a finite sum of terms λ^(−β) c(x, α, ∇α, w) Π_(s=1)^l ∇^(m_s) Y_s, Y_s ∈ {α, w}, with
-c of class 𝔏 or a derivative of 𝔉(0), and β plus the sum of the weights at most 2i: for i = 1 this is the form of G_α
-and G_w (weights 0 and 1); applying ∂_r to a term, ∂_r of the x-dependence of c costs λ⁻¹ by (C0); ∂_r of an argument
-α, ∇α or w of c gives a factor G_α, ∇G_α or G_w, of weight at most 1; and ∂_r ∇^m α = ∇^m G_α and ∂_r ∇^m w = ∇^m G_w
-raise the weight of the factor by at most 2. Apply λ^(2i+|I|) 𝓛^I to such a term and expand by (K4) and the chain rule.
-Since λ ≤ 1, λ^(2i−β) is at most λ to the sum of the weights, so every factor appears as λ^(|J|+(m−2)₊) 𝓛^J ∇^m α, of
-L²(S³) norm at most C ‖α‖_(|J|+(m−2)₊;2), square integrable in r, or as λ^(|J|+m) 𝓛^J ∇^m w, of norm at most C ‖w‖_(|J|+m)
-at each r, by (K2), (N3) and (N4); the derivatives of c contribute at most C λ^(N−2) for c a derivative of 𝔉(0) and at
-most C otherwise. The orders |J| + (m − 2)₊, respectively |J| + m, add up to at most 2i + |I| ≤ 14, so at most one
-factor has order greater than 7: it is taken in L², at order at most 14 ≤ 18, and the others in sup norm, where by (N1),
-(N2) and (K2) (which bounds ∇²𝓛^J α by first derivatives of 𝓛_i 𝓛^J α) they are at most C λ⁻³ ‖U‖_(𝒴_18) ≤
-C λ^(N−5) ≤ 1 at each r. This gives [[eq:vlasov-data-dr]].
+with G_α = Q ∇²α − p⁻¹ g_ρ and G_w = −B^C ∇_C w − A0⁻¹ (f G_α + g_J), Q := P/p and B^C := A0⁻¹A^C taken at α; here g =
+𝔉(0) + g̃, with 𝔉(0) = λ^(N−2)[h]. Give the factor ∇^m α the weight (m − 2)₊ := max(m − 2, 0) and ∇^m w the weight m. By
+induction on i, ∂_r^i U is a finite sum of terms λ^(−β) c(x, α, ∇α, w) Π_(s=1)^l ∇^(m_s) Y_s, Y_s ∈ {α, w}, with c of
+class 𝔏 or a derivative of 𝔉(0), and β plus the sum of the weights at most 2i: for i = 1 this is the form of G_α and G_w
+(weights 0 and 1); applying ∂_r to a term, ∂_r of the x-dependence of c costs λ⁻¹ by (C0); ∂_r of an argument α, ∇α or w
+of c gives a factor G_α, ∇G_α or G_w, of weight at most 1; and ∂_r ∇^m α = ∇^m G_α and ∂_r ∇^m w = ∇^m G_w raise the
+weight of the factor by at most 2. Apply λ^(2i+|I|) 𝓛^I to such a term and expand by (K4) and the chain rule. Since λ ≤
+1, λ^(2i−β) is at most λ to the sum of the weights, so every factor appears as λ^(|J|+(m−2)₊) 𝓛^J ∇^m α, of L²(S³) norm
+at most C ‖α‖_(|J|+(m−2)₊;2), square integrable in r, or as λ^(|J|+m) 𝓛^J ∇^m w, of norm at most C ‖w‖_(|J|+m) at each
+r, by (K2), (N3) and (N4); the derivatives of c contribute at most C λ^(N−2) for c a derivative of 𝔉(0) and at most C
+otherwise. The orders |J| + (m − 2)₊, respectively |J| + m, add up to at most 2i + |I| ≤ 14, so at most one factor has
+order greater than 7: it is taken in L², at order at most 14 ≤ 18, and the others in sup norm, where by (N1), (N2) and
+(K2) (which bounds ∇²𝓛^J α by first derivatives of 𝓛_i 𝓛^J α) they are at most C λ⁻³ ‖U‖_(𝒴_18) ≤ C λ^(N−5) ≤ 1 at each
+r. This gives [[eq:vlasov-data-dr]].
 
 *The datum.* Put g on Σ as in [[sec:data-proof]]: the spatial part γ + α dr dr, the lapse and shift of g_app's
 two-scale form, ∂_τ of the spatial part fixed by κ + ϖ Π + q ⊗ dr + dr ⊗ q, and ∂_τ of the lapse and shift fixed by
@@ -1232,13 +1232,12 @@ in n and A.
 *The diagonal.* Fix a sequence (η_j) of smooth tensor fields with compact support in the interior of Ω, dense in L²(Ω).
 For each odd n ≥ n0 choose λ_n ≤ λ0(n) such that:
 
-1. C(n) λ_n ≤ 1/n;
-2. |∫_Ω η_j · (∂g^(n)_(λ_n) − ∂g^(n))| ≤ 1/n for j ≤ n. This is possible since each harmonic's integral is O(λ) at fixed
-   n, by non-stationary phase: du_A ≠ 0 on the support, so e^(i k ν_A u_A/λ) = (λ/(i k ν_A |du_A|²_E)) du_A·∂ e^(i k ν_A
-   u_A/λ) with the Euclidean norm of the chart, and one integration by parts gains λ;
-3. ‖Σ_A ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) ≤ Σ_A ‖ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) + 1. The cross terms of distinct families
-   have the phases ν_A u_A ± ν_B u_B, with d(ν_A u_A ± ν_B u_B) ≠ 0, since du_A, du_B are null and not parallel on the
-   overlaps by (ii′); they tend to zero as λ → 0 at fixed n, by non-stationary phase.
+1. C(n) λ_n ≤ 1/n; 2. |∫_Ω η_j · (∂g^(n)_(λ_n) − ∂g^(n))| ≤ 1/n for j ≤ n. This is possible since each harmonic's
+integral is O(λ) at fixed n, by non-stationary phase: du_A ≠ 0 on the support, so e^(i k ν_A u_A/λ) = (λ/(i k
+ν_A |du_A|²_E)) du_A·∂ e^(i k ν_A u_A/λ) with the Euclidean norm of the chart, and one integration by parts gains λ; 3.
+‖Σ_A ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) ≤ Σ_A ‖ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) + 1. The cross terms of distinct families have
+the phases ν_A u_A ± ν_B u_B, with d(ν_A u_A ± ν_B u_B) ≠ 0, since du_A, du_B are null and not parallel on the overlaps
+by (ii′); they tend to zero as λ → 0 at fixed n, by non-stationary phase.
 
 The diagonal terms are at most C Σ_A ∫ |du_A|²_E (F_A² + F_A⁴), and F_A² = (2π/n) q(·, α_A) + O(n^(−k)) on the tubes by
 [[prop:vlasov-uniform-n]]; so they are at most C Σ_A (2π/n) ∫ q(·, α_A) |du_(α_A)|²_E + C/n + O(n^(1−k)), and the sum is
@@ -1399,9 +1398,9 @@ eikonals C¹-close to u_α. By
 
 **Remark {#rem:vlasov-test-family}** (Numerical observation.) For the family with data u_α = cos α ρ(r) + 3 sin α ϑ on
 Σ_0, ρ′ = (1 + 1/r²)^(1/2), outgoing labels α ∈ [−0.5, 0.5] and ingoing labels α ∈ [π − 0.15, π + 0.15] (inside the
-horizon when they leave Ω), and the density on the same ball, the margins were measured on a 9 × 9 grid of rays over
-the ball enlarged by 20 %, with 81 labels per interval: J0 = 1.0000 and 0.8978, δ = 0.157 and 0.098, b_* = 0.909. A family
-focused at distance 1 ahead had a Jacobian changing sign (least value −0.071); a wider ingoing interval [π − 0.5,
-π + 0.5] reached an axis inside the horizon, as [[prop:vlasov-axis-focus]] predicts, so (V2) is a real restriction;
-with mass 1.02 and directions tilted by 0.02 sin 2ϑ, the margins were J0 = 1.0000 and 0.8471, δ = 0.152 and 0.072. No
-proof uses these values.
+horizon when they leave Ω), and the density on the same ball, the margins were measured on a 9 × 9 grid of rays over the
+ball enlarged by 20 %, with 81 labels per interval: J0 = 1.0000 and 0.8978, δ = 0.157 and 0.098, b_* = 0.909. A family
+focused at distance 1 ahead had a Jacobian changing sign (least value −0.071); a wider ingoing interval [π − 0.5, π +
+0.5] reached an axis inside the horizon, as [[prop:vlasov-axis-focus]] predicts, so (V2) is a real restriction; with
+mass 1.02 and directions tilted by 0.02 sin 2ϑ, the margins were J0 = 1.0000 and 0.8471, δ = 0.152 and 0.072. No proof
+uses these values.
