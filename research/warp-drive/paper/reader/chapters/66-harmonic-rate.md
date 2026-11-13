@@ -45,9 +45,13 @@ by which a conormal function whose pointwise orders exceed the weights lies in t
 *The form dψ.* dψ = m₀W* − (∂_v)^♭, ψ = v + F, is the closed 1-form of [[lem:gd-r2-9]]: □dψ = d□_0ψ = 0, and
 ℒ_(dψ)g = m₀ℒ_(W*)g, as (∂_v)^♭ is Killing. dψ is stationary and bounded, and does not decay at infinity.
 
-*Charges.* For a 1-form f on Ω_* in the class of [[eq:gd-r5-1]], ∫ℓ(f) dv = ℓ(f̂(0)), f̂(0) = ∫f dt_*, as t_* − v is a
-function of r near r_h; we call it the *total charge* of f. c_f(t_*) := (4π²)⁻¹∫_(−∞)^(v_h(t_*)) ℓ(f) dv is its running
-charge ([[eq:gd-r2-2]]), and for the forward solution u of □u = f, Q[u](v_h(t_*)) = 4π²c_f(t_*) by [[eq:gd-2-1]].
+*Charges.* For a 1-form f on Ω_* in one of the spaces [[eq:gd-r5-1]], [[eq:gd-r6-1]] and [[eq:gd-r7-1]] below,
+c_f(t_*) := (4π²)⁻¹∫_(−∞)^(v_h(t_*)) ℓ(f) dv is its *running charge* ([[eq:gd-r2-2]]), and for the forward solution u
+of □u = f, Q[u](v_h(t_*)) = 4π²c_f(t_*) by [[eq:gd-2-1]], as u and f vanish at early times. If f has K⁺-weight
+α_K > 1, as in [[eq:gd-r6-1]] and [[eq:gd-r7-1]], then f and its derivatives are O(t_*^(−α_K)) on compact r-sets, by
+b-Sobolev embedding near K⁺ ([[sec:hg-positive]]); so f̂(0) := ∫f dt_* exists there, and ∫ℓ(f) dv = ℓ(f̂(0)), as
+t_* − v is a function of r near r_h and ℓ evaluates at r = r_h. We call ∫ℓ(f) dv the *total charge* of f; it is the
+limit of 4π²c_f(t_*) as t_* → ∞.
 
 **Lemma {#lem:hr-charges}** (Two horizon charges.) For functions β and φ of (v, r) near the horizon, with ∂_r taken at
 fixed v,
@@ -106,7 +110,7 @@ convolution in t_*, and ∫B = c_0 := (4π²)⁻¹∫ℓ(f) dv;
 (iii) u − c_0χ^H_KW* ∈ H^(∞,(min(3/2,1+γ_+−α_K)−3ϵ,γ_+−2ϵ,α_K−1))_b(M′): at K⁺, u is c_0W* plus a term of weight
 α_K − 1 > 0.
 
-At each order k the norms are bounded by C_k times the norm of f in [[eq:gd-r6-1]] at an order k + ℓ, with ℓ
+At each order k the norms are bounded by C_k times the norm of f in [[eq:gd-r6-1]] at an order k + k′, with k′
 independent of k. u′, u_sing and B depend on k through the constant c of [[sec:iii-i2-4]]; u and c_0 do not.
 
 *Proof.* We follow the proof of [[prop:iii-i3-2-1]], with L_b replaced by □ and L̃_b by P̃. Its Step 0 removes L − L_b
@@ -1021,7 +1025,8 @@ Then Πu = u, and for every small ϵ > 0
 
     u ∈ H^(∞,(γ_+−3ϵ,γ_+,α_K))_b(M′),     |u| ≤ C t_*^(−α_K)‖f‖  on {r_♭ < r ≤ R′, t_* ≥ 8 max(R′, 1)},  {#eq:gd-r8-2}
 
-with every number of derivatives in x and t_*, ‖f‖ a norm of f in that space at an order k + ℓ. There is no singular
+with every number k of derivatives in x and t_*, ‖f‖ a norm of f in that space at an order k + k′, k′ independent
+of k. There is no singular
 part and no W*.
 
 *Proof.* Πu = u by [[lem:gd-r8-2]] (b). We follow the proof of [[thm:gd-r6-4]].

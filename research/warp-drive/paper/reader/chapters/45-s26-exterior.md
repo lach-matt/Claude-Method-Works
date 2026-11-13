@@ -1246,47 +1246,55 @@ in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b, and ‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) <
 
 *Proof.* Apply [[thm:ii-g-2-1]] with d = 7 and:
 
-- B^k := H^(k,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*), with the norm of [[eq:iv2-0-3]] after conjugation, and
-  F^k := H^(k,ℓ^♭₀+2,(−′,ℓ^♭_I+1))_b(Ω_(ext,r₀)) × H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀))², the norms made monotone in k by
-  [[rem:ii-g-2-2]];
+- B^k := H^(k,a₀)_b(ℐ⁺_c) × H^(k,ℓ^♭₀,ℓ^♭_I)_b(Ω_(ext,r₀); S²T*), a₀ := ℓ^♭₀ − 3/2, with the sum of the two norms. An
+  element x = (v, h̃) is, after conjugation, a decomposition ([[lem:s26-decompositions]]) of the tensor h_x that equals
+  h̃ + ρ^(3/2)χ_Iv in slot 6 and h̃ in the other slots: h_x ∈ H^(k,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*), with norm in
+  that class at most C|x|_k ([[sec:iv2-0]]). The map x ↦ h_x is linear. F^k := H^(k,ℓ^♭₀+2,(−′,ℓ^♭_I+1))_b(Ω_(ext,r₀))
+  × H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀))². The norms are made monotone in k by [[rem:ii-g-2-2]];
 - trivial support classes: the subspaces B^k_η and F^∞_η of [[thm:ii-g-2-1]] all equal to B^k and F^∞, and η₀ := 1;
-- Φ(h) := (P(g₀ + h, g₀), h|_(Σ_(IVP,r₀)) − h₀, rℒ_(∂_(t_IVP))h|_(Σ_(IVP,r₀)) − h₁) on the set {|h|_(3d) < δ}.
+- Φ(x) := (P(g₀ + h_x, g₀), h_x|_(Σ_(IVP,r₀)) − h₀, rℒ_(∂_(t_IVP))h_x|_(Σ_(IVP,r₀)) − h₁) on the set {|x|_(3d) < δ}.
 
-*(i) Smoothing.* Componentwise: for the slots other than 6, and separately for the remainder ũ₆ and the radiation
-field u^((0)) of slot 6, the operator S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]], which acts on weighted b-Sobolev
-spaces without support conditions, built in the same way on Ω_(ext,r₀) and on ℐ⁺_c ([[eq:iv2-0-3]]) respectively; then
-reassemble with χ_I. The norm of B^k is the sum of these norms, so [[eq:ii-g-2-1]] holds; the support conditions are
+The unknown is the decomposition, not the tensor: a decomposition is not determined by h_x
+([[lem:s26-decompositions]] (b)), and the smoothing operators must be linear.
+
+*(i) Smoothing.* Componentwise: on v the operator S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]], which acts on
+weighted b-Sobolev spaces without support conditions, built on ℐ⁺_c, and on h̃ the same operator built on Ω_(ext,r₀).
+S_θ is linear and the norm of B^k is the sum of the two norms, so [[eq:ii-g-2-1]] holds; the support conditions are
 vacuous.
 
-*(ii) The map.* By [[cor:iii-c-5-3]] (with ℰ₀ = ∅, ℓ₀ = ℓ^♭₀, and ⟨ℰ_I^C⟩ at the weight ℓ^♭_I, which by
-[[def:iii-c-3-1]] is the class (−, ℓ^♭_I) of B^k), P(g₀ + h, g₀) ∈ H^(k−2,ℓ^♭₀+2,(−′,ℓ^♭_I+1))_b for h ∈ B^k small in
-B⁵, and by [[eq:iii-c-5-5]] and [[prop:iii-c-5-2]] it is C² in h, with
-Φ′(h)ḣ = (L^(g₀+h,g₀)ḣ, ḣ|_Σ, rℒ_(∂_(t_IVP))ḣ|_Σ) and Φ″ bilinear in two b-derivatives, with coefficients rational in
-h and its first two b-derivatives. [[eq:ii-g-2-2]] and [[eq:ii-g-2-3]] follow from the Moser estimates
-([[lem:iv1-2-3]], [[lem:iii-c-2-1]]), the loss being 2 and the low norms of order at most 5 ≤ d. The trace on
-Σ_(IVP,r₀) is bounded B^(k+1) → H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀)), which lies within the loss d. The data enter the constants
-C_k of [[eq:ii-g-2-3]]: ‖Φ(h)‖_k ≤ C^P_k(1 + |h|_(k+d)) + ‖h₀‖_(H^(k,ℓ^♭₀)_b) + ‖h₁‖_(H^(k,ℓ^♭₀)_b), with C^P_k
-depending only on g₀, k and δ. For k ≤ N_NM and ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) ≤ 1 this is at most (C^P_k + 2)(1 + |h|_(k+d));
+*(ii) The map.* Write h := h_x. By [[cor:iii-c-5-3]] (with ℰ₀ = ∅, ℓ₀ = ℓ^♭₀, and ⟨ℰ_I^C⟩ at the weight ℓ^♭_I, which by
+[[def:iii-c-3-1]] is the class (−, ℓ^♭_I) of h), P(g₀ + h, g₀) ∈ H^(k−2,ℓ^♭₀+2,(−′,ℓ^♭_I+1))_b for x ∈ B^k small in
+B⁵, and by [[eq:iii-c-5-5]] and [[prop:iii-c-5-2]] it is C² in x, with
+Φ′(x)ẋ = (L^(g₀+h,g₀)h_ẋ, h_ẋ|_Σ, rℒ_(∂_(t_IVP))h_ẋ|_Σ) and Φ″ bilinear in two b-derivatives, with coefficients
+rational in h and its first two b-derivatives. [[eq:ii-g-2-2]] and [[eq:ii-g-2-3]] follow from the Moser estimates
+([[lem:iv1-2-3]], [[lem:iii-c-2-1]]) applied to the components of x, the loss being 2 and the low norms of order at
+most 5 ≤ d. The trace on Σ_(IVP,r₀) is bounded B^(k+1) → H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀)) (χ_I = 0 near Σ_(IVP,r₀)), which lies
+within the loss d. The data enter the constants C_k of [[eq:ii-g-2-3]]:
+‖Φ(x)‖_k ≤ C^P_k(1 + |x|_(k+d)) + ‖h₀‖_(H^(k,ℓ^♭₀)_b) + ‖h₁‖_(H^(k,ℓ^♭₀)_b), with C^P_k depending only on g₀, k and δ.
+For k ≤ N_NM and ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) ≤ 1 this is at most (C^P_k + 2)(1 + |x|_(k+d));
 so we take C_k := C^P_k + 2 for k ≤ N_NM, which does not depend on the data. For k > N_NM,
 C_k := C^P_k + ‖h₀‖_(H^k) + ‖h₁‖_(H^k) is finite, as h_j ∈ H^∞, and does not enter the threshold of [[thm:ii-g-2-1]].
 (Smallness in H^(2d) alone is not enough for this argument: the threshold of [[thm:ii-g-2-1]] depends on the C_k with
 k ≤ N_NM.)
 
-*(iii) Right inverses.* For h in the set above, Ψ(h)(f, ġ₀, ġ₁) := ġ of [[thm:iv2-2-4]] with α₀ := ℓ^♭₀ > ℓ^♭_I. Then
-Φ′(h)Ψ(h) = id on F^∞, and [[eq:iv2-2-3]] gives [[eq:ii-g-2-4]]:
-|Ψ(h)F|_k ≤ C(‖F‖_(k+4) + |h|_(k+7)‖F‖₈) ≤ C(‖F‖_(k+d) + |h|_(k+d)‖F‖_(2d)) for k ≥ d, and 3d ≥ 8 gives the
-smallness of h that [[thm:iv2-2-4]] asks. The support statement of (iii) is vacuous.
+*(iii) Right inverses.* For x in the set above, Ψ(x)(f, ġ₀, ġ₁) is the decomposition of ġ that the proof of
+[[thm:iv2-2-4]] constructs, with α₀ := ℓ^♭₀ > ℓ^♭_I, for h := h_x with its decomposition x; it is linear in
+(f, ġ₀, ġ₁), and h_(Ψ(x)F) = ġ. Then Φ′(x)Ψ(x) = id on F^∞, and [[eq:iv2-2-3]], for these decompositions, gives
+[[eq:ii-g-2-4]]: |Ψ(x)F|_k ≤ C(‖F‖_(k+4) + |x|_(k+7)‖F‖₈) ≤ C(‖F‖_(k+d) + |x|_(k+d)‖F‖_(2d)) for k ≥ d, and 3d ≥ 8
+gives the smallness that [[thm:iv2-2-4]] asks. The support statement of (iii) is vacuous.
 
 Φ(0) = (0, −h₀, −h₁), as P(g₀, g₀) = 0 (the proof of [[cor:iii-c-5-3]]). Let ε_NM be the threshold of
 [[thm:ii-g-2-1]] for d, δ, η₀ and the constants above, and ε₀ := min(1, ε_NM/2). If ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) < ε₀, then
-‖Φ(0)‖_(2d) ≤ ‖h₀‖_(H^(2d,ℓ^♭₀)_b) + ‖h₁‖_(H^(2d,ℓ^♭₀)_b) < ε_NM, and [[thm:ii-g-2-1]] gives h with |h|_(3d) < δ and
-Φ(h) = 0. *Higher norms.* For k ≥ 0 the shifted scales |v|′_i := |v|_(i+k), ‖f‖′_i := ‖f‖_(i+k) satisfy (i)–(iii) with
-the same d: [[eq:ii-g-2-1]] and [[eq:ii-g-2-4]] are invariant under the shift, and [[eq:ii-g-2-3]] holds on
-{|h|′_(3d) < δ′} ⊂ {|h|_(3d) < δ}, δ′ ≤ δ, with constants depending on k; as above, those of order i ≤ N_NM do not
-depend on the data once ‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) ≤ 1. So [[thm:ii-g-2-1]] for the shifted scales, with
-δ′ := min(δ, ε), gives ε₁ ∈ (0, ε₀] such that data with ‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) < ε₁ have a solution with
-|h|_(3d+k) < ε; it is small in B⁸, so by uniqueness it is the h above.
-*Uniqueness.* If h and h′ solve [[eq:iv2-3-1]] and are small in B⁸, then L̄(h − h′) = 0 with vanishing data, where
+‖Φ(0)‖_(2d) ≤ ‖h₀‖_(H^(2d,ℓ^♭₀)_b) + ‖h₁‖_(H^(2d,ℓ^♭₀)_b) < ε_NM, and [[thm:ii-g-2-1]] gives x with |x|_(3d) < δ and
+Φ(x) = 0; h := h_x solves [[eq:iv2-3-1]], with norm below Cδ in H^(3d) of its class. *Higher norms.* For k ≥ 0 the
+shifted scales |v|′_i := |v|_(i+k), ‖f‖′_i := ‖f‖_(i+k) satisfy (i)–(iii) with the same d: [[eq:ii-g-2-1]] and
+[[eq:ii-g-2-4]] are invariant under the shift, and [[eq:ii-g-2-3]] holds on {|x|′_(3d) < δ′} ⊂ {|x|_(3d) < δ}, δ′ ≤ δ,
+with constants depending on k; as above, those of order i ≤ N_NM do not depend on the data once
+‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) ≤ 1. So [[thm:ii-g-2-1]] for the shifted scales, with δ′ := min(δ, ε/C), gives ε₁ ∈ (0, ε₀]
+such that data with ‖h_j‖_(H^(N_NM+k,ℓ^♭₀)_b) < ε₁ have a solution h_x with |x|_(3d+k) < ε/C, so with norm below ε in
+H^(3d+k) of its class; it is small in H⁸ of its class, so by uniqueness it is the h above.
+*Uniqueness.* If h and h′ solve [[eq:iv2-3-1]] and are small in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b, then L̄(h − h′) = 0 with
+vanishing data, where
 L̄ := ∫₀¹ L^(g₀+h′+s(h−h′),g₀) ds. Each L^(g₀+h_s,g₀) has the form [[eq:iv1-1-1]] with the same leading part, which does
 not depend on h, and a remainder in the class [[eq:iv2-0-4]], uniformly in s; so L̄ has this form too, and its principal
 part, an average of ½□_(g_s) with g_s close to g_(b₀), is a wave operator with the same causal structure. [[lem:iv2-2-2]]
