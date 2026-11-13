@@ -399,11 +399,10 @@ the orders N_0 and −N_0, ‖Σ_β O^far_β(g)u‖²_(N_0) ≤ C Σ_β ‖(φ_�
 and unless β ∈ A_α, σ has order 𝗆_α, and every x-derivative of ρ is bounded by C⟨ξ⟩^(−2N_0). Indeed, by
 [[lem:fwd-transport]] with θ := θ̃, the left side is R_c applied to (φ_α)_*f, whose amplitude c contains the factor
 θ̃(x) and vanishes unless y ∈ (−7/4, 7/4)ⁿ (the choice of ε in that proof), so that θ̌_α may be inserted; θ̃_α and
-O^ε_β(g)f are supported in U_α and U_β. Then [[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have
-the pointwise order 𝗆_α − |γ|, and ρ := ρ_J, of order at most N_0 − J + ½ < −2N_0. So, for every order 𝗍 with values
-in [−N_0, N_0], Op(σ) maps H^(𝗍_α) to
-H^(𝗍_α−𝗆_α) by [[lem:fwd-local]], as σ vanishes for x ∉ [−7/4, 7/4]ⁿ, and Op(ρ) maps H^(−N_0) to H^(N_0) by
-[[lem:fwd-crude]]; both uniformly in (α, β).
+O^ε_β(g)f are supported in U_α and U_β. Then [[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α
+as its terms of index γ have the pointwise order 𝗆_α − |γ|, and ρ := ρ_J, of order at most N_0 − J + ½ < −2N_0. So,
+for every order 𝗍 with values in [−N_0, N_0], Op(σ) maps H^(𝗍_α) to H^(𝗍_α−𝗆_α) by [[lem:fwd-local]], as σ vanishes
+for x ∉ [−7/4, 7/4]ⁿ, and Op(ρ) maps H^(−N_0) to H^(N_0) by [[lem:fwd-crude]]; both uniformly in (α, β).
 
 *The first bound.* Let u := Σ_α φ_α^*v_α, first with finitely many v_α ≠ 0, and λ_0 := ρ_∞^(−𝗋), so that
 Λ = Op(λ_0). By the integer bound at −N_0, ‖u‖²_(−N_0) ≤ C Σ_α ‖v_α‖²_(H^(−N_0)) ≤ C Σ_α ‖v_α‖²_(H^(𝗋_α)), and by
@@ -719,8 +718,8 @@ D_a = Op(a)^* − Op(a^*), orders m + 𝗄 − 2 and m + 2𝗄 − 3: the terms 
 the terms of the commutators that are not of positive grade in each commutator vanish. (F2) [D_R, Ǎ], [D_I, Ǎ],
 Ǎ = Op(ǎ)Φ_0, i[L_R, D_ǎǍ] and Ǎ^*[Ǎ, D_I] in [[prop:ii-a1-5-3]], order m + 𝗄 − 2, resp. 2𝗌 − 1: as (F1), with
 φ_0ǎ = ǎ, and the terms of positive index of the symbol of Φ_0 vanish near supp ǎ, as each carries a ξ-derivative of
-φ_0 (η enters the amplitude only through φ_0, [[lem:fwd-transport]]) and φ_0 = 1 there. (F3) L_IǍ_ε^*Ǎ_ε + Ǎ_ε^*Ǎ_εL_I − Op(2ǎ_ε²ℓ_I) and i[L_R, Ǎ_ε^*Ǎ_ε] − Op(H_ℓ(ǎ_ε²)) in
-[[lem:ii-d-2-3]], order 2s − 1: ǎ_ε is scalar, φ_0ǎ_ε = ǎ_ε, and ℓ_I, the principal symbol of L_I, is in every chart
+φ_0 (η enters the amplitude only through φ_0, [[lem:fwd-transport]]) and φ_0 = 1 there. (F3)
+L_IǍ_ε^*Ǎ_ε + Ǎ_ε^*Ǎ_εL_I − Op(2ǎ_ε²ℓ_I) and i[L_R, Ǎ_ε^*Ǎ_ε] − Op(H_ℓ(ǎ_ε²)) in [[lem:ii-d-2-3]], order 2s − 1: ǎ_ε is scalar, φ_0ǎ_ε = ǎ_ε, and ℓ_I, the principal symbol of L_I, is in every chart
 the part of order m − 1 of the symbol of L_I: for smooth coefficients this is (S5), and both sides are the same
 polynomial in finitely many derivatives of the coefficients and of the transition maps, so the identity persists in
 finite regularity ([[lem:ii-a1-2-2]]); likewise H_ℓ(ǎ_ε²) is the principal symbol of i[L_R, Ǎ_ε^*Ǎ_ε] ((d)).
@@ -736,8 +735,8 @@ there. The parameters at which (D4), (D5) are used:
 (G), (B): (2, 𝗌 + 1, 13) with s⁺ = 12, s⁻ = −9, τ = 25, σ_* = 34; (2, 𝗌, 13) with τ = 24, σ_* = 34. (Sv) at 𝗌:
 Step 2 at (2, 𝗌, 11), τ = 22, σ_* = 32; Step 4, m = 12, at (2, 𝗌, 12), τ = 23, σ_* = 33; Step 3 at (2, 13, 0), σ_* = 13;
 (i) at (2, 2, −s′) with s′ ∈ {−9, −11, −12, −13}, σ_* ≤ 13. (Sv) at 𝗌 + 2 (s⁺ = 13, s⁻ = −8): Step 2 at (2, 𝗌 + 2, 9),
-τ = 22, σ_* = 30; Step 4, m = 10, τ = 23, σ_* = 31; Step 3 at (2, 11, 0). (K): as (Sv) at 𝗌. (R) at constant s ∈ {12,
-−10, 13, 2, ≤ 13}: σ_* ≤ 13. So σ_* ≤ 34, and (D5) gives symbol orders in [−2·34 − 3, 2·34 + 3] = [−71, 71], Sobolev
+τ = 22, σ_* = 30; Step 4, m = 10, τ = 23, σ_* = 31; Step 3 at (2, 11, 0). (K): as (Sv) at 𝗌. (R) at constant
+s ∈ {12, −10, 13, 2, ≤ 13}: σ_* ≤ 13. So σ_* ≤ 34, and (D5) gives symbol orders in [−2·34 − 3, 2·34 + 3] = [−71, 71], Sobolev
 orders in [−34 − 13 − 4, 34 + 4] = [−51, 38], and N ≤ 12 + 13 + 34 + 4 = 63; (D4) gives N ≤ 12 + 13 + 3 = 28 and
 Sobolev orders down to −9 − 12 − 13 − 4 = −38. (Γ) at (11, 8): symbol orders in [9, 29], Sobolev orders in [−16, 17],
 N ≤ 27. The (D2)-instances: (D8) at (13, 8), (−9, −13), (6, 6), (−15, −15) and (𝗋, 𝗋) for 𝗋 ∈ {𝗌 − 2, 𝗌 − 1, 𝗌 + 1,
