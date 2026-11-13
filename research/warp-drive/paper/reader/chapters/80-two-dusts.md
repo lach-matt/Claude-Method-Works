@@ -493,7 +493,7 @@ the trapped inner sphere of [[prop:two-dust-background]] (c) is what both transp
 [[eq:two-dust-metric]] and L_in := ℓ_in·∂ = −e^(−2σ) ∂_u. For every function f,
 
     [□_(g0), L_in] f = a_in □_(g0) f + M_in(L_in f) + N_in f,      a_in := 2 L_in(R)/R,
-    M_in F := 4 e^(−4σ) σ_v ∂_u(e^(2σ) F) + 4 e^(−4σ) (R_u/R) ∂_v(e^(2σ) F),                    {#eq:two-dust-commutator}
+    M_in ξ := 4 e^(−4σ) σ_v ∂_u(e^(2σ) ξ) + 4 e^(−4σ) (R_u/R) ∂_v(e^(2σ) ξ),                    {#eq:two-dust-commutator}
 
 with N_in a first-order operator with smooth coefficients; the mirror identity holds for L_out := ℓ_out·∂ = −e^(−2σ) ∂_v
 with u and v exchanged. The same holds for □̃ := g0^(ab) ∂_a∂_b in the chart X, with another first-order N_in.
@@ -512,14 +512,19 @@ two remaining second derivatives, −4e^(−4σ) σ_v f_uu − 4e^(−4σ)(R_u/R
 −e^(2σ) L_in f, they are M_in(L_in f). Finally □̃f = □_(g0) f + H0·∂f with H0^ρ := g0^(ab) Γ[g0]^ρ_ab smooth, and the
 commutator of L_in with the first-order operator H0·∂ is of first order. ∎
 
-So if ℓ_𝔨·dφ = F along a generator, then Ψ := □̃φ satisfies the transport
+So if ℓ_𝔨·dφ = ξ along a generator, then Ψ := □̃φ satisfies the transport
 
-    L_𝔨 Ψ + a_𝔨 Ψ = □̃F − M_𝔨(F) − N_𝔨 φ,      𝔨 ∈ {in, out},                                          {#eq:two-dust-psi}
+    L_𝔨 Ψ + a_𝔨 Ψ = □̃ξ − M_𝔨(ξ) − N_𝔨 φ,      𝔨 ∈ {in, out},                                          {#eq:two-dust-psi}
 
-the form of [[eq:ue-psi]]: on Vaidya, ℓ_in = −L0, R = r and a_in = 2/r. Every second derivative of φ is a combination,
-with smooth λ-independent coefficients, of L_𝔨 F, ∂_x F, dφ and the spatial Hessian ∂_x² φ, since L_𝔨 is transverse to
-the slices; and ∂_x² φ satisfies L_𝔨(∂_x² φ) = ∂_x² F + [L_𝔨, ∂_x²] φ, the commutator having the smooth λ-independent
-coefficients ∂_x ℓ_𝔨.
+the form of [[eq:ue-psi]]: on Vaidya, ℓ_in = −L0, R = r and a_in = 2/r. The generators normalised by dτ are those of
+[[lem:two-dust-transport]]: ℓ_𝔨 = ℓ_𝔨(τ) Z, ℓ_𝔨(τ) := dτ(ℓ_𝔨), with Z = L0 (c = −1, ℓ_in(τ) = −e^(−ψ)) for 𝔨 = in and
+Z = Z_out (c = c_out) for 𝔨 = out. So Zφ = ξ/ℓ_𝔨(τ), that is ∂_τ φ = ξ/ℓ_𝔨(τ) − c x̂·∂_x φ; differentiating this once
+more in x and in τ, and writing ∂_τ ξ = Zξ − c x̂·∂_x ξ, every second derivative of φ is a combination, with smooth
+λ-independent coefficients, of L_𝔨 ξ, ∂_x ξ, ξ, dφ and the spatial Hessian ∂_x² φ. The Hessian satisfies
+
+    Z(∂_j∂_k φ) = ∂_j∂_k (ξ/ℓ_𝔨(τ)) − ∂_j(c x̂^i) ∂_i∂_k φ − ∂_k(c x̂^i) ∂_i∂_j φ − ∂_j∂_k(c x̂^i) ∂_i φ,
+
+since ∂_τ commutes with ∂_j: a transport along Z with the smooth λ-independent coefficients ∂_x(c x̂) and ∂_x²(c x̂).
 
 ### The approximant {#sec:two-dust-approximant}
 
@@ -556,8 +561,9 @@ R[g0 + λ W_𝔨], given by [[eq:leading-coefficient]] with v replaced by ϕ_�
 and has only mixed harmonics;
 (c) the mean of R^(0) is Ric(g0) − (𝒜/R³) dv ⊗ dv − (ℬ/R³) du ⊗ du, so it vanishes exactly when g0 solves the
 two-null-dust equations with the fluxes [[eq:two-dust-fluxes]];
-(d) the pure harmonics (n, 0) of R^(0) vanish except in the component dv ⊗ dv at n = ±2, where the coefficient is
-−(ℓ_in + ½ □_(g0) v) F1χ_in − ¼ (|F1 W_TT^in|²_(g0) − ⟨|F1 W_TT^in|²_(g0)⟩), and likewise for (0, n) with du ⊗ du;
+(d) the pure harmonics (n, 0) of R^(0) vanish except in the component dv ⊗ dv, where they are those of
+−(ℓ_in + ½ □_(g0) v) F1χ_in − ¼ (|F1 W_TT^in|²_(g0) − ⟨|F1 W_TT^in|²_(g0)⟩), the second term a second harmonic in θ1;
+and likewise for (0, n) with du ⊗ du;
 (e) on a mixed harmonic e^(i(n1 θ1 + n2 θ2)), q enters R^(0) as multiplication by −e^(−2σ) n1 n2, which does not vanish;
 (f) the gauge field has D = O(λ), the coefficient of λ⁰ being Σ_𝔨 g0⁻¹(F_𝔨 W_𝔨(ℓ_𝔨, ·) − ½ dϕ_𝔨 tr_(g0) F_𝔨 W_𝔨) = 0.
 
