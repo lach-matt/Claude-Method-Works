@@ -2622,7 +2622,9 @@ At (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), with a_v = 1/200 (the inner form
 l ≥ 2 the exponents other than the n_l zeros are −9998, −4999, −2559975/512, 0, 0, −1, −2 when c_Υ vanishes near the
 horizon, and −9998, −4999, −2559975/512, −0.0099, 0, −1.01, −2.02 when ζ = 1 there. At the horizon the exponents are
 the same at every degree, and they are of size γ_Ca_vr_h. The zeroth-order coefficients of the block at r_h depend on
-κ.
+κ: on h = H_0S dt² the only term of 2L that differentiates S twice is the angular part of □, the other terms
+differentiating S at most once, which gives no multiple of S dt²; so the coefficient of H_0 in F_0 is κ/(2r_h²) plus a
+number that does not depend on κ.
 
 *The weight.* Let α + 2 =: β lie in the indicial gap at infinity of the block, and use on stationary fields of scalar
 type l, near infinity, the norms

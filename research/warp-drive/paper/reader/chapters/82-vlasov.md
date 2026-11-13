@@ -1320,20 +1320,23 @@ the fields being smooth in α; the supports stay at distance at least δ from th
 where ζ_α = 1. As 𝒩̃(τ0) = 0, Gronwall's lemma gives 𝒩̃ ≡ 0. ∎
 
 The explicit family is built on the orbit space of Tangherlini, where the eikonal equation separates. Let μ = 1, f :=
-1 − 1/r², m := 1/r², and let t := τ − κ(r) with κ′ = m/f be the static time on r > 1, so that g3 = −f dt² + f⁻¹dr² +
+1 − 1/r², 𝔪 := 1/r², and let t := τ − κ(r) with κ′ = 𝔪/f be the static time on r > 1, so that g3 = −f dt² + f⁻¹dr² +
 r² dϑ² there. For |α| ≤ 0.6 put k(α) := 3 sin α and
 
-    u_α := t − k(α)(ϑ − π/4) − ∫_3^r f(s)⁻¹ (1 − f(s) k(α)²/s²)^(1/2) ds,      r > 1.                {#eq:vlasov-witness}
+    u_α := −t + k(α)(ϑ − π/4) + ∫_3^r f(s)⁻¹ (1 − f(s) k(α)²/s²)^(1/2) ds,      r > 1.              {#eq:vlasov-witness}
 
-Since f/r² = (r² − 1)/r⁴ ≤ 1/4 and k² < 2.89, the square root is smooth and positive on r > 1.
+Since f/r² = (r² − 1)/r⁴ ≤ 1/4 and k² < 2.89, the square root is smooth and positive on r > 1. We extend u to a smooth
+invariant function on Ω × S¹ that agrees with [[eq:vlasov-witness]] on {r ≥ 2} × [−0.6, 0.6]; only its values on a
+neighbourhood of the tubes of the set S below, in r ≥ 2.64 and |α| ≤ 0.6, enter.
 
 **Proposition {#prop:vlasov-nonempty}** (The theorem is not vacuous.) Let g0 be Tangherlini of mass 1 in the chart of
 [[sec:background]] with μ ≡ 1, and Ω the domain with τ0 = 0, τ_end = 3, a = 4/5 and V = 5. Let F0 ≥ 0 be a smooth
 function of (r, ϑ, α), not identically zero, supported in {|r − 3| ≤ 0.3, |ϑ − π/4| ≤ 0.15} × [−0.5, 0.5], and let the
 labels be the eikonals [[eq:vlasov-witness]]. Then for every small ε > 0 the class Einstein–restricted massless Vlasov
-solution with the field of amplitude ε F0 and labels u_α, its metric data corrected by the radial solve, exists on Ω and
-satisfies (Ω), (V1), (V2), (V2′) and (V3). By [[lem:vlasov-open]], the solutions covered by [[thm:vlasov]] form a
-nonempty open set.
+solution with the field of amplitude ε F0 and labels u_α, its metric data those of g0 corrected by
+[[prop:vlasov-scaled-correction]] (λ = 1, no phases) to satisfy the constraints with the stress of the field, exists on Ω
+and satisfies (Ω), (V1), (V2) and (V3). By [[lem:vlasov-open]], the solutions covered by [[thm:vlasov]] form a nonempty
+open set.
 
 *Proof.* *(Ω) and (V3) for g0.* With μ = 1 the contractions of [[lem:domain]] are g0⁻¹(dτ, dτ) = −1 − 1/r² < 0; at r = a,
 g0⁻¹(dr, dr) = 1 − 25/16 = −9/16 < 0 and g0⁻¹(dr, dτ) = 25/16 > 0, so {r = a} is spacelike and r decreases along future
