@@ -1008,3 +1008,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - INTEGRATION (global): add to lint.py a check for wrapped lines starting with "+ ", "- " (outside real lists), "* ",
   "> ", "#", "=" or "|" in running text, and for uppercase label keys; then sweep every chapter and proof file. The
   pandoc GFM reader drops the sign or makes a quote/table/list of such lines.
+- S25 fourth fix (F4-S22): chapter 44's motions bound proved in full (eq:s25-motions-small, uniform in b; the source
+  has the same unproved sentence; no statement changed); the A_k bound writes δG′ term by term; 44:680-681 rewrapped;
+  chapter 41: Step 6's weight renamed w_(α′), final newline, ten "|" lines rewrapped. Fifth reading running.
