@@ -87,7 +87,8 @@ is φ_(S,S⁰) = ψ_(S⁰) ∘ φ_S ([[eq:s27-motion]]). For S′, S⁰′ ∈ �
 
 linearised diffeomorphisms: φ_(−sS′) = exp(−sV(S′)) is the time-s flow of −V(S′), and likewise for ψ_(−sS⁰′). The
 second is the derivative −δ*_g(Θw⁰(S⁰′)) of [[ch:s21]], as g(V⁰(S⁰′), ·) = ½Θw⁰(S⁰′) and ℒ_Xg = 2δ*_g(g(X, ·)). As
-φ_(−sS′,−sS⁰′)*g = φ*_(−sS′)(ψ*_(−sS⁰′)g) is smooth in s and both flows are the identity at s = 0,
+φ*_(−sS′,−sS⁰′)g = φ*_(−sS′)(ψ*_(−sS⁰′)g), by [[eq:s27-motion]], is smooth in s and both flows are the identity at
+s = 0,
 
     (d/ds) φ*_(−sS′,−sS⁰′) g |_(s=0) = ġ_(S′) + ġ⁰_(S⁰′).
 
@@ -376,8 +377,8 @@ rate. By itself it does not assert that a given linearised solution in another g
 diffeomorphism. That comparison, on the future N⁺ of Σ^IVP in {r > r_♭}, is [[thm:ix-2-2]] and [[cor:ix-2-3]] below,
 by a linear wave equation for the 1-form that generates the change of gauge; it is the linear counterpart of the
 nonlinear comparison of [[rem:vii-4-1]] ([[lem:interior-one-spacetime]]). Nothing in [[sec:viii-1]]–[[sec:viii-2]]
-uses it. (b) The rate is that of the slowest term at K⁺,
-h_(b₀,rem)(q′), which carries the decaying tails of the parameter and centre-of-mass motions ([[eq:iii-i14-1-2]]).
+uses it. (b) The rate is that of the slowest term at K⁺, h_(b₀,rem)(q′), which carries the decaying tails of the
+parameter and centre-of-mass motions ([[eq:iii-i14-1-2]]).
 
 ### The comparison of gauges: setting and conventions {#sec:ix-0}
 

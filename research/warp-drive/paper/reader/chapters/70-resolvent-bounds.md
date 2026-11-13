@@ -1494,13 +1494,19 @@ operator □^Υ, as it does on all of the bundle.
 *The indicial family at infinity.* For r beyond the supports of the free data (where ζ = 1, χ = 0 and c_C is in its
 outer form), the coefficients of L_l in the orthonormal components u_j are those of a dilation-invariant model, up to
 relative errors O(r⁻²) with all derivatives: g_(b_0) − η = r⁻²(dt + dr)², c_C − r⁻¹(dt − v_C dr) = O(r⁻³)dr
-([[sec:iv4-0]]), c_Υ = r⁻¹dt and c_(Υ,H) = 0 there. In the components u_j the model is homogeneous of degree −2 under
-dilations, so it is r⁻²N^n_l(−r∂_r) for a matrix polynomial N^n_l(ι) of degree 2, the indicial family of the block
-in orthonormal components: model(r^(−ι)w) = r^(−ι−2)N^n_l(ι)w for w ∈ ℂ⁷. Its determinant vanishes exactly at the
-indicial roots of L at infinity on scalar type l, which [[ch:s15]] lists, and among them, for l = 0, 2, 4, those of
-real part greater than 1 nearest to 1 are the lowest roots above 2 of □^C at scalar type l, less 1. At
-(γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100) they are 1.0000747438, 1.0000029324 and 1.0000169224
-[[pending:computational-1]].
+([[sec:iv4-0]]), c_Υ = r⁻¹dt and c_(Υ,H) = 0 there. The model is ½ times the operator 2L̄ of [[sec:iii-f1-2]] on
+stationary sections of scalar type l, and the frame (dt, dr, r dω) differs from the Cartesian frame (dt̄, dx^i) used
+there by an orthogonal change that is homogeneous of degree 0. So in the components u_j the model is
+r⁻²N^n_l(−r∂_r) for a matrix polynomial N^n_l(ι) of degree 2, the indicial family of the block in orthonormal
+components, with model(r^(−ι)w) = r^(−ι−2)N^n_l(ι)w for w ∈ ℂ^(n_l), and N^n_l(ι) is conjugate to ½N_L(ι) of
+[[sec:iii-f1-2]] at scalar type l. By [[lem:iii-f1-2-1]],
+
+    det N^n_l(ι) = 2^(−n_l)(−1)^(n_l)(ι + l)(ι − l − 2) det N_Υ(ι − 1) det N_C(ι + 1)/D(ι).
+
+So the roots of det N^n_l are −l, l + 2, the indicial roots of □^Υ plus 1 and those of □^C less 1, with D removing a
+double root 1 at l = 0. At (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), the roots with real part greater than 1 nearest to 1
+are, at l = 0, 2 and 4, 1.0000747438, 1.0000029324 and 1.0000169224, each an indicial root of □^C at scalar type l
+less 1 [[pending:computational-1]].
 
 *The horizon.* Write x := a_vγ_C r_h, with a_v the dv-component of c_C at r_h.
 
@@ -1589,8 +1595,8 @@ This is the elementary half of the b-calculus fact that the norm of an inverse o
 the inverse of the indicial family on the weight line. For the scalar model ½A_l, whose indicial family is
 ½(ι(2 − ι) + κ), it gives at β = 1 an upper bound (κ + 1)/(2(κ + 2)^(1/2)) for its least singular value in these norms.
 
-At α = −1 (β = 1), where the indicial family of the degree-2 block has a root at distance 2.93 · 10⁻⁶ from the weight
-line, [[lem:rb-quasimode]] with v the least right singular vector of N^n_l(1) gives, at
+At α = −1 (β = 1), where the indicial family of the degree-2 block has the root 1.0000029324, at distance about
+2.93 · 10⁻⁶ from the weight line, [[lem:rb-quasimode]] with v the least right singular vector of N^n_l(1) gives, at
 (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100): the least singular value of L_l from H̄_b^(1,−1) to H̄_b^(0,1) is at most
 3.1412 · 10⁻⁶ at l = 0 (on the complement of the zero-energy state), 2.6180 · 10⁻⁷ at l = 2 and 1.4955 · 10⁻⁶ at l = 4;
 so the inverse bound of the scalar-type blocks at (s, α) = (1, −1) is at least 3.81 · 10⁶. At α + 2 = 1/2, in the
@@ -1612,7 +1618,7 @@ component of ℛ_l is M_33(r) = −(5000r − 1)/r³, free of κ [[pending:compu
 of high frequency in r and concentrated near r_0, have ‖ℛ_lH‖_Y/‖H‖_X → r_0|M_33(r_0)| by [[eq:rb-block-norms]] (at
 α = −1 the weights are r and r⁵, and the derivative term dominates both norms); on the domain {r ≥ r_h/2} of the
 zero-energy problem this gives ‖ℛ_l‖ ≥ ½|M_33(½)| = 9996 for every l. And (κ + 1)/(2(κ + 2)^(1/2)) < 9996 exactly when
-(κ + 1)² < 4 · 9996²(κ + 2), which for even l holds up to l = 19,990 (κ = 399,640,080: (κ + 1)² < 1.5972 · 10¹⁷ <
-1.5983 · 10¹⁷ < 4 · 9996²(κ + 2)) and fails from l = 19,992 on. So this route gives no lower bound at any even
+(κ + 1)² < 4 · 9996²(κ + 2), which for even l holds up to l = 19,990 (κ = 399,640,080: (κ + 1)² < 1.59713 · 10¹⁷ <
+1.59728 · 10¹⁷ < 4 · 9996²(κ + 2)) and fails from l = 19,992 on. So this route gives no lower bound at any even
 l ≤ 19,990; if a perturbative regime exists at all, it begins above that degree, and the horizon part of the block
 does not become perturbative at any degree ([[lem:rb-horizon-exponents]]).

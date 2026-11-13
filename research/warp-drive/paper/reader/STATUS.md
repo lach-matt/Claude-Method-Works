@@ -44,7 +44,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | CONFIRMED (second reading; 2 nits) |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | NOT CONFIRMED 0M 2m 8n (past timelike; lem:vii-1-2 range); second fix running |
 | 63 M Ch 13 | written (959 lines; issue-1 order k_P, issue-2 commuted cut-off energy); running | - | - |
-| 64 M Ch 14 | written (1,031 lines, no markers); running | - | - |
+| 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | running | - |
 | 65 M Ch 15 | being written | - | - |
 | 70 M Ch 17 | being written | - | - |
 | 66, 71, 80-90 | not yet written | - | - |

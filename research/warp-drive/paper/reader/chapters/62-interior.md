@@ -221,43 +221,47 @@ carry the smooth structures of V and of ℝ × ℝ⁴ and the metrics g_λ and g
 constructed next, not that of the coordinates (t, x): g_λ and g need not agree as matrices on Σ.
 
 *(i), the charts at Σ.* Let n_λ and n be the future unit normals of Σ for g_λ and g. Then dt_IVP(n_λ) > 0, as dt_IVP
-is past timelike for g_λ on V, and dt_IVP(n) > 0, as n points into B. Let p ∈ Σ, and let U_0 be a neighbourhood of p in
-Σ with coordinates x = (x¹, …, x⁴). Near p, g is the restriction to B of a smooth Lorentzian metric g̃ on an open set of
-ℝ × ℝ⁴, g being smooth up to Σ. The maps
+is past timelike for g_λ on V, and dt_IVP(n) > 0, as n points into B. In the chart, Σ is the graph of ψ_IVP(|x|) over
+the open shell {r_♭ < |x| < R}, so the coordinates x = (x¹, …, x⁴) of the chart, restricted to Σ, are coordinates on all
+of Σ; every chart below uses them. Let p ∈ Σ, and let Π_0 be a neighbourhood of p in Σ. Near p, g is the restriction to
+B of a smooth Lorentzian metric g̃ on an open set of ℝ × ℝ⁴, g being smooth up to Σ. The maps
 
     E_λ(s, x) := exp^(g_λ)_x(s n_λ),     Ẽ(s, x) := exp^(g̃)_x(s n)
 
-are defined and smooth near (0, p) in ℝ × U_0, and their differentials at (0, p) map (σ, ξ) ∈ ℝ × T_pΣ to σn_λ + ξ
+are defined and smooth near (0, p) in ℝ × Π_0, and their differentials at (0, p) map (σ, ξ) ∈ ℝ × T_pΣ to σn_λ + ξ
 and to σn + ξ, which are isomorphisms, n_λ and n being transverse to Σ. By the inverse function theorem there are an
-open neighbourhood U ⊂ U_0 of p and ε > 0 such that E_λ and Ẽ map (−ε, ε) × U diffeomorphically onto open sets
+open neighbourhood Π ⊂ Π_0 of p and s_0 > 0 such that E_λ and Ẽ map (−s_0, s_0) × Π diffeomorphically onto open sets
 O_λ ⊂ D_V(Σ) and O ⊂ {r_♭ < |x| < R}, and such that ∂_s(t_IVP ∘ E_λ) > 0 and ∂_s(t_IVP ∘ Ẽ) > 0 there, these being
 dt_IVP(n_λ) and dt_IVP(n) at s = 0. Since t_IVP vanishes at s = 0, t_IVP ∘ E_λ and t_IVP ∘ Ẽ have the sign of s. So
-E_λ maps (−ε, 0] × U onto O_λ ∩ {t_IVP ≤ 0} = O_λ ∩ A, and Ẽ maps [0, ε) × U onto O ∩ {t_IVP ≥ 0} = O ∩ B, with
-O ∩ Σ = U. For 0 ≤ s < ε the g̃-geodesic σ ↦ Ẽ(σ, x), σ ∈ [0, s], lies in B, where g̃ = g; so Ẽ(s, x) =
+E_λ maps (−s_0, 0] × Π onto O_λ ∩ {t_IVP ≤ 0} = O_λ ∩ A, and Ẽ maps [0, s_0) × Π onto O ∩ {t_IVP ≥ 0} = O ∩ B, with
+O ∩ Σ = Π. For 0 ≤ s < s_0 the g̃-geodesic σ ↦ Ẽ(σ, x), σ ∈ [0, s], lies in B, where g̃ = g; so Ẽ(s, x) =
 E(s, x) := exp^g_x(s n) there, whatever the extension g̃. Put
 
-    Φ_U(s, x) := E_λ(s, x)  (−ε < s ≤ 0),     Φ_U(s, x) := E(s, x)  (0 ≤ s < ε),
+    Φ_Π(s, x) := E_λ(s, x)  (−s_0 < s ≤ 0),     Φ_Π(s, x) := E(s, x)  (0 ≤ s < s_0),
 
-both being x at s = 0. Φ_U is a bijection from (−ε, ε) × U onto W_U := (O_λ ∩ A) ∪ (O ∩ B), which is open in M_gl,
-since W_U ∩ A = O_λ ∩ A and W_U ∩ B = O ∩ B are open in A and in B. Φ_U is continuous on the closed halves {s ≤ 0}
-and {s ≥ 0}, and its inverse on the closed pieces W_U ∩ A and W_U ∩ B; so Φ_U is a homeomorphism. On {s < 0} and on
-{s > 0} it is a diffeomorphism onto the open subsets O_λ ∩ (A ∖ Σ) of A ∖ Σ and O ∩ (B ∖ Σ) of B ∖ Σ.
+both being x at s = 0. Φ_Π is a bijection from (−s_0, s_0) × Π onto W_Π := (O_λ ∩ A) ∪ (O ∩ B), which is open in
+M_gl, since W_Π ∩ A = O_λ ∩ A and W_Π ∩ B = O ∩ B are open in A and in B. Φ_Π is continuous on the closed halves
+{s ≤ 0} and {s ≥ 0}, and its inverse on the closed pieces W_Π ∩ A and W_Π ∩ B; so Φ_Π is a homeomorphism. On {s < 0}
+and on {s > 0} it is a diffeomorphism onto the open subsets O_λ ∩ (A ∖ Σ) of A ∖ Σ and O ∩ (B ∖ Σ) of B ∖ Σ.
 
-*(i), the smooth structure.* Two charts Φ_U and Φ_U′ of this kind are given by the same formulas where both are
-defined. Let (s, x) lie in the domain of Φ_U′⁻¹ ∘ Φ_U. If s ≠ 0, this map is smooth near (s, x), as both charts are
-diffeomorphisms onto open subsets of A ∖ Σ, or both of B ∖ Σ, there. If s = 0, then x ∈ U ∩ U′, and Φ_U = Φ_U′ on a
-neighbourhood N of (0, x) contained in both domains. Φ_U′⁻¹ ∘ Φ_U is continuous and fixes (0, x), so it maps a smaller
-neighbourhood N′ ⊂ N into N, and for y ∈ N′, Φ_U′(Φ_U′⁻¹Φ_U(y)) = Φ_U(y) = Φ_U′(y), whence Φ_U′⁻¹Φ_U(y) = y, Φ_U′ being
-injective. So the transition maps are smooth, and the charts Φ_U, with the charts of A ∖ Σ and of B ∖ Σ, form a
-smooth atlas of M_gl, a five-dimensional manifold without boundary. A ∖ Σ and B ∖ Σ are open submanifolds of it, and
-Σ, which is {s = 0} in every chart Φ_U, is a smooth embedded hypersurface.
+*(i), the smooth structure.* Two charts Φ_Π and Φ_Π′ of this kind are given by the same formulas where both are
+defined, both using the coordinates x on Σ. Let (s, x) lie in the domain of Φ_Π′⁻¹ ∘ Φ_Π. If s ≠ 0, this map is smooth
+near (s, x), as both charts are diffeomorphisms onto open subsets of A ∖ Σ, or both of B ∖ Σ, there. If s = 0, then
+x ∈ Π ∩ Π′, and Φ_Π = Φ_Π′ on a neighbourhood N of (0, x) contained in both domains. Φ_Π′⁻¹ ∘ Φ_Π is continuous and
+fixes (0, x), so it maps a smaller neighbourhood N′ ⊂ N into N, and for y ∈ N′, Φ_Π′(Φ_Π′⁻¹Φ_Π(y)) = Φ_Π(y) = Φ_Π′(y),
+whence Φ_Π′⁻¹Φ_Π(y) = y, Φ_Π′ being injective. So the transition maps are smooth, and the charts Φ_Π, with the charts
+of A ∖ Σ and of B ∖ Σ, form a smooth atlas of M_gl, a five-dimensional manifold without boundary. A ∖ Σ and B ∖ Σ are
+open submanifolds of it, and Σ, which is {s = 0} in every chart Φ_Π, is a smooth embedded hypersurface.
 
 *(i), the metric.* s ↦ E_λ(s, x) and s ↦ E(s, x) are geodesics of g_λ and of g with unit timelike tangent, equal to
-n_λ and n at s = 0. So E_λ^*g_λ = −ds² + h^λ_s on (−ε, 0] × U and E^*g = −ds² + h_s on [0, ε) × U, with Riemannian
-metrics h^λ_s and h_s on U: along a unit timelike geodesic g(∂_s, ∂_s) = −1, and for a coordinate field ∂_i of U,
-∂_s g(∂_s, ∂_i) = g(∂_s, ∇_(∂_s)∂_i) = g(∂_s, ∇_(∂_i)∂_s) = ½∂_i g(∂_s, ∂_s) = 0, with g(∂_s, ∂_i) = 0 at s = 0. At
-s = 0, h^λ_0 = h_0 = γ, and ∂_s h^λ_0 = ∂_s h_0: ∂_s g(∂_i, ∂_j) = g(∇_(∂_i)∂_s, ∂_j) + g(∂_i, ∇_(∂_j)∂_s) is at s = 0
-twice the second fundamental form of Σ with respect to the future unit normal, which is k for both metrics. The metric
+n_λ and n at s = 0. So E_λ^*g_λ = −ds² + h^λ_s on (−s_0, 0] × Π and E^*g = −ds² + h_s on [0, s_0) × Π, with
+Riemannian metrics h^λ_s and h_s on Π: along a unit timelike geodesic g(∂_s, ∂_s) = −1, and for a coordinate field ∂_i
+of Π, ∂_s g(∂_s, ∂_i) = g(∂_s, ∇_(∂_s)∂_i) = g(∂_s, ∇_(∂_i)∂_s) = ½∂_i g(∂_s, ∂_s) = 0, with g(∂_s, ∂_i) = 0 at s = 0.
+At s = 0, h^λ_0 = h_0 = γ, and ∂_s h^λ_0 = ∂_s h_0: ∂_s g(∂_i, ∂_j) = g(∇_(∂_i)∂_s, ∂_j) + g(∂_i, ∇_(∂_j)∂_s) is at
+s = 0 twice the form (X, Y) ↦ g(∇_X ν, Y) on the tangent spaces of Σ, ν being the future unit normal, n_λ resp. n,
+which ∂_s is at s = 0. The form is symmetric: for vector fields X, Y tangent to Σ, g(∇_X ν, Y) = −g(ν, ∇_X Y), and
+∇_X Y − ∇_Y X = [X, Y] is tangent to Σ. It is the second fundamental form up to the sign of its convention, so it is
+the same for both metrics, both inducing k. The metric
 −ds² + h_s has the Christoffel symbols Γ^s_ij = ½∂_s h_ij, Γ^i_sj = ½h^ik ∂_s h_kj and Γ^i_jk those of h_s, the others
 vanishing; so the spatial components of its Ricci tensor are
 

@@ -634,3 +634,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   44:531 E^ν is lem:iii-j2-2-1 (b), not (c); 44:569 "rates of q exceed 2 + ε_K" only for the polyhomogeneous terms;
   44:563 the pointer should include *The augmentation at b*; 38a:156 name the weight α. Not counted:
   sec:s23-base-points (4) points forward to cor:iii-i15-3-2.
+- Ch 64 first reading (R-64): every identity redone, KI03 and HKW18 quoted correctly at source, hypotheses hold in
+  4 + 1; the Remark is used by no proof. Minors: the set at line 84 contains r = r_♭; Theorem (a)'s int N ∩ M°_♭
+  clause unproved; XΦ for a rotation X; the ∂_u² formula only on the cone; "uniformly in l" fails for the 𝔪Φ
+  coefficient; lem:np-10-1b (b) needs a density step. Nits: ṁ vs chapter 3's μ̇, 𝔪 vs chapter 34's p, K, τ, ω, c, s,
+  t, Y. Fix round running (with Θ(k) → −Υ̇⁰(k)).
