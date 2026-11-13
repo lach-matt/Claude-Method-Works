@@ -346,7 +346,7 @@ time v and the sets J⁻(p) = {u ≤ u(p), v ≤ v(p)}, none of which depends on
 *Proof.* As dũ = ũ′ du and dṽ = ṽ′ dv, −2 e^(2σ̃) dũ dṽ = −2 e^(2σ̃) ũ′ ṽ′ du dv = −2 e^(2σ) du dv. Ric(g0) is a
 tensor, and (𝒜/R³) dv ⊗ dv + (ℬ/R³) du ⊗ du = (𝒜̃/R³) dṽ ⊗ dṽ + (ℬ̃/R³) dũ ⊗ dũ. For the constraints, R_ũ = R_u/ũ′,
 R_ũũ = R_uu/ũ′² − ũ″ R_u/ũ′³ and σ̃_ũ = σ_u/ũ′ − ũ″/(2ũ′²), so R_ũũ − 2σ̃_ũ R_ũ = (R_uu − 2σ_u R_u)/ũ′², while
-ℬ̃/(3R²) = ℬ/(3R² ũ′²); the same computation in ṽ gives C̃_ṽ. By [[eq:two-dust-mass]], f = g0⁻¹(dR, dR) and μ = R²(1 −
+ℬ̃/(3R²) = ℬ/(3R² ũ′²); the same calculation in ṽ gives C̃_ṽ. By [[eq:two-dust-mass]], f = g0⁻¹(dR, dR) and μ = R²(1 −
 f); by [[eq:two-dust-chart]], e^ψ = g0(∂_v̂, ∂_R) in the coordinates (v̂, R, ϑ, φ1, φ2); these depend only on g0, R and
 v̂. Finally e^(−4σ̃) 𝒜̃ℬ̃ = e^(−4σ) (ũ′ṽ′)² 𝒜ℬ/(ũ′ṽ′)².
 

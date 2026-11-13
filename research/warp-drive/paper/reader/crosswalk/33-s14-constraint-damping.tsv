@@ -17,11 +17,11 @@ eq:s14-q5	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (10.47)
 lem:s14-q5	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (10.47): properties of Q_5	new lemma
 lem:s14-small-h	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3) h = 0 limits; NP 10.54 (d)	new lemma; replaces values at h = 10^-6
 eq:s14-ttau	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3), the very negative roots	
-prop:np-10-54	docket68/n1star/N1STAR-PROOF.md:7381	NP 10.54 Proposition 10.44 and (a)	vector type and scalar type 0 by hand; scalar type l >= 1 pending computational-1
+prop:np-10-54	docket68/n1star/N1STAR-PROOF.md:7381	NP 10.54 Proposition 10.44 and (a)	vector type and scalar type 0 by hand; scalar type l >= 1 from prop:s14-scalar-every-h (proof A3); (iii) finiteness in strips by rescaling and Hurwitz
 prop:np-10-13	docket68/n1star/N1STAR-PROOF.md:3529	NP 10.13 Proposition 10.10 (i)-(v)	by hand; the numerical estimate e_0 ~ 0.000069 v^2 is not stated
 eq:s14-ell	docket68/n1star/N1STAR-PROOF.md:3529	NP 10.13 (i); [Hin26a] (3.3)	
 eq:s14-s	docket68/n1star/N1STAR-PROOF.md:3557	NP 10.13 proof: S = (L - L*)/(2ih)	
-prop:np-10-14	docket68/n1star/N1STAR-PROOF.md:3593	NP 10.14 Proposition 10.11 (i)-(iv) and (a)-(c)	(i),(ii),(iv) and (5.8) by hand; (iii) pending computational-3; measurement (v) not stated
+prop:np-10-14	docket68/n1star/N1STAR-PROOF.md:3593	NP 10.14 Proposition 10.11 (i)-(iv) and (a)-(c)	(i),(ii),(iv) and (5.8) by hand; (iii) written proof, trace and determinant numerators in app:tables; (b) smoothing written out; measurement (v) kept as rem:s14-r0
 eq:s14-tang	docket68/n1star/N1STAR-PROOF.md:3586	NP (10.48)	
 eq:s14-cform	docket68/n1star/N1STAR-PROOF.md:3593	NP (10.49)	
 eq:s14-q	docket68/n1star/N1STAR-PROOF.md:3611	NP 10.14 (iv), polynomial q	
@@ -96,7 +96,7 @@ sec:iv6-4	docket68/n1star/proof5/PART-IV7-TFACE.md:385	IV(6) section 4
 thm:iv6-4-1	docket68/n1star/proof5/PART-IV7-TFACE.md:387	IV(6) Theorem 4.1	
 sec:iii-e-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:74	III.E section 2	
 lem:iii-e-2-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:76	III.E Lemma 2.1 with consequences (a), (b)	
-prop:np-10-31	docket68/n1star/N1STAR-PROOF.md:5288	NP 10.31 Proposition 10.28 (i)-(ii)	(iii) superseded by III.E1 exact lemmas; nonvanishing of leading terms pending computational-4
+prop:np-10-31	docket68/n1star/N1STAR-PROOF.md:5288	NP 10.31 Proposition 10.28 (i)-(ii)	(iii) superseded by III.E1 exact lemmas; nonvanishing of the leading terms not claimed (rem:s14-counting)
 sec:iii-e-3	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:125	III.E section 3	
 prop:iii-e-3-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:129	III.E Proposition 3.1 and Remarks	
 eq:iii-e-3-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:132	III.E (3.1)	
@@ -120,4 +120,4 @@ eq:iii-e1-3-5	docket68/n1star/proof5/PART-III-E2-V1STATES.md:128	III.E1 (3.5)
 eq:iii-e1-3-6	docket68/n1star/proof5/PART-III-E2-V1STATES.md:151	III.E1 (3.6)	
 eq:iii-e1-3-7	docket68/n1star/proof5/PART-III-E2-V1STATES.md:165	III.E1 (3.7)	
 sec:s14-simple	docket68/n1star/N1STAR-PROOF.md:7259	NP 10.52 setting	
-prop:np-10-52	docket68/n1star/N1STAR-PROOF.md:7269	NP 10.52 Proposition 10.43 with 10.54 (d) and VI.C row w1	stated off a countable set of h; the value at h = 10^-6 pending computational-2
+prop:np-10-52	docket68/n1star/N1STAR-PROOF.md:7269	NP 10.52 Proposition 10.43 with 10.54 (d) and VI.C row w1	stated off a countable set of h; eq:s14-theta proved; the value of δ_50 in lem:s14-delta50 and ε_ind(10^-6) = δ_50 in cor:s14-eps-ind-point (proof A)
