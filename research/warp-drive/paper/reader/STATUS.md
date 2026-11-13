@@ -55,7 +55,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 84 M Ch 23 | written (1,248 lines; thm:layer, cor:layer; cor:layer-interpolation-band for 85; λ_L ≤ 10^(−430) proved in place of the source's 2.71·10⁻¹²; L.12 for every K ≥ 6; L.14 and Remark E.6 dropped); independent reader running | - | - |
 | 85 M Ch 24 | being written | - | - |
 | 83 M Ch 22 | written (2,612 lines, 145 labels; proof E merged; thm:charge-sign; 5 pending markers: chapter 81 key, issue-1 twice (seed continuity, 4D), two computational; charge sign only on [0.70, 1.861] or R ≥ R_*); independent reader and two proof projects running | - | - |
-| 86, 87, 90 | 86 after proof C confirms, 87 after proof D2-D4 confirms, 90 last | - | - |
+| 86 M Ch 25 | being written (merges confirmed proof C) | - | - |
+| 87, 90 | 87 after proof D2-D4 confirms, 90 last | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | CONFIRMED (5 nits); CD03 block and Sbierski entry to be read after their edits |
 
 ## Proof files (merged into their chapters after an independent reading)
@@ -72,5 +73,5 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | CONFIRMED (third reading 0M 0m 5n; Rácz quotations checked word for word against arXiv v3; 8 pending markers are forward references to chapters 80 and 83) |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | CONFIRMED (second reading 0M 1m 1n; order 9 and the "rest" wording applied by the coordinator in the reviewer's words; rows unaffected) |
 | P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | tables written (rounded to 10⁻¹⁸, rounding lemma proved; D4b dropped); reading NOT CONFIRMED 1M 3m 8n (every bound holds; unprinted intervals and widths; "smallest integer"; enclosure order; R > 0); fix running |
-| P-C-lambda0 (λ0 constants, for 86; T-C and T-C261 dropped) | rewritten to the kept results (C261 chain, e_k and the energy constant dropped; no value changed) | confirming reading NOT CONFIRMED 0M 2m 3n; second fix done (260.0979335; lem:lambda0-point (c) as V − q_end ≤ τ_end ≤ V − q0, monotonicity moved to (e); α*, ψ, ζ); third reading running |
+| P-C-lambda0 (λ0 constants, for 86; T-C and T-C261 dropped) | rewritten to the kept results (C261 chain, e_k and the energy constant dropped; no value changed) | CONFIRMED (third reading 0M 1m 1n, 87 exact checks hold; the minor (an unused clause about the threshold of thm:layer) and the nit (G named as the polarization) applied by the coordinator in the reviewer's words) |
 | P-I-cutoff (ch 63 issue-2: commuted energy near the cut-off band) | being written | repair written (data g_b0 + Σ + Σ′_J beyond the band; G_k polynomial in v after the shell; |Γ^α h_R| ≤ Cr⁻⁴ uniformly in T; cap ≤ C|T|^(2a−6)); independent reader running |

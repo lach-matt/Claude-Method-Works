@@ -1011,3 +1011,8 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S25 fourth fix (F4-S22): chapter 44's motions bound proved in full (eq:s25-motions-small, uniform in b; the source
   has the same unproved sentence; no statement changed); the A_k bound writes δG′ term by term; 44:680-681 rewrapped;
   chapter 41: Step 6's weight renamed w_(α′), final newline, ten "|" lines rewrapped. Fifth reading running.
+- Proof C CONFIRMED (R3-P-C): 87 exact checks hold (16.127552² = 260.0979335…); the (c)/(d)/(e) split and both
+  follow-ups correct. Coordinator applied the reviewer's fixes: rem:envelope-dependence (ii) now says the upper end
+  enters only through env ≤ c_e in lem:lambda0-point (e) (the clause about 1 + c_e²/18 ≤ 1.0974028 for thm:layer's
+  threshold was unused: chapter 84 leaves C_Φ unevaluated); G named as the polarization of sec:waves. Optional at
+  integration: eq:envelope-c's upper end 1.3241035 now has no use. Chapter 86 (λ0) can now be written.

@@ -819,10 +819,15 @@ no derivative of φ along the other family's generator.
 (L3) P(Y_𝔨) = [T1^𝔨], a bounded profile.
 
 (L4) G1^in(ℓ_in, ·) = G2^in(ℓ_in, ·) = 0 and G1^out(ℓ_out, ·) = G2^out(ℓ_out, ·) = 0; ω_in and G2^out(ℓ_in, ℓ_in) are
-bounded profiles in θ2 alone, ω_out and G2^in(ℓ_out, ℓ_out) in θ1 alone; and |ℓ_app^𝔨 − ℓ_𝔨| ≤ C λ. For the
-approximant of [[thm:two-dust-approximant]], ω_in = e^(−4σ) [F2 χ_out] and G2^out(ℓ_in, ℓ_in) = e^(−4σ) [F2² χ_out], at
-the phase θ2 + φ_1^out, and the oscillating part of ℓ_app^in − ℓ_in at order λ is λ e^(−2σ) [χ_out] ℓ_out; the mirror
-statements hold with in and out exchanged.
+bounded profiles in θ2 alone, ω_out and G2^in(ℓ_out, ℓ_out) in θ1 alone; |ℓ_app^𝔨 − ℓ_𝔨| ≤ C λ, so that
+g_app⁻¹(dϕ_𝔨, dϕ_𝔨) = O(λ). For the approximant of [[thm:two-dust-approximant]], ω_in = e^(−4σ) [F2 χ_out] and
+G2^out(ℓ_in, ℓ_in) = e^(−4σ) [F2² χ_out], at the phase θ2 + φ_1^out; the oscillating part of ℓ_app^in − ℓ_in at order
+λ is λ e^(−2σ) [χ_out] ℓ_out; and
+
+    g_app⁻¹(dv, dv) = −λ (m1(ℓ_in, ℓ_in) + e^(−4σ) [χ_out]) + O(λ²),
+
+with [χ_out] at the same phase: the other family's quadrature term is not annihilated by ℓ_in. The mirror statements
+hold with in and out exchanged.
 
 (L5) With q := g0^(ττ)/g^(ττ) and c^(ab) := g0^(ab) − q g^(ab), c^(ττ) = 0 and
 
@@ -832,8 +837,12 @@ so |c| ≤ C |g⁻¹ − g0⁻¹| ≤ C (λ + |w|); g0^(ττ) ≤ −1 on Ω₂,
 □̃ s_𝔨(h) = (□̃h)(ℓ_𝔨, ℓ_𝔨) + 2 g0^(ab) ∂_a(ℓ_𝔨 ⊗ ℓ_𝔨)·∂_b h + h·□̃(ℓ_𝔨 ⊗ ℓ_𝔨).
 
 (L6) If ℓ_𝔨·dφ_𝔨 = ½ 𝒫 s_𝔨(h), then Ψ_𝔨 satisfies L_𝔨 Ψ_𝔨 + a_𝔨 Ψ_𝔨 = ½ □̃ 𝒫 s_𝔨(h) − ½ M_𝔨(𝒫 s_𝔨(h)) − N_𝔨 φ_𝔨
-([[eq:two-dust-psi]]); every second derivative of φ_𝔨 is a bounded combination of L_𝔨 𝒫 s_𝔨(h), ∂_x 𝒫 s_𝔨(h), dφ_𝔨 and
-∂_x² φ_𝔨, and L_𝔨(∂_x² φ_𝔨) = ½ ∂_x² 𝒫 s_𝔨(h) + (bounded) ∂_x² φ_𝔨 + (bounded) ∂_x φ_𝔨.
+([[eq:two-dust-psi]]); every second derivative of φ_𝔨 is a bounded combination of L_𝔨 𝒫 s_𝔨(h), ∂_x 𝒫 s_𝔨(h),
+𝒫 s_𝔨(h), dφ_𝔨 and ∂_x² φ_𝔨; and, with Z = L0 for 𝔨 = in and Z = Z_out for 𝔨 = out,
+
+    Z(∂_x² φ_𝔨) = ½ ∂_x² (𝒫 s_𝔨(h)/ℓ_𝔨(τ)) + (bounded) ∂_x² φ_𝔨 + (bounded) ∂_x φ_𝔨,
+
+the bounded coefficients smooth and independent of λ.
 
 (L7) ℓ_in = −e^(−ψ) L0 and ℓ_out = ℓ_out(τ) Z_out ([[eq:two-dust-generators]], [[eq:two-dust-speed]]), |ℓ_out(τ)| ≥
 c > 0 on Ω₂, and the transport estimates [[lem:transport]] and [[lem:two-dust-transport]] hold for both, the boundary
@@ -854,9 +863,11 @@ O(|w|), and Y_𝔨 = G1^𝔨 + λ [F_𝔨 g2]. The first-order terms of P_g give
 terms with a factor w form 𝒬_φ^𝔨, and the bounds follow, each derivative of Y_𝔨 costing λ⁻¹. Finally φ P_g(Y_𝔨) =
 φ P(Y_𝔨) + O(|w| λ⁻² |φ|), and P(Y_𝔨) = [T1^𝔨] by (L3).
 
-(L3) Let G be the profile of g_app. Differentiating [[eq:two-dust-shift]] in c_𝔨 at c = 0, the linearisation of R at G
-in the direction F_𝔨 G equals F_𝔨 R[G]. On a profile Z, P([Z]) = [λ⁻² P_(−2) Z + λ⁻¹ T Z + P_0 Z], where P_(−2) Z =
-−g0⁻¹(dv, du) F1F2 Z = e^(−2σ) F1F2 Z, the terms −½ λ⁻² g_app⁻¹(dϕ_𝔨, dϕ_𝔨) F_𝔨² Z being of order λ⁻¹ and kept in T.
+(L3) Let G be the profile of g_app. Differentiating [[eq:two-dust-shift]] in c1 (for 𝔨 = in) or in c2 (for 𝔨 = out)
+at c1 = c2 = 0, the linearisation of R at G in the direction F_𝔨 G equals F_𝔨 R[G]. On a profile Z, P([Z]) = [λ⁻² P_(−2)
+Z + λ⁻¹ T Z + P_0 Z], where P_(−2) Z = −g0⁻¹(dv, du) F1F2 Z = e^(−2σ) F1F2 Z; the terms −½ λ⁻² g_app⁻¹(dϕ_𝔨, dϕ_𝔨)
+F_𝔨² Z and −λ⁻² (g_app⁻¹(dv, du) − g0⁻¹(dv, du)) F1F2 Z are of order λ⁻¹, by (L4) and g_app − g0 = O(λ), and are kept
+in T.
 Since F_𝔨 G = λ F_𝔨 g1 + λ² F_𝔨 g2 + O(λ³) and P_(−2) F_𝔨 g1 = 0 by (E1₂), the left side is T F_𝔨 g1 + P_(−2) F_𝔨 g2 +
 O(λ). The right side is F_𝔨(λ⁻¹ R^(−1) + R^(0)) + O(λ) = O(λ), since R^(−1) = −½ Σ_(𝔧,𝔨) g0⁻¹(dϕ_𝔧, dϕ_𝔨) F_𝔧 F_𝔨 g1 =
 0 and R^(0) = 0 by (E2₂). So T F_𝔨 g1 + P_(−2) F_𝔨 g2 = O(λ), and P(Y_𝔨) = [λ⁻¹ (T F_𝔨 g1 + P_(−2) F_𝔨 g2) + P_0 F_𝔨 g1 +
@@ -866,7 +877,10 @@ on the mixed harmonics of g2, would remain.
 (L4) By (E1₂), G1^in = [F1 g1^in] and G2^in = [F1² g1^in] with g1^in(ℓ_in, ·) = 0, and they depend on θ1 alone; likewise
 for out. For the approximant of [[thm:two-dust-approximant]], g1^out = W_out(X, θ2 + φ_1^out); W_TT^out has only
 angular components, and (du ⊗ du)(ℓ_in, ℓ_in) = g0⁻¹(du, dv)² = e^(−4σ). Next, ℓ_app^in − ℓ_in = (g_app⁻¹ − g0⁻¹) dv =
-−λ g0⁻¹(g1(ℓ_in, ·)) + O(λ²), and g1(ℓ_in, ·) = m1(ℓ_in, ·) + [χ_out] du(ℓ_in) du = m1(ℓ_in, ·) − e^(−2σ) [χ_out] du.
+−λ g0⁻¹(g1(ℓ_in, ·)) + O(λ²), and g1(ℓ_in, ·) = m1(ℓ_in, ·) + [χ_out] du(ℓ_in) du = m1(ℓ_in, ·) − e^(−2σ) [χ_out] du;
+in particular |ℓ_app^𝔨 − ℓ_𝔨| ≤ C λ, which holds for every two-phase approximant, g_app − g0 being O(λ). Contracting
+with dv, as dv(ℓ_in) = 0 and du(ℓ_in) = −e^(−2σ), g_app⁻¹(dv, dv) = dv(ℓ_app^in) = −λ g1(ℓ_in, ℓ_in) + O(λ²) =
+−λ (m1(ℓ_in, ℓ_in) + e^(−4σ) [χ_out]) + O(λ²).
 
 (L5) c^(ττ) = g0^(ττ) − (g0^(ττ)/g^(ττ)) g^(ττ) = 0, and the formula for c^(ab) is algebra. g0^(ττ) ≤ −1 − μ/R² by
 [[lem:two-dust-domain]] (a). The last identity is the product rule.
@@ -981,10 +995,12 @@ once each.
 
 **Step 5** (φ_in, φ_out). Each φ_𝔨 obeys its own transport [[eq:two-dust-phases]] with right side ½ 𝒫 s_𝔨(h): L0 φ_in =
 −½ e^ψ 𝒫 s_in(h), the transport [[eq:ue-transport]] with the smooth bounded factor e^ψ, and Z_out φ_out =
-½ 𝒫 s_out(h)/ℓ_out(τ). Apply ∂^α, |α| = j ≤ k: [Z_𝔨, ∂^α] has smooth λ-independent coefficients and involves derivatives
-of φ_𝔨 of order at most j, and λ^j ‖∂^α ∂ 𝒫 s_𝔨‖ ≤ C λ^j ‖∂^(j+1) s_𝔨(h)‖ ≤ C 𝒩₂ by (M1), (M4), (M6), s_𝔨(h) =
-h(ℓ_𝔨, ℓ_𝔨) with ℓ_𝔨 smooth. For λ ∂_x² φ_𝔨 use the transport of (L6), with right side ½ ∂_x² 𝒫 s_𝔨, and the Bernstein
-bound (M2) on one spatial derivative: λ^(j+1) ‖∂^j ∂_x² 𝒫 s_𝔨‖ ≤ C λ^j ‖∂^j ∂_x s_𝔨‖ ≤ C 𝒩₂. [[lem:transport]] for φ_in
+½ 𝒫 s_out(h)/ℓ_out(τ). Apply ∂^α, |α| = j ≤ k: [L0, ∂^α] and [Z_out, ∂^α] have smooth λ-independent coefficients and
+involve derivatives of φ_𝔨 of order at most j, and λ^j ‖∂^α ∂ 𝒫 s_𝔨‖ ≤ C λ^j ‖∂^(j+1) s_𝔨(h)‖ ≤ C 𝒩₂ by (M1), (M4),
+(M6), s_𝔨(h) = h(ℓ_𝔨, ℓ_𝔨) with ℓ_𝔨 smooth. For λ ∂_x² φ_𝔨 use the transport of (L6), whose right side is
+½ ∂_x² (𝒫 s_𝔨/ℓ_𝔨(τ)). Its top term ½ (∂_x² 𝒫 s_𝔨)/ℓ_𝔨(τ) takes the Bernstein bound (M2) on one spatial derivative:
+λ^(j+1) ‖∂^j ∂_x² 𝒫 s_𝔨‖ ≤ C λ^j ‖∂^j ∂_x s_𝔨‖ ≤ C 𝒩₂; its other terms carry at most one derivative of 𝒫 s_𝔨, with
+smooth λ-independent coefficients, and are at most C 𝒩₂ by (M1), (M4), (M6). [[lem:transport]] for φ_in
 and [[lem:two-dust-transport]] for φ_out bound the φ-part of 𝒩₂(τ) by C (𝒩₂(τ0) + ∫_(τ0)^τ 𝒩₂). Without (M2) the
 transport of ∂_x² φ_𝔨 would need k + 2 derivatives of s_𝔨.
 
@@ -1023,8 +1039,10 @@ place of Ω. Its part (i) uses of the background only that the extended approxim
 with lapse, shift and spatial metric bounded above and below, on a neighbourhood of the domain; here the profiles of
 g_app, g0 among them, are extended from Ω₂ by Stein's operator ([[thm:std-sy-extension]]), and by continuity and the
 compactness of Ω₂ ([[lem:two-dust-domain]] (a), (e)) this holds on a neighbourhood U of Ω₂ for λ small, with bounds
-independent of λ; outside U the lapse, shift and spatial metric are interpolated convexly to (1, 0, δ) as there. Parts
-(ii)–(iv) are unchanged, the slices being the annuli A(τ) of Ω. Uniqueness among C² solutions with |g − g0| ≤ ε1 is
+independent of λ. With a smooth cut-off equal to 1 on a smaller neighbourhood U′ of Ω₂ and supported in U, the lapse,
+shift and spatial metric are interpolated convexly, inside U, between those of the extended approximant and (1, 0, δ),
+as there, and equal (1, 0, δ) outside U; on U′ nothing changes. Parts (ii)–(iv) are unchanged, the slices being the
+annuli A(τ) of Ω₂. Uniqueness among C² solutions with |g − g0| ≤ ε1 is
 the energy argument there, and with Step 7 the bootstrap continues, so the solution exists on all of Ω₂ with
 [[eq:two-dust-remainder]]. The bounds after [[eq:two-dust-remainder]] follow from Step 1 as there: |w| ≤ C λ⁻³ 𝒩₂,
 |∂w| ≤ C λ⁻⁴ 𝒩₂, and |g − g0| ≤ |λ [g1] + Σ_(j≥2) λ^j [g_j]| + |w| ≤ C λ, |∂g| ≤ C, since ∂[λ g1] = dv ⊗ [F1 g1] + du ⊗

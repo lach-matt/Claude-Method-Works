@@ -130,9 +130,9 @@ This uses c_e ≥ 1.3240711 and nothing else about c_e; with any proven lower bo
 is (4/3) c₋ a^(−3/2). Combined with ε1 < s0 < 0.030768560 ([[sec:epsilon-one]]), the quotient of the two is
 0.030768560/12.593309 < 0.0024433, which is the operator-norm bound of [[prop:lambda0]]; that bound therefore holds
 exactly as far as the lower end of c_e does. The Frobenius and largest-entry bounds 0.0019079 and 0.0012228 use the
-lower end in the same way, and no other property of c_e ([[rem:lambda0-norms-c]]). (ii) The upper end enters through
-env ≤ c_e: in [[lem:lambda0-point]] (e), where any c_e < 3 suffices and which no bound of [[sec:lambda0-norms]] uses,
-and in the bound 1 + c_e²/18 ≤ 1.0974028 used for the threshold of [[thm:layer]], which needs c_e ≤ 1.3241035.
+lower end in the same way, and no other property of c_e ([[rem:lambda0-norms-c]]). (ii) The upper end enters only
+through env ≤ c_e, in [[lem:lambda0-point]] (e), where any c_e < 3 suffices and which no bound of [[sec:lambda0-norms]]
+uses.
 
 ### The admissible range of ε1 {#sec:epsilon-one}
 
@@ -192,11 +192,12 @@ In particular, whatever the stage data, C_app > 12.593309 in (i) and (iii) and C
 put λ_n := v(X)/(θ + 2πn). Then λ_n → 0 and v(X)/λ_n = θ + 2πn, so at X, (g_app − g0)/λ_n = g1(X, θ) +
 Σ_(j≥2) λ_n^(j−1) g_j(X, θ). The profiles g_j are bounded, so letting n → ∞ gives |g1(X, θ)| ≤ C_app. At X*, v = 2.
 
-*g1 at X*.* By [[thm:approximant]], g1(X*, θ) = m1(X*) + W_TT(X*, ψ) + χ(X*, ψ) D with ψ := θ + φ1(X*), where
-φ1(X) is the phase shift in g1 = m1 + W(X, θ + φ1(X)) there, and D := dv ⊗ dv; as θ runs over S¹, so does ψ. At X*,
-A = 1, env(2) = c_e β(0) = c_e, ζ = cos 2ϑ = 1 and h = 1, and x1 = a, x2 = x3 = x4 = 0, cos²ϑ = 1, sin²ϑ = 0. The
-Cartesian formula of [[lem:waves]] (a), at the phase ψ, gives λ W_TT = 2 a^(−3/2) (G dx2² − (G/3)(dx2² + dx3² + dx4²))
-with G/λ = A env h cos ψ = c_e cos ψ, so in the components (τ, x1, x2, x3, x4)
+*g1 at X*.* By [[thm:approximant]], g1(X*, θ) = m1(X*) + W_TT(X*, ψ) + χ(X*, ψ) D with ψ := θ + φ1(X*), where φ1(X) is
+the phase shift in g1 = m1 + W(X, θ + φ1(X)) there, and D := dv ⊗ dv; as θ runs over S¹, so does ψ. At X*, A = 1,
+env(2) = c_e β(0) = c_e, ζ = cos 2ϑ = 1 and h = 1, and x1 = a, x2 = x3 = x4 = 0, cos²ϑ = 1, sin²ϑ = 0. The Cartesian
+formula of [[lem:waves]] (a), at the phase ψ, gives λ W_TT = 2 a^(−3/2) (G dx2² − (G/3)(dx2² + dx3² + dx4²)), where G is
+the polarization of [[sec:waves]] at the phase ψ, so G/λ = A env h cos ψ = c_e cos ψ. Hence in the components (τ, x1, x2,
+x3, x4)
 
     W_TT(X*, ψ) = α* cos ψ Λ,      Λ := diag(0, 0, 4/3, −2/3, −2/3).
 
