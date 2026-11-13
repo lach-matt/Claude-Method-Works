@@ -1205,3 +1205,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   with "|" (e.g. 253, 299, 1872).
 - R4-S27 NOT CONFIRMED 0M 3m 3n (reviews/R4-S27.md), all with exact fixes; F4-S27 applies them and the chapter 48 and
   65 texts (65:841 corrected to c_1 ≤ c_♮ small). Then a short diff reading.
+- R-87 NOT CONFIRMED 1M 4m 9n (reviews/R-87.md), exact texts given; marker judgements sent to P-K87. F-87 follows
+  P-K87. FOR THE FINAL REPORT: the source's 2.41·10⁻³ is false (f_ll = −2.41418·10⁻³ at the worst point); the edition
+  prints 2.42·10⁻³.
