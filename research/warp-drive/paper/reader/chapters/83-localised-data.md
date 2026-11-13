@@ -215,10 +215,15 @@ is small. For a small η > 0, let S_in be the set of points of Σ′ with v̂(v 
 with u1 − η ≤ u ≤ u2 + η, and take S_in ∪ 𝒫, S_out ∪ 𝒫 for the background's families and 𝒫 for the further ones. On
 Σ′, v̂ − R ∈ [τ0 − 0.0012, τ0], so S_in lies in 3.7 < R < 5.5 ([[sec:table-shell]]: v̂(v = 3) + 0.68 = 3.8253… and
 v̂(v = 4.5) + 0.68 = 5.3724…), and S_out, which is the part of Σ_τ0 with R_u2 ≤ R ≤ R_* when η = 0 ([[prop:bg-seed]] (a),
-[[lem:bg-rstar]]), lies in 1.8 < R < 3.5 for η small. Along Ω_L the integral curves of the background's dust fields
-move by at most Cδ1 in R and in angle, so for δ1 small the tubes of S_in and S_out stay in 1.7 < R < 5.6, away from the
-lateral boundaries, and those of 𝒫 stay away from the axes. Hence no tube meets a neighbourhood of a point where a
-lateral boundary meets an axis, and (H2′) puts no condition.
+[[lem:bg-rstar]]), lies in 1.8 < R < 3.5 for η small. In the chart, g0 = −q²f(dτ + dR)² + 2q(dτ + dR) dR + R²dΩ₃²,
+and qf < 1 on Ω_L for δ1 small (on Σ_τ0 by [[sec:loc-setting]], on the lens as f < 1 in region I); so a future causal
+vector has Ṙ/τ̇ between the roots −1 and qf/(2 − qf) < 1 of (2 − qf)x² + 2(1 − qf)x − qf, that is |Ṙ| ≤ τ̇, and
+R²|Ω̇|² ≤ Cτ̇². Along a dust curve in Ω_L, R therefore changes by at most the τ-thickness of Ω_L, which is δ1 where φ = 0
+and at most 0.0012 + δ1 ≤ 0.0122 elsewhere. Hence the tubes of S_in and S_out stay in 1.7 < R < 5.6, away from the
+lateral boundaries. The background's families are radial, so their tubes over 𝒫 keep its angles, in [ϑ1, π/2 − ϑ1].
+A tube of a further family near a lateral boundary runs where φ = 0, so its angular displacement there is at most Cδ1,
+and for δ1 small it stays away from the axes. So no tube meets a neighbourhood of a point where a lateral boundary
+meets an axis, and (H2′) puts no condition.
 
 *The development.* Complete the constraint data of (b) on Σ′, with their dust phases and densities, to a datum of
 [[thm:class-stability]]: the metric on Σ′ with the background's lapse and shift, and the gauge condition D(g) = 0

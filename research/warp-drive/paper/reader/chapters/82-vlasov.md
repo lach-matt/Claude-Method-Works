@@ -606,13 +606,13 @@ a = 2 L(R)/R, the coefficient of [[lem:two-dust-commutator]].
 invariant functions the Christoffel symbols of [[lem:warped-ricci]] give Hess_(g5) f(∂_a, ∂_b) = Hess_(g3) f(∂_a, ∂_b),
 Hess_(g5) f(∂_a, ∂_(φi)) = 0 and Hess_(g5) f(∂_(φi), ∂_(φi)) = e^(2ψi) ⟨dψ_i, df⟩, of first order in f. So
 ⟨Hess_(g5) u, Hess_(g5) φ⟩ = ⟨Hess_(g3) u, Hess_(g3) φ⟩ + Σ_i ⟨dψ_i, du⟩ ⟨dψ_i, dφ⟩. Apply [[eq:vlasov-shear-form]] with
-S := Hess_(g3) φ: S(ℓ, X) = X(Lφ) − Hess_(g3) u(X, ∇φ), so ⟨Hess_(g3) u, Hess_(g3) φ⟩ = (□3 u) □3 φ + M′(Lφ) + (first
-order in φ), with M′ := H(ℓ̄, ℓ̄) ℓ − 2 H(ℓ̄, e) e + 2 H(e, e) ℓ̄ for any smooth null frame. Finally □3 φ = □5 φ −
-⟨dψ, dφ⟩ by [[eq:vlasov-box]]. This gives [[eq:vlasov-commutator]] with M := 2M′. For □̃, □̃φ = □5 φ + H0·∂φ with
+S := Hess_(g3) φ: S(ℓ, X) = X(Lφ) − Hess_(g3) u(X, ∇φ), so ⟨Hess_(g3) u, Hess_(g3) φ⟩ = (□3 u) □3 φ + 𝔐′(Lφ) + (first
+order in φ), with 𝔐′ := H(ℓ̄, ℓ̄) ℓ − 2 H(ℓ̄, e) e + 2 H(e, e) ℓ̄ for any smooth null frame. Finally □3 φ = □5 φ −
+⟨dψ, dφ⟩ by [[eq:vlasov-box]]. This gives [[eq:vlasov-commutator]] with 𝔐 := 2𝔐′. For □̃, □̃φ = □5 φ + H0·∂φ with
 H0^ρ := g5^(ab) Γ^ρ_ab smooth, and [L, H0·∂] is of first order. On a round background g3 = −2 e^(2σ) du dv + R² dϑ² in
 double-null coordinates, √|g3| = e^(2σ) R and g3^(uv) = −e^(−2σ), so □3 v = −e^(−2σ) R_u/R = L(R)/R. ∎
 
-So if ℓ_A·dφ = f along the generator of family A, then Ψ := □̃φ satisfies L_A Ψ + a_A Ψ = □̃f − M_A(f) − N_A φ, the
+So if ℓ_A·dφ = f along the generator of family A, then Ψ := □̃φ satisfies L_A Ψ + a_A Ψ = □̃f − 𝔐_A(f) − 𝔑_A φ, the
 form [[eq:ue-psi]] that the uniform estimate uses, with a_A = 2 □3 u_A.
 
 ### The n-dust approximants are uniform in n {#sec:vlasov-uniform}

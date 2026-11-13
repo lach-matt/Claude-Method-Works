@@ -173,7 +173,7 @@ the incoming radial sets, the inner product of [[lem:uc-theta-in]] with δ = 1/8
 ℓ = 1, for every k ∈ ℕ₀ and every ϵ ∈ (0, ¼(3/2 − β_sctf)). So with these choices the loss of [[cor:iii-f1-3-4]] is 1,
 which is the value of ℓ_tf in [[lem:ec-closed-forms]] (d), and its least possible value there. Every application of
 [[cor:iii-f1-3-4]] in the construction of [[thm:iii-i14-3-1]] and of [[thm:iii-j1-2-1]] has β_sctf = 3/2 − ε with
-0 < ε ≤ ε_1 < ½; so ℓ_tf = 1 at all of them, and in [[prop:ec-upper]] and [[lem:ec-round-charges]] ℓ_tf = 1.
+0 < ε < ¼; so ℓ_tf = 1 at all of them, and in [[prop:ec-upper]] and [[lem:ec-round-charges]] ℓ_tf = 1.
 
 *Proof.* *The regularity.* [[prop:iii-f1-3-3]] gives the tf-admissibility of L_b^(·) with every weight in (0, 1], in
 particular with β := −β_ztf. By [[def:i-c-5-1]], tf-admissibility does not depend on the choices of s, α_+ and the
@@ -227,9 +227,11 @@ adds decay; so ‖h_(b,rem)(q)‖_(𝒳^k) ≤ C_k‖q‖_(𝒬^(k+3)). Hence �
 
 *The coefficients.* By [[lem:iii-j2-2-1]] (b), A is a b-differential operator of order at most 2 whose coefficients, in
 the frame and in local b-coordinates on a finite atlas, are polynomials in the metric, its inverse and their
-derivatives of order at most 2, the background g_0 being smooth in p⃗. So A = A′ + Σ_(|γ|≤2) Φ_γ(x, p⃗, w) D^γ_b, where
-w := (h̃, D_b h̃, D²_b h̃), Φ_γ is smooth with Φ_γ(x, p⃗, 0) = 0, and A′ has coefficients smooth in x and p⃗ alone, so that
-‖A′u‖_k ≤ C_k‖u‖_(k+2).
+derivatives, the background g_0 being smooth in p⃗; the derivatives of the metric are of order at most 2, A being a
+difference of linearisations of the second-order operator P of [[eq:iii-b-6-4]], or such a difference applied to a
+fixed section. Let A′ be A with h̃ replaced by 0; its coefficients are smooth in x and p⃗ alone, so
+‖A′u‖_k ≤ C_k‖u‖_(k+2). Then A = A′ + Σ_(|γ|≤2) Φ_γ(x, p⃗, w) D^γ_b, where w := (h̃, D_b h̃, D²_b h̃) and Φ_γ is
+smooth with Φ_γ(x, p⃗, 0) = 0.
 
 *The estimates.* We use [[lem:ii-g-4-1]] on the five-dimensional manifold with corners, with d = 3 > 5/2, after a
 finite partition of unity (on which the norms are equivalent) and after factoring the weights, whose powers of the

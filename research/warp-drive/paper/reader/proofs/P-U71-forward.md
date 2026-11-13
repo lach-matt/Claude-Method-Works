@@ -623,20 +623,24 @@ Step 2 at (2, 𝗌, 11), τ = 22, σ_* = 32; Step 4, m = 12, at (2, 𝗌, 12), �
 orders in [−34 − 13 − 4, 34 + 4] = [−51, 38], and N ≤ 12 + 13 + 34 + 4 = 63; (D4) gives N ≤ 12 + 13 + 3 = 28 and
 Sobolev orders down to −9 − 12 − 13 − 4 = −38. (Γ) at (11, 8): symbol orders in [9, 29], Sobolev orders in [−16, 17],
 N ≤ 27. The (D2)-instances: (D8) at (13, 8), (−9, −13), (6, 6), (−15, −15) and (𝗋, 𝗋) for 𝗋 ∈ {𝗌 − 2, 𝗌 − 1, 𝗌 + 1,
-𝗌 + 3} (N ≤ 21, s_0⁻ ≥ −15); (D10), (D11) at (𝗍, 2, 13): (D8) at (𝗌 − 1, −15), (𝗌, −15), (𝗌 + 1, −15) with N ≤ 26;
+𝗌 + 3} (N ≤ 21, s_0⁻ ≥ −15); (D10), (D11) at (𝗍, 2, 13): (D8) at (𝗌 − 2, −15), (𝗌 − 1, −15), (𝗌, −15) with N ≤ 26;
 (I): (D2) at (11, 6) and (−11, −15), N ≤ 5; (D3) at (𝗍, 2, 13), 𝗍 ∈ {𝗌, 𝗌 + 1}: N ≤ 25. All lie in the box, and the
 expressions have at most five quantizations. ∎
 
 **Lemma {#lem:fwd-increments}** (The increments.) Every coefficient index entering D_0 is at most 𝔐(100) + 4.
 
-*Proof.* Every such index is, by its proof, a maximum of indices of [[prop:ii-a1-2-4]] (as M + 2),
-[[lem:ii-a-8-5]] and [[lem:ii-a-8-6]] at orders in the box of [[lem:fwd-box]], raised by at most 4: by 2 in
-[[thm:ii-a1-5-4]] (the flow box has d_0 − 1 derivatives and the commutant symbols d_0 − 2, so d_0 − 2 ≥ M′ + 2), by 4
-at the trapped set of [[ch:s06]] (symbols in C^(d_0−4) S̃^0), by 2 in [[lem:ii-d1-2-4]] and [[prop:ii-e-4-4]]
-(d_0 ≥ d_1 + 2, d_1 the index of [[prop:ii-a-9-6]], which is that of [[lem:ii-a-8-5]] (a) and (b)), and by 0 in
-[[thm:ii-a1-3-1]], [[prop:ii-a-9-1]], [[prop:ii-a-9-2]] and [[lem:ii-a-8-6]], which take maxima. The energy estimates of
-[[ch:s07]] need d_0 = 2 ([[lem:ii-e-2-5]], [[prop:ii-e-2-7]]). [[lem:ii-d-4-1]] asks d_0 ≥ 5. All are at most
-𝔐(100) + 4 by [[prop:fwd-calculus]] with T = 100. ∎
+*Proof.* By [[lem:fwd-box]] and [[lem:fwd-derived]], every index entering D_0 is a maximum over sites, and each site's
+index is the maximum of the indices of the sites it invokes plus its increment, ending at the items of
+[[prop:fwd-calculus]] (index M + 2 = 𝔐(100) for [[prop:ii-a1-2-4]], d_0 = 𝔐(100) for [[lem:ii-a-8-5]]) at orders that
+satisfy (B1)–(B5). The increments along any chain of sites, site by site: (D1)–(D4), (D6), (D8)–(D11) add 0 (they take
+maxima); (D5) adds 2 ([[thm:ii-a1-5-4]], *The index*: the flow box of [[lem:ii-a1-5-2]] has d_0 − 1 derivatives, the
+commutant symbols d_0 − 2, so d_0 − 2 ≥ M′ + 2, that is d_0 ≥ 𝔐(100) + 2); (D7) adds 0 to (D5); (R) adds 1; (Γ) adds 4;
+(Sl), through [[prop:ii-e-3-2]], adds 2; (Tm), (St) and [[prop:ii-e-5-6]] (b) add 2 (d_0 ≥ d_1 + 2, d_1 = 𝔐(100) being
+the index of (D8)); (G), (I), (B), (Sv), (W), (Sb), (K), (E), (T), (U), (F) add 0. No chain passes through two sites with
+a positive increment in such a way that they add: (D5), (R), (Γ) and (Sl) raise the regularity required of the symbols
+they quantize, and (Tm), (St) the regularity of the coefficients of P − P_0 above that of (D8); each is the maximum taken
+by the site above it. So every index is at most 𝔐(100) + 4, attained only at (Γ). The energy estimates need d_0 = 2
+([[lem:ii-e-2-5]], [[prop:ii-e-2-7]]) and [[lem:ii-d-4-1]] asks d_0 ≥ 5. ∎
 
 *Proof of [[thm:fwd-loss]].* By [[lem:fwd-increments]], D_0 = max(d^E_0, d^S_0, d^T_0, d^U_0) ≤ 𝔐(100) + 4 =
 20,104. By [[lem:fwd-orders]] and [[lem:fwd-tame]], d′ = 10, d″ = 11 and D_1 = 49. So by [[eq:fwd-split]]
