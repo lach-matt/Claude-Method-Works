@@ -3,8 +3,9 @@
 [[ch:rw-gauge]] determined the gauge vector that carries the linear solution of [[cor:viii-2-3]] to a
 Regge–Wheeler-type gauge. This chapter and the next do the same for the harmonic gauge Θ(ġ) = 0, in which the
 linearised vacuum equation is the Lichnerowicz wave equation; in four dimensions the passage is Hung's [Hun19]. In
-the class the harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is a source with
-no spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The structure of the
+the class the harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is a forcing
+term with no spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The
+structure of the
 passage is explicit ([[prop:np-10-2]]): the tensor part is in harmonic gauge already, each scalar mode of the gauge
 vector solves three coupled 1 + 1 wave equations with the master field as source, and the spherically symmetric sector
 has two solutions that do not decay, the stationary 1-form W* and a gauge-fixed mass change K* that grows linearly in
@@ -17,7 +18,7 @@ spanned by W* and the annihilator of its range by the horizon functional ℓ ([[
 spectral family by one cut-off state, whose pairing with ℓ is 4π² ([[prop:gd-r2-3]]), the analysis of [[ch:s18]]
 carries over with one state in place of eleven: □ is 1-admissible with sf-loss 0 ([[thm:gd-r2-5]]), and the forward
 solution of □u = f is c_fW* + O(t_*^(−1/2)) on compact sets, where 4π²c_f is the horizon charge that f has injected
-([[thm:gd-r2-7]]). The source of the gauge vector of [[thm:viii-2-2]]'s solution is algebraic in h near K⁺
+([[thm:gd-r2-7]]). The forcing term of the gauge vector of [[thm:viii-2-2]]'s solution is algebraic in h near K⁺
 ([[lem:gd-r2-10]]), with the ι⁺-decay that the constraint damping gives ([[prop:gd-r3-2]]), and near ℐ⁺ it does not
 see the radiation field ([[lem:gd-r3-5]]). With an estimate for □ near spatial and null infinity ([[prop:gd-r4-2]],
 [[thm:gd-r4-3]]), every perturbation in the class has a representative that is in harmonic gauge on all of N⁺,
@@ -55,7 +56,7 @@ is its average over SO(4); d, δ, □ and Θ commute with this average, the rota
 
 *The 1-form W* and the horizon functional.* Let
 
-    W* := r⁻²dv − dr/(r(r + r_h)) = r⁻²dt + r_hr⁻³f⁻¹dr                                                  
+    W* := r⁻²dv − dr/(r(r + r_h)) = r⁻²dt + r_hr⁻³f⁻¹dr
 
 ([[eq:iii-d1-2-1]]): smooth on {r > 0} in the ingoing chart, W* ∈ 𝒜², δW* = 0, dW* = 2r⁻³dv ∧ dr and □W* = 0
 ([[sec:iii-d1-2]]). For a 1-form J defined near the horizon sphere put
@@ -125,7 +126,7 @@ S_l := P_(l/2)(cos 2ϑ), with X_a^(l) and η_l functions on the orbit space. For
 X_aS_l dy^a + η dS_l to class 1-forms of the same kind, and □X = J is, for (X_v, X_r, η), a system of three equations
 on the orbit space with coefficients depending on r, m₀ and l only, each with principal part −g^(ab)∂_a∂_b (in the
 static chart f⁻¹∂_t² − f∂_r²), coupled at first order. For the scalar mode h_S = F_abS_l dy^ady^b + 2r²FS_lγ of
-[[prop:np-10-1]] (ii), the source −Θ(h_S) is of the same kind and linear in F, F_ab and their first derivatives; by
+[[prop:np-10-1]] (ii), the forcing term −Θ(h_S) is of the same kind and linear in F, F_ab and their first derivatives; by
 [[eq:np-10-1]] it is linear in the master field Φ of the mode and its derivatives of order at most three.
 
 (iv) (*The spherically symmetric sector.*) By [[lem:gd-r2-9]], W* spans the stationary spherically symmetric solutions
@@ -133,7 +134,8 @@ of □W = 0 on {r > r_h} that extend smoothly across the future horizon and deca
 
     W** := (v/2)W* + A dv + B dr,        W**_H := W** − V^♭,
     A := (r_h² + 2r² log((r + r_h)/r))/(4r_hr²),
-    B := (r²r_h − 3rr_h² + 2r_h³ + 2r³ log r + 2(r_h³ − r³) log(r + r_h) − 2r_h³ log r_h)/(4rr_h(r² − r_h²)),  {#eq:np-10-2}
+    B := N(r)/(4rr_h(r² − r_h²)),
+    N(r) := r²r_h − 3rr_h² + 2r_h³ + 2r³ log r + 2(r_h³ − r³) log(r + r_h) − 2r_h³ log r_h,                {#eq:np-10-2}
 
 with V of [[eq:gd-0-1]]. Then:
 
@@ -165,7 +167,7 @@ these contains a vanishing orbit or mixed component of k, so ∇^μk_μj = r⁻�
 
 (iii) The expansion is [[lem:gd-1-2]] (a) and (c): on each sphere the dz^i-part of a class 1-form is exact, X_ϑdϑ =
 dη, and class functions expand in the S_l. Let L_1, …, L_6 be the Lie derivatives along the rotation fields Ω_i of
-[[lem:rwg-a]], extended to spacetime as rotations of x, and C := Σ_i L_i². They are isometries' generators, so C
+[[lem:rwg-a]], extended to spacetime as rotations of x, and C := Σ_i L_i². They generate isometries of g, so C
 commutes with □ and with Θ. As the Ω_i are tangent to the spheres and the y^a are invariant, L_i(S dy^a) =
 (Ω_iS)dy^a and L_i(η dS) = η d(Ω_iS); by [[lem:rwg-a]], Σ_iΩ_i² = Δ̂, so C(S_l dy^a) = −k_l²S_l dy^a and
 C(η dS_l) = −k_l²η dS_l, k_l² = l(l + 2). These eigenvalues are distinct for distinct l. □ preserves the class (G acts by
@@ -242,7 +244,8 @@ with |det g|^(1/2) = r³γ^(1/2), and (δF)_v = g_(vv)(δF)^v + g_(vr)(δF)^r = 
 (δF)_v = (δF)^r. Here F^(vr) = g^(vr)g^(rv)F_(rv) = −F_(vr) (g^(vv) = 0), F^(rr) = 0, and
 F^(ir) = r⁻²γ^(ij)(F_(jv) + fF_(jr)). So at r = r_h, where f = 0 and ∂_i, ∂_v do not act on f,
 
-    (δF)_v = −(r³γ^(1/2))⁻¹(−r³γ^(1/2)∂_vF_(vr) + r∂_i(γ^(1/2)γ^(ij)F_(jv))) = ∂_vF_(vr) − r⁻²(γ^(1/2))⁻¹∂_i(γ^(1/2)γ^(ij)F_(jv)),
+    (δF)_v = −(r³γ^(1/2))⁻¹(−r³γ^(1/2)∂_vF_(vr) + r∂_i(γ^(1/2)γ^(ij)F_(jv)))
+           = ∂_vF_(vr) − r⁻²(γ^(1/2))⁻¹∂_i(γ^(1/2)γ^(ij)F_(jv)),
 
 and multiplying by r³ gives the formula. In the class the only angular component of F with index v is F_(ϑv), and
 γ^(1/2) = cs, γ^(ϑϑ) = 1. The divergence on S³ integrates to zero, which gives [[eq:gd-2-1]]. As d, δ commute with the

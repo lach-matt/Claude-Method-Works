@@ -1,26 +1,13 @@
 ## Tables for the background below R_* {#sec:tab-bg}
 
-These tables carry the objects and the finite lists of inequalities used in [[sec:bg-below]]. A number written
-with a decimal point and no exponent in the definition of an object (the quintic ψ_s, the mass μ_s, the approximants
-R̂ and Ψ̃) is an exact decimal. A number a·10⁻ⁿ in a row is an upper bound (or, in the left entry of a range [x, y],
-a lower bound) obtained by rounding outward; each row is checked from the rows above it and from the objects, by the
-rule named in its table, and later rows use the rounded values as printed.
-
-### The reference quintic ψ_s and the mass μ_s {#sec:tab-bg-spline}
-
-Used in [[prop:bg-seed]]. These are the reference profile and mass of [[sec:table-seed-profile]], repeated digit
-for digit. For 0 ≤ v̂ ≤ 2.626161920655184,
-
-    ψ_s(v̂) = c_5 v̂⁵ + c_4 v̂⁴ + c_3 v̂³ + c_2 v̂² + c_1 v̂ + c_0,
-
-    c_5 = 0.000036266230280898565
-    c_4 = −0.0006828865263100425
-    c_3 = 0.005975740440748802
-    c_2 = −0.032306921548756716
-    c_1 = 0.11720807953605501
-    c_0 = −0.25734075580969945
-
-and μ_s = 0.8221111759474543.
+These tables carry the objects and the finite lists of inequalities used in [[sec:bg-below]]; the reference quintic
+ψ_s and the mass μ_s are those of [[sec:table-seed-profile]]. A number written with a decimal point and no exponent in
+the definition of an object (the approximants R̂ and Ψ̃) is an exact decimal. In the rows, the segment ends, the radii
+r of [[sec:tab-bg-nprime-defects]], the u- and ρ-ranges of the seed and slice tables and the entries 0 are exact
+decimals. Every other number in a row is a bound rounded outward: an upper bound, or a lower bound when it is the left
+entry of a range [x, y] or is named a minimum (Ŝ_min). Each row is checked from the rows above it and from the
+objects, by the rule named in its table; later rows use the rounded values as printed, and an entry obtained from
+other entries of its own row uses their unrounded values.
 
 ### The approximant R̂ on 𝒩′ {#sec:tab-bg-nprime}
 
@@ -214,10 +201,12 @@ coefficients on the box of
 Used in [[prop:bg-rays]]. At u = 5.7 the errors of orders 0 to 3 are at most 1.6·10⁻¹³, 6.1·10⁻¹², 4.5·10⁻¹⁰, 2.2·10⁻⁸:
 the sums of the absolute values of the Chebyshev coefficients of Ψ̃(5.7, ρ) − ρ, J̃(5.7, ρ) − 1, K̃(5.7, ρ) and
 L̃(5.7, ρ).
-On each segment, P′ bounds |R̂′| (by Σ n|q_n|/h); Δ₁, Δ₂ and γ_m are [[eq:bg-gamma]]; Γ₂, Γ₃, Γ₄ bound |∂_X^m G|
-on the tube [[eq:bg-tube]]; ε_m bounds the error of order m on the segment (the value of [[eq:bg-ray-chain]] at b).
+On each segment, R̂′_max bounds |R̂′| (by Σ n|q_n|/h); Δ₁, Δ₂ and γ_m are [[eq:bg-gamma]]; H₂, H₃, H₄ bound
+|∂_X^m G| on the tube [[eq:bg-tube]]; ε_m bounds the error of order m on the segment. In each row ε₀, ε₁, ε₂, ε₃ are
+the values of [[eq:bg-ray-chain]] at b, taken in this order from the printed ε of the row above and the unrounded
+values of the lower orders in the same row, and then rounded up.
 
-| segment | P′ | Δ₁ | Δ₂ | Γ₂ | Γ₃ | Γ₄ |
+| segment | R̂′_max | Δ₁ | Δ₂ | H₂ | H₃ | H₄ |
 |---|---|---|---|---|---|---|
 | [5.7, 5.73] | 0.4701 | 2.79·10⁻⁷ | 4.37·10⁻¹⁰ | 0.302 | 0.524 | 1.14 |
 | [5.73, 5.76] | 0.4701 | 3.10·10⁻⁷ | 1.41·10⁻⁹ | 0.310 | 0.541 | 1.19 |
@@ -242,9 +231,9 @@ on the tube [[eq:bg-tube]]; ε_m bounds the error of order m on the segment (the
 | [6.18, 6.45] | 1.12·10⁻⁷ | 9.49·10⁻⁸ | 1.49·10⁻⁷ | 3.09·10⁻⁷ | 2.00·10⁻⁷ | 2.85·10⁻⁷ | 7.38·10⁻⁷ | 3.73·10⁻⁶ |
 | [6.45, 6.72] | 1.72·10⁻⁷ | 1.55·10⁻⁷ | 2.62·10⁻⁷ | 5.93·10⁻⁷ | 3.40·10⁻⁷ | 5.36·10⁻⁷ | 1.59·10⁻⁶ | 8.46·10⁻⁶ |
 | [6.72, 6.96] | 2.52·10⁻⁷ | 2.40·10⁻⁷ | 4.44·10⁻⁷ | 1.10·10⁻⁶ | 5.78·10⁻⁷ | 1.02·10⁻⁶ | 3.36·10⁻⁶ | 1.92·10⁻⁵ |
-| [6.96, 7.08] | 2.76·10⁻⁷ | 2.66·10⁻⁷ | 5.14·10⁻⁷ | 1.33·10⁻⁶ | 7.26·10⁻⁷ | 1.33·10⁻⁶ | 4.60·10⁻⁶ | 2.68·10⁻⁵ |
+| [6.96, 7.08] | 2.76·10⁻⁷ | 2.66·10⁻⁷ | 5.14·10⁻⁷ | 1.33·10⁻⁶ | 7.26·10⁻⁷ | 1.33·10⁻⁶ | 4.60·10⁻⁶ | 2.681·10⁻⁵ |
 | [7.08, 7.14] | 2.89·10⁻⁷ | 2.80·10⁻⁷ | 5.52·10⁻⁷ | 1.46·10⁻⁶ | 8.06·10⁻⁷ | 1.51·10⁻⁶ | 5.33·10⁻⁶ | 3.13·10⁻⁵ |
-| [7.14, 7.17] | 2.96·10⁻⁷ | 2.87·10⁻⁷ | 5.72·10⁻⁷ | 1.53·10⁻⁶ | 8.34·10⁻⁷ | 1.59·10⁻⁶ | 5.68·10⁻⁶ | 3.37·10⁻⁵ |
+| [7.14, 7.17] | 2.96·10⁻⁷ | 2.87·10⁻⁷ | 5.72·10⁻⁷ | 1.53·10⁻⁶ | 8.34·10⁻⁷ | 1.59·10⁻⁶ | 5.681·10⁻⁶ | 3.37·10⁻⁵ |
 | [7.17, 7.2] | 3.77·10⁻⁷ | 3.93·10⁻⁷ | 7.94·10⁻⁷ | 2.14·10⁻⁶ | 8.69·10⁻⁷ | 1.68·10⁻⁶ | 6.10·10⁻⁶ | 3.65·10⁻⁵ |
 
 ### The seed region {#sec:tab-bg-seed}
@@ -259,8 +248,10 @@ Used in [[prop:bg-seed]]. The bounds on the partial derivatives of ψ^(k) := Ψ_
 | k = 2 | 1.66 | 1.37 | 0.514 | 0.216 | 0.580 | 1.50·10⁻⁵ |
 
 On each interval [ρ_a, ρ_b] of ρ, "Taylor" is Σ_(n≤5) |c_n| h^n for the Taylor coefficients c_n of ẽ_k at the
-midpoint, h = (ρ_b − ρ_a)/2, "rest" bounds |c_6(ξ)| h⁶ over the interval, and "total" = Taylor + rest + Δ_k
-bounds |e_k| on the interval ([[eq:bg-seed-split]]). Rest is at most 1.4·10⁻⁹ in every row.
+midpoint, h = (ρ_b − ρ_a)/2, "rest" bounds |c_6(ξ)| h⁶ for ξ in the interval (both enclosed as in the proof of
+[[prop:bg-seed]] (b), c_6 on twenty equal parts), and "total" = Taylor + rest + Δ_k bounds |e_k| on the interval
+([[eq:bg-seed-split]]). Rest is at most 2·10⁻¹⁰ in every row, and every total is at least the printed Taylor entry
+plus 2·10⁻¹⁰ plus Δ_k.
 
 | ρ | Taylor, k = 0 | k = 1 | k = 2 | total, k = 0 | k = 1 | k = 2 |
 |---|---|---|---|---|---|---|
@@ -279,20 +270,33 @@ bounds |e_k| on the interval ([[eq:bg-seed-split]]). Rest is at most 1.4·10⁻�
 
 Used in [[prop:bg-slice]]. For ρ in [ρ_a, ρ_b], R = v̂(ρ) + 0.68 and the enclosures of ψ_III, ψ_III′ (from
 [[prop:bg-rays]] and [[eq:bg-psi3]]) give, by [[lem:bg-tools]] (d) with μ3 in [0.82211214, 0.82211297], the
-enclosures of Ef and N_κ = (μ3 E/R³)(Ef − 3) − ψ_III′ and the upper bound of κK^l_l.
+enclosures of Ef and N_κ = (μ3 E/R³)(Ef − 3) − ψ_III′ and the upper bound of κK^l_l in the second table.
 
-| ρ | R | ψ_III | ψ_III′ | Ef | N_κ | κK^l_l ≤ |
-|---|---|---|---|---|---|---|
-| [2.321,2.3663] | [0.6800,0.8046] | [−0.2796,−0.2206] | [0.07193,0.1627] | [−0.649,−0.191] | [−8.26,−3.64] | −2.18 |
-| [2.3663,2.4116] | [0.8046,0.9276] | [−0.2641,−0.2090] | [0.06752,0.1512] | [−0.232,0.0414] | [−4.46,−2.33] | −1.56 |
-| [2.4116,2.4569] | [0.9275,1.049] | [−0.2498,−0.1982] | [0.06349,0.1407] | [0.0237,0.208] | [−2.73,−1.58] | −1.02 |
-| [2.4569,2.5022] | [1.049,1.169] | [−0.2366,−0.1883] | [0.05979,0.1310] | [0.192,0.330] | [−1.83,−1.13] | −0.674 |
-| [2.5022,2.5475] | [1.169,1.287] | [−0.2244,−0.1792] | [0.05640,0.1222] | [0.313,0.422] | [−1.30,−0.843] | −0.454 |
-| [2.5475,2.5928] | [1.287,1.405] | [−0.2131,−0.1707] | [0.05327,0.1140] | [0.403,0.492] | [−0.970,−0.650] | −0.315 |
-| [2.5928,2.6381] | [1.404,1.520] | [−0.2026,−0.1628] | [0.05038,0.1065] | [0.474,0.548] | [−0.751,−0.516] | −0.224 |
-| [2.6381,2.6834] | [1.520,1.635] | [−0.1928,−0.1555] | [0.04770,0.09950] | [0.529,0.593] | [−0.599,−0.419] | −0.163 |
-| [2.6834,2.7287] | [1.635,1.749] | [−0.1837,−0.1487] | [0.04522,0.09312] | [0.575,0.631] | [−0.489,−0.347] | −0.121 |
-| [2.7287,2.77364] | [1.749,1.861] | [−0.1751,−0.1425] | [0.04309,0.08704] | [0.612,0.662] | [−0.407,−0.292] | −0.0930 |
+| ρ | R | ψ_III | ψ_III′ |
+|---|---|---|---|
+| [2.321,2.3663] | [0.680000,0.804644] | [−0.2796,−0.2206] | [0.07193,0.1627] |
+| [2.3663,2.4116] | [0.804643,0.927553] | [−0.2641,−0.2090] | [0.06752,0.1512] |
+| [2.4116,2.4569] | [0.927552,1.048866] | [−0.2498,−0.1982] | [0.06349,0.1407] |
+| [2.4569,2.5022] | [1.048865,1.168708] | [−0.2366,−0.1883] | [0.05979,0.1310] |
+| [2.5022,2.5475] | [1.168707,1.287190] | [−0.2244,−0.1792] | [0.05640,0.1222] |
+| [2.5475,2.5928] | [1.287189,1.404411] | [−0.2131,−0.1707] | [0.05327,0.1140] |
+| [2.5928,2.6381] | [1.404410,1.520461] | [−0.2026,−0.1628] | [0.05038,0.1065] |
+| [2.6381,2.6834] | [1.520460,1.635420] | [−0.1928,−0.1555] | [0.04770,0.09950] |
+| [2.6834,2.7287] | [1.635419,1.749363] | [−0.1837,−0.1487] | [0.04522,0.09312] |
+| [2.7287,2.77364] | [1.749362,1.861460] | [−0.1751,−0.1425] | [0.04309,0.08704] |
+
+| ρ | Ef | N_κ | κK^l_l ≤ |
+|---|---|---|---|
+| [2.321,2.3663] | [−0.649,−0.191] | [−8.26,−3.64] | −2.18 |
+| [2.3663,2.4116] | [−0.232,0.0414] | [−4.46,−2.33] | −1.56 |
+| [2.4116,2.4569] | [0.0237,0.208] | [−2.73,−1.58] | −1.02 |
+| [2.4569,2.5022] | [0.192,0.330] | [−1.83,−1.13] | −0.674 |
+| [2.5022,2.5475] | [0.313,0.422] | [−1.30,−0.843] | −0.454 |
+| [2.5475,2.5928] | [0.403,0.492] | [−0.970,−0.650] | −0.315 |
+| [2.5928,2.6381] | [0.474,0.548] | [−0.751,−0.516] | −0.224 |
+| [2.6381,2.6834] | [0.529,0.593] | [−0.599,−0.419] | −0.163 |
+| [2.6834,2.7287] | [0.575,0.631] | [−0.489,−0.347] | −0.121 |
+| [2.7287,2.77364] | [0.612,0.662] | [−0.407,−0.292] | −0.0930 |
 
 ### The slice in the packet {#sec:tab-bg-slice-packet}
 

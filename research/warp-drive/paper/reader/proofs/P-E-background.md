@@ -197,7 +197,8 @@ which are graded towards the ends of the packet. Put
 
     Ŝ(u) := 2.067575 − (1/2)∫_(u1)^u R̂,     μ̃ := R̂² + 4R̂′Ŝ,     λ̃ := 2Ŝ/R̂²,  {#eq:bg-nprime-approx}
 
-so that Ŝ and μ̃ are polynomials and λ̃ is a rational function on each segment, and μ̃3 := R̂(u2)² + 4R̂′(u2)Ŝ(u2) = 0.82211255682735… (an explicit rational).
+so that Ŝ and μ̃ are polynomials and λ̃ is a rational function on each segment, and μ̃3 := R̂(u2)² + 4R̂′(u2)Ŝ(u2) =
+0.82211255682735… (an explicit rational).
 
 **Proposition {#prop:bg-nprime}** (The data on 𝒩′.) On each segment [a, b] of [[sec:tab-bg-nprime-chain]], |R − R̂| ≤ E₀
 and |R′ − R̂′| ≤ E₁ with E₀, E₁ of that row, and |S − Ŝ| ≤ I/2. In particular |R − R̂| ≤ 4.53 × 10⁻⁸, |R′ − R̂′| ≤ 9.20
@@ -347,14 +348,14 @@ and |μ3 − μ_s| ≤ 1.79 × 10⁻⁶. In particular the bounds 5.1 × 10⁻�
 (c) Consequently (ψ_III, ψ_III′, ψ_III″) lies within (10⁻³, 10⁻³, 3 × 10⁻²) of (ψ_s, ψ_s′, ψ_s″) on the seed region and
 |μ3 − μ_s| ≤ 10⁻⁴: the background lies in the tube of [[prop:margins-seed]] (b), and Γ > 0 on the seed region.
 
-Proof. (a) On Σ_τ0, R = v̂ + 0.68 ≥ 0.68 since v̂ ≥ 0, and by [[lem:bg-reduction]] (f) a point of Σ_τ0 with R ≤ R_*
-lies on a ray ρ ∈ [2.321, R_*] ⊂ [2.32, 3.44]. Let g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 for ρ ∈ [2.32, 3.44]. Its derivative is J(u2, ρ) − 1/a(ρ) < 1 − 2 < 0 since
-J ≤ 1 ([[prop:bg-rays]]) and a < 1/2. By [[prop:bg-rays]], g(2.77362) ≥ Φ̃(2.77362) − v̂(2.77362) − 0.68 − ε₀ ≥ 1.89 ×
-10⁻⁵ > 0 and g(2.77364) ≤ −1.27 × 10⁻⁵ < 0; so g has one zero ρ_u2 ∈ (2.77362, 2.77364). A point of Σ_τ0 on the ray ρ
-has R = v̂(ρ) + 0.68; since R decreases along the ray ([[lem:bg-reduction]] (c)) it lies in {u ≥ u2} exactly when R ≤
-Φ(ρ), that is g(ρ) ≥ 0, that is ρ ≤ ρ_u2. Hence R_u2 = v̂(ρ_u2) + 0.68 ∈ [v̂(2.77362) + 0.68, v̂(2.77364) + 0.68] ⊂
-[1.8614098, 1.8614596]. The seed region has ρ ≤ v̂⁻¹(1.181) < 2.7735 < ρ_u2 (v̂(2.7735) ≥ 1.18111). And f3(Φ) ≥ 1 −
-0.8222/1.4832² > 0 by [[prop:bg-rays]] and [[prop:bg-nprime]].
+Proof. (a) On Σ_τ0, R = v̂ + 0.68 ≥ 0.68 since v̂ ≥ 0, and by [[lem:bg-reduction]] (f) a point of Σ_τ0 with R ≤ R_* lies
+on a ray ρ ∈ [2.321, R_*] ⊂ [2.32, 3.44]. Let g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 for ρ ∈ [2.32, 3.44]. Its derivative is J(u2,
+ρ) − 1/a(ρ) < 1 − 2 < 0 since J ≤ 1 ([[prop:bg-rays]]) and a < 1/2. By [[prop:bg-rays]], g(2.77362) ≥ Φ̃(2.77362) −
+v̂(2.77362) − 0.68 − ε₀ ≥ 1.89 × 10⁻⁵ > 0 and g(2.77364) ≤ −1.27 × 10⁻⁵ < 0; so g has one zero ρ_u2 ∈ (2.77362, 2.77364).
+A point of Σ_τ0 on the ray ρ has R = v̂(ρ) + 0.68; since R decreases along the ray ([[lem:bg-reduction]] (c)) it lies in
+{u ≥ u2} exactly when R ≤ Φ(ρ), that is g(ρ) ≥ 0, that is ρ ≤ ρ_u2. Hence R_u2 = v̂(ρ_u2) + 0.68 ∈ [v̂(2.77362) + 0.68,
+v̂(2.77364) + 0.68] ⊂ [1.8614098, 1.8614596]. The seed region has ρ ≤ v̂⁻¹(1.181) < 2.7735 < ρ_u2 (v̂(2.7735) ≥ 1.18111).
+And f3(Φ) ≥ 1 − 0.8222/1.4832² > 0 by [[prop:bg-rays]] and [[prop:bg-nprime]].
 
 (b) Since v̂(2.3282) ≤ 0.0199332 < 0.02 and v̂(2.7735) ≥ 1.18111 > 1.181, it suffices to bound, for ρ ∈ [2.3282,
 2.7735] and k = 0, 1, 2, the function e_k(ρ) := ψ_s^(k)(v̂(ρ)) − Ψ_k(ρ, Φ, …, μ3). Split
@@ -408,17 +409,17 @@ in Φ̃ ± ε₀, Φ′ in Φ̃′ ± ε₁, Φ″ in Φ̃″ ± ε₂ ([[prop:b
 [[lem:bg-tools]] (d) give Ef < 1, N_κ < 0 and κK^l_l ≤ −0.093 on every row (E = e^(ψ_III) > 0, Ef < 2).
 
 *The packet.* For ρ ∈ [ρ_u2, R_*] the slice point is at the unique u_s(ρ) ∈ [u1, u2] with Ψ(u_s, ρ) = T(ρ): the
-difference Ψ(u, ρ) − T(ρ) is ≥ 0 at u1 (ρ ≥ T(ρ) for ρ ≤ R_*, by [[lem:bg-rstar]]), ≤ 0 at u2 (g(ρ) ≤ 0), and
-decreasing in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decreasing in ρ, since ∂_ρ(Ψ − T) = J −
-1/a < 0; hence u_s is decreasing in ρ, and so is the inverse ρ_s(u). For each row [u_a, u_b] of
-[[sec:tab-bg-slice-packet]], Ψ̃(u_a, ρ_hi) + ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at
-u_a = u1 take ρ_hi ≥ R_* from [[lem:bg-rstar]], at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice
-points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo, ρ_hi]. On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and λ lie between their
-values at u_a and u_b (monotone, [[prop:bg-nprime]] (iii)), which are μ̃, λ̃ there up to the errors
-4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv); B lies between its end values, or between the smaller one and
-17/10 when 6.45 is inside, by [[lem:bg-tools]] (e); J and K lie in the Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)].
-Then [[eq:bg-nk-packet]] and [[lem:bg-tools]] (d) give the enclosures of Ef and N_κ in the second table: Ef < 1 and N_κ <
-0 on every row, and the largest upper bound of κK^l_l is −6.00 × 10⁻³, on the row u ∈ [6.05, 6.1]. ∎
+difference Ψ(u, ρ) − T(ρ) is ≥ 0 at u1 (ρ ≥ T(ρ) for ρ ≤ R_*, by [[lem:bg-rstar]]), ≤ 0 at u2 (g(ρ) ≤ 0), and decreasing
+in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decreasing in ρ, since ∂_ρ(Ψ − T) = J − 1/a < 0; hence u_s
+is decreasing in ρ, and so is the inverse ρ_s(u). For each row [u_a, u_b] of [[sec:tab-bg-slice-packet]], Ψ̃(u_a, ρ_hi) +
+ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at u_a = u1 take ρ_hi ≥ R_* from [[lem:bg-rstar]],
+at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo, ρ_hi].
+On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and λ lie between their values at u_a and u_b (monotone, [[prop:bg-nprime]]
+(iii)), which are μ̃, λ̃ there up to the errors 4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv); B lies between its
+end values, or between the smaller one and 17/10 when 6.45 is inside, by [[lem:bg-tools]] (e); J and K lie in the
+Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)]. Then
+[[eq:bg-nk-packet]] and [[lem:bg-tools]] (d) give the enclosures of Ef and N_κ in the second table: Ef < 1 and N_κ < 0 on
+every row, and the largest upper bound of κK^l_l is −6.00 × 10⁻³, on the row u ∈ [6.05, 6.1]. ∎
 
 Near R = R_* the packet's slice points approach region I, where E = 1 and N_κ = (μ/R³)(f − 3) exactly, and κK^l_l =
 3(3/2)R_*⁻³(f − 3)(1 − f)/(R_*(2 − f)²) = −6.86 × 10⁻³ at R_*, f = 1 − 3/(2R_*²); the first rows' bounds are close to it.
