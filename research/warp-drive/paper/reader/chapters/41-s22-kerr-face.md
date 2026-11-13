@@ -1743,12 +1743,17 @@ the proof of [[prop:iii-i11-3-1]], the K⁺-weight α − ε of f′ in Step 0 o
 α − 1 − j − ε of the Taylor levels, each of which a forcing of K⁺-weight α − ε′ for every ε′ > 0 meets for every ε; and
 this uses of the base point only the indicial roots and the transition face propositions, uniform in b by
 [[lem:iii-i15-1-1]] (P2), (P4). Step 0 at b: [[lem:iii-i13-2-2]] at β = α (whose hypothesis u_0 = u + Σ_(𝒩″) m_ν(W_ν)
-meets with w_0 := min(α − 2, λ_♯ − 1), as in the proof of [[thm:iii-i11-4-1]]: u has K⁺-weight α − 2 − ε and the ι⁺-
+meets with the w_0 of the statement, as in the proof of [[thm:iii-i11-4-1]]: u has K⁺-weight α − 2 − ε and the ι⁺-
 and ℐ⁺-data of [[eq:iii-i11-4-2]], and the m_ν have K⁺-rates at least λ_♯ − 1 > 0, ι⁺-weight λ_♯ − ε > 3/2 and vanish
-near ℐ⁺) gives u_0 = u_I + u_ι + v as there, the spacetime and spectral v1 terms u^rot_ι and v^rot being polyhomogeneous
+near ℐ⁺) gives u_0 = u_I + u_ι + v as there, for the forcing f′ := G − (L_(h,p⃗) − L_b)u_0, the spacetime and spectral v1 terms u^rot_ι and v^rot being polyhomogeneous
 towers of the types (ii) and (vi) of Step 1; and L_b u has K⁺-order α − ε by the tower relations, L_b m_ν involving
 only the top of the tower for the rotation rows as for the other rows (of K⁺-order Re λ + 4 > α). Step 1 is unchanged
 at b: its pieces are those of (P2)–(P4). Step 2, the assembly, is unchanged, with the conormal rotation tower of the
 second change in C. Step 3 applies [[lem:iii-i15-2-9]] (c) in place of [[lem:iii-i12-2-4]] to w := u − χ_K C
 (L_b(χ_K C) has K⁺-order α − ε, the rotation tower included), and Step 4 reads its exponents, which are those of
-[[lem:iii-i12-2-4]]. Steps 5–6 are unchanged. ∎
+[[lem:iii-i12-2-4]]. Step 5 is unchanged. Step 6 applies its maps, which are uniform in b by (P1)–(P4) and
+[[lem:iii-i15-2-9]] (c), to f′ and, through Step 1 (iii), to the W_ν, as the remark after the proof of
+[[thm:iii-i12-3-1]] records. The count of Step 0 of the proof of [[lem:iii-i11-3-2]], as in [[lem:iii-i13-2-2]]
+(w − ε + a_K ≥ α), gives ‖(L_(h,p⃗) − L_b)u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w), with C uniform in b, and 𝒴⁰(α) lies in
+𝒴^♮(α − ε) with a bound on the seminorms; so ‖f′‖_(α−ε) ≤ ‖G‖_(α−ε) + C(‖h‖ + |p⃗|)‖u_0‖_(w), and Step 6 gives the
+bound of the statement. Its reality argument holds at b, the towers T_(ψ,b) being real ((P3)). ∎

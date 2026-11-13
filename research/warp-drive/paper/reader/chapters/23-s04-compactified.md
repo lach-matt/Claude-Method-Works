@@ -961,9 +961,8 @@ P of kernel range at most D; and χ_* is carried by χ, through a function of ϑ
 
 (R3) *Inner cut-offs.* Fix h_♭ ∈ C^∞(ℝ) with h_♭ = 0 near 0 and h_♭(1) = 1, and put χ_1 := h_♭(χ), so that
 supp χ_1 ⊂ supp χ. As χ_1 = 1 wherever χ = 1, every operator carried by χ is carried by χ_1, through the same function
-and for the same D. The function χ_1,
-and each of its derivatives along b-vector fields, is χ times a function in C^∞(M̃), the functions h_♭^(j)(s)/s being
-smooth. For a word V^J in the V_i, the identity fVw = V(fw) − (Vf)w, applied repeatedly, writes χ_1V^Ju as a sum of
+and for the same D. The function χ_1, and each of its derivatives along b-vector fields, is χ times a function in
+C^∞(M̃), the functions h_♭^(j)(s)/s being smooth. For a word V^J in the V_i, the identity fVw = V(fw) − (Vf)w, applied repeatedly, writes χ_1V^Ju as a sum of
 terms ±V^(J′)((V^(J″)χ_1)u), with J′ and J″ complementary subwords of J, and (V^(J″)χ_1)u = h(χu) with h ∈ C^∞(M̃).
 By [[eq:ii-a-8-1]] and [[lem:ii-a-8-4]] (a) for the multiplication by h,
 

@@ -711,8 +711,8 @@ be the partition of unity and ψ_i the cut-offs of that proof, ψ_i = 1 near sup
 Π := (V₁⋯V_qã)(V′₁⋯V′_rW′u) is Σ_i φ_iΠ, and on supp φ_i it equals (V₂⋯V_q(ψ_if))(V′₁⋯V′_r(ψ_ig)). In the chart of
 index i each V_l and each V′_l is a combination of the fields of 𝒱 (the two coordinate fields of ℝ² and the rotation
 fields of 𝕊³) with coefficients bounded with all their derivatives; expanding the compositions by Leibniz's rule, φ_iΠ is
-a finite sum of terms c(Z^γ(ψ_if))(Z^δ(ψ_ig)) with c bounded and Z^γ, Z^δ compositions of |γ| ≤ q − 1 and |δ| ≤ r fields
-of 𝒱, so |γ| + |δ| ≤ m. In the chart, [[thm:std-gn-moser]] (2) bounds each term in L² by C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) +
+a finite sum of terms c(Q′(ψ_if))(Q″(ψ_ig)) with c bounded and Q′, Q″ compositions of at most q − 1 and at most r
+fields of 𝒱, so of at most m fields in all. In the chart, [[thm:std-gn-moser]] (2) bounds each term in L² by C(‖ψ_if‖_(L^∞)‖ψ_ig‖_(H^m) +
 ‖ψ_if‖_(H^m)‖ψ_ig‖_(L^∞)), and the chart comparison and the boundedness of multiplication by ψ_i in the proof of
 [[lem:iv1-2-3]] bound these norms by those of f and g. Summing over i gives
 
@@ -1057,17 +1057,17 @@ followed by multiplication by x_I, gives
 the first term from ‖ã_i‖_(x_I^(−2ε)L^∞)‖b_i‖_(H^(j−2,(a₀,2γ))_b) and the second from
 ‖ã_i‖_(H^(j−2,(0,−2ε))_b)‖b_i‖_(ρ₀^(a₀)x_I^(2γ)L^∞).
 
-(2) 2 ≤ j ≤ 4. Now b_i ∈ H^(j−2)_b need not be bounded, and we use Leibniz's rule, which puts at most j − 2 ≤ 2
+(2) 2 ≤ j ≤ 4. Now b_i need not be bounded (j − 2 < 3), and we use Leibniz's rule, which puts at most j − 2 ≤ 2
 derivatives on ã_i. Divide out the weights: ã_i = x_I^(−2ε)a′ and b_i = ρ₀^(a₀)x_I^(2γ)b′, so that the left side of
-[[eq:iv2-2-5]] is ‖a′b′‖_(H^(j−2)_b). Measure H^p_b by the L²_b-norms of the compositions X^β := X_(l₁)⋯X_(l_q), q ≤ p,
-of the fields X₀, …, X₈ of the proof of [[prop:iv1-2-2]], which span Diff¹_b over C^∞. For l ≤ 7, X_l obeys Leibniz's
-rule for the product of a coefficient with a section, and X₈ = 1; so X^β(a′b′) is a sum of at most 2^q products
-(X^(β′)a′)(X^(β″)b′) with |β′| + |β″| ≤ q. Hence
+[[eq:iv2-2-5]] is ‖a′b′‖_(H^(j−2)_b). Measure H^p_b by the L²_b-norms of the compositions of at most p of the fields
+X₀, …, X₈ of the proof of [[prop:iv1-2-2]], which span Diff¹_b over C^∞. For l ≤ 7, X_l obeys Leibniz's rule for the
+product of a coefficient with a section, and X₈ = 1; so a composition Q of q of these fields maps a′b′ to a sum of at
+most 2^q products (Q′a′)(Q″b′), with Q′ and Q″ compositions of q′ and q″ of the fields, q′ + q″ ≤ q. Hence
 
-    ‖a′b′‖_(H^(j−2)_b) ≤ C max_(|β′|≤j−2) ‖X^(β′)a′‖_(L^∞) ‖b′‖_(H^(j−2)_b).
+    ‖a′b′‖_(H^(j−2)_b) ≤ C max_(Q′) ‖Q′a′‖_(L^∞) ‖b′‖_(H^(j−2)_b),
 
-For |β′| ≤ j − 2 ≤ 2, X^(β′)a′ ∈ H³_b with norm at most ‖a′‖_(H⁵_b) = ‖ã_i‖_(H^(5,(0,−2ε))_b) ≤ C‖h‖_(H⁷), so
-‖X^(β′)a′‖_(L^∞) ≤ C‖h‖_(H⁷) by the same embedding. Therefore
+the maximum over the compositions Q′ of at most j − 2 of the fields. For such Q′, as j − 2 ≤ 2, Q′a′ ∈ H³_b with norm
+at most ‖a′‖_(H⁵_b) = ‖ã_i‖_(H^(5,(0,−2ε))_b) ≤ C‖h‖_(H⁷), so ‖Q′a′‖_(L^∞) ≤ C‖h‖_(H⁷) by the same embedding. Therefore
 
     ‖x_Iã_iP_iu₂‖_(H^(j−2,(a₀,2γ+1−2ε))_b) ≤ C‖h‖_(H⁷)‖u₂‖_(H^(j,(a₀,2γ))_b) ≤ C‖u₂‖_(H^(j,(a₀,2γ))_b),
                                                                                                     {#eq:iv2-2-5-low}
