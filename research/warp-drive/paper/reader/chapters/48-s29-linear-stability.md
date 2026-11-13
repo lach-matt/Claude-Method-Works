@@ -557,7 +557,8 @@ globally hyperbolic (on each component, [[sec:ix-0]]), with smooth spacelike Cau
   - t_IVP decreases ([[sec:ix-0]]), and t = t_IVP + ψ_IVP(|x|) with 0 ≤ ψ_IVP ≤ C₃ := max ψ_IVP, finite as ψ_IVP is
     constant on [R₃, ∞) ([[lem:iii-b-3-7]] (b) and its proof).
   - |x| stays ≥ min(|x(p)|, r^♮), r^♮ > r_♭: dr is future timelike for g on {r_♭ ≤ r ≤ r^♮} ([[lem:ii-c-3-2]] (1) at
-    h = 0), so r strictly increases towards the past there.
+    h = 0, which holds there at every t_*, g being stationary, as in [[lem:s27-below]] (iv); also
+    [[prop:np-10-19-iv]] (d)), so r strictly increases towards the past there.
   - On {|x| ≥ 3R₁}, d(t + |x|) is past timelike. By [[prop:iii-b-3-6]], g⁻¹ = ḡ⁻¹ − m₀|x|⁻²(∂_t + ∂_|x|)^(⊗2) there,
     so g⁻¹(d(t + |x|), d(t + |x|)) = −4m₀|x|⁻² < 0. With dt_* = dt − ψ′ d|x|,
     g⁻¹(d(t + |x|), dt_*) = −1 − ψ′ − 2m₀|x|⁻²(1 − ψ′) < 0, as −1 < ψ′ < 1 there ([[eq:iii-b-3-6]]: ψ′ = 1 − 8m₀ϱ⁻²
