@@ -706,9 +706,9 @@ K⁺-order Re e_ν + i; the corrections have u-exponents in λ₀ + ℰ_ind. For
 h̆̄^(i+1)_s0 with r_ν = t_*^(−λ₀)(log t_*)^j. For s2, c0, c1, Σ_i a_ν^(i) h̆̄^i_τ = h̄^((μ_τ),≤K_τ)_τ(a_ν) with a_ν =
 t_*^(−λ₀+μ_τ)(log t_*)^j. Comparing with [[eq:iii-g2-3-1]] of [[thm:iii-g2-3-1]] (and its (log t_*)^j-version,
 [[cor:iii-g3-3-1]] (2)): the terms with i ≤ k_(μ_τ) (for s1 the convention h̄^(≤3)_s1, i ≤ 3) are the formal solution,
-with coefficient c_τ(λ₀)W in the top log power; derivatives of (log t_*)^j produce the lower powers; and the terms with i
-> k_(μ_τ) and the dt_*-term have K⁺-order ≥ Re e_ν + k_(μ_τ) + 1 ≥ Re λ₀ + 3 (the table of [[sec:iii-g2-1]]: k_μ ≥ 2 + μ,
-and for s1, k = 3). For the rotation rows the same argument applies with h̆^0_v1 = h_(b₀,v1) = 0 ([[def:iii-i14-1-3]]):
+with coefficient c_τ(λ₀)W in the top log power; derivatives of (log t_*)^j produce the lower powers; and the terms
+with i > k_(μ_τ) and the dt_*-term have K⁺-order ≥ Re e_ν + k_(μ_τ) + 1 ≥ Re λ₀ + 3 (the table of [[sec:iii-g2-1]]:
+k_μ ≥ 2 + μ, and for s1, k = 3). For the rotation rows the same argument applies with h̆^0_v1 = h_(b₀,v1) = 0 ([[def:iii-i14-1-3]]):
 Σ_(i≥1) a_ν^(i) h̆̄^i_v1 = h̄^(≤K_v1)_v1(a_ν′) ([[eq:iii-g2-2-5]]), with a_ν′ = −λ₀ t_*^(−λ₀−1)(log t_*)^j + ⋯.
 
 (b) T_(ψ,b) = h^((μ),≤k_μ)_(b,τ) ([[def:iii-g2-2-5]]), whose leading part at ∂X is the Minkowski tower of
