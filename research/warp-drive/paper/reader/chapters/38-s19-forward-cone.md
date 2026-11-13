@@ -156,16 +156,19 @@ C^(k−3,(2ℓ_I,ℓ_+,ℓ_K))_b, which is the claim. ∎
 
 In dimension 3 + 1 the coefficient x_I⁻²h_00 has order 4γ_Υ, which is the restriction ℓ_I < 2γ_Υ of [Hin26]; in
 dimension 4 + 1 the extra power of x_I in the radiation order 3/2 removes it. As in [Hin26, footnote 103], ℓ_I denotes
-two weights, which are not compared. It is an e3b-weight in [[sec:iii-i-1]], [[lem:iii-i-2-2]], [[eq:iii-i-3-7]],
-[[cor:iii-i-5-2]], [[thm:iii-i-5-3]] and [[thm:iii-h2-4-1]], and the forward solutions use the number fixed in
-[[sec:iii-i-1]]; it is a b-weight at 𝓘⁺ in [[def:iii-i-1-1]], [[prop:iii-i-4-1]] and from [[sec:iii-i1-1]] on.
+two weights, which are not compared. It is an e3b-weight in [[lem:iii-i-2-2]], where it ranges over (0, ½], in
+[[eq:iii-i-3-7]] and [[cor:iii-i-5-2]], where it ranges over (0, ½), and in [[thm:iii-i-5-3]] and [[thm:iii-h2-4-1]],
+where it is the class parameter fixed in [[sec:iii-i-1]]; it is a b-weight at 𝓘⁺ in [[def:iii-i-1-1]],
+[[prop:iii-i-4-1]] and from [[sec:iii-i1-1]] on. The exponent ½ of the time function t^♭_* is neither.
 
-*Consequences.* By [[lem:iii-i-2-2]] with the ℓ_I of [[sec:iii-i-1]] and [[lem:ii-c-3-2]], dt^♭_* is past timelike for
-g = g_(b₀,b,−S) + h when |b − b₀|, |S| and ‖h‖_(𝒳⁴) are small: g − g_(b₀) = (g_(b₀,b,−S) − g_(b₀)) + h, and
-g_(b₀,b,−S) − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:iii-i-3-6]] with the argument of [[lem:iii-i-2-2]]; it
-vanishes at b = b₀, S = 0 and depends continuously on (b, S)). Such g lie in the class
-𝒢^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b) of asymptotically stationary metrics of [[def:ii-c-3-1]], with g_b in place of g₀
-(cf. [Hin26c, Definition 5.15]). Smallness of h in H^(3,(1,0,0))_b makes x_I²ρ_+²g non-degenerate and Lorentzian
+*Consequences.* Let g = g_(b₀,b,−S) + h. By [[lem:iii-i-2-2]] with ℓ_I = ½ and k = 3, ‖h‖_(𝒢̃^(0,(1,0,0))_(e3b)) ≤
+C‖h‖_(𝒳³), as ρ_+ and ρ_K are bounded on Ω_*; and g_(b₀,b,−S) − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b)
+([[lem:iii-i-3-6]] with the argument of [[lem:iii-i-2-2]]; it vanishes at b = b₀, S = 0 and depends continuously on
+(b, S)). So g − g_(b₀) = (g_(b₀,b,−S) − g_(b₀)) + h is small in 𝒢̃^(0,(1,0,0))_(e3b) when |b − b₀|, |S| and ‖h‖_(𝒳⁴)
+are small, and then dt^♭_* is past timelike for g by [[lem:ii-c-3-2]] (2), with ℓ = ½ ([[cor:iii-i-5-2]] gives the
+bound). By [[lem:iii-i-2-2]] and [[lem:iii-i-3-6]], such g lie in the class 𝒢^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b) of
+asymptotically stationary metrics of [[def:ii-c-3-1]], with g_b in place of g₀ (cf. [Hin26c, Definition 5.15]), for
+ℓ_I, ℓ_+, ℓ_K as in [[eq:iii-i-2-2]]. Smallness of h in H^(3,(1,0,0))_b makes x_I²ρ_+²g non-degenerate and Lorentzian
 ([[rem:s05-metric-class]] (b)): by the coefficients in the proof of [[lem:iii-i-2-2]], the weight 1 at 𝓘⁺ suffices
 ([Hin26, footnote 104]).
 
@@ -217,8 +220,12 @@ as (X_+ − X_I)(ρ_+ρ_I) = 0 and S̄ depends on ω only. Halving gives [[eq:ii
 This is [[eq:iii-c-4-2]] with ρ_+ for ρ_0 and −(X_+ − X_I) for X_0 − X_I; [Hin26, (11.17a)] has 1 for 3/2 and the
 h-dependent A^h, B^h.
 
-*The background class in the cone.* 𝒢⁺ is the set of Lorentzian metrics g_0 on Ω_*, smooth on M, with, on
-U⁺ ∩ {ρ_I ≤ 1}, g_0 − η ∈ ρ_+²ρ_I²C^∞ and π(g_0 − η) ∈ ρ_+²ρ_I³C^∞ for π ≠ π₁₁ ([[def:iii-c-3-4]] with ρ_+ for ρ_0).
+*The background class in the cone.* 𝒢⁺ is the set of metrics g_0 on Ω_*, smooth on M, whose component matrix in the
+frame dt_*, dx^i is non-degenerate of Lorentzian signature at every point of the compact set Ω_*, its boundary included,
+with, on U⁺ ∩ {ρ_I ≤ 1}, g_0 − η ∈ ρ_+²ρ_I²C^∞ and π(g_0 − η) ∈ ρ_+²ρ_I³C^∞ for π ≠ π₁₁ ([[def:iii-c-3-4]] with ρ_+
+for ρ_0). The components of g_0 ∈ 𝒢⁺, and by Cramer's rule those of g_0⁻¹, are smooth on a neighbourhood of Ω_* in M,
+so they lie in C^∞_b. g_b and g_(b₀) lie in 𝒢⁺: their components and inverses lie in C^∞(M) ([[prop:iii-b-3-6]]), and
+the asymptotic conditions are those of [[lem:iii-i-3-6]] at S = 0; g_(b₀,b,−S) does by [[lem:iii-i-3-6]].
 
 **Proposition {#prop:iii-i-3-3}** (The leading part at 𝓘⁺; [Hin26, Proposition 11.6 (1)] in dimension 4 + 1.) Let
 g_1, g_0 ∈ 𝒢⁺, k ≥ 5, and h ∈ 𝒳^k with small H^(3,(1,0,0))_b-norm. Then g := g_1 + h satisfies, on U⁺ ∩ {ρ_I ≤ 1}, in

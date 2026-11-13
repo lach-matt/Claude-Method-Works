@@ -1712,9 +1712,9 @@ coefficients and ũ are linear in (G, (W_ν)_(ν∈𝒩″)), conjugation-symmet
 Put w_0 := min(α − 2, λ_♯ − 1). For every small ε > 0, every w ∈ (0, w_0] and every seminorm of the classes
 [[eq:iii-i12-3-2]] and [[eq:iii-i12-3-3]], that seminorm of the coefficients and of ũ is at most
 
-    C‖G‖_(α−ε) + C(‖h‖ + |p⃗|)‖u_0‖_(w) + C Σ_(ν∈𝒩″) |W_ν|,
+    C‖G‖_(𝒴^♮(α−ε)) + C(‖h‖ + |p⃗|)‖u_0‖_(w) + C Σ_(ν∈𝒩″) |W_ν|,
 
-where ‖·‖_(α−ε) is a seminorm of 𝒴^♮(α − ε) and ‖·‖_(w) one of the space of the hypothesis of [[lem:iii-i13-2-2]]
+where ‖·‖_(𝒴^♮(α−ε)) is a seminorm of 𝒴^♮(α − ε) and ‖·‖_(w) one of the space of the hypothesis of [[lem:iii-i13-2-2]]
 with w in place of w_0, both depending on the seminorm bounded (of large enough regularity, as in [[sec:iii-i8-1]]),
 and C depends on ε, w and these seminorms and is uniform in b ∈ ℬ̄_* and in (h, p⃗) small. This is not a bound by G
 alone: the second term does not vanish at the reference point (0, p⃗_b) of [[lem:iii-i11-3-3]] when b ≠ b_0, and the
@@ -1757,5 +1757,5 @@ exponents, which are those of [[lem:iii-i12-2-4]]. Step 5 is unchanged. Step 6 a
 by (P1)–(P4) and [[lem:iii-i15-2-9]] (c), to f′ and, through Step 1 (iii), to the W_ν, as the remark after the proof of
 [[thm:iii-i12-3-1]] records. The count of Step 0 of the proof of [[lem:iii-i11-3-2]], as in [[lem:iii-i13-2-2]]
 (w − ε + a_K ≥ α), gives ‖(L_(h,p⃗) − L_b)u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w), with C uniform in b, and 𝒴⁰(α) lies in
-𝒴^♮(α − ε) with a bound on the seminorms; so ‖f′‖_(α−ε) ≤ ‖G‖_(α−ε) + C(‖h‖ + |p⃗|)‖u_0‖_(w), and Step 6 gives the
-bound of the statement. Its reality argument holds at b, the towers T_(ψ,b) being real ((P3)). ∎
+𝒴^♮(α − ε) with a bound on the seminorms; so ‖f′‖_(𝒴^♮(α−ε)) ≤ ‖G‖_(𝒴^♮(α−ε)) + C(‖h‖ + |p⃗|)‖u_0‖_(w), and Step 6
+gives the bound of the statement. Its reality argument holds at b, the towers T_(ψ,b) being real ((P3)). ∎
