@@ -4,7 +4,7 @@
 
 ### Burnett's problem {#sec:burnett}
 
-Burnett's problem [Bur89] asks which spacetimes arise as limits of vacuum spacetimes in a weak topology. Huneau and
+Burnett's problem [Bur89] concerns families of vacuum metrics whose derivatives converge only weakly. Huneau and
 Luk state it as follows ([HL18], p. 1; their footnote omitted): "On a fixed manifold, consider a one-parameter family of
 Lorentzian metrics g_λ for λ ∈ (0, λ_0], λ_0 ∈ R which satisfies the Einstein vacuum equations
 R_μν(g_λ) = 0. (1.1) Assume moreover that there exists a metric g_0 such that as λ → 0, • g_λ converges to g_0

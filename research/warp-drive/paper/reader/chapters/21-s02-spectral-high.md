@@ -481,3 +481,383 @@ derivatives obey [[eq:i-b-2-1]] with order 0. So Q̃^(±1/2) ∈ S^0 by the Cauc
 b⁻¹ = w_(−𝐨) φ⁻¹ Q^(−1/2) on U. In the proof of [[prop:i-b-2-10]] with q_0 := φ′ b⁻¹ ∈ S^(−𝐨), q_0#b − φ′ lies in
 S^(−½𝟏) near supp φ′, since each term of [[eq:i-b-2-4]] with |α| ≥ 1 gains |α|𝟏 up to logarithms and the
 logarithmic growth of b is one factor L_h^(1/2); the iteration is unchanged. ∎
+
+### The positive commutator scheme {#sec:i-b-3}
+
+All operators below have Schwartz kernels supported in {r > r_0 − (3/2)δ_0}². The coefficients of P_(h,z) on X̃° are
+extended to ℝ⁴ arbitrarily (smoothly); no estimate below sees the extension. Orders are triples 𝐨 = (s, 𝗋, 𝖻) with s
+constant, and 𝐦 := (2, 0, 0) is the order of P_(h,z). For a fibre inner product h, pairings and adjoints are those of
+L²_h ([[sec:i-b-2-2]]).
+
+#### A priori estimates {#sec:i-b-3-1}
+
+The commutants of [[ch:s01]] are regularised because the estimates there are also regularity statements: they are
+applied to u known only in a weaker space. Here every estimate is proved for Schwartz u, and is then extended by
+density to the spaces where it is used.
+
+**Lemma {#lem:i-b-3-1}** (Density.) Fix h ∈ (0, h_0), z, and orders 𝐨. Let
+𝒢 := {u ∈ H_h^𝐨 : P_(h,z) u ∈ H_h^(𝐨−𝐦+(1,1,0))} with the graph norm. Then 𝒮 is dense in 𝒢. The same holds with the
+b-regular norms of [[eq:i-b-1-5]] and for P_(h,z)^(*h) with 𝐨 replaced by −𝐨 + 𝐦 − (1, 1, 0).
+
+*Proof.* At fixed h, H_h^𝐨 is the space H_sc^(s,𝗋_h) of [HJS] with 𝗋_h(x, ξ) := 𝗋(x, hξ), with an equivalent norm
+([[sec:i-b-2-3]]), and P_(h,z) = h² P̂(z/h) ∈ Ψ_sc^(2,0). With T_t from (C8) of [[sec:i-a-2-1]], T_t u → u in H_h^𝐨,
+and P_(h,z) T_t u = T_t P_(h,z) u + [P_(h,z), T_t] u. Here T_t P_(h,z) u → P_(h,z) u, and [P_(h,z), T_t] is bounded
+in Ψ_sc^(1,−1) and tends to 0 in Ψ_sc^(1+δ,−1+δ) for every δ > 0 ([[lem:i-a-2-1]] (c) and (C8) of [[sec:i-a-2-1]]).
+So it is uniformly bounded from H^(s,𝗋_h) to H^(s−1,𝗋_h+1) and tends to 0 on the dense subspace H^(s+δ,𝗋_h+δ), hence
+strongly. T_t u is Schwartz. For the b-regular norms, [⟨x⟩D_x, T_t] is likewise bounded in Ψ_sc^(0,0) and tends to 0
+strongly. ∎
+
+Every term of the estimates below (‖Bu‖_𝐨, h⁻¹‖G P_(h,z) u‖_(𝐨−𝐦+(1,1,0)), ‖Eu‖_𝐨, ‖u‖_(−K𝟏), with B, G, E ∈ Ψ^0) is
+continuous on 𝒢. So an estimate proved for Schwartz u holds on 𝒢, with the same constant, for each h. Near ∂_♯X the
+estimates are applied to χu with χ ∈ C_c^∞({r > r_0 − δ_0}); then P_(h,z)(χu) = χ P_(h,z) u + [P_(h,z), χ] u with
+[P_(h,z), χ] = h · Diff¹_h.
+
+#### The identity and one step {#sec:i-b-3-2}
+
+**Lemma {#lem:i-b-3-2}** (The commutator identity; cf. [Hin26c, (9.66)].) Let P ∈ Ψ^𝐦 and Ǎ = Ǎ^(*h). For Schwartz u,
+
+    (2/h) Im⟨ǍPu, Ǎu⟩_h = ⟨Cu, u⟩_h,     C := (i/h)[Re_h P, Ǎ²] + (1/h)(Ǎ² Im_h P + Im_h P Ǎ²).          {#eq:i-b-3-1}
+
+*Proof.* 2i Im⟨Ǎ²Pu, u⟩ = ⟨(Ǎ²P − P^(*h)Ǎ²)u, u⟩, and
+Ǎ²P − P^(*h)Ǎ² = [Ǎ², Re_h P] + i(Ǎ² Im_h P + Im_h P Ǎ²). Divide by ih. ∎
+
+We use XǍ² + Ǎ²X = 2ǍXǍ + [[X, Ǎ], Ǎ]. If Re_h P has principal symbol p Id with p real, Ǎ has principal symbol ǎ Id
+with ǎ real, and h⁻¹ Im_h P ∈ Ψ^(𝐦−(1,1,0)) has principal symbol p_I (an h-self-adjoint endomorphism), then by
+[[eq:i-b-2-5]] and [[thm:i-b-2-4]] the principal symbol of C is H_p(ǎ²) Id + 2ǎ² p_I, and the remainders lie in
+Ψ^(𝐦+2𝐤−(2,2,1)+ϵ𝟏), where Ǎ ∈ Ψ^𝐤. With
+
+    𝐤 := 𝐨 − ½(𝐦 − (1, 1, 0)) = 𝐨 − (½, −½, 0),                                                         {#eq:i-b-3-2}
+
+C ∈ Ψ^(2𝐨) and the remainders lie in Ψ^(2𝐨−𝟏+ϵ𝟏).
+
+**Lemma {#lem:i-b-3-3}** (One step.) Let P ∈ Ψ^𝐦, 𝐨 an order and 𝐤 as in [[eq:i-b-3-2]]. Let K_1 be a closed subset
+of 𝒫 and G ∈ Ψ^0 elliptic on K_1. Suppose Ǎ = Ǎ^(*h) ∈ Ψ^𝐤 and that, for a sign ς and C as in [[eq:i-b-3-1]],
+
+    ςC = −B^(*h)B − F + E^(*h)E + JP + R,                                                               {#eq:i-b-3-3}
+
+where: B ∈ Ψ^𝐨 and Ǎ = ZB + Y with Z ∈ Ψ^(−½(𝐦−(1,1,0))), Y ∈ Ψ^(𝐤−½𝟏); ⟨Fw, w⟩_h ≥ −C_F‖w‖²_(−K𝟏) for Schwartz
+w; E ∈ Ψ^𝐨 is microsupported in a closed set K_E; J ∈ Ψ^(2𝐨−𝐦) with WF′_h(J) ⊂ Ell_h(P); R ∈ Ψ^(2𝐨−½𝟏); and
+Ǎ, B, E, J, R are microsupported in K_1. Let E′ ∈ Ψ^0 be elliptic on K_E. Then for Schwartz u and h < h_0,
+
+    ‖Bu‖² ≤ C(h⁻² ‖GPu‖²_(𝐨−𝐦+(1,1,0)) + ‖E′u‖²_𝐨 + ‖Gu‖²_(𝐨−¼𝟏) + ‖u‖²_(−K𝟏)).                      {#eq:i-b-3-4}
+
+C depends on C_F and on seminorms of the operators involved.
+
+*Proof.* By [[eq:i-b-3-1]] and [[eq:i-b-3-3]],
+‖Bu‖² = −ς(2/h) Im⟨ǍPu, Ǎu⟩ − ⟨Fu, u⟩ + ‖Eu‖² + ⟨JPu, u⟩ + ⟨Ru, u⟩. Microlocalise first: let Φ ∈ Ψ^0 be
+microlocally the identity near K_1, with WF′_h(Φ) ⊂ Ell_h(G); then Ǎ(I − Φ) and (I − Φ)^(*h)Ǎ are residual, and
+‖Φf‖_𝐭 ≤ C(‖Gf‖_𝐭 + ‖f‖_(−K𝟏)) by [[prop:i-b-2-10]].
+
+(a) ⟨ǍPu, Ǎu⟩ = ⟨Z^(*h)ǍPu, Bu⟩ + ⟨ǍPu, Yu⟩, and Z^(*h)Ǎ ∈ Ψ^(𝐨−𝐦+(1,1,0)), Ǎ maps H^(𝐨−𝐦+(1,1,0)) to
+H^(−½(𝐦−(1,1,0))), and Y maps H^(𝐨−½𝟏) to H^(½(𝐦−(1,1,0))). So
+(2/h)|⟨ǍPu, Ǎu⟩| ≤ ½‖Bu‖² + C h⁻² ‖GPu‖²_(𝐨−𝐦+(1,1,0)) + C ‖Gu‖²_(𝐨−½𝟏) + C ‖u‖²_(−K𝟏).
+
+(b) −⟨Fu, u⟩ ≤ C_F ‖u‖²_(−K𝟏).
+
+(c) ‖Eu‖ ≤ C(‖E′u‖_𝐨 + ‖u‖_(−K𝟏)) by [[prop:i-b-2-10]].
+
+(d) Let Φ_J ∈ Ψ^0 be microlocally the identity near WF′_h(J) with WF′_h(Φ_J) ⊂ Ell_h(P) ∩ Ell_h(G); then
+⟨JPu, u⟩ = ⟨JPu, Φ_J u⟩ + O(‖u‖²_(−K𝟏) + ‖GPu‖²), ‖JPu‖_(−𝐨) ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−K𝟏)), and
+‖Φ_J u‖_𝐨 ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−K𝟏)) by [[prop:i-b-2-10]]; and
+‖GPu‖_(𝐨−𝐦) ≤ ‖GPu‖_(𝐨−𝐦+(1,1,0)) ≤ h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)).
+
+(e) |⟨Ru, u⟩| ≤ C ‖Gu‖²_(𝐨−¼𝟏) + C ‖u‖²_(−K𝟏).
+
+Absorb ½‖Bu‖². ∎
+
+#### Iteration in the semiclassical order {#sec:i-b-3-3}
+
+The error term ‖Gu‖_(𝐨−¼𝟏) is at most ‖Gu‖_(𝐨−(0,0,¼)) = h^(1/4) ‖Gu‖_𝐨. Lowering only the semiclassical order keeps
+every threshold, because 𝖻 enters a commutant only through the factor h^(−2𝖻), which at an order 𝐨 − (0, 0, β) is
+multiplied by the constant h^(2β): a decomposition [[eq:i-b-3-3]] at 𝐨 gives one at 𝐨 − (0, 0, β) by multiplying
+every operator by h^β, with the same seminorms in the shifted classes.
+
+**Lemma {#lem:i-b-3-4}** (Iteration.) Let Λ ⊂ 𝒫 be closed and U_0 an open neighbourhood. Suppose that for every open U
+with Λ ⊂ U ⊂ U_0 there are Ǎ and a decomposition [[eq:i-b-3-3]] at the order 𝐨, with K_1 ⊂ U, K_E = K_E(U) a closed
+subset of Ū_0 ∖ Λ (or no E term), and B elliptic on the closure of an open neighbourhood U′ of Λ. Let G be elliptic on
+Ū_0 and M ∈ ℕ. Then there are a neighbourhood U_* of Λ and a closed set K_E^* ⊂ Ū_0 ∖ Λ such that for every
+B_* ∈ Ψ^0 microsupported in U_*, every E′ elliptic on K_E^*, and Schwartz u,
+
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)).                       {#eq:i-b-3-5}
+
+*Proof.* Let J := 4M. Choose U_0 ⊃ U_1 ⊃ ⋯ ⊃ U_J ⊃ Λ, U_j the U′ of the hypothesis for U_(j−1), with B^(j) elliptic on
+Ū_j and K_E^* := ⋃_j K_E(U_(j−1)). Let G_0 := G and, for j ≥ 1, G_j ∈ Ψ^0 elliptic on Ū_j with
+WF′_h(G_j) ⊂ Ell_h(B^(j)), so that ‖G_j u‖_𝐭 ≤ C(‖B^(j)u‖_(𝐭−𝐨) + ‖u‖_(−K𝟏)) (with B^(j) at the shifted order). Apply
+[[lem:i-b-3-3]] at the order 𝐨 − (0, 0, (J − j)/4) with (U_(j−1), G_(j−1)), using the scaling above:
+
+    ‖G_j u‖_(𝐨−(0,0,(J−j)/4)) ≤ C(h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + ‖G_(j−1) u‖_(𝐨−(0,0,(J−j+1)/4))
+                                 + ‖u‖_(−K𝟏)).
+
+Chaining from j = J down to j = 1 leaves ‖G_0 u‖_(𝐨−(0,0,J/4)) = h^M ‖Gu‖_𝐨. Take U_* := U_J and use
+‖B_* u‖_𝐨 ≤ C(‖G_J u‖_𝐨 + ‖u‖_(−K𝟏)). ∎
+
+*Positivity of absorbing terms.* Suppose h⁻¹ Im_h P contains −ℓ𝒜 with ℓ ≥ 0 a constant, ℓ ≤ C h⁻¹, and 𝒜 = 𝒜^(*h)
+such that ς𝒜 ∈ Ψ^(2𝐭) has principal symbol ≥ c w_𝐭² on a neighbourhood of WF′_h(Ǎ), for some order 𝐭. Then ςC
+contains −ℓς(Ǎ²𝒜 + 𝒜Ǎ²) = −F − ℓς[[𝒜, Ǎ], Ǎ] with F := 2ℓǍ(ς𝒜)Ǎ. The double commutator lies in
+ℓΨ^(2𝐤+2𝐭−2𝟏), which for the orders below is in the class of R. And F satisfies the hypothesis of [[lem:i-b-3-3]]:
+[[lem:i-b-2-11]], whose proof does not use the order of B, gives
+⟨ς𝒜Ǎw, Ǎw⟩ ≥ (c/2) ‖Ǎw‖²_𝐭 − C ‖Ǎw‖²_(𝐭−½(1−ϵ)𝟏) − C ‖w‖²_(−K𝟏), and the middle term is at most
+C h^(1−ϵ) ‖Ǎw‖²_𝐭, which the first absorbs for h small. So ⟨Fw, w⟩ ≥ −Cℓ ‖w‖²_(−K𝟏) ≥ −C ‖w‖²_(−(K−1)𝟏). This is
+[Hin26c, (9.69)].
+
+In [[lem:i-b-3-3]] we also allow B ∈ ⋂_ϵ Ψ^(𝐨+ϵ𝟏) of the form of [[lem:i-b-2-12]] (a variable order contributes a
+factor (1 + κ)^(1/2) with κ logarithmic); the proof is unchanged, and [[lem:i-b-2-12]] gives
+‖B_* u‖_𝐨 ≤ C(‖Bu‖ + ‖u‖_(−K𝟏)) for B_* microsupported where the cut-offs of B equal 1, which is what [[lem:i-b-3-4]]
+uses.
+
+### Elliptic and real principal type estimates {#sec:i-b-4}
+
+Throughout, Z ⊂ {z ∈ ℂ : |z| ∈ [½, 2], Im z ≥ 0} is compact, P := P_(h,z) with z ∈ Z, ℓ := Im z/h ∈ [0, 2h⁻¹], and
+𝐨 = (s, 𝗋, 𝖻) with s constant. Constants are uniform in z ∈ Z unless said otherwise. We write ρ := ⟨x⟩⁻¹,
+ρ_∞ := ⟨ζ⟩⁻¹ and μ := ⟨ζ⟩⟨x⟩⁻¹ = w_((1,−1,0)). A function a on ℝ^(2n) is *classical of order* (k, l) if ρ_∞^k ρ^l a
+extends smoothly to 𝒫; then a ∈ S^((k,l,0)), as derivatives of a smooth function on 𝒫 gain ⟨x⟩⁻¹ in x and ⟨ζ⟩⁻¹ in ζ
+([[sec:i-b-2-1]]). 𝒱_b(𝒫) denotes the smooth vector fields on 𝒫 tangent to both boundary faces.
+
+#### The operator and its Hamilton field {#sec:i-b-4-1}
+
+**Lemma {#lem:i-b-4-1}** Assume (H1), (H2) and (H6).
+
+(a) G_0, τ_1 and g_00 are classical of orders (2, 0), (1, 0) and (0, −2), and Ĝ_z := ρ_∞² G_z ∈ C^∞(𝒫) depends
+polynomially on z. P = Op_h(p_(h,z)) with p_(h,z) − G_z Id ∈ S^((1,−1,−1)), seminorms bounded uniformly for z ∈ Z;
+Re_h P has principal symbol Re G_z Id.
+
+(b) 𝒫_1(z) ∈ Ψ^((1,−1,0)) and 𝒬 ∈ Ψ^((1,0,0)), both h-self-adjoint and depending only on Re z; their principal symbols
+p_1(z) and q_z Id satisfy μ⁻¹ p_1(z) ∈ S^0 and q̂_z := ρ_∞ q_z ∈ C^∞(𝒫). At the face over ∂X, q_z = −2ξ.
+
+(c) If p is real and classical of order (k, 0), k ≤ 2, then μ⁻¹ H_p extends from ℝ^(2n) to an element of
+ρ_∞^(2−k) 𝒱_b(𝒫). Hence
+
+    𝖧_z := μ⁻¹ H_(Re G_z) = 𝖧^(0) + (Re z) 𝖧^(1) + ((Re z)² − (Im z)²) 𝖧^(2),                             {#eq:i-b-4-1}
+
+with 𝖧^(0) := μ⁻¹ H_(G_0) ∈ 𝒱_b(𝒫), 𝖧^(1) := μ⁻¹ H_(τ_1) ∈ ρ_∞ 𝒱_b(𝒫) and 𝖧^(2) := μ⁻¹ H_(g_00) ∈ ρ² ρ_∞² 𝒱_b(𝒫).
+Thus 𝖧_z is a smooth vector field on 𝒫, tangent to both faces, depending polynomially on (Re z, Im z); at fibre
+infinity it does not depend on z, and 𝖧_z − 𝖧_(Re z) = −(Im z)² 𝖧^(2) vanishes at both faces. For a ∈ C^∞(𝒫),
+H_(Re G_z) a = μ 𝖧_z a, and 𝖧_z log⟨ζ⟩, 𝖧_z log⟨x⟩ lie in C^∞(𝒫).
+
+Here 𝖧_(Re z) is [[eq:i-b-4-1]] at the real point Re z. On the characteristic set over X̃° and at fibre infinity
+𝖧_(z_0) is, up to the positive factor μ⁻¹, resp. ρ⁻¹, the field H_(G_(z_0)), resp. ρ_∞ H_(G_0), of [[sec:i-b-1-3]]
+and (H3); over ∂X it is ⟨ζ⟩⁻¹ 𝖵_(G_(z_0)), with H_p = ρ 𝖵_p as in [[lem:i-a-4-4]] (c), so on the characteristic set
+over ∂X it vanishes exactly on R_(z_0,in) ∪ R_out ([[lem:i-a-4-5]], read at σ_0 = z_0 in the variable ζ = hξ; the
+boundary symbol is homogeneous of degree 2 in (σ, ξ, η)).
+
+*Proof.* (a) By (H2), P̂(0) = ρ² P^(0) with P^(0) ∈ Diff²_b, and a b-vector field is ρ⁻¹ times a scattering vector
+field; so G_0 is classical of order (2, 0). Likewise T ∈ ρ Diff¹_b + ρ³ Diff¹_b gives τ_1 of order (1, 0), and
+g_00 ∈ ρ² C^∞. The rest is [[lem:i-b-1-1]] (a) and [[thm:i-b-2-5]]: the h-adjoint of Op_h(G_z Id) is Op_h(Ḡ_z Id)
+modulo S^((1,−1,−1)).
+
+(b) σ_1(T) = τ_1 Id is real and scalar (H1), so Im_h T has differential order 0: by [[lem:i-a-4-4]] (b) it is the
+matrix function −ρ(S + S^(*h)) + T_2, T_2 ∈ ρ² C^∞, of order (0, −1, 0). Im_h P̂(0) ∈ ρ² Diff¹_b ⊂ ρ Diff¹_sc, so
+h Im_h P̂(0) ∈ Ψ^((1,−1,0)). 𝒬 = −h Re_h T − 2(Re z) g_00 has order (1, 0, 0) and principal symbol
+−τ_1 − 2(Re z) g_00, which is −2ξ at the face by [[lem:i-a-4-4]] (a) and g_00 ∈ ρ² C^∞.
+
+(c) Near the face over ∂X, in polar coordinates x = ω/ρ, ∂_(x_j) ∈ ρ 𝒱_b(ℝ̄^n); near fibre infinity
+∂_(ζ_j) ∈ ρ_∞ 𝒱_b(ℝ̄^n). For p = ρ_∞^(−k) p̂ with p̂ smooth, ∂_ζ p ∈ ρ_∞^(1−k) C^∞(𝒫) and
+∂_x p = ρ_∞^(−k) ∂_x p̂ ∈ ρ_∞^(−k) ρ C^∞(𝒫), since b-vector fields preserve C^∞(𝒫). So
+H_p ∈ ρ_∞^(1−k) ρ 𝒱_b = μ ρ_∞^(2−k) 𝒱_b. For g_00 ∈ ρ² C^∞ the x-derivative gains a further ρ². Finally
+𝖧_z log⟨ζ⟩ = −ρ_∞⁻¹ 𝖧_z ρ_∞ is smooth since 𝖧_z ρ_∞ ∈ ρ_∞ C^∞, and likewise for log⟨x⟩ = −log ρ. ∎
+
+The *characteristic set* of P is Σ_z := {Ĝ_z = 0} ⊂ 𝒫, closed. Over X̃° at finite frequencies, Σ_z = ∅ for Im z > 0
+([[lem:i-b-1-1]] (d)); at fibre infinity Σ_z = ∂Σ_0 for every z; over ∂X, with G_z = 2zξ + ξ² + |η|²
+([[lem:i-a-4-4]] (a)), Σ_z ∩ {ρ = 0} is the sphere {(ξ + z_0)² + |η|² = z_0²} if z = z_0 ∈ ℝ, and the zero section
+R_out := {ρ = 0, ζ = 0} alone if Im z > 0 (the imaginary part 2(Im z)ξ forces ξ = 0, and then |η| = 0). For
+z_0 ∈ {±1} the radial sets over ∂X are R_(z_0,in) := {ρ = 0, ξ = −2z_0, η = 0} and R_out, and q̂_(z_0) has the sign
+of z_0 on Σ_(z_0) ∩ {ρ = 0} ∖ R_out and vanishes at R_out.
+
+#### The elliptic estimate {#sec:i-b-4-2}
+
+**Proposition {#prop:i-b-4-2}** Let K ⊂ 𝒫 be compact with Ĝ_z ≠ 0 on K for every z ∈ Z, and B, G ∈ Ψ^0 with
+WF′_h(B) ⊂ K and G elliptic on K. Then for all orders 𝐨 and all K′, uniformly for z ∈ Z and h < h_0,
+
+    ‖Bu‖_𝐨 ≤ C(‖GPu‖_(𝐨−𝐦) + ‖u‖_(−K′𝟏)) ≤ C(‖GPu‖_(𝐨−𝐦+(1,1,0)) + ‖u‖_(−K′𝟏)).                         {#eq:i-b-4-2}
+
+The same holds for P^(*h).
+
+*Proof.* By compactness of K × Z there are a neighbourhood U of K and c > 0 with |Ĝ_z| ≥ c on U for z ∈ Z. Since
+p_(h,z) − G_z Id ∈ S^((1,−1,−1)) is bounded by C h w_𝐦, p_(h,z) is invertible on U with
+|p_(h,z)⁻¹| ≤ 2c⁻¹ w_𝐦⁻¹ for h < h_0. [[prop:i-b-2-10]] applies, with constants depending on seminorms and on c only.
+The second inequality is ‖f‖_(𝐨−𝐦) ≤ C ‖f‖_(𝐨−𝐦+(1,1,0)) ([[prop:i-b-2-8]]). For P^(*h) the symbol is Ḡ_z modulo
+S^((1,−1,−1)). ∎
+
+The second form is better by a factor h than the estimates below, whose first term is h⁻¹ ‖GPu‖_(𝐨−𝐦+(1,1,0)).
+
+#### Flow boxes with a parameter, and cut-offs {#sec:i-b-4-3}
+
+**Lemma {#lem:i-b-4-3}** Let Π ⊂ ℝ^d be open and (V_π)_(π∈Π) a family in 𝒱_b(𝒫) depending smoothly on π (jointly
+smooth on 𝒫 × Π). Let ϖ_0 ∈ 𝒫, π_* ∈ Π and V_(π_*)(ϖ_0) ≠ 0. Then there are neighbourhoods Π_0 of π_* and U of ϖ_0,
+τ > 0, and functions t, y_1, …, y_(2n−1) smooth on U × Π_0 such that for each π ∈ Π_0: (t, y)(·, π) is a
+diffeomorphism of U onto (−τ, τ) × Y_π with Y_π open in [0, ∞)^k × ℝ^(2n−1−k), where k ∈ {0, 1, 2} is the number of
+faces through ϖ_0 and the first k components of y are defining functions of those faces; V_π t = 1 and V_π y = 0; and
+t(ϖ_0, π) = 0, y(ϖ_0, π) = y_0 independent of π. The same coordinates serve every point ϖ ∈ U with
+|t(ϖ, π)| < τ/2, after translation in t, with τ/2 in place of τ.
+
+*Proof.* Choose coordinates (ϱ_1, …, ϱ_k, w) near ϖ_0 with ϱ_i defining the faces through ϖ_0, and extend V_π smoothly
+to a neighbourhood of ϖ_0 in ℝ^(2n) (allowing ϱ_i < 0). Tangency gives V_π ϱ_i = ϱ_i f_i with f_i smooth, so
+V_(π_*)(ϖ_0) lies in the span of the ∂_w; after a linear change of w, V_(π_*)(ϖ_0) = ∂_(w_1). Let S := {w_1 = 0} and
+Φ(t, ϖ′, π) := exp(tV_π)(ϖ′) for ϖ′ ∈ S near ϖ_0. Φ is smooth, and (t, ϖ′) ↦ Φ has invertible differential at
+(0, ϖ_0, π_*); the inverse function theorem applied to (t, ϖ′, π) ↦ (Φ(t, ϖ′, π), π) gives a smooth inverse on a
+neighbourhood. Take y := (ϱ_1, …, ϱ_k, w_2, …) of ϖ′. Along the flow ϱ_i(Φ(t, ϖ′, π)) = ϱ_i(ϖ′) exp ∫_0^t f_i, so
+the flow preserves each face and each side of it: the inverse maps 𝒫 to {ϱ_i(ϖ′) ≥ 0}, and y_i = ϱ_i(ϖ′) is a
+positive smooth multiple of ϱ_i. V_π t = 1 and V_π y = 0 by construction. The last statement is the translation
+t ↦ t − t(ϖ). ∎
+
+**Lemma {#lem:i-b-4-4}** There is χ ∈ C^∞(ℝ) with χ = 0 on (−∞, 0], χ = 1 on [1, ∞), χ′ ≥ 0, and √(χχ′) ∈ C^∞(ℝ).
+
+*Proof.* Let ψ_1 ∈ C^∞((0, ∞)), ψ_1 ≥ 0, with ψ_1(s) = 1/s on (0, ½] and ψ_1 = 0 on [1, ∞). On (0, ∞) put
+φ(t) := ∫_t^1 ψ_1(s)² ds and χ := e^(−φ). Then φ = 1/t + c near 0, so χ and all its derivatives tend to 0 as t → 0⁺;
+set χ := 0 on (−∞, 0]. χ′ = ψ_1² χ ≥ 0, χ = 1 on [1, ∞), and √(χχ′) = ψ_1 e^(−φ), whose derivatives are polynomials
+in 1/t times e^(−1/t) near 0. ∎
+
+#### Propagation {#sec:i-b-4-4}
+
+For ϵ_♭ ∈ {1, −1} write P_(ϵ_♭) := P if ϵ_♭ = 1 and P^(*h) if ϵ_♭ = −1. Then Re_h P_(ϵ_♭) = Re_h P and, by
+[[eq:i-b-1-3]],
+
+    h⁻¹ Im_h P_(ϵ_♭) = ϵ_♭ 𝒫_1(z) − ℓ ϵ_♭ 𝒬.                                                          {#eq:i-b-4-3}
+
+**Proposition {#prop:i-b-4-5}** (Propagation.) Let ϵ_♭, ς ∈ {1, −1}, z_* ∈ Z and ϖ_0 ∈ 𝒫 with 𝖧_(z_*)(ϖ_0) ≠ 0 and
+ϵ_♭ ς q̂_(z_*)(ϖ_0) > 0. Let U_0 be a neighbourhood of ϖ_0 such that for z ∈ Z
+
+    ς𝖧_(Re z) 𝖻 ≤ 0 on U_0,     ς𝖧_(Re z) 𝗋 ≤ 0 on U_0 ∩ {ρ = 0}.                                       {#eq:i-b-4-4}
+
+Let γ be the integral curve of ς𝖧_(z_*) with γ(0) = ϖ_0. There is T_0 > 0 such that for every neighbourhood W of
+γ(−T_0/2) there are a neighbourhood Z_0 of z_* in Z, a neighbourhood U_* of γ([−T_0/4, 0]) and a compact set
+K_E ⊂ W with the following property: for B_* ∈ Ψ^0 microsupported in U_*, E′ ∈ Ψ^0 elliptic on K_E, G ∈ Ψ^0 elliptic
+on Ū_0, all M, K, z ∈ Z_0, h < h_0 and Schwartz u,
+
+    ‖B_* u‖_𝐨 ≤ C(h⁻¹ ‖G P_(ϵ_♭) u‖_(𝐨−𝐦+(1,1,0)) + ‖E′u‖_𝐨 + h^M ‖Gu‖_𝐨 + ‖u‖_(−K𝟏)).                  {#eq:i-b-4-5}
+
+So estimates propagate along ς𝖧 where ς has the sign of ϵ_♭ q: for P, along the future field sgn(q)𝖧 of
+[[sec:i-b-1-3]]; for P^(*h), along the past field. The hypothesis [[eq:i-b-4-4]] is stated for 𝖧_(Re z) and not 𝖧_z;
+the difference is absorbed in the proof by the term ℓ𝒬, which is where Im z ≥ 0 is used.
+
+*Proof.* *Step 0: the box.* Apply [[lem:i-b-4-3]] to V_π := ς𝖧_z, π = (Re z, Im z), the formula [[eq:i-b-4-1]]
+defining it for all π ∈ ℝ². This gives Π_0, U_1 ⊂ U_0 and τ; shrink them so that Ū_1 ⊂ U_0 is compact and
+ϵ_♭ ς q̂_z ≥ c_0 > 0 on U_1 for z ∈ Z_0 := Z ∩ Π_0 (q̂_z is continuous in (ϖ, Re z)). Put T_0 := τ/4. In the
+coordinates of z_*, γ(t) = (t, y_0).
+
+*Step 1: one commutant.* Fix z ∈ Z_0, numbers t_− < t_+ in (−3T_0, T_0), ϵ ∈ (0, T_0/8] and η_1 > 0 such that
+{t ∈ [t_− − ϵ, t_+ + ϵ], |y − y_0| ≤ η_1 + ϵ} ⊂ U_1 in the coordinates of z. With χ from [[lem:i-b-4-4]] put
+χ_−(t) := χ((t − t_− + ϵ)/ϵ), χ_+(t) := χ((t_+ + ϵ − t)/ϵ), ψ(y) := χ(((η_1 + ϵ)² − |y − y_0|²)/(2η_1ϵ + ϵ²)), and
+
+    φ := e^(−M_1 t) χ_−(t) χ_+(t) ψ(y),     ǎ := w_𝐤 φ,     Ǎ := ½(Op_h(ǎ Id) + Op_h(ǎ Id)^(*h)),
+
+with 𝐤 from [[eq:i-b-3-2]] and M_1 chosen below. φ ∈ C_c^∞(U_1), so ǎ ∈ S^𝐤 with seminorms uniform in z ∈ Z_0, and
+Ǎ = Ǎ^(*h) has principal symbol ǎ Id. Let C be [[eq:i-b-3-1]] for P_(ϵ_♭). By [[eq:i-b-4-3]],
+C = C′ − ℓϵ_♭(Ǎ²𝒬 + 𝒬Ǎ²) with C′ := (i/h)[Re_h P, Ǎ²] + ϵ_♭(Ǎ²𝒫_1 + 𝒫_1Ǎ²), and by [[sec:i-b-3-2]] and
+[[lem:i-b-4-1]] the principal symbol of ςC′ is ςμ𝖧_z(ǎ²) + 2ςϵ_♭ ǎ² p_1(z), with remainder in Ψ^(2𝐨−𝟏+ϵ′𝟏).
+Since μ w_𝐤² = w_(2𝐨), ς𝖧_z t = 1 and 𝖧_z ψ = 0,
+
+    ςμ𝖧_z(ǎ²) + 2ςϵ_♭ ǎ² p_1 = w_(2𝐨) [2φ ∂_t φ + φ² (β + 2(ς𝖧_z 𝗋) log⟨x⟩ + 2(ς𝖧_z 𝖻) log(1/h))],
+    β := 2(s − ½) ς𝖧_z log⟨ζ⟩ + 2(𝗋 + ½) ς𝖧_z log⟨x⟩ + 2ςϵ_♭ μ⁻¹ p_1(z),
+
+using log w_𝐤 = (s − ½) log⟨ζ⟩ + (𝗋 + ½) log⟨x⟩ + 𝖻 log(1/h). β is bounded on U_1 uniformly in z ([[lem:i-b-4-1]])
+and h-self-adjoint. Next, 2φ ∂_t φ = −2M_1 φ² + e² − f_+² with
+
+    e := e^(−M_1 t) ψ χ_+ √(2χ_−χ_−′),     f_+ := e^(−M_1 t) ψ χ_− √(−2χ_+χ_+′),
+
+smooth by [[lem:i-b-4-4]], e supported in {t ∈ [t_− − ϵ, t_−]} and f_+ in {t ∈ [t_+, t_+ + ϵ]}.
+
+*The decay order.* f_r := ς𝖧_(Re z) 𝗋 is smooth on 𝒫 and ≤ 0 on U_0 ∩ {ρ = 0}, so f_r ≤ C_r ρ on Ū_1, uniformly in
+z. By [[lem:i-b-4-1]], ς𝖧_z 𝗋 = f_r − ς(Im z)² 𝖧^(2) 𝗋 with |𝖧^(2) 𝗋| ≤ C ρ². Let χ̃ ∈ C_c^∞(U_1), 0 ≤ χ̃ ≤ 1, equal 1
+on a neighbourhood of every supp φ considered. Then on supp φ
+
+    2(ς𝖧_z 𝗋) log⟨x⟩ = −κ_r + β_r,     κ_r := 2χ̃(C_r ρ − f_r) log⟨x⟩ ≥ 0,
+
+with β_r := 2(C_r ρ − ς(Im z)² 𝖧^(2) 𝗋) log⟨x⟩ bounded with all derivatives obeying [[eq:i-b-2-1]].
+
+*The semiclassical order.* f_b := ς𝖧_(Re z) 𝖻 ≤ 0 on U_0; put κ_b := −2χ̃ f_b log(1/h) ≥ 0. The rest is
+−2ς(Im z)² (𝖧^(2) 𝖻) log(1/h) = −ℓ c_b with c_b := 2ςh(Im z) log(1/h) 𝖧^(2) 𝖻; note
+|c_b| ≤ C h log(1/h) ρ² ρ_∞².
+
+Let Q_0 := 2M_1 − β − β_r on U_1, and choose M_1 with Q_0 ≥ M_1 Id there for z ∈ Z_0; replace Q_0 by
+χ̃Q_0 + (1 − χ̃)M_1 Id, which is ≥ M_1 Id everywhere. κ_0 := κ_r + κ_b satisfies the hypotheses of
+[[lem:i-b-2-12]] (with κ := κ_0 and M := M_1). With
+
+    b := w_𝐨 φ (Q_0 + κ_0)^(1/2),     B := Op_h(b),     E := Op_h(w_𝐨 e Id),     F_+ := Op_h(w_𝐨 f_+ Id),
+
+the principal symbol of ςC′ is −b² + w_(2𝐨) e² − w_(2𝐨) f_+² − ℓ w_(2𝐨) φ² c_b, and b is h-self-adjoint, as Q_0 is.
+So
+
+    ςC′ = −B^(*h)B + E^(*h)E − F_+^(*h)F_+ − ℓ Ǎ Op_h(μ c_b χ̃) Ǎ + R_1,     R_1 ∈ Ψ^(2𝐨−½𝟏):
+
+the principal symbols agree; B ∈ Ψ^(𝐨+ϵ′𝟏) ([[lem:i-b-2-12]]), so B^(*h)B is determined by its principal symbol modulo
+Ψ^(2𝐨−𝟏+3ϵ′𝟏); and μ c_b ∈ S^((1,−1,−1+ϵ′)), so Ǎ Op_h(μ c_b χ̃) Ǎ is determined modulo
+Ψ^(2𝐤+(1,−1,−1+ϵ′)−𝟏+ϵ′𝟏) = Ψ^(2𝐨−(1,1,2)+2ϵ′𝟏), which ℓ ≤ 2h⁻¹ turns into Ψ^(2𝐨−𝟏+2ϵ′𝟏).
+
+*The absorbing term.* By XǍ² + Ǎ²X = 2ǍXǍ + [[X, Ǎ], Ǎ],
+ςC = ςC′ − 2ℓǍ(ςϵ_♭𝒬)Ǎ − ℓς[[ϵ_♭𝒬, Ǎ], Ǎ]. Let 𝒬_♯ be the h-self-adjoint part of
+ςϵ_♭𝒬 + ½ Op_h(μ c_b χ̃). Then ςC = −B^(*h)B − F + E^(*h)E + R, where
+
+    F := 2ℓǍ𝒬_♯Ǎ + F_+^(*h)F_+,     R := R_1 − ℓς[[ϵ_♭𝒬, Ǎ], Ǎ] − ℓǍ Op_h(μ c_b χ̃)^a Ǎ,
+
+the last term involving the anti-self-adjoint part Op_h(μ c_b χ̃)^a ∈ Ψ^((0,−2,−2+ϵ′)) of Op_h(μ c_b χ̃) (its symbol is
+real, [[thm:i-b-2-5]]), hence in Ψ^(2𝐨−(1,1,1)+(0,0,ϵ′)). 𝒬_♯ ∈ Ψ^((1,0,0)) has principal symbol ϵ_♭ς q_z (the added
+term is of lower order), which is ≥ c_0⟨ζ⟩ on U_1; so by the paragraph on positivity of absorbing terms in
+[[sec:i-b-3-3]], with 𝐭 = (½, 0, 0), ⟨Fw, w⟩ ≥ −C‖w‖²_(−K𝟏), and the double commutator lies in
+ℓΨ^(2𝐤+(1,0,0)−2𝟏+ϵ′𝟏) ⊂ Ψ^(2𝐨−½𝟏). So R ∈ Ψ^(2𝐨−½𝟏). Finally Ǎ = ZB + Y with
+Z := Op_h(w_(𝐤−𝐨) χ̃ (Q_0 + κ_0)^(−1/2)) ∈ Ψ^(−½(𝐦−(1,1,0))) ([[lem:i-b-2-12]]) and Y ∈ Ψ^(𝐤−½𝟏), since the principal
+symbol of ZB is ǎ. So [[eq:i-b-3-3]] holds with J = 0, K_1 := supp φ and K_E := supp e, and by [[lem:i-b-2-12]], B is
+elliptic, in the sense of [[prop:i-b-2-10]], on {φ ≠ 0} ⊃ {t ∈ (t_− − ϵ, t_+ + ϵ), |y − y_0| < η_1 + ϵ}. All
+seminorms and C_F are uniform in z ∈ Z_0 and in the parameters t_±, ϵ, η_1 on compact sets of them.
+
+*Step 2: iteration.* Let η > 0, to be fixed by W. In the coordinates of z put Λ_z := {t ∈ [−T_0/2, 0],
+|y − y_0| ≤ η}, c_j := 2^(−j) c_0 for j = 0, …, J := 4M, with c_0 ≤ T_0/4, and
+U_j(z) := {t ∈ (−T_0/2 − 3c_j, 2c_j), |y − y_0| < η + 2c_j}, a decreasing sequence. The proof of [[lem:i-b-3-4]] uses
+its hypothesis only for the sets U_0 ⊃ ⋯ ⊃ U_J it chooses, the j-th being the set U′ for the (j − 1)-st; here Step 1
+with t_− := −T_0/2 − 2c_j, t_+ := c_j, ϵ := c_j − c_(j+1), η_1 := η + c_j gives a commutant microsupported in U_j(z)
+whose B is elliptic on
+{t ∈ (−T_0/2 − 3c_j + c_(j+1), 2c_j − c_(j+1)), |y − y_0| < η + 2c_j − c_(j+1)} ⊃ Ū_(j+1)(z), as c_(j+1) = c_j/2,
+with K_E ⊂ {t ∈ [−T_0/2 − 3c_j, −T_0/2 − 2c_j]}, disjoint from Λ_z. So [[eq:i-b-3-5]] holds for B_* microsupported in
+U_J(z) and E′ elliptic on K_E^*(z) := ⋃_j K_E ⊂ {t ∈ [−T_0/2 − 3c_0, −T_0/2 − 2c_J], |y − y_0| ≤ η + 2c_0}, uniformly
+in z ∈ Z_0.
+
+*Step 3: removing z from the sets.* Given W, choose η and shrink c_0 (all c_j by a common factor) so that, in the
+coordinates of z_*, {t ∈ [−T_0/2 − 4c_0, −T_0/2], |y − y_0| ≤ η + 3c_0} ⊂ W. As the coordinates depend continuously on
+z in C^∞, there is a neighbourhood Z_0′ ⊂ Z_0 of z_* such that for z ∈ Z_0′ the set K_E^*(z) lies in the compact set
+K_E := {t_(z_*) ∈ [−T_0/2 − 4c_0, −T_0/2 − c_J], |y_(z_*) − y_0| ≤ η + 3c_0} ⊂ W, and U_J(z) contains
+U_* := {t_(z_*) ∈ (−T_0/4 − c_J, c_J), |y_(z_*) − y_0| < η}, a neighbourhood of γ([−T_0/4, 0]). Then
+[[eq:i-b-4-5]] holds for z ∈ Z_0′; rename Z_0′ as Z_0. ∎
+
+**Corollary {#cor:i-b-4-6}** (Propagation along a segment.) Let ϵ_♭, ς be signs, z_* ∈ Z, and γ : [−T, 0] → 𝒫 an
+integral curve of ς𝖧_(z_*) with 𝖧_(z_*) ≠ 0 and ϵ_♭ ς q̂_(z_*) > 0 on γ([−T, 0]). Let U_0 be a neighbourhood of
+γ([−T, 0]) on which [[eq:i-b-4-4]] holds. Then for every neighbourhood W of γ(−T) there are a neighbourhood Z′ of z_*,
+a neighbourhood U_* of γ(0) and a compact K_E ⊂ W such that [[eq:i-b-4-5]] holds for z ∈ Z′, B_* microsupported in
+U_*, E′ elliptic on K_E and G elliptic on Ū_0.
+
+*Proof.* U_0 contains γ([−T − δ_γ, δ_γ]) for some δ_γ > 0, and after shrinking δ_γ the hypotheses hold on that longer
+segment. The flow boxes of [[lem:i-b-4-3]] at its points have sizes bounded below, since a box at ϖ serves a
+neighbourhood of ϖ with half its size ([[lem:i-b-4-3]]); so [[prop:i-b-4-5]] holds at every γ(t) with one T_1 > 0 in
+place of T_0, which we may decrease so that T_1 ≤ δ_γ/8 and L := 4(T − T_1/2)/T_1 ∈ ℕ. Let
+τ_l := −T + T_1/2 + (l − 1)T_1/4, l = 1, …, L + 1, so τ_(L+1) = 0. Apply [[prop:i-b-4-5]] at γ(τ_1) with W_1 := W, a
+neighbourhood of γ(τ_1 − T_1/2) = γ(−T); this gives Z^(1), U_*^(1) ⊃ γ([τ_1 − T_1/4, τ_1]) and K_E^(1) ⊂ W. For l ≥ 2
+apply it at γ(τ_l) with W_l := U_*^(l−1), a neighbourhood of γ(τ_l − T_1/2) = γ(τ_(l−1) − T_1/4). The operator E′_l
+elliptic on K_E^(l) ⊂ U_*^(l−1) may be taken microsupported in U_*^(l−1), so it is an admissible B_* at step l − 1.
+Chaining the L + 1 estimates, with Z′ := ⋂_l Z^(l) and U_* := U_*^(L+1), gives the claim. ∎
+
+**Remark {#rem:i-b-4-7}** Over a compact subset of T*X̃° at finite frequencies, [[prop:i-b-4-5]] and [[cor:i-b-4-6]]
+also hold (a) for z = z_0 + iy with y ∈ [−Ch, 0]: then ℓ ∈ [−C, 0], ℓ𝒬 is a bounded term of the class of 𝒫_1 there,
+it is put into β, and the condition ϵ_♭ ς q̂ > 0 is not needed (for |ℓ| ≤ C the same holds with either sign of Im z);
+and (b) when h⁻¹ Im_h 𝐏 contains a further term −ϵ_W h⁻¹ W^(*h)W, ϵ_W ∈ {1, −1}, with W ∈ Ψ^((1,0,0)) scalar, and a
+further bounded term of the class of 𝒫_1, provided ςϵ_W = 1: the first enters ςC as −2h⁻¹ ǍW^(*h)WǍ plus a double
+commutator in hΨ, a term −F with ⟨Fw, w⟩ ≥ 0 exactly, as in case (B) of [[lem:i-b-5-1]], and the second is part of
+β. Both are used in [[sec:i-b-6]] only.
+
+**Corollary {#cor:i-b-4-6-prime}** (All orders lowered.) In the setting of [[cor:i-b-4-6]], for every J ∈ ℕ the
+estimate [[eq:i-b-4-5]] holds with h^M ‖Gu‖_𝐨 replaced by ‖Gu‖_(𝐨−(J/4)𝟏).
+
+*Proof.* In the proof of [[lem:i-b-3-4]] apply [[lem:i-b-3-3]] at the orders 𝐨 − ((J − j)/4)𝟏, j = 1, …, J, in place
+of 𝐨 − (0, 0, (J − j)/4). This needs a decomposition [[eq:i-b-3-3]] at each of these orders, with the same sets: in
+[[prop:i-b-4-5]] the order enters the commutant only through the constant β of its Step 1, which M_1 absorbs, so the
+commutants exist at every order, on sets that do not depend on it. The error term of [[lem:i-b-3-3]] at the j-th step,
+‖G_(j−1) u‖_(𝐨−((J−j+1)/4)𝟏), is the left side of the step before, and after J steps what is left is
+‖Gu‖_(𝐨−(J/4)𝟏); the terms h⁻¹‖GPu‖ and ‖E′u‖ at lowered orders are bounded by those at 𝐨. The chaining along the
+segment is that of [[cor:i-b-4-6]]. ∎
+
+For 𝐨 = (s, 0, 0), s ≥ 0, J ≥ 4s and G microsupported over a compact subset of X̃°, ‖Gu‖_(𝐨−(J/4)𝟏) ≤ C ‖u‖_(L²):
+the regularity order is at most 0, the decay order is immaterial over a compact set, and the semiclassical weight is
+h^(J/4) ≤ 1.
+
+The admissibility of [[sec:i-b-1-4]] is used through [[eq:i-b-4-4]]: it requires the monotonicity on a
+*neighbourhood* U_0 of the curves along which we propagate (for 𝗋, a neighbourhood within the face over ∂X), not only
+on the characteristic set. A logarithmic weight log(1/h) multiplies 𝖧𝖻, so a positive value of 𝖧𝖻 off the
+characteristic set but on the support of a commutant could not be absorbed. [[sec:i-b-1-4]] is stated in this form.
