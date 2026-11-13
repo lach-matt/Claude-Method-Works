@@ -6,12 +6,12 @@ access to this repository. Read first, and follow exactly: `STYLE.md` and `OUTLI
 
 ## Your sources
 
-Your chapter's entry in the source map (`maps/outline-M.md` section 4, or `maps/outline-S.md`) names its source files and line
-ranges, the composition instructions to follow (outline-M section 2) and the material to drop (section 3). Paths in
-the map are relative to `research/warp-drive/` (P = `paper/RESPONSE-HL-5D.md`, NP = `docket68/n1star/N1STAR-PROOF.md`,
-GD = `docket68/n1star/GAUGEDECAY5.md`, and so on, as the map's own legend says). Read every source line your entry
-names. You may read more of a source to understand a step; you may not take mathematics from a text the map marks as
-replaced by a later one.
+Your chapter's entry in the source map (`maps/outline-M.md` section 4, or `maps/outline-S.md`) names its source files and
+line ranges, the composition instructions to follow (outline-M section 2) and the material to drop (section 3). Paths in
+the map are relative to `research/warp-drive/` (P = `paper/RESPONSE-HL-5D.md`, NP = `docket68/n1star/N1STAR-PROOF.md`, GD
+= `docket68/n1star/GAUGEDECAY5.md`, and so on, as the map's own legend says). Read every source line your entry names.
+You may read more of a source to understand a step; you may not take mathematics from a text the map marks as replaced by
+a later one.
 
 ## What to write
 
