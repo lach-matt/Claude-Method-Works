@@ -1214,3 +1214,5 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F-83 done (reports/F-83.md). Open: [[pending:class-domain-of-dependence]] (uniqueness on non-annular domains), R-83 m4
   (cone development with null dust needs an Einstein-null-dust characteristic existence theorem), the [Rac16, (4.21)]
   Appendix A entry: all to P-K83c. M-83b merges P-K83b with F-83's renames. Then R2-83 reads chapter 83.
+- R5-S06 NOT CONFIRMED 1M 1m 3n (reviews/R5-S06.md): the Major is the forward-loss project's chapter-26 finding,
+  confirmed; F5-S06 applies items 9-11 with the reader's corrections, the (S15) ad definition and the nits.

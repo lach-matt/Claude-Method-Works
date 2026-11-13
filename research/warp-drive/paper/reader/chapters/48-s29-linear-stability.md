@@ -170,32 +170,44 @@ and:
 (2) on 𝒟 ∩ Ω_*, ḣ ∈ H̄^(∞,(⟨ℰ^C_I⟩,ℓ_I))_b (orders at ℐ⁺; the set is bounded in t_*), and for each k there are k′ and
 C_k with ‖ḣ‖_(H^k) ≤ C_k‖(γ̇, k̇)‖_(H^(k+k′)).
 
-*Proof.* *The solution.* As in the proof of [[prop:iii-k-1-2]], 𝒟 is covered by Ω_(ext,r_1) with its past slab, then
-𝒦, then 𝒮, solved in this order. The linear theorems take the place of the nonlinear ones. The data lie in
-H^(∞,ℓ^♭_0)_b, as ℓ^♭_0 < min Re ℰ_0 and ℓ^♭_0 < ℓ_0 (the first step of the proof of [[thm:iii-c1-3-1]]).
+*Proof.* *The solution.* As in the proof of [[prop:iii-k-1-2]], 𝒟 is the union of 𝒟 ∩ Ω_(ext,r_1), of
+𝒟⁺ = 𝒟 ∩ {t_IVP ≥ 0} and of the compact set 𝒦⁻ ([[lem:s27-cover]] (b), (e)); the solution is found on each, the three
+agree where two of them are defined, and they are glued across Σ^IVP. The linear theorems take the place of the
+nonlinear ones. The data lie in H^(∞,ℓ^♭_0)_b, as ℓ^♭_0 < min Re ℰ_0 and ℓ^♭_0 < ℓ_0 (the first step of the proof of
+[[thm:iii-c1-3-1]]).
 
 - *Exterior.* On Ω_(ext,r_1) (the radius r₀ of [[thm:iv2-2-4]] being r_1), L^♮ = L^(χ_0)_(g,g) ([[lem:iii-k-1-1]] (c)).
   [[thm:iv2-2-4]] with [[cor:iv2-4-1]], at h = 0 and α₀ = ℓ^♭_0, gives the unique
   ḣ ∈ H^(k,ℓ^♭_0,(−,ℓ^♭_I))_b(Ω_(ext,r_1)) with these data, bounded by [[eq:iv2-2-3]], whose tame term vanishes at
   h = 0. [[lem:iv2-2-2]], which it uses, covers the past slab.
 
-- *Compact part.* 𝒦 is compact, and it is the domain of dependence of the past part of its boundary
-  ([[lem:s27-cover]] (c), which holds for g). L^♮ is a linear operator with smooth coefficients and principal part
-  ½□_g ⊗ id = −½g^(αβ)∂_α∂_β ⊗ id, □_g as in [[eq:iii-b-6-7]], that is with principal symbol ½g⁻¹(ζ, ζ) Id (∂ → iζ):
-  this is the normal form of the gauge of [[sec:s27-local]], at h = 0. Its data on Σ^IVP ∩ 𝒦 are given, and on the
-  parts of ∂𝒦 that 𝒦 shares with Ω_(ext,r_1) the exterior solution gives them: Σ^fut_(r_1) ∩ ∂𝒦, and, for the backward
-  problem, the past boundary of Ω_(ext,r_1) where 𝒦 reaches below it, that is where ν(r) > (r − r_1)/12, which happens
-  only for r < 2r_1, as ν(r) ≤ r/32 ([[prop:iii-k-1-2]]; the proof of [[lem:s27-cover]] (b)); it is spacelike by
-  [[lem:iii-c1-1-1]]. The linear local theory (L) of [[sec:s27-local]], with 𝒦′ := 𝒦,
-  then gives ḣ on 𝒦, forward from Σ^IVP and backward to {t_IVP = −ν}, unique, and bounded in H^k(𝒦) for every k by
-  finitely many norms of the data; uniqueness also follows from [[lem:ii-f-1-3]].
+- *Forward part.* [[thm:iv3-2-1]] with g_0 := g, h = 0, α_0 := ℓ^♭_0 and f = 0, with the data (ḣ_0, ḣ_1) on Σ^IVP,
+  gives for every k ≥ 2 a solution ḣ ∈ H^(k,ℓ^♭_0,(−,ℓ^♭_I))_b(𝒟⁺), the same for every k by its uniqueness clause,
+  bounded by [[eq:iv2-2-3]], whose tame term vanishes at h = 0; on 𝒟⁺, L^♮ = L^(χ^♮_0)_(g,g). On
+  Ω_(ext,r_1) ∩ {t_IVP ≥ 0} it equals the exterior solution: both solve the forward problem there with the data on
+  Σ^IVP_(r_1), and their difference vanishes by the forward parts of [[lem:iv2-2-2]] and [[lem:iv2-2-3]], as in the
+  uniqueness of [[thm:iv2-2-4]] (the last clause of [[thm:iv3-2-1]]).
 
-- *Slab.* [[thm:iv3-2-1]] with g_0 := g and h = 0, with the data on Σ^IVP_(r_1) and the data that 𝒦 gives on Σ_c,
-  gives ḣ on Ω^♮ = Ω_(ext,r_1) ∪ 𝒮. It equals the exterior solution on Ω_(ext,r_1), by uniqueness there.
+- *Backward part.* 𝒦⁻ is compact, and for the reversed time orientation it is the domain of dependence of
+  Σ^IVP ∩ {r ≤ 2R_8} within 𝒟⁻ = 𝒟 ∩ {t_IVP ≤ 0}: a compact set of the second kind of [[sec:s27-local]]
+  ([[lem:s27-cover]] (e), which holds for g). L^♮ is a linear operator with smooth coefficients and principal part
+  ½□_g ⊗ id = −½g^(αβ)∂_α∂_β ⊗ id, □_g as in [[eq:iii-b-6-7]], that is with principal symbol ½g⁻¹(ζ, ζ) Id
+  (∂ → iζ): this is the normal form of the gauge of [[sec:s27-local]], at h = 0. Its only data are those on
+  Σ^IVP ∩ 𝒦⁻. The linear local theory (L) of [[sec:s27-local]], with 𝒦′ := 𝒦⁻, then gives ḣ on 𝒦⁻, backward from
+  Σ^IVP to {t_IVP = −ν}, unique in H²(𝒦⁻), and bounded in H^(k+1)(𝒦⁻) for every k ≥ 4 by finitely many norms of the
+  data; uniqueness also follows from [[lem:ii-f-1-3]]. On Ω_(ext,r_1) ∩ 𝒦⁻, which lies in the past slab, it equals
+  the exterior solution, by the uniqueness clause of (L), as in the proof of [[prop:iii-k-1-2]] (*Backward part*).
 
-The three solutions agree on overlaps by [[lem:ii-f-1-3]] with τ := t_IVP, as in the proof of [[prop:iii-k-1-2]].
+*Gluing.* 𝒟⁺ ∩ 𝒦⁻ = Σ^IVP ∩ {r ≤ 2R_8}, where both solutions take the data, and each point of 𝒟 off
+Σ^IVP ∩ {R_ν ≤ r ≤ r_1} has a neighbourhood in 𝒟 contained in one of the three sets, as in the proof of
+[[prop:iii-k-1-2]] (*Gluing*). Near a point p of Σ^IVP with R_ν ≤ r(p) ≤ r_1 and for m ≥ 2, the forward solution is
+the restriction to {t_IVP ≥ 0} of a C^m tensor u_1 on a small coordinate ball V about p (Sobolev embedding, its class
+imposing H^k away from infinity for every k), and the backward one the restriction of the solution u_2 on the slab of
+the proof of (L), which is C^m and solves L^♮u_2 = 0 below Σ^IVP near p, beyond 𝒟 as well. [[lem:s27-gluing]], for
+the linear operator L^♮, with A₁ := V ∩ {t_IVP ≥ 0}, A₂ := V ∩ {t_IVP ≤ 0} and the one hypersurface Σ^IVP ∩ V,
+spacelike for g, shows that ḣ is C^m on V ∩ 𝒟. So ḣ is smooth on 𝒟, up to its boundary.
 *The uniqueness classes:* H^(max(k,1),ℓ^♭_0,(−,ℓ^♭_I))_b of [[thm:iv2-2-4]] on Ω_(ext,r_1), that of [[thm:iv3-2-1]] on
-Ω^♮, with max(k, 1) as in [[thm:iv2-2-4]], and H¹ on 𝒦 (the energy estimate behind (L) of [[sec:s27-local]]). Each
+𝒟⁺, H^(max(k,2),ℓ^♭_0,(−,ℓ^♭_I))_b(𝒟⁺) (k ≥ 1), and H² on 𝒦⁻ ((L) of [[sec:s27-local]]). Each
 is preserved by every isometry of g that fixes t and |x|, the weights being functions of (t, |x|) ([[eq:iii-b-2-2]])
 and ρ′_I a function of (t, |x|) ([[sec:s27-cover]]).
 

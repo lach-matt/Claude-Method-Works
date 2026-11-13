@@ -1845,13 +1845,15 @@ energies of weight a_0 are bounded by those of weight a, uniformly in σ, and te
 of [[prop:own-uniqueness]]); so it is the only continuation in that class.
 
 (2) On S, Step 6 of the proof of [[thm:own-continuation]] gives the class and ‖·‖_(d_1) ≤ C(λ + ε_B). On
-Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}, which [[lem:vii-1-2]] (b) places in the interior of Ω′_+, the data are those of g_λ. The
-restriction of g_λ to Ω′ satisfies the conclusions of [[thm:uniform-existence]] at the order k_P ≥ d_1 + 14
-([[cor:own-p-order]], item 4 of [[thm:past-construction]]), so the proof of [[lem:vii-1-1]] applies to it with
-J := d_1 + 10 and K ≥ J + 4: |∂^j(g_λ − g_b0)| ≤ C λ on Ω′_+ for j ≤ J. As in the proof of [[cor:vii-2-3]], the data
-differ there from (γ_b0, k_b0) by C λ in C^(d_1+4), and the norm of [[sec:s27-class]] with ℰ_0 = ℰ_0^½ is bounded as in
-[[lem:vii-0-1]] ([[lem:half-class]] (b)). The data are smooth across r = 4R, g being smooth there, and satisfy the
-constraint equations ([[prop:own-vacuum]]). So ‖·‖_(d_1) ≤ C(λ + ε_B) < ε for λ ≤ λ_2.
+Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}, which [[lem:vii-1-2]] (b) places in the interior of Ω′_+, the data are those of g_λ. On Ω′,
+g_λ satisfies the conclusions of [[thm:uniform-existence]] at the regularity k_P, 𝒩_(k_P) ≤ M_(k_P) λ^K
+([[cor:own-p-order]]). The proof of [[lem:vii-1-1]], run for this solution with the energy order k_P in place of K and
+with J := d_1 + 10, applies, as k_P ≥ J + 3 and K ≥ J + 4: |∂^j(g_λ − g_b0)| ≤ C λ on Ω′_+ for j ≤ J. As in the proof
+of [[cor:vii-2-3]], the data differ there from (γ_b0, k_b0) by C λ in C^(d_1+4). The data are smooth across r = 4R, g
+being smooth there, and satisfy the constraint equations ([[prop:own-vacuum]]). The norm of [[sec:s27-class]] with
+ℰ_0 = ℰ_0^½ is bounded, as in the proof of [[lem:vii-0-1]], by C_R times the C^(d_1+3)-norm of the deviation on the
+compact set Σ^IVP ∩ {r_♭ ≤ r ≤ 4R} plus its norm on S, which Step 6 of the proof of [[thm:own-continuation]] bounds.
+So ‖·‖_(d_1) ≤ C(λ + ε_B) < ε for λ ≤ λ_2.
 
 (3) The data are G-invariant (g is), vacuum, in the half-integer class and below the thresholds of [[prop:vii-3-2]] and
 [[cor:s27-rate]]. By [[thm:own-half-settling]] they have a G-invariant vacuum development settling to g_(m′,0)
