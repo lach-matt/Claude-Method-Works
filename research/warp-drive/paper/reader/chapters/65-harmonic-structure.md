@@ -69,8 +69,8 @@ a function of r. For a 1-form X near the horizon sphere the *horizon charge* is
 
 *Cut-offs.* χ_K denotes the cut-off of [[sec:iii-b-5]] with the threshold of [[sec:iii-k-0]], as in [[thm:viii-2-2]]:
 χ_K = 0 on {t^♭_* < T_K}, supp χ^♭_K ⊂ int{χ_K = 1}, and there is T′_♭ ≥ 60R₁ with χ^♭_K = 1 on
-{|x| < t/10, t > T′_♭}. The cut-off χ_K of [[eq:iii-h-1-2]] is a different function; we write it
-χ_aug(t_*, x) := χ_+(t_*)χ_c(|x|/t_*), and it builds the augmentation of [[sec:hg-augmented]].
+{|x| < t/10, t > T′_♭}. The cut-off χ_K of [[eq:iii-h-1-2]] is a different function; as in [[sec:iii-i4-1]] we write it
+χ^H_K(t_*, x) := χ_+(t_*)χ_c(|x|/t_*), and it builds the augmentation of [[sec:hg-augmented]].
 
 ### The structure in the class {#sec:hg-structure}
 
@@ -368,7 +368,7 @@ The spaces 𝒳_σ, 𝒴_σ, 𝒳_0 = {u ∈ H̄_b^(s,α) : P̂(0)u ∈ 𝒴_0} 
 
 **Definition {#def:gd-r2-1}** (The augmented operator.) Put
 
-    f_* := □(χ_augW*) = [□, χ_aug]W*,      f̂_*(σ) := ∫ e^(iσt_*)f_* dt_*,      ĝ_*(σ) := iσ⁻¹Ψ(σ, ·)W*,
+    f_* := □(χ^H_KW*) = [□, χ^H_K]W*,      f̂_*(σ) := ∫ e^(iσt_*)f_* dt_*,      ĝ_*(σ) := iσ⁻¹Ψ(σ, ·)W*,
 
 with Ψ of [[lem:iii-h-2-5]], and, for (u, c) with u a section over X and c ∈ ℂ,
 
@@ -429,7 +429,7 @@ with C independent of f:
 
 (ii) u_sing = β(t_*, r)W*, where for one function B on ℝ with Σ_(j≤k)‖(t∂_t)^jB‖_(L²(ℝ)) ≤ C‖f‖,
 
-    ∂_(t_*)β(·, r) = (∂_tχ_aug)(·, r) ∗ B,        β(·, r) − β(·, r′) = (χ_aug(·, r) − χ_aug(·, r′)) ∗ B,
+    ∂_(t_*)β(·, r) = (∂_tχ^H_K)(·, r) ∗ B,        β(·, r) − β(·, r′) = (χ^H_K(·, r) − χ^H_K(·, r′)) ∗ B,
 
 ∗ the convolution in t_*;
 
@@ -459,9 +459,9 @@ reduce to one. What these sections take from L_b holds for □ as follows.
   ∂_(t_*)u_sing at (β, −ℓ + 1) give u_sing ∈ H^((𝗌−1;k),(α_sf,−1))_(3b;b)(M_0). With (i) this is (iii).
 
 For (ii): by the proof of [[lem:iii-h1-5-1]], ℱ(∂_(t_*)u_sing) = χ(|σ|)Ψb̂_1W* on ℝ, where Ψ(·, r) is the Fourier
-transform of ∂_tχ_aug(·, r) ([[lem:iii-h-2-5]]). B := ℱ⁻¹(χb̂_1) is bounded as stated by [[lem:iii-h1-4-2]] and
+transform of ∂_tχ^H_K(·, r) ([[lem:iii-h-2-5]]). B := ℱ⁻¹(χb̂_1) is bounded as stated by [[lem:iii-h1-4-2]] and
 Plancherel's theorem, as ℱ(t∂_tB) = −(1 + σ∂_σ)ℱB. The first identity is then the convolution theorem. For the
-second, ψ := χ_aug(·, r) − χ_aug(·, r′) lies in C_c^∞([1, max(2, 4r, 4r′)]) (both functions vanish for t_* ≤ 1
+second, ψ := χ^H_K(·, r) − χ^H_K(·, r′) lies in C_c^∞([1, max(2, 4r, 4r′)]) (both functions vanish for t_* ≤ 1
 and equal 1 for t_* ≥ max(2, 4r, 4r′)), so β(·, r) − β(·, r′) − ψ ∗ B has zero t_*-derivative; it is square integrable as
 t_* → −∞, where u_sing = −u′, so it vanishes. (i) and (ii) extend to general f by density, u′ and B by continuity. ∎
 
@@ -505,7 +505,7 @@ q = r³(∂_vβW*_r − ∂_rβW*_v) + 2β; at r_h, r_h³φ + q = 2β − 2r_h�
     Q[βW*] = 4π²(β − r_h∂_rβ)|_(r=r_h),     ∂_r at fixed v.
 
 By [[thm:gd-r2-5]] (ii), ∂_rβ|_v = ∂_rβ|_(t_*) + (∂_rt_*)|_v∂_(t_*)β is the convolution of B with a kernel in C_c^∞
-(∂_rχ_aug and ∂_tχ_aug at r near r_h), and |B(t)| ≤ Ct^(−1/2)‖f‖ for t ≥ 1 by [[lem:gd-r2-6]] with H = ℂ.
+(∂_rχ^H_K and ∂_tχ^H_K at r near r_h), and |B(t)| ≤ Ct^(−1/2)‖f‖ for t ≥ 1 by [[lem:gd-r2-6]] with H = ℂ.
 
 (3) Q[u′] involves u′ and its first derivatives on the horizon sphere, so |Q[u′](v)| ≤ C‖u′(t_*)‖_(H²(𝒦)), 𝒦 a compact
 neighbourhood of the horizon sphere in X, by the trace theorem. By [[thm:gd-r2-5]] (i), whose norm on compact r-sets
@@ -515,10 +515,10 @@ controls t∂_t and 𝗌 ≥ 2 derivatives in L²(dt dx), and [[lem:gd-r2-6]], �
 β(t_*, r) = β(t_*, r_h) + (ψ ∗ B)(t_*) = c_f + O(t_*^(−1/2)‖f‖), with ψ as in the proof of [[thm:gd-r2-5]].
 
 (5) u − c_fW* = u′ + (β − c_f)W*. The first term is bounded by [[thm:gd-r2-5]] (i) and [[lem:gd-r2-6]] in
-H^(j+3) ⊂ C^j on compact subsets of X. For the second, ∂^i_(t_*)(β − c_f) = (∂^i_tχ_aug) ∗ B −
+H^(j+3) ⊂ C^j on compact subsets of X. For the second, ∂^i_(t_*)(β − c_f) = (∂^i_tχ^H_K) ∗ B −
 ∂^(i−1)_(t_*)ℓ(f)/(4π²) for i ≥ 1, as dv_h/dt_* = 1; the first term is bounded by the supremum of |B| over a window of
 bounded length, and the second by [[lem:gd-r2-6]] applied to ℓ(f), whose (t∂_t)^i are square integrable for i ≤ k.
-The r-derivatives of β are convolutions of B with kernels in C_c^∞. The kernels ∂_tχ_aug, ∂_rχ_aug and ψ are supported
+The r-derivatives of β are convolutions of B with kernels in C_c^∞. The kernels ∂_tχ^H_K, ∂_rχ^H_K and ψ are supported
 in [1, 4 max(R′, 1)]. For t_* ≥ 8 max(R′, 1) the convolutions sample B on [t_*/2, t_*], where [[lem:gd-r2-6]] gives
 O(t_*^(−1/2)‖f‖). On the bounded range 4 max(R′, 1) ≤ t_* ≤ 8 max(R′, 1), B = ℱ⁻¹(χb̂_1) is bounded,
 |B| ≤ ‖χb̂_1‖_(L¹) ≤ C‖f‖, and C‖f‖ ≤ C′t_*^(−1/2)‖f‖ there.
@@ -651,21 +651,21 @@ H^(∞,(b_I+1,b_++2,1/2))_b(Ω_*, μ_b)^(•,−), the space of [[eq:ii-f1-1-4]]
 
 *Proof.* *The conditions.* S̄ = 0 for □ ([[lem:iii-d-3-1]] at γ_Υ = 0), so they read b_I < 3/2 and b_+ < b_I. *Weights.*
 A conormal tensor whose pointwise orders at ℐ⁺, ι⁺ and K⁺ exceed b_I + 1, b_+ + 2 and ½ lies in the space, the density
-μ_b being a b-density. *ℐ⁺.* There F_Y = E^ΥGġ, with E^Υ_(g,∞)k = −γ_Υ(2ι_(g⁻¹c_Υ)k − (2/3)(1 − e_Υ)c_Υ tr_g k) and
-c_Υ = |x|⁻¹dt. The vector g⁻¹c_Υ has no angular component, and the other term is a trace; G_gġ differs from ġ by a
-multiple of g tr_gġ. So E^ΥGġ does not involve the trace-free angular part π̸₀ġ of [[sec:iii-c-3]]. Near ℐ⁺, ġ has the
-classes of [[eq:iii-c-3-3]] slot by slot (h′ ∈ 𝒳^∞_(J,ex) by [[def:iii-j3-1-1]], χ_−ḣ by [[prop:viii-1-2]] (2), the
-terms with χ_K vanishing there), with the exponents of [[eq:iii-c-3-2]]: above 3/2 + 2γ_Υ for π_C, ϰ_♯ for π₀₁,
-3/2 + γ_Υ for π_(1/), ϰ_♯ and 3/2 + 2γ_Υ for π₁₁, and 3/2 for π̸₀, the radiation field. Without π̸₀ the least is ϰ_♯,
-as e_Υ ≥ 0, and |x|⁻¹ adds one: the ℐ⁺-order is ϰ_♯ + 1 − η > 5/2 > b_I + 1. *ι⁺.* On {χ_K = 1} the order is
-ϰ_♯ + 1 − η ([[prop:gd-r3-2]]). Elsewhere near ι⁺: ġ − χ_KṁK_V = h′ + h_rem(q′) + Dh_tot(p⃗′) has ι⁺-order ϰ_♯ − η, as
-the terms of h_tot lie in 𝒜^𝒢, 𝒜^(𝒢+1) ([[lem:iii-i7-2-2]], 𝒢 = (2, 0) ∪ (2 + ℰ_ind), [[eq:iii-i7-1-1]]) and
-𝒜^((λ,k)+ℱ) ([[lem:iii-i9-2-2]] (b)), so E^ΥG of it has ι⁺-order ϰ_♯ + 1 − η; Dϑ_tot(p⃗′) has
-min(3, ϰ_♯ + 1) − η ([[eq:iii-i7-2-1]], [[lem:iii-i9-2-2]] (b)); [Θ, χ_K]K_V has order 3, as dχ_K ∈ ρ_+C^∞ and K_V is
-stationary in |x|⁻²C^∞(X̄); [□, χ_K] = (□_0χ_K) − 2∇_(∇χ_K) gains two orders near (ι⁺)°, χ_K being homogeneous of
-degree 0 there, and W**_H has order 1 on (ι⁺)°, as |rA|, |rB| and |r∂_μT_μ| are bounded and r(v/2)|W*| ≤ C t_*r⁻¹ is
-bounded there; so [□, χ_K]W**_H has order 3. Every one of these exceeds b_+ + 2 = β + 5/2. *K⁺.* On {χ_K = 1},
-α − 2 − η > ½; supp dχ_K and {χ_K < 1} stay away from K⁺. *Support.* χ(t^♭_*)F_Y vanishes on {t^♭_* < 2}. ∎
+μ_b being a b-density. *ℐ⁺.* There F_Y = E^ΥGġ, with E^Υ_(g,∞)k = −γ_Υ(2ι_(g⁻¹c_Υ)k − (2/3)(1 − e_Υ)c_Υ tr_g k) and c_Υ
+= |x|⁻¹dt. The vector g⁻¹c_Υ has no angular component, and the other term is a trace; G_gġ differs from ġ by a multiple
+of g tr_gġ. So E^ΥGġ does not involve the trace-free angular part π̸₀ġ of [[sec:iii-c-3]]. Near ℐ⁺, ġ has the classes of
+[[eq:iii-c-3-3]] slot by slot (h′ ∈ 𝒳^∞_(J,ex) by [[def:iii-j3-1-1]], χ_−ḣ by [[prop:viii-1-2]] (2), the terms with χ_K
+vanishing there), with the exponents of [[eq:iii-c-3-2]]: above 3/2 + 2γ_Υ for π_C, ϰ_♯ for π₀₁, 3/2 + γ_Υ for π_(1/),
+ϰ_♯ and 3/2 + 2γ_Υ for π₁₁, and 3/2 for π̸₀, the radiation field. Without π̸₀ the least is ϰ_♯, as e_Υ ≥ 0, and |x|⁻¹
+adds one: the ℐ⁺-order is ϰ_♯ + 1 − η > 5/2 > b_I + 1. *ι⁺.* On {χ_K = 1} the order is ϰ_♯ + 1 − η ([[prop:gd-r3-2]]).
+Elsewhere near ι⁺: ġ − χ_KṁK_V = h′ + h_rem(q′) + Dh_tot(p⃗′) has ι⁺-order ϰ_♯ − η, as the terms of h_tot lie in 𝒜^𝒢,
+𝒜^(𝒢+1) ([[lem:iii-i7-2-2]], 𝒢 = (2, 0) ∪ (2 + ℰ_ind), [[eq:iii-i7-1-1]]) and 𝒜^((λ,k)+ℱ) ([[lem:iii-i9-2-2]] (b)), so
+E^ΥG of it has ι⁺-order ϰ_♯ + 1 − η; Dϑ_tot(p⃗′) has min(3, ϰ_♯ + 1) − η ([[eq:iii-i7-2-1]], [[lem:iii-i9-2-2]] (b));
+[Θ, χ_K]K_V has order 3, as dχ_K ∈ ρ_+C^∞ and K_V is stationary in |x|⁻²C^∞(X̄); [□, χ_K] = (□_0χ_K) − 2∇_(∇χ_K) gains
+two orders near (ι⁺)°, as ∂χ_K ∈ ρ_+C^∞ there ([[sec:iii-i4-1]]) and Cartesian derivatives map ρ_+^aC^∞ into
+ρ_+^(a+1)C^∞, and W**_H has order 1 on (ι⁺)°, as |rA|, |rB| and |r∂_μT_μ| are bounded and r(v/2)|W*| ≤ C t_*r⁻¹ is
+bounded there; so [□, χ_K]W**_H has order 3. Every one of these exceeds b_+ + 2 = β + 5/2. *K⁺.* On {χ_K = 1}, α − 2 − η
+> ½; supp dχ_K and {χ_K < 1} stay away from K⁺. *Support.* χ(t^♭_*)F_Y vanishes on {t^♭_* < 2}. ∎
 
 Without the term ṁ□(χ_KW**_H) the forcing term near K⁺ would be J_h − ṁΘ(K_V), and Θ(K_V) = −r⁻³dv near the horizon
 is stationary and nonzero, of K⁺-order 0, below the ½ of the space. That is why the mass change is carried
@@ -1052,7 +1052,7 @@ and let u be the forward solution of □u = f ([[thm:ii-f1-1-1]] at P = P_0 = �
 (i) u = u′ + u_sing with u′ ∈ H^(∞,(γ_+−ϵ,γ_+,α_K))_b(M′);
 
 (ii) u_sing = β(t_*, r)W*, where for one B ∈ H^(∞,α_K)_b(ℝ) ([[def:ii-g1-2-1]]: ⟨t⟩^(α_K−½)∂_t^p(t∂_t)^qB ∈ L²(dt)),
-∂_(t_*)β(·, r) = (∂_tχ_aug)(·, r) ∗ B and β(·, r) − β(·, r′) = (χ_aug(·, r) − χ_aug(·, r′)) ∗ B;
+∂_(t_*)β(·, r) = (∂_tχ^H_K)(·, r) ∗ B and β(·, r) − β(·, r′) = (χ^H_K(·, r) − χ^H_K(·, r′)) ∗ B;
 
 (iii) u_sing, and so u, lies in H^(∞,(γ_+−ϵ,γ_+−ϵ,α_K−1))_b: one order is lost at K⁺ and none at ι⁺.
 
@@ -1119,10 +1119,10 @@ with c_f of [[eq:gd-r2-2]] and ‖f‖ a norm of [[eq:gd-r5-1]]. In particular: 
 
 *Proof.* The steps (1)–(5) of the proof of [[thm:gd-r2-7]], with three replacements. In (2): |B(t)| ≤ C⟨t⟩^(−α_K)‖f‖,
 by [[lem:gd-r2-6]] with H = ℂ on [T/2, 4T], as ⟨t⟩^(α_K−½)B and ⟨t⟩^(α_K−½)t∂_tB in L²(dt) give
-∫_(T/2)^(4T)(|B|² + |t∂_tB|²) dt ≤ CT^(1−2α_K); the kernels ∂_rχ_aug, ∂_tχ_aug and ψ are supported in [1, 4 max(R′, 1)],
+∫_(T/2)^(4T)(|B|² + |t∂_tB|²) dt ≤ CT^(1−2α_K); the kernels ∂_rχ^H_K, ∂_tχ^H_K and ψ are supported in [1, 4 max(R′, 1)],
 so for t_* ≥ 8 max(R′, 1) the convolutions sample B on [t_*/2, t_*] and are O(t_*^(−α_K)). In (3):
 |Q[u′](v)| ≤ C‖u′(t_*)‖_(C¹(𝒦)) ≤ Ct_*^(−α_K)‖f‖, by b-Sobolev embedding of [[thm:gd-r5-1]] (i) near K⁺. In (5):
-u′ = O(t_*^(−α_K)) the same way, with its b-derivatives t_*∂_(t_*) and ∂_x; ∂_(t_*)β = ∂_tχ_aug ∗ B, and
+u′ = O(t_*^(−α_K)) the same way, with its b-derivatives t_*∂_(t_*) and ∂_x; ∂_(t_*)β = ∂_tχ^H_K ∗ B, and
 ∂_(t_*)c_f = ℓ(f)/(4π²) is O(t_*^(−α_K)) by b-Sobolev embedding of f near K⁺. Density as in [[thm:gd-r2-7]], by the
 bounds of [[thm:gd-r5-1]]. ∎
 

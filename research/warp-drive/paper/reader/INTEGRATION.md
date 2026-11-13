@@ -683,3 +683,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   chapters 0-2 agree. Minor M1: thm:settling chooses ε_K before the data and r_♭ (chapter 60 fixes them first) and
   does not name the Tangherlini background of mass μ_end. Nits N1-N4. Fifth fix running together with chapter 60's S⁰
   (about eight sites).
+- Proof E margins second reading (R2-P-E-margins): both Majors and the 13 other items repaired; bend sum exactly
+  −0.0011595971 ≥ −0.0011596; μ ≤ 3.79033576 ≤ 3.79034; lens proof sound with R_p ≥ R_*; cascaded constants hold
+  (0.1084602, |g′| 0.01569509); every Σ_τ0, Σ′ and seed row reproduces (worst cell −3.04218·10⁻⁴); row 99 right; C2,
+  its marker and the interpolant clause gone. Minors: Σ_τ0 acausal below R_* for the lens's closing sentence; Rácz
+  (4.22) (arXiv p. 13) into Appendix A with the complex-roots line. Second fix running (adds the Appendix A entry).
