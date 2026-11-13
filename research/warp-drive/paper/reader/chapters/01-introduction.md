@@ -144,12 +144,12 @@ no data imposed far out ([[ch:data]]); (7) a gauge hierarchy making D vanish to 
 [[thm:settling]] is stated outside the black hole, and its development also reaches inside the black hole after the
 shell, up to the curvature boundary ([[prop:interior]]). Below the inner boundary the theorems are not silent: the
 boundary sits at the curvature scale l5, which is arbitrary, and a smaller l5 puts every point with r > 0 and v ≤
-v_end + T inside D_T, since r_q(v) = (√72 μ(v) l5²)^(1/4) tends to 0 with l5, the constants then depending on l5; at r = 0 the
-limit itself is singular, its Kretschmann scalar being 72 μ²/r⁸ ([[prop:vaidya]]). The thresholds λ0, λ1 and δ exist by
-the proofs and are not evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and [[ch:explicit-constants]]
-states where the explicit evaluation of λ1 and δ stops. A high-frequency theorem, whose expansion parameter is the
-wavelength over the curvature length, does not apply at a prescribed wavelength of 10 l5; there existence holds where
-the solution is the seed ([[thm:ten-l5]]). [[ch:scope]] collects these statements.
+v_end + T inside D_T, since r_q(v) = (√72 μ(v) l5²)^(1/4) tends to 0 with l5, the constants then depending on l5; at
+r = 0 the limit itself is singular, its Kretschmann scalar being 72 μ²/r⁸ ([[prop:vaidya]]). The thresholds λ0, λ1 and δ
+exist by the proofs and are not evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and
+[[ch:explicit-constants]] states where the explicit evaluation of λ1 and δ stops. A high-frequency theorem, whose
+expansion parameter is the wavelength over the curvature length, does not apply at a prescribed wavelength of 10 l5;
+there existence holds where the solution is the seed ([[thm:ten-l5]]). [[ch:scope]] collects these statements.
 
 ### Organisation of the paper {#sec:organisation}
 

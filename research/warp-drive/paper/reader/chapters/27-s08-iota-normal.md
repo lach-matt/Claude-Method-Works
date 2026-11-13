@@ -564,7 +564,7 @@ for δ_s small the first part is absorbed by (c/2)‖Ǎw‖²_𝐭, and the seco
 ⟨Fw, w⟩ ≥ −C‖Gw‖²_(𝐤+𝐭−K𝐞), which is of the class of the residual errors for K large. (2) In [[prop:i-b-4-5]] and
 [[lem:i-b-5-1]] the semiclassical weight h^(−𝖻) is a constant on phase space at fixed h; here ρ_sf^(−𝖻) is not, and its
 derivative along 𝖧 is the term 2𝖻_𝐤ς𝖧 log ρ_sf⁻¹ of (D7), smooth near 𝒫_ι: it is part of β, bounded on U_1 in
-[[prop:i-b-4-5]] (absorbed by M there) and evaluated at the radial set in [[lem:i-b-5-1]], exactly as the term with
+[[prop:i-b-4-5]] (absorbed by M_1 there) and evaluated at the radial set in [[lem:i-b-5-1]], exactly as the term with
 log⟨x⟩ is in [[ch:s02]]. Nothing else in those proofs depends on 𝖻 being multiplied by a constant. ∎
 
 We state the consequences used in [[sec:ii-f-3]] and [[sec:ii-f-4]]. Let Z ⊂ {|z| ∈ [½, 2]} be compact, c_z ∈ {1, z⁻¹},
@@ -732,7 +732,7 @@ of 𝔢 (in W_j*); these are first-order operators with an extra factor ρ_sf, i
 η_cħ). The other two terms are h times first-order semiclassical operators, also linear in the fibre variables at the
 level 𝐦 − 𝐞 (the term −2h²R⁻¹R∂_R(c + S_0) = −2ĥR(1 + ĥ)iV_1(…) even vanishes at R = 0), plus zeroth-order terms in
 Ψ^(𝐦−2𝐞). The real part of all this is 𝒜′. Near ℐ⁺ the same holds with [[eq:ii-f-1-11]]: h²x_I²[−½(x_I∂_(x_I))² +
-x_I²(¼(x_I∂_(x_I))² + Δ)] is a sum of squares of hx_I∂_(x_I), hx_IZ_a with the factors x_I²(½ + ¼x_I²), x_I².
+x_I²(−¼(x_I∂_(x_I))² + Δ)] is a sum of squares of hx_I∂_(x_I), hx_IZ_a with the factors x_I²(½ + ¼x_I²), x_I².
 
 (d) *Near F_I.* With D := x_I∂_(x_I), D* = −D for μ_b, and (x_I²D²)* = D²x_I² = x_I²(D + 2)², so Im(−½x_I²D²) =
 (1/2i)·½x_I²((D + 2)² − D²) = −ix_I²(D + 1), and h² times it has symbol hx_I²ξ. For X := x_I²(hD)(c + S_0), of principal
@@ -1071,8 +1071,10 @@ replaced by W_1 + 2. For v on ι⁺ and orders 𝐨 put
 
 ‖·‖_(𝐨;k) is the norm of H^((𝗌;k),(a,c,l,𝖻))_((0ħ,cħ,h);b) (k orders of b-regularity, (S3) of [[sec:ii-a-3]] with 𝒲 =
 C^∞_b𝒱_b(ι⁺)), up to equivalence uniform in h. The norm ‖·‖_(𝐨;k,+), with the constant factors h^(−j), is the one
-[[prop:ii-f-6-2]] ([Hin26c, Proposition 10.12]) needs: under the Mellin transform τ∂_τ becomes iσ, |σ| = |z|h⁻¹, which
-is the factor |σ|^j of [Hin26c, (10.47)].
+[[prop:ii-f-6-2]] ([Hin26c, Proposition 10.12]) needs, through the Plancherel identity [[eq:ii-f-6-4]] of
+[[lem:ii-f-6-1]]: under the Mellin transform τ∂_τ becomes iσ and |σ| = |z|h⁻¹, so the square of ‖·‖_(𝐨;k,+) is
+equivalent, uniformly in h, to Σ_(j=0)^k |z|^(−2j)|σ|^(2j)‖·‖²_(𝐨;k−j). These are weights |σ|^(2j) against squared
+norms; [Hin26c, (10.47)] prints |σ|^j in their place.
 
 With L := 2hR⁻¹(iz + hR∂_R), and the decomposition P⁽⁰⁾(0, ω, ρ∂_ρ, ∂_ω) = ((ρD_ρ)² + Δ_(𝕊³)) Id + P⁽⁰⁾_1 of
 [[sec:ii-f-3-2]], P⁽⁰⁾_1 = A(ω)ρ∂_ρ + Σ_b B_b(ω)Z_b + C(ω) (∂_ω written in the spanning family Z_b, with smooth
@@ -1297,9 +1299,10 @@ Its principal symbol is a convex combination of positive definite forms, so P̂ 
 Fix a smooth positive density ν_0 on X̂° equal to x⁻⁴|dx dω| on {x < 4} (a 0-density) and put μ_b := x³ν_0 there (a
 b-density, a constant multiple of that of ι⁺, as |dR/R| = 2|dx/x|). The spaces x^αH^m_0(X̂) are taken with μ_b. Near ∂X̂
 they coincide with the 0,b-spaces of ι⁺ near ι⁺ ∩ ℐ⁺ ([[sec:ii-a-6-2]], the cells U_(3,jk±)), and with the spaces of
-[Hin23e, Section 3.1] under the identification g ↦ gν_0^(1/2) of functions with 0-half-densities: as ∫|x^(−α)g|²μ_b =
-∫|x^(−α+3/2)g|²ν_0, x^αL²(μ_b) corresponds to x^(α−3/2)L²(X̂, ⁰Ω^(1/2)), which is the space of [Hin23e, (3.23)] at the
-weight α (with n − 1 = 3, n = dim X̂); and for integer m both families of norms are equivalent to
+[Hin23e, Section 3.1, p. 31] (the pages of [Hin23e] cited in this chapter are those of its arXiv version 1) under the
+identification g ↦ gν_0^(1/2) of functions with 0-half-densities: as ∫|x^(−α)g|²μ_b = ∫|x^(−α+3/2)g|²ν_0, x^αL²(μ_b)
+corresponds to x^(α−3/2)L²(X̂, ⁰Ω^(1/2)), which is the space of [Hin23e, (3.23), p. 31] at the weight α (with n − 1 = 3,
+n = dim X̂); and for integer m both families of norms are equivalent to
 Σ_(|γ|≤m)‖x^(−α)V^γu‖_(L²(μ_b)) over products of the 0-fields x∂_x, xZ_a (elliptic regularity in either calculus),
 negative orders being the duals. Under this identification P̂ is an operator on 0-half-densities with the coefficients
 [Hin23e, (1.3)] it has on functions. Only integer orders are used in this section's appeals to X̂.
@@ -1379,11 +1382,16 @@ b > 3), ∫^∞ s^(α−a−1)ds < ∞ (as a > α). For fixed z′ substitute z 
 Cx^ax′^b, which is covered by (i). So T_(α,α) is bounded.
 
 With a = α_1 and b = 3 − α_0, (i) and (ii) bound the residual parts of Q and Q′ on x^αL²(μ_b). Their kernels are
-conormal ([Hin23e, Section 2]: 𝒜^(α_lb,α_rb) is stable under the vector fields tangent to lb and rb), and the 0-fields
-of either factor lift to X̂²_0 tangent to lb, rb and ff ([Hin23e, Section 1]); so the same bounds hold after applying
-them on either side, and these parts map x^αH^(m−2)_0 to x^αH^m_0 for every integer m. The part in Ψ^(−2)_0 does so by
-the boundedness of the small 0-calculus on weighted 0-Sobolev spaces ([MM87], which [Hin23e, Corollary 3.3] uses in the
-same way). By (i) with α_R = α and α < α_L < α_1, R′ maps x^αH^m_0 boundedly into x^(α_L)H^(m+1)_0, which embeds
+conormal: by the definition of these classes in [Hin23e, Section 2, p. 9], a kernel of Ψ_0^(−∞,(α_lb,α_rb)) stays
+bounded by Cρ_lb^(α_lb)ρ_rb^(α_rb) after any number of smooth vector fields on X̂²_0 tangent to lb and rb are applied to
+it, and a kernel of Ψ^(−∞,(α_0,α_1)) likewise on X̂² with the vector fields tangent to its two boundary hypersurfaces.
+The 0-fields of the left factor lift to X̂²_0 as smooth vector fields tangent to ff and rb and vanishing at lb ([MM87,
+Lemma (5.10), p. 284], where lb is the top face and rb the bottom face), and those of the right factor, by the symmetry
+of X̂²_0 that exchanges the factors, as smooth vector fields tangent to ff and lb and vanishing at rb; on X̂² the
+0-fields of either factor are tangent to both boundary hypersurfaces. So the same bounds hold after applying them on
+either side, and these parts map x^αH^(m−2)_0 to x^αH^m_0 for every integer m. The part in Ψ^(−2)_0 does so because the
+small 0-calculus is bounded on weighted 0-Sobolev spaces, an operator of Ψ^m_0 mapping x^αH^s_0 to x^αH^(s−m)_0
+[[pending:issue-1]]; the proof of [Hin23e, Corollary 3.3, pp. 31–32] uses this in the same way. By (i) with α_R = α and α < α_L < α_1, R′ maps x^αH^m_0 boundedly into x^(α_L)H^(m+1)_0, which embeds
 compactly in x^αH^m_0 ([[lem:ii-f-5-3]]); likewise R (a = ∞, b = 3 − α_0 > 3 − α) is compact on x^αH^(m−2)_0. So Q′P̂ =
 I − R′ and P̂Q = I − R make P̂ Fredholm at the weight α = 2γ_I: finite-dimensional kernel and closed range from the
 first, finite codimension from the second. This is [Hin23e, Corollary 3.6, p. 34] at α = 2γ_I, whose proof [Hin23e]
@@ -1535,7 +1543,7 @@ R^(iσ)R²N⁰(σ)R^(−iσ) = −2R(R∂_R)(R∂_R − iσ + c + S_0) + P⁽⁰
 
     N¹(σ) := R^(iσ)R²N⁰(σ)R^(−iσ) = −2∂_v(v∂_v + iσ − c − S_0) + P⁽⁰⁾(0, ω, v∂_v + iσ, ∂_ω)   {#eq:ii-f-5-11}
 
-([Hin26c, before (10.40)], with c = 1 there), and N¹(σ)u_0 = R^(iσ)R²N⁰(σ)u = 0 on {v > 0}. Let u^♯ be the extension of
+([Hin26c, before (10.39)], with c = 1 there), and N¹(σ)u_0 = R^(iσ)R²N⁰(σ)u = 0 on {v > 0}. Let u^♯ be the extension of
 u_0 by 0 to v ≤ 0. Then N¹(σ)u^♯ = 0 on ℝ × 𝕊³: for φ ∈ C^∞_c(ℝ × 𝕊³; ℂ^(N_E)), ⟨u^♯, N¹(σ)^tφ⟩ = lim_(ϵ↓0) ∫_(v>ϵ)
 u_0·N¹(σ)^tφ dv dω, and Green's formula on {v > ϵ} turns this into ∫_(v>ϵ)(N¹(σ)u_0)·φ + B_ϵ = B_ϵ, where B_ϵ is an
 integral over {ϵ} × 𝕊³ of products of (v∂_v)^l∂^γ_ωu_0, l ≤ 1, |γ| ≤ 2, with derivatives of φ, with bounded coefficients

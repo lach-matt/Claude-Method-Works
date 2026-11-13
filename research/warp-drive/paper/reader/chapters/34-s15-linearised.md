@@ -542,3 +542,178 @@ up to scaling, and Ω_S := ρ⁻¹w_S is stationary, homogeneous of degree 1 and
 h̄_s2(S) = δ̄*Ω_S is stationary, homogeneous of degree 0, of scalar type 2, satisfies
 δ̄_(Ē_Υ) Ḡ h̄_s2 = ½□̄^Υ Ω_S = 0 and L̄h̄_s2 = D Ric(δ̄*Ω_S) + δ̄*_(Ē_C)(0) = 0. It is nonzero: otherwise Ω_S would be a
 stationary Killing 1-form homogeneous of degree 1, and those are the spatial rotations, of vector type 1. ∎
+
+### tf-admissibility {#sec:iii-f1-3}
+
+For an operator P̂ satisfying (H1)–(H2), [[eq:i-c-4-1]] defines N_tf(P̂, σ̂) from its data at ρ = 0 only: S_0, N(P⁽⁰⁾)
+and H_0 ([[sec:i-c-4-1]]); and [[thm:i-c-4-3]] and [[def:i-c-5-1]] use only these data. For P̂ = (2L_b)^(·), S_0 = S̄ and
+N(P⁽⁰⁾) is (2L̄)^(0) ([[lem:iii-f-2-1]] (2)–(3)); since 2L̄ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄) + (2L̄)^(0) exactly, with no
+∂²_(t_*) term (dt_* is null), N_tf((2L_b)^(·), σ̂) is the spectral family (2L̄)^(σ̂) written in x̂ ([[eq:i-c-4-1]]–
+[[eq:i-c-4-2]] with ς = 1). The same holds for □^C_b with its model □̄^C: the ∂_(t_*)-coefficient of □̄^C is
+−2ρ(ρ∂_ρ − 3/2 − S̄^C) exactly (□̄ gives −2ρ(ρ∂_ρ − 3/2), and 2δ̄ḠĒ^C gives ρS̄^C as in [[lem:iii-f-3-1]]), and the
+rest is stationary and dilation homogeneous. And it holds for the operators of [[lem:iii-f-2-1]] with the parameters
+(γ_C, γ_Υ) replaced by (τγ_C, τγ_Υ), τ ∈ [0, 1], or by (0, γ_Υ), which satisfy (H1)–(H2) by the proof of
+[[lem:iii-f-2-1]], which does not use the values of the parameters; at τ = 0 the model is □̄ on S²T*, componentwise in
+the Cartesian frame. For all of them spec S̄ ⊂ [0, ∞) ([[eq:iii-f-3-1]], the γ's being ≥ 0), and spec S̄^C ⊂ (0, ∞)
+([[sec:iii-e-1]]). Here P^(·) denotes the family σ ↦ P^(σ).
+
+*Weights.* In [[thm:i-c-4-3]] the b-weight of 𝒳_(tf,θ) at ztf is q − 2, and the tf-admissible weight is β := 2 − q; for
+brevity 𝒳(β), 𝒴(β) and ind(β) denote the spaces and the index of N_tf(e^(iθ)) : 𝒳_(tf,θ) → 𝒴_(tf,θ) at q = 2 − β (θ,
+s, α_+ and the orders fixed, in the settings of [[thm:i-c-4-3]] (1)–(2)), defined when β is not the real part of an
+indicial root. Near ztf, N_tf = r̂⁻²L, with L as at the end of [[sec:i-c-2-5]] at the end at 0 (ϱ = r̂), and Mellin
+symbol J(ι) = I(−ι) ([[sec:i-c-4-1]] (c)); so a root μ of J is −μ_b, μ_b ∈ spec_b, and 𝒳(β) is H^s_(b,−β) there.
+
+**Lemma {#lem:iii-f1-3-1}** (Relative index.) Let β_1 < β_2 < β_1 + 1, neither the real part of a point of spec_b,
+and s ∈ ℤ. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
+
+    F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^N)-valued}.                     {#eq:iii-f1-3-1}
+
+dim F_μ is the sum over the finitely many W_π on which μ is a root of ord_μ det(J|_(W_π)), the algebraic
+multiplicity; when J is an indicial family as in [[lem:iii-f1-2-4]], it is the multiplicity of −μ as a root of I on
+those components.
+
+*Proof.* Put c_i := −β_i, so c_2 < c_1 < c_2 + 1, 𝒳(β_1) ⊂ 𝒳(β_2) and 𝒴(β_1) ⊂ 𝒴(β_2), and write 𝒳_i, 𝒴_i,
+N := N_tf(e^(iθ)), N_i := N|_(𝒳_i). Every Φ ∈ F_μ is a finite sum ϱ^μ Σ_j (log ϱ)^j a_j, a_j smooth, and
+N(L)Φ = Res(ϱ^ι J(ι)J(ι)⁻¹g(ι)) = 0, as N(L)ϱ^ι a = ϱ^ι J(ι)a. Let χ ∈ C_c^∞([0, 1)) be a function of r̂ equal to 1 near
+0.
+
+*Step 1: the expansion.* Let 𝒵 := {w ∈ 𝒳_2 : Nw ∈ 𝒴_1} and w ∈ 𝒵. By [[lem:i-c-2-5]], v := χw ∈ H^s_(b,c_2), and
+f := N(L)v = χr̂²Nw + [L, χ]w − (L − N(L))χw lies in H^(s−2)_(b,c_1): the first term as Nw ∈ 𝒴_1, whose weight at ztf is
+c_1 − 2; the second has compact support in tf°; the third as L − N(L) ∈ ϱDiff²_b maps H^s_(b,c_2) to
+H^(s−2)_(b,c_2+1) ⊂ H^(s−2)_(b,c_1). So ℳf is holomorphic on {Re ι < c_1} with the line bounds [[eq:i-c-2-1]] up to
+Re ι = c_1, and Jℳv = ℳf on {Re ι < c_2}. Hence J⁻¹ℳf continues ℳv meromorphically to {Re ι < c_1}, with poles only at
+roots μ with c_2 < Re μ < c_1 (none on Re ι = c_2, by hypothesis), finitely many by [[lem:i-c-2-4]] (b). Let
+Φ := −Σ_μ Res_(ι=μ)(ϱ^ι J(ι)⁻¹ℳf(ι)) ∈ F. As ℳ(χϱ^μ(log ϱ)^j a) continues meromorphically with a single pole, at μ, of
+principal part −j!(ι − μ)^(−j−1)a (differentiate ∫_0^(ϱ_0) ϱ^(μ−ι−1)dϱ = ϱ_0^(μ−ι)/(μ − ι) j times in μ), and
+Res_(ι=μ)(ϱ^ι(ι − μ)^(−j−1)a) = ϱ^μ(log ϱ)^j a/j!, the transform of χ Res(ϱ^ι q) has principal part −q at μ for every
+principal part q; so ℳ(v − χΦ) = J⁻¹ℳf − ℳ(χΦ) is holomorphic on {Re ι < c_1}. Its L² norms on the lines Re ι = x,
+c_2 − ϵ ≤ x < c_1, are bounded uniformly: for |Im ι| ≥ μ_0 by [[lem:i-c-2-4]] (a) and [[eq:i-c-2-1]], with ℳ(χΦ) minus
+its principal parts rapidly decreasing there; on the remaining compact set by holomorphy. [[lem:i-c-2-3]] gives
+v − χΦ ∈ H⁰_(b,c_1); and L(v − χΦ) ∈ H^(s−2)_(b,c_1) near ztf, because L(χΦ) = [N(L), χ]Φ + (L − N(L))χΦ with
+Re μ + 1 > c_2 + 1 > c_1; so [[lem:i-c-2-5]] at the weight c_1 gives w − χΦ ∈ H^s_(b,c_1) near ztf. Away from ztf,
+w − χΦ and w agree near sctf and are smooth in between, and N(χΦ) ∈ 𝒴_1 by the same argument; so w − χΦ ∈ 𝒳_1. If
+χΦ ∈ 𝒳_1 for some Φ ∈ F, then ℳ(χΦ) is holomorphic on {Re ι < c_1}, so its principal parts vanish and Φ = 0 (the
+functions ϱ^μ(log ϱ)^j a with distinct (μ, j) are independent). So 𝒵 = 𝒳_1 ⊕ χF, with χF ⊂ 𝒵 by the same
+argument.
+
+*Step 2: the target.* 𝒴_2 = 𝒴_1 + N(𝒳_2). Let y ∈ 𝒴_2, χ′ a cut-off with χ′χ = χ, and f := χ′r̂²y ∈ H^(s−2)_(b,c_2).
+Define u on all of (0, ∞) × 𝕊³ by ℳu := J⁻¹ℳf on the line Re ι = c_2; by Plancherel in t = −log ϱ (as in
+[[eq:i-c-2-2]], s being an integer) and [[lem:i-c-2-4]] (c), e^(c_2 t)u ∈ H^s and N(L)u = f, so χu ∈ H^s_(b,c_2). Then
+y − N(χu) = (1 − χ)y − r̂⁻²[N(L), χ]u − r̂⁻²(L − N(L))χu: the first term vanishes near ztf, where alone 𝒴_1 and 𝒴_2
+differ; the second has compact support in tf°; the third lies in r̂⁻²H^(s−2)_(b,c_2+1) ⊂ H^(s−2)_(b,c_1−2) near ztf. So
+y − N(χu) ∈ 𝒴_1, and χu ∈ 𝒳_2.
+
+*Step 3: the indices.* N_2 and N_1 are Fredholm ([[thm:i-c-4-3]] (3)). ker N_2 = ker(N|_𝒵), as kernel elements lie in
+𝒵. The map 𝒴_1/N(𝒵) → 𝒴_2/N(𝒳_2) is injective (if y = Nw with w ∈ 𝒳_2 and y ∈ 𝒴_1, then w ∈ 𝒵) and surjective by
+Step 2. So N|_𝒵 : 𝒵 → 𝒴_1, with 𝒵 normed as 𝒳_1 ⊕ χF, is Fredholm with the index of N_2; and it is N_1 extended by the
+finite-dimensional space χF, so its index is ind N_1 + dim F. *Multiplicity.* By [[lem:iii-f1-2-4]] and the
+discreteness of [[lem:i-c-2-4]] (b), μ is a root on finitely many W_π, and J⁻¹g splits accordingly. On a
+finite-dimensional block, the ring of germs of holomorphic functions at μ being a principal ideal domain,
+J = E diag((ι − μ)^(k_i)) F′ with E, F′ holomorphic and invertible near μ (Smith form) and Σ_i k_i = ord_μ det J. As g
+ranges over holomorphic germs so does E⁻¹g; the principal parts of diag((ι − μ)^(−k_i))h form a space of dimension
+Σ k_i; multiplication by F′⁻¹ is a bijection of principal-part spaces (with inverse multiplication by F′); and
+q ↦ Res(ϱ^ι q) is injective on principal parts, as Res(ϱ^ι(ι − μ)^(−j−1)a) = ϱ^μ(log ϱ)^j a/j!. So dim F_μ = Σ k_i. ∎
+
+**Lemma {#lem:iii-f1-3-2}** (Common orders.) Let P̂_1, …, P̂_k satisfy (H1)–(H2) with principal symbols positive
+multiples of one another, and let α_+ ∈ ℝ. There are orders 𝗋_± admissible with weight α_+ for every σ_0 ∈ J_±, in the
+sense of [[sec:i-c-4-3]], for all of them at once; for a family continuous in a parameter in a compact set, the same
+holds uniformly.
+
+*Proof.* The characteristic set at the boundary face, the radial sets and the direction of the flow depend only on the
+principal symbol, up to positive multiples ([[sec:i-a-4]]). Take 𝗋_in above the largest of the incoming thresholds
+½(−1 + ϑ^(i)_in) − α_+ (bounded over a compact parameter set, as they depend continuously on the coefficients) and
+𝗋_out below the smallest of −½ + S̄^(i) − α_+, with 𝗋_in ≥ 𝗋_out; [[lem:i-a-7-1]] gives an order pair with these values,
+which satisfies (O1)–(O3) of [[sec:i-a-1]] for each operator. On compact subsets of (0, π) the constant order 𝗋_out is
+allowed for each ([[thm:i-c-4-3]] (2)). ∎
+
+**Proposition {#prop:iii-f1-3-3}** (tf-admissibility; [Hin26, Proposition 8.6] in dimension 4 + 1.) Assume e_Υ > 0
+and (C1), and fix all parameters but γ_Υ. There is γ_1 > 0 such that for γ_Υ ∈ (0, γ_1) (so that
+z = 4e_Υγ_Υ² ∈ (0, ½]) and every b near b_0, L_b^(·) is tf-admissible ([[def:i-c-5-1]]) with every weight β ∈ (0, 1].
+
+*Proof.* (i) of [[def:i-c-5-1]]: (0, 1] lies in an indicial gap, by [[prop:iii-f1-2-3]] (a), and the gap contains
+(0, β_+) with β_+ > 1. As N_tf depends only on the model, b plays no role. Fix α_+, s ∈ ℤ large, and by
+[[lem:iii-f1-3-2]] orders admissible at once for (2L_b)^(·), (□^C_b)^(·), the operator P̂′ with parameters (0, γ_Υ), and
+the operators P̂_τ with parameters (τγ_C, τγ_Υ), uniformly for γ_Υ ∈ [0, 1] and τ ∈ [0, 1]; by [[thm:i-c-4-3]] (3)
+kernels, annihilators and indices do not depend on these choices or on q with 2 − q in the gap.
+
+*(ii) The kernel.* Let θ ∈ [0, π], σ̂ := e^(iθ), β ∈ (0, ½) (by [[thm:i-c-4-3]] (3) this covers every weight in the
+gap), and u_0 ∈ 𝒳(β) with N_tf((2L_b)^(·), σ̂)u_0 = 0.
+
+*Step 1.* By [[thm:i-c-4-3]] (5), with the gap (0, β_+), u_0 ∈ ρ_ztf^(−β′)C^∞_b near ztf for every β′ > 0; and
+(2L̄)^(σ̂)u_0 = 0 on ℝ⁴ ∖ 0 (the description above).
+
+*Step 2: the gauge 1-form.* The linearised second Bianchi identity on Minkowski space, δ̄Ḡ D Ric = 0, gives
+δ̄Ḡ(2L̄) = 2δ̄Ḡδ̄*_(Ē_C)δ̄_(Ē_Υ)Ḡ = □̄^C δ̄_(Ē_Υ)Ḡ; the operators are stationary, so their spectral families compose,
+and η_0 := (δ̄_(Ē_Υ)Ḡ)^(σ̂)u_0 satisfies (□̄^C)^(σ̂)η_0 = (δ̄Ḡ)^(σ̂)(2L̄)^(σ̂)u_0 = 0, that is,
+N_tf((□^C_b)^(·), σ̂)η_0 = 0.
+
+*Step 3: η_0 ∈ 𝒳_(□^C)(β_C), β_C := 1 + 2β ∈ (1, 2).* (δ̄_(Ē_Υ)Ḡ)^(σ̂) = ρ̂A_1 + σ̂A_0 with
+A_1 := ρ⁻¹(δ̄_(Ē_Υ))^(0)Ḡ ∈ Diff¹_b and A_0 a bundle map, both homogeneous of degree 0. Near ztf, ρ̂ = r̂⁻¹, so
+η_0 ∈ ρ_ztf^(−1−β′)C^∞_b for every β′ > 0, hence η_0 ∈ H^∞_(b,−1−2β) there ([[lem:i-c-2-2]] (f)), which is the ztf part
+of 𝒳(β_C). Near sctf, ρ̂A_1 ∈ Diff¹_sc and A_0 has order (0, 0), so η_0 ∈ H_sc^(s−1,𝗋+α_+) there, with the common
+orders; in between η_0 is smooth. With N_tf η_0 = 0, η_0 ∈ 𝒳_(tf,θ) for (□^C_b)^(·) at the regularity s − 1 and the
+weight β_C, which lies in the gap (−C_0, 2) of □^C_b (C1).
+
+*Step 4.* By [[thm:iii-e-1-1]] (4), (□^C_b)^(·) is tf-admissible with the weight β_C ∈ [−C_0, 2), so η_0 = 0.
+
+*Step 5: the unmodified gauge.* With η_0 = 0, (2L̄)^(σ̂)u_0 = 2(D Ric)^(σ̂)u_0 = (2L̄′)^(σ̂)u_0,
+L̄′ := D Ric + δ̄*δ̄_(Ē_Υ)Ḡ, the model of P̂′ (parameters (0, γ_Υ)). So N_tf(P̂′, σ̂)u_0 = 0.
+2L̄′ = □̄ + 2δ̄*Ē^ΥḠ does not involve γ_C.
+
+*Step 6: small γ_Υ.* u_0 ∈ 𝒳_(P̂′)(1): near ztf u_0 ∈ H^s_(b,−1), as u_0 = O(r̂^(−β′)) with b-regularity and β′ < 1;
+near sctf it is as before. At γ_Υ = 0, P̂′ = □^(·) on S²T*, componentwise in the Cartesian frame, tf-admissible with
+every weight in (0, 2) ([[prop:i-c-5-3]]), so by [[cor:i-c-5-2]] (b) at the weight 1, uniformly in θ over the three
+sectors, ‖w‖ ≤ C‖N⁰_tf w‖. The difference N_tf(P̂′, e^(iθ)) − N⁰_tf(e^(iθ)) = −2ie^(iθ)ρ̂S̄′ + ρ̂²M′, with S̄′ and
+M′ ∈ Diff¹_b homogeneous and O(γ_Υ), is bounded from the space of 𝒳 into that of 𝒴 with norm C′γ_Υ, uniformly in θ,
+exactly as in [[lem:iii-d-7-1]]; so ‖u_0‖ ≤ C‖N_tf(P̂′, e^(iθ))u_0‖ + CC′γ_Υ‖u_0‖, and u_0 = 0 once CC′γ_Υ ≤ ½. This
+fixes γ_1; it depends on the orders, hence on γ_C, which is fixed first. The weight 1 lies in the indicial gap of
+P̂′(0) for small γ_Υ: its roots are within O(γ_Υ) of the integer roots of □̄ on S²T* ([[lem:iii-a1-2-3]]), none in
+(0, 2), on the finitely many components that meet the strip |Re ι − 1| ≤ ½ ([[lem:iii-f1-2-4]]), and on no other.
+
+*(iii) The adjoint.* By [[thm:i-c-4-3]] (3) the annihilator of the range of
+N_tf((2L_b)^(·), 1) : 𝒳(β) → 𝒴(β) is ker_(𝒳*) N_tf(1)^(*h); by (ii) the operator is injective, so it suffices that its
+index is 0. Consider the family P̂_τ, τ ∈ [0, 1], at θ = 0 with the common orders. P̂_1 = (2L_b)^(·) and P̂_0 = □^(·) on
+S²T*. 𝒳 does not depend on τ, and τ ↦ N_tf(P̂_τ, 1) is continuous in the norm of bounded maps 𝒳 → 𝒴 (the differences are
+as in Step 6). Let I_τ be the indicial family of P̂_τ(0), apply [[lem:iii-f1-2-4]] with X := 2 and 𝒯 = [0, 1], and for β″
+not the real part of a root of I_τ, |β″ − β| < 1, put
+
+    G(τ) := ind_τ(β″) − Σ_π (n_π(τ, β″) − dim W_π),
+
+n_π(τ, β″) the number of roots of I_τ on W_π with real part < β″, with multiplicity. The sum is finite: for d(π) ≥ d_0
+no root on W_π has |Re ι| ≤ 2 for any τ, so by continuity n_π(τ, β″) is its value at τ = 0, where the roots on W_π are
+those of □̄, dim W_π of them ≤ 0 and dim W_π of them ≥ 2 ([[lem:iii-a1-2-3]]: −d and d + 2), so the term is 0. G does
+not depend on β″: by [[lem:iii-f1-3-1]] (through intermediate weights, finitely many roots lying between),
+ind_τ(β_2) − ind_τ(β_1) is the number of roots with real part in (β_1, β_2), which is the change of the sum. G is
+locally constant: near τ_0 choose β″ that no root of the finitely many components meeting the strip has as real part
+for τ near τ_0 (the roots move continuously); then ind_τ(β″) is locally constant (a norm-continuous family of Fredholm
+operators on fixed spaces) and so is the sum. So G(1) = G(0). At τ = 0 and β″ = β, ind = 0 (□^(0) is invertible,
+[[prop:i-c-5-3]] and [[cor:i-c-5-2]] (a)) and the sum is 0 (the roots of □̄ split evenly about (0, 2)). At τ = 1 and
+β″ = β the sum is 0 by [[prop:iii-f1-2-3]] (b) on every W_π (no root has real part in (0, 1], so n_π(1, β) counts the
+roots with real part ≤ 0, dim W_π of them). Hence ind_1(β) = 0. ∎
+
+As in [Hin26], the quantitative estimates of [[cor:i-c-5-2]] now hold for N_tf(L_b^(·), σ̂). On b-Sobolev spaces they
+read:
+
+**Corollary {#cor:iii-f1-3-4}** (The inverse of the transition face normal operator; [Hin26, Corollary 8.7] in
+dimension 4 + 1.) On tf use the b-density |dr̂/r̂ dg̸| and H^(k,a,c)_b(tf) := ρ_sctf^a ρ_ztf^c H^k_b(tf). Fix
+
+    β_sctf < 3/2 = 3/2 + min Re spec S̄,     β_ztf ∈ [−1, 0).                                            {#eq:iii-f1-3-2}
+
+Then there is ℓ ∈ ℕ_0 such that for all k ∈ ℕ_0 and ϵ > 0
+
+    N_tf(L_b^(·), ±1)⁻¹ : H_b^(k+ℓ, β_sctf+1, β_ztf−2)(tf) → H_b^(k, β_sctf−ϵ, β_ztf)(tf) is bounded.    {#eq:iii-f1-3-3}
+
+*Proof.* *The threshold at R_out.* [[sec:i-a-1]] asks 𝗋 + α_+ < −½ + S̄_L there,
+S̄_L := ½ inf_(∂X) λ_min(S̄ + S̄^(*h)) for a fibre inner product h of our choice ([[prop:i-a-4-9]]). For every δ > 0 some
+smooth h gives S̄_L ≥ −δ, as min Re spec S̄ = 0 ([[eq:iii-f-3-1]]): at each ω, a Jordan basis of S̄(ω) rescaled so that
+the off-diagonal entries are at most δ/2 defines h_ω with Re h_ω((S̄ + δ)u, u) ≥ (δ/2)h_ω(u, u), a strict inequality,
+which persists for S̄(ω′), ω′ near ω; the condition is convex in h, so a partition of unity on 𝕊³ glues these. *The
+orders.* Take β := −β_ztf ∈ (0, 1], q := 2 − β, α_+ := 0, δ := ¼(3/2 − β_sctf), ϵ < δ (it suffices to prove
+[[eq:iii-f1-3-3]] for small ϵ), 𝗋_out := β_sctf − 2 − ϵ/2 < −½ − δ, and the orders 𝗋_± of [[lem:i-a-7-1]] at
+σ_* = ±1 with that outgoing value, constant near R_out. By [[prop:iii-f1-3-3]] and [[cor:i-c-5-2]] (a)–(b), with
+[[thm:i-c-4-3]] (4) for k further b-derivatives, N_tf(±1)⁻¹ is bounded from H^((s−2;k),(𝗋+1,q−2))_(sc,b;b) to
+H^((s;k),(𝗋,q))_(sc,b;b). Near ztf these are H^(s−2+k)_(b,β_ztf−2) and H^(s+k)_(b,β_ztf) for the b-density
+([[def:i-c-4-1]]). Near sctf, on the end of ℝ⁴_(x̂), [[lem:ii-g1-4-1]] ((4.1a)–(4.1b) there, on ℝ⁴ without the
+artificial boundary) gives H_b^(k+ℓ,β_sctf+1) ↪ H^((s−1;k),𝗋+1) and H^((s;k),𝗋) ↪ H_b^(k−ℓ̃,β_sctf−ϵ) with the losses
+ℓ, ℓ̃ of that lemma (𝗋_out + 3 + ϵ/2 = β_sctf + 1 and 𝗋_out + 2 − ϵ/2 = β_sctf − ϵ). Replacing k by k + ℓ̃ and enlarging
+ℓ gives [[eq:iii-f1-3-3]], with ℓ independent of ϵ as in [[cor:ii-g1-4-2]]. ∎
