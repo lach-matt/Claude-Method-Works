@@ -43,13 +43,14 @@ Each of these sets enters the statements of this paper through memberships of th
 polyhomogeneous space with the index set E) and a lower bound for its real parts, and it is fixed by a construction.
 ℰ_ind is built in the proofs of [[prop:iii-d2-3-1]] ((F1) there), [[lem:iii-f3-2-1]] and [[lem:iii-d3-2-1]] by
 [[lem:iii-a-1-4]], from the indicial roots of (□^Υ_b)^(0), which [[lem:iii-d-4-1]] and [[prop:np-10-52]] (i) give in
-closed form, and from exponents of the right sides that are integers or such roots shifted by integers. ℰ^ι_ind collects the index
-sets of the states of [[ch:s13]] and [[ch:s15]], 2 + ℕ₀ and (2, 1) (the proof of [[thm:iii-g2-4-2]]); the physical
-states of [[ch:s15]] are built by [[lem:iii-a-1-4]] from the roots of L_b^(0) ([[prop:iii-f1-2-3]]), among them ι^C − 1
-for the roots ι^C of the polynomials of [[prop:np-10-12]] (the proof of [[prop:iii-f4-5-1]]). The least ℰ^C_I is
-generated from σ_Υ by (3) of [[def:iii-c-3-1]], and the least ℰ_++ by [[eq:iii-i8-1-1]]. So the exponents of these sets
-below the real part 5 are algebraic numbers fixed by this paper, which it does not list. A space with an index set E is
-contained in the space with any index set E′ ⊃ E, the coefficients at the added exponents being 0.
+closed form, and from exponents of the right sides that are integers or such roots shifted by integers. ℰ^ι_ind
+collects the index sets of the states of [[ch:s13]] and [[ch:s15]], 2 + ℕ₀ and (2, 1) (the proof of
+[[thm:iii-g2-4-2]]); the physical states of [[ch:s15]] are built by [[lem:iii-a-1-4]] from the roots of L_b^(0)
+([[prop:iii-f1-2-3]]), among them ι^C − 1 for the roots ι^C of the polynomials of [[prop:np-10-12]] (the proof of
+[[prop:iii-f4-5-1]]). The least ℰ^C_I is generated from σ_Υ by (3) of [[def:iii-c-3-1]], and the least ℰ_++ by
+[[eq:iii-i8-1-1]]. So the exponents of these sets below the real part 5 are algebraic numbers fixed by this paper, which
+it does not list. A space with an index set E is contained in the space with any index set E′ ⊃ E, the coefficients at
+the added exponents being 0.
 
 **Proposition {#prop:uc-no-eps}** (Memberships fix no admissible ε_K.) Let t > 0 and
 
@@ -344,7 +345,7 @@ and [[lem:uc-two-offsets]]; with (SP), N_Λ, l_*, k̄_0, J_* and the counts n(E,
 [[prop:iii-a-4-2]] follow, so that c(β), c_b, c′_b, c_0 and the losses of [[lem:uc-phi-loss]] become integers, each a
 finite sum of the closed forms of [[lem:ec-closed-forms]], [[rem:ec-other-losses]], [[prop:uc-dbg]], [[prop:uc-ltf]]
 and of the forward loss of [[thm:fwd-loss]]. (IS) asks no new estimate: the constructions state the rule that produces
-the exponents ([[lem:iii-a-1-4]], the boundary spectrum above the weight together with the source's index set; (3) of
+the exponents ([[lem:iii-a-1-4]], the boundary spectrum above the weight together with the right side's index set; (3) of
 [[def:iii-c-3-1]] for ℰ^C_I; [[eq:iii-i8-1-1]] for ℰ_++), and the roots are given by [[lem:iii-d-4-1]],
 [[prop:np-10-52]] (i), [[prop:iii-f1-2-3]] and the polynomials of [[prop:np-10-12]]; it asks that these constructions
 be carried out with the exponents kept, over the finitely many types whose roots meet the strip ([[prop:np-10-54]]
