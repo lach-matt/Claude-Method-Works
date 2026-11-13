@@ -321,3 +321,119 @@ R³(−6w² − 6fpw) dR = −6π² ∫ (R⁴w²)′ dR = 0. ∎
 different type and degree, [[lem:loc-harmonics]], the mode sums converging for smooth data)" becomes: -->
 
 ([[lem:loc-scalar-reduction]], the splitting)
+
+<!-- Part 3. Block 3.1: a new subsection of sec:bg-below, after prop:bg-slice and the paragraph that follows it
+("Near R = R_* the packet's slice points approach region I ..."), before sec:bg-theorem. -->
+
+#### The end of region III {#sec:bg-region-three-end}
+
+**Proposition {#prop:bg-region-three-end}** (The end of region III.) Let ρ_u2 and R_u2 be as in [[prop:bg-seed]] (a),
+so that region III meets Σ_τ0 in the points with 0.70 ≤ R ≤ R_u2.
+
+(a) 2.773631 < ρ_u2 < 2.7736325 and 1.8614372 ≤ R_u2 ≤ 1.8614410.
+
+(b) At every point of Σ_τ0 with 1.861 ≤ R ≤ R_u2, the quantity Γ/E² of [[eq:margins-gamma-form]] for the background
+(ψ = ψ_III and μ = μ3) satisfies Γ/E² ≥ 10.40.
+
+(c) Γ > 0 at every point of Σ_τ0 in region III: Γ/E² ≥ 0.048 on the seed region 0.70 ≤ R ≤ 1.861, and Γ/E² ≥ 10.40
+for 1.861 ≤ R ≤ R_u2.
+
+(d) No point of Σ_τ0 with R_u2 < R < R_* is a vacuum point of the background. So every band of Σ_τ0 on which the
+background is vacuum lies in region III, {0.70 ≤ R ≤ R_u2}, or in {R ≥ R_*}.
+
+*Proof.* (a) As in the proof of [[prop:bg-seed]] (a), g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 is decreasing on [2.32, 3.44] with
+the single zero ρ_u2, and R_u2 = v̂(ρ_u2) + 0.68. By direct evaluation of the polynomial Φ̃ of [[sec:tab-bg-ray]] and of
+[[eq:bg-tangherlini]], Φ̃(2.773631) − v̂(2.773631) − 0.68 ≥ 1.3949 × 10⁻⁶ and Φ̃(2.7736325) − v̂(2.7736325) − 0.68 ≤
+−1.1149 × 10⁻⁶. Since |Φ − Φ̃| ≤ ε₀ = 8.69 × 10⁻⁷ at u = u2 ([[prop:bg-rays]]), g(2.773631) > 0 > g(2.7736325), so
+2.773631 < ρ_u2 < 2.7736325. As v̂ is increasing, R_u2 lies between v̂(2.773631) + 0.68 ≥ 1.86143720 and v̂(2.7736325)
++ 0.68 ≤ 1.86144094.
+
+(b) Let P be a point of Σ_τ0 with 1.861 ≤ R ≤ R_u2. It lies in region III, on the ray ρ with v̂(ρ) + 0.68 = R
+([[lem:bg-reduction]] (f), [[prop:bg-seed]] (a)), and there ψ_III^(k)(v̂(ρ)) = Ψ_k(ρ, Φ(ρ), …, Φ‴(ρ), μ3) for k ≤ 2
+([[eq:bg-psi3]]). Since v̂ is increasing, v̂(2.7734) + 0.68 ≤ 1.8608633 < 1.861 and ρ ≤ ρ_u2 < 2.7737, the ray has ρ ∈
+[2.7734, 2.7737]. Put ρ_m := 2.77355 and h := 1.5 × 10⁻⁴. For such ρ and j ≤ 3, |Φ̃^(j)(ρ) − Φ̃^(j)(ρ_m)| ≤ h
+sup|Φ̃^(j+1)|, the supremum over [2.32, 3.44]; for j + 1 = 1, 2, 3 it is at most 0.9442, 0.344 and 0.376, the bounds of
+|J̃|, |K̃| and |L̃| in the row [7.17, 7.2] of [[sec:tab-bg-ray-defects]] (at u = 7.2, J̃, K̃ and L̃ are Φ̃′, Φ̃″ and Φ̃‴),
+and for j + 1 = 4 it is at most 0.3182, the sum of the absolute values of the Chebyshev coefficients of Φ̃⁗ on [2.32,
+3.44] ([[lem:bg-tools]] (a)). By direct evaluation, to within 10⁻¹⁰,
+
+    Φ̃(ρ_m) = 1.861372901,   Φ̃′(ρ_m) = 0.8111250646,   Φ̃″(ρ_m) = 0.2026504300,   Φ̃‴(ρ_m) = −0.2475621243,
+
+and |Φ^(j) − Φ̃^(j)| ≤ ε_j, (ε₀, ε₁, ε₂, ε₃) = (8.69 × 10⁻⁷, 1.68 × 10⁻⁶, 6.10 × 10⁻⁶, 3.65 × 10⁻⁵) at u = u2
+([[prop:bg-rays]]). This gives the first four rows of the table below. Each later row follows from the rows above it,
+from ρ ∈ [2.7734, 2.7737], μ3 ∈ [0.82211214, 0.82211297] ([[prop:bg-nprime]] (ii)) and R ∈ [1.861, 1.861441] (by
+(a)), by the enclosure rule of [[lem:bg-tools]] (d), applied to f1 = 1 − 3/(2ρ²), a = f1/2, a′ = 3/(2ρ³), a″ =
+−9/(2ρ⁴), f3(Φ) = 1 − μ3/Φ², h3(Φ) := 1/(Φ³ − μ3Φ), h3′(Φ) = −(3Φ² − μ3)h3(Φ)²,
+
+    ψ_III = ln Φ′ + ln f1 − ln f3(Φ),        ψ_III′ = aΦ″/Φ′ + a′ − 2μ3aΦ′h3(Φ),
+    ψ_III″ = a(a′Φ″/Φ′ + a(Φ‴/Φ′ − (Φ″/Φ′)²) + a″ − 2μ3(a′Φ′h3(Φ) + aΦ″h3(Φ) + aΦ′²h3′(Φ)))
+
+(the derivatives in v̂, Ψ_0, Ψ_1 and Ψ_2 = a𝒟Ψ_1 of [[eq:bg-psi3]] written out), q = e^(ψ_III), u = 1 − q, m = μ3/R²,
+w = q(1 − m), and n0, A0, A1, A2, A3 and Γ/E² = A0 + A1ψ_III′ + A2ψ_III′² + A3ψ_III″ in the form written in
+[[eq:margins-gamma-form]]. Every entry is rounded outward, and later rows use the printed entries.
+
+| quantity | enclosure | quantity | enclosure |
+|---|---|---|---|
+| Φ | [1.861230, 1.861516] | ψ_III | [−0.1555110, −0.1552307] |
+| Φ′ | [0.8110717, 0.8111784] | ψ_III′ | [0.06163544, 0.06183038] |
+| Φ″ | [0.2025879, 0.2027130] | ψ_III″ | [−0.03252944, −0.03228970] |
+| Φ‴ | [−0.2476464, −0.2474778] | q | [0.8559776, 0.8562177] |
+| f1 | [0.8049857, 0.8050280] | u | [0.1437823, 0.1440225] |
+| a | [0.4024928, 0.4025140] | m | [0.2372643, 0.2373771] |
+| a′ | [0.07029311, 0.07031594] | w | [0.6527881, 0.6530679] |
+| a″ | [−0.07606108, −0.07602817] | n0 | [0.04255919, 0.04307245] |
+| f3(Φ) | [0.7626815, 0.7627548] | (2 − w)(1 − w)² | [0.1621192, 0.1624147] |
+| h3(Φ) | [0.2032328, 0.2033656] | A0 | [7.890107, 8.007751] |
+| h3′(Φ) | [−0.3959414, −0.3952924] | A1 | [49.47565, 49.91199] |
+|  |  | A2 | [483.3100, 484.9544] |
+|  |  | A3 | [72.78488, 72.95588] |
+|  |  | Γ/E² | [10.40240, 10.59761] |
+
+Since w < 1 and 2 − w > 0 on the box, [[eq:margins-gamma-form]] applies at P, and Γ/E² ≥ 10.4024.
+
+(c) On the seed region Γ/E² ≥ 0.048 by [[prop:bg-seed]] (c) and [[prop:margins-seed]] (b); the rest is (b).
+
+(d) By [[lem:bg-reduction]] (f), a point of Σ_τ0 with R ≤ R_* lies on a ray ρ ∈ [2.321, R_*] with R = T(ρ) :=
+v̂(ρ) + 0.68, and T is increasing. By the proof of [[prop:bg-slice]], for ρ ∈ [ρ_u2, R_*] the point lies at the
+parameter u = u_s(ρ) ∈ [u1, u2] of its ray, u_s is strictly decreasing (∂_u(Ψ − T) = G < 0 and ∂_ρ(Ψ − T) < 0), u_s(ρ_u2)
+= u2 since g(ρ_u2) = 0, and u_s(R_*) = u1 by the definition of R_*. So a point with R_u2 < R < R_* has u1 < u < u2,
+where ℬ(u) > 0, and there Ric(g0) ≠ 0 by [[eq:two-dust-limit]]. A band {R1 < R < R2} on which the background is vacuum
+therefore does not meet {R_u2 < R < R_*}, and it lies in {0.70 ≤ R ≤ R_u2} or in {R ≥ R_*}. ∎
+
+<!-- Part 3. Block 3.2: replaces cor:loc-charge-seed, statement and proof (chapter lines 390-404). -->
+
+**Corollary {#cor:loc-charge-seed}** (Momentum seeds on Σ_τ0.) Let U be a band of Σ_τ0 on which the background is
+vacuum. Then Γ > 0 on U, so Q(δ) < 0 for every nonzero momentum seed δ on U, and for ε small no vacuum data on Σ_τ0 of
+the form bg + εδ + O(ε²), equal to the background's outside a compact subset of U, exist.
+
+*Proof.* On Σ_τ0, qf < 1, so Y0 = K^l_l/3 < 0 ([[lem:racz-split-formulas]] (b)). By [[prop:bg-region-three-end]] (d),
+U lies in region III, {0.70 ≤ R ≤ R_u2}, or in {R ≥ R_*}. In region III, Γ > 0 by [[prop:bg-region-three-end]] (c).
+On {R ≥ R_*} the points lie in region I ([[lem:margins-region-one]] (c)), where ψ = 0 and Γ/E² = 4R³μ/(R² + μ) > 0
+([[lem:margins-gamma-form]]). Then [[cor:loc-charge-momentum]] and [[prop:loc-projection]] (a) apply; a band of Σ_τ0
+on which the background is vacuum has closure in a vacuum region after shrinking it slightly around the compact
+support. ∎
+
+<!-- Part 3. Block 3.3: in thm:charge-sign, item (a) (chapter lines 651-653) becomes: -->
+
+(a) *Momentum seeds.* If δ ≠ 0 has δγ = 0, then Q(δ) < 0 and no such vacuum data exist for ε small. With matter
+obeying the dominant energy condition none exist if f ≥ 0 on U; if U meets {f < 0}, such data exist with outgoing
+radial null dust.
+
+<!-- Part 3. Block 3.4: in sec:loc-setting (chapter lines 31-32), the sentence "Its *seed region* is {0.70 ≤ R ≤
+1.861}; it lies in region III ([[prop:bg-seed]] (a)), and there f < 0 exactly where R < √μ3, and √μ3 ∈ (0.9066,
+0.9068)." becomes: -->
+
+Region III meets Σ_τ0 in {0.70 ≤ R ≤ R_u2}, 1.8614372 ≤ R_u2 ≤ 1.8614410 ([[prop:bg-seed]] (a),
+[[prop:bg-region-three-end]] (a)); there f < 0 exactly where R < √μ3, and √μ3 ∈ (0.9066, 0.9068). Its part {0.70 ≤ R ≤
+1.861} is the *seed region*.
+
+<!-- Part 3. Block 3.5: in thm:bg-margins (b) (chapter lines 1112-1114), "where 1.861394 ≤ R_u2 ≤ 1.861466" becomes
+"where 1.8614372 ≤ R_u2 ≤ 1.8614410", the last clause "and Γ > 0 on the seed region." becomes "and Γ > 0 on the whole
+of region III ∩ Σ_τ0, with Γ/E² ≥ 10.40 for 1.861 ≤ R ≤ R_u2.", and the proof's "(b) is [[prop:bg-seed]]" becomes: -->
+
+(b) is [[prop:bg-seed]] and [[prop:bg-region-three-end]]
+
+<!-- Part 3. Block 3.6: the paragraph after the proof of prop:margins-seed (chapter lines 1702-1703) becomes: -->
+
+By [[prop:bg-seed]] (c), the background itself lies in the tube of (b), which gives Γ > 0 on its seed region; with
+[[prop:bg-region-three-end]] this gives Γ > 0 on all of region III, and so [[cor:loc-charge-seed]] there.

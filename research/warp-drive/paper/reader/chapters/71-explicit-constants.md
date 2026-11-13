@@ -390,7 +390,8 @@ d_acc would bound D_0 + D_1. An upper bound for d_NM would need upper bounds for
 
 ### Two long iterations, and a lower bound for d {#sec:ec-floor}
 
-Three constructions of [[ch:s21]]–[[ch:s23]] repeat one step many times.
+Among the iterations of the inventory of [[sec:iii-j2-3]], three constructions of [[ch:s21]]–[[ch:s23]] repeat one
+step many times.
 
 - *The levels.* Step 2 of the proof of [[thm:iii-i14-3-1]] climbs through admissible levels
   α_1 = β_0 < β_1 < ⋯ < β_K = α with β_(k+1) − β_k < α − 4, where α ∈ (4, 4 + ε_K] and α_1 ∈ (2, α − 2). Level k + 1
@@ -408,19 +409,20 @@ of [[cor:iii-f1-3-4]], and the next forcing is obtained from it by the second-or
 
 **Lemma {#lem:ec-round-loss}** (The loss of one round.) In the accounting of [[def:ec-accounted-loss]]:
 
-(a) a transition face round below 3, or a level-3 round above 3, is charged at least 2 + ℓ_tf, with ℓ_tf the loss of
-[[cor:iii-f1-3-4]] in [[lem:ec-closed-forms]] (d);
+(a) a transition face round below 3, or a level-3 round above 3, is charged at least 2 + ℓ_tf, with ℓ_tf the lower
+bound of [[lem:ec-closed-forms]] (d) for the loss of [[cor:iii-f1-3-4]] at the weights of the round;
 
 (b) a round of the iteration at ι⁺ of [[prop:iii-i5-2-1]], which applies [[cor:iii-g2-4-3]] to the terms of the
 forcing at one exponent ϰ_0 and removes the error by [[prop:iii-i1-3-1]], is charged at least 4 + d_ι(ϰ_0). If
-3 < ℓ_I < 3.5 and λ_♯ ≤ Re ϰ_0 < 2 − δ, this is at least 15.
+3 < ℓ_I < 3.5 and λ_♯ ≤ Re ϰ_0 < 2 − δ_ι, this is at least 15.
 
-*Proof.* (a) The round maps its forcing to v_i by a construction that composes N_tf(L_b, ±1)⁻¹ with maps of non-negative
-loss, and v_i to the next forcing by L̂_b(σ), of loss 2 ([[lem:iii-j2-2-1]]); the next round takes that forcing as its
-input. By the composition rule the round is charged at least 2 + ℓ_tf. (b) [[lem:iii-j2-2-1]] (g) charges
-[[cor:iii-g2-4-3]] the loss d_ι + 2 of [[thm:iii-g1-3-1]] (2) composed with L_b, and [[prop:iii-i1-3-1]] a loss that
-includes one application of L̃, of loss 2; the next forcing is formed from their outputs. So a round is charged at
-least 4 + d_ι(ϰ_0). For 3 < ℓ_I < 3.5 and λ_♯ ≤ Re ϰ_0 < 2 − δ, 1 < ℓ_I − Re ϰ_0 < 2, so d_ι(ϰ_0) = 11 by
+*Proof.* (a) The round maps its forcing to v_i by a construction that composes N_tf(L_b, ±1)⁻¹, of loss at least
+ℓ_tf, with maps of non-negative loss, and v_i to the next forcing by L̂_b(σ), of loss 2 ([[rem:ec-other-losses]]); the
+next round takes that forcing as its input. By the composition rule the round is charged at least 2 + ℓ_tf.
+(b) [[lem:iii-j2-2-1]] (g) charges [[cor:iii-g2-4-3]] the loss d_ι + 2 of [[thm:iii-g1-3-1]] (2) composed with L_b,
+and [[prop:iii-i1-3-1]] a loss that includes one application of L̃, of loss max(2, d_BG) ≥ 2
+([[rem:ec-other-losses]]); the next forcing is formed from their outputs. So a round is charged at least
+4 + d_ι(ϰ_0). For 3 < ℓ_I < 3.5 and λ_♯ ≤ Re ϰ_0 < 2 − δ_ι, 1 < ℓ_I − Re ϰ_0 < 2, so d_ι(ϰ_0) = 11 by
 [[lem:ec-closed-forms]] (e). ∎
 
 **Lemma {#lem:ec-level-sum}** (Sums over the levels.) Let g ≥ 0 be non-decreasing on ℝ with g(y) − g(x) ≤ y − x for
@@ -443,8 +445,11 @@ The same bound holds at every h ∈ 𝖧, with the same (γ_Υ, e_Υ).
 
 *Proof.* The weights satisfy 0 < ε_K < ε_g ≤ ε_ind ≤ δ_50: the first inequality is the hypothesis ε_K < ε_+ < ε_ind
 together with ε_K < ε_Υ of [[thm:settling]], and ε_ind ≤ δ_50 is [[prop:np-10-52]] (iii) (with equality at h = 10⁻⁶,
-[[cor:s14-eps-ind-point]]). Also η_2 < ε_+ < ε_ind, and ε′ ≤ ε < ε_+/5 ([[sec:iii-j2-1]]), so ε, ε′ and η_2 are below
-δ_50. The level spacing is below α − 4 ≤ ε_K, and each round raises the tf-weight by ε_g − ε < δ_50.
+[[cor:s14-eps-ind-point]]). Also η_2 < ε_+ < ε_ind. The loss ε′ of [[lem:iii-i8-3-2]] satisfies ε′ ≤ ε: Steps 4–5
+of its proof give ũ the K⁺-weight α − 2 − ε′, while its conclusion at the output loss ε, at which the tame accounting
+takes it ([[sec:iii-j2-1]]), is the K⁺-weight α − 2 − ε, so a run of the proof that gives it has ε′ ≤ ε. And
+ε ≤ ε_1 < ε_+/5 ([[sec:iii-j2-1]]). So ε, ε′ and η_2 are below δ_50. The level spacing is below α − 4 ≤ ε_K, and each
+round raises the tf-weight by ε_g − ε < δ_50.
 
 *Below 3.* At a level β ∈ (2, 3), τ_i < 2 + δ_50 + iδ_50, and the rounds run for every i with τ_i ≤ β − ε′, the τ_i
 being increasing; so their number is at least the number of i ≥ 0 with 2 + δ_50 + iδ_50 ≤ β − δ_50, which is at

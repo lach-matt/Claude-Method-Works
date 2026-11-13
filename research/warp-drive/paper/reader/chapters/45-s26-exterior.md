@@ -953,7 +953,9 @@ u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c), ũ_j ∈ H^(k,(a₀,2β))_b in every slot j,
 (a) two decompositions of u have the same u^((0)) almost everywhere on ℐ⁺ ∩ Ω̄_c;
 
 (b) if (u^((0)), ũ) is a decomposition of u and z is smooth with compact support in ℐ⁺_c ∩ {x¹ > y_*}, then
-(u^((0)) + z, ũ′) is a decomposition of u, where ũ′₆ := ũ₆ − χ_Iz and ũ′_j := ũ_j for j ≠ 6.
+(u^((0)) + z, ũ′) is a decomposition of u, where ũ′₆ := ũ₆ − χ_Iz and ũ′_j := ũ_j for j ≠ 6;
+
+(c) if u lies in 𝒴^k_(a₀)(Ω) for every k, it has one decomposition whose norms of every order are finite.
 
 *Proof.* On U, ρ_I = (2 − x¹)/|x| ([[eq:iii-c-1-2]]), and the upper condition of [[eq:iv2-0-5]] reads
 x¹ ≤ y_* + 2|x|^(1−ℓ^♭_I) (the proof of [[lem:iv2-1-1]]). Over a point of ℐ⁺ with x¹ ≤ y_* it holds at every |x|, and
@@ -970,7 +972,19 @@ are bounded, and lies in H^(∞,(a₀,2β))_b(Ω_c); and u₆ = χ_I(u^((0)) + z
 χ_Iz = ũ′₆ − ũ₆ ∈ H^(0,(a₀,2β))_b(Ω_c). In the coordinates (s, ρ₀, ω), s := log ρ_I, of the proof of [[lem:iv2-1-2]],
 the square of this norm is comparable to ∫(∫ e^(−2βs)|χ_Iz|² ds) ρ₀^(−2a₀)(dρ₀/ρ₀)dg̸, which is therefore finite. Over
 a point with x¹ ≤ y_* the inner integral runs over (−∞, log c), on which χ_I = 1 for s ≤ log(c/4), and
-∫_(−∞)^(log(c/4)) e^(−2βs) ds = ∞ as β > 0. So z = 0 at almost every such point. ∎
+∫_(−∞)^(log(c/4)) e^(−2βs) ds = ∞ as β > 0. So z = 0 at almost every such point.
+
+(c) Let χ′ := χ̂′(ρ_I), χ̂′ ∈ C_c^∞([0, c/2)) equal to 1 on [0, c/8], and u′ := χ′u₆ on Ω_c, which vanishes on
+{ρ_I > c/2}. If (u^((0)), ũ) is a decomposition of order k, then, as X_Iu^((0)) = 0,
+
+    w′ := X_Iu′ = (X_Iχ′)u₆ + χ′(X_Iχ_I)u^((0)) + χ′X_Iũ₆,
+
+where the first two terms are supported in {c/8 ≤ ρ_I ≤ c/2}, on which the weights at ℐ⁺ are bounded and u₆ and
+u^((0)) lie in H^k_b; so w′ ∈ H^(k−1,(a₀,2β))_b(Ω_c) for every k, and it vanishes on {ρ_I > c/2}. [[lem:iv2-1-2]] (b)
+with γ := β, applied to u′ and w′, gives u′ = v^((0)) + ṽ, with v^((0)) and ṽ not depending on k, v^((0)) ∈
+H^(k−1,a₀)_b(ℐ⁺_c) and ṽ ∈ H^(k−1,(a₀,2β))_b for every k. Then u₆ = χ_Iv^((0)) + ũ″₆ on Ω_c, with
+ũ″₆ := ṽ + (1 − χ_I)v^((0)) + (1 − χ′)u₆, whose last two terms are supported in {ρ_I ≥ c/8}; so (v^((0)), ũ″), with
+ũ″_j := u_j for j ≠ 6, is a decomposition with every norm finite. ∎
 
 The estimates below bound the norm of a decomposition that they construct, linearly in the data, and so bound the norm
 of u. Where a choice linear in u is needed, in the smoothing of the proof of [[thm:iv2-3-1]], the decomposition is
@@ -1128,9 +1142,10 @@ N(f, ġ₀, ġ₁; j) := ‖f‖_(H^(j,α₀+2,(−′,ℓ^♭_I+1))_b) + ‖ġ�
         ≤ C(N(f, ġ₀, ġ₁; k + d) + ‖h‖_(H^(k+d+3,ℓ^♭₀,(−,ℓ^♭_I))_b)N(f, ġ₀, ġ₁; 8)),                        {#eq:iv2-2-3}
 
 with C depending on k, α₀, ℓ^♭_I, the parameters and the bound on h in H⁸, and not on h otherwise. Here the norms of h
-are those of one decomposition of ρ^(−3/2)h ([[lem:s26-decompositions]], a₀ = ℓ^♭₀ − 3/2), small at order 8, the same
-at every order; and the left side of [[eq:iv2-2-3]] may be replaced by the norm of the decomposition of ġ that the proof
-constructs, which depends linearly on (f, ġ₀, ġ₁). At α₀ = ℓ^♭₀ this is the tame form [Hin26, (5.52)] of
+in [[eq:iv2-2-3]] and in that bound are those of one decomposition of ρ^(−3/2)h ([[lem:s26-decompositions]], with
+a₀ = ℓ^♭₀ − 3/2), the same at every order (one with every norm finite exists by part (c) of that lemma); and the left
+side of [[eq:iv2-2-3]] may be replaced by the norm of the decomposition of ġ that the proof constructs, which depends
+linearly on (f, ġ₀, ġ₁). At α₀ = ℓ^♭₀ this is the tame form [Hin26, (5.52)] of
 [[eq:iii-c1-2-2]]; [[eq:iii-c1-2-2]] itself follows, with C depending on h.
 
 *Proof.* *Step 1 (near Σ_IVP).* [[lem:iv2-2-2]] with s := k + 3 and α := α₀ gives ġ_N on Ω_N, including the past

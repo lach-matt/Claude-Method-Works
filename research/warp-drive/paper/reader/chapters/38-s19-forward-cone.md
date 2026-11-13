@@ -615,7 +615,7 @@ constants independent of b and continuity in b.
 α_+ := β_+ − 5/2 and α_I := β_I − 2, with [[rem:ii-f1-7-1]] for the relaxed admissibility with margin d_ℵ = 1
 (d raised by 1), and with [[rem:ii-f1-7-4]] for ℓ_♭ = ½: the time function t^♭_* of [[sec:iii-i-1]] is that of
 [[lem:ii-c-3-2]] built for g_(b₀), the metric of P_0, with the exponent ½ ≥ ℓ_I. Write ε′_0 for the ε_0 of
-[[thm:ii-f1-1-1]] in this form, the threshold for ‖P − P_0‖_((0;d)), and ε_♭ for that of [[eq:ii-f1-7-1]]. Its
+[[thm:ii-f1-1-1]] in this form, the threshold for ‖P − P_0‖_((0;d)), and η_♭ for that of [[eq:ii-f1-7-1]]. Its
 hypotheses hold.
 
 (i) P_0 is 2-admissible with sf-weight α_+, sf-loss 0 and margin 1, by [[thm:iii-h1-1-3]] at b₀ for every k, as
@@ -702,15 +702,20 @@ independent of, and not orthogonal to, the timelike dt_* of (B2), hence near Γ_
 of (H7) ([[sec:i-b-1-5]]) hold, with ν_min, β_0 and sup_Γ q^Γ continuous in b and positive ((Dyn)).
 
 (B2) dt_* is g_b-timelike over U_Γ (g_b^00 < 0 on X°, [[lem:iii-b-3-7]] (a)), and
-‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2, with ε_♭ fixed as follows. Let ϵ_G be the threshold of [[lem:ii-c-3-2]]
-(2) for g_(b₀) at ℓ = ½, and C_♭ the constant of [[rem:ii-f1-7-4]] for ℓ_♭ = ½ and for stationary metrics g_0 with
-x_I²ρ_+²g_0 and its inverse bounded by twice the bounds of x_I²ρ_+²g_(b₀) and its inverse; let ε_♭ ≤ ϵ_G/(4C_♭ + 2)
-be so small that every g_b with ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < ε_♭/2 is such a metric, and that for such g_0
-the inversion identity of the proof of [[rem:ii-f1-7-4]] applies to the metrics of its (i)–(iii) whenever the metric g
-there satisfies ‖g − g_0‖_(𝒢̃^(0,(1,0,0))_(e3b)) < 3ε_♭/2. So ε_♭ depends on g_(b₀) alone. The condition holds for
-b near b₀: on {|x| ≥ 3R₁}, g_b − g_(b₀) = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞ (the proof of [[lem:iii-i-3-6]]),
-of norm O(|b − b₀|) by the argument of [[lem:iii-i-2-2]], and on {|x| ≤ 3R₁}, g_b is smooth in b and stationary. By
-it the time function t^♭ := t^♭_* of [[sec:iii-i-1]], built from g_(b₀) with ℓ = ½, serves every g_b, and
+‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < η_♭/2, the norm taken over {t_* ≥ ½, r ≥ r₀ − δ₀}, which contains Ω_* and the
+region {r ≥ r^♯, t_* ≥ ½} of [[lem:ii-e-1-2]], with η_♭ fixed as follows. Let ϵ_G be the threshold of
+[[rem:ii-f1-7-4]] for g_(b₀), the time function t^♭_* of [[sec:iii-i-1]] and ℓ_♭ = ½: that of [[lem:ii-c-3-2]] (2),
+taken so small that it gives also the properties that [[lem:ii-e-1-2]] (iv) asks below Ω. Let K_♭ be the constant of
+[[rem:ii-f1-7-4]] for ℓ_♭ = ½, this t^♭_* and stationary metrics g_0 with x_I²ρ_+²g_0 and its inverse bounded on
+{t_* ≥ ½, r ≥ r₀ − δ₀} by twice the bounds of x_I²ρ_+²g_(b₀) and its inverse there; let η_♭ ≤ ϵ_G/(4K_♭ + 2) be so
+small that every g_b with ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < η_♭/2 over that set is such a metric, and that for such
+g_0 the inversion identity of the proof of [[rem:ii-f1-7-4]] applies to the metrics of its (i)–(iii) whenever the
+metric g there satisfies ‖g − g_0‖_(𝒢̃^(0,(1,0,0))_(e3b)) < 3η_♭/2 over Ω_*. So η_♭ depends on g_(b₀) alone. The
+condition holds for b near b₀: on {|x| ≥ 3R₁}, g_b − g_(b₀) = (m − m₀)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞ (the proof of
+[[lem:iii-i-3-6]]), of norm O(|b − b₀|) over Ω_* by the argument of [[lem:iii-i-2-2]], and so over {t_* ≥ ½}: below
+Ω_*, at bounded t_*, the difference is stationary, and the weight and the frame at (t_*, x) are comparable to those at
+the point of {t^♭_* = 1} with the same x; on {|x| ≤ 3R₁}, g_b is smooth in b and stationary, and x_I²ρ_+² is bounded
+above and below there. By it the time function t^♭ := t^♭_* of [[sec:iii-i-1]], built from g_(b₀) with ℓ = ½, serves every g_b, and
 Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover, on the annulus {½r_♭ ≤ |x| ≤ 15R₁/16},
 g_b⁻¹(dr, dr) ≤ −c and g_b⁻¹(dt, dr) > 0, with c := 31/450 independent of b; so dr is future timelike for g_b there.
 This makes the inner boundary {r = r₀} spacelike at every b ∈ B̄_1, and r decreasing along future causal curves on the
