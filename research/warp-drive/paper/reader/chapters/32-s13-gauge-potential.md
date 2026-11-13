@@ -288,3 +288,290 @@ above 2.
 lies in (1, 2) when e < 1/3 and 0 < γ²(1 − 3e) < 1, inside the gap (0, 2). The weight 2/3 = 2/(D − 2) avoids this:
 (2/(D − 2))(1 − D/2) = −1 in every dimension D, so that ĒḠ takes the same form −γ(2ι − e c̄ tr) as in dimension 4
 with the weight 1.
+
+### The subprincipal data {#sec:iii-d-5}
+
+#### The structure at infinity and the horizon threshold {#sec:iii-d-5-1}
+
+On g_(b_0), in the ingoing chart (v, r, y), y = (y¹, y², y³) coordinates on 𝕊³, the metric is
+g = −f dv² + 2dv dr + r²g_𝕊, so g^vv = 0, g^vr = 1, g^rr = f, g^(ra) = g^(va) = 0, and |dg| = r³|dv dr dg_𝕊|. Its
+Christoffel symbols with a lower index v are, from g_vv = −f and g_vr = 1,
+
+    Γ^v_vv = f′/2,   Γ^r_vv = ff′/2,   Γ^r_vr = −f′/2,   Γ^v_vr = 0,   Γ^λ_va = 0,                         {#eq:s13-chris}
+
+since Γ^λ_vν = ½g^(λκ)(∂_ν g_κv − ∂_κ g_vν) for the stationary metric, g_κv does not depend on the angles, and
+g_va = 0. At r_h, f = 0 and f′(r_h) = 2m_0 r_h⁻³ = 2/r_h.
+
+**Proposition {#prop:np-10-18}** (Structure at infinity and the horizon threshold.)
+
+(i) On 4 + 1 Minkowski space, in the time t_* = t̄ − r and the Cartesian frame (dt̄, dx^i), □̄^Υ is
+−2∂_(t_*) ρ(ρ∂_ρ − 3/2 − S̄) plus a stationary operator, with no ∂_(t_*)² term, and
+
+    S̄ω = γ_Υ(ω + ω(∂_(t̄)) dt_* + e_Υ ḡ⁻¹(dt_*, ω) dt̄).
+
+(ii) The spectrum of S̄ is γ_Υ(1 − e_Υ), 2γ_Υ, and γ_Υ on the three angular directions.
+
+(iii) On g_(b_0), let c_H = c_v dv + c_r dr near r_h, E_H h := 2ι_(g⁻¹c_H) h − (2/3)c_H tr_g h, and γ_H ∈ ℝ. At
+N*ℋ, that is at r = r_h and ζ = ξ dr, the subprincipal symbol of □_(g_(b_0)) + 2γ_H E_H G δ*, on half-densities by
+|dg| and in the coordinate frame (dv, dr, dy^a), is iξf′(r_h)K, where
+
+        ⎛ 1 + c_vγ_H r_h    0                    0               ⎞
+    K = ⎜ c_rγ_H r_h        −1 + 2c_vγ_H r_h     0               ⎟ .
+        ⎝ 0                 0                    c_vγ_H r_h Id_3 ⎠
+
+(iv) On g_(b_0), with t the static time and t_* := t − r, g⁻¹(dt_*, dt_*) = −(2m_0ρ² − m_0²ρ⁴)/(1 − m_0ρ²), which
+lies in ρ²C^∞; and g − ḡ = m_0ρ²dt² + m_0ρ²(1 − m_0ρ²)⁻¹dr² for ḡ := −dt² + dr² + r²g_𝕊, which is O(ρ²) in the frame
+(dt, dr, r dx̂).
+
+*Proof.* (i) The first part is [[eq:iii-d-2-1]]. In the null splitting, dt_* = dx̄¹, dt̄ = ½(dx̄⁰ + dx̄¹),
+ω(∂_(t̄)) = ω_0 + ω_1 (as ∂_(t̄) = ∂_0 + ∂_1), and ḡ⁻¹(dt_*, ω) = −2ω_0 by [[eq:iii-a1-2-3]]. So the right side is
+γ_Υ((1 − e_Υ)ω_0, (1 − e_Υ)ω_0 + 2ω_1, ω_𝕊), which is S̄ω by [[eq:iii-d-3-2]]; the expression does not depend on the
+frame. (ii) is [[lem:iii-d-3-1]].
+
+(iii) *The unmodified operator.* Let 𝔪 := r³|g_𝕊|^(1/2), so |dg| = 𝔪|dv dr dy|. For an operator P on ℂ⁵-valued
+functions with scalar principal part −g^(αβ)∂_α∂_β, the subprincipal symbol on half-densities by |dg| is that of
+P̃ := 𝔪^(1/2)P𝔪^(−1/2) on half-densities by |dv dr dy|, namely p̃_1 − (1/2i)Σ_j ∂_(x^j)∂_(ζ_j) p̃_2, p̃_k the
+homogeneous parts of the full symbol of P̃. Since ∇_α∇_βω_ν = ∂_α(∂_βω_ν − Γ^μ_βν ω_μ) − Γ^κ_αβ ∇_κω_ν
+− Γ^μ_αν ∇_βω_μ, in coordinates
+
+    (□ω)_ν = □_0 ω_ν + 2g^(αβ)Γ^μ_(αν) ∂_β ω_μ + (terms without derivatives of ω),
+    □_0 := −g^(αβ)∂_α∂_β + g^(αβ)Γ^κ_(αβ)∂_κ.
+
+The scalar wave operator □_0 is formally self-adjoint for |dg| and has real coefficients; so 𝔪^(1/2)□_0𝔪^(−1/2) is
+formally self-adjoint for |dv dr dy| and real, and its subprincipal symbol is both real and purely imaginary, hence
+zero. Conjugation by 𝔪^(1/2) changes the term 2g^(αβ)Γ^μ_(αν)∂_β only by terms without derivatives. So the
+subprincipal symbol of □ is the matrix u ↦ (2iζ^αΓ^μ_(αν)u_μ)_ν, ζ^α := g^(αβ)ζ_β. At N*ℋ, ζ^α = ξg^(αr), that is
+ζ♯ = ξ∂_v, and by [[eq:s13-chris]] the matrix is u ↦ (iξf′u_v, −iξf′u_r, 0) at r_h. *The modification.* By
+[[lem:iii-b-6-2]], E_H G h = 2ι_(c_H♯) h, so 2γ_H E_H G δ*u = 4γ_H ι_(c_H♯) δ*u, whose first-order part is
+2γ_H c^α(∂_α u_ν + ∂_ν u_α), c^α := g^(αβ)(c_H)_β. It has no second-order part, so it adds to the subprincipal symbol
+its symbol 2iγ_H(g⁻¹(c_H, ζ)u_ν + ζ_ν g⁻¹(c_H, u)). At r_h and ζ = ξdr, g⁻¹(c_H, ζ) = ξc_v,
+g⁻¹(c_H, u) = c_v u_r + c_r u_v and ζ_ν = ξδ^r_ν. So the total is
+iξ((f′ + 2γ_H c_v)u_v, 2γ_H c_r u_v + (−f′ + 4γ_H c_v)u_r, 2γ_H c_v u_a), and dividing by f′(r_h) = 2/r_h gives K.
+
+(iv) g⁻¹(dt − dr, dt − dr) = g^tt + g^rr = −f⁻¹ + f = −(1 − f)(1 + f)/f with 1 − f = m_0ρ² and 1 + f = 2 − m_0ρ²;
+and g − ḡ = (1 − f)dt² + (f⁻¹ − 1)dr². ∎
+
+**Lemma {#lem:iii-d-5-1}** (The threshold.) Let c_(Υ,H) = −½χ(r)dr near r_h, with χ = 1 near r_h (the choice of
+[[sec:iii-d1-1]]). Then at b_0 the threshold quantity ϑ_ℋ of [[eq:i-a-1-5]], computed in a suitable fibre inner
+product, is 1 for every γ_(Υ,H), and the regularity condition s > ½ + ϑ_ℋ is s > 3/2. For every δ > 0 there is a
+neighbourhood of b_0 (and of (e_Υ, γ_Υ, γ_(Υ,H)) in a compact set) on which ϑ_ℋ < 1 + δ in a fixed fibre inner
+product.
+
+*Proof.* Near r_h, E^Υ_(g,∞) vanishes and the horizon part of □^Υ_(b_0) is 2γ_(Υ,H)E_H G δ* with E_H as in
+[[prop:np-10-18]] (iii) and c_H = c_(Υ,H) ([[def:iii-b-6-1]]). Here c_v = 0, so by [[prop:np-10-18]] (iii) K has the
+distinct eigenvalues 1, −1, 0, the last with a diagonal block; K is diagonalisable, and in the inner product making its
+eigenvectors orthonormal its self-adjoint part is diagonal with largest eigenvalue 1. The normalisation of
+[[eq:i-a-1-5]], β_0⁻¹p_(1,±)(0) with p_(1,±) = ±ρ_∞σ_1(Im_h P̂), divides ξf′(r_h) by the red-shift rate β_0ρ_∞⁻¹,
+which on Tangherlini is ξf′(r_h) up to the orientation sign that the ± removes; so ϑ_ℋ is the largest eigenvalue, 1.
+The subprincipal symbol at N*ℋ_b and β_0 depend continuously on b (the horizon ℋ_b and its conormal bundle depend
+smoothly on b, by (Dyn)), so the largest eigenvalue in the fixed inner product is continuous. ∎
+
+On Kerr, [Hin26, footnote 71] gives the threshold 3/2 for γ_(Υ,H) = 0 and a value close to 3/2 for small γ_(Υ,H). In
+dimension 4 + 1 it is the same at γ_(Υ,H) = 0, and for this c_(Υ,H) it is exactly 3/2 for every γ_(Υ,H).
+
+#### The trapped set {#sec:iii-d-5-2}
+
+[Hin26, Lemma 6.4] proves that □^Υ_b is strongly trapping admissible ([Hin26c, Definition 5.8]: for every ϵ > 0 some
+fibre inner product makes the skew part at the trapped set smaller than ϵ) at every subextremal Kerr parameter. The
+theory of [[ch:s02]] does not use that property: [[thm:i-b-1-3]] assumes (Γ.4), the condition γ_− < 0, that is
+sup_Γ λ_max(p_1^Γ) < ½ν_min, and its losses are governed by δ_Γ ([[eq:i-b-1-4]]). That condition is open, and we
+prove it near b_0. We use the following facts on Tangherlini, proved in [[ch:s12]].
+
+(a) The subprincipal operator of □_(g_(b_0)) on half-densities by |dg| is −i∇^(π*T*)_(H_G) ([[prop:np-10-17]] (i)).
+
+(b) The trapped set in the future characteristic set is {r² = 2m_0, ξ = 0}; at the value 1 of the semiclassical
+parameter it is {r² = 2m_0, ξ = 0, C = 4m_0}, C = r²|η|² the Casimir of 𝕊³, with expansion rates ±ν,
+ν = 4(2m_0)^(−1/2), {φ_u, φ_s} = ν/f > 0, dG_1 ≠ 0, and β_0 = 1/f(r_ph) = 2 ([[prop:np-10-17]] (ii),
+[[prop:np-10-19]] (ii)).
+
+(c) On the characteristic set, the frame e_0 = ζ, e_1 = r(ζ_(1)w^(0) + ζ_(0)w^(1)),
+e_2 = ½r²(ζ_(0)w^(0) + ζ_(1)w^(1) − η), with w^(0) = f^(1/2)dt and w^(1) = f^(−1/2)dr, has Gram matrix CJ,
+J = ((0, 0, −1), (0, 1, 0), (−1, 0, 0)), and ∇_(H_G)e_0 = 0, ∇_(H_G)e_1 = −2σe_0, ∇_(H_G)e_2 = −2σe_1; an angular
+covector is orthogonal to all three if and only if it is orthogonal to η ([[prop:np-10-17]] (iii)–(iv)).
+
+(d) In the inner product diag(1, ϵ_1⁻¹, ϵ_1⁻²) on span{e_0, e_1, e_2}/C^(1/2), the endomorphism p_1 = −½(M + M*), M
+the connection matrix of (c), has spectrum 0, ±(2ϵ_1)^(1/2) ([[prop:np-10-17]] (v), [[prop:np-10-19]] (iii)).
+
+**Lemma {#lem:iii-d-5-2}** (The trapped set; [Hin26, Lemma 6.4] in dimension 4 + 1, in the form [[thm:i-b-1-3]]
+uses.) Assume (Dyn), with the trapped sets Γ_b (at z_0 = ±1) depending continuously on b and Γ_(b_0) as in (b). For
+every ϵ > 0 there are a stationary fibre inner product h_Γ on π*T* over a neighbourhood of Γ_(b_0) in phase space,
+homogeneous of degree 0 (it depends on the covector, as (H7) of [[sec:i-b-1-2]] and [[def:ii-c-2-1]] allow,
+[[lem:i-b-6-0]] reducing it to a standard one), and a neighbourhood ℬ_ϵ of b_0, such that for b ∈ ℬ_ϵ and every E_Υ
+as in [[sec:iii-d-1]], sup_(Γ_b) λ_max(p_1^Γ) < ϵ. In particular (Γ.4) holds with γ_− < 0 (take ϵ < ½ν_min), and
+δ_Γ(0), which by [[eq:i-b-1-4]] tends to 0 with γ_+, is as small as wished.
+
+*Proof.* E^Υ vanishes over U_Γ ⊃ π(Γ_b) ([[sec:iii-d-1]]), so p_1^Γ is that of □_(g_b). *At b_0.* Near Γ_(b_0),
+where C > 0, split π*T* = 𝒫 ⊕ V_⊥ with 𝒫 := span{e_0, e_1, e_2} and V_⊥ its g-orthogonal complement, the angular
+covectors orthogonal to η, by (c); g is positive definite on V_⊥. 𝒫 is ∇_(H_G)-invariant by (c), and as ∇ is metric,
+so is V_⊥, on which ∇_(H_G) is g-skew. Take h_Γ := diag(1, ϵ_1⁻¹, ϵ_1⁻²) on 𝒫 in the frame e_j/C^(1/2), and g on
+V_⊥; it is stationary and homogeneous of degree 0, as H_G C = 0 and C has degree 2. In these frames h_Γ is constant,
+−iH_G is symmetric for the symplectic volume, and H_G σ = 0, so by (a) p_1^Γ is −½(M + M*) on 𝒫 and 0 on V_⊥, with
+largest eigenvalue (2ϵ_1)^(1/2) by (d) at the point considered. The isometries of Tangherlini (time translations and
+SO(4)) act transitively on Γ_(b_0) and preserve the construction of the frame, so this holds at every point. Choose
+ϵ_1 with (2ϵ_1)^(1/2) < ϵ/2. *Near b_0.* Extend h_Γ to a stationary inner product on a neighbourhood of Γ_(b_0). The
+endomorphism p_1 is built from the subprincipal symbol of □_(g_b) and h_Γ, continuous in b uniformly near Γ_(b_0),
+and Γ_b → Γ_(b_0) by (Dyn); so sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_0 are continuous in b by (Dyn)
+and positive at b_0. Two conventions enter. First, p_1^Γ is the endomorphism of [[lem:i-b-6-0]] for this h_Γ, which
+in the frame e_j/C^(1/2), where h_Γ is constant, is the h_Γ-imaginary part of the subprincipal operator. Second, (a)
+uses half-densities by |dg|, while the adjoints of [[ch:s01]] are for |dx| = r³dr dx̂ and dt_*. On Tangherlini
+|dg| = |dt_*| r³dr dx̂, so the two agree at b_0; near b_0 the change of density by f_b := |dg_b|/|dg_(b_0)| adds the
+scalar ½f_b⁻¹H_G f_b = O(|b − b_0|) to p_1 (the remark after [[lem:ii-c-2-2]]), which the continuity step absorbs. ∎
+
+### High energies and bounded frequencies {#sec:iii-d-6}
+
+**Proposition {#prop:iii-d-6-1}** ([Hin26, Proposition 6.5] in dimension 4 + 1.) Assume (Dyn). Fix c_Υ and c_(Υ,H) as
+in [[sec:iii-d-1]]. There are C_0 and a neighbourhood ℬ′ of b_0 such that for b ∈ ℬ′ and (e_Υ, γ_Υ, γ_(Υ,H)) in a
+fixed compact set, (□^Υ_b)^(σ): 𝒳_σ → 𝒴_σ ([[thm:i-a-7-2]], orders as in [[thm:i-b-1-3]] (3)) is invertible for
+Im σ ≥ 0, |σ| ≥ C_0.
+
+*Proof.* [[lem:iii-d-2-1]] gives (H1), (H2) and the operator part of (H6); [[lem:iii-d-5-1]] the threshold in (H3),
+with s > 3/2 + δ; [[lem:iii-d-5-2]] (Γ.4) with γ_− < 0; (Dyn) the rest of (H3)–(H8); and the continuity in
+(b, e_Υ, γ_Υ, γ_(Υ,H)) of every datum is (H5), extended as in [[sec:i-b-9]]. [[thm:i-b-1-3]] (3) applies, with
+constants uniform in the parameters by [[sec:i-b-9]]. ∎
+
+Mode stability at bounded nonzero frequencies needs that of the unmodified operator at b_0, which [Hin26] takes from
+[AHW24, Theorem 5.1] on Kerr. On five-dimensional Tangherlini it reduces to three ordinary differential equations, by
+the following identities. Write □ := □_(g_(b_0)), and let fields be e^(−iσt) times stationary ones, σ ∈ ℂ, in the
+static chart on {r > r_h}; Φ_* := dΦ/dr_* = fΦ′.
+
+**Proposition {#prop:np-10-16}** (The mode equations on Tangherlini.)
+
+(i) For every metric, on 1-forms, 2δ_g G_g δ*_g = ∇*∇ − Ric and dδ_g + δ_g d = ∇*∇ + Ric. So on g_(b_0),
+□ = dδ + δd = ∇*∇.
+
+(ii) For u = r^(−3/2)Φ(r)S e^(−iσt), S ∈ 𝒮_l: −fr^(3/2)e^(iσt)(δdu)/S = f(fΦ′)′ + σ²Φ − V_0Φ, with
+V_0 := (f/r²)(κ + 3/4 + 9m_0/(4r²)).
+
+(iii) For A = r^(−1/2)Φ(r)Y e^(−iσt), Y a co-closed 1-form on 𝕊³ with δ_𝕊 d_𝕊 Y = ΛY: δA = 0, and δdA = 0 if and
+only if f(fΦ′)′ + σ²Φ − V_1Φ = 0, with V_1 := (f/r²)(Λ − 1/4 + 5m_0/(4r²)). For Y ∈ 𝒱_l, Λ = (l + 1)².
+
+(iv) Let A = (a(r)S dt + b(r)S dr)e^(−iσt), S ∈ 𝒮_l; every scalar type 1-form (aS dt + bS dr + c d_𝕊S)e^(−iσt)
+differs from one of this form by d(cS e^(−iσt)), which does not change dA. Write dA = F_tr S e^(−iσt) dt ∧ dr + …,
+so that F_tr = −iσb − a′, and M := δdA = (M_t S dt + M_r S dr)e^(−iσt) + (angular part). Then W := r³F_tr satisfies
+
+    R[W] := (fW′/r)′ − κW/r³ + σ²W/(rf) = (r²M_t)′ + iσr²M_r,
+
+and fr^(1/2)R[r^(1/2)Φ] = f(fΦ′)′ + σ²Φ − V_2Φ with V_2 := (f/r²)(κ + 3/4 − 7m_0/(4r²)). Where F_tr = 0,
+M_t = κa/r² and M_r = κb/r². At l = 0, M_r = −iσF_tr/f, and F_tr S dt ∧ dr is all of dA. For l ≥ 1 and every
+solution of R[W] = 0, A(W) := (κr)⁻¹(−fW′S dt + iσf⁻¹WS dr)e^(−iσt) satisfies δdA(W) = 0 and r³F_tr = W.
+
+(v) For r > r_h: V_0 > 0; V_1 > 0 when Λ ≥ 2; V_2 > 0 when κ ≥ 3, while at l = 0 V_2 is negative near r_h. The
+tortoise coordinate r_* := r + ½r_h log((r − r_h)/(r + r_h)) has dr_*/dr = 1/f and
+r_* = r − m_0/r − (m_0²/3)r⁻³ + O(r⁻⁵); f′(r_h)/2 = 1/r_h; and dι_Tω + ι_Tdω = −iσω for T = ∂_t and every
+ω = e^(−iσt)ω_0, ω_0 stationary.
+
+*Proof.* (i) With δω = −∇^μω_μ and δ*ω = ½(∇_μω_ν + ∇_νω_μ), tr δ*ω = −δω, so Gδ*ω = δ*ω + ½gδω and
+2(δGδ*ω)_ν = −∇^μ∇_μω_ν − ∇^μ∇_νω_μ − ∇_ν δω. The Ricci identity gives
+∇^μ∇_νω_μ = ∇_ν∇^μω_μ + Ric_ν^μ ω_μ = −∇_νδω + (Ric ω)_ν, so 2δGδ*ω = ∇*∇ω − Ric ω. Likewise
+(δdω)_ν = −∇^μ(∇_μω_ν − ∇_νω_μ) = (∇*∇ω)_ν − (dδω)_ν + (Ric ω)_ν. g_(b_0) is Ricci-flat ([[prop:iii-b-3-4]]).
+
+(ii) On functions δdu = −|g|^(−1/2)∂_μ(|g|^(1/2)g^(μν)∂_νu) with |g|^(1/2) = r³|g_𝕊|^(1/2), g^tt = −1/f,
+g^rr = f and g^(ab) = r⁻²g_𝕊^(ab); so for u = e^(−iσt)u_0(r)S, e^(iσt)δdu = (−σ²f⁻¹u_0 − r⁻³(r³fu_0′)′ + κr⁻²u_0)S.
+With u_0 = r^(−3/2)Φ, r³f u_0′ = f(r^(3/2)Φ′ − (3/2)r^(1/2)Φ), and
+r⁻³(r³fu_0′)′ = r^(−3/2)((fΦ′)′ − (3/2)r⁻¹f′Φ − (3/4)r⁻²fΦ). Multiplying by −fr^(3/2) gives the equation with
+V_0 = f((3/2)r⁻¹f′ + (3/4)r⁻²f + κr⁻²), and (3/2)r⁻¹f′ = 3m_0r⁻⁴, (3/4)r⁻²f = (3/4)r⁻² − (3/4)m_0r⁻⁴.
+
+(iii) Put ψ := r^(−1/2)Φe^(−iσt). Then δA = −r⁻³|g_𝕊|^(−1/2)∂_a(r|g_𝕊|^(1/2)g_𝕊^(ab)ψY_b) = r⁻²ψδ_𝕊Y = 0. For
+the 2-form F := dA, (δF)^ν = −|g|^(−1/2)∂_μ(|g|^(1/2)F^(μν)), with F_ta = ∂_tψ Y_a, F_ra = ∂_rψ Y_a and
+F_ab = ψ(d_𝕊Y)_ab. The t- and r-components of δF are angular divergences of multiples of Y, which vanish as
+δ_𝕊Y = 0. The angular component is
+
+    (δF)_a = (f⁻¹∂_t²ψ − r⁻¹∂_r(rf∂_rψ) + Λr⁻²ψ)Y_a,
+
+the last term from the angular divergence of F^(ab) = r⁻⁴ψ(d_𝕊Y)^(ab), lowered by g_ab = r²(g_𝕊)_ab. With
+∂_t² = −σ² and r⁻¹(rf(r^(−1/2)Φ)′)′ = r^(−1/2)((fΦ′)′ − ½r⁻¹f′Φ + ¼r⁻²fΦ), multiplying by −fr^(1/2)e^(iσt) gives the
+equation with V_1 = f(½r⁻¹f′ − ¼r⁻²f + Λr⁻²), and ½r⁻¹f′ = m_0r⁻⁴, −¼r⁻²f = −¼r⁻² + ¼m_0r⁻⁴. For Y ∈ 𝒱_l,
+δ_𝕊d_𝕊Y = Δ_𝕊Y + 2Y on co-closed 1-forms of 𝕊³ (the Ricci identity on the unit 𝕊³, where Ric = 2g_𝕊), and
+Δ_𝕊Y = (κ − 1)Y ([[lem:iii-a1-1-5]]); so Λ = κ + 1 = (l + 1)².
+
+(iv) Up to the factor e^(−iσt), F_tr = −iσb − a′, F_at = a∂_aS, F_ar = b∂_aS and F_ab = 0. Then
+F^(rt) = g^rr g^tt F_rt = F_tr and F^(at) = −(fr²)⁻¹a∇^a_𝕊S, so, using ∇_(𝕊,a)∇^a_𝕊S = −κS,
+(δF)^t = (−r⁻³W′ − κa(fr²)⁻¹)S and M_t = −f(δF)^t/S = fW′r⁻³ + κar⁻². Similarly F^(tr) = −F_tr and
+F^(ar) = fr⁻²b∇^a_𝕊S give (δF)^r = (−iσr⁻³W + κfbr⁻²)S, so M_r = f⁻¹(δF)^r/S = −iσW/(fr³) + κb/r². Hence
+
+    (r²M_t)′ + iσr²M_r = (fW′/r)′ + κa′ + σ²W/(fr) + iσκb = (fW′/r)′ + σ²W/(rf) − κF_tr = R[W].
+
+The two formulas give M_t = κa/r², M_r = κb/r² where W = 0, and M_r = −iσF_tr/f at κ = 0, where d_𝕊S = 0, so that
+dA = F_tr S dt ∧ dr. Next, with W = r^(1/2)Φ, (fW′/r)′ = r^(−1/2)(fΦ′)′ + ½r^(−3/2)f′Φ − (3/4)r^(−5/2)fΦ, so
+fr^(1/2)R[r^(1/2)Φ] = f(fΦ′)′ + σ²Φ − f(κr⁻² + (3/4)fr⁻² − ½f′r⁻¹)Φ, and (3/4)f − ½rf′ = 3/4 − (7/4)m_0r⁻².
+Finally, for A(W), a = −fW′/(κr) and b = iσW/(κrf), so F_tr = σ²W/(κrf) + (fW′/r)′/κ = W/r³ when R[W] = 0;
+M_t = M_r = 0 by the formulas above; and the angular component of δdA, which by the same computation is
+r⁻¹(iσra/f + (rfb)′)d_𝕊S, vanishes since iσra/f = −iσW′/κ and (rfb)′ = iσW′/κ.
+
+(v) V_0 > 0 is clear; Λ − 1/4 > 0; and κ + 3/4 − (7/4)m_0/r² > κ − 1 ≥ 2 for κ ≥ 3, as m_0/r² < 1, while at κ = 0
+and r = r_h the bracket is −1. dr_*/dr = 1 + ½r_h((r − r_h)⁻¹ − (r + r_h)⁻¹) = r²/(r² − m_0) = 1/f, and
+log((1 − x)/(1 + x)) = −2x − (2/3)x³ + O(x⁵), x = r_h/r, gives the expansion. f′(r_h) = 2m_0r_h⁻³ = 2/r_h. The last
+identity is Cartan's formula, as the Lie derivative along T is ∂_t in the static chart. ∎
+
+The potentials are positive at l ≥ 1. They differ from those on four-dimensional Schwarzschild by the terms that 𝕊³
+brings: 3/4 in V_0 and V_2, −1/4 in V_1, and 9/4, 5/4 and −7/4 times m_0/r². At l = 0 the Maxwell scalar potential is
+negative near the horizon, and that sector is settled by the relation M_r = −iσF_tr/f, not by positivity.
+
+**Proposition {#prop:iii-d-6-2}** (Mode stability of □ on Tangherlini away from zero frequency.) Assume (Dyn) at b_0.
+For σ ≠ 0 with Im σ ≥ 0, □̂(σ): 𝒳_σ → 𝒴_σ is invertible.
+
+*Proof.* By [[thm:i-a-7-2]] (3) and [[thm:i-b-1-3]] (3), which apply to □, the case E_Υ = 0 of
+[[sec:iii-d-2]]–[[sec:iii-d-5]], □̂(σ) is Fredholm of index 0, so it suffices to show injectivity. Let u ∈ 𝒳_σ with
+□̂(σ)u = 0. By [[thm:i-a-7-2]] (5) with S̄ = 0, u ∈ 𝒜^(3/2−ϵ)(X̄) for every ϵ > 0, smooth up to {|x| = r_0}, hence
+across the horizon r = r_h > r_0, and conormal at infinity. Let ω := e^(−iσt_*)u, so □ω = 0.
+
+*The class.* The time t_* of [[eq:iii-b-3-6]] is regular across the future horizon and outgoing at infinity:
+t_* = v + F_H(r) near r_h with F_H smooth across r_h in the ingoing chart, and t_* = t − r_* + c′ + O(r⁻¹), with all
+derivatives, as r → ∞ ([[eq:iii-b-3-6]] and [[lem:iii-b-3-5]] at A = 0). So in the static chart ω = e^(−iσt)ω_0
+with ω_0 = e^(−iσr_*) × (smooth across r_h in (v, r)) near r_h and ω_0 = e^(iσr_*) × (conormal, O(r^(−3/2+ϵ))) near
+infinity. In the static frame the coefficients a, b of [[prop:np-10-16]] (iv) are singular at r_h (b = A_r + A_v/f);
+the argument below uses only F_tr = F_vr and ω(∂_t) = ω(∂_v), which are smooth across r_h. Expanding in spherical
+harmonics ([[lem:iii-a1-1-6]]; the projections act in the angles and preserve both properties, with bounds), every
+component inherits them.
+
+We use repeatedly the following fact. *If −Φ_** + VΦ = σ²Φ on (r_h, ∞) with V real, V = O(r⁻²) with all derivatives
+at infinity and V = O(f) near r_h, Φ = e^(−iσr_*)h with h smooth at r_h, and Φ = e^(iσr_*)k with k conormal and
+O(r^N) at infinity for some N, then Φ = 0, provided V > 0.* Indeed the solutions at infinity are
+e^(±iσr_*)(1 + O(r⁻¹)) (Volterra iteration, V ∈ L¹(dr_*) at infinity); the given form excludes e^(−iσr_*), which is
+e^(iσr_*)e^(−2iσr_*), and e^(−2iσr_*) grows exponentially if Im σ > 0 and is not conormal if σ ∈ ℝ ∖ 0; so
+Φ = c e^(iσr_*)(1 + O(r⁻¹)). If Im σ > 0, Φ and Φ_* decay exponentially at both ends (r_* → ∓∞), and pairing with Φ̄
+gives ∫(|Φ_*|² + V|Φ|²)dr_* = σ²∫|Φ|²dr_*; if Φ ≠ 0 the left side is positive, forcing σ² > 0, so σ real: a
+contradiction. If σ is real, the Wronskian Im(Φ̄Φ_*) is constant; at r_h, Φ_* = −iσΦ + e^(−iσr_*)fh′ gives
+−σ|h(r_h)|², and at infinity σ|c|²; so c = 0 and Φ = 0.
+
+*(a) The scalar step.* δω solves δd(δω) = δ□ω = 0 by [[prop:np-10-16]] (i). For each component r^(−3/2)ΦS of δω,
+[[prop:np-10-16]] (ii) gives −Φ_** + V_0Φ = σ²Φ (multiply by f), and the class holds with the extra factor r^(3/2)
+(polynomial growth); so Φ = 0, and δω = 0.
+
+*(b) The Maxwell step.* Then δdω = □ω − dδω = 0. The vector type components r^(−1/2)ΦY of ω, Y ∈ 𝒱_l, have
+δ_𝕊d_𝕊Y = (l + 1)²Y with (l + 1)² ≥ 4, so [[prop:np-10-16]] (iii) and the fact give Φ = 0. For the scalar type part
+at l ≥ 1, W = r³F_tr solves R[W] = 0 by [[prop:np-10-16]] (iv) (as M = 0), so Φ := r^(−1/2)W solves the equation
+with V_2 > 0; F_tr dt ∧ dr = F_vr dv ∧ dr is a component of dω, so Φ is in the class, and Φ = 0. Then F_tr = 0 and
+M = 0 give a = b = 0 in the gauge of [[prop:np-10-16]] (iv), κ ≠ 0: that part of ω is a gradient. At l = 0,
+M_r = −iσF_tr/f = 0 gives F_tr = 0, which is all of dω there. So dω = 0.
+
+*(c) The gauge step.* By [[prop:np-10-16]] (v) and dω = 0, ω = (i/σ)dφ with φ := ω(T), which is in the scalar class.
+δdφ = −iσδω = 0, so φ = 0 by (a), and ω = 0 on {r > r_h}.
+
+*(d) Inside the horizon.* So u = 0 on {r > r_h}. The horizon is null, so a Cauchy argument does not apply, and we use
+the mode equations. Expand u in harmonics ([[lem:iii-a1-1-6]]): □̂(σ) commutes with the rotations, so the coefficients
+of each component of fixed type and degree l form a vector U(r) (at most three functions on (r_0, ∞)), smooth across
+r_h, vanishing on (r_h, ∞), which solves a system −fU″ + AU′ + BU = 0 with A, B smooth on (0, ∞). Indeed, in the
+ingoing chart (v, r, y), regular across r_h, in which t_* − v is a function of r, g^vv = 0, g^vr = 1, g^rr = f and
+g^(ra) = 0; conjugation by e^(−iσt_*) turns ∂_v into −iσ and ∂_r into ∂_r − iσ∂_r t_*, so the only second
+r-derivative of □̂(σ) is −f∂_r², and on a harmonic component the angular derivatives are algebraic. Put
+Y := (U, (r − r_h)U′). Since (r − r_h)/f = r²/(r + r_h),
+
+    (r − r_h)Y′ = MY,     M = ⎛ 0                          1                     ⎞ ,
+                              ⎝ r²(r − r_h)(r + r_h)⁻¹B    1 + r²(r + r_h)⁻¹A    ⎠
+
+with M smooth on (0, ∞). For r_0 < r_1 < r < r_h and m_1 := max_([r_1,r_h]) ‖M‖, wherever Y ≠ 0,
+(d/dr) log|Y|² = 2Re⟨Y, MY⟩/((r − r_h)|Y|²) ≥ −2m_1/(r_h − r), so if Y(r_1) ≠ 0 then
+|Y(r)| ≥ |Y(r_1)|((r_h − r)/(r_h − r_1))^(m_1) on [r_1, r_h) (the bound holds up to the first zero of Y after r_1, if
+there is one, and by continuity keeps |Y| positive there, so there is none), which contradicts the vanishing of Y to
+infinite order at r_h. So Y(r_1) = 0 for every r_1 ∈ (r_0, r_h), every component vanishes, and u = 0. ∎
+
+**Proposition {#prop:iii-d-6-3}** ([Hin26, Proposition 6.9] in dimension 4 + 1.) Assume (Dyn). Let c_0 > 0. There are
+ϵ > 0 and a neighbourhood ℬ″ of b_0 such that if |e_Υ|, |γ_Υ|, |γ_(Υ,H)| < ϵ and b ∈ ℬ″, then (□^Υ_b)^(σ) is
+invertible for all σ with Im σ ≥ 0 and |σ| ≥ c_0.
+
+*Proof.* Let 𝗉 := (b, e_Υ, γ_Υ, γ_(Υ,H)), a parameter in a compact set, with 𝗉_0 := (b_0, 0, 0, 0), at which the
+operator is □. For |σ| ≥ C_0, [[prop:iii-d-6-1]] applies. The set K := {c_0 ≤ |σ| ≤ C_0, Im σ ≥ 0} is compact, and at
+each σ ∈ K, □̂(σ) is invertible by [[prop:iii-d-6-2]]. By [[thm:i-a-8-1]] (invertibility is open in (σ, 𝗉), the
+hypotheses holding uniformly by [[sec:iii-d-2]] and (Dyn)), each σ ∈ K has a neighbourhood U_σ and an ϵ_σ with
+invertibility on U_σ × {|𝗉 − 𝗉_0| < ϵ_σ}; finitely many U_σ cover K. ∎

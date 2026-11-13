@@ -26,8 +26,7 @@ uniformity in the operator.
 #### The space {#sec:i-a-1-1}
 
 Let ℝ̄⁴ be the radial compactification of ℝ⁴, with boundary ∂ℝ̄⁴ ≅ 𝕊³. Near it we use ρ = |x|⁻¹ and ω = x/|x| ∈ 𝕊³,
-so that a neighbourhood of the boundary is [0, ρ₁)_ρ × 𝕊³_ω. Fix radii 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h and
-set
+so that a neighbourhood of the boundary is [0, ρ₁)_ρ × 𝕊³_ω. Fix radii 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h and set
 
     X̄ := {x : |x| ≥ r₀} ∪ ∂ℝ̄⁴,     ∂X := ∂ℝ̄⁴,     ∂_♯X := {|x| = r₀},     X̃ := {|x| > r₀ − 2δ₀} ∪ ∂X.
 
@@ -43,15 +42,15 @@ Myers–Perry metrics are fixed in [[ch:s12]].
 
 #### The bundle {#sec:i-a-1-2}
 
-Let E := X̃ × ℂ^N, N ≥ 1. The bundles of the later chapters are the restrictions to X̃ of T*M and S²T*M, for a
+Let E := X̃ × ℂ^N, N ≥ 1. The bundles of the later chapters are the restrictions to X̃ of T∗M and S²T∗M, for a
 five-dimensional spacetime M, trivialised by dt_*, dx¹, …, dx⁴ and their symmetric products, with N = 5 and N = 15;
 nothing below uses more than that E is trivial. (The letter N also denotes Sobolev orders, as in H^(−N), and in
 [[sec:i-a-7-5]] it bounds a nilpotency index; the context separates them.) A *fibre inner product* is
 h(x)(v, w) = ⟨H(x)v, w⟩_(ℂ^N), where H ∈ C^∞(ℝ̄⁴; End ℂ^N) is Hermitian, smooth on the compactification (that is,
 smooth in (ρ, ω) up to ρ = 0), and satisfies c Id ≤ H ≤ C Id with c > 0. Let L²_h := L²(ℝ⁴; ℂ^N) with the norm
-‖u‖²_h = ∫ h(u, u) |dx|, which is equivalent to the standard one. For an operator A, A^(*h) = H⁻¹A*H is its formal
-adjoint in L²_h, and A* its adjoint in the standard L². We write Re_h A := ½(A + A^(*h)) and
-Im_h A := (A − A^(*h))/2i.
+‖u‖²_h = ∫ h(u, u) |dx|, which is equivalent to the standard one. For an operator A, A^(∗h) = H⁻¹A∗H is its formal
+adjoint in L²_h, and A∗ its adjoint in the standard L². We write Re_h A := ½(A + A^(∗h)) and
+Im_h A := (A − A^(∗h))/2i.
 
 #### The operator {#sec:i-a-1-3}
 
@@ -64,7 +63,7 @@ P₀, with T = −i[P₀, t_*] and P₂ of order 0 (compare [Hin26c, (9.30)]). F
 principal symbol, of order m; σ₀ and σ₁, written without an argument, are the real and imaginary parts of the spectral
 parameter, σ = σ₀ + iσ₁. The hypotheses are these.
 
-(H1) (*Principal symbol.*) σ_2(P̂(0)) = G₀ Id, where G₀ ∈ C^∞(T*X̃°) is real, fibrewise quadratic and even in the
+(H1) (*Principal symbol.*) σ_2(P̂(0)) = G₀ Id, where G₀ ∈ C^∞(T∗X̃°) is real, fibrewise quadratic and even in the
 fibres, and σ_1(T) = τ₁ Id with τ₁ real and fibre-linear. P₂ = g₀₀ Id with g₀₀ a real function.
 
 (H2) (*Structure at infinity*; [Hin26c, Definition 9.4 and (9.31)] at n = 4.) On {ρ < ρ₁},
@@ -79,20 +78,20 @@ the compactification, D = −i∂, and Δ_(𝕊³) ≥ 0 is the Laplacian of the
     S̄ := inf_(p ∈ ∂X) min Re spec S(0, p)     ([Hin26c, (5.2)]).
 
 (H3) (*The horizon*; [Hin26c, Section 9.2.1, (1)–(4)].) Let ℋ := {r = r_h}. ℛ₊ is one of the two components of
-N*ℋ ∖ o, and ℛ₋ := −ℛ₊; both lie in Σ₀ := {G₀ = 0}. Let ρ_∞ be positive, homogeneous of degree −1 and even near N*ℋ.
+N∗ℋ ∖ o, and ℛ₋ := −ℛ₊; both lie in Σ₀ := {G₀ = 0}. Let ρ_∞ be positive, homogeneous of degree −1 and even near N∗ℋ.
 The *future-directed rescaled Hamilton vector field* on Σ₀ is 𝖧 := ±ρ_∞H_(G₀) on the component Σ₀^± containing ℛ_±.
 Then for each sign
 
     β₀ := ρ_∞⁻¹𝖧ρ_∞ > 0 on ∂ℛ_±,     β := inf_(∂ℛ_±) (∓β₀⁻¹ρ_∞τ₁) > 0,                                 {#eq:i-a-1-3}
 
 and there is a quadratic defining function q_± of ∂ℛ_± in ∂Σ₀ with 𝖧q_± ≥ c q_± near ∂ℛ_±, for some c > 0. Here ∂(·)
-denotes the boundary at fibre infinity, viewed in S*X̃°. For the spectral family of a t_*-translation-invariant
+denotes the boundary at fibre infinity, viewed in S∗X̃°. For the spectral family of a t_*-translation-invariant
 operator, ∓ρ_∞τ₁ = 𝖧t_*, since τ₁ = −H_G t_* [Hin26c, (9.30)]; so the second condition is the condition β > 0 of
 [Hin26c].
 
 (H4) (*Dynamics at fibre infinity.*) ∂Σ₀ = ∂Σ₀⁺ ⊔ ∂Σ₀⁻ lies over {r ≤ r_e} for some r_e > r_h. Every maximal integral
 curve of 𝖧 in ∂Σ₀ ∖ (∂ℛ₊ ∪ ∂ℛ₋) tends to ∂ℛ₊ ∪ ∂ℛ₋ as its parameter tends to −∞, and reaches {r < r₀ − δ₀} at a
-finite positive parameter. On {r₀ − 2δ₀ < r < r₂}, G₀ is a Lorentzian form (signature (1, 3)) on each fibre of T*X̃,
+finite positive parameter. On {r₀ − 2δ₀ < r < r₂}, G₀ is a Lorentzian form (signature (1, 3)) on each fibre of T∗X̃,
 dr is timelike for it (G₀(dr) < 0), and 𝖧r < 0 on ∂Σ₀ there: the future direction decreases r. (For a spectral family,
 G₀ is g⁻¹ restricted to the annihilator of ∂_(t_*), and such a restriction of a Lorentzian form is Lorentzian wherever
 it contains a timelike covector, as dr is inside the horizon.)
@@ -103,7 +102,7 @@ q_± and r_e in (H3)–(H4) may depend continuously on b, and the constants c, i
 the curves in (H4) are bounded uniformly. [[sec:i-a-8]] uses (H5).
 
 **Remark {#rem:i-a-hypotheses}** (On the hypotheses.) (a) By (H1) the principal symbol of P̂(σ), of order 2, is G₀ Id
-for every σ. Since P̂(0) − P̂(0)^(*h) has vanishing principal symbol, Im_h P̂(0) ∈ Diff¹, and near ∂X it lies in
+for every σ. Since P̂(0) − P̂(0)^(∗h) has vanishing principal symbol, Im_h P̂(0) ∈ Diff¹, and near ∂X it lies in
 ρ²Diff¹_b. Indeed P̂(0) ∈ ρ²Diff²_b by [[eq:i-a-1-2]], adjoints preserve ρ²Diff²_b for the density ρ⁻⁵dρ dω (the
 adjoint of a b-vector field is a b-operator), and the b-principal symbols cancel.
 
@@ -111,7 +110,7 @@ adjoint of a b-vector field is a b-operator), and the b-principal symbols cancel
 
     σ_1(Im_h P̂(σ)) = σ_1(Im_h P̂(0)) + (Im σ) τ₁ Id.                                                  {#eq:i-a-1-4}
 
-To see this, write Im_h(σT) = (σT − σ̄T^(*h))/2i = (Re σ) Im_h T + (Im σ) Re_h T. Then Im_h T has order 0,
+To see this, write Im_h(σT) = (σT − σ̄T^(∗h))/2i = (Re σ) Im_h T + (Im σ) Re_h T. Then Im_h T has order 0,
 σ_1(Re_h T) = τ₁ Id, and σ²P₂ has order 0.
 
 (c) (H3)–(H4) are the hypotheses of [Hin26c, Section 9.2.1] and the dynamics of [Hin26c, Section 9.1.1]. For the
@@ -119,20 +118,20 @@ operators of the later chapters, on the Schwarzschild–Tangherlini metric and t
 dynamics in (H3)–(H4) is verified in [[ch:s12]], and the horizon threshold ϑ_ℋ of [[sec:i-a-1-4]] is evaluated where
 each operator is studied ([[ch:s13]], [[ch:s14]]).
 
-(d) P̂(σ)^(*h) satisfies (H1)–(H4) as well, with τ₁, S and Q replaced by τ₁, −S^(*h) and a suitable Q′, and with σ
+(d) P̂(σ)^(∗h) satisfies (H1)–(H4) as well, with τ₁, S and Q replaced by τ₁, −S^(∗h) and a suitable Q′, and with σ
 replaced by σ̄. Only its principal symbol and its imaginary part enter below, and they are determined where they are
 used.
 
 #### Orders and thresholds {#sec:i-a-1-4}
 
-The phase space is the scattering cotangent bundle ^(sc)T̄*ℝ̄⁴, compactified in the fibres. Its boundary consists of
-*fibre infinity*, ^(sc)S*ℝ̄⁴, and the *boundary face* ^(sc)T̄*_(∂X)ℝ̄⁴ over ∂X, meeting at a corner. Near ∂X we write
-scattering covectors as ξ dr + r η, with ξ ∈ ℝ and η ∈ T*𝕊³, so that (ρ, ω, ξ, η) are coordinates
+The phase space is the scattering cotangent bundle ^(sc)T̄∗ℝ̄⁴, compactified in the fibres. Its boundary consists of
+*fibre infinity*, ^(sc)S∗ℝ̄⁴, and the *boundary face* ^(sc)T̄∗_(∂X)ℝ̄⁴ over ∂X, meeting at a corner. Near ∂X we write
+scattering covectors as ξ dr + r η, with ξ ∈ ℝ and η ∈ T∗𝕊³, so that (ρ, ω, ξ, η) are coordinates
 ([Hin26c, Section 9.2.2]; ξ and η are the ξ_sc and η_sc of [Hin26c]). For an h-self-adjoint endomorphism A, max spec A
 and min spec A denote its largest and smallest eigenvalues.
 
 **Definition {#def:i-a-admissible}** (Admissible orders.) An *order pair* is (s, 𝗋) with s ∈ ℝ a constant
-(regularity; [[rem:i-a-1-1]]) and 𝗋 ∈ C^∞(^(sc)T̄*_(∂X)ℝ̄⁴) (decay), each extended smoothly to a neighbourhood of its
+(regularity; [[rem:i-a-1-1]]) and 𝗋 ∈ C^∞(^(sc)T̄∗_(∂X)ℝ̄⁴) (decay), each extended smoothly to a neighbourhood of its
 face. For real σ₀ ≠ 0 it is *admissible for* σ₀ with weight α₊ ∈ ℝ if:
 
 (O1) s = s_c, a constant ([[rem:i-a-1-1]]);
@@ -152,7 +151,7 @@ Here
 
 where p_(1,±)(σ) is an h-self-adjoint endomorphism; this is [Hin26c, (5.17)] ([[rem:i-a-4-3]]). Next,
 
-    ϑ_in := sup_(∂X) max spec(p_in − (S + S^(*h))),     p_in := σ(ρ⁻¹ Im_h P̂(0))|_(ξ = −2, η = 0)
+    ϑ_in := sup_(∂X) max spec(p_in − (S + S^(∗h))),     p_in := σ(ρ⁻¹ Im_h P̂(0))|_(ξ = −2, η = 0)
 
 ([Hin26c, (9.32), (9.38b)]; [[prop:i-a-4-6]]). For complex σ = σ₀ + iσ₁ the orders used are those for σ₀.
 
@@ -179,7 +178,7 @@ n = 4; page numbers are those printed in [HJS]. Every operator below has Schwart
 X̄ ⊂ ℝ̄⁴, so the calculus on ℝ⁴ is the calculus used.
 
 (C1) (Composition, [HJS, (2.1), p. 9]; principal symbol, [HJS, pp. 49–50].) Ψ^(m,ℓ)_sc ∘ Ψ^(m′,ℓ′)_sc ⊂
-Ψ^(m+m′,ℓ+ℓ′)_sc. By [HJS, Proposition 7.4], "A ∈ Ψ^(m,l)_sc(M) ⇒ A* ∈ Ψ^(m,l)_sc(M)", and
+Ψ^(m+m′,ℓ+ℓ′)_sc. By [HJS, Proposition 7.4], "A ∈ Ψ^(m,l)_sc(M) ⇒ A∗ ∈ Ψ^(m,l)_sc(M)", and
 "σ_(m₁+m₂,l₁+l₂)(AB) = σ_(m₁,l₁)(A) σ_(m₂,l₂)(B)" [HJS, (7.29)], the principal symbol taking values in
 S^(m,l)_sc/S^(m−1,l−1)_sc [HJS, Definition 7.2].
 
@@ -194,7 +193,7 @@ space S^(m,l)_sc to a Banach space, it is bounded by one seminorm: a family boun
 H^(s,r) → H^(s−m,r−l).
 
 (C4) (Compactness, [HJS, Proposition 3.13, p. 20]; duality, [HJS, Proposition 3.7, p. 19].) "For any s, s′, r, r′,
-with s < s′ and r < r′, the embedding H^(s′,r′)_sc ↪ H^(s,r)_sc is compact." The L² pairing identifies (H^(s,r)_sc)*
+with s < s′ and r < r′, the embedding H^(s′,r′)_sc ↪ H^(s,r)_sc is compact." The L² pairing identifies (H^(s,r)_sc)∗
 with H^(−s,−r)_sc.
 
 (C5) (Ellipticity, [HJS, Propositions 2.3, 4.9, 4.10 and 10.1, pp. 12, 27–29, 79].) "Every elliptic element of the
@@ -229,7 +228,7 @@ symbol of A = (A_ij) is the matrix (σ(A_ij)).
 **Lemma {#lem:i-a-2-1}** (Matrix-valued operators.) (a) Ψ^(m,ℓ) ∘ Ψ^(m′,ℓ′) ⊂ Ψ^(m+m′,ℓ+ℓ′) and σ(AB) = σ(A)σ(B), a
 matrix product.
 
-(b) For a fibre inner product h, A^(*h) ∈ Ψ^(m,ℓ) and σ(A^(*h)) = σ(A)^(*h) := H⁻¹σ(A)^†H.
+(b) For a fibre inner product h, A^(∗h) ∈ Ψ^(m,ℓ) and σ(A^(∗h)) = σ(A)^(∗h) := H⁻¹σ(A)^†H.
 
 (c) If A = ã Id with ã ∈ Ψ^(m,ℓ)_sc scalar, and B ∈ Ψ^(m′,ℓ′), then [A, B] ∈ Ψ^(m+m′−1,ℓ+ℓ′−1) and
 σ(i[A, B]) = H_a σ(B), entrywise. If A ∈ Ψ^(m,ℓ) has scalar principal symbol a Id, and B has scalar principal symbol
@@ -241,7 +240,7 @@ both orders.
 (d) The statements (C3)–(C6) and (C8) hold for Ψ^(m,ℓ) and H^(s,𝗋), with T_t Id in (C8), ellipticity meaning that the
 principal symbol is invertible with inverse bounded in the inverse orders.
 
-*Proof.* (a) (AB)_ij = Σ_k A_ik B_kj, with (C1) entrywise. (b) (A*)_ij = (A_ji)*, so σ(A*) = σ(A)^† by (C1).
+*Proof.* (a) (AB)_ij = Σ_k A_ik B_kj, with (C1) entrywise. (b) (A∗)_ij = (A_ji)∗, so σ(A∗) = σ(A)^† by (C1).
 Multiplication by H or H⁻¹ lies in Ψ^(0,0): a function smooth on ℝ̄⁴ is a symbol of order (0, 0), its x-derivatives of
 order k being O(⟨x⟩^(−k)). Then (a) gives (b). (c) [ã Id, B]_ij = [ã, B_ij], with (C2). For the second statement
 write A = ã Id + A′ and B = b̃ Id + B′, with A′ ∈ Ψ^(m−1,ℓ−1) and B′ ∈ Ψ^(m′−1,ℓ′−1). Then
@@ -265,15 +264,15 @@ and use Cauchy's formula. It is holomorphic in the entries of Q wherever γ avoi
 S^(0,0) with values in a compact set of positive matrices; the chain rule gives the symbol estimates of (Λ⁻²q)^(1/2),
 and the product rule those of q^(1/2). ∎
 
-**Lemma {#lem:i-a-2-3}** (Microlocal square root.) Let K = K^(*h) ∈ Ψ^(2μ,2ν) have principal symbol k with
+**Lemma {#lem:i-a-2-3}** (Microlocal square root.) Let K = K^(∗h) ∈ Ψ^(2μ,2ν) have principal symbol k with
 k ≥ c⟨ξ⟩^(2μ)⟨x⟩^(2ν) on a neighbourhood W of a closed set W₀ of the boundary of phase space. Then there is
-L ∈ Ψ^(μ,ν) with WF′(K − L^(*h)L) ∩ W₀ = ∅. The construction depends continuously on K, and so is uniform for bounded
+L ∈ Ψ^(μ,ν) with WF′(K − L^(∗h)L) ∩ W₀ = ∅. The construction depends continuously on K, and so is uniform for bounded
 families with a uniform c.
 
 *Proof.* Let χ ∈ C^∞ equal 1 near W₀ with support in W. Set L₀ := Op(χk^(1/2)), by [[lem:i-a-2-2]], and replace it by
-(L₀ + L₀^(*h))/2. Then K − L₀^(*h)L₀ is h-self-adjoint, and by [[lem:i-a-2-1]] it lies in Ψ^(2μ−1,2ν−1) microlocally
+(L₀ + L₀^(∗h))/2. Then K − L₀^(∗h)L₀ is h-self-adjoint, and by [[lem:i-a-2-1]] it lies in Ψ^(2μ−1,2ν−1) microlocally
 near W₀, with h-self-adjoint principal symbol k₁. Given L₀, …, L_(j−1) with
-K − (Σ_(i<j) L_i)^(*h)(Σ_(i<j) L_i) ∈ Ψ^(2μ−j,2ν−j) near W₀, of principal symbol k_j, solve
+K − (Σ_(i<j) L_i)^(∗h)(Σ_(i<j) L_i) ∈ Ψ^(2μ−j,2ν−j) near W₀, of principal symbol k_j, solve
 k^(1/2)l_j + l_j k^(1/2) = k_j for l_j. This Lyapunov equation has a unique solution, which is h-self-adjoint, given by
 
     l_j = ∫_0^∞ e^(−τk^(1/2)) k_j e^(−τk^(1/2)) dτ,
@@ -284,7 +283,7 @@ order near W₀. Then L ∼ Σ_j L_j (asymptotic sum, (C1)). ∎
 #### Inner products near ∂X {#sec:i-a-2-3}
 
 **Lemma {#lem:i-a-2-4}** (Adapted fibre inner products.) For every ε > 0 there is a fibre inner product h such that
-½ min spec(S + S^(*h)) ≥ S̄ − ε at every point of ∂X.
+½ min spec(S + S^(∗h)) ≥ S̄ − ε at every point of ∂X.
 
 This is [Hin26c, Lemma 5.12] in dimension 4 + 1.
 
@@ -294,7 +293,7 @@ Jordan form. Let D_t := diag(1, t, t², …). Then D_t⁻¹(D + J)D_t = D + tJ, 
 t = ε/2. The inequality Re h(Su, u) ≥ (S̄ − ε) h(u, u) is open in p, so it holds for this constant inner product on a
 neighbourhood of p. It is also convex in h: if it holds for h₁, …, h_k, it holds for Σ χ_i h_i with χ_i ≥ 0 and
 Σ χ_i = 1. Cover ∂X by finitely many such neighbourhoods, take a subordinate partition of unity, and extend the
-resulting inner product smoothly to ℝ̄⁴. Since ½ min spec(S + S^(*h)) = min_(h(u,u)=1) Re h(Su, u), this is the claim.
+resulting inner product smoothly to ℝ̄⁴. Since ½ min spec(S + S^(∗h)) = min_(h(u,u)=1) Re h(Su, u), this is the claim.
 ∎
 
 Different estimates below use different fibre inner products. All L²_h norms are equivalent, so each estimate proved in
@@ -307,17 +306,17 @@ between orders hold componentwise and pointwise. For an operator family, *micros
 full symbols are supported in the closed set K, modulo a family bounded in Ψ^(−∞,−∞). For a fibre inner product h and
 P ∈ Ψ^𝐦, write
 
-    P_R := Re_h P = ½(P + P^(*h)),     P_I := Im_h P = (P − P^(*h))/2i.
+    P_R := Re_h P = ½(P + P^(∗h)),     P_I := Im_h P = (P − P^(∗h))/2i.
 
 **Lemma {#lem:i-a-3-1}** (One step.) Let P ∈ Ψ^𝐦, let 𝐬 be an order, 𝐤 := 𝐬 − ½(𝐦 − 𝟏), and κ ∈ (0, ½]. Let K₁ ⊂ U
 with K₁ closed and U open in the boundary of phase space, and let G ∈ Ψ^(0,0) be elliptic on Ū. Suppose that for
 ε ∈ (0, 1] there are the following.
 
-(i) Ǎ_ε = Ǎ_ε^(*h), bounded in Ψ^𝐤, in Ψ^(𝐤−κ𝟏) for each ε, and microsupported in K₁ uniformly.
+(i) Ǎ_ε = Ǎ_ε^(∗h), bounded in Ψ^𝐤, in Ψ^(𝐤−κ𝟏) for each ε, and microsupported in K₁ uniformly.
 
 (ii) For a sign ς ∈ {1, −1}, the operator C_ε := i[P_R, Ǎ_ε²] + Ǎ_ε²P_I + P_IǍ_ε² satisfies
 
-    ςC_ε = −B_ε^(*h)B_ε − F_ε + E_ε^(*h)E_ε + J_εP + R_ε.                                              {#eq:i-a-3-1}
+    ςC_ε = −B_ε^(∗h)B_ε − F_ε + E_ε^(∗h)E_ε + J_εP + R_ε.                                              {#eq:i-a-3-1}
 
 The operators in [[eq:i-a-3-1]] are as follows. B_ε is bounded in Ψ^𝐬, lies in Ψ^(𝐬−κ𝟏) for each ε, and converges to
 B₀ in Ψ^(𝐬+δ𝟏) for every δ > 0. Ǎ_ε = Z_εB_ε + Y_ε, with Z_ε bounded in Ψ^(−½(𝐦−𝟏)) and Y_ε bounded in Ψ^(𝐤−𝟏).
@@ -354,8 +353,8 @@ pairings below are therefore of H^𝐭 with H^(𝐭′), 𝐭 + 𝐭′ ≥ 0, a
 
     ⟨C_εw, w⟩ = 2 Im⟨Ǎ_εPw, Ǎ_εw⟩.                                                                    {#eq:i-a-3-4}
 
-This is algebra: 2 Im⟨Ǎ_εPw, Ǎ_εw⟩ = (1/i)⟨(Ǎ_ε²P − P^(*h)Ǎ_ε²)w, w⟩, and
-Ǎ²P − P^(*h)Ǎ² = [Ǎ², P_R] + i(Ǎ²P_I + P_IǍ²). Let w_t := T_tv with T_t from (C8). We show that the right side of
+This is algebra: 2 Im⟨Ǎ_εPw, Ǎ_εw⟩ = (1/i)⟨(Ǎ_ε²P − P^(∗h)Ǎ_ε²)w, w⟩, and
+Ǎ²P − P^(∗h)Ǎ² = [Ǎ², P_R] + i(Ǎ²P_I + P_IǍ²). Let w_t := T_tv with T_t from (C8). We show that the right side of
 [[eq:i-a-3-4]] at w = w_t tends to its value at v; C_ε itself is never applied to v, since with an absorbing term of
 top order it need not act on H^(𝐬−κ𝟏). As t → 0, w_t → v in H^(𝐬−κ𝟏), and Ǎ_εw_t → Ǎ_εv in H^(½(𝐦−𝟏)).
 
@@ -392,7 +391,7 @@ commutator [E, Φ] is not residual, and is not used).
 
 (d) Choose Φ_J ∈ Ψ^(0,0) microlocally the identity near K_J, with WF′(Φ_J) ⊂ Ell(P) and
 WF′(Φ_J) ∩ WF′(Id − Φ) = ∅; this is possible as K_J is closed, lies in the open set Ell(P) and misses WF′(Id − Φ).
-Then ⟨J_εPv, v⟩ = ⟨J_εPv, Φ_Jv⟩ plus a term bounded by C‖u‖²_(−𝐍), since (Id − Φ_J)^(*h)J_ε is residual. The same
+Then ⟨J_εPv, v⟩ = ⟨J_εPv, Φ_Jv⟩ plus a term bounded by C‖u‖²_(−𝐍), since (Id − Φ_J)^(∗h)J_ε is residual. The same
 splitting at w_t gives the convergence used above, as Φ_JT_tv → Φ_Jv in H^(𝐬+κ𝟏) (the bound below puts Φ_Jv in
 H^(𝐬+𝟏), and [Φ_J, T_t] is bounded in Ψ^(−1,−1) and tends to 0 strongly). Then
 |⟨J_εPv, Φ_Jv⟩| ≤ ‖J_εPv‖_(−𝐬)‖Φ_Jv‖_𝐬, and the microlocal parametrix of P on WF′(Φ_J) gives
@@ -416,8 +415,8 @@ neighbourhood of it, and 𝐬₀ = 𝐬 − τ𝟏 with τ > 0 a constant. Suppo
 𝐬′ = 𝐬₀ + τ′𝟏 with κ ≤ τ′ ≤ τ, and every open U with Γ ⊂ U ⊂ U₀, the hypotheses of [[lem:i-a-3-1]] hold with
 (𝐬′, κ, U) for some closed K₁ ⊂ U. Suppose this holds with the E-terms microsupported in a closed set
 K_E(U) ⊂ Ū₀ ∖ Γ (or with no E-term), and with B₀ elliptic on the closure of an open neighbourhood U′ of Γ. Let G be
-elliptic on Ū₀. Then there are a neighbourhood U_* of Γ and a closed set K_E^* ⊂ Ū₀ ∖ Γ such that for every
-E ∈ Ψ^(0,0) elliptic on K_E^*, every B ∈ Ψ^(0,0) microsupported in U_* and every 𝐍,
+elliptic on Ū₀. Then there are a neighbourhood U_* of Γ and a closed set K_E^∗ ⊂ Ū₀ ∖ Γ such that for every
+E ∈ Ψ^(0,0) elliptic on K_E^∗, every B ∈ Ψ^(0,0) microsupported in U_* and every 𝐍,
 
     ‖Bu‖_𝐬 ≤ C(‖GPu‖_(𝐬−𝐦+𝟏) + ‖Eu‖_𝐬 + ‖Gu‖_(𝐬₀) + ‖u‖_(−𝐍)),                                           {#eq:i-a-3-5}
 
@@ -425,7 +424,7 @@ in the strong sense: if the right side is finite, so is the left.
 
 *Proof.* Let J be an integer with J ≥ 4τ, let κ := τ/J ≤ ¼, and let 𝐬_j := 𝐬₀ + jκ𝟏, so that 𝐬_j − κ𝟏 = 𝐬_(j−1).
 Construct U₀ ⊃ U₁ ⊃ … ⊃ U_J ⊃ Γ inductively, U_j being the U′ of the hypothesis for (𝐬_j, κ, U_(j−1)), with B₀^(j)
-elliptic on Ū_j, and let K_E^* := ⋃_(j=1)^J K_E(U_(j−1)), a finite union of closed sets missing Γ (the sets move with
+elliptic on Ū_j, and let K_E^∗ := ⋃_(j=1)^J K_E(U_(j−1)), a finite union of closed sets missing Γ (the sets move with
 U, so one K_E need not serve every step). Let 𝒢₀ := G and, for j ≥ 1, let 𝒢_j ∈ Ψ^(0,0) be elliptic on Ū_j with
 WF′(𝒢_j) ⊂ Ell(B₀^(j)), so that ‖𝒢_ju‖_(𝐬_j) ≤ C(‖B₀^(j)u‖ + ‖u‖_(−𝐍)) by (C5). [[lem:i-a-3-1]] with
 (𝐬_j, κ, U_(j−1), 𝒢_(j−1)) needs 𝒢_(j−1)u ∈ H^(𝐬_j−κ𝟏) = H^(𝐬_(j−1)) and gives
@@ -481,8 +480,8 @@ By [[eq:i-a-1-4]], p₁(σ) = p₁(0) ± (Im σ)ρ_∞τ₁ Id. So by [[eq:i-a-1
 
     β₀⁻¹p₁(σ) ≤ (ϑ_± − β Im σ) Id     at ∂ℛ.                                                             {#eq:i-a-4-1}
 
-**Lemma {#lem:i-a-4-1}** (A defining function in S*X̃°.) There are M, c′ > 0 and a neighbourhood W of ∂ℛ in S*X̃° such
-that q̃ := q_ext + M(ρ_∞²G₀)² is a quadratic defining function of ∂ℛ in S*X̃° and 𝖧q̃ ≥ c′q̃ on W. Here
+**Lemma {#lem:i-a-4-1}** (A defining function in S∗X̃°.) There are M, c′ > 0 and a neighbourhood W of ∂ℛ in S∗X̃° such
+that q̃ := q_ext + M(ρ_∞²G₀)² is a quadratic defining function of ∂ℛ in S∗X̃° and 𝖧q̃ ≥ c′q̃ on W. Here
 q_ext := q_± ∘ π for a smooth retraction π of a neighbourhood of ∂ℛ onto ∂Σ₀, an extension with dq_ext = 0 on ∂ℛ (an
 arbitrary extension may carry a term linear in ρ_∞²G₀, and then q̃ need not be a defining function), and 𝖧 is given
 near ∂ℛ by the same formula off Σ₀.
@@ -500,7 +499,7 @@ q_ext ≥ c₁|z|² − C|y||z| − Cy² ≥ (c₁/2)|z|² − C₂y², because 
 q̃ ≥ (c₁/2)|z|² + (M/2)y². Take c′ small; finitely many coordinate patches cover the compact set ∂ℛ. ∎
 
 **Proposition {#prop:i-a-4-2}** (Radial estimate at the horizon.) Let 𝒟 ⊂ {Im σ ≥ 0} be compact, U a neighbourhood of
-∂ℛ in ^(sc)S*ℝ̄⁴, and N ∈ ℝ.
+∂ℛ in ^(sc)S∗ℝ̄⁴, and N ∈ ℝ.
 
 (1) (*Direct.*) Let s > s₀ > ½ + ϑ_±. There are B, G ∈ Ψ^(0,0), microsupported in U, with kernels supported near ℋ and
 B elliptic at ∂ℛ, such that for σ ∈ 𝒟, in the strong sense,
@@ -510,9 +509,9 @@ B elliptic at ∂ℛ, such that for σ ∈ 𝒟, in the strong sense,
 (2) (*Adjoint.*) Let s > ½ + ϑ_±. There are B, G, E ∈ Ψ^(0,0) as in (1), with WF′(E) ∩ ∂ℛ = ∅, such that for σ ∈ 𝒟,
 in the strong sense,
 
-    ‖Bu‖_(H^(1−s)) ≤ C(‖GP̂(σ)^(*h)u‖_(H^(−s)) + ‖Eu‖_(H^(1−s)) + ‖u‖_(H^(−N))).                         {#eq:i-a-4-3}
+    ‖Bu‖_(H^(1−s)) ≤ C(‖GP̂(σ)^(∗h)u‖_(H^(−s)) + ‖Eu‖_(H^(1−s)) + ‖u‖_(H^(−N))).                         {#eq:i-a-4-3}
 
-The same holds with P̂(σ)^(*h′) for any fibre inner product h′. Indeed P̂^(*h′) = Θ⁻¹P̂^(*h)Θ with Θ := H⁻¹H′ invertible
+The same holds with P̂(σ)^(∗h′) for any fibre inner product h′. Indeed P̂^(∗h′) = Θ⁻¹P̂^(∗h)Θ with Θ := H⁻¹H′ invertible
 of order (0, 0), and conjugation by Θ preserves microsupports and Sobolev spaces.
 
 *Proof.* (1) We verify the hypotheses of [[lem:i-a-3-2]] with Γ = ∂ℛ, 𝐦 = (2, 0), and orders in the regularity
@@ -520,7 +519,7 @@ component only (the kernels are compactly supported, so the decay order is immat
 neighbourhood U of ∂ℛ. Let χ_∞ := χ(ρ_∞), where χ ∈ C^∞ equals 1 near 0 and is supported in [0, ρ_*), and let
 ψ_R := ψ(ς_Rq̃) for a large parameter ς_R, extended homogeneously of degree 0. Set
 
-    ǎ_ε := ρ_∞^(−s′+½) φ_ε(ρ_∞) χ_∞ ψ_R,     Ǎ_ε := ½(Op(ǎ_ε)Id + (Op(ǎ_ε)Id)^(*h)).
+    ǎ_ε := ρ_∞^(−s′+½) φ_ε(ρ_∞) χ_∞ ψ_R,     Ǎ_ε := ½(Op(ǎ_ε)Id + (Op(ǎ_ε)Id)^(∗h)).
 
 Ǎ_ε is h-self-adjoint with principal symbol ǎ_ε Id. It is bounded in Ψ^(s′−1/2), lies in Ψ^(s′−1/2−κ) for ε > 0, and
 is microsupported in supp ψ_R, which lies in U for ς_R large. This is (i), with 𝐤 = s′ − ½.
@@ -551,13 +550,13 @@ Q̃_ε := χ̃Q_ε + (1 − χ̃)c_Q Id ≥ c_Q Id. Define
     b_(R,ε) := ρ_∞^(−s′) φ_ε χ_∞ (2𝖧q̃/q̃)^(1/2) √(−xψ(x)ψ′(x)) |_(x = ς_Rq̃).
 
 Both are smooth: the first by [[lem:i-a-2-2]]; the second because ψ′(ς_Rq̃) ≠ 0 only where q̃ ≥ (2ς_R)⁻¹, on which
-𝖧q̃/q̃ ≥ c′. They satisfy b_ε^(*h) = b_ε and
+𝖧q̃/q̃ ≥ c′. They satisfy b_ε^(∗h) = b_ε and
 
     ±ρ_∞ σ_(2s′)(C_ε) = −ρ_∞(b_ε² + b_(R,ε)² Id) + r_ε,
 
-using 2ς_Rψ_Rψ_R′𝖧q̃ = −2(𝖧q̃/q̃)(−xψψ′)|_(x = ς_Rq̃). Let B_ε := ½(Op(b_ε) + Op(b_ε)^(*h)) and
-B_(R,ε) := Op(b_(R,ε))Id. By [[lem:i-a-2-1]], ±C_ε = −B_ε^(*h)B_ε − B_(R,ε)^(*h)B_(R,ε) + R_ε with R_ε bounded in
-Ψ^(2s′−1) and microsupported in supp ψ_R. This is [[eq:i-a-3-1]] with ς = ±, F_ε := B_(R,ε)^(*h)B_(R,ε) ≥ 0, and no
+using 2ς_Rψ_Rψ_R′𝖧q̃ = −2(𝖧q̃/q̃)(−xψψ′)|_(x = ς_Rq̃). Let B_ε := ½(Op(b_ε) + Op(b_ε)^(∗h)) and
+B_(R,ε) := Op(b_(R,ε))Id. By [[lem:i-a-2-1]], ±C_ε = −B_ε^(∗h)B_ε − B_(R,ε)^(∗h)B_(R,ε) + R_ε with R_ε bounded in
+Ψ^(2s′−1) and microsupported in supp ψ_R. This is [[eq:i-a-3-1]] with ς = ±, F_ε := B_(R,ε)^(∗h)B_(R,ε) ≥ 0, and no
 E- or J-term.
 
 B_ε is bounded in Ψ^(s′), lies in Ψ^(s′−κ) for ε > 0, and tends in Ψ^(s′+δ) to B₀, the same operator with φ_ε
@@ -566,7 +565,7 @@ z_ε := ρ_∞^(1/2)Q̃_ε^(−1/2), bounded in S^(−1/2) = S^(−½(𝐦−�
 bounded in Ψ^(s′−3/2). All constants are uniform in σ ∈ 𝒟: every symbol depends polynomially on σ, and c_Q, W′ and ς_R
 do not depend on σ. [[lem:i-a-3-2]] gives [[eq:i-a-4-2]].
 
-(2) For P̂(σ)^(*h): Re_h(P̂^(*h)) = P̂_R and Im_h(P̂^(*h)) = −P̂_I. Take the target order s̃ := 1 − s′ (s′ ≥ s) and the
+(2) For P̂(σ)^(∗h): Re_h(P̂^(∗h)) = P̂_R and Im_h(P̂^(∗h)) = −P̂_I. Take the target order s̃ := 1 − s′ (s′ ≥ s) and the
 same commutant with s̃ in place of s′. The same symbol calculus gives
 
     ±ρ_∞σ(C_ε) = ρ_∞^(−2s̃+1)φ_ε²χ_∞²[ψ_R²Q^♭_ε + 2ς_Rψ_Rψ_R′𝖧q̃] + r_ε,
@@ -575,15 +574,15 @@ where
 
     Q^♭_ε := β₀(1 − 2s̃_ε) Id − 2p₁(σ) ≥ 2β₀(s′ − ½ − ϑ_± + β Im σ) Id ≥ c_Q Id
 
-at and near ∂ℛ, because s̃_ε ≤ s̃ = 1 − s′. So ∓C_ε = −B_ε^(*h)B_ε + B_(R,ε)^(*h)B_(R,ε) + R_ε with
+at and near ∂ℛ, because s̃_ε ≤ s̃ = 1 − s′. So ∓C_ε = −B_ε^(∗h)B_ε + B_(R,ε)^(∗h)B_(R,ε) + R_ε with
 b_ε := ρ_∞^(−s̃)φ_εχ_∞ψ_R(Q̃^♭_ε)^(1/2) and b_(R,ε) as before. This is [[eq:i-a-3-1]] with ς = ∓ and E_ε := B_(R,ε),
 which is microsupported in supp ψ′(ς_Rq̃), a closed set disjoint from ∂ℛ. The regulariser only lowers s̃_ε, which
 increases Q^♭_ε, so the iteration of [[lem:i-a-3-2]] runs from 𝐬₀ = −N with no threshold. Choose E elliptic on the set
-K_E^* of [[lem:i-a-3-2]], a finite union of such sets, closed and disjoint from ∂ℛ. ∎
+K_E^∗ of [[lem:i-a-3-2]], a finite union of such sets, closed and disjoint from ∂ℛ. ∎
 
 **Remark {#rem:i-a-4-3}** (The threshold is that of [Hin26c].) [Hin26c, (5.17)] takes
-ϑ_(ℋ⁺) := sup_(N*ℋ⁺∖o) spec[β₀⁻¹ρ_∞σ_1((P₀ − P₀*)/2i)] with ρ_∞ := ξ₀⁻¹. That function is odd in the fibres, and β₀⁻¹ is
-the ϱ²/(2(r₊ − m)) of [Hin26c, (4.28)]. At covectors annihilating ∂_(t_*), σ_1((P₀ − P₀*)/2i) = σ_1(Im P̂(0)). So on ℛ₊
+ϑ_(ℋ⁺) := sup_(N∗ℋ⁺∖o) spec[β₀⁻¹ρ_∞σ_1((P₀ − P₀∗)/2i)] with ρ_∞ := ξ₀⁻¹. That function is odd in the fibres, and β₀⁻¹ is
+the ϱ²/(2(r₊ − m)) of [Hin26c, (4.28)]. At covectors annihilating ∂_(t_*), σ_1((P₀ − P₀∗)/2i) = σ_1(Im P̂(0)). So on ℛ₊
 the quantity of [Hin26c] is β₀⁻¹p_(1,+)(0), and on ℛ₋ it is β₀⁻¹p_(1,−)(0); hence ϑ_ℋ = max_± ϑ_± is the ϑ_(ℋ⁺) of
 [Hin26c]. For the operators of the later chapters ϑ_ℋ is evaluated in [[ch:s13]] and [[ch:s14]].
 
@@ -594,7 +593,7 @@ the quantity of [Hin26c] is β₀⁻¹p_(1,+)(0), and on ℛ₋ it is β₀⁻¹
 (a) At the boundary face, P̂(σ) ∈ Ψ^(2,0) has principal symbol G_σ Id with G_σ := 2σξ + ξ² + |η|², |η| the round
 norm. T ∈ Ψ^(1,0) has principal symbol 2ξ Id there.
 
-(b) Im_h T = −ρ(S + S^(*h)) + T₂ with T₂ ∈ Ψ^(1,−2), and Im_h P̂(0) ∈ ρ²Diff¹_b ⊂ Ψ^(1,−1). At ρ = 0,
+(b) Im_h T = −ρ(S + S^(∗h)) + T₂ with T₂ ∈ Ψ^(1,−2), and Im_h P̂(0) ∈ ρ²Diff¹_b ⊂ Ψ^(1,−1). At ρ = 0,
 ρ⁻¹Im_h P̂(0) has a principal symbol that is linear in (ξ, η) and h-self-adjoint.
 
 (c) For a symbol p(ω, ξ, η) at the boundary face, the scattering Hamilton vector field satisfies H_p = ρ𝖵_p, with 𝖵_p
@@ -602,7 +601,7 @@ a b-vector field. At ρ = 0,
 
     𝖵_p = −(∂_ξp)(ρ∂_ρ + η·∂_η) + (η·∂_ηp)∂_ξ + H^(𝕊³)_p,                                                  {#eq:i-a-4-4}
 
-where H^(𝕊³)_p is the Hamilton vector field of p(ω, ξ, ·) on T*𝕊³.
+where H^(𝕊³)_p is the Hamilton vector field of p(ω, ξ, ·) on T∗𝕊³.
 
 *Proof.* (a) ρ²∂_ρ = −∂_r, whose symbol is −iξ, so 2iρ²∂_ρ has symbol 2ξ. The rest of T lies in
 ρC^∞ + ρ³Diff¹_b ⊂ Ψ^(1,−1). The operators ρ²(ρD_ρ)² and ρ²Δ_(𝕊³) have symbols ξ² and |η|² at ρ = 0, since ρD_ρ has
@@ -610,8 +609,8 @@ symbol −ρ⁻¹ξ and a covector rη has length |η|. The remainder of P̂(0),
 vanishes at ρ = 0, and σ²g₀₀ ∈ Ψ^(0,−2).
 
 (b) Let A := 2iρ(ρ∂_ρ − 3/2) act componentwise. For the density ρ⁻⁵dρ dω, integration by parts gives
-(ρ²∂_ρ)^† = −ρ²∂_ρ + 3ρ, so A^† = A. Then A^(*h) = H⁻¹AH = A + 2iρ²H⁻¹(∂_ρH), and
-Im_h A = −ρ²H⁻¹∂_ρH ∈ ρ²C^∞ ⊂ Ψ^(0,−2). Next, Im_h(−2iρS) = −ρ(S + S^(*h)), and
+(ρ²∂_ρ)^† = −ρ²∂_ρ + 3ρ, so A^† = A. Then A^(∗h) = H⁻¹AH = A + 2iρ²H⁻¹(∂_ρH), and
+Im_h A = −ρ²H⁻¹∂_ρH ∈ ρ²C^∞ ⊂ Ψ^(0,−2). Next, Im_h(−2iρS) = −ρ(S + S^(∗h)), and
 Im_h(−iQ) = −Re_h Q ∈ ρ³Diff¹_b ⊂ Ψ^(1,−2). The statement on Im_h P̂(0) is [[rem:i-a-hypotheses]] (a), and
 ρ²Diff¹_b = ρ · ρDiff¹_b with ρDiff¹_b ⊂ Diff¹_sc. The symbol of ρDiff¹_b at ρ = 0 is linear in (ξ, η): its
 zeroth-order part lies in ρC^∞. Self-adjointness follows from [[lem:i-a-2-1]] (b).
@@ -652,7 +651,7 @@ at ξ = 0. ∎
 
 This section is [Hin26c, Proposition 9.10] in dimension 4 + 1. Let p_in := σ(ρ⁻¹Im_h P̂(0))|_(ρ = 0, ξ = −2, η = 0).
 By the linearity in [[lem:i-a-4-4]] (b), σ(ρ⁻¹Im_h P̂(0)) = σ₀p_in at R_(σ₀,in), for either sign of σ₀. Recall
-ϑ_in = sup_(∂X) max spec(p_in − (S + S^(*h))).
+ϑ_in = sup_(∂X) max spec(p_in − (S + S^(∗h))).
 
 **Proposition {#prop:i-a-4-6}** (Radial estimate at R_in.) Let I ⊂ ℝ ∖ 0 be compact, ν ≥ 0, U a neighbourhood of
 ⋃_(σ₀∈I) R_(σ₀,in), and s, N ∈ ℝ. For σ ∈ I + i[0, ν] the radial set is R_(Re σ,in).
@@ -665,7 +664,7 @@ frequencies, with B elliptic at R_(Re σ,in), such that for σ ∈ I + i[0, ν],
 (2) (*Adjoint.*) Let 𝗋 > (−1 + ϑ_in)/2. There are B, G, E as in (1), with WF′(E) ∩ R_(Re σ,in) = ∅, such that, in the
 strong sense,
 
-    ‖Bu‖_(−s+2,−𝗋−1) ≤ C(‖GP̂(σ)^(*h)u‖_(−s,−𝗋) + ‖Eu‖_(−s+2,−𝗋−1) + ‖u‖_(−N,−N)).                        {#eq:i-a-4-9}
+    ‖Bu‖_(−s+2,−𝗋−1) ≤ C(‖GP̂(σ)^(∗h)u‖_(−s,−𝗋) + ‖Eu‖_(−s+2,−𝗋−1) + ‖u‖_(−N,−N)).                        {#eq:i-a-4-9}
 
 The regularity orders are immaterial, the operators being microsupported at finite frequencies. As with
 [[prop:i-a-4-2]], the adjoint may be taken in any fibre inner product. B, G and E depend on σ₀, the commutant being
@@ -676,7 +675,7 @@ centred at R_(σ₀,in); their bounds in Ψ^(0,0), the ellipticity of B at R_(σ
     P_I = P_I^(0) + σ₁ Re_h T,     P_I^(0) := Im_h P̂(0) + σ₀ Im_h T + Im(σ²) g₀₀ ∈ Ψ^(1,−1),
 
 by Im_h(σT) = σ₀ Im_h T + σ₁ Re_h T and [[lem:i-a-4-4]] (b). Its symbol at ρ = 0 is ρp̂ with
-p̂ := σ(ρ⁻¹Im_h P̂(0)) − σ₀(S + S^(*h)), so p̂ = σ₀(p_in − (S + S^(*h))) at R_(σ₀,in). Let ε₀ := sgn σ₀ and
+p̂ := σ(ρ⁻¹Im_h P̂(0)) − σ₀(S + S^(∗h)), so p̂ = σ₀(p_in − (S + S^(∗h))) at R_(σ₀,in). Let ε₀ := sgn σ₀ and
 K := −ε₀ Re_h T; K is h-self-adjoint with principal symbol −2ε₀ξ Id, which equals 4|σ₀| at R_(σ₀,in).
 
 *Commutant.* For an order 𝗋′ and a regulariser φ_ε(ρ) of exponent κ, let
@@ -707,9 +706,9 @@ so at ρ = 0
     ε₀ρ^(2𝗋′)[ρ𝖧_(σ₀)(ǎ_ε²) + 2ρǎ_ε²p̂] = −φ_ε²ψ_Σ²[ψ_R²Q_ε − 8|σ₀|ς_R|η|²ψ_Rψ_R′],
     Q_ε := ε₀[(2𝗋′_ε + 1)(ρ⁻¹𝖧_(σ₀)ρ) Id − 2p̂],     𝗋′_ε := 𝗋′ − κθ_ε.
 
-At R_(σ₀,in), ε₀ρ⁻¹𝖧_(σ₀)ρ = 2|σ₀| ([[lem:i-a-4-5]]) and ε₀p̂ = |σ₀|(p_in − (S + S^(*h))). So
+At R_(σ₀,in), ε₀ρ⁻¹𝖧_(σ₀)ρ = 2|σ₀| ([[lem:i-a-4-5]]) and ε₀p̂ = |σ₀|(p_in − (S + S^(∗h))). So
 
-    Q_ε = 2|σ₀|[(2𝗋′_ε + 1) Id − (p_in − S − S^(*h))] ≥ 2|σ₀|(2𝗋₀ + 1 − ϑ_in) Id > 0     at R_(σ₀,in),
+    Q_ε = 2|σ₀|[(2𝗋′_ε + 1) Id − (p_in − S − S^(∗h))] ≥ 2|σ₀|(2𝗋₀ + 1 − ϑ_in) Id > 0     at R_(σ₀,in),
 
 for 𝗋′_ε ≥ 𝗋₀. In [[lem:i-a-3-2]] the orders are 𝗋_j ∈ [𝗋₀, 𝗋] and 𝗋′_ε ∈ (𝗋_(j−1), 𝗋_j]. Near R_(σ₀,in), where
 ε₀ρ⁻¹𝖧_(σ₀)ρ > 0, Q_ε ≥ Q^(0) := ε₀[(2𝗋₀ + 1)(ρ⁻¹𝖧_(σ₀)ρ) Id − 2p̂], which does not involve ε. By continuity of Q^(0),
@@ -729,27 +728,27 @@ supp ǎ_ε ⊂ W.
 *Decomposition.* With Q̃_ε as in [[prop:i-a-4-2]], b_ε := ρ^(−𝗋′)φ_εψ_∂ψ_Σψ_RQ̃_ε^(1/2), and B_ε, B_(R,ε) their
 quantisations,
 
-    ε₀C_ε = −B_ε^(*h)B_ε − B_(R,ε)^(*h)B_(R,ε) − 2σ₁Ǎ_εKǍ_ε + R_ε,
+    ε₀C_ε = −B_ε^(∗h)B_ε − B_(R,ε)^(∗h)B_(R,ε) − 2σ₁Ǎ_εKǍ_ε + R_ε,
 
-with R_ε bounded in Ψ^(−∞,2𝗋′−1). By [[lem:i-a-2-3]], K = L^(*h)L + K′ with WF′(K′) ∩ W̄ = ∅. So
+with R_ε bounded in Ψ^(−∞,2𝗋′−1). By [[lem:i-a-2-3]], K = L^(∗h)L + K′ with WF′(K′) ∩ W̄ = ∅. So
 
-    2σ₁Ǎ_εKǍ_ε = 2σ₁(LǍ_ε)^(*h)(LǍ_ε) + 2σ₁Ǎ_εK′Ǎ_ε,
+    2σ₁Ǎ_εKǍ_ε = 2σ₁(LǍ_ε)^(∗h)(LǍ_ε) + 2σ₁Ǎ_εK′Ǎ_ε,
 
-the last term bounded in Ψ^(−∞,−∞), and F_ε := B_(R,ε)^(*h)B_(R,ε) + 2σ₁Ǎ_εKǍ_ε satisfies
+the last term bounded in Ψ^(−∞,−∞), and F_ε := B_(R,ε)^(∗h)B_(R,ε) + 2σ₁Ǎ_εKǍ_ε satisfies
 ⟨F_εw, w⟩ ≥ −C‖w‖²_(−𝐍) for Schwartz w, as σ₁ ≥ 0. This is [[eq:i-a-3-1]] with ς = ε₀. The remaining hypotheses (Z_ε,
 Y_ε, convergence) are verified as in [[prop:i-a-4-2]], with z_ε := ρ^(−1/2)Q̃_ε^(−1/2), bounded in
 S^(−∞,1/2) = S^(−½(𝐦−𝟏)), as 𝐦 − 𝟏 = (1, −1). [[lem:i-a-3-2]] in the decay component gives [[eq:i-a-4-8]].
 
-(2) For P^(*h) the imaginary part is −P_I. With target decay order 𝗋̃ := −𝗋′ − 1, the same commutant and symbol calculus
+(2) For P^(∗h) the imaginary part is −P_I. With target decay order 𝗋̃ := −𝗋′ − 1, the same commutant and symbol calculus
 give, at R_(σ₀,in),
 
-    ε₀ρ^(2𝗋̃)σ(C^♭_ε) = 2|σ₀|φ_ε²(ψ_∂ψ_Σψ_R)²[−(2𝗋̃_ε + 1) Id − (p_in − S − S^(*h))] + (cut-off term).
+    ε₀ρ^(2𝗋̃)σ(C^♭_ε) = 2|σ₀|φ_ε²(ψ_∂ψ_Σψ_R)²[−(2𝗋̃_ε + 1) Id − (p_in − S − S^(∗h))] + (cut-off term).
 
 Since −(2𝗋̃_ε + 1) ≥ 2𝗋′ + 1 and 2𝗋′ + 1 − ϑ_in > 0, the bracket is positive definite. The cut-off term is −b_(R,ε)².
-The σ₁-term is now +2σ₁ǍKǍ, of the sign of the bracket. So
-−ε₀C^♭_ε = −B_ε^(*h)B_ε − 2σ₁Ǎ_εKǍ_ε + B_(R,ε)^(*h)B_(R,ε) + R_ε: this is [[eq:i-a-3-1]] with ς = −ε₀ and
+The σ₁-term is +2σ₁ǍKǍ here, of the sign of the bracket. So
+−ε₀C^♭_ε = −B_ε^(∗h)B_ε − 2σ₁Ǎ_εKǍ_ε + B_(R,ε)^(∗h)B_(R,ε) + R_ε: this is [[eq:i-a-3-1]] with ς = −ε₀ and
 E_ε := B_(R,ε), microsupported in supp ψ′(ς_Rq), which is disjoint from R_(σ₀,in); E is taken elliptic on the set
-K_E^* of [[lem:i-a-3-2]]. The regulariser lowers 𝗋̃_ε, which keeps the bracket positive, so [[lem:i-a-3-2]] runs
+K_E^∗ of [[lem:i-a-3-2]]. The regulariser lowers 𝗋̃_ε, which keeps the bracket positive, so [[lem:i-a-3-2]] runs
 from −N. ∎
 
 #### Sums of squares, and commutators with b-vector fields {#sec:i-a-4-4}
@@ -760,7 +759,7 @@ and Σ_(j<k) V_jk^†V_jk = Δ_(𝕊³): the V_jk are Killing, hence anti-adjoin
 of 𝔰𝔬(4) acting on functions on 𝕊³, which is Δ_(𝕊³). All act componentwise.
 
 **Lemma {#lem:i-a-4-7}** (Sum of squares; [Hin26c, (9.49)] on E.) Near ∂X,
-Re_h P̂(0) = Σ_j W_j^(*h)W_j + R₁ + R₂, with W_j ∈ ρDiff¹_b acting componentwise, R₁ ∈ ρ²Diff¹_b and
+Re_h P̂(0) = Σ_j W_j^(∗h)W_j + R₁ + R₂, with W_j ∈ ρDiff¹_b acting componentwise, R₁ ∈ ρ²Diff¹_b and
 R₂ ∈ ρ³Diff²_b, both h-self-adjoint. The σ-independent symbols r₁ := σ(ρ⁻¹R₁) and r₂ := σ(ρ⁻¹R₂) at ρ = 0 are
 homogeneous of degrees 1 and 2 in (ξ, η), and so vanish at R_out.
 
@@ -771,9 +770,9 @@ homogeneous of degrees 1 and 2 in (ξ, η), and so vanish at R_out.
 modulo Diff¹_b + ρDiff²_b. For the density ρ⁻⁵dρ dω, (ρD_ρ)^† = ρD_ρ + 4i, so (ρD_ρ)² = (ρD_ρ)^†(ρD_ρ) − 4iρD_ρ.
 Hence ρ⁻¹ Re_h P̂(0) ρ⁻¹ = Σ_j Y_j^†Y_j + D₁ + ρD₂, with Y_j ∈ {ρD_ρ, V_jk}, D₁ ∈ Diff¹_b and D₂ ∈ Diff²_b. Multiply
 by ρ on both sides. Since ρY^†Yρ = (Yρ)^†(Yρ), setting W_j := Y_jρ ∈ ρDiff¹_b gives
-Re_h P̂(0) = Σ_j W_j^†W_j + ρD₁ρ + ρ²D₂ρ. Next, W^(*h)W = W^†W + H⁻¹[W^†, H]W, and [W^†, H] ∈ ρC^∞ (a b-vector field
-times ρ, applied to H), so the difference lies in ρ²Diff¹_b. Thus Re_h P̂(0) = Σ_j W_j^(*h)W_j + R₁′ + R₂′ in the
-stated classes. The left side and Σ_j W_j^(*h)W_j are h-self-adjoint, so R₁′ + R₂′ = Re_h R₁′ + Re_h R₂′, and the
+Re_h P̂(0) = Σ_j W_j^†W_j + ρD₁ρ + ρ²D₂ρ. Next, W^(∗h)W = W^†W + H⁻¹[W^†, H]W, and [W^†, H] ∈ ρC^∞ (a b-vector field
+times ρ, applied to H), so the difference lies in ρ²Diff¹_b. Thus Re_h P̂(0) = Σ_j W_j^(∗h)W_j + R₁′ + R₂′ in the
+stated classes. The left side and Σ_j W_j^(∗h)W_j are h-self-adjoint, so R₁′ + R₂′ = Re_h R₁′ + Re_h R₂′, and the
 h-adjoint preserves both classes. The degrees follow as in [[lem:i-a-4-4]] (b). ∎
 
 **Lemma {#lem:i-a-4-8}** (The commuted system; compare [Hin26c, Lemma 9.13].) Let V = (V₁, V₁₂, …, V₃₄), and for a
@@ -822,30 +821,30 @@ g̃ := 2ξ + κ_σ(ξ² + |η|²), and with 𝖧̃ := 𝖵_(g̃), [[eq:i-a-4-4]]
 
 and 𝖧̃g̃ = 0. By Im_h(cA) = (Re c) Im_h A + (Im c) Re_h A, [[lem:i-a-4-4]] (b) and [[lem:i-a-4-7]],
 
-    Im_h P̃ = P̃_I^(0) − ι_σ Σ_j W_j^(*h)W_j,
+    Im_h P̃ = P̃_I^(0) − ι_σ Σ_j W_j^(∗h)W_j,
     P̃_I^(0) := Im_h T + κ_σ Im_h P̂(0) − ι_σ(R₁ + R₂) + σ₁g₀₀ ∈ Ψ^(2,−1).                                 {#eq:i-a-4-12}
 
-(Here Im_h(σ⁻¹σ²g₀₀) = σ₁g₀₀.) P̃_I^(0) has symbol ρp̃ at ρ = 0, with p̃ := −(S + S^(*h)) + κ_σr₃ − ι_σ(r₁ + r₂) and
-r₃ := σ(ρ⁻¹Im_h P̂(0)). The last three terms vanish at R_out, so p̃ = −(S + S^(*h)) there.
+(Here Im_h(σ⁻¹σ²g₀₀) = σ₁g₀₀.) P̃_I^(0) has symbol ρp̃ at ρ = 0, with p̃ := −(S + S^(∗h)) + κ_σr₃ − ι_σ(r₁ + r₂) and
+r₃ := σ(ρ⁻¹Im_h P̂(0)). The last three terms vanish at R_out, so p̃ = −(S + S^(∗h)) there.
 
 **Proposition {#prop:i-a-4-9}** (Radial estimate at R_out.) Let 𝒟 be a compact subset of {σ ≠ 0, Im σ ≥ 0}, U a
 neighbourhood of R_out, s, N ∈ ℝ, and h a fibre inner product.
 
-(1) (*Direct.*) Let 𝗋 < −½ + ½ inf_(∂X) min spec(S + S^(*h)). There are B, E, G ∈ Ψ^(0,0) microsupported in U at
+(1) (*Direct.*) Let 𝗋 < −½ + ½ inf_(∂X) min spec(S + S^(∗h)). There are B, E, G ∈ Ψ^(0,0) microsupported in U at
 finite frequencies, with B elliptic at R_out and WF′(E) ∩ R_out = ∅, such that for σ ∈ 𝒟, in the strong sense,
 
     ‖Bu‖_(s,𝗋) ≤ C(‖GP̂(σ)u‖_(s−2,𝗋+1) + ‖Eu‖_(s,𝗋) + ‖u‖_(−N,−N)).                                        {#eq:i-a-4-13}
 
-(2) (*Adjoint.*) Let 𝗋 < 𝗋₀ < −½ + ½ inf_(∂X) min spec(S + S^(*h)). There are B, G as in (1) such that, in the strong
+(2) (*Adjoint.*) Let 𝗋 < 𝗋₀ < −½ + ½ inf_(∂X) min spec(S + S^(∗h)). There are B, G as in (1) such that, in the strong
 sense,
 
-    ‖Bu‖_(−s+2,−𝗋−1) ≤ C(‖GP̂(σ)^(*h)u‖_(−s,−𝗋) + ‖Gu‖_(−N,−𝗋₀−1) + ‖u‖_(−N,−N)).                          {#eq:i-a-4-14}
+    ‖Bu‖_(−s+2,−𝗋−1) ≤ C(‖GP̂(σ)^(∗h)u‖_(−s,−𝗋) + ‖Gu‖_(−N,−𝗋₀−1) + ‖u‖_(−N,−N)).                          {#eq:i-a-4-14}
 
 (3) (*b-regularity*; [Hin26c, (9.44)].) In the setting of (1), for every k ∈ ℕ₀, with the norms of [[sec:i-a-4-6]],
 
     ‖Bu‖_((s;k),𝗋) ≤ C(‖GP̂(σ)u‖_((s−2;k),𝗋+1) + ‖Eu‖_((s;k),𝗋) + ‖u‖_(−N,−N)).                            {#eq:i-a-4-15}
 
-With [[lem:i-a-2-4]], ½ inf min spec(S + S^(*h)) can be taken within any ε > 0 of S̄. So every 𝗋 < −½ + S̄ is
+With [[lem:i-a-2-4]], ½ inf min spec(S + S^(∗h)) can be taken within any ε > 0 of S̄. So every 𝗋 < −½ + S̄ is
 admissible in (1) and (3), and every 𝗋₀ < −½ + S̄ in (2), for a suitable h; this is the threshold [Hin26c, (9.16c)].
 As in [[prop:i-a-4-6]], B, E and G depend on σ, through κ_σ in ψ_Σ, with bounds and constants uniform on 𝒟.
 
@@ -854,38 +853,38 @@ As in [[prop:i-a-4-6]], B, E and G depend on σ, through κ_σ in ψ_Σ, with bo
 h-symmetrisation of Op(ǎ_ε)Id, as in [[sec:i-a-4-3]], so that [[lem:i-a-3-1]] (i) holds. Using [[eq:i-a-4-12]], and
 with R′_ε (double commutators) bounded in Ψ^(−∞,2𝗋′−1),
 
-    C_ε = i[P̃_R, Ǎ_ε²] + 2Ǎ_εP̃_I^(0)Ǎ_ε − 2ι_σ Σ_j (W_jǍ_ε)^(*h)(W_jǍ_ε) + R′_ε.
+    C_ε = i[P̃_R, Ǎ_ε²] + 2Ǎ_εP̃_I^(0)Ǎ_ε − 2ι_σ Σ_j (W_jǍ_ε)^(∗h)(W_jǍ_ε) + R′_ε.
 
 The third term is ≤ 0 exactly. At ρ = 0, by [[eq:i-a-3-6]], [[eq:i-a-4-11]], 𝖧̃ψ_Σ = 0 and 𝖧̃q = −4|η|²,
 
     ρ^(2𝗋′)[ρ𝖧̃(ǎ_ε²) + 2ρǎ_ε²p̃] = −φ_ε²ψ_Σ²[ψ_R²Q_ε − 8ς_R|η|²(−ψ_Rψ_R′)],
     Q_ε := (2𝗋′_ε + 1)(ρ⁻¹𝖧̃ρ) Id − 2p̃.
 
-At R_out, Q_ε = −2(2𝗋′_ε + 1) Id + 2(S + S^(*h)) ≥ 2(min spec(S + S^(*h)) − 2𝗋′ − 1) > 0, since 𝗋′_ε ≤ 𝗋′ ≤ 𝗋.
+At R_out, Q_ε = −2(2𝗋′_ε + 1) Id + 2(S + S^(∗h)) ≥ 2(min spec(S + S^(∗h)) − 2𝗋′ − 1) > 0, since 𝗋′_ε ≤ 𝗋′ ≤ 𝗋.
 Near R_out, ρ⁻¹𝖧̃ρ = −2(1 + κ_σξ) < 0, so Q_ε ≥ (2𝗋′ + 1)(ρ⁻¹𝖧̃ρ) Id − 2p̃, which does not involve ε and whose
 remaining terms vanish at R_out and are bounded uniformly in σ ∈ 𝒟. So Q_ε ≥ c_Q on a neighbourhood W of R_out,
-uniformly. The cut-off term is now +8ς_R|η|²(−ψ_Rψ_R′) ≥ 0. On supp ψ_Σψ_R′ we have 2ξ = g̃ − κ_σq, so, with
+uniformly. The cut-off term is +8ς_R|η|²(−ψ_Rψ_R′) ≥ 0. On supp ψ_Σψ_R′ we have 2ξ = g̃ − κ_σq, so, with
 γ := ς_Σ^(−1/2) as in [[sec:i-a-4-3]], |ξ| ≤ ½(γ + |κ_σ|q) ≤ ½(1 + |κ_σ|)q when γ ≤ q. Then ξ² ≤ q/2 for
 ς_R ≥ (1 + sup_𝒟 |κ_σ|)², hence |η|² ≥ q/2, and
 
     e_(R,ε) := ρ^(−𝗋′)φ_εψ_∂ψ_Σ(8|η|²/q)^(1/2) √(−xψ(x)ψ′(x)) |_(x = ς_Rq)
 
-is smooth. So C_ε = −B_ε^(*h)B_ε + E_ε^(*h)E_ε − F_ε + R_ε, with b_ε := ρ^(−𝗋′)φ_εψ_∂ψ_Σψ_RQ̃_ε^(1/2),
-E_ε := Op(e_(R,ε))Id, F_ε := 2ι_σ Σ_j (W_jǍ_ε)^(*h)(W_jǍ_ε) ≥ 0, and R_ε bounded in Ψ^(−∞,2𝗋′−1). E_ε is
-microsupported in supp ψ′(ς_Rq), a closed set disjoint from R_out; let E be elliptic on the union K_E^* of these sets
+is smooth. So C_ε = −B_ε^(∗h)B_ε + E_ε^(∗h)E_ε − F_ε + R_ε, with b_ε := ρ^(−𝗋′)φ_εψ_∂ψ_Σψ_RQ̃_ε^(1/2),
+E_ε := Op(e_(R,ε))Id, F_ε := 2ι_σ Σ_j (W_jǍ_ε)^(∗h)(W_jǍ_ε) ≥ 0, and R_ε bounded in Ψ^(−∞,2𝗋′−1). E_ε is
+microsupported in supp ψ′(ς_Rq), a closed set disjoint from R_out; let E be elliptic on the union K_E^∗ of these sets
 over the steps of [[lem:i-a-3-2]], closed and disjoint from R_out. This is [[eq:i-a-3-1]] with ς = 1. Regularising
 lowers 𝗋′_ε and keeps Q_ε > 0, so [[lem:i-a-3-2]] runs from −N.
 
-(2) For P̃^(*h) the imaginary part is −Im_h P̃. With target 𝗋̃ := −𝗋′ − 1 and a priori order −𝗋₀ − 1, the bracket at
-R_out is 2(2𝗋̃_ε + 1) Id + 2(S + S^(*h)). This is positive definite when 𝗋̃_ε > −½ − ½ min spec(S + S^(*h)), which
+(2) For P̃^(∗h) the imaginary part is −Im_h P̃. With target 𝗋̃ := −𝗋′ − 1 and a priori order −𝗋₀ − 1, the bracket at
+R_out is 2(2𝗋̃_ε + 1) Id + 2(S + S^(∗h)). This is positive definite when 𝗋̃_ε > −½ − ½ min spec(S + S^(∗h)), which
 holds for 𝗋̃_ε ≥ −𝗋₀ − 1, that is, in the range of effective orders of [[lem:i-a-3-2]] from the a priori order up.
-The cut-off term −e_(R,ε)² and the term +2ι_σ Σ_j (W_jǍ)^(*h)(W_jǍ) both carry the sign of −b_ε² in −C^♭_ε. So
-−C^♭_ε = −B_ε^(*h)B_ε − F_ε + R_ε, with no E-term. [[lem:i-a-3-2]] from 𝐬₀ = (−N, −𝗋₀ − 1) gives [[eq:i-a-4-14]];
+The cut-off term −e_(R,ε)² and the term +2ι_σ Σ_j (W_jǍ)^(∗h)(W_jǍ) both carry the sign of −b_ε² in −C^♭_ε. So
+−C^♭_ε = −B_ε^(∗h)B_ε − F_ε + R_ε, with no E-term. [[lem:i-a-3-2]] from 𝐬₀ = (−N, −𝗋₀ − 1) gives [[eq:i-a-4-14]];
 this is an above-threshold estimate.
 
 (3) By induction on k, the case k = 0 being (1). Apply (1) to the system [[eq:i-a-4-10]] for u^(k), with the inner
 product h^(⊕A_k). Its principal part at the face is g̃ Id, and its decay-0 imaginary part is
-−ι_σ Σ_j W_j^(*h)W_j ⊗ Id, the same as before. Its decay-(−1) imaginary part has symbol p̃ ⊗ Id plus the symbols of
+−ι_σ Σ_j W_j^(∗h)W_j ⊗ Id, the same as before. Its decay-(−1) imaginary part has symbol p̃ ⊗ Id plus the symbols of
 σ⁻¹P̃_αβ divided by ρ, which vanish at R_out by [[lem:i-a-4-8]]. So the proof of (1) applies verbatim, with the same
 threshold. The right side of [[eq:i-a-4-10]], divided by σ, contains V^αf − α₁V^(α′)f, bounded in H^(s−2,𝗋+1) by
 ‖Gf‖_((s−2;k),𝗋+1), and R_αβV^βu with R_αβ ∈ ρDiff²_sc ⊂ Ψ^(2,−1) and |β| ≤ k − 1. The latter is bounded in
@@ -906,7 +905,7 @@ equivalent to the one defined with the V^α of [[sec:i-a-4-4]]. This is the spac
 o_(∂X) = R_out be the zero section over ∂X. If B ∈ Ψ^(0,0) is microsupported away from o_(∂X), then for every k,
 ‖Bu‖_((s;k),𝗋) ≤ C(‖Bu‖_(s+k,𝗋+k) + ‖u‖_(−N,−N)), and conversely.
 
-*Proof.* ⟨x⟩D_(x_j) ∈ Ψ^(1,1), and Σ_j (⟨x⟩D_(x_j))*(⟨x⟩D_(x_j)) has principal symbol ⟨x⟩²|ζ|² in terms of the
+*Proof.* ⟨x⟩D_(x_j) ∈ Ψ^(1,1), and Σ_j (⟨x⟩D_(x_j))∗(⟨x⟩D_(x_j)) has principal symbol ⟨x⟩²|ζ|² in terms of the
 Euclidean frequency ζ. This is elliptic in Ψ^(2,2) off the zero section of the boundary face, including at fibre
 infinity. Ellipticity (C5) gives both inequalities, inductively in k. ∎
 
@@ -1111,7 +1110,7 @@ For γ large (depending on c₀, C₀, C₁ and C_P) we get
 
 So ∫ w|du|² ≤ Cγ⁻²∫ w|Lu|², and with e^(γa) ≤ w ≤ e^(γb) and the Poincaré inequality once more, ‖u‖_(H¹) ≤ C‖Lu‖_(L²).
 
-In the backward case u = 0 near a; take w := e^(−γr). The flux is now at r = b, with sign +, and
+In the backward case u = 0 near a; take w := e^(−γr). The flux is at r = b, with sign +, and
 ^((wX))K = w(^((X))K − γT(X, X)). So ∫ w(γT(X, X) − ^((X))K) ≤ ∫ w|□u||Xu|, and the Poincaré inequality runs from
 r = a, where w is largest. ∎
 
@@ -1536,7 +1535,7 @@ near b₁. Compactness of ℬ gives finitely many b₁. The index and invertibil
 [[sec:i-a-7-3]] and [[sec:i-a-7-6]], run with sequences (σ_j, b_j) → (σ_*, b_*) in place of σ_j → σ_*: the uniform
 estimates supply the bounds, and P̂^(b_j)(σ_j)u_j → P̂^(b_*)(σ_*)u as distributions supplies the limit. ∎
 
-**Remark {#rem:i-a-sources}** (Comparison with [Hin26c].) Besides the changes forced by the dimension and the sign of
+**Remark {#rem:i-a-comparison}** (Comparison with [Hin26c].) Besides the changes forced by the dimension and the sign of
 the term in [Hin26c, (9.45)] ([[rem:i-a-4-8-sign]]), the proofs above differ from those of [Hin26c, Sections 9.1–9.2]
 as follows. (a) At R_in and R_out [Hin26c, Propositions 9.10–9.11], the inequality 𝖧q ≥ cq holds only near the
 characteristic set, so the symbol b_R is a smooth square root only after a cut-off to that set; the commutants here

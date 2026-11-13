@@ -2,8 +2,8 @@
 
 This chapter proves two results on the linearised gauge-fixed Einstein operator L_b of [[ch:s15]], for Myers–Perry
 parameters b near b_0. The first, in [[sec:iii-h-1]]–[[sec:iii-h-5]], is [Hin26, Section 10.1] (pp. 200–212) in
-dimension 4 + 1. The spectral family L̂_b(σ) is augmented by the zero energy states of [[prop:iii-f3-4-1]], cut off in
-a cone inside future timelike infinity. The Fourier transforms of the resulting source terms are described
+dimension 4 + 1. The spectral family L̂_b(σ) is augmented by the zero energy states of [[prop:iii-f3-4-1]], cut off near
+future null infinity ℐ⁺. The Fourier transforms of the resulting forcing terms are described
 ([[lem:iii-h-2-2]]–[[lem:iii-h-2-5]]; [Hin26, Lemma 10.4 and (10.24)]), the augmented zero energy operator is invertible
 ([[prop:iii-h-3-2]]; [Hin26, Proposition 10.6]), the augmented operator satisfies estimates uniform as σ → 0
 ([[cor:iii-h-4-2]]; [Hin26, Proposition 10.7]), and the augmentation is built on the spectral side as well
@@ -24,8 +24,8 @@ fixed neighbourhood of b_0 ([[rem:s18-every-k]]).
 *Dimension 4 + 1.* In dimension 3 + 1 the mass and boost states decay like r⁻¹ and the naive columns [L_b, t_*]ġ^Υ_b
 only like r⁻², which is not in the target space, so [Hin26] first improves its states at ι⁺ ([Hin26, Lemma 10.3], by
 [Hin26, Proposition 9.11]). In dimension 4 + 1 the states decay one order faster ([[prop:iii-f3-4-1]]), the columns are
-O(r⁻³) and lie in the target for every weight α with α + 2 ∈ (0, 1), and the states cut off in the cone need no
-correction. No logarithm enters, the cut-off source terms are supported in a cone inside ι⁺ ([[lem:iii-h-2-2]]), and
+O(r⁻³) and lie in the target for every weight α with α + 2 ∈ (0, 1), and the states cut off near ℐ⁺ need no
+correction. No logarithm enters, the cut-off forcing terms are supported in a cone inside ι⁺ ([[lem:iii-h-2-2]]), and
 the window (0, ϵ_ind) of the weights of [Hin26] becomes (0, 1). [Hin26, Proposition 10.7] rests on [Hin26c, Theorem
 9.41] with augmentation columns that depend on σ; [[thm:i-c-6-4]] allows only constant, compactly supported columns, and
 [[thm:iii-h-4-1]] extends it. [Hin26, Lemma 10.5] (partial polyhomogeneity) is used in [Hin26] only in its Section 11.5
@@ -35,8 +35,8 @@ at −3/2 − ϵ, below α_sf; this is the sf-loss δ > α_sf + 3/2 of [Hin26, T
 transforms of the cut-off states decay rapidly at scf ([[lem:iii-h-2-5]]), the derivatives have sf-weights below 0 and
 1, which leaves room for α_sf + 1 and α_sf + 2, and the integrations return to α_sf itself ([[lem:iii-h1-5-1]] and
 [[sec:iii-h1-7]]). No splitting at ℐ⁺ ([Hin26, (10.57)]) and no condition at the outgoing radial set ([Hin26, Remark
-10.2], used in the proof of [Hin26, Lemma 10.12]) is needed. Four steps of [Hin26] need more than is stated there, in
-every dimension; [[sec:s18-remarks]] collects them.
+10.2], used in the proof of [Hin26, Lemma 10.12]) is needed. Several steps of [Hin26] need more than is stated there,
+in dimension 3 + 1 as in 4 + 1; [[sec:s18-remarks]] collects them.
 
 *The inner radius.* Every result of the chapter holds with the inner radius r_0 = r_♭ ∈ (0, ½R_1] of [[def:s12-radii]]
 as a parameter, with constants that depend on it. The radius enters only through r ≥ r_0 > 0 on X, through the spaces,
@@ -117,7 +117,7 @@ This section is [Hin26, Lemma 10.4 and (10.24)] in dimension 4 + 1.
 
 These are [Hin26, (10.10)–(10.11) and (10.24a)] without the correction u_b there; in dimension 4 + 1 none is needed.
 
-**Lemma {#lem:iii-h-2-2}** (The source terms.) Let h be ġ(ḃ) or h^(≤1)(S), and f := L_b(χ_K h).
+**Lemma {#lem:iii-h-2-2}** (The forcing terms.) Let h be ġ(ḃ) or h^(≤1)(S), and f := L_b(χ_K h).
 
 (a) f = [L_b, χ_K]h, and f vanishes outside {1 ≤ t_* ≤ 2, |x| ≤ t_*/2} ∪ {t_* ≥ 2, t_*/4 ≤ |x| ≤ t_*/2}.
 
@@ -162,7 +162,8 @@ with w_ḃ := −κ(r)ġ(ḃ) and w_S := −κ′(r)h(S) − (κ(r) + κ_2)h̆(S
 
 For r ≥ 1, κ(r) = κ_0 r − κ_1 and κ′(r) = κ′_0 r² − κ′_1, with
 
-    κ_0 = ∫_0^4 (1 − χ_c(1/s)) ds,   κ′_0 = ∫_0^4 s(1 − χ_c(1/s)) ds,   κ_1 = ∫_0^2 (1 − χ_+),   κ′_1 = ∫_0^2 t(1 − χ_+(t)) dt.
+    κ_0 = ∫_0^4 (1 − χ_c(1/s)) ds,     κ′_0 = ∫_0^4 s(1 − χ_c(1/s)) ds,
+    κ_1 = ∫_0^2 (1 − χ_+(t)) dt,     κ′_1 = ∫_0^2 t(1 − χ_+(t)) dt.
 
 So w_ḃ and w_S are smooth on X, linear in ḃ and S, and lie in 𝒜¹ near ∂X.
 
@@ -186,13 +187,13 @@ whose first term vanishes. The rest has compact support in t_* and integrates to
 substituting t = rs and using that 1 − χ_c(1/s) vanishes for s ≥ 4; κ′(r) is treated likewise. Then w ∈ 𝒜¹ (as
 r𝒜² ⊂ 𝒜¹ and r²𝒜³ ⊂ 𝒜¹), and f̂(0) ∈ 𝒜³ by [[eq:iii-h-2-2]], since L_1𝒜² ⊂ 𝒜³, L_0𝒜¹ ⊂ 𝒜³ and L_2𝒜³ ⊂ 𝒜⁵. ∎
 
-**Lemma {#lem:iii-h-2-4}** (Fourier transforms of the source terms; [Hin26, Lemma 10.4 (2)–(4)].) For Im σ ≥ 0 let
+**Lemma {#lem:iii-h-2-4}** (Fourier transforms of the forcing terms; [Hin26, Lemma 10.4 (2)–(4)].) For Im σ ≥ 0 let
 f̂(σ, x) := ∫ e^(iσt_*) f(t_*, x) dt_*.
 
 (a) (*Structure.*) f̂ = f̂_c + f̂_∞, where f̂_c is entire in σ with values in the smooth sections supported in
 {r ≤ 2}, and, on {r ≥ 1},
 
-    f̂_∞(σ, x) = r⁻³G(σr, x),     G(ζ, x) := ∫_2^4 e^(iζs)F(s, x) ds,     F(s, x) := r⁴f_∞(sr, x),          {#eq:iii-h-2-3}
+    f̂_∞(σ, x) = r⁻³G(σr, x),     G(ζ, x) := ∫_2^4 e^(iζs)F(s, x) ds,     F(s, x) := r⁴f_∞(sr, x),   {#eq:iii-h-2-3}
 
 where for Im ζ ≥ 0 and all j, a, β and M, |(ζ∂_ζ)^j(r∂_r)^a∂_ω^β G(ζ, x)| ≤ C⟨ζ⟩^(−M); G is entire in ζ.
 
@@ -200,12 +201,12 @@ where for Im ζ ≥ 0 and all j, a, β and M, |(ζ∂_ζ)^j(r∂_r)^a∂_ω^β G
 sup_(σ∈Σ_0) ‖(σ∂_σ)^j f̂(σ)‖_(H^(k,(M,β_tf,0))_(b,|σ|)) < ∞, with the norm of [[sec:ii-g1-4-3]] (density μ_b). Hence,
 by [[eq:ii-g1-4-5a]], for every order pair (s′, 𝗋′) as in [[lem:ii-g1-4-6]] and every l < −1, with ς_1 as there,
 
-    sup_(σ∈Σ_0, |σ|≤ς_1) ‖(σ∂_σ)^j f̂(σ)‖_((s′−1;k),(𝗋′+1,l+2,0),|σ|) < ∞.                                 {#eq:iii-h-2-4}
+    sup_(σ∈Σ_0, |σ|≤ς_1) ‖(σ∂_σ)^j f̂(σ)‖_((s′−1;k),(𝗋′+1,l+2,0),|σ|) < ∞.                             {#eq:iii-h-2-4}
 
 (c) (*Regularity at zero frequency.*) Let φ ∈ C^∞([0, ∞)) vanish on [0, 2] and be bounded with its derivatives. For
 a ∈ (0, 1) and p ∈ ℕ_0 there is C with
 
-    ‖φ(ρ/|σ|)(f̂(σ) − f̂(0))‖_(H̄_b^(p,a)) ≤ C|σ|^(1−a),     σ ∈ Σ_0.                                       {#eq:iii-h-2-5}
+    ‖φ(ρ/|σ|)(f̂(σ) − f̂(0))‖_(H̄_b^(p,a)) ≤ C|σ|^(1−a),     σ ∈ Σ_0.                                  {#eq:iii-h-2-5}
 
 (d) (*Continuity, holomorphy.*) σ ↦ f̂(σ) is continuous on {Im σ ≥ 0, |σ| ≤ 1} with values in H̄_b^(p,a) for every p
 and every a < 1. It is smooth on {Im σ ≥ 0} ∖ 0 and holomorphic on {Im σ > 0} with values in H̄_b^(p,M) for every p
@@ -274,10 +275,10 @@ and ∫ e^(iσt_*)t_*χ_K dt_* = −i∂_σ(iσ⁻¹Ψ) = ∂_σ(σ⁻¹Ψ). The
 (b) For r ≥ 1, χ_K(t_*, x) = χ_c(r/t_*) for t_* > 0 ([[sec:iii-h-1]]), so ∂_(t_*)χ_K is supported in 2r ≤ t_* ≤ 4r,
 and with t_* = rs, Ψ = ∫ e^(iσrs)∂_s[χ_c(1/s)] ds = Φ(σr). The function ∂_s[χ_c(1/s)] is smooth with support in
 [2, 4] and integral χ_c(¼) − χ_c(½) = 1, and the bounds follow by integration by parts as in [[lem:iii-h-2-4]] (a). So
-for σ ≠ 0, Ψ, ∂_σΨ = rΦ′(σr) and their σ- and b-derivatives with j derivatives in σ are O(r^j(|σ|r)^(−M)) for every
-M, locally uniformly in σ; with the conormal bounds of the states this gives the memberships. For r ≤ 1,
-∂_(t_*)χ_K(·, x) is supported in [1, 4], and Ψ is entire in σ and smooth in x. A section that lies in H̄_b^(p,M) for
-all p and M lies in 𝒳_σ, since L̂_b(σ) maps it into the same class.
+for σ ≠ 0, Ψ, ∂_σΨ = rΦ′(σr) and their σ- and b-derivatives are each O(r^q(|σ|r)^(−M)) for every M, with q ∈ ℕ_0
+depending on the number of σ-derivatives, locally uniformly in σ; with the conormal bounds of the states this gives
+the memberships. For r ≤ 1, ∂_(t_*)χ_K(·, x) is supported in [1, 4], and Ψ is entire in σ and smooth in x. A section
+that lies in H̄_b^(p,M) for all p and M lies in 𝒳_σ, since L̂_b(σ) maps it into the same class.
 
 (c) For Im σ > 0, integrating by parts in t_* (there are no boundary terms: χ_Kh vanishes for t_* ≤ 1 and grows at most
 linearly, and e^(iσt_*) decays), ℱ(L_bv)(σ) = L̂_b(σ)ℱ(v)(σ) for v = χ_Kh; so (c) holds there by (a). Both sides are

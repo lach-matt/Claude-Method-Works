@@ -248,16 +248,16 @@ particular b ∈ ℬ_♭ is allowed. With τ = t_*: g_b is a smooth Lorentzian m
 g₀₀ = g_b⁻¹(dt_*, dt_*) < 0, and G₀, τ₁, g₀₀ given by [[eq:i-b-1-1]]. On {r > 3R₁} the components of g_b − ḡ in the
 frame dt_*, dx^i lie in ρ²C^∞(X̄), uniformly and smoothly in b. So (H6), (K1) and the first clause of (K4) hold.
 
-*Proof.* On {|x| ≤ 2R₁}, T_m of [[eq:iii-b-3-3]] is constant, so g_b is g^KS_b in a translated time coordinate, and
-r₀ − 2δ₀ ≥ ½r_♭; so g_b is smooth and Lorentzian of signature (1, 4) there, smoothly in b, by [[lem:s12-ks-domain]].
-On {|x| ≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and g_b − η ∈ |x|⁻²C^∞, smoothly in b.
-*dt_* is timelike.* As in the proof of [[lem:iii-b-3-7]] (a): in the coordinates (t_KS, x) = Φ_m(t, x), a function
-t − φ(|x|) has differential dt_KS − β d|x| with β := φ′ − T_m′. For φ = ψ, β = 1 off supp χ_∞, that is on
-[r₀ − 2δ₀, 2R₁], where ψ′ = 1 and T_m′ = 0; and on supp χ_∞ ⊂ [2R₁, ∞) the estimate in the proof of [[lem:iii-b-3-7]] (a), which
-does not involve the inner radius, gives β ∈ (−1, 1). So β ∈ (−1, 1] on [r₀ − 2δ₀, ∞), and [[lem:iii-b-3-3]] (e),
-valid there by [[lem:s12-ks-domain]], makes dt_* timelike: g₀₀ < 0. The components of g_b in the frame dt_*, dx^i
-do not depend on t_*, as t_* − t is a function of |x|. The inequality t_* ≤ t of [[lem:iii-b-3-7]] (a) is not claimed
-on the collar, where ψ < 0.
+*Proof.* On {|x| ≤ 2R₁}, T_m of [[eq:iii-b-3-3]] is constant, so g_b is g^KS_b in a translated time coordinate, and r₀ −
+2δ₀ ≥ ½r_♭; so g_b is smooth and Lorentzian of signature (1, 4) there, smoothly in b, by [[lem:s12-ks-domain]]. On {|x|
+≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and g_b − η ∈ |x|⁻²C^∞, smoothly in b. *dt_* is timelike.* In the
+coordinates (t_KS, x) = Φ_m(t, x), t_* = t − ψ(|x|) has differential dt_KS − β d|x| with β := ψ′ − T_m′ = 1 −
+χ_∞(ρ)(8m₀ρ⁻² − 2m(ρ² − m)⁻¹), ρ := |x| ([[eq:iii-b-3-3]], [[eq:iii-b-3-6]]). Off supp χ_∞, in particular on [r₀ − 2δ₀,
+2R₁], β = 1. On supp χ_∞ ⊂ [2R₁, ∞), ρ² ≥ 4m₀ and m < 3m₀/2, so (8m₀ − 2m)ρ² − 8m₀m > 20m₀² − 12m₀² > 0, the bracket is
+positive and β < 1; and β ≥ 1 − 8m₀ρ⁻² ≥ −1, with equality only at ρ = 2R₁, where χ_∞ = 0. So β ∈ (−1, 1] on [r₀ − 2δ₀,
+∞), as in the proof of [[lem:iii-b-3-7]] (a), and [[lem:iii-b-3-3]] (e), valid there by [[lem:s12-ks-domain]], makes
+dt_* timelike: g₀₀ < 0. The components of g_b in the frame dt_*, dx^i do not depend on t_*, as t_* − t is a function of
+|x|. The inequality t_* ≤ t of [[lem:iii-b-3-7]] (a) is not claimed on the collar, where ψ < 0.
 
 *Decay.* Here ḡ is the Minkowski metric of [[sec:ii-b-1-1]] in t̄ := t_* + r, ḡ = −(dt_* + dr)² + dx², not
 η = −dt² + dx². With t = t_* + ψ(|x|) ([[eq:iii-b-3-6]]),
@@ -507,3 +507,162 @@ operator with principal symbol G Id.
 **Remark {#rem:s12-two-beta}** (Two constants named β₀.) The β₀ of (H3), f′(r_h) = 2m₀^(−1/2), is twice the surface
 gravity; the β₀ of (Γ.4), ½ min_Γ |q_(z₀)| = 1/f(r_ph) = 2, belongs to the trapped set. They are different quantities,
 named by the same letter in [[sec:i-a-1-3]] and [[sec:i-b-1-5]].
+
+### The horizon near b₀ {#sec:vi-b-1}
+
+This section and the next carry the horizon hypotheses, the dynamical parts of (H3) and all of (H4), from b₀ to every
+b near b₀, uniformly in b as (H5) asks. (H6), (K1) and the first clause of (K4) hold for every b ∈ ℬ_♭ by
+[[lem:vi-a-1-1]]. The one new fact is that the Myers–Perry horizon is the null hypersurface {r_A = r₊} of the
+Kerr–Schild form ([[lem:vi-b-1-1]]); it is proved by an exact identity. The rest is continuity on compact sets, after a
+diffeomorphism that fixes the horizon ([[lem:vi-b-1-2]]).
+
+For b = (m, A) ∈ ℬ_♭ let s, p, r_A, P, 𝖬, ℓ_A, F_A and H_(m,A) be as in [[lem:iii-b-3-1]] and [[def:iii-b-3-2]].
+In a frame in which A = aJ₁₂ + bJ₃₄ (here b is the second spin, not the parameter), P(r) = (r² + a²)(r² + b²), since
+s = a² + b² and p² = a²b² ([[lem:iii-b-3-1]]). Let r₊(b) be the largest positive root of
+
+    Δ_b(r) := P(r) − m r² = 0.                                                                             {#eq:vi-b-1-1}
+
+At b₀, Δ_(b₀) = r²(r² − m₀), so r₊(b₀) = m₀^(1/2) = r_h, and ∂_rΔ_(b₀)(r_h) = 4r_h³ − 2m₀r_h = 2m₀^(3/2) ≠ 0. So r₊
+is a simple root, smooth in b near b₀ by the implicit function theorem, as P depends on A only through s and p², which
+are smooth functions of A ([[lem:iii-b-3-1]]); the other roots of Δ_b stay near 0 and −r_h.
+
+**Lemma {#lem:s12-spheroidal}** (The spheroidal form of the radius.) Let A ∈ 𝔰𝔬(4), |x|² > s, r := r_A(x),
+N := (r²I − A²)^(1/2), which is symmetric, positive definite and commutes with A, and ω := N⁻¹x. Then |ω| = 1, and
+with
+
+    ϱ² := r² + s + ωᵀA²ω                                                                                 {#eq:s12-varrho}
+
+the following hold.
+
+(a) P(r) · xᵀN⁻⁴x = ϱ², and ϱ² ≥ r² > 0.
+
+(b) F_A = r² xᵀN⁻⁴x; so P(r)F_A = r²ϱ² and H_(m,A) = m/ϱ².
+
+(c) The Euclidean gradient of r_A is ∇r_A = N⁻²x/(r xᵀN⁻⁴x), so |∇r_A|² = P(r)/(r²ϱ²), and ℓ_A(∇r_A) = 1.
+
+(d) In a frame in which A = aJ₁₂ + bJ₃₄, and with ω = (sin ϑ e^(iφ), cos ϑ e^(iψ)) in ℂ² ≅ ℝ⁴,
+x = ((r² + a²)^(1/2) sin ϑ e^(iφ), (r² + b²)^(1/2) cos ϑ e^(iψ)) and ϱ² = r² + a² cos²ϑ + b² sin²ϑ.
+
+*Proof.* By [[lem:iii-b-3-1]] (a), (r²I − A²)𝖬(r) = P(r)I, so N⁻² = 𝖬(r)/P(r). Then
+|ω|² = xᵀN⁻²x = xᵀ𝖬(r)x/P(r) = 1, as Q(r, x) = P(r) − xᵀ𝖬(r)x = 0 at r = r_A(x).
+(a) xᵀN⁻⁴x = ωᵀN⁻²ω = ωᵀ𝖬(r)ω/P(r), and ωᵀ𝖬(r)ω = (r² + s)|ω|² + ωᵀA²ω = ϱ². In a frame,
+sI + A² = diag(b², b², a², a²) ≥ 0, so ϱ² ≥ r².
+(b) By [[def:iii-b-3-2]], F_A = 1 + xᵀA²𝖬²x/P² = 1 + xᵀA²N⁻⁴x = 1 + ωᵀA²N⁻²ω, as N commutes with A. So
+F_A = ωᵀ(N² + A²)N⁻²ω = r² ωᵀN⁻²ω = r² xᵀN⁻⁴x, and P F_A = r²ϱ² by (a). Hence H_(m,A) = m r²/(P F_A) = m/ϱ².
+(c) The function φ_A(r, x) := xᵀ(r²I − A²)⁻¹x − 1 = −Q(r, x)/P(r) has, for fixed x, the zeros of Q(·, x) in (0, ∞), so
+r_A(x) is its only positive zero; and ∂_rφ_A = −2r xᵀ(r²I − A²)⁻²x < 0. By the implicit function theorem,
+∇r_A = −∇_xφ_A/∂_rφ_A = N⁻²x/(r xᵀN⁻⁴x), and |∇r_A|² = 1/(r² xᵀN⁻⁴x) = P/(r²ϱ²) by (a). The coefficient vector of ℓ_A
+is 𝖬(rI + A)x/P = N⁻²(rI + A)x, so
+
+    ℓ_A(∇r_A) = xᵀ(rI − A)N⁻⁴x/(r xᵀN⁻⁴x) = 1,
+
+since AN⁻⁴ is antisymmetric (A is antisymmetric and commutes with the symmetric N⁻⁴), so xᵀAN⁻⁴x = 0.
+(d) In the frame, A² = −diag(a², a², b², b²), N = diag((r² + a²)^(1/2), (r² + a²)^(1/2), (r² + b²)^(1/2),
+(r² + b²)^(1/2)), s = a² + b² and ωᵀA²ω = −a² sin²ϑ − b² cos²ϑ. ∎
+
+**Lemma {#lem:vi-b-1-1}** (The horizon is null.) For b = (m, A) ∈ ℬ_♭, on {|x|² > s},
+
+    (g^KS_(m,A))⁻¹(dr_A, dr_A) = Δ_b(r_A) / (r_A² ϱ²),                                                     {#eq:vi-b-1-2}
+
+with ϱ² of [[eq:s12-varrho]]. Hence ℋ_b := {r_A = r₊(b)} is a smooth null hypersurface invariant under ∂_t. dr_A is
+spacelike just outside it and timelike just inside, where Δ_b < 0.
+
+*Proof.* By [[lem:iii-b-3-3]] (d), (g^KS_(m,A))⁻¹ = η⁻¹ − H_(m,A) k_A^♯ ⊗ k_A^♯ with k_A^♯ = −∂_t + ℓ_A^♯, ℓ_A^♯ the
+Euclidean dual of ℓ_A. As r_A does not depend on t, dr_A(k_A^♯) = ℓ_A(∇r_A) = 1 by [[lem:s12-spheroidal]] (c), and
+η⁻¹(dr_A, dr_A) = |∇r_A|². So, by [[lem:s12-spheroidal]] (b)–(c),
+
+    (g^KS_(m,A))⁻¹(dr_A, dr_A) = |∇r_A|² − H_(m,A) = P/(r_A²ϱ²) − m/ϱ² = (P − m r_A²)/(r_A²ϱ²).
+
+dr_A ≠ 0 everywhere by [[lem:s12-spheroidal]] (c), so ℋ_b is a smooth hypersurface; its conormal dr_A is null there, as
+Δ_b(r₊) = 0, so ℋ_b is null. It is invariant under ∂_t, as g^KS_(m,A) has t-independent components and r_A does not
+depend on t. Δ_b has a simple zero at its largest root r₊, so Δ_b > 0 on (r₊, ∞) and Δ_b < 0 just below r₊. ∎
+
+[[eq:vi-b-1-2]] is the component g^(rr) of the Myers–Perry metric [MP86] in Boyer–Lindquist coordinates ([ER08]),
+written in the Kerr–Schild coordinates of [[ch:s11]]; the radius r_A of the Kerr–Schild form is the Boyer–Lindquist
+radius. Nothing below uses the Boyer–Lindquist form.
+
+**Lemma {#lem:vi-b-1-2}** (Fixing the horizon.) There are ε_H > 0 and diffeomorphisms Ψ_b of {|x| ≥ r₀ − 2δ₀}, for
+|b − b₀| < ε_H, smooth in (b, x), with Ψ_(b₀) = Id, Ψ_b = Id on {|x| ≤ 5R₁/8} and on {|x| ≥ 7R₁/4}, and
+Ψ_b({|x| = r_h}) = ℋ_b. Its spacetime lift is (t, x) ↦ (t, Ψ_b(x)).
+
+*Proof.* Let χ_H ∈ C_c^∞((5R₁/8, 7R₁/4)) equal 1 near [3R₁/4, 3R₁/2], an interval that contains r_h = R₁. Put
+
+    r̃_b(x) := χ_H(|x|) (r_h/r₊(b)) r_A(x) + (1 − χ_H(|x|)) |x|.
+
+Then r̃_(b₀) = |x|, as r_A = |x| at A = 0 ([[lem:iii-b-3-1]] (b)); r̃_b − |x| is supported in {|x| ∈ supp χ_H} and
+tends to 0 in C^∞ as b → b₀; and ℋ_b = {r̃_b = r_h} near {|x| = r_h}. Define Ψ_b(x) := κ x̂, with κ = κ_b(x) > 0
+solving r̃_b(κx̂) = |x|. As ∂_κ r̃_b(κx̂) = 1 + O(|b − b₀|), the map κ ↦ r̃_b(κx̂) is strictly increasing on
+[r₀ − 2δ₀, ∞) and equal to κ off supp χ_H (in particular for κ ≤ 5R₁/8, which contains r₀ − 2δ₀, and for large κ),
+so it is a bijection of [r₀ − 2δ₀, ∞); κ_b is defined globally and is smooth by the implicit function theorem, and
+Ψ_b is a diffeomorphism. It is the identity where χ_H(|x|) = 0, and it maps {|x| = r_h} onto {r̃_b = r_h}, which is
+ℋ_b: on {χ_H = 1}, {r̃_b = r_h} = {r_A = r₊}, and on the transition region, where
+|x| ∈ (5R₁/8, 3R₁/4) ∪ (3R₁/2, 7R₁/4), r̃_b is C^∞-close to |x| and so differs from r_h = R₁. For b near b₀,
+{r_A = r₊} lies in {χ_H = 1}, since r_A is close to |x| and r₊ to R₁. ∎
+
+On {χ_H(|x|) = 1}, Ψ_b^* r_A = (r₊(b)/r_h)|x|, so Ψ_b^* dr_A = (r₊(b)/r_h) dr there.
+
+Below, g̃_b := Ψ_b^* g_b, with the time function Ψ_b^* t_*; its differential Ψ_b^* dt_* is timelike for g̃_b. The
+spectral families of g_b and g̃_b are conjugate: on the bundles of [[sec:i-a-1-2]], trivialised by dt_*, dx^i, pulling
+back by Ψ_b conjugates each operator by the smooth bundle map B_b taking the frame Ψ_b^* dt_*, Ψ_b^* dx^i to dt_*,
+dx^i, smooth in b, with B_(b₀) = Id. The hypotheses (H1)–(H8) and (K1)–(K4) are invariant under this conjugation. The
+scalar principal symbol is preserved. With the transported fibre inner product h′ := |det DΨ_b| B_b^*(h ∘ Ψ_b)B_b,
+under which the pull-back by Ψ_b followed by B_b⁻¹ is an isometry from L²(|dy|; h) to L²(|dx|; h′), y = Ψ_b(x), the
+h′-imaginary part of the conjugated operator is the conjugate of Im_h P, exactly; without the Jacobian it would acquire
+the term ½H_G log|det DΨ_b|. h′ is a fibre inner product as in [[sec:i-a-1-2]] (Hermitian, bounded above and below,
+smooth in b), equal to h where Ψ_b = Id. So the subprincipal endomorphisms that enter the threshold of (H3) and
+condition (Γ.4) ([[sec:i-a-1-4]], [[sec:i-b-1-5]]) are conjugate, with the same spectra and thresholds. Ψ_b is the
+identity on {|x| ≤ 5R₁/8} and on {|x| ≥ 7R₁/4}, so the artificial boundary, the extendible and supported spaces there,
+(H2), (K1) and the structure at infinity are untouched, and smoothness in b gives norms equivalent uniformly in b. The
+conjugated family is Ψ_b^* of the family that [[ch:s13]], [[ch:s14]] and [[ch:s15]] build from g_b, gauge 1-forms
+included; where those chapters evaluate a threshold at N*ℋ_b in the coordinates of g_b ([[lem:iii-d-5-1]]), that is
+the threshold of the conjugated family at N*{r = r_h}. We write G̃_(0,b) and τ̃_(1,b) for the symbols of g̃_b, and keep
+the radii of [[def:s12-radii]], ρ_∞ = |ξ|⁻¹ and ℛ_± = {r = r_h, η = 0, ±ξ > 0}, which are fixed sets, independent of b.
+
+### (H3) and (H4) near b₀ {#sec:vi-b-2}
+
+**Lemma {#lem:vi-b-2-1}** For |b − b₀| < ε_H, N*{r = r_h} ∖ o ⊂ {G̃_(0,b) = 0}, and H_(G̃_(0,b)) is tangent to it.
+
+*Proof.* The change of time Φ_m of [[eq:iii-b-3-3]] fixes x, so g_b⁻¹(dr_A, dr_A) = (g^KS_b)⁻¹(dr_A, dr_A), which
+vanishes on ℋ_b by [[lem:vi-b-1-1]]. By the remark after [[lem:vi-b-1-2]], for c ∈ ℝ, G̃_(0,b)(c dr) = c² g̃_b⁻¹(dr, dr)
+= c²(r_h/r₊(b))² g_b⁻¹(dr_A, dr_A) ∘ Ψ_b = 0 on {r = r_h}. So the Lagrangian submanifold N*{r = r_h} lies in the level
+set {G̃_(0,b) = 0}. For v tangent to it and Ω the symplectic form, Ω(H_(G̃_(0,b)), v) = dG̃_(0,b)(v) = 0, so
+H_(G̃_(0,b)) lies in the symplectic orthogonal of the tangent space, which is the tangent space itself. ∎
+
+**Proposition {#prop:vi-b-2-2}** ((H3) and (H4) near b₀.) There is ε₁ ∈ (0, ε_H] such that for |b − b₀| < ε₁, and so
+on the compact ball |b − b₀| ≤ ½ε₁ (as (H5) asks for a compact parameter space), the dynamical conditions of (H3) and
+all of (H4) hold for g̃_b with the radii of [[def:s12-radii]], the sets ℛ_±, ρ_∞, and q_(±,b) := |η/ξ|²_g̸ restricted
+to ∂Σ̃_(0,b). Moreover β₀(b) ≥ ½β₀(b₀), β(b) ≥ ½β(b₀), 𝖧_b q_(±,b) ≥ ½β₀(b₀) q_(±,b) near ∂ℛ_±, and the lengths in
+(H4) are bounded, all uniformly in b. So the uniformity of (H5) holds for these data.
+
+*Proof.* All symbols depend smoothly on b with values in C^∞, as Ψ_b does. By the first step of (H4) below,
+∂Σ̃_(0,b) lies over {r < r_h + ½δ₀}. At b₀, on ∂Σ₀ (over r ≤ r_h), C/ξ² = −fr² = m₀ − r² ≤ m₀ − (r₀ − 2δ₀)² < ∞ on
+[r₀ − 2δ₀, r_h], so |ξ| ≥ c|ζ| there; by compactness of S*{r₀ − 2δ₀ ≤ r ≤ r_h + ½δ₀} this persists for b near b₀. So
+ξ ≠ 0 on ∂Σ̃_(0,b), sgn ξ splits it into two open and closed parts, and ρ_∞ = |ξ|⁻¹ and the future-directed rescaled
+field 𝖧_b := sgn(ξ) ρ_∞ H_(G̃_(0,b)) are defined on all of it.
+
+*(H3).* By [[lem:vi-b-2-1]], ∂ℛ_± are invariant compact sets for every b. β₀(b) = ρ_∞⁻¹𝖧_bρ_∞ and
+∓β₀⁻¹ρ_∞τ̃_(1,b) are continuous functions on the fixed compact set ∂ℛ_±, continuous in b, and their infima at b₀ are
+2m₀^(−1/2) and m₀^(1/2) ([[prop:vi-a-2-1]]). So they are at least half of that for b near b₀. Next, dG̃_(0,b) ≠ 0 at
+∂ℛ_± (at b₀, ∂_r(fξ²) ≠ 0 there), so near ∂ℛ_±, ∂Σ̃_(0,b) is a smooth hypersurface of S*X̃, a graph
+r = r_b(ω, η̂) over the coordinates (ω, η̂ := η/ξ), smooth in b (implicit function theorem). In these coordinates
+∂ℛ_± = {η̂ = 0} for every b, and q_(±,b) = |η̂|² is a quadratic defining function. 𝖧_b is tangent to {η̂ = 0}, so
+𝖧_b q_(±,b) = Q_b(ω)(η̂, η̂) + O(|η̂|³), with the quadratic form Q_b continuous in b and the remainder uniform. At b₀,
+Q_(b₀) = 2β₀(b₀)|η̂|² ([[prop:vi-a-2-1]]: 𝖧q = 2q(f′ − 2r⁻³q)). So Q_b ≥ (3/2)β₀(b₀)|η̂|² for b near b₀, and
+𝖧_b q_(±,b) ≥ ½β₀(b₀) q_(±,b) on {q_(±,b) < ϵ_q} for a fixed ϵ_q > 0.
+
+*(H4).* At b₀, ∂Σ₀ lies over {r ≤ r_h}, and G̃_(0,b₀) ≥ c > 0 on S*{r_h + ½δ₀ ≤ r ≤ ρ₁⁻¹}. On {r ≥ ρ₁⁻¹},
+G̃_(0,b) is elliptic uniformly for b near b₀: at b₀ it is fξ² + r⁻²C, g_b − g_(b₀) is small in ρ²C^∞
+([[eq:iii-b-3-5]]), and Ψ_b = Id there. So for b near b₀, ∂Σ̃_(0,b) lies over {r < r_h + ½δ₀} ⊂ {r ≤ r_e}. On
+{r₀ − 2δ₀ ≤ r ≤ r₂} the conditions "G̃_(0,b) is Lorentzian of signature (1, 3)", "G̃_(0,b)(dr) < 0" and "𝖧_b r < 0 on
+∂Σ̃_(0,b)" are strict and hold at b₀ on a compact set, so they persist. For the flow, let U := {q_(±,b) < ϵ_q} near
+∂ℛ_±. At b₀, ∂Σ₀ ∖ U lies over {r ≤ r_h − d₁} for some d₁ > 0 (q = −fr² there), where 𝖧r = 2f ≤ −c′. By continuity,
+for b near b₀, ∂Σ̃_(0,b) ∖ U lies over {r ≤ r_h − ½d₁}, where 𝖧_b r ≤ −½c′. Let γ be a maximal curve of 𝖧_b in
+∂Σ̃_(0,b) ∖ ∂ℛ_±. In U, q_(±,b) grows forward at the rate ≥ ½β₀(b₀), so γ leaves U forward in finite time. Since
+𝖧_b q_(±,b) ≥ ½β₀(b₀) q_(±,b) > 0 on the closure of U, in particular on {q_(±,b) = ϵ_q}, the complement of U in
+∂Σ̃_(0,b) is forward invariant, and γ does not re-enter U. Outside U, r decreases at the rate ≥ ½c′, so γ reaches
+{r < r₀ − δ₀} within the time 2(r_h − r₀ + 2δ₀)/c′ after leaving U. Backward, r increases outside U, so γ enters U in
+finite time. In U, q_(±,b) decreases exponentially backward, so γ(s) → ∂ℛ_± as s → −∞. The times are bounded uniformly
+in b on compact sets of initial points away from ∂ℛ_±. ∎
+
+This is the non-degenerate radial point structure at the conormal bundle of the event horizon that
+[Hin26, Remark 1.4 (b)] describes, for the Myers–Perry metrics near Tangherlini.
