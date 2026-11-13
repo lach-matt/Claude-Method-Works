@@ -574,12 +574,20 @@ from (0, p⃗_b) gives the bound.
     |Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2)| ≤ C‖F_1 − F_2‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴.
 
 This is the comparison of [[lem:iii-i7-4-1]] made quantitative. Let u_1, u_2 be the forward solutions of
-L_(h,p⃗)u_1 = F_1 and L_(0,p⃗_b)u_2 = F_2. Then L_(0,p⃗_b)(u_1 − u_2) = R := F_1 − F_2 − (L_(h,p⃗) − L_(0,p⃗_b))u_1, and
-‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴: both backgrounds equal g_b near K⁺ ([[lem:iii-i-3-6]]),
-so the difference gains a_K there, and at ι⁺ it gains as in the proof of [[lem:iii-i7-4-1]]. With F_1 = F_2 = F, the
-boost terms of u_1 and u_2 are built from the same state at b, so the difference of the boost parameters is
-Ṡ_(0,p⃗_b)(R), of size at most C‖R‖_𝒴. Under the condition Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), u_1 − u_2 has no boost
-term, so Ṡ_(0,p⃗_b)(R) = 0, and Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2) = Q_(0,p⃗_b)(R), by the uniqueness in the proof of
+L_(h,p⃗)u_1 = F_1 and L_(0,p⃗_b)u_2 = F_2. Then L_(0,p⃗_b)(u_1 − u_2) = R := F_1 − F_2 − (L_(h,p⃗) − L_(0,p⃗_b))u_1. Both
+backgrounds equal g_b near K⁺ ([[lem:iii-i-3-6]]), so L_(h,p⃗) − L_(0,p⃗_b) has coefficients of K⁺-weight a_K there; at
+ι⁺ it gains as in the proof of [[lem:iii-i7-4-1]]; and its coefficients have size O(‖h‖ + |p⃗ − p⃗_b|).
+*The boost parameters.* Fix α ∈ (1, min(a_K − 1, 3/2)) and α_+ ∈ (α, 2). For a general F_1 ∈ 𝒴, u_1 carries a boost
+term of K⁺-weight −1 − ε, so (L_(h,p⃗) − L_(0,p⃗_b))u_1 has K⁺-weight only a_K − 1 − ε, which may lie below α_K: R need
+not lie in 𝒴. It lies in 𝒴^S_(α,α_+) of [[sec:iii-i7-4]], by the count of the proof of [[lem:iii-i7-4-1]] (a), with
+‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, u_1 being bounded by F_1 through
+[[prop:iii-i4-4-1]] (1) for L_(h,p⃗), uniformly ([[lem:iii-i7-2-5]] (c)). With F_1 = F_2 = F, the boost terms of u_1
+and u_2 are built from the same state at b, so the difference of the boost parameters is Ṡ_(0,p⃗_b)(R), of size at
+most C‖R‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖_𝒴. *The parameters Q.* Under the condition
+Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), u_1 has no boost term, so it has K⁺-weight −ε and is bounded by F_1 in the space of
+[[prop:iii-i6-2-1]] for L_(h,p⃗), uniformly; as in the proof of [[lem:iii-i7-4-1]] (b), the K⁺-weight a_K − ε ≥ α_K
+then gives ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, and R ∈ 𝒴. Also u_1 − u_2 has no boost term,
+so Ṡ_(0,p⃗_b)(R) = 0, and Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2) = Q_(0,p⃗_b)(R), by the uniqueness in the proof of
 [[lem:iii-i7-4-1]] (b), which uses the injectivity of (ḃ, Ṡ) ↦ ġ_b(ḃ) + h_b(Ṡ). Its size is at most C‖R‖_𝒴.
 
 *The boost map.* By [[eq:iii-i15-2-7]], χ_K h^(≤1)_(b,♮)(S′) is the forward solution of

@@ -355,9 +355,9 @@ in that cone. So for g the hypersurfaces Σ_τ, {r = a} and {v + τ = const} are
 which is positive definite on the three kernels; and along future causal curves of g, τ and v + τ increase and, at
 r = a, r decreases. These are the properties (a)–(c) that the proof of [[lem:domain]] (e) uses, so (e) holds for g.
 
-For the last claim, g0 − c dτ ⊗ dτ, c > 0, agrees with g0 on the four-dimensional subspace ker dτ, where g0 is
-positive definite, and is ≤ g0, so it has exactly one negative eigenvalue and no zero one, and |c dτ ⊗ dτ| = c; on
-ker dr at r = a it is ((μ0/a² − 1) − c) T² + |X|² where μ = μ0, degenerate at c = μ0/a² − 1. Such points exist: on
+For the last claim, g0 − α dτ ⊗ dτ, α > 0, agrees with g0 on the four-dimensional subspace ker dτ, where g0 is
+positive definite, and is ≤ g0, so it has exactly one negative eigenvalue and no zero one, and |α dτ ⊗ dτ| = α; on
+ker dr at r = a it is ((μ0/a² − 1) − α)(Y⁰)² + |X|² where μ = μ0, degenerate at α = μ0/a² − 1. Such points exist: on
 Σ_τ0, v = τ0 + a < v_start at r = a. ∎
 
 [[lem:domain]] (e) is not the only requirement on ε1. The energy inequality of [[ch:inequalities]] needs ε1 < s0, where

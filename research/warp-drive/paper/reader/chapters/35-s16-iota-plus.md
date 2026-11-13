@@ -1097,8 +1097,8 @@ root. No root has real part in (0, 1] ([[prop:iii-f1-2-3]] (a)), so Re(−μ) > 
 (b), (c) The roots with Re μ ≤ 0 are those before the semicolons in [[prop:iii-f1-2-3]]. They are: 0 at s0 and s2;
 the ι^C_(·,≪,·) − 1, with real part < −101 ([[prop:iii-f1-2-3]] (d)); −l, 1 − l and 2 − l at the types listed; −1 at
 s1 and v1; −2 − 2γ_Cv_C at v1; and 2 − ι^Υ_(sl,l+j) (j = 1, 2) and 2 − ι^Υ_(s0,2). By [[lem:iii-d-4-1]] the last are
-real, with ι^Υ_(s0,2) ∈ (2, 2 + z_Υ/3] and ι^Υ_(sl,l+j) ∈ (l + j, l + j + ¼) for 0 < z_Υ ≤ ½, where
-z_Υ := 4e_Υγ_Υ². So every root with Re μ ≤ 0 other than 0 has Re μ < 0. The root 0 occurs only at s0 and s2 and is
+real, with ι^Υ_(s0,2) ∈ (2, 2 + z_Υ/3] and ι^Υ_(sl,l+j) ∈ (l + j, l + j + ¼) for 0 < z_Υ ≤ ½, z_Υ = 4e_Υγ_Υ² being
+the z of that lemma. So every root with Re μ ≤ 0 other than 0 has Re μ < 0. The root 0 occurs only at s0 and s2 and is
 simple there ([[prop:iii-f1-2-3]] (c)), giving (0, 0) only. The exponents −μ ∈ (0, 1) are ι^Υ_(s0,2) − 2 and
 ι^Υ_(s1,2) − 2; the next ones are ≥ 1. The iterates ℰ_j + 1 only add points with real part ≥ 1. ∎
 

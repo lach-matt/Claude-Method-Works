@@ -33,7 +33,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | running |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | running | - |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | running | - |
-| 42 S23 | NOT CONFIRMED 0M 5m 12n | running | - |
+| 42 S23 | NOT CONFIRMED 0M 5m 12n | done | running |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | running | - |
 | 44 S25 | running | - | - |
 | 45 S26 | running | - | - |

@@ -1061,7 +1061,7 @@ extension of f with ‖F̃‖_(H^(𝗌,(β,−ℓ+1))_3b(M̃_0)) ≤ 2‖f‖_(H
 
 where χ_1 ∈ C^∞(ℝ) equals 0 on (−∞, r_0/2] and 1 on [r_0, ∞), and χ_2 ∈ C^∞(ℝ) equals 0 on (−∞, −¾] and 1 on
 [−½, ∞). Both factors are bounded together with all their derivatives along ⟨x⟩∂_(t_*) and ⟨x⟩∂_x (where a derivative
-of χ_2(t_*/⟨x⟩) is nonzero, |t_*| ≤ ⟨x⟩), so multiplication by them is bounded on the 3b spaces ((S3) in
+of χ_2(t_*/⟨x⟩) is nonzero, |t_*| ≤ ⟨x⟩), so multiplication by them is bounded on the 3b spaces ((S3), (S8) in
 [[sec:ii-a-3]]), and ‖F‖ ≤ C‖f‖. On {r > r_0}, F = f: there χ_1 = 1, and χ_2(t_*/⟨x⟩) ≠ 1 only where
 t_* < −⟨x⟩/2 ≤ −r/2, where f vanishes. F is supported in {r ≥ r_0/2, t_* ≥ −¾⟨x⟩}. Let U be the primitive of F in t_*
 that vanishes for t_* < −⟨x⟩ (the convolution in t_* with the Heaviside function). Then ∂_(t_*)U = F, U is supported

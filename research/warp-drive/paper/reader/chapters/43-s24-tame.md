@@ -249,18 +249,18 @@ its own proof, read at the order k:
 of which is stated at every order with the loss independent of it, and with constants uniform in b ([[lem:iii-i15-1-1]]
 (P1), (P4)). (f) That ℓ depends only on the orders and the weights is read off from the proof of [[cor:ii-g1-4-5]]:
 ℓ_4 = ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉ is the loss of [[prop:ii-g1-4-4]], with ℓ_1, ℓ_2 and ν from [[lem:ii-g1-4-3]], and
-ℓ_3, ℓ_5 are the losses of [[prop:ii-g1-3-5]] (2) and [[prop:ii-g1-3-3]] (2). For δ: [[cor:iii-h2-1-2]] gives, for every k, an
-inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every b ∈ ℬ̄_1; its proof bounds γ_+ by the bound
-[[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by ν_min/(2 sup_Γ q^Γ), where β_0, ν_min and q^Γ do not
-depend on the inner product and are continuous and positive on ℬ̄_1. So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The constants of
-[[cor:ii-g1-4-5]] at the order k, with the inner product h_(η_k,b) of [[cor:iii-h2-1-2]], are uniform in b ∈ ℬ̄_1. Indeed
-[[lem:ii-g1-4-3]], [[prop:ii-g1-3-3]] and [[prop:ii-g1-3-5]] do not involve the operator, and [[prop:ii-g1-4-4]] takes
-its constants and C_0 from [[thm:i-b-1-3]] (3) and (5), whose constants are uniform in b by [[sec:i-b-9]]: (H5)–(H8) hold
-continuously in b ((B1) in [[sec:iii-h2-0]]), and h_(η_k,b) is smooth in b ([[prop:iii-h2-1-1]]). This is (ii) of the
-proof of [[thm:iii-h2-2-1]] ([[lem:iii-i15-1-1]] (P4)). The remark after [[prop:ii-g1-4-4]] treats only γ_+ ≤ 0 and is
-not used. (g) Each statement is a finite composition of maps of (b)–(e) and of the two face inverses cited, at a fixed
-number of steps; [[lem:iii-j2-1-2]] (e)–(f) applies, β entering only through the families of (b) (in [[prop:iii-i1-2-1]]
-and [[prop:iii-i1-3-1]], through L̃). ∎
+ℓ_3, ℓ_5 are the losses of [[prop:ii-g1-3-5]] (2) and [[prop:ii-g1-3-3]] (2). For δ: [[cor:iii-h2-1-2]] gives, for every
+k, an inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every b ∈ ℬ̄_1; its proof bounds γ_+ by the
+bound [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by ν_min/(2 sup_Γ q^Γ), where β_0, ν_min and q^Γ
+do not depend on the inner product and are continuous and positive on ℬ̄_1. So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The constants
+of [[cor:ii-g1-4-5]] at the order k, with the inner product h_(η_k,b) of [[cor:iii-h2-1-2]], are uniform in b ∈ ℬ̄_1.
+Indeed [[lem:ii-g1-4-3]], [[prop:ii-g1-3-3]] and [[prop:ii-g1-3-5]] do not involve the operator, and [[prop:ii-g1-4-4]]
+takes its constants and C_0 from [[thm:i-b-1-3]] (3) and (5), whose constants are uniform in b by [[sec:i-b-9]]:
+(H5)–(H8) hold continuously in b ((B1) in [[sec:iii-h2-0]]), and h_(η_k,b) is smooth in b ([[prop:iii-h2-1-1]]). This is
+(ii) of the proof of [[thm:iii-h2-2-1]] ([[lem:iii-i15-1-1]] (P4)). The remark after [[prop:ii-g1-4-4]] treats only
+γ_+ ≤ 0 and is not used. (g) Each statement is a finite composition of maps of (b)–(e) and of the two face inverses
+cited, at a fixed number of steps; [[lem:iii-j2-1-2]] (e)–(f) applies, β entering only through the families of (b) (in
+[[prop:iii-i1-2-1]] and [[prop:iii-i1-3-1]], through L̃). ∎
 
 **Remark {#rem:iii-j2-2-2}** (Choices that depend on the order.) In [[lem:iii-j2-2-1]] (e)–(f) two choices depend on k:
 the radius c_k of the low-energy cut-off, and the trapping data. Both enter only decompositions u = u_hi + u_reg +
@@ -371,11 +371,11 @@ is used in its form at b, named in the entry where it differs from the form at b
 
 ### The tame theorems {#sec:iii-j2-4}
 
-**Theorem {#thm:iii-j2-4-1}** (The tame form of the forward problem with parameters.) Let ε ∈ (0, ε_1], and let
-ε′(ε, j) ∈ (0, ε], j ∈ ℕ₀, non-increasing in j, be the input losses that [[thm:iii-i14-3-1]] assigns to the output
-loss ε ([[sec:iii-j2-1]]; independent of j for the statements listed there). There are d, d_0 ∈ ℕ and δ_𝔹 > 0
-such that for (h, p⃗, q) with ‖h‖_(𝒳^(d_0)) + |p⃗| + ‖q‖_(𝒬^(d_0)) < δ_𝔹 the maps F ↦ (h′, p⃗′, q′) of
-[[thm:iii-i14-3-1]] (at a rotating black hole parameter, of [[prop:iii-i15-2-5]]) satisfy, for every k ∈ ℕ₀,
+**Theorem {#thm:iii-j2-4-1}** (The tame form of the forward problem with parameters.) Let ε ∈ (0, ε_1], and let ε′(ε,
+j) ∈ (0, ε], j ∈ ℕ₀, non-increasing in j, be the input losses that [[thm:iii-i14-3-1]] assigns to the output loss ε
+([[sec:iii-j2-1]]; independent of j for the statements listed there). There are d, d_0 ∈ ℕ and δ_𝔹 > 0 such that for (h,
+p⃗, q) with ‖h‖_(𝒳^(d_0)) + |p⃗| + ‖q‖_(𝒬^(d_0)) < δ_𝔹 the maps F ↦ (h′, p⃗′, q′) of [[thm:iii-i14-3-1]] (at a rotating
+black hole parameter, of [[prop:iii-i15-2-5]]) satisfy, for every k ∈ ℕ₀,
 
     ‖h′‖_k + |p⃗′| + ‖q′‖_k ≤ C_k (‖F‖_(k+d) + (‖h‖_(k+d) + |p⃗| + ‖q‖_(k+d)) ‖F‖_d),                  {#eq:iii-j2-4-1}
 
@@ -420,8 +420,8 @@ This is the estimate of [Hin26, Theorem 12.8, p. 312].
 ([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor ((P6) there), depends on η_2. Steps 1–3, which hold at b with the rows
 built at b_0 ([[sec:s23-base-points]] (3)), subtract D_UΦ(U′_•) for finitely many U′_•: the finite-dimensional data of
 Step 1 (bounded by a low norm of (h′, p⃗′, q′), [[lem:iii-j2-2-1]] (c)); the data of Case B of Step 2,
-f_(λ_0) ∈ Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which are not finite-dimensional and are mapped by the right inverse of
-[[prop:iii-g3-3-7]], independent of U with the loss l, on the finitely many λ_0 ∈ Λ_* ([[lem:iii-j2-2-1]] (g),
+f_(λ_0) ∈ Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which are not finite-dimensional and are mapped by the right
+inverse of [[prop:iii-g3-3-7]], independent of U with the loss l, on the finitely many λ_0 ∈ Λ_* ([[lem:iii-j2-2-1]] (g),
 [[lem:iii-j2-1-2]] (d)); and the conormal remainders of Step 3 (the conormal components of q′, [[lem:iii-j2-2-1]] (c)).
 By [[rem:iii-j-2-5]],
 
@@ -1046,10 +1046,10 @@ This is [Hin26, Theorem 12.8, p. 312] in dimension 4 + 1.
 Steps 1–2 of the proof of [[thm:iii-j1-2-1]], which hold at b with the rows built at b_0 ([[sec:s23-base-points]] (3)),
 subtract values of D_UΦ, which lie in the exact classes and whose images under D_(Φ(U))P_5 lie in ℱ_ex
 ([[prop:iii-j3-5-4]]); Step 2 reads g_j at ℓ_K(λ_0) − ε, a loss it tolerates, as it needs only the formal solutions of
-rate < α to be visible below ℓ_K. Step 3: after the subtractions h′ has no ι⁺-term below 3 + ε_+, so its class
-(ℰ_♯, 3 + ε_+) with vanishing coefficients is the plain weight 3 + ε_+, and its K⁺-weight is α; so h′ is in the exact class of h̃,
-and the conormal parts of q′ have the exact orders. The bounds compose finitely many bounded maps; the order d is fixed
-by [[lem:iii-j2-2-3]]. ∎
+rate < α to be visible below ℓ_K. Step 3: after the subtractions h′ has no ι⁺-term below 3 + ε_+, so its class (ℰ_♯,
+3 + ε_+) with vanishing coefficients is the plain weight 3 + ε_+, and its K⁺-weight is α; so h′ is in the exact class of
+h̃, and the conormal parts of q′ have the exact orders. The bounds compose finitely many bounded maps; the order d is
+fixed by [[lem:iii-j2-2-3]]. ∎
 
 The ι⁺-order of [[lem:iii-j1-1-1]] is thus exactly 3 + ε_+ under (Ex1); its choice η_2 := ε_+ − 3ε and the resulting
 loss 5ε are not needed.
