@@ -180,26 +180,28 @@ by [[lem:two-dust-domain]] (a); for R ≥ R_* it lies in region I ([[lem:margins
 timelike (proof of [[cor:margins-lens]]). The margin for R_* ≤ R is [[thm:margins-hyperbolic]] (a), and for R ≤ R_*,
 where Σ′ = Σ_τ0, it is [[thm:bg-margins]] (c).
 
-(b) Write (4.16), (3.2) of [Rac16] as (4.19) there ([[rem:std-racz-characteristic]]): ∂_ρu + B^(K)∂_Ku + C = 0, with
-u = (k_B, K^E_E), ρ := R, on [0.70, R2] × S³. Where K^E_E ≠ 0, B^(K) and C are smooth functions of (ρ, ω, u) and of P,
-the free data and their derivatives of the orders that enter, κ being given algebraically by [Rac16, (4.17)]. The
-background's data give a smooth solution ū, for the background's free data P̄, and κK^l_l < 0 along it by (a). The
-common symmetrizer H that Rácz exhibits for [Rac16, Lemma 4.1] ([[thm:std-racz-hyperbolic]]), [Rac16, (4.21), p. 12],
-is a rational function of k, K^E_E, κ and γ̂ with only κ in its denominators; so near the graph of (ū, P̄) it is a smooth
-function of (ρ, ω, u, P), symmetric, positive definite at ū, and HB^(K) is symmetric. With t := R2 − ρ the system
-reads ∂_tu − B^(K)∂_Ku − C = 0, which is [[eq:class-kato-sphere]] with n = 3, A^0 := H, A^(ab) := −HB^(K)⟨∂_K, W_ab⟩ and
-F := HC (the remark after [[cor:class-kato-sphere]]), on [0, R2 − 0.70]; we multiply these coefficients by a smooth
-cut-off equal to 1 on a neighbourhood 𝒩 of the graph of (ū, P̄) and add I times one minus the cut-off to A^0, which
-makes them smooth and symmetric everywhere and leaves them unchanged on 𝒩. For ε small, ‖P − P̄‖_(C^s) ≤ ε0, and
-[[cor:class-kato-sphere]] (a), (b), with the datum ū(0) at t = 0, gives a smooth solution on the whole interval with
-sup_t ‖u − ū‖_(L²(S³)) ≤ C ‖P − P̄‖_(C⁰) and sup_t ‖u‖_(H^s(S³)) ≤ C, s > 3; by interpolation between L² and H^s on S³
-and Sobolev's inequality ([[thm:std-bh-manifold]]), sup |u − ū| → 0 as ε → 0, so the solution stays in 𝒩 and solves
-(4.19). The isometries 𝒢 carry solutions of the class of [[cor:class-kato-sphere]] (a) with the invariant datum ū(0)
-to such solutions, so by the uniqueness there the solution is invariant. The leaves are three-spheres, so the axes are
-interior points of the leaves and need no condition. By [[cor:class-kato-sphere]] (c), u = ū on every set Ω as there on
-which P = P̄; outside 𝒫 the free data are the background's, and the complement of the union of these sets is the
-domain of influence of 𝒫 for the system. By [[thm:std-racz-hyperbolic]] the fields built from the solution and the free
-data satisfy the constraints in the domain of dependence of the initial sphere, which here is all of {0.70 ≤ R ≤ R2}.
+(b) Write (4.16), (3.2) of [Rac16] as (4.19) there ([[rem:std-racz-characteristic]]): ∂_ρu + B^(K)∂_Ku + C = 0,
+with u = (k_B, K^E_E), ρ := R, on [0.70, R2] × S³. Where K^E_E ≠ 0, B^(K) and C are smooth functions of (ρ, ω, u)
+and of P, the free data and their derivatives of the orders that enter, κ being given algebraically by [Rac16,
+(4.17)]. The background's data give a smooth solution ū, for the background's free data P̄, and κK^l_l < 0 along
+it by (a). The common symmetrizer H that Rácz exhibits for [Rac16, Lemma 4.1] ([[thm:std-racz-hyperbolic]]),
+[Rac16, (4.21), p. 12], is a rational function of k, K^E_E, κ and γ̂ with only κ in its denominators; so near the
+graph of (ū, P̄) it is a smooth function of (ρ, ω, u, P), symmetric, positive definite at ū, and HB^(K) is
+symmetric. With t := R2 − ρ the system reads ∂_tu − B^(K)∂_Ku − C = 0, which is [[eq:class-kato-sphere]] with n =
+3, A^0 := H, A^(ab) := −HB^(K)⟨∂_K, W_ab⟩ and F := HC (the remark after [[cor:class-kato-sphere]]), on [0, R2 −
+0.70]; we multiply these coefficients by a smooth cut-off equal to 1 on a neighbourhood 𝒩 of the graph of (ū, P̄)
+and add I times one minus the cut-off to A^0, which makes them smooth and symmetric everywhere and leaves them
+unchanged on 𝒩. For ε small, ‖P − P̄‖_(C^s) ≤ ε0, and [[cor:class-kato-sphere]] (a), (b), with the datum ū(0) at
+t = 0, gives a smooth solution on the whole interval with sup_t ‖u − ū‖_(L²(S³)) ≤ C ‖P − P̄‖_(C⁰) and sup_t
+‖u‖_(H^s(S³)) ≤ C, s > 3; by interpolation between L² and H^s on S³ and Sobolev's inequality
+([[thm:std-bh-manifold]]), sup |u − ū| → 0 as ε → 0, so the solution stays in 𝒩 and solves (4.19). The isometries
+T² × Z2 × Z2 carry solutions of the class of [[cor:class-kato-sphere]] (a) with the invariant datum ū(0) to such
+solutions, so by the uniqueness there the solution is invariant. The leaves are three-spheres, so the axes are
+interior points of the leaves and need no condition. By [[cor:class-kato-sphere]] (c), u = ū on every set Ω as
+there on which P = P̄; outside 𝒫 the free data are the background's, and the complement of the union of these
+sets is the domain of influence of 𝒫 for the system. By [[thm:std-racz-hyperbolic]] the fields built from the
+solution and the free data satisfy the constraints in the domain of dependence of the initial sphere, which here
+is all of {0.70 ≤ R ≤ R2}.
 
 (c) *A domain containing the lens.* The lens is the set between Σ′ and Σ_τ0, {τ0 + φ(R) ≤ τ ≤ τ0, 3.5 ≤ R ≤ 5.75}, in
 region I ([[lem:margins-region-one]] (c)). Fix δ1 ∈ (0, 0.01] and put t := (τ − τ0 − φ(R))/(δ1 − φ(R)), smooth since
