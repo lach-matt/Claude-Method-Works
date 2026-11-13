@@ -164,9 +164,9 @@ Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the ave
 bound C_E depending on α but not on s or ε; and 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.
 
 *The bound.* Let U be the development's state (g, ∂g, p, Θ, q) on the slice, with Θ = □_g u_in, ů the background's,
-and Ŭ := ů + 𝔼_s 𝔡(s). Then Ŭ = U on 𝒟_s, and the distance of Ŭ from ů in the norm 𝒩_(k−1) is at most C_E ‖𝔡(s)‖_
-(H^(k−1)(𝒟_s)) ≤ C_E C ε; so Ŭ lies in the ball 𝔅′ of [[lem:class-leaf-differences]] for ε small, depending also on
-α, and so does U. By the last sentence of [[lem:class-leaf-differences]], the leaves of U are the level sets of u_in, so
+and Ŭ := ů + 𝔼_s 𝔡(s). Then Ŭ = U on 𝒟_s, and the distance of Ŭ from ů in the norm 𝒩_(k−1) is at most
+C_E ‖𝔡(s)‖_(H^(k−1)(𝒟_s)) ≤ C_E C ε; so Ŭ lies in the ball 𝔅′ of [[lem:class-leaf-differences]] for ε small,
+depending also on α, and so does U. By the last sentence of [[lem:class-leaf-differences]], the leaves of U are the level sets of u_in, so
 σ[U] = σ, and likewise σ[ů] = σ̊. Let y ∈ 𝒟_s with ρ2(y) ≤ 1/4 and let h be the leaf of U through y, issued from the
 axis point (h(0), 0). On [0, ρ2(y)], [[eq:class-leaf-volterra]] for U uses U only along the arc of h, where Ŭ = U
 together with ∂g; so h solves it for Ŭ there, and by the uniqueness in [[lem:class-volterra]] the leaf of Ŭ issued from
@@ -208,10 +208,11 @@ most 3.3 × 10⁻⁴ rad.
 New text: -->
 
 (c) The development of these data across the lens between Σ′ and Σ_τ0 exists, and the constraint data it induces on
-Σ_τ0 are those of (b) for R ∉ (3.5, 5.75), where Σ_τ0 = Σ′. Let 0 ≤ α ≤ β ≤ π/2 be such that every point of the domain
-of influence of 𝒫 in (b) with 3.44 ≤ R ≤ 5.85 has α ≤ ϑ ≤ β. Then for ε small, depending also on α and β, the data
-induced on Σ_τ0 equal the background's at the points with 3.5 < R < 5.75 and ϑ < α − 3.3 × 10⁻⁴ or ϑ > β +
-3.3 × 10⁻⁴: across the lens the angular support widens by at most 3.3 × 10⁻⁴ rad on each side.
+Σ_τ0 are those of (b) for R ∉ (3.5, 5.75), where Σ_τ0 = Σ′. Let 0 ≤ α ≤ β ≤ π/2, with α < π/2 and β > 0, be such
+that every point of the domain of influence of 𝒫 in (b) with 3.44 ≤ R ≤ 5.85 has α ≤ ϑ ≤ β. Then for ε small,
+depending also on α and β, the data induced on Σ_τ0 equal the background's at the points with 3.5 < R < 5.75 and
+ϑ < α − 3.3 × 10⁻⁴ or ϑ > β + 3.3 × 10⁻⁴: across the lens the angular support widens by at most 3.3 × 10⁻⁴ rad on
+each side.
 
 <!-- The domain of influence of (b) is the complement of the union of the sets Ω of cor:class-kato-sphere (c) on which
 P = P̄; that condition involves P̄, ū and r0 only, so the domain, and α and β with it, do not depend on ε. This is
@@ -248,13 +249,15 @@ first derivatives, the differential of the ingoing phase and every density equal
 the lens with ϑ < α − 3.3 × 10⁻⁴; if α ≤ 3.3 × 10⁻⁴ there are no such points. The same holds for ϑ > β + 3.3 × 10⁻⁴.
 At these points of Σ_τ0 the induced data are therefore the background's. ∎
 
-<!-- Block 4. R-83 m4, the cone development for data with null dust. Neither route closes it.
+<!-- Block 4. Item m4 of the first reading of chapter 83: the cone development for data with null dust. Neither route
+closes it.
 
 (a) No published theorem covers it. Each candidate was read at its source. [Ren90] (Rendall, Proc. R. Soc. Lond. A 427
 (1990), 221–239) proves well-posedness of the characteristic problem "for the Einstein equations in vacuum or with
 perfect fluid source" (abstract); null dust is not a perfect fluid, its stress q du ⊗ du having a null eigenvector.
-[Luk12] is a vacuum theorem in 3 + 1 dimensions. [CCTW16], Section 5.2, p. 56, treats sources whose matter fields
-satisfy wave equations (its (5.24)-(5.25)), in four space-time dimensions; the density of a null dust obeys a transport
+Luk's theorem (Int. Math. Res. Not. 2012, 4625–4678) is the neighbourhood theorem "for the vacuum Einstein equations
+in four space-time dimensions" ([CCTW16, p. 5]). [CCTW16], Section 5.2, pp. 56–57, treats sources whose matter
+fields satisfy wave equations, its (5.24)–(5.25), in four space-time dimensions; the density of a null dust obeys a transport
 equation that loses a derivative (chapter 81, the discussion after def:class-system). The closest result, Luk and
 Rodnianski, "High-frequency limits and null dust shell solutions in general relativity", arXiv 2009.08968, Theorem 4.6,
 p. 28, gives local existence and uniqueness for the Einstein-null-dust system with two families of null dust moving
@@ -267,7 +270,7 @@ Einstein-null-dust system near the two cones, in five dimensions, with the deriv
 axes as chapter 81 handles it for the Cauchy problem; chapter 81's Cauchy theory does not reduce to it without a
 reduction of Rendall's type, which itself needs domain-of-dependence results across null boundaries for that system.
 
-(c) The narrowest true statement is the one the chapter already makes (F-83, m4): cone data with dust exist by
+(c) The narrowest true statement is the one the chapter already makes: cone data with dust exist by
 prop:loc-cones; a development is asserted only for dust-free data, by [CTG23, Theorem 1.1]. What is lost: every
 spacetime statement about cone data that carry dust, among them every perturbation of the shell (𝒞_out, 3 < v < 4.5)
 or of the packet (𝒞_in, 5.7 < u < 7.2) and every density added in the band. Nothing else in the edition uses a

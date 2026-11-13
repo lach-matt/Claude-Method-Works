@@ -251,9 +251,8 @@ diagonal. In each, the derivatives of c that it consumes are counted as derivati
 bounds |∂_x^β ∂_ξ^γ b| ≤ A⟨ξ⟩^(μ−|γ|) for |β| ≤ B and |γ| ≤ 2K, and let w ∈ C_c^∞(ℝⁿ) vanish near 0. The operator
 with the kernel (2π)^(−n) ∫ e^(i(x−y)·ξ) w(x − y) b(x, ξ) dξ is Op(b_w) with |∂_x^β b_w| ≤ CA⟨ξ⟩^(μ−2K) for
 every |β| ≤ B. It consumes 2K ξ-derivatives and B x-derivatives of b, and none in the other directions. Also
-Op_ψ(b) = Op(b_ψ) with
-b_ψ(x, ξ) := (2π)^(−n) ∫ ψ̂(ζ) b(x, ξ − ζ) dζ, and |b_ψ|^𝗆_K ≤ C|b|^𝗆_K for every K and every order function 𝗆 with
-values in [−3T, 3T]: the cut-off ψ consumes no derivative.
+Op_ψ(b) = Op(b_ψ) with b_ψ(x, ξ) := (2π)^(−n) ∫ ψ̂(ζ) b(x, ξ − ζ) dζ, and |b_ψ|^𝗆_K ≤ C|b|^𝗆_K for every K and every
+order function 𝗆 with values in [−3T, 3T]: the cut-off ψ consumes no derivative.
 
 *Proof.* On supp w, |z|^(−2K)(−Δ_ξ)^K e^(iz·ξ) = e^(iz·ξ), z = x − y, so the kernel is that of the amplitude
 w_K(x − y)(−Δ_ξ)^K b(x, ξ), w_K(z) := w(z)|z|^(−2K) ∈ C_c^∞. Multiplication of a kernel by a function of x − y is
