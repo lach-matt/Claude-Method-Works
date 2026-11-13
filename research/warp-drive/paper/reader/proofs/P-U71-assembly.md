@@ -209,10 +209,12 @@ The families of [[lem:iii-j2-2-1]] fall into this frame. A linear map independen
 loss (m; 0, 0) ([[lem:iii-j2-1-2]] (d)). The forward solution operators have split loss (d_F; d_F, d_F), d_F the loss
 d of [[thm:iii-i-5-3]] ([[eq:iii-i-5-2]]), at most 20,180 ([[thm:fwd-loss]]). The background terms of
 [[lem:iii-j2-2-1]] (b), and the operator L̃ of [[lem:iii-j2-2-1]] (g) where its coefficients depend on h, have split
-loss (2; d_B, d_B), d_B the order of the background in the bound displayed in [[lem:iii-j2-2-1]] (b); in the sense of
-[[def:iii-j2-1-1]] they are tame with loss max(2, d_B), not 2. By (c) the difference is paid once: a composition in
-which every background term is charged 2 and every other family its loss is tame with that sum plus (d_B − 2)_+,
-whatever the number of background terms in it. A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and
+loss (2; d_BG, d_BG), d_BG the order in the background of their bound ‖Au‖_k ≤ C_k(‖u‖_(k+2) + ‖β‖_(k+d_BG)‖u‖_(d_BG));
+in the sense of [[def:iii-j2-1-1]] they are tame with loss max(2, d_BG), the charge of [[rem:ec-other-losses]]. By (c)
+the excess over 2 need only be paid once: a composition in which every background term is charged 2 and every other
+family its loss is tame with that sum plus (d_BG − 2)_+, whatever the number of background terms in it. The fixed
+operators L_b, L̂_b(σ) and L̃_b at the background 0, which alone enter the rounds and windows of the long iterations,
+have split loss (2; 0, 0), so the excess does not enter those iterations either way. A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and
 fixed sections v^i, as the rows and the coefficient maps of the construction are ([[lem:iii-j2-2-1]] (c)), has split
 loss (d_ℓ; 0, d_ℓ), so it adds no excess.
 
@@ -369,7 +371,7 @@ being assigned by the rules of [[def:ec-accounted-loss]] to a composition of fin
 ½(α − 4) and with the background terms charged by [[lem:ec-split-loss]],
 
     d_acc ≤ (ℓ_tf + 2)(T_< + T_> + C_2) + 4(1/ι + 2) + r_ι W (N_< + N_> + N_b + 3)
-            + Σ_(k=1)^K c(β_k) + N_b c_b + (N_b + 1) c′_b + c_0 + (d_B − 2)_+,                          {#eq:ec-upper}
+            + Σ_(k=1)^K c(β_k) + N_b c_b + (N_b + 1) c′_b + c_0,                                        {#eq:ec-upper}
 
 where C_2 := N_>((1 + η_2 − η_1)/ε_Υ + 2) and r_ι := d^max_ι + 2 + 2⌈ℓ_I − 5/2⌉. If s ≥ σ_0, ι ≥ ι_0 and a_K − 2 ≥ σ_0
 for some σ_0 ∈ (0, 1] and ι_0 > 0, then

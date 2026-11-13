@@ -197,8 +197,8 @@ treats K⁺ separately.
 
 *Proof.* At fixed ρ, ∂_(t_*)ρ_+ = −ρ_+² and ∂_(t_*)ρ_I = ρ = ρ_+ρ_I; at fixed t_*, ρ_+ is constant and ρ_I is a constant
 multiple of ρ. This gives [[eq:iii-i-3-2]]. Then ∂_t|_x = ∂_(t_*)|_x, and ∂_|x||_t = ∂_|x||_(t_*) − ψ′(|x|)∂_(t_*) with
-∂_|x||_(t_*) = −ρ · ρ∂_ρ = −ρ_+ρ_I X_I and ψ′ bounded; finally ∂_(x^i) = ω^i∂_|x| + |x|⁻¹(·)∂_ω, and
-|x|⁻¹∂_ω = ρ_+ρ_I∂_ω. ∎
+∂_|x||_(t_*) = −ρ · ρ∂_ρ = −ρ_+ρ_I X_I and ψ′ bounded; finally ∂_(x^i) = ω^i∂_|x| + |x|⁻¹(·)∂_ω,
+and |x|⁻¹∂_ω = ρ_+ρ_I∂_ω. ∎
 
 **Lemma {#lem:iii-i-3-2}** (The background in the cone.) On U⁺ ∩ {ρ_I ≤ 1}, in the frame of products of dt_*, dx^i,
 
@@ -381,8 +381,8 @@ sup|δ| ≤ ϵ and ‖δ‖_(C¹_b) ≤ B. Then G := (g_1 + δ)⁻¹ exists, sup
 
 with C_k depending only on k, on B and on finitely many C^∞_b-seminorms of g_1 and g_1⁻¹.
 
-*Proof.* As |g_1⁻¹δ| ≤ ½, g_1 + δ = g_1(I + g_1⁻¹δ) is invertible, G = (I + g_1⁻¹δ)⁻¹g_1⁻¹ with
-|(I + g_1⁻¹δ)⁻¹| ≤ 2, and G has components in C¹_b by Cramer's rule. So Ĝ := G − g_1⁻¹ satisfies
+*Proof.* As |g_1⁻¹δ| ≤ ½, g_1 + δ = g_1(I + g_1⁻¹δ) is invertible, G = (I + g_1⁻¹δ)⁻¹g_1⁻¹
+with |(I + g_1⁻¹δ)⁻¹| ≤ 2, and G has components in C¹_b by Cramer's rule. So Ĝ := G − g_1⁻¹ satisfies
 sup|Ĝ| ≤ 3 sup|g_1⁻¹|. We prove the bound by induction on k. For k = 0, Ĝ = −Gδg_1⁻¹ gives ‖Ĝ‖_(L²) ≤ C‖δ‖_(L²). Let
 k ≥ 1 and δ ∈ H^k_b(Ω_*), and assume the bound at k − 1. For V ∈ 𝒱_0, VG = −G(V(g_1 + δ))G, as G is C¹; with
 G = g_1⁻¹ + Ĝ,
@@ -428,9 +428,9 @@ supp(1 − χ_K) ∩ Ω_*, χ_IVP = 1 and the flow of V(S) is the boost: this is
 with supp χ^♭_K ⊂ χ_K⁻¹(1); on its second alternative, {|x| < 6R₁}, the difference is smooth and supported in a
 compact set away from the faces at infinity, as that alternative of [[lem:iii-b-5-2]] states, hence in the class. So
 by [[eq:iii-b-5-3]], φ_(−S)^* g_(b₀) − g_(b₀) = |x|⁻²h_(−S)(ω)(dx¹)² + ρ_0²ρ_I³ρ_+² C^∞ with h_(−S) = O(|S|); and by
-[[prop:iii-b-3-6]], g_(b₀) − g_b = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞ on {|x| ≥ 3R₁}. Near 𝓘⁺,
-|x|⁻²(dx¹)² is the slot π₁₁ at ρ_I-order 2 and ι⁺-order 2, and |x|⁻³ is of orders 3; in the interior of ι⁺,
-|x|⁻² ∈ ρ_+²C^∞. This is the class stated, as 1 − χ_K is smooth on M. For [[eq:iii-i-3-5]]: g_(b₀,b,−S) − g_(b₀) =
+[[prop:iii-b-3-6]], g_(b₀) − g_b = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞ on {|x| ≥ 3R₁}. Near
+𝓘⁺, |x|⁻²(dx¹)² is the slot π₁₁ at ρ_I-order 2 and ι⁺-order 2, and |x|⁻³ is of orders 3; in the interior of
+ι⁺, |x|⁻² ∈ ρ_+²C^∞. This is the class stated, as 1 − χ_K is smooth on M. For [[eq:iii-i-3-5]]: g_(b₀,b,−S) − g_(b₀) =
 (g_(b₀,b,−S) − g_b) + (g_b − g_(b₀)), the last term being independent of χ_K, smooth at K⁺ and of the same classes; and
 g_(b₀,b,−S) = g_b on χ_K⁻¹(1), a neighbourhood of K⁺. 𝒢⁺: near 𝓘⁺ ∩ ι⁺, g_(b₀,b,−S) = φ_(−S)^* g_(b₀), and
 g_(b₀) − η = m₀|x|⁻²(dx¹)² has the slot π₁₁ only. Non-degeneracy: the components of g_(b₀,b,−S) − g_b in the frame
@@ -592,8 +592,8 @@ and ℓ_I < min(2γ_Υ, ½). Here only ℓ_I < ½ remains, from [[eq:iii-i-3-7]]
 #### Forward solutions at b₀ {#sec:iii-i-5-3}
 
 **Theorem {#thm:iii-i-5-3}** (Forward solutions at b₀; [Hin26, Theorem 11.12] in dimension 4 + 1, at b₀.) Let
-β_+ ∈ (½, 3/2) and β_I ∈ (β_+, 3/2). There are ε_0 > 0 and d ∈ ℕ such that for every k ∈ ℕ₀, every S ∈ 𝒮_1 with
-|S| < ε_0, every h ∈ 𝒳^(k+d) with ‖h‖_(𝒳^d) < ε_0, and every
+β_+ ∈ (½, 3/2) and β_I ∈ (β_+, 3/2). There are ε_0 > 0 and d ∈ ℕ such that for every k ∈ ℕ₀, every S ∈ 𝒮_1
+with |S| < ε_0, every h ∈ 𝒳^(k+d) with ‖h‖_(𝒳^d) < ε_0, and every
 
     f ∈ H^(k+d,(β_I+1,β_++2,1/2))_b(Ω_*; S²T*)^(•,−),                                                   {#eq:iii-i-5-1}
 
@@ -908,9 +908,9 @@ for half-densities by |dg_b|. The O(η) term is bounded by η times a polynomial
 which are continuous on O and in b; as Γ_b ∩ {σ = 1} lies in a fixed compact subset of O modulo time translations (B1),
 the bound is uniform on B̄_1.
 
-*Step 5: the density.* The adjoints of [[ch:s01]] are for |dt_*| |dx|, and [[eq:iii-h2-1-3]] is on half-densities by
-|dg_b| = f_b |dt_*| |dx|. Put h_(η,b) := f_b h⁰_(η,b). Then ∫ h_(η,b)(u, v) |dt_*| |dx| = ∫ h⁰_(η,b)(u, v) |dg_b|, so the
-two pairings agree, and with them the adjoints and p_1^Γ (p_1^Γ is an endomorphism, and a scalar factor in the inner
+*Step 5: the density.* The adjoints of [[ch:s01]] are for |dt_*| |dx|, and [[eq:iii-h2-1-3]] is on half-densities
+by |dg_b| = f_b |dt_*| |dx|. Put h_(η,b) := f_b h⁰_(η,b). Then ∫ h_(η,b)(u, v) |dt_*| |dx| = ∫ h⁰_(η,b)(u, v) |dg_b|, so
+the two pairings agree, and with them the adjoints and p_1^Γ (p_1^Γ is an endomorphism, and a scalar factor in the inner
 product changes neither its self-adjointness nor its eigenvalues). This replaces the scalar O(|b − b₀|) that
 [[lem:iii-d-5-2]] and [[prop:iii-f-4-1]] carry for a fixed inner product. With Cη < ε, [[eq:iii-h2-1-1]] gives strong
 trapping admissibility. ∎
@@ -1647,8 +1647,8 @@ b̂ ∈ H^(∞,a)_b(±(0, c], |dσ/σ|; 𝔟_ℂ) and Ŝ ∈ H^(∞,a)_b(±(0, c
 *Proof.* *Pointwise bounds.* By [[sec:iii-h-1]] the states ġ(ḃ) lie in 𝒜^q with q = 2 (for ṁ) or q = 3 (for Ȧ), and
 h(S) ∈ 𝒜³, h̆(S) ∈ 𝒜². For r ≥ 1, Ψ = Φ(σr), Φ entire with |∂^j_ζΦ| ≤ C_(j,M)⟨ζ⟩^(−M) ([[lem:iii-h-2-5]] (b)),
 σ∂_σΨ = ζΦ′(ζ) and r∂_rΨ = ζΦ′(ζ), ζ = σr. So G_1(ḃ) = Φ(ζ)ġ and
-G_2(S) = (Φ − ζΦ′)(ζ)h − iζΦ(ζ) r⁻¹h̆, with r⁻¹h̆ ∈ 𝒜³. For r ≤ 1, Ψ and its σ- and x-derivatives are bounded for
-|σ| ≤ 1 ([[lem:iii-h-2-5]] (d) and its proof). Hence, with q_1 := 2, q_2 := 3 and V any product of σ∂_σ and b-vector
+G_2(S) = (Φ − ζΦ′)(ζ)h − iζΦ(ζ) r⁻¹h̆, with r⁻¹h̆ ∈ 𝒜³. For r ≤ 1, Ψ and its σ- and x-derivatives are bounded
+for |σ| ≤ 1 ([[lem:iii-h-2-5]] (d) and its proof). Hence, with q_1 := 2, q_2 := 3 and V any product of σ∂_σ and b-vector
 fields on X̄, |VG_i| ≤ C_(V,M)⟨|σ|⟨x⟩⟩^(−M)⟨x⟩^(−q_i) on basis elements.
 
 *Weights.* By [[sec:ii-g1-4-3]] the norm of H^(K,β)_b(X^±_(sc-b)) is equivalent to

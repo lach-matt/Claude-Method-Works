@@ -1,7 +1,7 @@
 <!-- Closes three open items of chapter 83 (ch:localised-data).
 Part 1 closes computational-1: the tensor charge identity on every round slice of a Tangherlini region. Block 1.1 is
-inserted after lem:loc-harmonics, before thm:loc-tensor. Block 1.2 replaces "(iii) [[pending:computational-1]]" in
-the proof of thm:loc-tensor (chapter line 493). The statement of thm:loc-tensor is unchanged.
+inserted after lem:loc-harmonics, before thm:loc-tensor. Block 1.2 replaces item (iii) of the proof of thm:loc-tensor
+(chapter line 493, the marker computational-1). The statement of thm:loc-tensor is unchanged.
 Part 2 closes computational-2: the scalar modes on the static slice. Block 2.1 replaces lem:loc-scalar-reduction, its
 statement and its proof (chapter lines 594-619); it keeps the labels eq:loc-ek and eq:loc-ev and the formulas the rest
 of the chapter cites, and adds the formulas the proof uses. Block 2.2 replaces, in the proof of thm:loc-outside, the
@@ -88,11 +88,12 @@ endomorphism L = G^(−1/2)(1/R + εH′T^♯ − 2ε²HH′(T^♯)²) + O(ε³)
 times half of D²Scal_γ̂[2HT, 2HT] = 4H²D²Scal_γ̂[T, T], whose integral over S³ is, by [[lem:loc-tt-second]],
 R⁻²(2 − k_T²)H²∫|T|². Adding gives the third identity. ∎
 
-<!-- Part 1. Block 1.2: replaces "(iii) [[pending:computational-1]]" in the proof of thm:loc-tensor. -->
+<!-- Part 1. Block 1.2: replaces item (iii) of the proof of thm:loc-tensor (the marker computational-1). -->
 
 (iii) By [[lem:racz-split-formulas]] (b), K^l_l = 3n^R/R = 3Y0, so n^R = RY0 and δ = (h, k) is the variation of
-[[lem:loc-tensor-variations]]. In [[eq:loc-charge]], D² = 2[ ]_2, Y_s·ℳ = Y_s^R ℳ_R and dvol = √G R³ dR dvol_γ̂, and
-∫_(S³) |T|²_γ̂ dvol_γ̂ = (2π)²|T|². So [[eq:loc-tensor-variations]] and G⁻¹ = N_s² ((ii)) give, with ′ := d/dR,
+[[lem:loc-tensor-variations]]. In [[eq:loc-charge]], D²ℋ[δ, δ] = 2[ℋ]_2, D²ℳ[δ, δ] = 2[ℳ]_2, Y_s·ℳ = Y_s^R ℳ_R and
+dvol = √G R³ dR dvol_γ̂, and ∫_(S³) |T|²_γ̂ dvol_γ̂ = (2π)²|T|². So [[eq:loc-tensor-variations]] and G⁻¹ = N_s² ((ii))
+give, with ′ := d/dR,
 
     Q(δ) = (2π)²|T|² ∫ R³√G (N_s 𝔥 + 2Y_s^R 𝔪) dR,
     𝔥 := (2 − k_T²)H²/R² + N_s²(16HH′/R − H′²) + 4N_s(N_sHH′)′ − 4(κ0 + 2Y0)HΠ − Π²,

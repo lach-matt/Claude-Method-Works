@@ -1183,8 +1183,8 @@ For (a′_+, a′_K) = (α_+ − δ, −ℵ) these are m_0 − j, m_0 + j, m_0 �
 
 (c) Admissible order functions are slab orders, and 𝗌 + 1 has the same monotonicity and constancy ([[sec:ii-e-3-2]]). ∎
 
-The margin 2 + δ + max(1, ℵ) taken in the proof of [Hin26c, Theorem 11.1] gives for 𝗌_0 the last margin max(1, ℵ) − ℵ
-+ 2δ, which is less than 1 when ℵ ≥ 1 and δ < 1/2; the margin m_0 = 3 + δ + ℵ suffices in every case.
+The margin 2 + δ + max(1, ℵ) taken in the proof of [Hin26c, Theorem 11.1] gives for 𝗌_0 the last margin
+max(1, ℵ) − ℵ + 2δ, which is less than 1 when ℵ ≥ 1 and δ < 1/2; the margin m_0 = 3 + δ + ℵ suffices in every case.
 
 Fix 𝗌, s_in and 𝗌_0 as in [[lem:ii-f1-2-3]]. Only 𝗌_0, 𝗌 and 𝗌 + 1 occur below; over Ω_♮ they equal the integers
 s_in − 2 ≥ 2, s_in ≥ 4 and s_in + 1; in particular they are constant and positive integers near {r ≤ r_0}, which is the
