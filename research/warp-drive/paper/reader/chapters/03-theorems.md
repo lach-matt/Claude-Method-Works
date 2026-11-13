@@ -348,9 +348,10 @@ The remaining chapters prove the following; each is stated in full where it is p
   which ṁK* + ℒ_(Z′_0)g is the spherically symmetric part of the representative, γ_Υ is a parameter of the gauge of
   the stability theory, and c is fixed by the horizon charge of Z′_0 and the Killing part of its data
   ([[thm:harmonic-rate]]).
-- *The constants of [[thm:settling]].* The loss d of the tame estimates and the regularity N_NM = 21d + 6 of the
-  Nash–Moser step, with explicit lower bounds at a parameter point that lies outside the proved set ([[thm:loss-d]])
-  and, through them, upper bounds for δ and λ1, explicit resolvent bounds on five-dimensional Tangherlini
+- *The constants of [[thm:settling]].* The loss d with which the Nash–Moser step is applied, at least the loss that
+  the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at a
+  parameter point that lies outside the proved set ([[thm:loss-d]]) and, through them, an upper bound for the modulus
+  of the initial family at 2δ (and λ1 < δ), explicit resolvent bounds on five-dimensional Tangherlini
   ([[ch:resolvent-bounds]]), and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
 - *More families.* Two crossing radial null dusts, one ingoing and one outgoing, with the background, the
   approximant, the uniform estimate and the data ([[thm:two-dusts]]); Cauchy stability of the class

@@ -11,9 +11,11 @@ wavelength, and [[cor:layer]] draws the consequence that future timelike curves 
 the part of g_λ⁻¹(dΦ0, dΦ0) of first degree in the waves: its terms of order λ and λ² vanish identically, and its
 term of order λ³ is a first harmonic of the phase that exceeds the margin near the edge of the envelope. The same
 holds for the solutions of [[thm:past-construction]] ([[thm:layer-past]]). The last sections decide the boundary's
-character in the rest of the layer, down to the level where the expansion in λ stops being ordered
-([[prop:layer-regions]]), give the structure of that expansion ([[prop:layer-structure]]), and write the threshold
-λ_L of [[thm:layer]] as an explicit formula. The very edge of the layer is the subject of [[ch:equality-edge]].
+character in most of the rest of the layer ([[prop:layer-regions]]): for fixed δ ∈ (0, 1/2] and P > 4, where the
+level sup_(v′≤v) |env(v′)| is at least λ^(3−δ), near every point where it first reaches a value between λ^P and
+λ^(3+δ), and, in the band between, wherever the ratio of the first-degree term to the margin is not within 2λ^(1/10)
+of 1. They also give the structure of the expansion in λ ([[prop:layer-structure]]) and write the threshold λ_L of
+[[thm:layer]] as an explicit formula. The very edge of the layer is the subject of [[ch:equality-edge]].
 
 Throughout, μ0 = √72 l5², and the notation is that of [[ch:setting]], [[ch:approximant]], [[ch:inequalities]],
 [[ch:uniform-existence]] and [[ch:data]]. The phase is θ and the polar angle of S³ is ϑ.
@@ -40,15 +42,15 @@ vanishes on {v ≤ v_s}; both facts are contained in the bounds of [[lem:layer-f
 factor ε_c(v), zero for v ≤ v_s. So the metric g_λ of [[thm:main]] is the same whether v_start or v_s is used, and λ0,
 C and Ω are its constants and domain. Its data on Σ_τ0 ∩ {r < v_s − τ0} are those of the seed, as a metric together
 with its first τ-derivative, and not only as Cauchy data: there U = 0 and the approximant is g0, the lapse and shift of
-g_λ are those of the approximant, and the τ-derivatives of lapse and shift are fixed by D(g) = 0 with invertible
-coefficient ([[sec:data-proof]]), which g0 satisfies.
+g_λ are those of G(X, u/λ), which is g0 there, and the τ-derivatives of lapse and shift are fixed by D(g) = 0 with
+invertible coefficient ([[sec:data-proof]]), which g0 satisfies.
 
 By items 4 and 5 of [[thm:main]], |g_λ − g0| ≤ C λ, D(g_λ) = 0 and Ric(g_λ) = 0 on Ω. Since g0⁻¹ is bounded on the
-compact Ω and inversion is smooth, after shrinking λ0 there is C1 with
+compact Ω and inversion is smooth, after shrinking λ0 so that C λ0 ≤ 1 there is C1 with
 
     |(g_λ⁻¹ − g0⁻¹)(α, α)| ≤ C1 λ |α|_e²     on Ω, for every covector α,                                {#eq:eq-c1}
 
-|α|_e the Euclidean norm of the Cartesian components of α. The covector field Y := −g0⁻¹ dτ is uniformly timelike for
+|α|_e the Euclidean norm of the Cartesian components of α. The vector field Y := −g0⁻¹ dτ is uniformly timelike for
 g0 on Ω, and, λ0 being shrunk once more, future timelike for g_λ. Put B := 1 + sup |r_q′|, the supremum over the
 v-range of D_T. For a covector α = dr − β dv with |β| ≤ B, the Cartesian components are α = −β dτ + (1 − β) x̂·dx,
 since dv = dτ + x̂·dx and dr = x̂·dx, so |α|_e² = β² + (1 − β)² ≤ B² + (1 + B)², and by [[eq:eq-c1]]

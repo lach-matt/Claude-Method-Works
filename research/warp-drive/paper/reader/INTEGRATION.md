@@ -1113,3 +1113,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   last clause of lem:loc-transfer; 10 "|"/"> " line starts; λ, M, N, θ against OUTLINE), 13 nits; C1 chapter 3 should
   say "an explicit" background. thm-class-kato-stability: chapter 81's theorem lacks coefficient perturbation and
   closed leaves (sent to F-81). Chapter 83's fix round waits for R-P-K83a and P-K83b.
+- F-66 done (report reports/F-66.md); R2-66 reading. Flags for integration: OUTLINE.md:121 still has τ; wrapped lines
+  starting with "|" at 03:296 and "=" at 65:631, 65:671 (global line-start sweep). Possible gap in cor:gd-r7-7 (b)
+  (data with compact support on Σ° need not vanish near r_♭) is with R2-66.

@@ -236,8 +236,9 @@ its own proof, read at the order k:
   vertical line not crossing a root (bounded at each order), and finitely many rounds whose number is fixed by the
   weights (each raises the order by at least ε_ind − ε): fixed loss.
 
-- [[prop:iii-i1-2-1]] and [[prop:iii-i1-3-1]]: compositions of (d), of (z − 3/2 − Ā)⁻¹ ((c)) and of L̃ ((b), loss 2,
-  its coefficients depending on h); [[prop:iii-i1-2-1]] is a regularity statement, the family (f, u) ↦ u with the a
+- [[prop:iii-i1-2-1]] and [[prop:iii-i1-3-1]]: compositions of (d), of (z − 3/2 − Ā)⁻¹ ((c)) and of L̃ ((b), loss
+  max(2, d) with d the order in the background of the bound of (b), its coefficients depending on h);
+  [[prop:iii-i1-2-1]] is a regularity statement, the family (f, u) ↦ u with the a
   priori norm of u as an input ([[lem:iii-j2-1-2]] (f)), as is [[lem:iii-a-3-2]] within it; in finitely many steps whose
   number is fixed by ℓ_I, ℓ_+ and the index sets: fixed loss.
 

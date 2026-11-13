@@ -1731,7 +1731,7 @@ operator P^♭ of [[lem:s09-off-star]] be built from this t^♭. Distances betwe
 [[eq:ii-f1-7-1]] below, taken over the set named. Let ϵ_G > 0 be the threshold of [[lem:ii-c-3-2]] for g_0 and this
 t^♭, taken so small that every metric g′ within ϵ_G of g_0 on a set U ⊂ {r ≥ r^♯, t_* ≥ ½} has, at the points of U,
 the properties (A) of the proof, with the r^♯, δ_♮ and η_0 of [[lem:ii-e-1-2]] (iv) depending only on g_0 and ℓ_♭;
-such ϵ_G exists, and depends only on g_0 and ℓ_♭ (the proof). There are K_♭ ≥ 1, depending only on t^♭ and on upper
+such ϵ_G exists and depends only on g_0 and ℓ_♭, as the proof shows. There are K_♭ ≥ 1, depending only on t^♭ and on upper
 bounds for x_I²ρ_+²g_0 and its inverse on {r ≥ r^♯, t_* ≥ ½}, and η_♭ > 0, depending only on g_0 and ℓ_♭, such that
 [[thm:ii-f1-1-1]], also in the form of [[rem:ii-f1-7-1]], and [[cor:ii-f1-1-2]] hold, with ε_0, d and C_k depending
 also on ℓ_♭, for every P as there whose metric g satisfies in addition
