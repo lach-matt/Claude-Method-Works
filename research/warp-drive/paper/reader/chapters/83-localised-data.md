@@ -980,7 +980,7 @@ and on ∂_R are 2RY_s^R = −2N_sY0R² and Y_s^R G′ + 2G(Y_s^R)′ = −2N_s�
 
     Y0 = −y_s/R,        κ0 = −y_s′,                                                             {#eq:loc-tensor-kid}
 
-and (ii) reads N_s² − y_s² = f. Now collect the integrand of [[eq:loc-tensor-density]], using N_s√G = 1 and √G Y_s^R =
+and (ii) reads N_s² − y_s² = f. We collect the integrand of [[eq:loc-tensor-density]], using N_s√G = 1 and √G Y_s^R =
 y_s. The terms in Π², ΠH′ and H′² are −R³Π², −2R³y_sΠH′ and −R³N_s²H′². The terms in HΠ and HΠ′ are
 
     −4R³(κ0 + 2Y0)HΠ + 4R²y_sHΠ + 4R³y_s(HΠ)′ = (4R³y_sHΠ)′ − 4R³(κ0 + y_s′ + 2Y0 + 2y_s/R)HΠ = (4R³y_sHΠ)′,
