@@ -747,20 +747,20 @@ F_Y extended across Σ° as in the proof of [[prop:gd-2-1]] (a); unique by [[lem
 N⁺ ∩ {2 ≤ t^♭_* ≤ 3}. Then with Z := ṁχ_KW**_H + Z_1, ġ_H := ġ + ℒ_Zg is in harmonic gauge on all of N⁺, induces
 (γ̇, k̇) exactly, and satisfies [[thm:gd-r3-4]] (iii) with Z_1 in place of Y.
 
-*Proof.* □Z = ṁ□(χ_KW**_H) + F_Y = Υ̇⁰(ġ) on N⁺, so Υ̇⁰(ġ_H) = Υ̇⁰(ġ) − □Z = 0. Z_1 = 0 and ∇_nZ_1 = 0 on Σ°, so ℒ_(Z_1)g
-induces zero data ([[lem:ix-2-1]] (f)), and χ_K = 0 near Σ°; so ġ_H induces the data of ġ. χ(t^♭_*)Z_1 and the forward
-solution of □u = χ(t^♭_*)F_Y + [□, χ(t^♭_*)]Z_1 on Ω_* are smooth, vanish on {t^♭_* < 2} and solve the same equation;
-each {t^♭_* ≤ T} is closed under past causal curves (dt^♭_* is past timelike, [[sec:iii-k-0]]), so they agree there for
-every T ([[lem:ii-f-1-3]]). The first term is that of [[lem:gd-r3-5]]. The second is supported in {2 ≤ t^♭_* ≤ 3},
-bounded in t_*, and meets ∂M only at ℐ⁺. Near ℐ⁺, t^♭_* = t_*(1 − (t_*/r)^(1/2)) ([[lem:ii-c-3-2]] (a), with the exponent
-½), smooth in x_I and equal to t_* at ℐ⁺, and, with dχ/ds the derivative of χ, [□, χ(t^♭_*)] = (□_0χ(t^♭_*)) −
-2(dχ/ds)(t^♭_*)∇_(∇t^♭_*) gains one order at ℐ⁺: in the coordinates (t_*, r, ω) on a bounded t_*-range,
-g⁻¹ = ḡ⁻¹ + O(r⁻²) with ḡ⁻¹(dt_*, ·) = −∂_r ([[lem:iii-d-2-1]] (3) and its proof), dt^♭_* = (1 − (3/2)(t_*/r)^(1/2))dt_*
-+ O(r^(−3/2))dr, the connection coefficients in the Cartesian frame are O(r⁻¹), and □_0t^♭_* = O(r⁻¹); so for
-Z_1 = O(ρ_I^p), whose r∂_r- and ∂_(t_*)-derivatives are O(ρ_I^p), the commutator term is O(ρ_I^(p+1)) with its
-b-derivatives. Choosing b_I ∈ (b_+, min(p, 3/2)) in [[lem:gd-r3-5]], it lies in the space there. So χ(t^♭_*)Z_1 is the
-forward solution of a forcing term in that space, and the proof of [[thm:gd-r3-4]] (iii) applies to it; at late times
-χ(t^♭_*)Z_1 = Z_1. ∎
+*Proof.* □Z = ṁ□(χ_KW**_H) + F_Y = Υ̇⁰(ġ) on N⁺, so Υ̇⁰(ġ_H) = Υ̇⁰(ġ) − □Z = 0. Z_1 = 0 and ∇_nZ_1 = 0 on Σ°,
+so ℒ_(Z_1)g induces zero data ([[lem:ix-2-1]] (f)), and χ_K = 0 near Σ°; so ġ_H induces the data of ġ. χ(t^♭_*)Z_1
+and the forward solution of □u = χ(t^♭_*)F_Y + [□, χ(t^♭_*)]Z_1 on Ω_* are smooth, vanish on {t^♭_* < 2} and solve
+the same equation; each {t^♭_* ≤ T} is closed under past causal curves (dt^♭_* is past timelike, [[sec:iii-k-0]]), so
+they agree there for every T ([[lem:ii-f-1-3]]). The first term is that of [[lem:gd-r3-5]]. The second is supported
+in {2 ≤ t^♭_* ≤ 3}, bounded in t_*, and meets ∂M only at ℐ⁺. Near ℐ⁺, t^♭_* = t_*(1 − (t_*/r)^(1/2))
+([[lem:ii-c-3-2]] (a), with the exponent ½), smooth in x_I and equal to t_* at ℐ⁺. With dχ/ds the derivative of χ,
+the commutator [□, χ(t^♭_*)] = (□_0χ(t^♭_*)) − 2(dχ/ds)(t^♭_*)∇_(∇t^♭_*) gains one order at ℐ⁺: in the coordinates
+(t_*, r, ω) on a bounded t_*-range, g⁻¹ = ḡ⁻¹ + O(r⁻²) with ḡ⁻¹(dt_*, ·) = −∂_r ([[lem:iii-d-2-1]] (3) and its
+proof), dt^♭_* = (1 − (3/2)(t_*/r)^(1/2))dt_* + O(r^(−3/2))dr, the connection coefficients in the Cartesian frame
+are O(r⁻¹), and □_0t^♭_* = O(r⁻¹); so for Z_1 = O(ρ_I^p), whose r∂_r- and ∂_(t_*)-derivatives are O(ρ_I^p), the
+commutator term is O(ρ_I^(p+1)) with its b-derivatives. Choosing b_I ∈ (b_+, min(p, 3/2)) in [[lem:gd-r3-5]], it lies
+in the space there. So χ(t^♭_*)Z_1 is the forward solution of a forcing term in that space, and the proof of
+[[thm:gd-r3-4]] (iii) applies to it; at late times χ(t^♭_*)Z_1 = Z_1. ∎
 
 ### The 1-form wave operator near spatial and null infinity {#sec:hg-exterior}
 

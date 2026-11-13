@@ -23,36 +23,42 @@ rem:rb-closed-form-observed	docket68/n1star/E2-PILOT.md:147-159	E2-PILOT P3 (com
 sec:rb-above	docket68/n1star/E2-PILOT.md:161	E2-PILOT s.3c	
 prop:resolvent-above-barrier	docket68/n1star/E2-PILOT.md:163-175	E2-PILOT Lemma E2.7	stated as a proposition, key requested by the coordinator; J of length Lambda_J
 rem:rb-band-observed	docket68/n1star/E2-PILOT.md:177-218, 798-810	E2-PILOT P4, s.3d band table (computed), s.4 measured table	class (b) C277 e2band5, C278: one paragraph; the proposed-not-proved paragraph of s.3d dropped
-sec:morawetz-identity	paper/reader/proofs/P-B-morawetz.md:6-25	proof B notation; E2-PILOT s.3e	source f renamed F, profile F renamed Theta, m = 1
-eq:pb-tortoise	paper/reader/proofs/P-B-morawetz.md:11	proof B	
-lem:morawetz-identity	paper/reader/proofs/P-B-morawetz.md:27-67; docket68/n1star/E2-PILOT.md:220-238, 366-384	E2-PILOT Lemmas E2.8 and E2.8prime (merged in proof B)	C^2 replaced by the locally absolutely continuous wording of proof B2's fix
-eq:pb-identity	paper/reader/proofs/P-B-morawetz.md:32-33	E2-PILOT (3.4) and E2.8prime identity	
-eq:pb-bound	paper/reader/proofs/P-B-morawetz.md:38	E2-PILOT E2.8 bound B_l	
-eq:pb-energy	paper/reader/proofs/P-B-morawetz.md:61	proof B	
-eq:pb-weight-general	paper/reader/proofs/P-B-morawetz.md:69-76	proof B	replaces computation M1 (e2morawetz5)
-sec:morawetz-algebraic-weight	paper/reader/proofs/P-B-morawetz.md:78	proof B; E2-PILOT s.3f	
-prop:morawetz-weight	paper/reader/proofs/P-B-morawetz.md:80-108; docket68/n1star/E2-PILOT.md:297-311	E2-PILOT Lemma E2.9 (monotone in a), with proof B's multiplier 1 - 2/r^2	replaces certificate C258 (e2certify5)
-eq:pb-weight	paper/reader/proofs/P-B-morawetz.md:84	proof B	
-eq:pb-weight-scalar	paper/reader/proofs/P-B-morawetz.md:89	proof B	
-eq:pb-p-certificate	paper/reader/proofs/P-B-morawetz.md:93	proof B	
-lem:morawetz-weight-interval	paper/reader/proofs/P-B-morawetz.md:110-165	proof B	lambda := 1677/2048 renamed e_0 (lambda is the wavelength)
-prop:morawetz-resolvent-l-ge-1	paper/reader/proofs/P-B-morawetz.md:167-189; docket68/n1star/E2-PILOT.md:313-345	E2-PILOT s.3f table (certified), as proved by proof B	edition constants (93.78 at l = 1, sigma = 3) replace the source's 264.5 etc.
-sec:morawetz-l-zero	paper/reader/proofs/P-B-morawetz.md:191	proof B; E2-PILOT s.3g	
-prop:morawetz-l-zero	paper/reader/proofs/P-B-morawetz.md:193-235; docket68/n1star/E2-PILOT.md:386-415	E2-PILOT s.3g certificate (C282), as proved by proof B	one algebraic q replaces the 43 bumps (ruling: proof B keeps its l = 0 multiplier); B_0(3) <= 585.53
-eq:pb-lzero-weight	paper/reader/proofs/P-B-morawetz.md:196-197	proof B	
+sec:morawetz-identity	paper/reader/proofs/P-B-morawetz.md:7-32	proof B notation and potentials; E2-PILOT s.3e	re-merged from the confirmed proof B (R2-P-B); source f renamed F, profile F renamed Theta, m = 1; V_0, V_1, V_2 written V^box, V^v, V^s; R(sigma) for the other potentials: needs only V real and integrable, W nonzero by lem:rb-flux (R2-P-B nit 7)
+eq:pb-tortoise	paper/reader/proofs/P-B-morawetz.md:12	proof B	
+lem:morawetz-identity	paper/reader/proofs/P-B-morawetz.md:34-98; docket68/n1star/E2-PILOT.md:220-238, 366-384	E2-PILOT Lemmas E2.8 and E2.8prime (merged in proof B)	re-merged from the confirmed proof B (R2-P-B): bounded phi with p_I, p_inf, locally absolutely continuous solutions a.e., R(sigma)F shown to be one (u_h, u_inf by the Volterra equations of sec:rb-radial, W nonzero by lem:rb-flux); M := renamed M_sigma (R2-P-B nit 5)
+eq:pb-identity	paper/reader/proofs/P-B-morawetz.md:40-41	E2-PILOT (3.4) and E2.8prime identity	boundary term 2 sigma^2 (phi(inf)|c+|^2 - phi(-inf)|c-|^2)
+eq:pb-bound	paper/reader/proofs/P-B-morawetz.md:49	E2-PILOT E2.8 bound B_l	with p_I, p_inf
+eq:pb-energy	paper/reader/proofs/P-B-morawetz.md:92	proof B	M_sigma
+eq:pb-weight-general	paper/reader/proofs/P-B-morawetz.md:100-108	proof B	replaces computation M1 (e2morawetz5); profile written Theta
+sec:morawetz-algebraic-weight	paper/reader/proofs/P-B-morawetz.md:110	proof B; E2-PILOT s.3f	
+prop:morawetz-weight	paper/reader/proofs/P-B-morawetz.md:112-140; docket68/n1star/E2-PILOT.md:297-311	E2-PILOT Lemma E2.9 (monotone in a), with proof B's multiplier 1 - 2/r^2	replaces certificate C258 (e2certify5)
+eq:pb-weight	paper/reader/proofs/P-B-morawetz.md:116	proof B	
+eq:pb-weight-scalar	paper/reader/proofs/P-B-morawetz.md:121	proof B	P_0 written P-bar
+eq:pb-p-certificate	paper/reader/proofs/P-B-morawetz.md:125	proof B	
+lem:morawetz-weight-interval	paper/reader/proofs/P-B-morawetz.md:142-197	proof B	rho := 1677/2048 written e_0 (rho is local to cor:rb-closed-form); K written Z; P_0 written P-bar
+prop:morawetz-resolvent-l-ge-1	paper/reader/proofs/P-B-morawetz.md:199-222; docket68/n1star/E2-PILOT.md:313-345	E2-PILOT s.3f table (certified), as proved by proof B	edition constants (93.78 at l = 1, sigma = 3) replace the source's 264.5 etc.; improved by prop:morawetz-harmonics
+sec:morawetz-l-zero	paper/reader/proofs/P-B-morawetz.md:224	proof B; E2-PILOT s.3g	
+prop:morawetz-l-zero	paper/reader/proofs/P-B-morawetz.md:226-268; docket68/n1star/E2-PILOT.md:386-415	E2-PILOT s.3g certificate (C282), as proved by proof B	one algebraic q replaces the 43 bumps (ruling: proof B keeps its l = 0 multiplier); B_0(3) <= 585.53
+eq:pb-lzero-weight	paper/reader/proofs/P-B-morawetz.md:229-230	proof B	
 sec:morawetz-complex	docket68/n1star/E2-PILOT.md:417	E2-PILOT s.3h	
-lem:morawetz-complex	docket68/n1star/E2-PILOT.md:419-444	E2-PILOT Lemma E2.10	identity with complex sigma^2 derived in the proof (replaces J1-J2 of e2cplx5); a, b renamed a_sigma, b_sigma
-sec:morawetz-one-derivative	paper/reader/proofs/P-B-morawetz.md:237	proof B; E2-PILOT s.3i	
-cor:morawetz-one-derivative	paper/reader/proofs/P-B-morawetz.md:239-282; docket68/n1star/E2-PILOT.md:454-540	E2-PILOT Corollaries E2.11, E2.11prime, E2.12 (H1-H6), as proved by proof B	edition constants: C <= 182.17 / 202.6 on 0 < |sigma| <= 3, unweighted 1079.4 (source 675.1 / 808.6 / 986.4)
-rem:rb-multiplier-observed	docket68/n1star/E2-PILOT.md:240-265, 446-452, 541-560	E2-PILOT s.3e instantiated (M2-M3), J3-J4, asymmetric multipliers (e2asym5)	class (b): C283 e2asym5, J3/J4 floating; the source's certified tanh/bump values (C258, C282, C284-C286) are not stated
+lem:morawetz-complex	docket68/n1star/E2-PILOT.md:419-444	E2-PILOT Lemma E2.10	identity with complex sigma^2 derived in the proof (replaces J1-J2 of e2cplx5); a, b renamed a_sigma, b_sigma; |phi| <= 1 on R stated as a hypothesis (no longer in lem:morawetz-identity), with the scaled form for |phi| <= p_phi used by prop:morawetz-master-potentials (R2-P-B D); every use checked
+sec:morawetz-polynomial	paper/reader/proofs/P-B-morawetz.md:270	proof B	new section of the fixed proof B
+lem:bernstein-lower-bound	paper/reader/proofs/P-B-morawetz.md:272-279	proof B	two-sided (upper bound gives M'); moved here from sec:morawetz-master
+lem:morawetz-polynomial-weight	paper/reader/proofs/P-B-morawetz.md:281-302	proof B	profile F written Theta
+eq:pb-weight-poly	paper/reader/proofs/P-B-morawetz.md:287-289	proof B	
+prop:morawetz-polynomial	paper/reader/proofs/P-B-morawetz.md:303-384; docket68/n1star/INVERSE5-SIX.md:278-322; docket68/n1star/E2-PILOT.md:313-345	proof B (replaces the source's tanh and bump multipliers)	F_A, F_B, F_2, F_C, F_T written Theta_A, Theta_B, Theta_E, Theta_C, Theta_T (Theta_2 is the band member nu = 2); zeta(y) of row S4 written k_S(y)
+sec:morawetz-harmonics	paper/reader/proofs/P-B-morawetz.md:386	proof B	new section of the fixed proof B
+prop:morawetz-harmonics	paper/reader/proofs/P-B-morawetz.md:388-424	proof B	B*_l, the least bound per harmonic; B*_0 by the barrier for |sigma| >= 1
+sec:morawetz-one-derivative	paper/reader/proofs/P-B-morawetz.md:426	proof B; E2-PILOT s.3i	
+cor:morawetz-one-derivative	paper/reader/proofs/P-B-morawetz.md:428-485; docket68/n1star/E2-PILOT.md:454-540	E2-PILOT Corollaries E2.11, E2.11prime, E2.12 (H1-H6), as proved by proof B	edition constants: C <= 179.26 on 0 < |sigma| <= 3 (l >= 0), X_0 <= 83.85, unweighted 568.55 (source 184.82 in psi_*, 986.4); K_l written J_l; (c)-(d): summation over the harmonics written in full (components in an orthonormal basis, uniform constants, orthogonality, L2 convergence, weak derivative) (R2-P-B nit 6, W-70 gap); unrounded B* values printed for 61.37, 129.87, 26.71, 23.72 (R2-P-B nit 3); (d) uses X(B~) for l >= 50
+rem:rb-multiplier-observed	docket68/n1star/E2-PILOT.md:240-265, 446-452, 541-560	E2-PILOT s.3e instantiated (M2-M3), J3-J4, asymmetric multipliers (e2asym5)	class (b): C283 e2asym5, J3/J4 floating; rewritten against the proved values (B*_l(3) of prop:morawetz-harmonics, X_0(3) < 23.36); Im sigma no longer written eta (eta is the weight function)
 sec:rb-transfer	docket68/n1star/INVERSE5-SIX.md:158-163, 201-213	INVERSE5-SIX Lemmas R5, R8	
 lem:rb-schur	docket68/n1star/INVERSE5-SIX.md:158-163	INVERSE5-SIX Lemma R5 (Schur at b0)	representation-theoretic argument written out
 lem:rb-transfer	docket68/n1star/INVERSE5-SIX.md:201-213, 705-713	INVERSE5-SIX Lemma R8 with R3.3 n5	tensor row in the KI03 (5.3) normalisation of R3.3 n5 (2L, factor 15/16); master potential V_1 written V^v
-sec:morawetz-master	paper/reader/proofs/P-B-morawetz.md:284-299; docket68/n1star/INVERSE5-SIX.md:278-328	INVERSE5-SIX s.4 (C123) and Lemma R7, as proved by proof B	algebraic multipliers replace R7's tanh certificates; V_0, V_1, V_2 written V^box, V^v, V^s
-lem:bernstein-lower-bound	paper/reader/proofs/P-B-morawetz.md:286-293	proof B	
-prop:morawetz-master-potentials	paper/reader/proofs/P-B-morawetz.md:301-397; docket68/n1star/INVERSE5-SIX.md:278-322	INVERSE5-SIX s.4 rows M1-M5 and M7, as proved by proof B	edition constants (largest 29.22, 64.82, 160.01, 498.25) replace 95.35, 246.2, 574.6, 1739
-sec:morawetz-large-frequency	paper/reader/proofs/P-B-morawetz.md:399	proof B	
-prop:morawetz-large-frequency	paper/reader/proofs/P-B-morawetz.md:401-415; docket68/n1star/E2-PILOT.md:615-619	proof B (E2-PILOT s.3j first observation)	
+sec:morawetz-master	paper/reader/proofs/P-B-morawetz.md:487-494; docket68/n1star/INVERSE5-SIX.md:278-328	INVERSE5-SIX s.4 (C123) and Lemma R7, as proved by proof B	polynomial and algebraic multipliers replace R7's tanh certificates
+prop:morawetz-master-potentials	paper/reader/proofs/P-B-morawetz.md:496-557; docket68/n1star/INVERSE5-SIX.md:278-322	INVERSE5-SIX s.4 rows M1-M5 and M7, as proved by proof B	edition constants (largest 29.22, 64.82, 160.01, 498.25; with l = 0, 70.17) replace 95.35, 246.2, 574.6, 1739; transfers 21.25 ... 270.73 and 12.05 ... 112.73; V_0, V_1, V_2 written V^box, V^v, V^s; nonnegativity of every potential (Q_S at p = 5, 12, >= 21) proved for lem:morawetz-complex; scale written p_phi (p is kappa - 3 in V_S)
+sec:morawetz-large-frequency	paper/reader/proofs/P-B-morawetz.md:559	proof B	
+prop:morawetz-large-frequency	paper/reader/proofs/P-B-morawetz.md:561-575; docket68/n1star/E2-PILOT.md:615-619	proof B (E2-PILOT s.3j first observation)	rows C5, C6: 11.51, 16.98, 30.01, 57.44, 113.10, 224.86
 sec:band	paper/reader/proofs/P-B2-band.md:1-22	proof B2	pending markers replaced by prop:resolvent-outgoing and prop:resolvent-above-barrier
 sec:band-sharp	paper/reader/proofs/P-B2-band.md:24	proof B2	
 lem:band-sharp	paper/reader/proofs/P-B2-band.md:26-56	proof B2	
@@ -79,7 +85,14 @@ rem:band-observed	paper/reader/proofs/P-B2-band.md:284-293; docket68/n1star/E2-P
 sec:band-one-derivative	paper/reader/proofs/P-B2-band.md:295	proof B2	
 cor:band-one-derivative	paper/reader/proofs/P-B2-band.md:297-323; docket68/n1star/E2-PILOT.md:745-758	E2-PILOT W1-W3 (e2h1band5), as proved by proof B2; P 1559-1561	283.06 / 305.31 / 308.46, in particular 963.4 and 1516
 rem:rb-large-frequency-observed	docket68/n1star/E2-PILOT.md:609-665, 769-772, 816-855; paper/RESPONSE-HL-5D.md:1561-1562	E2-PILOT s.3j and s.4 measured maxima (e2high5, e2trap5, e2meas5)	class (b) C255, S8, C116; ratios recomputed against prop:band-points (7.5 to 58)
-sec:tb2	paper/reader/proofs/T-B2.md:1-7	tables of proof B2	candidate for Appendix B
+sec:tb-morawetz	paper/reader/proofs/T-B.md:1-11	tables of proof B	long tables kept in chapter 70 beside sec:tb2, to transfer to Appendix B (app:tables); R2-P-B nits 1-2 applied (nearest integer above 10^5; product columns are rounded exact products)
+sec:tb-morawetz-weights	paper/reader/proofs/T-B.md:13-38	tables of proof B	to transfer to Appendix B; F written Theta
+sec:tb-morawetz-positivity	paper/reader/proofs/T-B.md:40-89	tables of proof B	to transfer to Appendix B
+sec:tb-morawetz-pieces	paper/reader/proofs/T-B.md:91-441	tables of proof B	to transfer to Appendix B; zeta column written k_S
+sec:tb-morawetz-constants	paper/reader/proofs/T-B.md:443-535	tables of proof B	to transfer to Appendix B; key sec:tb-morawetz-mM renamed (keys are lowercase)
+sec:tb-morawetz-monotone	paper/reader/proofs/T-B.md:537-558	tables of proof B	to transfer to Appendix B
+sec:tb-morawetz-t1t3	paper/reader/proofs/T-B.md:560-612	tables of proof B	to transfer to Appendix B
+sec:tb2	paper/reader/proofs/T-B2.md:1-7	tables of proof B2	to transfer to Appendix B (app:tables)
 sec:tb2-polynomial-multipliers	paper/reader/proofs/T-B2.md:9-35	tables of proof B2	
 sec:tb2-bernstein	paper/reader/proofs/T-B2.md:37-133	tables of proof B2	
 sec:tb2-algebraic-rows	paper/reader/proofs/T-B2.md:135-152	tables of proof B2	range labels (d)-(f) kept
@@ -97,7 +110,14 @@ sec:rb-scalar-blocks	docket68/n1star/INVERSE5-SCALAR.md:76-105	INVERSE5-SCALAR A
 eq:rb-scalar-type	docket68/n1star/INVERSE5-SCALAR.md:109-116	INVERSE5-SCALAR A.2 decomposition	S_AB written delta-bar*_0 dS
 lem:rb-block-structure	docket68/n1star/INVERSE5-SCALAR.md:107-129	INVERSE5-SCALAR A.2 (S1)	structural claims proved by representation theory; the 7x7x3 table itself not printed (nothing uses it beyond pending items)
 lem:rb-block-identities	docket68/n1star/INVERSE5-SCALAR.md:131-139	INVERSE5-SCALAR A.3 (S2-S4)	proved for every tensor, not only the block
+lem:rb-roots-point	docket68/n1star/INVERSE5-SCALAR.md:141-152	INVERSE5-SCALAR A.4 (decaying roots nearest the weight line)	written proof in place of computational-1 (first site): exact Taylor coefficients of C, P_2, P_4 at iota = 2, sign changes, placement of the other factors by lem:iii-d-4-1; values unchanged; independent of the pending scalar type l >= 1 part of prop:np-10-54
+eq:rb-roots-point	docket68/n1star/INVERSE5-SCALAR.md:150-152	INVERSE5-SCALAR A.4 roots	brackets of width 1e-10
 lem:rb-horizon-exponents	docket68/n1star/INVERSE5-SCALAR.md:154-172	INVERSE5-SCALAR A.5 (S5b) with vINV2 nit 6	derived from lem:iii-f2-1-1's K and a Frobenius computation; zeta-general form of the c_Upsilon = r^-1 dt case
 eq:rb-block-norms	docket68/n1star/INVERSE5-SCALAR.md:176-189	INVERSE5-SCALAR A.6 norms	
 lem:rb-quasimode	docket68/n1star/INVERSE5-SCALAR.md:191-211	INVERSE5-SCALAR Lemma A.6	stated with the explicit norms
+lem:rb-indicial-explicit	docket68/n1star/INVERSE5-SCALAR.md:141-152	INVERSE5-SCALAR A.4 (the block indicial family)	the family written out and derived (no source formula); formulas sitting unlabelled inside proofs of chapter 30 restated with derivations: box-bar on 2-tensors (T_X ... T_Q, from eq:iii-a1-1-2a-e), the Gauss formula, the composition rule of homogeneous operators; E-Upsilon G cited as eq:iii-b-6-5
+eq:rb-indicial-explicit	docket68/n1star/INVERSE5-SCALAR.md:141-152	INVERSE5-SCALAR A.4	
+prop:rb-quasimode-point	docket68/n1star/INVERSE5-SCALAR.md:213-230	INVERSE5-SCALAR Corollary A.6 (S6)	written proof in place of computational-1 (second site), six integer test vectors; the source's 3.1412e-6, 2.6180e-7, 1.4955e-6, 0.020, 0.012 were rounded to nearest and are not provable as printed: edition 3.1413e-6, 2.6181e-7, 1.4956e-6, 0.0204, 0.0149, 0.0121; 3.81e6 kept
 rem:rb-quasimode-observed	docket68/n1star/INVERSE5-SCALAR.md:232-238	INVERSE5-SCALAR S7 (floating point)	numerical observation
+lem:rb-m33	docket68/n1star/INVERSE5-SCALAR.md:240-249	INVERSE5-SCALAR A.7 (S8)	written proof in place of computational-2: general form -(gamma_C a r - 1)/r^3; the source's -(5000r - 1)/r^3 at the inner gauge data
+eq:rb-m33	docket68/n1star/INVERSE5-SCALAR.md:246	INVERSE5-SCALAR A.7 M33	

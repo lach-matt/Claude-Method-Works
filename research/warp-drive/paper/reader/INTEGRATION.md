@@ -974,3 +974,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   forward uniqueness region beyond R_ν; (L)'s tame form, uniformity and trace orders. Chapter 48 needs four edits (128,
   133, 182-183, 197-198); chapter 71 lines 437-439, 447, 455 use a linear A from lem:iii-k-2-2 (d), which now gives only
   ω_k. Chapters 3 and 60 need nothing. Third fix running; the S29 third round waits for it.
+- Ch 83 written (W-83): 2,612 lines; proof E (background, margins) and tables merged with all markers resolved and the
+  reader nits applied; lem:racz-split-formulas (ψ ≠ 0, N_s√G = 1, vacuum form); thm:charge-identity proved pointwise
+  with both boundary terms; exports thm:charge-sign. Pending: thm-class-kato-stability → chapter 81's
+  thm:class-kato-stability (map at integration); issue-1 twice (seed continuity of the correction: [CS06] is 3D only;
+  proof project P-K83a); computational-1 (tensor-type charge identity) and computational-2 (scalar-mode identities)
+  and the sliver of region III beyond R = 1.861 (proof project P-K83b). Independent reader running.

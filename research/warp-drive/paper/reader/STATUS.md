@@ -54,7 +54,8 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 66 M Ch 16 | written (1,118 lines, 53 labels, 28 proofs; thm:harmonic-rate; cor:hr-compact-rates and cor:gd-r5-3 for chapter 65; three issues: inclusion for ran Π_≥2, Killing-data step via thm:ix-2-2, p_0 with logarithms); independent reader running | - | - |
 | 84 M Ch 23 | written (1,248 lines; thm:layer, cor:layer; cor:layer-interpolation-band for 85; λ_L ≤ 10^(−430) proved in place of the source's 2.71·10⁻¹²; L.12 for every K ≥ 6; L.14 and Remark E.6 dropped); independent reader running | - | - |
 | 85 M Ch 24 | being written | - | - |
-| 83, 86-90 | being written: 83 (writer running); 86 after proof C confirms, 87 after proof D2-D4 confirms, 90 last | - | - |
+| 83 M Ch 22 | written (2,612 lines, 145 labels; proof E merged; thm:charge-sign; 5 pending markers: chapter 81 key, issue-1 twice (seed continuity, 4D), two computational; charge sign only on [0.70, 1.861] or R ≥ R_*); independent reader and two proof projects running | - | - |
+| 86, 87, 90 | 86 after proof C confirms, 87 after proof D2-D4 confirms, 90 last | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | CONFIRMED (5 nits); CD03 block and Sbierski entry to be read after their edits |
 
 ## Proof files (merged into their chapters after an independent reading)
