@@ -42,7 +42,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | running |
-| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | running | - |
+| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | running |
 | 63 M Ch 13 | written (959 lines; issue-1 order k_P, issue-2 commuted cut-off energy); running | - | - |
 | 64 M Ch 14 | written (1,031 lines, no markers); running | - | - |
 | 65 M Ch 15 | being written | - | - |

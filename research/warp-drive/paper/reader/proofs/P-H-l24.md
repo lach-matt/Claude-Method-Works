@@ -243,24 +243,27 @@ R m0 ≤ |S_st| and, by [[eq:l-24-s-size]], |S_st| ≤ |S| + C θ R m0 ≤ |S| +
 As θ → 0 with λ, this and [[eq:l-24-s-size]] give [[eq:l-24-s-two-sided]] once λ is small. The bound Λ ≤ λ was shown
 above, and λκ ≤ λ^(δ′) is [[lem:l-24-kappa]]. ∎
 
-Where R is small the bounds are not claimed. There |ν| |d| may be of order λ or smaller, while the bound on E_S in
-[[eq:l-24-s-split]] keeps the term C λ⁴ env, which carries no factor |ν| |d|; so E_S need not be small against
-R m0 = λ³ A env |ν| |d|. The proof of [[thm:l-24]] uses [[eq:l-24-s-bounds]] only where R ∈ [1 − 2λ^γ, 1 + 2λ^γ], which
+Where R is small the bounds are not claimed. The bound on E_S in [[eq:l-24-s-split]] keeps the term C λ⁴ env, which
+carries no factor |ν| |d|, while R m0 = λ³ A env |ν| |d|; so E_S need not be small against R m0 at points where |ν| |d|
+is of order λ or smaller. The proof of [[thm:l-24]] uses [[eq:l-24-s-bounds]] only where R ∈ [1 − 2λ^γ, 1 + 2λ^γ], which
 lies in [1/2, 1.1] once 2λ^γ ≤ 1/10. So, for λ small, the conclusions of [[prop:l-24-transition]] hold at every point of
 the band with 1/2 ≤ R ≤ 1.1.
 
-**Remark {#rem:l-24-sharp}** (The factor 2 − R.) The constant 2 of [[lem:l-24-margin]] is attained at the edge. Let env
-be positive and log-concave on (v_s, v_s + x0] with env(v) → 0 as v ↓ v_s. Then κ is nonincreasing there and κ(v) → ∞
-as v ↓ v_s, since a finite limit K would give log env(v) ≥ log env(v_s + x0) − K x0 for every v in (v_s, v_s + x0]; so
-ς → 0, and both bounds of [[eq:l-24-margin-bounds]] tend to 2. Hence the factor 2 − R in [[eq:l-24-transition]] cannot
-be improved. If at (v, ω) also |S′| ≥ 0.999 κ |S| (as for any constant multiple of env, for which |S′| = κ|S|) and
+**Remark {#rem:l-24-sharp}** (The factor 2 − R.) The constant 2 of [[lem:l-24-margin]] is approached as v ↓ v_s. Let
+env be positive and log-concave on (v_s, v_s + x0] with env(v) → 0 as v ↓ v_s. Then κ is nonincreasing there and
+κ(v) → ∞ as v ↓ v_s, since a finite limit K would give log env(v) ≥ log env(v_s + x0) − K x0 for every v in
+(v_s, v_s + x0]; so ς → 0, and both bounds of [[eq:l-24-margin-bounds]] tend to 2. So the constant 2 in
+[[eq:l-24-transition]] cannot be raised; nor can the coefficient of R be lowered, as follows. If at (v, ω) also |S′| ≥ 0.999 κ |S| (as for any constant multiple of env, for which |S′| = κ|S|) and
 |S| ≥ 0.999 R m0, with ς ≤ 10⁻³ and √μ0 κ ≥ 10³, then (1 + ς/8)/(√μ0 κ) ≤ 1.001 · 10⁻³, 0.999² ≥ 0.998, and the
 upper bound of [[eq:l-24-margin-bounds]] gives
 
     m0′ − |S′| ≤ (2.001001 − 0.998 R) κ m0,
 
 which is 0.903201 κ m0 at R = 1.1 and below 0.93 κ m0 for every R ≥ 1.075. For such S no bound m0′ − |S′| ≥ 0.93 κ m0
-holds on 1.075 ≤ R ≤ 1.1, and at R = 1.1 the constant 0.89 of [[prop:l-24-transition]] is within 0.014 of the best one.
+holds on 1.075 ≤ R ≤ 1.1, and at R = 1.1 the constant 0.89 of [[prop:l-24-transition]] is within 0.014 of the best
+constant for such S. The first-degree amplitude is such an S at every point of the band with R ≥ 1/2 once λ is small:
+the reverse bounds are part of [[eq:l-24-s-two-sided]], ς ≤ 10⁻³ is [[prop:l-24-band]], and √μ0 κ ≥ 10³ holds since κ
+tends to ∞ uniformly on the band ([[lem:l-24-kappa]]).
 
 **Corollary {#cor:l-24-period}** (One carrier period.) Let t be real and I := [t, t + 2πλ]. Suppose that at every point
 of I [[prop:l-24-transition]] applies with R ≤ 1.1 and √μ0 κ ≥ 2, and that

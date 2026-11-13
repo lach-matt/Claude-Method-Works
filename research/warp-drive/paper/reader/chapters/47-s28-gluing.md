@@ -33,8 +33,8 @@ them only on {R ≤ |x| ≤ 4R}. So every result holds for every inner radius r_
 the second fundamental form of an initial data set, and N a lapse or the function in a pair (Y, N); neither the
 approximant's order nor its number of stages occurs in this chapter. The mass parameter of the Myers–Perry family is m,
 as in [[ch:s11]]; b₀ = (m₀, 0) and R₁ = m₀^(1/2). 𝔎 is the space of Killing initial data of flat space ([[eq:v-0-4]]). A
-pair (K, g) in the argument of a map of [CD03] is written u = (K, g). π_(g′) always denotes a projection, and the number
-π occurs only in the charges.
+pair (K, g) in the argument of a map of [CD03] is written u = (K, g). π_(g′) and π₀ always denote projections, and the
+number π occurs only in the charges.
 
 ### Initial data and the Killing initial data of flat space {#sec:v-0}
 
@@ -197,14 +197,15 @@ vanishing at (η, 0). This gives the bounds. 𝔤_p is Ricci-flat ([[prop:iii-b-
 
     𝔮 : p ↦ (𝔔_X(g_p, K_p))_X ∈ ℝ¹⁵
 
-(X ranging over the basis [[eq:v-0-4]]) is C¹. At p₀, 𝔮(p₀) = (6π²m₀, 0, …, 0), and D𝔮(p₀) is invertible. In the bases
-[[eq:v-0-4]] and (m, A_ab, w_k, c_k) it is block lower triangular, with diagonal blocks
+(X ranging over the basis [[eq:v-0-4]]) is C¹. At every p = (m, 0, 0, 0) with |m − m₀| < ½m₀, in particular at p₀,
+𝔮(p) = (6π²m, 0, …, 0) and D𝔮(p) is invertible, with the values below for m in place of m₀. In the bases [[eq:v-0-4]]
+and (m, w_k, A_ab, c_k) it is block lower triangular, with diagonal blocks
 
     ∂𝔔_(e₀)/∂m = 6π²,     (∂𝔔_(e_l)/∂w_k) = −6π²m₀I₄,     (∂𝔔_(e_ab)/∂A_(a′b′)) = −4π²m₀I₆,
     (∂𝔔_(e′_l)/∂c_k) = −6π²m₀I₄.                                                                           {#eq:v-2-1}
 
 The block (∂𝔔_(e′_l)/∂w_k) is not needed, the other blocks off the diagonal vanish, and
-det D𝔮(p₀) = 6π²(6π²m₀)⁸(4π²m₀)⁶.
+det D𝔮(p) = 6π²(6π²m)⁸(4π²m)⁶.
 
 *Proof.* *C¹.* For fixed ϱ, f_ϱ(p) := ∮_(S_ϱ) 𝔟_X(g_p − δ, K_p) is C¹, with
 ∂_pf_ϱ = ∮_(S_ϱ) 𝔟_X(∂_pg_p, ∂_pK_p), since 𝔟_X is linear. Differentiate in p the identity of the proof of
@@ -217,7 +218,8 @@ D𝔮(p) = lim_ϱ ∮_(S_ϱ) 𝔟_X(∂_p(g_p, K_p)).
 |AOx| = |OᵀAOx| and tr A², det A are invariant under conjugation. The other ingredients of [[def:iii-b-3-2]] are
 covariant in the same way, so Õ*g^KS_(m,A) = g^KS_(m,OᵀAO). Also 𝒫_p ∘ Õ = Õ ∘ 𝒫_(p·O) with
 p·O := (m, OᵀAO, Oᵀw, Oᵀc), and Õ preserves {y⁰ = 0}. So (g_(p·O), K_(p·O)) = O*(g_p, K_p), and [[prop:v-1-3]] (b)
-gives 𝔔_X(g_(p·O), K_(p·O)) = 𝔔_(O·X)(g_p, K_p). As p₀·O = p₀, D𝔮(p₀) intertwines the representations
+gives 𝔔_X(g_(p·O), K_(p·O)) = 𝔔_(O·X)(g_p, K_p). Fix m with |m − m₀| < ½m₀ and put p_m := (m, 0, 0, 0). As
+p_m·O = p_m, D𝔮(p_m) intertwines the representations
 
     ℝ ⊕ Λ² ⊕ ℝ⁴ ⊕ ℝ⁴  (m, A, w, c)   ⟶   ℝ ⊕ ℝ⁴ ⊕ Λ² ⊕ ℝ⁴  (𝔔_(e₀), 𝔔_(e_l), 𝔔_(e_ab), 𝔔_(e′_l)),
 
@@ -226,9 +228,9 @@ standard ℝ⁴ and Λ²ℝ⁴ of O(4) are real irreducible and pairwise non-iso
 ℝ. For ℝ⁴ this holds already for SO(4). Λ² is the sum of the self-dual and anti-self-dual parts, each irreducible of
 dimension 3 under SO(4) (acting through SO(3) × SO(3)); a reflection exchanges them, so no proper nonzero subspace is
 O(4)-invariant. An SO(4)-equivariant endomorphism of Λ² is a ⊕ b on the two parts, and commuting with a reflection
-forces a = b. By Schur's lemma D𝔮(p₀) is: a scalar c_E from m to 𝔔_(e₀); a scalar c_J times I₆ from A to (𝔔_(e_ab));
+forces a = b. By Schur's lemma D𝔮(p_m) is: a scalar c_E from m to 𝔔_(e₀); a scalar c_J times I₆ from A to (𝔔_(e_ab));
 on the two copies of ℝ⁴, a matrix (a₁₁ a₁₂; a₂₁ a₂₂) ⊗ I₄ from (w, c) to (𝔔_(e_l), 𝔔_(e′_l)); and zero elsewhere.
-Likewise 𝔮(p₀) is O(4)-invariant, so only its trivial component 𝔔_(e₀) can be nonzero.
+Likewise 𝔮(p_m) is O(4)-invariant, so only its trivial component 𝔔_(e₀) can be nonzero.
 
 *The base.* On {t = 0}, g^KS_(m,0) = η + H(dt + dr)² with H = mr⁻² ([[prop:iii-b-3-4]]) has h₀ = H x̂ ⊗ x̂ exactly,
 β₀ = H x̂, 𝔤₀₀ = −1 + H and N₀ = (1 + H)^(−1/2). Its second fundamental form K₀ = −N₀⁻¹D_(iβ_j) is O(mr⁻³) with
@@ -242,12 +244,12 @@ five-dimensional Tangherlini.)
 *a₂₂ and a₁₂.* The translation in c_k changes the data to (h₀, K₀)(y + c), with derivative ∂_k(h₀, K₀). For
 e′_l = (0, x^l): x^l∂_k(∂_jh_ij − ∂_i tr h)νⁱ = 3m x^l∂_k(x_i r⁻⁴)x̂_i = −9m x^lx_k r⁻⁵, and
 −(δ_lj∂_kh_ij − δ_li∂_k tr h)νⁱ = −m(δ_lk r⁻³ − x_kx_l r⁻⁵). With ∫_(𝕊³) ω_kω_l = (π²/2)δ_kl the flux is
-−(9/2)π²m δ_lk − (3/2)π²m δ_lk, so a₂₂ = −6π²m₀ at every radius. For e_l the flux of ∂_kK₀ = O(r⁻⁴) is O(ϱ⁻¹), so
+−(9/2)π²m δ_lk − (3/2)π²m δ_lk, so a₂₂ = −6π²m at every radius. For e_l the flux of ∂_kK₀ = O(r⁻⁴) is O(ϱ⁻¹), so
 a₁₂ = 0.
 
-*a₁₁.* ∂_(w_k)𝔤_p|_(p₀) = ℒ_(Z_k)𝔤 for 𝔤 := g^KS_(m₀,0). As ℒ_(Z_k)η = 0 and Z_k(H) = t∂_kH,
-ℒ_(Z_k)(H k ⊗ k) = t∂_kH k ⊗ k + H(ℒ_(Z_k)k ⊗ k + k ⊗ ℒ_(Z_k)k), with k = dt + dr and
-ℒ_(Z_k)k = d(x^k + t x̂_k) = dx^k + x̂_k dt + t dx̂_k. At t = 0 this gives
+*a₁₁.* ∂_(w_k)𝔤_p|_(p_m) = ℒ_(Z_k)𝔤 for 𝔤 := g^KS_(m,0). As ℒ_(Z_k)η = 0 and Z_k(H) = t∂_kH,
+ℒ_(Z_k)(H k₀ ⊗ k₀) = t∂_kH k₀ ⊗ k₀ + H(ℒ_(Z_k)k₀ ⊗ k₀ + k₀ ⊗ ℒ_(Z_k)k₀), with k₀ = dt + dr, the 1-form k_A of
+[[def:iii-b-3-2]] at A = 0, and ℒ_(Z_k)k₀ = d(x^k + t x̂_k) = dx^k + x̂_k dt + t dx̂_k. At t = 0 this gives
 
     δ𝔤₀₀ = 2H x̂_k,     δβ_i = H(x̂_kx̂_i + δ_ik),     δg_ij = H(δ_ik x̂_j + x̂_iδ_jk),
     ∂_tδg_ij = ∂_kH x̂_ix̂_j + H(∂_ix̂_k x̂_j + x̂_i ∂_jx̂_k).
@@ -259,23 +261,24 @@ With ∂_iH = −2Hx̂_i/r and ∂_ix̂_j = (δ_ij − x̂_ix̂_j)/r,
     δK_ij = (H/r)(2x̂_ix̂_jx̂_k + x̂_iδ_jk + x̂_jδ_ik − x̂_kδ_ij) + O(r⁻⁵),
     tr δK = (H/r)(4 − n)x̂_k + O(r⁻⁵) = O(r⁻⁵).
 
-For e_l, 𝔟 = −2(δK_lj x̂_j − x̂_l tr δK) dS = −2m₀r⁻³(2x̂_lx̂_k + δ_lk) dS + O(r⁻⁵) dS, whose integral tends to
-−2m₀(π² + 2π²)δ_lk. So a₁₁ = −6π²m₀; in ADM units the momentum per unit rapidity is the energy.
+For e_l, 𝔟 = −2(δK_lj x̂_j − x̂_l tr δK) dS = −2mr⁻³(2x̂_lx̂_k + δ_lk) dS + O(r⁻⁵) dS, whose integral tends to
+−2m(π² + 2π²)δ_lk. So a₁₁ = −6π²m; in ADM units the momentum per unit rapidity is the energy.
 
 *c_J.* At A = 0, r_A = |x| + O(|A|²) and H_(m,A) = H + O(|A|²), as Π, F_A, tr A² and det A are even in A; and
 ℓ_A = (r²I − A²)⁻¹(rI + A)x · dx = x̂ · dx + r⁻²(Ax) · dx + O(|A|²) ([[lem:iii-b-3-1]] (a): 𝖬/Π = (r²I − A²)⁻¹). So
-the derivative in the direction A = W_ab is δ𝔤 = H(k ⊗ ξ_A + ξ_A ⊗ k), ξ_A := r⁻²(Ax) · dx, ξ_A(x̂) = 0. Then
-δ𝔤₀₀ = 0, δβ = Hξ_A = m₀r⁻⁴(Ax) · dx, δg = H(x̂ ⊗ ξ_A + ξ_A ⊗ x̂) and ∂_tδg = 0. Further
+the derivative in the direction A = W_ab is δ𝔤 = H(k₀ ⊗ ξ_A + ξ_A ⊗ k₀), ξ_A := r⁻²(Ax) · dx, ξ_A(x̂) = 0. Then
+δ𝔤₀₀ = 0, δβ = Hξ_A = mr⁻⁴(Ax) · dx, δg = H(x̂ ⊗ ξ_A + ξ_A ⊗ x̂) and ∂_tδg = 0. Further
 δ(N²) = −δ𝔤₀₀ + 2β₀ⁱδβ_i − β₀ⁱβ₀ʲδg_ij = 0, as β₀ ∥ x̂ ⊥ ξ_A. The remaining terms other than ∂δβ are O(r⁻⁶), so
 
-    δK_ij = −∂_(iδβ_j) + O(r⁻⁶) = 2m₀r⁻⁶(x_i(Ax)_j + x_j(Ax)_i) + O(r⁻⁶),     tr δK = O(r⁻⁶).
+    δK_ij = −∂_(iδβ_j) + O(r⁻⁶) = 2mr⁻⁶(x_i(Ax)_j + x_j(Ax)_i) + O(r⁻⁶),     tr δK = O(r⁻⁶).
 
 For e_(a′b′) = (W′x, 0) with W′ := W_(a′b′), as (W′x) · x̂ = 0, 𝔟 = −2δK(W′x, x̂) dS =
-−4m₀r⁻⁵(Ax) · (W′x) dS + O(r⁻⁵) dS. On S_ϱ, (Ax) · (W′x) = ϱ²(Aω) · (W′ω) and dS = ϱ³dω, so the integral tends to
-−4m₀∫_(𝕊³) ωᵀAᵀW′ω dω = −2π²m₀ tr(AᵀW′), using ∫ ω_iω_j = (π²/2)δ_ij. As tr(W_abᵀW_(a′b′)) = 2δ_aa′δ_bb′,
-c_J = −4π²m₀; in ADM units the angular momentum is (πm₀/4)A_ab, two thirds of the mass per unit spin.
+−4mr⁻⁵(Ax) · (W′x) dS + O(r⁻⁵) dS. On S_ϱ, (Ax) · (W′x) = ϱ²(Aω) · (W′ω) and dS = ϱ³dω, so the integral tends to
+−4m∫_(𝕊³) ωᵀAᵀW′ω dω = −2π²m tr(AᵀW′), using ∫ ω_iω_j = (π²/2)δ_ij. As tr(W_abᵀW_(a′b′)) = 2δ_aa′δ_bb′,
+c_J = −4π²m; in ADM units the angular momentum is (πm/4)A_ab, two thirds of the mass per unit spin.
 
-So D𝔮(p₀) is as stated. Its determinant is c_E (a₁₁a₂₂ − a₁₂a₂₁)⁴ c_J⁶ = 6π²(6π²m₀)⁸(4π²m₀)⁶ ≠ 0. ∎
+So D𝔮(p_m) is as stated, with m in place of m₀: c_E = 6π², a₁₁ = a₂₂ = −6π²m, a₁₂ = 0 and c_J = −4π²m. Its determinant
+is c_E (a₁₁a₂₂ − a₁₂a₂₁)⁴ c_J⁶ = 6π²(6π²m)⁸(4π²m)⁶ ≠ 0. ∎
 
 **Corollary {#cor:v-2-4}** There are neighbourhoods U of p₀ and V of 𝔮(p₀) such that 𝔮 : U → V is a C¹
 diffeomorphism (inverse function theorem). For Q ∈ V write p(Q) := 𝔮|_U⁻¹(Q); then p(Q) is continuous and the data

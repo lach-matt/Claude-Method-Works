@@ -529,3 +529,5 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S19 third reading (R3-S19): Major — eq:iii-i-3-7's L² class fails at ℓ_I = ½ (π̸₀h's radiation coefficient);
   ℓ_I ∈ (0, ½) as [Hin26]. The fix lists other chapters relying on ½.
 - thm:std-ds-stability added to Appendix A ([DS23] Thm 2.5, p. 5, arXiv:2308.09851v1, word for word).
+- Chapter 62 fixed (F-62): thm:std-sbierski extended (p. 10 assumptions, footnote 19, arXiv:1309.7591v3). Still open
+  elsewhere: chapter 62's nit 18 is in chapter 3; [Chr11] is uncited (drop from 98 or cite); chapter 60's 𝒟_0 and T′.

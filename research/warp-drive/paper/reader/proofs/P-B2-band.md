@@ -25,9 +25,8 @@ covers a whole range of frequencies.
 
 **Lemma {#lem:band-sharp}** (The multiplier bound in sharp form.) Let V be as in [[lem:morawetz-identity]], σ ≠ 0 real,
 f ∈ L²(ℝ) vanishing off I, and u a solution, with u and u′ locally absolutely continuous, of −u″ + (V − σ²)u = f
-almost everywhere, with the asymptotics stated there. Let φ be a real smooth nondecreasing
-function on ℝ with limits φ(±∞), with φ′, φ″, φ‴ integrable and tending to 0 at ±∞, and suppose that
-w := −φV′ − ½φ‴ ≥ 0 on ℝ. Put
+almost everywhere, with the asymptotics stated there. Let φ be a real smooth nondecreasing function on ℝ with limits
+φ(±∞), with φ′, φ″, φ‴ integrable and tending to 0 at ±∞, and suppose that w := −φV′ − ½φ‴ ≥ 0 on ℝ. Put
 
     m′ := min_I φ′ > 0,   M′ := max_I φ′,   w_I := min_I w > 0,   p_I := max_I |φ|,   p_∞ := max(|φ(∞)|, |φ(−∞)|).
 
@@ -97,8 +96,9 @@ min_I w ≥ w_*, m′ ≥ m_*, M′ ≤ m^*. Hence, for every real σ ≠ 0 and 
 *Proof.* Every claim below is the positivity of one of the six polynomials (items 1–6) of [[sec:tb2-bernstein]] on an
 interval, which that section cuts into pieces. Each polynomial is given there exactly, and on each piece the section
 prints every Bernstein coefficient b_0, …, b_n of [[lem:bernstein-lower-bound]] (n the degree of the polynomial),
-rounded down. Every printed coefficient is positive, so every b_k is positive, and by [[lem:bernstein-lower-bound]] the
-polynomial is at least min_k b_k > 0 on the piece. The pieces of each item cover its interval.
+rounded down. Every printed value is positive and at most the coefficient it stands for, so every b_k is positive, and
+by [[lem:bernstein-lower-bound]] the polynomial is at least min_k b_k > 0 on the piece. The pieces of each item cover
+its interval.
 
 The sign and the monotonicity. Ψ > 0 on [−1, 1] (item 1), so F has the sign of z. F_z ≥ 0 on [−1, 1] (item 2), so
 φ′ = 4ηF_z ≥ 0 and φ is nondecreasing, with φ(∞) = F(1) = Ψ(1) and φ(−∞) = F(−1) = −Ψ(−1). As F is a polynomial in y,
@@ -286,10 +286,11 @@ the photon sphere and wide in the flanks, one multiplier for each l_1 = 5, …, 
 arithmetic on the 7,620 subintervals of width 1/20 of [3, 384], gives for every l ≥ 0 the bounds 3.7719, 2.3724,
 1.5222 and 0.99697 at |σ| = 12, 24, 48 and 96, and 0.83951, 0.73083, 0.66429, 0.56257, 0.49119 and 0.47635 on the
 subintervals ending at |σ| = 128, 160, 192, 256, 320 and 384 (0.43792 at 384 when more multipliers are admitted); its
-largest value on [3, 384] is 11.477, on [3.2, 3.25]. |σ|^(1/2) times these values is 9.77, 9.20 and 8.58 at
+largest value on [3, 384] is 11.477, on [3.2, 3.25]. These values times |σ|^(1/2) are 9.77, 9.20 and 8.58 at
 |σ| = 96, 192 and 384 (the last with 0.43792), so between |σ| = 96 and 384 they decay roughly like |σ|^(−0.6); the
-scaling of the best multiplier at the trapped harmonic suggests |σ|^(−1/2) for larger |σ|. These values are not proved
-here ([[prop:band-points]] proves weaker ones from |σ| = 12 on), and no proof uses them.
+scaling of the best multiplier at the trapped harmonic (the l with max V_l nearest σ²) suggests |σ|^(−1/2) for larger
+|σ|. These values are not proved here ([[prop:band-points]] proves weaker ones from |σ| = 12 on), and no proof uses
+them.
 
 ### One derivative on the band {#sec:band-one-derivative}
 

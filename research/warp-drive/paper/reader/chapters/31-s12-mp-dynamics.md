@@ -899,8 +899,9 @@ gives 2c₊√𝒮 = 0. So c₊ = c₋ = 0, and c₀ = 0 as dℛ_c ≠ 0; the th
 are smooth hypersurfaces of Σ near Γ_b, meeting transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]].
 For the bracket, {φ₊, φ₋} = 2{p̃, (r − r_c)√𝒮}, which at r = r_c is 2√𝒮({p̃, r} − {p̃, r_c}) = 2α√𝒮. Here
 {p̃, r} = ∂_(p_r)p̃ = α, and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of
-(Φ, Ψ, 𝔎), which Poisson-commute ([[lem:vi-b1-0-1]] (b)). α > 0 on I_Γ, as I_Γ ⊂ (r₊, ∞). For z₀ = −1, {φ₋, −φ₊} = {φ₊, φ₋}. At b₀, ϱ² = r_ph² = 2m₀
-and √𝒮 = 2r_ph on Γ, so ν = 4r_ph/(2m₀) = 4(2m₀)^(−1/2), the rate of [[prop:vi-a-3-1]].
+(Φ, Ψ, 𝔎), which Poisson-commute ([[lem:vi-b1-0-1]] (b)). α > 0 on I_Γ, as I_Γ ⊂ (r₊, ∞). For z₀ = −1,
+{φ₋, −φ₊} = {φ₊, φ₋}. At b₀, ϱ² = r_ph² = 2m₀ and √𝒮 = 2r_ph on Γ, so ν = 4r_ph/(2m₀) = 4(2m₀)^(−1/2), the rate of
+[[prop:vi-a-3-1]].
 
 (d) dt and dt_* are timelike for g_b ([[lem:iii-b-3-3]] (e) with β = 0, valid by [[lem:s11-ks-domain]], and
 [[lem:vi-a-1-1]]). They are co-oriented: g_b⁻¹(dt, dt_*) cannot vanish where both are timelike, the region is

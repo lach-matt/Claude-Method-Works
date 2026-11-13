@@ -445,8 +445,10 @@ R > 0 only finitely many roots have |ι| ≤ R, and no non-integer root with |ι
 
 which is [Hin26, (8.13)], and (0, ε_ind] ⊂ (0, 1] lies in the indicial gap. The number ε_ind is small: at the gauge
 parameters (e_Υ, γ_Υ) = (1/100, 1/100) the roots 2 − ι^Υ_(sl,l+1), which approach the integers 1 − l as l grows,
-force ε_ind ≤ δ_50 := 1.94137 × 10⁻⁸ ([[prop:np-10-52]]). The gap (0, 1] of (a) is exact, and ε_ind enters only
-through [[eq:iii-f1-2-2]], never as a number of order one.
+force ε_ind ≤ δ_50, where 2 − ι^Υ_(s50,51) = −49 − δ_50 is a root of modulus below 50 at distance δ_50 from ℤ
+([[prop:np-10-52]] (i), (iii)). The number δ_50 is a constant of [[ch:s14]], fixed by the gauge parameters alone
+([[rem:s14-delta50]]), and its value is given by [[cor:s14-eps-ind-point]]. The gap (0, 1] of (a) is exact, and
+ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one.
 
 *Proof.* *The list.* By [[lem:iii-f1-2-1]] the roots of each type are, with multiplicity, −l and l + 2, the roots of
 □^Υ plus 1 and the roots of □^C minus 1, less the roots of D. [[lem:iii-d-4-1]] gives those of □^Υ: s0:
@@ -868,7 +870,7 @@ F^r_t = Z/r, F = −(X + Y)/(6r). If h = e^(−iσt)k with σ ≠ 0, then with Z
 
 and X, Y and Z are linear combinations of Φ and Φ′ with coefficients depending on r and σ ([KI03, (3.9)]).
 
-(S0) ([KI03, (4.1)–(4.3), pp. 10–11, (3.12), p. 9].) Scalar type, l ≥ 2, h independent of t: then Z = 0, X and Y satisfy
+(S0) ([KI03, (4.1)–(4.3), p. 11, (3.12), p. 9].) Scalar type, l ≥ 2, h independent of t: then Z = 0, X and Y satisfy
 the first-order system [KI03, (4.2)], the function Φ := (Q_Y X − Q_X Y)/(2k²r^(1/2)f′H) with
 Q_X := 48ς² + (16p − 24)ς − 12p and Q_Y := 24ς² − 4(p + 12)ς satisfies f(fΦ′)′ = V_SΦ, and X and Y are linear
 combinations of Φ and Φ′ ([KI03, (3.12a)–(3.12b)] with ∂_tΦ = 0).
@@ -1117,8 +1119,9 @@ H̄_b^(s,α) here is H̄_b^(s,α−2) of [[ch:s03]], and H_b^(∞,a) ⊂ 𝒜^a 
 [[sec:iii-d2-1]]: ε_Υ ∈ (0, ½), fixed by the indicial roots of (□^Υ_b)^(0) alone, is less than d(Re ι, ℤ) for every
 indicial root ι of (□^Υ_b)^(0) with non-integer real part of modulus at most 10 (it is the gauge potential operator's
 number, not the number ε_ind of [[eq:iii-f1-2-2]], which concerns the roots of L_b^(0)), and ℰ_ind denotes an index set
-with min Re ℰ_ind ≥ ε_Υ, independent of b, which may change from line to line. Write β^L_+ := min{Re ι : ι an indicial root of L_b^(0), Re ι > 0}; by
-[[prop:iii-f1-2-3]], β^L_+ > 1, so every α ∈ (0, 1] lies in the indicial gap (0, β^L_+).
+with min Re ℰ_ind ≥ ε_Υ, independent of b, which may change from line to line. Write
+β^L_+ := min{Re ι : ι an indicial root of L_b^(0), Re ι > 0}; by [[prop:iii-f1-2-3]], β^L_+ > 1, so every
+α ∈ (0, 1] lies in the indicial gap (0, β^L_+).
 
 *Densities and adjoints.* In the Kerr–Schild coordinates (t, x) of [[def:iii-b-3-2]], g_b = η + Hk ⊗ k with k null for
 η ([[lem:iii-b-3-3]] (a)), so det g_b = det η = −1; and t_* − t = −ψ(|x|) is a function on X ([[eq:iii-b-3-6]]), so the
@@ -1838,7 +1841,7 @@ h̆²_(b,s1)(S_1) and h̆¹_(b,v1)(V_1) in 𝒜^((−1,0)∪(−1+ℰ_ind)) by [
 has smooth coefficients. So u_b, which solves ρ²Au_b = f_b near ∂X with A b-elliptic, is polyhomogeneous by
 [[lem:iii-a-1-4]], as in [[lem:iii-d1-5-1]] (2), with an index set built from the indicial roots of L_b^(0) with real
 part > α − ϵ and from that of f_b, both independent of b (the roots are the model's, [[lem:iii-f1-2-1]]). This index
-set contains the roots ι^C_(·,+) − 1 just above 1. Then
+set contains the roots ι^C_(·,+) − 1, whose real parts exceed 1 ([[prop:iii-f1-2-3]] (b)). Then
 
     h^(−2)_b := h^(≈,2)_b + h_(b,(0)) + u_b ∈ ker L_b^(0),                                               {#eq:iii-f4-5-3}
 
