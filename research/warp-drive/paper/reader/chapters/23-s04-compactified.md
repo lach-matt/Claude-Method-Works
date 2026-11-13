@@ -1777,9 +1777,11 @@ carried by χ and microsupported in U_*, in the strong sense,
 
 *Proof.* As in the proof of [[lem:i-a-3-2]]. Take an integer J > 4τ, κ := τ/J < 1/4, and 𝗌_j := 𝗌 − τ + jκ. Construct
 open sets U_0 ⊃ U_1 ⊃ ⋯ ⊃ U_J ⊃ Γ with Ū_j ⊂ U′_j ∩ U_(j−1), where U′_j is the U′ for (𝗌_j, κ, U_(j−1)), and let
-K_E^* := ⋃_j K_E(U_(j−1)). Let G_0 := G and G_j := Op(g_j), carried by χ, with g_j smooth on the compactified bundle,
-equal to 1 near Ū_j and supported in U′_j ∩ U_(j−1), where b_0^((j)) is elliptic and G_(j−1) is elliptic; so
-WF′(G_j) ⊂ U_0 ⊂ Ell(G), which the step from ‖G_(j−1)Lu‖ to ‖GLu‖ and the next step need. Then
+K_E^* := ⋃_j K_E(U_(j−1)). Let G_0 := G and, for j ≥ 1, let G_j be the truncated quantization of f(ϑ)g_j, an
+auxiliary operator of (R1) of [[sec:ii-a-8-3]] for G and E, with g_j smooth on the compactified bundle, equal to 1 near
+Ū_j and supported in U′_j ∩ U_(j−1), where b_0^((j)) is elliptic and G_(j−1) is elliptic. As Ū_0 ⊂ Ell(G) lies over
+{ϑ ≥ c}, f(ϑ) = 1 near the support of g_j at fibre infinity, so G_j is elliptic on Ū_j and WF′(G_j) ⊂ U_0 ⊂ Ell(G),
+which the step from ‖G_(j−1)Lu‖ to ‖GLu‖ below and the next step need. Then
 ‖G_ju‖_(𝗌_j) ≤ C(‖B_0^((j))u‖ + ‖χu‖_(−N)). This is the parametrix argument of the proof of [[thm:ii-a1-3-1]], with
 B_0^((j)) = Op(b)Φ_0, b := b_0^((j)) and Φ_0 := Φ_0^((j)), of order 𝗌_j + δ, in place of L, and q := χ̃ab⁻¹ in place of
 χ̃aℓ⁻¹. As φ_0 = 1 on supp b ⊃ U′_j ⊃ supp χ̃, the identity qbφ_0 = χ̃a = a of symbols is exact, so
@@ -2102,9 +2104,10 @@ of the e3b-calculus, in ᵉ³ᵇS*M̃. Cut-offs are as in [[sec:ii-a-8-3]], and 
 the rules (R1)–(R3) of [[sec:ii-a-8-3]] for the operators of the statement at hand carried by χ (K = WF′(B), for
 instance). Then there are auxiliary operators B_1, B_2, … ∈ C^∞_b Ψ⁰_e3b in the sense of (R1), carried by χ and by
 χ_1 := h_♭(χ), with K ⊂ Ell(B_1), WF′(B_i) ⊂ Ell(B_(i+1)) and all wave front sets in O. Some B_i may be chosen
-microlocally equal to I near K, that is, with WF′(I − B_i) ∩ K = ∅: quantize the symbols f(ϑ)χ̃_i, with
-χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃), χ̃_1 = 1 near K, χ̃_i = 1 near the support of χ̃_(i−1), and supp χ̃_i ∩ ᵉ³ᵇS*M̃ ⊂ O, and truncate
-to range ϵ_ϑ. Every finite chain of such operators fits: only the supports in the fibres are nested, inside the fixed
+microlocally equal to I near K, that is, with WF′(I − B_i) ∩ K = ∅: replacing O by its part over {ϑ > 3c/4}, which
+still contains K, quantize the symbols f(ϑ)χ̃_i, with χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃), χ̃_1 = 1 near K, χ̃_i = 1 near the support
+of χ̃_(i−1), and supp χ̃_i ∩ ᵉ³ᵇS*M̃ ⊂ O, and truncate to range ϵ_ϑ. As f(ϑ) = 1 over {ϑ ≥ 3c/4}, the symbol of B_(i+1)
+equals χ̃_(i+1) near supp χ̃_i ∩ ᵉ³ᵇS*M̃, so WF′(B_i) ⊂ Ell(B_(i+1)). Every finite chain of such operators fits: only the supports in the fibres are nested, inside the fixed
 open set O, while the base factor f(ϑ) and the room ϵ_ϑ are the same for all of them.
 
 The hypotheses of the propagation estimates are open. Let T be the union of the backward segments of the integral

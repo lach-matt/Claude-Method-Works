@@ -2,9 +2,9 @@
 
 ## Two crossing null dusts {#ch:two-dusts}
 
-This chapter carries [[thm:main]] over to two families of waves, one ingoing and one outgoing, whose high-frequency limit
-is a solution of the Einstein equations with two crossing radial null dusts. Three things change. The background is no
-longer explicit: it is the solution of a characteristic problem with explicit Vaidya data on two null cones, and it
+This chapter carries [[thm:main]] over to two families of waves, one ingoing and one outgoing, whose high-frequency
+limit is a solution of the Einstein equations with two crossing radial null dusts. Three things change. The background
+is no longer explicit: it is the solution of a characteristic problem with explicit Vaidya data on two null cones, and it
 carries a single dust everywhere except on a compact diamond where the two dusts cross ([[prop:two-dust-background]]).
 The approximant carries two phases, and the harmonics that mix them are removed at every order by division by a symbol
 that is bounded away from zero, so that there are no small divisors ([[lem:two-dust-nonresonance]]). The uniform estimate
@@ -300,16 +300,16 @@ the set where R ≥ a′ lies in {u ≤ u_*(a′)}, u_*(a′) := u2 + (R_max −
 *Existence.* Fix a′ ∈ (0, a), let C_U be the bound above for this a′ and u_* = u_*(a′), and let 𝔉♯, ℌ♯ be smooth,
 globally Lipschitz in U, and equal to 𝔉, ℌ on {|U| ≤ 2C_U, R ≥ a′}. The map defined by the right sides of
 [[eq:two-dust-volterra]] with 𝔉♯, ℌ♯ is a contraction in the norm sup_Q e^(−γ (u − u0 + v − v0)) |U| for γ large: each
-single integral divides the Lipschitz constant by γ and the double one by γ², on the unbounded u-interval as well. So it
-has one continuous fixed point Ũ on Q. Let Q_(a′) := {p ∈ Q : R̃ > a′ on J⁻(p)}, R̃ the first component of Ũ. (1) Ũ
-solves the true equations on Q_(a′). For p ∈ Q_(a′), suppose |Ũ| ≥ 2C_U somewhere on the compact J⁻(p), and let q be such
-a point with u + v least. On J⁻(q) ∖ {q}, |Ũ| < 2C_U and R̃ > a′, so Ũ solves the true equations there, the a priori
-bounds give |Ũ| ≤ C_U there and, by continuity, at q: a contradiction. (2) Q_(a′) is a past set, open in Q, the least of
-R̃ over J⁻(p) being continuous in p; the development 𝒟 := ∪_(a″>0) Q_(a″) is a past set carrying one smooth solution,
-since two truncations agree where both solve the true equations, by the contraction. (3) For p ∈ 𝒟 with R(p) ≥ a, (c)
-applies on J⁻(p) ⊂ 𝒟 and gives R ≥ min(R(p), √μ0) ≥ a > a′ there, so p ∈ Q_(a′). (4) So G ⊂ Q_(a′), and G is closed in Q,
-as G ⊂ Q_(a′) and R̃ is continuous there. At p ∈ ∂G the least of R over J⁻(p) is a, since otherwise a neighbourhood of p
-would lie in G; so (c) at p gives min(R(p), √μ0) ≤ a < √μ0, that is R(p) = a: ∂G ⊂ {R = a}.
+single integral divides the Lipschitz constant by γ and the double one by γ², on the unbounded u-interval as well. So
+it has one continuous fixed point Ũ on Q. Let Q_(a′) := {p ∈ Q : R̃ > a′ on J⁻(p)}, R̃ the first component of Ũ.
+(1) Ũ solves the true equations on Q_(a′). For p ∈ Q_(a′), suppose |Ũ| ≥ 2C_U somewhere on the compact J⁻(p), and let q
+be such a point with u + v least. On J⁻(q) ∖ {q}, |Ũ| < 2C_U and R̃ > a′, so Ũ solves the true equations there, the a
+priori bounds give |Ũ| ≤ C_U there and, by continuity, at q: a contradiction. (2) Q_(a′) is a past set, open in Q, the
+least of R̃ over J⁻(p) being continuous in p; the development 𝒟 := ∪_(a″>0) Q_(a″) is a past set carrying one smooth
+solution, since two truncations agree where both solve the true equations, by the contraction. (3) For p ∈ 𝒟 with R(p) ≥
+a, (c) applies on J⁻(p) ⊂ 𝒟 and gives R ≥ min(R(p), √μ0) ≥ a > a′ there, so p ∈ Q_(a′). (4) So G ⊂ Q_(a′), and G is
+closed in Q, as G ⊂ Q_(a′) and R̃ is continuous there. At p ∈ ∂G the least of R over J⁻(p) is a, since otherwise a
+neighbourhood of p would lie in G; so (c) at p gives min(R(p), √μ0) ≤ a < √μ0, that is R(p) = a: ∂G ⊂ {R = a}.
 
 *Regularity.* Let U be the continuous solution on a past set. From [[eq:two-dust-volterra]], R_u = P and R_v = Q̄, P_v =
 𝔉(U), Q̄_u = 𝔉(U), and σ_u, σ_v are continuous. For ∂_u P, the difference quotients δ_h P solve δ_h P(u, v) = δ_h P(u,
@@ -371,15 +371,17 @@ in [[eq:two-dust-chart]] and e^ψ = −e^(2σ)/R_u, and on G the chart X = (τ, 
 the forms of [[eq:dt]] and [[eq:omega]] with the mass function at the point. The outer cone can be chosen so that
 𝒞_out ∩ {τ ≥ τ0} ⊂ {R > b(τ)}, and we choose it so. Then Σ_τ = A(τ) := {a ≤ |x| ≤ b(τ)}, and:
 
-(a) g0⁻¹(dτ, dτ) = 1 − μ/R² − 2e^(−ψ) ≤ −1 − μ/R²: each Σ_τ is spacelike; (b) on {R = a}, g0⁻¹(dR, dR) = 1 − μ/a² < 0 and
-g0⁻¹(dR, dτ) = e^(−ψ) − 1 + μ/a² > 0; (c) g0⁻¹(d(v + τ), d(v + τ)) = 1 − μ/R² − 4e^(−ψ) ≤ −3 − μ/R², and g0⁻¹(dv, dτ) =
-−e^(−ψ) < 0; (d) the ingoing generators are the lines {v, x̂ = const}, integral curves of ℓ_in = −e^(−ψ) L0, L0 := ∂_τ −
-x̂·∂_x; followed to the past they stay in Ω₂ and meet Σ_τ0; every past causal curve from a point of Ω₂ meets Σ_τ0 inside
-Ω₂, and both generators ℓ_in and ℓ_out are transverse to every Σ_τ; (e) there is ε1 with 0 < ε1 < s0, s0 the least over
-Ω₂ of the least absolute eigenvalue of g0, such that every Lorentzian g with |g − g0| ≤ ε1 on Ω₂ is time-oriented by dτ,
-J⁻(p; g) ∩ {τ ≥ τ0} ⊂ Ω₂ for every p ∈ Ω₂, and Σ_τ and the two lateral boundaries stay spacelike for g; and every
-symmetric g̃ with |g̃ − g0| ≤ ε1 on Ω₂ is Lorentzian with |g̃⁻¹| ≤ (s0 − ε1)⁻¹; (f) b(τ) − a ≥ 1 + δ0, b ≤ b(τ0), D_T ∩
-{τ ≥ τ0} ⊂ Ω₂, and D_T contains {p ∈ G : v ≤ V, 𝒦 ≤ l5⁻⁴}.
+(a) g0⁻¹(dτ, dτ) = 1 − μ/R² − 2e^(−ψ) ≤ −1 − μ/R²: each Σ_τ is spacelike;
+(b) on {R = a}, g0⁻¹(dR, dR) = 1 − μ/a² < 0 and g0⁻¹(dR, dτ) = e^(−ψ) − 1 + μ/a² > 0;
+(c) g0⁻¹(d(v + τ), d(v + τ)) = 1 − μ/R² − 4e^(−ψ) ≤ −3 − μ/R², and g0⁻¹(dv, dτ) = −e^(−ψ) < 0;
+(d) the ingoing generators are the lines {v, x̂ = const}, integral curves of ℓ_in = −e^(−ψ) L0, L0 := ∂_τ − x̂·∂_x;
+followed to the past they stay in Ω₂ and meet Σ_τ0; every past causal curve from a point of Ω₂ meets Σ_τ0 inside Ω₂,
+and both generators ℓ_in and ℓ_out are transverse to every Σ_τ;
+(e) there is ε1 with 0 < ε1 < s0, s0 the least over Ω₂ of the least absolute eigenvalue of g0, such that every
+Lorentzian g with |g − g0| ≤ ε1 on Ω₂ is time-oriented by dτ, J⁻(p; g) ∩ {τ ≥ τ0} ⊂ Ω₂ for every p ∈ Ω₂, and Σ_τ and
+the two lateral boundaries stay spacelike for g; and every symmetric g̃ with |g̃ − g0| ≤ ε1 on Ω₂ is Lorentzian
+with |g̃⁻¹| ≤ (s0 − ε1)⁻¹;
+(f) b(τ) − a ≥ 1 + δ0, b ≤ b(τ0), D_T ∩ {τ ≥ τ0} ⊂ Ω₂, and D_T contains {p ∈ G : v ≤ V, 𝒦 ≤ l5⁻⁴}.
 
 From here on ε1 is one fixed number as in (e).
 
@@ -393,12 +395,13 @@ while b decreases. So the condition holds once the cone meets Σ_τ0 at a radius
 The slices. By [[prop:two-dust-background]] (c), R_u < 0 on G, so (v, R) are coordinates there. ψ = 0 on 𝒞_out
 ([[prop:two-dust-background]] (a)) and ψ_u = ℬ/(3R² R_u) ≤ 0, so ψ ≤ 0 on G. Along each ingoing ray {v = const}, R
 decreases strictly inward from 𝒞_out, the point of the ray on 𝒞_out lies in G, and G is closed with boundary in {R = a};
-so the ray lies in G until R = a, and G = {a ≤ R ≤ R(u0, v)} in the coordinates (v, R). On 𝒞_out, ψ = 0, so dR/dv = R_v =
-f/2 ≤ 1/2 there, and R(u0, τ + R) − R is strictly decreasing in R. So {τ = const} ∩ G is an interval a ≤ R ≤ R_out(τ),
-R_out(τ) the radius at which the slice meets 𝒞_out or, if it reaches the edge {v = V1} of Q first, the radius V1 − τ at
-which it does. For τ0 ≤ τ ≤ τ_end, R_out(τ) > b(τ): in the first case by the choice of the cone, in the second because
-b(τ) + τ = V + 1 + τ_end − τ ≤ V + 1 + τ_end − τ0 < 2V + 1 − τ0 < V1, as τ_end ≤ V − q0 (proof of (f) below) and by the
-choice of V1 in [[prop:two-dust-background]]. The third condition of [[eq:two-dust-omega]] is R ≤ b(τ). So Σ_τ = A(τ).
+so the ray lies in G until R = a, and G = {a ≤ R ≤ R(u0, v)} in the coordinates (v, R). On 𝒞_out, ψ = 0, so dR/dv =
+R_v = f/2 ≤ 1/2 there, and R(u0, τ + R) − R is strictly decreasing in R. So {τ = const} ∩ G is an interval a ≤ R ≤
+R_out(τ), R_out(τ) the radius at which the slice meets 𝒞_out or, if it reaches the edge {v = V1} of Q first, the radius
+V1 − τ at which it does. For τ0 ≤ τ ≤ τ_end, R_out(τ) > b(τ): in the first case by the choice of the cone, in the second
+because b(τ) + τ = V + 1 + τ_end − τ ≤ V + 1 + τ_end − τ0 < 2V + 1 − τ0 < V1, as τ_end ≤ V − q0 (proof of (f) below) and
+by the choice of V1 in [[prop:two-dust-background]]. The third condition of [[eq:two-dust-omega]] is R ≤ b(τ). So Σ_τ =
+A(τ).
 
 (a)–(c) are the contractions of the inverse in [[eq:two-dust-chart]] with dτ = dv − dR and d(v + τ) = 2dv − dR, with
 e^(−ψ) ≥ 1 and f = 1 − μ/R². As in the proof of [[lem:domain]], dτ is timelike and positive on future causal vectors; at
@@ -676,13 +679,14 @@ vanish for λ small, since g0^(uv) = −e^(−2σ).
     ℛ^(m) = T̂ ĝ_(m+1) + e^(−2σ) F1F2 ĝ_(m+2) − ½ Σ_𝔨 e_(m+1)^𝔨 F_𝔨² W_𝔨 + 𝒲(m_m, φ_m^in, φ_m^out) + 𝒦_m,
                                                                                                    {#eq:two-dust-stage-m}
 
-where T̂ is linear and is applied to the pure harmonics of ĝ_(m+1) only (here and in (c), T̂ ĝ_(m+1) means T̂ applied to
-the pure part of ĝ_(m+1)), and on profiles Y of the harmonics of θ_𝔨 alone Π_𝔨 T̂ Y = −(ℓ_𝔨·∂_X) F_𝔨 Y + Π_𝔨 ℳ Y, Π_𝔨 the
-projection onto those harmonics and ℳ algebraic in X and of first order in (θ1, θ2), with smooth bounded coefficients
+where T̂ is linear and is applied to the pure harmonics of ĝ_(m+1) only (here and in (c), T̂ ĝ_(m+1) means T̂ applied
+to the pure part of ĝ_(m+1)), and on profiles Y of the harmonics of θ_𝔨 alone Π_𝔨 T̂ Y = −(ℓ_𝔨·∂_X) F_𝔨 Y + Π_𝔨 ℳ Y, Π_𝔨
+the projection onto those harmonics and ℳ algebraic in X and of first order in (θ1, θ2), with smooth bounded coefficients
 built from g0, ϕ_in, ϕ_out and W; 𝒲 is as in [[lem:first-entry]], linear in m_m to second order, with mean part −½ □̃ m_m
 plus terms of first order, and linear in φ_m^𝔨 through dφ_m^𝔨 and □̃φ_m^𝔨, the latter only as −½ (□̃φ_m^𝔨) F_𝔨 W_𝔨; and
 𝒦_m depends only on the earlier stages, among them the mixed harmonics of ĝ_(m+1), fixed at stage m − 1. Only the mixed
-harmonics of ĝ_(m+2) enter ℛ^(m). (c) Each stage m ≥ 1 is the system
+harmonics of ĝ_(m+2) enter ℛ^(m).
+(c) Each stage m ≥ 1 is the system
 
     (a′) −½ □̃ m_m + B̄·∂m_m + C̄ m_m = 𝒮_m − ⟨𝒲_φ⟩ − ⟨T̂ ĝ_(m+1)⟩,
     (b′) ℓ_𝔨·dφ_m^𝔨 = ½ m_m(ℓ_𝔨, ℓ_𝔨) + ½ q_m^𝔨,      𝔨 ∈ {in, out},
@@ -703,16 +707,16 @@ contraction, ḡ⁻¹ = g0⁻¹ − λ m1^♯ + O(λ²) and du_𝔨 = dϕ_𝔨 +
 F_𝔨 has weight −1. A factor of stage m + 1 reaches order m in the ways listed there: the pure harmonics of ĝ_(m+1) hit by
 one phase derivative of their own phase, which gives T̂ (a phase derivative of the other phase annihilates them); and
 m_(m+1), dφ_(m+1)^𝔨 in the phase contractions, which give −½ e_(m+1)^𝔨 F_𝔨² W_𝔨. In addition, ĝ_(m+2) hit by two phase
-derivatives reaches order m, through the principal part only, as −½ Σ_(𝔧,𝔨) g0⁻¹(dϕ_𝔧, dϕ_𝔨) F_𝔧 F_𝔨 ĝ_(m+2) = e^(−2σ)
-F1F2 ĝ_(m+2) ([[lem:two-dust-nonresonance]]); this vanishes on the pure harmonics. The mixed harmonics of ĝ_(m+1) reach
-order m too, hit by one phase derivative, or by two through the cross contraction below; they were fixed at stage m − 1
-(by (d′), and at m = 1 by [[lem:two-dust-stage-zero]]), and these terms, with their X-derivatives, belong to 𝒦_m. The
-cross contraction ḡ⁻¹(du_in, du_out) = g0^(uv) + Σ_(j≥1) λ^j c_j contributes at order m the terms −c_j F1F2 ĝ_(m+2−j), 1
-≤ j ≤ m, which have mixed harmonics only. For j < m they contain only the earlier stages and, at j = 1, the mixed
-harmonics of ĝ_(m+1), and are part of 𝒦_m. For j = m, c_m is a linear function of (m_m, dφ_m^𝔨) plus a polynomial in the
-earlier stages; the first part of −c_m F1F2 ĝ_2 belongs to 𝒲 and the second to 𝒦_m. At m = 1, c_1 is linear in (m1,
-dφ_1^𝔨), and −c_1 F1F2 ĝ_2 belongs to 𝒲. T̂ is defined at G1 = g0 + λ (m1 + W) with the phases v + λ φ_1^in and u + λ
-φ_1^out as in [[def:first-stage-operator]], and its form on pure harmonics of θ_𝔨 is that of
+derivatives reaches order m, through the principal part only, as −½ Σ_(𝔧,𝔨) g0⁻¹(dϕ_𝔧, dϕ_𝔨) F_𝔧 F_𝔨 ĝ_(m+2) =
+e^(−2σ) F1F2 ĝ_(m+2) ([[lem:two-dust-nonresonance]]); this vanishes on the pure harmonics. The mixed harmonics of
+ĝ_(m+1) reach order m too, hit by one phase derivative, or by two through the cross contraction below; they were fixed
+at stage m − 1 (by (d′), and at m = 1 by [[lem:two-dust-stage-zero]]), and these terms, with their X-derivatives,
+belong to 𝒦_m. The cross contraction ḡ⁻¹(du_in, du_out) = g0^(uv) + Σ_(j≥1) λ^j c_j contributes at order m the terms
+−c_j F1F2 ĝ_(m+2−j), 1 ≤ j ≤ m, which have mixed harmonics only. For j < m they contain only the earlier stages and,
+at j = 1, the mixed harmonics of ĝ_(m+1), and are part of 𝒦_m. For j = m, c_m is a linear function of (m_m, dφ_m^𝔨)
+plus a polynomial in the earlier stages; the first part of −c_m F1F2 ĝ_2 belongs to 𝒲 and the second to 𝒦_m. At m = 1,
+c_1 is linear in (m1, dφ_1^𝔨), and −c_1 F1F2 ĝ_2 belongs to 𝒲. T̂ is defined at G1 = g0 + λ (m1 + W) with the phases v +
+λ φ_1^in and u + λ φ_1^out as in [[def:first-stage-operator]], and its form on pure harmonics of θ_𝔨 is that of
 [[lem:first-stage-operator]], with ℓ_𝔨 and ϕ_𝔨: the principal term gives −(ℓ_𝔨·∂_X) F_𝔨 Y − ½ (□̃ϕ_𝔨) F_𝔨 Y − ½ e_1^𝔨
 F_𝔨² Y, and e_1^𝔨 = 0. The products of such Y with the other family's wave, for instance ½ Y(ℓ_𝔧, ℓ_𝔧) F_𝔧² W_𝔧 with 𝔧 ≠
 𝔨, have mixed harmonics; they are the mixed part of T̂ ĝ_(m+1), which (d′) carries.
@@ -750,8 +754,8 @@ choice of stage data there are two-phase profiles g1, …, g_N, independent of �
 W_in and W_out as in [[eq:two-dust-waves]] with χ_in, χ_out of [[eq:two-dust-chi]], and the background g0 of
 [[prop:two-dust-background]]. The stage data are those of [[lem:two-dust-stages]] (c) on Σ_τ0, for m = 1, …, N.
 
-*Proof.* Solve stage 0 by [[lem:two-dust-stage-zero]], with ĝ_2's mixed harmonics the profile q there, and the stages m =
-1, …, N by [[lem:two-dust-stages]] (c), keeping in [[eq:two-dust-ansatz]] the pure harmonics of ĝ_(N+1) and the mixed
+*Proof.* Solve stage 0 by [[lem:two-dust-stage-zero]], with ĝ_2's mixed harmonics the profile q there, and the stages m
+= 1, …, N by [[lem:two-dust-stages]] (c), keeping in [[eq:two-dust-ansatz]] the pure harmonics of ĝ_(N+1) and the mixed
 harmonics of ĝ_j for j ≤ N + 1. By [[lem:two-dust-stages]] (a)–(b), ℛ^(m) = 0 for m ≤ N − 1, so R_u[G] is λ^N times a
 profile bounded uniformly in λ. Rewriting with the fixed phases v and u, the Taylor expansion in λΦ_𝔨, Φ_𝔨 := Σ_(j≥2)
 λ^(j−2) φ_j^𝔨, about θ_𝔨 + φ_1^𝔨, as in the proof of [[thm:approximant]], gives profiles g_j(X, θ1, θ2) with the stated
@@ -925,11 +929,11 @@ the right side. ∎
           + Σ_𝔨 c4^(𝔨,ab) ∂_a∂_b φ_𝔨 − 2q ℰ(ℓ_in, ℓ_in) − 2q 𝒬(w)(ℓ_in, ℓ_in) + 2q Σ_𝔨 𝒬_φ^𝔨(ℓ_in, ℓ_in)
           + Σ_(b,i) c^(bi) (∂_b∂_i h)(ℓ_in, ℓ_in),                                                 {#eq:two-dust-ell-ell}
 
-with c0, c1, c2^𝔨, c3^𝔨 bounded coefficients (profiles, and profiles times the function q of (L5)), ω_in and G2^out(ℓ_in,
-ℓ_in) bounded profiles oscillating in θ2, |c4^𝔨| ≤ C λ, |c^(bi)| ≤ C (λ + |w|) and |∂c^(bi)| ≤ C (1 + |∂w|), i spatial.
-𝒬_φ^in(ℓ_in, ℓ_in) contains second derivatives of φ_in only with a factor λ |w|, and 𝒬_φ^out(ℓ_in, ℓ_in) contains |w| |∂²
-φ_out|. The only coefficient of order λ⁻¹ multiplies (1 − 𝒫) s_out(h), which is O(λ ∂s_out(h)) by (M3). The mirror
-statement holds for s_out(h), with ℓ_out ⊗ ℓ_out, ω_out and Ψ_in.
+with c0, c1, c2^𝔨, c3^𝔨 bounded coefficients (profiles, and profiles times the function q of (L5)), ω_in and
+G2^out(ℓ_in, ℓ_in) bounded profiles oscillating in θ2, |c4^𝔨| ≤ C λ, |c^(bi)| ≤ C (λ + |w|) and |∂c^(bi)| ≤ C (1 + |∂w|),
+i spatial. 𝒬_φ^in(ℓ_in, ℓ_in) contains second derivatives of φ_in only with a factor λ |w|, and 𝒬_φ^out(ℓ_in, ℓ_in)
+contains |w| |∂² φ_out|. The only coefficient of order λ⁻¹ multiplies (1 − 𝒫) s_out(h), which is O(λ ∂s_out(h)) by (M3).
+The mirror statement holds for s_out(h), with ℓ_out ⊗ ℓ_out, ω_out and Ψ_in.
 
 *Proof.* By (L5), □̃ s = (□̃h)(ℓ_in, ℓ_in) + c1·dh + c0·h, ℓ_in being smooth and λ-independent, and (□̃h)(ℓ_in, ℓ_in) =
 q (g^(ab) ∂_a∂_b h)(ℓ_in, ℓ_in) + Σ c^(bi) (∂_b∂_i h)(ℓ_in, ℓ_in) + (first order), each term of c^(ab) ∂_a∂_b having a
@@ -1032,17 +1036,18 @@ continuous in τ for a smooth solution, so the set of τ* for which the assumpti
 interval of existence.
 
 **Step 8** (existence, continuation and uniqueness). This is Step 8 of the proof of [[thm:uniform-existence]] with Ω₂ in
-place of Ω. Its part (i) uses of the background only that the extended approximant has spacelike slices {τ = const}, with
-lapse, shift and spatial metric bounded above and below, on a neighbourhood of the domain; here the profiles of g_app, g0
-among them, are extended from Ω₂ by Stein's operator ([[thm:std-sy-extension]]), and by continuity and the compactness of
-Ω₂ ([[lem:two-dust-domain]] (a), (e)) this holds on a neighbourhood U of Ω₂ for λ small, with bounds independent of λ.
-With a smooth cut-off equal to 1 on a smaller neighbourhood U′ of Ω₂ and supported in U, the lapse, shift and spatial
-metric are interpolated convexly, inside U, between those of the extended approximant and (1, 0, δ), as there, and equal
-(1, 0, δ) outside U; on U′ nothing changes. Parts (ii)–(iv) are unchanged, the slices being the annuli A(τ) of Ω₂.
-Uniqueness among C² solutions with |g − g0| ≤ ε1 is the energy argument there, and with Step 7 the bootstrap continues,
-so the solution exists on all of Ω₂ with [[eq:two-dust-remainder]]. The bounds after [[eq:two-dust-remainder]] follow
-from Step 1 as there: |w| ≤ C λ⁻³ 𝒩₂, |∂w| ≤ C λ⁻⁴ 𝒩₂, and |g − g0| ≤ |λ [g1] + Σ_(j≥2) λ^j [g_j]| + |w| ≤ C λ, |∂g| ≤ C,
-since ∂[λ g1] = dv ⊗ [F1 g1] + du ⊗ [F2 g1] + λ [∂_X g1] is bounded. ∎
+place of Ω. Its part (i) uses of the background only that the extended approximant has spacelike slices {τ = const},
+with lapse, shift and spatial metric bounded above and below, on a neighbourhood of the domain; here the profiles of
+g_app, g0 among them, are extended from Ω₂ by Stein's operator ([[thm:std-sy-extension]]), and by continuity and the
+compactness of Ω₂ ([[lem:two-dust-domain]] (a), (e)) this holds on a neighbourhood U of Ω₂ for λ small, with bounds
+independent of λ. With a smooth cut-off equal to 1 on a smaller neighbourhood U′ of Ω₂ and supported in U, the lapse,
+shift and spatial metric are interpolated convexly, inside U, between those of the extended approximant and (1, 0, δ),
+as there, and equal (1, 0, δ) outside U; on U′ nothing changes. Parts (ii)–(iv) are unchanged, the slices being the
+annuli A(τ) of Ω₂. Uniqueness among C² solutions with |g − g0| ≤ ε1 is
+the energy argument there, and with Step 7 the bootstrap continues, so the solution exists on all of Ω₂ with
+[[eq:two-dust-remainder]]. The bounds after [[eq:two-dust-remainder]] follow from Step 1 as there: |w| ≤ C λ⁻³ 𝒩₂, |∂w| ≤
+C λ⁻⁴ 𝒩₂, and |g − g0| ≤ |λ [g1] + Σ_(j≥2) λ^j [g_j]| + |w| ≤ C λ, |∂g| ≤ C, since ∂[λ g1] = dv ⊗ [F1 g1] + du ⊗ [F2
+g1] + λ [∂_X g1] is bounded. ∎
 
 ### The data {#sec:two-dust-data}
 
@@ -1300,21 +1305,23 @@ R[g̃](X, θ1, θ2; λ) = J* R[g](X, 3π/2 − θ1, 3π/2 − θ2; −λ).
 satisfy S g = g. In particular J* m1 = −m1.
 
 *Proof.* (a) J is linear in x and lies in O(4), so it preserves R = |x|, τ, the round metric and hence g0, and every
-function of (τ, R), u and v among them. The proof of [[lem:quarter-turn]] (a) applies with D^λ_a := ∂_a + λ⁻¹ (∂_a v)
-F1 + λ⁻¹ (∂_a u) F2 and ρ(θ1, θ2) := (3π/2 − θ1, 3π/2 − θ2): D^λ_a(f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, and J* commutes with D^λ.
-(b) The outgoing wave has the algebraic form [[eq:waves-hopf]] of the ingoing one, its two quadratures having A₂, env₂(u)
-and θ2 in place of A, env(v) and θ, and J fixes u; so the calculation of [[lem:quarter-turn]] (b) gives (J* W_TT^𝔨)(X,
-3π/2 − θ_𝔨) = −W_TT^𝔨(X, θ_𝔨) for both families. χ_in and χ_out are S-invariant by the uniqueness of the transports
-[[eq:two-dust-chi]], which commute with J and whose forcing terms are S-even by (a) at order 0, as in
-[[lem:quarter-turn]] (b). The last claim is (a) at order 1 for the S-invariant family g0 + λ W_𝔨. (c) By (a), applied to
-the S-invariant family g0 + λ (W_in + W_out), J* R^(0)(X, 3π/2 − θ1, 3π/2 − θ2) = R^(0)(X, θ1, θ2). The division by
-e^(−2σ) F1F2 commutes with J*, σ being O(4)-invariant, and with ρ, since F1F2 is invariant under ρ. So the mixed
-harmonics of ĝ_2, the quotients of those of −R^(0) at ĝ_2 = 0, satisfy (J* ĝ_2)(X, 3π/2 − θ1, 3π/2 − θ2) = ĝ_2(X, θ1,
-θ2). (d) Every later stage of [[lem:two-dust-stages]] (c) and every choice of [[lem:two-dust-stage-data]] (the right
-inverses Pol_𝔨⁺, which are O(4)-equivariant and act pointwise in (θ1, θ2), the division, and the data of the means and
-phases as in [[lem:stage-data]]) is the unique solution of a problem that S maps to itself, and the rewriting with the
-fixed phases commutes with S. So the proof of [[lem:quarter-turn]] (c) applies and gives S g = g; taking the mean over
-T², J* m1 = −m1. ∎
+function of (τ, R), u and v among them. The proof of [[lem:quarter-turn]] (a) applies with D^λ_a := ∂_a +
+λ⁻¹ (∂_a v) F1 + λ⁻¹ (∂_a u) F2 and ρ(θ1, θ2) := (3π/2 − θ1, 3π/2 − θ2): D^λ_a(f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, and J*
+commutes with D^λ.
+(b) The outgoing wave has the algebraic form [[eq:waves-hopf]] of the ingoing one, its two quadratures having A₂,
+env₂(u) and θ2 in place of A, env(v) and θ, and J fixes u; so the calculation of [[lem:quarter-turn]] (b) gives (J*
+W_TT^𝔨)(X, 3π/2 − θ_𝔨) = −W_TT^𝔨(X, θ_𝔨) for both families. χ_in and χ_out are S-invariant by the uniqueness of the
+transports [[eq:two-dust-chi]], which commute with J and whose forcing terms are S-even by (a) at order 0, as in
+[[lem:quarter-turn]] (b). The last claim is (a) at order 1 for the S-invariant family g0 + λ W_𝔨.
+(c) By (a), applied to the S-invariant family g0 + λ (W_in + W_out), J* R^(0)(X, 3π/2 − θ1, 3π/2 − θ2) = R^(0)(X, θ1,
+θ2). The division by e^(−2σ) F1F2 commutes with J*, σ being O(4)-invariant, and with ρ, since F1F2 is invariant under ρ.
+So the mixed harmonics of ĝ_2, the quotients of those of −R^(0) at ĝ_2 = 0, satisfy (J* ĝ_2)(X, 3π/2 − θ1, 3π/2 − θ2) =
+ĝ_2(X, θ1, θ2).
+(d) Every later stage of [[lem:two-dust-stages]] (c) and every choice of [[lem:two-dust-stage-data]] (the right inverses
+Pol_𝔨⁺, which are O(4)-equivariant and act pointwise in (θ1, θ2), the division, and the data of the means and phases as
+in [[lem:stage-data]]) is the unique solution of a problem that S maps to itself, and the rewriting with the fixed phases
+commutes with S. So the proof of [[lem:quarter-turn]] (c) applies and gives S g = g; taking the mean over T², J* m1 =
+−m1. ∎
 
 The base of the induction is (b) for both families and (c) for the interaction: with one quadrature alone in either
 family, (b) fails for that family.
