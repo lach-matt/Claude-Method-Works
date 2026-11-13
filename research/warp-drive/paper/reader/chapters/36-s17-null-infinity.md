@@ -1063,11 +1063,11 @@ The remaining sections are [Hin26, Section 9.2] in dimension 4 + 1. As there, on
 finite b-regularity loses fixed amounts.
 
 *Two constants.* ε_ind ∈ (0, 1] is the constant of [[eq:iii-f1-2-2]], the counterpart of [Hin26, (8.13)]:
-d(Re μ, ℤ) ≥ ε_ind for every non-integer root μ of L̂_b(0) with |μ| ≤ 50. It enters the windows [[eq:iii-g4-3-1]] and
+d(Re μ, ℤ) ≥ ε_ind for every non-integer root μ of L̂_b(0) with |μ| ≤ 50. It enters the windows [[eq:iii-g4-3-1]],
 [[eq:iii-g4-4-2]] and that of [[prop:iii-g4-5-1]], and the separation of roots and poles in the proof of
 [[lem:iii-g4-3-4]]. ε_Υ ∈ (0, ½) is the constant of [[sec:iii-d2-1]], fixed by the indicial roots of □^Υ_b alone, and
-ℰ_ind denotes, as there, an index set with min Re ℰ_ind ≥ ε_Υ. It bounds the corrections of the states, and so the
-gains at tf in [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]]. The two constants are different.
+ℰ_ind denotes, as there, an index set with min Re ℰ_ind ≥ ε_Υ. The corrections of the states have such index sets,
+and ε_Υ is the gain at tf in [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]]. The two constants are different.
 
 Against [Hin26], dimension 4 + 1 changes the following. (a) The tf-normal operator carries −r̂∂_r̂ − 3/2 − S̄ in its
 first-order part, and its inverse is [[cor:iii-f1-3-4]], with the sctf weight below 3/2 (1 in [Hin26]) and the ztf

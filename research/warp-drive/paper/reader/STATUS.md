@@ -42,7 +42,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | running | - |
 | 61 M Ch 11 | running | - | - |
-| 62 M Ch 12 | running (issue-1: B open) | - | - |
+| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | running | - |
 | 63-64 M Ch 13-14 | being written | - | - |
 | 65-90 | not yet written | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | NOT CONFIRMED 0M 7m 9n; second fix running |

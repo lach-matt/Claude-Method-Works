@@ -193,33 +193,39 @@ Let
 
 **Proposition {#prop:iii-k-1-2}** (The initial family; [Hin26, (13.5) and (12.33)].) Let γ = γ_(b₀) + γ̃ and
 k = k_(b₀) + k̃ be data on Σ^IVP satisfying the constraint equations, with γ̃ ∈ H^(∞,(ℰ_0,ℓ_0))_b and
-k̃ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b, small in H^(d_1) of these classes for a d_1 fixed below. Let h̊_0, h̊_1 be the Cauchy data of
-[[prop:iii-c2-4-1]] for (γ, k). For S ∈ 𝒮_1 small let h_(S,0), h_(S,1) be the pulled-back data [[eq:iii-c2-3-1]] of
-these, now on all of Σ^IVP. Let N := {t_IVP ≥ −ν(r)}, with ν smooth and non-decreasing, ν = 0 on [0, R_ν],
-R_ν := ½(r_♭ + 5R₁), ν > 0 on (R_ν, ∞), 0 ≤ ν′ ≤ 1/32, and ν(r) = r/64 for r ≥ 16R_8, where R_8 ≥ max(2r_1, 8, 5R₁) is
-fixed in [[lem:s27-cover]]. Such ν exists, as 16R_8/64 ≤ (16R_8 − R_ν)/32; and ν(r) ≤ (r − R_ν)/32 ≤ r/32. So
-{t_IVP = −ν} is spacelike for g_(b₀) (see below), N = {t_IVP ≥ 0} near {r = r_♭}, and {r = r_♭} is an inflow boundary
-for a backward problem. Put
+k̃ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b, small in H^(d_0) of these classes, where d_0 is the largest of the regularities that
+[[thm:iii-c2-3-1]] (with [[thm:iii-c1-3-1]]), [[thm:iv3-2-2]] and the local theory on 𝒦 in the proof below ask of the
+data. Let h̊_0, h̊_1 be the Cauchy data of [[prop:iii-c2-4-1]] for (γ, k). For S, S⁰ ∈ 𝒮_1 small let h⁰_(S,S⁰),
+h¹_(S,S⁰) be the pulled-back data [[eq:iii-c2-3-1]] of these, with φ_(S,S⁰) in place of φ_S, now on all of Σ^IVP. Let
+N_ν := {t_IVP ≥ −ν(r)}, with ν smooth and non-decreasing, ν = 0 on [0, R_ν], R_ν := ½(r_♭ + 5R₁), ν > 0 on (R_ν, ∞),
+0 ≤ ν′ ≤ 1/32, and ν(r) = r/64 for r ≥ 16R_8, where R_8 ≥ max(2r_1, 8, 5R₁) is fixed in [[lem:s27-cover]]. Such ν
+exists, as 16R_8/64 ≤ (16R_8 − R_ν)/32; and ν(r) ≤ (r − R_ν)/32 ≤ r/32. So {t_IVP = −ν} is spacelike for g_(b₀) (see
+below), N_ν = {t_IVP ≥ 0} near {r = r_♭}, and {r = r_♭} is an inflow boundary for a backward problem. Put
 
-    𝒟 := N ∩ {t^♭_* ≤ T̂ + 3},     𝒟_S := φ_S⁻¹({t_IVP ≥ 0}) ∩ {t^♭_* ≤ T̂ + 2}.
+    𝒟 := N_ν ∩ {t^♭_* ≤ T̂ + 3},     𝒟_(S,S⁰) := φ_(S,S⁰)⁻¹({t_IVP ≥ 0}) ∩ {t^♭_* ≤ T̂ + 2}.
 
-For |S| small, 𝒟_S ⊂ 𝒟, and φ_S maps a neighbourhood of Σ^IVP ∪ φ_S⁻¹(Σ^IVP) into N. There is a unique h_S on 𝒟 with
+For |S| + |S⁰| small, 𝒟_(S,S⁰) ⊂ 𝒟, and φ_(S,S⁰) maps a neighbourhood of Σ^IVP ∪ φ_(S,S⁰)⁻¹(Σ^IVP) into N_ν. There
+is a unique h_(S,S⁰) on 𝒟 with
 
-    P^♮(φ_S^*g_(b₀) + h_S, φ_S^*g_(b₀)) = 0,     h_S = h_(S,0),  r ℒ_(∂_(t_IVP)) h_S = h_(S,1)  on Σ^IVP,
-                                                                                                  {#eq:iii-k-1-2}
+    P^♮(φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰), φ_(S,S⁰)^*g_(b₀)) = 0,
+    h_(S,S⁰) = h⁰_(S,S⁰),  r ℒ_(∂_(t_IVP)) h_(S,S⁰) = h¹_(S,S⁰)  on Σ^IVP,                                  {#eq:iii-k-1-2}
 
 and:
 
-(1) h_S = φ_S^*h_0 on a neighbourhood of Σ^IVP ∪ φ_S⁻¹(Σ^IVP) in 𝒟, where h_0 := h_S|_(S=0) on 𝒟, a two-sided
-neighbourhood of Σ^IVP off {r ≤ R_ν}; on {r ≤ R_ν}, 𝒟 ends at Σ^IVP and φ_S is the identity, so φ_S^*h_0 is defined
-there. Hence φ_S^*g_(b₀) + h_S = φ_S^*(g_(b₀) + h_0) there;
+(1) h_(S,S⁰) = φ_(S,S⁰)^*h_0 on a neighbourhood of Σ^IVP ∪ φ_(S,S⁰)⁻¹(Σ^IVP) in 𝒟, where h_0 := h_(0,0) on 𝒟, a
+two-sided neighbourhood of Σ^IVP off {r ≤ R_ν}; on {r ≤ R_ν}, 𝒟 ends at Σ^IVP and φ_(S,S⁰) is the identity, so
+φ_(S,S⁰)^*h_0 is defined there. Hence φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰) = φ_(S,S⁰)^*(g_(b₀) + h_0) there;
 
-(2) Ric(φ_S^*g_(b₀) + h_S) = 0 and Υ^(χ^♮_0E_Υ)(φ_S^*g_(b₀) + h_S, φ_S^*g_(b₀)) = 0 on 𝒟; on 𝒟 ∩ Ω_* the gauge 1-form
-is Υ^(E_Υ) ([[lem:iii-k-1-1]] (b)), which is [Hin26, (12.33b)];
+(2) Ric(φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰)) = 0 and Υ^(χ^♮_0E_Υ)(φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰), φ_(S,S⁰)^*g_(b₀)) = 0 on 𝒟;
+on 𝒟 ∩ Ω_* the gauge 1-form is Υ^(E_Υ) ([[lem:iii-k-1-1]] (b)), which is [Hin26, (12.33b)];
 
-(3) on 𝒟 ∩ Ω_*, h_S ∈ H̄^(∞,(⟨ℰ^C_I⟩,ℓ_I))_b (orders at ℐ⁺; the set is bounded in t_*); h_S is C^l in S with values in
-each H^k of this class, for data of regularity depending on k and l ([[thm:iii-c2-3-1]] (2)); and for each k there are
-k′ and C_k with ‖h_S‖_(H^k) + ‖∂_S h_S‖_(H^k) + ‖∂²_S h_S‖_(H^k) ≤ C_k ‖(γ̃, k̃)‖_(H^(k+k′)).
+(3) on 𝒟 ∩ Ω_*, h_(S,S⁰) ∈ H̄^(∞,(⟨ℰ^C_I⟩,ℓ_I))_b (orders at ℐ⁺; the set is bounded in t_*); h_(S,S⁰) is C^l in
+(S, S⁰) with values in each H^k of this class, for data of regularity depending on k and l ([[thm:iii-c2-3-1]] (2)); and
+for each k there are k′_k and C_k with
+
+    ‖h_(S,S⁰)‖_(H^(k+2)) + ‖∂_(S,S⁰)h_(S,S⁰)‖_(H^(k+2)) + ‖∂²_(S,S⁰)h_(S,S⁰)‖_(H^(k+2)) ≤ C_k ‖(γ̃, k̃)‖_(H^(k+k′_k)),
+
+in the norms of this class (the shift by 2 is the order of P_5, as [[lem:iii-k-2-2]] uses it).
 
 *The hypersurface {t_IVP = −ν} and the inclusions.* In the Kerr–Schild coordinates of [[lem:iii-b-3-7]],
 t_IVP + ν = t − (ψ_IVP − ν)(|x|) has differential dt_KS − β′ d|x| with β′ = β_IVP − ν′, where β_IVP :=
@@ -227,17 +233,18 @@ t_IVP + ν = t − (ψ_IVP − ν)(|x|) has differential dt_KS − β′ d|x| wi
 on [5R₁, ∞), and on [r_♭, 5R₁], where β_IVP = 1 − χ_∞(8m₀/ϱ² − 2m₀/(ϱ² − m₀)) (ϱ = |x|), either χ_∞ = 0 and
 β_IVP = 1, or ϱ ≥ 2R₁ and 8m₀/ϱ² − 2m₀/(ϱ² − m₀) ≤ 6m₀/ϱ² ≤ 3/2, so β_IVP ≥ −½. As 0 ≤ ν′ ≤ 1/32,
 β′ ∈ (−1, 1], and d(t_IVP + ν) is timelike for g_(b₀) by [[lem:iii-b-3-3]] (e) and [[lem:s11-ks-domain]]: {t_IVP = −ν}
-is spacelike. Near {r = r_♭}, ν = 0, and {r = r_♭} is spacelike with dr future timelike ([[lem:ii-c-3-2]] (1)), N
+is spacelike. Near {r = r_♭}, ν = 0, and {r = r_♭} is spacelike with dr future timelike ([[lem:ii-c-3-2]] (1)), N_ν
 lying to its past; past directed causal curves from points with r > r_♭ stay in {r ≥ min(r(p), r^♮)}, so a backward
-problem needs no data there. For the inclusions: near |x| = r, φ_S moves t_IVP by at most C|S|r
-([[lem:s27-boost-move]]) and not at all for r ≤ 5R₁, while ν(r) ≥ c_ν r on [5R₁, ∞) with
-c_ν := min(ν(5R₁)/(16R_8), 1/64) > 0; so C|S| ≤ ½c_ν suffices. (φ_S⁻¹, not φ_S, appears in 𝒟_S: φ_S^*h_0 at p needs
-h_0 at φ_S(p).)
+problem needs no data there. For the inclusions: near |x| = r, φ_(S,S⁰) and φ_(S,S⁰)⁻¹ move t_IVP by at most
+C(|S| + |S⁰|)r ([[lem:s27-boost-move]]) and not at all for r ≤ 5R₁, while ν(r) ≥ c_ν r on [5R₁, ∞) with
+c_ν := min(ν(5R₁)/(16R_8), 1/64) > 0; so C(|S| + |S⁰|) ≤ ½c_ν suffices. (φ_(S,S⁰)⁻¹, not φ_(S,S⁰), appears in
+𝒟_(S,S⁰): φ_(S,S⁰)^*h_0 at p needs h_0 at φ_(S,S⁰)(p).)
 
 #### The cover of 𝒟 {#sec:s27-cover}
 
-Let r_ext ≥ R_0 be the exterior radius at which [[thm:iii-c2-3-1]] is applied (R_0 that of [[lem:iii-c1-1-1]]), and
-r_1 := 2r_ext ≥ R_6, the radius of its boosted problem; Ω_(ext,r_1), Σ^IVP_(r_1) := Ω_(ext,r_1) ∩ Σ^IVP and its future
+Let r_ext ≥ R_0 be the exterior radius at which [[thm:iii-c2-3-1]] is applied, for φ_(S,S⁰) by
+[[lem:s27-translated-exterior]] (c) (R_0 that of [[lem:iii-c1-1-1]]), and r_1 := 2r_ext ≥ R_6, the radius of its
+boosted problem; Ω_(ext,r_1), Σ^IVP_(r_1) := Ω_(ext,r_1) ∩ Σ^IVP and its future
 boundary Σ^fut_(r_1) = {t_IVP = r + 2r^(1−ℓ^♭_I) − (r_1 + 2r_1^(1−ℓ^♭_I))} are those of [[lem:iii-c1-1-1]], with the
 weights ℓ^♭_0, ℓ^♭_I of [[eq:iii-c1-1-1]]. Let
 
@@ -260,8 +267,9 @@ before it depends on, we take c ≤ min(½, 1/R_9).
 (b) 𝒟 ∩ {t_IVP < 0, r ≥ R_8} ⊂ Ω_(ext,r_1).
 
 (c) 𝒦 is compact. Its boundary consists of the part of Σ^IVP in it, {t_IVP = −ν}, Σ^fut_(r_1) ∩ {ρ′_I ≥ c},
-{ρ′_I = c}, {t^♭_* = T̂ + 3} and {r = r_♭}; the last four are spacelike, with 𝒦 to their past, for g_(b₀) and for every
-metric C⁰-close to it on 𝒦 whose difference from g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b). So Ω_(ext,r_1) ∪ 𝒦 is closed
+{ρ′_I = c}, {t^♭_* = T̂ + 3} and {r = r_♭}; the last four are spacelike, for g_(b₀) and for every metric C⁰-close to
+it on 𝒦 whose difference from g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b); 𝒦 lies to the future of
+Σ^fut_(r_1) ∩ {ρ′_I ≥ c} and to the past of the other three. So Ω_(ext,r_1) ∪ 𝒦 is closed
 under past causal curves within 𝒟, and 𝒦 is the domain of dependence of the past part of its boundary.
 
 (d) 𝒮 lies near the interior of ℐ⁺: x¹ is bounded on it. On 𝒮, t_IVP ≥ r/4.
@@ -337,26 +345,26 @@ slots in (ρ′_0)²(ρ′_I)³C^∞: this is [[eq:iii-c-3-4]] in the translated
 
 #### The curves on Ω^♮ {#sec:iv3-1}
 
-**Lemma {#lem:iv3-1-1}** Let c_1 ∈ (0, c/4] and r_ext large. (a) {ρ′_I = c_1} = {t = (1 − c_1)|x| + T″} is spacelike
-near infinity, with {ρ′_I < c_1} to its future. (b) For p ∈ Ω^♮ with ρ′_I(p) < c_1, the integral curves of
+**Lemma {#lem:iv3-1-1}** Let c_♮ ∈ (0, c/4] and r_ext large. (a) {ρ′_I = c_♮} = {t = (1 − c_♮)|x| + T″} is spacelike
+near infinity, with {ρ′_I < c_♮} to its future. (b) For p ∈ Ω^♮ with ρ′_I(p) < c_♮, the integral curves of
 X′_I := ρ′_I∂_(ρ′_I) and of X′_0 − X′_I through p (the outgoing ray at fixed x¹, and the curve of fixed |x|), followed
-in the direction of increasing ρ′_I, stay in Ω^♮ until they reach {ρ′_I = c_1}, which they do. (c)
-Ω^♮ ∩ {ρ′_I < c_1} does not meet 𝒦, and Σ_c lies in {ρ′_I = c}.
+in the direction of increasing ρ′_I, stay in Ω^♮ until they reach {ρ′_I = c_♮}, which they do. (c)
+Ω^♮ ∩ {ρ′_I < c_♮} does not meet 𝒦, and Σ_c lies in {ρ′_I = c}.
 
 *Proof.* (a) is [[lem:iv2-1-1]] (a) in the translated chart. (b) Near infinity, Ω^♮ ∩ {ρ′_I < c} is the set
 {ρ′_I < c, t_IVP ≥ 0, t^♭_* ≤ T̂ + 3}: below Σ^fut_(r_1) it is Ω_(ext,r_1), above it 𝒮. So it suffices that along the
 segment ρ′_I stays below c and t_IVP ≥ 0 and t^♭_* ≤ T̂ + 3 persist. *The ray.* Along it x¹ = x¹_p, and |x| decreases
-to r_c := (T″ − x¹_p)/c_1, where ρ′_I = c_1 < c. t_* = x¹ + C′ − 8m₀|x|⁻¹ decreases along it. So does t^♭_*, along
+to r_c := (T″ − x¹_p)/c_♮, where ρ′_I = c_♮ < c. t_* = x¹ + C′ − 8m₀|x|⁻¹ decreases along it. So does t^♭_*, along
 this curve and the next: both are past directed causal for g_(b₀) (the ray is g_(b₀)-null, as
 g_(b₀) = η + m₀|x|⁻²(dx¹)² there, [[lem:iii-b-3-5]] (b)), and dt^♭_* is past timelike for g_(b₀) ([[lem:ii-c-3-2]]
-(2)). t_IVP = x¹ + |x| − C″ decreases too, and at r_c it is x¹_p(1 − c_1⁻¹) + T″c_1⁻¹ − C″, which is
-≥ |x¹_p|(c_1⁻¹ − 1) + T″c_1⁻¹ − C″ > 0 if x¹_p < 0, and ≥ T″ − 1 + c_1⁻¹ − C″ > 0 if x¹_p ∈ [0, T″ − 1], for c_1 small;
-and r_c = (T″ − x¹_p)/c_1 ≥ 1/c_1 ≥ 4/c ≥ 4R_9, as T″ − x¹ ≥ 1 on 𝒟 and c ≤ 1/R_9, so the ray stays in {r ≥ R_9}.
-*The curve of fixed |x|.* t decreases to t_c := (1 − c_1)|x| + T″; t_* decreases; the curve may cross Σ^fut_(r_1) into
-Ω_(ext,r_1); t_IVP(t_c) ≥ ½|x| + T″ − C″ > 0; and ρ′_I < c_1 along it, so it avoids 𝒦. (c) is the definition of 𝒮
+(2)). t_IVP = x¹ + |x| − C″ decreases too, and at r_c it is x¹_p(1 − c_♮⁻¹) + T″c_♮⁻¹ − C″, which is
+≥ |x¹_p|(c_♮⁻¹ − 1) + T″c_♮⁻¹ − C″ > 0 if x¹_p < 0, and ≥ T″ − 1 + c_♮⁻¹ − C″ > 0 if x¹_p ∈ [0, T″ − 1], for c_♮ small;
+and r_c = (T″ − x¹_p)/c_♮ ≥ 1/c_♮ ≥ 4/c ≥ 4R_9, as T″ − x¹ ≥ 1 on 𝒟 and c ≤ 1/R_9, so the ray stays in {r ≥ R_9}.
+*The curve of fixed |x|.* t decreases to t_c := (1 − c_♮)|x| + T″; t_* decreases; the curve may cross Σ^fut_(r_1) into
+Ω_(ext,r_1); t_IVP(t_c) ≥ ½|x| + T″ − C″ > 0; and ρ′_I < c_♮ along it, so it avoids 𝒦. (c) is the definition of 𝒮
 and 𝒦 ⊂ 𝒟 ∖ 𝒮. ∎
 
-So [[lem:iv2-1-2]] holds on Ω^♮_(c_1) := Ω^♮ ∩ {ρ′_I < c_1}, in the translated chart, with the same proof.
+So [[lem:iv2-1-2]] holds on Ω^♮_(c_♮) := Ω^♮ ∩ {ρ′_I < c_♮}, in the translated chart, with the same proof.
 
 #### The solution on Ω^♮ {#sec:iv3-2}
 
@@ -369,25 +377,25 @@ r ℒ_(∂_(t_IVP))ġ = ġ_1 on Σ^IVP_(r_1), and the Cauchy data (k̇_0, k̇_1)
 
 *Proof.* As [[thm:iv2-2-4]], with three changes. *The gauge.* On Ω_(ext,r_1), χ^♮_0 = χ_0 ([[lem:iii-k-1-1]] (c));
 on 𝒮, χ^♮_0 = 1 = χ_0, as t_IVP ≥ r/4 there ([[lem:s27-cover]] (d)); so L = L^(χ_0) on Ω^♮, and [[cor:iv2-4-1]]
-applies, χ_0 = 1 on Ω^♮_(c_1) (ρ′_I < c_1 gives t_IVP ≥ r/4). *The background.* g_0 ∈ 𝒢″ near 𝒮̄ by
+applies, χ_0 = 1 on Ω^♮_(c_♮) (ρ′_I < c_♮ gives t_IVP ≥ r/4). *The background.* g_0 ∈ 𝒢″ near 𝒮̄ by
 [[lem:iv3-0-1]], and in the class of [[lem:iii-c2-1-1]] on Ω_(ext,r_1); it is Ricci flat. *The regions.* Fix
-c_1 ≤ c/4 so small that [[prop:iv1-2-2]] holds on Ω^♮_(c_1) with Σ_in := {ρ′_I = c_1} ∩ Ω^♮ and
-Σ_fin := {t^♭_* = T̂ + 3} ∩ Ω^♮_(c_1), which is spacelike for g_0 + h, dt^♭_* being past timelike for every g_(b₀) + h′
+c_♮ ≤ c/4 so small that [[prop:iv1-2-2]] holds on Ω^♮_(c_♮) with Σ_in := {ρ′_I = c_♮} ∩ Ω^♮ and
+Σ_fin := {t^♭_* = T̂ + 3} ∩ Ω^♮_(c_♮), which is spacelike for g_0 + h, dt^♭_* being past timelike for every g_(b₀) + h′
 with h′ small in 𝒢̃^(0,(1,0,0))_(e3b) ([[lem:ii-c-3-2]] (2)); every X′_I-curve there begins on Σ_in
 ([[lem:iv3-1-1]] (b)). Then:
 
 (i) On Ω_N (near the interior of I₀, with the past slab), [[lem:iv2-2-2]] with the data on Σ^IVP_(r_1), unchanged.
 
-(ii) On Ω^♮ ∩ {ρ′_I ≥ c_1/4} ∩ {τ′ ≥ 1/16}, away from ℐ⁺ (τ′ = t_IVP/|x| as in [[sec:iv2-0]]): its part in
+(ii) On Ω^♮ ∩ {ρ′_I ≥ c_♮/4} ∩ {τ′ ≥ 1/16}, away from ℐ⁺ (τ′ = t_IVP/|x| as in [[sec:iv2-0]]): its part in
 Ω_(ext,r_1) by the first step of [[lem:iv2-2-3]] ([[prop:iv-4-1]] for the system near the interior of I₀, and standard
-energy estimates on the compact part); then its part in 𝒮, which is compact (|x| ≤ 4(T″ − x¹)/c_1, x¹ bounded), by the
+energy estimates on the compact part); then its part in 𝒮, which is compact (|x| ≤ 4(T″ − x¹)/c_♮, x¹ bounded), by the
 standard energy estimate for the Cauchy problem of a linear wave equation on a compact domain of dependence, with data
-on Σ_c (given) and on Σ^fut_(r_1) ∩ {c_1/4 ≤ ρ′_I < c} (from the part in Ω_(ext,r_1)), both spacelike and compact. Its
-boundary to the future, {ρ′_I = c_1/4}, {t^♭_* = T̂ + 3} and Σ^fut_(r_1) ∩ {ρ′_I ≥ c} (where Ω^♮ borders 𝒦), is
+on Σ_c (given) and on Σ^fut_(r_1) ∩ {c_♮/4 ≤ ρ′_I < c} (from the part in Ω_(ext,r_1)), both spacelike and compact. Its
+boundary to the future, {ρ′_I = c_♮/4}, {t^♭_* = T̂ + 3} and Σ^fut_(r_1) ∩ {ρ′_I ≥ c} (where Ω^♮ borders 𝒦), is
 spacelike, so the region is closed under past causal curves within Ω^♮, and [[lem:ii-f-1-3]] gives uniqueness.
 
-(iii) On Ω^♮_(c_1), the second step of [[lem:iv2-2-3]] and the steps of the proof of [[thm:iv2-2-4]] near ℐ⁺, with
-c_1 in place of c: the cut-off χ̂_(c_1)(ρ′_I), [[prop:iv1-2-2]], and the two integrations of [[lem:iv2-1-2]] along the
+(iii) On Ω^♮_(c_♮), the second step of [[lem:iv2-2-3]] and the steps of the proof of [[thm:iv2-2-4]] near ℐ⁺, with
+c_♮ in place of c: the cut-off χ̂_(c_♮)(ρ′_I), [[prop:iv1-2-2]], and the two integrations of [[lem:iv2-1-2]] along the
 curves of [[lem:iv3-1-1]]. Nothing in these steps uses ρ′_0 beyond its role as a coordinate; on 𝒮 it is bounded
 below, where the weight at I₀ is immaterial.
 
@@ -419,8 +427,8 @@ particular h_S has the orders (⟨ℰ^C_I⟩, ℓ_I) at ℐ⁺ on 𝒮, as [[pro
 
 *Proof.* The proof of [[thm:iii-c1-3-1]] on Ω^♮, with [[thm:iv3-2-1]] in place of the linear estimate
 [[eq:iii-c1-2-2]]. Its Step 1 works at I₀, which Ω^♮ meets only within Ω_(ext,r_1); its Step 2 integrates, slot by
-slot, along X_I and X_0 − X_I near ℐ⁺ ([[lem:iii-a-1-2]], [[lem:iii-a-3-2]]), and on Ω^♮_(c_1) the curves followed
-backward reach {ρ′_I = c_1}, where the solution is smooth ([[lem:iv3-1-1]] (b)); away from ℐ⁺ there is nothing to show.
+slot, along X_I and X_0 − X_I near ℐ⁺ ([[lem:iii-a-1-2]], [[lem:iii-a-3-2]]), and on Ω^♮_(c_♮) the curves followed
+backward reach {ρ′_I = c_♮}, where the solution is smooth ([[lem:iv3-1-1]] (b)); away from ℐ⁺ there is nothing to show.
 The structure [[eq:iii-c-4-4]] used there holds near 𝒮 by [[lem:iv3-0-1]] and the translation. ∎
 
 #### Past causal curves near null infinity and near spatial infinity {#sec:iii-k-6}

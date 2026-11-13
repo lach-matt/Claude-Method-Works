@@ -118,25 +118,59 @@ J^M_+(supp(φ)) for all φ ∈ 𝒟(M, E), is called an advanced Green's operato
 𝒟(M, E) → C^∞(M, E) satisfying (i), (ii), and (iii′) supp(G_−φ) ⊂ J^M_−(supp(φ)) for all φ ∈ 𝒟(M, E) instead of
 (iii) is called a retarded Green's operator for P." Corollary 3.4.3: "Let M be a globally hyperbolic Lorentzian
 manifold. Let P be a normally hyperbolic operator acting on sections in a vector bundle E over M. Then there exist
-unique advanced and retarded Green's operators G_± : 𝒟(M, E) → C^∞(M, E) for P." Lemma 3.4.4: on a globally
-hyperbolic manifold, with G_± the Green's operators for P and G^*_± "the Green's operators for the adjoint operator P^*",
+unique advanced and retarded Green's operators G_± : 𝒟(M, E) → C^∞(M, E) for P." We use (1) for P and for P^*.
 
-    ∫_M (G^*_± φ) · ψ dV = ∫_M φ · (G_∓ ψ) dV      (3.9)
+(2) [BW15, Definition 7 and Theorem 8, p. 13]. [BW15] considers a wave operator P (a second-order operator whose
+principal symbol is given by the metric, P = −Σ g^(ij) ∂²/∂x^i∂x^j + lower order terms, [BW15, Section 1.8, p. 12])
+acting on sections of a vector bundle S with a Riemannian or Hermitian metric and a compatible connection ∇, over a
+globally hyperbolic manifold with a Cauchy temporal function t, in which the metric is g = −β dt² + g_t (p. 3);
+Σ_s := t⁻¹(s), and H^k(Σ_s) is the Sobolev space of [BW15, Section 1.6, pp. 6–8]. Definition 7: "Given a Cauchy
+temporal function t, we briefly write E_k(u, s) := E_k(u, Σ_s) = ‖u|_(Σ_s)‖²_(H^k(Σ_s)) + ‖β^(−1/2)∇_t u‖²_(H^(k−1)(Σ_s))."
+Theorem 8: "Let [T0, T1] ⊂ t(M), let K ⊂ M be compact, and let k ∈ ℝ. Then there exists a constant C > 0 such that
 
-"holds for all φ ∈ 𝒟(M, E^*) and ψ ∈ 𝒟(M, E)".
+    E_k(u, t1) ≤ E_k(u, t0) · e^(C(t1−t0)) + ∫_(t0)^(t1) e^(C(t1−s)) ‖Pu‖²_(H^(k−1)(Σ_s)) ds      (4)
 
-(2) [BW15, Corollary 12, p. 15]. For a wave operator P (a second-order operator whose principal symbol is given by the
-metric, P = −Σ g^(ij) ∂²/∂x^i∂x^j + lower order terms, [BW15, Section 1.8, p. 12]) on a globally hyperbolic manifold
-with Cauchy temporal function t, and Σ[t0, t1] := t⁻¹([t0, t1]) (p. 14): "Let [T0, T1] ⊂ t(M) and let K ⊂ M be
-compact. Let k ∈ ℕ. Then there exists a constant C > 0 such that
+holds for all t0, t1 ∈ [T0, T1] with t0 < t1 and for all u ∈ FE^(k+1)_sc(M, t; S) with supp(u) ⊂ J(K) and
+Pu ∈ C⁰_sc(t(M), H^(k−1)(Σ•))." Here J(K) = J_+(K) ∪ J_−(K) (p. 4), and FE^(k+1)_sc(M, t; S) is the space of finite
+(k + 1)-energy sections [BW15, Definition 1, p. 9]; the proof of [BW15, Corollary 12, p. 15] applies (4) to every
+smooth u with supp u ⊂ J(K), and so do we. On M = ℝ^(1+n) take S = M × ℂ^N with the standard Hermitian metric and the
+trivial connection, and t the Minkowski time: then β = 1, g_t is the Euclidean metric, Σ_s = {s} × ℝⁿ and ∇_t = ∂_t.
+Let B ⊂ ℝⁿ be a closed ball and j ≥ 0 an integer. On functions on Σ_s supported in B, ‖·‖_(H^j(Σ_s)) is equivalent,
+with constants independent of s, to ‖v‖_(H^j) := (Σ_(|γ|≤j) ‖∂^γ v‖²_(L²(ℝⁿ)))^(1/2): by [BW15, Section 1.6.2, p. 7]
+it is the norm of the double of a larger closed ball, the same for every s; by [BW15, Section 1.6.1, p. 7], "for
+k ∈ ℕ_0, a norm equivalent to ‖·‖_(H^k(Σ)) is given by ‖u‖² = Σ_(ℓ=0)^k ‖∇^ℓ u‖²_(L²(Σ))"; and for v supported in B
+these terms are Euclidean, with |∇^ℓ v|² between Σ_(|γ|=ℓ) |∂^γ v|² and ℓ! times it.
 
-    ‖u‖²_(H^k(Σ[t0,t1])) ≤ C · (‖u|_(Σ_t0)‖²_(H^k(Σ_t0)) + ‖∇_t u‖²_(H^(k−1)(Σ_t0)) + ‖Pu‖²_(H^(k−1)(Σ[t0,t1])))
+(3) *The slab estimate.* For t0 < t1 let S(t0, t1) := {t0 < t < t1} ⊂ M and, for an integer k ≥ 0,
+‖v‖_(k,S(t0,t1)) := (Σ_(|α|≤k) ‖∂^α v‖²_(L²(S(t0,t1))))^(1/2), α ranging over the multi-indices in (t, x). For a
+function u on M write u(s) := u(s, ·). Let K ⊂ M be compact, t0 < t1 and k ≥ 1 an integer. There is C such that
 
-holds for all t0, t1 ∈ [T0, T1] with t0 < t1 and for all u ∈ C^∞_(J(K))(M)." Here ℕ = {1, 2, 3, …} (p. 3),
-J(K) = J_+(K) ∪ J_−(K), and C^∞_(J(K))(M) is the space of smooth sections supported in J(K) (p. 5). On M = ℝ^(1+n),
-with the Minkowski time and the trivial connection, ‖·‖_(H^k(Σ[t0,t1])) is, on functions supported in a fixed compact
-set, equivalent to the norm (Σ_(|α|≤k) ‖∂^α u‖²_(L²))^(1/2) over the slab {t0 < t < t1} ([BW15, Section 1.6.1, p. 7]).
-Reversing the time orientation makes −t a Cauchy temporal function, so (2) also holds with the data taken on Σ_t1.
+    ‖u‖²_(k,S(t0,t1)) ≤ C (‖u(t0)‖²_(H^k) + ‖∂_t u(t0)‖²_(H^(k−1)) + ‖Pu‖²_(k−1,S(t0,t1)))      {#eq:std-slab}
+
+for every smooth u with supp u ⊂ J(K); and [[eq:std-slab]] also holds with u(t1), ∂_t u(t1) in place of u(t0),
+∂_t u(t0).
+
+*Proof of (3).* The set L := J(K) ∩ {t0 ≤ t ≤ t1} is compact, as J_±(K) = K + J_±(0). Let B be a closed ball
+containing the projection of L to ℝⁿ, so that u(s) is supported in B for s ∈ [t0, t1]; the coefficients of P and all
+their derivatives are bounded on L. Put e(s) := ‖u(s)‖²_(H^k) + ‖∂_t u(s)‖²_(H^(k−1)). By (2), with [T0, T1] := [t0, t1],
+applied to the pairs (t0, s), and by the equivalence of norms,
+
+    e(s) ≤ C (e(t0) + ∫_(t0)^(t1) ‖(Pu)(σ)‖²_(H^(k−1)) dσ) ≤ C (e(t0) + ‖Pu‖²_(k−1,S(t0,t1))),      t0 ≤ s ≤ t1,
+
+the second inequality because ‖(Pu)(σ)‖_(H^(k−1)) involves x-derivatives only. For 1 ≤ ℓ ≤ k let N_ℓ be the sum of
+‖∂_t^i ∂_x^γ u‖²_(L²(S(t0,t1))) over i ≤ ℓ and i + |γ| ≤ k. Then N_k = ‖u‖²_(k,S(t0,t1)), and N_1 ≤ ∫_(t0)^(t1) e(s) ds.
+In the form of P displayed above, ∂_t² u = Pu + Δ_x u − Σ_j A_j ∂u/∂x^j − B_1 u, with x⁰ = t. For 2 ≤ i ≤ k and
+i + |γ| ≤ k apply ∂_t^(i−2) ∂_x^γ: the term from Pu is a derivative of Pu of order at most k − 2; the term from Δ_x u
+is a sum of derivatives of u of order at most k with at most i − 2 derivatives in t; by Leibniz's rule the remaining
+terms are derivatives of u of order at most k − 1 with at most i − 1 derivatives in t, times functions bounded on L.
+So N_ℓ ≤ C (N_(ℓ−1) + ‖Pu‖²_(k−1,S(t0,t1))) for 2 ≤ ℓ ≤ k, and
+
+    ‖u‖²_(k,S(t0,t1)) ≤ C (∫_(t0)^(t1) e(s) ds + ‖Pu‖²_(k−1,S(t0,t1))) ≤ C (e(t0) + ‖Pu‖²_(k−1,S(t0,t1))),
+
+which is [[eq:std-slab]]. (This is the argument of the proof of [BW15, Corollary 12, p. 15], written for the norm
+‖·‖_(k,S(t0,t1)).) For the data at t1, apply this to ũ(t, x) := u(−t, x): it satisfies P̃ũ(t, x) = (Pu)(−t, x) for the
+operator P̃ obtained from P by the substitution t ↦ −t, which is normally hyperbolic with smooth coefficients, and
+supp ũ ⊂ J(K̃) with K̃ the image of K; the slab S(t0, t1) becomes S(−t1, −t0). ∎
 
 *Proof.* *Uniqueness.* For every p ∈ M the set {t ≥ t0} ∩ J_−(p) is compact, so a distribution supported in
 {t ≥ t0} has past compact support; by [[thm:std-bgp-cauchy]] (2), Pu = 0 and supp u ⊂ {t ≥ t0} imply u = 0.
@@ -152,10 +186,14 @@ P^* given by (1).
 
 *The case s ≥ 1.* Let ρ_ε be a standard mollifier and g_k := ρ_(1/k) ∗ g. It is smooth, supported in the closed
 (1/k)-neighbourhood K_k of K, and g_k → g in H^(s−1). Put u_k := G_+ g_k: it is smooth, Pu_k = g_k and
-supp u_k ⊂ J_+(K_k) ⊂ J_+(K_1). Fix T0 < min_(K_1) t and T1 > T0. The functions u_k − u_l are supported in J(K_1) and
-vanish with their t-derivatives on {t = T0}, so (2) with k = s and K = K_1 gives
+supp u_k ⊂ J_+(K_k) ⊂ J_+(K_1). Fix T0 < min_(K_1) t and T1 > T0. The functions u_k − u_l are smooth, supported in
+J_+(K_1) ⊂ J(K_1) ∩ {t > T0}, and so vanish with their t-derivatives on {t = T0}. By [[eq:std-slab]] of order s, with
+K_1 in place of K and (T0, T1) in place of (t0, t1),
 
-    ‖u_k − u_l‖_(H^s(Σ[T0,T1])) ≤ C ‖g_k − g_l‖_(H^(s−1)(ℝ^(1+n))).
+    ‖u_k − u_l‖_(s,S(T0,T1)) ≤ C ‖g_k − g_l‖_(s−1,S(T0,T1)) ≤ C ‖g_k − g_l‖_(H^(s−1)(ℝ^(1+n))),
+
+the last norm being equivalent, for the integer s − 1 ≥ 0, to the sum of the L²-norms of the derivatives of order at
+most s − 1, by Plancherel's theorem.
 
 As T1 is arbitrary and u_k = 0 for t < T0, (u_k) converges in H^(s)_loc(M) to some u with Pu = g, and
 supp u ⊂ ⋂_k (K_k + J_+(0)) = K + J_+(0) = J_+(K).
@@ -165,8 +203,9 @@ supp u ⊂ ⋂_k (K_k + J_+(0)) = K + J_+(0) = J_+(K).
     u(φ) := g(χ G^*_− φ).
 
 If supp φ lies in a compact set L, choose T1 > max_L t and T0 < min_(supp χ) t. Then w := G^*_− φ is smooth,
-P^* w = φ, and w is supported in J_−(L) ⊂ {t ≤ max_L t}, so w and ∂_t w vanish on {t = T1}. By (2) for P^* with the
-data on Σ_T1, with K = L and k = m, ‖w‖_(H^m(Σ[T0,T1])) ≤ C ‖φ‖_(H^(m−1)); as χw is supported in {T0 < t < T1},
+P^* w = φ, and w is supported in J_−(L) ⊂ J(L) ∩ {t ≤ max_L t}, so w and ∂_t w vanish on {t = T1}. By [[eq:std-slab]]
+for P^*, of order m, with the data at T1, with L in place of K and (T0, T1) in place of (t0, t1),
+‖w‖_(m,S(T0,T1)) ≤ C ‖φ‖_(m−1,S(T0,T1)) ≤ C ‖φ‖_(H^(m−1)); as χw is supported in {T0 < t < T1},
 
     |u(φ)| ≤ ‖g‖_(H^(−m)) ‖χw‖_(H^m) ≤ C_L ‖φ‖_(H^(m−1)),      supp φ ⊂ L.
 
@@ -576,9 +615,10 @@ For r = 2, p_1 = q_2 = ∞ and q_1 = p_2 = 2 the condition on s is s > 0, and (2
 (2) Let N be a compact manifold without boundary, of dimension d, with a smooth Riemannian metric, let k ≥ 0, and let
 X := ℝ^k × N carry the product metric and its measure. Let W_1, …, W_q be smooth vector fields on N spanning TN at
 every point, 𝒱 := {∂_(z_1), …, ∂_(z_k), W_1, …, W_q}, and let H^s(X) be the space of u ∈ L²(X) with V_1 ⋯ V_j u ∈
-L²(X) for all V_i ∈ 𝒱 and j ≤ s, normed by the sum of the L²-norms of these derivatives. There is C with
+L²(X) for all V_i ∈ 𝒱 and j ≤ s, normed by the sum of the L²-norms of these derivatives. There is C such that, for
+f, g ∈ H^s(X) ∩ L^∞(X), fg ∈ H^s(X) and
 
-    ‖fg‖_(H^s(X)) ≤ C (‖f‖_(L^∞) ‖g‖_(H^s(X)) + ‖f‖_(H^s(X)) ‖g‖_(L^∞)),      f, g ∈ H^s(X) ∩ L^∞(X).
+    ‖fg‖_(H^s(X)) ≤ C (‖f‖_(L^∞) ‖g‖_(H^s(X)) + ‖f‖_(H^s(X)) ‖g‖_(L^∞)).
 
 (3) Let 0 ≤ χ ∈ C_c^∞(ℝ^k) with Σ_(j∈ℤ^k) χ(z − j) = 1, put χ_j(z, y) := χ(z − j) on X and
 ‖u‖_(H^s_ul(X)) := sup_j ‖χ_j u‖_(H^s(X)). Then the bound of (2) holds with the uniformly local norms in place of the
@@ -587,9 +627,11 @@ H^s(X)-norms, for all f, g ∈ L^∞(X) whose uniformly local norms are finite.
 *Proof.* (1) For integer s the norm ‖J^s u‖_(L²) is equivalent to (Σ_(|α|≤s) ‖∂^α u‖²_(L²))^(1/2), by Plancherel's
 theorem. Let θ ∈ C_c^∞(ℝⁿ) with 0 ≤ θ ≤ 1 and θ = 1 near 0, let ρ_ε be a standard mollifier, and put
 f_ℓ := θ(·/ℓ)(ρ_(1/ℓ) ∗ f) and g_ℓ := θ(·/ℓ)(ρ_(1/ℓ) ∗ g). These are Schwartz functions with ‖f_ℓ‖_(L^∞) ≤ ‖f‖_(L^∞)
-and ‖g_ℓ‖_(L^∞) ≤ ‖g‖_(L^∞), and f_ℓ → f, g_ℓ → g in H^s: ρ_(1/ℓ) ∗ f → f in H^s, and by Leibniz's rule
-∂^α(θ(·/ℓ)v) − θ(·/ℓ)∂^α v is a sum of terms ℓ^(−|β|)(∂^β θ)(·/ℓ) ∂^(α−β) v with β ≠ 0, while θ(·/ℓ)∂^α v → ∂^α v in
-L² by dominated convergence. So the right side of [[eq:std-moser]] for (f_ℓ, g_ℓ) is at most ‖f‖_(L^∞)‖g_ℓ‖_(H^s) +
+and ‖g_ℓ‖_(L^∞) ≤ ‖g‖_(L^∞), and f_ℓ → f, g_ℓ → g in H^s. Indeed, by Leibniz's rule
+∂^α(θ(·/ℓ)v) − θ(·/ℓ)∂^α v is a sum of terms ℓ^(−|β|)(∂^β θ)(·/ℓ) ∂^(α−β) v with β ≠ 0; so multiplication by
+θ(·/ℓ), ℓ ≥ 1, is bounded on H^s uniformly in ℓ, and θ(·/ℓ)v → v in H^s for each fixed v ∈ H^s, as
+θ(·/ℓ)∂^α v → ∂^α v in L² by dominated convergence. Writing f_ℓ − f = θ(·/ℓ)(ρ_(1/ℓ) ∗ f − f) + (θ(·/ℓ)f − f), the
+first term tends to 0 in H^s because ρ_(1/ℓ) ∗ f → f in H^s, and the second by the fixed-v case. So the right side of [[eq:std-moser]] for (f_ℓ, g_ℓ) is at most ‖f‖_(L^∞)‖g_ℓ‖_(H^s) +
 ‖f_ℓ‖_(H^s)‖g‖_(L^∞), which converges to the right side for (f, g). Further ‖f_ℓ g_ℓ − fg‖_(L²) ≤ ‖f_ℓ − f‖_(L²)
 ‖g‖_(L^∞) + ‖f(g_ℓ − g)‖_(L²), and along a subsequence g_ℓ → g almost everywhere with |f(g_ℓ − g)| ≤ 2‖g‖_(L^∞)|f|,
 so f_ℓ g_ℓ → fg in L² and J^s(f_ℓ g_ℓ) → J^s(fg) as tempered distributions. The J^s(f_ℓ g_ℓ) are bounded in L²; a
@@ -601,7 +643,8 @@ by zero to ℝ^(k+d). On ℝ^k × supp ψ_i the fields of 𝒱 have, in the coor
 all their derivatives, they span the tangent spaces, and the measure has a density bounded above and below; so there
 is C with C⁻¹‖v‖_(H^s(X)) ≤ ‖v^(i)‖_(H^s(ℝ^(k+d))) ≤ C‖v‖_(H^s(X)) for such v, and multiplication by φ_i or ψ_i is
 bounded on H^s(X). As u = Σ_i φ_i(φ_i u), ‖u‖_(H^s(X)) ≤ C Σ_i ‖(φ_i u)^(i)‖_(H^s). Now (φ_i fg)^(i) =
-(ψ_i f)^(i) (φ_i g)^(i), and (1) gives
+(ψ_i f)^(i) (φ_i g)^(i) lies in H^s(ℝ^(k+d)) by (1), so φ_i fg ∈ H^s(X) and fg = Σ_i φ_i(φ_i fg) ∈ H^s(X); and (1)
+gives
 
     ‖fg‖_(H^s(X)) ≤ C Σ_i (‖f‖_(L^∞) ‖(φ_i g)^(i)‖_(H^s) + ‖(ψ_i f)^(i)‖_(H^s) ‖g‖_(L^∞))
                   ≤ C (‖f‖_(L^∞) ‖g‖_(H^s(X)) + ‖f‖_(H^s(X)) ‖g‖_(L^∞)).

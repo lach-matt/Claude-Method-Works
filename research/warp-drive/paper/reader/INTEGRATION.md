@@ -432,3 +432,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   lem:s28-setting (b) and Appendix A's block omit [CD03, Prop. 5.10]'s smallness hypothesis. (Fin) is automatic for a
   background smooth to the boundary; [CD03] holds for all n ≥ 2; no circularity with chapter 60. Chapter 83 needs the
   review's five conditions once the projection is fixed. prop:v-2-3 holds at every point (m, 0, 0, 0).
+- Chapter 62 (R-62): issue-1 ruled — the open B is correct and needed (with the closed B the glued space is not a
+  manifold at the edge of Σ). Major: prop:interior needs the stability theory at every inner radius r_♭; chapter 33's
+  sec:iv5-0 fixed r_♯ := ½R₁. Fix in chapter 33 (r_♯ := r_♭, prop:np-10-14 (i)-(ii) for every r > 0; sent to the S14
+  fix) and one clause in chapter 62 at three places. [Sbi15] entries added to Appendix A. Chapter 63 asked to cite
+  lem:interior-far-part rather than prove copies.
