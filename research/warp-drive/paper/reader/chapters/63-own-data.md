@@ -531,8 +531,8 @@ which is O(λ) for j ≤ k1 + 4 by (a); at fixed λ, G_(2p)(v1) is smooth ([[pro
 derivative is bounded. The bounds on W ∩ {r ≥ 1} follow by the homogeneity of Σ_p of degree −p under the dilation of
 Section [[sec:far-homogeneity]], which maps {r = 1, 0 ≤ s ≤ 3/2} onto {r = ς, 0 ≤ s ≤ 3/2}, together with
 [[lem:own-wedge]] (b). (c) g_λ is invariant under T² and the two reflections (item 5 of [[thm:past-construction]]),
-which generate G; so are the coefficients of its expansion, and the equation of [[lem:own-self-similar]] commutes with
-G. ∎
+which generate G, so it is G-invariant; so are the coefficients of its expansion, and the equation of
+[[lem:own-self-similar]] commutes with G. ∎
 
 **Lemma {#lem:own-n-data}** (the remainder on N and on the band). Let 𝒰 := (P′ ∪ Ω′) ∩ {v1 ≤ v ≤ V′_P − h_P(τ)} ∩ W,
 on which g_λ is defined, and put h_R := g_λ − g_b0 − Σ there.

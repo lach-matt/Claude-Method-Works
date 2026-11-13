@@ -985,9 +985,9 @@ through E_n(P̊_A, P̊_A), the Ricci term of the Raychaudhuri equation being Ric
 [[thm:class-stability-off-axes]] apply to the difference between the solution of the augmented system with the datum D_n
 and ů, with these changes. (1) The family norms of [[eq:class-energy]] are weighted: Σ_A is replaced by the ℓ² sum
 ((2π/n) Σ_A ‖·‖²)^(1/2) of the norms of (δp_A, δΘ_A, ς_A), ς_A := q_A/(2π/n) − q̄_A, q̄_A := q(·, α_A). (2) The matter
-term of the metric equation for the difference is exactly
+term of the metric equation for the difference, T := Σ_A q_A p_A ⊗ p_A minus Ric(g) = T_V, is exactly
 
-    T − T̊ = Σ_A (2π/n) (ς_A p_A ⊗ p_A + q̄_A (π_A ⊗ p_A + p̊_A ⊗ π_A)) − E_n,      π_A := p_A − p̊_A, p̊_A := du_(α_A),
+    T − T_V = Σ_A (2π/n) (ς_A p_A ⊗ p_A + q̄_A (π_A ⊗ p_A + p̊_A ⊗ π_A)) − E_n,      π_A := p_A − p̊_A, p̊_A := du_(α_A),
 
 and by the Cauchy–Schwarz inequality and Σ_A 2π/n = 2π its first part is bounded in H^k by C times the weighted family
 norm; so is the difference of the terms Ric(P_A, P_A) = Σ_B (2π/n) (q_B/(2π/n)) g⁻¹(p_A, p_B)² of Step 6, uniformly in
@@ -1162,8 +1162,10 @@ Solving 𝔉(U) = 0 for ∂_r α and ∂_r w, and substituting the first into th
 with G_α = Q ∇²α − p⁻¹ g_ρ and G_w = −B^C ∇_C w − A0⁻¹ (f G_α + g_J), Q := P/p and B^C := A0⁻¹A^C taken at α; here g =
 𝔉(0) + g̃, with 𝔉(0) = λ^(N−2)[h]. Give the factor ∇^m α the weight (m − 2)₊ := max(m − 2, 0) and ∇^m w the weight m. By
 induction on i, ∂_r^i U is a finite sum of terms λ^(−β) c(x, α, ∇α, w) Π_(s=1)^l ∇^(m_s) Y_s, Y_s ∈ {α, w}, with c of
-class 𝔏 or a derivative of 𝔉(0), and β plus the sum of the weights at most 2i: for i = 1 this is the form of G_α and G_w
-(weights 0 and 1); applying ∂_r to a term, ∂_r of the x-dependence of c costs λ⁻¹ by (C0); ∂_r of an argument α, ∇α or w
+class 𝔏 or a derivative of 𝔉(0), β plus the sum of the weights at most 2i, and l ≥ 1 unless c is a derivative of 𝔉(0)
+(a class-𝔏 term without factors vanishes at U = 0, as g̃ does, and Taylor's formula writes it as a sum of terms with one
+factor α, ∇α or w): for i = 1 this is the form of G_α and G_w (weights 0 and 1); applying ∂_r to a term, ∂_r of the
+x-dependence of c costs λ⁻¹ by (C0); ∂_r of an argument α, ∇α or w
 of c gives a factor G_α, ∇G_α or G_w, of weight at most 1; and ∂_r ∇^m α = ∇^m G_α and ∂_r ∇^m w = ∇^m G_w raise the
 weight of the factor by at most 2. Apply λ^(2i+|I|) 𝓛^I to such a term and expand by (K4) and the chain rule. Since λ ≤
 1, λ^(2i−β) is at most λ to the sum of the weights, so every factor appears as λ^(|J|+(m−2)₊) 𝓛^J ∇^m α, of L²(S³) norm

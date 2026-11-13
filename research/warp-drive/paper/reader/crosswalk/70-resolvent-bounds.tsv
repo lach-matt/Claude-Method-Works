@@ -104,9 +104,9 @@ sec:rb-effective	docket68/n1star/INVERSE5-SIX.md:109-110	INVERSE5-SIX s.2
 lem:rb-parametrix	docket68/n1star/INVERSE5-SIX.md:111-114	INVERSE5-SIX Lemma R1	
 rem:rb-parametrix-model	docket68/n1star/INVERSE5-SIX.md:115-124	INVERSE5-SIX R1 "At II.F:1534"	written for the edition's lem:ii-f-5-5 (kernel bound (i) of its proof); computation K7 dropped
 lem:rb-injectivity	docket68/n1star/INVERSE5-SIX.md:126-129	INVERSE5-SIX Lemma R2	
-lem:rb-absorption	docket68/n1star/INVERSE5-SIX.md:131-142, 663-698, 756-790, 800-820	INVERSE5-SIX Lemma R3 with R3.1, R4.1, R4.2, R5.1	strict thresholds (R5.1); C = constant before absorption (R4.2); N renamed M; written for sec:i-b-8-4
+lem:rb-absorption	docket68/n1star/INVERSE5-SIX.md:131-142, 663-698, 756-790, 800-820	INVERSE5-SIX Lemma R3 with R3.1, R4.1, R4.2, R5.1	strict thresholds (R5.1); C = constant before absorption (R4.2); N renamed M; written for sec:i-b-8-4; constants named by the displays eq:i-b-8-chain and eq:i-b-8-absorb labelled in chapter 21
 eq:rb-high-energy	docket68/n1star/INVERSE5-SIX.md:796-800	INVERSE5-SIX R4.2 single bound	
-lem:rb-interpolation	docket68/n1star/INVERSE5-SIX.md:144-156, 710-716	INVERSE5-SIX Lemma R4 with R3.3 n6 (iv)	C'_a the constant after absorption; F <= 1.002659 proved by hand (replaces K6); kappa = 2^(-3/2) derived from thm:vi-a-6-1
+lem:rb-interpolation	docket68/n1star/INVERSE5-SIX.md:144-156, 710-716	INVERSE5-SIX Lemma R4 with R3.3 n6 (iv)	C'_a the constant after absorption (from eq:i-b-6-apriori, labelled in chapter 21); h_0 <= 1 in the hypothesis; the three-lines application written out; F <= 1.002659 proved by hand (replaces K6), with c s_* > 5.35367; kappa = 2^(-3/2) derived from thm:vi-a-6-1
 lem:rb-gluing	docket68/n1star/INVERSE5-SIX.md:165-180	INVERSE5-SIX Lemma R6 with R3.3 n6 (ii)	abstract j, k form; the withdrawn "absorption covers the photon sphere" clause not used; K8 dropped
 lem:rb-absorbed	docket68/n1star/INVERSE5-SIX.md:560-576, 702-705, 822-826	INVERSE5-SIX Lemma R9 with R3.3 n4, R4.4 nit 3	radial q; sign written epsilon_sigma; A4 identity written out
 sec:rb-scalar-blocks	docket68/n1star/INVERSE5-SCALAR.md:76-105	INVERSE5-SCALAR A.1	record's point described without process words; c_U, gam_U, e_U, c_H, gam_H written c_Upsilon, ...
