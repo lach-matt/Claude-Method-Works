@@ -1376,8 +1376,8 @@ Riesz representation theorem applied to each matrix entry, L(b) = ∫ tr(b dμ) 
 
 (d) Positivity: let b ≥ 0 with supp b ⊂ K_b ⋐ U, and j ∈ C_c^∞(U) scalar, 0 ≤ j ≤ 1, equal to 1 on K_b. For ϵ > 0,
 b + ϵj² Id is positive definite on K_b and equal to ϵj² Id off K_b, so it is q_ϵ*q_ϵ with q_ϵ ∈ C_c^∞(U) (on K_b the
-positive square root; off K_b, √ϵ j, which is smooth as j ≥ 0); then Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)* Op_h(q_ϵ) + hR′, so
-liminf ⟨Op_h(b)u, u⟩ ≥ −ϵ limsup ‖Op_h(j)u‖² ≥ −Cϵ. Hence L(b) ≥ 0 for b ≥ 0; taking b = φvv* with φ ≥ 0 scalar and
+positive square root; off K_b, √ϵ j, which is smooth as j ≥ 0); then
+Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)* Op_h(q_ϵ) + hR′, so liminf ⟨Op_h(b)u, u⟩ ≥ −ϵ limsup ‖Op_h(j)u‖² ≥ −Cϵ. Hence L(b) ≥ 0 for b ≥ 0; taking b = φvv* with φ ≥ 0 scalar and
 v ∈ ℂ^(N_E) shows v*μv ≥ 0, so μ is Hermitian and positive semidefinite. Each entry is then absolutely continuous with
 respect to ν (|μ_ab| ≤ ν for a positive matrix measure), which gives dμ/dν; and
 tr(p dμ/dν) ≤ max spec(p) tr(dμ/dν) as dμ/dν ≥ 0. ∎
@@ -1591,9 +1591,10 @@ L²; so P′_(h,z) : H_h^((2,0,0)) → L² is Fredholm, and by (a) it and its ad
 
 (c) Interpolation. In terms of σ = z/h, (a) gives ‖P̂′(σ)⁻¹‖_(L²→L²) ≤ C for Re σ ≥ h_0⁻¹ and Im σ ∈ [β, β′], and
 ≤ C|σ|⁻¹ on Im σ = β′ (here ‖P̂′(σ)u‖_(L²) = h⁻²‖P′_(h,z)u‖_(L²) with h := |Re σ|⁻¹; for z_0 = −1 use
-Re σ ≤ −h_0⁻¹). For σ_0 ≥ h_0⁻¹, f ∈ L² and κ := β′ − β, apply [[lem:i-b-6-6]] to F(w) := P̂′(3σ_0 + iβ + κw)⁻¹f on
-[−2σ_0/κ, 2σ_0/κ] + i[0, 1], with A = A_0 = C‖f‖, A_1 = Cσ_0⁻¹‖f‖, L = 2σ_0/κ, Λ = log σ_0; Λe^(−πL/4) → 0, so
-‖P̂′(σ)⁻¹f‖ ≤ Cσ_0^(−(Im σ−β)/κ)‖f‖ for Re σ ∈ [2σ_0, 4σ_0], with C independent of σ_0. With |σ| ≤ 5σ_0 and
+Re σ ≤ −h_0⁻¹). For σ_0 ≥ h_0⁻¹ and f ∈ L², apply [[lem:i-b-6-6]] to F(w) := P̂′(3σ_0 + iβ + (β′ − β)w)⁻¹f on
+[−2σ_0/(β′ − β), 2σ_0/(β′ − β)] + i[0, 1], with A = A_0 = C‖f‖, A_1 = Cσ_0⁻¹‖f‖, L = 2σ_0/(β′ − β),
+Λ = log σ_0; Λe^(−πL/4) → 0, so ‖P̂′(σ)⁻¹f‖ ≤ Cσ_0^(−(Im σ−β)/(β′−β))‖f‖ for Re σ ∈ [2σ_0, 4σ_0], with C independent
+of σ_0. With |σ| ≤ 5σ_0 and
 (P′_(h,z))⁻¹ = h⁻² P̂′(z/h)⁻¹ this is [[eq:i-b-6-11]]. For the consequence take β := γ_− + ϵ and β′ := γ_+ + ϵ; then
 (β′ − η)/(β′ − β) = δ_Γ(η − ϵ) for η ∈ [β, β′]. ∎
 
@@ -1638,13 +1639,13 @@ v := (P′)⁻¹f_u − (P′ − iz_0Q̃)⁻¹f_u satisfies P′v = −iz_0Q̃(
 Summing (i) and (ii) gives [[eq:i-b-6-12]]. ∎
 
 **Lemma {#lem:i-b-6-9}** (Direction of propagation.) Let 𝐏″ be P′ − iz_0Q̃ (or its adjoint, with forward replaced by
-backward) with ‖(𝐏″)⁻¹‖ ≤ Ch⁻¹. Let X ∈ Ψ^0 be microsupported in a compact K ⊂ T*X̃°, and let ϖ ∉ K not lie in the
-closure of the forward V-flowout of K ∩ Σ_(z_0) inside Γ(ε_Γ). Then there is B_ϖ elliptic at ϖ with
+backward) with ‖(𝐏″)⁻¹‖ ≤ Ch⁻¹. Let X ∈ Ψ^0 be microsupported in a compact K_X ⊂ T*X̃°, and let ϖ ∉ K_X not lie in the
+closure of the forward V-flowout of K_X ∩ Σ_(z_0) inside Γ(ε_Γ). Then there is B_ϖ elliptic at ϖ with
 ‖B_ϖ(𝐏″)⁻¹Xf‖ ≤ C_Mh^M‖f‖_(−M𝟏).
 
 *Proof.* If ϖ is in the elliptic set of 𝐏″, [[prop:i-b-2-10]] gives ‖B_ϖw‖ ≤ C(‖G𝐏″w‖ + h^M‖w‖) with G microsupported
-near ϖ, off K. Otherwise the backward V-curve from ϖ reaches the elliptic set of the absorption without meeting K, and
-[[cor:i-b-4-6]] gives ‖B_ϖw‖ ≤ C(h⁻¹‖G𝐏″w‖ + h^M‖w‖) with G microsupported near that curve, again off K. Take
+near ϖ, off K_X. Otherwise the backward V-curve from ϖ reaches the elliptic set of the absorption without meeting K_X, and
+[[cor:i-b-4-6]] gives ‖B_ϖw‖ ≤ C(h⁻¹‖G𝐏″w‖ + h^M‖w‖) with G microsupported near that curve, again off K_X. Take
 w := (𝐏″)⁻¹Xf: G𝐏″w = GXf = O(h^∞) and ‖w‖ ≤ Ch⁻¹‖Xf‖. ∎
 
 ### The artificial boundary {#sec:i-b-7}

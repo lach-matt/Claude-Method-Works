@@ -361,8 +361,8 @@ m_(s″)(r) the norms at index s″ of the coefficients at r (those of M_(s″),
 
 with C depending only on s″, M_s and the bounds above; ω_s square-integrable on (a, b1), its L² norm bounded by the
 solution's X_s norm and ‖F‖_(L² H^(s−1)) (‖∂_r (ϖ, q)‖_(L^∞), a part of ω_s, contains F_J); and ω_∞ := ‖α‖_(W^(1,∞)) +
-‖(ϖ, q)‖_(L^∞), bounded by C times the X_s norm. For the squared energy 𝒴 at index s″ (the parabolic energy at index s″ + 1 plus the
-hyperbolic one at index s″) the proof gives
+‖(ϖ, q)‖_(L^∞), bounded by C times the X_s norm. For the squared energy 𝒴 at index s″ (the parabolic energy at index s″ +
+1 plus the hyperbolic one at index s″) the proof gives
 
     ∂_r 𝒴 + c0 ‖α‖²_(H^(s″+2)) ≤ ω_0 𝒴 + C ‖F‖²_(H^(s″)) + C m_(s″) ω_s 𝒴^(1/2) + C m_(s″)² ω_∞²,
 
