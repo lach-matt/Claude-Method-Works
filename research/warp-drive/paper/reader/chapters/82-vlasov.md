@@ -525,16 +525,16 @@ to p, ζ ≠ 0, W_T with torus components only and tr W = 0 (for instance W_T = 
 and h = c dr ⊗ dr, dρ⁽⁻¹⁾ = −c ζ |p|² cos θ ⟨dr, q̂⟩², which is not zero where c ≠ 0 and the phase is not radial (p not
 parallel to dr). So every non-radial wave with a nonzero orbit part leaves a term of order λ⁻¹.
 
-*Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In R(γ) = γ^(ij)(∂_k
-Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and ∂_i∂_k(λ
-W) = λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is W″(p^♯, p^♯) − |p|² tr W″,
-with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij), gives the first line of
-[[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry derivatives of h or first derivatives of
-γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃ ∂_i(γ^(jl) κ_(jl)), whose parts of order λ⁻¹ are
-−γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the second line; the Christoffel terms are of order one.
-−|κ|² + (tr κ)² has no term of order λ⁻¹, and no term of order λ⁻¹ depends on k. With several phases the fast
-derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms vanish, each W_A depending on one phase; ∂²(λ²
-M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
+*Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In R(γ) =
+γ^(ij)(∂_k Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and
+∂_i∂_k(λ W) = λ⁻¹ p_i p_k W″ + O(1), while ΓΓ is of order one. So the part of order λ⁻¹ of R(γ) is W″(p^♯, p^♯) −
+|p|² tr W″, with p^♯ := γ⁻¹p and the inverse of the full γ. Varying γ ↦ γ + εh, so that γ^(ij) ↦ γ^(ij) − ε h^(ij),
+gives the first line of [[eq:vlasov-constraint-coefficient]]; the remaining terms of DR[h], which carry derivatives of h
+or first derivatives of γ, are of order one. In J, −div κ ⊃ −γ^(jl) ∂_l κ_(ji) and d tr κ ⊃ ∂_i(γ^(jl) κ_(jl)), whose
+parts of order λ⁻¹ are −γ^(jl) p_l κ1′_(ji) and p_i γ^(jl) κ1′_(jl); varying γ gives the second line; the Christoffel
+terms are of order one. The terms −|κ|² + (tr κ)² have no term of order λ⁻¹, and no term of order λ⁻¹ depends on k.
+With several phases the fast derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms vanish, each W_A
+depending on one phase; ∂²(λ² M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
 
 (b) The parts of order λ⁻¹ of R(γ + h) and J(γ + h, κ + k) are, by the proof of (a), W″(p^♯, p^♯) − |p|² tr W″ and
 2(−γ_h^(jl) p_l κ1′_(ji) + p_i γ_h^(jl) κ1′_(jl)) with the inverse γ_h⁻¹ of γ + h. Since γ0 and h have no mixed
@@ -640,10 +640,10 @@ E and tensor fields on S³. For a word I = (i_1, …, i_j) put 𝓛^I := 𝓛_(i
 
 (K1) Each 𝓛_i commutes with ∇, with Δ, with contractions by the round metric and with ∂_r (X_i is a Killing field).
 
-(K2) Σ_i ⟨X_i, Y⟩² = |Y|² for every tangent vector Y of S³, by Lagrange's identity Σ_(a<b) (x_a Y_b − x_b
-Y_a)² = |x|² |Y|² − (x·Y)² with |x| = 1 and x·Y = 0; so Y = Σ_i ⟨X_i, Y⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order zero
-in f with coefficients built from ∇X_i, |∇f| ≤ C (Σ_i |𝓛_i f| + |f|), |∇² f| ≤ C Σ_(|J|≤2) |𝓛^J f| and |𝓛_i f| ≤ C (|∇f| + |f|)
-for every function, section of E or tensor field f.
+(K2) Σ_i ⟨X_i, Y⟩² = |Y|² for every tangent vector Y of S³, by Lagrange's identity: with |x| = 1 and x·Y = 0,
+Σ_(a<b) (x_a Y_b − x_b Y_a)² = |x|² |Y|² − (x·Y)² = |Y|²; so Y = Σ_i ⟨X_i, Y⟩ X_i. Since 𝓛_i f − ∇_(X_i) f is of order
+zero in f with coefficients built from ∇X_i, it follows that |∇f| ≤ C (Σ_i |𝓛_i f| + |f|), |∇² f| ≤ C Σ_(|J|≤2) |𝓛^J f|
+and |𝓛_i f| ≤ C (|∇f| + |f|) for every function, section of E or tensor field f.
 
 (K3) sup |f| ≤ C_S Σ_(|J|≤2) ‖𝓛^J f‖, by (K2) and the embedding of H² in the continuous functions on the compact
 three-manifold S³ ([[thm:std-bh-manifold]]).
@@ -728,8 +728,9 @@ diag(6, γ_U^(rr) Π^(AB)) is positive definite, and every 𝒮 A^C is symmetric
 *Proof.* The derivation of the principal part of J in the proof of [[lem:constraints-evolution]] (a) uses only the
 identities Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr) (so that Π^(rk) = 0 and Π_A^k ∂_k = ∂_A), tr_(γ_U) Π = γ^(ij) Π_ij =
 4 − 1 = 3, q(γ⁻¹dr) = 0, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr and (1 + α γ^(rr))⁻¹ γ^(rr) = γ_U^(rr), each of which holds
-for every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the uniqueness
-of the symmetrizer, which [[lem:linear-evolution]] does not use. So that derivation gives, for every such γ and α, the
+for every Riemannian γ and every α with 1 + α γ^(rr) > 0; the smallness of γ_(rA) assumed there enters only the
+uniqueness of the symmetrizer, which [[lem:linear-evolution]] does not use. So that derivation gives, for every such γ
+and α, the
 principal part 𝒮A0 ∂_r + 𝒮A^C ∂_C of 𝒮J in (ϖ, q_B), with 𝒮A0 = diag(6, γ_U^(rr) Π^(AB)) and the symmetric 𝒮A^C
 displayed there. γ_U^(rr) = γ^(rr)/(1 + α γ^(rr)) > 0, and Π^(AB), the inverse of the induced metric of the spheres, is
 positive definite. 𝒮 = [[1, γ^(rB)/γ^(rr)], [0, −½ Π^(AB)]] is block triangular with invertible diagonal blocks and

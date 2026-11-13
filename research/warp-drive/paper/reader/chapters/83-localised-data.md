@@ -2099,31 +2099,32 @@ margin is that of [[thm:bg-margins]] (c).
 
 On a vacuum region of the background, in the chart (v̂, R), g = −e^(2ψ) f dv̂² + 2e^ψ dv̂ dR + R² dΩ₃² with f = 1 −
 μ/R², μ constant and ψ = ψ(v̂), the slice Σ_τ0 (v̂ = τ0 + R) has γ = G dR² + R² dΩ₃² with G = e^ψ(2 − e^ψ f), and
-N_s√G = 1. Along it write ψ, ψ′ and ψ″ for ψ(τ0 + R) and its derivatives, q := e^ψ, u := 1 − q, m := μ/R² and w := qf =
-q(1 − m). The quantities ν, β, a, E, P and Γ of [[thm:charge-identity]] are then ν = R³, β = R N_κ/(3(2 − w)(w −
-1)) with N_κ = (q f′/2)(w − 3) − ψ′ and f′ = 2μ/R³ (from κ0 and Y0 of [[lem:racz-split-formulas]]; N_κ is the
-quantity of [[lem:margins-racz]], here with ψ ≠ 0 and μ̇ = 0), a = −3(1 − β)/R, E = e^(∫a), P = 8νE²R/G − (2νER/√G)′
-RE/√G and Γ = 4νE² − P′.
+N_s√G = 1. Along it write ψ, ψ′ and ψ″ for ψ(τ0 + R) and its derivatives, q := e^ψ, 𝔲 := 1 − q, m := μ/R² and
+W := qf = q(1 − m). The quantities ν, β_K, 𝔞, E, P and Γ of [[thm:charge-identity]] are then ν = R³,
+β_K = R N_κ/(3(2 − W)(W − 1)) with N_κ = (q f′/2)(W − 3) − ψ′ and f′ = 2μ/R³ (from κ0 and Y0 of
+[[lem:racz-split-formulas]]; N_κ is the quantity of [[lem:margins-racz]], here with ψ ≠ 0 and μ̇ = 0),
+𝔞 = −3(1 − β_K)/R, E = e^(∫𝔞), P = 8νE²R/G − (2νER/√G)′ RE/√G and Γ = 4νE² − P′.
 
-**Lemma {#lem:margins-gamma-form}** (Γ/E² in closed form.) On such a region, wherever w < 1,
+**Lemma {#lem:margins-gamma-form}** (Γ/E² in closed form.) On such a region, wherever W < 1,
 
     Γ/E² = A0 + A1 ψ′ + A2 ψ′² + A3 ψ″,   {#eq:margins-gamma-form}
 
-    A0 := 4R³ n0/(q(2 − w)(1 − w)²),
-    n0 := m³ − 2m(2m² − m + 1)u + (2m + 1)(3m² − 5m + 4)u² − 4m(m − 1)²u³ + (m − 1)³u⁴,
-    A1 := 2R⁴ (m(5 − m) − (1 − m)(7 + m)u)/((2 − w)(1 − w)²),
-    A2 := 2R⁵ (1 − m)(1 + 2w)/((2 − w)(1 − w)²),     A3 := 2R⁵ (1 − m)/((2 − w)(1 − w)).
+    A0 := 4R³ n0/(q(2 − W)(1 − W)²),
+    n0 := m³ − 2m(2m² − m + 1)𝔲 + (2m + 1)(3m² − 5m + 4)𝔲² − 4m(m − 1)²𝔲³ + (m − 1)³𝔲⁴,
+    A1 := 2R⁴ (m(5 − m) − (1 − m)(7 + m)𝔲)/((2 − W)(1 − W)²),
+    A2 := 2R⁵ (1 − m)(1 + 2W)/((2 − W)(1 − W)²),     A3 := 2R⁵ (1 − m)/((2 − W)(1 − W)).
 
 Where ψ = 0 this is Γ/E² = 4R³μ/(R² + μ), that is Γ = 4μ/R for the normalisation E = √G/R.
 
-*Proof.* Since E′ = aE and ν = R³, (2νER/√G)′ = E((2R⁴/√G)′ + 2aR⁴/√G), so P = E²p with p := 8R⁴/G − R(2R⁴/√G)′/√G −
-2aR⁵/G = (R⁵/G)(G′/G − 2a), and Γ/E² = 4R³ − 2ap − p′. Here G′/G = ψ′ − w′/(2 − w) with w′ = q(ψ′f + f′), and a =
-−3/R + N_κ/((2 − w)(w − 1)). Substituting, p′ contains ψ″ linearly through ψ″ in (G′/G)′ and in N_κ′ = (q/2)(ψ′f′ +
-f″)(w − 3) + (qf′/2)w′ − ψ″, f″ = −6μ/R⁴. Clearing the common denominator qR⁶(2 − w)(1 − w)² and collecting the
-coefficients of 1, ψ′, ψ′² and ψ″, the numerator of the ψ′⁰ term becomes 4R⁹n0 after the substitution q = 1 − u, m =
-μ/R², which gives the stated A0, A1, A2, A3. At ψ = 0, u = 0 and ψ′ = ψ″ = 0, so Γ/E² = A0 = 4R³m³/((1 + m)m²) =
-4R³μ/(R² + μ). Since E′ = aE fixes E only up to a constant factor, and Γ scales with E², the last statement is for
-the normalisation E = √G/R, which solves E′ = aE where ψ = 0; there E² = (R² + μ)/R⁴, and Γ = 4μ/R. ∎
+*Proof.* Since E′ = 𝔞E and ν = R³, (2νER/√G)′ = E((2R⁴/√G)′ + 2𝔞R⁴/√G), so P = E²p with p := 8R⁴/G −
+R(2R⁴/√G)′/√G − 2𝔞R⁵/G = (R⁵/G)(G′/G − 2𝔞), and Γ/E² = 4R³ − 2𝔞p − p′. Here G′/G = ψ′ − W′/(2 − W) with
+W′ = q(ψ′f + f′), and 𝔞 = −3/R + N_κ/((2 − W)(W − 1)). Substituting, p′ contains ψ″ linearly through ψ″ in (G′/G)′
+and in N_κ′ = (q/2)(ψ′f′ + f″)(W − 3) + (qf′/2)W′ − ψ″, f″ = −6μ/R⁴. Clearing the common denominator
+qR⁶(2 − W)(1 − W)² and collecting the coefficients of 1, ψ′, ψ′² and ψ″, the numerator of the ψ′⁰ term becomes 4R⁹n0
+after the substitution q = 1 − 𝔲, m = μ/R², which gives the stated A0, A1, A2, A3. At ψ = 0, 𝔲 = 0 and ψ′ = ψ″ = 0,
+so Γ/E² = A0 = 4R³m³/((1 + m)m²) = 4R³μ/(R² + μ). Since E′ = 𝔞E fixes E only up to a constant factor, and Γ scales
+with E², the last statement is for the normalisation E = √G/R, which solves E′ = 𝔞E where ψ = 0; there
+E² = (R² + μ)/R⁴, and Γ = 4μ/R. ∎
 
 **Lemma {#lem:margins-profile-monotone}** (The reference profile.) On [0.02, 1.181], ψ_s is increasing, ψ_s′ is positive
 and decreasing, and ψ_s″ is negative and increasing.
@@ -2146,7 +2147,7 @@ outgoing packet is within (10⁻³, 10⁻³, 3 × 10⁻²) of ψ_s in C² there 
 cell, which lie within 5 × 10⁻⁸ of the printed end values. For (a) take the intervals between the printed end values,
 each end moved outward by 5 × 10⁻⁸, and μ = μ_s; for (b) widen these intervals further by 10⁻³, 10⁻³ and 3 × 10⁻², and
 take μ ∈ [μ_s − 10⁻⁴, μ_s + 10⁻⁴]. Evaluate [[eq:margins-gamma-form]] in the written form by [[lem:margins-enclosure]]
-(a), with R the cell, q = e^ψ, u = 1 − q, m = μ/R², w = q(1 − m) and 2 − w, 1 − w positive on every cell. The resulting
+(a), with R the cell, q = e^ψ, 𝔲 = 1 − q, m = μ/R², W = q(1 − m) and 2 − W, 1 − W positive on every cell. The resulting
 lower ends are columns (a) and (b); their least values are 0.456 and 0.438, which exceed 0.4475 and 0.048. ∎
 
 By [[prop:bg-seed]] (c), the background itself lies in the tube of (b), which gives Γ > 0 on its seed region

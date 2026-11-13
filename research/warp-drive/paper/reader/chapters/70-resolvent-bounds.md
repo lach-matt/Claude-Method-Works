@@ -943,10 +943,10 @@ commutes with SO(4), and so do P̂(σ)⁻¹ and χ_I. For F ∈ 𝒟, g ↦ gF i
 I × 𝕊³, so the integral defining E_πF converges there, E_πF ∈ 𝒟, and the integral converges in 𝒴_σ, into which these
 fields embed continuously; χ_IP̂(σ)⁻¹ is continuous from 𝒴_σ into 𝔏 (𝒳_σ has positive regularity), so
 AE_πF = d_π∫conj(χ_π(g)) A(gF) dg = d_π∫conj(χ_π(g)) gAF dg = E_πAF. (b) There A is bounded on ℌ_1 and commutes with
-SO(4), hence with every E_π. Scalar harmonics of degree l carry the representation (l/2, l/2) of SO(4) = (SU(2) × SU(2))/{±1}, vector-type
-fields of degree l the sum of ((l + 1)/2, (l − 1)/2) and ((l − 1)/2, (l + 1)/2), and tensor-type fields the sum of
-((l + 2)/2, (l − 2)/2) and ((l − 2)/2, (l + 2)/2). These are distinct for distinct pairs (type, degree), so each
-isotypic component lies within one type and one degree. ∎
+SO(4), hence with every E_π. Scalar harmonics of degree l carry the representation (l/2, l/2) of
+SO(4) = (SU(2) × SU(2))/{±1}, vector-type fields of degree l the sum of ((l + 1)/2, (l − 1)/2) and
+((l − 1)/2, (l + 1)/2), and tensor-type fields the sum of ((l + 2)/2, (l − 2)/2) and ((l − 2)/2, (l + 2)/2). These are
+distinct for distinct pairs (type, degree), so each isotypic component lies within one type and one degree. ∎
 
 The function spaces 𝒳_σ, 𝒴_σ of the stability theory are invariant under SO(4) only up to equivalence: averaging over
 SO(4) gives invariant norms, equivalent to the given ones with constant sup_g ‖g‖_(𝒳_σ→𝒳_σ) ‖g‖_(𝒴_σ→𝒴_σ), a
@@ -969,7 +969,7 @@ raised by γ, and D̂ is the covariant derivative of γ. The Christoffel symbols
 
 *Trace and divergence.* tr h = r⁻²γ^(ij)h_ij = 2H T^i_i = 0. In (δh)_a = −g^(μν)∇_μh_νa only the term
 g^(ij)Γ^k_(ia)h_jk = (r_a/r) tr h = 0 survives, and (δh)_i = −g^(jk)∇_jh_ki = −r⁻²γ^(jk)D̂_j(r²KT_ki) = −KD̂^kT_ki = 0,
-as ∇_ah_bi = −Γ^k_(ai)h_bk = 0 and the terms of ∇_jh_ki with an orbit index on Γ multiply h_ai = 0.
+as ∇_ah_bi = −Γ^k_ai h_bk = 0 and the terms of ∇_jh_ki with an orbit index on Γ multiply h_ai = 0.
 
 *The variation of the connection.* For every metric, D Ric(h)_μν = ∇_αδΓ^α_μν − ∇_νδΓ^α_αμ, with
 δΓ^α_μν := ½g^(αβ)(∂_μh_νβ + ∂_νh_μβ − ∂_βh_μν) − h^α_λΓ^λ_μν the first variation of Γ^α_μν (as δg^(αβ) = −h^(αβ))
@@ -1488,10 +1488,10 @@ numerical solutions of the radial equation (with at least 40 grid points per wav
 maximum is 2.887 + 0.459 log σ to within 0.004; between them the maximum oscillates in σ with a period of about 1/2,
 the spacing of the barrier tops, and near σ = 12 it lies up to about 1.7 % above that fit. At σ = 128 and 160 it is
 0.0399913 and 0.0326365 (l = 255 and 319). So the bounds of [[prop:band-points]] lie between 7.5 and 58 times above
-these values at the sampled frequencies, the ratio growing with σ from σ = 6 on. With one multiplier of fixed width for every
-frequency, the bound of [[lem:morawetz-identity]] grows instead like |σ|: maximised over l, with the best of forty tanh
-widths at each σ, it is 253, 429, 800, 1554, 3068 and 6099 at σ = 3, 6, 12, 24, 48 and 96, set by l = 1. No proof uses
-these values.
+these values at the sampled frequencies, the ratio growing with σ from σ = 6 on. With one multiplier of fixed width
+for every frequency, the bound of [[lem:morawetz-identity]] grows instead like |σ|: maximised over l, with the best of
+forty tanh widths at each σ, it is 253, 429, 800, 1554, 3068 and 6099 at σ = 3, 6, 12, 24, 48 and 96, set by l = 1. No
+proof uses these values.
 
 ### Tables for the Morawetz multipliers {#sec:tb-morawetz}
 
@@ -2112,10 +2112,11 @@ at the right end of the piece.
 
 ### Tables for the resolvent bound on the band {#sec:tb2}
 
-These tables carry the numbers used by [[prop:band-polynomial]], [[thm:band]] and [[prop:band-points]]. The notation is that of [[sec:band]]: y = 1/r², z = 1 − 2y, v := 1/r = y^(1/2),
-η = (1 − y)y^(3/2) = (1 − v²)v³, I = {1/4 ≤ v ≤ 5/6} = {−7/18 ≤ z ≤ 7/8}, κ = l(l + 2) and a = κ + 3/4. The Bernstein
-coefficients of a polynomial p on a piece are the numbers b_0, …, b_n of [[lem:bernstein-lower-bound]], with that piece
-as the interval there and n the degree of p.
+These tables carry the numbers used by [[prop:band-polynomial]], [[thm:band]] and [[prop:band-points]]. The notation
+is that of [[sec:band]]: y = 1/r², z = 1 − 2y, v := 1/r = y^(1/2), η = (1 − y)y^(3/2) = (1 − v²)v³,
+I = {1/4 ≤ v ≤ 5/6} = {−7/18 ≤ z ≤ 7/8}, κ = l(l + 2) and a = κ + 3/4. The Bernstein coefficients of a polynomial p
+on a piece are the numbers b_0, …, b_n of [[lem:bernstein-lower-bound]], with that piece as the interval there and n
+the degree of p.
 
 #### The polynomial multipliers {#sec:tb2-polynomial-multipliers}
 
@@ -2342,8 +2343,9 @@ h^(1−δ) ≤ (1 − ν′²)^(−(1−δ)/2)|σ|^(−(1−δ)). Otherwise h = 
 
 The assumptions C_a ≥ ½ and C ≥ ¼ cost nothing, as enlarging a constant keeps an estimate true. The thresholds h_a and
 h_c are those of the chains of estimates [[eq:i-b-6-apriori]] and [[eq:i-b-8-chain]] in the proofs of [[prop:i-b-6-7]]
-(a) and [[prop:i-b-8-1]], which contain the threshold of [[eq:i-b-6-6]]. The bound [[eq:rb-high-energy]] is uniform in σ in the semiclassical norms at h = h(σ); at each fixed h
-these are equivalent to the norms of 𝒳_σ and 𝒴_σ ([[sec:i-b-8-4]]), with constants that depend on h.
+(a) and [[prop:i-b-8-1]], which contain the threshold of [[eq:i-b-6-6]]. The bound [[eq:rb-high-energy]] is uniform
+in σ in the semiclassical norms at h = h(σ); at each fixed h these are equivalent to the norms of 𝒳_σ and 𝒴_σ
+([[sec:i-b-8-4]]), with constants that depend on h.
 
 **Lemma {#lem:rb-interpolation}** (The constant of the interpolation.) In [[prop:i-b-6-7]], let h_0 ≤ 1, put
 κ_Γ := β′ − β, and let C′_a be such that ‖P̂′(σ)⁻¹‖_(L²→L²) ≤ C′_a for Re σ ≥ h_0⁻¹ (Re σ ≤ −h_0⁻¹ when z_0 = −1)
@@ -2394,9 +2396,10 @@ cut-off χ supported in I × 𝕊³ with 0 ≤ χ ≤ 1; j is bounded from 𝒳_
 identity when 𝒴_σ has order at most 0 on I, so that k is bounded from 𝔏 into 𝒴_σ, and otherwise a smoothing operator
 on 𝔏 with values in fields smooth on I × 𝕊³, for which kW is bounded. For v ∈ W(𝒵), jP̂⁻¹kv = χ(χ_IP̂(σ)⁻¹χ_I)(χv)
 with χv supported in I × 𝕊³ (and smooth in the second case), so C_D ≤ C_D(σ) of [[lem:rb-schur]], the cut-off bound
-of the preceding sections, which is the norm on 𝔏 of χ_IP̂(σ)⁻¹χ_I on the dense subspace of smooth fields. So, once the cut-off bound is known, an inverse bound in the spaces of the stability theory
-needs only C_ext(σ), the inverse of the absorbed problem. Its estimate is the chain of Fredholm estimates at the fixed σ
-with the absorbing term, and involves no trapping estimate and no mode stability; its invertibility is a hypothesis of
+of the preceding sections, which is the norm on 𝔏 of χ_IP̂(σ)⁻¹χ_I on the dense subspace of smooth fields. So, once
+the cut-off bound is known, an inverse bound in the spaces of the stability theory needs only C_ext(σ), the inverse of
+the absorbed problem. Its estimate is the chain of Fredholm estimates at the fixed σ with the absorbing term, and
+involves no trapping estimate and no mode stability; its invertibility is a hypothesis of
 [[lem:rb-gluing]], which the next lemma supplies for the scalar wave.
 
 **Lemma {#lem:rb-absorbed}** (The absorbed scalar problem is invertible.) At b_0, let q ≥ 0 be a smooth radial function
@@ -2424,9 +2427,9 @@ the two terms in the proof can cancel.
 ### The scalar-type blocks at zero energy {#sec:rb-scalar-blocks}
 
 The inverse bound of [[thm:i-c-3-1]] (4) for the linearised operator at zero energy is, in SO(4)-averaged norms and by
-[[lem:rb-schur]] (b), the supremum of the inverse bounds of its blocks of one type and degree. For the tensor-type blocks the gauge terms vanish
-(the proof of [[lem:rb-transfer]]). The scalar-type blocks carry them, and this section records what can be said about
-these blocks.
+[[lem:rb-schur]] (b), the supremum of the inverse bounds of its blocks of one type and degree. For the tensor-type
+blocks the gauge terms vanish (the proof of [[lem:rb-transfer]]). The scalar-type blocks carry them, and this section
+records what can be said about these blocks.
 
 *The operator.* Let m_0 = 1 and L := L_(b_0) of [[def:iii-b-6-1]], with 2L = □ + 2E^C δG + 2δ*_(E_C)E^Υ G + 2R
 ([[eq:iii-f-1-2]]), acting on stationary symmetric 2-tensors in the Kerr–Schild chart of [[prop:iii-b-3-4]], in which
@@ -2588,7 +2591,7 @@ terms in ∂_r are −(1/√|g|)∂_μ(√|g|g^(μr))∂_r = −r⁻³(r³f)′�
 σ_1(δ*)(ζ)w = iζ ⊗_s w, g⁻¹dr = ∂_v at r_h, f′(r_h) = 2/r_h and E^Υ equal to its horizon part near r_h, these
 coefficients are f′(r_h)K_C and f′(r_h)K_Υ, where by [[eq:iii-b-6-2]] and [[eq:iii-b-6-5]]
 
-    K_Ch := −r_hγ_C(2c_C ⊗_s ι_(∂_v)Gh − (2/3)(1 − e_C)g⟨c_C, ι_(∂_v)Gh⟩),     K_Υh := 2r_hγ_(Υ,H) dr ⊗_s ι_(g⁻¹c_(Υ,H))h,
+    K_Ch := −r_hγ_C(2c_C ⊗_s ι_(∂_v)Gh − (2/3)(1 − e_C)g⟨c_C, ι_(∂_v)Gh⟩),   K_Υh := 2r_hγ_(Υ,H) dr ⊗_s ι_(g⁻¹c_(Υ,H))h,
 
 ⟨·, ·⟩ the pairing by g⁻¹. All other terms are of order zero in r on stationary fields of one degree. So the
 coefficient of ∂_r of 2L at r_h is −f′(r_h)(1 − K) with K := K_0 + K_C + K_Υ, and 1 + A_1(r_h)/f′(r_h) = K on the
