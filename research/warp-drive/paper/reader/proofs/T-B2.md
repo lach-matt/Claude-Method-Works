@@ -1,10 +1,10 @@
 ### Tables for the resolvent bound on the band {#sec:tb2}
 
 These tables carry the numbers used by [[prop:band-polynomial]], [[thm:band]], [[prop:band-points]] and
-[[cor:band-one-derivative]]. The notation is that of [[sec:band]]: y = 1/r², z = 1 − 2y, v := 1/r = y^(1/2), η =
-(1 − y)y^(3/2) = (1 − v²)v³, I = {1/4 ≤ v ≤ 5/6} = {−7/18 ≤ z ≤ 7/8}, κ = l(l + 2) and a = κ + 3/4. A "least Bernstein
-coefficient" of a polynomial p on a piece [α, β] is min_k b_k in the notation of [[lem:bernstein-lower-bound]], with n the
-degree of p; it is rounded down here, and every one listed is positive.
+[[cor:band-one-derivative]]. The notation is that of [[sec:band]]: y = 1/r², z = 1 − 2y, v := 1/r = y^(1/2),
+η = (1 − y)y^(3/2) = (1 − v²)v³, I = {1/4 ≤ v ≤ 5/6} = {−7/18 ≤ z ≤ 7/8}, κ = l(l + 2) and a = κ + 3/4. A "least
+Bernstein coefficient" of a polynomial p on a piece [α, β] is min_k b_k in the notation of [[lem:bernstein-lower-bound]],
+with n the degree of p; it is rounded down here, and every one listed is positive.
 
 ### The polynomial multipliers {#sec:tb2-polynomial-multipliers}
 
@@ -12,11 +12,17 @@ Each multiplier is F(z) := zψ(z), with ψ a polynomial with rational coefficien
 l ≥ l_1. G_(l_1) is the weight polynomial of [[lem:band-weight-z]] for V = V_(a,9/4) at a = κ + 3/4, l = l_1; it is
 listed by its coefficients of z⁰, z¹, … . W_0, m_0 and M_0 are the bounds asserted for min_I w, min_I φ′ and max_I φ′.
 
-| name | l_1 | ψ(z) | G_(l_1)(z): coefficients of z⁰, z¹, … | W_0 | m_0 | M_0 |
-|---|---|---|---|---|---|---|
-| M5 | 5 | 1 + (11/20)z − (1/4)z² − (9/40)z³ | 103/20, 223/40, 4627/160, 829/32, 3469/64, −9, −2169/64 | 0.87 | 0.0455 | 0.75 |
-| M7 | 7 | 1 + (29/50)z − (33/50)z² − (11/25)z³ + (21/50)z⁴ | 77/10, 1013/200, 11073/400, 8331/80, 12481/80, −3873/20, −4999/50, 43113/400 | 1.30 | 0.031 | 0.74 |
-| M11 | 11 | 1 + (8/25)z − (137/100)z² − (31/100)z³ + (19/20)z⁴ | 559/50, −2573/200, 13051/100, 200819/800, −9349/800, −2357/5, 4651/160, 39007/160 | 1.80 | 0.0210 | 0.72 |
+| name | l_1 | ψ(z) | W_0 | m_0 | M_0 |
+|---|---|---|---|---|---|
+| M5 | 5 | 1 + (11/20)z − (1/4)z² − (9/40)z³ | 0.87 | 0.0455 | 0.75 |
+| M7 | 7 | 1 + (29/50)z − (33/50)z² − (11/25)z³ + (21/50)z⁴ | 1.30 | 0.031 | 0.74 |
+| M11 | 11 | 1 + (8/25)z − (137/100)z² − (31/100)z³ + (19/20)z⁴ | 1.80 | 0.0210 | 0.72 |
+
+| name | G_(l_1)(z): coefficients of z⁰, z¹, …, z⁷ |
+|---|---|
+| M5 | 103/20, 223/40, 4627/160, 829/32, 3469/64, −9, −2169/64 (degree 6) |
+| M7 | 77/10, 1013/200, 11073/400, 8331/80, 12481/80, −3873/20, −4999/50, 43113/400 |
+| M11 | 559/50, −2573/200, 13051/100, 200819/800, −9349/800, −2357/5, 4651/160, 39007/160 |
 
 Values of F at the ends of ℝ (z = ±1) and of I (z = 7/8, −7/18), and the resulting p_∞ = max(F(1), −F(−1)) and
 p_I = max(F(7/8), −F(−7/18)):

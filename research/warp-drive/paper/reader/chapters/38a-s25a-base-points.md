@@ -147,8 +147,9 @@ with |ḃ_V| = O(|b − b₀||V|) and
 *Proof.* At b, h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in ker L̂_b(0) in the
 space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀, with
 the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of [[prop:iii-h-3-2]],
-with [[lem:s25a-ball]]). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V), and, as (ḃ_V, S_V) = B(b)⁻¹B(b)(ḃ_V, S_V) with
-|B(b)⁻¹| ≤ 2, |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and
+with [[lem:s25a-ball]]). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V), with
+(ḃ_V, S_V) = B(b)⁻¹(⟨h_(b,v1)(V), f*_1⟩, ⟨h_(b,v1)(V), f*_2⟩); as |B(b)⁻¹| ≤ 2 and the pairings are bounded by the
+supremum of h_(b,v1)(V) on the compact support of the rows, |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and
 reverses h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by [[lem:s25a-ball]]. So h_(b,v1)(V) = ġ_b(ḃ_V), and
 ker h_(b,v1) = {V : ḃ_V = 0} by the injectivity in [[lem:s25a-ball]]. ∎
 

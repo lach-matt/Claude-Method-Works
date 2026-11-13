@@ -753,18 +753,26 @@ e^(−ix)x^(1/2)H^(1)_(l+1)(x) → (2/π)^(1/2)e^(−i((l+1)π/2 + π/4)); and o
 decays exponentially and H^(2)_(l+1) grows exponentially.
 
 (iii) ρ^a lies in ρ^α L²(r³dr) near infinity if and only if a > α + 2: the shift between decay rates and b-weights
-for the Euclidean density of ℝ⁴ is 2. On g_(b_0), with t the static time and t_* := t − r,
-∂_σ²□̂(0) = 2P_2 = 2g^00 Id ([[lem:iii-d-2-1]] (1)), and 2g^00 W* = −4m_0ρ⁴dt + O(ρ⁵), with W* of [[eq:iii-d1-2-1]].
+for the Euclidean density of ℝ⁴ is 2. On g_(b_0), with t the static time and t_* := t − r, ∂_σ²□̂(0) = 2g^00 Id, by
+the computation of [[lem:iii-d-2-1]] (1) for this t_* (near infinity, where t − r is used), and
+2g^00 W* = −4m_0ρ⁴dt + O(ρ⁵), with W* of [[eq:iii-d1-2-1]]. The time t − r_* of [[prop:np-10-15]] (vi) differs from
+t − r by O(ρ), and the two choices give the same ∂_σ□̂(0)W* up to O(ρ⁵).
 
 *Proof.* (i) The Christoffel symbols of ḡ vanish in Cartesian coordinates, so □̄ = −ḡ^(μν)∂_μ∂_ν = ∂_(t̄)² + Δ_e on
 each component. On stationary functions, e^(iσt_*)□̄e^(−iσt_*) = e^(−iσr)(e^(iσt̄)□̄e^(−iσt̄))e^(iσr)
 = e^(−iσr)(Δ_e − σ²)e^(iσr). (ii) With u = w/r, −u″ − 3u′/r = −w″/r − w′/r² + w/r³; adding l(l + 2)w/r³ − w/r and
 multiplying by −r³ gives r²w″ + rw′ − (1 + l(l + 2))w + r²w = 0, and 1 + l(l + 2) = (l + 1)². Bessel's equation of
-order l + 1 has exponents ±(l + 1) at 0, so u has exponents l and −l − 2. The limits are [DLMF, (10.7.7)] and
-[DLMF, (10.17.5)], and the behaviour on the imaginary axis is [DLMF, (10.17.5)–(10.17.6)], which hold uniformly in the
-sector |arg x| ≤ π − δ and in −2π + δ ≤ arg x ≤ π − δ respectively; these are the facts stated in [[lem:i-c-5-4]].
-(iii) ∫^∞ ρ^(2(a−α))r³dr = ∫^∞ r^(3−2(a−α))dr is finite if and only if a − α > 2. By [[prop:np-10-18]] (iv),
-g^00 = −2m_0ρ² + O(ρ⁴), and W* = ρ²dt + r_hρ³f⁻¹dr, so 2g^00W* = −4m_0ρ⁴dt + O(ρ⁵). ∎
+order l + 1 has exponents ±(l + 1) at 0, so u has exponents l and −l − 2. The limits are [DLMF, (10.7.7)], whose
+hypothesis Re ν > 0 holds as ν = l + 1, and [DLMF, (10.17.5)]; the behaviour on the imaginary axis is
+[DLMF, (10.17.5)–(10.17.6)], which hold uniformly in the sectors −π + δ ≤ ph x ≤ 2π − δ and −2π + δ ≤ ph x ≤ π − δ
+respectively, both containing ph x = 0 and ph x = π/2 (there e^(±ix) = e^(∓|x|)). These are
+[[thm:std-dlmf-hankel]] (2)–(3). (iii) ∫^∞ ρ^(2(a−α))r³dr = ∫^∞ r^(3−2(a−α))dr is finite if and only if a − α > 2. By
+the computation of [[lem:iii-d-2-1]] (1), the σ² coefficient of e^(iσt_*)□e^(−iσt_*) is g⁻¹(dt_*, dt_*) Id for every
+stationary time function, here near infinity; by [[prop:np-10-18]] (iv), g^00 = −2m_0ρ² + O(ρ⁴), and
+W* = ρ²dt + r_hρ³f⁻¹dr, so 2g^00W* = −4m_0ρ⁴dt + O(ρ⁵). For the last claim put F := r − r_* = m_0/r + O(r⁻³)
+([[prop:np-10-16]] (v)), so F′ = O(ρ²) and F″ = O(ρ³). As ∂_σ□̂(0) = −i[□, t_*] (proof of [[prop:np-10-15]] (vi)), the
+two choices differ by −i[□, F]W* = −i((□_0F)W* − 2∇_(∇F)W*), with □_0F = −r⁻³(r³fF′)′ = O(ρ³), ∇F = fF′∂_r = O(ρ²)∂_r,
+W* = O(ρ²) and ∇_(∂_r)W* = O(ρ³) in the static frame (proof of [[prop:np-10-15]] (vi)); this is O(ρ⁵). ∎
 
 **Lemma {#lem:iii-d-7-1}** (tf-admissibility; [Hin26, Lemma 6.8] in dimension 4 + 1.) There is ϵ > 0 such that for e_Υ ∈
 [0, ϵ), |γ_Υ| < ϵ, every γ_(Υ,H) and every b ∈ ℬ, the family σ ↦ (□^Υ_b)^(σ) is tf-admissible ([[def:i-c-5-1]]) with

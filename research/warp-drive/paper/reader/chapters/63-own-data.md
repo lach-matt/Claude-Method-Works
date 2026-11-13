@@ -142,3 +142,89 @@ C_f. ∎
 
 Enlarging R, we also take sup_(r≥4R) |f − f(4R)| ≤ 1 (f′ = O(r⁻²)), so that v1 − τ_max ≥ 4R − 1 > 0. We write W_T := W ∩ {t̃ ≥ T} for T ≤ 0.
 
+### The half-order tail at past null infinity {#sec:own-tail}
+
+At fixed λ, on the far region of [[thm:past-construction]], g_λ − g0 = Σ_(k=3)^J r^(−k/2) G_k + u_J for every J
+([[prop:bondi-hierarchy]]), with G_3 the radiation field and G_k = (2/(k − 3)) ∫_(v_start)^v S_(k/2+1) dv′ for k ≥ 4,
+r^(−q) S_q being the leading term of the forcing of u_(2q−3)'s equation. By [[lem:waves]] (a),
+
+    G_3 = F T_F + G T_G = λ A env(v) h(ζ) (T_F sin(v/λ) + T_G cos(v/λ)),
+    T_F := 2 ((x3 dx4 − x4 dx3)²/r² − (s²/3)(|dx|² − (x̂·dx)²)),
+    T_G := 2 ((x1 dx2 − x2 dx1)²/r² − (c²/3)(|dx|² − (x̂·dx)²)),                                       {#eq:own-g3}
+
+where T_F and T_G have Cartesian components that are smooth functions of x̂ alone, purely spatial and linearly independent
+(T_G has a component along (x1 dx2 − x2 dx1)², T_F none). Put ê(ω) := ∫ env(v) e^(iωv) dv and ω := 1/λ.
+
+**Proposition {#prop:own-tail}** (the tail). Let v ≥ v_end.
+(a) G_5(v) = G_5(v_end) =: G_5^∞.
+(b) G_5^∞ = A a_1(λ) + A³ a_3(λ), where a_1 = ½(Δ̊ − ¾)[λ h (T_F Im ê(ω) + T_G Re ê(ω))], Δ̊ acting on each Cartesian
+component, and a_3 is the integral over v of the part of S_(7/2) cubic in A.
+(c) a_1 and a_3 are O(λ^n) for every n.
+(d) a_1 is purely spatial, and a_1 = 0 exactly when ê(1/λ) = 0. There is at most one A* > 0 for which the spatial
+components of G_5^∞ vanish for every λ ∈ (0, λ_P]; for every other A > 0 the λ ∈ (0, λ_P] at which they vanish form a
+set with no accumulation point in (0, λ_P].
+
+*Proof.* *The order count.* Give each factor of a term of S_q its order, the power of r⁻¹ it carries, and its degree in
+A. G_3 has order 3/2 and degree 1. G_4 = 2 ∫ S_3 has order 2 and degree 2: S_3 is quadratic in G_3 and its
+v-derivatives plus −(3μ′/2) dv dv from Ric(g0) ([[eq:bondi-s-def]], [[prop:vaidya]] (a)), and μ′ = (2/9) A² env²
+([[eq:mu-rate]]). μ − μ0, μ′ and μ″ enter g0 − η = μ r⁻² dv dv and its derivatives with order 2 and degree 2. The static
+part μ0 r⁻² enters the inverse metric through −(μ/r²) ℓℓ, which raises the order of what it acts on by 4, and the terms
+of Γ[g0] it produces have order at least 3. ∂_v keeps the order; ℓ and r⁻¹ Ω raise it by 1. A term of S_(7/2) has order
+7/2 and contains a factor from u. No factor has order ½, so its factors are either G_3 together with one factor of order
+2 (G_4, μ − μ0, μ′ or μ″, with ∂_v-derivatives), of degree 3, or G_3 with two order-raising derivatives, which comes
+from the flat operator. The latter: by [[eq:wave-operator-vr]], for Z(v, x̂) smooth,
+
+    □̃(r^(−p) Z) = (3 − 2p) r^(−p−1) ∂_v Z + r^(−p−2) (Δ̊ + p² − 2p) Z − μ p(p + 1) r^(−p−4) Z,              {#eq:own-box-p}
+
+so □̃(r^(−3/2) G_3) = r^(−7/2)(Δ̊ − ¾) G_3 − (15/4) μ r^(−11/2) G_3, and the forcing [[eq:bondi-f1]] carries
++½ □̃(r^(−3/2) G_3). The other term of the forcing of u_4 at order 7/2, ½ (g_λ^(ab) − g0^(ab)) ∂_a ∂_b (r⁻² G_4), and the
+terms of S(u) at that order have degree 3. Hence S_(7/2) = ½(Δ̊ − ¾) G_3 + C_(7/2), with C_(7/2) a finite sum of products
+of a v-derivative of G_3 with a v-derivative of one of G_4, μ − μ0, μ′, μ″, with coefficients smooth in x̂, and
+G_5 = ∫_(v_start)^v S_(7/2) dv′.
+
+(a) For v ≥ v_end, env = 0, so G_3 and all its v-derivatives vanish, and every term of S_(7/2) contains one: ∂_v G_5 =
+S_(7/2) = 0.
+
+(b) By (a) and the order count, G_5^∞ = ∫ S_(7/2) dv = ½(Δ̊ − ¾) ∫ G_3 dv + ∫ C_(7/2) dv, and ∫ G_3 dv =
+λ A h (T_F ∫ env sin(ωv) dv + T_G ∫ env cos(ωv) dv) = A λ h (T_F Im ê(ω) + T_G Re ê(ω)).
+
+(c) |ê(ω)| ≤ ‖env^(n)‖_(L¹) ω^(−n) for every n (n integrations by parts), so a_1 = O(λ^∞). For a_3 use the phase θ = v/λ.
+A function [f] = f(v, x̂, v/λ) with f smooth and 2π-periodic in θ has ∂_v[f] = [∂_v f] + λ⁻¹[∂_θ f], which keeps its
+harmonics in θ. G_3 has the harmonics ±1, so S_3 = Σ_(k∈{0,±2}) P_k(v, x̂) e^(ikv/λ), with P_k smooth, supported in
+v ∈ [v_start, v_end] and polynomial in λ^(±1). Integrating by parts n times, for k = ±2,
+
+    ∫_(v_start)^v P_k e^(ikv′/λ) dv′ = Σ_(j<n) (−1)^j (λ/(ik))^(j+1) ∂_v^j P_k(v) e^(ikv/λ) + O(λ^(n−c)),
+
+uniformly in v, with c fixed by the powers of λ⁻¹ in P_k. So G_4 is a sum of terms with the harmonics 0 and ±2 plus
+O(λ^(n−c)), and so are μ − μ0, μ′, μ″ (harmonic 0). C_(7/2) is then Σ_(k∈{±1,±3}) Q_k(v, x̂) e^(ikv/λ) + O(λ^(n−c′)), with
+Q_k smooth and supported in [v_start, v_end], because each term contains a factor of G_3, of odd harmonic, and one of
+harmonic 0 or ±2. Each ∫ Q_k e^(ikv/λ) dv, k ≠ 0, is O(λ^m) for every m, by m integrations by parts; so a_3 = O(λ^∞).
+
+(d) The eigenvalues of Δ̊ − ¾ on S³ are −l(l + 2) − ¾ = −(l + ½)(l + 3/2) ≠ 0, so it is injective; h > 0; T_F and T_G
+are linearly independent and spatial. So a_1 is spatial and vanishes exactly when Im ê(ω) = Re ê(ω) = 0. ê is entire,
+and not identically zero, as env ≢ 0. Every factor of a_1 and a_3 is an iterated integral over [v_start, v] of products of
+smooth compactly supported functions of v with e^(±ikωv), times polynomials in ω^(±1); so a_1 and a_3 are real-analytic in
+ω > 0. If two amplitudes A_1 ≠ A_2 had vanishing spatial components of G_5^∞ for all ω ≥ 1/λ_P, then, dividing by A_i,
+a_1 + A_i² a_3^sp = 0 for i = 1, 2 on that interval, a_3^sp the spatial part of a_3; subtracting, a_3^sp = 0 and then
+a_1 = 0 there, hence for all ω > 0 by analyticity, and ê = 0 on (0, ∞), a contradiction. For any other A > 0 some spatial
+component of G_5^∞ at some x̂ is a real-analytic function of ω that is not identically zero, and its zeros are isolated.
+∎
+
+**Remark {#rem:own-no-tail-approximant}** (the approximant carries no tail). In the approximant from past null infinity
+([[thm:past-approximant]]) a term of order k/2 in the expansion of a profile carries phase harmonics of the parity of k:
+W_TT has order 3/2 and harmonic ±1, χ order 2 and harmonic ±2 ([[eq:past-classes]]), g0 integer orders and harmonic 0.
+Products, ∂_v, ℓ, Ω, ∂_θ, the transports of [[lem:decay-calculus]] (d) (leading term −r^(1−q) f_q/(q − 5/2)), the mean
+integrals 2/(2q − 5) ∫ S_q and the phase integrals from past null infinity each change k by an even number or not at
+all, and keep the parity; a mean over θ is nonzero only on even harmonics. So the means m_j have only integer orders, and
+after the shell, where g_app − g0 = Σ_j λ^j m_j ([[lem:vii-1-1]]), g_app − g0 has no term of half-integer order. The
+coefficient G_5^∞ is therefore carried by g_λ − g_app, in agreement with (c): its two-scale expansion vanishes at every
+order in λ.
+
+**Remark {#rem:own-tail-bump}** (Numerical observation.) For the bump envelope env_b(v) = exp(−1/(1 − y²)),
+y = (v − 2)/(3/2), on [½, 7/2], e^(−2iω) ê_b(ω) is real, env_b being even about v = 2, so a_1 vanishes exactly at the
+real zeros of that function. Evaluated numerically, ê_b(1/λ) ≠ 0 at λ = 2⁻¹, …, 2⁻⁷ (|ê_b| from 0.297 down to
+3.4 × 10⁻⁸, falling faster than λ⁵ over [2⁻⁷, 2⁻⁵]), and the first zeros are at ω ≈ 3.331, 5.926, 8.399, 10.81: the
+exceptional set of [[prop:own-tail]] (d) is infinite for this envelope, and accumulates only at λ = 0. For the envelope
+sin⁴(π(v − ½)/3), which is C³ but not C^∞ at its ends, |ê(ω)| ω⁵ stays between 17 and 61 for ω = 10, …, 320, so a_1 is of
+order λ⁶ there rather than O(λ^∞). No proof uses these values.
+

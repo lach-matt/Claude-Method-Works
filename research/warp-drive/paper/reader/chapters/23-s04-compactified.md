@@ -1380,8 +1380,8 @@ product. This is to hold for all symbols of the stated orders, the expression be
 symbols, such as one being 1 on the support of another, is not allowed to enter. Then for symbols of finite regularity
 the operator given by the same expression has order μ + δ, or μ when all orders are constant and ν = 0. Its norm is at
 most C ∏_i ‖a_i‖_((M);ν,𝗆_i), with M depending only on the expression, the orders 𝗆_i and 𝗍, ν and δ. In particular,
-for a of constant order m
-with ν = 0 and a real symbol ǎ of order 𝗄 and any index: D_a := Op(a)* − Op(a*) has order m − 1, and [D_a, Op(ǎ)] and
+for a of constant order m with ν = 0 and a real symbol ǎ of order 𝗄 and any index: D_a := Op(a)* − Op(a*) has order
+m − 1, and [D_a, Op(ǎ)] and
 [ [D_a, Op(ǎ)], Op(ǎ) ] have orders m + 𝗄 − 2 + δ and m + 2𝗄 − 3 + δ.
 
 The constants are uniform for symbols bounded in the stated norms. In (e) they depend in addition on B_1 and B_2,
@@ -1430,9 +1430,10 @@ y_1 = ⋯ = y_j = y. For smooth symbols it has order μ − j: y_i is scalar of 
 lowers the order by one ((S5), (S8)). By (f), T_j has order μ − j + δ, with norm at most
 C‖y‖^j_((M);0,0) ∏_i ‖a_i‖_((M);ν,𝗆_i), M being the number of (f) for this expression. Take δ ≤ 1,
 J := ⌈sup μ⌉ + N + 1 and 𝗍′ := 𝗍 + N + ⌈sup μ⌉ + 1. B_1 and B_2 are bounded on every H^𝗍_e3b ((S5), (S8)). So
-B_1T_JB_2 has order −N, as μ − J + δ ≤ −N. B_1(I − Y)T_jB_2 maps H^𝗍 to H^(𝗍−sup μ−1) by T_j, and then to H^(𝗍+N)
+B_1T_JB_2 has order −N, as μ − J + δ ≤ −N. B_1(I − Y)T_jB_2 maps H^𝗍 to H^(𝗍−sup μ−1) by T_j (j − δ ≥ −1), and then to
+H^(𝗍+N)
 by the residual factor. B_1T_jYB_2 maps H^𝗍 to H^(𝗍′) by the residual factor YB_2, and then to
-H^(𝗍′−sup μ−1) = H^(𝗍+N) by T_j. Hence the bound, with M the largest of the numbers of (f) for T_0, …, T_J at the
+H^(𝗍′−sup μ−1) ⊂ H^(𝗍+N) by T_j, as j − δ ≥ −1. Hence the bound, with M the largest of the numbers of (f) for T_0, …, T_J at the
 orders 𝗍 and 𝗍′. It depends only on N, 𝗍, μ, the expression, its orders, ν and δ; B_1, B_2 and y enter only the
 constant. For S_1B_1TB_2S_2, the factors S_1 and S_2 are bounded by (f) at the orders involved, with indices of the same
 kind. ∎

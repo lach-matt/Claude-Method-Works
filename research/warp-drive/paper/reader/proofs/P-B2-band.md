@@ -68,7 +68,8 @@ t² > C, its derivative being −Λ(t² + C)/(t² − C)². The last statement i
 φ := F(z(r_*)). Then φ′ = 4ηF_z, and for V = V_(a,b) the weight w := −φV′ − ½φ‴ is w = ηG with
 
     G = 2FV_y − ½E_zzF_z − (3/2)E_zF_zz − EF_zzz,     E := (1 + z)²(1 − z)³,
-    V_y = az + (b/4)(1 − z)(1 + 3z),   E_z = −(1 + z)(1 − z)²(1 + 5z),   E_zz = 4(1 − z)(5z² + 2z − 1).    {#eq:band-weight-z}
+    V_y = az + (b/4)(1 − z)(1 + 3z),
+    E_z = −(1 + z)(1 − z)²(1 + 5z),     E_zz = 4(1 − z)(5z² + 2z − 1).                              {#eq:band-weight-z}
 
 If F has the sign of z, then for a ≥ a′ the weights of V_(a,b) and V_(a′,b) satisfy G_(a,b) − G_(a′,b) = 2(a − a′)zF ≥ 0.
 
@@ -121,7 +122,8 @@ For ν > 0 put F_ν(z) := Φ(νz), x := νz and s := 1 + x². Φ is odd and incr
 Expanding in powers of x,
 
     R_ν(x) = ν³(3/2 − 6x²) + (15/4)ν²(x³ − x) + ν(4x⁴ − 10x² + 1) + (1/16)(9x⁷ + 3x⁵ + 195x³ − 39x)
-             + (1/(8ν))(9x⁸ + 27x⁶ + 63x⁴ − 15x²) − (1/(16ν²))(27x⁹ + 85x⁷ + 125x⁵ − 53x³).          {#eq:band-r-expanded}
+             + (1/(8ν))(9x⁸ + 27x⁶ + 63x⁴ − 15x²)
+             − (1/(16ν²))(27x⁹ + 85x⁷ + 125x⁵ − 53x³).                                           {#eq:band-r-expanded}
 
 *Proof.* F_z = νΦ′(x) = νs^(−3/2), F_zz = ν²Φ″(x) = −3ν²xs^(−5/2) and F_zzz = ν³(12x² − 3)s^(−7/2). Substituting
 these, F = xs^(−1/2) and V_y = (a/ν)x + (9/16)(1 − z)(1 + 3z) into [[eq:band-weight-z]] and multiplying by s^(7/2),
@@ -133,7 +135,7 @@ terms are 2R_ν(x). Substituting z = x/ν into [[eq:band-r]] and collecting powe
 
 **Lemma {#lem:band-positivity}** (Positivity of the core polynomial.) Let 2 ≤ ν ≤ 12 and A_ν := 6ν⁴ + (17/2)ν³. Then
 
-    R_ν(x) + (A_ν/ν)x²(1 + x²)³ ≥ ν³     for every real x with |x| ≤ ν.                               {#eq:band-positivity}
+    R_ν(x) + (A_ν/ν)x²(1 + x²)³ ≥ ν³     for every real x with |x| ≤ ν.                    {#eq:band-positivity}
 
 *Proof.* Put μ := 1/ν ∈ [1/12, 1/2] and Q := ν⁻³(R_ν(x) + (A_ν/ν)x²(1 + x²)³) − 1. Since A_ν/ν = (6 + 17μ/2)ν³,
 [[eq:band-r-expanded]] gives Q = A_0 + μA_1 + μ²A_2 + μ³A_3 + μ⁴A_4 + μ⁵A_5 with
@@ -207,7 +209,8 @@ and ν²(X − 1)/(1 + X)² = z⁻²X(X − 1)/(1 + X)² < z⁻², so (log h_ν)
 h_ν(7/8)). At z = 7/8, η = η(y = 1/16) = 15/1024 and z² = 49/64, which gives h_ν(7/8). This is [[eq:band-wi]].
 
 The constants. φ′ = 4νη(1 + ν²z²)^(−3/2). On y ∈ [1/16, 1/2] (z ∈ [0, 7/8]),
-d(log φ′)/dy = 3/(2y) − 1/(1 − y) + 6ν²z/(1 + ν²z²) ≥ 3 − 2 > 0, so there φ′ ≥ φ′(y = 1/16) = 4ν(15/1024)(1 + 49ν²/64)^(−3/2).
+d(log φ′)/dy = 3/(2y) − 1/(1 − y) + 6ν²z/(1 + ν²z²) ≥ 3 − 2 > 0, so there
+φ′ ≥ φ′(y = 1/16) = 4ν(15/1024)(1 + 49ν²/64)^(−3/2).
 On y ∈ [1/2, 25/36], η ≥ 2^(−5/2) ([[sec:morawetz-identity]]) and |z| ≤ 7/18, so φ′ ≥ 4ν2^(−5/2)(1 + 49ν²/324)^(−3/2),
 which is larger, as 4 · 2^(−5/2) > 15/256 and 49/324 < 49/64. This gives m′. Next φ′ ≤ 4ν max η = 4ν · 6√15/125 <
 0.74362ν (as in [[prop:morawetz-resolvent-l-ge-1]]). Since Φ is odd and increasing, max_I |φ| = max(Φ(7ν/8), Φ(7ν/18))
