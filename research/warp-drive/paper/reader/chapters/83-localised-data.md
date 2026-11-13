@@ -11,9 +11,11 @@ and data localised in an angular band exist exactly ([[prop:loc-cones]]). On Σ_
 band inside the shell, where no foliation of Σ_τ0 is hyperbolic, and on a slice bent from Σ_τ0 by at most 0.0012 it
 holds everywhere, so that data localised in an angle exist on the whole slice ([[thm:loc-bent-slice]]). Localisation
 in angle and radius at once is decided, near the background's data and at second order in the amplitude, by the sign
-of a charge Q: the pairing of the constraints with the static Killing field. Q is negative for every perturbation of
-the extrinsic curvature alone; for perturbations of the metric it takes both signs where the round spheres are
-trapped, f < 0, and is negative where they are not, f > 0 ([[thm:charge-sign]]).
+of a charge Q: the pairing of the constraints with the static Killing field. On the vacuum bands of the seed region
+{0.70 ≤ R ≤ 1.861} and of {R ≥ R_*}, where the mass term of the charge identity is shown positive, Q is negative for
+every perturbation of the extrinsic curvature alone. For perturbations of the metric, on every vacuum band, Q takes both
+signs where the round spheres are trapped, f < 0, and where they are not, f > 0, it is negative for every perturbation
+that is not a gauge perturbation ([[thm:charge-sign]]).
 
 The inequalities on the background that these results use are proved at the end of the chapter, in
 [[sec:bg-below]] and [[sec:margins]], from the tables of [[sec:tab-bg]] and [[sec:table-margins]].

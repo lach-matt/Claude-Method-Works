@@ -165,9 +165,9 @@ field is *labelled by initial direction* if for every x the map α ↦ β0(x, α
 supp q. T_V is the stress of the restricted field μ_x := ∫ q(x, α) δ_(du_α(x)) dα, and each label is a null dust.
 Replacing u_α by −u_α changes neither T_V nor [[eq:vlasov-amplitude]], so the time orientation of ℓ_α only fixes a sign.
 It fixes the *branch* of the eikonal equation used below: given the restriction of u_α to Σ_τ0, of nonzero differential,
-the τ-derivative of u_α there is the root of g⁻¹(du_α, du_α) = 0 for which g⁻¹du_α is future directed. (A null covector
-with that spatial part has two such roots, and they give the two time orientations, since g⁻¹du is never tangent to the
-spacelike Σ_τ0.)
+the τ-derivative of u_α there is the root of g⁻¹(du_α, du_α) = 0 for which g⁻¹du_α is future directed. (With n the
+future unit normal of Σ_τ0, the two roots are du_α(n) = ±|d(u_α|Σ_τ0)|, and g⁻¹du_α is future directed exactly when
+du_α(n) < 0.)
 
 In [HL25, (1.2), p. 2] the labels are the initial directions themselves: u_α↾Σ0 = x¹ cos α + x² sin α, so β0 = α.
 
@@ -215,28 +215,30 @@ ingoing and one outgoing), are pairwise separated.
 slices are spacelike) and the null du(x0) ≠ 0, so g⁻¹ restricted to it is Lorentzian, and its null covectors form two
 lines. Two covectors on one null line are proportional and null, so their product vanishes. ∎
 
-**Proposition {#prop:vlasov-axis-focus}** (Restricted particles focus at an axis.) Let g5 be a smooth metric of the class
-near a point x0 of the axis {ρ2 = 0} with r(x0) > 0. Let a restricted massless Vlasov field be given off the axes by an
-orbit density: T = e^(−ψ) T3, where T3 is the stress of a density f ≥ 0 on the bundle of null directions of (Q, g3),
-continuous, and transported by the null geodesic flow of g3 (the Vlasov equation of (Q, g3), [[lem:vlasov-flow]] (b) and
-(c)). If f > 0 at a null direction whose g3-geodesic reaches x0 transversally to the axis, then there are c > 0 and a
-timelike vector field n near x0 with T(n, n) ≥ c/ρ2 at the points of that geodesic near x0. So T and Ric(g5) = T are
-unbounded near x0, and g5 is not C² there.
+**Proposition {#prop:vlasov-axis-focus}** (Restricted particles cannot reach an axis.) Let g5 be a C² metric of the
+class near a point x0 of the axis {ρ2 = 0} with r(x0) > 0, and suppose that off the axes Ric(g5) = T := e^(−ψ) T3, where
+T3 is the stress of a continuous density f ≥ 0 on the bundle of null directions of (Q, g3) transported by the null
+geodesic flow of g3 (the Vlasov equation of (Q, g3), [[lem:vlasov-flow]] (b) and (c)): X(f) + κ f = 0 along the
+generator X of that flow, with κ a continuous function of g3 and its first derivatives. Then f vanishes on every null
+direction whose g3-geodesic reaches x0 transversally to the axis.
 
-*Proof.* Let P be the fixed set {x2 = x4 = 0} of the two reflections, a three-dimensional submanifold with coordinates
-(τ, x1, x3). It meets every orbit near x0, at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2,
-∂_4 at the points of P and orthogonal to P by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P
-is g3 in the coordinates (τ, ρ1, ρ2) = (τ, x1, x3). As g5 is smooth, g_P is a smooth Lorentzian metric on P, even in x3:
-g3 extends across the edge {ρ2 = 0} to the smooth metric g_P, and the null geodesic flow of g3 extends to the smooth flow
-of g_P, under which the geodesic reaching x0 transversally crosses {x3 = 0}. On the bundle of null directions the
-transport of f is X(f) + κ f = 0 along the generator X of this flow, with κ smooth, so f stays positive along the flow
-line of the given direction and, by continuity, f ≥ c1 > 0 on a neighbourhood U of the arriving direction at the points
-of the geodesic near x0. Hence T3(n, n) ≥ ∫_U f (p(n))² ≥ c2 > 0 there, for n timelike. The Killing field ∂_(φ2) = x3 ∂_4
-− x4 ∂_3 has, at points of P, e^(2ψ2) = g5(∂_(φ2), ∂_(φ2)) = x3² (g5)_(44) = ρ2² (g5)_(44), with (g5)_(44) > 0, and
-e^(ψ1) is bounded near x0 since ρ1(x0) = r(x0) > 0. So T(n, n) = e^(−ψ1−ψ2) T3(n, n) ≥ c/ρ2. ∎
+*Proof.* Suppose that f > 0 at a null direction whose geodesic reaches x0 transversally. Let P be the fixed set {x2 = x4
+= 0} of the two reflections, a three-dimensional submanifold with coordinates (τ, x1, x3). It meets every orbit near x0,
+at the points (τ, ±ρ1, ±ρ2). The Killing fields ∂_(φ1), ∂_(φ2) are along ∂_2, ∂_4 at the points of P and orthogonal to P
+by the reflection symmetry, so on {x1 > 0, x3 > 0} the induced metric g_P of P is g3 in the coordinates (τ, ρ1, ρ2) =
+(τ, x1, x3). As g5 is C², g_P is a C² Lorentzian metric on P, even in x3: g3 extends across the edge {ρ2 = 0} to g_P, and
+the null geodesic flow of g3 extends to the flow of g_P, which is C¹, under which the geodesic reaching x0 transversally
+crosses {x3 = 0}. In the coordinates of P, κ is the same function of g_P and its first derivatives, so it is continuous
+on the bundle of null directions of g_P over a neighbourhood of x0. Hence f, which equals its initial value times
+exp(−∫κ) along each flow line, stays positive along the flow line of the given direction, and, by continuity, f ≥ c1 > 0
+on a neighbourhood U of the arriving direction at the points of the geodesic near x0. So T3(e0, e0) ≥ ∫_U f (p(e0))² ≥
+c2 > 0 there, for a timelike vector field e0. The Killing field ∂_(φ2) = x3 ∂_4 − x4 ∂_3 has, at points of P, e^(2ψ2) =
+g5(∂_(φ2), ∂_(φ2)) = x3² (g5)_(44) = ρ2² (g5)_(44), with (g5)_(44) > 0, and e^(ψ1) is bounded near x0 since ρ1(x0) =
+r(x0) > 0. So T(e0, e0) = e^(−ψ1−ψ2) T3(e0, e0) ≥ c/ρ2 at the points of the geodesic near x0, with c > 0. But Ric(g5)
+is continuous near x0, so Ric(g5)(e0, e0) is bounded there: a contradiction. ∎
 
 The mechanism is the focusing of a converging beam: in a flat plane, particles moving radially inward with speed v have
-a density n(ρ, t) solving ∂_t n − v ρ⁻¹ ∂_ρ(ρ n) = 0, so ρ n(ρ, t) = (ρ + v t) n0(ρ + v t) and ρ n → v t n0(v t) > 0 as
+a density ϱ(ρ, t) solving ∂_t ϱ − v ρ⁻¹ ∂_ρ(ρ ϱ) = 0, so ρ ϱ(ρ, t) = (ρ + v t) ϱ0(ρ + v t) and ρ ϱ → v t ϱ0(v t) > 0 as
 ρ → 0 once the beam has reached the centre; particles moving along the axis (v = 0) keep their density.
 
 ### The theorem {#sec:vlasov-theorem}

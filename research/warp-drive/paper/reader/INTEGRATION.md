@@ -1163,3 +1163,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   backward problem on 𝒦⁻), loss d = 4 and N_ex = 153 unchanged, smallness in H^10. Texts for chapter 48 (prop:viii-1-2
   proof, uniqueness classes, (2), the lem:s29-g-on-n smoothness paragraph, "Up to Σ°", lines 128/133) and chapter 65
   (c_1 := c_♮ and Q in item 5) are in the report; R4-S27 judges them before they are applied.
+- R-P-K83b NOT CONFIRMED 0M 4m 7n, the mathematics correct throughout (reviews/R-P-K83b.md). F-P-K83b fixes the
+  proof file; the merge into chapter 83 follows F-83, then one confirming reading of the merged sections.

@@ -19,7 +19,7 @@ lem:ii-d-2-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:182-205	II.D Lemma 2
 eq:ii-d-2-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:185-187	II.D (2.2)	
 lem:ii-d-2-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:207-218	II.D Lemma 2.4	F3-S04: for all w in L^2 with error C_eta|w|_(-1/2) (lem:ii-a1-2-6 at constant order)
 eq:ii-d-2-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:210	II.D (2.3)	
-lem:ii-d-2-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:225-256	II.D Lemma 2.5 and the two remarks after it	F3-S04: smooth right localisers allowed; for all w in H^(K'), error C_eta|w|_(t-1/2); extension to H^(t-1/2); applied at localised w
+lem:ii-d-2-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:225-256	II.D Lemma 2.5 and the two remarks after it	F3-S04: smooth right localisers allowed; for all w in H^(K'), error C_eta|w|_(t-1/2); extension to H^(t-1/2); applied at localised w; F4-S06: the paragraph after the lemma also names chi_*L = chi_*L chi and the boundedness of L (R4-S04 observation)
 eq:ii-d-2-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:231-233	II.D (2.4)	
 sec:ii-d-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:258-298	II.D section 3, the pattern	F3-S04: pattern (6) supplies the localisers phi_0, phi_E (phi_E missing R, keeping property (4))
 eq:ii-d-3-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:269-271	II.D (3.1)	
@@ -41,19 +41,19 @@ rem:ii-d-3-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:541-546	II.D Remark 
 sec:ii-d-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:548-571	II.D section 4, setting and (T1)-(T3)	D-tag at 551 dropped
 lem:ii-d-4-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:573-633	II.D Lemma 4.1	projection w renamed pi_Y, field N renamed N_Y; D-tag at 579 dropped
 eq:ii-d-4-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:588	II.D (4.1)	
-prop:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:635-932	II.D Proposition 4.2 = [Hin26c] Proposition 7.10 at n = 4, Steps 0-4	tags at 887-888, 892 dropped; delta_2 range narrowed to (0, 2^(-J_0-6) delta_1] and added to the choice of delta_2^(1), as G' and E' of (★) need it (fix round R-S06 item 2); half-step count J renamed 𝔫; beta_0 of (T1) written beta_Γ; F3-S04: Step 1a/1b localisers (phi_E in {|phi^u| >= eps'/3} u {rho_K >= eps'/3}, Gamma := U(2 delta_2)); Step 1b and Step 3 use the localised form; B_3, E_3, M with Phi_0
+prop:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:635-932	II.D Proposition 4.2 = [Hin26c] Proposition 7.10 at n = 4, Steps 0-4	tags at 887-888, 892 dropped; delta_2 range narrowed to (0, 2^(-J_0-6) delta_1] and added to the choice of delta_2^(1), as G' and E' of (★) need it (fix round R-S06 item 2); half-step count J renamed 𝔫; beta_0 of (T1) written beta_Γ; F3-S04: Step 1a/1b localisers (phi_E in {|phi^u| >= eps'/3} u {rho_K >= eps'/3}, Gamma := U(2 delta_2)); Step 1b and Step 3 use the localised form; B_3, E_3, M with Phi_0; F4-S06: proof of (star) applied to w := Phi^#u (auxiliary localiser, phi^# = 1 near U(2^(J_0+3)delta_2), WF in Ell(G')), with (L1) for [P, Phi^#] and (L2) for E'; every one-sided disjoint-support claim of Steps 1, 2, 4 replaced by two-sided prop:ii-a1-2-4 (e) with smooth flanks; R_2^flat written out (r^flat = i rho^-1 phi^u (chi_1(1-chi_1)w_u - H chi_1)) and bounded with the one order of (F1), its cost being X_eps := |Op(rho^-s' phi_eps g_0)w|, which Step 4 bounds (the source's "G''R_2^flat has every order" dropped); Step 2: A_eps := Lambda Phi_a* A~ Phi_a Lambda; Step 3 at w with G'''; Step 4 elliptic bounds for smooth e', e'' at w; statement unchanged
 eq:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:641-642	II.D (4.2)	
 eq:ii-d-4-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:675-676	II.D (4.3)	
-eq:ii-d-4-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:724	II.D (4.4)	
-eq:ii-d-4-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:727	II.D (4.5)	
-eq:ii-d-4-6	docket68/n1star/proof5/PART-II-D-REGULARITY.md:760	II.D (4.6)	
-eq:ii-d-4-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:785	II.D (4.7)	
+eq:ii-d-4-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:724	II.D (4.4)	F4-S06: r^flat defined explicitly and its second form by eq:ii-d-4-1; facts (F1)-(F2) added
+eq:ii-d-4-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:727	II.D (4.5)	F4-S06: at w = Phi^# u, with Pw in place of f
+eq:ii-d-4-6	docket68/n1star/proof5/PART-II-D-REGULARITY.md:760	II.D (4.6)	F4-S06: at w
+eq:ii-d-4-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:785	II.D (4.7)	F4-S06: at w; X_eps with smooth g_0 at w
 eq:ii-d-4-8	docket68/n1star/proof5/PART-II-D-REGULARITY.md:803	II.D (4.8)	
 eq:ii-d-4-9	docket68/n1star/proof5/PART-II-D-REGULARITY.md:811-814	II.D (4.9)	
-eq:ii-d-4-10	docket68/n1star/proof5/PART-II-D-REGULARITY.md:826-828	II.D (4.10)	
-eq:ii-d-4-11	docket68/n1star/proof5/PART-II-D-REGULARITY.md:844-845	II.D (4.11)	cross term C_δ𝒦X_ε added (the source omits it) and carried through Step 4 by Young's inequality (fix round R-S06 item 1)
-eq:ii-d-4-12	docket68/n1star/proof5/PART-II-D-REGULARITY.md:882	II.D (4.12)	
-eq:ii-d-4-13	docket68/n1star/proof5/PART-II-D-REGULARITY.md:912	II.D (4.13)	
+eq:ii-d-4-10	docket68/n1star/proof5/PART-II-D-REGULARITY.md:826-828	II.D (4.10)	F4-S06: at w; remainders bounded by C_delta|w|^2_(s'-1/2)
+eq:ii-d-4-11	docket68/n1star/proof5/PART-II-D-REGULARITY.md:844-845	II.D (4.11)	cross term C_δ𝒦X_ε added (the source omits it) and carried through Step 4 by Young's inequality (fix round R-S06 item 1); F4-S06: at w
+eq:ii-d-4-12	docket68/n1star/proof5/PART-II-D-REGULARITY.md:882	II.D (4.12)	F4-S06: at w, localised form with G'''
+eq:ii-d-4-13	docket68/n1star/proof5/PART-II-D-REGULARITY.md:912	II.D (4.13)	F4-S06: at w, with smooth e', e'' and the localiser Phi_0 for M^eps
 sec:ii-d-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:934-1041	II.D section 5, proof of Theorem 1.2	
 sec:ii-d1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:18-50	II.D1 method paragraph and section 1	
 thm:ii-d1-1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:52-65	II.D1 Theorem 1.1 = [Hin26c] Proposition 7.11 at n = 4	weights of (1.2) as corrected in II.D1 (D'2), stated in sec:s06-remarks

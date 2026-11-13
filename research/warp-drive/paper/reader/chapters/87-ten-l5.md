@@ -34,8 +34,8 @@ r = r_q := (√72 μ0 l5²)^(1/4). At the horizon r = √μ0,
 
 Against the areal radius, λ/r = 1 and λ/r = 10^(−1/2) ∈ (0.3162, 0.3163) at the horizon, and on x_K = 1
 
-    λ/r_q = 10^(1/2) 72^(−1/8) ∈ (1.852, 1.853)  (first seed),      λ/r_q = 10 · 72^(−1/8) 1000^(−1/4) ∈ (1.041, 1.042)
-    (second seed).
+    λ/r_q = 10^(1/2) 72^(−1/8) ∈ (1.852, 1.853)  (first seed),
+    λ/r_q = 10 · 72^(−1/8) 1000^(−1/4) ∈ (1.041, 1.042)  (second seed).
 
 *Proof.* On x_K = 1, l5² √𝒦 = 1 by the definition of x_K ([[ch:setting]]), so L = l5 and λ/L = 10. At r = √μ0,
 𝒦 = 72/μ0² and L = √μ0 · 72^(−1/4), so λ/L = 10 l5 · 72^(1/4)/√μ0; this is 72^(1/4) when √μ0 = 10 l5 and
@@ -85,8 +85,8 @@ The metrics of the class are written in double-null gauge as
 with R > 0, P, Q, W and β functions of (u, v, x), and x ∈ [−1, 1]. The choice of G_x is the gauge: the leaves
 u = const, v = const carry the volume element (R³/4) dx dφ1 dφ2.
 
-**Lemma {#lem:cone-raychaudhuri}** (The outgoing constraint.) For every metric of the class, at every point with
-|x| < 1,
+**Lemma {#lem:cone-raychaudhuri}** (The outgoing constraint.) For every metric of the class, at every point
+with |x| < 1,
 
     Ric_vv = −(3/R) (∂_v²R − 2 ∂_vW ∂_vR) − ((∂_vP)² + (∂_vQ)² + (∂_vP + ∂_vQ)²).          {#eq:cone-raychaudhuri}
 
@@ -230,8 +230,8 @@ b(x) = Σ_j b_j T_j(x) with
 
 (a) Ric_vv[g_app] = 0 on the cone outside 1/2 ≤ v ≤ 7/2.
 
-(b) For 1/2 ≤ v ≤ 7/2 and x ∈ [−1, 1] (one-sided at v = 1/2 and v = 7/2),
-|Ric_vv[g_app]| ≤ 4.97 × 10⁻⁵ at the first seed and |Ric_vv[g_app]| ≤ 2.28 × 10⁻⁵ at the second.
+(b) For 1/2 ≤ v ≤ 7/2 and x ∈ [−1, 1] (one-sided at v = 1/2 and
+v = 7/2), |Ric_vv[g_app]| ≤ 4.97 × 10⁻⁵ at the first seed and |Ric_vv[g_app]| ≤ 2.28 × 10⁻⁵ at the second.
 
 (c) The jumps of ∂_r²R_app across v = 1/2 and across v = 7/2 are at most 3.6 × 10⁻⁸ at the first seed and at most
 8.5 × 10⁻⁸ at the second.
@@ -267,14 +267,14 @@ M = 192.3 at the first seed and M = 7.878 at the second.
 p ≥ r_− := c − ℓ(ϱ + ϱ^(−1))/2. At the first seed η ≤ 0.5579, ℓ(ϱ + ϱ^(−1))/2 ≤ 0.9298 and r_− ≥ 10.061; at the second
 η ≤ 0.3100, ℓ(ϱ + ϱ^(−1))/2 ≤ 0.8058 and r_− ≥ 10.185. Put V := 2 + 2/(r_−² − 1) ≤ 2.021 (both seeds).
 
-(i) The phase. Im v(z) = 2q + arctan(q/(p − 1)) − arctan(q/(p + 1)), and since arctan has derivative at most 1,
-|arctan(q/(p − 1)) − arctan(q/(p + 1))| ≤ |q| (1/(p − 1) − 1/(p + 1)) = 2|q|/(p² − 1). So |Im v(z)| ≤ η V =: η_v,
+(i) The phase. Im v(z) = 2q + arctan(q/(p − 1)) − arctan(q/(p + 1)), and since arctan has derivative at most
+1, |arctan(q/(p − 1)) − arctan(q/(p + 1))| ≤ |q| (1/(p − 1) − 1/(p + 1)) = 2|q|/(p² − 1). So |Im v(z)| ≤ η V =: η_v,
 with η_v ≤ 1.128 (first seed) and η_v ≤ 0.6266 (second). Also v′(z) = 2 + 2/(z² − 1) and |z² − 1| ≥ |z|² − 1 ≥
 r_−² − 1, so |v′(z)| ≤ V.
 
 (ii) The trigonometric factors. For complex ξ, |sin ξ| and |cos ξ| are at most cosh(Im ξ). With env and d env/dv
-extended as the entire functions sin⁴(π(v − 1/2)/3) and (4π/3) sin³(π(v − 1/2)/3) cos(π(v − 1/2)/3), this gives
-|env(v(z))| ≤ c₄ and |d env/dv (v(z))| ≤ (4π/3) c₄, where c₄ := cosh⁴(π η_v/3) ≤ 10.1 (first seed), ≤ 2.24
+extended as the entire functions sin⁴(π(v − 1/2)/3) and (4π/3) sin³(π(v − 1/2)/3) cos(π(v − 1/2)/3), this
+gives |env(v(z))| ≤ c₄ and |d env/dv (v(z))| ≤ (4π/3) c₄, where c₄ := cosh⁴(π η_v/3) ≤ 10.1 (first seed), ≤ 2.24
 (second); and |cos θ|, |sin θ| ≤ cosh(η_v/λ) ≤ 1.707 (first seed), ≤ 3.696 (second).
 
 (iii) A and B. Here φ = (λ/2) z^(−3/2) env(v(z)), φ′ = (λ/2)(−(3/2) z^(−5/2) env + z^(−3/2) (d env/dv) v′) and
@@ -286,8 +286,8 @@ most (|φ′| + |φ| |θ′|) cosh(η_v/λ) ≤ Ā, where
 At the first seed r_−^(−3/2) ≤ 0.03134, the last factor is at most 5.318 and Ā ≤ 2.874; at the second
 r_−^(−3/2) ≤ 0.03077, the last factor is at most 2.373 and Ā ≤ 0.6046.
 
-(iv) R_app. Each t ∈ E_ϱ is t = (ω + ω^(−1))/2 with 1 ≤ |ω| ≤ ϱ, and T_i(t) = (ω^i + ω^(−i))/2, so |T_i(t)| ≤ ϱ^i. Also
-|T_j(x)| ≤ 1 and |z − r_s| ≤ |z − c| + ℓ. So
+(iv) R_app. Each t ∈ E_ϱ is t = (ω + ω^(−1))/2 with 1 ≤ |ω| ≤ ϱ, and T_i(t) = (ω^i + ω^(−i))/2, so |T_i(t)| ≤ ϱ^i.
+Also |T_j(x)| ≤ 1 and |z − r_s| ≤ |z − c| + ℓ. So
 
     |R_app| ≤ Σ_(i,j) |C_(ij)| ϱ^i + Σ_j |a_j| + Σ_j |b_j| (ℓ(ϱ + ϱ^(−1))/2 + ℓ) ≤ R̄,
 
@@ -339,9 +339,9 @@ most R̄ ([[lem:cone-ellipse]] (iv)), |r + D_k(x_l)| ≤ R̄ + 1 for real r with
 
 at both seeds, so the error in r_k changes F by less than 3 × 10⁻¹⁷.
 
-*The precision each bound needs.* If G₁ and F are known to within e at a node, G is known to within 2e, and
-|G| ≤ ε follows as soon as the approximate value has modulus at most ε − 2e; this is the case whenever
-|G| + 4e ≤ ε. The largest |G| at the nodes is attained at the end nodes: it is below 1.4439 × 10⁻⁸ at the first seed
+*The precision each bound needs.* If G₁ and F are known to within e at a node, G is known to within 2e,
+and |G| ≤ ε follows as soon as the approximate value has modulus at most ε − 2e; this is the case
+whenever |G| + 4e ≤ ε. The largest |G| at the nodes is attained at the end nodes: it is below 1.4439 × 10⁻⁸ at the first seed
 (k = 0) and below 7.3612 × 10⁻⁸ at the second (k = 64), so its margins to ε_* exceed 5.6 × 10⁻¹⁰ and 3.8 × 10⁻¹⁰.
 At the interior nodes |G| ≤ 4.3 × 10⁻⁹ (first seed) and |G| ≤ 2.7 × 10⁻⁸ (second). So ε_* is confirmed at every
 node with e = 5 × 10⁻¹¹, and at the interior nodes already with e = 10⁻⁹. The entries ε_k are the row maxima of |G|
@@ -354,13 +354,13 @@ We use two results on polynomial interpolation in the Chebyshev points ξ_k := c
 continuous g on [−1, 1], I_n g denotes the polynomial of degree at most n that equals g at these n + 1 points;
 I_n g = g when g is a polynomial of degree at most n, and I_n is linear. In Lagrange form I_n g = Σ_k g(ξ_k) L_k,
 where L_k is the polynomial of degree n with L_k(ξ_k) = 1 and L_k(ξ_m) = 0 for m ≠ k, and the Lebesgue constant of
-the points is Λ_n := max_(x∈[−1, 1]) Σ_k |L_k(x)| [Tre19, (15.2)–(15.4), p. 108]. So
-|I_n g| ≤ Λ_n max_k |g(ξ_k)| on [−1, 1].
+the points is Λ_n := max_(x∈[−1, 1]) Σ_k |L_k(x)| [Tre19, (15.2)–(15.4), p. 108].
+So |I_n g| ≤ Λ_n max_k |g(ξ_k)| on [−1, 1].
 
 - (I1) [Tre19, Theorem 15.2, (15.8a), p. 109]: Λ_n ≤ (2/π) ln(n + 1) + 1.
 - (I2) [Tre19, Theorem 8.2, (8.3), p. 57]: if g is analytic in [−1, 1] and analytically continuable to the open
-  region bounded by the ellipse of [[lem:cone-ellipse]] with parameter ϱ > 1, where |g| ≤ M, then
-  |g − I_n g| ≤ 4M ϱ^(−n)/(ϱ − 1) on [−1, 1], for every n ≥ 0.
+  region bounded by the ellipse of [[lem:cone-ellipse]] with parameter ϱ > 1, where |g| ≤ M,
+  then |g − I_n g| ≤ 4M ϱ^(−n)/(ϱ − 1) on [−1, 1], for every n ≥ 0.
 
 In particular Λ_30 ≤ 3.19, Λ_40 ≤ 3.37 and Λ_64 ≤ 3.66.
 
@@ -479,8 +479,8 @@ and those of the k-th increment of order at most j. So R and ∂_rR are continuo
     |R_app − R| ≤ Δ,      |∂_r(R_app − R)| ≤ 2ℓ (ℰ̄ + W̄ Δ),
 
 that is, |R_app − R| ≤ 1.9 × 10⁻⁷ and |∂_r(R_app − R)| ≤ 2.6 × 10⁻⁷ at the first seed, and |R_app − R| ≤ 9.7 × 10⁻⁷
-and |∂_r(R_app − R)| ≤ 1.3 × 10⁻⁶ at the second. For r ≤ r_s, R_app = R; for r ≥ r_e both are affine in r, so
-|R_app − R| grows at most linearly, with these values and slopes at r_e.
+and |∂_r(R_app − R)| ≤ 1.3 × 10⁻⁶ at the second. For r ≤ r_s, R_app = R; for r ≥ r_e both are affine in r,
+so |R_app − R| grows at most linearly, with these values and slopes at r_e.
 
 *Proof.* D := R_app − R satisfies D(r_s, x) = ∂_rD(r_s, x) = 0 and, on [r_s, r_e], ∂_r²D = (ℰ − w R_app) + w R =
 ℰ − w D. Let Δ₀ := max |D| over [r_s, r_e] × [−1, 1]. Then |D(r, x)| ≤ ∫_(r_s)^r (r − q)(ℰ̄ + W̄ Δ₀) dq ≤
@@ -505,7 +505,7 @@ coordinates (x, φ1, φ2), and det γ = R⁶/16 in the gauge, as in the proof of
 **Lemma {#lem:tl5-seed}** (The seed in the gauge.) Let F(R) := e^(2R) (R − 1)/(R + 1) for R > 0. For −10 ≤ u < 0 and
 v ≥ 0 let R(u, v) > 0 solve
 
-    F(R) = e^(v − 2u) (u + 1)/(u − 1)                                                                 {#eq:tl5-seed-radius}
+    F(R) = e^(v − 2u) (u + 1)/(u − 1)                                                       {#eq:tl5-seed-radius}
 
 where a solution exists, call that set of (u, v) D_seed, and put
 
@@ -575,10 +575,10 @@ horizon it is more than 2.91 times it at the first seed and more than 0.92 times
 D⁰ := ({−10 ≤ u ≤ u*, 0 ≤ v ≤ 1/2} ∩ D_seed) × S³, that is for v ≤ r_h/2, the seed of [[lem:tl5-seed]] is a smooth
 vacuum metric of the class in the gauge that induces the data on D⁰ ∩ C₀ and on D⁰ ∩ N;
 
-(c) wherever a solution exists, with the transverse derivative ∂_vR on C₀ equal to the seed's, every leaf with
-−1 < u < 0 is outer trapped, and every T²-invariant marginally outer trapped section of an ingoing cone lies, in u,
-between the least and the greatest zero of the leaves' expansion on that cone ([[prop:tl5-leaves]],
-[[cor:tl5-mots]]).
+(c) for every solution on a set D as in [[prop:tl5-leaves]] whose transverse derivative ∂_vR on C₀ is the seed's,
+every leaf with −1 < u < 0 is outer trapped where it meets D, and the T²-invariant marginally outer trapped sections of
+an ingoing cone are confined to the band of [[cor:tl5-mots]] (c), between the least and the greatest u of the zeros of
+the leaves' expansion on that cone.
 
 No existence is asserted for v > 1/2: [[lem:tl5-continuation]] states what a continuation would need, and
 [[rem:tl5-beyond]] why the bounds proved in this chapter do not provide it.
@@ -595,13 +595,13 @@ every angle; on a finer null grid the resolutions with 32 and 40 angular modes a
 from v ≈ 3.25 as on the coarser grid: beyond v ≈ 3.25 the second seed's solution is not resolved in angle. At the first
 seed, a scheme that imposes the outgoing constraint along every generator, with its singular coupling at the axes
 regularised, converges at second order in the null step to v ≈ 1.8 at areal radius at least 0.9 and to v ≈ 2.0 at
-areal radius at least 1.2 (observed orders 2.00–2.03), and is resolved in angle there (48 against 40 modes changes the
-metric by at most 3.3 × 10⁻⁹); the scheme that does not impose it is consistent with second-order convergence to
+areal radius at least 1.2 (observed orders 2.00–2.03), and is resolved in angle there (the runs with 40 and 48 modes
+change the metric by at most 3.0 × 10⁻⁹ and 3.3 × 10⁻⁹); the scheme that does not impose it is consistent with second-order convergence to
 v ≈ 1.8 at areal radius at least 1. Beyond, with 32 modes the metric still converges in the null step while the
 unimposed constraint does not fall, so that limit is not vacuum; from v ≈ 1.9 at areal radius 0.9–1.0 and from
 v ≈ 2.0 at 1.0–1.2 the violation grows with the angular resolution, and at 1.0–1.2 on [1.8, 1.9) the comparison in
-angular resolution does not decide. The linear scattering of the shell off the seed at 10 l5 was also computed; no
-conclusion is drawn from it. No proof uses these observations.
+angular resolution does not decide. The linear scattering of the shell off the seed at 10 l5 was also solved
+numerically; no conclusion is drawn from it. No proof uses these observations.
 
 ### The second zero {#sec:tl5-second-zero}
 
@@ -699,15 +699,17 @@ leaves' expansion has one zero per angular node along every ingoing cone of the 
 u ∈ [−1.0070, −1.0035], areal radius 1.013–1.024, at v = 1.5, and at u ∈ [−1.0121, −1.0056] at v = 1.75; at the second
 seed at u ∈ [−1.0029, −1.0014] at v = 1.5 and at u ∈ [−1.0080, −1.0036] at v = 1.9. By [[cor:tl5-mots]] a T²-invariant
 marginally outer trapped section of these cones would lie in that band, near areal radius 1.01–1.05. Every further zero
-of ∂_vR found lies at u > −1 next to the inner cut-off of the computation, where [[prop:tl5-leaves]] excludes it. The
-round spheres of the Bondi chart, rebuilt on the double-null solution at the first seed, are tilted against the leaves,
-and their outgoing expansion reproduces the Bondi scheme's: on the sphere of least areal radius reached (0.64–0.78), the
-band of columns along which the rebuilt spheres are untrapped has each edge within one column spacing of the Bondi
-scheme's up to v = 1.525, at two radii of the data cone and two null resolutions; from 800 to 1600 rows the rebuilt
-outer zero changes by at most 0.007 up to v = 1.375, against its difference of 0.026–0.046 from the Bondi scheme's from
-v = 1.3, which halves as the radius of the data cone doubles; the leaves' own expansion leaves no column untrapped. At the
-second seed the rebuild reaches no sphere below areal radius about 0.5, so the Bondi scheme's second zero there, at
-0.21–0.30, is neither reproduced nor contradicted. No proof uses these observations.
+of ∂_vR found up to v = 1.8 lies at u > −1 next to the inner cut-off of the computation, where [[prop:tl5-leaves]]
+excludes it for the exact solution. The round spheres of the Bondi chart, rebuilt on the double-null solution at the
+first seed, are tilted against the leaves, and their outgoing expansion reproduces the Bondi scheme's: on the sphere of
+least areal radius reached (0.64–0.78), the band of columns along which the rebuilt spheres are untrapped has each edge
+within one column spacing of the Bondi scheme's up to v = 1.525, at two radii of the data cone and two null resolutions,
+and at v = 1.55 the Bondi scheme's band reaches the axis while the rebuilt one stops about four spacings short; from 800
+to 1600 rows of the null grid the rebuilt outer zero changes by at most 0.007 up to v = 1.375, against its difference of
+0.026–0.046 from the Bondi scheme's from v = 1.3, which is consistent with the truncation of the data, halving as the
+radius of the data cone doubles, at two radii; the leaves' own expansion leaves no column untrapped. At the second seed
+the rebuild reaches no sphere below areal radius about 0.5, so the Bondi scheme's second zero there, at 0.21–0.30, is
+neither reproduced nor contradicted. No proof uses these observations.
 
 ### The residuals of two explicit approximants {#sec:tl5-residuals}
 
