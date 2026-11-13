@@ -328,9 +328,11 @@ directed causal curve enters 𝒮 from Ω_(ext,r_1) ∪ 𝒦. A point of 𝒦 wi
 −ν(r) ≤ t_IVP < −(r − r_1)/12. (d) 𝒮 is disjoint from Ω_(ext,r_1) and lies near
 infinity, so by (b) it lies in {t_IVP ≥ 0} ∖ Ω_(ext,r_1), above Σ^fut_(r_1); so x¹ ≥ C″ − r_1 − 2 as in (c), and
 x¹ ≤ T″ − 1. ρ′_I < c ≤ ½ gives t > (1 − c)|x| + T″ ≥ ½|x| + T″, so t_IVP > ½|x| + T″ − C″ ≥ r/4, as r ≥ R_9 ≥ 4C″.
-(e) By (d), 𝒮 ⊂ 𝒟⁺, and 𝒟 = Ω_(ext,r_1) ∪ 𝒦 ∪ 𝒮; this gives the first claim. As N_ν ⊃ {t_IVP ≥ 0}, 𝒟⁺ is the set
-{t_IVP ≥ 0, t^♭_* ≤ T̂ + 3} of M, which gives its boundary and Σ^IVP ⊂ 𝒟⁺; 𝒟⁺ lies to the past of {t^♭_* = T̂ + 3} and
-of {r = r_♭} as 𝒦 does in (c). 𝒦⁻ is closed, and on it t_IVP ≥ −ν(r) ≥ −r/32, so r ≤ 2R_8 + 2t_IVP ≤ 2R_8: 𝒦⁻ is
+(e) By (d), 𝒮 ⊂ 𝒟⁺, and 𝒟 = (𝒟 ∩ Ω_(ext,r_1)) ∪ 𝒦 ∪ 𝒮. On Ω_(ext,r_1) ∩ {t_IVP ≥ 0}, x¹ = t_IVP + C″ − r ≤ C″ − r_1,
+as r^(1−ℓ^♭_I) ≤ r_1^(1−ℓ^♭_I) there, so t_* ≤ C″ + C′ − r_1 < 0 (r_1 ≥ R_6 ≥ 2(|C′| + C″)), and this set lies in 𝒟.
+This gives the first claim. As N_ν ⊃ {t_IVP ≥ 0}, 𝒟⁺ is the set {t_IVP ≥ 0, t^♭_* ≤ T̂ + 3} of M, which gives its
+boundary and Σ^IVP ⊂ 𝒟⁺; 𝒟⁺ lies to the past of {t^♭_* = T̂ + 3} and of {r = r_♭} as 𝒦 does in (c).
+𝒦⁻ is closed, and on it t_IVP ≥ −ν(r) ≥ −r/32, so r ≤ 2R_8 + 2t_IVP ≤ 2R_8: 𝒦⁻ is
 compact. On 𝒟⁻ ∩ {r ≤ R_8}, r − 2t_IVP ≤ r + 2ν(r) ≤ (17/16)R_8 < 2R_8. A point of 𝒦 with t_IVP ≤ 0 has r < r_1, or
 r ≥ r_1 and (r − r_1)/12 ≤ ν(r) ≤ r/32, so r < 2r_1 ≤ R_8; and (b), with Σ^IVP_(r_1) ⊂ Ω_(ext,r_1), places the points
 of 𝒟⁻ with r ≥ R_8 in Ω_(ext,r_1). This gives the inclusions; at t_IVP = 0 the definition of 𝒦⁻ reads r ≤ 2R_8. On

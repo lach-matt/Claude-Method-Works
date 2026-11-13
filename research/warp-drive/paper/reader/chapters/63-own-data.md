@@ -1402,6 +1402,132 @@ the integral over {x : r_σ ≤ |x| ≤ ϱ} of a function continuous in (σ, x),
 σ, and of the tails, at most C ϱ^(2a−6) uniformly in σ ∈ [T, σ′]. So 𝔈_k is finite and, as ϱ → ∞, a uniform limit of
 continuous functions on [T, σ′]. ∎
 
+*The error terms of the energy identity.* Let T ≤ σ* ≤ 0, let g = g_b0 + H be a smooth metric on W_T ∩ {t̃ ≤ σ*} with
+|H| ≤ 1/50 there, h_R := H − Σ, and φ := (Γ^α h_R)_ij, |α| ≤ k1. Norms ‖·‖ are those of L²(Σ̃_σ, d⁴x), and
+𝔈 := 𝔈_k1(σ) for σ ∈ [T, σ*]. The error terms of the energy identity [[eq:own-energy-identity]] for φ on Σ̃_σ are
+bounded by three tools.
+(1) By [[lem:own-margins]] (d) and r^(2a) ≤ w ≤ C r^(2a) on W, 𝔈 bounds c_1 ∫_(Σ̃_σ) w |∂Γ^β h_R|² d⁴x for |β| ≤ k1.
+So a first-order coefficient c with |c| ≤ c_0 r^(−q) gives ‖w^(1/2) c ∂φ‖ ≤ C c_0 r_σ^(−q) 𝔈^(1/2).
+(2) Suppose that every Γ^β h_R, |β| ≤ k1, tends to 0 at spatial infinity along the rays of Σ̃_σ. The first inequality
+of [[eq:own-hardy]] on almost every ray, with |dψ/dr| ≤ C |∂ψ| along the rays, integrated over S³, gives
+∫_(Σ̃_σ) r^(2a−2) |Γ^β h_R|² d⁴x ≤ C 𝔈. So a zero-order coefficient with |c| ≤ c_0 r^(−q), q ≥ 1, gives
+‖w^(1/2) c φ‖ ≤ C c_0 r_σ^(−q+1) 𝔈^(1/2).
+(3) A second-order coefficient with |c| ≤ c_0 r^(−q) on ∂∂ψ, ψ := Γ^β h_R, |β| ≤ k1 − 1, gives C c_0 r_σ^(−q) 𝔈^(1/2):
+by [[lem:own-rays]] (a), |∂∂ψ| ≤ C Σ_Γ |∂Γψ| + C r⁻¹ |∂ψ|, the fields Γψ having order at most k1 (Ω_ab acting
+componentwise differs from L_Ω_ab by a constant linear map of the components).
+Since r_σ ≥ c_W (1 + |σ|), a term of the energy identity bounded by C r_σ^(−q) 𝔈^(1/2) in the norm ‖w^(1/2) ·‖, or by
+C r_σ^(−q) 𝔈 as an integral over Σ̃_σ, has the *kernel* (1 + |σ|)^(−q).
+
+**Corollary {#cor:far-kernels}** (the kernels). Let 0 < a < 4 and λ be small, and let g = g_b0 + Σ + h_R be as in the
+preceding paragraph, with P(Σ + h_R) = 0, 𝔈_k1 finite on [T, σ*], every Γ^β h_R, |β| ≤ k1, tending to 0 at spatial
+infinity along the rays of the slices, and, for σ ∈ [T, σ*] and r ≥ r_σ, with some ε_B ≤ 1,
+
+    |∂ Γ^β h_R| ≤ C_S ε_B r^(−3/2−a)  (|β| ≤ k1 − 3),     |∂∂ Γ^β h_R| ≤ C_S ε_B r^(−3/2−a)  (|β| ≤ k1 − 4),
+    |Γ^β h_R| ≤ C_S ε_B r^(−1/2−a)  (|β| ≤ k1 − 3).
+                                                                                                      {#eq:own-pointwise}
+
+For σ ∈ [T, σ*] and |α| ≤ k1, take in the energy identity for φ = (Γ^α h_R)_ij the equation that Γ^α h_R satisfies,
+obtained by applying Π_i (Γ_i + c_(Γ_i)) to P(Σ + h_R) = 0 ([[eq:own-commuted]] in Step 2 of the proof of
+[[thm:own-continuation]]). Then its error terms on Σ̃_σ are at most C κ(σ) 𝔈_k1(σ), and the residual term at most
+C κ_Σ(σ) 𝔈_k1(σ)^(1/2), with
+
+    κ(σ) := C (μ + λ)(1 + |σ|)⁻² + C ε_B (1 + |σ|)^(−1/2−a),      κ_Σ(σ) := C λ (1 + |σ|)^(a−4),       {#eq:far-kernels}
+
+and C independent of T, σ*, λ and ε_B. Hence ∫_(−∞)^0 κ < ∞ exactly when a > 1/2, and ∫_(−∞)^0 κ_Σ < ∞ exactly when
+a < 3.
+
+*Proof.* Differentiating [[lem:far-scaling]] (a) n times in h, D^n P(H)[h_1, …, h_n] is a sum of products of bounded
+coefficients with factors ∂^(j_i) h_i, ∂^j H, μ ∂^j m (j = 1, 2), Γ̂ and ∂Γ̂. In each product the derivatives number
+exactly two, μ ∂m and Γ̂ being counted as one and μ ∂∂m and ∂Γ̂ as two. Differentiating [[eq:far-scaling]] in ς at
+ς = 1 gives (Z + 2) P(h) = DP(h)[Z h] − 2μ ∂_μ P(h). So the commutation with Z brings in the operators (μ ∂_μ)^j,
+j ≥ 1, applied to DP(H) and to the higher variations. The terms (μ ∂_μ)^j D^n P(H), n ≥ 2, have the form of D^n P(H),
+with factors of the same sizes or smaller, as in the proof of [[prop:far-coefficients]] (c); they are bounded as the
+terms of D^n P(H) below.
+
+The terms linear in Γ^β h_R with every other slot a field Γ^γ Σ have coefficients O(λ r^(−4+j)) on ∂^j Γ^β h_R, since
+Γ^γ Σ is O(λ r⁻²) with each derivative gaining r⁻¹ ([[eq:far-sigma-bounds]], with |γ| + 2 ≤ k1 + 2). This gives
+λ r⁻² (second order, on ∂∂Γ^β h_R with |β| ≤ max(|α| − 1, 0) ≤ k1 − 1, kernel 2 by (3)), λ r⁻³ (first order, kernel 3
+by (1)) and λ r⁻⁴ (zero order, kernel 3 by (2)). By [[prop:far-coefficients]] with H = Σ + h_R,
+[[eq:far-sigma-bounds]] and [[eq:own-pointwise]], the other linear terms are as follows. The terms
+(μ ∂_μ)^j DP(H)[Γ^β h_R], j ≥ 1, |β| < |α|, give μ r⁻² (second order, kernel 2) and smaller. B(H)·∂φ and the
+first-order part of □_g give (μ + λ) r⁻³ + C ε_B r^(−3/2−a) (kernels 3 and 3/2 + a). C(H) φ gives
+(μ + λ) r⁻⁴ + C ε_B r^(−3/2−a) (zero order: kernels 3 and a + 1/2). The deformation term (1/2) w T^(ab) ∂_t g_ab carries
+∂_t H = O(λ r⁻³ + ε_B r^(−3/2−a)) (kernels 3 and 3/2 + a).
+
+The terms with at least two slots h_R have commutation orders summing to at most |α| ≤ k1, and a slot that carries two
+derivatives has order at most max(|α| − 1, 0) ≤ k1 − 1, since second derivatives of a field of order |α| occur only in
+DP(H)[Γ^α h_R]. Put the slot of highest order in L²: through (1), through (2) if it is undifferentiated, through (3)
+if it carries two derivatives. Every other slot then has order at most k1/2 ≤ k1 − 4, since k1 ≥ 8, so it lies within
+[[eq:own-pointwise]]: it is at most C_S ε_B r^(−1/2−a) if undifferentiated and C_S ε_B r^(−3/2−a) otherwise. In every
+distribution of the two derivatives the term is then bounded by C ε_B r_σ^(−1/2−a) 𝔈^(1/2) (kernel a + 1/2). The least
+exponents are 2 for the terms of size μ + λ and a + 1/2 for those of size ε_B, which is κ.
+
+The residual: by [[prop:far-residual]], |Π_i (Γ_i + c_i) P(Σ)| ≤ C λ r⁻⁶ with C independent of λ, as |α| ≤ k1, and
+w ≤ C r^(2a) on W, so
+
+    ‖w^(1/2) Π_i (Γ_i + c_i) P(Σ)‖² ≤ C λ² ∫_(r_σ)^∞ r^(2a − 12 + 3) dr = C λ² r_σ^(2a−8)/(8 − 2a)
+
+for a < 4, which is at most κ_Σ(σ)². Finally ∫_(−∞)^0 (1 + |σ|)^(−q) dσ < ∞ exactly when q > 1: q = 2 always,
+q = a + 1/2 exactly when a > 1/2, and q = 4 − a exactly when a < 3. ∎
+
+**Proposition {#prop:far-window}** (the weight window). Let ℓ0 ∈ (3, 4) ∖ {7/2}. The conditions that the proof of
+[[thm:own-continuation]] places on the weight a are:
+(i) the kernels of [[cor:far-kernels]]: 1/2 < a < 3;
+(ii) the cap: 𝔈_k1(T) ≤ C(λ, J) |T|^(2a−6), with C(λ, J) independent of T, a bound that is finite and tends to 0 as
+T → −∞ exactly when a < 3;
+(iii) the flux through N: its density is bounded by C(λ) r^(2a−8), and the bound is integrable, with tail C(λ) ϱ^(2a−7)
+beyond r = ϱ, exactly when a < 7/2;
+(iv) the class on S: with ρ := 1/r and L²_b := L²(dρ/ρ dω), the energy places h_R|_S in ρ^(a+1) L²_b, which lies in
+ρ^(ℓ0) L²_b on {ρ ≤ ρ_0} exactly when a ≥ ℓ0 − 1;
+(v) the remaining conditions: a ≥ 3/2, for |H| ≤ r⁻²/4 in Step 1 of the proof of [[thm:own-continuation]]; a > 1/2,
+for uniqueness at a smaller weight ([[lem:own-two-continuations]]); a < 7/2, for the data on N at weight a
+([[lem:own-e-flux]], [[lem:own-n-data]] (ii)); and a < 3, for the finiteness of the energies of the full slices
+([[lem:own-truncation]] (iii), [[lem:own-exterior]]). None of them restricts a beyond (ii) and (iv).
+Their intersection is [ℓ0 − 1, 3), and [[thm:own-data]] uses its interior a ∈ (ℓ0 − 1, 3).
+
+*Proof.* (i) is [[cor:far-kernels]]. (ii) By [[lem:own-truncation]] (iii) with k = k1 (J ≥ 2k1 + 7),
+|∂Γ^α h_R| ≤ C r⁻⁵ on all of Σ̃_T for |α| ≤ k1, on the band and beyond it alike, with C depending on λ and J and not on
+T. With w ≤ C r^(2a), d⁴x = r³ dr dω and r_T ≥ c_W (1 + |T|), the energy is at most
+C ∫_(r_T)^∞ r^(2a−10+3) dr = C r_T^(2a−6)/(6 − 2a) ≤ C |T|^(2a−6) for a < 3; for a ≥ 3 the integral of the bound
+diverges. (iii) For g_b0 the covector dv is null and −g_b0⁻¹ dv = L0 ([[prop:vaidya]] (c)), with
+g_b0(∂_t, L0) = −dv(∂_t) = −1. With L := ∂_t + x̂·∂_x and ∇̸ the gradient on the spheres {t, r fixed},
+|dφ|²_(g_b0) = −(Lφ)(L0φ) + |∇̸φ|² − μ r⁻² (L0φ)², so the flux density of g_b0 is
+
+    T_(g_b0)[φ](w ∂_t, L0) = w ((1/2)(L0φ)² + (1/2)|∇̸φ|² − (1/2) μ r⁻² (L0φ)²).
+
+It contains only derivatives tangent to N, L0 being the generator. On N, g_T = g_λ with all its derivatives
+([[lem:own-truncation]] (ii)), so by [[lem:own-n-data]] (i), at fixed λ, the fields Γ^α h_R, |α| ≤ k1 + 1, and all
+their first derivatives are O(r^(−9/2)) there, and their derivatives along the generators O(r^(−11/2)). So
+L0φ = O(r^(−11/2)) on N, and |∇̸φ| ≤ r⁻¹ Σ_(a<b) |Ω_ab φ| = O(r^(−11/2)), Ω_ab φ being a combination of components of
+L_Ω_ab Γ^α h_R and Γ^α h_R, of orders at most k1 + 1. For g = g_b0 + H the density √|g| T_g[φ](w ∂_t, −g⁻¹ dv) differs
+from √|g_b0| times that of g_b0 by at most C w |H| |∂φ|²: g(w ∂_t, −g⁻¹ dv) = −w for both metrics, and
+g⁻¹ − g_b0⁻¹ = O(|H|). This term contains the transverse derivative. On N, |H| ≤ C r⁻² by [[eq:far-sigma-bounds]] and
+[[lem:own-n-data]] (i), and |∂φ| = O(r^(−9/2)), so it is at most C r^(2a) r⁻² r⁻⁹. With w ≤ C r^(2a) and
+d⁴x = r³ dr dω the flux density is therefore at most C(λ) r^(2a − 11 + 3) = C(λ) r^(2a−8). Its integral beyond ϱ is
+C(λ) ϱ^(2a−7)/(7 − 2a) for a < 7/2, and the bound is not integrable for a ≥ 7/2. (iv) The weighted energy on S bounds
+∫ r^(2a+3) |∂h_R|² dr dω, hence, by the first inequality of [[eq:own-hardy]], ∫ r^(2a+1) h_R² dr dω. With r = 1/ρ and
+dr = −ρ⁻² dρ, ∫ r^(2a+1) h_R² dr = ∫ (ρ^(−(a+1)) h_R)² dρ/ρ, so h_R|_S ∈ ρ^(a+1) L²_b, and ρ^(a+1) L²_b ⊂ ρ^(ℓ0) L²_b
+on ρ ≤ ρ_0 exactly when a + 1 ≥ ℓ0. (v) is the list of the results cited. Since ℓ0 − 1 > 2 > 3/2 > 1/2, the conditions
+reduce to ℓ0 − 1 ≤ a < 3. ∎
+
+**Remark {#rem:far-window-sigma4}** (the term Σ_4). (a) Σ_4 could instead be taken to solve
+
+    −(1/2) □_η Σ_4 = −Q_6,     Σ_4 = r⁻⁴ F_4(s, x̂),     F_4(0, ·) = G_8(v1, ·),                   {#eq:far-sigma4}
+
+if a solution smooth up to s = 0, with derivatives bounded on 𝔎 as in [[lem:own-sigma-data]] (b), is available; none is
+constructed here, and no proof uses this choice. With it the terms of degree −6 in the proof of [[prop:far-residual]]
+sum to −(1/2) □_η Σ_4 + Q_6 = 0, so that P(Σ) is O(λ r^(−13/2)) with every Π_i (Γ_i + c_i), the residual integral of
+[[cor:far-kernels]] is C λ² r_σ^(2a−9)/(9 − 2a), κ_Σ becomes C λ (1 + |σ|)^(a−9/2), and (i) of [[prop:far-window]]
+becomes 1/2 < a < 7/2. On N, where s = 0, both choices of Σ_4 equal r⁻⁴ G_8(v1, ·); on the initial slice the proof of
+[[lem:own-truncation]] (iii) uses of Σ_4 only that it is smooth and homogeneous of degree −4 with F_4(0, ·) = G_8(v1, ·),
+and that P(Σ) is tame of order 6, the continuation Σ′_J of [[def:cutoff-extension]] being formed with the Taylor
+coefficients F_(4,n) of the chosen F_4. So (ii)–(v) keep their form, the cap's a < 3 binds, and the window is again
+[ℓ0 − 1, 3). (b) Without the term p = 4 in Σ, h_R contains r⁻⁴ G_8(v1, ·) on N, so that its derivatives along the
+generators and along the spheres are O(r⁻⁵) there and the flux density of (iii) is bounded by C r^(2a−7), with tail
+C ϱ^(2a−6) beyond ϱ, integrable exactly when a < 3; on the initial slice Σ′_J then contains the terms
+r⁻⁴ s^n G_(8+2n,n), n ≥ 0, still homogeneous of degree −4, so the cap keeps its exponent 2a − 6; and P(Σ) keeps its
+terms Q_6 of degree −6, so (i) gives a < 3. The conditions then leave [ℓ0 − 1, 3) again.
+
 **Theorem {#thm:own-continuation}** (the continuation). Under the hypotheses of [[thm:own-data]] there are λ_2 > 0
 and ε_2 > 0 such that for 0 < λ ≤ λ_2 the following holds. For every integer J ≥ 2k1 + 7 there is T_1(λ, J) such that
 for T ≤ T_1(λ, J) the solution g_T^(J) of the truncated problem of [[def:cutoff-truncation]] exists on all of W_T, and as
