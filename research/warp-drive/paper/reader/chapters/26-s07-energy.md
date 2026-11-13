@@ -590,10 +590,10 @@ H_ℓ(ǎ_ε²) + 2ǎ_ε² ℓ_I = ρ^(−2s) φ_ε² (−Ψ² Q_ε + 𝖧(Ψ²))
 
 by [[eq:ii-e-1-2]] with 2δ′, as 4(p̄_1 − 1/2 − α) = 16δ′. The factors ψ(𝔐_Σ ρ²ℓ), ψ(𝔐_R q) and ψ(𝔐 x′_I) contribute as
 in [[prop:ii-d-3-6]]: j_ε ℓ, and +e*e terms supported in {q ≥ (2𝔐_R)⁻¹} ∪ {x′_I ≥ (2𝔐)⁻¹}, which give E. For the time
-factors, by the chain rule and [[eq:ii-e-3-1]],
+factors, by the chain rule and [[eq:ii-e-3-1]] [[pending:issue-3]],
 
     𝖧(ψ_−(F)²) = (2/ω_0) ψ_− η_t′((F − t_−)/ω_0) (h_F − t_* ρ² ℓ),
-    𝖧(ψ_+(F)²) = −(2/ω_0) ψ_+ η_t′((t_+ − F)/ω_0) (h_F − t_* ρ² ℓ)        [[pending:issue-3]].
+    𝖧(ψ_+(F)²) = −(2/ω_0) ψ_+ η_t′((t_+ − F)/ω_0) (h_F − t_* ρ² ℓ).
 
 The part with t_* ρ² ℓ is of the form j_ε ℓ ([[lem:ii-d-2-1]]). The part with h_F = Σ_i c_i² is, up to its sign,
 Σ_i ((2/ω_0)^(1/2) (ψ_± η_t′)^(1/2) c_i)², a finite sum of squares of symbols, since (η_t η_t′)^(1/2) is smooth. For

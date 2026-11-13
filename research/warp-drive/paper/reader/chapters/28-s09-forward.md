@@ -819,3 +819,248 @@ after [[def:ii-c-2-7]]), then [[eq:ii-f-8-2]] holds with 𝗌 − d_ℵ in place
 weights α_+, −ℵ and margin d_ℵ, and with weights α_+, 0 and margin 1 + d_ℵ. Indeed, ℵ-admissibility enters only
 [[eq:ii-f-8-6]], which then gives the order 𝗌 − d_ℵ, and the loss persists through Steps 3–4 ([[prop:ii-f-7-4]] is
 applied in Step 3 at the order 𝗌 − d_ℵ, which meets its hypotheses). This is [Hin26c, Remark 10.17] in dimension 4 + 1.
+
+### Forward solutions of admissible wave-type operators: setting and statement {#sec:ii-f1-1}
+
+The rest of the chapter is [Hin26c, Section 11] in dimension 4 + 1. The forward solution of Pu = f is the weak limit
+of the forward solutions of operators P_ε that equal P up to a time of order ε⁻¹ and the stationary model P_0 after it.
+The a priori estimate for P_ε, uniform in ε, joins the global estimate [[thm:ii-e-6-1]] to the forward solution estimate
+[[thm:ii-f-8-1]] for P_0. The error (P_ε − P_0)u is small near ι⁺ ∪ K⁺, where the weights gain, and is controlled at
+bounded times by the energy estimates on slabs of [[ch:s07]]. Three points are written out in full. The order function
+is taken with margin 3 + δ + ℵ ([[lem:ii-f1-2-3]]); the cut-offs are functions of the time function t^♭ of
+[[lem:ii-c-3-2]], whose level sets carry the slabs on which forward solutions are unique ([[sec:ii-f1-2-6]]); and the
+tame bound on the error uses a single extension across the artificial boundary {r = r_0} that is bounded at every order
+of b-regularity at once, constructed where the order function is a constant integer ([[sec:ii-f1-2-4]],
+[[sec:ii-f1-2-5]]).
+
+#### Domains, weights and spaces {#sec:ii-f1-1-1}
+
+P_0 is a stationary wave-type operator on the bundle E ([[def:ii-c-1-1]]), in the setting of [[sec:ii-d-1-1]], with
+S̄ = inf_(∂X) min Re spec S ([Hin26c, (5.2)]; [[def:ii-c-3-5]] with p̃_1 = 0). t^♭ := t^♭_* is the time function of
+[[lem:ii-c-3-2]], defined on Ω° and, by [[lem:ii-e-1-2]] (iv), on {r ≥ r^♯, t_* ≥ 1/2}, and
+
+    Ω_* := cl_M{t^♭ ≥ 1} ⊂ Ω = cl_M{t_* ≥ 1, r ≥ r_0}
+
+([[lem:ii-c-3-2]] (b): C′t_* ≤ t^♭ ≤ t_*). For T > 1 the *slab* Ω_(1,T) := Ω_* ∩ {t^♭ ≤ T} is that of
+[[sec:ii-e-1-1]]. On Ω we use the defining functions of [[sec:ii-a-1]] ([[lem:ii-a-8-8]]),
+
+    x_I² = ρ_I = t_*/(t_* + r),    ρ_+ = (t_* + r)/(t_* r),    ρ_K = r/(t_* + r),    ρ_+ ρ_K = t_*⁻¹,   {#eq:ii-f1-1-1}
+
+of 𝓘⁺, ι⁺ and K⁺. The formulae define smooth positive functions on {r > 0, t_* > 0}, and we use them also on the
+extension region {r^♯ ≤ r ≤ r_0}. For an order function 𝗍, k ∈ ℕ₀ and weights, H^((𝗍;k),(2α_I,α_+,α_K))_(e3b;b)(Ω_*;
+E)^(•,−) is the space of restrictions to {r > r_0} of elements of H^((𝗍;k),(2α_I,α_+,α_K))_(e3b;b) ([[sec:ii-a-4-2]])
+supported in {t^♭ ≥ 1}, with the quotient norm ([[sec:ii-a-7]], [[sec:ii-d-1-1]]). As in [Hin26c, (11.1)], the
+*b-spaces* carry powers of ρ_I = x_I² at 𝓘⁺:
+
+    H^(k,(α_I,α_+,α_K))_b := ρ_I^(α_I) ρ_+^(α_+) ρ_K^(α_K) H^k_b = H^((0;k),(2α_I,α_+,α_K))_(e3b;b)       {#eq:ii-f1-1-2}
+
+([[lem:ii-a-8-4]] (d)), with the density |dt dx|, and H^(k,(α_I,α_+,α_K))_b(Ω_*; E)^(•,−) likewise. On Ω, t_*∂_(t_*)
+and r∂_x span 𝒱_b ([[sec:ii-c-2-4]]). C^∞_b denotes the functions on a neighbourhood of Ω_* in M that are bounded with
+all their b-derivatives. Multiplication by an element of C^∞_b is bounded on every H^((𝗍;k),w)_(e3b;b), with norm bounded
+by finitely many of its C^∞_b-seminorms ([[eq:ii-a-8-1]] and the remark after it): the e3b-vector fields are
+combinations of b-vector fields with smooth coefficients ([[lem:ii-a-2-9]]), so b-smoothness gives uniform smoothness on
+the e3b unit cells, and the b-derivatives of an element of C^∞_b lie in C^∞_b. By acting on extensions it is bounded on
+the spaces (Ω_*)^(•,−). Powers ρ^a, a ≥ 0, of the functions [[eq:ii-f1-1-1]] lie in C^∞_b.
+
+#### The statement {#sec:ii-f1-1-2}
+
+**Theorem {#thm:ii-f1-1-1}** (Forward solutions of admissible operators, with tame estimates.) Let P_0 be ℵ-admissible
+with sf-weight α_+ and sf-loss δ ([[def:ii-c-2-7]]), let
+
+    α_I < −1/2 + S̄,      α_+ < α_I − 1/2,                                                                {#eq:ii-f1-1-3}
+
+and let ℓ_I ∈ (0, 1/2], ℓ_+ ∈ (δ, 1], ℓ_K > ℵ. There are ε_0 > 0 and d ∈ ℕ such that the following holds for every
+k ∈ ℕ₀ and every P admissible relative to P_0 of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) ([[def:ii-c-3-3]]) with
+‖P − P_0‖_((0;d),(2ℓ_I,ℓ_+,ℓ_K)) < ε_0 ([[def:ii-c-3-6]], over Ω_*). For every
+
+    f ∈ H^(k+d,(α_I+1,α_++2,0))_b(Ω_*; E)^(•,−)                                                          {#eq:ii-f1-1-4}
+
+there is exactly one u in ⋃_(s′ ≥ s_u, β_+, β_K ∈ ℝ) H^(s′,(2α_I,β_+,β_K))_e3b(Ω_*; E)^(•,−) with Pu = f, the *forward
+solution*; here s_u := inf 𝗌 − 2 for the order 𝗌 of [[sec:ii-f1-3-1]], which depends only on P_0 and the weights. It
+lies in H^(k,(α_I,α_+−δ,−ℵ))_b(Ω_*; E)^(•,−), and
+
+    ‖u‖_(H^(k,(α_I,α_+−δ,−ℵ))_b)
+        ≤ C_k (‖f‖_(H^(k+d,(α_I+1,α_++2,0))_b)
+               + ‖P − P_0‖_((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) ‖f‖_(H^(d,(α_I+1,α_++2,0))_b)),                       {#eq:ii-f1-1-5}
+
+the norms over Ω_*, with C_k independent of P and f. For k ≥ 1 the map (P, f) ↦ u is continuous from the set of such P,
+with the norm ‖P − P_0‖_((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), times the space [[eq:ii-f1-1-4]], to
+H^(k−1,(α_I−ς,α_+−δ−ς,−ℵ−ς))_b(Ω_*; E)^(•,−), for every ς > 0.
+
+This is [Hin26c, Theorem 11.1] in dimension 4 + 1. [Hin26c] states it with ℓ_+ > δ; the class of [[def:ii-c-3-1]] has
+ℓ_+ ≤ 1. The conditions of [Hin26c] are those of [[eq:ii-f1-1-3]], and the dimension enters through the densities
+([[cor:ii-f1-1-2]]) and through the indicial gap ([[rem:ii-f1-7-3]]).
+
+**Corollary {#cor:ii-f1-1-2}** (The estimate with unweighted b-densities.) Put μ_b := |dt_* dx|/(t_* ⟨x⟩⁴), a smooth
+positive b-density on M̃ near Ω̄ ([[lem:ii-a-8-8]]), and
+
+    b_I := α_I + 2,      b_+ := α_+ + 5/2.                                                                {#eq:ii-f1-1-6}
+
+Then [[eq:ii-f1-1-3]] reads b_I < 3/2 + S̄ and b_+ < b_I, and P_0 is ℵ-admissible with sf-weight b_+ − 5/2. With μ_b,
+[[eq:ii-f1-1-5]] reads
+
+    ‖u‖_(H^(k,(b_I,b_+−δ,−ℵ+1/2))_b(Ω_*,μ_b))
+        ≤ C_k (‖f‖_(H^(k+d,(b_I+1,b_++2,1/2))_b(Ω_*,μ_b))
+               + ‖P − P_0‖_((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)) ‖f‖_(H^(d,(b_I+1,b_++2,1/2))_b(Ω_*,μ_b))).            {#eq:ii-f1-1-7}
+
+In terms of integrals, the square of the left side of [[eq:ii-f1-1-7]] is equivalent to
+
+    ∬_(Ω_*) |ρ_I^(−b_I) ρ_+^(−b_++δ) ρ_K^(ℵ−1/2) (t_*∂_(t_*), r∂_x)^(≤k) u|² dt_* dx/(t_* r⁴),
+
+the power meaning all products of at most k of the fields, with the weights [[eq:ii-f1-1-1]]; the norms of f likewise.
+This is [Hin26c, (11.6b)], with r⁴ for r³. Pointwise, for k ≥ 3, on Ω_* ∩ {r > r_0},
+
+    |(t_*∂_(t_*), r∂_x)^(≤k−3) u|
+        ≤ C_k (right side of [[eq:ii-f1-1-5]]) ρ_I^(b_I) ρ_+^(b_+−δ) ρ_K^(−ℵ+1/2).                        {#eq:ii-f1-1-8}
+
+This is [Hin26c, (11.4)–(11.7)] in dimension 4 + 1; in dimension 3 + 1 [Hin26c] has b_I = α_I + 3/2, b_+ = α_+ + 2, the
+density |dt_* dx|/(t_* r³) and the conditions b_I < 1 + S̄, b_+ < b_I.
+
+#### What is not used {#sec:ii-f1-1-3}
+
+Two further statements of [Hin26c, Theorem 11.1] are neither used nor proved here.
+
+(a) [Hin26c] adds that, if the principal part of P is that of P_0, the theorem holds with Ω = cl_M{t_* ≥ 1} in place
+of Ω_*, by local solvability between {t_* = 1} and {t^♭ = 1}. That region meets 𝓘⁺ only at {t_* = 1}, where its two
+boundary hypersurfaces meet, and the energy estimates of [[ch:s07]] are not proved on it. The later chapters do not use
+the statement, as their operators are quasilinear (their principal parts vary).
+
+(b) [Hin26c] allows P_0 to vary among small stationary perturbations of an ℵ-admissible P_1, and among the stationary
+models of nearby parameters, with uniform constants. [[thm:ii-e-6-1]] is uniform in this sense (its last sentence), but
+[[thm:ii-f-8-1]] and the ℵ-admissibility estimate [[eq:ii-c-2-2]] are proved, resp. assumed, for one P_0. Here P_0 is
+fixed. For the stationary models 2L_b, b near b_0, which the later chapters use, the uniform version of
+[[thm:ii-f-8-1]] is [[thm:iii-h2-3-1]] and that of [[thm:ii-f1-1-1]] is [[thm:iii-h2-4-1]].
+
+### Preliminaries {#sec:ii-f1-2}
+
+Throughout, α_I, α_+, ℓ_I, ℓ_+, ℓ_K, ℵ and δ are as in [[thm:ii-f1-1-1]], and
+
+    δ′ := min(ℓ_+ − δ, ℓ_K − ℵ) > 0.                                                                     {#eq:ii-f1-2-1}
+
+For an order function 𝗍 and k ∈ ℕ₀ we write, all over Ω_* with the spaces (Ω_*; E)^(•,−) of [[sec:ii-f1-1-1]],
+
+    X(𝗍;k) := H^((𝗍;k),(2α_I,α_+−δ,−ℵ))_(e3b;b),            Y(𝗍;k) := H^((𝗍;k),(2α_I+2,α_++2,0))_(e3b;b),
+    Y′(𝗍;k) := H^((𝗍;k),(2α_I+2,α_+−δ+2,−ℵ))_(e3b;b),
+    Z(𝗍;k) := H^((𝗍;k),(2α_I,α_+−ℓ_+,−ℓ_K))_(e3b;b).                                                    {#eq:ii-f1-2-2}
+
+As ρ_+, ρ_K are bounded on Ω, ‖·‖_(Y′) ≤ C‖·‖_Y and ‖·‖_Z ≤ C‖·‖_X (the weights of Y and X are the larger at every face,
+δ < ℓ_+ and ℵ < ℓ_K). These are Hilbert spaces: each is a quotient of a closed subspace of a Hilbert space, the norm
+([[eq:ii-a-8-1]]) being equivalent to the Hilbert norm of property (S3) of [[sec:ii-a-3]].
+
+#### The threshold for perturbations {#sec:ii-f1-2-1}
+
+**Lemma {#lem:ii-f1-2-1}** (The threshold at 𝓘⁺.) Let δ_S := (S̄ − 1/2 − α_I)/4 > 0. Let h_S be a fibre inner product
+on E over ∂X such that the smallest eigenvalue of ½(S + S^(*h_S)) is at least S̄ − δ_S/2 on ∂X ([[lem:ii-c-2-5]]),
+pulled back to 𝓘⁺ along its fibration over ∂X and extended independently of x_I, as the data of [[def:ii-c-3-3]] (2)
+are. There is ε_1 > 0 with the following property. Let P be an operator with (1) and (2) of [[def:ii-c-3-3]], condition
+(3) of [[def:ii-c-3-3]] not being assumed, and with sup_(𝓘⁺∩Ω) |p̃_1|_(h_S) ≤ ε_1 (in particular, this holds if
+‖P − P_0‖_((0;0),(2ℓ_I,ℓ_+,ℓ_K)) is small). Then for every α ≤ α_I:
+
+(a) Re_(h_S) p_1 ≥ S̄ − δ_S on cl(𝓘⁺ ∩ Ω), and the same holds for the extension P^ext of [[lem:ii-e-1-2]] on
+t_* ∈ [1 − η_0, 1]; hence p̄_1 ≥ S̄ − δ_S and α < −1/2 + p̄_1;
+
+(b) the results of [[ch:s06]] and [[ch:s07]] that assume the threshold α < −1/2 + p̄_1 at the weight α at 𝓘⁺, namely
+those resting on [[eq:ii-d-1-3]] and [[eq:ii-d-3-9]] and [[lem:ii-e-2-5]], [[prop:ii-e-2-7]], [[prop:ii-e-3-2]],
+[[prop:ii-e-3-4]], [[prop:ii-e-4-3]], [[prop:ii-e-4-4]] and [[thm:ii-e-6-1]], hold for P, with constants depending on P
+only through the norms named in them, h_S and δ_S.
+
+*Proof.* (a) S|_(∂X) is independent of t_* and of x_I in the extension, so Re_(h_S) S ≥ S̄ − δ_S/2 on a neighbourhood
+of cl(𝓘⁺ ∩ Ω), where p_1 = S|_(∂X) + p̃_1. As |Re_(h_S) p̃_1| ≤ |p̃_1|_(h_S), and the Seeley extension of
+[[lem:ii-e-1-2]] multiplies sup norms by at most c_Σ := Σ_l |c_l|, ε_1 := δ_S/(2 + 2c_Σ) gives both claims. Every
+eigenvalue μ of p_1 has an eigenvector v, and Re μ h_S(v, v) = Re h_S(p_1 v, v) ≥ (S̄ − δ_S) h_S(v, v); so p̄_1 ≥ S̄ −
+δ_S, and p̄_1 − 1/2 − α ≥ S̄ − δ_S − 1/2 − α_I = 3δ_S > 0.
+
+(b) The proofs of these results use p̄_1 only through a fibre inner product h_I with Re_(h_I) p_1 ≥ p̄_1 − δ′_I,
+δ′_I := (p̄_1 − 1/2 − α)/4 ([[prop:ii-d-3-6]]; [[eq:ii-e-1-2]], with [[lem:ii-e-1-2]] (iii) for 2δ′_I), and they use
+that inequality only through its consequence
+
+    4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′_I > 0                                                                  {#eq:ii-f1-2-3}
+
+at the radial set R = ∂R_(𝓘⁺,out): in [[prop:ii-d-3-6]], where Q_ε ≥ 4(p̄_1 − δ′_I − 1/2 − α_I) = 12δ′_I; in
+[[lem:ii-e-2-5]], where the coefficient of τ_0² is −2(2α + 1) + 4(p̄_1 − δ′_I) = 12δ′_I; and in [[prop:ii-e-3-2]], where
+4A⁻¹(Re_(h_I) p_1)A − 2 − 4α ≥ 8δ′_I with 2δ′_I. The remaining first-order terms, Im p_1 and p_0, enter those proofs
+without any smallness: they are kept as quadratic forms in the edge derivatives, absorbed by the exponential weight in
+time, and p_0 by the Poincaré inequality ([[sec:ii-e-1-3]], [[lem:ii-e-2-5]]). The commuted systems of [[ch:s06]] and
+of [[sec:ii-e-4]] have the same p_1 ([[eq:ii-e-4-1]] and the paragraph after it), at the weights α − j/2 ≤ α. By (a),
+h_S in place of h_I and δ_S in place of δ′_I satisfy [[eq:ii-f1-2-3]] with 12δ_S, for every α ≤ α_I, so the proofs run
+verbatim with (h_S, δ_S), and their constants depend on these instead of on (h_I, δ′_I).
+
+Condition (3) of [[def:ii-c-3-3]], the triangular structure of p_1 and p_0, enters none of these proofs. In [Hin26c] it
+serves one purpose: a block-diagonal fibre inner product making Im p_1 and p_0 small ([Hin26c, (8.4)]), a smallness
+which, as just said, is not used. The fibre inner product h_I is built by Jordan scalings at points, continuity and a
+partition of unity ([[prop:ii-d-3-6]], [[eq:ii-e-1-2]]), which need no triangular structure, and (a) replaces it by h_S.
+Every other step of the proofs uses of the operator at 𝓘⁺ only (1) and (2) of [[def:ii-c-3-3]], the definition of p̄_1
+and [[eq:ii-f1-2-3]]. ∎
+
+Below, "admissible" for P and for the operators P_ε of [[sec:ii-f1-2-6]] means (1) and (2) of [[def:ii-c-3-3]] together
+with the smallness of [[lem:ii-f1-2-1]], and every result of [[ch:s06]] or [[ch:s07]] is used in the sense of
+[[lem:ii-f1-2-1]] (b).
+
+#### Uniqueness {#sec:ii-f1-2-2}
+
+**Lemma {#lem:ii-f1-2-2}** (Uniqueness on Ω_*.) Let P be P_0, or admissible with ‖P − P_0‖_((d_0;0)) small
+([[lem:ii-f1-2-1]], and the smallness of [[prop:ii-e-3-4]], d_0 depending on s′), and let α ≤ α_I and s′, β_+,
+β_K ∈ ℝ. If u ∈ H^(s′,(2α,β_+,β_K))_e3b(Ω_*; E)^(•,−) and Pu = 0, then u = 0. The same holds on a slab Ω_(1,T) for u
+in its space H^(s′,2α)(Ω_(1,T))^(•,−) ([[sec:ii-e-1-1]]).
+
+*Proof.* The second claim is [[prop:ii-e-3-4]] (i), with [[lem:ii-f1-2-1]] (b). For the first, let T > 2 and φ =
+φ(t^♭) ∈ C^∞(ℝ) equal to 1 on (−∞, T + 1] and to 0 on [T + 2, ∞). Then φ(t^♭) = φ̃(1/t^♭) with φ̃(y) := φ(1/y),
+φ̃′ ∈ C_c^∞((0, ∞)), so φ(t^♭) ∈ C^∞_b by [[lem:ii-f1-2-6]] (a) (with ε = 1; its proof uses nothing from this
+section); the same holds for every function of t^♭ used below. If ũ extends u with support in {t^♭ ≥ 1}, then φũ is
+supported in {1 ≤ t^♭ ≤ T + 2}, where t_* ≤ (T + 2)/C′, so ρ_+, ρ_K are bounded below there by [[eq:ii-f1-1-1]], and
+φũ ∈ H^(s′,(2α,0,0))_e3b. It extends u|_(Ω_(1,T)), which therefore lies in H^(s′,2α)(Ω_(1,T))^(•,−) and solves Pu = 0
+there. So u = 0 on {t^♭ < T, r > r_0}, for every T. ∎
+
+#### The orders {#sec:ii-f1-2-3}
+
+Write T_ℋ := 1/2 + ϑ_ℋ, T_out := (−1 + ϑ_out)/2 and T_in := (−1 + ϑ^(3b)_in)/2 for the thresholds of
+[[def:ii-c-2-4]], each in the fibre inner product chosen for its radial set. An order function is admissible for P_0
+with weights a_+, a_K and margin η ([[def:ii-c-5-2]]) if it has (2)–(5) of [[prop:ii-c-5-1]], which do not involve the
+weights, and, near the three radial sets over K⁺,
+
+    𝗍 > T_ℋ + η,      𝗍 + a_+ − a_K < T_out − η,      𝗍 + a_+ − a_K > T_in + η,                           {#eq:ii-f1-2-4}
+
+by (1)–(6) of [[def:ii-c-2-4]] with α_sf = a_+, α_K = a_K (the order being constant near each radial set).
+
+**Lemma {#lem:ii-f1-2-3}** (The orders.) Let m_0 := 3 + δ + ℵ. There is 𝗌 ∈ C^∞(ᵉ³ᵇS*_ΩM), admissible for P_0 with
+weights α_+ − δ, −ℵ and margin m_0, and an integer s_in ≥ 4, such that 𝗌 = s_in over
+
+    Ω_♮ := {t_* ≥ 1/2, r_0 − 2δ_0 < r ≤ r_0 + 4}                                                          {#eq:ii-f1-2-5}
+
+(with the extension of [[sec:ii-e-3-2]] below r = r_0), and 𝗌 ≤ s_in everywhere. Put 𝗌_0 := 𝗌 − 2. Then:
+
+(a) 𝗌_0 < 𝗌 are admissible for P_0 with weights α_+ − δ, −ℵ and margin 0 (the hypothesis of [[thm:ii-e-6-1]] at the
+weights α_+ − δ, −ℵ);
+
+(b) 𝗌_0 and 𝗌 are each admissible for P_0 with weights α_+, −ℵ and margin 0, and with weights α_+, 0 and margin 1 (the
+hypotheses of [[thm:ii-f-8-1]]);
+
+(c) 𝗌 and 𝗌 + 1 are slab orders ([[sec:ii-e-3-2]]).
+
+*Proof.* [[prop:ii-c-5-1]] with η := m_0 and the weights α_+ − δ, −ℵ is proved by the construction of [[sec:ii-c-5-2]],
+𝗌 = s_in − (s_in − s_out)χ with 0 ≤ χ ≤ 1, in which s_in is any constant above a stated bound and the small constants
+ε_I, ε_ι may be decreased before the others are chosen. Take s_in ∈ ℕ, s_in ≥ 4, and ε_I² < (2r_0 + 9)⁻¹,
+(ε_ι δ_ι)⁻¹ > r_0 + 4, where δ_ι is the constant called δ in [[sec:ii-c-5-2]]. Then 𝗌 ≤ s_in. On Ω_♮ ∩ {r ≥ r_0},
+x_I² = t_*/(t_* + r) ≥ (1/2)/(1/2 + r_0 + 4) > ε_I², so ψ_0(x_I) = 0, and r < (ε_ι δ_ι)⁻¹, so χ_ι = 0 there (χ_ι is
+supported in {ϱ < ε_ι δ_ι}, ϱ = r⁻¹); hence χ = 0 and 𝗌 = s_in. Below r = r_0, 𝗌 = s_in by its extension
+([[sec:ii-c-5-2]], the last lines of its definition of the values; [[sec:ii-e-3-2]]).
+
+(a), (b): (2)–(5) of [[prop:ii-c-5-1]] hold for 𝗌 − j, j ∈ ℤ, as for 𝗌 (a constant shift changes no derivative and no
+constancy). For [[eq:ii-f1-2-4]], let 𝗌 satisfy it with (a_+, a_K) = (α_+ − δ, −ℵ) and η = m_0. Then 𝗌 − j satisfies it
+with weights (a′_+, a′_K) and the margins
+
+    m_0 − j at ℋ⁺,      m_0 + j − (a′_+ − α_+ + δ) + (a′_K + ℵ) at R_out,
+    m_0 − j + (a′_+ − α_+ + δ) − (a′_K + ℵ) at R_in.
+
+For (a′_+, a′_K) = (α_+ − δ, −ℵ) these are m_0 − j, m_0 + j, m_0 − j, all ≥ 0 for j ∈ {0, 2}: this is (a). For
+(α_+, −ℵ) they are m_0 − j, m_0 + j − δ = 3 + ℵ + j, m_0 − j + δ, all ≥ 0 for j ∈ {0, 2}. For (α_+, 0) they are m_0 − j
+= 3 + δ + ℵ − j, m_0 + j − δ + ℵ = 3 + 2ℵ + j and m_0 − j + δ − ℵ = 3 + 2δ − j, all ≥ 1 for j ∈ {0, 2}: this is (b).
+
+(c) Admissible order functions are slab orders, and 𝗌 + 1 has the same monotonicity and constancy ([[sec:ii-e-3-2]]). ∎
+
+The margin 2 + δ + max(1, ℵ) taken in the proof of [Hin26c, Theorem 11.1] gives for 𝗌_0 the last margin max(1, ℵ) − ℵ
++ 2δ, which is less than 1 when ℵ ≥ 1 and δ < 1/2; the margin m_0 = 3 + δ + ℵ suffices in every case.
+
+Fix 𝗌, s_in and 𝗌_0 as in [[lem:ii-f1-2-3]]. Only 𝗌, 𝗌_0 and 𝗌 + 1 occur below; each equals a nonnegative integer over
+Ω_♮. In particular they are constant and in ℕ₀ near {r ≤ r_0}, which is the hypothesis of the tame estimates
+[[eq:ii-e-6-2]] and [[eq:ii-e-4-4]].

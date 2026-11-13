@@ -1124,3 +1124,188 @@ invariant under 𝖧_(G₀), and every curve in it has ρ₊ constant, so by [[e
 to 0, a contradiction. ∎
 
 The backward statement for g₀ is [[prop:ii-b-8-2]], and the argument carries over by [[lem:ii-c-4-1]].
+
+### Order functions {#sec:ii-c-5}
+
+**Proposition {#prop:ii-c-5-1}** (Order functions; [Hin26c, Proposition 6.4] at n = 4.) Let P₀ be a stationary
+wave-type operator for g₀, η ≥ 0 and α₊, α_K ∈ ℝ, and let ℓ_I, ℓ₊, ℓ_K be as in [[sec:ii-c-4]]. There are
+𝗌 ∈ C^∞(ᵉ³ᵇS*_Ω M) and ϵ_G > 0 such that:
+
+(1) 𝗌 over K⁺, identified with a t_*-translation-invariant function on ³ᵇS*M̃₀ (over K⁺ the e3b- and 3b-cosphere
+bundles agree), is stationary-P₀-admissible with margin η and α_sf = α₊;
+
+(2) for every g = g₀ + h with ‖h‖_(𝒢̃^(1,(2ℓ_I,ℓ₊,ℓ_K))_(e3b)(Ω)) < ϵ_G, ±𝖧_G𝗌 ≤ 0 on ∂Σ^± over Ω_*;
+
+(3) 𝗌 is invariant under the dilations (t_*, r, ω) ↦ (at_*, ar, ω), a > 0, in a neighbourhood of
+ι⁺ ∩ {r/t_* ∈ [1, 10]};
+
+(4) (1) holds also for every stationary wave-type operator P₁ near P₀ (coefficients close in C¹), and (1)–(2) hold for
+the stationary models of nearby parameters b ((K4));
+
+(5) 𝗌 is constant near ∂R_(ℐ⁺,out) and near ∂R_(ℐ⁺,in,+) ([[def:ii-b-7-1]]).
+
+**Definition {#def:ii-c-5-2}** ([Hin26c, Definition 6.5].) Order functions with (1)–(5) of [[prop:ii-c-5-1]] are
+*admissible* for P₀ with weights α₊, α_K and margin η.
+
+Item (5) is part of [Hin23c, Lemma 5.8 (3)]; it is included because the radial estimates at ℐ⁺ in [[ch:s06]] use it.
+The proof of [[prop:ii-c-5-1]] occupies [[sec:ii-c-5-1]] (the characteristic set near ℐ⁺ and ι⁺, for every g as in (2))
+and [[sec:ii-c-5-2]] (the construction).
+
+#### The characteristic set near ℐ⁺ and near ι⁺ {#sec:ii-c-5-1}
+
+*Near ℐ⁺.* Let Ω_I := Ω ∩ {x_I ≤ ϵ_I}, with the eb-coordinates of [[sec:ii-b-7]]: ρ₊ = t_*⁻¹ ∈ (0, 1],
+x_I = (t_*/r)^(1/2), covectors ν = σ_(eb) dρ₊/ρ₊ + ξ_(eb) dx_I/x_I + η_(eb) dω/x_I,
+|ν|_(eb)² := σ_(eb)² + ξ_(eb)² + |η_(eb)|² and G_(eb) := x_I⁻²ρ₊⁻²G. Let Ḡ_(eb) be [[eq:ii-b-7-1]] and G⁰_(eb) := ½ξ_(eb)(ξ_(eb) − 2σ_(eb)) + |η_(eb)|². For g as in
+[[prop:ii-c-5-1]] (2), with ϵ_G ≤ 1, [[sec:ii-b-7]] and [[lem:ii-c-4-1]] (a) at d₀ = 1 (its first assertion holds
+verbatim at d₀ = 1 and over Ω, its proof being the Neumann series) give
+
+    G_(eb) − G⁰_(eb) = ¼x_I²ξ_(eb)² + (G_(eb) − Ḡ_(eb)) ∈ x_I^(2ℓ_I) C¹ P^[2],                            {#eq:ii-c-5-1}
+
+with norm bounded independently of g, as x_I² ≤ x_I^(2ℓ_I) and ρ₊ ≤ 1.
+
+*Near ι⁺.* Let Ω_ι := Ω ∩ {ρ_K ≤ C_ι, ϱ ≤ ϵ_ι}, with the 3b-coordinates of [[sec:ii-b-3]]: ρ_K := r/t_*, ϱ := r⁻¹,
+ν = σ_(3b) dt_*/r + ξ_(3b) dr/r + η_(3b), |ν|_(3b)² := σ_(3b)² + ξ_(3b)² + |η_(3b)|², G_(3b) := r²G, and Ḡ_(3b) of
+[[eq:ii-b-3-2]]. (In [[sec:ii-b-3]], ρ₊ stands for ϱ.) On Ω_ι, x_I² = ρ_K⁻¹ ≥ C_ι⁻¹, so the e3b-defining function of ι⁺
+is comparable to ϱ, and [[sec:ii-b-3]] and [[lem:ii-c-4-1]] (a) give
+
+    G_(3b) − Ḡ_(3b) ∈ w_ι C¹ P^[2],        w_ι := ϱ^(ℓ₊),                                                {#eq:ii-c-5-2}
+
+with norm bounded in terms of C_ι, as ϱ² ≤ ϱ^(ℓ₊) and ρ_K^(ℓ_K)x_I^(2ℓ_I) is bounded on Ω.
+
+**Lemma {#lem:ii-c-5-3}** For ϵ_I small, ϵ_ι small (depending on C_ι), and every g as in [[prop:ii-c-5-1]] (2) with
+ϵ_G ≤ ϵ₁ small: on Σ over Ω_I, |σ_(eb)| ≥ 0.3|ν|_(eb), and σ_(eb) > 0 on Σ⁺; on Σ over Ω_ι,
+|σ_(3b)| ≥ 0.3|ν|_(3b), and σ_(3b) < 0 on Σ⁺.
+
+*Proof.* 2Ḡ_(eb) = (ξ_(eb) − σ_(eb))² − σ_(eb)² + 2|η_(eb)|² + ½x_I²ξ_(eb)². If |σ_(eb)| < 0.3|ν|_(eb), then
+(ξ − σ)² ≥ ½ξ² − σ² (omitting the subscripts) gives
+2Ḡ_(eb) ≥ ½(|ν|² − σ²) − 2σ² ≥ (½ − 2.5 · 0.09)|ν|² > ¼|ν|², while |2G_(eb) − 2Ḡ_(eb)| ≤ Cϵ_I^(2ℓ_I)|ν|² < ¼|ν|² by
+[[eq:ii-c-5-1]] for ϵ_I small: so G_(eb) ≠ 0. The 3b case is the same, with
+Ḡ_(3b) = (ξ_(3b) − σ_(3b))² + |η_(3b)|² − σ_(3b)² and [[eq:ii-c-5-2]].
+
+*Signs.* σ_(eb) = ν(ρ₊∂_(ρ₊)) = −ν(V) with V := t∂_t + r∂_r ([[sec:ii-b-7]]). On Ω_I, r = t_*x_I⁻² ≥ ϵ_I⁻² ≥ R₂, so V
+is future timelike for g₀, and also for g: V = −ρ₊∂_(ρ₊) ∈ 𝒱_eb and h ∈ x_I⁻²ρ₊⁻²ϵ_G x_I^(2ℓ_I)C⁰(S² ᵉᵇT*) give
+|h(V, V)| ≤ Cϵ_G x_I^(2ℓ_I)x_I⁻²ρ₊⁻² = Cϵ_G x_I^(2ℓ_I) r t_*, small against |g₀(V, V)| ≥ ½(t_*² + 2t_*r), and the
+orientation is continuous along g₀ + τh. For ν ∈ Σ⁺ over M°, ν(V) = g(ν^♯, V) < 0, so σ_(eb) > 0, and by the first part
+and continuity also over ∂M. Likewise σ_(3b) = rν(∂_(t_*)), and ∂_(t_*) is future timelike for g₀ on {r ≥ R₁}
+([[lem:ii-b-1-2]] (b)) and for g, as |h(∂_(t_*), ∂_(t_*))| ≤ Cϵ_G on Ω_ι (r∂_(t_*) is a 3b-vector field and
+x_I⁻²ρ₊⁻² ∼ r² there). ∎
+
+On Σ⁺ over Ω_I put ξ̂ := ξ_(eb)/σ_(eb), η̂ := η_(eb)/σ_(eb) and 𝖧^(eb) := σ_(eb)⁻¹H_(G_(eb)); over Ω_ι put
+ξ̂_(3b) := ξ_(3b)/σ_(3b), η̂_(3b) := η_(3b)/σ_(3b) and 𝖧^(3b) := −σ_(3b)⁻¹H_(G_(3b)). On Σ⁺ each is a positive
+multiple of 𝖧_G, as G_(eb) and G_(3b) are positive multiples of G_(e3b) there (x_I being bounded below on Ω_ι); signs of
+derivatives along them agree with those along 𝖧_G. By [[lem:ii-c-5-3]], |ξ̂| + |η̂| ≤ 7 on Σ over Ω_I, and likewise in
+the 3b-coordinates over Ω_ι.
+
+**Lemma {#lem:ii-c-5-4}** (Near ℐ⁺.) For ϵ_I small, on Σ⁺ over Ω_I ∩ {|ξ̂| ≤ ½}: (a) ξ̂ ≥ −1/8 and |η̂|² ≤ 3/2; (b)
+𝖧^(eb)ξ̂ ≤ −¼ where ξ̂ ∈ [¼, ½]; (c) 𝖧^(eb)x_I ≤ −¼x_I.
+
+*Proof.* By [[eq:ii-c-5-1]], 𝖧^(eb) = 𝖧⁰ + 𝖧^e with 𝖧⁰ := σ_(eb)⁻¹H_(G⁰_(eb)), given exactly by [[eq:ii-b-7-4]], and
+𝖧^e := σ_(eb)⁻¹H_(G_(eb) − G⁰_(eb)). By [[eq:ii-a-2-2]], 𝖧^e applied to ξ̂ is O(x_I^(2ℓ_I)) and applied to x_I is
+(∂_(ξ_(eb))(G_(eb) − G⁰_(eb)))σ_(eb)⁻¹x_I = O(x_I^(1+2ℓ_I)), uniformly where |ξ̂| + |η̂| ≤ 7. On Σ,
+σ_(eb)⁻²G_(eb) = 0 gives |η̂|² = ½ξ̂(2 − ξ̂) + E with |E| ≤ C₃ϵ_I^(2ℓ_I). (a) For ξ̂ ∈ [−½, −1/8),
+½ξ̂(2 − ξ̂) ≤ −1/8, so |η̂|² < 0 once C₃ϵ_I^(2ℓ_I) < 1/8, which is impossible; and for |ξ̂| ≤ ½,
+|η̂|² ≤ 3/8 + C₃ϵ_I^(2ℓ_I) ≤ 3/2. (b) For ξ̂ ∈ [¼, ½], |η̂|² ≥ 7/32 − C₃ϵ_I^(2ℓ_I) ≥ 3/16, and
+𝖧⁰ξ̂ = −2|η̂|² ≤ −3/8. (c) 𝖧⁰x_I = (ξ̂ − 1)x_I ≤ −½x_I. The errors are absorbed for ϵ_I small. ∎
+
+**Lemma {#lem:ii-c-5-5}** (Near ι⁺; [Hin23c, (C.8)–(C.9)].) Put f_T := ϱ⁻¹(1 − ξ̂_(3b)) and f_W := −ξ̂_(3b). Let
+δ ∈ (0, 1]. For ϵ_ι small depending on δ and C_ι, on Σ⁺ over Ω_ι ∩ {|ξ̂_(3b)| ≤ δ/2}: (a) 𝖧^(3b)f_T ≥ ϱ⁻¹;
+(b) ξ̂_(3b) ≥ −δ/8, |η̂_(3b)|² ≥ |ξ̂_(3b)| − δ/8 and |η̂_(3b)|² ≤ 3δ; (c) 𝖧^(3b)f_W ≥ δ/8 where
+ξ̂_(3b) ∈ [δ/4, δ/2].
+
+*Proof.* Write 𝖧^(3b) = 𝖧̄ + 𝖧^e, with 𝖧̄ := −σ_(3b)⁻¹H_(Ḡ_(3b)) given exactly by [[eq:ii-b-3-4]] (with ρ₊ = ϱ) and
+𝖧^e := −σ_(3b)⁻¹H_(G_(3b) − Ḡ_(3b)), which by [[eq:ii-c-5-2]] is a b-vector field with coefficients O(w_ι); it maps ϱ
+into ϱO(w_ι) and ξ̂_(3b) into O(w_ι). We write ξ̂ for ξ̂_(3b) and η̂ for η̂_(3b). (a) By [[eq:ii-b-3-4]],
+𝖧̄ϱ⁻¹ = 2(1 − ξ̂)ϱ⁻¹ and 𝖧̄ξ̂ = −2(2 − ξ̂)ξ̂, so
+
+    𝖧̄f_T = 2ϱ⁻¹((1 − ξ̂)² + (2 − ξ̂)ξ̂) = 2ϱ⁻¹
+
+exactly; and |𝖧^e f_T| ≤ Cϱ⁻¹w_ι, so 𝖧^(3b)f_T ≥ (2 − Cϵ_ι^(ℓ₊))ϱ⁻¹ ≥ ϱ⁻¹. (b) On Σ,
+σ_(3b)⁻²G_(3b) = ξ̂² − 2ξ̂ + |η̂|² + O(w_ι) = 0, so |η̂|² = ξ̂(2 − ξ̂) + E with |E| ≤ Cϵ_ι^(ℓ₊) ≤ δ/16. For
+ξ̂ ∈ [−δ/2, −δ/8), ξ̂(2 − ξ̂) ≤ 2ξ̂ < −δ/4, which is impossible. For ξ̂ ∈ [0, δ/2], ξ̂(2 − ξ̂) ≥ ξ̂; for ξ̂ ∈ [−δ/8, 0),
+|η̂|² ≥ 0 ≥ |ξ̂| − δ/8. And ξ̂(2 − ξ̂) ≤ 3|ξ̂| for |ξ̂| ≤ ½, so |η̂|² ≤ 3|ξ̂| + δ/16 ≤ 3δ. (c) For ξ̂ ∈ [δ/4, δ/2],
+𝖧̄f_W = 2(2 − ξ̂)ξ̂ ≥ 2ξ̂ ≥ δ/2, so 𝖧^(3b)f_W ≥ δ/2 − Cϵ_ι^(ℓ₊) ≥ δ/8. ∎
+
+#### The construction {#sec:ii-c-5-2}
+
+*Proof of [[prop:ii-c-5-1]].* Fix the following functions, all with values in [0, 1]: φ ∈ C^∞_c((−½, ½)) even, with
+φ = 1 on [−¼, ¼] and φ′ ≤ 0 on [0, ∞); ψ ∈ C^∞_c((−3, 3)) with ψ = 1 on [−2, 2]; ψ̃ ∈ C^∞(ℝ) with ψ̃ = 0 on (−∞, 4],
+ψ̃ = 1 on [5, ∞) and ψ̃′ ≥ 0; ψ₀ ∈ C^∞([0, ∞)) with ψ₀ = 1 on [0, ½ϵ_I], ψ₀ = 0 on [ϵ_I, ∞) and ψ₀′ ≤ 0; and
+Ψ ∈ C^∞(ℝ) with Ψ = 0 on (−∞, 0.04] and Ψ = 1 on [0.09, ∞). Choose, in this order: ϵ_I ([[lem:ii-c-5-3]] and
+[[lem:ii-c-5-4]], and ϵ_I² < 1/10, used in (3)); C_ι := 8ϵ_I⁻²; δ := ϵ_I²/32; and ϵ_ι ([[lem:ii-c-5-3]] and
+[[lem:ii-c-5-5]]) so small that also 1/(ϵ_ιδ) > r_Γ for some r_Γ as in [[def:ii-c-2-4]] (3), and 1/(ϵ_ιδ) > r_h + 1.
+Define
+
+    χ_I := φ(ξ̂) ψ(|η̂|²) Ψ(σ_(eb)²/|ν|_(eb)²),
+    χ_ι := φ(f_W/δ) ψ̃(ϵ_ιδ f_T) ψ(|η̂_(3b)|²/(2δ)) Ψ(σ_(3b)²/|ν|_(3b)²),
+    χ := ψ₀(x_I)χ_I + (1 − ψ₀(x_I))χ_ι,        𝗌 := s_in − (s_in − s_out)χ,                               {#eq:ii-c-5-3}
+
+with constants s_out ≤ s_in chosen below.
+
+*Smoothness.* χ_I is smooth on ᵉᵇS* over {x_I < ϵ_I} ⊃ supp ψ₀(x_I), the ratios being smooth where Ψ ≠ 0, that is,
+where |σ_(eb)| ≥ 0.2|ν|_(eb). χ_ι is a function of t_*, r and the 3b-fibre coordinates, which are smooth on ³ᵇS* away
+from ℐ⁺; on supp(1 − ψ₀(x_I)), x_I ≥ ½ϵ_I, so ρ_K = x_I⁻² ≤ 4ϵ_I⁻² < C_ι. Where φ(f_W/δ) ≠ 0, |ξ̂_(3b)| < δ/2 ≤ ½, so
+ϵ_ιδf_T ≥ ½ϵ_ιδϱ⁻¹ → ∞ as ϱ → 0, and ψ̃(ϵ_ιδf_T) = 1 near ϱ = 0. Where ψ̃(ϵ_ιδf_T) ≠ 0 as well, f_T > 4/(ϵ_ιδ) and
+ϱ = (1 − ξ̂_(3b))/f_T < (5/16)ϵ_ιδ, inside Ω_ι. Near a point with ϱ = 0 and |ξ̂_(3b)| ≥ δ/2, φ(f_W/δ) vanishes on a
+neighbourhood, supp φ being a compact subset of (−½, ½). So (1 − ψ₀)χ_ι is smooth and supported in
+Ω_ι ∩ {ϱ < ϵ_ιδ}, and χ ∈ C^∞(ᵉ³ᵇS*_Ω M), 0 ≤ χ ≤ 1. Every factor is even under ν ↦ −ν.
+
+*Monotonicity.* Let g be as in (2) with ϵ_G ≤ ϵ₁, and work on ∂Σ⁺. On Σ over Ω_I ∩ supp φ(ξ̂), |η̂|² ≤ 3/2 and
+|σ_(eb)| ≥ 0.3|ν|_(eb) ([[lem:ii-c-5-3]] and [[lem:ii-c-5-4]]), so ψ(|η̂|²) = 1 and Ψ = 1 on a neighbourhood of these
+points in ∂Σ⁺, and 𝖧χ_I = φ′(ξ̂)𝖧ξ̂ there. Where φ′(ξ̂) ≠ 0, |ξ̂| ∈ [¼, ½], so ξ̂ ∈ [¼, ½] by [[lem:ii-c-5-4]] (a),
+φ′ ≤ 0 and 𝖧^(eb)ξ̂ < 0 ([[lem:ii-c-5-4]] (b)): 𝖧χ_I ≥ 0. Likewise on Σ over Ω_ι the factors ψ and Ψ of χ_ι equal 1
+near supp φ(f_W/δ) ([[lem:ii-c-5-5]] (b): |η̂_(3b)|²/(2δ) ≤ 3/2), and
+
+    𝖧^(3b)χ_ι = δ⁻¹φ′(f_W/δ)ψ̃ 𝖧^(3b)f_W + ϵ_ιδ φ ψ̃′ 𝖧^(3b)f_T.
+
+Where φ′(f_W/δ) ≠ 0, |ξ̂_(3b)| ∈ [δ/4, δ/2], hence ξ̂_(3b) ∈ [δ/4, δ/2] ([[lem:ii-c-5-5]] (b)), so
+f_W/δ ∈ [−½, −¼], where φ′ ≥ 0, and 𝖧^(3b)f_W > 0 ([[lem:ii-c-5-5]] (c)). The second term is ≥ 0 by
+[[lem:ii-c-5-5]] (a). So 𝖧χ_ι ≥ 0 on ∂Σ⁺ over supp(1 − ψ₀).
+
+*Gluing.* 𝖧χ = ψ₀𝖧χ_I + (1 − ψ₀)𝖧χ_ι + ψ₀′(x_I)(𝖧x_I)(χ_I − χ_ι), and the last term lives on
+U := {½ϵ_I ≤ x_I ≤ ϵ_I}. Two facts hold on ∂Σ⁺ over U.
+
+(U1) Where χ_ι ≠ 0, χ_I = 1. Indeed there |ξ̂_(3b)| < δ/2 = ϵ_I²/64 and u := x_I² = t_*/r ∈ [¼ϵ_I², ϵ_I²]. The two
+systems of fibre coordinates are related by σ_(eb) = −σ_(3b)(u + ξ̂_(3b)), ξ_(eb) = −2ξ_(3b) and η_(eb) = x_Iη_(3b),
+an identity of coordinates proved in [[lem:ii-b-7-3]] that holds wherever both are defined. So
+ξ̂ = 2ξ̂_(3b)/(u + ξ̂_(3b)), and u + ξ̂_(3b) ≥ ϵ_I²/8 gives |ξ̂| ≤ ¼: φ(ξ̂) = 1, and ψ = Ψ = 1 as before.
+
+(U2) Where χ_I ≠ 0, 𝖧x_I < 0: there |ξ̂| < ½, and [[lem:ii-c-5-4]] (c) applies.
+
+Where χ_I = 0, (U1) gives χ_ι = 0 and the last term vanishes. Where χ_I > 0, ψ₀′𝖧x_I ≥ 0 by (U2), and χ_I − χ_ι ≥ 0,
+since either χ_ι = 0 or χ_I = 1 ≥ χ_ι. Hence 𝖧χ ≥ 0 on ∂Σ⁺, and 𝖧𝗌 = −(s_in − s_out)𝖧χ ≤ 0. On ∂Σ⁻: the antipodal map
+A : ν ↦ −ν maps Σ⁺ onto Σ⁻, G is even, so H_G and 𝖧_G are odd (A_*𝖧_G = −𝖧_G), and 𝗌 ∘ A = 𝗌; hence
+𝖧_G𝗌(Aν) = −𝖧_G𝗌(ν) ≥ 0, which is −𝖧_G𝗌 ≤ 0 on ∂Σ⁻. This proves (2), with ϵ_G := ϵ₁; the case h = 0 restricted to K⁺
+is [[def:ii-c-2-4]] (1).
+
+*Values.* Over K⁺, x_I = (t_*/r)^(1/2) = ∞, so ψ₀(x_I) = 0 and χ = χ_ι, a function of ϱ and the 3b-fibre coordinates,
+hence t_*-translation-invariant there; it vanishes over {ϱ ≥ ϵ_ιδ}, a set containing {r ≤ r_Γ} and a neighbourhood of
+the horizon: 𝗌 = s_in there. Near ∂R_(∂K⁺,in) (ξ̂_(3b) = 2), φ(f_W/δ) = 0, so 𝗌 = s_in. Near
+∂R_(∂K⁺,out) = {ρ_K = ϱ = 0, ξ̂_(3b) = 0, η̂_(3b) = 0}: φ(f_W/δ) = 1 for |ξ̂_(3b)| ≤ δ/4, ψ̃ = 1 for ϱ small, ψ = 1 for
+η̂_(3b) small, and Ψ = 1 as |σ_(3b)| = |ν|_(3b) at the set: 𝗌 = s_out on a neighbourhood. Near ∂R_(ℐ⁺,out) (x_I = 0,
+ξ̂ = 0, η̂ = 0), ψ₀ = 1 and χ_I = 1: 𝗌 = s_out. Near ∂R_(ℐ⁺,in,+) (ξ̂ = 2), ψ₀ = 1 and χ_I = 0: 𝗌 = s_in. Choose
+
+    s_in > max(½ + ϑ_ℋ + η, ½(−1 + ϑ^(3b)_in) + α_K + η − α₊) + 1,
+    s_out < min(s_in, ½(−1 + ϑ_out) + α_K − η − α₊) − 1,
+
+each threshold in a fibre inner product chosen for its radial set (for ϑ_out, that of [[lem:ii-c-2-5]]). Then, with
+𝗌 := s_in over {r₀ − 2δ₀ < r < r₀} (where nothing else is defined), (1)–(6) of [[def:ii-c-2-4]] hold, which is (1),
+and (5) holds.
+
+*(3).* In a neighbourhood of ι⁺ ∩ {ρ_K ∈ [1, 10]}, x_I² = ρ_K⁻¹ ≥ 1/10 > ϵ_I², so ψ₀(x_I) = 0, and ϱ is small, so
+ψ̃(ϵ_ιδf_T) = 1 on supp φ(f_W/δ): χ = φ(−ξ̂_(3b)/δ)ψ(|η̂_(3b)|²/(2δ))Ψ(σ_(3b)²/|ν|_(3b)²) there. The 3b-covectors
+dt_*/r, dr/r and dω are invariant under the dilations, and so are the ratios of their coefficients and |ν|_(3b)² (with
+the round metric on 𝕊³).
+
+*(4).* The thresholds ϑ_ℋ, ϑ^(3b)_in and ϑ_out are extreme eigenvalues of endomorphisms depending continuously on the
+coefficients, over compact sets, so they move by less than 1 for P₁ near P₀ (with fixed inner products), and the
+margins of 1 above keep (4)–(6) of [[def:ii-c-2-4]]. Conditions (1)–(3) of that definition do not depend on the
+operator beyond its metric. For nearby parameters b, the stationary metrics satisfy (K1) with uniform constants (K4),
+so [[eq:ii-c-5-1]], [[eq:ii-c-5-2]] and [[lem:ii-c-5-3]]–[[lem:ii-c-5-5]] hold uniformly; the horizon radius and Γ
+vary continuously ([[rem:ii-b-8-3]]), so {ϱ ≥ ϵ_ιδ} still contains them after shrinking ϵ_ι. ∎
+
+**Remark {#rem:s05-construction}** [Hin23c, Appendix C] also multiplies χ_I by a localisation χ_t in a time function,
+with a further small parameter ρ_(+,lo), because its error term in 𝖧x_I is Cρ₊^(ℓ₊)x_I. Here the error carries
+x_I^(2ℓ_I) by [[eq:ii-c-5-1]] (the rate x_I² of the stationary part, [[sec:ii-b-7]], and the weight x_I^(2ℓ_I) of the
+perturbation), so [[lem:ii-c-5-4]] (c) holds at all ρ₊ ≤ 1 and χ_t is not needed. [Hin26c, p. 114] refers to that
+construction and adds that only the dynamics over ι⁺ matter; the construction above confirms this, the trapped set and
+the horizon lying where 𝗌 is constant.
