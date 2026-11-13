@@ -511,8 +511,8 @@ def check_x4(funcs, env, fode, prof, s_tot):
         lam = np.interp(ME.TAU_STAR - taus, s_arr, l_arr)
         route = float(np.trapezoid(np.exp(lam) * rn, taus))
         rows[cfg] = (taus, rn, lam, route, m22v, time.time() - t1)
-        print('    %d x %d: M_22 = %.9f; ||rho_tautau|| at tau = %s: %s; Lambda there %s; the route\'s bound int '
-              'e^Lambda ||rho|| ds = %.3e (%.0fs) %s'
+        print('    %d x %d: M_22 = %.9f; the tau-tau defect\'s L^2 norm at tau = %s: %s; Lambda there %s; with it '
+              'for rho, int e^Lambda ||rho|| ds = %.3e (%.0fs) %s'
               % (cfg[0], cfg[1], m22v, ', '.join('%.2f' % t for t in taus), ', '.join('%.1e' % x for x in rn),
                  ', '.join('%.1f' % x for x in lam), route, time.time() - t1, el()))
     return rows

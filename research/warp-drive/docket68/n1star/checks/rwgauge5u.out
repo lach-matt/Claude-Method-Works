@@ -68,10 +68,10 @@ U6 PASS
       test functions at p = 6/5, 3/2, 9/5: True; -(2 - p)/2 = delta - 1/2 at p = 1 + 2 delta: True
   U7 control (the lemma without int w^2/s^2; Hoelder without the E^2 factor): hold on the tests: False, False
 U7 PASS
-  U8: the old text occurs 0 time(s) in the paper, the new text 1; new keeps the old opening: True; widest line 121 (<=
-      121: True); all: True
-  U8 control (r <= R): the old text occurs 0 time(s) in the paper, the new text 0; new keeps the old opening: True;
-      widest line 121 (<= 121: True); all: False
+  U8: the old text occurs 0 time(s) in the paper, the new text 0, its text after the first sentence 1; new keeps the old
+      opening: True; widest line 121 (<= 121: True); all: True
+  U8 control (r <= R): the old text occurs 0 time(s) in the paper, the new text 0, its text after the first sentence 0;
+      new keeps the old opening: True; widest line 121 (<= 121: True); all: False
 U8 PASS
   U9: dim of degree-l harmonics on S^3 = (l + 1)^2 (l <= 20) True; vol = 2*pi**2; 1 + l(l + 2) = (l + 1)^2 True; sum (l +
       1)^-2 = pi**2/6, so sup|w|^2 <= 1/12 ||(1 - Lap) w||^2; the kernel ((l + 1)/(2 pi^2)) U_l: norm^2 = value = (l +

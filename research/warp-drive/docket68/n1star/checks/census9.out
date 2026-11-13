@@ -1,7 +1,7 @@
   C23: 78 lines of section 10 name the point, in 22 subsections; by class {'a': 16, 'b': 15, 'b-lead': 8, 'c': 16, 'd': 8, 'e': 5, 'x': 10}; unlisted none; stale entries none
   C23: anchors standing where the class puts them: 78 of 78 {'a via the B5 list': 12, 'in (a)': 4, 'in (b)': 15, "in (b)'s opening sentence": 8, 'in (c)': 16, 'in (d)': 8, 'in (e)': 5, 'x': 10}; the B5 list (10.21(e), 10.22, 10.23; B5); items naming h_0 (pointing to it) ['a', 'd', 'e']
   C23: under (b)'s lead sentence only, not its enumeration: [('10.24', 'Lemma 8.5'), ('10.24', 'Proposition 8.6'), ('10.25', 'Proposition 8.6'), ('10.27', 'Proposition 8.8'), ('10.75', 'Lemma 8.5')]
-  C23 control: unlisted [(10935, '10.86', "At the record's point the planted quantity Q is positive.")]
+  C23 control: unlisted [(10936, '10.86', "At the record's point the planted quantity Q is positive.")]
 C23 PASS
   C29: section 2's table: 17 losses explicit in the weights: ℓ of II.G' Corollary 4.5 (J3 Lemma 2.1 (f)); ℓ_3; ℓ_5; ℓ_4; ℓ_1, ℓ_2; N of Lemma 4.3; r_out, β_scf at Cor 4.5; ℓ of II.G' Prop 3.5 (1); ℓ of II.G' Prop 3.5 (2); III.I'' Lemma 3.1's ℓ; III.F' Corollary 3.4; III.G''' Lemma 2.2's l; III.G''' Prop 2.4's l'; the "+5" of J3 Lemma 2.1 (a); N_* (III.I'''''''''' windows); the zero-energy levels at n = 4; fixed small losses
   C29: not in closed form (section 2): 6; carried in 2b: 6 (III.A Proposition 4.2; II.G' Corollary 4.2; III.G''' Proposition 3.7; III.G''' Corollary 3.1; III.I'' Lemma 4.2; III.G' Theorem 3.1 (2)); each a closed form: [True, True, True, True, True, True]; same six: True
