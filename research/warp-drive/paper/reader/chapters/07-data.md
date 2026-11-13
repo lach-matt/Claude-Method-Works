@@ -220,13 +220,13 @@ symmetric for every angle B. In the class of fields of (r, ϑ) invariant under T
 components q_(φ1), q_(φ2) and J_(φ1), J_(φ2) vanish by the reflections) these equations are the whole system: J_r = 6
 ∂_r ϖ − (2/r²) ∂_ϑ q + …, J_ϑ = −(2 r²/(r² + μ)) ∂_r q + 4 ∂_ϑ ϖ + …, with 𝒮 = diag(1, −1/(2r²)), 𝒮 A0 = diag(6, 1/(r² +
 μ)), 𝒮 A^ϑ = [[0, −2/r²], [−2/r², 0]], and real characteristic speeds c² = 2 (r² + μ)/(3 r⁴) > 0; the construction stays
-in that class. With γ_rA ≠ 0, as at the approximant's data (where γ_rA = O(λ²), by (b) below), and q and Π read as
-above, the symmetrizers still form a one-dimensional space, depending on γ alone, whose generator, the matrix 𝒮 that
+in that class. For γ_rA small, as at the approximant's data (where γ_rA = O(λ²), by (b) below), and with q and Π read
+as above, the symmetrizers still form a one-dimensional space, depending on γ alone; its generator, the matrix 𝒮 that
 takes (J_r, J_A) to
 
     (J_r + (γ^(rA)/γ^(rr)) J_A,  −(1/2) Π^(AB) J_B),                                              {#eq:data-symmetrizer}
 
-keeps 𝒮 A0 = diag(6, γ_U^(rr) Π^(AB)) > 0 for γ_rA small. The construction needs only γ_rA small.
+has 𝒮 A0 = diag(6, γ_U^(rr) Π^(AB)) > 0 and 𝒮 A^C symmetric for every angle C. The construction needs only γ_rA small.
 
 (b) At the approximant's data (the data on Σ of g_app built from the stage data of [[lem:stage-data]]) the constraint
 map of (γ_U, κ_U), as a function of U, has no coefficient of order 1/λ: the second derivatives of γ of order 1/λ enter
@@ -237,24 +237,24 @@ tr κ cancel.
 approximant's data the order-0 parts of all principal coefficients equal the background's, so p, γ^(rr) Π^(AB) and 𝒮 A0
 keep their signs for λ small; 𝒮 depends on γ alone, whose first derivatives are bounded uniformly in λ; and
 [[lem:linear-evolution]] needs no ∂_r p. Lower-order coefficients may oscillate at O(1), and some do: the coefficient of
-α in ρ contains the term |A|²/ν² of the proof below, where the second fundamental form A of the spheres has the
+α in ρ contains the term |𝒜|²/ν² of the proof below, where the second fundamental form 𝒜 of the spheres has the
 oscillating part (1/(2ν)) [∂_θ W_AB] of order one, so that it oscillates, with a nonzero θ-mean where the waves do not
-vanish (such a mean is part of B_m in [[lem:stage-data]] (iii)); and the coefficient of ∂_C α in J_A contains γ^(rr)
-Π^(BC) κ_AB, where κ_AB has the oscillating part (1/2) n0(v) [∂_θ W_AB] of order one. [[lem:linear-evolution]] needs
-only their angular regularity.
+vanish (such a mean is part of B_m in [[lem:stage-data]] (iii)); and the coefficient of ∂_C α in J_A contains −γ^(rr)
+Π^(BC) κ_AB, where κ_AB has the oscillating part (1/2) n0(v) [∂_θ W_AB] of order one, n0 the future unit normal of g0
+to Σ. [[lem:linear-evolution]] needs only their angular regularity.
 
 *Proof.* (a), ρ. Write γ = ν² dr² + Π_AB (dω^A + σ^A dr)(dω^B + σ^B dr), with lapse ν > 0 and shift σ of the foliation
 by the spheres; then γ^(rr) = ν⁻², and γ_U has the same Π and σ and the lapse ν_U with ν_U² = ν² + α. Let e_r := ν⁻¹(∂_r
-− σ) be the unit normal, A := (1/(2ν))(∂_r Π − 𝓛_σ Π) the second fundamental form of the spheres and H := tr_Π A. The
-Gauss equation for the spheres, R = R_Π + 2 Ric(e_r, e_r) − H² + |A|², and the Riccati equation along the normal flow,
-Ric(e_r, e_r) = −∂_(e_r) H − |A|² − ν⁻¹ Δ_Π ν, give
+− σ) be the unit normal, 𝒜 := (1/(2ν))(∂_r Π − 𝓛_σ Π) the second fundamental form of the spheres and H := tr_Π 𝒜.
+The Gauss equation for the spheres, R = R_Π + 2 Ric(e_r, e_r) − H² + |𝒜|², and the Riccati equation along the normal
+flow, Ric(e_r, e_r) = −∂_(e_r) H − |𝒜|² − ν⁻¹ Δ_Π ν, give
 
-    R(γ) = R_Π − 2 ∂_(e_r) H − H² − |A|² − 2 ν⁻¹ Δ_Π ν.
+    R(γ) = R_Π − 2 ∂_(e_r) H − H² − |𝒜|² − 2 ν⁻¹ Δ_Π ν.
 
 Replace ν by ν_U. In H = H̃/ν, H̃ := (1/2) Π^(AB)(∂_r Π_AB − (𝓛_σ Π)_AB) does not depend on α, so −2 ∂_(e_r) H ⊃ 2 ν⁻³
 H̃ ∂_r ν = H̃ ν⁻⁴ ∂_r(ν²): the coefficient of ∂_r α is H ν⁻³ = (γ^(rr))^(3/2) H, evaluated at γ_U. The second
 derivatives of α come from −2 ν_U⁻¹ Δ_Π ν_U = −ν_U⁻² Δ_Π α + (first order): −γ_U^(rr) Π^(AB) ∂_A ∂_B α, angular only.
-R_Π, H², |A|² and the σ-part of ∂_(e_r) H contain α algebraically or through its angular derivatives. The terms
+R_Π, H², |𝒜|² and the σ-part of ∂_(e_r) H contain α algebraically or through its angular derivatives. The terms
 −|κ_U|² + (tr κ_U)² contain U algebraically. This proves the form [[eq:data-rho]].
 
 (a), J. Let γ_rA be small. In J = 2(−div_(γ_U) κ_U + d tr_(γ_U) κ_U) the derivatives of (ϖ, q) come from κ_U − κ. Since
@@ -316,19 +316,19 @@ on the spheres, ρ would have the coefficient λ⁻¹ (1/(2 ν²)) [∂_θ² tr_
 
 (c) The principal coefficients are γ^(rr), Π^(AB), γ^(rA) and p = (γ^(rr))^(3/2) H; the first three are algebraic in γ =
 γ0 + O(λ), and H = (1/(2 ν)) Π^(AB)(∂_r Π_AB − (𝓛_σ Π)_AB) has the order-one oscillating part (1/(2 ν)) Π0^(AB) [∂_θ
-W_AB] = 0, the rest being γ0's value plus O(λ). The coefficient of α in ρ contains, from −|A|² with A = (1/(2 ν_U))(∂_r
-Π − 𝓛_σ Π), the term ∂_α(−(ν²/ν_U²)|A|²) = |A|²/ν² at α = 0, and the oscillating part of A is (1/(2 ν)) [∂_θ W_AB], so
-that |A|²/ν² has the oscillating part (1/(4 ν⁴)) |[∂_θ W]|²_(Π0) − (its θ-mean), and the θ-mean (1/(4 ν⁴)) ⟨|∂_θ
+W_AB] = 0, the rest being γ0's value plus O(λ). The coefficient of α in ρ contains, from −|𝒜|² with 𝒜 = (1/(2
+ν_U))(∂_r Π − 𝓛_σ Π), the term ∂_α(−(ν²/ν_U²)|𝒜|²) = |𝒜|²/ν² at α = 0, and the oscillating part of 𝒜 is (1/(2 ν))
+[∂_θ W_AB], so that |𝒜|²/ν² has the oscillating part (1/(4 ν⁴)) |[∂_θ W]|²_(Π0) − (its θ-mean), and the θ-mean (1/(4 ν⁴)) ⟨|∂_θ
 W|²_(Π0)⟩, positive where the waves do not vanish. (|∂_θ W|² is not constant in θ: by the form [[eq:waves]] of W_TT it
 is a positive multiple of c⁴ sin²θ + s⁴ cos²θ + c²s² sin θ cos θ, with c = cos ϑ and s = sin ϑ, a quadratic form in (sin
 θ, cos θ) that is not a multiple of sin²θ + cos²θ.) The other terms of the coefficient quadratic in the oscillation come
 from ∂_r H̃ in ∂_(e_r) H, whose quadratic part (1/2) ∂_r Π^(AB) ∂_r Π_AB + (1/2) Π^(AB) ∂_r² Π_AB ⊃ −(1/2) |[∂_θ W]|² −
 (1/2) [W^(AB) ∂_θ² W_AB] has θ-mean zero, and from H², which has no oscillating part of order one; the κ-terms carry
 κ̃(γ⁻¹dr, ·) and tr κ̃, and κ̃_rA = 0, while tr_(Π0) κ̃_AB = 0 and κ̃_rr vanishes with χ on Σ. In J_A = 2(…), the
-connection of γ_U gives −γ^(jk) Γ(γ_U)^B_(jk) κ_AB ⊃ (1/2) γ^(rr) Π^(BC) κ_AB ∂_C α, from γ^(jk) Γ(γ_U)^B_(jk) ⊃ −(1/2)
-γ^(rr) Π^(BC) ∂_C α, while the other terms with ∂_C α carry κ(γ⁻¹dr, γ⁻¹dr) δ_A^C or κ_Ar, whose oscillating parts are
-multiples of δ_A^C or zero; the oscillating part γ^(rr) Π^(BC) κ̃_AB is not a multiple of δ_A^C, W_TT being traceless,
-so it does not cancel. The remaining claims are those of (a). ∎
+term −γ^(jk) Γ(γ_U)^l_(jk) κ_lA of −div κ_U contributes 2 γ^(jk) Γ(γ_U)^B_(jk) κ_AB ⊃ −γ^(rr) Π^(BC) κ_AB ∂_C α, from
+γ^(jk) Γ(γ_U)^B_(jk) ⊃ −(1/2) γ^(rr) Π^(BC) ∂_C α, while the other terms with ∂_C α carry κ(γ⁻¹dr, γ⁻¹dr) δ_A^C or
+κ_Ar, whose oscillating parts are multiples of δ_A^C or zero; the oscillating part −γ^(rr) Π^(BC) κ̃_AB is not a
+multiple of δ_A^C, W_TT being traceless, so it does not cancel. The remaining claims are those of (a). ∎
 
 **Lemma {#lem:linear-evolution}** (The linear evolution.) Consider on [a, R] × S³ the linear system, with coefficients
 measurable in r for which M_s below is finite,

@@ -1272,9 +1272,23 @@ Vφ_s^♮ = ν_s^♮φ_s^♮ + j_s^♮G_(z_0) on O. For δ ≤ ε_Γ let
 
     Γ(δ) := {|φ_u| ≤ δ, |φ_s| ≤ δ, |G_(z_0)| ≤ δ} ∩ Ō′,
 
-O′ ⋐ O a neighbourhood of Γ; by (Γ.1), Γ = ⋂_δ Γ(δ), so the Γ(δ) are compact neighbourhoods of Γ shrinking to it, and
-ε_Γ is taken so small that Γ(ε_Γ) ⊂ O′ and [[eq:i-b-6-3]] and (Γ.3) hold, with |{φ_u^♮, φ_s^♮}| ≥ c_Γ > 0, on
-Γ(ε_Γ).
+O′ ⋐ O a neighbourhood of Γ. We take O so small that it does not meet Σ_(z_0) ∖ Σ^♭_(z_0), a closed set disjoint from
+Γ (q_(z_0) ≠ 0 on Σ_(z_0), [[lem:i-b-1-1]] (e)); then by (Γ.1), Γ is the common zero set of φ_u, φ_s and G_(z_0) in O.
+So Γ = ⋂_δ Γ(δ), and the Γ(δ) are compact neighbourhoods of Γ shrinking to it. Fix χ_(O′) ∈ C_c^∞(O),
+0 ≤ χ_(O′) ≤ 1, equal to 1 on Ō′. The set supp χ_(O′) ∖ O′ is compact and disjoint from Γ, so
+max(|φ_u|, |φ_s|, |G_(z_0)|) ≥ δ_O on it, for some δ_O > 0. We take ε_Γ < δ_O, and so small that Γ(ε_Γ) ⊂ O′ and that
+[[eq:i-b-6-3]] and (Γ.3) hold on Γ(ε_Γ), with
+
+    c_Γ ≤ |{φ_u^♮, φ_s^♮}| ≤ C_Γ  on Γ(ε_Γ),     C_Γ := max_(Γ(ε_Γ)) |{φ_u, φ_s}|,
+
+for a constant c_Γ > 0. C_Γ is finite because Γ(ε_Γ) is compact, and {φ_u^♮, φ_s^♮} = ϵ_♭{φ_u, φ_s} has the constant
+sign ϵ_♭ on Γ(ε_Γ).
+
+*Cut-offs.* For δ ≤ ε_Γ, the set {max(|φ_u|, |φ_s|, |G_(z_0)|) ≤ δ} ∩ supp χ_(O′) is compact and lies in O′, where
+χ_(O′) = 1; so it is Γ(δ). Hence, if f ∈ C^∞(ℝ³) has support in [−δ, δ]³, then χ_(O′) f(φ_u^♮, φ_s^♮, G_(z_0)),
+extended by 0, is smooth on 𝒫, supported in Γ(δ), and equal to f(φ_u^♮, φ_s^♮, G_(z_0)) on the open set O′, which
+contains its support; so no derivative falls on χ_(O′). The cut-offs of [[prop:i-b-6-1]] and [[prop:i-b-6-4]] are of
+this form.
 
 *Dynamics in Γ(ε_Γ).* Let γ be an integral curve of V in Σ_(z_0) ∩ Γ(ε_Γ). Along it
 φ_u^♮(γ(t)) = φ_u^♮(γ(0)) exp(−∫_0^t ν_u^♮) and φ_s^♮(γ(t)) = φ_s^♮(γ(0)) exp ∫_0^t ν_s^♮, with
@@ -1301,8 +1315,9 @@ for z ∈ z_0 + i[hγ, ν′] with Im z ≥ −ν′, h < h_0 and all M,
 For 𝐗 = 0 the condition is γ > γ_+, with γ_+ of [[eq:i-b-1-4]].
 
 *Proof.* With χ_0 as in the proof of [[lem:i-b-5-1]], let ψ_u := χ_0(M_1(φ_u^♮)²), ψ_s := χ_0(M_1(φ_s^♮)²),
-ψ_Σ := χ_0(M_Σ G_(z_0)²) and ǎ := ψ_uψ_sψ_Σ, with M_Σ ≥ M_1 ≥ M_0 large; supp ǎ ⊂ Γ(√(2/M_1)) (for M_Σ ≥ M_1).
-Compute [[eq:i-b-6-2]] with a = ǎ². First, with χ_0χ_0′ ≤ 0,
+ψ_Σ := χ_0(M_Σ G_(z_0)²) and ǎ := χ_(O′)ψ_uψ_sψ_Σ, with M_Σ ≥ M_1 ≥ M_0 large (M_0 ≥ 2ε_Γ^(−2)); by the cut-offs
+paragraph of [[sec:i-b-6-1]], supp ǎ ⊂ Γ(√(2/M_1)) (for M_Σ ≥ M_1), and χ_(O′) = 1 near supp ǎ. Compute
+[[eq:i-b-6-2]] with a = ǎ². First, with χ_0χ_0′ ≤ 0,
 
     Vψ_u² = 4M_1 χ_0χ_0′(M_1(φ_u^♮)²) φ_u^♮ (−ν_u^♮φ_u^♮ + j_u^♮G_(z_0)),
     Vψ_s² = 4M_1 χ_0χ_0′(M_1(φ_s^♮)²) φ_s^♮ (ν_s^♮φ_s^♮ + j_s^♮G_(z_0)).
@@ -1336,20 +1351,20 @@ R. [[lem:i-b-3-3]] and [[lem:i-b-3-4]], with Λ := Γ and the sets Γ(√(2/M_1)
 
 In this section and the next, h_j → 0 is a sequence, the u_j are ℂ^(N_E)-valued, and we drop j. U is an open
 precompact set at finite frequencies over the interior of K_Γ. The family is *tempered on U* if
-‖u‖_(−K_0) ≤ C h^(−K_0) for some K_0 and sup ‖Gu‖ < ∞ for some G ∈ Ψ^0 elliptic on Ū.
+‖u‖_(−M_t) ≤ C h^(−M_t) for some M_t and sup ‖Gu‖ < ∞ for some G ∈ Ψ^0 elliptic on Ū.
 
 **Lemma {#lem:i-b-6-2}** (Cf. [Hin26c, Lemma 9.30], on E.) If (u_j) is tempered on U, a subsequence has a *defect
 measure* on U: a positive semidefinite End(ℂ^(N_E))-valued Radon measure μ on U, such that
 ⟨Bu, u⟩ → ∫_U tr(b dμ) for every B ∈ Ψ^0 with WF′_h(B) a compact subset of U and principal symbol
-b ∈ C_c^∞(U; End ℂ^(N_E)). Write ν := tr μ ≥ 0; then dμ = m_μ dν with m_μ ≥ 0, tr m_μ = 1, ν-almost everywhere, and
-for every Hermitian continuous p, tr(p dμ) ≤ max spec(p) dν.
+b ∈ C_c^∞(U; End ℂ^(N_E)). Write ν := tr μ ≥ 0; then μ has a density dμ/dν with respect to ν, with dμ/dν ≥ 0 and
+tr(dμ/dν) = 1 ν-almost everywhere, and for every Hermitian continuous p, tr(p dμ) ≤ max spec(p) dν.
 
 *Proof.* (a) For B as stated, limsup |⟨Bu, u⟩| ≤ C_b := sup|b| · sup_Ū |g|^(−2) · sup ‖Gu‖², where the G of the
 definition is taken scalar with principal symbol g, |g| ≥ c > 0 on Ū. As in [Hin26c, (9.87)–(9.88)], B = G*QG + R with
 Q ∈ Ψ^0 of principal symbol q := b|g|^(−2) ∈ C_c^∞(U) (the construction of [[prop:i-b-2-10]]), so that R ∈ hΨ^0 is
 microsupported in Ell_h(G) up to a term in h^∞Ψ^(−∞); then R = G*R′G + R″ with R′ ∈ hΨ^0 and R″ residual. By
 [[thm:i-b-2-7]], |⟨QGu, Gu⟩| ≤ (sup|q| + ϵ + Ch^(1/4))‖Gu‖² for every ϵ > 0, and
-|⟨Ru, u⟩| ≤ Ch sup‖Gu‖² + C_M h^M ‖u‖²_(−K_0) = o(1) by temperedness.
+|⟨Ru, u⟩| ≤ Ch sup‖Gu‖² + C_M h^M ‖u‖²_(−M_t) = o(1) by temperedness.
 
 (b) The value depends only on b: two such B with the same b differ by hΨ^0 plus residual terms, whose pairings tend to
 0 by (a).
