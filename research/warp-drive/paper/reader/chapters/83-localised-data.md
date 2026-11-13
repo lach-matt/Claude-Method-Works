@@ -50,8 +50,7 @@ Its *seed region* is {0.70 ≤ R ≤ 1.861}; it lies in region III ([[prop:bg-se
 R < √μ3, and √μ3 ∈ (0.9066, 0.9068). The radius R_* ∈ [3.43718006, 3.43718007] of [[lem:bg-rstar]] is where the ray
 u = u1 meets Σ_τ0; the points of Σ_τ0 with R ≥ R_* lie in region I ([[lem:margins-region-one]] (c)). At every point of
 Σ_τ0, qf < 1: for R ≤ R_* by [[thm:bg-margins]] (c), and for R ≥ R_* because there q = 1 and f = 1 − μ/R² < 1
-([[lem:margins-region-one]] (a), (c)). [[sec:bg-below]] and [[sec:margins]] prove their inequalities on the whole of
-{v̂ − R = τ0, v̂ ≥ 0}, on which R ≥ 0.68; there Σ_τ0 denotes this set, which contains the slice above.
+([[lem:margins-region-one]] (a), (c)). Σ_τ0 denotes this slice throughout the chapter.
 
 *The angles and the class.* On S³ we use the angles (ϑ, φ1, φ2) of [[sec:background]], with the round metric dΩ₃² =
 dϑ² + cos²ϑ dφ1² + sin²ϑ dφ2², and write sc := sin ϑ cos ϑ. Data on a slice are *invariant* if they are invariant
@@ -1058,7 +1057,7 @@ removed no ray above √μ3 was trapped. So bands of Σ_τ0 on which f > 0 can l
 This section proves the properties of the background of the angle-localised families that the margins of the bent slice
 and of the seed region use below R_*: the data on 𝒞_in and the mass μ3 of region III ([[prop:bg-nprime]]); that the
 background's ψ_III lies in the tube of [[prop:margins-seed]] (b) around the explicit quintic ψ_s
-([[prop:bg-seed]]); and the hyperbolicity margin κK^l_l on Σ_τ0 for 0.68 ≤ R ≤ R_* ([[prop:bg-slice]]). The results
+([[prop:bg-seed]]); and the hyperbolicity margin κK^l_l on Σ_τ0 for 0.70 ≤ R ≤ R_* ([[prop:bg-slice]]). The results
 are collected in [[thm:bg-margins]]. Below R_* the background reduces exactly to ordinary differential equations along
 null rays ([[lem:bg-reduction]]). Their solutions are enclosed by explicit approximants with a posteriori bounds
 ([[prop:bg-nprime]], [[prop:bg-rays]]). The approximants and every row of the bounds are printed in [[sec:tab-bg]].
@@ -1082,7 +1081,8 @@ the ingoing coordinate with v̂(0) = 0 and ψ = 0 on 𝒞_out, where
 
     ψ := ln(−e^(2σ)/(R_u v̂′(v))),      g0 = −e^(2ψ) f dv̂² + 2e^ψ dv̂ dR + R² dΩ₃²   where R_u ≠ 0,     {#eq:bg-chart}
 
-the second identity following from du = (dR − R_v dv)/R_u. The slice is Σ_τ0 := {v̂ − R = τ0}. Put
+the second identity following from du = (dR − R_v dv)/R_u. The slice Σ_τ0 is that of [[sec:loc-setting]],
+{v̂ − R = τ0, 0.70 ≤ R ≤ b(τ0)}. Put
 
     F(R) := 2R + √(3/2) ln((R − √(3/2))/(R + √(3/2))),      F′(R) = 2/(1 − 3/(2R²)),  {#eq:bg-tangherlini}
 
