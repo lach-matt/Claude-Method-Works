@@ -525,7 +525,7 @@ order in φ), with M′ := H(ℓ̄, ℓ̄) ℓ − 2 H(ℓ̄, e) e + 2 H(e, e) �
 H0^ρ := g5^(ab) Γ^ρ_ab smooth, and [L, H0·∂] is of first order. On a round background g3 = −2 e^(2σ) du dv + R² dϑ² in
 double-null coordinates, √|g3| = e^(2σ) R and g3^(uv) = −e^(−2σ), so □3 v = −e^(−2σ) R_u/R = L(R)/R. ∎
 
-So if ℓ_A·dφ = F along the generator of family A, then Ψ := □̃φ satisfies L_A Ψ + a_A Ψ = □̃F − M_A(F) − N_A φ, the
+So if ℓ_A·dφ = f along the generator of family A, then Ψ := □̃φ satisfies L_A Ψ + a_A Ψ = □̃f − M_A(f) − N_A φ, the
 form [[eq:ue-psi]] that the uniform estimate uses, with a_A = 2 □3 u_A.
 
 ### The n-dust approximants are uniform in n {#sec:vlasov-uniform}
@@ -656,8 +656,8 @@ as in (F1) of [[pending:two-dust-facts]].
 □̃φ_B carrying a bounded coefficient. For a torus-polarised wave of family B, the wave part of G2^B vanishes on vectors
 of the orbit space, so G2^B(ℓ_A, ℓ_A) is its gauge part χ_B (ℓ_A·du_B)², as for two families.
 
-(4) *The transport of Ψ_A.* For a non-radial family, Ψ_A := □̃φ_A satisfies L_A Ψ_A + a_A Ψ_A = □̃F_A − M_A(F_A) − N_A
-φ_A by [[cor:vlasov-commutator]], with F_A := ½ 𝒫 s_A(h); for a radial family this is [[pending:two-dust-commutator]].
+(4) *The transport of Ψ_A.* For a non-radial family, Ψ_A := □̃φ_A satisfies L_A Ψ_A + a_A Ψ_A = □̃f_A − M_A(f_A) − N_A
+φ_A by [[cor:vlasov-commutator]], with f_A := ½ 𝒫 s_A(h); for a radial family this is [[pending:two-dust-commutator]].
 
 (5) *The transport estimates.* Each family's transport field Z_A, with ℓ_A = ℓ_A(τ) Z_A and ℓ_A(τ) ≠ 0 since a null
 vector is never tangent to a spacelike slice, satisfies the identity of [[pending:two-dust-transport]] with c x̂ replaced

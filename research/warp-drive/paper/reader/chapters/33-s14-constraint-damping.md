@@ -1515,9 +1515,9 @@ and for every ω ∈ ρ_K^(−α_K)H²_(3b,h) vanishing for r < r_1,
 
     ‖ω‖_(ρ_K^(−α_K)H¹_(3b,h)(r⁻¹([r_1,r_3]) ∩ {τ ≥ 0})) ≤ Ch⁻¹‖P_h*ω‖_(ρ_K^(−α_K)L²(r⁻¹([r_1,r_3]) ∩ {τ ≥ 0})).
 
-These four estimates are [Hin26a, (5.66)–(5.69)], with T := T_0 and with the radii m ≤ r_1 < r_2 < r_3 < r₊ of
-[Hin26a] read as above; in the proofs the level sets of τ carry the density r⁴|dr d𝑔̸|, which tensored with |dτ| is
-|dg|. Moreover, at fixed h, for ω ∈ ρ_sf^(α_sf)H̄²_3b without support condition,
+These four estimates are [Hin26a, (5.66)–(5.69)], with T := T_0 and with the radii r_1 < r_2 < r_3 < r₊ of [Hin26a],
+from its inner radius on, read as above; in the proofs the level sets of τ carry the density r⁴|dr d𝑔̸|, which
+tensored with |dτ| is |dg|. Moreover, at fixed h, for ω ∈ ρ_sf^(α_sf)H̄²_3b without support condition,
 
     ‖ω‖_(ρ_sf^(α_sf)H̄¹_3b(τ⁻¹([0,T_0]))) ≤ C_h(‖P_hω‖_(ρ_sf^(α_sf+2)L²(τ⁻¹([0,T_0])))
                                                 + ‖(ω, r𝓛_(∂_t)ω)|_(X_0)‖_(ℋ_data)),                {#eq:iv5-6-1}
@@ -1763,7 +1763,7 @@ the spectral family is
 **Lemma {#lem:s14-tf-inputs}** (The model's homogeneity, weights and thresholds.) (i) In the frame dt, dx^i and in
 (t_*, x), the coefficient of every derivative of order k in □^C is homogeneous of degree k − 2 in x.
 
-(ii) r^μ lies in r^β L²(r³ dr) near r = 0 iff μ > β − 2. So if the indicial roots of (□^C)^(0) in ρ at infinity avoid
+(ii) For real ι, r^ι lies in r^β L²(r³ dr) near r = 0 iff ι > β − 2. So if the indicial roots of (□^C)^(0) in ρ at infinity avoid
 [−C_0, 2), those in r at the origin, which are their negatives, avoid (−2, C_0], and the root-free weights at the origin
 are β ∈ (0, 2 + C_0].
 
@@ -1783,16 +1783,16 @@ simple; the window of β − 2 between the two groups contains (−2, 0).
 componentwise, homogeneous of degree −2; the components of c are homogeneous of degree −1, those of ∇c of degree −2,
 and by [[eq:s14-lc]] every term of h⁻¹𝓛_c is a product of a component of c with a first derivative or of a component of
 ∇c with the identity. The change to t_* = t − r preserves the homogeneity, r being homogeneous of degree 1. (ii) ∫_0
-r^(2μ−2β)r³ dr < ∞ iff 2μ − 2β + 4 > 0. By (i) and the inversion ρ = r⁻¹, the indicial roots at the origin are the
+r^(2ι−2β)r³ dr < ∞ iff 2ι − 2β + 4 > 0. By (i) and the inversion ρ = r⁻¹, the indicial roots at the origin are the
 negatives of those at infinity. (iii) The first statement is [[prop:np-10-14]] (iv) with b_sf − b_K = d. For the
 second, with ζ = dr/r, ⟨c, ζ⟩ = −v r⁻², G(c) = −(1 − v²)r⁻², G(ζ) = r⁻²; by [[prop:np-10-13]] (i), ½ℓ(ζ) has eigenvalue
 −vr⁻² three times and on span{c, ζ} trace −(3 − e)vr⁻² and determinant (2(1 − e)v² − e(1 − v²))r⁻⁴; multiplying by −r²
 gives (ν − v)³(ν² − (3 − e)vν + (2 − e)v² − e). At (1/2, 1/102400) the quadratic has positive sum (3 − e)/2 and
 positive product (2 − e)/4 − e; at e = 0 its roots are v and 2v. (iv) is arithmetic, with b* ∈ (0.9934, 0.9935) and dt
 = r dτ + τ dr. (v) On stationary sections □_η = −Δ componentwise in the frame dt, dx^i. A section of scalar type l has
-its dt-component r^μS, with −Δ(r^μS) = 0 at leading order iff μ ∈ {l, −l − 2}, and its spatial part a 1-form whose
-Cartesian components are, at each order r^μ, combinations of harmonics of degree l ± 1 (for l = 0, of degree 1 only),
-with the roots μ ∈ {l − 1, −l − 1} and {l + 1, −l − 3}; a section of vector type has Cartesian components of degree l,
+its dt-component r^ιS, with −Δ(r^ιS) = 0 at leading order iff ι ∈ {l, −l − 2}, and its spatial part a 1-form whose
+Cartesian components are, at each order r^ι, combinations of harmonics of degree l ± 1 (for l = 0, of degree 1 only),
+with the roots ι ∈ {l − 1, −l − 1} and {l + 1, −l − 3}; a section of vector type has Cartesian components of degree l,
 with roots {l, −l − 2}. These are simple, and each group of three (two at l = 0, one for the vector type) lies on one
 side of (−2, 0). ∎
 
@@ -1877,8 +1877,8 @@ threshold is ℓ > −½ − h⁻¹(1 − e)(1 + v).
 
 The regularisation argument gives the strong form, and this proves [Hin26a, (B.20)], whose error term carries the
 b-weight β. Near r = 0 the operator r²(□^C)^(σ) is b-elliptic ([[lem:iv6-0-1]] (c)), with Mellin transformed normal
-operator that of r²(□^C)^(0). By (a) and the inversion ρ = r⁻¹, its indicial roots at r = 0 are −μ, with μ running over
-those of [[lem:iv4-1-3]] at infinity. These have Re μ ∉ [−100, 19/10], and only μ = 2 in [−100, 2]. So no root at 0 has
+operator that of r²(□^C)^(0). By (a) and the inversion ρ = r⁻¹, its indicial roots at r = 0 are −ι, with ι running over
+those of [[lem:iv4-1-3]] at infinity. These have Re ι ∉ [−100, 19/10], and only ι = 2 in [−100, 2]. So no root at 0 has
 real part in (−2, 100], and the b-weight β − 2 ∈ (−2, C_0] is root-free. With [β_0 − 2, β − 2] root-free as well, the
 inverse Mellin transform of the normal operator gives [[eq:iv6-1-2]] from [Hin26a, (B.20)] ([[lem:s14-tf-inputs]]
 (ii); [Hin26a, p. 89]). The dual estimate is the same with the propagation reversed.
@@ -1913,7 +1913,7 @@ h⁻¹ ∈ [0, h_f⁻¹], h_f ∈ (0, 10⁻⁶] the value at hand ([[eq:iv6-0-2]
 polynomial, whose coefficients are polynomial in h⁻¹ with leading coefficient free of it). Fix β₁ below all of them for
 all such h⁻¹. Moving the weight from β to β₁ raises the index by the number of roots, with multiplicity, whose real
 part lies in [β₁ − 2, β − 2). This is Melrose's relative index theorem [Mel93, Theorem 6.5], a theorem on b-operators
-in every dimension ([Hin26a, p. 91]). These are the roots −μ with Re μ ≥ 2: two in the scalar sector l = 0, three in
+in every dimension ([Hin26a, p. 91]). These are the roots −ι with Re ι ≥ 2: two in the scalar sector l = 0, three in
 each scalar sector l ≥ 1, one in each vector sector ([[lem:iv4-1-3]] (a)). The index becomes I + j, with j = 2, 3, 1.
 
 (ii) *Removing the damping.* Deform h⁻¹ to 0 at the weight β₁. The family is continuous in operator norm between the
