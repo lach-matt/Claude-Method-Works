@@ -516,21 +516,21 @@ The averaged stress of the waves is round, and it is a multiple of dv ⊗ dv: th
 *Proof.* (dv ⊗ dv)(ℓ, ·) = dv(ℓ) dv = 0 and its g0-trace is g0⁻¹(dv, dv) = 0, so by [[lem:waves]] (b) the
 oscillating part is transverse to ℓ and [[lem:mean-leading]] applies. Moreover ⟨W_TT, dv ⊗ dv⟩_(g0) = W_TT(ℓ, ℓ) = 0
 and |dv ⊗ dv|²_(g0) = g0⁻¹(dv, dv)² = 0, so χ does not contribute to |∂_θ g1|², and a phase shift does not change a
-θ-mean. Since ∂_θ F = G and ∂_θ G = −F, [[lem:waves]] (c) gives |∂_θ W_TT|² = 8 r⁻³ (ϖ1² + ϖ1 ϖ2 + ϖ2²) with
+θ-mean. Since ∂_θ F = G and ∂_θ G = −F, [[lem:waves]] (c) gives |∂_θ W_TT|² = 8 r⁻³ (q1² + q1 q2 + q2²) with
 
-    ϖ1 := λ⁻¹ ∂_θ p1 = −(2c² F̂ + s² Ĝ)/3,      ϖ2 := λ⁻¹ ∂_θ p2 = (c² F̂ + 2s² Ĝ)/3,
+    q1 := λ⁻¹ ∂_θ p1 = −(2c² F̂ + s² Ĝ)/3,      q2 := λ⁻¹ ∂_θ p2 = (c² F̂ + 2s² Ĝ)/3,
 
 F̂ := â sin θ, Ĝ := â cos θ, â := A env h. With ⟨F̂²⟩ = ⟨Ĝ²⟩ = â²/2 and ⟨F̂ Ĝ⟩ = 0,
 
-    ⟨ϖ1²⟩ = (4c⁴ + s⁴) â²/18,   ⟨ϖ2²⟩ = (c⁴ + 4s⁴) â²/18,   ⟨ϖ1 ϖ2⟩ = −(2c⁴ + 2s⁴) â²/18,
+    ⟨q1²⟩ = (4c⁴ + s⁴) â²/18,   ⟨q2²⟩ = (c⁴ + 4s⁴) â²/18,   ⟨q1 q2⟩ = −(2c⁴ + 2s⁴) â²/18,
 
-so ⟨ϖ1² + ϖ1 ϖ2 + ϖ2²⟩ = (c⁴ + s⁴) â²/6 and ⟨|∂_θ W_TT|²⟩ = (4/3) â² (c⁴ + s⁴) r⁻³. Next,
+so ⟨q1² + q1 q2 + q2²⟩ = (c⁴ + s⁴) â²/6 and ⟨|∂_θ W_TT|²⟩ = (4/3) â² (c⁴ + s⁴) r⁻³. Next,
 c⁴ + s⁴ = ((1 + ζ)² + (1 − ζ)²)/4 = (1 + ζ²)/2, so h² (c⁴ + s⁴) = 1. By [[eq:mean-leading]] the mean of the leading
 equation is (3μ'/(2r³) − (1/3) A² env² h² (c⁴ + s⁴) r⁻³) dv ⊗ dv, which vanishes exactly when
 μ' = (2/9) A² env² h² (c⁴ + s⁴), that is [[eq:mu-rate]]. ∎
 
 This is Isaacson's effective stress as a five-dimensional null dust along dv ([Isa68a], [Isa68b]). The quadratic form
-ϖ1² + ϖ1 ϖ2 + ϖ2² of the proof is positive definite: 4(ϖ1² + ϖ1 ϖ2 + ϖ2²) = (2ϖ1 + ϖ2)² + 3ϖ2².
+q1² + q1 q2 + q2² of the proof is positive definite: 4(q1² + q1 q2 + q2²) = (2q1 + q2)² + 3q2².
 
 The same structure holds exactly, with no expansion in λ, in the Bondi-type variables of [[thm:bondi-law]]. Let
 β, W, U, P1, P2 be smooth functions of (v, r, ϑ), put y = (y¹, y², y³) := (ϑ, φ1, φ2), U^k := (U, 0, 0),

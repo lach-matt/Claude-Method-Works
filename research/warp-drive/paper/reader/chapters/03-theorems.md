@@ -172,9 +172,10 @@ that P and Ω share the slice Σ_τ0 ([[ch:past-construction]]). It satisfies:
    the approximant built from past null infinity ([[thm:past-approximant]]);
 4. on Ω, the conclusions of [[thm:uniform-existence]] hold (items 1 and 3–5 of [[thm:main]]), with the data on Σ_τ0
    now the trace of g_λ itself; and items 6–7 of [[thm:main]] hold for these solutions too ([[prop:past-items]]);
-5. g_λ is T² × Z2 × Z2-invariant, and unique among solutions of Ric^H(g) = 0 on P with item 1 whose difference from
-   g_app is, with its first derivatives, at most ε_U t^(−3/2) for a small ε_U > 0 (within the margin of the past
-   domain fixed in [[ch:past-construction]]), and whose energy on the slices tends to zero at past null infinity.
+5. g_λ is T² × Z2 × Z2-invariant, and unique among solutions g of Ric^H(g) = 0 on P with g = g0 on P ∩ {v ≤ v_start}
+   whose difference from g_app is, with its first derivatives, at most ε_U t^(−3/2) for a small ε_U > 0 (within the
+   margin of the past domain fixed in [[ch:past-construction]]), and whose energy on the slices tends to zero at past
+   null infinity.
 
 So the counterpart holds with the waves' own free data at past null infinity, and the constraints need not be solved
 on this route ([[thm:data]] is the other route).

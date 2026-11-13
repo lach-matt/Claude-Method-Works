@@ -105,7 +105,13 @@ operator P_4, its linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(
 
     λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = min Re ℰ^♯_+,
 
-ℰ^ι_ind is the index set of [[thm:iii-g2-4-2]] ([[eq:iii-g2-4-4]]), and ε_ind is the constant of [[prop:iii-g4-5-1]].
+ℰ^ι_ind is the index set of [[thm:iii-g2-4-2]] ([[eq:iii-g2-4-4]]). Two gaps of indicial roots enter, and they are
+different numbers: ε_ind is the constant of [[eq:iii-f1-2-2]], fixed by the indicial roots of L̂_b(0), with which the
+hypotheses of [[prop:iii-g4-4-4]] and [[prop:iii-g4-5-1]] are stated; ε_Υ is the constant of [[sec:iii-d2-1]], fixed
+by the indicial roots of (□^Υ_b)^(0), and the index sets ℰ_ind of the corrections of the states have least real part
+at least ε_Υ. The remainders of [[prop:iii-g4-4-4]] ([[eq:iii-g4-4-3]]) and [[prop:iii-g4-5-1]] ([[eq:iii-g4-5-1]])
+gain over the forcing through the corrections of the states ([[lem:iii-g4-4-3]]); of this gain we use only the lower
+bound ε_g := min(ε_Υ, ε_ind).
 [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), (e) extend verbatim to every triple (τ, λ, k) with τ ∈ 𝒯,
 Re λ ≥ λ_♯ and k ∈ ℕ₀; m_ν and r_ν denote these also for ν ∉ 𝒩. Two further hypotheses are made:
 
@@ -216,7 +222,7 @@ Re λ′ < Re λ, k′ ≤ k̄(λ′) and l ≤ l_*, plus at most J_*(l_* + 1) f
 **Definition {#def:iii-i10-1-3}** (The gap and admissible orders.) (G) ε_K is so small that no λ ∈ Λ has real part in
 (2, 2 + ε_K] ∪ (3, 3 + ε_K], and no λ + d_c0 or λ + d_c1, λ ∈ Λ, has real part in (2, 2 + ε_K]. This is possible by
 [[lem:iii-i10-1-2]] (a), as Λ does not depend on ε_K; it implies d_c0, d_c1 > ε_K, since 2 ∈ Λ. The constants
-[[eq:iii-i9-1-1]] may be kept, decreasing ε_K. A number α ∈ (2, 4 + ε_K] is *admissible* if: for α < 3, it is
+[[eq:iii-i9-1-1]] may be kept, decreasing ε_K; we also take ε_K < ε_Υ, so that ε_K < ε_g. A number α ∈ (2, 4 + ε_K] is *admissible* if: for α < 3, it is
 admissible in the sense of [[sec:iii-i8-1]]; for α ≥ 3, α > 4 + ε_K − ε′_0, with
 
     ε′_0 := ½ min(ε_K, ε_+ − ε_K),
@@ -503,7 +509,7 @@ At the Taylor level j (after j divisions by σ), a tf-exponent ζ of the current
 u-exponent λ has the K⁺-rate λ − 1 (s1), λ (s0, s2) or λ + d_τ (c0, c1).
 
 *Constants.* Let α = 4 + ε_K − ε′ be admissible ([[def:iii-i10-1-3]]; 0 < ε′ < ε′_0 < ε_K, so α > 4). Fix
-η_1, η_2 ∈ (ε_K, ε_+) with η_1 < η_2 such that no λ ∈ Λ has real part 2 + η_1 or 3 + η_2; they lie below ε_+, so that
+η_1, η_2 ∈ (ε_K, ε_+) with η_1 < η_2 and η_1 < ε_g such that no λ ∈ Λ has real part 2 + η_1 or 3 + η_2; they lie below ε_+, so that
 every exponent treated has u-exponent below 3 + ε_+, where the forcing is polyhomogeneous and [[lem:iii-i10-1-2]] (c)
 counts the logarithms. *The exclusion set of [[def:iii-i10-1-3]]* is the finite set of ε′ for which one of the
 conditions [[eq:iii-g4-4-2]] of [[prop:iii-g4-4-4]] fails at the levels 1 and 2 below (for the finitely many α_0 treated
@@ -719,7 +725,7 @@ u-exponents in Λ (level 1), tf-weight 3 + ε_+ − ε, and zf-data ((0, 0), α 
 many), [[prop:iii-g4-4-4]] with ℓ_zf := α − 2 − ε and ℓ_scf := 3/2 − ε applies (admissibility) to the corresponding
 term, with its whole tf-coefficient, and gives u_((α_0,k)); the pieces are σu_((α_0,k)). The remainder
 g_1 − Σ L̂_b(σ)u_((α_0,k)) has tf-exponents in ((α_0, k) + ℰ_ind) ∪ ((4, k + 1) + ℱ) ([[eq:iii-g4-4-3]]), of real part
-at least 2 + ε_ind > 2 + η_1, and the other exponents of g_1, at least 2 + η_1 by the choice of η_1; the zf-data are
+at least 2 + ε_g > 2 + η_1, and the other exponents of g_1, at least 2 + η_1 by the choice of η_1; the zf-data are
 unchanged. [[lem:iii-i11-2-1]] with q_1 := 2 + η_1 and q′ := 3 + ε_+ − ε on its zf-coefficient (both signs separately)
 gives (û_1, ḃ_1, S_1)^±, with the pieces σ(χ_zf û_1 + ĝ^aug(ḃ_1) + ĥ^aug(S_1)); and [[lem:iii-i11-2-2]] gives g_2, with
 tf-exponents of real part at least 1 + η_1 (those of û_1, at least η_1, plus one; those of the remainder, at least
@@ -727,12 +733,12 @@ tf-exponents of real part at least 1 + η_1 (those of û_1, at least η_1, plus 
 
 *Step 3 (level 2; [Hin26, Steps 2.A.6–2.A.7]).* For each tf-exponent (α_0, k) of g_2 with
 1 + η_1 ≤ Re α_0 < 2 + η_2, [[prop:iii-g4-4-4]] with ℓ_zf := α − 3 − ε; its remainder exponents α_0 + ℰ_ind may again
-lie below 2 + η_2, and are treated in turn (finitely many rounds, the real parts rising by at least ε_ind); (4, k + 1)
+lie below 2 + η_2, and are treated in turn (finitely many rounds, the real parts rising by at least ε_g); (4, k + 1)
 lies above. The pieces are σ²u_((α_0,k)). Then [[lem:iii-i11-2-1]] with q_2 := 2 + η_2 and q′ := 2 + ε_+ − ε gives the
 pieces σ²(χ_zf û_2 + ĝ^aug(ḃ_2) + ĥ^aug(S_2)), and [[lem:iii-i11-2-2]] gives g_3, of tf-weight κ_3 := 1 + η_2 − 2ε
 (conormal; its expansion is not needed) and zf-data ((0, 0), ℓ_3), ℓ_3 := α − 4 − ε ∈ (0, ε_K).
 
-*Step 4 (level 3; [Hin26, Step 2.A.8 and Part 3]).* Fix δ > 0 with δ + ℓ_3 + 2ε < ε_ind. While the tf-weight κ of the
+*Step 4 (level 3; [Hin26, Step 2.A.8 and Part 3]).* Fix δ > 0 with δ + ℓ_3 + 2ε < ε_g. While the tf-weight κ of the
 current level-3 forcing is at most 2 + ℓ_3 + ε, apply [[prop:iii-g4-5-1]] with α_κ := min(κ, 2 − δ) ∈ (1, 2) (the
 forcing has the tf-weight α_κ), ℓ_zf := ℓ_3, the order 0 of the zf-index set there, and
 w = ℓ_3 − α_κ + 2 ∈ [−ε, 1) ⊂ (−ε_ind, ℓ^max_K) (α_κ ≤ κ ≤ 2 + ℓ_3 + ε, and α_κ ≥ κ_3 > 1 + ℓ_3, as η_2 > ε_K > ℓ_3).
@@ -741,8 +747,8 @@ off the finite set {−μ − j}, which we impose on δ. It gives
 
     u = χ_zf u_b + χ^♯_tf ũ ∈ H^(∞,(3/2−2ε,α_κ−2,α_κ−3))_b
 
-with a remainder of tf-weight α_κ + ε_ind − ε, which exceeds κ by ε_ind − ε when α_κ = κ, and, when α_κ = 2 − δ < κ,
-exceeds 2 + ℓ_3 + ε (as δ + ℓ_3 + 2ε < ε_ind), after which the loop ends; the pieces are σ³u. After finitely many
+with a remainder of tf-weight at least α_κ + ε_g − ε, which exceeds κ by ε_g − ε when α_κ = κ, and, when
+α_κ = 2 − δ < κ, exceeds 2 + ℓ_3 + ε (as δ + ℓ_3 + 2ε < ε_g), after which the loop ends; the pieces are σ³u. After finitely many
 rounds κ > 2 + ℓ_3 + ε; lowering κ if necessary (a forcing of tf-weight κ has every smaller tf-weight),
 κ ∈ (2 + ℓ_3 + ε, 3). [[lem:iii-i11-2-1]] with q_3 := κ − ε, q′ := κ and E = ∅ gives (û_3, ḃ_3, S_3)^± and the pieces
 σ³(χ_zf û_3 + ĝ^aug(ḃ_3) + ĥ^aug(S_3)). The rest,
@@ -1457,8 +1463,8 @@ remainder exponents α_0 + ℰ_ind are treated in turn as there. [[lem:iii-i11-2
 q_3) is omitted. While the tf-weight κ of the current level-3 forcing is at most β − 2 = 2 + ℓ_3 + ε, apply
 [[prop:iii-g4-5-1]] with α_κ := κ ∈ (1, 2) (κ ≥ κ_3 = 1 + η_2 − 2ε > 1 and κ ≤ β − 2 < 2), ℓ_zf := ℓ_3 ∉ ℕ₀, the order
 0 of the zf-index set, and w = ℓ_3 − κ + 2 ∈ [−ε, 1) ⊂ (−ε_ind, ℓ^max_K); its conditions w ≠ −μ and 2 − κ + j ≠ −μ hold
-for ε off a finite set, the values of κ being κ_3 + i(ε_ind − ε). Each round leaves a remainder of tf-weight
-κ + ε_ind − ε and the pieces σ³u; after finitely many rounds κ > β − 2, and, lowering κ if necessary,
+for ε off a finite set, the values of κ being κ_3 + i(ε_g − ε). Each round leaves a remainder of tf-weight
+κ + ε_g − ε and the pieces σ³u; after finitely many rounds κ > β − 2, and, lowering κ if necessary,
 κ ∈ (β − 2, β − 1 − ε). The rest, g_J (the level-3 forcing after the rounds), lies in H^(∞,(5/2−ε,κ,ℓ_3))_b and is
 inverted by [[lem:iii-i2-4-2]] with β_scf := 3/2 − 2ε, β_tf := κ − 2, β_zf := ℓ_3,
 β_tf − β_zf = κ − β + 2 + ε ∈ (0, 1) (ε off a finite set, [[def:iii-i13-1-1]] (c)):

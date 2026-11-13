@@ -20,25 +20,27 @@ and oscillating profiles ĝ_j of the stages ([[eq:ansatz]]), and □̃ := g0^(ab
 
 ### The past domain {#sec:past-domain}
 
-Put t := 1 + τ0 − τ for τ ≤ τ0, fix κ_P := 1/2, h_P(τ) := κ_P t^(−1/4), and V_P := V + 1 + (τ_end − τ0) + κ_P, with
-V := v_end + T and τ_end as in [[sec:domain]], so that V_P − κ_P is the largest v on Σ_τ0 ∩ Ω. Let
+Put t := 1 + τ0 − τ for τ ≤ τ0, write Σ̂_τ := {X : τ(X) = τ} for the whole level set of τ, so that the slice Σ_τ of
+[[sec:domain]] is Σ̂_τ ∩ Ω for τ0 ≤ τ ≤ τ_end; fix κ_P := 1/2, h_P(τ) := κ_P t^(−1/4), and
+V_P := V + 1 + (τ_end − τ0) + κ_P, with V := v_end + T and τ_end as in [[sec:domain]], so that V_P − κ_P is the
+largest v on Σ_τ0. Let
 
     P := { τ ≤ τ0,  |x| ≥ a,  v + h_P(τ) ≤ V_P },      P⁺ := P ∩ {v ≥ v_start},
-    A_P(τ) := Σ_τ ∩ P⁺ = { r_in(τ) ≤ |x| ≤ r_out(τ) },   r_in := v_start − τ,   r_out := V_P − h_P(τ) − τ.
+    A_P(τ) := Σ̂_τ ∩ P⁺ = { r_in(τ) ≤ |x| ≤ r_out(τ) },   r_in := v_start − τ,   r_out := V_P − h_P(τ) − τ.
                                                                                                     {#eq:past-domain}
 
-**Lemma {#lem:past-domain}** (The past domain.) (a) Each Σ_τ is spacelike. (b) The outer boundary B := {v + h_P(τ) =
+**Lemma {#lem:past-domain}** (The past domain.) (a) Each Σ̂_τ is spacelike. (b) The outer boundary B := {v + h_P(τ) =
 V_P} is spacelike, with Φ_B := v + h_P(τ),
 
     g0⁻¹(dΦ_B, dΦ_B) = −2 h_P′ − h_P′² (1 + μ/r²) ≤ −(κ_P/2) t^(−5/4),
 
-and v + h_P(τ) increases along future causal curves, so P lies to the past of B. (c) Σ_τ0 ∩ P = Σ_τ0 ∩ Ω. (d) On P⁺,
+and v + h_P(τ) increases along future causal curves, so P lies to the past of B. (c) Σ̂_τ0 ∩ P = Σ_τ0. (d) On P⁺,
 t + a1 ≤ r ≤ t + a2 with a1 := v_start − τ0 − 1 > √μ0 and a2 := V_P − τ0 − 1, and the thickness r_out − r_in =
 V_P − h_P − v_start lies in [d0, d1], d0 := V_P − κ_P − v_start ≥ 1, d1 := V_P − v_start. (e) L0 is tangent to the inner
 boundary {v = v_start} of P⁺; the past integral curve of L0 through any point of P stays in P and runs to past null
 infinity (v and x̂ fixed, r → ∞). (f) There is ε_P > 0 such that for every Lorentzian g on P with |g⁻¹ − g0⁻¹| ≤
-ε_P t^(−5/4): B and the Σ_τ are spacelike for g with g⁻¹(dΦ_B, dΦ_B) ≤ −(κ_P/4) t^(−5/4); {r = a} is spacelike with r
-decreasing along future causal curves; L0 is transverse to Σ_τ; and J⁻(p; g) ∩ {τ ≥ τ1} lies in P for every p in P and
+ε_P t^(−5/4): B and the Σ̂_τ are spacelike for g with g⁻¹(dΦ_B, dΦ_B) ≤ −(κ_P/4) t^(−5/4); {r = a} is spacelike with r
+decreasing along future causal curves; L0 is transverse to Σ̂_τ; and J⁻(p; g) ∩ {τ ≥ τ1} lies in P for every p in P and
 τ1 ≤ τ(p).
 
 *Proof.* (a) is [[lem:domain]] (a). (b) dΦ_B = dv + h_P′ dτ, with h_P′ = dh_P/dτ = (κ_P/4) t^(−5/4) > 0 because
@@ -53,17 +55,17 @@ v + h_P ≤ V_P is kept, r = v − τ grows without bound, and v ≥ v_start is 
 [[lem:domain]] (e). ∎
 
 **Lemma {#lem:seed-region}** (The seed region.) Let g solve Ric^H(g) = 0 on P ∩ {τ1 ≤ τ ≤ τ2}, be C², satisfy the
-margin of [[lem:past-domain]] (f), and agree with g0 on Σ_τ1 ∩ {v ≤ v_start} together with its first τ-derivative.
+margin of [[lem:past-domain]] (f), and agree with g0 on Σ̂_τ1 ∩ {v ≤ v_start} together with its first τ-derivative.
 Then g = g0 on P ∩ {τ1 ≤ τ ≤ τ2, v ≤ v_start}.
 
 *Proof.* g0 is vacuum on {v ≤ v_start}, where μ is constant. For 0 < ε ≤ 1 let R_ε := P ∩ {τ ≥ τ1, v + ε h_P(τ) ≤
-v_start}, and τ* the supremum of the τ′ ≤ τ2 with g = g0 on R_ε ∩ {τ ≤ τ′}. R_ε ∩ Σ_τ* is compact, g = g0 on it, and g
+v_start}, and τ* the supremum of the τ′ ≤ τ2 with g = g0 on R_ε ∩ {τ ≤ τ′}. R_ε ∩ Σ̂_τ* is compact, g = g0 on it, and g
 is continuous, so on a neighbourhood U of it |g⁻¹ − g0⁻¹| ≤ (εκ_P/8) t^(−5/4). There {v + ε h_P = v_start} is spacelike
 for g and g0 with R_ε to its past (the calculation of [[lem:past-domain]] (b) with εκ_P in place of κ_P), and {r = a}
 likewise ([[lem:past-domain]] (f)). The difference u := g − g0 solves −½ g^(ab) ∂_a ∂_b u = f with |f| ≤ C(|u| + |∂u|),
-since the principal part and Q of [[eq:gauge]] are smooth in (g, ∂g) and ∂²g0 is bounded; u = ∂_τ u = 0 on Σ_τ*, and the
-proof of [[lem:energy]] on R_ε ∩ {τ* ≤ τ ≤ τ* + δ}, δ small so that the region lies in U, gives u = 0 there. So τ* = τ2.
-Letting ε → 0 covers {v < v_start}, and continuity covers v = v_start. ∎
+since the principal part and Q of [[eq:gauge]] are smooth in (g, ∂g) and ∂²g0 is bounded; u = ∂_τ u = 0 on
+R_ε ∩ Σ̂_τ*, and the proof of [[lem:energy]] on R_ε ∩ {τ* ≤ τ ≤ τ* + δ}, δ small so that the region lies in U, gives
+u = 0 there. So τ* = τ2. Letting ε → 0 covers {v < v_start}, and continuity covers v = v_start. ∎
 
 ### Inequalities on the past slices {#sec:past-inequalities}
 
@@ -173,7 +175,7 @@ harmlessly. On P it would force the transport of Ψ := □̃ φ ([[lem:commutato
 ‖∂s‖ with no decay; [[prop:near-region]] removes it by transporting Ψ − ½ X_s in place of Ψ.
 
 **Lemma {#lem:past-energy}** (Energy on P.) Let g̃ be a Lorentzian metric on P with the margin of [[lem:past-domain]]
-(f) and ‖∂g̃‖_∞ ≤ k(τ) on Σ_τ ∩ P⁺, and let u vanish on P ∩ {v ≤ v_start} and satisfy −½ g̃^(ab) ∂_a ∂_b u = f on
+(f) and ‖∂g̃‖_∞ ≤ k(τ) on Σ̂_τ ∩ P⁺, and let u vanish on P ∩ {v ≤ v_start} and satisfy −½ g̃^(ab) ∂_a ∂_b u = f on
 P ∩ {τ1 ≤ τ ≤ τ2}. Then for τ in [τ1, τ2]
 
     ‖∂u(τ)‖ ≤ C exp(C ∫_(τ1)^τ k) ( ‖∂u(τ1)‖ + ∫_(τ1)^τ ‖f‖ ),      ‖u(τ)‖ ≤ C ‖∂u(τ)‖.                {#eq:past-energy}
@@ -181,7 +183,7 @@ P ∩ {τ1 ≤ τ ≤ τ2}. Then for τ in [τ1, τ2]
 *Proof.* The proof of [[lem:energy]] on P ∩ {τ1 ≤ s ≤ τ}. B has P to its past with a spacelike normal for g̃
 ([[lem:past-domain]] (b), (f)), so its flux is nonnegative and is dropped. u vanishes near {r = a}. On P⁺ the slices
 are uniformly spacelike and Y := −g̃⁻¹ dτ is uniformly timelike (g0⁻¹(dτ, dτ) = −1 − μ/r² with μ/r² bounded), so the
-fluxes through Σ_τ are comparable to ‖∂u‖² with constants independent of τ. The bulk is at most C k ‖∂u‖² + ‖f‖ ‖∂u‖.
+fluxes through Σ̂_τ are comparable to ‖∂u‖² with constants independent of τ. The bulk is at most C k ‖∂u‖² + ‖f‖ ‖∂u‖.
 Gronwall's inequality gives the first bound, and [[lem:past-sobolev]] (b) the second. ∎
 
 **Lemma {#lem:past-transport}** (Transport on P.) Let L0 ψ − (c0/r) ψ = f on P⁺ ∩ {τ1 ≤ τ ≤ τ2}, with c0 a constant,
@@ -199,23 +201,23 @@ and c0 = 2 (Ψ; γ = 1/2).
 
 **Lemma {#lem:past-linear-wave}** (Linear wave equations on P.) Let τ1 < τ0 and P_1 := P ∩ {τ ≥ τ1}, and let B^a
 and C be smooth d × d matrices of functions on P_1, smooth up to its boundary. For every smooth f on P_1 with values in
-ℝ^d and smooth u0, u1 on Σ_τ1 ∩ P there is a unique smooth u on P_1 with
+ℝ^d and smooth u0, u1 on Σ̂_τ1 ∩ P there is a unique smooth u on P_1 with
 
-    −½ □̃ u + B^a ∂_a u + C u = f   on P_1,      u = u0  and  ∂_τ u = u1   on Σ_τ1 ∩ P.
+    −½ □̃ u + B^a ∂_a u + C u = f   on P_1,      u = u0  and  ∂_τ u = u1   on Σ̂_τ1 ∩ P.
 
 If f, u0 and u1 vanish where v ≤ v_start, then u vanishes on P_1 ∩ {v ≤ v_start}.
 
-*Proof.* The proof of [[lem:linear-wave]] runs with P_1 and Σ_τ1 in place of Ω and Σ_τ0. It uses four properties of
+*Proof.* The proof of [[lem:linear-wave]] runs with P_1 and Σ̂_τ1 ∩ P in place of Ω and Σ_τ0. It uses four properties of
 the domain, and each holds here. (1) P_1 is compact and connected: on it τ1 ≤ τ ≤ τ0 and a ≤ |x| ≤ r_out(τ). (2) A
 past inextendible causal curve of g0 through a point of P_1 stays in P_1 while τ ≥ τ1: this is [[lem:past-domain]] (f)
-for g = g0. With (1), step (i) of that proof shows that P_1 lies in the Cauchy development of Σ_τ1 ∩ {|x| > a/2}.
+for g = g0. With (1), step (i) of that proof shows that P_1 lies in the Cauchy development of Σ̂_τ1 ∩ {|x| > a/2}.
 (3) The interior of P_1 is a bounded Lipschitz domain, as step (ii) needs: near each boundary point it is bounded by at
-most two of the smooth hypersurfaces Σ_τ1, Σ_τ0, {r = a} and B, and where two of them meet their conormals are linearly
+most two of the smooth hypersurfaces Σ̂_τ1, Σ_τ0, {r = a} and B, and where two of them meet their conormals are linearly
 independent, since any two of dτ, dr and dΦ_B = (1 + h_P′) dτ + dr are. B does not meet {r = a}: ∂_τ r_out =
 −1 − h_P′ < 0, so r_out(τ) ≥ r_out(τ0) for τ ≤ τ0, and r_out(τ0) = b(τ0) by [[lem:past-domain]] (c), with
-b(τ0) − a ≥ 1 + δ0 by [[lem:domain]] (f). (4) For uniqueness, the boundary pieces of P_1 other than Σ_τ1 are spacelike
-for g0 with P_1 to their past ([[lem:past-domain]] (a), (b) and [[lem:domain]] (b)), so in the energy argument of
-[[lem:energy]] on P_1 their fluxes are nonnegative and are dropped.
+b(τ0) − a ≥ 1 + δ0 by [[lem:domain]] (f). (4) For uniqueness, the boundary pieces of P_1 other than Σ̂_τ1 ∩ P are
+spacelike for g0 with P_1 to their past ([[lem:past-domain]] (a), (b) and [[lem:domain]] (b)), so in the energy
+argument of [[lem:energy]] on P_1 their fluxes are nonnegative and are dropped.
 
 For the vanishing, let 0 < ε ≤ 1, Φ_ε := v + ε h_P(τ) and R_ε := P_1 ∩ {Φ_ε ≤ v_start}. The calculation of
 [[lem:past-domain]] (b) with ε κ_P in place of κ_P gives g0⁻¹(dΦ_ε, dΦ_ε) ≤ −(ε κ_P/2) t^(−5/4), and Φ_ε increases
@@ -349,9 +351,9 @@ coefficients act on the leading terms through the classes of the count, and ℓ�
 
 *Estimates.* For n large let P_n := P ∩ {τ ≥ τ_n}. The proof of [[lem:stage-system]] runs on P_n with three
 replacements: [[lem:past-linear-wave]] with τ1 = τ_n in place of [[lem:linear-wave]], for the wave equation (a) at each
-step of the iteration; the transports solved along the integral curves of L0 from Σ_(τ_n), which they meet inside P by
+step of the iteration; the transports solved along the integral curves of L0 from Σ̂_(τ_n), which they meet inside P by
 [[lem:past-domain]] (e); and [[lem:past-energy]] and [[lem:past-transport]] in place of [[lem:energy]] and
-[[lem:transport]] for the convergence. It gives the solution of the stage system on P_n whose data on Σ_(τ_n) are the
+[[lem:transport]] for the convergence. It gives the solution of the stage system on P_n whose data on Σ̂_(τ_n) are the
 leading terms. These data and the forcing terms of (a)–(c) vanish for v ≤ v_start, since each forcing term contains a
 profile of an earlier stage; so every iterate vanishes there, by the last clause of [[lem:past-linear-wave]] for (a) and
 because the transports run at fixed v. Hence the differences of iterates and the solution vanish on P_n ∩ {v ≤ v_start},
@@ -375,7 +377,7 @@ with kernels of size O(1): f ≤ (2/3) C sup t e and p ≤ 2C (A_e + A_f + 1) t�
 A_f) close. And [1, T0] is a bounded interval, on which Gronwall's inequality applies.
 
 As n → ∞ the solutions converge. The difference of the n-th and the n′-th solves the homogeneous system on P_n with
-data on Σ_(τ_n) given by the n′-th remainders there, of sizes C t_n⁻¹ (for e, z, p) and O(1) (for f).
+data on Σ̂_(τ_n) given by the n′-th remainders there, of sizes C t_n⁻¹ (for e, z, p) and O(1) (for f).
 [[eq:stage-estimates]] without forcing keeps e and z of size C t_n⁻¹, p of size C t^(−1/2) t_n^(−1/2), and f,
 transported with γ = −3/2, of size C (t/t_n)^(3/2) ≤ C t^(3/2) t_n^(−3/2); so the difference tends to zero on every
 bounded part of P. The limit solves the stage system on P with the same bounds. A solution with nothing coming in is
@@ -417,14 +419,14 @@ The profile T1 of [[lem:phase-shift]] is in E_3: it collects the λ¹ terms of t
 For instance □̃(W_TT(· + φ1)) = □̃ W_TT + 2 g0⁻¹(dφ1, d∂_θ W_TT) + (□̃ φ1) ∂_θ W_TT + g0⁻¹(dφ1, dφ1) ∂_θ² W_TT, each in
 E_(7/2), and ℓ + 3/(2r) annihilates W_TT and maps ĝ_2 into L_3. In the equation [[eq:ue-h]] for h
 and in [[lem:ue-decomposition]] the terms in φ therefore have these coefficients: E_(3/2) on ℓφ = ½ 𝒫 s and on Ψ;
-E_(5/2) on ∂_v φ (the slow coupling (∂_v ∂_θ g1)(∂_r φ) acts through ℓφ, by [[eq:wave-operator-vr]]) and on the
-angular derivatives r⁻¹ Ω φ (the angular block r⁻² ⟨∂̊φ, ∂̊∂_θ g1⟩ of [[eq:wave-operator-vr]] is (r⁻¹ Ω φ) ·
-(r⁻¹ Ω ∂_θ g1)); and E_3 on φ and on λ ∂_x² φ. The same holds for the ℓℓ contraction of [[lem:ell-ell]], in
+E_(5/2) on ∂_v φ (in [[eq:wave-operator-vr]], g^vv = 0, so ∂_v φ pairs only with ℓ∂_θ g1, in E_(5/2), and ∂_v∂_θ g1
+pairs with ℓφ) and on the angular derivatives r⁻¹ Ω φ (the angular block r⁻² ⟨∂̊φ, ∂̊∂_θ g1⟩ of
+[[eq:wave-operator-vr]] is (r⁻¹ Ω φ) · (r⁻¹ Ω ∂_θ g1)); and E_3 on φ and on λ ∂_x² φ. The same holds for the ℓℓ contraction of [[lem:ell-ell]], in
 which the dφ terms of B1 vanish, since the oscillating part of g1 is transverse to ℓ and ℓ depends on x̂ alone.
 
 **Proposition {#prop:far-region}** (The far region.) There are λ_F > 0 and M_F, independent of τ_n, such that for
 0 < λ ≤ λ_F and every τ_n < τ_λ, the solution g_n of Ric^H(g_n) = 0 on P ∩ {τ ≥ τ_n} with g_n = g_app and ∂_τ g_n =
-∂_τ g_app on Σ_(τ_n) exists on P ∩ {τ_n ≤ τ ≤ τ_λ}, equals g0 on {v ≤ v_start} there, and w_n := g_n − g_app satisfies
+∂_τ g_app on Σ̂_(τ_n) exists on P ∩ {τ_n ≤ τ ≤ τ_λ}, equals g0 on {v ≤ v_start} there, and w_n := g_n − g_app satisfies
 
     E(τ) := Σ_(i + |β| ≤ k) λ^i ‖∂^i Ω^β ∂w_n‖ ≤ M_F λ^(K′) t^(−1/2).                                    {#eq:far-energy}
 
@@ -446,7 +448,7 @@ derivatives, act otherwise only through g⁻¹ − g0⁻¹, in λ E_(3/2) plus w
 (v) |F_R|_(k,P) ≤ C_R λ^(K′) t^(−3/2).
 
 On the far region t ≥ T_λ, so ∫ λ⁻¹ t^(−3/2) ≤ 2 λ⁻¹ T_λ^(−1/2) = 2: the coupling of size 1/λ integrates to a constant.
-On Σ_(τ_n), w_n = ∂_τ w_n = 0, so every term of E(τ_n) with at most one τ-derivative of w_n vanishes; the others are
+On Σ̂_(τ_n), w_n = ∂_τ w_n = 0, so every term of E(τ_n) with at most one τ-derivative of w_n vanishes; the others are
 fixed by the equation, solved for ∂_τ² w_n as in Step 2 of the proof of [[thm:uniform-existence]] (at the lowest order
 ∂_τ² w_n = −2 F_R/g_n^ττ there). A term λ^i ∂^i Ω^β ∂w_n with i ≥ 1 is thus λ^i times derivatives of order i − 1 of
 F_R, so E(τ_n) ≤ C λ |F_R|_(k,P)(τ_n) ≤ C C_R λ^(K′+1) t_n^(−3/2), which is at most C_R λ^(K′) t^(−1/2) once C λ ≤ 1,
@@ -457,7 +459,7 @@ P ∩ {τ_i ≤ τ ≤ τ_i + δ}, whose slices are compact annuli of the kind u
 
 **Proposition {#prop:near-region}** (The near region.) There are β0 ≥ 2, λ_N > 0 and M_N such that for 0 < λ ≤ λ_N the
 solutions of [[prop:far-region]] continue to P ∩ {τ_λ ≤ τ ≤ τ0}, with w_n = h + φ [∂_θ g1] as in
-[[sec:ue-decomposition]] (φ = 0 on Σ_(τ_λ)), and
+[[sec:ue-decomposition]] (φ = 0 on Σ̂_(τ_λ)), and
 
     𝒩_P(τ) ≤ M_N λ^(K′) t^(−1/2) (T_λ/t)^β0      on [τ_λ, τ0].                                       {#eq:near-bootstrap}
 
@@ -475,7 +477,7 @@ profile g_j, j ≥ 3, carries a factor λ and is absorbed for λ ≤ λ_N. In pa
 *Proof.* Run Steps 1–7 of the proof of [[thm:uniform-existence]] on [τ_λ, τ], with these changes.
 [[lem:past-sobolev]]–[[lem:past-transport]] replace [[lem:sobolev]], [[lem:mollifier]],
 [[lem:energy]] and [[lem:transport]]; the mollifier is that of [[lem:past-mollifier]]; the
-coefficients have the decay listed above; and the φ-quantities are transported from Σ_(τ_λ), where φ vanishes (h = w_n
+coefficients have the decay listed above; and the φ-quantities are transported from Σ̂_(τ_λ), where φ vanishes (h = w_n
 there). Its Z-derivatives containing λ∂_τ, and Ψ′, do not vanish there, but with L0 φ = −½ 𝒫 s all are bounded by
 C′ E(τ_λ), so 𝒩_P(τ_λ) ≤ C′ E(τ_λ) ≤ C′ M_F λ^(K′) T_λ^(−1/2) by [[eq:far-energy]], and each line below carries this
 data term.
@@ -561,8 +563,8 @@ N = K + 4 + ⌈4β0⌉ stages, such that:
   tending to zero as τ → −∞; here ε_U > 0 is so small that this class lies in the margin of [[lem:past-domain]] (f),
   since |g_app − g0| ≤ C λ t^(−3/2) and t^(−3/2) ≤ t^(−5/4).
 
-These are items 1, 2, 3, 5 and the first part of item 4 of [[thm:past-construction]], (P-iii) being item 3 together
-with the bound on the first derivatives; the second part of item 4 is [[prop:past-items]].
+These are items 1, 2, 3, 5 and the first part of item 4 of [[thm:past-construction]]; the second part of item 4 is
+[[prop:past-items]].
 
 *Proof of [[thm:past-construction]].* *The solution on P ∪ Ω.* At τ0, Data(w_n), the norm of (E4) of
 [[thm:uniform-existence]], satisfies Data(w_n) ≤ C λ⁻¹ 𝒩_P(τ0) ≤ C M_N λ^(K′−2β0−1), since the term ‖∂_x(φ G1)‖

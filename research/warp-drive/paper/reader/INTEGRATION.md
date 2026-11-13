@@ -341,3 +341,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   (rounded to nearest) — proved instead e_0 ≤ 1.3241, e_2 ≤ 18.61, e_7 ≤ 3.842e5, e_10 ≤ 3.734e8, e_12 ≤ 4.215e10. Only
   the D[n] bounds (C261, project C2b) use them, and no result uses D[n]. The λ0 norms 0.0024433, 0.0019079, 0.0012228
   are proved; prop:lambda0-norms holds for any m1 and uses only c ≥ 1.32404. Reader to start when C2b finishes.
+
+## S16 confirmed; S11+S12 combined fix (2026-11-13)
+
+- S16 (R2-S16) confirmed. Optional nits: lem:iii-i8-3-1 missing from the window paragraph's list; v as coordinate and
+  adjoint function in sec:iii-g-4; name the domain of 𝒞 in lem:iii-g-4-2; ℂ^N → ℂ^(N_E); two early line breaks. The
+  [AN00] page stays pending.
+- S11 (R-S11): [ER08] (42) confirmed verbatim and the change to Kerr-Schild form proved, so that integration item is
+  closed. One parameter set for S11 and S12 (decided): defined once in S11, containing ℬ_♭ and every base point S12
+  uses; S12's duplicates removed.

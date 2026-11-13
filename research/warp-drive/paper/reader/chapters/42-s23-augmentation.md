@@ -190,12 +190,14 @@ may lie in the enlarged one), the rotation-row terms being part of the right-han
 h_v1 being 0 on 𝒱_1, and is not used for them ([[cor:iii-i10-2-3]] excludes v1). Each h_ν(W) is supported in 𝒞 with
 ι⁺-exponents in (λ, k) + ℱ ⊂ ℰ_+, as for the v1 rows (v1, λ, k) of 𝒩, which exist as ℳ_rot ⊂ ℰ_par ([[eq:iii-i10-1-2]]);
 here (λ, k) + ℱ ⊂ ℰ_+ is (H3) of [[sec:iii-i9-1]], which holds below 2 by [[eq:iii-i8-1-1]] and ℰ_++ + ℰ_ind ⊂ ℰ_++ ⊂
-ℰ_+. So (H3) holds and h_tot(p⃗) ∈ 𝒳^∞. Finally
+ℰ_+. So (H3) holds and h_tot(p⃗) ∈ 𝒳^∞. Finally, at b = b₀,
 
     f^ν_(h,p⃗)(W) := D_(p⃗)P_4(h, p⃗)(W_ν = W) = L_(h,p⃗) m_ν(W) + r^ν_(h,p⃗)(W)
 
 ([[lem:iii-i9-2-6]] (b)–(c)), with r^ν_(h,p⃗) of K⁺-weight Re λ + a_K − ε > α and plain ι⁺-weight Re λ + 2 + λ_♯ − ε >
-w_+ ([[lem:iii-i9-2-6]] (c)), so these rows enter the constructions exactly as the rows of 𝒩 do.
+w_+ ([[lem:iii-i9-2-6]] (c)). At b ∈ ℬ̄_* the identity gains the term E^ν_(h,p⃗)(W), of K⁺-weight κ_ν − ε > α and size
+O(|b − b₀||W|), and r^ν_(h,p⃗) keeps these orders ([[lem:iii-i9-2-6]] (e), which [[lem:iii-i15-2-1]] extends to the
+rotation rows at b). So these rows enter the constructions exactly as the rows of 𝒩 do.
 
 ### Properties of the augmented operator {#sec:iii-i14-2}
 
@@ -283,7 +285,8 @@ q) small:
 (c) in the direction b, Δ_q(b′) ∈ 𝒴^♮_2(α−) with norm O(‖q‖|b′|); so D_b P_5(h, p⃗, q)(b′) ∈ 𝒴^♮(α−): the linearisation
 in b has the full K⁺-order, which is [Hin26, Lemma 11.65].
 
-*Proof.* (a) P_4 depends on W_ν through h_ν(W_ν) in g′ and through ϑ_(ν,♯)(W_ν) in ϑ_tot ([[eq:iii-i9-2-3]]), so
+*Proof.* (a) P_4 depends on W_ν through h_ν(W_ν) in g″ (the metric g′ of [[eq:iii-i9-2-3]], taken at h″) and through
+ϑ_(ν,♯)(W_ν) in ϑ_tot ([[eq:iii-i9-2-3]]), so
 
     D_(W_ν)P_5(h, p⃗, q)(W) = L_(h″,p⃗) h_ν(W) + δ*_(g_0,E_C) ϑ_(ν,♯)(W),
 
@@ -399,10 +402,11 @@ hypotheses of [[prop:iii-i8-4-1]] on the background ask for K⁺-order only abov
 ([[sec:iii-i11-4]]) and W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot). As in the proof of [[thm:iii-i11-4-1]] (its paragraph on
 [[prop:iii-i8-4-1]] for P_4), [[prop:iii-i8-4-1]] holds for P_5 at (h, p⃗, q). Indeed P_5 is P_3 at (h + h_rem(q) + Σ_ν
 h_ν(W_ν), p⃗_3), the sum over the rows other than the motions (the rotation rows included), up to the term
-(∂δ*_(g_0,E_C))ϑ_rows, and in the direction b also up to L(∂_b h_(b,rem)(q)b′). This last term has K⁺-order > 2 + ε_K >
-α_1: every coefficient of q has rate > 2 + ε_K at b₀, by (G) and [[def:iii-i14-1-1]], and L̂_(b₀)(0)∂_b h_(b,v1) = 0 as
-h_(b₀,v1) = 0, so the v1 part has rate ≥ 3. All these terms lie in the class 𝒴(α_1) of [[sec:iii-i8-1]] and are O(|W⃗| +
-‖q‖); so do D_(W⃗)P_5 = D_(W⃗)P_4 + Δ_q ([[lem:iii-i14-2-4]] (a); [[lem:iii-i9-2-6]] (b)) and F (the last sentence of
+(∂δ*_(g_0,E_C))ϑ_rows, and in the direction b also up to L(∂_b h_(b,rem)(q)b′). This last term has K⁺-order > α_1:
+S_rem and b_rem have the rates (α − 2)− and (α − 1)−, above α_1 < α − 2, every other coefficient of q has the rate
+2 + ε_K or more, with 2 + ε_K ≥ α − 2, at b₀, by (G) and [[def:iii-i14-1-1]], and L̂_(b₀)(0)∂_b h_(b,v1) = 0 as
+h_(b₀,v1) = 0, so the v1 part has rate ≥ 3. All these terms lie in the class 𝒴(α_1) of [[sec:iii-i8-1]] and are
+O(|W⃗| + ‖q‖); so do D_(W⃗)P_5 = D_(W⃗)P_4 + Δ_q ([[lem:iii-i14-2-4]] (a); [[lem:iii-i9-2-6]] (b)) and F (the last sentence of
 [[lem:iii-i13-2-2]]). So for every W⃗ there is a unique p⃗′_<(W⃗) ∈ 𝒫_(α_1), affine in W⃗, with u(p⃗′_<(W⃗) ⊕ W⃗) ∈
 𝒵_(α_1). Let 𝒫_0 be the set of these p⃗′: the graph of W⃗ ↦ p⃗′_<(W⃗).
 

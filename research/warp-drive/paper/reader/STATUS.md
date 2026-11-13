@@ -21,12 +21,12 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done (one citation pending) | CONFIRMED but for the 0-Sobolev citation (3 optional nits) |
 | 28 S9 | NOT CONFIRMED 2M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (Theorem 1.1 tame estimate) |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
-| 30 S11 | running | - | - |
-| 31 S12 | NOT CONFIRMED 2M 7m 9n | held for S11 (parameter set) | - |
+| 30 S11 | NOT CONFIRMED 0M 2m 6n | running (combined with S12: one parameter set) | - |
+| 31 S12 | NOT CONFIRMED 2M 7m 9n | running (combined with S11) | - |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | running | - |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | running | - |
 | 34 S15 | running (sign slip and np-10-34-iv to adjudicate) | - | - |
-| 35 S16 | NOT CONFIRMED 1M 6m 5n | done | running |
+| 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | running |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | NOT CONFIRMED 0M 1m 8n; second fix running |

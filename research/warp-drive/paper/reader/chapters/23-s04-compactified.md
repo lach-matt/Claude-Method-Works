@@ -737,7 +737,7 @@ R_2, R_2^* map L² into H^(−𝗌) and H^𝗌 respectively.
 
 (1) For u, v ∈ C_c^∞, ⟨u, v⟩ = ⟨Au, B^*v⟩ + ⟨R_1u, v⟩, and, as v = A^*B^*v + R_1^*v,
 ⟨R_1u, v⟩ = ⟨AR_1u, B^*v⟩ + ⟨R_1u, R_1^*v⟩; so ⟨u, v⟩ = ⟨A(I + R_1)u, B^*v⟩ + ⟨R_1u, R_1^*v⟩, each factor bounded into
-L² from H^𝗌 or H^(−𝗌) respectively. C_c^∞ is dense in both spaces ([[lem:ii-a1-2-3]] (a), whose proof uses only (S8)),
+L² from H^𝗌 or H^(−𝗌) respectively. C_c^∞ is dense in both spaces (the proof of [[lem:ii-a1-2-3]] (a) applies here, as it uses only (S8)),
 so the pairing extends, with the bound.
 
 (2) The map j : L² ⊕ L² ∋ (v_0, v_1) ↦ Av_0 + R_2v_1 ∈ H^(−𝗌) is bounded, A having order 𝗌 and R_2 order −J ≤ −sup 𝗌.
@@ -781,8 +781,8 @@ for the minimal one, whose norm is ‖u‖_(H̄^𝗌(Ω)). (3) Ḣ^(−𝗌)(Ω�
 its orthogonal complement to λ̃ of the same norm and represent λ̃ by ũ ([[lem:ii-a-7-1]] (2)). For the second
 statement, λ composed with the restriction to Ω is a functional on H^𝗌(M) of norm at most ‖λ‖; represent it by
 w ∈ H^(−𝗌)(M) ([[lem:ii-a-7-1]] (2), with −𝗌 for 𝗌). It vanishes on C_c^∞(M ∖ Ω̄), whose elements restrict to 0 on Ω;
-so w is supported in Ω̄. (2) Apply the first part of (3) to λ(v) := ⟨ũ, v⟩, v ∈ Ḣ^(−𝗌)(Ω̄): there is ũ′ ∈ H^𝗌(M) with
-⟨ũ − ũ′, v⟩ = 0 for all such v and ‖ũ′‖ ≤ C‖λ‖. Taking v ∈ C_c^∞(Ω) shows ũ′|_Ω = u, so
+so w is supported in Ω̄. (2) Apply the first part of (3) to λ(v) := ⟨v, ũ⟩, v ∈ Ḣ^(−𝗌)(Ω̄), whose norm is the supremum in (2): there is
+ũ′ ∈ H^𝗌(M) with ⟨v, ũ − ũ′⟩ = 0 for all such v and ‖ũ′‖ ≤ C‖λ‖. Taking v ∈ C_c^∞(Ω) shows ũ′|_Ω = u, so
 ‖u‖_(H̄^𝗌(Ω)) ≤ ‖ũ′‖ ≤ C‖λ‖, the claim. The exchanged case is the same. ∎
 
 **Lemma {#lem:ii-a-7-d}** (Property (D) at a compact boundary.) Let Ω ⊂ M be open, and suppose that ∂Ω is a compact
