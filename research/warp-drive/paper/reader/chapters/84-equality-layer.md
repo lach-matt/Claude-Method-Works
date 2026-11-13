@@ -1016,7 +1016,7 @@ boundary is −k(Φ0♯, Φ0♯) with Φ0♯ = ∂_v up to terms of second degre
 the spheres, and its λ² part vanishes because H_2 lies in 𝔖, by the polarisation of the gauge and the isotropy of Pol⁺
 ([[prop:layer-linear]]). The first nonzero part is of order λ³: a first harmonic of the phase, proportional to the
 double divergence d of the angular tensor of the waves and, through the coupling 2μ0 H_vr/r³ of the vv transport, to
-the mass. Near the point where env first reaches λ^14 this term exceeds m0 and every error term, and it changes sign
+the mass. Near the point where |env| first reaches λ^14 this term exceeds m0 and every error term, and it changes sign
 with the phase.
 
 ### The solutions from past null infinity {#sec:layer-past}
@@ -1112,13 +1112,15 @@ has an oscillating factor, so the forcing term is in E_3(ε), and the transport 
 ∫_r^∞ r′^(3/2) e^(I(r′)) S dr′ along the generator at fixed v ([[lem:decay-calculus]] (d)), maps E_3(ε) into E_2(ε),
 the weight being that of the generator's v.
 
-(b) M_j := 2 ∫_(−∞)^v 𝒮_(j,3) with 𝒮_(j,3) of degree two by (F2), so |M_j| ≤ C (v − v_s) ε². The remainders (m̃, φ̃, Ψ̃)
-solve the remainder system of the proof of [[thm:past-approximant]], whose estimates are linear in the forcing terms and
-run on P_v: [[lem:past-energy]] and [[lem:past-transport]] on P_v, with the null face {v′ = v} to the future of P_v and
-its flux kept, as in [[lem:layer-energy-null]]; L0 is tangent to it, so the transport's boundary term vanishes; and the
-Poincaré inequality of [[lem:past-sobolev]] (b) holds on the thinner slices with the same constant. With the oscillating
-remainder taken as a known forcing term by (a), all forcing terms lie in E_(7/2)(ε²), so the energies and the flux
-through {v′ = v} carry ε² with the t-rates of that proof. The flux gives, as in [[lem:layer-null-pointwise]] but
+(b) M_j := 2 ∫_(−∞)^v 𝒮_(j,3) dv′, with 𝒮_(j,3) the coefficient of r⁻³ in 𝒮_j of the proof of
+[[thm:past-approximant]], evaluated at v′; it is of degree two by (F2), so |M_j| ≤ C (v − v_s) ε². The remainders
+(m̃, φ̃, Ψ̃) solve the remainder system of the proof of [[thm:past-approximant]], whose estimates are linear in the
+forcing terms and run on P_v: [[lem:past-energy]] and [[lem:past-transport]] on P_v, with the null face {v′ = v} to the
+future of P_v and its flux kept, as in [[lem:layer-energy-null]]; L0 is tangent to it, so the transport's boundary term
+vanishes; and the Poincaré inequality of [[lem:past-sobolev]] (b) holds on the thinner slices with the same constant.
+With the oscillating remainder taken as a known forcing term by (a), all forcing terms lie in E_(7/2)(ε²), so the
+energies and the flux through {v′ = v} carry ε² with the t-rates of that proof. The flux gives, as in
+[[lem:layer-null-pointwise]] but
 integrating from infinity along γ_Y, with ∫_r^∞ r′⁻³ dr′ = 1/(2r²), |∂^α Ω^β m̃_j| ≤ C ε² r⁻¹; the proof of
 [[thm:past-approximant]] gives |m̃_j| ≤ C r^(−5/2); and min(x, y) ≤ (xy)^(1/2) gives C ε r^(−7/4). Then σ̃_j := m̃_j(ℓ,
 ℓ) + q_j is at most C ε r^(−7/4) (q_j is quadratic in (m_i, dφ_i), i < j, with no product ∂_v φ_i ∂_v φ_k since g^vv =

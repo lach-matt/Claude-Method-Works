@@ -559,6 +559,180 @@ derivatives along the spheres, with bounded coefficients; w ≤ C r^(2a) on N. F
 integrands is at most C|H| w |∂φ|², which the last term of [[eq:own-flux-n]] bounds. The tail: by (i), at fixed λ the
 integrand of [[eq:own-flux-n]] for Γ^α h_R is O(r^(2a−11+3)), and its integral beyond ϱ is C(λ) ϱ^(2a−7)/(7 − 2a). ∎
 
+### The expansion after the shell to every order {#sec:cutoff-expansion}
+
+The truncated problems of Section [[sec:own-continuation]] interpolate, on a band of bounded width in v, between the
+data of g_λ and data that continue them to spatial infinity. The commuted energies of the remainder at the initial
+slice are bounded uniformly in the truncation only if the two data agree on the band to high order in r⁻¹: the
+commutator Z is transverse to the initial slice at the band with a coefficient of size |T|, and each Z turns a time
+derivative of a mismatch into a factor |T| ([[rem:cutoff-growth]]). This section constructs continuation data that
+agree with those of g_λ to every prescribed order and are homogeneous, so that Z costs nothing on them. It uses only the
+expansion of [[prop:bondi-hierarchy]] at fixed λ; no smallness in λ is needed of the new terms, because they enter only
+the data of the truncated problems, whose effect disappears as T → −∞ at fixed λ.
+
+*Setting.* We use the notation of Section [[sec:far-homogeneity]]: P(h) = Ric^H(g_b0 + h; g_b0), g_b0 = η + μ m with
+m := r⁻² dv ⊗ dv, μ = μ_end, the coordinates (v, r, x̂) with ℓ = ∂_r at fixed (v, x̂) and ∂_v the derivative at fixed
+(r, x̂), which is ∂_t at fixed x, and the commutators Γ ∈ {∂_t, L_Ω_ab, Z}, Z = (t − v1) ∂_t + x·∂_x. The Cartesian
+derivatives are
+
+    ∂_t = ∂_v,     ∂_i = x̂_i (∂_v + ℓ) + r⁻¹ Y_i,     Y_i := r (∂_i − x̂_i x̂·∂_x),               {#eq:cutoff-cartesian}
+
+where Y_i is a vector field on the sphere {v, r fixed}, acting on x̂ only, with coefficients smooth in x̂. Put
+I_1 := [v_end + 1, V′_P − 1], which contains v1 (v1 ≥ v_end + 2 and v1 ≤ V′_P − κ_P − 1 − m_Ω,
+[[lem:interior-far-part]] (ii)), d_V := V′_P − v1, and 𝒰_1 := {(v, r, x̂) : v ∈ I_1, r ≥ r_1}, with r_1 so large that
+𝒰_1 lies in the far region of P′ (there t_P is comparable with r, and v + h_P(τ) ≤ V′_P − 1 + κ_P < V′_P). On 𝒰_1,
+v > v_end, so g0 = g_b0, G_3 = 0 ([[eq:own-g3]], env = 0) and, by [[prop:bondi-hierarchy]], for every J ≥ 4
+
+    g_λ − g_b0 = H_J + u_J,     H_J := Σ_(k=4)^J r^(−k/2) G_k.                                            {#eq:cutoff-hj}
+
+A family of smooth tensors F on 𝒰_1, or on a subset of it, is *of strip order q* if |∂_v^i Ω^β ℓ^j F| ≤ C r^(−q−j) for
+all i, β, j up to a fixed order, the constant independent of the members of the family. A family of smooth tensors on
+W ∩ {r ≥ r′}, for some r′ ≥ 1, is *tame of order q* if |∂^j Γ^α F| ≤ C r^(−q−j) there for all j and α, with C
+depending on j and α but not on the member. By [[eq:bondi-expansion]], u_J is of strip order (J + 1)/2, and H_J of strip
+order 2, the G_k being bounded with all their derivatives. A *monomial* is r^(−k/2) (v − v1)^n a(x̂) with integers
+k, n ≥ 0 and a smooth; its *weight* is n − k/2. Since r^(−k/2) (v − v1)^n = r^(n−k/2) s^n with s = (v − v1)/r, a
+monomial is homogeneous, of degree equal to its weight, under the dilation D_ς of Section [[sec:far-homogeneity]].
+
+**Lemma {#lem:cutoff-expansion}** (the operator at fixed v). Let K_0 ≥ 4, let c_4, …, c_(K_0) be smooth symmetric
+tensors on I_1 × S³ (Cartesian components), bounded with all derivatives, and put H := Σ_(k=4)^(K_0) r^(−k/2) c_k and
+c_k := 0 for k ∉ [4, K_0]. There is r_2 ≥ r_1 and, for every q ∈ ½ℕ, a smooth π_q(v, x̂) such that for every Q ≥ 0
+the difference P(H) − Σ_(q≤Q) r^(−q) π_q is of strip order Q + ½ on {v ∈ I_1, r ≥ r_2}; π_q = 0 for q < 3; and
+
+    π_q = ((2q − 5)/2) ∂_v c_(2q−2) − ½ (Δ̊ + (q − 2)(q − 4)) c_(2q−4) + R_q,                             {#eq:cutoff-pi}
+
+where R_q is a finite sum of terms
+
+    a(x̂) μ^j Π_(i=1)^n ∂_v^(d_i) Y^(β_i) c_(k_i),     n ≥ 1,  n + j ≥ 2,  Σ_i d_i ≤ 2,
+    Σ_i k_i/2 + 2j + 2 − Σ_i d_i = q,                                                                  {#eq:cutoff-terms}
+
+with Y^(β_i) a product of fields Y_l, and a(x̂) smooth. In particular every c_(k_i) in R_q has k_i ≤ 2q − 4.
+
+*Proof.* By [[lem:far-scaling]] (a), with g = g_b0 + H = η + μ m + H, P(H) is a finite sum of products of components
+of g and g⁻¹ with ∂∂g, ∂g ∂g, Γ̂ ∂g, ∂Γ̂ or Γ̂ Γ̂, Γ̂ := Γ[g_b0]. Here ∂g = μ ∂m + ∂H and ∂∂g = μ ∂∂m + ∂∂H, and Γ̂ is
+½ g_b0⁻¹ applied to first derivatives of μ m, with g_b0⁻¹ = η⁻¹ − μ r⁻² L0 ⊗ L0 ([[eq:background]]), the Cartesian
+components of L0 and of dv being functions of x̂. For r ≥ r_2, |g_b0⁻¹ H| ≤ ½ on {v ∈ I_1}, and
+g⁻¹ = Σ_(ν≥0) (−g_b0⁻¹ H)^ν g_b0⁻¹. So every term of P(H) is a product of constant tensors, of factors μ r⁻² b(x̂)
+(from μ m and from g_b0⁻¹ − η⁻¹), of factors r^(−k/2) c_k, and of exactly two derivatives, Γ̂ counting as one derivative
+of a factor μ r⁻² b and ∂Γ̂ as two. By [[eq:cutoff-cartesian]], ∂_v maps r^(−k/2) c to r^(−k/2) ∂_v c and annihilates
+r⁻² b(x̂) and every function of x̂; ℓ and r⁻¹ Y_i map r^(−k/2) c to r^(−k/2−1) times −(k/2) c and Y_i c, and r⁻² b to
+r⁻³ times a function of x̂. Hence a product with n factors c_(k_i), j factors μ r⁻² b, and d_i derivatives ∂_v on the
+i-th factor c_(k_i) is a sum of terms r^(−q) times a term of the form [[eq:cutoff-terms]], with
+q = Σ_i k_i/2 + 2j + 2 − Σ_i d_i: every derivative other than a ∂_v on a factor c_(k_i) raises the power of r⁻¹ by
+one or gives zero. Truncating the Neumann series after ν_0 terms leaves a remainder of strip order 2ν_0, and the terms
+with q > Q have q ≥ Q + ½; this gives the expansion, with π_q the sum of the terms of order q.
+
+The terms with n = 0 are the expansion of P(0) = Ric^H(g_b0; g_b0) = Ric(g_b0) = 0 (with reference g_b0 itself the
+vector field D vanishes, and g_b0 is the Tangherlini metric), so they sum to zero at every order. The terms with n = 1
+and j = 0 come from −½ η^(ab) ∂_a ∂_b H only: every other term of [[lem:far-scaling]] (a) that is linear in H contains
+Γ̂, ∂Γ̂, μ ∂m, μ ∂∂m or a factor μ r⁻² L0 ⊗ L0. By [[eq:own-box-p]] at μ = 0, applied to each Cartesian component,
+−½ □_η (r^(−k/2) c_k) = ((k − 3)/2) r^(−k/2−1) ∂_v c_k − ½ r^(−k/2−2) (Δ̊ + k²/4 − k) c_k, which at q = k/2 + 1 and
+q = k/2 + 2 gives the first two terms of [[eq:cutoff-pi]] ((k/2)² − k = (q − 2)(q − 4) for k = 2q − 4). The terms with
+n + j ≥ 2 form R_q. The flat terms have d ≤ 1, since □_η has no term ∂_v² in (v, r, x̂) ([[eq:wave-operator-vr]] at
+μ = 0); so they start at q = 3, and the terms of R_q at q ≥ 4. In a term of R_q each factor contributes at least 2 to
+q, so k_i/2 ≤ q − 2. ∎
+
+**Lemma {#lem:cutoff-polynomial}** (the coefficients after the shell). For every k ≥ 4 the restriction of G_k to
+I_1 × S³ is a polynomial in v − v1 of degree at most k/2 − 2,
+
+    G_k = Σ_(0≤n≤k/2−2) (v − v1)^n G_(k,n)(x̂),                                                        {#eq:cutoff-gkn}
+
+with G_(k,n) smooth and G-invariant; so every monomial r^(−k/2)(v − v1)^n G_(k,n) has weight at most −2. For p ∈ Π let
+F_(p,n) := (1/n!) ∂_s^n F_p(0, ·) be the Taylor coefficients at s = 0 of the F_p of [[def:own-sigma]], and put
+F_(p,n) := 0 for p ∉ Π. Then G_(k,n) = F_(k/2−n, n) whenever the weight n − k/2 exceeds −4.
+
+*Proof.* *The recursion.* Fix J ≥ 4. On 𝒰_1, P(H_J + u_J) = Ric^H(g_λ; g0) = 0, g_λ being vacuum and in the wave-map
+gauge relative to g0 ([[thm:past-construction]]). Write P(H) = −½ g(H)^(ab) ∂_a ∂_b H + 𝒬(X, H, ∂H), 𝒬 collecting the
+first-order terms of [[lem:far-scaling]] (a) and −½ g^(ab) ∂_a ∂_b g_b0. Then P(H_J + u_J) − P(H_J) is the sum of
+−½ g_λ^(ab) ∂_a ∂_b u_J, of −½ (g_λ^(ab) − g_J^(ab)) ∂_a ∂_b (g_b0 + H_J) with g_J := g_b0 + H_J, and of
+𝒬(X, H_J + u_J, ∂H_J + ∂u_J) − 𝒬(X, H_J, ∂H_J). By [[eq:cutoff-cartesian]] the Cartesian Hessian of a function φ is
+(∂_a v)(∂_b v) ∂_v² φ plus terms each containing ℓ or r⁻¹ Y, or a first derivative with a coefficient O(r⁻¹) from the
+derivatives of x̂; and g_λ⁻¹(dv, dv) = (g_λ⁻¹ − g_b0⁻¹)(dv, dv) = O(r⁻²), since dv(L0) = 0 makes dv null for g_b0. So
+the first term is of strip order (J + 3)/2. The second and third contain u_J or ∂u_J times factors of strip order at
+least 2, and are of strip order (J + 5)/2. Hence P(H_J) is of strip order (J + 3)/2, and by [[lem:cutoff-expansion]]
+with c_k = G_k, multiplying by r^q and letting r → ∞ at fixed (v, x̂), π_q = 0 for q ≤ (J + 2)/2. As J is arbitrary,
+for every q ≥ 3
+
+    (2q − 5) ∂_v G_(2q−2) = (Δ̊ + (q − 2)(q − 4)) G_(2q−4) − 2 R_q,                                {#eq:cutoff-recursion}
+
+R_q being formed from the G_k, k ≤ 2q − 4, by [[eq:cutoff-terms]] (G_2 := G_3 := 0).
+
+*The degree.* By induction on k. For k = 4 (q = 3), R_3 = 0 and G_2 = 0, so ∂_v G_4 = 0. Let k ≥ 5, q := (k + 2)/2,
+and suppose the claim for 4 ≤ k′ < k. G_(k−2) has degree at most q − 4, and a term [[eq:cutoff-terms]] of R_q has
+degree at most Σ_i (k_i/2 − 2) − Σ_i d_i = q − 2 − 2j − 2n ≤ q − 6. So ∂_v G_k, by [[eq:cutoff-recursion]] with
+2q − 5 = k − 3 > 0, is a polynomial of degree at most q − 4 = k/2 − 3 (zero if that is negative), and
+G_k(v) = G_k(v1) + ∫_(v1)^v ∂_v G_k has degree at most k/2 − 2. The coefficients are smooth, and G-invariant because G_k
+is ([[prop:bondi-hierarchy]]) and G fixes v.
+
+*The weights above −4.* Take in [[eq:cutoff-recursion]] the coefficient of (v − v1)^n, with k := 2q − 2:
+(k − 3)(n + 1) G_(k,n+1) = (Δ̊ + (q − 2)(q − 4)) G_(k−2,n) − 2 [R_q]_n, where [R_q]_n = 0 for n > q − 6. The monomials
+(k, n + 1) and (k − 2, n) have the same weight n + 1 − k/2 =: −p. If p < 4 then n > q − 6, and with k = 2(p + n + 1),
+
+    (n + 1)(2p + 2n − 1) G_(2(p+n+1), n+1) = (Δ̊ + (p + n)(p + n − 2)) G_(2(p+n), n).       {#eq:cutoff-weight-recursion}
+
+The weights are at most −2 and lie in ½ℤ, so p < 4 means p ∈ {2, 5/2, 3, 7/2} ⊂ Π. For p ∈ Π, the calculation in the
+proof of [[lem:own-self-similar]], made for a smooth F(s, x̂) with Δ̊ acting on each Cartesian component, gives
+
+    □_η (r^(−p) F) = −2 r^(−p−2) [ (s − s²/2) ∂_s² F + (p − ½)(1 − s) ∂_s F − ½ (p² − 2p + Δ̊) F ].      {#eq:cutoff-ode}
+
+Since □_η Σ_p = 0, the bracket vanishes for F = F_p on [0, 3/2] × S³, and its coefficient of s^n at s = 0 is
+½ [(n + 1)(2p + 2n − 1) F_(p,n+1) − (Δ̊ + (p + n)(p + n − 2)) F_(p,n)], as n(n − 1) + (2p − 1) n + p² − 2p =
+(p + n)(p + n − 2). So the F_(p,n) satisfy [[eq:cutoff-weight-recursion]] too. At n = 0, G_(2p,0) = G_(2p)(v1) = F_p(0) =
+F_(p,0) ([[def:own-sigma]]), and 2p + 2n − 1 > 0; by induction on n, G_(2(p+n),n) = F_(p,n). ∎
+
+**Definition {#def:cutoff-extension}** (the continuation of the expansion). For an integer J ≥ 8 put
+
+    Σ′_J := Σ_(8≤k≤J) Σ_(0≤n≤k/2−4) r^(−k/2) (v − v1)^n (G_(k,n) − F_(k/2−n, n))
+          = Σ_(8≤k≤J) Σ_(0≤n≤k/2−4) r^(−(k/2−n)) s^n (G_(k,n) − F_(k/2−n, n)),                     {#eq:cutoff-extension}
+
+a finite sum, defined on {r > 0} by its second form, and m_J := g_λ − g_b0 − Σ − Σ′_J on 𝒰_1 ∩ {v ≥ v1}, where Σ is
+defined.
+
+**Lemma {#lem:cutoff-extension}** (the continued expansion). Let J ≥ 8.
+(a) Σ′_J is a finite sum of smooth homogeneous tensors of degrees at most −4, and it is G-invariant. On
+W ∩ {r ≥ 1}, |∂^j Γ^α Σ′_J| ≤ C r^(−4−j) for all j and α, with C depending on λ, J, j and α: Σ′_J is tame of order 4.
+(b) m_J is of strip order (J + 1)/2 on 𝒰_1 ∩ {v ≥ v1}, with constants depending on λ and J.
+(c) Let λ be below the threshold of [[prop:far-residual]]. There is r_3 ≥ r_2, depending on λ and J, such that
+|Σ| + |Σ′_J| ≤ 1/100 on W ∩ {r ≥ r_3}, and P(Σ + Σ′_J) is tame of order 6 on W ∩ {r ≥ r_3}, with constants depending
+on λ and J.
+
+*Proof.* (a) Each term is r^(−p) s^n a(x̂) with p = k/2 − n ≥ 4, a polynomial in s with smooth coefficients, so smooth
+and homogeneous of degree −p on 𝒞_1 = {r ≥ 1, 0 ≤ s ≤ 3/2} ⊃ W. The bounds follow as [[eq:far-sigma-bounds]], from the
+dilation (Section [[sec:far-homogeneity]]). G-invariance: G_(k,n) is a Taylor coefficient at v = v1 of the G-invariant
+G_k ([[lem:cutoff-polynomial]]); G_(2p)(v1) is G-invariant and the equation of [[lem:own-self-similar]] commutes with G,
+so each F_p, and each of its Taylor coefficients F_(p,n), is G-invariant.
+
+(b) For p ∈ Π let M_p := ⌊J/2 − p⌋ ≥ 0 and split
+
+    Σ_p = Σ_(n≤M_p) r^(−p−n) (v − v1)^n F_(p,n) + r^(−p) s^(M_p+1) ρ_p(s, x̂),
+
+with ρ_p smooth on [0, 3/2] × S³ (Taylor's formula with integral remainder; F_p is smooth there by
+[[lem:own-self-similar]]). The polynomial part of Σ consists of the monomials r^(−k/2)(v − v1)^n F_(k/2−n, n) with
+k ≤ J. By [[lem:cutoff-polynomial]], H_J is the sum of the monomials r^(−k/2)(v − v1)^n G_(k,n), k ≤ J, and
+G_(k,n) = F_(k/2−n, n) at the weights above −4; at the weights −4 and below, the coefficient of Σ plus that of Σ′_J is
+F_(k/2−n,n) + (G_(k,n) − F_(k/2−n,n)) = G_(k,n). Hence, by [[eq:cutoff-hj]],
+
+    m_J = u_J − Σ_(p∈Π) r^(−p) s^(M_p+1) ρ_p(s, x̂).
+
+u_J is of strip order (J + 1)/2. On 𝒰_1 ∩ {v ≥ v1}, 0 ≤ v − v1 ≤ d_V, so 0 ≤ s ≤ d_V/r. With ∂_v = r⁻¹ ∂_s and
+ℓ(r^(−p) φ(s, x̂)) = −r^(−p−1) (p φ + s ∂_s φ), every ∂_v^i Ω^β ℓ^j of r^(−p) s^(M+1) ρ is r^(−p−j) times a sum of terms
+r^(−i′) ∂_s^(i′)(s^(M+1) ρ′) with ρ′ smooth, each at most C r^(−(M+1)) (1 + d_V)^(M+1); and p + M_p + 1 ≥ (J + 1)/2, as
+J/2 − p ∈ ½ℤ.
+
+(c) By (a) and [[eq:far-sigma-bounds]], |Σ| + |Σ′_J| ≤ C r⁻², which gives r_3. For P(Σ): by the proof of
+[[prop:far-residual]] (with □_η Σ_4 = 0), P(Σ) is a finite sum of terms homogeneous of degrees at most −6 and of Rem′;
+∂ maps a homogeneous term of degree −q′ to one of degree −q′ − 1, and Γ to one of degree at most −q′; and
+∂_a Rem′ = ς⁻¹ (∂_X Rem)′, with Γ Rem′ treated there; so |∂^j Γ^α P(Σ)| ≤ C λ r^(−6−j). And
+P(Σ + Σ′_J) − P(Σ) = ∫_0^1 DP(Σ + θ Σ′_J)[Σ′_J] dθ, with DP(H)[k] = −½ g^(ab) ∂_a ∂_b k + B(H)·∂k + C(H) k
+([[prop:far-coefficients]]); g^(ab), B and C are polynomials in g^(±1), ∂g, ∂∂g, Γ̂ and ∂Γ̂, so by Leibniz's rule,
+[[eq:far-sigma-bounds]] and (a) they are tame of orders 0, 3 and 4 for H = Σ + θ Σ′_J, uniformly in θ ∈ [0, 1], while
+Σ′_J is tame of order 4; each of the three terms is tame of order 6. ∎
+
+**Remark {#rem:cutoff-weights}** (what is new in Σ′_J). The weight −4 terms of Σ′_J are r⁻⁴ s^n (G_(8+2n,n) − F_(4,n)),
+n ≥ 1. They are nonzero in general: at weight −4 the terms R_q of [[eq:cutoff-recursion]] are the products of two
+factors of weight −2, or of μ with one, the terms of which Q_6 of [[prop:far-residual]] is made, whereas Σ_4 solves
+□_η Σ_4 = 0; the two agree at s = 0. The terms of weight −9/2 and below are the higher homogeneous components of
+g_λ − g_b0, truncated as polynomials in s. Their sizes in λ are not controlled here and are not needed.
+
 ### The continuation to the far part's past domain of dependence {#sec:own-continuation}
 
 *Setting.* Fix ℓ0 ∈ (3, 4) ∖ {7/2}, a ∈ (ℓ0 − 1, 3) and k1 := max(8, d_1 + 4). On W we use the Kerr–Schild Cartesian
