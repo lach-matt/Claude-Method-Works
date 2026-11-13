@@ -1093,3 +1093,308 @@ columns, and its Step 3.2, because its relative tf–zf order 1 + min Re ℰ_ind
 relative tf–zf order of the remainder, α^♯_+ − α̃_K + 2, lies in (2, 3) throughout. The step at ι⁺ is needed only
 when α^♯_+ ≥ λ_♯, which is why [[prop:iii-i3-2-1]], with α_K < 3/2, omits it; and since re-solving at null infinity
 creates no new exponent below 5/2 (the last statement of [[prop:iii-i1-3-1]]), the iteration ends.
+
+### Extraction of the parameters: the setting and four lemmas {#sec:iii-i6-1}
+
+This section and the next are [Hin26, Section 11.6.1] in dimension 4 + 1: for right-hand sides with a little more
+than t_*^(−2) decay at K⁺, a forward solution with no boost term is a cut-off linearised Myers–Perry metric, a cut-off
+constant centre-of-mass shift, and a remainder that decays at K⁺ ([Hin26, Proposition 11.34]). The scheme is that of
+[Hin26]: the steps at null infinity and at ι⁺, the zero energy inversion, a sub-leading zero energy inversion after
+one order is gained at tf, the rest by the low-energy estimate, and one integration in t_*. Three things differ.
+There is no logarithmic centre-of-mass term: in [Hin26] it comes from the exponent (1, 0) at ι⁺ ([Hin26, Proposition
+9.11] at λ = 1, where a_s1 is a logarithm), while here the ι⁺-exponents begin at λ_♯ and give centre-of-mass motions
+t_*^(−λ+1) that decay. At zero energy the step of [Hin26, Proposition 9.30] is not needed; the tf-improvement of
+[Hin26, Proposition 9.35] is, and it is [[prop:iii-g4-5-1]], because the first moment ∫ t_* f^♭ dt_* has the
+borderline weight 2. And that proposition's solution has a term |σ|^(α−3)h_b(S), singular at zf, which the rows of the
+augmented operator see; it is moved into the 𝒮_1-column exactly ([[lem:iii-i6-1-4]]).
+
+L = L_(h,S), χ_K, ℓ_I (with [[eq:iii-i5-1-2]]), λ_♯ and [[eq:iii-i5-1-1]] are as in [[sec:iii-i5-1]], at b ∈ ℬ̄_*.
+On the spectral side, L̂_b(σ) = L_0 − iσL_1 − σ²L_2 with L_0 = L̂_b(0), L_1 = [L_b, t_*] and L_2 = ½[[L_b, t_*], t_*]
+stationary ([[sec:iii-h-1]]); near ∂X̄, L_1 ∈ ρ Diff¹_b and L_2 ∈ ρ²C^∞ ⊂ C^∞ (Cartesian derivatives lie in ρ𝒱_b, and
+L_2 is of order 0). L̃_b(σ) is the augmented operator of [[def:iii-h-3-1]], with the rows
+r(u) := (⟨u, f*_1⟩, ⟨u, f*_2⟩), f*_j ∈ C^∞_c(X°) subject to [[eq:iii-h-3-1]], and the columns
+f̂_ḃ(σ) = L̂_b(σ)ĝ^aug(σ)(ḃ) and f̂_S(σ) = L̂_b(σ)ĥ^aug(σ)(S) ([[lem:iii-h-2-5]] (c)), where
+
+    ĝ^aug(σ)(ḃ) = iσ⁻¹Ψ ġ_b(ḃ),        ĥ^aug(σ)(S) = ∂_σ(σ⁻¹Ψ) h_b(S) + iσ⁻¹Ψ h̆_b(S)                    {#eq:iii-i6-1-1}
+
+([[eq:iii-h-2-6]]), Ψ(σ, x) = Φ(σr) for r ≥ 1 with Φ(0) = 1 ([[lem:iii-h-2-5]] (b)), and ġ_b, h_b, h̆_b are the states
+of (B3). Then G_1(σ)(ḃ) = Ψġ_b(ḃ) = −iσĝ^aug(σ)(ḃ) and G_2(σ)(S) = (Ψ − σ∂_σΨ)h_b(S) − iσΨh̆_b(S) =
+−σ²ĥ^aug(σ)(S) are the functions of [[lem:iii-i3-1-3]]. The constant c and the cut-off χ are fixed for each order k as
+in [[sec:iii-i2-4]], and the memberships of the spectral pieces below hold at order k for that c.
+
+*Expansions at zf to first order.* For γ ∈ (1, 2), H^(k,(β_scf,β_tf,((0,0),γ)))_b(X^±_(sc-b)) is the space of
+χ_zf v_0 + σχ_zf v_1 + ṽ with v_0 ∈ H^(k,β_tf)_b(X), v_1 ∈ H^(k,β_tf−1)_b(X) and ṽ ∈ H^(k,(β_scf,β_tf,γ))_b: the
+space of [[sec:ii-g1-3-1]] with the index set (0, 0) at zf, written with σ in place of powers of r̂; v_0 and v_1 are
+the σ-Taylor coefficients of [[prop:ii-g1-3-3]] (1).
+
+**Lemma {#lem:iii-i6-1-1}** (First-order expansions.) Let a ∈ (0, 1) and u_0 ∈ H^(∞,a)_b(X).
+
+(a) (L̂_b(σ) − L_0)(χ_zf u_0) = −iσχ_zf L_1u_0 + R, with L_1u_0 ∈ H^(∞,a+1)_b(X) and R ∈ H^(∞,(∞,a+2,γ))_b for every
+γ < 2.
+
+(b) For the columns f of [[lem:iii-h-2-2]] (f = f_ḃ or f_S), f̂(σ) − χ_zf(f̂(0) + σf̂′(0)) ∈ H^(∞,(N,3−ε,2−ε))_b for all
+N and ε > 0, with f̂′(0) := ∂_σ f̂(0) = i∫ t_* f dt_* ∈ H^(∞,2−ε)_b(X).
+
+*Proof.* (a) (L̂_b(σ) − L_0)(χ_zf u_0) = −iσχ_zf L_1u_0 − iσ[L_1, χ_zf]u_0 − σ²χ_zf L_2u_0. By [[lem:iii-i3-1-1]] (b)
+(P = L_1, p = 1), σ[L_1, χ_zf]u_0 ∈ H^(∞,(∞,a+2,∞))_b, the factor σ adding 1 at tf and at zf; by
+[[lem:iii-i3-1-1]] (a) (P = L_2, p = 0, j = 2), σ²χ_zf L_2u_0 ∈ H^(∞,(∞,a+2,γ))_b for γ < 2.
+
+(b) By [[lem:iii-h-2-4]] (a), f̂ = f̂_c + f̂_∞, with f̂_c entire in σ and supported in {r ≤ 2}, where χ_zf = 1 for
+|σ| ≤ c ([[sec:iii-i3-1]]); so its Taylor remainder is O(σ²) in C^∞, which gives the zf-weight 2 − ε and no condition
+at tf or scf. And f̂_∞ = r⁻³G(σr, x) on {r ≥ 1}, with G entire and |(ζ∂_ζ)^j(r∂_r)^i∂^β_ω G| ≤ C⟨ζ⟩^(−N). With
+r̂ = |σ|r, the function r⁻³(G(σr) − χ_1(r̂)(G(0) + σrG′(0))) is r⁻³ times a function of (σr, x) that is O(r̂²) for
+r̂ ≤ 1/8 and O(⟨r̂⟩^(−N) + r̂ 1_(r̂≤1/4)) beyond, with the same derivative bounds. In the Fubini count of the proof of
+[[lem:iii-i3-1-2]] (b) (ρ_zf ∼ r̂ and ρ_tf ∼ r⁻¹ near zf, ρ_scf ∼ r̂⁻¹ near scf) this gives the weights
+(N, 3 − ε, 2 − ε): the remainder O(r̂²) contributes ∫_0^(1/⟨x⟩) σ^(4−2γ_zf) dσ/σ, finite for γ_zf < 2, where the
+remainder O(r̂) gave 1 − ε. f̂′(0) = ∂_σ f̂_c(0) + r⁻²∂_ζG(0, x) is smooth and lies in 𝒜² ⊂ H^(∞,2−ε)_b near ∂X̄. ∎
+
+**Lemma {#lem:iii-i6-1-2}** (Conormal sections are admissible.) Let σ ∈ ℝ ∖ 0 be small and let v be smooth on X° and
+b-conormal at ∂X̄ of μ_b-weight a. Then v lies in the space 𝒳′_σ, built as 𝒳_σ but with an admissible order family
+([[sec:i-a-7]]) lowered near R_out, the zero section over ∂X̄ ([[eq:i-a-4-6]]), and unchanged near R_in. Moreover
+𝒳′_σ ⊃ 𝒳_σ and 𝒴′_σ ⊃ 𝒴_σ, and on 𝒴_σ the inverses of L̂_b(σ), and of L̃_b(σ), on the two spaces agree.
+
+*Proof.* Every part of L̂_b(σ) maps 𝒜^a into 𝒜^(a+1) (the proof of [[thm:i-a-7-2]] (5)), so L̂_b(σ)v ∈ 𝒜^(a+1).
+R_out lies in the characteristic set, and the admissibility conditions there ask the order to be constant near R_out
+and below a threshold ((O2)–(O3) of [[sec:i-a-7]]). So 𝗋′ := 𝗋 − φ, with φ ≥ 0 constant near R_out, zero near R_in and
+nondecreasing along the flow (the construction of [[lem:i-a-7-1]] with a smaller value at R_out), is admissible, and φ
+can be taken with 𝗋′ + α_+ < a − 2 near R_out. By [[lem:i-a-7-4]] (a), v ∈ H̄^(s,𝗋′+α_+) and
+L̂_b(σ)v ∈ 𝒜^(a+1) ⊂ H̄^(s−1,𝗋′+α_++1) for every s, so v ∈ 𝒳′_σ; the inclusions hold as 𝗋′ ≤ 𝗋. L̂_b(σ) is Fredholm of
+index 0 on both spaces ([[sec:iii-h-1]], (H1)–(H5) at σ ≠ 0), and its kernel does not depend on the admissible order:
+by [[thm:i-a-7-2]] (5) and its proof a kernel element lies in ⋂_ε 𝒜^(3/2+S̄−ε), and such sections lie in every
+admissible space. So it is injective on 𝒳′_σ as on 𝒳_σ ([[cor:iii-h-4-4]]), hence invertible on both, and the
+inverses agree on 𝒴_σ. L̃_b(σ) is a finite-rank augmentation of it with as many rows as columns, so it is Fredholm of
+index 0 on both spaces. If (u, ḃ, S) lies in its kernel on the larger one, then
+L̂_b(σ)(u + ĝ^aug(σ)(ḃ) + ĥ^aug(σ)(S)) = 0, so u = −ĝ^aug(σ)(ḃ) − ĥ^aug(σ)(S) ∈ 𝒳_σ ([[lem:iii-h-2-5]] (b)), and
+(u, ḃ, S) lies in the kernel on 𝒳_σ, which is trivial for |σ| small ([[thm:iii-h-4-1]]). So L̃_b(σ) is invertible on
+both spaces, and the inverses agree. ∎
+
+**Lemma {#lem:iii-i6-1-3}** (Row data.) For e = (e_1, e_2) ∈ 𝔟_ℂ ⊕ 𝒮_(1,ℂ) put w_e := χ_zf(ġ_b(e_1) + h_b(e_2)). Then
+r(w_e) = e, and for 0 < |σ| ≤ c
+
+    L̃_b(σ)⁻¹(0, e) = (w_e, 0, 0) − L̃_b(σ)⁻¹(L̂_b(σ)w_e, 0, 0),
+
+whose 𝔟- and 𝒮_1-components are O(|σ|^(1−ε)) and whose first component lies in H^(∞,(3/2−ε,1−ε,0))_b, uniformly for
+|e| ≤ 1, for every ε > 0.
+
+*Proof.* χ_zf = 1 on supp f*_j for |σ| ≤ c ([[sec:iii-i3-1]]), so r(w_e) = e by [[eq:iii-h-3-1]]. w_e has compact
+support for σ ≠ 0, so it lies in 𝒳_σ, and L̃_b(σ)(w_e, 0, 0) = (L̂_b(σ)w_e, e), which is the identity.
+ġ_b(e_1) + h_b(e_2) ∈ 𝒜² ⊂ H^(∞,2−ε)_b(X) lies in the kernel of L_0, so L̂_b(σ)w_e =
+[L_0, χ_zf](ġ_b(e_1) + h_b(e_2)) + (L̂_b(σ) − L_0)(χ_zf(ġ_b(e_1) + h_b(e_2))) ∈ H^(∞,(∞,4−ε,γ))_b for γ < 1
+([[lem:iii-i3-1-1]] (b) and [[lem:iii-i3-1-2]] (a), with a = 2 − ε). [[lem:iii-i2-4-2]] with β_scf := 3/2 − ε,
+β_zf := 1 − 2ε and β_tf := 1 − ε (α + 2 = ε ∈ (0, 1)) gives the claim; w_e itself has the zf-weight 0 and the
+tf-weight 2 − ε. ∎
+
+At σ = 0 the identity reads L̃_b(0)⁻¹(0, e) = (ġ_b(e_1) + h_b(e_2), 0, 0): row data are answered by the nullspace,
+with no column.
+
+**Lemma {#lem:iii-i6-1-4}** (The boost-type term of [[prop:iii-g4-5-1]].) Let α ∈ (1, 2),
+S′ ∈ H^(∞,0)_b(±[0, 1)_σ, |dσ/σ|; 𝒮_1), and Σ(σ) := −σ²|σ|^(α−3)S′(σ). Let h^(≤3)_(b,s1)(σ, S) =
+h_b(S) − iσh̆^(≤3)_(b,s1)(σ, S) be the state of [[prop:iii-g4-5-1]]. Then on {r ≤ R}, for each R,
+
+    χ_zf h^(≤3)_(b,s1)(σ, |σ|^(α−3)S′(σ)) − ĥ^aug(σ)(Σ(σ)) = O(|σ|^(α−2))    in C^∞,                     {#eq:iii-i6-1-2}
+
+and near zf the difference has the zf-weight α − 2. ĥ^aug(σ)(Σ(σ)) has the tf-weight α − ε for every ε > 0 (b-Sobolev
+embedding, and [[lem:iii-i2-4-3]] with a = α − 3) and decays rapidly at scf.
+
+*Proof.* By [[eq:iii-i6-1-1]], ĥ^aug(σ)(Σ) = |σ|^(α−3)(Ψh_b(S′) − σ∂_σΨ h_b(S′) − iσΨh̆_b(S′)). The difference is
+|σ|^(α−3)(1 − Ψ)h_b(S′) plus σ|σ|^(α−3) times bounded terms. Near zf ∩ tf the term
+σ|σ|^(α−3)χ_zf h̆^(≤3)_(b,s1)(σ, S′) is controlled by [[lem:iii-g4-4-3]] (h̆^(≤3)_(b,s1) is polyhomogeneous at tf with
+the index set (0, 0) ∪ ℰ_ind), which gives it the zf- and tf-weight α − 2. On {r ≤ R}, |Ψ − 1| ≤ C|σ| and
+|∂_σΨ| ≤ C ([[lem:iii-h-2-5]] (d)), with derivatives. For r ≥ 1, 1 − Ψ = 1 − Φ(σr) = O(|σ|r) and h_b(S′) ∈ 𝒜³, so
+|σ|^(α−3)(1 − Ψ)h_b(S′) is |σ|^(α−2) times O(r⁻²) near zf. At tf (σr ∼ 1),
+|σ|^(α−3)Φ(σr)r⁻³ ∼ |σ|^α, the tf-weight α − ε in H_b; at scf, Φ decays rapidly. ∎
+
+### Extraction of the parameters {#sec:iii-i6-2}
+
+**Proposition {#prop:iii-i6-2-1}** (Extraction of the parameters; [Hin26, Proposition 11.34] in dimension 4 + 1.) Let
+b ∈ ℬ̄_*, α_K ∈ (2, min(a_K, 2 + ε_ind, 5/2)), with ε_ind that of [[prop:iii-g4-5-1]], and let
+f ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),4−ε,α_K)_b(Ω_*; S²T*)^(•,−) be real, with Ṡ(f) = 0 ([[prop:iii-i4-4-1]] (1)).
+Then the forward solution of Lu = f is
+
+    u = χ_K ġ_b(ḃ) + χ_K h_b(Ṡ^(0)_1) + ũ,       ḃ ∈ 𝔟,   Ṡ^(0)_1 ∈ 𝒮_1,
+    ũ ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α_K−2)_b(Ω_*)^(•,−)                                                       {#eq:iii-i6-2-1}
+
+for every β_+ < min(3/2, min Re ℰ_+), with ḃ, Ṡ^(0)_1 and ũ depending continuously on f, uniformly in b. ũ decays at
+K⁺, as α_K − 2 > 0.
+
+[Hin26, (11.117)] has a third term χ_K h^(≤4)_(b,s1)(Ṡ^((0,1))_1 log t_*), the logarithmic centre-of-mass motion,
+the ι⁺-weight 1 − ε, and α_K ∈ (2, 2 + ε_K) with ε_K < ε_ind. The cap 5/2 here is used only in Steps 1–2, through
+c_K < λ_♯ + 1. [Hin26, (11.116)] also has a second class f_2 with the ι⁺-index set ℰ̃_+ + 2; in dimension 4 + 1 the
+terms of that kind have ι⁺-order 4, so one class suffices, as in [[prop:iii-i5-2-1]].
+
+*Proof.* *Step 0* (the start). [[prop:iii-i5-2-1]] (with any α_+ ∈ (α′_K, 2); f has the ι⁺-weight 4 − ε) gives
+u ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β′_+,α′_K−2)_b for every α′_K < 2 and β′_+ < min(3/2, min Re ℰ_+). Fix
+α′_K ∈ (max(1, α_K + 2 − a_K), 2), possible as α_K < a_K, and β′_+ ∈ (1, min(3/2, min Re ℰ_+)). [[eq:iii-i-4-2]] of
+[[prop:iii-i-4-1]] gives (L − L_b)u the ι⁺-weight β′_+ + 2 + m_+ − ε ≥ 4 − ε (β′_+ + m_+ > 2) and the K⁺-weight
+α′_K − 2 + a_K > α_K, so
+
+    L_b u = f′ := f − (L − L_b)u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),4−ε,α_K)_b(Ω_*)^(•,−).
+
+*Steps 1–2* (null infinity and ι⁺; [Hin26, (11.118)–(11.120)]). Steps 1–2 of the proof of [[prop:iii-i5-2-1]] apply
+with α^♯_+ := 2 − ε (ε small, and 2 − ε off the excluded set of [[eq:iii-i5-2-3]], which is finite below 2), with the
+K⁺-weight α_K in place of α̃_K, and with c_K ∈ (α_K, λ_♯ + 1), off the finitely many excluded values; this interval is
+nonempty, as α_K < 5/2 < λ_♯ + 1. Then ℓ_K(λ_0) = c_K − Re λ_0 ∈ (c_K − 2, 1), and the errors of [[cor:iii-g2-4-3]]
+have the K⁺-weight c_K − ε > α_K, so the right-hand side keeps the K⁺-weight α_K, and each u_(λ_0) has the K⁺-weight
+min(Re λ_0 − 1, ℓ_K(λ_0)) − ε ≥ c′_K := min(λ_♯ − 1, c_K − 2) − ε > α_K − 2 for
+ε < min(c_K − α_K, λ_♯ + 1 − α_K). This gives u_I, u_ι ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),λ_♯−ε,c′_K)_b(Ω_*)^(•,−) (u_I supported
+near 𝓘⁺) and
+
+    u^♭ := u − u_I − u_ι :     L_b u^♭ = f^♭ ∈ H^(∞,ℓ_I+1,4−ε,α_K)_b(Ω_*)^(•,−),                         {#eq:iii-i6-2-2}
+
+u^♭ being the forward solution ([[prop:ii-e-3-4]]). From here on ε > 0 is fixed, small as above. The parameters ḃ,
+Ṡ^(0)_1 found below are the (0, 0)-coefficient of u at K⁺, its limit as t_* → ∞ in compact spatial sets, as ũ tends
+to 0 there; so they and ũ do not depend on ε, and [[eq:iii-i6-2-1]] holds for every β_+. There is no logarithmic term:
+the least ι⁺-exponent is λ_♯, and the coefficient a_s1 = (λ_0(λ_0 − 1))⁻¹t_*^(−λ_0+1) of [[eq:iii-g2-4-2]] is a power
+for Re λ_0 > 1.
+
+*Step 3* (the decomposition). As in [[sec:iii-i2-4]], u^♭ = u_hi + u_reg + u_sing, with
+(û_1, b̂_1, Ŝ_1) := L̃_b(σ)⁻¹(f̂^♭(σ), 0, 0), ℱu_reg = χ(|σ|)û_1, and
+
+    ℱ(∂_(t_*)u_sing) = χ(|σ|)(G_1(σ)(b̂_1) + iσ⁻¹G_2(σ)(Ŝ_1))      for σ ≠ 0
+
+([[eq:iii-i2-4-1]]; ∂²_(t_*) corresponds to −σ²). [[lem:iii-i2-4-1]] (β^f_I = ℓ_I, β_ι = 2 − ε,
+β_K = α_K ∈ (2, 3); ℓ_I + 1 ≥ 4 − ε − (1 − ε_1) as ℓ_I ≥ 2, with ε_1 ≤ ε) gives u_hi ∈ H^(∞,(3/2−ε,N,N))_b(M′).
+[[prop:ii-g1-3-3]] (1) (β_K = α_K ∈ (2, 3)) gives
+
+    f̂^♭|_(±(0,c]) ∈ H^(∞,(3−2ε,3−ε,((0,0),α_K−1)))_b,        f̂^♭ = χ_zf f̂^♭(0) + σχ_zf f̂^♭_1 + ⋯,    {#eq:iii-i6-2-3}
+
+with f̂^♭(0) = ∫ f^♭ dt_* ∈ H^(∞,3−ε)_b(X) and f̂^♭_1 = i∫ t_* f^♭ dt_* ∈ H^(∞,2−ε)_b(X), the same for both signs.
+
+*Step 3.1* (zero energy; [Hin26, (11.123)]). [[prop:iii-h-3-2]] at the weight with α + 2 = 1 − ε (𝒴_0 has the
+μ_b-weight 3 − ε, as in Step 3.1 of the proof of [[prop:iii-i3-2-1]]) gives (û_0, ḃ_0, S_0) :=
+L̃_b(0)⁻¹(f̂^♭(0), 0, 0) with û_0 ∈ H^(∞,1−ε)_b(X). Here S_0 = 0. Indeed, f^♭ lies in the space of Step 3 of the proof
+of [[prop:iii-i5-2-1]] for every α̃_K < 2 and α^♯_+ < 2 − ε, and the inverses of [[prop:iii-h-3-2]] at the weights
+1 − ε and α^♯_+ − 1 ≤ 1 − ε agree on f̂^♭(0) (the spaces are nested and both operators invertible). So that Step gives
+u^♭ − χ^H_K t_* h_b(S_0) the K⁺-weight α̃_K − 2 > −1; and u, u_I, u_ι have K⁺-weights > −1. So h_b(S_0) = 0, and
+S_0 = 0 ([[lem:s20-injective]]). As in [[eq:iii-i3-2-5]], L̃_b(σ)(χ_zf û_0, ḃ_0, 0) = (f̂^♭(σ) − f̂_2(σ), 0, 0) with
+
+    f̂_2 := (f̂^♭ − χ_zf f̂^♭(0)) − [L_0, χ_zf]û_0 − (L̂_b(σ) − L_0)(χ_zf û_0) − (f̂_(ḃ_0)(σ) − χ_zf f̂_(ḃ_0)(0)).
+
+By [[eq:iii-i6-2-3]], [[lem:iii-i3-1-1]] (b) ([L_0, χ_zf]û_0 ∈ H^(∞,(∞,3−ε,∞))_b) and [[lem:iii-i6-1-1]] (a)–(b),
+
+    f̂_2 = σχ_zf F_1 + R_2,     F_1 := f̂^♭_1 + iL_1û_0 − f̂′_(ḃ_0)(0) ∈ H^(∞,2−ε)_b(X),
+    R_2 ∈ H^(∞,(5/2−ε,3−ε,α_K−1))_b,                                                                     {#eq:iii-i6-2-4}
+
+F_1 being the same for both signs; the zf-weights of the remainders, α_K − 1, γ < 2 and 2 − ε, are at least α_K − 1,
+as α_K < 3 − ε.
+
+*Step 3.2* (one order at tf; [Hin26, (11.124)–(11.126)]). Put g̃ := σ⁻¹f̂_2. As |σ| = ρ_tf ρ_zf,
+g̃ ∈ H^(∞,(5/2−ε,2−ε,((0,0),α_K−2)))_b, with zf-coefficient F_1. Its tf-weight 2 − ε is too low for
+[[prop:iii-h-3-2]] at the next order, which would need α + 2 = −ε. [[prop:iii-g4-5-1]] on X^±_(sc-b) separately, with
+α := 2 − ε, ℓ_scf := 3/2 − ε, ℓ_zf := α_K − 2 ∉ ℕ₀, k_0 := 0 and w = α_K − 2 + ε ∈ (−ε_ind, ℓ^max_K) (ε chosen with w
+and every ε + j, j ∈ ℕ₀, off the set of the −μ, which is real and discrete), gives û_3^± = χ_zf u_b + χ^♯_tf ũ in
+H^(∞,(3/2−2ε,−ε,−1−ε))_b with
+
+    f̂_4 := g̃ − L̂_b(σ)û_3 ∈ H^(∞,(5/2−ε,2+ε_ind−2ε,((0,0),α_K−2)))_b,                                  {#eq:iii-i6-2-5}
+
+with zf-coefficients F_4^± ∈ H^(∞,2+ε_ind−2ε)_b(X), possibly different for the two signs. In u_b
+([[eq:iii-g4-5-2]]) the term h^(≤3)_(b,s1)(σ, |σ|^(α−3)S′(σ)), S′ := S^(−1)_1, is the only one of zf-weight below
+α − 2; the others carry |σ|^(α−2) or |σ|^(α−2−μ), μ ≤ 0. With Σ_3 := −σ²|σ|^(α−3)S′ of [[lem:iii-i6-1-4]] put
+
+    û′_3 := û_3 − ĥ^aug(σ)(Σ_3) :     L̂_b(σ)û′_3 + f̂_(Σ_3)(σ) = L̂_b(σ)û_3                             {#eq:iii-i6-2-6}
+
+([[lem:iii-h-2-5]] (c)). By [[lem:iii-i6-1-4]], û′_3 ∈ H^(∞,(3/2−2ε,−ε,−ε))_b near zf and tf (χ^♯_tf vanishes near
+zf, and the difference in [[lem:iii-i6-1-4]] has the zf-weight α − 2), and r(û′_3) = O(|σ|^(−ε)) (on supp f*_j, by
+[[eq:iii-i6-1-2]] and the factor |σ|^(α−2) of the other terms of u_b). Σ_3 = O(|σ|^(1−ε)).
+
+*Step 3.3* (the sub-leading zero energy piece; [Hin26, Step 4]). [[prop:iii-h-3-2]] at the weight with
+α + 2 = ε_ind − 2ε ∈ (0, 1) (ε < ½ε_ind) gives (û_4, b̂_4, Ŝ_4)^± := L̃_b(0)⁻¹(F_4^±, 0, 0), with
+û_4 ∈ H^(∞,ε_ind−2ε)_b(X). As in Step 3.1 (with [[lem:iii-i3-1-1]] and [[lem:iii-i3-1-2]] (a), (b) there, for the
+zf-weight γ < 1 and the columns (N, 3 − ε, 1 − ε)),
+
+    f̂_5 := f̂_4 − L̂_b(σ)(χ_zf û_4) − f̂_(b̂_4)(σ) − f̂_(Ŝ_4)(σ) ∈ H^(∞,(5/2−ε,2+ε_ind−2ε,α_K−2))_b,    {#eq:iii-i6-2-7}
+
+the zf-coefficient cancelling by the choice of (û_4, b̂_4, Ŝ_4), and r(χ_zf û_4) = r(û_4) = 0.
+
+*Step 3.4* (the rest; [Hin26, Step 5]). [[lem:iii-i2-4-2]] with β_scf := 3/2 − 2ε, β_tf := ε_ind − 2ε,
+β_zf := α_K − 2 and α + 2 := β_tf − β_zf ∈ (0, 1) (α_K − 2 < ε_ind − 2ε for ε small) gives (û_5, b̂_5, Ŝ_5) :=
+L̃_b(σ)⁻¹(f̂_5, 0, 0) with û_5 ∈ H^(∞,(3/2−3ε,ε_ind−2ε,α_K−2))_b and b̂_5, Ŝ_5 ∈ H^(∞,α_K−2)_b(±(0, c], |dσ/σ|).
+
+*Step 3.5* (assembly). For 0 < ±σ ≤ c let (U_r, B_r, Σ_r) := L̃_b(σ)⁻¹(0, σr(û′_3)). Then
+
+    (û_1, b̂_1, Ŝ_1) = (χ_zf û_0, ḃ_0, 0) + σ[(û′_3, 0, Σ_3) + (χ_zf û_4, b̂_4, Ŝ_4) + (û_5, b̂_5, Ŝ_5)]
+                       − (U_r, B_r, Σ_r).                                                                {#eq:iii-i6-2-8}
+
+Indeed, apply L̃_b(σ) to the right side. By the definitions of f̂_2, g̃, f̂_4 and f̂_5, by [[eq:iii-i6-2-6]], and as
+the first component of L̃_b(σ)(û_5, b̂_5, Ŝ_5) = (f̂_5, 0, 0) is f̂_5, the first components add up to
+
+    (f̂^♭ − f̂_2) + (f̂_2 − σf̂_4) + σ(f̂_4 − f̂_5) + σf̂_5 = f̂^♭;
+
+the rows give 0 + σ(r(û′_3) + 0 + 0) − σr(û′_3) = 0. Every first component lies in the space 𝒳′_σ of
+[[lem:iii-i6-1-2]], which contains 𝒳_σ: χ_zf û_0, χ_zf û_4 and χ_zf u_b have compact support for σ ≠ 0; ĥ^aug lies
+there by [[lem:iii-h-2-5]] (b); û_5 and U_r by construction; and χ^♯_tf ũ by [[lem:iii-i6-1-2]], being b-conormal of
+weight 3/2 − 2ε at ∂X̄. So [[eq:iii-i6-2-8]] follows from the injectivity of L̃_b(σ) ([[lem:iii-i6-1-2]]). By
+[[lem:iii-i6-1-3]], B_r, Σ_r = O(|σ|^(1−ε)) · O(|σ|^(1−ε)) = O(|σ|^(2−2ε)) and
+U_r ∈ H^(∞,(3/2−ε,2−2ε,1−2ε))_b, as σr(û′_3) = O(|σ|^(1−ε)) with σ∂_σ-regularity.
+
+Consequently, with all weights for ε small,
+
+    û_1 ∈ H^(∞,(3/2−3ε,1−2ε,((0,0),α_K−2)))_b with zf-coefficient û_0,
+    b̂_1 − ḃ_0,  σ⁻¹Ŝ_1 − Ŝ_4^± ∈ H^(∞,α_K−2)_b(±(0, c], |dσ/σ|),                                        {#eq:iii-i6-2-9}
+
+since σû′_3, σχ_zf û_4, σû_5 and U_r have the zf-weight at least 1 − 2ε > α_K − 2 and the tf-weight at least 1 − 2ε,
+σ(b̂_4 + b̂_5) − B_r = O(|σ|), and σ⁻¹Ŝ_1 − Ŝ_4 = Σ_3 + Ŝ_5 − σ⁻¹Σ_r = O(|σ|^(α_K−2)) with σ∂_σ-regularity.
+
+*Step 4* (the regular part). By [[prop:ii-g1-3-5]] (1) with β_K := α_K − 1 ∈ (1, 2), the one Taylor coefficient (of
+order 0 < α_K − 2) being û_0 for both signs, u_reg ∈ H^(∞,(3/2−4ε,2−2ε,α_K−1))_b(M′).
+
+*Step 5* (the singular part; [Hin26, (11.130)–(11.133)]). By [[eq:iii-i6-2-9]], [[lem:iii-i3-1-3]] (for
+G_1(σ)(ḃ_0) and G_2(σ)(Ŝ_4^±)) and [[lem:iii-i2-4-3]] with a = α_K − 2 (for G_1(σ)(b̂_1 − ḃ_0) and
+G_2(σ)(σ⁻¹Ŝ_1 − Ŝ_4)),
+
+    ℱ(∂_(t_*)u_sing) = χ(G_1(σ)(b̂_1) + iG_2(σ)(σ⁻¹Ŝ_1)) ∈ H^(∞,(N,2−ε,((0,0),α_K−2)))_b,               {#eq:iii-i6-2-10}
+
+with zf-coefficients ġ_b(ḃ_0) + h_b(iŜ_4^±). The distribution ℱ(∂_(t_*)u_sing) is bounded near σ = 0, and its
+difference from the right side of [[eq:iii-i6-2-10]], a bounded function with compact support, is supported at {0};
+so the inverse transform of the difference is a polynomial in t_*, which the decay of both as t_* → −∞ forces to
+vanish (∂_(t_*)u_sing = −∂_(t_*)(u_hi + u_reg) for t_* < 1, below; the other by the Riemann–Lebesgue lemma), and
+[[eq:iii-i6-2-10]] holds as distributions.
+
+*Matching.* If the two zf-coefficients differed, ℱ(∂_(t_*)u_sing) would be c 1_(σ>0)χ(|σ|), with c ≠ 0 a section of X,
+plus a function to which [[prop:ii-g1-3-5]] (1) applies; the inverse transform of the first is
+c · (2πi)⁻¹t_*⁻¹(1 + o(1)) as t_* → −∞, of K⁻-weight below 1 in spatially compact sets, while that of the second has
+the K⁻-weight α_K − 1 > 1. But ∂_(t_*)u_sing = −∂_(t_*)(u_hi + u_reg) for t_* < 1, as u^♭ = 0 there, and this has the
+K⁻-weight α_K > 1 (Step 4, and ∂_(t_*) ∈ ρ_ι ρ_K 𝒱_b). So Ŝ_4^+ = Ŝ_4^− (h_b is injective, [[lem:s20-injective]]), and
+we drop the sign. Now [[prop:ii-g1-3-5]] (1) with β_K := α_K − 1 gives
+∂_(t_*)u_sing ∈ H^(∞,(3−2ε,3−ε,α_K−1))_b(M′), and [[lem:iii-i2-2-1]] (1) with ℰ_K = ∅ and β_K := α_K − 2 ≠ 0, the a
+priori bound on Ω_− being that of u_hi + u_reg, gives
+
+    u_sing ∈ H^(∞,3/2−4ε,3/2−5ε,((0,0),α_K−2))_b(M′).
+
+The (0, 0)-coefficient at K⁺ is
+
+    lim_(t_*→∞) u_sing(t_*, x) = ∫_ℝ ∂_(t_*)u_sing dt_* = ℱ(∂_(t_*)u_sing)(0) = ġ_b(ḃ_0) + h_b(iŜ_4),
+
+as u_sing → 0 as t_* → −∞ (K⁻-weight α_K − 1 > 0) and ∂_(t_*)u_sing is integrable (K-weights > 1). Replacing the
+cut-off of the (0, 0)-term by χ_K changes u_sing by a term supported away from K⁺ and 𝓘⁺ near (ι⁺)°, of ι⁺-order 2
+(ġ_b, h_b ∈ 𝒜²). So, with
+
+    ḃ := ḃ_0,        Ṡ^(0)_1 := iŜ_4                                                                    {#eq:iii-i6-2-11}
+
+([Hin26, (11.133)]), u_sing − χ_K(ġ_b(ḃ) + h_b(Ṡ^(0)_1)) ∈ H^(∞,3/2−4ε,3/2−5ε,α_K−2)_b(M′). Their reality is shown
+after Step 6.
+
+*Step 6* (null infinity). ũ := u − χ_K(ġ_b(ḃ) + h_b(Ṡ^(0)_1)) = u_I + u_ι + u_hi + u_reg + (u_sing −
+χ_K(ġ_b(ḃ) + h_b(Ṡ^(0)_1))) has the K⁺-weight α_K − 2 (Steps 1–5; c′_K, N and α_K − 1 are larger) and the ι⁺-weight
+ℓ′_+ := 3/2 − 5ε. Near 𝓘⁺, χ_K = 0 and Lũ = f; [[prop:iii-i1-2-1]] with ℓ_+ := min(ℓ′_+, min Re ℰ_+ − ε), as in Step
+4 of the proof of [[prop:iii-i3-2-1]], gives the 𝓘⁺-data (⟨ℰ^C_I⟩, ℓ_I). This is [[eq:iii-i6-2-1]].
+
+*Reality.* u is real, as f and L are and forward solutions are unique. ġ_b and h_b are real on real arguments ((B3)),
+so χ_K(ġ_b(Im ḃ) + h_b(Im Ṡ^(0)_1)) = −Im ũ has the K⁺-weight α_K − 2 > 0. A stationary tensor of positive K⁺-weight
+vanishes on X°, so ġ_b(Im ḃ) + h_b(Im Ṡ^(0)_1) = 0, and Im ḃ = 0, Im Ṡ^(0)_1 = 0 by the rows [[eq:iii-h-3-1]].
+
+*Continuity.* Every map above is linear and bounded between the spaces stated ([[prop:iii-h-3-2]], the construction
+of [[prop:iii-g4-5-1]], [[lem:iii-i2-4-2]], [[lem:iii-i6-1-1]]–[[lem:iii-i6-1-4]], [[prop:ii-g1-3-3]] (1),
+[[prop:ii-g1-3-5]] (1), and Steps 0–2 as in [[prop:iii-i5-2-1]]), with bounds uniform in b ∈ ℬ̄_* by (B1)–(B5). ∎
+
+The step of [Hin26, Proposition 9.30] and the expansion [Hin26, (11.107b)] of the zero energy solution are not needed
+(see the end of [[sec:iii-i5-2]]); the tf-improvement of [Hin26, Proposition 9.35] is needed, because the first moment
+∫ t_* f^♭ dt_* has the borderline weight 2. [[prop:iii-g4-5-1]]'s solution contains |σ|^(α−3)h_b(S^(−1)_1), a
+translation state with a coefficient singular at σ = 0. The rows of the augmented operator see it; left in the first
+component, it would give a row correction of size |σ|^(−ε) in the 𝒮_1-component, which the integration in t_* would
+turn into growth. [[lem:iii-i6-1-4]] moves it into the 𝒮_1-column with the coefficient −σ²|σ|^(α−3)S^(−1)_1 =
+O(|σ|^(1−ε)), and [[lem:iii-i6-1-3]] shows that the remaining row data are answered by the nullspace, with columns
+O(|σ|^(1−ε)). The identification [[eq:iii-i6-2-8]] needs every piece in 𝒳_σ; the conormal piece of
+[[prop:iii-g4-5-1]]'s solution lies in it for an order family lowered near R_out, a radial set where only an upper
+threshold applies, and the inverses on the two spaces agree, as the kernels do not depend on the order
+([[lem:iii-i6-1-2]]). The range α_K − 2 < ε_ind is that of [Hin26].

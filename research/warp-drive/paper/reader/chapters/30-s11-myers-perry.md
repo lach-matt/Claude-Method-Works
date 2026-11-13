@@ -1548,33 +1548,33 @@ frequencies X^±_sc-b := [±[0, 1]_σ × X̄; {0} × ∂X̄] with faces scf, tf,
 of [[def:s11-b-analysis]] (5) with partial expansions (index set (0, 0) at zf, coefficients in H_b(X), as in
 [[eq:s10-zf]]).
 
-*The inputs in dimension 4 + 1.* The four statements [Hin26, (2.25a)–(2.26b)] are proved in dimension 4 + 1 in
-[[ch:s10]]:
+*The inputs in dimension 4 + 1.* The four statements [Hin26, (2.25a)–(2.26b)], called (T1)–(T4) here, are proved in
+dimension 4 + 1 in [[ch:s10]]:
 
-(2.25a) and the matching statement of (2.25b): by [[prop:ii-g1-3-3]] (1), for β_K ∈ (0, ∞) ∖ ℕ, ε ∈ (0, 1),
+(T1) ([Hin26, (2.25a)] and the matching statement of [Hin26, (2.25b)]): by [[prop:ii-g1-3-3]] (1), for β_K ∈ (0, ∞) ∖ ℕ, ε ∈ (0, 1),
 β_I ≥ β_ι − min(β_K, 1 − ε) and u ∈ H^(k+1,(β_I,β_ι,β_K))_b(M),
 (ℱu)|_(±(0,1]) ∈ H^(k,(min(β_I,β_ι)−ε,β_ι−1,((0,0),β_K−1)))_b(X^±_sc-b), with the σ-Taylor coefficients of order
 < β_K − 1 of the two signs equal.
 
-(2.25b): [[prop:ii-g1-3-3]] (2), with the loss ℓ = ⌈(½ − min(β_K, β_ι − β_I))_+⌉.
+(T2) ([Hin26, (2.25b)]): [[prop:ii-g1-3-3]] (2), with the loss ℓ = ⌈(½ − min(β_K, β_ι − β_I))_+⌉.
 
-(2.26a): by [[prop:ii-g1-3-5]] (1), with ℓ := ⌈(max(β_ι − β_scf, β_K) + ε − ½)_+⌉, if
+(T3) ([Hin26, (2.26a)]): by [[prop:ii-g1-3-5]] (1), with ℓ := ⌈(max(β_ι − β_scf, β_K) + ε − ½)_+⌉, if
 v^± ∈ H^(k+ℓ,(β_scf,β_ι−1,((0,0),β_K−1)))_b(X^±_sc-b) have the same σ-Taylor coefficients, then
 ℱ⁻¹v ∈ H^(k,(min(β_scf,β_ι)−ε,β_ι,β_K))_b(M), v := χ(σ)Σ_± 1_(±σ>0)v^±.
 
-(2.26b): [[prop:ii-g1-3-5]] (2), whose high-frequency space carries the weight δ − 1 where that of [Hin26] carries δ;
+(T4) ([Hin26, (2.26b)]): [[prop:ii-g1-3-5]] (2), whose high-frequency space carries the weight δ − 1 where that of [Hin26] carries δ;
 the statement of [Hin26], with any δ, follows by renaming δ.
 
 We also use, from the same proofs, that ℱ ∘ t_*∂_(t_*) = (−σ∂_σ − 1) ∘ ℱ (integration by parts:
 ∫ e^(iσt_*) t_*∂_(t_*)u = −∫(iσt_* + 1)e^(iσt_*)u, and ∂_σℱu = ℱ(it_*u)), and that ℱ commutes with operators in x. As
-σ∂_σ commutes with 1_(±σ>0) and [σ∂_σ, χ(σ)] = σχ′(σ) is supported in ½ ≤ |σ| ≤ 1, we have, for v as in (2.26a) and any
+σ∂_σ commutes with 1_(±σ>0) and [σ∂_σ, χ(σ)] = σχ′(σ) is supported in ½ ≤ |σ| ≤ 1, we have, for v as in (T3) and any
 z,
 
     ℱ⁻¹((σ∂_σ − (z − 1))w) = (−t_*∂_(t_*) − z)ℱ⁻¹w                                                       {#eq:iii-a-4-1}
 
 for every tempered w, and (σ∂_σ − (z − 1))v = χ(σ)Σ_± 1_(±σ>0)(σ∂_σ − (z − 1))v^± + r with r supported in
 ½ ≤ |σ| ≤ 1. Such an r, if of class H^(k′,β_scf) there, has ℱ⁻¹r ∈ H^(k′−ℓ′,(β_scf−ε,J,J))_b(M) for every J, with a
-loss ℓ′ = ℓ′(J) that grows with J ([[prop:ii-g1-3-5]] (1)) and is finite for the finitely many J used, by (2.26a)
+loss ℓ′ = ℓ′(J) that grows with J ([[prop:ii-g1-3-5]] (1)) and is finite for the finitely many J used, by (T3)
 with the tf- and zf-weights taken arbitrarily large (r vanishes near tf and zf); we call such terms *harmless*.
 
 **Lemma {#lem:iii-a-4-1}** ([Hin26, Lemma 2.24].) Let χ ∈ C_c^∞((−1, 1)) equal 1 near 0. The following are b-normal
@@ -1624,15 +1624,15 @@ times in R_zf below, as (z, m′) ∈ E_K with z − 1 = j.
 (finitely many conditions below any bound). We write E_(ι,≤) := {(z, m′) ∈ E_ι : Re z ≤ β_ι} and similarly E_(K,≤),
 E_(I,≤).
 
-*Part (1), E_I = ∅.* Then u ∈ H^(k+l,(β_I,β̃_ι,β̃_K))_b(M), and the hypotheses of (2.25a) hold for these weights:
+*Part (1), E_I = ∅.* Then u ∈ H^(k+l,(β_I,β̃_ι,β̃_K))_b(M), and the hypotheses of (T1) hold for these weights:
 β_I ≥ β̃_ι − β̃_K (if β̃_K = β_K by [[eq:iii-a-4-2]], and otherwise because
 β_I > β_ι − min Re E_K ≥ β̃_ι − β̃_K − ε strictly, so for small ε), and β_I ≥ β̃_ι − (1 − ε) for small ε, as
-β_I > β_ι − 1. They remain true when β̃_K is increased up to β_K or β̃_ι up to β_ι. So (2.25a) gives
+β_I > β_ι − 1. They remain true when β̃_K is increased up to β_K or β̃_ι up to β_ι. So (T1) gives
 
     ℱu ∈ H^(k,(min(β_I,β̃_ι)−ε, β̃_ι−1, ((0,0),β̃_K−1)))_b(X^±_sc-b).                                     {#eq:iii-a-4-6}
 
 Let R_ι := Π_((z,m′)∈E_(ι,≤)) (−t_*∂_(t_*) − χ(r⁻¹)r∂_r − z). By the converse in [[lem:iii-a-1-3]] at ι
-([[lem:iii-a-4-1]] (2)) and (F1) at ℐ and K, R_ιu ∈ H^(k+l−|E_(ι,≤)|,(β_I,β_ι,β̃_K))_b, so for l large (2.25a) gives
+([[lem:iii-a-4-1]] (2)) and (F1) at ℐ and K, R_ιu ∈ H^(k+l−|E_(ι,≤)|,(β_I,β_ι,β̃_K))_b, so for l large (T1) gives
 ℱ(R_ιu) ∈ H^(k,(min(β_I,β_ι)−ε,β_ι−1,((0,0),β̃_K−1))). As ℱ(−t_*∂_(t_*)u) = (σ∂_σ + 1)ℱu and −r∂_r = ρ∂_ρ commutes
 with ℱ, ℱ(R_ιu) = Π_(E_(ι,≤)) (σ∂_σ + χ(ρ)ρ∂_ρ − (z − 1))ℱu. Weakening its scf-weight to min(β_I, β̃_ι) − ε,
 [[lem:iii-a-1-3]] at tf ([[lem:iii-a-4-1]] (5); its hypothesis is β_ι − 1 ∉ Re π₁(E_ι − 1); its a priori hypothesis
@@ -1683,16 +1683,16 @@ other face), gives the index set (E_I, min(β_I, β̃_ι) − ε) there, the der
 in l. This is [[eq:iii-a-4-3]].
 
 *Part (2), E_K = ∅.* Then [[eq:iii-a-4-4]] is the equality of the σ-Taylor coefficients of v^± of orders
-≤ ⌊β_K − 1⌋ (as ℓ_j = −1), and v^± ∈ H^(k+l,(β_scf,β̃_ι−1,((0,0),β_K−1))), so (2.26a) gives
+≤ ⌊β_K − 1⌋ (as ℓ_j = −1), and v^± ∈ H^(k+l,(β_scf,β̃_ι−1,((0,0),β_K−1))), so (T3) gives
 
     u := ℱ⁻¹v ∈ H^(k+l−l₁,(β′_I,β̃_ι,β_K))_b(M),     β′_I := min(β_scf, β̃_ι) − ε,                        {#eq:iii-a-4-8}
 
-l₁ the loss of (2.26a). Let R_tf := Π_((z,m′)∈E_(ι,≤)) (σ∂_σ + χ(ρ)ρ∂_ρ − (z − 1)). By the converse in
+l₁ the loss of (T3). Let R_tf := Π_((z,m′)∈E_(ι,≤)) (σ∂_σ + χ(ρ)ρ∂_ρ − (z − 1)). By the converse in
 [[lem:iii-a-1-3]] at tf ([[lem:iii-a-4-1]] (5)), R_tf v^± ∈ H^(k+l−|E_(ι,≤)|,(β_scf,β_ι−1,((0,0),β_K−1)))_b, and the
 σ-Taylor coefficients of R_tf v^± still agree: near zf, σ∂_σ multiplies the coefficient of σ^j by j and χ(ρ)ρ∂_ρ acts
 on the coefficients in x, the same on both sides. By [[eq:iii-a-4-1]],
 ℱ⁻¹(R_tf v) = Π(−t_*∂_(t_*) − χ(r⁻¹)r∂_r − z)u, while R_tf v equals χ(σ)Σ_± 1_(±σ>0)R_tf v^± up to harmless terms; so
-(2.26a) gives
+(T3) gives
 
     Π_((z,m′)∈E_(ι,≤)) (−t_*∂_(t_*) − χ(r⁻¹)r∂_r − z) u ∈ H^(k+l−|E_(ι,≤)|−l₁,(β′_I,β_ι,β_K))_b(M),
 

@@ -543,7 +543,7 @@ the b-fields being v∂_v = −R∂_R and the rotations).
 *Step 2: the Fourier transform.* u is the extension by zero of u|_(v>0). Indeed, let φ be smooth with compact support
 and χ ∈ C_c^∞(ℝ) equal to 1 near 0. Then ⟨u, φχ(·/ε)⟩ → 0 as ε → 0, since ‖φχ(·/ε)‖_(H^(−s)) = O(ε^(min(½,½+s))) and
 s > −½; and ⟨u, φ(1 − χ(·/ε))⟩ → ∫_(v>0) uφ by dominated convergence (|u| ≤ Cv^(a_0), a_0 > −1). So [[lem:ii-f-5-7]]
-applies to f := u|_(v>0), with a := a_0 and with its decay exponent at v = ∞ equal to Re λ − ε. The equation holds
+applies to f := u|_(v>0), with a := a_0 and b := Re λ − ε. The equation holds
 across v = 0 by hypothesis, so the step of the proof of [[lem:ii-f-5-8]] that establishes it there is not needed. So
 û(r̂, ω) := ∫ e^(ir̂v)u dv is smooth on {r̂ ≠ 0}, with
 
@@ -1458,7 +1458,7 @@ for each; k_μ = 0.
 (4)–(7); m_0 = 2; k_μ = 0.
 
 A root μ of L̂_b(0) in the rows from □^Υ is the root μ − 1 of the list of □^Υ in [[prop:iii-d3-3-1]], and the state is
-h^(μ)_b := δ*_(g_b)ω^(μ−1)_b, whose leading term δ̄̂*(0)ω̄ is of degree μ ([[prop:iii-d3-3-1]] (4)–(7)). Only the rows
+h^(μ)_b := δ*_(g_b)ω^(μ−1)_b, whose leading term δ̄*(0)ω̄ is of degree μ ([[prop:iii-d3-3-1]] (4)–(7)). Only the rows
 with −μ < ℓ_K are used.
 
 *Completeness of the list.* The roots of [[prop:iii-f1-2-3]] with real part in (−3, 0] are those listed and the
@@ -1477,7 +1477,7 @@ determinant has μ as a simple zero (the hypothesis on z_Υ). So its kernel is o
 L̄̂(0)h̄ = 0: for the base of a chain this is the leading order of [[eq:iii-g2-2-1]] at m = 0, since
 L̂_b(0) − L̄̂(0) ∈ ρ⁴Diff²_b ([[lem:iii-f-2-1]] (3)); for s1 and v1 it is [[eq:iii-g2-2-4]] at the first index of the
 chain. As 2L̄̂(0) = ρ²L̃(0)(ω, ρ∂_ρ, ∂_ω) ([[eq:iii-g-1-1]]) is dilation invariant, this is N(L̄̂(0), μ)φ = 0. The
-leading term is non-zero for Y ≠ 0: for the roots from □^Υ by (R5) of [[sec:iii-d3-1]], as N(δ̄̂*(0), μ − 1) is
+leading term is non-zero for Y ≠ 0: for the roots from □^Υ by (R5) of [[sec:iii-d3-1]], as N(δ̄*(0), μ − 1) is
 injective on these types at μ − 1 ∉ {0, −1}, or (at s0 and s2 with μ = 0) by [[lem:iii-f1-2-5]]; for the boosts and
 rotations by [[prop:iii-d3-3-1]] (2)–(3); and for the physical states by [[prop:iii-f4-5-1]], whose leading terms span
 the kernel. ∎

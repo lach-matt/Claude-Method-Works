@@ -833,9 +833,8 @@ and [[lem:iii-i8-2-6]] hold at b as stated. The pairs (s1, z, k), (z, k) ∈ �
 
     f^((z,k))_(h,p⃗)(S) = L_(h,p⃗) m_(z,k)(S) + e^ν_(h,p⃗)(S),                                     {#eq:s21-motions-at-b}
 
-with e^ν_(h,p⃗) := r^ν_(h,p⃗) + E^ν_(h,p⃗),
-
-with r^ν of [[eq:iii-i9-2-4]], every object built at b, and E^ν of [[eq:iii-i15-1-1]]; and for every α ∈ (2, 3),
+where e^ν_(h,p⃗) := r^ν_(h,p⃗) + E^ν_(h,p⃗), with r^ν of [[eq:iii-i9-2-4]], every object built at b, and E^ν of
+[[eq:iii-i15-1-1]]; and for every α ∈ (2, 3),
 ‖e^ν_(h,p⃗)(S)‖_(𝒴(α)) ≤ C|S|(‖h‖ + |p⃗ − p⃗_b| + |b − b_0|), uniformly on ℬ̄_*. At b = b_0, E^ν = 0, and at
 (h, p⃗) = (0, 0), e^ν = 0, which is [[lem:iii-i8-2-4]].
 

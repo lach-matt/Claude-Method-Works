@@ -199,10 +199,10 @@ a v1 coefficient beside the b- and S-coefficients would invert a map that degene
 coefficients are assigned in [[sec:iii-i15-2]], not read from the K⁺-expansion.
 
 *Proof.* At b, h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in ker L̂_b(0) in the
-space 𝒳_0 of [[sec:iii-h-3]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀,
+space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀,
 with the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of
-[[prop:iii-h-3-2]]: the matrix B(b) is invertible). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with
+[[prop:iii-h-3-2]]: the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is invertible). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with
 |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses
 h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0 by the injectivity of S ↦ h_b(S) ([[lem:iii-i15-1-2]]). So
-h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, as ḃ ↦ ġ_b(ḃ) is injective. ∎
+h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, the ġ_b(ḃ) being part of a basis. ∎
 

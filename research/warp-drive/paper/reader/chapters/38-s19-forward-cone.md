@@ -697,8 +697,7 @@ trapping admissibility. ∎
 
 **Corollary {#cor:iii-h2-1-2}** (δ_Γ uniformly small.) For every k ∈ ℕ₀ there are η_k ∈ (0, 1] and ε_k > 0 such that,
 with h_Γ := h_(η_k,b) in (Γ.4), δ_Γ(0) < 1/(2(k + 1)) and δ_Γ(−ε) ≤ 1/(k + 1) for ε ∈ (0, ε_k] and every b ∈ B̄_1. So
-the condition δ_Γ(0) < 1/(2(k + 1)), under which [[thm:iii-h1-1-3]] is proved at the order k ([[sec:iii-h1-1]]), holds
-at every b ∈ B̄_1, for every k.
+B̄_1 ⊂ ℬ_k for every k, with ℬ_k the set of [[sec:iii-h1-1]] on which [[thm:iii-h1-1-3]] holds at the order k.
 
 *Proof.* With f(η′) := sup_Γ λ_max(p_1^Γ − η′q^Γ) of [[eq:i-b-1-4]], q^Γ ≥ 2β_0 and [[eq:iii-h2-1-1]] give
 f(η′) ≤ Cη − 2β_0η′ for η′ ≥ 0, so γ_+ ≤ Cη/(2β_0). f is Lipschitz with constant Q := sup_Γ q^Γ, and
@@ -1286,11 +1285,10 @@ on the step of [[sec:iii-i2-5]] in which it is used. The memberships [[eq:iii-i2
 the order k for that c, the losses ℓ_0 being independent of k; u, u_I and u^♭ do not depend on c, so their memberships
 hold at every order. H^∞ in [[eq:iii-i2-5-5]]–[[eq:iii-i2-5-9]] is to be read in this sense.
 
-For f ∈ C^∞_c(Ω_*°), [[lem:iii-h1-2-1]], [[eq:iii-h1-4-1]]–[[eq:iii-h1-4-2]] and [[eq:iii-h1-5-1]]–[[eq:iii-h1-5-2]] give
-the forward solution of L_b u = f as u = u_hi + u_reg + u_sing, with ℱu_hi = (1 − χ(|σ|))L̂_b(σ)⁻¹f̂(σ) on ℝ,
-ℱu_reg = χ(|σ|)û_(reg,1)(σ) on ℝ (the proof of [[lem:iii-h1-4-1]]),
-(û_(reg,1), b̂_1, Ŝ_1) := L̃_b(σ)⁻¹(f̂(σ), 0, 0), and u_sing = v_ġ + v_h of [[eq:iii-h1-5-1]]–[[eq:iii-h1-5-2]], with (the proof of
-[[lem:iii-h1-5-1]])
+For f ∈ C^∞_c(Ω_*°), [[lem:iii-h1-2-1]], [[eq:iii-h1-4-1]]–[[eq:iii-h1-4-2]] and [[eq:iii-h1-5-1]]–[[eq:iii-h1-5-2]]
+give the forward solution of L_b u = f as u = u_hi + u_reg + u_sing, with ℱu_hi = (1 − χ(|σ|))L̂_b(σ)⁻¹f̂(σ) on ℝ,
+ℱu_reg = χ(|σ|)û_(reg,1)(σ) on ℝ (the proof of [[lem:iii-h1-4-1]]), (û_(reg,1), b̂_1, Ŝ_1) := L̃_b(σ)⁻¹(f̂(σ), 0, 0),
+and u_sing = v_ġ + v_h of [[eq:iii-h1-5-1]]–[[eq:iii-h1-5-2]], with (the proof of [[lem:iii-h1-5-1]])
 
     ℱ(∂_(t_*)v_ġ) = χ(|σ|)G_1(σ)(b̂_1(σ)),        ℱ(∂²_(t_*)v_h) = χ(|σ|)G_2(σ)(Ŝ_1(σ)),
     G_1(σ)(ḃ) := Ψ(σ, ·)ġ(ḃ),        G_2(σ)(S) := (Ψ − σ∂_σΨ)h(S) − iσΨh̆(S),                            {#eq:iii-i2-4-1}

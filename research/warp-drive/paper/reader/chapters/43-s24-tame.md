@@ -45,7 +45,7 @@ is admissible off a finite set of ε_K ([[def:iii-j3-1-3]], (A_K)). (6) The cond
 are new, each excluding finitely many values, of the kind of (G⁺) and of admissibility; (E1) is (G⁺) at its closed
 endpoint. No condition on spec_ι⁺(L̄) beyond (G⁺) is needed, as no improvement after the fact is made.
 
-*Base points.* Throughout, the base point has black hole parameter b ∈ B̄_*, the neighbourhood of b_0 of
+*Base points.* Throughout, the base point has black hole parameter b ∈ ℬ̄_*, the neighbourhood of b_0 of
 [[sec:iii-h2-0]], shrunk so that [[lem:iii-i15-1-2]] and [[prop:iii-i15-2-5]] hold on it. The results of
 [[ch:s19]]–[[ch:s23]] are used at b, with constants uniform in b: L_(b_0), g_(b_0) near K⁺, the states, towers and
 companions at b_0 and the index set ℰ_ind are replaced by those at b, derivatives in b are taken at b, and the v1 terms
@@ -86,10 +86,10 @@ Below, ε ∈ (0, ε_1] is fixed, for a fixed ε_1 > 0; every output space is ta
 the loss ε′ that the statement assigns.
 
 **Definition {#def:iii-j2-1-1}** (Tame families.) Let E, G be graded spaces, d_0, d ∈ ℕ, δ_0 > 0, and
-ℬ := {β : ‖β‖_(d_0) < δ_0}. A family (T_β)_(β∈ℬ) of linear maps E^∞ → G^∞ is *tame with loss d* if for every
+𝔹 := {β : ‖β‖_(d_0) < δ_0}. A family (T_β)_(β∈𝔹) of linear maps E^∞ → G^∞ is *tame with loss d* if for every
 k ∈ ℕ₀ there is C_k with
 
-    ‖T_β e‖_(G^k) ≤ C_k (‖e‖_(E^(k+d)) + ‖β‖_(k+d) ‖e‖_(E^d)),        β ∈ ℬ,  e ∈ E^∞.            {#eq:iii-j2-1-1}
+    ‖T_β e‖_(G^k) ≤ C_k (‖e‖_(E^(k+d)) + ‖β‖_(k+d) ‖e‖_(E^d)),        β ∈ 𝔹,  e ∈ E^∞.            {#eq:iii-j2-1-1}
 
 A family (v_β) in G^∞ is *tame with loss d* if ‖v_β‖_(G^k) ≤ C_k (1 + ‖β‖_(k+d)) for every k.
 
@@ -100,9 +100,9 @@ A family (v_β) in G^∞ is *tame with loss d* if ‖v_β‖_(G^k) ≤ C_k (1 + 
 (b) If (T_β), E → G, is tame with loss d, (S_β), G → H, with loss d′, and d_0 ≥ d + d′, then (S_β T_β) is tame with
 loss d + d′.
 
-(c) (*Finite rank.*) If ℓ_β : E^∞ → ℂ^N satisfies |ℓ_β e| ≤ C ‖e‖_(E^d) on ℬ, and v¹_β, …, v^N_β are tame with loss d,
+(c) (*Finite rank.*) If ℓ_β : E^∞ → ℂ^N satisfies |ℓ_β e| ≤ C ‖e‖_(E^d) on 𝔹, and v¹_β, …, v^N_β are tame with loss d,
 then e ↦ Σ_i (ℓ_β e)_i v^i_β is tame with loss d. In particular a family of linear maps between finite-dimensional
-spaces, bounded on ℬ, is tame with loss 0.
+spaces, bounded on 𝔹, is tame with loss 0.
 
 (d) (*Fixed maps.*) A linear map T independent of β that is bounded E^(k+d) → G^k for every k is tame with loss d.
 
@@ -132,7 +132,7 @@ map e ↦ (e, S_β e) is tame with loss d′ by (a), and (b) applies. (g) is [[d
 
 **Lemma {#lem:iii-j2-2-1}** (The elementary tame families.) For d_0 large and δ_0 small the following are tame, with
 losses independent of k, and with constants that depend on the base point through finitely many seminorms, continuous
-in b ∈ B̄_*.
+in b ∈ ℬ̄_*.
 
 (a) (*Forward solutions.*) The forward solution operators of the operators L^(g,g_0), g = g_0 + h̃, used in
 [[ch:s19]]–[[ch:s23]]: h̃ = h ([[thm:iii-i-5-3]], at b with continuity in (b, S, h) by [[cor:iii-h2-5-1]]);
@@ -164,7 +164,7 @@ the bound of [[prop:iii-i15-2-8]]), (S^(−1)_(h,p⃗))⁻¹ ([[cor:iii-i7-4-6]]
 [[prop:iii-i15-2-12]]), T_(h,p⃗)⁻¹ ([[prop:iii-i8-4-1]], [[thm:iii-i11-4-1]]), the inverses
 (−id + A_k)⁻¹ of the elimination (Step 3 of the proofs of [[thm:iii-i14-3-1]] and [[prop:iii-i15-2-5]]), at b_0 the
 inverse of C^rot in W⃗′^rot (Step 4′ of the proof of [[thm:iii-i14-3-1]]), and (z − 3/2 − Ā)⁻¹ ([[prop:iii-i1-3-1]]):
-bounded on ℬ by the cited statements (close to ±id, or fixed). The coefficient functionals (Ṡ, S_ν, C^(k+1)_ν, C^rot,
+bounded on 𝔹 by the cited statements (close to ±id, or fixed). The coefficient functionals (Ṡ, S_ν, C^(k+1)_ν, C^rot,
 the dual functionals of Step 4′ of the proof of [[thm:iii-i14-3-1]], the t_*-coefficients at K⁺), and at a rotating b
 the assigned rotation coordinates A_b of [[def:iii-i15-2-3]], which read the ι⁺-data and the tf-data of the source
 ([[prop:iii-i15-2-2]]): bounded by a fixed low norm of the solution or right side they are applied to, by the cited
@@ -186,9 +186,9 @@ by the weights; (2): loss ℓ), [[prop:iii-h-3-2]] (L̃_b(0)⁻¹, loss 1), [[co
 [[lem:iii-i2-4-2]] (loss ℓ): as stated, at every order with the loss independent of the order.
 
 (f) (*High frequencies.*) [[cor:ii-g1-4-5]] loses ⌈kδ⌉ + ℓ, δ = δ_Γ(−η) ([[eq:i-b-1-4]]), where ℓ = 2ℓ_3 + ℓ_4 + ℓ_5
-depends only on the orders and the weights, not on η, the trapping data or the constant C_0. At every b ∈ B̄_1 ⊃ B̄_*
+depends only on the orders and the weights, not on η, the trapping data or the constant C_0. At every b ∈ ℬ̄_1 ⊃ ℬ̄_*
 the operator 2L_b is strongly trapping admissible ([[prop:iii-h2-1-1]]), and for every k the fibre inner product of
-(Γ.4) in [[sec:i-b-1-5]] and η can be chosen with (k + 1)δ_Γ(−η) ≤ 1, uniformly in b ∈ B̄_1 ([[cor:iii-h2-1-2]]);
+(Γ.4) in [[sec:i-b-1-5]] and η can be chosen with (k + 1)δ_Γ(−η) ≤ 1, uniformly in b ∈ ℬ̄_1 ([[cor:iii-h2-1-2]]);
 then the loss at the order k is at most ℓ + 1, with constants uniform in b. [[lem:iii-i2-4-1]] composes this with (e)
 and the invertibility of [[cor:iii-h-4-4]] on the middle frequencies; it has loss at most ℓ + 1 plus the losses of (e).
 
@@ -222,9 +222,9 @@ each of which is stated at every order with the loss independent of it, and with
 [[cor:ii-g1-4-5]]: ℓ_4 = ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉ is the loss of [[prop:ii-g1-4-4]], with ℓ_1, ℓ_2 and ν from
 [[lem:ii-g1-4-3]], and ℓ_3, ℓ_5 are the losses of [[prop:ii-g1-3-5]] (2) and [[prop:ii-g1-3-3]] (2). For δ:
 [[cor:iii-h2-1-2]] gives, for every k, an inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every
-b ∈ B̄_1; its proof bounds γ_+ by the bound [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by
+b ∈ ℬ̄_1; its proof bounds γ_+ by the bound [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by
 ν_min/(2 sup_Γ q^Γ), where β_0, ν_min and q^Γ do not depend on the inner product and are continuous and positive on
-B̄_1. So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The remark after [[prop:ii-g1-4-4]] treats only γ_+ ≤ 0 and is not used. (g) Each
+ℬ̄_1. So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The remark after [[prop:ii-g1-4-4]] treats only γ_+ ≤ 0 and is not used. (g) Each
 statement is a finite composition of maps of (b)–(e) and of the two face inverses cited, at a fixed number of steps;
 [[lem:iii-j2-1-2]] (e)–(f) applies, β entering only through the families of (b) (in [[prop:iii-i1-2-1]] and
 [[prop:iii-i1-3-1]], through L̃). ∎
@@ -346,7 +346,7 @@ k ∈ ℕ₀,
 
 with ‖h′‖_k and ‖q′‖_k the norms of the order-k spaces of [[eq:iii-i14-3-2]] and of 𝒬^k ([[eq:iii-i14-1-1]]) at the
 loss ε, the background norms at the loss ε, and ‖F‖_k the norm of 𝒴^♮(α−) at the loss ε′. Here δ_0 is at most the
-radius of a ball about b_0 in B_*, so the black hole parameter b of p⃗ lies in B_*, and d, d_0, δ_0 and the C_k do not
+radius of a ball about b_0 in ℬ_*, so the black hole parameter b of p⃗ lies in ℬ_*, and d, d_0, δ_0 and the C_k do not
 depend on b. The same holds for the solution maps of [[ch:s19]]–[[ch:s22]] in their spaces, and for
 [[thm:iii-i14-3-1]] with η_2 replaced by ε_+ ([[lem:iii-j1-1-1]]).
 
@@ -359,12 +359,12 @@ family with a loss d equal to the sum of the losses, independent of k, for d_0 �
 ([[lem:iii-j2-2-3]]); the weights compose in the same way, each family taking its input at the loss its statement
 assigns ([[sec:iii-j2-1]]). For [[thm:iii-i14-3-1]] the background is β = (h, p⃗, q), and [[eq:iii-j2-1-1]] is
 [[eq:iii-j2-4-1]]. At a base point with parameter b the entries are used in their forms at b; the constants of
-[[lem:iii-j2-2-1]] are uniform on B̄_*, and d_* of [[lem:iii-j2-2-3]] does not depend on b; so neither do d, d_0 and the
+[[lem:iii-j2-2-1]] are uniform on ℬ̄_*, and d_* of [[lem:iii-j2-2-3]] does not depend on b; so neither do d, d_0 and the
 C_k. ∎
 
 **Theorem {#thm:iii-j2-4-2}** (The tame form of the right inverse.) Let ε and ε′ be as in [[thm:iii-j2-4-1]], for
 [[thm:iii-j1-2-1]]. There are d, d_0 ∈ ℕ and ε_0 > 0 such that for U ∈ 𝒟^∞_ε with ‖U‖_(𝒟^(d_0)_ε) < ε_0, whose black
-hole parameter then lies in B_*, the solution U′ of [[eq:iii-j1-2-1]] satisfies, for every k,
+hole parameter then lies in ℬ_*, the solution U′ of [[eq:iii-j1-2-1]] satisfies, for every k,
 
     ‖U′‖_(𝒟^k_ε) ≤ C_k (‖f‖_(ℱ^(k+d)_(ε′)) + ‖U‖_(𝒟^(k+d)_ε) ‖f‖_(ℱ^d_(ε′))),                            {#eq:iii-j2-4-2}
 
@@ -421,7 +421,7 @@ inverses ([[thm:iii-j2-4-2]]) at every point of a neighbourhood of 0, so at b �
 u ∈ U ∩ B^∞_η. [Hin26, Section 13.1, Step 3 (3), p. 322] meets these support conditions by finite speed of
 propagation. The pair of scales is that of [[cor:iii-j3-6-6]], on which [[prop:iii-j2-4-3]] maps 𝒟 to ℱ and the right
 inverse maps ℱ to 𝒟, both without loss in the weights; the right inverses at b ≠ b_0 are those of [[thm:iii-j2-4-2]]
-and [[thm:iii-j3-5-5]], stated at every b ∈ B_*. The support conditions, the smoothing operators on the exact spaces
+and [[thm:iii-j3-5-5]], stated at every b ∈ ℬ_*. The support conditions, the smoothing operators on the exact spaces
 𝒟_ex and the exterior family h_(−S) of [[ch:s26]] are supplied with the nonlinear theorem in [[ch:s27]].
 
 ### The exact classes and the exactness conditions {#sec:iii-j3-1}
@@ -429,7 +429,7 @@ and [[thm:iii-j3-5-5]], stated at every b ∈ B_*. The support conditions, the s
 Throughout [[sec:iii-j3-1]]–[[sec:iii-j3-6]], α is a fixed K⁺-weight, admissible in the sense of [[def:iii-i10-1-3]],
 with α ∈ (4 + ε_K − ε′_0, 4 + ε_K], satisfying (A_J) of [[sec:iii-j-1]] and [[def:iii-j3-1-3]] below. The exact
 classes and the conditions of [[def:iii-j3-1-3]] do not involve the black hole parameter b of the base point: the
-exponents, indicial roots and index sets in them are those at b_0, which serve at every b ∈ B̄_*
+exponents, indicial roots and index sets in them are those at b_0, which serve at every b ∈ ℬ̄_*
 ([[lem:iii-i15-1-1]] (P2)–(P3)).
 
 **Definition {#def:iii-j3-1-1}** (Exact classes.) Each class below is the class named after it with every order "w−"
@@ -930,7 +930,7 @@ each is at K⁺-order > α; at ι⁺ the exponents are in Λ, none at 3 + ε_+ b
 
 **Theorem {#thm:iii-j3-5-3}** (The forward problem with parameters at exact weights.) Assume [[def:iii-j3-1-3]], (H2)
 of [[sec:iii-i9-1]] read as a_K = α and (H5) of [[sec:iii-i14-1]] as a_+ ≤ 3 + ε_+. Let h ∈ 𝒳^∞_(J,ex), p⃗ ∈ 𝒫
-with black hole parameter b ∈ B̄_*, and q ∈ 𝒬_ex be small, and F ∈ 𝒴^♮_ex(α). Then the p⃗′ of [[thm:iii-i14-3-1]] (at
+with black hole parameter b ∈ ℬ̄_*, and q ∈ 𝒬_ex be small, and F ∈ 𝒴^♮_ex(α). Then the p⃗′ of [[thm:iii-i14-3-1]] (at
 a rotating b, of
 [[prop:iii-i15-2-5]]) is unchanged, the forward solution u has K⁺-weight α − 2 and every ι⁺-weight
 β_+ < min(3/2, min Re ℰ_+), and u = h_rem(q′) + h′ with q′ ∈ 𝒬_ex and
@@ -992,7 +992,7 @@ rows enter through ϑ_(ν,♯) at κ_ν − ε > α, the rotation rows at Re λ 
 is the same construction with the same classes; the proof of [[prop:iii-j2-4-3]] is unchanged with fixed weights. ∎
 
 **Theorem {#thm:iii-j3-5-5}** (The right inverse at exact weights.) There is d such that for U ∈ 𝒟^∞_ex, small in
-𝒟^d_ex, whose black hole parameter then lies in B_*, and f ∈ ℱ^∞_ex, there is U′ ∈ 𝒟^∞_ex with [[eq:iii-j1-2-1]],
+𝒟^d_ex, whose black hole parameter then lies in ℬ_*, and f ∈ ℱ^∞_ex, there is U′ ∈ 𝒟^∞_ex with [[eq:iii-j1-2-1]],
 linear in f, with ‖U′‖_(𝒟^k_ex) ≤ C_k ‖f‖_(ℱ^(k+d)_ex), C_k independent of U. At a rotating black hole parameter, U′ is
 built from the solution map of [[prop:iii-i15-2-5]].
 
@@ -1016,7 +1016,7 @@ loss 5ε are not needed.
 Then [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with the input and the output at the same fixed weights
 (ε′ = ε = 0 in [[sec:iii-j2-1]]), and [[prop:iii-j2-4-3]] maps 𝒟 to ℱ on these scales: the right inverse and the forward
 map act on one pair of Banach scales. This holds at every base point U small in 𝒟^d_ex, whose black hole parameter
-then lies in B_*, with constants uniform in U.
+then lies in ℬ_*, with constants uniform in U.
 
 *Proof.* The calculus of [[sec:iii-j2-1]] and [[lem:iii-j2-2-3]] are statements about graded Banach spaces; take the
 exact spaces. The elementary families of [[lem:iii-j2-2-1]] are tame between fixed-weight spaces: the forward solutions
