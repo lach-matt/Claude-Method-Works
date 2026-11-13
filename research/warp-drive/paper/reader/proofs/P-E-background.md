@@ -231,11 +231,23 @@ differences of the two polynomials at the common end). [[lem:bg-comparison]] (a)
 10⁻⁶, so by continuity the hypothesis |e| ≤ 10⁻⁶ holds on every segment. Then S − Ŝ = −(1/2)∫_(u1)^u e by
 [[lem:bg-reduction]] (a), and I accumulates the segment lengths times E₀.
 
-(i) R̂(u2) = 1.5193579823987569 exactly. (ii) μ3 − μ̃3 = (R² − R̂²) + 4(R′S − R̂′Ŝ) at u2, so |μ3 − μ̃3| ≤ (2R̂ +
-E₀)E₀ + 4(|R̂′| I/2 + Ŝ E₁ + E₁ I/2) with R̂′(u2) = −0.60795759341336, Ŝ(u2) = 0.61120057465952…; and R(u2)² ≥ 2.308
-> 0.823. (iii) By [[eq:bg-nprime]], μ′ = −(2/3)Bλ and λ′ = −μ/R³ < 0 while λ > 0 and μ > 0; λ(u2) = 2S(u2)/R(u2)² ≥
-2(Ŝ(u2) − I/2)/(R̂(u2) + E₀)² ≥ 0.529533, so λ > 0 on [u1, u2] (it decreases from λ(u1) > λ(u2)), hence μ is
-nonincreasing from μ(u1) = 3/2 to μ3. ∎
+Since R̂ ≥ R̂_min > 1.5 on every segment ([[sec:tab-bg-nprime-chain]]), Ŝ′ = −R̂/2 < 0, so Ŝ decreases from 2.067575
+to Ŝ(u2) = 0.61120057465952… ([[sec:tab-bg-nprime]]) and is positive on [u1, u2]; and R ≥ R̂ − E₀ > 1.5. The column
+I does not decrease down the rows, so |S − Ŝ| ≤ I/2 ≤ (3.63 × 10⁻⁸)/2 < 1.82 × 10⁻⁸ on [u1, u2], by the last row.
+
+(iv) At u, μ − μ̃ = (R² − R̂²) + 4(R̂′(S − Ŝ) + (R′ − R̂′)Ŝ + (R′ − R̂′)(S − Ŝ)) and λ − λ̃ = 2(S − Ŝ)/R² + 2Ŝ(R̂² −
+R²)/(R²R̂²), where |R² − R̂²| = |e|(R + R̂) ≤ (2R̂ + E₀)E₀, |S − Ŝ| ≤ I/2, Ŝ > 0 and R ≥ R̂ − E₀ > 0; this gives the two
+bounds. On each segment they are at most 4.17 × 10⁻⁷ and 4.89 × 10⁻⁸ when R̂ is replaced by R̂_max in the numerators
+and by R̂_min in the denominators, |R̂′| by R̂′_max of [[sec:tab-bg-ray-chain]] and Ŝ by its value at the left end;
+both largest values occur on [7.17, 7.2].
+
+(i) R̂(u2) = 1.5193579823987569 exactly. (ii) This is (iv) at u = u2 with the exact values R̂(u2), R̂′(u2) =
+−0.60795759341336… and Ŝ(u2); and R(u2)² ≥ 2.308 > 0.823.
+
+(iii) By the first paragraph, S ≥ Ŝ − I/2 ≥ Ŝ(u2) − 1.82 × 10⁻⁸ > 0.6111 on [u1, u2], so λ = 2S/R² > 0 there. Since
+B ≥ 0, [[eq:bg-nprime]] gives μ′ = −(2/3)Bλ ≤ 0, so μ is nonincreasing and 3/2 = μ(u1) ≥ μ ≥ μ3 > 0 by (ii), where
+μ(u1) = 2.321² − 4(0.47)(2.067575) = 3/2. Hence λ′ = −μ/R³ < 0, so λ is decreasing on [u1, u2] and λ ≥ λ(u2) =
+2S(u2)/R(u2)² ≥ 2(Ŝ(u2) − I/2)/(R̂(u2) + E₀)² ≥ 0.529533. ∎
 
 #### The rays {#sec:bg-rays}
 
