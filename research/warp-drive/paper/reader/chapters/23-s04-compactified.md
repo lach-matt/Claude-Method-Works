@@ -987,3 +987,320 @@ In dimension 4 + 1, as a variant with the same proof ([[lem:i-c-2-9]] (c)),
 Here |dx| = r⁴μ_b near infinity, so L²(|dx|) = ρ² L²(μ_b), and the embedding H^(d+3)(ℝ⁴) ⊂ C^d(ℝ⁴) (as 3 > 2) applies in
 the coordinates (log r, ω), ω ∈ 𝕊³. ([Hin26c, (3.72)], in dimension 3 + 1, has α + 3/2.)
 
+### The standard estimates: setting and statements {#sec:ii-a1-1}
+
+This section and the next four prove the two estimates on which the estimates with b-regularity of [[sec:ii-a-9]]
+rest: the elliptic estimate and the real principal type propagation estimate on e3b-spaces without b-regularity, for
+operators whose coefficients have finite regularity, with variable orders and constants locally uniform in the
+operator. They are [Hin26c, Propositions 3.23 and 3.24] at k = 0 (pp. 69–71), which [Hin26c] proves by citation to the
+standard arguments; the hypotheses of the second are those of [[thm:ii-a1-5-4]] (see [[rem:ii-a1-hypotheses]]).
+
+*Method.* Nothing here depends on the dimension. The smooth calculus is that of [[sec:ii-a-3]]. Its operations are
+continuous on Fréchet spaces of symbols, so each of them is bounded by finitely many seminorms ([[sec:ii-a1-2-1]]). A
+bound that holds for smooth symbols with finitely many seminorms passes to symbols of finite regularity by mollification
+in the charts of the secondary structure and weak lower semicontinuity ([[sec:ii-a1-2-2]], as in [[lem:ii-a-8-5]]).
+This gives a calculus for symbols of finite regularity with explicit remainder bounds ([[prop:ii-a1-2-4]]). The elliptic
+estimate then follows from a parametrix of finite regularity ([[sec:ii-a1-3]]). The propagation estimate follows from a
+positive commutator argument ([[sec:ii-a1-4]]), whose commutant is built in flow-box coordinates of the exact Hamilton
+field, which has finite regularity ([[sec:ii-a1-5]]). Every square that the argument needs is an exact square of a
+symbol of finite regularity, so no Gårding inequality is used.
+
+#### The calculi {#sec:ii-a1-1-1}
+
+M̃ is the compactified spacetime of [[sec:ii-a-1]], with its scaled bounded geometry structure ℬ^× of
+[[sec:ii-a-4-1]] and the secondary bounded geometry structure ρℬ obtained by subdividing the unit cells into ρ-cuboids
+([Hin26c, (3.26)]; [Hin26d, Section 3.2]). ρℬ is a scaled bounded geometry structure with all scalings equal to 1, so
+everything stated in [[sec:ii-a-3]] holds for it. Its operator Lie algebra, which is also its coefficient Lie algebra,
+is the large operator Lie algebra 𝒱′ = C^∞_e3b 𝒱_e3b of ℬ^× ([Hin26d, Proposition 3.3 and Remark 3.48]). It defines the
+same Sobolev spaces as 𝒱 = C^∞_b 𝒱_e3b: an elliptic element of Ψ^𝗌_𝒱 lies in Ψ^𝗌_(𝒱′) [Hin26d, Remark 3.48] and is
+elliptic there, and each space is the set of u that a fixed elliptic operator maps into L². We write:
+
+S̃^m for the symbols of ρℬ of order m. In each chart of ρℬ, with fibre coordinates dual to the coordinate frame, these
+are the functions with |∂_x^β ∂_ξ^γ a| ≤ C_(βγ)⟨ξ⟩^(m−|γ|) uniformly ((S4)). This is a Fréchet space with the
+seminorms ‖a‖_(M;m), the largest of these constants over |β| + |γ| ≤ M. By (S1)–(S4), S̃^m is the class C^∞_e3b S^m of
+[Hin26c, (3.26)]: the symbols whose coefficients are bounded under any number of e3b-derivatives.
+
+Ψ̃^m := Ψ^m_(ρℬ), Op := Op_(ρℬ), and Ψ̃^(−∞) for its residual operators ((S4)). C^∞_b Ψ^m_e3b ⊂ Ψ̃^m
+([Hin26d, Remark 3.48]; [[sec:ii-a-4-2]]). The Sobolev spaces of ρℬ are therefore the spaces H^𝗌_e3b of
+[[sec:ii-a-4-2]].
+
+The properties used are these: (S5) for mapping properties, with operator norms bounded by a seminorm, and for
+compositions, adjoints, principal symbols and commutators; the continuity of Op : S̃^m → Ψ̃^m, of composition as a
+bilinear map and of the adjoint ([Hin26d, Remark 3.47], in (S5)); the principal symbol sequence: an A ∈ Ψ̃^m with
+vanishing principal symbol lies in Ψ̃^(m−1); (S8) for variable orders; (S10) for commutators with 𝒱_(b,[e3b]); and (S11)
+for weights.
+
+*Left quantization.* In [Hin26d, (3.26)] the local quantization is
+
+    (Op_β(b)u)(x) = (2π)^(−n) ∫ e^(i(x−x′)·ξ) ψ(x − x′) b(x, ξ) u(x′) dx′ dξ.
+
+Since ψ = 1 near 0 [Hin26d, p. 43] and the partition χ_α of [Hin26d, (3.28)] sums to 1, Op(f) is multiplication by f
+for a function f of the base alone; in particular Op(1) = I. The symbol is evaluated at the left variable, so for every
+function f of the base
+
+    f · Op(a) = Op(fa).                                                                                  {#eq:ii-a1-1-1}
+
+*Variable orders.* Fix ρ_∞ ∈ S̃^(−1), positive, equal to (Σ_j ξ(V_(0,j))²)^(−1/2) for |ξ| ≥ 1 (the V_(0,j) of
+[[lem:ii-a-2-9]]), so that ρ_∞ is a defining function of fibre infinity ᵉ³ᵇS*M̃. Variable orders are functions
+𝗄 ∈ C^∞(ᵉ³ᵇS*M̃), extended homogeneously of degree 0 near fibre infinity. The class of (S8) is that of
+[Hin26d, Definition 4.6] (p. 66): for variable 𝗄,
+
+    S̃^𝗄 := ρ_∞^(−𝗄) ⋂_(δ∈(0,1/2)) S̃⁰_(1−δ,δ),     contained in     ⋂_δ S̃^(sup 𝗄)_(1−δ,δ);
+
+the defining function of fibre infinity used there may be replaced by ρ_∞, their quotient being a positive symbol of
+order 0. Its operators map H^𝗍_e3b to H^(𝗍−𝗄)_e3b for every variable order 𝗍, without loss, and the calculus of
+[Hin26d, Theorem 3.51] (adjoints, compositions, commutators) holds for them, with the principal symbols of compositions
+taken modulo ⋂_δ S̃^(𝗄_1+𝗄_2−1+2δ). [Hin26d] states that orders are additive under composition, gives this class of
+principal symbols in its (4.10), and says that "Theorem 3.44 remains valid, mutatis mutandis"; we read this as in (S8).
+Derivatives of ρ_∞^(−𝗄) carry factors log ρ_∞, as in [[rem:i-a-3-3]], and the symbols of finite regularity below carry
+a counted number of such factors ([[def:ii-a1-1-3]]). The class ρ_∞^(−𝗄) S̃⁰, with bounded derivatives, is too small for
+them. We write "of order 𝗄 − 1 + 0" for "of order 𝗄 − 1 + δ for every δ > 0", with constants depending on δ.
+
+#### Classical symbols and the locus of microlocalisation {#sec:ii-a1-1-2}
+
+Let ᵉ³ᵇT̄*M̃ be the radial compactification of the fibres of ᵉ³ᵇT*M̃ over the compact manifold with corners M̃. It is a
+compact manifold with corners, whose boundary at fibre infinity is ᵉ³ᵇS*M̃.
+
+**Lemma {#lem:ii-a1-1-1}** (Classical symbols.) Let a ∈ C^∞(ᵉ³ᵇT̄*M̃). Then a ∈ C^∞_b S⁰ ⊂ S̃⁰. Consequently
+ρ_∞^(−m)a ∈ C^∞_b S^m and ρ_∞^(−𝗄)a ∈ S̃^𝗄.
+
+*Proof.* Use the global fibre coordinates ζ_j := ξ(V_(0,j)), in which ᵉ³ᵇT*M̃ = M̃ × ℝ^N (a vector bundle map onto its
+image, of full rank, [[lem:ii-a-2-9]]). In a cell of ℬ^× with coordinates x and scalings ρ_α, the fibre coordinates of
+(S4) are the ξ with ξ · dx/ρ_α. They are related to ζ by ζ_j = Σ_i v^i_(α,j)(x)ξ_i, where
+(φ_α)_*V_(0,j) = Σ_i v^i_(α,j) ρ_(α,i)∂_i with v_α uniformly bounded in C^∞ ((S1)). This map has a uniformly bounded
+inverse on its range, the V_(0,j) spanning 𝒱 uniformly in each cell ([[sec:ii-a-4-1]]). A smooth function on the
+compactified bundle has, in the coordinates (x, ζ), x-derivatives along b-vector fields of M̃ bounded, and
+ζ-derivatives of order γ bounded by C⟨ζ⟩^(−|γ|) (radial compactification). The coordinate vector fields ∂_(x^i) of a
+cell are uniformly bounded combinations of b-vector fields, as the coefficient Lie algebra is C^∞_b 𝒱_b ((S1)). The
+chain rule through ζ = v_α(x)ξ then gives the estimates of (S4) uniformly in α, with 𝒲-derivatives, so a ∈ C^∞_b S⁰.
+The rest follows from (S8). ∎
+
+*Microsupport, ellipticity.* An operator A ∈ Ψ̃^m is *microsupported* in a closed set K ⊂ ᵉ³ᵇT̄*M̃ if A = Op(a) + R with
+a ∈ S̃^m, supp a ⊂ K and R ∈ Ψ̃^(−∞). Following [Hin26c, p. 55], the locus of microlocal analysis is ᵉ³ᵇS*M̃. If
+WF′_e3b(A) ⊂ O with O ⊂ ᵉ³ᵇS*M̃ open, then A is microsupported in any closed neighbourhood K of WF′_e3b(A) in the
+compactified bundle with K ∩ ᵉ³ᵇS*M̃ ⊂ O. Indeed, if χ̃ ∈ C^∞(ᵉ³ᵇT̄*M̃) equals 1 near WF′(A) and is supported in K, then
+A = Op(χ̃a) + Op((1 − χ̃)a) + R, and Op((1 − χ̃)a) is residual, by the definition of the operator wave front set ((S5)).
+For L as in [[sec:ii-a1-1-3]] with principal symbol ℓ, Ell(L) ⊂ ᵉ³ᵇS*M̃ is the set of points with a neighbourhood U in
+the compactified bundle on which ℓ is invertible with |ℓ⁻¹| ≤ Cρ_∞^m for |ξ| ≥ 1. It is open, and Char(L) is its
+complement.
+
+**Lemma {#lem:ii-a1-1-2}** (Disjoint microsupports.) Let K_1, K_2 ⊂ ᵉ³ᵇT̄*M̃ be disjoint closed sets. Then the distance
+between K_1 and K_2 in the coordinates (x, ζ/|ζ|, log |ζ|) of each chart of ρℬ, for |ζ| ≥ 1, is bounded below
+uniformly. For a_i ∈ S̃^(m_i) supported in K_i, Op(a_1)Op(a_2) ∈ Ψ̃^(−∞), and the map (a_1, a_2) ↦ Op(a_1)Op(a_2), on
+the closed subspaces of symbols supported in K_1 and in K_2, is continuous into Ψ̃^(−N) for every N.
+
+*Proof.* The charts of ρℬ are, uniformly, rescalings of charts of the compact manifold with corners in which cells near
+the boundary are magnified. Distances therefore do not shrink: a smooth metric on the compact ᵉ³ᵇT̄*M̃ is bounded by a
+constant times the Euclidean metric of each chart. So the symbols have disjoint essential supports in the sense of
+[Hin26d], being uniformly separated. The wave front set of the composition is empty ((S5)), so it is residual. The
+bilinear map is continuous into Ψ̃^m ((S5)) and takes values in Ψ̃^(−N). Its graph in Ψ̃^(−N) is closed, since
+convergence in Ψ̃^(−N) implies convergence in Ψ̃^m. So it is separately continuous into Ψ̃^(−N) by the closed graph
+theorem, hence jointly continuous on these Fréchet spaces. ∎
+
+#### The operators and the statements {#sec:ii-a1-1-3}
+
+**Definition {#def:ii-a1-1-3}** Derivatives are taken in the coordinates (x, ω, τ) = (x, ζ/|ζ|, log |ζ|) of
+[[lem:ii-a1-2-2]] (for |ζ| ≥ 1, and (x, ζ) near the zero section) in the charts of ρℬ, and
+⟨log ρ_∞⟩ := (1 + (log ρ_∞)²)^(1/2). For M, ν ∈ ℕ_0 and a variable order 𝗆, C^((M))_ν S̃^𝗆 is the space of the
+a = ρ_∞^(−𝗆)a_0 with a_0 a function on ᵉ³ᵇT*M̃ whose derivatives of order j ≤ M are bounded by C⟨log ρ_∞⟩^(νj),
+uniformly in the charts; the norm ‖a‖_((M);ν,𝗆) is the least such C. S̃^𝗆_ν is the space of smooth a with
+‖a‖_((M);ν,𝗆) < ∞ for every M, a Fréchet space with these seminorms. The index ν is dropped when ν = 0.
+
+A class of index ν lies in those of larger index; products satisfy
+‖ab‖_((M);ν,𝗆_1+𝗆_2) ≤ C‖a‖_((M);ν,𝗆_1)‖b‖_((M);ν,𝗆_2) by Leibniz's rule. As ∂_ζ is e^(−τ) times bounded combinations
+of ∂_ω, ∂_τ ([[lem:ii-a1-2-2]]) and ⟨log ρ_∞⟩^(νj) ≤ C_δ ρ_∞^(−δj), S̃^𝗆_ν is contained, continuously, in the class
+ρ_∞^(−𝗆) ⋂_δ S̃⁰_(1−δ,δ) of (S8), also when 𝗆 is constant; for constant 𝗆 = m, S̃^m_0 is the class S̃^m of (S4). The
+derivatives of log ρ_∞ of positive order are bounded, as log ρ_∞ = −τ near fibre infinity.
+
+For a finite set 𝒫 = {P_1, …, P_J} ⊂ C^∞_b Ψ^m_e3b of operators localized near the diagonal ([[sec:ii-a-8-3]]), with
+P_j = Op(p_j) + R_j, p_j ∈ C^∞_b S^m, R_j ∈ Ψ̃^(−∞), and a_j ∈ C^(d_0)_e3b ([[def:ii-a-8-1]]), the operator L = Σ a_jP_j
+satisfies, by [[eq:ii-a1-1-1]],
+
+    L = Op(ℓ_f) + Σ_j a_jR_j,     ℓ_f := Σ_j a_jp_j ∈ C^((d_0)) S̃^m,                                    {#eq:ii-a1-1-2}
+
+with ‖ℓ_f‖_((d_0);m) ≤ C max_j ‖a_j‖_(C^(d_0)_e3b), as e3b-derivatives of the a_j are the rescaled coordinate
+derivatives in the charts. Its principal symbol is ℓ := Σ_j a_jσ(P_j), with σ(P_j) a representative of order m of the
+principal symbol. On ℂ^(N′)-valued functions everything is matrix-valued.
+
+Two statements are proved: the elliptic estimate [[thm:ii-a1-3-1]], and the real principal type estimate
+[[thm:ii-a1-5-4]] for the operators of [[sec:ii-a1-5-1]]. In both, B, E and G are carried by χ in the sense of
+[[sec:ii-a-8-3]], and the estimates hold in the strong sense: the left side is finite when the right side is. In the
+second, the elements of 𝒫_m are taken with principal symbols that are smooth and homogeneous near fibre infinity
+(classical), so that the Hamilton vector field is continuous on ᵉ³ᵇS*M̃.
+
+### The calculus of finite regularity {#sec:ii-a1-2}
+
+This section extends the calculus of [[sec:ii-a-3]] to symbols of finite regularity, with explicit bounds on the
+remainders.
+
+#### Seminorm bounds {#sec:ii-a1-2-1}
+
+**Lemma {#lem:ii-a1-2-1}** Let X_1, …, X_r and Y be Fréchet spaces and T : X_1 × ⋯ × X_r → Y continuous and
+multilinear. For every continuous seminorm q on Y there are continuous seminorms p_i on X_i and C with
+q(T(x_1, …, x_r)) ≤ C ∏_i p_i(x_i). A multilinear map between Fréchet spaces that is continuous in each variable
+separately is continuous.
+
+*Proof.* By continuity at 0 there are p_i with q(T(x)) < 1 whenever p_i(x_i) < 1 for all i. For general x with
+p_i(x_i) ≠ 0, apply this to x_i/(2p_i(x_i)) and use multilinearity, which gives C = 2^r. If some p_i(x_i) = 0, then
+tx_i satisfies p_i(tx_i) < 1 for all t, so q(T(x)) = 0. The second statement is the theorem of Banach and Steinhaus for
+separately continuous bilinear maps on Fréchet spaces, extended to r factors by induction. ∎
+
+A linear map from a Fréchet space X to a Banach space Z with closed graph is continuous (the closed graph theorem). It is
+then bounded by C times a seminorm of X. The seminorms of S̃^m are increasing in M, so such a bound has the form
+C‖x‖_(M;m).
+
+#### Mollification {#sec:ii-a1-2-2}
+
+**Lemma {#lem:ii-a1-2-2}** Let a ∈ C^((M))_ν S̃^𝗆, M ≥ 1. There are a_ε ∈ S̃^𝗆_ν, ε ∈ (0, 1], such that:
+
+(i) ‖a_ε‖_((M′);ν,𝗆) ≤ C‖a‖_((M′);ν,𝗆) for M′ ≤ M;
+
+(ii) a_ε → a pointwise, with |a_ε − a| ≤ Cε‖a‖_((1);ν,𝗆)⟨log ρ_∞⟩^ν ρ_∞^(−𝗆), and
+‖a_ε − a‖_((M−1);ν,𝗆+δ) ≤ C_δ ε‖a‖_((M);ν,𝗆) for every δ > 0;
+
+(iii) if a is supported in a closed set K of the compactified bundle, then a_ε is supported in the ε-neighbourhood of K
+in the coordinates of [[lem:ii-a1-1-2]].
+
+*Proof.* Write a = ρ_∞^(−𝗆)a_0 and mollify a_0. In each chart ψ_β of ρℬ, with a uniformly smooth partition of unity
+θ_β ([[lem:ii-a-8-5]]), use the coordinates (x, ω, τ) := (x, ζ/|ζ|, log |ζ|) for |ζ| ≥ 1, and (x, ζ) near the zero
+section, glued by a fixed partition of unity in ζ. The estimates of S̃⁰ for a_0 are equivalent, uniformly, to bounded
+derivatives in (x, ω, τ): ∂_ζ is e^(−τ) times a combination of ∂_ω and ∂_τ with bounded coefficients. Put
+a_(0,ε) := Σ_β (θ_βa_0) ∗ η_ε, the convolution taken in (x, ω, τ) (on the sphere, in a fixed finite atlas). Derivatives
+commute with convolution; the charts have uniformly bounded transitions and finite multiplicity; and ⟨log ρ_∞⟩ changes by
+at most a bounded factor over a unit ball in these coordinates, as log ρ_∞ = −τ. Hence (i). A derivative of a_(0,ε) of
+order j > M puts j − M derivatives on η_ε, so a_(0,ε) satisfies the bounds of every order, with constants depending on
+ε: a_ε ∈ S̃^𝗆_ν. (ii) is the mean value theorem: a derivative of order j ≤ M − 1 of a_(0,ε) − a_0 is bounded by
+Cε⟨log ρ_∞⟩^(ν(j+1)), the factor ρ_∞^δ⟨log ρ_∞⟩^ν is bounded, and the derivatives of ρ_∞^δ are ρ_∞^δ times bounded
+functions. (iii) is the support of η_ε. ∎
+
+#### Quantization and remainders {#sec:ii-a1-2-3}
+
+**Lemma {#lem:ii-a1-2-3}** (Density, and a regularising family.) (a) C_c^∞(M̃°) is dense in H^𝗌_e3b for every variable
+order 𝗌. (b) Let K ∈ ℕ and T_t := Op(τ_t), τ_t := (1 + tρ_∞⁻¹)^(−K), t ∈ (0, 1]. Then T_t is bounded in Ψ̃⁰, lies in
+Ψ̃^(−K) for each t, and T_t → I strongly on every H^𝗌_e3b as t → 0.
+
+*Proof.* (a) If not, there is 0 ≠ w in the dual space H^(−𝗌) ((S3), (S11)) annihilating C_c^∞; then w = 0 as a
+distribution, a contradiction. (b) τ_t is bounded in S̃⁰: ρ_∞∂_(ρ_∞) of it is Ktρ_∞⁻¹(1 + tρ_∞⁻¹)⁻¹τ_t, which is bounded,
+and the other derivatives act on ρ_∞ only through such factors. It lies in S̃^(−K) for fixed t > 0. Moreover
+|1 − τ_t| ≤ min(1, Ktρ_∞⁻¹) ≤ K(tρ_∞⁻¹)^δ, and likewise for its derivatives, so τ_t → 1 in S̃^δ for every δ > 0. So
+‖(T_t − I)v‖_(H^𝗌) → 0 for v ∈ H^(𝗌+δ), by (S5). T_t is uniformly bounded on H^𝗌, and C_c^∞ ⊂ H^(𝗌+δ) is dense by (a),
+so the convergence holds on all of H^𝗌. ∎
+
+For a ∈ C^((M))_ν S̃^𝗆 and u ∈ C_c^∞(M̃°), Op(a)u is defined by [Hin26d, (3.26)–(3.28)]. The local quantization is
+(2π)^(−n) ∫ e^(ix·ξ) b(x, ξ) ℱ(ψ(x − ·)u)(ξ) dξ, where the Fourier transform is rapidly decreasing in ξ, locally
+uniformly in x. So the integral converges absolutely for any b of polynomial growth, and only finitely many charts meet
+the support of u.
+
+**Proposition {#prop:ii-a1-2-4}** (Finite regularity.) Let 𝗍 be a variable order, ν ∈ ℕ_0, and 𝗆, 𝗆_1, 𝗆_2 orders,
+constant or variable. There are M and C, depending on these orders, on ν and on δ > 0, with the following properties,
+for symbols in C^((M+2))_ν S̃ of the stated orders (symbols of different indices are taken in the largest). Throughout,
+"order 𝗋" means bounded from H^𝗍 to H^(𝗍−𝗋).
+
+(a) Op(a) extends from C_c^∞ to a bounded operator of order 𝗆, without loss, with norm at most C‖a‖_((M);ν,𝗆).
+
+(b) Op(a_1)Op(a_2) − Op(a_1a_2) has order 𝗆_1 + 𝗆_2 − 1 + δ, with norm at most C‖a_1‖_((M);ν,𝗆_1)‖a_2‖_((M);ν,𝗆_2).
+
+(c) Op(a)* − Op(ā) has order 𝗆 − 1 + δ, with norm at most C‖a‖_((M);ν,𝗆). Here the adjoint is with respect to
+L²(|dt dx|), and matrix-valued symbols use the conjugate transpose. |dt dx| is a weight w times an e3b-density, so this
+adjoint is w⁻¹A^⋆w with A^⋆ the adjoint for that density, and conjugation by a weight preserves the classes ((S11)).
+
+(d) i[Op(a_1), Op(a_2)] − Op(H_(a_1)a_2) has order 𝗆_1 + 𝗆_2 − 2 + δ, with norm at most
+C‖a_1‖_((M+1);ν,𝗆_1)‖a_2‖_((M+1);ν,𝗆_2). If one of a_1, a_2 is scalar and the other matrix-valued, H_(a_1)a_2 is taken
+entrywise.
+
+(e) If two of a_1, …, a_r (r ≥ 2) are supported in disjoint closed sets of the compactified bundle, then
+Op(a_1)⋯Op(a_r) has order −N for every N, with norm at most C_N times the product of the (M)-norms, M = M(N, r).
+
+(f) (General principle.) Let T(a_1, …, a_r) be a finite expression in the operators Op(a_i) and their adjoints, formed
+by sums and compositions. Suppose that for smooth symbols it lies in the class of order μ, by (S5) and (S8): a
+difference of operators with the same principal symbol is one order lower, and a commutator is one order lower than the
+product. Then for symbols of finite regularity the operator given by the same expression has order μ + δ, or μ when all
+orders are constant and ν = 0. Its norm is at most C ∏_i ‖a_i‖_((M);ν,𝗆_i). In particular, for a of constant order m
+with ν = 0 and a real symbol ǎ of order 𝗄 and any index: D_a := Op(a)* − Op(a*) has order m − 1, and [D_a, Op(ǎ)] and
+[[D_a, Op(ǎ)], Op(ǎ)] have orders m + 𝗄 − 2 + δ and m + 2𝗄 − 3 + δ.
+
+The constants are uniform for symbols bounded in the stated norms. For (e) the supports are fixed, or vary within fixed
+disjoint closed sets.
+
+*Proof.* *Smooth symbols.* (a) For smooth a ∈ S̃^𝗆_ν, Op(a) is bounded of order 𝗆, without loss ((S8) and
+[[def:ii-a1-1-3]]). The linear map a ↦ Op(a) from the Fréchet space S̃^𝗆_ν to the bounded operators H^𝗍 → H^(𝗍−𝗆) has
+closed graph: if a_j → a and Op(a_j) → T, then Op(a_j)u → Op(a)u pointwise for u ∈ C_c^∞, by the integral above, so
+T = Op(a) on the dense set C_c^∞ ([[lem:ii-a1-2-3]] (a)). So it is continuous, and bounded by C‖a‖_((M);ν,𝗆)
+([[sec:ii-a1-2-1]]). (b) By (S5) and (S8), Op(a_1)Op(a_2) has principal symbol a_1a_2, as does Op(a_1a_2), so the
+difference lies in the class of order 𝗆_1 + 𝗆_2 − 1 + δ. The bilinear map into that class is separately continuous by
+the closed graph argument of [[lem:ii-a1-1-2]], using the continuity of composition into the class of order
+𝗆_1 + 𝗆_2 + δ. [[lem:ii-a1-2-1]] then applies. (c) is the same, with σ(A*) the complex conjugate of σ(A). (d) By (S5),
+i[Op(a_1), Op(a_2)] has order 𝗆_1 + 𝗆_2 − 1 + δ and principal symbol H_(a_1)a_2. Then H_(a_1)a_2 is a symbol of that
+order, and Op(H_(a_1)a_2) has full symbol H_(a_1)a_2. So the difference has order one lower; continuity is as in (b).
+Its norm involves one more derivative of each symbol, through H_(a_1)a_2. (e) [[lem:ii-a1-1-2]], and its analogue for r
+factors, with the same proof: the wave front set of the product is empty ((S5)).
+
+*Finite regularity.* For each item, let a_(i,ε) be the mollifications of [[lem:ii-a1-2-2]], with uniformly bounded
+norms. For u ∈ C_c^∞, Op(a_(i,ε))u → Op(a_i)u pointwise and boundedly on compact sets, by dominated convergence in the
+integral above; this is all (a) needs. In (b)–(f), (a) is available, M being taken large enough that (a) applies at the
+finitely many orders raised by 2δ: as a_i ∈ C^((M+2))_ν, [[lem:ii-a1-2-2]] (ii) gives a_(i,ε) → a_i in
+C^((M+1))_ν S̃^(𝗆_i+δ), so a_(1,ε)a_(2,ε), ā_(i,ε) and H_(a_(1,ε))a_(2,ε) converge in the (M)-norms at orders raised by
+2δ, and by (a) every factor of every item converges in operator norm, with a loss of 2δ in the order. (The factors
+vary with ε, so the convergence of the outer factors is needed, and this gives it.) So for u ∈ C_c^∞ the composite
+operators applied to u converge in a Sobolev space of lower order, hence in 𝒟′. The smooth bounds hold uniformly in ε.
+A bounded sequence in the Hilbert space H^(𝗍−𝗋) has weakly convergent subsequences, whose limits are identified in 𝒟′,
+and the norm is weakly lower semicontinuous. So the bounds hold for u ∈ C_c^∞ with the limit operators, and extend by
+density ([[lem:ii-a1-2-3]] (a)). In (a) this defines the extension. In (e), the supports of the mollified symbols stay in
+fixed disjoint closed neighbourhoods for small ε, by [[lem:ii-a1-2-2]] (iii) and [[lem:ii-a1-1-2]]. (f) is proved as
+(b): for smooth symbols the multilinear map is continuous into the class of order μ + δ. It is continuous into a larger
+class because compositions and adjoints are continuous, and its graph in the smaller class is closed. Then
+[[lem:ii-a1-2-1]] and the passage to finite regularity apply. When all orders are constant and ν = 0, the classes are
+those of (S5) without loss, and the same argument gives order μ. ∎
+
+**Lemma {#lem:ii-a1-2-5}** (Square roots.) Let Q be a Hermitian matrix-valued function on a set W of phase space with
+Q ≥ c Id, c > 0. Derivatives are taken in the coordinates of [[lem:ii-a1-2-2]].
+
+(i) If |∂^β Q| ≤ C_0⟨log ρ_∞⟩^(ν|β|) for |β| ≤ M, then Q^(1/2) and Q^(−1/2) satisfy the same bounds, with constants
+depending on c, C_0, M and ν.
+
+(ii) Let Q = Q_0 + λ Id, where Q_0 ≥ c satisfies the bounds of (i) and λ ≥ 0 is scalar with
+|∂^β λ| ≤ C_0⟨log ρ_∞⟩^(1+ν|β|) for |β| ≤ M. Then for |β| ≤ M, with C depending on c, C_0, M and ν,
+
+    |∂^β Q^(−1/2)| ≤ C⟨log ρ_∞⟩^((ν+1)|β|),     |Q^(1/2)| ≤ C⟨log ρ_∞⟩^(1/2),
+    |∂^β Q^(1/2)| ≤ C⟨log ρ_∞⟩^((ν+1)|β|)  (β ≠ 0).
+
+So Q^(−1/2) is in the class of index ν + 1 and order 0, and Q^(1/2) in that of index ν + 1 and order δ for every
+δ > 0.
+
+The index ν + 1 cannot be lowered to ν. Let f ≥ 0 be smooth with f′ compactly supported (so that yf′(y) is bounded and
+the τ-derivatives of Q stay in the class) and f(y) = y² near 0, and put Q := c + ⟨log ρ_∞⟩ f(x⟨log ρ_∞⟩^ν), which
+satisfies (ii) with index ν; then ∂_x² Q^(1/2) = c^(−1/2)⟨log ρ_∞⟩^(1+2ν) at x = 0, beyond the bound ⟨log ρ_∞⟩^(2ν) of
+index ν.
+
+*Proof.* (i) Q^(±1/2) = (2πi)⁻¹ ∮_γ z^(±1/2)(z − Q)⁻¹ dz for a fixed contour γ in {Re z > 0} around [c, C_0], at
+distance at least c/2 from it. A derivative ∂^β(z − Q)⁻¹ is a sum of products
+(z − Q)⁻¹ ∂^(β_1)Q (z − Q)⁻¹ ⋯ ∂^(β_k)Q (z − Q)⁻¹ with β_1 + ⋯ + β_k = β and |β_i| ≥ 1, each bounded on γ by
+C⟨log ρ_∞⟩^(ν|β|).
+
+(ii) By the spectral theorem, Q^(−1/2) = π⁻¹ ∫_0^∞ s^(−1/2)(s + Q)⁻¹ ds and Q^(1/2) = π⁻¹ ∫_0^∞ s^(−1/2) Q(s + Q)⁻¹ ds.
+As Q(s + Q)⁻¹ = I − s(s + Q)⁻¹, for β ≠ 0 this gives ∂^β Q^(1/2) = −π⁻¹ ∫_0^∞ s^(1/2) ∂^β(s + Q)⁻¹ ds. Now
+Q ≥ (c + λ)Id, so ‖(s + Q)⁻¹‖ ≤ (s + c + λ)⁻¹, and |∂^(β_i)Q| ≤ 2C_0⟨log ρ_∞⟩^(1+ν|β_i|). Expanding ∂^β(s + Q)⁻¹ as in
+(i), a product with k factors ∂^(β_i)Q is bounded by C(s + c + λ)^(−k−1)⟨log ρ_∞⟩^(k+ν|β|), with 1 ≤ k ≤ |β|. Since
+∫_0^∞ s^(∓1/2)(s + c + λ)^(−k−1) ds = C_k(c + λ)^(±1/2−k) ≤ C_k c^(±1/2−k) for k ≥ 1, both derivative bounds follow.
+Finally |Q^(−1/2)| ≤ c^(−1/2) and |Q^(1/2)| ≤ |Q|^(1/2) ≤ (C_0 + C_0⟨log ρ_∞⟩)^(1/2). ∎
+
+**Lemma {#lem:ii-a1-2-6}** (The supremum bound.) Let z ∈ C^((M))_ν S̃⁰, possibly matrix-valued, with M large, and
+η > 0. Then for every δ > 0,
+
+    ‖Op(z)v‖² ≤ (sup |z|² + η)‖v‖² + C_(η,δ)‖v‖²_(−1/2+δ),
+
+where sup |z| is the supremum of the operator norm of z over phase space.
+
+*Proof.* Let r := (sup |z|² + η − z^*z)^(1/2), a Hermitian symbol in C^((M))_ν S̃⁰ by [[lem:ii-a1-2-5]] (i), as
+sup |z|² + η − z^*z ≥ η. By [[prop:ii-a1-2-4]] (b), (c), Op(z)*Op(z) + Op(r)*Op(r) = Op(z^*z + r^*r) + R =
+(sup |z|² + η)I + R, with R of order −1 + 2δ and Op(1) = I ([[sec:ii-a1-1-1]]). Pair with v:
+|⟨Rv, v⟩| ≤ C‖v‖²_(−1/2+δ). ∎
+
+*The regulariser.* For κ ∈ (0, 1/2] put φ_ε := (1 + ερ_∞⁻¹)^(−κ) and θ_ε := ερ_∞⁻¹(1 + ερ_∞⁻¹)⁻¹, ε ∈ (0, 1]. For any
+vector field V,
+
+    V(ρ_∞^(−2𝗄)φ_ε²) = ρ_∞^(−2𝗄)φ_ε²(−2(𝗄 − κθ_ε)ρ_∞⁻¹Vρ_∞ − 2(V𝗄) log ρ_∞).                             {#eq:ii-a1-2-1}
+
+This is [[eq:i-a-3-6]] with the variable exponent. φ_ε is bounded in S̃⁰, lies in S̃^(−κ) for each ε, and tends to 1 in
+S̃^δ for every δ > 0 (proof of [[lem:ii-a1-2-3]] (b)). θ_ε is bounded in S̃⁰ with values in [0, 1).
+

@@ -498,7 +498,7 @@ compactification at both ends, sctf at r̂ = ∞ and ztf at r̂ = 0, with ρ_sct
 ϱ = r̂. C_b^∞(tf) is the space of smooth functions on tf° with all b-derivatives (r̂∂_r̂, Z_i) bounded, and
 𝒜^(a,b)(tf) := ρ_sctf^a ρ_ztf^b C_b^∞(tf). For σ̂ ∈ ℂ,
 
-    N_tf(σ̂) := 2iσ̂ρ̂(ρ̂∂_ρ̂ − 3/2 − S_0) + ρ̂² N(P⁽⁰⁾),                                                    {#eq:i-c-4-1}
+    N_tf(σ̂) := 2iσ̂ρ̂(ρ̂∂_ρ̂ − 3/2 − S_0) + ρ̂² N(P⁽⁰⁾),                                                   {#eq:i-c-4-1}
 
 with ρ∂_ρ read as ρ̂∂_ρ̂ in N(P⁽⁰⁾); this is [Hin26c, (9.110)] in dimension 4 + 1. It is the spectral family of the
 *model* P̂_mod(σ) := 2iσρ(ρ∂_ρ − 3/2 − S_0) + ρ²N(P⁽⁰⁾) on ℝ⁴ ∖ 0, written in x̂. For ς > 0 let
@@ -569,7 +569,8 @@ indicial gap (β_−, β_+) of P̂(0), and let α_+, s, M ∈ ℝ.
                                                                               w ∈ 𝒳_(tf,θ),            {#eq:i-c-4-3}
 
     ‖w‖_(H_(sc,b)^(−s+2,(−𝗋−α_+−1,−q+2)))
-        ≤ C(‖N_tf(e^(iθ))^(*h)w‖_(H_(sc,b)^(−s,(−𝗋−α_+,−q))) + ‖w‖_(H_(sc,b)^(−M,(−M,−M)))),     w ∈ 𝒳_(tf,θ)^*.   {#eq:i-c-4-4}
+        ≤ C(‖N_tf(e^(iθ))^(*h)w‖_(H_(sc,b)^(−s,(−𝗋−α_+,−q))) + ‖w‖_(H_(sc,b)^(−M,(−M,−M)))),
+                                                                              w ∈ 𝒳_(tf,θ)^*.          {#eq:i-c-4-4}
 
 (2) (*Fredholm estimates, II.*) Let I ⊂ (0, π) be compact and 𝗋 constant near R_out with 𝗋 + α_+ < −½ + S̄ there.
 Then [[eq:i-c-4-3]]–[[eq:i-c-4-4]] hold uniformly for θ ∈ I.
@@ -583,7 +584,7 @@ either.
 w ∈ H_(sc,b;b)^((s;k),(𝗋+α_+,q)) and
 
     ‖w‖_(H_(sc,b;b)^((s;k),(𝗋+α_+,q)))
-        ≤ C(‖N_tf(e^(iθ))w‖_(H_(sc,b;b)^((s−2;k),(𝗋+α_++1,q−2))) + ‖w‖_(H_(sc,b)^(s,(𝗋+α_+,q)))).            {#eq:i-c-4-5}
+        ≤ C(‖N_tf(e^(iθ))w‖_(H_(sc,b;b)^((s−2;k),(𝗋+α_++1,q−2))) + ‖w‖_(H_(sc,b)^(s,(𝗋+α_+,q)))).           {#eq:i-c-4-5}
 
 In the settings of (1) and (2), C is uniform in θ.
 

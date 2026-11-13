@@ -669,3 +669,152 @@ right-hand side lies in its space. So u^ε ∈ Ḣ^((𝗌_I−η_1;k),(2γ_I,γ_
 [[lem:ii-f-7-7]] places u^ε in the space of order 𝗌′. By [[eq:ii-f-7-4]], ‖u^ε‖ ≤ C‖f‖ uniformly in ε. A subsequence
 u^(ε_j), ε_j → 0, converges weakly to some u ∈ Ḣ^((𝗌′;k),(2γ_I,γ_+,γ_cf))_(ebe;b)([0, τ_0] × ι⁺) with ‖u‖ ≤ C‖f‖.
 Since P^ε_+ = P_+ on {τ ≥ 2ε}, P_+ u = f on {τ > 2ε_j} for every j, hence on {τ > 0}. ∎
+
+### Forward solutions of P_0 on e3b-spaces {#sec:ii-f-8}
+
+**Theorem {#thm:ii-f-8-1}** (Forward solutions of the stationary model.) Let P_0 be a stationary wave-type operator
+([[def:ii-c-1-1]]), in the setting of [[sec:ii-e-1-1]], with Ω_* = cl_M{t^♭ ≥ 1} and its slabs Ω_(1,T). Let α_I,
+α_+ ∈ ℝ with
+
+    α_I < −1/2 + S̄,      α_+ < α_I − 1/2.                                                                 {#eq:ii-f-8-1}
+
+Assume that P_0 is ℵ-admissible with sf-weight α_+ and sf-loss δ ([[def:ii-c-2-7]]), and let 𝗌 ∈ C^∞(ᵉ³ᵇS*M) be
+admissible with weights α_+, −ℵ and margin 0, and with weights α_+, 0 and margin 1 ([[def:ii-c-5-2]]). Let k ∈ ℕ₀ and
+f ∈ H^((𝗌;k),(2α_I+2,α_++2,0))_(e3b;b)(Ω_*; E)^(•,−), the space of restrictions to {r > r_0} of elements supported in
+{t^♭ ≥ 1}, with the quotient norm ([[sec:ii-a-7]]). The *forward solution* of P_0 u = f on Ω_* is the distribution u on
+Ω_*° ∩ {r > r_0} whose restriction to every slab Ω_(1,T) is the forward solution there of [[prop:ii-e-3-4]]: the
+restrictions of f lie in the slab spaces, the weights at ι⁺ and K⁺ being bounded above and below at bounded times, and
+the solutions on two slabs agree on the smaller by [[prop:ii-e-3-4]] (i). Then there is C_k, independent of f, with
+
+    ‖u‖_(H^((𝗌;k),(2α_I,α_+−δ,−ℵ))_(e3b;b)(Ω_*;E)^(•,−)) ≤ C_k ‖f‖_(H^((𝗌;k),(2α_I+2,α_++2,0))_(e3b;b)(Ω_*;E)^(•,−)).  {#eq:ii-f-8-2}
+
+This is [Hin26c, Theorem 10.1] in dimension 4 + 1. [Hin26c] states it on Ω = {t_* ≥ 1}; it is stated and proved here
+on Ω_*, where the slab theory of [[ch:s07]] lives and where [[thm:ii-f1-1-1]] uses it.
+
+The thresholds [[eq:ii-f-8-1]] are those of [Hin26c] at every n. In the b-density weights of [[eq:ii-f-1-2]] they read
+γ_I = α_I + 2 < 3/2 + S̄ = c + S̄ and γ_+ = α_+ + 5/2 < γ_I. Indeed, in (τ, R, ω) with t_* = τ⁻¹ and r = Rτ⁻¹, the map
+(τ, R) ↦ (t_*, r) has Jacobian determinant −τ⁻³, and |dx| = r³ |dr dω|, |dt dx| = |dt_* dx|; so
+
+    |dt dx| = τ⁻³ (R/τ)³ |dτ dR dω| = R⁴ τ⁻⁵ |(dτ/τ)(dR/R) dω| = 2 x_I⁻⁸ τ⁻⁵ |(dτ/τ)(dx_I/x_I) dω|,
+
+using R = x_I⁻² near ι⁺ ∩ 𝓘⁺. Hence x_I^(2α_I) τ^(α_+) L²(|dt dx|) = x_I^(2(α_I+2)) τ^(α_++5/2) L²(|(dτ/τ)(dx_I/x_I)
+dω|): the shifts are n/2 = 2 at 𝓘⁺ and (n + 1)/2 = 5/2 at ι⁺. So α_I < −1/2 + S̄ is γ_I < 3/2 + S̄, and α_+ < α_I − 1/2
+is α_+ + 5/2 < α_I + 2, that is γ_+ < γ_I. [Hin26c, Remark 10.2] applies: for P = P_0, p_1 = S|_(∂X), so p̄_1 = S̄,
+and [[eq:ii-f-8-1]] is the threshold [[eq:ii-d-1-3]] at 𝓘⁺.
+
+#### The weights {#sec:ii-f-8-1}
+
+With the metric density |dt dx| on Ω and the b-densities of [[sec:ii-f-6-1]], [[lem:ii-a-6-1]] identifies near ι⁺
+
+    H^(0,(2α_I,α_+,α_K))_e3b(|dt dx|) = H^(0,(2(α_I+2),α_++5/2,α_K+1/2))_e3b(|dτ/τ| μ_b),
+
+and, on functions supported away from K⁺ (near 𝓘⁺ and (ι⁺)°), the e3b-spaces are the ebe-spaces of [[eq:ii-f-6-3]] with
+the weights
+
+    γ_I := α_I + 2,      γ_+ := α_+ + 5/2,      γ_cf := −(α_+ + 2)                                         {#eq:ii-f-8-3}
+
+(the orders transported by the identification of [[lem:ii-f-7-2]] (a); near ι⁺, τ ∼ ρ_+ on {R ≥ 1/2}). They satisfy the
+hypotheses of [[prop:ii-f-6-2]] and [[prop:ii-f-7-4]]: γ_I < 3/2 + S̄ and γ_+ < γ_I by [[eq:ii-f-8-1]]; and γ_+ − 1/2 =
+α_+ + 2 = −γ_cf lies in (β_−, β_+), as P_0 is tf-admissible with the weight α_+ + 2 ([[def:ii-c-2-7]] (2)), so γ_+ <
+β_+ + 1/2 < 1 + β_+. The buffer 1/2 is explained in [Hin26c, footnote 100]: pointwise decay at ι⁺ is governed by the
+resonances, excluded in Im σ > −1 − β_+ ([[prop:ii-f-5-1]]), whereas the 3b-regularity order limits the decay
+obtainable by Sobolev embedding.
+
+#### Proof {#sec:ii-f-8-2}
+
+*Proof of [[thm:ii-f-8-1]].* *Step 0: late right-hand sides.* Let τ_0 be as in [[prop:ii-f-7-4]], for the orders 𝗌 and
+𝗌 + 1 (both meet its hypotheses: 𝗌 + 1 is admissible with weights α_+, 0 and margin 0 and meets the lower thresholds
+with margin 2, as 𝗌 has margin 1); τ_0 < C′τ_1/2 < C′/(1 + C′) ([[sec:ii-f-7-3]]). Let T := τ_0⁻¹ and ψ_T ∈ C^∞(ℝ)
+equal 1 on (−∞, T] and 0 on [T + 1, ∞), a function of t_*. 𝗌 + 1 is a slab order ([[sec:ii-e-3-2]]: admissible orders
+are, and adding a constant preserves the conditions), so [[prop:ii-e-4-3]], with P = P_0, the slab order 𝗌 + 1 and the
+weight α_I < −1/2 + S̄, gives on the slab Ω_(1,T+2) the forward solution u_0 of P_0 u_0 = f, with
+
+    ‖u_0‖_(H^((𝗌+1;k),2α_I)(Ω_(1,T+2))^(•,−)) ≤ C ‖f‖_(H^((𝗌;k),2α_I+2)(Ω_(1,T+2))^(•,−)) ≤ C ‖f‖,
+
+the last norm that of [[eq:ii-f-8-2]]: on Ω_* ∩ {t^♭ ≤ T + 2}, t_* ≤ (T + 2)/C′, so the weights at ι⁺ and K⁺ are bounded
+above and below there. As t^♭ ≤ t_*, supp ψ_T ⊂ {t^♭ ≤ T + 1}, inside the slab, so ψ_T u_0, extended by 0, lies in the
+spaces on Ω_* of order 𝗌 + 1 with any weights at ι⁺ and K⁺, with norm ≤ C‖f‖, and P_0(ψ_T u_0) = ψ_T f + [P_0, ψ_T]
+u_0. So f_1 := f − P_0(ψ_T u_0) = (1 − ψ_T) f − [P_0, ψ_T] u_0 is supported in {t_* ≥ T}, and, [P_0, ψ_T] ∈ x_I² ρ_+²
+Diff¹_e3b having coefficients supported in {T ≤ t_* ≤ T + 1}, ‖f_1‖ ≤ C‖f‖ in the space of [[eq:ii-f-8-2]]. The forward
+solution of P_0 u = f on Ω_* is ψ_T u_0 + u_1, u_1 that of P_0 u_1 = f_1 (on each slab, by [[prop:ii-e-3-4]] (i)). So it
+suffices to prove [[eq:ii-f-8-2]] when supp f ⊂ {t_* ≥ τ_0⁻¹}, which we assume.
+
+For j = 1, 2, 3, 4 let χ_j ∈ C_c^∞([0, j + 1)) equal 1 near [0, j], regarded as functions of R = r/t_* on Ω, with
+χ_1 = χ of [[def:ii-f-7-1]].
+
+*Step 1: a solution near 𝓘⁺.* (1 − χ_2) f is supported in {R ≥ 2} and defines a function on [0, ∞)_τ × ι⁺ vanishing
+near cf; by [[sec:ii-f-8-1]],
+
+    (1 − χ_2) f ∈ Ḣ^((𝗌;k),(2γ_I+2,γ_++2,∞))_(ebe;b)([0, τ_0] × ι⁺),
+
+with norm ≤ C‖f‖. Apply [[prop:ii-f-7-4]] (1) at the order 𝗌 + 1, for which (𝗌 + 1)′ = 𝗌′ + 1 equals 𝗌 + 1 on {R ≥ 1}
+([[lem:ii-f-7-3]] (a)), so that (1 − χ_2) f lies in the space of its right-hand side: the forward solution u_I of
+P_+ u_I = (1 − χ_2) f satisfies
+
+    u_I ∈ Ḣ^((𝗌′+1;k),(2γ_I,γ_+,γ_cf))_(ebe;b)([0, τ_0] × ι⁺),      ‖u_I‖ ≤ C ‖f‖.                         {#eq:ii-f-8-4}
+
+On supp(1 − χ_3) ⊂ {R ≥ 3}, P_0 = P_+ and χ_2 = 0, so
+
+    f′ := f − P_0((1 − χ_3) u_I) = f − (1 − χ_3) f + [P_0, χ_3] u_I = χ_3 f + [P_0, χ_3] u_I.
+
+f′ is supported in {R ≤ 4}, away from 𝓘⁺, so it is a function on M̃_0 near ι⁺ ∪ K⁺. [P_0, χ_3] is a first-order
+e3b-operator with the weight ρ_+² of P_0 ([[lem:ii-c-1-4]]), supported in {3 ≤ R ≤ 4}, and u_I has order 𝗌 + 1 there;
+so, with the identification of e3b- and 3b-spaces away from 𝓘⁺,
+
+    f′ ∈ H^((𝗌;k),(α_++2,0))_(3b;b)(Ω)^(•,−),      supp f′ ⊂ {t_* ≥ τ_0⁻¹, R ≤ 4},      ‖f′‖ ≤ C ‖f‖.      {#eq:ii-f-8-5}
+
+*Step 2: the solution with right-hand side f′.* f, supported in {t^♭ ≥ 1} ⊂ {t_* ≥ 1}, lies in the corresponding space
+on Ω with no larger norm, the quotient there being over more extensions; so [[eq:ii-f-8-5]] holds on Ω. By
+ℵ-admissibility ([[def:ii-c-2-7]] (3), [[eq:ii-c-2-2]]), for the order 𝗌, which over K⁺ is stationary-P_0-admissible
+with weights α_+, −ℵ and margin 0 ([[prop:ii-c-5-1]] (1)), the forward solution u′ of P_0 u′ = f′ on Ω satisfies
+
+    u′ ∈ H^((𝗌;k),(α_+−δ,−ℵ))_(3b;b)(Ω)^(•,−),      ‖u′‖ ≤ C ‖f′‖.                                         {#eq:ii-f-8-6}
+
+u′ is the restriction to {r > r_0} of a distribution ũ′ supported in {t_* ≥ 1}, and P_0 u′ = f′ on {r > r_0} as such
+distributions. So on Y := {1/2 < t_* < τ_0⁻¹, r > r_0}, P_0 u′ = 0, and u′ = 0 on {t_* < 1}. t_* is a time function for
+g_0 ([[lem:ii-b-1-1]]), and for p ∈ Y, J⁻_Y(p) ∩ {t_* ≥ 3/4} lies in L_p := {3/4 ≤ t_* ≤ t_*(p), B ≤ B(p), r ≥
+min(r(p), r^♮)} ([[lem:ii-f-1-4]] (a) for the metric g_0 itself), which is compact and contained in Y;
+[[lem:ii-f-1-3]] with the time function t_* and c := 3/4 gives u′ = 0 on Y. Let φ ∈ C^∞(ℝ) equal 0 on
+(−∞, τ_0⁻¹ − 1] and 1 on [τ_0⁻¹, ∞), a function of t_*. Then φũ′ extends u′, is supported in {t_* ≥ τ_0⁻¹ − 1} ⊂
+{t^♭ ≥ C′(τ_0⁻¹ − 1)} ⊂ {t^♭ ≥ 1}, as τ_0 < C′/(1 + C′), and has norm at most C‖ũ′‖. So u′ lies in
+H^((𝗌;k),(α_+−δ,−ℵ))_(3b;b)(Ω_*)^(•,−), with ‖u′‖ ≤ C‖f′‖ there.
+
+*Step 3: u′ near 𝓘⁺.* We show that (1 − χ_4) u′, regarded on M, is e3b-regular near 𝓘⁺. As (1 − χ_4) f′ = 0,
+
+    P_0((1 − χ_4) u′) = −[P_0, χ_4] u′ =: f″,
+
+supported in {4 ≤ R ≤ 5}, away from 𝓘⁺ and from cf; on [0, ∞) × ι⁺, by [[eq:ii-f-8-6]] and [[sec:ii-f-8-1]] with
+α_+ − δ for α_+,
+
+    f″ ∈ Ḣ^((𝗌−1;k),(∞,γ_+−δ+2,∞))_(ebe;b)([0, τ_0] × ι⁺).
+
+On supp(1 − χ_4) ⊂ {R ≥ 4}, P_0 = P_+. Let u″ be the forward solution of P_+ u″ = f″ given by [[prop:ii-f-7-4]] (1) at
+the order 𝗌 and with γ_+ − δ in place of γ_+ (allowed, δ ≥ 0; 𝗌′ = 𝗌 on supp f″):
+
+    u″ ∈ Ḣ^((𝗌′;k),(2γ_I,γ_+−δ,γ_cf))_(ebe;b)([0, τ_0] × ι⁺),      ‖u″‖ ≤ C ‖f″‖ ≤ C ‖f‖.
+
+ũ := u″ − (1 − χ_4) u′, extended by 0 to {τ > τ_0}, is a distribution on (0, ∞) × (ι⁺)° supported in {τ ≤ τ_0} with
+P_+ ũ = f″ − f″ = 0; near cf it equals u″, as (1 − χ_4) u′ vanishes on {R ≤ 4}, so ũ ∈ H^(𝗌′,γ_cf)_(e,loc)((0, ∞) ×
+{R < 4}). By [[prop:ii-f-7-4]] (2), ũ = 0. Hence, as 𝗌′ = 𝗌 on {R ≥ 1} and by [[sec:ii-f-8-1]],
+
+    (1 − χ_4) u′ = u″ ∈ H^((𝗌;k),(2α_I,α_+−δ,∞))_(e3b;b)(Ω_*)^(•,−),      ‖(1 − χ_4) u′‖ ≤ C ‖f‖.          {#eq:ii-f-8-7}
+
+*Step 4: conclusion.* On Ω_* ∩ {r > r_0}, P_0((1 − χ_3) u_I + u′) = (f − f′) + f′ = f. Both terms lie in the spaces on
+Ω_*: (1 − χ_3) u_I by [[eq:ii-f-8-4]], its support lying in {t_* ≥ τ_0⁻¹} ⊂ {t^♭ ≥ 1}, and u′ by Step 2; their
+restrictions to each slab Ω_(1,T′) lie in its slab spaces, the weights at ι⁺ and K⁺ being bounded above and below at
+bounded times. By [[prop:ii-e-3-4]] (i) on each slab, their sum is the forward solution of P_0 u = f on Ω_*:
+
+    u = (1 − χ_3) u_I + χ_4 u′ + (1 − χ_4) u′.
+
+By [[eq:ii-f-8-4]], (1 − χ_3) u_I ∈ H^((𝗌+1;k),(2α_I,α_+,∞))_(e3b;b)(Ω_*)^(•,−) ⊂
+H^((𝗌;k),(2α_I,α_+−δ,∞))_(e3b;b)(Ω_*)^(•,−) (𝗌′ + 1 = 𝗌 + 1 on {R ≥ 1}); by Step 2, χ_4 u′ ∈
+H^((𝗌;k),(∞,α_+−δ,−ℵ))_(e3b;b)(Ω_*)^(•,−), as χ_4 u′ is supported in {R ≤ 5}, away from 𝓘⁺, where 3b- and e3b-spaces
+agree; and [[eq:ii-f-8-7]] holds. The three bounds give [[eq:ii-f-8-2]]. ∎
+
+In the last display of the proof of [Hin26c, Theorem 10.1] the term u′ carries the sign −; the sign is +, as above.
+
+**Remark {#rem:ii-f-8-2}** (Relaxed ℵ-admissibility.) If P_0 is ℵ-admissible with margin d_ℵ (the relaxed version
+after [[def:ii-c-2-7]]), then [[eq:ii-f-8-2]] holds with 𝗌 − d_ℵ in place of 𝗌 on the left, when 𝗌 is admissible with
+weights α_+, −ℵ and margin d_ℵ, and with weights α_+, 0 and margin 1 + d_ℵ. Indeed, ℵ-admissibility enters only
+[[eq:ii-f-8-6]], which then gives the order 𝗌 − d_ℵ, and the loss persists through Steps 3–4 ([[prop:ii-f-7-4]] is
+applied in Step 3 at the order 𝗌 − d_ℵ, which meets its hypotheses). This is [Hin26c, Remark 10.17] in dimension 4 + 1.

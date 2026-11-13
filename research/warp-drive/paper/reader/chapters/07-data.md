@@ -198,34 +198,32 @@ the spheres, and that γ_U⁻¹ = γ⁻¹ − c(α) γ⁻¹dr ⊗ γ⁻¹dr with
 
 **Lemma {#lem:constraints-evolution}** (The constraints as an evolution in r.) (a) The constraint map of (γ_U, κ_U) is
 quasilinear in U: of second order in α with no ∂_r² α and no ∂_r of an angular derivative of α, of first order in (ϖ,
-q), and α enters J to first order only. Its ρ-component is
+q), and α enters J to first order only. Its ρ-component,
 
-    ρ = p_U ∂_r α − γ_U^(rr) Π^(AB) ∂_A ∂_B α + (first order in the angular derivatives of α) + (algebraic in U),
-        p_U := (γ_U^(rr))^(3/2) H_U,                                                                     {#eq:data-rho}
+    ρ = p ∂_r α − γ^(rr) Π^(AB) ∂_A ∂_B α + (first order in the angular derivatives of α) + (algebraic in U),
+        p := (γ^(rr))^(3/2) H,                                                                           {#eq:data-rho}
 
-H_U the mean curvature of the spheres in γ_U with respect to the unit normal toward increasing r, and Π^(AB) the inverse
-of the induced metric of the spheres: so ρ is parabolic in r where the spheres have positive mean curvature. Its
-J-component, multiplied by the matrix 𝒮 that takes (J_r, J_A) to
+with γ^(rr), H and Π^(AB) evaluated at γ_U (H the mean curvature of the spheres with respect to the unit normal toward
+increasing r, Π^(AB) the inverse of their induced metric), is parabolic in r where the spheres have positive mean
+curvature. Its J-component is symmetric hyperbolic in (ϖ, q) with r as time. At the data of g0 on Σ, γ = (1 + μ/r²)
+dr² + r² dΩ² with μ = μ(τ0 + r), so that γ^(rr) = r²/(r² + μ), γ^(rA) = 0, Π = r² dΩ² and H = 3/(r² + μ)^(1/2) > 0 for
+all r, and
+
+    ρ = (3 r³/(r² + μ)²) ∂_r α − (r² + μ)⁻¹ Δ_(S³) α + …,
+    J_r = 6 ∂_r ϖ − 2 Π^(AB) ∂_A q_B + …,     J_A = −(2 r²/(r² + μ)) ∂_r q_A + 4 ∂_A ϖ + …;
+
+the symmetrizer 𝒮 = diag(1, −(1/2) Π⁻¹), which depends on γ alone, gives 𝒮 A0 = diag(6, (r²/(r² + μ)) Π⁻¹) > 0 and 𝒮 A^B
+symmetric for every angle B. In the class of fields of (r, ϑ) invariant under T² and both reflections (q = q_ϑ dϑ; the
+components q_(φ1), q_(φ2) and J_(φ1), J_(φ2) vanish by the reflections) these equations are the whole system: J_r = 6
+∂_r ϖ − (2/r²) ∂_ϑ q + …, J_ϑ = −(2 r²/(r² + μ)) ∂_r q + 4 ∂_ϑ ϖ + …, with 𝒮 = diag(1, −1/(2r²)), 𝒮 A0 = diag(6, 1/(r² +
+μ)), 𝒮 A^ϑ = [[0, −2/r²], [−2/r², 0]], and real characteristic speeds c² = 2 (r² + μ)/(3 r⁴) > 0; the construction stays
+in that class. With γ_rA ≠ 0, as at the approximant's data (where γ_rA = O(λ²), by (b) below), and q and Π read as
+above, the symmetrizers still form a one-dimensional space, depending on γ alone, whose generator, the matrix 𝒮 that
+takes (J_r, J_A) to
 
     (J_r + (γ^(rA)/γ^(rr)) J_A,  −(1/2) Π^(AB) J_B),                                              {#eq:data-symmetrizer}
 
-has principal part, in (ϖ, q_B),
-
-    𝒮 A0 ∂_r + 𝒮 A^C ∂_C,      𝒮 A0 = diag(6, γ_U^(rr) Π^(AB)),
-    𝒮 A^C = [[6 γ^(rC)/γ^(rr), −2 Π^(CB)], [−2 Π^(AC), (1 + α γ^(rr))⁻¹ γ^(rC) Π^(AB)]],
-
-with 𝒮 A0 positive definite and every 𝒮 A^C symmetric; 𝒮 depends on γ alone. So J is symmetric hyperbolic in (ϖ, q) with
-r as time, for every γ. At the data of g0 on Σ, γ = (1 + μ/r²) dr² + r² dΩ² with μ = μ(τ0 + r), γ^(rr) = r²/(r² + μ),
-γ^(rA) = 0, Π = r² dΩ² and H = 3/(r² + μ)^(1/2) > 0 for all r, so that
-
-    ρ = (3 r³/(r² + μ)²) ∂_r α − (r² + μ)⁻¹ Δ_(S³) α + …,
-    J_r = 6 ∂_r ϖ − 2 Π^(AB) ∂_A q_B + …,     J_A = −(2 r²/(r² + μ)) ∂_r q_A + 4 ∂_A ϖ + …,
-
-and 𝒮 = diag(1, −(1/2) Π⁻¹), 𝒮 A0 = diag(6, (r²/(r² + μ)) Π⁻¹). In the class of fields of (r, ϑ) invariant under T² and
-both reflections (q = q_ϑ dϑ; the components q_(φ1), q_(φ2) and J_(φ1), J_(φ2) vanish by the reflections) these
-equations are the whole system: J_r = 6 ∂_r ϖ − (2/r²) ∂_ϑ q + …, J_ϑ = −(2 r²/(r² + μ)) ∂_r q + 4 ∂_ϑ ϖ + …, with 𝒮 =
-diag(1, −1/(2r²)), 𝒮 A0 = diag(6, 1/(r² + μ)), 𝒮 A^ϑ = [[0, −2/r²], [−2/r², 0]], and real characteristic speeds c² = 2
-(r² + μ)/(3 r⁴) > 0; the construction stays in that class.
+keeps 𝒮 A0 = diag(6, γ_U^(rr) Π^(AB)) > 0 for γ_rA small. The construction needs only γ_rA small.
 
 (b) At the approximant's data (the data on Σ of g_app built from the stage data of [[lem:stage-data]]) the constraint
 map of (γ_U, κ_U), as a function of U, has no coefficient of order 1/λ: the second derivatives of γ of order 1/λ enter
@@ -256,23 +254,36 @@ derivatives of α come from −2 ν_U⁻¹ Δ_Π ν_U = −ν_U⁻² Δ_Π α + 
 R_Π, H², |A|² and the σ-part of ∂_(e_r) H contain α algebraically or through its angular derivatives. The terms
 −|κ_U|² + (tr κ_U)² contain U algebraically. This proves the form [[eq:data-rho]].
 
-(a), J. In J = 2(−div_(γ_U) κ_U + d tr_(γ_U) κ_U) the derivatives of (ϖ, q) come from κ_U − κ. Since Π(γ⁻¹dr, ·) = 0 and
-q(γ⁻¹dr) = 0, the formula for γ_U⁻¹ gives tr_(γ_U) Π = 3 and tr_(γ_U)(q ⊗ dr + dr ⊗ q) = 0, so d tr_(γ_U) κ_U contains 3
-dϖ. Further, γ_U^(jk) Π_ij ∂_k ϖ = Π_i^k ∂_k ϖ, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr, and γ_U^(jk) ∂_k q_j = Π^(AB) ∂_A
-q_B + (lower order), because (γ⁻¹dr)^j ∂_k q_j = ∂_k(q(γ⁻¹dr)) − q_j ∂_k (γ⁻¹dr)^j is of order zero and Π^(rk) = 0. So
-the principal part of J is
+(a), J. Let γ_rA be small. In J = 2(−div_(γ_U) κ_U + d tr_(γ_U) κ_U) the derivatives of (ϖ, q) come from κ_U − κ. Since
+Π(γ⁻¹dr, ·) = 0 and q(γ⁻¹dr) = 0, the formula for γ_U⁻¹ gives tr_(γ_U) Π = 3 and tr_(γ_U)(q ⊗ dr + dr ⊗ q) = 0, so d
+tr_(γ_U) κ_U contains 3 dϖ. Further, γ_U^(jk) Π_ij ∂_k ϖ = Π_i^k ∂_k ϖ, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr, and γ_U^(jk)
+∂_k q_j = Π^(AB) ∂_A q_B + (lower order), because (γ⁻¹dr)^j ∂_k q_j = ∂_k(q(γ⁻¹dr)) − q_j ∂_k (γ⁻¹dr)^j is of order zero
+and Π^(rk) = 0. So the principal part of J is
 
     J_i ≅ 2 (3 ∂_i ϖ − Π_i^k ∂_k ϖ − (1 + α γ^(rr))⁻¹ (γ⁻¹dr)^k ∂_k q_i − ∂_i r Π^(AB) ∂_A q_B).
 
 Contracting with γ⁻¹dr, which Π annihilates, and using q(γ⁻¹dr) = 0 again, J_r + (γ^(rA)/γ^(rr)) J_A = J(γ⁻¹dr)/γ^(rr) ≅
 6 ∂_r ϖ + 6 (γ^(rC)/γ^(rr)) ∂_C ϖ − 2 Π^(CB) ∂_C q_B. For the angular components, ∂_A r = 0 and Π_A^k ∂_k = ∂_A, so J_A
 ≅ 4 ∂_A ϖ − 2 (1 + α γ^(rr))⁻¹ (γ^(rr) ∂_r + γ^(rC) ∂_C) q_A, and −(1/2) Π^(AB) J_B ≅ −2 Π^(AC) ∂_C ϖ + (1 + α γ^(rr))⁻¹
-Π^(AB)(γ^(rr) ∂_r + γ^(rC) ∂_C) q_B. Since (1 + α γ^(rr))⁻¹ γ^(rr) = γ_U^(rr), these are the matrices stated; α enters J
-through γ_U⁻¹ and through the connection of γ_U, so to first order. At the data of g0, ν² = 1 + μ/r², σ = 0 and Π = r²
-dΩ²; the volume density is r² (r² + μ)^(1/2) times that of the unit sphere and e_r = (r/(r² + μ)^(1/2)) ∂_r, so H = div
-e_r = (r² (r² + μ)^(1/2))⁻¹ ∂_r (r³) = 3/(r² + μ)^(1/2), and p = (r²/(r² + μ))^(3/2) · 3/(r² + μ)^(1/2) = 3 r³/(r² +
-μ)². In the symmetric class the speeds solve det(A^ϑ − c A0) = 0 with A0 = diag(6, −2 r²/(r² + μ)) and A^ϑ = [[0,
-−2/r²], [4, 0]]: −12 c² r²/(r² + μ) + 8/r² = 0.
+Π^(AB)(γ^(rr) ∂_r + γ^(rC) ∂_C) q_B. Since (1 + α γ^(rr))⁻¹ γ^(rr) = γ_U^(rr), the matrix 𝒮 of [[eq:data-symmetrizer]]
+makes the principal part of J, in (ϖ, q_B), equal to 𝒮 A0 ∂_r + 𝒮 A^C ∂_C with 𝒮 A0 = diag(6, γ_U^(rr) Π^(AB)), positive
+definite, and
+
+    𝒮 A^C = [[6 γ^(rC)/γ^(rr), −2 Π^(CB)], [−2 Π^(AC), (1 + α γ^(rr))⁻¹ γ^(rC) Π^(AB)]],
+
+symmetric; at the data of g0, where γ^(rA) = 0 and α = 0, 𝒮 = diag(1, −(1/2) Π⁻¹). α enters J through γ_U⁻¹ and through
+the connection of γ_U, so to first order. A symmetrizer is a matrix S with S A0 and every S A^C symmetric: linear
+conditions on S, with coefficients continuous in γ and α. Where γ_rA = 0, in a frame orthonormal for Π, A0 = diag(6, −2
+γ_U^(rr) I) and A^C has the row −2 e_C^T (the J_r-equation on q) and the column 4 e_C (the J_A-equations on ϖ), e_C the
+C-th unit vector. Writing S = [[s, b^T], [c, D]], S A^C = [[4 b·e_C, −2 s e_C^T], [4 D e_C, −2 c e_C^T]] is symmetric
+for C = 1, 2, 3 only if D = −(s/2) I and c = 0, and then S A0 = [[6 s, −2 γ_U^(rr) b^T], [0, s γ_U^(rr) I]] is symmetric
+only if b = 0: S = s diag(1, −(1/2) I), a one-dimensional space. The dimension of the solution space of such a linear
+system cannot increase under small changes of its coefficients, and the space contains 𝒮 ≠ 0; so for γ_rA small it is
+one-dimensional, generated by 𝒮. At the data of g0, ν² = 1 + μ/r², σ = 0 and Π = r² dΩ²; the volume density is r² (r² +
+μ)^(1/2) times that of the unit sphere and e_r = (r/(r² + μ)^(1/2)) ∂_r, so H = div e_r = (r² (r² + μ)^(1/2))⁻¹ ∂_r (r³)
+= 3/(r² + μ)^(1/2), and p = (r²/(r² + μ))^(3/2) · 3/(r² + μ)^(1/2) = 3 r³/(r² + μ)². In the symmetric class the speeds
+solve det(A^ϑ − c A0) = 0 with A0 = diag(6, −2 r²/(r² + μ)) and A^ϑ = [[0, −2/r²], [4, 0]]: −12 c² r²/(r² + μ) + 8/r²
+= 0.
 
 (b) Write γ and κ for the data of g_app on Σ, and expand in λ. On Σ the phases φ_j vanish, the means m_j have (m_j)_(τ
 ·) = 0 and spatial part α_j dr dr, W_TT has only angular components and χ dv dv only (τ, r) components, so γ_rA = λ² (…)
