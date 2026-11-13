@@ -1125,8 +1125,8 @@ the spaces of [[sec:ii-g1-3-1]] with X̄ and μ_b.
 [Hin26c, Proposition 13.16] writes the loss as k(1 + δ_Γ(−ε)) + ℓ, which need not be an integer, and states the
 proposition without proof. It also notes that the loss in k is harmless for strongly trapping admissible operators with
 ε = 1/k (here η = 1/k). In the terms of [[eq:i-b-1-4]]: if γ_+ < 0, then δ_Γ(−η) = 0 for η < −γ_+; if γ_+ = 0, then
-δ_Γ(−η) = min(1, η/(−γ_−)) for η > 0, so ⌈k δ_Γ(−1/k)⌉ = min(k, ⌈1/(−γ_−)⌉) for every k ≥ 1. This equals ⌈1/(−γ_−)⌉ for k
-≥ 1/(−γ_−) and never exceeds it, so this part of the loss is bounded independently of k.
+δ_Γ(−η) = min(1, η/(−γ_−)) for η > 0, so ⌈k δ_Γ(−1/k)⌉ = min(k, ⌈1/(−γ_−)⌉) for every k ≥ 1. This equals ⌈1/(−γ_−)⌉
+for k ≥ 1/(−γ_−) and never exceeds it, so this part of the loss is bounded independently of k.
 
 *Proof.* Take z_0 := ±1, h := |σ|⁻¹ (so z = hσ = z_0 for real σ), α_+ := 0, and the orders above with 𝗋_out := β_scf −
 2 − ε/2, 𝖻 ≡ 0; let ℓ_1, ℓ_2, ν be those of [[lem:ii-g1-4-3]] with ε/2. For ±σ ≥ C_0, P̂(σ) is invertible
@@ -1477,8 +1477,8 @@ So every bound of this half of the chapter, and every loss ℓ and radius c_k, i
 which these quantities are uniform. [[sec:i-a-8]], [[sec:i-b-9]] and [[sec:i-c-7]] give conditions under which the
 cited estimates are uniform over a family of operators. For the stationary models 2L_b, b near b₀ ([[sec:iii-h2-0]]),
 which the later chapters use, the quantities on which [[lem:ii-g1-4-1]]–[[cor:ii-g1-4-5]] depend are uniform in b.
-S̄ does not depend on b ([[lem:iii-h2-3-2]]). The order of (B4) of [[sec:iii-h2-0]] is admissible for every 2L_b with
-one margin, so ϑ_ℋ and ϑ_in are bounded uniformly in b ([[def:ii-c-2-4]] (4) and (6), [[lem:ii-c-2-6]]), and one
+The number S̄ does not depend on b ([[lem:iii-h2-3-2]]). The order of (B4) of [[sec:iii-h2-0]] is admissible for every
+2L_b with one margin, so ϑ_ℋ and ϑ_in are bounded uniformly in b ([[def:ii-c-2-4]] (4) and (6), [[lem:ii-c-2-6]]), and one
 choice of orders serves every b. The function δ_Γ is uniformly small by [[cor:iii-h2-1-2]], which rests on
 [[prop:iii-h2-1-1]]. The constants of [[thm:i-a-7-2]] and [[thm:i-b-1-3]], C_0 among them, are uniform by
 [[thm:i-a-8-1]] and [[sec:i-b-9]], whose hypotheses hold for this family (the proof of [[thm:iii-h2-2-1]], (ii) and

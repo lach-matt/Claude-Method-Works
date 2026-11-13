@@ -498,9 +498,12 @@ With ω_ϑ^ϑ = −2P and ⟨P ∂_ϑ ∂_θ P⟩ = −⟨∂_θ P ∂_ϑ P⟩ =
 
 So ⟨R^(1)⟩_vϑ = −(3 + 5) κ_A² h² c s/r³ = −(8/9) A² env² h² c s/r³ = −(4/9) A² env² h² sin 2ϑ/r³. ∎
 
-**Remark {#rem:mean-mass-aspect}** (What the mass sees.) The first mean m1 need not vanish: by
-[[lem:first-mean-forcing]] the forcing of its equation is nonzero wherever env ≠ 0 off the axes, and it lies in the
-dv dϑ component. This term is odd under the quarter turn, as [[lem:quarter-turn]] requires (J fixes dv and h(ζ)², maps
-sin 2ϑ to itself and dϑ to −dϑ), and a rotation-invariant mass cannot see it. The quantity of [[prop:mean-mass]] is the
+**Remark {#rem:mean-mass-aspect}** (What the mass sees.) By [[lem:first-mean-forcing]] the forcing −⟨R^(1)⟩ of the
+mean equation of stage 1 is nonzero wherever env ≠ 0 off the axes, and it lies in the dv dϑ component. The phase φ1 and
+the oscillating profile ĝ2 also enter that equation, ĝ2 through the mean of a product with ∂_θ W, so the forcing alone
+does not decide whether m1 vanishes; nothing in the structure of the stage forces m1 = 0, and [[prop:mean-mass]] does
+not need to know whether it does, since it uses only J* m1 = −m1. The forcing term is odd under the quarter turn, as
+[[lem:quarter-turn]] requires (J fixes dv and h(ζ)², maps sin 2ϑ to itself and dϑ to −dϑ), and a rotation-invariant
+mass cannot see such a term. The quantity of [[prop:mean-mass]] is the
 Hawking mass of the spheres S_(v,r) of the domain. It is not the angular mean of the mass aspect at past null infinity,
 which is a different quantity, governed by the mass law of [[thm:bondi-law]].

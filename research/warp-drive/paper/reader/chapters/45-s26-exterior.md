@@ -232,3 +232,236 @@ error class. Nondegeneracy and the signature follow from the leading form, which
 
 ([Hin23a, (3.14)]). Nothing here depends on the dimension.
 
+### The scalar wave operator {#sec:iv-2}
+
+This section is [Hin23a, Lemma 3.16] and the density of [Hin23a, Proposition 3.17] in dimension 4 + 1. The
+conjugation that removes the first-order term is by ρ^(3/2) = |x|^(−3/2), where in dimension 3 + 1 it is by ρ
+([[prop:np-10-64]] (1)).
+
+**Lemma {#lem:iv-2-1}** (The density.) μ_b := ρ₀⁵ρ_I⁴|dg_(b₀)| is a smooth positive b-density on M_♯. For η it is
+exactly |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|. The operator
+
+    L := ρ_Iρ^(−7/2) □_(g_(b₀)) ρ^(3/2)                                                                 {#eq:iv-2-1}
+
+is formally self-adjoint on L²(M_♯; μ_b). ([Hin23a] has ρ₀⁴ρ_I³ and ρ_Iρ⁻³□ρ in dimension 3 + 1; [[prop:np-10-64]]
+(2).)
+
+*Proof.* |dη| = |x|³|dt d|x| dg̸| with t = x¹ + |x|, and |dx¹ ∧ d|x|| = ρ₀⁻²|x||dρ₀ ∧ dρ_I/ρ_I|
+= ρ₀⁻¹|x||(dρ₀/ρ₀) ∧ (dρ_I/ρ_I)|. So |dη| = |x|⁴ρ₀⁻¹|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| = ρ₀⁻⁵ρ_I⁻⁴|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|.
+|dg_(b₀)| = |dη|(1 + O(ρ²)) with a smooth factor, by [[sec:iv-0]]. For the self-adjointness,
+
+    ⟨Lu, v⟩_(L²(μ_b)) = ∫(□ρ^(3/2)u) v ρ_Iρ^(−7/2)ρ₀⁵ρ_I⁴|dg| = ∫(□ρ^(3/2)u)(ρ^(3/2)v)|dg|,
+
+as ρ_Iρ^(−7/2)ρ₀⁵ρ_I⁴ = ρ^(−7/2)ρ⁵ = ρ^(3/2), and □ is symmetric on L²(|dg|). ∎
+
+**Lemma {#lem:iv-2-2}** (L as an eb-operator; commutators; [Hin23a, Lemma 3.16] in dimension 4 + 1.)
+L ∈ Diff²_(e,b)(M_♯), and
+
+    L = −2X_I(X₀ − X_I) + x_I²(Δ̸ + ¾) + L̃,     L̃ ∈ x_IDiff²_(e,b)(M_♯),                                {#eq:iv-2-2}
+
+with Δ̸ = −tr̸∇̸² ≥ 0 the Laplacian of 𝕊³. For every vector field Θ on 𝕊³,
+
+    [L, X₀],  [L, X_I],  [L, Θ] ∈ x_IDiff^(1;1)_(e,b;b)(M_♯).                                         {#eq:iv-2-3}
+
+*Proof.* *Minkowski space.* With □ = −tr∇², □_η = 4∂₀∂₁ − (3/|x|)∂_(|x|) + |x|⁻²Δ̸ on functions, and conjugation by
+|x|^(−3/2) removes the first-order term:
+
+    |x|^(3/2)□_η|x|^(−3/2) = 4∂₀∂₁ + |x|⁻²(Δ̸ + ¾),
+
+the constant being (n − 1)(n − 3)/4 = ¾ ([[prop:np-10-64]] (1); it is 0 in dimension 3 + 1). By [[eq:iii-c-1-5]] and
+X_Iρ₀ = 0, X_Iρ_I = ρ_I,
+
+    4∂₀∂₁ = −2ρ₀ρ_IX_I ρ₀(X₀ − X_I + ½ρ_IX_I) = −2ρ₀²ρ_IX_I(X₀ − X_I) − ρ₀²ρ_I²(X_I + 1)X_I.
+
+Multiplying by ρ_Iρ⁻² = ρ₀⁻²ρ_I⁻¹ (with |x|⁻² = ρ₀²ρ_I²) gives
+
+    L_η = −2X_I(X₀ − X_I) + x_I²(Δ̸ + ¾) − x_I²(X_I + 1)X_I,
+
+and x_I²(X_I + 1)X_I ∈ x_I²Diff²_(e,b), X_I being an eb-vector field.
+
+*The mass.* □_g modulo ρ₀²x_I³Diff²_(e,b) depends only on g modulo ρ₀⁻²x_I⁻¹C^∞(S²ᵉᵇT*), by [[eq:iv-1-1]] and the
+Koszul formula. By the proof of [[cor:iv-1-2]], g_(b₀) − η ∈ ρ₀⁻²x_I⁻² · ρ₀²x_I²C^∞, which lies in that class.
+Conjugation by ρ^(3/2) and multiplication by ρ_Iρ⁻² preserve the classes up to the factor ρ₀⁻²x_I⁻². So
+L − L_η ∈ x_IDiff²_(e,b), which is [[eq:iv-2-2]].
+
+*Commutators.* The argument of [Hin23a] uses only [[eq:iv-2-2]] and the structure of 𝒱_(e,b).
+
+- [L, X₀] = [L̃, X₀] ∈ x_IDiff²_(e,b), as X₀ commutes with the leading part of [[eq:iv-2-2]] ([X₀, x_I²] = 0) and
+  𝒱_(e,b) is a Lie algebra.
+- [L, X_I] = −ρ_I(Δ̸ + ¾) + [L̃, X_I], as [x_I², X_I] = −x_I². Write Δ̸ = Σ_k Θ_(k,1)Θ_(k,2) + Θ_♭ + f, with the Θ's
+  vector fields on 𝕊³ and f ∈ C^∞(𝕊³). As 𝒱(𝕊³) ⊂ x_I⁻¹𝒱_(e,b) ∩ 𝒱_b,
+
+      ρ_I(Δ̸ + ¾) = x_I Σ_k (x_IΘ_(k,1))Θ_(k,2) + x_I(x_IΘ_♭) + x_I²(f + ¾) ∈ x_IDiff^(1;1)_(e,b;b)
+
+  ([Hin23a, (3.18)]).
+- [L, Θ] = ρ_I[Δ̸, Θ] + [L̃, Θ] ([Hin23a] prints the first commutator with the opposite sign, which does not matter
+  here), and the first term lies in x_IDiff^(1;1)_(e,b;b) in the same way. For the second, lifts of vector fields on
+  𝕊³ preserve the eb-classes: in coordinates, Θ = Σ_j Θ^j(y)∂_(y^j) and V = a⁰X₀ + a¹X_I + Σ_j a^j x_I∂_(y^j), and
+
+      [Θ, V] = (Θa⁰)X₀ + (Θa¹)X_I + x_I Σ_j [Θ, a^j∂_(y^j)] ∈ 𝒱_(e,b)
+
+  ([Hin23a, (3.19a)]). So [·, Θ] maps ρ₀^a x_I^b Diff²_(e,b) to itself for all weights a, b ([Hin23a, (3.19b)]),
+  and [L̃, Θ] ∈ x_IDiff²_(e,b).
+
+The term ¾x_I² commutes with X₀ and Θ, and [¾x_I², X_I] = −¾x_I² lies in x_IDiff⁰. ∎
+
+### The basic energy estimate near ℐ⁺ {#sec:iv-3}
+
+This section is [Hin23a, Proposition 3.17 and Remark 3.18] in dimension 4 + 1.
+
+*Domains.* Let c_♯ > 0 be so small that, on {x_I < c_♯} ∩ {ρ₀ ≤ 1}:
+
+- |x| = ρ₀⁻¹x_I⁻² > c_♯⁻² ≥ 4R₁, so that the part of the set in {t_* ≤ T₀} lies in U ([[eq:iii-c-1-3]]; x¹ ≤ 1 alone
+  does not give t_* ≤ T₀, as t_* = x¹ + C′ − 8m₀|x|⁻¹ there);
+- the level sets of x_I are spacelike for g_(b₀);
+- the multiplier V below is future timelike for g_(b₀).
+
+This is possible. For η, dρ_I = |x|⁻¹(−½ρ_I dx⁰ − (1 − ½ρ_I)dx¹), so
+
+    η⁻¹(dρ_I, dρ_I) = −2|x|⁻²ρ_I(1 − ½ρ_I) < 0     (ρ_I < 2)                                          {#eq:iv-3-1}
+
+([Hin23a, (3.8)], with η⁻¹(dx⁰, dx¹) = −2, η⁻¹(dx⁰, dx⁰) = η⁻¹(dx¹, dx¹) = 0). The correction from g_(b₀) − η is O(ρ²)
+relative to ρ_I|x|⁻² by [[cor:iv-1-2]], so [[eq:iv-3-1]] persists for ρ₀x_I² small; this is the role of the bound
+x̄_I ≤ 1/√(8m) of [Hin23a]. Here c_♯ is fixed by the three conditions above in the Minkowski coordinates of
+[[sec:iii-c-1]]; the bound of [Hin23a], stated in its tortoise coordinates ([[prop:np-10-64]] (8)), is not used.
+
+Let Ω ⊂ {x_I < c} ∩ {ρ₀ < 1} ∩ {t_* ≤ T₀}, c < c_♯, be open. Its boundary in the interior consists of two
+hypersurfaces, each smooth or piecewise smooth (there is no boundary term at a corner of Σ_in, where u vanishes):
+Σ_in, spacelike for g_(b₀), and Σ_fin, spacelike or null for g_(b₀), with Ω to the future of Σ_in and to the past of
+Σ_fin. Every integral curve of X_I in Ω (at fixed ρ₀ and ω, with ρ_I decreasing) begins on Σ_in. The set
+{x_I < c, ρ₀ < 1} of [Hin23a], with Σ_in = x_I⁻¹(c) and Σ_fin = ρ₀⁻¹(1), is an example once 1 is replaced by
+ρ̄₀ := (1 + 2R₁)⁻¹: ρ₀ < ρ̄₀ means x¹ < 1 − 2R₁, which gives t_* < T₀. So is Ω_(ext,r₀) ∩ {x_I < c} ∩ {t_IVP ≥ 0},
+whose part of Σ_IVP and whose Σ_(fut,r₀) are spacelike ([[lem:iii-c1-1-1]]), together with the part of x_I⁻¹(c) in it
+(a piecewise smooth Σ_in, with a corner where it meets Σ_IVP; Ω_(ext,r₀) ⊂ U by the proof of [[lem:iii-c1-1-1]]); an
+outgoing ray at fixed x¹ enters it across Σ_IVP or x_I⁻¹(c).
+
+**Proposition {#prop:iv-3-1}** (The energy estimate; [Hin23a, Proposition 3.17] in dimension 4 + 1.) Let Ω be as
+above, k ∈ ℕ₀, and α₀, α_I ∈ ℝ with α_I < min(α₀, 0). Let f ∈ H^(k,(α₀,2α_I))_b(Ω) = ρ₀^(α₀)ρ_I^(α_I)H^k_b(Ω) vanish
+near Σ_in. Then the forward solution u of Lu = f (vanishing Cauchy data on Σ_in) lies in
+H^((1;k),(α₀,2α_I))_(e,b;b)(Ω), and
+
+    ‖u‖_(H^((1;k),(α₀,2α_I))_(e,b;b)(Ω)) ≤ C‖f‖_(H^(k,(α₀,2α_I))_b(Ω)),                                {#eq:iv-3-2}
+
+with C depending on k, α₀, α_I, c and the geometry of Σ_in, Σ_fin. Away from ℐ⁺ (on {x_I ≥ c/2}) the same holds with
+H^(k+1)_b on the left.
+
+*Proof.* *The multiplier* ([Hin23a, (3.22)]). Let
+
+    W := w²V,     w := ρ₀^(−α₀)ρ_I^(−α_I),     V := X₀ − (1 + κ)X_I,     κ > 0.
+
+V is future timelike: by [[eq:iii-c-1-4]]–[[eq:iii-c-1-5]], V = ρ₀⁻¹(∂_t + 2κρ_I⁻¹∂₀), a positive combination of the
+future timelike ∂_t and the future null ∂₀ near ℐ⁺ for η, hence for g_(b₀) by [[cor:iv-1-2]]. By the leading form of
+[[cor:iv-1-2]], g_(b₀)(V, V) ≡ ρ₀⁻²x_I⁻²(2 − 2(1 + κ)) = −2κρ₀⁻²x_I⁻² modulo ρ₀⁻²x_I⁻¹C^∞, so V is uniformly timelike in
+the eb-sense.
+
+*The identity* ([Hin23a, (3.23)]). For u smooth with support as in the statement,
+
+    2 Re⟨wLu, wVu⟩_(L²(Ω,μ_b)) = ⟨Qu, u⟩ + ℬ_fin(u),     Q := L*W + W*L = [L, W] − (div_(μ_b)W)L.
+
+Here ℬ_fin is the boundary term at Σ_fin; there is none at Σ_in, where u vanishes to second order, and none at
+I₀ ∪ ℐ⁺ in the following approximation, which is needed as the forward solution is not known beforehand to lie in the
+weighted space. Approximate f in H^(k,(α₀,2α_I))_b by f_j supported in {ρ₀ ≥ 1/j}. The forward solution u_j of
+Lu_j = f_j vanishes near I₀, the causal future of supp f_j staying in {x¹ ≥ x¹_j} for some x¹_j, so away from spatial
+infinity. Apply the identity to u_j on Ω_ε := Ω ∩ {x_I > ε}, whose added boundary {x_I = ε} is spacelike by
+[[eq:iv-3-1]], with Ω_ε to its past: it is a further final boundary, with a boundary term of the same sign as ℬ_fin.
+The Poincaré inequality below does not depend on where an X_I-curve ends. So the estimate holds for u_j on Ω_ε,
+uniformly in ε and j; let ε → 0, then j → ∞, the u_j converging to u locally uniformly with their derivatives and the
+uniform bound passing to the limit. ℬ_fin(u) ≥ 0: it is the flux through Σ_fin of the energy current of the future
+timelike W, and Σ_fin is spacelike or null with Ω to its past. It also contains the potential term, a positive
+multiple of V₀|u|² with V₀ := L(1) = ¾x_I² + O(x_I³) > 0 (near I₀, ¾ρ_I), of the same sign; so does the boundary term
+of the proof of [[prop:iv-4-1]].
+
+*The principal symbol of Q.* Modulo ρ₀^(−2α₀)x_I^(−4α_I+1)Diff²_(e,b), L may be replaced by the leading part L₀ of
+[[eq:iv-2-2]], and μ_b by μ̄_b := |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| ([[lem:iv-2-1]]). Then
+−div_(μ̄_b)W = −V(w²) = w²(2α₀ − 2(1 + κ)α_I), and, with D_(ρ₀) := −i∂_(ρ₀) and D_(ρ_I) := −i∂_(ρ_I),
+
+    Q ≡ Q̄ := w²(−4α_I(ρ₀D_(ρ₀) − ρ_ID_(ρ_I))² + 4κ(α₀ − α_I)(ρ_ID_(ρ_I))²
+                + (1 + 2(α₀ − α_I) + κ(1 − 2α_I))x_I²(Δ̸ + ¾)).                                        {#eq:iv-3-3}
+
+This is [Hin23a, (3.25)] with Δ̸ + ¾ in place of Δ̸: it is [[prop:np-10-64]] (3) with q₄ = ¾ and κ in place of c, where
+the second-order part in (X₀, X_I) is 4α_I(X₀ − X_I)² − 4κ(α₀ − α_I)X_I² and the angular part is the last term of
+[[eq:iv-3-3]]. The constant ¾ enters only through the angular term: ¾x_I² commutes with X₀, and its commutator with
+X_I is of order 0. As α_I < 0, κ > 0, α₀ − α_I > 0 and Δ̸ + ¾ ≥ ¾ > 0, Q̄ is a positive elliptic element of
+ρ₀^(−2α₀)x_I^(−4α_I)Diff²_(e,b) (the constant term only increasing it). So
+
+    ⟨Q̄u, u⟩ ≥ c₀ Σ_(V′) ‖wV′u‖²_(L²_b),
+
+the sum over V′ ∈ {X₀, X_I, x_IΘ_j}, with the Θ_j spanning T𝕊³.
+
+*Poincaré.* Along each integral curve of X_I in Ω, which begins on Σ_in where u = 0, with s := −log ρ_I and ρ₀ fixed,
+
+    ∫ e^(2α_Is)|u|² ds ≤ α_I⁻² ∫ e^(2α_Is)|∂_s u|² ds     (α_I < 0),
+
+by u(s) = ∫_(s₀)^s ∂_s u and Young's inequality for the kernel e^(α_I(s−s′)), s′ < s, of L¹-norm |α_I|⁻¹. The constant
+does not depend on where the curve ends, so integrating in ρ₀ and ω gives ‖wu‖_(L²_b) ≤ C‖wX_Iu‖_(L²_b).
+
+*Conclusion for k = 0.* The error Q − Q̄ is bounded by Cc times the right side of the positivity bound, for c small
+(it carries a factor x_I < c). Cauchy–Schwarz on the left of the identity, ℬ_fin ≥ 0 and absorption give
+‖wu‖_(H¹_(e,b)) ≤ C‖wf‖_(L²_b), which is [[eq:iv-3-2]] for k = 0. Existence of the forward solution, smooth in Ω, is
+standard for the wave equation with smooth coefficients on Ω.
+
+*Higher b-regularity* (the induction of [Hin23a]). Let X₀, X₁ := X_I, X₂, …, X₇ be the six rotation fields of 𝕊³
+(spanning T𝕊³ pointwise), and X₈ := 1. These span Diff¹_b over C^∞. By [[eq:iv-2-3]], [L, X_j] = Σ_l x_IP_(jl)X_l with
+P_(jl) ∈ Diff¹_(e,b). Assume [[eq:iv-3-2]] at k. Applying it to L(X_ju) = X_jf + [L, X_j]u (the support condition is
+preserved, the X_j being tangent to the faces and commuting with restriction to Σ_in up to terms vanishing there)
+gives, with the weights,
+
+    ‖X_ju‖_(H^((1;k))_(e,b;b)) ≤ C(‖X_jf‖_(H^k_b) + Σ_l ‖x_IX_lu‖_(H^((1;k))_(e,b;b))).
+
+Summing over j, the last sum is absorbed for c small. This gives [[eq:iv-3-2]] at k + 1. The statement on
+{x_I ≥ c/2} holds as 𝒱_(e,b) = 𝒱_b there, so [[eq:iv-3-2]] gives one b-derivative more. ∎
+
+**Remark {#rem:iv-3-2}** ([Hin23a, Remark 3.18].) In the coordinates (t, |x|), modulo lower-order terms,
+W = |x|^(2α_I)(2 − x¹)^(2(α₀−α_I))((2 − x¹)∂_t + κ|x|(∂_t + ∂_(|x|))).
+
+### The estimate near the interior of I₀ {#sec:iv-4}
+
+Near the interior of I₀, away from ℐ⁺, the coordinates of [[sec:iii-b-2]] are (τ, ρ) = (t/|x|, |x|⁻¹), with
+τ ∈ [−½, 1 − δ] (the proof of [[lem:iii-c-1-1]]), and ρ_I = 1 − τ + 2ρ ≥ δ. The following estimate takes the place of
+[HV20, Proposition 4.3], which [Hin23a] cites.
+
+**Proposition {#prop:iv-4-1}** (The b-energy estimate near I₀.) Let δ > 0 and
+Ω₀ ⊂ {ρ ≤ ρ₁} ∩ {τ₀ ≤ τ ≤ 1 − δ} be open, with interior boundary consisting of {τ = τ₀} (initial) and a hypersurface
+Σ_fin that is spacelike or null for g_(b₀) (final). Let k ∈ ℕ₀, α₀ ∈ ℝ, and let f ∈ ρ^(α₀)H^k_b(Ω₀) vanish near
+{τ = τ₀}. Then for ρ₁ small the forward solution of Lu = f satisfies
+‖u‖_(ρ^(α₀)H^(k+1)_b(Ω₀)) ≤ C‖f‖_(ρ^(α₀)H^k_b(Ω₀)).
+
+*Proof.* In (τ, ρ, ω), ∂_t = ρ∂_τ and ∂_(|x|) = −ρ(τ∂_τ + ρ∂_ρ), so the coordinate fields of η are ρ times b-vector
+fields. η⁻¹ is ρ² times a smooth nondegenerate Lorentzian b-metric G_b on {ρ ≤ ρ₁}:
+
+    G_b = −∂_τ² + (τ∂_τ + ρ∂_ρ)² + g̸⁻¹.
+
+G_b(dτ, dτ) = −(1 − τ²) < 0 for |τ| < 1, so τ is a b-time function there. g_(b₀)⁻¹ − η⁻¹ is O(ρ²) relative
+([[sec:iv-0]]). So L = ρ_Iρ^(−7/2)□ρ^(3/2) lies in Diff²_b, with principal symbol ρ_IG_b up to O(ρ) and ρ_I ≥ δ.
+
+Use the multiplier W₀ := w₀²V₀, with w₀ := ρ^(−α₀)e^(−Λτ) and V₀ := −G_b(dτ, ·), a future timelike b-vector field. In
+the identity 2 Re⟨w₀Lu, w₀V₀u⟩ = ⟨Q₀u, u⟩ + ℬ_fin, the boundary term at Σ_fin is ≥ 0, as in the proof of
+[[prop:iv-3-1]], and Q₀ = [L, W₀] − (div W₀)L.
+
+The term of Q₀ from differentiating e^(−2Λτ) is 2Λw₀² times the energy-momentum quadratic form of V₀ and dτ in ρ_IG_b.
+It is positive definite in the b-gradient, as V₀ and −∇τ are future timelike (the dominant energy condition for the
+scalar wave equation). The other terms are bounded by C(1 + |α₀|)w₀²|ᵇ∇u|² + Cw₀²|u|² with C independent of Λ. The
+|u|² term is controlled by integrating ∂_τ from {τ = τ₀}, where u = 0, over the compact τ-interval. For Λ large this
+gives the estimate for k = 0, with e^(±Λτ) bounded on [τ₀, 1 − δ].
+
+Higher b-regularity follows by commuting ρ∂_ρ and the rotation fields: their commutators with L lie in Diff²_b and are
+of first order in the commuted derivatives, since L is a b-operator. The induction closes on the compact τ-interval
+with the same Λ-argument, the commutator terms entering as sources: the estimate for k = 0 has the form
+‖w₀∇u‖ ≤ CΛ⁻¹‖w₀f‖, so these sources, of first order in the commuted derivatives, are absorbed for Λ large, and the
+∂_τ²-terms of [L, ρ∂_ρ] are recovered from the equation. Commuting ∂_τ is not needed: a b-derivative transversal to the
+level sets of τ is recovered from the equation, L being strictly hyperbolic with respect to τ. ∎
+
+**Remark {#rem:iv-4-2}** (Gluing the estimates.) [[prop:iv-3-1]] near ℐ⁺ ∪ (I₀ ∩ ℐ⁺), [[prop:iv-4-1]] near the
+interior of I₀, and the standard energy estimate on compact sets cover Ω_(ext,r₀) near infinity. The forward problem
+is solved successively: on a region whose past boundary is Σ_IVP, then on the next region with the previous solution as
+data. The data enter as sources after an extension of the Cauchy data, cut off near the initial surface, is
+subtracted. The regions are ordered by domain of dependence ([[lem:ii-f-1-3]]), as in [Hin23a, p. 16] ("cut and paste
+energy estimates using domain of dependence properties"). Where two estimates apply the solutions agree, and the norms
+are equivalent on the overlaps, each overlap lying away from the face that distinguishes the two calculi. Ω_(ext,r₀)
+also contains the past slab {−(r − r₀)/12 ≤ t_IVP ≤ 0} ([[lem:iii-c1-1-1]]). There the solution is the backward one
+from Σ_IVP, near the interior of I₀ (τ ∈ [−1/12 − ε, ε] for r₀ large), and the proof of [[prop:iv-4-1]], run backward
+in time, gives it: it uses only the b-structure of L and that dτ is timelike on the τ-range, and Σ_(past,r₀) is
+spacelike ([[lem:iii-c1-1-1]]). The backward problem is argued directly because t ↦ −t is not an isometry of the
+gauge-fixed operator, whose E_C-term is odd in time. [[lem:iv2-2-2]] writes this backward problem with the data, and
+[[prop:iv1-2-2]] and [[thm:iv2-2-4]] give the estimate for the tensor operator, with weights at both faces.
+
