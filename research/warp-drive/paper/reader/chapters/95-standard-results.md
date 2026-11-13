@@ -688,14 +688,14 @@ Then d_j := log a_j + ½ j² log(2s) satisfies d_(j−1) + d_(j+1) − 2d_j ≥ 
 
 which holds trivially if f = 0. Here a_0 = ‖f‖_(L^∞) and a_s ≤ ‖f‖_(H^s); the same holds for g.
 
-*The product.* Put θ := |α|/s ∈ [0, 1], so |β|/s = 1 − θ. Hölder's inequality with the exponents p_(|α|) and p_(|β|),
+*The product.* Put σ := |α|/s ∈ [0, 1], so |β|/s = 1 − σ. Hölder's inequality with the exponents p_(|α|) and p_(|β|),
 whose reciprocals add to 1/2, and the interpolation inequality for f and for g give
 
     ‖∂^α f ∂^β g‖_(L²) ≤ ‖∂^α f‖_(L^(p_(|α|))) ‖∂^β g‖_(L^(p_(|β|)))
-                       ≤ C (‖f‖_(L^∞)^(1−θ) ‖f‖_(H^s)^θ)(‖g‖_(L^∞)^θ ‖g‖_(H^s)^(1−θ))
-                       = C (‖f‖_(H^s) ‖g‖_(L^∞))^θ (‖f‖_(L^∞) ‖g‖_(H^s))^(1−θ),
+                       ≤ C (‖f‖_(L^∞)^(1−σ) ‖f‖_(H^s)^σ)(‖g‖_(L^∞)^σ ‖g‖_(H^s)^(1−σ))
+                       = C (‖f‖_(H^s) ‖g‖_(L^∞))^σ (‖f‖_(L^∞) ‖g‖_(H^s))^(1−σ),
 
-and x^θ y^(1−θ) ≤ θx + (1 − θ)y for x, y ≥ 0 gives [[eq:std-gn-moser]].
+and x^σ y^(1−σ) ≤ σx + (1 − σ)y for x, y ≥ 0 gives [[eq:std-gn-moser]].
 
 *General f and g.* Let f_ℓ, g_ℓ be the Schwartz functions of the proof of [[cor:std-moser-product]] (1); they are real
 when f and g are, ‖f_ℓ‖_(L^∞) ≤ ‖f‖_(L^∞), ‖g_ℓ‖_(L^∞) ≤ ‖g‖_(L^∞), and f_ℓ → f, g_ℓ → g in H^s. Then ∂^α f_ℓ → ∂^α f
@@ -826,8 +826,9 @@ T_r = χ(r⟨z⟩) Op(χ(⟨rζ⟩)), with χ ∈ C_c^∞(ℝⁿ) even, equal to
 records that one "can require T_r being uniformly bounded in Ψ^(0,0)_sc and T_r → Id in the operator topology of
 Ψ^(δ,δ)_sc".
 
-**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Propositions 3.3–4.22, Theorems 3.21–3.52,
-(1.6), (3.26), (3.28), (4.24a–b), pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the
+**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemma 3.24, Propositions 3.2–4.22, Remarks
+3.13–3.48, Theorems 3.21–3.52, (1.6), (3.2), (3.26), (3.28), (4.24a–b), pp. 2–75].) On a smooth manifold M of any
+dimension n, without boundary, the
 following hold.
 
 (S1) Structures [Hin26d, Definitions 1.1 and 1.3, (1.6), pp. 2–6]. A bounded geometry structure is a countable set
@@ -860,7 +861,9 @@ A ∈ w Ψ^m_𝒱(M) defines a bounded linear map w′ H^s_𝒱(M) → w w′ H^
 w′ H^(s;k)_(𝒱;𝒲)(M) → w w′ H^(s−m;k)_(𝒱;𝒲)(M) for all k ∈ ℕ₀." Remark 3.47 gives the seminorms of w Ψ^m_𝒱(M).
 Theorem 3.51: closure under adjoints and compositions in w ρ^(−l) Ψ^m_𝒱(M), with σ(A*) = σ(A)‾ and
 σ(A_1 ∘ A_2) = σ(A_1) σ(A_2). Theorem 3.52: "Suppose 𝒱 is fully symbolic. Let P ∈ w Ψ^m_𝒱(M) be elliptic … Then, for
-all weights w′ … and for all s ∈ ℝ, the operator P : w′ H^s_𝒱(M) → w w′ H^(s−m)_𝒱(M) is Fredholm."
+all weights w′ … and for all s ∈ ℝ, the operator P : w′ H^s_𝒱(M) → w w′ H^(s−m)_𝒱(M) is Fredholm." By [Hin26d,
+Definition 3.27, p. 41], 𝒱 is fully symbolic if, equivalently to two other conditions given there, "For all ϵ > 0
+there exists a compact subset K ⊂ M so that ρ < ϵ on M ∖ K", ρ being a scaling weight (S2).
 
 (S6) Regularity of symbols [Hin26d, Remark 3.33, p. 45]: "one only needs uniform bounds by ⟨ξ⟩^(m−|γ|) on
 |(ρ_α ∂_(x_α))^β ∂_ξ^γ a_α(x_α, ξ)|, corresponding to '𝒱-regular' symbols", together with their derivatives for the
@@ -872,9 +875,13 @@ spaces with k orders of 𝒲-regularity.
 
     ρ^(−l) S^m(𝒱T*M) := ρ^(−l) λ^(−m) ⋂_(δ∈(0,1/2)) S⁰_(1−δ,δ)(𝒱T*M),
 
-and w Ψ^(m,l)_𝒱(M) := {Op_𝒱(a) + R}. The principal symbol is taken modulo ⋂_δ w ρ^(−l+1−2δ) S^(m−1+2δ) (4.10), and
+where λ is an elliptic weight [Hin26d, Lemma 3.24 (2), p. 40]: "Let λ ∈ S^(−1)(𝒱T*M) with λ > 0 and
+λ^(−1) ∈ S¹(𝒱T*M). Then λ is a weight on (𝒱T*M, 𝓑*). Moreover, such functions λ exist." Here 𝓑* is the phase
+space b.g. structure of [Hin26d, Definition 3.23, p. 40]. Further, w Ψ^(m,l)_𝒱(M) := {Op_𝒱(a) + R}. The principal
+symbol is taken modulo ⋂_δ w ρ^(−l+1−2δ) S^(m−1+2δ) (4.10), and
 w H^(m,l)_𝒱(M) := {u ∈ w ρ^(inf l) H^(inf m)_𝒱(M) : Au ∈ L²(M)} for a fixed elliptic A. On the same page [Hin26d]
-says that "Theorem 3.51 thus remains valid, mutatis mutandis" for the (1 − δ, δ) classes.
+says that "Theorem 3.51 thus remains valid, mutatis mutandis" for the (1 − δ, δ) classes, and, for variable orders,
+that "by mimicking the proof of Proposition 4.2, one shows … (wH^(m,l)_𝒱(M))* = w⁻¹H^(−m,−l)_𝒱(M)".
 
 (S9) The Fourier transform in t [Hin26d, Definitions 4.11 and 4.14, Propositions 4.15, 4.17 and 4.18, (4.24a) p. 73,
 (4.24b) p. 74, pp. 68–74]. For variable orders s, l invariant under translations in t,
@@ -892,8 +899,56 @@ with weights, phase space weights, and variable orders."
 (S11) Phase space weights [Hin26d, Proposition 4.2, p. 63]: "(1) Every P ∈ Ψ^w_𝒱(M) defines a bounded map
 H^(w′)_𝒱(M) → H^(w w′)_𝒱(M). (2) … (H^w_𝒱(M))* = H^(w⁻¹)_𝒱(M)" (4.4).
 
-See also [Hin26d, Proposition 3.3, p. 29] (the secondary structure ρ𝓑) and [Hin26d, Remark 3.48, p. 52] (relation
-with 𝒱′-operators).
+(S12) Compatible structures [Hin26d, Definition 1.3 (4), p. 6; Definition 3.1, p. 27; Proposition 3.2, p. 28;
+pp. 32, 36, 52]. The large operator Lie algebra 𝒱′ consists of "all smooth vector fields V on M so that the components
+V^i_α in each coordinate chart are uniformly (in α) bounded in absolute value, and so are the derivatives
+(ρ_(α,1)∂_1)^(γ_1) ⋯ (ρ_(α,n)∂_n)^(γ_n)((φ_α)_* V)^j for any fixed γ ∈ ℕ^n_0" (Definition 1.3 (4)), the components
+being those of (φ_α)_* V = Σ V^i_α ρ_(α,i) ∂_i. Definition 3.1: "Two scaled b.g. structures 𝓑^× = {(U_α, φ_α, ρ_α)}
+and 𝓑̃^× = {(Ũ_α̃, φ̃_α̃, ρ̃_α̃)} are compatible if the b.g. structures {(U_α, φ_α)} and {(Ũ_α̃, φ̃_α̃)} are compatible
+and if, moreover, there exist constants C_γ < ∞ so that the transition functions τ_(αα̃) := φ_α ∘ φ̃_α̃⁻¹ and
+τ_(α̃α) := φ̃_α̃ ∘ φ_α⁻¹ satisfy
+
+    |∂^γ ρ̃_(α̃,i) ∂_i τ^j_(αα̃)| ≤ C_γ ρ_(α,j),   |∂^γ ρ_(α,i) ∂_i τ^j_(α̃α)| ≤ C_γ ρ̃_(α̃,j)
+    ∀ i, j = 1, …, n, γ ∈ ℕ^n_0,      (3.1)
+
+…". Proposition 3.2: "Let 𝓑^× and 𝓑̃^× be two scaled b.g. structures on M. Then the operator Lie algebras 𝒱 and 𝒱̃
+of 𝓑^× and 𝓑̃^× are equal if and only if 𝓑^× and 𝓑̃^× are compatible. In particular, 𝒱 = 𝒱̃ implies the equality also
+of the coefficient Lie algebras and large operator Lie algebras of 𝓑^× and 𝓑̃^×." Moreover Diff^m_𝒱(M) "is unchanged
+when passing to a compatible scaled b.g. structure" (p. 32); the weighted Sobolev spaces "are unchanged when defined
+with respect to a scaled b.g. structure compatible with 𝓑^×" (p. 36); and "wΨ^m_𝒱(M) only depends on 𝒱 and m, w"
+(p. 52).
+
+(S13) The secondary structure [Hin26d, pp. 28 and 36; Proposition 3.3, p. 29; Remark 3.48, p. 52]. The charts of ρ𝓑
+are obtained from those of 𝓑^× by subdividing (−3/2, 3/2)^n in the chart φ_α into overlapping cuboids with side
+lengths 4/(D · D_(α,i)), where D_(α,i) is "the largest integer with ρ_(α,i) D_(α,i) ≤ 1, or D_(α,i) = 4, whichever is
+larger" and D ∈ ℕ is a fixed number, each cuboid being mapped onto (−2, 2)^n by a monotone affine map in each
+coordinate (p. 28). Proposition 3.3: "In the above notation, ρ𝓑 is a b.g. structure provided we choose D large enough.
+If 𝒱, resp. 𝒱′ denote the operator, resp. large operator Lie algebra of 𝓑^×, then
+
+    𝒱′ = C^∞_(uni,ρ𝓑)(M; TM) = 𝒱 ⊗_(C^∞_(uni,𝓑)(M)) C^∞_(uni,ρ𝓑)(M)."      (3.2)
+
+On p. 36: "H^s_𝒱(M) is the uniform Sobolev space for the secondary b.g. structure ρ𝓑; thus, recalling the large
+operator Lie algebra 𝒱′ from Definition 1.3, we have H^s_(𝒱′)(M) = H^s_𝒱(M)." Remark 3.48: "Recall Proposition 3.3,
+and define Ψ^m_(𝒱′)(M) using Definition 3.43 with respect to the b.g. structure ρ𝓑 and the trivial scaling (i.e. all
+scalings are 1). (Thus, the operator and coefficient Lie algebras coincide and are equal to 𝒱′.) Then
+Ψ^m_𝒱(M) ⊂ Ψ^m_(𝒱′)(M); similarly for spaces of weighted ps.d.o.s. We stress that the validity of this inclusion rests
+in particular on the fact that we do not require residual 𝒱′-ps.d.o.s to be localized near the diagonal …".
+
+(S14) Vector bundles [Hin26d, Remark 3.13, p. 34; (3.8), p. 32; Remark 3.46, p. 52]. Remark 3.13: "The vector bundles
+of interest are vector bundles of bounded geometry E → M [Shu92, §A.1.1], which means that for each α ∈ 𝒜 a
+trivialization E|_(U_α) ≅ U_α × ℂ^k is chosen so that the transition functions (which are GL(ℂ, k)-valued smooth
+functions on U_α ∩ U_β) are uniformly bounded in C^∞. If E, F → M are vector bundles of bounded geometry, then
+Diff^m_𝒱(M; E, F) ⊂ Diff^m(M; E, F) is characterized as the subspace of operators which, in the charts U_α and in such
+trivializations of E|_(U_α) and F|_(U_α), are matrices of operators of the form (3.8) (with coefficients which are
+uniformly bounded in C^∞). We then have a principal symbol map
+
+    σ^m_𝒱 : Diff^m_𝒱(M; E, F) → P^m(𝒱T*M; π^* Hom(E, F))/ρP^(m−1)(𝒱T*M; π^* Hom(E, F))
+
+where π : 𝒱T*M → M is the base projection." The form (3.8) is (φ_α)_* P = Σ_(|γ|≤m) p_(αγ)(x)(ρ_α D)^γ with
+(ρ_α D)^γ = Π_j (ρ_(α,j) i⁻¹ ∂_(x^j))^(γ_j), "where the p_(αγ) are uniformly bounded in C^∞((−2, 2)^n)". Remark 3.46: for
+such E and F "one defines wΨ^m_𝒱(M; E, F) as sums of matrices of quantizations of symbols of class wS^m in local charts
+and residual operators which are smoothing (in the sense of 𝒱-regularity and ρ-decay) between Sobolev spaces of
+sections of E, F. We leave the details to the interested reader."
 
 **Theorem {#thm:std-zero-calculus}** ([Hin23e, (1.3)–(1.5), Definition 1.2, Proposition 2.7, Corollary 3.3,
 Theorem 3.4, Remark 3.5 and Corollary 3.6, pp. 1–34].) Let n ≥ 1 and let X be a smooth n-dimensional manifold with

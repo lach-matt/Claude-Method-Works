@@ -437,3 +437,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   sec:iv5-0 fixed r_♯ := ½R₁. Fix in chapter 33 (r_♯ := r_♭, prop:np-10-14 (i)-(ii) for every r > 0; sent to the S14
   fix) and one clause in chapter 62 at three places. [Sbi15] entries added to Appendix A. Chapter 63 asked to cite
   lem:interior-far-part rather than prove copies.
+- S23 confirmed (R3-S23): prop:iii-i15-2-12 added to the ball-shrinking list (1019) and "with m_ν built at b" (200).
+  S22's ball sentence (41-s22:64-66) omits prop:iii-i15-2-12 the same way (for the S22 round).
+- S17 second fix (F2-S17): "Two constants" paragraph at the head of sec:iii-g4-1 (ε_ind for windows and pairing, ε_Υ
+  for the gain at tf); μ₀ → m₀ and the bare black-hole μ → m (and H^m_b → H^l_b in the exterior section).
+  prop:iii-g4-5-1's conclusion now carries ε_Υ, so S20, S21, S22, S27 need ε_g := min(ε_Υ, ε_ind) where they use its
+  gain (sent to the S21 and S27 fixes; S20 and S22 at their next rounds); S15 34:1113-1116 still writes ε_ind for S13's
+  constant (S15 round).

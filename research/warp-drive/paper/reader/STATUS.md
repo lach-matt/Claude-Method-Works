@@ -27,13 +27,13 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | running | - |
 | 34 S15 | running (sign slip and np-10-34-iv to adjudicate) | - | - |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
-| 36 S17 | NOT CONFIRMED 0M 4m 10n | done | NOT CONFIRMED 0M 3m 4n; second fix running |
+| 36 S17 | NOT CONFIRMED 0M 4m 10n | done | NOT CONFIRMED 0M 3m 4n; second fix done; third reading running |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | NOT CONFIRMED 0M 1m 8n; second fix done; third reading running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | NOT CONFIRMED 0M 3m 6n; third fix running |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | running |
-| 42 S23 | NOT CONFIRMED 0M 5m 12n | done | NOT CONFIRMED 0M 4m 3n; second fix done; third reading running |
+| 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | running (38a and 44) |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | running | - |

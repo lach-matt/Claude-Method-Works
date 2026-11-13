@@ -293,6 +293,39 @@ x¹ ≤ T″ − 1. ρ′_I < c ≤ ½ gives t > (1 − c)|x| + T″ ≥ ½|x| +
 The slab 𝒮 is bounded by {ρ′_I = c} ∪ Σ^fut_(r_1) to the past and by {t^♭_* = T̂ + 3} to the future. Its points near
 ℐ⁺ depend on all of Σ^IVP, so it is solved after 𝒦, together with the exterior: [[sec:iv3-0]]–[[sec:iv3-2]].
 
+#### The local theory on compact sets {#sec:s27-local}
+
+On the compact pieces of 𝒟 (the set 𝒦, and the part of 𝒮 away from ℐ⁺ in the proof of [[thm:iv3-2-1]]) the equations
+are solved by the local theory of quasilinear wave equations. The equation [[eq:iii-k-1-2]] is, in the gauge's normal
+form, P^♮(g_0 + h, g_0) = −½□_(g_0+h)h plus a smooth function of (x, h, ∂h), with g_0 = φ_(S,S⁰)^*g_(b₀), principal
+part −½(g_0 + h)⁻¹(ζ, ζ) times the identity, and everything smooth in the parameters (S, S⁰); h = 0 solves it for every value of the
+parameters, as P^♮(g_0, g_0) = Ric(g_0) = 0. Its linearisations have the same principal part at h. Two statements are
+used, on a compact set 𝒦′ that is the domain of dependence, within 𝒟, of a spacelike past boundary carrying the data:
+
+(L) for a linear equation of this kind with smooth coefficients, and data in H^(k+1) × H^k and forcing in H^k, there
+is a unique solution on 𝒦′, bounded in H^k(𝒦′) by the data and the forcing;
+
+(N) (Cauchy stability) for the quasilinear equation, there is r_0 such that for data small in H^(r_0+1) × H^(r_0) and
+(S, S⁰) small there is a unique solution on all of 𝒦′; it lies in H^(r+1)(𝒦′) for every r for which the data lie in
+H^(r+1) × H^r, and it tends to 0 in H^(r+1)(𝒦′) as the data tend to 0 in H^(r+1) × H^r and (S, S⁰) tends to 0.
+
+Both are [DS23, Theorems 2.4, 2.5 and 2.6] ([[thm:std-ds-existence]], [[thm:std-ds-stability]],
+[[thm:std-ds-continuation]]). Data on a piecewise smooth past boundary are first made zero by subtracting an extension
+of them, cut off near the boundary, as in [[rem:iv-4-2]]; the forcing problem is then posed with zero data on a level
+set of t_IVP to the past of 𝒦′. dt_IVP is past timelike for g_(b₀) ([[lem:iii-b-3-7]] (b)), with a margin on a
+neighbourhood of 𝒦′, hence for every metric C⁰-close to g_(b₀) there. As in Step 8 (ii)–(iii) of [[sec:ue-existence]],
+the coefficients are extended from a neighbourhood of 𝒦′ to a spatial torus with a cut-off of the values, the time
+lines are taken orthogonal to the level sets of t_IVP, and the equation becomes a first-order symmetric hyperbolic
+system for (h, ∂h) satisfying (A1)–(A4) of [DS23]; the parameters (S, S⁰) are adjoined as unknowns constant in t_IVP,
+which adds the eigenvalue 0 that the symbol already has. [[thm:std-ds-stability]] at the solution 0, which exists for
+all t_IVP and all parameters, gives (N) on the t_IVP-range of 𝒦′, in both time directions; the higher regularity is
+[[thm:std-ds-continuation]], and finite speed of propagation, [[lem:ii-f-1-3]] with the compact sets of
+[[lem:s27-cover]] (c) and [[lem:iii-k-6-2]], shows that on 𝒦′ the solution depends only on the data on its past
+boundary, not on the extension. For a linear system the time of [[thm:std-ds-existence]] does not depend on the data,
+as solutions scale with them, so its solutions exist on every bounded time interval, and the solution map, linear and
+continuous by [[thm:std-ds-stability]], is bounded: this is (L). [Hin26, p. 320] cites the same theory as "standard
+local well-posedness results".
+
 #### The slab near null infinity: setting {#sec:iv3-0}
 
 This subsection and the next two solve the gauge-fixed equation on the slab 𝒮 of [[lem:s27-cover]], near the interior

@@ -241,7 +241,7 @@ Then choose, in this order:
 - c₀ and Ω′ by [[lem:vii-1-2]], and J := k + 5 in [[lem:vii-1-1]], so that g_λ is built on Ω′ with
   K = J + 4 = d_1 + 14.
 
-Now let ε_m > 0. [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m (C_𝔟 of [[sec:vii-0]]), gives
+Let ε_m > 0. [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m (C_𝔟 of [[sec:vii-0]]), gives
 ε = ε(ε_m, ε_t) > 0 such that its conclusions (a)–(c) hold for data of norm below ε; its part (b) contains the
 threshold of the run of [[thm:ii-g-2-1]] in the symmetry class ([[prop:vii-3-2]]). Take λ_1 > 0 so small that
 [[lem:vii-1-1]] and [[cor:vii-2-3]] apply for λ ≤ λ_1, and C_Rλ_1 < ½ε, with C_R the constant of [[cor:vii-2-3]], and

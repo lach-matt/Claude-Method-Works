@@ -197,8 +197,9 @@ here (λ, k) + ℱ ⊂ ℰ_+ is (H3) of [[sec:iii-i9-1]], which holds below 2 by
     f^ν_(h,p⃗)(W) := D_(p⃗)P_4(h, p⃗)(W_ν = W) = L_(h,p⃗) m_ν(W) + r^ν_(h,p⃗)(W)
 
 ([[lem:iii-i9-2-6]] (b)–(c)), with r^ν_(h,p⃗) of K⁺-weight Re λ + a_K − ε > α and plain ι⁺-weight Re λ + 2 + λ_♯ − ε >
-w_+ ([[lem:iii-i9-2-6]] (c)). At b ∈ ℬ̄_* the identity gains the term E^ν_(h,p⃗)(W), of K⁺-weight κ_ν − ε > α and size
-O(|b − b₀||W|), and r^ν_(h,p⃗) keeps these orders ([[lem:iii-i9-2-6]] (e), which [[lem:iii-i15-2-1]] extends to the
+w_+ ([[lem:iii-i9-2-6]] (c)). At b ∈ ℬ̄_*, with m_ν built at b, the identity gains the term E^ν_(h,p⃗)(W), of K⁺-weight
+κ_ν − ε > α and size O(|b − b₀||W|), and r^ν_(h,p⃗) keeps these orders ([[lem:iii-i9-2-6]] (e), which [[lem:iii-i15-2-1]]
+extends to the
 rotation rows at b). So these rows enter the constructions exactly as the rows of 𝒩 do.
 
 ### Properties of the augmented operator {#sec:iii-i14-2}
@@ -1015,8 +1016,8 @@ tame form of the bound of [[thm:iii-j1-2-1]], ‖U′‖_k ≤ C_k(‖f‖_(k+d)
 
 The results of [[sec:iii-i14-1]]–[[sec:iii-j1-2]] that are stated at b = b₀ hold at every base point whose black hole
 parameter b lies in the closed ball ℬ̄_* about b₀ of [[sec:iii-h2-0]], shrunk as in [[ch:s20]] (to a radius at most
-1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]), in [[lem:iii-i15-1-2]] and in [[prop:iii-i15-2-5]], with
-constants and smallness conditions uniform in b ([[thm:iii-i15-3-1]]). The statement at b of
+1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]), in [[prop:iii-i15-2-12]], in [[lem:iii-i15-1-2]] and in
+[[prop:iii-i15-2-5]], with constants and smallness conditions uniform in b ([[thm:iii-i15-3-1]]). The statement at b of
 each of them is obtained by replacing L_(b₀), g_(b₀) near K⁺, the states, towers and companions at b₀ and the index set
 ℰ_ind by those at b, by taking derivatives in b at b, and by treating the v1 terms as in [[ch:s25]]. In detail (items
 (1) and (3) also name the results that are stated above at every b):

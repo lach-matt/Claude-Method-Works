@@ -461,16 +461,15 @@ the coefficients of F̃ and F̃_ab are O(r^(3/2)), and in r^(−3/2)Φ they are 
 attained.
 
 (iv) (Decay.) In the gauge of (ii) for every l ≥ 2, fix the l = 0 part to h_0 = cK, K = r⁻²dv² the change of mass
-regular at the horizon (the static
-chart's ∂_m g = r⁻²dt² + r²(r² − m₀)⁻²dr² equals K + ℒ_(ζ∂_v)g with ζ′ = (r²f²)⁻¹, singular at r_h; the gauge
-h_0 = cK is reached by the gauge vector Y[h_0] of [[eq:gd-1-2]], smooth wherever h_0 is). Then h settles to cK on each
-region {r ≤ R}, the horizon included, uniformly in l, in two data classes:
+regular at the horizon (the static chart's ∂_m g = r⁻²dt² + r²(r² − m₀)⁻²dr² equals K + ℒ_(ζ∂_v)g with ζ′ = (r²f²)⁻¹,
+singular at r_h; the gauge h_0 = cK is reached by the gauge vector Y[h_0] of [[eq:gd-1-2]], smooth wherever h_0 is).
+Then h settles to cK on each region {r ≤ R}, the horizon included, uniformly in l, in two data classes:
 
-(iv-a) (The data class of [[thm:viii-2-2]].) Let h be a solution on N⁺, smooth up to Σ°; N⁺ reaches inside the
-horizon (r_♭ < r_h). If the data h induces on Σ^IVP are, up to those of a linearised diffeomorphism, G-invariant data (γ̇, k̇) of [[thm:viii-2-2]]
-(γ̇ ∈ H^(∞,(ℰ_0,ℓ_0))_b, k̇ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b, solving the linearised constraints), then h + cℒ_Vg, which is in
-the Regge–Wheeler-type gauge with l = 0 part cK_V, is the ġ_RW of [[thm:rw-settling]]; so c = ṁ, h = ġ_RW on
-{r ≤ 2R₁}, and h − cK = ġ_RW − ṁK_V everywhere. For every k, R′ and ε′ > 0,
+(iv-a) (The data class of [[thm:viii-2-2]].) Let h be a solution on N⁺, smooth up to Σ°; N⁺ reaches inside the horizon
+(r_♭ < r_h). If the data h induces on Σ^IVP are, up to those of a linearised diffeomorphism, G-invariant data (γ̇, k̇)
+of [[thm:viii-2-2]] (γ̇ ∈ H^(∞,(ℰ_0,ℓ_0))_b, k̇ ∈ H^(∞,(ℰ_0+1,ℓ_0+1))_b, solving the linearised constraints), then h +
+cℒ_Vg, which is in the Regge–Wheeler-type gauge with l = 0 part cK_V, is the ġ_RW of [[thm:rw-settling]]; so c = ṁ, h =
+ġ_RW on {r ≤ 2R₁}, and h − cK = ġ_RW − ṁK_V everywhere. For every k, R′ and ε′ > 0,
 
     |h − cK|_k ≤ C ‖(γ̇, k̇)‖_(H^(k₁(k+2))) t_*^(−w+ε′)     on {r_♭ < r ≤ R′, t_* ≥ T′}:
 
@@ -569,7 +568,8 @@ m₀/2, their μ is ς, and page numbers are those of the arXiv version.
 Section 7.3, p. 30; (89), p. 29; p. 38; (114)–(116) and Lemma 11, p. 39; (124), p. 43; (127)–(128), p. 46;
 (129)–(131), p. 47; (134), p. 49; (163)–(169), pp. 58–59; (173), p. 60; p. 61; p. 67; (186), p. 69].)
 
-(F) (The decay foliation.) With u = (1/2)(t − r_*), v_H = (1/2)(t + r_*) (13) and L := ∂/∂v_H = ∂/∂t + ∂/∂r_* (92),
+(F) (The decay foliation.) With their null coordinates u = (1/2)(t − r_*) and v = (1/2)(t + r_*) (13), which we write
+u_H and v_H, and L := ∂/∂v_H = ∂/∂t + ∂/∂r_* (92),
 "Fixing radii r_1 and R_1 satisfying r_h < r_1 < r_P < R_1, we choose a Lipschitz hypersurface Σ_0 with the following
 properties: Σ_0 intersects the future horizon H⁺ transversely and Σ_0 is spacelike in r_h ≤ r ≤ R_1, Σ_0 ∩ {r_1 ≤ r ≤
 R_1} = {t = 0} ∩ {r_1 ≤ r ≤ R_1}, Σ_0 ∩ {R_1 ≤ r} = {u = −(1/2)(R_1)_*} ∩ {R_1 ≤ r} … Flowing along the static Killing
@@ -643,7 +643,7 @@ Hence 3Z̃ − r(X + Y) = 3Z̃_0 + 6r·rF = r^(1/2)HΦ, and (169) at n = 3, wher
 pointwise norm: |Y_αβ|_g = r⁻²|Y_αβ|_γ. The norm of Y_αβ is [[lem:gd-1-2]] (d). ∎
 
 **Lemma {#lem:rwg-cone}** (The energies on the outgoing part.) Let Ψ = r^(1/2)Φ𝒴 be a master quantity of a mode, as in
-[[lem:rw-hkw-field]], and f_1 := f(R_H). On the outgoing part C_τ := Σ_τ ∩ {r ≥ R_H}, with ∂_r at fixed u,
+[[lem:rw-hkw-field]], and f_1 := f(R_H). On the outgoing part C_τ := Σ_τ ∩ {r ≥ R_H}, with ∂_r at fixed u_H,
 
     ∫_(R_H)^∞ ((∂_rΦ)² + k²Φ²/r²) dr ≤ C_1 Ě^N_Ψ(Σ_τ)/‖𝒴‖²,        C_1 = 9/(2f_1) + 8,
 
@@ -651,7 +651,7 @@ and the same for XΨ with XΦ in place of Φ, X a product of T and the rotations
 the scalar type and (k² + 4)Ě^N_Ψ for the tensor type, mode by mode. On the spacelike part Σ_τ ∩ {r ≤ R_H},
 Ě^N_Ψ(Σ_τ) ≥ c∫((∂_vΦ)² + (∂_rΦ)² + k²Φ²) dr ‖𝒴‖², with c > 0 depending on m₀ and Σ_0 only.
 
-*Proof.* On C_τ, n_(Σ_τ) = L, and at fixed u, L = f∂_r (v_H − u = r_*) and dv_H = dr/f; N = T there, as Y = 0 for
+*Proof.* On C_τ, n_(Σ_τ) = L, and at fixed u_H, L = f∂_r (v_H − u_H = r_*) and dv_H = dr/f; N = T there, as Y = 0 for
 r ≥ R_H > r_1. From (89), with g(L, T) = −f and g̃⁻¹ = f⁻¹(−∂_t² + ∂_(r_*)²) on the orbit space,
 Ť(L, T) = (1/2)|∇_LΨ|² + (f/(2r²))|∇̊Ψ|². For Ψ = r^(1/2)Φ𝒴, ∇_LΨ = r²L(r⁻²Ψ) = r²L(r^(−3/2)Φ)𝒴,
 so r³|∇_LΨ|² = f²(∂_rΦ − 3Φ/(2r))²|𝒴|², and ∫_(S³) r³(f/(2r²))|∇̊Ψ|² = (f/2)r⁻²Φ²∫|∇̊𝒴|² = (f/2)(k² − 6)Φ²‖𝒴‖²/r²
@@ -786,14 +786,14 @@ cannot be dropped is [[lem:np-10-1b]]. ∎
 The statements on the regions {r ≤ R} have constants growing with R. This section decides what holds uniformly in r,
 on the outgoing part of [HKW18]'s leaves.
 
-*Notation.* r_* := r + (r_h/2) log((r − r_h)/(r + r_h)), so that dr_*/dr = 1/f; u := t − r_* and v := t + r_* (twice
-the u and v_H of [HKW18], (13)); the static t is related to that of [[sec:rw-setting]] by v = t + r_* up to a
-constant. In the outgoing chart (u, r), g = −f du² − 2 du dr + r²γ and T = ∂_t = ∂_u. A scalar mode of the class has
-harmonic S = P_j(cos 2ϑ), l = 2j ≥ 2, master field Φ(u, r), and in the gauge of [[prop:np-10-1]] (ii) it is
-h = F_abS dy^ady^b + 2r²FSγ with [[eq:np-10-1]]. The orthonormal frame of the static observers on {r > r_h} is
-e_0 = f^(−1/2)∂_t = f^(−1/2)∂_u, e_1 = f^(1/2)∂_r|_t = f^(1/2)∂_r − f^(−1/2)∂_u, and the unit frame e_i of the sphere of
-radius r, in which h(e_i, e_j) = 2FSδ_ij. The master equation □Φ = W_SΦ, with □ = −2∂_u∂_r + ∂_r(f∂_r) in this chart,
-reads
+*Notation.* r_* := r + (r_h/2) log((r − r_h)/(r + r_h)), so that dr_*/dr = 1/f (it differs from the r_* of [HKW18],
+normalised by r_*(r_P) = 0, by a constant); u := t − r_* and v := t + r_*, which are 2u_H and 2v_H up to constants; the
+static t is related to that of [[sec:rw-setting]] by v = t + r_* up to a constant. In the outgoing chart (u, r), g = −f
+du² − 2 du dr + r²γ and T = ∂_t = ∂_u. A scalar mode of the class has harmonic S = P_j(cos 2ϑ), l = 2j ≥ 2, master field
+Φ(u, r), and in the gauge of [[prop:np-10-1]] (ii) it is h = F_abS dy^ady^b + 2r²FSγ with [[eq:np-10-1]]. The
+orthonormal frame of the static observers on {r > r_h} is e_0 = f^(−1/2)∂_t = f^(−1/2)∂_u, e_1 = f^(1/2)∂_r|_t =
+f^(1/2)∂_r − f^(−1/2)∂_u, and the unit frame e_i of the sphere of radius r, in which h(e_i, e_j) = 2FSδ_ij. The master
+equation □Φ = W_SΦ, with □ = −2∂_u∂_r + ∂_r(f∂_r) in this chart, reads
 
     2f∂_rTΦ = f∂_r(f∂_rΦ) − VΦ,        V = V_S.                                                         {#eq:rwg-master}
 

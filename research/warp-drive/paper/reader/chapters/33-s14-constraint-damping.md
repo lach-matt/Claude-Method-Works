@@ -488,14 +488,15 @@ the Tangherlini metric in Kerr–Schild time, regular across the horizon; its t 
 
 Then c is continuous, and:
 
-(i) r c is past timelike on [r_h/2, ∞);
+(i) r c is past timelike at every r > 0;
 
-(ii) ⟨c, dr⟩ > 0 on [r_h/2, r_0 − r_0e^(1/2)/v] and ⟨c, dr⟩ < 0 on [r_0 + r_0e^(1/2)/v, ∞), and on both intervals
+(ii) ⟨c, dr⟩ > 0 on (0, r_0 − r_0e^(1/2)/v] and ⟨c, dr⟩ < 0 on [r_0 + r_0e^(1/2)/v, ∞), and on both intervals
 f eG(c) + 2(1 − e)⟨c, dr⟩² > 0; so ℓ(−dr), resp. ℓ(dr), is negative definite there ([[prop:np-10-13]] (i));
 
-(iii) S, defined by [[eq:s14-s]] for the metric [[eq:s14-tang]] and the 1-form [[eq:s14-cform]], is a bundle map, free
-of the angles and block diagonal in the splitting by dt, dr and r dω, equal at m = 0 to the S of
-[[prop:np-10-13]] (iii), and positive definite on |r − r_0| ≤ (6/5)r_0e^(1/2)/v;
+(iii) on r_0/2 ≤ r ≤ 2r_0 the bundle map S of [[eq:s14-s]], for the metric [[eq:s14-tang]] and the 1-form
+[[eq:s14-cform]], is free of the angles and block diagonal in the splitting by dt, dr and r dω; for [[eq:s14-tang]]
+with m = 0, that is on Minkowski space, it is ½ times the S of [[prop:np-10-13]] (iii), the middle piece of
+[[eq:s14-cform]] being ½ times the 1-form there; and it is positive definite on |r − r_0| ≤ (6/5)r_0e^(1/2)/v;
 
 (iv) for c = r⁻¹(dt − v dr) on Minkowski space, T = r²(−ℓ(dw/w) + S) of [[prop:np-10-13]] (ii) is B-self-adjoint and
 depends on ρ_K and the weights only, and the characteristic polynomial of its (dt, dr) block at ρ_K = 0 is q(d,
@@ -529,10 +530,57 @@ with b = 1/4 for r ≤ 50, b = (100 − r)/200 ∈ [−1/2, 1/4] for 50 ≤ r �
 b ≥ 1/320 = e^(1/2), f ≥ 1 − 1/2500, α⁻¹⟨c, dr⟩ ≥ fb > 0, and α⁻²|G(c)| = (1 − b)(2 − f(1 − b)) ≤ (1 − b)(1 + b + r⁻²)
 ≤ 1 + 1/2500. So α⁻²·2(1 − e)⟨c, dr⟩² ≥ 2(1 − e)f²b² ≥ 1.99e > 1.0004e ≥ α⁻² f e|G(c)|. *100.625 ≤ r ≤ 200*: here
 b ≤ −1/320, |b| ≥ e^(1/2), r⁻² ≤ 10⁻⁴ ≤ 0.032|b|, so α⁻¹⟨c, dr⟩ ≤ r⁻² − f|b| ≤ −0.967|b| < 0, and
-α⁻²·2(1 − e)⟨c, dr⟩² ≥ 1.87b² ≥ 1.87e, while α⁻² f e|G(c)| ≤ e(1 − b² + r⁻²(1 − b)) ≤ 1.0002e. *r ≥ 200*:
+α⁻²·2(1 − e)⟨c, dr⟩² ≥ 1.87b² ≥ 1.87e, while α⁻² f e|G(c)| ≤ eα⁻²|G(c)| = e(1 − b)(2 − f(1 − b))
+= e(1 − b² + r⁻²(1 − b)²) ≤ e(1 + 10⁻⁴) ≤ 1.0002e, as r = 100(1 − 2b) and (1 − b)/(1 − 2b) ≤ 1 for b ≤ 0. *r ≥ 200*:
 α⁻¹⟨c, dr⟩ = r⁻² − f/2 < −0.49, α⁻²|G(c)| ≤ 3, and 2(1 − e)·0.24 > 3e.
 
-(iii) [[pending:computational-3]]
+(iii) On r_0/2 ≤ r ≤ 2r_0, c = c_t dt + c_r dr with c_t = (2r_0)⁻¹ and c_r = −v(r − r_0)/(2r_0²); it is closed, so
+F = 0 in [[eq:s14-s]]. We first let m ≥ 0 be general. The Christoffel symbols of [[eq:s14-tang]] with indices in
+{t, r} are
+
+    Γ^t_tt = m²r⁻⁵,     Γ^t_tr = m(m + r²)r⁻⁵,     Γ^t_rr = m(m + 2r²)r⁻⁵,
+    Γ^r_tt = m(r² − m)r⁻⁵,     Γ^r_tr = −m²r⁻⁵,     Γ^r_rr = −m(m + r²)r⁻⁵;
+
+for angular indices A, B, Γ^λ_(AB) = −r g^(λr)𝑔̸_(AB) (λ ∈ {t, r}), and Γ^λ_(tA) = Γ^λ_(rA) = 0 for λ ∈ {t, r}. Hence
+K_(μν) = ∂_μc_ν − Γ^λ_(μν)c_λ has no component mixing {t, r} with the angles; its angular part is (c^r/r)Π, with
+Π := r²𝑔̸ and c^r := ⟨c, dr⟩ = mr⁻²c_t + fc_r; and on {t, r}
+
+    K_tt = −Γ^t_tt c_t − Γ^r_tt c_r,     K_tr = K_rt = −Γ^t_tr c_t − Γ^r_tr c_r,     K_rr = −v/(2r_0²) − Γ^t_rr c_t − Γ^r_rr c_r,
+
+with tr K = g^(tt)K_tt + 2g^(tr)K_tr + g^(rr)K_rr + 3c^r/r. As on Minkowski space, s and B do not mix span{dt, dr} with
+the angular covectors, on which ⟨c, ·⟩ vanishes; so S is block diagonal and free of the angles, and on r dω it is the
+scalar −(2c^r/r + tr K). On span{dt, dr}, in the basis (dt, dr), with g⁻¹ the matrix of the (t, r) block of g⁻¹ and
+c♯ = g⁻¹(c_t, c_r)ᵀ, [[eq:s14-s]] reads
+
+    s = −2g⁻¹Kg⁻¹ − (tr K)g⁻¹ + ((1 + e)²G⁻¹ tr K + 2(1 − e²)G⁻²K(c♯, c♯)) c♯c♯ᵀ,     B = g⁻¹ − (1 + e)G⁻¹c♯c♯ᵀ,
+
+and S = B⁻¹s. At m = 0, [[eq:s14-tang]] is Minkowski space and c is ½ times the 1-form of [[prop:np-10-13]] (iii), so
+S is ½ times the S there, by the homogeneity in (ii) of that proposition.
+
+Now let m = 1, r_0 = 100, (v, e) = (1/2, 1/102400) and r = 100 + 5x/8; the window |r − r_0| ≤ (6/5)r_0e^(1/2)/v = 3/4
+is |x| ≤ 6/5. Inserting the formulas above, the angular entry is
+
+    −(2c^r/r + tr K) = (6vr³ − 5vr_0r² − 4mvr + 3mvr_0 − 3mr_0)/(2r_0²r³) = (3r³ − 250r² − 2r − 150)/(20000r³),
+
+positive for r ≥ 99, as 3r³ − 250r² = r²(3r − 250) ≥ 47r² > 2r + 150. The (dt, dr) block has
+
+    tr = n_T(x)/(51200000000(x + 160)³(x + 320)(25x³ − 1920064x − 204820480)),
+    det = n_D(x)/(2560000000000000(x + 160)⁶(x + 320)²(25x³ − 1920064x − 204820480)²),
+
+where n_T = Σ_(k=0)^7 t_kx^k and n_D = Σ_(k=0)^(14) d_kx^k have the integer coefficients of the table of the trace and
+determinant numerators on Tangherlini space in [[app:tables]]; among them
+
+    t_0 = −1718058975468810403840000,     d_0 = 691283997693777039477894644527792128000000,
+    d_1 = 31003448547550721811482399641771704320000,     d_2 = −460291250745815174622431267350323920896000,
+    d_3 = −28803457351687623824496336970154455859200.
+
+For |x| ≤ 6/5, 25x³ − 1920064x − 204820480 ≤ 25·(216/125) + 1920064·(6/5) − 204820480 < 0, so the denominator of tr is
+negative and that of det is positive. Next Σ_(k≥1)|t_k|(6/5)^k < 8.93·10²² < −t_0, so n_T < 0 and tr > 0. For n_D,
+d_0 + d_2x² ≥ d_0 + (36/25)d_2 > 2.846·10⁴⁰, as d_2 < 0. The odd cubic p(x) := d_1x + d_3x³ (d_1 > 0 > d_3) increases on
+|x| ≤ x_* := (d_1/(3|d_3|))^(1/2) < 0.6 and decreases outside, so on [−6/5, 6/5] its minimum is
+min(p(−x_*), p(6/5)) > −1.26·10⁴⁰; and Σ_(k≥4)|d_k|(6/5)^k < 1.72·10³⁹. So n_D > 2.846·10⁴⁰ − 1.26·10⁴⁰ − 1.72·10³⁹
+> 1.4·10⁴⁰, and det > 0. The block, B-self-adjoint with positive trace and determinant, is positive definite, and with
+the angular entry S is positive definite on the window.
 
 (iv) By [[prop:np-10-13]] (ii) at (v, e) = (1/2, 1/102400): 2v(2 − d) = 2 − d, and 102400 q_(1/2,e)(ν) = q(d, ν). The
 two roots of q(d, ·) are real (T is B-self-adjoint); their sum (307202 − 307199d)/102400 is positive iff
