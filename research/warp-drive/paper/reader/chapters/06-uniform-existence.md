@@ -293,11 +293,18 @@ defined on Ω × S¹. Extend them to R⁵ × S¹ by one universal extension oper
 Ω. Put R2 := b(τ0) + 1. On {a/4 ≤ r ≤ R2 + 1}, at every τ, the extended g_app still has spacelike slices for λ small.
 Indeed the extended profiles are bounded, so |g_app − g0| ≤ C λ there. The slices of g0 have the induced metric δ +
 (μ/r²) dr² ≥ δ, g0 = η + (μ/r²) dv ⊗ dv has |g0| ≤ 1 + 2μ_end/r² ≤ 1 + 32 μ_end/a² (|dv|² = 2 in the Euclidean norm), and
-det g0 = −1 ([[eq:background]]). So there is λ_ext > 0, depending only on C, a and μ_end, such that for λ ≤ λ_ext the
-extended g_app has, on that region, induced metric at least δ/2 on every Σ_τ and negative determinant. A symmetric form
-that is positive definite on a hyperplane has at least four positive eigenvalues, and with negative determinant the fifth
-is negative: g_app is Lorentzian with every Σ_τ spacelike there, and its lapse, shift and spatial metric relative to τ
-are defined, with the lapse and the spatial metric bounded above and below uniformly in τ. We take λ0 ≤ λ_ext. Outside a
+det g0 = −1 ([[eq:background]]). Put L := 2 + 32 μ_end/a² and λ_ext := 1/(10 C L⁴), which depends only on C, a and
+μ_end, and let λ ≤ λ_ext, so that C λ ≤ 1/(10 L⁴) ≤ 1/160. On that region the extended g_app then has induced metric at
+least (1 − C λ) δ ≥ δ/2 on every Σ_τ, |g_app| ≤ |g0| + C λ ≤ L, and determinant at most −1/2. For the determinant:
+det g_app − det g0 is the sum over i = 1, …, 5 of the determinants of the matrices whose first i − 1 columns are those of
+g0, whose i-th column is that of g_app − g0 and whose other columns are those of g_app, since the determinant is linear
+in each column; a column has Euclidean length at most the operator norm, so by Hadamard's inequality each of these five
+determinants is at most L⁴ |g_app − g0| ≤ L⁴ C λ in absolute value, and |det g_app + 1| ≤ 5 L⁴ C λ ≤ 1/2. A symmetric
+form that is positive definite on a hyperplane has at least four positive eigenvalues, and with negative determinant the
+fifth is negative: g_app is Lorentzian with every Σ_τ spacelike there, and its lapse ν, shift and spatial metric γ
+relative to τ are defined. They are bounded uniformly in τ: δ/2 ≤ γ ≤ L, so 1/16 ≤ det γ ≤ L⁴; and det g_app = −ν² det γ,
+so ν² = −det g_app/det γ lies between 1/(2 L⁴) and 16 L⁵, Hadamard's inequality giving |det g_app| ≤ L⁵. We take λ0 ≤
+λ_ext. Outside a
 neighbourhood U of Ω in {a/2 < r < R2}, replace g_app and g0 by g_ext and g0_ext, obtained by interpolating lapse, shift
 and spatial metric (relative to τ) convexly to (1, 0, δ) on {r ≤ a/4} and on {r ≥ R2 + 1}. Every such combination is a
 Lorentzian metric with each Σ_τ spacelike: a convex combination of positive lapses is positive and a convex combination

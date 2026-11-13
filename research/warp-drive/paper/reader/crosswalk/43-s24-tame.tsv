@@ -1,33 +1,33 @@
 label	source	source_name	note
 ch:s24	docket68/n1star/proof5/PART-III-J3-TAME.md:15; docket68/n1star/proof5/PART-III-J4-EXACT.md:14; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:747-768	III.J2 and III.J3 (intros, What n = 4 changes); III.I(15) item (viii)	intro from J2 3-25 and J3 3-32; written at general b (III.I(15) T3.1 (viii) and Corollary 3.2 folded); inner-radius paragraph from docket68/n1star/BEYOND5-R0-PROOF.md:273-280
-sec:iii-j2-1	docket68/n1star/proof5/PART-III-J3-TAME.md:27	III.J2 section 1	'Throughout b = b_0' replaced by general b; label (J''4) replaced by citation of cor:iii-j3-6-6; epsilon_1 kept as a fixed positive number (undefined in the source)
-def:iii-j2-1-1	docket68/n1star/proof5/PART-III-J3-TAME.md:52	III.J2 Definition 1.1	ball of backgrounds written 𝔹 (avoids clash with ℬ_*)
+sec:iii-j2-1	docket68/n1star/proof5/PART-III-J3-TAME.md:27	III.J2 section 1	'Throughout b = b_0' replaced by general b; label (J''4) replaced by citation of cor:iii-j3-6-6; epsilon_1 is undefined in the source (J2:48, 277, 316): defined here by 5 eps_1 < eps_+ - max(eta^0_2, eta_1, eps_K) and eps_1 < alpha - 4 (the margins of J1 L1.1 at eta_2 := eps_+ - 3 eps, and of h_rem(q)), and small for every statement of S19-S23; input losses eps'(eps, k) taken non-increasing in k, giving graded input spaces (J2:43-51 shows k-independence only for the listed rows); III.I(6) row named as Lemmas 1.2-1.4 and Proposition 2.1
+def:iii-j2-1-1	docket68/n1star/proof5/PART-III-J3-TAME.md:52	III.J2 Definition 1.1	ball of backgrounds written 𝔹 (avoids clash with ℬ_*); its radius delta_0 written δ_𝔹 (avoids clash with δ₀ of def:s12-radii)
 eq:iii-j2-1-1	docket68/n1star/proof5/PART-III-J3-TAME.md:56	III.J2 (1.1)	
-lem:iii-j2-1-2	docket68/n1star/proof5/PART-III-J3-TAME.md:60	III.J2 Lemma 1.2	N renamed m in (c), (e)
+lem:iii-j2-1-2	docket68/n1star/proof5/PART-III-J3-TAME.md:60	III.J2 Lemma 1.2	N renamed m in (c), (e); delta_0 written δ_𝔹
 sec:iii-j2-2	docket68/n1star/proof5/PART-III-J3-TAME.md:97	III.J2 section 2	
-lem:iii-j2-2-1	docket68/n1star/proof5/PART-III-J3-TAME.md:99; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:747-760; docket68/n1star/proof5/PART-III-H3-UNIFORM.md:158-170	III.J2 Lemma 2.1 with III.I(15) T3.1 (viii) at b and III.H2 P1.1, C1.2	(f): (J''2)'s shrinking neighbourhood dropped, prop:iii-h2-1-1 and cor:iii-h2-1-2 cited (I16:758-759); (b) adds E^nu, (c) adds A_b, rotation rows and the bounds of P2.8, P2.12 (I16:589-590, 753-757); (g) '(G'''4)' replaced by a citation of thm:iii-j-2-4
+lem:iii-j2-2-1	docket68/n1star/proof5/PART-III-J3-TAME.md:99; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:747-760; docket68/n1star/proof5/PART-III-H3-UNIFORM.md:158-170	III.J2 Lemma 2.1 with III.I(15) T3.1 (viii) at b and III.H2 P1.1, C1.2	(f): (J''2)'s shrinking neighbourhood dropped, prop:iii-h2-1-1 and cor:iii-h2-1-2 cited (I16:758-759); uniformity in b of the constants of cor:ii-g1-4-5 with h_(eta_k,b) proved from sec:i-b-9 as in (ii) of the proof of H3 T2.1 (H3:222); (b) adds E^nu, (c) adds A_b, rotation rows and the bounds of P2.8, P2.12 (I16:589-590, 753-757); (g) '(G'''4)' replaced by a citation of thm:iii-j-2-4
 rem:iii-j2-2-2	docket68/n1star/proof5/PART-III-J3-TAME.md:196	III.J2 Remark 2.2	
 lem:iii-j2-2-3	docket68/n1star/proof5/PART-III-J3-TAME.md:203; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:759-761	III.J2 Lemma 2.3 with III.I(15) (viii)	continuity at b through III.I(15) L2.4 and the direct bound of P2.5
 lem:iii-j2-2-4	docket68/n1star/proof5/PART-III-J3-TAME.md:232	III.J2 Lemma 2.4	Taylor order N renamed M
-sec:iii-j2-3	docket68/n1star/proof5/PART-III-J3-TAME.md:247	III.J2 section 3 (table)	table rewritten as a list keyed by results; row for III.I(15) P2.5 (J2:271) kept, with the forms at b from the list of III.I(15) T3.1 (I16:645-690); attributions dropped
+sec:iii-j2-3	docket68/n1star/proof5/PART-III-J3-TAME.md:247	III.J2 section 3 (table)	table rewritten as a list keyed by results; row for III.I(15) P2.5 (J2:271) kept, with the forms at b from the list of III.I(15) T3.1 (I16:645-690), including III.I(11) T4.1 and III.I(13) P2.4 only inside L2.4 and P2.5 at a rotating b (I16:663-668); attributions dropped
 sec:iii-j2-4	docket68/n1star/proof5/PART-III-J3-TAME.md:274	III.J2 section 4	
-thm:iii-j2-4-1	docket68/n1star/proof5/PART-III-J3-TAME.md:276; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:752-761	III.J2 Theorem 4.1 (tame estimate of [Hin26] C11.66) at b	stated at general b (delta_0 at most the radius of a ball in B_*)
+thm:iii-j2-4-1	docket68/n1star/proof5/PART-III-J3-TAME.md:276; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:752-761	III.J2 Theorem 4.1 (tame estimate of [Hin26] C11.66) at b	stated at general b (δ_𝔹 at most the radius of a ball in B_*); input losses eps'_j = eps'(eps, j), non-increasing in j, made explicit (J2:281 has one eps'); at a rotating b the solution maps of III.I(11) T4.1 and III.I(13) P2.4 read inside III.I(15) L2.4 and P2.5 with q = 0 (I16:663-668, (viii) I16:747-779)
 eq:iii-j2-4-1	docket68/n1star/proof5/PART-III-J3-TAME.md:281	III.J2 (4.1)	
-thm:iii-j2-4-2	docket68/n1star/proof5/PART-III-J3-TAME.md:295; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:776-779, 800-805	III.J2 Theorem 4.2 (estimate of [Hin26] T12.8) with III.I(15) C3.2	stated at every small base point U; J1 Lemma 1.1 for the output of P2.5 (I16:776-779)
+thm:iii-j2-4-2	docket68/n1star/proof5/PART-III-J3-TAME.md:295; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:776-779, 800-805	III.J2 Theorem 4.2 (estimate of [Hin26] T12.8) with III.I(15) C3.2	stated at every small base point U; J1 Lemma 1.1 for the output of P2.5 (I16:776-779); input losses eps'_j explicit; Steps 1-3 at b by sec:s23-base-points (3) (I16:769-775), so S24 does not rest on S25 section 3
 eq:iii-j2-4-2	docket68/n1star/proof5/PART-III-J3-TAME.md:300	III.J2 (4.2)	
 prop:iii-j2-4-3	docket68/n1star/proof5/PART-III-J3-TAME.md:315	III.J2 Proposition 4.3	'(D285)' replaced by a citation of thm:iii-j-2-4
 rem:iii-j2-4-4	docket68/n1star/proof5/PART-III-J3-TAME.md:334; docket68/n1star/proof5/PART-III-J4-EXACT.md:668-671	III.J2 Remark 4.4 and III.J3 668-671	rewritten as the hypotheses of the Nash-Moser theorem and where each is supplied; (J'3), (J''4) replaced by citations
 sec:iii-j3-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:40; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:750-752	III.J3 section 1	exact classes independent of b (I16:750-752)
 def:iii-j3-1-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:45	III.J3 Definition 1.1	
 rem:iii-j3-1-2	docket68/n1star/proof5/PART-III-J4-EXACT.md:71	III.J3 Remark 1.2	
-def:iii-j3-1-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:77	III.J3 Definition 1.3	(E5) (vacuous, J3:97-98) not listed as a condition; stated as a sentence; '(D295)' dropped
-lem:iii-j3-1-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:102	III.J3 Lemma 1.4	title added; (E5) omitted
+def:iii-j3-1-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:77	III.J3 Definition 1.3	(E5) (vacuous, J3:97-98) not listed as a condition; stated as a sentence; '(D295)' dropped; (E1)-(E4) renamed (Ex1)-(Ex4) to avoid III.A's (E1)-(E2) (S11) and the main part's (E1)-(E4); (G+) and (A_J) cited to def:iii-j-g-plus and def:iii-j-a-j; 'alpha_H' of J3:97 written alpha_sf, the weight of eq:iii-h-1-1
+lem:iii-j3-1-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:102	III.J3 Lemma 1.4	title added; (E5) omitted; labels (Ex1)-(Ex4)
 sec:iii-j3-2	docket68/n1star/proof5/PART-III-J4-EXACT.md:117	III.J3 section 2	
 lem:iii-j3-2-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:119	III.J3 Lemma 2.1	
 lem:iii-j3-2-2	docket68/n1star/proof5/PART-III-J4-EXACT.md:130	III.J3 Lemma 2.2	
 sec:iii-j3-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:138	III.J3 section 3	
 eq:iii-j3-3-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:147	III.J3 (3.1)	
-rem:iii-j3-3-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:149	III.J3 Remark 3.1	the sup (k/(e eps))^k and the log-phi coefficient written out
+rem:iii-j3-3-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:149	III.J3 Remark 3.1	the sup (k/(e eps))^k and the log-phi coefficient written out; the generic variable rho of J3:155 written R
 cor:iii-j3-3-2	docket68/n1star/proof5/PART-III-J4-EXACT.md:163	III.J3 Corollary 3.2 (III.G2 C4.3 at the exact weight; [Hin26] C9.12 in Def. 2.8's convention)	home of the exact form of III.G2 C4.3; circle paragraph J3:181-202 kept
 eq:iii-j3-3-2	docket68/n1star/proof5/PART-III-J4-EXACT.md:169	III.J3 (3.2)	
 eq:iii-j3-3-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:176	III.J3 (3.3)	
@@ -36,10 +36,10 @@ prop:iii-j3-3-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:273; docket68/n1star
 sec:iii-j3-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:300	III.J3 section 4	
 prop:iii-j3-4-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:302	III.J3 Proposition 4.1	the constant |alpha|^-1 of III.A (1.2) described in words
 lem:iii-j3-4-2	docket68/n1star/proof5/PART-III-J4-EXACT.md:321	III.J3 Lemma 4.2	N renamed m
-prop:iii-j3-4-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:332; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:767-768	III.J3 Proposition 4.3	rotation rows at a rotating b
+prop:iii-j3-4-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:332; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:767-768	III.J3 Proposition 4.3	rotation rows at a rotating b; the bound w < 1 justified by l_3 <= eps_K < eps_+
 lem:iii-j3-4-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:403	III.J3 Lemma 4.4	
 lem:iii-j3-4-5	docket68/n1star/proof5/PART-III-J4-EXACT.md:423	III.J3 Lemma 4.5	
-prop:iii-j3-4-6	docket68/n1star/proof5/PART-III-J4-EXACT.md:430	III.J3 Proposition 4.6	'(D295)', '(D296)' dropped; '((J'''6))' replaced by lem:iii-j3-2-1
+prop:iii-j3-4-6	docket68/n1star/proof5/PART-III-J4-EXACT.md:430	III.J3 Proposition 4.6	'(D295)', '(D296)' dropped; '((J'''6))' replaced by lem:iii-j3-2-1; the dichotomy at w_rho (J3:446-452) made explicit: outside the clause of III.I(12) L2.4, d_rho is not below the profile's degree
 lem:iii-j3-4-7	docket68/n1star/proof5/PART-III-J4-EXACT.md:482	III.J3 Lemma 4.7	N renamed kappa
 sec:iii-j3-5	docket68/n1star/proof5/PART-III-J4-EXACT.md:530	III.J3 section 5	
 lem:iii-j3-5-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:532	III.J3 Lemma 5.1	
@@ -47,6 +47,6 @@ prop:iii-j3-5-2	docket68/n1star/proof5/PART-III-J4-EXACT.md:552	III.J3 Propositi
 thm:iii-j3-5-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:571; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:762-768, 370-373	III.J3 Theorem 5.3 ([Hin26] C11.66 with (11.234)) at b	folded: at a rotating b it is III.I(15) P2.5 at the exact weights (I16:762-768; Remark 2.6)
 eq:iii-j3-5-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:578	III.J3 (5.1)	
 prop:iii-j3-5-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:593	III.J3 Proposition 5.4	
-thm:iii-j3-5-5	docket68/n1star/proof5/PART-III-J4-EXACT.md:620; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:800-805	III.J3 Theorem 5.5 ([Hin26] T12.8) at every small base point	folded III.I(15) Corollary 3.2
+thm:iii-j3-5-5	docket68/n1star/proof5/PART-III-J4-EXACT.md:620; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:800-805	III.J3 Theorem 5.5 ([Hin26] T12.8) at every small base point	folded III.I(15) Corollary 3.2; Steps 1-2 at b by sec:s23-base-points (3)
 sec:iii-j3-6	docket68/n1star/proof5/PART-III-J4-EXACT.md:638	III.J3 section 6	
 cor:iii-j3-6-6	docket68/n1star/proof5/PART-III-J4-EXACT.md:640; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:800-805	III.J3 Corollary 6.6	attributions dropped; (J'''7) folded into the proof; stated at every small base point

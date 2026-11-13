@@ -231,16 +231,16 @@ v ≤ v_start, and has every derivative in E_(q−1).
 
 *Energy.* The L² norm of an element of E_p on Σ_τ ∩ P⁺ is at most C t^(3/2 − p), the volume being at most C t³. Apply
 [[lem:past-energy]] with g̃ = g_λ, which has the margin of [[lem:past-domain]] (f) on P by [[thm:past-construction]]
-and satisfies ‖∂g_λ‖_∞ ≤ C t^(−3/2) on P⁺, an integrable kernel, and with forcing S′, from τ1 → −∞. Since ‖∂ǔ(τ1)‖ ≤ C t1^(3/2 − (q−1)) → 0 because q > 5/2, and
-‖S′(τ')‖ ≤ C t'^(3/2 − q − 1/2) = C t'^(1−q), we get ‖∂ǔ(τ)‖ ≤ C ∫_{−∞}^{τ} t'^(1−q) dτ' = C t^(2−q)/(q − 2).
-Commuting with ∂_X and Ω preserves the form of the equation. [∂_X, g_λ^{ab} ∂_a ∂_b] = (∂_X g_λ^{ab}) ∂_a ∂_b with
-∂_X g_λ^{ab} in E_(3/2) produces a forcing in E_(q+1/2), by the hypothesis on ǔ (its second derivatives are in
-E_(q−1)), within the bound t^(1−q) of S′. And [Ω, □̃] = 0: the rotations are linear maps of R⁴ that preserve g0, and for
-such a map R, □̃(f ∘ R) = (□̃ f) ∘ R. So Ω commutes with g_λ^{ab} ∂_a ∂_b = □̃ + (g_λ^{ab} − g0^{ab}) ∂_a ∂_b up to
-(Ω(g_λ^{ab} − g0^{ab})) ∂_a ∂_b and (g_λ^{ab} − g0^{ab}) [Ω, ∂_a ∂_b], where [Ω, ∂_a ∂_b] is a combination of second
-derivatives with constant coefficients; since g_λ⁻¹ − g0⁻¹ is in E_(3/2) with all its derivatives, these too are
-forcings in E_(q+1/2), as for ∂_X. So every commuted energy is at most C t^(2−q). *Pointwise.* The Sobolev inequality
-with rotations and the Poincaré inequality (ǔ = 0 on {v = v_start}), [[lem:past-sobolev]] (a) and (b), give
+and satisfies ‖∂g_λ‖_∞ ≤ C t^(−3/2) on P⁺, an integrable kernel, and with forcing S′, from τ1 → −∞. Since ‖∂ǔ(τ1)‖ ≤ C
+t1^(3/2 − (q−1)) → 0 because q > 5/2, and ‖S′(τ')‖ ≤ C t'^(3/2 − q − 1/2) = C t'^(1−q), we get ‖∂ǔ(τ)‖ ≤ C ∫_{−∞}^{τ}
+t'^(1−q) dτ' = C t^(2−q)/(q − 2). Commuting with ∂_X and Ω preserves the form of the equation. [∂_X, g_λ^{ab} ∂_a ∂_b] =
+(∂_X g_λ^{ab}) ∂_a ∂_b with ∂_X g_λ^{ab} in E_(3/2) produces a forcing in E_(q+1/2), by the hypothesis on ǔ (its second
+derivatives are in E_(q−1)), within the bound t^(1−q) of S′. And [Ω, □̃] = 0: the rotations are linear maps of R⁴ that
+preserve g0, and for such a map R, □̃(f ∘ R) = (□̃ f) ∘ R. So Ω commutes with g_λ^{ab} ∂_a ∂_b = □̃ + (g_λ^{ab} −
+g0^{ab}) ∂_a ∂_b up to (Ω(g_λ^{ab} − g0^{ab})) ∂_a ∂_b and (g_λ^{ab} − g0^{ab}) [Ω, ∂_a ∂_b], where [Ω, ∂_a ∂_b] is a
+combination of second derivatives with constant coefficients; since g_λ⁻¹ − g0⁻¹ is in E_(3/2) with all its derivatives,
+these too are forcings in E_(q+1/2), as for ∂_X. So every commuted energy is at most C t^(2−q). *Pointwise.* The Sobolev
+inequality with rotations and the Poincaré inequality (ǔ = 0 on {v = v_start}), [[lem:past-sobolev]] (a) and (b), give
 |∂_X^α Ω^β ǔ| ≤ C t^(−3/2) t^(2−q) = C t^(1/2 − q). That is E_(q−1/2), since t and r are comparable on P⁺.
 
 *The ℓ-gain.* In the coordinates (v, r, x̂) the operator □̃ is [[eq:wave-operator-vr]] ([[lem:decay-calculus]] (b)),
@@ -387,15 +387,15 @@ r → ∞. Writing y' = ∂_r + η, the system is
 
 a Volterra system from r = ∞. Its forcing (Γ[g_λ] − Γ[g0])^v_rr = ½ g^{vd}(2 ∂_r u_(dr) − ∂_d u_rr) is in E_3 by
 [[lem:bondi-ell]] and the ℓ-gain of u (g^{vr} = 1 + E_(3/2) multiplies ∂_r u_rr, in E_3; g^{vv}, in E_2, multiplies
-E_2; and g^{vϑ} = −r⁻¹ u(ℓ, e_ϑ) + E_4, in E_3, multiplies 2 ∂_r u_(ϑr) − ∂_ϑ u_rr, in E_2). Its angular forcing is in E_4 (g^{ϑϑ} = r^(−2)(1 + E_(3/2)) times
-∂_r u_(ϑr) = r ∂_r u(e_ϑ, ℓ) + u(e_ϑ, ℓ), in E_2). Its linear part −2 Γ[g0]^a_rb η^b vanishes for a = v
-(Γ[g0]^v_rb = 0 in the ingoing chart) and is −(2/r) ξ' for a = ϑ (Γ[g0]^ϑ_rϑ = 1/r). This is not an integrable
-perturbation but the unperturbed operator of the angular equation, ξ'' + (2/r) ξ' = E_4, which the integrating factor r²
-solves with ξ' in E_3 and ξ in E_2. The remaining coefficients are Lipschitz in (ζ, ξ, ζ', ξ') in the weighted norms
-below, with constants integrable in r: ∂(Γ[g_λ] − Γ[g0]) is in E_(3/2), and the terms quadratic in η, whose largest
-coefficient is Γ[g0]^v_ϑϑ = −r, are O(r^(−2)) times the norm. κ_y = Γ^r_bc y'^b y'^c is in E_2 and multiplies η. So
-for r ≥ T_M the Picard iteration converges in the weighted supremum norm r² |ζ'| + r |ζ| + r³ |ξ'| + r² |ξ| (a
-contraction for an ordinary differential equation, so no derivative is lost). The solution depends smoothly on
+E_2; and g^{vϑ} = −r⁻¹ u(ℓ, e_ϑ) + E_4, in E_3, multiplies 2 ∂_r u_(ϑr) − ∂_ϑ u_rr, in E_2). Its angular forcing is in
+E_4 (g^{ϑϑ} = r^(−2)(1 + E_(3/2)) times ∂_r u_(ϑr) = r ∂_r u(e_ϑ, ℓ) + u(e_ϑ, ℓ), in E_2). Its linear part −2 Γ[g0]^a_rb
+η^b vanishes for a = v (Γ[g0]^v_rb = 0 in the ingoing chart) and is −(2/r) ξ' for a = ϑ (Γ[g0]^ϑ_rϑ = 1/r). This is not
+an integrable perturbation but the unperturbed operator of the angular equation, ξ'' + (2/r) ξ' = E_4, which the
+integrating factor r² solves with ξ' in E_3 and ξ in E_2. The remaining coefficients are Lipschitz in (ζ, ξ, ζ', ξ') in
+the weighted norms below, with constants integrable in r: ∂(Γ[g_λ] − Γ[g0]) is in E_(3/2), and the terms quadratic in η,
+whose largest coefficient is Γ[g0]^v_ϑϑ = −r, are O(r^(−2)) times the norm. κ_y = Γ^r_bc y'^b y'^c is in E_2 and
+multiplies η. So for r ≥ T_M the Picard iteration converges in the weighted supremum norm r² |ζ'| + r |ζ| + r³ |ξ'| + r²
+|ξ| (a contraction for an ordinary differential equation, so no derivative is lost). The solution depends smoothly on
 (v0, x̂0), with derivatives of the same decay (the variational equations have the same structure), it is invariant, and
 it is y0 for v0 ≤ v_start (there g_λ = g0 along the whole generator).
 
@@ -527,8 +527,8 @@ functions of (v, r, ϑ), S = e^(−2(P1+P2)) and ς = r^(−1/2). The metric of 
 γ_P := S dϑ² + cos²ϑ e^(2P1) dφ1² + sin²ϑ e^(2P2) dφ2², as in [[eq:bondi-type]], whose determinant is cos²ϑ sin²ϑ, that
 of γ; capital indices run
 over (ϑ, φ1, φ2), D is the Levi-Civita connection of γ, div f = ∂_ϑ f + (cot ϑ − tan ϑ) f is the divergence on S³ of the
-field f ∂_ϑ, and Δ_P is the Laplacian of γ_P. The inverse metric is that of [[prop:bondi-chart]], with g^{vv} = g^{vϑ} = 0,
-and √|det g| = e^(2β) r³ cos ϑ sin ϑ. We write the Ricci tensor as
+field f ∂_ϑ, and Δ_P is the Laplacian of γ_P. The inverse metric is that of [[prop:bondi-chart]], with g^{vv} = g^{vϑ} =
+0, and √|det g| = e^(2β) r³ cos ϑ sin ϑ. We write the Ricci tensor as
 
     R_ab = ∂_c Γ^c_ab − ∂_a ∂_b log √|det g| + Γ^c_ab ∂_c log √|det g| − Γ^c_ad Γ^d_bc.
 
@@ -617,12 +617,12 @@ y_(α1), …, y_(αn) and whose slots have total weight w has an expansion start
 particular a coefficient of R_ij at a given power of ς is determined by finitely many coefficients of the y_α, and
 remainders o(ς⁶), which stay o(ς⁶) under e_0 and ∂_ϑ and gain two orders under e_1, enter only through o(·) terms.
 
-Proof. (a) is [[eq:bondi-form]], with the subscript B dropped, in the frame. (b) In a frame the connection coefficients are
-Γ_kij = ½ (e_i G_jk + e_j G_ik − e_k G_ij) plus structure coefficients times components of G, each a sum of terms with
-one slot, and R_ij = e_k Γ^k_ij − e_j Γ^k_ik + Γ Γ − Γ Γ − c Γ has exactly two slots in each term, since
-e_k (F(y)) = F'(y) e_k y. The functions depend on (v, r, ϑ) only, so e_3 and e_4 act on them as zero. The structure
-coefficients follow from [e_1, e_2] = −r⁻¹ e_2, [e_1, e_3] = −r⁻¹ e_3, [e_1, e_4] = −r⁻¹ e_4, [e_2, e_3] = r⁻¹ tan ϑ e_3,
-[e_2, e_4] = −r⁻¹ cot ϑ e_4 and [e_0, e_i] = 0.
+Proof. (a) is [[eq:bondi-form]], with the subscript B dropped, in the frame. (b) In a frame the connection coefficients
+are Γ_kij = ½ (e_i G_jk + e_j G_ik − e_k G_ij) plus structure coefficients times components of G, each a sum of terms
+with one slot, and R_ij = e_k Γ^k_ij − e_j Γ^k_ik + Γ Γ − Γ Γ − c Γ has exactly two slots in each term, since e_k (F(y))
+= F'(y) e_k y. The functions depend on (v, r, ϑ) only, so e_3 and e_4 act on them as zero. The structure coefficients
+follow from [e_1, e_2] = −r⁻¹ e_2, [e_1, e_3] = −r⁻¹ e_3, [e_1, e_4] = −r⁻¹ e_4, [e_2, e_3] = r⁻¹ tan ϑ e_3, [e_2, e_4] =
+−r⁻¹ cot ϑ e_4 and [e_0, e_i] = 0.
 
 (c) Freeze (r, ϑ) = (r0, ϑ0) and let y(v) := y(v, r0, ϑ0). The terms with two slots e_0, evaluated at (v, r0, ϑ0), are
 exactly the Ricci components of the metric g' := G_ij(y(v)) dx^i dx^j on R⁵ with coordinates (v, ϱ, z1, z2, z3), whose
@@ -646,11 +646,11 @@ of L_ij and of H_ij sum to zero, and every remaining term of L_ij and H_ij has w
 components are R_vv = R_00, R_vr = R_01, R_rr = R_11, R_(rϑ) = r R_12 and R_AB = r² × (the frame components).
 
 **Proposition {#prop:hierarchy-scri}** (The hierarchy at past null infinity.) Let a metric of the form
-[[eq:bondi-form]] with the subscript B dropped, with β, W, U, P1, P2 functions of (v, r, ϑ), be vacuum near past null infinity. Let P1, P2, β, U
-and W − 1 have expansions in ς to order ς⁶, with coefficients smooth in (v, ϑ) and remainders o(ς⁶) that stay o(ς⁶)
-under every (v, ϑ)-derivative and gain two ς-orders (one power of r) under each r-derivative, as in
-[[prop:bondi-chart]]; let P_i = O(ς³), and β, U, W − 1 = O(ς). Let p and q be the ς³ coefficients of P1 and P2, a1 and
-a2 their ς⁴ coefficients, and β_k, u_k, w_k the coefficients of β, U and W. Then, in order:
+[[eq:bondi-form]] with the subscript B dropped, with β, W, U, P1, P2 functions of (v, r, ϑ), be vacuum near past null
+infinity. Let P1, P2, β, U and W − 1 have expansions in ς to order ς⁶, with coefficients smooth in (v, ϑ) and remainders
+o(ς⁶) that stay o(ς⁶) under every (v, ϑ)-derivative and gain two ς-orders (one power of r) under each r-derivative, as in
+[[prop:bondi-chart]]; let P_i = O(ς³), and β, U, W − 1 = O(ς). Let p and q be the ς³ coefficients of P1 and P2, a1 and a2
+their ς⁴ coefficients, and β_k, u_k, w_k the coefficients of β, U and W. Then, in order:
 
 (0) from R_rr at ς⁵, ς⁶ and R_(rϑ) at ς¹, ς²: β_1 = β_2 = 0 and u_1 = u_2 = 0;
 
