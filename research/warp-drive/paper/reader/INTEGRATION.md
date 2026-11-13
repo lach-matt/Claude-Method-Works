@@ -425,3 +425,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   (rename, e.g. Θ); name the C in λ_ext; state |β| ≤ 2L; state Hadamard's inequality; (iii) uses C M λ0^(K−3) ≤ ε2/2
   with ε2 independent of λ, unstated; N3 paraphrase "continuous, with continuous first derivatives in t and u"
   (optional); 07:83 "hypotheses … on Σ_τ0".
+- Chapter 10 confirmed (R3-10). Nit: line 172, "the region between {v = v_start} and Σ̂_τ" should say P⁺ ∩ {τ′ ≤ τ}.
+  Chapter 8's numerical remark also uses the sin⁴ profile (for the envelope audit).
+- S28 (R-S28): 3 Majors. [CD03, p. 11] projects with L²_ψ(g) onto 𝒦₀^(⊥g) in the current metric; the chapter used the
+  fixed 𝒦₀^(⊥g₀) (the source's V7 and the WU26-CS06 note share the misreading). Fix by Option A, every citation literal.
+  lem:s28-setting (b) and Appendix A's block omit [CD03, Prop. 5.10]'s smallness hypothesis. (Fin) is automatic for a
+  background smooth to the boundary; [CD03] holds for all n ≥ 2; no circularity with chapter 60. Chapter 83 needs the
+  review's five conditions once the projection is fixed. prop:v-2-3 holds at every point (m, 0, 0, 0).

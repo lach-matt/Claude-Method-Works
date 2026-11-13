@@ -230,21 +230,23 @@ v ≥ v_end + 2 > v_end + 1. So these points lie in the interior of Ω′_+. Fin
 
 ### Proof of the theorem {#sec:vii-4}
 
-*Proof of [[thm:settling-precise]].* *The choices.* Let ε_m > 0 and ε_t ∈ (0, ε_K). The parameters are chosen by
-[[thm:vi-c-2-1]] with [[eq:vii-0-1]] at its step (3), up to ε_K at its step (4); ε_K does not depend on ε_t. Take
-α > 4 + ε_t in row w2 and finish steps (5)–(6). [[cor:s27-rate]] then gives ε = ε(ε_m, ε_t) > 0, with d_1 as in
-[[thm:iii-k-4-3]], such that its conclusions (a)–(c) hold for data of norm below ε; its part (b) contains the threshold
-of the run of [[thm:ii-g-2-1]] in the symmetry class ([[prop:vii-3-2]]). Then choose, in this order:
+*Proof of [[thm:settling-precise]].* *The choices.* Let ε_t ∈ (0, ε_K). The parameters are chosen by [[thm:vi-c-2-1]]
+with [[eq:vii-0-1]] at its step (3), up to ε_K at its step (4); ε_K does not depend on ε_t. Take α > 4 + ε_t in row w2
+and finish steps (5)–(6); this fixes the order d_1 of [[thm:iii-k-4-3]]. These choices do not involve ε_m:
+[[cor:s27-rate]] takes the parameters so chosen, with d_1 as in [[thm:iii-k-4-3]], and ε_m enters only its threshold.
+Then choose, in this order:
 
 - k := d_1 + 5, the order of the gluing in [[prop:vii-2-2]];
 - R ≥ max(R_gl, R₃), with R_gl of [[prop:vii-2-2]] at this k;
 - c₀ and Ω′ by [[lem:vii-1-2]], and J := k + 5 in [[lem:vii-1-1]], so that g_λ is built on Ω′ with
-  K = J + 4 = d_1 + 14;
-- λ_1 > 0 so small that [[lem:vii-1-1]] and [[cor:vii-2-3]] apply for λ ≤ λ_1, and C_Rλ_1 < ½ε, with C_R the constant
-  of [[cor:vii-2-3]].
+  K = J + 4 = d_1 + 14.
 
-Put δ := ½ε. The choices of [[lem:vii-1-2]] depend on r_♭ through δ′_0, c₀ and T′, and λ_1 depends on all the
-choices before it.
+Now let ε_m > 0. [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m (C_𝔟 of [[sec:vii-0]]), gives
+ε = ε(ε_m, ε_t) > 0 such that its conclusions (a)–(c) hold for data of norm below ε; its part (b) contains the
+threshold of the run of [[thm:ii-g-2-1]] in the symmetry class ([[prop:vii-3-2]]). Take λ_1 > 0 so small that
+[[lem:vii-1-1]] and [[cor:vii-2-3]] apply for λ ≤ λ_1, and C_Rλ_1 < ½ε, with C_R the constant of [[cor:vii-2-3]], and
+put δ := ½ε. The choices of [[lem:vii-1-2]] depend on r_♭ through δ′_0, c₀ and T′. So R, Ω′ and K depend on ε_t and
+r_♭ only; λ_1 and δ depend moreover on ε_m.
 
 *(i).* Let 0 < λ ≤ λ_1. [[cor:vii-2-3]], with k = d_1 + 5 and the data of g_λ on Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}, gives
 G-invariant smooth vacuum data (γ_λ, k_λ) := (ĝ, K̂) and m_λ := m, equal to the data of g_λ on Σ^IVP ∩ {r ≤ R} and to
@@ -255,14 +257,15 @@ G-invariant smooth vacuum data (γ_λ, k_λ) := (ĝ, K̂) and m_λ := m, equal t
 The differences lie in H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, by [[lem:vii-0-1]] with R′ = 4R: beyond 4R they are
 (γ^(m_λ) − γ_(b₀), k^(m_λ) − k_(b₀)), whose Cartesian components lie in ρ²C^∞ and ρ³C^∞ of the radial
 compactification ([[lem:vii-2-1]] (a), with γ_(b₀) = γ^(μ_end) and k_(b₀) = k^(μ_end)). So [[cor:s27-rate]] (b)
-applies: [[prop:vii-3-2]] gives U fixed by G, b = (m′, 0) with |m′ − μ_end| < ε_m, S = 0, and a G-invariant metric g
-with the conclusions (1)–(5) of [[thm:iii-k-4-3]]. By (2) with S = 0, φ_0 being the identity, g is defined on
+applies: [[prop:vii-3-2]] gives U fixed by G, b = (m′, 0) with |m′ − μ_end| < ε_m/C_𝔟 ≤ ε_m, S = 0, and a
+G-invariant metric g with the conclusions (1)–(5) of [[thm:iii-k-4-3]]. By (2) with S = 0, φ_0 being the identity, g is defined on
 Ω_* ∪ 𝒟_0 and induces (γ_λ, k_λ) on Σ^IVP; on Σ^IVP ∩ {r < R} these are the data of g_λ.
 
 *The rate.* Where χ_K = 1, g − g_(m′,0) = h_tot(p⃗) + h_(b,rem)(q) + h, by (3)–(4) of [[thm:iii-k-4-3]] with
 b = (m′, 0) and S = 0. Every term of h_tot(p⃗) carries a factor dχ_K: the terms are those of [[def:iii-i4-2-1]],
-[[def:iii-i7-2-1]], [[def:iii-i8-2-1]] and [[def:iii-i9-2-1]], summed in [[def:iii-i7-2-3]] and [[def:iii-i9-2-3]], and
-each is −dχ_K ⊗_s ω for a 1-form ω. So h_tot(p⃗) vanishes on the interior of {χ_K = 1}. [[cor:s27-rate]] (c) gives
+[[def:iii-i7-2-1]], [[def:iii-i8-2-1]] and [[def:iii-i9-2-1]], summed in [[def:iii-i7-2-3]] and [[def:iii-i9-2-3]] over
+the rows and the rotation rows of [[def:iii-i14-1-3]] (a rotation row has the terms that [[def:iii-i9-2-1]] assigns to
+the type v1), and each is −dχ_K ⊗_s ω for a 1-form ω. So h_tot(p⃗) vanishes on the interior of {χ_K = 1}. [[cor:s27-rate]] (c) gives
 [[eq:vii-0-2]], with α − 2 > 2 + ε_K − ε′_0 > 2 and α − 2 > 2 + ε_t. α was chosen with α > 4 + ε_t among the
 admissible orders of row w2, which are dense in (4 + ε_K − ε′_0, 4 + ε_K]; so it may be taken as close to 4 + ε_K as
 desired. With ε′ := α − 4 − ε_t > 0, [[eq:vii-0-2]] gives g − g_(m′,0) = O(t_*^(−2−ε_t)) on
@@ -273,7 +276,7 @@ desired. With ε′ := α − 4 − ε_t > 0, [[eq:vii-0-2]] gives g − g_(m′
     (γ − γ_(b₀), k − k_(b₀)) = (γ − γ_λ, k − k_λ) + (γ_λ − γ_(b₀), k_λ − k_(b₀))
 
 lies in the class, with norm below δ + ½ε = ε. So [[cor:s27-rate]] (a) applies: [[thm:iii-k-4-3]] holds with
-|b − b₀| < ε_m and |S| < ε_m. The vanishing of h_tot(p⃗) on the interior of {χ_K = 1} holds as in (i), and
+‖b − b₀‖_𝔟 < ε_m/C_𝔟 and |S| < ε_m/C_𝔟, hence |b − b₀| < ε_m and |S| < ε_m. The vanishing of h_tot(p⃗) on the interior of {χ_K = 1} holds as in (i), and
 [[cor:s27-rate]] (c) gives [[eq:vii-0-2]] with g_b in place of g_(m′,0). ∎
 
 *Proof of [[thm:settling]].* The number ℓ0 ∈ (3, 4) of [[thm:settling]] is the ℓ_0 of the data class [[eq:vii-0-1]],

@@ -1594,7 +1594,7 @@ This section is [Hin26, Proposition 9.35] in dimension 4 + 1.
 L̂_b(0). Let k₀ ∈ ℕ₀ and f ∈ H^(∞,ℓ_scf+1,α,((k₀,0),ℓ_zf))_b(X^±_(sc-b); S²T*X). Then there is
 u ∈ ⋂_(ε>0) H^(∞,ℓ_scf−ε,α−2,α−3)_b(X^±_(sc-b)) with
 
-    f − L̂_b(σ)u ∈ ⋂_(ε>0) H^(∞,ℓ_scf+1,α+ε_Υ−ε,((k₀,0),ℓ_zf))_b(X^±_(sc-b)).                          {#eq:iii-g4-5-1}
+    f − L̂_b(σ)u ∈ ⋂_(ε>0) H^(∞,ℓ_scf+1,α+ε_Υ−ε,((k₀,0),ℓ_zf))_b(X^±_(sc-b)).                            {#eq:iii-g4-5-1}
 
 One can take u = χ_zf u_b + χ^♯_tf ũ, with χ^♯_tf a cut-off of the kind of χ_tf (fixed in the proof),
 ũ ∈ H^(∞,ℓ_scf−ε,α−2,((k₀,0),ℓ_zf))_b and

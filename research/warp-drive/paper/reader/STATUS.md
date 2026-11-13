@@ -10,7 +10,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | third reading CONFIRMED (6 notation nits) |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED; new text read (Step 8 correct, 7 nits); the cut's minor moves to Ch 3 (sentence in INTEGRATION) |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | CONFIRMED (third reading; 2 nits) |
-| 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | done | NOT CONFIRMED 0M 1m 4n; second fix done; third reading running |
+| 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | done | CONFIRMED (third reading; 1 nit) |
 | 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |
 | 21 S2 | NOT CONFIRMED 1M 6m 17n | done | CONFIRMED (4 optional nits) |
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | CONFIRMED (4 nits) |
@@ -38,7 +38,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | running (38a and 44) |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | running | - |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | running (translation carried; level-1/2 lemma) | - |
-| 47 S28 | running | - | - |
+| 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | running | - |
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | running | - |
 | 61 M Ch 11 | running | - | - |
