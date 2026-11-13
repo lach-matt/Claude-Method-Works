@@ -989,3 +989,11 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S19 fifth reading (R5-S19): crux holds; minor: ϵ_G must cover {t_* ≥ ½} (collar outside Ω); nits: mass-term sign at
   38:711; renames G → 𝖦, C_♭ → K_♭, ε_♭ → η_♭ (clashes with chapters 46, 48, def:s11-parameters, 27, 35); (B) users list
   adds ch:s06 and lem:ii-e-4-1 (a). Optional note at 46:98 (ℓ_I there is the b-weight). Fifth fix running.
+- Ch 70 re-merge (F-70-merge): confirmed proof B in place of the pre-fix copy; seven R2-P-B nits; B2 band fix in both
+  files; T-B tables as sec:tb-morawetz beside sec:tb2 (crosswalk: "to transfer to Appendix B"); lem:morawetz-complex
+  requires |φ| ≤ 1 (scaled form for |φ| ≤ p_φ); every master potential ≥ 0 proved; rem:rb-multiplier-observed reworded;
+  F_2 → Θ_E, p → p_φ; summation in cor:morawetz-one-derivative (c)-(d) written. Chapter 30 citations
+  [[eq:s11-box-tensors]] and [[eq:iii-b-6-5]]; Gauss formula and chapter 34's composition rule restated with derivations.
+  Open: lem:rb-horizon-exponents cites content inside the proof of lem:iii-f2-1-1 (chapter 34) — reader A to settle.
+  INTEGRATION CHECK: label keys must be lowercase — sec:tb-morawetz-mM in the proofs files, eq:bondi-calS at
+  02-setting.md:568; lint.py should reject uppercase keys. Two readers running on chapter 70.

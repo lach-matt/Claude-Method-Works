@@ -427,8 +427,9 @@ the K⁺-coefficient S^(h,p⃗)_(λ,j)(G′) of u_0 := u + Σ_(𝒩⊔𝒩_rot) 
 P_4 as in Step 1 and applied from an admissible level α″ ∈ (2, 2 + w], whose hypothesis u_0 meets, minus W′_ν; and
 ‖δG′‖_(𝒴,k+1) has the bound above, the rows there being rows of [[eq:iii-i15-1-1]] and the motion coordinates changing
 as [[eq:s25-motions-small]] gives. The bound of [[lem:iii-i8-3-2]], C‖G′‖_(𝒴(β_(k+1))) + C(‖h‖ + |p⃗|)‖u_0‖_(α″),
-uniform in b by (P1)–(P4), has the same form, and the estimate above holds with ‖·‖_(α″) in place of ‖·‖_(w). At the base level the new coordinates are the motion
-parameters (S′, b′, S^(0)′_1), which enter G′ through f^S, f^b, f^(s1) in full. There the level map is that of
+uniform in b by (P1)–(P4), has the same form, and the estimate above holds with ‖·‖_(α″) in place of ‖·‖_(w).
+At the base level the new coordinates are the motion parameters (S′, b′, S^(0)′_1), which enter G′ through f^S, f^b,
+f^(s1) in full. There the level map is that of
 [[cor:iii-i7-4-6]], the composite of the maps of [[lem:iii-i7-4-3]] and [[lem:iii-i7-4-5]], and [[prop:iii-i15-2-12]]
 bounds those directly, within C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) of ±id, with ‖q‖ entering through Δ_q and R_q as above.
 Their composite is block-triangular, not of the form −id + A_k; what the elimination uses is that its inverse is bounded

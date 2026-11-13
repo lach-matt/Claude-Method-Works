@@ -255,29 +255,33 @@ R(p) < min(R(p), √μ0), a contradiction.
 R² dΩ₃², f = 1 − μ(ṽ)/R²: an ingoing Vaidya metric. On 𝒞_out the data are those of the ingoing Vaidya metric in its
 advanced time v, for which e^ψ = 1 when v̂ = v, by comparison of [[eq:two-dust-chart]] with [[eq:vr-form]]; so ψ = 0 on
 𝒞_out with v̂ = v, and on {u ≤ u1} the background is that ingoing Vaidya metric, with the mass function of the data. On
-{u ≥ u2} it is ingoing Vaidya with ψ(u2, ·) and μ(u2, ·). The statements where 𝒜 = 0 follow in the same way from the
-second form of (v), with ψ̃ = 0 on 𝒞_in ∩ {u ≤ u2} in the retarded time of the data. Where 𝒜 = ℬ = 0 the background is
-Tangherlini. 𝒜ℬ ≠ 0 only on Q×, which is compact.
+{u ≥ u2} it is ingoing Vaidya with ψ(u2, ·) and μ(u2, ·). The statements where 𝒜 = 0 and R_v > 0 follow in the same
+way from the second form of (v), with ψ̃ = 0 on 𝒞_in ∩ {u ≤ u2} in the retarded time of the data. On {u ≤ u2,
+v ≤ v_start}, R_v > 0. Indeed 𝒞_in ∩ {u ≤ u2} is untrapped (r² > m on the packet, and outward of it r is larger and m
+constant), so f > 0 there, and with R_u < 0 this gives R_v > 0; and where 𝒜 = 0, C_v = 0 reads R_vv = 2σ_v R_v, so
+that R_v(u, v) = R_v(u, v0) e^(2σ(u, v) − 2σ(u, v0)) keeps its sign. Where 𝒜 = ℬ = 0 the background is Tangherlini.
+𝒜ℬ ≠ 0 only on Q×, which is compact.
 
 On Σ_τ0, u is strictly decreasing outward: in the chart of [[lem:two-dust-domain]], where v̂ = v and e^ψ = −e^(2σ)/R_u,
-R_v = e^ψ f/2 ≤ 1/2, since e^ψ ≤ 1 and f ≤ 1, so du(∂_R|_τ) = (1 − R_v)/R_u < 0. Hence the points of Σ_τ0 with u ∈
+R_v = e^ψ f/2 ≤ 1/2, since f ≤ 1 and e^ψ ≤ 1 (ψ = 0 on 𝒞_out and ψ_u = ℬ/(3R² R_u) ≤ 0), so du(∂_R|_τ) =
+(1 − R_v)/R_u < 0. Hence the points of Σ_τ0 with u ∈
 [u1, u2] form a shell r1 ≤ R ≤ r2, with u > u2 inside it and u < u1 outside. The points of Σ_τ0 with R < v_start − τ0
 have v = τ0 + R < v_start, where the background is the outgoing Vaidya metric of the data on 𝒞_in: Tangherlini of mass
 μ0 for u > u2, outgoing Vaidya on the packet, Tangherlini of mass μ0 + E₂ for u < u1. Since r2 < v_start − τ0, the
 points with R ≥ v_start − τ0 have u < u1, where the background is the ingoing Vaidya metric of the data on 𝒞_out, the
 shell of [[thm:main]] on a Tangherlini metric of mass μ0 + E₂.
 
-(d) *The integral equations.* Put U := (R, σ, P, Q̄), F(U) := −(e^(2σ) + 2 P Q̄)/R, H(U) := 3 (e^(2σ) + 2 P Q̄)/(2R²),
+(d) *The integral equations.* Put U := (R, σ, P, Q̄), 𝔉(U) := −(e^(2σ) + 2 P Q̄)/R, ℌ(U) := 3 (e^(2σ) + 2 P Q̄)/(2R²),
 and for a function z on Q, D[z](u, v) := z(u0, v) + z(u, v0) − z(u0, v0). Consider
 
-    P(u, v) = P(u, v0) + ∫_(v0)^v F(U)(u, v′) dv′,        Q̄(u, v) = Q̄(u0, v) + ∫_(u0)^u F(U)(u′, v) du′,
-    R(u, v) = R(u0, v) + ∫_(u0)^u P(u′, v) du′,          σ(u, v) = D[σ](u, v) + ∫_(u0)^u ∫_(v0)^v H(U),
+    P(u, v) = P(u, v0) + ∫_(v0)^v 𝔉(U)(u, v′) dv′,        Q̄(u, v) = Q̄(u0, v) + ∫_(u0)^u 𝔉(U)(u′, v) du′,
+    R(u, v) = R(u0, v) + ∫_(u0)^u P(u′, v) du′,          σ(u, v) = D[σ](u, v) + ∫_(u0)^u ∫_(v0)^v ℌ(U),
                                                                                                   {#eq:two-dust-volterra}
 
 with the data P(·, v0) = ∂_u R(·, v0), Q̄(u0, ·) = ∂_v R(u0, ·), R(u0, ·) and σ on both cones, which satisfy C_u = 0 on
 𝒞_in and C_v = 0 on 𝒞_out. A continuous solution solves [[eq:two-dust-evolution]]: R_u = P by the third equation;
-differentiating it in v, R_v(u, v) = ∂_v R(u0, v) + ∫ ∂_v P du′ = Q̄(u0, v) + ∫ F du′ = Q̄(u, v); so R_uv = P_v = F, and
-σ_uv = H. The constraints [[eq:two-dust-constraints]] then hold by [[lem:two-dust-equations]], propagated from the cones.
+differentiating it in v, R_v(u, v) = ∂_v R(u0, v) + ∫ ∂_v P du′ = Q̄(u0, v) + ∫ 𝔉 du′ = Q̄(u, v); so R_uv = P_v = 𝔉, and
+σ_uv = ℌ. The constraints [[eq:two-dust-constraints]] then hold by [[lem:two-dust-equations]], propagated from the cones.
 
 *A priori bounds.* Let S ⊂ Q be a past set on which a solution exists with R ≥ a′ > 0. With R_max := max_v R(u0, v)
 and the identities of [[lem:two-dust-identities]], at every point of S: (i) R³ = D[R³] − 3 ∫∫ R e^(2σ), and D[R³] ≤
@@ -285,7 +289,7 @@ R(u0, v)³ because R decreases along 𝒞_in, so R ≤ R_max and 3 ∫∫ R e^(2
 (ii) μ ≥ μ0 by (b); (iii) σ_uv ≥ 0, so σ ≥ D[σ] ≥ −S0, S0 := −min D[σ]; and on the part of S where u ≤ u_*, for a
 number u_*: (iv) μ_uv ≤ (2/9) max(𝒜ℬ) e^(2S0)/a′², so μ ≤ M⁺ := max D[μ] + (2/9) max(𝒜ℬ) e^(2S0) (u_* − u0)(V1 − v0)/a′²;
 (v) σ_uv = (3/2) e^(2σ) μ/R⁴ ≤ (3/2)(M⁺/a′⁵) R e^(2σ), so σ ≤ max D[σ] + (M⁺/(2a′⁵)) R_max³; (vi) |R_uv| = e^(2σ) μ/R³
-is then bounded, and so are P and Q̄, by integrating R_uv from the cones. So |U| ≤ K_0 there, with K_0 depending on the
+is then bounded, and so are P and Q̄, by integrating R_uv from the cones. So |U| ≤ C_U there, with C_U depending on the
 data, a′ and u_* only; each bound comes from the data, a′ and the bounds before it.
 
 *Boundedness of the domain.* On 𝒞_in ∩ {u ≥ u2 + 1}, ℬ = 0 and u is affine, so σ_u = 0 there and C_u = 0 gives R_uu =
@@ -293,14 +297,14 @@ data, a′ and u_* only; each bound comes from the data, a′ and the bounds bef
 R_uv = −e^(2σ) μ/R³ < 0 gives R_u ≤ c0 on {u ≥ u2} wherever the solution exists, so R ≤ R_max + c0 (u − u2) there, and
 the set where R ≥ a′ lies in {u ≤ u_*(a′)}, u_*(a′) := u2 + (R_max − a′)/|c0|, for every a′ > 0.
 
-*Existence.* Fix a′ ∈ (0, a), let K_0 be the bound above for this a′ and u_* = u_*(a′), K > K_0, and let F_𝔨, H_𝔨 be
-smooth, globally Lipschitz in U, and equal to F, H on {|U| ≤ K, R ≥ a′}. The map defined by the right sides of
-[[eq:two-dust-volterra]] with F_𝔨, H_𝔨 is a contraction in the norm sup_Q e^(−γ (u − u0 + v − v0)) |U| for γ large: each
+*Existence.* Fix a′ ∈ (0, a), let C_U be the bound above for this a′ and u_* = u_*(a′), and let 𝔉♯, ℌ♯ be smooth,
+globally Lipschitz in U, and equal to 𝔉, ℌ on {|U| ≤ 2C_U, R ≥ a′}. The map defined by the right sides of
+[[eq:two-dust-volterra]] with 𝔉♯, ℌ♯ is a contraction in the norm sup_Q e^(−γ (u − u0 + v − v0)) |U| for γ large: each
 single integral divides the Lipschitz constant by γ and the double one by γ², on the unbounded u-interval as well. So
 it has one continuous fixed point Ũ on Q. Let Q_(a′) := {p ∈ Q : R̃ > a′ on J⁻(p)}, R̃ the first component of Ũ.
-(1) Ũ solves the true equations on Q_(a′). For p ∈ Q_(a′), suppose |Ũ| ≥ K somewhere on the compact J⁻(p), and let q be
-such a point with u + v least. On J⁻(q) ∖ {q}, |Ũ| < K and R̃ > a′, so Ũ solves the true equations there, the a priori
-bounds give |Ũ| ≤ K_0 there and, by continuity, at q: a contradiction. (2) Q_(a′) is a past set, open in Q, the least of
+(1) Ũ solves the true equations on Q_(a′). For p ∈ Q_(a′), suppose |Ũ| ≥ 2C_U somewhere on the compact J⁻(p), and let q
+be such a point with u + v least. On J⁻(q) ∖ {q}, |Ũ| < 2C_U and R̃ > a′, so Ũ solves the true equations there, the a
+priori bounds give |Ũ| ≤ C_U there and, by continuity, at q: a contradiction. (2) Q_(a′) is a past set, open in Q, the least of
 R̃ over J⁻(p) being continuous in p; the development 𝒟 := ∪_(a″>0) Q_(a″) is a past set carrying one smooth solution,
 since two truncations agree where both solve the true equations, by the contraction. (3) For p ∈ 𝒟 with R(p) ≥ a, (c)
 applies on J⁻(p) ⊂ 𝒟 and gives R ≥ min(R(p), √μ0) ≥ a > a′ there, so p ∈ Q_(a′). (4) So G ⊂ Q_(a′), and G is closed in
@@ -308,9 +312,9 @@ Q, as G ⊂ Q_(a′) and R̃ is continuous there. At p ∈ ∂G the least of R o
 of p would lie in G; so (c) at p gives min(R(p), √μ0) ≤ a < √μ0, that is R(p) = a: ∂G ⊂ {R = a}.
 
 *Regularity.* Let U be the continuous solution on a past set. From [[eq:two-dust-volterra]], R_u = P and R_v = Q̄, P_v =
-F(U), Q̄_u = F(U), and σ_u, σ_v are continuous. For ∂_u P, the difference quotients δ_h P solve δ_h P(u, v) = δ_h P(u,
-v0) + ∫_(v0)^v (a_h · δ_h(R, σ, Q̄) + b_h δ_h P) dv′, where a_h, b_h are the mean values of ∇F on the segments,
-continuous and converging uniformly, and δ_h(R, σ, Q̄) → (P, σ_u, F) uniformly; Gronwall's lemma in v makes δ_h P
+𝔉(U), Q̄_u = 𝔉(U), and σ_u, σ_v are continuous. For ∂_u P, the difference quotients δ_h P solve δ_h P(u, v) = δ_h P(u,
+v0) + ∫_(v0)^v (a_h · δ_h(R, σ, Q̄) + b_h δ_h P) dv′, where a_h, b_h are the mean values of ∇𝔉 on the segments,
+continuous and converging uniformly, and δ_h(R, σ, Q̄) → (P, σ_u, 𝔉) uniformly; Gronwall's lemma in v makes δ_h P
 uniformly Cauchy, so ∂_u P exists and is continuous, and likewise ∂_v Q̄. So U ∈ C¹. The k-th derivatives solve linear
 Volterra equations of the same form, with coefficients built from lower derivatives, so U ∈ C^∞ by induction, the data
 being smooth. ∎
