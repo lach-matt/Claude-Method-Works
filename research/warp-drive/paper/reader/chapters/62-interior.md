@@ -23,7 +23,8 @@ t_IVP, the initial surface Σ^IVP := t_IVP⁻¹(0) and the radius R₃ beyond wh
 R₃ ≥ 5R₁. Ω_*, 𝒟_0, t^♭_* and T̂ are those of [[sec:iii-k-0]] and [[prop:iii-k-1-2]]. The domain Ω′ of the form
 [[eq:omega]] with constants (T′, δ′_0), a′ := q0 − δ′_0, V′ := v_end + T′ and τ′_end := max_(v ≤ V′)(v − r_q(v)), the
 constant c₀ of the chart (t, x) = (τ + T_(μ_end)(|x|) + c₀, x), which places Σ^IVP in the coordinates (τ, x) of
-[[sec:background]], and the gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and [[thm:settling-precise]]; Ω′_+ := Ω′ ∩ {v ≥ v_end + 1}. G = O(2) × O(2) is the group of [[sec:s27-class]].
+[[sec:background]], and the gluing radius R ≥ R₃ are those of [[lem:vii-1-2]] and [[thm:settling-precise]];
+Ω′_+ := Ω′ ∩ {v ≥ v_end + 1}. G = O(2) × O(2) is the group of [[sec:s27-class]].
 
 ### The development inside the black hole {#sec:interior-development}
 

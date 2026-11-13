@@ -1,15 +1,15 @@
 ## The expansion at the Kerr face {#ch:s22}
 
-This chapter proves, in dimension 4 + 1, [Hin26, Theorem 11.59] (pp. 278–292), following its proof. With the correction
+This chapter proves [Hin26, Theorem 11.59] (pp. 278–292) in dimension 4 + 1, following its proof. With the correction
 terms of the fourth kind of [[ch:s21]], the forward solution of the linearised gauge-fixed Einstein equation, for a
 forcing of K⁺-order α ≤ 4 + ε_K, is made to decay at K⁺ at the order α − 2 by a unique choice of the modification
-parameters ([[thm:iii-i11-4-1]], the form of [Hin26, (11.222)] in dimension 4 + 1). The solution so obtained is, modulo a
-remainder of K⁺-order α, a sum of towers of the zero energy states whose coefficients are functions of t_*: partially
-polyhomogeneous, except for a conormal boost coefficient of order α − 2 and a conormal black hole parameter of order α −
-1; and it is partially polyhomogeneous at ι⁺ with an index set ℰ_♯ to the order 3 + η_2, where η_2 < ε_+ is as close to
-ε_+ as desired ([[thm:iii-i12-3-1]], the form of [Hin26, (11.196)] in dimension 4 + 1). The expansion is also obtained at
-every level β ∈ (3, 4 + ε_K], and for the enlarged sources that the linearisation in the black hole parameters of
-[[ch:s23]] produces ([[sec:iii-i13-2]]).
+parameters ([[thm:iii-i11-4-1]], the form of [Hin26, (11.222)] in dimension 4 + 1). The solution so obtained is,
+modulo a remainder of K⁺-order α, a sum of towers of the zero energy states whose coefficients are functions of t_*:
+partially polyhomogeneous, except for a conormal boost coefficient of order α − 2 and a conormal black hole parameter of
+order α − 1; and it is partially polyhomogeneous at ι⁺ with an index set ℰ_♯ to the order 3 + η_2, where η_2 < ε_+ is
+as close to ε_+ as desired ([[thm:iii-i12-3-1]], the form of [Hin26, (11.196)] in dimension 4 + 1). The expansion is
+also obtained at every level β ∈ (3, 4 + ε_K], and for the enlarged sources that the linearisation in the black hole
+parameters of [[ch:s23]] produces ([[sec:iii-i13-2]]).
 
 The argument has two phases. In spacetime ([[sec:iii-i10-3]]) the ι⁺-terms of the forcing of u-exponent below 2 are
 solved by the ι⁺-normal operator up to the K⁺-order α ≤ 4 + ε_K, and the K⁺-terms this produces below the order α − 2
@@ -95,12 +95,12 @@ Everything of [[sec:iii-i9-1]] is kept, at b: the enlarged index set ℰ_ind, �
 
     0 < ε_K < ε_+ < min(δ_♯, ε_ind),     w_+ := 5 + ε_+,
 
-the hypotheses (H1)–(H3) on the class, the types 𝒯 = {s1, v1, s0, s2, c0, c1} with the shifts d_τ, the rows ν = (τ, λ, k)
-with K⁺-exponent e_ν = λ + d_τ and the finite set 𝒩 of the rows with Re e_ν ≤ 2, the coefficient spaces 𝒲_τ (with 𝒲_v1 =
-0), the index sets ℰ_rows and ℰ_src with [[eq:iii-i9-1-3]], and the forcing spaces 𝒴_1(α), 𝒴_2(α), 𝒴(α). From
-[[sec:iii-i9-2]] are kept the tower lengths K_τ, the stationary 1-forms ω̆^i_τ and their index sets [[eq:iii-i9-2-1]],
-the states h_τ, the functions r_ν, a_ν, the rows m_ν, the corrections h_ν and counterterms ϑ_ν, the operator P_4, its
-linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(h,p⃗). ℰ^♯_+ is the set [[eq:iii-i1-3-2]],
+the hypotheses (H1)–(H3) on the class, the types 𝒯 = {s1, v1, s0, s2, c0, c1} with the shifts d_τ, the rows
+ν = (τ, λ, k) with K⁺-exponent e_ν = λ + d_τ and the finite set 𝒩 of the rows with Re e_ν ≤ 2, the coefficient spaces
+𝒲_τ (with 𝒲_v1 = 0), the index sets ℰ_rows and ℰ_src with [[eq:iii-i9-1-3]], and the forcing spaces 𝒴_1(α), 𝒴_2(α),
+𝒴(α). From [[sec:iii-i9-2]] are kept the tower lengths K_τ, the stationary 1-forms ω̆^i_τ and their index sets
+[[eq:iii-i9-2-1]], the states h_τ, the functions r_ν, a_ν, the rows m_ν, the corrections h_ν and counterterms ϑ_ν, the
+operator P_4, its linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(h,p⃗). ℰ^♯_+ is the set [[eq:iii-i1-3-2]],
 
     λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = min Re ℰ^♯_+,
 

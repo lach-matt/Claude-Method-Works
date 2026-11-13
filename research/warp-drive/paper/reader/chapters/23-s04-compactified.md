@@ -1031,9 +1031,9 @@ may depend on the pair. The commutator expansion [[eq:ii-a-comm-split]] makes th
 fixed multilinear map, so that only constants depend on B and B^♯. This uniformity is what the inductions of
 [[sec:ii-a-9]] need: they apply (b), and the results built on it, to new pairs of operators at every order k.
 
-**Lemma {#lem:ii-a-8-6}** (Operators of limited regularity.) Let 𝒫 ⊂ C^∞_b Ψ^m_e3b be finite and
-A ∈ C^((d_0;k))_(e3b;b) 𝒫, with a representation 𝐚. Let 𝗌 and N be given. There is d_0 = d_0(𝗌, m, N), independent of
-k, such that:
+**Lemma {#lem:ii-a-8-6}** (Operators of limited regularity.) Let 𝗌, m and N be given. There is d_0 = d_0(𝗌, m, N) such
+that the following holds for every k ∈ ℕ_0, every finite 𝒫 ⊂ C^∞_b Ψ^m_e3b and every A ∈ C^((d_0;k))_(e3b;b) 𝒫 with a
+representation 𝐚; d_0 depends neither on k and 𝒫 nor on the operators G, G′ and the cut-off χ in (b):
 
 (a) ‖Au‖_(H^((𝗌−m;k))_(e3b;b)) ≤ C_k‖𝐚‖_((d_0;k))‖u‖_(H^((𝗌;k))_(e3b;b));
 
@@ -1050,8 +1050,10 @@ WF′_e3b(G″) ⊂ Ell_e3b(G′) and WF′_e3b(G‴) ∩ WF′_e3b(I − G″) 
 
 By [[lem:ii-a-8-5]] (a) and [[lem:ii-a-8-4]] (c), the first term is bounded by
 C‖a_j‖_(C^(d_0))(‖G′u‖_(H^𝗌) + ‖χu‖_(H^(−N))). The second is bounded by C‖a_j‖_(C^(d_0))‖χu‖_(H^(−N)), by
-[[lem:ii-a-8-5]] (b) with 𝗌_0 = −N − m. In the third, G‴P_j(I − G″) ∈ C^∞_b Ψ^(−∞)_e3b, since the wave front sets are
-disjoint (S5).
+[[lem:ii-a-8-5]] (b) with 𝗌_0 = −N − m, applied to the pair (G, G‴). In the third, G‴P_j(I − G″) ∈ C^∞_b Ψ^(−∞)_e3b,
+since the wave front sets are disjoint (S5), and multiplication by a_j is bounded on H^(𝗌−m) by [[lem:ii-a-8-5]] (a).
+So the case k = 0 holds with d_0 the larger of the numbers of [[lem:ii-a-8-5]] (a) at the order 𝗌 − m and of
+[[lem:ii-a-8-5]] (b) at the orders (𝗌 − m, −N − m). Neither depends on G, G′, G″, G‴, 𝒫 or χ.
 
 For k ≥ 1, argue by induction. By [[eq:ii-a-8-1]] it suffices to bound ‖V_iGAu‖_(H^((𝗌−m;k−1))), and
 
@@ -1063,7 +1065,10 @@ choose G_♭ carried by χ with WF′(G) ⊂ Ell(G_♭) and WF′(G_♭) ⊂ Ell
 C‖𝐚‖(‖G_♭V_iu‖_((𝗌;k−1)) + ‖χ_1V_iu‖_((−N;k−1))), with an inner cut-off χ_1 carrying G and G_♭. Next,
 ‖G_♭V_iu‖_((𝗌;k−1)) ≤ ‖G_♭u‖_((𝗌;k)) + ‖[G_♭, V_i]u‖_((𝗌;k−1)), and both are bounded by
 C(‖G′u‖_((𝗌;k)) + ‖χu‖_((−N;k))) ([[lem:ii-a-8-4]] (c)). Finally
-‖χ_1V_iu‖_((−N;k−1)) ≤ ‖V_i(χ_1u)‖ + ‖(V_iχ_1)χu‖ ≤ C‖χu‖_((−N;k)), as χ = 1 on supp χ_1. ∎
+‖χ_1V_iu‖_((−N;k−1)) ≤ ‖V_i(χ_1u)‖ + ‖(V_iχ_1)χu‖ ≤ C‖χu‖_((−N;k)), as χ = 1 on supp χ_1. The step from k − 1 to k
+applies the statement at k − 1 to the operators [V_i, G] and G_♭, to the cut-off χ_1 and to the finite set
+𝒫 ∪ {[V_i, P_j]}, all chosen anew at each k, with the same d_0; this is possible because the d_0 of the case k = 0
+depends on none of them. So d_0 does not depend on k. ∎
 
 #### Sobolev embedding {#sec:ii-a-8-5}
 
@@ -1073,7 +1078,9 @@ Then H^((𝗌;k))_(e3b;b) ⊂ H^(k−s̲)_b, continuously and with weights.
 *Proof.* If s̲ = 0 then 𝗌 ≥ 0 and H^((𝗌;k)) ⊂ H^((0;k)) = H^k_b. Otherwise let A_j := V_(0,j)^(s̲), j = 1, …, N. The
 symbols ξ ↦ ξ(V_(0,j)) vanish simultaneously only at ξ = 0, as the V_(0,j) span ᵉ³ᵇTM̃. So
 Σ_j A_jA_j^* ∈ Diff^(2s̲)_e3b is elliptic, with a parametrix Q ∈ C^∞_b Ψ^(−2s̲)_e3b and Σ A_jA_j^*Q = I − R,
-R ∈ C^∞_b Ψ^(−J)_e3b for any fixed J ≥ 0 ([[lem:ii-a-8-4]] (b) with J large). With B_j := A_j^*Q ∈ C^∞_b Ψ^(−s̲)_e3b,
+R ∈ C^∞_b Ψ^(−J)_e3b for any fixed J ≥ 0: [[lem:ii-a-8-4]] (b) with I in place of B and J large gives a left
+parametrix, Q′Σ_jA_jA_j^* = I − R′, and taking adjoints, Σ_jA_jA_j^* being formally self-adjoint, Q := Q′^* and
+R := R′^* give the right one. With B_j := A_j^*Q ∈ C^∞_b Ψ^(−s̲)_e3b,
 u = Σ_j A_jB_ju + Ru. Here B_ju ∈ H^((𝗌+s̲;k)) ⊂ H^((0;k)) = H^k_b ([[lem:ii-a-8-4]] (a); 𝗌 + s̲ ≥ 0), and
 A_j ∈ Diff^(s̲)_b maps H^k_b to H^(k−s̲)_b. Also Ru ∈ H^((𝗌+J;k)) ⊂ H^k_b for J ≥ s̲. ∎
 

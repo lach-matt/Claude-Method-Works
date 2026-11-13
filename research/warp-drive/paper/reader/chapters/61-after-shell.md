@@ -56,9 +56,10 @@ form [[eq:class-metric]] in these coordinates if and only if B ≡ 0, and then i
 *Proof.* Write S³ as SU(2) by (z1, z2) ↦ ((z1, −z̄2), (z2, z̄1)), the columns of the matrix. Right multiplication by
 diag(e^(it), e^(−it)) multiplies the first column by e^(it), so the diagonal action is a right action and its generator
 ∂_φ1 + ∂_φ2 is a left-invariant vector field. For the metric (1/4)(σ1² + σ2² + σ3²) the frame X1, X2, X3 dual to σ1, σ2,
-σ3 is orthogonal with |X_i| = 1/2. The field ∂_φ1 + ∂_φ2 has length (c² + s²)^(1/2) = 1 for the round metric dϑ² + c²
-dφ1² + s² dφ2², so it equals ±2X3, and its metric dual, η, equals ±σ3/2: both vanish on the orthogonal complement of
-X3 and take the value 1 on ∂_φ1 + ∂_φ2 up to the sign. This gives the first identity. For the second,
+σ3 is orthogonal with |X_i| = 1/2; this metric is the round metric dϑ² + c² dφ1² + s² dφ2². The field ∂_φ1 + ∂_φ2
+has length (c² + s²)^(1/2) = 1, so it equals ±2X3, and its metric dual, η, equals ±σ3/2: both 1-forms vanish on the
+orthogonal complement of X3, and they take the values 1 and ±1 on ∂_φ1 + ∂_φ2. This gives the first identity. For the
+second,
 
     dϑ² + c² dφ1² + s² dφ2² − η² = dϑ² + c²(1 − c²) dφ1² + s²(1 − s²) dφ2² − 2 c² s² dφ1 dφ2
                                  = dϑ² + c² s² (dφ1 − dφ2)²,

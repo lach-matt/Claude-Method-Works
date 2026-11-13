@@ -270,3 +270,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   Ch 8 (08:406-410) and Ch 9 (09:200-216) follow.
 - Σ_τ: Ch 2:250 and 282 write Σ_τ0 := {τ = τ0}, against 02:255 and Ch 4-5 (the annulus A(τ0)); Ch 9 uses Σ_τ for whole
   level sets at τ < τ0 (sent to the readers of 00-03 and 08-09).
+- S19 second reading: what S4 must deliver for S19 — d₀ = d₀(m, 𝗌, N) independent of the cut-offs and of k (S19
+  fixes the orders once for every b). Uses: thm:iii-i-5-3, rem:iii-i-5-5, thm:iii-h2-3-1 (b)-(c), thm:iii-h2-4-1,
+  cor:iii-h2-5-1 with (B5), prop:iii-i2-5-1. If S4 gives only cut-off-dependent d₀, k-independence and compactness over
+  B̄₁ would have to be written.
