@@ -329,7 +329,8 @@ of {r = r_♭} as 𝒦 does in (c). 𝒦⁻ is closed, and on it t_IVP ≥ −ν
 compact. On 𝒟⁻ ∩ {r ≤ R_8}, r − 2t_IVP ≤ r + 2ν(r) ≤ (17/16)R_8 < 2R_8. A point of 𝒦 with t_IVP ≤ 0 has r < r_1, or
 r ≥ r_1 and (r − r_1)/12 ≤ ν(r) ≤ r/32, so r < 2r_1 ≤ R_8; and (b), with Σ^IVP_(r_1) ⊂ Ω_(ext,r_1), places the points
 of 𝒟⁻ with r ≥ R_8 in Ω_(ext,r_1). This gives the inclusions; at t_IVP = 0 the definition of 𝒦⁻ reads r ≤ 2R_8. On
-the face F := 𝒟⁻ ∩ {r − 2t_IVP = 2R_8}, r ≥ 2R_8 − r/16, so r ≥ (32/17)R_8 > R_8 ≥ max(R₃, 3R₁), and t_IVP = t − C″. There, with u := m₀r⁻² ≤ 1/25, g_(b₀)⁻¹ = η⁻¹ − u(∂_t + ∂_r)^(⊗2) ([[prop:iii-b-3-6]]), so
+the face F := 𝒟⁻ ∩ {r − 2t_IVP = 2R_8}, r ≥ 2R_8 − r/16, so r ≥ (32/17)R_8 > R_8 ≥ max(R₃, 3R₁), and t_IVP = t − C″.
+There, with u := m₀r⁻² ≤ 1/25, g_(b₀)⁻¹ = η⁻¹ − u(∂_t + ∂_r)^(⊗2) ([[prop:iii-b-3-6]]), so
 g_(b₀)⁻¹(dr − 2dt, dr − 2dt) = −3 − u < 0; and (dr − 2dt)(∂_t) = −2 < 0, where ∂_t is future timelike for g_(b₀)
 (g_(b₀)(∂_t, ∂_t) = −1 + u < 0 and dt_IVP(∂_t) = 1 > 0, dt_IVP being past timelike, [[lem:iii-b-3-7]] (b)). A timelike
 covector that is negative on one future timelike vector is negative on every future causal vector, so r − 2t_IVP
@@ -1018,7 +1019,8 @@ Cauchy–Schwarz inequality in five variables; with η(V, V) = −(V^t)² + |V^x
 
 On 𝒟 ∩ {r ≤ R}, dt_IVP is past timelike for g_(b₀) ([[lem:iii-b-3-7]] (b)), with a margin on this compact set, so also
 for g_(S,S⁰), φ_(S,S⁰) tending to the identity there and h_(S,S⁰) being small in C⁰ there (on 𝒦⁻ by (N) of
-[[sec:s27-local]], and on 𝒟⁺ by the smallness of the solution of [[thm:iv3-2-2]] in H^(3d) of its class). This proves (a), dt_IVP = dt on {r ≥ R}.
+[[sec:s27-local]], and on 𝒟⁺ by the smallness of the solution of [[thm:iv3-2-2]] in H^(3d) of its class). This proves
+(a), dt_IVP = dt on {r ≥ R}.
 
 (b) For a past directed causal V in {r ≥ R}, dt(V) = V^t < 0 and dr(V) ≤ |V^x| ≤ −2V^t, so
 d(r + 2t_IVP)(V) ≤ 0; likewise for future directed V, d(r − 2t_IVP)(V) ≤ |V^x| − 2V^t ≤ 0.
