@@ -953,8 +953,8 @@ g_(b_0):
 
 (i) The indicial roots of (□^Υ_b)^(0) are the zeros of ι(ι − 3)(ι² − ι − 2 − z) (type s0),
 (l + 3 − ι)(l + ι − 1)Q_l(ι² − ι) (type sl) and (ι + l)(l + 2 − ι) (type vl), z = 4e_Υγ_Υ², with Q_l as in the proof
-of [[lem:iii-d-4-1]]. At γ_Υ = 0 the gap is (0, 2); for 0 < z ≤ ½, 2 < ι^Υ_(s1,2) < ι^Υ_(s0,2) and every root other
-than ι^Υ_(s1,2) is ≤ 0 or ≥ ι^Υ_(s0,2), so (0, ι^Υ_(s1,2)) is an indicial gap.
+of [[lem:iii-d-4-1]]. At γ_Υ = 0 the gap is (0, 2). For every z > 0, 2 < ι^Υ_(s1,2) < ι^Υ_(s0,2), every root other
+than ι^Υ_(s1,2) and ι^Υ_(s0,2) is ≤ 0 or ≥ 3, and (0, ι^Υ_(s1,2)) is an indicial gap.
 
 (ii) For stationary 1-forms on {r > r_h} the dt part and the spatial part of □ decouple. A S dt, S ∈ 𝒮_l, satisfies
 □(AS dt) = 0 if and only if (f/r)(r³A′)′ = κA. For l ≥ 1, ω = B(r)S dr + C(r)d_𝕊S satisfies □ω = 0 if and only if
@@ -980,7 +980,19 @@ both zero.
 leading term is of order ρ³ because (ρ∂_ρ − 3/2)ρ² = ½ρ², where in dimension 3 + 1 the corresponding (ρ∂_ρ − 1)ρ
 vanishes.
 
-*Proof.* (i) is [[eq:s13-dets]] and [[lem:iii-d-4-1]]. (iv) is [[lem:iii-d1-2-1]] (1).
+*Proof.* (i) The determinants are [[eq:s13-dets]], whose derivation in the proof of [[lem:iii-d-4-1]] uses no bound
+on e_Υ or γ_Υ. At γ_Υ = 0 they are those at z = 0, and the gap (0, 2) is [[lem:iii-d-4-1]]. Let z > 0. The argument of
+the paragraphs *The list* and *Bounds* of that proof does not use z ≤ ½: the discriminant of Q_l is positive,
+Q_l(l(l + 1)) = lz > 0 > −(l + 2)z = Q_l((l + 1)(l + 2)) and Q_l is monic, so
+l(l + 1) < s_(l,1) < (l + 1)(l + 2) < s_(l,2), and as ι ↦ ι² − ι increases on ι > ½,
+
+    l + 1 < ι^Υ_(sl,l+1) < l + 2 < ι^Υ_(sl,l+2),     ι^Υ_(s0,2) = ½ + (9/4 + z)^(1/2) > 2.
+
+So the roots are real, and those below ½ are 1 − ι^Υ_(sl,l+j) < −l, 1 − ι^Υ_(s0,2) < −1, 1 − l ≤ 0, −l and 0. The
+others are 3, l + 3 ≥ 4, l + 2 ≥ 3, ι^Υ_(sl,l+2) > l + 2 ≥ 3, ι^Υ_(sl,l+1) > l + 1 ≥ 3 for l ≥ 2, and the two
+roots ι^Υ_(s1,2) ∈ (2, 3) and ι^Υ_(s0,2) > 2. Finally ι^Υ_(s1,2) < ι^Υ_(s0,2) if and only if s_(1,1) < 2 + z, that is
+2 − z/2 < (4 + z + z²/4)^(1/2); this holds trivially for z ≥ 4, and for 0 < z < 4 it is, after squaring,
+4 − 2z + z²/4 < 4 + z + z²/4. So no root lies in (0, ι^Υ_(s1,2)). (iv) is [[lem:iii-d1-2-1]] (1).
 
 (ii) The static metric is invariant under the reflection t ↦ −t, which maps dt to −dt and fixes dr and the angular
 covectors; □ commutes with it, and a stationary 1-form is odd under it exactly when it is a multiple of dt. So □ maps

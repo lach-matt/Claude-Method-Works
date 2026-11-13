@@ -1425,18 +1425,16 @@ I − B^♯), applied to T_0 := T, T_1, …, T_(J−1), where T_j := ad_Y^j T,
 
     B_1TB_2 = Σ_(j=0)^(J−1) (B_1(I − Y)T_jB_2 + B_1T_jYB_2) + B_1T_JB_2.
 
-T_j is the expression ad_(Op(y_1))⋯ad_(Op(y_j))T(a_1, …, a_r) in the r + j symbols y_1, …, y_j, a_1, …, a_r, at
-y_1 = ⋯ = y_j = y. For smooth symbols it has order μ − j: y_i is scalar of order 0, and each commutator with Op(y_i)
-lowers the order by one ((S5), (S8)). By (f), T_j has order μ − j + δ, with norm at most
-C‖y‖^j_((M);0,0) ∏_i ‖a_i‖_((M);ν,𝗆_i), M being the number of (f) for this expression. Take δ ≤ 1,
-J := ⌈sup μ⌉ + N + 1 and 𝗍′ := 𝗍 + N + ⌈sup μ⌉ + 1. B_1 and B_2 are bounded on every H^𝗍_e3b ((S5), (S8)). So
-B_1T_JB_2 has order −N, as μ − J + δ ≤ −N. B_1(I − Y)T_jB_2 maps H^𝗍 to H^(𝗍−sup μ−1) by T_j (j − δ ≥ −1), and then to
-H^(𝗍+N)
-by the residual factor. B_1T_jYB_2 maps H^𝗍 to H^(𝗍′) by the residual factor YB_2, and then to
-H^(𝗍′−sup μ−1) ⊂ H^(𝗍+N) by T_j, as j − δ ≥ −1. Hence the bound, with M the largest of the numbers of (f) for T_0, …, T_J at the
-orders 𝗍 and 𝗍′. It depends only on N, 𝗍, μ, the expression, its orders, ν and δ; B_1, B_2 and y enter only the
-constant. For S_1B_1TB_2S_2, the factors S_1 and S_2 are bounded by (f) at the orders involved, with indices of the same
-kind. ∎
+T_j is the expression ad_(Op(y_1))⋯ad_(Op(y_j))T(a_1, …, a_r) in the r + j symbols y_1, …, y_j, a_1, …, a_r, at y_1 = ⋯ =
+y_j = y. For smooth symbols it has order μ − j: y_i is scalar of order 0, and each commutator with Op(y_i) lowers the
+order by one ((S5), (S8)). By (f), T_j has order μ − j + δ, with norm at most C‖y‖^j_((M);0,0) ∏_i ‖a_i‖_((M);ν,𝗆_i), M
+being the number of (f) for this expression. Take δ ≤ 1, J := ⌈sup μ⌉ + N + 1 and 𝗍′ := 𝗍 + N + ⌈sup μ⌉ + 1. B_1 and B_2
+are bounded on every H^𝗍_e3b ((S5), (S8)). So B_1T_JB_2 has order −N, as μ − J + δ ≤ −N. B_1(I − Y)T_jB_2 maps H^𝗍 to
+H^(𝗍−sup μ−1) by T_j (j − δ ≥ −1), and then to H^(𝗍+N) by the residual factor. B_1T_jYB_2 maps H^𝗍 to H^(𝗍′) by the
+residual factor YB_2, and then to H^(𝗍′−sup μ−1) ⊂ H^(𝗍+N) by T_j, as j − δ ≥ −1. Hence the bound, with M the largest of
+the numbers of (f) for T_0, …, T_J at the orders 𝗍 and 𝗍′. It depends only on N, 𝗍, μ, the expression, its orders, ν and
+δ; B_1, B_2 and y enter only the constant. For S_1B_1TB_2S_2, the factors S_1 and S_2 are bounded by (f) at the orders
+involved, with indices of the same kind. ∎
 
 **Lemma {#lem:ii-a1-2-5}** (Square roots.) Let Q be a Hermitian matrix-valued function on a set W of phase space with
 Q ≥ c Id, c > 0. Derivatives are taken in the coordinates of [[lem:ii-a1-2-2]].
