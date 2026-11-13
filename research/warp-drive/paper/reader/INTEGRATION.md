@@ -961,3 +961,16 @@ Items found while chapters were written in parallel; each is settled once, editi
   now proved for every K ≥ 6 (source: ledgers on grids). L.14 dropped (conclusion withdrawn; reader to say whether its
   numerics stay as a remark); Remark E.6's heuristic dropped (the source shows it false). Notation: ν for K, d_1, β_2,
   β_Φ, 𝒯, 𝔖, g0°. Independent reader running; chapter 85 writer launched on its exports.
+- AUTHOR'S DIRECTIVE (2026-11-13): "Cannot be proved: the source's explicit upper bound d ≤ 46,236,517,538,883,361.
+  It needs the loss of the forward solution operators, which the paper shows exists but never evaluates. - if it
+  exists then our task is to evaluate and then prove it, so the paper may include it." Two proof projects: P-U71-forward
+  (evaluate D_0, D_1, d′, d″ and prove d_FWD ≤ N from chapters 26-28; statement strengthenings listed for those
+  chapters) and P-U71-assembly (every elementary loss, step counts, index-set log orders, the background-term loss
+  max(2, d), and the explicit integer bound on d and N_NM). Chapter 71 and chapter 3 change when they report.
+- S27 third reading (R3-S27): second Major fixed (exact Tangherlini values; C_g consistent in 24, 26, 46 and all
+  citing chapters); all six R2 minors and coordinator items and eight nits fixed. NEW Major (also in the source IV(3)):
+  thm:iv3-2-1/thm:iv3-2-2 take independent data on Σ_c and Σ^fut meeting at E′; repair: slab problem on Ω_ext ∪ 𝒦⁺ ∪ 𝒮
+  with data on Σ^IVP only (as chapter 65) and edge compatibility in (L). Minors: edge gluing lemma (chapter 48's method);
+  forward uniqueness region beyond R_ν; (L)'s tame form, uniformity and trace orders. Chapter 48 needs four edits (128,
+  133, 182-183, 197-198); chapter 71 lines 437-439, 447, 455 use a linear A from lem:iii-k-2-2 (d), which now gives only
+  ω_k. Chapters 3 and 60 need nothing. Third fix running; the S29 third round waits for it.

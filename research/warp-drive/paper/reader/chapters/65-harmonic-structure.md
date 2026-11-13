@@ -410,9 +410,10 @@ what makes it nonzero: ℓ annihilates the stationary column P̂(0)(κW*) for ev
 first component of its range ([[lem:iii-d1-2-1]] (1), with the density argument of its (3)), but not on 𝒴_0, as
 ℓ(L_1W*) = 4π² ([[lem:iii-d1-3-1]] (1)).
 
-**Theorem {#thm:gd-r2-4}** (Uniform low-energy estimates for P̃.) There are c_k > 0 and C_k such that for σ ∈ Σ_0 with
-|σ| ≤ c_k, P̃(σ) : 𝒳_σ ⊕ ℂ → 𝒴_σ ⊕ ℂ is invertible with the estimate [[eq:iii-h-4-5]] (with |c| in place of
-|ḃ| + |S|); [[thm:iii-h-4-1]] (3) holds for P̃ on Σ_0 ∩ ℝ; and, with (u, c) := P̃(σ)⁻¹(f, 0) for 0 < |σ| ≤ c_0,
+**Theorem {#thm:gd-r2-4}** (Uniform low-energy estimates for P̃.) There are c_k > 0 and C_k such that for σ ∈ Σ_0
+with |σ| ≤ c_k, P̃(σ) : 𝒳_σ ⊕ ℂ → 𝒴_σ ⊕ ℂ is invertible with the estimate [[eq:iii-h-4-5]]
+(with |c| in place of |ḃ| + |S|); [[thm:iii-h-4-1]] (3) holds for P̃ on Σ_0 ∩ ℝ; and, with (u, c) := P̃(σ)⁻¹(f, 0) for
+0 < |σ| ≤ c_0,
 
     P̂(σ)⁻¹f = u + c ĝ_*(σ).                                                                              {#eq:gd-r2-1}
 
@@ -568,15 +569,15 @@ g_(p⃗) = (1 − χ_K)φ*_(−S,−S⁰)g + χ_Kg_b is the translated backgroun
 S′ = S⁰′ = 0 and ḃ = (ṁ, 0) ([[cor:viii-2-3]]), so ġ_(S′) = ġ⁰_(S⁰′) = 0, and ġ_(p⃗′) = χ_KṁK_V, as
 ∂_mg_((m,0))|_(m=m₀) = K_V ([[sec:rw-setting]]). Where χ_K = 1, ġ − ġ_(p⃗′) = h. ∎
 
-**Lemma {#lem:gd-r2-11}** (Forcing terms in a cone.) Let F be smooth, supported in {t_* ≥ 2, r ≤ t_*/4}, with
-|(t_*∂_(t_*))^i(r∂_r)^j∂^m_ωF| ≤ Cr^(−a_ι)(r/t_*)^(b_K) on {r ≥ 1} and ≤ Ct_*^(−b_K) on {r ≤ 1}, for all i, j and
+**Lemma {#lem:gd-r2-11}** (Forcing terms in a cone.) Let F be smooth, supported in {t_* ≥ 2, r ≤ t_*/4},
+with |(t_*∂_(t_*))^i(r∂_r)^j∂^m_ωF| ≤ Cr^(−a_ι)(r/t_*)^(b_K) on {r ≥ 1} and ≤ Ct_*^(−b_K) on {r ≤ 1}, for all i, j and
 multi-indices m. If b_K > ½ and a_ι > a + 5/2, then F ∈ H^((𝗌;k),(a,0))_(3b;b)(Ω)^(•,−) for every 𝗌 and k.
 
-*Proof.* On the cone, r∂_(t_*) = (r/t_*)t_*∂_(t_*) and r∂_x are b-vector fields with coefficients bounded with all
-their b-derivatives, so b-regularity gives every 3b-order. There ρ_sf = r⁻¹, and the K⁺-weight of the space is 0. With
-|dt_* dx| = r³dt_* dr dω, the square of the norm is bounded by C∫_1^∞∫_(4r)^∞ r^(2a−2a_ι)(r/t)^(2b_K)r³ dt dr. For
-b_K > ½ the t-integral is 4^(1−2b_K)r/(2b_K − 1), and the r-integral of r^(2a−2a_ι+4) converges if and only if
-a_ι > a + 5/2. On {r ≤ 1}, t_*^(−b_K) is square integrable on [2, ∞) as b_K > ½. ∎
+*Proof.* On the cone, r∂_(t_*) = (r/t_*)t_*∂_(t_*) and r∂_x are b-vector fields with coefficients bounded with all their
+b-derivatives, so b-regularity gives every 3b-order. There ρ_sf = r⁻¹, and the K⁺-weight of the space is 0. With |dt_*
+dx| = r³dt_* dr dω, the square of the norm is bounded by C∫_1^∞∫_(4r)^∞ r^(2a−2a_ι)(r/t)^(2b_K)r³ dt dr. For b_K > ½ the
+t-integral is 4^(1−2b_K)r/(2b_K − 1), and the r-integral of r^(2a−2a_ι+4) converges if and only if a_ι > a + 5/2. On
+{r ≤ 1}, t_*^(−b_K) is square integrable on [2, ∞) as b_K > ½. ∎
 
 *Orders.* For a tensor u on {χ_K = 1, t_* ≥ T_0} we say that u has *ι⁺-order* A and *K⁺-order* B if its components
 in the frame dt_*, dx satisfy |(t_*∂_(t_*))^i(r∂_r)^j∂^m_ωu| ≤ Cr^(−A)(r/t_*)^B on {r ≥ 1} and ≤ Ct_*^(−B) on
@@ -928,9 +929,9 @@ Vρ^(3/2) ∈ ℂρ^(3/2) for V ∈ {X₀, X_I, rotations}, V^jZ_3 = O(ρ₀^(3/
 
 **Remark {#rem:gd-r4-bounds}** (Where the two bounds on p come from.) This remark is a heuristic about the method,
 and no proof uses it. The bound p < 3/2 is the condition α_I < 0 of the multiplier ([[lem:gd-r4-1]] (e)), whose
-threshold α_I = 0 is the indicial root of the radiation field, of ℐ⁺-order exactly 3/2 ([[lem:gd-r4-1]] (c)); it is
-not shown here whether Z_1 attains that order, the recovery of the sharp ℐ⁺-weight not being carried out for □
-(item 6 of the proof of [[prop:gd-r4-2]]). The bound p < q_ḣ − 1 is the condition α_I < a₀ of [[prop:gd-r4-2]],
+threshold α_I = 0 is the indicial root ι = 0 of [[lem:gd-r4-1]] (c), the radiation field, of ℐ⁺-order exactly 3/2;
+it is not shown here whether Z_1 attains that order, the recovery of the sharp ℐ⁺-weight not being carried out for
+□ (item 6 of the proof of [[prop:gd-r4-2]]). The bound p < q_ḣ − 1 is the condition α_I < a₀ of [[prop:gd-r4-2]],
 which the multiplier needs at the corner I₀ ∩ ℐ⁺ ([[lem:gd-r4-1]] (e)); it ties the ℐ⁺-order to the I₀-order of the
 forcing term, which is one above that of ḣ through the factor |x|⁻¹ of c_Υ (step (3) of the proof of
 [[thm:gd-r4-3]]). Without that factor the same argument would give only p < q_ḣ − 2, which leaves no p > ½ + β when
@@ -1055,9 +1056,9 @@ stationary model, it has one zero-energy state W* ∈ 𝒜² with no generalised
 b-density |dt_*/⟨t_*⟩|μ_b, μ_b = |dx|/⟨x⟩⁴, which on Ω_* are those of [[cor:ii-f1-1-2]], and X^±_(sc-b) with its faces
 scf, tf, zf, are those of [[sec:iii-i2-1]]. P̂ and P̃ are those of [[sec:hg-augmented]].
 
-*The dictionary.* Near ι⁺ ∩ K⁺, with ρ_+ = 1/r and ρ_K = r/t_*, one has t_* = 1/(ρ_+ρ_K) and r = 1/ρ_+, so
-|dt_* dx| = ρ_+^(−5)ρ_K^(−1)|(dρ_+/ρ_+)(dρ_K/ρ_K)dω| and L²(|dt_* dx|) = ρ_+^(5/2)ρ_K^(1/2)L²_b. So a 3b-weight
-(β_sf, β_K) of [[sec:iii-h1-1]] is the b-weight (β_sf + 5/2, β_K + ½), as [[cor:ii-f1-1-2]] records. The forcing class
+*The dictionary.* Near ι⁺ ∩ K⁺, with ρ_+ = 1/r and ρ_K = r/t_*, one has t_* = 1/(ρ_+ρ_K) and r = 1/ρ_+, so |dt_*
+dx| = ρ_+^(−5)ρ_K^(−1)|(dρ_+/ρ_+)(dρ_K/ρ_K)dω| and L²(|dt_* dx|) = ρ_+^(5/2)ρ_K^(1/2)L²_b. So a 3b-weight (β_sf, β_K) of
+[[sec:iii-h1-1]] is the b-weight (β_sf + 5/2, β_K + ½), as [[cor:ii-f1-1-2]] records. The forcing class
 H^((𝗌;k),(α_sf+2,0))_(3b;b) of [[thm:gd-r2-5]] is the b-class (γ_+ + 2, ½) with γ_+ := α_sf + 5/2, its window
 α_sf + 2 ∈ (0, 1) is γ_+ − ½ ∈ (0, 1), and the K⁺-weight −1 of its solution is the b-weight −½. A conormal function
 O(ρ_+^Aρ_K^B) lies in ρ_+^(w_ι)ρ_K^(w_K)L²_b near the corner if A > w_ι and B > w_K, and b-Sobolev embedding returns to

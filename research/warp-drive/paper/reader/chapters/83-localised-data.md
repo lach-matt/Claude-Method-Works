@@ -510,8 +510,8 @@ in (a) Q(δ) = ½(2π)²|T|²ω² ∫ R³|f|β_I² dR + O(ω) > 0 for ω large.
 
 *Proof.* (a) ξ(H) = N_sΠ + Y_s^R∂_RH = 0, and |dH|² = (∂_RH)²(1/G − (Y_s^R)²/N_s²) = (∂_RH)² f/(N_s²G) by
 [[thm:loc-tensor]] (ii). So T_m = ½N_s(R³f(∂_RH)²/(N_s²G) + (k_T² + 2)RH²), and with N_s√G = 1, 2T_m√G =
-R³f(∂_RH)² + (k_T² + 2)RH². (b) ξ(H) = N_sΠ and |dH|² = −Π², so 2T_m√G = R³Π². (c) (∂_RH_ω)² = ω²β_I² cos²(ωR) + O(ω), cos²
-= (1 + cos 2ωR)/2, and ∫R³fβ_I² cos 2ωR dR → 0 by the Riemann–Lebesgue lemma. ∎
+R³f(∂_RH)² + (k_T² + 2)RH². (b) ξ(H) = N_sΠ and |dH|² = −Π², so 2T_m√G = R³Π². (c) (∂_RH_ω)² = ω²β_I² cos²(ωR) + O(ω),
+cos² = (1 + cos 2ωR)/2, and ∫R³fβ_I² cos 2ωR dR → 0 by the Riemann–Lebesgue lemma. ∎
 
 **Theorem {#thm:loc-inside}** (Inside the apparent horizon.) Let U be a band of Σ_τ0 on which the background is vacuum
 and which meets {f < 0}. Then:
@@ -758,8 +758,8 @@ provided f3(Φ(ρ)) > 0. There g0 = −e^(2ψ_III) f3 dv̂² + 2e^(ψ_III) dv̂ 
 v̂(ρ) − R = τ0 and 2.321 ≤ ρ ≤ R_*.
 
 Proof. (a) On 𝒞_in, σ is constant, so [[eq:bg-field]] gives R″ = −ℬ/(3R²) and R R_uv = −1/2 − 2R′R_v; hence S′ =
-2RR′R_v + R²R_uv = −R/2. Since ℬ = 0 on [0, u1], R = 5 − 0.47u there, so R(u1) = 2.321, and S(u1) = 25/2 − (1/2)∫_0^(u1) (5
-− 0.47u) du = 2.067575. With e^(−2σ) = 2, μ = R²(1 + 4R′R_v) = R² + 4R′S and λ = 2S/R². Then μ′ = −(2/3)ℬλ by
+2RR′R_v + R²R_uv = −R/2. Since ℬ = 0 on [0, u1], R = 5 − 0.47u there, so R(u1) = 2.321, and S(u1) = 25/2 − (1/2)∫_0^(u1)
+(5 − 0.47u) du = 2.067575. With e^(−2σ) = 2, μ = R²(1 + 4R′R_v) = R² + 4R′S and λ = 2S/R². Then μ′ = −(2/3)ℬλ by
 [[lem:bg-identities]], and λ′ = 2R_uv = −(1 + 4R′R_v)/R = −μ/R³.
 
 (b) On {u ≤ u1}, ℬ = 0, and on ℛ, 𝒜 = 0. By [[lem:bg-identities]] μ_u = μ_v = 0, so μ equals its corner value
@@ -1585,8 +1585,9 @@ and μ̇ those of 𝒞_out at the point's time v̂.
 *Σ′ before the shell.* The points of Σ′ with R ≤ R′(3) have v̂ ≤ v̂(3), so μ = 3/2 and μ̇ = 0. Here R′(3) ≈ R′_0 =
 3.8254920; by the next paragraph |R′(3) − R′_0| ≤ 5.3 × 10⁻⁶, so R′(3) < 3.82550. On [R_*, 3.5], φ = 0 and Ξ =
 (1.5/R³)(2 + 1.5/R²) ≥ 0.074254, while c ≥ 3(1.5/3.5²)/(3.5 (1 + 1.5/R_*²)²) ≥ 0.082639, so κ′K′^l_l ≤ −6.1 × 10⁻³. On
-[3.5, 3.82550], φ″ ≥ −0.01 l1 ≥ −0.0064382, V′ ∈ [0.99786, 1] (φ′ ≤ 0 there) and f ∈ [0.877551, 0.897504], so Ξ ≥ −0.0064382 +
-0.026793 × 0.995724 × 2.102496 ≥ 0.049653 and c ≥ 0.307488/(3.8255 × 1.124327²) ≥ 0.063585, so κ′K′^l_l ≤ −3.1 × 10⁻³.
+[3.5, 3.82550], φ″ ≥ −0.01 l1 ≥ −0.0064382, V′ ∈ [0.99786, 1] (φ′ ≤ 0 there) and f ∈ [0.877551, 0.897504], so Ξ ≥
+−0.0064382 + 0.026793 × 0.995724 × 2.102496 ≥ 0.049653 and c ≥ 0.307488/(3.8255 × 1.124327²) ≥ 0.063585, so κ′K′^l_l ≤
+−3.1 × 10⁻³.
 
 *Σ′ over the shell.* For v ∈ [3, 4.5] use [[sec:table-sigma-bent]]. The map R ↦ R + φ(R) has derivative 1 + φ′ ≥
 0.9978; it sends R′(v_k) to v̂(v_k) + 0.68, which is within 4 × 10⁻⁶ of v̂_k + 0.68 by [[lem:margins-shell-data]] (c),

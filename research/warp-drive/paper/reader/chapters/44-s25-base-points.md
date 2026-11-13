@@ -310,8 +310,10 @@ dependence on the coordinates W′_ν of the rows of 𝒩 ⊔ 𝒩_rot is throug
   O(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) in 𝒴^♮_2(α−) (the bounds of [[lem:iii-i9-2-6]] (e), and (P6)).
 - Δ_q(p⃗′) and R_q u(p⃗′), of norm O(‖q‖) ([[lem:iii-i14-2-3]], [[lem:iii-i14-2-4]]).
 
-The motion coordinates enter through f^S, f^b, f^(s1), but they lie at the base level, below every new row. On 𝒫_k the
-lower coordinates are, by the induction, affine functions of the free ones with coefficients of the same smallness.
+The motion coordinates (S′, b′, S^(0)′_1) enter through f^S, f^b, f^(s1) in full: these are linear in their
+finite-dimensional arguments, of norms O(|S′|), O(|b′|), O(|S^(0)′_1|) ([[lem:iii-i7-3-1]] (c), [[lem:iii-i9-2-6]]
+(a)). They lie at the base level, below every new row, and along 𝒫_k they change only by
+O(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|) times the change of the row coordinates; this is [[eq:s25-motions-small]] below.
 
 *The induction bound.* Write ‖·‖_(𝒴,k) for the seminorm of 𝒴^♮(β_k) of [[lem:iii-i13-2-2]] (of 𝒴(β_k) of
 [[sec:iii-i8-1]] when β_k < 3, and of 𝒴^♮(α − ε) when k = K, as in [[lem:iii-i14-2-5]]), and ‖F‖ for a seminorm of F
@@ -320,9 +322,82 @@ and u(p⃗′) are affine in F and in the free coordinates W⃗_free, and |p⃗�
 are used below are at most C(‖F‖ + |W⃗_free|), C uniform in b and in (h, p⃗, q) small. At k = 0 this is
 [[prop:iii-i8-4-1]] (i) at b (Step 1); the step from k to k + 1 is shown below.
 
+*The motion coordinates.* Put h″ := h + h_(b,rem)(q), and write D_(W⃗)P_5(W⃗) for D_(p⃗)P_5(h, p⃗, q) in the direction
+with motion components 0 and row components W⃗, as in Step 1. For Ψ ∈ 𝒴(α_1) let p⃗′_(α_1)(Ψ) ∈ 𝒫_(α_1) be the
+parameter that [[prop:iii-i8-4-1]], for P_5 at (h, p⃗, q) (Step 1), assigns to the forcing Ψ: the unique one for which
+the forward solution u_Ψ of L_(h″,p⃗)u_Ψ = Ψ − D_(p⃗)P_5(h, p⃗, q)(p⃗′_(α_1)(Ψ)) lies in 𝒵_(α_1). By (i) of that
+proposition, Ψ ↦ p⃗′_(α_1)(Ψ) is linear and |p⃗′_(α_1)(Ψ)| ≤ C‖Ψ‖_(𝒴(α_1)), with C uniform in b and in (h, p⃗, q) small.
+A point of 𝒫 is p⃗′_< ⊕ W⃗, with p⃗′_< ∈ 𝒫_(α_1) (the motion coordinates and the motions of ℳ_(α_1)) and
+W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot) the other row coordinates (Step 1). By [[eq:iii-i14-3-1]] and the linearity of
+D_(p⃗)P_5(h, p⃗, q) in the direction, u(p⃗′_< ⊕ W⃗) is the forward solution of
+
+    L_(h″,p⃗)u = (F − D_(W⃗)P_5(W⃗)) − D_(p⃗)P_5(h, p⃗, q)(p⃗′_<),
+
+so the point of 𝒫_0 over W⃗ (Step 1) has p⃗′_<(W⃗) = p⃗′_(α_1)(F − D_(W⃗)P_5(W⃗)) = p⃗′_(α_1)(F) − p⃗′_(α_1)(D_(W⃗)P_5(W⃗)).
+We show that
+
+    |p⃗′_(α_1)(D_(W⃗)P_5(W⃗))| ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|W⃗|,     C uniform in b.          {#eq:s25-motions-small}
+
+(1) *The decomposition.* By [[def:iii-i14-1-2]], D_(p⃗)P_5(h, p⃗, q) = D_(p⃗)P_4(h, p⃗) + Δ_q and
+L_(h,p⃗) = L_(h″,p⃗) − R_q; by [[eq:iii-i15-1-1]] (for the rotation rows, [[lem:iii-i15-2-1]]),
+D_(p⃗)P_4(h, p⃗)(W_ν = W) = L_(h,p⃗)m_ν(W) + r^ν_(h,p⃗)(W) + E^ν_(h,p⃗)(W). Summing over the rows ν ∈ 𝒩′ ⊔ 𝒩_rot, with
+m_rows(W⃗) := Σ_ν m_ν(W_ν),
+
+    D_(W⃗)P_5(W⃗) = L_(h″,p⃗)m_rows(W⃗) + e_rows(W⃗),
+    e_rows(W⃗) := Σ_ν (r^ν_(h,p⃗) + E^ν_(h,p⃗))(W_ν) − R_q m_rows(W⃗) + Δ_q(W⃗).
+
+(2) *The remainder is small.* The class 𝒴(α_1) contains the class 𝒴_2(α_1) of [[sec:iii-i8-1]], which holds every
+section supported in supp χ_K ⊂ supp χ^♯_K ([[eq:iii-i-1-2]]) with K⁺-weight above α_1 and plain ι⁺-weight above 4;
+the 𝒴(α_1)-norm of such a section is at most a seminorm of it in those weights. The four kinds of terms of e_rows(W⃗):
+
+- r^ν_(h,p⃗)(W) is supported in supp χ_K and lies in the class [[eq:iii-i9-2-5]], of plain ι⁺-weight
+  Re λ + 2 + λ_♯ − ε > 4 and K⁺-weight Re e_ν + a_K − ε > α_1, with norm at most C|W|(‖h‖ + |p⃗|), uniformly on ℬ̄_*
+  ([[lem:iii-i9-2-6]] (e); for the rotation rows, [[lem:iii-i15-2-1]]).
+- E^ν_(h,p⃗)(W) lies in 𝒴(α_1), with norm at most C|b − b₀||W| ((P6); for the rotation rows, [[lem:iii-i15-2-1]]).
+- m_rows(W⃗) has K⁺-weight λ_♯ − 1 − ε, ι⁺-weight λ_♯ − ε > 3/2 > β′_+, vanishes near ℐ⁺ and for t^♭_* < 10, and has
+  seminorms O(|W⃗|) ([[lem:iii-i9-2-2]], [[lem:iii-i15-2-1]]). So [[lem:iii-i14-2-3]] at b (*The augmentation at b*
+  in the proof of [[thm:iii-i15-3-1]]), with w := λ_♯ − 1, applies: R_q m_rows(W⃗) is supported in supp χ_K, has
+  K⁺-weight (λ_♯ + α − 3)− > α_1 (as λ_♯ > 1 and α_1 < α − 2) and plain ι⁺-weight above w_+ > 4 (the proof of that
+  lemma), with seminorms at most C‖q‖|W⃗|.
+- Δ_q(W⃗) = Σ_ν R_q(h_ν(W_ν)) is supported in supp χ_K, has K⁺-order ∞ and plain ι⁺-weight above w_+, with norm
+  O(‖q‖|W⃗|) ([[lem:iii-i14-2-4]] (a), at b as in the same paragraph).
+
+So, as |p⃗| ≤ |p⃗ − p⃗_b| + |p⃗_b| = |p⃗ − p⃗_b| + |b − b₀|,
+
+    ‖e_rows(W⃗)‖_(𝒴(α_1)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|W⃗|,     C uniform in b.
+
+(3) *The rows carry no parameter.* m_rows(W⃗) vanishes for t^♭_* < 10 ([[lem:iii-i9-2-2]] (c)), so it is the forward
+solution of L_(h″,p⃗)u = L_(h″,p⃗)m_rows(W⃗) (Step 0). It lies in 𝒵_(α_1). Every row of 𝒩′ has K⁺-rate above
+α_1 − 2: the s0, s2, c0 and c1 rows have rates at least λ_♯ > 1 > α_1 − 2, and an s1 row of 𝒩′ has rate at least
+α_1 − 2 and, by admissibility, not equal to it (the paragraph *The map* of the proof of [[thm:iii-i11-4-1]], with α_1
+in place of α′). So its m_ν(W_ν) has K⁺-weight α_1 − 2 − ε for every ε > 0 ([[lem:iii-i9-2-2]] (e)). A rotation row
+has K⁺-weight Re λ − ε > 1 > α_1 − 2 ([[lem:iii-i15-2-1]]). Every m_ν(W) has ι⁺-weight λ_♯ − ε > 3/2 and vanishes
+near ℐ⁺ ([[lem:iii-i9-2-2]] (b), (c)), which are the other conditions of [[eq:iii-i8-4-2]] at α_1. Moreover
+L_(h″,p⃗)m_rows(W⃗) = D_(W⃗)P_5(W⃗) − e_rows(W⃗) lies in 𝒴(α_1), by Step 1 and (2). So the parameter 0 has, for the
+forcing L_(h″,p⃗)m_rows(W⃗), the property that defines p⃗′_(α_1), and by the uniqueness in [[prop:iii-i8-4-1]],
+p⃗′_(α_1)(L_(h″,p⃗)m_rows(W⃗)) = 0. This is the argument of the paragraph *The level map* of the proof of
+[[prop:iii-i8-4-1]], and of the paragraph *At (0, 0)* of the proof of [[thm:iii-i11-4-1]].
+
+(4) *The bound.* By (1), (3) and the linearity of p⃗′_(α_1),
+p⃗′_(α_1)(D_(W⃗)P_5(W⃗)) = p⃗′_(α_1)(e_rows(W⃗)), and the bound of (i) of [[prop:iii-i8-4-1]] with (2) gives
+[[eq:s25-motions-small]].
+
+Along 𝒫_k ⊂ 𝒫_0, with F fixed, a change δW⃗ of the row coordinates therefore changes the motion coordinates by
+δp⃗′_< = −p⃗′_(α_1)(D_(W⃗)P_5(δW⃗)), of size at most C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|δW⃗|.
+
 *The bound on A_k.* Let δW′ be a change of the new coordinates, those of higher rate being fixed, and let δp⃗′, δG′
-and δu be the changes it causes along 𝒫_k; by the induction bound every coordinate changes by at most C|δW′|. By the
-list above, with the induction bound for R_q δu,
+and δu be the changes it causes along 𝒫_k. By the induction bound every coordinate changes by at most C|δW′|; in
+particular the row coordinates change by δW⃗ with |δW⃗| ≤ C|δW′|, so, by the last paragraph, the motion coordinates
+change by at most C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|δW′|. With δW′_ν the change of the row coordinate W′_ν for every
+row ν ∈ 𝒩 ⊔ 𝒩_rot,
+
+    δG′ = −f^S_(h,p⃗)(δS′) − f^b_(h,p⃗)(δb′) − f^(s1)_(h,p⃗)(δS^(0)′_1)
+          − Σ_(ν∈𝒩⊔𝒩_rot) (r^ν_(h,p⃗) + E^ν_(h,p⃗))(δW′_ν) − Δ_q(δp⃗′) − R_q δu.
+
+The motion terms are at most C(|δS′| + |δb′| + |δS^(0)′_1|) in ‖·‖_(𝒴,k+1), by the norms above. The row terms are
+at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|δW′| by the first item of the list above, and Δ_q(δp⃗′) and R_q δu at most
+C‖q‖|δW′| by its second item, with the induction bound for δu ([[lem:iii-i14-2-3]] with w = β_k − 2, as
+β_(k+1) < β_k + α − 4). So
 
     ‖δG′‖_(𝒴,k+1) ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|δW′|.
 

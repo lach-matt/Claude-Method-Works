@@ -581,10 +581,10 @@ them is the one stated. ∎
 
 So the real-axis bounds are stable under Im σ > 0: B⁺ is continuous in σ and bounded on compact subsets of
 {Im σ ≥ 0, σ ≠ 0}, and the degeneration of [[lem:rb-off-axis]] as Im σ → 0 is not met. As Im σ → 0, B⁺ tends to the
-constant with 4|σ|, not to the real-axis one: the factor 2 is the price of bounding the b_σ-term by norms over ℝ. Every
-multiplier below satisfies |φ| ≤ 1 or is used in the scaled form: φ = z has |z| < 1, with q = 0 for every l ≥ 1
-([[prop:morawetz-resolvent-l-ge-1]]) and max q = 2√6/27 for l = 0 ([[prop:morawetz-l-zero]]); the multipliers of
-[[prop:morawetz-master-potentials]] are taken with p_φ := sup_ℝ|φ|, as stated there.
+constant with 4|σ|, not to the real-axis one: the factor 2 is the price of bounding the b_σ-term by norms over ℝ. The
+lemma applies directly to the multiplier φ = z, which has |z| < 1, with q = 0 for l ≥ 1
+([[prop:morawetz-resolvent-l-ge-1]]) and max q = 2√6/27 for l = 0 ([[prop:morawetz-l-zero]]), and in the scaled form,
+with p_φ := sup_ℝ|φ|, to the multipliers of [[prop:morawetz-master-potentials]], as stated there.
 
 ### Polynomial multipliers {#sec:morawetz-polynomial}
 
@@ -695,9 +695,9 @@ For S3 the least coefficient of Π is divided by 120(2 + y)³ at the right end o
 S4, k_S is bounded below by the least Bernstein coefficients of c_0, …, c_3 with H_0 at the right end of the piece. Every
 product listed is at least the w_I of its row.
 
-The constants m′ and M′. On the pieces of [[sec:tb-morawetz-mM]], η(4Θ_z − g) is bounded below by the least value of η
-times the least Bernstein coefficient of 4Θ_z − g, and |η(4Θ_z − 2g)| above by the largest value of η times the largest
-modulus of a Bernstein coefficient of 4Θ_z − 2g. Every product is at least m′, respectively at most M′.
+The constants m′ and M′. On the pieces of [[sec:tb-morawetz-constants]], η(4Θ_z − g) is bounded below by the least
+value of η times the least Bernstein coefficient of 4Θ_z − g, and |η(4Θ_z − 2g)| above by the largest value of η times
+the largest modulus of a Bernstein coefficient of 4Θ_z − 2g. Every product is at least m′, respectively at most M′.
 
 Finally [[eq:pb-bound]] gives the bound for each operator of a row and every harmonic of it, and the table evaluates it
 with the constants above, rounding up. ∎
@@ -1371,7 +1371,7 @@ least coefficient in a column of its own is rounded down and a greatest one roun
 interval r_2 ≤ r ≤ r_1, that is 1/r_1² ≤ y ≤ 1/r_2². Since η increases on [0, 3/5] and decreases on [3/5, 1] in y, its
 least value on a piece is at an end, and "η ≥" is that value rounded down; "η ≤" is its greatest value on the piece,
 rounded up (6√15/125 < 0.18591 on a piece that contains y = 3/5). An entry of a column headed "product ≥" (respectively
-"product ≤") is the product of the two exact factors, rounded down (respectively up), and not the product of the two
+"product ≤") is the product of the exact factors, rounded down (respectively up), and not the product of the
 printed factors, from which it may differ in the last digit; the product of the printed factors satisfies the same
 bound against the constant of its table.
 
@@ -1805,7 +1805,7 @@ j ≤ 3 of (least Bernstein coefficient of c_j)/(16 C(3, j)H_0^(3−j)), with H_
 | 31/20–7/5 | 0.15676 | 4.4403 | 0.69609 |
 | 7/5–6/5 | 0.17682 | 3.8395 | 0.67893 |
 
-#### The constants m′ and M′ {#sec:tb-morawetz-mM}
+#### The constants m′ and M′ {#sec:tb-morawetz-constants}
 
 For each multiplier, φ′ − q = η(4Θ_z − g) and φ′ − 2q = η(4Θ_z − 2g), with Θ_z at z = 1 − 2y. The first table
 bounds η(4Θ_z − g) below on the pieces of I, the second bounds |η(4Θ_z − 2g)| above.
