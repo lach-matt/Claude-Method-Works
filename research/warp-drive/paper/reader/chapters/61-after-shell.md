@@ -462,13 +462,13 @@ coefficients being smooth in p and equal at p_λ to those of (γ^(m_λ), k^(m_λ
 (d) In the coordinates y′⁰ := y⁰ − f(|y|), y′ := y, the graph is {y′⁰ = 0}, and with G := 𝔤_p the new shift, metric and
 lapse are β′ = β + G_00 ∂f = β − ∂f + ρ⁴C^∞, g′ − g ∈ ρ⁴C^∞ and N′ − N ∈ ρ⁴C^∞, at the same point, since G_00 + 1, G_(0i)
 and G^(0i) lie in ρ²C^∞ and ∂f ∈ ρ²C^∞. The values on the graph are taken at (f, y) instead of (0, y), and
-G(f, y) − G(0, y) = f ∂_0 G(0, y) + ρ⁴C^∞, where ∂_0 G_p = O(|w| ρ³). Inserting these in [[eq:v-0-2]], the
-term −D′_iβ′_j − D′_jβ′_i contributes 2∂_i∂_j f + ρ⁵C^∞, and 1/(2N′) = 1/2 + ρ²C^∞, which gives K̃_p − K_p = ∇²f + ρ⁴C^∞
-and g̃_p − g_p ∈ ρ³C^∞. At w = 0, G_p does not depend on y⁰, there is no change of the point of evaluation, and
-so g̃_p − g_p = g′ − g ∈ ρ⁴C^∞ and K̃_p − K_p − ∇²f ∈ ρ⁵C^∞, smoothly in (m, A, c); this is used in (c). For the trace: f is radial, ∇²f = f″ x̂ ⊗ x̂ + (f′/r)(δ − x̂ ⊗ x̂), and by
-[[eq:after-shell-f]] f′ = 2μ_end r⁻² + 2μ_end² r⁻⁴ + O(r⁻⁶), so tr ∇²f = f″ + 3f′/r = (−4μ_end + 6μ_end) r⁻³ + O(r⁻⁵). At
-p_λ, (g_(p_λ), K_(p_λ)) are the data of g^KS_(m_λ,0) on {t_KS = 0}, and their difference from (γ^(m_λ), k^(m_λ)) is the
-case w = 0 of the above, with the sign of ∇²f reversed.
+G(f, y) − G(0, y) = f ∂_0 G(0, y) + ρ⁴C^∞, where ∂_0 G_p = O(|w| ρ³). Inserting these in [[eq:v-0-2]], the term
+−D′_iβ′_j − D′_jβ′_i contributes 2∂_i∂_j f + ρ⁵C^∞, and 1/(2N′) = 1/2 + ρ²C^∞, which gives K̃_p − K_p = ∇²f + ρ⁴C^∞
+and g̃_p − g_p ∈ ρ³C^∞. At w = 0, G_p does not depend on y⁰, there is no change of the point of evaluation, and so
+g̃_p − g_p = g′ − g ∈ ρ⁴C^∞ and K̃_p − K_p − ∇²f ∈ ρ⁵C^∞, smoothly in (m, A, c); this is used in (c). For the trace:
+f is radial, ∇²f = f″ x̂ ⊗ x̂ + (f′/r)(δ − x̂ ⊗ x̂), and by [[eq:after-shell-f]] f′ = 2μ_end r⁻² + 2μ_end² r⁻⁴ + O(r⁻⁶),
+so tr ∇²f = f″ + 3f′/r = (−4μ_end + 6μ_end) r⁻³ + O(r⁻⁵). At p_λ, (g_(p_λ), K_(p_λ)) are the data of g^KS_(m_λ,0) on {t_KS = 0}, and their
+difference from (γ^(m_λ), k^(m_λ)) is the case w = 0 of the above, with the sign of ∇²f reversed.
 
 (c) C¹ and O(4)-equivariance follow as in the proof of [[prop:v-2-3]], since (a) gives the bounds of [[lem:v-2-2]] and
 the graph is O(4)-invariant. By Schur's lemma, as there, D𝔮̃(p_λ) consists of scalars c̃_E (from m to 𝔔_(e₀)) and c̃_J

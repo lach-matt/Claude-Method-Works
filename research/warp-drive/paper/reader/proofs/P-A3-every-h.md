@@ -1,10 +1,13 @@
+<!-- Placement: a section of its own at the end of sec:s14-model, just before sec:iv4-1; not before prop:np-10-54. -->
 ### The scalar type l ≥ 1 for every h ∈ (0, 10⁻⁶] {#sec:s14-every-h}
 
 This section proves the statements of [[prop:np-10-54]] (i)–(ii) about the polynomials P_l, l ≥ 1, at every
-h ∈ (0, 10⁻⁶]. As in [[sec:s14-model]], (v, e) = (1/2, 1/102400); of the value of e we use only 10⁻⁶ < e < 10⁻⁵.
-We let κ be any real number ≥ 3 and write P(ι; κ, h) for the determinant of the matrix [[eq:s14-nl]] at v = 1/2 with
+h ∈ (0, 10⁻⁶]. As in [[sec:s14-model]], (v, e) = (1/2, 1/102400). The exact value of e enters only through
+[[lem:s14-small-h]] (a), which is proved at this value: there the roots ι₊, ι₋ of Q_5 are distinct by [[lem:s14-q5]]
+(b), whose proof uses it. Every inequality proved below uses of e only 10⁻⁶ < e < 10⁻⁵.
+We let κ be any real number ≥ 0 and write P(ι; κ, h) for the determinant of the matrix [[eq:s14-nl]] at v = 1/2 with
 this κ, so that P_l(ι) = P(ι; l(l + 2), h). It is a polynomial in (ι, κ, h), of degree 6 in ι with leading coefficient
-−h³ ([[prop:np-10-12]] (iii)).
+−h³: this is f₆ of [[eq:s14-f-two]] below, and for κ = l(l + 2) it is [[prop:np-10-12]] (iii).
 
 The argument has three steps. As (κ, h) varies, no root of P(·; κ, h) meets the line Re ι = 2, except the root ι = 2
 at κ = 3 ([[lem:s14-line-two]]); no root meets the line Re ι = −1/(2h) ([[lem:s14-line-far]]); and the number of roots

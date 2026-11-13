@@ -318,6 +318,12 @@ root of P_l satisfies |Re ι| ≥ ½κ^(1/2) once κ ≥ κ_h, for some κ_h dep
 |Re ι| ≤ R occurs only where κ < κ_h or κ ≤ 4R², that is for finitely many l, each contributing at most six
 roots. ∎
 
+**Remark {#rem:s14-u6}** (Numerical observation.) At v = 1/2, for e, h ∈ {10⁻², 10⁻³, 10⁻⁴} and 85 sampled degrees
+l ≤ 10⁶, the roots were computed to 50 digits. Besides ι = 2 at l = 1, the three roots of P_l that stay bounded as
+h → 0 ([[lem:s14-small-h]] (a)) stayed above 1.93; they were above 2 exactly at the six points with h ≤ e, and between
+1.939 and 1.967 at the three with h > e. The other three lay near −1/h; at h = e = 10⁻² the largest of them was −96.3,
+inside [−100, 2). This is why h is taken below e_C in [[eq:iv4-0-1]]. No proof uses this observation.
+
 **Proposition {#prop:np-10-13}** (The fibre algebra and the damping symbols.) Let g be a Lorentzian metric on a vector
 space of dimension D, c a past timelike covector, e ∈ [0, 1), and
 
@@ -475,6 +481,10 @@ trace and determinant, is positive definite, and so is r_0²S.
 − r_0)²/r_0² < 1 (c timelike), the second condition of (i) reads 2(1 − e)w > e(1 − w), and for w ≥ e, 2(1 − e)w/(e(1 −
 w)) ≥ 2 > 1. The first condition is ±(r − r_0) > 0. ∎
 
+**Remark {#rem:s14-e0}** (Numerical observation.) On a grid of 1201 points in x with bisection in e, the largest e for
+which the (dt, dr) block of [[prop:np-10-13]] (iii) stays positive definite on |x| ≤ 6/5 was about 0.000069v²,
+against about 0.000154v² for the corresponding block in dimension 3 + 1. No proof uses this observation.
+
 **Proposition {#prop:np-10-14}** (A damping 1-form on Tangherlini space.) Let m = 1, so that r_h = 1, and let
 
     g = −f dt² + 2(1 − f) dt dr + (2 − f) dr² + r² 𝑔̸,     f = 1 − mr⁻²,                                   {#eq:s14-tang}
@@ -594,6 +604,11 @@ depend on ρ_K, so d = b_sf.
 (a)–(c) are the stated arguments: (a) the positivity in (iv) is strict and stable under perturbations of the metric
 and the 1-form by ρ_sf C^∞ terms near 𝗌𝖿; (b) the conditions in (i)–(ii) are open conditions on the value of c at each
 point; (c) the static time t_s satisfies dt = dt_s + (f⁻¹ − 1) dr with f⁻¹ − 1 = O(mr⁻²). ∎
+
+**Remark {#rem:s14-r0}** (Numerical observation.) Among integer values of r_0, with m = 1 and
+(v, e) = (1/2, 1/102400), conditions (i)–(iii) of [[prop:np-10-14]] held together first at r_0 = 86: (i) at every
+r_0 ∈ [2, 86], (ii) from r_0 = 33 on, and (iii), among these, at 86 alone; with e/4 in place of e the first such r_0
+was 137. Every condition depends on mr_0⁻² and r/r_0 only, so the threshold is 86r_h. No proof uses this observation.
 
 **Proposition {#prop:np-10-21}** (The structure at infinity.) On 4 + 1 Minkowski space with c = r⁻¹(dt − v dr), in the
 coordinates t_* = t − r, ρ = r⁻¹ and the Cartesian frame:
@@ -1824,7 +1839,8 @@ sections of 𝒯*_X by harmonics on 𝕊³ ([[ch:s11]]): scalar type of degree l
 and gradient parts; two for l = 0), and vector type of degree l ≥ 1 (one component, the co-closed 1-forms on 𝕊³). The
 projections onto a type and degree are bounded on the spaces with rotation-invariant orders (the proof of
 [[prop:i-c-5-3]]), and (□^C)^(σ) commutes with them. So [[eq:iv6-1-1]] is the direct sum of its restrictions to the
-sectors. Each restriction is Fredholm, and only finitely many have nonzero kernel or cokernel. Fix a sector and write I
+sectors. Each restriction is Fredholm, and only finitely many have nonzero kernel or cokernel, as the kernel and the
+cokernel of the sum are finite-dimensional. Fix a sector and write I
 for its index on [[eq:iv6-1-1]], with ℓ a variable order > −½ at R_in and < −½ at R_out. Take for ℓ the order of
 [[ch:s03]] for the free operator at this σ = e^(iθ): that of [[lem:i-a-7-1]] with θ_in = 0 and S̄ = 0 for θ ∈ {0, π},
 or r_mid for θ ∈ (0, π). It is invariant under the rotations of 𝕊³, > −½ at R_in and < −½ at R_out, so it is admissible

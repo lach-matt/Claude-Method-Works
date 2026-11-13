@@ -678,7 +678,7 @@ azimuth; and ℛ_c, 𝒮 are the functions of [[lem:vi-b1-2-1]].
 
 Let b = (m, A) with |b − b₀| small, and use the notation of [[ch:s11]]: s = −½ tr(A²), Π(r) = r⁴ + sr² + p²,
 Δ_b = Π − m r², r_A, ℓ_A and H_(m,A) ([[lem:iii-b-3-1]], [[def:iii-b-3-2]]), and r₊(b), the largest root of Δ_b
-([[eq:vi-b-1-1]]). On {|x| ≥ r₀ − 2δ₀}, which lies in {|x|² > s} by [[lem:s12-ks-domain]], write
+([[eq:vi-b-1-1]]). On {|x| ≥ r₀ − 2δ₀}, which lies in {|x|² > s} by [[lem:s11-ks-domain]], write
 
     x = (r²I − A²)^(1/2) ω,     r > 0,     ω ∈ 𝕊³ ⊂ ℝ⁴.                                                   {#eq:vi-b1-0-1}
 
@@ -802,6 +802,11 @@ polynomials in (m, a, b, E, Φ, Ψ, Λ) vanishing at a = b = 0, hence bounded by
 𝒩 × {|m − m₀| ≤ ½m₀}, with C independent of the frame, as |a|, |b| ≤ ‖A‖. So the difference is at most C′‖A‖ in
 C²([0, 2/m₀]), which is below min(m₀²/12, ¼) for ‖A‖ small. ∎
 
+**Remark {#rem:s12-convexity-sample}** (Numerical observation.) Sampled at ‖A‖ ≤ 0.02 m₀^(1/2) on the face
+(|Φ| + |Ψ|)² = Λ of 𝒩, the two bounds of [[lem:vi-b1-1-1]] were observed with minima of about 0.30 m₀² (for 𝒬″,
+where Λ ≥ m₀/6) and 0.80 (for 𝒬, where Λ < m₀/6). No proof uses this; [[lem:vi-b1-1-1]] rests on the perturbation
+argument above.
+
 **Corollary {#cor:vi-b1-1-2}** (The radial structure.) Let ε_R also be so small that r₊(b)⁻² < 2/m₀, and let
 |b − b₀| ≤ ε_R and E ≠ 0. Then on (r₊, ∞):
 
@@ -886,15 +891,17 @@ exactly. Multiplying by z₀ϱ⁻² gives [[eq:vi-b1-2-2]]. On Γ_b, r = r_c, so
 (c) (Γ.2) is [[eq:vi-b1-2-2]], the sign choices making φ_u decay and φ_s grow along 𝖧; ν_(u/s) are smooth and positive
 near Γ_b. For (Γ.1) and (Γ.3): at Γ_b, d𝒢 = α⁻¹(2p̃ dp̃ − dℛ) = −α⁻¹dℛ_c, as p̃ = 0, ∂_rℛ = 0, and
 d_((ω,η))ℛ = dℛ_c at r = r_c (since ∂_rℛ(r_c) = 0). So dG_(z₀) = ϱ⁻²d𝒢 ≠ 0. At Γ_b, dφ_± = dp̃ ∓ √𝒮(dr − dr_c). Of
-the three covectors dφ₊, dφ₋, dℛ_c, only dp̃ has a dp_r component (it is α ≠ 0), only dr − dr_c has a dr component, and
-dℛ_c ≠ 0 has neither; so they are independent. Hence Γ_u and Γ_s are smooth hypersurfaces of Σ near Γ_b, meeting
+the three covectors dφ₊, dφ₋, dℛ_c, only dp̃ has a dp_r component (it is α ≠ 0), while r_c and ℛ_c are functions of
+(ω, η), so dr_c and dℛ_c have neither a dp_r nor a dr component. If c₊ dφ₊ + c₋ dφ₋ + c₀ dℛ_c = 0, the dp_r component
+gives (c₊ + c₋)α = 0, so c₋ = −c₊ and the dp̃ terms cancel, leaving −2c₊√𝒮(dr − dr_c) + c₀ dℛ_c = 0; its dr component
+gives 2c₊√𝒮 = 0. So c₊ = c₋ = 0, and c₀ = 0 as dℛ_c ≠ 0; the three covectors are independent. Hence Γ_u and Γ_s are smooth hypersurfaces of Σ near Γ_b, meeting
 transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]]. For the bracket,
 {φ₊, φ₋} = 2{p̃, (r − r_c)√𝒮}, which at r = r_c is 2√𝒮({p̃, r} − {p̃, r_c}) = 2α√𝒮. Here {p̃, r} = ∂_(p_r)p̃ = α,
 and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of (Φ, Ψ, 𝔎), which Poisson-commute
 ([[lem:vi-b1-0-1]] (b)). α > 0 on I_Γ, as I_Γ ⊂ (r₊, ∞). For z₀ = −1, {φ₋, −φ₊} = {φ₊, φ₋}. At b₀, ϱ² = r_ph² = 2m₀
 and √𝒮 = 2r_ph on Γ, so ν = 4r_ph/(2m₀) = 4(2m₀)^(−1/2), the rate of [[prop:vi-a-3-1]].
 
-(d) dt and dt_* are timelike for g_b ([[lem:iii-b-3-3]] (e) with β = 0, valid by [[lem:s12-ks-domain]], and
+(d) dt and dt_* are timelike for g_b ([[lem:iii-b-3-3]] (e) with β = 0, valid by [[lem:s11-ks-domain]], and
 [[lem:vi-a-1-1]]). They are co-oriented: g_b⁻¹(dt, dt_*) cannot vanish where both are timelike, the region is
 connected, and near infinity it is close to η_M⁻¹(dt, dt − d|x|) = −1. The difference t − t_* is a function of |x|
 ([[eq:iii-b-3-3]], [[eq:iii-b-3-6]]). So [[lem:vi-a-0-1]] (a)–(b) carries Γ_b, φ_(u/s), (Γ.1)–(Γ.3) and the future
@@ -1131,5 +1138,6 @@ principal symbol g̃_b⁻¹ ⊗ Id. The operator hypotheses, the threshold in (H
 *Proof.* Take ε_VI := min(ε₁/2, ε₈), with ε₁ from [[prop:vi-b-2-2]] and ε₈ from [[prop:vi-b1-4-1]]; the results cited
 hold on ℬ_VI. ∎
 
-For every r_♭ ∈ (0, ½R₁], ε_VI may be taken so small that ℬ_VI ⊂ ℬ_♭; ε_VI and the constants of the theorem depend
+For every r_♭ ∈ (0, ½R₁], ℬ_VI ⊂ ℬ, as every ball of this chapter lies in ℬ ([[def:s12-radii]]); ε_VI and the
+constants of the theorem depend
 on r_♭.
