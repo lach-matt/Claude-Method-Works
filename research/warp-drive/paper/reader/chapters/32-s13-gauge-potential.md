@@ -592,8 +592,13 @@ static chart on {r > r_h}; Φ_* := dΦ/dr_* = fΦ′.
 (ii) For u = r^(−3/2)Φ(r)S e^(−iσt), S ∈ 𝒮_l: −fr^(3/2)e^(iσt)(δdu)/S = f(fΦ′)′ + σ²Φ − V_0Φ, with
 V_0 := (f/r²)(κ + 3/4 + 9m_0/(4r²)).
 
-(iii) For A = r^(−1/2)Φ(r)Y e^(−iσt), Y a co-closed 1-form on 𝕊³ with δ_𝕊 d_𝕊 Y = ΛY: δA = 0, and δdA = 0 if and
-only if f(fΦ′)′ + σ²Φ − V_1Φ = 0, with V_1 := (f/r²)(Λ − 1/4 + 5m_0/(4r²)). For Y ∈ 𝒱_l, Λ = (l + 1)².
+(iii) Let Y be a 1-form on 𝕊³, ψ := r^(−1/2)Φ(r)e^(−iσt) and A := ψY. Then δA = r⁻²ψ δ_𝕊Y,
+(δdA)_t = iσr⁻²ψ δ_𝕊Y, (δdA)_r = −r⁻²(∂_rψ)δ_𝕊Y, and on angular vectors
+
+    −fr^(1/2)e^(iσt)((δdA)_a − r⁻²ψ(δ_𝕊d_𝕊Y)_a) = (f(fΦ′)′ + σ²Φ − U_1Φ)Y_a,     U_1 := (f/r²)(−1/4 + 5m_0/(4r²)).
+
+In particular, if Y is co-closed with δ_𝕊 d_𝕊 Y = ΛY, then δA = 0, and δdA = 0 if and only if
+f(fΦ′)′ + σ²Φ − V_1Φ = 0, with V_1 := U_1 + Λf/r² = (f/r²)(Λ − 1/4 + 5m_0/(4r²)). For Y ∈ 𝒱_l, Λ = (l + 1)².
 
 (iv) Let A = (a(r)S dt + b(r)S dr)e^(−iσt), S ∈ 𝒮_l; every scalar type 1-form (aS dt + bS dr + c d_𝕊S)e^(−iσt)
 differs from one of this form by d(cS e^(−iσt)), which does not change dA. Write dA = F_tr S e^(−iσt) dt ∧ dr + …,
@@ -621,16 +626,19 @@ With u_0 = r^(−3/2)Φ, r³f u_0′ = f(r^(3/2)Φ′ − (3/2)r^(1/2)Φ), and
 r⁻³(r³fu_0′)′ = r^(−3/2)((fΦ′)′ − (3/2)r⁻¹f′Φ − (3/4)r⁻²fΦ). Multiplying by −fr^(3/2) gives the equation with
 V_0 = f((3/2)r⁻¹f′ + (3/4)r⁻²f + κr⁻²), and (3/2)r⁻¹f′ = 3m_0r⁻⁴, (3/4)r⁻²f = (3/4)r⁻² − (3/4)m_0r⁻⁴.
 
-(iii) Put ψ := r^(−1/2)Φe^(−iσt). Then δA = −r⁻³|g_𝕊|^(−1/2)∂_a(r|g_𝕊|^(1/2)g_𝕊^(ab)ψY_b) = r⁻²ψδ_𝕊Y = 0. For
-the 2-form F := dA, (δF)^ν = −|g|^(−1/2)∂_μ(|g|^(1/2)F^(μν)), with F_ta = ∂_tψ Y_a, F_ra = ∂_rψ Y_a and
-F_ab = ψ(d_𝕊Y)_ab. The t- and r-components of δF are angular divergences of multiples of Y, which vanish as
-δ_𝕊Y = 0. The angular component is
+(iii) δA = −r⁻³|g_𝕊|^(−1/2)∂_a(r|g_𝕊|^(1/2)g_𝕊^(ab)ψY_b) = r⁻²ψδ_𝕊Y. For the 2-form F := dA,
+(δF)^ν = −|g|^(−1/2)∂_μ(|g|^(1/2)F^(μν)), with F_ta = ∂_tψ Y_a, F_ra = ∂_rψ Y_a and F_ab = ψ(d_𝕊Y)_ab. Here
+F^(at) = (fr²)⁻¹∂_tψ Y^a and F^(ar) = −fr⁻²∂_rψ Y^a, with the index raised by g_𝕊, so (δF)^t = (fr²)⁻¹∂_tψ δ_𝕊Y and
+(δF)^r = −fr⁻²∂_rψ δ_𝕊Y; lowering by g_tt = −f and g_rr = f⁻¹, and ∂_t = −iσ, gives (δdA)_t and (δdA)_r. The
+angular component is
 
-    (δF)_a = (f⁻¹∂_t²ψ − r⁻¹∂_r(rf∂_rψ) + Λr⁻²ψ)Y_a,
+    (δF)_a = (f⁻¹∂_t²ψ − r⁻¹∂_r(rf∂_rψ))Y_a + r⁻²ψ(δ_𝕊d_𝕊Y)_a,
 
 the last term from the angular divergence of F^(ab) = r⁻⁴ψ(d_𝕊Y)^(ab), lowered by g_ab = r²(g_𝕊)_ab. With
-∂_t² = −σ² and r⁻¹(rf(r^(−1/2)Φ)′)′ = r^(−1/2)((fΦ′)′ − ½r⁻¹f′Φ + ¼r⁻²fΦ), multiplying by −fr^(1/2)e^(iσt) gives the
-equation with V_1 = f(½r⁻¹f′ − ¼r⁻²f + Λr⁻²), and ½r⁻¹f′ = m_0r⁻⁴, −¼r⁻²f = −¼r⁻² + ¼m_0r⁻⁴. For Y ∈ 𝒱_l,
+∂_t² = −σ² and r⁻¹(rf(r^(−1/2)Φ)′)′ = r^(−1/2)((fΦ′)′ − ½r⁻¹f′Φ + ¼r⁻²fΦ), multiplying the first term by
+−fr^(1/2)e^(iσt) gives f(fΦ′)′ + σ²Φ − U_1Φ with U_1 = f(½r⁻¹f′ − ¼r⁻²f), and ½r⁻¹f′ = m_0r⁻⁴,
+−¼r⁻²f = −¼r⁻² + ¼m_0r⁻⁴. If Y is co-closed with δ_𝕊d_𝕊Y = ΛY, the t- and r-components vanish, δA = 0, and the
+angular component gives the equation with V_1 = U_1 + Λf/r². For Y ∈ 𝒱_l,
 δ_𝕊d_𝕊Y = Δ_𝕊Y + 2Y on co-closed 1-forms of 𝕊³ (the Ricci identity on the unit 𝕊³, where Ric = 2g_𝕊), and
 Δ_𝕊Y = (κ − 1)Y ([[lem:iii-a1-1-5]]); so Λ = κ + 1 = (l + 1)².
 

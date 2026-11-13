@@ -152,7 +152,7 @@ A_3 ≥ −(39/16)x and A_4 ≥ −(15/8)x². As x ≤ 1, 125x⁵ + 85x⁷ + 27x
 L increases with μ, so L ≤ L(1/2) = 279/128. M is concave in μ ≥ 0, so on [1/12, 1/2] it is at least
 min(M(1/12), M(1/2)) = min(0.63875…, 1.2734…) > 0.6387. And 18x⁴ ≥ (9/4)x² − 9/128, since 18(x² − 1/16)² ≥ 0. So
 Q ≥ c_0 − (279/128)x + c_2x² with c_0 := 1/2 + 1/144 − 9/128 > 0.4366 and c_2 := 0.6387 + 9/4 = 2.8887. This quadratic
-has positive leading coefficient and discriminant (279/128)² − 4c_0c_2 < 4.7512 − 5.0451 < 0, so Q > 0.
+has positive leading coefficient and discriminant (279/128)² − 4c_0c_2 < 4.7512 − 5.0448 < 0, so Q > 0.
 
 Case −1 ≤ x < 0. Put ξ := −x ∈ (0, 1]. Then A_1 = (15/4)ξ(1 − ξ²) + (17/2)ξ² + (51/2)(ξ⁴ + ξ⁶) + (17/2)ξ⁸ ≥ (17/2)ξ²,
 A_2 ≥ 1 − 10ξ², A_3 = (ξ/16)(39 − 195ξ² − 3ξ⁴ − 9ξ⁶) ≥ −(207/16)ξ³ ≥ −(207/16)ξ², A_4 ≥ −(15/8)ξ² and
@@ -286,10 +286,10 @@ X(B̃)‖f‖ with X(B̃) = (1 + (1 + 2m′(M′ + 2|σ|)B̃)^(1/2))/(2m′), wi
 ([[prop:morawetz-resolvent-l-ge-1]]) and (3315/65536, 0.3999) at l = 0 ([[prop:morawetz-l-zero]]). X(B̃) increases
 with |σ|, so its value at |σ| = 384 bounds the band: for l ≥ 1,
 2m′(M′ + 768)B̃ = (15/128)(768.74362)(11.477) < 1033.94, so X < (1 + 32.171)/(15/128) < 283.06; at l = 0,
-2m′(M′ + 768)B̃ = (3315/32768)(768.3999)(11.477) < 892.18, so X_0 < (1 + 29.887)(32768/3315) < 305.31.
+2m′(M′ + 768)B̃ = (3315/32768)(768.3999)(11.477) < 892.18, so X_0 < (1 + 29.8862)(32768/3315) < 305.31.
 
 For the sum, [[cor:morawetz-one-derivative]] (a) with B_l replaced by B̃ gives, for l ≥ 2,
-κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))K‖f_l‖², K := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.87 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
+κ∫_I ψ|u_l|² ≤ (κ/(κ − 3))K‖f_l‖², K := 2X(B̃) + (M′ + 2|σ|)B̃ < 566.12 + 8822.88 < 9389.0, and κ/(κ − 3) ≤ 8/5 as
 κ ≥ 8. So for l ≥ 2 the harmonic contributes at most (283.06² + (8/5)(9389.0))‖f_l‖² < 308.46²‖f_l‖²; for l = 1 at
 most (283.06² + 3B̃²)‖f_1‖² < 283.76²‖f_1‖²; and for l = 0 at most 305.31²‖f_0‖². Summing over l with
 ‖f‖² = Σ_l‖f_l‖² gives C ≤ 308.46. ∎

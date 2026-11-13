@@ -385,8 +385,10 @@ Since μ/a² > 1 on {r = a}, s0 < 2^(1/2) − 1 < 3/5. From here on ε1 is one f
 
 so that both [[lem:eigen]] and [[lem:lorentz-margin]] apply to it.
 
-At the numerical point of [[ch:lambda0]] (μ0 = 1, l5 = 1/10, a = δ0 = q0/2, A = 1, env supported in
-[v_start, v_end] = [1/2, 7/2] with ∫ env² = 105/128, T = 1, τ0 = −2) the three thresholds are as follows.
+At the numerical point of [[ch:lambda0]] (μ0 = 1, l5 = 1/10, a = δ0 = q0/2, A = 1, [v_start, v_end] = [1/2, 7/2],
+∫ env² = 105/128, T = 1, τ0 = −2) the three thresholds are as follows. They use the envelope only through its support
+and ∫ env², so they hold for every env ∈ C_c^∞([1/2, 7/2]) with ∫ env² = 105/128, an envelope that [[thm:main]]
+admits (a nonzero smooth function supported in [1/2, 7/2], multiplied by a suitable constant, is one).
 
 (i) μ0/a² − 1 > 12, so every ε1 ≤ 3/5 serves for [[lem:domain]] (e) there: q0⁸ = 72 μ0² l5⁴ = 9/1250, so
 μ0/a² = 4/q0² = 4 (1250/9)^(1/4), and 1250/9 > 28561/256 = (13/4)⁴ gives μ0/a² > 13.
