@@ -11,9 +11,9 @@ at u = l + 1, so that ι^Υ_(sl,l+1) = l + 1 + d₂(l) and ι^Υ_(sl,l+2) = l + 
 **Lemma {#lem:ec-gauge-gap}** (The least distance of ℳ.) At the computational point let 𝔡_ℳ be the least distance
 between distinct points of ℳ. Then 𝔡_ℳ = d₁(8) − d₂(7) and
 
-    2.9239·10⁻¹⁰ < 𝔡_ℳ < 2.9243·10⁻¹⁰.                                                                 {#eq:ec-gauge-gap}
+    2.9239·10⁻¹⁰ < 𝔡_ℳ < 2.92428·10⁻¹⁰.                                                                {#eq:ec-gauge-gap}
 
-Hence every admissible choice of ε_Υ satisfies ε_Υ < 1.46215·10⁻¹⁰, and so ε_g < 1.46215·10⁻¹⁰, at every h; and
+Hence every admissible choice of ε_Υ satisfies ε_Υ < 1.46214·10⁻¹⁰, and so ε_g < 1.46214·10⁻¹⁰, at every h; and
 ε_Υ = 1.4619·10⁻¹⁰ is an admissible choice.
 
 *Proof.* *The points of ℳ.* By [[lem:iii-d-4-1]] the indicial roots of (□^Υ_b)^(0) that are not integers are 2 + 𝔡₀ and
@@ -68,10 +68,10 @@ with 7z/240 = 1.1666666666…·10⁻⁷; and for d₁(8), −2z/361 ≤ θ₁ �
 The least element of S₋ is d₂(9) > 9.47·10⁻⁸. The least distance between two elements of S₋ is the least entry of the
 last column (the elements being ordered as listed), which is that between d₂(7) and d₁(8), more than 2.9239·10⁻¹⁰;
 every other entry exceeds 4.84·10⁻¹⁰. So 𝔡_ℳ = d₁(8) − d₂(7) > 2.9239·10⁻¹⁰, and from the table
-d₁(8) − d₂(7) < (1.1695907603 − 1.1666664896)·10⁻⁷ < 2.9243·10⁻¹⁰. (The leading coefficients differ by
+d₁(8) − d₂(7) < (1.1695907603 − 1.1666664896)·10⁻⁷ < 2.92428·10⁻¹⁰. (The leading coefficients differ by
 5/171 − 7/240 = 1/13680, and z/13680 = 2.92397…·10⁻¹⁰.)
 
-*The constant.* ε_Υ is fixed below ½𝔡_ℳ < 1.46215·10⁻¹⁰, and any positive number below ½𝔡_ℳ may be taken; as
+*The constant.* ε_Υ is fixed below ½𝔡_ℳ < 1.46214·10⁻¹⁰, and any positive number below ½𝔡_ℳ may be taken; as
 ½ · 2.9239·10⁻¹⁰ > 1.4619·10⁻¹⁰, the value 1.4619·10⁻¹⁰ is admissible. ε_Υ is fixed by the gauge parameters
 (γ_Υ, e_Υ) alone, through z, so the bound holds at every h. ∎
 
@@ -95,7 +95,7 @@ number together
 
 The same bound holds at every h ∈ 𝖧, with the same (γ_Υ, e_Υ).
 
-*Proof.* The weights satisfy 0 < ε_K < ε_Υ < δ̂ ([[def:iii-i10-1-3]] and [[lem:ec-gauge-gap]], as ½ · 2.9243·10⁻¹⁰ <
+*Proof.* The weights satisfy 0 < ε_K < ε_Υ < δ̂ ([[def:iii-i10-1-3]] and [[lem:ec-gauge-gap]], as ½ · 2.92428·10⁻¹⁰ <
 δ̂), and ε_g ≤ ε_Υ. The proof of [[lem:iii-i8-3-2]] takes ε < ½ε_g, and ε′ ≤ ε ([[sec:iii-j2-1]]); so the increments
 ε_g − ε of the rounds lie in (0, δ̂), and ε, ε′ < δ̂. Also η_2 < ε_+ < ε_ind ≤ δ_50 < δ̄ ([[prop:np-10-52]] (iii)). The
 level spacing is below α − 4 ≤ ε_K.
@@ -115,7 +115,7 @@ run for every i with κ_i ≤ β − 2, and their number is at least g_2(β)/δ�
     Σ_j g_2(c_j)/δ̂ ≥ (1/(ε_Kδ̂))((1 − ε_K − δ̄)²/2 − ε_K/2).
 
 Adding, and using (1 − a)²/2 ≥ ½ − a, R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂); with ε_K < δ̂ this exceeds
-(1 − 5δ̂ − δ̄)/δ̂², and δ̂² < 2.13786·10⁻²⁰, 1 − 5δ̂ − δ̄ > 1 − 2·10⁻⁸, so the quotient exceeds 4.6775·10¹⁹. Nothing in
+(1 − 5δ̂ − δ̄)/δ̂², and δ̂² < 2.13786·10⁻²⁰, 1 − 5δ̂ − δ̄ > 1 − 2.1·10⁻⁸, so the quotient exceeds 4.6775·10¹⁹. Nothing in
 the proof used h beyond the bounds ε_g ≤ ε_Υ < δ̂ and ε_ind(h) ≤ δ_50, which hold at every h. ∎
 
 **Theorem {#thm:loss-d}** (The loss d and the regularity N_NM.) Let d_acc be the accounted loss of

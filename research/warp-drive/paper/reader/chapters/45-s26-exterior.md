@@ -820,11 +820,12 @@ H^(k,α₀,ℓ^♭_I)_b except π̸₀ġ ∈ H^(k,α₀,((3/2,0),ℓ^♭_I))_b. 
                          u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c),  ũ₆ ∈ H^(k,(a₀,2β))_b},                             {#eq:iv2-0-3}
 
 with χ_I := χ̂(ρ_I), χ̂ ∈ C_c^∞([0, c/2)) equal to 1 on [0, c/4], c the constant of [[lem:iv2-2-1]] (so u^((0)) is used
-only over Ω_c := Ω⁺ ∩ {ρ_I < c}, Ω⁺ as below; another such χ̂ gives an equivalent norm), u^((0)) a function of (ρ₀, ω)
-extended to be constant in ρ_I, and the norm the sum of the norms. Here ℐ⁺_c is the image of Ω_c under (ρ₀, ρ_I, ω) ↦
-(ρ₀, ω), a domain in ℐ⁺ containing ℐ⁺ ∩ Ω̄_c and in general larger: an integral curve of X_I near Σ_(fut,r₀) leaves Ω⁺
-through Σ_(fut,r₀) before it reaches ℐ⁺. The radiation field of π̸₀ġ is ρ₀^(3/2)u^((0)), the coefficient of ρ_I^(3/2).
-Away from U the classes impose only H^k.
+only over Ω_c := Ω⁺ ∩ {ρ_I < c}, Ω⁺ as below; another such χ̂ gives an equivalent norm), and u^((0)) a function of
+(ρ₀, ω) extended to be constant in ρ_I. Here ℐ⁺_c is the image of Ω_c under (ρ₀, ρ_I, ω) ↦ (ρ₀, ω), a domain in ℐ⁺
+containing ℐ⁺ ∩ Ω̄_c and in general larger: an integral curve of X_I near Σ_(fut,r₀) leaves Ω⁺ through Σ_(fut,r₀) before
+it reaches ℐ⁺. So the splitting u₆ = χ_Iu^((0)) + ũ₆ is determined by u over ℐ⁺ ∩ Ω̄_c, where ρ₀^(3/2)u^((0)) is the
+radiation field of π̸₀ġ (the coefficient of ρ_I^(3/2)), and not elsewhere; the norm of 𝒴^k_(a₀) is therefore the
+infimum over the splittings ([[lem:s26-decompositions]]). Away from U the classes impose only H^k.
 
 *The operator.* Let g₀ ∈ 𝒢 ([[def:iii-c-3-4]]) with Ric(g₀) = 0 and g₀ − g_(b₀) small in the sense of the pointwise
 bounds of the proof of [[lem:iii-c1-1-1]], or g₀ = g_(b₀); let h ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) and
@@ -938,6 +939,38 @@ Vv^((0)) = −∫_(−∞)^(s_c) Vw_♯ ds′ and Vṽ(s) = ∫_(−∞)^s Vw_�
 ℐ⁺ are X₀ and the rotations, so the bounds for m = 0, applied to the derivatives of w_♯, give (b) for every m, with the
 bound for w_♯ above. Without the extension, the lower limit would be the value of s at which the curve leaves Ω_c,
 which depends on (ρ₀, ω), and its derivatives would enter those of v^((0)) and ṽ. ∎
+
+**Lemma {#lem:s26-decompositions}** (Decompositions.) For u ∈ 𝒴^k_(a₀)(Ω), Ω ⊃ Ω_c, call a pair (u^((0)), ũ) with
+u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c), ũ_j ∈ H^(k,(a₀,2β))_b in every slot j, ũ₆ = u₆ − χ_Iu^((0)) and ũ_j = u_j for j ≠ 6, a
+*decomposition* of u, and ‖u^((0))‖_(H^(k,a₀)_b(ℐ⁺_c)) + Σ_j‖ũ_j‖_(H^(k,(a₀,2β))_b) its norm of order k; the norm of u in
+𝒴^k_(a₀)(Ω) is the infimum of the norms of order k of its decompositions. Let y_* := C″ − r₀ − 2r₀^(1−ℓ^♭_I). Then
+ℐ⁺ ∩ Ω̄_c is the part of ℐ⁺ where x¹ ≤ y_*, and:
+
+(a) two decompositions of u have the same u^((0)) almost everywhere on ℐ⁺ ∩ Ω̄_c;
+
+(b) if (u^((0)), ũ) is a decomposition of u and z is smooth with compact support in ℐ⁺_c ∩ {x¹ > y_*}, then
+(u^((0)) + z, ũ′) is a decomposition of u, where ũ′₆ := ũ₆ − χ_Iz and ũ′_j := ũ_j for j ≠ 6.
+
+*Proof.* On U, ρ_I = (2 − x¹)/|x| ([[eq:iii-c-1-2]]), and the upper condition of [[eq:iv2-0-5]] reads
+x¹ ≤ y_* + 2|x|^(1−ℓ^♭_I) (the proof of [[lem:iv2-1-1]]). Over a point of ℐ⁺ with x¹ ≤ y_* it holds at every |x|, and
+the lower condition holds for ρ_I ≤ c, as in the proof of [[lem:iv2-1-1]] (b); so the whole X_I-curve {0 < ρ_I < c}
+over the point lies in Ω_c, and the point lies in Ω̄_c. Over a point with x¹ > y_*, it gives
+|x| ≤ ((x¹ − y_*)/2)^(−1/(ℓ^♭_I−1)) on Ω_c, so ρ_I is bounded below on Ω_c over a neighbourhood of the point, which
+therefore is not in Ω̄_c. This proves the description of ℐ⁺ ∩ Ω̄_c.
+
+(b) By the same bound, ρ_I ≥ c_z > 0 on Ω_c over the compact set supp z, and ρ₀ = 1/(2 − x¹) is bounded above and
+below there. So χ_Iz, whose b-derivatives are bounded, is supported in a region of finite b-volume on which the weights
+are bounded, and lies in H^(∞,(a₀,2β))_b(Ω_c); and u₆ = χ_I(u^((0)) + z) + ũ′₆.
+
+(a) If (u^((0)), ũ) and (u′^((0)), ũ′) are decompositions of u, then z := u^((0)) − u′^((0)) satisfies
+χ_Iz = ũ′₆ − ũ₆ ∈ H^(0,(a₀,2β))_b(Ω_c). In the coordinates (s, ρ₀, ω), s := log ρ_I, of the proof of [[lem:iv2-1-2]],
+the square of this norm is ∫(∫ e^(−2βs)|χ_Iz|² ds) ρ₀^(−2a₀)(dρ₀/ρ₀)dg̸, which is finite. Over a point with x¹ ≤ y_* the
+inner integral runs over (−∞, log c), on which χ_I = 1 for s ≤ log(c/4), and ∫_(−∞)^(log(c/4)) e^(−2βs) ds = ∞ as
+β > 0. So z = 0 at almost every such point. ∎
+
+The estimates below bound the norm of a decomposition that they construct, linearly in the data, and so bound the norm
+of u. Where a choice linear in u is needed, in the smoothing of the proof of [[thm:iv2-3-1]], the decomposition is
+carried with u.
 
 ### The linear theorem {#sec:iv2-2}
 

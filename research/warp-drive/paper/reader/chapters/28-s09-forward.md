@@ -1010,7 +1010,116 @@ block-diagonal fibre inner product making Im p_1 and p_0 small ([Hin26c, (8.4)])
 
 Below, "admissible" for P and for the operators P_ε of [[sec:ii-f1-2-6]] means (1) and (2) of [[def:ii-c-3-3]] together
 with the smallness of [[lem:ii-f1-2-1]], and every result of [[ch:s06]] or [[ch:s07]] is used in the sense of
-[[lem:ii-f1-2-1]] (b).
+[[lem:ii-f1-2-1]] (b). Moreover, from here on P stands for the operator P^♭ of [[lem:s09-off-star]] built from the P of
+[[thm:ii-f1-1-1]], whose norms are taken over Ω_*. P^♭ is given on Ω; its norms over Ω are at most C_j times those of P
+over Ω_*, with one representation at every j ([[eq:s09-off-star-bound]]), and these factors enter the constants below;
+and P^♭u = Pu for u in every space of [[thm:ii-f1-1-1]], whose orders s′ ≥ s_u satisfy s′ ≥ 2 − d, as s_u ≥ −d′ − 2 and
+d ≥ d′ + d″ with d″ = s_in ≥ 4 ([[eq:ii-f1-3-3]], [[lem:ii-f1-2-3]]). So P^♭ has the forward solutions of P.
+
+#### The operator off Ω_* {#sec:s09-off-star}
+
+[[thm:ii-f1-1-1]] measures P − P_0 over Ω_*, while [[ch:s07]] works with an operator on Ω, its norms over Ω and its
+extension from Ω ([[lem:ii-e-1-2]]). The proof therefore replaces P on Ω ∖ Ω_* = Ω ∩ {t^♭ < 1}, a set of bounded times,
+by an extension from Ω_*.
+
+*Coordinates.* At fixed x, t^♭ is strictly increasing in t_* on {t_* ≥ ½, r ≥ r^♯}. Indeed t^♭ = C′(t_* + R̃(r)) on
+{r ≤ Ct_*/2}; on {r ≥ r′_0 + 1}, the formula for d(t_*F(ρ_I)) in the proof of [[lem:ii-c-3-2]], with
+d(t_*F₁) = A dt_* + B dr and d(t_*F₂) = C′(dt_* + dr), gives ∂_(t_*)t^♭ = F(θA/F₁ + (1 − θ)C′/F₂) > 0, as A > 0 where
+θ > 0; and the two sets cover {t_* ≥ ½}, as C ≥ 4(r′_0 + 1) ([[lem:ii-e-1-2]] (iv)). As t^♭ ≥ C′t_*, (t^♭, x) are
+coordinates on Ω, in which Ω_* = {t^♭ ≥ 1} and Ω ∖ Ω_* = {τ_1(x) ≤ t^♭ < 1}, τ_1(x) := t^♭|_(t_*=1). Put
+Ω_2 := Ω ∩ {t_* ≤ 2/C′}, which contains Ω ∩ {t^♭ ≤ 2}. On Ω_2 the functions ∂_(t_*)t^♭, 1/∂_(t_*)t^♭ and V t^♭, for V a
+b-vector field, lie in C^∞_b: near 𝓘⁺, t^♭ = t_*(1 − (t_*/r)^ℓ) with (t_*/r)^ℓ conormal and ∂_(t_*)t^♭ ≥ ½ (as in the
+proof of [[lem:ii-f1-2-6]] (a)), and the rest of Ω_2 is compact. As ∂_(t_*) = (∂_(t_*)t^♭)∂_(t^♭), and a vector field
+taken at fixed t_* is the same field taken at fixed t^♭ plus a multiple of ∂_(t^♭) by its derivative of t^♭, the
+b-vector fields over Ω_2 are spanned over C^∞_b by ∂_(t^♭) and the r∂_(x^i), and the e3b-vector fields by ∂_(t^♭) and
+fields whose coefficients in (t^♭, x) depend on x only: near 𝓘⁺ the fields r∂_r = −½x_I∂_(x_I) and r^(−1/2)Z_(ij),
+which span the x_I∂_ω (with x_I = r^(−1/2) as in [[sec:ii-e-1-1]], and the rotation fields Z_(ij) of
+[[sec:ii-f-6-1]]), and the ∂_(x^i) elsewhere; here and below, fields in x are taken at fixed t^♭. On Ω_2, x_I²(1 + r),
+ρ_+ and ρ_K are positive functions which, with their inverses, lie in C^∞_b ([[eq:ii-f1-1-1]], t_* lying in
+[1, 2/C′]); so each weight x_I^(2a)ρ_+^bρ_K^c is (1 + r)^(−a) times a function of that kind.
+
+*Seeley's operator in t^♭.* Let c_l, ε_l = 3^(−l) be the constants of Seeley's operator in the proof of
+[[lem:ii-e-1-3]] (b), so that Σ_l |c_l| ε_l^(−q) < ∞ and Σ_l c_l (−ε_l⁻¹)^q = 1 for q ∈ ℕ_0 ([[sec:ii-f1-2-5]]), and
+c_Σ := Σ_l |c_l| as in the proof of [[lem:ii-f1-2-1]]; let χ_♭ ∈ C^∞(ℝ), 0 ≤ χ_♭ ≤ 1, equal 1 on [0, ¼] and 0 on
+[½, ∞). For a function q on Ω_* put E_♭q := q on Ω_* and, in the coordinates (t^♭, x),
+
+    (E_♭q)(1 − τ, x) := Σ_(l≥0) c_l χ_♭(τ/ε_l) q(1 + τ/ε_l, x)      on Ω ∖ Ω_*  (τ > 0).                  {#eq:s09-seeley}
+
+E_♭q uses q only on Ω_* ∩ {t^♭ ≤ 3/2} ⊂ Ω_2, at the same x, and it commutes with multiplication by functions of x and
+with vector fields in x whose coefficients depend on x only. At (1 − τ, x), ∂^j_(t^♭)E_♭q is
+Σ_l c_l (−ε_l⁻¹)^j ∂^j_(τ′)(χ_♭(τ′) q(1 + τ′, x)) taken at τ′ = τ/ε_l; as χ_♭ = 1 near 0, it tends to ∂^j_(t^♭)q(1, x)
+as τ ↓ 0, so E_♭q is C^j on Ω when q is C^j up to {t^♭ = 1}, and it is at most Σ_l |c_l| ε_l^(−j) times the supremum
+over τ′ ∈ [0, ½] of |∂^j_(τ′)(χ_♭(τ′) q(1 + τ′, x))|. With the description of the b-vector fields and of the weights on
+Ω_2, this gives, for every j and every weight w,
+
+    ‖E_♭q‖_(C^((0;j),w)_b(Ω)) ≤ C_j ‖q‖_(C^((0;j),w)_b(Ω_*)),      |(E_♭q)(1 − τ, x)| ≤ c_Σ sup_(1≤t′≤3/2) |q(t′, x)|,
+                                                                                                    {#eq:s09-seeley-bound}
+
+with C_j depending only on j, w, t^♭ and χ_♭. For an operator Q = Σ_(|β|≤2) q_β ∂^β on Ω_*, ∂^β the derivatives in
+the coordinates (t^♭, x), put E_♭Q := Σ_β (E_♭q_β)∂^β. If Q = Σ_γ q′_γ V^γ, the V^γ being products of at most two
+vector fields whose coefficients in (t^♭, x) depend on x only, then E_♭Q = Σ_γ (E_♭q′_γ)V^γ, as E_♭ commutes with
+multiplication by functions of x; and the principal symbol of E_♭Q is E_♭ applied to that of Q, at fixed components
+of the covector in the coordinates (t^♭, x).
+
+**Lemma {#lem:s09-off-star}** (The operator off Ω_*.) Let k ≥ 2, and let P be an operator on Ω_* with (1) and (2) of
+[[def:ii-c-3-3]] there, of class ((0;k),(2ℓ_I,ℓ_+,ℓ_K)), with data p_0, p̃_1 on 𝓘⁺ ∩ Ω_* = 𝓘⁺ ∩ Ω (t^♭ = t_* on 𝓘⁺),
+with P̃ as in [[eq:ii-c-3-2]], and with ‖P − P_0‖_((0;0)), over Ω_*, small. Put P^♭ := P on Ω_* and
+
+    P^♭ := P_0 + χ_I ½x_I²ρ_+²(2p̃_1 A + p_0) + E_♭P̃   on Ω ∖ Ω_*,      A := x_I∂_(x_I) − 2ρ_+∂_(ρ_+).     {#eq:s09-off-star}
+
+(a) P^♭ has (1) and (2) of [[def:ii-c-3-3]] on Ω, with the data p_0, p̃_1, and for every j ≤ k
+
+    ‖P^♭ − P_0‖_((0;j),(2ℓ_I,ℓ_+,ℓ_K)) ≤ C_j ‖P − P_0‖_((0;j),(2ℓ_I,ℓ_+,ℓ_K)),                            {#eq:s09-off-star-bound}
+
+the left side over Ω and the right over Ω_*, with C_j depending only on j, t^♭ and the weights. The representation of
+P̃^♭ := P^♭ − P_0 − χ_I ½x_I²ρ_+²(2p̃_1A + p_0) built below is linear in that of P̃, so [[eq:s09-off-star-bound]]
+holds at every j with one representation.
+
+(b) For a metric g′ write 𝗀′ for the matrix of x_I²ρ_+²g′ in a fixed e3b-frame, and |·| for the operator norm; let 𝗀,
+𝗀^♭ and 𝗀_0 be those of the metrics g, g^♭ and g_0 of P, P^♭ and P_0. For every a ∈ [0, ½],
+
+    sup_Ω x_I^(−2a)|(𝗀^♭)⁻¹ − 𝗀_0⁻¹| ≤ c_♭ sup_(Ω_*) x_I^(−2a)|𝗀⁻¹ − 𝗀_0⁻¹|,
+
+with c_♭ ≥ 1 depending only on t^♭ and the frame.
+
+(c) If P is given on Ω°, of class ((0;k)) there, then P^♭v = Pv on Ω° for every distribution v on Ω° supported in
+{t^♭ ≥ 1} and lying in H^(s′)_loc, s′ ≥ 2 − k.
+
+*Proof.* Ω ∖ Ω_* lies in Ω_2, as t_* ≤ t^♭/C′ < 1/C′ there.
+
+(a) Let P̃ = Σ_j a_jP_j be the representation of [[def:ii-c-3-6]] ([[def:ii-a-8-3]]), the set of the P_j enlarged, with
+coefficients 0, by the products of at most two fields of a fixed e3b-frame. Let the V^γ be the products of at most two
+of ∂_(t^♭) and the fields of x above (the empty product being 1). By the description of the e3b-vector fields on Ω_2,
+there P_j = Σ_γ n_(jγ)V^γ and V^γ = Σ_j m_(γj)P_j with n_(jγ), m_(γj) ∈ C^∞_b, the derivatives of C^∞_b-functions by
+e3b-vector fields lying in C^∞_b. So P̃ = Σ_γ q′_γV^γ on Ω_* ∩ Ω_2, q′_γ := Σ_j a_j n_(jγ), and
+E_♭P̃ = Σ_γ (E_♭q′_γ)V^γ. Let ψ ∈ C^∞(ℝ) equal 0 on (−∞, 3/2] and 1 on [2, ∞); ψ(t^♭) ∈ C^∞_b by
+[[lem:ii-f1-2-6]] (a). Then
+
+    a^♭_j := ψ(t^♭) a_j + (1 − ψ(t^♭)) Σ_γ m_(γj) E_♭q′_γ
+
+is a representation of P̃^♭ on Ω: on Ω_* it gives ψP̃ + (1 − ψ)Σ_γ q′_γV^γ = P̃, and on Ω ∖ Ω_*, where ψ = 0, it gives
+Σ_γ (E_♭q′_γ)V^γ = E_♭P̃. The derivatives of order at most k of E_♭q′_γ are continuous across {t^♭ = 1}, so
+[[eq:s09-seeley-bound]], with the weight x_I²ρ_+² times that of the class, and [[lem:ii-a-8-2]] (c)–(d) for the products
+with C^∞_b-functions give ‖a^♭_j‖_((0;j′)) ≤ C_(j′) max_i ‖a_i‖_((0;j′)) for j′ ≤ k. With the unchanged data p_0, p̃_1,
+this is (2) and [[eq:s09-off-star-bound]]. For (1): the χ_I-term is of first order, so on Ω ∖ Ω_*
+σ_2(P^♭) = G_0 + σ_2(E_♭P̃) = G_0 + E_♭(G − G_0). The metric g^♭ of P^♭ is therefore given there by
+(g^♭)⁻¹ = g_0⁻¹ + E_♭(g⁻¹ − g_0⁻¹), E_♭ acting on the components in the coordinates (t^♭, x), or in any local frame whose
+coefficients depend on x only. By [[eq:s09-seeley-bound]], (g^♭)⁻¹ − g_0⁻¹ lies in
+x_I²ρ_+²C^((0;k),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b)(Ω; S² ᵉ³ᵇT) with norm at most C_k times that of g⁻¹ − g_0⁻¹ over Ω_*, and the
+Neumann series of the proof of [[lem:ii-c-3-7]] gives g^♭ ∈ 𝒢^((0;k),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b) on Ω, as
+‖P − P_0‖_((0;0)) is small.
+
+(b) On Ω ∖ Ω_*, in a local frame whose coefficients depend on x only, the components of (𝗀^♭)⁻¹ − 𝗀_0⁻¹, the matrix of
+x_I⁻²ρ_+⁻²((g^♭)⁻¹ − g_0⁻¹), are x_I⁻²ρ_+⁻² times E_♭ of x_I²ρ_+² times those of 𝗀⁻¹ − 𝗀_0⁻¹. The second bound of
+[[eq:s09-seeley-bound]], the comparability on Ω_2 of x_I, ρ_+ and the weight x_I^(−2a) at (1 − τ, x) and at the points
+(t′, x), t′ ∈ [1, 3/2], at which E_♭ evaluates, and the change to the fixed e3b-frame, by a matrix bounded on Ω_2 with
+its inverse, give (b).
+
+(c) In the coordinates (t^♭, x), P^♭ − P = Σ_(|β|≤2) q_β∂^β on Ω°, with q_β of class C^k vanishing on {t^♭ ≥ 1}, hence
+with their derivatives of order at most k there. For φ ∈ C_c^∞(Ω°), q_βφ vanishes on {t^♭ ≥ 1}; its translates
+(q_βφ)(t^♭ + δ, x), δ > 0 small, have compact support in Ω° ∩ {t^♭ ≤ 1 − δ} and tend to q_βφ in C^k, hence in
+H^k ⊂ H^(2−s′), as δ ↓ 0. As ∂^βv ∈ H^(s′−2)_loc is supported in {t^♭ ≥ 1}, it pairs to 0 with each translate, so
+⟨(P^♭ − P)v, φ⟩ = Σ_β ⟨∂^βv, q_βφ⟩ = 0. ∎
 
 #### Uniqueness {#sec:ii-f1-2-2}
 

@@ -204,8 +204,8 @@ number),
 with ‖f‖ a norm of [[eq:gd-r6-1]]. In particular, if ℓ(f) vanishes for large v, then u = c_∞W* + O(t_*^(−α_K)),
 c_∞ := (4π²)⁻¹∫ℓ(f) dv.
 
-*Proof.* The proof of [[thm:gd-r5-2]], with [[thm:gd-r6-4]] (i)–(ii) in place of [[thm:gd-r5-1]] (i)–(ii).
-|B(t)| ≤ C⟨t⟩^(−α_K)‖f‖ by [[lem:gd-r2-6]] on [T/2, 4T], as ⟨t⟩^(α_K−½)B and ⟨t⟩^(α_K−½)t∂_tB lie in L²(dt); the
+*Proof.* The proof of [[thm:gd-r5-2]], with [[thm:gd-r6-4]] (i)–(ii) in place of [[thm:gd-r5-1]] (i)–(ii). By
+[[lem:gd-r2-6]] on [T/2, 4T], |B(t)| ≤ C⟨t⟩^(−α_K)‖f‖, as ⟨t⟩^(α_K−½)B and ⟨t⟩^(α_K−½)t∂_tB lie in L²(dt); the
 kernels ∂_rχ^H_K, ∂_tχ^H_K and χ^H_K(·, r) − χ^H_K(·, r′) are supported in [1, 4 max(R′, 1)], so for
 t_* ≥ 8 max(R′, 1) the convolutions sample B on [t_*/2, t_*]. u′ = O(t_*^(−α_K)) with its b-derivatives, by b-Sobolev
 embedding near K⁺, where ρ_K is comparable to t_*⁻¹ on compact r-sets; so |Q[u′]| ≤ Ct_*^(−α_K)‖f‖, and
@@ -264,8 +264,8 @@ with plain weights, and let u be the forward solution of □u = f. Then for ever
 (ii) u_sing = β(t_*, r)W* with ∂_(t_*)β(·, r) = (∂_tχ^H_K)(·, r) ∗ B and
 β(·, r) − β(·, r′) = (χ^H_K(·, r) − χ^H_K(·, r′)) ∗ B, where B ∈ H^(k,α_K)_b(ℝ) and ∫B = 0;
 
-(iii) on {r_♭ < r ≤ R′, t_* ≥ 8 max(R′, 1)}, with every number of derivatives in x and t_*,
-|u − c_f(t_*)W*| ≤ C t_*^(−α_K)‖f‖.
+(iii) on {r_♭ < r ≤ R′, t_* ≥ 8 max(R′, 1)}, with every number of derivatives in x and
+t_*, |u − c_f(t_*)W*| ≤ C t_*^(−α_K)‖f‖.
 
 The dependence on k is that of [[thm:gd-r6-4]].
 
@@ -321,9 +321,9 @@ polynomial part b_1σ, of degree 1 < α_K − 1, the same for both signs. [[prop
 gives B ∈ H^(k,α_K)_b(ℝ), and ∫B = (χb̂_1)(0) = 0. The identities of (ii) are those of [[thm:gd-r2-5]] (ii).
 
 *(iii)* is the proof of [[thm:gd-r6-5]], with (i)–(ii): |B(t)| ≤ C⟨t⟩^(−α_K)‖f‖ by [[lem:gd-r2-6]], the convolutions
-sample B on [t_*/2, t_*], and u′ = O(t_*^(−α_K)) with its b-derivatives by b-Sobolev embedding near K⁺; so
-|Q[u′]| ≤ Ct_*^(−α_K)‖f‖ and 4π²β(t_*, r_h) = 4π²c_f + O(t_*^(−α_K)). No integration with a moment condition is
-needed, and no statement at K⁺ is made for u_sing itself. ∎
+sample B on [t_*/2, t_*], and u′ = O(t_*^(−α_K)) with its b-derivatives by b-Sobolev embedding near K⁺;
+so |Q[u′]| ≤ Ct_*^(−α_K)‖f‖ and 4π²β(t_*, r_h) = 4π²c_f + O(t_*^(−α_K)). No integration with a moment condition
+is needed, and no statement at K⁺ is made for u_sing itself. ∎
 
 The caps here are γ_+ < 3, which the column at order 1 needs (û_0 is of order r⁻², and 𝒴_0 must contain f̂_*(0) at
 the μ_b-weight γ_+), and α_K < 3, where the Taylor term of order 2 enters.
@@ -1084,8 +1084,8 @@ f := χ′J_h + [□, χ′]Y. Put f_(≥2) := Π_cl f; its forward solution is 
 ([[prop:gd-r3-2]]; η < δ_♯ < ¼); [□, χ′]Y ∈ H^(∞,(𝔪,b_++2,𝔪))_b with b_+ > γ_+; and Π_cl preserves these classes
 ([[lem:gd-r8-2]] (b)). So f_(≥2) satisfies the hypotheses of [[thm:gd-r8-10]] with Π = Π_cl, which gives
 Π_cl(χ′Y) = O(t_*^(−α_K)) on compact sets, with every derivative. At late times on compact sets χ′ = χ(t^♭_*) = χ_K = 1,
-so Z_(1,≥2) = Π_cl(χ′Y), and (ġ_H)_(≥2) = h_(≥2) + ℒ_(Z_(1,≥2))g, as ṁK_V and ℒ_(W**_H)g have no part with l ≥ 2; and
-|h|_k = O(t_*^(−w+ε′)) ([[eq:gd-0-2]]). ∎
+so Z_(1,≥2) = Π_cl(χ′Y), and (ġ_H)_(≥2) = h_(≥2) + ℒ_(Z_(1,≥2))g, as ṁK_V and ℒ_(W**_H)g have no part with l ≥ 2;
+and |h|_k = O(t_*^(−w+ε′)) ([[eq:gd-0-2]]). ∎
 
 **Theorem {#thm:harmonic-rate}** (The harmonic-gauge representative and its rate.) Let (γ̇, k̇) be data in the class of
 [[cor:viii-2-3]], ġ its linear solution and ṁ its mass change, and let ġ_H = ġ + ℒ_Zg be the representative of
