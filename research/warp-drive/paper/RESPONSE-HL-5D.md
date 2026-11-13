@@ -118,8 +118,10 @@ part, self-contained, from statements READ at source that hold in every dimensio
 independent reader and its repairs read again. An earlier version of this paper reached Theorem 4 by deduction: those
 papers' proofs were carried to five dimensions by modification, at every place a full-text census of the source found
 the dimension, and the completeness of the censuses was evidenced by two methods, not proved. The write-out uses no
-census of the source papers; its own three completeness claims are settled by enumeration and by a reading (section
-8.8).
+census of the source papers; its own three completeness claims are settled by enumeration and by a reading (section 8.8).
+Section 9 proves that the development of g_λ's own data settles, with no gluing, in a class wider by half-integer orders,
+and the linear solution's decay in a Regge–Wheeler-type and in harmonic gauge; it deduces the two-dust and
+restricted-Vlasov counterparts and states the constants and the scope.
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity coupled
 to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an approximate
@@ -287,10 +289,10 @@ metric g_λ on Ω ⊃ D_T ∩ {τ ≥ τ0} with:
 The constants that the argument fixes explicitly: the order of the energy is k = 6, the approximant used has N = K + 3
 stages, λ ≤ λ_Ω := min(1, δ0)/10 where δ0 := r_q(μ0) − a (a condition the construction imposes, not a bound below which
 the theorem holds: that is λ0), and the data are solved in H^s(S³) with s > 3/2 + 4 (the derivative count as a ledger,
-`docket68/n1star/checks/support3.py` D4). λ0 and C are not evaluated. Every constant of the approximant's own estimates
-is λ-independent, because its profiles are (deduced: supplement 5.4; computed for the profiles the programs compute,
-`paper/response5.py` R13); the waves are high-frequency on all of D_T once λ < l5/10 (computed:
-`docket68/lemmas/counterpart5.py` P1).
+`docket68/n1star/checks/support3.py` D4). λ0 and C are not evaluated; section 9 bounds λ0 above at the numerical point.
+Every constant of the approximant's own estimates is λ-independent, because its profiles are (deduced: supplement 5.4;
+computed for the profiles the programs compute, `paper/response5.py` R13); the waves are high-frequency on all of D_T
+once λ < l5/10 (computed: `docket68/lemmas/counterpart5.py` P1).
 
 **Proposition 3.2 (the boundary; computed R6, deduced).** On x_K = 1, with Φ := r − r_q(v),
 
@@ -312,7 +314,8 @@ g_λ, of the sphere S_(v,r) := {τ = v − r, |x| = r} at its point of angle ω.
 such that for λ ≤ λ_H: on every column (v and ω fixed, r varying, within D_T ∩ {τ ≥ τ0}) θ⁺_λ has at most one zero,
 positive above it and negative below; if μ0 > √72 l5², on the columns with √μ(v) ≤ v − τ0 − δ1 it has exactly one,
 R_λ(v, ω), with |R_λ − √μ(v)| ≤ C λ, and the spheres with r ≤ √μ(v) − C λ are trapped, those with r ≥ √μ(v) + C λ
-untrapped (C twice the constant that places the zero, so that the spheres at distance C λ are strictly trapped).
+untrapped (C twice the constant that places the zero, so that the spheres at distance C λ are strictly trapped); if μ0 =
+√72 l5², the same holds on the columns with μ(v) ≥ μ0 + δ2 and √μ(v) ≤ v − τ0 − δ1.
 
 *Proof.* For g0 the outgoing null normal of S_(v,r) with n(τ) = 1 has expansion θ⁺ = (2r²/(r² + μ)) · 3(1 − μ/r²)/(2r),
 whose one zero r = √μ is simple, ∂_r θ⁺ = 3/μ there, and the ingoing expansion is −3/r (computed, H1). θ⁺ is a smooth
@@ -768,8 +771,8 @@ v_end}, g_λ differs from Tangherlini of the final mass by λ m1 + O(λ²) with 
 Settling would therefore follow from the small-data stability of Tangherlini in the T²-mirror class, once the solution is
 also constructed outside D_T. Sections 8.2–8.8 take up the first step. The second, continuing g_λ outside D_T, is
 replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, with no gluing, in a class wider by
-half-integer orders, is proved in section 9 (Beyond the boundary), from proved inputs, the supplement's section 11.1
-among them.
+half-integer orders, is stated in section 9 (Beyond the boundary) and proved in SETTLE-GLAM5.md, from proved inputs, the
+supplement's section 11.1 among them.
 
 ### 8.2 The linear level
 
@@ -787,9 +790,9 @@ L_X g, X unique up to Killing fields (proved by the standard of section 8.8: sup
 `proof5/PART-IX-GAUGE.md`, Theorem 2.2 and Corollary 2.3; the comparison is posed on the future half of a Cauchy
 development that extends past the initial surface, because near r = r_0 the linear solution's domain ends there, and
 the difference, which vanishes to infinite order on the noncharacteristic initial surface, is extended by zero:
-`docket68/n1star/checks/ix5.py` X8). Nothing is asserted about the size or decay of X, so the decay of such a solution
-in its own gauge is that of L_X g there. The rest of this section is the route by which the linear level was first
-reached, in those gauges and by deduction; it stands beside the proof as an independent route.
+`docket68/n1star/checks/ix5.py` X8). Part IX asserts nothing about X; in the two gauges below X is determined and the
+decay is stated there. The rest of this section gives, beside the proof, the route first taken by deduction, and the
+gauge results proved since; it stands beside the proof as an independent route.
 
 Linearly more is known, and it applies to the class: the class carries no vector-type perturbation and no linearised
 rotation (computed, `docket68/n1star/settle5.py` T1), and for the other two types the gauge-invariant master quantities
@@ -862,8 +865,8 @@ representative is c π_{W*} + O(τ^(−3/2−κ)); its spherically symmetric par
 O(τ^(−3+ε)), with exactly that τ^(−2) term. A gauge change by a one-form Y with □Y = 0 and data compactly supported
 on the initial surface moves only c, by c_Y, Y's horizon charge over W*'s, and on each region r ≤ R,
 Y − c_Y W* = (c_Y/2) τ^(−2) ϖ_K + O(τ^(−3+ε)), ϖ_K := r_h²W* − (∂_v)^♭ (proved from Part VIII and the supplement's
-proved parts, Part IX among them: supplement GAUGEDECAY5 R4.4, R6.6, R7.1–R7.7 and R8.2–R8.12, every round of which
-to its round 11 independent verifiers have read and whose findings are seated, the last in its round 12, these
+proved parts, Part IX among them: supplement GAUGEDECAY5 R4.4, R6.6, R7.1–R7.7 and R8.2–R8.12, every round of which to
+its round 12 independent verifiers have read and whose findings are seated, the last in its round 13, these
 results and their inputs promoted, GAUGEDECAY5 R10.p, R11.p, R12.p; `docket68/n1star/checks/gdscri5.py`,
 `checks/gdext5.py`, `checks/gdkplus5.py`, `checks/gdrad5.py`, `checks/gdtail5.py`, `checks/gdlge2_5.py`,
 `checks/gdr9_5.py`). Without decay of Z's data the growth can be traded for a stationary term that does not decay at
@@ -1235,9 +1238,9 @@ constants C, C_P, R_P, R_G, Ξ0 and Ξ1 are proved to exist, not computed).
 
 **Theorem 4 (proved: supplement `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` Theorem 0.2).** Fix ℓ0 ∈ (3, 4); let ε_K be
 the decay parameter of section 8.4, with 0 < ε_K < ε_+ < min(δ♯, ε_ind, ℓ_I − 3, 1/4) for some ℓ_I ∈ (3, ℓ0), δ♯ = (1 −
-e_Υ)γ_Υ and ε_ind that of section 8.5, such that no parameter exponent λ at timelike infinity (a discrete set fixed
+e_Υ)γ_Υ and ε_ind that of section 8.5, such that no parameter exponent z at timelike infinity (a discrete set fixed
 before these constants) has real part in (3, 3 + ε_+] (the condition (G⁺)), and none has real part in (2, 2 + ε_K] ∪ (3,
-3 + ε_K], nor λ + d_c0, λ + d_c1 in (2, 2 + ε_K], d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots (the gap
+3 + ε_K], nor z + d_c0, z + d_c1 in (2, 2 + ε_K], d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots (the gap
 (G); supplement `docket68/n1star/proof5/PART-VI4-PARAMS.md` row w1; `docket68/n1star/proof5/PART-III-I11-SPACETIME.md`
 Definition 1.3; `docket68/n1star/proof5/PART-III-I10-CORR4.md`:72-74; `docket68/n1star/proof5/PART-III-J-PARAM.md` (G⁺));
 and fix ε < ε_K.
@@ -1492,16 +1495,16 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   computed, `docket68/n1star/checks/ix5.py` X1–X8). The gauge vector X is determined, up to (∂_t)^♭, in a
   Regge–Wheeler-type gauge and constructed in the harmonic gauge, where it is unique only up to solutions of □Y = 0
   (supplement GAUGEDECAY5). In the Regge–Wheeler-type gauge it is explicit, and the perturbation settles to the change of
-  mass on each region r ≤ R, the horizon included, at Part VIII's rate, O(τ^(−2−ε)) for some ε > 0, with two derivatives
+  mass on each region r ≤ R, the horizon included, at Part VIII's rate, O(t*^(−2−ε)) for some ε > 0, with two derivatives
   lost (GAUGEDECAY5 Theorem 1.5). In the harmonic gauge a representative exists on the whole domain, induces the given
   data and settles to μ̇K* + c π_{W*}, with c as in section 8.2, at τ^(−min(p,3/2)+ε), p > 1/2 + 2γ_Υ the order of decay
   of its spherically symmetric gauge data at spatial infinity: at τ^(−1+ε) for the data of section 8.8, and for data with
   compact support at τ^(−3/2−κ) for every κ < δ♯, its spherically symmetric part with an exact τ^(−2) term (GAUGEDECAY5
   R4.4, R7.3–R7.7, R8.9–R8.12). Both are proved from Part VIII and the supplement's proved parts, Part IX among them:
-  every round of GAUGEDECAY5 to its round 11 has been read by independent verifiers and their findings are seated, the
-  last in its round 12, and these results and their inputs are promoted (GAUGEDECAY5 R10.p, R11.p, R12.p). Neither uses
-  Hung's route in five dimensions (his sections 5–8), which section 8.2 carries as a deduction. Three parts of the
-  evaluation of λ1 and δ have since been taken further (supplement `docket68/n1star/`). The loss d
+  every round of GAUGEDECAY5 to its round 12 has been read by independent verifiers and their findings are seated, the
+  last in its round 13, and these results and their inputs are promoted (GAUGEDECAY5 R10.p, R11.p, R12.p). Neither uses
+  Hung's route in five dimensions (his sections 5–8), which section 8.2 carries as a deduction. Parts of the evaluation
+  of λ1 and δ have since been taken further (supplement `docket68/n1star/`). The loss d
   of the write-out's tame estimates, with the regularity N = 21d + 6 in which its Nash–Moser step asks smallness (not
   the N of section 4, which counts the approximant's stages), is reduced to finitely many weights chosen under
   inequalities, six elementary losses given closed forms, and loop counts (`LOSS-D.md`, deduced from the write-out's
@@ -1523,8 +1526,8 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   carried to an integer at the write-out's own parameter point, the record's computational point of the gauge and damping
   parameters (γ_C = 10⁶, γ_Υ = e_Υ = 1/100), which lies outside the proved set: its h = 1/γ_C = 10⁻⁶ is not below the
   threshold h_* ≤ 10⁻⁶ the write-out requires, and the write-out proves the thresholds for γ_Υ and e_Υ to exist without a
-  value (the limit stated at the end of this item), so the point is a computational point, not one shown admissible
-  (supplement `docket68/n1star/CONSTANTS5.md`, rounds 1–14). At that point, and at the
+  value (the limit stated at the end of this item), so the point is a computational point, not one shown to meet the
+  write-out's thresholds (supplement `docket68/n1star/CONSTANTS5.md`, rounds 1–14). At that point, and at the
   choices the write-out leaves free, taken where they cost least or as the supplement fixes them (the least index sets
   E^C_I and E_+, the weights, the order of the calculus's error terms, the base level's starting values), every
   admissibility condition holds, the loops are counted exactly over the write-out's 1.065 × 10⁸ levels
@@ -1560,44 +1563,62 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   norm, by test functions with compact support in the interval (for which the resolvent is inverted exactly), are
   0.450, 0.250, 0.147, 0.0827, 0.0448 and 0.0241 at σ = 3, 6, 12, 24, 48 and 96, about 40–46 % of the computed values,
   so the certified bound lies at most 24.6, 23.4, 25.7, 28.7, 34.0 and 41.4 times above the true norm there (certified,
-  exact arithmetic, `docket68/n1star/checks/e2lower5.py`). λ1 and δ are positive, as the proof gives them. What the
-  proof's own formulas deliver is bounded above, log₁₀ δ < −7.66 × 10¹⁶ and λ1 < δ (computed,
-  `docket68/n1star/checks/deltacap5.py`); with the loss at the bound stated above, d ≤ 4.624 × 10¹⁶ at the record's
-  computational point and the choices stated there, the formula gives at most log₁₀ δ = −4.45 × 10¹⁷, every other input
-  taken at its least value with the constants taken to be at least 1 (computed, `checks/inverse6_5a.py`); a lower bound
-  is that formula, monotone in each input (proved by inspection), evaluated at certified bounds of its inputs. In hand:
-  the zero-energy inverse bound for the scalar model (constant 2.81) and for the tensor-type blocks of the linearised
-  operator (3.94), every harmonic, through the horizon (deduced from exact identities, with certified arithmetic,
-  `checks/zeroext5.py`, `checks/tensorzero5.py`); the trapped set's data at the final black hole (exact), and the
-  record's fibre metric for the trapping estimate, within whose graded family the estimate's condition needs the grading
-  parameter η below about 16.48 γ_C^(−1/2) (the leading order, matched by certified values, `checks/inverse6_5.py`); the
-  absorption and interpolation steps of the high-energy inverses, in their semiclassical norms (explicit; the
-  interpolation factor at most 1.00266, certified); the removal of one of the seven inverse bounds, which a parametrix
-  replaces; the resolvent of every master operator behind the two mode-stability bounds, every harmonic and every real
-  frequency, in a cut-off norm, carried exactly to the tensor-type blocks of the linearised operator and the vector-type
-  blocks of the 1-form wave operator (certified, `checks/inverse6_5m.py`); and the scalar-type zero-energy blocks of the
-  linearised operator, written out exactly for every harmonic, with an obstruction: in the norm of weight α = −1 the
-  least singular value of the degree-2 block is at most 2.618 × 10⁻⁷, because that weight lies 2.93 × 10⁻⁶ from one of
-  its indicial roots, so the inverse bound there is at least 3.81 × 10⁶; at a weight in the middle of the indicial gap
-  the same upper bound is about 10⁻², and an explicit constant should use such a weight (proved, with certified
-  arithmetic, supplement `docket68/n1star/INVERSE5-SCALAR.md` part A, `checks/scalarblock5.py`; at the record's
-  computational point, γ_C = 10⁶ and γ_Υ = e_Υ = 1/100, which lies outside the proved set). Their values are not
-  computed. Evaluating them would need every constant of the write-out made explicit, and several come from compactness,
-  contradiction and Fredholm arguments that give no number (supplement `docket68/n1star/EFFECTIVE-CONSTANTS.md`; the
-  census of those arguments and the ledger's classes recounted, `docket68/n1star/checks/support9.py` S3); the supplement
-  states where the computation of explicit constants stops (supplement `docket68/n1star/INVERSE5-SIX.md`, rounds 2–5). It
-  stops first upstream of every constant: the write-out fixes its gauge and damping parameters only below thresholds it
-  proves to exist, and the cut-offs and orders of its function spaces only up to admissibility, so explicit constants
-  first need those choices made numerically. Three inputs depend on that specification: the gauge reconstruction and the
-  absorbed problem's inverse in the write-out's norms (the latter proved invertible for the scalar wave, by a Fredholm
-  argument, which gives no bound), and a lower bound, uniform in the harmonic, for the least singular value of the
+  exact arithmetic, `docket68/n1star/checks/e2lower5.py`). λ1 and δ are positive, as the proof gives them. At the
+  record's computational point, the constants of upper bounds taken to be at least 1, what the proof's own formulas
+  deliver is bounded above, log₁₀ δ < −7.66 × 10¹⁶ and λ1 < δ (computed, `docket68/n1star/checks/deltacap5.py`); with the
+  loss at the bound stated above, d ≤ 4.624 × 10¹⁶ at the record's computational point and the choices stated there, the
+  formula gives at most log₁₀ δ = −4.45 × 10¹⁷, every other input taken at its least value with the constants taken to be
+  at least 1 (computed, `checks/inverse6_5a.py`); a lower bound is that formula, monotone in each input (proved by
+  inspection), evaluated at certified bounds of its inputs. In hand: the zero-energy inverse bound for the scalar model
+  (constant 2.81) and for the tensor-type blocks of the linearised operator (3.94), every harmonic, through the horizon
+  (deduced from exact identities, with certified arithmetic, `checks/zeroext5.py`, `checks/tensorzero5.py`); the trapped
+  set's data at the final black hole (exact), and the record's fibre metric for the trapping estimate, within whose
+  graded family the estimate's condition needs the grading parameter η below about 16.48 γ_C^(−1/2) (the leading order,
+  matched by certified values, `checks/inverse6_5.py`); the absorption and interpolation steps of the high-energy
+  inverses, in their semiclassical norms (explicit; the interpolation factor at most 1.00266, certified,
+  `checks/inverse6_5.py` K6); the removal of one of the seven inverse bounds, which a parametrix replaces; the resolvent
+  of every master operator behind the two mode-stability bounds, every harmonic and every real frequency, in a cut-off
+  norm, carried exactly to the tensor-type blocks of the linearised operator and the vector-type blocks of the 1-form
+  wave operator (certified, `checks/inverse6_5m.py`); and the scalar-type zero-energy blocks of the linearised operator,
+  written out exactly for every harmonic, with an obstruction: in the norm of weight α = −1 the least singular value of
+  the degree-2 block is at most 2.618 × 10⁻⁷, because that weight lies 2.93 × 10⁻⁶ from one of its indicial roots, so the
+  inverse bound there is at least 3.81 × 10⁶; at a weight in the middle of the indicial gap the same upper bound is
+  about 10⁻², and an explicit constant should use such a weight (proved, with certified arithmetic, supplement
+  `docket68/n1star/INVERSE5-SCALAR.md` part A, `checks/scalarblock5.py`; at the record's computational point, γ_C = 10⁶
+  and γ_Υ = e_Υ = 1/100, which lies outside the proved set). The values of λ1 and δ are not computed. Evaluating them
+  would need every constant of the write-out made explicit, and several come from compactness, contradiction and Fredholm
+  arguments that give no number (supplement `docket68/n1star/EFFECTIVE-CONSTANTS.md`; the census of those arguments and
+  the ledger's classes recounted, `docket68/n1star/checks/support9.py` S3); the supplement states where the computation
+  of explicit constants stops (supplement `docket68/n1star/INVERSE5-SIX.md`, rounds 2–5). It stops first upstream of
+  every constant: the write-out fixes its gauge and damping parameters only below thresholds it proves to exist, and the
+  cut-offs and orders of its function spaces only up to admissibility, so explicit constants first need those choices
+  made numerically. Among the inputs that depend on that specification are the gauge reconstruction and the absorbed
+  problem's inverse in the write-out's norms (the latter proved invertible for the scalar wave, by a Fredholm argument,
+  which gives no bound), and a lower bound, uniform in the harmonic, for the least singular value of the
   scalar-type blocks. Two come from arguments that give no number: the constant of the trapping estimate, which the
   write-out obtains by a defect-measure contradiction, with the a priori constants built on it, and the constants uniform
   over the black holes near the final one, which it obtains by compactness and by arguments by contradiction. The
   parametrix norms at future timelike infinity are not given by the parametrix's construction, and the chain's other
   inputs (the tame constants to order N, the Nash–Moser thresholds of the exterior and slab problems, the gluing's
   constants) are not computed. This is a limit of the explicit computation, not a gap in Theorem 4.
-- **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+- **Physical wavelengths.** The threshold λ0 that the proof of Theorem 1 delivers is traced term by term (supplement
+  `docket68/n1star/CONSTANTS5.md`): at the numerical point (μ0 = 1, l5 = 1/10), with the smooth envelope of
+  `docket68/n1star/checks/envelope5.py`, which has the numerics' integral, it is below 0.0024433 in the operator norm,
+  0.0019079 in the Frobenius norm and 0.0012228 in the largest entry (certified), so the wavelength 10 l5 lies more
+  than 400 times beyond it. The approximant's first linear stage would sharpen these through its mean correction at the
+  point where the first-order wave is largest, which the symmetry class reduces to one number (computed,
+  `checks/classm5.py`). The stage's data on the initial slice are the second-order constraint expansion in closed form
+  (exact), solved harmonic by harmonic (floating point; supplement `docket68/n1star/LAMBDA0-DATA5.md`,
+  `checks/lam0data5.py`); solved numerically for this envelope on the point's past, the stage gives that number as
+  2.207738, stable under refinement to 1.4 × 10⁻⁷ and reproduced by a second discretisation (computed, floating point,
+  `checks/m22evol5.py`), and with it the three bounds would be 0.0020789, 0.0018902 and 0.0010404. A certified value of
+  that number needs a validated solve of the stage. The a posteriori estimate for that solve, written out, amplifies
+  the square root of its energy over the point's past by a factor of at least 1.8 × 10¹⁴ (certified), so it needs the
+  stage's initial data to within about 6.7 × 10⁻¹⁴ in that energy (deduced), while the data's harmonic expansion, cut
+  after its P₁₃ term, already leaves an error of at least 3.4 × 10⁻⁸ there, about 4.5 × 10⁻⁶ of the data (computed,
+  floating point); this estimate cannot certify that number at the data's own truncation (supplement
+  `docket68/n1star/M22CERT5.md`, `checks/m22cert5.py`). So the sharpening is computed, not certified; the certified
+  bounds are the ones stated. And a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in the
   numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L = l5,
   and at the horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ = 1000
@@ -1623,8 +1644,9 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   finite-difference amplification of the data along one direction, a lower bound for the propagator's norm, is 1.28 and
   1.00; where the scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the sup-norm Grönwall factor is 17, 2 × 10⁵
   and 6 × 10³. The scheme's breakdown times are at one angular resolution, N_x = 16: at its own step it is unstable in
-  angle at N_x = 24 and 32 on the seed itself, before the wave arrives (computed; supplement `CERTIFY-10L5-RESULT.md`
-  section 1.5). The second zero belongs to that chart's areal spheres and is not a second marginally trapped surface:
+  angle at N_x = 24 and 32 on the seed itself, before the wave arrives (computed,
+  `docket68/n1star/checks/g5angle5.py` A1–A2; supplement `CERTIFY-10L5-RESULT.md` section 1.5). The second zero
+  belongs to that chart's areal spheres and is not a second marginally trapped surface:
   wherever a smooth vacuum solution with these data exists in double-null gauge, every leaf inside the seed's horizon
   generator is outer trapped, and every T²-invariant marginal section of an ingoing cone lies near areal radius
   1.01–1.05 r_h (deduced, its identities computed in `docket68/n1star/checks/sectexp5.py`; the zero set computed at 100
@@ -1643,17 +1665,19 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   comes from the spheres' tilt against the null leaves, whose own expansion leaves no column untrapped (computed,
   `docket68/n1star/checks/secondzero5.py --edges`; supplement `CERTIFY-10L5-RESULT.md` sections 6.1, V2–V3, 9.0 and
   13.2). At 1000 l5² the rebuild reaches no sphere below about 0.5 r_h before the cut, so growth5's second zero there, at
-  0.21–0.30 r_h, is neither reproduced nor contradicted (computed; supplement section 1.4). The event horizon is not
-  located: its position depends on the whole future development, which is computed to finite advanced time only. The step
+  0.21–0.30 r_h, is neither reproduced nor contradicted (computed, `docket68/n1star/checks/secondzero5.py`
+  S3–S5; supplement `CERTIFY-10L5-RESULT.md` section 1.4). The event horizon is not located: its position
+  depends on the whole future development, which is computed to finite advanced time only. The step
   is re-posed as the characteristic initial value problem in double-null gauge — the incoming wave on an ingoing null
   hypersurface from past null infinity, the seed's outgoing cone as the other — where local existence holds without
   smallness (Luk's theorem, [Wu26] Theorem 2.1, and in higher dimensions [CTG23] Theorem 1.1) and [Wu26]'s Theorem 2.2 is
   the a posteriori structure, introduced there by the sentence "the difference of metrics is controlled by the difference
   of curvature residues" (section 2.3, p. 6; the sentence before the theorem, not its text); parts of its counterpart in
-  the class are built (those listed below as deduced); an estimate on a region of Lemma 9.C's form is not. The linear
-  scattering of the shell off the seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`. The characteristic
-  problem itself is computed (supplement `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the
-  class's Einstein equations in double-null gauge, evolved in (u, v) with an expansion in the polar angle, at the
+  the class are built (those listed below as deduced); an estimate on a region of the form of
+  `CERTIFY-10L5-RESULT.md` Lemma 9.C is not. The linear scattering of the shell off the seed at 10 l5 is
+  computed in `docket68/lemmas/seed_escape.py`. The characteristic problem itself is computed (supplement
+  `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the class's Einstein equations
+  in double-null gauge, evolved in (u, v) with an expansion in the polar angle, at the
   prescribed wavelength at both seeds. At the second seed, with the angular and null grids refined together, the two
   coarser angular resolutions agree up to v ≈ 3.5 and the finest departs from them from v ≈ 3.25, at every angle. On a
   finer null grid, 2400 × 1080, the second seed's M = 32 and 40 angular resolutions agree to 0.09 K_0 up to v = 3.5 and
@@ -1680,10 +1704,11 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   loss is indicated by a model only); in double-null gauge the reduced transport equations carry no angular derivative of
   an unknown on their right sides (`checks/null3.py`, `checks/linest5.py`), and a linear estimate with explicit constants
   holds on truncated domains of dependence away from the axes, at level 0 and at level 1 in the cones' L² norms
-  (supplement Theorems 7.L, 8.L1 and 8.W; `checks/lev1_5.py`, `checks/wgron5.py`); near each axis the class is
-  four-dimensional axisymmetric Einstein–scalar in a chart regular at the axis, where [Wu26]'s curvature pairs have
-  energy identities on the whole section, the angular recoveries hold with explicit Hardy constants, and [Wu26]'s
-  transport equations, mass aspects and the scalar's pairs hold in reduced form with every angular derivative on their
+  (supplement `CERTIFY-10L5-RESULT.md` Theorems 7.L, 8.L1 and 8.W; `checks/lev1_5.py`,
+  `checks/wgron5.py`); near each axis the class is four-dimensional axisymmetric Einstein–scalar in a
+  chart regular at the axis, where [Wu26]'s curvature pairs have energy identities on the whole section,
+  the angular recoveries hold with explicit Hardy constants, and [Wu26]'s transport equations, mass
+  aspects and the scalar's pairs hold in reduced form with every angular derivative on their
   right sides recovered from the hierarchy's own unknowns (`checks/axis5.py`, `checks/axisbianchi5.py`,
   `checks/axhier5.py`; identities verified at random jets); and, for smooth T²-invariant characteristic data that satisfy
   the constraints, a smooth T²-invariant vacuum development exists on the region u ∈ [−10, u*] r_h, v ∈ [r_h/2, v*] of
@@ -1716,10 +1741,10 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   1.9 r_h) there, at M = 48, the unimposed constraint falls 3.84-fold from 400 to 800 rows and 2.77-fold from 800 to
   1600, and at 1600 rows M = 40 leaves it 3.5 times larger (`checks/cpaxis5.py`, `checks/mtrunc5.py`,
   `checks/cp3grid5.py`). So at 10 l5 existence is proved where the solution is the seed (v ≤ r_h/2) and is not claimed
-  beyond it: the continuation's closing condition 4F²Gr < 1 (supplement Lemma 9.C), at the computed F² = 10^66.9, asks a
-  residual r of order 10⁻⁶⁸/G, against the certified 3.73 × 10⁻⁵ at points and 5.0 × 10⁻⁴ over sub-boxes, and its
-  hypotheses are established on no region of its form beyond the seed (supplement `CERTIFY-10L5-RESULT.md` sections 2 and
-  6–13).
+  beyond it: the continuation's closing condition 4F²Gr < 1 (supplement `CERTIFY-10L5-RESULT.md` Lemma 9.C), at the
+  computed F² = 10^66.9, asks a residual r of order 10⁻⁶⁸/G, against the certified 3.73 × 10⁻⁵ at points and 5.0 × 10⁻⁴
+  over sub-boxes, and its hypotheses are established on no region of its form beyond the seed (supplement
+  `CERTIFY-10L5-RESULT.md` sections 2 and 6–13).
 - **Beyond the boundary.** Theorems 1–3 are made on D_T and Ω, whose inner boundary r = a lies a fixed distance inside
   x_K = 1; beyond them Theorem 4 is stated outside the black hole. Its development also reaches inside the black hole
   after the shell, up to the curvature boundary (supplement `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, deduced;
@@ -1731,57 +1756,60 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   it), and settles there at Theorem 4's rate; on their common domain of dependence it and g_λ are one spacetime (Lemma
   6.3, deduced). It is proved, with no gluing, that Theorem 4 applies to g_λ's own data in a data class wider than
   (ii)'s by half-integer orders (supplement `docket68/n1star/SETTLE-GLAM5.md`, rounds 1–10, Theorem R5.1), from the
-  write-out's Parts III, IV, VII and VIII, Theorem P and supplement section 11.1, each proved, the last with its Lemma
-  11.0 repair (SETTLE-GLAM5.md R6-D) read by an independent confirming reader. BEYOND5 Lemma 6.4 (iv) is written out in
-  full there (Lemma R9.1, every inequality computed) and read. After the shell
-  g_λ − g_b0 has at past null infinity an r^(−5/2) coefficient, O(λ^∞), which for a C_c^∞ envelope and every amplitude
-  but at most one is nonzero off a discrete set of λ (deduced, SETTLE-GLAM5.md Proposition 3.1; computed for a bump
-  envelope, `docket68/n1star/checks/tail5.py`); it puts an r^(−5/2) term into g_λ's data at spatial infinity, outside
-  the integer orders of (ii)'s class. With the orders r^(−2), r^(−5/2), r^(−3), … below r^(−ℓ0) admitted in the metric
-  (ℓ0 ∈ (3, 4), ℓ0 ≠ 7/2, and one order more in the second fundamental form), Hintz's construction runs with the same
-  index sets for its iterates and finitely many more derivatives lost; its threshold ε, and with it λ1 and δ, change; in
-  either class their values fall under the limit on explicit constants stated under Settling. g_λ continues to the past
-  domain of dependence of the far part of Hintz's initial surface as a vacuum metric in the record's wave-map gauge, by
-  one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, after its self-similar
+  write-out's Parts III, IV, VII and VIII, Theorem 2 (the supplement's Theorem P) and supplement section 11.1, each
+  proved, the last with its Lemma 11.0 repair (SETTLE-GLAM5.md R6-D) read by an independent confirming reader. BEYOND5
+  Lemma 6.4 (iv) is written out in full there (Lemma R9.1, every inequality computed) and read. After the shell g_λ −
+  g_b0 has at past null infinity an r^(−5/2) coefficient, O(λ^∞), which for a C_c^∞ envelope and every amplitude but at
+  most one is nonzero off a discrete set of λ (deduced, SETTLE-GLAM5.md Proposition 3.1; computed for a bump envelope,
+  `docket68/n1star/checks/tail5.py`); it puts an r^(−5/2) term into g_λ's data at spatial infinity, outside the integer
+  orders of (ii)'s class. With the orders r^(−2), r^(−5/2), r^(−3), … below r^(−ℓ0) admitted in the metric (ℓ0 ∈ (3, 4),
+  ℓ0 ≠ 7/2, and one order more in the second fundamental form), Hintz's construction runs with the same index sets for
+  its iterates and finitely many more derivatives lost; its threshold ε, and with it λ1 and δ, change; in either class
+  their values are subject to the limit on explicit constants stated under Settling. g_λ continues to the past domain of
+  dependence of the far part of Hintz's initial surface as a vacuum metric in the record's wave-map gauge, by one
+  weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, after its self-similar
   terms through r^(−4) are subtracted; it is the only continuation in that gauge near Tangherlini whose commuted energies
   of weight a0 ∈ (0, ½) stay bounded, its energy vanishing toward past null infinity, and its data lie in the widened
   class with small norm. So for every 0 < λ ≤ λ2, with no exceptional set (λ2 > 0 the proof's threshold in λ, its value
-  under the same limit), the maximal vacuum development of g_λ's own data on Hintz's
-  initial surface settles to five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m at Theorem 4's rate
-  (proved, with the conditions above). Computed, all under `docket68/n1star/checks/`: the operator identities, on the
-  write-out's full operator; the far part's past domain of dependence, the place of its inner null boundary in the
-  record's domains and that, under g_λ, all of it but a strip along that boundary, of width tending to 0 with λ, stays
-  in the domain of dependence (`r9beyond5.py`); the coefficient decays and the residuals' degrees, measured on that
-  operator (`r5op5.py`, and `r6sigma5.py`, which also builds the r^(−4) term there for one example, the general case
-  being deduced); the caps and the null-hypersurface tails, measured on explicit fields; the weight window, computed
-  from those measured exponents and from exponents counted by hand (those of the data class, of the pointwise bound,
-  and of two further thresholds, which do not bind); the remaining kernel exponents, counted by hand with their
-  integrability checked. Below the inner boundary the theorems are not
+  subject to the same limit), the maximal vacuum development of g_λ's own data on Hintz's initial surface settles to
+  five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m at Theorem 4's rate (proved, with the conditions
+  above). Computed, all under `docket68/n1star/checks/`: the operator identities, on the write-out's full operator; the
+  far part's past domain of dependence, the place of its inner null boundary in the record's domains and that, under g_λ,
+  all of it but a strip along that boundary, of width tending to 0 with λ, stays in the domain of dependence
+  (`r9beyond5.py`); the coefficient decays and the residuals' degrees, measured on that operator (`r5op5.py`, and
+  `r6sigma5.py`, which also builds the r^(−4) term there for one example, the general case being deduced); the caps and
+  the null-hypersurface tails, measured on explicit fields (`r5settle5.py` G2–G3, `r6sigma5.py` W1–W2); the weight
+  window, computed from those measured exponents and from exponents counted by hand (those of the data class, of the
+  pointwise bound, and of two further thresholds, which do not bind), in `r6sigma5.py` W; the remaining kernel exponents,
+  counted by hand with their integrability checked. Below the inner boundary the theorems are not
   silent: the boundary sits at the curvature scale l5, which is arbitrary, and a smaller l5 puts every point with r > 0
   inside D_T, the constants then depending on it (computed, exact, `docket68/n1star/checks/innerr5.py` I1–I2, with the
   limit's Kretschmann scalar 72 μ²/r⁸ computed for every mass function); at r = 0 the limit itself is singular.
 - **More families.** Two crossing radial null dusts, one ingoing and one outgoing, are carried through the record's
   argument: the two-dust background on the whole domain, the approximant to every order, the uniform estimate and the
-  data (deduced, the identities computed; supplement `docket68/n1star/FAMILIES5-FULL.md` Part I). In the T² class each
-  family's null second fundamental form is diag(θ_h, κ1, κ2), the torus terms first order, and at an axis the planar
-  shear is recovered elliptically from the expansion, so the class Einstein–null-dust system is Cauchy-stable on compact
-  domains of the record's type, without smallness, for caustic-free dusts whose lateral boundaries are adapted (one
-  family) where they meet an axis (deduced; `docket68/n1star/FAMILIES5-AXIS.md`). A massless Vlasov limit in the class
-  is restricted (computed); a smooth restricted field never reaches an axis off the axial directions, its density
-  growing like 1/ρ2 there (computed, `docket68/n1star/checks/vlasovhf5.py` H7), and at an axis point at most one ingoing
-  and one outgoing family are separated (computed, `docket68/n1star/checks/axisphase5.py`). Every smooth class
-  Einstein–restricted massless Vlasov solution whose field is a family of dusts labelled by initial direction,
-  caustic-free, off the axes and at an angle from the radial dusts where it meets them, the radial dusts having adapted
-  lateral boundaries at the axes, on a domain of the record's type whose initial spheres have positive mean curvature
-  and a hyperbolic momentum system, is a weak limit of class vacuum metrics along odd N (deduced: N-dust approximants
-  uniform in N; torus-polarised waves at frequencies 1, Λ, …, Λ^(N−1), which leave no combination of phases resonant up
-  to the order the scheme uses; data with overlapping families, whose only divisors are spacetime symbols; the N-family
-  energy estimate, its power counting computed term by term (`docket68/n1star/checks/nledger5.py`); a diagonal choice of
-  λ_N, as Huneau and Luk do; `docket68/n1star/FAMILIES5-VLASOV.md`, `docket68/n1star/FAMILIES5-R6.md`,
-  `docket68/n1star/FAMILIES5-R8.md`, the identities, divisors and data step computed). These hypotheses hold on an open
-  set of solutions: they persist under perturbations small in C² × C¹ whose supports stay in a fixed compact set and
-  whose radial dusts keep adapted boundaries (deduced), and an explicit test family on Tangherlini meets them (computed,
-  `docket68/n1star/checks/vlasovex5.py`). Data localised in an angle exist on cones exactly (computed) and, near Part
+  data (deduced, the identities computed, `checks/twobg5.py`, `checks/twodecomp5.py`, `checks/twoledger5.py`;
+  supplement `docket68/n1star/FAMILIES5-FULL.md` Part I). In the T² class each family's null second fundamental form
+  is diag(θ_h, κ1, κ2), the torus terms first order, and at an axis the planar shear is recovered elliptically from
+  the expansion, so the class Einstein–null-dust system is Cauchy-stable on compact domains of the record's type,
+  without smallness, for caustic-free dusts whose lateral boundaries are adapted (one family) where they meet an axis
+  (deduced; `docket68/n1star/FAMILIES5-AXIS.md`). A massless Vlasov limit in the class is restricted (computed,
+  `docket68/n1star/checks/torusstress5.py` V2); a smooth restricted field never reaches an axis off the axial
+  directions, its density growing like 1/ρ2 there (computed, `docket68/n1star/checks/vlasovhf5.py` H7), and at an
+  axis point at most one ingoing and one outgoing family are separated (computed,
+  `docket68/n1star/checks/axisphase5.py`). Every smooth class Einstein–restricted massless Vlasov solution whose
+  field is a family of dusts labelled by initial direction, caustic-free, off the axes and at an angle from the
+  radial dusts where it meets them, the radial dusts having adapted lateral boundaries at the axes, on a domain of
+  the record's type whose initial spheres have positive mean curvature and a hyperbolic momentum system, is a weak
+  limit of class vacuum metrics along odd N (deduced: N-dust approximants uniform in N; torus-polarised waves at
+  frequencies 1, Λ, …, Λ^(N−1), which leave no combination of phases resonant up to the order the scheme uses; data
+  with overlapping families, whose only divisors are spacetime symbols; the N-family energy estimate, its power
+  counting computed term by term (`docket68/n1star/checks/nledger5.py`); a diagonal choice of λ_N, as Huneau and Luk
+  do; `docket68/n1star/FAMILIES5-VLASOV.md`, `docket68/n1star/FAMILIES5-R6.md`, `docket68/n1star/FAMILIES5-R8.md`,
+  the identities, divisors and data step computed, `docket68/n1star/checks/twoscale5.py` T1, `checks/nfamily5.py`
+  N1–N5). These hypotheses hold on an open set of solutions: they persist under perturbations small in C² × C¹ whose
+  supports stay in a fixed compact set and whose radial dusts keep adapted boundaries (deduced), and an explicit test
+  family on Tangherlini meets them (computed, `docket68/n1star/checks/vlasovex5.py`). Data localised in an angle
+  exist on cones exactly (computed, `docket68/n1star/checks/bandconst5.py` B6) and, near Part
   I's data, on all of Part I's slice in a band widened by a computed amount (deduced): Rácz's split is hyperbolic on the
   slice except one band inside the shell, R between 4.29 and 4.53 (computed, `docket68/n1star/checks/racglobal5.py`; its
   extent certified by interval arithmetic for the background with the record's characteristic data, whose reduction to
@@ -1811,28 +1839,28 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
 - **The boundary at equality.** If μ0 = √72 l5² (deduced in `docket68/n1star/EQUALITY5.md` and `EQUALITY5-LAYER.md`,
   whose rounds 1-9 independent verifiers have read; computed by the programs of Appendix A), x_K = 1 is the seed's
   horizon on {v ≤ v_s}, v_s := inf supp env, and is spacelike for g_λ on {v ≥ v_s + η} once λ ≤ λ_η. In the layer
-  between, for λ small and 0 < δ ≤ 1/2, it is spacelike where sup_(v'≤v) env ≥ λ^(3−δ), and where λ^(3+δ) ≤ sup env ≤
-  λ^(3−δ) its character is that of the ratio of λ³ A env |ν| |d| to the margin, up to a factor 1 ± 2λ^(1/10) (d the
-  double divergence of the waves' angular tensor, |d| ≥ 8/3; ν ≤ 0 a coefficient of the seed and τ0, with a double root
-  at (v_s − τ0)/√μ0 = ρ* = 1.806…). Suppose that near v_s env and its first K + 5 derivatives are positive and
-  log-concave, with logarithmic derivatives κ_k within a factor 2 of κ := (log env)′, |κ_k′| ≤ c κ_k^(1+α) for an α < 1
-  and |κ′| ≥ c′ κ^(1+α), and that env obeys the derivative and decay bounds of `EQUALITY5-LAYER.md` R5.2 and R6.1; the
-  C_c^∞ envelope used for the constants satisfies all of these, with α = 1/2, for every K (proved, `EQUALITY5-LAYER.md`
-  Proposition L.27). Then that ratio crosses 1 once per column, and below λ^(3+δ), down to v_s, every interval of
-  length 4πλ has timelike and spacelike points on every column, for every admissible τ0 (at ρ* this uses the next
-  family of the term linear in the waves, computed: `EQUALITY5-LAYER.md` R8.1); the term linear in the waves is
-  computed there to leading order, on the very edge, for Theorem 1, carried by the constraint correction at first
-  degree. For some envelopes whose intervals of zeros accumulate at the edge (`EQUALITY5-LAYER.md`, Proposition L.25″
-  (a)), intervals of length 4πλ below λ^(3+δ) on which x_K = 1 is spacelike throughout occur for every small λ. So
-  timelike curves of g_λ cross x_K = 1 into D_T. A domain O(λ)-close to D_T, inside x_K ≤ 1, has an inner boundary that
-  no future causal curve enters, and the spheres' horizon holds in the form: at most one zero per column, within C λ of
-  √μ(v); exactly one on the columns with v ≤ v_s and on those that reach across √μ(v) + C λ with √μ(v) − r_q(v) ≥ C' λ.
-  The threshold λ_L of Theorem L's proof is an explicit formula in the leaves of λ0 and one constant of the seed, and
-  is below 3·10^(−12); the thresholds of the finer statements (λ_η above and those named in `EQUALITY5-LAYER.md`)
-  depend on constants of the approximants that the record does not certify (λ0's leaves for Theorem 1, those of the
-  construction from past null infinity for Theorem 2) and are not evaluated; for the dips, λ_25 is written out as an
-  explicit formula in those constants, its other inputs certified, and is below 10^(−6613) whatever they are
-  (`EQUALITY5-LAYER.md` R8.3, R9.1, R9.2).
+  between, for λ small and 0 < δ_E ≤ 1/2 (EQUALITY5-LAYER.md's δ), it is spacelike where sup_(v'≤v) env ≥ λ^(3−δ_E), and
+  where λ^(3+δ_E) ≤ sup env ≤ λ^(3−δ_E) its character is that of the ratio of λ³ A env |ν| |d| to the margin, up to a
+  factor 1 ± 2λ^(1/10) (d the double divergence of the waves' angular tensor, |d| ≥ 8/3; ν ≤ 0 a coefficient of the seed
+  and τ0, with a double root at (v_s − τ0)/√μ0 = ρ* = 1.806…). Suppose that near v_s env and its first K + 5 derivatives
+  are positive and log-concave, with logarithmic derivatives κ_k within a factor 2 of κ := (log env)′,
+  |κ_k′| ≤ c κ_k^(1+α) for an α < 1 and |κ′| ≥ c′ κ^(1+α), and that env obeys the derivative and decay bounds of
+  `EQUALITY5-LAYER.md` R5.2 and R6.1; the C_c^∞ envelope used for the constants satisfies all of these, with α = 1/2, for
+  every K (proved, `EQUALITY5-LAYER.md` Proposition L.27). Then that ratio crosses 1 once per column, and below
+  λ^(3+δ_E), down to v_s, every interval of length 4πλ has timelike and spacelike points on every column, for every
+  admissible τ0 (at ρ* this uses the next family of the term linear in the waves, computed: `EQUALITY5-LAYER.md` R8.1);
+  the term linear in the waves is computed there to leading order, on the very edge, for Theorem 1, carried by the
+  constraint correction at first degree. For some envelopes whose intervals of zeros accumulate at the edge
+  (`EQUALITY5-LAYER.md`, Proposition L.25″ (a)), intervals of length 4πλ below λ^(3+δ_E) on which x_K = 1 is spacelike
+  throughout occur for every small λ. By Theorem L and Corollary L.7, timelike curves of g_λ cross x_K = 1 into D_T. A
+  domain O(λ)-close to D_T, inside x_K ≤ 1, has an inner boundary that no future causal curve enters, and the spheres'
+  horizon holds in the form: at most one zero per column, within C λ of √μ(v); exactly one on the columns with v ≤ v_s
+  and on those that reach across √μ(v) + C λ with √μ(v) − r_q(v) ≥ C' λ. The threshold λ_L of Theorem L's proof is an
+  explicit formula in the leaves of λ0 and one constant of the seed, and is below 3·10^(−12); the thresholds of the finer
+  statements (λ_η above and those named in `EQUALITY5-LAYER.md`) depend on constants of the approximants that the record
+  does not certify (λ0's leaves for Theorem 1, those of the construction from past null infinity for Theorem 2) and are
+  not evaluated; for the spacelike intervals above, λ_25 is written out as an explicit formula in those constants, its
+  other inputs certified, and is below 10^(−6613) whatever they are (`EQUALITY5-LAYER.md` R8.3, R9.1, R9.2).
 - **Review.** Every part of the supplement and every section of this paper was read by independent verifiers, each
   recomputing what it read, and their findings are repaired in the text. The reading that no proof in Parts III–IV uses
   more of the class's averaged choices than the conditions stated at their sites is done (section 8.8): the 713 listed
@@ -1847,17 +1875,33 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   `checks/support8b.py`, `checks/support8c.py`, `checks/flux5.py`, `checks/mpdata5.py`, `checks/gluedecay5.py`,
   `checks/kirecon5.py`, `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`, `checks/vii5census.py`,
   `checks/vii5read.py` and `checks/census9.py`, and for section 9 `checks/support9.py`, `checks/charge5.py`,
-  `checks/eqlayer5.py`, `checks/e2lower5.py`, `checks/twodomainx5.py`, `checks/level2loop5.py`,
-  `checks/lambdacount5.py`, `checks/twodomain5.py`, `checks/r0census5.py` and `checks/excise5.py`. A census of the
-  deduced claims in sections 1–9 (103 claims, of which 27 named no program for the step) left none without one but the
-  analytic estimates named below, the settling write-out and one step resting on a reading at source; where a check
-  stops short of the step (an order λ¹ structure computed to order λ² in place of every order, a scan to a finite l) its
-  entry in Appendix A says so. The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the
-  mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme, the settling write-out) are proved in the
-  supplement and read by independent verifiers, not computed (deduced). The two-dust background's convergence on a
-  rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's characteristic data
-  (`checks/twodomainx5.py`); for the data the supplement states, explicit Vaidya data on two null cones, the background
-  on the whole domain is deduced (More families, above; supplement `docket68/n1star/FAMILIES5-FULL.md` Part I).
+  `checks/eqlayer5.py`, `checks/e2lower5.py`, `checks/twodomainx5.py`, `checks/level2loop5.py`, `checks/lambdacount5.py`,
+  `checks/twodomain5.py`, `checks/excise5.py`, `checks/ix5.py`, `checks/epsind5.py`, `checks/thetain5.py`,
+  `checks/prop31loss5.py`, `checks/dnumber5.py`, `checks/x7indep5.py`, `checks/modcount5.py`, `checks/d0count5.py`,
+  `checks/ordcensus5.py`, `checks/l2par5.py`, `checks/logind5.py`, `checks/iotaind5.py`, `checks/rootavoid5.py`,
+  `checks/deltacap5.py`, `checks/inverse6_5a.py`, `checks/zeroext5.py`, `checks/tensorzero5.py`, `checks/inverse6_5.py`,
+  `checks/inverse6_5m.py`, `checks/scalarblock5.py`, `checks/envelope5.py`, `checks/classm5.py`, `checks/lam0data5.py`,
+  `checks/m22evol5.py`, `checks/m22cert5.py`, `checks/g5angle5.py`, `checks/sectexp5.py`, `checks/secondzero5.py`,
+  `checks/szconv5.py`, `checks/cdata5.py`, `checks/rich5.py`, `checks/rcert5d.py`, `checks/reduce5.py`,
+  `checks/symbol5s.py`, `checks/null3.py`, `checks/linest5.py`, `checks/lev1_5.py`, `checks/wgron5.py`,
+  `checks/axis5.py`, `checks/axisbianchi5.py`, `checks/axhier5.py`, `checks/cont5.py`, `checks/blocks5.py`,
+  `checks/blockw5.py`, `checks/cpaxis5.py`, `checks/cp3grid5.py`, `checks/late5b.py`, `checks/mtrunc5.py`,
+  `checks/tail5.py`, `checks/innerr5.py`, `checks/twobg5.py`, `checks/twodecomp5.py`, `checks/twoledger5.py`,
+  `checks/torusstress5.py`, `checks/vlasovhf5.py`, `checks/axisphase5.py`, `checks/nledger5.py`, `checks/twoscale5.py`,
+  `checks/nfamily5.py`, `checks/vlasovex5.py`, `checks/bandconst5.py`, `checks/racglobal5.py`, `checks/intcert5.py`,
+  `checks/truebg5.py`, `checks/racslice5.py`, `checks/qsign5.py`, `checks/mbslice5.py`, `checks/mbsign5.py`,
+  `checks/r9beyond5.py`, `checks/r5op5.py`, `checks/r6sigma5.py` and `checks/r5settle5.py`; `checks/r0census5.py` (a
+  census read at the lines), `checks/e2meas5.py` and `checks/g1curv5.py` (measurements) carry no negative control. A
+  census of the deduced claims in sections 1–9 as they stood on 2026-11-02 (103 claims, of which 27 named no program for
+  the step) left none without one but the analytic estimates named below, the settling write-out and one step resting on
+  a reading at source; where a check stops short of the step (an order λ¹ structure computed to order λ² in place of
+  every order, a scan to a finite l) its entry in Appendix A says so. The analytic estimates themselves (the energy
+  estimate and the bootstrap's analysis, the mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme,
+  the settling write-out) are proved in the supplement and read by independent verifiers, not computed (deduced). The
+  two-dust background's convergence on a rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's
+  characteristic data (`checks/twodomainx5.py`); for the data the supplement states, explicit Vaidya data on two null
+  cones, the background on the whole domain is deduced (More families, above; supplement
+  `docket68/n1star/FAMILIES5-FULL.md` Part I).
 
 ---
 
@@ -2889,7 +2933,7 @@ Programs behind section 9, in `docket68/n1star/`:
   metric. (Not `uniform5.py` above.)
 - `checks/sources5.py` Q1–Q6: the quadratic sources of static r⁻² means homogeneous of degree −6, the cross terms with
   a remainder, and the sources from g_λ − g_app (computed at 50 digits). Control: the linear part and a non-static h.
-  `checks/stripfull5.py` P1–P5: the strip of bounded v along the initial null hypersurface entering one order later
+- `checks/stripfull5.py` P1–P5: the strip of bounded v along the initial null hypersurface entering one order later
   under the full operator, at every scalar- and vector-type harmonic l ≤ 12 and the tensor type.
 - `checks/stage0two5.py` T1–T6: stage 0 of the two-phase ansatz on a general round double-null background, exact in
   sympy: no λ⁻¹ term, each family's own null stress in the mean, the transports, and the cross harmonics present and
@@ -2912,6 +2956,189 @@ Programs behind section 9, in `docket68/n1star/`:
 - `proof5/checks/gammac5.py` G1–G5 and `proof5/checks/admiss5.py` A1–A2: enumerations over the write-out's parts,
   failing on any unlisted line: every use of the constraint damping parameter γ_C, applied only at its one fixed value;
   and every use of the lower triangular condition (3), used by none of the parts that might.
+- `checks/redshift5.py` R1–R16: the red-shift commutation for the class's master fields on five-dimensional Tangherlini
+  behind supplement Proposition 10.1 (iv) (its Lemmas 10.1a–10.1b), the amendments it carried to the supplement's
+  sections 8, 9 and 10.3, and (R13) the paper's replacement blocks against the seated text. Computed (exact, sympy,
+  unless marked numerical); READ where quoted. About four minutes under load.
+- `checks/rwgauge5u.py` U1–U11: the metric components of a scalar-type perturbation in the Regge–Wheeler-type gauge of
+  [KI03], uniformly in r on the leaves of [HKW18]'s decay foliation (supplement RWGAUGE5): the growth r^(1/2) attained
+  and the weighted decay. Computed (exact, sympy); U3 (b) takes the longest.
+- `checks/deltacap5.py` P1–P3: how small the proof's own formulas make δ and λ1 (Theorem 4): with the constants of upper
+  bounds taken ≥ 1 and d at least LOSS-D.md's floor at the record's point, log₁₀ δ < −(59/196)(32d + 9) (P1), below
+  −7.66 × 10¹⁶ at d = 7.959 × 10¹⁵ (P2), and the same bound for λ1 (P3). Certified (exact integers).
+- `checks/inverse6_5.py` K1–K8: the microlocal constants at L_b0 that the record's proofs use, and the arithmetic of the
+  effective replacements proved in INVERSE5-SIX.md (the six inverse bounds, part 1); K6, the interpolation constant of
+  the high-energy inverse. Computed (exact) and certified (interval arithmetic). About a minute on a loaded machine.
+- `checks/inverse6_5a.py` A0–A5: the assembly of λ1 and δ from their inputs, with every input's status (INVERSE5-SIX.md
+  round 2): the chain's formula, monotone in its inputs, and its value at the loss d. READ (quotes found by content in
+  pinned files), computed (exact or 60-digit), deduced where said. Seconds.
+- `checks/inverse6_5m.py` M0–M7: certified real-axis resolvent bounds for the mode-decomposed operators behind the two
+  mode-stability bounds (□ on 1-forms at b0, and L_b0 at σ ≠ 0), every harmonic (the six inverse bounds, part 2).
+  Computed (exact) and certified (interval arithmetic at 30 digits, with explicit tail bounds). Tens of minutes on a
+  loaded machine.
+- `checks/zeroext5.py` Z0–Z5: the scalar model's zero-energy inverse bound carried into the norm of I.C (3.2), at s = 1
+  and α = −1, on the extended domain through the horizon, with one constant for every harmonic. Computed (exact),
+  certified (rational enclosures), deduced where said. A minute.
+- `checks/tensorzero5.py` T1–T6: the zero-energy inverse bound of L_b0 on its tensor-type block, in the class, through
+  the horizon. Computed (exact), certified (rational bounds), deduced where said. A few minutes.
+- `checks/scalarblock5.py` S0–S8: the scalar-type blocks of L̂_b0(0) written exactly, every harmonic at once, with the
+  identities that pin them, their indicial structure at infinity, and what the weight of (3.2) does to their inverse
+  (INVERSE5-SCALAR.md part A). Computed (exact, l symbolic), certified (200 bits), floating point where said. Several
+  minutes.
+- `checks/rootavoid5.py` R0–R12: the avoidances of finite sets of roots, decided at the weights of `checks/dweights5.py`
+  W1, at every level and at both Taylor levels (INVERSE5-SCALAR.md part B). READ, computed (exact) and certified
+  (interval enclosures). Some minutes.
+- `checks/dnumber5.py` K1–K6: the loss d as far as the record numbers it: X_7 summed exactly over the levels, and c′
+  reduced to the one order the record fixes only by the closed graph theorem. READ, deduced, computed (exact integers).
+  About ten seconds.
+- `checks/x7indep5.py` I1–I4: dnumber5's ΣX_7, d and N reproduced by an independent route, and its production path tested
+  against brute force and under mutation. Computed (exact integers and rationals). About twenty seconds.
+- `checks/modcount5.py` M0–M6: the fixed per-level steps of the β-levels, with every other step a level charges beyond
+  the counted loops, read and counted at the record's weights, so that c′ and d become integers. READ (every cited line
+  pinned), deduced, computed. Seconds.
+- `checks/d0count5.py` Q1–Q6: the coefficient orders the write-out fixes by the closed graph theorem, counted. Computed
+  (exact integer and rational bookkeeping), deduced (the estimates whose derivative counts it carries), READ. Seconds.
+- `checks/ordcensus5.py` O0–O5: the orders at which the forward-solution chain invokes the calculus the write-out fixes
+  by the closed graph theorem, read site by site. READ (files md5-pinned, every citation found by content). Seconds.
+- `checks/l2par5.py` P0–P4: the level-2 loop read per exponent or per (α_0, k): the applications at one exponent act in
+  parallel, so the loss follows one chain of exponents and the bound on d holds on both readings. READ, deduced. Seconds.
+- `checks/logind5.py` S1–S5, L0–L4: the log orders of E^flat and of the level-2 sources, proved by induction over the
+  construction's steps and recomputed from that induction. READ, deduced, computed. Seconds.
+- `checks/iotaind5.py` I0–I5: E^ι_ind, the index set the write-out leaves unlisted at future timelike infinity, computed
+  at b0 from the construction, and what it adds on (1, 3 + ε_K]. READ, deduced (each construction step's exponent rule),
+  computed. About two minutes.
+- `checks/tail5.py` T1–T9: the half-order tail that the shell leaves at past null infinity, and what it puts on Hintz's
+  initial surface at spatial infinity (SETTLE-GLAM5.md section 3), computed for a bump envelope. Computed (exact, sympy;
+  mpmath at 30–40 digits).
+- `checks/r9beyond5.py` B1–B6: BEYOND5 Lemma 6.4 (iv) written out (SETTLE-GLAM5.md Lemma R9.1), every inequality
+  computed: the far part's past domain of dependence, the place of its inner null boundary in the record's domains, and
+  what stays in the domain of dependence under g_λ. B1, B3, B4 exact; B2 exact (z3) with samples; B5 numeric. One to
+  three minutes.
+- `checks/r5op5.py` O1–O3: the quantities of SETTLE-GLAM5.md Theorem R4.6 measured on the full five-dimensional
+  gauge-fixed operator instead of typed, and the G-naturality behind the invariance of the continuation. Computed (mpmath
+  at 40 digits on sympy-differentiated metrics).
+- `checks/r6sigma5.py` S1–S4, W: F_4 exists and cancels the degree −6 part of P(g_b0 + Σ) on the full gauge-fixed
+  operator, and the weight window (ℓ0 − 1, 3) computed as a whole from exponents measured on fields (W1 the cap's, W2 the
+  N-flux tail's) and counted by hand. S1–S3 exact; S4 mpmath at 40 digits; W1 quadrature at 30 digits. Three to 29
+  minutes, S4 most of it.
+- `checks/r5settle5.py` A–G: the computations behind SETTLE-GLAM5's round-5 seating that are not measured on the full
+  operator; among them G2, the cap, and G3, the N-flux tail beyond |T|, each with its control. Exact (sympy and
+  integers); D–F sampled in floating point; G2–G3 mpmath quadrature.
+- `checks/twobg5.py` G1–G5, R0: the two-dust background on the whole domain, with the outgoing family's data stated
+  (FAMILIES5-FULL.md section 2). About ten minutes.
+- `checks/twodecomp5.py` J0–J9: the identities behind Lemmas 3.2₂ and 3.3₂ and the equation (3.5₂) for h
+  (FAMILIES5-FULL.md section 8). Computed (exact rational arithmetic at random points; the identities are polynomial in
+  the jets). About three minutes.
+- `checks/twoledger5.py` T1–T2: the power counting of Theorem E₂'s Steps 4–6 with two families, term by term
+  (FAMILIES5-FULL.md section 8). Computed (exact integer and symbolic arithmetic). Seconds.
+- `checks/torusstress5.py` V1–V4: what massless Vlasov limits the T² class can produce (FAMILIES5-FULL.md part III); V2,
+  the stress of a massless Vlasov measure in the class. Computed (exact). Seconds.
+- `checks/vlasovhf5.py` H1–H7: the high-frequency passage to restricted massless Vlasov limits in the class
+  (FAMILIES5-VLASOV.md); H7, a smooth restricted field reaches an axis only along the axial directions, its density
+  growing like 1/ρ2. H1–H4, H7 exact; H5 numpy; H6 mpmath, its (b) a model. A few minutes.
+- `checks/twoscale5.py` T1: exact two-scale jets for the high-frequency identities of vlasovhf5 (FAMILIES5-VLASOV.md).
+  Computed (exact, Fractions). Seconds.
+- `checks/axisphase5.py` A1–A4: which null phases the T² class permits, and angular separation at the axes
+  (FAMILIES5-FULL.md part II). Computed (exact, sympy). Under a minute.
+- `checks/nfamily5.py` N1–N5: the data step with N overlapping families, and the separations Theorem V needs; N3, the
+  scheme's only divisors are spacetime symbols (FAMILIES5-R6.md). Computed (exact). About 75 minutes under load.
+- `checks/nledger5.py` L1–L4: the power counting of Theorem E₂_N's Steps 4–6 with N families, term by term
+  (FAMILIES5-R8.md section R8.4). Computed (exact integer and symbolic arithmetic). About a minute.
+- `checks/vlasovex5.py` X1–X3: Theorem V is not vacuous: an explicit family on Tangherlini meeting its open conditions
+  (FAMILIES5-R6.md section 3). X1 exact; X2, X3 floating point. A few minutes.
+- `checks/bandconst5.py` B1–B6: constraint data for a perturbation of Part I's data supported in an angular band
+  (FAMILIES5-AXIS.md section 2); B6, the characteristic constraints on an outgoing cone. B1, B2, B4, B6 exact; B3, B5
+  floating point. A few minutes.
+- `checks/racglobal5.py` R1–R4: where Rácz's algebraic-hyperbolic split is hyperbolic on Part I's whole slice, what
+  replaces it where it is not, and the one charge of exactly localised vacuum data (FAMILIES5-VLASOV.md section 5). R2's
+  identities and R3 exact; R1, R4 floating point. A few minutes.
+- `checks/racslice5.py` S1–S3: band-localised constraint data across the shell's non-hyperbolic band, posed on a deformed
+  slice (FAMILIES5-R6.md section 2). S1 exact; S2, S3 floating point. A few minutes.
+- `checks/intcert5.py` C1–C3: interval-arithmetic certificates for the margins of Theorems Q and L″ (FAMILIES5-R8.md
+  section R8.2): C1, C2 for the computed background, C3 for the background itself. Certified (interval arithmetic). About
+  ten minutes under load.
+- `checks/truebg5.py` T1–T4: the background itself on Σ_τ0 below R_*, certified (FAMILIES5-R8.md section R8.2). T2–T4
+  certified (interval arithmetic); the reduction deduced. About half an hour under load.
+- `checks/qsign5.py` Q1–Q7: the sign of the one charge of exactly localised data on Part I's slice (FAMILIES5-R6.md
+  section 1). Q1, Q2, Q5 exact; Q3, Q4, Q6, Q7 floating point, Q3's Γ > 0 certified. About a quarter of an hour under
+  load.
+- `checks/mbslice5.py` S1–S5: FAMILIES5-MB.md's Theorem T (iii) and Lemma X1 on every class slice, as exact polynomial
+  identities, and mbsign5 E4 (a), (c) and qsign5 Q1 by the same route. Computed (exact). A few minutes.
+- `checks/mbsign5.py` E1–E9: the sign of the charge Q =: −E of seeds that perturb the metric on the band
+  (FAMILIES5-MB.md). Computed (exact). About 7 to 10 minutes under load.
+- `checks/layerlin5.py` N0–N6: the term linear in the waves at x_K = 1 at equality: the inverse-metric identity (N0); the
+  two-scale linearized operators at the seed and their class S, closed under them (N1); the gauge's Pol^+ (N2); the first
+  three profiles of the record's construction, H_1 and H_2 in S, H_3's scalar sector and its horizon value A env d K
+  (N3–N5); d for the record's waves, nonzero at every angle (N6). Controls: the identity truncated; a profile with a vr
+  component; Pol^+ without its trace term; a transport without its mass coupling; a transverse angular tensor; one
+  quadrature alone. Exact; about five minutes.
+- `checks/layerwin5.py` W1–W3: the interpolation inequality on a half-line with its constants, and the window near a
+  flat edge for three envelopes; W3, Theorem L's exponent ledger. Controls: the bound without interpolation; the level
+  λ²; K = 0. About a minute.
+- `checks/layerdeg5.py` D1–D5, `checks/layernull5.py` E1–E6, `checks/layerpast5.py` P1–P3, `checks/layerledger5.py`
+  L1–L4: the bookkeeping of degree (the seed's operators on every harmonic, products of harmonics, the shifts of degree
+  two), the energy and transport identities on the past sets with the null face kept, the tilted faces of the remainder
+  estimates, the first-degree profiles with nothing coming in and K = −μ0^(−7/4)/9 for Theorem 2's solution, and the
+  exponent and derivative ledgers (K ≥ 6). Each with a control that must fail. Exact; under three minutes in all.
+- `checks/layerfix5.py` F1–F4: the repairs the independent verifier of rounds 1–2 asked for (EQUALITY5-LAYER.md R3.1),
+  each with a control that must fail. Computed (exact). About half a minute.
+- `checks/layerband5.py` B1–B3: the layer outside the window (EQUALITY5-LAYER.md R3.2 (b)–(d)). B1 sampled (a check of a
+  deduced inequality, not a proof); B2 exact; B3 a model with unit constants. About half a minute.
+- `checks/veryedge5.py` V1–V5: the very edge of the equality layer: where the expansion in λ of the term linear in the
+  wave stops being ordered, and what it re-sums to (EQUALITY5-LAYER.md R3.2 (e)). V1–V3 exact; V4–V5 mpmath at 40–60
+  digits, sampled where it says so. About two minutes.
+- `checks/lamL5.py` L1–L4: λ_L of Theorem L made explicit (EQUALITY5-LAYER.md R3.3). Computed (exact rationals and
+  integers; outward-rounded interval arithmetic). About a minute.
+- `checks/stagen5.py` S1–S5: stage N's data (EQUALITY5-LAYER.md R3.4). S1, S5 READ; S2 a ledger (exact); S3 an identity
+  (exact). A few seconds.
+- `checks/edgeP5.py` Q1–Q4: the very edge for Theorem 2's solution (EQUALITY5-LAYER.md R4.1: Lemma L.15_P, the exact
+  re-summation; Lemma L.16, the kernel lemma; Theorem L_E). Q1 exact; Q2 sampled, a check of the deduced Lemma L.16.
+  About half an hour.
+- `checks/stagefree5.py` G1–G4: the free stage-N data decide the deep layer for Theorem 1's g_λ (EQUALITY5-LAYER.md R4.2:
+  Proposition L.19). G1, G2 exact; G3 a model with unit constants; G4 READ. About two minutes.
+- `checks/bandL4p5.py` H1–H4: the band 6 ≤ K ≤ 9 is an artefact of Lemma L.4's hypothesis (EQUALITY5-LAYER.md R4.3: Lemma
+  L.4′, and Proposition L.12 for every K ≥ 6). H1, H2 exact (H1 the bookkeeping of a deduced lemma); H3 a model with unit
+  constants. About three minutes.
+- `checks/lamL5b.py` M1–M5: λ_L at the paper's point updated (EQUALITY5-LAYER.md R4.5): λ0 < 0.0024433, C_Φ in terms of
+  C1, and the window's hypothesis term under Lemma L.4′. M1 READ; M2, M4, M5 certified (outward interval arithmetic); M3
+  computed. About two minutes.
+- `checks/edge1_5.py` X1–X17: the deep layer and the very edge for Theorem 1's solution (EQUALITY5-LAYER.md R5.3, R6.1:
+  Lemma H_Σ, Lemma L.21, Proposition L.22, Lemma W, Theorem L_1E). X1–X8 exact; the others computed, some sampled. About
+  an hour.
+- `checks/degtwo5.py` T1–T7: the degree-two and localisation lemmas, the transition and the dips (EQUALITY5-LAYER.md
+  R5.2, R5.4, R6.2: Lemmas L.15_P (b), L.17, L.18; Theorem L.24, one switch per column; Proposition L.25). T1–T3, T7
+  exact; T4, T6 bounds (T4 a model with unit constants). About ten minutes.
+- `checks/constL5.py` K1–K4: the constants C_L11 and C_L4 of λ_L as formulas in λ0's leaves (EQUALITY5-LAYER.md R5.5).
+  The formulas deduced; K1–K4 computed.
+- `checks/bfam5.py` B1–B6: the family below the top at the horizon, b4 and b5 computed (EQUALITY5-LAYER.md R8.1). Forms
+  exact; B5's values at ρ* and the decision for the paper's waves certified (interval arithmetic). About eighty minutes
+  under load.
+- `checks/hyp5.py` H0–H5: the envelope hypotheses of Theorem L_1E″ proved, not sampled (EQUALITY5-LAYER.md R8.2). H0, H3,
+  H4, H5 exact; H1, H2 certified (interval arithmetic). About eight minutes.
+- `checks/lam25_5.py` L1–L3: the threshold λ_25(δ) of Proposition L.25″ (a) as a certified formula in the record's
+  constants (EQUALITY5-LAYER.md R8.3). L1, L2 certified; L3 computed, a check on finitely many E. About a minute.
+- `checks/lamconst5.py` C1–C5: the constants of λ_25 written out (EQUALITY5-LAYER.md R9.1–R9.3). C1, C5 certified
+  (interval arithmetic); C2–C4 computed (exact). A few minutes.
+- `checks/envelope5.py` E1–E3, P0: a C_c^∞ envelope for Theorem 1 at the paper's point, with certified bounds on every
+  derivative to order 14 (CONSTANTS5.md, round 2). Certified (interval arithmetic, outward rounded; exact rationals).
+- `checks/lzerotrace5.py` T0–T6: Theorem 1's λ0 at the paper's point, every factor traced to the supplement by line, and
+  the certified upper bound recomputed from the record's own definitions (CONSTANTS5.md, round 3). READ, deduced,
+  certified.
+- `checks/classm5.py` K1–K5: the stage-1 mean at W_TT's maximiser, reduced to one number by the symmetry class, and the
+  size of W_TT on the initial slice. Computed (exact), certified (Arb balls). Seconds.
+- `checks/lam0data5.py` D1–D8, E1, G1–G3: the stage-1 data on the initial slice (S_1, B_1), an admissible envelope, and
+  the stability constant over X*'s past (LAMBDA0-DATA5.md). Computed (exact; floating point where said), certified (Arb).
+  About 11 minutes on a loaded machine.
+- `checks/m22evol5.py` S1–S4, N1–N4: the stage-1 evolution on X*'s past and the number M_22 (LAMBDA0-DATA5.md section
+  12), from lam0data5's data on the initial slice. Computed (exact; floating point where said). About an hour.
+- `checks/m22cert5.py` X1–X8: the attempt at a certified lower bound on |M_22| by an a posteriori energy estimate
+  (M22CERT5.md). Computed (exact, and floating point), certified (exact rationals; Arb balls), READ. About 30 minutes.
+- `checks/g5angle5.py` A1–A3: growth5.py's Bondi scheme re-run with every zero of the round spheres' expansion recorded
+  (`checks/g5zeros5.py`), read: A1, the pinned breakdown reproduced at N_x = 16; A2, at its own step the scheme is
+  unstable in angle at N_x = 24 and 32 on the seed itself; A3, the first zero-less columns. Computed (floating point).
+- `docket68/lemmas/hf_anchor5.py` A0–A5: the estimate that the vacuum solution stays within C λ of its approximant
+  (`docket68/lemmas/hf_theorem5.py` F7), with C and λ made definite at the record's values; among them the solver's
+  anchor check. Computed (exact unless marked), READ, deduced.
 
 ## Appendix B. The author's words
 
@@ -3074,7 +3301,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | sections 8.4, 8.8: the parameter order, the inventories' counts | `docket68/n1star/checks/support8b.py` M4–M5 |
 | section 8.5: (8.13) off a countable set of h, not at every h | `docket68/n1star/checks/re813.py` R1–R3 |
 | section 8.2: the gauge-fixed mass change regular at the horizon | `docket68/n1star/checks/gdrepair5.py` V1–V5 |
-| section 8.2: harmonic gauge, l = 0 settling modulo W* | `docket68/n1star/checks/admbox5.py` B1–B8 |
+| section 8.2: harmonic gauge, W*'s pairing and charge, the l = 0 reduction | `docket68/n1star/checks/admbox5.py` B1–B8 |
 | section 8.2: harmonic gauge beyond the forward cone | `docket68/n1star/checks/gdscri5.py` S1–S8 |
 | section 8.2: harmonic gauge down to the initial surface | `docket68/n1star/checks/gdext5.py` E1–E6 |
 | section 8.2: harmonic gauge, the first rate τ^(−1/2−κ) | `docket68/n1star/checks/gdkplus5.py` Q1–Q6 |
@@ -3082,6 +3309,12 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 8.2: the τ^(−2) term; the spherically symmetric part's rate | `docket68/n1star/checks/gdtail5.py` T1–T13 |
 | section 8.2: the part with l ≥ 2, Part I.C on it, and the rates | `docket68/n1star/checks/gdlge2_5.py` L1–L10 |
 | section 8.2: the part with l ≥ 2 at every l; kernels and index | `docket68/n1star/checks/gdr9_5.py` N1–N8 |
+| section 8.2: the Regge–Wheeler-type gauge; the red-shift datum | `docket68/n1star/checks/redshift5.py` R1–R16; |
+| | supplement Proposition 10.1 (iv) |
+| section 8.2: the Regge–Wheeler-type gauge uniformly in r | `docket68/n1star/RWGAUGE5.md`; |
+| | `checks/rwgauge5u.py` U1–U11 |
+| section 8.2: harmonic gauge, the l ≥ 2 part and the rates | `docket68/n1star/GAUGEDECAY5.md` R4.4, R6.6, R7.1–R7.7, |
+| | R8.2–R8.12 |
 | section 9: the second zero is not a second MOTS | `docket68/n1star/checks/sectexp5.py` X1–X3 |
 | section 9: the second zero in the runs; the zero set | `docket68/n1star/checks/secondzero5.py` S1–S7 |
 | section 9: certified constraint on the data cone | `docket68/n1star/checks/cdata5.py` C1–C2 |
@@ -3117,9 +3350,9 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 9, settling: λ1 and δ | `docket68/n1star/INVERSE5-SIX.md` rounds 2–5; `checks/deltacap5.py`, |
 | | `checks/inverse6_5a.py`, `checks/inverse6_5.py`, `checks/inverse6_5m.py`, `checks/zeroext5.py`, |
 | | `checks/tensorzero5.py`; `docket68/n1star/INVERSE5-SCALAR.md` part A, `checks/scalarblock5.py` |
-| section 9, physical wavelengths: λ0 | `docket68/n1star/CONSTANTS5.md`; `checks/envelope5.py`, |
-| | `checks/lzerotrace5.py`, `checks/classm5.py`; `docket68/n1star/LAMBDA0-DATA5.md`, `checks/lam0data5.py`, |
-| | `checks/m22evol5.py` |
+| section 9, physical wavelengths: λ0 | `docket68/n1star/CONSTANTS5.md`; `checks/envelope5.py`; |
+| | `checks/lzerotrace5.py`; `checks/classm5.py`; `docket68/n1star/LAMBDA0-DATA5.md`; `checks/lam0data5.py`; |
+| | `checks/m22evol5.py`; `docket68/n1star/M22CERT5.md`; `checks/m22cert5.py` |
 | section 9, settling: the resolvent band | `docket68/n1star/E2-PILOT.md` section 3j; `checks/e2trapband5_384.out`; |
 | | `checks/e2h1band5.out`; R11 |
 | section 9, settling: the constants without a number | `docket68/n1star/checks/support9.py` S3 |
@@ -3130,11 +3363,46 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 9: the inner boundary at any curvature scale | `docket68/n1star/checks/innerr5.py` I1–I2 |
 | section 9, deeper excisions on a second grid | `docket68/n1star/checks/excise5.py` E1–E2 |
 | section 9, beyond the boundary | `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, Lemma 6.3, section 3(b); |
-| | `BEYOND5-R0-PROOF.md`; `checks/closure5.py` |
-| the boundary at equality | `docket68/n1star/EQUALITY5.md`; `checks/eq5.py` E1–E6 |
-| the boundary at equality: the layer | `docket68/n1star/checks/eqlayer5.py` L1–L2 |
-| section 9, more families | `docket68/n1star/FAMILIES5.md` sections 1, 4b–4i; `checks/data5two.py` |
+| | `BEYOND5-R0-PROOF.md`; `checks/closure5.py`; `checks/r0census5.py`; `checks/census9.py` C27 |
+| section 9, beyond the boundary: g_λ's own data, no gluing | `docket68/n1star/SETTLE-GLAM5.md` Theorem R5.1, |
+| | Lemma R9.1, Proposition 3.1; `checks/tail5.py` T1–T9; `checks/r9beyond5.py` B1–B6; `checks/r5op5.py` O1–O3; |
+| | `checks/r6sigma5.py` S1–S4, W; `checks/r5settle5.py` G2–G3 |
+| the boundary at equality | `docket68/n1star/EQUALITY5.md`; `docket68/n1star/EQUALITY5-LAYER.md`; |
+| | `checks/eq5.py` E1–E6 |
+| the boundary at equality: the margin at a flat edge | `docket68/n1star/checks/eqlayer5.py` L1–L2 |
+| the boundary at equality: the term linear in the waves; the layer | `checks/layerlin5.py` N0–N6; |
+| | `checks/layerwin5.py` W1–W3; `checks/layerdeg5.py` D1–D5; `checks/layernull5.py` E1–E6; |
+| | `checks/layerpast5.py` P1–P3; `checks/layerledger5.py` L1–L4; `checks/layerfix5.py` F1–F4; |
+| | `checks/layerband5.py` B1–B3; `checks/bandL4p5.py` H1–H4 |
+| the boundary at equality: the very edge; one crossing per column; the dips | `checks/veryedge5.py` V1–V5; |
+| | `checks/edgeP5.py` Q1–Q4; `checks/stagen5.py` S1–S5; `checks/stagefree5.py` G1–G4; `checks/edge1_5.py` X1–X17; |
+| | `checks/degtwo5.py` T1–T7; `checks/bfam5.py` B1–B6; `checks/hyp5.py` H0–H5 |
+| the boundary at equality: the thresholds λ_L and λ_25 | `checks/lamL5.py` L1–L4; `checks/lamL5b.py` M1–M5; |
+| | `checks/constL5.py` K1–K4; `checks/lam25_5.py` L1–L3; `checks/lamconst5.py` C1–C5 |
+| section 9, more families: two crossing dusts | `docket68/n1star/FAMILIES5-FULL.md` Part I; `checks/twobg5.py` G1–G5, |
+| | R0; `checks/twodecomp5.py` J0–J9; `checks/twoledger5.py` T1–T2 |
+| section 9, more families: the axes | `docket68/n1star/FAMILIES5-AXIS.md` |
+| section 9, more families: restricted Vlasov limits | `docket68/n1star/FAMILIES5-VLASOV.md`, `FAMILIES5-R6.md`, |
+| | `FAMILIES5-R8.md`; `checks/torusstress5.py` V2; `checks/vlasovhf5.py` H1–H7; `checks/twoscale5.py` T1; |
+| | `checks/axisphase5.py` A1–A4; `checks/nfamily5.py` N1–N5; `checks/nledger5.py` L1–L4; `checks/vlasovex5.py` X1–X3 |
+| section 9, more families: data localised in an angle | `docket68/n1star/checks/bandconst5.py` B6; |
+| | `checks/racglobal5.py` R1–R4; `checks/racslice5.py` S1–S3; `checks/intcert5.py` C1–C3; `checks/truebg5.py` T1–T4 |
+| section 9, more families: exact localisation at second order | `docket68/n1star/FAMILIES5-MB.md`; |
+| | `checks/qsign5.py` Q1–Q7; `checks/mbslice5.py` S1–S5; `checks/mbsign5.py` E1–E9 |
 | section 9, the two-dust background reaching Σ_τ0 | `docket68/n1star/checks/twodomainx5.py` X1–X2 |
+| section 9, settling: δ_50 | `docket68/n1star/checks/epsind5.py` E3 |
+| section 9, settling: the loops' rounds | `docket68/n1star/checks/level2loop5.py` L1–L4; |
+| | `checks/lambdacount5.py` C1–C5 |
+| section 9, settling: the computed norm at the sampled frequencies | `docket68/n1star/checks/e2meas5.py` |
+| section 9: the two-dust lemma on the domain | `docket68/n1star/checks/twodomain5.py` D1–D4 |
+| section 9: growth5 in angle at its own step | `docket68/n1star/checks/g5angle5.py` A1–A3 |
+| sections 8.2, 9: the shell's scattering off the seed | `docket68/lemmas/seed_escape.py` |
+| section 8.8: the damping's constants, every line | `docket68/n1star/proof5/checks/gammac5.py` G1–G5; |
+| | `proof5/checks/admiss5.py` A1–A2 |
+| section 8.1: the two classes meet only in spherical symmetry | `docket68/n1star/checks/support8.py` K8 |
+| section 3: the waves high-frequency on D_T once λ < l5/10 | `docket68/lemmas/counterpart5.py` P1 |
+| section 6: the numerical solution in the Bondi form | `docket68/lemmas/hf_core5.py` |
+| section 6: the finer run grid-limited | `docket68/lemmas/hf_anchor5.py` |
 | provenance | the supplement's log `docket68/n1star/N1STAR-LOG.md` records the independent readings (not a source |
 | | for any claim) |
 | the standard theorems READ | supplement section 7, the retrieval table |
@@ -3146,7 +3414,20 @@ Python 3 with sympy (Python 3.13.16, sympy 1.14.0, mpmath 1.3.0, numpy 2.5.3, sc
 recorded here); z3-solver for `foliation5.py` and `checks/cont5.py`; python-flint for `cdata5.py` and for
 `checks/rcert5.py` and every program that imports it; scipy for `cdata5.py`, `checks/lev1_5.py` and `checks/wgron5.py`;
 numpy for `bondi5.py` and `growth5.py`,
-numpy and scipy for `settle5.py`; mpmath for `damping5.py` and every program that imports it, and for `lowenergy5.py`.
+numpy and scipy for `settle5.py`; mpmath for `damping5.py` and every program that imports it, and for
+`lowenergy5.py`. The programs whose run lines follow `data5.py --mutants` below need, beside sympy and mpmath:
+numpy for `checks/redshift5.py`, `checks/inverse6_5.py`, `checks/zeroext5.py`, `checks/r9beyond5.py`,
+`checks/r5settle5.py`, `checks/twobg5.py`, `checks/vlasovhf5.py`, `checks/vlasovex5.py`, `checks/bandconst5.py`,
+`checks/racglobal5.py`, `checks/racslice5.py`, `checks/intcert5.py`, `checks/truebg5.py`, `checks/qsign5.py`,
+`checks/lamL5b.py`, `checks/lzerotrace5.py`, `checks/lam0data5.py`, `checks/m22evol5.py`, `checks/m22cert5.py`,
+`checks/g5angle5.py`, `checks/coulombL5.py`, `checks/harmonics5.py`, `checks/uniform5.py`,
+`checks/stripfull5.py`, `checks/twodust5.py`, `docket68/lemmas/hf_theorem5.py`, `docket68/lemmas/kn_gauge.py`,
+`docket68/lemmas/counterpart5.py`, `docket68/lemmas/hf_core5.py`, `docket68/lemmas/seed_escape.py`,
+`docket68/lemmas/hf_anchor5.py`; scipy for `checks/redshift5.py`, `checks/twobg5.py`, `checks/bandconst5.py`,
+`checks/racglobal5.py`, `checks/racslice5.py`, `checks/intcert5.py`, `checks/truebg5.py`, `checks/qsign5.py`,
+`checks/lam0data5.py`, `checks/m22evol5.py`, `checks/coulombL5.py`, `docket68/lemmas/seed_escape.py`;
+python-flint for `checks/classm5.py`, `checks/lam0data5.py`, `checks/m22evol5.py`, `checks/m22cert5.py`;
+z3-solver for `checks/redshift5.py`, `checks/r9beyond5.py`, `docket68/lemmas/hf_theorem5.py`.
 `growth5.py` imports the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports `lead5.py`,
 `growing5.py`, `lzero5.py` and `coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports `hierarchy5.py`,
 `semiclass5.py` imports `damping5.py`, `cform5.py` imports `semiclass5.py` and `damping5.py`, `gaugepot5.py` imports
@@ -3174,39 +3455,64 @@ imports `damping5.py`, `checks/support5b.py` imports `checks/support5.py` and `l
 `checks/stage5b.py` imports `lead5.py` and `checks/stage5.py`, `secondzero5.py` and `resid5.py` import `bondisph5.py`,
 which imports `sectexp5.py`, `resid5.py` and `szrun5.py` import `dnsolve5.py`, `checks/support9.py` imports `lead5.py`,
 `checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports
-`checks/twodomain5.py`, `checks/vii5read.py` imports `checks/vii5census.py`, `checks/axhier5.py` imports
-`checks/axisbianchi5.py`, `checks/axis5.py` imports `dnull5.py` and `checks/linest5.py`, `checks/blocks5.py` imports
-`checks/linest5.py`, `checks/classm5.py` imports `checks/stage1cap5.py`, `checks/cont5.py` imports `checks/null3.py`,
-`checks/cp3grid5.py` imports `checks/cpaxis5.py` and `checks/cpsolve5.py`, `checks/cpaxis5.py` imports
-`checks/cpsolve5.py`, `checks/cpsolve5.py` imports `dnsolve5.py`, `checks/d0count5.py` imports `checks/ordcensus5.py`,
-`checks/dceiling5.py` imports `checks/dweights5.py`, `checks/lambdagen5.py` and `checks/prop31loss5.py`,
+`checks/twodomain5.py`, `checks/vii5read.py` imports `checks/vii5census.py`, `bundle5.py` imports `damping5.py`,
+`bundlesweep.py` imports `censusweep.py` and `damping5.py`, `docket68/lemmas/hf_core5.py` imports
+`docket68/lemmas/hf_mirror5.py`, `edge5.py` imports `damping5.py`, `gluing5.py` imports `damping5.py` and `general5.py`,
+`iotasol5.py` imports `damping5.py`, `iplusnorm5.py` imports `damping5.py`, `synth5.py` imports `damping5.py` and
+`gmodes5.py`, `tfnorm5.py` imports `damping5.py` and `iplusnorm5.py`, `checks/admbox5.py` imports `checks/hgauge5.py` and
+`checks/rwgauge5.py`, `checks/axhier5.py` imports `checks/axisbianchi5.py`, `checks/axis5.py` imports `dnull5.py` and
+`checks/linest5.py`, `checks/bandL4p5.py` imports `checks/layerband5.py`, `checks/bandconst5.py` imports `dnull5.py` and
+`checks/twobg5.py`, `checks/bfam5.py` imports `checks/layerlin5.py`, `checks/blocks5.py` imports `checks/linest5.py`,
+`checks/classm5.py` imports `checks/stage1cap5.py`, `checks/cont5.py` imports `checks/null3.py`, `checks/coulombL5.py`
+imports `genstates5.py`, `checks/cp3grid5.py` imports `checks/cpaxis5.py` and `checks/cpsolve5.py`, `checks/cpaxis5.py`
+imports `checks/cpsolve5.py`, `checks/cpsolve5.py` imports `dnsolve5.py`, `checks/d0count5.py` imports
+`checks/ordcensus5.py`, `checks/data5two.py` imports `data5.py`, `checks/dceiling5.py` imports `checks/dweights5.py`,
+`checks/lambdagen5.py` and `checks/prop31loss5.py`, `checks/degtwo5.py` imports `checks/bandL4p5.py`,
 `checks/dnumber5.py` imports `checks/dceiling5.py`, `checks/dweights5.py`, `checks/eflat5.py`, `checks/lambdagen5.py` and
-`checks/prop31loss5.py`, `checks/dweights5.py` imports `checks/prop31loss5.py`, `checks/eflat5.py` imports
-`checks/dceiling5.py`, `checks/dweights5.py` and `checks/iotapoles5.py`, `checks/inverse6_5.py` imports `strap5.py`,
-`checks/inverse6_5m.py` imports `gmodes5.py`, `modes5.py` and `checks/e2certify5.py`, `checks/iotaind5.py` imports
-`checks/dceiling5.py` and `checks/eflat5.py`, `checks/iotapoles5.py` imports `damping5.py`, `iota5.py`, `lin5.py` and
-`checks/dceiling5.py`, `checks/lam0data5.py` imports `data5.py` and `checks/stage1rate5.py`, `checks/lambdagen5.py`
-imports `checks/dweights5.py` and `checks/prop31loss5.py`, `checks/lev1_5.py` imports `checks/linest5.py` and
-`checks/wgron5.py`, `checks/linest5.py` imports `dnsolve5.py` and `checks/null3.py`, `checks/logind5.py` imports
-`checks/dnumber5.py`, `checks/dweights5.py` and `checks/eflat5.py`, `checks/lzerotrace5.py` imports
-`checks/envelope5.py`, `checks/lzeroconst5.py` and `checks/stage0bd5.py`, `checks/m22evol5.py` imports
-`checks/lam0data5.py`, `checks/modcount5.py` imports `checks/d0count5.py`, `checks/dnumber5.py`, `checks/dweights5.py`
-and `checks/prop31loss5.py`, `checks/rcert5.py` imports `checks/bondisph5.py` and `checks/resid5.py`, `checks/rcert5c.py`
-imports `checks/rcert5.py`, `checks/rcert5d.py` imports `checks/rcert5.py`, `checks/reduce5.py` imports `dnull5.py`,
+`checks/prop31loss5.py`, `checks/dweights5.py` imports `checks/prop31loss5.py`, `checks/e2meas5.py` imports
+`checks/e2high5.py`, `checks/e2trapband5.py` imports `checks/e2trap5.py` and `checks/e2trapcert5.py`, `checks/edge1_5.py`
+imports `checks/layerlin5.py`, `checks/edgeP5.py` imports `checks/veryedge5.py`, `checks/eflat5.py` imports
+`checks/dceiling5.py`, `checks/dweights5.py` and `checks/iotapoles5.py`, `checks/g1curv5.py` imports `dnsolve5.py`,
+`checks/g5angle5.py` imports `growth5.py`, `checks/g5zeros5.py` imports `growth5.py`, `checks/gdlge2_5.py` imports
+`checks/gdrad5.py`, `checks/hgauge5.py` and `checks/rwgauge5.py`, `checks/gdr9_5.py` imports `checks/gdlge2_5.py`,
+`checks/gdrad5.py`, `checks/hgauge5.py` and `checks/rwgauge5.py`, `checks/gdrad5.py` imports `checks/gdext5.py`,
+`checks/hgauge5.py` and `checks/rwgauge5.py`, `checks/gdrepair5.py` imports `checks/hgauge5.py` and `checks/rwgauge5.py`,
+`checks/gdscri5.py` imports `checks/admbox5.py`, `checks/hgauge5.py` and `checks/rwgauge5.py`, `checks/gdtail5.py`
+imports `checks/gdrad5.py`, `checks/hgauge5.py` and `checks/rwgauge5.py`, `checks/harmonics5.py` imports `genstates5.py`
+and `checks/coulombL5.py`, `checks/inverse6_5.py` imports `strap5.py`, `checks/inverse6_5m.py` imports `gmodes5.py`,
+`modes5.py` and `checks/e2certify5.py`, `checks/iotaind5.py` imports `checks/dceiling5.py` and `checks/eflat5.py`,
+`checks/iotapoles5.py` imports `damping5.py`, `iota5.py`, `lin5.py` and `checks/dceiling5.py`, `checks/lam0data5.py`
+imports `data5.py` and `checks/stage1rate5.py`, `checks/lamL5b.py` imports `checks/lamL5.py`, `checks/lambdagen5.py`
+imports `checks/dweights5.py` and `checks/prop31loss5.py`, `checks/lamconst5.py` imports `checks/constL5.py` and
+`checks/lam25_5.py`, `checks/layerdeg5.py` imports `checks/layerlin5.py`, `checks/layerfix5.py` imports
+`checks/layerlin5.py`, `checks/layerpast5.py` imports `checks/layerlin5.py`, `checks/lev1_5.py` imports
+`checks/linest5.py` and `checks/wgron5.py`, `checks/linest5.py` imports `dnsolve5.py` and `checks/null3.py`,
+`checks/logind5.py` imports `checks/dnumber5.py`, `checks/dweights5.py` and `checks/eflat5.py`, `checks/lzerotrace5.py`
+imports `checks/envelope5.py`, `checks/lzeroconst5.py` and `checks/stage0bd5.py`, `checks/m22cert5.py` imports
+`checks/m22evol5.py`, `checks/m22evol5.py` imports `checks/lam0data5.py`, `checks/modcount5.py` imports
+`checks/d0count5.py`, `checks/dnumber5.py`, `checks/dweights5.py` and `checks/prop31loss5.py`, `checks/r5op5.py` imports
+`checks/f1lemma5.py`, `checks/r6sigma5.py` imports `checks/f1lemma5.py` and `checks/r5settle5.py`, `checks/rcert5.py`
+imports `checks/bondisph5.py` and `checks/resid5.py`, `checks/rcert5c.py` imports `checks/rcert5.py`, `checks/rcert5d.py`
+imports `checks/rcert5.py`, `checks/redshift5.py` imports `settle5.py`, `checks/reduce5.py` imports `dnull5.py`,
 `checks/rich5.py` imports `checks/rcert5.py` and `checks/rcert5d.py`, `checks/rootavoid5.py` imports `damping5.py`,
-`checks/dweights5.py`, `checks/lambdagen5.py` and `checks/prop31loss5.py`, `checks/scalarblock5.py` imports
-`damping5.py`, `checks/stage0bd5.py` imports `lead5.py`, `checks/envelope5.py` and `checks/lzeroconst5.py`,
-`checks/stage1cap5.py` imports `checks/lzeroconst5.py` and `checks/lzerotrace5.py`, `checks/symbol5.py` imports
-`dnsolve5.py`, `checks/symbol5s.py` imports `checks/symbol5.py`, `checks/szconv5.py` imports `checks/secondzero5.py`,
-`checks/tensorzero5.py` imports `class5.py` and `checks/zeroext5.py`, `checks/thetain5.py` imports `sbar5.py`,
-`checks/wgron5.py` imports `checks/linest5.py`, `checks/x7indep5.py` imports `checks/dnumber5.py` and
-`checks/dweights5.py` (and `checks/blockw5.py` reads `checks/blocks5.out` and `checks/wgron5.out`, `checks/d0count5.py`
-reads `checks/thetain5.out`, `checks/inverse6_5a.py` reads `EFFECTIVE-CONSTANTS.md` and `CONSTANTS5.md`,
-`checks/l2par5.py` reads `checks/dnumber5.out`, `checks/logind5.py` reads `checks/dnumber5.out`, `checks/modcount5.py`
-reads `checks/dnumber5.out`, `checks/dweights5.out`, `checks/lambdagen5.out` and `checks/rootavoid5.out`,
-`checks/mtrunc5.py` reads `checks/cpaxis5_a5.out`, `checks/cpaxis5_a5_m48.out` and `checks/cpaxis5_a5_m56.out`,
-`checks/rootavoid5.py` reads `checks/lambdagen5.out`, `checks/scalarblock5.py` reads `checks/scalarblock5_block.txt`);
-the others import nothing from the research tree:
+`checks/dweights5.py`, `checks/lambdagen5.py` and `checks/prop31loss5.py`, `checks/rwgauge5u.py` imports `settle5.py`,
+`checks/kirecon5.py` and `checks/rwgauge5.py`, `checks/scalarblock5.py` imports `damping5.py`, `checks/stage0bd5.py`
+imports `lead5.py`, `checks/envelope5.py` and `checks/lzeroconst5.py`, `checks/stage1cap5.py` imports
+`checks/lzeroconst5.py` and `checks/lzerotrace5.py`, `checks/stagefree5.py` imports `checks/layerlin5.py`,
+`checks/stripfull5.py` imports `genstates5.py`, `checks/coulombL5.py` and `checks/harmonics5.py`, `checks/support8.py`
+imports `ansatz5.py` and `lead5.py`, `checks/symbol5.py` imports `dnsolve5.py`, `checks/symbol5s.py` imports
+`checks/symbol5.py`, `checks/szconv5.py` imports `checks/secondzero5.py`, `checks/tensorzero5.py` imports `class5.py` and
+`checks/zeroext5.py`, `checks/thetain5.py` imports `sbar5.py`, `checks/twobg5.py` imports `checks/twodomain5.py`,
+`checks/uniform5.py` imports `checks/coulombL5.py` and `checks/harmonics5.py`, `checks/veryedge5.py` imports
+`checks/layerlin5.py`, `checks/vlasovhf5.py` imports `checks/twoscale5.py`, `checks/wgron5.py` imports
+`checks/linest5.py`, `checks/x7indep5.py` imports `checks/dnumber5.py` and `checks/dweights5.py` (and `checks/blockw5.py`
+reads `checks/blocks5.out` and `checks/wgron5.out`, `checks/d0count5.py` reads `checks/thetain5.out`,
+`checks/inverse6_5a.py` reads `EFFECTIVE-CONSTANTS.md` and `CONSTANTS5.md`, `checks/l2par5.py` reads
+`checks/dnumber5.out`, `checks/logind5.py` reads `checks/dnumber5.out`, `checks/modcount5.py` reads
+`checks/dnumber5.out`, `checks/dweights5.out`, `checks/lambdagen5.out` and `checks/rootavoid5.out`, `checks/mtrunc5.py`
+reads `checks/cpaxis5_a5.out`, `checks/cpaxis5_a5_m48.out` and `checks/cpaxis5_a5_m56.out`, `checks/rootavoid5.py` reads
+`checks/lambdagen5.out`, `checks/scalarblock5.py` reads `checks/scalarblock5_block.txt`); the others import nothing from
+the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -3337,10 +3643,101 @@ the others import nothing from the research tree:
     python3 checks/re813.py                              # about a minute
     python3 dnsolve5.py --run lam rcut M Nu Nv out.npz   # the double-null runs; then checks/g1curv5.py --seed2-2400 DIR
     python3 data5.py --mutants                           # about 80 minutes
+    python3 checks/redshift5.py                           # about four minutes under load
+    python3 checks/rwgauge5u.py                           # U3 (b) takes the longest
+    python3 checks/deltacap5.py
+    python3 checks/inverse6_5.py                          # about a minute
+    python3 checks/inverse6_5a.py                         # seconds
+    python3 checks/inverse6_5m.py                         # tens of minutes
+    python3 checks/zeroext5.py                            # a minute
+    python3 checks/tensorzero5.py                         # a few minutes
+    python3 checks/scalarblock5.py                        # several minutes
+    python3 checks/rootavoid5.py                          # some minutes
+    python3 checks/dnumber5.py                            # about ten seconds
+    python3 checks/x7indep5.py                            # about twenty seconds
+    python3 checks/modcount5.py                           # seconds
+    python3 checks/d0count5.py                            # seconds
+    python3 checks/ordcensus5.py                          # seconds
+    python3 checks/l2par5.py                              # seconds
+    python3 checks/logind5.py                             # seconds
+    python3 checks/iotaind5.py                            # about two minutes
+    python3 checks/tail5.py
+    python3 checks/r9beyond5.py                           # one to three minutes
+    python3 checks/r5op5.py
+    python3 checks/r6sigma5.py                            # 3 to 29 minutes
+    python3 checks/r5settle5.py
+    python3 checks/twobg5.py                              # about ten minutes
+    python3 checks/twodecomp5.py                          # about three minutes
+    python3 checks/twoledger5.py                          # seconds
+    python3 checks/torusstress5.py                        # seconds
+    python3 checks/vlasovhf5.py                           # a few minutes
+    python3 checks/twoscale5.py                           # seconds
+    python3 checks/axisphase5.py                          # under a minute
+    python3 checks/nfamily5.py                            # about 75 minutes under load
+    python3 checks/nledger5.py                            # about a minute
+    python3 checks/vlasovex5.py                           # a few minutes
+    python3 checks/bandconst5.py                          # a few minutes
+    python3 checks/racglobal5.py                          # a few minutes
+    python3 checks/racslice5.py                           # a few minutes
+    python3 checks/intcert5.py                            # about ten minutes under load
+    python3 checks/truebg5.py                             # about half an hour under load
+    python3 checks/qsign5.py                              # about a quarter of an hour
+    python3 checks/mbslice5.py                            # a few minutes
+    python3 checks/mbsign5.py                             # about 7 to 10 minutes
+    python3 checks/layerlin5.py                           # about five minutes
+    python3 checks/layerwin5.py                           # about a minute
+    python3 checks/layerdeg5.py                           # about a minute and a half
+    python3 checks/layernull5.py                          # about ten seconds
+    python3 checks/layerpast5.py                          # about a minute and a half
+    python3 checks/layerledger5.py                        # under a second
+    python3 checks/layerfix5.py                           # about half a minute
+    python3 checks/layerband5.py                          # about half a minute
+    python3 checks/veryedge5.py                           # about two minutes
+    python3 checks/lamL5.py                               # about a minute
+    python3 checks/stagen5.py                             # a few seconds
+    python3 checks/edgeP5.py                              # about half an hour
+    python3 checks/stagefree5.py                          # about two minutes
+    python3 checks/bandL4p5.py                            # about three minutes
+    python3 checks/lamL5b.py                              # about two minutes
+    python3 checks/edge1_5.py                             # about an hour
+    python3 checks/degtwo5.py                             # about ten minutes
+    python3 checks/constL5.py
+    PYTHONHASHSEED=0 python3 checks/bfam5.py              # about eighty minutes under load
+    python3 checks/hyp5.py                                # about eight minutes
+    python3 checks/lam25_5.py                             # about a minute
+    python3 checks/lamconst5.py                           # a few minutes
+    python3 checks/envelope5.py
+    python3 checks/lzerotrace5.py
+    python3 checks/classm5.py                             # seconds
+    python3 checks/lam0data5.py                           # about 11 minutes
+    python3 checks/m22evol5.py                            # about an hour
+    python3 checks/m22cert5.py                            # about 30 minutes
+    python3 checks/g5zeros5.py 100 1 20 16 1.56 RUN16.json   # about 20 minutes at Nx = 16
+    python3 checks/g5zeros5.py 100 1 20 24 1.56 RUN24.json
+    python3 checks/g5zeros5.py 100 1 20 32 1.56 RUN32.json
+    python3 checks/g5angle5.py RUN16.json RUN24.json RUN32.json
+    python3 checks/e2meas5.py                             # one to two hours per σ
+    python3 checks/r0census5.py
+    python3 checks/coulomb5.py                            # about five minutes
+    python3 checks/coulombL5.py
+    python3 checks/harmonics5.py
+    python3 checks/uniform5.py
+    python3 checks/sources5.py                            # a few minutes
+    python3 checks/stripfull5.py                          # about 27 minutes
+    python3 checks/stage0two5.py                          # about 8 seconds; --gauge adds T7
+    python3 checks/chardust5.py                           # seconds
+    python3 checks/twodust5.py                            # about 7 seconds
+    python3 ../lemmas/hf_theorem5.py
+    python3 ../lemmas/kn_gauge.py
+    python3 ../lemmas/counterpart5.py
+    python3 ../lemmas/hf_core5.py
+    python3 ../lemmas/seed_escape.py
+    python3 ../lemmas/hf_anchor5.py
 
 Of the programs cited, every one in `docket68/n1star/` and `docket68/lemmas/` takes `--mutants` except `censusweep.py`,
-`dnsolve5.py`, `growth5.py` and `hf_core5.py`; under `checks/` only `checks/stage0two5.py` does; `paper/response5.py`
-and `proof5/checks/` take none, their negative controls running inside the self-test or the plain run.
+`dnsolve5.py`, `dnull5.py`, `growth5.py`, `hf_core5.py` and `lhor5.py`; under `checks/` only `checks/stage0two5.py` does;
+`paper/response5.py` and `proof5/checks/` take none, their negative controls running inside the self-test or the plain
+run.
 
 The md5 of each file this paper rests on, at this commit (R9 checks every row; `python3 response5.py
 --update-md5` rewrites the column):
@@ -3711,5 +4108,127 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/x7indep5.out` | `593e9a01c88b9919672c7a93c44cbad0` |
 | `docket68/n1star/checks/zeroext5.py` | `b59825dc09b57003926113e9a095b30b` |
 | `docket68/n1star/checks/zeroext5.out` | `4c9a5c5134c406ce1e905ce90cfa46b0` |
+| `docket68/n1star/checks/redshift5.py` | `f95cdf9ab7c470c0083041dce8d01c28` |
+| `docket68/n1star/checks/redshift5.out` | `ab43cb0e1eb28e954e2a85c60c016bf7` |
+| `docket68/n1star/checks/rwgauge5u.py` | `7a4fc995ec307d05e12a6374e0026167` |
+| `docket68/n1star/checks/rwgauge5u.out` | `42ae8d4f0a5f4ff0b5afb4ec84955731` |
+| `docket68/n1star/checks/rwgauge5.py` | `2027a385ed58e30f772d9ebc488e9ac7` |
+| `docket68/n1star/checks/tail5.py` | `dff0ff24480ababc7dfeec6f47571bac` |
+| `docket68/n1star/checks/tail5.out` | `be365d6c66918d2e9c555bf6ff135d17` |
+| `docket68/n1star/checks/r9beyond5.py` | `5145a012352f065564226600a22c4ddc` |
+| `docket68/n1star/checks/r9beyond5.out` | `665013f2f6f5dd1d02e5ea7222782c25` |
+| `docket68/n1star/checks/r5op5.py` | `e4943a994c7b133f4c3330956d2cabc2` |
+| `docket68/n1star/checks/r5op5.out` | `b5da9606fcdabf17bf1b0e181ffca7ea` |
+| `docket68/n1star/checks/f1lemma5.py` | `931ac71a2805fbbf8427380855969450` |
+| `docket68/n1star/checks/r6sigma5.py` | `0bcce43317a1a0235fb01f80f423575f` |
+| `docket68/n1star/checks/r6sigma5.out` | `0c8170bb2eb9d5010ed6a06ef60fd326` |
+| `docket68/n1star/checks/r5settle5.py` | `7167cba1d9b154fbb5c6b3a5f0778c2e` |
+| `docket68/n1star/checks/r5settle5.out` | `cb7014033981d76d31ac350c0e06b3a5` |
+| `docket68/n1star/checks/twobg5.py` | `87cf075a130c475735e19da13c145cd6` |
+| `docket68/n1star/checks/twobg5.out` | `5ac7b7a15b3964cf3fdc54c90dbaaeff` |
+| `docket68/n1star/checks/twodecomp5.py` | `1f49e8118d751afbd1040bd81808db06` |
+| `docket68/n1star/checks/twodecomp5.out` | `a848002ecab407477aab5b0199743006` |
+| `docket68/n1star/checks/twoledger5.py` | `40e05f064a6af38e61f89d73a421bd6a` |
+| `docket68/n1star/checks/twoledger5.out` | `25bd77757bd4ddd8c38c42dc5ab03cd2` |
+| `docket68/n1star/checks/torusstress5.py` | `fee65f50f70f50e16a13c66a963ef097` |
+| `docket68/n1star/checks/torusstress5.out` | `9e69248016c81c8baf4e14bd816497cb` |
+| `docket68/n1star/checks/vlasovhf5.py` | `2a0d04851c9cff8663928463b9e1dbfd` |
+| `docket68/n1star/checks/vlasovhf5.out` | `75ec26665174595a48564dd58100d644` |
+| `docket68/n1star/checks/twoscale5.py` | `7c5c09baa10f09219995a97fba7ec649` |
+| `docket68/n1star/checks/twoscale5.out` | `f3a2ac57b606f1da5b9879459621b7e8` |
+| `docket68/n1star/checks/axisphase5.py` | `76d313c7d74c235905f1a57b5738dcce` |
+| `docket68/n1star/checks/axisphase5.out` | `dde27b6044bcd77e0556c6314aae0787` |
+| `docket68/n1star/checks/nfamily5.py` | `07ec830fe3f3af57d8e653444d82150e` |
+| `docket68/n1star/checks/nfamily5.out` | `bd49d0c88ff80f30c788b58629125cbe` |
+| `docket68/n1star/checks/nledger5.py` | `791fd803f1d69615627b39bb6f7016fb` |
+| `docket68/n1star/checks/nledger5.out` | `5fd893a407cab7c851526d141b766088` |
+| `docket68/n1star/checks/vlasovex5.py` | `09cae3926f5b88eddc94d800dc1f4c69` |
+| `docket68/n1star/checks/vlasovex5.out` | `d47ba377cef8949a567d54a408b7f58b` |
+| `docket68/n1star/checks/bandconst5.py` | `a1bdff0e13caf84741d73ab435959327` |
+| `docket68/n1star/checks/bandconst5.out` | `aa93b0e150a77f51b28291b9c04ab015` |
+| `docket68/n1star/checks/racglobal5.py` | `325d663df4ca98167dc344b2c2bdbb03` |
+| `docket68/n1star/checks/racglobal5.out` | `4eebfdb11a6fb84028cf3d8163f76010` |
+| `docket68/n1star/checks/racslice5.py` | `7a7f26e0abd2d1223568f7591fbdf4b7` |
+| `docket68/n1star/checks/racslice5.out` | `0b9be4c8b079c747f8fd245279b52ca8` |
+| `docket68/n1star/checks/intcert5.py` | `2cba22521fdc53fb7b5e903a016af58f` |
+| `docket68/n1star/checks/intcert5.out` | `ea5f8492c9b20becbf28030aec7a9f05` |
+| `docket68/n1star/checks/truebg5.py` | `373ae070df33a704825d6f3d1f1c5fd9` |
+| `docket68/n1star/checks/truebg5.out` | `a539db9175c71e47112f5b2cd28a1f8c` |
+| `docket68/n1star/checks/qsign5.py` | `a779f6a7cdd2f66615aa2d79261fb9a9` |
+| `docket68/n1star/checks/qsign5.out` | `c9a7b5dedf4a956afa9d47cc77e3d8a1` |
+| `docket68/n1star/checks/mbslice5.py` | `818412b261514fef7997879e261b9083` |
+| `docket68/n1star/checks/mbslice5.out` | `b10ea75acfca15fbff24016774cb5024` |
+| `docket68/n1star/checks/mbsign5.py` | `19ae63bc58e94810cec28aedb0aa967c` |
+| `docket68/n1star/checks/mbsign5.out` | `3b84fb541e50cd9cdbbe12a908f374ea` |
+| `docket68/n1star/checks/layerlin5.py` | `ce3cc262232412abbbce99df51bd99b6` |
+| `docket68/n1star/checks/layerlin5.out` | `8e25e1351c36fbc320e1fd4a45873617` |
+| `docket68/n1star/checks/layerwin5.py` | `d324f95d77832299bf773b2a1378a19d` |
+| `docket68/n1star/checks/layerwin5.out` | `c2152bf21fc3f96c7e15acc0e6a2e3f5` |
+| `docket68/n1star/checks/layerdeg5.py` | `2a76ecbf7b7f0a944fe4888aae3844d3` |
+| `docket68/n1star/checks/layerdeg5.out` | `2196f43c0b50db184429b7cbd827fb89` |
+| `docket68/n1star/checks/layerfix5.py` | `2b4c6d52792ba32538f7c29ea50de33b` |
+| `docket68/n1star/checks/layerfix5.out` | `c4905001739cfa5b5a2da688a315c079` |
+| `docket68/n1star/checks/layerband5.py` | `a981c0c2fab30d2a164a2fbc4645fd62` |
+| `docket68/n1star/checks/layerband5.out` | `5fa10dac1a77c33713edb7f037b4dd2b` |
+| `docket68/n1star/checks/veryedge5.py` | `06f873533d3aa45a91259dede54de722` |
+| `docket68/n1star/checks/veryedge5.out` | `e94dff01ff75646d2518d65dc994ffe9` |
+| `docket68/n1star/checks/lamL5.py` | `9e7b3bd6875864f4a39031323bc12078` |
+| `docket68/n1star/checks/lamL5.out` | `02f2005b2cf849d4e251259eeb80d354` |
+| `docket68/n1star/checks/stagen5.py` | `467b7a8b9778fbd5765265e0a400f925` |
+| `docket68/n1star/checks/stagen5.out` | `8a9513a2a2ace5d4be1a7544953a8417` |
+| `docket68/n1star/checks/edgeP5.py` | `0b4787f2c27c3a7c6a08a51c842b3439` |
+| `docket68/n1star/checks/edgeP5.out` | `62c824d860afcdb1379669672938ffd5` |
+| `docket68/n1star/checks/stagefree5.py` | `05f3737e27f1448838ed3e106d613448` |
+| `docket68/n1star/checks/stagefree5.out` | `22e655d5802d99bf404db38cf7b1c24d` |
+| `docket68/n1star/checks/bandL4p5.py` | `70650afded413e425907488241405c23` |
+| `docket68/n1star/checks/bandL4p5.out` | `8ef875a7eb48f4056198f4d681b98f4b` |
+| `docket68/n1star/checks/lamL5b.py` | `8633d245a37cbbb57757eb3b64825c81` |
+| `docket68/n1star/checks/lamL5b.out` | `535c8b1e18b9d8bb85dd9281003f66a7` |
+| `docket68/n1star/checks/edge1_5.py` | `b46b5e0f09396d30b0945c2c72430135` |
+| `docket68/n1star/checks/edge1_5.out` | `490006720abc66e25f85e18d441a86fc` |
+| `docket68/n1star/checks/degtwo5.py` | `2340d7a0e10a9382e43da2bbfaadb530` |
+| `docket68/n1star/checks/degtwo5.out` | `44b85247513a7d8195c0647c3f699fa2` |
+| `docket68/n1star/checks/constL5.py` | `fb8f0f6b343f305b799c1d7bc24d1d31` |
+| `docket68/n1star/checks/constL5.out` | `775ff458909d86fa98dd2c59f646335b` |
+| `docket68/n1star/checks/bfam5.py` | `9e16e91b4c2e64e5cc408278acad1628` |
+| `docket68/n1star/checks/bfam5.out` | `dfb2115ed8e7c998c8a52e002ca7f000` |
+| `docket68/n1star/checks/hyp5.py` | `0ec4da5aa301f53a52089bb6ecb6c5e2` |
+| `docket68/n1star/checks/hyp5.out` | `67e5484bd74494d0e1443502e7f4cb38` |
+| `docket68/n1star/checks/lam25_5.py` | `cfd69ab47bf5729cc8c7a900edf48de5` |
+| `docket68/n1star/checks/lam25_5.out` | `4bab471ab0a8254b2848be9314702974` |
+| `docket68/n1star/checks/lamconst5.py` | `0844a337f61f5bd85b2fa6a906020adb` |
+| `docket68/n1star/checks/lamconst5.out` | `d6e7f0790308dd7aae91a77543c97f29` |
+| `docket68/n1star/checks/m22cert5.py` | `17b1a6e951eeca75ca1ac7cd9e0fa4bf` |
+| `docket68/n1star/checks/m22cert5.out` | `2a1b76ad47a829d2fe0ece641c3ce777` |
+| `docket68/n1star/checks/g5angle5.py` | `26d1936f76a590ee67b93ebc6c314e33` |
+| `docket68/n1star/checks/g5angle5.out` | `f58e452809fdf1e238a6853c2fc3d156` |
+| `docket68/lemmas/hf_anchor5.py` | `f9fc3e19be2c05e2ed1c4aeabfb603b6` |
+| `docket68/n1star/checks/layernull5.py` | `c395a8934a206fc7d9e05372c44737cb` |
+| `docket68/n1star/checks/layernull5.out` | `a8f228c8883f40ad0188bce5655e659b` |
+| `docket68/n1star/checks/layerpast5.py` | `5b46b3cb2887190380d86a721157f814` |
+| `docket68/n1star/checks/layerpast5.out` | `72da1d13221cdd50645e62e3add40e00` |
+| `docket68/n1star/checks/layerledger5.py` | `9ec2e18b0d4b7bcad2aabdd3830d9443` |
+| `docket68/n1star/checks/layerledger5.out` | `ff9c73737f2399f4c449cace50b39ec3` |
+| `docket68/n1star/checks/e2high5.py` | `aef63b777031aca9e36b5c21f9ebd555` |
+| `docket68/n1star/checks/g5zeros5.py` | `c39f3e722714e7aceeb443d2514d035c` |
+| `docket68/n1star/GAUGEDECAY5.md` | `db76a7406f817879111bc5801a97889e` |
+| `docket68/n1star/SETTLE-GLAM5.md` | `ffa759fc17431b68ee6ec9c94211024f` |
+| `docket68/n1star/EQUALITY5-LAYER.md` | `f196493e82118a6597c3f12b4b82c5d4` |
+| `docket68/n1star/RWGAUGE5.md` | `15fbaf4aee83df0e9960c914f8cff2f4` |
+| `docket68/n1star/FAMILIES5-FULL.md` | `c123f64592d72cd584967c01e1fb8256` |
+| `docket68/n1star/FAMILIES5-AXIS.md` | `7c4f80e06677bae88a5acdb5e9cf1ff4` |
+| `docket68/n1star/FAMILIES5-VLASOV.md` | `a9100b6d327a34c916f73060eed28a00` |
+| `docket68/n1star/FAMILIES5-R6.md` | `a8649655303d6d644ef2e25d600512b4` |
+| `docket68/n1star/FAMILIES5-R8.md` | `56b5dd9fee35719fe2c663496c10fe8d` |
+| `docket68/n1star/FAMILIES5-MB.md` | `8ce6cbdac5a12d0896680543cdad6158` |
+| `docket68/n1star/CONSTANTS5.md` | `1d92d5f74194e6dafd4feed0f900693f` |
+| `docket68/n1star/M22CERT5.md` | `9ccc79c8497283a06cf81025b60deb6a` |
+| `docket68/n1star/proof5/PART-III-I10-CORR4.md` | `491774f9b522ad1d1f188819b09b2a40` |
+| `docket68/n1star/proof5/PART-III-I11-SPACETIME.md` | `6e227bf7766fbe6b32949939b9235ed7` |
+| `docket68/n1star/proof5/PART-III-J-PARAM.md` | `29c26ae88bcfdd999641236ab936ec21` |
+| `docket68/n1star/lhor5.py` | `88b651a8368a7226697d4da5cd637f7d` |
+| `docket68/n1star/checks/hgauge5.py` | `62204ff5ae537bb53d859b3e74efad74` |
+| `docket68/n1star/checks/e2trap5.py` | `cbcd94fa4d2d5a8004230c1563807224` |
+| `docket68/n1star/checks/e2trapcert5.py` | `8f202c1e58089702657bd0356c92186c` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

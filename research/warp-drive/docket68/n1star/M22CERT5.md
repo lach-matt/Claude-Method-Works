@@ -237,10 +237,23 @@ relabelled) and rerun: **13/13**.
 - **Nits.** At X* the e_r entry is 133.458, not 146; 146 is its value with mu = mu_end (X7). The Gronwall factor of
   Section 0 is for E^(1/2).
 
+*Pair P.* LAMBDA0-DATA5.md 13.5's P is unchanged. P' (P_final_new.txt, md5 2ceaa9b2) adds the certified growth, the
+data requirement and the conclusion, keeping every qualifier of P. The final pass's second round (FP2) seats it in
+place of P's text in the paper's Physical wavelengths item, with two additions the full-paper verifier asked for, the
+numerical point's units and envelope5's full path; the clause reads "at the numerical point (μ0 = 1, l5 = 1/10), with
+the smooth envelope of `docket68/n1star/checks/envelope5.py`, which has the numerics' integral". The rest of P' is
+seated as drafted, rewrapped.
+
+[final-pass FP2 2026-11-13: this paragraph now gives P' as the paper carries it after the final pass's second round
+(FP2): seated, with the units "(μ0 = 1, l5 = 1/10)" and envelope5's full path. The text this paragraph held before,
+kept:]
+
+~~~text
 *Pair P.* LAMBDA0-DATA5.md 13.5's P is unchanged. Its old text still occurs once in the paper as it stands (md5
 805be200b746b7cf480e88639da5508f). A draft P' adds the certified growth, the data requirement and the conclusion,
 keeping every qualifier of P; it is in the scratchpad (P_final_old.txt, P_final_new.txt), offered to the main
 session, not seated here.
+~~~
 
 *Program.* `checks/m22cert5.py --selftest` (output `checks/m22cert5.out`, **13/13**, 12 minutes on this machine): X1
 (exact), X2, X3, X6, X7 (certified), X4, X8 (floating point; X8's requirement deduced from certified numbers), X5

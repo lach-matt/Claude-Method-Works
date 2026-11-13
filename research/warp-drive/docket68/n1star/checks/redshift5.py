@@ -845,13 +845,16 @@ that for λ ≤ λ_H: on every column (v and ω fixed, r varying, within D_T ∩
 above it and negative below; on the columns with √μ(v) ≤ v − τ0 − δ1 it has exactly one, R_λ(v, ω), with |R_λ − √μ(v)| ≤
 C λ; and the spheres with r ≤ √μ(v) − C λ are trapped, those with r ≥ √μ(v) + C λ untrapped."""
 
+# FP2 (the full-paper verifier's minor 7): the case mu0 = sqrt72 l5^2, as the proof gives it, stated in the
+# proposition itself
 NEW33 = """\
 H1–H3; supplement Proposition 8.1).** Let μ0 ≥ √72 l5², K ≥ 6, and let θ⁺_λ(v, r, ω) be the outgoing null expansion, for
 g_λ, of the sphere S_(v,r) := {τ = v − r, |x| = r} at its point of angle ω. There are λ_H ∈ (0, λ0] and C, δ1, δ2 > 0
 such that for λ ≤ λ_H: on every column (v and ω fixed, r varying, within D_T ∩ {τ ≥ τ0}) θ⁺_λ has at most one zero,
 positive above it and negative below; if μ0 > √72 l5², on the columns with √μ(v) ≤ v − τ0 − δ1 it has exactly one,
 R_λ(v, ω), with |R_λ − √μ(v)| ≤ C λ, and the spheres with r ≤ √μ(v) − C λ are trapped, those with r ≥ √μ(v) + C λ
-untrapped (C twice the constant that places the zero, so that the spheres at distance C λ are strictly trapped)."""
+untrapped (C twice the constant that places the zero, so that the spheres at distance C λ are strictly trapped); if μ0 =
+√72 l5², the same holds on the columns with μ(v) ≥ μ0 + δ2 and √μ(v) ≤ v − τ0 − δ1."""
 
 # D625: widened by two lines to carry the confirming reader's nit on the positivity at mu0 = sqrt72 l5^2
 OLD33b = """\

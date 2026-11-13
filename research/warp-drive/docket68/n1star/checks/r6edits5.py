@@ -726,7 +726,9 @@ def paper_predicates10(b1, b2, b3):
     out = paper_predicates9(b1, b2, b3, "B")
     b2n = norm(b2)
     # [final-pass] R10-E's new blocks are the paper's seated text: rounds 1-10 (vB7), and the status stated with no
-    # conditional framing and no log labels (the final pass's editorial blocks DR-bh1, DR-b2, DR-b3, DR-bb)
+    # conditional framing and no log labels (the final pass's editorial blocks DR-bh1, DR-b2, DR-b3, DR-bb); FP2
+    # (the full-paper verifier's minor 6 and nits): Theorem 2 named, "subject to" the limit, block 3 "stated in
+    # section 9 and proved in SETTLE-GLAM5.md"
     b1n, b3n = norm(b1), norm(b3)
     for k_ in FP_DROPPED:
         del out[k_]
@@ -736,14 +738,15 @@ def paper_predicates10(b1, b2, b3):
             "(ii)'s by half-integer orders, from proved inputs, supplement section 11.1 among them (Beyond the "
             "boundary, below)." in b1n,
         "fp b2: from Parts III, IV, VII and VIII, Theorem P and section 11.1, each proved, R6-D read": "Theorem "
-            "R5.1), from the write-out's Parts III, IV, VII and VIII, Theorem P and supplement section 11.1, each "
-            "proved, the last with its Lemma 11.0 repair (SETTLE-GLAM5.md R6-D) read by an independent confirming "
-            "reader." in b2n,
-        "fp b2: lambda1, delta and lambda2 under the limit stated under Settling": "in either class their values fall "
-            "under the limit on explicit constants stated under Settling" in b2n and "(λ2 > 0 the proof's threshold in "
-            "λ, its value under the same limit)" in b2n,
-        "fp b3: proved, from proved inputs, section 11.1 among them": "is proved in section 9 (Beyond the boundary), "
-            "from proved inputs, the supplement's section 11.1 among them." in b3n,
+            "R5.1), from the write-out's Parts III, IV, VII and VIII, Theorem 2 (the supplement's Theorem P) and "
+            "supplement section 11.1, each proved, the last with its Lemma 11.0 repair (SETTLE-GLAM5.md R6-D) read "
+            "by an independent confirming reader." in b2n,
+        "fp b2: lambda1, delta and lambda2 under the limit stated under Settling": "in either class their values are "
+            "subject to the limit on explicit constants stated under Settling" in b2n and "(λ2 > 0 the proof's "
+            "threshold in λ, its value subject to the same limit)" in b2n,
+        "fp b3: proved, from proved inputs, section 11.1 among them": "is stated in section 9 (Beyond the "
+            "boundary) and proved in SETTLE-GLAM5.md, from proved inputs, the supplement's section 11.1 among them."
+            in b3n,
         "fp no log labels": all("(D63" not in t for t in (b1n, b2n, b3n))})
     out["b2: Lemma R9.1 (iii) (a), no displacement of the boundary"] = (STRIP in b2n
                                                                         and "displacement under g_λ" not in b2n)
