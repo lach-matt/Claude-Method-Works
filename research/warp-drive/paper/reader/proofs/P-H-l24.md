@@ -250,6 +250,13 @@ is of order λ or smaller. The proof of [[thm:l-24]] uses [[eq:l-24-s-bounds]] o
 lies in [1/2, 1.1] once 2λ^γ ≤ 1/10. So, for λ small, the conclusions of [[prop:l-24-transition]] hold at every point of
 the band with 1/2 ≤ R ≤ 1.1.
 
+On the band, for λ small, R is strictly decreasing in v and varies little over two carrier periods. At fixed ω with
+d(ϑ) ≠ 0, (log R)′ = κ + ν′/ν − m0′/m0. By [[lem:l-24-margin]] with ς ≤ 10⁻³ and √μ0 κ ≥ 2, 1.99925 κ ≤ m0′/m0 ≤
+2.6 κ. As in the proof of [[prop:l-24-s-bounds]], |ν′/ν| ≤ C(1 + 1/x) ≤ κ/10. So −1.7 κ ≤ (log R)′ ≤ −0.89 κ, and
+log R varies by at most 7πλκ̄_λ on every interval of length 4πλ. Hence two consecutive carrier periods, one of which
+meets {1 − 2λ^γ ≤ R ≤ 1 + 2λ^γ}, lie where 1/2 ≤ R ≤ 1.1 once λ is small. Along the band, the points with
+R ≥ 1 + 2λ^γ precede those with |R − 1| < 2λ^γ, and these precede those with R ≤ 1 − 2λ^γ.
+
 **Remark {#rem:l-24-sharp}** (The factor 2 − R.) The constant 2 of [[lem:l-24-margin]] is approached as v ↓ v_s. Let
 env be positive and log-concave on (v_s, v_s + x0] with env(v) → 0 as v ↓ v_s. Then κ is nonincreasing there and
 κ(v) → ∞ as v ↓ v_s, since a finite limit B would give log env(v) ≥ log env(v_s + x0) − B x0 for every v in

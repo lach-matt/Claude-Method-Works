@@ -585,3 +585,12 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S25 step 2, the (P6) part, done: ten citations in chapters 40 and 43 now cite lem:s25-p6 (each checked against the
   lemma's statement). The remaining step-2 moves (Lemma 1.2/E^ν into S22, Lemma 2.1 and §2.2-2.5, §2.7 into S23) are
   optional now that the citation order is acyclic; decide at integration.
+- Proof H confirmed (R2-P-H): the reader's paragraph (R decreasing on the band; −1.7κ ≤ (log R)′ ≤ −0.89κ; two
+  consecutive periods in 1/2 ≤ R ≤ 1.1) seated after line 251, checked by the coordinator. Nits: intro wording; the
+  λ-range in the pending hypothesis; Λ ≤ λ at every band point; undefined γ; "cannot be lowered" overstated; where ε_c
+  is evaluated in rem:l-24-eps.
+- Proof G second reading (R2-P-G): a new Major — off the band the commuted fields are nonzero (∂_t̃²h_R =
+  2P(Σ)/g⁻¹(dt̃, dt̃)); far-sigma-data asks jets beyond chapter 63's k1 + 4; the sourced Σ_4 is proved nowhere; (v)'s
+  a < 9/2 against chapter 63's a < 3. Sent to the cut-off proof project; proof G's next fix waits on it.
+- S19 third fix (F3-S19): ℓ_I ∈ (0, ½); no other chapter relies on ℓ_I = ½ for this class (28-s09:165's P_Λ is a
+  sup-based class).

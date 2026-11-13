@@ -54,8 +54,8 @@ the numerical observations of [[rem:bondi-solver]] and [[rem:own-tail-bump]] use
 derivative jumping by 8π⁴/27 at both ends; the proof applies to it for no K ≥ 6, since already Step 4 of the
 proof of [[thm:uniform-existence]] takes six derivatives of the coefficient C of [[eq:ue-linearisation]], which
 contains second derivatives of g1, and the oscillating part of g1 is proportional to env ([[thm:approximant]],
-[[eq:waves]]). The numerical point at which [[prop:lambda0]] bounds λ0 has [v_start, v_end] = [1/2, 7/2] and the
-smooth envelope
+[[eq:waves]]), so that eight derivatives of env enter its bounds. The numerical point at which [[prop:lambda0]] bounds
+λ0 has [v_start, v_end] = [1/2, 7/2] and the smooth envelope
 
     env_C(v) := c β((2v − 4)/3),     β(y) := cos¹²(πy/2) exp(−y²/(1 − y²)) for |y| < 1,  β(y) := 0 for |y| ≥ 1,
 

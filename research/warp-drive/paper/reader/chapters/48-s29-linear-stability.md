@@ -259,15 +259,16 @@ and if, for a given ε_t < ε_K, α is chosen with α > 4 + ε_t, then ε′ := 
 
 (5) the linearised gauge 1-form vanishes: on Ω_*,
 
-    η̇ := Υ̇(ġ) + D_2Υ^(E_Υ)(g, g)(ġ_0) − Dϑ_tot(p⃗′) = 0,        ġ_0 := D_0 g_(b₀,b,−S)(U′),
+    η̇ := Υ̇(ġ) + D_2Υ^(E_Υ)(g, g)(ġ_(p⃗′)) − Dϑ_tot(p⃗′) = 0,        ġ_(p⃗′) := D_0 g_(p⃗)(U′),
 
-and on 𝒟′, Υ̇^♮(ġ) + D_2Υ^(χ^♮_0E_Υ)(g, g)(ġ_(S′)) = 0. These are the derivatives of the gauge conditions of
-[[prop:iii-k-4-2]];
+and on 𝒟′, Υ̇^♮(ġ) + D_2Υ^(χ^♮_0E_Υ)(g, g)(ġ_(S′) + ġ⁰_(S⁰′)) = 0. These are the derivatives of the two lines of the
+gauge 1-form κ of [[prop:iii-k-4-2]]: of Υ^(E_Υ)(𝔤(U) + k, g_(p⃗)) − ϑ_tot(p⃗) at (U, k) = (0, 0) in the direction
+(U′, χ_−(t^♭_*)ḣ), and of Υ^(χ^♮_0E_Υ)(φ*_(−sS′,−sS⁰′)g + sḣ, φ*_(−sS′,−sS⁰′)g) at s = 0;
 
-(6) |ḃ| + |S′| + |S′^(0)_1| + ‖U′‖_(𝒟^k_ex) ≤ C_k‖(γ̇, k̇)‖_(H^(k+k′)).
+(6) |ḃ| + |S′| + |S⁰′| + ‖U′‖_(𝒟^k_ex) ≤ C_k‖(γ̇, k̇)‖_(H^(k+k′)).
 
-*Proof.* *Step 1 (the right inverse at Tangherlini).* At zero data, h_S = 0 for every S ([[prop:iii-k-1-2]] (3)), so
-Ψ = Φ ([[eq:iii-k-2-1]]). [[lem:iii-k-2-3]] at zero data and U = 0 gives a linear ℛ : ℱ^∞_ex → 𝒟^∞_ex with
+*Proof.* *Step 1 (the right inverse at Tangherlini).* At zero data, h_(S,S⁰) = 0 for every (S, S⁰)
+([[prop:iii-k-1-2]] (3)), so Ψ = Φ ([[eq:iii-k-2-1]]). [[lem:iii-k-2-3]] at zero data and U = 0 gives a linear ℛ : ℱ^∞_ex → 𝒟^∞_ex with
 D_0(P_5 ∘ Φ)(ℛf) = f, bounded by the tame estimate of [[thm:iii-j2-4-2]] on the exact scales ([[cor:iii-j3-6-6]]),
 which at U = 0 reads ‖ℛf‖_(𝒟^k_ex) ≤ C_k‖f‖_(ℱ^(k+d)_ex), d its loss. The tail of U = 0 vanishes everywhere, so the
 support clause of [[lem:iii-k-2-3]] applies with c := T̂ + 7/4: if f vanishes on {t^♭_* < T̂ + 7/4}, so does the tail
@@ -278,12 +279,12 @@ of ℛf. Put U′ := ℛf with f of [[lem:viii-2-1]]. Its tail h̃′ vanishes o
 [[prop:iii-k-4-2]] gives, with zero data,
 
     P_5(Φ(U) + (k, 0, 0)) = Ric(𝔤(U) + k) − δ*_(𝔤_0(U),E_C)(Υ^(E_Υ)(𝔤(U) + k, 𝔤_0(U)) − ϑ_tot(p⃗)),
-                                                                                    𝔤_0(U) := g_(b₀,b,−S),
+                                                                                       𝔤_0(U) := g_(p⃗),
 
-which is P_5(Ψ(U)) of [[ch:s27]] for k = χ_−h_(−S). The right side is smooth in (U, k). Φ is smooth
-([[thm:iii-j-2-4]]; on the exact classes [[prop:iii-j3-5-4]]), g_(b₀,b,−S) is smooth in (b, S) ([[eq:iii-i-1-1]]), and
-h_tot, ϑ_tot and h_rem are smooth in (p⃗, q) ([[def:iii-i7-2-3]], [[def:iii-i8-2-1]], [[def:iii-i9-2-1]],
-[[def:iii-i9-2-3]], [[def:iii-i14-1-2]]). At (U, k) = (0, 0) the metric is g and the gauge 1-form vanishes, so the
+which is P_5(Ψ(U)) of [[ch:s27]] for k = χ_−h_(−S,−S⁰), S and S⁰ := S^(0)_1 the boost and translation components
+of U. The right side is smooth in (U, k). Φ is smooth ([[thm:iii-j-2-4]]; on the exact classes [[prop:iii-j3-5-4]]),
+g_(p⃗) is smooth in p⃗ ([[sec:viii-0]]; [[lem:iii-i7-1-3]] (a)), and h_tot, ϑ_tot and h_(b,rem) are smooth in (p⃗, q)
+([[def:iii-i7-2-3]], [[def:iii-i8-2-1]], [[def:iii-i9-2-1]], [[def:iii-i9-2-3]], [[def:iii-i14-1-2]]). At (U, k) = (0, 0) the metric is g and the gauge 1-form vanishes, so the
 variation of δ*_(𝔤_0(U),E_C) drops out. Differentiating at (0, 0) in the direction (U′, χ_−ḣ) gives
 
     DRic(ġ) − δ*_(g,E_C)η̇ = D_0(P_5 ∘ Φ)(U′) + L(χ_−ḣ) = f − f = 0     on Ω_*,                            {#eq:viii-2-4}
@@ -291,14 +292,17 @@ variation of δ*_(𝔤_0(U),E_C) drops out. Differentiating at (0, 0) in the dir
 with ġ := D_0𝔤(U′) + χ_−ḣ and η̇ as in (5). Here D_hP_5(0)(k) = Lk, since at U = 0 the right side is P(g + k, g).
 
 *Step 3 (the initial part of the cone).* On Ω_* ∩ {t^♭_* < T̂ + 7/4}, for every U: χ_K = 0, so
-g_(b₀,b,−S) = φ*_(−S)g; h_tot(p⃗) and ϑ_tot(p⃗) vanish, being supported in 𝒞 ⊂ supp χ_K ([[lem:iii-i7-2-2]] and the
-definitions cited in Step 2), and h_rem(q) vanishes, carrying χ_K; and the metric component of Φ(U) is h̃, as χ_ι = 0
-there (the proof of [[lem:iii-k-2-2]]). So there D_0𝔤(U′) = ġ_(S′) + h̃′ = ġ_(S′) and χ_− = 1, whence
+g_(p⃗) = φ*_(−S,−S⁰)g ([[sec:viii-0]]), with S and S⁰ the boost and translation components of U; h_tot(p⃗) and
+ϑ_tot(p⃗) vanish, being supported in supp χ_K (h_tot in 𝒞 ⊂ supp χ_K; [[lem:iii-i7-2-2]] and the definitions cited in
+Step 2), and h_(b,rem)(q) vanishes, carrying χ_K; and the metric component of Φ(U) is h̃, as χ_ι = 0 there (the proof
+of [[lem:iii-k-2-2]]). So there ġ_(p⃗′) = ġ_(S′) + ġ⁰_(S⁰′) ([[sec:viii-0]]), Dϑ_tot(p⃗′) = 0,
+D_0𝔤(U′) = ġ_(S′) + ġ⁰_(S⁰′) + h̃′ = ġ_(S′) + ġ⁰_(S⁰′) (Step 1) and χ_− = 1, whence
 
-    ġ = ġ_(S′) + ḣ,        η̇ = Υ̇(ḣ) + (D_1 + D_2)Υ^(E_Υ)(g, g)(ġ_(S′)) = 0.
+    ġ = ġ_(S′) + ġ⁰_(S⁰′) + ḣ,        η̇ = Υ̇(ḣ) + (D_1 + D_2)Υ^(E_Υ)(g, g)(ġ_(S′) + ġ⁰_(S⁰′)) = 0.
 
-The first term vanishes by [[prop:viii-1-2]] (1). The second is (d/ds)Υ^(E_Υ)(φ*_(−sS′)g, φ*_(−sS′)g)|_(s=0) = 0
-([[sec:viii-0]]).
+The first term vanishes by [[prop:viii-1-2]] (1). The second is
+(d/ds)Υ^(E_Υ)(φ*_(−sS′,−sS⁰′)g, φ*_(−sS′,−sS⁰′)g)|_(s=0), by the chain rule and [[sec:viii-0]], and this is 0, as
+Υ^(E_Υ)(g_0, g_0) = 0 for every metric g_0 ([[sec:viii-0]]).
 
 *Step 4 (propagation).* By [[eq:viii-2-4]] and the linearised Bianchi identity (the proof of [[prop:viii-1-2]]),
 δ_gG_gδ*_(g,E_C)η̇ = 0 on Ω_*. η̇ vanishes on Ω_* ∩ {t^♭_* < T̂ + 7/4}, which contains Ω_* ∩ {t^♭_* ≤ 2} (T̂ ≥ 2).
@@ -309,22 +313,23 @@ t_* is non-decreasing and B := t_* + R̃(r) is a time function, and near the inn
 {r ≥ min(r(p), r^♮)}, as dr is future timelike on {r_♭ ≤ r ≤ r^♮} ([[lem:ii-c-3-2]] (1) at h = 0). So for p ∈ Ω_*°
 with t^♭_*(p) > c, J⁻_(Ω_*°)(p) ∩ {t^♭_* ≥ c} lies in
 
-    L_p := {c ≤ t^♭_* ≤ t^♭_*(p),  B ≤ B(p),  r ≥ min(r(p), r^♮)},
+    L′_p := {c ≤ t^♭_* ≤ t^♭_*(p),  B ≤ B(p),  r ≥ min(r(p), r^♮)},
 
-t^♭_* being a time function: this is the set [[eq:ii-f-lp]] with X := Ω_*° and τ′ := t^♭_* (≤ t_*), its condition
-on t_* being implied by C_♭t_* ≤ t^♭_*. L_p is compact, as B bounds r there
-(c ≤ t_* ≤ t^♭_*(p)/C_♭, R̃(r) ≤ B(p) − c, and R̃(r) = r for r ≥ r′_0 + 1), and it lies in Ω_*°, as t^♭_* ≥ c > 1
-and r ≥ min(r(p), r^♮) > r_♭ on it. ([[lem:iii-k-6-1]] (c) at h = 0 gives such sets as well.) So DRic(ġ) = 0 on Ω_*
+t^♭_* being a time function: this is the set L′_p of [[eq:ii-f-lp-prime]] ([[lem:ii-f-1-4]] (a)) with X := Ω_*°,
+τ′ := t^♭_* (≤ t_*) and C′ := C_♭, which drops the condition t_* ≤ t_*(p) of [[eq:ii-f-lp]] as C_♭t_* ≤ t^♭_*.
+L′_p is compact, as B bounds r there (c ≤ t_* ≤ t^♭_*(p)/C_♭, R̃(r) ≤ B(p) − c, and R̃(r) = r for r ≥ r′_0 + 1), and
+it lies in Ω_*°, as t^♭_* ≥ c > 1 and r ≥ min(r(p), r^♮) > r_♭ on it. ([[lem:iii-k-6-1]] (c) at h = 0 gives such sets as well.) So DRic(ġ) = 0 on Ω_*
 by [[eq:viii-2-4]].
 
-*Step 5 (the initial region).* On 𝒟′ put ġ := ḣ + ġ_(S′). DRic(ḣ) = 0 ([[prop:viii-1-2]] (1)) and DRic(ġ_(S′)) = 0
-([[sec:viii-0]]). The gauge 1-form of (5) on 𝒟′ is Υ̇^♮(ḣ) + (D_1 + D_2)Υ^(χ^♮_0E_Υ)(g, g)(ġ_(S′)) = 0 + 0, as in
-Step 3. On Ω_* ∩ 𝒟′ = Ω_* ∩ {t^♭_* < T̂ + 7/4} the two definitions of ġ agree (Step 3), and so do those of the gauge
+*Step 5 (the initial region).* On 𝒟′ put ġ := ḣ + ġ_(S′) + ġ⁰_(S⁰′). DRic(ḣ) = 0 ([[prop:viii-1-2]] (1)) and
+DRic(ġ_(S′)) = DRic(ġ⁰_(S⁰′)) = 0 ([[sec:viii-0]]). The gauge 1-form of (5) on 𝒟′ is
+Υ̇^♮(ḣ) + (D_1 + D_2)Υ^(χ^♮_0E_Υ)(g, g)(ġ_(S′) + ġ⁰_(S⁰′)) = 0 + 0, as in Step 3, Υ^(χ^♮_0E_Υ)(g_0, g_0) vanishing for
+every metric g_0. On Ω_* ∩ 𝒟′ = Ω_* ∩ {t^♭_* < T̂ + 7/4} the two definitions of ġ agree (Step 3), and so do those of the gauge
 1-form, χ^♮_0 being 1 there. As Ω_* ∪ 𝒟′ = Ω_* ∪ 𝒟, this gives (1), (2) and (5).
 
 *Step 6 ((3) and (4)).* On {t^♭_* ≥ T̂ + 2}, χ_− = 0, so ġ = D_0𝔤(U′); this is (3), with D_0Φ(U′) in the exact
-classes by [[prop:iii-j3-5-4]]. Where χ_K = 1: g_(b₀,b,−S) = g_b for every (b, S) ([[eq:iii-i-1-1]]), so
-D_0 g_(b₀,b,−S)(U′) = ∂_b g_b|_(b₀)(ḃ); h_tot(p⃗) vanishes for every p⃗, each of its terms carrying a factor dχ_K
+classes by [[prop:iii-j3-5-4]]. Where χ_K = 1: g_(p⃗) = g_b for every p⃗ ([[eq:iii-i7-1-3]]), so
+ġ_(p⃗′) = D_0 g_(p⃗)(U′) = ∂_b g_b|_(b₀)(ḃ); h_tot(p⃗) vanishes for every p⃗, each of its terms carrying a factor dχ_K
 ([[def:iii-i4-2-1]], [[def:iii-i7-2-1]], [[def:iii-i8-2-1]], [[def:iii-i9-2-1]]), so its derivative vanishes;
 h_(b,rem)(q) is linear in q for each b ([[eq:iii-i14-1-2]]), so its derivative at (b₀, 0) in the direction (ḃ, q′) is
 h_(b₀,rem)(q′); and the derivative of h is h′. This is [[eq:viii-2-2]].
@@ -333,15 +338,16 @@ h_(b₀,rem)(q′); and the derivative of h is h′. This is [[eq:viii-2-2]].
 disjoint from a neighbourhood of K⁺ ([[lem:iii-i14-2-2]] (c)). h′ has K⁺-order α−, and h_(b₀,rem)(q′) has K⁺-order
 (α − 2)−, each seminorm bounded by one of q′ ([[lem:iii-i14-2-2]] (a)). Near the interior of K⁺, ρ_K = t₀⁻¹ with
 t₀ = t − |x| ([[eq:iii-b-2-2]], [[eq:iii-b-4-1]]), comparable to t_* on {r ≤ R′}, and the b-vector fields there are
-spanned by t_*∂_(t_*) and ∂_x. By Sobolev embedding for b-Sobolev spaces with the unweighted b-density
-([[lem:ii-a-8-8]]), (t_*∂_(t_*))^i ∂^β_x of a function of K⁺-order w− is O(t_*^(−w+ε′)), bounded by a seminorm of it.
+spanned by t_*∂_(t_*) and ∂_x. By b-Sobolev embedding for the b-density μ_b of [[sec:iii-i-1]], as in the proof of
+[[lem:iii-i-2-2]] (a weight is then the pointwise order), (t_*∂_(t_*))^i ∂^β_x of a function of K⁺-order w− is
+O(t_*^(−w+ε′)), bounded by a seminorm of it.
 With w = α − 2, (6) and the tame bound for D_UΦ at U = 0 ([[prop:iii-j3-5-4]]), ‖D_0Φ(U′)‖_k ≤ C_k‖U′‖_(𝒟^(k+d)_ex),
 this is [[eq:viii-2-3]]. The bound on α is the choice of α in step (4) of [[thm:vi-c-2-1]] (row w2 of
 [[sec:vi-c-1]]), made with α > 4 + ε_t. ∎
 
 **Corollary {#cor:viii-2-3}** (In the class.) Let G act as in [[sec:s27-class]], and make the choices of [[lem:vii-3-1]]
-equivariant. If (γ̇, k̇) are G-invariant, [[thm:viii-2-2]] holds with U′ fixed by G, ḃ = (ṁ, 0), S′ = S′^(0)_1 = 0
-and ġ G-invariant. So ġ = ḣ near Σ^IVP induces (γ̇, k̇), and where χ_K = 1
+equivariant. If (γ̇, k̇) are G-invariant, [[thm:viii-2-2]] holds with U′ fixed by G, ḃ = (ṁ, 0), S′ = S⁰′ = 0 and ġ
+G-invariant. So ġ = ḣ on 𝒟′, near Σ^IVP, and it induces (γ̇, k̇); and where χ_K = 1
 
     ġ − ṁ ∂_m g_((m,0))|_(m=m₀) = h_(b₀,rem)(q′) + h′,
 
@@ -358,10 +364,10 @@ solves [[eq:viii-1-1]] for σ ∈ G, and ḣ is G-invariant by the uniqueness in
 preserves. χ_− is a function of t^♭_*, so f is G-fixed. Differentiating P_5(Ψ(σ · U)) = σ_*P_5(Ψ(U))
 ([[lem:vii-3-1]]) at the fixed point U = 0, at zero data, gives D_0(P_5 ∘ Φ) ∘ σ = σ_* ∘ D_0(P_5 ∘ Φ). So U″ := Πℛf
 satisfies D_0(P_5 ∘ Φ)(U″) = Πf = f. Its tail vanishes on {t^♭_* < T̂ + 7/4}, and it is bounded as in (6). Run Steps
-2–6 of the proof of [[thm:viii-2-2]] with U″ in place of U′. U″_0 = (ḃ, S′, S′^(0)_1) lies in
-𝔟^G × 𝒮_1^G × 𝒮_1^G = (ℝ × {0}) × 0 × 0, as 𝔟 = ℝ × 𝔰𝔬(4), 𝒮_1 ≅ ℝ⁴ as a representation, and (ℝ⁴)^G = 0,
-𝔰𝔬(4)^G = 0 ([[sec:s27-class]]). So ġ_(S′) = 0, and ġ is G-invariant, every ingredient being equivariant and U″
-fixed. ∎
+2–6 of the proof of [[thm:viii-2-2]] with U″ in place of U′. U″_0 = (ḃ, S′, S⁰′) lies in
+𝔟^G × 𝒮_1^G × 𝒮_1^G = (ℝ × {0}) × 0 × 0, as 𝔟 = ℝ × 𝔰𝔬(4), 𝒮_1 ≅ ℝ⁴ as a representation (for the boost and for the
+translation components alike), and (ℝ⁴)^G = 0, 𝔰𝔬(4)^G = 0 ([[sec:s27-class]]). So ġ_(S′) = ġ⁰_(S⁰′) = 0, and ġ is
+G-invariant, every ingredient being equivariant and U″ fixed. ∎
 
 **Remark {#rem:viii-2-4}** (What is and is not asserted.) (a) [[thm:viii-2-2]] has the form of [[thm:settling]]: every
 linearised data set in the class has a linearised vacuum development, in a fixed gauge, that settles at the stated

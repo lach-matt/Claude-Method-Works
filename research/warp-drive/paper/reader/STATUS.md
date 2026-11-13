@@ -29,7 +29,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | CONFIRMED (third reading; 4 nits) |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
-| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | third reading NOT CONFIRMED 1M 0m 5n (ℓ_I ∈ (0, ½)); third fix running |
+| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | third fix done (ℓ_I ∈ (0, ½)); fourth reading running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-keyed to lem:s25-p6 |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | NOT CONFIRMED 0M 1m 4n; third fix done; third reading running |
@@ -42,7 +42,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | running | - |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | CONFIRMED (second reading; 2 nits) |
-| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | running |
+| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | NOT CONFIRMED 0M 2m 8n (past timelike; lem:vii-1-2 range); second fix running |
 | 63 M Ch 13 | written (959 lines; issue-1 order k_P, issue-2 commuted cut-off energy); running | - | - |
 | 64 M Ch 14 | written (1,031 lines, no markers); running | - | - |
 | 65 M Ch 15 | being written | - | - |
@@ -56,11 +56,11 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 |---|---|---|
 | P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | NOT CONFIRMED 2M 4m 9n; fixed; CONFIRMED (second reading, 4 nits) |
 | P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | second reading 0M 1m 4n (a rename); fixed; CONFIRMED (diff read) |
-| P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | NOT CONFIRMED 1M 7m 16n; fixed (transverse term, κ_Σ, R′); confirming reader running |
+| P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | second reading NOT CONFIRMED 1M 6m 4n (off-band commuted terms; tied to ch 63 issue-2); waits on the cut-off proof project |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | NOT CONFIRMED 1M 9m 9n (constants weaker than source); fix running |
 | P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | NOT CONFIRMED 0M 6m 4n; fixed (503 coefficients printed, rem:band-observed); confirming reader running |
 | P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | fixed (scope remark; corollary covers all lists); confirming reader running; P-A3 CONFIRMED (second reading 0M 1m 2n; the clause applied) |
-| P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | NOT CONFIRMED 0M 3m 3n; fixed (lem:l-24-kappa, prop:l-24-s-bounds for R ≥ 1/2); confirming reader running |
+| P-H-l24 (L.24 m0′, for 85) | done: 1.9 proved for every admissible envelope; 0.93 at R ≤ 1.1 false, 0.89 proved and sufficient | CONFIRMED (second reading 0M 1m 6n; the reader's slow-variation paragraph seated, checked) |
 | P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | NOT CONFIRMED 2M 6m 7n; fixed (bend −0.0011595971; lens for R_p ≥ R_*; C2 deleted); confirming reader running |
 | P-E-background + T-E-background (true background, for 83) | done: T1-T3 proved, at least as strong as the source; T4 a remark | NOT CONFIRMED 1M 6m 8n; fixed (λ ≥ 0.529533; ε entries 2.681e-5, 5.681e-6); confirming reader running |
 | P-D234-residuals + T-D234 (residuals, for 86/87) | proofs written; D4a source 2.41e-3 false (2.414e-3), edition 2.42e-3; rounded tables (10⁻¹⁸) being written | - |
