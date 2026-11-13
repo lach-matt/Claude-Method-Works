@@ -58,8 +58,8 @@ contains the points where t^♭_* is not defined. Also kept are χ^♮_0 and P^�
     𝒟 = N_ν ∩ {t^♭_* ≤ T̂ + 3},        N_ν = {t_IVP ≥ −ν(|x|)},
 
 with ν = 0 on [0, R_ν] and ν > 0 on (R_ν, ∞), and its cover by Ω_(ext,r_1), the compact part 𝒦 and the slab 𝒮
-([[lem:s27-cover]], with the same r_1, R_8, R_9, c, T″ and ρ′_I). 𝒟 contains Ω_* ∩ {t^♭_* ≤ T̂ + 3}, as
-t_IVP ≥ t_* ≥ t^♭_* ≥ 1 there.
+([[lem:s27-cover]], with the same r_1, R_8, R_9, c, T″ and ρ′_I), with 𝒟^± := 𝒟 ∩ {±t_IVP ≥ 0} and the compact set 𝒦⁻
+of its part (e). 𝒟 contains Ω_* ∩ {t^♭_* ≤ T̂ + 3}, as t_IVP ≥ t_* ≥ t^♭_* ≥ 1 there.
 
 *Linearised operators.* For a symmetric 2-tensor k let DRic(k) := (d/ds) Ric(g + sk)|_(s=0), and let Υ̇(k), Υ̇^♮(k),
 Υ̇⁰(k) be the derivatives at (g, g) in the first argument of Υ^(E_Υ), Υ^(χ^♮_0E_Υ) and Υ⁰ ([[eq:iii-b-6-3]],
@@ -125,12 +125,12 @@ that every symmetric 2-tensor ḣ, smooth near Σ^IVP or on one side of it up to
 
 (3) if (γ̇, k̇) satisfy the linearised constraint equations, then (G_g DRic(ḣ))(n, ·) = 0 at Σ^IVP.
 
-*Proof.* For |ε| small, [[prop:iii-c2-4-1]] applies to (γ̃, k̃) := ε(γ̇, k̇) ((γ̃, κ̃) there; γ̃ is small in H³_b, and
+*Proof.* For |ε| small, [[prop:iii-c2-4-1]] applies to (γ̃, k̃) := ε(γ̇, k̇) (γ̃ is small in H³_b, and
 the constraints are not assumed there). It gives h_0(ε) = εγ̇, extended by h_0(n, ·) := 0, and h_1(ε) = r h̃_1(ε). Its
 proof determines h̃_1(ε) at each point by linear algebraic equations, solved in the order (ij), (0j), (00), each step
 dividing by a multiple of e_0 t_IVP, which is bounded away from 0. Their other coefficients (the frame, the normal n_0
 of g + h_0, written ν₀ there, the Christoffel symbols of g + h_0) are smooth functions of h_0 and its first derivatives.
-Their right sides are smooth in these and affine in k̃ (κ̃ there; the proof of [[prop:iii-c2-4-1]]). So ε ↦ h_1(ε) is
+Their right sides are smooth in these and affine in k̃ (the proof of [[prop:iii-c2-4-1]]). So ε ↦ h_1(ε) is
 smooth at each point, with h_1(0) = 0. Put ḣ_0 := γ̇, extended in the same way, and ḣ_1 := ∂_ε h_1(0). This is the same
 construction with the two equations of that proof, for the second fundamental form and for Υ⁰, linearised at g. Their
 right sides are linear in γ̇, its b-derivatives and k̇, with the coefficients of that proof. So they lie in

@@ -1814,7 +1814,24 @@ nonzero, hence so is a_(5/2). Suppose γ − γ_b0 = ρ² b_2 + ρ³ b_3 + ψ on
 other term lies there. But if c ≠ 0 its modulus is at least |c|ρ²/2, and otherwise it is |a_(5/2)| ρ^(5/2); in either
 case ∫_0 |ρ^(−q)(ρ² c + ρ^(5/2) a_(5/2))|² dρ/ρ = ∞, as q > 5/2. ∎
 
-*Proof of [[thm:own-data]].* Let λ_2 be at most the thresholds λ_P(K, k_P) of [[cor:own-p-order]], λ_F(k_P) of
+*Proof of [[thm:own-data]].* *The order k_P.* By [[cor:own-p-order]] the solution g_λ is the same at every order, and
+the proof uses its bounds at the order k_P = 2k1 + 14 at four places, each of which needs at most k_P. (a)
+[[lem:own-sigma-data]] (a) applies [[lem:own-e-flux]] (1) with i = 0 and |β| ≤ 2k1 + 10, which needs
+i + |β| ≤ k_P − 4. This is the largest demand: [[lem:own-sigma-data]] (b) bounds the Cartesian derivatives of order at
+most k1 + 4 of Σ̂_p, which cost ‖G_(2p)(v1)‖ in C^(2(k1+4)+2) = C^(2k1+10) by [[lem:own-self-similar]], and k1 + 4 is
+the order to which Σ enters: through the coefficients ∂^j Γ^γ Σ, j ≤ 2, |γ| ≤ k1, of [[eq:own-commuted]]; through the
+residual Π_i (Γ_i + c_i) P(Σ), |α| ≤ k1, whose bound in [[prop:far-residual]] uses jets of order |α| + 2; and through
+the Taylor remainders of [[lem:own-n-data]] (ii), which use (s, x̂)-derivatives of F_p of order at most
+m_p + k1 + 1 ≤ k1 + 4, costing at most 2(m_p + k1 + 1) + 2 ≤ 2k1 + 10 angular derivatives of the data. (b)
+[[lem:own-e-flux]] needs k_P ≥ j + 5, used at j = k1 in [[lem:own-n-data]] (ii), with [[eq:own-p-iii]] at order k_P and
+[[eq:own-poly]] at n = k_P − 4, which [[cor:own-p-order]] and [[prop:own-poly]] give. (c) Part (2) below uses the
+conclusions of [[thm:uniform-existence]] on Ω′ at an order at least J + 3, J := d_1 + 10; and k_P ≥ 2d_1 + 22 ≥ J + 3,
+as k1 ≥ d_1 + 4. (d) [[prop:own-far-order]], [[prop:own-near-order]] and [[cor:own-p-order]] need k_P ≥ 6. The number
+K + 4 + ⌈4β0(k_P)⌉ of stages is the N_(k_P) of [[prop:own-near-order]], and K* of [[eq:own-kstar]] does not involve k_P:
+rotations cost no power of λ in [[eq:own-p-iii]] and [[eq:own-poly]], so the angular order changes only the constants
+and the thresholds λ_P(K, k_P), λ_F(k_P) and λ_0 below.
+
+*The threshold.* Let λ_2 be at most the thresholds λ_P(K, k_P) of [[cor:own-p-order]], λ_F(k_P) of
 [[prop:own-far-order]], λ_0 of [[prop:own-poly]] at n = k_P − 4, and those of [[lem:own-sigma-data]],
 [[lem:own-truncation]] and [[thm:own-continuation]]; none depends on whether G_5^∞ vanishes.
 
