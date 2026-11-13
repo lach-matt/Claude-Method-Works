@@ -637,10 +637,9 @@ every vector tangent to C_v: g(L̲, L̲) = G_x β² − 2G_x β² + G_x β² = 0
 g(L̲, ∂_φi) = 0 and g(L̲, ∂_v) = −2e^(2W). Its integral curves are the ingoing generators of C_v. A T²-invariant
 section of C_v is a compact T²-invariant C² submanifold S ⊂ C_v of dimension three that meets every generator of C_v
 exactly once, and transversally; then S = {u = Ũ} for a C² function Ũ on C_v, constant along the generators and
-T²-invariant, and U := u|_S. The leaf through a point of C_v is its intersection with {u = const}, and
-γ denotes its metric. With θ_S its outgoing expansion along the null normal l_S of [[lem:tl5-section]], S is
-marginally outer trapped if θ_S = 0 on S. Its innermost point is a point where U is largest, its outermost point one
-where U is smallest.
+T²-invariant, and U := u|_S. The leaf through a point of C_v is its intersection with {u = const}, and γ denotes its
+metric. With θ_S its outgoing expansion along the null normal l_S of [[lem:tl5-section]], S is marginally outer trapped
+if θ_S = 0 on S. Its innermost point is a point where U is largest, its outermost point one where U is smallest.
 
 **Lemma {#lem:tl5-section}** (The expansion of a section.) Let g be a C² metric of the class in the gauge on a
 neighbourhood of a T²-invariant section S of C_v, and on C_v put Z := 2 e^(2W) grad_γ Ũ, the gradient of Ũ along the
