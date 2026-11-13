@@ -1571,10 +1571,11 @@ uniform for L in a neighbourhood in C^(d_0)_e3b 𝒫 on which WF′(B) ⊂ Ell(L
 
 *Proof.* Let K := WF′(B), compact in the open set O := Ell(G) ∩ Ell(L). Fix J ∈ ℕ, to be chosen, and closed sets
 K_0 ⊂ K_1 ⊂ ⋯ ⊂ K_(J+2) of the compactified bundle, each a neighbourhood of the previous one, with K ⊂ K_0° and
-K_(J+2) ∩ ᵉ³ᵇS*M̃ ⊂ O. They lie over the interior of {χ′ = 1} for a cut-off χ′ carried by χ ([[sec:ii-a-8-3]]), and in
-{|ξ| ≥ 1} near fibre infinity: choose them inside a set {ρ_∞ ≤ r_1} on which ℓ is invertible with |ℓ⁻¹| ≤ C_ℓ ρ_∞^m, as
-Ell(L) is defined by such a bound on a neighbourhood. Fix cut-offs χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃) with χ̃_i = 1 near K_(i−1) and
-supp χ̃_i ⊂ K_i, multiplied by base cut-offs so that the operators are carried by χ. Put G_i := Op(χ̃_i), i ≥ 1. By
+K_(J+2) ∩ ᵉ³ᵇS*M̃ ⊂ O. They lie over {ϑ ≥ 3c/4}, ϑ and c being those of [[sec:ii-a-8-3]] for B and G (K lies over
+{ϑ ≥ c}), and in {|ξ| ≥ 1} near fibre infinity: choose them inside a set {ρ_∞ ≤ r_1} on which ℓ is invertible with
+|ℓ⁻¹| ≤ C_ℓ ρ_∞^m, as Ell(L) is defined by such a bound on a neighbourhood. Fix χ̃_i ∈ C^∞(ᵉ³ᵇT̄*M̃) with χ̃_i = 1 near
+K_(i−1) and supp χ̃_i ⊂ K_i, and let G_i, i ≥ 1, be Op(χ̃_i) truncated to range ϵ_ϑ. As χ̃_i = f(ϑ)χ̃_i, the G_i are
+auxiliary operators ((R1) of [[sec:ii-a-8-3]]), carried by χ; and G_i is Op(χ̃_i) up to a residual operator. By
 [[sec:ii-a1-1-2]], B is microsupported in K_0: B = Op(b) + R_B with supp b ⊂ K_0.
 
 *One step.* Let A ∈ Ψ̃^𝗋 be microsupported in K_i, A = Op(a) + R_A with a ∈ S̃^𝗋 (smooth) supported in K_i, and i ≤ J.
@@ -1590,10 +1591,11 @@ identities of symbols, χ̃_(i+1) being 1 on supp a. So
     A = Op(q)L − E_A,     E_A := D_1 + Op(χ̃_(i+1)aℓ⁻¹(ℓ_f − ℓ)) + Op(q) Σ_j a_jR_j − R_A.                {#eq:ii-a1-3-1}
 
 E_A has order 𝗋 − 1 + δ. The term Op(q) Σ a_jR_j has every order, by [[prop:ii-a1-2-4]] (a) and [[lem:ii-a-8-5]] (a)
-for the multiplications, R_j being residual. Apply [[eq:ii-a1-3-1]] to u, with χu ∈ H^(−N). By the support convention,
-Au = Aχu, and all terms make sense once d_0 is large for the finitely many orders involved. Fix a cut-off χ_* that
-carries the operators of this proof and with χ = 1 near the D-neighbourhood of supp χ_* ([[sec:ii-a-8-3]]); then
-‖χ_*Lu‖_(−N−m) = ‖χ_*Lχu‖_(−N−m) ≤ C‖χu‖_(−N) by [[lem:ii-a-8-6]] (a).
+for the multiplications, R_j being residual. Below, A is B or one of the G_i, so Aχ = A, and Au = Aχu. Apply
+[[eq:ii-a1-3-1]] to χu ∈ H^(−N): L maps it to H^(−N−m) ([[lem:ii-a-8-6]] (a)), and all terms make sense once d_0 is
+large for the finitely many orders involved. Let χ_* be the cut-off of (R2) of [[sec:ii-a-8-3]]. As Lemma 8.4 (c) asks
+([[lem:ii-a-8-4]]), Gχ_* = G and G_iχ_* = G_i; no margin around these kernels is needed for that. And χ = 1 within D of
+supp χ_*, so ‖χ_*Lu‖_(−N−m) = ‖χ_*Lχu‖_(−N−m) ≤ C‖χu‖_(−N) by [[lem:ii-a-8-6]] (a).
 
 *Localisation.* G_(i+1) = Op(χ̃_(i+1)) is microsupported in K_(i+1), and 1 − χ̃_(i+1) vanishes near K_i ⊃ supp a, so
 (I − G_(i+1))A ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]). I − G_(i+2) = Op(1 − χ̃_(i+2)) is microsupported in the support of

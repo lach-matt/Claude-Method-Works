@@ -38,7 +38,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | CONFIRMED (third reading 0M 0m 4n, with 38a); reopened for one minor from S22's Step 6 (lem:iii-i15-2-4, def:iii-i15-2-3, prop:iii-i15-2-5 Step 3), in the S22 third fix |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | NOT CONFIRMED 1M 1m 4n (thm:iv2-2-4 Step 4 at k ≤ 2; h_S smallness); second fix running |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | NOT CONFIRMED 1M 6m 8n (lem:s27-below (iii) on ½ ≤ t_* ≤ 1); second fix running |
-| 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | running |
+| 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | CONFIRMED (second reading 0M 0m 7n; [CD03] quoted literally against page images) |
 | 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | done (translated background g_(p⃗) with ġ⁰_(S⁰′); Θ(k) → −Υ̇⁰(k); principal-part sign) | confirming reader running |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | CONFIRMED (second reading; 2 nits) |

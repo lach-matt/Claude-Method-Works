@@ -697,3 +697,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   theorem (assuming a continuation) survive. Forwarded to the cut-off proof project. prop:own-same-index-sets correct;
   three DLMF formulas exact. Minors include cor:own-p-order on Ω′ and lem:vii-1-1 used only through its proof. Ch 63's
   fix round waits on the cut-off proof project.
+- S28 confirmed (R2-S28): the projection, transport through π_(g′), (5.11), (3.13), Theorems 3.6, 3.9, 5.9, Corollary
+  5.11 and (8.6) quoted literally (checked against [CD03] page images); 𝒞 gone; "close to zero" is the source's meaning
+  (Theorem 3.9 via Prop. G.1); the smallness restored in lem:s28-setting (b) and Appendix A; the Jacobian at every
+  (m,0,0,0) matches in sympy; rem:v-3-4's sign right; n9 acyclic. Chapter 61 step (2) should bound C^(k_g+2) (the same
+  right side bounds it). Open nits for integration: n10 (Appendix A, Theorem 3.6 gloss) not applied; k₀ has two
+  meanings; a ψ-sign remark against [CD03] p. 25.
