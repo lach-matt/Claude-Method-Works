@@ -45,8 +45,9 @@ by which a conormal function whose pointwise orders exceed the weights lies in t
 *The form dψ.* dψ = m₀W* − (∂_v)^♭, ψ = v + F, is the closed 1-form of [[lem:gd-r2-9]]: □dψ = d□_0ψ = 0, and
 ℒ_(dψ)g = m₀ℒ_(W*)g, as (∂_v)^♭ is Killing. dψ is stationary and bounded, and does not decay at infinity.
 
-*Charges.* For a 1-form f on Ω_* in one of the spaces [[eq:gd-r5-1]], [[eq:gd-r6-1]] and [[eq:gd-r7-1]] below,
-c_f(t_*) := (4π²)⁻¹∫_(−∞)^(v_h(t_*)) ℓ(f) dv is its *running charge* ([[eq:gd-r2-2]]), and for the forward solution u
+*Charges.* For a 1-form f on Ω_* in one of the spaces [[eq:gd-r5-1]] (of [[thm:gd-r5-1]]), [[eq:gd-r6-1]] and
+[[eq:gd-r7-1]] (below), c_f(t_*) := (4π²)⁻¹∫_(−∞)^(v_h(t_*)) ℓ(f) dv is its *running charge* ([[eq:gd-r2-2]]),
+and for the forward solution u
 of □u = f, Q[u](v_h(t_*)) = 4π²c_f(t_*) by [[eq:gd-2-1]], as u and f vanish at early times. If f has K⁺-weight
 α_K > 1, as in [[eq:gd-r6-1]] and [[eq:gd-r7-1]], then f and its derivatives are O(t_*^(−α_K)) on compact r-sets, by
 b-Sobolev embedding near K⁺ ([[sec:hg-positive]]); so f̂(0) := ∫f dt_* exists there, and ∫ℓ(f) dv = ℓ(f̂(0)), as
@@ -480,7 +481,8 @@ to Σ°, with □Y = 0, whose Cauchy data on Σ° have compact support, and let 
     Y − cW* = (c/2) t_*^(−2) dψ + O(t_*^(−3+ε)),
     ℒ_Yg − cℒ_(W*)g = (m₀c/2) t_*^(−2) ℒ_(W*)g + O(t_*^(−3+ε)).                                          {#eq:gd-r7-3}
 
-The second term is not o(t_*^(−2)) when c ≠ 0: ℒ_(W*)g ≠ 0, and (ℒ_(W*)g)_(vr) = −(7/24)r_h⁻³ at r = 2r_h.
+The second term is not o(t_*^(−2)) when c ≠ 0: ℒ_(W*)g ≠ 0, and (ℒ_(W*)g)_(vr) = −(7/24)r_h⁻³ at r = 2r_h. Both
+identities hold, with the same c, when the data of Y on Σ° vanish only outside a ball, not near {|x| = r_♭}.
 
 *Proof.* The cut-off of the proof of [[cor:gd-r6-6]], with its translation, gives U = Y on compact r-sets at late times,
 U the forward solution of a smooth forcing term with compact support in spacetime; that forcing term lies in
@@ -489,7 +491,19 @@ constant, c_F = Q[U]/4π² = c, once the cut-off vanishes near the horizon. [[th
 first identity. For the second, ℒ_(φ dψ)g = φℒ_(dψ)g + 2dφ ⊗_s dψ and ℒ_(dψ)g = m₀ℒ_(W*)g; with φ := (c/2)t_*^(−2),
 dφ = O(t_*^(−3)). For the value: (ℒ_(W*)g)_(vr) = ∂_rW*_v + ∂_vW*_r − 2Γ^μ_(vr)W*_μ, and in the ingoing chart
 Γ^v_(vr) = 0 and Γ^r_(vr) = −f′/2; so (ℒ_(W*)g)_(vr) = −2r⁻³ − f′/(r(r + r_h)), f′ = 2m₀r⁻³, which is
-−¼r_h⁻³ − (1/24)r_h⁻³ at r = 2r_h. ∎
+−¼r_h⁻³ − (1/24)r_h⁻³ at r = 2r_h.
+
+*Data vanishing only outside a ball.* Fix r_1 ∈ (r_♭, r_h), put K := Σ° ∩ {|x| ≤ r_1}, let θ ∈ C^∞(Σ°) equal 1 on
+{|x| ≤ ½(r_♭ + r_1)} and 0 on {|x| ≥ r_1}, and let Y_2 solve □Y_2 = 0 on N⁺ with (1 − θ) times the data of Y, which
+have compact support in Σ° ([[thm:std-bgp-cauchy]] (5) on Ω^♯, [[lem:ix-1-2]]). The data of Y − Y_2 vanish on Σ° ∖ K.
+A point of N⁺ ∖ J⁺(K) lies in the Cauchy development of Σ° ∖ K in Ω^♯, as a past inextendible causal curve from it
+meets Σ°, and not in K; that development is globally hyperbolic with Cauchy hypersurface Σ° ∖ K
+([[thm:std-bgp-development]]), so the argument of [[lem:gd-r3-1]] there gives Y = Y_2 on N⁺ ∖ J⁺(K). On {r < r_h},
+f < 0. A future causal vector X has X^v = −g(X, −∂_r) ≥ 0, −∂_r being future null, and the inequalities
+0 ≥ g(X, X) ≥ |f|(X^v)² + 2X^vX^r give X^r ≤ −½|f|X^v (if X^v = 0, X is a negative multiple of ∂_r). So along a
+future causal curve from K, r does not increase and v increases by at most 2(r_1 − r_♭)/|f(r_1)|; as v is bounded on
+K and t_* − v is a smooth function of r on {r_♭ ≤ r ≤ r_1}, J⁺(K) ⊂ {r ≤ r_1, t_* ≤ T_K} for a constant T_K. Hence
+Y = Y_2 on {r > r_1}, so Q[Y] = Q[Y_2], and on {t_* > T_K}: the identities for Y_2, with T′ > T_K, are those for Y. ∎
 
 **Corollary {#cor:hr-compact-rates}** (The rates of [[ch:harmonic-structure]] for gauge vectors with compactly
 supported data.) Let ε > 0; on each {r_♭ < r ≤ R′, t_* ≥ T′}, with every number of derivatives:
@@ -609,9 +623,9 @@ settles faster than t_*^(−1/2−δ_♯).
 
 (b) Suppose that outside a ball (γ̇, k̇) are ṁ times the data of K_V, as for the data of [[thm:settling]], glued to
 exact Tangherlini data beyond a ball ([[ch:after-shell]]). Then Z′_0 = ṁZ^(V) + Z_c + c″(∂_t)^♭, where Z_c solves
-□Z_c = 0 with data of compact support, c″ is a constant, and Z^(V) is one solution of □Z^(V) = 0, independent of the
-perturbation, with data of order exactly 1. So (ġ_H)_0 − ṁK* − cℒ_(W*)g = O(t_*^(−1+ε)) for every ε > 0. If ṁ = 0, as
-for data with compact support, then the data of Z′_0 − c′(∂_t)^♭ vanish near infinity, so that p_0 = ∞, and
+□Z_c = 0 with data vanishing outside a ball, c″ is a constant, and Z^(V) is one solution of □Z^(V) = 0, independent of
+the perturbation, with data of order exactly 1. So (ġ_H)_0 − ṁK* − cℒ_(W*)g = O(t_*^(−1+ε)) for every ε > 0. If
+ṁ = 0, as for data with compact support, then the data of Z′_0 − c′(∂_t)^♭ vanish near infinity, so that p_0 = ∞, and
 
     (ġ_H)_0 − cℒ_(W*)g = (m₀c/2) t_*^(−2) ℒ_(W*)g + O(t_*^(−3+ε)).
 
@@ -650,7 +664,7 @@ Killing field on ℰ, whose orbit space is connected, so it equals c″(∂_v)^�
 solution of □Z^(V) = 0 on N⁺ with the data of Y_V − W**_H on Σ° ([[lem:ix-1-1]], [[lem:gd-r3-1]]). Its data have order
 1, and exactly 1: its value on Σ° near infinity is dt/|x| − d|x|/(4|x|) + O(|x|⁻² log|x|), and subtracting
 c′(∂_t)^♭ = −c′dt + O(|x|⁻²) leaves a term of order 0 unless c′ = 0. Then Z_c := Z′_0 − ṁZ^(V) − c″(∂_t)^♭ solves
-□Z_c = 0, and its data, those of Y_0 − ṁY_V − c″(∂_v)^♭ near Σ° ([[eq:gd-r7-4]]), have compact support.
+□Z_c = 0, and its data, those of Y_0 − ṁY_V − c″(∂_v)^♭ near Σ° ([[eq:gd-r7-4]]), vanish outside a ball.
 [[cor:gd-r7-6]] for Z^(V) at every p < 1 and [[cor:gd-r7-4]] for Z_c give the rate t_*^(−1+ε), the Killing part
 dropping out of the metric.
 
@@ -660,8 +674,8 @@ part Σ°_ext of Σ° outside a large ball. On 𝒪, H_L = 0 and, as δm[h_0] = 
 to ζ_∞ along it, so ζ = ζ_∞ and Y_0 = ζ_∞(∂_v)^♭ near Σ°_ext. As Z′_0 = Y_0 near Σ° ([[eq:gd-r7-4]] with ṁ = 0),
 Z′_0 − ζ_∞(∂_t)^♭ vanishes near Σ°_ext. Its data vanish near infinity, so they have every order, with Killing multiple
 ζ_∞ ([[def:hr-order]]): c′ = ζ_∞, p_0 = ∞ and c = (Q[Z′_0] − 4π²m₀ζ_∞)/4π². [[cor:gd-r7-4]] applied to
-Z′_0 − ζ_∞(∂_t)^♭, whose charge is 4π²c, as Q[(∂_t)^♭] = 4π²m₀, and whose metric part is ℒ_(Z′_0)g = (ġ_H)_0
-([[eq:gd-r7-4]]), gives the last display.
+Z′_0 − ζ_∞(∂_t)^♭, whose data vanish outside a ball, whose charge is 4π²c, as Q[(∂_t)^♭] = 4π²m₀, and whose metric
+part is ℒ_(Z′_0)g = (ġ_H)_0 ([[eq:gd-r7-4]]), gives the last display.
 
 *Data with compact support have ṁ = 0:* ġ_0 = 0 near Σ° outside a ball, and δm[ġ_0] = ṁδm[K_V] + δm[h_0] = ṁ
 ([[lem:gd-1-4]] (a), [[thm:rw-settling]] (a)) is constant on the simply connected orbit space of the interior of N⁺

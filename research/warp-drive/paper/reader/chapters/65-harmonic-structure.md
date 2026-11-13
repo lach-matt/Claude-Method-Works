@@ -1162,4 +1162,5 @@ gives the faster rates of [[thm:gd-r3-4]] (iii) and [[cor:gd-r4-4]] ([[cor:gd-r5
 (1, 2), and past that window to (2, 3) for forcing terms of zero total charge, gives those of the gauge vectors of
 [[cor:gd-r4-6]], of [[prop:gd-r2-13]] (b) and of the Y_h clauses ([[cor:gd-r6-6]], [[cor:gd-r7-4]],
 [[cor:hr-compact-rates]]), and the rate t_*^(−min(p_0,3/2)+ε), for every ε > 0, of the representative of
-[[cor:gd-r4-4]] ([[thm:harmonic-rate]]).
+[[cor:gd-r4-4]], p_0 being the supremum of the orders at spatial infinity of the data of its Z′_0
+([[prop:gd-r2-13]] (a), [[thm:harmonic-rate]]).

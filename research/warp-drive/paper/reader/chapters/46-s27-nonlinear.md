@@ -581,6 +581,15 @@ and ρ′_I/ρ_I are smooth and positive up to I₀ and ℐ⁺, tending to 1 at 
 two charts coincide on U, with equivalent norms (the fibration of ℐ⁺ by ω is the same). 𝒢″ denotes the class of
 [[def:iii-c-3-4]] on U″ in the coordinates (ρ′_0, ρ′_I).
 
+*The margin.* By [[eq:iii-b-3-6]], ψ(ϱ) = ϱ − r_♭ − ∫_(r_♭)^ϱ χ_∞(s)8m₀s⁻² ds, and for ϱ ≥ 3R₁, where χ_∞ = 1, the
+integral is ∫_(r_♭)^∞ χ_∞(s)8m₀s⁻² ds − 8m₀/ϱ. So C′ = r_♭ + ∫_(r_♭)^∞ χ_∞(s)8m₀s⁻² ds ≥ ∫_(3R₁)^∞ 8m₀s⁻² ds = 8R₁/3,
+as 0 ≤ χ_∞ ≤ 1 and m₀ = R₁². Hence C′ > 0, T″ = (T̂ + 3)/C_♭ + 2, and
+
+    T₀ + T″ − 2 − (T̂ + 3)/C_♭ = C′ + 1 − 2R₁ ≥ 1 + 2R₁/3.
+
+On 𝒮̄, |x| ≥ 1/c ≥ R_9 ≥ 4R₁ ([[lem:s27-cover]] (a)) and t_* ≤ t^♭_*/C_♭ ≤ (T̂ + 3)/C_♭ ([[lem:ii-c-3-2]] (b)); so
+𝒮̄ ⊂ U″, as [[lem:iv3-0-1]] uses.
+
 *Translation.* t ↦ t − (T″ − 2) is an isometry of g_(b₀) (stationary in the coordinates of [[sec:iii-b-2]]) and of η,
 and it maps the coordinates [[eq:iii-c-1-2]] and the frame [[eq:iii-c-1-6]] to those above. [[sec:iii-c-1]] and
 [[sec:iii-c-4]] ([[lem:iii-c-1-1]], [[lem:iii-c-1-3]], [[lem:iii-c-4-1]]–[[lem:iii-c-4-3]], [[prop:iii-c-4-4]]) and
@@ -643,12 +652,16 @@ X′_I-curve at fixed x¹ towards ℐ⁺; so the curves through points with t^�
 [[lem:iv2-1-1]] (b) is here [[lem:iv3-1-1]] (b), and [[lem:iv2-1-2]] holds on Ω^♮_(c_♮), in the translated chart, with
 c_♮ in place of c and ℐ⁺_♮ in place of ℐ⁺_c, with the same proof. Its part (b) extends w, by the extension operator of
 the proof of [[lem:iv1-2-3]], to the set of the points over ℐ⁺_♮ with ρ′_I < c_♮, and both facts this uses hold here.
-That set lies in U″, as x¹ ≤ T″ − 1 over ℐ⁺_♮ (x¹ is constant along the X′_I-curves and at most T″ − 1 on 𝒟), and
-there |x| = (T″ − x¹)/ρ′_I ≥ 1/c_♮. And Ω^♮_(c_♮) is a domain of the kind of [[lem:iv1-2-3]]: its boundary hypersurfaces
-in the interior are Σ_in, the coordinate hypersurface {x′_I = c_♮^(1/2)}, and Σ_fin, which near ℐ⁺ is a graph
-{ρ′_0 = φ(x′_I, ω)} with φ smooth up to x′_I = 0, as t^♭_* is smooth on M_(1/2) there with
-dt^♭_*|_(Tℐ⁺) = dt_*|_(Tℐ⁺) ≠ 0 ([[sec:iii-k-0]]), and so bounded with all its b-derivatives in the charts of that
-proof; Σ_fin stays away from I₀, t_* being bounded on it, and the two meet transversally.
+That set lies in U″. As U″ is closed, it suffices to take a point q of the set off ℐ⁺; let p be a point of Ω^♮_(c_♮) on
+the X′_I-curve through q, which exists by the definition of ℐ⁺_♮. x¹ is constant along the curve and at most T″ − 1 on
+𝒟, so x¹(q) = x¹(p) ≤ T″ − 1, and |x| = (T″ − x¹)/ρ′_I > 1/c_♮ ≥ 4/c ≥ 4R_9 ≥ 16R₁ at p and at q. Near infinity
+t_*(p) ≤ t^♭_*(p)/C_♭ ≤ (T̂ + 3)/C_♭ ([[lem:ii-c-3-2]] (b)); so, with m₀ = R₁² and the margin of [[sec:iv3-0]],
+t_*(q) = x¹ + C′ − 8m₀|x_q|⁻¹ < t_*(p) + 8m₀|x_p|⁻¹ < (T̂ + 3)/C_♭ + R₁/2 < T₀ + T″ − 2, and q ∈ U″. And Ω^♮_(c_♮) is
+a domain of the kind of [[lem:iv1-2-3]]: its boundary hypersurfaces in the interior are Σ_in, the coordinate
+hypersurface {x′_I = c_♮^(1/2)}, and Σ_fin, which near ℐ⁺ is a graph {ρ′_0 = φ(x′_I, ω)} with φ smooth up to x′_I = 0,
+as t^♭_* is smooth on M_(1/2) there with dt^♭_*|_(Tℐ⁺) = dt_*|_(Tℐ⁺) ≠ 0 ([[sec:iii-k-0]]), and so bounded with all
+its b-derivatives in the charts of that proof; Σ_fin stays away from I₀, t_* being bounded on it, and the two meet
+transversally.
 
 *The classes on 𝒟⁺.* Let χ_I := χ̂(ρ′_I), with χ̂ ∈ C_c^∞([0, c_♮/2)) equal to 1 on [0, c_♮/4], and
 β := ℓ^♭_I − 3/2 as in [[sec:iv2-0]]. H^(k,α_0,(−,ℓ^♭_I))_b(𝒟⁺) is the space of ġ on 𝒟⁺ for which u := ρ^(−3/2)ġ, in
@@ -668,9 +681,11 @@ g_0 := g_(b₀); h small in H^(10,ℓ^♭_0,(−,ℓ^♭_I))_b(𝒟⁺) (weights
 ġ_0, ġ_1 ∈ H^(k+d,α_0)_b(Σ^IVP) there is a ġ ∈ H^(k,α_0,(−,ℓ^♭_I))_b(𝒟⁺), unique in H^(max(k,2),α_0,(−,ℓ^♭_I))_b(𝒟⁺),
 with Lġ = f on 𝒟⁺, ġ = ġ_0 and r ℒ_(∂_(t_IVP))ġ = ġ_1 on Σ^IVP. [[eq:iv2-2-3]] holds, its norms taken on 𝒟⁺ and on
 Σ^IVP, with C depending on k, α_0, ℓ^♭_I, the parameters and the bound on h in H^10, and not on h otherwise; as in
-[[thm:iv2-2-4]], the norms of h are those of one decomposition of ρ^(−3/2)h, the same at every order, and the left side
-may be replaced by the norm of the decomposition of ġ that the proof constructs, which is linear in (f, ġ_0, ġ_1). On
-Ω_(ext,r_1) ∩ {t_IVP ≥ 0}, ġ depends only on f there and on the data on Σ^IVP_(r_1).
+[[thm:iv2-2-4]], the norms of h are those of one decomposition of ρ^(−3/2)h, the same at every order (if h lies in
+the class at every order, one with every norm finite exists, by the proof of [[lem:s26-decompositions]] (c) with
+[[lem:iv2-1-2]] (b) on Ω^♮_(c_♮), [[sec:iv3-1]]), and the left side may be replaced by the norm of the decomposition of
+ġ that the proof constructs, which is linear in (f, ġ_0, ġ_1). On Ω_(ext,r_1) ∩ {t_IVP ≥ 0}, ġ depends only on f there
+and on the data on Σ^IVP_(r_1).
 
 *Proof.* As [[thm:iv2-2-4]], with three changes. Its steps on Ω_(ext,r_1) ∩ {t_IVP ≥ 0}, the forward part of Step 1 and
 Steps 2–6, are taken with h extended across Σ^IVP_(r_1) to the past slab by the extension in the normal variable of the

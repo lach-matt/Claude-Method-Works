@@ -98,20 +98,37 @@ Hence D_1 = max(49, 41, 39) = 49. ∎
 #### A quantitative calculus of finite regularity {#sec:fwd-calculus}
 
 The indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]] come from the closed graph theorem and carry no value. We prove
-them again with explicit counts. Throughout, n = 5, Op denotes the left quantization on ℝⁿ,
-Op(p)u(x) = (2π)^(−n) ∫ e^(ix·ξ) p(x, ξ) û(ξ) dξ, and Q_4 := [−2, 2]ⁿ. Fix ϰ ∈ (0, 1/8]. For an order function 𝗆
+them again, every derivative counted. Throughout, n = 5, T ∈ ℕ and 𝔐(T) := 200T + 100; Op denotes the left
+quantization on ℝⁿ, Op(p)u(x) = (2π)^(−n) ∫ e^(ix·ξ) p(x, ξ) û(ξ) dξ; Q_4 := [−2, 2]ⁿ; and for an integer x, 𝔢(x)
+denotes the least even integer above x (so 𝔢(x) = x + 1 for odd x and x + 2 for even x). For an order function 𝗆
 (smooth in (x, ξ), with |∂_x^β ∂_ξ^γ 𝗆| ≤ C_(βγ)⟨ξ⟩^(−|γ|), as the variable orders of [[sec:ii-a1-1-1]] are in the
 charts of ρℬ) and K ∈ ℕ_0 put
 
-    |p|^𝗆_K := max_(|β|+|γ|≤K) sup ⟨ξ⟩^(−𝗆(x,ξ)−ϰ(|β|+|γ|)+|γ|) |∂_x^β ∂_ξ^γ p(x, ξ)|.          {#eq:fwd-seminorm}
+    |p|^𝗆_K := max_(|β|+|γ|≤K) sup ⟨ξ⟩^(−𝗆(x,ξ)−ϰ(|β|+|γ|)+|γ|) |∂_x^β ∂_ξ^γ p(x, ξ)|,          {#eq:fwd-seminorm}
 
-By Leibniz's rule |pq|^(𝗆_1+𝗆_2)_K ≤ C|p|^(𝗆_1)_K |q|^(𝗆_2)_K; and ⟨ξ⟩^(𝗆(x,ξ)) has |·|^𝗆_K ≤ C_K for every K, its
-derivatives carrying factors log⟨ξ⟩ ≤ C_ϰ⟨ξ⟩^ϰ. A symbol of [[def:ii-a1-1-3]] of index ν, written in a chart of ρℬ,
-satisfies |a|^𝗆_M ≤ C‖a‖_((M);ν,𝗆): by [[lem:ii-a1-2-2]], ∂_ξ is e^(−τ) times bounded combinations of ∂_ω, ∂_τ, and
-⟨log ρ_∞⟩^(νj) ≤ C⟨ξ⟩^(ϰj). The constants depend on ϰ, ν and K, never on the symbol beyond the seminorm. In the
-counts below no symbol is differentiated more than D_max := 400T + 200 times; we take ϰ ≤ 1/(4D_max), so that the
-losses ϰ(|β| + |γ|) in [[eq:fwd-seminorm]] never exceed ¼ in any exponent. Since all counts are monotone in ϰ, every
+with ϰ := 1/(32𝔐(T)). By Leibniz's rule |pq|^(𝗆_1+𝗆_2)_K ≤ C|p|^(𝗆_1)_K |q|^(𝗆_2)_K; and ⟨ξ⟩^(𝗆(x,ξ)) has
+|·|^𝗆_K ≤ C_K for every K, its derivatives carrying factors log⟨ξ⟩ ≤ C⟨ξ⟩^ϰ. A symbol of [[def:ii-a1-1-3]] of any
+index ν, written in a chart of ρℬ, satisfies |a|^𝗆_M ≤ C‖a‖_((M);ν,𝗆): by [[lem:ii-a1-2-2]], ∂_ξ is e^(−τ) times
+bounded combinations of ∂_ω, ∂_τ, and ⟨log ρ_∞⟩^(νj) ≤ C⟨ξ⟩^(ϰj). The constants depend on ϰ, ν and K, never on the
+symbol beyond the seminorm; in particular the index ν enters no count. Every product estimated below is a product of at
+most eight symbols (six factors of an expression and two auxiliary symbols λ, λ′), each differentiated at most 𝔐(T)
+times (the counts of [[prop:fwd-calculus]]), so that the total loss ϰ·8𝔐(T) in any exponent is at most ¼. Every
 statement below holds with the same counts for every smaller ϰ, which is how "order 𝗋 + δ for every δ > 0" is obtained.
+A symbol "has order 𝗆" with "values in [−A, A]" when |𝗆| ≤ A; constant orders are included.
+
+*The charts.* Let (U_α, φ_α) be the charts of ρℬ, onto (−2, 2)ⁿ, of finite multiplicity, with transition maps
+φ_α ∘ φ_β⁻¹ bounded in C^j uniformly in (α, β) for every j ((S1), (S13)), and χ_α the partition of unity of (S4). As
+all scalings of ρℬ equal 1, (S4) gives
+
+    Op(a) = Σ_α O_α(a),     O_α(a) := φ_α^* Op_ψ(a_α) (φ_α)_*,     a_α := (φ_α)_*(χ_α a),             {#eq:fwd-chart-op}
+
+where Op_ψ(b) has the kernel (2π)^(−n) ∫ e^(i(x−y)·ξ) ψ(x − y) b(x, ξ) dξ, ψ ∈ C_c^∞((−¼, ¼)ⁿ) equals 1 near 0, and
+a_α vanishes for x ∉ (−5/4, 5/4)ⁿ. The adjoint is that of L²(|dt dx|), which in the chart α is the adjoint of
+L²(μ_α dx), μ_α a positive function whose quotients μ_α(x)/μ_α(y) are bounded in C^j on (−2, 2)ⁿ × (−2, 2)ⁿ uniformly in
+α ((S2), (S11)). For an order function 𝗆 on the bundle, 𝗆_α denotes its expression in the chart α, extended to
+ℝⁿ × ℝⁿ with values in the same interval and with the same bounds; the variable-order Sobolev space H^(𝗆_α)(ℝⁿ) is
+normed by ‖Op(⟨ξ⟩^(𝗆_α))w‖ + ‖w‖_(H^(−N_0)) for a fixed N_0 ≥ sup |𝗆_α|, different such N_0 giving equivalent norms
+((S8); elliptic regularity of the smooth calculus).
 
 **Lemma {#lem:fwd-crude}** (Boundedness from x-derivatives.) Let p vanish for x ∉ Q_4, let μ, s ∈ ℝ, and suppose that
 the bound |∂_(x_l)^j p(x, ξ)| ≤ A⟨ξ⟩^μ for l = 1, …, n and j ≤ N, where N ≥ n + 1 + |s − μ|. Then
@@ -160,10 +177,10 @@ Then Op(p)Op(q) = Op(p ♯_J q) + Op(r_J) with
     p ♯_J q := Σ_(|α|<J) (α!)⁻¹ ∂_ξ^α p · D_x^α q,
     |∂_x^β r_J(x, ξ)| ≤ C|p|^(𝗆_1)_(K_1)|q|^(𝗆_2)_(K_2) ⟨ξ⟩^(μ_1+μ_2−J+½),   |β| ≤ B,         {#eq:fwd-remainder}
 
-provided K_1 ≥ J + B + 6 and K_2 ≥ J + B + 2L′, where 2L′ is the least even integer above n + 1 + |μ_1 − J|; if q
-vanishes for x ∉ Q_4 the condition on K_1 is K_1 ≥ J + B. The same holds for the adjoint: Op(p)^* = Op(p^♮_J) + Op(r^♮_J)
-with p^♮_J := Σ_(|α|<J)(α!)⁻¹∂_ξ^αD_x^α \bar p and the bound [[eq:fwd-remainder]] at μ_1 + μ_2 replaced by μ_1, if
-K_1 ≥ 2J + B + 6 + 2L′.
+provided K_1 ≥ J + B + 6 and K_2 ≥ J + B + 2L′, where 2L′ := 𝔢(n + 1 + X) for an integer X ≥ |μ_1 − J|; if q
+vanishes for x ∉ Q_4 the condition on K_1 is K_1 ≥ J + B. The term of p ♯_J q of index α has the pointwise order
+𝗆_1 + 𝗆_2 − |α|, and its derivatives of order K are bounded by C|p|^(𝗆_1)_(K+|α|)|q|^(𝗆_2)_(K+|α|) with the loss
+ϰ(K + 2|α|).
 
 *Proof.* Op(p)Op(q) = Op(c) with c(x, ξ) = (2π)^(−n) ∫∫ e^(−iy·η) p(x, ξ + η) q(x + y, ξ) dy dη. Taylor's formula in η
 to order J and η^α e^(−iy·η) = (i∂_y)^α e^(−iy·η), integrated by parts onto q, give the terms of p ♯_J q and
@@ -175,9 +192,178 @@ Apply ∂_x^β. Insert ⟨η⟩^(−2L′)(1 − Δ_y)^(L′) and ⟨y⟩^(−6)
 in x) acting on e^(−iy·η), and integrate by parts. The η-derivatives fall on ∂_ξ^α ∂_x^(β_1) p, at most J + 6 + B
 derivatives, each bounded by C|p|⟨ξ + θη⟩^(μ_1 − J + ¼); the y-derivatives fall on ∂_x^(α+β_2) q, at most J + B + 2L′
 derivatives, each bounded by C|q|⟨ξ⟩^(μ_2 + ¼). Peetre's inequality ⟨ξ + θη⟩^t ≤ 2^(|t|/2)⟨ξ⟩^t⟨η⟩^(|t|) and
-2L′ > n + |μ_1 − J + ¼| make the η-integral at most C⟨ξ⟩^(μ_1−J+¼), and the y-integral is finite. This is
-[[eq:fwd-remainder]]. For the adjoint, Op(p)^* = Op(p^♮) with p^♮(x, ξ) = (2π)^(−n)∫∫e^(−iy·η)\overline{p(x + y, ξ + η)}
-dy dη, and the same argument applies, all derivatives falling on p. ∎
+2L′ > n + |μ_1 − J + ¼| make the η-integral at most C⟨ξ⟩^(μ_1−J+¼), and the y-integral is finite (over a bounded set
+when q vanishes for x ∉ Q_4, and by ⟨y⟩^(−6), 6 > n, otherwise). This is [[eq:fwd-remainder]]. The statement on the
+terms is Leibniz's rule. ∎
+
+**Lemma {#lem:fwd-reduction}** (Reduction of an amplitude.) Let c(x, y, η) vanish unless x ∈ Q_4 and |x − y| ≤ 1, let
+μ be a constant, and suppose |∂_x^β ∂_y^(β′) ∂_η^γ c| ≤ A⟨η⟩^(μ−|γ|+ϰ(|β|+|β′|+|γ|)) for |β| + |β′| + |γ| ≤ K_c.
+Let R_c be the operator with the kernel (2π)^(−n) ∫ e^(i(x−y)·η) c(x, y, η) dη. For J ≥ 0 and B ≥ 0,
+
+    R_c = Op(σ_J) + Op(ρ_J),     σ_J(x, η) := Σ_(|γ|<J) (γ!)⁻¹ ∂_η^γ D_y^γ c(x, y, η)|_(y=x),
+    |∂_x^β ρ_J(x, η)| ≤ CA⟨η⟩^(μ−J+½),   |β| ≤ B,                                                      {#eq:fwd-reduction}
+
+provided K_c ≥ 2J + B + 2L′ with 2L′ := 𝔢(n + 1 + X), X ≥ |μ − J| an integer. The term of σ_J of index γ is a sum of
+products of derivatives of c of total order 2|γ|, evaluated at y = x; its derivatives of order K involve derivatives of
+c of total order at most K + 2|γ|. If c vanishes near {x = y}, then σ_J = 0.
+
+*Proof.* R_c u(x) = ∫ e^(ix·η) σ(x, η) û(η) dη with σ(x, η) = (2π)^(−n) ∫∫ e^(−iz·ζ) c(x, x + z, η + ζ) dz dζ, the
+z-integral being over |z| ≤ 1. Taylor's formula in ζ to order J and ζ^γ e^(−iz·ζ) = (i∂_z)^γ e^(−iz·ζ), integrated by
+parts in z, give σ = σ_J + ρ_J with
+
+    ρ_J = Σ_(|γ|=J) (J/γ!) ∫_0^1 (1 − θ)^(J−1) (2π)^(−n) ∫∫ e^(−iz·ζ) ∂_η^γ D_z^γ [c(x, x + z, η + θζ)] dz dζ dθ.
+
+Apply ∂_x^β, which falls on both arguments x and x + z, and insert ⟨ζ⟩^(−2L′)(1 − Δ_z)^(L′) acting on e^(−iz·ζ). In
+all, c is differentiated J times in η, J + 2L′ times in z (that is, in its second argument) and |β| ≤ B times in its
+first two arguments: at most 2J + B + 2L′ derivatives, each term bounded by CA⟨η + θζ⟩^(μ−J+¼) on |z| ≤ 1. Peetre's
+inequality and 2L′ − |μ − J + ¼| > n bound the ζ-integral by C⟨η⟩^(μ−J+¼). The last claim: every term of σ_J contains
+derivatives of c at y = x. ∎
+
+The reduction serves three purposes below: the adjoint, the change of chart, and the parts of a kernel away from the
+diagonal. In each, the derivatives of c that it consumes are counted as derivatives of the symbol from which c is built.
+
+**Lemma {#lem:fwd-far}** (Away from the diagonal.) Let b vanish for x ∉ Q_4, with |∂_x^j ∂_ξ^γ b| ≤ A⟨ξ⟩^(μ−|γ|) for
+j ≤ B and |γ| ≤ 2K, μ a constant, and let w ∈ C_c^∞(ℝⁿ) vanish near 0. The operator with the kernel
+(2π)^(−n) ∫ e^(i(x−y)·ξ) w(x − y) b(x, ξ) dξ is Op(b_w) with |∂_x^j b_w| ≤ CA⟨ξ⟩^(μ−2K) for j ≤ B. It consumes 2K
+ξ-derivatives and B x-derivatives of b, and none in the other directions. Also Op_ψ(b) = Op(b_ψ) with
+b_ψ(x, ξ) := (2π)^(−n) ∫ ψ̂(ζ) b(x, ξ − ζ) dζ, and |b_ψ|^𝗆_K ≤ C|b|^𝗆_K for every K and every order function 𝗆 with
+values in [−3T, 3T]: the cut-off ψ consumes no derivative.
+
+*Proof.* On supp w, |z|^(−2K)(−Δ_ξ)^K e^(iz·ξ) = e^(iz·ξ), z = x − y, so the kernel is that of the amplitude
+w_K(x − y)(−Δ_ξ)^K b(x, ξ), w_K(z) := w(z)|z|^(−2K) ∈ C_c^∞. Multiplication of a kernel by a function of x − y is
+convolution of the symbol in ξ with its Fourier transform: the operator is Op(b_w), b_w(x, ξ) = (2π)^(−n)
+∫ ŵ_K(ζ)(−Δ_ξ)^K b(x, ξ − ζ) dζ. x-derivatives commute with the convolution, ŵ_K is rapidly decreasing, and Peetre's
+inequality gives the bound. The same identity with ψ in place of w_K gives b_ψ. For the variable weight, if
+|ζ| ≤ ⟨ξ⟩/2 then |𝗆(x, ξ − ζ) − 𝗆(x, ξ)| ≤ C|ζ|/⟨ξ⟩, so ⟨ξ − ζ⟩^(𝗆(x,ξ−ζ)) ≤ C⟨ξ⟩^(𝗆(x,ξ)) when
+|ζ| ≤ ⟨ξ⟩^(1/2) and ≤ C⟨ξ⟩^(𝗆(x,ξ))⟨ζ⟩^(C′) when ⟨ξ⟩^(1/2) < |ζ| ≤ ⟨ξ⟩/2; if |ζ| > ⟨ξ⟩/2 both ⟨ξ⟩ and ⟨ξ − ζ⟩
+are at most 3⟨ζ⟩, and the quotient is at most C⟨ζ⟩^(6T). These polynomial factors are integrable against ψ̂. ∎
+
+*Near and far parts.* Fix ε ∈ (0, 1/8], depending only on the constants of (S1) and (S15), as below, and
+η_0 ∈ C_c^∞((−ε, ε)ⁿ) equal to 1 near 0. Split O_β(g) = O^ε_β(g) + O^far_β(g), the near part having the kernel of
+Op_ψ(g_β) multiplied by η_0(x − y), and split the adjoint O_β(g)^* likewise. By [[lem:fwd-far]] with
+w := ψ(1 − η_0), O^far_β(g) is φ_β^* Op(b_w) (φ_β)_* with b_w of order sup 𝗆 − 2K, at the cost of 2K ξ-derivatives and
+B x-derivatives of g; (O^far_β(g))^* is its adjoint, bounded by duality between the dual spaces ((S3), (S8)), at the
+same cost. The near kernels have ranges at most Cε in d_ℬ ((S15)).
+
+**Lemma {#lem:fwd-transport}** (Change of chart, term by term.) Let α, β be charts, κ := φ_β ∘ φ_α⁻¹ (defined where
+both are), θ ∈ C_c^∞((−13/8, 13/8)ⁿ), and g a symbol of order 𝗆 with values in [−T, T]. In the chart α the operators
+θ O^ε_β(g) and θ O^ε_β(g)^* (the factor θ read in the chart α) are R_c for the amplitudes
+
+    c(x, y, η) = θ(x) η̃(x, y) g_β(κ(x), Φ(x, y)^(−T) η) |det Φ(x, y)|⁻¹ |det Dκ(y)|,
+    c^*(x, y, η) = θ(x) η̃^*(x, y) (μ_α(y)/μ_α(x)) g_β(κ(y), Φ(x, y)^(−T) η)^* |det Φ(x, y)|⁻¹ |det Dκ(x)|,  {#eq:fwd-transport}
+
+where Φ(x, y) := ∫_0^1 Dκ(y + t(x − y)) dt, so that κ(x) − κ(y) = Φ(x, y)(x − y), the star on g is the conjugate
+transpose, and η̃(x, y) := (ψη_0)(Φ(x, y)(x − y)), η̃^*(x, y) := \overline{(ψη_0)(Φ(x, y)(y − x))}. Each derivative of
+c or c^* in (x, y, η) costs at most one derivative of g, and the bounds of [[lem:fwd-reduction]] hold with μ := sup 𝗆
+and A := C|g|^𝗆_(K_c). The transition map κ is differentiated at most K_c + 1 times. The term of σ_J of index 0 is
+θ (χ_β g)_α, resp. θ ((χ_β g)^*)_α, the same function on phase space read in the chart α; the term of index γ has the
+pointwise order 𝗆 − |γ| and consumes 2|γ| derivatives of g, the variable order being carried exactly, as every term is
+evaluated at y = x, that is, at the point of phase space with the chart-α coordinates (x, η).
+
+*Proof.* Let ε be so small that every point within Cε of supp θ ∩ φ_α(supp χ_β) has its segment to x inside the
+domain of κ and inside (−7/4, 7/4)ⁿ, and that ‖Φ(x, y) − Dκ(x)‖ ≤ ½‖Dκ(x)⁻¹‖⁻¹ there; this is possible uniformly in
+(α, β), as supp χ_β ⊂ φ_β⁻¹([−5/4, 5/4]ⁿ) and by (S1), (S15). The kernel of θO^ε_β(g) in the chart α is
+θ(x)K(κ(x), κ(y))|det Dκ(y)| with K that of Op_(ψη_0)(g_β); substituting ξ = Φ(x, y)^(−T)η, as
+(κ(x) − κ(y))·ξ = (x − y)·Φ^Tξ, gives c. For the adjoint of O^ε_β(g), the kernel is μ_α(x)⁻¹ \overline{K^#(y, x)}
+μ_α(y) with K^#(y, x) = K(κ(y), κ(x))|det Dκ(x)|; as κ(y) − κ(x) = −Φ(x, y)(x − y), the same substitution gives c^*
+after multiplication by θ(x). The variable η enters c and c^* only through the second argument of g. So a derivative
+in η is a ξ-derivative of g times an entry of Φ^(−T) (one order lower); a derivative in x or y falls on θ, η̃, the
+Jacobians and the quotient of densities (smooth, with derivatives of κ), on the first argument of g (an x-derivative of
+g times an entry of Dκ), or on Φ^(−T)η (a ξ-derivative of g times a factor linear in η and in a derivative of Φ, which
+leaves the order unchanged). By induction, a derivative of order K_c of c or c^* is a sum of products of one derivative
+of g of order at most K_c with derivatives of κ of order at most K_c + 1 (k derivatives of Φ involve those of Dκ of
+order k), and its bound is that of [[lem:fwd-reduction]] with A := C|g|^𝗆_(K_c), the constant depending on bounds of κ
+in C^(K_c+1), uniform by (S1). At y = x, Φ(x, x) = Dκ(x), η̃ = 1 and the Jacobians cancel, which gives the term of
+index 0. A term of index γ has |γ| derivatives in η and |γ| in y: 2|γ| derivatives of g, and the order 𝗆 − |γ| by the
+count of orders just given, at the point (κ(x), Dκ(x)^(−T)η). ∎
+
+Each change of chart thus consumes, of the transition map, one derivative more than it consumes of the symbol, and
+of the symbol: 2|γ| derivatives in the term of index γ, K + 2|γ| when that term is differentiated K times later, and
+2J + B + 2L′ in the remainder ρ_J of [[lem:fwd-reduction]]. The same holds for the adjoint in its own chart (α = β,
+κ = id), where it is the reduction of the amplitude c^*.
+
+**Lemma {#lem:fwd-local}** (Boundedness in a chart.) Let A, B ∈ ℕ_0 and put J_1 := 2A + 2B + 1, J_2 := 2A + 1 and
+
+    K(A, B) := J_1 + 6 + 𝔢(n + 1 + J_1 + A + B).                                                       {#eq:fwd-local}
+
+Let b vanish for x ∉ Q_4 and have order 𝗆 with values in [−B, B], and let 𝗍 be an order function with values in
+[−A, A]. Then ‖Op(b)w‖_(H^(𝗍−𝗆)(ℝⁿ)) ≤ C|b|^𝗆_(K(A,B)) ‖w‖_(H^𝗍(ℝⁿ)). For A = B = T, K(T, T) = 10T + 15.
+
+*Proof.* Let λ := ⟨ξ⟩^(𝗍(x,ξ)−𝗆(x,ξ)), Λ := Op(⟨ξ⟩^(𝗍)) and λ′ ∈ S^(−𝗍) a smooth symbol with Op(λ′)Λ = I + R_∞,
+R_∞ of order −∞ (smooth calculus). Norm H^(𝗍−𝗆) with N_0 := A + B. Then
+Op(λ)Op(b)w = QΛw − Op(λ)Op(b)R_∞w with Q := Op(λ)Op(b)Op(λ′).
+Step 1. [[lem:fwd-composition]] with p := λ (order with values in [−A − B, A + B]), q := b (vanishing off Q_4), J := J_1
+and B := 6 gives Op(λ)Op(b) = Op(c_1) + Op(r_1), r_1 of order at most (A + B) + B − J_1 + ¾ = −A − ¼. Op(λ′) maps L² to
+H^𝗍 ⊂ H^(−A), and [[lem:fwd-crude]] (s = −A, μ = −A, N = 6) maps H^(−A) to L². Cost on b: J_1 + 6 + 2L′ with
+2L′ = 𝔢(n + 1 + J_1 + A + B), as |sup(𝗍 − 𝗆) − J_1| ≤ J_1 + A + B; this is K(A, B).
+Step 2. [[lem:fwd-composition]] with p := c_1 (order 𝗍, values in [−A, A]), q := λ′ (not compactly supported), J := J_2
+and B := 6 gives Op(c_1)Op(λ′) = Op(c) + Op(r_2), r_2 of order at most 2A − J_2 + ¾ < 0, bounded on L² by
+[[lem:fwd-crude]] (N = 6). Cost on c_1: J_2 + 12, on b: J_2 + 12 + (J_1 − 1) = 4A + 2B + 13 ≤ K(A, B).
+Step 3. c = Σ ∂_ξ^(α′)(∂_ξ^α λ · D_x^α b) D_x^(α′) λ′/(α!α′!) has the pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′|,
+the variable orders cancelling at every point; [[lem:fwd-l2]] bounds Op(c) on L² by C|c|^0_12, at a cost on b of
+12 + (J_1 − 1) + (J_2 − 1) = 4A + 2B + 12.
+Step 4. ‖Op(b)w‖_(H^(−A−B)) ≤ C‖w‖_(H^(−A)) and ‖Op(λ)Op(b)R_∞w‖ ≤ C‖Op(b)R_∞w‖_(H^(A+B)) ≤ C‖w‖_(H^(−N_0)) by
+[[lem:fwd-crude]], at most n + 1 + A + B x-derivatives of b.
+The largest count is that of Step 1. For A = B = T: J_1 = 4T + 1, 2L′ = 𝔢(6T + 7) = 6T + 8, K = 10T + 15. ∎
+
+**Lemma {#lem:fwd-norms}** (Localisation of the norms.) For an order function 𝗋 with values in [−8T, 8T], cut-offs
+θ̃_α := φ_α^*θ̃ (θ̃ ∈ C_c^∞((−15/8, 15/8)ⁿ) equal to 1 on [−7/4, 7/4]ⁿ) and functions v_α supported in [−15/8, 15/8]ⁿ,
+
+    ‖Σ_α φ_α^* v_α‖²_𝗋 ≤ C Σ_α ‖v_α‖²_(H^(𝗋_α)(ℝⁿ)),       Σ_α ‖(φ_α)_*(θ̃_α u)‖²_(H^(𝗋_α)(ℝⁿ)) ≤ C ‖u‖²_𝗋.
+
+Both statements concern the smooth calculus only, (S3) for constant orders and (S8), (S13), (S15) for variable ones,
+and involve no symbol of finite regularity.
+
+**Lemma {#lem:fwd-expansion}** (A product in a chart.) Let r ∈ {1, …, 6}, S ≥ 0 an integer, and F_1, …, F_r each of
+the form Op(g_j) or Op(g_j)^*, the symbol g_j of order 𝗆_j with values in [−T, T] (smooth symbols, such as those of
+localisers, are allowed). Put
+
+    R := S + rT,   B := n + 1 + max((r + 1)T, S + (r − 1)T),   J_R := T + R + 1,   J_C := rT + R + 1,
+    2K := the least even integer ≥ T + R + 1.                                                         {#eq:fwd-expansion}
+
+For each chart α let s_j be the sum over β of the terms of index < J_R of the reductions of θ^(j) O^ε_β(g_j) (resp. of
+the adjoints) in the chart α ([[lem:fwd-transport]]), θ^(1) := χ_α and θ^(j) := θ̂ for j ≥ 2, θ̂ ∈ C_c^∞((−13/8, 13/8)ⁿ)
+equal to 1 on [−3/2, 3/2]ⁿ, and let t_α := s_1 ♯_(J_C) s_2 ♯_(J_C) ⋯ ♯_(J_C) s_r, computed from the left. Then
+
+    F_1 ⋯ F_r = Σ_α φ_α^* Op(t_α) (φ_α)_* θ̃_α + E,                                                  {#eq:fwd-product}
+
+where E maps H^𝗍 to H^S, for every order 𝗍 with values in [−T, T], with norm at most C ∏_j |g_j|^(𝗆_j)_(K_j), and the
+derivatives of each g_j consumed in E are at most
+
+    max( 2J_R + B + 𝔢(n + 1 + J_R + T),  2K + B,  B + 2(J_R − 1),
+         (J_C + B) + (r − 2)(J_C − 1) + 2(J_R − 1),  J_C + B + 𝔢(n + 1 + J_C + (r − 1)T) + 2(J_R − 1) ),      {#eq:fwd-ecount}
+
+the last two only if r ≥ 2. A derivative of order K′ of t_α consumes at most K′ + (r − 1)(J_C − 1) + 2(J_R − 1)
+derivatives of each g_j. Each term of t_α is a product of derivatives of the terms of the s_j at one point (x, η); its
+grade, the sum of the indices |γ| of the reductions and of the indices |α| of the compositions that produced it, lowers
+the pointwise order Σ_j 𝗆_j by exactly that number.
+
+*Proof.* Write F_j = F^ε_j + F^far_j, the sums over β of the near and far parts. The product of the near parts is
+Σ_α χ_α F^ε_1 ⋯ F^ε_r, and the kernel of χ_α F^ε_1 ⋯ F^ε_r joins points within rCε ≤ 1/8 in d_ℬ of supp χ_α, inside
+φ_α⁻¹([−3/2, 3/2]ⁿ) for ε small; so inserting θ̂ in front of F^ε_j, j ≥ 2, and θ̃_α on the right changes nothing. In the
+chart α, by [[lem:fwd-reduction]] and [[lem:fwd-transport]] with J := J_R, each θ^(j)F^ε_j is Op(s_j) + Op(ρ_j), ρ_j of
+order at most T − J_R + ½ = −R − ½. Expanding, the product is Op(s_1)⋯Op(s_r) plus terms with a factor Op(ρ_j). By
+[[lem:fwd-composition]] (q vanishing off Q_4) with J := J_C applied r − 1 times from the left,
+Op(s_1)⋯Op(s_r) = Op(t_α) + Σ_(j≥2) Op(r_j) Op(s_(j+1)) ⋯ Op(s_r), r_j of order at most jT − J_C + ¾ ≤ −R − ¼. The far
+terms are products with at least one factor F^far_j, of order at most T − 2K + ½ ≤ −R − ½ ([[lem:fwd-far]]).
+
+So every term of E is a product of at most r operators, one of order at most −R (the gaining factor) and the others of
+order at most T, which we bound between Sobolev spaces of constant order by [[lem:fwd-crude]], chart by chart, and on
+the manifold by (S3); adjoints by duality. Start from H^𝗍 ⊂ H^(−T). The factors to the right of the gaining factor lower
+the order by at most T each, the gaining factor raises it by R, the others lower it by at most T: the result lies in
+H^(−T−(r−1)T+R) = H^S. The input orders s of the factors of order at most T lie in [−rT, R − T], so |s − T| ≤
+max((r + 1)T, R − 2T); that of the gaining factor lies in [−rT, −T], so |s + R| ≤ R − T = S + (r − 1)T. So B
+x-derivatives suffice in every application of [[lem:fwd-crude]].
+
+The counts, all derivatives of g_j: ρ_j costs 2J_R + B + 2L′ with 2L′ = 𝔢(n + 1 + J_R + T) ([[lem:fwd-reduction]], as
+|sup 𝗆_j − J_R| ≤ J_R + T); a far part costs 2K + B ([[lem:fwd-far]]); a factor Op(s_j) bounded by [[lem:fwd-crude]]
+costs B + 2(J_R − 1) ([[lem:fwd-transport]]). In the composition of t_(j−1) := s_1 ♯ ⋯ ♯ s_(j−1) with s_j, the left
+symbol needs J_C + B derivatives and the right one J_C + B + 2L′_C, 2L′_C = 𝔢(n + 1 + J_C + (j − 1)T), since
+|sup ord t_(j−1) − J_C| ≤ J_C + (j − 1)T. The symbol t_(j−1) already contains, on s_i, at most (j − 2)(J_C − 1)
+derivatives (ξ-derivatives from the j − 2 compositions in which it stood on the left, or x-derivatives from the one in
+which it stood on the right and ξ-derivatives from the later ones), and s_i contains 2(J_R − 1) derivatives of g_i. With
+j ≤ r this gives the last two entries of [[eq:fwd-ecount]], and the statement on t_α. The grades are those of
+[[lem:fwd-composition]] and [[lem:fwd-transport]]. ∎
 
 **Proposition {#prop:fwd-calculus}** (Explicit indices.) Let T ∈ ℕ and put 𝔐(T) := 200T + 100. For orders 𝗍, 𝗆,
 𝗆_i (constant or variable) with values in [−T, T], index ν ≤ 2, and expressions in at most six quantizations,

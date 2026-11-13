@@ -17,8 +17,8 @@ where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The t
 (Sections [[sec:own-orders]] and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted,
 g_λ continues to W by one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence;
 the continuation is vacuum, unique in a class of weight below ½, and its data on S lie in the half-integer class with
-small norm (Sections [[sec:own-continuation]] and [[sec:own-vacuum]]). The theorem is assembled in
-Section [[sec:own-proof]].
+small norm (Sections [[sec:cutoff-expansion]], [[sec:own-continuation]] and [[sec:own-vacuum]]). The theorem is
+assembled in Section [[sec:own-proof]].
 
 *Notation.* We use the chart (τ, x) of [[sec:background]], v = τ + r, the background g0 of [[eq:background]] and the
 gauge of [[sec:gauge]]. Ω′ is the domain of the form [[eq:omega]], with constants (T′, δ′0) and inner radius a′ = q0 −
@@ -155,10 +155,10 @@ are linearly independent and spatial. So a_1 is spatial and vanishes exactly whe
 and not identically zero, as env ≢ 0. Every factor of a_1 and a_3 is an iterated integral over [v_start, v] of products
 of smooth compactly supported functions of v with e^(±ikωv), times polynomials in ω^(±1); so a_1 and a_3 are
 real-analytic in ω > 0. If two amplitudes A_1 ≠ A_2 had vanishing spatial components of G_5^∞ for all ω ≥ 1/λ_P, then,
-dividing by A_i, a_1 + A_i² a_3^sp = 0 for i = 1, 2 on that interval, a_3^sp the spatial part of a_3; subtracting, a_3^sp
-= 0 and then a_1 = 0 there, hence for all ω > 0 by analyticity, and ê = 0 on (0, ∞), a contradiction. For any other A > 0
-some spatial component of G_5^∞ at some x̂ is a real-analytic function of ω that is not identically zero, and its zeros
-are isolated. ∎
+dividing by A_i, a_1 + A_i² a_3^sp = 0 for i = 1, 2 on that interval, a_3^sp the spatial part of a_3; subtracting,
+a_3^sp = 0 and then a_1 = 0 there, hence for all ω > 0 by analyticity, and ê = 0 on (0, ∞), a contradiction. For any
+other A > 0 some spatial component of G_5^∞ at some x̂ is a real-analytic function of ω that is not identically zero, and
+its zeros are isolated. ∎
 
 **Remark {#rem:own-no-tail-approximant}** (the approximant carries no tail). In the approximant from past null infinity
 ([[thm:past-approximant]]) a term of order k/2 in the expansion of a profile carries phase harmonics of the parity of k:
@@ -341,8 +341,8 @@ So no order fails; what grows with k is the number of stages N_k, and λ_P(K, k)
 [[eq:own-poly]] at α = 0, m = 0. *The base.* By [[cor:own-p-order]] at K = 6 and order n + 4, which gives the same g_λ
 for λ ≤ λ_P(6, n + 4), |∂^α Ω^β (g_λ − g_app)| ≤ C λ^(3−|α|) t_P⁻²; and g_app − g0 − r^(−3/2) G_3 is the sum of λ m_1, of
 λ[χ dv dv], of the phase-shift terms and of λ^j [g_j], j ≥ 2, each of λ-order at most |α| − 1 under ∂^α Ω^β (a derivative
-of an oscillating factor costs λ⁻¹, a rotation nothing, Ω v = 0) and of class E_2 ([[eq:past-classes]]). So
-|∂^α Ω^β u_1| ≤ C λ^(1−|α|) t_P⁻²: B_3 = −1, every derivative ∂_X costing one order and Ω none. Likewise
+of an oscillating factor costs λ⁻¹, a rotation nothing, Ω v = 0) and of class E_2 ([[eq:past-classes]]).
+So |∂^α Ω^β u_1| ≤ C λ^(1−|α|) t_P⁻²: B_3 = −1, every derivative ∂_X costing one order and Ω none. Likewise
 G_3 = λ[W_TT] r^(3/2) has λ-order −1 + |α| under ∂^α, that is k − 4 + |α| at k = 3.
 
 *The trade.* On t_P ≥ λ⁻² + d1, r ≥ λ⁻², so r^(−1/2) ≤ λ: a quantity of λ-order p bounded by r^(−ρ) is of λ-order
@@ -439,10 +439,11 @@ exponent exceeds 1 for i ≤ j.
 r² ∂_v^i Ω^β e = P(y) + r² ∂_v^i Ω^β e_(8) with P(y) := Σ_(k=4)^8 ∂_v^i Ω^β e_k(v1, x̂) y^(k−4), of degree 4. On the far
 region of N, r and t_P are comparable, and |r² ∂_v^i Ω^β e| ≤ C λ^(K−3−i) by [[eq:own-p-iii]] (∂_v = ∂_t at fixed x is a
 Cartesian derivative), while |r² ∂_v^i Ω^β e_(8)| ≤ C λ^(−(15+i)) y⁵ ≤ C λ^(−(M+i)) y⁵. So |P| ≤ η := C(λ^(K−3−i) +
-λ^(−(M+i)) σ⁵) on [σ/2, σ]. Take σ⁵ := λ^(K−3+M); then η ≤ 2C λ^(K−3−i), and [[lem:own-interpolation]] gives
-|∂_v^i Ω^β e_k| ≤ C λ^(K−3−i) σ^(−(k−4)) = C λ^((K−3−i)(1−θ_k)−(M+i)θ_k). The interval y ∈ [σ/2, σ] is r ∈ [σ⁻², 4σ⁻²],
-in the far region for λ small since K − 3 + M > 5. For i ≤ j, the condition of [[eq:own-kstar]] at i + 1 ≤ j + 1 gives
-(K − 4 − i)(1 − θ_k) > (M + i + 1) θ_k, that is (K − 3 − i)(1 − θ_k) − (M + i)θ_k > (1 − θ_k) + θ_k = 1.
+λ^(−(M+i)) σ⁵) on [σ/2, σ]. Take σ⁵ := λ^(K−3+M); then η ≤ 2C λ^(K−3−i), and [[lem:own-interpolation]]
+gives |∂_v^i Ω^β e_k| ≤ C λ^(K−3−i) σ^(−(k−4)) = C λ^((K−3−i)(1−θ_k)−(M+i)θ_k). The interval y ∈ [σ/2, σ] is
+r ∈ [σ⁻², 4σ⁻²], in the far region for λ small since K − 3 + M > 5. For i ≤ j, the condition of [[eq:own-kstar]]
+at i + 1 ≤ j + 1 gives (K − 4 − i)(1 − θ_k) > (M + i + 1) θ_k, that is
+(K − 3 − i)(1 − θ_k) − (M + i)θ_k > (1 − θ_k) + θ_k = 1.
 
 (2) Let R := λ^(−s_R), which lies in the far region for λ small as s_R ≥ 5/2. *Above R*, by the bounds of e_(8) after
 [[eq:own-e-expansion]] with the ℓ-gain, and Z = rℓ on N (Z(v − v1) = v − v1 and Z = (v − v1)∂_v + rℓ in (v, r, x̂)), the
@@ -453,8 +454,8 @@ the bounds of [[thm:uniform-existence]] at order k_P hold with λ^(K−3−i), a
 derivative in [[eq:own-flux-n]] of Γ^α e is at most C r^j λ^(K−4−j) r⁻², and its integral over r ≤ R is at most
 C λ^(2(K−4−j)) R^(2a+2j) = C λ^(2(K−4−j−s_R(a+j))) → 0 by the first entry of [[eq:own-kstar]]. For Γ^α(r^(−k/2) e_k(v,
 x̂)) on N: ∂_t acts as ∂_v on e_k, Ω on x̂, and Z = rℓ multiplies r^(−k/2) by −k/2; the tangential derivatives in
-[[eq:own-flux-n]] gain r⁻¹ and the transverse one costs one more ∂_v. So the integrand is at most C r^(2a+1−k) times
-|∂_v^i Ω^β e_k(v1)|² with i ≤ j + 1, and the integral over r ≤ R is at most C R^(max(0, 2a+2−k)) (1 + log R)
+[[eq:own-flux-n]] gain r⁻¹ and the transverse one costs one more ∂_v. So the integrand is at most C r^(2a+1−k)
+times |∂_v^i Ω^β e_k(v1)|² with i ≤ j + 1, and the integral over r ≤ R is at most C R^(max(0, 2a+2−k)) (1 + log R)
 λ^(2((K−3−i)(1−θ_k) −(M+i)θ_k)), which tends to 0 by the second entries of [[eq:own-kstar]]. ∎
 
 ### The subtracted expansion and the data on N {#sec:own-sigma}
@@ -489,8 +490,9 @@ the energy bound controls for (l + 1)² > (p + i − 1)². For the finitely many
 [0, ¾]. Hence |∂_y^i ₂F₁| ≤ C_i (1 + l)^(2i) on [0, ¾]. The rotations Ω_ab preserve the harmonics of degree l, with
 ‖Ω_ab Y‖_(L²) ≤ (l(l + 2))^(1/2) ‖Y‖_(L²) (as Σ_(a<b) Ω_ab² = Δ̊), and a harmonic of degree l has
 ‖Y‖_∞ ≤ C(1 + l)‖Y‖_(L²), the space having dimension (l + 1)². So
-|∂_s^i Ω^β F| ≤ C Σ_l (1 + l)^(2i+|β|+1) ‖G_l‖_(L²) ≤ C ‖G‖_(H^(2i+|β|+2)) ≤ C ‖G‖_(C^(2i+|β|+2)), by the Cauchy–Schwarz
-inequality with Σ_l (1 + l)⁻² < ∞. The series converges with all derivatives, and F is smooth on [0, 3/2] × S³. ∎
+∂_s^i Ω^β F is at most C Σ_l (1 + l)^(2i+|β|+1) ‖G_l‖_(L²) ≤ C ‖G‖_(H^(2i+|β|+2)) ≤ C ‖G‖_(C^(2i+|β|+2)) in
+modulus, by the Cauchy–Schwarz inequality with Σ_l (1 + l)⁻² < ∞. The series converges with all derivatives, and F
+is smooth on [0, 3/2] × S³. ∎
 
 Such an F extends smoothly to s ∈ (−1, 2), with the same bounds, by a reflection extension in s across s = 0; the
 extension does not solve the equation for s < 0, and only its values on s ≥ 0 are used below.
@@ -691,9 +693,9 @@ defined.
 (a) Σ′_J is a finite sum of smooth homogeneous tensors of degrees at most −4, and it is G-invariant. On
 W ∩ {r ≥ 1}, |∂^j Γ^α Σ′_J| ≤ C r^(−4−j) for all j and α, with C depending on λ, J, j and α: Σ′_J is tame of order 4.
 (b) m_J is of strip order (J + 1)/2 on 𝒰_1 ∩ {v ≥ v1}, with constants depending on λ and J.
-(c) Let λ be below the threshold of [[prop:far-residual]]. There is r_3 ≥ r_2, depending on λ and J, such that
-|Σ| + |Σ′_J| ≤ 1/100 on W ∩ {r ≥ r_3}, and P(Σ + Σ′_J) is tame of order 6 on W ∩ {r ≥ r_3}, with constants depending
-on λ and J.
+(c) Let λ be below the threshold of [[prop:far-residual]]. There is r_3 ≥ r_2, depending on λ and J, such that the
+bound |Σ| + |Σ′_J| ≤ 1/100 holds on W ∩ {r ≥ r_3}, and P(Σ + Σ′_J) is tame of order 6 on W ∩ {r ≥ r_3}, with
+constants depending on λ and J.
 
 *Proof.* (a) Each term is r^(−p) s^n a(x̂) with p = k/2 − n ≥ 4, a polynomial in s with smooth coefficients, so smooth
 and homogeneous of degree −p on 𝒞_1 = {r ≥ 1, 0 ≤ s ≤ 3/2} ⊃ W. The bounds follow as [[eq:far-sigma-bounds]], from the
@@ -774,8 +776,9 @@ and dΦ_W(∂_t) = 1.
 directions both are the identity. (a) is the Neumann series for (g_b0 + H)⁻¹, and the numbers follow from s_0 ≤ 1.0645
 (s_0² ≤ 1.1332). (b) |α̂|_E², |β̂|_E² ≤ 4 + 9/4 = 25/4 and |dt̃|_E² = 1 + f′² ≤ 17/16, and [[lem:own-wedge]] (a) gives
 the values for g_b0; |g − g_b0| ≤ s_0² c/(1 − s_0 c) is (a) with the roles exchanged, at most 0.4520 at c = 7/25, and
-g_b0(∂_t, ∂_t) = −1 + 𝔪 ≤ −15/16. (c) dΦ_W = dv − r⁻² dr, and with g_b0⁻¹(dv, dv) = 0, g_b0⁻¹(dv, dr) = 1, g_b0⁻¹(dr, dr)
-= 1 − 𝔪, g_b0⁻¹(dΦ_W, dΦ_W) = −2r⁻² + r⁻⁴(1 − 𝔪); |dΦ_W|_E² = 1 + (1 − r⁻²)² ≤ 2, so the perturbation adds at most r⁻².
+g_b0(∂_t, ∂_t) = −1 + 𝔪 ≤ −15/16. (c) dΦ_W = dv − r⁻² dr, and with g_b0⁻¹(dv, dv) = 0, g_b0⁻¹(dv, dr) = 1,
+g_b0⁻¹(dr, dr) = 1 − 𝔪, g_b0⁻¹(dΦ_W, dΦ_W) = −2r⁻² + r⁻⁴(1 − 𝔪); |dΦ_W|_E² = 1 + (1 − r⁻²)² ≤ 2, so the
+perturbation adds at most r⁻².
 (d) For two future timelike vectors X and n of g the form p ↦ T_g[p](X, n) is positive definite: in a g-orthonormal frame
 with X a positive multiple of e_0 and n a positive multiple of cosh s e_0 + sinh s e_1 it is, up to positive factors, ½
 cosh s (p_0² + p_1²) + sinh s p_0 p_1 + ½ cosh s Σ_(i≥2) p_i², with eigenvalues ½e^(±s) and ½ cosh s. By (a) and (b) with
@@ -827,10 +830,10 @@ These three tools bound the error terms of the energy identity in Section [[sec:
 on the energy tools and the pointwise bounds are [[lem:own-rays]] and [[eq:own-pointwise]] below).
 
 **Definition {#def:cutoff-truncation}** (the truncated problems). Let J ≥ 2k1 + 7 be an integer, and let λ be below
-the threshold of [[prop:far-residual]]. Extend f from [4R, ∞) to a smooth function F̂ on [a′, ∞) with |F̂′| ≤ ¼ and
-|F̂| ≤ C_f. For T ≤ −1 put 𝒮_T := {τ = T + F̂(|x|), |x| ≥ a′}, which is {t̃ = T} on r ≥ 4R, δ_0 := V′_P − κ_P − v1
-(≥ 4 by [[lem:interior-far-part]] (ii)), V_T := V′_P − δ_0/2 − h_P(T − C_f), and let χ_T(v) be smooth, 0 for v ≤ V_T and
-1 for v ≥ V_T + δ_0/4, with derivatives bounded independently of T. Put
+the threshold of [[prop:far-residual]]. Extend f from [4R, ∞) to a smooth function F̂ on [a′, ∞) with derivative at
+most ¼ in modulus and |F̂| ≤ C_f. For T ≤ −1 put 𝒮_T := {τ = T + F̂(|x|), |x| ≥ a′}, which is {t̃ = T} on r ≥ 4R,
+δ_0 := V′_P − κ_P − v1 (≥ 4 by [[lem:interior-far-part]] (ii)), V_T := V′_P − δ_0/2 − h_P(T − C_f), and let χ_T(v) be
+smooth, 0 for v ≤ V_T and 1 for v ≥ V_T + δ_0/4, with derivatives bounded independently of T. Put
 
     𝔤_T := (1 − χ_T) g_λ + χ_T (g_b0 + Σ + Σ′_J),                                                      {#eq:cutoff-data}
 
@@ -840,7 +843,8 @@ defined on {v ≥ v1} and Σ′_J on {r > 0}; {v ≥ v1} contains the support of
 
 **Lemma {#lem:own-truncation}** (the truncated problems). There is T_0, depending on λ and J, such that for T ≤ T_0:
 (i) 𝒮_T ∩ {v ≤ V_T + δ_0/4} ⊂ P′, so the data are defined; 𝒮_T is spacelike for g0 and g_λ; and r_T ≥ r_3, so that
-|Σ| + |Σ′_J| ≤ 1/100 on W ∩ {r ≥ r_T}, which contains Σ̃_T ([[lem:own-wedge]] (b), [[lem:cutoff-extension]] (c)).
+the bound |Σ| + |Σ′_J| ≤ 1/100 holds on W ∩ {r ≥ r_T}, which contains Σ̃_T ([[lem:own-wedge]] (b),
+[[lem:cutoff-extension]] (c)).
 (ii) Every past g_λ-causal curve from a point p ∈ (P′ ∪ Ω′) ∩ {v ≤ v1, τ − F̂(|x|) ≥ T} stays in P′ ∪ Ω′ and meets 𝒮_T at
 a point with v ≤ V_T. Hence the solution g_T of the truncated problem equals g_λ on (P′ ∪ Ω′) ∩ {v ≤ v1, τ − F̂ ≥ T}, and
 N ∩ {t̃ ≥ T} carries the data of g_λ: no characteristic problem is posed.
@@ -849,8 +853,8 @@ N ∩ {t̃ ≥ T} carries the data of g_λ: no characteristic problem is posed.
     |Γ^α h_R| ≤ C (r⁻⁴ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),     |∂Γ^α h_R| ≤ C (r⁻⁵ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),
                                                                                          {#eq:cutoff-cap-general}
 
-with C depending on λ, J and k but not on T, where 𝒮^♭_T := Σ̃_T ∩ {v ≤ V_T + δ_0/4}. If J ≥ 2k + 7, then
-|Γ^α h_R| ≤ C r⁻⁴ and |∂Γ^α h_R| ≤ C r⁻⁵ on all of Σ̃_T, and for 0 < a < 3
+with C depending on λ, J and k but not on T, where 𝒮^♭_T := Σ̃_T ∩ {v ≤ V_T + δ_0/4}. If J ≥ 2k + 7,
+then |Γ^α h_R| ≤ C r⁻⁴ and |∂Γ^α h_R| ≤ C r⁻⁵ on all of Σ̃_T, and for 0 < a < 3
 
     E_T[Γ^α h_R] ≤ C |T|^(2a−6)  (|α| ≤ k),     𝔈_k(T) ≤ C |T|^(2a−6).                                   {#eq:cutoff-cap}
 
@@ -972,8 +976,8 @@ on the coefficients number ν + 2 in total; in ∂_y^ν (e_1·∂δ) they number
 𝒯-part of each product of ℛ_ν is at most C r^(−4−(ν+2)), every further factor δ only lowering it. A product with a
 ℬ-factor has either a factor ∂̃^γ δ_[μ] in ℬ^((J+3)/2) and the others in 𝒪, or a coefficient in ℬ^((J+1)/2) and a factor
 ∂̃^γ δ_[μ] with μ ≥ 2 in 𝒯^6 + ℬ^((J+3)/2); in both cases it is at most C r^(−(J+3)/2) and vanishes off 𝒮^♭_T. Also
-∂_y^ν ℱ|_(y=0) ∈ 𝒯^(6+ν) + ℬ^((J+3)/2). Finally g_D⁻¹(dt̃, dt̃) ≤ −0.64 by [[lem:own-margins]] (b), since
-|g_D⁻¹ − g_b0⁻¹| ≤ 0.0232 on Σ̃_T by [[lem:own-margins]] (a), as |H_D| ≤ |H_0| + |𝔐| ≤ 1/50 there for T ≤ T_0
+∂_y^ν ℱ|_(y=0) ∈ 𝒯^(6+ν) + ℬ^((J+3)/2). Finally g_D⁻¹(dt̃, dt̃) ≤ −0.64 by [[lem:own-margins]] (b),
+since |g_D⁻¹ − g_b0⁻¹| ≤ 0.0232 on Σ̃_T by [[lem:own-margins]] (a), as |H_D| ≤ |H_0| + |𝔐| ≤ 1/50 there for T ≤ T_0
 ([[lem:own-truncation]] (i)); and 1/g_D⁻¹(dt̃, dt̃) ∈ 𝒯^0 + ℬ^((J+1)/2) by [[lem:cutoff-classes]] (d). So
 [[eq:cutoff-jet-equation]] gives [[eq:cutoff-induction]] for δ_[ν+2] at γ = 0; applying ∂̃^γ to
 [[eq:cutoff-jet-equation]], which holds on Σ̃_T, and counting in the same way gives it for every γ. ∎
@@ -990,9 +994,9 @@ the degree of c, and Ω_ab and Z do not raise it (Z is the Euler field of (t −
 x_a ∂_b ∂^β − x_b ∂_a ∂^β plus a constant matrix times ∂^β, or (t − v1) ∂_t ∂^β + x^i ∂_i ∂^β, which raise the order and
 the degree by one together or keep both. On W, |t − v1| ≤ r ([[lem:own-wedge]] (b)), |x| = r and r ≥ 1, which gives the
 bounds. By [[lem:cutoff-extension]] (a), |Γ^α Σ′_J| ≤ C r⁻⁴ and |∂Γ^α Σ′_J| ≤ C r⁻⁵. In (v, r, x̂), ∂_t = ∂_v and
-Z = (v − v1) ∂_v + r ℓ, with 0 ≤ v − v1 ≤ d_V on 𝒮^♭_T; so Γ^α 𝔐 is of strip order (J + 1)/2 and
-|Γ^α 𝔐| + |∂Γ^α 𝔐| ≤ C r^(−(J+1)/2) ≤ C r⁻⁵, as J ≥ 9; and 𝔐 vanishes off 𝒮^♭_T. By [[lem:cutoff-jets]] with
-N_∂ := k + 1, since δ and ∂δ vanish on Σ̃_T,
+Z = (v − v1) ∂_v + r ℓ, with 0 ≤ v − v1 ≤ d_V on 𝒮^♭_T; so Γ^α 𝔐 is of strip order (J + 1)/2
+and |Γ^α 𝔐| + |∂Γ^α 𝔐| ≤ C r^(−(J+1)/2) ≤ C r⁻⁵, as J ≥ 9; and 𝔐 vanishes off 𝒮^♭_T. By [[lem:cutoff-jets]] with
+N_∂ := max(2, k + 1), since δ and ∂δ vanish on Σ̃_T,
 
     |Γ^α δ| ≤ C Σ_(2≤|β|≤|α|) r^(|β|) (r^(−4−|β|) + 1_(𝒮^♭_T) r^(−(J+3)/2)) ≤ C (r⁻⁴ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),
 
@@ -1021,9 +1025,10 @@ C |T|^(2a+2|α|−2q+1), and [[lem:own-truncation]] (iii) uses q = (J + 1)/2.
 
 Let σ_1(T) be the supremum of the σ ≤ 0 such that g_T exists on W_T ∩ {t̃ ≤ σ} with every derivative bounded there.
 
-**Lemma {#lem:own-exterior}** (finite and continuous energies). Let T ≤ T_0 and σ′ ∈ [T, σ_1(T)), and suppose that
-|g_T⁻¹ − g_b0⁻¹| ≤ c < 7/25 on W_T ∩ {t̃ ≤ σ′} ∩ {r ≥ ϱ_0}, where ϱ_0 := max(4R, V_T + δ_0 − T + C_f). Let k ≥ 0 and
-h_R := g_T − g_b0 − Σ on W_T ∩ {t̃ ≤ σ′}. There is C, depending on T, σ′, k, λ, J and c, such that:
+**Lemma {#lem:own-exterior}** (finite and continuous energies). Let T ≤ T_0 and σ′ ∈ [T, 0], and suppose that g_T
+exists and is smooth on W_T ∩ {t̃ ≤ σ′} (for instance σ′ < σ_1(T)) and that |g_T⁻¹ − g_b0⁻¹| ≤ c < 7/25 on
+W_T ∩ {t̃ ≤ σ′} ∩ {r ≥ ϱ_0}, where ϱ_0 := max(4R, V_T + δ_0 − T + C_f). Let k ≥ 0 and h_R := g_T − g_b0 − Σ on
+W_T ∩ {t̃ ≤ σ′}. There is C, depending on T, σ′, k, λ, J and c, such that:
 (a) |∂^j Γ^γ h_R| ≤ C r^(−7/2−j) on W_T ∩ {t̃ ≤ σ′} for j + |γ| ≤ k;
 (b) for σ ∈ [T, σ′], |α| ≤ k and ϱ ≥ 4R,
 
@@ -1034,7 +1039,7 @@ on Σ̃_σ ∩ {r ≥ ϱ} is at most C ϱ^(2a−6).
 
 *Proof.* Put 𝒲 := W_T ∩ {t̃ ≤ σ′}. For every ϱ′ the set 𝒲 ∩ {r ≤ ϱ′} is compact and g_T is smooth on it, so every
 derivative of h_R is bounded there by a constant depending on ϱ′; the work is the estimate as r → ∞. Fix the integer
-m := k + 6. Constants C below depend on T, σ′, k, λ, J and c, and are independent of the radii ϱ and V_* introduced
+k_+ := k + 6. Constants C below depend on T, σ′, k, λ, J and c, and are independent of the radii ϱ and V_* introduced
 below unless said otherwise.
 
 *Step 1 (the exterior domains and the energy inequality).* For ϱ ≥ ϱ_0 and V_* > ϱ + 4(σ′ − T) + 2 put
@@ -1055,8 +1060,8 @@ future timelike for g_T on 𝒲 ∩ {r ≥ ϱ_0} with margins depending on c onl
 for every function φ and every function w > 0 on 𝒲 ∩ {r ≥ ϱ_0}. The identity [[eq:own-energy-identity]] holds, with
 the same proof, for X = w ∂_t and any smooth w > 0. Integrate it, for w := r^(2p), p ≥ 0, over X_(ϱ,V_*) ∩ {t̃ ≤ σ},
 whose boundary consists of A_σ(ϱ, V_*), A_T(ϱ, V_*) and the two lateral pieces; drop the fluxes through the lateral
-pieces, which are nonnegative (T_(g_T)[φ](w ∂_t, n) ≥ 0 for n future causal); and use d⁵x = dt̃ d⁴x,
-|∇(r^(2p))| ≤ C p r^(2p−1) ≤ C p r^(2p), |T_(g_T)[φ](V, ∂_t)| ≤ C |V| |∂φ|² and |T_(g_T)[φ]^(ab) ∂_t g_ab| ≤
+pieces, which are nonnegative (T_(g_T)[φ](w ∂_t, n) ≥ 0 for n future causal); and use d⁵x = dt̃ d⁴x, the
+bound |∇(r^(2p))| ≤ C p r^(2p−1) ≤ C p r^(2p), |T_(g_T)[φ](V, ∂_t)| ≤ C |V| |∂φ|² and |T_(g_T)[φ]^(ab) ∂_t g_ab| ≤
 C |∂g_T| |∂φ|², C depending on c. With A_σ := A_σ(ϱ, V_*) this gives
 
     c_1 ∫_(A_σ) r^(2p) |∂φ|² d⁴x ≤ c_2 ∫_(A_T) r^(2p) |∂φ|² d⁴x
@@ -1080,16 +1085,17 @@ F := P(H_0) satisfies |∂^β F| ≤ C r^(−6−|β|) ([[lem:cutoff-extension]]
 P(H_0) = F in the form [[eq:own-p-split]] gives, in Cartesian components,
 
     g_T^(ab) ∂_a ∂_b δ = 2F + 𝒩,
-    𝒩 := −(g_T^(ab) − 𝔤_T^(ab)) ∂_a ∂_b 𝔤_T + 2 (Q(g_T)(∂g_T, ∂g_T) − Q(𝔤_T)(∂𝔤_T, ∂𝔤_T)).                  {#eq:own-ext-delta}
+    𝒩 := −(g_T^(ab) − 𝔤_T^(ab)) ∂_a ∂_b 𝔤_T + 2 (Q(g_T)(∂g_T, ∂g_T) − Q(𝔤_T)(∂𝔤_T, ∂𝔤_T)).
+                                                                                         {#eq:own-ext-delta}
 
 Here g_T⁻¹ − 𝔤_T⁻¹ = −g_T⁻¹ δ 𝔤_T⁻¹; a polynomial in (g_T, g_T⁻¹) minus the same polynomial in (𝔤_T, 𝔤_T⁻¹) is, by
 telescoping, a sum of products each containing one factor δ or g_T⁻¹ δ 𝔤_T⁻¹; and ∂g_T − ∂𝔤_T = ∂δ. So 𝒩 is a finite
 sum of products of components of g_T^(±1), 𝔤_T^(±1) and δ with factors from {∂𝔤_T, ∂∂𝔤_T, Γ̂, ∂Γ̂, ∂δ}, in which the
 derivatives number exactly two (Γ̂ counting one, ∂Γ̂ and ∂∂𝔤_T two), at least one factor is δ or ∂δ, and no second
-derivative of δ occurs. For a multi-index β of Cartesian derivatives with |β| ≤ m, apply ∂^β to [[eq:own-ext-delta]]:
+derivative of δ occurs. For a multi-index β of Cartesian derivatives with |β| ≤ k_+, apply ∂^β to [[eq:own-ext-delta]]:
 ∂^β(g_T^(ab) ∂_a ∂_b δ) − g_T^(ab) ∂_a ∂_b ∂^β δ = Σ_(0<β′≤β) (β choose β′) (∂^(β′) g_T^(ab)) ∂_a ∂_b ∂^(β−β′) δ, and
-∂^(β′) (g_T⁻¹) is a sum of products of g_T⁻¹ with factors ∂^(β_i) g_T = ∂^(β_i) 𝔤_T + ∂^(β_i) δ, Σ_i β_i = β′,
-|β_i| ≥ 1. Hence
+∂^(β′) (g_T⁻¹) is a sum of products of g_T⁻¹ with factors ∂^(β_i) g_T = ∂^(β_i) 𝔤_T + ∂^(β_i) δ, Σ_i β_i = β′, and
+every |β_i| ≥ 1. Hence
 
     g_T^(ab) ∂_a ∂_b ∂^β δ = 2 ∂^β F + ℛ_β,                                                  {#eq:own-ext-derivatives}
 
@@ -1100,14 +1106,14 @@ derivative of δ, and every derivative of δ has order at most |β| + 1.
 *Step 3 (weighted energies under a pointwise bound).* Let K ≥ 1, ϱ_1 ≥ max(ϱ_0, 2 + 4(σ′ − T)),
 V_* > ϱ_1 + 4(σ′ − T) + 2 and σ ∈ [T, σ′], and suppose
 
-    |∂^i δ| ≤ K r^(−i)   on X_(ϱ_1,V_*) ∩ {t̃ ≤ σ}   for 1 ≤ i ≤ m − 2,                                  {#eq:own-ext-pg}
+    |∂^i δ| ≤ K r^(−i)   on X_(ϱ_1,V_*) ∩ {t̃ ≤ σ}   for 1 ≤ i ≤ k_+ − 2,                               {#eq:own-ext-pg}
 
 ∂^i δ standing for the array of all Cartesian derivatives of order i. For ϱ ≥ ϱ_1 and σ″ ∈ [T, σ] put
 
-    𝒥(σ″; ϱ, V_*) := Σ_(|β|≤m) ∫_(A_σ″(ϱ,V_*)) r^(2(a+|β|)) (|∂∂^β δ|² + r⁻² |∂^β δ|²) d⁴x.
+    𝒥(σ″; ϱ, V_*) := Σ_(|β|≤k_+) ∫_(A_σ″(ϱ,V_*)) r^(2(a+|β|)) (|∂∂^β δ|² + r⁻² |∂^β δ|²) d⁴x.
 
 In a product of ℛ_β let ∂^(i_0) δ (i_0 ≥ 0, ∂^0 δ := δ) be a factor of δ of largest order. Every other factor of δ has
-order at most min(i_0, |β| + 2 − i_0) ≤ (m + 2)/2 ≤ m − 2, as m ≥ 6. By [[eq:own-ext-pg]], the bounds of Step 2 on
+order at most min(i_0, |β| + 2 − i_0) ≤ (k_+ + 2)/2 ≤ k_+ − 2, as k_+ ≥ 6. By [[eq:own-ext-pg]], the bounds of Step 2 on
 𝔤_T and |∂^i Γ̂| ≤ C r^(−3−i) ([[eq:own-p-split]]), every other factor that carries i derivatives is at most C K r^(−i),
 and these i add up to |β| + 2 − i_0; the factors without derivatives are bounded. So the product is at most
 C K^(n_β) r^(−(|β|+2−i_0)) |∂^(i_0) δ|, n_β the largest number of factors, and
@@ -1115,25 +1121,25 @@ C K^(n_β) r^(−(|β|+2−i_0)) |∂^(i_0) δ|, n_β the largest number of fact
     ‖r^(a+|β|) ℛ_β‖_(L²(A_σ″)) ≤ C_K Σ_(i_0≤|β|+1) ‖r^(a+i_0−2) ∂^(i_0) δ‖_(L²(A_σ″))
                                 ≤ C_K 𝒥(σ″; ϱ, V_*)^(1/2):                                        {#eq:own-ext-products}
 
-for i_0 ≥ 1, ∂^(i_0) δ is a first derivative ∂∂^(β̃) δ with |β̃| = i_0 − 1 ≤ m, carried in 𝒥 with the weight
+for i_0 ≥ 1, ∂^(i_0) δ is a first derivative ∂∂^(β̃) δ with |β̃| = i_0 − 1 ≤ k_+, carried in 𝒥 with the weight
 r^(a+i_0−1) ≥ r^(a+i_0−2); for i_0 = 0, δ is carried with the weight r^(a−1). Here C_K depends on K besides. The terms
 with i_0 = 0 are those in which δ enters undifferentiated: their coefficients are O(r^(−|β|−2)), and
 [[eq:own-ext-products]] rests on this decay of the coefficients of order zero.
 
-For φ := (∂^β δ)_ij, □_(g_T) φ = g_T^(ab) ∂_a ∂_b φ − g_T^(ab) Γ[g_T]^c_(ab) ∂_c φ ([[lem:own-energy-identity]]), and
-|Γ[g_T]| + |∂g_T| ≤ C (|∂𝔤_T| + |∂δ|) ≤ C K by [[eq:own-ext-pg]] at i = 1; so by [[eq:own-ext-derivatives]] and
+For φ := (∂^β δ)_ij, □_(g_T) φ = g_T^(ab) ∂_a ∂_b φ − g_T^(ab) Γ[g_T]^c_(ab) ∂_c φ ([[lem:own-energy-identity]]),
+and |Γ[g_T]| + |∂g_T| ≤ C (|∂𝔤_T| + |∂δ|) ≤ C K by [[eq:own-ext-pg]] at i = 1; so by [[eq:own-ext-derivatives]] and
 [[eq:own-ext-products]], ‖r^(a+|β|) □_(g_T) φ‖ ≤ 2 ‖r^(a+|β|) ∂^β F‖ + C_K 𝒥^(1/2). Apply [[eq:own-ext-energy]] with
 p := a + |β| to φ, and [[eq:own-ext-l2]] with p := a + |β| to ψ := ∂^β δ, using r^(2p−2) |∂_t ψ|² ≤ r^(2p) |∂∂^β δ|²,
-and sum over |β| ≤ m and the components. With
+and sum over |β| ≤ k_+ and the components. With
 
-    f(σ‴) := Σ_(|β|≤m) ‖r^(a+|β|) ∂^β F‖_(L²(A_σ‴(ϱ,V_*))),
+    f(σ‴) := Σ_(|β|≤k_+) ‖r^(a+|β|) ∂^β F‖_(L²(A_σ‴(ϱ,V_*))),
 
 this gives 𝒥(σ″) ≤ C_K (𝒥(T) + ∫_T^(σ″) (𝒥 + f 𝒥^(1/2)) dσ‴) for σ″ ∈ [T, σ], 𝒥 being continuous in σ″. With
 Y(σ″) := sup_[T,σ″] 𝒥, C_K Y^(1/2) ∫ f ≤ ½ Y + ½ C_K² (∫ f)², so Y(σ″) ≤ 2C_K 𝒥(T) + C_K² (∫_T^(σ″) f)² +
 2C_K ∫_T^(σ″) Y, and Gronwall's inequality gives Y(σ″) ≤ (2C_K 𝒥(T) + C_K² (∫_T^(σ″) f)²) e^(2C_K (σ″−T)).
 
-The data: δ = ∂δ = 0 on A_T(ϱ, V_*), and A_T(ϱ, V_*) lies off 𝒮^♭_T, so by [[lem:cutoff-jets]] with N_∂ := m + 1,
-|∂^i δ| ≤ C r^(−4−i) there for 2 ≤ i ≤ m + 1. Every integrand of 𝒥(T) is therefore at most
+The data: δ = ∂δ = 0 on A_T(ϱ, V_*), and A_T(ϱ, V_*) lies off 𝒮^♭_T, so by [[lem:cutoff-jets]] with N_∂ := k_+ + 1,
+the bound |∂^i δ| ≤ C r^(−4−i) holds there for 2 ≤ i ≤ k_+ + 1. Every integrand of 𝒥(T) is therefore at most
 C r^(2(a+|β|)) r^(−10−2|β|), and 𝒥(T) ≤ C ∫_ϱ^∞ r^(2a−10) r³ dr = C ϱ^(2a−6)/(6 − 2a), as a < 3. And A_σ‴ ⊂ {r ≥ ϱ},
 so f(σ‴)² ≤ C ∫_ϱ^∞ r^(2(a+|β|)) r^(−12−2|β|) r³ dr ≤ C ϱ^(2a−8). Hence
 
@@ -1152,12 +1158,12 @@ dr dω = r⁻³ d⁴x ≤ 8 r_p⁻³ d⁴x, and
 
     sup_(S³) |ψ(r_p, ·)|² ≤ C r_p⁻³ Σ_(|γ|≤2) ∫_(I×S³) (|Ω^γ ψ|² + |(d/dr) Ω^γ ψ|²) d⁴x.      {#eq:own-ext-sobolev}
 
-By [[eq:own-gamma-cartesian]] for products of the Ω_ab, Ω^γ = Σ_(|β|≤|γ|) c_β ∂^β with |∂^i c_β| ≤ C r^(|β|−i), and
-|f′| ≤ ¼; so |Ω^γ ψ| + |(d/dr) Ω^γ ψ| ≤ C Σ_(i≤2) (r^i |∂^i ψ| + r^i |∂^(i+1) ψ|) for r ≥ 1. Take ψ := ∂^(β_0) δ,
-q := |β_0| ≤ m − 2. On I, r_p/2 ≤ r ≤ 2r_p, and, as a + q − 1 > 0,
+By [[eq:own-gamma-cartesian]] for products of the Ω_ab, Ω^γ = Σ_(|β|≤|γ|) c_β ∂^β with |∂^i c_β| ≤ C r^(|β|−i),
+and |f′| ≤ ¼; so |Ω^γ ψ| + |(d/dr) Ω^γ ψ| ≤ C Σ_(i≤2) (r^i |∂^i ψ| + r^i |∂^(i+1) ψ|) for r ≥ 1. Take ψ := ∂^(β_0) δ,
+q := |β_0| ≤ k_+ − 2. On I, r_p/2 ≤ r ≤ 2r_p, and, as a + q − 1 > 0,
 r^(2i) |∂^(q+i) δ|² ≤ C r_p^(−2(a+q−1)) r^(2(a+q+i−1)) |∂^(q+i) δ|² and
 r^(2i) |∂^(q+i+1) δ|² ≤ C r_p^(−2(a+q)) r^(2(a+q+i)) |∂^(q+i+1) δ|²; the right sides are integrands of 𝒥 (the first
-with ∂^(q+i) δ = ∂∂^(β̃) δ, |β̃| = q + i − 1, or with δ itself if q + i = 0), as q + i + 1 ≤ m + 1. So, if
+with ∂^(q+i) δ = ∂∂^(β̃) δ, |β̃| = q + i − 1, or with δ itself if q + i = 0), as q + i + 1 ≤ k_+ + 1. So, if
 I ⊂ the r-range of A_σ″(ϱ, V_*),
 
     |∂^(β_0) δ|² ≤ C r_p^(−3−2(a+q−1)) 𝒥(σ″; ϱ, V_*) = C r_p^(−2a−2q−1) 𝒥(σ″; ϱ, V_*)   on {r = r_p}.
@@ -1169,28 +1175,28 @@ lies in the r-range of A_σ″(ϱ_1, V_*) as r_p + 1 < ϱ_1 + 2(σ′ − T) + 2
 ϱ_1 > r_p − 1 − 2(σ′ − T) ≥ r_p/2. In both cases [[eq:own-ext-weighted]] gives
 𝒥(σ″; ϱ, V_*) ≤ C_K 2^(6−2a) r_p^(2a−6), and so
 
-    |∂^q δ(o)| ≤ C′_K r_p^(−q−7/2)   (q ≤ m − 2),                                        {#eq:own-ext-pointwise}
+    |∂^q δ(o)| ≤ C′_K r_p^(−q−7/2)   (q ≤ k_+ − 2),                                     {#eq:own-ext-pointwise}
 
 C′_K depending on K besides and independent of ϱ_1 and V_*.
 
-*Step 5 (the continuity argument).* Let C be the constant of [[lem:cutoff-jets]] with N_∂ = m + 1, and take
+*Step 5 (the continuity argument).* Let C be the constant of [[lem:cutoff-jets]] with N_∂ = k_+ + 1, and take
 ϱ_1 ≥ max(ϱ_0, 2 + 4(σ′ − T)) so large that C ϱ_1^(−4) ≤ ½ and C′_1 ϱ_1^(−7/2) ≤ ½, C′_1 the constant of
 [[eq:own-ext-pointwise]] at K = 1. Fix V_* > ϱ_1 + 4(σ′ − T) + 2, and let 𝒮 be the set of σ ∈ [T, σ′] for which
 [[eq:own-ext-pg]] holds with K = 1. On A_T(ϱ_1, V_*), ∂δ = 0 and |∂^i δ| ≤ C r^(−4−i) ≤ C ϱ_1^(−4) r^(−i) ≤ ½ r^(−i) for
-i ≥ 2, so T ∈ 𝒮. 𝒮 is closed, the ∂^i δ being continuous. If σ ∈ 𝒮, Steps 3 and 4 with K = 1 give
-|∂^i δ| ≤ C′_1 ϱ_1^(−7/2) r^(−i) ≤ ½ r^(−i) on X_(ϱ_1,V_*) ∩ {t̃ ≤ σ}, 1 ≤ i ≤ m − 2; as X_(ϱ_1,V_*) is compact, the
-functions r^i ∂^i δ are uniformly continuous on it, and [[eq:own-ext-pg]] with K = 1 holds on
+i ≥ 2, so T ∈ 𝒮. 𝒮 is closed, the ∂^i δ being continuous. If σ ∈ 𝒮, Steps 3 and 4 with K = 1
+give |∂^i δ| ≤ C′_1 ϱ_1^(−7/2) r^(−i) ≤ ½ r^(−i) on X_(ϱ_1,V_*) ∩ {t̃ ≤ σ}, 1 ≤ i ≤ k_+ − 2; as X_(ϱ_1,V_*) is
+compact, the functions r^i ∂^i δ are uniformly continuous on it, and [[eq:own-ext-pg]] with K = 1 holds on
 X_(ϱ_1,V_*) ∩ {t̃ ≤ σ + ε} for some ε > 0. So 𝒮 is open in [T, σ′], and 𝒮 = [T, σ′]. Hence [[eq:own-ext-weighted]] and
 [[eq:own-ext-pointwise]] hold with K = 1 on X_(ϱ_1,V_*), with constants independent of V_*. Letting V_* → ∞ (monotone
 convergence), they hold on X_(ϱ_1) := W ∩ {T ≤ t̃ ≤ σ′} ∩ {r − 2(t̃ − T) ≥ ϱ_1}, with 𝒥(σ; ϱ) the integral over
 A_σ(ϱ) := Σ̃_σ ∩ {r ≥ ϱ + 2(σ − T)}:
 
-    𝒥(σ; ϱ) ≤ C ϱ^(2a−6)  (σ ∈ [T, σ′], ϱ ≥ ϱ_1),     |∂^q δ| ≤ C r^(−q−7/2)  on X_(ϱ_1)  (q ≤ m − 2).
+    𝒥(σ; ϱ) ≤ C ϱ^(2a−6)  (σ ∈ [T, σ′], ϱ ≥ ϱ_1),     |∂^q δ| ≤ C r^(−q−7/2)  on X_(ϱ_1)  (q ≤ k_+ − 2).
 
 *Step 6 (the conclusions).* (a) On X_(ϱ_1), h_R = Σ′_J + δ. By [[eq:own-gamma-cartesian]] and Leibniz's rule,
 ∂^j Γ^γ δ is a finite sum of terms (∂^i c_(γ,β)) ∂^(j−i) ∂^β δ with i ≤ j and |β| ≤ |γ|, each at most
-C r^(|β|−i) r^(−(j−i+|β|)−7/2) = C r^(−j−7/2), as j + |β| ≤ k ≤ m − 2. With [[lem:cutoff-extension]] (a) for Σ′_J this is
-(a) on X_(ϱ_1). The points of 𝒲 with r ≥ ϱ_1 + 2(σ′ − T) lie in X_(ϱ_1), and on the compact set
+C r^(|β|−i) r^(−(j−i+|β|)−7/2) = C r^(−j−7/2), as j + |β| ≤ k ≤ k_+ − 2. With [[lem:cutoff-extension]] (a) for
+Σ′_J this is (a) on X_(ϱ_1). The points of 𝒲 with r ≥ ϱ_1 + 2(σ′ − T) lie in X_(ϱ_1), and on the compact set
 𝒲 ∩ {r ≤ ϱ_1 + 2(σ′ − T)} the derivatives of h_R are bounded.
 
 (b) Let ϱ_2 := ϱ_1 + 4(σ′ − T) and ϱ ≥ ϱ_2. For σ ∈ [T, σ′], Σ̃_σ ∩ {r ≥ ϱ} ⊂ A_σ(ϱ′), ϱ′ := ϱ − 2(σ − T), and
@@ -1200,9 +1206,9 @@ C r^(|β|−i) r^(−(j−i+|β|)−7/2) = C r^(−j−7/2), as j + |β| ≤ k �
     |∂∂Γ^α δ|² ≤ C Σ_(|β|≤|α|) (r^(2|β|) |∂∂∂^β δ|² + r^(2|β|−2) |∂∂^β δ|² + r^(2|β|−4) |∂^β δ|²).
 
 Multiplied by r^(2a) (by r^(2a−2) in the first), every term is at most C times an integrand of 𝒥(σ; ϱ′), as |α| ≤ k
-and k + 1 ≤ m (∂∂∂^β δ = ∂∂^(β′) δ with |β′| = |β| + 1, carried with the weight r^(a+|β|+1)). So the part of the left
-side of [[eq:own-ext-tail]] coming from δ is at most C 𝒥(σ; ϱ′) ≤ C ϱ′^(2a−6) ≤ C ϱ^(2a−6). For Σ′_J,
-|∂∂Γ^α Σ′_J| + |∂Γ^α Σ′_J| + r⁻¹ |Γ^α Σ′_J| ≤ C r⁻⁵ ([[lem:cutoff-extension]] (a)), and its part is at most
+and k + 1 ≤ k_+ (∂∂∂^β δ = ∂∂^(β′) δ with |β′| = |β| + 1, carried with the weight r^(a+|β|+1)). So the part of the left
+side of [[eq:own-ext-tail]] coming from δ is at most C 𝒥(σ; ϱ′) ≤ C ϱ′^(2a−6) ≤ C ϱ^(2a−6). For Σ′_J, by
+[[lem:cutoff-extension]] (a), |∂∂Γ^α Σ′_J| + |∂Γ^α Σ′_J| + r⁻¹ |Γ^α Σ′_J| ≤ C r⁻⁵, and its part is at most
 C ∫_ϱ^∞ r^(2a−10) r³ dr = C ϱ^(2a−6)/(6 − 2a). For 4R ≤ ϱ < ϱ_2 the integral over Σ̃_σ ∩ {ϱ ≤ r ≤ ϱ_2} is bounded
 uniformly in σ ∈ [T, σ′], its integrand being continuous on the compact set 𝒲 ∩ {r ≤ ϱ_2}, and ϱ^(2a−6) ≥ ϱ_2^(2a−6).
 This is (b).
@@ -1241,8 +1247,8 @@ F := Ω^γ ∂Γ^β h_R, |γ| ≤ 2, is a combination of first derivatives of co
 undifferentiated term. So [[eq:own-s1]] with the Sobolev embedding H²(S³) ⊂ L^∞(S³) gives the first bound with
 𝔈_(|β|+3); the second is the first with one more commutation, by [[lem:own-rays]] (a). Every Γ^β h_R(σ, ·) tends to 0
 at spatial infinity along Σ̃_σ, by [[lem:own-exterior]] (a). So [[eq:own-hardy]] applies, and its second inequality
-gives the third bound. With [[lem:own-sigma-data]] (b),
-|H| ≤ C λ r⁻² + C_S ε_B r^(−1/2−a) ≤ min(1/50, 𝔪/2, r⁻²/4) on W ∩ {t̃ ≤ σ*} for λ ≤ λ_2 and ε_B ≤ ε_2, since a ≥ 3/2;
+gives the third bound. With [[lem:own-sigma-data]] (b), on W ∩ {t̃ ≤ σ*},
+H satisfies |H| ≤ C λ r⁻² + C_S ε_B r^(−1/2−a) ≤ min(1/50, 𝔪/2, r⁻²/4) for λ ≤ λ_2 and ε_B ≤ ε_2, since a ≥ 3/2;
 so [[lem:own-margins]] (a)–(e) apply, with |g_T⁻¹ − g_b0⁻¹| ≤ 0.0232 and ≤ 0.2845 r⁻².
 
 *Step 2 (the commuted equations and the energy inequality).* By [[lem:far-scaling]] (b), differentiated in ς at ς = 1,
@@ -1296,9 +1302,9 @@ segment from (σ*, x) lies in W_T (v increases with t at fixed x, and v > v1 at 
 on W_T ∩ {t̃ ≤ σ′} for σ′ ∈ (σ*, σ_1(T)); so |H| ≤ 1/25 there for δ′ small, and |g_T⁻¹ − g_b0⁻¹| ≤ 0.0474 < 7/25 by
 [[lem:own-margins]] (a). The points of W_T with r ≤ ϱ_0 form a compact set, on which no margin is needed. By
 [[lem:own-exterior]] (c), 𝔈_(k1) is continuous on [T, σ* + δ′], and (BA) holds on [T, σ* + δ″] for some δ″ > 0. The set
-where (BA) holds is therefore open and closed in [T, σ_1(T)), and contains T (on Σ̃_T, 𝔈_(k1)(T) ≤ λ² and
-|g_T − g_b0| ≤ 1/50). With the bounds of Step 1, the local theory continues g_T beyond any σ_1(T) < 0: g_T exists on all
-of W_T, with 𝔈_(k1) ≤ ε_B².
+where (BA) holds is therefore open and closed in [T, σ_1(T)), and contains T (on Σ̃_T, 𝔈_(k1)(T) ≤ λ²
+and |g_T − g_b0| ≤ 1/50). With the bounds of Step 1, the local theory continues g_T beyond any σ_1(T) < 0: g_T exists
+on all of W_T, with 𝔈_(k1) ≤ ε_B².
 
 *Step 4 (higher orders at fixed λ and J).* For k1 < k ≤ k_J, induct on k: in the commuted equations at order k the
 terms of top order are linear in the order-k quantities, with coefficients bounded by [[eq:own-pointwise]] and its
@@ -1373,7 +1379,8 @@ H = g − g_b0.
 W_T, so D_T := D(g_T) solves (i)'s system there. D(g) is linear in ∂(g − g_b0) with coefficients in g⁻¹, plus terms
 (g⁻¹ − g_b0⁻¹)Γ̂, so |D(g_b0 + H)| ≤ C(|∂H| + r⁻³|H|), and |∂D(g_b0 + H)| ≤ C(|∂∂H| + |∂H| + r⁻³|H|) where |∂H| is
 bounded. Take the energy of weight 1 ([[eq:own-energies]] with w = (u* − u)² ≤ C r² ≤ C r^(2a)); it is finite on every
-Σ̃_σ, σ ∈ [T, 0], by [[lem:own-exterior]] (b) and [[lem:own-sigma-data]] (b), H = Σ + h_R. By [[eq:own-pointwise]] and
+Σ̃_σ, σ ∈ [T, 0], by [[lem:own-exterior]] (b) and [[lem:own-sigma-data]] (b), H = Σ + h_R, the hypotheses of
+[[lem:own-exterior]] holding with σ′ = 0 and c = 0.0232 by Steps 1 and 3 of the proof of [[thm:own-continuation]]. By [[eq:own-pointwise]] and
 [[lem:own-sigma-data]], the kernels of its error terms are those of [[cor:far-kernels]], with exponents 3, 3/2 + a and
 a + 1/2, all integrable, the zero-order terms entering through [[eq:own-hardy]]; D_T tends to 0 at spatial infinity
 along the slices by [[lem:own-exterior]] (a). On N, D_T = D(g_λ) = 0 with its tangential derivatives, g_T being g_λ on
@@ -1403,23 +1410,24 @@ sup_(σ≤0) E^(a_0)_σ[Γ^α h′] < ∞ for |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab
 energy [[eq:own-energies]] for g′ with the weight (u* − u)^(2a_0). Then g′ = g.
 
 *Proof.* (1) By [[lem:own-margins]] (d) for g′ and [[eq:own-s1]], whose right side involves, by
-[[eq:own-ray-derivative]], only the energies of first derivatives of Γ^α h′, |α| ≤ 3, which are bounded uniformly in σ,
-|∂h′| ≤ C_0 r^(−3/2−a_0) on every Σ̃_σ, with C_0 independent of σ. (2) Along each ray of Σ̃_σ, |d h′/dr| ≤
+[[eq:own-ray-derivative]], only the energies of first derivatives of Γ^α h′, |α| ≤ 3, which are bounded uniformly in
+σ, |∂h′| ≤ C_0 r^(−3/2−a_0) on every Σ̃_σ, with C_0 independent of σ. (2) Along each ray of Σ̃_σ, |d h′/dr| ≤
 (1 + |f′|) C_0 r^(−3/2−a_0) is integrable, so h′ has a limit c(σ, x̂) at spatial infinity. (3) c does not depend on σ:
 for σ_1 < σ_2 ≤ 0 and r large the time segment from (f(r) + σ_1, r x̂) to (f(r) + σ_2, r x̂) lies in W, and the
 difference of h′ at its ends is at most (σ_2 − σ_1) C_0 r^(−3/2−a_0) → 0. (4) c = 0: the inner edge of Σ̃_σ lies on N,
-where h′ = g_λ − g_b0 = O(r⁻²) (on N, v1 > v_end, so g_λ − g0 = u_1 is in E_2, [[eq:bondi-u-split]] with G_3 = 0); so
-|c(x̂)| ≤ C r_σ⁻² + C C_0 r_σ^(−1/2−a_0), and r_σ → ∞ as σ → −∞. Hence h′ = −∫_r^∞ ∂_s h′ ds along the rays,
-|h′| ≤ C r^(−1/2−a_0) with C independent of σ, and [[eq:own-hardy]] holds on every Σ̃_σ at the weight a_0 with constants
-independent of σ. Now ξ := g′ − g solves −½ g′^(ab) ∂_a ∂_b ξ = ½(g′^(ab) − g^(ab)) ∂_a ∂_b g + (Q(g′)(∂g′, ∂g′) −
-Q(g)(∂g, ∂g)) ([[eq:own-p-split]]), linear in (ξ, ∂ξ): the zero-order coefficients are ∂∂g, with H := g − g_b0 and
+where h′ = g_λ − g_b0 = O(r⁻²) (on N, v1 > v_end, so g_λ − g0 = u_1 is in E_2, [[eq:bondi-u-split]] with G_3 = 0);
+so |c(x̂)| ≤ C r_σ⁻² + C C_0 r_σ^(−1/2−a_0), and r_σ → ∞ as σ → −∞. Hence h′ = −∫_r^∞ ∂_s h′ ds along the
+rays, and h′ is at most C r^(−1/2−a_0) in modulus with C independent of σ, and [[eq:own-hardy]] holds on every Σ̃_σ
+at the weight a_0 with constants independent of σ. Now ξ := g′ − g solves
+−½ g′^(ab) ∂_a ∂_b ξ = ½(g′^(ab) − g^(ab)) ∂_a ∂_b g + (Q(g′)(∂g′, ∂g′) − Q(g)(∂g, ∂g)) ([[eq:own-p-split]]), linear in
+(ξ, ∂ξ): the zero-order coefficients are ∂∂g, with H := g − g_b0 and
 r|∂∂H| ≤ C(μ + λ) r⁻³ + C ε_B r^(−1/2−a) by [[eq:own-pointwise]] and [[lem:own-sigma-data]] (b), and |∂g′|², and the
 first-order ones |∂g| + |∂g′|. Apply [[eq:own-energy-identity]] to ξ with the metric g′ and the weight a_0: the
-deformation term carries |∂_t h′| ≤ C_0 r^(−3/2−a_0); the bulk term T_(g′)(∇w, ∂_t) is at least −C|h′| |w′| |∂ξ|², with
-|w′|/w ≤ C r⁻¹, a kernel r^(−3/2−a_0); the zero-order terms through [[eq:own-hardy]] give the exponents min(3, a + 1/2)
-and 2 + 2a_0; all exponents exceed 1 since a > ½. ξ = 0 on N with its first derivatives, so the flux through N
-vanishes; on Σ̃_(σ_1), E^(a_0)[ξ] ≤ 2E^(a_0)[h′] + 2E^(a_0)[g − g_b0], and both tend to 0 as σ_1 → −∞ (for Σ,
-|∂Σ| ≤ C λ r⁻³ gives C λ² r_(σ_1)^(2a_0−2); for h_R, its weight-a energy tends to 0 and dominates its weight-a_0
+deformation term carries |∂_t h′| ≤ C_0 r^(−3/2−a_0); the bulk term T_(g′)(∇w, ∂_t) is at least −C|h′| |w′| |∂ξ|²,
+with |w′|/w ≤ C r⁻¹, a kernel r^(−3/2−a_0); the zero-order terms through [[eq:own-hardy]] give the exponents
+min(3, a + 1/2) and 2 + 2a_0; all exponents exceed 1 since a > ½. ξ = 0 on N with its first derivatives, so the
+flux through N vanishes; on Σ̃_(σ_1), E^(a_0)[ξ] ≤ 2E^(a_0)[h′] + 2E^(a_0)[g − g_b0], and both tend to 0 as σ_1 → −∞
+(for Σ, |∂Σ| ≤ C λ r⁻³ gives C λ² r_(σ_1)^(2a_0−2); for h_R, its weight-a energy tends to 0 and dominates its weight-a_0
 energy, as u* − u ≥ 1 on W, the energies of g and g′ being comparable by [[lem:own-margins]] (d), as |H| ≤ 1/50 by
 [[eq:own-pointwise]] and [[lem:own-sigma-data]] (b) as in Step 1 of the proof of [[thm:own-continuation]]). Gronwall's
 inequality from σ_1, with constants independent of σ_1, and σ_1 → −∞ give ξ = 0. The proof uses of g′ its energies of
@@ -1516,8 +1524,8 @@ differ there from (γ_b0, k_b0) by C λ in C^(d_1+4), and the norm of [[sec:s27-
 constraint equations ([[prop:own-vacuum]]). So ‖·‖_(d_1) ≤ C(λ + ε_B) < ε for λ ≤ λ_2.
 
 (3) The data are G-invariant (g is), vacuum, in the half-integer class and below the thresholds of [[prop:vii-3-2]] and
-[[cor:s27-rate]]. By [[thm:own-half-settling]] they have a G-invariant vacuum development settling to g_(m′,0) with
-|m′ − μ_end| < ε_m (b₀ = (μ_end, 0)) at the rate O(t_*^(−2−ε_t)) of [[eq:s27-rate]] on {r_♭ ≤ r ≤ R′, t_* ≥ T′}; this
-development embeds in the maximal vacuum development of (γ, k), which therefore settles in the same sense. No gluing is
-used, and no value of λ ∈ (0, λ_2] is excluded: [[prop:own-transfer]] shows only that, off the exceptional set of
-[[prop:own-tail]] (d), the half-integer class is needed. ∎
+[[cor:s27-rate]]. By [[thm:own-half-settling]] they have a G-invariant vacuum development settling to g_(m′,0)
+with |m′ − μ_end| < ε_m (b₀ = (μ_end, 0)) at the rate O(t_*^(−2−ε_t)) of [[eq:s27-rate]] on
+{r_♭ ≤ r ≤ R′, t_* ≥ T′}; this development embeds in the maximal vacuum development of (γ, k), which therefore
+settles in the same sense. No gluing is used, and no value of λ ∈ (0, λ_2] is excluded: [[prop:own-transfer]] shows
+only that, off the exceptional set of [[prop:own-tail]] (d), the half-integer class is needed. ∎

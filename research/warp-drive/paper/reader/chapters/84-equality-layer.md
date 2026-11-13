@@ -50,10 +50,11 @@ compact Ω and inversion is smooth, after shrinking λ0 so that C λ0 ≤ 1 ther
 
     |(g_λ⁻¹ − g0⁻¹)(α, α)| ≤ C1 λ |α|_e²     on Ω, for every covector α,                                {#eq:eq-c1}
 
-|α|_e the Euclidean norm of the Cartesian components of α. The vector field Y := −g0⁻¹ dτ is uniformly timelike for
-g0 on Ω, and, λ0 being shrunk once more, future timelike for g_λ. Put B := 1 + sup |r_q′|, the supremum over the
-v-range of D_T. For a covector α = dr − β dv with |β| ≤ B, the Cartesian components are α = −β dτ + (1 − β) x̂·dx,
-since dv = dτ + x̂·dx and dr = x̂·dx, so |α|_e² = β² + (1 − β)² ≤ B² + (1 + B)², and by [[eq:eq-c1]]
+where |α|_e is the Euclidean norm of the Cartesian components of α. The vector field Y := −g0⁻¹ dτ is uniformly
+timelike for g0 on Ω, and, λ0 being shrunk once more, future timelike for g_λ. Put B := 1 + sup |r_q′|, the
+supremum over the v-range of D_T. For a covector α = dr − β dv with |β| ≤ B, the Cartesian components are
+α = −β dτ + (1 − β) x̂·dx, since dv = dτ + x̂·dx and dr = x̂·dx, so |α|_e² = β² + (1 − β)² ≤ B² + (1 + B)², and by
+[[eq:eq-c1]]
 
     |g_λ⁻¹(α, α) − g0⁻¹(α, α)| ≤ C_Φ λ,      C_Φ := C1 (B² + (1 + B)²).                                 {#eq:eq-c-phi}
 
@@ -1338,8 +1339,8 @@ C_L11 a constant for which the three bounds of [[eq:layer-expansion]] hold, C_L4
 In the generic case the exponents of Λ_8a, …, Λ_8e are 1/11, 4/3, 1/11.5, 1/(N − 8.25) and −1/13, and
 Λ_8a = (6 A ν_* d_*/(125 C_m0))^(1/11); at ρ* they are 1/10.5625, 1/0.3125, 1/11.0625, 1/(N − 8.6875) and −1/13.4375.
 Every exponent is defined and every base is positive, E(v_s + η1/2) being positive since v_s = inf supp env; so each Λ
-is a positive number, which does not depend on λ. Λ_0 and ν_♭ depend on env and τ0 through η1 and through the level
-E(v_s + η1/2), and not only through the norms of env that the other constants involve.
+is a positive number, which does not depend on λ. Λ_0 and ν_♭ depend on env and τ0 through the choice of η1, and Λ_0
+also through the level E(v_s + η1/2).
 
 Indeed λ ≤ 1 gives y ≤ 1 and orders the powers of λ that the proof compares; λ ≤ λ0 is [[thm:main]], with the choice
 of λ0 in [[sec:eq-setting]]; λ ≤ 1/(2 C1) is the hypothesis s ≤ 1/2 of [[lem:layer-remainder]]; Λ_0 gives

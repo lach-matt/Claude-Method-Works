@@ -588,36 +588,56 @@ the proof of [Hin26c, Proposition 8.3] the first is taken from [Hin26c, Proposit
 the second is left to the reader.
 
 *Proof.* We follow the pattern of [[sec:ii-d-3]] at R, with W′ := x′_I² ρ_+², ρ and 𝖧 as above, A := A_I the frame of
-h_I, and the weight w := x′_I^(2α) for [[eq:ii-e-3-2]], w* := x′_I^(2α*) with α* := −α − 1 for [[eq:ii-e-3-3]]. The
-commutant is ǎ = ρ^(−s+1/2) Ψ χ_∞ with
+h_I, and the weight w := x′_I^(2α) for [[eq:ii-e-3-2]], w* := x′_I^(2α*) with α* := −α − 1 for [[eq:ii-e-3-3]]. Take
+t̄ := t_+ + 2 in [[lem:ii-e-3-1]], and fix x_1 ∈ (0, x_0] with κ x_1^(2ℓ_I) ≤ ω_0/8.
+
+*The sets of the iteration.* [[lem:ii-d-2-2]] needs, for every open U between a compact set Γ and a fixed
+neighbourhood U_0 of it, a commutant supported in U and E-sets in U ∖ Γ. We take T_− := t_− − ω_0/4,
+T_+ := t_+ + ω_0/4, and Γ := R_([T_−,t_+]) for [[eq:ii-e-3-2]], Γ := R_([t_−,T_+]) for [[eq:ii-e-3-3]]; both are compact
+and contain R_([t_−,t_+]). U_0 is an open neighbourhood of Γ inside the neighbourhood of (1) and inside
+{x′_I < x_1, |ξ̂| < 1/2, 1/2 < t_* < t̄}, and so small that Q_ε ≥ 4δ′ on it (see below).
+Given U with Γ ⊂ U ⊂ U_0, take λ ∈ (0, ω_0/4], and let the commutant be ǎ = ρ^(−s+1/2) Ψ χ_∞ with
 
     Ψ := ψ(𝔐_Σ ρ²ℓ) ψ(𝔐_R q) ψ(𝔐 x′_I) ψ_−(F) ψ_+(F),        q := ξ̂² + |η̂|²,
-    ψ_−(F) := η_t((F − t_−)/ω_0),        ψ_+(F) := η_t((t_+ − F)/ω_0),
+    ψ_−(F) := η_t((F − T_−)/λ),   ψ_+(F) := η_t((t_+ − F)/λ)        for [[eq:ii-e-3-2]],
+    ψ_−(F) := η_t((F − t_−)/λ),   ψ_+(F) := η_t((T_+ − F)/λ)        for [[eq:ii-e-3-3]],
 
-η_t as in [[prop:ii-d-3-6]], and t̄ := t_+ + 2 in [[lem:ii-e-3-1]]. On supp ψ(𝔐_R q) ψ(𝔐 x′_I), |ξ̂| ≤ 1/2 and
-x′_I ≤ x_0 for 𝔐_R and 𝔐 large, and 0 ≤ t_* − F ≤ κ𝔐^(−2ℓ_I) ≤ ω_0/4. As η_t = 0 on (−∞, −1/2], η_t = 1 on
-[−1/4, ∞) and η_t′ ≠ 0 only on (−1/2, −1/4), on supp Ψ we have t_− − ω_0/2 ≤ F ≤ t_+ + ω_0/2; so
-supp Ψ ⊂ U_F ∩ {t_− − ω_0/2 ≤ t_* ≤ t_+ + 3ω_0/4}, which is compact, and Ψ = 1 at R_([t_−,t_+]), where F = t_*. In
-[[eq:ii-d-3-1]], which is used below, ℓ_I denotes, as there, the principal symbol of the imaginary part of the
-conjugated operator, not the decay order at ℐ⁺.
+η_t as in [[prop:ii-d-3-6]]. As η_t = 0 on (−∞, −1/2], η_t = 1 on [−1/4, ∞) and η_t′ ≠ 0 only on (−1/2, −1/4), the
+time factors equal 1 on Γ and vanish unless T_− − λ/2 ≤ F ≤ t_+ + λ/2, resp. t_− − λ/2 ≤ F ≤ T_+ + λ/2. For
+𝔐_R ≥ 4 and 𝔐 ≥ x_1⁻¹, on supp ψ(𝔐_R q) ψ(𝔐 x′_I) we have |ξ̂| ≤ 1/2, x′_I ≤ x_1 and
+0 ≤ t_* − F = κ x′_I^(2ℓ_I) ≤ ω_0/8, so that supp Ψ lies in U_F ∩ {t_− − 3ω_0/8 ≤ t_* ≤ t_+ + ω_0/2}, which is compact.
+On R, q = x′_I = 0, F = t_* and ℓ = 0, R lying in the characteristic set; so Ψ = 1 on Γ ⊃ R_([t_−,t_+]). The closed sets
+supp ψ(𝔐_Σ ρ²ℓ) ψ(𝔐_R q) ψ(𝔐 x′_I) ψ_−(F) ψ_+(F) at fibre infinity decrease, as λ → 0 and 𝔐_Σ, 𝔐_R, 𝔐 → ∞, to the
+set where x′_I = 0, q = 0, ℓ = 0 and T_− ≤ t_* ≤ t_+ (resp. t_− ≤ t_* ≤ T_+), which is Γ: at x′_I = 0 over ℐ⁺ the
+characteristic set is |η̂|² = (1/2) ξ̂(2 − ξ̂) ([[lem:ii-b-7-2]] (1)), and q = 0 there is R. By compactness, for λ
+small and 𝔐_Σ, 𝔐_R, 𝔐 large, supp Ψ lies in U near fibre infinity. In [[eq:ii-d-3-1]], which is used below, ℓ_I
+denotes, as there, the principal symbol of the imaginary part of the conjugated operator, not the decay order at ℐ⁺.
 
 *[[eq:ii-e-3-2]], with ς = 1.* [[eq:ii-d-3-1]] gives
 H_ℓ(ǎ_ε²) + 2ǎ_ε² ℓ_I = ρ^(−2s) φ_ε² (−Ψ² Q_ε + 𝖧(Ψ²)), and at R, as in [[prop:ii-d-3-6]],
 
     Q_ε = 4A⁻¹(Re_(h_I) p_1)A − 2 − 4α ≥ 4(p̄_1 − 2δ′) − 2 − 4α = 8δ′,
 
-by [[eq:ii-e-1-2]] with 2δ′, as 4(p̄_1 − 1/2 − α) = 16δ′. The factors ψ(𝔐_Σ ρ²ℓ), ψ(𝔐_R q) and ψ(𝔐 x′_I) contribute as
-in [[prop:ii-d-3-6]]: j_ε ℓ, and +e*e terms supported in {q ≥ (2𝔐_R)⁻¹} ∪ {x′_I ≥ (2𝔐)⁻¹}, which give E. For the time
-factors, by the chain rule and [[eq:ii-e-3-1]],
+by [[eq:ii-e-1-2]] with 2δ′, as 4(p̄_1 − 1/2 − α) = 16δ′; by continuity Q_ε ≥ 4δ′ on U_0 when U_0 is small. The
+factors ψ(𝔐_Σ ρ²ℓ), ψ(𝔐_R q) and ψ(𝔐 x′_I) contribute as in [[prop:ii-d-3-6]]: j_ε ℓ, and +e*e terms supported in
+{q ≥ (2𝔐_R)⁻¹} ∪ {x′_I ≥ (2𝔐)⁻¹}, which give E. For the time factors, by the chain rule and [[eq:ii-e-3-1]],
 
-    𝖧(ψ_−(F)²) = (2/ω_0) ψ_− η_t′((F − t_−)/ω_0) (h_F − t_* ρ² ℓ),
-    𝖧(ψ_+(F)²) = −(2/ω_0) ψ_+ η_t′((t_+ − F)/ω_0) (h_F − t_* ρ² ℓ).
+    𝖧(ψ_−(F)²) = (2/λ) ψ_− η_t′((F − T_−)/λ) (h_F − t_* ρ² ℓ),
+    𝖧(ψ_+(F)²) = −(2/λ) ψ_+ η_t′((t_+ − F)/λ) (h_F − t_* ρ² ℓ).
 
 The part with t_* ρ² ℓ is of the form j_ε ℓ ([[lem:ii-d-2-1]]). The part with h_F = Σ_i c_i² is, up to its sign,
-Σ_i ((2/ω_0)^(1/2) (ψ_± η_t′)^(1/2) c_i)², a finite sum of squares of symbols, since (η_t η_t′)^(1/2) is smooth. For
+Σ_i ((2/λ)^(1/2) (ψ_± η_t′)^(1/2) c_i)², a finite sum of squares of symbols, since (η_t η_t′)^(1/2) is smooth. For
 ψ_+ it enters with the sign −: a term −b′*b′, so no error term arises at late times. For ψ_− it enters with the sign +:
-a term +e_−*e_−, supported where η_t′((F − t_−)/ω_0) ≠ 0, so where F < t_− − ω_0/4, and hence t_* < t_− on supp Ψ;
-this gives E_−. Then [[lem:ii-d-2-1]]–[[lem:ii-d-2-3]] give [[eq:ii-e-3-2]].
+a term +e_−*e_−, supported where η_t′((F − T_−)/λ) ≠ 0, so where T_− − λ/2 < F < T_− − λ/4, and hence, on supp Ψ,
+t_* < T_− − λ/4 + ω_0/8 < t_− − ω_0/8; this gives E_−. The localiser φ_E of the pattern (6) is taken supported, near
+fibre infinity, in U ∩ ({q ≥ (4𝔐_R)⁻¹} ∪ {x′_I ≥ (4𝔐)⁻¹} ∪ {T_− − 3λ/4 ≤ F ≤ T_− − λ/8}). The first two sets are
+closed and miss R, where q = x′_I = 0. On the third, t_* ≤ F + ω_0/8 ≤ t_− − ω_0/8 − λ/8 within U_0, and on R it
+meets only t_* ≤ T_− − λ/8 < T_−. So the set of (6) misses Γ, as [[lem:ii-d-2-2]] requires, and its union over the
+finitely many U of the iteration is the union of a closed set missing R and a closed set in {t_* ≤ t_− − ω_0/8}. Let
+E be elliptic on the first with WF′(E) ∩ R = ∅, and E_− the quantisation of a symbol supported in {t_* ≤ t_−} and
+elliptic on the second; this is (4). The operator E*E + E_−*E_− is elliptic on the union, so it may serve as the E
+of [[lem:ii-d-2-2]], and ‖(E*E + E_−*E_−)u‖_(s,2α) ≤ C(‖Eu‖_(s,2α) + ‖E_−u‖_(s,2α)). Then
+[[lem:ii-d-2-1]]–[[lem:ii-d-2-3]] give [[eq:ii-e-3-2]].
 
 *[[eq:ii-e-3-3]], with ς = −1.* For P* the conjugated operator has 𝔭′_(P*) = −𝔭′ ([[lem:ii-d-1-1]], as
 Im_h P* = −Im_h P), so [[eq:ii-d-3-1]] gives
@@ -631,8 +651,12 @@ At R, ρ⁻¹𝖧ρ = 0, 𝔭′ = −2 Re_(h_I) p_1 ([[lem:ii-d-3-4]]), 𝖧 lo
 with the opposite sign. As 𝖧q ≤ −q and 𝖧x′_I ≤ −x′_I/2 near R ([[prop:ii-d-3-6]]), the factors ψ(𝔐_R q) and
 ψ(𝔐 x′_I) give −b′*b′ terms: for −𝖧 the set R is a radial source, and no error term arises from them.
 ψ(𝔐_Σ ρ²ℓ) gives j_ε ℓ. Of the time factors, ψ_− gives −b′*b′ and ψ_+ gives +e_+*e_+, supported where
-F > t_+ + ω_0/4, hence in {t_* > t_+}; this is E_+. [[lem:ii-d-2-1]]–[[lem:ii-d-2-3]] hold with ς = −1, as
-[[lem:ii-a1-4-1]], on which they rest, allows either sign; they give [[eq:ii-e-3-3]].
+T_+ + λ/4 < F < T_+ + λ/2, hence in {t_* > t_+ + ω_0/4}, as t_* ≥ F; this is E_+. The localiser φ_E is taken
+supported, near fibre infinity, in U ∩ {T_+ + λ/8 ≤ F ≤ T_+ + 3λ/4}, which lies in {t_* > t_+} and meets R only where
+t_* > T_+, so misses Γ. E_+ is the quantisation of a symbol supported in {t_* > t_+} and elliptic on the union of these
+sets over the finitely many U of the iteration, a closed subset of {t_* ≥ t_+ + ω_0/4}; this is (4).
+[[lem:ii-d-2-1]]–[[lem:ii-d-2-3]] hold with ς = −1, as [[lem:ii-a1-4-1]], on which they rest, allows either sign; with
+E_+ as the E of [[lem:ii-d-2-2]] they give [[eq:ii-e-3-3]].
 
 Both estimates use the operator only through the pattern, so they hold for P^ext near {t_* ≤ 1}, and for systems
 P ⊗ Id − Q with Q of first order whose principal symbol vanishes at R, as in [[lem:ii-d1-2-5]]. The constants depend on

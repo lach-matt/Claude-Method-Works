@@ -1,5 +1,5 @@
 label	source	source_name	note
-ch:equality-layer	docket68/n1star/EQUALITY5.md:1-22; docket68/n1star/EQUALITY5-LAYER.md:12-50	EQUALITY5 summary; EL s.0	introduction rewritten without status words; Remark E.6's heuristic (order lambda^2 obstruction) not carried: EL 41-49 shows the lambda^2 part vanishes
+ch:equality-layer	docket68/n1star/EQUALITY5.md:1-22; docket68/n1star/EQUALITY5-LAYER.md:12-50	EQUALITY5 summary; EL s.0	introduction rewritten without status words; Remark E.6's heuristic (order lambda^2 obstruction) not carried: EL 41-49 shows the lambda^2 part vanishes; F-84: summary narrowed to what prop:layer-regions proves (R-84 m3)
 sec:eq-setting	docket68/n1star/EQUALITY5.md:23-45	EQUALITY5 s.0	v_start-independence paragraph composed with MINOR-1, MINOR-2, NIT-7; C1 in the Euclidean norm (EL 546-547) and C_Phi = C1((1+B)^2+B^2) (EL R4.5, 1554-1557)
 eq:eq-g0	docket68/n1star/EQUALITY5.md:27	EQUALITY5 (0.1)	F named as the f of eq:vr-form
 eq:eq-c1	docket68/n1star/EQUALITY5-LAYER.md:546-547	EL R2.5 (C1 in the Euclidean norm)
@@ -17,7 +17,7 @@ rem:eq-why-layer	docket68/n1star/EQUALITY5.md:166-173	EQUALITY5 Remark E.6 (firs
 sec:eq-horizon	docket68/n1star/EQUALITY5.md:180-208	EQUALITY5 s.3	C_theta = C3 of eq:theta-plus-close; Proposition 3.3's C renamed C_h
 prop:eq-horizon	docket68/n1star/EQUALITY5.md:182-204	EQUALITY5 Proposition E.5	(c)'s exact identity (E6) proved by factoring mu sqrt(mu) - r_q^3
 sec:layer-setting	docket68/n1star/EQUALITY5-LAYER.md:51-68, 316-356	EL s.1, R2.1	beta0 renamed beta_Phi (A11); theta (phase) and vartheta (angle) per the edition; class S written 𝔖; the seed g0° (EL 1840)
-eq:layer-costs	docket68/n1star/EQUALITY5-LAYER.md:61, 316-318	EL s.1 E, eps_M; R2.1 eps_c
+eq:layer-costs	docket68/n1star/EQUALITY5-LAYER.md:61, 316-318	EL s.1 E, eps_M; R2.1 eps_c	F-84: E := sup |env| (R-84 M1; the source sup env assumes env >= 0, which thm:main does not)
 def:layer-class	docket68/n1star/EQUALITY5-LAYER.md:67-68	EL class S
 sec:layer-operators	docket68/n1star/EQUALITY5-LAYER.md:99-109	EL Proposition L.2 (b), (c)	the computed identities (layerlin5 N1, layerdeg5 D1) replaced by hand derivations
 eq:layer-christoffel	none	(new: Christoffel table of the seed)	written for the hand derivations
@@ -26,7 +26,7 @@ lem:layer-seed-operators	docket68/n1star/EQUALITY5-LAYER.md:99-103, 351-352, 515
 eq:layer-components	docket68/n1star/EQUALITY5-LAYER.md:101-103	EL L.2 (b) componentwise T and Pol	checked against a symbolic linearisation privately
 lem:layer-bianchi	none	(new: two-scale contracted Bianchi identity)	proves the gauge propagation that EL 125-126 states ('they hold because the gauge propagates') and the rtheta component of R_X(H_1)
 eq:layer-bianchi	none	(new)
-lem:layer-pol-plus	docket68/n1star/EQUALITY5-LAYER.md:105-109	EL L.2 (c) (layerlin5 N2)	proved: Pol Y = V and Y in the range of Pol^T in a rotated Cartesian frame; tangential trace part added
+lem:layer-pol-plus	docket68/n1star/EQUALITY5-LAYER.md:105-109	EL L.2 (c) (layerlin5 N2)	proved: Pol Y = V and Y in the range of Pol^T in a rotated Cartesian frame; tangential trace part added; F-84: covector renamed xi (R-84 n7)
 eq:layer-pol-plus	docket68/n1star/EQUALITY5-LAYER.md:106-107	EL L.2 (c)
 sec:layer-linear	docket68/n1star/EQUALITY5-LAYER.md:79-138	EL s.3	T written from the edition's eq:waves: a = (2h/3)(2c^2 + i s^2), b = -(2h/3)(c^2 + 2i s^2)
 eq:layer-divergence	docket68/n1star/EQUALITY5-LAYER.md:112, 121	EL tau := (div T)_theta, d := div div T	tau renamed d_1
@@ -38,7 +38,7 @@ eq:layer-h3	docket68/n1star/EQUALITY5-LAYER.md:121-128	EL L.2 (e)	scalar sector 
 eq:layer-nu	docket68/n1star/EQUALITY5-LAYER.md:28, 130-133, 1116	EL (0.2) with A3 (K -> nu); dnu/drho from R3.3
 lem:layer-angular	docket68/n1star/EQUALITY5-LAYER.md:140-150, 1117-1118	EL s.4 (layerlin5 N6); d_* = 8/3 (R3.3)	derived by hand; |d| >= 8/3 proved by a polynomial inequality (replaces the gcd argument)
 eq:layer-d	docket68/n1star/EQUALITY5-LAYER.md:144	EL s.4 d^F, d^G	written as d = d^G - i d^F in one formula
-lem:layer-inverse	docket68/n1star/EQUALITY5-LAYER.md:72-77	EL Lemma L.1 (layerlin5 N0)	identity derived
+lem:layer-inverse	docket68/n1star/EQUALITY5-LAYER.md:72-77	EL Lemma L.1 (layerlin5 N0)	identity derived; F-84: |k| <= C lambda <= 1 from the shrunk lambda0 of sec:eq-setting; bound on q written out
 eq:layer-inverse	docket68/n1star/EQUALITY5-LAYER.md:74	EL L.1
 sec:layer-flat	docket68/n1star/EQUALITY5-LAYER.md:338-356	EL R2.1 (F1), (F2)	layerdeg5 D2 (theta-means) by the one-line argument
 lem:layer-energy-null	docket68/n1star/EQUALITY5-LAYER.md:359-375	EL Lemma L.8	layernull5 E1 (flux density) derived
@@ -54,32 +54,36 @@ eq:layer-expansion	docket68/n1star/EQUALITY5-LAYER.md:532-533	EL L.11
 lem:layer-remainder	docket68/n1star/EQUALITY5-LAYER.md:545-599	EL Lemma L.4 (R2.5)	step 1 (layernull5 E3) and step 2 (E6) derived; step 5 written for the edition's data (lapse and shift of G(X, u/lambda), sec:data-proof); tilt renamed eps_t
 eq:layer-remainder	docket68/n1star/EQUALITY5-LAYER.md:551	EL (R2.4)
 eq:layer-w-equation	docket68/n1star/EQUALITY5-LAYER.md:564-565	EL R2.5 step 2
-lem:layer-remainder-weak	docket68/n1star/EQUALITY5-LAYER.md:1474-1487, 1820-1822	EL Lemma L.4' with R5.1 nit (step 5)	bandL4p5 H1's bookkeeping replaced by the triangular argument in words
+lem:layer-remainder-weak	docket68/n1star/EQUALITY5-LAYER.md:1474-1487, 1820-1822	EL Lemma L.4' with R5.1 nit (step 5)	bandL4p5 H1's bookkeeping replaced by the triangular argument in words; F-84: constant named C_L4 (R-84 n9); step 3 carries the l >= 2 term lambda^(2-j) (R-84 n8)
 sec:layer-window	docket68/n1star/EQUALITY5-LAYER.md:51-70 (round 1 s.6)	EL s.6
 lem:layer-interpolation	docket68/n1star/EQUALITY5-LAYER.md:192-202, 969-975	EL Lemma L.5 with A15's constant	divided-difference step written out; round 1's constant kept as the kappa = 1 bound; Chebyshev-Lobatto variant not carried
 eq:layer-interpolation	docket68/n1star/EQUALITY5-LAYER.md:196, 971	EL L.5, A15
-cor:layer-interpolation-band	docket68/n1star/EQUALITY5-LAYER.md:1001-1006; reader/proofs/P-H-l24.md:298-310	EL L.12 (i) proof (B1); P-H Remark (eps^2 <= C lambda^(-1/8) m0)	new corollary for chapter 85: the form eps_c^2 <= C lambda^(-1/8) E^2 (m = 56c) and <= C lambda^(-1/8) m0 (m >= 84c); B1's sampled bound proved
+cor:layer-interpolation-band	docket68/n1star/EQUALITY5-LAYER.md:1001-1006; reader/proofs/P-H-l24.md:298-310	EL L.12 (i) proof (B1); P-H Remark (eps^2 <= C lambda^(-1/8) m0)	new corollary for chapter 85: the form eps_c^2 <= C lambda^(-1/8) E^2 (m = 56c) and <= C lambda^(-1/8) m0 (m >= 84c); B1's sampled bound proved; F-84: margin lower bound with |env(v_m)| = E, stated at every v (R-84 M1)
 eq:layer-cost-level	docket68/n1star/EQUALITY5-LAYER.md:1001	EL L.12 (i) proof
 eq:layer-cost-band	none	(new, for chapter 85)
 eq:layer-cost-margin	none	(new, for chapter 85)
 eq:layer-margin-lower	docket68/n1star/EQUALITY5-LAYER.md:1004-1006	EL L.12 (i) margin bound	constant written with (1 + sqrt(mu_end/mu0)) in place of 3 (valid without mu - mu0 <= mu0)
-lem:layer-levels	docket68/n1star/EQUALITY5-LAYER.md:203-209	EL Lemma L.6 (layerwin5 W2)
+lem:layer-levels	docket68/n1star/EQUALITY5-LAYER.md:203-209	EL Lemma L.6 (layerwin5 W2)	F-84: first reach of the level of |env|, sign of env constant on the window, existence for 0 < y <= sup|env| (R-84 M1)
 sec:layer-theorem	docket68/n1star/EQUALITY5-LAYER.md:211-244, 601-613	EL s.7 with R2.6
-thm:layer	docket68/n1star/EQUALITY5-LAYER.md:14-34	EL Theorem L	K >= 6 (R2.0 item 2, A13); K -> nu (A3); factor A (A9); window at the first reach of lambda^14 (A2); stage N by the rule (A19)
-eq:layer-main	docket68/n1star/EQUALITY5-LAYER.md:21-23	EL (0.1)
+thm:layer	docket68/n1star/EQUALITY5-LAYER.md:14-34	EL Theorem L	K >= 6 (R2.0 item 2, A13); K -> nu (A3); factor A (A9); window at the first reach of lambda^14 (A2); stage N by the rule (A19); F-84: |env| in the first reach and in eq:layer-main, env of either sign (phase shift by pi), delta(lambda) <= 1/2 for lambda <= lambda_L; proof fixes eta1 and states each threshold condition (R-84 M1, m4)
+eq:layer-main	docket68/n1star/EQUALITY5-LAYER.md:21-23	EL (0.1)	F-84: inf of |env| |nu| (R-84 M1)
+eq:layer-signal	docket68/n1star/EQUALITY5-LAYER.md:1096-1105	EL R3.3 signal lower bound	new display: the signal lower bound lambda^3 A (3y/4) nu_* d_* written 10 G lambda^(3+z), generic and at rho* (F-84, R-84 m4)
 cor:layer	docket68/n1star/EQUALITY5-LAYER.md:35-39, 951-953	EL Corollary L.7 with A6
 rem:layer-mechanism	docket68/n1star/EQUALITY5-LAYER.md:41-49	EL 'The mechanism'	'a correction to Remark E.6' dropped (history)
 sec:layer-past	docket68/n1star/EQUALITY5-LAYER.md:615-718	EL R2.7	N_P with beta0 of prop:near-region (A11: the source's beta0 here is this exponent)
 prop:layer-seed-past	docket68/n1star/EQUALITY5-LAYER.md:629-638	EL Proposition E.2_P
 lem:layer-profiles-past	docket68/n1star/EQUALITY5-LAYER.md:640-650	EL (layerpast5 P1-P3)	written by hand: decay uniqueness, H_2^inf, scalar sector of H_3^inf, nu_inf
 eq:layer-nu-infinity	docket68/n1star/EQUALITY5-LAYER.md:622	EL K_inf (A3: nu_inf)
-lem:layer-flat-past	docket68/n1star/EQUALITY5-LAYER.md:652-689	EL Lemma L.3_P	Lemma 9.x / (9.7) of the source mapped to lem:past-energy, lem:past-transport, lem:past-sobolev, lem:decay-calculus and the proof of thm:past-approximant
+lem:layer-flat-past	docket68/n1star/EQUALITY5-LAYER.md:652-689	EL Lemma L.3_P	Lemma 9.x / (9.7) of the source mapped to lem:past-energy, lem:past-transport, lem:past-sobolev, lem:decay-calculus and the proof of thm:past-approximant; F-84: S_(j,3) defined as the r^-3 coefficient of S_j (R-84 n10)
 lem:layer-remainder-past	docket68/n1star/EQUALITY5-LAYER.md:691-711	EL Lemma L.4_P	psi's C^1 property (layernull5 E4) derived
 eq:layer-remainder-past	docket68/n1star/EQUALITY5-LAYER.md:697	EL (R2.5)
-thm:layer-past	docket68/n1star/EQUALITY5-LAYER.md:617-624, 713-717	EL Theorem L_P
+thm:layer-past	docket68/n1star/EQUALITY5-LAYER.md:617-624, 713-717	EL Theorem L_P	F-84: proof fixes M := M_P, m := 56 M_P and checks eps_(M_P)(v1) <= lambda^3 (R-84 m6)
 sec:layer-regions	docket68/n1star/EQUALITY5-LAYER.md:981-1092	EL R3.2
-prop:layer-regions	docket68/n1star/EQUALITY5-LAYER.md:987-1012, 1489-1505, 1784-1791, 1834-1835	EL Proposition L.12 as amended (R4.3, A20, A24)	sigma_K = 3; m, kappa per V-M1; gamma = 1/10 for all delta in (0, 1/2]; the exponent ledgers (layerband5 B2, bandL4p5 H2-H4) replaced by explicit inequalities valid for every K >= 6; (iii)'s carrier-period variation argued
-prop:layer-structure	docket68/n1star/EQUALITY5-LAYER.md:1024-1041, 1631-1633, 3057-3070	EL Proposition L.13 with the R4.6 nit and R8.1 B2 (r0-motion)	(b) proved with the r0-motion explicit; veryedge5 V1/V2 replaced by the proof
-sec:layer-threshold	docket68/n1star/EQUALITY5-LAYER.md:1093-1107, 1548-1584, 1823-1824, 2203-2210	EL R3.3 formula, R4.5 (Lambda_5'), R5.1 nit, R5.6	Lambda_8d written for general N (exponent 1/(N - 8.25)); certified numbers not carried, see rem:layer-threshold-size
-eq:layer-threshold	docket68/n1star/EQUALITY5-LAYER.md:1098-1104, 1824	EL R3.3 display, Lambda_5'
-rem:layer-threshold-size	docket68/n1star/EQUALITY5-LAYER.md:1128-1141, 1575-1584, 2205-2207	EL R3.3, R4.5, R5.6 (numbers at P*)	replaced by a hand bound lambda_L <= 10^(-430) for the interpolation constant of lem:layer-interpolation; the source's certified figures (2.71e-12 with Chebyshev-Lobatto constants, etc.) reported, not carried
+prop:layer-regions	docket68/n1star/EQUALITY5-LAYER.md:987-1012, 1489-1505, 1784-1791, 1834-1835	EL Proposition L.12 as amended (R4.3, A20, A24)	sigma_K = 3; m, kappa per V-M1; gamma = 1/10 for all delta in (0, 1/2]; the exponent ledgers (layerband5 B2, bandL4p5 H2-H4) replaced by explicit inequalities valid for every K >= 6; (iii)'s carrier-period variation argued; F-84: first-reach points and R with |env| (R-84 M1); (iii) carrier-period step with |env(v)| >= c lambda^-3 E^(2+1/m) (R-84 m5)
+rem:layer-regions-model	docket68/n1star/EQUALITY5-LAYER.md:1017-1020, 1503-1504	EL R3.2 (b) model map (B3) rerun in R4.3 (H3)	numerical observation, no proof uses it (F-84, R-84 m2 (c))
+prop:layer-structure	docket68/n1star/EQUALITY5-LAYER.md:1024-1041, 1631-1633, 3057-3070	EL Proposition L.13 with the R4.6 nit and R8.1 B2 (r0-motion)	(b) proved with the r0-motion explicit; veryedge5 V1/V2 replaced by the proof; F-84: (b) c_(j,k) = 0 for k > j - 2 stated for j >= 2 (R-84 n6)
+rem:layer-expansion-edge	docket68/n1star/EQUALITY5-LAYER.md:1043-1054, 1649-1650	EL R3.2 (d) (V4, V5) with A21	numerical observation, no proof uses it (F-84, R-84 m2 (a), the review's text)
+rem:layer-edge-data	docket68/n1star/EQUALITY5-LAYER.md:1058-1063	EL Proposition L.14 (a), (b) (V3, V5 (d))	numerical observation, no proof uses it; L.14 (c) (withdrawn U-claim, EL 1601-1606) and (d) not carried (F-84, R-84 m2 (b))
+sec:layer-threshold	docket68/n1star/EQUALITY5-LAYER.md:1093-1107, 1548-1584, 1823-1824, 2203-2210	EL R3.3 formula, R4.5 (Lambda_5'), R5.1 nit, R5.6	Lambda_8d written for general N (exponent 1/(N - 8.25)); certified numbers not carried, see rem:layer-threshold-size; F-84: Lambda_0 (eta1), the constant 1 and Lambda_8e (term q) added, shares in tenths, exponents for general z (R-84 m4)
+eq:layer-threshold	docket68/n1star/EQUALITY5-LAYER.md:1098-1104, 1824	EL R3.3 display, Lambda_5'	F-84: complete list of conditions; nu_* over [v_s, v_s + eta1], a number (R-84 m4); Lambda_8d carries C_L11 C_L4 (R-84 n9)
+rem:layer-threshold-size	docket68/n1star/EQUALITY5-LAYER.md:1128-1141, 1575-1584, 2205-2207	EL R3.3, R4.5, R5.6 (numbers at P*)	replaced by a hand bound lambda_L <= 10^(-430) for the interpolation constant of lem:layer-interpolation; the source's certified figures (2.71e-12 with Chebyshev-Lobatto constants, etc.) reported, not carried; F-84: for env_C of eq:envelope, not the numerical point of prop:lambda0 (R-86 finding 5); bounds the delivered threshold, not the largest lambda (R-84 n11); 10^(-430) re-derived
