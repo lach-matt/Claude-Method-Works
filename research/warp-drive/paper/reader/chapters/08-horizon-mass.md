@@ -83,11 +83,11 @@ the inequality of the time orientation. So Φ ∘ γ < 0 immediately after τ1: 
 there. If γ(τ2) ∈ D_T for some τ2 > τ1, let τ3 be the infimum of the τ > τ1 with Φ(γ(τ)) ≥ 0. Then τ3 > τ1,
 Φ(γ(τ3)) = 0 and Φ ∘ γ < 0 on (τ1, τ3), which contradicts the strict decrease of Φ ∘ γ near τ3. So γ does not return.
 
-*The margin.* If μ0 > √72 l5², then 1 − √(μ/(√72 l5²)) ≤ 1 − √(μ0/(√72 l5²)) = −δ and the third term is at most 0,
-so g0⁻¹(dΦ, dΦ) ≤ −δ on the whole boundary. By item 4 of [[thm:main]], |g_λ − g0| ≤ C λ on Ω; since g0⁻¹ is bounded on
+*The margin.* If μ0 > √72 l5², then 1 − √(μ/(√72 l5²)) ≤ 1 − √(μ0/(√72 l5²)) = −δ_b and the third term is at most
+0, so g0⁻¹(dΦ, dΦ) ≤ −δ_b on the whole boundary. By item 4 of [[thm:main]], |g_λ − g0| ≤ C λ on Ω; since g0⁻¹ is bounded on
 the compact Ω and inversion is smooth, |g_λ⁻¹ − g0⁻¹| ≤ C1 λ. The covector dΦ = dr − r_q′ dv is bounded on Ω, so
 
-    g_λ⁻¹(dΦ, dΦ) ≤ g0⁻¹(dΦ, dΦ) + C λ ≤ −δ + C λ ≤ −δ/2      once C λ ≤ δ/2.
+    g_λ⁻¹(dΦ, dΦ) ≤ g0⁻¹(dΦ, dΦ) + C λ ≤ −δ_b + C λ ≤ −δ_b/2      once C λ ≤ δ_b/2.
 
 Moreover g_λ⁻¹(dΦ, dτ) ≥ m + r_q′ − C λ, and m ≥ μ0/r² is bounded below on Ω, so g_λ⁻¹(dΦ, dτ) > 0 for λ small.
 The covector dτ is timelike for g_λ ([[lem:domain]] (e)), and g_λ is time oriented, as g0 is, so that dτ is positive
@@ -95,7 +95,7 @@ on its future causal vectors. The argument of the time orientation, with g_λ in
 of {Φ = 0} a neighbourhood U and a c > 0 with dΦ(Z) ≤ −c dτ(Z) for every future causal vector Z of g_λ at points of U.
 The no-return argument for g0 used that v does not decrease along causal curves of g0, and only to carry the condition
 μ > √72 l5² or μ′ > 0 from γ(τ1) to the later points of γ on {Φ = 0}. For g_λ no such step is needed: the margin
-g_λ⁻¹(dΦ, dΦ) ≤ −δ/2 holds at every point of the boundary, so the inequality dΦ(Z) ≤ −c dτ(Z) holds near every point
+g_λ⁻¹(dΦ, dΦ) ≤ −δ_b/2 holds at every point of the boundary, so the inequality dΦ(Z) ≤ −c dτ(Z) holds near every point
 of {Φ = 0}, and the first-return argument applies to every future causal curve of g_λ as it stands.
 
 *Equality.* If μ0 = √72 l5², then on {v ≤ inf supp env} μ = μ0 and μ′ = 0, so the formula gives g0⁻¹(dΦ, dΦ) = 0,

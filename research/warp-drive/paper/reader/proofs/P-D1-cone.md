@@ -14,7 +14,8 @@ The metrics of the class in double-null gauge are
 
     g = −4 e^(2W) du dv + G_x (dx − β du)² + R² ((1 + x)/2) e^(2P) dφ1² + R² ((1 − x)/2) e^(2Q) dφ2²,
 
-with R, P, Q, W, G_x, β functions of (u, v, x) and x ∈ [−1, 1]. For every such metric [[pending:raychaudhuri-identity]]
+with R, P, Q, W, G_x, β functions of (u, v, x) and x ∈ [−1, 1]. For every such metric
+(see [[pending:raychaudhuri-identity]])
 
     Ric_vv = −(3/R) (∂_v²R − 2 ∂_vW ∂_vR) − ((∂_vP)² + (∂_vQ)² + (∂_vP + ∂_vQ)²),          {#eq:cone-raychaudhuri}
 
@@ -80,7 +81,7 @@ d env/dv = (4π/3) σ³ κ. With v′ = 2/f,
 
 On [r_s, r_e] we have 0 ≤ σ ≤ 1, |κ| = (1 − σ²)^(1/2), 3f/(4r) ≤ 3/(4r_s) ≤ β := 0.0732, and r^(−3) f^(−2) =
 r/(r² − 1)² is decreasing, so r^(−3) f^(−2) ≤ r_s/(r_s² − 1)² ≤ 9.473 × 10⁻⁴. With y := σ² ∈ [0, 1] and a := 4π/3
-(a² ≤ 17.547),
+(a² = 16π²/9 = 17.5460…),
 
     σ⁶ (σ² + λ² (aκ − 3fσ/(4r))²) ≤ g(y) := y⁴ + λ² y³ (a (1 − y)^(1/2) + β)².
 
@@ -103,12 +104,12 @@ second, c := (r_s + r_e)/2, ℓ := (r_e − r_s)/2 and t := (r − c)/ℓ, so th
 C_(ij), 0 ≤ i ≤ N_r, 0 ≤ j ≤ 28, be the decimal numbers of [[sec:cone-table-c1]] (first seed) and
 [[sec:cone-table-c2]] (second seed), and
 
-    S(r, x) := Σ_(i=0)^(N_r) Σ_(j=0)^(28) C_(ij) T_i(t) T_j(x),      a(x) := r_s − S(r_s, x),      b(x) := 1 − ∂_rS(r_s, x).
+    S(r, x) := Σ_(i=0)^(N_r) Σ_(j=0)^(28) C_(ij) T_i(t) T_j(x),    a(x) := r_s − S(r_s, x),    b(x) := 1 − ∂_rS(r_s, x).
 
 The approximant is
 
                ⎧ r                                              for 10 ≤ r ≤ r_s,
-    R_app :=   ⎨ S(r, x) + a(x) + b(x)(r − r_s)                 for r_s ≤ r ≤ r_e,                          {#eq:cone-approximant}
+    R_app :=   ⎨ S(r, x) + a(x) + b(x)(r − r_s)                 for r_s ≤ r ≤ r_e,             {#eq:cone-approximant}
                ⎩ R_app(r_e, x) + ∂_rR_app(r_e, x)(r − r_e)      for r ≥ r_e,
 
 and g_app denotes the data (R_app, P, Q, W) on the cone.
@@ -133,9 +134,9 @@ b(x) = Σ_j b_j T_j(x) with
 (c) The jumps of ∂_r²R_app across v = 1/2 and across v = 7/2 are at most 3.6 × 10⁻⁸ at the first seed and at most
 8.5 × 10⁻⁸ at the second.
 
-The proof occupies the next section. It bounds the residual of the linear equation on the boxes of a Chebyshev grid:
-in x it uses that the residual, multiplied by 1 + x², is a polynomial of degree 30; in r it uses that the polynomial
-part is reproduced exactly by interpolation and that the rest is holomorphic on an explicit ellipse.
+The proof occupies the next section. It bounds the residual of the linear equation by its values at the nodes of a
+Chebyshev grid: in x it uses that the residual, multiplied by 1 + x², is a polynomial of degree 30; in r it uses that
+the polynomial part is reproduced exactly by interpolation and that the rest is holomorphic on an explicit ellipse.
 
 ### Proof of the residual bound {#sec:cone-residual-proof}
 
@@ -152,7 +153,8 @@ the restriction to t ∈ [−1, 1] of a function holomorphic in t on the set {t 
 *Proof.* (a) S is a polynomial of degree 28 in x, hence so are ∂_t²S, a, b and R_app(r, ·); H is a polynomial of
 degree 2 in x. (b) The first statement is clear. For the second, r ↦ v(r) extends holomorphically to Re r > 1 as
 2(r − 10) + ln(11/9) + Log(r − 1) − Log(r + 1), Log the principal branch; r^(−3/2) extends as the principal branch on
-Re r > 0; env, cos θ and sin θ are entire functions of v, and S, a, b are polynomials. ∎
+Re r > 0; on [r_s, r_e], env is the restriction of the entire function sin⁴(π(v − 1/2)/3), cos θ and sin θ are
+entire functions of v, and S, a, b are polynomials. ∎
 
 **Lemma {#lem:cone-ellipse}** (F on a Bernstein ellipse.) For ϱ > 1 let E_ϱ be the closed region bounded by the
 ellipse with foci ±1 and semi-axes (ϱ + ϱ^(−1))/2 and (ϱ − ϱ^(−1))/2. Take ϱ = 2 at the first seed and ϱ = 3/2 at the
@@ -222,7 +224,7 @@ polynomial of degree at most n, and I_n is linear.
 - (I2) [Tre19, Theorem 8.2]: if g is analytic in the open region bounded by the ellipse of [[lem:cone-ellipse]] with
   parameter ϱ > 1, and |g| ≤ M there, then |g − I_n g| ≤ 4M ϱ^(−n)/(ϱ − 1) on [−1, 1].
 
-Numerically, Λ_30 ≤ 3.19, Λ_40 ≤ 3.37 and Λ_64 ≤ 3.66.
+In particular Λ_30 ≤ 3.19, Λ_40 ≤ 3.37 and Λ_64 ≤ 3.66.
 
 **Lemma {#lem:cone-residual-bound}** (The residual of the linear equation.) On [r_s, r_e] × [−1, 1],
 
@@ -318,20 +320,21 @@ there; on [10, r_s], R = r > 0.
 For the regularity, R(r, x) = r − ∫_(r_s)^r (r − q) w(q, x) R(q, x) dq on [r_s, r_e]. By [[eq:cone-w]], w is
 continuous on [r_s, r_e] × [−1, 1] and smooth in x, with every x-derivative continuous (it is a polynomial in x
 divided by 1 + x²). The Picard iterates of this integral equation and all their x-derivatives converge uniformly on
-[r_s, r_e] × [−1, 1], the m-th x-derivative of the k-th increment being bounded by C_m^(k+1) k^m (r − r_s)^(2k)/(2k)!
-for a constant C_m. So R and ∂_rR are continuous and R is C^∞ in x on [r_s, r_e] × [−1, 1], and then on
+[r_s, r_e] × [−1, 1]: by induction on k, the m-th x-derivative of the k-th increment is bounded by
+C_m D_m^k (r − r_s)^(2k)/(2k)! for constants C_m and D_m. So R and ∂_rR are continuous and R is C^∞ in x on [r_s, r_e] × [−1, 1], and then on
 [10, ∞) × [−1, 1] by the explicit formulas on the other two intervals. ∎
 
 **Corollary {#cor:cone-compare}** (The approximant and the exact data.) With R as in [[prop:cone-exact]] and ℰ̄ as in
-[[lem:cone-residual-bound]], on [r_s, r_e] × [−1, 1]
+[[lem:cone-residual-bound]], put Δ := 2ℓ² ℰ̄/(1 − 2ℓ² W̄). On [r_s, r_e] × [−1, 1]
 
-    |R_app − R| ≤ 2ℓ² ℰ̄/(1 − 2ℓ² W̄),      |∂_r(R_app − R)| ≤ 2ℓ (ℰ̄ + W̄ |R_app − R|_∞),
+    |R_app − R| ≤ Δ,      |∂_r(R_app − R)| ≤ 2ℓ (ℰ̄ + W̄ Δ),
 
 that is, |R_app − R| ≤ 1.9 × 10⁻⁷ and |∂_r(R_app − R)| ≤ 2.6 × 10⁻⁷ at the first seed, and |R_app − R| ≤ 9.7 × 10⁻⁷
 and |∂_r(R_app − R)| ≤ 1.3 × 10⁻⁶ at the second. For r ≤ r_s, R_app = R; for r ≥ r_e both are affine in r, so
 |R_app − R| grows at most linearly, with these values and slopes at r_e.
 
 *Proof.* D := R_app − R satisfies D(r_s, x) = ∂_rD(r_s, x) = 0 and, on [r_s, r_e], ∂_r²D = (ℰ − w R_app) + w R =
-ℰ − w D. Let Δ := max |D| over [r_s, r_e] × [−1, 1]. Then |D(r, x)| ≤ ∫_(r_s)^r (r − q)(ℰ̄ + W̄ Δ) dq ≤
-2ℓ²(ℰ̄ + W̄ Δ), so Δ (1 − 2ℓ² W̄) ≤ 2ℓ² ℰ̄; and |∂_rD| ≤ ∫_(r_s)^r (ℰ̄ + W̄ Δ) dq ≤ 2ℓ(ℰ̄ + W̄ Δ). The numbers follow
+ℰ − w D. Let Δ₀ := max |D| over [r_s, r_e] × [−1, 1]. Then |D(r, x)| ≤ ∫_(r_s)^r (r − q)(ℰ̄ + W̄ Δ₀) dq ≤
+2ℓ²(ℰ̄ + W̄ Δ₀), so Δ₀ (1 − 2ℓ² W̄) ≤ 2ℓ² ℰ̄, that is Δ₀ ≤ Δ; and |∂_rD| ≤ ∫_(r_s)^r (ℰ̄ + W̄ Δ₀) dq ≤
+2ℓ(ℰ̄ + W̄ Δ). The numbers follow
 from [[lem:cone-w]], [[lem:cone-residual-bound]], 2ℓ² ≤ 1.1064 and 2ℓ ≤ 1.4876. ∎
