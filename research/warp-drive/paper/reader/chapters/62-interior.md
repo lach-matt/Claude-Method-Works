@@ -127,11 +127,11 @@ g is the development of the glued data (γ_λ, k_λ) of [[thm:settling]] (i), wh
 [[ch:after-shell]]). On the domain of dependence of Σ^IVP ∩ {r < R}, g and g_λ are vacuum developments of the same
 data, so they agree up to a diffeomorphism. [[lem:interior-one-spacetime]] states this precisely; it makes g_λ, near
 the hole just before Σ^IVP, and g, after Σ^IVP, one vacuum spacetime. Its proof compares g_λ with g_(b₀) on a
-neighbourhood of Σ^IVP ∩ {r_♭ ≤ r ≤ R}, which reaches below r_♭, where [[lem:vii-1-2]] (a) is not stated. The next
-lemma gives that comparison; its part (a) is [[lem:vii-1-2]] (a) on a larger set, and the proof of (a) there extends to
-it, its formula holding at every r > 0.
+neighbourhood of Σ^IVP ∩ {r_♭ ≤ r ≤ R}, which reaches below r_♭, outside the set on which [[lem:vii-1-2]] (a) is
+stated. The next lemma gives that comparison; its part (a) is [[lem:vii-1-2]] (a) on a larger set, and the proof of (a)
+there extends to it, its formula holding at every r > 0.
 
-**Lemma {#lem:interior-chart}** (g_λ and g_(b₀) in the chart of [[lem:vii-1-2]].) In the chart
+**Lemma {#lem:interior-chart}** (The Tangherlini metric in the chart of [[lem:vii-1-2]].) In the chart
 (t, x) = (τ + T_(μ_end)(|x|) + c₀, x) of [[lem:vii-1-2]]:
 
 (a) the Tangherlini metric g^KS_(μ_end,0) = η + (μ_end/r²)(dτ + dr)² of [[lem:vii-1-1]] is g_(b₀) on
@@ -163,8 +163,8 @@ that g_λ and g both induce on it; in the chart of [[lem:vii-1-2]] Σ is one set
 below lie in the coordinate space ℝ × ℝ⁴ of that chart. Let λ ≤ λ1 be so small, depending on R and Ω′, that dt_IVP,
 with ψ_IVP continued below r_♭ by ψ′_IVP = 1, is timelike for g_λ and in the cone of dτ on a connected open
 neighbourhood of the closure Σ̄ in Ω′_+ (such λ exist, see the proof), and let V ⊂ Ω′_+ be such a neighbourhood,
-time-oriented as on Ω′, so that dt_IVP is past timelike on V. Let D_V(Σ) be
-the Cauchy development of Σ in (V, g_λ) ([[thm:std-bgp-development]]), and put
+time-oriented as on Ω′, so that dt_IVP is past timelike on V. Let D_V(Σ) be the Cauchy development of Σ in (V, g_λ)
+([[thm:std-bgp-development]]), and put
 
     A := D_V(Σ) ∩ {t_IVP ≤ 0}  with g_λ,     B := {|x| > r_♭, t_IVP > 0} ∪ Σ  with g.
 
@@ -193,11 +193,11 @@ dτ. By compactness and continuity there are c_V, δ_V > 0 such that the closed 
 in the interior of Ω′_+ ∩ {|x| > ½r_♭}, and g_(b₀)⁻¹(dt_IVP, dt_IVP) and g_(b₀)⁻¹(dτ, dt_IVP) are at most −2c_V on Q.
 Q is compact, so by [[lem:interior-chart]] (b) the components of g_λ⁻¹ − g_(b₀)⁻¹ are at most C_Qλ on Q. So for
 λ small, depending on c_V and Q and hence on R and Ω′, the two quantities, in which dt_IVP and dτ have components
-bounded on Q, are at most −c_V for g_λ on Q. Let V be the
-open δ_V-neighbourhood of Σ̄; it is connected, the union of balls each meeting the connected set Σ̄. So this V is one
-such neighbourhood as the statement asks for. On any such V, dt_IVP is timelike for g_λ and in the cone of dτ, which
-is past: Ω′ is time-oriented by dτ, which is timelike for g_λ ([[lem:domain]] (e) on Ω′, with item 4 of [[thm:main]]).
-So t_IVP increases strictly along future causal curves of (V, g_λ).
+bounded on Q, are at most −c_V for g_λ on Q. Let V be the open δ_V-neighbourhood of Σ̄; it is connected, the union of
+balls each meeting the connected set Σ̄. So this V is one such neighbourhood as the statement asks for. On any such V,
+dt_IVP is timelike for g_λ and in the cone of dτ, which is past: Ω′ is time-oriented by dτ, which is timelike for g_λ
+([[lem:domain]] (e) on Ω′, with item 4 of [[thm:main]]). So t_IVP increases strictly along future causal curves of
+(V, g_λ).
 
 *Σ in V.* Σ = V ∩ {r_♭ < |x| < R, t_IVP = 0} is an open subset of a level set of t_IVP, whose differential does not
 vanish; so Σ is a smooth hypersurface of V, spacelike as dt_IVP is timelike, and acausal, as t_IVP increases strictly
