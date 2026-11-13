@@ -1,5 +1,5 @@
 label	source	source_name	note
-ch:s03	docket68/n1star/proof5/PART-I-C-LOWENERGY.md:1	I.C (whole part; kept range 12-1434)	intro from 12-30 without status lines; inner radius as parameter per BEYOND5-R0-PROOF section 2; notation N_E, M, iota fixed
+ch:s03	docket68/n1star/proof5/PART-I-C-LOWENERGY.md:12	I.C (whole part; kept range 12-1434)	intro from 12-30 without status lines; inner radius as parameter per BEYOND5-R0-PROOF section 2; notation N_E, M, iota fixed
 sec:i-c-1	docket68/n1star/proof5/PART-I-C-LOWENERGY.md:32	I.C section 1	
 sec:i-c-1-1	docket68/n1star/proof5/PART-I-C-LOWENERGY.md:34	I.C section 1.1	
 eq:i-c-1-1	docket68/n1star/proof5/PART-I-C-LOWENERGY.md:43	I.C (1.1)	

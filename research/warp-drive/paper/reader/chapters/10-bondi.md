@@ -780,7 +780,8 @@ the flux density at past null infinity of Chapter 9 [[pending:ch9-flux]]. The me
 Since D_c² + D_s² = env² + λ² env'² and D_c D_s = −½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ), the sphere
 mean of [[eq:bondi-density]] is
 
-    μ_B' = (2/9) A² [ env² + λ² env'² + (1 − π/2)(−½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ)) ], {#eq:bondi-flux}
+    μ_B' = (2/9) A² [ env² + λ² env'²
+             + (1 − π/2)(−½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ)) ],      {#eq:bondi-flux}
 
 exactly. We integrate from v_start, where μ_B = μ0 and env vanishes to all orders. The first term gives μ(v) − μ0, since
 μ' = (2/9) A² env² [[pending:ch2-null-dust]]. For the oscillating term, a differentiation shows

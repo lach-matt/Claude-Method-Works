@@ -352,9 +352,104 @@ up to O(λ): the wave enters at order λ⁰ only through the term ½ k^±(ℓ) �
 vanishes by [[eq:wave-traceless]]. So M[S_(v,r)](g_app) − μ(v) = O(λ), and the remainder contributes C(|w| + |∂w|) ≤
 C λ^(K−4). ∎
 
-**Remark {#rem:mean-mass-aspect}** (What the mass sees.) The first mean m1 need not vanish: in the gauge of the proof
-its forcing, the phase mean of R^(1)[g0 + λ W], is nonzero only in its dv dϑ component, where it equals
-−(4/9) A² env² h(ζ)² sin 2ϑ/r³ [[pending:computational-2]]. This term is odd under the quarter turn, as
-[[lem:quarter-turn]] requires, and a rotation-invariant mass cannot see it. The quantity of [[prop:mean-mass]] is the
+The first mean m1 is driven by the following forcing. By [[lem:first-entry]] with m1, φ1 and ĝ2 set to zero, 𝒦_1 is
+the coefficient R^(1) of λ in R[g0 + λ W], so the forcing of the mean equation of stage 1 ([[lem:stage-system]] (a))
+is 𝒮_1 = −⟨R^(1)⟩.
+
+**Lemma {#lem:first-mean-forcing}** (The forcing of the first mean.) Let W = W_TT + χ dv ⊗ dv with χ a profile of zero
+θ-mean, and let R^(1) be the coefficient of λ in the two-scale expansion of R[g0 + λ W] ([[def:two-scale]]). In the
+coordinates (v, r, ϑ, ξ1, ξ2) of [[eq:vr-form]],
+
+    ⟨R^(1)⟩ = −(4/9) A² env² h(ζ)² r⁻³ sin 2ϑ (dv ⊗ dϑ + dϑ ⊗ dv).                             {#eq:first-mean-forcing}
+
+In particular ⟨R^(1)⟩ does not depend on χ.
+
+*Proof.* Write v_a := ∂_a v, Ẇ := ∂_θ W and h := λ[W], with indices raised by g0. Four facts are used.
+(W1) W(ℓ, ·) = 0 and tr W = 0 ([[lem:stage-zero]] (a)).
+(W2) As mixed tensors W and Ẇ commute, and ⟨W Ẇ⟩ = 0. The term χ dv ⊗ dv contributes nothing to W^ρ_c Ẇ^c_σ or
+Ẇ^ρ_c W^c_σ, since ℓ^c Ẇ_cσ = 0 and W_TT^(ρc) v_c = 0. W_TT and Ẇ_TT are diagonal in the coordinates (ϑ, ξ1, ξ2), on
+which g0 is diagonal, so W Ẇ = ½ ∂_θ (W_TT W_TT).
+(W3) ⟨W⟩ = 0, since W_TT is a first harmonic in θ and χ has zero mean.
+(W4) In the coordinates of [[eq:vr-form]], with f = 1 − μ/r² and ℓ = ∂_r, the Christoffel symbols of g0 give
+∇̂_v ℓ^r = −μ/r³, ∇̂_A ℓ^B = r⁻¹ δ^B_A for angular A, B, and ∇̂_a ℓ^c = 0 otherwise; so ∇̂_ℓ ℓ = 0. Since g0^(vc) = δ^c_r,
+the Hessian of v is ∇̂_a v_b = −Γ^v_ab = ½ ∂_r g0_ab, that is −(μ/r³) dv² + r γ, with γ the round metric; so
+∇̂_ℓ v = 0.
+
+*The expansion.* As in the proof of [[lem:mean-leading]], with C := Γ[g] − Γ[g0], Ric(g) = Ric(g0) + ∇̂_ρ C^ρ_ab −
+∇̂_b C^ρ_aρ + C^ρ_ρσ C^σ_ab − C^ρ_bσ C^σ_aρ, C^ρ_ab = ½ g^(ρσ)(∇̂_a h_bσ + ∇̂_b h_aσ − ∇̂_σ h_ab) and D^ρ = g^(ab) C^ρ_ab.
+With ∇̂_a [u] = λ⁻¹ v_a [∂_θ u] + [∇̂_a u] and g⁻¹ = g0⁻¹ − λ W^♯ + O(λ²), C = [C⁽⁰⁾] + λ [C⁽¹⁾] + O(λ²), where
+C⁽⁰⁾ρ_ab = ½(v_a Ẇ_b^ρ + v_b Ẇ_a^ρ − ℓ^ρ Ẇ_ab) and
+
+    C⁽¹⁾ρ_ab = G^ρ_ab − ½ (v_a (WẆ)^ρ_b + v_b (WẆ)^ρ_a),      G^ρ_ab := ½ (∇̂_a W_b^ρ + ∇̂_b W_a^ρ − ∇̂^ρ W_ab);
+
+the second term comes from −λ W^(ρσ) acting on C⁽⁰⁾, whose term in v_σ drops since W^(ρσ) v_σ = 0. By (W1),
+C⁽⁰⁾ρ_ρb = 0, v_ρ C⁽⁰⁾ρ_ab = 0 and g0^(ab) C⁽⁰⁾ρ_ab = 0. By (W2) and (W3), ⟨C⁽¹⁾⟩ = 0.
+
+*The Ricci part.* At order λ the derivative terms give λ⁻¹ v_ρ [∂_θ C⁽²⁾] and ∇̂ C⁽¹⁾, both of θ-mean zero. The products
+give C⁽⁰⁾ C⁽¹⁾ + C⁽¹⁾ C⁽⁰⁾. In C^ρ_ρσ C^σ_ab both cross terms vanish, since C⁽⁰⁾ρ_ρσ = 0 and v_σ C⁽⁰⁾σ_ab = 0; in
+C^ρ_bσ C^σ_aρ the two cross terms are transposes in (a, b). So the mean of the Ricci part is −2 times the symmetric part
+of ⟨T⟩, T_ab := C⁽⁰⁾ρ_bσ C⁽¹⁾σ_aρ. By (W1), Ẇ^ρ_σ v_ρ = 0, (WẆ)^σ_ρ ℓ^ρ = 0 and v·ℓ = 0, so
+
+    Ẇ^ρ_σ C⁽¹⁾σ_aρ = ½ Ẇ^(ρσ) ∇̂_a W_ρσ − ½ v_a tr(ẆWẆ),
+    v_σ C⁽¹⁾σ_aρ = −½ (W_ρσ ∇̂_a ℓ^σ + W_aσ ∇̂_ρ ℓ^σ + (∇̂_ℓ W)_aρ),
+    ℓ^ρ C⁽¹⁾σ_aρ = ½ (−W_ρ^σ ∇̂_a ℓ^ρ + (∇̂_ℓ W)_a^σ + W_aρ ∇̂^σ ℓ^ρ).
+
+In the first line the terms of G with ∇̂_ρ and ∇̂^σ cancel by the symmetry of Ẇ^(ρσ); the others use W(ℓ, ·) = 0. Inserting
+these into T_ab = ½ v_b Ẇ^ρ_σ C⁽¹⁾σ_aρ + ½ Ẇ^ρ_b v_σ C⁽¹⁾σ_aρ − ½ Ẇ_bσ ℓ^ρ C⁽¹⁾σ_aρ, the two terms with ∇̂_a ℓ cancel
+(both are (ẆW)_bσ ∇̂_a ℓ^σ), and
+
+    T_ab = ¼ v_b Ẇ^(ρσ) ∇̂_a W_ρσ − ¼ v_a v_b tr(ẆWẆ) − ½ Ẇ^ρ_b (∇̂_ℓ W)_aρ − ½ Ẇ^ρ_b W_aσ ∇̂_ρ ℓ^σ.
+
+The terms with χ in the last two vanish: Ẇ^ρ_b with χ̇ ℓ^ρ v_b meets (∇̂_ℓ W)(ℓ, ·) = −W(∇̂_ℓ ℓ, ·) = 0 and ℓ^ρ ∇̂_ρ ℓ =
+0; W_aσ = χ v_a v_σ meets v_σ ∇̂_ρ ℓ^σ = −(∇̂_ρ v)(ℓ) = 0 by (W4); and ∇̂_ℓ (χ v ⊗ v) = (ℓχ) v ⊗ v by (W4), which Ẇ_TT
+annihilates. For W_TT, (∇̂_ℓ W_TT)_AB = ∂_r W_AB − (2/r) W_AB = −(3/(2r)) W_AB ([[eq:transport-angular]], W_TT being
+r^(1/2) times a function of (v, ϑ, θ)), and ∇̂_ρ ℓ^σ = r⁻¹ δ^σ_ρ on angular indices, so the last two terms are multiples
+of (ẆW)_ba, of θ-mean zero by (W2). The term tr(ẆWẆ) involves W_TT only and is cubic in a first harmonic, so its mean
+is zero. Hence the Ricci part has mean −¼ (v_a X_b + v_b X_a), with X_a := ⟨Ẇ^(ρσ) ∇̂_a W_ρσ⟩.
+
+*The gauge part.* D⁽⁰⁾ = g0^(ab) C⁽⁰⁾ = 0, and D⁽¹⁾ = g0^(ab) C⁽¹⁾ρ_ab − W^(ab) C⁽⁰⁾ρ_ab = (div W)^ρ + ½ ℓ^ρ W^(ab) Ẇ_ab,
+with (div W)^ρ := g0^(ab) ∇̂_a W_b^ρ, by tr W = 0 and W^(ab) v_a = 0. The coefficient of λ in −½(g_aρ ∇̂_b D^ρ +
+g_bρ ∇̂_a D^ρ) is −½ times the symmetrization of g0_aρ (v_b ∂_θ D⁽²⁾ρ + ∇̂_b D⁽¹⁾ρ) + W_aρ v_b ∂_θ D⁽¹⁾ρ. The first two
+terms have mean zero, as ⟨D⁽¹⁾⟩ = 0 by (W2) and (W3). In the third, W_aρ ℓ^ρ = 0 removes the ℓ-part of D⁽¹⁾. For
+W = χ v ⊗ v, v_ρ (div Ẇ)^ρ = −Ẇ^(ab) ∇̂_a v_b = −r Ẇ_TT^(AB) γ_AB = −r⁻¹ tr_S Ẇ_TT = 0 by (W4), the χ̇-part dropping
+since (∇̂ v)(ℓ, ℓ) = 0; and the χ̇-part of div Ẇ is (ℓχ̇ + χ̇ □̃v) ℓ, which W_TT annihilates. So the gauge part has mean
+−½ (v_a V_b + v_b V_a), with V_a := ⟨(W_TT)_aρ (div Ẇ_TT)^ρ⟩. Altogether
+
+    ⟨R^(1)⟩_ab = −¼ (v_a X_b + v_b X_a) − ½ (v_a V_b + v_b V_a).
+
+*The evaluation.* By [[eq:waves-hopf]], W_TT = r^(1/2) ω with ω := −2P dϑ² + 2 cos²ϑ Q1 dξ1² + 2 sin²ϑ Q2 dξ2², where
+Q_i := λ⁻¹ p_i and P := Q1 + Q2 are functions of (v, ϑ, θ). In X_a the Christoffel terms pair Ẇ^(ρσ) with W_cσ and have
+mean zero by (W2), and the χ-terms vanish by (W1); so X_a = ⟨Ẇ^(ρσ) ∂_a W_ρσ⟩ = r⁻³ ⟨ω̇ · ∂_a ω⟩ for a = v, ϑ, with ·
+the contraction by γ; X_r = (2r)⁻¹ ⟨Ẇ^(ρσ) W_ρσ⟩ = 0, and X_ξ1 = X_ξ2 = 0. Since ω = env · ω̃ with ω̃ independent of v,
+ω̇ · ∂_v ω = ½ env env′ ∂_θ (ω̃ · ω̃), so X_v = 0. For angular c, the (v, r)-block contributes nothing to (div Ẇ_TT)_c
+(Γ^D_vr = Γ^D_rr = 0, and Ẇ_TT has no v or r component), so (div Ẇ_TT)_c = r⁻² (div_γ Ẇ_TT)_c = r^(−3/2) (div_γ ω̇)_c,
+div_γ the divergence on the unit S³; and V_a = r⁻³ ⟨ω_a^c (div_γ ω̇)_c⟩ for angular a, zero otherwise. ω does not depend
+on ξ1, ξ2 and is diagonal, so (div_γ ω̇)_ξ1 = (div_γ ω̇)_ξ2 = 0. Every component therefore vanishes except
+⟨R^(1)⟩_vϑ = −¼ X_ϑ − ½ V_ϑ.
+
+Write c := cos ϑ, s := sin ϑ and K := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form K h (α cos θ + β sin θ),
+with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q, Q′, the terms with ∂_ϑ h cancel
+and
+
+    ⟨∂_θ Q ∂_ϑ Q⟩ = ½ K² h² (β ∂_ϑ α − α ∂_ϑ β),      ⟨Q ∂_θ Q′⟩ = ½ K² h² (α β′ − β α′).
+
+This gives ⟨∂_θ P ∂_ϑ P⟩ = −K² h² c s, ⟨∂_θ Q_i ∂_ϑ Q_i⟩ = 2 K² h² c s (i = 1, 2), ⟨P ∂_θ Q1⟩ = −(3/2) K² h² c² s²
+and ⟨P ∂_θ Q2⟩ = (3/2) K² h² c² s². Now ω̇ · ∂_ϑ ω = 4 (∂_θ P ∂_ϑ P + ∂_θ Q1 ∂_ϑ Q1 + ∂_θ Q2 ∂_ϑ Q2) plus multiples of
+Q_i ∂_θ Q_i, which have mean zero; so X_ϑ = 4 r⁻³ K² h² c s (−1 + 2 + 2) = 12 K² h² c s/r³. The divergence of a diagonal
+tensor depending on ϑ alone is (div_γ T)_ϑ = (cs)⁻¹ ∂_ϑ(cs T_ϑϑ) − ½ (∂_ϑ γ_AB) T^(AB), which gives
+
+    (div_γ ω̇)_ϑ = −2 ∂_ϑ ∂_θ P + (4 s/c − 2 c/s) ∂_θ Q1 + (2 s/c − 4 c/s) ∂_θ Q2.
+
+With ω_ϑ^ϑ = −2P and ⟨P ∂_ϑ ∂_θ P⟩ = −⟨∂_θ P ∂_ϑ P⟩ = K² h² c s,
+
+    V_ϑ = r⁻³ (4 K² h² c s + 3 K² h² c² s² ((4 s/c − 2 c/s) − (2 s/c − 4 c/s))) = r⁻³ K² h² (4 c s + 6 c s)
+        = 10 K² h² c s/r³.
+
+So ⟨R^(1)⟩_vϑ = −(3 + 5) K² h² c s/r³ = −(8/9) A² env² h² c s/r³ = −(4/9) A² env² h² sin 2ϑ/r³. ∎
+
+**Remark {#rem:mean-mass-aspect}** (What the mass sees.) The first mean m1 need not vanish: by
+[[lem:first-mean-forcing]] the forcing of its equation is nonzero wherever env ≠ 0 off the axes, and it lies in the
+dv dϑ component. This term is odd under the quarter turn, as [[lem:quarter-turn]] requires (J fixes dv and h(ζ)², maps
+sin 2ϑ to itself and dϑ to −dϑ), and a rotation-invariant mass cannot see it. The quantity of [[prop:mean-mass]] is the
 Hawking mass of the spheres S_(v,r) of the domain. It is not the angular mean of the mass aspect at past null infinity,
 which is a different quantity, governed by the mass law of [[thm:bondi-law]].

@@ -595,9 +595,9 @@ In the order {t_* = 1}, ∂R_(ℋ⁺), ∂R_(ℐ⁺,in,+), ∂R_(∂K⁺,in), �
 curve goes from an earlier set to a later one, as in [Hin26c, Figure 4.3]; with [[prop:ii-b-8-2]] this holds for every
 curve over Ω. This is [Hin26c, Proposition 4.24] in dimension 4 + 1, for the curves over the boundary.
 
-*Proof.* [[eq:ii-b-1-4]] is a b-vector field on ᵉ³ᵇS*M, so it is tangent to every boundary hypersurface, and each open
-stratum of the boundary is invariant: (ℐ⁺)°, ℐ⁺ ∩ ι⁺, (ι⁺)°, ∂K⁺ = K⁺ ∩ ι⁺ and (K⁺)° (within Ω). Over (K⁺)° and ∂K⁺
-the claim is [[prop:ii-b-6-1]]. Over (ι⁺)° it is [[lem:ii-b-3-2]] (b), with the ends at u = 0 identified by
+*Proof.* The field [[eq:ii-b-1-4]] is a b-vector field on ᵉ³ᵇS*M, so it is tangent to every boundary hypersurface, and
+each open stratum of the boundary is invariant: (ℐ⁺)°, ℐ⁺ ∩ ι⁺, (ι⁺)°, ∂K⁺ = K⁺ ∩ ι⁺ and (K⁺)° (within Ω). Over (K⁺)°
+and ∂K⁺ the claim is [[prop:ii-b-6-1]]. Over (ι⁺)° it is [[lem:ii-b-3-2]] (b), with the ends at u = 0 identified by
 [[lem:ii-b-7-3]]; case (i) of [[lem:ii-b-3-2]] (b) is the fourth row, cases (ii) and (iii) the third. Over ℐ⁺ it is
 [[lem:ii-b-7-2]] (1). ∎
 

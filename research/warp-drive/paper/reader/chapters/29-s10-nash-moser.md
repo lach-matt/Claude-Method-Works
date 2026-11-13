@@ -1240,3 +1240,234 @@ above with m = k − k′ + ℓ̃, and [[eq:ii-g1-4-5a]] with l = α and ε/2,
 
 as 𝗋_out + 2 − ε/2 = β_scf − ε and 𝗋_out + 3 + ε/2 = β_scf + 1. The total order (k′ − k″) + (k − k′ + k″ + ℓ) = k + ℓ
 is that of the domain, so integrating in |dσ/σ| gives [[eq:ii-g1-4-6]]. ∎
+
+
+### The radiation field in dimension 4 + 1 {#sec:ii-g1-5}
+
+#### The normal form near null infinity {#sec:ii-g1-5-1}
+
+We use the defining functions [[eq:ii-f1-1-1]], ρ_I = t_*/(t_* + r) and ρ_+ = (t_* + r)/(t_* r), of ℐ⁺ and ι⁺. On
+{t_* > 0, r > 0} the map (t_*, r) ↦ (ρ_I, ρ_+) is a diffeomorphism onto {0 < ρ_I < 1, ρ_+ > 0}, with inverse t_* =
+(ρ_+(1 − ρ_I))⁻¹, r = (ρ_I ρ_+)⁻¹, and ρ_K = 1 − ρ_I. For c_0 ∈ (0, 1/4] let
+
+    𝒞 := {0 ≤ ρ_I < c_0, 0 ≤ ρ_+ < 4} × 𝕊³,        𝒞_a := 𝒞 ∩ {ρ_I < a}    (0 < a ≤ c_0),
+
+a neighbourhood of ℐ⁺ ∩ {t_* > 1/4} (including its corner with ι⁺) in the compactified spacetime, on which r >
+1/(4c_0). On 𝒞 the b-vector fields are spanned by ρ_I∂_(ρ_I), ρ_+∂_(ρ_+) and the vector fields on 𝕊³, and μ_𝒞 :=
+|(dρ_I/ρ_I)(dρ_+/ρ_+) dω| is a b-density equivalent to μ_b = |dt_* dx|/(t_* ⟨x⟩⁴): in logarithmic coordinates the
+Jacobian of (log ρ_I, log ρ_+) ↦ (log t_*, log r) has determinant (1 − ρ_I)⁻¹ ∈ [1, 4/3]. H^(k,(b_I,b_+))_b(𝒞_a) :=
+ρ_I^(b_I) ρ_+^(b_+) H^k_b(𝒞_a, μ_𝒞); near ℐ⁺ these are the spaces of [[cor:ii-g1-4-5]] and of [[eq:ii-f1-1-2]] with
+μ_b, the weight at K⁺ being irrelevant (ρ_K ≥ 3/4 on 𝒞). Let
+
+    𝖶 := ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+),
+
+which commutes with ρ_I∂_(ρ_I), ρ_+∂_(ρ_+) and the fields on 𝕊³. On {t_*, r > 0}, with ρ := r⁻¹,
+
+    t_*∂_(t_*)|_r = (1 − ρ_I) 𝖶,        ρ∂_ρ|_(t_*) = ρ_I∂_(ρ_I) − ρ_I 𝖶,        ρ t_*⁻¹ = ρ_I ρ_+² (1 − ρ_I).   {#eq:ii-g1-5-1}
+
+Indeed t_*∂_(t_*) ρ_I = ρ_I(1 − ρ_I), t_*∂_(t_*) ρ_+ = −ρ_+(1 − ρ_I), ρ∂_ρ ρ_I = ρ_I(1 − ρ_I) and ρ∂_ρ ρ_+ = ρ_I ρ_+,
+so t_*∂_(t_*) = (1 − ρ_I)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) and ρ∂_ρ = ρ_I(1 − ρ_I)∂_(ρ_I) + ρ_I ρ_+∂_(ρ_+) = ρ_I∂_(ρ_I) −
+ρ_I 𝖶; and ρ t_*⁻¹ = (ρ_I ρ_+)(ρ_+(1 − ρ_I)).
+
+**Lemma {#lem:ii-g1-5-1}** (The normal form in dimension 4 + 1; [Hin26c, (13.32)].) Let P_0 be a stationary wave-type
+operator ([[def:ii-c-1-1]]) with S ∈ ρ C^∞(X̄) in [[eq:ii-c-1-1]], that is S|_(∂X) = 0. If c_0 is small, then on 𝒞
+
+    (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) − 3/2) 𝖶 + P̃,        P̃ ∈ ρ_I Diff²_b(𝒞),                     {#eq:ii-g1-5-2}
+
+with coefficients smooth on 𝒞̄. If S|_(∂X) ≠ 0, the left side differs from −(ρ_I∂_(ρ_I) − 3/2)𝖶 by S|_(∂X) 𝖶 modulo
+ρ_I Diff²_b, and [[eq:ii-g1-5-2]] fails.
+
+*Proof.* Choose c_0 so small that ρ < ρ_1 on 𝒞, where [[eq:ii-c-1-1]] holds: P_0 = −2∂_(t_*) ρ(ρ∂_ρ − 3/2 − S) +
+P̂_0(0) + Q∂_(t_*) − g_00 ∂²_(t_*), all coefficients t_*-independent and smooth in (ρ, ω), so smooth in (ρ_I, ρ_+, ω) as
+ρ = ρ_I ρ_+. By [[eq:ii-g1-5-1]], as ρ does not depend on t_*,
+
+    −2∂_(t_*) ρ(ρ∂_ρ − 3/2) = −2ρ t_*⁻¹ (t_*∂_(t_*))(ρ∂_ρ − 3/2) = −2ρ_I ρ_+² (1 − ρ_I)² 𝖶 (ρ_I∂_(ρ_I) − ρ_I 𝖶 − 3/2),
+
+so (1/2) ρ_I⁻¹ ρ_+^(−2) times it is −(1 − ρ_I)² 𝖶(ρ_I∂_(ρ_I) − 3/2) + (1 − ρ_I)² 𝖶 ρ_I 𝖶; as (1 − ρ_I)² − 1 ∈ ρ_I C^∞
+and 𝖶ρ_I = ρ_I(𝖶 + 1), this is −(ρ_I∂_(ρ_I) − 3/2)𝖶 modulo ρ_I Diff²_b. The other terms, times (1/2) ρ_I⁻¹ ρ_+^(−2):
+2∂_(t_*) ρS = 2ρ t_*⁻¹ S t_*∂_(t_*) gives (1 − ρ_I)² S𝖶, in ρ_I Diff¹_b as S ∈ ρ C^∞ = ρ_I ρ_+ C^∞; P̂_0(0) ∈ ρ²
+Diff²_b(X̄) gives (1/2) ρ_I Diff²_b, the b-fields ρ∂_ρ, ∂_ω of X̄ being b-fields on 𝒞 by [[eq:ii-g1-5-1]]; Q∂_(t_*), Q ∈
+ρ³ Diff¹_b, gives ρ³ t_*⁻¹ ρ_I⁻¹ ρ_+^(−2) = ρ_I² ρ_+² (1 − ρ_I) times b-operators; and g_00 ∂²_(t_*) = g_00 t_*^(−2)
+((t_*∂_(t_*))² − t_*∂_(t_*)), g_00 ∈ ρ² C^∞ (the remarks after [[def:ii-c-1-1]]), gives ρ_I ρ_+² (1 − ρ_I)² times
+b-operators. If S|_(∂X) ≠ 0, the term (1 − ρ_I)² S𝖶 contributes S|_(∂X) 𝖶 at ρ_I = 0. ∎
+
+In dimension 4 + 1 the stationary models of [[ch:s05]] have coefficients in C^∞(X̄), so the remainder gains a full
+power of ρ_I; [Hin26c, (13.32)] allows P̃ ∈ ρ_I^(1/2) Diff²_b, for coefficients smooth in x_I = ρ_I^(1/2), and notes the
+gain ρ_I for Kerr. [[prop:ii-g1-5-4]] is stated for P̃ ∈ ρ_I^κ Diff²_b(𝒞), κ ∈ (0, 1], with coefficients bounded with
+all their b-derivatives. For the tensor wave operators of [[lem:ii-c-1-3]], S = 0 in the coordinate frame; which
+operators of the linear theory satisfy S|_(∂X) = 0 is examined where [[prop:ii-g1-5-4]] is applied to them.
+
+**Definition {#def:ii-g1-5-2}** (Spaces with a radiation field; [Hin26c, Definition 13.19].) Let χ_I ∈ C^∞([0, ∞)) equal
+1 on [0, 1/4] and 0 on [1/2, ∞). For a ∈ (0, c_0], ζ, b_I, b_+ ∈ ℝ with ζ < b_I and k ∈ ℕ₀,
+
+    H^(k,(((ζ,0),b_I),b_+))_b(𝒞_a) := {χ_I(ρ_I/a) ρ_I^ζ u_0 + ũ : u_0 ∈ H^(k,b_+)_b(ℐ⁺), ũ ∈ H^(k,(b_I,b_+))_b(𝒞_a)},
+
+normed by ‖u_0‖ + ‖ũ‖, where H^(k,b_+)_b(ℐ⁺) := ρ_+^(b_+) H^k_b([0, 4) × 𝕊³, |(dρ_+/ρ_+) dω|) and u_0(ρ_+, ω) is
+extended to 𝒞_a as a function independent of ρ_I. If ζ ≥ b_I, the space is H^(k,(b_I,b_+))_b(𝒞_a) (take u_0 = 0).
+
+For ζ = 3/2 and bounded t_*, ρ_I^(3/2) u_0 = (t_*/r)^(3/2) (1 + O(t_*/r)) u_0(ρ_+, ω) with ρ_+ = t_*⁻¹ + O(r⁻¹): the
+leading term is r^(−3/2) times a function of (t_*, ω), the *radiation field*. The decomposition is unique when ζ < b_I,
+as ρ_I^ζ ∉ ρ_I^(b_I) L²(dρ_I/ρ_I) near 0. [Hin26c, Definition 13.19] leaves the extension of u_(1,0) off ℐ⁺ unstated;
+here it is extended independently of ρ_I in the coordinates of 𝒞.
+
+#### Transport along 𝖶 {#sec:ii-g1-5-2}
+
+In the coordinates p := −log ρ_I, q := −log ρ_+, μ_𝒞 = |dp dq dω| and 𝖶 = −∂_p + ∂_q; with c := p + q = log r, 𝖶 = ∂_q at
+fixed c. So the integral curves of 𝖶 are the curves {r = const, ω = const}, run towards ι⁺ (ρ_+ decreasing, ρ_I
+increasing).
+
+**Lemma {#lem:ii-g1-5-3}** (Transport along 𝖶.) Let a ∈ (0, c_0], b, b_+ ∈ ℝ, b ≠ b_+, k ∈ ℕ₀, and let u ∈
+L²_loc(𝒞_a) with 𝖶u = w ∈ H^(k,(b,b_+))_b(𝒞_a), and (ρ_I∂_(ρ_I))^i (ρ_+∂_(ρ_+))^j Z^γ u ∈ L²_loc for i + j + |γ| ≤ k
+(Z the fields on 𝕊³).
+
+(a) If b > b_+ and u = 0 on {ρ_+ > 2}, then u ∈ H^(k,(b,b_+))_b(𝒞_a), with ‖u‖ ≤ C ‖w‖.
+
+(b) If b < b_+ and u ∈ H^(k,(b_0,b_+))_b(𝒞_a ∩ {ρ_I > a/2}) for some (any) b_0, then u ∈ H^(k,(b,b_+))_b(𝒞_(a/2)),
+with ‖u‖ ≤ C(‖w‖ + ‖u‖_(H^(k,(b_0,b_+))_b(𝒞_a∩{ρ_I>a/2}))).
+
+This replaces the integration lemma [Hin26, Lemma 2.23] used in [Hin26c].
+
+*Proof.* The fields ∂_p, ∂_q, Z commute with 𝖶 and preserve the hypotheses, so it suffices to take k = 0 and apply the
+result to the derivatives. In the coordinates (c, q, ω) the region 𝒞_a is {q > −log 4, q < c − p_a}, p_a := −log a, the
+weight is ρ_I^(−b) ρ_+^(−b_+) = e^(bp+b_+q) = e^(bc+(b_+−b)q), and ∂_q u = w in distributions, so for almost every (c,
+ω), q ↦ u(c, q, ω) is absolutely continuous.
+
+(a) u = 0 for q < −log 2, so u(c, q) = ∫_(−log 2)^q w(c, q′) dq′ and
+
+    e^(bc+(b_+−b)q) u(c, q) = ∫_(−log 2)^q e^(−(b−b_+)(q−q′)) [e^(bc+(b_+−b)q′) w(c, q′)] dq′.
+
+The kernel e^(−(b−b_+)s) 1_(s>0) has L¹ norm (b − b_+)⁻¹; Young's inequality in q, then integration over (c, ω), gives
+‖u‖ ≤ (b − b_+)⁻¹ ‖w‖.
+
+(b) For (c, q) in 𝒞_(a/2), that is c − q > p_a + log 2, let J_c := (c − p_a − log 2, c − p_a), the values q′ with ρ_I
+∈ (a/2, a) on the same curve; q′ > q there. Averaging u(c, q) = u(c, q′) − ∫_q^(q′) w(c, q″) dq″ over q′ ∈ J_c,
+
+    u(c, q) = (log 2)⁻¹ ∫_(J_c) u(c, q′) dq′ − (log 2)⁻¹ ∫_(J_c) ∫_q^(q′) w(c, q″) dq″ dq′.
+
+On J_c, e^(b_+q′) is comparable to e^(b_+(c−p_a)) and e^(b_0 p′) to a constant, so the first term is at most C e^(−b_+c)
+U(c), U(c)² := ∫_(J_c) |e^(b_0 p′+b_+q′) u(c, q′)|² dq′; times the weight it is at most C e^((b−b_+)(c−q)) U(c) = C
+e^((b−b_+)p) U(c), whose L² norm over p > p_a + log 2 is at most C U(c), as b < b_+; and ∫ U(c)² dc is the norm of u
+on the strip. In the second term, for each q′, e^(bc+(b_+−b)q) ∫_q^(q′) w = ∫_q^(q′) e^(−(b_+−b)(q″−q))
+e^(bc+(b_+−b)q″) w(c, q″) dq″, and the kernel e^(−(b_+−b)s) 1_(s>0) has L¹ norm (b_+ − b)⁻¹; Minkowski's inequality
+over q′ and Young's inequality bound it by (b_+ − b)⁻¹ ‖e^(bc+(b_+−b)q) w‖. ∎
+
+#### The radiation field {#sec:ii-g1-5-3}
+
+**Proposition {#prop:ii-g1-5-4}** (The radiation field; [Hin26c, Proposition 13.20] in dimension 4 + 1.) Suppose that on
+𝒞, (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 = −(ρ_I∂_(ρ_I) − 3/2)𝖶 + P̃ with P̃ ∈ ρ_I^κ Diff²_b(𝒞), κ ∈ (0, 1] (by [[lem:ii-g1-5-1]],
+κ = 1 when S|_(∂X) = 0). Let β_I, β_+, β′_I ∈ ℝ with
+
+    β_+ ≠ 3/2,        β′_I < 3/2 + κ,        β′_I ∉ {3/2, β_+}.
+
+There are ℓ ∈ ℕ₀ and a ∈ (0, c_0], depending only on β_I, β′_I, κ and c_0, such that: if u ∈
+H^(k+ℓ,(β_I,β_+))_b(𝒞) vanishes on {t_* < 1} and P_0 u ∈ H^(k+ℓ,(β′_I+1,β_++2))_b(𝒞), then
+
+    u ∈ H^(k,(((3/2,0),β′_I),β_+))_b(𝒞_a).                                                         {#eq:ii-g1-5-3}
+
+So u has a radiation field ρ_I^(3/2) u_0, the coefficient of r^(−3/2), plus a remainder with the weight of P_0 u at ℐ⁺,
+shifted by the factor ρ_I ρ_+² of [[eq:ii-g1-5-2]]. In dimension 3 + 1, [Hin26c, Proposition 13.20] has the exponent 1,
+the condition 1 ≠ β_+ < β_I, and β′_I < 3/2 = 1 + 1/2 (κ = 1/2); here the hypothesis β_+ < β_I is not used, and the loss
+depends on κ as well as on β_I and β′_I.
+
+*Proof.* If β_I ≥ β′_I there is nothing to prove (u_0 = 0). Otherwise we improve the weight at ℐ⁺ in steps. On 𝒞,
+{ρ_+ > 2} ⊂ {t_* < 1} (as 1 − ρ_I ≥ 3/4), so u = 0 there.
+
+*The step.* Suppose u ∈ H^(k_1,(((3/2,0),b),β_+))_b(𝒞_(a′)) with k_1 ≥ 2 and b < β′_I, u = χ_I(ρ_I/a′) ρ_I^(3/2) u_0 + ũ
+(with u_0 = 0 if b ≤ 3/2). Let b″ ∈ (b, min(b + κ, β′_I)], with b″ = β′_I if b + κ ≥ β′_I and b″ ≥ b + κ/2 otherwise,
+chosen outside {3/2, β_+}. We show u ∈ H^(k_1−2,(((3/2,0),b″),β_+))_b(𝒞_(a′/8)).
+
+(i) Let h := P̃u − (1/2) ρ_I⁻¹ ρ_+^(−2) P_0 u, so that (ρ_I∂_(ρ_I) − 3/2)𝖶u = h. P̃ maps χ_I ρ_I^(3/2) u_0 into
+H^(k_1−2,(3/2+κ−ε,β_+))_b for every ε > 0 (ρ_I^(3/2) lies in ρ_I^(3/2−ε) L²(dρ_I/ρ_I) near 0), hence into
+H^(k_1−2,(b″,β_+))_b as b″ ≤ β′_I < 3/2 + κ; it maps ũ into H^(k_1−2,(b+κ,β_+))_b ⊂ H^(k_1−2,(b″,β_+))_b; and (1/2)
+ρ_I⁻¹ ρ_+^(−2) P_0 u ∈ H^(k_1,(β′_I,β_+))_b. So h ∈ H^(k_1−2,(b″,β_+))_b(𝒞_(a′)). (The proof of [Hin26c,
+Proposition 13.20] expands h with a ρ_I^(3/2) term and then places h in a space with ℐ⁺-weight below 3/2, where that
+term already lies in the remainder; no expansion of h is needed.)
+
+(ii) Let w := 𝖶u ∈ H^(k_1−1,(·,β_+))_b. In the product 𝒞_(a′) = [0, a′)_(ρ_I) × ([0, 4) × 𝕊³), apply
+[[lem:ii-g1-3-2]] in s := ρ_I/a′ to (s∂_s − 3/2)w = h, with values in ℋ_j := H^(k_1−2−j,β_+)_b([0, 4) × 𝕊³) and
+s-regularity j, j ≤ k_1 − 2 (the fields in (ρ_+, ω) commute with ρ_I∂_(ρ_I), and w has k_1 − 1 b-derivatives on the
+annulus). If b″ > 3/2, [[lem:ii-g1-3-2]] (a) gives, on 𝒞_(a′/4), w = ρ_I^(3/2) w_0 + w̃ with w_0 ∈
+H^(k_1−2,β_+)_b(ℐ⁺) and w̃ ∈ H^(k_1−2,(b″,β_+))_b; w_0 = 0 on {ρ_+ > 2}, as w vanishes there. If b″ < 3/2,
+[[lem:ii-g1-3-2]] (b) gives w ∈ H^(k_1−2,(b″,β_+))_b(𝒞_(a′/4)).
+
+(iii) *Transport.* Write a_1 := a′/4. *If b″ < 3/2:* if b″ > β_+, [[lem:ii-g1-5-3]] (a) on 𝒞_(a_1) gives u ∈
+H^(k_1−2,(b″,β_+))_b(𝒞_(a_1)); if b″ < β_+, [[lem:ii-g1-5-3]] (b), with the a priori bound on the strip {ρ_I ∈ (a_1/2,
+a_1)} from u ∈ H^(k_1,(b,β_+))_b there, gives it on 𝒞_(a_1/2). As b″ < 3/2 this is the space of [[eq:ii-g1-5-3]] at b″.
+
+*If b″ > 3/2 and b″ > β_+:* the backward integral curve of 𝖶 from a point of 𝒞_(a_1) stays in 𝒞_(a_1) until ρ_+ = 2,
+where u = 0. Let
+
+    u_0^v(ρ_+) := ρ_+^(3/2) ∫_(ρ_+)^2 s^(−3/2) w_0(s) ds/s,
+
+which vanishes for ρ_+ ≥ 2 and satisfies (3/2 − ρ_+∂_(ρ_+)) u_0^v = w_0, so 𝖶(ρ_I^(3/2) u_0^v) = ρ_I^(3/2) w_0. Then u −
+ρ_I^(3/2) u_0^v vanishes on {ρ_+ > 2} and 𝖶(u − ρ_I^(3/2) u_0^v) = w̃, so by [[lem:ii-g1-5-3]] (a), u − ρ_I^(3/2) u_0^v ∈
+H^(k_1−2,(b″,β_+))_b(𝒞_(a_1)). If β_+ < 3/2, then u_0^v ∈ H^(k_1−2,β_+)_b(ℐ⁺): in log ρ_+, ρ_+^(−β_+) u_0^v is the
+convolution of s^(−β_+) w_0 with the kernel (ρ_+/s)^(3/2−β_+) 1_(s>ρ_+), of L¹(ds/s) norm (3/2 − β_+)⁻¹, and
+ρ_+∂_(ρ_+) commutes with it. If β_+ > 3/2, then L := ∫_0^2 s^(−3/2) w_0(s) ds/s converges (Cauchy–Schwarz, β_+ > 3/2)
+and u_0^v = ρ_+^(3/2) L − u_0^(0) with u_0^(0)(ρ_+) := ρ_+^(3/2) ∫_0^(ρ_+) s^(−3/2) w_0 ds/s ∈ H^(k_1−2,β_+)_b(ℐ⁺), by
+the same convolution with the kernel (ρ_+/s)^(3/2−β_+) 1_(s<ρ_+). On {ρ_I ∈ (a_1/4, a_1/2)}, u, u − ρ_I^(3/2) u_0^v and
+ρ_I^(3/2) u_0^(0) lie in ρ_+^(β_+) L²(μ_𝒞), hence so does ρ_I^(3/2) ρ_+^(3/2) L(ω); as ∫_0^4 ρ_+^(2(3/2−β_+))
+dρ_+/ρ_+ = ∞, L = 0, and u_0^v = −u_0^(0) ∈ H^(k_1−2,β_+)_b(ℐ⁺). In both cases u = ρ_I^(3/2) u_0^v + (u − ρ_I^(3/2)
+u_0^v) is in the space of [[eq:ii-g1-5-3]] at b″ on 𝒞_(a_1/2) (replacing ρ_I^(3/2) u_0^v by χ_I(ρ_I/(a_1/2))
+ρ_I^(3/2) u_0^v changes it by a function supported in {ρ_I ≥ a_1/8}, in every ρ_I-weight).
+
+*If b″ > 3/2 and b″ < β_+* (so β_+ > 3/2): let u_0 := −u_0^(0) ∈ H^(k_1−2,β_+)_b(ℐ⁺) (as above), which satisfies (3/2
+− ρ_+∂_(ρ_+)) u_0 = w_0, and U := χ_I(4ρ_I/a_1) ρ_I^(3/2) u_0, supported in {ρ_I < a_1/8}. Then
+
+    𝖶(u − U) = w̃ + ρ_I^(3/2) (1 − χ_I(4ρ_I/a_1)) w_0 − (ρ_I∂_(ρ_I) χ_I(4ρ_I/a_1)) ρ_I^(3/2) u_0
+             ∈ H^(k_1−2,(b″,β_+))_b(𝒞_(a_1)),
+
+the last two terms being supported in {ρ_I ≥ a_1/16}; and u − U = u on {ρ_I > a_1/2}. [[lem:ii-g1-5-3]] (b) gives u − U
+∈ H^(k_1−2,(b″,β_+))_b(𝒞_(a_1/2)).
+
+*Iteration.* Each step raises b by at least κ/2 until b = β′_I, costs two b-derivatives, and shrinks the region by a
+factor 8. Starting from b := β_I (with u_0 = 0), after n_s := ⌈2(β′_I − β_I)/κ⌉ steps b = β′_I; so [[eq:ii-g1-5-3]]
+holds with ℓ := 2n_s and a := c_0 8^(−n_s). ∎
+
+**Remark {#rem:ii-g1-5-5}** (The radiation field of a forward solution.) With [[lem:ii-g1-5-1]], [[prop:ii-g1-5-4]]
+applies in dimension 4 + 1 with κ = 1 to stationary wave-type operators with S|_(∂X) = 0, for β′_I < 5/2; at the level
+of P_0 u ∈ ρ_I^(β′_I+1), the remainder of u after its radiation field r^(−3/2) u_I decays like ρ_I^(β′_I). The proof of
+[Hin26c, Proposition 13.20] integrates the equation by [Hin26, Lemmas 2.12 and 2.23]; [[lem:ii-g1-3-2]] and
+[[lem:ii-g1-5-3]] replace them, and the case distinction in step (iii) follows that proof (b″ against β_+, and the
+transport of the radiation field to a term ρ_+^(3/2) at ι⁺, which the a priori decay at ι⁺ excludes).
+
+### What is not used, and uniformity in the operator {#sec:ii-g1-6}
+
+#### Not used {#sec:ii-g1-6-1}
+
+(a) [Hin26c, Remark 13.1] (nonlinear variants) describes how stronger decay of the right side can be fed back through
+the inverse of the linear operator. It states nothing to prove. The stability theory improves decay at the level of the
+linearised equations, which is the alternative the remark recommends.
+
+(b) [Hin26c, Remark 13.15] (losses in b-regularity) explains why [[sec:ii-g1-4]] proves its bounds on variable order
+spaces before passing to b-spaces: a lossy b-estimate on P̂(σ)⁻¹, iterated for ∂^j_σ P̂(σ)⁻¹, would lose a number of
+b-derivatives growing with j, which tame estimates do not tolerate. [[lem:ii-g1-4-1]], [[cor:ii-g1-4-2]] and
+[[prop:ii-g1-4-7]] follow that plan, with a loss depending only on the weights ([[rem:ii-g1-3-6]]).
+
+(c) [Hin26c, Theorem 13.21] (small data global existence for □_g u = f + u³ on Kerr) and [Hin26c, Remark 13.22] (almost
+t_*^(−2) decay of linear scalar waves on Kerr) are model applications on the four-dimensional Kerr spacetime. They rest
+on the 0-admissibility of □_g on Kerr ([Hin26c, Theorem 12.2]) and on the proof of [Hin26c, Theorem 12.9], neither of
+which is used ([[sec:ii-g-5-2]] (a), (c)), and their weights in dimension 4 + 1 are not derived.
+
+(d) [Hin26c, Lemmas 13.2 and 13.6], and the parts of [Hin26c, Lemma 13.4 and Corollary 13.5] beyond [[lem:ii-g1-2-4]]:
+[[rem:ii-g1-2-9]].
+
+(e) The figures of [Hin26c, Section 13] illustrate the spaces M and X^±_(sc-b) and the weights in [Hin26c, Propositions
+13.9 (1) and 13.11 (1)]; they carry no statement. The commentary after [Hin26c, Proposition 13.18] (inputs with weight
+−1/2 at zf, and the decay they give in [Hin26c, (11.7)]) states nothing to prove.
+
+#### Uniformity in the operator {#sec:ii-g1-6-2}
+
+[[sec:ii-g1-2]] and [[sec:ii-g1-3]] involve no operator. In [[sec:ii-g1-4]], [[lem:ii-g1-4-1]], [[lem:ii-g1-4-3]] and
+[[lem:ii-g1-4-6]] depend on the orders alone; the orders depend on P̂ only through the quantities of [[ch:s01]] that
+fix them (S̄, ϑ_in, ϑ_ℋ and the data of [[lem:i-a-7-1]]). [[cor:ii-g1-4-2]], [[prop:ii-g1-4-4]], [[cor:ii-g1-4-5]] and
+[[prop:ii-g1-4-7]] depend on P̂ further only through the constants of the estimates they cite: [[thm:i-a-7-2]],
+[[thm:i-b-1-3]] with the constant C_0 and the function δ_Γ, and [[thm:i-c-6-4]] with its radii c_(j,k). In
+[[sec:ii-g1-5]], [[prop:ii-g1-5-4]] depends on P_0 only through κ, c_0, the coordinates of 𝒞 and finitely many
+seminorms of the coefficients of P̃ in [[eq:ii-g1-5-2]], as a b-differential operator on 𝒞̄, the number of seminorms
+depending on k and ℓ.
+
+So every bound of this half of the chapter, and every loss ℓ and radius c_k, is uniform over any family of operators for
+which these quantities are uniform. [[sec:i-a-8]], [[sec:i-b-9]] and [[sec:i-c-7]] give conditions under which the
+cited estimates are uniform over a family of operators. For the family of stationary models that the nonlinear theory
+uses, the forward problem is solved uniformly in [[thm:iii-h2-4-1]]; this chapter adds no condition to that.
