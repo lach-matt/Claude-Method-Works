@@ -1303,11 +1303,12 @@ R[g̃](X, θ1, θ2; λ) = J* R[g](X, 3π/2 − θ1, 3π/2 − θ2; −λ).
 satisfy S g = g. In particular J* m1 = −m1.
 
 *Proof.* (a) J is linear in x and lies in O(4), so it preserves R = |x|, τ, the round metric and hence g0, and every
-function of (τ, R), u and v among them. The proof of [[lem:quarter-turn]] (a) applies with D^λ_a := ∂_a + λ⁻¹ (∂_a v) F1
-+ λ⁻¹ (∂_a u) F2 and ρ(θ1, θ2) := (3π/2 − θ1, 3π/2 − θ2): D^λ_a(f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, and J* commutes with D^λ.
-(b) The outgoing wave has the algebraic form of the ingoing one, with F₂ := λ A₂ env₂(u) h(ζ) sin θ2 and G₂ :=
-λ A₂ env₂(u) h(ζ) cos θ2, and J fixes u; so the calculation of [[lem:quarter-turn]] (b) gives (J* W_TT^𝔨)(X, 3π/2 −
-θ_𝔨) = −W_TT^𝔨(X, θ_𝔨) for both families. χ_in and χ_out are S-invariant by the uniqueness of the transports
+function of (τ, R), u and v among them. The proof of [[lem:quarter-turn]] (a) applies with D^λ_a := ∂_a +
+λ⁻¹ (∂_a v) F1 + λ⁻¹ (∂_a u) F2 and ρ(θ1, θ2) := (3π/2 − θ1, 3π/2 − θ2): D^λ_a(f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, and J*
+commutes with D^λ.
+(b) The outgoing wave has the algebraic form [[eq:waves-hopf]] of the ingoing one, its two quadratures having A₂,
+env₂(u) and θ2 in place of A, env(v) and θ, and J fixes u; so the calculation of [[lem:quarter-turn]] (b) gives
+(J* W_TT^𝔨)(X, 3π/2 − θ_𝔨) = −W_TT^𝔨(X, θ_𝔨) for both families. χ_in and χ_out are S-invariant by the uniqueness of the transports
 [[eq:two-dust-chi]], which commute with J and whose forcing terms are S-even by (a) at order 0, as in
 [[lem:quarter-turn]] (b). The last claim is (a) at order 1 for the S-invariant family g0 + λ W_𝔨.
 (c) By (a), applied to the S-invariant family g0 + λ (W_in + W_out), J* R^(0)(X, 3π/2 − θ1, 3π/2 − θ2) = R^(0)(X, θ1,

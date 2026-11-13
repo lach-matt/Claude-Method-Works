@@ -427,12 +427,12 @@ operators on such bundles are the sums of matrices of quantizations of symbols i
 operators (Remark 3.46).
 
 (S15) [Hin26d, Proposition 2.3 with (2.3) and (2.5), pp. 19–20; Lemma 3.42 and its proof, p. 51; p. 52; proof of
-Proposition 4.22, p. 75.] There are a metric d_ℬ on M (written d in Proposition 2.3) and constants δ_0 ∈ (0, 1) and
-C ≥ 1 such that C⁻¹d_ℬ(p, q) ≤ |φ_α(p) − φ_α(q)| ≤ Cd_ℬ(p, q) for all α and all p, q ∈ U′_α := φ_α⁻¹((−3/2, 3/2)^n)
-(this is (2.3)). The proof defines it by (2.5): d_ℬ(p, q) is the infimum of L(γ, T, I) := Σ_i L(φ_(α_i) ∘ γ|_([t_i,t_(i+1)])) over the
+Proposition 4.22, p. 75.] There are a metric d_ℬ on M (written d in Proposition 2.3) and a constant C ≥ 1 such that
+C⁻¹d_ℬ(p, q) ≤ |φ_α(p) − φ_α(q)| ≤ Cd_ℬ(p, q) for all α and all p, q ∈ U′_α := φ_α⁻¹((−3/2, 3/2)^n); this is (2.3).
+The proof defines d_ℬ by (2.5): d_ℬ(p, q) is the infimum of L(γ, T, I) := Σ_i L(φ_(α_i) ∘ γ|_([t_i,t_(i+1)])) over the
 piecewise smooth curves γ : [0, 1] → M from p to q and the tuples T = (t_0, …, t_k), I = (α_0, …, α_(k−1)) with
-0 = t_0 < t_1 < ⋯ < t_k = 1 and γ|_([t_i,t_(i+1)]) smooth and contained in U_(α_i), where L(β) is the Euclidean length of
-a curve β in (−2, 2)^n. Lemma 3.42 (Off-diagonal behavior of quantizations): "Let ϵ > 0, and let
+0 = t_0 < t_1 < ⋯ < t_k = 1 and γ|_([t_i,t_(i+1)]) smooth and contained in U_(α_i), where L(β) is the Euclidean length
+of a curve β in (−2, 2)^n. Lemma 3.42 (Off-diagonal behavior of quantizations): "Let ϵ > 0, and let
 η ∈ C^∞_(uni,ℬ×ℬ)(M × M) be 1 in the ϵ-neighborhood {(p, q) ∈ M × M : d_ℬ(p, q) < ϵ} of the diagonal in M × M. Let w
 be a weight, and let a ∈ wS^m(^𝒱T*M). With Op_𝒱(a) denoting the Schwartz kernel, we then have
 (1 − η) Op_𝒱(a) ∈ wρ^∞Ψ^(−∞)_𝒱(M)." Its proof treats the local kernels with the factor
@@ -516,9 +516,9 @@ R ∈ C^∞_b Ψ^(−1)_e3b: take Q := Op(q) with q ∈ S^(−2) equal to σ(B)�
 uniformly; then R := I − QB has principal symbol 0 at order 0, so it has order −1 by the principal symbol sequence
 (S5). (This is the first step of [[lem:ii-a-8-4]] (b), which does not use the present lemma; a parametrix to this
 finite order suffices.) Then A = Σ_j AQV_(0,j)^* w_jV_j + ARV_0, and A_j := AQV_(0,j)^* w_j ∈ C^∞_b Ψ^(𝗌−1)_e3b,
-A_0 := AR ∈ C^∞_b Ψ^(𝗌−1)_e3b. For the last statement, truncate Q to range ϵ ([[sec:ii-a-8-3]]; [Hin26d, Lemma 3.42,
-p. 51]). This changes Q by a residual operator, which goes into R, and R = I − QB then has kernel range at most ϵ, B
-being a differential operator. Kernel supports add under composition, so the kernel ranges of the A_j, j ≥ 1, and of
+A_0 := AR ∈ C^∞_b Ψ^(𝗌−1)_e3b. For the last statement, truncate Q to range ϵ ([[sec:ii-a-8-3]], by (S15)). This
+changes Q by a residual operator of the subalgebra of (S10), which goes into R, and R = I − QB then has kernel range
+at most ϵ, B being a differential operator. Kernel supports add under composition, so the kernel ranges of the A_j, j ≥ 1, and of
 A_0 = AR are at most that of A plus ϵ. ∎
 
 Passing to the secondary structure (subdividing the cells into ρ-cuboids) gives the larger classes
