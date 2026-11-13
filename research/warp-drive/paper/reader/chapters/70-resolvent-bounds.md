@@ -2839,9 +2839,10 @@ so that H_3′ = (2κ)^(−1/2)(u_3 + ru_3′) and H_3″ = (2κ)^(−1/2)(2u_3�
 κu_3/(2r²) the coefficient of u_3′ is −3/(2r) + 1/(2r³). The difference is [[eq:rb-m33]], and no constant other than
 γ_C and a entered. ∎
 
-Fields H with only u_3 nonzero, of high frequency in r and concentrated near r_0, have lim inf ‖ℛ_lH‖_Y/‖H‖_X ≥
-r_0|M_33(r_0)| by [[eq:rb-block-norms]] (at α = −1 the weights are r and r⁵, and the derivative term dominates both
-norms); on the domain {r ≥ r_h/2} of the zero-energy problem this gives ‖ℛ_l‖ ≥ ½|M_33(½)| = 9996 for every l. And
+Fields H with only u_3 nonzero, of high frequency in r and concentrated near a radius r_1 of the domain, have
+lim inf ‖ℛ_lH‖_Y/‖H‖_X ≥ r_1|M_33(r_1)| by [[eq:rb-block-norms]] (at α = −1 the weights are r and r⁵, and the
+derivative term dominates both norms). The domain of the zero-energy problem contains r = r_h/2 = ½ (*The weight*
+above), so ‖ℛ_l‖ ≥ ½|M_33(½)| = 9996 for every l ≥ 1; at l = 0 the component u_3 does not exist. And
 (κ + 1)/(2(κ + 2)^(1/2)) < 9996 exactly when (κ + 1)² < 4 · 9996²(κ + 2), which holds for every l ≤ 19,991, in
 particular at l = 19,990 (κ = 399,640,080: (κ + 1)² < 1.59713 · 10¹⁷ < 1.59728 · 10¹⁷ < 4 · 9996²(κ + 2)) and fails
 from l = 19,992 on. So this route gives no lower bound at any degree l ≤ 19,991; if a perturbative regime exists at

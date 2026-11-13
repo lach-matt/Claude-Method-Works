@@ -978,9 +978,31 @@ V_K(R2′)/c); take R_b on the slice with |U_K(R_b)| > |U_s′| and V_K(R_b) > c
 R_a, the segment to (U_s, c|U_s|), which lies in S_in with ΔU_K < 0 < ΔV_K and is spacelike, the ray to U_s′, the
 segment to the slice at R_b, in S_out and spacelike, and the slice beyond R_b. Σ″ is spacelike and equals the slice
 outside a compact set, so by (2) and the divergence theorem its J-flux is Q(δ). h vanishes on the two segments, and
-J(K) meets the ray only inside the part used; near the bifurcation sphere and beyond, the static slice does not meet
-J(K). So the flux is that through the whole static slice, which is Q_static of h's data there by (1). Uniqueness up to
-gauge of the linearised solution gives the last clause. ∎
+J(supp δ) meets the ray only inside the part used; near the bifurcation sphere and beyond, the static slice does not
+meet J(supp δ). So the flux is that through the whole static slice, which is Q_static of h's data there by (1).
+
+*The last clause.* Let Σ̂ be the extension of Σ_τ0, and Σ_s* the static slice {t = t_1} continued through the
+bifurcation sphere into the other exterior: the image of {t = 0} under the flow of ξ, an isometry, so a Cauchy surface
+of M_μ. The slice Σ̂ meets S_out × S³ in its points with R > R2′ and S_in × S³ in those with √μ < R < R1′; the static
+ray meets S_in × S³ between the bifurcation sphere and U_K = U_s, and S_out × S³ beyond U_K = U_s′; and h vanishes on
+the open sets S_in × S³ and S_out × S³, which J(supp δ) does not meet.
+
+Suppose that h's data on the static slice are a gauge seed, with a band U_s″ of the static slice and a generator Z_s,
+equal to c_s ξ near the inner sphere of ∂U_s″ and to 0 near the outer one. Let Ẑ be a smooth vector field on M_μ equal,
+near Σ_s*, to Z_s near Ū_s″, to c_s ξ on the part of Σ_s* inside U_s″, and to 0 outside it; ξ is a Killing field of all
+of M_μ. Then L_Ẑ g induces h's data on Σ_s*: on U_s″ by hypothesis, the data being smooth functions of the 1-jet of the
+metric, and elsewhere both vanish, Ẑ being zero or Killing there. By [[lem:loc-gauge-unique]], h − L_Ẑ g = L_X g for
+a smooth vector field X, so h = L_W g with W := Ẑ + X. As h = 0 on S_in × S³ and on S_out × S³, W is a Killing field
+there. Its average W̄ over T² × Z2 × Z2 satisfies L_W̄ g = h too, the group acting by isometries that fix h, and it is an
+invariant Killing field on these two sets. They are connected and lie in the chart of [[lem:racz-split-formulas]] (d),
+where the computation of the proof of [[lem:loc-kid]] (c), which is local, gives W̄ = c_in ξ on S_in × S³ and
+W̄ = c_out ξ on S_out × S³ for constants c_in and c_out. So Z := W̄ − c_out ξ satisfies L_Z g = h and generates δ on
+Σ̂; it vanishes on S_out × S³ and equals (c_in − c_out)ξ on S_in × S³. For η > 0 small, U″ := {R1′ − η < R < R2′ + η}
+has supp δ ⊂ U″ and Ū″ ⊂ U, its outer boundary sphere lies in S_out × S³ and its inner one in S_in × S³, as U ⊂ {f > 0};
+so δ is a gauge seed. The converse is the same argument with Σ̂ and Σ_s* exchanged: from a generator of δ, extended by
+c ξ on the inner part of Σ̂ and by 0 on the outer part, [[lem:loc-gauge-unique]] and the averaging give an invariant W̄
+with h = L_W̄ g, equal to c_in ξ on S_in × S³ and to c_out ξ on S_out × S³; and W̄ − c_out ξ generates h's data on a
+band of the static slice whose boundary spheres lie in S_in × S³ and in S_out × S³. ∎
 
 On a static slice, γ = dR²/f + R² dΩ₃², N_s = √f, K0 = 0 and Y_s = 0, D²ℋ[(h, k), (h, k)] = D²Scal[h, h] + 2((tr k)² −
 |k|²), the mixed terms carrying K0, and the linearised constraints decouple into DScal[h] = 0 and D^i(k_ij − tr k γ_ij)

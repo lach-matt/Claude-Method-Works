@@ -1383,8 +1383,9 @@ form satisfying (Ω), (V1) on S with J0 = 1 and b_* = 0.36, (V2) with 2δ = 0.53
 datum D_ε has the field ε F0, the labels u_α|Σ_0 with the future roots, and the metric data of g0 on Σ_0 corrected to
 satisfy the constraints with the stress of the field: 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯_ε(·, α), 𝒯_ε the constraint stress of
 ∫ ε² F0(·, α)² du_α ⊗ du_α dα, has the structure of [[lem:vlasov-structure]] with λ = 1 and no phases, the signs by (V3)
-and [[lem:vlasov-symmetrizer]], and sup_r ‖𝔉(0)‖_(8) ≤ C ε², since the data of g0 satisfy the vacuum constraints; so
-[[prop:vlasov-scaled-correction]] gives a smooth invariant correction U with ‖U‖_(𝒴_8) ≤ C ε². So d(D_ε) ≤ C ε, and
+and [[lem:vlasov-symmetrizer]], and sup_r ‖𝔉(0)‖_(12) ≤ C ε², since the data of g0 satisfy the vacuum constraints; so
+[[prop:vlasov-scaled-correction]] with k = 12 gives a smooth invariant correction U with ‖U‖_(𝒴_12) ≤ C ε², which at
+λ = 1, with the equations for the r-derivatives, bounds U in C⁹. So d(D_ε) ≤ C ε, and
 [[prop:vlasov-cauchy]] around (g0, 0, u), with m = 6, gives for ε small the solution on Ω, with ‖g − g0‖_(H^7) ≤ C ε on
 every Σ_τ, hence, by Sobolev's inequality on the slices and the equations for the τ-derivatives, C²-close to g0, and with
 eikonals C¹-close to u_α. By
