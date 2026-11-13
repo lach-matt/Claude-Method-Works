@@ -386,3 +386,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   per-period decrease 1.7πλκm0 still holds, so chapter 85 replaces 0.93 by 0.89 and cites P-H's results; chapter 85 must
   supply |S′| ≤ 1.001κ|S| and |S| ≤ 1.001Rm0 (first-degree horizon value). The source's sampled check also misreported
   m0′/(κm0) (quadrature error). The reader rules on 'm0 ≥ cε²' (source ~2137).
+- Chapter 60 (R-60): Major F1, the quantifier order (domain and K fixed before ε_m, as chapter 3 has it), being fixed.
+  Ruling on chapter 3's ε_K clause: not false; chapter 3 should say "ε_K chosen in the stability theory (thm:vi-c-2-1
+  step (4)) ... for some ε_+ and some ℓ_I admissible in row d2". Chapter 46 renames (E1)-(E2) to (Ex1)-(Ex2).
+- Proof F: chapter 85 should keep R_k (L.27's x²κ_k) and rename L.16 (b)'s bound to ℛ_2(v) at its three sites.
+- S26 (R-S26): 3 Majors — the smallness threshold must be in H^(N_NM) (k₀ := 153, k₁ := 153 + k), as [Hin23a, Cor. 3.36]
+  requires; S27 line ~345 has the same claim (sent to the S27 fix). The energy identity is the symmetric sum of squares
+  (the source and [Hin23a, (3.25)] share a slip). The Moser lemma needs cor:std-moser-product (2)-(3) at integer orders
+  and a Gagliardo-Nirenberg-Moser product-of-derivatives estimate in Appendix A (sent to the Appendix A fix). NP 10.57
+  (c) is superseded by thm:iv2-2-4 (crosswalk note). ε^(2j) confirmed. Mass letter: S14 as well as S17 must write m₀.

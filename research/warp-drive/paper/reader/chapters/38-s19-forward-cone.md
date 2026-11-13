@@ -265,13 +265,13 @@ b-regularity of the coefficients is k − 2, and the e3b-vector fields are b-vec
 linear in the factors δ, whose norms add up to at most C(|b − b₀| + |S|) + ‖h‖; the other factors are bounded in terms
 of an upper bound for ‖h‖_(𝒳^k). ∎
 
-*Products on Ω_*.* For k ∈ ℕ₀, H^k_b(Ω_*) is the space of restrictions to the interior of Ω_* of elements of
-H^k_b(M̃) for the density μ_b, with the quotient norm, and wH^k_b(Ω_*) := {u : w⁻¹u ∈ H^k_b(Ω_*)} for a weight
-w = ρ_I^(w_I)ρ_+^(w_+)ρ_K^(w_K), w_I, w_+, w_K ∈ ℝ; likewise wL^∞. 𝒱_0 is a finite set of b-vector fields spanning the b-vector fields over
-C^∞_b on Ω_* (t_*∂_(t_*) and the r∂_(x^i), [[sec:ii-f1-1-1]]). [[cor:std-moser-product]] is stated on ℝⁿ and on
-products ℝ^k × N with N closed; the next lemma carries its part (1) to these spaces, which have the faces 𝓘⁺, ι⁺, K⁺
-at infinity in logarithmic coordinates and the boundary hypersurfaces {r = r_0} and {t^♭ = 1} across which their
-elements are extended.
+*Products on Ω_*.* For k ∈ ℕ₀, H^k_b(Ω_*) is the space of restrictions to the interior of Ω_* of elements of H^k_b(M̃)
+for the density μ_b, with the quotient norm, and wH^k_b(Ω_*) := {u : w⁻¹u ∈ H^k_b(Ω_*)} for a weight w =
+ρ_I^(w_I)ρ_+^(w_+)ρ_K^(w_K), w_I, w_+, w_K ∈ ℝ; likewise wL^∞. 𝒱_0 is a finite set of b-vector fields spanning the
+b-vector fields over C^∞_b on Ω_* (t_*∂_(t_*) and the r∂_(x^i), [[sec:ii-f1-1-1]]). [[cor:std-moser-product]] is stated
+on ℝⁿ and on products ℝ^k × N with N closed; the next lemma carries its part (1) to these spaces, which have the faces
+𝓘⁺, ι⁺, K⁺ at infinity in logarithmic coordinates and the boundary hypersurfaces {r = r_0} and {t^♭ = 1} across which
+their elements are extended.
 
 **Lemma {#lem:s19-products}** (Moser's product estimate on Ω_*.) Let k ∈ ℕ₀.
 
@@ -290,18 +290,19 @@ equivalent norm.
 (c) Multiplication by an element of C^∞_b is bounded on H^k_b(Ω_*), and ‖u‖_(C^j_b) ≤ C‖u‖_(H^(j+3)_b) for j ∈ ℕ₀.
 
 *Proof.* *Charts.* Near {t^♭ = 1} take the charts of Step 3 of the proof of [[prop:ii-g-3-1]] (for Ω_*,
-[[rem:ii-g-3-2]]), in which t^♭ − 1 is the last coordinate and, at {r = r_0}, a defining function of {r = r_0} the
-first; away from {t^♭ = 1} take those of its Step 4: b-cells in logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto orthants at {r = r_0}. Restricted to
-Ω_*, each chart φ_α maps onto an open subset of an orthant ℝ⁵_q := [0, ∞)^q × ℝ^(5−q), q ≤ 2, whose faces are the
-images of {r = r_0} and {t^♭ = 1}. As there, the family has finite multiplicity, in each chart the b-vector fields and
-the coordinate fields span the same module over the functions uniformly bounded in C^∞, and μ_b is the Lebesgue density
-times a function bounded above and below, uniformly in α. Let χ_α be a partition of unity of Ω_* subordinate to the
-charts, and χ̃_α equal to 1 near supp χ_α, both uniformly bounded in C^∞ in the chart coordinates. Let H̄^k(ℝ⁵_q) be the
-space of restrictions of H^k(ℝ⁵) to the interior of ℝ⁵_q, with the quotient norm, and E the composition of Seeley's
-extension operators across the faces of ℝ⁵_q (Step 2 of that proof), bounded from H̄^k(ℝ⁵_q) to H^k(ℝ⁵) for every k.
-E is also bounded on L^∞: on {x_i < 0} each of its factors is the sum Σ_l c_l f(…, −x_i/ε_l, …) of the proof of
-[[lem:ii-e-1-3]] (b), times a cut-off with values in [0, 1], and Σ_l |c_l| < ∞. As in the paragraph *Estimates* of the
-proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of extension, ‖u‖_(H^k_b(Ω_*)) is equivalent to
+[[rem:ii-g-3-2]]), in which t^♭ − 1 is the last coordinate and, at {r = r_0}, a defining function of {r = r_0} the first;
+away from {t^♭ = 1} take those of its Step 4: b-cells in logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto
+orthants at {r = r_0}. Restricted to Ω_*, each chart φ_α maps onto an open subset of an orthant ℝ⁵_q := [0, ∞)^q ×
+ℝ^(5−q), q ≤ 2, whose faces are the images of {r = r_0} and {t^♭ = 1}. As there, the family has finite multiplicity, in
+each chart the b-vector fields and the coordinate fields span the same module over the functions uniformly bounded in
+C^∞, and μ_b is the Lebesgue density times a function bounded above and below, uniformly in α. Let χ_α be a partition of
+unity of Ω_* subordinate to the charts, and χ̃_α equal to 1 near supp χ_α, both uniformly bounded in C^∞ in the chart
+coordinates. Let H̄^k(ℝ⁵_q) be the space of restrictions of H^k(ℝ⁵) to the interior of ℝ⁵_q, with the quotient norm, and
+E the composition of Seeley's extension operators across the faces of ℝ⁵_q (Step 2 of that proof), bounded from
+H̄^k(ℝ⁵_q) to H^k(ℝ⁵) for every k. E is also bounded on L^∞: on {x_i < 0} each of its factors is the sum Σ_l c_l f(…,
+−x_i/ε_l, …) of the proof of [[lem:ii-e-1-3]] (b), times a cut-off with values in [0, 1], and Σ_l |c_l| < ∞. As in the
+paragraph *Estimates* of the proof of [[prop:ii-g-3-1]], with {t^♭ = 1} as one more face of extension, ‖u‖_(H^k_b(Ω_*))
+is equivalent to
 
     N_k(u) := (Σ_α ‖(φ_α)_*(χ_α u)‖²_(H̄^k(ℝ⁵_q)))^(1/2),
 
@@ -367,11 +368,12 @@ C_k‖δ‖_(H^k_b), C_k depending on an upper bound for ‖δ‖_(H⁴_b). Writ
 
     (g_1 + δ)⁻¹ = Σ_(j≤N) (−g_1⁻¹δ)^j g_1⁻¹ + R_N,        R_N := (−g_1⁻¹δ)^(N+1)(g_1 + δ)⁻¹.
 
-The factor (−g_1⁻¹δ)^(N+1) has N + 1 times the least orders of δ, which are positive at each face; so for N large,
-R_N lies in H^k_b with weights beyond every weight in [[eq:iii-i-3-4]], [[eq:iii-i-3-6]] and [[eq:iii-i-3-7]]
-([[lem:s19-products]] (a) with weights, and (c)), and adds no expansion term. In [[prop:iii-i-3-3]], on
-U⁺ ∩ {ρ_I ≤ 1}, g_1⁻¹ − g_b⁻¹ = −g_1⁻¹(g_1 − g_b)g_b⁻¹ ∈ ρ_+²ρ_I²C^∞ is part of the background difference counted in its
-proof. The Taylor terms are products, handled by [[lem:iii-c-2-1]]. This replaces the Neumann series of [[prop:iii-c-4-4]], whose convergence needs smallness in H^k.
+The factor (−g_1⁻¹δ)^(N+1) has N + 1 times the least orders of δ, which are positive at each face; so for N large, R_N
+lies in H^k_b with weights beyond every weight in [[eq:iii-i-3-4]], [[eq:iii-i-3-6]] and [[eq:iii-i-3-7]]
+([[lem:s19-products]] (a) with weights, and (c)), and adds no expansion term. In [[prop:iii-i-3-3]], on U⁺ ∩ {ρ_I ≤ 1},
+g_1⁻¹ − g_b⁻¹ = −g_1⁻¹(g_1 − g_b)g_b⁻¹ ∈ ρ_+²ρ_I²C^∞ is part of the background difference counted in its proof. The
+Taylor terms are products, handled by [[lem:iii-c-2-1]]. This replaces the Neumann series of [[prop:iii-c-4-4]], whose
+convergence needs smallness in H^k.
 
 **Remark {#rem:iii-i-3-5}** ([Hin26, Remark 11.7] in dimension 4 + 1.) g_(b₀) + h and g_(b₀,b,0) + h differ near
 (ι⁺)° by χ_K(g_b − g_(b₀)) ∈ ρ_+²C^∞, which is absorbed into h as (2, 0) ∈ ℰ_+. The same holds for the boost:
@@ -664,9 +666,9 @@ verbatim with G_b, its margins (𝖧f_T ≥ ϱ⁻¹ against 2ϱ⁻¹, 𝖧f_W �
 [[thm:iii-h2-4-1]], for |S| and ‖h‖ small ([[prop:iii-i-3-4]], [[eq:iii-i-3-7]]).
 
 This is the only condition on B_* in this chapter; [[ch:s20]] and [[ch:s25]] shrink B_* further. [[thm:iii-h2-3-1]] and
-[[thm:iii-h2-4-1]] apply the slab estimates of [[ch:s07]] relative to 2L_b itself, so no condition on slabs enters
-(B5). The choices are made in this order: B_1 by (B1)–(B4); the constants of [[sec:iii-h2-1]]–[[sec:iii-h2-4]],
-uniform on B̄_1; then B_* by (B5), which involves only the threshold ε′_0 of [[thm:iii-h2-4-1]]. So nothing is circular, and every
+[[thm:iii-h2-4-1]] apply the slab estimates of [[ch:s07]] relative to 2L_b itself, so no condition on slabs enters (B5).
+The choices are made in this order: B_1 by (B1)–(B4); the constants of [[sec:iii-h2-1]]–[[sec:iii-h2-4]], uniform on
+B̄_1; then B_* by (B5), which involves only the threshold ε′_0 of [[thm:iii-h2-4-1]]. So nothing is circular, and every
 statement of [[sec:iii-h2-1]]–[[sec:iii-h2-4]] holds a fortiori on B̄_*.
 
 Put f_b := |dg_b|/(|dt_*| |dx|), a smooth positive stationary function, smooth in b.
@@ -684,7 +686,9 @@ in the sense of [Hin17, Definition 3.8] for operators acting on bundle-valued ha
 
 We apply it on a subbundle E ⊂ T^kM preserved by ∇, here S²T*M ⊂ T²M. Then Δ_k maps sections of E to sections of E,
 and ∇^(π*T^kM) preserves π*E, on which it is the pullback connection ∇^(π*E). In a local frame of T^kM whose first
-members span E, the matrix of Δ_k is block upper triangular, so by [Hin17, Definition 3.8] the subprincipal operator of
+members span E, the matrix of Δ_k is block upper triangular. In a frame, [Hin17, Definition 3.8] gives
+S_sub(P) = σ_sub(P) − iH_p for P with principal symbol p Id, σ_sub(P) being the matrix of the subprincipal symbols of
+the entries of P (cf. [[sec:iii-d-5-2]]); this matrix is block upper triangular too, so the subprincipal operator of
 Δ_k on E is the restriction of S_sub(Δ_k) to π*E; [Hin17, p. 26] restricts its results to such subbundles in the same
 way. So the tensor wave operator □_g := Δ_k on E, taken on half-densities by |dg| as in [[eq:iii-f-4-1]], satisfies
 iS_sub(□_g) = ∇^(π*E)_(H_G), in every dimension and for every metric.
@@ -786,9 +790,9 @@ itself. By the list above, D maps each piece into itself except for the componen
 W = 5 to W = 4. Every other part of A + Ω lowers wt by at least 1, by (a) and (c), and hence lowers W by at least
 2 − 1 = 1. So
 
-    A + Ω = D_0 + D_−,
+    A + Ω = D_= + D_<,
 
-where D_− lowers W and D_0 preserves each piece, and on the seven pieces, in the order above, D_0 is Ω plus the scalars
+where D_< lowers W and D_= preserves each piece, and on the seven pieces, in the order above, D_= is Ω plus the scalars
 
     0,   0,   0,   −2(1 − e_C)γ_C c_2,   0,   −2γ_C c_2,   −4γ_C c_2.
 
@@ -807,10 +811,10 @@ to O by the same formulas: e_0, e_2 (by the formulas for a and a′), V, the fra
 where span{e_0, e_2} = span{τ, e_0} stays Lorentzian and e_0, τ stay independent (on O, by (B1)–(B2)). This gives a
 stationary inner product on O, homogeneous of degree 0 and smooth in b; p_1^Γ involves the inner product only on Γ_b
 and through its derivative along H_G, which is tangent to Σ, so the extension does not enter. In an
-h⁰_(η,b)-orthonormal frame a map lowering W by j ≥ 1 has its entries multiplied by η^j, so D_− is O(η), while D_0 is
+h⁰_(η,b)-orthonormal frame a map lowering W by j ≥ 1 has its entries multiplied by η^j, so D_< is O(η), while D_= is
 unchanged; h⁰_(η,b) is constant in the frame, so H_G is skew. By [[eq:iii-h2-1-3]] and [[eq:i-b-6-0]], on Γ_b,
 
-    p_1^Γ = −½(D_0 + D_0^*) + O(η),        −½(D_0 + D_0^*) ≤ 0,
+    p_1^Γ = −½(D_= + D_=^*) + O(η),        −½(D_= + D_=^*) ≤ 0,
 
 for half-densities by |dg_b|. The O(η) term is bounded by η times a polynomial in |σ⁻¹w|, γ_C and the components c_μ,
 which are continuous on O and in b; as Γ_b ∩ {σ = 1} lies in a fixed compact subset of O modulo time translations (B1),
@@ -966,7 +970,8 @@ margin 1), with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j
 relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0 and
 ‖P_j − 2L_(b_j)‖_((0;k+d)) bounded, and with coefficients converging in C² on compact subsets of M° ∩ {r > r_0} to those
 of P, admissible relative to 2L_b with ‖P − 2L_b‖_((0;d)) < ε_0; and let f_j → f in [[eq:ii-f1-1-4]]. Then the forward
-solutions converge in H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b(Ω_*; E)^(•,−) for every ς > 0.
+solutions u_j of P_ju_j = f_j converge to the forward solution u of Pu = f in
+H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b(Ω_*; E)^(•,−) for every ς > 0.
 
 *Proof.* The proof of [[thm:ii-f1-1-1]] depends on P_0 only through the following inputs.
 
@@ -1012,11 +1017,14 @@ on supp φ, and P_j^*φ → P^*φ in L², as the coefficients of P_j converge to
     ũ ∈ X ⊂ H^(𝗌,(2α_I,α_+,−2))_e3b(Ω_*; E)^(•,−) ⊂ H^(s_u,(2α_I,α_+,−2))_e3b(Ω_*; E)^(•,−),
 
 so ũ lies in the class in which [[thm:ii-f1-1-1]] asserts uniqueness for P relative to 2L_b, and so does u. That
-uniqueness is [[lem:ii-f1-2-2]] at s′ = s_u for P relative to 2L_b. It needs the smallness of [[prop:ii-e-3-4]] (i) at
-s′ = s_u, relative to 2L_b, in the norm with the d_0 of that proposition at s_u; this d_0 is at most the D_0 ≤ d of
-[[sec:ii-f1-3-1]], so that norm is at most C‖P − 2L_b‖_((0;d)) ([[eq:ii-f1-3-1]]), and the smallness is among those
-fixing ε_0. By (i), the d_0 and the smallness of [[prop:ii-e-3-4]] (i) at s_u relative to 2L_b are uniform on B̄_1, so
-‖P − 2L_b‖_((0;d)) < ε_0 gives it at the limit parameter b. Both ũ and u solve Pv = f, so ũ = u.
+uniqueness is [[lem:ii-f1-2-2]] at s′ = s_u for P relative to 2L_b, and it needs two smallness conditions. The first
+is the threshold ε_1 of [[lem:ii-f1-2-1]], uniform on B̄_1 by (ii). The second is the smallness of [[prop:ii-e-3-4]] (i)
+at s′ = s_u relative to 2L_b, in the norm with the d_0 of that proposition. That d_0 depends only on 𝗌 and s′ (the
+statement of [[prop:ii-e-3-4]]), here 𝗌 and s_u, which (B4) fixes for every b ∈ B̄_1; it is the index
+d^U_0 ≤ D_0 ≤ d, with D_0 the index of [[eq:ii-f1-3-2]], so that norm is at most C‖P − 2L_b‖_((0;d))
+([[eq:ii-f1-3-1]]); and its smallness threshold is uniform on B̄_1 by (i). Both conditions are among those that fix
+ε_0 ([[sec:ii-f1-3-1]]), so ‖P − 2L_b‖_((0;d)) < ε_0 gives them at the limit parameter b. Both ũ and u solve Pv = f,
+so ũ = u.
 
 *Convergence.* Every subsequence of (u_j) is bounded in X, so it has a further subsequence converging weakly in X, and
 by what was just shown its limit is u. Hence u_j ⇀ u in X, and so in H. By [[lem:ii-f1-6-1]] (k ≥ 1), the inclusion of
@@ -1033,23 +1041,27 @@ statement is not proved here and is not used: the later chapters use only the fa
 solution u of L^(g,g_0)u = f, [[eq:iii-i-5-1]]–[[eq:iii-i-5-2]] hold with ε_0, d and C_k independent of b. For k ≥ 1,
 u depends continuously on (b, S, h) in H^(k−1,(β_I−ς,β_+−ς,−3/2−ς))_b(Ω_*; S²T*)^(•,−), for every ς > 0.
 
-*Proof.* The proof of [[thm:iii-i-5-3]], with P_0 := 2L_b and [[thm:iii-h2-4-1]] in place of [[thm:ii-f1-1-1]]. Its
-hypothesis (i) is [[thm:iii-h2-2-1]]. (ii) is unchanged, as S̄ and Ā do not depend on b. (iii) is [[cor:iii-i-5-2]],
-which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis holds by [[thm:iii-h2-2-1]], with
-‖P − 2L_b‖_((0;d)) ≤ C(|b − b₀| + |S| + ‖h‖_(𝒳^(d+5))) by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], small by (B5).
+*Proof.* The proof of [[thm:iii-i-5-3]], with P_0 := 2L_b and [[thm:iii-h2-4-1]] in place of [[thm:ii-f1-1-1]], so that
+ε′_0 is the ε_0 of [[thm:iii-h2-4-1]]. Its hypothesis (i) is [[thm:iii-h2-2-1]]. (ii) is unchanged, as S̄ and Ā do not
+depend on b. (iii) is [[cor:iii-i-5-2]], which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis holds
+by [[thm:iii-h2-2-1]], with ‖P − 2L_b‖_((0;d)) ≤ C(|b − b₀| + |S| + ‖h‖_(𝒳^(d+5))) by [[prop:iii-i-3-4]],
+[[eq:iii-i-3-7]], below ε′_0 by (B5).
 
-*Continuity.* Let k ≥ 1. In the notation of the proof of [[thm:iii-i-5-3]], in which h ∈ 𝒳^(k+d+5), let
-(b_j, S_j, h_j) → (b, S, h), with b_j, b ∈ B_*, S_j, S, h_j, h as in the statement and h_j → h in 𝒳^(k+d+5). Put
-g_(0,j) := g_(b₀,b_j,−S_j), g_j := g_(0,j) + h_j, P_j := 2L^(g_j,g_(0,j)) and P := 2L^(g,g_0), and let f_j := f. These
-satisfy the hypotheses of the continuity statement of [[thm:iii-h2-4-1]]. By (iii) above, P_j is admissible relative to
-2L_(b_j) of the class that theorem asks, with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0 by (B5); and ‖P_j − 2L_(b_j)‖_((0;k+d))
-is bounded in j by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], as ‖h_j‖_(𝒳^(k+d+5)) is. The same holds for P relative to
-2L_b; in particular ‖P − 2L_b‖_((0;d)) < ε_0 by (B5), which is the smallness that the identification in the proof of
-[[thm:iii-h2-4-1]] uses at the limit. The coefficients of P_j converge to those of P in C² on compact subsets of
-M° ∩ {r > r_0}, as 2L^(g,g_0) depends smoothly on (b, S) and continuously on h in the norm of [[eq:iii-i-3-7]]
-([[lem:iii-i-3-6]]), which controls the coefficients in C² on compact sets by Sobolev embedding (three derivatives,
-dim M = 5). So the forward solutions converge in H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b, with α_I = β_I − 2 and
-α_+ = β_+ − 5/2, which with the density μ_b is H^(k−1,(β_I−ς,β_+−ς,−3/2−ς))_b ([[cor:ii-f1-1-2]]). ∎
+*Continuity.* Let k ≥ 1. In the notation of the proof of [[thm:iii-i-5-3]], in which h ∈ 𝒳^(k+d+5), let (b_j, S_j, h_j) →
+(b, S, h), with b_j, b ∈ B_*, S_j, S, h_j, h as in the statement and h_j → h in 𝒳^(k+d+5). Put g_(0,j) :=
+g_(b₀,b_j,−S_j), g_j := g_(0,j) + h_j, P_j := 2L^(g_j,g_(0,j)) and P := 2L^(g,g_0), and let f_j := f. These satisfy the
+hypotheses of the continuity statement of [[thm:iii-h2-4-1]]. By (iii) above, P_j is admissible relative to 2L_(b_j) of
+the class that theorem asks, with ‖P_j − 2L_(b_j)‖_((0;d)) < ε′_0 by (B5); and ‖P_j − 2L_(b_j)‖_((0;k+d)) is bounded in j
+by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], as ‖h_j‖_(𝒳^(k+d+5)) is. The same holds for P relative to 2L_b; in particular
+‖P − 2L_b‖_((0;d)) < ε′_0 by (B5), which is the smallness that the identification in the proof of [[thm:iii-h2-4-1]]
+uses at the limit. The coefficients of P_j converge to those of P in C² on compact subsets of M° ∩ {r > r_0}. On such a set
+g_(b₀,b,−S) depends smoothly on (b, S), as g_b is smooth in b ([[prop:iii-b-3-6]]) and φ_(−S) = exp(V(−S)) is the
+time-one flow of a vector field linear in S ([[lem:iii-b-5-1]]); its difference from g_b lies in the class of
+[[lem:iii-i-3-6]]. And 2L^(g,g_0) depends continuously on h in the norm of [[eq:iii-i-3-7]] (its coefficients being the
+sums of products of the tame form above, [[lem:s19-products]], [[lem:s19-inverse]]), which controls the coefficients in
+C² on compact sets by Sobolev embedding (three derivatives, dim M = 5). So the forward solutions converge in
+H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b, with α_I = β_I − 2 and α_+ = β_+ − 5/2, which with the density μ_b is
+H^(k−1,(β_I−ς,β_+−ς,−3/2−ς))_b ([[cor:ii-f1-1-2]]). ∎
 
 [Hin26, Theorem 11.12] states continuity in (b₀, b, S, h); here b₀ is fixed.
 
@@ -1292,7 +1304,7 @@ at null infinity ([[prop:iii-i1-3-1]]), splitting L_b⁻¹ by the Fourier transf
 singular low frequencies, integrating the singular part twice in t_*, and recovering the expansion at null infinity
 ([[prop:iii-i1-2-1]]). The bookkeeping window of the iteration is (0, 1), the window of [[eq:iii-h-1-1]] inside the
 indicial gap of L̂_b(0) ([[prop:iii-f1-2-3]] (a)), where [Hin26] has (0, ε_ind). As in [[thm:iii-i-5-3]], everything in
-these sections is at b = b₀; base points b near b₀ are treated in [[ch:s25]].
+these sections is at b = b₀; base points b near b₀ are treated in [[prop:iii-i2-5-1-b]].
 
 *The manifold.* X = {r ≥ r_0} as in [[sec:iii-h-1]], and M′ := [ℝ̄_(t_*) × X̄; {±∞} × ∂X̄], the manifold M of
 [[sec:ii-g1-3-1]] over X̄ ([[rem:ii-g1-3-7]]; [[sec:iii-a-4]] in dimension 4 + 1). Its faces are I (the lift of

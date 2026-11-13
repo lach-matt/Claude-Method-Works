@@ -558,4 +558,223 @@ smooth up to Σ°, a linearised vacuum solution in the Regge–Wheeler-type gaug
 Comparing the l = 0 parts, c = ṁ. So h − cK = ġ_RW − cℒ_Vg − cK = ġ_RW − ṁK_V, and ℒ_Vg = 0 on {r ≤ 2R₁}. The
 bound is [[thm:rw-settling]] (b). ∎
 
+### [HKW18]'s data and the red-shift datum {#sec:rw-redshift}
+
+We use the following parts of [HKW18] as stated, in addition to [[thm:std-hkw-decay]]; their n is 3, their M is
+m₀/2, their μ is ς, and page numbers are those of the arXiv version.
+
+**Theorem {#thm:rw-hkw}** ([HKW18, Theorem 1, p. 3; p. 4; (13), p. 5; (15)–(16), (19)–(20), p. 6; (35)–(36), p. 8;
+Section 7.3, p. 30; (89), p. 29; p. 38; (114)–(116) and Lemma 11, p. 39; (124), p. 43; (127)–(128), p. 46;
+(129)–(131), p. 47; (134), p. 49; (163)–(169), pp. 58–59; (173), p. 60; p. 61; p. 67; (186), p. 69].)
+
+(F) (The decay foliation.) With u = (1/2)(t − r_*), v_H = (1/2)(t + r_*) (13) and L := ∂/∂v_H = ∂/∂t + ∂/∂r_* (92),
+"Fixing radii r_1 and R_1 satisfying r_h < r_1 < r_P < R_1, we choose a Lipschitz hypersurface Σ_0 with the following
+properties: Σ_0 intersects the future horizon H⁺ transversely and Σ_0 is spacelike in r_h ≤ r ≤ R_1, Σ_0 ∩ {r_1 ≤ r ≤
+R_1} = {t = 0} ∩ {r_1 ≤ r ≤ R_1}, Σ_0 ∩ {R_1 ≤ r} = {u = −(1/2)(R_1)_*} ∩ {R_1 ≤ r} … Flowing along the static Killing
+vector field T, we construct our decay foliation Σ_τ := φ_τ(Σ_0). We define n_(Σ_τ) as the unit timelike normal vector
+for Σ_τ for r ≤ R_1 and n_(Σ_τ) := L for r > R_1" (p. 30), the volume form of the null part being r^n dv_H dVol_(S^n).
+
+(E) (The energies.) For a symmetric trace-free two-tensor Ψ on the spheres, "Ť_ab[Ψ] := ∇_aΨ · ∇_bΨ −
+(1/2)g_ab(∇_cΨ · ∇^cΨ)" (89), with the projected covariant derivative; Y is a vector field with "Y|_(r=r_h) = −∂/∂R"
+(p. 38), extended "such that Y is causal and Y = 0 for r ≥ r_1"; N := T + Y is "the strictly timelike red-shift
+multiplier", and "E^N_Ψ(Σ_τ) := ∫_(Σ_τ) J^N_a[Ψ]n^a_(Σ_τ) dVol_(Σ_τ), Ě^N_Ψ(Σ_τ) := ∫_(Σ_τ) Ť_ab[Ψ]n^a_(Σ_τ)N^b
+dVol_(Σ_τ)" (115); by Lemma 11, E^N_Ψ(Σ_τ) ≈ Ě^N_Ψ(Σ_τ) (p. 39).
+
+(B) (Boundedness and decay.) For Ψ solving any of the master equations (134), (149), (153), (174),
+Ě^N_Ψ(Σ_τ) ≲ Ě^N_Ψ(Σ_0) (116) and, in spacetime dimension six and below, Ě^N_Ψ(Σ_τ) ≲ I_Ψ(Σ_0)/τ² (130), where
+"I_Ψ(Σ_0) := E²_(Ψ,L_KΨ)(Σ_0) + E^N_(Ψ,L_KΨ,L²_KΨ)(Σ_0)" (131), "with K := {T, Ω_i} ranging over the background Killing
+fields" (129), the constants depending only on n and M. In the proof of (130), with τ_k = 2^k, "there exist
+τ̃_k ∈ [τ_(k−1), τ_k] such that E¹_Ψ(Σ_(τ̃_k)) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_(k−1))) + Ě^N_Ψ(Σ_(τ_(k−1)))) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_0))
++ Ě^N_Ψ(Σ_(τ_0)))" (p. 47).
+
+(P) (The r^p hierarchy.) "Φ := r^(n/2)Ψ" (124), and "E^p_Ψ(Σ_τ) := ∫_(Σ_τ∩{r≥R_1}) (r^(p−n)/(1 − μ)^k)
+(|∇_LΦ|²/(1 − μ)) r^n dv dVol_(S^n)" (127), with an exponent k ≥ 0 fixed in their Proposition 15, which we write k_H.
+Theorem 16: "For 1 ≤ p ≤ 2 and τ_1 < τ_2, we have the r^p-estimate: E^p_Ψ(Σ_(τ_2)) + (1/C)∫_(τ_1)^(τ_2)
+(E^(p−1)_Ψ(Σ_τ) + (2 − p)A^(p−1)_Ψ(Σ_τ))dτ ≤ E^p_Ψ(Σ_(τ_1)) + CĚ^N_Ψ(Σ_(τ_1))" (128), A^(p−1) ≥ 0.
+
+(M) (The master quantities.) The two-tensor portion ĥ_αβ of δg satisfies (134). For the scalar portion, in terms of
+the quantities ȟ_AB, Ȟ of (159)–(162), "X = ȟ^t_t − 2Ȟ, Y = ȟ^r_r − 2Ȟ, Z = ȟ^r_t" (163); the vacuum equation
+δĚ^r_t = 0 reads
+
+    (k²/r² − ∂_r²f − n∂_rf/r)Z + f(∂_t∂_rX + ∂_t∂_rY) − ((n − 2)f/r + ∂_rf/2)∂_tX + (2f/r − ∂_rf/2)∂_tY = 0 (167);
+
+Z̃ := (k²/r² − ∂_r²f − n∂_rf/r)⁻¹ (f(∂_rX + ∂_rY) − ((n − 2)f/r + ∂_rf/2)X + (2f/r − ∂_rf/2)Y) (168),
+Φ := (nZ̃ − r(X + Y))/(r^(n/2−1)(k² − n + n(n + 1)μ/2)) (169), and the scalar master quantity is
+Q^(+) := (r^(k_s)Φ)Y_αβ dx^αdx^β (173), with k_s = (4 − n)/2 (p. 61; their k) and Y_αβ := ∇̊_α∇̊_βY − (1/n)σ̊_αβΔ̊Y
+(35), which satisfies Δ̊Y_αβ = (2n − ℓ(ℓ + n − 1))Y_αβ (36). "The estimates for the Q^(+) … are uniform in the angular
+mode numbers ℓ and m" (p. 67), and the sum over the modes satisfies (186).
+
+(1) [HKW18, Theorem 1]: "For the lower frequency portion δg_(ℓ<2) of δg, there exists a smooth co-vector X_(ℓ<2) on
+the Schwarzschild-Tangherlini background, unique modulo Killing fields, and constants c, d_m such that
+δg_(ℓ<2) = π_(X_(ℓ<2)) + cK + Σ_m d_mK_m" (5), K and K_m the linearised Myers–Perry solutions (p. 3).
+
+(G) On the metric components: "It is expected that, after estimating the master quantities and making a suitable
+choice of linearized gauge, the remaining linearized metric components can be controlled by the gauge-invariant master
+quantities … We do not treat this matter in the current paper" (p. 4).
+
+**Lemma {#lem:rw-hkw-field}** ([HKW18]'s master quantities in the class.) For h in the Regge–Wheeler-type gauge, the
+master quantities of [HKW18] are, mode by mode, Ψ = r^(1/2)ΦY with Φ the master field of [[thm:rw-ki]]: for the scalar
+type Y = Y_αβ := (D̂D̂ − (1/3)γΔ̂)S, with ‖Y_αβ‖² = (2/3)k²(k² − 3)‖S‖² ≥ (80/3)‖S‖², and for the tensor type Y = 2T.
+Φ solves □Φ = WΦ with W = W_S or W_T of [[lem:rw-potentials]], and in the ingoing chart □ = 2∂_v∂_r + ∂_r(f∂_r)
+([HKW18, (16)]). The pointwise norm of Ψ is r^(−3/2)|Φ||Y|, and the field r^(3/2)Ψ of (124), whose r^p energies (127)
+[HKW18] bound, has norm |Φ||Y|.
+
+*Proof.* The tensor type: ĥ_αβ = 2r²H_T T = 2r^(1/2)ΦT by [[thm:rw-ki]] (T). The scalar type: in the gauge
+f_a = 0 = H_T, the quantities of [HKW18, (159)–(162)] are ȟ_AB = rF_AB and Ȟ = rF. By the trace of [[eq:np-10-1]],
+g^(ab)rF_ab = −2rF, so X + Y = −6rF. In the static chart g_tr = 0, Γ^t_tr = f′/(2f), so by [[eq:np-10-1]]
+rF_tr = H⁻¹D_tD_rΦ̃ = H⁻¹∂_t(∂_rΦ̃ − (f′/(2f))Φ̃), and with ∂_rΦ̃ = r^(3/2)H(∂_rΦ + (3/(2r) − 12ς/(rH))Φ),
+
+    Z = g^(rr)rF_rt = −∂_tZ̃_0,        Z̃_0 := r^(1/2)((ς − (3/2)f + 12fς/H)Φ − rf∂_rΦ).
+
+By (167), Z = −∂_tZ̃ with Z̃ of (168). So E := Z̃ − Z̃_0, a linear expression in the derivatives of Φ with coefficients
+depending on r alone, satisfies ∂_tE[Φ′] = 0 for every solution Φ′ of the master equation near any point (each such
+solution gives a vacuum perturbation, [[thm:rw-ki]] (S)). Given a solution Φ on a product (t_0 − δ, t_0 + δ) × J, let
+Π solve the linear ordinary differential equation (fΠ′)′ − WΠ = f⁻¹∂_tΦ(t_0, ·) on J; then
+Φ′ := ∫_(t_0)^t Φ(t″, ·)dt″ + Π solves the master equation (its defect −f⁻¹∂_t²Φ′ + ∂_r(f∂_rΦ′) − WΦ′ has
+t-derivative □Φ − WΦ = 0 and vanishes at t_0), and ∂_tΦ′ = Φ. So E[Φ] = E[∂_tΦ′] = ∂_tE[Φ′] = 0, and Z̃ = Z̃_0. In
+the static chart Dr · DΦ̃ = f∂_rΦ̃, and [[eq:np-10-1]] gives
+
+    rF = (r^(−1/2)/12)((2H − 6ς + 9f − 72fς/H)Φ + 6rf∂_rΦ).
+
+Hence 3Z̃ − r(X + Y) = 3Z̃_0 + 6r·rF = r^(1/2)HΦ, and (169) at n = 3, where k² − 3 + 6ς = H, gives back Φ. The
+pointwise norm: |Y_αβ|_g = r⁻²|Y_αβ|_γ. The norm of Y_αβ is [[lem:gd-1-2]] (d). ∎
+
+**Lemma {#lem:rwg-cone}** (The energies on the outgoing part.) Let Ψ = r^(1/2)ΦY be a master quantity of a mode, as in
+[[lem:rw-hkw-field]], and f_1 := f(R_1). On the outgoing part C_τ := Σ_τ ∩ {r ≥ R_1}, with ∂_r at fixed u,
+
+    ∫_(R_1)^∞ ((∂_rΦ)² + k²Φ²/r²) dr ≤ C_1 Ě^N_Ψ(Σ_τ)/‖Y‖²,        C_1 = 9/(2f_1) + 8,
+
+and the same for XΨ with XΦ in place of Φ, X a product of T and the rotations. Moreover Σ_i Ě^N_(Ω_iΨ) = k²Ě^N_Ψ for
+the scalar type and (k² + 4)Ě^N_Ψ for the tensor type, mode by mode. On the spacelike part Σ_τ ∩ {r ≤ R_1},
+Ě^N_Ψ(Σ_τ) ≥ c∫((∂_vΦ)² + (∂_rΦ)² + k²Φ²) dr ‖Y‖², with c > 0 depending on m₀ and Σ_0 only.
+
+*Proof.* On C_τ, n_(Σ_τ) = L, and at fixed u, L = f∂_r (v_H − u = r_*) and dv_H = dr/f; N = T there, as Y = 0 for
+r ≥ R_1 > r_1. From (89), with g(L, T) = −f and g̃⁻¹ = f⁻¹(−∂_t² + ∂_(r_*)²) on the orbit space,
+Ť(L, T) = (1/2)|∇_LΨ|² + (f/(2r²))|∇̊Ψ|². For Ψ_αβ = r^(1/2)ΦY_αβ, (∇_LΨ)_αβ = r²L(r⁻²Ψ_αβ) = r²L(r^(−3/2)Φ)Y_αβ,
+so r³|∇_LΨ|² = f²(∂_rΦ − 3Φ/(2r))²|Y|², and ∫_(S³) r³(f/(2r²))|∇̊Ψ|² = (f/2)r⁻²Φ²∫|∇̊Y|² = (f/2)(k² − 6)Φ²‖Y‖²/r²
+for the scalar type by (36), and (f/2)(k² − 2)Φ²‖T‖²/r² for the tensor type by [KI03, (5.2)]. Integrating against
+r³dv_H dω = r³f⁻¹dr dω,
+
+    Ě^N_Ψ(Σ_τ ∩ {r ≥ R_1}) ≥ (1/2)∫_(R_1)^∞ (f(∂_rΦ − 3Φ/(2r))² + (k² − 6)Φ²/r²) dr ‖Y‖².
+
+With a := ∂_rΦ − 3Φ/(2r), (∂_rΦ)² ≤ 2a² + (9/2)Φ²/r², so the left side of the claim is at most
+∫(2a² + (k² + 9/2)Φ²/r²)dr ≤ max(4/f_1, 2(k² + 9/2)/(k² − 6)) Ě/‖Y‖², and for k² ≥ 8,
+2(k² + 9/2)/(k² − 6) ≤ 25/2 ≤ 9/(2f_1) + 8 and 4/f_1 ≤ 9/(2f_1) + 8, as f_1 ≤ 1. The rotations commute with the
+equations and with the energy densities. On functions Σ_iΩ_i² = Δ̂ ([[lem:rwg-a]]), and the L_(Ω_i) commute with D̂, so
+−Σ_iL_(Ω_i)² Y_αβ = k²Y_αβ. On symmetric 2-tensors on S³, −Σ_iL_(Ω_i)² = ∇̊*∇̊ + A with A algebraic: writing
+L_(Ω_i) = ∇̊_(Ω_i) + (∇̊Ω_i)·, the second-order part is −Σ_i∇̊²_(Ω_i,Ω_i) = ∇̊*∇̊, as Σ_iΩ_i ⊗ Ω_i = γ (Lagrange's identity)
+and Σ_i∇̊_(Ω_i)Ω_i = −(1/2)∇̊Σ_i|Ω_i|² = 0, and the first-order part vanishes, as for Ω = Ax (A antisymmetric) the
+endomorphism ∇̊Ω is Y ↦ P(AY), P the tangential projection, and Σ_(a<b)(A_ab)_ij(A_ab)_kl = δ_ikδ_jl − δ_ilδ_jk gives
+Σ_i P(A_iY) ⊗ A_ix = P(Y)(x · ·) − (Px)(Y · ·) = 0 for Y tangent. A is O(4)-equivariant, and the isotropy group O(3)
+acts irreducibly on trace-free symmetric 2-tensors at a point, so A is a constant on them; by (36), ∇̊*∇̊Y_αβ =
+(k² − 6)Y_αβ, so A = 6. On the tensor harmonics, ∇̊*∇̊T = k_T²T = (k² − 2)T ([KI03, (5.1)–(5.2)]), so
+−Σ_iL_(Ω_i)²T = (k² + 4)T. As the L_(Ω_i) are skew on L²(S³), Σ_iĚ^N_(Ω_iΨ) is the eigenvalue of −Σ_iL_(Ω_i)² times
+Ě^N_Ψ. On the spacelike part, N and n_(Σ_τ) are timelike, uniformly on the compact set
+{r_h ≤ r ≤ R_1} of the leaf modulo the flow of T, so Ť(n, N) bounds c(|∇_vΨ|² + |∇_rΨ|² + r⁻²|∇̊Ψ|²); there
+∇_AΨ = r²∂_A(r^(−3/2)Φ)Y, the angular term carries (k² − 6) ≥ k²/4, and the term in Φ/r of ∂_r(r^(−3/2)Φ) is absorbed
+by it. ∎
+
+**Lemma {#lem:np-10-1a}** (The red-shift commutation for the class's master fields.) Let Φ be a smooth solution, up
+to and including the future horizon, of □Φ = WΦ on {r ≥ r_h}, □ = 2∂_v∂_r + ∂_r(f∂_r), W the potential of a mode of
+either type, and let s be the function with Σ_τ ∩ {r ≤ R_1} = {v = τ + s(r)}; 0 < s′ < 2/f, the leaves being spacelike
+there. With u_j := ∂_r^jΦ (∂_r at fixed v), for the mode l put
+
+    Q(τ) := ∫_(r_h)^(R_1) (1 − s′f/2) u_2²(τ + s(r), r) dr,        D_l := I_Ψ(Σ_0) + Σ_(i,j) I_(Ω_iΩ_jΨ)(Σ_0).
+
+Then Q(τ) ≤ C(Q(0) + D_l/‖Y‖²)(1 + τ)⁻², ‖Y‖ the L²(S³) norm of the harmonic in Ψ = r^(1/2)ΦY, with C depending on m₀
+and Σ_0 only. Summed over the modes with the weights ‖Y_l‖² of Q_0,
+∫_(Σ_τ ∩ {r ≤ R_1}) |∂_r²Φ|² dr dω ≤ C(Q_0 + D)(1 + τ)⁻², Φ := Σ_l Φ_lY_l for each type.
+
+*Proof.* (1) The commutation. With L := ∂_v + (f/2)∂_r, the outgoing null direction, □ = 2L∂_r + f′∂_r, so the
+equation is the transport Lu_1 + (f′/2)u_1 = Wu_0/2. Since [∂_r, L] = (f′/2)∂_r, applying ∂_r^j gives
+
+    Lu_(j+1) + ((j + 1)f′/2)u_(j+1) = F_j,                                                                 {#eq:np-10-1a}
+
+F_j a combination of u_0, …, u_j with coefficients built from derivatives of f and W and no v-derivative; for j = 1,
+∂_r(Lu_1) = Lu_2 + (f′/2)u_2 and ∂_r((f′/2)u_1) = (f″/2)u_1 + (f′/2)u_2, so F_1 = (1/2)(W′u_0 + (W − f″)u_1). The top
+coefficient (j + 1)f′/2 does not involve W (Leibniz on Wu_0 reaches u_j only), and at the horizon it is
+(j + 1)/r_h > 0, (j + 1) times the surface gravity. This is the red-shift commutation of Dafermos and Rodnianski
+([DR08, Theorem 7.2, p. 87]); in 1 + 1 dimensions it is exact.
+
+(2) The energy identity. For u = u_(j+1), 2u · [[eq:np-10-1a]] and 2uLu = ∂_v(u²) + ∂_r((f/2)u²) − (f′/2)u² give
+
+    ∂_v(u²) + ∂_r((f/2)u²) + ((2j + 1)f′/2)u² = 2uF_j.                                                     {#eq:np-10-1b}
+
+Integrate over {τ_1 ≤ v − s(r) ≤ τ_2, r_h ≤ r ≤ R_1} in the (v, r)-plane. The leaves carry the flux density
+(1 − s′f/2)u² dr, positive as they are spacelike; the horizon carries none (f = 0), and {r = R_1} the outgoing flux
+(f/2)u² ≥ 0. With j = 1, b := 3m₀/R_1³ ≤ 3f′/2 on [r_h, R_1], Q(w) ≤ ∫u_2² dr on Σ_w, and
+2|uF_1| ≤ (b/2)u² + (2/b)F_1²,
+
+    Q(τ_2) + (b/2)∫_(τ_1)^(τ_2) Q(w) dw ≤ Q(τ_1) + (2/b)∫_(τ_1)^(τ_2) G(w) dw,     G(w) := ∫_(r_h)^(R_1) F_1²(w + s(r), r) dr.
+
+(3) The forcing. |W′| + |W − f″| ≤ C(1 + k²) on [r_h, R_1] ([[lem:rw-potentials]]), and u_0, u_1 are bounded in L² on
+the spacelike part by Ě^N_Ψ ([[lem:rwg-cone]]). So G(w) ≤ C(1 + k²)²Ě^N_Ψ(Σ_w)/‖Y‖² ≤ C(Ě^N_Ψ + Σ_(i,j)
+Ě^N_(Ω_iΩ_jΨ))(Σ_w)/‖Y‖² ≤ CD_l(1 + w)⁻²/‖Y‖², by [[lem:rwg-cone]] and (B) of [[thm:rw-hkw]] with Lemma 11.
+
+(4) Gronwall. A continuous Q ≥ 0 satisfying the inequality of (2) for all τ_1 ≤ τ_2 satisfies
+Q(τ) ≤ e^(−bτ/2)Q(0) + (2/b)∫_0^τ e^(−b(τ−w)/2)G(w) dw: the right side R(τ) satisfies the inequality with equality, so
+d := Q − R has d(0) = 0 and d(τ_2) + (b/2)∫_(τ_1)^(τ_2)d ≤ d(τ_1); if d(τ) > 0, then from the last zero τ′ < τ of d,
+d(τ) ≤ −(b/2)∫_(τ′)^τ d < 0, a contradiction. And for c > 0,
+∫_0^τ e^(−c(τ−w))(1 + w)⁻² dw ≤ C_c(1 + τ)⁻², C_c = max(1, 16e^(c/2−2)/c²) + 4/c: split at τ/2; the part over
+[0, τ/2] is at most e^(−cτ/2) ≤ max(1, 16e^(c/2−2)/c²)(1 + τ)⁻² (the maximum of e^(−cτ/2)(1 + τ)² over τ ≥ 0), and
+the part over [τ/2, τ] at most (1 + τ/2)⁻²/c ≤ 4(1 + τ)⁻²/c. Also e^(−bτ/2) ≤ C_(b/2)(1 + τ)⁻². Since
+c_Σ ∫u_2² dr ≤ Q, c_Σ := min (1 − s′f/2) > 0, this is the lemma for the mode; every constant is uniform in l. Multiply
+by ‖Y_l‖²: for the tensor type Y_l and the harmonic in Ψ are one harmonic up to the factor 2, and for the scalar type
+‖Y_αβ‖² ≥ (80/3)‖S‖² ([[lem:rw-hkw-field]]); with Σ_l ‖Y_l‖²Q_l(0) ≤ Q_0 and the orthogonality of the harmonics, the
+sum gives the rest. ∎
+
+**Lemma {#lem:np-10-1b}** (The red-shift datum cannot be dropped.) (a) For every τ ≥ 0 there is C(τ) with
+Q(0) ≤ C(τ)(Q(τ) + (D_l + I_(TΨ)(Σ_0) + Σ_i I_(Ω_iΨ)(Σ_0))/‖Y‖²), ‖Y‖ as in [[lem:np-10-1a]]. For the scalar type the
+left side of [[eq:np-10-1-iv-b]] at any one time bounds the red-shift datum (in rF_rr the coefficient of ∂_r²ψ is 1,
+[[lem:rw-coefficients]]); the tensor type's components, 2r^(−3/2)Φ, carry no derivative of Φ.
+
+(b) For each mode of either type and each σ with 1/2 < σr_h ≤ 3/2, σr_h ≠ 1, there are solutions of □Φ = WΦ, smooth
+on {r > r_h}, with every I_(XΨ)(Σ_0) finite, X any product of T and the rotations, and Q(0) = ∞; for them Q(τ) = ∞
+for every τ. So, for the scalar type, no bound of the left side of [[eq:np-10-1-iv-b]] by [HKW18]'s data, commuted
+with the Killing fields any number of times, holds up to the horizon, for smooth h either: the scalar-type part of Q_0
+is the one input their class lacks, and nothing weaker than it suffices.
+
+*Proof.* (a) An outgoing null ray r = ρ(v), ρ′ = f/2, carries no flux of [[eq:np-10-1b]]: along it the flux density
+u²ρ′ − (f/2)u² vanishes. So the identity on the region between Σ_0, Σ_τ, the horizon and the ray from (Σ_0, ρ_1), ρ_1
+close enough to r_h that the ray stays below R_1 until Σ_τ, has no outer term. With 2|uF_1| ≤ u² + F_1² and
+3f′/2 ≤ 3/r_h it gives q(w) ≤ q(τ) + C∫_w^τ q + C∫_w^τ G, for q the integral of (1 − s′f/2)u_2² between the horizon
+and the ray, and Gronwall backward in time gives q(0) ≤ e^(Cτ)(q(τ) + C∫_0^τ G). On [ρ_1, R_1] the equation,
+f∂_r²Φ = WΦ − 2∂_r(TΦ) − f′∂_rΦ with f ≥ f(ρ_1) > 0, bounds ∂_r²Φ on Σ_0 by the energies of Ψ, TΨ and the
+Ω_iΩ_jΨ. For the scalar type, by [[lem:rw-coefficients]], ∂_r²ψ = rF_rr − 2(H′/H)∂_rψ − (H″/H)ψ, and the lower terms
+are bounded by the energies; so the left side of [[eq:np-10-1-iv-b]] at time τ, with D, bounds Q(τ).
+
+(b) Take Φ = e^(−σv)R(r). The equation becomes fR″ + (f′ − 2σ)R′ − WR = 0; at r_h, f = (2/r_h)(r − r_h) + O((r − r_h)²),
+and the indicial roots are 0 and σr_h. Take R = (r − r_h)^(σr_h)(1 + O(r − r_h)), the convergent Frobenius series of
+the larger root: the coefficients of the equation divided by f are analytic near r_h with a simple pole there, and the
+recursion's denominators (2/r_h)n(n + σr_h) do not vanish for n ≥ 1. Cut its data on Σ_0 off outside a neighbourhood
+{r < ρ_0} of the horizon. On Σ_0 near the horizon the solution is e^(−σv)R, with T^aΦ = (−σ)^aΦ, and R and
+R′ ~ (r − r_h)^(σr_h−1) are square integrable (σr_h > 1/2), so every I_(XΨ)(Σ_0) is finite; but
+R″ ~ σr_h(σr_h − 1)(r − r_h)^(σr_h−2), whose coefficient is not 0 (σr_h ≠ 1), is not square integrable
+(σr_h ≤ 3/2): Q(0) = ∞. The solution is smooth on {r > r_h}, since the past of each of its points meets Σ_0 there.
+For τ > 0 run (a)'s argument between the outgoing rays from (Σ_0, r_h + ε) and from (Σ_0, ρ_1), both of which carry
+no flux and stay in {r_h < r < R_1} until Σ_τ: it gives q_ε(0) ≤ e^(Cτ)(q_ε(τ) + C∫_0^τ G), q_ε the integral of
+(1 − s′f/2)u_2² between the two rays and G bounded by the energies, which the finite I's bound. As ε → 0,
+q_ε(0) → ∞, so q_ε(τ) → ∞, and q_ε(τ) ≤ Q(τ).
+
+For smooth h: let V_n be smooth data of that mode converging to such a solution's data in I_Ψ(Σ_0), Φ_n their
+solutions, and χ ≥ 0 smooth, not identically 0, with support in (0, t_0), 0 < t_0 < s(ρ_0) − s(r_h). The averages
+∫χ(t)Φ_n(φ_t(·)) dt over the flow φ_t of T are smooth solutions, and they converge in every I_(XΨ)(Σ_0) (each T
+falls on χ, and the evolution is bounded on [0, t_0]) to the same average of the solution, which near the horizon on
+Σ_0 is (∫χ(t)e^(−σt) dt)e^(−σv)R, again one of these solutions. Their Q(0) tend to ∞, Q(0) being lower semicontinuous
+under this convergence, while a bound of the left side of [[eq:np-10-1-iv-b]] by the data would bound Q(0) by (a). ∎
+
+*Proof of [[prop:np-10-1]] (iv-b).* By [[lem:rw-hkw-field]] the master quantities of [HKW18] are Ψ = r^(1/2)ΦY, and
+(B) of [[thm:rw-hkw]] with Lemma 11 gives Ě^N_(XΨ)(Σ_τ) ≤ CI_(XΨ)(Σ_0)(1 + τ)⁻² for each X, which commutes with their
+equations, its fields being Killing; the constant is uniform in l ((M) of [[thm:rw-hkw]]). By
+[[prop:np-10-1]] (iii) every component in the chart (v, r) and the orthonormal frame of the spheres is a combination of
+∂_v²ψ, ∂_v∂_rψ, ∂_r²ψ, ∂ψ, ψ and 𝔪ψ with coefficients bounded on {r ≥ r_h} uniformly in l, so O(r^(3/2)) in Φ. On the
+spacelike part, ∂_v²Φ = ∂_v(TΦ) and ∂_r∂_vΦ = ∂_r(TΦ) are bounded in L² by Ě^N_(TΨ), k²Φ by Σ_iĚ^N_(Ω_iΨ), and
+∂_r²Φ by [[lem:np-10-1a]], the horizon included ([[lem:rwg-cone]]). On the outgoing part (f ≥ f_1), with
+∂_r|_v = ∂_r|_u − (2/f)T, they are bounded by Ě^N_(T²Ψ), Ě^N_(TΨ), Ě^N_(ΩΨ) and the equation, which gives ∂_r²Φ at
+fixed u ([[eq:rwg-master]] below); there the zeroth-order terms carry the weight r⁻² in [[lem:rwg-cone]], which costs
+R² on {R_1 ≤ r ≤ R}, and the squared coefficients cost R³: C R⁵. The tensor type is the same, with Ψ = 2r^(1/2)ΦT and
+components 2r^(−3/2)Φ, which carry no derivative. h_0 − cK = 0 by the gauge condition. Summing over the modes with the
+orthogonality of the harmonics and ‖S‖² ≤ (3/80)‖Y_αβ‖² gives [[eq:np-10-1-iv-b]]. That the scalar-type part of Q_0
+cannot be dropped is [[lem:np-10-1b]]. ∎
+
 [[pending:issue-rw-continue]]

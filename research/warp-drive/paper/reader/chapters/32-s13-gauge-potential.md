@@ -25,7 +25,8 @@ Thirteen results of the main argument enter as inputs and are proved in this cha
 Tangherlini), [[prop:np-10-18]] (the structure at infinity and the horizon threshold), [[prop:np-10-19-i]] (the radial
 structure at the incoming radial set), [[prop:np-10-20]] (the transition face and the weights), [[prop:np-10-28]]
 (the symmetries and the linearised Myers–Perry metrics), [[prop:np-10-29]] and [[prop:np-10-30]] (the model
-generalised states and their root facts, with their counterparts in dimension 3 + 1). So are the trapping identities [[prop:np-10-17-i]], [[prop:np-10-17-iii]]–[[prop:np-10-17-v]] and [[prop:np-10-19-iii]];
+generalised states and their root facts, with their counterparts in dimension 3 + 1). So are the trapping
+identities [[prop:np-10-17-i]], [[prop:np-10-17-iii]]–[[prop:np-10-17-v]] and [[prop:np-10-19-iii]];
 [[prop:np-10-17-ii]], [[prop:np-10-19-ii]] and [[prop:np-10-19-iv]] are proved in [[ch:s12]].
 
 *The dynamical hypotheses.* The theory of [[ch:s01]]–[[ch:s03]] applies to operators on a trivial bundle satisfying
@@ -513,7 +514,7 @@ by C^(1/2)), and the entries are ϵ, ϵ. ∎
 the shift e_1 ↦ e_0, e_2 ↦ e_1 in a frame e_0, …, e_3 whose fourth member it annihilates. In the conventions here
 ∇_(H_G)e_1 = −2σe_0 ([[prop:np-10-17-iv]]); in the frame (e_0, −e_1, e_2) the relations take the form printed there,
 and the matrix is nilpotent either way. For the inner product diag(1, ϵ⁻¹, ϵ⁻², ϵ⁻³) named in the proof of
-[Hin26, Lemma 6.4] the norm of 𝔫 + 𝔫* is 2^(1/2)ϵ^(1/2) by the computation above, 𝔫 vanishing on e_3; the order O(ϵ)
+[Hin26, Lemma 6.4] the norm of 𝔫 + 𝔫* is 2^(1/2)ϵ^(1/2) by the proof above, 𝔫 vanishing on e_3; the order O(ϵ)
 stated there holds for the squared weights, which is why the second inner product of [[prop:np-10-17-v]] is recorded.
 Either norm tends to 0 with ϵ, which is all that [[lem:iii-d-5-2]] uses.
 
@@ -754,7 +755,7 @@ decays exponentially and H^(2)_(l+1) grows exponentially.
 
 (iii) ρ^a lies in ρ^α L²(r³dr) near infinity if and only if a > α + 2: the shift between decay rates and b-weights
 for the Euclidean density of ℝ⁴ is 2. On g_(b_0), with t the static time and t_* := t − r, ∂_σ²□̂(0) = 2g^00 Id, by
-the computation of [[lem:iii-d-2-1]] (1) for this t_* (near infinity, where t − r is used), and
+the argument of [[lem:iii-d-2-1]] (1) for this t_* (near infinity, where t − r is used), and
 2g^00 W* = −4m_0ρ⁴dt + O(ρ⁵), with W* of [[eq:iii-d1-2-1]]. The time t − r_* of [[prop:np-10-15]] (vi) differs from
 t − r by O(ρ), and the two choices give the same ∂_σ□̂(0)W* up to O(ρ⁵).
 
@@ -767,7 +768,7 @@ hypothesis Re ν > 0 holds as ν = l + 1, and [DLMF, (10.17.5)]; the behaviour o
 [DLMF, (10.17.5)–(10.17.6)], which hold uniformly in the sectors −π + δ ≤ ph x ≤ 2π − δ and −2π + δ ≤ ph x ≤ π − δ
 respectively, both containing ph x = 0 and ph x = π/2 (there e^(±ix) = e^(∓|x|)). These are
 [[thm:std-dlmf-hankel]] (2)–(3). (iii) ∫^∞ ρ^(2(a−α))r³dr = ∫^∞ r^(3−2(a−α))dr is finite if and only if a − α > 2. By
-the computation of [[lem:iii-d-2-1]] (1), the σ² coefficient of e^(iσt_*)□e^(−iσt_*) is g⁻¹(dt_*, dt_*) Id for every
+the argument of [[lem:iii-d-2-1]] (1), the σ² coefficient of e^(iσt_*)□e^(−iσt_*) is g⁻¹(dt_*, dt_*) Id for every
 stationary time function, here near infinity; by [[prop:np-10-18]] (iv), g^00 = −2m_0ρ² + O(ρ⁴), and
 W* = ρ²dt + r_hρ³f⁻¹dr, so 2g^00W* = −4m_0ρ⁴dt + O(ρ⁵). For the last claim put F := r − r_* = m_0/r + O(r⁻³)
 ([[prop:np-10-16]] (v)), so F′ = O(ρ²) and F″ = O(ρ³). As ∂_σ□̂(0) = −i[□, t_*] (proof of [[prop:np-10-15]] (vi)), the
@@ -1173,7 +1174,8 @@ min Re ℰ > 0, into polyhomogeneous spaces. *All b-spaces from here on use an u
 
 *Indicial roots.* By [[lem:iii-d-4-1]] the indicial roots of (□^Υ_b)^(0) do not depend on b or on the horizon
 modification, and for 0 < z ≤ ½: at s0 they are 0, 3, ι^Υ_(s0,2) ∈ (2, 3) and 1 − ι^Υ_(s0,2); at s1 they are 0, 4,
-ι^Υ_(s1,2) ∈ (2, ι^Υ_(s0,2)), a root in (3, 4), and the mirror images 1 − ι of the last two; at sl, l ≥ 2, and vl, l ≥ 1, every
+ι^Υ_(s1,2) ∈ (2, ι^Υ_(s0,2)), a root in (3, 4), and the mirror images 1 − ι of the last two; at sl, l ≥ 2, and vl,
+l ≥ 1, every
 root is ≤ 0 or ≥ 3. In particular *neither 1 nor 2 is an indicial root, of any type*: the integer roots are 0, 3,
 1 − l, l + 3, −l and l + 2, none of which is 1 or 2 for l ≥ 1, and by [[eq:iii-d-4-2]] the others lie strictly
 between consecutive integers for 0 < z ≤ ½.
@@ -1515,8 +1517,8 @@ of type τ is simple, and neither μ + 1 nor μ − k, 1 ≤ k ≤ K, is a root 
 at vl no such coincidence occurs for any z.
 
 (5) At vl, N_0(−l − i) = −i(2l + i + 1) and N_1(−l − i + 1) = 2(l + i + γ), so the recursion
-N_0(−l − i)w̄_i = −N_1(−l − i + 1)w̄_(i−1) gives w̄_i = k_iw̄_0 with k_0 = 1 and k_i = k_(i−1)·2(l + i + γ)/(i(2l + i + 1));
-at l = 1, k_1 = 1 + γ/2, as in [Hin26, p. 134].
+N_0(−l − i)w̄_i = −N_1(−l − i + 1)w̄_(i−1) gives w̄_i = k_iw̄_0 with k_0 = 1 and
+k_i = k_(i−1)·2(l + i + γ)/(i(2l + i + 1)); at l = 1, k_1 = 1 + γ/2, as in [Hin26, p. 134].
 
 *Proof.* (1) [[lem:iii-a1-2-1]] holds for every sphere dimension ν: the radial term is −2∂_(t_*)ρ(D − ν/2), the scalar
 part of ᵇ□̄(0) is ρ²(−D² + (ν − 1)D + Δ̸), and the entries ±3/2 of B₁ become ±ν/2. [[lem:iii-d-3-1]] holds for every ν
@@ -1574,7 +1576,7 @@ type 0, and in the splitting [[eq:iii-a1-2-2]]
     h̄^(0)_s0 = (16e)⁻¹(2 − 5e, −(2 + 3e), 0, 2 − 5e, 0, 4(2 − e)g_𝕊) ≠ 0;
 
 it lies in the kernels of D_ḡRic and δ_(ḡ,Ē)Ḡ. On g_(b_0), with t the static time, t_* := t − r_*,
-ω_s0 := g(∂_t, ·) = −f dt and E_Υ near infinity built from c := r⁻¹dt, the source
+ω_s0 := g(∂_t, ·) = −f dt and E_Υ near infinity built from c := r⁻¹dt, the 1-form
 □^Υ(t_*ω_s0) = 2δ_(g,E)G(dt_* ⊗_s ω_s0) is, on (dt, dr),
 
     (−f′ − 3f/r − 2(2 − e)γ/r,  f⁻¹(f′ + 2γ/r)) = ρ(2eγ − 4γ − 3, 2γ) + ρ³(m_0, 2m_0(γ + 1)) + O(ρ⁵),
@@ -1596,16 +1598,18 @@ z > 0 and is one at z = 0, and −3 is one at z = 20/3.
 stationary and in both kernels. None of −2, −3, −4 is a v1 root, for every z.
 
 (iv) (*Dimension 3 + 1.*) On 3 + 1 Minkowski space, with the trace weight 1, in the splitting [[eq:iii-a1-2-2]] for
-𝕊²: t_*ω̄^(0)_s0 + W̄ ∈ ker □̄^Υ with W̄ := |x|(−dt̄ + β_e d|x|), β_e := (2 − e)/(3e); t_*²ω̄^(0)_s1(S) + 2t_*B̆ + 2W̄_2
-∈ ker □̄^Υ with W̄_2 as in (ii) and (a_2, b_2, k_2) := (10e)⁻¹(2 − 3e, −(2 + 7e), 2(4e − 1)); and t_*V + k_1|x|V ∈ ker □̄^Υ
-if and only if k_1 = 1 + γ/2, and then
+𝕊²: t_*ω̄^(0)_s0 + W̄ ∈ ker □̄^Υ with W̄ := |x|(−dt̄ + β_e d|x|), β_e := (2 − e)/(3e);
+t_*²ω̄^(0)_s1(S) + 2t_*B̆ + 2W̄_2 ∈ ker □̄^Υ with W̄_2 as in (ii) and
+(a_2, b_2, k_2) := (10e)⁻¹(2 − 3e, −(2 + 7e), 2(4e − 1)); and t_*V + k_1|x|V ∈ ker □̄^Υ if and only if k_1 = 1 + γ/2,
+and then
 
     h̄¹_v1(V) := dt_* ⊗_s V + (δ̄*)^(0)(k_1|x|V) = (0, 0, ¼(1 + ½γ)ρ⁻¹V_𝕊, 0, ¼(1 − ½γ)ρ⁻¹V_𝕊, 0),
 
 which is [Hin26, (6.40)]. In both dimensions dt_* ⊗_s ω̄^(0)_s0 has b = −¼, e′ = −½ and its other components 0, and
 dt_* ⊗_s B̆ = (0, 0, 0, −ρ⁻¹S, ½ρ⁻¹d_𝕊S, 0), the values of [Hin26, pp. 132–133]. On Schwarzschild,
-g = −f dt² + f⁻¹dr² + r²g_(𝕊²) with f = 1 − 2M/r, with t_* := t − r_*, c := r⁻¹dt and the trace weight 1, the source
-□^Υ(t_*ω_s0), ω_s0 := −f dt, has on (dt, dr) the ρ¹ term (2eγ − 4γ − 2, 2γ) and the ρ² term (2M, 2M(2γ + 1)).
+g = −f dt² + f⁻¹dr² + r²g_(𝕊²) with f = 1 − 2M/r, with t_* := t − r_*, c := r⁻¹dt and the trace weight 1, the
+1-form □^Υ(t_*ω_s0), ω_s0 := −f dt, has on (dt, dr) the ρ¹ term (2eγ − 4γ − 2, 2γ) and the ρ² term
+(2M, 2M(2γ + 1)).
 
 (v) ι^Υ_(s1,2) = ½(1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2)) = 2 + z/12 + O(z²) and
 ι^Υ_(s0,2) = ½(1 + (9 + 4z)^(1/2)) = 2 + z/3 + O(z²), and ι^Υ_(s1,2) < ι^Υ_(s0,2) for every z > 0. In particular 1 and
@@ -1626,8 +1630,8 @@ and c = f = 0, and dt_* ⊗_s ω̄ = dx̄¹ ⊗_s ω̄ has b = −¼, e′ = −
 components. h̄^(0)_s0 = δ̄*(t_*ω̄ + W̄) because δ̄*(t_*u) = t_*δ̄*u + dt_* ⊗_s u and δ̄*ω̄ = 0; it lies in the kernels by
 fact (F2) of the proof of [[prop:iii-d2-3-1]] for ḡ.
 
-*The source on Tangherlini.* We compute for a static metric g = −f dt² + f⁻¹dr² + r²g_(𝕊^ν), at the trace weight 2/ν,
-so that [[lem:iii-b-6-2]] gives E G h = −γ(2ι_(g⁻¹c)h − e c tr_g h) (its proof uses only (2/ν)(1 − (ν + 2)/2) = −1).
+*The right side on Tangherlini.* We calculate for a static metric g = −f dt² + f⁻¹dr² + r²g_(𝕊^ν), at the trace
+weight 2/ν, so that [[lem:iii-b-6-2]] gives E G h = −γ(2ι_(g⁻¹c)h − e c tr_g h) (its proof uses only (2/ν)(1 − (ν + 2)/2) = −1).
 As ω_s0 is Killing, δ*(t_*ω_s0) = dt_* ⊗_s ω_s0 =: k, and dt_* = dt − f⁻¹dr gives k = −f dt² + dt ⊗_s dr, so
 k_tt = −f, k_tr = ½, k_rr = 0 and tr_g k = 1. Then G k = k − ½g, and δ_g(Gk) = δ_gk, as δ_g g = 0. With
 (δk)_ν = −|g|^(−1/2)∂_μ(|g|^(1/2)k^μ_ν) + ½(∂_νg_αβ)k^(αβ), |g|^(1/2) = r^ν|g_𝕊|^(1/2), k^r_t = f/2, k^t_t = 1,
@@ -1676,7 +1680,7 @@ S̄ = γ on angular components, so Ā_0(k_1|x|V) = −5k_1(0, 0, V_𝕊) and Ā_
 q = ρ⁻¹δ*_𝕊V_𝕊 = 0 (V_𝕊 is Killing on 𝕊³), and dt_* ⊗_s V has f = ½ρ⁻¹V_𝕊; with k_1 this is [[eq:iii-d3-3-3]].
 Stationarity and the kernels follow as in (ii). The v1 roots are −1 and 3.
 
-(iv) The computations of (i)–(iii) hold verbatim with the indicial families of [[lem:s13-dim-four]] (1) and
+(iv) The calculations of (i)–(iii) hold verbatim with the indicial families of [[lem:s13-dim-four]] (1) and
 N_1(ι) = −2(ι − 1 − S̄). (i): (D − 1)ω̄ = (½, ½, 0), so Ā_1ω̄ = −ρ(1 + γ(1 − e), 1 + γ(3 − e), 0), and
 
     N_s0(−1) = ( −1 + γ(1 + 3e) , −1 + γ(1 − 3e) ; −1 + γ(3e − 1) , −1 − γ(1 + 3e) ),
@@ -1695,8 +1699,8 @@ multiplying out, N⁰(a_2, b_2, k_2) = (10e)⁻¹(0, 40e, −40e) = (0, 4, −4)
 components of h̄¹_v1 are those found in (iii), c = ¼k_1ρ⁻¹V_𝕊 and f = (½ − ¼k_1)ρ⁻¹V_𝕊, as δ̄* of
 [[lem:iii-a1-2-1]] (1) does not depend on ν; with k_1 = 1 + γ/2 this is [Hin26, (6.40)] (p. 130). The two products
 are dt_* ⊗_s ω̄ = dx̄¹ ⊗_s (−½dx̄⁰ − ½dx̄¹) and dt_* ⊗_s B̆ = dx̄¹ ⊗_s ρ⁻¹(−S dx̄¹ + r d_𝕊S), which do not involve the
-dimension; [Hin26, p. 132] prints the first as (0, −¼, −½, 0) in its s0 components (a, b, e, p). The Schwarzschild
-source is the formula of the proof of (i) at ν = 2 with f = 1 − 2Mρ and f′ = 2Mρ²: the dt component is
+dimension; [Hin26, p. 132] prints the first as (0, −¼, −½, 0) in its s0 components (a, b, e, p). On Schwarzschild the
+1-form is given by the formula of the proof of (i) at ν = 2 with f = 1 − 2Mρ and f′ = 2Mρ²: the dt component is
 −2Mρ² − 2ρ(1 − 2Mρ) − 2(2 − e)γρ = (2eγ − 4γ − 2)ρ + 2Mρ², and the dr component is
 (2Mρ² + 2γρ)(1 − 2Mρ)⁻¹ = 2γρ + 2M(2γ + 1)ρ² + O(ρ³).
 

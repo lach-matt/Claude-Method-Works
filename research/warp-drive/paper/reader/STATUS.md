@@ -36,11 +36,11 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | NOT CONFIRMED 0M 4m 3n; second fix done; third reading running |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
 | 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | running (38a and 44) |
-| 45 S26 | running | - | - |
+| 45 S26 | NOT CONFIRMED 3M 9m 7n | running | - |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | running (translation carried; level-1/2 lemma) | - |
 | 47 S28 | running | - | - |
 | 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
-| 60 S30 | running | - | - |
+| 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | running | - |
 | 61 M Ch 11 | running | - | - |
 | 62 M Ch 12 | running (issue-1: B open) | - | - |
 | 63-64 M Ch 13-14 | being written | - | - |
@@ -52,7 +52,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | file | written | reading |
 |---|---|---|
 | P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | NOT CONFIRMED 2M 4m 9n; fix running |
-| P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | NOT CONFIRMED 0M 5m 7n; fixed; confirming reader running |
+| P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | second reading 0M 1m 4n (a rename); last fix running |
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | NOT CONFIRMED 1M 7m 16n; fix running |
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | NOT CONFIRMED 1M 9m 9n (constants weaker than source); fix running |
 | P-B2-band + T-B2 (band constant, for 70) | done: 11.477 proved (max 10.579); radial 283.06, 305.31; C256 point values from σ = 12 and the decay not proved | running |
