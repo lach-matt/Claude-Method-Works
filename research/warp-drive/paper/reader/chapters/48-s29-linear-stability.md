@@ -207,17 +207,17 @@ the proof of (L), which is C^m and solves L^♮u_2 = 0 below Σ^IVP near p, beyo
 the linear operator L^♮, with A₁ := V ∩ {t_IVP ≥ 0}, A₂ := V ∩ {t_IVP ≤ 0} and the one hypersurface Σ^IVP ∩ V,
 spacelike for g, shows that ḣ is C^m on V ∩ 𝒟. So ḣ is smooth on 𝒟, up to its boundary.
 *The uniqueness classes:* H^(max(k,1),ℓ^♭_0,(−,ℓ^♭_I))_b of [[thm:iv2-2-4]] on Ω_(ext,r_1), that of [[thm:iv3-2-1]] on
-𝒟⁺, H^(max(k,2),ℓ^♭_0,(−,ℓ^♭_I))_b(𝒟⁺) (k ≥ 1), and H² on 𝒦⁻ ((L) of [[sec:s27-local]]). Each
-is preserved by every isometry of g that fixes t and |x|, the weights being functions of (t, |x|) ([[eq:iii-b-2-2]])
-and ρ′_I a function of (t, |x|) ([[sec:s27-cover]]).
+𝒟⁺, H^(max(k,2),ℓ^♭_0,(−,ℓ^♭_I))_b(𝒟⁺) (k ≥ 1), and H² on 𝒦⁻ ((L) of [[sec:s27-local]]). Each is preserved by every
+isometry of g that fixes t and |x|, the weights being functions of (t, |x|) ([[eq:iii-b-2-2]]) and ρ′_I a function of
+(t, |x|) ([[sec:s27-cover]]).
 
 *(2).* On Ω_(ext,r_1) this is the proof of [[thm:iii-c1-3-1]] for L^(χ_0) ([[lem:iii-c2-2-1]]). There
 L^(χ_0)_(g,g)ḣ = 0, with [[lem:iii-c2-2-1]] giving the structure of [[prop:iii-c-4-4]] for L^(χ_0); so [[eq:iii-c1-3-4]]
 holds with right side 0 and [[eq:iii-c1-3-5]] without its integral, and every step is linear in the data. Its
 [[eq:iii-c1-3-2]] becomes ‖ḣ‖_(H^(k,(ℰ_0,ℓ_0),⟨ℰ^C_I⟩,ℓ_I)_b) ≤ C_k‖(ḣ_0, ḣ_1)‖_(H^(k_0,(ℰ_0,ℓ_0))_b), a linear map
-continuous at 0 being bounded. On 𝒮, the proof of [[cor:iv3-2-3]] (the proof of [[thm:iii-c1-3-1]] on Ω^♮) gives the
-same, with the data on Σ_c bounded by (L) on 𝒦. On 𝒦 there is nothing at ℐ⁺. [[lem:viii-1-1]] bounds
-(ḣ_0, ḣ_1) by (γ̇, k̇).
+continuous at 0 being bounded. On 𝒟⁺, the proof of [[cor:iv3-2-3]] (the proof of [[thm:iii-c1-3-1]] on 𝒟⁺, with
+[[thm:iv3-2-1]] at h = 0 in place of the linear estimate) gives the same, its only data being those on Σ^IVP;
+𝒟 ∩ Ω_* lies in 𝒟⁺, as t_IVP ≥ t_* ≥ t^♭_* ≥ 1 there. [[lem:viii-1-1]] bounds (ḣ_0, ḣ_1) by (γ̇, k̇).
 
 *(1).* This is the argument of [[prop:iii-k-1-2]] (2), linearised. Put η̇ := Υ̇^♮(ḣ). By [[eq:viii-0-1]] and
 [[eq:viii-1-1]], DRic(ḣ) = δ*_(g,E_C)η̇. The second Bianchi identity δ_g̃ G_g̃ Ric(g̃) = 0 holds for every metric g̃.
