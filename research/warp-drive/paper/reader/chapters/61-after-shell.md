@@ -308,7 +308,12 @@ is. The minimum over the unit circle is the least eigenvalue of S. ∎
 
 **Remark {#rem:after-shell-distance-values}** (Numerical observation.) Evaluated by quadrature of the Gram matrix,
 ϰ(5/2, 7/2) ≈ 7.655 × 10⁻⁴ and ϰ(7/2, 7/2) ≈ 1.737 × 10⁻³. The constant is small because the interval (1/2, 1) is
-short in the variable log s. No proof uses these values; only the positivity of [[lem:after-shell-distance]] is used.
+short in the variable log s. Quadrature was also applied to the lower bound in the proof of [[prop:after-shell-outside]]
+(b), with 𝔱, A_a and φ_a as there, for the model metric (1 + r⁻²) dr² + r² g_(𝕊³) (that is, α = r⁻² and β = 0) and
+Ξ = 10⁻², at (a, ℓ0) = (5/2, 7/2) and (7/2, 7/2) and R = 10², 10³, 10⁴. The distance D_R of r^(ℓ0)𝔱 from
+span(r^(ℓ0−2), r^(ℓ0−3)) in L²((R/2, R), dr/r) was found with D_R/(Ξ R^(ℓ0−a)) within a relative 10⁻² of
+2A_a dist(s^(ℓ0−a) cos(log s + log R + φ_a), span(s^(ℓ0−2), s^(ℓ0−3))) and above 2A_a ϰ(a, ℓ0) in all six cases. No
+proof uses these values; only the positivity of [[lem:after-shell-distance]] is used.
 
 **Proposition {#prop:after-shell-outside}** (Perturbations outside the class.) Let 3/2 < a ≤ ℓ0. Put r_2 := 2r_χ, take
 a cut-off χ_1(r) equal to 0 for r ≤ r_2 and to 1 for r ≥ 2r_2, and let

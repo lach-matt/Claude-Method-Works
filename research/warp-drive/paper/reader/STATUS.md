@@ -25,7 +25,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | running (combined with S11) | - |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | running |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | running | - |
-| 34 S15 | running (sign slip and np-10-34-iv to adjudicate) | - | - |
+| 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | running | - |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | NOT CONFIRMED 0M 3m 4n; second fix done; third reading running |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |

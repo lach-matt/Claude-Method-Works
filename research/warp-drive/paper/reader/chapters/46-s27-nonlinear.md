@@ -208,7 +208,7 @@ For |S| + |S⁰| small, 𝒟_(S,S⁰) ⊂ 𝒟, and φ_(S,S⁰) maps a neighbour
 is a unique h_(S,S⁰) on 𝒟 with
 
     P^♮(φ_(S,S⁰)^*g_(b₀) + h_(S,S⁰), φ_(S,S⁰)^*g_(b₀)) = 0,
-    h_(S,S⁰) = h⁰_(S,S⁰),  r ℒ_(∂_(t_IVP)) h_(S,S⁰) = h¹_(S,S⁰)  on Σ^IVP,                                  {#eq:iii-k-1-2}
+    h_(S,S⁰) = h⁰_(S,S⁰),  r ℒ_(∂_(t_IVP)) h_(S,S⁰) = h¹_(S,S⁰)  on Σ^IVP,                                {#eq:iii-k-1-2}
 
 and:
 
@@ -522,7 +522,7 @@ h in its frames, both valid on Ω_(1/2); so V is timelike for g on Ω_(1/2) ∩ 
 directed for g_(b₀), as there, and so for g, the orientation being continuous along g_(b₀) + sh, s ∈ [0, 1].
 
 (iii) Near ℐ⁺, where ρ ≤ ρ_−, t^♭_* = t_*F₁(ρ) and dt^♭_* = A dt_* + B dr with A = 1 − (1 + ℓ)ρ^ℓ and B = ℓρ^(ℓ+1);
-the computation of that proof, with (i), gives g⁻¹(dt^♭_*, dt^♭_*) ≤ −ℓρ^(ℓ+1) for ρ ≤ ρ_a and ε′_G small, and
+the estimate of that proof, with (i), gives g⁻¹(dt^♭_*, dt^♭_*) ≤ −ℓρ^(ℓ+1) for ρ ≤ ρ_a and ε′_G small, and
 dt^♭_*(V) = At_* + Br > 0; so dt^♭_* is past timelike there, by (ii). The rest of Ω_(1/2) ∩ {t_* ≤ 1}, the set
 {½ ≤ t_* ≤ 1, ρ_I ≥ ρ_−}, is compact (r ≤ t_*/ρ_− there). On it dt^♭_* is past timelike for g_(b₀): by the formulae
 of the proof of [[lem:ii-c-3-2]], it is C_♭dt_* on {r ≤ r′_0 − 1}, a positive combination of dt_* and dt on
@@ -626,8 +626,8 @@ embedding on the unit cubes of a b-metric, as in the proof of [[lem:iii-c-2-1]]:
 Cartesian component of δ := g_(S,S⁰) − η is at most ε := 1/20 in modulus on 𝒟 ∩ {r ≥ R}.
 
 Then, in the coordinates (t, x), with η = diag(−1, 1, 1, 1, 1), the matrix η⁻¹δ has entries ±δ_ij, so its maximum row-sum
-norm is at most 5ε = ¼. The Neumann series g_(S,S⁰)⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives
-|(g_(S,S⁰)⁻¹ − η⁻¹)(dt, dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_(S,S⁰)⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound holds for η + sδ,
+norm is at most 5ε = ¼. The Neumann series g_(S,S⁰)⁻¹ = Σ_(k≥0)(−η⁻¹δ)^k η⁻¹ gives |(g_(S,S⁰)⁻¹ − η⁻¹)(dt,
+dt)| ≤ Σ_(k≥1)(5ε)^k = 5ε/(1 − 5ε) = ⅓, so g_(S,S⁰)⁻¹(dt, dt) ≤ −1 + ⅓ = −⅔ ≤ −½. The same bound holds for η + sδ,
 s ∈ [0, 1], so dt stays timelike along that path, in the component that continues the past cone of η. For V causal for
 g_(S,S⁰), η(V, V) ≤ −δ(V, V) ≤ Σ_(i,j)|δ_ij||V^i||V^j| ≤ ε(Σ_i|V^i|)² ≤ 5ε((V^t)² + |V^x|²), by the Cauchy–Schwarz
 inequality in five variables; with η(V, V) = −(V^t)² + |V^x|² this gives
@@ -1349,8 +1349,8 @@ commute (χ_9(t_*) is invariant). On {t^♭_* < T̂ + c_0η}, D_U(P_5 ∘ Ψ)V =
 S = S^(0)_1 = 0 and tail 0, so, as in the *Supports* part of the proof of [[lem:iii-k-2-3]],
 D_U(P_5 ∘ Ψ)V = L_(G_(0,0), g_(b₀))h̃_V with G_(0,0) = g_(b₀) + h_0, the boost and translation components of V vanishing.
 The argument there, with [[lem:s27-below]] and [[lem:iii-k-6-1]], gives h̃_V = 0 on {t^♭_* < T̂ + c_0η}. So
-V ∈ B^(∞,G)_η. Hence [[thm:ii-g-2-1]] holds on the fixed spaces, with its own threshold ε^G_NM computed from the constants
-of the G-sup norms, and gives U ∈ B^(∞,G)_(1/2) with P_5(Ψ(U)) = 0 on Ω_*.
+V ∈ B^(∞,G)_η. Hence [[thm:ii-g-2-1]] holds on the fixed spaces, with its own threshold ε^G_NM computed from the
+constants of the G-sup norms, and gives U ∈ B^(∞,G)_(1/2) with P_5(Ψ(U)) = 0 on Ω_*.
 
 *The metric.* [[prop:iii-k-4-2]] builds g from (h, p⃗, q) = Φ(U), h_(−S,−S^(0)_1) and g_(p⃗). By [[lem:vii-3-1]] every
 ingredient is equivariant and U is fixed, so g is G-invariant. U_0 = (b − b₀, S, S^(0)_1) is fixed: 𝔟^G = ℝ × {0} and

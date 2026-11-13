@@ -2214,10 +2214,11 @@ terms of the last sentence), and ∂_τf lies in C_c^∞ + ρ⁴C^∞; [[lem:iii
 Iterating gives C^k into Ḣ_b^(1−k,C_0+2); the expansion terms, from [[lem:iii-a-1-5]], depend smoothly on b. The
 statements for h* follow. *Vanishing inside the horizon* is [[sec:iii-e-2]], (b), as (P^C_b)*ω = 0 there. ∎
 
-*Remarks.* (a) *Counting.* At A = 0 the dual states are one for the time translation, four for the translations and six
-for the rotations: eleven, against seven (1 + 3 + 3) in dimension 3 + 1. The h* of the time translation and of the six
-rotations decay to the weight C_0 + 3, and those of the four translations begin at ρ³; that their ρ³ coefficient is
-nonzero on Tangherlini space is [[pending:computational-4]]. (b) The memberships can be improved to full
+**Remark {#rem:s14-counting}** (Counting.) At A = 0 the dual states are one for the time translation, four for the
+translations and six for the rotations: eleven, against seven (1 + 3 + 3) in dimension 3 + 1. The h* of the time
+translation and of the six rotations decay to the weight C_0 + 3, and those of the four translations begin at ρ³.
+
+**Remark {#rem:s14-polyhom}** (Polyhomogeneity.) The memberships of [[prop:iii-e-3-1]] can be improved to full
 polyhomogeneity near ∂X, as in [Hin26]; only the remainder weight C_0 + 2, with C_0 large, is used later.
 
 ### The vector type 1 dual states {#sec:iii-e1}
@@ -2415,9 +2416,9 @@ and the regularity in b follows as in [[prop:iii-e-3-1]], the sources r_b(W) and
 C_c^∞ + ρ^(J+3)C^∞, resp. C_c^∞. (3): if W = [A, A_V] ≠ 0, then h̄♯(W) ≠ 0 (m > 0, V(W) ≠ 0), a ρ³ term not in
 Ḣ_b^(0,C_0+3), while h♭ is in it; if W = 0, h♯(0) = 0. ∎
 
-*Remark.* [Hin26, (7.31) and (7.18)] are the counterparts in dimension 3 + 1 of c_0|x|⁻³V(W) and
-[[eq:iii-e1-3-3]]: with m ↔ 2m_K (the mass enters as m|x|⁻² where the Kerr mass m_K of [Hin26] enters as 2m_K|x|⁻¹), ρ³ ↔ ρ² and the
-bracket for the cross product, the same coefficients 1 + 2(v_C ∓ 1)γ_C over 1 + 2v_Cγ_C appear, up to the orientation
+**Remark {#rem:s14-dim3}** (Comparison with dimension 3 + 1.) [Hin26, (7.31) and (7.18)] are the counterparts in
+dimension 3 + 1 of c_0|x|⁻³V(W) and [[eq:iii-e1-3-3]]: with m ↔ 2m_K (the mass enters as m|x|⁻² where the Kerr mass
+m_K of [Hin26] enters as 2m_K|x|⁻¹), ρ³ ↔ ρ² and the bracket for the cross product, the same coefficients 1 + 2(v_C ∓ 1)γ_C over 1 + 2v_Cγ_C appear, up to the orientation
 convention of the spin, and the indicial value 3(1 + 2v_Cγ_C) replaces 2 + 4γ_Cv_C. In [Hin26] the term
 ρS(a)S′dr + ½d̸(S(a)S′) of the ansatz cancels the pure gauge term of [Hin26, (7.20)]; here there is none to cancel.
 

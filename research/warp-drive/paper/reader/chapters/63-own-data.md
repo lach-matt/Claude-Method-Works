@@ -503,7 +503,7 @@ solution of [[lem:own-self-similar]] with F_p(0, ·) = G_(2p)(v1, ·), the coeff
 
 for a metric g on W. All five Σ_p solve □_η Σ_p = 0: this is the second choice of Σ_4 in Section [[sec:far-homogeneity]]
 (□_η Σ_4 = 0), for which [[prop:far-residual]] gives |Π_i (Γ_i + c_i) P(Σ)| ≤ C_α λ r⁻⁶ and [[cor:far-kernels]] the
-kernel ρ(σ) = C λ (1 + |σ|)^(a−4).
+kernel κ_Σ(σ) = C λ (1 + |σ|)^(a−4).
 
 **Lemma {#lem:own-sigma-data}** (the size of Σ). Under the hypotheses of [[thm:own-data]], for λ small:
 (a) ‖G_(2p)(v1)‖_(C^(2k1+10)(S³)) ≤ C λ for p ∈ Π, and ‖G_5(v1)‖_(C^m(S³)) = O(λ^n) for all m, n;
@@ -772,14 +772,14 @@ highest order in L² (an undifferentiated slot through [[eq:own-hardy]], a twice
 is at most k1/2 and k1/2 + 4 ≤ k1 for k1 ≥ 8. Summing over |α| ≤ k1 and the components, with the fluxes bounded by
 [[lem:own-n-data]] (iii),
 
-    𝔈_(k1)(σ) ≤ C_E [ 𝔈_(k1)(T) + 𝔉_(k1) + ∫_T^σ κ 𝔈_(k1) + ∫_T^σ ρ 𝔈_(k1)^(1/2) ],
+    𝔈_(k1)(σ) ≤ C_E [ 𝔈_(k1)(T) + 𝔉_(k1) + ∫_T^σ κ 𝔈_(k1) + ∫_T^σ κ_Σ 𝔈_(k1)^(1/2) ],
                                                                                                        {#eq:own-gronwall}
 
-κ and ρ as in [[eq:far-kernels]] with ρ(σ) = C λ (1 + |σ|)^(a−4) (□_η Σ_4 = 0); ∫ κ ≤ K_κ := C(μ + 1) and
-∫ ρ ≤ ρ_∞ := C λ/(3 − a), independent of T.
+κ and κ_Σ as in [[eq:far-kernels]] with κ_Σ(σ) = C λ (1 + |σ|)^(a−4) (□_η Σ_4 = 0); ∫ κ ≤ K_κ := C(μ + 1) and
+∫ κ_Σ ≤ κ_∞ := C λ/(3 − a), independent of T.
 
 *Step 3 (closing).* With y(σ) := sup_[T,σ] 𝔈_(k1)^(1/2), Gronwall's inequality gives
-y² ≤ C_E e^(C_E K_κ)(𝔈_(k1)(T) + 𝔉_(k1) + 2y ρ_∞), so 𝔈_(k1) ≤ C_*(𝔈_(k1)(T) + 𝔉_(k1) + λ²) on [T, σ*], with C_*
+y² ≤ C_E e^(C_E K_κ)(𝔈_(k1)(T) + 𝔉_(k1) + 2y κ_∞), so 𝔈_(k1) ≤ C_*(𝔈_(k1)(T) + 𝔉_(k1) + λ²) on [T, σ*], with C_*
 independent of T, λ and ε_B. Put ε_B² := C_*(sup_(T≤T_1(λ)) 𝔈_(k1)(T) + C(λ² + ν(λ)) + λ²). By [[lem:own-n-data]] (ii)
 and (iii), 𝔉_(k1) ≤ C(λ² + ν(λ)); by [[prop:far-window]] (ii), the cap energy satisfies 𝔈_(k1)(T) ≤ C(λ)|T|^(2a−6), which
 is below λ² for T ≤ T_1(λ), the hypotheses of [[prop:far-window]] on the initial slice and on N being
@@ -805,8 +805,8 @@ equations, with g_(T′) as principal part, −½ g_(T′)^(ab)∂_a∂_b δ = �
 (Q(g_(T′))(∂g_(T′), ∂g_(T′)) − Q(g_T)(∂g_T, ∂g_T)), linear in (δ, ∂δ), whose coefficients ∂∂H_T, ∂H_T, ∂H_(T′) give the
 kernels of [[cor:far-kernels]]. δ = 0 near N ∩ W_T, where both equal g_λ. On Σ̃_T, δ = h_(R,T′)(T) − h_(R,T)(T): the
 second is the cap, and the first is bounded by Step 2 run for g_(T′) on W_(T′) ∩ {t̃ ≤ T}, whose data are tails:
-𝔈[h_(R,T′)](T) ≤ C(𝔈(T′) + 𝔉_(k1)(T′, T) + (∫_(−∞)^T ρ)²) =: ϑ(T), with 𝔉(T′, T) ≤ C(λ)|T|^(2a−7) (N ∩ {t̃ ≤ T} lies in
-r ≥ |T| − C, [[lem:own-n-data]] (iii)), the cap at most C(λ)|T′|^(2a−6) and ∫_(−∞)^T ρ ≤ C λ |T|^(a−3). So the energy of
+𝔈[h_(R,T′)](T) ≤ C(𝔈(T′) + 𝔉_(k1)(T′, T) + (∫_(−∞)^T κ_Σ)²) =: ϑ(T), with 𝔉(T′, T) ≤ C(λ)|T|^(2a−7) (N ∩ {t̃ ≤ T} lies in
+r ≥ |T| − C, [[lem:own-n-data]] (iii)), the cap at most C(λ)|T′|^(2a−6) and ∫_(−∞)^T κ_Σ ≤ C λ |T|^(a−3). So the energy of
 δ on W_T is at most C ϑ(T) → 0 as T → −∞, uniformly in T′ < T: (g_T) is a Cauchy family in the energy of weight a on
 every W_(T_0), and with the bounds of Step 4 at every order it converges in C^k on compact subsets of W for every k. The
 limit g is smooth, solves Ric^H(g; g_b0) = 0, has 𝔈_(k1) ≤ ε_B² and 𝔈_k ≤ C_k(λ) by lower semicontinuity, and
