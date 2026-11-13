@@ -1081,21 +1081,24 @@ h being bounded in H⁸. Hence ‖u₂‖_(H^((1;m),(a₀,2α_I))_(e,b;b)) ≤ C
 [[eq:iv2-2-2]]; no product of two norms of h arises. For m = 3, the last term of [[eq:iv1-2-1]] is
 ‖h‖_(H⁶)‖f₃‖_3 ≤ C‖f₃‖_3 ≤ C‖f_♭‖_3, and u₁ is bounded without tame term, so no tame term arises. ∎
 
-**Lemma {#lem:s26-interpolation}** (Interpolation in the class.) For j ∈ ℕ₀ let |v|_j be the norm of
-H^(j,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) given by [[eq:iv2-0-3]] after conjugation and made monotone in j as in
-[[rem:ii-g-2-2]], which is the norm of B^j in the proof of [[thm:iv2-3-1]]. For integers 0 ≤ s₀ ≤ s ≤ s₁ there is C
-such that for every v ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*)
+**Lemma {#lem:s26-interpolation}** (Interpolation.) For j ∈ ℕ₀ let (B^j, |·|_j) be Banach spaces with continuous
+inclusions B^j ↪ B^i for j ≥ i along which the norms do not increase, B^∞ := ⋂_j B^j, and for θ > 1 let
+S_θ : B^∞ → B^∞ be linear maps satisfying [[eq:ii-g-2-1]] for every v ∈ B^∞. For integers 0 ≤ s₀ ≤ s ≤ s₁ there is C
+such that for every v ∈ B^∞
 
     |v|_s ≤ C|v|_(s₀)^(1−λ)|v|_(s₁)^λ,     λ := (s − s₀)/(s₁ − s₀) (λ := 0 if s₁ = s₀),    {#eq:s26-interpolation}
 
-and for integers 0 ≤ s₀ ≤ b ≤ a there is C such that for every such v
+and for integers 0 ≤ s₀ ≤ q ≤ p there is C such that for every v ∈ B^∞
 
-    |v|_a|v|_b ≤ C|v|_(s₀)|v|_(a+b−s₀).                                               {#eq:s26-interpolation-product}
+    |v|_p|v|_q ≤ C|v|_(s₀)|v|_(p+q−s₀),                                               {#eq:s26-interpolation-product}
 
-*Proof.* The smoothing operators S_θ, θ > 1, of part (i) of the proof of [[thm:iv2-3-1]] act on
-H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) and satisfy [[eq:ii-g-2-1]] for these norms, the support classes being trivial;
-they are built componentwise from the operator S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]], and their construction
-uses nothing of this section. Let s₀ < s < s₁, the other cases being trivial, and v ≠ 0, so that |v|_(s₀) > 0. Put
+C depending only on these integers and the constants C_(s,t) of [[eq:ii-g-2-1]]. This applies to the spaces B^j of the
+proof of [[thm:iv2-3-1]], whose elements are the decompositions of [[lem:s26-decompositions]] (after conjugation), with
+their norms made monotone in j as in [[rem:ii-g-2-2]], and to the smoothing operators of part (i) of that proof, which
+act on each of the two components of a decomposition by the operator S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]];
+their construction uses nothing of this section.
+
+*Proof.* Let s₀ < s < s₁, the other cases being trivial, and v ≠ 0, so that |v|_(s₀) > 0. Put
 R := |v|_(s₁)/|v|_(s₀), which is at least 1 as the norms are monotone. If R ≤ 2^(s₁−s₀), then
 
     |v|_s ≤ |v|_(s₁) = |v|_(s₁)^(1−λ)|v|_(s₁)^λ ≤ 2^(s₁−s₀)|v|_(s₀)^(1−λ)|v|_(s₁)^λ.
@@ -1106,10 +1109,10 @@ v − S_θv, gives
     |v|_s ≤ |S_θv|_s + |v − S_θv|_s ≤ C_(s,s₀)θ^(s−s₀)|v|_(s₀) + C_(s,s₁)θ^(s−s₁)|v|_(s₁)
         = (C_(s,s₀) + C_(s,s₁))|v|_(s₀)^(1−λ)|v|_(s₁)^λ,
 
-as θ^(s−s₀) = R^λ and θ^(s−s₁) = R^(λ−1). For the product put n := a + b − s₀, so n ≥ a. If n = s₀, then a = b = s₀
-and the claim is an identity. Otherwise [[eq:s26-interpolation]] with s₁ := n, at s = a and at s = b, has the exponents
-λ_a := (a − s₀)/(n − s₀) and λ_b := (b − s₀)/(n − s₀), and λ_a + λ_b = 1 as (a − s₀) + (b − s₀) = n − s₀. The product
-of the two bounds is |v|_a|v|_b ≤ C|v|_(s₀)^(2−λ_a−λ_b)|v|_n^(λ_a+λ_b) = C|v|_(s₀)|v|_n. ∎
+as θ^(s−s₀) = R^λ and θ^(s−s₁) = R^(λ−1). For the product put n := p + q − s₀, so n ≥ p. If n = s₀, then p = q = s₀
+and the claim is an identity. Otherwise [[eq:s26-interpolation]] with s₁ := n, at s = p and at s = q, has the exponents
+λ_p := (p − s₀)/(n − s₀) and λ_q := (q − s₀)/(n − s₀), and λ_p + λ_q = 1 as (p − s₀) + (q − s₀) = n − s₀. The product
+of the two bounds is |v|_p|v|_q ≤ C|v|_(s₀)^(2−λ_p−λ_q)|v|_n^(λ_p+λ_q) = C|v|_(s₀)|v|_n. ∎
 
 **Theorem {#thm:iv2-2-4}** (The linear exterior estimate; [Hin23a, Theorem 3.35] in dimension 4 + 1, with [Hin26,
 (5.52)–(5.53)].) Let α₀ > ℓ^♭_I, a₀ := α₀ − 3/2, k ∈ ℕ₀, d := 4, and let h be small in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b. For
@@ -1121,8 +1124,11 @@ N(f, ġ₀, ġ₁; j) := ‖f‖_(H^(j,α₀+2,(−′,ℓ^♭_I+1))_b) + ‖ġ�
     ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b)
         ≤ C(N(f, ġ₀, ġ₁; k + d) + ‖h‖_(H^(k+d+3,ℓ^♭₀,(−,ℓ^♭_I))_b)N(f, ġ₀, ġ₁; 8)),                        {#eq:iv2-2-3}
 
-with C depending on k, α₀, ℓ^♭_I, the parameters and the bound on h in H⁸, and not on h otherwise. At α₀ = ℓ^♭₀ this
-is the tame form [Hin26, (5.52)] of [[eq:iii-c1-2-2]]; [[eq:iii-c1-2-2]] itself follows, with C depending on h.
+with C depending on k, α₀, ℓ^♭_I, the parameters and the bound on h in H⁸, and not on h otherwise. Here the norms of h
+are those of one decomposition of ρ^(−3/2)h ([[lem:s26-decompositions]], a₀ = ℓ^♭₀ − 3/2), small at order 8, the same
+at every order; and the left side of [[eq:iv2-2-3]] may be replaced by the norm of the decomposition of ġ that the proof
+constructs, which depends linearly on (f, ġ₀, ġ₁). At α₀ = ℓ^♭₀ this is the tame form [Hin26, (5.52)] of
+[[eq:iii-c1-2-2]]; [[eq:iii-c1-2-2]] itself follows, with C depending on h.
 
 *Proof.* *Step 1 (near Σ_IVP).* [[lem:iv2-2-2]] with s := k + 3 and α := α₀ gives ġ_N on Ω_N, including the past
 slab, bounded in H^(k+4,α₀)_b by [[eq:iv2-2-1]].
@@ -1216,12 +1222,14 @@ u_(2,j) ∈ H^(k,(a₀,2β))_b for j ≠ 6. For slot 6, Z₆ ∈ H^(k,(a₀,2β)
 
 *Step 6 (assembly).* On Ω_c, u = u₂ + χ_cu₁, with χ_cu₁ supported in {ρ_I ≥ c/4}; on Ω⁺ ∩ {ρ_I > c/2}, Step 3; on Ω_N,
 Step 1. As χ_I = χ̂(ρ_I) vanishes for ρ_I ≥ c/2, u₆ − χ_Iu^((0)) = ũ₆ + (1 − χ_I)u^((0)) + χ_cu_(1,6) on Ω_c, and
-(1 − χ_I)u^((0)) is supported in {ρ_I ≥ c/4} within Ω_c, where every weight at ℐ⁺ is equivalent. So
-u ∈ 𝒴^k_(a₀)(Ω⁺), that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−,ℓ^♭_I))_b on Ω⁺ ([[sec:iv2-0]]), and on Ω⁻ by Step 1.
+(1 − χ_I)u^((0)) is supported in {ρ_I ≥ c/4} within Ω_c, where every weight at ℐ⁺ is equivalent. So u ∈ 𝒴^k_(a₀)(Ω⁺),
+with the decomposition (u^((0)), u − χ_Iu^((0)) in slot 6), linear in (f, ġ₀, ġ₁) as every step is; that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−,ℓ^♭_I))_b on Ω⁺ ([[sec:iv2-0]]), and on Ω⁻ by Step 1.
 
-*The estimate.* Write |h|_j for the norm of [[lem:s26-interpolation]], equivalent at each order to that of
-H^(j,ℓ^♭₀,(−,ℓ^♭_I))_b, and N_j := N(f, ġ₀, ġ₁; j); let C depend only on k, α₀, ℓ^♭_I, the parameters and the bound on
-h in H⁸, so that |h|_j ≤ C for j ≤ 8. Each step is bounded by the previous ones. Each lower norm is bounded by the same
+*The estimate.* Write |h|_j for the norm of order j of the decomposition of h fixed in the statement, made monotone in
+j as in [[rem:ii-g-2-2]], and N_j := N(f, ġ₀, ġ₁; j); let C depend only on k, α₀, ℓ^♭_I, the parameters and the bound
+on h in H⁸, so that |h|_j ≤ C for j ≤ 8. For the other quantities ‖·‖_j is the norm of order j of the space in which
+the step bounds them (H^(j,α₀)_b for ġ_N, H^(j,(a₀,2β))_b for f_(2,♭) and f₃, H^(j,a₀)_b(Ω′) for u₁), and
+‖u₂‖_((1;m)) is the norm of u₂ in H^((1;m),(a₀,2γ₀))_(e,b;b). Each step is bounded by the previous ones. Each lower norm is bounded by the same
 steps at a low order, where the tame factors are |h|_j with j ≤ 7, except ‖u₂‖_(H^(5,(a₀,2γ₁))_b), whose bound carries
 |h|_9 and is treated in the second integration.
 
@@ -1240,7 +1248,8 @@ steps at a low order, where the tame factors are |h|_j with j ≤ 7, except ‖u
   norms of u_(2,j) (j ≠ 6), u^((0)) and ũ₆ in 𝒴^k_(a₀) are at most C(‖f₃‖_k + ‖u₂‖_(H^(k+2,(a₀,2γ₁))_b) + T), with
   T := 0 for k ≤ 2 and T := |h|_(k+2)‖u₂‖_(H^(5,(a₀,2γ₁))_b) ≤ C|h|_(k+2)(N_7 + |h|_9N_5) for k ≥ 3. For 3 ≤ k ≤ 6,
   |h|_(k+2) ≤ C, so T ≤ C(N_7 + |h|_9N_5) ≤ C(N_(k+4) + |h|_(k+7)N_5). For k ≥ 7, |h|_(k+2)N_7 ≤ |h|_(k+7)N_8, and
-  [[eq:s26-interpolation-product]] with s₀ := 8, b := 9 and a := k + 2 ≥ 9 gives |h|_(k+2)|h|_9 ≤ C|h|_8|h|_(k+3)
+  [[eq:s26-interpolation-product]] ([[lem:s26-interpolation]] for the decompositions) with s₀ := 8, q := 9 and
+  p := k + 2 ≥ 9 gives |h|_(k+2)|h|_9 ≤ C|h|_8|h|_(k+3)
   ≤ C|h|_(k+3); so T ≤ C(N_(k+4) + |h|_(k+7)N_8).
 
 By Step 6, ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b) is at most C times the sum of these bounds, which is at most

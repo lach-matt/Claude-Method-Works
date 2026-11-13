@@ -1463,8 +1463,9 @@ of [[lem:ii-f1-2-8]] for 𝗍 = 𝗌; and d^U_0 the d_0 of [[prop:ii-e-3-4]] (i)
 
     d := D_0 + D_1 + d′ + d″,      d′ := max(0, ⌈−inf 𝗌⌉),      d″ := s_in (= max(0, ⌈sup 𝗌⌉)).         {#eq:ii-f1-3-3}
 
-Choose ε_0 > 0 so small that ‖P − P_0‖_((0;d)) < ε_0 makes e_j, j ≤ D_1, and hence (by [[eq:ii-f1-2-9]]) the
-corresponding norms of every P_ε, smaller than the thresholds of [[lem:ii-f1-2-1]], of [[lem:ii-c-3-2]] (through
+Choose ε_0 > 0 so small that ‖P − P_0‖_((0;d)) < ε_0, for the operator of [[thm:ii-f1-1-1]] over Ω_*, makes e_j,
+j ≤ D_1, for P^♭ over Ω ([[eq:s09-off-star-bound]]), and hence (by [[eq:ii-f1-2-9]]) the corresponding norms of every
+P_ε, smaller than the thresholds of [[lem:ii-f1-2-1]], of [[lem:ii-c-3-2]] (through
 [[lem:ii-c-3-7]]), of [[thm:ii-e-6-1]] at k ≤ D_1 and at d^E, of [[prop:ii-e-3-4]] and [[prop:ii-e-4-3]] at k ≤ D_1 and
 [[prop:ii-e-4-4]] at d^S, and of [[prop:ii-e-3-4]] (i) at s′ = s_u ([[lem:ii-f1-2-2]]). Then e_(D_1) ≤ Cε_0 ≤ 1 for
 every such P. All constants below depend on P only through ε_0, unless e_k appears explicitly.
@@ -1605,8 +1606,8 @@ which P is of class ((D_0;k+d′),·), as k + d′ + D_0 ≤ k + d), the forward
     ‖u‖_(H^(k,(α_I,α_+−δ,−ℵ))_b) ≤ C ‖u‖_(X(𝗌;k+d′)) ≤ C_k (‖f‖_(Y(𝗌;k+d′)) + e_(k+d′) ‖f‖_(Y(𝗌;D_1)))
         ≤ C_k (‖f‖_(H^(k+d)_b) + ‖P − P_0‖_((0;k+d)) ‖f‖_(H^d_b)),
 
-the b-norms with the weights of [[eq:ii-f1-1-5]], by [[eq:ii-f1-5-1]] (D_1 + d″ ≤ d) and [[eq:ii-f1-3-1]] (k + d′ +
-D_0 ≤ k + d). Uniqueness in the stated class is [[lem:ii-f1-2-2]] at s′ = s_u, whose smallness is among those fixing ε_0
+the b-norms with the weights of [[eq:ii-f1-1-5]], by [[eq:ii-f1-5-1]] (D_1 + d″ ≤ d), [[eq:ii-f1-3-1]] (k + d′ +
+D_0 ≤ k + d) and [[eq:s09-off-star-bound]], the last bounding the norm of P^♭ over Ω by that of P over Ω_*. Uniqueness in the stated class is [[lem:ii-f1-2-2]] at s′ = s_u, whose smallness is among those fixing ε_0
 ([[sec:ii-f1-3-1]]): an element of the class lies in the space with s′ = s_u, and P, of class ((d^U_0;0),·) by
 [[eq:ii-f1-3-1]] as k + d ≥ D_0 ≥ d^U_0, acts on it as [[prop:ii-e-3-4]] (i) at s′ = s_u requires. Below s_u the
 smallness of [[prop:ii-e-3-4]] (i), whose d_0 depends on s′, is not implied by that of ‖P − P_0‖_((0;d)), and Pu need
