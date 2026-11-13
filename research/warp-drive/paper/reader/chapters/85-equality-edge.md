@@ -1417,7 +1417,7 @@ and κ̄_λ grows like a power of log(1/λ), so λ κ̄_λ^j → 0 and λ^(1−�
 [[lem:l-24-margin]] applies with ς ≤ 10⁻³ (by [[prop:l-24-band]], every point of the band once λ is below the thresholds
 there), and suppose that
 
-        |S′| ≤ 1.001 κ |S|,      |S| ≤ 1.001 R m0      at (v, x̂)                                                            {#eq:l-24-s-bounds}
+    |S′| ≤ 1.001 κ |S|,      |S| ≤ 1.001 R m0      at (v, x̂)                                         {#eq:l-24-s-bounds}
 
 (by [[prop:l-24-s-bounds]], at every point of the band with R ≥ 1/2 once λ is small). Then at (v, x̂)
 
@@ -1492,7 +1492,7 @@ and |ν| |d|,
 
 So |S − S_st| ≤ C ε_λ R m0. As R m0 ≤ |S_st| = R m0 (1 + 4λ²κ²)^(1/2) ≤ (1 + 2ε_λ²) R m0,
 
-        (1 − C ε_λ) R m0 ≤ |S| ≤ (1 + 2ε_λ² + C ε_λ) R m0.                                                                            {#eq:l-24-s-size}
+    (1 − C ε_λ) R m0 ≤ |S| ≤ (1 + 2ε_λ² + C ε_λ) R m0.                                                  {#eq:l-24-s-size}
 
 *The derivative.* At fixed x̂, d(ϑ) does not depend on v, and r0′ = 1. So S_st′ = S_st (κ + ν′/ν + 2iλκ′/(1 + 2iλκ)),
 and with |ν′/ν| ≤ C (1 + 1/x) and |κ′| ≤ c_R κ^(1+α) ≤ c_R κ² (κ ≥ 1),

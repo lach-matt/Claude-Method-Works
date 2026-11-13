@@ -357,8 +357,8 @@ k − j derivatives, this costs ℓ_+(γ + 1) = ⌈γ + ½⌉, as γ > 0. The sa
 - 1 for [[prop:ii-g1-3-3]] (1) and [[prop:iii-h-3-2]];
 - where they are applied outside [[prop:iii-a-4-2]], the losses printed in their statements:
   ⌈(½ − min(β_K, β_ι − β_I))_+⌉ for [[prop:ii-g1-3-3]] (2), ⌈(max(β_ι − β_scf, β_K) + ε − ½)_+⌉ for
-  [[prop:ii-g1-3-5]] (1) and ⌈(3/2 − δ)_+⌉ + ⌈(β′ − ½)_+⌉ for [[prop:ii-g1-3-5]] (2), each at the weights of the
-  application;
+  [[prop:ii-g1-3-5]] (1) and ⌈(3/2 − δ_∞)_+⌉ + ⌈(β′ − ½)_+⌉ for [[prop:ii-g1-3-5]] (2), δ_∞ and β′ being the
+  high-frequency weight δ and the number β′ of its statement, each at the weights of the application;
 - 2 for the second-order operators L_b at a parameter b, a finite-dimensional component of p⃗, and L̃_b at the
   background 0;
 - max(2, d_BG) for the families of its (b) applied to a solution, among them L^(g,g_0) − L_b, R_q and the remainder
@@ -373,8 +373,8 @@ k − j derivatives, this costs ℓ_+(γ + 1) = ⌈γ + ½⌉, as γ > 0. The sa
 - d_ι + 2 for [[cor:iii-g2-4-3]].
 
 [[lem:ec-closed-forms]] (h) gives the loss of [[lem:iii-i2-3-1]]. The forward solution operators of
-[[lem:iii-j2-2-1]] (a) lose the d of
-[[thm:iii-i-5-3]], which its proof takes from [[thm:ii-f1-1-1]] and raises by 6. There d = D_0 + D_1 + d′ + d″
+[[lem:iii-j2-2-1]] (a) lose the d of [[thm:iii-i-5-3]], which its proof takes from [[thm:ii-f1-1-1]] and raises by 6.
+There d = D_0 + D_1 + d′ + d″
 ([[eq:ii-f1-3-3]]): d′ and d″ are read off the order 𝗌, while D_0 and D_1 are maxima of the orders d_0 and d of the
 energy estimates of [[ch:s07]] and of [[lem:ii-f1-2-8]] ([[eq:ii-f1-3-2]]), whose existence is proved and whose values
 are not determined in this paper. The order of choices behind ℓ + 1 is: d_acc and d_NM first, then N_NM, then the
@@ -530,8 +530,8 @@ C_(2d) ≥ 1 (enlarged if necessary), s_(2d) and the modulus ω_(2d) are those o
 
     λ1 < δ,        ω_(2d)(2δ) ≤ 2^(−(32d+8)),        log₁₀ ω_(2d)(2δ) < −(59/196)(32d + 8).
 
-As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives log₁₀ ω_(2d)(2δ) < −7.666 × 10¹⁶. If moreover ω_(2d)(s) ≥ s/A on
-[0, s_(2d)] for some A ≥ 1, then δ ≤ A·2^(−(32d+9)).
+As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives log₁₀ ω_(2d)(2δ) < −7.666 × 10¹⁶. If moreover
+ω_(2d)(s) ≥ c_ω s on [0, s_(2d)] for some c_ω ∈ (0, 1], then δ ≤ c_ω⁻¹·2^(−(32d+9)).
 
 *Proof.* The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
 ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So ω_(2d)(2δ) = ω_(2d)(ε) ≤ ε_NM/C_(2d) ≤ 2^(−(32d+8)). The proof of
@@ -539,7 +539,7 @@ As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives log₁₀ ω_(2d)(2δ) < 
 2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the binomial expansion, all of whose terms are positive,
 1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, which
 gives the third bound. With d ≥ d_acc > 7.959 × 10¹⁵, (59/196)(32d + 8) > 7.666 × 10¹⁶. Under the last hypothesis,
-ε/A ≤ ω_(2d)(ε) ≤ 2^(−(32d+8)), so δ = ½ε ≤ A·2^(−(32d+9)). ∎
+c_ωε ≤ ω_(2d)(ε) ≤ 2^(−(32d+8)), so δ = ½ε ≤ c_ω⁻¹·2^(−(32d+9)). ∎
 
 The bounds hold whatever the other constants are, once each constant of an upper bound is taken at least 1, which
 enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), the inverse of ω_(2d) and 1/C_R,
