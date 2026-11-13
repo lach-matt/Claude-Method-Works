@@ -16,9 +16,9 @@ rotating b only the rotations commuting with the spin are Killing, and h_(b,v1) 
 of a change ḃ_V of the black hole parameter, of size O(|b − b₀||V|); the boost part vanishes by the parity of the
 states under x ↦ −x.
 
-*Notation.* The notation is that of [[ch:s11]]–[[ch:s19]]. The black hole parameters are b = (m, A), with tangent
-space 𝔟 = ℝ ⊕ 𝔰𝔬(4), b₀ = (m₀, 0) and R₁ = m₀^(1/2), and |b − b₀| is the norm of [[def:s12-radii]]. We write ℬ_1 and
-ℬ_* for the neighbourhoods B_1 and B_* of b₀ fixed in [[sec:iii-h2-0]], ℬ̄_* ⊂ ℬ_1. Shrinking ℬ_*, we take it to be an open ball
+*Notation.* The notation is that of [[ch:s11]]–[[ch:s19]]. The black hole parameters are b = (m, A), with tangent space
+𝔟 = ℝ ⊕ 𝔰𝔬(4), b₀ = (m₀, 0) and R₁ = m₀^(1/2), and |b − b₀| is the norm of [[def:s12-radii]]. We write ℬ_1 and ℬ_* for
+the neighbourhoods B_1 and B_* of b₀ fixed in [[sec:iii-h2-0]], ℬ̄_* ⊂ ℬ_1. Shrinking ℬ_*, we take it to be an open ball
 about b₀. It is shrunk finitely many times, here and in the chapters that follow, each time to a smaller ball about b₀,
 and every statement holds on the final ℬ_*. Here it is shrunk once, in [[lem:s25a-ball]], to radius at most 1/(2C_B), so
 that the matrix B(b) of the rows [[eq:iii-h-3-1]] on the states satisfies |B(b)⁻¹| ≤ 2 on ℬ̄_*. The letter ε > 0 is
@@ -165,8 +165,8 @@ Lu = f lies in the space [[eq:iii-i2-5-2]]; and, at fixed b, u depends continuou
 weight lowered by ς, for every ς > 0.
 
 *Proof.* The results on null infinity are stated for L = L^(g,g_0) with g_0 = g_(b₀,b,−S) ([[sec:iii-i1-1]]), with
-[[prop:iii-i-3-3]] and [[prop:iii-i-3-4]] for general b ((P1)). The structure of L_b at ℐ⁺ is [[lem:iii-i-3-2]], which
-is stated for L_b at every b, and S̄ and Ā do not depend on b ((P2), [[lem:iii-h2-3-2]]). The index sets ℰ^C_I, ℰ_+ and
+[[prop:iii-i-3-3]] and [[prop:iii-i-3-4]] for general b ((P1)). The structure of L_b at ℐ⁺ is [[lem:iii-i-3-2]], which is
+stated for L_b at every b, and S̄ and Ā do not depend on b ((P2), [[lem:iii-h2-3-2]]). The index sets ℰ^C_I, ℰ_+ and
 ℰ^tot_I at ℐ⁺ and ι⁺ are data of the classes of [[def:iii-i-1-1]], fixed independently of b. So
 [[lem:iii-i1-1-1]]–[[prop:iii-i1-3-1]] hold at b, uniformly.
 

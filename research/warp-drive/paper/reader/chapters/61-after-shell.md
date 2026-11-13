@@ -120,8 +120,8 @@ compact set Ω. The statement at order k is [[rem:ue-every-order]] (d) with (a).
 (c) Write V = v_end + T and r_q(μ) := (√72 μ l5²)^(1/4). As μ(V) = μ_end,
 τ_end = max_(v ≤ V)(v − r_q(v)) ≥ V − r_q(μ_end) = v_end + T − r_q(μ_end) > v_end − a, so the interval (v_end − a, τ_end]
 is nonempty. For τ1 in it, Σ_τ1 = {a ≤ |x| ≤ b(τ1)} ([[sec:domain]]), and there v = τ1 + r ≥ τ1 + a > v_end. Finally
-a = q0 − δ0 < q0, the seed condition μ0 ≥ √72 l5² gives q0⁴ = √72 μ0 l5² ≤ μ0², that is q0 ≤ √μ0, and μ_end = μ0 + (2/9)
-A² ∫ env² ≥ μ0, so a < √μ_end. ∎
+a = q0 − δ0 < q0, the seed condition μ0 ≥ √72 l5² gives q0⁴ = √72 μ0 l5² ≤ μ0², that is q0 ≤ √μ0, and
+μ_end = μ0 + (2/9) A² ∫ env² ≥ μ0, so a < √μ_end. ∎
 
 With K and the order of [[thm:main]] large enough for the number of derivatives needed, the data of g_λ near the hole
 are therefore small in every norm the stability theory uses. The proof of [[thm:settling]] enlarges the domain of
@@ -325,11 +325,11 @@ R > R_P 2^((δ/(c_P Ξ))²).
 r ≤ r_2 and φ_Ξ(r) → ∞, so φ_Ξ is an increasing bijection of [r_♭, ∞) and Ψ_Ξ a diffeomorphism, with inverse
 x ↦ φ_Ξ⁻¹(|x|) x/|x|, commuting with O(4). The constraint map is natural under diffeomorphisms, so the pull-back is
 vacuum. It is G-invariant, as (γ_λ, k_λ) is and G ⊂ O(4). On {r ≥ r_2} ⊂ {r ≥ 4R_i}, which Ψ_Ξ maps to itself, the data
-are (γ^(m_λ), k^(m_λ)), which are O(4)-invariant ([[lem:vii-2-1]] (b)). An O(4)-invariant symmetric 2-tensor is A(r)
-x̂ ⊗ x̂ + B(r)(δ − x̂ ⊗ x̂): the stabiliser O(3) of x̂ acts irreducibly on x̂^⊥ and fixes no vector there, so an
-invariant symmetric bilinear form has no x̂ ⊗ x̂^⊥ part and is a multiple of the identity on x̂^⊥. By [[lem:vii-2-1]]
-(a), α := A − 1 and β := B − 1 lie in ρ²C^∞, and k^(m_λ) = C x̂ ⊗ x̂ + D(δ − x̂ ⊗ x̂) with C, D ∈ ρ³C^∞. Since A
-x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂) = A dr² + B r² g_(𝕊³), a radial map r ↦ φ(r) pulls it back to
+are (γ^(m_λ), k^(m_λ)), which are O(4)-invariant ([[lem:vii-2-1]] (b)). An O(4)-invariant symmetric 2-tensor is
+A(r) x̂ ⊗ x̂ + B(r)(δ − x̂ ⊗ x̂): the stabiliser O(3) of x̂ acts irreducibly on x̂^⊥ and fixes no vector there, so an
+invariant symmetric bilinear form has no x̂ ⊗ x̂^⊥ part and is a multiple of the identity on x̂^⊥. By
+[[lem:vii-2-1]] (a), α := A − 1 and β := B − 1 lie in ρ²C^∞, and k^(m_λ) = C x̂ ⊗ x̂ + D(δ − x̂ ⊗ x̂) with
+C, D ∈ ρ³C^∞. Since A x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂) = A dr² + B r² g_(𝕊³), a radial map r ↦ φ(r) pulls it back to
 
     Ψ*(A x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂)) = A(φ) φ′² x̂ ⊗ x̂ + B(φ) (φ²/r²)(δ − x̂ ⊗ x̂).               {#eq:after-shell-radial}
 
@@ -343,20 +343,20 @@ likewise, and the (C, D) terms are of order a + 3. The components x̂_i x̂_j li
 [[eq:after-shell-expansion]], and Γ := {R/2 < r < R}, which lies in {χ_c = 1} ∩ {χ_1 = 1} ∩ {r < R}. On Γ, u = h, so
 ũ_ij = h_ij − ρ² u^((2))_ij(ω) − ρ³ u^((3))_ij(ω), and
 
-    ‖(u, ·)‖_d ≥ Σ_(i,j) ‖r^(ℓ0) ũ_ij‖_(L²(Γ)) ≥ ‖r^(ℓ0) Σ_i ũ_ii‖_(L²(Γ)),     Σ_i ũ_ii = τ(r) − ρ² b2(ω) − ρ³ b3(ω),
+    ‖(u, ·)‖_d ≥ Σ_(i,j) ‖r^(ℓ0) ũ_ij‖_(L²(Γ)) ≥ ‖r^(ℓ0) Σ_i ũ_ii‖_(L²(Γ)),     Σ_i ũ_ii = 𝔱(r) − ρ² b2(ω) − ρ³ b3(ω),
 
-with τ := tr_δ h, which is radial, and b_z := tr u^((z)). Integrating first in r at fixed ω,
+with 𝔱 := tr_δ h, which is radial, and b_z := tr u^((z)). Integrating first in r at fixed ω,
 
-    ‖r^(ℓ0)(τ − ρ² b2 − ρ³ b3)‖_(L²(Γ, dr/r dω))
-        ≥ (2π²)^(1/2) inf_(β2,β3∈ℝ) ‖r^(ℓ0)(τ − β2 r⁻² − β3 r⁻³)‖_(L²((R/2,R), dr/r)).
+    ‖r^(ℓ0)(𝔱 − ρ² b2 − ρ³ b3)‖_(L²(Γ, dr/r dω))
+        ≥ (2π²)^(1/2) inf_(β2,β3∈ℝ) ‖r^(ℓ0)(𝔱 − β2 r⁻² − β3 r⁻³)‖_(L²((R/2,R), dr/r)).
 
-On Γ, φ_Ξ = r + Ξ ζ_a. By [[eq:after-shell-radial]], τ = (φ_Ξ′² − 1) + 3(φ_Ξ²/r² − 1) + e_αβ, where e_αβ collects the
+On Γ, φ_Ξ = r + Ξ ζ_a. By [[eq:after-shell-radial]], 𝔱 = (φ_Ξ′² − 1) + 3(φ_Ξ²/r² − 1) + e_αβ, where e_αβ collects the
 α and β terms. With φ_Ξ′ = 1 + Ξ ζ_a′, ζ_a′ = r^(−a)((1 − a) cos log r − sin log r), and φ_Ξ/r = 1 + Ξ r^(−a) cos log r,
 
-    τ = 2Ξ r^(−a)((4 − a) cos log r − sin log r) + Ξ² (ζ_a′² + 3 ζ_a²/r²) + e_αβ.
+    𝔱 = 2Ξ r^(−a)((4 − a) cos log r − sin log r) + Ξ² (ζ_a′² + 3 ζ_a²/r²) + e_αβ.
 
 As in (a), |e_αβ| ≤ C Ξ r^(−2−a). Since 4 − a > 0, (4 − a) cos t − sin t = A_a cos(t + φ_a) with
-φ_a := arctan(1/(4 − a)), so τ = 2Ξ A_a r^(−a) cos(log r + φ_a) + e with |e| ≤ C_e(Ξ r^(−2−a) + Ξ² r^(−2a)). Substitute
+φ_a := arctan(1/(4 − a)), so 𝔱 = 2Ξ A_a r^(−a) cos(log r + φ_a) + e with |e| ≤ C_e(Ξ r^(−2−a) + Ξ² r^(−2a)). Substitute
 r = Rs, so that dr/r = ds/s and r^(ℓ0) β_z r^(−z) = β_z R^(ℓ0−z) s^(ℓ0−z). The main term contributes
 
     inf_β ‖r^(ℓ0)(2Ξ A_a r^(−a) cos(log r + φ_a) − β2 r⁻² − β3 r⁻³)‖

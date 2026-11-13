@@ -122,10 +122,10 @@ the following case.
 
 *The Cauchy problem* ([[thm:std-hormander-cauchy]] on ℝ^(1+4) with the Minkowski metric). Let Q be a second-order
 operator on ℂ^N-valued functions on ℝ^(1+4), with principal symbol Ḡ Id, Ḡ the dual metric function of the Minkowski
-metric ḡ, and with smooth lower-order coefficients, and let t be the Minkowski time. For s ∈ ℝ, t_0 ∈ ℝ and
+metric ḡ, and with smooth lower-order coefficients, and let t be the Minkowski time. For s ∈ ℤ, t_0 ∈ ℝ and
 f ∈ H^(s−1)_loc(ℝ^(1+4)) with supp f ⊂ {t ≥ t_0} there is u ∈ H^(s)_loc(ℝ^(1+4)) with Qu = f and supp u ⊂ {t ≥ t_0}.
 
-**Lemma {#lem:ii-f-6-3}** (Control at 𝓘⁺ of the extension.) Let s′ ∈ ℝ, T ∈ ℝ, and g ∈ H^(s′−1)_c with support in
+**Lemma {#lem:ii-f-6-3}** (Control at 𝓘⁺ of the extension.) Let s′ ∈ ℤ, T ∈ ℝ, and g ∈ H^(s′−1)_c with support in
 {T ≤ t_* ≤ T + 2, 2 ≤ r ≤ 3}. There is a unique u on {t_* < T + 2}, vanishing for t_* < T and for r < 1, with
 N_ι⁺(P_0) u = g and u ∈ H^(s′)_loc; and for every χ ∈ C_c^∞((−∞, T + 2)) and γ < 3/2 + S̄, χ(t_*) u ∈ H^(s′,2γ)_e near
 𝓘⁺.

@@ -56,3 +56,4 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | running |
 | P-A-indicial + T-A (for 33, 71) | done at h = 10⁻⁶ | running; every-h and remote roots: P-A3 being written |
 | P-H-l24 (L.24 m0′, for 85) | being written (gap found by the F reader) | - |
+| P-E-margins + T-E-margins (example margins, for 83) | done: E3, C3, C1, C1d; C2 unproved (no theorem uses it) | running |

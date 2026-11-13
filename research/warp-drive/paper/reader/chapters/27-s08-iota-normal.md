@@ -296,7 +296,7 @@ compact, and it is a set as in [[lem:ii-f-1-3]] for τ := τ′ at p. If moreove
 τ′ = t^♭_* where it is a time function (C′t_* ≤ t^♭_* ≤ t_* by [[lem:ii-c-3-2]] (b)) and for τ′ = t_* when c ≥ 0, then
 t_*(q) ≤ τ′(q)/C′ ≤ τ′(p)/C′ wherever c ≤ τ′(q) ≤ τ′(p), and the condition t_*(q) ≤ t_*(p) may be dropped: the set
 
-    L′_p := {q ∈ X : c ≤ τ′(q) ≤ τ′(p), B(q) ≤ B(p), r(q) ≥ min(r(p), r^♮)} ⊃ L_p
+    L′_p := {q ∈ X : c ≤ τ′(q) ≤ τ′(p), B(q) ≤ B(p), r(q) ≥ min(r(p), r^♮)} ⊃ L_p   {#eq:ii-f-lp-prime}
 
 also contains J⁻_X(p) ∩ {τ′ ≥ c}; on it c ≤ t_* ≤ τ′(p)/C′ and min(r(p), r^♮) ≤ r ≤ max(r′_0 + 1, B(p) − c); and if
 its closure lies in X, then L′_p is compact and is a set as in [[lem:ii-f-1-3]] for τ := τ′ at p;

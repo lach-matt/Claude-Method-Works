@@ -290,3 +290,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   (41:38, 924, 1607; sent to its fix), S25 (44:120, 153, 429; sent), S23 (42:29, 198, 199, 418, 426; sent to its reader).
   Chapter 3 should add def:iii-i10-1-1 at "parameter exponent z". S21 left λ, ϑ, 𝒩, ℱ, 𝒢, M as shared with S22, S23,
   S25 (integration). The material folded into S21 from the source's dropped closing section stays (decided).
+- Proof E-b (margins): C2 (the computed approximation's grid values) is used by no theorem (the reader checks); by the
+  ruling it becomes a "(Numerical observation.)" remark in chapter 83, or is dropped. The seed-region spline is one
+  quintic. E-a and E-b must print the same n = 160 coefficients (sent to E-a).

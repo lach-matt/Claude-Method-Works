@@ -1495,8 +1495,8 @@ S̃^δ for every δ > 0 (proof of [[lem:ii-a1-2-3]] (b)). θ_ε is bounded in S�
 
 **Theorem {#thm:ii-a1-3-1}** (The elliptic estimate; [Hin26c, Proposition 3.23] at k = 0.) Let 𝗌 and N be given. There
 is d_0 = d_0(m, 𝗌, N) such that the following holds for every finite 𝒫 ⊂ C^∞_b Ψ^m_e3b, every N′ and every
-L ∈ C^(d_0)_e3b 𝒫 on ℂ^(N′)-valued functions. Let B, G ∈ C^∞_b Ψ⁰_e3b be carried by χ, with
-WF′(B) ⊂ Ell(G) ∩ Ell(L). If χu ∈ H^(−N)_e3b and GLu ∈ H^(𝗌−m)_e3b, then Bu ∈ H^𝗌_e3b and
+L ∈ C^(d_0)_e3b 𝒫 on ℂ^(N′)-valued functions; d_0 does not depend on 𝒫, N′, L, B, G or χ. Let B, G ∈ C^∞_b Ψ⁰_e3b be
+carried by χ, with WF′(B) ⊂ Ell(G) ∩ Ell(L). If χu ∈ H^(−N)_e3b and GLu ∈ H^(𝗌−m)_e3b, then Bu ∈ H^𝗌_e3b and
 
     ‖Bu‖_(H^𝗌_e3b) ≤ C(‖GLu‖_(H^(𝗌−m)_e3b) + ‖χu‖_(H^(−N)_e3b)).
 
@@ -1559,7 +1559,12 @@ side of the estimate is. So the estimate holds in the strong sense. The constant
 a_j, through ℓ_f, ℓ and q, and on C_ℓ, the bound for ℓ⁻¹ on K_(J+2). For a perturbation of L that is small in these
 norms, ℓ stays invertible on K_(J+2) with a comparable bound. On ℂ^(N′), ℓ⁻¹ is the inverse matrix, and nothing else
 changes. Variable orders enter only through the spaces, on which the operators of constant order act by
-[[prop:ii-a1-2-4]] (a). ∎
+[[prop:ii-a1-2-4]] (a).
+
+*The index.* The regularity used is that of [[prop:ii-a1-2-4]] (a), (b) and (e), for the finitely many expressions and
+orders of the steps above (determined by m, 𝗌, N and J′, with δ = 1/2), and that of [[lem:ii-a-8-6]] (a) at
+(−N, m, N). By [[prop:ii-a1-2-4]] and [[lem:ii-a-8-6]], none of these numbers depends on B, G, L, 𝒫, N′, χ or the
+auxiliary K_i, χ̃_i, χ_*, which enter only the constants. So d_0 depends only on m, 𝗌 and N. ∎
 
 ### The positive commutator lemma {#sec:ii-a1-4}
 
