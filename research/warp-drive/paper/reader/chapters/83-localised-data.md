@@ -1452,10 +1452,10 @@ background of the tube. ∎
 
 #### The slice below R_* {#sec:bg-slice}
 
-**Proposition {#prop:bg-slice}** (Hyperbolicity below R_*.) At every point of Σ_τ0 with 0.68 ≤ R ≤ R_*, κ > 0, K^l_l <
-0, e^ψ f < 1 and κK^l_l ≤ −6.00 × 10⁻³; in particular κK^l_l ≤ −4.76 × 10⁻³.
+**Proposition {#prop:bg-slice}** (Hyperbolicity below R_*.) At every point of Σ_τ0 with R ≤ R_*, κ > 0, K^l_l < 0,
+e^ψ f < 1 and κK^l_l ≤ −6.00 × 10⁻³; in particular κK^l_l ≤ −4.76 × 10⁻³.
 
-Proof. By [[lem:bg-reduction]] (f) the point lies on a ray ρ ∈ [2.321, R_*] with R = v̂(ρ) + 0.68 =: T(ρ). By
+*Proof.* By [[lem:bg-reduction]] (f) the point lies on a ray ρ ∈ [2.321, R_*] with R = v̂(ρ) + 0.68 =: T(ρ). By
 [[prop:bg-seed]] (a) it lies in region III if ρ ≤ ρ_u2 ≤ 2.77364, and otherwise in the packet u1 ≤ u ≤ u2.
 
 *Region III.* On each interval of [[sec:tab-bg-slice-iii]], ψ_III and ψ_III′ are enclosed by [[eq:bg-psi3]] with Φ
@@ -1485,13 +1485,13 @@ Near R = R_* the packet's slice points approach region I, where q = 1 and N_κ =
 (a) On 𝒞_in, λ ≥ 0.529 on [u1, u2]; R(u2) ∈ [1.519357, 1.519359]; the mass of region III satisfies μ3 ∈ [0.8220998,
 0.8221253] and R(u2)² > μ3.
 
-(b) Region III meets Σ_τ0 ∩ {R ≤ R_*} exactly in 0.68 ≤ R ≤ R_u2, where 1.861394 ≤ R_u2 ≤ 1.861466, and contains the
+(b) Region III meets Σ_τ0 ∩ {R ≤ R_*} exactly in 0.70 ≤ R ≤ R_u2, where 1.8614098 ≤ R_u2 ≤ 1.8614596, and contains the
 seed region. On the seed region, |ψ_s^(k) − ψ_III^(k)| ≤ 5.1 × 10⁻⁵, 2.6 × 10⁻⁴, 8.7 × 10⁻⁴ for k = 0, 1, 2, and |μ3 −
 μ_s| ≤ 1.4 × 10⁻⁵; so the background lies in the tube of [[prop:margins-seed]] (b) and Γ > 0 on the seed region.
 
-(c) On Σ_τ0 for 0.68 ≤ R ≤ R_*: κ > 0, K^l_l < 0, e^ψ f < 1 and κK^l_l ≤ −4.76 × 10⁻³.
+(c) On Σ_τ0 for R ≤ R_*: κ > 0, K^l_l < 0, e^ψ f < 1 and κK^l_l ≤ −4.76 × 10⁻³.
 
-Proof. (a) is [[prop:bg-nprime]], (b) is [[prop:bg-seed]], (c) is [[prop:bg-slice]]. ∎
+*Proof.* (a) is [[prop:bg-nprime]], (b) is [[prop:bg-seed]], (c) is [[prop:bg-slice]]. ∎
 
 **Remark {#rem:bg-grid}** (Numerical observation.) The reference quintic ψ_s of [[sec:table-seed-profile]] is the first
 piece of a degree-5 smoothing spline fitted to the values of ψ_III on a second-order finite-difference solution of the
@@ -1516,7 +1516,8 @@ the ingoing dust has profile 𝒜(v) := 3.6 b(v; 3, 4.5) on 𝒞_out := {u = 0},
 5.7, 7.2) on 𝒞_in := {v = 0}, e^(2σ) = 1/2 on both cones, and at the corner R = 5, R_u = −0.47, R_v = 1/2, with mass 3/2.
 Here b(x; a, c) := β((2x − a − c)/(c − a)) with the bump β of [[sec:table-bump]]. The mass function is μ := R²(1 +
 2e^(−2σ) R_u R_v). The time v̂ on 𝒞_out is fixed by v̂ = 0 at the corner and dv̂/dv = −e^(2σ)/R_u on 𝒞_out, and ψ :=
-ln(−e^(2σ)/(R_u dv̂/dv)). Then τ := v̂ − R, τ0 := −0.68 and Σ_τ0 := {τ = τ0}. Region I is {u ≤ 5.7}. The proofs use four
+ln(−e^(2σ)/(R_u dv̂/dv)). Then τ := v̂ − R, τ0 := −0.68, and Σ_τ0 = {τ = τ0, 0.70 ≤ R ≤ b(τ0)} is the slice of
+[[sec:loc-setting]]. Region I is {u ≤ 5.7}. The proofs use four
 identities of the background ([[lem:bg-identities]], [[eq:bg-field]] and the definition of μ):
 
     (S1)  μ_u = −(2/3) ℬ e^(−2σ) R_v,   μ_v = −(2/3) 𝒜 e^(−2σ) R_u;      (S2)  R_uv = −e^(2σ) μ/R³;

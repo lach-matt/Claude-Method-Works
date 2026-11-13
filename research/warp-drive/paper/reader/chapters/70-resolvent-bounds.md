@@ -2402,9 +2402,11 @@ with the absorbing term, and involves no trapping estimate and no mode stability
 *Proof.* Q maps 𝒳_σ into functions of class H^s (s > ½ + ϑ_ℋ the order of 𝒳_σ) supported in a fixed compact subset of
 {r > r_h}, which embed compactly into 𝒴_σ, whose order there is s − 1 (Rellich's theorem). So □̂(σ) − iϵ_σQ is a compact
 perturbation of □̂(σ), the spectral family of □ on functions, which is Fredholm of index 0 ([[lem:rb-scalar]], by
-[[thm:i-a-7-2]] (3) and [[thm:i-b-1-3]] (3)); it suffices to show that its kernel is trivial. Let ω be in the kernel. As
-in the proof of [[prop:iii-d-6-2]] (*The class*), ω is smooth across the future horizon and outgoing at infinity, by
-[[thm:i-a-7-2]] (5) applied to □̂(σ)ω = iϵ_σQω, which is smooth with compact support; and Q, being radial, preserves the
+[[thm:i-a-7-2]] (3) and [[thm:i-b-1-3]] (3)); it suffices to show that its kernel is trivial. Let ω be in the kernel.
+The perturbation −iϵ_σQ is of order zero with compact support in X°, so it changes neither the principal symbols nor
+the structure at infinity nor the thresholds verified in the proof of [[lem:rb-scalar]], and [[thm:i-a-7-2]] (5)
+applies to □̂(σ) − iϵ_σQ: ω ∈ 𝒜^(3/2−ε)(X̄) for every ε > 0. So, as in *The class* in the proof of
+[[prop:iii-d-6-2]], ω is smooth across the future horizon and outgoing at infinity; and Q, being radial, preserves the
 harmonics; so on {r > r_h}, each component r^(−3/2)u(r_*)Se^(−iσt) of e^(−iσt_*)ω, S ∈ 𝒮_l, has u solving
 −u″ + (V_l − σ² − iϵ_σfq)u = 0, with u a multiple of u_h near −∞ and of u_∞ near +∞, where q = 0. As V_l is real,
 Im(ū(−u″ + (V_l − σ² − iϵ_σfq)u)) = −(Im(ūu′))′ − ϵ_σfq|u|², and Im(ūu′) tends to σ|c_+|² at +∞ and to −σ|c_−|² at −∞,
@@ -2417,8 +2419,8 @@ the two terms in the proof can cancel.
 
 ### The scalar-type blocks at zero energy {#sec:rb-scalar-blocks}
 
-The inverse bound of [[thm:i-c-3-1]] (4) for the linearised operator at zero energy is, by [[lem:rb-schur]], the
-supremum of the inverse bounds of its blocks of one type and degree. For the tensor-type blocks the gauge terms vanish
+The inverse bound of [[thm:i-c-3-1]] (4) for the linearised operator at zero energy is, in SO(4)-averaged norms and by
+[[lem:rb-schur]] (b), the supremum of the inverse bounds of its blocks of one type and degree. For the tensor-type blocks the gauge terms vanish
 (the proof of [[lem:rb-transfer]]). The scalar-type blocks carry them, and this section records what can be said about
 these blocks.
 

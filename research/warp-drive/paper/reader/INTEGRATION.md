@@ -1193,3 +1193,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   lem:iii-j2-2-4 that its own proof does not support: to the chapter's fix list.
 - F-P-K83b done (reports/F-P-K83b.md): all 11 findings fixed in the proof file. Chapter 83 defines Σ_τ0 twice (from
   0.68 and from 0.70; Γ > 0 not proved on [0.68, 0.70)): sent to F-83. Merge after F-83.
+- R2-84 CONFIRMED 0M 0m 1n (reviews/R2-84.md); nit applied. Chapter 84 CONFIRMED (λ_L ≤ 10^(−430) in place of the
+  source's 2.71·10⁻¹²). X1 for chapter 85: lines 26 and 1285-1286 still describe chapter 84's old definitions; the exact
+  text is in R2-84 (and F-84's report has two sentences for the same lines): to chapter 85's fix round after R-85.

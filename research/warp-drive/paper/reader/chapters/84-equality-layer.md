@@ -1253,8 +1253,7 @@ on I, so there are points v′ of I where Re[σ d e^(iv′/λ)] = |d|, and at th
 If R(v) ≤ 1 − 2λ^γ, then g_λ⁻¹(dΦ0, dΦ0) ≤ −m0 + R m0 + λ^γ m0 = m0 (R − 1 + λ^γ) < 0. ∎
 
 For the C_c^∞ envelope env_C of [[eq:envelope]], which increases on [1/2, 2] (both factors of β increase on (−1, 0)),
-every v with env_C(v) small is a first-reach point, so (ii) covers all levels between λ^P and λ^(3+δ) at the edge
-v_s = 1/2.
+every v ∈ (1/2, 2] is a first-reach point, so (ii) covers all levels between λ^P and λ^(3+δ) at the edge v_s = 1/2.
 
 **Remark {#rem:layer-regions-model}** (Numerical observation.) In a model with every constant equal to one, the
 envelope exp(−1/x) at its edge and the derivative count M* of [[lem:layer-flat]], parts (i)–(iii) of

@@ -1149,17 +1149,20 @@ Solving 𝔉(U) = 0 for ∂_r α and ∂_r w, and substituting the first into th
 
     ∂_r α = G_α(x, 𝔍),      ∂_r w = G_w(x, 𝔍),      𝔍 := (α, ∇α, ∇²α, w, ∇w),
 
-with G_α, G_w of the form 𝒞-term plus class-𝔏 functions of (x, 𝔍), affine in (∇²α, ∇w): G_α = Q ∇²α − p⁻¹ g_ρ, G_w =
-−B^C ∇_C w − A0⁻¹ (f G_α + g_J), with Q := P/p and B^C := A0⁻¹A^C at α. By induction on i, ∂_r^i U is a finite sum of
-terms λ^(−β) c(x, α, ∇α, w) Π_(s=1)^l ∇^(m_s) Y_s, with c of class 𝔏, Y_s ∈ {α, w}, β + Σ_s m_s ≤ 2i, m_s ≤ 2i for
-Y_s = w and m_s ≤ 2i + 2 for Y_s = α, and l ≥ 1 except for terms with c a derivative of λ^(N−2)[h]: applying ∂_r to such
-a term, ∂_r of the x-dependence of c costs λ⁻¹ by (C0), and ∂_r of an argument or of a factor ∇^(m_s) Y_s is replaced by
-∇^(m_s) of G_α or G_w, which raises Σ m_s + β by at most 2. Apply λ^(2i+|I|) 𝓛^I to such a term and expand by (K4) and the
-chain rule: every factor λ^|J| 𝓛^J ∇^m Y with Y = w and |J| + m ≤ 18, or Y = α and |J| + m ≤ 20, has L²(S³) norm at most
-C ‖U‖_(𝒴_18) at each r for Y = w, and at most C ‖α‖_(18;2) for Y = α, square integrable in r (by (N1)–(N4) and the
-definition of the norms); the factor of highest order is taken in L², the others in sup norm, where by (N1)–(N2) they are
-at most C λ⁻² ‖U‖_(𝒴_18) ≤ C λ^(N−4) ≤ 1 at each r, for factors of order at most 9; and the coefficients contribute at
-most C. This gives [[eq:vlasov-data-dr]].
+with G_α = Q ∇²α − p⁻¹ g_ρ and G_w = −B^C ∇_C w − A0⁻¹ (f G_α + g_J), Q := P/p and B^C := A0⁻¹A^C taken at α; here
+g = 𝔉(0) + g̃, with 𝔉(0) = λ^(N−2)[h]. Give the factor ∇^m α the weight (m − 2)₊ := max(m − 2, 0) and ∇^m w the weight
+m. By induction on i, ∂_r^i U is a finite sum of terms λ^(−β) c(x, α, ∇α, w) Π_(s=1)^l ∇^(m_s) Y_s, Y_s ∈ {α, w}, with
+c of class 𝔏 or a derivative of 𝔉(0), and β plus the sum of the weights at most 2i: for i = 1 this is the form of G_α
+and G_w (weights 0 and 1); applying ∂_r to a term, ∂_r of the x-dependence of c costs λ⁻¹ by (C0); ∂_r of an argument
+α, ∇α or w of c gives a factor G_α, ∇G_α or G_w, of weight at most 1; and ∂_r ∇^m α = ∇^m G_α and ∂_r ∇^m w = ∇^m G_w
+raise the weight of the factor by at most 2. Apply λ^(2i+|I|) 𝓛^I to such a term and expand by (K4) and the chain rule.
+Since λ ≤ 1, λ^(2i−β) is at most λ to the sum of the weights, so every factor appears as λ^(|J|+(m−2)₊) 𝓛^J ∇^m α, of
+L²(S³) norm at most C ‖α‖_(|J|+(m−2)₊;2), square integrable in r, or as λ^(|J|+m) 𝓛^J ∇^m w, of norm at most C ‖w‖_(|J|+m)
+at each r, by (K2), (N3) and (N4); the derivatives of c contribute at most C λ^(N−2) for c a derivative of 𝔉(0) and at
+most C otherwise. The orders |J| + (m − 2)₊, respectively |J| + m, add up to at most 2i + |I| ≤ 14, so at most one
+factor has order greater than 7: it is taken in L², at order at most 14 ≤ 18, and the others in sup norm, where by (N1),
+(N2) and (K2) (which bounds ∇²𝓛^J α by first derivatives of 𝓛_i 𝓛^J α) they are at most C λ⁻³ ‖U‖_(𝒴_18) ≤
+C λ^(N−5) ≤ 1 at each r. This gives [[eq:vlasov-data-dr]].
 
 *The datum.* Put g on Σ as in [[sec:data-proof]]: the spatial part γ + α dr dr, the lapse and shift of g_app's
 two-scale form, ∂_τ of the spatial part fixed by κ + ϖ Π + q ⊗ dr + dr ⊗ q, and ∂_τ of the lapse and shift fixed by
@@ -1183,13 +1186,6 @@ symbol of Δ − (cos α_A ∂_1 + sin α_A ∂_2)², and bound below the diviso
 antipodal pair; this is the one place where they need n odd [HL25, (7.24)–(7.32), pp. 27–28, and footnote 10]. In
 [[thm:vlasov-n-data]] that divisor does not arise, so n odd is not needed there; the diagonal of [[sec:vlasov-proof]]
 takes n odd at no cost.
-
-**Remark {#rem:vlasov-radial-pair}** (Labels and radial dusts.) Hypothesis (V2′) cannot be dropped: where a label's
-momentum is parallel to a radial null direction on the support of the radial dust of that direction, g0⁻¹(du_A, du_rad)
-= 0 there, and every harmonic j supported on that pair has Q_j = j_A² ν_A² · 0 + 2 j_A j_rad ν_A ν_rad g0⁻¹(du_A,
-du_rad) + j_rad² ν_rad² · 0 = 0, at every Λ. With an angle at least η, the label–radial symbols are |g0⁻¹(du_A,
-du_rad)| = E E′ (1 − cos β) ≥ E E′ (1 − cos η) =: c(η) > 0 by the formula in the proof of [[lem:vlasov-separation]], and
-the hierarchy runs over all n + 2 phases with c = min(c0 (2π/n)², c(η)).
 
 ### Proof of the theorem {#sec:vlasov-proof}
 
