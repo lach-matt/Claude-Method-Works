@@ -215,3 +215,15 @@ Items found while chapters were written in parallel; each is settled once, editi
   from S22) and §2.2-2.5 before III.J; chapter 44 keeps Theorem 3.1 and Corollary 3.2.
 - Step 1 (running): 38a created, Majors 2-3 and the minors fixed in 44/38a. Step 2 (after the S21, S22 and S23 fix
   rounds and readings settle): move the listed parts into S21-S23 and re-read the four chapters' joins.
+
+## From proof B, Ch 10 and S29 (2026-11-13)
+
+- Proof B: φ = 1 − 2/r² admissible for l ≥ 1 and l = 0; constants B_1(3) = 93.78, summed H¹ at σ = 3 202.6, B_0(3) =
+  585.53 (weaker than the source's 275.2), unweighted 1079.4. C256's decaying point values (σ = 3…96) and the band
+  constant 11.477 pass to project B2 (sent P-B's report). Four chapter-70 results are cited as [[ch:resolvent-bounds]]
+  and need keys when chapter 70 is written.
+- Ch 10: the letter for r_B^(−1/2) is ς; rem:bondi-solver is a numerical-observation remark. Optional: rename
+  prop:bondi-hierarchy. Ch 9 around line 564 may still imply item 3 lacks the derivative bound (the Ch 8-9 reader checks).
+- S29: Part IX written at r_♭ (the source's inner-radius re-proof covers only the earlier version); the S29 reader
+  checks every radius-dependent step. Notation clashes: Σ^IVP (chapters 30, 46) against Σ_(IVP,r₀) (45); 𝒦 for III.K's
+  compact part against the Kretschmann 𝒦; Θ a cut-off in chapters 40 and 46.

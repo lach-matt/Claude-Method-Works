@@ -36,10 +36,10 @@ The notation is that of [[ch:s11]]–[[ch:s16]]. In particular n = 4, D = 5; the
 gauge-fixed operator of [[sec:iii-b-6]]; the linearised operator L_b and its Minkowski model L̄ of [[ch:s15]], with the
 endomorphism S̄ of [[lem:iii-f-2-1]] and its spectrum [[eq:iii-f-3-1]]; and the index sets and partially polyhomogeneous
 spaces of [[sec:iii-a-1]]. We write the spectral families of [[ch:s15]] with a hat: L̂_b(σ) := L_b^(σ) and
-L̄̂(σ) := L̄^(σ), so that 2L̄̂(0) = (2L̄)^(0) and L̂_b(0) is the zero energy operator. No step of this chapter involves the inner radius r₀ of the spaces of [[ch:s01]]: the
-exterior region below is a neighbourhood of I₀ ∪ ℐ⁺ of radius at least 4R₁, and the results at ι⁺ and at the transition
-face concern faces at infinity and meet the inner radius only through the results of [[ch:s15]] and [[ch:s16]] that
-they use.
+L̄̂(σ) := L̄^(σ), so that 2L̄̂(0) = (2L̄)^(0) and L̂_b(0) is the zero energy operator. No step of this chapter involves
+the inner radius r₀ of the spaces of [[ch:s01]]: the exterior region below is a neighbourhood of I₀ ∪ ℐ⁺ of radius at
+least 4R₁, and the results at ι⁺ and at the transition face concern faces at infinity and meet the inner radius only
+through the results of [[ch:s15]] and [[ch:s16]] that they use.
 
 ### Hypotheses, the exterior region, and its coordinates {#sec:iii-c-1}
 
@@ -788,8 +788,8 @@ the ratio of the eigenvector of Ā for (1 − e_Υ)γ_Υ ([[lem:iii-g3-1-2]] (1)
 the proof of [[prop:iii-c-5-2]], slot 7 of (v∂_v − 3/2 − Ā)h at v^(λ_♯) is −(1 + e_Υ)γ_Υc₇ − Ā₇₄c₄, which vanishes
 along that eigenvector. The set ℰ_(I,11) allows such a term, and the space of [[def:iii-g1-1-2]] does not. In
 [[ch:s23]] the right-hand sides of the steps have no expansion at ℐ⁺, so the pole at λ_♯ enters only through a datum
-at that frequency, and the index sets at ι⁺ contain (λ_♯, 0). The identification of [[prop:iii-g3-2-4]] with the inverse of
-[[thm:iii-g1-3-1]] below λ_♯ holds by uniqueness in the admissible spaces of [[thm:iii-g-5-1]]: the extension by zero
+at that frequency, and the index sets at ι⁺ contain (λ_♯, 0). The identification of [[prop:iii-g3-2-4]] with the
+inverse of [[thm:iii-g1-3-1]] below λ_♯ holds by uniqueness in the admissible spaces of [[thm:iii-g-5-1]]: the extension by zero
 of v₊^(w−λ), Re(w − λ) > 0, lies in them and creates no term at the light cone ([[lem:iii-g3-2-3]]); at the incoming
 exponent itself the extension by zero creates δ(v), which is why λ_♯ is a pole.
 
@@ -980,10 +980,10 @@ the 11-component only at the order 2, which lies in ℰ_I^C: ℱ_(I,11) = 1 + (�
 
 (4) (*The radiative order at ι⁺.*) spec_(ι⁺)(L̄) ⊂ {Re λ ≥ 2}. In particular no radiative exponent 3/2 + s, s ∈ σ_Υ,
 lies in spec_(ι⁺)(L̄): there is no pure resonant state at a radiative exponent (Res_(ι⁺)(L̄, 3/2 + s) = {0} whenever
-3/2 + s < ℓ_I). Nor is there an outgoing solution there: if Re λ < min(ℓ_I, 2), h lies in the space
-H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) of [[def:iii-g1-1-2]] (2), the target of [[thm:iii-g1-3-1]] (2), and
-N_(ι⁺)(λ)h = 0, then h = 0. On the spaces of [[def:iii-g3-1-1]], the only pole of [[eq:iii-g3-2-2]] with real part at most
-3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f only if f has the exceptional term
+3/2 + s < ℓ_I). Nor is there an outgoing solution at such an exponent, or at any λ with Re λ < min(ℓ_I, 2): if h lies
+in the space H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) of [[def:iii-g1-1-2]] (2), the target of [[thm:iii-g1-3-1]] (2),
+and N_(ι⁺)(λ)h = 0, then h = 0. On the spaces of [[def:iii-g3-1-1]], the only pole of [[eq:iii-g3-2-2]] with real part
+at most 3/2 + 2γ_Υ is λ_♯; it is simple, and it is a pole of N_(ι⁺)(z)⁻¹f only if f has the exceptional term
 f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇ ≠ 0 of [[eq:iii-g3-3-5]]. The radiative exponents 3/2, 3/2 + γ_Υ and 3/2 + 2γ_Υ are not
 poles.
 
@@ -1672,19 +1672,20 @@ gauge-fixed Einstein operator of [Hin23a, Section 2]; [[ch:s26]] carries them to
 
 *Notation.* Throughout this section k := (n − 1)/2 and □ = −tr ∇². On ℝ^(1+n) we use r := |x|, x⁰ := t + r,
 x¹ := t − r, the coordinate fields ∂₀, ∂₁ of (x⁰, x¹, ω) as in [[eq:iii-c-1-5]], and the Minkowski metric
-ḡ := −½(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + r²g̸ (so ḡ(∂₀, ∂₁) = −½ and ḡ⁻¹(dx⁰, dx¹) = −2). The splitting of [Hin23a, (2.9)]
+η := −dt² + dx² of ℝ^(1+n), that of [[sec:iii-c-1]] when n = 4: η = −½(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + r²g̸, so
+η(∂₀, ∂₁) = −½ and η⁻¹(dx⁰, dx¹) = −2. The splitting of [Hin23a, (2.9)]
 is the splitting [[eq:iii-c-1-6]] with the summands in the order (00, 01, 0a, 11, 1a, tr, tf), numbered 1 to 7 in this
 section: the slot coordinates are U₀₀ = U(∂₀, ∂₀), U₀₁, the tangential part U_(0a) of U(∂₀, ·), U₁₁, U_(1a), the
 coordinate t_U := tr̸U/(n − 1) of r²g̸, and the trace-free tangential part. The modified operators of [Hin23a,
 Definition 2.2, (2.4)–(2.5)] are, with c_C = c_Υ = r⁻¹dt near infinity,
 
-    δ^*_(ḡ,E_C) := δ^*_ḡ + γ_C(2c_C ⊗_s (·) − ḡ ι_(ḡ⁻¹c_C)(·)),     δ_(ḡ,E_Υ) := δ_ḡ + γ_Υ(2ι_(ḡ⁻¹c_Υ) − c_Υ tr_ḡ).
+    δ^*_(η,E_C) := δ^*_η + γ_C(2c_C ⊗_s (·) − η ι_(η⁻¹c_C)(·)),     δ_(η,E_Υ) := δ_η + γ_Υ(2ι_(η⁻¹c_Υ) − c_Υ tr_η).
 
 The first-order coefficient at ℐ⁺ of the gauge terms of the operator is the endomorphism A_(E_C,E_Υ) of [Hin23a,
-(2.10)]: with G := I − ½ḡ tr_ḡ, δ₁U := −ι_(ḡ⁻¹dx¹)U and δ₁^*w := dx¹ ⊗_s w the ∂₁-coefficients of δ_ḡ and δ^*_ḡ, and
+(2.10)]: with G := I − ½η tr_η, δ₁U := −ι_(η⁻¹dx¹)U and δ₁^*w := dx¹ ⊗_s w the ∂₁-coefficients of δ_η and δ^*_η, and
 c := dt,
 
-    A_(E_C,E_Υ)U := γ_C(2c ⊗_s w − ḡ⟨c, w⟩) + δ₁^*(γ_Υ(2ι_(ḡ⁻¹c)GU − c tr GU)),     w := δ₁GU.         {#eq:s17-hin23a-a}
+    A_(E_C,E_Υ)U := γ_C(2c ⊗_s w − η⟨c, w⟩) + δ₁^*(γ_Υ(2ι_(η⁻¹c)GU − c tr GU)),     w := δ₁GU.         {#eq:s17-hin23a-a}
 
 The b-structure is that of [Hin23a, Section 3]: with the Tangherlini metric g_m of mass μ in dimension 4 + 1 (the
 Schwarzschild metric in dimension 3 + 1) and its tortoise coordinate r*, x⁰ := t + r*, x¹ := t − r*,
@@ -1694,7 +1695,7 @@ Einstein operator P.
 
 **Proposition {#prop:np-10-64}** (The dimension in [Hin23a, Section 3].) For n = 3 and n = 4:
 
-(1) On functions of (x⁰, x¹), for ḡ, r^k□r^(−k) = 4∂₀∂₁ + ((n − 1)(n − 3)/4)r⁻², with no first-order term: the added
+(1) On functions of (x⁰, x¹), for η, r^k□r^(−k) = 4∂₀∂₁ + ((n − 1)(n − 3)/4)r⁻², with no first-order term: the added
 term is 0 at n = 3 ([Hin23a, (3.34)]) and ¾r⁻² at n = 4. For the Tangherlini metric of mass μ in dimension 4 + 1, with
 f := 1 − μ/r², the tortoise coordinate r* := r + (√μ/2)log((r − √μ)/(r + √μ)) satisfies dr*/dr = 1/f and
 
@@ -1702,18 +1703,20 @@ f := 1 − μ/r², the tortoise coordinate r* := r + (√μ/2)log((r − √μ)/
 
 a series in 1/r without the logarithm of the Schwarzschild coordinate r* = r + 2m log(r − 2m) of [Hin23a, (1.1)].
 
-(2) On Minkowski space, with ρ₀ = 1/(r − t) and ρ_I = (r − t)/r, ρ₀^(n+1)ρ_I^n|dḡ| = |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| exactly.
+(2) On Minkowski space, with ρ₀ = 1/(r − t) and ρ_I = (r − t)/r, ρ₀^(n+1)ρ_I^n|dη| = |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| exactly.
 So μ_b := ρ₀^(n+1)ρ_I^n|dg_m| is ρ₀⁴ρ_I³|dg_m| at n = 3 ([Hin23a, proof of Proposition 3.17, p. 16]) and
 ρ₀⁵ρ_I⁴|dg_m| at n = 4, and L = 2ρ_Iρ^(−(2+k))P′ρ^k is symmetric on L²(μ_b) whenever P′ is symmetric on L²(|dg_m|).
 
 (3) Let L₀ := −2ρ_I∂_(ρ_I)(ρ₀∂_(ρ₀) − ρ_I∂_(ρ_I)) + x_I²(Δ̸ + q_n), q_n := (n − 1)(n − 3)/4, Δ̸ ≥ 0 the Laplacian of
 𝕊^(n−1), and W := w²V with w² := ρ₀^(−2α₀)ρ_I^(−2α_I) and V := ρ₀∂_(ρ₀) − (1 + c)ρ_I∂_(ρ_I) (the multiplier of
-[Hin23a, (3.22)]), the divergence taken with respect to |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|. The principal symbol of
-[L₀, W] − (div W)L₀ is
+[Hin23a, (3.22)]), the divergence taken with respect to |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|. With Δ̸ replaced by its eigenvalue λ,
+the part of [L₀, W] − (div W)L₀ of second order in (ρ₀∂_(ρ₀), ρ_I∂_(ρ_I)), together with its angular term, has the
+symbol
 
     w²(−4α_I(ξ₀ − ξ_I)² + 4c(α₀ − α_I)ξ_I² + (1 + 2(α₀ − α_I) + c(1 − 2α_I))x_I²(λ + q_n)),         {#eq:s17-energy-form}
 
-with ξ₀, ξ_I dual to log ρ₀, log ρ_I and λ the value of Δ̸: [Hin23a, (3.25)] with Δ̸ + q_n in place of Δ̸. The constant
+with ξ₀, ξ_I dual to log ρ₀, log ρ_I (ρ₀∂_(ρ₀) ↦ iξ₀, ρ_I∂_(ρ_I) ↦ iξ_I): [Hin23a, (3.25)] with Δ̸ + q_n in place of
+Δ̸. The constant
 q_n enters only with the angular operator: on functions of ω alone, [L₀, W] − (div W)L₀ is
 w²(1 + 2(α₀ − α_I) + c(1 − 2α_I))x_I²(Δ̸ + q_n).
 
@@ -1731,12 +1734,12 @@ the input slots) is, with γ_C, γ_Υ written C, U,
 the matrix at n = 3 being [Hin23a, (2.11)]. In both dimensions the block of π_C = (00, 0a, tr) is invariant; the
 matrix is block lower triangular with respect to ran π_CΥ ⊕ ran π̸₀ ⊕ ran π₁₁, π_CΥ := (00, 01, 0a, 1a, tr); the
 eigenvalues on π_CΥ are 2C, C, C, −U, −U at n = 3 ([Hin23a, (2.15a)–(2.15b)]) and 2C, C, 3C/2, −3U/2, −U at n = 4,
-that on π̸₀ is 0 and that on π₁₁ is −2U. With the adjoint taken for the fibre inner products of ḡ,
+that on π̸₀ is 0 and that on π₁₁ is −2U. With the adjoint taken for the fibre inner products of η,
 
     G⁻¹A^*_(E_C,E_Υ)G = −A_(E_Υ,E_C),                                                                   {#eq:s17-duality}
 
 A_(E_Υ,E_C) denoting [[eq:s17-hin23a-a]] with γ_C and γ_Υ exchanged: [Hin23a, Remark 2.3], where G⁻¹ = G, at n = 3;
-at n = 4, G⁻¹ = I − ⅓ḡ tr_ḡ ≠ G.
+at n = 4, G⁻¹ = I − ⅓η tr_η ≠ G.
 
 (5) For g := −½(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + r²(g̸ + r^(−k)χ(x¹)T), T a trace-free symmetric 2-tensor on 𝕊^(n−1) with
 |T|²_g̸ = 2 (for instance dθ₁² − sin²θ₁ dθ₂²), the part of R₁₁(g) quadratic in χ′ is ½r^(−2k)χ′(x¹)²: r⁻² at n = 3,
@@ -1748,16 +1751,16 @@ r⁻³ at n = 4. The first-order terms r⁻¹A∂₁ of P′ applied to r^(−k)
 Notation 3.22], above which H^m_b ⊂ L^∞); the least integer above (dim M − 1)/2, the number d_(dim M−1) of [Hin23a,
 Lemma 3.33], is 2 at n = 3 and 3 at n = 4.
 
-(7) Let P(g) := Ric(g) − δ^*_(ḡ,E_C)Υ(g; ḡ), Υ(g; ḡ)_m := g_(mq)g^(ab)(Γ(g)^q_(ab) − Γ(ḡ)^q_(ab)), the operator of
-[Hin23a, (3.30)] but for its γ_Υ term, which is linear in g − ḡ and so has no part bilinear in the perturbation. For g
-:= ḡ + r^(−k)h + r^(−k)f(x¹)U, with h one of the frame components
-h_(ab) = χ(x¹)T_(ab) or h₁₁ = η(x¹) and U a frame component of size 1, let L₂(h, u) be the part of 2r^(k+1)P(g) (in
-frame components) bilinear in (h, u), u := f U, in which both derivatives fall on the profiles χ, η, f. Then, with T̂
+(7) Let P(g) := Ric(g) − δ^*_(η,E_C)Υ(g; η), Υ(g; η)_m := g_(mq)g^(ab)(Γ(g)^q_(ab) − Γ(η)^q_(ab)), the operator of
+[Hin23a, (3.30)] but for its γ_Υ term, which is linear in g − η and so has no part bilinear in the perturbation. For g
+:= η + r^(−k)h + r^(−k)f(x¹)U, with h one of the frame components
+h_(ab) = χ(x¹)T_(ab) or h₁₁ = ζ(x¹) and U a frame component of size 1, let L₂(h, u) be the part of 2r^(k+1)P(g) (in
+frame components) bilinear in (h, u), u := f U, in which both derivatives fall on the profiles χ, ζ, f. Then, with T̂
 the frame components of T:
 
 - U = (dx⁰)², h_(ab) = χT_(ab), output tf: L₂ = 4r^(1−k)(χ′f′ + χ″f)T̂;
 - U = T, h_(ab) = χT_(ab), output 11: L₂ = −2r^(1−k)χ′f′, with no term χ″f;
-- U = (dx⁰)², h₁₁ = η, output 11: L₂ = 4r^(1−k)η″f, with no term η′f′.
+- U = (dx⁰)², h₁₁ = ζ, output 11: L₂ = 4r^(1−k)ζ″f, with no term ζ′f′.
 
 These are the entries A(7, 1) (on ∂₁u) and B(7, 1) (on u), A(4, 7) and B(4, 1) of [Hin23a, Proposition 3.29] in this
 normalisation. At n = 3 they are independent of r, and they are twice the entries printed there, A(7, 1) = 2∂₁h_(ab),
@@ -1765,8 +1768,10 @@ B(7, 1) = 2ρ₀⁻¹∂₁²h_(ab), A(4, 7) = −½∂₁h_(ab) and B(4, 1) = 2
 block to the 11-block, being read as acting by contraction, −½∂₁h_(ab)u^(ab) with |T|² = 2. At n = 4 they are the same
 numbers times r^(1−k) = r^(−1/2). Each is linear in h.
 
-(8) ([Hin23a, Lemma 3.6] at n = 4.) Let f := 1 − μ/r², r* as in (1), x⁰ = t + r*, x¹ = t − r*, ρ₀ = 1/(r* − t),
-ρ_I = (r* − t)/r for the Tangherlini metric g_m = −f dx⁰·dx¹ + r²g̸. Then dρ₀ = ρ₀²dx¹ is null, and
+(8) ([Hin23a, Lemma 3.6] at n = 4.) Let f := 1 − μ/r², r* as in (1), and x⁰ = t + r*, x¹ = t − r*,
+ρ₀ = 1/(r* − t), ρ_I = (r* − t)/r (the tortoise coordinates of [Hin23a], which differ from those of
+[[eq:iii-c-1-2]]) for the Tangherlini metric g_m = −(f/2)(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + r²g̸. Then dρ₀ = ρ₀²dx¹ is null,
+and
 
     g_m⁻¹(r dρ_I, r dρ_I) = (2x¹/r)(1 + x¹f/(2r)),                                                    {#eq:s17-hin23a-38}
 
@@ -1775,8 +1780,8 @@ numbers times r^(1−k) = r^(−1/2). Each is linear in h.
 Schwarzschild one: there r* is defined, f > ¾ (½ in [Hin23a]), x¹/r = −x_I² < 0 and |x¹f/(2r)| < 3/8, so
 [[eq:s17-hin23a-38]] is negative.
 
-*Proof.* (1) For ḡ, √|ḡ| = ½r^(n−1)√|g̸| and ḡ⁻¹ has the entries ḡ^(01) = ḡ^(10) = −2 and r⁻²g̸⁻¹. For u = u(x⁰, x¹),
-□u = −|ḡ|^(−1/2)∂_i(|ḡ|^(1/2)ḡ^(ij)∂_ju) = 2r^(1−n)(∂₀(r^(n−1)∂₁u) + ∂₁(r^(n−1)∂₀u)), and with ∂₀r = ½, ∂₁r = −½,
+*Proof.* (1) For η, √|η| = ½r^(n−1)√|g̸| and η⁻¹ has the entries η^(01) = η^(10) = −2 and r⁻²g̸⁻¹. For u = u(x⁰, x¹),
+□u = −|η|^(−1/2)∂_i(|η|^(1/2)η^(ij)∂_ju) = 2r^(1−n)(∂₀(r^(n−1)∂₁u) + ∂₁(r^(n−1)∂₀u)), and with ∂₀r = ½, ∂₁r = −½,
 
     □u = 4∂₀∂₁u + (n − 1)r⁻¹(∂₁u − ∂₀u).
 
@@ -1792,7 +1797,7 @@ log((r − √μ)/(r + √μ)) = log((1 − s)/(1 + s)) = −2Σ_(j≥0) s^(2j+1
 
 (2) With r = (ρ₀ρ_I)⁻¹ and t = r − ρ₀⁻¹: ∂r/∂ρ₀ = −ρ₀⁻²ρ_I⁻¹, ∂r/∂ρ_I = −ρ₀⁻¹ρ_I⁻², ∂t/∂ρ₀ = ∂r/∂ρ₀ + ρ₀⁻² and
 ∂t/∂ρ_I = ∂r/∂ρ_I. The Jacobian determinant of (t, r) in (ρ₀, ρ_I) is (∂t/∂ρ₀)(∂r/∂ρ_I) − (∂t/∂ρ_I)(∂r/∂ρ₀) =
-ρ₀⁻²∂r/∂ρ_I = −ρ₀⁻³ρ_I⁻². So |dḡ| = r^(n−1)|dt dr dg̸| = r^(n−1)ρ₀⁻²ρ_I⁻¹|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|
+ρ₀⁻²∂r/∂ρ_I = −ρ₀⁻³ρ_I⁻². So |dη| = r^(n−1)|dt dr dg̸| = r^(n−1)ρ₀⁻²ρ_I⁻¹|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|
 = ρ₀^(−(n+1))ρ_I^(−n)|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|. For the symmetry: ρ_Iρ^(−(2+k))ρ₀^(n+1)ρ_I^n = ρ^(n+1−2−k) = ρ^k, as
 ρ₀ρ_I = ρ and n − 1 = 2k; so ⟨Lu, v⟩_(L²(μ_b)) = 2∫ P′(ρ^ku)(ρ^kv)|dg_m|, which is symmetric in u and v when P′ is.
 
@@ -1815,13 +1820,13 @@ in (D₀, D_I) is 4α_I(D₀ − D_I)² − 4c(α₀ − α_I)D_I², and the ang
 (1 + c + 2α₀ − 2(1 + c)α_I)e^(s_I)Λ = (1 + 2(α₀ − α_I) + c(1 − 2α_I))x_I²Λ. With D ↦ iξ this is
 [[eq:s17-energy-form]]. On functions of ω alone, VD-terms and L₀'s first term vanish, which gives the last statement.
 
-(4) Let t_U := tr̸U/(n − 1), so tr_ḡU = −4U₀₁ + (n − 1)t_U. Then (GU)₀₀ = U₀₀, (GU)₀₁ = (n − 1)t_U/4,
-(GU)_(0a) = U_(0a), (GU)₁₁ = U₁₁, (GU)_(1a) = U_(1a), and tr GU = −((n − 1)/2)tr U. Since ḡ⁻¹dx¹ = −2∂₀,
+(4) Let t_U := tr̸U/(n − 1), so tr_ηU = −4U₀₁ + (n − 1)t_U. Then (GU)₀₀ = U₀₀, (GU)₀₁ = (n − 1)t_U/4,
+(GU)_(0a) = U_(0a), (GU)₁₁ = U₁₁, (GU)_(1a) = U_(1a), and tr GU = −((n − 1)/2)tr U. Since η⁻¹dx¹ = −2∂₀,
 w = δ₁GU = 2GU(∂₀, ·): w₀ = 2U₀₀, w₁ = (n − 1)t_U/2, w_a = 2U_(0a). With c = ½(dx⁰ + dx¹) and
 ⟨c, w⟩ = −(w₀ + w₁), the first term of [[eq:s17-hin23a-a]] has the components (00) γ_Cw₀ = 2γ_CU₀₀,
 (01) γ_C(½(w₀ + w₁) − ½(w₀ + w₁)) = 0, (11) γ_Cw₁, (0a) and (1a) γ_CU_(0a), and tangential block
 γ_C(w₀ + w₁)r²g̸, so its trace coordinate is γ_C(2U₀₀ + (n − 1)t_U/2) and its trace-free part 0. In the second term,
-ḡ⁻¹c = −∂₀ − ∂₁ and β := γ_Υ(2ι_(ḡ⁻¹c)GU − c tr GU) has β₀ = γ_Υ(−2U₀₀ − (n − 1)U₀₁ + ((n − 1)(n − 3)/4)t_U),
+η⁻¹c = −∂₀ − ∂₁ and β := γ_Υ(2ι_(η⁻¹c)GU − c tr GU) has β₀ = γ_Υ(−2U₀₀ − (n − 1)U₀₁ + ((n − 1)(n − 3)/4)t_U),
 β₁ = γ_Υ(−2U₁₁ − (n − 1)U₀₁ + ((n − 1)(n − 3)/4)t_U), β_a = −2γ_Υ(U_(0a) + U_(1a)); and δ₁^*β = dx¹ ⊗_s β has the
 components (01) ½β₀, (11) β₁, (1a) ½β_a and no others. Altogether
 
@@ -1831,12 +1836,12 @@ components (01) ½β₀, (11) β₁, (1a) ½β_a and no others. Altogether
 
 which at n = 3 and n = 4 are the two matrices. The block statements and eigenvalues are read off them: the rows 00,
 0a, tr have entries only in the columns 00, 0a, tr; the rows of π_CΥ have no entries in the columns tf and 11; and the
-blocks are triangular. For [[eq:s17-duality]]: write e(w) := 2c ⊗_s w − ḡ⟨c, w⟩ and d(U) := 2ι_(ḡ⁻¹c)U − c tr U.
-For the fibre inner products, ⟨2c ⊗_s w, U⟩ = 2U(ḡ⁻¹c, ḡ⁻¹w) and ⟨ḡ, U⟩ = tr U, so ⟨e(w), U⟩ = ⟨w, d(U)⟩: d = e^*.
-Likewise ⟨dx¹ ⊗_s w, U⟩ = ⟨w, ι_(ḡ⁻¹dx¹)U⟩, so (δ₁^*)^* = −δ₁, and G is symmetric. With
+blocks are triangular. For [[eq:s17-duality]]: write e(w) := 2c ⊗_s w − η⟨c, w⟩ and d(U) := 2ι_(η⁻¹c)U − c tr U.
+For the fibre inner products, ⟨2c ⊗_s w, U⟩ = 2U(η⁻¹c, η⁻¹w) and ⟨η, U⟩ = tr U, so ⟨e(w), U⟩ = ⟨w, d(U)⟩: d = e^*.
+Likewise ⟨dx¹ ⊗_s w, U⟩ = ⟨w, ι_(η⁻¹dx¹)U⟩, so (δ₁^*)^* = −δ₁, and G is symmetric. With
 A_(E_C,E_Υ) = γ_C eδ₁G + γ_Υ δ₁^*e^*G, A^*_(E_C,E_Υ) = −γ_C Gδ₁^*e^* − γ_Υ Geδ₁, and
-G⁻¹A^*_(E_C,E_Υ)G = −(γ_Cδ₁^*e^*G + γ_Υeδ₁G) = −A_(E_Υ,E_C). G is invertible: as tr_ḡḡ = n + 1,
-(I − (1/(n − 1))ḡ tr)(I − ½ḡ tr) = I, so G⁻¹ = I − (1/(n − 1))ḡ tr, which is G exactly when n = 3.
+G⁻¹A^*_(E_C,E_Υ)G = −(γ_Cδ₁^*e^*G + γ_Υeδ₁G) = −A_(E_Υ,E_C). G is invertible: as tr_ηη = n + 1,
+(I − (1/(n − 1))η tr)(I − ½η tr) = I, so G⁻¹ = I − (1/(n − 1))η tr, which is G exactly when n = 3.
 
 (5) For a metric g = g_(AB)dx^Adx^B + q_(ab)dθ^adθ^b with g_(AB) constant (A, B ∈ {0, 1}, g^(11) = 0), the field ∂₁ is
 null and geodesic, Γ^a_(11) = 0, Γ^a_(1a) = ½q^(ab)∂₁q_(ab), and Γ^a_(1b) = ½q^(ac)∂₁q_(cb) on the angular indices, so
@@ -1850,11 +1855,11 @@ arithmetic: ½r^(−2k) = r^(1−k) · ½r^(−(1+k)).
 (6) (n + 1)/2 is 2 at n = 3 and 5/2 at n = 4; n/2 is 3/2 at n = 3 and 2 at n = 4.
 
 (7) *Reduction.* Each term of P(g) has two derivatives in all. A term bilinear in (h, u) with both derivatives on the
-profiles receives none on the weights r^(−k), on the components of ḡ or on the angular frame. The γ_C part of
-δ^*_(ḡ,E_C) is of order zero on Υ, which has one derivative, so it contributes no such term; neither do the Christoffel
-symbols of ḡ. As the profiles depend on x¹ alone, only ∂₁ acts on them. So L₂ is 2r^(k+1) times the part bilinear in
-(h, u) of P for the model in which ḡ has constant frame components, ḡ = −½(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + Σ_a(e^a)², and the
-perturbation κ = εr^(−k)h + s r^(−k)u depends on x¹ alone (r frozen), with Γ(ḡ) = 0. In this model,
+profiles receives none on the weights r^(−k), on the components of η or on the angular frame. The γ_C part of
+δ^*_(η,E_C) is of order zero on Υ, which has one derivative, so it contributes no such term; neither do the Christoffel
+symbols of η. As the profiles depend on x¹ alone, only ∂₁ acts on them. So L₂ is 2r^(k+1) times the part bilinear in
+(h, u) of P for the model in which η has constant frame components, η = −½(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + Σ_a(e^a)², and the
+perturbation κ = εr^(−k)h + s r^(−k)u depends on x¹ alone (r frozen), with Γ(η) = 0. In this model,
 Γ_(d,ij) = ½(δ_(i1)κ′_(dj) + δ_(j1)κ′_(di) − δ_(d1)κ′_(ij)), Γ^a_(ij) = g^(ad)Γ_(d,ij), Γ^p_(pi) = ½δ_(i1)τ′ with
 τ′ := tr_g κ′, Υ_m = g^(ab)Γ_(m,ab) = g^(1b)κ′_(mb) − ½δ_(m1)τ′, (δ^*Υ)_(ij) = ½(δ_(i1)Υ′_j + δ_(j1)Υ′_i), and
 R_(ij) = ∂₁Γ¹_(ij) − δ_(j1)∂₁Γ^p_(pi) + Γ^p_(pq)Γ^q_(ij) − Γ^p_(jq)Γ^q_(pi).
@@ -1870,16 +1875,16 @@ only A, so it has no part bilinear in (φ, A). The gauge term (δ^*Υ)_(ab) vani
 Υ₁ = −½τ′ (as g^(1b)κ′_(1b) = −2κ′_(10) = 0), and (δ^*Υ)₁₁ = −½τ″. So P₁₁ = −¼tr((q⁻¹κ′)²), whose part bilinear in
 (A, B) is −½Σ_(ab)A′_(ab)B′_(ab).
 
-*U = (dx⁰)², h₁₁ = η.* Put a := κ₁₁, φ := κ₀₀. The (x⁰, x¹)-block of g is ((φ, −½), (−½, a)), so
+*U = (dx⁰)², h₁₁ = ζ.* Put a := κ₁₁, φ := κ₀₀. The (x⁰, x¹)-block of g is ((φ, −½), (−½, a)), so
 g^(11) = −4φ, g^(00) = −4a and g^(01) = −2 modulo quadratic terms. The nonzero Γ_(d,1q) are Γ_(0,10) = ½φ′ and
 Γ_(1,11) = ½a′, so at linear order Γ⁰_(11) = −a′ and Γ¹_(10) = −φ′, and Σ Γ^a_(1b)Γ^b_(1a) = 2a′φ′ at bilinear order.
 Further Γ¹_(11) = ½g^(11)a′ = −2φa′ and τ′ = g^(00)φ′ + g^(11)a′ = −4(aφ)′ at bilinear order, and
 Γ^a_(ab)Γ^b_(11) is of order four. So R₁₁ = −2(φa′)′ + 2(aφ)″ − 2a′φ′ = 2aφ″. And Υ₁ = g^(11)a′ − ½τ′ = 2aφ′ − 2φa′,
 so (δ^*Υ)₁₁ = 2aφ″ − 2φa″. Hence the bilinear part of P₁₁ is 2φa″.
 
-*The values.* With the frame components A = εr^(−k)χT̂, B = s r^(−k)fT̂, φ = s r^(−k)f and a = εr^(−k)η, and
-Σ T̂_(ab)T̂_(ab) = 2, the bilinear parts are 2r^(−2k)(χ′f′ + χ″f)T̂, −r^(−2k)χ′f′ and 2r^(−2k)fη″; multiplied by
-2r^(k+1) they are the three values stated. At n = 3, k = 1, they are 4(χ′f′ + χ″f)T̂, −2χ′f′ and 4η″f, independent of
+*The values.* With the frame components A = εr^(−k)χT̂, B = s r^(−k)fT̂, φ = s r^(−k)f and a = εr^(−k)ζ, and
+Σ T̂_(ab)T̂_(ab) = 2, the bilinear parts are 2r^(−2k)(χ′f′ + χ″f)T̂, −r^(−2k)χ′f′ and 2r^(−2k)fζ″; multiplied by
+2r^(k+1) they are the three values stated. At n = 3, k = 1, they are 4(χ′f′ + χ″f)T̂, −2χ′f′ and 4ζ″f, independent of
 r; at n = 4 they carry r^(1−k) = r^(−1/2).
 
 (8) −f dt² + f⁻¹dr² = −f(dt − dr*)(dt + dr*) = −f dx⁰·dx¹, so g_m⁻¹(dx⁰, dx¹) = −2/f and

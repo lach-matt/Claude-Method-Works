@@ -10,7 +10,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | NOT CONFIRMED 0M 2m 3n; third fix done; third reading running |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED (6 nits, being applied with the Ch 7 pointer cut) |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | running |
-| 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | running | - |
+| 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | done | running |
 | 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |
 | 21 S2 | NOT CONFIRMED 1M 6m 17n | done | CONFIRMED (4 optional nits) |
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | CONFIRMED (4 nits) |
@@ -39,7 +39,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 45 S26 | running | - | - |
 | 46 S27 | running (three writer issues to adjudicate) | - | - |
 | 47 S28 | running | - | - |
-| 48 S29 | being written | - | - |
+| 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
 | 60 S30 | being written | - | - |
 | 61-62 M Ch 11-12 | being written | - | - |
 | 63-64 M Ch 13-14 | being written | - | - |
@@ -53,3 +53,4 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | P-D1-cone + T-D1 (cone residual) | done: bounds 1.3e-8 / 6.3e-8, jumps 2.72e-8 / 7.29e-8; [Tre19] new | running |
 | P-F-edge (equality edge, for 85) | done: every K >= 6, both envelopes, on (v_s, v_s + 1/(96(N+4)^2)] | running |
 | P-G-far (far part, for 63) | done: O1-O3 exponents, kappa, rho, window (l0 - 1, 3) by homogeneity | running |
+| P-B-morawetz (multipliers, for 70) | done but C256 point values and the band (with B2) | running |

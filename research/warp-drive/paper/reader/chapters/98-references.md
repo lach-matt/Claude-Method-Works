@@ -15,11 +15,13 @@
 - [BGP] C. Bär, N. Ginoux, F. Pfäffle, *Wave equations on Lorentzian manifolds and quantization*, ESI Lect. Math. Phys.,
   Eur. Math. Soc., Zürich (2007). doi:10.4171/037 arXiv:0806.1036v1
 - [BH17] A. Behzadan, M. Holst, *Sobolev–Slobodeckij spaces on compact manifolds, revisited*, Mathematics 10 (2022),
-  522. doi:10.3390/math10030522 arXiv:1704.07930
+  522. doi:10.3390/math10030522 arXiv:1704.07930v3
 - [Bur89] G. A. Burnett, *The high-frequency limit in general relativity*, J. Math. Phys. 30 (1989), 90–96.
   doi:10.1063/1.528594
 - [BVW15] D. Baskin, A. Vasy, J. Wunsch, *Asymptotics of radiation fields in asymptotically Minkowski space*, Amer. J.
   Math. 137 (2015), 1293–1364. doi:10.1353/ajm.2015.0033
+- [BW15] C. Bär, R. Tagne Wafo, *Initial value problems for wave equations on manifolds*, Math. Phys. Anal. Geom.
+  18 (2015), Art. 7. doi:10.1007/s11040-015-9176-7 arXiv:1408.4995v2
 - [CB69] Y. Choquet-Bruhat, *Construction de solutions radiatives approchées des équations d'Einstein*, Comm. Math.
   Phys. 12 (1969), 16–35. doi:10.1007/BF01646432
 - [CBCL06] Y. Choquet-Bruhat, P. T. Chruściel, J. Loizelet, *Global solutions of the Einstein–Maxwell equations in
@@ -130,6 +132,9 @@
 - [Ho85] See [Hö85].
 - [Hö85] L. Hörmander, *The analysis of linear partial differential operators III*, Grundlehren Math. Wiss. 274,
   Springer, Berlin (1985).
+- [Hö90] L. Hörmander, *The analysis of linear partial differential operators I: Distribution theory and Fourier
+  analysis*, 2nd ed., Grundlehren Math. Wiss. 256, Springer, Berlin (1990); reprinted in Classics in Mathematics,
+  Springer, Berlin (2003).
 - [Hol08] G. Holzegel, *Stability and decay rates for the five-dimensional Schwarzschild metric under biaxial
   perturbations*, Adv. Theor. Math. Phys. 14 (2010), 1245–1372. doi:10.4310/ATMP.2010.v14.n5.a1 arXiv:0808.3246v1
 - [HPS77] M. W. Hirsch, C. C. Pugh, M. Shub, *Invariant manifolds*, Lecture Notes in Math. 583, Springer, Berlin (1977).
@@ -173,6 +178,8 @@
 - [KS17] S. Klainerman, J. Szeftel, *Global nonlinear stability of Schwarzschild spacetime under polarized
   perturbations*, Ann. of Math. Stud. 210, Princeton Univ. Press, Princeton, NJ (2020). doi:10.1515/9780691218526
   arXiv:1711.07597v2
+- [Lau03] R. Lauter, *Pseudodifferential analysis on conformally compact spaces*, Mem. Amer. Math. Soc. 163 (2003),
+  no. 777, xvi+92 pp. doi:10.1090/memo/0777
 - [Li25] Z. Li, *Internal waves in aquariums with characteristic corners*, Pure Appl. Anal. 7 (2025), 445–534.
   doi:10.2140/paa.2025.7.445
 - [LR05] H. Lindblad, I. Rodnianski, *The global stability of Minkowski space-time in harmonic gauge*, Ann. of Math. (2)
@@ -185,6 +192,8 @@
   Math. Phys. 16 (2026), 119. doi:10.1007/s13324-026-01264-w arXiv:2407.08997
 - [LY22] H. Lu, L. Yao, *On Seeley-type universal extension operators for the upper half space*, Math. Nachr. 297
   (2024), 811–832. doi:10.1002/mana.202200551 arXiv:2211.15567v2
+- [Maz91] R. Mazzeo, *Elliptic theory of differential edge operators I*, Comm. Partial Differential Equations 16
+  (1991), 1615–1664. doi:10.1080/03605309108820815
 - [Mel93] R. B. Melrose, *The Atiyah–Patodi–Singer index theorem*, Res. Notes Math. 4, A K Peters, Wellesley, MA (1993).
   doi:10.1201/9781439864609
 - [Mel94] R. B. Melrose, *Spectral and scattering theory for the Laplacian on asymptotically Euclidian spaces*, in:
@@ -240,6 +249,8 @@
   doi:10.1007/s40818-025-00213-3 arXiv:2402.17530v2
 - [TTS09] K. Tanabe, N. Tanahashi, T. Shiromizu, *On asymptotic structure at null infinity in five dimensions*, J. Math.
   Phys. 51 (2010), 062502. doi:10.1063/1.3429580 arXiv:0909.0426v2
+- [Usu26] M. Usula, *Boundary value problems for 0-elliptic operators*, Ars Inven. Anal. 2026, Paper No. 4, 153 pp.
+  doi:10.15781/9f6mnb58 arXiv:2412.06084v2
 - [Vas13] A. Vasy, *Microlocal analysis of asymptotically hyperbolic and Kerr–de Sitter spaces (with an appendix by
   Semyon Dyatlov)*, Invent. Math. 194 (2013), 381–513. doi:10.1007/s00222-012-0446-8
 - [Vas18] A. Vasy, *A minicourse on microlocal analysis for wave propagation*, in: Asymptotic Analysis in General

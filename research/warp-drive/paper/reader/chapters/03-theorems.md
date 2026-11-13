@@ -257,9 +257,9 @@ named below are defined there.
 before these constants) has real part in (3, 3 + ε_+] (the condition (G⁺), [[def:iii-j-g-plus]]), and none has real part
 in (2, 2 + ε_K] ∪ (3, 3 + ε_K], nor z + d_c0, z + d_c1 in (2, 2 + ε_K] (the gap (G), [[def:iii-i10-1-3]]),
 d_c0, d_c1 ∈ (0, 1) being the offsets of the two class roots of [[def:iii-i9-gap]]. [[ch:s27]] collects these conditions
-with the other choices of parameters. Fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K
-large enough and on a domain enlarged as in [[ch:after-shell]]. For every ε_m > 0 there are λ1 > 0 and δ > 0, depending
-on ε_m and ε, such that for λ ≤ λ1:
+with the other choices of parameters. Fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope
+fixed, with K large enough and on a domain enlarged as in [[ch:after-shell]]. For every ε_m > 0 there are λ1 > 0 and
+δ > 0, depending on ε_m and ε, such that for λ ≤ λ1:
 
 (i) (in the class) the data of g_λ on Hintz's initial surface, continued G-equivariantly to exact Tangherlini data
 beyond a ball ([[ch:after-shell]]), have a G-invariant vacuum development, with the same data as g_λ on that ball,

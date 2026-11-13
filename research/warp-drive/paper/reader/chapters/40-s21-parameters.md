@@ -860,30 +860,58 @@ and [[lem:iii-i8-2-6]] hold at b as stated. The pairs (s1, λ, k), (λ, k) ∈ �
 [[sec:iii-i9-1]] ([[def:iii-i9-2-1]] gives the same tensors), and [[lem:iii-i8-2-4]] takes the following form.
 
 **Lemma {#lem:s21-motions-at-b}** (The motion identity at b.) Let (h, p⃗) be small, with parameter b ∈ ℬ̄_*,
-(λ, k) ∈ ℳ and ν := (s1, λ, k). Then
+(λ, k) ∈ ℳ and ν := (s1, λ, k). Write ω^b_ν(S) := ω^(≤4)_b(a_(λ,k)S), so that m_(λ,k)(S) = χ_K δ*_(g_b)ω^b_ν(S), and
+let
 
-    f^((λ,k))_(h,p⃗)(S) = L_(h,p⃗) m_(λ,k)(S) + e^ν_(h,p⃗)(S),                                     {#eq:s21-motions-at-b}
+    h^b_ν(S) := −dχ_K ⊗_s ω^b_ν(S),     ζ^b_ν(S) := δ*_(g_b)(χ_K ω^b_ν(S)),
+    ϑ^b_ν(S) := δ_(g_b,E_Υ)G_(g_b) m_(λ,k)(S),     ϑ^b_(ν,♯) := ϑ^b_ν − δ_(g_b,E_Υ)G_(g_b) h^b_ν
 
-where e^ν_(h,p⃗) := r^ν_(h,p⃗) + E^ν_(h,p⃗), with r^ν of [[eq:iii-i9-2-4]], every object built at b, and E^ν of
-[[eq:iii-i15-1-1]]; and for every α ∈ (2, 3),
-‖e^ν_(h,p⃗)(S)‖_(𝒴(α)) ≤ C|S|(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|), uniformly on ℬ̄_*. At b = b₀, E^ν = 0, and at
-(h, p⃗) = (0, 0), e^ν = 0, which is [[lem:iii-i8-2-4]].
+be the tensors of [[def:iii-i8-2-1]] built at b. Then
 
-*Proof.* The identity is [[eq:iii-i15-1-1]] for the row ν: f^ν_b := L_(h,p⃗)m_ν + r^ν_(h,p⃗) is the calculation of
-[[lem:iii-i9-2-6]] (c) at b, with the reference operator L_b in place of L_(b₀), and E^ν is the difference between
-the corrections and counterterms built at b₀ and at b ([[lem:iii-i15-1-1]] (P6)). *The bound on r^ν.* r^ν =
-−(L_(h,p⃗) − L_b)ζ^b_ν + (δ*_(g_0,E_C) − δ*_(g_b,E_C))ϑ^b_(ν,♯), with ζ^b_ν := δ*_(g_b)(χ_K ω^(≤4)_b(a_(λ,k)S)) and
-ϑ^b_(ν,♯) the counterterm built at b. It is supported in supp χ_K. Near (ι⁺)°, L_(h,p⃗) − L_b lies in ρ_+²Diff²_b with
+    f^((λ,k))_(h,p⃗)(S) = L_(h,p⃗) m_(λ,k)(S) + e^ν_(h,p⃗)(S),     e^ν_(h,p⃗) := r^ν_(h,p⃗) + E^ν_(h,p⃗),
+    r^ν_(h,p⃗)(S) := −(L_(h,p⃗) − L_b)ζ^b_ν(S) + (δ*_(g_0,E_C) − δ*_(g_b,E_C))ϑ^b_(ν,♯)(S),
+    E^ν_(h,p⃗)(S) := L_(h,p⃗)(h^((λ−1,k))_s1 − h^b_ν)(S) + δ*_(g_0,E_C)(ϑ^((λ−1,k))_(s1,♯) − ϑ^b_(ν,♯))(S),
+                                                                                                     {#eq:s21-motions-at-b}
+
+E^ν being the difference between the corrections and counterterms built at b₀ and at b; this is the identity
+[[eq:iii-i15-1-1]] for the row ν. For every α ∈ (2, min(a_K, 3)),
+
+    ‖e^ν_(h,p⃗)(S)‖_(𝒴(α)) ≤ C|S|(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|),
+
+uniformly on ℬ̄_*. At b = b₀, E^ν = 0, and at (h, p⃗) = (0, 0), e^ν = 0, which is [[lem:iii-i8-2-4]].
+
+*Proof.* *The identity.* P_3 depends on S^((λ−1,k))_1 only through h′ := h^((λ−1,k))_s1(S) in g′ and
+ϑ^((λ−1,k))_(s1,♯)(S) in ϑ_tot, linearly, and g_0 does not depend on it. Differentiating [[eq:iii-i8-2-3]], with
+L_(h,p⃗) = L^(g′,g_0) = D_(g′)Ric − δ*_(g_0,E_C)D_1Υ^(E_Υ)(g′, g_0) ([[lem:iii-i8-2-5]]),
+
+    f^((λ,k)) = D_(g′)Ric(h′) − δ*_(g_0,E_C)(D_1Υ^(E_Υ)(g′, g_0)h′ − ϑ^((λ−1,k))_(s1,♯)(S))
+              = L_(h,p⃗)h′ + δ*_(g_0,E_C)ϑ^((λ−1,k))_(s1,♯)(S) = L_(h,p⃗)h^b_ν + δ*_(g_0,E_C)ϑ^b_(ν,♯) + E^ν.
+
+By [[eq:s21-conv]] at g_b, h^b_ν = m_(λ,k)(S) − ζ^b_ν. As g_b is Ricci flat, (iii) gives D_(g_b)Ric(ζ^b_ν) = 0, so
+
+    L_bζ^b_ν = δ*_(g_b,E_C)δ_(g_b,E_Υ)G_(g_b)(m_(λ,k)(S) − h^b_ν) = δ*_(g_b,E_C)ϑ^b_(ν,♯).
+
+Writing L_(h,p⃗)ζ^b_ν = L_bζ^b_ν + (L_(h,p⃗) − L_b)ζ^b_ν gives [[eq:s21-motions-at-b]]. At b = b₀ the tensors built at
+b are those of [[def:iii-i8-2-1]], so E^ν = 0; at (h, p⃗) = (0, 0) also g′ = g_0 = g_(b₀), so r^ν = 0.
+
+*The bound on r^ν.* It is supported in supp χ_K. Near (ι⁺)°, L_(h,p⃗) − L_b lies in ρ_+²Diff²_b with
 coefficients linear in g′ − g_b, g_0 − g_b and their b-derivatives of order at most 2 ([[eq:iii-i-4-2]]); there
-g_0 − g_b ∈ ρ_+²C^∞ and g′ − g_0 ∈ H^(k,(ℰ_+,a_+))_b, of sizes O(|p⃗|) and O(|p⃗| + ‖h‖) ([[lem:iii-i7-1-3]] (c),
+g_0 − g_b ∈ ρ_+²C^∞ and g′ − g_0 ∈ H^(k,(ℰ_+,a_+))_b, of sizes O(|p⃗|) and O(|p⃗| + ‖h‖) ([[lem:iii-i7-1-3]] (a), (c),
 [[lem:iii-i8-2-5]]), both in ρ_+^(m_+−ε)H^k_b, and ζ^b_ν ∈ 𝒜^((λ,k)+ℱ). So the first term has plain ι⁺-weight
 Re λ + 2 + m_+ − 2ε > 4 (m_+ > 1); near K⁺, g_0 = g_b and h_tot(p⃗) = 0, so L_(h,p⃗) − L_b = L^(g_b+h,g_b) − L_b has
-coefficients of K⁺-weight a_K with norm O(‖h‖), and the first term has K⁺-weight Re λ − 1 + a_K − ε > a_K > α. The
-second term is supported in 𝒞, as g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_b) is supported in
-supp(1 − χ_K); δ*_(g_0,E_C) − δ*_(g_b,E_C) ∈ ρ_+³Diff¹_b near (ι⁺)° with seminorms O(|p⃗|), so the term has ι⁺-order
-Re λ + 4. Hence r^ν ∈ 𝒴_2(α) with norm at most C|S|(‖h‖ + |p⃗|), and |p⃗| ≤ |p⃗ − p⃗_b| + |b − b₀|. *The bound on E^ν.*
-By (P6), E^ν is supported in supp χ_K, of size O(|b − b₀||S|), and of K⁺-weight Re λ + 4 − ε > 3, the K⁺-order of the
-tops of the towers ([[eq:iii-i8-2-1]]). At ι⁺ the b-differences of the corrections and of the counterterms lie in
+coefficients of K⁺-weight a_K with norm O(‖h‖), and, ζ^b_ν being m_(λ,k)(S) there, of K⁺-weight Re λ − 1 − ε, the
+first term has K⁺-weight Re λ − 1 + a_K − ε > a_K > α, as α < a_K. ζ^b_ν vanishes near ℐ⁺, and the two weights
+combine at the corner of ι⁺ and K⁺ as in [[prop:iii-i-4-1]]. The second term is supported in 𝒞, as
+g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_b) is supported in supp(1 − χ_K);
+δ*_(g_0,E_C) − δ*_(g_b,E_C) ∈ ρ_+³Diff¹_b near (ι⁺)° with seminorms O(|p⃗|), so the term has ι⁺-order Re λ + 4. Hence
+r^ν ∈ 𝒴_2(α) with norm at most C|S|(‖h‖ + |p⃗|), and |p⃗| ≤ |p⃗ − p⃗_b| + |b − b₀|.
+
+*The bound on E^ν.* The b-differences h^((λ−1,k))_s1 − h^b_ν and ϑ^((λ−1,k))_(s1,♯) − ϑ^b_(ν,♯) are supported in 𝒞
+and in supp χ_K, and have every seminorm O(|b − b₀||S|), the towers being smooth in b ((P3)). Near K⁺ the corrections
+vanish, and the counterterms are ½□^Υ_(b₀)ω^(≤4)(a_(λ,k)S) and ½□^Υ_bω^b_ν(S), of K⁺-weight Re λ + 4 − ε by
+[[eq:iii-i8-2-1]] at b₀ and at b, the K⁺-order of the tops of the towers; δ*_(g_0,E_C) = δ*_(g_b,E_C) there is
+stationary and keeps that weight, which exceeds 3 > α. So E^ν is supported in supp χ_K, of size O(|b − b₀||S|) and of
+K⁺-weight Re λ + 4 − ε. At ι⁺ the b-differences of the corrections and of the counterterms lie in
 𝒜^((λ,k)+ℱ) and 𝒜^((λ+1,k)+ℱ) ((P3), [[lem:iii-i8-2-2]]); L_b and δ*_(g_0,E_C) add 2 and 1, and the parts of
 L_(h,p⃗) − L_b from h, h_tot and g_0 − g_b gain ρ_+^(m_+−ε). So below the weight 4 its exponents lie in
 (λ + 2, k) + ℱ ⊂ ℰ_++ + 2 ([[eq:iii-i8-1-1]]), and beyond them its plain weight exceeds 4. So E^ν ∈ 𝒴_2(α) with norm
@@ -964,8 +992,8 @@ every term of u_ι decays at K⁺ (weight at least min(λ_♯ − 1, α − 2) �
 
 *Step 3 (zero energy).* Steps 3–3.3 of the proof of [[prop:iii-i6-2-1]] apply to [[eq:iii-i8-3-2]] with α − ε′ for
 α_K (ε′ > 0 small, so α − ε′ ∈ (2, 3) with the same exclusions): they use α_K ∈ (2, 3) ∖ ℕ only ([[prop:ii-g1-3-3]]
-(1), [[lem:iii-i2-4-1]], [[prop:iii-g4-5-1]] with ℓ_zf = α_K − 2 ∉ ℕ₀ and w = α_K − 2 + ε, and the remainder weights
-of [[eq:iii-i6-2-4]]). They give û_0, ḃ_0, S_0 = 0 (the argument there: u has K⁺-weight > −1), û′_3, Σ_3,
+(1), [[lem:iii-i2-4-1]] in its statement at b, [[prop:iii-i2-5-1-b]], [[prop:iii-g4-5-1]] with ℓ_zf = α_K − 2 ∉ ℕ₀ and
+w = α_K − 2 + ε, and the remainder weights of [[eq:iii-i6-2-4]]). They give û_0, ḃ_0, S_0 = 0 (the argument there: u has K⁺-weight > −1), û′_3, Σ_3,
 (û_4, b̂_4, Ŝ_4) and
 
     f̂_5 ∈ H^(∞,(5/2−ε,τ_0,α−2−ε′))_b,     τ_0 := 2 + ε_ind − 2ε     ([[eq:iii-i6-2-7]]).
@@ -987,7 +1015,7 @@ r(v′_i) = O(|σ|^(α_i−2)), and Σ^((i)) = O(|σ|^(α_i−1)). Put
 The increments are below 1 (ε_ind < 1: the class roots of the table of [[sec:iii-g2-1]] are not integers, and
 [[sec:iii-g4-3]] places every {−μ} at 0 or in [ε_ind, 1 − ε_ind]), so after finitely many steps, i_0 say,
 τ_(i_0) ∈ (α − ε′, α − ε′ + 1) (i_0 = 0 if τ_0 > α − ε′, which is the case α_K < 2 + ε_ind of
-[[prop:iii-i6-2-1]]). Then [[lem:iii-i2-4-2]] with β_scf := 3/2 − 2ε, β_tf := τ_(i_0) − 2, β_zf := α − 2 − ε′,
+[[prop:iii-i6-2-1]]). Then [[lem:iii-i2-4-2]] (at b, [[prop:iii-i2-5-1-b]]) with β_scf := 3/2 − 2ε, β_tf := τ_(i_0) − 2, β_zf := α − 2 − ε′,
 β_tf − β_zf ∈ (0, 1), gives (û_6, b̂_6, Ŝ_6) := L̃_b(σ)⁻¹(f̂^((i_0)), 0, 0),
 û_6 ∈ H^(∞,(3/2−3ε,τ_(i_0)−2,α−2−ε′))_b, b̂_6, Ŝ_6 ∈ H^(∞,α−2−ε′)_b(±(0, c], |dσ/σ|). With
 (U^((i)), B^((i)), Σ^((i))_r) := L̃_b(σ)⁻¹(0, σr(v′_i)),
@@ -1017,7 +1045,9 @@ being independent and h_b injective. *Step 8.* The ℐ⁺-data of ũ follow from
 proof of [[prop:iii-i6-2-1]] (χ_K = 0 near ℐ⁺). *Determination, linearity, bounds.* The S_(λ,k) are the coefficients
 of the K⁺-expansion of u below α − 2; every map used is linear, and fixed by L_b, given by L − L_b, or
 [[prop:iii-i1-2-1]] applied to L (Step 8), with coefficient bounds uniform for small (h, p⃗) and b ∈ ℬ̄_*
-([[lem:iii-i8-2-5]], [[lem:iii-i7-2-5]] (c), [[lem:iii-i15-1-1]] (P1)–(P4)). ∎
+([[lem:iii-i8-2-5]], [[lem:iii-i7-2-5]] (c), [[lem:iii-i15-1-1]] (P1)–(P4), and [[prop:iii-i2-5-1-b]] for
+[[prop:iii-i1-2-1]] at b). The coefficients are read from f′ of Step 0, so for a forcing F with forward solution u
+they are bounded by C‖f′‖_(𝒴(α)) ≤ C‖F‖_(𝒴(α)) + C(‖h‖ + |p⃗|)‖u‖_(α′), the last term by the count of Step 0. ∎
 
 At a base point with parameter b no rotation row has rate below α − 2 for α < 3 (its K⁺-weight is Re λ − ε > 1); so
 [[lem:iii-i8-3-2]] holds at b as at b₀, with the states at b.
@@ -1084,10 +1114,19 @@ solution of L_(h,p⃗)u = G_1(S⃗) is Σ_ν m_ν(S_ν) + v(S⃗), where v(S⃗)
 
     L_(h,p⃗)v(S⃗) = R(S⃗) := Σ_ν e^ν_(h,p⃗)(S_ν) − D_p⃗P_3(h, p⃗)(p⃗′_(h,p⃗,α′)(Σ_ν e^ν_(h,p⃗)(S_ν))).
 
-By [[lem:s21-motions-at-b]] and (i) at α′, ‖R(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S⃗|. The forward solution
-of G_1(S⃗) = G(0) − G(S⃗) is u(0) − u(S⃗), which lies in [[eq:iii-i8-4-2]] at α′, and so does Σ_ν m_ν(S_ν); hence v(S⃗)
-satisfies the hypothesis of [[lem:iii-i8-3-2]]. Its coefficients S^(h,p⃗)(R(S⃗)) are at most C‖R(S⃗)‖_(𝒴(α″)), by the
-uniform bounds of [[lem:iii-i8-3-2]], and the coefficients of Σ_ν m_ν(S_ν) are S⃗, by [[eq:iii-i8-2-2]] at b
+By [[lem:s21-motions-at-b]] (α″ < min(a_K, 3)) and (i) at α′, ‖R(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S⃗|.
+The forward solution of G_1(S⃗) = G(0) − G(S⃗) is u(0) − u(S⃗), which lies in [[eq:iii-i8-4-2]] at α′, and so does
+Σ_ν m_ν(S_ν); hence v(S⃗) = u(0) − u(S⃗) − Σ_ν m_ν(S_ν) satisfies the hypothesis of [[lem:iii-i8-3-2]]. Moreover
+‖v(S⃗)‖_(α′) ≤ C|S⃗|: u(0) − u(S⃗) is the solution of [[eq:iii-i8-4-1]] at α′ for the forcing Σ_ν f^ν_(h,p⃗)(S_ν), of
+norm at most C|S⃗| by [[lem:iii-i8-2-6]] (b), so (i) at α′ bounds it by C|S⃗|, and ‖m_ν(S_ν)‖_(α′) ≤ C|S_ν| by
+[[lem:iii-i8-2-2]]. The coefficients of [[lem:iii-i8-3-2]] are read from the forcing f′ = R(S⃗) − (L_(h,p⃗) − L_b)v(S⃗)
+of Step 0 of its proof by maps fixed by L_b, and the count of that step gives
+‖(L_(h,p⃗) − L_b)v(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗|)‖v(S⃗)‖_(α′), the coefficients of L_(h,p⃗) − L_b having size
+O(‖h‖ + |p⃗|). So the coefficients of v(S⃗) satisfy
+
+    |S^(h,p⃗)(R(S⃗))| ≤ C‖R(S⃗)‖_(𝒴(α″)) + C(‖h‖ + |p⃗|)‖v(S⃗)‖_(α′) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S⃗|,
+
+as |p⃗| ≤ |p⃗ − p⃗_b| + |b − b₀|; and the coefficients of Σ_ν m_ν(S_ν) are S⃗, by [[eq:iii-i8-2-2]] at b
 (Re λ − ε > α″ − 2). So
 
     |T_(h,p⃗) − id| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|),
