@@ -74,7 +74,8 @@ so that w > 2 + ε_t by [[thm:viii-2-2]] (4). For a tensor field u put
 𝒫_j ranging over the products of j of the operators ℒ_(∂_v), ℒ_(∂_r) (the coordinate fields of (v, r, x/r)) and the
 Lie derivatives along the rotation fields Ω_ij = x^i∂_j − x^j∂_i, and |·| the Euclidean norm of the components in the
 coordinates (t, x). (In |·|_k and k₁(k) the letter k counts derivatives; elsewhere k := (l(l + 2))^(1/2) is the number
-of [KI03] for a harmonic of degree l.) On {r_♭ ≤ r ≤ R′} these operators and ∂_t, ∂_(x^i) span the same module over functions with bounded
+of [KI03] for a harmonic of degree l.)
+On {r_♭ ≤ r ≤ R′} these operators and ∂_t, ∂_(x^i) span the same module over functions with bounded
 derivatives, and ∂_t = t_*⁻¹ (t_*∂_(t_*)) at fixed x. So [[eq:viii-2-3]] with ḃ = (ṁ, 0) reads: for every k, R′ and
 ε′ > 0 there are C, k₁ = k₁(k) and T′ with
 

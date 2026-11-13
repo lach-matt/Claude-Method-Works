@@ -653,9 +653,70 @@ gives
 0 ≤ χ̃_j ≤ 1, χ_j fg = (χ̃_j f)(χ_j g), and ‖χ̃_j f‖_(H^s(X)) ≤ (4R + 1)^k ‖f‖_(H^s_ul(X)). Applying (2) to χ̃_j f and
 χ_j g and taking the supremum over j gives the bound. ∎
 
+**Theorem {#thm:std-gn-moser}** (Products of derivatives.) Let s ≥ 1 be an integer.
+
+(1) There is C, depending only on n and s, such that for f, g ∈ H^s(ℝⁿ) ∩ L^∞(ℝⁿ) and multi-indices α, β with
+|α| + |β| ≤ s, ∂^α f ∂^β g ∈ L²(ℝⁿ) and
+
+    ‖∂^α f ∂^β g‖_(L²) ≤ C (‖f‖_(L^∞) ‖g‖_(H^s) + ‖f‖_(H^s) ‖g‖_(L^∞)).      {#eq:std-gn-moser}
+
+(2) In the setting of [[cor:std-moser-product]] (2) there is C such that for f, g ∈ H^s(X) ∩ L^∞(X) and V_1, …, V_p,
+V′_1, …, V′_q ∈ 𝒱 with p + q ≤ s,
+
+    ‖(V_1 ⋯ V_p f)(V′_1 ⋯ V′_q g)‖_(L²(X)) ≤ C (‖f‖_(L^∞) ‖g‖_(H^s(X)) + ‖f‖_(H^s(X)) ‖g‖_(L^∞)).
+
+*Proof.* (1) We use the norm ‖u‖²_(H^s) := Σ_(|γ|≤s) ‖∂^γ u‖²_(L²), equivalent to that of [[eq:std-moser]] by
+Plancherel's theorem. Splitting f and g into real and imaginary parts, which increases neither norm, we may take f
+and g real-valued, at the cost of a factor 4 in C. If |α| + |β| = s′ < s, the claim at the order s′ (or, for s′ = 0,
+‖fg‖_(L²) ≤ ‖f‖_(L^∞) ‖g‖_(L²)) gives the claim at the order s, as ‖·‖_(H^(s′)) ≤ ‖·‖_(H^s). So let |α| + |β| = s, and
+let f and g first be real Schwartz functions.
+
+*An interpolation inequality.* For 0 ≤ j ≤ s put p_j := 2s/j (p_0 := ∞) and a_j := max_(|γ|=j) ‖∂^γ f‖_(L^(p_j)).
+Let 1 ≤ j ≤ s − 1 and p := p_j, so 2 < p ≤ 2s. Let |γ| = j, write ∂^γ = ∂_k ∂^(γ′) with |γ′| = j − 1, and put
+u := ∂^(γ′) f. The function τ ↦ τ|τ|^(p−2) on ℝ is C¹ with derivative (p − 1)|τ|^(p−2), so integration by parts gives
+
+    ∫ |∂_k u|^p dx = ∫ ∂_k u · ∂_k u |∂_k u|^(p−2) dx = −(p − 1) ∫ u · ∂_k² u · |∂_k u|^(p−2) dx.
+
+Hölder's inequality with the exponents p_(j−1), p_(j+1) and p/(p − 2), whose reciprocals add to
+(j − 1)/(2s) + (j + 1)/(2s) + 1 − j/s = 1, gives ‖∂_k u‖^p_(L^p) ≤ (p − 1) ‖u‖_(L^(p_(j−1))) ‖∂_k² u‖_(L^(p_(j+1)))
+‖∂_k u‖^(p−2)_(L^p). As ∂_k² u is a derivative of f of order j + 1, this is a_j² ≤ 2s a_(j−1) a_(j+1). If f ≠ 0,
+every a_j is positive, since a Schwartz function whose derivatives of order j all vanish is a polynomial, hence 0.
+Then d_j := log a_j + ½ j² log(2s) satisfies d_(j−1) + d_(j+1) − 2d_j ≥ 0 for 1 ≤ j ≤ s − 1, so (d_j) is convex on
+{0, 1, …, s} and d_j ≤ (1 − j/s) d_0 + (j/s) d_s, that is,
+
+    a_j ≤ (2s)^(j(s−j)/2) a_0^(1−j/s) a_s^(j/s),      0 ≤ j ≤ s,
+
+which holds trivially if f = 0. Here a_0 = ‖f‖_(L^∞) and a_s ≤ ‖f‖_(H^s); the same holds for g.
+
+*The product.* Put θ := |α|/s ∈ [0, 1], so |β|/s = 1 − θ. Hölder's inequality with the exponents p_(|α|) and p_(|β|),
+whose reciprocals add to 1/2, and the interpolation inequality for f and for g give
+
+    ‖∂^α f ∂^β g‖_(L²) ≤ ‖∂^α f‖_(L^(p_(|α|))) ‖∂^β g‖_(L^(p_(|β|)))
+                       ≤ C (‖f‖_(L^∞)^(1−θ) ‖f‖_(H^s)^θ)(‖g‖_(L^∞)^θ ‖g‖_(H^s)^(1−θ))
+                       = C (‖f‖_(H^s) ‖g‖_(L^∞))^θ (‖f‖_(L^∞) ‖g‖_(H^s))^(1−θ),
+
+and x^θ y^(1−θ) ≤ θx + (1 − θ)y for x, y ≥ 0 gives [[eq:std-gn-moser]].
+
+*General f and g.* Let f_ℓ, g_ℓ be the Schwartz functions of the proof of [[cor:std-moser-product]] (1); they are real
+when f and g are, ‖f_ℓ‖_(L^∞) ≤ ‖f‖_(L^∞), ‖g_ℓ‖_(L^∞) ≤ ‖g‖_(L^∞), and f_ℓ → f, g_ℓ → g in H^s. Then ∂^α f_ℓ → ∂^α f
+and ∂^β g_ℓ → ∂^β g in L², hence almost everywhere along a subsequence, and Fatou's lemma gives
+‖∂^α f ∂^β g‖_(L²) ≤ lim inf ‖∂^α f_ℓ ∂^β g_ℓ‖_(L²), which is at most the right side of [[eq:std-gn-moser]].
+
+(2) Let κ_i, φ_i, ψ_i and v ↦ v^(i) be as in the proof of [[cor:std-moser-product]] (2), and
+Π := (V_1 ⋯ V_p f)(V′_1 ⋯ V′_q g). As Σ_i φ_i² = 1, ‖Π‖²_(L²(X)) = Σ_i ‖φ_i Π‖²_(L²(X)). As ψ_i = 1 near supp φ_i,
+on a neighbourhood of supp φ_i we have Π = (V_1 ⋯ V_p(ψ_i f))(V′_1 ⋯ V′_q(ψ_i g)). In the coordinates (z, κ_i) on
+ℝ^k × supp ψ_i, V_1 ⋯ V_p = Σ_(|γ|≤p) c_γ ∂^γ and V′_1 ⋯ V′_q = Σ_(|δ|≤q) e_δ ∂^δ with coefficients bounded there,
+the fields of 𝒱 having coefficients bounded with all their derivatives. So (φ_i Π)^(i) is a finite sum of terms
+b ∂^γ F_i ∂^δ G_i with b bounded, |γ| + |δ| ≤ s, F_i := (ψ_i f)^(i) and G_i := (ψ_i g)^(i). By (1), and as the
+measure has a density bounded above and below,
+
+    ‖φ_i Π‖_(L²(X)) ≤ C (‖F_i‖_(L^∞) ‖G_i‖_(H^s) + ‖F_i‖_(H^s) ‖G_i‖_(L^∞)).
+
+Finally ‖F_i‖_(L^∞) ≤ C ‖f‖_(L^∞) and ‖F_i‖_(H^s) ≤ C ‖ψ_i f‖_(H^s(X)) ≤ C ‖f‖_(H^s(X)), by the chart comparison and
+the boundedness of multiplication by ψ_i recorded in that proof; likewise for G_i. ∎
+
 **Theorem {#thm:std-kato-ponce}** ([GO13, p. 1].) Grafakos and Oh recall the commutator estimate of Kato and Ponce
-(T. Kato, G. Ponce, Comm. Pure Appl. Math. 41 (1988) 891–907): with J^s := (1 − Δ)^(s/2) on ℝⁿ, for Schwartz functions
-f and g,
+[KP88]: with J^s := (1 − Δ)^(s/2) on ℝⁿ, for Schwartz functions f and g,
 
     ‖J^s(f g) − f (J^s g)‖_(L^p) ≤ C [‖∇f‖_(L^∞) ‖J^(s−1) g‖_(L^p) + ‖J^s f‖_(L^p) ‖g‖_(L^∞)]
 
