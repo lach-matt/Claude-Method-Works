@@ -2328,9 +2328,8 @@ for h < h_1 := min(h_c, (4C)^(−1/M), (4CC_K)⁻¹).
 [[eq:i-b-8-chain]] before absorption in the proof of [[prop:i-b-8-1]], in its parts (a)–(c) (with δ = 0 in (b) and
 (c)), h_c the least of their thresholds, C_K the constant of the absorption step [[eq:i-b-8-absorb]] there, h_1 as in
 (b), and C_0 := h_1⁻¹(1 − ν′²)^(−1/2), where ν′ ∈ (0, 1) is the constant of [[thm:i-b-1-3]] (2) used in
-[[sec:i-b-8-4]]. Then for Im σ ≥ 0 and |σ| ≥ C_0, with h = h(σ) and
-z = hσ as in [[sec:i-b-8-4]], ‖·‖_𝐨 and ‖·‖_(𝐨′) the semiclassical norms at that h, and δ ∈ [0, 1] the loss of
-[[eq:i-b-8-1]] at z,
+[[sec:i-b-8-4]]. Then for Im σ ≥ 0 and |σ| ≥ C_0, with h = h(σ) and z = hσ as in [[sec:i-b-8-4]], ‖·‖_𝐨 and ‖·‖_(𝐨′)
+the semiclassical norms at that h, and δ ∈ [0, 1] the loss of [[eq:i-b-8-1]] at z,
 
     ‖u‖_𝐨 ≤ 2C(1 − ν′²)^(−(1−δ)/2) |σ|^(−1+δ) ‖P̂(σ)u‖_(𝐨′).                                 {#eq:rb-high-energy}
 
@@ -2361,7 +2360,8 @@ Then [[eq:i-b-6-11]] holds with the constant 4F_ΓC′_a: for h ≤ h_0/2 and z 
 *Proof.* Let z_0 = 1; for z_0 = −1 the same argument runs with Re σ ≤ −h_0⁻¹ and the rectangle reflected in the
 imaginary axis. Let σ_0 ≥ h_0⁻¹, so σ_0 ≥ 1, and w ∈ L². Apply [[lem:i-b-6-6]] to F(ζ) := P̂′(3σ_0 + iβ + κ_Γζ)⁻¹w on
 the rectangle [−L, L] + i[0, 1], L := 2σ_0/κ_Γ, where Re σ ∈ [σ_0, 5σ_0] and Im σ ∈ [β, β′]. F is holomorphic near the
-rectangle, as P̂′(σ) is a polynomial in σ and is invertible on an open set containing this range ([[prop:i-b-6-7]]).
+rectangle: P̂′(σ) is a polynomial in σ, invertible on this range (where the bound C′_a holds), and invertibility is an
+open condition.
 There ‖F‖ ≤ A := C′_a‖w‖, and ‖F‖ ≤ A_0 := C′_a‖w‖ on Im ζ = 0 and ‖F‖ ≤ A_1 := C′_aσ_0⁻¹‖w‖ on Im ζ = 1, since
 the modulus of σ is at least σ_0 there; A_1 ≤ A since σ_0 ≥ 1, and the Λ of [[lem:i-b-6-6]] is
 Λ_0 := log(A/A_1) = log σ_0. With t := Im ζ = (Im σ − β)/κ_Γ ∈ [0, 1] and πL/4 = πσ_0/(2κ_Γ), the lemma gives, for
@@ -2377,9 +2377,9 @@ Hence F_Γ ≤ exp(3g(s_*)) ≤ exp(0.0026510) < 1.002659. ∎
 
 At b_0 with m_0 = 1, q^Γ = 4 on Γ and ν_min = 2^(3/2) ([[thm:vi-a-6-1]]), so the function of (Γ.4) decreases at
 exactly the rate 4 from its value sup_Γ λ_max(p_1^Γ) at 0, whatever the fibre inner product, and
-γ_+ − γ_− = ν_min/8 = 2^(−3/2). For the
-choice β = γ_− + ϵ, β′ = γ_+ + ϵ of [[prop:i-b-6-7]], κ_Γ = 2^(−3/2), and [[eq:i-b-6-11]] holds with the constant
-4.01064 C′_a for every operator with principal symbol G Id at b_0, once h_0 ≤ 1.
+γ_+ − γ_− = ν_min/8 = 2^(−3/2). For the choice β = γ_− + ϵ, β′ = γ_+ + ϵ of [[prop:i-b-6-7]], κ_Γ = 2^(−3/2), and
+[[eq:i-b-6-11]] holds with the constant 4.01064 C′_a for every operator with principal symbol G Id at b_0, once h_0 ≤ 1
+(4 · 1.002659 = 4.010636).
 
 **Lemma {#lem:rb-gluing}** (Gluing through complex absorption.) Let 𝒳, 𝒴, 𝒵 be Banach spaces, P̂ : 𝒳 → 𝒴 bounded,
 W : 𝒵 → 𝒵 and j : 𝒳 → 𝒵 linear, and k linear from W(𝒵) into 𝒴, such that Wj : 𝒳 → 𝒵 and kW : 𝒵 → 𝒴 are bounded.
@@ -2619,9 +2619,9 @@ as a scalar on the trace-free angular tensors; on the block it acts on the coeff
 these three restrictions, which by the above are triangular with diagonal entries 2 − 2x (dv²), 0 (dv dr),
 −(1 − e_C)x (T) and −2 (dr²); 1 − x and −1; and 0. This is the list. If c_Υ = ζr⁻¹dt near r_h, then at r_h,
 c_Υ = ζ_h(dv − dr) and g⁻¹c_Υ = ζ_h(∂_r − ∂_v), and the principal symbol of 2δ*E^Υ_∞G at ξdr adds to K the term
-K_∞h = −ζ_hγ_Υ r_h dr ⊗_s (2ι_(∂_r−∂_v)h − e_Υ(dv − dr) tr h) ([[eq:iii-b-6-5]]). For the grading above (weights
-1, −1, 0 for dv, dr and the angular covectors), its part with ι_(∂_r) and its part with
-e_Υ dr ⊗_s dv preserve the weight and the others lower it by 2, so K stays block triangular. The weight-preserving
+K_∞h = −ζ_hγ_Υ r_h dr ⊗_s (2ι_(∂_r−∂_v)h − e_Υ(dv − dr) tr h) ([[eq:iii-b-6-5]]). For the grading above, its part
+with ι_(∂_r) and its part with e_Υ dr ⊗_s dv preserve the weight and the others lower it by 2, so K stays block
+triangular. The weight-preserving
 part adds −ζ_hγ_Υ on dr ⊗_s e (ι_(∂_r)(dr ⊗_s e) = ½e) and −2ζ_hγ_Υ on dr², nothing on dv² and dv ⊗_s e, and on the
 weight-zero span of dv dr and T it adds −ζ_hγ_Υ(1 − e_Υ) on dv dr (ι_(∂_r)(dv dr) = ½dv and tr(dv dr) = 1) and maps T
 to 3ζ_hγ_Υe_Υ dv dr, which keeps that block triangular. Adding these to the diagonal entries above gives the second
@@ -2653,7 +2653,7 @@ admissible choice of the free gauge data,
 
     inf_(H≠0) ‖L_lH‖_Y/‖H‖_X ≤ |N^n_l(β)v|/((1 + β² + κ)^(1/2)|v|),
 
-the infimum over the smooth H with compact support in {r ≥ R}, for any R; at l = 0 also over the H = H′ + w with H′
+the infimum over the smooth H with compact support in {r ≥ R}, for any R; at l = 0 also over the H = H_c + w with H_c
 smooth with compact support in {r ≥ R} and w ∈ V that are orthogonal in X to V, for any finite-dimensional subspace V
 of X with L_l(V) ⊂ Y.
 

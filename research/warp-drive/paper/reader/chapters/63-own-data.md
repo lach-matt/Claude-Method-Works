@@ -454,18 +454,19 @@ r ∈ [y_*⁻², 4y_*⁻²], in the far region for λ small since K − 3 + M > 
 at i + 1 ≤ j + 1 gives (K − 4 − i)(1 − θ_k) > (M + i + 1) θ_k, that is
 (K − 3 − i)(1 − θ_k) − (M + i)θ_k > (1 − θ_k) + θ_k = 1.
 
-(2) Let R := λ^(−s_R), which lies in the far region for λ small as s_R ≥ 5/2. *Above R*, by the bounds of e_(8) after
-[[eq:own-e-expansion]] with the ℓ-gain, and Z = rℓ on N (Z(v − v1) = v − v1 and Z = (v − v1)∂_v + rℓ in (v, r, x̂)), the
-integrand of [[eq:own-flux-n]] for Γ^α e_(8), |α| ≤ j, is at most C λ^(−2M) r^(2a−11+3), and its integral over r ≥ R is
-C λ^(−2M) R^(2a−7) = C λ^(−2M + s_R(7−2a)) ≤ C λ, by the choice of s_R. *Below R*, write Γ^α e_(8) = Γ^α e −
-Σ_(k=4)^8 Γ^α(r^(−k/2) e_k). For Γ^α e: Z = rℓ costs a factor r and a derivative, ∂_t a derivative, Ω nothing; on N ∩ Ω′
-the bounds of [[thm:uniform-existence]] at order k_P hold with λ^(K−3−i), and on N ∩ P′ [[eq:own-p-iii]] holds; so every
-derivative in [[eq:own-flux-n]] of Γ^α e is at most C r^j λ^(K−4−j) r⁻², and its integral over r ≤ R is at most
-C λ^(2(K−4−j)) R^(2a+2j) = C λ^(2(K−4−j−s_R(a+j))) → 0 by the first entry of [[eq:own-kstar]]. For Γ^α(r^(−k/2) e_k(v,
-x̂)) on N: ∂_t acts as ∂_v on e_k, Ω on x̂, and Z = rℓ multiplies r^(−k/2) by −k/2; the tangential derivatives in
-[[eq:own-flux-n]] gain r⁻¹ and the transverse one costs one more ∂_v. So the integrand is at most C r^(2a+1−k)
-times |∂_v^i Ω^β e_k(v1)|² with i ≤ j + 1, and the integral over r ≤ R is at most C R^(max(0, 2a+2−k)) (1 + log R)
-λ^(2((K−3−i)(1−θ_k) −(M+i)θ_k)), which tends to 0 by the second entries of [[eq:own-kstar]]. ∎
+(2) Let R_λ := λ^(−s_R), which lies in the far region for λ small as s_R ≥ 5/2. *Above R_λ*, by the bounds of e_(8)
+after [[eq:own-e-expansion]] with the ℓ-gain, and Z = rℓ on N (Z(v − v1) = v − v1 and Z = (v − v1)∂_v + rℓ in
+(v, r, x̂)), the integrand of [[eq:own-flux-n]] for Γ^α e_(8), |α| ≤ j, is at most C λ^(−2M) r^(2a−11+3), and its
+integral over r ≥ R_λ is C λ^(−2M) R_λ^(2a−7) = C λ^(−2M + s_R(7−2a)) ≤ C λ, by the choice of s_R. *Below R_λ*, write
+Γ^α e_(8) = Γ^α e − Σ_(k=4)^8 Γ^α(r^(−k/2) e_k). For Γ^α e: Z = rℓ costs a factor r and a derivative, ∂_t a derivative,
+Ω nothing; on N ∩ Ω′ the bounds of [[thm:uniform-existence]] at order k_P hold with λ^(K−3−i) ([[cor:own-p-order]]), and
+on N ∩ P′ [[eq:own-p-iii]] holds; so every derivative in [[eq:own-flux-n]] of Γ^α e is at most C r^j λ^(K−4−j) r⁻², and
+its integral over r ≤ R_λ is at most C λ^(2(K−4−j)) R_λ^(2a+2j) = C λ^(2(K−4−j−s_R(a+j))) → 0 by the first entry of
+[[eq:own-kstar]]. For Γ^α(r^(−k/2) e_k(v, x̂)) on N: ∂_t acts as ∂_v on e_k, Ω on x̂, and Z = rℓ multiplies r^(−k/2) by
+−k/2; the tangential derivatives in [[eq:own-flux-n]] gain r⁻¹ and the transverse one costs one more ∂_v. So the
+integrand is at most C r^(2a+1−k) times |∂_v^i Ω^β e_k(v1)|² with i ≤ j + 1, and the integral over r ≤ R_λ is at most
+C R_λ^(max(0, 2a+2−k)) (1 + log R_λ) λ^(2((K−3−i)(1−θ_k) −(M+i)θ_k)), which tends to 0 by the second entries of
+[[eq:own-kstar]]. ∎
 
 ### The subtracted expansion and the data on N {#sec:own-sigma}
 
@@ -485,7 +486,7 @@ gives, for G_l of degree l (Δ̊ G_l = −l(l + 2) G_l),
 
 With y := s/2 the bracket vanishes exactly when y(1 − y) F_yy + (p − ½)(1 − 2y) F_y − (p² − 2p − l(l + 2)) F = 0, the
 hypergeometric equation [DLMF, (15.10.1)] with a = p + l, b = p − l − 2, c = p − ½ (a + b + 1 = 2p − 1,
-ab = p² − 2p − l(l + 2)). Its exponents at y = 0 are 0 and 1 − c = 3/2 − p < 0; c is not a nonpositive integer, so the
+ab = p² − 2p − l(l + 2)); in this proof (a, b, c) are the parameters of [DLMF], not the weight a. Its exponents at y = 0 are 0 and 1 − c = 3/2 − p < 0; c is not a nonpositive integer, so the
 solutions bounded at y = 0 are the multiples of ₂F₁(a, b; c; y), analytic for |y| < 1. This gives existence and
 uniqueness harmonic by harmonic, and [[eq:own-2f1]] once the sum converges.
 
@@ -503,24 +504,21 @@ the energy bound controls for (l + 1)² > (p + i − 1)². For the finitely many
 modulus, by the Cauchy–Schwarz inequality with Σ_l (1 + l)⁻² < ∞. The series converges with all derivatives, and F
 is smooth on [0, 3/2] × S³. ∎
 
-Such an F extends smoothly to s ∈ (−1, 2), with the same bounds, by a reflection extension in s across s = 0; the
-extension does not solve the equation for s < 0, and only its values on s ≥ 0 are used below.
-
 **Definition {#def:own-sigma}** (the subtracted expansion). Let Π := {2, 5/2, 3, 7/2, 4}. For p ∈ Π let F_p be the
 solution of [[lem:own-self-similar]] with F_p(0, ·) = G_(2p)(v1, ·), the coefficient of r^(−p) of g_λ − g0 at v = v1
 ([[prop:bondi-hierarchy]]), and put
 
     Σ_p := r^(−p) F_p(s, x̂),     Σ := Σ_(p∈Π) Σ_p,     h_R := g − g_b0 − Σ,                              {#eq:own-sigma}
 
-for a metric g on W. All five Σ_p solve □_η Σ_p = 0: this is the second choice of Σ_4 in Section [[sec:far-homogeneity]]
-(□_η Σ_4 = 0), for which [[prop:far-residual]] gives |Π_i (Γ_i + c_i) P(Σ)| ≤ C_α λ r⁻⁶ and [[cor:far-kernels]] the
-kernel κ_Σ(σ) = C λ (1 + |σ|)^(a−4).
+for a metric g on W. All five Σ_p solve □_η Σ_p = 0, Σ_4 included; [[prop:far-residual]] gives
+|Π_i (Γ_i + c_i) P(Σ)| ≤ C λ r⁻⁶ and [[cor:far-kernels]] the kernel κ_Σ(σ) = C λ (1 + |σ|)^(a−4), and
+[[rem:far-window-sigma4]] compares other choices of Σ_4.
 
 **Lemma {#lem:own-sigma-data}** (the size of Σ). Under the hypotheses of [[thm:own-data]], for λ small:
 (a) ‖G_(2p)(v1)‖_(C^(2k1+10)(S³)) ≤ C λ for p ∈ Π, and ‖G_5(v1)‖_(C^m(S³)) = O(λ^n) for all m, n;
 (b) Σ_p = λ Σ̂_p, where every Cartesian derivative of order at most k1 + 4 of Σ̂_p is bounded on
-{r = 1, 0 ≤ s ≤ 3/2} independently of λ; hence on W ∩ {r ≥ 1}, |∂^j Σ_p| ≤ C_j λ r^(−p−j) and |Γ^α Σ_p| ≤ C_α λ r^(−p)
-for j, |α| ≤ k1 + 4;
+{r = 1, 0 ≤ s ≤ 3/2} independently of λ, and at fixed λ every derivative of Σ̂_p is bounded there; hence on
+W ∩ {r ≥ 1}, |∂^j Σ_p| ≤ C_j λ r^(−p−j) and |Γ^α Σ_p| ≤ C_α λ r^(−p) for j, |α| ≤ k1 + 4;
 (c) Σ is G-invariant.
 
 *Proof.* (a) By [[eq:own-e-expansion]], G_(2p)(v1) = Σ_j λ^j M_(j,2p)(v1) + e_(2p)(v1). The first sum consists of smooth
@@ -529,10 +527,12 @@ k_P − 4 gives |Ω^β e_(2p)(v1)| ≤ C λ^(1+). G_5(v1) = G_5^∞ ([[prop:own-
 [[prop:own-tail]] (c) holds with every x̂-derivative, a_1 and a_3 depending smoothly on x̂ through smooth factors.
 (b) On {r = 1, 0 ≤ s ≤ 3/2} a Cartesian derivative of order j of r^(−p) F_p(s, x̂) is a combination, with bounded
 coefficients, of ∂_s^i Ω^β F_p with i + |β| ≤ j; by [[lem:own-self-similar]] these are at most C ‖G_(2p)(v1)‖_(C^(2j+2)),
-which is O(λ) for j ≤ k1 + 4 by (a). The bounds on W ∩ {r ≥ 1} follow by the homogeneity of Σ_p of degree −p under the
-dilation of Section [[sec:far-homogeneity]], which maps {r = 1, 0 ≤ s ≤ 3/2} onto {r = ς, 0 ≤ s ≤ 3/2}, together with
-[[lem:own-wedge]] (b). (c) g_λ is G-invariant (item 5 of [[thm:past-construction]]; T² × Z2 × Z2 is G), so are the
-coefficients of its expansion, and the equation of [[lem:own-self-similar]] commutes with G. ∎
+which is O(λ) for j ≤ k1 + 4 by (a); at fixed λ, G_(2p)(v1) is smooth ([[prop:bondi-hierarchy]]), so every such
+derivative is bounded. The bounds on W ∩ {r ≥ 1} follow by the homogeneity of Σ_p of degree −p under the dilation of
+Section [[sec:far-homogeneity]], which maps {r = 1, 0 ≤ s ≤ 3/2} onto {r = ς, 0 ≤ s ≤ 3/2}, together with
+[[lem:own-wedge]] (b). (c) g_λ is invariant under T² and the two reflections (item 5 of [[thm:past-construction]]),
+which generate G; so are the coefficients of its expansion, and the equation of [[lem:own-self-similar]] commutes with
+G. ∎
 
 **Lemma {#lem:own-n-data}** (the remainder on N and on the band). Let 𝒰 := (P′ ∪ Ω′) ∩ {v1 ≤ v ≤ V′_P − h_P(τ)} ∩ W,
 on which g_λ is defined, and put h_R := g_λ − g_b0 − Σ there.

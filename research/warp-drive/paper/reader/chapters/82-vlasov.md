@@ -880,7 +880,7 @@ and the others in sup norm, with ‖Y‖_(⌊k/2⌋+1),∞ ≤ C λ⁻² ‖V‖
 
     ‖G(·, Y)‖_(k) ≤ C_2 λ⁻² ‖V‖²_(𝒴_k).
 
-By (R1), ‖(𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0))‖_(k) ≤ C_3 ε. So sup_r ‖N(V)‖_(k) ≤ C_3 ε + C_2 λ⁻² ‖V‖²_(𝒴_k).
+By (R1) of the proof of [[lem:vlasov-scaled-evolution]], ‖(𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0))‖_(k) ≤ C_3 ε. So sup_r ‖N(V)‖_(k) ≤ C_3 ε + C_2 λ⁻² ‖V‖²_(𝒴_k).
 
 *Boundedness.* Let C be the constant of [[eq:vlasov-scaled-bound]] at the index k and C_1 := C (b1 − a)^(1/2) C_3. If
 ‖U_i‖_(𝒴_k) ≤ 2 C_1 ε ≤ η1 λ³, then [[lem:vlasov-scaled-evolution]] applies with V := U_i and gives ‖U_(i+1)‖_(𝒴_k) ≤
@@ -891,11 +891,13 @@ C (b1 − a)^(1/2) (C_3 ε + C_2 λ⁻² 4 C_1² ε²) ≤ 2 C_1 ε for ε ≤ �
 (N(U_i) − N(U_(i−1))). The first term is a sum of products (Δc) Z, with Δc := c(U_i) − c(U_(i−1)) for c one of p, P,
 B^C, f̂, and Z := ∂_r α_i, ∇²α_i, ∇w_i, ∂_r α_i respectively. Writing Δc as ∫_0^1 ∂_y c dσ applied to the difference of
 the arguments, ‖Δc‖_(j) ≤ C ‖δ_i‖_(𝒴_j) and ‖Δc‖_(⌊j/2⌋),∞ ≤ C λ⁻² ‖δ_i‖_(𝒴_j) (as above, ⌊j/2⌋ + 3 ≤ j). By (P2),
-‖(Δc) Z‖_(j) ≤ C λ⁻² ‖δ_i‖_(𝒴_j) (‖Z‖_(j) + ‖Z‖_(⌊j/2⌋),∞); for Z = ∇w_i, ‖Z‖_(j) + ‖Z‖_(⌊j/2⌋),∞ ≤ C λ⁻³ ‖w_i‖_(k)
-by (N1) and (N3), and for Z = ∂_r α_i, ∇²α_i the same quantity is at most C λ⁻² (‖∂_r α_i‖_(k) + ‖α_i‖_(k;2)), square
-integrable in r. In the same way ‖N(U_i) − N(U_(i−1))‖_(j) ≤ C λ⁻² (ε + ‖U_i‖_(𝒴_k) + ‖U_(i−1)‖_(𝒴_k)) ‖δ_i‖_(𝒴_j),
-writing the difference of A0⁻¹ 𝔉_J(0) terms and of G as integrals of derivatives. So, by [[eq:vlasov-scaled-bound]] at
-the index j with V := U_i, ‖δ_(i+1)‖_(𝒴_j) ≤ C λ⁻⁴ ε ‖δ_i‖_(𝒴_j) ≤ ½ ‖δ_i‖_(𝒴_j) for η small.
+‖(Δc) Z‖_(j) ≤ C ‖δ_i‖_(𝒴_j) (λ⁻² ‖Z‖_(j) + ‖Z‖_(⌊j/2⌋),∞) at each r; for Z = ∇w_i the bracket is at most
+C λ⁻³ ‖w_i‖_(k), by (N1) and (N3), and for Z = ∂_r α_i, ∇²α_i it is at most C λ⁻² (‖∂_r α_i‖_(k) + ‖α_i‖_(k;2)),
+square integrable in r. So the L² norm in r of ‖(L_(U_i) − L_(U_(i−1))) U_i‖_(j) is at most C λ⁻³ ‖U_i‖_(𝒴_k)
+‖δ_i‖_(𝒴_j) ≤ C λ⁻³ ε ‖δ_i‖_(𝒴_j). In the same way ‖N(U_i) − N(U_(i−1))‖_(j) ≤ C λ⁻² (ε + ‖U_i‖_(𝒴_k) +
+‖U_(i−1)‖_(𝒴_k)) ‖δ_i‖_(𝒴_j), writing the difference of the terms A0(α)⁻¹ 𝔉_J(0) and of G as integrals of
+derivatives. So, by [[eq:vlasov-scaled-bound]] at the index j with V := U_i, ‖δ_(i+1)‖_(𝒴_j) ≤ C λ⁻³ ε ‖δ_i‖_(𝒴_j) ≤
+½ ‖δ_i‖_(𝒴_j) for η small.
 
 *The limit.* So U_i converges in 𝒴_j to some U, and, being bounded in 𝒴_k, U satisfies ‖U‖_(𝒴_k) ≤ 2 C_1 ε (at each r the
 norms of 𝒴_k are lower semicontinuous under convergence in 𝒴_j). The coefficients of L_(U_i) converge uniformly with
