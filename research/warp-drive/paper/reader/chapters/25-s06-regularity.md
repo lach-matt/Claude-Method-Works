@@ -64,10 +64,10 @@ lie in C^(d_0,(2ℓ_I,ℓ_+,ℓ_K))_e3b, and L_2 is of first order. L_2 contains
 rest of W⁻¹P̃. The principal symbol of L is ℓ := W⁻¹G = G_e3b, real and scalar, and 𝖧 := ρ_∞ H_ℓ is the field 𝖧_G of
 [[eq:ii-c-4-2]].
 
-Near a set O where another positive weight W′ has W/W′ and W′/W smooth with bounded e3b-derivatives, we use L′ := W′⁻¹P
-= (W/W′) L in place of L. For G microsupported over O, ‖G L′u‖_𝗍 and ‖G Lu‖_𝗍 then differ by lower-order terms only.
-We take W′ = 1 near the horizon and the trapped set, over (K⁺)°, where W is smooth and positive; W′ = ρ_+² = r⁻² near
-∂K⁺, where x_I is smooth and positive; and W′ = W near ℐ⁺. The rescaled fields ρ H_(W′⁻¹G) are then those of
+Near a set O where another positive weight W′ has W/W′ and W′/W smooth with bounded e3b-derivatives, we use L′ :=
+W′⁻¹P = (W/W′) L in place of L. For G microsupported over O, ‖G L′u‖_𝗍 and ‖G Lu‖_𝗍 then differ by lower-order terms
+only. We take W′ = 1 near the horizon and the trapped set, over (K⁺)°, where W is smooth and positive; W′ = ρ_+² = r⁻²
+near ∂K⁺, where x_I is smooth and positive; and W′ = W near ℐ⁺. The rescaled fields ρ H_(W′⁻¹G) are then those of
 [[ch:s05]]: ρ_∞ H_G with ρ_∞ of (H3) near the horizon ([[sec:ii-b-4]]), σ⁻¹ H_G near the trapped set
 ([[sec:ii-b-5]]), −σ_3b⁻¹ H_(G_3b) near ∂K⁺ ([[eq:ii-b-3-3]], [[eq:ii-b-3-4]]), and σ_eb⁻¹ H_(G_eb) near ℐ⁺
 ([[eq:ii-b-7-3]], [[eq:ii-b-7-4]]).
@@ -415,8 +415,8 @@ all constants s > s_0, α_+, α_K with
 This is [Hin26c, Proposition 7.7] in dimension 4 + 1.
 
 *Proof.* As for [[prop:ii-d-3-2]], with A the frame of the inner product of [[lem:ii-c-2-5]], for which −A⁻¹𝔭′A ≥
-ϑ_out at R := ∂R_(∂K⁺,out) ([[lem:ii-c-2-6]]: there −𝔭′ = S + S^(*h)). At R, ρ⁻¹𝖧ρ = −2, ρ_+⁻¹𝖧ρ_+ = −2, ρ_K⁻¹𝖧ρ_K
-= 2 ([[eq:ii-b-3-4]] at ξ̂ = 0). So at R
+ϑ_out at R := ∂R_(∂K⁺,out) ([[lem:ii-c-2-6]]: there −𝔭′ = S + S^(*h)). At R, ρ⁻¹𝖧ρ = −2, ρ_+⁻¹𝖧ρ_+ = −2,
+ρ_K⁻¹𝖧ρ_K = 2 ([[eq:ii-b-3-4]] at ξ̂ = 0). So at R
 
     Q_ε = −2(2s_ε − 1) − 2A⁻¹𝔭′A − 4 + 2(−2α_+ + 2α_K) ≥ 4(½(−1 + ϑ_out) + α_K − α_+ − s_ε),
 
@@ -1046,9 +1046,9 @@ operator as in [[sec:ii-d-1-2]]: control at order 𝗍 on an open set V gives co
 backward 𝖧-curve enters V in finite time, provided 𝖧𝗍 ≤ 0 along it and Pu is in H^(𝗍−1) near it; for a compact set of
 such ϖ the entrance times are bounded, the flow being continuous on the compactified bundle. The orders 𝗌 and 𝗌 + 1
 are non-increasing along the future flow on ∂Σ⁺ for P ([[prop:ii-c-5-1]] (2)). (P2) *Initial surface.* As u = 0 in
-{t_*^♭ < 1}, u is controlled at every order there. (P3) *Dynamics.* Over M° every backward curve in ∂Σ⁺ reaches {t_*^♭
-= 1} at a finite parameter ([[prop:ii-c-4-2]]); over ∂M the curves are those of P_0 ([[lem:ii-c-4-1]]), described by
-[[prop:ii-b-8-1]], whose table we use with its notation R_𝓗, R^I_in, R^K_in, Γ_K, R^K_out, R^I_out.
+{t_*^♭ < 1}, u is controlled at every order there. (P3) *Dynamics.* Over M° every backward curve in ∂Σ⁺ reaches
+{t_*^♭ = 1} at a finite parameter ([[prop:ii-c-4-2]]); over ∂M the curves are those of P_0 ([[lem:ii-c-4-1]]), described
+by [[prop:ii-b-8-1]], whose table we use with its notation R_𝓗, R^I_in, R^K_in, Γ_K, R^K_out, R^I_out.
 
 *Step 1: finite times.* Let t^♯ ∈ (1, ∞) and 𝒱_out a neighbourhood of ∂R_(ℐ⁺,out). Then u is controlled at order 𝗌 + 1
 on a neighbourhood of every compact subset of ∂Σ⁺ over Ω_* ∩ {t_*^♭ ≤ t^♯} disjoint from 𝒱_out, with C depending on
@@ -1443,10 +1443,10 @@ in x_I C^∞, times Ω_ab. [p_0, X] = −(Xp_0), of order 0 (a term Q_(iJ) X_J).
 C^((d_0;k−1),(2ℓ_I,0))_(eb;b) Diff²_eb, as X is an eb-commutator field and differentiates the coefficients once
 ([[lem:ii-a-2-6]] and [[lem:ii-a-8-2]] (b)). 𝒱_eb is spanned over C^∞ by V_1, V_2 and x_I Ω_ab, so every element of
 x_I^(2ℓ_I) C^((d_0;k−1))_(eb;b) Diff²_eb is a sum Σ_j A_j X_j with A_j ∈ x_I^(2ℓ_I) C^((d_0;k−1))_(eb;b) Diff¹_eb (for j
-a rotation, the factor x_I of x_I Ω_ab joins A_j; the first-order part of the operator is A_J X_J). Collecting, [L, X_i]
-= Σ_j Q_(ij) X_j with Q_(ij) as stated. (c) Near ℐ⁺, 𝒱_b is spanned by ρ_+ ∂_(ρ_+), x_I ∂_(x_I) and the vector fields on
-𝕊³, which V_1, V_2 and the Ω_ab span. (d) The principal symbol of a first-order eb-operator with coefficients in x_I
-C^∞ + x_I^(2ℓ_I) C^0 vanishes over x_I = 0. ∎
+a rotation, the factor x_I of x_I Ω_ab joins A_j; the first-order part of the operator is A_J X_J). Collecting,
+[L, X_i] = Σ_j Q_(ij) X_j with Q_(ij) as stated. (c) Near ℐ⁺, 𝒱_b is spanned by ρ_+ ∂_(ρ_+), x_I ∂_(x_I) and the vector
+fields on 𝕊³, which V_1, V_2 and the Ω_ab span. (d) The principal symbol of a first-order eb-operator with coefficients
+in x_I C^∞ + x_I^(2ℓ_I) C^0 vanishes over x_I = 0. ∎
 
 **Proposition {#prop:ii-d1-3-2}** (The radial sets at ℐ⁺ with b-regularity.) [[prop:ii-d-3-5]] and [[prop:ii-d-3-6]]
 hold with H^((𝗍;k))_(e3b;b) in place of H^𝗍_e3b for every k ∈ ℕ_0:
@@ -1508,11 +1508,11 @@ and with I = Q_r ∂_r + R_r on the second-order terms, Q_22 := −Σ_l p_l ρ_K
 (c) By (b) and [[eq:ii-d1-2-2-prime]], −Q has, at ∂R_(𝓗⁺) ⊂ {ρ_K = 0}, first-order principal symbol diag(j_α) i(H_(G_0)
 ξ_0)/ξ_0: each letter 1 of α couples the component α to itself through Q_11, as α[i→1] = α, and the couplings through
 Q_21, Q_22 decay; G = G_0 there. Let ρ̃ := |ξ_0|⁻¹ on U_0 and 𝖧 := ρH_G. Then ρ(H_G ξ_0)/ξ_0 = −ρρ̃⁻¹ H_G ρ̃ = −ρ̃⁻¹𝖧ρ̃.
-At the radial set ∂R_(𝓗⁺) the vector field 𝖧 on the cosphere bundle vanishes, so ρ̃⁻¹𝖧ρ̃ = ρ⁻¹𝖧ρ + (ρ̃/ρ)⁻¹𝖧(ρ̃/ρ)
-= ρ⁻¹𝖧ρ = β_0 there ([[eq:ii-b-4-1]], as in the proof of [[prop:ii-d-3-1]]), ρ̃/ρ being homogeneous of degree 0. This
-gives [[eq:ii-d1-4-1]] on ∂Σ⁺, where ς = 1; on ∂Σ⁻ the quantity (H_G ξ_0)/ξ_0 is odd (H_G ξ_0 even, ξ_0 odd), the
-future field is −𝖧, whose ρ⁻¹(−𝖧)ρ is β_0, so ρ⁻¹𝖧ρ = −β_0 there, and ς = −1 restores [[eq:ii-d1-4-1]]. The threshold
-of [[prop:ii-d-3-1]] for L^(k) is then sup max spec(β_0⁻¹(𝔭 − j_α β_0)) ≤ ϑ_𝓗, in the inner product h^(⊕𝒲_k). ∎
+At the radial set ∂R_(𝓗⁺) the vector field 𝖧 on the cosphere bundle vanishes, so ρ̃⁻¹𝖧ρ̃ = ρ⁻¹𝖧ρ +
+(ρ̃/ρ)⁻¹𝖧(ρ̃/ρ) = ρ⁻¹𝖧ρ = β_0 there ([[eq:ii-b-4-1]], as in the proof of [[prop:ii-d-3-1]]), ρ̃/ρ being homogeneous of
+degree 0. This gives [[eq:ii-d1-4-1]] on ∂Σ⁺, where ς = 1; on ∂Σ⁻ the quantity (H_G ξ_0)/ξ_0 is odd (H_G ξ_0 even, ξ_0
+odd), the future field is −𝖧, whose ρ⁻¹(−𝖧)ρ is β_0, so ρ⁻¹𝖧ρ = −β_0 there, and ς = −1 restores [[eq:ii-d1-4-1]]. The
+threshold of [[prop:ii-d-3-1]] for L^(k) is then sup max spec(β_0⁻¹(𝔭 − j_α β_0)) ≤ ϑ_𝓗, in the inner product h^(⊕𝒲_k). ∎
 
 The non-positive sign in [[eq:ii-d1-4-1]] is the red shift: commuting with ∂_r lowers the threshold, so the minimal
 regularity s_0 > ½ + ϑ_𝓗 of [[prop:ii-d-3-1]] does not rise with k.

@@ -1217,25 +1217,30 @@ linearised about ĝ, and G the constant of its quadratic remainder. The conditio
 condition 4F²G ε_r < 1.
 
 **Remark {#rem:tl5-beyond}** (Why no existence is claimed beyond the seed.) [[lem:tl5-continuation]] concerns smooth
-data. The data of [[def:tl5-problem]] are not smooth: env is C³ and not C⁴ at v = 1/2 and v = 7/2
-([[rem:envelope-regularity]]), and so are the fields P and Q on N there. [[thm:std-ctg-neighbourhood]] is stated in the
-smooth category, its authors adding that it remains true in suitable Sobolev spaces; a version of
-[[lem:tl5-continuation]] for data of finite regularity is not stated in this paper. Whatever the data, (H1) is an
-estimate on all of D, axes included. Linear estimates with explicit constants hold for the linearised problem on
-truncated domains of dependence that avoid the axes [[pending:issue-1]]; no such domain contains a region of the form
+data and assumes (F1)–(F3), which this paper does not establish. The data of [[def:tl5-problem]] are not smooth: env is
+C³ and not C⁴ at v = 1/2 and v = 7/2 ([[rem:envelope-regularity]]), and so are the fields P and Q on N there.
+[[thm:std-ctg-neighbourhood]] is stated in the smooth category, its authors adding that it remains true in suitable
+Sobolev spaces; a version of [[lem:tl5-continuation]] for data of finite regularity is not stated in this paper.
+Whatever the data, (H1) is an estimate on all of D, axes included. An estimate for the linearised problem on a
+truncated domain of dependence that avoids the axes would not give (H1): no such domain contains a region of the form
 D_s, since D_s contains the axes. The residual bounds of [[sec:tl5-residuals]] hold at points and on boxes of the
 region Π of [[eq:tl5-region]], which is not of the form D_s, and are not bounds of a norm over a region D_s. So
 (H1)–(H3) are established in this paper for no region D with v* > 1/2, and no existence beyond v = 1/2 is claimed.
 
-**Remark {#rem:tl5-constants}** (Numerical observation.) The constant F of a linear estimate of [[rem:tl5-beyond]],
-evaluated numerically on a computed solution at the first seed over |x| ≤ 1/2 on the (u, v)-rectangle of
-[[eq:tl5-chart]], where no truncated domain of dependence exists, so that the estimate does not apply, is
-F² ≈ 10^138, and about 10^66.9 with weights in the energy norms; toward the axes the coefficients grow like the inverse
-distance to the axis, and with |x| ≤ 0.95 the figure is about 10^1916. The couplings of the coefficients across a cut
-in the angular Chebyshev degree do not depend on the cut beyond the degree of the coefficient, since
+**Remark {#rem:tl5-constants}** (Numerical observation.) Write the vacuum equations of the class as three-dimensional
+gravity for the rescaled orbit metric of [[prop:reduction]] coupled to its two waves, in a null frame of that metric,
+and linearise them about a metric of the class. A Grönwall argument for the energies of the linear system on a domain
+of dependence truncated to avoid the axes would bound them by F² times the energies of their data and sources, with
+F² = exp(2∫a_o du + 2∫a_i dv), where a_o(u) and a_i(v) are the largest, over the unknowns measured on outgoing and on
+ingoing cones, of the sums of the absolute values of the coefficients with which each unknown enters. On a computed
+solution at the first seed, over |x| ≤ 1/2 on the (u, v)-rectangle of [[def:tl5-chart]], where no such truncated
+domain exists, so that no such bound applies, this number evaluates to F² ≈ 10^138, and to about 10^66.9 with weights
+in the energy norms; toward the axes the coefficients grow like the inverse distance to the axis, and with the band
+widened to |x| ≤ 0.95 the figure is about 10^1916. The couplings of the coefficients across a cut in the angular
+Chebyshev degree do not depend on the cut beyond the degree of the coefficient, since
 T_j T_k = (T_(j+k) + T_(|j−k|))/2, and on the computed coefficients they are of the coefficients' own size, so a Schur
 complement estimate on the high angular modes does not lower the constant at any angular resolution. At F² = 10^66.9
-the closing condition 4F²G r < 1 asks a residual r of order 10⁻⁶⁸/G, against the bounds 3.73 × 10⁻⁵ at points and
+the closing condition 4F²G ε_r < 1 asks a residual ε_r of order 10⁻⁶⁸/G, against the bounds 3.73 × 10⁻⁵ at points and
 5.0 × 10⁻⁴ on sub-boxes of [[prop:tl5-points]] and [[prop:tl5-boxes-second]]. No proof uses these observations.
 
 ### Tables for the approximant on the data cone at 10 l5 {#sec:cone-tables}

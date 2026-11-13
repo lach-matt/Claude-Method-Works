@@ -569,8 +569,8 @@ k² > (n − 1)K,
 
     F_a = f_a + (r/k_V) D_a H_T      (5.10)
 
-is gauge invariant". In vacuum r^(n−1) F^a = ε^(ab) D_b Ω (5.12), with □Ω − (n/r) Dr · DΩ − ((k_V² − (n − 1)K)/r²) Ω
-= 0 (5.11). With Φ = r^(−n/2) Ω (5.13) this is □Φ − (V_V/f)Φ = 0 (5.14), where
+is gauge invariant". In vacuum r^(n−1) F^a = ε^(ab) D_b Ω (5.12), with □Ω − (n/r) Dr · DΩ − ((k_V² − (n − 1)K)/r²)
+Ω = 0 (5.11). With Φ = r^(−n/2) Ω (5.13) this is □Φ − (V_V/f)Φ = 0 (5.14), where
 
     V_V(r) = (f/r²) [k_V² + K + n(n − 2)K/4 − n(n − 2)λr²/4 − 3n²M/(2r^(n−1))].      (5.15)
 
@@ -704,8 +704,8 @@ gives
 
 **Theorem {#thm:std-gn-moser}** (Products of derivatives.) Let s ≥ 1 be an integer.
 
-(1) There is C, depending only on n and s, such that for f, g ∈ H^s(ℝⁿ) ∩ L^∞(ℝⁿ) and multi-indices α, β with
-|α| + |β| ≤ s, ∂^α f ∂^β g ∈ L²(ℝⁿ) and
+(1) There is C, depending only on n and s, such that for f, g ∈ H^s(ℝⁿ) ∩ L^∞(ℝⁿ) and multi-indices α, β
+with |α| + |β| ≤ s, ∂^α f ∂^β g ∈ L²(ℝⁿ) and
 
     ‖∂^α f ∂^β g‖_(L²) ≤ C (‖f‖_(L^∞) ‖g‖_(H^s) + ‖f‖_(H^s) ‖g‖_(L^∞)).      {#eq:std-gn-moser}
 
@@ -913,8 +913,8 @@ all weights w′ … and for all s ∈ ℝ, the operator P : w′ H^s_𝒱(M) �
 Definition 3.27, p. 41], 𝒱 is fully symbolic if, equivalently to two other conditions given there, "For all ϵ > 0
 there exists a compact subset K ⊂ M so that ρ < ϵ on M ∖ K", ρ being a scaling weight (S2).
 
-(S6) Regularity of symbols [Hin26d, Remark 3.33, p. 45]: "one only needs uniform bounds by ⟨ξ⟩^(m−|γ|) on
-|(ρ_α ∂_(x_α))^β ∂_ξ^γ a_α(x_α, ξ)|, corresponding to '𝒱-regular' symbols", together with their derivatives for the
+(S6) Regularity of symbols [Hin26d, Remark 3.33, p. 45]: "one only needs uniform bounds by ⟨ξ⟩^(m−|γ|)
+on |(ρ_α ∂_(x_α))^β ∂_ξ^γ a_α(x_α, ξ)|, corresponding to '𝒱-regular' symbols", together with their derivatives for the
 spaces with k orders of 𝒲-regularity.
 
 (S7) Parameterised structures [Hin26d, Definitions 3.58–3.59, p. 59].
@@ -1009,15 +1009,16 @@ Euclidean length of a curve β in (−2, 2)ⁿ; Lemma 3.42 writes it d_𝓑. Lem
 quantizations): "Let ϵ > 0, and let η ∈ C^∞_(uni,𝓑×𝓑)(M × M) be 1 in the ϵ-neighborhood
 {(p, q) ∈ M × M : d_𝓑(p, q) < ϵ} of the diagonal in M × M. Let w be a weight, and let a ∈ wS^m(𝒱T*M). With Op_𝒱(a)
 denoting the Schwartz kernel, we then have (1 − η) Op_𝒱(a) ∈ wρ^∞Ψ^(−∞)_𝒱(M)." Its proof treats the local kernels with
-the factor ψ(x′_α − x_α)(1 − η_0(x_α − x′_α)), η_0 ∈ C_c^∞(ℝⁿ) equal to 1 near 0. On p. 52: "by Lemma 3.42, we may
-furthermore localize the Schwartz kernels of such local quantizations to a neighborhood |x_α − x′_α| < ϵ for any fixed
-α-independent ϵ > 0." Under the spanning condition (4.25) of (S10), p. 74: "we shall write wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) for
-the space of all residual operators R ∈ wρ^∞Ψ^(−∞)_𝒱(M) in Definition 3.34 which satisfy the additional condition
-ad_(W_1) ⋯ ad_(W_k) R, ad_(W_1) ⋯ ad_(W_k) R* ∈ wρ^∞Ψ^(−∞)_𝒱(M) ∀ k ∈ ℕ, W_1, …, W_k ∈ 𝒲_[𝒱]" (4.27).
-Proposition 4.22 defines ρ^(−l) Ψ^m_(𝒱,[ ])(M) ⊂ ρ^(−l) Ψ^m_𝒱(M) (4.28) "as the space of operators of the form
-A = Op_𝒱(a) + R where a ∈ ρ^(−l) S^m(𝒱T*M) and R ∈ ρ^∞Ψ^(−∞)_(𝒱,[ ])(M)". In its proof (p. 75): "the conclusion in
-Proposition 3.39 can be strengthened to membership in wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) (which then implies an analogous
-strengthening of Lemma 3.42)."
+the factor ψ(x′_α − x_α)(1 − η_0(x_α − x′_α)), η_0 ∈ C_c^∞(ℝⁿ) equal to 1 near 0. On p. 52, for the local quantizations
+Op_α(a_α) (3.26) of (S4) with a_α supported in (−5/4, 5/4)ⁿ × ℝⁿ: "by Lemma 3.42, we may furthermore localize the
+Schwartz kernels of such local quantizations to a neighborhood |x_α − x′_α| < ϵ for any fixed α-independent ϵ > 0."
+Under the spanning condition (4.25) of (S10), p. 74: "we shall write wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) for the space of all residual
+operators R ∈ wρ^∞Ψ^(−∞)_𝒱(M) in Definition 3.34 which satisfy the additional condition ad_(W_1) ⋯ ad_(W_k) R,
+ad_(W_1) ⋯ ad_(W_k) R* ∈ wρ^∞Ψ^(−∞)_𝒱(M) ∀ k ∈ ℕ, W_1, …, W_k ∈ 𝒲_[𝒱]" (4.27). Here "ad_(W_1) = [W_1, ·] is the
+commutator" (p. 75). Proposition 4.22 defines ρ^(−l) Ψ^m_(𝒱,[ ])(M) ⊂ ρ^(−l) Ψ^m_𝒱(M) (4.28) "as the space of operators
+of the form A = Op_𝒱(a) + R where a ∈ ρ^(−l) S^m(𝒱T*M) and R ∈ ρ^∞Ψ^(−∞)_(𝒱,[ ])(M)". In its proof (p. 75): "the
+conclusion in Proposition 3.39 can be strengthened to membership in wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) (which then implies an
+analogous strengthening of Lemma 3.42)."
 
 In [[thm:std-zero-calculus]], [[thm:std-mazzeo-melrose]] and [[cor:std-zero-sobolev]], n denotes the dimension of X,
 as in [Hin23e]. [Usu26] writes n + 1 for the dimension of X; accordingly its exponent −n − 1 is written −n here, also
@@ -1204,8 +1205,8 @@ z → ∞ with ν fixed,
 
 **Theorem {#thm:std-dlmf-modified}** ([DLMF, (10.25.1)–(10.25.3), (10.28.2), (10.30.2), (10.40.1)–(10.40.2), (10.17.1),
 (2.1.13)–(2.1.14)].) The modified Bessel equation is z² w″ + z w′ − (z² + ν²) w = 0 (10.25.1). Its standard solutions
-are I_ν, defined by the series (10.25.2), and K_ν, characterised by K_ν(z) ∼ (π/(2z))^(1/2) e^(−z) "as z → ∞ in
-|ph z| ≤ 3π/2 − δ (< 3π/2)" (10.25.3). Their Wronskian is
+are I_ν, defined by the series (10.25.2), and K_ν, characterised by K_ν(z) ∼ (π/(2z))^(1/2) e^(−z) "as z → ∞
+in |ph z| ≤ 3π/2 − δ (< 3π/2)" (10.25.3). Their Wronskian is
 
     𝒲{K_ν(z), I_ν(z)} = I_ν(z) K_(ν+1)(z) + I_(ν+1)(z) K_ν(z) = 1/z      (10.28.2).
 
@@ -1245,8 +1246,8 @@ by this ellipse." Further, "the length of the semimajor axis of E_ρ plus the le
 ρ".
 
 (2) Theorem 8.1 (p. 57): "Let a function f analytic in [−1,1] be analytically continuable to the open Bernstein
-ellipse E_ρ, where it satisfies |f(x)| ≤ M for some M. Then its Chebyshev coefficients satisfy |a₀| ≤ M and
-|a_k| ≤ 2Mρ^(−k), k ≥ 1. (8.1)" Theorem 8.2 (p. 57): "If f has the properties of Theorem 8.1, then for each n ≥ 0 its
+ellipse E_ρ, where it satisfies |f(x)| ≤ M for some M. Then its Chebyshev coefficients satisfy |a₀| ≤ M
+and |a_k| ≤ 2Mρ^(−k), k ≥ 1. (8.1)" Theorem 8.2 (p. 57): "If f has the properties of Theorem 8.1, then for each n ≥ 0 its
 Chebyshev projections satisfy ‖f − f_n‖ ≤ 2Mρ^(−n)/(ρ − 1) (8.2) and its Chebyshev interpolants satisfy
 
     ‖f − p_n‖ ≤ 4Mρ^(−n)/(ρ − 1)."      (8.3)

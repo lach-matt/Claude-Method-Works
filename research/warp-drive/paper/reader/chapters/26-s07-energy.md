@@ -749,8 +749,8 @@ constant orders. Every forward curve from a point of the characteristic set over
 {t^♭ > T_1} ∪ {r < r_0} in finite time, or enters any given neighbourhood of R_([T_0,T_1]). Indeed t^♭ increases along
 it; if it stays in the slab, its ω-limit set is non-empty, compact and invariant; a point of it over M° would have its
 orbit in the limit set with t^♭ strictly increasing there, against t^♭ being constant (equal to lim t^♭) on the limit
-set; so the limit set lies over ℐ⁺ at the time t_∞ := lim t^♭ ∈ [T_0, T_1], where 𝖧t_* = t_* ξ̂ = 0, so ξ̂ = 0 and
-|η̂|² = (1/2) ξ̂(2 − ξ̂) = 0: it lies in R. Over ℐ⁺ the curves (iii) of [[lem:ii-b-7-2]] reach {t_* > T_1} and the
+set; so the limit set lies over ℐ⁺ at the time t_∞ := lim t^♭ ∈ [T_0, T_1], where 𝖧t_* = t_* ξ̂ = 0, so ξ̂ = 0
+and |η̂|² = (1/2) ξ̂(2 − ξ̂) = 0: it lies in R. Over ℐ⁺ the curves (iii) of [[lem:ii-b-7-2]] reach {t_* > T_1} and the
 curves (i) tend to R. At R_([T_0−δ/2, T_1]) use [[eq:ii-e-3-3]] with t_− := T_0 − δ/2 and t_+ := T_1 + ω_0/2 (ω_0 as in
 (a)). Its E_+ quantises e_+, whose symbol is supported in {t_* > t_+} (proof of [[prop:ii-e-3-2]]), and its Schwartz
 kernel lies in 𝒦 × 𝒦. Neither places the kernel in {t^♭ > T_1}: the operator wave front set does not locate a kernel,
@@ -947,10 +947,11 @@ uniqueness u″|_(Ω′) = u. We show by induction on j ≤ k that
 
     Σ_(|γ|≤j) ‖X^γ u″‖_(H^(𝗌,2α)(Ω″)^(•,−)) ≤ C_j ‖f″‖_(H^((𝗌−1;j),2α+2)(Ω″)^(•,−)).                     {#eq:ii-e-4-3}
 
-j = 0 is [[eq:ii-e-3-4]]. Let j ≥ 1. Each b-vector field maps H^(𝗍,2β)_e into H^(𝗍−1,2β−1)_e (as
-∂_ω = x_I⁻¹ x_I∂_ω), so a priori u″^(j) ∈ H^(𝗌−j,2α−j)(Ω″)^(•,−). The threshold holds also for the weight α − j/2, so by
-[[prop:ii-e-3-4]] (i) for P^(j) at that weight, u″^(j) is the forward solution of [[eq:ii-e-4-1]], which by
-[[prop:ii-e-3-4]] (ii) at the weight α lies in H^(𝗌,2α)(Ω″)^(•,−), with norm at most C times that of the right side of
+j = 0 is [[eq:ii-e-3-4]]. Let j ≥ 1. Each b-vector field maps H^(𝗍,2β)_e into H^(𝗍−1,2β−1)_e (as ∂_ω = x_I⁻¹ x_I∂_ω),
+and by [[eq:ii-e-4-3]] at j − 1 every word of length j − 1 applied to u″ lies in H^(𝗌,2α)(Ω″)^(•,−), so a priori
+u″^(j) ∈ H^(𝗌−1,2α−1)(Ω″)^(•,−). The threshold holds also for the weight α − 1/2, so by [[prop:ii-e-3-4]] (i) for P^(j)
+at that weight and at s′ = inf 𝗌 − 1, u″^(j) is the forward solution of [[eq:ii-e-4-1]], which by [[prop:ii-e-3-4]] (ii)
+at the weight α lies in H^(𝗌,2α)(Ω″)^(•,−), with norm at most C times that of the right side of
 [[eq:ii-e-4-1]] in H^(𝗌−1,2α+2)(Ω″)^(•,−). The first term of the right side has norm at most C‖f″‖_((𝗌−1;j)), by
 [[lem:ii-e-4-1]] (c). For f̃^(j), let |S| = q ≥ 2. W ad_(X_S) L is a second-order edge operator with coefficients in
 C^((d_0;j−q))_(e;b), as each commutator with an element of 𝒳_sl preserves Diff²_e ([[lem:ii-a-2-6]] near ℐ⁺) and
@@ -960,9 +961,9 @@ first-order edge operators with C^((d_0;j−q)) coefficients, and by [[lem:ii-e-
 
     ‖W (ad_(X_S) L) X^(γ∖S) u″‖_(H^(𝗌−1,2α+2)) ≤ C Σ_i ‖X_i X^(γ∖S) u″‖_(H^(𝗌,2α)),
 
-a sum over words of length j − q + 1 ≤ j − 1, bounded by [[eq:ii-e-4-3]] at j − 1. This proves [[eq:ii-e-4-3]] at j,
-the order staying 𝗌, so that d_0 depends only on 𝗌. Finally, by [[lem:ii-e-4-1]] (c) with room,
-‖u‖_(H^((𝗌;k))(Ω′)) ≤ C_k Σ_(|γ|≤k) ‖X^γ u″‖_(H^𝗌(Ω″)) ≤ C_k ‖f″‖ ≤ C_k ‖f‖. ∎
+a sum over words of length j − q + 1 ≤ j − 1, bounded by [[eq:ii-e-4-3]] at j − 1. This proves [[eq:ii-e-4-3]] at j, the
+order staying 𝗌 and the uniqueness being used at s′ = inf 𝗌 − 1 for every j, so that d_0 depends only on 𝗌. Finally, by
+[[lem:ii-e-4-1]] (c) with room, ‖u‖_(H^((𝗌;k))(Ω′)) ≤ C_k Σ_(|γ|≤k) ‖X^γ u″‖_(H^𝗌(Ω″)) ≤ C_k ‖f″‖ ≤ C_k ‖f‖. ∎
 
 *The extension in the tame estimates.* A tame bound controls a low and a high b-regularity of one function at once, so
 its proof needs one extension of the right-hand side f across the final faces of the slab that is nearly minimal for
@@ -1209,11 +1210,11 @@ and P* is the adjoint for |dg| and a fixed smooth fibre inner product h_K. The s
 
 This is [Hin26c, Lemma 8.10] in dimension 4 + 1.
 
-*Proof.* Let w := t_*^(2α_K) = ρ_K^(−2α_K), Y_r := ∇r/|G(dr)|, which is future timelike with Y_r(−r) = 1, and
-|ζ|² := ζ_(t_*)² + |ζ_x|² for covectors ζ = ζ_(t_*) dt_* + ζ_x dx. On the r-slab, by stationarity of g_0, compactness
-in x and the decay of g − g_0, there are constants, uniform for ε_P small with d_0 = 2, with: |div_g Y_r| ≤ C_0 and
-|Y_r log w| = 2|α_K| |Y_r t_*|/t_* ≤ C_1; T(∇r, ∇r)(ζ) ≥ c_r |ζ|², by [[lem:ii-e-2-2]]; and
-|K_(w^(±1)∇r)(ζ)| ≤ C_3 w^(±1) |ζ|², by the formula for K_(fX) in [[lem:ii-e-2-1]], as |∇w| ≤ Cw and ∇r has bounded
+*Proof.* Let w := t_*^(2α_K) = ρ_K^(−2α_K), Y_r := ∇r/|G(dr)|, which is future timelike with Y_r(−r) = 1,
+and |ζ|² := ζ_(t_*)² + |ζ_x|² for covectors ζ = ζ_(t_*) dt_* + ζ_x dx. On the r-slab, by stationarity of g_0, compactness
+in x and the decay of g − g_0, there are constants, uniform for ε_P small with d_0 = 2, with: |div_g Y_r| ≤ C_0
+and |Y_r log w| = 2|α_K| |Y_r t_*|/t_* ≤ C_1; T(∇r, ∇r)(ζ) ≥ c_r |ζ|², by [[lem:ii-e-2-2]];
+and |K_(w^(±1)∇r)(ζ)| ≤ C_3 w^(±1) |ζ|², by the formula for K_(fX) in [[lem:ii-e-2-1]], as |∇w| ≤ Cw and ∇r has bounded
 first derivatives. P − P_□ is of first order with bounded coefficients in the frame ∂_(t_*), ∂_x, so for any vector
 field X with |X| ≤ C_X f, |2 Re⟨(P − P_□)u, Xu⟩| ≤ C_4 f (|du|² + |u||du|), with C_4 depending on C_X and h_K only.
 
@@ -1294,8 +1295,8 @@ systems the principal symbol is scalar and the coupling of lower order, which th
 estimates allow. ∎
 
 **Proposition {#prop:ii-e-5-4}** (Solvability, uniqueness and continuation on r-slabs.) Let α_K ∈ ℝ,
-T_0 ≥ 1 − η_0/2, r^♯ < a < b ≤ r^♮, and 𝗌 a slab order. There are d_0, depending only on 𝗌, and C, uniform for ε_P
-small, such that:
+T_0 ≥ 1 − η_0/2, r^♯ < a < b ≤ r^♮, and 𝗌 a slab order. There are d_0, depending only on 𝗌 (and, in (i) and (iii), on
+s′), and C, uniform for ε_P small, such that:
 
 (i) (*uniqueness*) if u ∈ H^(s′,α_K)(Ω^K_([a,b]))^(•,−) for some s′ ∈ ℝ and Pu = 0, then u = 0;
 
@@ -1369,8 +1370,9 @@ with no condition on the coupling, as on r-slabs every first-order term is absor
 **Proposition {#prop:ii-e-5-6}** (b-regularity and tame estimates in the interior.) Let α_K, T_0 and
 r^♯ < a < a⁺ < b ≤ r^♮ be as in [[prop:ii-e-5-4]], and 𝗌 a slab order.
 
-(a) There is d_0, depending only on 𝗌, such that for all k ∈ ℕ_0 and P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ε_(P,k)
-small, every u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^•, s′ ∈ ℝ, with f := Pu satisfies, in the strong sense,
+(a) Let s′ ∈ ℝ. There is d_0, depending only on 𝗌 and s′, such that for all k ∈ ℕ_0 and P of class
+((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ε_(P,k) small, every u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^• with f := Pu satisfies, in the
+strong sense,
 
     ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a,b]))^•)
         ≤ C_k (‖f‖_(H^((𝗌−1;k),α_K)(Ω^K_([a,b]))^•) + ‖u‖_(H^((𝗌;k),α_K)(Ω^K_([a⁺,b]))^•)).                {#eq:ii-e-5-5}
@@ -1402,15 +1404,17 @@ v″|_(Ω^K_([a,b])) = v. We show by induction on j ≤ k that
 
     Σ_(|γ|≤j) ‖X^γ v″‖_(H^(𝗌,α_K)(Ω″)^(•,−)) ≤ C_j ‖g″‖_(H^((𝗌−1;j),α_K)(Ω″)^(•,−)).                    {#eq:ii-e-5-8}
 
-j = 0 is [[eq:ii-e-5-2]]. Let j ≥ 1. A b-vector field maps H^(𝗍,β)_K into H^(𝗍−1,β−1)_K, as
-t_*∂_(t_*) = ρ_K⁻¹ ∂_(t_*), so a priori v″^(j) ∈ H^(𝗌_−,α_K−j)(Ω″)^(•,−) for some order 𝗌_−. By [[prop:ii-e-5-4]] (i)
-for P^(j) at the weight α_K − j, v″^(j) is the forward solution of [[eq:ii-e-5-4]], which by [[prop:ii-e-5-4]] (ii) at
-the weight α_K lies in H^(𝗌,α_K)(Ω″)^(•,−), with norm at most C times that of the right side of [[eq:ii-e-5-4]] in
+j = 0 is [[eq:ii-e-5-2]]. Let j ≥ 1. A b-vector field maps H^(𝗍,β)_K into H^(𝗍−1,β−1)_K, as t_*∂_(t_*) = ρ_K⁻¹ ∂_(t_*),
+and by [[eq:ii-e-5-8]] at j − 1 every word of length j − 1 applied to v″ lies in H^(𝗌,α_K)(Ω″)^(•,−), so a priori
+v″^(j) ∈ H^(𝗌−1,α_K−1)(Ω″)^(•,−). By [[prop:ii-e-5-4]] (i) for P^(j) at the weight α_K − 1, with inf 𝗌 − 1 for its s′,
+v″^(j) is the forward solution of [[eq:ii-e-5-4]], which by [[prop:ii-e-5-4]] (ii) at the weight α_K lies in
+H^(𝗌,α_K)(Ω″)^(•,−), with norm at most C times that of the right side of [[eq:ii-e-5-4]] in
 H^(𝗌−1,α_K)(Ω″)^(•,−). By [[lem:ii-e-4-1]] (c), ‖X^γ g″‖_(𝗌−1) ≤ C ‖g″‖_((𝗌−1;j)). For |S| = q ≥ 2, ad_(X_S) P is a
 second-order e3b-operator with coefficients in C^((d_0;k−q))_(e3b;b), as each commutator with a V_i differentiates the
 coefficients once ([[lem:ii-e-5-5]]); so it is Σ_i A_i X_i with A_i first-order e3b-operators, and by
 [[lem:ii-e-4-1]] (a) ‖(ad_(X_S) P) X^(γ∖S) v″‖_(𝗌−1) ≤ C Σ_i ‖X_i X^(γ∖S) v″‖_𝗌, a sum over words of length
-j − q + 1 ≤ j − 1, bounded by [[eq:ii-e-5-8]] at j − 1. This proves [[eq:ii-e-5-8]]. By [[lem:ii-e-4-1]] (c) with room,
+j − q + 1 ≤ j − 1, bounded by [[eq:ii-e-5-8]] at j − 1. This proves [[eq:ii-e-5-8]], the uniqueness being used at the
+orders min(s′, inf 𝗌) and inf 𝗌 − 1 only, so that d_0 depends only on 𝗌 and s′. By [[lem:ii-e-4-1]] (c) with room,
 ‖v‖_((𝗌;k)) ≤ C_k Σ_(|γ|≤k) ‖X^γ v″‖_𝗌 ≤ C_k ‖g‖_((𝗌−1;k)). Each step holds in the strong sense, so
 [[eq:ii-e-5-5]] does.
 
@@ -1499,8 +1503,8 @@ extends P below t^♭ = 1, and [[lem:ii-e-1-3]] uses a collar of width η_0/2, s
 *(B) Away from the initial surface and the interior.* [[thm:ii-d1-1-1]], [[eq:ii-d1-1-1]]:
 ‖χu‖_((𝗌;k)) ≤ C_k (‖f‖_((𝗌;k)) + ‖u‖_((𝗌_0;k))).
 
-*(C) The interior.* 𝗌 is a slab order on Ω^K ([[sec:ii-e-5-3]]). [[prop:ii-e-5-6]] (a) with a := r_0, a⁺ := r_1^+ and
-b := r^♮ gives
+*(C) The interior.* 𝗌 is a slab order on Ω^K ([[sec:ii-e-5-3]]). [[prop:ii-e-5-6]] (a) at s′ := inf 𝗌_0, with a := r_0,
+a⁺ := r_1^+ and b := r^♮, gives
 
     ‖u‖_(H^((𝗌;k),α_K)(Ω^K)^•) ≤ C_k (‖f‖_((𝗌−1;k)) + ‖u‖^([r_1^+,r^♮])_((𝗌;k))).
 
