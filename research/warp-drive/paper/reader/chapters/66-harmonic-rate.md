@@ -654,13 +654,14 @@ c′(∂_t)^♭ = −c′dt + O(|x|⁻²) leaves a term of order 0 unless c′ =
 [[cor:gd-r7-6]] for Z^(V) at every p < 1 and [[cor:gd-r7-4]] for Z_c give the rate t_*^(−1+ε), the Killing part
 dropping out of the metric.
 
-*If ṁ = 0*, then ḣ vanishes on ℰ, and ġ = ḣ near Σ° (as in (a)); so h_0 = ġ_0 = 0 on a neighbourhood U of Σ° ∖ B in N⁺, B
-a large ball. On U, H_L = 0 and, as δm[h_0] = 0 ([[thm:rw-settling]] (a)), the tensor h′ of [[lem:gd-1-4]] (b) is h_0 =
-0; so 𝔷 = 0, and Y_0 = ζ(∂_v)^♭ with ζ locally constant. Σ° ∖ B is connected and ζ tends to ζ_∞ along it, so ζ = ζ_∞ and
-Y_0 = ζ_∞(∂_v)^♭ near Σ° ∖ B. As Z′_0 = Y_0 near Σ° ([[eq:gd-r7-4]] with ṁ = 0), Z′_0 − ζ_∞(∂_t)^♭ vanishes near Σ° ∖ B.
-Its data vanish near infinity, so they have every order, with Killing multiple ζ_∞ ([[def:hr-order]]): c′ = ζ_∞, p_0 = ∞
-and c = (Q[Z′_0] − 4π²m₀ζ_∞)/4π². [[cor:gd-r7-4]] applied to Z′_0 − ζ_∞(∂_t)^♭, whose charge is 4π²c, as Q[(∂_t)^♭] =
-4π²m₀, and whose metric part is ℒ_(Z′_0)g = (ġ_H)_0 ([[eq:gd-r7-4]]), gives the last display.
+*If ṁ = 0*, then ḣ vanishes on ℰ, and ġ = ḣ near Σ° (as in (a)); so h_0 = ġ_0 = 0 on a neighbourhood 𝒪 in N⁺ of the
+part Σ°_ext of Σ° outside a large ball. On 𝒪, H_L = 0 and, as δm[h_0] = 0 ([[thm:rw-settling]] (a)), the tensor h′ of
+[[lem:gd-1-4]] (b) is h_0 = 0; so 𝔷 = 0, and Y_0 = ζ(∂_v)^♭ with ζ locally constant. Σ°_ext is connected and ζ tends
+to ζ_∞ along it, so ζ = ζ_∞ and Y_0 = ζ_∞(∂_v)^♭ near Σ°_ext. As Z′_0 = Y_0 near Σ° ([[eq:gd-r7-4]] with ṁ = 0),
+Z′_0 − ζ_∞(∂_t)^♭ vanishes near Σ°_ext. Its data vanish near infinity, so they have every order, with Killing multiple
+ζ_∞ ([[def:hr-order]]): c′ = ζ_∞, p_0 = ∞ and c = (Q[Z′_0] − 4π²m₀ζ_∞)/4π². [[cor:gd-r7-4]] applied to
+Z′_0 − ζ_∞(∂_t)^♭, whose charge is 4π²c, as Q[(∂_t)^♭] = 4π²m₀, and whose metric part is ℒ_(Z′_0)g = (ġ_H)_0
+([[eq:gd-r7-4]]), gives the last display.
 
 *Data with compact support have ṁ = 0:* ġ_0 = 0 near Σ° outside a ball, and δm[ġ_0] = ṁδm[K_V] + δm[h_0] = ṁ
 ([[lem:gd-1-4]] (a), [[thm:rw-settling]] (a)) is constant on the simply connected orbit space of the interior of N⁺

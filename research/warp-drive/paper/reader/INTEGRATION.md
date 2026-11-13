@@ -1104,3 +1104,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   (lem:s26-decompositions), thm:iv2-3-1 iterates on decompositions, lem:iv2-1-2 (b) repaired with the extension
   operator of lem:iv1-2-3 (the source has the zero-extension gap). Chapter 46 follow-ups (about 619-681) sent to
   F3-S27. R4-S26 reading chapter 45.
+- Chapter 80 CONFIRMED: R2-80's minor and six nits applied with the review's text. Outside: chapter 82:651 (F1) → (L1)
+  is in F-82; chapter 83 and the P-E proofs to cite lem:two-dust-reparametrisation at integration.
