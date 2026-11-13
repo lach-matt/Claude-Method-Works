@@ -513,9 +513,9 @@ where θ^k_d are the components of θ^k: θ^k_v = −U^k, θ^k_r = 0, θ^k_l = �
 
 Step 2 (where the rates enter). The functions P_i enter g only through h, and h_kl θ^k_a θ^l_b is the only part of
 g_ab that contains them. Since h is diagonal, ∂_v h = 2 h S, and det h = c² s² does not depend on v, so tr S = 0.
-Hence the rates enter the first derivatives of g only through
+Hence the rates enter the first derivatives of g only through ∂_v g_ab, whose part containing them is
 
-    ∂_v g_ab ∋ 2 r² 𝒮_ab,      𝒮_ab := (hS)_kl θ^k_a θ^l_b,                                          {#eq:bondi-calS}
+    2 r² 𝒮_ab,      𝒮_ab := (hS)_kl θ^k_a θ^l_b,                                          {#eq:bondi-calS}
 
 and the derivatives ∂_r g, ∂_y g do not contain them. A second derivative of g contains a rate only through
 ∂_v∂_v h = 2(∂_v h) S + 2h ∂_v S = 4h S² + 2h ∂_v S and ∂_c∂_v h = 2(∂_c h) S + 2h ∂_c S for c ≠ v, where ∂_v S
@@ -526,7 +526,7 @@ derivatives of g, with coefficients g⁻¹ free of rates, Γ = Γ̊ + Σ with Γ
 
     Σ^a_bc = r² ( g^(ad)(δ^v_b 𝒮_dc + δ^v_c 𝒮_db) − g^(av) 𝒮_bc ).
 
-By [[eq:bondi-inverse]], g^(ad) 𝒮_dc = δ^a_l r⁻² h^(lk)(hS)_km θ^m_c = δ^a_l S^l_m θ^m_c, so
+By [[eq:bondi-inverse]], g^(ad) 𝒮_dc = δ^a_l r⁻² h^(lk)(hS)_km θ^m_c = r⁻² δ^a_l S^l_m θ^m_c, so
 
     Σ^v_bc = 0,      Σ^r_bc = −e^(−2β) r² 𝒮_bc,      Σ^l_bc = S^l_m (δ^v_b θ^m_c + δ^v_c θ^m_b).       {#eq:bondi-sigma}
 

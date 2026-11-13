@@ -1,0 +1,153 @@
+label	source	source_name	note
+ch:s02	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:15-2055	Part I.B	chapter; intro from lines 15-24 (status paragraph 3-13 and the pointer to the bounded-frequency file dropped)
+sec:i-b-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:26	I.B section 1	
+sec:i-b-1-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:28	I.B section 1.1	radii stated as parameters, from BEYOND5-R0-PROOF.md section 2 (Parts I and II hold for abstract radii)
+sec:i-b-1-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:37	I.B section 1.2	
+eq:i-b-1-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:42	I.B (1.1)	
+sec:i-b-1-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:55	I.B section 1.3	
+eq:i-b-1-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:59	I.B (1.2)	
+lem:i-b-1-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:61	I.B Lemma 1.1	
+eq:i-b-1-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:69	I.B (1.3)	
+sec:i-b-1-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:103	I.B section 1.4	
+sec:i-b-1-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:125	I.B section 1.5	(H8) history sentence (D189) turned into mathematics; pointer to Part VI and items 10.19/10.36/10.60 replaced by [[ch:s12]]; lambda_max written max spec
+eq:i-b-1-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:144	I.B (1.4)	
+sec:i-b-1-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:179	I.B section 1.6	
+eq:i-b-1-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:188	I.B (1.5)	
+thm:i-b-1-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:190	I.B Theorem 1.3	item (5) D189 tag dropped; the sentence on changes of statement (F8) moved to rem:i-b-relation
+eq:i-b-1-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:199	I.B (1.6)	
+eq:i-b-1-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:216	I.B (1.7)	
+eq:i-b-1-8	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:225	I.B (1.8)	
+rem:i-b-1-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:230	I.B Remark 1.4	
+rem:i-b-relation	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:2056-2120	Part I.B section 10 (closing findings)	private key; folds tail section 10 (F4), (F5), (F8) (lines 2070-2080, 2092-2096)
+sec:i-b-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:235	I.B section 2	sentence on texts that could not be read replaced by a statement of what is proved
+sec:i-b-2-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:247	I.B section 2.1	
+def:i-b-2-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:261	I.B Definition 2.1	
+eq:i-b-2-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:265	I.B (2.1)	
+lem:i-b-2-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:270	I.B Lemma 2.2	
+sec:i-b-2-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:286	I.B section 2.2	
+lem:i-b-2-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:299	I.B Lemma 2.3	
+eq:i-b-2-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:309	I.B (2.2)	
+thm:i-b-2-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:322	I.B Theorem 2.4	integration variable theta renamed zeta-prime (theta is the phase in the edition)
+eq:i-b-2-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:325	I.B (2.3)	
+eq:i-b-2-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:330	I.B (2.4)	
+thm:i-b-2-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:372	I.B Theorem 2.5	integration variable theta renamed zeta-prime
+eq:i-b-2-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:387	I.B (2.5)	
+sec:i-b-2-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:402	I.B section 2.3	
+lem:i-b-2-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:404	I.B Lemma 2.6	
+thm:i-b-2-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:418	I.B Theorem 2.7	contour variable lambda renamed kappa, contour Gamma renamed script C
+prop:i-b-2-8	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:448	I.B Proposition 2.8	
+sec:i-b-2-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:457	I.B section 2.4	
+def:i-b-2-9	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:464	I.B Definition 2.9	
+prop:i-b-2-10	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:475	I.B Proposition 2.10	
+lem:i-b-2-11	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:486	I.B Lemma 2.11	
+lem:i-b-2-12	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:498	I.B Lemma 2.12	scalar function lambda renamed kappa
+sec:i-b-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:516	I.B section 3	
+sec:i-b-3-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:523	I.B section 3.1	
+lem:i-b-3-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:529	I.B Lemma 3.1	
+sec:i-b-3-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:549	I.B section 3.2	
+lem:i-b-3-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:551	I.B Lemma 3.2	
+eq:i-b-3-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:555	I.B (3.1)	
+eq:i-b-3-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:567	I.B (3.2)	
+lem:i-b-3-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:571	I.B Lemma 3.3	
+eq:i-b-3-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:575	I.B (3.3)	
+eq:i-b-3-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:584	I.B (3.4)	
+sec:i-b-3-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:606	I.B section 3.3	
+lem:i-b-3-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:614	I.B Lemma 3.4	integer N renamed M
+eq:i-b-3-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:622	I.B (3.5)	
+sec:i-b-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:654	I.B section 4	
+sec:i-b-4-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:665	I.B section 4.1	
+lem:i-b-4-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:667	I.B Lemma 4.1	
+eq:i-b-4-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:678	I.B (4.1)	
+sec:i-b-4-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:724	I.B section 4.2	
+prop:i-b-4-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:726	I.B Proposition 4.2	
+eq:i-b-4-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:730	I.B (4.2)	
+sec:i-b-4-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:742	I.B section 4.3	
+lem:i-b-4-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:744	I.B Lemma 4.3	phase-space point sigma renamed varpi-prime
+lem:i-b-4-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:766	I.B Lemma 4.4	
+sec:i-b-4-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:775	I.B section 4.4	
+eq:i-b-4-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:779	I.B (4.3)	
+prop:i-b-4-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:781	I.B Proposition 4.5	N -> M; Step-1 constant M renamed M_1; lambda_r, lambda_b, lambda_0 renamed kappa_r, kappa_b, kappa_0; lambda = Im z/h written ell
+eq:i-b-4-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:785	I.B (4.4)	
+eq:i-b-4-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:792	I.B (4.5)	
+cor:i-b-4-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:896	I.B Corollary 4.6	local constant delta_0 renamed delta_gamma (BEYOND5-R0-PROOF.md section 0: a local constant)
+rem:i-b-4-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:915	I.B Remark 4.7	sign theta renamed eps_W; lambda written ell
+cor:i-b-4-6-prime	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:924	I.B Corollary 4.6'	Corollary 4.6-prime; key spelt with -prime; D189 tag dropped
+sec:i-b-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:945	I.B section 5	
+sec:i-b-5-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:951	I.B section 5.1	
+lem:i-b-5-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:958	I.B Lemma 5.1	source/sink wording rephrased so that the word is never followed by a space (lint)
+eq:i-b-5-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:977	I.B (5.1)	
+eq:i-b-5-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:981	I.B (5.2)	
+eq:i-b-5-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:987	I.B (5.3)	
+sec:i-b-5-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1062	I.B section 5.2	
+prop:i-b-5-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1064	I.B Proposition 5.2	sentence added: the band {|r-r_h|<delta_0} may be any smaller band (BEYOND5-R0-PROOF.md section 0, lines 38-41)
+eq:i-b-5-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1071	I.B (5.4)	
+eq:i-b-5-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1073	I.B (5.5)	
+sec:i-b-5-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1108	I.B section 5.3	
+prop:i-b-5-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1110	I.B Proposition 5.3	
+sec:i-b-5-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1143	I.B section 5.4	
+lem:i-b-5-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1148	I.B Lemma 5.4	
+eq:i-b-5-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1151	I.B (5.6)	
+eq:i-b-5-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1157	I.B (5.7)	
+prop:i-b-5-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1179	I.B Proposition 5.5	lambda_min written min spec
+eq:i-b-5-8	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1185	I.B (5.8)	
+sec:i-b-5-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1216	I.B section 5.5	
+eq:i-b-5-9	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1221	I.B (5.9)	
+lem:i-b-5-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1228	I.B Lemma 5.6	
+eq:i-b-5-10	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1231	I.B (5.10)	
+prop:i-b-5-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1252	I.B Proposition 5.7	
+eq:i-b-5-11	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1256	I.B (5.11)	
+sec:i-b-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1277	I.B section 6	local delta_0 of section 6 renamed eps_Gamma (BEYOND5-R0-PROOF.md section 2: local constant, not the radius); N -> M; D226 parenthetical dropped
+sec:i-b-6-0	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1291	I.B section 6.0	
+lem:i-b-6-0	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1293	I.B Lemma 6.0	cut-off theta_Gamma renamed psi_Gamma; delta_0 -> eps_Gamma; D226 tag dropped
+eq:i-b-6-0	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1299	I.B (6.0)	
+sec:i-b-6-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1351	I.B section 6.1	delta_0 -> eps_Gamma; lambda -> ell
+eq:i-b-6-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1357	I.B (6.1)	
+eq:i-b-6-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1362	I.B (6.2)	
+eq:i-b-6-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1369	I.B (6.3)	
+sec:i-b-6-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1390	I.B section 6.2	
+prop:i-b-6-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1392	I.B Proposition 6.1	proof constant M renamed M_1 (M_0, M_Sigma kept); theta_u renamed chi_u; D226/D229/D189 tags dropped
+eq:i-b-6-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1401	I.B (6.4)	
+sec:i-b-6-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1440	I.B section 6.3	
+lem:i-b-6-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1446	I.B Lemma 6.2	C^N -> C^(N_E); N_0 -> K_0; density M renamed m_mu; D189 parenthetical dropped
+lem:i-b-6-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1477	I.B Lemma 6.3	
+eq:i-b-6-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1483	I.B (6.5)	
+sec:i-b-6-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1499	I.B section 6.4	
+prop:i-b-6-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1501	I.B Proposition 6.4	lambda-prime renamed kappa-prime; step function theta renamed Theta; Steps 2-4 written with delta_1 in place of delta_0 as the source instructs; D189/D191 tags dropped; closing paragraph refers to rem:i-b-relation for (F3)-(F4)
+eq:i-b-6-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1506	I.B (6.6)	
+eq:i-b-6-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1512	I.B (6.7)	
+eq:i-b-6-8	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1535	I.B (6.8)	
+eq:i-b-6-9	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1562	I.B (6.9)	
+sec:i-b-6-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1594	I.B section 6.5	entire function Psi renamed Upsilon (Psi is the operator class)
+eq:i-b-6-10	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1621	I.B (6.10)	
+lem:i-b-6-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1625	I.B Lemma 6.5	
+lem:i-b-6-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1655	I.B Lemma 6.6	bounds M, M_0, M_1 renamed A, A_0, A_1
+prop:i-b-6-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1668	I.B Proposition 6.7	
+eq:i-b-6-11	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1670	I.B (6.11)	
+sec:i-b-6-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1698	I.B section 6.6	
+thm:i-b-6-8	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1700	I.B Theorem 6.8	D189 parenthetical turned into a sentence; theta -> eps_W
+eq:i-b-6-12	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1705	I.B (6.12)	
+lem:i-b-6-9	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1743	I.B Lemma 6.9	
+sec:i-b-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1755	I.B section 7	
+sec:i-b-7-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1765	I.B section 7.1	
+prop:i-b-7-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1776	I.B Proposition 7.1	weight exponent lambda written ell; manifold M renamed script M; matrix function ell_0 renamed Y_0
+eq:i-b-7-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1779	I.B (7.1)	
+sec:i-b-7-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1811	I.B section 7.2	
+prop:i-b-7-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1813	I.B Proposition 7.2	D189 parenthetical kept as mathematics without its tag
+cor:i-b-7-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1848	I.B Corollary 7.3	
+eq:i-b-7-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1851	I.B (7.2)	
+eq:i-b-7-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1854	I.B (7.3)	
+sec:i-b-8	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1860	I.B section 8	
+sec:i-b-8-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1866	I.B section 8.1	D189 history sentence turned into mathematics
+sec:i-b-8-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1879	I.B section 8.2	
+prop:i-b-8-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1881	I.B Proposition 8.1	
+eq:i-b-8-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1884	I.B (8.1)	
+sec:i-b-8-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1942	I.B section 8.3	
+prop:i-b-8-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1944	I.B Proposition 8.2	
+eq:i-b-8-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1946	I.B (8.2)	
+sec:i-b-8-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1963	I.B section 8.4	
+sec:i-b-8-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1980	I.B section 8.5	
+eq:i-b-8-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1983	I.B (8.3)	
+sec:i-b-8-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:2005	I.B section 8.6	D189 tag dropped
+eq:i-b-8-4	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:2013	I.B (8.4)	
+sec:i-b-9	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:2038	I.B section 9	D189 parenthetical turned into a sentence; Part VI pointer replaced by [[ch:s12]]
+rem:i-b-comparison	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:2056-2120	Part I.B section 10 (closing findings)	private key; folds tail section 10 (F1), (F2), (F6), (F7), (F9), (F10) (lines 2058-2064, 2081-2091, 2097-2113)

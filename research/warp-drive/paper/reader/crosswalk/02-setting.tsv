@@ -28,6 +28,12 @@ eq:waves	paper/RESPONSE-HL-5D.md:225-227	P (2.5′)
 lem:waves	paper/RESPONSE-HL-5D.md:221-230	P 2.4 (traceless, transverse, amplitude r^(-3/2), smooth at both axes)	Cartesian form and proofs new (replaces ansatz5 A3)
 lem:mean-leading	-	new	θ-mean of the λ^0 coefficient of Ric^H (replaces lead5 L2)
 eq:mean-leading	-	new	
-prop:limit	paper/RESPONSE-HL-5D.md:232-241	P Proposition 2.3	proved by hand; Bondi-variable remark (hf_theorem5 F3) kept with pending computational-2
+prop:limit	paper/RESPONSE-HL-5D.md:232-241	P Proposition 2.3	proved by hand; the Bondi-variable claim is lem:bondi-rates
 eq:wave-energy	paper/RESPONSE-HL-5D.md:276-280	P Theorem 1 item 4 phase mean (support3 D2)	derived
 eq:mu-rate	paper/RESPONSE-HL-5D.md:236	P (2.6)	
+eq:bondi-type	paper/RESPONSE-HL-5D.md:238-241; paper/RESPONSE-HL-5D.md:417-419	P Proposition 2.3 (Bondi-type variables), metric (3.2)	metric written with the coframe θ^k
+lem:bondi-rates	paper/RESPONSE-HL-5D.md:238-241	P Proposition 2.3, R_vv quadratic part (hf_theorem5 F3)	exact derivation replaces hf_theorem5 F3; former pending computational-2
+eq:bondi-rates	-	new	
+eq:bondi-inverse	-	new	inverse metric of the Bondi-type form
+eq:bondi-calS	-	new	
+eq:bondi-sigma	-	new	rate-linear part of the Christoffel symbols
