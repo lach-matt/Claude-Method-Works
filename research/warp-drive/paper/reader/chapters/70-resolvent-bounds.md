@@ -1187,7 +1187,7 @@ almost everywhere, with the asymptotics stated there. Let φ be a real smooth no
 
 Then ‖u‖_I ≤ B♯‖F‖, where
 
-    B♯ := (c + (c² + 2p_I²w_I/m′)^(1/2))/(2w_I),     c := (M′² + 4σ²p_∞²)^(1/2).                    {#eq:band-sharp}
+    B♯ := (ϱ + (ϱ² + 2p_I²w_I/m′)^(1/2))/(2w_I),     ϱ := (M′² + 4σ²p_∞²)^(1/2).                    {#eq:band-sharp}
 
 B♯ increases with |σ|, M′, p_I and p_∞, and decreases as m′ or w_I increases.
 
@@ -1203,11 +1203,11 @@ The last term is at most 2σ²p_∞(|c_+|² + |c_−|²), and by the flux identi
 [[lem:morawetz-identity]] this equals −2σp_∞Im∫Fū = Re∫F · conj(−2iσp_∞u). So, with X := ‖u′‖_I and Y := ‖u‖_I, since
 both integrands on the left are nonnegative and F vanishes off I,
 
-    2m′X² + w_IY² ≤ Re∫_I F · conj(2φu′ + (φ′ − 2iσp_∞)u) ≤ ‖F‖(2p_IX + cY),
+    2m′X² + w_IY² ≤ Re∫_I F · conj(2φu′ + (φ′ − 2iσp_∞)u) ≤ ‖F‖(2p_IX + ϱY),
 
-because |φ| ≤ p_I on I and |φ′ − 2iσp_∞| = (φ′² + 4σ²p_∞²)^(1/2) ≤ c there. For every real X,
-2m′X² − 2p_I‖F‖X ≥ −p_I²‖F‖²/(2m′); hence w_IY² − c‖F‖Y − p_I²‖F‖²/(2m′) ≤ 0, and Y is at most the positive root of
-this quadratic, which is B♯‖F‖. Finally B♯ = c/(2w_I) + (c²/(4w_I²) + p_I²/(2m′w_I))^(1/2), which gives the
+because |φ| ≤ p_I on I and |φ′ − 2iσp_∞| = (φ′² + 4σ²p_∞²)^(1/2) ≤ ϱ there. For every real X,
+2m′X² − 2p_I‖F‖X ≥ −p_I²‖F‖²/(2m′); hence w_IY² − ϱ‖F‖Y − p_I²‖F‖²/(2m′) ≤ 0, and Y is at most the positive root of
+this quadratic, which is B♯‖F‖. Finally B♯ = ϱ/(2w_I) + (ϱ²/(4w_I²) + p_I²/(2m′w_I))^(1/2), which gives the
 monotonicity. ∎
 
 Since every hypothesis and the constant depend on σ only through |σ|, every bound below is even in σ.
@@ -1217,8 +1217,9 @@ Since every hypothesis and the constant depend on σ only through |σ|, every bo
 σ² − κ/4 − 25/48 ≥ |σ|/2, then ‖χ_I R_l(σ) χ_I‖ ≤ 2Λ < 7.4872.
 
 *Proof.* U = (1 − y)y ≤ 1/4 and Q = (1 − y)y² ≤ 4/27 on [0, 1], so V_l ≤ (κ + 3/4)/4 + (9/4)(4/27) = κ/4 + 25/48. The
-bound above the barrier ([[prop:resolvent-above-barrier]]) then gives the first estimate, and t ↦ Λt/(t² − C)
-decreases for t² > C, its derivative being −Λ(t² + C)/(t² − C)². The last statement is the first with
+bound above the barrier ([[prop:resolvent-above-barrier]]) then gives the first estimate, and
+t ↦ Λt/(t² − κ/4 − 25/48) decreases for t² > κ/4 + 25/48, its derivative being
+−Λ(t² + κ/4 + 25/48)/(t² − κ/4 − 25/48)². The last statement is the first with
 σ² − κ/4 − 25/48 ≥ |σ|/2. ∎
 
 #### The weight of a multiplier in the variable z {#sec:band-weights}

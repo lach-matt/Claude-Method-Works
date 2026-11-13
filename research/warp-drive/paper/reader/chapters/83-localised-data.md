@@ -949,6 +949,21 @@ theorem on [−k_0ε, k_0ε] gives data bg + εδ_0 + O(ε²). Seeds in the radi
 
 ### Outside the apparent horizon {#sec:loc-outside}
 
+**Lemma {#lem:loc-gauge-unique}** (Linearised vacuum solutions with zero data.) Let (M, g) be a globally hyperbolic
+Ricci-flat Lorentzian manifold, S a smooth spacelike Cauchy hypersurface with future unit normal n, and k a smooth
+symmetric 2-tensor on M with DRic(k) = 0 that induces zero linearised data on S: the first variations of the induced
+metric and of the second fundamental form of S vanish. Then k = L_X g for a smooth vector field X on M.
+
+*Proof.* We use [[lem:ix-2-1]], whose proof uses of the metric only that it is Ricci-flat, with S in place of the
+hypersurface there, and its notation −Υ̇⁰(k)_ν = −∇^λk_λν + ½∇_ν tr_g k. Let Y be the vector field on S with
+Y^♭ = k(n, ·) + ½k(n, n)n^♭, and, by [[lem:ix-1-1]] with the normally hyperbolic operator 2δ_gG_gδ*_g = −∇^α∇_α on
+1-forms ([[lem:ix-2-1]] (a)), w the smooth 1-form on M with 2δ_gG_gδ*_g w = −Υ̇⁰(k), w|_S = 0 and ∇_n w|_S = Y^♭. Put
+X := w^♯ and h := k − L_X g. Since −Υ̇⁰(L_X g) = δ_gG_g(2δ*_g w) = −Υ̇⁰(k), Υ̇⁰(h) = 0 on M. By [[lem:ix-2-1]] (e), h = 0
+on S; h induces zero linearised data, as k does and L_X g does by [[lem:ix-2-1]] (f); so (∇_n h)(e_i, e_j) = 0 for e_i,
+e_j tangent to S by [[lem:ix-2-1]] (c), and then (∇_n h)(n, ·) = 0 by [[lem:ix-2-1]] (d) and Υ̇⁰(h) = 0. Finally
+DRic(h) = 0 by [[lem:ix-2-1]] (b), so 2L⁰h = 0, L⁰ := DRic − δ*_gΥ̇⁰ being normally hyperbolic ([[lem:ix-2-1]] (a)),
+with h|_S = 0 and ∇_n h|_S = 0; [[thm:std-bgp-cauchy]] (3) gives h = 0. ∎
+
 **Lemma {#lem:loc-transfer}** (From the slice to a static slice.) Let U ⊂ {f > 0} be a band of Σ_τ0 on which the
 background is vacuum, of mass μ, with the radial extent of supp δ equal to [R1′, R2′], and let δ be a seed on U.
 Extend the slice to a Cauchy surface of the maximally extended Tangherlini spacetime M_μ, and let h be the linearised
@@ -1015,9 +1030,10 @@ On a static slice, γ = dR²/f + R² dΩ₃², N_s = √f, K0 = 0 and Y_s = 0, D
 D²ψ_g − ψ_g Ric(γ).
 
 *Proof.* Differentiating Scal(φ_t*(γ + sh)) = φ_t* Scal(γ + sh), φ_t the flow of X, at s = t = 0 gives DScal[L_Xγ] =
-X(Scal) = 0 and D²Scal[h, L_Xγ] = X(DScal[h]) − DScal[L_Xh]. So the cross term of 𝔈_V is ½∫N_s X(DScal[h]) −
-½∫N_s DScal[L_Xh] = −½∫ div(N_sX) DScal[h] − ½∫⟨(DScal)*N_s, L_Xh⟩ = 0, using DScal[h] = 0 and (DScal)*N_s = D²N_s
-− ΔN_s γ − N_s Ric(γ) = 0, the static vacuum equation; the quadratic term vanishes in the same way. For 𝔈_K, the
+X(Scal) = 0 and D²Scal[h, L_Xγ] = X(DScal[h]) − DScal[L_Xh]. So the cross term of 𝔈_V(h + L_Xγ) is
+−∫N_s D²Scal[h, L_Xγ] = −∫N_s X(DScal[h]) + ∫N_s DScal[L_Xh] = ∫ div(N_sX) DScal[h] + ∫⟨(DScal)*N_s, L_Xh⟩ = 0, using
+DScal[h] = 0 and (DScal)*N_s = D²N_s − ΔN_s γ − N_s Ric(γ) = 0, the static vacuum equation; the quadratic term
+−½∫N_s D²Scal[L_Xγ, L_Xγ] = ½∫N_s DScal[L_XL_Xγ] vanishes in the same way, as DScal[L_Xγ] = 0. For 𝔈_K, the
 bilinear form B(k, k_ψ) = ∫N_s(⟨k, k_ψ⟩ − tr k tr k_ψ) dvol is, after two integrations by parts, ∫ψ_g (2dN_s·ℳ[k] +
 N_s div ℳ[k]) dvol with ℳ[k] := D^jk_ji − D_i tr k, which vanishes when ℳ[k] = 0; and ℳ[k_ψ] = D^j(D_jD_iψ_g −
 ψ_g Ric_ij) − D_i(Δψ_g − ψ_g Scal) = 0 by the contracted Bianchi identity and Scal = 0, so B(k_ψ, k_ψ) = 0. ∎
