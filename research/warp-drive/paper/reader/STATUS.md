@@ -21,15 +21,15 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 27 S8 | NOT CONFIRMED 0M 5m 7n | done | CONFIRMED; citation resolved and confirmed |
 | 28 S9 | NOT CONFIRMED 2M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (Theorem 1.1 tame estimate) |
 | 29 S10 | NOT CONFIRMED 0M 5m 7n | done | third reading CONFIRMED (3 optional nits) |
-| 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | second fix done (bundles: ℂ^(N_E)-valued, (EE) by [Shu92, App. 1, Lemma 1.4]; every Laurent coefficient; nits; S12 nits applied); third reading running (S11 and S12) |
-| 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | CONFIRMED (0M 0m 6n; nits applied with the S11 second fix) |
+| 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | third reading NOT CONFIRMED 0M 2m 1n (poles of N(A,·)⁻¹ = indicial roots unstated; H^∞_loc claim); third fix running |
+| 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | CONFIRMED (third reading, 1 nit: 0.80 → about 0.79, applied in the S11 third fix) |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | CONFIRMED (third reading 0M 0m 2n; ℳ restricted to roots with Re ι at most 10 in modulus) |
 | 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | second reading NOT CONFIRMED 0M 2m 4n (all seven Majors hold; reason at 674; e = 0 limits); second fix running |
 | 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | done (sign by own computation; δ_50 cited; ε_Υ for S13's constant) | CONFIRMED (second reading 0M 0m 3n) |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | CONFIRMED (third reading; 4 nits) |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
-| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | fourth reading NOT CONFIRMED 1M 0m 1n (46, 48 build Ω_* with ℓ = ½); fourth fix running (decouple the time-function ℓ = ½ from the class ℓ_I) |
+| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | fourth fix done (time function at exponent ½, class parameter ℓ_I ∈ (0, ½) separate; eq:s19-time-hyp; (B2) at weight 1; 𝒢⁺ non-degenerate; chapter 28 rem:ii-f1-7-4); fifth reading running (38 and 28) |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-keyed to lem:s25-p6 |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | third fix done (cor:iii-i15-2-10 bound C‖G‖ + C(‖h‖+|p⃗|)‖u_0‖ + CΣ|W_ν|, uniform C; ch 44 bounds by G plus the solution term; nits); fourth reading running (41 and 44) |
@@ -39,13 +39,13 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | second fix done (Step 4 at low order by Leibniz; k = 0 clause; h_S smallness k₂ = 308; nits; lem:s26-interpolation for k ≥ 7; commutator tame terms; second fundamental form sign, letter k); third reading running |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | second reading NOT CONFIRMED 1M 6m 8n (lem:s27-below (iii) on ½ ≤ t_* ≤ 1); second fix done (g⁻¹(dt_*, dt_*) ≤ 0 with exact Tangherlini values; C_g ≥ max(4(r′₀+1), 32, 16R₁); (L) k ≥ 4 unique in H²); third reading running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | CONFIRMED (second reading 0M 0m 7n; [CD03] quoted literally against page images) |
-| 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | done (translated background g_(p⃗) with ġ⁰_(S⁰′); Θ(k) → −Υ̇⁰(k); principal-part sign) | second reading NOT CONFIRMED 0M 1m 5n (translation Major fixed; gluing across the cover's edges); second fix running |
+| 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | done (translated background g_(p⃗) with ġ⁰_(S⁰′); Θ(k) → −Υ̇⁰(k); principal-part sign) | second fix done (edge gluing in lem:s29-g-on-n (i)-(ii); five nits); third fix to apply the S26 (drop "κ̃ there" at 128, 133) and S27 follow-ups after the S27 third reading, then a confirming reader |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | CONFIRMED (second reading; 2 nits) |
-| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | third fix done (wording of lem:interior-one-spacetime; m := μ(v)r⁻²; nits); fourth reading running |
+| 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | CONFIRMED (fourth reading 0M 0m 4n; nits 1-4 applied by the coordinator: hypothesis order of prop:interior, g0 = g_(b₀) on its domain, U the maximal common globally hyperbolic development, stage index j); ch 1:144-145 inner-radius sentence fixed |
 | 63 M Ch 13 | NOT CONFIRMED 1M 6m 15n (issue-1 k_P = 2k1 + 14 needed and enough; issue-2 a real gap, as in the source: E_T[Z^k h_R] ~ | waits on the cut-off repair's reader; then the fix round (R-63 minors and nits, merge of the repair at 648-653, 660-663, 682-688, 738, 784-786, 800-809, 852-857, lem:own-exterior tail) |^(2a+2k−8)) | waits on the cut-off proof project | - |
 | 64 M Ch 14 | NOT CONFIRMED 0M 6m 13n (mathematics right; set at r_♭, XΦ for rotations, density step) | done (set r > r_♭; int N proved; XΦ for T^a only; density step; renames) | confirming reader running |
-| 65 M Ch 15 | written (1,132 lines, 58 crosswalk rows, no markers); independent reader running | - | - |
+| 65 M Ch 15 | NOT CONFIRMED 0M 8m 15n (mathematics right; S′ = S⁰′ = 0, Θ, ϰ_♯/λ, □, ℓ, α_I, heuristic paragraph, step 5); fix running (with K → K̄, ġ_(p⃗′), N_ν) | - | - |
 | 70 M Ch 17 | written (1,624 lines, 102 labels; B2 merged with 4.683); the three computational markers proved (roots bracketed; singular-value bounds proved at slightly larger values; M₃₃ derived); proof B re-merge and gap cor:morawetz-one-derivative (c)-(d) running; then first reading | - | - |
 | 80 M Ch 19 | written (1,240 lines, 70 crosswalk rows, no markers); independent reader running | - | - |
 | 71 M Ch 18 | written (503 lines, 32 labels; marker issue-1; upper bound a remark); proof project running (ϑ_in ≥ 0; a written upper bound on d) | - | - |

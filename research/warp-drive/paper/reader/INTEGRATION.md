@@ -871,3 +871,18 @@ Items found while chapters were written in parallel; each is settled once, editi
   intervals (and the lower bounds 2.414 / 2.387 / 2.347 / 1.095e-3) are printed nowhere. Minors: headers say "smallest
   integer" (tables used a larger centre radius; 1,231 point and 30,853 box rows would be smaller by the text's rule);
   enclosure order leaves cosh/tanh, ϑ, R⁴, 1/Ω² open; R > 0 cited to a lemma that assumes it. Fix running.
+- Ch 62 CONFIRMED (R4-62, 0M 0m 4n). Coordinator applied all four nits: prop:interior now fixes l5, μ0, A, env, τ0,
+  takes r_♭ = ½q_end and lets the other constants be chosen in thm:settling's order; g0 = g_(b₀) on {v ≥ v_end, |x| ≥
+  ½r_♭}; rem:interior-one-spacetime's U is the maximal common globally hyperbolic development; stage index m → j at 533.
+  Ch 1:144-145: "with its inner radius taken as half the radius of the curvature boundary after the shell" (the
+  abstract keeps its summary). Ch 63:64, 670-672: μ(v)/r² for μ_end/r² (inequalities still hold) — at ch 63's fix round.
+- S19 fourth fix (F4-S19): time function with exponent ½; class parameter ℓ_I ∈ (0, ½) separate; chapter 28's
+  rem:ii-f1-7-4 proves thm:ii-f1-1-1 for any time-function exponent in [ℓ_I, ½] under one smallness condition (the two
+  compared only in lem:ii-f1-2-6 (b)); 12 citations from 46, 48 hold; optional note at 46:95 (ℓ_I there is the
+  b-weight). Fifth reading running on 38 and 28.
+- S29 second fix (F2-S29): edge gluing written in lem:s29-g-on-n (i)-(ii); nits. Its note on the same edge gluing in
+  chapter 46 sent to the S27 third reader. Third S29 fix waits for R3-S27's list of chapter 48 lines.
+- Ch 65 reading (R-65): 0M 8m 15n; Lemma R4.1 (c) general proof holds; NP 10.2 (v)-(vi) rightly dropped. Fix running.
+- S11/S12 third reading (R3-S11-S12): S12 CONFIRMED (0.80 → about 0.79); S11 two minors (poles of N(A,·)⁻¹ are the
+  indicial roots — used by S13:1862, S14:2399, S17:1622; H^∞_loc claim) and one nit; [Shu92, App. 1, Lemma 1.4, pp.
+  69-70] quotation verbatim. Third fix running (also labels for chapter 30 formulas cited by chapter 70).

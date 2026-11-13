@@ -69,12 +69,13 @@ these are −3/2 + (9/16)f, −7/4 + (3/4)f and 1 − (3/4)f = ¼ + (3/4)r⁻².
 and the second below −1; so c is timelike and in the cone of dt, which is past, and r c is past timelike. The third is
 positive at every r > 0. On 0 < r < 1, f < 0, so f e g⁻¹(c, c) > 0, and 2(1 − e) g⁻¹(c, dr)² > 0. ∎
 
-**Proposition {#prop:interior}** (The development reaches the curvature boundary inside the black hole.) Let the
-constants be as in [[thm:settling]], and take the inner radius of the stability theory to be
+**Proposition {#prop:interior}** (The development reaches the curvature boundary inside the black hole.) Fix l5, μ0, A,
+env and τ0 as in [[thm:settling]], take its inner radius to be
 
-    r_♭ := ½ min(R₁, q_end) = ½ q_end.
+    r_♭ := ½ min(R₁, q_end) = ½ q_end,
 
-Then for λ ≤ λ1 the G-invariant vacuum development g of [[thm:settling]] (i) is defined on
+and let its other constants be chosen, in its order, at this r_♭. Then for λ ≤ λ1 the G-invariant vacuum development g
+of [[thm:settling]] (i) is defined on
 
     M ∩ {t_IVP ≥ 0} = {|x| ≥ r_♭, t_IVP ≥ 0} ⊃ {r ≥ q_end, t_IVP ≥ 0},
 
@@ -325,9 +326,8 @@ globally hyperbolic development that extends both [Sbi15, Theorem 2.7 and its pr
 
 - M_gl is one vacuum spacetime: g_λ just before Σ, near the hole, and g after Σ^IVP, everywhere in {r > r_♭}. Across
   Σ^IVP ∩ {r ≥ R} nothing is glued, since on R < r < 4R the glued data differ from those of g_λ.
-- The identification of g with g_λ to the future of Σ holds on U, the largest region on which the two developments
-  are isometric. How far U reaches into the future of Σ in each is not decided here: it is as far as both are
-  determined by (Σ, γ, k) alone.
+- The identification of g with g_λ to the future of Σ holds on U, their maximal common globally hyperbolic development.
+  How far U reaches into the future of Σ in each is not decided here.
 - The side of g_λ is taken in V, where Σ is acausal by construction. Whether Σ is acausal in all of Ω′, which would
   enlarge the development on that side, is not decided here.
 - At late times near the hole, the domain of dependence of no bounded part of Σ^IVP reaches. For g_(b₀): on
@@ -384,9 +384,9 @@ V′_P. So at a fixed λ the data of either solution are available on a bounded 
 
     g0 = η + m dv dv,     g0⁻¹ = η⁻¹ − m L0 L0,     m := μ(v) r⁻²,     L0 = ∂_τ − x̂·∂_x
 
-([[eq:background]]). On {v ≥ v_end}, μ = μ_end, so m = μ_end r⁻² there, and g0 = g_(b₀) in the chart of
-[[lem:vii-1-2]] ([[lem:interior-chart]] (a)). As μ is nondecreasing and equal to μ0 > 0 for v ≤ v_start,
-0 < μ0 ≤ μ(v) ≤ μ_end at every v; and 4R ≥ 20R₁, as R ≥ R₃ ≥ 5R₁, with R₁² = μ_end. Hence on {r ≥ 4R}
+([[eq:background]]). On {v ≥ v_end}, μ = μ_end, so m = μ_end r⁻² there, and g0 = g_(b₀) on {v ≥ v_end, |x| ≥ ½r_♭} in
+the chart of [[lem:vii-1-2]] ([[lem:interior-chart]] (a)). As μ is nondecreasing and equal to μ0 > 0 for v ≤ v_start, 0
+< μ0 ≤ μ(v) ≤ μ_end at every v; and 4R ≥ 20R₁, as R ≥ R₃ ≥ 5R₁, with R₁² = μ_end. Hence on {r ≥ 4R}
 
     0 < m ≤ μ_end r⁻² ≤ μ_end/(400R₁²) = 1/400.
 
@@ -530,15 +530,15 @@ observations.
 
 *What H₁ carries.* On H₁ ∩ P′, |g_λ − g_app| ≤ Cλ^(K−3) t^(−2) ([[thm:past-construction]] (3)). After the shell g_app −
 g0 = Σ_j λ^j m_j, the means alone, every oscillating profile vanishing on {v ≥ v_end} (step (3) of the proof of
-[[prop:past-items]]); and m_m ∈ L_2 ([[thm:past-approximant]]): a leading term r⁻² M_m(v, x̂), with M_m := 2 ∫_(−∞)^v
-𝒮_(m,3) dv′, plus a remainder in E_(5/2). That is a leading term and a bound, not an expansion. The sufficient condition
-of [[lem:vii-0-1]] asks for components in ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r, and the class of
-[[thm:settling]] (ii) is polyhomogeneous with terms of orders r⁻² and r⁻³. An E_(5/2) bound neither gives such an
-expansion nor excludes one. The data index set of [[thm:iii-k-4-3]] need not be integral: row d1 of [[sec:vi-c-1]] asks
-min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0, and none of these is integrality. Closure under sums is
-the only condition linking the elements, so (5/2, 0) ∈ ℰ_0 forces (5, 0), (15/2, 0), … into it. As ℓ_0 > 5/2, the norm
-‖·‖_(d_1) of [[sec:s27-class]] is finite on a term ρ^(5/2) a(ω) exactly when (5/2, 0) ∈ ℰ_0; for the class [[eq:vii-0-1]]
-it is infinite.
+[[prop:past-items]]); and each mean m_j lies in L_2 ([[thm:past-approximant]]): a leading term r⁻² M_j(v, x̂), with M_j
+:= 2 ∫_(−∞)^v 𝒮_(j,3) dv′, plus a remainder in E_(5/2). That is a leading term and a bound, not an expansion. The
+sufficient condition of [[lem:vii-0-1]] asks for components in ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r,
+and the class of [[thm:settling]] (ii) is polyhomogeneous with terms of orders r⁻² and r⁻³. An E_(5/2) bound neither
+gives such an expansion nor excludes one. The data index set of [[thm:iii-k-4-3]] need not be integral: row d1 of
+[[sec:vi-c-1]] asks min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0, and none of these is integrality.
+Closure under sums is the only condition linking the elements, so (5/2, 0) ∈ ℰ_0 forces (5, 0), (15/2, 0), … into it. As
+ℓ_0 > 5/2, the norm ‖·‖_(d_1) of [[sec:s27-class]] is finite on a term ρ^(5/2) a(ω) exactly when (5/2, 0) ∈ ℰ_0; for the
+class [[eq:vii-0-1]] it is infinite.
 
 **Definition {#def:half-class}** (The half-integer class.) The *half-integer class* is the data class of
 [[thm:iii-k-4-3]] with

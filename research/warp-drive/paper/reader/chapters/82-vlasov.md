@@ -141,13 +141,17 @@ div_(g5) T = 0 is div_(g5)(q ℓ) = ℓ(q) + q □5 u = 0. By [[eq:vlasov-box]],
 
 **Definition {#def:vlasov-label}** (Fields in label form.) Let Ω be a domain of the type [[eq:omega]] for a metric g of
 the class (its constants (τ0, τ_end, a, V) fixed and its sets defined by the coordinate functions τ, r, v). A *restricted
-field in label form* on Ω is a pair (q, u) of smooth invariant functions on Ω × S¹, q ≥ 0, such that each u_α :=
-u(·, α) is an eikonal of g on a neighbourhood of the *tube* D_α of supp q(·, α), with stress
+field in label form* on Ω is a pair (F, u) of smooth invariant functions on Ω × S¹, F ≥ 0, with density q := F², such
+that each u_α := u(·, α) is an eikonal of g on a neighbourhood of the *tube* D_α of supp q(·, α), with stress
 
     T_V := ∫_(S¹) q(·, α) du_α ⊗ du_α dα,                                                          {#eq:vlasov-stress}
 
-and with every q(·, α) transported by [[eq:vlasov-dust]] for u = u_α. Here the *rays* of u_α are the integral curves of
-ℓ_α := g⁻¹du_α, and D_α is the set of points of Ω on the future rays from supp q(·, α) ∩ Σ_τ0 that stay in Ω. Let
+and with every amplitude F(·, α) transported by
+
+    2 ℓ_α(F) + (□5 u_α) F = 0,      ℓ_α := g⁻¹du_α,                                              {#eq:vlasov-amplitude}
+
+which is [[eq:vlasov-dust]] for q(·, α) = F(·, α)², as in [HL25, (1.2)]. Here the *rays* of u_α are the integral curves of
+ℓ_α, and D_α is the set of points of Ω on the future rays from supp q(·, α) ∩ Σ_τ0 that stay in Ω. Let
 β0(x, α) be the angle, in a frame of the orbit slice of Σ_τ0 orthonormal for its induced metric, of the covector
 d(u_α|Σ_τ0)(x). The field is *labelled by initial direction* if for every x the map α ↦ β0(x, α) is injective on the
 labels α with (x, α) ∈ supp q. T_V is the stress of the restricted field μ_x := ∫ q(x, α) δ_(du_α(x)) dα, and each
@@ -236,7 +240,7 @@ families). We assume:
   {v + τ = const} is spacelike and v + τ increases along future causal curves; every generator of a dust present in Ω
   (a ray of u_α through a point of D_α, or a generator of a radial dust on its support), followed to the past, stays
   in Ω and meets Σ_τ0. These are (a)–(d) of [[lem:domain]], for g.
-- (V1) q and u are smooth in (x, α), and the field is labelled by initial direction. For each α and each x0 in a
+- (V1) F and u are smooth in (x, α), and the field is labelled by initial direction. For each α and each x0 in a
   neighbourhood of supp q(·, α) ∩ Σ_τ0, the point y_τ(x0) where the ray of u_α from x0 meets Σ_τ depends on x0 with
   Jacobian determinant ≥ J0 > 0 in the coordinates (r, ϑ) of the orbit slices, for every τ with y_τ(x0) in a
   neighbourhood of Ω (no caustic). On Σ_τ0 ∩ supp q, ∂_α β0 ≥ b > 0.
@@ -523,3 +527,260 @@ double-null coordinates, √|g3| = e^(2σ) R and g3^(uv) = −e^(−2σ), so □
 
 So if ℓ_A·dφ = F along the generator of family A, then Ψ := □̃φ satisfies L_A Ψ + a_A Ψ = □̃F − M_A(F) − N_A φ, the
 form [[eq:ue-psi]] that the uniform estimate uses, with a_A = 2 □3 u_A.
+
+### The n-dust approximants are uniform in n {#sec:vlasov-uniform}
+
+**Lemma {#lem:vlasov-trapezoid}** (The label quadrature.) Let F be smooth on K × S¹, K compact, and
+
+    E_n(x) := ∫_(S¹) F(x, α) dα − (2π/n) Σ_(A=1)^n F(x, 2πA/n).
+
+Then for every j and every k ≥ 2, sup_K |∂_x^j E_n| ≤ 2 ζ(k) n^(−k) sup_(x∈K) ∫_(S¹) |∂_x^j ∂_α^k F(x, α)| dα, ζ the Riemann
+zeta function.
+
+*Proof.* The x-derivatives commute with both terms, so take j = 0. Expand F(x, α) = Σ_(m∈ℤ) F̂_m(x) e^(imα), absolutely
+convergent. Since (2π/n) Σ_A e^(2πimA/n) is 2π if n divides m and 0 otherwise, E_n = −2π Σ_(l≠0) F̂_(ln). Integrating
+by parts k times, |F̂_m(x)| ≤ (2π)⁻¹ |m|^(−k) ∫ |∂_α^k F(x, α)| dα, so |E_n| ≤ Σ_(l≠0) (|l| n)^(−k) ∫ |∂_α^k F| dα. ∎
+
+For an integrand with a kink in α the error is only of order n⁻²: the smoothness of the field in its label is what is
+used.
+
+Let (g, q, u) satisfy (Ω), (V1), (V2), (V2′) and (V3). For n ≥ 1 put α_A := 2πA/n. The *n-dust approximant* of the
+field is the class Einstein–n-null-dust solution g^(n), with the radial dusts of g, whose data on Σ_τ0 are: the
+densities q_A := (2π/n) q(·, α_A); eikonals u_A with the data of u_(α_A) on Σ_τ0 (on the same branch of the eikonal
+equation); the radial dusts' data of g; and the metric data of g corrected, by the radial solve of [[sec:data-evolution]]
+under (V3), to satisfy the constraints with the stress T^(n) + T_rad, T^(n) := Σ_A q_A du_A ⊗ du_A. The class
+Einstein–n-null-dust system and its augmented form, in the unknowns (w, du_A, Θ_A, q_A) with the expansions Θ_A :=
+□5 u_A transported by the Raychaudhuri equation, are those of [[pending:class-augmented-system]], and their Cauchy
+stability on Ω without smallness is [[thm:class-stability]].
+
+**Proposition {#prop:vlasov-uniform-n}** (The n-dust approximants are uniform in n.) Fix m ≥ 6. There are n0 and, for
+every k, a constant C_k independent of n, such that for n ≥ n0 the n-dust approximant g^(n) exists on Ω and, on every
+Σ_τ,
+
+    ‖g^(n) − g‖_(H^(m+1)) + ((2π/n) Σ_A ‖(du_A, Θ_A, q_A/(2π/n)) − (du_(α_A), Θ(·, α_A), q(·, α_A))‖²_(H^m))^(1/2)
+        ≤ C_k n^(−k),                                                                          {#eq:vlasov-uniform-n}
+
+with Θ(·, α) := □5 u_α, the family norms taken on the tubes. In particular |g^(n) − g|_(C¹(Ω)) ≤ C_k n^(−k).
+
+*Proof.* Let E_n := T_V − Σ_A (2π/n) q(·, α_A) du_(α_A) ⊗ du_(α_A), evaluated with g. It is the error of
+[[lem:vlasov-trapezoid]] for the integrand q(x, α) du_α ⊗ du_α, smooth on Ω × S¹ by (V1), so |∂^j E_n| ≤ C_(j,k) n^(−k)
+for all j, k.
+
+*Data.* The data of g on Σ_τ0 satisfy the constraints with the stress T_V + T_rad; those of g^(n) are corrected to the
+stress T^(n) + T_rad by the radial solve, whose hypotheses on Σ_τ0 ∩ Ω are (V3), and whose linear evolution
+([[lem:linear-evolution]]) is stable under a change of the source. The change of the source is E_n on Σ_τ0, up to the
+difference of the eikonals, which have the same data. So the corrected data differ from those of g by at most C_k n^(−k)
+in H^(m+1) × H^m, and the families' data from the sampled continuum's by the same amount, with the weight 2π/n.
+
+*Evolution.* The sampled continuum, the metric g with (du_(α_A), Θ(·, α_A), (2π/n) q(·, α_A)), solves the eikonal and
+density transports of the n-dust system exactly, since each involves only g and its own family. It solves the Einstein
+equation and the Raychaudhuri transports up to the residual E_n, which enters the first as a source and the second
+through E_n(ℓ_A, ℓ_A), the Ricci term of the Raychaudhuri equation being Ric(ℓ_A, ℓ_A). Take the energy of the proof of
+[[thm:class-stability]] for the difference, with the family norms weighted by 2π/n, an ℓ² sum over A. It closes with
+constants independent of n: the source of the metric equation for the difference is Σ_A (2π/n)(ς_A p_A ⊗ p_A + q̂_A
+(π_A ⊗ p_A + p_A ⊗ π_A)), with (π_A, ς_A) the differences of (du_A, q_A/(2π/n)) and q̂_A := q(·, α_A), bounded by
+Cauchy–Schwarz by C times the weighted family norm, as Σ_A 2π/n = 2π; each family's transport depends on the others only
+through the metric and through Ric(ℓ_A, ℓ_A) = Σ_B (2π/n) q̂_B g⁻¹(du_A, du_B)², a quadrature bounded in the same way;
+every other term is that of the n-dust energy, family by family, with constants uniform in A because the sampled
+families are uniformly smooth in α. Gronwall's lemma and the bootstrap give [[eq:vlasov-uniform-n]] for n ≥ n0, n0
+chosen so that C_k n0^(−k) lies below the bootstrap's threshold; the tubes of g^(n) stay within C_k n^(−k) of those of
+g, so (V2) keeps the families off the axes. The last statement is Sobolev's inequality for m ≥ 6. ∎
+
+**Remark {#rem:vlasov-uniform-model}** (Numerical observation.) In a mean-field wave–transport model of the quadrature
+step, w_tt − w_xx = Σ_A (2π/n) q_A with q_A transported at speed tanh(2w + cos α_A), with no derivative-loss coupling,
+the stability constant of the n-label system was measured as 0.603, 0.667 and 0.667 at n = 4, 8, 16, while a coupling
+growing with n gave 0.603, 0.873, 1.654; the ratio of the n-label solution's error to the quadrature residual stayed
+below 0.02 for n = 4, 8, 16. No proof uses these values.
+
+### The high-frequency step with n families {#sec:vlasov-n}
+
+In this section g0 is a smooth class Einstein–n-null-dust solution on Ω, n families u_A with densities F_A² (A = 1, …,
+n), possibly with two radial dusts, such that:
+
+- (i) (Ω) holds for g0;
+- (ii′) on the overlap of the supports of any two families, the radial ones included, |g0⁻¹(du_A, du_B)| ≥ c > 0, and
+  the frequencies are ν_A := Λ^(A−1) over all the phases, with Λ > (m* + m*²/2) M²/c, where m* := N + 2, N is the number
+  of stages, and M bounds |du_A| in orthonormal frames on the supports;
+- (iii) the waves of the non-radial families are torus-polarised ([[def:vlasov-torus-wave]]), those of the radial dusts
+  are those of [[thm:two-dusts]].
+
+By [[lem:vlasov-hierarchy]] with m = m*, every symbol [[eq:vlasov-symbol]] with at least two nonzero entries and |j|₁ ≤
+m* satisfies |Q_j| ≥ 2 ν_B1 ν_B2 c* on the overlaps, c* := c − m* M²/Λ − m*² M²/(2Λ) > 0. These conditions are those of
+the two-dust theorem with one transport and one phase per family, the mixed symbols bounded below on every harmonic
+used; we list what changes from two families to n.
+
+**Theorem {#thm:vlasov-n-approximant}** (The approximant with n phases.) Under (i)–(iii), for every N ≥ 1 and every
+smooth choice of stage data there are profiles g_1, …, g_N in (X, θ_1, …, θ_n), independent of λ, such that g_app = g0 +
+λ [g_1] + Σ_(j=2)^N λ^j [g_j], with the phases θ_A = ν_A u_A/λ, is an n-phase approximant with N stages of order K =
+N − 1 at every regularity k, in the sense of [[pending:two-dust-approximant-definition]] with one phase per family.
+
+*Proof.* The stage system is that of [[pending:two-dust-stages]] with n phases: (a) the mean, a linear wave equation;
+(b) n phase corrections, each transported along its own generator; (c) the pure harmonics of each family, transported
+along its own generator; (d) every mixed harmonic e^(i j·θ) with at least two nonzero entries and |j|₁ ≤ m + 2 at
+stage m, divided by Q_j. On the overlaps |Q_j| ≥ 2 ν_B1 ν_B2 c*, by (ii′). The phase corrections and the mean change Q_j
+by O(λ), and this change is moved to the next order, as in [[pending:two-dust-nonresonance]], since |j|₁ is bounded at
+each stage; each division costs one derivative, and there are finitely many stages. Every generator through a point of
+Ω reaches Σ_τ0 inside Ω, by (Ω), so the Picard argument of [[thm:approximant]] closes the stage system. Stage 0 is
+[[lem:vlasov-torus-ricci]] for each non-radial family: no term of order λ⁻¹, the torus polarisation kept by
+[[eq:vlasov-xi-transport]]; the wave of family A is the torus-polarised wave of the eikonal ν_A u_A with amplitude
+F_A/ν_A, whose mean F_A² du_A ⊗ du_A balances the background's stress. The assembly is that of [[pending:two-dust-approximant]]. ∎
+
+Let s_A(h) := h(ℓ_A, ℓ_A), and let Y_A, G1^A, G2^A, 𝒫 and the energy be those of [[pending:two-dust-uniform]], with one
+index per family; 𝒫 is the mollifier of [[lem:mollifier]].
+
+**Theorem {#thm:vlasov-n-uniform}** (Uniform existence with n phases.) Fix k = 6 and K ≥ 6. Under (i)–(iii) let g_app be
+an n-phase approximant with N stages of order K at regularity k, with constant C_R in (E3), and let g be a Cauchy datum
+on Σ_τ0 for Ric^H(g) = 0 with w := g − g_app satisfying (E4) of [[thm:uniform-existence]], Data(w) ≤ C_D λ^K. There are
+λ0(n) > 0 and M(n), depending on Ω, k, K, C_R, C_D, n and the bounds on the profiles but not on λ, such that for 0 <
+λ ≤ λ0(n) the solution g of Ric^H(g) = 0 with these data exists on Ω, is unique there among C² solutions with |g − g0|
+≤ ε1, is smooth if the data are, and
+
+    w = h + Σ_A φ_A Y_A,      𝒩_n(τ) ≤ M(n) λ^K   on [τ0, τ_end],                                   {#eq:vlasov-n-remainder}
+
+𝒩_n the energy of [[pending:two-dust-uniform]] summed over the n families. In particular |w| ≤ M(n) λ^(K−3) and |∂w| ≤
+M(n) λ^(K−4) on Ω.
+
+*Proof.* The proof of [[pending:two-dust-uniform]], with these changes.
+
+(1) *The decomposition.* The phase shifts solve n transports ℓ_A·dφ_A = ½ 𝒫 s_A(h), φ_A = 0 on Σ_τ0, coupled through the
+bounded maps φ ↦ 𝒫([Y_B(ℓ_A, ℓ_A)] φ) of [[eq:mollifier-m1]]; on slabs of a length independent of the data the coupled
+map is a contraction, and Picard's theorem gives the decomposition.
+
+(2) *The term of order λ⁻¹.* The part of order λ⁻¹ of the linearisation is ½ λ⁻¹ Σ_A s_A(h) G2^A, linear in the waves,
+as in (F1) of [[pending:two-dust-facts]].
+
+(3) *The ℓ_A ⊗ ℓ_A component.* Contracting the equation for h with ℓ_A ⊗ ℓ_A kills family A's term of order λ⁻¹ and its
+□̃φ_A term, as for one family. Every B ≠ A remains exactly as the other family remains in [[pending:two-dust-ell-ell]]:
+½ λ⁻¹((1 − 𝒫) s_B(h)) G2^B(ℓ_A, ℓ_A) = O(∂ s_B(h)) and λ⁻¹((ℓ_app^B − ℓ_B)·dφ_B) G2^B(ℓ_A, ℓ_A) = O(|dφ_B|), with Ψ_B :=
+□̃φ_B carrying a bounded coefficient. For a torus-polarised wave of family B, the wave part of G2^B vanishes on vectors
+of the orbit space, so G2^B(ℓ_A, ℓ_A) is its gauge part χ_B (ℓ_A·du_B)², as for two families.
+
+(4) *The transport of Ψ_A.* For a non-radial family, Ψ_A := □̃φ_A satisfies L_A Ψ_A + a_A Ψ_A = □̃F_A − M_A(F_A) − N_A
+φ_A by [[cor:vlasov-commutator]], with F_A := ½ 𝒫 s_A(h); for a radial family this is [[pending:two-dust-commutator]].
+
+(5) *The transport estimates.* Each family's transport field Z_A, with ℓ_A = ℓ_A(τ) Z_A and ℓ_A(τ) ≠ 0 since a null
+vector is never tangent to a spacelike slice, satisfies the identity of [[pending:two-dust-transport]] with c x̂ replaced
+by the spatial part of Z_A. Its boundary terms are nonpositive by (Ω): at {r = a}, r decreases along future causal
+curves, and at the outer boundary v + τ increases, which is b′(τ) − dr(Z_A) < 0 there. So the estimate holds for every
+family, whatever its direction.
+
+(6) *Closing.* Every term of the n-family linearisation is a term of one of the types of the two-family estimate, with
+its family labels replaced; and the bound of each type in the bootstrap (its power of λ, its number of derivatives, the
+part of the energy that controls it) depends on the type alone. From stage 1 on, terms carry three or more families;
+they are products of profiles of the same orders, and a product of oscillating profiles at the phases θ_A has m-th
+derivatives of order λ^(−m), by the Leibniz rule, whatever the phases. The number of terms is finite for each n and
+enters only the constants. So Steps 4–7 of [[thm:uniform-existence]], in the form of [[pending:two-dust-uniform]], give
+𝒩_n(τ) ≤ C3(n)((C_D + 1 + C_R) λ^K + C(n) M² λ^(K+1)), and the bootstrap closes with M(n) := C3(n)(C_D + 1 + C_R) + 1
+and λ0(n) so small that C3(n) C(n) M(n)² λ0(n) ≤ 1. Existence, uniqueness and smoothness follow as in
+[[thm:uniform-existence]]. ∎
+
+**Remark {#rem:vlasov-boundary-instance}** (The boundary signs on Tangherlini.) For g0 = η + (μ/r²) dv ⊗ dv, μ > 0 and
+any future null vector l with l(τ) = 1, radial or not, dr(l) ∈ [−1, (r² − μ)/(r² + μ)]. Indeed, writing l = ∂_τ + w with
+w spatial, w_r := x̂·w, the null condition is −1 + |w|² + (μ/r²)(1 + w_r)² = 0, so with |w|² ≥ w_r² and m := μ/r²,
+(1 + m) w_r² + 2m w_r + m − 1 ≤ 0, whose roots are −1 and (1 − m)/(1 + m). So at the outer boundary, b′ = −2,
+b′ − dr(l) ≤ −1, and at r = a < √μ, dr(l) ≤ (a² − μ)/(a² + μ) < 0: both boundary terms of step (5) have the right sign
+for every family on Tangherlini. For a general g the signs come from (Ω).
+
+**Theorem {#thm:vlasov-n-data}** (Data with overlapping families.) Under (i)–(iii), with (V3) on Σ_τ0, let K ≥ 6 and N :=
+K + 3. For λ ≤ λ0(n) there is a vacuum Cauchy datum on Σ_τ0 ∩ Ω, with the gauge condition imposed through ∂_τ g,
+within O(λ^K) of the data of the approximant of [[thm:vlasov-n-approximant]], in the sense of (E4); the n families may
+overlap anywhere on Σ_τ0.
+
+*Proof.* The approximant's slice data carry every family's wave and the second and mixed harmonics at order λ²; the
+mixed amplitudes are those of the spacetime scheme (stage (d)) evaluated on Σ_τ0, algebraic in the pure ones. They
+satisfy the constraints to O(λ^(N−1)), g_app solving Einstein's equations to that order. The correction is the radial
+solve of [[lem:linear-evolution]] and [[prop:exact-correction]], whose hypotheses are: (a) the two signs of
+[[lem:constraints-evolution]] (a) on the slice, which are (V3); (b) no coefficient of order λ⁻¹ in the constraint map
+at the approximant's data, as a function of the unknowns, which is [[lem:vlasov-constraint-coefficient]] (a)–(b): the
+coefficient is linear in the waves and the sum of the single-family ones, each zero for a torus-polarised wave (for the
+radial dusts' waves, by [[thm:two-dusts]]), while the second and mixed harmonics enter at order λ⁰; (c) the principal
+coefficients at order λ⁰ are the background's, which is [[lem:vlasov-leaf-curvature]]; (d) the constraint map depends
+on (γ, κ) only ([[eq:data-constraint-map]]). The gauge hierarchy is that of [[lem:gauge-hierarchy]] with n phases: the
+oscillating part at each order is a transport along each generator for the pure harmonics, and algebraic, with the
+divisor Q_j ≠ 0, for the mixed ones, which therefore take no data. The stage data are those of [[lem:stage-data]] for
+each family's covector, the polarisation map being onto for each; the mixed harmonics take no data and need not vanish
+on Σ_τ0, which no step uses.
+
+No division is made on the slice. The phases are the background's eikonals, with corrections φ_A = 0 on Σ_τ0, and the
+initial value of Ψ_A is fixed by its transport, which divides only by ℓ_A(τ) ≠ 0. Nothing prescribes the eikonal's data
+against a parametrix. The only divisors are the spacetime symbols Q_j; for an antipodal pair of labels of equal energy
+E, 2 ν_A ν_B g0⁻¹(k_A, k_B) = −4 ν_A ν_B E² ≠ 0. ∎
+
+**Remark {#rem:vlasov-n-odd}** (Odd n.) [HL25] prescribe the data of their eikonals on the initial slice through the
+symbol of Δ − (cos α_A ∂_1 + sin α_A ∂_2)², and bound below the divisors (ν_B sin(α_A − α_B))², which vanish for an
+antipodal pair; this is the one place where they need n odd [HL25, (7.24)–(7.32), pp. 27–28, and footnote 10]. In
+[[thm:vlasov-n-data]] that divisor does not arise, so n odd is not needed there; the diagonal of [[sec:vlasov-proof]]
+takes n odd at no cost.
+
+**Remark {#rem:vlasov-radial-pair}** (Labels and radial dusts.) Hypothesis (V2′) cannot be dropped: where a label's
+momentum is parallel to a radial null direction on the support of the radial dust of that direction, g0⁻¹(du_A, du_rad)
+= 0 there, and every harmonic j supported on that pair has Q_j = j_A² ν_A² · 0 + 2 j_A j_rad ν_A ν_rad g0⁻¹(du_A,
+du_rad) + j_rad² ν_rad² · 0 = 0, at every Λ. With an angle at least η, the label–radial symbols are |g0⁻¹(du_A,
+du_rad)| = E E′ (1 − cos β) ≥ E E′ (1 − cos η) =: c(η) > 0 by the formula in the proof of [[lem:vlasov-separation]], and
+the hierarchy runs over all n + 2 phases with c = min(c0 (2π/n)², c(η)).
+
+### Proof of the theorem {#sec:vlasov-proof}
+
+*Proof of [[thm:vlasov]].* By [[prop:vlasov-uniform-n]], for n ≥ n0 the n-dust approximant g^(n) exists on Ω, with labels
+α_A = 2πA/n and |g^(n) − g|_(C¹(Ω)) ≤ C_k n^(−k) for every k; its families' covectors are within C_k n^(−k) of the
+continuum's du_(α_A) on the tubes. Fix an odd n ≥ n0, enlarged if necessary, and check (i)–(iii) for g^(n).
+
+(i) (Ω) is a finite set of strict inequalities on the compact Ω̄, continuous in g in C¹, so it holds for g^(n) for n
+large, the generators of its families being C⁰-close to those of g.
+
+(ii′) By [[lem:vlasov-separation]], |g⁻¹(du_(α_A), du_(α_B))| ≥ c0 (2π/n)² on the overlaps, so for g^(n),
+|g^(n)⁻¹(du_A, du_B)| ≥ c0 (2π/n)² − C_k n^(−k) ≥ ½ c0 (2π/n)² for n large (k = 3). By (V2′) and
+[[rem:vlasov-radial-pair]], the label–radial symbols are at least ½ c(η), and the radial pair, one ingoing and one
+outgoing, is separated. So c := min(½ c0 (2π/n)², ½ c(η), c_rad) > 0, and Λ = Λ(n) is chosen as in (ii′).
+
+(iii) The wave of each label is the torus-polarised wave of the eikonal ν_A u_A with amplitude F_A/ν_A, F_A² = q_A the
+density of g^(n) (smooth, F_A being transported by [[eq:vlasov-amplitude]] from the smooth data (2π/n)^(1/2) F(·, α_A)),
+and the radial dusts carry the waves of [[thm:two-dusts]].
+
+So [[thm:vlasov-n-approximant]], [[thm:vlasov-n-uniform]] and [[thm:vlasov-n-data]] give vacuum metrics g^(n)_λ on Ω,
+λ ≤ λ0(n), invariant under T² and both reflections (by uniqueness, the data being invariant), with
+
+    |g^(n)_λ − g^(n)| ≤ C(n) λ,      ∂g^(n)_λ − ∂g^(n) = Σ_A ν_A du_A ⊗ [∂_(θ_A) W_A] + O(C(n) λ),
+
+W_A the wave of family A at its phase θ_A = ν_A u_A/λ, of zero mean in θ_A, with |ν_A ∂_(θ_A) W_A| ≤ C(F_A + F_A²),
+C independent of n and A (the wave is linear in its amplitude and its gauge part quadratic), and the radial dusts'
+terms of the same form.
+
+*The diagonal.* Fix a sequence (η_j) of smooth tensor fields with compact support in the interior of Ω, dense in L²(Ω).
+For each odd n ≥ n0 choose λ_n ≤ λ0(n) such that:
+
+1. C(n) λ_n ≤ 1/n;
+2. |∫_Ω η_j · (∂g^(n)_(λ_n) − ∂g^(n))| ≤ 1/n for j ≤ n. This is possible since each harmonic's integral is O(λ) at
+   fixed n, by non-stationary phase: du_A ≠ 0 on the support, so e^(i k ν_A u_A/λ) = (λ/(i k ν_A |du_A|²_E)) du_A·∂
+   e^(i k ν_A u_A/λ) with the Euclidean norm of the chart, and one integration by parts gains λ;
+3. ‖Σ_A ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) ≤ Σ_A ‖ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) + 1. The cross terms of distinct families have the
+   phases ν_A u_A ± ν_B u_B, with d(ν_A u_A ± ν_B u_B) ≠ 0, since du_A, du_B are null and not parallel on the overlaps
+   by (ii′); they tend to zero as λ → 0 at fixed n, by non-stationary phase.
+
+The diagonal terms are at most C Σ_A ∫ |du_A|²_E (F_A² + F_A⁴), and F_A² = (2π/n) q(·, α_A) + O(n^(−k)) on the tubes
+by [[prop:vlasov-uniform-n]]; so they are at most C Σ_A (2π/n) ∫ q(·, α_A) |du_(α_A)|²_E + C/n + O(n^(1−k)), and the
+sum is a label quadrature of ∫∫ q |du_α|²_E dα, bounded independently of n by [[lem:vlasov-trapezoid]]. Put g_i := g^(n_i)_(λ_(n_i)) along the odd n_i → ∞. Then:
+
+- |g_i − g| ≤ |g^(n_i)_(λ_(n_i)) − g^(n_i)| + |g^(n_i) − g| ≤ 1/n_i + C_k n_i^(−k) → 0 uniformly on Ω;
+- ‖∂g_i‖_(L²) ≤ ‖∂g^(n_i)‖_(L²) + (Σ_A ‖ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) + 1)^(1/2) + 1, bounded independently of i;
+- for each j and n_i ≥ j, |∫ η_j · (∂g_i − ∂g)| ≤ 1/n_i + |∫ η_j · (∂g^(n_i) − ∂g)| ≤ 1/n_i + C_k n_i^(−k) ‖η_j‖_(L¹) → 0.
+
+A sequence bounded in L² that converges against a dense set converges weakly: ∂g_i ⇀ ∂g in L²(Ω). Each g_i is vacuum,
+smooth and invariant under T² and both reflections. ∎
+
+The high-frequency step is not uniform in n: λ0(n), M(n) and C(n) depend on n, as the constants c^n n^n of
+[HL25, p. 5, footnote 5] do. Only the background step is uniform ([[prop:vlasov-uniform-n]]), which is what the diagonal
+needs. No smallness threshold enters: the theorem is a large-data statement, its smallness at each n being λ alone.
+
+**Corollary {#cor:vlasov-two-dust}** (The two-dust background with a restricted Vlasov field.) Let g0 be the two-dust
+background of [[thm:two-dusts]] on its domain, with lateral boundaries adapted where they meet an axis as in
+[[pending:class-adapted-domain]]. Let (q, u) be a restricted field in label form on Σ_τ0 whose labels satisfy (V1),
+(V2) and the angle clause of (V2′) for g0, with margins, on a compact set S ⊂ (Σ_τ0 ∩ Ω) × S¹ with supp q ⊂ int S.
+Then for amplitudes ε small the class Einstein–restricted massless Vlasov solution with the two radial dusts of g0 and
+the field ε q, with data corrected by the radial solve, exists on the domain and is a weak limit of class vacuum
+metrics in the sense of [[thm:vlasov]].
+
+*Proof.* The solution exists on the domain for ε small by [[prop:vlasov-cauchy]] around g0, the radial pair being
+governed by [[thm:class-stability]], and it is C²-close to g0 with C¹-close eikonals. By [[lem:vlasov-open]] it satisfies
+(V1), (V2) and (V2′); (Ω) and (V3) hold for g0 with margins, by the domain and slice lemmas of the proof of
+[[thm:two-dusts]], and they are open. [[thm:vlasov]] applies. ∎

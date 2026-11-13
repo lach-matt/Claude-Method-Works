@@ -457,3 +457,138 @@ stability statement, the quotient ‖F(u)‖_(H²)/(‖u‖_(L^∞) ‖u‖_(H²
 [0, 1], inside the lifespan of the computed solution ū, sup_t ‖u_d − ū‖_(H²)/d was 12.46, 12.45, 12.45 for perturbations
 of the data of size d = 4 × 10⁻³, 2 × 10⁻³, 10⁻³; on [0, 3], past the shock of ū, ‖ū‖_(H²) grew by a factor 420. No
 proof uses these observations.
+
+### Cauchy stability off the axes {#sec:class-off-axes}
+
+Keep the setting of [[sec:class-augmented]]. For a solution U = (g, p_A, Θ_A, q_A) of the augmented system put w :=
+g − g̊, δp_A := p_A − dů_A, δΘ_A := Θ_A − □_g̊ ů_A and δq_A := q_A − q̊_A, and on Σ_τ
+
+    𝒩_k(τ) := Σ_(j≤k) (‖∂^j ∂w‖ + Σ_A (‖∂^j δp_A‖ + ‖∂^j δΘ_A‖ + ‖∂^j δq_A‖)) + ‖w‖,                    {#eq:class-energy}
+
+with ∂^j all spacetime coordinate derivatives of order j and ‖·‖ the flat L²(Σ_τ) norm. No wavelength enters: the
+background does not oscillate.
+
+A *datum* on Σ_τ0 is the Cauchy data (g, ∂_τ g) of a metric together with, for each family, functions u_A and q_A ≥ 0
+on Σ_τ0, all smooth and G-invariant. From it, p_A on Σ_τ0 is the covector whose spatial part is ∂_x u_A and whose
+τ-component is the root of g⁻¹(p_A, p_A) = 0 near that of dů_A, and Θ_A := □_g u_A on Σ_τ0, computed with the
+τ-derivative of p_A that (Aug2) gives. The datum satisfies the *gauge condition* if D(g) = 0 on Σ_τ0, and the
+*constraints* if (Ric(g) − ½ R(g) g − T + ½ (tr_g T) g)(N, ·) = 0 on Σ_τ0, N := g⁻¹dτ, the constraints of Ric(g) = T
+written in Cauchy data. It lies within ε of ů's if the expression [[eq:class-energy]] at τ0, with spatial derivatives
+only and with ∂_τ w included among the first derivatives, is at most ε.
+
+**Theorem {#thm:class-stability-off-axes}** (Cauchy stability off the axes.) Fix an integer k ≥ 6, δ > 0 and N_f ≥ 1.
+Let Ω be admissible for g̊ and ů = (g̊, ů_A, q̊_A) a class solution of [[eq:class-system]] on a neighbourhood of Ω with
+
+(H1) every ů_A smooth on Ω with dů_A ≠ 0 there (no caustic on Ω), and
+(H2) closed G-invariant sets S_A ⊂ Σ_τ0 containing supp q̊_A ∩ Σ_τ0, whose tubes 𝒯̊_A for P̊_A lie at distance at
+least 2δ from the axes.
+
+Then there are ε > 0 and C such that every datum on Σ_τ0 that satisfies the constraints and the gauge condition, lies
+within ε of ů's, and has supp q_A ∩ Σ_τ0 ⊂ S_A for every A, has a unique smooth G-invariant development on Ω solving
+[[eq:class-system]], with 𝒩_k ≤ C ε on [τ0, τ1], p_A = du_A and Θ_A = □_g u_A on supp q_A, and supp q_A within C ε of
+𝒯̊_A. No smallness of ů or of the families is assumed; ε and C depend on ů, Ω, N_f, k and δ.
+
+*Proof.* We follow the steps of [[sec:ue-bootstrap]] and [[sec:ue-existence]].
+
+*Step 1 (Sobolev).* On Σ_τ, ‖∂^i U − ∂^i ů‖_(L^∞) ≤ C 𝒩_k for the first-order variables U = (w, ∂w, δp_A, δΘ_A, δq_A)
+and i ≤ k − 3, by the Sobolev inequality of [[lem:sobolev]] (with λ = 1). Products and compositions of the unknowns are
+estimated in H^k(Σ_τ) by Moser's estimate after a uniform extension ([[thm:std-sy-extension]],
+[[cor:std-moser-product]] (1)).
+
+*Step 2 (data).* The τ-derivatives of every order of the unknowns on Σ_τ0 are fixed by (Aug1)–(Aug4), (Aug1) through
+−½ g^(ab) ∂_a ∂_b g with g^(ττ) ≠ 0, and 𝒩_k(τ0) ≤ C ε. The data of Θ_A are □_g u_A, those of q_A the densities.
+
+*Step 3 (bootstrap).* Suppose 𝒩_k ≤ 2C_* ε on [τ0, τ*] ⊂ [τ0, τ1], with C_* fixed in Step 8. For ε small, |g − g̊| ≤
+ε1 on Ω ∩ {τ ≤ τ*}, so (a)–(c) of [[def:class-admissible]] hold for g; every P_A is null, future directed and transverse
+to Σ_τ, with P_A(τ) bounded below; by (Aug4), q_A vanishes along every integral curve of P_A on which it vanishes
+initially, so supp q_A lies in the tube 𝒯_A of S_A for P_A; the integral curves of P_A from S_A stay within C ε of
+𝒯̊_A, by comparison of ordinary differential equations on the compact Ω, hence 𝒯_A ⊂ {ζ_A = 1}; and Θ_A stays
+bounded.
+
+*Step 4 (w).* Since ů solves (Aug1) with Ric^H(g̊) = Ric(g̊) (D(g̊) = 0), [[eq:gauge]] gives −½ g^(ab) ∂_a ∂_b w =
+½ (g^(ab) − g̊^(ab)) ∂_a ∂_b g̊ − Q(X; g)(∂g, ∂g) + Q(X; g̊)(∂g̊, ∂g̊) + T − T̊, with
+
+    T − T̊ = Σ_A (δq_A p_A ⊗ p_A + q̊_A (δp_A ⊗ p_A + dů_A ⊗ δp_A)).
+
+Apply ∂^α, |α| ≤ k, and the energy inequality [[lem:energy]] with g̊ in place of g0. The source ∂^α(T − T̊) is at most
+C 𝒩_k in L², and the commutators [∂^α, g^(ab)] ∂_a ∂_b w and the quadratic terms give at most C 𝒩_k + C 𝒩_k².
+
+*Step 5 (δp_A).* Apply ∂^α to (Aug2) minus its form for ů: P_A(∂^α δp_A) equals ∂^α of the terms (Γ[g] − Γ[g̊]) p_A
+p_A, Γ[g̊](P_A p_A − P̊_A dů_A) and −(P_A − P̊_A)·∂ dů_A, plus the commutator [∂^α, P_A·∂] δp_A, whose top term is
+(∂^α P_A)·∂ δp_A. All are at most C 𝒩_k + C 𝒩_k² in L². [[lem:class-transport]] applies: the lateral boundaries are
+spacelike with Ω to their past, so every future causal transport field leaves Ω through them, and the boundary terms
+have the good sign for every family; on the two-dust background this is explicit in [[lem:class-speeds]]. The angular
+part of P_A enters only the term ∂_a P^a of the bulk.
+
+*Step 6 (δΘ_A).* Where ζ_A ≠ 0, ů satisfies [[eq:class-raychaudhuri]] ([[prop:class-structure]] (c)), so S_A(ů) =
+S̊_A there, and (Aug3) minus its form for ů reads
+
+    P_A(δΘ_A) = ζ_A (S_A(U) − S_A(ů)) − (P_A − P̊_A)(□_g̊ ů_A).
+
+On supp ζ_A, g(K_i, K_i) ≥ c δ², so S_A is a smooth function of (g, dg, p_B, Θ_A, q_B) there ([[prop:class-augmented]]
+(a)), and ∂^α(ζ_A (S_A(U) − S_A(ů))) is at most C(δ) (𝒩_k + 𝒩_k²) in L², the constant carrying a factor δ^(−1−j) from
+the j-th derivatives of 1/g(K_i, K_i). The other term and the commutator are bounded likewise, and [[lem:class-transport]]
+applies.
+
+*Step 7 (δq_A).* P_A(δq_A) = −δΘ_A q_A − (□_g̊ ů_A) δq_A − (P_A − P̊_A)(q̊_A), with every term at most C 𝒩_k after
+∂^α, and [[lem:class-transport]] applies.
+
+*Step 8 (closing).* Steps 4–7 give 𝒩_k(τ) ≤ C2 (𝒩_k(τ0) + ∫_(τ0)^τ (𝒩_k + 𝒩_k²)). With 𝒩_k ≤ 2C_* ε ≤ 1, Gronwall's
+inequality and Step 2 give 𝒩_k ≤ C3 ε on [τ0, τ*], C3 := C2 C e^(2C2 (τ1 − τ0)). Put C_* := C3; then 𝒩_k ≤ C_* ε <
+2C_* ε for ε ≤ ε0, which improves the bootstrap. Only the perturbation is small.
+
+*Step 9 (existence).* The augmented system in first-order form, with the unknowns (w, ∂_τ w, ∂_y w) of Step 8 (ii)–(iii)
+of [[sec:ue-existence]] together with p_A, Θ_A, q_A, is a quasilinear symmetric hyperbolic system whose zero-order
+sources are smooth and local, so they satisfy (K1)–(K4) and (K1′). It is extended outside Ω as in Step 8 (i) of
+[[sec:ue-existence]], with a cut-off on p_A that keeps P_A^τ > 0, as for w. By [[prop:class-augmented]] (f) the
+theorem of [DS23] does not apply as stated; [[thm:class-kato]] gives local existence in H^k and continuation while
+𝒩_k stays bounded, so by Steps 3–8 the solution exists on Ω with 𝒩_k ≤ C ε. Higher norms obey linear Gronwall
+inequalities with coefficients bounded by 𝒩_k, so the solution is smooth, the datum being smooth. The system is
+invariant under G: g(K_i, K_i) is invariant, K_i is mapped to ± K_i, and ζ_A, S̊_A are invariant. So the image of the
+solution under an element of G solves the same system with the same datum, and equals it by uniqueness.
+
+*Step 10 (constraints).* On Σ_τ0, ν_A = 0 by the choice of p_A, and P_A(ν_A) = 0 with P_A^τ ≠ 0 gives ∂_τ ν_A = 0
+there, so dν_A = 0 on Σ_τ0. Then ι_(P_A) dp_A = ∇_(P_A) p_A − ½ dν_A = 0 on Σ_τ0 ([[prop:class-augmented]] (b)); the
+spatial components of dp_A vanish there (p_A has spatial part ∂_x u_A), so dp_A = E_i dτ ∧ dx^i, and ι_(P_A) dp_A = 0
+with P_A^τ ≠ 0 gives E_i = 0: dp_A = 0 on Σ_τ0. Every point of Ω lies on an integral curve of P_A that meets Σ_τ0
+inside Ω ([[def:class-admissible]] (c)), so by [[prop:class-augmented]] (b), ν_A ≡ 0 and dp_A ≡ 0 on Ω. Ω is simply
+connected, so p_A = du_A with u_A an eikonal of g.
+
+The gauge vector D vanishes on Σ_τ0, so, as in the proof of [[lem:gauge-propagation]], Ric(g) − T = ½ (n ⊗ Y + Y ⊗ n)
+there with n := dτ and Y_a := g_aρ ∂_τ D^ρ, and the constraints give ½ g⁻¹(n, n) Y = 0, so ∂_τ D = 0 on Σ_τ0. On Σ_τ0
+also Δ_A = Θ_A − □_g u_A = 0. On the tube 𝒯_A ⊂ {ζ_A = 1}, [[prop:class-augmented]] (d) and (e) give
+
+    P_A(Δ_A) = −Δ_A (Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) + g(∇_(P_A) D, P_A) + L(P_A, P_A),
+
+and D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A p_A, since ν_A ≡ 0 and supp q_A ⊂ 𝒯_A. The quantity
+‖∂D(τ)‖ + ‖D(τ)‖ + Σ_A ‖Δ_A‖_(L²(𝒯_A ∩ Σ_τ)) obeys a linear Gronwall inequality: for D by [[lem:energy]], and for Δ_A by
+the argument of [[lem:class-transport]] on the tube, whose lateral boundary is ruled by integral curves of P_A, so that
+the transport has no flux through it. Its value at τ0 is 0, so D = 0 and Δ_A = 0 on 𝒯_A. Hence Ric(g) = T, Θ_A =
+□_g u_A on supp q_A, and (Aug4) is the conservation law div_g(q_A P_A) = 0 there: (g, u_A, q_A) solves
+[[eq:class-system]]. ∎
+
+**Corollary {#cor:class-seed-families}** (Non-round families on the seed.) Let g̊ be g0 of [[eq:background]] with μ ≡
+μ0 ≥ √72 l5², the seed, on the domain Ω of [[eq:omega]], with q̊_A = 0, and let ů_A be finitely many phases in the class
+that are eikonals of g̊, smooth with dů_A ≠ 0 on Ω, with closed sets S_A ⊂ Σ_τ0 whose tubes lie at distance at least
+2δ from the axes: for instance radial eikonals with S_A in an angular band {ϑ1 ≤ ϑ ≤ ϑ2}, 0 < ϑ1 < ϑ2 < π/2, or
+non-radial invariant eikonals of g̊ without caustics on Ω. Then every datum satisfying the constraints and the gauge
+condition, within ε of ů's, with supp q_A ∩ Σ_τ0 ⊂ S_A, has its non-round Einstein–null-dust development on the whole
+of Ω, within C ε of the seed.
+
+*Proof.* (H1) and (H2) hold, and Ω is admissible for g̊ by [[lem:domain]]; apply [[thm:class-stability-off-axes]]. ∎
+
+The corollary gives a large background, the seed, carrying any finite number of small non-round families supported
+away from the axes, on the whole domain; the hole grows by O(ε), unlike the growing hole of [[thm:main]]. It assumes
+the data. They are not constructed here: the outward radial solve of [[ch:data]] is built for data depending on the
+wavelength, and a small non-round dust source, with regularity at the axes for a solve that is parabolic in ϑ, is not
+examined; data localised in an angle are the subject of [[ch:localised-data]].
+
+**Corollary {#cor:class-short-time}** (Large data for a short time.) Let a datum on Σ_τ0 satisfy the constraints and
+the gauge condition, with densities vanishing within 2δ of the axes, and let Ω be admissible for a smooth G-invariant
+metric g̃ whose Cauchy data on Σ_τ0 are those of the datum. With ζ_A equal to 1 on the points at distance at least 2δ
+from the axes and S̊_A replaced by any fixed smooth function, the augmented system has a solution on Ω ∩ {τ ≤ τ0 + T},
+T > 0 depending on the datum, which solves [[eq:class-system]] as long as the tubes of the S_A := supp q_A ∩ Σ_τ0 stay
+in {ζ_A = 1}.
+
+*Proof.* Step 9 gives the solution for a short time, during which g stays within ε1 of g̃ and the admissibility of Ω
+persists ([[def:class-admissible]] (c)); Steps 4–8 bound it on a short interval, and Step 10 applies on the tubes. ∎
