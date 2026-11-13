@@ -959,8 +959,9 @@ they are carried by χ_* through φ̂ in statements whose operators have kernel 
 P of kernel range at most D; and χ_* is carried by χ, through a function of ϑ equal to 1 on [c/32, ∞) and to 0 on
 (−∞, c/64].
 
-(R3) *Inner cut-offs.* Fix h_♭ ∈ C^∞(ℝ) with h_♭ = 0 near 0 and h_♭(1) = 1, and put χ_1 := h_♭(χ). As χ_1 = 1 wherever
-χ = 1, every operator carried by χ is carried by χ_1, through the same function and for the same D. The function χ_1,
+(R3) *Inner cut-offs.* Fix h_♭ ∈ C^∞(ℝ) with h_♭ = 0 near 0 and h_♭(1) = 1, and put χ_1 := h_♭(χ), so that
+supp χ_1 ⊂ supp χ. As χ_1 = 1 wherever χ = 1, every operator carried by χ is carried by χ_1, through the same function
+and for the same D. The function χ_1,
 and each of its derivatives along b-vector fields, is χ times a function in C^∞(M̃), the functions h_♭^(j)(s)/s being
 smooth. For a word V^J in the V_i, the identity fVw = V(fw) − (Vf)w, applied repeatedly, writes χ_1V^Ju as a sum of
 terms ±V^(J′)((V^(J″)χ_1)u), with J′ and J″ complementary subwords of J, and (V^(J″)χ_1)u = h(χu) with h ∈ C^∞(M̃).
@@ -2247,10 +2248,14 @@ C(‖GLu‖_((𝗌−m+1;k)) + ‖χu‖_((−N;k))), by [[lem:ii-a-8-4]] (c) an
 ‖χ_1u^((1))‖_((−N;k−1)) ≤ C‖χu‖_((−N;k)), by (R3). On the left, ‖Bu‖_((𝗌;k)) ≤ C Σ_j (‖BV_ju‖_((𝗌;k−1)) + ‖[V_j, B]u‖_((𝗌;k−1))),
 and both are bounded by C(‖B_1u^((1))‖_((𝗌;k−1)) + ‖χu‖_((−N;k))). For the first, [[lem:ii-a-8-4]] (c) applies with
 WF′(B) ⊂ Ell(B_1). For the second, the wave front set lies in that of B, and the j = 0 component of u^((1)) is u. The
-finiteness statements follow as in [[prop:ii-a-9-1]]. At each k the step applies (L4) to a new system L^((1)), of rank
-N′(N + 1) and with finite sets enlarged by the A_(j,l), and to new operators B_1, E_1, G_1; it applies
-[[lem:ii-a-8-6]] to new auxiliary operators. Neither index depends on these ([[thm:ii-a1-5-4]], [[lem:ii-a-8-6]]), so
-d_0 does not depend on k. ∎
+finiteness statements follow as in [[prop:ii-a-9-1]]. At each k the step applies the statement at k − 1, and through
+it (L4), to a new system L^((1)), of rank N′(N + 1), with finite sets enlarged by the A_(j,l), and to new operators
+B_1, E_1, G_1 and a new cut-off χ_1; it applies [[lem:ii-a-8-6]] (a) with a new cut-off χ_*. The kernel ranges do not
+accumulate over the k levels. The statement at k − 1 holds for all admissible data, whatever bound D their kernel
+ranges have, and its proof finds its room anew in the carriers of B_1, E_1 and G_1 ((R1)); each level adds one
+truncated parametrix, of range at most the room of that level. The truncations change operators by residual ones and
+so change only constants. Neither index depends on these choices ([[thm:ii-a1-5-4]], [[lem:ii-a-8-6]]), so d_0 does not
+depend on k. ∎
 
 #### Tame estimates {#sec:ii-a-9-3}
 
@@ -2328,9 +2333,10 @@ all 0 ≤ j ≤ k,
 One can take d_1 := s̄ + max(s̲, s̲_0) + 3, d̃ := d_1 + max(s̲, s̲_0) + 3, and d_0 the larger of the numbers of
 [[lem:ii-a-8-5]] (a) at 𝗌 and (b) at (𝗌, 𝗌_0), which do not depend on B, B^♯ or the operators B_1, B_2 of the proof.
 
-*Proof.* Choose B_1, B_2 carried by χ with WF′(I − B_1) ∩ WF′(B) = ∅, WF′(B_1) ⊂ Ell(B_2) and WF′(B_2) ⊂ Ell(B^♯). By
-[[lem:ii-a-8-4]] (c), ‖B_iv‖_((𝗌;q)) ≤ C(‖B^♯v‖_((𝗌;q)) + ‖χv‖_((𝗌_0;q))), taking N ≥ −inf 𝗌_0 there. It therefore
-suffices to prove [[eq:ii-a-9-7]] with B_2 in place of B^♯. By the support convention, u may be replaced by χu.
+*Proof.* Choose auxiliary operators B_1, B_2 ((R1) of [[sec:ii-a-8-3]], for B and B^♯), carried by χ, with
+WF′(I − B_1) ∩ WF′(B) = ∅, WF′(B_1) ⊂ Ell(B_2) and WF′(B_2) ⊂ Ell(B^♯). By [[lem:ii-a-8-4]] (c),
+‖B_iv‖_((𝗌;q)) ≤ C(‖B^♯v‖_((𝗌;q)) + ‖χv‖_((𝗌_0;q))), taking N ≥ −inf 𝗌_0 there. It therefore suffices to prove
+[[eq:ii-a-9-7]] with B_2 in place of B^♯. By the support convention, u may be replaced by χu.
 
 *The case k = 0.* Bℓu = BℓB_1u + Bℓ(I − B_1)u. [[lem:ii-a-8-5]] (a) and the boundedness of B bound the first term by
 C‖ℓ‖_(C^(d_0)_e3b)‖B_1u‖_(H^𝗌), and [[lem:ii-a-8-5]] (b), applied to the pair (B, B_1), bounds the second by

@@ -103,8 +103,8 @@ the rates [[eq:vii-0-2]].
 Here 𝒟_0 := 𝒟_(0,0) ⊂ 𝒟 is the region 𝒟_(S,S⁰) of [[prop:iii-k-1-2]] at S = S⁰ = 0, and |b − b₀| = |m − μ_end| + |A|
 for b = (m, A), the norm of step (5) of [[thm:vi-c-2-1]]. On the finite-dimensional space 𝔟 it is equivalent to the
 norm ‖·‖_𝔟 of 𝔟 as a component of 𝒟_ex, in which [[cor:s27-rate]] (a) bounds b − b₀; we fix C_𝔟 ≥ 1 with
-|b − b₀| ≤ C_𝔟‖b − b₀‖_𝔟, so that [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m, gives |b − b₀| < ε_m. C depends on R and on the data of
-[[thm:main]], not on λ.
+|b − b₀| ≤ C_𝔟‖b − b₀‖_𝔟, so that [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m, gives |b − b₀| < ε_m.
+C depends on R and on the data of [[thm:main]], not on λ.
 
 ### The solution after the shell {#sec:vii-1}
 
