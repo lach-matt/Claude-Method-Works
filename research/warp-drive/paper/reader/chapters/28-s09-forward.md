@@ -1609,3 +1609,85 @@ Remark 11.4] in dimension 3 + 1). For the scalar wave operator, S = 0 and the ga
 (−2, −1) and α_I ∈ (α_+ + 1/2, −1/2): α_I = −1/2 − ε_I, α_+ = −1 − ε_+ with 0 < ε_I < ε_+ < 1. In dimension 3 + 1
 [Hin26c, (12.7)] prints 0 < ε_+ < ε_I < 1/2, which contradicts α_+ < α_I − 1/2; with α_I = −1/2 − ε_I and α_+ = −1 −
 ε_+ the condition is ε_+ > ε_I. This is [Hin26c, Remark 11.4] in dimension 4 + 1.
+
+**Remark {#rem:ii-f1-7-4}** (The exponent of the time function.) Let ℓ_♭ ∈ [ℓ_I, ½], let t^♭ be the function of
+[[lem:ii-c-3-2]] built for g_0 with ℓ = ℓ_♭ in place of ℓ_I, and ϵ_G its threshold; let Ω_*, its slabs, the spaces of
+[[sec:ii-f1-1-1]] and the cut-offs of this chapter be built from this t^♭. There are C_♭ ≥ 1, depending only on upper
+bounds for x_I²ρ_+²g_0 and its inverse, and ε_♭ > 0, depending only on g_0 and ℓ_♭, such that [[thm:ii-f1-1-1]], also
+in the form of [[rem:ii-f1-7-1]], and [[cor:ii-f1-1-2]] hold, with ε_0, d and C_k depending also on ℓ_♭, for every P
+as there whose metric g satisfies in addition
+
+    ‖g − g_0‖_(𝒢̃^(0,(2ℓ_♭,0,0))_(e3b)) < ε_♭,                                                        {#eq:ii-f1-7-1}
+
+the norm being taken over Ω_* as in [[thm:ii-f1-1-1]]; the continuity statement holds on the set of such P. For
+ℓ_♭ = ℓ_I, [[eq:ii-f1-7-1]] follows from ‖P − P_0‖_((0;d)) < ε_0 for ε_0 small ([[lem:ii-c-3-7]]), and the remark is
+the theorem. Moreover, the proof applies [[lem:ii-c-3-2]] (1)–(2) only to g_0, to g, to metrics g′ with
+‖g′ − g_0‖ ≤ C_♭‖g − g_0‖, and to metrics g′ that the proof of [[thm:ii-f-8-1]] takes within any prescribed distance
+of g_0, all distances in the norm of [[eq:ii-f1-7-1]]; its other uses of t^♭ concern the function alone.
+
+*Proof.* In [[ch:s05]]–[[ch:s09]] and in [[rem:ii-g-3-2]] the time function enters in two ways only, and ℓ_I is
+otherwise the weight of the class.
+
+(A) Through the hypothesis of [[lem:ii-c-3-2]]: for a metric g′ within ϵ_G of g_0 in the norm of [[eq:ii-f1-7-1]],
+dr is future timelike on {r_0 ≤ r ≤ r^♮} and dt^♭ is past timelike. The settings of [[sec:ii-c-4]], of [[ch:s06]]
+and of [[sec:ii-e-1-1]] ask this of the metric of an operator, and [[lem:ii-e-1-2]] (iv) carries it over to P^ext;
+those settings obtain it from the smallness of ε_P through [[lem:ii-c-3-7]], which gives it at the exponent ℓ_I only.
+
+(B) Through the form of t^♭ given by [[lem:ii-c-3-2]] (a)–(c) and its proof, and through the constant C′ of (b).
+
+*The metrics of (A).* For a metric g′ write G := x_I²ρ_+²g′ in a fixed e3b-frame, and |·| for pointwise norms. G_0
+and G_0⁻¹ are bounded on Ω ([[rem:s05-metric-class]] (b)), and the norm of g′ − g_0 in [[eq:ii-f1-7-1]] is
+equivalent to sup x_I^(−2ℓ_♭)|G − G_0|. From
+
+    (G_0 + H)⁻¹ − G_0⁻¹ = −(G_0 + H)⁻¹ H G_0⁻¹,
+
+|(G_0 + H)⁻¹ − G_0⁻¹| ≤ 2|G_0⁻¹|²|H| where |G_0⁻¹||H| ≤ ½, and likewise with G_0⁻¹ in place of G_0. So, while they are
+small, sup x_I^(−2ℓ_♭)|G − G_0| and sup x_I^(−2ℓ_♭)|G⁻¹ − G_0⁻¹| bound each other up to factors depending only on upper
+bounds for G_0 and G_0⁻¹. The metrics to which the proof of [[thm:ii-f1-1-1]] applies (A), itself or through the
+results of [[ch:s05]]–[[ch:s08]] that it cites, are the following.
+
+(i) g_0, and the metric g of P, by [[eq:ii-f1-7-1]].
+
+(ii) The metric g_ε of P_ε ([[eq:ii-f1-2-8]]): g_ε⁻¹ = (1 − χ̃_ε)g_0⁻¹ + χ̃_ε g⁻¹ with 0 ≤ χ̃_ε ≤ 1 (the proof of
+[[lem:ii-f1-2-6]] (b)), so |G_ε⁻¹ − G_0⁻¹| ≤ |G⁻¹ − G_0⁻¹| pointwise, for every ε.
+
+(iii) The metrics of P^ext ([[lem:ii-e-1-2]]) and of P_ε^ext = χ_ε P_0 + χ̃_ε P^ext ([[sec:ii-f1-2-6]]). Near 𝓘⁺ on
+{t_* ≥ ½}, (ii) of [[lem:ii-e-1-2]], whose proof preserves every weight in the parameters, taken with d_0 = k = 0 and
+the weight 2ℓ_♭ at 𝓘⁺, bounds the second-order coefficients of P^ext − P_0, and so G_ext⁻¹ − G_0⁻¹, by a constant
+times the bound for G⁻¹ − G_0⁻¹; for P_ε^ext the convex combination of (ii) gives the same. In the proof of
+[[lem:ii-e-1-2]] (iv), the bound C(ε_P + ρ_I^(1−ℓ_I))ρ_I^(ℓ_I) of the coefficients of g⁻¹ − ḡ⁻¹ near 𝓘⁺ is then used
+with ℓ_♭ in place of ℓ_I and C‖g − g_0‖ in place of ε_P; elsewhere that proof uses (A) for g on Ω_*, and the closeness
+of the extended metric to g_0 in supremum at bounded times near {r = r_0}, which involves no weight at 𝓘⁺.
+
+(iv) In the proof of [[thm:ii-f-8-1]], (A) is used for g_0 and for metrics that differ from g_0 by an amount small in
+𝒢̃^(0,(1,0,0))_(e3b) once the parameters of that proof are chosen (Λ and t_(*,0) large, τ_1 and ε small): the metrics
+of P_Λ ([[sec:ii-f-6-3]], whose class has the weight 1 at 𝓘⁺), of P_aux ([[sec:ii-f-7-5]]), and the modified metrics
+of [[sec:ii-f-7-2]] and [[sec:ii-f-7-6]]. There ḡ − g_0 has the relative decay ρ_0²x_I²ρ_+² ([[eq:ii-b-1-2]]), and the
+other differences are supported where x_I is bounded below. The metrics G_θ of [[lem:ii-f-1-4]] enter (A) only where
+they equal G_0. As x_I ≤ 1 and 2ℓ_♭ ≤ 1, x_I ≤ x_I^(2ℓ_♭), so smallness in 𝒢̃^(0,(1,0,0))_(e3b) gives smallness in
+the norm of [[eq:ii-f1-7-1]]: these metrics lie within any prescribed distance of g_0 in that norm.
+
+Let C_♭ ≥ 1 bound the factors of (ii) and (iii), so that the metrics there lie within C_♭‖g − g_0‖ of g_0, and let
+ε_♭ be so small that C_♭ε_♭ < ϵ_G and that the identity above applies to every metric of (i)–(iii). Then (A) holds for
+the metrics of (i)–(iii) by [[eq:ii-f1-7-1]], and for those of (iv) when the prescribed distance is ϵ_G.
+
+*(B).* (a) gives t^♭ = t_* on 𝓘⁺ for every ℓ, which is all that [[sec:ii-c-4]], [[ch:s06]], [[sec:ii-e-1-1]] and
+[[lem:ii-f1-2-6]] use of t^♭ at 𝓘⁺. In (b), C′ = (1 − C^(−ℓ))/(1 + C) depends on ℓ; every constant chosen from it
+(T_♭ = 2/C′ in [[sec:ii-c1-3-2]], the bounds t_* ≤ T/C′ on slabs, T ≥ 8/C′ in [[sec:ii-f-6-3]], τ_0 < C′τ_1/2 in
+[[sec:ii-f-7-3]]) is chosen with the C′ of ℓ_♭, and no condition relates C′ to ℓ_I. (c) and the gluing on
+{r ≤ r′_0 + 1} do not involve ℓ. Near 𝓘⁺, t^♭ = t_*(1 − (t_*/r)^(ℓ_♭)), and (t_*/r)^(ℓ_♭) = (x_I²/(1 − x_I²))^(ℓ_♭)
+is conormal: its b-derivatives, and at bounded t_* its edge derivatives, are bounded, and it tends to 0 at 𝓘⁺. Only
+these properties are used: in the collar of [[sec:ii-e-1-5]] (∂_(t_*)t^♭ = 1 − (1 + ℓ_♭)(t_*/r)^(ℓ_♭) ≥ ½ for r
+large, and t^♭ − t_* = −t_*^(1+ℓ_♭)x_I^(2ℓ_♭), with x_I = r^(−1/2) there, has bounded edge derivatives), in the proof
+of [[lem:ii-e-3-3]] (t^♭ ≤ t_*, and t_*^(1+ℓ_♭)x_I^(2ℓ_♭) < ω_0/4 near a compact part of 𝓘⁺), in [[lem:s07-extension]],
+in [[lem:ii-f1-2-6]] (a) and through it in [[lem:ii-f1-2-2]] and [[lem:ii-f1-2-7]], and in (T2)–(T3) of
+[[rem:ii-g-3-2]], with ε = ℓ_♭ there. The one comparison of ℓ_♭ with ℓ_I is in [[lem:ii-f1-2-6]] (b), which shows
+δ_ε ∈ x_I^(2ℓ_I)C^∞_b: near 𝓘⁺ the term log(1 − (t_*/r)^(ℓ_♭)) of −L is (t_*/r)^(ℓ_♭) times an element of C^∞_b, so it
+lies in x_I^(2ℓ_♭)C^∞_b ⊂ x_I^(2ℓ_I)C^∞_b, as x_I^(2(ℓ_♭−ℓ_I)) ∈ C^∞_b for ℓ_♭ ≥ ℓ_I; and the term
+log t_* − (log t_*)|_(𝓘⁺) ∘ π lies in x_I C^∞_b ⊂ x_I^(2ℓ_I)C^∞_b, as there. This is where ℓ_♭ ≥ ℓ_I is needed.
+
+*Constants.* With (A) and (B), the proof of [[thm:ii-f1-1-1]] runs as written: the threshold of [[lem:ii-c-3-2]] in
+[[sec:ii-f1-3-1]] is met by [[eq:ii-f1-7-1]] and (i)–(iii) instead of through [[lem:ii-c-3-7]], and [[lem:ii-f1-2-2]]
+is applied to P_0, P and P_ε, which satisfy (A). The constants depend on t^♭, so on ℓ_♭, and on P only through ε_0 and
+ε_♭. [[rem:ii-f1-7-1]] changes only the orders, and [[cor:ii-f1-1-2]] only the densities, so they hold in the same
+way. ∎

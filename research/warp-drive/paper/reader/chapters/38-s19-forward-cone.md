@@ -648,8 +648,9 @@ C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is [[eq:iii-i-5-2]]. The wei
 b_I = α_I + 2 = β_I, b_+ = α_+ + 5/2 = β_+, sf-loss 0, and the K⁺-weights ½ for f and −ℵ + ½ = −3/2 for u.
 
 Continuity: the last statement of [[thm:ii-f1-1-1]], in the form of [[rem:ii-f1-7-4]] (every P here satisfies
-[[eq:ii-f1-7-1]], by (iii)), P depending continuously on (S, h) in the norm of [[eq:iii-i-3-7]]. Its coefficients are the sums of products above, multilinear in their factors, so a difference of
-two of them is a sum of products in which one factor is replaced by a difference. For the inverses,
+[[eq:ii-f1-7-1]], by (iii)), P depending continuously on (S, h) in the norm of [[eq:iii-i-3-7]]. Its coefficients are
+the sums of products above, multilinear in their factors, so a difference of two of them is a sum of products in which
+one factor is replaced by a difference. For the inverses,
 
     (g_1 + δ)⁻¹ − (g_1 + δ′)⁻¹ = −(g_1 + δ)⁻¹(δ − δ′)(g_1 + δ′)⁻¹,
 

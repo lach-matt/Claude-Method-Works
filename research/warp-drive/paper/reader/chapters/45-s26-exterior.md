@@ -1161,9 +1161,11 @@ Step 1. As χ_I = χ̂(ρ_I) vanishes for ρ_I ≥ c/2, u₆ − χ_Iu^((0)) = �
 (1 − χ_I)u^((0)) is supported in {ρ_I ≥ c/4} within Ω_c, where every weight at ℐ⁺ is equivalent. So
 u ∈ 𝒴^k_(a₀)(Ω⁺), that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−,ℓ^♭_I))_b on Ω⁺ ([[sec:iv2-0]]), and on Ω⁻ by Step 1.
 
-*The estimate.* Write |h|_j := ‖h‖_(H^(j,ℓ^♭₀,(−,ℓ^♭_I))_b) and N_j := N(f, ġ₀, ġ₁; j), and let C depend only on k,
-α₀, ℓ^♭_I, the parameters and the bound on h in H⁸, so that |h|_j ≤ C for j ≤ 8. Each step is bounded by the previous
-ones; every lower norm is bounded by the same steps at a low order, where the tame factors are |h|_j with j ≤ 7.
+*The estimate.* Write |h|_j for the norm of [[lem:s26-interpolation]], equivalent at each order to that of
+H^(j,ℓ^♭₀,(−,ℓ^♭_I))_b, and N_j := N(f, ġ₀, ġ₁; j); let C depend only on k, α₀, ℓ^♭_I, the parameters and the bound on
+h in H⁸, so that |h|_j ≤ C for j ≤ 8. Each step is bounded by the previous ones. Each lower norm is bounded by the same
+steps at a low order, where the tame factors are |h|_j with j ≤ 7, except ‖u₂‖_(H^(5,(a₀,2γ₁))_b), whose bound carries
+|h|_9 and is treated in the second integration.
 
 - Step 1, by [[eq:iv2-2-1]] at s = k + 3 (for k = 0, its clause for s ≤ 3):
   ‖ġ_N‖_(H^(k+4,α₀)_b) ≤ C(N_(k+4) + |h|_(k+5)N_5); at s = 3, ‖ġ_N‖_(H^(4,α₀)_b) ≤ CN_4.
@@ -1187,9 +1189,10 @@ By Step 6, ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b) is at most C times the sum o
 C(N_(k+4) + |h|_(k+7)N_8): this is [[eq:iv2-2-3]].
 
 *The estimate with C depending on h.* Let k ≥ 1. The lower norms in the tame terms are of orders 4, 5 and 4 for f, ġ₀
-and ġ₁ in [[eq:iv2-2-1]] at s = k + 3, of order 4 for f_(2,♭) in [[eq:iv2-2-2]] at m = k + 3, and of orders (1;4) and 5
-for u₂ in [[eq:iv2-2-5]], which is used only at m ≥ 4 and j ≥ 5. Each is at most the order to which the same quantity
-is bounded in the main term of its step: k + 4 for f, ġ₀ and ġ₁, k + 3 for f_(2,♭), (1;m) and j for u₂. So every tame
+and ġ₁ in [[eq:iv2-2-1]] at s = k + 3, of order 4 for ġ_N and for u₁ in the bounds for [L, χ]ġ_N and
+[[eq:s26-commutator]], of order 4 for f_(2,♭) in [[eq:iv2-2-2]] at m = k + 3, and of orders (1;4) and 5 for u₂ in
+[[eq:iv2-2-5]], which is used only at m ≥ 4 and j ≥ 5. Each is at most the order to which the same quantity is bounded
+in the main term of its step: k + 4 for f, ġ₀, ġ₁, ġ_N and u₁, k + 3 for f_(2,♭), (1;m) and j for u₂. So every tame
 term is at most C‖h‖_(H^(k+7,ℓ^♭₀,(−,ℓ^♭_I))_b) times the main terms, and the steps give [[eq:iii-c1-2-2]] with C
 depending on h. Let k = 0. Step 1 uses [[lem:iv2-2-2]] at s = 3, Step 3 uses [[lem:iv2-2-3]] at m = 3, and both
 integrations of Step 5 use [[eq:iv2-2-5-low]] (at m = 3 and j = 2); none of these has a tame term, h being bounded in

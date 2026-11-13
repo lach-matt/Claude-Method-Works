@@ -814,3 +814,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   factorisation line; resolve the marker at P:17 to lem:bg-identities and eq:bg-field (chapter 80 now defines them);
   OUTLINE.md: one line exporting the Appendix A std- keys (exact text in R3-P-E-margins). The pending Rácz-formulas lemma
   must include the ψ ≠ 0 forms of κ, K^l_l, N_κ (checked) and the Γ/E² identity.
+- S14 second reading (R2-S14): all seven Major repairs hold (r_♭ throughout; the general S formula checked on a random
+  metric with a failing control; strip finiteness; θ-bounds; M + 2N = D M_(−v) D with ϑ_in; the Tangherlini table
+  coefficient for coefficient); lines 302-305 are P-A3's own consequence (P-A3:194-196). Minors: 674's reason (vanish at
+  η = 0, not O(ρ²)); 355-356 and 469-471 the e = 0 trace and determinant are limits not shown to exist. Second fix
+  running (also O2 at 2399 and proof A's 2557, 2541 items). Other files to update: S27:1276, 62:52, 71:74 (details in
+  R2-S14.md) at their next rounds or at integration.

@@ -24,7 +24,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | second fix done (bundles: ℂ^(N_E)-valued, (EE) by [Shu92, App. 1, Lemma 1.4]; every Laurent coefficient; nits; S12 nits applied); third reading running (S11 and S12) |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | CONFIRMED (0M 0m 6n; nits applied with the S11 second fix) |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | CONFIRMED (third reading 0M 0m 2n; ℳ restricted to roots with Re ι at most 10 in modulus) |
-| 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | running |
+| 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | second reading NOT CONFIRMED 0M 2m 4n (all seven Majors hold; reason at 674; e = 0 limits); second fix running |
 | 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | done (sign by own computation; δ_50 cited; ε_Υ for S13's constant) | CONFIRMED (second reading 0M 0m 3n) |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | CONFIRMED (third reading; 4 nits) |

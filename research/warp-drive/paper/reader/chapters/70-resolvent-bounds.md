@@ -1637,14 +1637,111 @@ This is the elementary half of the b-calculus fact that the norm of an inverse o
 the inverse of the indicial family on the weight line. For the scalar model ½A_l, whose indicial family is
 ½(ι(2 − ι) + κ), it gives at β = 1 an upper bound (κ + 1)/(2(κ + 2)^(1/2)) for its least singular value in these norms.
 
-At α = −1 (β = 1), where the indicial family of the degree-2 block has the root 1.0000029324, at distance about 2.93 ·
-10⁻⁶ from the weight line, [[lem:rb-quasimode]] with v the least right singular vector of N^n_l(1) gives, at (γ_C, γ_Υ,
-e_Υ) = (10⁶, 1/100, 1/100): the least singular value of L_l from H̄_b^(1,−1) to H̄_b^(0,1), in the norms
-[[eq:rb-block-norms]], is at most 3.1412 · 10⁻⁶ at l = 0 (on the complement of the zero-energy state), 2.6180 · 10⁻⁷ at
-l = 2 and 1.4955 · 10⁻⁶ at l = 4; so the inverse bound of the scalar-type blocks at (s, α) = (1, −1) is at least 3.81 ·
-10⁶. At α + 2 = 1/2, in the middle of the gap, the same upper bounds are 0.020, 0.015 and 0.012
-[[pending:computational-1]]. An explicit constant for these blocks is therefore to be sought at a weight in the middle
-of the gap; α + 2 ∈ (0, 1) is what [[sec:iii-d1-1]] uses.
+At α = −1 (β = 1) the indicial family of the degree-2 block has the root 1.0000029324, less than 2.94 · 10⁻⁶ from the
+weight line ([[lem:rb-roots-point]]), and [[lem:rb-quasimode]] gives a correspondingly small upper bound. To evaluate it
+we write the indicial family out.
+
+*The indicial family, explicitly.* Put y_j := u_j/ν_j, with (ν_0, …, ν_6) := (1, √2, 1, (2κ)^(1/2), (2κ)^(1/2), √3,
+((2/3)κ(κ − 3))^(1/2)), so that (y_0, …, y_6) = (H_0, H_1, H_2, H_3/r, H_4/r, H_5, H_6) and
+
+    h = S(y_0dt² + 2y_1dt dr + y_2dr²) + 2r(y_3dt + y_4dr) ⊗_s dS + r²(y_5Sg̸ + y_6δ̸*₀dS);
+
+write a stationary 1-form of scalar type l as (ω_0dt + ω_1dr)S + ω_2r dS. Let N^y_l(ι) be the indicial family in the
+coordinates y, so that N^n_l(ι) has the entries ν_iN^y_l(ι)_(ij)/ν_j; at l = 1 the coordinate y_6, and at l = 0 the
+coordinates y_3, y_4, y_6 and ω_2, are absent, and the corresponding rows and columns are dropped. With
+|w|_ν² := Σ_j ν_j²|w_j|², the vector v with v_j = ν_jw_j has |v| = |w|_ν and |N^n_l(β)v| = |N^y_l(β)w|_ν.
+
+**Lemma {#lem:rb-indicial-explicit}** (The indicial family of the block.) Put ϖ := κ + 2ι − ι². Then
+
+    N^y_l(ι) = ½𝔚(ι) + 𝔈_C𝔇(ι)𝔊 + (𝔖(ι + 1) + 𝔈_C)𝔈_Υ,                                          {#eq:rb-indicial-explicit}
+
+where, for y ∈ ℂ⁷ and ω ∈ ℂ³,
+
+    𝔚(ι)y = (ϖy_0, (ϖ + 3)y_1 − 2κy_3, (ϖ + 6)y_2 − 4κy_4 − 6y_5, −2y_1 + (ϖ − 1)y_3,
+             −2y_2 + (ϖ + 4)y_4 + 2y_5 − (4/3)(κ − 3)y_6, −2y_2 + (4/3)κy_4 + (ϖ + 2)y_5, −4y_4 + (ϖ − 4)y_6),
+    𝔊y = (½(y_0 + y_2) + (3/2)y_5, y_1, ½(y_0 + y_2) − (3/2)y_5, y_3, y_4, ½(y_0 − y_2 − y_5), y_6),
+    𝔇(ι)y = ((ι − 3)y_1 + κy_3, (ι − 3)y_2 + κy_4 + 3y_5, (ι − 4)y_4 − y_5 + (2/3)(κ − 3)y_6),
+    𝔖(ι)ω = (0, −½ιω_0, −ιω_1, ½ω_0, ½(ω_1 − (ι + 1)ω_2), ω_1 − (κ/3)ω_2, ω_2),
+    𝔈_Cω = γ_C((2/3)((2 + e_C)ω_0 − (1 − e_C)v_Cω_1), ω_1 − v_Cω_0, (2/3)((1 − e_C)ω_0 − (2 + e_C)v_Cω_1),
+               ω_2, −v_Cω_2, (2/3)(1 − e_C)(ω_0 + v_Cω_1), 0),
+    𝔈_Υy = γ_Υ((2 − e_Υ)y_0 + e_Υ(y_2 + 3y_5), 2y_1, 2y_3).
+
+*Proof.* The model is ½ times 2L̄ = □̄ + 2Ē^Cδ̄Ḡ + 2(δ̄* + Ē^C)Ē^ΥḠ ([[eq:iii-f-2-1]]) on stationary sections of
+scalar type l, in the frame (dt, dr, r dω) of ḡ = −dt² + dr² + r²g̸. On the coordinates of a section r^(−ι)ŷ (or
+r^(−ι)ω̂), □̄ acts by 𝔚(ι) and the result carries r^(−ι−2); δ̄ acts by 𝔇(ι), δ̄* by 𝔖(ι), Ē^C by 𝔈_C and Ē^ΥḠ by
+𝔈_Υ, the result carrying r^(−ι−1); and Ḡ acts by 𝔊. So the composition rule of the proof of [[lem:iii-f1-2-1]] gives
+[[eq:rb-indicial-explicit]], and it remains to derive the six matrices. Below, dS, g̸ and δ̸*₀dS are the objects on
+𝕊³, and the 1-form r dS and the tensor r²q, q on 𝕊³, are identified with tangential fields homogeneous of degree 0, as
+in [[sec:iii-a1-2]].
+
+*𝔚.* On stationary sections the formulas for □̄h in the proof of [[lem:iii-a1-2-1]], at ν = 3, apply with 𝖠 = y_0S,
+𝖷 = y_1S, 𝖡 = y_2S, 𝖶 = y_3dS, 𝖴 = y_4dS and q = y_5Sg̸ + y_6δ̸*₀dS, and □_c(r^(−ι)X) = r^(−ι−2)(Δ̸ + 2ι − ι²)X.
+The identities [[eq:iii-a1-1-2]] at ν = 3 (δ̸dS = κS, Δ̸dS = (κ − 2)dS, δ̸*dS = δ̸*₀dS − (κ/3)g̸S, Δ̸(g̸S) = κg̸S,
+δ̸(g̸S) = −dS, tr(g̸S) = 3S, δ̸(δ̸*₀dS) = (2/3)(κ − 3)dS, Δ̸(δ̸*₀dS) = (κ − 6)δ̸*₀dS) turn □_c𝖠, T_X, T_B, T_W and
+T_U into the components 0 to 4 of 𝔚(ι)y, and T_Q into the components 5 and 6; for instance
+T_U = r^(−ι−2)((ϖ + 4)y_4 − 2y_2 + 2y_5 − (4/3)(κ − 3)y_6)dS.
+
+*𝔊.* tr_ḡ h = (y_2 − y_0 + 3y_5)S, and Ḡh = h − ½ḡ tr_ḡ h.
+
+*𝔇.* In Cartesian coordinates, on stationary sections, (δ̄k)_t = −∂_ik_(it) and (δ̄k)_j = −∂_ik_(ij). For a function
+f(r), a 1-form V and a symmetric 2-tensor Q on 𝕊³, regarded as tangential fields homogeneous of degree 0, the relation
+∂_ix̂_j = r⁻¹(δ_ij − x̂_ix̂_j) and the Gauss formula of the proof of [[lem:iii-a1-1-2]] give
+
+    ∂_i(fx̂_i) = f′ + 3f/r,     ∂_i(fV_i) = −r⁻¹fδ̸V,     ∂_i(fx̂_ix̂_j) = (f′ + 3f/r)x̂_j,
+    ∂_i(f(x̂_iV_j + V_ix̂_j)) = (f′ + 4f/r)V_j − r⁻¹f(δ̸V)x̂_j,     ∂_i(fQ_ij) = −r⁻¹f((δ̸Q)_j + (tr Q)x̂_j).
+
+For k with the coordinates y, k_(ti) = y_1Sx̂_i + y_3(dS)_i and k_(ij) = y_2Sx̂_ix̂_j + y_4(x̂_i(dS)_j + (dS)_ix̂_j) +
+(y_5Sg̸ + y_6δ̸*₀dS)_ij; with y_j = r^(−ι)ŷ_j these give the three components of 𝔇(ι)ŷ.
+
+*𝔖.* The Christoffel symbols of ḡ in t, r and coordinates on 𝕊³ (indices a, b, c) vanish except Γ^r_(ab) = −rg̸_ab,
+Γ^a_(rb) = Γ^a_(br) = r⁻¹δ^a_b and Γ^c_(ab) = Γ̸^c_(ab). For ω = (ω_0dt + ω_1dr)S + ω_2r dS with ω_j functions of r,
+the components of δ̄*ω = ½(∇_μω_ν + ∇_νω_μ) are therefore 0 (tt), ½ω_0′S (tr), ½ω_0∂_aS (ta), ω_1′S (rr),
+½(rω_2′ + ω_1 − ω_2)∂_aS (ra) and r(ω_1Sg̸ + ω_2∇̸²S)_ab (ab), where ∇̸²S = δ̸*₀dS − (κ/3)g̸S; with ω_j = r^(−ι)ω̂_j
+these are the components of the tensor whose coordinates are r^(−ι−1)𝔖(ι)ω̂.
+
+*𝔈_C and 𝔈_Υ.* With c̄_C = r⁻¹(dt − v_Cdr), ⟨c̄_C, ω⟩ = −r⁻¹(ω_0 + v_Cω_1)S, and the coordinates of
+Ē^Cω = γ_C(2c̄_C ⊗_s ω − (2/3)(1 − e_C)ḡ⟨c̄_C, ω⟩) are r⁻¹𝔈_Cω. By the calculation in the proof of [[lem:iii-b-6-2]],
+Ē^ΥḠh = −γ_Υ(2ι_(ḡ⁻¹c̄)h − e_Υc̄ tr_ḡ h) with c̄ = r⁻¹dt; as ḡ⁻¹c̄ = −r⁻¹∂_t and
+h(∂_t, ·) = (y_0dt + y_1dr)S + y_3r dS, the coordinates of Ē^ΥḠh are r⁻¹𝔈_Υy. ∎
+
+**Proposition {#prop:rb-quasimode-point}** (Upper bounds at the computational point.) Let (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100,
+1/100). The least singular value of L_l from H̄_b^(1,α) to H̄_b^(0,α+2), in the norms [[eq:rb-block-norms]] (at l = 0
+on the complement of the zero-energy state), is at most
+
+    3.1413 · 10⁻⁶, 2.6181 · 10⁻⁷ and 1.4956 · 10⁻⁶ at α = −1,     0.0204, 0.0149 and 0.0121 at α + 2 = 1/2,
+
+at l = 0, 2 and 4 respectively. Hence the inverse bound of the scalar-type blocks at (s, α) = (1, −1) is at least
+1/(2.6181 · 10⁻⁷) > 3.81 · 10⁶.
+
+*Proof.* Let β := α + 2. By [[lem:rb-quasimode]] with v_j = ν_jw_j, the least singular value is at most
+|N^y_l(β)w|_ν/((1 + β² + κ)^(1/2)|w|_ν) for every nonzero w. Take for w the integer vectors below, in the coordinates
+(y_0, y_1, y_2, y_5) at l = 0 and (y_0, …, y_6) at l = 2, 4, and evaluate N^y_l(β)w by [[eq:rb-indicial-explicit]]
+with v_C = 1/2 and e_C = 1/102400 ([[sec:iv4-0]]), in exact rational arithmetic. The two norms satisfy
+
+    l = 0, β = 1:    w = (100000000000000, 1007162254783, 57142808753792, 61891238140479),
+                     |N^y_0(1)w|_ν < 6.99009 · 10⁸,  |w|_ν > 1.57349 · 10¹⁴;
+    l = 2, β = 1:    w = (782915609357549, −995884630547290, 1000000000000000, −250929960117404,
+                          273234393610333, −38274812163262, 220595097238448),
+                     |N^y_2(1)w|_ν < 2.20608 · 10⁹,  |w|_ν > 2.66468 · 10¹⁵;
+    l = 4, β = 1:    w = (−886797550484807, 1000000000000000, −870236443529540, 84073284652201,
+                          −69161735576493, −61546428884644, −13333857961543),
+                     |N^y_4(1)w|_ν < 1.55977 · 10¹⁰,  |w|_ν > 2.04541 · 10¹⁵;
+    l = 0, β = 1/2:  w = (10000000000, 80667681, 6427240362, 6743687111),
+                     |N^y_0(1/2)w|_ν < 3.80090 · 10⁸,  |w|_ν > 1.66659 · 10¹⁰;
+    l = 2, β = 1/2:  w = (10000000000, −6663265206, 8414267379, −2107384764, 1619495356, 3474019763, 1429871770),
+                     |N^y_2(1/2)w|_ν < 9.71275 · 10⁸,  |w|_ν > 2.15254 · 10¹⁰;
+    l = 4, β = 1/2:  w = (10000000000, −6522392505, 6893152374, −687784430, 356595656, 3568156727, 73656247),
+                     |N^y_4(1/2)w|_ν < 1.05160 · 10⁹,  |w|_ν > 1.73616 · 10¹⁰.
+
+With (1 + β² + κ)^(1/2) = √2, √10 and √26 at β = 1 (κ = 0, 8, 24), larger than 1.41421, 3.16227 and 5.09901, and
+(5/4)^(1/2), (37/4)^(1/2) and (105/4)^(1/2) at β = 1/2, larger than 1.11803, 3.04138 and 5.02493, the quotients are
+less than 3.14128 · 10⁻⁶, 2.61805 · 10⁻⁷, 1.49554 · 10⁻⁶, 0.0203988, 0.0148362 and 0.0120540, which gives the bounds;
+and 1/(2.6181 · 10⁻⁷) > 3.8195 · 10⁶. ∎
+
+The quotients for the vectors above lie within 2 · 10⁻⁵ of their own values relative to the least singular values of
+N^n_l(β) divided by (1 + β² + κ)^(1/2), so the six bounds are those of [[lem:rb-quasimode]] at its best vector, to the
+digits given. An explicit constant for these blocks is therefore to be sought at a weight in the middle of the gap,
+where the bounds are about 10⁵ times weaker; α + 2 ∈ (0, 1) is what [[sec:iii-d1-1]] uses.
 
 **Remark {#rem:rb-quasimode-observed}** (Numerical observation.) On the full degree-2 block at the parameters above,
 the quasi-mode of the proof of [[lem:rb-quasimode]] with x_0 = log 400 and widths W = 100, 1000 and 10000, evaluated in
