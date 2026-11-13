@@ -648,3 +648,10 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Ch 62 second fix (F2-62): V has dt_IVP timelike and in the cone of dτ (dτ past by lem:domain (e)); new lem:interior-chart
   proves lem:vii-1-2 (a) on {|x| ≥ ½r_♭} and the g_λ vs g_(b₀) bound, inverse included; 8 nits applied. Chapter 60's
   optional widening is no longer needed (drop it from the follow-ups).
+- Ch 70 written (W-70): exports part:constants and ch:resolvent-bounds; B2 merged (with 4.683; markers resolved to
+  prop:resolvent-outgoing, prop:resolvent-above-barrier); T-B2 tables kept in the chapter (may move to Appendix B);
+  P-B merged at its pre-fix state, so re-merge after the proof B fix lands; gap: cor:morawetz-one-derivative (c)-(d)
+  uses u = Σu_l undefined. The source's certified multiplier constants replaced by proofs B/B2's. The e2lower5 lower
+  bounds are left to chapter 71. Markers computational-1 (scalar-type indicial roots and singular values at the
+  computational point) and computational-2 (M₃₃ = −(5000r − 1)/r³): proof project running. Notation: mass m; source
+  F; multiplier profile Θ; V_0, V_1, V_2 → V^□, V^v, V^s; λ := 1677/2048 → e₀; Wronskian 𝒲; sgn σ → ϵ_σ.

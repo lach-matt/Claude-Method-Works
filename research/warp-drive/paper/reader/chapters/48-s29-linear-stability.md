@@ -178,8 +178,10 @@ H^(∞,ℓ^♭_0)_b, as ℓ^♭_0 < min Re ℰ_0 and ℓ^♭_0 < ℓ_0 (the firs
 - *Compact part.* 𝒦 is compact, and it is the domain of dependence of the past part of its boundary
   ([[lem:s27-cover]] (c), which holds for g). L^♮ is a linear operator with smooth coefficients and principal part
   ½□_g ⊗ id = −½g^(αβ)∂_α∂_β ⊗ id, □_g as in [[eq:iii-b-6-7]], that is with principal symbol ½g⁻¹(ζ, ζ) Id (∂ → iζ):
-  this is the normal form of the gauge of [[sec:s27-local]], at h = 0. Its data on Σ^IVP ∩ 𝒦 are given, and on
-  Σ^fut_(r_1) ∩ ∂𝒦 the exterior solution gives them. The linear local theory (L) of [[sec:s27-local]], with 𝒦′ := 𝒦,
+  this is the normal form of the gauge of [[sec:s27-local]], at h = 0. Its data on Σ^IVP ∩ 𝒦 are given, and on the
+  parts of ∂𝒦 that 𝒦 shares with Ω_(ext,r_1) the exterior solution gives them: Σ^fut_(r_1) ∩ ∂𝒦, and, for the backward
+  problem, the past boundary of Ω_(ext,r_1) where 𝒦 reaches below it (for r slightly above r_1, where
+  ν(r) > (r − r_1)/12), spacelike by [[lem:iii-c1-1-1]]. The linear local theory (L) of [[sec:s27-local]], with 𝒦′ := 𝒦,
   then gives ḣ on 𝒦, forward from Σ^IVP and backward to {t_IVP = −ν}, unique, and bounded in H^k(𝒦) for every k by
   finitely many norms of the data; uniqueness also follows from [[lem:ii-f-1-3]].
 
