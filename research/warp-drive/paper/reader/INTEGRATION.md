@@ -753,3 +753,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   source's mixed gauge symbol sign corrected (+e^(−2σ)n1n2 for B_g); twelve programs replaced by derivations, twobg5
   and twodomainx5 kept as Numerical observation remarks. Notation: σ, 𝒜, ℬ, 𝒞_in, 𝒞_out, 𝒩₂, θ1, θ2; proof E's s, α
   and 𝒩 must follow on merge into chapter 83.
+- S26 second fix (F2-S26): thm:iv2-2-4 kept for every k (chapter 46's thm:iv3-2-1 relies on it); Step 4 split: j ≥ 5 by
+  Moser, 2 ≤ j ≤ 4 by Leibniz (new eq:iv2-2-5-low, constant from the H⁸ bound of h); eq:iii-c1-2-2 at k = 0 repaired by
+  no-tame-term clauses added to lem:iv2-2-2 (s ≤ 3) and lem:iv2-2-3 (m = 3); thm:iii-c2-3-1 assumes ‖h_j‖ in H^(k₂)
+  below ε₂, k₂ = 2N_NM + 2 = 308, and proves h_S exists, is unique, with a threshold uniform in small S; four nits.
+  Suggestion for chapter 46: lem:s27-translated-exterior (c) could add "pull-back bounded, uniformly in (S, S⁰)". The
+  fixer found two further gaps at k ≥ 7 (an unstated interpolation inequality; two commutator bounds without tame
+  terms) and is adding them before the confirming reading.

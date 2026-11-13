@@ -568,24 +568,25 @@ H_T = r^(−3)ψ. ∎
 
 *Proof of [[prop:np-10-1]] (i)–(iii) and (iv-a).* (i) Every class tensor is h_0 plus the part with l ≥ 2, which by
 [[lem:gd-1-2]] (c) consists of the orbit block h_ab − ⟨h_ab⟩, the mixed components h_(a·) = dβ_a and the angular block
-2r²(H_L − ⟨H_L⟩)γ + (D̂D̂ − (1/3)γΔ̂)τ + h^TT: scalar type, built from harmonics of [[lem:gd-1-2]] (a), which have even
+2r²(H_L − ⟨H_L⟩)γ + (D̂D̂ − (1/3)γΔ̂)𝓉 + h^TT: scalar type, built from harmonics of [[lem:gd-1-2]] (a), which have even
 degree, and the tensor type h^TT. The class carries no co-closed 1-form on S³ ([[lem:gd-1-2]] (c)), so there is no
 vector-type part, and no harmonic of degree 1. The tensor type is supported in l ≥ 2 ([HKW18, Proposition 6, p. 14]:
 "the components H_2, ĥ_α, and ĥ_αβ are necessarily supported in ℓ ≥ 2"). The domain of outer communication to the
-future of Σ_0 has a simply connected orbit space, the region above a graph, so by [[lem:gd-1-4]] (b), h_0 = cK̄ + ℒ_Yg
+future of Σ_0 has a simply connected orbit space, the region above a graph. DRic commutes with the SO(4)-average,
+the rotations being isometries, so DRic(h_0) = (DRic h)_0 = 0 there; so by [[lem:gd-1-4]] (b), h_0 = cK̄ + ℒ_(Y[h_0])g
 with c the linearised mass: a change of mass plus a pure gauge solution. This is [HKW18, Theorem 1, p. 3] in the
 class, where its linearised rotations, of vector type l = 1, are absent.
 
-(ii) is [[lem:gd-1-3]] (b) with (a); the gauge vector is smooth wherever h is, since β and τ are. For the tensor type,
+(ii) is [[lem:gd-1-3]] (b) with (a); the gauge vector is smooth wherever h is, since β and 𝓉 are. For the tensor type,
 [[thm:rw-ki]] (T). By [KI03, p. 5] the gauge invariants exist for k²(k² − 3) ≠ 0, that is l ≥ 2; the modes with l = 1
 carry no physical degree of freedom ("This implies that there exist no physical degrees of freedom for l = 1",
 [KI03, p. 7]) and are absent in the class anyway.
 
 (iii) is [[thm:rw-ki]] (S) and (T) with [[lem:rw-coefficients]].
 
-(iv) The formula for ∂_m g in the static chart is the derivative of −(1 − m/r²)dt² + (1 − m/r²)⁻¹dr²; with
-dv = dt + f⁻¹dr, K̄ = r⁻²dt² + 2r⁻²f⁻¹dt dr + r⁻²f⁻²dr², and by the formula for ℒ_(ζ∂_v)g in the proof of
-[[lem:gd-1-4]] (b), with ζ = ζ(r), ℒ_(ζ∂_v)g = −2fζ′dv dr + 2ζ′dr² = −2fζ′dt dr, which removes the dt dr term for
+(iv) The formula for ∂_m g in the static chart (t_s, r) is the derivative of −(1 − m/r²)dt_s² + (1 − m/r²)⁻¹dr²;
+with dv = dt_s + f⁻¹dr, K̄ = r⁻²dt_s² + 2r⁻²f⁻¹dt_s dr + r⁻²f⁻²dr², and by the formula for ℒ_(ζ∂_v)g in the proof of
+[[lem:gd-1-4]] (b), with ζ = ζ(r), ℒ_(ζ∂_v)g = −2fζ′dv dr + 2ζ′dr² = −2fζ′dt_s dr, which removes the dt_s dr term for
 ζ′ = (r²f²)⁻¹.
 
 (iv-a) h induces (γ̇, k̇) plus the data of some ℒ_Zg, and cℒ_Vg induces those of ℒ_(cV)g. h + cℒ_Vg is G-invariant,
@@ -597,14 +598,17 @@ bound is [[thm:rw-settling]] (b). ∎
 ### [HKW18]'s data and the red-shift datum {#sec:rw-redshift}
 
 We use the following parts of [HKW18] as stated, in addition to [[thm:std-hkw-decay]]; their n is 3, their M is
-m₀/2, their μ is ς, and page numbers are those of the arXiv version.
+m₀/2, their μ is ς, their t is the static time t_s of [[sec:rw-setting]] up to an additive constant, and page numbers
+are those of the arXiv version. Letters inside quotations are theirs: their K, X, Y and Z below are not the objects of
+this chapter written with those letters.
 
-**Theorem {#thm:rw-hkw}** ([HKW18, Theorem 1, p. 3; p. 4; (13), p. 5; (15)–(16), (19)–(20), p. 6; (35)–(36), p. 8;
-Section 7.3, p. 30; (89), p. 29; p. 38; (114)–(116) and Lemma 11, p. 39; (124), p. 43; (127)–(128), p. 46;
-(129)–(131), p. 47; (134), p. 49; (163)–(169), pp. 58–59; (173), p. 60; p. 61; p. 67; (186), p. 69].)
+**Theorem {#thm:rw-hkw}** ([HKW18, Theorem 1, p. 3; Theorem 2, (6)–(7), p. 4; (13), p. 5; (15)–(16), (19)–(20), p. 6;
+(35)–(36), p. 8; (89), p. 29; Section 7.3 and (92), p. 30; p. 38; (114)–(116) and Lemma 11, p. 39; (124), p. 43;
+(127)–(128), p. 46; (129)–(131), p. 47; (134), p. 49; (159)–(162), p. 58; (163)–(169), pp. 58–59; (173), p. 60; p. 61;
+p. 67; Theorem 22, (183)–(184), pp. 68–69; (186), p. 69].)
 
-(F) (The decay foliation.) With their null coordinates u = (1/2)(t − r_*) and v = (1/2)(t + r_*) (13), which we write
-u_H and v_H, and L := ∂/∂v_H = ∂/∂t + ∂/∂r_* (92),
+(F) (The decay foliation.) With their null coordinates u = (1/2)(t − r_*) and v = (1/2)(t + r_*) (13), in their t and
+r_*, which we write u_H and v_H, and L := ∂/∂v_H = ∂/∂t + ∂/∂r_* (92),
 "Fixing radii r_1 and R_1 satisfying r_h < r_1 < r_P < R_1, we choose a Lipschitz hypersurface Σ_0 with the following
 properties: Σ_0 intersects the future horizon H⁺ transversely and Σ_0 is spacelike in r_h ≤ r ≤ R_1, Σ_0 ∩ {r_1 ≤ r ≤
 R_1} = {t = 0} ∩ {r_1 ≤ r ≤ R_1}, Σ_0 ∩ {R_1 ≤ r} = {u = −(1/2)(R_1)_*} ∩ {R_1 ≤ r} … Flowing along the static Killing
@@ -613,15 +617,18 @@ for Σ_τ for r ≤ R_1 and n_(Σ_τ) := L for r > R_1" (p. 30), the volume form
 We write R_H for their radius R_1.
 
 (E) (The energies.) For a symmetric trace-free two-tensor Ψ on the spheres, "Ť_ab[Ψ] := ∇_aΨ · ∇_bΨ −
-(1/2)g_ab(∇_cΨ · ∇^cΨ)" (89), with the projected covariant derivative; Y is a vector field with "Y|_(r=r_h) = −∂/∂R"
-(p. 38), extended "such that Y is causal and Y = 0 for r ≥ r_1"; N := T + Y is "the strictly timelike red-shift
-multiplier", and "E^N_Ψ(Σ_τ) := ∫_(Σ_τ) J^N_a[Ψ]n^a_(Σ_τ) dVol_(Σ_τ), Ě^N_Ψ(Σ_τ) := ∫_(Σ_τ) Ť_ab[Ψ]n^a_(Σ_τ)N^b
+(1/2)g_ab(∇_cΨ · ∇^cΨ)" (89), with the projected covariant derivative; their red-shift vector field Y, which we write
+Y_H, has "Y|_(r=r_h) = −∂/∂R" (p. 38) and is extended "such that Y is causal and Y = 0 for r ≥ r_1"; N := T + Y_H is
+"the strictly timelike red-shift multiplier", and "E^N_Ψ(Σ_τ) := ∫_(Σ_τ) J^N_a[Ψ]n^a_(Σ_τ) dVol_(Σ_τ), Ě^N_Ψ(Σ_τ) := ∫_(Σ_τ) Ť_ab[Ψ]n^a_(Σ_τ)N^b
 dVol_(Σ_τ)" (115); by Lemma 11, E^N_Ψ(Σ_τ) ≈ Ě^N_Ψ(Σ_τ) (p. 39).
 
 (B) (Boundedness and decay.) For Ψ solving any of the master equations (134), (149), (153), (174),
-Ě^N_Ψ(Σ_τ) ≲ Ě^N_Ψ(Σ_0) (116) and, in spacetime dimension six and below, Ě^N_Ψ(Σ_τ) ≲ I_Ψ(Σ_0)/τ² (130), where
+Ě^N_Ψ(Σ_τ) ≲ Ě^N_Ψ(Σ_0) (116) and, in spacetime dimension six and below, Ě^N_Ψ(Σ_τ) ≲ I_Ψ(Σ_0)/τ² (130). As (116) and
+(130) these are their Theorems 12 and 18, which assume their comparison (111) and Lemma 13; for the master quantities
+they are stated without further hypothesis in [HKW18, Theorem 2, (6)–(7), p. 4] ([[thm:std-hkw-decay]]) and Theorem 22,
+(183)–(184), pp. 68–69, and it is in this form that they are used below. Here
 "I_Ψ(Σ_0) := E²_(Ψ,L_KΨ)(Σ_0) + E^N_(Ψ,L_KΨ,L²_KΨ)(Σ_0)" (131), "with K := {T, Ω_i} ranging over the background Killing
-fields" (129), the constants depending only on n and M. In the proof of (130), with τ_k = 2^k, "there exist
+fields" (129) (their K a set of Killing fields), the constants depending only on n and M. In the proof of (130), with τ_k = 2^k, "there exist
 τ̃_k ∈ [τ_(k−1), τ_k] such that E¹_Ψ(Σ_(τ̃_k)) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_(k−1))) + Ě^N_Ψ(Σ_(τ_(k−1)))) ≤ (C/τ_k)(E²_Ψ(Σ_(τ_0))
 + Ě^N_Ψ(Σ_(τ_0)))" (p. 47).
 
@@ -644,7 +651,7 @@ mode numbers ℓ and m" (p. 67), and the sum over the modes satisfies (186).
 
 (1) [HKW18, Theorem 1]: "For the lower frequency portion δg_(ℓ<2) of δg, there exists a smooth co-vector X_(ℓ<2) on
 the Schwarzschild-Tangherlini background, unique modulo Killing fields, and constants c, d_m such that
-δg_(ℓ<2) = π_(X_(ℓ<2)) + cK + Σ_m d_mK_m" (5), K and K_m the linearised Myers–Perry solutions (p. 3).
+δg_(ℓ<2) = π_(X_(ℓ<2)) + cK + Σ_m d_mK_m" (5), their K and K_m being the linearised Myers–Perry solutions (p. 3).
 
 (G) On the metric components: "It is expected that, after estimating the master quantities and making a suitable
 choice of linearized gauge, the remaining linearized metric components can be controlled by the gauge-invariant master

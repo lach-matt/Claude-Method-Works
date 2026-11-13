@@ -141,7 +141,7 @@ larger set, and the proof of (a) there extends to it, its formula holding at eve
 
 (b) let J := d_1 + 10, d_1 the order of [[thm:iii-k-4-3]], so that K = J + 4 = d_1 + 14 is the order of
 [[thm:settling-precise]], and let C_J and the threshold of [[lem:vii-1-1]] at this J be as there, the threshold written
-λ_J here to keep it apart from λ1. Then the components of g_λ − g_(b₀) in the chart are at most 25C_Jλ on
+λ_J here to keep it apart from the threshold λ1 of [[thm:settling]]. Then the components of g_λ − g_(b₀) in the chart are at most 25C_Jλ on
 Ω′_+ ∩ {|x| ≥ ½r_♭} for 0 < λ ≤ λ_J; and for every compact set Q ⊂ Ω′_+ ∩ {|x| ≥ ½r_♭} there are C_Q and λ_Q > 0 such
 that the components of g_λ⁻¹ − g_(b₀)⁻¹ in the chart are at most C_Qλ on Q for 0 < λ ≤ λ_Q.
 
@@ -307,10 +307,10 @@ it does; then c((0, σ₁)) is a connected subset of (A ∖ Σ) ⊔ (B ∖ Σ) m
 is acausal in M_gl.
 
 So Σ is an acausal smooth spacelike hypersurface in each of the connected time-oriented Lorentzian manifolds M_gl and
-V. By [[thm:std-bgp-development]], D_(M_gl)(Σ) and D_V(Σ) are open, globally hyperbolic and connected, and have Σ as a
-Cauchy hypersurface. In the chart, Σ is the graph of a function over the shell {r_♭ < |x| < R} ⊂ ℝ⁴, which is
-connected; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss and Codazzi equations, both
-metrics being vacuum. So (Σ, γ, k) is initial data in the sense of [Sbi15, p. 11], with d = 4, and both Cauchy
+V. D_(M_gl)(Σ) and D_V(Σ) are open and globally hyperbolic, with Σ as a Cauchy hypersurface
+([[thm:std-bgp-development]]), and connected (shown above). In the chart, Σ is the graph of a function over the shell
+{r_♭ < |x| < R} ⊂ ℝ⁴, which is connected; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss
+and Codazzi equations, both metrics being vacuum. So (Σ, γ, k) is initial data in the sense of [Sbi15, p. 11], with d = 4, and both Cauchy
 developments, with the inclusion of Σ, are globally hyperbolic developments of it [Sbi15, Definition 2.1]
 ([[thm:std-sbierski]] (1)): they are connected and time oriented, as [Sbi15] assumes of every Lorentzian manifold
 (p. 10), vacuum, and induce (γ, k) on Σ with respect to the future normal, by (i) for M_gl. By [Sbi15, Theorem 2.6]
@@ -381,12 +381,19 @@ factor up to (1 + d1)³; [[lem:past-transport]] carries the weight (t + a2)^γ w
 V′_P. So at a fixed λ the data of either solution are available on a bounded part of Σ^IVP: on Σ^IVP ∩ {r ≤ 4R} for
 λ small depending on R, which is what [[cor:vii-2-3]] uses for the solution of [[thm:main]].
 
-*The far part and its past domain of dependence.* On {v ≥ v_end}, μ = μ_end and
+*The far part and its past domain of dependence.* At every point with r > 0,
 
-    g0 = η + m dv dv,     g0⁻¹ = η⁻¹ − m L0 L0,     m := μ_end r⁻²,     L0 = ∂_τ − x̂·∂_x
+    g0 = η + m dv dv,     g0⁻¹ = η⁻¹ − m L0 L0,     m := μ(v) r⁻²,     L0 = ∂_τ − x̂·∂_x
 
-([[eq:background]]); there g0 = g_(b₀) in the chart of [[lem:vii-1-2]] ([[lem:interior-chart]] (a)). On r ≥ 4R ≥ 20R₁,
-m ≤ 1/400. By [[lem:interior-where]] (ii) and [[lem:iii-b-3-5]] (a), on r ≥ 4R
+([[eq:background]]). On {v ≥ v_end}, μ = μ_end, so m = μ_end r⁻² there, and g0 = g_(b₀) in the chart of
+[[lem:vii-1-2]] ([[lem:interior-chart]] (a)). As μ is nondecreasing and equal to μ0 > 0 for v ≤ v_start,
+0 < μ0 ≤ μ(v) ≤ μ_end at every v; and 4R ≥ 20R₁, as R ≥ R₃ ≥ 5R₁, with R₁² = μ_end. Hence on {r ≥ 4R}
+
+    0 < m ≤ μ_end r⁻² ≤ μ_end/(400R₁²) = 1/400.
+
+Every bound below that involves m uses only 0 ≤ m ≤ 1/400 on {r ≥ 4R}, and every identity below that involves m
+contracts the display above at a point, so that no derivative of μ enters it. By [[lem:interior-where]] (ii) and
+[[lem:iii-b-3-5]] (a), on r ≥ 4R
 
     F′(r) = 2μ_end/(r² − μ_end) ∈ (0, ¼],     F(r) − F(4R) ≤ T_(μ_end)(4R) = μ_end^(1/2) log((4R + R₁)/(4R − R₁)),
 

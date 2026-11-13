@@ -639,7 +639,7 @@ So dt^♭_* is past timelike for g on Ω°_(1/2) ∩ {ρ_I ≤ ρ_−}.
 *The rest.* The rest of Ω_(1/2) ∩ {t_* ≤ 1} is K := {½ ≤ t_* ≤ 1, ρ_I ≥ ρ_−} ∩ Ω_(1/2), which is compact (r ≤ t_*/ρ_−
 there). On K, dt^♭_* is past timelike for g_(b₀). Indeed, by the formulae of the proof of [[lem:ii-c-3-2]], which cover
 {t_* ≥ ½} as C_g ≥ 4(r′_0 + 1) ([[lem:ii-e-1-2]] (iv)), and with t := t_* + r there, dt^♭_* is C_♭dt_* on
-{r ≤ r′_0 − 1}, a positive combination of dt_* and dt on {r ≤ C_gt_*/2}, and, on {r ≥ r′_0 + 1}, d(t_*F₁) where
+{r ≤ r′_0 − 1}, a positive combination of dt_* and dt on {r ≤ C_g t_*/2}, and, on {r ≥ r′_0 + 1}, d(t_*F₁) where
 ρ_I ≤ ρ_−, C_♭dt where ρ_I ≥ ρ⁺, and a positive combination of d(t_*F₁) and dt on [ρ_−, ρ⁺]. dt_* is past timelike for
 g_(b₀) everywhere ([[lem:ii-b-1-1]]), and dt on {r ≥ r′_0 − 1} (g_(b₀)⁻¹(dt, dt) ≤ −1 + C₂r⁻² < 0 there, and
 g_(b₀)⁻¹(dt, dt_*) = −1 + O(r⁻²) < 0 with dt_* past timelike, [[lem:ii-b-1-1]]); these two are statements at a point
