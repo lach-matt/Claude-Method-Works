@@ -1493,9 +1493,10 @@ the equation, and by differentiating [[eq:class-leaf-volterra]] in τ as in step
 𝒩_(k−1) ≤ ε2, gives a solution of the augmented system there as in that Step 9, its Θ_A on the tubes being □_g u_A and
 its σ_A that of its own leaves by Step 10 below; by the domain of dependence at the order k − 1 (with the bound of
 [[def:class-adapted]] on T_(τ,U) − id at the order k − 1, from the proof of [[lem:class-leaf-differences]] (a) at that
-order, and 𝔼 bounded on H^(k−1)) it agrees with the solution constructed on its adapted domain. The two adapted domains coincide: T_(τ,U) depends only on the values of U on the
-axes, along the integral curves of P_A from Σ_τ0, and on the leaves h_B, and for the development these lie in its own
-adapted domain, where the two solutions agree. Invariance under G follows as before.
+order, and 𝔼 bounded on H^(k−1)) it agrees with the solution constructed on its adapted domain. The two adapted
+domains coincide: T_(τ,U) depends only on the values of U on the axes, along the integral curves of P_A from Σ_τ0, and
+on the leaves h_B, and for the development these lie in its own adapted domain, where the two solutions agree.
+Invariance under G follows as before.
 
 *Step 10.* [[eq:class-leaf-volterra]] is uniquely solvable ([[lem:class-volterra]]), so on a solution with Θ_A = □_g
 u_A it returns the true leaves of u_A, hence the true σ_A. So near an axis Δ_A = Θ_A − □_g u_A obeys

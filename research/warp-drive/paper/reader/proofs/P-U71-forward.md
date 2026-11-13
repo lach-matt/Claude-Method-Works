@@ -608,12 +608,11 @@ By [[eq:ii-f1-3-2]] and [[rem:ii-f1-7-1]] with d̄_ℵ = 1, D_0 = max(d^E_0, d^S
 horizon, the trapped set, ∂R_(∂K⁺,in) and ∂R_(ℐ⁺,in,+), and −10 near ∂R_(∂K⁺,out) and ∂R_(ℐ⁺,out); 𝗌_0 has values in
 [−13, 8]. The a priori order of [[ch:s06]] is N′ := 13 = −inf 𝗌_0, which is all that its a priori terms
 ‖χu‖_(−N′) ≤ ‖u‖_(𝗌_0) require. A *site* is a result of [[ch:s04]] and [[ch:s06]]–[[ch:s09]] whose proof applies a
-closed-graph index
-(an index of [[prop:ii-a1-2-4]] or of [[lem:ii-a-8-5]], directly or through another site), or raises one. For s an order
-function write s⁺ := sup s and s⁻ := inf s. [[prop:fwd-calculus]] with T = 100 applies at a site when (B1) every
-quantized symbol has order with values in [−100, 100], (B2) every Sobolev order on which an item is applied has values
-in [−100, 100], (B3) every N in (e) and in [[lem:ii-a-8-5]] (b) is at most 100, (B4) every product in (e), (f) has at
-most six quantizations, and (B5) each use of (f) has the form required there.
+closed-graph index (an index of [[prop:ii-a1-2-4]] or of [[lem:ii-a-8-5]], directly or through another site), or
+raises one. For s an order function write s⁺ := sup s and s⁻ := inf s. [[prop:fwd-calculus]] with T = 100 applies at
+a site when (B1) every quantized symbol has order with values in [−100, 100], (B2) every Sobolev order on which an
+item is applied has values in [−100, 100], (B3) every N in (e) and in [[lem:ii-a-8-5]] (b) is at most 100, (B4) every
+product in (e), (f) has at most six quantizations, and (B5) each use of (f) has the form required there.
 
 **Lemma {#lem:fwd-derived}** (The sites of [[ch:s04]].) Each site of [[ch:s04]] uses the items of
 [[prop:fwd-calculus]] as follows, and satisfies (B1)–(B5) under the stated condition.
@@ -660,10 +659,12 @@ of L), the commutant, commutator and positivity paragraphs of [[prop:ii-a1-5-3]]
 The ranges follow from the orders listed, as 𝗌_j and 𝗌 − j/2 have values in [s⁻ − τ, s⁺], resp.
 [s⁻ − s⁺ − N − 1, s⁺]. In (D2) the case (e) applies by [[sec:ii-a1-1-2]] (proof of [[prop:fwd-calculus]]). ∎
 
-**Lemma {#lem:fwd-box}** (The sites of chapters 25–28, and the orders that occur.) The sites of chapters 25–28 that
-enter D_0, the sites of chapter 23 they invoke with their parameters, and their increments (the number added to the
-index of the sites invoked) are the following. Chapter 27 contains no site: its operators (the ι⁺-normal operator and
-its Mellin family) have smooth coefficients, and no class C^((d_0;k)) occurs in it. In chapter 28, [[sec:ii-f-6]]–
+**Lemma {#lem:fwd-box}** (The sites of [[ch:s06]]–[[ch:s09]], and the orders that occur.) The sites of
+[[ch:s06]]–[[ch:s09]] that enter D_0, the sites of [[ch:s04]] they invoke with their parameters, and their increments
+are the following. The increment of a site is the number by which its own regularity requirement exceeds the index of
+the items of [[prop:fwd-calculus]] and [[lem:ii-a-8-5]] that it applies; its index is the larger of that requirement
+and the indices of the sites it invokes. [[ch:s08]] contains no site: its operators (the ι⁺-normal operator and its
+Mellin family) have smooth coefficients, and no class C^((d_0;k)) occurs in it. In [[ch:s09]], [[sec:ii-f-6]]–
 [[sec:ii-f-8]] apply [[thm:ii-a1-3-1]] and [[thm:ii-a1-5-4]] to the smooth operators P_+, P^ε_+ and P_0 only, and
 [[lem:s09-off-star]], [[lem:ii-f1-2-5]] are explicit (Seeley's extension); they are not sites.
 
