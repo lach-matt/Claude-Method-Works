@@ -257,7 +257,12 @@ derivatives of α come from −2 ν_U⁻¹ Δ_Π ν_U = −ν_U⁻² Δ_Π α + 
 R_Π, H², |𝒜|² and the σ-part of ∂_(e_r) H contain α algebraically or through its angular derivatives. The terms
 −|κ_U|² + (tr κ_U)² contain U algebraically. This proves the form [[eq:data-rho]].
 
-(a), J. Let γ_rA be small. In J = 2(−div_(γ_U) κ_U + d tr_(γ_U) κ_U) the derivatives of (ϖ, q) come from κ_U − κ. Since
+(a), J. Let γ_rA be small. Put Π^(ij) := γ^(ik) γ^(jl) Π_kl and Π_i^k := γ^(kj) Π_ji. Since Π = γ − dr ⊗ dr/γ^(rr),
+Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr), that is γ⁻¹ = Π^♯ + γ⁻¹dr ⊗ γ⁻¹dr/γ^(rr) with Π^♯ := (Π^(ij)); so Π^(rk) = 0,
+and the angular block Π^(AB) = γ^(AB) − γ^(rA) γ^(rB)/γ^(rr) is the inverse of the angular block (γ_AB) of γ (the
+inverse of a block of a matrix is the Schur complement of the complementary block of the inverse matrix), that is of
+the induced metric of the spheres, as in the statement. In J = 2(−div_(γ_U) κ_U + d tr_(γ_U) κ_U) the derivatives of
+(ϖ, q) come from κ_U − κ. Since
 Π(γ⁻¹dr, ·) = 0 and q(γ⁻¹dr) = 0, the formula for γ_U⁻¹ gives tr_(γ_U) Π = 3 and tr_(γ_U)(q ⊗ dr + dr ⊗ q) = 0, so d
 tr_(γ_U) κ_U contains 3 dϖ. Further, γ_U^(jk) Π_ij ∂_k ϖ = Π_i^k ∂_k ϖ, γ_U⁻¹dr = (1 + α γ^(rr))⁻¹ γ⁻¹dr, and γ_U^(jk)
 ∂_k q_j = Π^(AB) ∂_A q_B + (lower order), because (γ⁻¹dr)^j ∂_k q_j = ∂_k(q(γ⁻¹dr)) − q_j ∂_k (γ⁻¹dr)^j is of order zero
@@ -312,7 +317,8 @@ the connection of γ_U, so they are O(1); and α enters through the connection o
 
 whose order-1/λ part is λ⁻¹ 2 c(α) (γ0^(rr))² ([∂_θ κ̃_ir] − δ_i^r [∂_θ κ̃_rr]), since γ⁻¹dr = γ0^(rr) ∂_r + O(λ): it
 vanishes for i = r, where the two ∂_r κ_rr terms cancel, and for i = A, where κ̃_Ar = 0. Were W to have a nonzero trace
-on the spheres, ρ would have the coefficient λ⁻¹ (1/(2 ν²)) [∂_θ² tr_(Π0) W] of order 1/λ.
+on the spheres, the term −ν_U⁻² Π^(AB) ∂_r² Π_AB of −2 ∂_(e_r) H would give the coefficient of α in ρ the part λ⁻¹ ν⁻⁴
+[∂_θ² tr_(Π0) W], of order 1/λ.
 
 (c) The principal coefficients are γ^(rr), Π^(AB), γ^(rA) and p = (γ^(rr))^(3/2) H; the first three are algebraic in γ =
 γ0 + O(λ), and H = (1/(2 ν)) Π^(AB)(∂_r Π_AB − (𝓛_σ Π)_AB) has the order-one oscillating part (1/(2 ν)) Π0^(AB) [∂_θ

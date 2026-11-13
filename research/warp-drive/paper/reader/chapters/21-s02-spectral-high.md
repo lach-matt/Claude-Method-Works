@@ -1374,13 +1374,13 @@ each compact set) gives a subsequence along which L(b) := lim ⟨Op_h(b)u, u⟩ 
 extends to a linear functional on C_c(U; End ℂ^(N_E)), continuous for the supremum norm on each compact set. By the
 Riesz representation theorem applied to each matrix entry, L(b) = ∫ tr(b dμ) for a matrix of complex Radon measures.
 
-(d) Positivity: let b ≥ 0 with supp b ⊂ K ⋐ U, and j ∈ C_c^∞(U) scalar equal to 1 on K. For ϵ > 0, b + ϵj² Id is
-positive definite on K and equal to ϵj² Id off K, so it is q_ϵ*q_ϵ with q_ϵ ∈ C_c^∞(U) (on K the positive square
-root; off K, √ϵ j); then Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)* Op_h(q_ϵ) + hR′, so
+(d) Positivity: let b ≥ 0 with supp b ⊂ K_b ⋐ U, and j ∈ C_c^∞(U) scalar, 0 ≤ j ≤ 1, equal to 1 on K_b. For ϵ > 0,
+b + ϵj² Id is positive definite on K_b and equal to ϵj² Id off K_b, so it is q_ϵ*q_ϵ with q_ϵ ∈ C_c^∞(U) (on K_b the
+positive square root; off K_b, √ϵ j, which is smooth as j ≥ 0); then Op_h(b) + ϵ Op_h(j)* Op_h(j) = Op_h(q_ϵ)* Op_h(q_ϵ) + hR′, so
 liminf ⟨Op_h(b)u, u⟩ ≥ −ϵ limsup ‖Op_h(j)u‖² ≥ −Cϵ. Hence L(b) ≥ 0 for b ≥ 0; taking b = φvv* with φ ≥ 0 scalar and
 v ∈ ℂ^(N_E) shows v*μv ≥ 0, so μ is Hermitian and positive semidefinite. Each entry is then absolutely continuous with
-respect to ν (|μ_ab| ≤ ν for a positive matrix measure), which gives m_μ; and tr(p m_μ) ≤ max spec(p) tr m_μ for
-m_μ ≥ 0. ∎
+respect to ν (|μ_ab| ≤ ν for a positive matrix measure), which gives dμ/dν; and
+tr(p dμ/dν) ≤ max spec(p) tr(dμ/dν) as dμ/dν ≥ 0. ∎
 
 **Lemma {#lem:i-b-6-3}** (Cf. [Hin26c, Lemmas 9.31–9.32], on E.) Let (u_j) be tempered on U with defect measure μ, and
 𝐏_j := 𝐏_(h_j,z_j) with Im z_j/h_j → η ∈ [0, ∞).
@@ -1420,8 +1420,9 @@ the range hβ ≤ Im z ≤ hγ. Then there are h_j → 0, z_j and u_j with
 
     ‖Bu‖ = 1,     ‖G𝐏u‖ = o(h²),     ‖Eu‖ = o(h),     h^M‖u‖_(−M) = o(1),                                {#eq:i-b-6-7}
 
-and after passing to a subsequence Im z_j/h_j → η ∈ [β, γ] and (u_j) has a defect measure μ on U_1 := Ell_h(B) (B itself
-shows (u_j) is tempered there). We use [[prop:i-b-4-5]] and [[cor:i-b-4-6]] (real principal type) for the 𝐏_j, with
+and after passing to a subsequence Im z_j/h_j → η ∈ [β, γ] and (u_j) has a defect measure μ on U_1, an open
+neighbourhood of Γ with Ū_1 ⊂ Ell_h(B) (B itself shows that (u_j) is tempered on U_1, and h^M‖u‖_(−M) = o(1) gives the
+bound on ‖u‖_(−M)). We use [[prop:i-b-4-5]] and [[cor:i-b-4-6]] (real principal type) for the 𝐏_j, with
 constants uniform in j; for Im z_j < 0 they hold near Γ because ℓ_j is bounded, so ℓ_j𝒬 is a bounded term of the class
 of 𝒫_1 over the compact set K_Γ, and the absorbing sign is not needed ([[rem:i-b-4-7]]).
 
@@ -1448,23 +1449,29 @@ with operators B_1, E_1, G_1. Its right side for Φu: h⁻¹‖G_1(…)‖ = O(h
 ‖E_1Φu‖ ≤ C‖E_1′u‖ + O(h^∞) with E_1′ microsupported off Γ_u^♮ near WF′_h(E_1), and ‖E_1′u‖ = o(h) by
 [[cor:i-b-4-6]] as in the localisation; the last term is O(h^∞). So ‖B_1Φu‖ = O(h).
 
-*Step 2.* Fix δ_1 ∈ (0, ε_Γ) with Γ(δ_1) ⊂ U_1 ∩ Ell_h(B_1), U_1 = Ell_h(B), possible as B and B_1 are elliptic at Γ.
+*Step 2.* Fix δ_1 ∈ (0, ε_Γ) with Γ(δ_1) ⊂ U_1 ∩ Ell_h(B_1), possible as U_1 and Ell_h(B_1) are neighbourhoods of Γ.
 In Steps 2–4, and in the definition of 𝗆, ε_Γ is replaced by δ_1, so that every function a below is supported in
 U_1 ∩ Ell_h(B_1), where μ lives and [[lem:i-b-6-3]] (c) applies. [[lem:i-b-6-3]] (c) with Φ and Y a cut-off elliptic
-where B_1 is gives, for real a ∈ C_c^∞(Ell_h(B_1)), |∫ H_(φ_u^♮) a dν| ≤ C_1 sup|a|, C_1 independent of a. Take
-a := a_0(φ_u^♮) a_1(φ_s^♮) ψ(G_(z_0)) with a_0, ψ ∈ C_c^∞((−δ_1, δ_1)) equal to 1 near 0, 0 ≤ a_0, ψ ≤ 1 (so that
-a ≥ 0 in Step 3), and a_1(t) := Θ(t/δ)χ_c(t), where Θ is smooth, non-decreasing, Θ(s) = ∓1 for ±s ≤ −2,
-Θ′ ≥ ½ on [−1, 1], and χ_c ∈ C_c^∞((−δ_1, δ_1)) equals 1 on [−δ_1/2, δ_1/2] with |χ_c′| ≤ 4/δ_1. On
-supp ν ⊂ Γ_u^♮ ∩ Σ_(z_0), H_(φ_u^♮) a = a_1′(φ_s^♮){φ_u^♮, φ_s^♮} (the other terms contain H_(φ_u)φ_u = 0, or
-ψ′(G_(z_0)), which vanishes near Σ_(z_0)). Replacing a_1 by −a_1 if {φ_u^♮, φ_s^♮} < 0, and using a_1′ ≥ 1/(2δ) on
-[−δ, δ], a_1′ ≥ 0 on [−2δ, 2δ] and |a_1′| ≤ 4/δ_1 elsewhere:
+where B_1 is gives, for real a ∈ C_c^∞(U_1 ∩ Ell_h(B_1)), |∫ H_(φ_u^♮) a dν| ≤ C_1 sup|a|, C_1 independent of a. Take
+a := χ_(O′) a_0(φ_u^♮) a_1(φ_s^♮) ψ(G_(z_0)) with a_0, ψ ∈ C_c^∞((−δ_1, δ_1)) equal to 1 near 0, 0 ≤ a_0, ψ ≤ 1 (so
+that a ≥ 0 in Step 3), and a_1(t) := Θ(t/δ)χ_c(t), where Θ is smooth, non-decreasing, Θ(s) = ∓1 for ±s ≤ −2,
+Θ′ ≥ ½ on [−1, 1], and χ_c ∈ C_c^∞((−δ_1, δ_1)), 0 ≤ χ_c ≤ 1, equals 1 on [−δ_1/2, δ_1/2] with |χ_c′| ≤ 4/δ_1. Then
+|a| ≤ 1, and by the cut-offs paragraph of [[sec:i-b-6-1]] a is supported in Γ(δ_1), with χ_(O′) = 1 near its support.
+On supp ν ⊂ Γ_u^♮ ∩ Σ_(z_0), H_(φ_u^♮) a = a_1′(φ_s^♮){φ_u^♮, φ_s^♮} on O′ and H_(φ_u^♮) a = 0 off O′ (the other
+terms contain H_(φ_u)φ_u = 0, or ψ′(G_(z_0)), which vanishes near Σ_(z_0)). Replace a_1 by ϵ_♭a_1, ϵ_♭ being the sign
+of {φ_u^♮, φ_s^♮} on Γ(ε_Γ); the integrand is then a_1′(φ_s^♮)|{φ_u^♮, φ_s^♮}| on O′. For δ < δ_1/4, Θ′(t/δ) = 0 for
+|t| ≥ 2δ and χ_c = 1 on [−δ_1/2, δ_1/2], so a_1′ ≥ 1/(2δ) on [−δ, δ], a_1′ ≥ 0 on [−δ_1/2, δ_1/2], and
+|a_1′| = |Θ(t/δ)χ_c′(t)| ≤ 4/δ_1 for δ_1/2 < |t| < δ_1. With c_Γ ≤ |{φ_u^♮, φ_s^♮}| ≤ C_Γ on Γ(δ_1) ⊂ Γ(ε_Γ), the
+integral over {|φ_s^♮| < δ} is at least (c_Γ/(2δ))𝗆(δ), that over {δ ≤ |φ_s^♮| ≤ δ_1/2} is non-negative, and that
+over {δ_1/2 < |φ_s^♮| < δ_1} is at least −(4C_Γ/δ_1)ν(Γ(δ_1)). So
 
-    (c_Γ/(2δ)) 𝗆(δ) ≤ C_1 + (4C_Γ/δ_1) ν(U_1),     so     𝗆(δ) ≤ C_2 δ                                   {#eq:i-b-6-9}
+    (c_Γ/(2δ)) 𝗆(δ) ≤ C_1 + (4C_Γ/δ_1) ν(Γ(δ_1)),     so     𝗆(δ) ≤ C_2 δ                               {#eq:i-b-6-9}
 
-with C_2 independent of δ ∈ (0, δ_1/4) [[pending:issue-1]].
+with C_2 := (2/c_Γ)(C_1 + 4C_Γν(Γ(δ_1))/δ_1), independent of δ ∈ (0, δ_1/4); ν(Γ(δ_1)) is finite as Γ(δ_1) is a
+compact subset of U_1.
 
 *Step 3: propagation for logarithmic times.* [[lem:i-b-6-3]] (b), with ‖G𝐏u‖ = o(h²), gives
-∫(Va dν + 2a tr((p^♮ − ηq^♮) dμ)) = 0 for real a ∈ C_c^∞(Ell_h(B)). Let p_η := max spec(p^♮ − ηq^♮), continuous;
+∫(Va dν + 2a tr((p^♮ − ηq^♮) dμ)) = 0 for real a ∈ C_c^∞(U_1). Let p_η := max spec(p^♮ − ηq^♮), continuous;
 for a ≥ 0 [[lem:i-b-6-2]] gives ∫(Va + 2ap_η) dν ≥ 0. Since η ≥ β and q^♮ > 0, p_η ≤ max spec(p^♮ − βq^♮), and
 β > γ_− gives sup_Γ p_η < ½ν_min; so we can fix κ′ with sup_(Γ(δ_1)) p_η^+/ν_s^♮ < κ′ < ½ (shrinking δ_1;
 p_η^+ := max(p_η, 0)). Take a := a_0(φ_u^♮) a_1(φ_s^♮) ψ(G_(z_0)) with a_0, ψ as before and
