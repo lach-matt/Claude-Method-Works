@@ -770,3 +770,34 @@ are at most 15,852 (item (f) with six quantizations), so the same proof gives D_
 Sobolev orders in [−51, 38], at most five quantizations, by [[lem:fwd-box]]) would lower D_0 further. The terms d′, d″
 and D_1 are the exact values that the proofs of [[sec:ii-f1-3-1]], [[thm:ii-e-6-1]] and [[prop:ii-e-4-4]] fix for
 these orders.
+
+<!-- Statements of other chapters that this section cites with explicit values (texts 7 to 12). Each is placed in its
+chapter, and this comment is deleted at placement.
+
+Text 7. In prop:ii-a1-2-4 (ch:s04), after the sentence that ends with
+  Throughout, "order 𝗋" means bounded from H^𝗍 to H^(𝗍−𝗋).
+add (Θ in place of T, as T(a_1, …, a_r) denotes an expression there):
+  For Θ ∈ ℕ, when 𝗍 and the orders of all quantized symbols have values in [−Θ, Θ] (of any index ν), M := 200Θ + 98
+  serves in (a)–(d); in (e) for N ≤ Θ and expressions with at most six quantizations in each product (B_1, B_2 and the
+  localisers included); and in (f) for expressions with at most six quantizations in each product whose formal symbol
+  in every chart is a sum of terms of pointwise order at most μ, an order function with values in [−6Θ − 3, 6Θ + 3]
+  ([[prop:fwd-calculus]] with T := Θ, which proves (e) without the commutator expansion).
+
+Text 8. In the notation paragraph at the start of ch:s06, replace
+  N′ is a fixed large integer;
+by
+  N′ is a fixed integer with N′ ≥ −inf 𝗌_0 (N′ = 13 for the operator of [[thm:iii-i-5-3]]);
+
+Texts 9 to 11. ch:s07 already reads as follows, which is what lem:fwd-box uses; nothing is to be placed.
+  In the proof of prop:ii-e-4-3: "so a priori u″^(j) ∈ H^(𝗌−1,2α−1)(Ω″)^(•,−). The threshold holds also for the weight
+  α − 1/2, so by [[prop:ii-e-3-4]] (i) for P^(j) at that weight and at s′ = inf 𝗌 − 1, …".
+  In the proof of prop:ii-e-5-6 (a): "a priori v″^(j) ∈ H^(𝗌−1,α_K−1)(Ω″)^(•,−). By [[prop:ii-e-5-4]] (i) for P^(j)
+  at the weight α_K − 1, with inf 𝗌 − 1 for its s′, …".
+  In prop:ii-e-5-4: "There are d_0, depending only on 𝗌 (and, in (i) and (iii), on s′), and C, …".
+  In prop:ii-e-5-6 (a): "(a) Let s′ ∈ ℝ. There is d_0, depending only on 𝗌 and s′, such that … every
+  u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^• with f := Pu satisfies …".
+
+Text 12. In lem:ii-a-8-5 (ch:s04), after (b), add:
+  For T ∈ ℕ, d_0 = 200T + 100 serves in (a) when 𝗌 has values in [−T, T], and in (b) when 𝗌_0 has values in [−T, T]
+  and sup 𝗌 − inf 𝗌_0 ≤ T ([[prop:fwd-calculus]], which proves (b) without the commutator expansion).
+-->
