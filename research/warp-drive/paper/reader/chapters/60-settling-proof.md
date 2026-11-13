@@ -25,9 +25,8 @@ in [[ch:interior]]; every choice made in [[sec:vii-4]] comes after it.
 
 *Notation.* The parameters l5, μ0 ≥ √72 l5², A, env, T and τ0 of [[thm:main]] are fixed. As in [[ch:s27]], ε denotes
 the smallness threshold of [[cor:s27-rate]]; the exponent of the rate, written ε in [[thm:settling]], is written ε_t
-here. The integer J of [[lem:vii-1-1]] is unrelated to the index J of the class 𝒳^∞_(J,ex) of [[thm:iii-k-4-3]], the
-constant c₀ of [[lem:vii-1-2]] is a time shift, and δ denotes the Euclidean metric of ℝ⁴ only inside [[lem:vii-2-1]]
-and a smallness constant elsewhere.
+here. The integer J of [[lem:vii-1-1]] is unrelated to the index J of the class 𝒳^∞_(J,ex) of [[thm:iii-k-4-3]], and
+the constant c₀ of [[lem:vii-1-2]] is a time shift.
 
 ### The setting and the precise statement {#sec:vii-0}
 
@@ -56,15 +55,17 @@ parameter set ℬ_*, and the terms h_tot(p⃗) and h_(b,rem)(q) are those of [[s
 
     ℰ_0 = {(j, 0) : j ∈ ℕ, j ≥ 2},     ℓ_0 ∈ (3, 4),     ℓ_I ∈ (3, ℓ_0);
 
-ε_K is the number of row w1 of [[sec:vi-c-1]], chosen at step (4); d_1 and the norm ‖·‖_(d_1) are those of
-[[sec:s27-class]]. The group G = O(2) × O(2) acts as in [[sec:s27-class]], and the choices of [[lem:vii-3-1]] are made
-O(4)-equivariant; they are admissible choices of the stability theory, so [[thm:iii-k-4-3]] holds with them.
+its steps (0)–(4) are made once, and fix ε_K, the number of row w1 of [[sec:vi-c-1]]. The order α of row w2 and steps
+(5)–(6) are chosen in the proof ([[sec:vii-4]]), depending on the exponent of the rate; with them the order d_1 and the
+norm ‖·‖_(d_1) of [[sec:s27-class]] are fixed. The group G = O(2) × O(2) acts as in [[sec:s27-class]], and the choices
+of [[lem:vii-3-1]] are made O(4)-equivariant; they are admissible choices of the stability theory, so
+[[thm:iii-k-4-3]] holds with them.
 
-**Theorem {#thm:settling-precise}** (Settling, precise form.) Let r_♭ ∈ (0, ½R₁], let the parameters be as above, and
-let A and the envelope be fixed. For every ε_m > 0 and ε_t ∈ (0, ε_K) there are R ≥ R₃, a domain Ω′ of the form
-[[eq:omega]], λ_1 > 0 and δ > 0 such that the following holds for 0 < λ ≤ λ_1. Here g_λ is the solution of
-[[thm:main]] on Ω′, built with K = d_1 + 14 and N = K + 3 stages, and Σ^IVP is placed in the coordinates (τ, x) by
-[[lem:vii-1-2]].
+**Theorem {#thm:settling-precise}** (Settling, precise form.) Let r_♭ ∈ (0, ½R₁], let steps (0)–(4) of
+[[thm:vi-c-2-1]] be made as above, and let A and the envelope be fixed. For every ε_m > 0 and ε_t ∈ (0, ε_K) there are
+choices of steps (5)–(6), R ≥ R₃, a domain Ω′ of the form [[eq:omega]], λ_1 > 0 and δ > 0 such that the following
+holds for 0 < λ ≤ λ_1. Here g_λ is the solution of [[thm:main]] on Ω′, built with K = d_1 + 14 and N = K + 3 stages,
+and Σ^IVP is placed in the coordinates (τ, x) by [[lem:vii-1-2]].
 
 (i) *In the class.* There are G-invariant smooth vacuum data (γ_λ, k_λ) on Σ^IVP that equal the data of g_λ on
 Σ^IVP ∩ {r ≤ R}, and on Σ^IVP ∩ {r ≥ 4R} the data (γ^(m_λ), k^(m_λ)) that the Tangherlini metric g^KS_(m_λ,0) induces

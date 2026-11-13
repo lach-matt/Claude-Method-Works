@@ -942,14 +942,14 @@ below α^♯_+ + 2 have exponents in (ℰ^♯_+ ∪ ℰ_++) + 2, with coefficien
 finitely many below 2). *Step 2* takes c_K := α_0, so ℓ_K(λ_0) = α_0 − Re λ_0; its exclusions hold by admissibility, and
 ℓ_K(λ_0) ∈ (α_0 − 2, 1) ⊂ (0, 1), as Re λ_0 ∈ [λ_♯, 2) and α_0 < 5/2 < λ_♯ + 1. The coefficients at λ_0 of F_2 and of
 later errors (of K⁺-weight α_0 − ε for every ε) have R-weight at least ℓ_K(λ_0) − 2 − ε for every ε, which is the
-hypothesis of [[cor:iii-g2-4-3]]; the errors have K⁺-weight α_0 − ε; and u_(λ_0) has K⁺-weight min(Re λ_0 − 1, ℓ_K(λ_0))
-− ε > α_0 − 2 for ε small. The iteration and its termination are those of the proof of [[prop:iii-i5-2-1]], all exponents
-lying in (ℰ^♯_+ ∪ ℰ_++) + ℕ₀ℰ^ι_ind ⊂ ℰ_++ below 2, by [[eq:iii-i8-1-1]]. So f^♭ ∈ ⋂_ε H^(∞,ℓ_I+1,4−ε,α_0−ε)_b, and Steps
-3–6 apply with α_0 − ε′ for α_K, for every small ε′ (their hypotheses on α_K are open conditions). [[sec:iii-i7-4]] uses
-[[prop:iii-i4-4-1]] (1), whose space of forcings contains 𝒴(α_0) (F_2 has ι⁺-weight above α_+ + 2 for α_+ < min Re ℰ_++),
-[[prop:iii-i6-2-1]], and, in [[lem:iii-i7-4-1]] and in the proof of [[prop:iii-i15-2-12]], the bound of the difference of
-L and the reference operator applied to the solution, in the space 𝒴^S_(α,α_+) of [[sec:iii-i7-4]] for the boost
-parameter and in 𝒴_1(α_0) for the parameters (ḃ, Ṡ⁽⁰⁾_1), unchanged. ∎
+hypothesis of [[cor:iii-g2-4-3]]; the errors have K⁺-weight α_0 − ε; and u_(λ_0) has K⁺-weight
+min(Re λ_0 − 1, ℓ_K(λ_0)) − ε > α_0 − 2 for ε small. The iteration and its termination are those of the proof of [[prop:iii-i5-2-1]], all
+exponents lying in (ℰ^♯_+ ∪ ℰ_++) + ℕ₀ℰ^ι_ind ⊂ ℰ_++ below 2, by [[eq:iii-i8-1-1]]. So f^♭ ∈ ⋂_ε H^(∞,ℓ_I+1,4−ε,α_0−ε)_b,
+and Steps 3–6 apply with α_0 − ε′ for α_K, for every small ε′ (their hypotheses on α_K are open conditions).
+[[sec:iii-i7-4]] uses [[prop:iii-i4-4-1]] (1), whose space of forcings contains 𝒴(α_0) (F_2 has ι⁺-weight above α_+ + 2
+for α_+ < min Re ℰ_++), [[prop:iii-i6-2-1]], and, in [[lem:iii-i7-4-1]] and in the proof of [[prop:iii-i15-2-12]], the
+bound of the difference of L and the reference operator applied to the solution, in the space 𝒴^S_(α,α_+) of
+[[sec:iii-i7-4]] for the boost parameter and in 𝒴_1(α_0) for the parameters (ḃ, Ṡ⁽⁰⁾_1), unchanged. ∎
 
 **Lemma {#lem:iii-i8-3-2}** (The expansion; [Hin26, Proposition 11.51, Part 1] in dimension 4 + 1.) Let α′ < α be
 admissible, α − α′ < a_K − 2, let p⃗ (with parameter b ∈ ℬ̄_*) and h be small, and F ∈ 𝒴(α). Suppose that the forward
@@ -1015,9 +1015,9 @@ The increments are below 1 (ε_ind < 1: the class roots of the table of [[sec:ii
 [[sec:iii-g4-3]] places every {−μ} at 0 or in [ε_ind, 1 − ε_ind]), so after finitely many steps, i_0 say,
 τ_(i_0) ∈ (α − ε′, α − ε′ + 1) (i_0 = 0 if τ_0 > α − ε′, which is the case α_K < 2 + ε_ind of
 [[prop:iii-i6-2-1]]). Then [[lem:iii-i2-4-2]] (at b, [[prop:iii-i2-5-1-b]]) with β_scf := 3/2 − 2ε, β_tf := τ_(i_0) − 2,
-β_zf := α − 2 − ε′, β_tf − β_zf ∈ (0, 1), gives (û_6, b̂_6, Ŝ_6) := L̃_b(σ)⁻¹(f̂^((i_0)), 0, 0), û_6 ∈
-H^(∞,(3/2−3ε,τ_(i_0)−2,α−2−ε′))_b, b̂_6, Ŝ_6 ∈ H^(∞,α−2−ε′)_b(±(0, c], |dσ/σ|). With (U^((i)), B^((i)), Σ^((i))_r) :=
-L̃_b(σ)⁻¹(0, σr(v′_i)),
+β_zf := α − 2 − ε′, β_tf − β_zf ∈ (0, 1), gives (û_6, b̂_6, Ŝ_6) := L̃_b(σ)⁻¹(f̂^((i_0)), 0, 0),
+û_6 ∈ H^(∞,(3/2−3ε,τ_(i_0)−2,α−2−ε′))_b, b̂_6, Ŝ_6 ∈ H^(∞,α−2−ε′)_b(±(0, c], |dσ/σ|). With
+(U^((i)), B^((i)), Σ^((i))_r) := L̃_b(σ)⁻¹(0, σr(v′_i)),
 
     (û_5, b̂_5, Ŝ_5) := Σ_(i<i_0) [(σv′_i, 0, σΣ^((i))) − (U^((i)), B^((i)), Σ^((i))_r)]
                          + (û_6, b̂_6, Ŝ_6)                                                              {#eq:iii-i8-3-3}
@@ -1497,10 +1497,10 @@ D_(g′)Ric ∈ ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, δ*_(g_0,E_C) ∈ ρ_
 (g′ − g_(b₀), g_0 − g_(b₀)) ∈ H^((ℰ_+,a_+))_b and their first derivatives, and [[lem:iii-i9-2-2]] (b) give the
 ι⁺-data; near K⁺ only δ*_(g_0,E_C)ϑ_ν remains (h′ = 0 there), and there g_0 = g_b ([[eq:iii-i7-1-3]]), so it is
 δ*_(g_b,E_C)ϑ_ν, of weight κ_ν − ε, δ*_(g_b,E_C) being stationary; at b = b₀ it is δ*_(g_(b₀),E_C)ϑ_ν. For 𝒴_2(α): the
-index set lies in ℰ_rows + 2 ⊂ ℰ_src + 2 by [[eq:iii-i9-1-3]]; the remainder a_+ + Re λ + 2 > 2λ_♯ + 2 > w_+; and κ_ν − ε
-≥ α as in (a). For the class 𝒴_2(α′) of [[sec:iii-i8-1]] (index set ℰ_++ + 2, remainder 4 − ε): if Re λ < 2, then (λ, k)
-∈ ℳ and (λ, k) + ℱ + ((0, 0) ∪ ℰ_+) ⊂ ℰ_++ by [[eq:iii-i8-1-1]]; if Re λ ≥ 2, every exponent has real part at least 4;
-and κ_ν − ε > 3.
+index set lies in ℰ_rows + 2 ⊂ ℰ_src + 2 by [[eq:iii-i9-1-3]]; the remainder a_+ + Re λ + 2 > 2λ_♯ + 2 > w_+; and
+κ_ν − ε ≥ α as in (a). For the class 𝒴_2(α′) of [[sec:iii-i8-1]] (index set ℰ_++ + 2, remainder 4 − ε): if Re λ < 2, then
+(λ, k) ∈ ℳ and (λ, k) + ℱ + ((0, 0) ∪ ℰ_+) ⊂ ℰ_++ by [[eq:iii-i8-1-1]]; if Re λ ≥ 2, every exponent has real part at
+least 4; and κ_ν − ε > 3.
 
 (c) L_(h,p⃗) = L^(g′,g_0) = D_(g′)Ric − δ*_(g_0,E_C)D_1Υ^(E_Υ)(g′, g_0) ([[lem:iii-i9-2-5]]), so [[eq:iii-i9-2-6]]
 reads f^ν = L_(h,p⃗)h_ν + δ*_(g_0,E_C)ϑ_(ν,♯) = L_(h,p⃗)m_ν − L_(h,p⃗)ζ_ν + δ*_(g_0,E_C)ϑ_(ν,♯). At (0, 0),
@@ -1550,8 +1550,8 @@ size O(|b − b₀||W|) as the towers are smooth in b ((P3)). Near K⁺ the corr
 b = b₀ the tensors built at b are those built at b₀, so E^ν = 0. ∎
 
 *The exact linearisation.* By (c) and (e), f^ν = L_(h,p⃗)m_ν + r^ν + E^ν holds exactly, with E^ν = 0 at b₀, and r^ν
-carries a factor of ι⁺-order at least λ_♯ (from h, h_tot, or g_0 − g_(b₀), resp. g_0 − g_b at b), which lifts it from Re
-λ + 2 ≥ λ_♯ + 2 to at least 2λ_♯ + 2 = 5 + 2δ_♯ > w_+, past every exponent that could create a row: no ι⁺-index set of
+carries a factor of ι⁺-order at least λ_♯ (from h, h_tot, or g_0 − g_(b₀), resp. g_0 − g_b at b), which lifts it from
+Re λ + 2 ≥ λ_♯ + 2 to at least 2λ_♯ + 2 = 5 + 2δ_♯ > w_+, past every exponent that could create a row: no ι⁺-index set of
 r^ν needs to be tracked. (In dimension 3 + 1 the same count gives 2 + 2 = 4 < 5, and [Hin26] tracks an index set ℰ̃′_++
 instead.) So the forward solution of L_(h,p⃗)u = F − Σ_ν f^ν_(h,p⃗)(W_ν) is u = v − Σ_ν m_ν(W_ν), where v is the forward
 solution of L_(h,p⃗)v = F − Σ_ν(r^ν_(h,p⃗) + E^ν_(h,p⃗))(W_ν), and [[ch:s22]] eliminates the rows as [[prop:iii-i8-4-1]]
@@ -1562,6 +1562,7 @@ K_τ terms below the leading one, except K_s0 − 1 = 3 for s0, whose leading te
 (11.194), that the leading ι⁺-part of f^ν is a cut-off of the model operator applied to the model of m_ν. At b₀,
 parts (b) and (c) give the classes and the exact form f^ν = L_(h,p⃗)m_ν + r^ν, from which the analogue of [Hin26,
 (11.194)] in its L_b form follows, at a plain ι⁺-weight: f^ν − L_(b₀)m_ν = (L_(h,p⃗) − L_(b₀))m_ν + r^ν has ι⁺-weight
-Re λ + 2 + λ_♯ − ε; at b, by (e), the same holds for f^ν − E^ν − L_bm_ν. [Hin26]'s index set (λ + 2, k) + ((0, 0) ∪ ℰ_ind
-∪ ℰ_+ ∪ ℰ̃′_++) has here no ℰ̃′_++-term, the new corrections lying in 𝒳 by (H3) ([Hin26, Remark 11.62]). [Hin26,
-(11.191)], for the logarithmic s0 correction at the exponent 1, has no analogue.
+Re λ + 2 + λ_♯ − ε; at b, by (e), the same holds for f^ν − E^ν − L_bm_ν. [Hin26]'s index set
+(λ + 2, k) + ((0, 0) ∪ ℰ_ind ∪ ℰ_+ ∪ ℰ̃′_++) has here no ℰ̃′_++-term, the new corrections lying in 𝒳 by (H3) ([Hin26,
+Remark 11.62]).
+[Hin26, (11.191)], for the logarithmic s0 correction at the exponent 1, has no analogue.

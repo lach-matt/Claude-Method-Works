@@ -521,8 +521,11 @@ rates at least λ_♯ − 1 > 0, and the terms of u^rot_ι have K⁺-weight Re �
     f̂_ḃ(σ) = r⁻³G(σr, x),          f̂_S(σ) = r⁻³G(σr, x),
 
 with G = G_ḃ, resp. G_S, linear in ḃ, resp. S, where G(ξ, x) = ∫_2^4 e^(iξs) F(s, x) ds and F is smooth in s, supported
-in s ∈ [2, 4], and polyhomogeneous at ∂X with all its s-derivatives, with an index set ℰ_col ⊂ {Re ≥ 0} that depends
-neither on ḃ, S nor on b ∈ ℬ̄_*. (On {r ≥ 1}, f_ḃ and f_S are supported in {2r ≤ t_* ≤ 4r}, by the proof of
+in s ∈ [2, 4], and polyhomogeneous at ∂X with all its s-derivatives, with the index set
+
+    ℰ_col := ({(0, 0), (1, 0)} ∪ ℰ_ind ∪ (1 + ℰ_ind)) + ℕ₀ ⊂ {Re ≥ 0},
+
+which depends neither on ḃ, S nor on b ∈ ℬ̄_*. (On {r ≥ 1}, f_ḃ and f_S are supported in {2r ≤ t_* ≤ 4r}, by the proof of
 [[lem:iii-h-2-2]] (b), and G is the function of [[eq:iii-h-2-3]] with f in place of f_∞.) Hence G(ξ, ·) is
 polyhomogeneous with the index set ℰ_col, with coefficients and remainders entire in ξ and O(⟨ξ⟩^(−N)) on {Im ξ ≥ 0}
 for every N; f̂_ḃ(0), f̂_S(0) ∈ 𝒜^(3+ℰ_col) near ∂X; and on X^±_(sc-b) near tf, where ρ_tf = r⁻¹ up to a factor smooth in
@@ -535,17 +538,19 @@ L_b = L_0 + L_1∂_(t_*) + L_2∂²_(t_*), with L_1 = [L_b, t_*] and L_2 = ½[[L
 L_k ∈ ρ^(2−k)Diff^(2−k)_b(X̄) has smooth coefficients ([[lem:iii-i3-1-1]], as it is applied to them there). The
 t_*-derivatives and the b-derivatives in x of χ_c(r/t_*) are sums of terms r^(−k)φ(t_*/r), k ∈ {0, 1, 2}, with φ smooth
 and, when at least one derivative falls on χ_c, supported in [2, 4]; for instance r∂_r[χ_c(r/t_*)] =
-(r/t_*)χ′_c(r/t_*) and ∂_(t_*)[χ_c(r/t_*)] = −r⁻¹(r/t_*)²χ′_c(r/t_*). So [L_b, χ_K]w is a finite sum of terms
-r^(−k)φ(t_*/r)t_*^m (Qw_m)(x) with m ∈ {0, 1}, Q ∈ ρ^q Diff_b of smooth coefficients, and w_m among ġ(ḃ), h(S), h̆(S),
-which are polyhomogeneous at ∂X: ġ_b(1, 0) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) and ġ_b(0, Ȧ) ∈ 𝒜^((3,0)∪(3+ℰ_ind))
-([[eq:iii-f3-2-2]]), h(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-4-2]]), and h̆(S) is built from the tower of
-[[prop:iii-d3-3-1]] (2) ([[lem:iii-i10-2-1]] (b)), whose index sets ℰ_ind contains ([[sec:iii-i8-1]]). With t_* = sr,
-F(s, x) = r⁴f(sr, x) is a finite sum of terms φ(s)s^m r^(4−k+m)(Qw_m)(x): smooth in s, supported in [2, 4], and
-polyhomogeneous in x with an index set E independent of ḃ and S. The index sets of the states do not depend on b
-([[lem:iii-i15-1-1]] (P3)), and E is obtained from them by finitely many shifts by integers (the factors r^(4−k+m) and
-the smooth coefficients of the L_k, which are smooth in b); so E can be taken independent of b ∈ ℬ̄_*. F is bounded
-(by [[lem:iii-h-2-4]] (a) and its proof), so its coefficients at the exponents of real part below 0 vanish, and
-ℰ_col := E ∩ {Re ≥ 0} serves. The statements on G follow by integrating the expansion of F against e^(iξs), with
+(r/t_*)χ′_c(r/t_*) and ∂_(t_*)[χ_c(r/t_*)] = −r⁻¹(r/t_*)²χ′_c(r/t_*). Every term of
+[L_b, χ_K]w = Σ_k [L_k∂^k_(t_*), χ_K]w carries at least one derivative of χ_K; a t_*-derivative of χ_K costs a factor
+r⁻¹ = ρ and a b-derivative in x costs nothing, L_k ∈ ρ^(2−k)Diff^(2−k)_b, and ∂_(t_*)w is 0, resp. h(S), with
+∂²_(t_*)w = 0. So [L_b, χ_K]w is a finite sum of terms φ(t_*/r)ρ²(Qv)(x) with v ∈ {ġ(ḃ), h̆(S)}, and of terms
+φ(t_*/r)ρ(Qh(S))(x), which come from t_*h(S) (there ρ²t_* = (t_*/r)ρ, and the factor t_*/r is absorbed into φ); here φ
+is smooth and supported in [2, 4], and Q is a b-differential operator whose coefficients are smooth at ∂X. With
+t_* = sr, F(s, x) = r⁴f(sr, x) is the corresponding finite sum of terms φ(s)r²(Qv)(x) and φ(s)r³(Qh(S))(x), smooth in
+s and supported in [2, 4]. Now ġ_b(1, 0) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) and ġ_b(0, Ȧ) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-2-2]]),
+h(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-4-2]]), and h̆(S) = h̆¹_(b,s1)(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) ([[eq:iii-d2-3-4]]).
+So r²ġ_b(1, 0), r²h̆(S) and r³h(S) lie in 𝒜^((0,0)∪ℰ_ind), and r²ġ_b(0, Ȧ) lies in 𝒜^((1,0)∪(1+ℰ_ind)); b-derivatives
+preserve these index sets, and the coefficients of Q, smooth at ∂X, add ℕ₀. Hence F, with all its s-derivatives, is
+polyhomogeneous at ∂X with the index set ℰ_col, which lies in {Re ≥ 0} as min Re ℰ_ind > 0. These index sets depend
+neither on ḃ and S nor on b ([[lem:iii-i15-1-1]] (P3)). The statements on G follow by integrating the expansion of F against e^(iξs), with
 integrations by parts in s for the decay in ξ (Im ξ ≥ 0, s > 0), and r⁻³G(σr, x) = ρ³_tf G(±r̂, x). ∎
 
 ### The lemmas of the spectral phase {#sec:iii-i11-2}

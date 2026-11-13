@@ -258,3 +258,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   [Usu26] + [MM87] (0-calculus, new cor:std-zero-sobolev), [Hö90], [RS1] p. 201, new thm:std-bh17-embedding. [Hö83],
   [Hö85] now uncited (drop). S26 line 672 still cites [Tay11]: change to GO13's entry. Chapter 6 should cite
   thm:std-bh17-embedding where it uses [BH17, Theorem 7.27].
+- S17 fix: a hat convention for spectral families is stated in S17 at L38-39 (n7); adopt it in the Notation list
+  (OUTLINE) and check S16, S18, S22 use it the same way. S17 uses η for Minkowski space in sec:s17-exterior.

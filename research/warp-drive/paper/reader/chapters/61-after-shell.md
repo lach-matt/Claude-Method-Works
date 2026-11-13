@@ -102,14 +102,14 @@ with K ≥ d + 1, then g_λ − g0 is O(λ) in H^d of the slices Σ_τ ∩ {v > 
 (c) If T > r_q(μ_end) − a, a the inner radius of Ω ([[sec:domain]]), then for every τ1 ∈ (v_end − a, τ_end] the whole
 slice Σ_τ1 lies in {v > v_end}, and its inner sphere {r = a} lies inside the horizon {r = √μ_end} of g0.
 
-*Proof.* (a) *The leading oscillation.* μ′ = (2/9) A² env² ([[eq:mu-rate]]) and env is supported in [v_start, v_end],
-so μ = μ_end and env = 0 for v ≥ v_end. W_TT is proportional to α = A env(v) h r^(−3/2) ([[sec:stage-zero]]), so it
-vanishes on {v > v_end}. The source F_2 of the transport [[eq:chi-transport]] is quadratic in α, since y1 and y2 are
-linear in α; so F_2 = 0 on {v > v_end}. The transport runs along ℓ = ∂_r, the derivative at fixed v. By
-[[lem:domain]] (d) the integral curve of L0 = −ℓ through a point of Ω, followed to the past, stays in Ω, keeps v
-(L0(v) = 0) and meets Σ_τ0. So {v > v_end} ∩ Ω is a union of such curves. On each of them ∂_θ χ solves
-(∂_r + 3/(2r)) ∂_θ χ = 0 with ∂_θ χ = 0 on Σ_τ0 ([[lem:stage-data]]: χ = 0 on Σ_τ0), hence ∂_θ χ = 0, and χ, its
-primitive of zero mean, vanishes. So W = 0 on Ω ∩ {v > v_end}.
+*Proof.* (a) *The leading oscillation.* μ′ = (2/9) A² env² ([[eq:mu-rate]]) and env is supported in [v_start, v_end], so
+μ = μ_end and env = 0 for v ≥ v_end. W_TT is proportional to α = A env(v) h r^(−3/2) ([[sec:stage-zero]]), so it vanishes
+on {v > v_end}. The right-hand side F_2 of the transport [[eq:chi-transport]] is quadratic in α, since y1 and y2 are
+linear in α; so F_2 = 0 on {v > v_end}. The transport runs along ℓ = ∂_r, the derivative at fixed v. By [[lem:domain]]
+(d) the integral curve of L0 = −ℓ through a point of Ω, followed to the past, stays in Ω, keeps v (L0(v) = 0) and meets
+Σ_τ0. So {v > v_end} ∩ Ω is a union of such curves. On each of them ∂_θ χ solves (∂_r + 3/(2r)) ∂_θ χ = 0 with ∂_θ χ = 0
+on Σ_τ0 ([[lem:stage-data]]: χ = 0 on Σ_τ0), hence ∂_θ χ = 0, and χ, its primitive of zero mean, vanishes. So W = 0 on Ω
+∩ {v > v_end}.
 
 *An oscillating factor in every term.* By [[lem:first-entry]] the coefficients ℛ^(m) and, likewise, the coefficients
 D^(m) of the gauge function ([[sec:data-approximant]]) are sums of monomials in g0, v, the means m_i, the phases φ_i,
@@ -222,9 +222,9 @@ components give the same spaces and equivalent norms ([[def:s11-b-analysis]] (3)
 equivalent norm changes δ and the constants below by fixed factors. [[thm:settling]] (ii) asks
 (γ − γ_λ, k − k_λ) ∈ ℋ^∞ with ‖(γ − γ_λ, k − k_λ)‖_(d_1) < δ.
 
-**Lemma {#lem:after-shell-expansion}** (The expansion is unique.) If b2, b3 ∈ L²(𝕊³) and χ_c (ρ² b2 + ρ³ b3) ∈ H^(0,ℓ0)_b,
-then b2 = b3 = 0. So the coefficients u^((z)) are determined by u, the norm is well defined, and ℋ^d_0, ℋ^d_1 are
-reflexive Banach spaces: each is a closed subspace of a product of Hilbert spaces (the two descriptions agreeing on
+**Lemma {#lem:after-shell-expansion}** (The expansion is unique.) If b2, b3 ∈ L²(𝕊³) and χ_c (ρ² b2 + ρ³ b3) ∈
+H^(0,ℓ0)_b, then b2 = b3 = 0. So the coefficients u^((z)) are determined by u, the norm is well defined, and ℋ^d_0, ℋ^d_1
+are reflexive Banach spaces: each is a closed subspace of a product of Hilbert spaces (the two descriptions agreeing on
 {r_χ < r < 2r_χ}), with an equivalent norm.
 
 *Proof.* For almost every ω with b2(ω) ≠ 0, r^(2ℓ0) |r⁻² b2 + r⁻³ b3|² ≥ (1/2) r^(2ℓ0−4) |b2|² for r large, and
@@ -350,22 +350,22 @@ size C_P Ξ.
 data in the class that agree with (γ_Ξ, k_Ξ) on {r < R} have norm ‖·‖_(d_1) < δ; for a = ℓ0, once
 R > R_P 2^((δ/(c_P Ξ))²).
 
-*Proof.* (a) |∂_r^j(χ_1 ζ_a)| ≤ C_j r^(1−a−j), so φ_Ξ′ ≥ 1/2 for Ξ ≤ Ξ1 := (2 sup|(χ_1 ζ_a)′|)⁻¹. Also φ_Ξ(r) = r for
-r ≤ r_2 and φ_Ξ(r) → ∞, so φ_Ξ is an increasing bijection of [r_♭, ∞) and Ψ_Ξ a diffeomorphism, with inverse
-x ↦ φ_Ξ⁻¹(|x|) x/|x|, commuting with O(4). The constraint map is natural under diffeomorphisms, so the pull-back is
-vacuum. It is G-invariant, as (γ_λ, k_λ) is and G ⊂ O(4). On {r ≥ r_2} ⊂ {r ≥ 4R_i}, which Ψ_Ξ maps to itself, the
-data are (γ^(m_λ), k^(m_λ)), which are O(4)-invariant ([[lem:vii-2-1]] (b)). An O(4)-invariant symmetric 2-tensor is
-A(r) x̂ ⊗ x̂ + B(r)(δ − x̂ ⊗ x̂): the stabiliser O(3) of x̂ acts irreducibly on x̂^⊥ and fixes no vector there, so an
-invariant symmetric bilinear form has no x̂ ⊗ x̂^⊥ part and is a multiple of the identity on x̂^⊥. By [[lem:vii-2-1]] (a),
-α := A − 1 and β := B − 1 lie in ρ²C^∞, and k^(m_λ) = C x̂ ⊗ x̂ + D(δ − x̂ ⊗ x̂) with C, D ∈ ρ³C^∞. Since
-A x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂) = A dr² + B r² g_(𝕊³), a radial map r ↦ φ(r) pulls it back to
+*Proof.* (a) |∂_r^j(χ_1 ζ_a)| ≤ C_j r^(1−a−j), so φ_Ξ′ ≥ 1/2 for Ξ ≤ Ξ1 := (2 sup|(χ_1 ζ_a)′|)⁻¹. Also φ_Ξ(r) = r for r ≤
+r_2 and φ_Ξ(r) → ∞, so φ_Ξ is an increasing bijection of [r_♭, ∞) and Ψ_Ξ a diffeomorphism, with inverse x ↦ φ_Ξ⁻¹(|x|)
+x/|x|, commuting with O(4). The constraint map is natural under diffeomorphisms, so the pull-back is vacuum. It is
+G-invariant, as (γ_λ, k_λ) is and G ⊂ O(4). On {r ≥ r_2} ⊂ {r ≥ 4R_i}, which Ψ_Ξ maps to itself, the data are (γ^(m_λ),
+k^(m_λ)), which are O(4)-invariant ([[lem:vii-2-1]] (b)). An O(4)-invariant symmetric 2-tensor is A(r) x̂ ⊗ x̂ + B(r)(δ −
+x̂ ⊗ x̂): the stabiliser O(3) of x̂ acts irreducibly on x̂^⊥ and fixes no vector there, so an invariant symmetric
+bilinear form has no x̂ ⊗ x̂^⊥ part and is a multiple of the identity on x̂^⊥. By [[lem:vii-2-1]] (a), α := A − 1 and β
+:= B − 1 lie in ρ²C^∞, and k^(m_λ) = C x̂ ⊗ x̂ + D(δ − x̂ ⊗ x̂) with C, D ∈ ρ³C^∞. Since A x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂) = A
+dr² + B r² g_(𝕊³), a radial map r ↦ φ(r) pulls it back to
 
     Ψ*(A x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂)) = A(φ) φ′² x̂ ⊗ x̂ + B(φ) (φ²/r²)(δ − x̂ ⊗ x̂).               {#eq:after-shell-radial}
 
-Hence h = [A(φ_Ξ) φ_Ξ′² − A] x̂ ⊗ x̂ + [B(φ_Ξ) φ_Ξ²/r² − B](δ − x̂ ⊗ x̂) on {r ≥ r_2} and h = 0 inside, and likewise κ with
-(C, D). Write A(φ) φ′² − A = (φ′² − 1) + (α(φ) − α) φ′² + α(φ′² − 1), with α(φ) − α = Ξ χ_1 ζ_a ∫_0^1 α′(r + sΞ χ_1 ζ_a)
-ds. The three terms are conormal, with constants times Ξ, of orders a, a + 2 and a + 2; the B terms likewise, and the
-(C, D) terms are of order a + 3. The components x̂_i x̂_j lie in C^∞ of the radial compactification. So
+Hence h = [A(φ_Ξ) φ_Ξ′² − A] x̂ ⊗ x̂ + [B(φ_Ξ) φ_Ξ²/r² − B](δ − x̂ ⊗ x̂) on {r ≥ r_2} and h = 0 inside, and likewise κ
+with (C, D). Write A(φ) φ′² − A = (φ′² − 1) + (α(φ) − α) φ′² + α(φ′² − 1), with α(φ) − α = Ξ χ_1 ζ_a ∫_0^1 α′(r + sΞ χ_1
+ζ_a) ds. The three terms are conormal, with constants times Ξ, of orders a, a + 2 and a + 2; the B terms likewise, and
+the (C, D) terms are of order a + 3. The components x̂_i x̂_j lie in C^∞ of the radial compactification. So
 [[eq:after-shell-order]] holds with C_P Ξ in place of Ξ, and with C_β Ξ at all orders.
 
 (b) Let R ≥ 4r_2 and let (γ′, k′) be admissible for N^((d))_R. Write u := γ′ − γ_λ as in
@@ -383,9 +383,9 @@ On Γ, φ_Ξ = r + Ξ ζ_a. By [[eq:after-shell-radial]], τ = (φ_Ξ′² − 1
 
     τ = 2Ξ r^(−a)((4 − a) cos log r − sin log r) + Ξ² (ζ_a′² + 3 ζ_a²/r²) + e_αβ.
 
-As in (a), |e_αβ| ≤ C Ξ r^(−2−a). Since 4 − a > 0, (4 − a) cos t − sin t = A_a cos(t + φ_a) with φ_a := arctan(1/(4 − a)),
-so τ = 2Ξ A_a r^(−a) cos(log r + φ_a) + e with |e| ≤ C_e(Ξ r^(−2−a) + Ξ² r^(−2a)). Substitute r = Rs, so that
-dr/r = ds/s and r^(ℓ0) β_z r^(−z) = β_z R^(ℓ0−z) s^(ℓ0−z). The main term contributes
+As in (a), |e_αβ| ≤ C Ξ r^(−2−a). Since 4 − a > 0, (4 − a) cos t − sin t = A_a cos(t + φ_a) with φ_a := arctan(1/(4 −
+a)), so τ = 2Ξ A_a r^(−a) cos(log r + φ_a) + e with |e| ≤ C_e(Ξ r^(−2−a) + Ξ² r^(−2a)). Substitute r = Rs, so that dr/r =
+ds/s and r^(ℓ0) β_z r^(−z) = β_z R^(ℓ0−z) s^(ℓ0−z). The main term contributes
 
     inf_β ‖r^(ℓ0)(2Ξ A_a r^(−a) cos(log r + φ_a) − β2 r⁻² − β3 r⁻³)‖
         = 2Ξ A_a R^(ℓ0−a) dist(s^(ℓ0−a) cos(log s + log R + φ_a), span(s^(ℓ0−2), s^(ℓ0−3))) ≥ 2Ξ A_a ϰ(a, ℓ0) R^(ℓ0−a)
@@ -551,10 +551,10 @@ box 𝔅_R := {Q : |Q_X − 𝔮̃_X(p_λ)| ≤ r_X for every X}, with r_X := C_
 others C_0 Ξ R^(min(0,3−a)), the larger. So for Q ∈ 𝔅_R, [[lem:after-shell-mp-data]] (c) gives
 |Δp₂| ≤ √5 L C_0 Ξ R^(min(0,2−a)) and |Δp| ≤ √15 L C_0 Ξ R^(min(0,3−a)), where Δp := p(Q) − p_λ.
 
-(2) *The source in relative form.* On 𝒜 = Γ̄(1, 4) write a_R := 𝒮_R(γ, k) and b_Q := 𝒮_R(g̃_(p(Q)), K̃_(p(Q))), with
-𝒮_R of [[lem:v-1-4]]. Both are vacuum, and the approximate data of Step 2 are u_(Q,R) = b_Q + χ(a_R − b_Q). The
-constraint map is smooth near flat data and vanishes at b_Q, so ‖(J, ρ)(u_(Q,R))‖_(C^(k_g+1)) ≤
-C ‖a_R − b_Q‖_(C^(k_g+3) × C^(k_g+4)) ≤ C θ_R(Q), with
+(2) *The constraint defect in relative form.* On 𝒜 = Γ̄(1, 4) write a_R := 𝒮_R(γ, k) and b_Q := 𝒮_R(g̃_(p(Q)),
+K̃_(p(Q))), with 𝒮_R of [[lem:v-1-4]]. Both are vacuum, and the approximate data of Step 2 are u_(Q,R) = b_Q + χ(a_R −
+b_Q). The constraint map is smooth near flat data and vanishes at b_Q, so ‖(J, ρ)(u_(Q,R))‖_(C^(k_g+1)) ≤ C ‖a_R −
+b_Q‖_(C^(k_g+3) × C^(k_g+4)) ≤ C θ_R(Q), with
 
     θ_R(Q) := Ξ R^(−a) + |Δp₂| R⁻² + |Δp| R⁻³ ≤ C (1 + C_0) Ξ R^(−a).                             {#eq:after-shell-theta}
 
@@ -637,8 +637,8 @@ every order. For the norm let u := γ̂_R − γ_λ and use |Au| ≤ C Σ_(|β|�
 
 The same holds for k̂_R − k_λ, with the weight ℓ0 + 1, the order a + 1 and the exponents 3 and 4. ∎
 
-**Remark {#rem:after-shell-bump}** (The cost of a bump.) The annulus term of [[cor:after-shell-glued-norm]] at a = 3 is the
-cost of a bump of relative size R⁻¹ at radius R, read against the deviation of Tangherlini's data there (μ r⁻² in the
+**Remark {#rem:after-shell-bump}** (The cost of a bump.) The annulus term of [[cor:after-shell-glued-norm]] at a = 3 is
+the cost of a bump of relative size R⁻¹ at radius R, read against the deviation of Tangherlini's data there (μ r⁻² in the
 metric, r⁻³ in the second fundamental form): f_R := R⁻³ ϕ(r/R) and k_R := R⁻⁴ ϕ(r/R), ϕ ∈ C_c^∞((0, ∞)). With r = Rs,
 
     ‖r^(ℓ0) f_R‖²_(L²(dr/r dω)) = 2π² R^(2ℓ0−6) ∫_0^∞ s^(2ℓ0) ϕ(s)² ds/s,
@@ -669,8 +669,9 @@ So the statement "[[thm:settling]] (ii) applies up to the gluing" is false for f
 a ∈ (3/2, ℓ0]; its form uniform in R is equivalent to (ii) applied directly; and the perturbations to which
 [[thm:settling]] (ii) applies, directly or through gluing uniformly in R, are exactly those small in Hintz's class.
 
-*Proof.* (i) is [[prop:after-shell-above]] with [[cor:after-shell-every-rate]], and (ii) is [[cor:after-shell-membership]]
-with [[prop:after-shell-outside]], [[prop:after-shell-gluing]] and [[cor:after-shell-glued-norm]]. ∎
+*Proof.* (i) is [[prop:after-shell-above]] with [[cor:after-shell-every-rate]], and (ii) is
+[[cor:after-shell-membership]] with [[prop:after-shell-outside]], [[prop:after-shell-gluing]] and
+[[cor:after-shell-glued-norm]]. ∎
 
 That the rate does not decide below the threshold is seen from both sides. Perturbations of order a ≤ ℓ0 can lie in
 the class: the translation pull-back of [[rem:after-shell-box]] has order 3 and lies in it, and the glued data of
