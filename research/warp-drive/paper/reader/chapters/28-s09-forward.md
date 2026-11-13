@@ -1314,3 +1314,237 @@ coefficients vanishing on the open set {t^♭ > 2/(3ε)}, which contains supp v,
     P_ε((1 − χ′)u_ini) = (1 − χ′)f − [P_0, χ′] u_ini,
 
 and u_ε := (1 − χ′)u_ini + v ∈ X(𝗌;k) satisfies P_ε u_ε = f. ∎
+
+### Small b-regularity orders {#sec:ii-f1-3}
+
+This section is Step 1 of the proof of [Hin26c, Theorem 11.1] in dimension 4 + 1.
+
+#### The constants {#sec:ii-f1-3-1}
+
+b-regularity controls e3b-regularity: as Diff^(d_0)_e3b ⊂ C^∞(M̃) Diff^(d_0)_b ([[lem:ii-a-2-9]]) and by
+[[lem:ii-a-8-2]] (a), ‖a‖_(C^((d_0;j))_(e3b;b)) ≤ C ‖a‖_(C^((0;j+d_0))_(e3b;b)), with weights; the data p_0, p̃_1 carry
+j + d_0 b-derivatives in both classes. Hence, for P of class ((0;j+d_0),·),
+
+    e_j = ‖P − P_0‖_((d_0;j),(2ℓ_I,ℓ_+,ℓ_K)) ≤ C ‖P − P_0‖_((0;j+d_0),(2ℓ_I,ℓ_+,ℓ_K)).                    {#eq:ii-f1-3-1}
+
+Let d^E_0, d^E be the d_0 and d of [[thm:ii-e-6-1]] for (𝗌_0, 𝗌) at the weights α_+ − δ, −ℵ; d^S_0, d^S the largest of
+those of [[prop:ii-e-3-4]], [[prop:ii-e-4-3]] and [[prop:ii-e-4-4]] for the slab orders 𝗌 and 𝗌 + 1; d^T_0, d̃ those
+of [[lem:ii-f1-2-8]] for 𝗍 = 𝗌; and d^U_0 the d_0 of [[prop:ii-e-3-4]] (i) at s′ = s_u := inf 𝗌 − 2. Put
+
+    D_0 := max(d^E_0, d^S_0, d^T_0, d^U_0),      D_1 := max(d^E, d^S, d̃),      e_j := ‖P − P_0‖_((D_0;j),(2ℓ_I,ℓ_+,ℓ_K)),  {#eq:ii-f1-3-2}
+
+    d := D_0 + D_1 + d′ + d″,      d′ := max(0, ⌈−inf 𝗌⌉),      d″ := s_in (= max(0, ⌈sup 𝗌⌉)).           {#eq:ii-f1-3-3}
+
+Choose ε_0 > 0 so small that ‖P − P_0‖_((0;d)) < ε_0 makes e_j, j ≤ D_1, and hence (by [[eq:ii-f1-2-9]]) the
+corresponding norms of every P_ε, smaller than the thresholds of [[lem:ii-f1-2-1]], of [[lem:ii-c-3-2]] (through
+[[lem:ii-c-3-7]]), of [[thm:ii-e-6-1]] at k ≤ D_1 and at d^E, of [[prop:ii-e-3-4]] and [[prop:ii-e-4-3]] at k ≤ D_1 and
+[[prop:ii-e-4-4]] at d^S, and of [[prop:ii-e-3-4]] (i) at s′ = s_u ([[lem:ii-f1-2-2]]). Then e_(D_1) ≤ Cε_0 ≤ 1 for
+every such P. All constants below depend on P only through ε_0, unless e_k appears explicitly.
+
+#### The uniform a priori estimate {#sec:ii-f1-3-2}
+
+**Proposition {#prop:ii-f1-3-1}** (The uniform estimate.) For every k ≤ D_1 there are η_k ∈ (0, 1] and C_k such that
+for every ε ∈ (0, η_k/8] and every u ∈ X(𝗌;k) with P_ε u ∈ Y(𝗌;k),
+
+    ‖u‖_(X(𝗌;k)) ≤ C_k ‖P_ε u‖_(Y(𝗌;k)).                                                                  {#eq:ii-f1-3-4}
+
+This is [Hin26c, (11.15)] in dimension 4 + 1.
+
+*Proof.* *(i) The global estimate.* By [[eq:ii-e-6-1]] of [[thm:ii-e-6-1]], for P_ε at the weights α_+ − δ, −ℵ with the
+orders 𝗌_0 < 𝗌 ([[lem:ii-f1-2-3]] (a); [[lem:ii-f1-2-1]] and [[lem:ii-f1-2-6]] (b) for the hypotheses on P_ε; [Hin26c,
+(11.10)]),
+
+    ‖u‖_(X(𝗌;k)) ≤ C_k (‖P_ε u‖_(Y′(𝗌;k)) + ‖u‖_(X(𝗌_0;k))) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + ‖u‖_(X(𝗌_0;k))).    {#eq:ii-f1-3-5}
+
+*(ii) Inversion of P_0.* By [[lem:ii-f1-2-8]], second bound of [[eq:ii-f1-2-13]] with 𝗍 = 𝗌, (P_ε − P_0)u ∈ Y(𝗌_0;k),
+as u ∈ X(𝗌;k) ⊂ Z(𝗌;k) and 𝗌 − 2 = 𝗌_0. So P_0 u = P_ε u − (P_ε − P_0)u ∈ Y(𝗌_0;k). Let v be the forward solution of
+P_0 v = P_0 u given by [[thm:ii-f-8-1]] at the order 𝗌_0 ([[lem:ii-f1-2-3]] (b)); u − v ∈ X(𝗌_0;k) and P_0(u − v) = 0,
+so u = v by [[lem:ii-f1-2-2]], and ([Hin26c, (11.11)])
+
+    ‖u‖_(X(𝗌_0;k)) ≤ C_k ‖P_0 u‖_(Y(𝗌_0;k)) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + ‖(P_ε − P_0)u‖_(Y(𝗌_0;k))).         {#eq:ii-f1-3-6}
+
+*(iii) The error near ι⁺ ∪ K⁺.* With χ_η of [[lem:ii-f1-2-7]] (c), by [[eq:ii-f1-2-13]] and [[eq:ii-f1-2-11]] ([Hin26c,
+(11.13)–(11.14)]),
+
+    ‖(P_ε − P_0) χ_η u‖_(Y(𝗌_0;k)) ≤ C_k e_k ‖χ_η u‖_(Z(𝗌;k)) ≤ C^((1))_k ε_0 η^(δ′) ‖u‖_(X(𝗌;k)),        {#eq:ii-f1-3-7}
+
+with C^((1))_k independent of η and ε.
+
+*(iv) The error at bounded times.* Let T_η := 2/η. 1 − χ_η vanishes on {t^♭ ≥ 2/(3η)} ⊃ {t^♭ ≥ T_η − 1}. For ε ≤ η/8,
+1/(2ε) ≥ 4/η > T_η, so P_ε = P on Ω_(1,T_η) ([[lem:ii-f1-2-6]] (a)), and u|_(Ω_(1,T_η)), which lies in the slab space by
+[[lem:ii-f1-2-7]] (b), is the forward solution of Pu = P_ε u there ([[lem:ii-f1-2-2]]). By [[eq:ii-f1-2-13]],
+[[lem:ii-f1-2-7]] (a), [[prop:ii-e-4-3]] for P at the slab order 𝗌 ([Hin26c, Proposition 8.6]) and [[lem:ii-f1-2-7]]
+(b),
+
+    ‖(P_ε − P_0)(1 − χ_η)u‖_(Y(𝗌_0;k)) ≤ C_k ‖(1 − χ_η)u‖_(Z(𝗌;k)) ≤ C_(k,η) ‖u‖_(H^((𝗌;k),2α_I)(Ω_(1,T_η)))
+        ≤ C_(k,η) ‖P_ε u‖_(Y(𝗌;k)).                                                                       {#eq:ii-f1-3-8}
+
+*(v) Absorption.* Inserting [[eq:ii-f1-3-6]]–[[eq:ii-f1-3-8]] in [[eq:ii-f1-3-5]],
+
+    ‖u‖_(X(𝗌;k)) ≤ C^((2))_k ε_0 η^(δ′) ‖u‖_(X(𝗌;k)) + C_(k,η) ‖P_ε u‖_(Y(𝗌;k)),
+
+C^((2))_k independent of η. Fix η_k ∈ (0, 1] with C^((2))_k ε_0 η_k^(δ′) ≤ 1/2. As ‖u‖_(X(𝗌;k)) < ∞, it is absorbed. ∎
+
+#### The forward solution at small orders {#sec:ii-f1-3-3}
+
+**Proposition {#prop:ii-f1-3-2}** (Existence at small orders.) Let k ≤ D_1 and f ∈ Y(𝗌;k). The forward solution u of
+Pu = f exists, lies in X(𝗌;k), and ‖u‖_(X(𝗌;k)) ≤ C_k ‖f‖_(Y(𝗌;k)). This is [Hin26c, (11.16)–(11.17)] in dimension
+4 + 1.
+
+*Proof.* For ε ∈ (0, η_k/8] let u_ε ∈ X(𝗌;k) be the forward solution of P_ε u_ε = f ([[lem:ii-f1-2-9]]). By
+[[eq:ii-f1-3-4]], ‖u_ε‖_(X(𝗌;k)) ≤ C_k ‖f‖_(Y(𝗌;k)). X(𝗌;k) is a Hilbert space ([[sec:ii-f1-2]]), so a sequence
+u_(ε_j), ε_j ↓ 0, converges weakly to some u ∈ X(𝗌;k), and ‖u‖ ≤ C_k ‖f‖ (weak lower semicontinuity of the Hilbert
+norm, equivalent to the norm used). For φ ∈ C_c^∞(M° ∩ {r > r_0}), w ↦ ⟨w, φ⟩ is continuous on X(𝗌;k) (pair any
+extension with φ; the result does not depend on the extension, [[lem:ii-a-7-3]]). supp φ is compact in M°, so t^♭ is
+bounded on it, and P_(ε_j)* φ = P* φ for j large ([[lem:ii-f1-2-6]] (a)), P* the formal adjoint, whose coefficients
+involve at most two derivatives of those of P (d ≥ 2). Hence
+
+    ⟨u, P*φ⟩ = lim_j ⟨u_(ε_j), P_(ε_j)* φ⟩ = lim_j ⟨P_(ε_j) u_(ε_j), φ⟩ = ⟨f, φ⟩,
+
+so Pu = f on {r > r_0}, both sides supported in {t^♭ ≥ 1}. By [[lem:ii-f1-2-2]], u is the forward solution. ∎
+
+### Large b-regularity orders and the tame estimate {#sec:ii-f1-4}
+
+This section is Step 2 of the proof of [Hin26c, Theorem 11.1] in dimension 4 + 1.
+
+**Proposition {#prop:ii-f1-4-1}** (The tame a priori estimate.) For every k ∈ ℕ₀ there are η_k ∈ (0, 1] and C_k such
+that for every ε ∈ (0, min(η_k, η_(D_1))/8], every P as in [[thm:ii-f1-1-1]] and every u ∈ X(𝗌;k) with P_ε u ∈ Y(𝗌;k),
+
+    ‖u‖_(X(𝗌;k)) ≤ C_k (‖P_ε u‖_(Y(𝗌;k)) + e_k ‖P_ε u‖_(Y(𝗌;D_1))),                                       {#eq:ii-f1-4-1}
+
+with e_k of [[eq:ii-f1-3-2]]. This is [Hin26c, (11.19)] in dimension 4 + 1.
+
+*Proof.* For k ≤ D_1 this is [[eq:ii-f1-3-4]]. Let k > D_1, and write A_j := ‖u‖_(X(𝗌;j)), B_j := ‖P_ε u‖_(Y(𝗌;j));
+A_k, B_k are finite. By [[prop:ii-f1-3-1]] at D_1 (as ε ≤ η_(D_1)/8), A_j ≤ A_(D_1) ≤ C B_(D_1) for j ≤ D_1.
+
+*(i) The tame global estimate.* By [[eq:ii-e-6-2]] of [[thm:ii-e-6-1]], for P_ε (its d = d^E ≤ D_1, and ‖P_ε −
+P_0‖_((d^E_0;d^E)) small), with [[eq:ii-f1-2-9]] and ‖·‖_(Y′) ≤ C‖·‖_Y,
+
+    A_k ≤ C_k (B_k + ‖u‖_(X(𝗌_0;k)) + e_k (B_(D_1) + A_(D_1))) ≤ C_k (B_k + ‖u‖_(X(𝗌_0;k)) + e_k B_(D_1)).  {#eq:ii-f1-4-2}
+
+*(ii) Inversion of P_0.* As in [[prop:ii-f1-3-1]] (ii), ‖u‖_(X(𝗌_0;k)) ≤ C_k (B_k + ‖(P_ε − P_0)u‖_(Y(𝗌_0;k))).
+
+*(iii) The error, tamely.* With χ_η of [[lem:ii-f1-2-7]] (c), the first bound of [[eq:ii-f1-2-13]] (with e_(d̃) ≤
+e_(D_1) ≤ Cε_0) and [[eq:ii-f1-2-11]],
+
+    ‖(P_ε − P_0) χ_η u‖_(Y(𝗌_0;k)) ≤ C_k (ε_0 η^(δ′) A_k + e_k ‖χ_η u‖_(Z(𝗌;d̃))) ≤ C^((1))_k ε_0 η^(δ′) A_k + C_k e_k B_(D_1),
+
+using ‖χ_η u‖_(Z(𝗌;d̃)) ≤ C A_(d̃) ≤ C B_(D_1). With T_η := 2/η as in [[prop:ii-f1-3-1]] (iv), and [[prop:ii-e-4-4]]
+for P on Ω_(1,T_η) ([Hin26c, Proposition 8.9]) in place of [[prop:ii-e-4-3]],
+
+    ‖(1 − χ_η)u‖_(Z(𝗌;j)) ≤ C_(j,η) ‖u‖_(H^((𝗌;j),2α_I)(Ω_(1,T_η))) ≤ C_(j,η) (B_j + e_j B_(D_1))
+
+for every j ([[lem:ii-f1-2-7]], and ‖P_ε u‖_(H^((𝗌−1;d^S),2α_I+2)(Ω_(1,T_η))) ≤ C B_(D_1)); so, by
+[[eq:ii-f1-2-13]],
+
+    ‖(P_ε − P_0)(1 − χ_η)u‖_(Y(𝗌_0;k)) ≤ C_k (ε_0 ‖(1 − χ_η)u‖_(Z(𝗌;k)) + e_k ‖(1 − χ_η)u‖_(Z(𝗌;d̃)))
+        ≤ C_(k,η) (B_k + e_k B_(D_1)).
+
+*(iv) Absorption.* Collecting,
+
+    A_k ≤ C^((2))_k ε_0 η^(δ′) A_k + C_(k,η) (B_k + e_k B_(D_1)),
+
+with C^((2))_k independent of η; fix η_k with C^((2))_k ε_0 η_k^(δ′) ≤ 1/2 and absorb. ∎
+
+**Proposition {#prop:ii-f1-4-2}** (Existence with the tame bound.) For every k ∈ ℕ₀, every P as in [[thm:ii-f1-1-1]]
+and every f ∈ Y(𝗌;k), the forward solution u of Pu = f lies in X(𝗌;k), and
+
+    ‖u‖_(X(𝗌;k)) ≤ C_k (‖f‖_(Y(𝗌;k)) + e_k ‖f‖_(Y(𝗌;D_1))).                                               {#eq:ii-f1-4-3}
+
+*Proof.* As for [[prop:ii-f1-3-2]], with [[lem:ii-f1-2-9]] at the level k (which needs only the smallness of ‖P_ε −
+P_0‖_((d^S_0;d^S))) and [[eq:ii-f1-4-1]] for ε ≤ min(η_k, η_(D_1))/8; the right side of [[eq:ii-f1-4-1]] with P_ε u_ε =
+f does not depend on ε. ∎
+
+### Pure b-estimates, and the proofs of the theorem and its corollary {#sec:ii-f1-5}
+
+This section is Step 3 of the proof of [Hin26c, Theorem 11.1] in dimension 4 + 1.
+
+*The embeddings.* By [[lem:ii-a-8-7]], with weights, H^((𝗌;j+d′))_(e3b;b) ⊂ H^j_b, d′ = max(0, ⌈−inf 𝗌⌉). By
+[[lem:ii-a-8-4]] (d), applied d″ times, and 𝗌 ≤ s_in = d″, H^(j+d″)_b = H^((0;j+d″))_(e3b;b) ⊂ H^((d″;j))_(e3b;b) ⊂
+H^((𝗌;j))_(e3b;b), with weights. Both inclusions preserve supports, so they hold for the spaces (Ω_*)^(•,−) with the
+same constants (an extension in the smaller space is one in the larger). With [[eq:ii-f1-1-2]],
+
+    ‖u‖_(H^(k,(α_I,α_+−δ,−ℵ))_b(Ω_*)) ≤ C ‖u‖_(X(𝗌;k+d′)),      ‖f‖_(Y(𝗌;j)) ≤ C ‖f‖_(H^(j+d″,(α_I+1,α_++2,0))_b(Ω_*)).  {#eq:ii-f1-5-1}
+
+*Proof of [[thm:ii-f1-1-1]].* Let ε_0, d be as in [[eq:ii-f1-3-3]] and [[sec:ii-f1-3-1]], k ∈ ℕ₀, and P and f as in
+the theorem. By [[eq:ii-f1-5-1]], f ∈ Y(𝗌;k+d′), as k + d′ + d″ ≤ k + d. By [[prop:ii-f1-4-2]] at the level k + d′ (for
+which P is of class ((D_0;k+d′),·), as k + d′ + D_0 ≤ k + d), the forward solution u lies in X(𝗌;k+d′) and
+
+    ‖u‖_(H^(k,(α_I,α_+−δ,−ℵ))_b) ≤ C ‖u‖_(X(𝗌;k+d′)) ≤ C_k (‖f‖_(Y(𝗌;k+d′)) + e_(k+d′) ‖f‖_(Y(𝗌;D_1)))
+        ≤ C_k (‖f‖_(H^(k+d)_b) + ‖P − P_0‖_((0;k+d)) ‖f‖_(H^d_b)),
+
+the b-norms with the weights of [[eq:ii-f1-1-5]], by [[eq:ii-f1-5-1]] (D_1 + d″ ≤ d) and [[eq:ii-f1-3-1]] (k + d′ +
+D_0 ≤ k + d). Uniqueness in the stated class is [[lem:ii-f1-2-2]] at s′ = s_u, whose smallness is among those fixing ε_0
+([[sec:ii-f1-3-1]]): an element of the class lies in the space with s′ = s_u, and P, of class ((d^U_0;0),·) by
+[[eq:ii-f1-3-1]] as k + d ≥ D_0 ≥ d^U_0, acts on it as [[prop:ii-e-3-4]] (i) at s′ = s_u requires. Below s_u the
+smallness of [[prop:ii-e-3-4]] (i), whose d_0 depends on s′, is not implied by that of ‖P − P_0‖_((0;d)), and Pu need
+not be defined; this is why the uniqueness class is restricted to s′ ≥ s_u. The continuity is proved in
+[[sec:ii-f1-6]]. ∎
+
+*Proof of [[cor:ii-f1-1-2]].* By [[eq:ii-f1-1-1]],
+
+    x_I⁻⁸ ρ_+⁻⁵ ρ_K⁻¹ = ((t_* + r)/t_*)⁴ (t_* r/(t_* + r))⁵ ((t_* + r)/r) = t_* r⁴,
+
+and |dt dx| = |dt_* dx| = t_* ⟨x⟩⁴ μ_b; so |dt dx| = c x_I⁻⁸ ρ_+⁻⁵ ρ_K⁻¹ μ_b near Ω with c = ⟨x⟩⁴/r⁴ smooth and positive
+(the identity of the proof of [[lem:ii-a-8-8]]). Hence L²(|dt dx|) = ρ_I² ρ_+^(5/2) ρ_K^(1/2) L²(μ_b) and
+H^(k,(a_I,a_+,a_K))_b(|dt dx|) = H^(k,(a_I+2,a_++5/2,a_K+1/2))_b(μ_b) with equivalent norms (b-derivatives of the
+weights being the weights times smooth functions). This turns [[eq:ii-f1-1-5]] into [[eq:ii-f1-1-7]]; α_I < −1/2 + S̄ is
+b_I < 3/2 + S̄, and α_+ < α_I − 1/2 is b_+ < b_I. Writing out the norms with the frame t_*∂_(t_*), r∂_x of 𝒱_b on Ω, and
+⟨x⟩ ∼ r on Ω, gives the integrals. [[eq:ii-f1-1-8]] is [[eq:ii-a-8-2]] of [[lem:ii-a-8-8]] with d = k − 3, applied to an
+extension of u and restricted to {r > r_0}: its left side is the C^(k−3)_b-norm with the weight x_I^(2(α_I+2))
+ρ_+^(α_+−δ+5/2) ρ_K^(−ℵ+1/2) = ρ_I^(b_I) ρ_+^(b_+−δ) ρ_K^(−ℵ+1/2). ∎
+
+### Continuous dependence {#sec:ii-f1-6}
+
+This section is Step 4 of the proof of [Hin26c, Theorem 11.1] in dimension 4 + 1.
+
+**Lemma {#lem:ii-f1-6-1}** (Compactness.) Let k ≥ 1, w = (α_I, α_+, α_K), ς > 0 and w′ := (α_I − ς, α_+ − ς, α_K − ς).
+The inclusion H^(k,w)_b(Ω_*; E)^(•,−) ↪ H^(k−1,w′)_b(Ω_*; E)^(•,−) is compact.
+
+*Proof.* Extend w to the other boundary hypersurfaces of M̃ by the exponent 0, and let w″ be w lowered by ς at every
+boundary hypersurface; near 𝓘⁺ ∪ ι⁺ ∪ K⁺ it is w′. The b-Sobolev spaces are those of the bounded geometry structure of
+b-vector fields on M̃°, with the weights ρ^w as weight functions, and ρ^w/ρ^(w″) = ρ_tot^ς → 0 at infinity (ρ_tot a total
+boundary defining function); so H^(k,w)_b(M̃) ↪ H^(k−1,w″)_b(M̃) is compact by (S3) of [[sec:ii-a-3]]. Given a bounded
+sequence u_j in H^(k,w)_b(Ω_*)^(•,−), take extensions ũ_j supported in {t^♭ ≥ 1} with ‖ũ_j‖ ≤ 2‖u_j‖. A subsequence
+converges in H^(k−1,w″)_b(M̃). The closure of {t^♭ ≥ 1} meets ∂M̃ only in 𝓘⁺ ∪ ι⁺ ∪ K⁺ ([[sec:ii-e-1-1]]); multiplying by
+a cut-off in C^∞_b equal to 1 near {t^♭ ≥ 1, r ≥ r_0} and supported where w″ = w′, the restrictions converge in
+H^(k−1,w′)_b(Ω_*)^(•,−). ∎
+
+*Proof of the continuity in [[thm:ii-f1-1-1]].* Let P^((j)) → P and f^((j)) → f in the stated norms, with ‖P^((j)) −
+P_0‖_((0;d)) < ε_0, and let u^((j)), u be the forward solutions. By [[eq:ii-f1-1-5]], uniformly in j as its constant
+does not depend on the operator and ‖P^((j)) − P_0‖_((0;k+d)) is bounded, the u^((j)) are bounded in the Hilbert space
+H^(k,(α_I,α_+−δ,−ℵ))_b(Ω_*)^(•,−). Let ũ be the weak limit of a subsequence. For φ ∈ C_c^∞(M° ∩ {r > r_0}),
+P^((j))* φ → P* φ in L², as the coefficients converge in C² on supp φ (k + d ≥ 2), and the u^((j)) are bounded in L²
+there; so ⟨ũ, P*φ⟩ = lim ⟨u^((j)), P^((j))* φ⟩ = lim ⟨f^((j)), φ⟩ = ⟨f, φ⟩, and Pũ = f. As ũ ∈ H^k_b ⊂
+H^(0,(2α_I,·,·))_e3b, [[lem:ii-f1-2-2]] gives ũ = u. Every subsequence having a further subsequence converging weakly to
+u, u^((j)) ⇀ u; by [[lem:ii-f1-6-1]], a weakly convergent sequence converges in norm in
+H^(k−1,(α_I−ς,α_+−δ−ς,−ℵ−ς))_b (each subsequence has a norm-convergent subsequence, whose limit is the weak limit u). ∎
+
+### Three remarks {#sec:ii-f1-7}
+
+**Remark {#rem:ii-f1-7-1}** (Relaxed ℵ-admissibility.) Let P_0 be ℵ-admissible with margin d_ℵ ≥ 0 (the relaxed version
+after [[def:ii-c-2-7]]). Then [[thm:ii-f1-1-1]] holds with d increased by ⌈d_ℵ⌉. Indeed, take 𝗌 as in [[lem:ii-f1-2-3]]
+with the margin m_0 + 2d_ℵ and 𝗌_0 := 𝗌 − 2 − d_ℵ. The margins of [[sec:ii-f1-2-3]] (with m_0 + 2d_ℵ for m_0) show: 𝗌_0
+< 𝗌 meet the hypotheses of [[thm:ii-e-6-1]]; 𝗌 − 2 = 𝗌_0 + d_ℵ is admissible with weights α_+, −ℵ and margin d_ℵ and
+with weights α_+, 0 and margin 1 + d_ℵ, so [[rem:ii-f-8-2]] gives ‖u‖_(X(𝗌_0;k)) ≤ C ‖P_0 u‖_(Y(𝗌−2;k)), which replaces
+[[eq:ii-f1-3-6]], the error (P_ε − P_0)u lying in Y(𝗌 − 2;k) by [[eq:ii-f1-2-13]]; and 𝗌 + d_ℵ is admissible with the
+same two pairs of weights and margins d_ℵ, 1 + d_ℵ (its upper margin at R_out with weights α_+, 0 being m_0 + 2d_ℵ − d_ℵ
+− δ + ℵ ≥ 1 + d_ℵ), so [[lem:ii-f1-2-9]] holds for f ∈ Y(𝗌 + d_ℵ;k), with u_ini of order 𝗌 + d_ℵ + 1 and v ∈ X(𝗌;k) by
+[[rem:ii-f-8-2]]. The absorption in [[prop:ii-f1-3-1]] is unchanged, as 𝗌_0 + d_ℵ + 2 = 𝗌. In [[sec:ii-f1-5]], f ∈ Y(𝗌 +
+d_ℵ;k+d′) needs k + d′ + d″ + ⌈d_ℵ⌉ ≤ k + d. This is [Hin26c, Remark 11.2] in dimension 4 + 1. [Hin26c] raises the
+margin by d_ℵ only; the second d_ℵ is needed in the existence step ([[lem:ii-f1-2-9]], [Hin26c, (11.16)]), where
+[[thm:ii-f-8-1]] loses d_ℵ.
+
+**Remark {#rem:ii-f1-7-2}** (No loss of b-regularity.) The absorption in [[prop:ii-f1-3-1]] and [[prop:ii-f1-4-1]] uses
+that [[thm:ii-e-6-1]] is lossless in the b-regularity: both u and P_ε u carry k b-derivatives. If it needed k + 1 on
+P_ε u, the error (P_ε − P_0)χ_η u would be needed in Y(𝗌_0;k+1), which [[eq:ii-f1-2-13]] bounds by u in Z(𝗌;k+1), and
+[[eq:ii-f1-3-7]] could not be absorbed. Once [[eq:ii-f1-1-5]] holds, b-regularity alone describes the solution, which is
+how the later chapters use it. This is [Hin26c, Remark 11.3].
+
+**Remark {#rem:ii-f1-7-3}** (The indicial gap.) [[eq:ii-f1-1-3]] gives α_+ < α_I − 1/2 < −1 + S̄, and tf-admissibility
+puts α_+ + 2 in the indicial gap (β_−, β_+) of P̂_0(0) ([[def:ii-c-2-7]] (2); in dimension 3 + 1 [Hin26c] has α_+ +
+3/2). So [[thm:ii-f1-1-1]] requires β_− < α_+ + 2 < 1 + S̄, in particular β_− < 1 + S̄ (the β_− < 1/2 + S̄ of [Hin26c,
+Remark 11.4] in dimension 3 + 1). For the scalar wave operator, S = 0 and the gap is (0, 2) ([[sec:ii-c-2-4]]), so α_+ ∈
+(−2, −1) and α_I ∈ (α_+ + 1/2, −1/2): α_I = −1/2 − ε_I, α_+ = −1 − ε_+ with 0 < ε_I < ε_+ < 1. In dimension 3 + 1
+[Hin26c, (12.7)] prints 0 < ε_+ < ε_I < 1/2, which contradicts α_+ < α_I − 1/2; with α_I = −1/2 − ε_I and α_+ = −1 −
+ε_+ the condition is ε_+ > ε_I. This is [Hin26c, Remark 11.4] in dimension 4 + 1.

@@ -503,3 +503,234 @@ b_1 = b_2 = b_3 = 0 for a vacuum metric. By (eq:bondi-first-metric) this means �
 C_4 = C_5 = 0 by (iv): the (ℓ, ℓ) component of g_λ − g0 is O(r^(−3)). This is a consequence, not an input:
 [[prop:hierarchy-scri]] lets b start at s¹.
 
+### The hierarchy at past null infinity {#sec:bondi-hierarchy}
+
+In this section (v, r, ϑ) are Bondi coordinates and the metric has the form (eq:bondi-metric), with b, W, U, P1, P2
+functions of (v, r, ϑ), S = e^(−2(P1+P2)) and s = r^(−1/2). The metric of the spheres is q_AB = r² h_AB with
+h := S dϑ² + cos²ϑ e^(2P1) dφ1² + sin²ϑ e^(2P2) dφ2², whose determinant is cos²ϑ sin²ϑ, that of γ; capital indices run
+over (ϑ, φ1, φ2), D is the Levi-Civita connection of γ, div f = ∂_ϑ f + (cot ϑ − tan ϑ) f is the divergence on S³ of the
+field f ∂_ϑ, and Δ_h is the Laplacian of h. The inverse metric is that of [[prop:bondi-chart]], with g^{vv} = g^{vϑ} = 0,
+and √|det g| = e^(2b) r³ cos ϑ sin ϑ. We write the Ricci tensor as
+
+    R_ab = ∂_c Γ^c_ab − ∂_a ∂_b log √|det g| + Γ^c_ab ∂_c log √|det g| − Γ^c_ad Γ^d_bc.
+
+**The Christoffel symbols with a lower index r.** Since g^{va} = e^(−2b) δ^a_r, Γ^v_rb = ½ e^(−2b) ∂_b g_rr = 0 for every
+b. Since g_rr = g_(rϑ) = 0, Γ^ϑ_rr = Γ^(φi)_rr = 0 and Γ^r_rr = 2 ∂_r b. By the reflections φi ↦ −φi,
+Γ^r_(rφi) = Γ^ϑ_(rφi) = Γ^(φi)_(rϑ) = 0. The others that enter below are
+
+    Γ^r_(rϑ) = ∂_ϑ b − ½ r² e^(−2b) S ∂_r U,     Γ^ϑ_(rϑ) = 1/r − ∂_r (P1 + P2),     Γ^(φi)_(r φi) = 1/r + ∂_r P_i,
+    Γ^ϑ_(rv) = −(1/(2r²S)) ∂_r (r² S U) − e^(2b) ∂_ϑ b/(r² S),
+    Γ^v_(ϑϑ) = −½ e^(−2b) ∂_r (r² S),    Γ^ϑ_(ϑϑ) = ½ ∂_ϑ log S + U Γ^v_(ϑϑ),
+    Γ^(φ1)_(ϑ φ1) = ∂_ϑ P1 − tan ϑ,    Γ^(φ2)_(ϑ φ2) = ∂_ϑ P2 + cot ϑ,                                {#eq:bondi-gamma-r}
+
+each obtained from Γ^a_bc = ½ g^{ad} (∂_b g_dc + ∂_c g_db − ∂_d g_bc) with the components of [[prop:bondi-chart]].
+
+**The radial components.** With log √|det g| = 2b + 3 log r + log(cos ϑ sin ϑ) and (eq:bondi-gamma-r),
+
+    R_rr = ∂_r(2 ∂_r b) − ∂_r²(2b + 3 log r) + 2 ∂_r b (2 ∂_r b + 3/r)
+           − [ (2 ∂_r b)² + (1/r − ∂_r(P1 + P2))² + Σ_i (1/r + ∂_r P_i)² ],
+
+and the terms in 1/r² and in (∂_r b)² cancel, as do the cross terms (2/r)(∂_r(P1 + P2) − ∂_r P1 − ∂_r P2), so
+
+    R_rr = (6/r) ∂_r b − 2 ((∂_r P1)² + ∂_r P1 ∂_r P2 + (∂_r P2)²),                                  {#eq:bondi-Rrr}
+
+exactly. In the same way, R_(rϑ) is ∂_r Γ^r_(rϑ) + ∂_ϑ Γ^ϑ_(rϑ) − 2 ∂_r ∂_ϑ b + Γ^r_(rϑ) ∂_r log √|det g| +
+Γ^ϑ_(rϑ) ∂_ϑ log √|det g| minus Γ^r_(ϑr) Γ^r_rr + Γ^ϑ_(ϑr) Γ^r_(rϑ) + Γ^v_(ϑϑ) Γ^ϑ_(rv) + Γ^ϑ_(ϑϑ) Γ^ϑ_(rϑ) +
+Σ_i Γ^(φi)_(ϑφi) Γ^(φi)_(rφi); the other products vanish by the symbols listed. Collecting: the undifferentiated U cancels
+between Γ^v_(ϑϑ) Γ^ϑ_(rv) and U Γ^v_(ϑϑ) Γ^ϑ_(rϑ), because Γ^ϑ_(rϑ) = ∂_r(r²S)/(2r²S); the terms in ∂_r U combine to
+−½ ∂_r(r² e^(−2b) S ∂_r U) − (3/(2r)) r² e^(−2b) S ∂_r U; the terms in ∂_ϑ b combine to −∂_r ∂_ϑ b + (3/r) ∂_ϑ b; and the
+terms in P alone give the last line below. So, exactly,
+
+    R_(rϑ) = −(1/(2r³)) ∂_r (r⁵ e^(−2b) S ∂_r U) − r³ ∂_r (r^(−3) ∂_ϑ b) − ∂_r ∂_ϑ (P1 + P2)
+             + tan ϑ (2 ∂_r P1 + ∂_r P2) − cot ϑ (∂_r P1 + 2 ∂_r P2)
+             − (2 ∂_r P1 ∂_ϑ P1 + ∂_r P1 ∂_ϑ P2 + ∂_ϑ P1 ∂_r P2 + 2 ∂_r P2 ∂_ϑ P2).                     {#eq:bondi-Rrth}
+
+**The case b = U = 0.** For the metric −W dv² + 2 dv dr + q_AB dx^A dx^B the nonzero Christoffel symbols are
+
+    Γ^v_vv = ½ ∂_r W,   Γ^v_AB = −½ ∂_r q_AB,   Γ^r_vv = ½ (W ∂_r W − ∂_v W),   Γ^r_vr = −½ ∂_r W,
+    Γ^r_vA = −½ ∂_A W,   Γ^r_AB = −½ (∂_v q_AB + W ∂_r q_AB),   Γ^A_vv = ½ q^{AB} ∂_B W,
+    Γ^A_vB = ½ q^{AC} ∂_v q_CB,   Γ^A_rB = ½ q^{AC} ∂_r q_CB,   Γ^A_BC = Γ[q]^A_BC,                       {#eq:bondi-gamma-0}
+
+and √|det g| = r³ cos ϑ sin ϑ does not depend on v. Inserting them in the formula for R_ab,
+R_vr = ∂_r Γ^r_vr + (3/r) Γ^r_vr − Γ^A_rB Γ^B_vA, R_vv = (r³ cos ϑ sin ϑ)⁻¹ ∂_c (r³ cos ϑ sin ϑ Γ^c_vv) − (Γ^v_vv)² −
+(Γ^r_vr)² − Γ^A_vB Γ^B_vA, and, for R_AB, the terms with indices A, B, C only give the Ricci tensor R[q] of q on the
+spheres, while the others are those of Γ^v_AB, Γ^r_AB, Γ^A_vB and Γ^A_rB. Since tr(h⁻¹ ∂_v h) = ∂_v log det h = 0, and
+h⁻¹ ∂h = diag(−2 ∂(P1 + P2), 2 ∂P1, 2 ∂P2), this gives
+
+    R_vr = −½ ∂_r² W − (3/(2r)) ∂_r W − (2 ∂_r P1 ∂_v P1 + ∂_r P1 ∂_v P2 + ∂_v P1 ∂_r P2 + 2 ∂_r P2 ∂_v P2),
+    R_vv = ½ W ∂_r² W + (3/(2r)) (W ∂_r W − ∂_v W) + (1/(2r²)) Δ_h W − 2 ((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²),
+    R_AB = R[q]_AB − ∂_v ∂_r q_AB − ½ ∂_r (W ∂_r q_AB) − (3/(2r)) (∂_v q_AB + W ∂_r q_AB)
+           + ½ (∂_r q q⁻¹ ∂_v q + ∂_v q q⁻¹ ∂_r q + W ∂_r q q⁻¹ ∂_r q)_AB.                                {#eq:bondi-R0}
+
+For instance −Γ^A_rB Γ^B_vA = −¼ tr(q⁻¹ ∂_r q q⁻¹ ∂_v q) = −¼ tr(h⁻¹ ∂_r h h⁻¹ ∂_v h), which is the last term of R_vr.
+With W = 1 − μ/r² and P1 = P2 = 0, (eq:bondi-R0) gives R_vr = 0 and R_vv = 3μ'/(2r³), the Ricci tensor of g0
+[[pending:ch2-vaidya-ricci]].
+
+**The terms linear in U.** At the flat metric η_B := −dv² + 2 dv dr + r² γ (b = 0, W = 1, P1 = P2 = 0), let U^A have the
+single component U^ϑ = U and U_A := γ_AB U^B. The Christoffel symbols linear in U are
+
+    δΓ^v_vA = δΓ^r_vA = ½ ∂_r (r² U_A),   δΓ^r_rA = −½ r² ∂_r U_A,   δΓ^r_AB = −½ r² (D_A U_B + D_B U_A),
+    δΓ^A_vv = −∂_v U^A,   δΓ^A_vr = −(1/(2r²)) ∂_r (r² U^A),   δΓ^C_AB = −r U^C γ_AB,                  {#eq:bondi-gamma-U}
+
+and the others vanish; U does not change det g. By Palatini's identity δR_ab = ∇̄_c δΓ^c_ab − ∇̄_b δΓ^c_ac, with ∇̄ the
+connection of η_B and δΓ^c_ac = 0, the parts of R_ab linear in U at η_B are
+
+    δR_vr = −(1/(2r²)) ∂_r (r² D_A U^A),     δR_vv = −D_A ∂_v U^A,
+    δR_AB = −(1/(2r)) ∂_r (r³ (D_A U_B + D_B U_A)) − r γ_AB D_C U^C.                                    {#eq:bondi-RU}
+
+D_A U^A = div U, and δR_AB contains no derivative in v.
+
+**Lemma {#lem:bondi-orders}** (Orders in the Bondi form.) Use the frame e_0 = ∂_v, e_1 = ∂_r, e_2 = r⁻¹ ∂_ϑ,
+e_3 = (r cos ϑ)⁻¹ ∂_(φ1), e_4 = (r sin ϑ)⁻¹ ∂_(φ2), put Û := r U and y := (b, W − 1, Û, P1, P2).
+
+(a) The components of the metric in this frame are smooth functions of y: G_00 = −e^(2b) W + S Û², G_01 = e^(2b),
+G_02 = −S Û, G_22 = S, G_33 = e^(2P1), G_44 = e^(2P2), and the others vanish.
+
+(b) Each frame component R_ij of the Ricci tensor is a finite sum of terms F(y) Π, with F smooth and Π one of
+e_k e_l y_α, (e_k y_α)(e_l y_β), c e_k y_α, c c' or e_k c, where c, c' are structure coefficients of the frame,
+[e_i, e_j] = c^k_ij e_k. Each structure coefficient is r⁻¹ times 1, tan ϑ or cot ϑ, so e_0 c = 0, e_1 c = −r⁻¹ c, and
+e_2 c is r^(−2) times a function of ϑ. Give e_0 the weight 0, and e_1, e_2 and a structure coefficient the weight 2.
+
+(c) In R_00 the terms of (b) whose two slots are both e_0 sum to −2((e_0 P1)² + e_0 P1 e_0 P2 + (e_0 P2)²); in every other
+component they sum to 0.
+
+(d) Consequently, if y_α has an expansion in s starting at s^(m_α), a term of R_ij whose factors from y are
+y_(α1), …, y_(αn) and whose slots have total weight w has an expansion starting at s^(m_(α1) + … + m_(αn) + w). In
+particular a coefficient of R_ij at a given power of s is determined by finitely many coefficients of the y_α, and
+remainders o(s⁶), which stay o(s⁶) under e_0 and ∂_ϑ and gain two orders under e_1, enter only through o(·) terms.
+
+Proof. (a) is (eq:bondi-metric) in the frame. (b) In a frame the connection coefficients are
+Γ_kij = ½ (e_i G_jk + e_j G_ik − e_k G_ij) plus structure coefficients times components of G, each a sum of terms with
+one slot, and R_ij = e_k Γ^k_ij − e_j Γ^k_ik + Γ Γ − Γ Γ − c Γ has exactly two slots in each term, since
+e_k (F(y)) = F'(y) e_k y. The functions depend on (v, r, ϑ) only, so e_3 and e_4 act on them as zero. The structure
+coefficients follow from [e_1, e_2] = −r⁻¹ e_2, [e_1, e_3] = −r⁻¹ e_3, [e_1, e_4] = −r⁻¹ e_4, [e_2, e_3] = r⁻¹ tan ϑ e_3,
+[e_2, e_4] = −r⁻¹ cot ϑ e_4 and [e_0, e_i] = 0.
+
+(c) Freeze (r, ϑ) = (r0, ϑ0) and let y(v) := y(v, r0, ϑ0). The terms with two slots e_0, evaluated at (v, r0, ϑ0), are
+exactly the Ricci components of the metric g' := G_ij(y(v)) dx^i dx^j on R⁵ with coordinates (v, ϱ, z1, z2, z3), whose
+coordinate frame has no structure coefficients and on which only e_0 = ∂_v acts. Now
+g' = e^(2b) dv (2 dϱ − W dv) + S (dz1 − Û dv)² + e^(2P1) dz2² + e^(2P2) dz3², all functions of v. Put dσ := e^(2b) dv,
+ϱ' := ϱ − ½ ∫ W e^(−2b) dσ and z1' := z1 − ∫ Û dv. Then g' = 2 dσ dϱ' + Σ_i e^(2Q_i) dz_i'² with
+(Q_1, Q_2, Q_3) := (−(P1 + P2), P1, P2) as functions of σ. For this metric the nonzero Christoffel symbols are
+Γ^(z_i)_(σ z_i) = dQ_i/dσ and Γ^(ϱ')_(z_i z_i) = −(dQ_i/dσ) e^(2Q_i), and √|det g'| = e^(ΣQ_i) = 1. The formula for
+R_ab gives R_σσ = −Σ_i (d²Q_i/dσ² + (dQ_i/dσ)²) = −Σ_i (dQ_i/dσ)², and all its other components vanish: nothing depends
+on ϱ', Γ^c_(ϱ'd) = 0, and in R_(z_i z_i) the only candidate, ∂_(ϱ') Γ^(ϱ')_(z_i z_i), is zero. As
+dQ_i/dσ = e^(−2b) ∂_v Q_i, the Ricci tensor of g' is −Σ_i (∂_v Q_i)² dv² = −2((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²) dv².
+
+(d) e_0 = ∂_v preserves the order of an expansion with smooth coefficients, e_1 = ∂_r raises it by two
+(∂_r s^k = −(k/2) s^(k+2), and the remainders gain by hypothesis), e_2 = r⁻¹ ∂_ϑ raises it by two (r⁻¹ = s²), and so does
+a structure coefficient; products add orders. ∎
+
+Write R_ij = R_ij|_(b=U=0) + L_ij + H_ij, where L_ij collects the terms of degree one in (b, Û) with the other
+components of y at their flat values (the parts linear in b and U at η_B) and H_ij the terms that contain b or Û together
+with at least one further factor of y. By (c) the terms with two slots e_0 sum to a function of the P_i alone; so those
+of L_ij and of H_ij sum to zero, and every remaining term of L_ij and H_ij has weight at least 2. The coordinate
+components are R_vv = R_00, R_vr = R_01, R_rr = R_11, R_(rϑ) = r R_12 and R_AB = r² × (the frame components).
+
+**Proposition {#prop:hierarchy-scri}** (The hierarchy at past null infinity.) Let a metric of the form (eq:bondi-metric),
+with b, W, U, P1, P2 functions of (v, r, ϑ), be vacuum near past null infinity. Let P1, P2, b, U and W − 1 have
+expansions in s to order s⁶, with coefficients smooth in (v, ϑ) and remainders o(s⁶) that stay o(s⁶) under every
+(v, ϑ)-derivative and gain two s-orders (one power of r) under each r-derivative, as in [[prop:bondi-chart]]; let
+P_i = O(s³), and b, U, W − 1 = O(s). Let p and q be the s³ coefficients of P1 and P2, a1 and a2 their s⁴ coefficients,
+and b_k, u_k, w_k the coefficients of b, U and W. Then, in order:
+
+(0) from R_rr at s⁵, s⁶ and R_(rϑ) at s¹, s²: b_1 = b_2 = 0 and u_1 = u_2 = 0;
+
+(i) from R_rr at s⁷, …, s¹⁰: b_3 = b_4 = b_5 = 0 and b_6 = −¼ (p² + pq + q²);
+
+(ii) from R_(rϑ) at s³, …, s⁶: u_3 = u_4 = 0 and
+
+    u_5 = (12/5)(p + q) tan ϑ − (8p + 16q)/(5 sin 2ϑ) − (4/5) ∂_ϑ (p + q),
+    u_6 = 4 (a1 + a2) tan ϑ − (8 a1 + 16 a2)/(3 sin 2ϑ) − (4/3) ∂_ϑ (a1 + a2);
+
+(iii) from R_vr at s⁵, s⁶, s⁷: w_1 = w_2 = 0 and w_3 = −(2/3) div(u_5), so that ⟨w_3⟩ = 0;
+
+(iv) from the traceless part of R_AB at s²: ∂_v a1 = ∂_v a2 = 0;
+
+(v) R_vv at s⁵ is then an identity (the rate of (iii)), and at s⁶ it is linear in ∂_v w_4 and reads
+
+    ∂_v M = (4/3) (p_v² + p_v q_v + q_v²) + (2/3) div(∂_v u_6),       M := −w_4.                       {#eq:bondi-law-div}
+
+The coefficient at s⁶ involves only p, q, a1, a2 and w_4, so remainders o(s⁶) do not disturb it. With (iv), ∂_v u_6 = 0,
+and (eq:bondi-law-div) is, pointwise,
+
+    ∂_v M = (4/3) (p_v² + p_v q_v + q_v²).                                                           {#eq:bondi-law}
+
+Proof. We use ∂_r s^k = −(k/2) s^(k+2) throughout, and [[lem:bondi-orders]] (d) for the orders of the terms not
+displayed.
+
+*(0) and (i).* In (eq:bondi-Rrr), (6/r) ∂_r (b_k s^k) = −3k b_k s^(k+4), and ∂_r P_i = −(3/2) p_i s⁵ + O(s⁶), with
+(p_1, p_2) = (p, q), so the second term is −(9/2)(p² + pq + q²) s¹⁰ + O(s¹¹). The coefficient of s^(k+4) in R_rr is
+therefore −3k b_k for k ≤ 5 and −18 b_6 − (9/2)(p² + pq + q²) for k = 6; vacuum gives b_1 = … = b_5 = 0 and
+b_6 = −¼ (p² + pq + q²). In (eq:bondi-Rrth), e^(−2b) S = 1 − 2 b_1 s + O(s²) and
+r⁵ e^(−2b) S ∂_r U = −½ u_1 s^(−7) + (b_1 u_1 − u_2) s^(−6) + O(s^(−5)), so its first term is
+(7/8) u_1 s + (3/2)(u_2 − b_1 u_1) s² + O(s³); the second term is (7/2) ∂_ϑ b_1 s³ + O(s⁴), and the terms in P are O(s⁵).
+Vacuum gives u_1 = 0 and then u_2 = 0.
+
+*(ii).* Now b = O(s⁶), so the term of (eq:bondi-Rrth) in ∂_ϑ b is O(s⁸), e^(−2b) − 1 = O(s⁶) and S − 1 = O(s³). For
+U = Σ_{k≥3} u_k s^k, −(1/(2r³)) ∂_r (r⁵ ∂_r U) = −Σ_k (k(k − 8)/8) u_k s^k, while (S − 1) and e^(−2b) − 1 add terms of
+order at least s³ times the lowest order of U. The terms in P are, with ∂_r P_i = −(3/2) p_i s⁵ − 2 a_i s⁶ + O(s⁷),
+(3/2)(∂_ϑ(p + q) − tan ϑ (2p + q) + cot ϑ (p + 2q)) s⁵ + 2 (∂_ϑ(a1 + a2) − tan ϑ (2a1 + a2) + cot ϑ (a1 + 2a2)) s⁶ +
+O(s⁷), the quadratic ones being O(s⁸). So R_(rϑ) is (15/8) u_3 s³ + O(s⁴), which gives u_3 = 0; then 2 u_4 s⁴ + O(s⁵),
+which gives u_4 = 0; and then, U being O(s⁵), the coefficients of s⁵ and s⁶ are
+
+    (15/8) u_5 + (3/2)(∂_ϑ(p + q) − tan ϑ (2p + q) + cot ϑ (p + 2q)),
+    (3/2) u_6 + 2 (∂_ϑ(a1 + a2) − tan ϑ (2a1 + a2) + cot ϑ (a1 + 2a2)).
+
+Vacuum gives u_5 = (4/5)((2p + q) tan ϑ − (p + 2q) cot ϑ − ∂_ϑ(p + q)) and
+u_6 = (4/3)((2a1 + a2) tan ϑ − (a1 + 2a2) cot ϑ − ∂_ϑ(a1 + a2)). These are the stated forms, by
+1/sin 2ϑ = ½ (tan ϑ + cot ϑ).
+
+*(iii).* By (eq:bondi-R0), R_vr|_(b=U=0) = −½ ∂_r² W − (3/(2r)) ∂_r W + O(s⁸), the last term being a product of
+∂_r P_i and ∂_v P_j. For W − 1 = Σ_k w_k s^k, −½ ∂_r² (s^k) − (3/(2r)) ∂_r (s^k) = (k(4 − k)/8) s^(k+4). By
+(eq:bondi-RU), L_vr has the part −(1/(2r²)) ∂_r (r² div U) = ¼ div(u_5) s⁷ + O(s⁸) linear in U, and its part linear in b
+has weight at least 2 and so is O(s⁸), b being O(s⁶). The terms of H_vr contain b, of order 6, or Û, of order 3 since
+U = O(s⁵), together with a factor of order 3 (P_i or Û) or of the order m of W − 1, and have weight at least 2: they are
+O(s^(5+m)) when m ≤ 3. With m = 1 the coefficient of s⁵ is (3/8) w_1, so w_1 = 0; then m = 2 and the coefficient of s⁶
+is ½ w_2, so w_2 = 0; then m = 3 and the coefficient of s⁷ is (3/8) w_3 + ¼ div(u_5), so w_3 = −(2/3) div(u_5). Its
+sphere mean vanishes, since ∫_0^(π/2) ∂_ϑ (f sin ϑ cos ϑ) dϑ = 0 for every smooth f.
+
+*(iv).* Now W − 1, P_i and Û are O(s³) and b is O(s⁶), so H_AB and the part of L_AB linear in b have frame order at
+least 8, that is, coordinate order at least s⁴; by (eq:bondi-RU) the part linear in U has no derivative in v and is
+O(s³) in coordinates. In R_AB|_(b=U=0) from (eq:bondi-R0), write W = 1 + ω and h = γ + k, so that q = r²(γ + k) with
+k = diag(−2(P1 + P2), 2 cos²ϑ P1, 2 sin²ϑ P2) + O(s⁶). The terms of degree two or more in (ω, k) have weight at least
+2 by [[lem:bondi-orders]] (c), hence frame order at least 8 and coordinate order at least s⁴. R[q] = R[γ + k] =
+2γ + O(s³). In the rest, to first order: the constant terms give −2γ, cancelling 2γ; the terms in ω give
+−(r ∂_r ω + 2ω) γ_AB = Σ_k (k/2 − 2) w_k s^k γ_AB, which is O(s³) now that w_1 = w_2 = 0; the terms in k with a derivative
+in v come from −∂_v ∂_r q, −(3/(2r)) ∂_v q and ½ (∂_r q q⁻¹ ∂_v q + ∂_v q q⁻¹ ∂_r q), and sum to
+−r² ∂_r ∂_v k − (3/2) r ∂_v k = Σ_j ((j − 3)/2) ∂_v k_j s^(j−2) for k = Σ_j k_j s^j; and the terms in k without a
+derivative in v are O(s³). So at s² the three angular components of R_AB are those of ½ ∂_v k_4, with
+k_4 = diag(−2(a1 + a2), 2 cos²ϑ a1, 2 sin²ϑ a2): they are −∂_v(a1 + a2), cos²ϑ ∂_v a1 and sin²ϑ ∂_v a2, a traceless
+tensor. Vacuum gives ∂_v a1 = ∂_v a2 = 0.
+
+*(v).* All of W − 1, P_i and Û are O(s³) and b is O(s⁶). So H_vv and the part of L_vv linear in b are O(s⁸), and the
+part linear in U is −div(∂_v U) = −div(∂_v u_5) s⁵ − div(∂_v u_6) s⁶ + o(s⁶), by (eq:bondi-RU). In R_vv|_(b=U=0) from
+(eq:bondi-R0), ½ W ∂_r² W, (3/(2r)) W ∂_r W and (1/(2r²)) Δ_h W are O(s⁷), −(3/(2r)) ∂_v W =
+−(3/2) ∂_v w_3 s⁵ − (3/2) ∂_v w_4 s⁶ + O(s⁷), and −2((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²) =
+−2(p_v² + p_v q_v + q_v²) s⁶ + O(s⁷). Hence
+
+    R_vv = −((3/2) ∂_v w_3 + div(∂_v u_5)) s⁵ − ((3/2) ∂_v w_4 + 2(p_v² + p_v q_v + q_v²) + div(∂_v u_6)) s⁶ + o(s⁶).
+
+The coefficient of s⁵ vanishes identically by (iii). The coefficient of s⁶ involves only p, q, a1, a2 (through u_6) and
+w_4, and its vanishing is (eq:bondi-law-div) with M = −w_4. With (iv), ∂_v u_6 = 0, since u_6 is linear in a1 and a2
+with coefficients depending on ϑ alone. ∎
+
+**Remark {#rem:bondi-tts}** (Comparison with [TTS09].) Tanabe, Tanahashi and Shiromizu write the five-dimensional Bondi
+form as ds² = −(V e^B/r²) du² − 2 e^B du dr + r² h_AB (dx^A + U^A du)(dx^B + U^B du), with h_AB built from functions C1,
+C2, C3, D1, D2, D3 and the areal condition r⁶ sin²θ cos²θ = det(g_AB) [TTS09, (2), (4), (5), p. 2]. For waves, C ~
+r^(−3/2), and their equations give B = B1/r³ + O(r^(−7/2)) with B1 = −(C11² + C11 C21 + C21² + D11² + D21² + D31²)/8,
+U^A = U_(A1)/r^(5/2) + O(1/r³), and V = r² + V1(u, x^A) r^(1/2) − M(u, x^A) + O(r^(−1/2)), with V1 minus two thirds of
+the divergence of U_(A1) [TTS09, (20), (21), (25)–(27), pp. 3–4]. Their mass law reads
+
+    "dM(u, x^A)/du = −(1/3)((C_11,u)² + C_11,u C_21,u + (C_21,u)² + (D_11,u)² + (D_21,u)² + (D_31,u)²)"
+                                                                                  [TTS09, (28), p. 4],
+
+and "Eq. (28) represents mass loss rate by gravitational waves" [TTS09, p. 4]. The r^(−2) term A of C satisfies
+∂A/∂u = 0 and vanishes for asymptotic flatness, by its value at spatial infinity [TTS09, (35), (36), p. 5]. In the class
+the reflections give D1 = D2 = D3 = 0, and with u = −v, θ = π/2 − ϑ and (φ, ψ) = (φ1, φ2) their form is
+(eq:bondi-metric) with C1 = −2(P1 + P2), C2 = 2P1, C3 = 2P2, B = 2b, V/r² = W and U^θ = −U. So C11 = −2(p + q),
+C21 = 2p, and B1 = −½(p² + pq + q²) = 2 b_6, as in (i); V1 = w_3, as in (iii); (35) is (iv); and (28) becomes
+dM/du = −(4/3)(p_u² + p_u q_u + q_u²). The time reversal u = −v leaves the squares unchanged and reverses the sign of
+the rate, which gives (eq:bondi-law): an incoming flux raises the mass. [[prop:hierarchy-scri]] derives all of this in
+(eq:bondi-metric) itself, with every coefficient general from s¹ on, and takes nothing from [TTS09].
+

@@ -1217,3 +1217,367 @@ through the commutator [[eq:ii-d-4-4]], where [Q, Φ_u] has order 0 and joins R_
 In [[sec:ii-d1-3]]–[[sec:ii-d1-6]], [[eq:ii-d1-2-8]] holds because the first-order part of Q either decays at the face
 carrying Γ, so that its principal symbol vanishes at Γ, or is diagonal with a non-positive contribution (at the
 horizon). The part of Q of order 0 does not enter [[eq:ii-d1-2-8]].
+
+### Near ℐ⁺ {#sec:ii-d1-3}
+
+Near ℐ⁺ ∩ Ω we use the coordinates ρ_+ = t_*⁻¹, x_I = (t_*/r)^(1/2), ω ∈ 𝕊³ of [[sec:ii-c-5-1]], W := x_I² ρ_+² and L
+:= W⁻¹P, as in [[prop:ii-d-3-5]] and [[prop:ii-d-3-6]]. Put
+
+    V_1 := x_I ∂_(x_I) − 2ρ_+ ∂_(ρ_+) = 2t_* ∂_(t_*),       V_2 := x_I ∂_(x_I) = −2r ∂_r,
+
+the second at fixed t_*, and let Ω_ab, 1 ≤ a < b ≤ 4, be the six rotation fields y_a ∂_(y_b) − y_b ∂_(y_a) of 𝕊³ ⊂ ℝ⁴,
+extended independently of (x_I, ρ_+). The family is 𝒳_I := (V_1, V_2, Ω_12, …, Ω_34, I), J = 9.
+
+**Lemma {#lem:ii-d1-3-1}** (Commutators near ℐ⁺.) (a) [V_1, V_2] = [V_i, Ω_ab] = 0, the Ω_ab span 𝔰𝔬(4), and
+Σ_(a<b) Ω_ab² is the Laplace–Beltrami operator of 𝕊³, so Δ_𝕊³ of [[lem:ii-c-3-4]] is ±Σ_(a<b) Ω_ab² and commutes with
+every Ω_ab. (b) The family 𝒳_I satisfies (C) on Ω_I = Ω ∩ {x_I ≤ ε_I} with R_i = 0, and each Q_(ij) is the sum of an
+operator of order 0 and a first-order eb-operator whose coefficients lie in x_I C^∞ + x_I^(2ℓ_I) C^((d_0;k−1))_(eb;b).
+(c) 𝒳_I spans 𝒱_b near ℐ⁺, and its elements are eb-commutator fields ([[lem:ii-a-2-6]]), so (M) holds. (d) At
+∂R_(ℐ⁺,in,+) and ∂R_(ℐ⁺,out), which lie over x_I = 0, the first-order part of each Q_(ij) has vanishing principal
+symbol, so [[eq:ii-d1-2-8]] holds with equality.
+
+This is [Hin26c, Lemma 7.12] in dimension 4 + 1: there are six rotation fields on 𝕊³, Δ_𝕊³ is exactly ±Σ_(a<b) Ω_ab²,
+the constant 3 = n − 1 of [[lem:ii-c-3-4]] replaces 2, and, the bundle being trivial with b-vector fields acting
+componentwise, the fields V_1, V_2, Ω_ab commute with one another exactly where [Hin26c, (7.31)] has commutators in
+x_I C^∞. None of this changes the structure of (C).
+
+*Proof.* (a) V_1, V_2 are coordinate vector fields of the product coordinates (log x_I, log ρ_+), up to constant linear
+combinations, and the Ω_ab act on ω alone. The Ω_ab are the generators of the action of SO(4) on 𝕊³, and Σ_(a<b) Ω_ab²
+is the Casimir operator of this action on functions, which is the Laplace–Beltrami operator of the round metric (the
+identity Σ_(a<b) (y_a ∂_b − y_b ∂_a)² = |y|² Δ_ℝ⁴ − (y·∂)² − 2 y·∂ restricted to |y| = 1, functions extended
+homogeneously of degree 0). (b) By [[lem:ii-c-3-4]], near ℐ⁺,
+
+    2L = −(V_2 − 3 − 2p_1) V_1 ± 2x_I² Σ_(a<b) Ω_ab² + p_0 + R̃,       R̃ ∈ C^((d_0;k),(2ℓ_I,0))_(eb;b) Diff²_eb,
+
+with p_0, p_1 = S|_(∂X) + p̃_1 functions on ℐ⁺ extended independently of x_I, so V_2 p_0 = V_2 p_1 = 0. We calculate
+[2L, X] for X ∈ 𝒳_I, X ≠ I, using [AB, X] = A[B, X] + [A, X]B and (a).
+
+[−(V_2 − 3 − 2p_1)V_1, X] = 2[p_1, X]V_1 = −2(Xp_1)V_1: an operator of order 0 times V_1; it vanishes for X = V_2.
+[±2x_I² Σ Ω_ab², X] = ∓2(X x_I²) Σ Ω_ab², which is ∓4x_I² Σ Ω_ab² for X = V_1, V_2 (as V_1 x_I² = V_2 x_I² = 2x_I²)
+and 0 for X = Ω_cd. Now x_I² Ω_ab² = x_I (x_I Ω_ab) ∘ Ω_ab with x_I Ω_ab ∈ 𝒱_eb: a first-order eb-operator with coefficient in x_I
+C^∞, times Ω_ab. [p_0, X] = −(Xp_0), of order 0 (a term Q_(iJ) X_J). Finally [R̃, X] ∈ C^((d_0;k−1),(2ℓ_I,0))_(eb;b)
+Diff²_eb, as X is an eb-commutator field and differentiates the coefficients once ([[lem:ii-a-2-6]] and
+[[lem:ii-a-8-2]] (b)). 𝒱_eb is spanned over C^∞ by V_1, V_2 and x_I Ω_ab, so every element of x_I^(2ℓ_I)
+C^((d_0;k−1))_(eb;b) Diff²_eb is a sum Σ_j A_j X_j with A_j ∈ x_I^(2ℓ_I) C^((d_0;k−1))_(eb;b) Diff¹_eb (for j a
+rotation, the factor x_I of x_I Ω_ab joins A_j; the first-order part of the operator is A_J X_J). Collecting, [L, X_i]
+= Σ_j Q_(ij) X_j with Q_(ij) as stated. (c) Near ℐ⁺, 𝒱_b is spanned by ρ_+ ∂_(ρ_+), x_I ∂_(x_I) and the vector fields
+on 𝕊³, which V_1, V_2 and the Ω_ab span. (d) The principal symbol of a first-order eb-operator with coefficients in x_I
+C^∞ + x_I^(2ℓ_I) C^0 vanishes over x_I = 0. ∎
+
+**Proposition {#prop:ii-d1-3-2}** (The radial sets at ℐ⁺ with b-regularity.) [[prop:ii-d-3-5]] and [[prop:ii-d-3-6]]
+hold with H^((𝗍;k))_(e3b;b) in place of H^𝗍_e3b for every k ∈ ℕ_0:
+
+    ‖Bu‖_((s;k),(2α_I,α_+)) ≤ C_k (‖GPu‖_((s−1;k),(2α_I+2,α_++2)) + ‖Eu‖_((s;k),(2α_I,α_+))
+                                    + ‖χ̃u‖_((s_0;k),(2α_I,α_+))),                                        {#eq:ii-d1-3-1}
+
+with B, E, G having the properties (1)–(4) stated there, in the strong sense, for P = P_0 and P of class ((d_0; k), …)
+with ε_(P,k) small, d_0 depending only on s, s_0; and in the tame form [[eq:ii-d1-2-7]], with ε_(P,k) times the right
+side of [[eq:ii-d1-3-1]] at the order d.
+
+This is the analogue of [Hin26c, Propositions 7.8–7.9] in [Hin26c, Section 7.2.3], in dimension 4 + 1.
+
+*Proof.* [[lem:ii-d1-2-3]]–[[lem:ii-d1-2-5]] with 𝔩 = 0, the family 𝒳_I and [[lem:ii-d1-3-1]];
+‖GLu‖_((s−1;k),(2α_I,α_+)) and ‖GPu‖_((s−1;k),(2α_I+2,α_++2)) are equivalent up to a microlocal error, W being a weight.
+The thresholds ([[eq:ii-d-3-7]] and [[eq:ii-d-3-9]]) concern the weights only and are unchanged by [[lem:ii-d1-3-1]]
+(d). ∎
+
+### The horizon {#sec:ii-d1-4}
+
+Near 𝓗⁺ ∩ K⁺ = {r = r_h, ρ_K = 0} use the coordinates (t_*, r, ω), ρ_K = t_*⁻¹, with covectors −σ dt_* + ξ_0 dr + η;
+W′ = 1 and L = P, as in [[prop:ii-d-3-1]]. ∂R_(𝓗⁺) lies in {σ = 0, η = 0} with ξ_0 ≠ 0 ([[def:ii-b-4-1]]: it is the
+boundary of the conormal bundle of {r = r_h}), so we take U_0 ⊂ {|ξ_0| ≥ c(|σ| + |ξ_0| + |η|)}, a small neighbourhood
+of ∂R_(𝓗⁺). The family is 𝒳_𝓗 := (∂_r, t_* ∂_(t_*), I).
+
+**Lemma {#lem:ii-d1-4-1}** (Commutators at the horizon.) (a) (M) holds: 𝒱_b near 𝓗⁺ ∩ K⁺ is spanned by 𝒱_3b and t_*
+∂_(t_*) ([[cor:ii-a-2-3]]); ∂_r ∈ 𝒱_3b is elliptic on Ū_0 (with w = 1); both are e3b-commutator fields
+([[lem:ii-a-2-2]]). (b) (C) holds on U_0. (c) The system L^(k) = P ⊗ Id − Q of [[lem:ii-d1-2-1]] in the form
+[[eq:ii-d1-2-2p]], all letters commuting ([∂_r, t_* ∂_(t_*)] = 0), satisfies, at ∂R_(𝓗⁺),
+
+    ς ρ σ_1(Im(−Q)) = −diag(j_α)_(α∈𝒲_k) β_0 ≤ 0,                                                         {#eq:ii-d1-4-1}
+
+with j_α the number of letters 1 (that is, of factors ∂_r) in α, ρ the function of (H3) and β_0 > 0 of
+[[eq:ii-b-4-1]]. So [[eq:ii-d1-2-8]] holds, and the threshold of [[prop:ii-d-3-1]] for L^(k) is at most ϑ_𝓗.
+
+This is [Hin26c, Lemmas 7.15–7.16] in dimension 4 + 1, with the sign at the horizon calculated from β_0 rather than
+from the Kerr formula [Hin26c, (7.48)].
+
+*Proof.* (b) Write P = Σ_l p_l A_l near 𝓗⁺ ∩ K⁺, with A_l ∈ Diff²_3b fixed and independent of t_* (products of
+∂_(t_*), ∂_r, ∂_ω), and p_l = p^♯_l + p̃_l, p^♯_l the coefficients of P_0, independent of t_*, and p̃_l ∈ ρ_K^(ℓ_K)
+C^((d_0;k))_(3b;b) ([[def:ii-c-3-3]]). Let Q_r ∈ C_b^∞Ψ^(−1)_3b be a microlocal parametrix of ∂_r on Ū_0: I = Q_r
+∂_r + R_r, WF′(R_r) ∩ Ū_0 = ∅.
+
+*The letter X_1 = ∂_r.* [P, ∂_r] is a second-order operator of class 𝒬^2_1. Put Q_11 := [P, ∂_r] Q_r, R_1 := [P,
+∂_r] R_r, and Q_(1j) := 0 for j ≠ 1; then [P, ∂_r] = Q_11 ∂_r + R_1. The principal symbol of [P, ∂_r] is (1/i){G,
+iξ_0} = H_G ξ_0, as ∂_r has symbol iξ_0. So Q_11 has principal symbol H_G ξ_0/(iξ_0) = −i(H_G ξ_0)/ξ_0, a purely
+imaginary scalar, and σ_1(Im(−Q_11)) = (H_G ξ_0)/ξ_0. Its lower-order part (from the first-order part of P, composed
+with Q_r) has order 0 and does not enter.
+
+*The letter X_2 = t_* ∂_(t_*).* t_* ∂_(t_*) p^♯_l = 0, and by [[lem:ii-a-2-2]], [t_* ∂_(t_*), A_l] = ρ_K A^♭_l t_*
+∂_(t_*) + ρ_K A^♯_l with A^♭_l ∈ Diff¹_3b, A^♯_l ∈ Diff²_3b. Hence
+
+    [P, X_2] = −Σ_l ((X_2 p̃_l) A_l + p_l ρ_K A^♭_l X_2 + p_l ρ_K A^♯_l),
+
+and with I = Q_r ∂_r + R_r on the second-order terms, Q_22 := −Σ_l p_l ρ_K A^♭_l, Q_21 := −Σ_l ((X_2 p̃_l) A_l + p_l
+ρ_K A^♯_l) Q_r, R_2 := −Σ_l ((X_2 p̃_l) A_l + p_l ρ_K A^♯_l) R_r. Their coefficients carry a factor ρ_K or ρ_K^(ℓ_K)
+(X_2 p̃_l ∈ ρ_K^(ℓ_K) C^((d_0;k−1))_(3b;b)), so they decay at K⁺.
+
+(c) By (b) and [[eq:ii-d1-2-2p]], −Q has, at ∂R_(𝓗⁺) ⊂ {ρ_K = 0}, first-order principal symbol diag(j_α) i(H_(G_0)
+ξ_0)/ξ_0: each letter 1 of α couples the component α to itself through Q_11, as α[i→1] = α, and the couplings through
+Q_21, Q_22 decay; G = G_0 there. Let ρ̃ := |ξ_0|⁻¹ on U_0 and 𝖧 := ρH_G. Then ρ(H_G ξ_0)/ξ_0 = −ρρ̃⁻¹ H_G ρ̃ = −ρ̃⁻¹𝖧ρ̃.
+At the radial set ∂R_(𝓗⁺) the vector field 𝖧 on the cosphere bundle vanishes, so ρ̃⁻¹𝖧ρ̃ = ρ⁻¹𝖧ρ + (ρ̃/ρ)⁻¹𝖧(ρ̃/ρ)
+= ρ⁻¹𝖧ρ = β_0 there ([[eq:ii-b-4-1]], as in the proof of [[prop:ii-d-3-1]]), ρ̃/ρ being homogeneous of degree 0. This
+gives [[eq:ii-d1-4-1]] on ∂Σ⁺, where ς = 1; on ∂Σ⁻ the quantity (H_G ξ_0)/ξ_0 is odd (H_G ξ_0 even, ξ_0 odd), the
+future field is −𝖧, whose ρ⁻¹(−𝖧)ρ is β_0, so ρ⁻¹𝖧ρ = −β_0 there, and ς = −1 restores [[eq:ii-d1-4-1]]. The threshold
+of [[prop:ii-d-3-1]] for L^(k) is then sup max spec(β_0⁻¹(𝔭 − j_α β_0)) ≤ ϑ_𝓗, in the inner product h^(⊕𝒲_k). ∎
+
+The non-positive sign in [[eq:ii-d1-4-1]] is the red shift: commuting with ∂_r lowers the threshold, so the minimal
+regularity s_0 > ½ + ϑ_𝓗 of [[prop:ii-d-3-1]] does not rise with k.
+
+**Proposition {#prop:ii-d1-4-2}** (The horizon with b-regularity.) Let s > s_0 > ½ + ϑ_𝓗 and k ∈ ℕ_0. There are B, E,
+G with the properties (1)–(4) of [[prop:ii-d-3-1]] such that for all α_K ∈ ℝ and χ̃ as there
+
+    ‖Bu‖_((s;k),α_K) ≤ C_k (‖GPu‖_((s−1;k),α_K) + ‖Eu‖_((s;k),α_K) + ‖χ̃u‖_((s_0;k),α_K)),                {#eq:ii-d1-4-2}
+
+in the strong sense, uniformly for P = P_0 and P of class ((d_0; k), (0, 0, ℓ_K)) near K⁺ with ε_(P,k) small, d_0
+depending only on s, s_0; and the tame estimate [[eq:ii-d1-2-7]] holds, with d depending only on s, s_0 and C_k on P
+only through ε_(P,d).
+
+This is [Hin26c, Proposition 7.17] in dimension 4 + 1.
+
+*Proof.* [[lem:ii-d1-2-3]]–[[lem:ii-d1-2-5]] with 𝔩 = 0 and [[lem:ii-d1-4-1]]. ∎
+
+### Over ∂K⁺ {#sec:ii-d1-5}
+
+Near ∂K⁺ use ρ_K := r/t_*, ρ_+ := r⁻¹, ω ([[sec:ii-b-3-1]]), W′ = ρ_+² and L := ρ_+⁻²P, as in [[prop:ii-d-3-2]] and
+[[prop:ii-d-3-3]]. The family is 𝒳_K := (t_* ∂_(t_*), I), and U_0 is a small neighbourhood of ∂R_(∂K⁺,in) or of
+∂R_(∂K⁺,out).
+
+**Lemma {#lem:ii-d1-5-1}** (Commutators over ∂K⁺.) (a) (M) holds with i_0 = 1, w = ρ_K: 𝒱_b near ∂K⁺ is spanned by
+𝒱_3b and t_* ∂_(t_*) ([[cor:ii-a-2-3]]), and t_* ∂_(t_*) is a commutator field ([[lem:ii-a-2-2]]), and ρ_K t_*
+∂_(t_*) = r ∂_(t_*) ∈ 𝒱_3b has principal symbol a non-zero multiple of σ_3b, which is elliptic at both radial sets
+(σ_3b < 0 there, [[def:ii-b-3-1]]). (b) (C) holds on U_0, with Q_11 of class 𝒬^1_1 whose coefficients carry a factor
+ρ_K or ρ_K^(ℓ_K), so [[eq:ii-d1-2-8]] holds with equality at both radial sets, which lie over K⁺.
+
+This is [Hin26c, Lemmas 7.19–7.20] in dimension 4 + 1.
+
+*Proof.* (b) Write L = Σ_l p_l A_l with A_l ∈ Diff²_3b fixed and independent of t_*, p^♯_l the coefficients of
+ρ_+⁻²P_0, independent of t_* in the coordinates (t_*, r, ω), and p̃_l ∈ ρ_+^(ℓ_+) ρ_K^(ℓ_K) C^((d_0;k))_(3b;b), the
+coefficients of ρ_+⁻²(P − P_0) ([[def:ii-c-3-3]]). t_* ∂_(t_*) commutes with ρ_+ and annihilates p^♯_l.
+[[lem:ii-a-2-2]] gives [X_1, A_l] = ρ_K A^♭_l X_1 + ρ_K A^♯_l, as in [[lem:ii-d1-4-1]]. Let Q_K ∈ C_b^∞Ψ^(−1)_3b be a
+microlocal parametrix of ρ_K X_1 on Ū_0, I = Q_K ρ_K X_1 + R_K. Then
+
+    [L, X_1] = −Σ_l (p_l ρ_K A^♭_l + ((X_1 p̃_l) A_l + p_l ρ_K A^♯_l) Q_K ρ_K) X_1
+               − Σ_l ((X_1 p̃_l) A_l + p_l ρ_K A^♯_l) R_K,
+
+which is (C) with Q_11 the first sum and R_1 the second; the factors ρ_K, ρ_K^(ℓ_K) appear in every coefficient of
+Q_11. ∎
+
+**Proposition {#prop:ii-d1-5-2}** (The radial sets over ∂K⁺ with b-regularity.) [[prop:ii-d-3-2]] and
+[[prop:ii-d-3-3]] hold with H^((𝗍;k))_(e3b;b) in place of H^𝗍_e3b, with their thresholds [[eq:ii-d-3-3]] and
+[[eq:ii-d-3-5]] unchanged, in the strong sense, uniformly for P with ε_(P,k) small, and in the tame form
+[[eq:ii-d1-2-7]].
+
+This is the analogue of [Hin26c, Propositions 7.6–7.7] in [Hin26c, Section 7.2.3], in dimension 4 + 1.
+
+*Proof.* [[lem:ii-d1-2-3]]–[[lem:ii-d1-2-5]] with 𝔩 = 0 and [[lem:ii-d1-5-1]]. The threshold [[eq:ii-d-3-5]] at
+∂R_(∂K⁺,out) is an upper bound on the order, which every order of the iteration in [[lem:ii-d1-2-3]] meets, as there the
+order s is fixed and only k increases. ∎
+
+### The trapped set {#sec:ii-d1-6}
+
+Over D near ∂Γ_0 ([[sec:ii-d-4]]) use (t_*, x), ρ_K = t_*⁻¹, W′ = 1, L = P. The family is 𝒳_Γ := (t_* ∂_(t_*), I),
+and U_0 is a small neighbourhood of the component of ∂Γ_(K⁺) over ∂Σ⁺ or ∂Σ⁻; on it σ ≠ 0 ([[lem:ii-b-5-2]] (a)).
+
+**Lemma {#lem:ii-d1-6-1}** (Commutators at the trapped set.) (a) (M) holds with i_0 = 1, w = ρ_K: t_* ∂_(t_*) is a
+commutator field ([[lem:ii-a-2-2]]), and ρ_K t_* ∂_(t_*) = ∂_(t_*), whose principal symbol is a non-zero multiple of σ,
+elliptic on Ū_0. (b) (C) holds with Q_11 decaying at K⁺, and (C2) holds with Q^(2) of order 0. So [[eq:ii-d1-2-8]]
+holds with equality at ∂Γ_(K⁺).
+
+This is [Hin26c, Lemma 7.21] in dimension 4 + 1.
+
+*Proof.* (b) (C): as in [[lem:ii-d1-5-1]], with L = P = Σ_l p_l A_l, A_l ∈ Diff²_3b (cusp operators over D) independent
+of t_*, p^♯_l independent of t_* and p̃_l ∈ ρ_K^(ℓ_K) C^((d_0;k))_(3b;b), and Q_K a microlocal parametrix of ∂_(t_*) on
+Ū_0. (C2): from the formula for [L, X_1],
+
+    [X_1, [X_1, L]] = Σ_l ((X_1² p̃_l) A_l + (X_1 p̃_l)[X_1, A_l] + (X_1 p_l) ρ_K (A^♭_l X_1 + A^♯_l)
+                      − p_l ρ_K (A^♭_l X_1 + A^♯_l) + p_l ρ_K ([X_1, A^♭_l] X_1 + [X_1, A^♯_l])),
+
+using X_1 ρ_K = −ρ_K. By [[lem:ii-a-2-2]] again, [X_1, A^♭_l] and [X_1, A^♯_l] are of the form ρ_K(·)X_1 + ρ_K(·), and
+[X_1, A_l] = ρ_K A^♭_l X_1 + ρ_K A^♯_l. So every term is a second-order operator D, or a first-order operator D′
+followed by X_1 (the terms p_l ρ_K² c X_1 X_1, c smooth, from p_l ρ_K [X_1, A^♭_l] X_1 are already of the form Q^(2)
+X_1 X_1 with Q^(2) of order 0), with coefficients in ρ_K C^∞ + ρ_K^(ℓ_K) C^((d_0;k−2))_(3b;b). Let Q′ ∈ C_b^∞Ψ^(−2)_3b
+be a microlocal parametrix of (ρ_K X_1)² = ∂_(t_*)² on Ū_0, I = Q′(ρ_K X_1)² + R′, and note (ρ_K X_1)² = ρ_K² X_1² −
+ρ_K² X_1. Then
+
+    D = (DQ′ρ_K²) X_1 X_1 − (DQ′ρ_K²) X_1 X_J + DR′,       D′X_1 = (D′Q_K ρ_K) X_1 X_1 + D′R_K X_1,
+
+with DQ′ρ_K² and D′Q_K ρ_K of order 0 and class 𝒬^0_2, DR′ of class 𝒬^2_2, and D′R_K X_1 of the form R″X_1 with R″ :=
+D′R_K of class 𝒬^1_2, both microsupported off Ū_0. This is (C2). ∎
+
+**Proposition {#prop:ii-d1-6-2}** (The trapped set with b-regularity.) There are B, E, G with the properties (1)–(4) of
+[[prop:ii-d-4-2]] such that for all s > s_0, k ∈ ℕ_0, α_K ∈ ℝ and χ̃ as there
+
+    ‖Bu‖_((s;k),α_K) ≤ C_k (‖GPu‖_((s;k),α_K) + ‖Eu‖_((s+1;k),α_K) + ‖χ̃u‖_((s_0;k),α_K)),                {#eq:ii-d1-6-1}
+
+in the strong sense, uniformly for P = P_0 and P of class ((d_0; k), (0, 0, ℓ_K)) with ε_(P,k) small, d_0 depending
+only on s, s_0; and the tame estimate [[eq:ii-d1-2-7]] holds.
+
+This is [Hin26c, Proposition 7.22] in dimension 4 + 1.
+
+*Proof.* [[lem:ii-d1-2-3]]–[[lem:ii-d1-2-5]] with 𝔩 = 1 and [[lem:ii-d1-6-1]]. [[lem:ii-d1-2-5]] gives (E_1) from
+[[prop:ii-d-4-2]] for the systems L^(k), whose first-order part differs from P ⊗ Id by terms decaying at K⁺, so that
+the condition ϑ_Γ < ½ν_min at ∂Γ_(K⁺) is that of P. ∎
+
+### Proof of the global estimate with b-regularity {#sec:ii-d1-7}
+
+*Proof of [[thm:ii-d1-1-1]].* For k = 0, [[eq:ii-d1-1-1]] is [[thm:ii-d-1-2]]. Let k ∈ ℕ, let u be as in
+[[thm:ii-d1-1-1]], and for q ∈ ℕ_0 write
+
+    ℛ_q := ‖Pu‖_((𝗌;q),(2α_I+2,α_++2,α_K)) + ‖u‖_((𝗌_0;q),(2α_I,α_+,α_K)),
+
+the norms being those of [[eq:ii-d1-1-1]] on Ω_*, so that the right side of [[eq:ii-d1-1-1]] is ℛ_k and that of
+[[eq:ii-d1-1-2]] is ℛ_k + ε_(P,k) ℛ_d. As in [[sec:ii-d-5]], u and Pu, extended by zero, are supported in {t_*^♭ ≥ 1};
+below ‖·‖_(𝗍;k) carries the weights of u, and Pu is measured with the weights of [[eq:ii-d1-1-1]], which is the measure
+of Lu = W⁻¹Pu with the weights of u. We say u is *controlled at order* (𝗍; k) on an open set V ⊂ ᵉ³ᵇS*M if ‖Bu‖_(𝗍;k)
+≤ C_k ℛ_k, in the strong sense, for every B ∈ C_b^∞Ψ^0_e3b carried by χ with WF′(B) ⊂ V; and *tamely controlled* if
+moreover, for every P as in the second half of [[thm:ii-d1-1-1]], ‖Bu‖_(𝗍;k) ≤ C_k(ℛ_k + ε_(P,k) ℛ_d), with C_k
+depending on P only through a bound for ε_(P,d).
+
+The proof is that of [[sec:ii-d-5]], step for step, with each estimate replaced by its version with b-regularity. The
+flow is that of P, unchanged, so the backward curves are those used there; only the estimates change. The replacements
+are these.
+
+(P0_k) *Elliptic estimate.* Off the characteristic set, [[prop:ii-a-9-1]] with m = 2 controls u at every order (𝗍; k)
+with 𝗍 ≤ 𝗌 + 1, and its tame version, [[prop:ii-a-9-8]], tamely.
+
+(P1_k) *Propagation.* [[prop:ii-a-9-2]], and its tame version [[prop:ii-a-9-9]], replace [[thm:ii-a1-5-4]] in (P1) of
+[[sec:ii-d-5]]. Their hypotheses on the flow, on the orders and on B, E, G are those of [[thm:ii-a1-5-4]], which (P1)
+uses, and they give: control at order (𝗍; k) on V gives control at order (𝗍; k) at every ϖ whose backward 𝖧-curve
+enters V in finite time, provided 𝖧𝗍 ≤ 0 along it and Pu is in H^((𝗍−1;k)) near it. The weights are put into the
+operator as for k = 0 ([[sec:ii-d-1-2]]): the conjugation by a weight w adds to L terms whose coefficients are those of
+L times the functions w⁻¹Vw and w⁻¹VV′w, V, V′ ∈ 𝒱_e3b, which are smooth with smooth b-derivatives
+([[sec:ii-d1-1]]), so the conjugated operator has the form [[eq:ii-a-9-2]] at the regularity (d_0; k).
+
+(P2), (P3) are unchanged: as u = 0 in {t_*^♭ < 1}, u is controlled there at every order (𝗍; k).
+
+(R_k) *Radial sets and the trapped set.* [[prop:ii-d-3-1]], [[prop:ii-d-3-2]], [[prop:ii-d-3-3]], [[prop:ii-d-3-5]],
+[[prop:ii-d-3-6]] and [[prop:ii-d-4-2]] are replaced by [[prop:ii-d1-4-2]], [[prop:ii-d1-5-2]], [[prop:ii-d1-5-2]],
+[[prop:ii-d1-3-2]], [[prop:ii-d1-3-2]] and [[prop:ii-d1-6-2]]. Each is used with the orders of [[sec:ii-d-5]], which
+are constant near the set, with the threshold conditions there, and with operators B, E, G having the properties
+(1)–(4) of the proposition it replaces. The thresholds do not change with k: at the horizon by [[lem:ii-d1-4-1]] (c),
+elsewhere by [[lem:ii-d1-3-1]] (d), [[lem:ii-d1-5-1]] (b) and [[lem:ii-d1-6-1]] (b).
+
+*Step 1: finite times.* Let t^♯ and 𝒱_out be as in Step 1 of [[sec:ii-d-5]]. Along the backward curves used there,
+(P1_k) at order (𝗌 + 1; k), with Pu ∈ H^((𝗌;k)), and (P2) control u at order (𝗌 + 1; k) near every compact subset of
+∂Σ⁺ over Ω_* ∩ {t_*^♭ ≤ t^♯} disjoint from 𝒱_out.
+
+*Step 2: the horizon and ∂R_(ℐ⁺,in,+).* [[prop:ii-d1-4-2]] and [[prop:ii-d1-3-2]] (for [[prop:ii-d-3-5]]), with the
+orders (𝗌 + 1, 𝗌_0), 𝗌_0 > ½ + ϑ_𝓗 near ∂R_(𝓗⁺) and [[eq:ii-d-3-7]] from [[eq:ii-d-1-3]]. Their E have property (4),
+so they lie at finite times, away from K⁺, resp. ι⁺, and operator wave front sets in small neighbourhoods of the two
+sets, the second away from ∂R_(ℐ⁺,out); this is what Step 2 of [[sec:ii-d-5]] uses. So Step 1 bounds ‖Eu‖_(𝗌+1;k), and
+u is controlled at order (𝗌 + 1; k) on neighbourhoods V_𝓗 of ∂R_(𝓗⁺) and V_I of ∂R_(ℐ⁺,in,+).
+
+*Step 3: ∂R_(∂K⁺,in).* [[prop:ii-d1-5-2]] (for [[prop:ii-d-3-2]]), with the orders (𝗌 + 1, 𝗌_0) and [[eq:ii-d-3-3]].
+Its E has property (4) and operator wave front set in a small neighbourhood of ∂R_(∂K⁺,in); the backward curves from it
+are those of Step 3 of [[sec:ii-d-5]], which reach {t_*^♭ < 1} or enter V_I. (P1_k) at order (𝗌 + 1; k) and (P2) bound
+‖Eu‖_(𝗌+1;k), and u is controlled at order (𝗌 + 1; k) on a neighbourhood V_K of ∂R_(∂K⁺,in).
+
+*Step 4: the trapped set.* [[prop:ii-d1-6-2]] with the orders (𝗌, 𝗌_0), U_Γ small and Pu ∈ H^((𝗌;k)). Its E has
+WF′(E) ∩ Γ^u_(K⁺) = ∅, and by Step 4 of [[sec:ii-d-5]] the backward curves from WF′(E) ∩ ∂Σ⁺ reach {t_*^♭ < 1} or
+enter V_𝓗 ∪ V_K in locally bounded times. (P1_k) at order (𝗌 + 1; k) and (P2) bound ‖Eu‖_(𝗌+1;k), and u is controlled
+at order (𝗌; k) on a neighbourhood V_Γ of ∂Γ_(K⁺).
+
+*Step 5: ∂R_(∂K⁺,out).* [[prop:ii-d1-5-2]] (for [[prop:ii-d-3-3]]), with the orders (𝗌, 𝗌_0) and [[eq:ii-d-3-5]] at
+the order 𝗌. Its E has WF′(E) ∩ ∂W_out = ∅, and by Step 5 of [[sec:ii-d-5]] the backward curves from it enter V_𝓗 ∪
+V_K ∪ V_Γ ∪ V_I or reach {t_*^♭ < 1}. (P1_k) at order (𝗌; k) bounds ‖Eu‖_(𝗌;k), and u is controlled at order (𝗌; k)
+on a neighbourhood V_(K,out) of ∂R_(∂K⁺,out).
+
+*Step 6: ∂R_(ℐ⁺,out).* [[prop:ii-d1-3-2]] (for [[prop:ii-d-3-6]]), with t_(*,−) := ½, the orders (𝗌, 𝗌_0) and
+[[eq:ii-d-3-9]] from [[eq:ii-d-1-3]]. By its property (4), WF′(E) ∩ ∂R_(ℐ⁺,out) lies over {t_*^♭ ≤ ½}, where u = 0,
+and (P2) controls u at every order near it. The rest of WF′(E) lies in a punctured neighbourhood of ∂R_(ℐ⁺,out), from
+which, by Step 6 of [[sec:ii-d-5]], the backward curves reach {t_* = 1} or {t_*^♭ < 1} or enter V_I ∪ V_(K,out).
+(P1_k) at order (𝗌; k) bounds ‖Eu‖_(𝗌;k), and u is controlled at order (𝗌; k) on a neighbourhood V_(I,out) of
+∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥ ½}.
+
+*Conclusion.* As in [[sec:ii-d-5]], every point of ∂Σ⁺ over supp χ has a neighbourhood on which u is controlled at
+order (𝗌; k), by Step 1 or Step 6, or by (P1_k) at order (𝗌; k) from one of the sets of Steps 2–6 or from {t_*^♭ < 1};
+the same holds on ∂Σ⁻ with the antipodal sets, for which [[sec:ii-d1-3]]–[[sec:ii-d1-6]] prove the same estimates.
+Finitely many such B, with (P0_k) off Σ, are jointly elliptic over supp χ, and [[lem:ii-a-8-4]] (c) at (𝗌; k), with
+‖χu‖_(−N′;k) ≤ ‖u‖_(𝗌_0;k), gives [[eq:ii-d1-1-1]], in the strong sense.
+
+*Uniformity.* Each estimate used holds uniformly for P with ε_(P,k) small: [[prop:ii-d1-3-2]], [[prop:ii-d1-4-2]],
+[[prop:ii-d1-5-2]] and [[prop:ii-d1-6-2]], and [[prop:ii-a-9-1]]–[[prop:ii-a-9-2]], whose constants are locally
+uniform at the regularity (d_0; k). The backward segments are those of [[sec:ii-d-5]], whose persistence under
+perturbation is shown there. d_0 is the largest of the numbers required by the steps at the orders 𝗌_0, 𝗌 and 𝗌 + 1
+and by [[lem:ii-d1-2-3]]–[[lem:ii-d1-2-5]], and it does not depend on k. With [[rem:ii-d-1-3]], which applies here
+because the constants of [[sec:ii-d1-3]]–[[sec:ii-d1-6]] depend on the model only through finitely many norms of its
+coefficients and through the dynamical constants of [[ch:s05]], this proves [[eq:ii-d1-1-1]].
+
+*The tame estimate [[eq:ii-d1-1-2]].* Let d be the largest of the numbers d of [[lem:ii-d1-2-4]] for the families and
+orders of Steps 2–6 and of [[prop:ii-a-9-8]]–[[prop:ii-a-9-9]] at the orders 𝗌 + 1 and 𝗌. A tame estimate proved with
+some d′ ≤ d holds with d, as ℛ_(d′) ≤ ℛ_d and ε_(P,d′) ≤ ε_(P,d). If ε_(P,d) is small, then P is of class ((d_0; d),
+…) and ε_(P,q) ≤ ε_(P,d) for q ≤ d, so for k ≤ d [[eq:ii-d1-1-2]] follows from [[eq:ii-d1-1-1]]. Let k > d. Run Steps
+1–6 and the conclusion with the tame versions: (P0_k) and (P1_k) with [[prop:ii-a-9-8]] and [[prop:ii-a-9-9]], and
+(R_k) with [[eq:ii-d1-2-7]]. Each turns tame control on the sets where its E lies into tame control on a neighbourhood
+of its own set. In its right side, the terms at k are at most C_k(ℛ_k + ε_(P,k) ℛ_d), by tame control, and those at d
+at most C_d ℛ_d, by Steps 1–6 run at k = d without the tame versions, which control u on each E-set at the orders used
+there (among them (𝗌 + 1; d)), with a constant depending on P only through ε_(P,d) ([[eq:ii-d1-1-1]] at d bounds only
+the order 𝗌). The coefficient norm that multiplies the terms at d is ε_(P,k) in [[eq:ii-d1-2-7]]; in
+[[prop:ii-a-9-8]]–[[prop:ii-a-9-9]] it is ‖𝐋‖_((d_0;k)), which is at most C′_k + Cε_(P,k) with C′_k depending only on
+P_0, and the part C′_k C_d ℛ_d ≤ C′_k C_d ℛ_k joins the terms at k. The constants of those propositions depend on L
+only through bounds at (d_0; d), that is, through ε_(P,d). [[lem:ii-a-8-4]] (c) has no coefficients of limited
+regularity, so the conclusion is linear in the bounds of the steps. This gives [[eq:ii-d1-1-2]], with C_k depending on
+P only through a bound for ε_(P,d). ∎
+
+### Remarks on [Hin26c, Section 7] {#sec:s06-remarks}
+
+The statements above differ from those of [Hin26c, Section 7] at the following places; each difference is accounted
+for in the proofs given here.
+
+(1) In [Hin26c, Proposition 7.9] the time cut-offs ψ_− = η(𝔐(t_(*,−) − t_*)) and ψ_+ = η(𝔐(t_* − t_(*,+))) have their
+arguments reversed: with η = 0 on (−∞, −½] and η = 1 on [0, ∞) they equal 1 before t_(*,−) and after t_(*,+). Its
+property (4), WF′(E) ∩ ∂R_(ℐ⁺,out) = ∅, does not hold as stated, as the term e_− lies on ∂R_(ℐ⁺,out) near t_* =
+t_(*,−); [[prop:ii-d-3-6]] (4) restricts it to {t_*^♭ ≤ t_(*,−) − ¼}. For finite t_(*,+) the proof there needs H_G t_*
+≥ 0 on the support of the commutant, for the symbol b_+ to be real. The cut-off to the characteristic set localises only
+to a neighbourhood of it, and off it, at x_I = 0, 𝖧t_*^♭ = t_* ξ̂ takes negative values, as ξ̂ < 0 occurs there.
+[[prop:ii-d-3-6]] is therefore stated for t_(*,+) = ∞ only. The case of finite t_(*,+) serves in Step 1 of the proof of
+[Hin26c, Proposition 7.1], and [[sec:ii-d-5]] does without it: finite times are controlled away from ∂R_(ℐ⁺,out), and
+Step 6 controls all of it at once.
+
+(2) In the proof of [Hin26c, Proposition 7.9] the equality −4|η̂|²ξ̂ = −4(2 − ξ̂)ξ̂² should read −4|η̂|²ξ̂ = −2(2 −
+ξ̂)ξ̂², as |η̂|² = ½ξ̂(2 − ξ̂) on the characteristic set; and in [Hin26c, (7.21)] the middle expression −2|η̂|²(ξ̂ − 2)
+should read −4|η̂|²(ξ̂ − 2). In both, the final inequality, ≤ −q resp. ≥ q, holds as printed ([[prop:ii-d-3-5]],
+[[prop:ii-d-3-6]]).
+
+(3) In the proofs of [Hin26c, Propositions 7.17 and 7.22], the inclusions H^((s+1;k−2))_(3b;b) ⊂ H^((s;k−1))_(3b;b)
+([Hin26c, (7.57)]) and H^((s+2;k−3))_(cu;b) ⊂ H^((s;k−1))_(cu;b) are false as inclusions. For k = 2 the first reads
+H^(s+1)_3b ⊂ H^((s;1))_(3b;b), and over (K⁺)°, where ∂_(t_*) and ∂_x are 3b-vector fields and t_* ∂_(t_*) is a
+b-vector field, v := a(x) b(t_*) e^(it_*) t_*^(−α_K−1), with a ∈ C_c^∞ and b a cut-off to {t_* ≥ 2}, lies in
+H^(∞,α_K)_3b, while t_* ∂_(t_*) v = i a b e^(it_*) t_*^(−α_K) + (terms in H^(∞,α_K)_3b) lies in no H^(s,α_K)_3b, its
+restrictions to the slabs {T ≤ t_* ≤ T + 1} having norms bounded below. What the arguments use is the estimate
+‖v‖_(s+1;k−2) ≤ C‖v‖_(s;k−1), the reverse inclusion, which holds ((F1) of [[sec:ii-d1-1]]); [[lem:ii-d1-2-3]] and
+[[lem:ii-d1-2-4]] use it in this direction.
+
+(4) [Hin26c, (7.28)] prints the weights (2α_I + 2, α_+ + 2, α_K) on the last norm of u, ‖u‖_(s_0;d). The proof gives
+the weights of u in [Hin26c, (7.27)], (2α_I, α_+, α_K), and [[eq:ii-d1-1-2]] states them. The printed weights demand
+more decay of u, which an application with u at the weights of [Hin26c, (7.27)] does not supply.
+
+(5) [Hin26c, Section 7.2] writes X⃗^α = X_1^(α_1) ⋯ X_(J−1)^(α_(J−1)) for multi-indices α and expands [X⃗^α, P] by
+[Hin26c, Lemma 3.25] (which is [[lem:ii-a-9-3]]) as Σ_(β+γ=α) c_(βγ) (ad^β_X⃗ P) X⃗^γ ([Hin26c, (7.37), (7.43),
+(7.61)]). Near ℐ⁺ the fields do not commute: the rotation fields, and in dimension 3 + 1 also [X_1, X_2] ∈ x_I C^∞
+([Hin26c, (7.31)]). The expansion (7.37) is exact even so, as deleting positions from an ordered power leaves an
+ordered power. But X_j X⃗^γ is not X⃗^(γ+e_j), and the argument there needs it to read Q_(ij) X_j X⃗^γ u as a component
+of u^(k); so that system closes only modulo reordering commutators, which lie in the span of the family and can be
+absorbed. With words ([[sec:ii-d1-2]]) the expansion (F2) is exact and the commuted system closes without reordering.
+At the horizon, over ∂K⁺ and at the trapped set the fields commute, and words and multi-indices agree up to counting,
+with the coupling [[eq:ii-d1-2-2p]], whose horizon coupling is diagonal.
+
+(6) [Hin26c, Section 7.2] applies its Propositions 7.4, 7.6–7.9 and 7.10 to the commuted equations, operators with
+off-diagonal first-order terms; for the radial point estimates it refers to its Remark 7.5, and for the trapping
+estimate it gives no argument. [[lem:ii-d1-2-5]] proves the estimates for such systems under the sign condition
+[[eq:ii-d1-2-8]], and [[sec:ii-d1-3]]–[[sec:ii-d1-6]] verify that condition; at the trapped set this rests on the form
+of the proof of [[prop:ii-d-4-2]], in which the operator enters only through its principal symbol, through 𝔭 and
+through one commutator.
+
+(7) [Hin26c, Section 6] states the regularity C^(d_0−1,ℓ_K)_cu for the perturbed stable and unstable hypersurfaces.
+[[sec:ii-d-4]] uses only ϕ^u ∈ C^(d_0−1) and ϕ^s ∈ C^(d_0−2) ([[prop:ii-c1-3-4]]), and chooses d_0 accordingly.

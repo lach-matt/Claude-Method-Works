@@ -1207,7 +1207,7 @@ small, every u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^•, s′ ∈ ℝ, with f := 
 depending only on 𝗌, such that for all k and P of that class with ε_(P,d) small,
 
     ‖u‖_((𝗌;k)) ≤ C_k (‖f‖_((𝗌−1;k)) + ‖u‖^([a⁺,b])_((𝗌;k))
-                       + ε_(P,k) (‖f‖_((𝗌−1;d)) + ‖u‖^([a⁺,b])_((𝗌;d)))),                                    {#eq:ii-e-5-6}
+                       + ε_(P,k) (‖f‖_((𝗌−1;d)) + ‖u‖^([a⁺,b])_((𝗌;d)))),                             {#eq:ii-e-5-6}
 
 with the spaces of [[eq:ii-e-5-5]], the superscript marking the norm on Ω^K_([a⁺,b]), and C_k depending on P only
 through a bound for ε_(P,d). Here ε_(P,k) may be the norm of P − P_0 over Ω^K_([a,b]) alone: on the room below

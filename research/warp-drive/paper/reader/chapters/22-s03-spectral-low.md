@@ -1065,3 +1065,315 @@ This is [Hin26c, Theorem 9.41] in dimension 4 + 1, on E, with the augmentations 
 adjoint estimate (2). (G) is the gap hypothesis of [[sec:i-c-1-2]]. [[eq:i-c-6-6]] is [Hin26c, (9.119)] and
 [[eq:i-c-6-8]] is [Hin26c, (9.120)], on the spaces of [[def:i-c-6-1]]. [[rem:i-c-6-7]] lists what differs from
 [Hin26c].
+
+#### Proof of (1) {#sec:i-c-6-4}
+
+*Proof of [[thm:i-c-6-4]] (1).* Fix k. Constants C do not depend on ς, on θ, or on ρ_c below, unless written C_(ρ_c).
+Let φ_z ∈ C^∞([0, ∞)) vanish on [0, 2] and equal 1 on [4, ∞), let χ_0 ∈ C^∞([0, ∞)) equal 1 on [0, ½] and vanish on
+[1, ∞), and put
+
+    χ_zf := φ_z(ρ/ς),     χ_tf := χ_0(ρ/ρ_c),     0 < ρ_c ≤ ρ_c^0 := min(1/(2R_1), ρ_1/2, 1/(2R)),
+
+where supp ψ_i ∪ supp φ_j ⊂ {r ≤ R}. Then χ_∂ = 1 on supp χ_tf, χ_tf ψ_i = 0 = χ_tf φ_j, and for ς ≤ ρ_c/8,
+χ_zf = 1 on supp(1 − χ_tf) and on supp ψ_i ∪ supp φ_j. Write ‖·‖_(l,q) for ‖·‖_((s;k),(𝗋+α_+,l,q),ς) and ‖·‖′_(l,q)
+for ‖·‖_((s−1;k),(𝗋+α_++1,l,q),ς).
+
+*Finiteness.* Let 𝒫(σ)(u, c) = (f, e) with the right side of [[eq:i-c-6-6]] finite. Then
+P̂(σ)u = f − Σ c_iψ_i ∈ H̄^((s−1;k),𝗋_ς+α_++1), so u ∈ H̄^((s;k),𝗋_ς+α_+) by [[thm:i-a-7-2]] (4), and
+‖u‖_(α,0) < ∞ by [[lem:i-c-6-2]] (c). This is what makes the absorptions below legitimate.
+
+*Step 1 (zf).* For ς small, χ_zf u is supported in {ρ ≥ 2ς}, a compact subset of X̄ ∖ ∂X for fixed ς, so
+χ_zf u ∈ H̄^(s+k) with compact support, and (χ_zf u, c) ∈ 𝒳_0 ⊕ ℂ^(m_1) at the regularity s + k. (Z_𝒫) holds at the
+regularity s + k as well: the kernel of 𝒫(0) there lies in the kernel at s, and the index of 𝒫(0), which is that of
+P̂(0) plus m_1 − m_2, does not depend on the regularity by [[thm:i-c-3-1]] (3). So by [[lem:i-c-6-2]] (a), the bounded
+inverse of 𝒫(0) at s + k, and ⟨χ_zf u, φ_j⟩_h = ⟨u, φ_j⟩_h,
+
+    ‖χ_zf u‖_(α,0) + |c| ≤ C‖χ_zf u‖_(H̄_b^(s+k,α)) + |c| ≤ C(‖P̂(0)(χ_zf u) + Σ c_iψ_i‖_(H̄_b^(s+k−1,α+2)) + |e|).
+
+Since χ_zf ψ_i = ψ_i and P̂(0)u = f − Σ c_iψ_i − (σT + σ²P_2)u,
+
+    P̂(0)(χ_zf u) + Σ c_iψ_i = χ_zf f − χ_zf(σT + σ²P_2)u + [P̂(0), χ_zf]u.
+
+(i) By [[lem:i-c-6-2]] (a), (b), ‖χ_zf f‖_(H̄_b^(s+k−1,α+2)) ≤ C‖χ_zf f‖′_(α+2,0) ≤ C‖f‖′_(α+2,0).
+
+(ii) Let χ′_zf := φ′(ρ/ς) with φ′ = 0 on [0, 1] and 1 on [2, ∞); it is 1 near supp χ_zf, so
+χ_zf(σT + σ²P_2)u = χ_zf(σT + σ²P_2)χ′_zf u. On {ρ < ρ_1}, σT + σ²P_2 = σρB_T + σ²ρ²g̃ with
+B_T := 2i(ρ∂_ρ − 3/2 − S) − iρ⁻¹Q ∈ Diff_b^1 by [[eq:i-c-1-1]]; ρB_T maps H̄_b^(s+k,α+1) to H̄_b^(s+k−1,α+2), and
+ρ² maps H̄_b^(s+k,α) ⊃ H̄_b^(s+k,α+1) to H̄_b^(s+k,α+2). On {ρ ≥ ρ_1/2}, σT + σ²P_2 is σ times a first-order operator.
+So, by [[lem:i-c-6-2]] (a) with q = −1 and then (b), (d1),
+
+    ‖χ_zf(σT + σ²P_2)u‖_(H̄_b^(s+k−1,α+2)) ≤ Cς‖χ′_zf u‖_(H̄_b^(s+k,α+1)) ≤ C‖χ′_zf u‖_(α,−1) ≤ C‖u‖_(α,−η),
+                                                                                              η ∈ (0, 1].
+
+(iii) [P̂(0), χ_zf] = ρ²[P⁽⁰⁾, χ_zf] is ρ² times a first-order b-operator whose coefficients, made of b-derivatives of
+φ_z(ρ/ς), are bounded in C_b^∞ independently of ς and supported in {2ς ≤ ρ ≤ 4ς}. With χ″_zf := φ″(ρ/ς),
+φ″ ∈ C_c^∞((1, 8)) equal to 1 on [2, 4], [[lem:i-c-6-2]] (a), (d3) and (b) give
+
+    ‖[P̂(0), χ_zf]u‖_(H̄_b^(s+k−1,α+2)) ≤ C‖χ″_zf u‖_(H̄_b^(s+k,α)) ≤ C‖χ″_zf u‖_(α,0) ≤ C‖χ″_zf u‖_(α,−η)
+                                       ≤ C‖u‖_(α,−η).
+
+(iv) (1 − χ_zf)u is supported in {ρ ≤ 4ς}, so by (d3) and (b), ‖(1 − χ_zf)u‖_(α,0) ≤ C‖u‖_(α,−η).
+
+Together, for every η ∈ (0, 1] ([Hin26c, (9.121)]),
+
+    ‖u‖_(α,0) + |c| ≤ C(‖f‖′_(α+2,0) + |e| + ‖u‖_(α,−η)).                                                 {#eq:i-c-6-9}
+
+*Step 2 (tf).* By (G), fix η ∈ (0, 1] with β_− < α + 2 − η and α + 2 + η < β_+, and put q_η := −α − η, so that
+2 − q_η = α + 2 + η lies in the gap and [[cor:i-c-5-2]] (b) applies at q = q_η. Split u = χ_tf u + (1 − χ_tf)u.
+
+(v) (1 − χ_tf)u is supported in {ρ ≥ ρ_c/2}, so by (d2) and (b), ‖(1 − χ_tf)u‖_(α,−η) ≤ C_(ρ_c) ς^η ‖u‖_(α,0).
+
+(vi) Since χ_∂ = 1 on supp χ_tf, ‖χ_tf u‖_(α,−η) = ς^(−(α+2)) ‖w‖_(H_(sc,b;b)^((s;k),(𝗋+α_+,q_η))) with
+w := S_ς(χ_tf u). By [[eq:i-c-5-1]], with C_T its constant, uniform in θ ∈ Σ,
+
+    ‖w‖_(H_(sc,b;b)^((s;k),(𝗋+α_+,q_η))) ≤ C_T ‖N_tf(σ̂)w‖_(H_(sc,b;b)^((s−2;k),(𝗋+α_++1,q_η−2))),
+    ς²N_tf(σ̂)w = S_ς(χ_tf f + [P̂(σ), χ_tf]u − E_σ χ_tf u),
+
+using [[eq:i-c-4-2]], [[eq:i-c-6-2]] and χ_tf ψ_i = 0. The three terms, multiplied by ς^(−(α+2)) ς⁻², are bounded as
+follows.
+
+The first gives the tf part of ‖χ_tf f‖_((s−2;k),(𝗋+α_++1,α+2,−η),ς) (the order at ztf is −η − (α + 2) = q_η − 2),
+which by [[lem:i-c-6-2]] (b), (d) is at most C‖f‖′_(α+2,0).
+
+The second: [P̂(σ), χ_tf] is a first-order operator with coefficients supported in {ρ_c/2 ≤ ρ ≤ ρ_c} and bounded, with
+their derivatives, by C_(ρ_c) for |σ| ≤ 1. As χ_∂ = 1 there, the term is the full norm
+‖[P̂(σ), χ_tf]u‖_((s−2;k),(𝗋+α_++1,α+2,−η),ς), which by [[lem:i-c-6-2]] (a) with q = −η is at most
+C_(ρ_c) ς^η ‖χ̃u‖_(H̄^(s+k−1)), χ̃ a cut-off to {ρ_c/4 ≤ ρ ≤ 2ρ_c}, and so by (a) and (b) at most
+C_(ρ_c) ς^η ‖u‖_(α,0).
+
+The third, by [[lem:i-c-6-3]], is at most C(ρ_c + ς) ς^(−(α+2)) ‖w‖.
+
+Fix ρ_c ≤ ρ_c^0 with C_T Cρ_c ≤ ¼, and let ς ≤ ρ_c/8 with C_T Cς ≤ ¼. Then the third term is absorbed, ‖w‖ being
+finite, and
+
+    ‖u‖_(α,−η) ≤ C‖f‖′_(α+2,0) + C_(ρ_c) ς^η ‖u‖_(α,0).
+
+Inserted in [[eq:i-c-6-9]] this gives ‖u‖_(α,0) + |c| ≤ C(‖f‖′_(α+2,0) + |e|) + C′_(ρ_c) ς^η ‖u‖_(α,0), and for
+ς ≤ c′_k with C′_(ρ_c)(c′_k)^η ≤ ½ the last term is absorbed. With c_k := min_(k′≤k) c′_(k′) this is
+[[eq:i-c-6-6]]. ∎
+
+The argument is that of [Hin26c]: the zero energy estimate near zf, the tf estimate [Hin26c, (9.118)] near tf, and
+absorption through the factor ς^η; no symbolic estimate is used. One step differs: [Hin26c] absorbs the model error
+P̂(σ) − ς²N_tf through its vanishing at tf, [Hin26c, (9.122)], and here it is absorbed through the factor ρ_c + ς of
+[[lem:i-c-6-3]], with ρ_c fixed small first.
+
+#### Proof of (2) and (3) {#sec:i-c-6-5}
+
+*Proof of [[thm:i-c-6-4]] (2) and (3).* *(2).* The proof of (1) at k = 0 applies to (v, d) with
+𝒫(σ)^*(v, d) = (g, b); ‖v‖_((1−s),(−𝗋−α_+−1,−α−2,0),ς) is finite as v ∈ 𝒳_σ^*. The changes are these.
+
+In Step 1, in place of the bounded inverse of 𝒫(0): for v ∈ 𝒳_0^* and d ∈ ℂ^(m_2),
+
+    ‖v‖_(Ḣ_b^(1−s,−α−2)) + |d| ≤ C‖𝒫(0)^*(v, d)‖_(Ḣ_b^(−s,−α) ⊕ ℂ^(m_1)).                                  {#eq:i-c-6-10}
+
+Indeed 𝒫(0) is invertible, so its Banach adjoint is, and by Green's formula of [[sec:i-c-3-1]],
+⟨𝒫(0)(u, c), (v, d)⟩ = ⟨(u, c), 𝒫(0)^*(v, d)⟩ for u ∈ 𝒳_0; as ‖u‖_(𝒳_0) ≥ ‖u‖_(H̄_b^(s,α)) and Ḣ_b^(−s,−α) is the
+dual of H̄_b^(s,α) ([[lem:i-c-2-9]] (a)), the norm of the functional (u, c) ↦ ⟨𝒫(0)(u, c), (v, d)⟩ on
+𝒳_0 ⊕ ℂ^(m_1) is at most the right side of [[eq:i-c-6-10]], and ‖v‖_(Ḣ_b^(1−s,−α−2)) is the norm of v in 𝒴_0^*. The
+terms (i)–(iv) are as before with P̂(0)^(*h), σ̄T^(*h) + σ̄²P_2 (and T^(*h) ∈ ρ Diff_b^1 near ∂X, P_2^(*h) = P_2) and
+[P̂(0)^(*h), χ_zf] ∈ ρ² Diff_b^1, the weights being those of [[eq:i-c-6-7]] and the regularity 1 − s, respectively −s.
+
+In Step 2 the weight moves the other way. Put q_η^* := η − α; then 2 − q_η^* = α + 2 − η lies in the gap by the
+choice of η, and ‖χ_tf v‖_((1−s),(−𝗋−α_+−1,−α−2,−η),ς) = ς^α ‖w^*‖_(H_(sc,b)^(1−s,(−𝗋−α_+−1,−q_η^*+2))) with
+w^* := S_ς(χ_tf v), the order at ztf being −η + α + 2. [[eq:i-c-5-2]] at q = q_η^* bounds the stronger norm
+‖w^*‖_(H_(sc,b)^(−s+2,(−𝗋−α_+−1,−q_η^*+2))) by C_T ‖N_tf(σ̂)^(*h)w^*‖_(H_(sc,b)^(−s,(−𝗋−α_+,−q_η^*))), whose order at
+ztf, α − η, is that of ℋ̇_ς^(−s,(−𝗋−α_+,−α,−η)), and where
+
+    ς²N_tf(σ̂)^(*h)w^* = S_ς(χ_tf g + [P̂(σ)^(*h), χ_tf]v − E_σ^* χ_tf v)
+
+([[sec:i-c-6-2]]; χ_tf φ_j = 0). The term with E_σ^* is absorbed at the regularity 2 − s, by the adjoint form of
+[[lem:i-c-6-3]], and the regularity is then lowered to 1 − s. The absorption needs the H^(−s+2)-norm of w^* to be
+finite, and it is: on a neighbourhood of supp χ_tf, P̂(σ)^(*h)v = g, as the φ_j vanish there, and P̂(σ)^(*h) is
+elliptic at fibre infinity there, so [[prop:i-a-5-1]] in its strong form (the left side is finite when the right side
+is) gives v the regularity 2 − s there, with its decay orders. This gives [[eq:i-c-6-7]].
+
+*(3).* 𝒫(σ) is P̂(σ) ⊕ 0 plus an operator of finite rank, so it is Fredholm by [[thm:i-a-7-2]] (3), and by
+[[eq:i-c-6-6]] at k = 0 it is injective. Let (v, d) ∈ 𝒴_σ^* ⊕ ℂ^(m_2) annihilate its range. Taking c = 0 and
+u ∈ C_c^∞(ℝ⁴)|_X (which lies in 𝒳_σ), ⟨u, P̂(σ)^(*h)v + Σ_j d_jφ_j⟩_h = 0 by [[lem:i-a-6-1]] (d), so
+P̂(σ)^(*h)v = −Σ_j d_jφ_j as a supported distribution; this lies in Ḣ^(−s,−𝗋_ς−α_+), so v ∈ 𝒳_σ^* (with
+𝒴_σ^* = ℋ̇_ς^(1−s,(−𝗋−α_+−1,−α−2,0)) at fixed ς, by [[lem:i-c-6-2]] (c) and [[lem:i-a-6-1]] (b)). Taking u = 0 gives
+⟨v, ψ_i⟩_h = 0. So 𝒫(σ)^*(v, d) = 0, and (v, d) = 0 by [[eq:i-c-6-7]]. The range is closed and has trivial
+annihilator, so 𝒫(σ) is onto. ∎
+
+[Hin26c] derives the invertibility in its Theorem 9.41 from the injectivity given by its (9.119) and the index 0 of its
+(9.18). That route is not available for an augmented operator, whose index is m_1 − m_2 plus that of P̂(σ); that index
+is what [[cor:i-c-6-6]] determines, and (2) is the uniform estimate its proof needs.
+
+#### Proof of (4) and (5) {#sec:i-c-6-6}
+
+**Lemma {#lem:i-c-6-5}** ([Hin26c, proof of (9.120)].) For i ≥ 1, A_i := (σ∂_σ)^i P̂(σ) = σT + 2^i σ²P_2. For
+s′, l, q ∈ ℝ and k′ ∈ ℕ_0 there is C with
+
+    ‖A_i u‖_((s′;k′),(𝗋+1,l+2,q),ς) ≤ C‖u‖_((s′;k′+1),(𝗋,l,q),ς),     ς ∈ (0, ς_1].
+
+*Proof.* The formula for A_i holds because (σ∂_σ)σ^m = mσ^m and P̂(0), T, P_2 do not depend on σ.
+(1 − χ_∂)A_i u = A_i(1 − χ_∂)u + [A_i, χ_∂]u. A_i is σ times a first-order operator on supp(1 − χ_∂), and
+[A_i, χ_∂] = σ[T, χ_∂] is of order 0 with coefficients supported in {R_1 ≤ r ≤ 2R_1}; with [[lem:i-c-6-2]] (a) for
+the latter, the first term of the left side is at most Cς times the right side. For the second,
+χ_∂A_i u = A_i(χ_∂u) − [A_i, χ_∂]u, the commutator again handled by [[lem:i-c-6-2]] (a). By [[eq:i-c-1-1]], with
+Q = ρ³Q̃ and g_00 = ρ²g̃,
+
+    ς⁻² S_ς A_i S_ς⁻¹ = 2iσ̂ρ̂(ρ̂∂_ρ̂ − 3/2 − S) − iσ̂ς²ρ̂³Q̃ + 2^i ς²σ̂²ρ̂²g̃,
+
+with coefficients smooth in (ςρ̂, ω) as in [[lem:i-c-6-3]]: indeed σT = ςσ̂(2iςρ̂(ρ̂∂_ρ̂ − 3/2 − S) − iς³ρ̂³Q̃) and
+σ²P_2 = ς⁴σ̂²ρ̂²g̃. Near sctf, ρ̂∂_ρ̂ uses one b-derivative and each factor ρ̂ raises the decay order by one, so the
+operator maps H_sc^((s′;k′+1),𝗋) to H_sc^((s′;k′),𝗋+1). Near ztf, ρ̂ = r̂⁻¹ lowers the b-weight by one, and
+H_(b,c−1)^(s′+k′) ⊂ H_(b,c−2)^(s′+k′) there (r̂ ≤ 2); and ς²ρ̂³ = ρ̂² · ςρ with ρ ≤ ρ_1. So it maps the ztf order q − l
+to q − l − 2, and ς^(−(l+4)) ‖S_ς A_i χ_∂u‖ ≤ C ς^(−(l+2)) ‖S_ς χ_∂u‖ in the norms of [[eq:i-c-6-1]]. ∎
+
+*Proof of [[thm:i-c-6-4]] (4).* Let R(σ) := P̂(σ)⁻¹, 0 < |σ| ≤ c_0, and fix σ_* there. By [[thm:i-a-7-2]] (6), for f in
+D := H̄^((s+ϵ−1;j),𝗋_(ς_*)+ϵ+α_++1), σ ↦ R(σ)f is j times differentiable near σ_* in
+Z := H̄^((s−ϵ;0),𝗋_(ς_*)−ϵ+α_+), on which P̂(σ) is injective (its kernel does not depend on the admissible orders,
+[[thm:i-a-7-2]] (3), for ϵ below the margins). Applying (σ∂_σ)^i to P̂(σ)R(σ)f = f, with σ∂_σ a derivation,
+
+    (σ∂_σ)^i R(σ)f = −R(σ) Σ_(i′<i) [i!/(i′!(i − i′)!)] A_(i−i′) (σ∂_σ)^(i′) R(σ)f,     1 ≤ i ≤ j,         {#eq:i-c-6-11}
+
+at σ = σ_*, as soon as the sum lies in 𝒴_(σ_*) (then both sides are elements of Z with the same image under the
+injective P̂(σ_*)). We show by induction on i that, for |σ_*| ≤ c_(j,k) := min_(i≤j) c_(k+j−i)(s + i), with
+c_(k′)(s′) the constant of (1) at the regularity s′ (all hypotheses hold at every s′ ≥ s, (Z_𝒫) by
+[[thm:i-c-3-1]] (4)),
+
+    ‖(σ∂_σ)^i R(σ_*)f‖_((s+i;k+j−i),(𝗋+α_+,α,0),ς_*) ≤ C‖f‖_((s−1;k+j),(𝗋+α_++1,α+2,0),ς_*).
+
+The case i = 0 is (1) at the regularity s and b-order k + j. For i ≥ 1, by the induction hypothesis and
+[[lem:i-c-6-5]] the term i′ of the sum lies in ℋ_(ς_*)^((s+i′;k+j−i′−1),(𝗋+α_++1,α+2,0)), which by
+[[lem:i-c-6-2]] (e) lies in ℋ_(ς_*)^((s+i−1;k+j−i),(𝗋+α_++1,α+2,0)), as i′ ≤ i − 1; (1) at the regularity s + i and
+b-order k + j − i then gives the bound. At i = j this is [[eq:i-c-6-8]] for f ∈ D. D contains C_c^∞(ℝ⁴)|_X, which is
+dense in H̄^((s−1;k+j),𝗋_(ς_*)+α_++1), and by [[eq:i-c-6-11]] and the bounds the derivatives extend continuously; this
+is the extension in (4), and it agrees with that of [[eq:i-a-7-6]]. ∎
+
+*Proof of [[thm:i-c-6-4]] (5).* For α′ with α′ + 2 ∈ (β_−, β_+), (Z) at α′ holds by [[thm:i-c-3-1]] (4) and (TF) at
+α′ + 2 by [[cor:i-c-5-2]] (c). For an augmented operator, (Z_𝒫) at α′: the kernel of 𝒫(0) and the annihilator of its
+range, which is the kernel of 𝒫(0)^* on 𝒳_0^* ⊕ ℂ^(m_2) (as in the proof of (3)), consist of the (u, c) with
+P̂(0)u = −Σ c_iψ_i, respectively the (v, d) with P̂(0)^(*h)v = −Σ d_jφ_j, whose right sides vanish near ∂X; so the proof
+of [[thm:i-c-3-1]] (2)–(3) shows that they do not depend on α′, and 𝒫(0) stays invertible. The proof of (1)–(4) used
+no other property of α. ∎
+
+#### The index at zero energy {#sec:i-c-6-7}
+
+**Corollary {#cor:i-c-6-6}** (Index 0 at zero energy.) Assume (H1)–(H4), (G) and (TF), with s > ½ + ϑ_ℋ, and that
+the index of P̂(σ): 𝒳_σ → 𝒴_σ at σ ≠ 0, Im σ ≥ 0, which does not depend on σ ([[thm:i-a-7-2]] (3)), is 0; under the
+hypotheses of [[ch:s02]] this is [[thm:i-b-1-3]] (3). Then P̂(0): 𝒳_0 → 𝒴_0 has index 0.
+
+This is [Hin26c, Corollary 9.43] in dimension 4 + 1, on E.
+
+*Proof.* Let d_0 and d_1 be the dimensions of the kernel K of P̂(0) on 𝒳_0 and of W := ker_(𝒳_0^*) P̂(0)^(*h), the
+annihilator of its range ([[thm:i-c-3-1]] (1)). An element of K that vanishes on X° is 0, as extendible distributions
+are restrictions to X°. An element w of W that vanishes on X° is supported on ∂_♯X, and then [[eq:i-a-6-2]] of
+[[cor:i-a-6-5]] at σ = 0 gives w = 0 on a slab Ω_(r_0,b″), so w = 0. So the pairings with C_c^∞(X°; E) separate the
+points of K and of W, and there are φ_1, …, φ_(d_0) and ψ_1, …, ψ_(d_1) in C_c^∞(X°; E) with (⟨k_a, φ_j⟩_h) and
+(⟨ψ_i, w_b⟩_h) invertible, for bases (k_a) of K and (w_b) of W. With these, m_1 := d_1 and m_2 := d_0, 𝒫(0) of
+[[eq:i-c-6-5]] is invertible: if P̂(0)u + Σ c_iψ_i = 0 and ⟨u, φ_j⟩_h = 0 for all j, pairing with w_b gives c = 0,
+then u ∈ K and u = 0; and given (f, e), choose c with f − Σ c_iψ_i annihilated by W, hence equal to P̂(0)u_0 (the range
+is closed), and then k ∈ K with ⟨u_0 + k, φ_j⟩_h = e_j. So (Z_𝒫) holds, and [[thm:i-c-6-4]] (3) gives that 𝒫(σ) is
+invertible for 0 < |σ| ≤ c_0. Its index is that of P̂(σ) plus m_1 − m_2, that is d_1 − d_0, and it is 0. So
+d_0 = d_1. ∎
+
+The proof is that of [Hin26c], with [[thm:i-c-6-4]] (2)–(3) supplying the invertibility of the augmented operator,
+which injectivity alone does not give, and with the choice of ψ_i, φ_j in C_c^∞(X°; E) justified.
+
+**Remark {#rem:i-c-6-7}** (What differs from [Hin26c].) (a) The smallness c_k in [[thm:i-c-6-4]] (1) may depend on k.
+[Hin26c] removes the dependence by applying its Theorem 9.5 (4) for |σ| ∈ [δ_k, δ_0]. Here that would need
+[[thm:i-a-7-2]] (4) with constants uniform for σ in a compact set and the orders 𝗋_ς, which depend on |σ|;
+[[thm:i-a-7-2]] gives uniformity only for orders that depend on Re σ ([[thm:i-a-7-2]] (1)). So [[thm:i-c-6-4]] is
+stated with c_k, and with c_(j,k) in (4). (b) [Hin26c] asserts the conclusions uniformly for α in compact subintervals
+of the gap; [[thm:i-c-6-4]] (5) is stated for each α, and the uniformity is not proved here. (c) [[thm:i-c-6-4]] (4) is
+stated for P̂(σ): for an augmented operator it would need the analogue of [[thm:i-a-7-2]] (6), which is not proved in
+[[ch:s01]]. (d) The regularity order is constant ([[rem:i-a-1-1]]).
+
+### Uniformity in the operator {#sec:i-c-7}
+
+**Theorem {#thm:i-c-7-1}** (Uniformity in the operator.) Assume (H1)–(H5), and let b_* ∈ ℬ be such that (G), (Z_𝒫)
+and (TF) hold for P̂^(b_*) with the weight α and fixed ψ_i, φ_j. Then:
+
+(1) (G), (Z_𝒫) and (TF) hold for P̂^b, with the same α, for b near b_*;
+
+(2) the constants in [[thm:i-c-3-1]] (1), (4), [[thm:i-c-4-3]] (1), (2), (4), [[cor:i-c-5-2]] (b) and
+[[thm:i-c-6-4]] (1), (2), (4), and c_k, c_(j,k), can be chosen uniform for b near b_*;
+
+(3) the index of P̂^b(0): 𝒳_0 → 𝒴_0 is locally constant in b.
+
+*Proof.* (G): let [α + 2 − ϵ, α + 2 + ϵ] contain no real part of a root at b_*. By [[lem:i-c-2-4]] (c),
+I^(b_*)(ι)⁻¹ is bounded from H_μ^(m−2) to H_μ^m, μ = Im ι, uniformly on the strip |Re ι − α − 2| ≤ ϵ. The difference
+I^b(ι) − I^(b_*)(ι) = (a^b − a^(b_*))ι + (V^b − V^(b_*)) + (b^b − b^(b_*)) has coefficients that tend to 0 in C^∞ as
+b → b_*, by (H5), and maps H_μ^m to H_μ^(m−2) with norm at most ϵ_b(1 + |Re ι|) → 0 uniformly on the strip, as
+⟨μ⟩‖v‖_(H_μ^(m−2)) ≤ ‖v‖_(H_μ^(m−1)) and as in the proof of [[lem:i-c-2-4]] (a) for the first-order part. A Neumann
+series gives that I^b(ι) is invertible on the strip, so α + 2 lies in a gap at b.
+
+(2) for the estimates with error terms ([[eq:i-c-3-2]]–[[eq:i-c-3-3]], [[eq:i-c-4-3]]–[[eq:i-c-4-5]]): their constants
+are produced by finitely many seminorms of the coefficients and by positivity margins, as in [[thm:i-a-8-1]], and by
+the bounds of J(ι)⁻¹ on the lines used in [[lem:i-c-2-6]] ([[lem:i-c-2-7]] is qualitative), which are uniform near b_*
+by the Neumann series above; the coefficients depend continuously on b by (H5).
+
+(Z_𝒫) and the estimates without error terms: suppose b_j → b_* and (u_j, c_j) have
+‖u_j‖_(H̄_b^(s,α)) + |c_j| = 1 and 𝒫^(b_j)(0)(u_j, c_j) → 0. By [[eq:i-c-3-2]], uniformly in j,
+‖u_j‖_(H̄_b^(s,α)) ≤ C(‖𝒫^(b_j)(0)(u_j, c_j)‖ + |c_j| + ‖u_j‖_(H̄_b^(−M,−M))), so a subsequence converges weakly in
+H̄_b^(s,α) and strongly in H̄_b^(−M,−M) ([[lem:i-c-2-9]] (b)) to u, with c_j → c and (u, c) ≠ 0. Since
+P̂^(b_j)(0)u_j → P̂^(b_*)(0)u in distributions, P̂^(b_*)(0)u = −Σ c_iψ_i, so u ∈ 𝒳_0 and 𝒫^(b_*)(0)(u, c) = 0,
+contradicting (Z_𝒫) at b_*. So the estimate ‖u‖ + |c| ≤ C‖𝒫^b(0)(u, c)‖ holds uniformly near b_*. The same argument
+with [[eq:i-c-3-3]] for 𝒫^b(0)^* shows that its kernel, the annihilator of the range, is trivial near b_*, so 𝒫^b(0)
+is onto.
+
+(TF) and [[cor:i-c-5-2]] (b): the proof of [[cor:i-c-5-2]] (b) by contradiction runs with sequences
+(θ_j, b_j) → (θ_*, b_*), using [[eq:i-c-4-3]] uniformly and N_tf^(b_j)(e^(iθ_j))w_j → N_tf^(b_*)(e^(iθ_*))w in
+distributions; at b_*, [[cor:i-c-5-2]] (a) gives injectivity for every θ. The same argument with a sequence of kernel
+elements shows that [[def:i-c-5-1]] (ii) and (iii) hold near b_* (for (iii), with [[eq:i-c-4-4]] and the adjoint for
+H_0^b).
+
+[[thm:i-c-6-4]]: its constants are those of [[thm:i-c-3-1]] (4) (for 𝒫), of [[eq:i-c-5-1]]–[[eq:i-c-5-2]], and of
+[[lem:i-c-6-2]], [[lem:i-c-6-3]] and [[lem:i-c-6-5]], which are uniform by the above and by (H5); c_k and c_(j,k) are
+chosen from them. (3): augment P̂^(b_*)(0) as in the proof of [[cor:i-c-6-6]]; by (1), 𝒫^b(0) is invertible near b_*,
+so the index of P̂^b(0) is m_2 − m_1 there. ∎
+
+(Z) and (TF) are therefore open conditions in the operator: once they hold for one member of a family satisfying
+(H5), they hold for the nearby ones.
+
+### Remarks on [Hin26c] {#sec:s03-remarks}
+
+The following points concern the text of [Hin26c] and explain where this chapter departs from it in form; none changes
+a statement of [Hin26c]. Pages are the printed pages of [Hin26c].
+
+(1) In [Hin26c, Section 3.2.3, p. 61] the Mellin transform is (ℳu)(σ) = ∫_0^∞ ρ^(iσ) u dρ/ρ, so ρ∂_ρ becomes −iσ and
+the indicial roots are ι = −iσ at the poles of N(A, σ)⁻¹ ([Hin26c, Definition 3.12]). For u ∈ ρ^β L²(dρ/ρ) the
+Plancherel line is then Im σ = β, while [Hin26c, Lemma 3.11] integrates over σ − i(α + 3/2), that is
+Im σ = −(α + 3/2); and the proof of [Hin26c, (3.47)] uses that N(A, −iν + κ), κ ∈ ℝ, is invertible when ν lies in an
+indicial gap, whereas the poles on that line are the roots with real part −ν. With both signs reversed the argument is
+unchanged, and [Hin26c, (3.47)] holds as stated. [[lem:i-c-2-3]] and [[lem:i-c-2-6]] use ℳv(ι) = ∫ e^(ιt) v dt,
+t = −log ϱ, for which the line of the b-weight c is Re ι = c.
+
+(2) In [Hin26c, (3.46), p. 60] the second equivalence carries the factor |σ|^(3/2−l), from the relation
+r²|dr dω| = (|σ|^(3/2))² r̂²|dr̂ dω|. With r̂ = r|σ|, r² dr = |σ|⁻³ r̂² dr̂, so the factor is |σ|^(−3/2) and the power
+|σ|^(−3/2−l); in dimension 4 + 1, where r³ dr = ς⁻⁴ r̂³ dr̂, it is ς^(−2−l), as in [[eq:i-c-6-1]]. The power enters
+both sides of the tf step of the proof of [Hin26c, Theorem 9.41] and cancels there.
+
+(3) [Hin26c, (9.107), p. 194] bounds ‖u^*‖ in Ḣ_b^(−s_0+1,−α−2) by the norm of the adjoint applied to u^* in
+Ḣ_b^(−s_0,−α−2). The adjoint lies in ρ² Diff_b^2 and raises the weight by 2, and the space of its values is dual to
+that of the domain, H̄_b^(s_0,α); the weight there is −α, as in [[eq:i-c-3-3]].
+
+(4) The proof of [Hin26c, (9.117), p. 196] expands −ρ̂²(ρ̂∂_ρ̂ − n + 2 + 2iρ̂⁻¹)² with the middle term
+−2iρ̂(ρ̂∂_ρ̂ − n + 1). Of the two cross products, (ρ̂∂_ρ̂ − n + 2)·2iρ̂⁻¹ = 2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 1) and
+2iρ̂⁻¹(ρ̂∂_ρ̂ − n + 2), only the first is kept; with both, the middle term is −2iρ̂(2ρ̂∂_ρ̂ − 2n + 3). (9.117) serves
+only (9.115), which is not used here ([[sec:i-c-4-3]]).
+
+(5) [Hin26c, Theorem 9.38 (1), p. 195] takes θ with |e^(iθ) ± 1| ≤ ½ and 𝗋 = 𝗋_±. The orders 𝗋_± are those for
+frequencies near ±1 ([Hin26c, Theorem 9.41] uses 𝗋_+ for arg σ ∈ [0, π/4]), so the condition is |e^(iθ) ∓ 1| ≤ ½, as
+in Θ_± of [[sec:i-c-4-3]].
+
+(6) The proof of [Hin26c, Corollary 9.43, p. 200] augments P̂(0) by maps E_01: ℂ^(d_1) → C_c^∞(X°) and
+E_10: 𝒳_0 → ℂ^(d_0), applies [Hin26c, Theorem 9.41] to the augmented operator to obtain its invertibility at σ = iϵ,
+and concludes d_0 = d_1 from the index 0 of [Hin26c, (9.18)]. The estimate (9.119) gives injectivity; for P̂(σ)
+itself invertibility then follows from the index 0 of (9.18). The augmented operator has index d_1 − d_0, which is
+the quantity the corollary asserts to vanish, and injectivity gives only d_1 ≤ d_0; surjectivity needs an estimate
+for the adjoint of the augmented operator, uniform as σ → 0, which [Hin26c] does not state. [[thm:i-c-6-4]] (2) is
+that estimate and (3) the invertibility, proved for augmented operators; with them [[cor:i-c-6-6]] follows by the
+argument of [Hin26c], and the statement of [Hin26c, Corollary 9.43] stands.
+
+(7) In the proof of [Hin26c, Theorem 9.41, p. 198] the zero energy step writes the error and target norms with tf
+orders α_+ and α_+ + 2 where the orders are α and α + 2, as in (9.121) a few lines later. In [Hin26c, Theorem 9.38
+(3), p. 195], N_tf(P_0, e^(iθ)u) stands for N_tf(P_0, e^(iθ))u.
+
+Not proved in this chapter, and not used in it: [Hin26c, (9.115)] and the conjugation behind it ([[sec:i-c-4-3]]);
+the improvements of [Hin26c, Remark 9.37] ([[rem:i-c-3-2]]); and, in [Hin26c, Theorem 9.41], a smallness independent
+of k, uniformity in α, and (9.120) for augmented operators ([[rem:i-c-6-7]]). tf-admissibility is stated here on the
+Fredholm spaces ([[def:i-c-5-1]]), which [Hin26c, Definition 5.10] implies given (9.115) ([[sec:i-c-5-1]]);
+[[prop:i-c-5-3]] verifies [[def:i-c-5-1]] directly.
