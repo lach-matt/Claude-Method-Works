@@ -1204,3 +1204,134 @@ So the change of gauge lies where only robust estimates are used, and the struct
 gauge; this is the content of [Hin26]'s remark that the stationarity of E^Υ and the choice of c_Υ away from ℐ⁺ play
 no role in its Theorems 5.17 and 5.21.
 
+### Partial polyhomogeneity {#sec:iii-c1-3}
+
+This section is [Hin26, Theorem 5.21 and Remark 5.22] (pp. 102–108) in dimension 4 + 1.
+
+**Theorem {#thm:iii-c1-3-1}** ([Hin26, Theorem 5.21] in dimension 4 + 1.) Let ℰ₀ be an index set with
+min Re ℰ₀ > 3/2 + 2γ_Υ and jℰ₀ ⊂ ℰ₀ for j ∈ ℕ. Let ℓ₀, ℓ_I > 3/2 with ℓ₀ ∉ Re π₁ℰ₀, ℓ_I < ℓ₀,
+ℓ_I < 3/2 + (1 − e_C)(1 − v_C)γ_C and ℓ_I ∉ 3/2 + σ_Υ. Let ℓ^♭₀ := 3/2 + ½(1 − e_Υ)γ_Υ and
+ℓ^♭_I := 3/2 + ¼(1 − e_Υ)γ_Υ, which satisfy [[eq:iii-c1-1-1]]. There is an index set ℰ_I^C satisfying
+[[def:iii-c-3-1]], with ℰ₀ ⊂ ℰ_I^C, such that: if h₀, h₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b(Σ_(IVP,r₀); S²T*) satisfy the smallness of
+[[thm:iii-c1-2-1]], the solution h of [[eq:iii-c1-2-1]] satisfies
+
+    h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_(ext,r₀)),                                                       {#eq:iii-c1-3-1}
+
+and for every k and ε > 0 there are k₀ and ε₀ with
+
+    ‖h_j‖_(H^(k₀,(ℰ₀,ℓ₀))_b) < ε₀ (j = 0, 1)   ⟹   ‖h‖_(H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b) < ε.                    {#eq:iii-c1-3-2}
+
+As in [Hin26, Remark 5.22], smallness of ‖h_j‖_(H^(k₀,ℓ^♭₀)_b) does not make the coefficients of the expansions small,
+which is why [[eq:iii-c1-3-2]] is stated separately.
+
+*Proof.* *Step 1 (the expansion at I₀).* Suppose h ∈ H^(∞,(ℰ₀,α₀),(−,ℓ^♭_I))_b for some α₀ ∈ [ℓ^♭₀, ℓ₀); for
+α₀ = ℓ^♭₀ this is [[thm:iii-c1-2-1]] (ℓ^♭₀ < min Re ℰ₀). As P(g_(b₀) + h, g_(b₀)) = 0 and P(g_(b₀), g_(b₀)) = 0,
+
+    L_(g_(b₀))h = −∫₀¹ (L_(g_(b₀)+sh,g_(b₀)) − L_(g_(b₀),g_(b₀)))h ds.                                   {#eq:iii-c1-3-3}
+
+By [[prop:iii-c-4-4]], applied with g₁ = g₀ = g_(b₀) to h and to 0, the two operators have the same leading part and
+the same C^∞ error (the part *The perturbation* of its proof), and their difference lies in
+H^(∞,(ℰ₀+2,α₀+2),(ℰ_I^tot,ℓ^♭_I))_b Diff²_b on U (the perturbation part of [[eq:iii-c-4-4]], whose coefficients are
+polynomial in sh and its first two derivatives, each term with a factor of h; [[lem:iii-c-4-3]]), uniformly in s.
+Acting on h, whose slots lie in H^(∞,(ℰ₀,α₀),(ℰ_I^tot,ℓ^♭_I))_b, it gives by [[lem:iii-c-2-1]] an element of
+H^(∞,(ℰ₀+2,α₀+3),(2ℰ_I^tot,ℓ^♭_I+1))_b: at I₀ the index set is 2ℰ₀ + 2 ⊂ ℰ₀ + 2 and the weight
+α₀ + 2 + min Re ℰ₀ > α₀ + 3 (as min Re ℰ₀ > 1); at ℐ⁺, 2ℰ_I^tot ⊂ ℰ_I^C + 1 ([[lem:iii-c-3-2]] (b)), at the weight
+ℓ^♭_I + 3/2 > ℓ^♭_I + 1. Away from U the spaces impose only regularity. So h solves
+
+    L_(g_(b₀))h ∈ H^(∞,(ℰ₀+2,α₀+3),(−′,ℓ^♭_I+1))_b,     h|_(Σ_(IVP,r₀)) = h₀,  rℒ_(∂_t)h|_(Σ_(IVP,r₀)) = h₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b.
+                                                                                                          {#eq:iii-c1-3-4}
+
+This is one order better at I₀ than [[prop:iii-c-5-2]] alone gives. ([Hin26] writes ℰ₀ + 3; the index set is ℰ₀ + 2,
+the gain being in the weight, which is what the argument uses.) Lower α₀ slightly if needed so that
+α₁ := min(α₀ + 1, ℓ₀) ∉ Re π₁ℰ₀. Let ℰ_(0,≤) := {(z, k) ∈ ℰ₀ : Re z ≤ α₁}, a finite set, p := |ℰ_(0,≤)|, and
+R := Π_((z,k)∈ℰ_(0,≤))(X₀ − z) ∈ Diff^p_b. Then Rh ∈ H^(∞,α₀,(−,ℓ^♭_I))_b (the converse part of [[lem:iii-a-1-3]]),
+and
+
+    L_(g_(b₀))(Rh) = ρ₀²R(ρ₀⁻²L_(g_(b₀))h) + ρ₀²[ρ₀⁻²L_(g_(b₀)), R]h.
+
+Index sets are closed under + ℕ₀, so ℰ₀ + j ⊂ ℰ₀. The first term: ρ₀⁻²L_(g_(b₀))h ∈ H^(∞,(ℰ₀,α₀+1),(−′,ℓ^♭_I+1))_b by
+[[eq:iii-c1-3-4]], and R removes its expansion at I₀ up to α₁ ≤ α₀ + 1 (the converse part of [[lem:iii-a-1-3]]), so
+the first term lies in H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. For the second, by [[lem:iii-c-4-1]] and [[eq:iii-c1-3-5]] below,
+A := ρ₀⁻²L_(g_(b₀)) = −ρ_I(X_I − 3/2 − Ā)(X₀ − X_I) + ρ₀⁻²R̃_b with ρ₀⁻²R̃_b ∈ ρ_I²C^∞Diff²_b, the leading part having
+coefficients independent of ρ₀. X₀ commutes with X₀, X_I, ∂_ω, ρ_I and the constant Ā, and maps a ∈ C^∞ to
+X₀a ∈ ρ₀C^∞; so R commutes with the leading part, and [A, R] = [ρ₀⁻²R̃_b, R] ∈ ρ₀ρ_I²Diff^(p+1)_b. (The cruder
+[A, R] ∈ ρ₀ρ_IDiff^(p+1)_b would not do: on the radiation field ρ_I^(3/2) of slot 6 it gives ρ_I^(5/2), below the weight
+ℓ^♭_I + 1 ∈ (5/2, 3) of the target.) Split h = h_e + h_r, with h_e the terms of its expansion at I₀ with real part at
+most α₀ (those known) and h_r ∈ H^(∞,α₀) at I₀. Then Rh_e = 0, so [A, R]h_e = −RAh_e. At I₀, Ah_e has its expansion in
+ℰ₀ (smooth coefficients only add ℕ₀), and R removes its terms up to α₁, leaving order > α₁. At ℐ⁺, Ah_e lies in
+(−′, ℓ^♭_I + 1): the leading part sends the slots other than 6 from the weight ℓ^♭_I to ℓ^♭_I + 1 and annihilates the
+radiation field ρ_I^(3/2)a of slot 6 (Ā₆₆ = Ā_(6i) = Ā₇₆ = 0, so on it X_I − 3/2 − Ā acts as X_I − 3/2, which commutes
+past X₀ − X_I), and ρ₀⁻²R̃_b gains ρ_I². And [A, R]h_r ∈ H^(∞,α₀+1) at I₀, with α₀ + 1 ≥ α₁, and it has the weight at
+least 3/2 + 2 > ℓ^♭_I + 1 at ℐ⁺. So ρ₀²[A, R]h ∈ H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. The data of Rh lie in
+H^(∞,α₁)_b(Σ_(IVP,r₀)). [[eq:iii-c1-2-2]] with h = 0 and α₀ replaced by α₁ > ℓ^♭_I gives
+Rh ∈ H^(∞,α₁,(−,ℓ^♭_I))_b, and [[lem:iii-a-1-3]] gives h ∈ H^(∞,(ℰ₀,α₁),(−,ℓ^♭_I))_b. After finitely many steps,
+h ∈ H^(∞,(ℰ₀,ℓ₀),(−,ℓ^♭_I))_b.
+
+*Step 2 (the expansion at ℐ⁺).* Suppose h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,α_I)_b for some α_I ∈ [ℓ^♭_I, ℓ_I) and some ℰ_I^C of
+[[def:iii-c-3-1]] with ℰ₀ ⊂ ℰ_I^C; Step 1 gives this for α_I = ℓ^♭_I, with any such ℰ_I^C (one exists:
+[[lem:iii-c-3-2]] (e) applied to ℰ₀). By [[eq:iii-c1-3-3]] and [[prop:iii-c-4-4]] on U,
+
+    (X_I − 3/2 − Ā)(X₀ − X_I)h = f̃ := ρ₀⁻²ρ_I⁻¹(R̃_bh + ∫₀¹ (L_(g_(b₀)+sh,g_(b₀)) − L_(g_(b₀)))h ds),          {#eq:iii-c1-3-5}
+
+with R̃_b ∈ ρ₀²ρ_I²C^∞Diff²_b ([[eq:iii-c-4-4]] at h = 0). The first term maps the slots of h, in (ℰ_I^tot, α_I) at ℐ⁺,
+to (ℰ_I^tot + 1, α_I + 1) ⊂ (ℰ_I^C, α_I + 1) ([[lem:iii-c-3-2]] (a)). The second is ρ_I⁻¹ times a Diff²_b-operator
+with coefficients in H^(∞,(ℰ₀,ℓ₀),(ℰ_I^tot,α_I))_b acting on h; by [[lem:iii-c-2-1]] it lies in
+(ℰ_I^tot + ℰ_I^tot − 1, α_I + ν) ⊂ (ℰ_I^C, α_I + ν) for every ν < ½ ([[def:iii-c-3-1]] (3); the weight is
+α_I + 3/2 − 1, with the strict inequality of [[lem:iii-c-2-1]]). At I₀ both lie in (ℰ₀, ℓ₀). Fix ν ∈ (¼, ½) and put
+α′ := min(α_I + ν, ℓ_I), as in [Hin26, Theorem 5.21, Step 2.6]; lower ν slightly if needed so that
+α′ ∉ 3/2 + σ_Υ and α′ ∉ Re π₁ℰ₀ (which is not needed if α′ = ℓ_I, by the hypotheses). So
+
+    f̃ ∈ H^(∞,(ℰ₀,ℓ₀),(ℰ_I^C,α′))_b(U).                                                                {#eq:iii-c1-3-6}
+
+Write w := (X₀ − X_I)h; its slots have the index sets of those of h ((F1) of [[sec:iii-a-1]]). By [[lem:iii-c-4-2]], Ā
+is lower triangular with the diagonal [[eq:iii-c-4-3]], off-diagonal entries at (3, 1), (4, 1), (4, 3), (5, 2),
+(7, 3), (7, 4), and Ā₇₆ = 0. We integrate slot by slot, in the order 1, 2, 3, 4, 5, 6, 7, putting the off-diagonal
+terms on the right.
+
+(i) *Slots 1–3 (π_Ch).* (X_I − 3/2 − Ā_(jj))w_j = f̃_j + Σ_(i<j) Ā_(ji)w_i, with
+3/2 + Ā_(jj) ≥ 3/2 + (1 − e_C)(1 − v_C)γ_C > ℓ_I ≥ α′ (1 − e_C < 1). By induction the right side lies in (ℰ_I^C, α′)
+at ℐ⁺, and [[lem:iii-a-1-2]] (with α′ ≠ 3/2 + Ā_(jj); the new exponent 3/2 + Ā_(jj) lies above α′, so only the
+conormal statement is affected) gives w_j ∈ H^(∞,(ℰ₀,ℓ₀),(ℰ_I^C,α′))_b. Then (X₀ − X_I)h_j = w_j, and
+[[lem:iii-a-3-2]] with z = 0 (ℓ₀ > α′, α′ ∉ Re π₁ℰ₀; away from ℐ⁺ there is nothing to show) gives
+h_j ∈ H^(∞,(ℰ₀,ℓ₀),(ℰ₀∪̄ℰ_I^C,α′))_b.
+
+(ii) *Slots 4–5 (π₀₁h, π_(1/)h).* The couplings (4, 1), (4, 3), (5, 2) bring w₁, w₂, w₃ ∈ (ℰ_I^C, α′).
+[[lem:iii-a-1-2]] with z = 3/2 + Ā_(jj), Ā₄₄ = (1 − e_Υ)γ_Υ, Ā₅₅ = γ_Υ, gives w_j the index set
+ℰ_I^C ∪ (3/2 + Ā_(jj), 0), which is ℰ_(I,01), resp. ℰ_(I,1/) ([[eq:iii-c-3-2]]), at the weight α′; [[lem:iii-a-3-2]]
+then gives h_j the extended union with ℰ₀.
+
+(iii) *Slot 6 (π̸₀h).* There is no coupling (Ā_(6i) = 0 for i < 6). [[lem:iii-a-1-2]] with z = 3/2 gives
+ℰ̸_(I,0) = ℰ_I^C ∪ (3/2, 0): the radiation field.
+
+(iv) *Slot 7 (π₁₁h).* The couplings (7, 3) (from ℰ_I^C) and (7, 4) (from ℰ_(I,01)), and no (7, 6); [[lem:iii-a-1-2]]
+with z = 3/2 + 2γ_Υ gives ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0) ∪ (3/2 + 2γ_Υ, 0) = ℰ_(I,11). (If Ā₇₇ = 2γ_Υ equalled Ā₄₄,
+the two exponents would coincide and [[lem:iii-a-1-2]] would give a logarithm, so that [[eq:iii-c-3-2]] would need
+(3/2 + 2γ_Υ, 1); this happens only for e_Υ = −1, which 0 < e_Υ < 1 excludes.) No radiation field of π̸₀h reaches slot
+7 ([[rem:s17-no-radiation]]).
+
+[[lem:iii-a-3-2]] gives the extended union ℰ₀ ∪̄ (·) at ℐ⁺: where an exponent of the expansion at I₀ meets one at ℐ⁺,
+the corner produces a logarithm. So, with ℰ′ the smallest index set containing ℰ₀ ∪̄ ℰ_I^C and satisfying
+[[def:iii-c-3-1]] (it exists by [[lem:iii-c-3-2]] (e), as min Re(ℰ₀ ∪̄ ℰ_I^C) > 3/2 + 2γ_Υ; it contains ℰ₀), the slots
+of h lie in the classes of [[eq:iii-c-3-3]] for ℰ′, at the weight α′ (for the slots 4, 5 and 7,
+ℰ₀ ∪̄ ℰ_(I,j) ⊂ ℰ′_(I,j) by [[lem:iii-c-3-2]] (d), as min Re ℰ₀ > 3/2 + 2γ_Υ): h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ′⟩,α′)_b on U, and
+off U trivially. This is [Hin26, Theorem 5.21, Step 2.6], with its ℰ_I^(C,new). Repeating with (α_I, ℰ_I^C) replaced
+by (α′, ℰ′), ν > ¼, reaches ℓ_I after J ≤ 4(ℓ_I − ℓ^♭_I) + 1 repetitions, with index sets
+ℰ^((0)) ⊂ ℰ^((1)) ⊂ ⋯ ⊂ ℰ^((J)); take ℰ_I^C := ℰ^((J)), with ℰ^((0)) the smallest index set of [[def:iii-c-3-1]]
+containing ℰ₀. As the number of repetitions and every step depend only on ℰ₀, ℓ₀, ℓ_I and the parameters, so does
+ℰ_I^C. This is [[eq:iii-c1-3-1]].
+
+*Smallness, [[eq:iii-c1-3-2]].* Each step is linear in the data of the previous one: the coefficients of the expansion
+at I₀ are obtained from Rh, which [[eq:iii-c1-2-2]] bounds by the data and the source of [[eq:iii-c1-3-4]]; that source
+is quadratic in h, bounded in H^(k,α₀+3) by the norms of the previous step times the small
+‖h‖_(H^(k+2,ℓ^♭₀,(−,ℓ^♭_I))); and [[lem:iii-a-1-2]], [[lem:iii-a-1-3]] and [[lem:iii-a-3-2]] are bounded at every order.
+At ℐ⁺ the coefficients are obtained by the integrations (i)–(iv), bounded likewise. Finitely many steps compose to
+[[eq:iii-c1-3-2]], with k₀ the sum of the losses plus that of [[thm:iii-c1-2-1]]. ∎
+
+**Remark {#rem:iii-c1-3-2}** (No subtraction of radiation fields.) In dimension 3 + 1 the entries A^h − A₀ and B^h of
+[Hin26, (5.28)] are of the order of A₀ at ℐ⁺, so the radiation fields of π₁₁h and π̸₀h enter the leading part of the
+operator; [Hin26, Theorem 5.21, Step 2] removes them by measuring h from g₀ = g_(b₀) + h₀, at the cost of the source
+term P(g₀, g_(b₀)) ([Hin26, (5.64)], with the class ⟨(2, 0)⟩₀). In dimension 4 + 1 they are half an order lower
+([[rem:s17-dimension]] (c)) and sit in the error of [[eq:iii-c1-3-5]], whose index set ℰ_I^tot + ℰ_I^tot − 1 lies in
+ℰ_I^C by [[def:iii-c-3-1]] (3). So the subtraction is not needed, and no class with (3/2, 0) in slot 6 is used as a
+background.
+

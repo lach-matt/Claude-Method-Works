@@ -388,7 +388,7 @@ r → ∞. Writing y' = ∂_r + η, the system is
 
 a Volterra system from r = ∞. Its forcing (Γ[g_λ] − Γ[g0])^v_rr = ½ g^{vd}(2 ∂_r u_(dr) − ∂_d u_rr) is in E_3 by
 [[lem:bondi-ell]] and the ℓ-gain of u (g^{vr} = 1 + E_(3/2) multiplies ∂_r u_rr, in E_3; g^{vv}, in E_2, multiplies
-E_2; and g^{vϑ} r⁻¹ is in E_3). Its angular forcing is in E_4 (g^{ϑϑ} = r^(−2)(1 + E_(3/2)) times
+E_2; and g^{vϑ} = −r⁻¹ u(ℓ, e_ϑ) + E_4, in E_3, multiplies 2 ∂_r u_(ϑr) − ∂_ϑ u_rr, in E_2). Its angular forcing is in E_4 (g^{ϑϑ} = r^(−2)(1 + E_(3/2)) times
 ∂_r u_(ϑr) = r ∂_r u(e_ϑ, ℓ) + u(e_ϑ, ℓ), in E_2). Its linear part −2 Γ[g0]^a_rb η^b vanishes for a = v
 (Γ[g0]^v_rb = 0 in the ingoing chart) and is −(2/r) ξ' for a = ϑ (Γ[g0]^ϑ_rϑ = 1/r). This is not an integrable
 perturbation but the unperturbed operator of the angular equation, ξ'' + (2/r) ξ' = E_4, which the integrating factor r²
@@ -400,10 +400,10 @@ contraction for an ordinary differential equation, so no derivative is lost). Th
 (v0, x̂0), with derivatives of the same decay (the variational equations have the same structure), it is invariant, and
 it is y0 for v0 ≤ v_start (there g_λ = g0 along the whole generator).
 
-Each generator stays in P outward, so the system is posed where g_λ is defined. Along y,
-d/dr (v + h(τ)) = ζ'(1 + h') − h', with τ = v − r (so dτ/dr = ζ' − 1) and h' = dh/dτ = h/(4t), a positive multiple
-of t^(−5/4) [[pending:ch9-past-domain]]. Moreover |ζ'| ≤ C r^(−2) < h'/2 and h' < 1 once T_M is large, t and r being
-comparable on P⁺. So v + h decreases outward along each generator while t increases, and the ray of a generator from a
+Each generator stays in P outward, so the system is posed where g_λ is defined. With h(τ) = κ t^(−1/4) the function
+of [[eq:past-domain]], along y, d/dr (v + h(τ)) = ζ'(1 + h') − h', with τ = v − r (so dτ/dr = ζ' − 1) and
+h' = dh/dτ = h/(4t) = (κ/4) t^(−5/4) > 0. Moreover |ζ'| ≤ C r^(−2) < h'/2 and h' < 1 once T_M is large, t and r being
+comparable on P⁺. So v + h(τ) decreases outward along each generator while t increases, and the ray of a generator from a
 point of P ∩ {t ≥ T_M} out to past null infinity lies in P ∩ {t ≥ T_M} and never meets the outer boundary
 {v + h(τ) = V_P}. (To solve for every (v0, x̂0) at once, continue g_λ − g0 across that boundary by a Seeley extension in
 v + h(τ), which keeps every class E_p; by this monotonicity neither the generator through a point of P ∩ {t ≥ T_M} nor

@@ -1008,28 +1008,30 @@ The results of [[sec:iii-i14-1]]–[[sec:iii-j1-2]] that are stated at b = b₀ 
 parameter b lies in the closed ball ℬ̄_* about b₀ of [[sec:iii-h2-0]], shrunk as in [[lem:iii-i15-1-2]] and
 [[prop:iii-i15-2-5]], with constants and smallness conditions uniform in b ([[thm:iii-i15-3-1]]). The statement at b of
 each of them is obtained by replacing L_(b₀), g_(b₀) near K⁺, the states, towers and companions at b₀ and the index set
-ℰ_ind by those at b, by taking derivatives in b at b, and by treating the v1 terms as in [[ch:s25]]. In detail, where
-(1) and (3) also record how the results stated above at every b relate to these:
+ℰ_ind by those at b, by taking derivatives in b at b, and by treating the v1 terms as in [[ch:s25]]. In detail (items
+(1) and (3) also name the results that are stated above at every b):
 
 (1) [[lem:iii-i14-2-2]] (a), (c), [[lem:iii-i14-2-3]]–[[lem:iii-i14-2-5]] and [[rem:iii-i14-3-2]] (2) hold at b;
 [[def:iii-i14-1-2]], [[eq:iii-i14-1-4]] and [[lem:iii-i14-2-2]] (b) are stated at b above. The proof of
-[[lem:iii-i14-2-4]] (c) above is written for every b near b₀; it uses that every coefficient of
-q has rate > 2 at every such b. The point of Step 1 of the proof of [[thm:iii-i14-3-1]] that uses L̂_(b₀)(0)∂_b h_(b,v1)
-= 0 needs only that the q-terms have K⁺-order above α_1. At b, L̂_b(0)∂_b h_(b,v1) = −(∂_b L̂_b(0))h_(b,v1) need not
-vanish, but the v1 coefficients of q have rate > 2 + ε_K > α_1 ([[def:iii-i14-1-1]], (G)), so the K⁺-order of L(∂_b
-h_(b,rem)(q)b′) is still > 2 + ε_K > α_1.
+[[lem:iii-i14-2-4]] (c) above is written for every b near b₀; it uses that every coefficient of q has rate > 2 at every
+such b. The point of Step 1 of the proof of [[thm:iii-i14-3-1]] that uses L̂_(b₀)(0)∂_b h_(b,v1) = 0 needs only that
+the q-terms have K⁺-order above α_1. At b, L̂_b(0)∂_b h_(b,v1) = −(∂_b L̂_b(0))h_(b,v1) need not vanish, but the v1
+coefficients of q have rate > 2 + ε_K > α_1 ([[def:iii-i14-1-1]], (G)), so the K⁺-order of L(∂_b h_(b,rem)(q)b′) is
+still > 2 + ε_K > α_1.
 
 (2) [[thm:iii-i14-3-1]] holds at b in the form of [[prop:iii-i15-2-5]]: the p⃗′ there is unique among the parameters
-whose rotation coordinates are the assigned ones, and at b₀ it is the p⃗′ of [[thm:iii-i14-3-1]] ([[rem:iii-i15-2-6]]).
-Step 4′ of the proof of [[thm:iii-i14-3-1]] is not used at b.
+whose rotation coordinates are the assigned ones ([[rem:iii-i15-2-6]]), and at b₀ it is the p⃗′ of [[thm:iii-i14-3-1]]
+([[prop:iii-i15-2-5]]). Step 4′ of the proof of [[thm:iii-i14-3-1]] is not used at b.
 
-(3) [[lem:iii-j-2-1]], [[lem:iii-j-2-2]], [[thm:iii-j-2-4]] and [[rem:iii-j-2-5]] hold as written at b, with the rows
-m_ν built at b₀, the towers T_(ψ,b) and the corrections at b₀. P_5 and the coordinates W_ν do not depend on whether the
-rows are built at b₀ or at b, as the rows enter P_4 only through the corrections and counterterms built at b₀
-([[lem:iii-i14-2-4]] (a)), and Step 2 of the proof of [[thm:iii-j1-2-1]] uses only the λ₀-terms of the rows, which do
-not depend on b ([[lem:iii-j-2-2]]). The pure gauge of [[rem:iii-j-2-6]] refers to g_(b₀).
+(3) [[lem:iii-j-2-1]], [[lem:iii-j-2-2]], [[thm:iii-j-2-4]] and [[rem:iii-j-2-5]] are stated above at every b, under
+the convention that the rows m_ν are built at b₀, the towers T_(ψ,b) at b and the corrections at b₀. Their proofs at b
+use [[lem:iii-i14-2-2]] (a) at b, by (1), and the reality of the states at b ([[lem:iii-i15-1-1]] (P3)). P_5 and the
+coordinates W_ν do not depend on whether the rows are built at b₀ or at b, as the rows enter P_4 only through the
+corrections and counterterms built at b₀ ([[lem:iii-i14-2-4]] (a)), and Step 2 of the proof of [[thm:iii-j1-2-1]] uses
+only the λ₀-terms of the rows, which do not depend on b ([[lem:iii-j-2-2]]). The pure gauge of [[rem:iii-j-2-6]] refers
+to g_(b₀).
 
 (4) [[lem:iii-j1-1-1]] holds for the output of [[prop:iii-i15-2-5]], and [[thm:iii-j1-2-1]], with its tame and exact
-forms, holds at every base point U ∈ 𝒟^∞ small in 𝒟^d, whose black hole parameter then lies in ℬ̄_*, with constants
+forms, holds at every base point U ∈ 𝒟^∞ small in 𝒟^d, whose black hole parameter then lies in ℬ_*, with constants
 uniform in U; at a rotating b the right inverse is the one constructed from [[prop:iii-i15-2-5]] ([[cor:iii-i15-3-2]]).
 These are the right inverses that [[thm:ii-g-2-1]] (iii) asks for at every point of its domain.

@@ -47,22 +47,28 @@ at its closed endpoint. No condition on spec_ι⁺(L̄) beyond (G⁺) is needed,
 
 *Base points.* Throughout, the base point has black hole parameter b ∈ ℬ̄_*, the neighbourhood of b_0 of
 [[sec:iii-h2-0]], shrunk so that [[lem:iii-i15-1-2]] and [[prop:iii-i15-2-5]] hold on it. The results of
-[[ch:s19]]–[[ch:s23]] are used at b, with constants uniform in b: L_(b_0), g_(b_0) near K⁺, the states, towers and
-companions at b_0 and the index set ℰ_ind are replaced by those at b, derivatives in b are taken at b, and the v1 terms
-of exponent of real part at most 2 are the rotation rows with the assigned coordinates of [[def:iii-i15-2-3]]. At a
-rotating b the solution map of [[thm:iii-i14-3-1]] is the one constructed in [[prop:iii-i15-2-5]].
+[[ch:s19]]–[[ch:s23]] are used at b, with constants uniform in b ([[sec:s23-base-points]] (1)–(3), and the statements
+at b of [[ch:s19]]–[[ch:s22]]): L_(b_0), g_(b_0) near K⁺, the states, towers and companions at b_0 and the index set
+ℰ_ind are replaced by those at b, derivatives in b are taken at b, and the v1 terms of exponent of real part at most 2
+are the rotation rows with the assigned coordinates of [[def:iii-i15-2-3]]. At a rotating b the solution map of
+[[thm:iii-i14-3-1]] is the one constructed in [[prop:iii-i15-2-5]], and those of [[thm:iii-i11-4-1]] and
+[[prop:iii-i13-2-4]] are used only inside [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]], the latter with q = 0 being
+their form there.
 
 *The inner radius.* Every result of the chapter holds with the inner radius r₀ = r_♭ ∈ (0, ½R₁] of [[def:s12-radii]]
 as a parameter, with constants that depend on it. No result names the inner radius: all work on Ω_* = cl_M{t^♭_* ≥ 1}
 ([[sec:iii-i-1]]) with the spaces of [[ch:s04]], extendible at the inner boundary, and with the theorems of
-[[ch:s04]]–[[ch:s10]], which hold at every such radius. The fixed radii used are scale-free ({r ≤ t_*/8}, {r ≥ 2}) or
-far out, and the loops, levels and windows of [[sec:iii-j2-3]] are fixed by weights at infinity and at K⁺, not by the
-inner radius.
+[[ch:s04]]–[[ch:s10]], which hold at every such radius. The regions used are bounded by fixed radii that do not depend
+on r_♭ ({r ≥ 1}, and {r ≥ 2} near the corner of ι⁺ and K⁺) or by multiples of t_* ({r ≤ t_*/8}, {t_*/8 < r < t_*/2}),
+and the loops, levels and windows of [[sec:iii-j2-3]] are fixed by weights at infinity and at K⁺, not by the inner
+radius.
 
 *Notation.* As in [[ch:s23]]. In particular w_+ := 5 + ε_+; ρ_+ and ρ_K are the defining functions of ι⁺ and K⁺ near
 their corner, ρ_+ = 1/r and ρ_K = R = r/t_*, so t_*⁻¹ = ρ_+ρ_K there ([[sec:iii-i2-1]]); μ runs over the indicial roots
 of L̂_(b_0)(0) ([[prop:iii-f1-2-3]]), which do not depend on b ([[lem:iii-i15-1-1]] (P2)), and −μ is read as −Re μ; the
-non-real roots have real part below −101 or above 1, outside every interval used.
+non-real roots have real part below −101 or above 1, outside every interval used. The neighbourhoods ℬ_1 ⊃ ℬ_* of b_0
+and their closures are the B_1 ⊃ B_* of [[sec:iii-h2-0]]. The rows of the towers are indexed by ρ ∈ ℛ′, as in
+[[ch:s23]] (Y_ρ, d_ρ, w_ρ, T_ρ); [[ch:s22]] writes ψ for this index.
 
 ### Tame families {#sec:iii-j2-1}
 
@@ -80,26 +86,43 @@ ones, normed by the order-k norms of their finitely many coefficients and of the
 
 Several of those spaces carry orders read "w−" ([[sec:iii-i14-1]], [[def:iii-j-1-1]]): they are intersections over a
 loss ε > 0, and their order-k spaces are Fréchet, not Banach. Such a space is taken here at a fixed loss: E^k_ε is the
-Banach space with every order w− replaced by w − ε, and E^∞_ε := ⋂_k E^k_ε. A statement of [[ch:s19]]–[[ch:s23]] from a
-"w−" space to a "w−" space is a continuous linear map between Fréchet spaces (closed graph theorem), so for every loss ε
-of the output and every order k there is a loss ε′(ε, k) ∈ (0, ε] of the input at which it is bounded. For the
-statements whose proofs choose every margin from the loss the output is to have, ε′ can be taken independent of k:
-[[prop:iii-i2-5-1]], [[prop:iii-i6-2-1]], the level-3 loop of [[prop:iii-i11-3-1]] (the margin ε_ind − ε), the levels
-β_k of [[thm:iii-i14-3-1]], [[lem:iii-j1-1-1]] (η_2 := ε_+ − 3ε, which gives the ι⁺-order 3 + ε_+ − 5ε) and
-[[cor:ii-g1-4-5]] (β_scf := β′_I + ε); no margin there depends on k. For the other statements the independence of k is
-not needed: at the exact weights of [[sec:iii-j3-1]] the input and the output are taken at the loss 0 for every k
-([[cor:iii-j3-6-6]]). Below, ε ∈ (0, ε_1] is fixed, for a fixed ε_1 > 0; every output space is taken at the loss ε and
-every input space at the loss ε′ that the statement assigns.
+Banach space with every order w− replaced by w − ε, and E^∞_ε := ⋂_k E^k_ε. For ε″ ≤ ε, E^k_(ε″) ⊂ E^k_ε continuously,
+the weight being larger. A statement of [[ch:s19]]–[[ch:s23]] from a "w−" space to a "w−" space is a continuous linear
+map between Fréchet spaces (closed graph theorem), so for every loss ε of the output and every order k there is a loss
+ε′(ε, k) ∈ (0, ε] of the input at which it is bounded. Decreasing ε′(ε, k) keeps the bound, so ε′(ε, ·) is taken
+non-increasing in k. Then the spaces E^k_(ε′(ε,k)), k ∈ ℕ₀, form a graded space (renormed as in [[rem:ii-g-2-2]]), the
+input space of the statement at the output loss ε; in a composition the output of one statement is taken in the graded
+input space of the next. For the statements whose proofs choose every margin from the loss the output is to have, ε′
+can be taken independent of k: [[prop:iii-i2-5-1]], [[lem:iii-i6-1-2]]–[[lem:iii-i6-1-4]] and [[prop:iii-i6-2-1]], the
+level-3 loop of [[prop:iii-i11-3-1]] (the margin ε_ind − ε), the levels β_k of [[thm:iii-i14-3-1]], [[lem:iii-j1-1-1]]
+(η_2 := ε_+ − 3ε, which gives the ι⁺-order 3 + ε_+ − 5ε) and [[cor:ii-g1-4-5]] (β_scf := β′_I + ε); no margin there
+depends on k. For the other statements the independence of k is not shown, and it is not needed: at the exact weights
+of [[sec:iii-j3-1]] the input and the output are taken at the loss 0 for every k ([[cor:iii-j3-6-6]]).
 
-**Definition {#def:iii-j2-1-1}** (Tame families.) Let E, G be graded spaces, d_0, d ∈ ℕ, δ_0 > 0, and
-𝔹 := {β : ‖β‖_(d_0) < δ_0}. A family (T_β)_(β∈𝔹) of linear maps E^∞ → G^∞ is *tame with loss d* if for every
+Below, ε ∈ (0, ε_1] is fixed, where ε_1 > 0 satisfies
+
+    5ε_1 < ε_+ − max(η^0_2, η_1, ε_K) = ε_+ − η^0_2,        ε_1 < α − 4,
+
+with η_1 and η^0_2 the values of η_1 and η_2 fixed in [[sec:iii-i11-1]] and [[sec:iii-i12-1]] (so
+ε_K < η_1 < η^0_2 < ε_+), and is so small that every statement of [[ch:s19]]–[[ch:s23]] used below holds at every loss
+ε ∈ (0, ε_1]. A statement proved for every small ε off a finite set ([[sec:iii-i11-1]]) holds at every such ε, as its
+output space at the loss ε contains that at every smaller loss. By the first condition the choice η_2 := ε_+ − 3ε of
+[[lem:iii-j1-1-1]] is admissible: η_2 ∈ (η^0_2, ε_+) and 2ε < 3ε = ε_+ − η_2. It also gives 1 + ε_+ − 5ε > 1 + ε_K, so
+the level-3 tf-weight τ_3 = 1 + ε_+ − 5ε of [[lem:iii-j1-1-1]] exceeds 1 + ℓ_3, and the K⁺-weight 2 + ε_+ − 5ε of the
+level-3 pieces exceeds α − 2, as ℓ_3 ≤ ε_K and α ≤ 4 + ε_K. By the second, h_rem(q) has the K⁺-order α − 2 − ε > 2
+([[lem:iii-j2-2-1]] (a)), and the zf-weight ℓ_3 = α − 4 − ε of level 3 in the proof of [[prop:iii-i11-3-1]] is
+positive. The output of each theorem below is taken at the loss ε, and its input in the graded space of the losses
+ε′(ε, k) that it assigns.
+
+**Definition {#def:iii-j2-1-1}** (Tame families.) Let E, G be graded spaces, d_0, d ∈ ℕ, δ_𝔹 > 0, and
+𝔹 := {β : ‖β‖_(d_0) < δ_𝔹}. A family (T_β)_(β∈𝔹) of linear maps E^∞ → G^∞ is *tame with loss d* if for every
 k ∈ ℕ₀ there is C_k with
 
     ‖T_β e‖_(G^k) ≤ C_k (‖e‖_(E^(k+d)) + ‖β‖_(k+d) ‖e‖_(E^d)),        β ∈ 𝔹,  e ∈ E^∞.            {#eq:iii-j2-1-1}
 
 A family (v_β) in G^∞ is *tame with loss d* if ‖v_β‖_(G^k) ≤ C_k (1 + ‖β‖_(k+d)) for every k.
 
-**Lemma {#lem:iii-j2-1-2}** (Closure.) Let δ_0 ≤ 1.
+**Lemma {#lem:iii-j2-1-2}** (Closure.) Let δ_𝔹 ≤ 1.
 
 (a) Sums of families tame with loss d are tame with loss d; a family tame with loss d is tame with every loss d′ ≥ d.
 
@@ -136,7 +159,7 @@ map e ↦ (e, S_β e) is tame with loss d′ by (a), and (b) applies. (g) is [[d
 
 ### The elementary families {#sec:iii-j2-2}
 
-**Lemma {#lem:iii-j2-2-1}** (The elementary tame families.) For d_0 large and δ_0 small the following are tame, with
+**Lemma {#lem:iii-j2-2-1}** (The elementary tame families.) For d_0 large and δ_𝔹 small the following are tame, with
 losses independent of k, and with constants that depend on the base point through finitely many seminorms, continuous
 in b ∈ ℬ̄_*.
 

@@ -812,9 +812,9 @@ way it vanishes at ρ = 0; what matters is that the remainder carries all the de
 *Proof.* (a) *[[sec:ii-f-1]]–[[sec:ii-f-6]].* They concern N_(ι⁺)(P_0): its Mellin family N⁰(σ) and the semiclassical
 rescaling ([[sec:ii-f-1-2]]–[[sec:ii-f-1-3]]), the estimates of [[prop:ii-f-3-1]] and [[prop:ii-f-5-1]] and their
 lemmas, and the forward problem for N_(ι⁺)(P_0) ([[prop:ii-f-6-2]]). By [[lem:iii-h2-3-2]] their statements do not
-depend on b. The proof in [[sec:ii-f-6-3]] also uses P_0: it builds P_λ := P_0 + ψψ̃(N − P_0), applies
-[[prop:ii-e-3-4]] to it with λ chosen by smallness relative to P_0, and the orders of [[sec:ii-f-6-1]] are admissible
-for P_0. So [[sec:ii-f-6]] is run with P_0 := 2L_(b₀) for every b, which is allowed as the statement of
+depend on b. The proof in [[sec:ii-f-6-3]] also uses P_0: it builds P_Λ := P_0 + ψ(r/Λ)ψ̃(t_*/Λ)(N_(ι⁺)(P_0) − P_0),
+applies [[prop:ii-e-3-4]] to it with Λ chosen by smallness relative to P_0, and the orders of [[sec:ii-f-6-1]] are
+admissible for P_0. So [[sec:ii-f-6]] is run with P_0 := 2L_(b₀) for every b, which is allowed as the statement of
 [[prop:ii-f-6-2]] involves only N_(ι⁺)(P_0) = N_(ι⁺)(2L_(b₀)). The statement also involves the order of
 [[sec:ii-f-6-1]], admissible for P_0; with P_0 := 2L_(b₀) this is the order 𝗌 of (B4), which [[sec:ii-f-7-2]] uses at
 2L_b, so the substitution is consistent. The compactness and contradiction arguments of [[sec:ii-f-3-5]],
@@ -1008,7 +1008,7 @@ t_* ≤ 1, and
 for some α_I ∈ ℝ. Then u ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_+,ℓ_+))_b.
 
 [Hin26] asks ℓ_+ < ℓ_I ≤ 3 + ε_I, its 3 + ε_I being the product bound in dimension 3 + 1. Its exceptional roots
-1 + σ_Υ (at most 1 + 2γ_Υ) can equal a small ℓ_I, which its statement does not exclude, and its roots 1 + λ_C of the
+1 + σ_Υ (at most 1 + 2γ_Υ) can equal a small ℓ_I, which its statement does not exclude, and its roots 1 + σ_C of the
 π_C-slots lie far above. The exclusions ℓ_I ∉ 3/2 + σ_Υ and ℓ_+ ∉ Re π_1ℰ_I^tot come from the conditions α ≠ Re z of
 [[lem:iii-a-1-2]] and of [[lem:iii-a-3-2]].
 
@@ -1024,12 +1024,12 @@ assumptions of [[prop:iii-i1-2-1]], u ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),α_+)_b f
 𝓘⁺-index set of the coefficient has min Re = ½ > η; at ι⁺, min Re ℰ_+ > 0), L̃u ∈ H^(∞,α_I+η,α_+)_b; and
 ρ_I⁻¹ρ_+⁻²f ∈ H^(∞,α_I+η,α_+)_b, as its 𝓘⁺-index sets ℰ_I^C and ℱ_(I,11) − 1 have min Re > 3/2 and its data at ι⁺
 are (ℰ_+, ℓ_+) with α_+ < min(ℓ_+, min Re ℰ_+). So L_0u ∈ H^(∞,α_I+η,α_+)_b. In slot 1, by [[eq:iii-i1-1-3]],
-(X_I − 3/2 − λ)w = (L_0u)_1 for w := (X_+ − X_I)u_1 and the eigenvalue λ of the slot. [[lem:iii-a-1-2]] in ρ_I (with
-Re(3/2 + λ) > α_I + η, so that no term is added; the a priori hypothesis, on ρ_I near c_I, away from 𝓘⁺, holds by
+(X_I − 3/2 − s)w = (L_0u)_1 for w := (X_+ − X_I)u_1 and the eigenvalue s of the slot. [[lem:iii-a-1-2]] in ρ_I (with
+3/2 + s > α_I + η, so that no term is added; the a priori hypothesis, on ρ_I near c_I, away from 𝓘⁺, holds by
 [[eq:iii-i1-2-2]]) gives w ∈ H^(∞,α_I+η,α_+)_b. Then (X_I − X_+)u_1 = −w with u_1 = 0 near {ρ_+ = 1}, and
 [[lem:iii-a-3-2]] with (x, y) = (ρ_I, ρ_+), z = 0, E = F = ∅ and α = α_I + η > β = α_+ gives
 u_1 ∈ H^(∞,α_I+η,α_+)_b. In slot j > 1 the couplings (X_+ − X_I)Ā_ji u_i, i < j, already improved, go to the right,
-and the same two steps apply, as every eigenvalue satisfies 3/2 + λ ≥ 3/2 > α_I + η. So [[eq:iii-i1-2-2]] holds with
+and the same two steps apply, as every eigenvalue s satisfies 3/2 + s ≥ 3/2 > α_I + η. So [[eq:iii-i1-2-2]] holds with
 α_I + η in place of α_I, and iterating,
 
     u ∈ ⋂_(α_I<3/2) H^(∞,α_I,α_+)_b.                                                                {#eq:iii-i1-2-3}
@@ -1058,7 +1058,7 @@ the weight a_I − 1, which has no expansion, against the least exponent 3/2 of 
 ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0) (slot 7) at the weight ℓ_I. Here α′ is chosen off 3/2 + σ_Υ, by decreasing η (ℓ_I is
 off it by hypothesis).
 
-Slots 1–3: the eigenvalues satisfy 3/2 + λ_C ≥ ℓ_I^max > ℓ_I ≥ α′, so [[lem:iii-a-1-2]] adds nothing, and
+Slots 1–3: the eigenvalues s ∈ σ_C satisfy 3/2 + s ≥ ℓ_I^max > ℓ_I ≥ α′, so [[lem:iii-a-1-2]] adds nothing, and
 (X_+ − X_I)u_j ∈ H^(∞,(ℰ_I^C,α′),α_+)_b; [[lem:iii-a-3-2]] (E = ℰ_I^C, α′ > α_+, and α_+ ∉ Re π_1ℰ_I^C as α_+ < 3/2)
 gives u_j ∈ H^(∞,(ℰ_I^C,α′),α_+)_b, the index set it adds at ι⁺ lying above the weight α_+.
 
@@ -1216,7 +1216,7 @@ K-weights by 1 and keeps the I-weight.
 *The operator.* L_b := L_(b₀); g_0 := g_(b₀,b₀,−S), g := g_0 + h and L := L^(g,g_0), with |S| < ε_0, h ∈ 𝒳^∞
 ([[eq:iii-i-1-4]]) and ‖h‖_(𝒳^d) < ε_0, where ε_0 and d are those of [[thm:iii-i-5-3]]. L̂_b(σ) is invertible for real
 σ ≠ 0 ([[cor:iii-h-4-4]]), and so is the augmented operator L̃_b(σ) of [[def:iii-h-3-1]] for 0 < |σ| ≤ c_k
-([[cor:iii-h-4-2]]). ℓ_I^max is [[eq:iii-i1-1-1]], and σ_Υ is as at the start of the chapter.
+([[cor:iii-h-4-2]]). ℓ_I^max is [[eq:iii-i1-1-1]], and σ_Υ is the set of [[sec:iii-c-3]].
 
 *The gap.* By [[prop:iii-f1-2-3]] (a) no indicial root of L̂_b(0) has real part in (0, 1], so (0, 1) lies in its
 indicial gap for μ_b; [[eq:iii-h-1-1]] takes its weight α with α + 2 ∈ (0, 1), and so do these sections.

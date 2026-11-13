@@ -144,3 +144,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   Chapter 85's writer states the results on the proved interval with these constants.
 - Proof G is for chapter 63 (not 64). Its window is (ℓ0 − 1, 3), the theorem's; the planner's max(ℓ0 − 1, 5/2) is
   outdated. Chapter 63's writer uses (ℓ0 − 1, 3).
+
+## From the Ch 4-5 third fix and the S8 confirming reading (2026-11-13)
+
+- Ch 4-5's energy bound is now Λ (not M, not Λ1). Chapter 06 line 198 "M1" must read Λ.
+- [CBCL06] is cited by no chapter; its Appendix A entry is kept for now (drop at integration if still uncited).
+- S8 (R2-S08): confirmed but for [[pending:issue-1]]. The source must state that the small 0-calculus Ψ^(−2)_0 maps
+  x^α H^(m−2)_0 → x^α H^m_0 on the compact ball X̂ (n = 4) for every integer m and real α; the literature agent has
+  this. [MM87, Lemma (5.10), p. 284] and [Hin23e, Section 2, p. 9] are confirmed. Optional nits: letters reused at
+  line 1394, a stray c at line 1443, no label on L′_p.

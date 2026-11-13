@@ -46,11 +46,11 @@ dt/dτ = −1. By [[prop:vaidya]] (c)–(d), g0⁻¹(dv, dv) = 0, g0⁻¹(dv, d�
 g0⁻¹(dΦ_B, dΦ_B) = −2h_P′ − h_P′²(1 + μ/r²) ≤ −2h_P′ = −(κ_P/2) t^(−5/4). For a future causal Y, dv(Y) = −g0(L0, Y) ≥ 0
 and dτ(Y) > 0, so dΦ_B(Y) > 0. (c) At τ0, h_P = κ_P and the condition reads v ≤ V_P − κ_P. (d) On P⁺,
 r = v − τ = v − τ0 − 1 + t with v ∈ [v_start, V_P]; a1 > √μ0 because v_start − τ0 > √μ0 + 1; and d0 ≥ 1 because
-V_P − κ_P = V + 1 + τ_end − τ0 ≥ v_start + 1. (e) Along −L0, v and x̂ are fixed, τ decreases and h_P decreases, so v +
-h_P ≤ V_P is kept, r = v − τ grows without bound, and v ≥ v_start is kept. (f) The inequalities of (a), (b) and of
+V_P − κ_P = V + 1 + τ_end − τ0 ≥ v_start + 1. (e) Along −L0, v and x̂ are fixed, τ decreases and h_P decreases, so
+v + h_P ≤ V_P is kept, r = v − τ grows without bound, and v ≥ v_start is kept. (f) The inequalities of (a), (b) and of
 [[lem:domain]] (b) are strict, with a margin of at least (κ_P/2) t^(−5/4) in (b) and fixed margins in (a) and in
-[[lem:domain]] (b), the latter holding at r = a < √μ0 whatever τ is; the causal claim follows as in [[lem:domain]] (e).
-∎
+[[lem:domain]] (b), the latter holding at r = a < √μ0 whatever τ is; the causal claim follows as in
+[[lem:domain]] (e). ∎
 
 **Lemma {#lem:seed-region}** (The seed region.) Let g solve Ric^H(g) = 0 on P ∩ {τ1 ≤ τ ≤ τ2}, be C², satisfy the
 margin of [[lem:past-domain]] (f), and agree with g0 on Σ_τ1 ∩ {v ≤ v_start} together with its first τ-derivative.
@@ -355,7 +355,7 @@ step of the iteration; the transports solved along the integral curves of L0 fro
 leading terms. These data and the forcing terms of (a)–(c) vanish for v ≤ v_start, since each forcing term contains a
 profile of an earlier stage; so every iterate vanishes there, by the last clause of [[lem:past-linear-wave]] for (a) and
 because the transports run at fixed v. Hence the differences of iterates and the solution vanish on P_n ∩ {v ≤ v_start},
-as [[lem:past-energy]] requires. Its remainders start at zero. Commute the system with ∂_X and Ω to an order j0 (the
+as [[lem:past-energy]] requires. The remainders of this solution start at zero. Commute the system with ∂_X and Ω to an order j0 (the
 classes are preserved), and let e(τ) be the energy of m̃ to that order, f(τ) the norms of ∂_v φ̃ and Ω φ̃, p(τ) that of
 Ψ̃ := □̃ φ̃, and z(τ) that of Z̃ := ∂_θ ĝ̃ (zero mean, so ‖ĝ̃‖ ≤ ‖Z̃‖). The L² norm of an E_q-profile on A_P(τ) is at
 most C t^(3/2−q), and [[lem:past-sobolev]] (b) bounds m̃ by e. [[lem:past-energy]] for (a), [[lem:past-transport]] with
