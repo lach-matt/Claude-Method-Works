@@ -154,15 +154,14 @@ is stationary and smooth across the horizon, with ℒ_(W*)g ≠ 0. So the gauge-
 (d) (*The coefficient ½.*) If c is a constant, U a stationary 1-form smooth near the horizon sphere, and
 □(cvW* + U) = Υ̇⁰(K̄) near the horizon sphere, then c = ½.
 
-*Proof.* (i) By [[eq:ix-0-1]] and [[lem:ix-2-1]] (a), 2(DRic − δ*Υ̇⁰)(k) = 2L⁰k = −∇^α∇_αk + ([∇^λ, ∇_μ]k_λν +
-[∇^λ, ∇_ν]k_λμ)_(μν).
-With the convention of [[sec:hg-setting]], [∇^λ, ∇_μ]k_λν = g^(λα)[∇_α, ∇_μ]k_λν = Ric^σ_μ k_σν − R_(σνλμ)k^(λσ),
-and the Ricci term vanishes. The pair symmetry R_(σμλν) = R_(λνσμ) and the symmetry of k give
-R_(σμλν)k^(λσ) = R_(σνλμ)k^(λσ), so the bracket is −2R_(σνλμ)k^(λσ) = −2R_μ^λ_ν^σ k_λσ. The last claim is
-Θ(ℒ_Xg) = □X ([[eq:hg-box]]).
+*Proof.* (i) By [[eq:ix-0-1]] and [[lem:ix-2-1]] (a),
+2(DRic − δ*Υ̇⁰)(k) = 2L⁰k = −∇^α∇_αk + ([∇^λ, ∇_μ]k_λν + [∇^λ, ∇_ν]k_λμ)_(μν). With the convention of
+[[sec:hg-setting]], [∇^λ, ∇_μ]k_λν = g^(λα)[∇_α, ∇_μ]k_λν = Ric^σ_μ k_σν − R_(σνλμ)k^(λσ), and the Ricci term
+vanishes. The pair symmetry R_(σμλν) = R_(λνσμ) and the symmetry of k give R_(σμλν)k^(λσ) = R_(σνλμ)k^(λσ), so the
+bracket is −2R_(σνλμ)k^(λσ) = −2R_μ^λ_ν^σ k_λσ. The last claim is Υ̇⁰(ℒ_Xg) = −□X ([[eq:hg-box]]).
 
 (ii) For g = g_ab dy^ady^b + r²γ the only Christoffel symbols mixing the factors are Γ^a_ij = −rD^ar γ_ij and
-Γ^i_aj = (∂_ar/r)δ^i_j (the proof of [[lem:gd-1-3]]). Write k := h^TT. Its trace vanishes, so Θ(k) = δk. For an
+Γ^i_aj = (∂_ar/r)δ^i_j (the proof of [[lem:gd-1-3]]). Write k := h^TT. Its trace vanishes, so −Υ̇⁰(k) = δk. For an
 orbit index b, ∇^μk_μb = g^(ij)∇_ik_jb = −g^(ij)Γ^l_ib k_jl = −(∂_br/r)g^(jl)k_jl = 0, the other terms containing a
 vanishing component of k. For an angular index j, ∇^μk_μj = g^(ac)∇_ck_aj + g^(il)∇_lk_ij; every Christoffel term in
 these contains a vanishing orbit or mixed component of k, so ∇^μk_μj = r⁻²D̂^ik_ij = 0.
@@ -170,7 +169,7 @@ these contains a vanishing orbit or mixed component of k, so ∇^μk_μj = r⁻�
 (iii) The expansion is [[lem:gd-1-2]] (a) and (c): on each sphere the dz^i-part of a class 1-form is exact, X_ϑdϑ =
 dη, and class functions expand in the S_l. Let L_1, …, L_6 be the Lie derivatives along the rotation fields Ω_i of
 [[lem:rwg-a]], extended to spacetime as rotations of x, and C := Σ_i L_i². They generate isometries of g, so C
-commutes with □ and with Θ. As the Ω_i are tangent to the spheres and the y^a are invariant, L_i(S dy^a) =
+commutes with □ and with Υ̇⁰. As the Ω_i are tangent to the spheres and the y^a are invariant, L_i(S dy^a) =
 (Ω_iS)dy^a and L_i(η dS) = η d(Ω_iS); by [[lem:rwg-a]], Σ_iΩ_i² = Δ̂, so C(S_l dy^a) = −k_l²S_l dy^a and
 C(η dS_l) = −k_l²η dS_l, k_l² = l(l + 2). These eigenvalues are distinct for distinct l. □ preserves the class (G acts by
 isometries) and commutes with C, so it maps the mode-l part of a class 1-form, the −k_l²-eigenspace of C in the class,
@@ -181,15 +180,15 @@ order) on each component ([[lem:ix-2-1]] (a)); on X_aS_l dy^a + ηS_l′dϑ the 
 −g^(ab)∂_a∂_bX_c S_l and −g^(ab)∂_a∂_bη S_l′, and those that fall on S_l are of lower order in y. So each equation has
 principal part −g^(ab)∂_a∂_b, and in the static chart −g^(ab)∂_a∂_b = f⁻¹∂_t² − f∂_r² + (first order). For h_S, C acts
 on its components as on those of a 1-form of mode l (C(S_l k_ab) = −k_l²S_l k_ab and C(S_lγ) = −k_l²S_lγ, γ being
-invariant), and C commutes with Θ; so −Θ(h_S) is a class 1-form of mode l. Θ is a first-order operator, so −Θ(h_S) is
-linear in F, F_ab and their first derivatives, and these are linear in Φ and its derivatives of order at most two by
+invariant), and C commutes with Υ̇⁰; so Υ̇⁰(h_S) is a class 1-form of mode l. Υ̇⁰ is a first-order operator, so
+Υ̇⁰(h_S) is linear in F, F_ab and their first derivatives, and these are linear in Φ and its derivatives of order at most two by
 [[eq:np-10-1]].
 
 (iv) The first sentence is [[lem:gd-r2-9]].
 
-(a) log r, log(r + r_h) and the denominators r and r + r_h are analytic on {r > 0}. The numerator N(r) of B is analytic
-there, and N(r_h) = r_h³ − 3r_h³ + 2r_h³ + 2r_h³ log r_h − 2r_h³ log r_h = 0; so N(r)/(r − r_h) is analytic, and so is
-B = N(r)/((r − r_h) · 4rr_h(r + r_h)). As r → ∞, A = r_h/(4r²) + log(1 + r_h/r)/(2r_h) = 1/(2r) + O(r⁻²); and the
+(a) log r, log(r + r_h) and the denominators r and r + r_h are analytic on {r > 0}. The numerator 𝔑(r) of B is analytic
+there, and 𝔑(r_h) = r_h³ − 3r_h³ + 2r_h³ + 2r_h³ log r_h − 2r_h³ log r_h = 0; so 𝔑(r)/(r − r_h) is analytic, and so is
+B = 𝔑(r)/((r − r_h) · 4rr_h(r + r_h)). As r → ∞, A = r_h/(4r²) + log(1 + r_h/r)/(2r_h) = 1/(2r) + O(r⁻²); and the
 identity for r³(A + fB) in (b), with r³f = r(r² − m₀) and r³A = r²/2 + O(r), gives r³fB = −r²/4 + O(r log r), so
 rB → −¼.
 
@@ -200,7 +199,7 @@ definitions,
     r³(A + fB) = (r − r_h)²/4 + r_h²/4 + (r_h²/2) log(1 + r/r_h),       −r³A′ = r_h/2 + r²/(2(r + r_h)),
 
 as A′ = −r_h/(2r³) − 1/(2r(r + r_h)) and, for the first, r³A = rr_h/4 + (r³/(2r_h))(log(r + r_h) − log r) and
-r³fB = r(r² − r_h²)B = N(r)/(4r_h). The derivative of the first identity is (r − r_h)/2 + r_h²/(2(r + r_h)) =
+r³fB = r(r² − r_h²)B = 𝔑(r)/(4r_h). The derivative of the first identity is (r − r_h)/2 + r_h²/(2(r + r_h)) =
 r²/(2(r + r_h)). So U has φ = −1/(2r(r + r_h)) and q = r_h/2 + r²/(2(r + r_h)), and W** has φ = 0, q = v + r_h/2.
 [[eq:gd-r2-9]] gives (□W**)_v = r⁻³ and (□W**)_r = 0. Next, tr_g K = g^(vv)r⁻² = 0, so Θ(K)_ν = −∇^μ(r⁻²ℓ_μℓ_ν)
 with ℓ := dv, ℓ^♯ = ∂_r. ∇^μ(r⁻²ℓ_μ) = r⁻³∂_r(r³r⁻²) = r⁻³, and ∇_(∂_r)dv = 0, as Γ^v_(rν) = g^(vσ)Γ_(σ,rν) =

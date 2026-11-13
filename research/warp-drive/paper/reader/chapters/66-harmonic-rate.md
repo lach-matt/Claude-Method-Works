@@ -561,8 +561,8 @@ each {r_♭ < r ≤ R′, t_* ≥ T′} and with every number of derivatives,
 
 so that α_K < γ_+ < b_+ < b_I < p_slab < p < 3/2, β ∈ (0, 1) and α_I < 0. Let τ′ := t_IVP/|x|, as in step (2) of the
 proof of [[thm:gd-r4-3]], χ_d ∈ C_c^∞((−1/16, 1/16)) equal to 1 near 0, and Y_d := χ_d(τ′)(y_0 + t_IVP y_1) near
-infinity, (y_0, y_1) the data of Y (y_1 the t_IVP-derivative), extended to a smooth 1-form near Σ^IVP with the data of
-Y on Σ°. τ′ is a b-time function at I₀ for every weight ([[lem:gd-r4-1]] (d)), so □Y_d is conormal of I₀-order p + 2,
+infinity, (y_0, y_1) the data of Y (y_1 the t_IVP-derivative), extended to a smooth 1-form on the set 𝒟⁺ of
+[[prop:gd-r4-2]] with the data of Y on Σ°. τ′ is a b-time function at I₀ for every weight ([[lem:gd-r4-1]] (d)), so □Y_d is conormal of I₀-order p + 2,
 and near infinity it is supported in {|τ′| ≤ 1/16}, away from ℐ⁺.
 
 (1) *The initial slab.* Y − Y_d has vanishing data and solves □(Y − Y_d) = −□Y_d. As ρ_Iρ^(−7/2) = ρ₀^(−7/2)ρ_I^(−5/2)
@@ -608,7 +608,7 @@ for data with compact support, then
 
     (ġ_H)_0 − cℒ_(W*)g = (m₀c/2) t_*^(−2) ℒ_(W*)g + O(t_*^(−3+ε)).
 
-*Proof.* (a) Near Σ°, Z′_0 = Y_0 − ṁW**_H ([[eq:gd-r7-4]]). Y_0 = ζ(∂_v)^♭ + rH_L dv, with d ζ = 𝔷 algebraic in h_0
+*Proof.* (a) Near Σ°, Z′_0 = Y_0 − ṁW**_H ([[eq:gd-r7-4]]). Y_0 = ζ(∂_v)^♭ + rH_L dv, with dζ = 𝔷 algebraic in h_0
 and the first derivatives of H_L ([[lem:gd-1-4]] (b)). In the class S′ = 0 ([[cor:viii-2-3]]), so ġ = ḣ near Σ°
 ([[thm:viii-2-2]] (2)), whose data ḣ_0 and ḣ_1 = rℒ_(∂_(t_IVP))ḣ lie in H^(∞,(ℰ_0,ℓ_0))_b(Σ^IVP)
 ([[lem:viii-1-1]]); and K_V ∈ |x|⁻²C^∞ is stationary ([[eq:iii-b-3-7]]). So along Σ^IVP near infinity the components
@@ -638,9 +638,9 @@ its proof (with Z = 0 and U := U^♯ ∩ {t_IVP < 1}, so that Ω′_+ ⊂ 𝒟),
 K_V = |x|⁻²(dt − d|x|)² ([[sec:hg-exterior]]), so ∇_nY_K is conormal of order 2: Y_K has data of order 1 and no Killing
 part. On ℰ, h_0 = (ḣ − ṁK_V)_0 = ṁk = ℒ_(ṁY_K)g, so ℒ_(Y_0−ṁY_K)g = 0: Y_0 − ṁY_K is a spherically symmetric Killing
 field on ℰ, whose orbit space is connected, so it equals c″(∂_v)^♭ ([[lem:gd-1-4]] (c)). Let Z^(K) be the solution of
-□Z^(K) = 0 on N⁺ with the data of Y_K − W**_H on Σ° ([[lem:ix-1-1]], [[lem:gd-r3-1]]); its data have order 1, and
-exactly 1, as the term −dt/|x| + d|x|/(4|x|) of W**_H is removed neither by a multiple of (∂_t)^♭, of order 0, nor by
-anything of order above 1. Then Z_c := Z′_0 − ṁZ^(K) − c″(∂_t)^♭ solves □Z_c = 0, with data of compact support.
+□Z^(K) = 0 on N⁺ with the data of Y_K − W**_H on Σ° ([[lem:ix-1-1]], [[lem:gd-r3-1]]). Its data have order 1, and
+exactly 1: its value on Σ° near infinity is dt/|x| − d|x|/(4|x|) + O(|x|⁻² log|x|), and subtracting
+c′(∂_t)^♭ = −c′dt + O(|x|⁻²) leaves a term of order 0 unless c′ = 0. Then Z_c := Z′_0 − ṁZ^(K) − c″(∂_t)^♭ solves □Z_c = 0, with data of compact support.
 [[cor:gd-r7-6]] for Z^(K) at every p < 1 and [[cor:gd-r7-4]] for Z_c give the rate t_*^(−1+ε), the Killing part
 dropping out of the metric. If ṁ = 0: then Z′_0 = Y_0 near Σ°, h_0 vanishes outside the domain of influence of a ball,
 so 𝔷 = 0 there and Y_0 = ζ_∞(∂_v)^♭ near infinity on Σ°; [[cor:gd-r7-4]] applied to Z′_0 − ζ_∞(∂_t)^♭ gives the last
