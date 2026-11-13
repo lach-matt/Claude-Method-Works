@@ -237,7 +237,7 @@ and B^h of [Hin26] are part of the error, of 𝓘⁺-order 3/2 against the leadi
 **Proposition {#prop:iii-i-3-4}** (The difference from L_b; [Hin26, Proposition 11.6 (2)] in dimension 4 + 1.) Let
 g_0 = g_(b₀,b,−S), or more generally g_0 ∈ 𝒢⁺ with ([Hin26, (11.15a)–(11.15b)])
 
-    g_0 − g_(b₀) ∈ H^(∞,(⟨(3,0)⟩_0,∞),((2,0),∞),(0,0))_b(Ω_*),        g_0 = g_b near K⁺,                     {#eq:iii-i-3-5}
+    g_0 − g_(b₀) ∈ H^(∞,(⟨(3,0)⟩_0,∞),((2,0),∞),(0,0))_b(Ω_*),      g_0 = g_b near K⁺,          {#eq:iii-i-3-5}
 
 let h ∈ 𝒳^k, k ≥ 5, with small H^(3,(1,0,0))_b-norm, and g := g_(b₀,b,−S) + h ([Hin26, (11.16)]). Then on Ω_*
 
