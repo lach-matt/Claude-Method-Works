@@ -396,9 +396,9 @@ for σ > d/2 and ‖∂w‖_(L^∞) ≤ C ‖w‖_(H^σ) for σ > d/2 + 1. We fi
 
 For an integer σ ≥ 0, a *bound of order σ* for a function Φ of (t, x, u), such as A^μ or a forcing term, is an
 increasing function of R ≥ 0 that bounds |∂_t^a ∂_x^β ∂_u^γ Φ| on [0, T0] × R^d × {|u| ≤ R} for all a, β, γ with
-a + |β| ≤ σ and |γ| ≤ σ. By ∂(A^0)⁻¹ = −(A^0)⁻¹ (∂A^0) (A^0)⁻¹, each such derivative of (A^0)⁻¹ is a sum of products of (A^0)⁻¹ and
-of derivatives ∂_t^(a_i) ∂_x^(β_i) ∂_u^(γ_i) A^0 with Σ a_i = a, Σ β_i = β and Σ γ_i = γ; as |(A^0)⁻¹| ≤ c0⁻¹, c0 and
-a bound of order σ for A^0 give one for (A^0)⁻¹. At the order s the constants of this section depend on the
+a + |β| ≤ σ and |γ| ≤ σ. By ∂(A^0)⁻¹ = −(A^0)⁻¹ (∂A^0) (A^0)⁻¹, each such derivative of (A^0)⁻¹ is a sum of products of
+(A^0)⁻¹ and of derivatives ∂_t^(a_i) ∂_x^(β_i) ∂_u^(γ_i) A^0 with Σ a_i = a, Σ β_i = β and Σ γ_i = γ; as |(A^0)⁻¹| ≤
+c0⁻¹, c0 and a bound of order σ for A^0 give one for (A^0)⁻¹. At the order s the constants of this section depend on the
 coefficients and on local forcing terms only through bounds of order s (the paragraph after [[rem:class-kato-local]]).
 
 *Mollifiers.* Let φ ∈ C_c^∞(R^d) be even and nonnegative with integral one, φ_ε(x) := ε^(−d) φ(x/ε) and J_ε u := φ_ε ∗ u.
@@ -800,10 +800,11 @@ put x̂ := x/|x|. On [0, T] × R^(n+1) let
 (W_ab)^j the components of W_ab, linear in x; these are zero or the identity off {1/2 < |x| < 2}. They are smooth and
 symmetric, Ã^0 ≥ min(2c0, 1) I, every derivative is bounded on bounded sets of W, by (1) their bounds of order s (in
 the sense of [[sec:class-kato]]) are uniform in P, and F̃(t, x, 0) vanishes for |x| ∉ (1/2, 2). As the W_ab are
-tangent to the spheres |x| = r and commute with dilations, the system Ã^0 ∂_t W + Ã^j ∂_j W = F̃ holds no derivative across the spheres, and on each sphere |x| = r ∈ [3/4, 4/3], with W_r(t, ω) := W(t, rω), it is
-the system of (1) for W_r. Its forcing term is local and satisfies (F1)–(F3) and (F1′) by [[rem:class-kato-local]], and
-for P = P̄, W̄ := 0 solves it; for general P, 0 satisfies [[eq:class-kato-approximate]] with R := −F̃(t, x, 0), ‖R(t)‖ ≤
-C ‖P − P̄‖_(C^0) and ‖R(t)‖_(H^s) ≤ C ‖P − P̄‖_(C^s) ≤ 1.
+tangent to the spheres |x| = r and commute with dilations, the system Ã^0 ∂_t W + Ã^j ∂_j W = F̃ holds no derivative
+across the spheres, and on each sphere |x| = r ∈ [3/4, 4/3], with W_r(t, ω) := W(t, rω), it is the system of (1) for W_r.
+Its forcing term is local and satisfies (F1)–(F3) and (F1′) by [[rem:class-kato-local]], and for P = P̄, W̄ := 0 solves
+it; for general P, 0 satisfies [[eq:class-kato-approximate]] with R := −F̃(t, x, 0), ‖R(t)‖ ≤ C ‖P − P̄‖_(C^0) and
+‖R(t)‖_(H^s) ≤ C ‖P − P̄‖_(C^s) ≤ 1.
 
 (3) *Existence and bounds.* Put W(0, x) := χ_1(|x|) w0(x̂), w0 := u0 − ū(0). Since ∂_j = x̂_j ∂_r − |x|⁻² Σ_b x_b W_jb
 (W_jb := −W_bj), ‖W(0)‖_(H^s(R^(n+1))) ≤ C ‖w0‖_(H^s(S^n)) and ‖W(0)‖ ≤ C ‖w0‖_(L²(S^n)). [[thm:class-kato-stability]]
@@ -818,15 +819,16 @@ which is at most r0 for ε0 small. The constants are uniform in P: at the order 
 and through sup_t ‖F̃(t, ·, 0)‖_(H^s) (the paragraph after [[rem:class-kato-local]]), and by (1) and (2) these are
 uniform in P, sup_t ‖F̃(t, ·, 0)‖_(H^s) being at most C ‖P − P̄‖_(C^s) ≤ 1. W lies in C([0, T]; C¹) by
 [[eq:class-interpolation]], and ∂_t W is continuous by the equation; so W ∈ C¹([0, T] × R^(n+1)), and every W_r,
-3/4 ≤ r ≤ 4/3, is a C¹ solution on [0, T] × S^n of the system of (1) with the datum w0. Two such solutions coincide: their difference z satisfies the L² energy identity on S^n, in which ∫_(S^n) ⟨B^(ab)
-W_ab z, z⟩ = −½ ∫_(S^n) ⟨(W_ab B^(ab)) z, z⟩ because the rotations preserve the measure of S^n, and Gronwall's
-inequality gives z = 0. So W(t, rω) = W(t, ω) on the shell 3/4 ≤ |x| ≤ 4/3, and u := ū + W_1 solves
-[[eq:class-kato-sphere]], since |W_1| ≤ r0; and sup |u − ū| = sup |W_1| ≤ sup_t ‖W‖_(W^(1,∞)). On the shell W_ab W(t,
-rω) = (W_ab W_1)(t, ω), and the W_ab have bounded coefficients there; so the L² and H^s norms of W_1(t) on S^n are
-bounded by C times those of W(t) on R^(n+1). This is (a) except uniqueness. *Uniqueness.* For two solutions in the
-class of (a), the H^s(S^n) norm bounds W_ab u in H^(s−1)(S^n) ⊂ L^∞ ([[thm:std-bh-manifold]], s − 1 > n/2, the norm of [[cor:std-moser-product]] (2) being equivalent to that of
-[BH17] by the chart comparison in its proof), and ∂_t u is bounded by the equation; the L² energy identity on S^n for
-their difference, as above, gives uniqueness.
+3/4 ≤ r ≤ 4/3, is a C¹ solution on [0, T] × S^n of the system of (1) with the datum w0. Two such solutions coincide:
+their difference z satisfies the L² energy identity on S^n, in which ∫_(S^n) ⟨B^(ab) W_ab z, z⟩ = −½ ∫_(S^n) ⟨(W_ab
+B^(ab)) z, z⟩ because the rotations preserve the measure of S^n, and Gronwall's inequality gives z = 0. So W(t, rω) =
+W(t, ω) on the shell 3/4 ≤ |x| ≤ 4/3, and u := ū + W_1 solves [[eq:class-kato-sphere]], since |W_1| ≤ r0; and
+sup |u − ū| = sup |W_1| ≤ sup_t ‖W‖_(W^(1,∞)). On the shell W_ab W(t, rω) = (W_ab W_1)(t, ω), and the W_ab have
+bounded coefficients there; so the L² and H^s norms of W_1(t) on S^n are bounded by C times those of W(t) on R^(n+1).
+This is (a) except uniqueness. *Uniqueness.* For two solutions in the class of (a), the H^s(S^n) norm bounds W_ab u in H^(s−1)(S^n) ⊂ L^∞
+([[thm:std-bh-manifold]], s − 1 > n/2, the norm of [[cor:std-moser-product]] (2) being equivalent to that of [BH17] by
+the chart comparison in its proof), and ∂_t u is bounded by the equation; the L² energy identity on S^n for their
+difference, as above, gives uniqueness.
 
 (4) *Smoothness.* If u0 is smooth, W(0) and the coefficients are smooth, and for every integer σ ≥ s, [[thm:class-kato]]
 (a) at the order σ gives a solution in H^σ, equal to W on its interval by uniqueness. While it exists,
@@ -857,9 +859,10 @@ through [[lem:class-composition]] (c) at the order s − 1 for Ψ_1 and Ψ_2, wh
 most s − 1 further derivatives in x and in u, and through L_0 and L_1, which hold first derivatives. The constants of
 [[thm:class-kato]] and [[thm:class-kato-stability]] are made from those of [[lem:class-kato-linear]], from C_S and the
 other Sobolev constants of this section, which depend only on d and the orders used, from sup |A^0|, sup |(A^0)⁻¹|,
-sup |A^j| and sup |∂_u A^μ| on sets {|u| ≤ R}, and from C_F, L and C′; for a local forcing term the proof above obtains these from [[lem:class-composition]] (b) at the
-order s, from sup |∂_u F| on such sets and from sup_t ‖F(t, ·, 0)‖_(H^s). So at the order s these constants depend on
-the coefficients and on a local forcing term only through bounds of order s and through sup_t ‖F(t, ·, 0)‖_(H^s).
+sup |A^j| and sup |∂_u A^μ| on sets {|u| ≤ R}, and from C_F, L and C′; for a local forcing term the proof above obtains
+these from [[lem:class-composition]] (b) at the order s, from sup |∂_u F| on such sets and from sup_t ‖F(t, ·, 0)‖_(H^s).
+So at the order s these constants depend on the coefficients and on a local forcing term only through bounds of order s
+and through sup_t ‖F(t, ·, 0)‖_(H^s).
 
 **Remark {#rem:class-kato-model}** (Numerical observation.) For the scalar model u_t + (1 + u) u_x = −(1 − ∂_x²)⁻¹(u²)
 on the line, whose right side is non-local, the iteration of [[thm:class-kato]] was run in floating point: the successive
@@ -1430,14 +1433,14 @@ u_(A′).
 *Step 9.* Near the axes the right side of the augmented system is non-local in the planar directions, an integral from
 the axis along each leaf. Extend the system as in Step 9 of [[thm:class-stability-off-axes]], with the right side
 S_A^ax near the axes for the families present there (Step 6) and ζ_A S_A away from them; the leaves are those of
-[[lem:class-leaf-differences]], defined on each slice from (g, p_A, Θ_A) by [[eq:class-leaf-volterra]] and [[lem:class-volterra]], so that p_A need not be closed for them to exist, and the right
-side at a time depends on the unknowns at that time only. The cut-off on p_A keeps P_A^τ > 0, as before. In the
-unknowns U of that Step 9 the forcing term is defined on a ball 𝒟_ρ about u_* := 0 in H^k, with ρ so small that the
-states of 𝒟_ρ lie in the balls 𝔅 and 𝔅′ of [[lem:class-leaf-differences]] near the axes; it satisfies (F1) by
-[[lem:class-leaf-differences]] (a) and [[rem:class-kato-local]] for the local terms, (F2) by
-[[lem:class-leaf-differences]] (b) and [[rem:class-kato-local]], and (F3) by (F2) and its smoothness in τ.
-[[thm:class-kato]] (a) gives a solution on R⁴ for a short time, for data within η_ρ ρ of 0 in H^k, and its continuation
-while ‖U(τ)‖_(H^k) ≤ η_ρ ρ.
+[[lem:class-leaf-differences]], defined on each slice from (g, p_A, Θ_A) by [[eq:class-leaf-volterra]] and
+[[lem:class-volterra]], so that p_A need not be closed for them to exist, and the right side at a time depends on the
+unknowns at that time only. The cut-off on p_A keeps P_A^τ > 0, as before. In the unknowns U of that Step 9 the forcing
+term is defined on a ball 𝒟_ρ about u_* := 0 in H^k, with ρ so small that the states of 𝒟_ρ lie in the balls 𝔅 and 𝔅′ of
+[[lem:class-leaf-differences]] near the axes; it satisfies (F1) by [[lem:class-leaf-differences]] (a) and
+[[rem:class-kato-local]] for the local terms, (F2) by [[lem:class-leaf-differences]] (b) and [[rem:class-kato-local]],
+and (F3) by (F2) and its smoothness in τ. [[thm:class-kato]] (a) gives a solution on R⁴ for a short time, for data within
+η_ρ ρ of 0 in H^k, and its continuation while ‖U(τ)‖_(H^k) ≤ η_ρ ρ.
 
 *The adapted domain is a domain of dependence.* Let Ũ be a solution on [τa, τb] × R⁴ and U a solution of the augmented
 system on its own adapted domain Ω_U, for instance the restriction of a second solution on R⁴, both with states in
@@ -1457,9 +1460,9 @@ T_(τ,U) − id in [[def:class-adapted]]; those of Φ⁻¹ are polynomials in th
 (iv) of [[sec:ue-existence]], composition with Φ and with Φ⁻¹ is bounded on H^σ, 0 ≤ σ ≤ k, uniformly in τ and U, and
 as G acts by isometries of R⁴, 𝔼 is bounded from H^σ(Σ_τ ∩ Ω_U) to H^σ(R⁴), 0 ≤ σ ≤ k, uniformly in τ and U. Then
 Ŭ = U on Σ_τ ∩ Ω_U, and Ŭ ∈ 𝔅′ for ρ small, since ‖𝔼 z‖_(H^(k−1)) ≤ C ‖z‖_(H^(k−1)(Σ_τ∩Ω_U)) ≤ C ρ. At a
-point x ∈ Σ_τ ∩ Ω_U the leaf of U through x comes from an axis point of Ω_U and lies in Ω_U, the boundary of Ω_U near the axes being a leaf of U and the
-leaves of U foliating; by the uniqueness in [[lem:class-volterra]] it is also the leaf of Ŭ through x. So σ_A[Ŭ] =
-σ_A[U] on Σ_τ ∩ Ω_U, and by [[lem:class-leaf-differences]] (b)
+point x ∈ Σ_τ ∩ Ω_U the leaf of U through x comes from an axis point of Ω_U and lies in Ω_U, the boundary of Ω_U near the
+axes being a leaf of U and the leaves of U foliating; by the uniqueness in [[lem:class-volterra]] it is also the leaf of
+Ŭ through x. So σ_A[Ŭ] = σ_A[U] on Σ_τ ∩ Ω_U, and by [[lem:class-leaf-differences]] (b)
 
     ‖σ_A[U] − σ_A[Ũ]‖_(L²(Σ_τ∩Ω_U∩𝒰_δ)) ≤ ‖σ_A[Ŭ] − σ_A[Ũ]‖_(L²(𝒰_δ)) ≤ C ‖𝔼 z‖_(L²(𝒰_(2δ))) ≤ C ‖z‖_(L²(Σ_τ∩Ω_U)).
 

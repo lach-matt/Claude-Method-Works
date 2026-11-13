@@ -397,11 +397,11 @@ the orders N_0 and −N_0, ‖Σ_β O^far_β(g)u‖²_(N_0) ≤ C Σ_β ‖(φ_�
 
 (P2) For charts α, β, (φ_α)_*(θ̃_αO^ε_β(g)f) = (Op(σ) + Op(ρ))(φ_α)_*(θ̌_αf), where σ and ρ vanish for x ∉ supp θ̃
 and unless β ∈ A_α, σ has order 𝗆_α, and every x-derivative of ρ is bounded by C⟨ξ⟩^(−2N_0). Indeed, by
-[[lem:fwd-transport]]
-with θ := θ̃, the left side is R_c applied to (φ_α)_*f, whose amplitude c contains the factor θ̃(x) and vanishes
-unless |x − y| ≤ Cε, so that θ̌_α may be inserted; θ̃_α and O^ε_β(g)f are supported in U_α and U_β. Then
-[[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have the pointwise
-order 𝗆_α − |γ|, and ρ := ρ_J. So, for every order 𝗍 with values in [−N_0, N_0], Op(σ) maps H^(𝗍_α) to
+[[lem:fwd-transport]] with θ := θ̃, the left side is R_c applied to (φ_α)_*f, whose amplitude c contains the factor
+θ̃(x) and vanishes unless |x − y| ≤ Cε ≤ 1/8, so that θ̌_α may be inserted; θ̃_α and O^ε_β(g)f are supported in U_α
+and U_β. Then [[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have
+the pointwise order 𝗆_α − |γ|, and ρ := ρ_J, of order at most N_0 − J + ½ < −2N_0. So, for every order 𝗍 with values
+in [−N_0, N_0], Op(σ) maps H^(𝗍_α) to
 H^(𝗍_α−𝗆_α) by [[lem:fwd-local]], as σ vanishes for x ∉ [−7/4, 7/4]ⁿ, and Op(ρ) maps H^(−N_0) to H^(N_0) by
 [[lem:fwd-crude]]; both uniformly in (α, β).
 
